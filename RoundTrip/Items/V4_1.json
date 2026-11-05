@@ -1,0 +1,12 @@
+{
+ "id": "V4_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = hasCornerStructure_iff ∧ HasCornerStructure.isTame ∧ IsCornerChart.isTameRetract ∧ IsCornerChart.isScPlusRetract (universe 0); IsCornerChart/HasCornerStructure are vocabulary. B: HasCornerStructure ↔ B's corner atlas (pairwise compatible, covering charts of P on relatively open subsets of partial quadrants in finite-dimensional sc-spaces with onto inclusions). The project's chart notion is stricter (model literally LocalModel.ofRelOpen over ScBanach.const V), but at the structure level the two agree: project ⇒ B chart-wise (finiteDimensional, toBase_surjective, isRelOpenInQuadrant), B ⇒ project around each point by exists_isCornerChart_of_finiteDimensional (compose with id : E → const E₀); A ⇒ B goes through A's local form hasCornerStructure_iff, B ⇒ A derives hasCornerStructure_iff and isTame (B's atlas is an equivalent atlas of identity-retraction, hence tame, charts) from B. A's two chart-level conjuncts (a project corner chart is a tame retract / an sc⁺-retract) are facts about the project's vocabulary on which B is silent; they are proved outright in B ⇒ A (ScRetraction.id_isTame, remark_4_3_const), so that part of B ⇒ A does not use B.",
+ "B_issue": null,
+ "overlap": "189 shared project theorems, mostly vocabulary (MPolyfold/MChart/tame/partial-quadrant API). Proof-level sharing: ScRetraction.id_isTame and remark_4_3_const (the outright chart-level conjuncts, the same one-line proofs as the project's), IsCornerChart.isRelOpenInQuadrant, MPolyfold.isChart_of_mem / IsChart.compatible (also used by hasCornerStructure_iff).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

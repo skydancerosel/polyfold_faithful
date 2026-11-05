@@ -1,0 +1,12 @@
+{
+ "id": "V3_27",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A => B: B's sc1 hypothesis on f = w - B(a,w) gives sc1 of B (pairing with pr2 and the sc-operator (u,v) -> u - v); the conjunct theorem_3_30 of A, applied to the working form h.toContractionGerm, gives sol sc1 on germ 1; B's arbitrary solution representative delta equals sol near 0 (uniqueness of fixed points in O 0 via ContractionGerm.eq_sol, continuity of delta, delta(0)=0), so delta is sc1 on V' = V cap germ 1 cap {delta in O 0}. B => A fails for genuine generality: A's theorems are about any finite-dimensional P and quadrant-like C~ and the working-form ContractionGerm (1/2-contraction on explicit regions), assert sc1 of the specific sol on the explicit re-indexed germ N(m+1) cap C~ with the explicit derivative family solDeriv, and include the internal lemmas hasFDerivWithinAt_sol, Lop_Aop, continuousOn_Aop about the operator Aop = (1 - D2B)^-1 D1B, none of which follow from B's statement about arbitrary sc0-contraction germs on R^n.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

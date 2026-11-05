@@ -1,0 +1,15 @@
+{
+ "id": "V3_40",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = IsGoodComplement.map ∧ IsInGoodPosition.map (no universe parameters). A ⇒ B by glue, using the IsGoodComplement.map conjunct: ψ = base Φ, ψ' = base Φ' are inverse sc-smooth maps U ⇄ U' with ψ(0) = 0; B's Dφ 0 equals the chosen scDeriv U ψ 0 (uniqueness at 0 ∈ U₁); S = Dψ(0) is a linear isomorphism with inverse Dψ'(0) (chain rule) and x ∈ C ↔ Sx ∈ C' (project's scDeriv_mem_iff_of_inverse); B's sc good complement K^⊥ gives A's algebraic one on level 0, A gives the ε-property of the images, and the sc-splitting of the images is carried by the sc-isomorphism Dψ(0) (derivatives at the smooth point 0 are sc-operators, IsScSplitting.map). B ⇒ A fails genuinely: A is a general linear statement for any continuous linear isomorphism of the level-0 spaces of arbitrary sc-Banach spaces, arbitrary sets C, C' with S(C) = C', merely algebraic complements, plus the good-position transport; B only speaks of Dφ(0) for strong bundle isomorphisms between partial quadrants ℝⁿ ⊕ W with sc-complements, and most of B's ambient hypotheses (f, Df(0) onto, g¹ basic) are unused.",
+ "B_issue": null,
+ "overlap": "rt_overlap on A_to_B (B_to_A not proved): 1 shared project theorem, Polyfold.IsGoodComplement.exists_eps (a structure field).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

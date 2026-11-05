@@ -1,0 +1,12 @@
+{
+ "id": "V3_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item in substance: B (the project's IsSc0Germ / IsSc1GermWith / IsSc1Germ / IsSckGerm / IsScSmoothGerm agree with B's notions on every germ of a partial quadrant) is proved outright. sc⁰: the project's levelMap is a level lift, and any lift agrees with levelMap on U_m. sc¹: HasFDerivWithinAt (f ∘ ι₁) (Df(x) ∘ ι₁) U₁ x is B's quotient limit after translating by x; the tangent maps (levelMap f 1 vs B's liftB) agree on TO(C,0) once f is sc⁰. scᵏ: the project's recursion uses the chosen derivative scDerivGerm, B's an existential D; they agree on U₁ by uniqueness of derivatives, which needs C quadrant-like (supplied by B's partial-quadrant hypothesis; on arbitrary C the two scᵏ notions could differ, which B rightly excludes). A is the bridge lemma IsSck → IsSckGerm on ofSet U, which B does not mention; B → A re-proves it with the project's non-banned lemmas. Both implications are thus vacuous; the audit content is that the definitions coincide.",
+ "B_issue": null,
+ "overlap": "82 shared project theorems: germ/sc-calculus infrastructure (IsSc0Germ.congr, IsSckGerm.congr, IsSc1Germ.tangentMapGerm_eqOn, IsSc1.scDerivGerm_ofSet_eqOn, IsSc0.isSc0Germ, ScNbhdGerm.ofSet_tangent / tangentSet_relOpen, IsQuadrantLike.tangentSet, uniqueness of derivatives, ScBanach level lemmas); B_to_A is the project's proof of the bridge re-run with these.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

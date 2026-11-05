@@ -1,0 +1,12 @@
+{
+ "id": "V2_39",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The definitions agree: partialQuadrantAtWith T e = CeB T e and minimalSubspaceWith T e = EeB T e for every T and e (pq_eq, ms_eq, unfolding). A ⇒ B uses A: E_e ⊆ C_e is A's first conjunct, and B's cardinal codimension is A's finrank_quotient_minimalSubspaceWith (quotient finite-dimensional) plus degIndex_eq (d_C = degIndexWith T on C). B ⇒ A holds only outright (B unused): A's conjuncts are stated for an ARBITRARY sc-isomorphism T and point e, not a presentation of some C ∋ e; convexity of C_e is not in B; and minimalSubspaceWith_le/_eq (E_x does not depend on the presentation, the sign argument of Lemma 1.24) is not stated by B, which asserts its claims for each presentation separately. The text defines C_e, E_e intrinsically via the extended faces, so independence is implicit there, but B does not capture it. No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A (outright): 29 shared project theorems — the helper lemmas of the project's own proofs (eventually_add_smul_mem_of_minimalSubspace, coord_nonneg for the presentation independence; coordMapL_surjective, coordProj_surjective for the finrank; mem_minimalSubspaceWith) plus sc-structure glue; none of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V4_53",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = type of prod_rn_isTame (universe 0; fibreSet, rnPres, IsStratRegularPoint, IsStratRegularValue are vocabulary). B = (i) ℝᵐ × X with the product structure is tame for tame X ∧ (ii) the project's IsStratRegularPoint is the text's 'regular point of p_σ' in a product chart. (i) is literally A up to binder order (A_to_B uses the hypothesis for it; B_to_A is B's first conjunct, so the theorem content matches exactly). (ii) is a definitional agreement proved outright (strat_iff, no tameness or smoothness of A needed): both ask that v ↦ v.1 map T_y(ψ(A ∩ ·)) ∩ (ℝᵐ × E_{y₂}) onto ℝᵐ in some product chart ψ = (r ↦ r − a) × φ; only the bookkeeping of the data of Definition 4.13 differs (B: V ⊆ dom ψ and ψ(A ∩ V); project: the shrunk set W = V ∩ dom ψ ∩ s⁻¹(V ∩ dom ψ)). P(λ, x) = λ is a definition in B with no claim.",
+ "B_issue": null,
+ "overlap": "B_to_A: 240 shared project theorems, all vocabulary of the statement (proof fields and API of rnPolyfold, rnChart, MChart.prod, MPolyfold.prod, sc-calculus/retraction lemmas behind the IsTame/IsSmoothSubmanifold definitions); none of the proof of isTame_prod is reused since B_to_A just projects B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

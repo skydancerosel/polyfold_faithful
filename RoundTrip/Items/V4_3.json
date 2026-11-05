@@ -1,0 +1,12 @@
+{
+ "id": "V4_3",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = finiteDimensional_lvl ∧ toBase_surjective ∧ mem_smooth_of_finiteDimensional (no universe parameters); B's uniqueness half says every inclusion E_m → E₀ of an sc-structure on a finite-dimensional E₀ is a linear homeomorphism. A ⇒ B builds that equivalence as LinearEquiv.ofBijective (injective by the scale axioms, surjective by A) made continuous by finite-dimensionality of E_m (A); B ⇒ A reads off finite-dimensionality of E_m and surjectivity from the equivalence, and smoothness of every point from mem_smooth_iff. B's existence half (the constant scale is an sc-structure) has no counterpart among A's theorems; it is proved outright from the project's vocabulary ScBanach.const (definitional, LinearIsometryEquiv.refl), so it adds no content. ScBanach.scIsoConst (a def, listed as vocabulary) is the project's packaging of the same equivalence and was not used because its body contains the banned lemmas.",
+ "B_issue": null,
+ "overlap": "1 shared project theorem: ScScale.mem_smooth_iff (statement vocabulary for E_∞); none of the proof of toBase_surjective (density + closed finite-dimensional range) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

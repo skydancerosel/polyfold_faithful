@@ -1,0 +1,13 @@
+{
+ "id": "V5_17",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Same conclusion on both sides (sc-smooth f : X -> [0,1], f(x) = 1, tsupport f ⊆ U, f = 1 near x), same setting (no tameness). The only difference is the hypothesis: A (proposition_5_30 / proposition_5_10, universe 0) assumes AdmitsBumpFunctions (a bump with f(x) != 0, the project's reading of Def. 5.9), B assumes AdmitsBumpFunctionsWeak (the literal 'not identically zero' of Def. 5.29). B => A by AdmitsBumpFunctions.weak. A => B would need weak bumps to give a bump non-zero at the given point; on an M-polyfold there are no translations (translation by a non-smooth point is not sc^0 on the levels), so this is a genuine strengthening of the hypothesis, not glue, and B's truth in general is unclear (the blind author flagged the same doubt). A is exactly B's BStrong (proved both ways).",
+ "B_issue": null,
+ "overlap": "109 shared project theorems, all proof fields/infrastructure of realPolyfold/realChart and the sc-calculus reached through the statement types; nothing from the proof of Prop 5.30 (smoothTransition composition) is reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "intended": "A <-> BStrong proved in both directions (A_to_BStrong, BStrong_to_A)."
+}

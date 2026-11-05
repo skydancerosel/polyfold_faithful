@@ -1,0 +1,12 @@
+{
+ "id": "V2_19",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (tangentChartMap_mk_self, _injOn, _mk_ofVec, _mk_ofVec_of_mem, universe 0) and B (the project's TX, p, T_xX, TV, Tφ and topology are the text's, T_xX is a vector space with every Tφ linear on it) are interderivable. The project's Tφ = tangentChartMap is [(x,ψ,h)] ↦ T(φ∘ψ⁻¹)(ψ(x),h) (any representative), B's TφB uses a chosen representative in the chart φ; they agree on TV exactly by tangentChartMap_mk_self (and B's well-definedness), the topology bases coincide (tangentBasis = TfamB), and mk p = mk q ↔ RelB p q since RelB p q is the project's Rel q p. B's 'T_xX is a vector space, Tφ linear' is not formalized in the project (G.7) but follows from A: T_xX ≃ T_{φ₀(x)}O = range Dr through one chart (bijective by mk_ofVec_tangentChartMap and tangentChartMap_mk_ofVec), structure transported, and for any other chart φ, α ↦ (Tφ α).2 = D(φ∘φ₀⁻¹∘r')(φ₀(x)) ∘ e is linear by tangentChartMap_mk_ofVec_of_mem. B ⇒ A: the four identities follow from B's Tφ = TφB on TV, TφB[(x,φ,h)] = (φ(x),h), the representatives-in-chart clause, and mk = ↔ RelB (formula (5): derivative component from RelB, base point from transport_fst).",
+ "B_issue": null,
+ "overlap": "226 shared project theorems: retract/tangent calculus (retractTangent_eq, proposition_2_4/2_6, retractTangentMap_apply/_comp/_inter_isOpen/_id, theorem_1_21) and the V2_18 machinery (TangentPre.Rel.refl/symm/trans, transport_transport, transport_self, transport_fst, ofVec_vec/ofVec_x), reached because TangentSpace.mk is a quotient by the project's setoid; none of the four A theorems is used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V5_12",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_5_7 ∧ tendsto_smoothLevel_iff ∧ smoothLevel_topology_eq ∧ metrizableSpace_smoothLevel (universes 0). Main content agrees: for an sc-Fredholm section (IsScFredholmSection, the germ reading on both sides) with S = f⁻¹(0) compact in X₀, S ⊆ X_∞ and S is compact in X_∞; B's own inverse-limit topology on X_∞ equals the project's instance (A_to_B uses A's conjunct smoothLevel_topology_eq; B_to_A_tame re-derives it in a few lines). The gap: theorem_5_7 drops the text's tameness of X, while B assumes PX.IsTame, so B ⇒ theorem_5_7 is proved only for tame X (B_to_A_tame); for non-tame X, B says nothing, and no tame structure can be substituted. The other three conjuncts are facts about the project's topology on X_∞ (convergence on every level, infimum form, metrizability) that B does not state; they are elementary and provable outright, so they are not the obstruction.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved; no #rt_overlap run. B_to_A_tame passes #rt_check (re-proves the topology identification without smoothLevel_topology_eq).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "theorem_5_7 and B now both use the germ-reading IsScFredholmSection; theorem_5_7 still drops the text's tameness of X, the topology conjuncts are unchanged. Result unchanged: A ⇒ B proved (uses A's smoothLevel_topology_eq), B ⇒ A only for tame X (B_to_A_tame)."
+ }
+}

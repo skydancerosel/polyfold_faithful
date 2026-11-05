@@ -1,0 +1,12 @@
+{
+ "id": "V1_31",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B's hand-written IsScStructure (complete levels, injective compact inclusions, E_inf dense in each level) is literally the project's ScScale + dense_smooth (glue: toScBanach / isScStructure_of_scBanach, with inclTo0 = toBase by induction). Uniqueness: A's toBase_bijective_of_finiteDimensional gives B's continuous linear equivalences E_m = E_0 (open mapping, ContinuousLinearEquiv.ofBijective), and conversely B's equivalences give bijectivity and E_inf = E_0. Infinite dimension: A's finiteDimensional_of_surjective_incl applied to the constant scale shows id is not compact, and conversely B's 'id not compact' gives finiteDimensional_of_surjective_incl via id = incl o incl^{-1}. B's existence conjunct (the constant structure on a finite-dimensional space is an sc-structure) is not a theorem of A (in the project it is the definition ScBanach.const) and is proved directly in A_to_B without A; the def isoConstOfFiniteDimensional is vocabulary. No universe parameters.",
+ "B_issue": null,
+ "overlap": "5 shared project theorems, all structure fields or the definitional lemma mem_smooth_iff (incl_isCompactOperator, dense_smooth, incl_injective, complete, mem_smooth_iff). No mathematical lemma of the project is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

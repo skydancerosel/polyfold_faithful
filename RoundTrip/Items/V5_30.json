@@ -1,0 +1,24 @@
+{
+ "id": "V5_30",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A = theorem_5_13 ∧ StrongBundle.allowableDist_le_iff (universes 0). theorem_5_13 assumes AdmitsBumpFunctions (a bump with f(x) ≠ 0) and IsScFredholmSectionTame f (now the germ reading with tame germ data; changed in place), B assumes AdmitsBumpFunctionsWeak (literal 'not identically zero') and IsScFredholmSection f (germ reading). B ⇒ A: A's hypotheses imply B's (AdmitsBumpFunctions.weak, toIsScFredholmSection); points of B's dense O within ε give A's approximants (the fibre distance is symmetric); transversality and compactness from B; SolutionSetIsManifold from transversality by Theorem 3.56 (theorem_3_56_of_surjective with theorem_3_15_tame, both now the germ forms). allowableDist_le_iff ('ρ(s,s') ≤ ε iff N(s(x) − s'(x)) ≤ ε for all x') is an elementary property of the supremum, proved outright (allowableDist_le_iff'). A ⇒ B fails on the hypotheses: weak bumps do not give pointwise ones (the project leaves this open at non-smooth points, BumpWeakPointwise.lean), and germ data do not give tame germ data (plausible when ∂X = ∅, no lemma). On the conclusion side B wants HasCornerStructure, also for empty S_{f+s}, while A gives IsManifoldWithCornersLoc only for non-empty S_{f+s}.",
+ "B_issue": null,
+ "overlap": "2025 shared project theorems, almost all from Chapters 1–3: the global implicit function theorem chain behind theorem_3_56_of_surjective (germ forms), theorem_3_15_tame, plus IsAuxNorm.fiber/sectionDistAt proof terms and, for allowableDist_le_iff', sectionDistAt_le_allowableDist and the allowableDist proof terms. No Chapter 5 perturbation result (theorem_5_13_generic, the Sard step) is reused.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "A gained allowableDist_le_iff (proved outright in B ⇒ A); theorem_5_13 now uses the germ reading of Definition 3.11 like B. B ⇒ A still proved, A ⇒ B still blocked by weak vs pointwise bumps and tameness. Relation unchanged (A_narrower)."
+ }
+}

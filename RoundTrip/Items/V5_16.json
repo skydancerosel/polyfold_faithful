@@ -1,0 +1,25 @@
+{
+ "id": "V5_16",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Definition item. A = AdmitsBumpFunctions.weak ∧ admitsBumpFunctionsWeak_of_dense ∧ AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth ∧ admitsBumpFunctions_of_hilbert (universe 0); AdmitsBumpFunctions, AdmitsBumpFunctionsWeak, HasBumpAt vocabulary. The definitions agree with B's by Iff.rfl (AdmitsBumpFunctionsWeak = AdmitsBumpB; AdmitsBumpFunctions = AdmitsBumpPointB; HasBumpAt x = B's pointwise reading at x). A ⇒ B: B is a definitional identity (vacuous). B ⇒ A fails on the new conjuncts: B gives weak and weak_of_dense (elementary), but says nothing about bump points of an sc-Banach space at smooth points (hasBumpAt_of_mem_smooth: a translation by a smooth vector, which would have to be re-proved) nor about sc-Hilbert spaces (admitsBumpFunctions_of_hilbert = Proposition 5.35 in the charts + Theorem 5.34, of_hilbert_from_5_34 without B). The blind quote (Definitions 5.9/5.29) does not contain the text's remark 'the case if X is built on sc-Hilbert spaces' before Definition 5.9, which admitsBumpFunctions_of_hilbert formalizes: a new blind statement would be needed for that part of the row.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. B_gives_weak / B_gives_weak_of_dense (rt_check OK) reuse no lemma. of_hilbert_from_5_34 (rt_check OK, without B): 224 shared, i.e. theorem_5_34, proposition_5_35, LocalModel.hasBumpProperty_of_quadratic and the bump/partition infrastructure: the project's own proof route.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "intended": "BPointwise proved (Iff.rfl): the project's AdmitsBumpFunctions is exactly the f(x) != 0 reading; HasBumpAt is that reading at one point.",
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "proved",
+   "relation": "equivalent"
+  },
+  "note": "A gained the weak-versus-pointwise lemmas and admitsBumpFunctions_of_hilbert. Definitions still agree with B by Iff.rfl, but B (a definitional identity) does not give the bump lemmas on sc-Banach/sc-Hilbert spaces. Relation equivalent → A_stronger."
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "id": "V5_40",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A is theorem_5_19 ∧ IsGoodPositionGermTame.congr_nhds (universes 0; germ reading of Definitions 3.51/3.53 on both sides), in generic form. Assuming strong bump functions (f(x) ≠ 0) and NO tameness, it gives a finite family t_i with supports disjoint from ∂X such that, for a.e. small λ, s_λ = Σλᵢtᵢ is allowable and vanishes near ∂X, f+s_λ is transversal, (f+s_λ, x) is in good position at every zero, and S compact (if nonempty, a tame sub-M-polyfold with corners). A ⇒ B fails for two reasons. (1) B keeps the text's misprint: '(f, x)', not '(f+s, x)', in good position at zeros of f+s. With congr_nhds this follows from A only at zeros outside supp(s), and it is presumably false in general. (2) B's weak bump reading (f ≢ 0) does not give A's f(x) ≠ 0. B ⇒ A fails genuinely. B assumes a tame strong bundle, which A does not need. B's 'for every ε some small s' does not give A's generic family (supports disjoint from ∂X, a.e. λ) nor the tameness of S_{f+s}. And B says nothing about the separate lemma congr_nhds.",
+ "B_issue": "B formalizes the misprint literally: 'the germ (f, x) in good position at every x ∈ S_{f+s}' (evidently (f+s, x)). The blind author flags this and supplies BIntended. The author believes literal B is false (f ≡ 0 on the Möbius bundle over the circle); it is not refuted here, because the project has no concrete strong bundle to build the example on. B also reads bump functions weakly (AdmitsBumpFunctionsWeak) and adds a tame strong bundle hypothesis.",
+ "intended": "A ⇒ BIntended fails only at the bump-function reading: A ⇒ BIntendedStrong (BIntended with AdmitsBumpFunctions) is proved, A_to_BIntendedStrong, #rt_check OK. The proof picks λ ∉ CV in a ball of radius min(δ, ε/(2(m+1))). Then N(s_λ(x)) ≤ m|λ| ≤ ε/2 (auxLe_paramSlice_zero, fibre arithmetic). s_λ vanishes on the open complement of supp(s_λ), which contains ∂X by A's disjointness. The corner structure comes from IsManifoldWithCornersLoc (hasCornerStructure_iff_finiteDimensional), with the empty solution set handled by hand. B's tameness hypothesis is unused. BIntended ⇒ BIntendedStrong is trivial (AdmitsBumpFunctions.weak). BIntended ⇒ A fails for the same reasons as B ⇒ A.",
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "theorem_5_19 and IsGoodPositionGermTame.congr_nhds now denote the germ reading (congr_nhds lives in Chapter3/Chapter5BridgeG.lean), as do B's IsScFredholmSectionTame and IsGoodPositionGermTame. The obstacles (B's literal '(f, x)' misprint, weak bump functions, B's tame strong bundle) are unrelated; A ⇒ BIntendedStrong still checks. Result unchanged."
+ }
+}

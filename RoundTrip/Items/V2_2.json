@@ -1,0 +1,12 @@
+{
+ "id": "V2_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item. B's IsScRetractB (∃ U r, r an sc-smooth retraction on U relatively open in the partial quadrant C, O = r(U)) is the project's IsScRetract (∃ R : ScRetraction E C, R.retract = O) unfolded, and every LocalModel carries IsScRetract, so B is provable outright by structure packing; A_to_B does not use A (flagged: the definitional comparison is the content). A's two theorems are trivial instances (R.retract is a retract; a relatively open U is a retract via r = id) and follow from B's characterisation, the second needing only the project lemma isScSmooth_id. No universe parameters (ScBanach lives in Type).",
+ "B_issue": null,
+ "overlap": "82 shared project theorems, all from isScSmooth_id (identity is sc-smooth: isSck_id, tangentMap_id_eqOn, IsSc1With/IsSc0 congruence, quadrant/scale glue), which the formal proof of IsRelOpenInQuadrant.isScRetract also uses through ScRetraction.id; nothing specific to retracts.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

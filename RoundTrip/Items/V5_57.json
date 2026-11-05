@@ -1,0 +1,12 @@
+{
+ "id": "V5_57",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both sides use the same notions, AdmitsScPartitionsOfUnity (Definition 5.28) and LocalModel.HasApproxProperty (Definition 5.36). The only difference is how 'an atlas' is written. A (theorem_5_37, universe 0) uses a set S of charts of the structure (PX.IsChart) covering X. B uses an MAtlas A with A.Equiv PX.atlas. exists_atlas_iff shows the two are the same: charts of the structure are pairwise compatible (IsChart.compatible), so a covering set of them is an atlas equivalent to PX.atlas (MAtlas.equiv_iff), and conversely. Both directions are proved by rewriting with this lemma.",
+ "B_issue": null,
+ "overlap": "187 shared project theorems. All come from the chart-compatibility machinery that MPolyfold.IsChart.compatible pulls in (MChart.compatible_of_locally, Chapter 1-2 sc-calculus and retraction lemmas such as proposition_2_10_1 and theorem_1_21'), plus the auto-generated _proof_ fields of realPolyfold, realChart and IsScSmoothPartitionOfUnity that appear in the statement. No Chapter 5 result (Urysohn functions, hasApproxProperty_restrict, admitsScPartitionsOfUnity_of_approx) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

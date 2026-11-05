@@ -1,0 +1,24 @@
+{
+ "id": "V3_8",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A now contains the germ form of Proposition 3.5 (IsFillingGerm.proposition_3_5, exists_kerEquiv, deriv_comp_r_eq_zero) for any derivative family Dg of the filling germ g on a germ G ⊆ U, which is exactly B's setting (g an sc-smooth section germ, section property near 0). A ⇒ B (A_to_B): B's IsFillingB, with the section property globalised by f'(x) = ρ(x)f(x), is an IsFillingGerm (fill-defect derivative family fillDefectDeriv, Dk(0) = Lk by uniqueness on the germ's level 1); B's Lr, Lg, ρ₀ are scDeriv U r 0, Dg(0), ρCLM by uniqueness; Lf = D(f∘r)(0) = D(g∘r)(0) = Dg(0)Dr(0) by locality and the germ chain rule IsSc1GermWith.comp_preimage (project lemma outside A); then A's germ proposition_3_5 and exists_kerEquiv give the triangular form, the isomorphism C, surjectivity and Fredholm/index equivalences (IsFredholmB = Mathlib IsFredholm between Banach spaces). B ⇒ A fails genuinely: A also contains the abstract linear-algebra proposition_3_5 for arbitrary (possibly non-separable) Banach spaces, the fibre derivative scDeriv_fiber_zero, the sc-level results (IsScFredholm.restrict, the …_sc lemmas: sc-Fredholmness of Tf(0) and Dg(0) on all levels, the sc form of condition (3)) and whole-chart lemmas, none of which B states.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "A gained the germ forms IsFillingGerm.proposition_3_5/exists_kerEquiv/deriv_comp_r_eq_zero (plus sc-level forms); with them A ⇒ B is now proved for germ fillers (previously only the whole-U special case A_to_B_wholeU, kept). B ⇒ A still fails (A's abstract linear algebra and sc-level statements are beyond B), so incomparable → A_stronger."
+ }
+}

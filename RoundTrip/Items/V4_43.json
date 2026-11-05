@@ -1,0 +1,12 @@
+{
+ "id": "V4_43",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = tangentSpace_eq_range_graph ∧ remark_4_20 (universe 0) ∧ lemma_3_55_relOpen ∧ IsInGoodPosition.isInGoodPositionIn_of_le. The main conjunct remark_4_20 is equivalent to B: B uses its own chart reading IsGoodPositionAtB of Definition 4.16 (verbatim the blind V4_38's), which for tame X, smooth A and a ∈ A agrees with the project's IsGoodPositionAt (V4_38's B_holds, copied as gp_iff: B's sc-complement inside T_zO vs the project's algebraic complement, upgraded via tameness/Lemma 4.19 and a closed good complement cut to T₀O). A_to_B and B_to_A_main (B ⇒ remark_4_20) are both proved through that translation, applied at a and at every b ∈ U ∩ A. B ⇒ A fails only because A's other three conjuncts are general proof lemmas (tangent space of a graph, Lemma 3.55 for relatively open domains, good position in E ⇒ inside any T ⊇ N) that B does not contain: genuine extra content, not effort.",
+ "B_issue": null,
+ "overlap": "B_to_A_main: 643 shared project theorems; besides statement vocabulary, the V4_38 translation glue reuses non-banned lemmas that remark_4_20's proof also uses (IsGoodPositionAt.isInGoodPosition_of_tame → lemma_4_19, exists_proj_goodComplement, IsTame.exists_centredChart, SubmanifoldData.exists_chartRetraction, lemma_4_7_i/ii, proposition_2_35); none of the banned lemmas (lemma_3_55_relOpen, tangentSpace_eq_range_graph, isInGoodPositionIn_of_le) nor proposition_4_9 is used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

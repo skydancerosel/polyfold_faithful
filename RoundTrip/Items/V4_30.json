@@ -1,0 +1,12 @@
+{
+ "id": "V4_30",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same mathematics in two packagings. A's exists_chartRetraction works with a retraction R onto the WHOLE chart model O and the shrunken set W = V ∩ dom φ ∩ s⁻¹(V ∩ dom φ), producing t = φ∘s∘φ⁻¹∘R on U ∩ R⁻¹(G) (φ(W) = O ∩ G); B (2) is the reduced situation V ⊆ dom φ, r(U) = φ(V), with t on all of U. A ⇒ B (2): apply A to the restricted chart φ|_V (MChart.restrict, same E and C, model φ(V)), for which W = V and G ⊇ φ(V) = r(U), so t.U = U; the junk point x₀ ∈ X₁ of A is s(v), and V = ∅ is handled by r itself. B (1) (shrinking V and U) is glue proved without A (V' = W, r' = r restricted to r⁻¹(G)). B ⇒ A: all four conjuncts follow from B (2) applied to V := W and r := R|_{R⁻¹(G)} (isScSmoothRetractMap_lift via 1₀¹∘ρ∘r = 1₀¹∘t, isScPlusRetract_image directly, apply_mem_smooth by Lemma 4.7 (i)). The only notational glue is sc⁺-retractions: the project's canonical lift E.liftOne ∘ r vs B's 'r(U_m) ⊆ E_{m+1} and some sc-smooth lift' (IsScPlus.iff_exists, mem_lvlSet_succ), and IsScPlusRetractionOn vs B's IsScPlusRetractionOnB (V4_9).",
+ "B_issue": null,
+ "overlap": "287 shared project theorems, almost all statement vocabulary (sc-calculus, M-polyfold charts, SubData.shrink API, ScRetraction.restrict, proposition_2_10_1, level-chart proof fields); proof-level reuse: lemma_4_7_i (A's apply_mem_smooth is a one-line application of it, so B ⇒ that conjunct necessarily reuses it) and IsScPlusRetractionOn.isScSmoothOn_one (a structure field). None of exists_chartRetraction's own proof (compRetraction, rho_isScSmooth, levelChart_toLevelOne) is reused; B_to_A takes the sc⁺ property from B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

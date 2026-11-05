@@ -1,0 +1,12 @@
+{
+ "id": "V3_89",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": true,
+ "why": "A = theorem_3_58 ∧ familyCompactness_derivFamOp ∧ fredholmIndex_block.{0,0,0,0} ∧ surjective_of_fredholmIndex_block.{0,0,0,0} ∧ lemma_3_59 ∧ lemma_3_60. A ⇒ B is believed to be glue plus standard sc-Fredholm facts, not proved. theorem_3_58 is in coordinates E = P ⊕ X, C = C̃ ⊕ X, F = Q ⊕ Y; B has arbitrary E, F, an sc-splitting E = B ⊕ X with B ⊇ ker Df(0), and no splitting of F. Instantiating A needs: an sc-iso E ≅ B ⊕ X; C ∩ B a partial quadrant of B (true, since the defining functionals vanish on X); an sc-splitting F = Q ⊕ Df(0)X (from the sc-Fredholm property of Df(0) in ConstIndexFredholm: regularity and closed finite-codimensional range on each level); and transport of IsScSmooth, scDeriv, conditions (2)–(3) and IsConjugateToBasicGerm along the sc-isos. B's hypotheses then imply A's, which are weaker: (1) only at (b,0), (2) only the bijectivity of P∘Df(0)|X, and the compactness condition after shrinking r. B ⇒ A fails for a real reason. A's conditions (1) and (2) are strictly weaker than B's, so B cannot be applied: bijectivity of P∘Df(0)|X does not put ker Df(0) inside ℝⁿ ⊕ 0, and Fredholm at (b,0) does not give Fredholm at all smooth points. A's conclusion is also more specific (the sc-iso family L(b), the explicit pushGerm358 and fiberIsoMap), and four conjuncts are general lemmas with no counterpart in B.",
+ "B_issue": "Minor: B drops the text's 'Y = Df(0)X' (and the implied splitting of F) as merely naming an image. This is harmless for the meaning, but it is why B has no F-splitting to match A's coordinates.",
+ "overlap": "none (no direction proved)",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

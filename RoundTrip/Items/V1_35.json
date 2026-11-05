@@ -1,0 +1,12 @@
+{
+ "id": "V1_35",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A is stated only for the constant structures const V, const W, while B allows any ScBanach E, F with E_0, F_0 finite-dimensional. A_to_B bridges this with the sc-isomorphisms E = const E_0 and F = const F_0 (isoConstOfFiniteDimensional from V1_31, the identity on level 0) and the chain rule theorem_1_21' with ScOperator.isScSmooth. That gives sc1(E,F) <=> sc1(const,const), and then A's isSc1_iff_contDiffOn_const finishes. So A plus standard transport implies B. B does not give the rest of A. A's isSc1_iff_contDiffOn_const and isSc1_iff_fderivWithin_const hold on every IsScDomain (open intersected with convex, with unique differentiability, e.g. a closed disk), which need not be relatively open in a partial quadrant. A's two isScSmooth_iff conjuncts say sc-smooth <=> C^infinity, and B says nothing about sc^k for k >= 2. These are genuine extra content: true, and provable from other project theorems (IsSck.contDiffOn_base, IsScSmooth.of_contDiffOn_finiteDimensional), but not consequences of B. B_to_A_partial (in the file) shows B does yield the two sc1 conjuncts of A on quadrant-relatively-open domains: isSc1_iff_contDiffOn_of_isRelOpenInQuadrant, and isSc1_iff_contDiffOn_of_finiteDimensional (open U, quadrant univ). The decl isSc1_iff_contDiffOn_of_finiteDimensional lives in Polyfold/Test.lean, which `import Polyfold` does not import; the file adds `import Polyfold.Test`.",
+ "B_issue": null,
+ "overlap": "A_to_B: 89 shared project theorems. Besides glue (toBase, lvlSet, quadrant, tangentSet lemmas and _proof_N fields), they include the chain-rule infrastructure and proposition_1_19 / proposition_1_19_zero. These are reached through ScOperator.isScSmooth and theorem_1_21' in the transport, and also lie under the project's proof via corollary_1_20_zero. The core sc1 <=> C1 step itself comes from A's hypothesis, not from a reused lemma. B_to_A_partial: 20 shared, all structural (const/prod/quadrant _proof_N fields, isPartialQuadrant_univ).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

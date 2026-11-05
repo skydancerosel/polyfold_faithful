@@ -1,0 +1,24 @@
+{
+ "id": "V3_28",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A => B from the conjuncts lemma_3_31 and (new) isSc0ContractionGerm_next, applied to the working form h.toContractionGerm with its parameter regions N m shrunk into the V_i (i <= m) and the region {delta in O 0}, so that B's arbitrary solution germ delta is sol there and gives sol sc^j on germ 0; G^(1) := nextG 0, on which B's B^(1) (written with lvlLift and B's arbitrary DB) equals the project's nextB DB, so the regularity sc^{min(k-1,j)} is lemma_3_31, the Definition 3.28 property of f^(1) (every eps, every level) is now A's isSc0ContractionGerm_next transported along this agreement (at the audit this part was missing from A and re-proved in the item file; it has been moved into the project), and T delta = (delta(v), D delta(v) b) is next.sol on (N 2 cap C~) x P (lemma_3_31's second part, with B's arbitrary D delta = solDeriv by uniqueness of derivatives). B => A fails for genuine generality: A covers every working-form ContractionGerm on a quadrant-like C~ (lemma_3_31 for a 1/2-contraction, weaker than Definition 3.28) and makes statements about the specific construction next s (its germ nextG s, its regions, nextB_isSckGerm under 'TB is sc^j', the formula next.sol(v,b) = (delta_1(v), Aop v b)), none of which follow from B's existential G^(1).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). A_to_B passes #rt_check_soft only: the banned nextB_isSckGerm is reached solely through the proof field isSc0 of the definition ContractionGerm.next, which appears in the statements of lemma_3_31 and isSc0ContractionGerm_next themselves.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "A gained ContractionGerm.isSc0ContractionGerm_next (f^(1) is a Definition 3.28 contraction germ), the audit's item-file glue moved into the project; A_to_B now uses it instead of the local level-m Lemma 3.9 (removed). Result unchanged: A_stronger."
+ }
+}

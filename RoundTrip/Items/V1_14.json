@@ -1,0 +1,12 @@
+{
+ "id": "V1_14",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The blind notions agree with the project's on tuples: tanSet/tanMap/Sc1With are literally tangentSet/tangentMapWith/IsSc1With, and the blind SckB (k+1) ('sc¹ with SOME derivative family D and Tf = tanMap f D sc^k') equals the project's IsSck (k+1) ('sc¹ with Tf built from the CHOSEN scDeriv sc^k') on every IsScDomain, hence on relatively open subsets of partial quadrants (sckB_iff_isSck, proved outright, rt_check OK); they could differ only on domains where Df(x) is not unique. B's one assertion ('if f is sc² then T²f = T(Tf) is sc⁰, for any choice of derivatives') follows from A: A's IsSck.congr (choice-independence of sc^k on IsScDomain's) turns SckB 2 into IsSck 2 and then transfers the sc⁰ property of T²f from the chosen derivatives to arbitrary D, D' (uniqueness via IsSc1.tangentMap_eqOn). B_to_A is vacuous (uses_hypothesis false): A's of_succ, of_le, isScSmooth_iff (arbitrary U) and IsSck.congr (arbitrary IsScDomain) are structural facts B cannot supply; they were re-proved outright. Note of_succ is what reconciles the text's recursion ('sc^{k+1} = sc^k and T^k f sc¹') with the project's ('sc¹ and Tf sc^k'). No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A: 51 shared project theorems — sc-structure glue plus the V1_13-level lemmas IsSc1.tangentMap_congr, IsSc1.tangentMap_eqOn, IsSc1.scDeriv_eqOn, IsSc1With.eq_of_uniqueDiffWithinAt, IsSc1With.congr, IsSc0.congr and IsScDomain.tangentSet, i.e. exactly the ingredients of the project's proof of IsSck.congr (re-assembled here as isSck_congr').",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

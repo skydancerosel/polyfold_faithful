@@ -1,0 +1,12 @@
+{
+ "id": "V1_30",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "B is the text's Proposition 1.10 (T + S is sc-Fredholm, index not mentioned); A is the project's index statement: ind(T+S) = ind T, and every (T+S)_m is Fredholm of index ind T. A_to_B genuinely uses A's level conjunct and does not use proposition_1_10. If all level maps of T' are Fredholm with the same index, then ker T'_m = ker T'_0 and F_m/R_m = F_0/R_0 by a dimension count (dim ker drops, codim rises because F_m is dense, indices agree), so T' is regularizing. A regularizing sc-operator with Fredholm level maps is sc-Fredholm: this is the project's construction for Prop. 1.10, copied with its bootstrap replaced (regularizing_of_index, isScFredholm_of_regularizing). B_to_A uses B only for the level conjunct (T+S sc-Fredholm, then IsScFredholm.fredholmIndex_lvl). The index equality ind(T+S) = ind T, which is A's actual extra content and absent from the text, comes from the classical compact-perturbation theorem fredholmIndex_add_isCompactOperator, without B. So both directions compile, but in content A is strictly stronger: B plus Kato's index theorem gives A. That is why the relation is A_stronger even though B_to_A is formally proved. No universe parameters.",
+ "B_issue": null,
+ "overlap": "A_to_B: 43 shared project theorems. Most are glue (toBase/levelSub/smoothLvl lemmas, ScFredholmSplitting fields, ScOperator.add/comp _proof_N, ker_lvl, range_lvl_le, mapsTo_smoothLvl). The mathematical ones are ScBanach.proposition_1_6 / proposition_1_6_iff (finite-dimensional subspaces of E_inf have sc-complements), used by the copied construction and also by the project's proof of Prop. 1.10. B_to_A: 78 shared, essentially the whole Fredholm-index library: fredholmIndex_add_isCompactOperator and its dependencies (linIndex_comp, fredholmIndex_add_of_norm_lt, isFredholm_add_isCompactOperator, ...), plus IsScFredholm.fredholmIndex_lvl (Lemma 2.D). These supply the index equality that B lacks; this is exactly the project's own proof of proposition_1_10_index.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

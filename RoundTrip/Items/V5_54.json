@@ -1,0 +1,12 @@
+{
+ "id": "V5_54",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only LocalModel.HasApproxProperty is listed, so A = True and both implications are vacuous. The content is B itself, proved outright as B_holds. The two definitions differ only in how the open V ⊆ O is presented. The project uses an open W ⊆ E₀ with cl_E(O ∩ W) ⊆ O and supports (taken in O) ⊆ W. B uses V = O ∩ W' with cl_C(V) = cl_E(V) ∩ C ⊆ O and supports ⊆ V. With V = O ∩ W these agree: a support taken in O lies in W iff it lies in O ∩ W, and cl_E(V) ∩ C = cl_E(V) because V ⊆ O ⊆ C and the partial quadrant C is closed (LocalModel.O_subset_C, LocalModel.isPartialQuadrant). All other clauses are literally the same: f continuous on O, [0, 1]-valued on O; g IsScSmoothRetractMap into realSc, [0, 1]-valued; |f − g| ≤ ε on O for every ε > 0.",
+ "B_issue": null,
+ "overlap": "B_to_A trivial (0). A_to_B (via B_holds) against the definition HasApproxProperty: 8 shared items, all auto-generated sc-scale glue of realSc (ScBanach.constScale proofs, ScScale.mem_smooth_iff). B_holds itself uses only LocalModel.O_subset_C and LocalModel.isPartialQuadrant (Chapter 2).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

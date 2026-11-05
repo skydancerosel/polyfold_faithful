@@ -1,0 +1,24 @@
+{
+ "id": "V3_5",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The definitions now agree. At HEAD the project's StrongBundle.IsScSmoothSectionGerm asks f̂ ∘ r to be sc-smooth on SOME sc-germ of neighbourhoods G with G₀ ⊆ U of a centred compatible chart (the germ reading), as B (the text) does. B additionally asks f to be continuous on an open V ∋ x₀ with φ⁻¹(r(G₀)) ⊆ V; this is automatic: f̂ ∘ r is continuous on G₀, so f̂ is on O ∩ G₀ (r = id on O) and f = Φ⁻¹(φ, f̂ ∘ φ) on V = φ⁻¹(G₀) ∩ dom φ, after shrinking the germ to G' = {u ∈ G | r(u) ∈ G} (ScNbhdGerm.preimage, IsScSmoothGerm.mono). So B (the ↔ for sections) is proved outright (proj_to_B, B_to_proj) and A → B does not use A; B → A re-proves A (the regularity bridge, isChart_congr via isChart_iff_exists_equiv, the GermVsChart example) from non-banned lemmas without using B. Both directions are vacuous for the audit: the comparison is of definitions, and they coincide.",
+ "B_issue": null,
+ "overlap": "402 shared project theorems: the sc-calculus behind the regularity bridge (IsScSmoothSection.isScSmoothRetractMap, comp_isScSmooth, snd, IsScSmooth.isScSmoothGerm, StrongBundleChart lemmas), the GermVsChart example lemmas (Gex, f, isScSmoothGerm_f, not_isScSmooth_f) and isChart_iff_exists_equiv; B_to_A is the project's proofs of A re-run.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "Definition 3.3 switched to the germ reading (G arbitrary with G₀ ⊆ U instead of the chart's U ∩ E_m), and A gained isChart_congr and exists_isScSmoothGerm_not_isScSmooth. The old obstacle (shrinking levels) is gone: both halves of B's ↔ are now proved (continuity of f near x₀ is automatic after shrinking the germ along r), so A → B is proved and the relation is equivalent (both directions vacuous: definitions coincide)."
+ }
+}

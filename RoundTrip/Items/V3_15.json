@@ -1,0 +1,24 @@
+{
+ "id": "V3_15",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same conclusion (A_to_B_projGerm: corollary_3_13 gives B verbatim with the project's germ notion; Level m = levelSet m with levelTopology m, 'eventually' = ∃ K, ∀ k ≥ K, the limit read as x₀). At HEAD corollary_3_13 assumes the germ reading IsScFredholmGerm (filling and sc⁺-section as germs), so the audit's obstacle (filled version and sc⁺-section on the chart's whole U) is gone, and germB_to_germ proves B's IsScFredholmGermB ⇒ the project's IsScFredholmGerm; the remaining differences are glue: (i) B's conjugating isomorphism Ψ lives on a relatively open U₀ = O₀ ∩ C ⊆ U, the project's on the whole U of the chart — handled by shrinking the chart (base domain V ∩ φ⁻¹(O₀), retraction domain U ∩ r⁻¹(O₀) ∩ O₀ ⊆ U₀ via ScRetraction/IsStrongBundleRetraction.restrictIn, same Φ as StrongBundleChart.restrict, so IsChart.restrict applies; StrongBundleChart.restrict alone does not suffice since U ∩ r⁻¹(φ(s)) need not lie in U₀) and restricting Ψ to {u' ∈ U' | ψ'(u') ∈ U}; (ii) condition (3) as BijOn with a bound vs a topological isomorphism of kernels (Dr(0) = scDeriv U r 0 by uniqueness); (iii) conjugation format (Fin n → ℝ, stdQuad = quadC of a coordinate projection, h = B's explicit push-forward, equal to Ψ(u, k u)₂ at ψ(u) since ψ'∘ψ = id); B's tame chart, tame bundle and sc-smooth f are unused. B ⇒ A fails genuinely: corollary_3_13 needs no tameness (bundle or chart) and no sc-smoothness of f, and A also contains the IsScFredholmSection version, a general topological lemma and the local statement on an arbitrary closed partial quadrant, which B does not address.",
+ "B_issue": null,
+ "overlap": "A_to_B (rt_check OK against all four listed theorems, also A_to_B_projGerm): 283 shared project theorems, all chart/retraction/sc-calculus basics (MChart and StrongBundleChart fields, ScRetraction.restrict/relOpen_inter_preimage, proposition_2_10_1, IsStrongBundleIso.base_base, IsBasicGerm.mono, IsScSmoothGerm.mono, proposition_1_19, theorem_1_21'); none of the compactness argument of Theorem 3.12/Corollary 3.13. B_to_A not proved.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "corollary_3_13(_section) now assume the germ reading, which removes the old obstacle; B's own IsScFredholmGermB (Ψ on U₀ ⊆ U, BijOn form of (3), ℝⁿ/stdQuad conjugation) was shown to imply the project's IsScFredholmGerm by shrinking the chart (new glue germB_to_germ), so A_to_B is now proved. Relation incomparable → A_stronger."
+ }
+}

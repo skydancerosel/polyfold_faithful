@@ -1,0 +1,7 @@
+/.lake
+**/WIP_*.lean
+Exposition/pages/
+Exposition/sources/
+__pycache__/
+.DS_Store
+Exposition/preview-*.html

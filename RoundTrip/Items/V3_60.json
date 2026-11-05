@@ -1,0 +1,12 @@
+{
+ "id": "V3_60",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = InvData.half_norm_le ∧ InvData.norm_sub_le ∧ InvData.injOn ∧ InvData.ball_inter_subset_image ∧ InvData.image_relOpen (no universe parameters). A ⇒ B was proved: B's hypotheses give InvData C U f 1 (C^∞ ⇒ C^1; d_C-equality ⇒ interior preservation via degIndex_eq_zero_iff); image_relOpen gives f(U) relatively open; half_norm_le / norm_sub_le give the bi-Lipschitz estimate; B's openness of f : U → f(U) (images of relatively open S = O ∩ U are relatively open in f(U)) is new glue: g = invFunOn f U is 2-Lipschitz on f(U) by half_norm_le, so g⁻¹(O) ∩ f(U) = u ∩ f(U) for an open u, and f(O ∩ U) = g⁻¹(O) ∩ f(U). B ⇒ A fails genuinely: the InvData lemmas hold for C^j maps (j ≥ 1) preserving only interior points, without 0 ∈ U or f(0) = 0, while B assumes C^∞ and d_C-equality; and ball_inter_subset_image (B(x', 3r) ∩ C ⊆ U ⇒ B(f(x'), r) ∩ C ⊆ f(U)) is a quantitative statement from the proof that B does not contain.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved; no #rt_overlap run. A_to_B passes #rt_check against all five theorems (half_norm_le, norm_sub_le, image_relOpen used only through the hypothesis; injOn and ball_inter_subset_image not needed).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V1_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The blind definitions coincide with the project's definitionally: Presentation E C is the data of IsPartialQuadrant E C ({p | ∀ i, 0 ≤ p.1 i} is quadrant n W 0 by rfl), degWith T x is degIndexWith T x = quadrantDeg (T 0 x) by rfl, and degC / degIndex both evaluate the count with a chosen presentation (0 if none), differing only in which presentation is chosen. B (for every presentation T and x ∈ C, d_C(x) = #{i : (T₀x)_i = 0}) is exactly A's degIndex_eq, i.e. the well-definedness of d_C (Lemma 1.24 content): A ⇒ B by applying degIndex_eq to the chosen and to the given presentation; B ⇒ A by applying B to two presentations (giving independence of T) and unfolding degIndex; degIndex_quadrant is then the case T = ScIso.refl. No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A: 25 shared project theorems, all structure glue (ScBanach const/prod _proof_ fields and toBase/smoothLvl lemmas, degIndex.eq_1 and its _proof_ fields, ScIso.refl._proof_1); Lemma 1.24 (lemma_1_24, quadrantDeg_eq_of_equiv) is not used — B supplies it.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

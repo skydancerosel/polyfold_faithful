@@ -1,0 +1,12 @@
+{
+ "id": "V3_62",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = InvData.hasFDerivWithinAt_inv ∧ InvData.contDiffOn_inverse_deriv (no universe parameters). The project proves Lemma 3.77 only under InvData, i.e. Proposition 3.73's hypotheses (U convex, ‖Df(x) − 1‖ ≤ 1/2 on U, interior points preserved), from which it derives the homeomorphism and the invertibility. B states Lemma 3.77 as quoted: the homeomorphism f : U → f(U) onto a relatively open set and invertible Df(x) are hypotheses, with no convexity or ½-bound. A ⇒ B fails genuinely: such an f need not satisfy InvData near any point (normalizing Df(x₀) to 1 by Df(x₀)⁻¹ does not preserve C). A_to_B373 (passes #rt_check) proves B from A once the three InvData conditions are added. B ⇒ A fails genuinely: A covers C^j maps (j ≥ 1) and B only C^∞ ones, and contDiffOn_inverse_deriv (x ↦ [Df(x)]⁻¹ is C^{j−1}) is a claim about f that B does not make. B_to_A_smooth (passes #rt_check) proves A's first conjunct from B for C^∞ maps. B is true in its generality (via Mathlib's HasFDerivWithinAt.of_local_left_inverse), so the project formalizes a special case of the text's lemma, which is all its proof of Proposition 3.73 needs.",
+ "B_issue": null,
+ "overlap": "No direction proved, so #rt_overlap was not run. Both diagnostics (A_to_B373, B_to_A_smooth) pass #rt_check against both theorems.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

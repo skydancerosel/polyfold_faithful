@@ -1,0 +1,24 @@
+{
+ "id": "V5_21",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = allowableDist_le_iff ∧ TrivialBundle.not_completeSpace_allowableSections ∧ completeSpace_allowableSections_empty ∧ TrivialBundle.completeSpace_allowableSections_point (universes 0); allowableSections, sectionDistAt, allowableDist, allowableMetric vocabulary. Notions agree: Γ^{+,1}_U(P) = B's Gamma1 (allowable_eq), sectionDistAt = B's fibDist on sc⁺-sections, so B's ρ = allowableDist (rho_eq), and B's IsRhoComplete ⇔ CompleteSpace of the project's AllowableSpace (isRhoComplete_of_completeSpace, completeSpace_of_isRhoComplete). A ⇒ B (proved): B (1), (2) hold outright as before; B (3) 'not complete in general' from A's not_completeSpace_allowableSections (trivial bundle ℝ × ℝ → ℝ, N(x,v) = |v|, U = ℝ). A's complete cases (U = ∅; X a point) also refute the literal universal reading BUniversal (not_BUniversal), confirming the blind reading. B ⇒ A fails: B's (3) is existential, A's counterexample is a specific bundle, norm and U (the smooth graphs converging to |x|/(2√(1+x²)), with 'sc⁺ ⇒ differentiable'), and completeSpace_allowableSections_point is not in B; both need the project's constructions.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. A_to_B (rt_check OK) uses from A only not_completeSpace_allowableSections; the glue uses AllowableSpace.dist_eq/mk/sec, the fibre-norm fields of IsAuxNorm and Metric.complete_of_cauchySeq_tendsto.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "A was True (definitions only); now it contains the metric ρ and the (in)completeness results. B (3) now follows from A's counterexample, so A ⇒ B is proved; B ⇒ A fails (B's existential does not give the specific example or the point case). Relation A_narrower → A_stronger."
+ }
+}

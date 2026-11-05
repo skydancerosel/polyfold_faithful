@@ -1,0 +1,24 @@
+{
+ "id": "V1_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same statement for the core: proposition_1_9 quantifies over the data s : ScFredholmSplitting T, B over the proposition IsScFredholmB T, an existential over the same K, X, C, Y with exactly the seven fields of ScFredholmSplitting (isScFredholmB_iff repackages them); IsScFredholm.isRegularizing is the same statement with IsRegularizing folded. Both read 'T e ∈ F_m' as T₀ e ∈ range (F.toBase m) and 'e ∈ E_m' as e ∈ range (E.toBase m). The added isScFredholm_iff (sc-Fredholm ⟺ Fredholm on level 0 + regularizing) goes beyond B: its → direction is B plus ScFredholmSplitting.isFredholm, its ← direction is the criterion of §1.4.1, which B does not speak about and which B_to_A takes from the (not banned) project lemma isScFredholm_of_isRegularizing (V1_9's theorem). No universe parameters.",
+ "B_issue": null,
+ "overlap": "38 shared project theorems: 6 structure-field projections of ScFredholmSplitting (repackaging) plus ScFredholmSplitting.isFredholm, and, through the direct use of isScFredholm_of_isRegularizing for the ← direction of isScFredholm_iff, that lemma and its whole proof (proposition_1_6, IsRegularizing.ker_le_smooth, range_lvl_le, dense_smooth, isFredholm_of_banach, …). None of the proof of Proposition 1.9 itself is reused.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "proved",
+   "relation": "equivalent"
+  },
+  "note": "A gained IsScFredholm.isRegularizing (B restated) and isScFredholm_iff, whose ← direction (the §1.4.1 criterion) B does not contain; B_to_A now takes it from the project lemma isScFredholm_of_isRegularizing (allowed, rt_check OK), so the result stays equivalent but that conjunct is covered by the project, not by B."
+ }
+}

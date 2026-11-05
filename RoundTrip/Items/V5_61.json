@@ -1,0 +1,12 @@
+{
+ "id": "V5_61",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both sides use the project's IsReflexive and IsWCG. A (all three theorems at universe 0) is stated for every real normed space; B, following the text's 'E a Banach space', only for complete ones. A => B is specialization. B => A has three parts. (i) A reflexive normed space is automatically complete (isometric to its bidual: LinearIsometryEquiv.ofSurjective on inclusionInDoubleDualLi), so B applies. (ii) For a separable normed space that is not complete, B says nothing, so this conjunct is re-proved outright by the project's short null-sequence argument; this is A's one genuine (harmless) extra generality. The helper span_closedBall_eq_top (the unit ball spans V) is not in B and is also re-proved by rescaling. On Banach spaces, the text's setting, A and B coincide.",
+ "B_issue": null,
+ "overlap": "7 shared project theorems, all auto-generated _proof_ fields of the definitions IsReflexive and IsWCG that occur in the statement. No mathematical lemma is shared; the conjuncts re-proved directly use only Mathlib.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

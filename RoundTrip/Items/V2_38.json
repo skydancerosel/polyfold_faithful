@@ -1,0 +1,13 @@
+{
+ "id": "V2_38",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notions (X_C = hC.toMPolyfold hne, d_X = MPolyfold.degIndex, d_C = degIndex E C). A ⇒ B: C is relatively open in itself (V = E₀) and corollary_2_32 at U = C. B ⇒ A fails for a genuine reason on the fourth conjunct degIndexWith_le_of_germ (core of Theorem 2.31): d_C(x) ≤ d_{C'}(F x) for a germ F from a relatively open U₀ ⊆ C onto a RETRACT O' with F and G∘r' only sc¹, at level-1 points; B concerns d_X, defined through sc-SMOOTH charts, of partial quadrants only, and an sc¹ germ is not a chart, so B says nothing about it (with sc-smooth F, G it would follow, F being a chart of X_{U₀}). The other three conjuncts do follow from B (B_to_A123, rt_check OK): A states the corollary for every nonempty relatively open U ⊆ C, and new glue incl_isScDiffeoOn shows X_U ≅ the open piece {c ∈ U} of X_C, so the non-item proposition_2_24 reduces it to B at U = C; degIndex_le and degIndex_le_degIndex_of_lvl1 are the two halves of that equality. No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A123: 154 shared project theorems, all sc-calculus / chart infrastructure (IsSc0/IsSc1/IsSck lemmas, theorem_1_21', MChart/MAtlas fields, isScSmoothRetractMap_id, IsScSmoothRetractMap.congr, IsRelOpenInQuadrant.selfChart_isChart, MPolyfold.degIndex_le, exists_isChart_degIndex_eq); none of the item's theorems, and not the germ inequality.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "partial": {"B_to_A123": "proved using B (corollary_2_32 for all U, degIndex_le, degIndex_le_degIndex_of_lvl1); only degIndexWith_le_of_germ is missing"}
+}

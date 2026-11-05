@@ -1,0 +1,24 @@
+{
+ "id": "V3_43",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: the decls are the definitions IsFillingGerm (the canonical germ-reading filling) and IsFillerOf, so A = True and B → A is vacuous. B asserts IsFilledVersion ↔ IsFillingB, i.e. identifies the text's filling with the project's whole-chart IsFilledVersion. The canonical notion IsFillingGerm is B's IsFillingB field for field (germ_iff_B: same germ G ⊆ U, conditions (1)–(2), derivative family Dk of the fill defect on G, isomorphism ker Dr(0) ≃ ker ρ(0) agreeing with Dk(0)), so B with IsFillingGerm in place of IsFilledVersion is proved (B_germ). B as written is still false (not_B, unchanged): IsFilledVersion still requires g sc-smooth on the whole U; counter-model E = F = ℝ, U = C = ℝ, R = id, f = g = step (0 on (−∞,1), 1 on [1,∞)), a germ filling on ofSet (−∞,1) but discontinuous on U. The counter-model does not touch the current notion (step is an IsFillingGerm filling). Also still proved: proj_to_B and B_corrected (IsFilledVersion ↔ g sc-smooth on U ∧ IsFillingB). So the project's notion of filling in the row agrees with the text; the falsity of B is only its choice of the whole-chart notion.",
+ "B_issue": "B identifies the text's filling with IsFilledVersion (whole chart), which at the audit was the project's notion but at HEAD is the documented whole-chart special case; the row's notion is IsFillingGerm. B's own IsFillingB still means the text, and B with IsFillingGerm in place of IsFilledVersion is proved (B_germ).",
+ "overlap": "B_to_A: 0 shared project theorems (A = True). not_B, B_corrected and B_germ pass #rt_check (no theorems banned).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "false",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "The row gained the germ filling IsFillingGerm (A stays True). The old not_B still checks but concerns only the whole-chart IsFilledVersion named in B; the new notion IsFillingGerm is literally B's IsFillingB (germ_iff_B, B_germ), so the relation for the row's notion becomes equivalent (B_issue records B's outdated target)."
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V3_106",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_3_18_tame ∧ PullbackChartData.ofProd_isTame ∧ IsScFredholmGermTame.param ∧ IsScFredholmSectionTame.param (universes 0); at HEAD the tame notions on both sides are the germ reading of Definitions 3.50/3.51 (filling and sc⁺-section as germs in a tame chart). B is theorem_3_18_tame with the extra hypothesis IsTameStrongBundle Bd; B's arbitrary instances (paracompactness of ℝⁿ × X and of the pull-back space), the proof hπ of sc-smoothness of π and the section proofs hf, hs agree with the project's by proof irrelevance, so A_to_B is the first conjunct applied. B ⇒ A fails genuinely: A needs no tame bundle, and its other conjuncts are chart- and germ-level facts (the product chart of a tame chart is tame; tame germ data of f∘π at one point; f∘π alone is a tame sc-Fredholm section) that B does not state.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved); A_to_B uses only the hypothesis",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "theorem_3_18_tame, IsScFredholmGermTame.param and IsScFredholmSectionTame.param now state the germ reading, as does B's IsScFredholmSectionTame; A_to_B still checks unchanged (hypothesis used). Result unchanged: A_stronger."
+ }
+}

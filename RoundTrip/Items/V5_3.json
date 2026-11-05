@@ -1,0 +1,12 @@
+{
+ "id": "V5_3",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = IsAuxNorm.nonneg ∧ IsAuxNorm.smul (universes 0); the listed IsCompleteFiberNorm/IsAuxNorm are vocabulary. The real comparison is B itself, proved outright (B_holds): the blind topology oneTopology on Y_{0,1} is definitionally the project's instance on Bd.One (topology_eq : rfl; (E.prod F.shift) 0 = E₀ × F₁ and liftOne = chartOne), IsCompleteFiberNorm's four fields are B's four fibre conjuncts in the same order (norm axioms + N-Cauchy sequences converge), and zeroOne x = toOne 0. So the project's Definition 5.1 is the text's verbatim. A_to_B is vacuous (B proved outright). B_to_A uses B to turn IsAuxNorm into the text's fibre norm axioms and re-derives N ≥ 0 (from N(v−v) ≤ 2N(v), N(0)=0) and homogeneity from them; both are elementary, so the content of A is trivial.",
+ "B_issue": null,
+ "overlap": "B_to_A: 39 shared project theorems, A_to_B: 40; all structure glue reached through the statement's definitions (oneFiber submodule proofs, toOne/ofOne _proof_ terms, mem_oneSet_iff, snd_add, fiber_linear, ScBanach prod/shift scale fields); no content of nonneg/smul reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

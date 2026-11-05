@@ -1,0 +1,12 @@
+{
+ "id": "V4_9",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = type of ScRetraction.IsScPlus.mem_lvlSet_succ (r(U_m) ⊆ U_{m+1}); ScRetraction.IsScPlus and MPolyfold.IsScPlusRetractionOn are vocabulary, and B says both agree with the text's definitions. Retraction half: the project's IsScPlus R.U R (canonical lift E.liftOne ∘ r sc-smooth into E¹) is B's 'some lift g : E₀ → E₁ with ι₁ ∘ g = r on U, sc-smooth into E¹' by IsScPlus.iff_exists; B's extra clause r(U_m) ⊆ U_{m+1} is exactly A (used in A ⇒ B), and conversely B ⇒ A reads it off B's (⇒). M-polyfold half (independent of A): B's IsOpen V is the isOpen field of IsScSmoothOn; the project quantifies over the junk value x₀ of 1₀¹ = toLevelOne x₀, B over all lifts g of r on V, and these agree on V (toLevelOne_levelVal / levelVal_toLevelOne); for X = ∅ both are vacuous (IsScSmoothOn.of_exists_charts). So the definitions match exactly.",
+ "B_issue": null,
+ "overlap": "31 shared project theorems, all sc-calculus vocabulary pulled in through the statements (shift/prod scale proof fields, mem_lvlSet, shift_toBase, mem_smooth_iff, IsSc1/IsSc0 projections, levelMap._proof_1, ScRetraction.mapsTo); the only proof-level step of mem_lvlSet_succ, IsScPlus.mem_range_succ, is not used (IsSc0.mem_range is reached through statement vocabulary, e.g. the proof field levelMap._proof_1).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

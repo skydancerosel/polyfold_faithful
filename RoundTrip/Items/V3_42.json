@@ -1,0 +1,12 @@
+{
+ "id": "V3_42",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = theorem_3_47_sc_smooth ∧ theorem_3_47 ∧ StabilityData.scDerivGerm_pushMap₀ (no universe parameters). A ⇒ B fails on the conclusion. A only produces an algebraic good complement Y (IsCompl on level 0), but B, following Definition 3.21 of the text, requires an sc-complement (E.IsScSplitting K Y) with σ taking values in it. Switching to the sc-complement Y₀ given by B's hypothesis would mean reparametrizing K ∩ C by v ↦ v + π_K σ(v), i.e. an inverse function theorem on a partial quadrant: new mathematics, not glue. B's setting does reach A: take P = Fin n → ℝ, absorb the ℝᴺ-part of B's s into the basic germ (A's StabilityData.s perturbs only the W-component), get the splitting of 1 + D₂s(0) from proposition_1_10, use uniqueness of D 0 at the smooth point, and IsInGoodPositionSc gives IsInGoodPosition (proved: isInGoodPosition_of_sc). B ⇒ A fails: A's hypothesis hpos is the weaker algebraic good position, so B, which needs an sc-complement for ker Df(0), cannot be applied. A also holds for any finite-dimensional P (transporting basic germs is heavy), and its conjunct scDerivGerm_pushMap₀ (a chain-rule identity for the coordinate change of Theorem 3.38) has no counterpart in B. Apart from that, A's σ has (σ y).2 on level 1 and Cᵏ-lifts σ_k on shrinking V_k, while B asks for C¹ into E₁ on V and an sc-smooth germ into E¹. These are close but not identical forms of regularity.",
+ "B_issue": null,
+ "overlap": "none (no direction proved)",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

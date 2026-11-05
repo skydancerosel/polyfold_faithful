@@ -1,0 +1,12 @@
+{
+ "id": "V1_32",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Common content: an idempotent continuous on every level gives the sc-splitting E = P(E) + (1-P)(E). A_to_B gets it from isScSplitting_of_idem, applied to the ScOperator built from B's level maps; this uses ker P = (1-P)(E). B's first conjunct (the project's IsScSplitting, algebraic IsCompl on each level, is the same as the text's topological sc-splitting) is not a theorem of A. It is proved directly with Mathlib (closed complements in a Banach space are topological; the extra fields of the text's sc-subspace hold automatically). B_to_A gets isScSplitting_of_idem and the <- direction of isScSplitting_iff_exists_scProj from B. A's other conjuncts are not addressed by B and are proved directly with Mathlib projectionL lemmas and toBase injectivity: isTopCompl, scProj_idem/range/ker (properties of the def scProj), idem_lvl, levelSub_range_eq, and the -> direction of the iff. B's 'P is an sc-projection' only restates its hypotheses. The two sides say the same thing up to elementary glue.",
+ "B_issue": null,
+ "overlap": "14 shared project theorems: glue (toBase_comm, toBase_injective, toBase_succ, isClosed_levelSub, mem_levelSub, levelSub_zero, incl_mem_levelSub, structure fields) plus scProj._proof_1/_proof_2 and IsScSplitting.isTopCompl, reached only because they sit inside the definition scProj that appears in A's statement. HARNESS: scProj passes the banned isTopCompl as a proof argument in its data field lvl, and this argument is not abstracted into a _proof_N. So every term mentioning A reaches isTopCompl, and neither #rt_check nor #rt_check_soft can pass with it banned; the file records this failure with #guard_msgs. Instead the file runs #rt_check on the 7 other banned theorems (OK for both directions). It also runs a local #rt_check_except_scProj, the harness rtCollect with scProj's body not unfolded, which shows that neither direction uses isTopCompl outside scProj (our proofs use Mathlib's IsCompl.isTopCompl_of_isClosed directly).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

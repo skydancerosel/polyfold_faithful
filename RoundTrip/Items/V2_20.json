@@ -1,0 +1,12 @@
+{
+ "id": "V2_20",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "B's topology τB = generateFrom 𝓑 is the project's instance on TX (tangentBasis = TfamB, via tangentChartMap_mk_self), so B ⇒ A is direct: continuity of p, openness of TV (a member of the basis 𝓑), metrizable and paracompact are read off B. A ⇒ B fails only on B (2) 'p : TX → X_1 is an OPEN map': the project does not prove it (documented gap G.8) and no conjunct of A gives it. Everything else in B follows from A (A_to_B_of_isOpenMap, which takes openness as an extra hypothesis): Hausdorff from A's continuity of TX → X, '𝓑 is a basis' (also not stated in the project) from the tangent charts being homeomorphisms TV ≅ TO. Openness is true (in a chart p is pr₁ : TO → O₁, and x ↦ Tr(x, h₀) is a continuous section through (x₀, h₀)), so the failure is missing proof, not a mathematical difference.",
+ "B_issue": null,
+ "overlap": "240 shared project theorems: tangent-bundle infrastructure (TangentPre.Rel.*, transport_*, tangentChartMap_mk/_fst/_mem, tangentChartMap_mk_self, mk_ofVec_tangentChartMap, isOpen_level_basic, continuous_levelVal) used to identify τB with the project's instance; the metrization argument (metrizableSpace_of_pullback, MChart.metrizableSpace_source) and continuous_tangentProj's proof are not reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

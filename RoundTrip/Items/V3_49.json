@@ -1,0 +1,12 @@
+{
+ "id": "V3_49",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = lemma_3_55 ∧ lemma_3_55_core.{0} ∧ fderivWithin_mem_of_mapsTo.{0,0}. A ⇒ B was proved from the conjunct lemma_3_55_core alone (coordinates ℓ_i = (T·)_i of B's presentation, P = Y): B's τ : V → E₁ on a relatively open V ∋ 0 is pushed to E₀ and extended to the whole cone N ∩ C by a bump (σ ∘ (b·id), set to 0 off the cone so it is Y-valued everywhere, as core demands), derivatives are identified near 0 (fderivWithin of the extension = ι₁ ∘ Dτ(v) within V), and B's extras come from its own hypotheses: x = v + τ(v) on level 1 because N ⊆ E_∞, Y closed and E₀ = N ⊕ Y from the sc-splitting. B ⇒ A fails genuinely: A is more general — lemma_3_55_core holds in an arbitrary normed space with arbitrary coordinate functionals and an algebraic closed complement, lemma_3_55 needs no smoothness of N and no sc-complement (B assumes N ⊆ E_∞ and an sc-splitting), and fderivWithin_mem_of_mapsTo is a general calculus lemma B does not state. B's extra claim that x lies on level 1 is not in A but follows from B's hypotheses.",
+ "B_issue": null,
+ "overlap": "rt_overlap on A_to_B: 21 shared project theorems, all sc-scale/quadrant infrastructure (prodScale/constScale proof fields, mem_smooth_iff, mem_smoothLvl_iff, quadrant/partialQuadrantAtWith auxiliary proofs); no mathematical lemma of the proof of Lemma 3.55 is reused (the bump extension mirrors the project's lemma_3_55_relOpen but was re-done from the hypothesis).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

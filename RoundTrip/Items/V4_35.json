@@ -1,0 +1,12 @@
+{
+ "id": "V4_35",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = proposition_4_15_3 (universe 0): Subtype.val '' (subPolyfold hA.isSubMPolyfold).boundary ⊆ P.boundary for a smooth submanifold with [ParacompactSpace A]. B states the same pointwise with degeneracy indices (1 ≤ d_A(a) → 1 ≤ d_X(a)), quantifying over an arbitrary proof hA : IsSubMPolyfold A and the paracompactness instance. MPolyfold.boundary is by definition {x | 1 ≤ degIndex x}, the induced structure does not depend on the proof of IsSubMPolyfold (proof irrelevance, definitional), and B's IsSmoothSubmanifoldB is the project's IsSmoothSubmanifold (V4_29/V4_33 glue). Both directions are one-liners.",
+ "B_issue": null,
+ "overlap": "223 shared project theorems, all vocabulary reached through the statement and the glue (subPolyfold/subChart/IsSubMPolyfold.data proof fields, IsSmoothSubmanifold.isSubMPolyfold, sc-calculus API); the proof of Proposition 4.15 (3) (lemma_2_26) is not reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

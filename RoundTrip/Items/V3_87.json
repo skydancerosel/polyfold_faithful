@@ -1,0 +1,24 @@
+{
+ "id": "V3_87",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_3_57 ∧ theorem_3_57_dim ∧ theorem_3_27_loc ∧ theorem_3_57_sc (universes 0; germ reading; solutionSetDim is vocabulary). A has no tame-bundle/tame-base hypothesis, only IsScFredholmSection and good position in a centred tame chart at every zero (IsGoodPositionGermTame, or IsGoodPositionGermSc in theorem_3_57_sc) plus S ≠ ∅; B assumes a tame strong bundle, IsScFredholmSectionTame and sc-complement good position in a non-centred tame chart. A ⇒ B: chart change (isGoodPositionGerm_of_linAt_surj, IsGoodPositionGerm.toTame), theorem_3_57, empty S via the empty atlas, IsManifoldWithCornersLoc ⇔ HasCornerStructure. B ⇒ A fails for a real reason: B's tameness hypotheses are not available in A's setting, and A also contains the regular-data/local-dimension clause, the decomposition S = ⋃ Sₙ (theorem_3_57_dim), Theorem 3.27 with locally constant dimension (theorem_3_27_loc) and theorem_3_57_sc, none of which B states.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). The audit's informational #rt_overlap counts on A_to_B were not recomputed at HEAD.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "theorem_3_57 and theorem_3_57_dim now state the germ reading; A gains theorem_3_57_sc. The item did not compile (chart-change lemma); repaired through isGoodPositionGerm_of_linAt_surj. A ⇒ B proved again through theorem_3_57; B ⇒ A still fails."
+ }
+}

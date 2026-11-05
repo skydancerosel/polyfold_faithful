@@ -1,0 +1,12 @@
+{
+ "id": "V2_14",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same X_m, X_∞ and topology. P.levelSet m (φ(x) ∈ range ι_m for some chart of the maximal atlas) is B's levelSetB (∃ z ∈ O_m with ι_m z = φ(x)) definitionally since φ(x) ∈ O; chart independence is A's mem_levelSet_iff; X_0 = X, X_{m+1} ⊆ X_m, X_∞ = ⋂ X_m match. The project's generators {x ∈ V | levelLift φ m x ∈ W} equal B's traces {x ∈ V | ∃ z ∈ W ∩ O_m, ι_m z = φ(x)} once ι_m(levelLift) = φ(x) on X_m ∩ V (from chart independence), so levelTopology = generateFrom of B's family. B also claims the family is a BASIS, which the project explicitly does not prove; it follows from A's isEmbedding_levelLift (an open set of X_m meets V_m in levelLift⁻¹(W)). B → A: mem_levelSet_iff, levelSet_zero, levelSet_succ_subset follow from B; continuous_levelVal (X_m → X continuous) and isEmbedding_levelLift (V_m ≅ O_m) belong to the text's next sentences, not to B, and were re-proved directly with the project's arguments, taking ι_m(levelLift) = φ(x) from B (the project's toBase_levelLift is built on the banned mem_levelSet_iff).",
+ "B_issue": null,
+ "overlap": "172 shared project theorems: from re-proving isEmbedding_levelLift — IsChart.compatible / compatible_of_locally, isScRetract_overlap, IsScSmoothRetractMap.continuousOn_levelMap and the sc-calculus behind it — plus level glue (isOpen_level_basic, levelVal_mem, level_ext, levelVal_injective, levelLift proof field) and MChart glue (exists_isOpen_image_eq, mapsTo_model, transition_apply). None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

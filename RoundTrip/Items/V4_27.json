@@ -1,0 +1,12 @@
+{
+ "id": "V4_27",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A is the set of chart-level lemmas used by the formal proof of (i) ⇒ (ii); B is the implication (i) ⇒ (ii) itself for a tame M-polyfold. A ⇒ B is real glue: hasCornerStructure_iff gives a corner chart at every point, mem_smooth (A) + mem_smoothSet_iff give X_0 = X_∞, isScSmoothMap_toLevelOne_of_cover (Prop. 4.8 in corner charts, not banned) gives 1_0^1 sc-smooth for every junk value, exists_centred (A) gives the centred chart (tame via the identity retraction), and for ANY retraction R onto its model Dr(0)E = T_0O = E by tangentSpace_eq_coe_submodule + tangentSpace_relOpen (A); B's stronger good position (sc-complement) holds with the sc-complement 0 (isScSplitting_bot_top) and the interior from isInGoodPosition_top (A). B's tameness hypothesis is not needed. B ⇒ A holds only VACUOUSLY: A's conjuncts are statements about an arbitrary corner chart of an arbitrary M-polyfold (and about any relatively open subset of a partial quadrant), which B, a statement about tame M-polyfolds with corner structure, does not yield; they are re-proved outright by copying the project's short arguments.",
+ "B_issue": null,
+ "overlap": "B_to_A (vacuous) shares 321 project theorems with the formal proofs (re-centring machinery MChart.recentre*, relOpen_translate, tangentSpace_eq_range, ScRetraction.id_isTame, sc-calculus infrastructure) because it copies those proofs; A_to_B uses A's conjuncts plus hasCornerStructure_iff, mem_smoothSet_iff, isScSmoothMap_toLevelOne_of_cover, IsCornerChart.isScPlusRetract, tangentSpace_eq_coe_submodule, isScSplitting_bot_top.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

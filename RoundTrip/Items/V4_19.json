@@ -1,0 +1,12 @@
+{
+ "id": "V4_19",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (types at universe 0 for exists_norm_sub_sub_le_of_hasFDerivWithinAt) = for EVERY sc⁺-retraction and EVERY level k+1: t_{k+1} = lvlMap k has derivative lvlDeriv k x within U_{k+1}, lvlDeriv k is operator-norm continuous on U_{k+1}, the mean value estimate exists_mvt at every u₀, plus the abstract mean value lemma for an arbitrary normed space. A ⇒ B is glue using A's first two conjuncts: B's setting gives a GraphData (B's sc-complement is a closed good complement, p corestricts to T₀O); g = lvlMap 0, h = qL 1 ∘ g are C¹ on U₁ (U₁ has unique derivatives); fderivWithin h = (1−p)₁(Dt₁(u) − Dt₁(0)) has norm ≤ 1/2 near 0 by continuity at 0 and (1−p)Dt(0) = 0; the segment integral is the FTC (E₁ complete). B ⇒ A fails for genuine generality: B speaks only of level 1 and only of retractions in the Prop. 4.9 setting (0 ∈ O, T₀O in good position with an sc-complement), it does not identify the derivative with the project's lvlDeriv, says nothing on levels k+1 ≥ 2 or at retractions without good position, and nothing about the abstract MVT lemma for arbitrary X. Partial converse proved: B_to_A_level_one (in B's setting, lvlMap 0 is C¹ on U₁).",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. B_to_A_level_one shares 68 project theorems, all sc-calculus infrastructure (scale proof fields, mem_lvlSet, IsSc0/IsSc1 projections, toBase_levelMap, partial-quadrant/sc-domain lemmas); it does not touch the derivative identification (IsSc1With.hasFDerivWithinAt_level, continuousOn_levelDeriv_clm) behind A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

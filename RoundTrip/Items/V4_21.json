@@ -1,0 +1,12 @@
+{
+ "id": "V4_21",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = qL_lvlDeriv_zero ∧ lvlDeriv_zero_of_mem_N ∧ exists_contraction_radius ∧ eq_of_p_eq, for EVERY GraphData and EVERY level k+1: the quantitative ingredients of Lemma 4.11 ((1−p)Dt(0) = 0, Dt(0) = 1 on N, the level-(k+1) mean value/contraction estimate with arbitrary θ, and 'same p-projection + contraction ⇒ equal'). B is the qualitative uniqueness statement on level 0: zeros a + y of f(x) = (1−p)(x − t(x)) with |a|₀, |y|₀ < ε satisfy y = δ(a), for every solution germ δ. A ⇒ B proved (uses A's 2nd–4th conjuncts): B's setting gives a GraphData; a small zero x has n = x − t(x) ∈ N, and with t¹ continuous at 0, A's MVT on level 1 and Dt(0)n = n force n = 0, so x ∈ O with ‖x‖₁ < r (the text's 'a₁ = a' argument); then a = p(x) ∈ C via A's contraction estimate and p_mem_C (needed so that δ(a) is constrained at all — B does not assume a ∈ C), a + δ(a) is likewise a small zero on O, and eq_of_p_eq gives a + y = a + δ(a). B ⇒ A fails for genuine generality: a level-0 uniqueness statement yields no operator identities or θ-estimates on arbitrary levels k+1, and eq_of_p_eq is an elementary lemma B does not address.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). A_to_B reuses, besides A, the GraphData glue (toBase_qL, toBase_liftN, eps_pos, zero_mem_lvlSet_retract/U, p_mem_C) and the level-data lemmas toBase_lvlMap, lvlMap_eq_self, isScSmooth_liftOne; none of the banned theorems (rt_check OK).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

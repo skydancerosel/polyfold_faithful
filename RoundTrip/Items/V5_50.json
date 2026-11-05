@@ -1,0 +1,12 @@
+{
+ "id": "V5_50",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only HasContDiffBump and AdmitsContDiffPartitionsOfUnity are listed, so A = True and both implications are vacuous. The content is B itself, proved outright as B_holds: the project's HasContDiffBump V k (∃ f, ContDiff ℝ k f ∧ f ≠ 0 ∧ IsBounded (support f)) is B's HasCkBumpB V k (∃ f, ContDiff ℝ k f ∧ ∃ x, f x ≠ 0 ∧ tsupport f ⊆ closedBall 0 R for some R). The smoothness clause is literally the same, with k : ℕ∞ cast to WithTop ℕ∞ so that ⊤ means C^∞, not analytic. f ≠ 0 is ∃ x, f x ≠ 0, and a set is bounded iff its closure lies in a closed ball. The project does not need completeness of V; B assumes it, which is harmless.",
+ "B_issue": "B compares only HasContDiffBump. The second listed definition, AdmitsContDiffPartitionsOfUnity (every open cover of V has a subordinate partition of unity of C^k functions, Mathlib PartitionOfUnity with index type in V's universe), is not part of Definition 5.31 and is not compared.",
+ "overlap": "0 shared project theorems (B_holds uses only Mathlib boundedness lemmas).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

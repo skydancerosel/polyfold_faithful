@@ -1,0 +1,15 @@
+{
+ "id": "V3_22",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": true,
+ "why": "A = IsScSmoothGerm.isScInftyGermAt ∧ IsScSmooth.isScInftyGermAt; B = (project HasTangentGermProperty ↔ text's) in a tame M-polyfold. Half proved using A (mpr_of_A: text ⇒ project; B's sc-complement Y is closed and an algebraic good complement, δ reset to 0 off V, B's fixed sc-smooth germ gives the project's k-dependent IsScInftyGermAt by A, B's germ derivative D(0) = 0 gives fderivWithin δ (N∩C) 0 = 0 by uniqueness on N∩C; tameness unused). Project ⇒ text not proved, believed true: (i) closed complement of smooth finite-dim N ⇒ sc-complement (proved in V3_20.lean); (ii) the project reads 'sc^∞-germ' with neighbourhoods V_{m,k} depending on level and order, the text with one germ O(N∩C, 0); the diagonal U_j = V ∩ ⋂_{m+i≤j} V_{m,i} should work but needs a germ version of Prop 1.19 on finite-dimensional domains (C^i into E_m on U_{m+i} ⇒ sc^k-germ), absent from the project. Other differences are harmless: δ ∈ Y everywhere vs on V, Y closed added (= sc-complement for smooth N), Dδ(0)=0 via fderivWithin. B ⇒ A not derivable: A's lemmas are general germ facts on arbitrary finite-dimensional quadrants, not statements about M-polyfold subsets.",
+ "B_issue": null,
+ "overlap": "mpr_of_A (the proved half of A ⇒ B): 69 shared project theorems, germ and sc-structure glue (IsSc1GermWith/ScNbhdGerm fields, IsQuadrantLike.uniqueDiffWithinAt, lvlSet_const, const_toBase); also uses proposition_3_22 (not an item theorem). No full direction proved.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

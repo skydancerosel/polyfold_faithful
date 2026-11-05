@@ -1,0 +1,24 @@
+{
+ "id": "V3_86",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_3_56 ∧ theorem_3_57 ∧ lemma_2_26 ∧ theorem_3_56_sc (universes 0; the Chapter 3 theorems in the text's germ reading). A ⇒ B: PX.boundary = ∅ ↔ IsWithoutBoundary (isWithoutBoundary_iff); B's IsLinSurjAt at a zero with d_X = 0 plus the tame germ data give IsGoodPositionGermTame (germ form of isGoodPositionGerm_of_isLinSurjAt); theorem_3_56; S = ∅ via the empty atlas; IsManifoldWithCornersLoc ∧ d_S ≡ 0 gives B's open-chart structure (glue: a corner chart realizes d_S = 0, restrict to the open set where all quadrant coordinates are > 0 and change the model to (U, univ, const E₀)). B ⇒ A fails for a real reason: theorem_3_56 needs no tame strong bundle while B assumes one (global PX.IsTame and a tame atlas), and A also contains the boundary case theorem_3_57, Lemma 2.26 and theorem_3_56_sc, which B does not state.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). The audit's informational #rt_overlap counts on A_to_B were not recomputed at HEAD.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "theorem_3_56 and theorem_3_57 now state the germ reading, as does B's IsScFredholmSectionTame; A gains theorem_3_56_sc. The proof compiled unchanged; A_holds and the rt_check list were extended. A ⇒ B proved again through theorem_3_56; B ⇒ A still fails."
+ }
+}

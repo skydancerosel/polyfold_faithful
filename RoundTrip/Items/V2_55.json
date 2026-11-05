@@ -1,0 +1,12 @@
+{
+ "id": "V2_55",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions. The project's IsStrongBundleRetraction and B's IsStrongBundleRetractionB agree for U relatively open (B's [1]-map is any sc-smooth lift Φ₁, the project's is shiftFiber R; they agree on U ⊕ F₁, so sc-smoothness transfers by IsScSmooth.congr), hence IsStrongBundleRetract = B's local strong bundle retract; strongLevel/strongShiftOne are B's KcapB/KoneB and the base retract r(U) is B's baseB definitionally. A ⇒ B: K_{m,k} = {u ∈ O_m, Γ(u,h) = h} is mem_image_iff at (ι_m u, ι_k h) (for all k, not only k ≤ m+1); the K[0], K[1] level descriptions add prod_toBase/shiftScale_toBase; p : K[i] → O sc-smooth is isScSmoothRetractMap_fst(_one) + isScRetract(_one) with base K = r(U). B ⇒ A: mem_image_iff is B's K_{0,0} formula; isScRetract(_one), isScSmoothRetractMap_fst(_one) come from B's existential Definition 2.7 for p : K[i] → O (via isScSmoothRetractMap_iff_exists); shiftIncl composes the sc-operator E ⊕ F¹ → E ⊕ F with B's retraction onto K[1]. toScRetractionOne_retract is about the project's internal retraction shiftFiber R (which B cannot name) and is re-proved set-theoretically from the definitions, using B's K[1] description for one inclusion.",
+ "B_issue": null,
+ "overlap": "159 shared project theorems, none of the item's: sc-calculus and retract infrastructure (isScSmoothRetractMap_iff_exists, proposition_2_6_1, theorem_1_21', IsScSmooth.comp, ScOperator.isScSmooth, isScDomain_univ, IsRelOpenInQuadrant.prod_univ, IsStrongBundleRetraction.toBase_shiftFiber_snd/snd_mem_range/mapsTo_fst) and structure fields / _proof_ fields of ScRetraction, IsStrongBundleMap, ScBanach, ScOperator.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

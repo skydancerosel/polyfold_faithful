@@ -1,0 +1,12 @@
+{
+ "id": "V3_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item in substance: the project's ScNbhdGerm has exactly the fields of B's IsScGermB (nested along incl, U m = O ∩ lvlSet C m with O open, 0 ∈ U m; lvlSet C m is definitionally B's levelB), every IsScGermB sequence is the levels of a ScNbhdGerm, the project's tangent germ has levels U(m+1) ×ˢ univ = TUB U over E.tangentSet C = TCB E C (rfl), and ofSet has levels lvlSet U m = ofSetB E U m (rfl); so B is proved outright and the definitions agree exactly. A consists of two auxiliary lemmas (partial quadrants are quadrant-like; each germ level has unique differentiability) which B does not mention; B → A re-proves them from non-banned lemmas (convex_lvlSet, interior_lvlSet_nonempty, IsQuadrantLike.uniqueDiffWithinAt). Both directions are therefore vacuous as implications; the content of the audit is that the definitions coincide.",
+ "B_issue": null,
+ "overlap": "37 shared project theorems, all infrastructure: IsPartialQuadrant.convex_lvlSet / interior_lvlSet_nonempty / lvlSet_eq, IsQuadrantLike.uniqueDiffWithinAt / convex / interior_nonempty, quadrant_convex, quadrant_interior_nonempty, ScNbhdGerm.relOpen, ScBanach prod/const scale lemmas; B_to_A re-proves the two banned lemmas verbatim from these.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

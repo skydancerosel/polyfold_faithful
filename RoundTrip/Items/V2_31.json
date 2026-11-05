@@ -1,0 +1,12 @@
+{
+ "id": "V2_31",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item. The project's minimalSubspaceWith T x and partialQuadrantAtWith T x are exactly B's transports T⁻¹(E_{Tx}), T⁻¹(C_{Tx}) of the text's E_x = ⋂_{i∈I(x)} E_i and C_x = ⋂_{i∈I(x)} H_i (via mem_minimalSubspaceWith, and by unfolding for C_x), and dim(E/E_x) = d_C(x) on the standard quadrant follows from finrank_quotient_minimalSubspaceWith with T = id (rank = finrank since the quotient is finite-dimensional). Conversely B gives mem/isClosed/subset/isClosed for E_x, C_x, and finrank_quotient_minimalSubspaceWith for every presentation T and every x ∈ E₀ (applying B (1) at (|a|, w) ∈ C, which has the same E_x and index, transported by T). The four density statements in A (exists_tendsto_lvl1/smooth_degIndexWith, subset_closure_ker_inter_range_toBase, partialQuadrantAtWith_subset_closure) are auxiliary facts not in the text's definition nor in B; in B ⇒ A they are re-proved directly (copies of the project's short arguments), without B.",
+ "B_issue": null,
+ "overlap": "38 shared project theorems, all sc-scale infrastructure reached by the re-proved density statements (denseRange_incl, dense_smooth, prod/const scale smoothLvl and toBase lemmas, ScIso.symm_toBase_comm, mapsTo_smoothLvl, auto-generated _proof_ lemmas); none of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

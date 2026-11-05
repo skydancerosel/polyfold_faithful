@@ -1,0 +1,12 @@
+{
+ "id": "V4_22",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Different statements. A (exists_graph_point, the project's Lemma 4.12 by a level-1 contraction for y ↦ (1−p)t(a+y)) is an EXISTENCE claim: for a ∈ N ∩ C with ‖a‖₁ < ρ there is u ∈ O₁ with p(u) = a, u − a ∈ Y and ‖u − a‖₁ ≤ ε'‖a‖₁ (under hypotheses on θ, r, the mean value estimate). B (the text's Lemma 4.12) is an IDENTIFICATION claim about a given solution germ δ of f(a + δ(a)) = 0, f = (1−p)(id − t): its zeros with |a|₀ < ε lie in O. A ⇒ B would still need the uniqueness of Lemma 4.11 to match a + δ(a) with A's point, and that argument's ingredients prove B directly; so B was proved OUTRIGHT (B_holds: f(v) = 0 gives v − t(v) ∈ N ⊆ E_∞, so v ∈ E₁ with small level-1 norm by continuity of t : U → E₁ at 0; the level-1 mean value estimate with Dt(0) = 1 on N gives ‖t(v) − v‖₁ ≤ ½‖t(v) − v‖₁), and A_to_B is vacuous (flagged). B ⇒ A fails for a genuine reason: B presupposes the solution germ δ; obtaining A from B needs the existence of δ (the contraction / Corollary 3.47), i.e. re-proving A's main content. Glue for B: B's setting (sc⁺ with some lift, T₀O = range Dt(0), sc-splitting T₀O ⊕ Y with the ε-cone condition, p : E → E the projection along Y) builds the project's GraphData (toGraphData: Y closed from the sc-splitting, p co-restricted to N).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). B_holds uses GraphData.exists_contraction_radius (the level-1 mean value estimate, Lemma 4.11's estimate), lvlMap_eq_self, toBase_lvlMap, lvlDeriv_zero_of_mem_N, liftN, continuousOn_base of the lift, tangentSpace_eq_coe_submodule; not exists_graph_point.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

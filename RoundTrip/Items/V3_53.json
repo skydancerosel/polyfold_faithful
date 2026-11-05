@@ -1,0 +1,12 @@
+{
+ "id": "V3_53",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = lemma_3_60 (abstract: on a compact parameter set K, a family of sc-operators X → Y, jointly continuous on level m, injective on level m, with the family compactness property, has a uniform lower bound c_m). B is the concrete Lemma 3.60 in the setting of Theorem 3.58, with the O of Lemma 3.59. A ⇒ B was proved with the family L(b) = P_Y ∘ Df(b)|_X built as for V3_52, now on every level (Df(b) : E_m → F_m is the level operator at a continuous lift of b to E_{m+1}). O and its injectivity come from the project's lemma_3_59 (allowed, it is not this item's theorem). For Õ with compact closure in O, the hypothesis lemma_3_60 is applied on K = cl(Õ) as a compact subset of B, with continuity from Proposition 1.16(2), level-m injectivity from level 0 (ScOperator.injective_lvl) and FamilyCompactness from CompactnessProp. B's P_Y(Df(b)h) = y follows from the uniqueness of F_m = Y_m ⊕ A_m. B ⇒ A fails genuinely: A is about arbitrary continuous families with the compactness property, which need not come from an sc-smooth f in the setting of Theorem 3.58.",
+ "B_issue": null,
+ "overlap": "rt_overlap on A_to_B: 0 shared project theorems (lemma_3_60's own proof uses only Mathlib); the glue uses lemma_3_59, ScOperator.injective_lvl and exists_bound_of_continuousOn_clm from the project.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V5_7",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = IsProper.isWeaklyProper (for any continuous f) ∧ IsWeaklyProper.isCompact_solutionSet (universes 0); AuxLe/IsWeaklyProper/IsProper are vocabulary. B's definitional conjuncts hold by Iff.rfl (solSetB = solutionSet, suppB = closure{¬IsZeroAt}, NLe = AuxLe, same quantifier structure over auxiliary norms and sc⁺-sections), so the project's Definition 5.4 is the text's. A ⇒ B: an sc-smooth section is continuous, then A's two lemmas. B ⇒ A fails only on generality: B states 'proper ⇒ weakly proper' for sc-smooth sections (the text's setting), A for every continuous f : X → Y (not even a section); B gives A's second conjunct (B_gives_A_compact) and A's first conjunct for sc-smooth sections (B_gives_A_scSmooth). The extra generality is elementary (closedness of {f = s} and f⁻¹(0) ⊆ U) but not a consequence of B.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved; no #rt_overlap run. B_gives_A_compact and B_gives_A_scSmooth pass #rt_check.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

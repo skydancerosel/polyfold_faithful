@@ -1,0 +1,13 @@
+{
+ "id": "V5_63",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Both sides use the same approximation property, and their Hilbert notions agree: the project asks for a continuous bilinear b with ||v||^2 = b(v,v), B also asks b to be symmetric, and symmetrizing to (b + b^T)/2 makes them equal (hilbert_iff). The real difference is that corollary_5_44 takes the cited Theorem 5.43 for E_0 and k = infinity (GodefroyTroyanskiWhitfieldZizlerStatement (M.E 0) ⊤) as an explicit hypothesis, while B does not. B => A is therefore immediate: drop the extra hypothesis, and get the M-polyfold conjunct admitsScPartitionsOfUnity_of_hilbert from B in the charts plus Theorem 5.37 (ii)=>(i) (admitsScPartitionsOfUnity_of_approx, not banned). A => B would need Theorem 5.43 for Hilbert spaces, i.e. that a Hilbert space admits C^infinity partitions of unity. That is deep Banach-space geometry, in neither the project nor Mathlib. B is believed true, but the gap is that missing theorem, not glue. With the cited theorem assumed, A => BCited (the blind file's intended reading) is proved.",
+ "B_issue": null,
+ "intended": "A_to_BCited proved (#rt_check OK): with GodefroyTroyanskiWhitfieldZizlerStatement assumed for all Banach spaces and all k, corollary_5_44 gives B's conclusion via hilbert_iff.",
+ "overlap": "B_to_A: 275 shared project theorems. Almost all of them come from admitsScPartitionsOfUnity_of_approx (Theorem 5.37 (ii)=>(i), which the project's admitsScPartitionsOfUnity_of_hilbert also uses via theorem_5_37) and its chart and sc-calculus machinery: exists_isScSmoothMap_urysohn, exists_approx, exists_small_nhds, isScSmoothMap_real_finsum and friends, closure_inter_ball_subset, Chapter 1-2 lemmas. None of corollary_5_44's own ingredients is reused (proposition_5_38, isReflexive_of_hilbert, proposition_5_42_reflexive, hasContDiffBump_of_hilbert).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

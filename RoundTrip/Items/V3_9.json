@@ -1,0 +1,24 @@
+{
+ "id": "V3_9",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is now the two bridges IsFilledVersion.isFillingGerm and IsFillingGerm.isFilledVersion (the latter assuming g sc-smooth on U); the row's canonical notion of Definition 3.6 is the germ filling IsFillingGerm, with IsFilledVersion its whole-chart special case G = ofSet U. Proved: IsFillingGerm ↔ the text's filling IsFillingB with no hypothesis on g (germ_iff_B, glue of V3_7), hence B (b) with IsFillingGerm in place of IsFilledVersion (B_part_b_germ); B (a) (IsFilledVersion ↔ g sc-smooth on U ∧ text filling, as before); and B (b) ←. Not proved, believed false: B (b) →, which names the whole-chart IsFilledVersion; the text's g may be smooth only on shrinking levels, condition (1) forces g = f̂ on O near 0, so for a section germ smooth on no neighbourhood (exists_isScSmoothGerm_not_isScSmooth) no centred chart carries a whole-chart filled version (not formalized: needs the transition calculus over all tame charts). So A → B fails only through B's choice of the whole-chart notion; B → A re-proves the bridges outright. Relation: the project's notion of filling (IsFillingGerm) is the text's.",
+ "B_issue": "B (b) identifies the text's 'has a filling' with the project's IsFilledVersion (whole chart). At the audit that was the project's notion; at HEAD it is the documented whole-chart special case, the canonical notion being IsFillingGerm. With IsFillingGerm in its place B (b) is proved (B_part_b_germ); as written B (b) → is believed false. B's own definitions (IsFillingB, HasFillingB, IsScSmoothSectionGermB) still mean the text.",
+ "overlap": "221 shared project theorems: the sc-calculus behind the re-proved bridges (IsSc1.isSc1GermWith_ofSet, IsScSmooth.isScSmoothGerm, fillDefect_isScSmooth, IsSc1GermWith.eq_of_uniqueDiffWithinAt, ScNbhdGerm lemmas); B_to_A is the project's proofs re-run.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "A went from True to the bridges IsFilledVersion.isFillingGerm / IsFillingGerm.isFilledVersion (re-proved outright in B_to_A), and the row's canonical notion is the germ filling IsFillingGerm, which is proved to be the text's filling (B_part_b_germ). The literal B (b) → still fails because B names the whole-chart IsFilledVersion (B_issue); relation A_narrower → equivalent for the row's notion."
+ }
+}

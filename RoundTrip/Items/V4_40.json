@@ -1,0 +1,12 @@
+{
+ "id": "V4_40",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only IsTameSubmanifold is listed, so A = True and both implications are vacuous; the content is B itself, proved outright (B_holds). The project's IsTameSubmanifold A is ∃ hA : IsSmoothSubmanifold A, (subPolyfold hA.isSubMPolyfold).IsTame; B's text reading is ∃ hA : IsSubMPolyfold A, (subPolyfold hA).IsTame. For a smooth finite-dimensional submanifold (B's hypothesis, = the project's IsSmoothSubmanifold by the V4_33 glue) they agree, the induced structure not depending on the proof of IsSubMPolyfold. The only difference is that the project's definition builds 'A is a smooth submanifold' into 'tame', which matches the text's phrase 'a smooth finite-dimensional submanifold is tame if ...'.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial); B_holds uses only IsSmoothSubmanifold.isSubMPolyfold and the sc⁺-retraction glue.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

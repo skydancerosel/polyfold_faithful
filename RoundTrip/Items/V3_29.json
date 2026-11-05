@@ -1,0 +1,12 @@
+{
+ "id": "V3_29",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A => B: B only asks for SOME sc0-contraction germ f^(j) of class sc^{min(k-j,1)} with solution germ T^j delta, so the trivial germ f^(j)(a,w) = w - T^j delta(a) (contraction constant 0) is a witness once T^j delta is regular; A's sol_isSckGerm (j := k) for h.toContractionGerm gives sol sc^k on some germ s, B's delta agrees with sol near 0 (uniqueness in O 0), and exists_iterTan shows T^j delta (B's iterTan with lvlLift and fderivWithin) is sc^{k-j} on a germ in T^j C~ (B's tanMap is the project's tangent germ transported along P x P = TP, fderivWithin = the sc-derivative by uniqueness on the convex C~). B's hypothesis that delta is sc^j is not needed. B => A fails for genuine generality: A's sol_isSckGerm covers every working-form ContractionGerm (only a 1/2-contraction on explicit regions, e.g. B(a,w) = w/2, which is not a Definition 3.28 contraction germ) on any quadrant-like C~ and asserts sc^j of the specific sol on the explicit germs N(m+s) cap C~; isSckGerm_succ_of_next is a statement about the specific iterate next s; B (an existence claim satisfied by trivial germs) yields neither.",
+ "B_issue": "B's existential does not capture the text's iterated germ f^(j) = (f^(j-1))^(1) of Lemma 3.31: it is witnessed by the trivial contraction germ w - T^j delta(a), so B is equivalent to the regularity statement 'T^j delta is sc^{min(k-j,1)} near 0', a consequence of Theorem 3.33, rather than to the construction of f^(j). (The blind author flagged the existential reading; the statement is not false.)",
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

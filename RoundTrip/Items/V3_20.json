@@ -1,0 +1,24 @@
+{
+ "id": "V3_20",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A is now the conjunction of the new theorems about the text's notion as written (IsScGoodComplement: an sc-splitting E = N ⊕ P with the ε-property; IsInGoodPositionSc): the forgetful map to the project's notion, the upgrade lemmas (a closed good complement of a smooth finite-dimensional N is a good sc-complement, also inside an sc-subspace T) and the dictionaries isScGoodComplement_iff (smooth N: good sc-complement ↔ good complement ∧ closed) and isInGoodPositionSc_iff (Definition 3.21 as written ↔ project's good position ∧ N ⊆ E_∞). B still claims that the project's unchanged IsGoodComplement (algebraic complement) is the text's good complement, which is FALSE (not_B, counter-model ℓ² with C = E₀ and a non-closed kernel of a discontinuous functional); so A ⇒ B is false and B ⇒ A holds only ex falso (B_to_A via not_B). B's first conjunct (good position agrees, goodPosition_iff) and the corrected dictionary IsGoodComplementB ↔ IsGoodComplement ∧ closed (B_corrected_holds) remain proved; the project now states the same correction for the text's sc notion. Formal relation A_narrower (B false); mathematically the project now has both the algebraic notion (used in the theorems) and the text's sc notion, related exactly as the audit's corrected dictionary says.",
+ "B_issue": null,
+ "overlap": "B_to_A (ex falso via not_B): 20 shared project theorems, all sc-scale infrastructure (ScScale/ScBanach.prodScale/constScale proof fields, dense_smooth, incl_isCompactOperator) from the counter-model; no banned theorem. not_B and B_corrected_holds pass #rt_check against the five listed theorems.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "false",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "A was True (definitions only); it is now the five theorems on the text's sc good complement (IsScGoodComplement, IsInGoodPositionSc) and their dictionary with the project's notion. B is unchanged and still false (the project's IsGoodComplement is still algebraic); B_to_A is now ex falso instead of trivial. Relation unchanged (A_narrower, formal)."
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V2_43",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item. The project's MPolyfold.IsTame and B's IsTameMB are the same existential except for the equivalence of atlases: the project's MAtlas.Equiv A B ('some atlas D has chart set A ∪ B') vs B's EquivB ('all charts of A ∪ B pairwise compatible'), equivalent via the project's MAtlas.equiv_iff (equivB_iff); so B holds outright and A ⇒ B does not use A. B ⇒ A: IsTame.exists_chart (a tame M-polyfold has, around each point, a chart of the structure on a tame retract) follows from B (B's atlas covers x and its pairwise compatibility with P.atlas makes the chart a chart of P); isChart_of_mem_equiv does not involve tameness and was proved outright from MAtlas.equiv_iff. Universe instantiated at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 24 shared project theorems — MAtlas.equiv_iff, MAtlas.compatible/cover, MChart.Compatible.symm and sc-structure glue; none of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V1_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: B states that the project's IsScOperator, ScOperator and ScIso are exactly the text's sc-operators / linear sc-isomorphisms (level maps only assumed continuous, base map only linear); all three characterizations are proved, so the project's notions agree with the text. The only glue is that the text's level maps T_m are automatically linear and unique (inclusions injective), the base map is continuous (it is its own level-0 map), and for an isomorphism the level maps T_m, S_m of T and T⁻¹ are mutually inverse. A_to_B uses A's isScOperator (ScOperator ⇒ text sc-operator, also for ScIso and its symm); B_to_A derives isScOperator from B, while ext_base, mapsTo_smoothLvl and (new) isScOperator_of_mapsTo — the closed-graph remark that the level continuity in Definition 1.3 is automatic for a bounded T₀ with T₀(E_m) ⊆ F_m — are facts a characterization like B does not mention; they are re-proved from the definitions and Mathlib's closed graph theorem (LinearMap.continuous_of_seq_closed_graph), without B. No universe parameters.",
+ "B_issue": null,
+ "overlap": "9 shared project theorems, all basic scale/operator glue: ScOperator.toBase_comm, ScOperator.incl_comm, ScScale.toBase_injective, incl_injective, toBase_succ, complete, mem_smooth_iff, mem_smoothLvl_iff (+ its simp lemma); used to re-prove ext_base, mapsTo_smoothLvl and isScOperator_of_mapsTo",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "proved",
+   "relation": "equivalent"
+  },
+  "note": "A gained isScOperator_of_mapsTo (closed graph: level continuity is automatic) and the vocabulary ScIso.ofBijective. A_to_B unchanged; B_to_A re-proves the new conjunct from Mathlib's closed graph theorem (B does not speak about it), so the result stays equivalent, the new conjunct being covered by the re-proof rather than by B."
+ }
+}

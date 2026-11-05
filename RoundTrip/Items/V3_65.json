@@ -1,0 +1,12 @@
+{
+ "id": "V3_65",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = Radii.mapsTo_ball ∧ Radii.exists_fixed (no universe parameters; Radii.τ is a definition, vocabulary only): for abstract normalized data (ContractionData on K × Y: convex Cp, B(0) = 0, DB(0) = 0) and ANY admissible Radii S (good constant ε, radii a, b with εa ≤ b, ‖DB‖ ≤ ε/(2(1+ε)) on the region), B(k,·) maps X_k = B̄(ε|k|) into itself and has a fixed point there, for k ∈ V₀ = B_K(a) ∩ C. A ⇒ B: the blind quadrant setting is turned into ContractionData (K = ker L, Cp = {k + y ∈ C}, Up = domB, the blind Bmap with invY identified with the continuous inverse of L|_Y; the construction of theorem_3_78's proof), radii are built by hand with B's prescribed ε and a ≤ a₀, and A gives the self-map bound and existence; uniqueness in X_k is the contraction (Radii.norm_B_sub_le_snd) and k + X_k ⊆ U is Radii.mem_R_of_mem_V₀. B's further bound |B(k, y)| ≤ c(a)|k| with c(a) = (1 + ε) sup |DB| over the (1 + ε)a-ball is not in A; it is proved in the glue by the mean value inequality (norm_B_le_sSup). B ⇒ A fails genuinely: A is uniform over every admissible Radii for an abstract convex Cp and abstract B, while B concerns the concrete quadrant in Fin n → ℝ and only asserts that some sufficiently small a works.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. #rt_overlap on A_to_B: 24 shared project theorems, all ContractionData/Radii structure projections and the contraction infrastructure (Radii.norm_sub_le, norm_B_sub_le_snd, mem_R_of_mem_V₀, R_sub_U, R_convex, c₀_le_half, ContractionData.hasFDerivWithinAt). These are reused for uniqueness and membership; neither banned theorem is used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

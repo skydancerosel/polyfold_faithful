@@ -1,0 +1,24 @@
+{
+ "id": "V3_70",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = corollary_3_24 ∧ theorem_3_57 ∧ corollary_3_24_sc ∧ forall_isGoodPositionGermSc_iff (universes 0, germ reading). A assumes only IsScFredholmSection, good position in a centred tame chart at every zero (IsGoodPositionGermTame with an algebraic complement, or IsGoodPositionGermSc with the text's sc-complement in corollary_3_24_sc) and S ≠ ∅, with no tameness of the bundle or base; B assumes a tame strong bundle (PX.IsTame + tame atlas), IsScFredholmSectionTame and sc-complement good position in some, not necessarily centred, tame chart. A ⇒ B: B's pointwise hypothesis gives IsGoodPositionGermTame (isGoodPositionGerm_of_linAt_surj, IsGoodPositionGerm.toTame), then corollary_3_24; S = ∅ via the empty atlas; IsManifoldWithCornersLoc ⇔ HasCornerStructure. B ⇒ A fails for a real reason: A's non-tame setting does not supply B's tameness hypotheses (global PX.IsTame, tame germ data away from the zeros), and theorem_3_57's regular-data clause and the auxiliary equivalence forall_isGoodPositionGermSc_iff have no counterpart in B.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). The audit's informational #rt_overlap counts on A_to_B were not recomputed at HEAD.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "corollary_3_24 and theorem_3_57 now state the germ reading; A gains corollary_3_24_sc and forall_isGoodPositionGermSc_iff. The item did not compile (chart-change lemma); repaired through isGoodPositionGerm_of_linAt_surj. A ⇒ B proved again through corollary_3_24; B ⇒ A fails as before, and B does not state the new conjuncts."
+ }
+}

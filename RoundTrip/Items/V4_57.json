@@ -1,0 +1,12 @@
+{
+ "id": "V4_57",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = finrank_stratSub ∧ measure_image_stratCritSet (no universe parameters) is the finite-dimensional MODEL of the step: in a finite-dimensional V with onto coordinates ℓ, dim stratSub ℓ σ + #σ = dim V, and for f ∈ C^∞(O ∩ {ℓ ≥ 0}) the stratified critical values f(stratCritSet) are null for every Haar measure. B is the M-polyfold statement: for z ∈ A (hypotheses of Theorem 4.23) a neighbourhood U with exactly d_Z(z) local faces, each A ∩ F_σ° a smooth submanifold whose induced structure has no boundary, dim T_z'A = k + #σ and dim T_z'(A ∩ F_σ°) = k in every chart, and full measure of the regular values of every p_σ and of their intersection. A ⇒ B would need Theorem 4.22 (local faces; the strata as submanifolds and their identification with the model's open strata), chart transport of dimensions, and the translation of stratCritSet into B's regValues — substantial mathematics beyond A. B ⇒ A fails because B speaks only of submanifolds of ℝᵐ × X under the global hypotheses of 4.23 and cannot be instantiated at an arbitrary (V, ℓ, f, F, μ); finrank_stratSub is pure linear algebra that holds outright. The two sides are different statements (model lemma vs. M-polyfold claim), not two readings of one claim.",
+ "B_issue": null,
+ "overlap": "No direction proved; no #rt_overlap run.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

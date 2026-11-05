@@ -1,0 +1,12 @@
+{
+ "id": "V2_41",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions: B's complB R x₁ = range(id − Dr(x)) and tangentAt R x₁ = range Dr(x) (rfl), and 'smooth x ∈ O with lift x₁' is the project's x₁ ∈ O₁ ∩ (E₁)_∞. A ⇒ B: B assumes R.IsTame (every presentation) and fixes T; A's proposition_2_35 needs only R.IsTameWith T; B's sc-subspace clause is part of IsScSplitting. B ⇒ A: proposition_2_35 (for IsTameWith T, one presentation) is B after the non-item IsTameWith.isTame; coord_scDeriv_eq (λ_j∘Dr(x) = λ_j for j ∈ I(x)) is B's inclusion in coordinates. The other three conjuncts (Dr(x)E_x ⊆ E_x at x ∈ O₁, Dr(x) an sc-operator at smooth points, E = Dr(x)E ⊕ (1−Dr(x))E an sc-splitting) are facts about ARBITRARY sc-smooth retractions (no tameness), which B cannot supply; they were re-proved outright from non-item lemmas (IsSc1With.mapsTo_minimalSubspace, scOperator_deriv, scDeriv_comp_self, isScSplitting_of_idem). No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A: 128 shared project theorems — in the outright parts the helpers of the project's own proofs (IsSc1With.mapsTo_minimalSubspace / deriv_mem_minimalSubspace_of_lvl1 (sign argument), IsSc1With.scOperator_deriv, ScRetraction.scDeriv_comp_self, ScBanach.isScSplitting_of_idem, theorem_1_21); IsTameWith.isTame enters via minimalSubspaceWith_eq; the rest sc-calculus glue. None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

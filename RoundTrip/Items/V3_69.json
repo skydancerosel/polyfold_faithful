@@ -1,0 +1,24 @@
+{
+ "id": "V3_69",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_3_23_of_nearby ∧ theorem_3_23 ∧ theorem_3_54_two ∧ theorem_3_27 (universes 0), the first three now in the text's germ reading. A ⇒ B through A's theorem_3_23: B's IsSurjGoodPosAt (sc-complement good position of Lin(z) in some tame chart) gives IsGoodPositionGermTame (isGoodPositionGerm_of_linAt_surj, IsGoodPositionGerm.toTame); theorem_3_23's added hypothesis IsGoodPositionGermFilled follows from it by the project lemma isGoodPositionGermFilled_of_isGoodPositionGerm (germ form, Finding 174); IsManifoldWithCorners d gives HasCornerStructure, and B's CornerStructureUnique holds for every M-polyfold. B ⇒ A fails for a real reason: theorem_3_27 (any set with regular tangent germ charts) and theorem_3_54_two (any section of any strong bundle) are not about sc-Fredholm sections of tame bundles, theorem_3_23_of_nearby / theorem_3_23 need neither a tame base nor a tame bundle atlas (B assumes both), and A concludes a fixed dimension d and good position at all nearby zeros, which B does not state.",
+ "B_issue": "CornerStructureUnique (the reading of 'uniquely determined') is trivially true for every M-polyfold (equivalence of atlases is transitive), so it is a vacuous conjunct; otherwise none.",
+ "overlap": "n/a (B_to_A not proved). The audit's informational #rt_overlap counts on A_to_B were not recomputed at HEAD.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "theorem_3_23_of_nearby, theorem_3_23 and theorem_3_54_two now state the germ reading, as does B's IsScFredholmSectionTame. The item did not compile (chart-change lemma signature); repaired through isGoodPositionGerm_of_linAt_surj. A ⇒ B proved again through A's theorem_3_23; B ⇒ A still fails."
+ }
+}

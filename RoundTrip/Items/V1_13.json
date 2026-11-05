@@ -1,0 +1,24 @@
+{
+ "id": "V1_13",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition 1.14 itself is formalized identically on both sides (Sc1With/Sc1/tanMap/tanSet are IsSc1With/IsSc1/tangentMapWith/tangentSet, rfl or field-for-field); B is the three remarks after it. A_to_B: remark (a) ('x ↦ Df(x) is in general not operator-norm continuous') is now A's exists_isSc1_not_continuousOn_deriv word for word after sc1_iff/sc1With_iff (example f(t,x)_k = cos(kt)x_k on ℝ ⊕ weighted c₀); (b) compact-open continuity by currying A's continuousOn_deriv into C(E₀,F₀); (c) for ANY sc-structures with E₀, F₀ finite-dimensional and U relatively open in a partial quadrant via A's continuousOn_deriv (⇒) and the project's proposition_1_19_zero (⇐), levels identified with level 0 — A's own finite-dim conjunct is narrower (constant structures, open U). B_to_A: exists_isSc1_not_continuousOn_deriv is (a); the finite-dim conjunct is (c) at E = const V, U open; the six general infrastructure conjuncts are re-proved outright, and the two conjuncts about the project's specific example (ScOneExample.isSc1With, not_continuousAt_D), which B (an existence remark) cannot speak about, are re-assembled outright from the example's unbanned lemmas (hasFDerivAt_f, isSc0_f, toBase_tangentLevel, continuous_tangentLevel, two_le_norm_D_sub). Needs import Polyfold.Test. No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A: 109 shared project theorems: the earlier glue (sc-structure and levelMap lemmas, IsSc1With/IsSc0 fields, IsSc1With.congr, IsSc1.isSc1With_scDeriv, denseRange_inclK, isPartialQuadrant_univ) plus the whole analytic part of the ScOneExample construction (hasFDerivAt_f, two_le_norm_D_sub, toBase_tangentLevel, the c₀/diag/weight lemmas), used to re-assemble ScOneExample.isSc1With and not_continuousAt_D outright; none of the banned proofs is reused. A_to_B additionally uses proposition_1_19_zero for C¹ ⇒ sc¹.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "A gained exists_isSc1_not_continuousOn_deriv (remark (a), exactly what A_to_B was missing) and two lemmas about the project's example; A_to_B is now proved, and B_to_A still holds, the example lemmas being re-assembled outright from unbanned project lemmas (not from B). Relation A_narrower → equivalent."
+ }
+}

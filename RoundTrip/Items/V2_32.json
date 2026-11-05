@@ -1,0 +1,12 @@
+{
+ "id": "V2_32",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item; the comparison is between the definitions, which agree: at every x₁ ∈ O₁ (smoothness unused) the project's partialConeWith R T x₁ = range Dr(x) ∩ partialQuadrantAtWith T x and reducedTangentSpaceWith R T x₁ = range Dr(x) ⊓ minimalSubspaceWith T x are B's T_xO ∩ C_x and T_xO ∩ E_x, because B's T_xO (fibre of Tr(TU) over x₁) is range Dr(x₁) (ScRetraction.mem_tangent_iff_mem_range) and C_x, E_x unfold to the project's sets; so A ⇒ B is proved outright without A. A's two theorems (quotDim A (A ⊓ E_e) ≤ d_C(e) and its instance dim(T_xO/T^R_xO) ≤ d_C(x)) are elementary bounds not in Definition 2.27 nor in B; B ⇒ A re-proves them directly from finrank_quotient_minimalSubspaceWith, without B. Both directions are therefore vacuous as implications; the substantive finding is that the definitions match the text (the project's versions are defined at every level-1 point, the text's only at smooth points).",
+ "B_issue": null,
+ "overlap": "26 shared project theorems: finrank_quotient_minimalSubspaceWith, finiteDimensional_quotient_minimalSubspaceWith, coordMapL_surjective/coordProj_surjective, quotDim.eq_1 and sc-scale proof fields — exactly the ingredients of the re-proved four-line bound; no item theorem.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V1_36",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B is the conjunction of IsRelOpenInQuadrant.tangentSet and IsRelOpenInQuadrant.shift, word for word (same project notions tangent, tangentSet, shift, lvlSet, IsRelOpenInQuadrant), so A_to_B projects two conjuncts. B_to_A gets the two IsRelOpenInQuadrant statements from B directly and the two IsPartialQuadrant statements by applying B with U = C (a partial quadrant is relatively open in itself, O = univ). A's fifth conjunct ScBanach.shift_tangentSet ((TU)^1 = T(U^1) as sets) is a definitional unfolding identity that B does not address; it is proved directly without B (by mem_lvlSet_tangentSet). The defs ScIso.shift and tangentQuadrantIso are vocabulary used only inside the project's proofs. No universe parameters.",
+ "B_issue": null,
+ "overlap": "33 shared project theorems, all structural glue: auto-generated _proof_N fields of ScBanach.shift/prod/const/quadrant, toBase/smoothLvl simp lemmas, mem_lvlSet, mem_lvlSet_tangentSet (used for the shift_tangentSet conjunct), IsRelOpenInQuadrant.isPartialQuadrant. Nothing of the quadrant constructions (tangentQuadrantIso, ScIso.shift) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V1_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: B characterizes the project's ScBanach as the text's sc-structure (complete levels, injective compact inclusions, E_∞ dense in every E_m), both ways up to level-wise isomorphism, and adds the finite-dimensional, sum and shift claims; everything is proved, so the project's ScScale/ScBanach, const, prod and shift match Definition 1.1 (the project models E_m ⊂ E₀ by separate types with injective inclusions, which B also does). A_to_B uses A where it has content: constScale_smoothLvl for (3a), denseRange_inclK for the uniqueness claim (3b) (the dense range of E_{m+1} → E_m is a subspace of a finite-dimensional space, so the inclusion is onto, hence an isomorphism), prod_smoothLvl for sums (4); the k-fold shift (5) is proved directly (smooth points of E^k at level m = those of E at level k+m). B_to_A gets denseRange_inclK and constScale_smoothLvl from B (1),(3a); prod_smoothLvl and shift_smoothLvl are set equalities about the project's constructions that B (density only) cannot express, so they are re-proved from the definitions (that part is vacuous). Neither A nor the project states the uniqueness of the finite-dimensional structure, but it follows from A. No universe parameters.",
+ "B_issue": null,
+ "overlap": "22 shared project theorems: structure fields, the proof fields of the vocabulary ScBanach.const/prod/shift (constScale/prodScale/shiftScale _proof_N, and prodScale_smoothLvl/shiftScale_smoothLvl reached only through the dense_smooth fields of prod/shift), basic glue (toBase_injective, toBase_inclK, mem_smoothLvl_iff, prodScale_toBase, shiftScale_toBase) and exists_inclK_of_mem_smoothLvl, which the re-proof of denseRange_inclK shares with the project's proof",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

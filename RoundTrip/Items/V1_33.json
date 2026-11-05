@@ -1,0 +1,12 @@
+{
+ "id": "V1_33",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both assume A is an sc-subspace: B's hand-written IsScSubspaceText (closed, complete levels, compact inclusions, A_inf dense in each A_m) is equivalent to the project's IsScSubspace (closed + density), the extra fields being automatic (glue lemmas isScSubspace_of_text / text_of_isScSubspace). The content of B, range(E_inf/A_inf -> E/A) = intersection of the images of E_j/A_j, is exactly exists_smooth_mem_coset (a coset x + A meeting every E_j meets E_inf) plus the trivial inclusion; B's injectivity of E_inf/A_inf -> E/A is elementary (A_inf = A cap E_inf) and proved directly. Conversely B gives exists_smooth_mem_coset, and mk_mem_quotient_smooth_iff (smooth points of the project's quotient sc-space E.quotient) follows from it via quotientScale_toBase_mk, as in the project. A_to_B uses only the first conjunct of A.",
+ "B_issue": null,
+ "overlap": "12 shared project theorems, all glue: _proof_N fields of quotient/quotientScale/ofSubspaceScale, isClosed_levelSub, quotientScale_toBase_mk, mem_smooth_iff, mem_smoothLvl_iff, IsScSubspace.isClosed, structure fields. The Mittag-Leffler argument of exists_smooth_mem_coset is not reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V4_29",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The project's Definition 4.13 (IsSmoothSubmanifold: every a ∈ A has an open V ∋ a and s with IsScPlusRetractionOn s V and s '' V = A ∩ V) is exactly B's IsSmoothSubmanifoldB; the only glue is the sc⁺-retraction notion on an open set (retractionOn_iff, as in V4_9: B's IsOpen V is the isOpen field of IsScSmoothOn, and the project's quantification over junk values x₀ of 1₀¹ = toLevelOne x₀ agrees with B's quantification over all lifts g : X → X₁ of s on V; X = ∅ is vacuous on both sides). A = type of isSmoothSubmanifold_iff ∧ type of IsSmoothSubmanifold.isSubMPolyfold (universe 0) are two easy repackaging lemmas. B is a purely definitional statement, so A_to_B is proved outright from the definitions without using A (flagged); B_to_A uses B to pass to the explicit form and then repackages (SubmanifoldData, and sub-M-polyfold data from the sc-smooth/idempotent/image fields).",
+ "B_issue": null,
+ "overlap": "6 shared project theorems, all structure projections (IsScPlusRetractionOn.mapsTo/idem/isScSmoothOn, SubmanifoldData.image/isScPlusRetractionOn/isOpen); no mathematical content reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

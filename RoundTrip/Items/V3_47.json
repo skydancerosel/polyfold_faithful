@@ -1,0 +1,24 @@
+{
+ "id": "V3_47",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = forall_isGoodPositionAtGerm (good position at Dg(0) for every derivative family, same chart), IsFillingGerm.ker_deriv_le_range (ker Dg(0) <= T0O), IsGoodPositionGermTame.isGoodPositionGermSc and isGoodPositionGermSc_iff (at a zero of a tame sc-Fredholm section, good position with an algebraic complement gives the text's sc-complement, same chart); B = (IsGoodPositionGermTame <-> blind IsGoodPositionB) at a zero of an arbitrary map f in a tame bundle. Proved from A: kernel_part (blind kernel ker(Dg(0)Dr(0)) cap T0O = ker Dg(0)). A => B still fails: (project => blind) the sc-complement now comes from isGoodPositionGermSc, but that needs IsScFredholmSectionTame f, a global hypothesis that B (a definitional equivalence for any f, not even a section) does not give; deriving it from the germ data at x alone would re-prove the project's argument (sc-Fredholmness of Dg(0), Proposition 2.35, upgrade lemma); (blind => project) B's good position lives in an arbitrary tame chart separate from the chart of the germ data, and moving it to the data chart needs chart independence, which the project proves only for globally sc-smooth sections (isGoodPositionAtGerm_of_chart_dense). B => A fails genuinely: A's conjuncts are a general lemma on filling germs and theorems under the global hypothesis IsScFredholmSectionTame, about which B (an iff at one zero, tame bundle) says nothing.",
+ "B_issue": "B quantifies over arbitrary maps f : X -> Y with f(x) = 0 (no section hypothesis), while the text's (f, x) is a germ of a section; for non-sections the principal parts in different charts are unrelated, so B's blind => project half may fail for reasons outside the text. Also B reads Definition 3.21's complement inside T0O as an sc-complement (the text's notion; the project's IsGoodPositionGermTame uses an algebraic complement, upgraded only under IsScFredholmSectionTame).",
+ "overlap": "n/a (no direction proved); kernel_part (A => kernel identification, via the hypothesis) passes #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "A switched to the germ reading (IsFillingGerm.ker_deriv_le_range replaces IsFillerOf.ker_deriv_le_range) and gained the sc-complement upgrade isGoodPositionGermSc(_iff), which however needs a tame sc-Fredholm section; B is an iff at a zero of an arbitrary map, so the result is unchanged (both directions fail, kernel_part re-proved in the germ form)."
+ }
+}

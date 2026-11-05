@@ -1,0 +1,12 @@
+{
+ "id": "V3_58",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_3_72 ∧ surjective_of_image_eq ∧ degIndex_map_eq ∧ degIndex_eq_zero_iff (no universe parameters). theorem_3_72 is stated for C^j maps (j ≥ 1) and, for each j, produces its own U', V', g, so B's single C^∞ diffeomorphism is not read off directly. A ⇒ B was proved from theorem_3_72 with j = 1 (B's hypotheses match A's verbatim: same partial quadrant, relative openness, Df(0)C = C and d_C-equality), plus new glue contDiffOn_infty_inv: the C¹ inverse g of the C^∞ map f is C^∞ on V', by Df(g(y))·Dg(y) = 1 (chain rule within the uniquely differentiable V'), finite dimension making Df(x) a unit, and bootstrapping Dg = Ring.inverse ∘ Df ∘ g. B ⇒ A fails genuinely: A covers maps of every finite class C^j, which B (C^∞ only) does not, and the auxiliary conjuncts (a linear map with L(C) = C onto when int C ≠ ∅; invariance of d_C under linear automorphisms preserving C; d_C(x) = 0 ⟺ x ∈ int C for partial quadrants in arbitrary sc-Banach spaces) are not in B.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved; no #rt_overlap run. A_to_B passes #rt_check against all four theorems (theorem_3_72 used only through the hypothesis; the regularity bootstrap is re-done, not taken from InvData.contDiffOn_inv).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

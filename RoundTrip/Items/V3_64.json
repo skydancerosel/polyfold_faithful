@@ -1,0 +1,12 @@
+{
+ "id": "V3_64",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = ContractionData.exists_radii ∧ Radii.norm_sub_le ∧ Radii.eq_τ (no universe parameters): for abstract normalized data (ContractionData on K × Y), admissible radii exist (ε, a, b with εa ≤ b, the region R ⊆ U and ‖DB‖ ≤ ε/(2(1+ε)) on R); on R, B is c₀-Lipschitz in both variables; and fixed points in R equal the project's τ. A ⇒ B: the blind setting, with its given right inverse Linv of L (values in Y), becomes ContractionData with B(k, y) = y − Linv f(k + y) (glue as in theorem_3_78's proof and V3_65). exists_radii gives a, b; Radii.region_sub gives (B_K(a) ⊕ B_Y(b)) ∩ C ⊆ U; norm_sub_le at (k, y), (k, y') gives the ½-contraction (c₀ ≤ ½); injectivity in y follows from the contraction, and eq_τ is not needed. B ⇒ A fails genuinely: A is about abstract data and every admissible Radii (the full derivative bound, Lipschitz in k as well, uniqueness against the project's τ), while B gives only some small radii and the contraction in y for the concrete quadrant.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. A_to_B is factored as A'_to_B ∘ projection, with A' = exists_radii ∧ norm_sub_le. #rt_check passes on A'_to_B. A_to_B itself fails #rt_check and #rt_check_soft only because its statement A contains eq_τ's type, which mentions the definition Radii.τ, whose body applies Radii.exists_fixed directly (not abstracted into a _proof_N), and exists_fixed is proved with the banned norm_sub_le. #rt_check_except_defs with Radii.τ not unfolded passes on A_to_B; the failure is documented with #guard_msgs, as in V1_32/V2_24. #rt_overlap on A'_to_B: 6 shared project theorems, all trivial Radii fields (a_pos, b_pos, ε_pos, region_sub, c₀_le_half, c₀._proof_1).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

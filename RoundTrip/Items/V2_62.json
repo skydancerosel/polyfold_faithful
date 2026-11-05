@@ -1,0 +1,12 @@
+{
+ "id": "V2_62",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B is literally the type of metrizableSpace_of_locally.{0} (Smirnov: paracompact Hausdorff + every point has an open metrizable neighbourhood ⇒ metrizable), so A ⇒ B is a projection. B ⇒ A: the other conjuncts of A are the project's proof-route forms. metrizableSpace_of_partition follows from B after proving (new glue, ~60 lines, Mathlib only) that the partition hypotheses make the space Hausdorff and paracompact (refine inside each metrizable V_i, cut with {ρ_i > 0}, local finiteness from the supports); metrizableSpace_of_pullback follows from that by pulling back a partition of unity, as in the project. cone_triangle (an elementary real inequality) and paracompactSpace_of_metrizableSpace (Stone, from Mathlib) are proved directly without B; they are vacuous for the audit but are auxiliary lemmas, not the text's statement.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A uses only Mathlib and B).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

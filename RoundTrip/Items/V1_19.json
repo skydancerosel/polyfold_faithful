@@ -1,0 +1,12 @@
+{
+ "id": "V1_19",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notions (constant sc-structure on the target, f ∘ E.toBase l on U_l, Mathlib ContDiffOn, IsSck), so A ⇒ B is corollary_1_20_text with V = Fin N → ℝ on the sc-domain U. B ⇒ A fails for a genuine reason: every conjunct of A is stated for an arbitrary IsScDomain U (e.g. a closed disc, not relatively open in a partial quadrant), while B covers only relatively open subsets of partial quadrants. A's other generalization, an arbitrary finite-dimensional normed target V instead of Fin N → ℝ with the sup norm, is only effort: on relatively open subsets of partial quadrants all six conjuncts follow from B (B_general transports along a linear isomorphism ℝᴺ ≅ V via the induced sc-operator between constant sc-structures and the chain rule IsSck.comp; B_to_A_quadrant then derives the strong-hypothesis, base-level, k = 0 and sc-smooth variants; rt_check OK). So the only genuine gap is the domain class.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved); B_general uses IsSck.comp, IsSck.congr, ScOperator.isScSmooth and isScDomain_univ (which go through proposition_1_19, not an item theorem), no banned theorem.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

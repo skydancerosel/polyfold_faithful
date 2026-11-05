@@ -1,0 +1,24 @@
+{
+ "id": "V3_77",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = theorem_3_43_closed/proj, theorem_3_47_proj/closed, theorem_3_54_graph_proj (universes 0; germ reading at HEAD, hypothesis IsGoodPositionGermTame) and three lemmas. The new IsClosed Y closes the complement gap of V3_38/V3_42: a closed complement of the smooth kernel is an sc-complement, and B's sc-good-position hypothesis makes the kernel smooth (diagnostics isGoodComplementSc_of_closed, le_smooth_of_isInGoodPositionSc, rt_check OK). A ⇒ B still fails: (a) B's Theorem 3.43 is for every strong bundle iso Φ with (Φ_* f)¹ basic and concludes good position of K', while A is germ-form and assumes hpos and the Lemma 3.42 smallness hreg (derivable only for the project's own coordinate change); (b) B's IsGraphSolution wants σ C¹ into level 1 and an sc-smooth germ into E¹ on one germ, A gives C¹ into level 0 plus C^k-lifts on k-dependent neighbourhoods (needs a germ version of Prop. 1.19, absent); (c) B's 3.54(3) is for every datum (c, g, s, D), A's graph_proj existential. B ⇒ A fails: A has weaker hypotheses (algebraic hpos, arbitrary P, IsSection), extra conclusions (ProjectsInto, smooth kernel, lifts) and general lemmas outside B.",
+ "B_issue": null,
+ "overlap": "n/a (no direction proved). The diagnostic isGoodComplementSc_of_closed passes #rt_check (uses isScSplitting_of_idem, finSmoothLift, projectionOntoL).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "theorem_3_54_graph_proj now assumes the germ reading, which B's whole-chart IsGoodPosData implies; the file compiles unchanged. Result unchanged: the gaps (B's 3.43 for every Φ, the germ regularity of σ, B's 3.54 (3) for every datum) are not about the whole-chart reading."
+ }
+}

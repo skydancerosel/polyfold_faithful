@@ -1,0 +1,12 @@
+{
+ "id": "V4_20",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": true,
+ "why": "The two statements are about different maps. A's p is the continuous projection onto N = T_0O along an ARBITRARY closed good complement Y (project's IsInGoodPosition with an algebraic complement; plus the graph form Γ(a) − a ∈ Y), while B follows the item literally: p = Dt(0) (B's good-position hypothesis asks for an sc-complement Y, which then plays no role). Since Dt(0) is the projection onto N along ker Dt(0), B is the instance Y = ker Dt(0) of A PROVIDED ker Dt(0) is a good complement — a fact A does not contain. It is true (sketch: Dt(0)C ⊆ C; coordinates λ_i of C vanishing at some n₀ ≠ 0 of N ∩ C vanish on every good complement, hence map N onto their range, and λ_i∘Dt(0) = Σ c_ij λ_j with c_ij ≥ 0 forces λ_i∘Dt(0) = λ_i, so λ_i(ker Dt(0)) = 0; the other coordinates are ≥ c|n| on N ∩ C), but it is a new lemma, and A ⇒ B also needs transporting A's conclusion from the constant sc-structure on N to B's induced E.ofSubspace hN, IsScRetract E C (O ∩ W) and hN : IsScSubspace T_0O; so A_to_B is left unproved though believed true (effort_only refers to this direction). Formally checked instead: A_in_B_setting (rt_check OK) — B's hypotheses imply A's (B's sc-complement is a closed good complement, Dt(0)E = tangentSpace, dim < ∞ from A's second conjunct) and A then gives the sc-diffeomorphism O ∩ W ≅ V through the projection along B's Y, not Dt(0). B ⇒ A fails for genuine generality: A covers every closed good complement under a weaker good-position hypothesis; from B one would need p_Y ∘ (Dt(0)|_O)⁻¹ to be a local diffeomorphism of N ∩ C near 0 (a one-sided inverse-function argument), and B does not give dim T_0O < ∞ (finiteDimensional_tangentSpace_zero).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). The partial results finiteDimensional_of_A and A_in_B_setting use A's two conjuncts plus tangentSpace_eq_coe_submodule, levelSub_zero, IsScSubspace.isClosed and exists_proj_of_isCompl.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V1_34",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Both sides share the claim that x ↦ Df(x) is continuous on U₁ for the compact-open topology: A's deriv_uniformOnCompact gives B's first conjunct via Mathlib (compact-open = uniform convergence on compacts). B's second conjunct (some sc¹ map has Df not norm-continuous) is now A's exists_isSc1_not_continuousOn_deriv (example f(t,x)_k = cos(kt)x_k on ℝ ⊕ weighted c₀), with D the witness of IsSc1; so A_to_B is proved. B_to_A still fails because A is more general: deriv_uniformOnCompact holds for every U (no partial-quadrant hypothesis), and continuousOn_apply_iff_uniformOnCompact is a general two-way lemma for any metric X and A : X → L(Y,Z), which B does not address. Partial results passing #rt_check: B_to_A_quadrant (deriv_uniformOnCompact for U relatively open in a partial quadrant) and B_to_A_example (B's counterexample gives exists_isSc1_not_continuousOn_deriv for every derivative family, Df being unique on U₁). Universe: continuousOn_apply_iff_uniformOnCompact instantiated at .{0,0,0}.",
+ "B_issue": null,
+ "overlap": "B_to_A_quadrant: 0 shared project theorems (Mathlib only). B_to_A_example: 28 shared project theorems, sc-structure glue plus IsSc1With.eq_of_uniqueDiffWithinAt/hasFDerivWithinAt and denseRange_inclK (uniqueness of Df on U₁); none of the example's analysis.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "A gained exists_isSc1_not_continuousOn_deriv, exactly B's missing counterexample; A_to_B is now proved. B_to_A still fails on A's extra generality (all U, a general topology lemma), now with the new conjunct derived from B (B_to_A_example). Relation incomparable → A_stronger."
+ }
+}

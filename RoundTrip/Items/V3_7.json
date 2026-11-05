@@ -1,0 +1,24 @@
+{
+ "id": "V3_7",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item in substance; B is proved outright. Under B's hypothesis g sc-smooth on U, the project's whole-U conditions IsFillerOf are the text's filling IsFillingB: (1), (2) coincide literally (rB, ρB, kB are r, ρ, fillDefect R g definitionally); Lr = scDeriv U r 0, Lk = scDeriv U k 0 satisfy B's quotient limits; Φ gives BijOn and a bound, and conversely k is sc¹ on U by the chain rule, B's Lr, Lk are the scDerivs by uniqueness at 0 ∈ U₁ and Φ is built from the bijection and the bound. New at the refresh: the canonical germ-reading filling IsFillingGerm (in the comparison row) equals IsFillingB with NO hypothesis on g (germ_iff_B, checked): B's section germ is the germ G of g, and Dk(0) of the sc¹-germ k on G is B's linearization because G₁ and U ∩ E₁ agree near 0; conversely Dk comes from the chain rule (fillDefect_isSc1GermWith) and B's Lk = Dk(0) by uniqueness. Tameness, r(0) = 0 and f being a section germ play no role. A (apply_eq, ρ_ρ, fillDefect_isScSmoothGerm) consists of auxiliary facts B does not mention; B → A re-proves them (retraction fields; germ chain rule). Both implications are vacuous; the audit content is the agreement of the definitions, now including the germ reading.",
+ "B_issue": null,
+ "overlap": "248 shared project theorems: the IsStrongBundleRetraction fields behind apply_eq/ρ_ρ, and the germ calculus behind fillDefect_isScSmoothGerm (r_isScSmoothGerm, IsScSmoothGerm.pair/sub, fiber_isScSmooth, comp_germ, pairMap_mapsTo and the sc-calculus under them); B_to_A re-runs the project's proofs.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "proved",
+   "relation": "equivalent"
+  },
+  "note": "A gained fillDefect_isScSmoothGerm (re-proved in B_to_A by the germ chain rule) and the row gained the germ-reading filling IsFillingGerm. The old proofs still check; added germ_iff_B: IsFillingGerm is exactly the text's filling without B's 'g sc-smooth on U' hypothesis. Relation unchanged (equivalent, both directions vacuous)."
+ }
+}

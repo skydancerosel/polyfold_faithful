@@ -1,0 +1,12 @@
+{
+ "id": "V1_12",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Both directions hold only vacuously (uses_hypothesis false for both), so the content comparison is what matters. The notions agree (tanSpace E = E.tangent = E¹ ⊕ E and tanSet E A = E.tangentSet A, both rfl), but A does not contain the text's claim that (TU, TC, TE) is again a tuple: the project never shows TC is a partial quadrant of TE (its docstring says so), carrying only IsScDomain.tangentSet plus two level-set identities. B is true and was proved outright here (B_holds): from T : E ≅ ℝⁿ ⊕ W, the maps S_m(x, h) = ((T_{m+1}x).1, ((T_{m+1}x).2, h)) form an sc-isomorphism TE ≅ ℝⁿ ⊕ (W¹ ⊕ E) with TC = S₀⁻¹(quadrant), and TU = {(x,h) | ι₁x ∈ O} ∩ TC. In the other direction, A's IsScDomain.tangentSet covers arbitrary IsScDomain's (a wider class than tuples, e.g. sets that are level-wise open ∩ convex but not relatively open in any partial quadrant), which B cannot supply; its conjuncts were re-proved outright. So each side has content the other lacks: B has 'TC is a partial quadrant of TE', A has stability of IsScDomain under T. No universe parameters.",
+ "B_issue": null,
+ "overlap": "A_to_B: 21 shared project theorems, B_to_A: 27, all sc-structure glue (prod/shift toBase and smoothLvl lemmas, structure _proof_ fields, mem_lvlSet/mem_tangentSet, IsScDomain fields); no mathematical lemma of the project is reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

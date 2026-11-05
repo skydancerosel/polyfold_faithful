@@ -1,0 +1,24 @@
+{
+ "id": "V3_16",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A is two auxiliary theorems (zeros of an sc-Fredholm section are smooth points, now for the germ-reading notion; whole-chart sc-Fredholm sections are germ-reading ones); the content is B, the comparison of IsScFredholmSection (germ reading at HEAD) with the text's Definition 3.14 on tame bundles. Clause (1) is the same IsScSmoothSection. Clause (2) agrees: doubleLevel (every atlas chart) = B's YlevelB (some compatible chart), doubleLevel_eq_YlevelB. Clause (3) is V3_13's germ comparison, and section_iff_of_germ_iff proves B at every section where the germ notions agree, so the whole difference is V3_13's: at HEAD the filling and sc⁺-section agree (germ reading on both sides), but the project admits any compatible chart where B asks a tame one (genuine; whether germ data move to a tame chart is open in the project), plus conjugation transport (ℝⁿ vs Pn) and Ψ on U₀ ⊆ U (glue). Relation on the definitions as predicates: text ⇒ project believed (glue), not conversely — the project's notion is broader. B → A is proved outright (B not used; A is for arbitrary bundles).",
+ "B_issue": null,
+ "overlap": "B_to_A shares 271 project theorems with the banned proofs: it re-runs the same arguments (regularizing field, fiberZero_mem_doubleLevel, levelSet_zero, IsScFredholmGermWholeChart.isScFredholmGerm → IsFilledVersion.isFillingGerm and the sc-calculus under them).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "incomparable"
+  },
+  "note": "IsScFredholmSection switched to the germ reading and A gained IsScFredholmSectionWholeChart.isScFredholmSection (re-proved outright). The reduction to V3_13 still checks; since V3_13's germ-vs-whole-chart difference is gone, only the tame-chart requirement (genuine) and glue remain, so incomparable → A_narrower (project broader)."
+ }
+}

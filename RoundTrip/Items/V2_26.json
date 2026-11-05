@@ -1,0 +1,12 @@
+{
+ "id": "V2_26",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item; A = degIndex_le ∧ exists_isChart_degIndex_eq ∧ eventually_chartDegIndex_le (universe 0). The definitions agree: chartDegIndex φ x is d_C(φ(x)) by rfl (B (a)), and P.degIndex x is the sInf of exactly B's set chartIndicesB P x (same charts P.IsChart φ around x, same d_C(φ x); rfl), so B's IsLeast is A's lower bound (degIndex_le) plus attained minimum (exists_isChart_degIndex_eq), and conversely. A's third conjunct, upper semicontinuity of y ↦ d_C(φ y) on dom φ (the chart-level ingredient of Lemma 2.23), is not part of Definition 2.22 or of B; in B ⇒ A it is proved directly from the Chapter 1 lemmas eventually_degIndexWith_le and degIndex_eq (5 lines), not from B.",
+ "B_issue": null,
+ "overlap": "43 shared project theorems: the Chapter 1 degeneracy-index machinery (degIndex_eq, lemma_1_24, eventually_degIndexWith_le, quadrantDeg_eq_of_equiv), chart/model basics (MChart.apply_mem_C, LocalModel.O_subset_C, isPartialQuadrant, continuousOn_toFun) and sc-scale proof fields; they come from the direct re-proof of eventually_chartDegIndex_le, whose own proof is the same argument. None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

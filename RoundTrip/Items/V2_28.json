@@ -1,0 +1,12 @@
+{
+ "id": "V2_28",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = proposition_2_24 ∧ transportChart_isChart ∧ degIndex_le_of_isScDiffeoOn (universes 0,0). B uses the project's IsScDiffeoOn (f sc-smooth on open U, g sc-smooth on open V, mutually inverse, f(U) ⊆ V, g(V) ⊆ U) with x ∈ U, so B is proposition_2_24 verbatim and degIndex_le_of_isScDiffeoOn is its ≤ half. transportChart_isChart (the chart ψ ∘ f of X built from a chart ψ of Y is in the structure of X) is the main step of the proof, not part of the text's statement, and B (which speaks only of d_X) does not imply it; in B ⇒ A it is re-proved directly from the definition of IsScSmoothOn (the project's own argument written out again: transition maps φ ∘ g ∘ ψ⁻¹ and ψ ∘ f ∘ φ⁻¹), so that conjunct is not obtained from B.",
+ "B_issue": null,
+ "overlap": "139 shared project theorems: sc-calculus/retract/chart infrastructure (IsScSmoothRetractMap.mono_target, MChart.symm_apply_apply, isChart_of_mem, MAtlas.compatible, proposition_2_10_1, IsSc1/IsSc0 lemmas) and the proof fields of the definitions transportChart and IsScDiffeoOn; they come from the direct re-proof of transportChart_isChart (the same argument as the project's). Neither proposition_2_24 nor degIndex_le_of_isScDiffeoOn nor exists_isChart_degIndex_eq is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

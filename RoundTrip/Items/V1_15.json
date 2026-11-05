@@ -1,0 +1,12 @@
+{
+ "id": "V1_15",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notions (B's levelTo f (m+1) m is levelMap f m ∘ ι_m by rfl; IsSc0/IsSc1/IsSc1With/IsScOperator/E_∞ are the project's), and B's (1)–(2) (C¹ with fderivWithin, continuity of df, an extension family Dl) match the project's IsSc1Levels on domains with unique differentiability, so A ⇒ B is glue around proposition_1_16, IsSc1Levels.contDiffOn/continuousOn_clm and scOperator_deriv on the sc-domain U. B ⇒ A fails for a genuine reason: every conjunct of A is stated for an arbitrary IsScDomain U (e.g. a closed disc, not relatively open in a partial quadrant), continuousOn_clm, contDiffOn_base and scOperator_deriv even for arbitrary U (and continuousOn_clm/contDiffOn without f sc⁰), and A also contains lemmas B does not state (toBase_apply: the level extensions are restrictions of Dl 0; isSc1With/isSc1Levels with the specific derivative families Dl 0 and levelDeriv D; contDiffOn_base). Restricted to relatively open subsets of partial quadrants, the text's two claims, proposition_1_16 and scOperator_deriv, do follow from B (B_proposition_1_16_quadrant via the unbanned compact-open lemma continuousOn_clm_comp_of_isCompactOperator, B_scOperator_deriv_quadrant; rt_check OK).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved); the restricted B_proposition_1_16_quadrant uses the project's compact-open lemma continuousOn_clm_comp_of_isCompactOperator (also used by the banned IsSc1Levels.continuousOn_clm) but no banned theorem.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

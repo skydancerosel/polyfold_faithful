@@ -1,0 +1,12 @@
+{
+ "id": "V4_34",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = proposition_4_15_2 (universe 0): a smooth finite-dimensional submanifold is IsLocallyClosed (Mathlib). B uses the text's definition literally (every a ∈ A has an open V ∋ a with every b ∈ V whose open neighbourhoods all meet A lying in A, i.e. V ∩ closure A ⊆ A). The two notions of 'locally closed' agree for every subset of every topological space (isLocallyClosed_tfae item 3 plus mem_closure_iff), and the hypotheses agree (B's IsSmoothSubmanifoldB = the project's IsSmoothSubmanifold, glue of V4_29/V4_33). The project's docstring calls the text's definition garbled; B's reading (V(a) an open neighbourhood, the inner U the test neighbourhoods of b) is the sensible one and is equivalent to Mathlib's.",
+ "B_issue": null,
+ "overlap": "4 shared project theorems, all structure projections of IsScPlusRetractionOn / IsScSmoothOn used by the retraction glue (mapsTo, idem, isScSmoothOn, IsScSmoothOn.continuousOn); none of the proof of Proposition 4.15 (2) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V2_9",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions (IsScRetract, open subset of O read as O ∩ W with W open in E₀, same C and E). (1) is proposition_2_10_1 verbatim. For (2), the project states it for any retract V (not only an open subset of a retract O) with the 'every retraction' notion IsScSmoothRetractMap; B takes V = O ∩ W and the 'some retraction' reading. A ⇒ B: V = O ∩ W is a retract by (1) and isScSmoothRetractMap_iff_exists (item V2_6, not banned) converts B's hypothesis. B ⇒ A: take O := V, W := univ, and the 'every' notion gives the 'some' one. A's three remaining conjuncts (restrict_retract: r(U ∩ r⁻¹W) = r(U) ∩ W; IsScSmoothRetractMap.restrict; IsScSmoothRetractMap.of_locally) are proof infrastructure, absent from the text's statement and from B; they were re-proved directly (project arguments), not derived from B.",
+ "B_issue": null,
+ "overlap": "132 shared project theorems: sc-calculus infrastructure for restriction and locality (IsScSmooth.of_subset/of_locally, IsSck/IsSc1/IsSc0 .of_locally/.of_subset, tangentMap_eqOn_of_subset), ScRetraction.restrict proof fields and relOpen_inter_preimage, restrict_U, IsScSmooth.comp, and retract basics (apply_eq_self_of_mem_retract, retract_subset); these come from re-proving restrict / of_locally. None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

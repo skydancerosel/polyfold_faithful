@@ -1,0 +1,12 @@
+{
+ "id": "V3_33",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The only listed declaration (IsBasicGerm) is a definition, so A = True and both directions are vacuous; the content is B, the vocabulary check (exists B, IsBasicGerm (stdQuadrant n k) G f B) <-> IsBasicGermText G f, proved outright. The project carries the contraction map B as an extra argument tied to f by snd_eq (pr_W f = w - B on U_0); the text's B is w - pr_W f, which agrees with it on U_0, and IsSc0ContractionGerm depends only on values on U_0 (congr'); conversely B := w - pr_W f is a witness. With IsSc0ContractionGerm = text Definition 3.28 (iff_text, as in V3_25) the two notions coincide. The project's IsBasicGerm is more general than the text in allowing any finite-dimensional P, Q and any C~ (B only checks it on [0,inf)^k x R^{n-k}, R^N).",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial)",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

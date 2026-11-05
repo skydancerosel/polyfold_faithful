@@ -1,0 +1,16 @@
+{
+ "id": "V4_54",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Hypotheses agree (both read the misprinted (2) as general position of A at every point, Definition 4.21; |λ| = √Σλᵢ² vs Σλᵢ² ≤ ε²; B's ∃-paracompact IsTameSubmanifold gives A's IsSmoothSubmanifold, instance and tameness). Conclusions differ in one point: A's Σ consists of stratified regular values (IsStratRegularValue: Tp maps T_zA ∩ E_z onto ℝᵐ, the notion the text's proof uses), B's of plain regular values (Tp maps T_zA onto ℝᵐ, the statement's literal wording); A also gives tameness of A_λ (which follows from the corner structure anyway). A→B forgets the E_z constraint. B→A would have to recover stratified regularity from plain regularity plus the general position of A_λ: mathematically plausible (T_xA_λ = ker(Tp|T_zA) and an sc-complement of T_xA_λ inside E_x lets one correct a preimage vector into E_z), but it needs chart changes between A's and A_λ's data and the identification of the fibre's tangent space, i.e. real mathematics rather than glue; pointwise, stratified regularity is strictly stronger (e.g. the ray {(t,t): t ≥ 0} in ℝ × [0,∞) at λ = 0).",
+ "B_issue": null,
+ "intended": "B already follows the intended reading of (2) (general position, Definition 4.21), as does A.",
+ "overlap": "B_to_A not proved; no #rt_overlap run.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

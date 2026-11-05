@@ -1,0 +1,12 @@
+{
+ "id": "V3_67",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = Radii.hasFDerivWithinAt_τ ∧ Radii.contDiffOn_Φ ∧ Radii.contDiffOn_τ (no universe parameters): for abstract normalized data and any admissible Radii, τ has derivative Φ(k, τk) = Ring.inverse(1 − D₂B)·D₁B within V₀, Φ is C^{j−1} on the region, and τ is C^j on all of V₀. A ⇒ B: same glue as V3_65 with B's j (blind setting → ContractionData; radii built by hand for B's ε; τ := S.τ h). B's 'possibly smaller neighbourhood' is taken to be V₀ = B_K(a) ∩ C itself, so A's version (no shrinking) is at least as strong. The blind D₁B and D₂B are the project's Radii.D₁ and D₂ verbatim (partial derivatives of fderivWithin Bmap domB). Ring.inverse(1 − D₂B) is the inverse of the automorphism Units.oneSub (‖D₂B‖ ≤ c₀ < 1). contDiffOn_Φ is not needed. B ⇒ A fails genuinely: A is uniform over every admissible Radii for abstract data and adds Φ ∈ C^{j−1}, while B concerns the concrete quadrant and only asserts that some a and some neighbourhood work.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. #rt_overlap on A_to_B: 45 shared project theorems, all Radii/ContractionData infrastructure (uniqueDiffOn_V₀, norm_D₂_lt_one, τ_fixed, τ_mem_R, norm_τ_le_eps, eq_τ-side contraction lemmas, mapsTo_ball and exists_fixed through the definition of τ, the _proof_ fields of M/Φ/D₁, structure projections). None of the three banned theorems is used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V3_34",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A => B (substantial glue, no new mathematics): B's sc+-germ s has an R^N-component which the project's StabilityData drops; it is absorbed into the basic germ f' = f + (s_RN, 0) (same contraction map), so f + s = fsum f' with s_W = W-part of s; exists_of_scPlus (in A) gives the data S, theorem_3_38 (in A) makes S.pushMap f' a basic germ over (R^n x C) + X^1 with target (R^N x Z) + X^1, and this is transported along linear isomorphisms R^n x C = R^(n + dim C), R^N x Z = R^(N + dim Z) (generic lemma IsBasicGerm.transport, partial quadrant transported too). B's strong bundle isomorphism is the level-0 linear coordinate change (split0, fiber0) composed with these isomorphisms on U = G_0 (ScOperator.isStrongBundleIso_prodMap), its push-forward of f + s read on level 1 is the transported pushMap f' (pushMap_eq_levelMap_pushMap0), and n - N = n' - N' is finrank_Cs_eq_finrank_Zs (in A). B => A fails for genuine content: A is about the project's explicit construction (the linear coordinate change psi, Psi, the specific contraction map pushB, the remainder estimate scPlusRemainder_contraction, the solution-set correspondence pushMap_eq_zero_iff, dim C = dim Z for the given splitting) on any finite-dimensional P and quadrant-like C~, whereas B only asserts that SOME strong bundle isomorphism and SOME raised basic germ exist.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

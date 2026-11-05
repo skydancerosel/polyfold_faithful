@@ -1,0 +1,12 @@
+{
+ "id": "V4_62",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = isGeneralPositionRetractAt_slice (no universe parameters) is a chart lemma: for retractions t (onto the chart model of A in ℝᵐ ⊕ E, inside id × r with r tame for T_X) and τ (sc⁺, onto the chart model of the fibre), general position of t at z plus stratified regularity plus the hypothesis hTQ (T_{z.2}τ ⊇ {a.2 | a ∈ T_z t, a.1 = 0}) give general position of τ at z.2. B is the M-polyfold statement in an ARBITRARY product chart, with sc⁺-data (V', s') whose image is the fibre A_λ: (a) T_z'A ∩ (ℝᵐ × E) = ({0} × (T_x'A_λ ∩ E)) ⊕ ξ with ξ ≅ ℝᵐ, (b) A_λ in general position at x'. A ⇒ B fails genuinely: B does not provide hTQ, only that s' retracts onto the fibre; the inclusion ker(Tp|T_z'A) ⊆ T_x'A_λ (needed for (b) via A, and equivalent to (a)'s identification of T_x'A_λ ∩ E) is the implicit function theorem in partial quadrants at a corner point plus a dimension count (exists_fibre_retraction / exists_slice_retraction in the project). Also (a) is absent from A, and B's chart need not be tame while A requires r tame (the regularity hypothesis would need a chart change). B ⇒ A fails genuinely: A is about arbitrary retractions of an arbitrary sc-Banach model under hTQ, with none of B's global hypotheses (compact closure, (1), tame A).",
+ "B_issue": null,
+ "overlap": "No direction proved; no #rt_overlap run.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V2_11",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions. The project's MAtlas asks compatibility for ALL pairs of charts (including φ with itself) where B's IsAtlasB uses Set.Pairwise (distinct pairs); the diagonal is MChart.compatible_self (item V2_10, not banned), so the chart sets of project atlases are exactly B's atlases. MAtlas.Equiv is literally 'some atlas has chart set A ∪ A''. A → B: the atlas part is definitional, and 'union is an atlas ⇒ Equiv' uses A's equiv_iff. B → A: equiv_iff, refl, symm follow from B's characterization of Equiv (refl via union_self, symm via union_comm, equiv_iff by splitting the union). The added Equiv.trans / equivalence (transitivity, which the text does not discuss) are not in B; they follow from B's pairwise-compatibility reading of Equiv plus the project's locality of compatibility MChart.compatible_of_locally (not banned), which carries their mathematics, exactly as in the project's proof.",
+ "B_issue": null,
+ "overlap": "162 shared project theorems: the structure fields MAtlas.compatible/cover, MChart.Compatible.symm, and, through MChart.compatible_of_locally (used for trans), its whole proof (Theorem 2.8 / chain rule for retracts, IsSc1.of_locally, retraction and level-set glue); none of the item's theorems.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "proved",
+   "relation": "equivalent"
+  },
+  "note": "A gained MAtlas.Equiv.trans and MAtlas.equivalence; B_to_A derives them from B's reading of Equiv plus the unbanned project lemma MChart.compatible_of_locally (the locality of compatibility, not part of B), so both directions stay proved and the relation stays equivalent."
+ }
+}

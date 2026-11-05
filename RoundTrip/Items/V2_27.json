@@ -1,0 +1,12 @@
+{
+ "id": "V2_27",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = lemma_2_23 ∧ eventually_degIndexWith_le ∧ isOpen_setOf_degIndex_lt ∧ isClosed_setOf_le_degIndex (universe 0). lemma_2_23 (∀ᶠ y in 𝓝 x, d_X y ≤ d_X x) is B (an open U ∋ x with d_X ≤ d_X(x) on U) up to mem_nhds_iff, both ways; the open/closed level-set corollaries are derived from B. The one conjunct B does not give is the Chapter 1 ingredient eventually_degIndexWith_le: for any presentation T : E ≅ ℝⁿ ⊕ W, the number of vanishing ℝⁿ-coordinates of T y is upper semicontinuous on all of E₀ — not an M-polyfold statement (B sees only points of M-polyfolds, i.e. of C); in B ⇒ A it is proved directly (a coordinate nonzero at x stays nonzero nearby, ~12 lines).",
+ "B_issue": null,
+ "overlap": "23 shared project theorems, all auto-generated proof fields and sc-scale facts in the statement of degIndexWith/quadrant/ScBanach.const/prod (degIndex._proof_N, ScBanach.prodScale._proof_N, ScScale.mem_smoothLvl_iff, …). None of the item's theorems or of the argument of lemma_2_23.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

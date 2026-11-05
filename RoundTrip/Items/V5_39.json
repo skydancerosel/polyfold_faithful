@@ -1,0 +1,24 @@
+{
+ "id": "V5_39",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Both have a compact solution set, an auxiliary norm, tame germ data (IsScFredholmSectionTame, the germ reading on both sides), an open U with S_{f+s} compact on Γ^{+,1}_U, and a ρ-dense set of perturbations in general position at every zero. A => B fails only on bump functions: B assumes AdmitsBumpFunctionsWeak ('not identically zero'), A needs AdmitsBumpFunctions (f(x) != 0), and the project has only strong => weak. With the strong reading it is proved (A_to_BStrongBump: O = the allowable s whose sum f + s satisfies SolutionSetInGeneralPosition; density with ε = δ/2 and N(-v) = N(v)). B => A fails on the bundle: B assumes IsTameStrongBundle Bd (an equivalent strong bundle atlas whose base retractions are all tame), A only PX.IsTame plus tame germ data at smooth points, which does not give such an atlas. B's conclusion is also weaker: only general position at every zero, where A's SolutionSetInGeneralPosition also asks for a smooth submanifold in general position, a corner structure, tameness and d_S = d_X. That part might follow from Chapter 3-4 project lemmas but was not attempted because the hypothesis gap blocks the direction anyway.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "theorem_5_18_dense and B now both use the germ-reading IsScFredholmSectionTame. The obstacles (weak vs pointwise bump functions; B's tame strong bundle atlas) are untouched by the germ switch; A ⇒ BStrongBump still checks. Result unchanged."
+ }
+}

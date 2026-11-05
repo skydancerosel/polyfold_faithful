@@ -1,0 +1,24 @@
+{
+ "id": "V5_11",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both: for an sc-Fredholm section (IsScFredholmSection, germ reading on both sides; no tameness on either side) and a zero x there are open, nested U(i) containing x such that the closure in X_0 of the zeros in U(i) is a compact subset of X_i with the project's level topology. A phrases it as 'the closure is the image under levelVal i of a compact K ⊆ PX.Level i', B as 'the closure lies in levelSet i and the set of points of levelSet i in the closure is compact for levelTopology i'. A => B: K equals that set by injectivity of levelVal; B => A: take K to be that set. Pure repackaging (PX.Level i is levelSet i with levelTopology i definitionally).",
+ "B_issue": null,
+ "overlap": "1 shared project theorem: MPolyfold.levelLift._proof_1, an auto-generated proof term reached through the topology on the level type; no mathematical content of Theorem 5.6 / theorem_3_12 is reused",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "proved",
+   "relation": "equivalent"
+  },
+  "note": "theorem_5_6 and B now both use the germ-reading IsScFredholmSection (theorem_5_6 is theorem_3_12 applied to the germ at the zero); the conclusions are unchanged and both repackaging proofs still check. Result unchanged: equivalent."
+ }
+}

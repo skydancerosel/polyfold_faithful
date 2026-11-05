@@ -1,0 +1,12 @@
+{
+ "id": "V1_11",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The project's IsSc0 is the text's sc⁰ (B is true). The only difference is the target: the project's IsSc0 E F U f asks f(U_m) ⊆ F_m with levelMap f m continuous on U_m, the text asks f(U_m) ⊆ U'_m; for f(U) ⊆ U' the extra U'_m-clause is exactly A's IsSc0.levelMap_mapsTo (used in A_to_B), and the blind 'some f_m lying over f on U_m' coincides with levelMap f m there by injectivity of F_m → F₀ (the converse needs no hypothesis at all). B_to_A is vacuous (uses_hypothesis false): A's six conjuncts are general facts about IsSc0 for arbitrary U (levelMap_mapsTo, continuity on level 0, congruence, composition, id, sc-operators), which a characterization of the definition on tuples cannot supply; they were re-proved outright from the definition. The blind tuple hypotheses (IsRelOpenText) are not needed on either side. No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A: 14 shared project theorems, all basic level-map glue (toBase_levelMap, levelMap_zero, levelMap_congr, levelMap_eq_of_toBase_eq, toBase_injective, IsSc0 structure fields, ScOperator toBase_comm/incl_comm).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

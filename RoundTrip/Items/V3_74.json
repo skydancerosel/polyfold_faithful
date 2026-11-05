@@ -1,0 +1,24 @@
+{
+ "id": "V3_74",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B is false (not_B, rt_check OK): its claim (1) says that for every Definition 3.25 datum at every point of a tangent-germ set M of a tame M-polyfold, δ is an sc^∞-germ near every v₀ ∈ V, but Definition 3.25 controls δ only near 0. Counter-model in the file: X = ℝ² (rnPolyfold 2, tame), M = {(t³, t)} with the 1-dimensional tangent germ property in the blind form; at (1,1) the datum N = ℝ(3,1), Y = ℝ(0,1), δ(v) = (∛(1+v₁) − 1 − v₁/3)(0,1) satisfies every clause of IsGermData, yet δ is not differentiable at v₀ = −(1/3)(3,1). So ¬(A → B) and B ⇒ A only ex falso (the relation label is formal). A (the TangentGermChart lemmas, unchanged at HEAD) is the corrected claim: exists_isRegular_of_locally gives regularity of δ only on a shrunk V' ∋ 0 and under condition (b) π(O) ⊆ C. B's claim (2) (Theorem 3.54 constructs the data at every zero) has no counterpart in A.",
+ "B_issue": "Claim (1) is false as quoted (formalized literally by the author, who flagged it); a correct version must restrict v₀ to a neighbourhood of 0 (and, for the project's proof, assume π(O) ⊆ C). Since the germ reading, claim (2) also mixes readings: its hypothesis IsScFredholmSectionTame is the text's germ reading, while B's own IsGoodPositionGermSc asks for a filled version and an sc⁺-section on the whole chart U (IsFilledVersion, IsScSmooth c.U s), a whole-chart reading stronger than the text's germ reading; this weakens claim (2) but does not affect not_B.",
+ "overlap": "B_to_A (ex falso via not_B): 224 shared project theorems, all sc-calculus/chart glue (const sc-structure, IsScSmooth.isScSmoothGerm machinery, MChart.restrict and TangentGermChart.shrink proof fields reached through the statement A); no banned theorem. not_B itself passes #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "false",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "A unchanged; claim (1) of B (the refuted one) uses no notion changed by the germ reading, so not_B and the ex-falso B ⇒ A recheck unchanged at HEAD. New B_issue: claim (2) now mixes the germ-reading IsScFredholmSectionTame with B's own whole-chart good-position notion."
+ }
+}

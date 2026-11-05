@@ -1,0 +1,19 @@
+{
+ "id": "V1_29",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B is false (not_B, as its author predicted): its clause 'F = C ⊕ T(E_m)' read literally in F₀ forces, for the identity operator with K = C = 0, every inclusion E_m → E₀ to be onto (B_surj); this fails for the sc-Banach space Model.G (ℓ² on every level, inclusions the compact injective diagonal operator diag(2^{-k}), constructed and checked in the file), so ¬(A → B) (not_A_to_B) and B ⇒ A only ex falso. Against the intended reading B_intended (F_m = C_m ⊕ T(E_m) in F_m): A ⇒ B_intended is proved using A — the index well-definedness from fredholmIndex_lvl at level 0 for two splittings, and K ⊂ E_∞ by a dimension count (A gives dim K_m − dim C_m = dim K − dim C and dim C_m = dim C, so K_m ≅ K) — while T(X_m) = Y_m, E_m = K_m ⊕ X_m and F_m = C_m ⊕ T(E_m) are unpackings of Definition 1.8 (the blind IsFredholmData is field-for-field the project's ScFredholmSplitting). B_intended ⇒ A holds only outright (A_outright, without the hypothesis): A's extra content — T_m : E_m → F_m Fredholm of index dim K − dim C on every level, and C ⊂ F_∞ — is, as the item says, not stated in the text, and follows from the definitions via Proposition 1.6 and the project's ScFredholmSplitting.isFredholm (not item theorems).",
+ "B_issue": "As formalized (literally, in F₀), B's clause IsCompl C (imageLevelBase T m) is false for m ≥ 1 whenever F₀ is infinite-dimensional; the author flagged this as a misprint for F_m = C ⊕ T(E_m) and supplied B_intended. Counter-model Model.G in Items/V1_29.lean (not_B).",
+ "overlap": "B_to_A (ex falso via not_B): 5 shared project theorems, all sc-scale glue (ScScale.incl_injective, toBase_injective, mem_smooth_iff, ScBanach.mem_levelSub, linIndex._proof_1); no banned theorem. A_to_Bint and Bint_to_A also pass rt_check (they use ScFredholmSplitting.ker_lvl, range_lvl, isFredholm, K_le_smooth, index_eq and proposition_1_6_iff — none of the item's theorems).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "intended": {
+  "A_to_B": "proved",
+  "B_to_A": "proved_outright",
+  "relation": "A_stronger",
+  "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+  "note": "A_to_Bint uses A for the index well-definedness and for K ⊂ E_∞; Bint_to_A is A_outright (A provable from the definitions), so the converse is vacuous: A's level-wise Fredholm/index content is extra to the text."
+ }
+}

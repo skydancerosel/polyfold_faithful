@@ -1,0 +1,12 @@
+{
+ "id": "V3_56",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = proposition_3_69 (no universe parameters; QuadrantNormalForm is vocabulary). A ⇒ B: B's good position (sc-complement with the ε-property) gives the project's IsInGoodPosition (algebraic complement, via levelSub at level 0); d_C on the quadrant is quadrantDeg = blind dC (degIndex_quadrant), x ∉ Wsub ⟺ x.1 ≠ 0, and the project's additive (2) becomes B's subtraction since ker(fst ∘ ι_N) ≅ N ⊓ Wsub (finrank_ker_fst_eq). B ⇒ A, despite A's weaker hypotheses (N not assumed smooth, complement only algebraic): N is moved by the isometric embedding j(a,k) = (a,k) into the finite-dimensional model ℝⁿ ⊕ K, K = pr_W(N) with the constant sc-structure, where every point is smooth and every algebraic splitting is an sc-splitting; j⁻¹(P) is a good complement of j⁻¹(N) ≅ N (same ε, j isometric and C-preserving), B is applied there, and the degeneracy index is carried back along the linear isomorphism j⁻¹(N) ≅ N (degIndex_scIso, by Lemma 1.24 / degIndex_eq with the presentation T ∘ S). So the project's weakening of Definition 3.21 to an algebraic complement makes no difference for Proposition 3.69.",
+ "B_issue": null,
+ "overlap": "rt_overlap on B_to_A: 34 shared project theorems, all infrastructure (degIndex_eq, lemma_1_24, quadrantDeg_eq_of_equiv, degIndex_quadrant, IsGoodComplement/IsInGoodPosition field projections, sc-scale prod/const proof terms, mem_smooth_iff); none of the normal-form lemmas of the proof (exists_quadrantNormalForm etc.) is reached.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

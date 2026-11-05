@@ -1,0 +1,12 @@
+{
+ "id": "V1_20",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notions (IsSc1, tangentMap with the chosen scDeriv, tangentSet); A ⇒ B is theorem_1_21 plus the trivial (g∘f)(U) ⊆ W, and conversely B gives theorem_1_21 exactly (B_to_theorem_1_21, rt_check OK, taking W = Q = G₀), so on the text's statement the two agree. B ⇒ A fails because A contains strictly more general results: the chain rule on arbitrary IsScDomain's (theorem_1_21', IsSck.comp, IsScSmooth.comp), the version with an explicit derivative family on any U with V₁ open ∩ convex (IsSc1With.comp, hasFDerivWithinAt_comp), and the iterated sc^k / sc^∞ chain rule. The IsScDomain/explicit-family generality is a genuine gap; the sc^k iteration on relatively open subsets of partial quadrants (IsSck.comp_of_isRelOpenInQuadrant) would follow from B by induction only after showing TU is again relatively open in a partial quadrant of TE (effort, not attempted).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

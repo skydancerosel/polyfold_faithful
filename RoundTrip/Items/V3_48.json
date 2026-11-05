@@ -1,0 +1,24 @@
+{
+ "id": "V3_48",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = theorem_3_54_graph (germ reading at HEAD: hypothesis IsGoodPositionGermTame) plus seven lemmas of the proof (theorem_3_54_linear(_of_isTameWith), IsInGoodPositionIn.isInGoodPosition, scDeriv_mem_iff_of_inverse, pushforward_linearization, theorem_3_54_pushforward, scDeriv_eq_of_eqOn_nhds), universes 0. A ⇒ B fails on content, not on the reading: B states the graph form ψφ(S) = {v + σ(v)} for every good-position datum (chart c, filled g, sc⁺ s, conjugation D) handed to it, whereas theorem_3_54_graph gives it only for a chart and conjugation it chooses (existential), and B's claims (1) (good position with an sc-complement at all nearby zeros, in B's whole-chart notion) and (2) (S a sub-M-polyfold with corner structure) are not among A's theorems. B ⇒ A fails: A's general linear-algebra/derivative lemmas are not about solution sets, and theorem_3_54_graph asserts more about σ (C¹, Dσ(0) = 0, level-1 values, C^k lifts, closed complement, smooth kernel, injectivity of ψ∘φ) under weaker hypotheses (IsSection, no tame bundle atlas).",
+ "B_issue": "B quantifies claim (3) over every good-position datum (the blind author's choice; the text's 'the σ of Corollary 3.47 applied to Ψ_*(g)' refers to the data of the hypothesis), which is stronger than the existential reading; and B's σ is required only to map V' into a good sc-complement with σ(0) = 0 (no smoothness), weaker than the text's Corollary 3.47 σ. At HEAD, B's own IsGoodPositionGermSc/IsGoodPosData (IsFilledVersion, IsScSmooth on c.U) are the whole-chart reading while IsScFredholmSectionTame is the germ reading: as a hypothesis this only weakens B, but claim (1) then asks for whole-chart data at the nearby zeros, stronger than the text's germ reading.",
+ "overlap": "n/a (no direction proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "theorem_3_54_graph and the good-position lemmas now assume the germ reading; the item file compiles unchanged. Result unchanged: the failures are about B's universal datum, B's claims (1)–(2) and A's extra lemmas, not about the whole-chart reading."
+ }
+}

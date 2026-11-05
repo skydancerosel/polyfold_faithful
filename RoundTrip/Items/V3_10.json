@@ -1,0 +1,12 @@
+{
+ "id": "V3_10",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only IsBasicGerm and IsSc0ContractionGerm are listed, so A = True and both implications are vacuous; the content is B itself (the project's basic germs on C̃ = [0,∞)^k ⊕ ℝ^{n−k} ⊕ W coincide with the text's), proved outright as B_holds. Project ⇒ text: the project's B agrees with w − P_W f on U₀ (snd_eq), its level-m values exist (B is an sc⁰-germ) and are the text's lifts, and the project's contraction radius serves as δ (points of U_m have a ∈ C̃). Text ⇒ project with B := w − P_W f: snd_eq holds everywhere, B is sc⁰ because f is (level value x.2 − (f_m x).2), and the project's extra clause '(a,w) ∈ U_m for a ∈ C̃, |a|,|w|_m < r' holds for small r since U_m is relatively open in C̃ × W_m around 0 (max norm). The project's IsBasicGerm is stated for any convex finite-dimensional C̃ ⊆ P and any Q; the comparison is on the text's C̃ = CtB n k, P = ℝⁿ, Q = ℝᴺ.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial); B_holds uses only general germ infrastructure (U_subset, toBase_mem, relOpen, paramProd_toBase/lvlSet, IsSc0Germ.toBase_levelMap, levelMap_eq_of_toBase_eq).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

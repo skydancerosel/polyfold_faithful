@@ -1,0 +1,24 @@
+{
+ "id": "V5_46",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = isInGoodPositionIn_of_scComplement_le_reduced ∧ IsGeneralPositionGerm.isGoodPositionGerm ∧ IsGeneralPositionGerm.isGoodPositionGermTame (germ theorems at universes 0). B is pointwise: for a tame strong bundle and f with tame germ data, at a zero, IsGeneralPositionGerm ⇒ IsGoodPositionGermTame. Both sides use the same vocabulary (the germ-reading IsGoodPositionGermTame), so A ⇒ B is the third conjunct, and B's IsTameStrongBundle hypothesis goes unused. B ⇒ A fails for a genuine generality reason, not glue. A never assumes a tame strong bundle (an equivalent atlas of tame charts): the tameness it needs is the single tame chart built into Definition 5.17. A's isGoodPositionGerm does not even assume tame germ data, and its first conjunct is linear algebra for an arbitrary tame retraction, which B cannot produce.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "Both germ theorems of A (IsGeneralPositionGerm.isGoodPositionGerm and .isGoodPositionGermTame) now conclude the germ-reading good position, and B's IsGoodPositionGermTame means the same; A ⇒ B is still A's third conjunct. Result unchanged."
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V3_11",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A now contains the text's Lemma 3.9 on level m with smallness on level m (IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le: every ε, every m, x ∈ U_{m+1} with |ιx|_m < r, for any sc⁰-contraction germ B with an sc¹ derivative family), besides D₂B(0,0)=0 (deriv_zero_snd) and the older level-0 / ½-constant versions. A ⇒ B is proved from A (A_to_B, non-vacuous): for B's basic germ f, B(a,w) = w − P_W f(a,w) is an sc¹-germ with derivative family pr_W − pr_W∘Df (germ arithmetic) and an sc⁰-contraction germ in the sense of Definition 3.28 (B's lifted contraction estimate on a ball inside U_m); A's level-m lemma then gives B's lift η = levelDeriv(DB) m x (0, ζ), and deriv_zero_snd gives D₂B(0,0)=0. B is also proved outright (B_holds, the audit's proof, kept). B ⇒ A fails genuinely: A is about general sc⁰-contraction germs with an sc¹ B on any finite-dimensional P and any quadrant-like C̃ (B needs an sc-smooth basic germ on ℝⁿ with C̃ = [0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ), and A's working-form lemma holds on arbitrary contraction regions with the constant ½.",
+ "B_issue": null,
+ "overlap": "n/a for B_to_A (not proved). B_holds (outright proof of B) shares 78 project theorems with the banned proofs, all germ/level infrastructure (hasFDerivWithinAt_level, toBase_levelDeriv, continuousOn_levelDeriv, paramProd lemmas, denseRange_incl); none of the banned theorems.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "A gained IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le, the text's level-m statement with level-m smallness; A_to_B is now proved from A (previously only vacuously, by proving B outright). B ⇒ A still fails (A's generality), so incomparable → A_stronger."
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V2_56",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The definitions agree. The project's IsScSmoothSection (fst_eq on O plus Definition 2.7 in the 'every retraction onto O' form) is B's IsScSmoothSectionB (f(O) ⊆ K, (f x).1 = x, Definition 2.7 with one retraction) because O = r(U) is a retract (baseRetraction, after converting B's strong bundle retraction); the project's IsScPlusSection, stated for the lift f₁ : E₀ → E₀ × F₁, is B's sc⁺-section via f = (f₁.1, ι f₁.2), where B's requirement f(O) ⊆ K is exactly IsScPlusSection.mem (used from A); the principal-part identity is immediate. B ⇒ A fails for a genuine (if small) reason: B only compares definitions, in the setting O = r(U), K = R(U ◁ F); A's IsScPlusSection.mem is stated for arbitrary C, O, K, and IsScPlusSection.isScSmoothSection (an sc⁺-section is sc-smooth, via the sc-smooth inclusion K[1] → K[0]) is not asserted by B at all. Both facts are true; B just does not contain them.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

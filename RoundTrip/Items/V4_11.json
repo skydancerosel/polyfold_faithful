@@ -1,0 +1,12 @@
+{
+ "id": "V4_11",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = IsScPlusRetract.isScPlus ∧ isScPlusRetract_iff_forall (IsScPlusRetract is vocabulary: ∃ R, R.retract = O ∧ R.IsScPlus). B = (project IsScPlusRetract ↔ blind IsScPlusRetractB) ∧ intrinsic-ness. The definitions agree exactly: R.IsScPlus (canonical lift E.liftOne ∘ R sc-smooth into E¹) ↔ B's Definition 4.4 (r(U_m) ⊆ E_{m+1} and some lift g sc-smooth into E¹) via IsScPlus.iff_exists and mem_lvlSet_succ, as in V4_9; this first conjunct of B needs no A. B's intrinsic clause is A's isScPlus; conversely B's second conjunct gives isScPlus, and isScPlusRetract_iff_forall is then a repackaging (both directions use the hypothesis).",
+ "B_issue": null,
+ "overlap": "83 shared project theorems, all sc-calculus infrastructure (IsScSmooth.congr and its IsSc1/IsSc0/IsSck congruence chain, shift/prod/const scale proof fields, mem_lvlSet, IsScDomain/partial quadrant lemmas) reached through IsScPlus.iff_exists; lemma_4_5 itself is not used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

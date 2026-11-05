@@ -1,0 +1,12 @@
+{
+ "id": "V5_5",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = proposition_5_3_exists ∧ continuous_gluedNorm ∧ isCompleteFiberNorm_gluedNorm ∧ gluedNorm_bounds (universes 0, chart index type also at 0). The first conjunct is B exactly (every strong bundle, no tameness, ∃ N, IsAuxNorm N), so A ⇒ B is projection. B ⇒ A fails because the other three conjuncts are properties of the specific glued norm Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁ (continuity on Y[1], complete norm on every fibre, two-sided local comparison with the |·|₁ of any chart) about which B, a bare existence statement, says nothing; they are the mathematical content of the proof (the text's parenthetical), not glue.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

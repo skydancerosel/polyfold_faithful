@@ -1,0 +1,12 @@
+{
+ "id": "V5_60",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only IsWCG and IsReflexive are listed, so A = True and both implications are vacuous (flagged). The content is B, proved outright (B_holds): for every real Banach space V : Type, the project's IsWCG V is B's IsWCGB V. The two differ only in how 'weakly compact' is written. The project asks toWeakSpace ℝ V '' K to be compact in Mathlib's WeakSpace ℝ V. B asks K to be compact for its own weakTopB V = ⨅ ℓ ∈ V*, induced ℓ. The identity toWeakSpace is a homeomorphism (V, weakTopB) ≃ WeakSpace ℝ V, continuous both ways because each topology is the coarsest one making every ℓ continuous (WeakBilin.continuous_of_continuous_eval, continuous_iInf_rng/continuous_induced_rng, WeakBilin.eval_continuous). So the two compactness conditions agree, and 'cl(span K) = V' is literally the same on both sides. IsReflexive (surjectivity of NormedSpace.inclusionInDoubleDual) is not used by B; it is the standard definition, and the text does not define the term.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems: B_to_A is trivial, and B_holds uses only Mathlib's WeakBilin/WeakSpace API.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

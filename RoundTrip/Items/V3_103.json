@@ -1,0 +1,24 @@
+{
+ "id": "V3_103",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = eight auxiliary theorems (tame germ data are germ data; tame good position ⇒ good position / tame germ; the filled hypothesis ⇒ tame good position; identity base retraction is tame; IsTame.congr; nonempty_kerEquiv; the bundleEven example tame_atlas_no_germData_in_atlas_chart), universes 0; B = four equivalences project notion ↔ text notion. Definition comparison (proved without A): (i) IsTameChart ↔ IsTameChartB is Iff.rfl. (ii)/(iii), now with the germ reading: same tame chart; filling field for field (fillingGerm_iff_B); (iii) from (ii) both ways (section_of_germ). Project ⇒ text holds when the project's sc⁺-germ s is sc-smooth on a relatively open U₀ (chart_proj_to_blind; whole-chart notion ⇒ text, wholeChart_to_blind) but not in general: B reads the local sc⁺-section as sc-smooth on U₀ (all levels), the project as a germ with possibly shrinking levels (believed false, not formalized). Text ⇒ project holds up to Ψ living on U₀ ⊆ U instead of the chart's U (blind_to_proj_parts; believed glue, not attempted). (iv) (3.53), not re-done: project ⇒ text needs an sc-complement of the kernel when d_X(x) ≥ 1 (IsInGoodPositionIn has an algebraic complement) and (ii) ⇒; text ⇒ project needs the good-position chart to be the germ chart. So (ii)/(iii) project broader, (iv) incomparable. B → A is now proved outright (vacuous): the six structural lemmas by their short proofs, IsTame.congr copied, and the bundleEven example re-run with the banned links replaced by local copies.",
+ "B_issue": "As in V3_45: B reads the text's 'local sc⁺-section s' as sc-smooth on a relatively open U₀ (all levels U₀ ∩ E_m) while its filling g is a germ; the project reads s as an sc⁺-germ. With the project's germ reading this is where B is stricter than the project.",
+ "overlap": "524 shared project theorems: B_to_A re-runs the project's proofs (structural repackaging of germ data, ScRetraction.id_isTame, scDeriv_eq_of_eqOn_relOpen, the bundleEven/graph-section lemmas Reven_isTame, isChart_chart_even, germData_graphSection, isScSmoothSection_graphSection_even, scDeriv_r_evenBundleChart_apply, and the sc-calculus under them).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "3.50/3.51/3.53 switched to the germ reading and A gained nonempty_kerEquiv and tame_atlas_no_germData_in_atlas_chart; the old file did not compile and was repaired. (ii)/(iii) flipped from project-stricter (whole-chart g) to project-broader (germ s vs B's s on U₀); (iv) unchanged; B → A, recorded failed at the audit, is now proved outright (vacuous). Relation stays incomparable."
+ }
+}

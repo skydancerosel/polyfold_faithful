@@ -1,0 +1,12 @@
+{
+ "id": "V2_53",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same vocabulary on both sides (MPolyfold.prod, IsLocalScDiffeo, fibredProduct, IsSubMPolyfold, subPolyfold, IsTame, degIndex). A ⇒ B: sub-M-polyfold is isSubMPolyfold_fibredProduct, the tame clause is isTame_fibredProduct + degIndex_fibredProduct_eq_snd, the last clause is proposition_2_46_of_isLocalScDiffeo; B's paracompactness of the fibred product comes from Mathlib (closed in X × Y), and different IsSubMPolyfold proofs / ParacompactSpace instances agree by proof irrelevance. B ⇒ A fails genuinely: A proves d(x,y) = d_Y(y) for f a local sc-diffeo and g merely sc-smooth, and d = d_X = d_Y when both are local sc-diffeos, with NO tameness (Prop 2.24 along π₂, π₁), while B (following the item's grouping) asserts d = d_Y only for tame Y and d = d_X = d_Y only for X, Y both tame; A also contains the construction lemmas isScDiffeoOn_snd/fst_fibredProduct (π₂, π₁ are local sc-diffeos with explicit inverses), which B does not mention. B does give isSubMPolyfold_fibredProduct and isTame_fibredProduct exactly (B_to_sub, B_to_tame, rt_check OK). Harness: the statement of proposition_2_46_of_isLocalScDiffeo contains the banned isSubMPolyfold_fibredProduct (inside subPolyfold (…)), so any proof mentioning A fails #rt_check and #rt_check_soft; A_to_B is factored as A'_to_B ∘ A_to_A' (A' = same statements with that proof universally quantified; A_to_A' a projection), and #rt_check passes on A'_to_B.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

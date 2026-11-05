@@ -1,0 +1,12 @@
+{
+ "id": "V4_50",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Statements (2) d_X = d_A on A ∩ U and (3) general position on A ∩ U agree and are derived from A (A_to_B23, rt_check OK; paracompactness of A from metrizability). (1) and (4) differ in content: A counts the faces of the chart's MODEL RETRACT O through ψ(x) = 0 (Corollary 2.41 in a tame chart centred at x) and gives F_σ = ψ⁻¹(G_σ ∩ ⋂_{i∈σ} F_i) for retract faces F_i of O through 0 (inside the coordinate hyperplanes) with d_{F_σ} + #σ = d_X; B asks for ONE open U ∋ x whose own faces (closures in U of components of U ∩ {d_X = 1}) are exactly d_X(x) sets, all through x, and uses F_σ = U ∩ ⋂ F_i for those faces of U. A ⇒ B would need a new local-face-structure theorem for small neighbourhoods in X (U ∩ {d = 1} has exactly d components, each reaching x, identified with ψ⁻¹ of O's retract faces, and restriction of (4) to U ∩ ⋂ F_i) — real mathematics absent from A. B ⇒ A fails because B provides no tame centred chart ψ, retraction R, presentation T with U ⊆ dom ψ, no coordinate description of the local faces and not d_{F_σ} + #σ = d_X.",
+ "B_issue": null,
+ "overlap": "n/a (neither direction proved). A_to_B23 uses only theorem_4_22 (the hypothesis) and paracompactSpace_subtype.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

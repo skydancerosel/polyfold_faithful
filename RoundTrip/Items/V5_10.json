@@ -1,0 +1,24 @@
+{
+ "id": "V5_10",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notions on both sides (IsScFredholmSection — at HEAD the germ reading of Definition 3.14 —, IsProper, IsWeaklyProper, solutionSet = {x | IsZeroAt P f x}); A is theorem_5_5 (compact solution set => proper) and theorem_5_5_iff (proper <-> weakly proper <-> compact solution set) for an arbitrary M-polyfold, B is the same conjunction under the extra hypothesis PX.IsTame (the text's 'over a tame X'). A => B by instantiation (the tameness hypothesis is ignored). B => A would require re-proving Theorem 5.5 for non-tame X (the project's proof never uses tameness): a genuine generality difference, A strictly more general than the text, not glue.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "theorem_5_5, theorem_5_5_iff and B's Bd.IsScFredholmSection now all denote the germ reading of Definition 3.14 (A and B moved together); theorem_5_5 still has no tameness hypothesis and its proof uses the germ data only at the zeros. Result unchanged: A ⇒ B by instantiation (B's PX.IsTame unused), B ⇒ A fails because B says nothing about non-tame X."
+ }
+}

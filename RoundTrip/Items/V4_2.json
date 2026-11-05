@@ -1,0 +1,12 @@
+{
+ "id": "V4_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = IsCornerChart.contDiffOn_transition ∧ isRelOpenInQuadrant_overlap (universe 0). A ⇒ B: B's corner charts (any finite-dimensional sc-model with onto inclusions) are replaced by project corner charts id ∘ χ over ScBanach.const E₀ (compDiffeo with isScDiffeoQuadrant_toConst) with definitionally the same transition maps, so A gives C^∞; A's second conjunct gives relatively open overlaps; inverse/maps-to/sc-smoothness clauses come from compatibility; the classical quadrant T⁻¹([0,∞)ᵏ×ℝˡ) comes from the sc-presentation with W₀ ≅ ℝˡ. B ⇒ A: A's contDiffOn_transition holds on an arbitrary topological X (no Hausdorff/paracompact, no M-polyfold), while B needs an M-polyfold with a corner atlas; the gap is bridged by applying B to the retract M-polyfold O = χ(V∩V') (IsRelOpenInQuadrant.toMPolyfold) with the corner atlas {id_O, χ'∘χ⁻¹}, whose transition map is χ'∘χ⁻¹ on O. A's isRelOpenInQuadrant_overlap is stated for charts on ANY sc-model (finite-dimensional or not) and any second chart, which B (corner atlases only) does not cover; it is re-proved outright (five lines: exists_isOpen_image_eq + inter_isOpen), so that conjunct of B ⇒ A does not use B.",
+ "B_issue": null,
+ "overlap": "102 shared project theorems, mostly vocabulary (MChart/retract/partial-quadrant/sc-scale API and proof fields). Proof-level sharing: exists_isOpen_image_eq and IsRelOpenInQuadrant.inter_isOpen (the outright re-proof of isRelOpenInQuadrant_overlap, same argument as the project's), IsCornerChart.isRelOpenInQuadrant/finiteDimensional; the analytic core of contDiffOn_transition (isScSmooth_iff_contDiffOn_const) is not used — C^∞ comes from B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

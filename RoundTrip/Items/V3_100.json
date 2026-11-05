@@ -1,0 +1,38 @@
+{
+ "id": "V3_100",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = isInGoodPositionIn_of_subset ∧ isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero ∧ isGoodPositionGerm_of_isLinSurjAt ∧ IsGoodPositionGerm.isLinSurjAt ∧ isGoodPositionGerm_iff_isLinSurjAt ∧ IsLinSurjAt.linAt_surjective (universes 0, germ reading); the r2 blind B states, for a tame bundle, an IsScFredholmSectionTame section and a zero x, (∂X = ∅ → (IsGoodPositionGermSc ↔ IsLinSurjAt)) ∧ (d_X(x) = 0 → same), with the project's germ-reading IsGoodPositionGermSc (sc-complement). A ⇒ B (from hA's isGoodPositionGerm_iff_isLinSurjAt): at d_X(x) = 0, IsGoodPositionGermSc ↔ IsGoodPositionGermTame by the non-banned StrongBundle.isGoodPositionGermSc_iff (sc-complement upgrade at a zero), then A's equivalence; ∂X = ∅ gives d_X(x) = 0 (isWithoutBoundary_iff). B's tame-bundle hypothesis is unused. B ⇒ A fails genuinely: A also states IsGoodPositionGerm.isLinSurjAt (any d_X, no Fredholm or tame hypothesis), the non-centred-chart criterion (only IsScFredholmGerm at the point), the chart independence linAt_surjective and the linear-algebra lemma isInGoodPositionIn_of_subset, and its equivalence needs no tame strong bundle; B says nothing about these.",
+ "B_issue": null,
+ "overlap": "#rt_overlap on A_to_B: 444 shared project theorems, mostly sc-Banach/chart plumbing plus IsGoodPositionAtGerm.surj/.kernel, proposition_1_19, proposition_2_10_1, theorem_1_21(') — the Theorem 3.54 kernel machinery used by isGoodPositionGermSc_iff is not in the banned proofs. B_to_A not proved.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "blind_current": "RoundTrip/Blind/V3_100_r2.lean",
+ "blind_r1": {
+  "A_to_B": "failed",
+  "B_to_A": "failed",
+  "not_B": false,
+  "relation": "incomparable",
+  "effort_only": false,
+  "why": "A = isInGoodPositionIn_of_subset ∧ isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero ∧ isGoodPositionGerm_of_isLinSurjAt ∧ IsGoodPositionGerm.isLinSurjAt ∧ isGoodPositionGerm_iff_isLinSurjAt ∧ IsLinSurjAt.linAt_surjective (germ reading, universes 0). Proved from A (rt_check OK): A_to_B_a_mp, the -> half of B(a) (for boundary X empty, B's IsGoodPositionGermSc -> IsLinSurjAt at a zero, via whole-chart -> germ IsGoodPositionGermTame and A's isGoodPositionGerm_iff_isLinSurjAt), and A_to_B_a_mpr_wholeChart, the <- half under the added hypothesis IsScFredholmSectionTameWholeChart (A's linAt_surjective in the tame chart of the whole-chart data). The audit's full A_to_B_a no longer goes through: B's IsGoodPositionGermSc is built from whole-chart data (IsFilledVersion, s sc-smooth on U), while B's hypothesis IsScFredholmSectionTame now gives only germ data, so the <- half asks for whole-chart good-position data from a section with germ data, the open germ-versus-chart question (Findings item 260); not derivable from A or the project. B(b) (Corollary 3.24 with an sc-complement) was the audit's 'missing mathematics' gap; the sc-regularity it needs is now in the project outside the row (linAt_isScFredholm, IsInGoodPosition.isInGoodPositionScIn), so it is believed provable by glue but was not attempted since (a) fixes the verdict. B => A fails genuinely: B assumes a tame bundle and boundary X empty, A's equivalence needs only d_X(y) = 0 and no tame bundle, and A contains the general lemmas isInGoodPositionIn_of_subset, IsLinSurjAt.linAt_surjective and the non-centred-chart criterion.",
+  "B_issue": "B's good position (IsGoodPositionGermSc / IsGoodPosData) is built from whole-chart data (IsFilledVersion, s sc-smooth on all of U), while its hypothesis IsScFredholmSectionTame now means the text's germ data; the two no longer fit: B(a)'s <- half (surjective => good position) asks for whole-chart data, which is stronger than the text's good position (Definition 3.53 with germ data). B(a) should be restated with germ data (IsFillingGerm, IsScPlusGerm, a derivative family Dg) to mean the text.",
+  "uses_hypothesis": {
+   "A_to_B": true,
+   "B_to_A": false
+  }
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "The item file did not compile at HEAD (IsGoodPositionGermTame and IsScFredholmSectionTame switched to the germ reading). The -> half of B(a) is re-proved (via IsGoodPositionGermTameWholeChart); the <- half now needs whole-chart data from germ data (B's own whole-chart definition no longer fits its germ-reading hypothesis) and is proved only under the added hypothesis IsScFredholmSectionTameWholeChart. Verdict unchanged: both directions fail."
+ }
+}

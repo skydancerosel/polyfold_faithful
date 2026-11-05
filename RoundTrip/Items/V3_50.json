@@ -1,0 +1,24 @@
+{
+ "id": "V3_50",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_3_56_of_tangentGerm (universes 0), unchanged by the germ reading: in an M-polyfold with d_X ≡ 0, a nonempty set with the regular tangent germ property of one fixed dimension n is a sub-M-polyfold whose induced structure is an n-manifold without boundary; A has no Fredholm hypothesis. A ⇒ B is proved and uses A: B's IsLinSurjAt at a zero (d_X = 0) with the tame germ data of IsScFredholmSectionTame (now the text's germ reading) gives IsGoodPositionGermTame (germ form of isGoodPositionGerm_of_isLinSurjAt), the project's theorem_3_54_two (germ form, outside A) gives regular tangent germ data of locally constant dimension, A is applied to each local piece S ∩ U_y (every set is the solution set of a section of the trivial bundle X × ℝ), the pieces are glued (S ∩ U → S an sc-diffeomorphism onto an open set), d_S ≡ 0 by Lemma 2.26, and the open-chart atlas as in V3_86. B ⇒ A fails for a real reason: A concerns arbitrary tangent-germ sets in any boundaryless M-polyfold (no strong bundle, no tameness) and fixes the dimension n, while B only speaks of zero sets of sc-Fredholm sections of tame strong bundles, with unspecified dimension.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). The audit's informational #rt_overlap counts on A_to_B were not recomputed at HEAD.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "A unchanged; B's IsScFredholmSectionTame and the glue lemmas (isGoodPositionGerm_of_isLinSurjAt, theorem_3_54_two) now denote the germ reading. The file compiled unchanged at HEAD: A ⇒ B still proved, using A, with B's hypotheses satisfiable (the germ reading only weakens them); B ⇒ A still fails."
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V2_40",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Definition item with four listed lemmas. The definitions agree and B holds outright (B_holds, A unused): for a presentation T, R.IsTameWith T ↔ IsTameWithB R T (isTameWith_iff) — (1) degIndex E C = degIndexWith T = dCB T on C ⊇ U; (2) the project's level-1 point x ∈ O₁ ∩ (E₁)_∞ is B's smooth x ∈ O with lift x₁, minimalSubspaceWith T x = ExB T x, and B's explicit 'A is an sc-subspace' is a component of the project's IsScSplitting; IsTame and IsTameB both quantify over every presentation, and IsTameRetract/IsTameRetractB are the same existential. B ⇒ A holds only outright (B unused): A's lemmas — a tame retract is a retract, the identity of a relatively open U is tame, tameness for ONE presentation gives it for all (presentation independence, via the non-item minimalSubspaceWith_eq, the sign argument of Lemma 1.24), and restriction to U ∩ r⁻¹(V) preserves tameness — are properties that B does not state; they were re-proved from non-item project lemmas. No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A (outright): 131 shared project theorems — minimalSubspaceWith_eq/_le, eventually_add_smul_mem_of_minimalSubspace, coord_nonneg (presentation independence), ScRetraction.scDeriv_restrict/restrict_retract (restriction), IsSc1.scDeriv_eqOn/isSc1With_id (Dr = id for the identity), IsTameWith fields; the rest sc-calculus glue. None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

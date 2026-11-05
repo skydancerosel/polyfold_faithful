@@ -1,0 +1,24 @@
+{
+ "id": "V5_36",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = IsParamGP.comp ∧ isGeneralPositionGerm_paramSection_of_isParamGP ∧ isParamGP_of_isGeneralPositionGerm ∧ exists_sections_isParamGP (universes 0). B has four parts: (1) the project's IsParamGP equals the text's (i)–(ii) in a chart centred at the point; (2) (i)–(ii) are preserved under Fin.append; (3) T^R has a finite-dimensional complement L in T_zO; (4) adding sections that span f'(x)L to a family with (i) gives (i)–(ii). All four are proved outright (B_holds), so A ⇒ B is vacuous. (1) holds because the only lift of φ(y) = 0 is z = 0 and linAt on rangeS is Dg on TO; it needs neither IsZeroAt nor IsChart. (2)–(4) are elementary linear algebra; finite-dimensionality uses that T^R is the kernel of coordMapL on T_zO. B ⇒ A fails genuinely: B never mentions the parametrized section F on ℝᵐ × X or its general position (A's 2nd and 3rd conjuncts), nor the existence of allowable sc⁺-sections with (i)–(ii) from bump functions and an auxiliary norm (4th conjunct). IsParamGP.comp also allows an arbitrary reindexing ι, where B's (2) only covers Fin.append.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "A's parametrized-section theorems (general position of F, existence of sections with (i)–(ii)) now carry germ-reading hypotheses; B is chart-level linear algebra that does not use those notions and is still proved outright. Result unchanged: A ⇒ B vacuous, B ⇒ A fails (B never mentions F, its general position, or the existence of the sections)."
+ }
+}

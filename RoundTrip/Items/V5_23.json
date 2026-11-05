@@ -1,0 +1,12 @@
+{
+ "id": "V5_23",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = IsLinSurjAt.linAt_surjective (universes 0): at a zero y of an sc-smooth section where the linearization is onto in SOME strong bundle chart (IsLinSurjAt), it is onto in EVERY chart around y at the level-1 lift of φ'(y). B: for sc-smooth g, the project's IsTransversal g (IsLinSurjAt at every zero, i.e. onto in some chart) equals B's reading (onto in every chart, after showing a level-1 lift z exists). The notions match: linAt on rangeS (scDeriv U (r R) z) is literally B's Dg restricted to TO c z, and K-fibres are the same. A => B: (=>) the chart of IsLinSurjAt puts the zero in X_1, so every chart has a lift z, and A transports surjectivity; (<=) one atlas chart suffices (no A needed). B => A fails on scope, not on definitions: B speaks only of sections transversal at ALL zeros, A is pointwise at one zero with nothing assumed elsewhere; deriving it would need a localization (zeros may accumulate at y), which is not available.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

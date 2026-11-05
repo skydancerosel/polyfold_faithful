@@ -1,0 +1,12 @@
+{
+ "id": "V2_30",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (lemma_2_26.{0}) states d_A ≤ d_X for the project's particular structure subPolyfold hA on A; B states it for every M-polyfold structure Q on A satisfying properties (1), (2) of Proposition 2.21. A ⇒ B: any such Q is sc-diffeomorphic to subPolyfold hA by the identity on V ∩ A (V the sub-M-polyfold neighbourhood of a), since id = i⁻¹∘r∘i there and (1), (2) hold for both structures; Proposition 2.24 (project lemma) transfers the index, and A concludes. B ⇒ A: subPolyfold hA satisfies (1), (2) (subPolyfold_inclusion_isScSmooth, subPolyfold_retraction_isScSmooth, the latter congruent to any g agreeing with r on V). So the two say the same thing; the project's canonical choice of structure is harmless.",
+ "B_issue": null,
+ "overlap": "214 shared project theorems, essentially the sub-chart construction of Proposition 2.21 (SubData.*, subChart_*, subPolyfold_isChart, ScRetraction.restrict/apply lemmas) plus sc-calculus and scale infrastructure, all reached through the definition subPolyfold (part of A's statement) and Prop 2.21 (1)/(2); B ⇒ A does not use the degeneracy-index lemmas of lemma_2_26's proof (exists_isChart_degIndex_eq, degIndex_le).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V4_28",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notions (HasCornerStructure, smoothSet, toLevelOne/shift, IsChart, T_0O = Dr(0)E = tangentSpace). A ⇒ B is hasCornerStructure_of_centred (A) plus glue: a junk point x₀ ∈ X₁ from any point (X_0 = X_∞), the empty X via hasCornerStructure_iff, B's T_0O = range Dr(0) for some R onto O equals the project's tangentSpace (tangentSpace_eq_coe_submodule), and B's good position with an sc-complement gives the project's IsInGoodPosition (algebraic complement) from level 0 of the sc-splitting. B's hypotheses that X is tame and that the centred charts are tame are not used. B ⇒ A fails genuinely: hasCornerStructure_of_centred and theorem_4_2_chart assume neither tameness of X nor of the charts, and only an algebraic good complement, so B (which needs all three) cannot be applied under A's hypotheses; the remaining conjuncts (exists_proj_goodComplement = normal form of Prop. 3.22, exists_cornerChartData = Prop. 4.9 in a chart, chart_isChart/chart_isCornerChart) are local proof steps about which B says nothing.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved); A_to_B uses only hasCornerStructure_of_centred (A), hasCornerStructure_iff, smoothSet_subset_levelSet, tangentSpace_eq_coe_submodule and levelSub_zero.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

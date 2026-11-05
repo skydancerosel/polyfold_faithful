@@ -1,0 +1,24 @@
+{
+ "id": "V3_13",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A is now four auxiliary theorems (IsScFredholmGermWholeChart.isScFredholmGerm, isScFredholmGerm_iff_germG_wholeChart, IsFillingGerm.nonempty_kerEquiv, TrivialBundle.not_isFillingGerm_evenBundleChart), re-proved outright in B_to_A; B (project IsScFredholmGerm ↔ text IsScFredholmGermB on tame bundles) is about the definitions. With the germ reading the audit's main obstruction (text germs vs whole-chart g, s) is gone: IsFillingGerm ↔ B's IsFillingB (germ_iff_filling, proved; B's Dr is scDeriv U r by uniqueness) and IsScPlusGerm is literally B's IsScPlusGermB. Project ⇒ text (proj_to_parts) lacks (i) tameness of the chart: the project admits any compatible chart, B (reading Definition 3.4's 'tame strong local bundle') a tame one; moving germ data to a tame chart is open (the project's TameGermData; not_isFillingGerm_evenBundleChart shows some tame charts carry no filling) — a genuine difference, the project's tame reading being IsScFredholmGermTame (Def. 3.50); and (ii) B's conjugation form (ℝⁿ, ℝᴺ, standard quadrant, literal push-forward basic) vs the project's abstract Pn, Q, Ct and h agreeing near 0 — transport glue, not attempted. Text ⇒ project (text_to_parts) gives the chart, filling and sc⁺-germ; only the conjugation remains: B's Ψ lives on a relatively open U₀ ⊆ U, the project's on the chart's whole U — believed glue (shrink the chart's U to U₀ ∩ r⁻¹(W), O ∩ W ⊆ U₀, and restrict the data with IsFillingGerm.of_subset etc.) but needing a new chart construction. Relation, on the definitions as predicates: text ⇒ project (believed), not project ⇒ text — the project's notion is broader.",
+ "B_issue": null,
+ "overlap": "347 shared project theorems: B_to_A re-runs the project's proofs (IsFilledVersion.isFillingGerm / isFilledVersion, IsScSmooth.isScSmoothGerm, the evenBundleChart derivative scDeriv_r_evenBundleChart_apply and the sc-calculus under them); the kernel argument of not_isFillingGerm_of_ker is redone without nonempty_kerEquiv.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "incomparable"
+  },
+  "note": "IsScFredholmGerm switched to the germ reading and A gained four theorems (re-proved outright). The file was repaired (IsFillingGerm has no .isScSmooth/.filler); the germ-vs-whole-chart difference is gone in both directions (germ_iff_filling), leaving the tame-chart requirement (genuine, project broader), the ℝⁿ/Pn conjugation transport and Ψ on U₀ ⊆ U (glue). Relation incomparable → A_narrower (project notion broader)."
+ }
+}

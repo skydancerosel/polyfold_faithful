@@ -1,0 +1,24 @@
+{
+ "id": "V2_57",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The definitions agree (for continuous P, which B assumes). Charts: every field of StrongBundleChart is a clause of B's IsStrongBundleChartB (strong bundle retraction converted, r(U) = O definitional), with fibre continuity from A's continuous_fiber; conversely a B-chart is a project chart exactly when its base chart φ is a chart of PX — the project's extra field isChart, which B itself builds into its comparison. Compatibility: the project's Compatible equals B's CompatibleB (→ uses that Φ(P⁻¹(V ∩ V')) and its [1]-part are retracts, needs Continuous P; ← reads F₁-preservation off the lifts). Atlases and Equiv follow; A_to_B uses only continuous_fiber. B ⇒ A fails by scope and content: continuous_fiber, Compatible.symm and the added conjuncts (compatible_of_locally, StrongBundleAtlas.equiv_iff/Equiv.trans/equivalence, IsStrongBundleRetraction.restrict, Compatible.restrict) hold for every P (no continuity, no T2/paracompact Y, no Banachable fibres), B only speaks under those hypotheses; and the locality of compatibility, the restriction of charts and the transitivity of atlas equivalence are not part of B (which deliberately omits that atlas equivalence is an equivalence relation), so they would need the project's arguments. A_to_B is checked with #rt_check_soft: A's statement mentions the definition StrongBundleChart.restrict, whose proof field is the banned IsStrongBundleRetraction.restrict.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). A_to_B: #rt_check_soft OK with review — the banned IsStrongBundleRetraction.restrict is reached only through the proof field restrict._proof_3 of the definition StrongBundleChart.restrict (named in A's statement), not as a lemma.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "A gained the locality of compatibility, atlas equivalence as an equivalence relation, and the restriction of strong bundle retractions/charts. A_to_B still holds (now #rt_check_soft, because A's statement names StrongBundleChart.restrict, whose proof field is a banned theorem); B_to_A still fails, the new conjuncts adding content B does not state. Relation unchanged (A_stronger)."
+ }
+}

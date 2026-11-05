@@ -1,0 +1,12 @@
+{
+ "id": "V5_58",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (proposition_5_38; it has no universe parameter, LocalModel lives in Type) and B make the same claim: for every local model M, if E_0 admits C^infinity partitions of unity (AdmitsContDiffPartitionsOfUnity (M.E 0) ⊤), then M.HasApproxProperty. B writes M.E.lvl 0 for the project's M.E 0. That is the coercion unfolded, so each direction is the identity function. B reads 'the sc-Banach space admits smooth partitions of unity' as classical C^infinity partitions of unity of E_0, which is the project's reading too.",
+ "B_issue": null,
+ "overlap": "8 shared project theorems, all auto-generated proof fields and simp lemmas of ScBanach.constScale / ScScale.mem_smoothLvl_iff that occur in the statement's types. No mathematical lemma is shared.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

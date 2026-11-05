@@ -1,0 +1,12 @@
+{
+ "id": "V2_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same content. B's TV/Tφ/τB/TO/TC are the project's tangentChartSet/tangentChartMap/instance/retractTangent/tangentSet, and B's chart (TV, Tφ, (TO,TC,TE)) is tangentChart hφ α₀ (when TX is empty, TV and TO are both empty). A ⇒ B: formula (5) from tangentChart_overlap and tangentChart_transition (overlap image = T(φ(V∩V')), Tφ' = T(φ'∘φ⁻¹)∘Tφ), its smoothness and the compatibility of the tangent charts from the tangent functor (IsScSmoothRetractMap.tangent) and (5); Hausdorff/paracompact are project instances; B's bundle clause from isScSmoothRetractMap_tangent_fst. The one formal difference: B states pr₁ : TO → O₁ sc-smooth into E^1 = E.shiftAdd 1 (levels E_{1+m}), the project into E¹ = E.shift (levels E_{m+1}); they are sc-isomorphic with the identity on level 0 (shiftIso), so equivalent. B ⇒ A: overlap/transition/compatibility from B's (5) and CompatibleB; isScSmoothRetractMap_tangent_fst for an arbitrary retract via B applied to the M-polyfold O with the single chart id (LocalModel.toMPolyfold; O = ∅ trivial); tangentProj_isScSmooth by the project's chart argument with B's pr₁ smoothness. #rt_check_soft is used: both directions reach tangentChart_overlap/_transition/_compatible only through the proof fields of the definition tangentAtlas (A's own statement mentions tangentPolyfold, and B ⇒ A uses tangentPolyfold_isChart).",
+ "B_issue": null,
+ "overlap": "350 shared project theorems: the whole tangent-bundle construction (tangentChartMap_*, mk_ofVec_*, TangentPre.*, retractTangent*, theorem_1_21, proposition_2_4/2_6, IsScSmoothRetractMap.tangent, LocalModel.tangent_isScSmooth), levelChart_* and shift_isChart (V2_16) and tangentPolyfold_isChart; tangentChart_overlap/_transition/_compatible appear only via tangentAtlas's proof field (soft).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V2_61",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "A formalizes 'natural structure' as a specific atlas: proposition_2_54 says ∃ B' : StrongBundle PZ (pullbackProj P f) whose charts are exactly the pulled-back charts Φ_f(z,y) = (ψ(z), pr_F Φ(y)) (pullbackAtlas), plus construction lemmas (transition formulas, compatibility, R_g and its image K_g, paracompactness of f*Y for arbitrary f). B reads 'natural' as: fibres of f*Y carry the linear structure of the fibres of Y, and P' : f*Y → Y is sc-smooth on [0] and [1]. A ⇒ B fails only on that naturality: no project statement mentions sc-smoothness of P' (believed true and provable — in the charts Φ_f, Φ the map is (w,h) ↦ (g(w),h) on K_g with g = φ∘f∘ψ⁻¹ sc-smooth — but it needs new chart work on toMPolyfold0 and toMPolyfold1, so effort_only refers to this direction); the rest of B follows (A_to_struct; fibre-linearity from pullbackFiberEquiv_add/smul). B ⇒ A fails genuinely: B only asserts that some strong bundle structure exists, not that the pulled-back charts form its atlas, and implies none of the chart-construction lemmas; B does give the existence part (B_to_exists). Harness: the statement of proposition_2_54 contains the banned paracompactSpace_pullbackSpace (instance on f*Y), so partial results are rt_checked through Exists254 (exists_to_struct, B_to_exists: rt_check OK).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V2_13",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notion of sc-smooth map. The project's IsScSmoothMap (continuity as a field + ψ ∘ f ∘ φ⁻¹ sc-smooth on φ(V) for EVERY pair of charts of the maximal atlases and every open V ⊆ dom φ with f(V) ⊆ dom ψ, 'every retraction' Def. 2.7) is equivalent to B's existential reading (around each x SOME charts with f(dom φ) ⊆ dom ψ and a representative sc-smooth on O for SOME retraction): → by restricting a chart to dom φ ∩ f⁻¹(dom ψ) (IsChart.restrict) and isScSmoothRetractMap_iff_exists; ← B's condition implies continuity (f = ψ⁻¹ ∘ rep ∘ φ near x), then A's of_exists_charts with U = univ; B's chart-independence follows. B → A: isScSmoothMap_id follows from B, and of_exists_charts at U = univ also follows from B (lemma of_exists_charts_univ_of_B), but A states it for every open U and adds IsScSmoothOn.comp / IsScSmoothMap.comp (composition of sc-smooth maps on open sets), which are neither in Definition 2.14 nor in B; these three were re-proved directly with the project's arguments (chain rule Theorem 2.8 for retracts, locality), without B.",
+ "B_issue": null,
+ "overlap": "168 shared project theorems: the sc-calculus behind IsScSmoothRetractMap.{comp,restrict,of_locally,congr,mono_target} (chain rule, IsSc0/IsSc1/IsSck locality), MChart glue (exists_isOpen_image_eq, isScRetract_image, isScRetract_overlap, transition lemmas), IsChart.compatible / compatible_of_locally (items V2_10/V2_12) and exists_isChart_mem_source; all from re-proving of_exists_charts and IsScSmoothOn.comp. None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

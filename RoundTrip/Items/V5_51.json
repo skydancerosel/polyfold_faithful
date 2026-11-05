@@ -1,0 +1,13 @@
+{
+ "id": "V5_51",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A is the type of the listed lemma closure_inter_ball_subset: O ∩ cl B(z, r/2) ⊆ O when B(z, r) lies in the open W' with C ∩ W' the domain of a retraction onto O. It has no universe parameters and says nothing about bump functions. B claims the project's LocalModel.HasBumpProperty (f(x) ≠ 0) equals the literal Definition 5.33 (f not identically zero on O). The pointwise ⇒ literal half is proved (hasBumpPropertyB_of_hasBumpProperty). The open-set and support clauses match exactly: U = O ∩ W, cl_E(U) ⊆ O, supp_O f ⊆ U. Literal ⇒ pointwise is a real difference, not glue: on an sc-retract there are no translations to move a bump that is merely not identically zero onto x. So A ⇒ B fails, and ¬B was not attempted, since a counterexample needs a Banach space without sc-smooth bumps. B ⇒ A holds only vacuously (A_outright re-proves the lemma without the hypothesis).",
+ "B_issue": "Not a bug: B deliberately reads 'f ≠ 0' literally (not identically zero), where the project reads f(x) ≠ 0. The author predicted B may fail and supplied BPointwise.",
+ "intended": "BPointwise (Definition 5.33 with f(x) ≠ 0) is exactly the project's notion: BPointwise_holds proves HasBumpProperty ↔ HasBumpPropertyPointB for every local model outright, by the U = O ∩ W repackaging; #rt_check OK.",
+ "overlap": "B_to_A (= A_outright, the project's argument re-proved): 59 shared project theorems, all sc-retraction and sc-scale glue (ScRetraction.apply_eq_self_of_mem_retract, mem_retract_iff, IsPartialQuadrant.isClosed, IsSc1With.isSc0, IsSc0.continuousOn, scale lemmas). No Chapter 5 result is used.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

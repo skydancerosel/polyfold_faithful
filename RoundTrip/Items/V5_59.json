@@ -1,0 +1,12 @@
+{
+ "id": "V5_59",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is mem_cZero_iff ∧ norm_cZero (universe 0). cZero, IsCoordinatewiseContDiffEmbedding and TorunczykStatement are vocabulary that B compares with its own notions. (1) Elements: mem_cZero_iff is literally B's c0SetB condition; that every function satisfying it is bounded, hence lies in ℓ^∞, is proved directly. (2) Norm: A says ||f|| = sup_γ |f(γ)|, B says |f(γ)| ≤ ||f|| with equality at some γ (or Γ empty). A => B uses that the sup is attained, because {γ | ||f||/2 < |f(γ)|} is finite and nonempty when ||f|| > 0. B => A uses that a bound attained at a point is the sup. (3) Topology.IsEmbedding h is B's metric reading 'injective, continuous, inverse continuous on the image' (isEmbedding_iff_metric), and the coordinate-wise C^k conditions coincide. (4) The project's AdmitsContDiffPartitionsOfUnity (a subordinate Mathlib PartitionOfUnity of C^k functions) equals B's AdmitsCkPOUB, so TorunczykStatement V k ↔ TorunczykB V k; Γ ranges over Type on both sides at universe 0. Parts (3) and (4) concern vocabulary only and are proved without A. The truth of Theorem 5.40 (BTheorem) is in neither A nor B.",
+ "B_issue": null,
+ "overlap": "4 shared project theorems, all auto-generated _proof_ fields of the submodule cZero. No mathematical lemma is shared.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

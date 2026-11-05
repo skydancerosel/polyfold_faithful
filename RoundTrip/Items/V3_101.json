@@ -1,0 +1,24 @@
+{
+ "id": "V3_101",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = theorem_3_19_of_surjective ∧ theorem_3_56_of_surjective ∧ theorem_3_56_tame (universes 0; germ reading). B's (3.56) conjunct follows from A (A_to_B_3_56 in the file: theorem_3_56_of_surjective when S ≠ ∅, the empty atlas when S = ∅, ∂X = ∅ ⇔ d_X ≡ 0, open-chart glue). Its (3.19) conjunct does not: (i) B assumes only IsScFredholmSection (germ data in some chart, no tameness), whereas theorem_3_19_of_surjective needs IsScFredholmSectionTame and theorem_3_56_tame needs good position in a tame chart at every zero; the project has no lemma moving untamed germ data into a tame chart (left open in Chapter3/TameGermData.lean); (ii) B concludes that Lin(z) : T_zO → K_z is an sc-Fredholm sc-operator of sc-index d in every chart (ChartLinScFredholm), while A gives only IsSurjLinOfIndex; the project lemma StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex now supplies this content in every chart (glue to ChartLinScFredholm not carried out), so (i) is the remaining obstacle. B ⇒ A fails: B's (3.56) assumes IsTameStrongBundle, which A's theorems do not, and A concludes more (tameness of the induced structure, regular tangent data, IsSurjLinOfIndex at the nearby zeros, theorem_3_56_tame for non-tame sections in good position).",
+ "B_issue": "Possible over-strength, flagged by the blind author: B's (3.19) conjunct assumes no tameness (IsScFredholmSection). If the text's Theorem 3.19 presupposes a tame strong bundle (as the project's docstring of IsScFredholmSection says of Definition 3.14), this conjunct is stronger than the text. Not otherwise a bug.",
+ "overlap": "n/a (no direction proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "The three theorems now state the germ reading, as do B's IsScFredholmSection / IsScFredholmSectionTame; the file compiled unchanged and the relation is unchanged. Obstacle (ii) of the audit is now covered by a project lemma up to glue; obstacle (i), tame germ data from untamed germ data, remains."
+ }
+}

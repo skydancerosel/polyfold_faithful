@@ -1,0 +1,12 @@
+{
+ "id": "V4_42",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = isGoodComplement_sup_range ∧ lemma_4_19 ∧ IsInGoodPositionIn.isInGoodPosition: general linear algebra in any sc-Banach space with a presented partial quadrant C, a bounded idempotent π with (1 − π)E ⊆ E₀ (minimal subspace at 0) and N ⊆ πE in good position to C inside πE with an ALGEBRAIC good complement Y; conclusions: Y ⊕ (1 − π)E is an algebraic good complement of N in E, N in good position (algebraic). B is the instance in a centred tame chart of an M-polyfold (N = T₀(φ(A∩V)), M = T₀O, an arbitrary sc-complement Z ⊆ C of M) and asks for SC-complements. A ⇒ B (from the first conjunct): Z ⊆ C forces Z ⊆ E₀; with π the sc-projection onto M along Z, (1 − π)E = Z, so isGoodComplement_sup_range gives the ε-property; the sc-splitting E = N ⊕ (Y ⊕ Z) is new glue (N = Dt(0)E is an sc-subspace at the smooth point 0, Y ⊕ Z = π⁻¹(Y) is closed with dense smooth points, and levelwise E_m = N_m ⊕ Y_m ⊕ Z_m); tameness of the chart is not even needed since B supplies Z. B ⇒ A fails genuinely: A holds for arbitrary E, π, N (not finite-dimensional or smooth) and algebraic complements, which cannot be realized as tangent spaces of a smooth submanifold in a tame M-polyfold chart with sc-complements.",
+ "B_issue": null,
+ "overlap": "A_to_B: 23 shared project theorems, all sc-Banach/quadrant vocabulary (prodScale/constScale proof fields, mem_smoothLvl_iff, mem_minimalSubspaceWith, minimalSubspaceWith.eq_1); none of the content of Lemma 4.19 besides the used hypothesis.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

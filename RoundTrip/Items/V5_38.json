@@ -1,0 +1,24 @@
+{
+ "id": "V5_38",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = theorem_5_18 (universes 0): over a tame X with strong bump functions (f(x) ≠ 0), for every s₀ with N(s₀) ≤ 1−ε a finite family s₀ + Σλᵢtᵢ such that for a.e. small λ the perturbation is allowable and SolutionSetInGeneralPosition holds (transversal, (f+s, x) in general position at every zero, S compact smooth submanifold in general position, corner structure, tame, d_S = d_X). B is the dense-set form with the weak reading of bump functions (f ≢ 0) and a tame strong bundle; both sides use the germ-reading IsScFredholmSectionTame. A ⇒ B fails only at the bump-function hypothesis: A ⇒ Bstrong (B with AdmitsBumpFunctions) is proved (A_to_Bstrong, #rt_check OK) via dense_of_generic, which re-derives ρ-density from the family form; whether the weak reading implies the strong one is not glue (the project's Proposition 5.30 needs f(x) ≠ 0). B ⇒ A fails genuinely: B assumes a tame strong bundle where A only assumes X tame, and B's dense-set conclusion does not give A's generic family form nor the extra conclusions (transversality, submanifold in general position, tameness).",
+ "B_issue": "Not a bug, but a reading choice that decides A ⇒ B: B reads 'bump functions' (Definition 5.9, 'f ≠ 0') as AdmitsBumpFunctionsWeak (f not identically zero); the project reads f(x) ≠ 0 (AdmitsBumpFunctions). B also adds a tame strong bundle hypothesis.",
+ "overlap": "B_to_A not proved; no #rt_overlap run.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "theorem_5_18 and B now both use the germ-reading IsScFredholmSectionTame. The obstacles (weak vs pointwise bump functions for A ⇒ B; B's tame strong bundle atlas and dense-set form for B ⇒ A) are untouched by the germ switch; A ⇒ Bstrong still checks. Result unchanged."
+ }
+}

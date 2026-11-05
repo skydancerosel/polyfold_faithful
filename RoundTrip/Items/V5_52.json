@@ -1,0 +1,13 @@
+{
+ "id": "V5_52",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "The two sides read 'f ≠ 0' differently. A (theorem_5_34, universe 0) uses the strong reading: AdmitsBumpFunctions and LocalModel.HasBumpProperty, both with f(x) ≠ 0. B uses the literal reading of Definitions 5.29/5.33: AdmitsBumpFunctionsWeak and HasBumpPropertyWeak, both with f not identically zero. The atlas formulations agree (exists_atlas_iff: a covering set of PX.IsChart charts is the same as an MAtlas equivalent to PX.atlas). B is itself a true theorem: B_holds re-proves it by the project's argument with f(x) ≠ 0 replaced by f ≢ 0. So A_to_B is proved, but only VACUOUSLY: it does not use A, and A's content (the strong notions) says nothing about the weak ones. B ⇒ A fails for a real reason, not for lack of effort. Getting A from B needs weak bumps ⇒ strong bumps, on X or on local models. That is not glue: on a retract there is no translation that moves a bump that is merely nonzero somewhere onto a given point. Each statement is a true equivalence about its own pair of notions.",
+ "B_issue": null,
+ "intended": "With the strong reading on both sides (the blind file's BStrong), A ⇔ BStrong is proved: A_to_BStrong and BStrong_to_A, both #rt_check OK, by exists_atlas_iff alone.",
+ "overlap": "BStrong_to_A: 185 shared project theorems, all from chart compatibility (MPolyfold.IsChart.compatible and Chapter 1-2 sc-calculus lemmas). A_to_B (via B_holds): 220 shared project theorems. These are the same chart machinery plus the lemmas the project's proof of Theorem 5.34 uses: closure_inter_ball_subset, isScSmoothMap_real_of_local, MPolyfold.IsScSmoothMap.real_chart, IsScSmooth.of_contDiffOn_finiteDimensional (with proposition_1_19, theorem_1_21'). This is expected, because B_holds is the project's argument adapted to the weak reading.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

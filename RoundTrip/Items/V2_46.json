@@ -1,0 +1,12 @@
+{
+ "id": "V2_46",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions: B's faces are MPolyfold.IsFace of LocalModel.toMPolyfold, A's are IsRetractFace in E₀, linked by isFace_toMPolyfold_iff (part of A). The only real difference is the extended faces: A uses the hyperplanes f_i = coordHyper T i of ONE presentation T, B (IsExtFaceB) those of ANY presentation of C. New glue coordHyper_indep (elementary, ~70 lines): for two presentations T, T' of C every T'-hyperplane is a T-hyperplane (at p = T'⁻¹(a,0) with a_j = 0, a_k = 1 else, d_C(p) = 1 forces one vanishing T-coordinate i; near p, C is both {λ_i ≥ 0} and {λ'_j ≥ 0}, so ker λ_i = ker λ'_j). With it, A ⇒ B: claim 1 is isFace_toMPolyfold_iff + lemma_2_40 for the presentation of f (r is tame for every presentation); claim 2 is lemma_2_40_injective after moving f' into f's presentation. B ⇒ A: lemma_2_40, lemma_2_40_injective (+ injectivity of i ↦ f_i), closure_connectedComponentIn_faceStratum and connectedComponentIn_coordHyper_eq (+ d_C = 1 on the stratum) are derived from B; isFace_toMPolyfold_iff (a definitional transfer along Subtype.val with d_O = d_C, Prop 2.36) and the point-set lemma subset_of_relClopen_of_isPreconnected are proved directly without B (copies of the project's short proofs).",
+ "B_issue": null,
+ "overlap": "284 shared project theorems: sc-calculus/retract/chart infrastructure, Prop. 2.36 and its supporting lemmas (degIndex_toMPolyfold_of_isTameWith, degIndex_eq_chartDegIndex_of_isTameWith, lemma_1_24/degIndex_eq, theorem_2_31, minimalSubspaceWith lemmas), the transfer helpers image_val_closure / image_val_connectedComponentIn, and elementary coordinate lemmas (continuous_coord, coord_nonneg, zeroSet_eq_singleton, faceStratum_degIndexWith, mem_zeroSet). None of the item's theorems, and none of the Lemma 2.40 core (local_face_structure, ray_zeroSet).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

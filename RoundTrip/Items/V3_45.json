@@ -1,0 +1,24 @@
+{
+ "id": "V3_45",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Definition item: A = True (all decls are definitions), B = (IsScFredholmGermTame ↔ IsFredGermB) ∧ (IsScFredholmSectionTame ↔ IsFredSectionB) for sc-smooth sections of tame bundles. At HEAD the project's notions are the germ reading. Same tame chart on both sides; the filling agrees field for field (fillingGerm_iff_B); clause (b) follows from clause (a) both ways (section_of_germ). The remaining difference is the sc⁺-section and where Ψ lives: B takes s sc-smooth on a relatively open U₀ ∋ 0 (all levels U₀ ∩ E_m) and the conjugation on U₀; the project takes an sc⁺-germ (IsScPlusGerm, levels may shrink) and the conjugation on the chart's whole U. Project ⇒ B is proved when s is sc-smooth on some U₀ (chart_proj_to_blind; the whole-chart notion implies B, wholeChart_to_blind) and is believed false in general (a germ smooth only on shrinking levels, as in exists_isScSmoothGerm_not_isScSmooth; not formalized since B's s is existential) — a genuine reading difference. B ⇒ project is proved up to the conjugation (blind_to_proj_parts: chart, filling, sc⁺-germ on ofSet U₀, s(0) = g(0)); Ψ on U₀ ⊆ U vs on U is believed glue (shrink the chart's U to U₀ ∩ r⁻¹(W)), not attempted. Relation on the definitions as predicates: B ⇒ project (believed), not conversely — the project's notion is now the broader one (at the audit it was the stricter, whole-chart one).",
+ "B_issue": "B reads the text's 'local sc⁺-section s' as sc-smooth on a relatively open U₀ (all levels U₀ ∩ E_m), while its filling g is a germ with possibly shrinking levels; the project (and the blind V3_13) read s as an sc⁺-germ like g. Both are readings of 'local'; with the project's germ reading this is the one place where B is stricter than the project.",
+ "overlap": "B_to_A: 0 shared project theorems (A = True). The comparison lemmas pass #rt_check (no theorems banned).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "A_stronger"
+  },
+  "note": "The project's 3.50/3.51 switched to the germ reading and the row gained IsScFredholmGermTameWholeChart; the old file did not compile (IsFillingGerm has no .filler) and was repaired. The direction flipped: whole-chart g is gone, so the project's notion is now broader than B's (germ s vs s on U₀; Ψ on U₀ is glue); A_stronger → A_narrower."
+ }
+}

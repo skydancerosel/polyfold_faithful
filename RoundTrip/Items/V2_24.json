@@ -1,0 +1,12 @@
+{
+ "id": "V2_24",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A ⇒ B: Q := subPolyfold hA; B (1) is A's subPolyfold_inclusion_isScSmooth plus IsEmbedding.subtypeVal (subspace topology on both sides); B's (V, r) is exactly a SubData, and A's subPolyfold_retraction_isScSmooth for the project's i⁻¹∘r (retractInto, junk value a₀ off V) transfers to every g agreeing with r on V by IsScSmoothOn.congr (V = ∅ separately). B also asserts ParacompactSpace ↥A for every sub-M-polyfold, while A only has paracompactSpace_of_isClosed; the general case comes from the project lemma paracompactSpace_subtype (Thm 2.16, outside this item). B ⇒ A fails genuinely: B only says SOME paracompactness and SOME structure with (1),(2) exist, whereas A is about the specific construction — image_shrink, rho_isScSmooth, isScRetract_image, subChart_compatible, the retract lemma mono_source and paracompactSpace_of_isClosed say nothing about Q, and (1),(2) for subPolyfold itself would need uniqueness of the natural structure (sub-charts compatible with every Q with (1),(2)), new chart work.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). HARNESS: A's statement contains subPolyfold; the body of subChart passes the banned isScRetract_image (hence rho_isScSmooth, image_shrink) as the non-abstracted retract proof of its model, and subAtlas._proof_1 uses subChart_compatible (hence mono_source), so A_to_B fails #rt_check and #rt_check_soft (recorded with #guard_msgs). As in V2_53/V2_61, A_to_B = A'_to_B ∘ A_to_A' (A' = A's (1),(2) with Q existentially quantified, A_to_A' a projection) and #rt_check passes on A'_to_B; as in V1_32, a local #rt_check_except_defs with the bodies of subChart and subAtlas not unfolded passes on A_to_B itself.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V1_9",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "B's hand-written IsScFredholmB has exactly the fields of the project's ScFredholmSplitting (repackaged by isScFredholmB_iff), and T.add S.toScOperator is definitionally T + S.toScOperator, so proposition_1_10 is literally B (A_to_B). B still gives proposition_1_10 and the bootstrap lemma ScPlus.regularizing_add (B plus Proposition 1.9; kept as B_to_A_old). But A now also contains the criterion isScFredholm_of_isRegularizing(_index): an sc-operator that is Fredholm on level 0 and regularizing is sc-Fredholm, with the level-0 index on every level. B (sc-Fredholm + sc⁺ is sc-Fredholm) says nothing about operators not already sc-Fredholm; the criterion needs the construction of §1.4.1 (Prop. 1.6 for the kernel, density of smooth points in the range, a smooth complement), i.e. re-proving the project's argument, and every project route to it goes through the banned lemma. So B ⇒ A fails for content B does not state.",
+ "B_issue": null,
+ "overlap": "B_to_A_old (B ⇒ proposition_1_10 ∧ regularizing_add): 36 shared project theorems, structure-field projections and glue (ScFredholmSplitting fields, toBase/levelSub/shift lemmas, ScOperator.add proofs) plus proposition_1_9, K_le_smooth and proposition_1_6_iff; nothing of the perturbation argument is reused. No full B_to_A.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "proved",
+   "relation": "equivalent"
+  },
+  "note": "A gained the §1.4.1 criterion isScFredholm_of_isRegularizing and its _index version, which B (Prop. 1.10) does not contain and which cannot be derived from B without redoing the project's construction; B_to_A therefore fails now (the old part is kept as B_to_A_old) and the relation moves from equivalent to A_stronger."
+ }
+}

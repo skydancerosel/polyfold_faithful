@@ -1,0 +1,2014 @@
+{
+ "items": [
+  {
+   "id": "V2.1",
+   "title": "Sc-smooth retractions",
+   "book": {
+    "label": "§2.1, Definition 2.1, p. 18",
+    "page": 18,
+    "statement": "For a tuple $(U, C, E)$, $U$ relatively open in the partial quadrant $C$ of $E$, an sc-smooth map $r : U \\to U$ with $r \\circ r = r$ is an *sc-smooth retraction* on $U$. After Definition 2.3: for $x \\in U_1$ the chain rule gives $Dr(r(x)) \\circ Dr(x) = Dr(x)$, so for $x \\in O_1$, $Dr(x)$ is a projection."
+   },
+   "lean": {
+    "statement": "An *sc-smooth retraction* on $C$ is a set $U \\subseteq E_0$ relatively open in the partial quadrant $C$ and a map $r : E_0 \\to E_0$ (only its values on $U$ matter) with $r(U) \\subseteq U$, $r$ sc-smooth on $U$ and $r(r(x)) = r(x)$ for $x \\in U$. Its retract is $O = r(U)$; $O \\subseteq U$, $O$ is the fixed-point set of $r$ in $U$, and for $x \\in O_1$ the derivative satisfies $Dr(x) \\circ Dr(x) = Dr(x)$.",
+    "decls": [
+     "Chapter2/Retracts · ScRetraction",
+     "Chapter2/Retracts · ScRetraction.retract",
+     "Chapter2/Retracts · ScRetraction.mem_retract_iff",
+     "Chapter2/Retracts · ScRetraction.apply_eq_self_of_mem_retract",
+     "Chapter2/Retracts · ScRetraction.lvlSet_retract_subset",
+     "Chapter2/Retracts · ScRetraction.scDeriv_comp_self"
+    ]
+   },
+   "verdict": "same",
+   "chips": [
+    "total map, values off $U$ ignored"
+   ],
+   "diff": [
+    "The retraction is a total map $E_0 \\to E_0$ with $r(U) \\subseteq U$ as a field; only its values on $U$ enter any statement.",
+    "The remark that $Dr(x)$ is a projection for $x \\in O_1$ is `ScRetraction.scDeriv_comp_self`, by the chain rule applied to $r \\circ r = r$."
+   ]
+  },
+  {
+   "id": "V2.2",
+   "title": "Sc-smooth retracts",
+   "book": {
+    "label": "§2.1, Definition 2.3, p. 18",
+    "page": 18,
+    "statement": "A tuple $(O, C, E)$ is an *sc-smooth retract* if $O = r(U)$ for an sc-smooth retraction $r : U \\to U$ on a relatively open subset $U$ of the partial quadrant $C$."
+   },
+   "lean": {
+    "statement": "$(O, C, E)$ is an sc-smooth retract if $O$ is the retract $r(U)$ of some sc-smooth retraction on $C$. Every relatively open $U \\subseteq C$ is a retract, with $r = \\mathrm{id}$. A *local model* is a triple $(E, C, O)$ with $C$ a partial quadrant and $(O, C, E)$ a retract.",
+    "decls": [
+     "Chapter2/Retracts · IsScRetract",
+     "Chapter2/Retracts · ScRetraction.isScRetract",
+     "Chapter2/Retracts · ScRetraction.id",
+     "Chapter2/Retracts · IsRelOpenInQuadrant.isScRetract",
+     "Chapter2/Retracts · LocalModel"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text. The local model packages the triple used by M-polyfold charts."
+   ]
+  },
+  {
+   "id": "V2.3",
+   "title": "Proposition 2.4: the tangent of a retract does not depend on the retraction",
+   "book": {
+    "label": "§2.1, Proposition 2.4, p. 19",
+    "page": 19,
+    "statement": "If $r : U \\to U$ and $r' : U' \\to U'$ are sc-smooth retractions on relatively open subsets of $C$ with $r(U) = r'(U') = O$, then $Tr(TU) = Tr'(TU')$."
+   },
+   "lean": {
+    "statement": "For sc-smooth retractions $r$ on $U$ and $r'$ on $U'$ (both relatively open in $C$) with the same retract, $Tr(TU) = Tr'(TU')$. More precisely, $r(U) \\subseteq r'(U')$ already gives $r' \\circ r = r$ on $U$ and $Tr(TU) \\subseteq Tr'(TU')$. $TO = Tr(TU)$ is the fixed-point set of $Tr$ in $TU$.",
+    "decls": [
+     "Chapter2/Retracts · proposition_2_4",
+     "Chapter2/Retracts · ScRetraction.comp_eq_self_of_retract_subset",
+     "Chapter2/Retracts · ScRetraction.tangent_subset_of_retract_subset",
+     "Chapter2/Retracts · ScRetraction.tangent",
+     "Chapter2/Retracts · ScRetraction.mem_tangent_iff"
+    ]
+   },
+   "verdict": "same",
+   "chips": [
+    "proved from $r(U) \\subseteq r'(U')$"
+   ],
+   "diff": [
+    "As in the text. The inclusion is proved under the weaker hypothesis $r(U) \\subseteq r'(U')$ and applied twice.",
+    "The text's step \\\"$Tr'(x, h) = (x, h)$\\\" is the fixed-point description of $Tr(TU)$, proved separately (`ScRetraction.mem_tangent_iff`)."
+   ]
+  },
+  {
+   "id": "V2.4",
+   "title": "Definition 2.5: the tangent $TO$ of a retract",
+   "book": {
+    "label": "§2.1, Definition 2.5, p. 19",
+    "page": 19,
+    "statement": "The tangent of $(O, C, E)$ is $T(O, C, E) = (TO, TC, TE)$ with $TC = C^1 \\oplus E$, $TE = E^1 \\oplus E$ and $TO := Tr(TU)$ for any retraction $r$ onto $O$; explicitly $TO = \\{(r(x), Dr(x)h) : x \\in U_1, h \\in E\\}$. Definition 2.17: for $x \\in O_1$, $T_xO = p^{-1}(x)$, the image of the projection $Dr(x)$."
+   },
+   "lean": {
+    "statement": "$TO \\subseteq E_1 \\times E_0$ is $Tr(TU)$ for a chosen retraction onto $O$, and equals $Tr'(TU')$ for every other one; $TO = \\{(r(x), Dr(x)h) : x \\in U_1, h \\in E_0\\}$, and for $x \\in O_1$, $(x, h) \\in TO$ iff $h \\in Dr(x)(E_0)$. The fibre $T_xO = \\{h : (x, h) \\in TO\\}$ is the range of $Dr(x)$, a closed subspace of $E_0$.",
+    "decls": [
+     "Chapter2/Retracts · retractTangent",
+     "Chapter2/Retracts · retractTangent_eq",
+     "Chapter2/Retracts · ScRetraction.mem_tangent_iff_exists",
+     "Chapter2/Retracts · ScRetraction.mem_tangent_iff_mem_range",
+     "Chapter2/Retracts · tangentSpace",
+     "Chapter2/Retracts · tangentSpace_eq_range",
+     "Chapter2/Retracts · tangentSpace_eq_coe_submodule"
+    ]
+   },
+   "verdict": "same",
+   "chips": [
+    "junk value $\\emptyset$ off retracts"
+   ],
+   "diff": [
+    "`retractTangent E C O` is defined for every set $O$ (empty when $O$ is not a retract), by a choice of retraction; Proposition 2.4 makes the choice irrelevant (`retractTangent_eq`).",
+    "That $TC$ is a partial quadrant in $TE$ and $TU$ relatively open in it is V2.8 (and V1.36)."
+   ]
+  },
+  {
+   "id": "V2.5",
+   "title": "Proposition 2.6: sc-smoothness on a retract is independent of the retraction",
+   "book": {
+    "label": "§2.1, Proposition 2.6, p. 20",
+    "page": 20,
+    "statement": "Let $f : O \\to O'$ and $r : U \\to U$, $s : V \\to V$ two retractions onto $O$. (1) $f \\circ r$ is sc-smooth iff $f \\circ s$ is. (2) If so, $T(f \\circ r) = T(f \\circ s)$ on $TO$. (3) $T(f \\circ r)$ maps $TO$ into $TO'$."
+   },
+   "lean": {
+    "statement": "For retractions $r$, $s$ onto the same $O$: (1) if $f \\circ r$ is sc-smooth on $U$ then $f \\circ s$ is sc-smooth on $V$; (2) then $T(f \\circ r) = T(f \\circ s)$ on $Tr(TU)$; (3) if $f \\circ r$ is sc-smooth and $f$ maps $O$ into the retract $O' = r'(U')$, then $T(f \\circ r)$ maps $Tr(TU)$ into $Tr'(TU')$.",
+    "decls": [
+     "Chapter2/Retracts · proposition_2_6_1",
+     "Chapter2/Retracts · proposition_2_6_2",
+     "Chapter2/Retracts · proposition_2_6_3",
+     "Chapter2/Retracts · ScRetraction.comp_comp_eqOn"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "(3) needs $f(O) \\subseteq O'$"
+   ],
+   "diff": [
+    "(1) is stated in one direction; the other is the same theorem with $r$ and $s$ exchanged.",
+    "(3) assumes $f(O) \\subseteq O'$, which the text's \\\"$f : O \\to O'$\\\" contains."
+   ]
+  },
+  {
+   "id": "V2.6",
+   "title": "Definition 2.7: sc-smooth maps between retracts and the tangent map",
+   "book": {
+    "label": "§2.1, Definition 2.7, pp. 20–21",
+    "page": 20,
+    "statement": "$f : O \\to O'$ is *sc-smooth* if $f \\circ r : U \\to E'$ is sc-smooth for a retraction $r$ onto $O$; $Tf := T(f \\circ r)|_{TO}$, which maps $TO$ into $TO'$ and does not depend on $r$. For $o \\in O_1$, $Tf(o) : T_oO \\to T_{f(o)}O'$ is the linearization."
+   },
+   "lean": {
+    "statement": "$f : E_0 \\to E'_0$ is sc-smooth between the retracts $(O, C, E)$ and $(O', C', E')$ if $f(O) \\subseteq O'$ and $f \\circ r$ is sc-smooth on $U$ for *every* retraction $r$ onto $O$; for an actual retract this is equivalent to the text's \\\"for one $r$\\\". $Tf$ is $T(f \\circ r)$ for a chosen $r$; on $TO$ it equals $T(f \\circ r)$ for every $r$ onto $O$, maps $TO$ into $TO'$, and $Tf(x, h) = (f(x), D(f \\circ r)(x)h)$. Sc-smooth maps between retracts are continuous on $O$ and preserve the levels.",
+    "decls": [
+     "Chapter2/Retracts · IsScSmoothRetractMap",
+     "Chapter2/Retracts · isScSmoothRetractMap_iff_exists",
+     "Chapter2/Retracts · retractTangentMap",
+     "Chapter2/Retracts · retractTangentMap_eqOn",
+     "Chapter2/Retracts · IsScSmoothRetractMap.tangentMap_mapsTo",
+     "Chapter2/Retracts · retractTangentMap_apply",
+     "Chapter2/Retracts · IsScSmoothRetractMap.continuousOn",
+     "Chapter2/Retracts · IsScSmoothRetractMap.mem_range_toBase"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "\"every $r$\" instead of \"one $r$\"",
+    "$f(O) \\subseteq O'$ a field"
+   ],
+   "diff": [
+    "The definition quantifies over all retractions onto $O$ and includes $f(O) \\subseteq O'$; `isScSmoothRetractMap_iff_exists` recovers the text's form for a retract.",
+    "The linearization $Tf(o)$ is the second component of $Tf(o, \\cdot)$; it is not given a separate name."
+   ]
+  },
+  {
+   "id": "V2.7",
+   "title": "Theorem 2.8: the chain rule for retracts",
+   "book": {
+    "label": "§2.1, Theorem 2.8, p. 21",
+    "page": 21,
+    "statement": "If $f : O \\to O'$ and $g : O' \\to O''$ are sc-smooth maps between sc-smooth retracts, then $g \\circ f$ is sc-smooth and $T(g \\circ f) = Tg \\circ Tf$ (the text writes $(O'', C', E'')$ for $(O'', C'', E'')$)."
+   },
+   "lean": {
+    "statement": "Let $(O, C, E)$ and $(O', C', E')$ be retracts, $f$ sc-smooth $(O, C, E) \\to (O', C', E')$ and $g$ sc-smooth $(O', C', E') \\to (O'', C'', E'')$. Then $g \\circ f$ is sc-smooth and $T(g \\circ f) = Tg \\circ Tf$ on $TO$. The identity, a retraction $U \\to O$ and the inclusion $O \\to U$ are sc-smooth, and sc-smoothness depends only on $f|_O$.",
+    "decls": [
+     "Chapter2/Retracts · theorem_2_8",
+     "Chapter2/Retracts · IsScSmoothRetractMap.comp",
+     "Chapter2/Retracts · retractTangentMap_comp",
+     "Chapter2/Retracts · isScSmoothRetractMap_id",
+     "Chapter2/Retracts · ScRetraction.isScSmoothRetractMap",
+     "Chapter2/Retracts · IsScSmoothRetractMap.congr"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "$O$, $O'$ retracts"
+   ],
+   "diff": [
+    "The source and middle sets are assumed to be retracts (the text's standing hypothesis); $O''$ need not be.",
+    "The text gives no proof (\\\"follows from Theorem 1.21\\\"); the proof writes $(g \\circ f) \\circ r = (g \\circ r') \\circ (f \\circ r)$ on $U$, which uses $r' \\circ f \\circ r = f \\circ r$, and applies Theorem 1.21."
+   ]
+  },
+  {
+   "id": "V2.8",
+   "title": "The tangent functor on retracts",
+   "book": {
+    "label": "§2.1, after Theorem 2.8 and Definition 2.9, pp. 21–22",
+    "page": 21,
+    "statement": "$T$ is a functor $\\mathcal R \\to \\mathcal R$: $(TO, TC, TE)$ is again a retract, $Tf : (TO, TC, TE) \\to (TO', TC', TE')$, $Tf(x, h) = (f(x), Df(x)h)$, and $T(g \\circ f) = Tg \\circ Tf$. If $r$ is a retraction, $Tr : TU \\to TU$ is a (bundle) retraction."
+   },
+   "lean": {
+    "statement": "$TC$ is a partial quadrant in $TE$ and $TU$ is relatively open in $TC$; $Tr : TU \\to TU$ is an sc-smooth retraction with image $TO$, so $(TO, TC, TE)$ is an sc-smooth retract. If $f$ is sc-smooth between retracts, so is $Tf : (TO, TC, TE) \\to (TO', TC', TE')$; $T(\\mathrm{id}) = \\mathrm{id}$ on $TO$, and the chain rule is V2.7. $T(O \\cap W) = TO \\cap (W_1 \\times E_0)$ for $W$ open, and $Tf$ computed on $O \\cap W$ is $Tf$ computed on $O$.",
+    "decls": [
+     "Chapter2/TangentBundle · IsPartialQuadrant.tangentSet",
+     "Chapter2/TangentBundle · IsRelOpenInQuadrant.tangentSet",
+     "Chapter2/TangentBundle · ScRetraction.tangentRetraction",
+     "Chapter2/TangentBundle · ScRetraction.tangentRetraction_retract",
+     "Chapter2/TangentBundle · IsScRetract.tangentSet",
+     "Chapter2/TangentBundle · LocalModel.tangent",
+     "Chapter2/TangentBundle · IsScSmoothRetractMap.tangent",
+     "Chapter2/TangentBundle · retractTangentMap_id",
+     "Chapter2/TangentBundle · retractTangent_inter_isOpen",
+     "Chapter2/TangentBundle · retractTangentMap_inter_isOpen"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "bundle structure not formalized",
+    "locality of $Tf$ proved"
+   ],
+   "diff": [
+    "The functor is stated as the two facts that make it one: $T$ sends retracts to retracts and sc-smooth maps to sc-smooth maps; functoriality is Theorem 2.8.",
+    "The bundle structure of $TO \\to O^1$ (Definition 2.9's category $\\mathcal{BR}$) is not formalized (G.5); the fibrewise linearity of $Tf$ is the linearity of the derivative.",
+    "The locality of $Tf$ under restriction to open subsets, used silently in Definitions 2.17–2.18, is proved here."
+   ]
+  },
+  {
+   "id": "V2.9",
+   "title": "Proposition 2.10: open subsets and images of retractions are retracts",
+   "book": {
+    "label": "§2.2, Proposition 2.10, p. 23",
+    "page": 23,
+    "statement": "(1) An open subset $O'$ of a retract $O$ is a retract. (2) If $V \\subseteq O$ is open and $s : V \\to V$ is sc-smooth with $s \\circ s = s$, then $s(V)$ is a retract."
+   },
+   "lean": {
+    "statement": "(1) If $(O, C, E)$ is a retract and $W \\subseteq E_0$ is open, $(O \\cap W, C, E)$ is a retract, with the restriction of $r$ to $U \\cap r^{-1}(W)$. (2) If $(V, C, E)$ is a retract and $s$ is sc-smooth $(V, C, E) \\to (V, C, E)$ with $s \\circ s = s$ on $V$, then $(s(V), C, E)$ is a retract, with the retraction $s \\circ r$. Sc-smooth maps between retracts restrict to open subsets of the source, and sc-smoothness between retracts is a local property.",
+    "decls": [
+     "Chapter2/Retracts · proposition_2_10_1",
+     "Chapter2/Retracts · proposition_2_10_2",
+     "Chapter2/Retracts · ScRetraction.restrict",
+     "Chapter2/Retracts · ScRetraction.restrict_retract",
+     "Chapter2/Retracts · IsScSmoothRetractMap.restrict",
+     "Chapter2/Retracts · IsScSmoothRetractMap.of_locally",
+     "Chapter2/Retracts · LocalModel.restrict"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "$O' = O \\cap W$, $W$ open in $E_0$"
+   ],
+   "diff": [
+    "\\\"An open subset $O'$ of $O$\\\" is written $O \\cap W$ with $W$ open in $E_0$ (the subspace topology).",
+    "In (2), $V$ is a retract by (1) in the text; here it is assumed to be one, which is how (2) is applied.",
+    "The locality of sc-smoothness between retracts is not in the text; Definitions 2.13–2.14 need it (V2.12)."
+   ]
+  },
+  {
+   "id": "V2.10",
+   "title": "Definition 2.11: charts and their compatibility",
+   "book": {
+    "label": "§2.2, Definition 2.11, pp. 23–24",
+    "page": 23,
+    "statement": "A chart around $x$ in a space $X$ is $(V, \\varphi, (O, C, E))$ with $V$ an open neighbourhood of $x$, $(O, C, E)$ an sc-smooth retract and $\\varphi : V \\to O$ a homeomorphism. Two charts are sc-smoothly compatible if $\\psi \\circ \\varphi^{-1} : \\varphi(V \\cap V') \\to \\psi(V \\cap V')$ and its inverse are sc-smooth (Definition 2.7); $\\varphi(V \\cap V')$ is a retract by Proposition 2.10(1)."
+   },
+   "lean": {
+    "statement": "A chart on $X$ is a local model $(O, C, E)$ and a partial equivalence $\\varphi : X \\rightharpoonup E_0$ with open source $V$, target $O$, continuous on $V$ with inverse continuous on $O$. The overlap $\\varphi(V \\cap V')$ is a retract; two charts are compatible if $\\psi \\circ \\varphi^{-1}$ is sc-smooth from $(\\varphi(V \\cap V'), C, E)$ to $(\\psi(V \\cap V'), C', E')$ and $\\varphi \\circ \\psi^{-1}$ back. A chart is compatible with itself and with its restrictions; compatibility is local: two charts compatible with every chart of a family covering $V \\cap V'$ are compatible.",
+    "decls": [
+     "Chapter2/MPolyfold · MChart",
+     "Chapter2/MPolyfold · MChart.overlap",
+     "Chapter2/MPolyfold · MChart.isScRetract_overlap",
+     "Chapter2/MPolyfold · MChart.transition",
+     "Chapter2/MPolyfold · MChart.Compatible",
+     "Chapter2/MPolyfold · MChart.compatible_self",
+     "Chapter2/MPolyfold · MChart.Compatible.restrict",
+     "Chapter2/MPolyfold · MChart.compatible_of_locally"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "chart as a partial equivalence"
+   ],
+   "diff": [
+    "The chart is a partial equivalence $X \\rightharpoonup E_0$; its inverse is a total function whose values off $O$ do not matter.",
+    "`MChart.compatible_of_locally` (chain rule plus locality) is not in the text; it makes the maximal atlas of V2.12 an atlas."
+   ]
+  },
+  {
+   "id": "V2.11",
+   "title": "Definition 2.12: sc-smooth atlases and their equivalence",
+   "book": {
+    "label": "§2.2, Definition 2.12, p. 24",
+    "page": 24,
+    "statement": "An sc-smooth atlas is a set of pairwise compatible charts covering $X$; two atlases are equivalent if their union is an atlas."
+   },
+   "lean": {
+    "statement": "An atlas is a set of pairwise compatible charts whose sources cover $X$. Two atlases are equivalent iff their union is an atlas iff every chart of one is compatible with every chart of the other; the relation is an equivalence relation.",
+    "decls": [
+     "Chapter2/MPolyfold · MAtlas",
+     "Chapter2/MPolyfold · MAtlas.Equiv",
+     "Chapter2/MPolyfold · MAtlas.equiv_iff",
+     "Chapter2/MPolyfold · MAtlas.Equiv.refl",
+     "Chapter2/MPolyfold · MAtlas.Equiv.symm",
+     "Chapter2/StrongBundleRestrict · MAtlas.Equiv.trans",
+     "Chapter2/StrongBundleRestrict · MAtlas.equivalence"
+    ]
+   },
+   "verdict": "same",
+   "chips": [
+    "transitivity proved"
+   ],
+   "diff": [
+    "As in the text. Transitivity, which the “equivalence class” of Definition 2.13 presupposes without comment, is proved from the locality of compatibility (`MAtlas.Equiv.trans`; Findings, Chapter 2, item 41); the maximal atlas of V2.12 had made it unnecessary for the later notions. Updated in the third addendum of this page."
+   ]
+  },
+  {
+   "id": "V2.12",
+   "title": "Definition 2.13: M-polyfolds",
+   "book": {
+    "label": "§2.2, Definition 2.13, p. 24",
+    "page": 24,
+    "statement": "An M-polyfold is a Hausdorff paracompact topological space with an equivalence class of sc-smooth atlases."
+   },
+   "lean": {
+    "statement": "An M-polyfold structure on a Hausdorff paracompact space $X$ is an sc-smooth atlas. Its *charts* are all charts compatible with that atlas (the maximal atlas); any two of them are compatible, restrictions of charts are charts, every point lies in a chart, and equivalent atlases have the same charts. A nonempty retract $(O, C, E)$ is an M-polyfold with the single chart $\\mathrm{id}$.",
+    "decls": [
+     "Chapter2/MPolyfold · MPolyfold",
+     "Chapter2/MPolyfold · MPolyfold.IsChart",
+     "Chapter2/MPolyfold · MPolyfold.IsChart.compatible",
+     "Chapter2/MPolyfold · MPolyfold.IsChart.restrict",
+     "Chapter2/MPolyfold · MPolyfold.isChart_congr",
+     "Chapter2/MPolyfold · MPolyfold.exists_isChart_mem_source",
+     "Chapter2/MPolyfold · LocalModel.toMPolyfold"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "one atlas represents its class",
+    "maximal atlas used throughout"
+   ],
+   "diff": [
+    "An equivalence class of atlases is represented by one atlas; every later notion is defined through the maximal atlas `IsChart`, which depends only on the class (`isChart_congr`).",
+    "That charts compatible with an atlas are compatible with each other needs the locality of compatibility (V2.10); the text does not discuss it."
+   ]
+  },
+  {
+   "id": "V2.13",
+   "title": "Definition 2.14: sc-smooth maps between M-polyfolds",
+   "book": {
+    "label": "§2.2, Definition 2.14, p. 24",
+    "page": 24,
+    "statement": "$f : X \\to Y$ is sc-smooth if for charts $\\varphi$ around $x$ and $\\varphi'$ around $f(x)$ with $f(V) \\subseteq V'$, $\\varphi' \\circ f \\circ \\varphi^{-1} : O \\to O'$ is sc-smooth (Definition 2.7); \\\"the definition does not depend on the choice of charts\\\"."
+   },
+   "lean": {
+    "statement": "$f$ is sc-smooth on an open $U \\subseteq X$ if it is continuous on $U$ and for all charts $\\varphi$ of $X$, $\\psi$ of $Y$ and every open $V \\subseteq U \\cap \\operatorname{dom}\\varphi$ with $f(V) \\subseteq \\operatorname{dom}\\psi$, $\\psi \\circ f \\circ \\varphi^{-1}$ is sc-smooth from $(\\varphi(V), C, E)$ into $(O', C', E')$; sc-smooth means sc-smooth on $X$. It suffices to check one pair of charts around each point (the text's independence of charts). The identity is sc-smooth and compositions of sc-smooth maps are sc-smooth.",
+    "decls": [
+     "Chapter2/MPolyfold · MPolyfold.IsScSmoothOn",
+     "Chapter2/MPolyfold · MPolyfold.IsScSmoothMap",
+     "Chapter2/LevelPolyfold · MPolyfold.IsScSmoothOn.of_exists_charts",
+     "Chapter2/MPolyfold · MPolyfold.isScSmoothMap_id",
+     "Chapter2/MPolyfold · MPolyfold.IsScSmoothOn.comp",
+     "Chapter2/MPolyfold · MPolyfold.IsScSmoothMap.comp"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "continuity a field",
+    "on open subsets $U$"
+   ],
+   "diff": [
+    "Continuity of $f$ is a field: the text's charts with $f(V) \\subseteq V'$ exist around every point only if $f$ is continuous.",
+    "The definition quantifies over all charts and all open $V$; `IsScSmoothOn.of_exists_charts` is the text's remark that one pair of charts per point suffices.",
+    "Maps on open subsets are included because germs and sub-M-polyfolds need them."
+   ]
+  },
+  {
+   "id": "V2.14",
+   "title": "The filtration $X_m$ of an M-polyfold",
+   "book": {
+    "label": "§2.2, after Definition 2.14, p. 25",
+    "page": 25,
+    "statement": "$x$ is on level $m$ if $\\varphi(x) \\in O_m$ for a chart around $x$ (\\\"independent of the choice of a chart\\\"); $X_m$ is the set of such points, topologized by the basis of sets $\\varphi^{-1}(W)$, $W$ open in $O_m$; $X = X_0 \\supset X_1 \\supset \\cdots \\supset X_\\infty = \\bigcap X_m$."
+   },
+   "lean": {
+    "statement": "$X_m$ is the set of $x$ with $\\varphi(x) \\in \\iota_m(E_m)$ for some chart $\\varphi$ around $x$, and then for every chart around $x$. $X_0 = X$, $X_{m+1} \\subseteq X_m$, $X_\\infty = \\bigcap_m X_m$. $X_m$ carries the topology generated by the sets $\\{x \\in V : \\varphi(x) \\in W\\}$, $W$ open in $E_m$; with it the inclusion $X_m \\to X$ is continuous, $X_m$ is Hausdorff, and $x \\mapsto \\varphi(x)$ embeds $V_m = V \\cap X_m$ into $E_m$.",
+    "decls": [
+     "Chapter2/MPolyfold · MPolyfold.levelSet",
+     "Chapter2/MPolyfold · MPolyfold.mem_levelSet_iff",
+     "Chapter2/MPolyfold · MPolyfold.levelSet_zero",
+     "Chapter2/MPolyfold · MPolyfold.levelSet_succ_subset",
+     "Chapter2/MPolyfold · MPolyfold.smoothSet",
+     "Chapter2/MPolyfold · MPolyfold.levelTopology",
+     "Chapter2/LevelPolyfold · MPolyfold.Level",
+     "Chapter2/LevelPolyfold · MPolyfold.continuous_levelVal",
+     "Chapter2/Metrizable · MPolyfold.isEmbedding_levelLift"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "topology generated, basis not proved"
+   ],
+   "diff": [
+    "The topology is the one *generated* by the text's family; that the family is a basis (closed under finite intersections) is not needed and not proved.",
+    "\\\"$\\varphi : V_m \\to O_m$ is a homeomorphism\\\" is `MPolyfold.isEmbedding_levelLift`."
+   ]
+  },
+  {
+   "id": "V2.15",
+   "title": "Lemma 2.15: the inclusions $X_{m+1} \\to X_m$ are continuous",
+   "book": {
+    "label": "§2.2, Lemma 2.15, p. 25",
+    "page": 25,
+    "statement": "The inclusion $i : X_{m+1} \\to X_m$ is continuous for every $m \\ge 0$."
+   },
+   "lean": {
+    "statement": "For every $m$, the inclusion $X_{m+1} \\to X_m$ is continuous for the topologies of V2.14.",
+    "decls": [
+     "Chapter2/MPolyfold · lemma_2_15",
+     "Chapter2/MPolyfold · MPolyfold.levelIncl"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text: the preimage of a generating set $\\varphi^{-1}(W)$ is the generating set $\\varphi^{-1}(\\mathrm{incl}_m^{-1}(W))$."
+   ]
+  },
+  {
+   "id": "V2.16",
+   "title": "The level $X^1$ is an M-polyfold",
+   "book": {
+    "label": "§2.2, after Definition 2.14, p. 25",
+    "page": 25,
+    "statement": "$(V_m, \\varphi, (O_m, C_m, E_m))$ is a chart on $X_m$; any two such charts are sc-smoothly compatible, and they form an atlas on $X_m$."
+   },
+   "lean": {
+    "statement": "For $m = 1$: a retraction $r$ on $U$ restricts to an sc-smooth retraction of $U^1 \\subseteq C^1 \\subseteq E^1$ with retract $O^1$, and an sc-smooth map between retracts induces an sc-smooth map $O^1 \\to O'^1$. For every chart $\\varphi$ of $X$, $(V_1, \\varphi, (O^1, C^1, E^1))$ is a chart of $X_1$; any two are compatible; they form an atlas, and with it $X_1$ is an M-polyfold $X^1$ (its paracompactness is Theorem 2.16, V2.17).",
+    "decls": [
+     "Chapter2/LevelPolyfold · ScRetraction.shift",
+     "Chapter2/LevelPolyfold · ScRetraction.shift_retract",
+     "Chapter2/LevelPolyfold · IsScRetract.shift",
+     "Chapter2/LevelPolyfold · LocalModel.shift",
+     "Chapter2/LevelPolyfold · IsScSmoothRetractMap.shift",
+     "Chapter2/LevelPolyfold · MPolyfold.levelChart",
+     "Chapter2/LevelPolyfold · MPolyfold.levelChart_compatible",
+     "Chapter2/LevelPolyfold · MPolyfold.levelAtlas",
+     "Chapter2/LevelPolyfold · MPolyfold.shift",
+     "Chapter2/LevelPolyfold · MPolyfold.shift_isChart",
+     "Chapter5/StrongBundleShift · MPolyfold.mem_shift_levelSet_iff"
+    ]
+   },
+   "verdict": "narrower",
+   "chips": [
+    "$m = 1$ only"
+   ],
+   "diff": [
+    "Only $X_1$ is made an M-polyfold; $X_m$ for $m \\ge 2$ is reached as the iterate $(X^1)^1 \\cdots$. Its points are those of $X_m$: $(X^1)_m = X_{m+1}$ as sets (`MPolyfold.mem_shift_levelSet_iff`, fourth addendum of this page); that its topology and charts are those of $X_m$ (V2.14) is not formalized (G.6).",
+    "The text's \\\"by Proposition 1.17\\\" is `IsScSmoothRetractMap.shift`, Proposition 1.17 for retracts.",
+    "`MPolyfold.shift` takes $X_1$ paracompact as an instance argument, which Theorem 2.16 now supplies (`MPolyfold.paracompactSpace_level`)."
+   ]
+  },
+  {
+   "id": "V2.17",
+   "title": "Theorem 2.16: $X$, $X_m$ and $X_\\infty$ are metrizable",
+   "book": {
+    "label": "§2.2, Theorem 2.16, p. 25 (proof §2.6.2, pp. 56–58)",
+    "page": 25,
+    "statement": "For every $m \\ge 0$ the space $X_m$ is metrizable, in particular paracompact; $X_\\infty$ is metrizable. The proof uses Smirnov's theorem (2.55), Lemma 2.56 and Proposition 2.57."
+   },
+   "lean": {
+    "statement": "For an M-polyfold $X$: $X$ is metrizable; every level $X_m$ (topology of V2.14) is metrizable and paracompact; $X_\\infty$, with the initial topology of the inclusions $X_\\infty \\to X_m$, is metrizable. Every subset of $X$, in particular every sub-M-polyfold, is paracompact.",
+    "decls": [
+     "Chapter2/Metrizable · theorem_2_16",
+     "Chapter2/Metrizable · MPolyfold.metrizableSpace",
+     "Chapter2/Metrizable · MPolyfold.metrizableSpace_level",
+     "Chapter2/Metrizable · MPolyfold.paracompactSpace_level",
+     "Chapter2/Metrizable · MPolyfold.SmoothLevel",
+     "Chapter2/Metrizable · MPolyfold.smoothLevel_topology_eq",
+     "Chapter2/Metrizable · MPolyfold.metrizableSpace_smoothLevel",
+     "Chapter2/Metrizable · MPolyfold.paracompactSpace_subtype"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "no added hypothesis",
+    "topology of $X_\\infty$ defined",
+    "Smirnov via pulled-back partitions"
+   ],
+   "diff": [
+    "No hypothesis is added. The text's route needs $X_m$ regular for Proposition 2.57 and does not check it; the formal proof avoids Lemma 2.56 and Proposition 2.57 altogether.",
+    "Proof: a partition of unity of the paracompact Hausdorff $X$, subordinate to the chart domains and pulled back to $X_m$ along the continuous inclusion, gives an explicit metric (`metrizableSpace_of_pullback`); paracompactness follows by Stone's theorem.",
+    "The text never defines the topology of $X_\\infty$; it is taken to be the initial topology of the inclusions, which is what the text's metric $\\sum 2^{-m} d_m/(1 + d_m)$ induces."
+   ]
+  },
+  {
+   "id": "V2.18",
+   "title": "Definition 2.17: tangent vectors in a chart",
+   "book": {
+    "label": "§2.2, Definition 2.17, pp. 25–26",
+    "page": 25,
+    "statement": "For $x \\in O_1$, $T_xO = p^{-1}(x)$, the image of $Dr(x)$. Tuples $(x, V, \\varphi, (O, C, E), h)$ with $x \\in X_1$, $\\varphi$ a chart around $x$ and $h \\in T_{\\varphi(x)}O$ are equivalent, $(x, \\varphi, h) \\sim (x', \\psi, h')$, if $x = x'$ and $T(\\varphi \\circ \\psi^{-1})(\\psi(x))h' = h$."
+   },
+   "lean": {
+    "statement": "A tangent tuple is $(x, \\varphi, h)$ with $x \\in X_1$, $\\varphi$ a chart of the structure around $x$ and $(\\varphi(x), h) \\in TO$. Its transport to another chart $\\psi$ around $x$ is $T(\\psi \\circ \\varphi^{-1})(\\varphi(x), h)$, computed on the overlap retract; transporting to $\\varphi$ itself does nothing, transports land in $TO'$ over $\\psi(x)$, and transporting to $\\psi$ and then to $\\chi$ is transporting to $\\chi$. Two tuples are equivalent if their points agree and the transport of the first to the chart of the second is the second; this is an equivalence relation.",
+    "decls": [
+     "Chapter2/TangentBundle · MPolyfold.TangentPre",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.transport",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.transport_self",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.transport_mem",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.transport_transport",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.Rel",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.Rel.symm",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.Rel.trans",
+     "Chapter2/TangentBundle · MPolyfold.TangentPre.setoid"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "equivalence relation proved",
+    "transport via the chain rule"
+   ],
+   "diff": [
+    "The text does not check that the relation is an equivalence relation; it is, by the chain rule on the triple overlap and the locality of $Tf$ (`TangentPre.transport_transport`).",
+    "The relation is written with the transport in the direction $\\varphi \\to \\psi$, $T(\\psi \\circ \\varphi^{-1})(\\varphi(x), h) = (\\psi(x), h')$; it is the text's relation read from the other side."
+   ]
+  },
+  {
+   "id": "V2.19",
+   "title": "Definition 2.18: the tangent space $TX$",
+   "book": {
+    "label": "§2.2, Definition 2.18, pp. 26–27",
+    "page": 26,
+    "statement": "$TX$ is the set of equivalence classes $[(x, \\varphi, h)]$, $T_xX$ the classes over $x \\in X_1$, a vector space; $TV$ is the set of classes over $V$ and $T\\varphi : TV \\to TO$, $[(x, \\varphi, h)] \\mapsto (\\varphi(x), h)$, is linear on fibres. $TX$ is topologized by the sets $(T\\varphi)^{-1}(W)$, $W$ open in $TO$."
+   },
+   "lean": {
+    "statement": "$TX$ is the quotient of the tangent tuples by the equivalence of V2.18, with the projection $p : TX \\to X_1$ and the fibres $T_xX = p^{-1}(x)$. For a chart $\\varphi$, $TV = p^{-1}(V_1)$ and $T\\varphi : TV \\to TO$ sends a class to its transport to $\\varphi$; $T\\varphi[(x, \\varphi, h)] = (\\varphi(x), h)$, $T\\varphi$ is injective on $TV$ with inverse $a \\mapsto [(\\varphi^{-1}(a), \\varphi, a_2)]$, and $T\\psi \\circ (T\\varphi)^{-1} = T(\\psi \\circ \\varphi^{-1})$ on $T(\\varphi(V \\cap V'))$. The topology is generated by the sets $\\{\\alpha \\in TV : T\\varphi(\\alpha) \\in W\\}$.",
+    "decls": [
+     "Chapter2/TangentBundle · MPolyfold.TangentSpace",
+     "Chapter2/TangentBundle · MPolyfold.tangentProj",
+     "Chapter2/TangentBundle · MPolyfold.tangentFiber",
+     "Chapter2/TangentBundle · MPolyfold.tangentChartSet",
+     "Chapter2/TangentBundle · MPolyfold.tangentChartMap",
+     "Chapter2/TangentBundle · MPolyfold.tangentChartMap_mk_self",
+     "Chapter2/TangentBundle · MPolyfold.tangentChartMap_injOn",
+     "Chapter2/TangentBundle · MPolyfold.tangentChartMap_mk_ofVec",
+     "Chapter2/TangentBundle · MPolyfold.tangentChartMap_mk_ofVec_of_mem",
+     "Chapter2/TangentBundle · MPolyfold.tangentBasis"
+    ]
+   },
+   "verdict": "narrower",
+   "chips": [
+    "no vector space on $T_xX$"
+   ],
+   "diff": [
+    "The vector space structure of $T_xX$ and its Banach (resp. sc-Banach) structure are not formalized (G.7); $T_xX$ is a set, identified with $T_{\\varphi(x)}O$ by $T\\varphi$.",
+    "The topology is the one generated by the text's family; that it is a basis is not needed."
+   ]
+  },
+  {
+   "id": "V2.20",
+   "title": "Proposition 2.19: $TX$ is Hausdorff and metrizable; $p$ is continuous",
+   "book": {
+    "label": "§2.2, Proposition 2.19, p. 27 (proof §2.6.3, pp. 58–60)",
+    "page": 27,
+    "statement": "(1) The family $\\mathcal B$ is a basis of a Hausdorff topology on $TX$. (2) $p : TX \\to X_1$ is continuous and open. (3) $TX$ is metrizable, hence paracompact."
+   },
+   "lean": {
+    "statement": "(1) $TX$ is Hausdorff. (2) $p : TX \\to X_1$ is continuous; so is $TX \\to X$. (3) $TX$ is metrizable and paracompact. The sets $TV$ are open in $TX$.",
+    "decls": [
+     "Chapter2/TangentBundle · MPolyfold.continuous_tangentProj",
+     "Chapter2/TangentBundle · MPolyfold.continuous_levelVal_tangentProj",
+     "Chapter2/TangentBundle · MPolyfold.isOpen_tangentChartSet",
+     "Chapter2/Metrizable · MPolyfold.metrizableSpace_tangentSpace",
+     "Chapter2/Metrizable · MPolyfold.paracompactSpace_tangentSpace",
+     "Chapter2/Metrizable · proposition_2_19_3"
+    ]
+   },
+   "verdict": "narrower",
+   "chips": [
+    "openness of $p$ not proved",
+    "(3) no added hypothesis"
+   ],
+   "diff": [
+    "(1): Hausdorffness is an instance (`T2Space P.TangentSpace`); the basis property is not needed.",
+    "(2): openness of $p$ is not proved (it is not used); continuity is. The exposition's proof of openness (§8.3) is not formalized (G.8).",
+    "(3) is proved like Theorem 2.16, pulling a partition of unity of $X$ back along $TX \\to X_1 \\to X$; the text's argument via Proposition 2.57 is not used."
+   ]
+  },
+  {
+   "id": "V2.21",
+   "title": "$TX$ is an M-polyfold and $p : TX \\to X^1$ is sc-smooth",
+   "book": {
+    "label": "§2.2, after Proposition 2.19, p. 27",
+    "page": 27,
+    "statement": "$T\\varphi : TV \\to TO$ is a homeomorphism; $T\\varphi' \\circ (T\\varphi)^{-1} = T(\\varphi' \\circ \\varphi^{-1})$ (formula (5)) is sc-smooth; the charts $(TV, T\\varphi, (TO, TC, TE))$ form an atlas, $TX$ is an M-polyfold, and $p : TX \\to X_1$ is an sc-smooth M-polyfold bundle."
+   },
+   "lean": {
+    "statement": "For a chart $\\varphi$ of $X$, $(TV, T\\varphi, (TO, TC, TE))$ is a chart of $TX$; $T\\varphi(TV \\cap TV') = T(\\varphi(V \\cap V'))$ and $T\\varphi' \\circ (T\\varphi)^{-1} = T(\\varphi' \\circ \\varphi^{-1})$ there (formula (5)); any two such charts are compatible, they form an atlas, and $TX$ is an M-polyfold. The projection $TO \\to O^1$ is sc-smooth between retracts, and $p : TX \\to X^1$ is sc-smooth.",
+    "decls": [
+     "Chapter2/TangentBundle · MPolyfold.tangentChart",
+     "Chapter2/TangentBundle · MPolyfold.tangentChart_overlap",
+     "Chapter2/TangentBundle · MPolyfold.tangentChart_transition",
+     "Chapter2/TangentBundle · MPolyfold.tangentChart_compatible",
+     "Chapter2/TangentBundle · MPolyfold.tangentAtlas",
+     "Chapter2/TangentBundle · MPolyfold.tangentPolyfold",
+     "Chapter2/TangentBundle · MPolyfold.isScSmoothRetractMap_tangent_fst",
+     "Chapter2/TangentBundle · MPolyfold.tangentProj_isScSmooth"
+    ]
+   },
+   "verdict": "narrower",
+   "chips": [
+    "bundle structure not formalized"
+   ],
+   "diff": [
+    "\\\"Sc-smooth M-polyfold bundle\\\" is read as: $p$ is sc-smooth; the fibrewise linear structure is not formalized (G.7).",
+    "`tangentPolyfold` and `tangentProj_isScSmooth` take the paracompactness of $TX$ and $X_1$ as instance arguments, supplied by V2.17 and V2.20."
+   ]
+  },
+  {
+   "id": "V2.22",
+   "title": "The tangent map $Tf : TX \\to TY$ and the chain rule",
+   "book": {
+    "label": "§2.2–§2.3, the tangent functor on M-polyfolds (used in Proposition 2.21(4), Definition 2.38)",
+    "page": 21,
+    "statement": "The text uses $Tf$ for sc-smooth maps between M-polyfolds (Proposition 2.21(4), Definition 2.38) without defining it; it defines $Tf$ between retracts and calls $T$ a functor."
+   },
+   "lean": {
+    "statement": "For $f : X \\to Y$ sc-smooth, $Tf[(x, \\varphi, h)] := [(f(x), \\psi, T(\\psi \\circ f \\circ \\varphi^{-1})(\\varphi(x), h)_2)]$ for a chart $\\psi$ around $f(x)$ is well defined (independent of $\\psi$ and of the representative); $p \\circ Tf = f \\circ p$, $Tf(T_xX) \\subseteq T_{f(x)}Y$, in charts $T\\psi \\circ Tf = T(\\psi \\circ f \\circ \\varphi^{-1}) \\circ T\\varphi$; $T(\\mathrm{id}) = \\mathrm{id}$, $T(g \\circ f) = Tg \\circ Tf$, and $Tf$ is continuous and sc-smooth $TX \\to TY$. Sc-smooth maps preserve the levels $X_m$.",
+    "decls": [
+     "Chapter2/TangentMap · MPolyfold.tangentMap",
+     "Chapter2/TangentMap · MPolyfold.tangentMap_mk",
+     "Chapter2/TangentMap · MPolyfold.levelVal_tangentProj_tangentMap",
+     "Chapter2/TangentMap · MPolyfold.tangentMap_mapsTo_fiber",
+     "Chapter2/TangentMap · MPolyfold.tangentChartMap_tangentMap",
+     "Chapter2/TangentMap · MPolyfold.tangentMap_id",
+     "Chapter2/TangentMap · MPolyfold.tangentMap_comp",
+     "Chapter2/TangentMap · MPolyfold.continuous_tangentMap",
+     "Chapter2/TangentMap · MPolyfold.tangentMap_isScSmooth",
+     "Chapter2/TangentMap · MPolyfold.IsScSmoothMap.mapsTo_levelSet"
+    ]
+   },
+   "verdict": "extra",
+   "chips": [
+    "defined only implicitly in the text"
+   ],
+   "diff": [
+    "Not stated in the text; it is the tangent functor of §2.1 transported to M-polyfolds, and the text uses it from §2.3 on.",
+    "Only maps sc-smooth on all of $X$ are treated."
+   ]
+  },
+  {
+   "id": "V2.23",
+   "title": "Definition 2.20: sub-M-polyfolds",
+   "book": {
+    "label": "§2.2, Definition 2.20, p. 28",
+    "page": 28,
+    "statement": "$A \\subseteq X$ is a sub-M-polyfold if every $a \\in A$ has an open neighbourhood $V$ and an sc-smooth retraction $r : V \\to V$ with $r(V) = A \\cap V$."
+   },
+   "lean": {
+    "statement": "$A \\subseteq X$ is a sub-M-polyfold if every $a \\in A$ has an open $V \\ni a$ and a map $r$ with $r(V) \\subseteq V$, $r$ sc-smooth on $V$ (Definition 2.14), $r \\circ r = r$ on $V$ and $r(V) = A \\cap V$. $X$ is a sub-M-polyfold of itself.",
+    "decls": [
+     "Chapter2/MPolyfold · MPolyfold.IsSubMPolyfold",
+     "Chapter2/MPolyfold · MPolyfold.isSubMPolyfold_univ"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text, with \\\"sc-smooth retraction $V \\to V$\\\" read through Definition 2.14 on the open set $V$."
+   ]
+  },
+  {
+   "id": "V2.24",
+   "title": "Proposition 2.21 (1), (2): the M-polyfold structure of a sub-M-polyfold",
+   "book": {
+    "label": "§2.2, Proposition 2.21 (1), (2), pp. 28–30",
+    "page": 28,
+    "statement": "A sub-M-polyfold $A$ has a natural M-polyfold structure for which (1) the inclusion $i : A \\to X$ is sc-smooth and a homeomorphism onto its image; (2) for every sc-smooth retraction $r : V \\to V$ with $r(V) = A \\cap V$, $i^{-1} \\circ r : V \\to A$ is sc-smooth."
+   },
+   "lean": {
+    "statement": "Let $A$ be a sub-M-polyfold with the subspace topology. For a chart $\\varphi$ of $X$ and data $(V, r)$ at a point, $W = V \\cap \\operatorname{dom}\\varphi \\cap r^{-1}(V \\cap \\operatorname{dom}\\varphi)$ is open with $r(W) \\subseteq W$, $r(W) = W \\cap A$; $\\rho = \\varphi \\circ r \\circ \\varphi^{-1}$ is sc-smooth and idempotent on $\\varphi(W)$, so $\\varphi(W \\cap A)$ is a retract and $(\\varphi|_{W \\cap A}, (\\varphi(W \\cap A), C, E))$ is a chart of $A$. Any two such charts are compatible; they form an atlas and make $A$ an M-polyfold. (1) $i$ is sc-smooth (a homeomorphism onto its image by the choice of topology). (2) For any data $(V, r)$, $i^{-1} \\circ r$ is sc-smooth on $V$. $A$ is paracompact (V2.17); for closed $A$ this is elementary.",
+    "decls": [
+     "Chapter2/SubMPolyfold · MPolyfold.SubData",
+     "Chapter2/SubMPolyfold · MPolyfold.SubData.shrink",
+     "Chapter2/SubMPolyfold · MPolyfold.SubData.image_shrink",
+     "Chapter2/SubMPolyfold · MPolyfold.SubData.rho_isScSmooth",
+     "Chapter2/SubMPolyfold · MPolyfold.SubData.isScRetract_image",
+     "Chapter2/SubMPolyfold · MPolyfold.subChart",
+     "Chapter2/SubMPolyfold · MPolyfold.subChart_compatible",
+     "Chapter2/SubMPolyfold · MPolyfold.subAtlas",
+     "Chapter2/SubMPolyfold · MPolyfold.subPolyfold",
+     "Chapter2/SubMPolyfold · MPolyfold.subPolyfold_inclusion_isScSmooth",
+     "Chapter2/SubMPolyfold · MPolyfold.subPolyfold_retraction_isScSmooth",
+     "Chapter2/SubMPolyfold · IsScSmoothRetractMap.mono_source",
+     "Chapter2/SubMPolyfold · MPolyfold.paracompactSpace_of_isClosed"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "subspace topology on $A$",
+    "paracompactness: instance argument"
+   ],
+   "diff": [
+    "The text does not say which topology $A$ carries; the subspace topology is taken, so (1)'s homeomorphism is by construction.",
+    "`subPolyfold` takes `[ParacompactSpace A]` as an instance argument; it is discharged by `MPolyfold.paracompactSpace_subtype` (V2.17), which the text uses implicitly through Theorem 2.16.",
+    "The compatibility argument $(\\psi' \\circ \\psi^{-1}) \\circ s'' = (\\varphi' \\circ \\varphi^{-1}) \\circ s''$ is `IsScSmoothRetractMap.mono_source`."
+   ]
+  },
+  {
+   "id": "V2.25",
+   "title": "Proposition 2.21 (3), (4): the tangent space of a sub-M-polyfold, in a chart",
+   "book": {
+    "label": "§2.2, Proposition 2.21 (3), (4), p. 30",
+    "page": 30,
+    "statement": "(3) At a smooth $a \\in A$, $T_aA$ has an sc-complement in $T_aX$. (4) For a retraction $s : W \\to W$ onto $W \\cap A$, the induced map $W \\to A$ is sc-smooth and $Ts(a)T_aX = T_aA$. Proof in coordinates: $t = s \\circ r$, $T_aA = Dt(a)E$, $T_aO = Ds(a)Dr(a)E \\oplus (I - Ds(a))Dr(a)E$."
+   },
+   "lean": {
+    "statement": "In a chart: let $O = r(U)$, $s$ sc-smooth $(O, C, E) \\to (O, C, E)$ with $s \\circ s = s$, $t = s \\circ r$ (a retraction onto $s(O)$), and $a \\in s(O)_1$ smooth. Then $T_aO = Dr(a)E$, $T_a s(O) = Dt(a)E \\subseteq T_aO$, both $Dt(a)E$ and $(Dr(a) - Dt(a))E$ are sc-subspaces of $E$, and on every level their level parts are disjoint with sum the level part of $T_aO$ (an sc-splitting $T_aO = T_aA \\oplus (Dr(a) - Dt(a))E$). (4) $s : O \\to s(O)$ is sc-smooth and $Ts$ maps $T_aO$ onto $T_a s(O)$ (for $a \\in s(O)_1$).",
+    "decls": [
+     "Chapter2/Metrizable · ScRetraction.compRetraction",
+     "Chapter2/Metrizable · ScRetraction.compRetraction_retract",
+     "Chapter2/Metrizable · proposition_2_21_3",
+     "Chapter2/Metrizable · proposition_2_21_4"
+    ]
+   },
+   "verdict": "narrower",
+   "chips": [
+    "in a chart only",
+    "$Ds(a)$ read as $D(s \\circ r)(a)$"
+   ],
+   "diff": [
+    "Stated and proved in a chart, as the text proves it; the transport to $T_aX$ by $T\\varphi(a)$ is not formalized, since the fibres of $TX$ carry no sc-structure here (G.7).",
+    "The text's $Ds(a)$ is $Dt(a) = D(s \\circ r)(a)$; the sc-complement is $(Dr(a) - Dt(a))E$. The key identities $Dr(a)Dt(a) = Dt(a) = Dt(a)Dr(a)$ come from $r \\circ t = t = t \\circ r$.",
+    "(4) holds at every $a \\in s(O)_1$, smoothness is not needed."
+   ]
+  },
+  {
+   "id": "V2.26",
+   "title": "Definition 2.22: the degeneracy index $d_X$",
+   "book": {
+    "label": "§2.3, Definition 2.22, p. 31",
+    "page": 31,
+    "statement": "For a chart $\\varphi$ around $x$, $d(x, \\varphi) = d_C(\\varphi(x))$; $d_X(x)$ is the minimum of $d(x, \\varphi)$ over all smooth charts around $x$."
+   },
+   "lean": {
+    "statement": "$d(x, \\varphi) = d_C(\\varphi(x))$ for a chart $\\varphi$ around $x$; $d_X(x)$ is the infimum of $d(x, \\varphi)$ over the charts of the structure (the maximal atlas) around $x$. It is attained, and $d_X(x) \\le d(x, \\varphi)$ for every chart; $d(\\cdot, \\varphi)$ is upper semicontinuous on the source of $\\varphi$.",
+    "decls": [
+     "Chapter2/DegeneracyIndex · MPolyfold.chartDegIndex",
+     "Chapter2/DegeneracyIndex · MPolyfold.degIndex",
+     "Chapter2/DegeneracyIndex · MPolyfold.degIndex_le",
+     "Chapter2/DegeneracyIndex · MPolyfold.exists_isChart_degIndex_eq",
+     "Chapter2/DegeneracyIndex · MPolyfold.eventually_chartDegIndex_le"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "all charts of the maximal atlas"
+   ],
+   "diff": [
+    "\\\"Smooth charts\\\" is read as the charts of the sc-smooth structure; the minimum is over the maximal atlas, so it depends only on the equivalence class."
+   ]
+  },
+  {
+   "id": "V2.27",
+   "title": "Lemma 2.23: upper semicontinuity of $d_X$",
+   "book": {
+    "label": "§2.3, Lemma 2.23, p. 31",
+    "page": 31,
+    "statement": "Every $x \\in X$ has an open neighbourhood $U(x)$ with $d_X(y) \\le d_X(x)$ for $y \\in U(x)$."
+   },
+   "lean": {
+    "statement": "For every $x$, $d_X(y) \\le d_X(x)$ for all $y$ in a neighbourhood of $x$. Consequently $\\{d_X < k\\}$ is open and $\\{d_X \\ge k\\}$ closed for every $k$.",
+    "decls": [
+     "Chapter2/DegeneracyIndex · lemma_2_23",
+     "Chapter2/DegeneracyIndex · eventually_degIndexWith_le",
+     "Chapter2/Boundary · MPolyfold.isOpen_setOf_degIndex_lt",
+     "Chapter2/Boundary · MPolyfold.isClosed_setOf_le_degIndex"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text (\\\"evident\\\"): a chart realizing $d_X(x)$ and the semicontinuity of $d_C$."
+   ]
+  },
+  {
+   "id": "V2.28",
+   "title": "Proposition 2.24: $d_X$ is invariant under sc-diffeomorphism germs",
+   "book": {
+    "label": "§2.3, Proposition 2.24, p. 31",
+    "page": 31,
+    "statement": "If $f : (U, x) \\to (V, f(x))$ is a germ of sc-diffeomorphisms between M-polyfolds, then $d_X(x) = d_Y(f(x))$."
+   },
+   "lean": {
+    "statement": "Let $U \\subseteq X$, $V \\subseteq Y$ be open, $f$ sc-smooth on $U$ with $f(U) \\subseteq V$, $g$ sc-smooth on $V$ with $g(V) \\subseteq U$, inverse to each other. Then $d_X(x) = d_Y(f(x))$ for $x \\in U$. For a chart $\\psi$ of $Y$, $\\psi \\circ f$ on $U \\cap f^{-1}(\\operatorname{dom}\\psi)$ is a chart of $X$, with $d(x, \\psi \\circ f) = d(f(x), \\psi)$.",
+    "decls": [
+     "Chapter2/DegeneracyIndex · MPolyfold.IsScDiffeoOn",
+     "Chapter2/DegeneracyIndex · proposition_2_24",
+     "Chapter2/DegeneracyIndex · MPolyfold.transportChart",
+     "Chapter2/DegeneracyIndex · MPolyfold.transportChart_isChart",
+     "Chapter2/DegeneracyIndex · MPolyfold.degIndex_le_of_isScDiffeoOn"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "germ = sc-diffeomorphism of open sets"
+   ],
+   "diff": [
+    "A germ is represented by an sc-diffeomorphism between open neighbourhoods.",
+    "The text's \\\"deduced immediately from the definitions\\\" is the construction of the transported chart and the proof that it belongs to the maximal atlas."
+   ]
+  },
+  {
+   "id": "V2.29",
+   "title": "Definition 2.25: the boundary $\\partial X$",
+   "book": {
+    "label": "§2.3, Definition 2.25, p. 31",
+    "page": 31,
+    "statement": "$\\partial X = \\{x : d_X(x) \\ge 1\\}$ is the boundary; $X$ is without boundary if $d_X \\equiv 0$."
+   },
+   "lean": {
+    "statement": "$\\partial X = \\{d_X \\ge 1\\}$; $X$ is without boundary iff $d_X \\equiv 0$ iff $\\partial X = \\emptyset$. $\\partial X$ and the corners $\\{d_X \\ge 2\\}$ are closed, the interior $\\{d_X = 0\\}$ is open, and sc-diffeomorphism germs preserve $\\partial X$.",
+    "decls": [
+     "Chapter2/DegeneracyIndex · MPolyfold.boundary",
+     "Chapter2/DegeneracyIndex · MPolyfold.IsWithoutBoundary",
+     "Chapter2/DegeneracyIndex · MPolyfold.isWithoutBoundary_iff",
+     "Chapter2/Boundary · MPolyfold.isClosed_boundary",
+     "Chapter2/Boundary · MPolyfold.isOpen_interior",
+     "Chapter2/Boundary · MPolyfold.corners",
+     "Chapter2/Boundary · MPolyfold.isClosed_corners",
+     "Chapter2/Boundary · MPolyfold.IsScDiffeoOn.mem_boundary_iff"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text; the closedness statements and the invariance are consequences of V2.27 and V2.28 recorded for later use."
+   ]
+  },
+  {
+   "id": "V2.30",
+   "title": "Lemma 2.26: $d_A \\le d_X$ on a sub-M-polyfold",
+   "book": {
+    "label": "§2.3, Lemma 2.26, pp. 31–32",
+    "page": 31,
+    "statement": "If $A$ is a sub-M-polyfold of $X$, then $d_A(a) \\le d_X(a)$ for all $a \\in A$."
+   },
+   "lean": {
+    "statement": "For a sub-M-polyfold $A$ with the structure of V2.24, $d_A(a) \\le d_X(a)$ for every $a \\in A$: the chart of $A$ built from a chart of $X$ realizing $d_X(a)$ has the same quadrant $C$ and the same image point.",
+    "decls": [
+     "Chapter2/SubMPolyfold · lemma_2_26"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "paracompactness: instance argument"
+   ],
+   "diff": [
+    "As in the text. The statement carries `[ParacompactSpace A]` (through `subPolyfold`), discharged by `MPolyfold.paracompactSpace_subtype`."
+   ]
+  },
+  {
+   "id": "V2.31",
+   "title": "The subspaces $E_x$ and $\\dim(E/E_x) = d_C(x)$",
+   "book": {
+    "label": "§2.3, p. 32",
+    "page": 32,
+    "statement": "For $C = [0, \\infty)^k \\oplus W$: $E_i = \\{a_i = 0\\}$, $E_I = \\bigcap_{i \\in I} E_i$, $I(x) = \\{i : x \\in E_i\\}$, $E_x = E_{I(x)}$, $H_i = \\{a_i \\ge 0\\}$ and $C_x = \\bigcap_{i \\in I(x)} H_i$."
+   },
+   "lean": {
+    "statement": "For a presentation $T : E \\cong \\mathbb R^n \\oplus W$ of $C$: $E_x = \\{v : (Tv)_i = 0 \\text{ whenever } (Tx)_i = 0\\}$, a closed subspace with $\\dim(E_0/E_x) = d_C(x)$; $C_x = \\{v : (Tv)_i \\ge 0 \\text{ whenever } (Tx)_i = 0\\}$ is closed and convex, with $E_x \\subseteq C_x$. Points of $C$ of the same index on level $1$ (resp. smooth) accumulate at every $x \\in C$; the level-$1$ points of $C_x$ and of the kernel of any finite-rank map are dense.",
+    "decls": [
+     "Chapter2/DegeneracyIndex · minimalSubspaceWith",
+     "Chapter2/DegeneracyIndex · mem_minimalSubspaceWith",
+     "Chapter2/DegeneracyIndex · isClosed_minimalSubspaceWith",
+     "Chapter2/DegeneracyIndex · finrank_quotient_minimalSubspaceWith",
+     "Chapter2/Tame · partialQuadrantAtWith",
+     "Chapter2/Tame · minimalSubspaceWith_subset_partialQuadrantAtWith",
+     "Chapter2/Boundary · isClosed_partialQuadrantAtWith",
+     "Chapter2/DegeneracyIndex · exists_tendsto_lvl1_degIndexWith",
+     "Chapter2/TameRetracts · exists_tendsto_smooth_degIndexWith",
+     "Chapter2/DegeneracyIndex · ScBanach.subset_closure_ker_inter_range_toBase",
+     "Chapter2/Boundary · partialQuadrantAtWith_subset_closure"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "through a presentation $T$"
+   ],
+   "diff": [
+    "Defined through a presentation of $C$, transported from the model; the text works in the model $E = \\mathbb R^k \\oplus W$.",
+    "The densities are the content of the exposition's Lemma 3.A on level $1$, which is what the proofs of §2.3 use."
+   ]
+  },
+  {
+   "id": "V2.32",
+   "title": "Definition 2.27: the reduced tangent space and the partial cone",
+   "book": {
+    "label": "§2.3, Definition 2.27, p. 33",
+    "page": 33,
+    "statement": "For a retract $(O, C, E)$ and a smooth $x \\in O$: $C_xO := T_xO \\cap C_x$ and $T^R_xO := T_xO \\cap E_x$."
+   },
+   "lean": {
+    "statement": "For a retraction $r$, a presentation $T$ of $C$ and $x \\in O_1$: $T^R_xO = Dr(x)(E_0) \\cap E_x$ (a subspace) and $C_xO = Dr(x)(E_0) \\cap C_x$; $\\dim(T_xO/T^R_xO)$ is the natural number $\\dim(A/(A \\cap B))$ for $A = T_xO$, $B = E_x$, and it is at most $d_C(x)$.",
+    "decls": [
+     "Chapter2/Tame · reducedTangentSpaceWith",
+     "Chapter2/Tame · partialConeWith",
+     "Chapter2/Boundary · quotDim",
+     "Chapter2/Boundary · quotDim_inf_minimalSubspace_le",
+     "Chapter2/Boundary · quotDim_reducedTangentSpaceWith_le"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "defined at level-$1$ points",
+    "through a presentation $T$"
+   ],
+   "diff": [
+    "Defined at every $x \\in O_1$, not only at smooth points; the statements of §2.3 hold there.",
+    "Defined through a presentation of $C$, which is how the text computes."
+   ]
+  },
+  {
+   "id": "V2.33",
+   "title": "Remark 2.28: $T^R_xO \\subseteq C_xO \\subseteq T_xO$",
+   "book": {
+    "label": "§2.3, Remark 2.28, p. 33",
+    "page": 33,
+    "statement": "$T^R_xO \\subset C_xO \\subset T_xO$; naively one might expect $C_xO$ to be a partial quadrant in $T_xO$, which in general is not the case."
+   },
+   "lean": {
+    "statement": "$T^R_xO \\subseteq C_xO$, and $C_xO \\subseteq T_xO$ by definition. **The negative claim is false**: at every smooth point $x$ of every sc-smooth retract (no tameness), $T_xO$ and $T^R_xO$ are sc-subspaces of $E$ and $C_xO$ is a partial quadrant in the sc-Banach space $T_xO$ (with the sc-structure induced from $E$), of dimension $\\operatorname{rank} M = \\dim(T_xO/T^R_xO) \\le d_C(x)$, $M$ the matrix of $Dr(x)$ on $E/E_x \\cong \\mathbb R^{I(x)}$. The core is Flor's theorem in the needed case: for a nonnegative idempotent matrix $M$, the cone $\\operatorname{range} M \\cap [0, \\infty)^\\iota$ is generated by linearly independent columns of $M$.",
+    "decls": [
+     "Chapter2/Tame · reducedTangentSpaceWith_subset_partialConeWith",
+     "Chapter2/PartialConeQuadrant · remark_2_28_isPartialQuadrant",
+     "Chapter2/PartialConeQuadrant · remark_2_28_partialConeWith",
+     "Chapter2/PartialConeQuadrant · flor_nonnegRange_simplicial",
+     "Chapter2/PartialConeQuadrant · remark_2_28_quotient_simplicial",
+     "Chapter2/PartialConeQuadrant · ScRetraction.isScSubspace_reducedTangentSpaceWith",
+     "Chapter2/PartialConeQuadrant · partialConeWith_eq_image_scDeriv"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "the negative claim is false (proved)",
+    "partial quadrant without tameness",
+    "Flor's theorem, the needed case"
+   ],
+   "diff": [
+    "The inclusions as in the text.",
+    "**The remark's negative claim does not hold in our reading (checked in Lean).** The remark asserts, without an example, that $C_xO$ is in general not a partial quadrant in $T_xO$; in our formalization it is one at every smooth point of every sc-smooth retract. $Dr(x)$ maps $C_x$ and $E_x$ into themselves, so $C_xO = Dr(x)(C_x)$, and modulo $T^R_xO$ it is the column cone of the nonnegative idempotent matrix $M$ of $Dr(x)$ on $E/E_x$; by Flor's theorem this cone is simplicial, and the sc-isomorphism $T_xO \\cong \\mathbb R^r \\oplus T^R_xO$ of the proof of Theorem 2.31 carries $C_xO$ onto $[0, \\infty)^r \\oplus T^R_xO$. What can fail for a non-tame retract is only $r = d_C(x)$ (Theorem 2.31), which may well be what the remark means (Findings, Chapter 2, item 50; round-trip item V2.33, whose blind statement is proved false; formerly G.9).",
+    "The verdict “stronger” records that the positive statement is proved for every retract, where the text proves it for tame ones (Proposition 2.36, V2.42) and asserts that it fails in general; formerly “as in the book” for the inclusions alone. Updated in the third addendum of this page."
+   ]
+  },
+  {
+   "id": "V2.34",
+   "title": "The sign arguments (the content of Lemma 2.29)",
+   "book": {
+    "label": "§2.3, proof of Lemma 2.29, pp. 33–35",
+    "page": 33,
+    "statement": "For an sc-smooth path $\\alpha$ in $O$ through $x$, the derivative of $\\alpha_i \\ge 0$ with $\\alpha_i(0) = 0$ vanishes (two-sided paths) or is $\\ge 0$ (one-sided paths); with $Dr(x)\\dot\\alpha(0) = \\dot\\alpha(0)$ this gives Lemma 2.29 (1), (2)."
+   },
+   "lean": {
+    "statement": "Let $f$ be sc¹ on $U$ (relatively open in $C$) with values in $C'$ and $x \\in U_1$. Two-sided: for $v \\in E_1 \\cap E_x$, $Df(x)v \\in E'_{f(x)}$, and by density $Df(x)(E_x) \\subseteq E'_{f(x)}$. One-sided: for $v \\in E_1 \\cap C_x$, $Df(x)v \\in C'_{f(x)}$, and $Df(x)(C_x) \\subseteq C'_{f(x)}$. For a retraction, $Dr(x)E_x \\subseteq E_x$ at every $x \\in O_1$.",
+    "decls": [
+     "Chapter2/DegeneracyIndex · IsSc1With.deriv_mem_minimalSubspace_of_lvl1",
+     "Chapter2/DegeneracyIndex · IsSc1With.mapsTo_minimalSubspace",
+     "Chapter2/Boundary · IsSc1With.deriv_mem_partialQuadrant_of_lvl1",
+     "Chapter2/Boundary · IsSc1With.mapsTo_partialQuadrant",
+     "Chapter2/DegeneracyIndex · eventually_add_smul_mem_lvlSet",
+     "Chapter2/Boundary · eventually_add_smul_mem_lvlSet_of_cone",
+     "Chapter2/TameRetracts · ScRetraction.scDeriv_mapsTo_minimalSubspace"
+    ]
+   },
+   "verdict": "extra",
+   "chips": [
+    "replaces the path formulation"
+   ],
+   "diff": [
+    "Lemma 2.29 itself, in its path formulation, is not formalized (G.10). Its derivative-level content, which is all Proposition 2.30 and Theorem 2.31 use, is formalized directly, for sc¹ maps and level-$1$ points.",
+    "The text's \\\"the closure of $(T^R_xO)_\\infty$ is $T^R_xO$\\\" becomes the density of level-$1$ points of $E_x$ and $C_x$ (V2.31)."
+   ]
+  },
+  {
+   "id": "V2.35",
+   "title": "Proposition 2.30: invariance of $T^R_xO$ and $C_xO$",
+   "book": {
+    "label": "§2.3, Proposition 2.30, p. 35",
+    "page": 35,
+    "statement": "If $f : (O, x) \\to (O', f(x))$ is a germ of sc-diffeomorphism between retracts, $x \\in O_\\infty$, then $Tf(x)T^R_xO = T^R_yO'$ and $Tf(x)C_xO = C_yO'$, $y = f(x)$."
+   },
+   "lean": {
+    "statement": "Let $r$, $r'$ be retractions onto $O$, $O'$, and $F$, $G$ maps with $F \\circ r$, $G \\circ r'$ sc¹, $F(O) \\subseteq O'$, $G(O') \\subseteq O$, inverse to each other on $O$, $O'$ (a germ of sc-diffeomorphisms; every sc-smooth map between retracts with sc-smooth inverse is one). For $x \\in O_1$ and $y = (F \\circ r)(x)$, with $Tf(x) = D(F \\circ r)(x)$: $Tf(x)(T^R_xO) = T^R_yO'$ and $Tf(x)(C_xO) = C_yO'$. Moreover $D(G \\circ r')(y) \\circ D(F \\circ r)(x) = Dr(x)$, $D(F \\circ r)(x) \\circ D(G \\circ r')(y) = Dr'(y)$.",
+    "decls": [
+     "Chapter2/Boundary · ScRetraction.IsDiffeoGerm",
+     "Chapter2/Boundary · IsScSmoothRetractMap.isDiffeoGerm",
+     "Chapter2/Boundary · ScRetraction.IsDiffeoGerm.deriv_inv_deriv",
+     "Chapter2/Boundary · ScRetraction.IsDiffeoGerm.deriv_deriv_inv",
+     "Chapter2/Boundary · proposition_2_30_reduced",
+     "Chapter2/Boundary · proposition_2_30_cone"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "level-$1$ points, sc¹ germs",
+    "not via Lemma 2.29"
+   ],
+   "diff": [
+    "Proved at every $x \\in O_1$ and for germs that are only sc¹; the text has smooth $x$ and sc-smooth germs.",
+    "Proved from the sign arguments (V2.34) and the two derivative identities, not from Lemma 2.29."
+   ]
+  },
+  {
+   "id": "V2.36",
+   "title": "A retract is an M-polyfold",
+   "book": {
+    "label": "§2.3, before Theorem 2.31, p. 35",
+    "page": 35,
+    "statement": "A retract $(O, C, E)$ is an M-polyfold, and $d_O(x) = \\min d_{C'}(\\varphi(x))$ over germs of sc-diffeomorphisms $\\varphi : (O, x) \\to (O', \\varphi(x))$ into retracts."
+   },
+   "lean": {
+    "statement": "A nonempty retract $O$ is an M-polyfold on the subtype $O$ with the single chart $\\mathrm{id}$; so is a nonempty relatively open $U \\subseteq C$ (the text's $X_C$ for $U = C$). Its degeneracy index is Definition 2.22 for this structure; two compatible charts give a germ of sc-diffeomorphisms between overlap retracts.",
+    "decls": [
+     "Chapter2/MPolyfold · LocalModel.selfChart",
+     "Chapter2/MPolyfold · LocalModel.toMPolyfold",
+     "Chapter2/MPolyfold · IsRelOpenInQuadrant.toMPolyfold",
+     "Chapter2/DegeneracyIndex · IsRelOpenInQuadrant.selfChart_isChart",
+     "Chapter2/Boundary · MChart.Compatible.isDiffeoGerm"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "$d_O$ by Definition 2.22"
+   ],
+   "diff": [
+    "The text's description of $d_O$ as a minimum over germs into retracts is replaced by Definition 2.22 for the atlas $\\{\\mathrm{id}\\}$, whose charts are such germs restricted to open subsets.",
+    "The text's paracompactness of $O$ (as a metric space) is part of the M-polyfold structure on the subtype."
+   ]
+  },
+  {
+   "id": "V2.37",
+   "title": "Theorem 2.31: $\\dim(T_xO/T^R_xO) \\le d_O(x)$",
+   "book": {
+    "label": "§2.3, Theorem 2.31, p. 35 (first statement)",
+    "page": 35,
+    "statement": "For a retract $(O, C, E)$ and a smooth $x \\in O$, $\\dim(T_xO/T^R_xO) \\le d_O(x)$."
+   },
+   "lean": {
+    "statement": "For every M-polyfold $X$, every chart $\\varphi$ around $x$ with $\\varphi(x)$ on level $1$, every retraction $r$ onto the model $O$ and every presentation of $C$: $\\dim(T_{\\varphi(x)}O/T^R_{\\varphi(x)}O) \\le d_X(x)$. In the text's form, for a retract $O$ as an M-polyfold and $x \\in O_1$: $\\dim(T_xO/T^R_xO) \\le d_O(x)$. The core: along a germ of sc-diffeomorphisms $F$ between retracts, $\\dim(T_xO/T^R_xO) \\le d_{C'}(F(x))$. The second statement holds without the equality: $C_xO$ is a partial quadrant in $T_xO$ at every smooth $x$ (V2.33).",
+    "decls": [
+     "Chapter2/Boundary · theorem_2_31",
+     "Chapter2/Boundary · theorem_2_31_retract",
+     "Chapter2/Boundary · ScRetraction.IsDiffeoGerm.quotDim_le",
+     "Chapter2/Boundary · MPolyfold.quotDim_le_chartDegIndex",
+     "Chapter2/Boundary · ScRetraction.scDeriv_restrict",
+     "Chapter2/DegeneracyIndex · degIndexWith_le_of_germ",
+     "Chapter2/PartialConeQuadrant · remark_2_28_isPartialQuadrant"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "every M-polyfold, level-$1$ points",
+    "second statement without its hypothesis"
+   ],
+   "diff": [
+    "Stated for every chart of every M-polyfold and for points on level $1$; the text's statement is `theorem_2_31_retract`.",
+    "The proof does not reduce to a chart realizing $d_O(x)$, as the text does: for every other chart $\\psi$, $D(\\psi \\circ \\varphi^{-1})$ induces $T_xO/T^R_xO \\cong T_yO'/T^R_yO'$, which embeds in $E'/E'_y$ of dimension $d_{C'}(y)$.",
+    "The second statement (equality makes $C_xO$ a partial quadrant) holds without its hypothesis: $C_xO$ is a partial quadrant at every smooth point of every retract (V2.33; formerly G.11). Updated in the third addendum of this page.",
+    "For tame retracts the conclusion of the second statement, $C_xO$ a partial quadrant, is proved directly (V2.42)."
+   ]
+  },
+  {
+   "id": "V2.38",
+   "title": "Corollary 2.32: $d_{X_C} = d_C$",
+   "book": {
+    "label": "§2.3, Corollary 2.32, p. 37",
+    "page": 37,
+    "statement": "For a partial quadrant $C$, viewed as the M-polyfold $X_C$, $d_C = d_{X_C}$."
+   },
+   "lean": {
+    "statement": "For a nonempty relatively open subset $U$ of a partial quadrant $C$, viewed as the M-polyfold $X_U$ (chart $\\mathrm{id}$), $d_{X_U}(x) = d_C(x)$ for every $x \\in U$. The inequality $d_C \\le d_{X_U}$ is proved at level-$1$ points from the core of Theorem 2.31 and extended by approximation with level-$1$ points of the same index and Lemma 2.23.",
+    "decls": [
+     "Chapter2/DegeneracyIndex · corollary_2_32",
+     "Chapter2/DegeneracyIndex · IsRelOpenInQuadrant.degIndex_le",
+     "Chapter2/DegeneracyIndex · IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1",
+     "Chapter2/DegeneracyIndex · degIndexWith_le_of_germ"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "any relatively open $U \\subseteq C$",
+    "level-$1$ approximation"
+   ],
+   "diff": [
+    "Proved for every relatively open $U \\subseteq C$; $U = C$ is the text's case.",
+    "Smooth points are not needed: level-$1$ points $T^{-1}(a, w')$, $w' \\in W_1$, of the same index suffice.",
+    "Theorem 1.25 (boundary recognition, Chapter 1, V1.23) is proved in the same file, `Chapter2/DegeneracyIndex.lean`, by this argument (`theorem_1_25`)."
+   ]
+  },
+  {
+   "id": "V2.39",
+   "title": "Definition 2.33: $C_e$ and $E_e$",
+   "book": {
+    "label": "§2.4, Definition 2.33, p. 39",
+    "page": 39,
+    "statement": "$C_e := \\bigcap_{f \\in \\mathcal F(e)} H_f$ and $E_e := \\bigcap_{f \\in \\mathcal F(e)} f$; $E_e \\subset C_e \\subset E$, $E_e$ has codimension $d_C(e)$."
+   },
+   "lean": {
+    "statement": "For a presentation $T$ of $C$: $C_e = \\{v : (Tv)_i \\ge 0 \\text{ for } (Te)_i = 0\\}$ and $E_e = \\{v : (Tv)_i = 0 \\text{ for } (Te)_i = 0\\}$, convex resp. a closed subspace, $E_e \\subseteq C_e$, $\\dim(E_0/E_e) = d_C(e)$. $E_e$ is the same for every presentation of $C$.",
+    "decls": [
+     "Chapter2/Tame · partialQuadrantAtWith",
+     "Chapter2/DegeneracyIndex · minimalSubspaceWith",
+     "Chapter2/Tame · minimalSubspaceWith_subset_partialQuadrantAtWith",
+     "Chapter2/Tame · convex_partialQuadrantAtWith",
+     "Chapter2/DegeneracyIndex · finrank_quotient_minimalSubspaceWith",
+     "Chapter2/TameFaces · minimalSubspaceWith_le",
+     "Chapter2/TameFaces · minimalSubspaceWith_eq"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "through a presentation, independent of it"
+   ],
+   "diff": [
+    "Defined through a presentation (the intrinsic description of the text is G.12); the same objects as V2.31.",
+    "$E_e$ does not depend on the presentation: for two presentations $T$, $T'$ of the same $C$ and $e \\in C$, the two subspaces agree (`minimalSubspaceWith_eq`, the argument of Lemma 1.24)."
+   ]
+  },
+  {
+   "id": "V2.40",
+   "title": "Definition 2.34: tame retractions and tame retracts",
+   "book": {
+    "label": "§2.4, Definition 2.34, pp. 39–40",
+    "page": 39,
+    "statement": "An sc-smooth retraction $r : U \\to U$ is tame if (1) $d_C(r(x)) = d_C(x)$ on $U$ and (2) at every smooth $x \\in O$ there is an sc-subspace $A \\subset E_x$ with $E = T_xO \\oplus A$. A tame retract is the image of a tame retraction."
+   },
+   "lean": {
+    "statement": "$r$ is tame for the presentation $T$ if (1) $d_C(r(x)) = d_C(x)$ for $x \\in U$ and (2) for every smooth $x \\in O_1$ there is $A \\le E_x$ with $E = Dr(x)E \\oplus A$ an sc-splitting (both summands sc-subspaces, complementary on every level). $r$ is tame if it is tame for every presentation of $C$, equivalently for one; a tame retract is the retract of a tame retraction. The identity of a relatively open $U \\subseteq C$ is tame, and restrictions of tame retractions to $U \\cap r^{-1}(V)$, $V$ open, are tame.",
+    "decls": [
+     "Chapter2/Tame · ScRetraction.IsTameWith",
+     "Chapter2/Tame · ScRetraction.IsTame",
+     "Chapter2/Tame · IsTameRetract",
+     "Chapter2/Tame · IsTameRetract.isScRetract",
+     "Chapter2/Tame · ScRetraction.id_isTame",
+     "Chapter2/TameFaces · ScRetraction.IsTameWith.isTame",
+     "Chapter2/TameFaces · ScRetraction.IsTameWith.restrict"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "presentation-independent (proved)"
+   ],
+   "diff": [
+    "`IsTame` asks tameness for every presentation of $C$; tameness for one presentation implies it (`IsTameWith.isTame`, from the independence of $E_x$), so the definition is the text's. The theorems of §2.4 assume tameness for the presentation they compute in.",
+    "Tameness passes to the restrictions $r|_{U \\cap r^{-1}(V)}$, $V$ open (`IsTameWith.restrict`).",
+    "\\\"$E = T_xO \\oplus A$\\\" is an sc-splitting, as an sc-complement must be."
+   ]
+  },
+  {
+   "id": "V2.41",
+   "title": "Proposition 2.35: $(1 - Dr(x))E \\subseteq E_x$",
+   "book": {
+    "label": "§2.4, Proposition 2.35, p. 41 (discussion pp. 40–41)",
+    "page": 41,
+    "statement": "For a tame retraction and a smooth $x \\in O$, $(1 - Dr(x))E \\subseteq E_x$, so in condition (2) one can take $A = (1 - Dr(x))E$."
+   },
+   "lean": {
+    "statement": "Let $r$ be tame for $T$ and $x \\in O_1$ smooth. Then $(1 - Dr(x))E \\le E_x$ and $E = Dr(x)E \\oplus (1 - Dr(x))E$ is an sc-splitting. In coordinates, $\\lambda_j \\circ Dr(x) = \\lambda_j$ for $j \\in I(x)$.",
+    "decls": [
+     "Chapter2/TameRetracts · proposition_2_35",
+     "Chapter2/TameRetracts · ScRetraction.scDeriv_mapsTo_minimalSubspace",
+     "Chapter2/TameRetracts · ScRetraction.isScOperator_scDeriv",
+     "Chapter2/TameRetracts · ScRetraction.isScSplitting_range_scDeriv",
+     "Chapter2/TameRetracts · coord_scDeriv_eq"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "only condition (2) used"
+   ],
+   "diff": [
+    "Only condition (2) of tameness is used. The text derives $Dr(x)E_x \\subseteq E_x$ from condition (1); the sign argument gives it for every sc-smooth retraction at every point of $O_1$.",
+    "The sc-splitting is that of the sc-projection $Dr(x)$ at the smooth point $x$."
+   ]
+  },
+  {
+   "id": "V2.42",
+   "title": "Proposition 2.36: $d_O = d_C$, $T^R_xO$ an sc-subspace, $C_xO$ a partial quadrant",
+   "book": {
+    "label": "§2.4, Proposition 2.36, p. 41",
+    "page": 41,
+    "statement": "For a tame retract and smooth $x$: $T^R_xO$ has codimension $d_O(x)$, $\\dim(T_xO/T^R_xO) = d_O(x)$ (13), and $C_xO$ is a partial quadrant in $T_xO$; for every $x \\in O$, $d_O(x) = d_C(x)$ (14)."
+   },
+   "lean": {
+    "statement": "Let $r$ be tame for $T$. (13) At a smooth $x \\in O_1$: $\\dim(T_xO/T^R_xO) = d_O(x) = d_C(x)$; moreover $T_xO$ and $T^R_xO$ are sc-subspaces of $E$, and $C_xO = T_xO \\cap C_x$ is a partial quadrant in the sc-Banach space $T_xO$ (with the sc-structure induced from $E$). (14) For every $x \\in O$: $d_O(x) = d_C(x)$, $O$ with its single chart. More generally, a chart $\\varphi$ of any M-polyfold whose model is a tame retract realizes the degeneracy index: $d_X(y) = d_C(\\varphi(y))$ for every $y$ in its domain.",
+    "decls": [
+     "Chapter2/TameRetracts · proposition_2_36",
+     "Chapter2/TameRetracts · proposition_2_36_degIndex",
+     "Chapter2/TameRetracts · quotDim_reducedTangentSpaceWith_eq",
+     "Chapter2/TameRetracts · MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith",
+     "Chapter2/TameRetracts · MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract",
+     "Chapter2/TameRetracts · LocalModel.degIndex_toMPolyfold_of_isTameWith",
+     "Chapter2/TameRetracts · quotDim_eq_finrank_quotient_of_isCompl",
+     "Chapter2/PartialCone · proposition_2_36_partialCone",
+     "Chapter2/PartialCone · splitIso",
+     "Chapter2/PartialCone · isPartialQuadrant_ofSubspace"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "tame charts realize $d_X$",
+    "$T^R_xO$ an sc-subspace",
+    "partial quadrant without Theorem 2.31"
+   ],
+   "diff": [
+    "(13) and (14) as in the text; the general form for charts of any M-polyfold is what Proposition 2.42's \\\"$d_V(y) = d_X(y)$\\\" needs.",
+    "The approximants $r(a, w_j)$, $w_j \\in W_\\infty$, are taken through the presentation (`exists_tendsto_smooth_degIndexWith`).",
+    "The text deduces \"$C_xO$ is a partial quadrant\" from the equality case of Theorem 2.31 (G.11; since proved without the equality, V2.33); here it is proved directly. The smooth vectors $\\hat e_j = Dr(x)T^{-1}(e_{i_j}, 0)$ satisfy $\\lambda_{i_k}(\\hat e_j) = \\delta_{jk}$ by Proposition 2.35, and $v \\mapsto ((\\lambda_{i_j}v)_j, v - \\sum_j \\lambda_{i_j}(v)\\hat e_j)$ is an sc-isomorphism $T_xO \\cong \\mathbb R^d \\oplus T^R_xO$ carrying $C_xO$ onto $[0, \\infty)^d \\oplus T^R_xO$ (`splitIso`).",
+    "The text calls $T^R_xO$ a Banach space; it is proved to be an sc-subspace (the exposition's Lemma 3.A (1) in this case), which the sc-isomorphism needs: $Dr(x)T^{-1}(a, w')$, $w' \\in W_\\infty$, are smooth points of $T^R_xO$ converging to $u$ on level $m$. Both the sc-subspace property of $T^R_xO$ and the partial quadrant hold without tameness (V2.33); what tameness adds is that the quadrant has dimension $d_O(x) = d_C(x)$. Updated in the third addendum of this page."
+   ]
+  },
+  {
+   "id": "V2.43",
+   "title": "Definition 2.37: tame M-polyfolds",
+   "book": {
+    "label": "§2.4, Definition 2.37, p. 42",
+    "page": 42,
+    "statement": "A tame M-polyfold is an M-polyfold with an equivalent atlas whose charts are all modelled on tame sc-smooth retracts."
+   },
+   "lean": {
+    "statement": "$X$ is tame if some atlas equivalent to its atlas consists of charts modelled on tame retracts; then every point lies in a chart of the structure with a tame model.",
+    "decls": [
+     "Chapter2/Tame · MPolyfold.IsTame",
+     "Chapter2/TameRetracts · MPolyfold.isChart_of_mem_equiv",
+     "Chapter2/TameRetracts · MPolyfold.IsTame.exists_chart"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text."
+   ]
+  },
+  {
+   "id": "V2.44",
+   "title": "Definition 2.39: faces and face-structured M-polyfolds",
+   "book": {
+    "label": "§2.4, Definition 2.39, p. 43",
+    "page": 43,
+    "statement": "A face of a tame M-polyfold is the closure of a connected component of $\\{d_X = 1\\}$; $X$ is face-structured if every $x$ lies in exactly $d_X(x)$ faces."
+   },
+   "lean": {
+    "statement": "$F$ is a face of $X$ if $F = \\overline{G}$ for the connected component $G$ in $\\{d_X = 1\\}$ of a point with $d_X = 1$; $X$ is face-structured if $\\#\\{F : F \\text{ a face}, x \\in F\\} = d_X(x)$ for every $x$ (cardinality in $\\mathbb N \\cup \\{\\infty\\}$). Faces are closed and lie in $\\partial X$.",
+    "decls": [
+     "Chapter2/Tame · MPolyfold.IsFace",
+     "Chapter2/Tame · MPolyfold.IsFaceStructured",
+     "Chapter2/Tame · MPolyfold.IsFace.isClosed",
+     "Chapter2/Boundary · MPolyfold.IsFace.subset_boundary"
+    ]
+   },
+   "verdict": "same",
+   "chips": [
+    "defined for every M-polyfold"
+   ],
+   "diff": [
+    "Defined for every M-polyfold; the theorems about faces assume tameness, as the text does."
+   ]
+  },
+  {
+   "id": "V2.45",
+   "title": "The local geometry of faces (exposition Lemmas 4.A–4.C)",
+   "book": {
+    "label": "§2.4, proof of Lemma 2.40, p. 43",
+    "page": 43,
+    "statement": "\\\"There exists an index $i$ such that $\\hat F$ must lie in $\\{a_i = 0\\}$\\\"; the retraction maps points near a face into the same face (\\\"using this argument repeatedly, we can connect any two points in $Q$\\\")."
+   },
+   "lean": {
+    "statement": "Let $r$ be tame for $T$. (a) A preconnected subset of $\\{z \\in C : d_C(z) = 1\\}$ meeting $f_i$ lies in $f_i$. (b) Rays stay in their face: for smooth $x \\in O$, $i \\in I(x)$ and $y$ with $\\lambda_i(y) = 0$, $\\lambda_l(y) > 0$ for the other $l \\in I(x)$, for small $\\tau > 0$, $I(x + \\tau y) = \\{i\\}$ and $I(r(x + \\tau y)) = \\{i\\}$. (c) Local structure: for $e \\in f_i \\cap O$ there are $\\varepsilon > 0$ and a component $\\hat F(e)$ of $S = \\{z \\in O : d_C(z) = 1\\}$ in $f_i$ such that on $B = B_\\varepsilon(e) \\cap C$: $B \\subseteq U$, $I(z), I(r(z)) \\subseteq I(e)$, $r$ maps $\\{z \\in B : I(z) = \\{i\\}\\}$ into $\\hat F(e)$, and $f_i \\cap B$ is mapped into $\\overline{\\hat F(e)}$.",
+    "decls": [
+     "Chapter2/TameRetracts · subset_coordHyper_of_isPreconnected",
+     "Chapter2/TameRetracts · IsSc1With.apply_deriv_eq_zero_of_ray",
+     "Chapter2/TameRetracts · ray_zeroSet",
+     "Chapter2/TameRetracts · local_face_structure",
+     "Chapter2/TameRetracts · eventually_zeroSet_subset",
+     "Chapter2/TameRetracts · convex_ball_inter_zeroSet_eq",
+     "Chapter2/TameRetracts · ScRetraction.faceStratum",
+     "Chapter2/TameRetracts · coordHyper"
+    ]
+   },
+   "verdict": "extra",
+   "chips": [
+    "supplies the steps the text skips",
+    "uses tameness (2) via Prop. 2.35"
+   ],
+   "diff": [
+    "Not stated in the text; these are the exposition's Lemmas 4.A–4.C, which supply the step that the retraction maps points of $f_i$ near $f_i \\cap O$ into $f_i$.",
+    "(b) needs tameness condition (2) through Proposition 2.35 ($\\lambda_j \\circ Dr(x) = \\lambda_j$); condition (1) alone fixes only the number of vanishing coordinates."
+   ]
+  },
+  {
+   "id": "V2.46",
+   "title": "Lemma 2.40: faces of a tame retract",
+   "book": {
+    "label": "§2.4, Lemma 2.40, p. 43",
+    "page": 43,
+    "statement": "For a tame retract $(O, C, E)$, the faces of $O$ are the connected components of the sets $f \\cap O$, $f$ an extended face; the components of $f \\cap O$ and $f' \\cap O$ through $x$ agree iff $f = f'$."
+   },
+   "lean": {
+    "statement": "Let $r$ be tame for $T$, and call a face of the retract a set $\\overline{\\hat F} \\cap O$, $\\hat F$ a connected component of $S = \\{z \\in O : d_C(z) = 1\\}$. Then $G$ is a face iff $G$ is the connected component of $f_i \\cap O$ through some $e \\in O$ with $\\lambda_i(e) = 0$. For $x \\in O$ with $\\lambda_i(x) = 0$, if the components of $f_i \\cap O$ and $f_j \\cap O$ through $x$ coincide then $i = j$. These are the faces of the M-polyfold $O$.",
+    "decls": [
+     "Chapter2/TameRetracts · ScRetraction.IsRetractFace",
+     "Chapter2/TameRetracts · lemma_2_40",
+     "Chapter2/TameRetracts · lemma_2_40_injective",
+     "Chapter2/TameRetracts · closure_connectedComponentIn_faceStratum",
+     "Chapter2/TameRetracts · connectedComponentIn_coordHyper_eq",
+     "Chapter2/TameRetracts · LocalModel.isFace_toMPolyfold_iff",
+     "Chapter2/TameRetracts · subset_of_relClopen_of_isPreconnected"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "extended faces $f_i = \\{\\lambda_i = 0\\}$",
+    "faces handled in $E_0$"
+   ],
+   "diff": [
+    "Extended faces are the coordinate hyperplanes of a presentation; faces are handled in $E_0$ and transferred to the M-polyfold $O$ by `isFace_toMPolyfold_iff` (using $d_O = d_C$, V2.42).",
+    "The text's proof is a sketch; the formal proof follows the exposition (Lemma 4.C, V2.45)."
+   ]
+  },
+  {
+   "id": "V2.47",
+   "title": "Corollary 2.41: a tame retract is face-structured",
+   "book": {
+    "label": "§2.4, Corollary 2.41, p. 44",
+    "page": 44,
+    "statement": "If $(O, C, E)$ is a tame retract, every $x \\in O$ lies in precisely $d_O(x)$ faces."
+   },
+   "lean": {
+    "statement": "For a tame retract $O$ (nonempty), the M-polyfold $O$ is face-structured: every $x \\in O$ lies in exactly $d_O(x)$ faces. In $E_0$: $x$ lies in exactly $d_C(x)$ faces of the retract.",
+    "decls": [
+     "Chapter2/TameRetracts · corollary_2_41",
+     "Chapter2/TameRetracts · corollary_2_41_retract",
+     "Chapter2/TameRetracts · LocalModel.isFaceStructured_toMPolyfold"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text; the faces through $x$ are the components of $f_i \\cap O$, $i \\in I(x)$, distinct for distinct $i$ by Lemma 2.40."
+   ]
+  },
+  {
+   "id": "V2.48",
+   "title": "Proposition 2.42: local face count in a tame M-polyfold",
+   "book": {
+    "label": "§2.4, Proposition 2.42, p. 44",
+    "page": 44,
+    "statement": "In a tame M-polyfold every $x$ has an open neighbourhood $V$ such that each $y \\in V$ lies in precisely $d_X(y)$ faces of $V$ and $d_V(y) = d_X(y)$; globally $x$ lies in at most $d_X(x)$ faces."
+   },
+   "lean": {
+    "statement": "Let $X$ be tame and $x \\in X$. There is a chart $\\varphi : V \\to O$ around $x$ with tame model such that $d_X(y) = d_C(\\varphi(y))$ and $d_O(\\varphi(y)) = d_X(y)$ for all $y \\in V$, and the M-polyfold $O$ is face-structured. Globally, $x$ lies in at most $d_X(x)$ faces of $X$.",
+    "decls": [
+     "Chapter2/TameRetracts · proposition_2_42",
+     "Chapter2/TameRetracts · MPolyfold.faces_encard_le",
+     "Chapter2/TameRetracts · MPolyfold.IsTame.exists_chart"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "$V$ represented by $O \\cong V$"
+   ],
+   "diff": [
+    "The neighbourhood $V$ is represented by the M-polyfold $O$ it is sc-diffeomorphic to through $\\varphi$; its faces are those of $O$.",
+    "\\\"$d_V(y) = d_X(y)$\\\" uses that a tame chart realizes $d_X$ (V2.42), which the text does not say."
+   ]
+  },
+  {
+   "id": "V2.49",
+   "title": "Proposition 2.43: faces of a tame retract are tame sub-M-polyfolds",
+   "book": {
+    "label": "§2.4, Proposition 2.43, pp. 44–45",
+    "page": 44,
+    "statement": "For a tame retraction $r$ onto $O$ and a face $F$ of $O$: there are an open neighbourhood $V^*$ of $F$ in $U$ and an sc-smooth retraction $s : V^* \\to V^*$ onto $F$; $s$ restricted to $V = O \\cap V^*$ makes $F$ a sub-M-polyfold of $O$. $F$ is tame and $d_F(x) = d_O(x) - 1$ for $x \\in F$."
+   },
+   "lean": {
+    "statement": "Let $r$ be tame for $T$ and $F$ a face of the retract, $F \\subseteq f_i$. (a) There is an sc-smooth retraction $S$ on $U^* \\subseteq U$, relatively open in $C$ with $F \\subseteq U^*$, with retract $F$ and $S = r \\circ P_i$, $P_i$ the sc-projection onto $f_i$; every face of the M-polyfold $O$ is a sub-M-polyfold of $O$. (b) With the sc-operators $\\iota : \\mathbb R^k \\oplus W \\to f_i$ (insert a zero coordinate) and $\\pi : E \\to \\mathbb R^k \\oplus W$ (delete it), $r' = \\pi \\circ r \\circ \\iota$ on $\\iota^{-1}(U^*)$ is a tame retraction of $[0, \\infty)^k \\oplus W$ onto $\\pi(F)$, and $d_{C'}(\\pi y) + 1 = d_C(y)$ on $F$. (c) A face $F$ of a tame retract $O$, with its sub-M-polyfold structure, is a tame M-polyfold and $d_F(x) + 1 = d_O(x)$ for $x \\in F$.",
+    "decls": [
+     "Chapter2/TameRetracts · proposition_2_43",
+     "Chapter2/TameRetracts · killCoord",
+     "Chapter2/TameRetracts · killCoord_mem",
+     "Chapter2/TameRetracts · killCoord_eq_self",
+     "Chapter2/TameRetracts · LocalModel.isSubMPolyfold_of_isFace",
+     "Chapter2/TameFaces · faceIncl",
+     "Chapter2/TameFaces · faceProj",
+     "Chapter2/TameFaces · degIndexWith_eq_quadrantDeg_faceProj_add_one",
+     "Chapter2/TameFaces · proposition_2_43_tameModel",
+     "Chapter2/TameFaces · MPolyfold.faceChart",
+     "Chapter2/TameFaces · MPolyfold.faceChart_compatible_subChart",
+     "Chapter2/TameFaces · LocalModel.proposition_2_43_isTame"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "tame model on $\\mathbb R^k \\oplus W$",
+    "$U^*$ from balls and $P_i$-preimages",
+    "no hypothesis added"
+   ],
+   "diff": [
+    "The text's model $(F, C \\cap f_1, f_1)$ uses the sc-subspace $f_1$; here the extended face is modelled on $\\mathbb R^k \\oplus W$ through $\\iota$, $\\pi$, and the retraction is $\\pi \\circ r \\circ \\iota$ rather than $r|_{U^* \\cap f_1}$ (they correspond under $\\iota$). Tameness (2) of $r'$ is proved with the complement $(1 - Dr'(x))E'$, by Proposition 2.35 for $r$, not by intersecting with $f_1$.",
+    "$U^*$ is the union of the balls $B_e$ intersected with their preimages under $P_i$, because $P_i$ need not be norm-decreasing for the norm of $E_0$ (the exposition's \\\"$|P_1z - e|_0 \\le |z - e|_0$\\\" is false in general).",
+    "\\\"$r(0, b_2, \\dots, b_k, v)$ has the first coordinate vanishing\\\" is the local structure lemma (V2.45). $d_F = d_O - 1$ is stated as $d_F + 1 = d_O$; $F$ is paracompact because faces are closed."
+   ]
+  },
+  {
+   "id": "V2.50",
+   "title": "Proposition 2.44: local faces and their intersections are tame",
+   "book": {
+    "label": "§2.4, Proposition 2.44, p. 46",
+    "page": 46,
+    "statement": "In a tame M-polyfold every point $x$ has $d_X(x)$ local faces containing $x$; they are tame M-polyfolds with $d_F(x) = d_X(x) - 1$. The intersection $F^\\sigma$ of the local faces of $\\sigma \\subseteq \\mathcal F_x$ is a tame M-polyfold of codimension $\\#\\sigma$ with $d_{F^\\sigma}(x) = d_X(x) - \\#\\sigma$ (stated without proof)."
+   },
+   "lean": {
+    "statement": "Let $X$ be tame and $x \\in X$. There is a chart $\\varphi : V \\to O$ of the structure around $x$, with a tame retraction onto $O$, such that the point $\\varphi(x)$ lies in exactly $d_X(x)$ faces of the M-polyfold $O$, and every face $F$ of $O$ is a sub-M-polyfold of $O$ which, with its induced structure, is tame, with $d_F(\\varphi(x)) + 1 = d_X(x)$ when $\\varphi(x) \\in F$. For every set $\\sigma$ of face germs at $x$, i.e. $\\sigma \\subseteq I(\\varphi(x))$, there are pairwise distinct faces $F_i \\ni \\varphi(x)$ of the retract ($i \\in \\sigma$, $F_i$ in the $i$-th coordinate hyperplane) and an open $B \\ni \\varphi(x)$ such that $A = \\{y \\in V : \\varphi(y) \\in B,\\ \\varphi(y) \\in F_i\\ \\forall i \\in \\sigma\\}$ (whose germ at $x$ is $F^\\sigma_x$) is a sub-M-polyfold of $X$, tame with its induced structure, and $d_A(y) + \\#\\sigma = d_X(y)$ for all $y \\in A$.",
+    "decls": [
+     "Chapter2/TameFaces · MPolyfold.proposition_2_44",
+     "Chapter2/TameRetracts · proposition_2_42",
+     "Chapter2/TameFaces · LocalModel.proposition_2_43_isTame",
+     "Chapter2/CornerGerms · MPolyfold.proposition_2_44_corner",
+     "Chapter2/CornerGerms · corner_retraction",
+     "Chapter2/CornerGerms · corner_tameModel",
+     "Chapter2/CornerGerms · cornerIncl",
+     "Chapter2/CornerGerms · cornerProj",
+     "Chapter2/CornerGerms · cornerKill",
+     "Chapter2/CornerGerms · degIndexWith_eq_quadrantDeg_cornerProj_add_card"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "face germs = faces of a tame chart",
+    "$d_A + \\#\\sigma = d_X$ on all of $A$",
+    "corners at once, no induction"
+   ],
+   "diff": [
+    "\"Local faces\" are the faces of the M-polyfold $O$ of a tame chart, as in Proposition 2.42; the face germs at $x$ are the faces $F_i$, $i \\in I(\\varphi(x))$, and \"$F^\\sigma_x$ is the germ of a sub-M-polyfold\" is witnessed by the set $A$ itself. Face germs are not defined as germs.",
+    "\"Codimension $\\#\\sigma$\" is the number of quadrant coordinates removed in the tame model $\\pi_\\sigma(\\varphi(A)) \\subseteq [0, \\infty)^{n - \\#\\sigma} \\oplus W$; $d_A + \\#\\sigma = d_X$ holds on all of $A$, not only at $x$.",
+    "The text gives no proof; the exposition argues by induction on $\\#\\sigma$. The formal proof removes all coordinates of $\\sigma$ at once: Lemma 4.C for each $i \\in \\sigma$ makes $r \\circ P_\\sigma$ a retraction onto $O \\cap B \\cap f_\\sigma$ near $\\varphi(x)$ (`corner_retraction`), with the tame model $\\pi_\\sigma \\circ r \\circ \\iota_\\sigma$ (`corner_tameModel`), as in Proposition 2.43."
+   ]
+  },
+  {
+   "id": "V2.51",
+   "title": "Theorem 2.45: interiors of faces and faces of face-structured M-polyfolds",
+   "book": {
+    "label": "§2.4, Theorem 2.45, p. 46",
+    "page": 46,
+    "statement": "The interior of a face $F$ in a tame M-polyfold is an sc-smooth sub-M-polyfold of $X$. If $X$ is face-structured, every face is a sub-M-polyfold, its induced structure is tame, and $i : F \\to X$ satisfies $d_X(i(x)) = d_F(x) + 1$. Every point has a neighbourhood $U$ in which each $y$ lies in exactly $d_X(y)$ faces of $U$; if $X$ is face-structured, each $x$ lies in exactly $d_X(x)$ faces of $X$ (stated without proof)."
+   },
+   "lean": {
+    "statement": "Let $X$ be tame, $G$ the connected component of $\\{d_X = 1\\}$ through a point, $F = \\overline G$. (a) $F \\cap \\{d_X = 1\\} = G$ (the interior of the face), and $G$ is a sub-M-polyfold of $X$. (b) If $X$ is face-structured, every face $F$ agrees near each of its points, in a tame chart, with a face of the model retract; $F$ is a sub-M-polyfold of $X$, tame with its induced structure, and $d_X(x) = d_F(x) + 1$ for $x \\in F$. A local criterion: $A$ is a sub-M-polyfold if near each point $\\varphi(A)$ agrees on an open set with an sc-smooth retract contained in $O$. The face counts of the theorem are Proposition 2.42 and the definition of face-structured.",
+    "decls": [
+     "Chapter2/TameRetracts · MPolyfold.theorem_2_45_interior",
+     "Chapter2/TameFaces · MPolyfold.isSubMPolyfold_of_local",
+     "Chapter2/TameFaces · MPolyfold.theorem_2_45_isSubMPolyfold_interior",
+     "Chapter2/TameFaces · MPolyfold.exists_localFace_of_isFaceStructured",
+     "Chapter2/TameFaces · MPolyfold.theorem_2_45_isSubMPolyfold_face",
+     "Chapter2/TameFaces · MPolyfold.theorem_2_45_isTame_face",
+     "Chapter2/TameFaces · MPolyfold.isTame_of_forall_exists_chart"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "\"interior\" = $F \\cap \\{d_X = 1\\}$",
+    "counting argument made explicit"
+   ],
+   "diff": [
+    "\\\"The interior of a face\\\" is not defined in the text; it is read as $F \\cap \\{d_X = 1\\}$, which equals $G$.",
+    "The text has no proof. In the face-structured case, \\\"each global face through $x$ contains exactly one local face\\\" is a counting argument: the map from $I(\\varphi x)$ to the faces through $x$ is onto (Lemma 4.C) and, by face-structuredness, injective.",
+    "The retraction near a point is $\\varphi^{-1} \\circ s \\circ \\varphi$ on $\\varphi^{-1}(B \\cap s^{-1}(B))$, shrunk so that $s$ maps it into itself; the exposition's \\\"transport by $\\varphi^{-1}$\\\" omits this."
+   ]
+  },
+  {
+   "id": "V2.52",
+   "title": "Products of M-polyfolds (exposition Lemma 4.D)",
+   "book": {
+    "label": "§2.4, proof of Proposition 2.46, p. 47",
+    "page": 47,
+    "statement": "Used without statement in Proposition 2.46: $X \\times Y$ is an M-polyfold (with the product charts) and $d_{X \\times Y}(x, y) = d_X(x) + d_Y(y)$."
+   },
+   "lean": {
+    "statement": "For partial quadrants $C \\subseteq E$, $C' \\subseteq E'$, $C \\times C'$ is a partial quadrant of $E \\oplus E'$ with the product presentation $E \\oplus E' \\cong \\mathbb R^{n+n'} \\oplus (W \\oplus W')$ and $d_{C \\times C'}(x, x') = d_C(x) + d_{C'}(x')$; products of sc-smooth retractions are sc-smooth retractions, of tame ones tame. For M-polyfolds $X$, $Y$: $X \\times Y$ is paracompact, and the product charts form an atlas of an M-polyfold structure on $X \\times Y$; $d_{X \\times Y}(x, y) \\le d_X(x) + d_Y(y)$, with equality, and $X \\times Y$ tame, if $X$ and $Y$ are tame. The projections are sc-smooth and the pairing of sc-smooth maps is sc-smooth.",
+    "decls": [
+     "Chapter2/FibredProduct · IsPartialQuadrant.prod",
+     "Chapter2/FibredProduct · prod_eq_prodPresentation",
+     "Chapter2/FibredProduct · degIndex_prod",
+     "Chapter2/FibredProduct · minimalSubspaceWith_prodPresentation",
+     "Chapter2/FibredProduct · ScRetraction.prod",
+     "Chapter2/FibredProduct · IsScRetract.prod",
+     "Chapter2/FibredProduct · ScRetraction.IsTameWith.prod",
+     "Chapter2/FibredProduct · MChart.prod",
+     "Chapter2/FibredProduct · MChart.Compatible.prod",
+     "Chapter2/FibredProduct · MPolyfold.paracompactSpace_prod",
+     "Chapter2/FibredProduct · MPolyfold.prod",
+     "Chapter2/FibredProduct · MPolyfold.degIndex_prod_le",
+     "Chapter2/FibredProduct · MPolyfold.isTame_prod",
+     "Chapter2/FibredProduct · MPolyfold.isScSmoothMap_fst",
+     "Chapter2/FibredProduct · MPolyfold.isScSmoothMap_snd",
+     "Chapter2/FibredProduct · MPolyfold.IsScSmoothOn.prodMk"
+    ]
+   },
+   "verdict": "extra",
+   "chips": [
+    "used silently in the text",
+    "additivity needs tameness; in general $\\le$"
+   ],
+   "diff": [
+    "Not stated in the text; this is the exposition's Lemma 4.D. The text's \\\"$d_{X \\times Y} = d_X + d_Y$\\\" is proved for tame $X$, $Y$; in general only the inequality, from the product charts.",
+    "Paracompactness of $X \\times Y$ comes from Theorem 2.16 ($X$, $Y$ metrizable)."
+   ]
+  },
+  {
+   "id": "V2.53",
+   "title": "Proposition 2.46: fibred products",
+   "book": {
+    "label": "§2.4, Proposition 2.46, pp. 46–47",
+    "page": 46,
+    "statement": "For a local sc-diffeomorphism $f : X \\to Z$ and an sc-smooth $g : Y \\to Z$, $X {}_f\\times_g Y$ is a sub-M-polyfold of $X \\times Y$; if $Y$ is tame, so is the fibred product, with $d(x, y) = d_Y(y)$; with both maps local sc-diffeomorphisms and both spaces tame, $d = \\frac12 d_{X \\times Y} = d_X(x) = d_Y(y)$."
+   },
+   "lean": {
+    "statement": "Let $f : X \\to Z$ be a local sc-diffeomorphism (each point has an open neighbourhood mapped sc-diffeomorphically onto an open set) and $g : Y \\to Z$ sc-smooth. The fibred product $\\{(x, y) : f(x) = g(y)\\}$ is closed in $X \\times Y$, hence paracompact, and a sub-M-polyfold of $X \\times Y$; $d_{X {}_f\\times_g Y}(x, y) = d_Y(y)$; if $Y$ is tame, the fibred product is tame. If $g$ is also a local sc-diffeomorphism, $d_{X {}_f\\times_g Y}(x, y) = d_X(x) = d_Y(y)$, and if moreover $X$ and $Y$ are tame, $2\\,d_{X {}_f\\times_g Y}(x, y) = d_{X \\times Y}(x, y)$.",
+    "decls": [
+     "Chapter2/FibredProduct · MPolyfold.IsLocalScDiffeo",
+     "Chapter2/FibredProduct · MPolyfold.fibredProduct",
+     "Chapter2/FibredProduct · MPolyfold.fibredSubDataL",
+     "Chapter2/FibredProduct · MPolyfold.isSubMPolyfold_fibredProduct",
+     "Chapter2/FibredProduct · MPolyfold.isScDiffeoOn_snd_fibredProduct",
+     "Chapter2/FibredProduct · MPolyfold.isScDiffeoOn_fst_fibredProduct",
+     "Chapter2/FibredProduct · MPolyfold.degIndex_fibredProduct_eq_snd",
+     "Chapter2/FibredProduct · MPolyfold.degIndex_fibredProduct_eq_fst",
+     "Chapter2/FibredProduct · MPolyfold.isTame_fibredProduct",
+     "Chapter2/FibredProduct · MPolyfold.proposition_2_46",
+     "Chapter2/FibredProduct · MPolyfold.proposition_2_46_of_isLocalScDiffeo"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "$d = d_Y$ (and $d_X = d_Y$) without tameness",
+    "inverse of $\\pi_2$ corrected"
+   ],
+   "diff": [
+    "$d_{X {}_f\\times_g Y} = d_Y \\circ \\pi_2$, and in the last statement $d = d_X = d_Y$, hold for arbitrary $X$, $Y$ (Proposition 2.24 along $\\pi_2$, $\\pi_1$); tameness is used only for $d_{X \\times Y} = d_X + d_Y$ (V2.52), stated as $2d = d_{X \\times Y}$.",
+    "The inverse of $\\pi_2$ near $(x, y)$ is $y' \\mapsto ((f|_U)^{-1}(g(y')), y')$; the exposition's factorization through $y' \\mapsto (x, y')$ is not sc-smooth unless $x$ is a smooth point (Findings, Chapter 2, item 15).",
+    "The text's $\\pi_2 : X {}_f\\times_g Y \\to X$ is read with target $Y$; paracompactness of the fibred product, which the text does not mention, comes from its being closed in the metrizable $X \\times Y$."
+   ]
+  },
+  {
+   "id": "V2.54",
+   "title": "Definition 2.47: $U \\triangleleft F$, strong bundle maps and retractions",
+   "book": {
+    "label": "§2.5, Definition 2.47, p. 48",
+    "page": 48,
+    "statement": "$U \\triangleleft F$ is $U \\times F$ with the double filtration $U_m \\oplus F_k$, $0 \\le k \\le m + 1$, and $(U \\triangleleft F)[i]$ with levels $U_m \\oplus F_{m+i}$. A strong bundle map $\\Phi(u, h) = (\\varphi(u), \\Gamma(u, h))$, $\\Gamma$ linear in $h$, preserves the double filtration and is sc-smooth $(U \\triangleleft F)[i] \\to (U' \\triangleleft F')[i]$, $i = 0, 1$; a strong bundle retraction is one with $R \\circ R = R$; $R(u, h) = (r(u), \\Gamma(u, h))$ with $r$ an sc-smooth retraction."
+   },
+   "lean": {
+    "statement": "$\\Phi : E_0 \\times F_0 \\to E'_0 \\times F'_0$ is a strong bundle map on $U \\triangleleft F$ if it maps $U \\times F$ into $U' \\times F'$, its first component does not depend on $h$, its second is linear in $h$ for $u \\in U$, it maps $U_m \\oplus F_k$ into $U'_m \\oplus F'_k$ for $k \\le m + 1$, and it is sc-smooth on $U \\times F_0$ for $E \\oplus F$ and (through the lift of the fibre component to $F'_1$) on $U \\times F_1$ for $E \\oplus F^1$. A strong bundle retraction is one with $R \\circ R = R$; its base $r(u) = R(u, 0)_1$ is an sc-smooth retraction on $U$, $\\Gamma(u, \\cdot)$ is a projection for $u \\in O$, and $R$ is an sc-smooth retraction on $(U \\triangleleft F)[0]$ and on $(U \\triangleleft F)[1]$. $C \\times F$ is a partial quadrant in $E \\oplus F$ and $U \\times F$ is relatively open in it.",
+    "decls": [
+     "Chapter2/Tame · doubleLevel",
+     "Chapter2/Tame · shiftFiber",
+     "Chapter2/Tame · IsStrongBundleMap",
+     "Chapter2/Tame · IsStrongBundleRetraction",
+     "Chapter2/StrongBundle · IsPartialQuadrant.prod_univ",
+     "Chapter2/StrongBundle · IsRelOpenInQuadrant.prod_univ",
+     "Chapter2/StrongBundle · IsStrongBundleRetraction.baseRetraction",
+     "Chapter2/StrongBundle · IsStrongBundleRetraction.fiber_idem",
+     "Chapter2/StrongBundle · IsStrongBundleRetraction.toScRetraction",
+     "Chapter2/StrongBundle · IsStrongBundleRetraction.toScRetractionOne"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "$[1]$ via `shiftFiber`",
+    "isomorphisms not defined"
+   ],
+   "diff": [
+    "Sc-smoothness on $[1]$ is that of the induced map $U \\oplus F_1 \\to U' \\oplus F'_1$; \\\"preserves the double filtration\\\" is read level by level.",
+    "Strong bundle isomorphisms are not defined separately (G.14); the remarks after the definition ($r$ a retraction, $\\Gamma(u, \\cdot)$ a projection) are the exposition's Lemma 5.A, proved here."
+   ]
+  },
+  {
+   "id": "V2.55",
+   "title": "Definition 2.48: local strong bundle retracts and $K[i]$",
+   "book": {
+    "label": "§2.5, Definition 2.48 and the remarks after it, pp. 49–50",
+    "page": 49,
+    "statement": "A local strong bundle retract is $K = R(U \\triangleleft F)$ for a strong bundle retraction, $p : K \\to O$; $K_{m,k} = \\{(u, h) \\in O_m \\oplus F_k : \\Gamma(u, h) = h\\}$, $K[i] = K_{0,i}$ with the filtration $K_{m,m+i}$; the projections $p : K[i] \\to O$ are sc-smooth."
+   },
+   "lean": {
+    "statement": "$K \\subseteq E_0 \\times F_0$ is a local strong bundle retract over $C$ if $K = R(U \\times F_0)$ for a strong bundle retraction on some relatively open $U \\subseteq C$; then $K = \\{(u, h) : u \\in O, \\Gamma(u, h) = h\\}$. Its double filtration $K_{m,k}$ and $K[1] = \\{(u, h) \\in E_0 \\times F_1 : (u, h) \\in K\\}$ are defined level by level. $K$ is an sc-smooth retract in $(C \\times F, E \\oplus F)$ and $K[1]$ one in $(C \\times F, E \\oplus F^1)$, $K[1]$ being the image of $R$ on $(U \\triangleleft F)[1]$; $p : K[i] \\to O$ and the inclusion $K[1] \\to K[0]$ are sc-smooth.",
+    "decls": [
+     "Chapter2/Tame · IsStrongBundleRetract",
+     "Chapter2/Tame · strongLevel",
+     "Chapter2/Tame · strongLevelShift",
+     "Chapter2/Tame · strongShiftOne",
+     "Chapter2/StrongBundle · IsStrongBundleRetraction.mem_image_iff",
+     "Chapter2/StrongBundle · IsStrongBundleRetraction.toScRetractionOne_retract",
+     "Chapter2/StrongBundle · IsStrongBundleRetract.isScRetract",
+     "Chapter2/StrongBundle · IsStrongBundleRetract.isScRetract_one",
+     "Chapter2/StrongBundle · IsStrongBundleRetract.isScSmoothRetractMap_fst",
+     "Chapter2/StrongBundle · IsStrongBundleRetract.isScSmoothRetractMap_fst_one",
+     "Chapter2/StrongBundle · IsStrongBundleRetract.isScSmoothRetractMap_shiftIncl"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "$K[1]$ as a subset of $E_0 \\times F_1$"
+   ],
+   "diff": [
+    "$K[1]$ is a subset of $(E \\oplus F^1)_0 = E_0 \\times F_1$. The text's \\\"$p$ is sc-smooth\\\" is proved, with \\\"sc-smooth bundle map\\\" read as sc-smooth.",
+    "That $K[1]$ is the image of $R$ on $(U \\triangleleft F)[1]$ uses that $R$ preserves the double filtration at $(m, k) = (0, 1)$ (exposition Lemma 5.B)."
+   ]
+  },
+  {
+   "id": "V2.56",
+   "title": "Definition 2.49: sections of a local strong bundle retract",
+   "book": {
+    "label": "§2.5, Definition 2.49, p. 50",
+    "page": 50,
+    "statement": "A section of $p : K \\to O$ is $f : O \\to K$ with $p \\circ f = 1_O$; sc-smooth if it is sc-smooth into $K[0]$, sc⁺-smooth if sc-smooth into $K[1]$ (the text writes $K(0)$, $K(1)$); $f(x) = (x, \\mathbf f(x))$ with the principal part $\\mathbf f$."
+   },
+   "lean": {
+    "statement": "An sc-smooth section is $f$ with $f(x)_1 = x$ on $O$ and $f$ sc-smooth from $(O, C, E)$ to $(K, C \\times F, E \\oplus F)$; an sc⁺-section is $f : E_0 \\to E_0 \\times F_1$ with $f(x)_1 = x$ on $O$, sc-smooth into $(K[1], C \\times F, E \\oplus F^1)$. An sc⁺-section is an sc-smooth section.",
+    "decls": [
+     "Chapter2/Tame · IsScSmoothSection",
+     "Chapter2/Tame · IsScPlusSection",
+     "Chapter2/Tame · IsScPlusSection.mem",
+     "Chapter2/StrongBundle · IsScPlusSection.isScSmoothSection"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "the category $\\mathcal{SBR}$: G.14"
+   ],
+   "diff": [
+    "The principal part is not named separately; an sc⁺-section takes its fibre values in $F_1$ by type.",
+    "The category $\\mathcal{SBR}$ and the forgetful functors are not formalized (G.14)."
+   ]
+  },
+  {
+   "id": "V2.57",
+   "title": "Definition 2.50: strong bundle charts, compatibility, atlases",
+   "book": {
+    "label": "§2.5, Definition 2.50, pp. 51–52",
+    "page": 51,
+    "statement": "For $P : Y \\to X$ (Y paracompact Hausdorff, fibres Banachable), a strong bundle chart $(\\Phi, P^{-1}(V), K, U \\triangleleft F)$: $K = R(U \\triangleleft F)$, $V$ open with a homeomorphism $\\varphi : V \\to O$, $\\Phi : P^{-1}(V) \\to K$ a homeomorphism covering $\\varphi$, bounded linear on fibres. Charts are compatible if $(\\Phi' \\circ \\Phi^{-1})[i]$ are sc-diffeomorphisms, $i = 0, 1$; atlases and their equivalence."
+   },
+   "lean": {
+    "statement": "A strong bundle chart consists of a chart $\\varphi$ *of the M-polyfold $X$*, an sc-Banach space $F$, a strong bundle retraction $R$ on a relatively open $U \\subseteq C$ whose base retract is $O$, and a homeomorphism $\\Phi : P^{-1}(V) \\to K = R(U \\times F_0)$ with $\\Phi(y)_1 = \\varphi(P(y))$, linear on each fibre $P^{-1}(x)$ (continuity on fibres follows). Two charts are compatible if $\\Phi' \\circ \\Phi^{-1}$ and $\\Phi \\circ \\Phi'^{-1}$ are sc-smooth between the overlap retracts on $[0]$ and, through the lift to $F_1$, on $[1]$, and map fibre components in $F_1$ to fibre components in $F'_1$. Atlases: pairwise compatible charts covering $Y$; equivalence: the union is an atlas. Equivalence of strong bundle atlases is an equivalence relation, and two atlases are equivalent iff every chart of one is compatible with every chart of the other; this rests on the locality of compatibility. A strong bundle chart restricts to every open $s \\subseteq V$ (retraction domain $U \\cap r^{-1}(W)$ for $\\varphi(s) = O \\cap W$, $K_s = \\{(u, h) \\in K \\mid u \\in \\varphi(s)\\}$, $\\Phi$ unchanged), and restrictions of compatible charts are compatible.",
+    "decls": [
+     "Chapter2/StrongBundle · IsBanachable",
+     "Chapter2/StrongBundle · StrongBundleChart",
+     "Chapter2/StrongBundle · StrongBundleChart.K",
+     "Chapter2/StrongBundle · StrongBundleChart.continuous_fiber",
+     "Chapter2/StrongBundle · StrongBundleChart.Compatible",
+     "Chapter2/StrongBundle · StrongBundleChart.Compatible.symm",
+     "Chapter2/StrongBundle · StrongBundleAtlas",
+     "Chapter2/StrongBundle · StrongBundleAtlas.Equiv",
+     "Chapter2/StrongBundleRestrict · StrongBundleChart.compatible_of_locally",
+     "Chapter2/StrongBundleRestrict · StrongBundleAtlas.equiv_iff",
+     "Chapter2/StrongBundleRestrict · StrongBundleAtlas.Equiv.trans",
+     "Chapter2/StrongBundleRestrict · StrongBundleAtlas.equivalence",
+     "Chapter2/StrongBundleRestrict · IsStrongBundleRetraction.restrict",
+     "Chapter2/StrongBundleRestrict · StrongBundleChart.restrict",
+     "Chapter2/StrongBundleRestrict · StrongBundleChart.Compatible.restrict"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "$\\varphi$ a chart of $X$",
+    "$[1]$-transition condition stated",
+    "equivalence relation; charts restrict"
+   ],
+   "diff": [
+    "The base homeomorphism $\\varphi$ is required to be a chart of $X$; the text asks only for a homeomorphism onto $O$, under which the strong bundle atlas would define its own structure on $X$.",
+    "\\\"Bounded linear on the fibres\\\" needs only linearity: continuity follows from $\\Phi$ being a homeomorphism (`continuous_fiber`).",
+    "For $(\\Phi' \\circ \\Phi^{-1})[1]$ to be defined, the transition must map fibre components in $F_1$ to $F'_1$; the text takes this for granted, the definition states it.",
+    "The “equivalence class of strong bundle atlases” of Definition 2.51 presupposes that the equivalence is transitive. It is: near a point of the overlap the transition $\\Phi'' \\circ \\Phi^{-1}$ factors through a chart $\\Phi'$ of the middle atlas, on $[0]$ and on $[1]$, and the $F_1$-condition passes through $\\Phi'$; no continuity of $P$ is needed (Findings, Chapter 2, item 40). The restriction of a strong bundle chart to an open subset of the base, which the text uses silently (e.g. in Lemma 5.2, V5.4), is formalized; a restriction whose retraction domain lies inside a given open $W \\ni 0$ of $E$ is not, since $U \\cap W$ need not be invariant under $r$ (item 42). Updated in the third addendum of this page."
+   ]
+  },
+  {
+   "id": "V2.58",
+   "title": "Definition 2.51: strong bundles; $Y[0]$, $Y[1]$, $P[0]$, $P[1]$ and $Y_{m,k}$",
+   "book": {
+    "label": "§2.5, Definition 2.51 and the remarks after it, p. 52",
+    "page": 52,
+    "statement": "A strong bundle over $X$ is $P : Y \\to X$ (continuous surjection, $Y$ paracompact Hausdorff) with an equivalence class of strong bundle atlases. The charts induce a double filtration $Y_{m,k}$ and M-polyfolds $Y[i]$, $Y[i]_m = Y_{m,m+i}$; $P[i] : Y[i] \\to X$ are sc-smooth."
+   },
+   "lean": {
+    "statement": "A strong bundle is a continuous surjection $P : Y \\to X$ ($Y$ Hausdorff paracompact) with Banachable fibres and a strong bundle atlas. The charts $\\Phi$ form an sc-smooth atlas of $Y$, making it the M-polyfold $Y[0]$, and $P[0] : Y[0] \\to X$ is sc-smooth. $Y_{m,k}$ ($k \\le m + 1$) is defined by $\\Phi(y) \\in E_m \\times F_k$ in all charts around $y$, and one chart suffices. $Y[1]$ is the set $Y_{0,1}$ with the topology generated by the charts $\\Phi[1] : y \\mapsto (\\Phi(y)_1, \\Phi(y)_2$ lifted to $F_1)$; these charts, onto the retracts $K[1]$, are pairwise compatible, their transition maps being the $[1]$-transitions, and make $Y[1]$ an M-polyfold; $P[1] : Y[1] \\to X$ is sc-smooth. The charts of the strong bundle (`StrongBundle.IsChart`: compatible with the atlas) are those of the maximal atlas, which is equivalent to the given one: a chart is one iff it belongs to some atlas of the class, any two are compatible, restrictions of charts are charts, and equivalent atlases have the same charts.",
+    "decls": [
+     "Chapter2/StrongBundle · StrongBundle",
+     "Chapter2/StrongBundle · StrongBundleChart.toMChart",
+     "Chapter2/StrongBundle · StrongBundleChart.Compatible.toMChart",
+     "Chapter2/StrongBundle · StrongBundle.atlas0",
+     "Chapter2/StrongBundle · StrongBundle.toMPolyfold0",
+     "Chapter2/StrongBundle · StrongBundle.isScSmoothMap_proj",
+     "Chapter2/StrongBundle · StrongBundle.doubleLevel",
+     "Chapter2/StrongBundleOne · StrongBundle.mem_doubleLevel_iff",
+     "Chapter2/StrongBundleOne · StrongBundle.oneChart",
+     "Chapter2/StrongBundleOne · StrongBundle.oneChart_compatible",
+     "Chapter2/StrongBundleOne · StrongBundle.atlas1",
+     "Chapter2/StrongBundleOne · StrongBundle.toMPolyfold1",
+     "Chapter2/StrongBundleOne · StrongBundle.isScSmoothMap_proj1",
+     "Chapter3/StrongBundleMaximalAtlas · StrongBundle.maximalAtlas",
+     "Chapter3/StrongBundleMaximalAtlas · StrongBundle.maximalAtlas_equiv",
+     "Chapter3/StrongBundleMaximalAtlas · StrongBundle.isChart_iff_exists_equiv",
+     "Chapter3/StrongBundleMaximalAtlas · StrongBundle.isChart_congr",
+     "Chapter3/StrongBundleMaximalAtlas · StrongBundle.IsChart.compatible",
+     "Chapter3/StrongBundleMaximalAtlas · StrongBundle.IsChart.restrict"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "$Y[1]$ topologized by the charts $\\Phi[1]$",
+    "one chart decides $Y_{m,k}$",
+    "charts depend only on the class"
+   ],
+   "diff": [
+    "$Y[0]$ (the text's \"the M-polyfold $Y$\") and $Y[1]$ are constructed with the charts induced by the given atlas; the equivalence class of atlases is represented by one atlas, as for M-polyfolds. The notions defined through the charts compatible with the atlas therefore depend only on the class (`isChart_congr`, `isChart_iff_exists_equiv`; Findings, Chapter 2, item 43); those defined with the charts of the given atlas itself ($Y_{m,k}$, $Y[1]$ and its atlas, sc$^+$-sections) are not shown invariant. Updated in the third addendum of this page.",
+    "$Y[1]$ is the subset $Y_{0,1}$ with the topology generated by the sets $\\Phi[1]^{-1}(W)$, as for $X_m$ in §2.2; its paracompactness, required of an M-polyfold and not mentioned in the text, follows from metrizability (V2.64).",
+    "Chart independence of $Y_{m,k}$: for $k \\le m$ it follows from the $[0]$-transition; for $k = m + 1$, and for the set $Y_{0,1}$ itself, it uses the condition that the $[1]$-transition carries fibre components in $F_1$ to $F'_1$, made explicit in Definition 2.50 (V2.57)."
+   ]
+  },
+  {
+   "id": "V2.59",
+   "title": "Definition 2.52: sections of a strong bundle",
+   "book": {
+    "label": "§2.5, Definition 2.52, p. 53",
+    "page": 53,
+    "statement": "A section is $f : X \\to Y$ with $P \\circ f = 1_X$; sc-smooth if sc-smooth into $Y[0]$, sc⁺ if sc-smooth into $Y[1]$."
+   },
+   "lean": {
+    "statement": "A section is $f$ with $P \\circ f = \\mathrm{id}$; it is sc-smooth if it is sc-smooth $X \\to Y[0]$ (Definition 2.14); it is an sc⁺-section if in every strong bundle chart of the atlas its fibre values lie in $F_1$ and its representative $z \\mapsto \\Phi(f(\\varphi^{-1}(z)))$, lifted to $E_0 \\times F_1$, is sc-smooth from $O$ into $K[1]$. This holds iff $f$ is a section and $f = \\iota \\circ g$ for an sc-smooth $g : X \\to Y[1]$, $\\iota : Y[1] \\to Y$ the inclusion.",
+    "decls": [
+     "Chapter2/StrongBundle · IsSection",
+     "Chapter2/StrongBundle · StrongBundle.IsScSmoothSection",
+     "Chapter2/StrongBundle · StrongBundle.localRepOne",
+     "Chapter2/StrongBundle · StrongBundle.IsScPlusSection",
+     "Chapter2/StrongBundleOne · StrongBundle.isScPlusSection_iff"
+    ]
+   },
+   "verdict": "restated",
+   "chips": [
+    "sc⁺ chart by chart = sc-smooth into $Y[1]$"
+   ],
+   "diff": [
+    "Sc⁺-sections are defined chart by chart through $\\Phi[1]$; `isScPlusSection_iff` proves that this is the text's \"sc-smooth as a map into $Y[1]$\", the section being a map into the type $Y[1]$ followed by the inclusion."
+   ]
+  },
+  {
+   "id": "V2.60",
+   "title": "Definition 2.53: the pull-back bundle",
+   "book": {
+    "label": "§2.5, Definition 2.53, p. 53",
+    "page": 53,
+    "statement": "For a strong bundle $P : Y \\to X$ and an sc-smooth $f : Z \\to X$, $f^*Y = \\{(z, y) : P(y) = f(z)\\}$, $P_f(z, y) = z$, $P'(z, y) = y$, and $P \\circ P' = f \\circ P_f$."
+   },
+   "lean": {
+    "statement": "$f^*Y = \\{(z, y) \\in Z \\times Y : P(y) = f(z)\\}$ with $P_f$, $P'$ the projections; $P \\circ P' = f \\circ P_f$; $P_f$ is continuous, and $f^*Y$ is closed in $Z \\times Y$ when $X$ is Hausdorff and $P$, $f$ are continuous.",
+    "decls": [
+     "Chapter2/StrongBundle · pullbackSpace",
+     "Chapter2/StrongBundle · pullbackProj",
+     "Chapter2/StrongBundle · pullbackProj'",
+     "Chapter2/StrongBundle · pullback_comm",
+     "Chapter2/StrongBundle · continuous_pullbackProj",
+     "Chapter2/StrongBundle · isClosed_pullbackSpace"
+    ]
+   },
+   "verdict": "same",
+   "chips": [],
+   "diff": [
+    "As in the text, for any maps $P$, $f$."
+   ]
+  },
+  {
+   "id": "V2.61",
+   "title": "Proposition 2.54: the pull-back of a strong bundle is a strong bundle",
+   "book": {
+    "label": "§2.5, Proposition 2.54, p. 53",
+    "page": 53,
+    "statement": "$P_f : f^*Y \\to Z$ carries a natural structure of a strong bundle over $Z$ (\\\"the easy proof is left to the reader\\\")."
+   },
+   "lean": {
+    "statement": "For a strong bundle $P : Y \\to X$ and an sc-smooth $f : Z \\to X$: $f^*Y$ is paracompact (it is metrizable, $Z$ and $Y[0]$ being metrizable by Theorem 2.16), $P_f$ is a continuous surjection, its fibres $P_f^{-1}(z) \\cong P^{-1}(f(z))$ are Banachable, and the pulled-back charts $\\Phi_f(z, y) = (\\psi(z), \\mathrm{pr}_F\\Phi(y))$, with the strong bundle retractions $R_g(w, h) = (r_Z(w), \\Gamma(g(r_Z(w)), h))$, $g = \\varphi \\circ f \\circ \\psi^{-1}$, form a strong bundle atlas; so $P_f$ is a strong bundle with this atlas. Locally: $R_g$ is a strong bundle retraction with image $\\{(w, h) : w \\in O_Z, (g(w), h) \\in K\\}$; the transition maps of pulled-back charts are $(w, h) \\mapsto (\\psi_2\\psi_1^{-1}(w), \\mathrm{pr}_F(\\Phi_2\\Phi_1^{-1})(g_1(w), h))$, sc-smooth on $[0]$ and $[1]$.",
+    "decls": [
+     "Chapter2/StrongBundlePullback · proposition_2_54",
+     "Chapter2/StrongBundlePullback · pullbackAtlas",
+     "Chapter2/StrongBundlePullback · PullbackChartData",
+     "Chapter2/StrongBundlePullback · PullbackChartData.toChart",
+     "Chapter2/StrongBundlePullback · PullbackChartData.transition_eqOn",
+     "Chapter2/StrongBundlePullback · PullbackChartData.transition_isScSmooth",
+     "Chapter2/StrongBundlePullback · PullbackChartData.transitionOne_isScSmooth",
+     "Chapter2/StrongBundlePullback · PullbackChartData.compatible_toChart",
+     "Chapter2/StrongBundlePullback · paracompactSpace_pullbackSpace",
+     "Chapter2/StrongBundlePullback · pullbackFiberCLE",
+     "Chapter2/StrongBundle · pullbackRetraction",
+     "Chapter2/StrongBundle · isStrongBundleRetraction_pullback",
+     "Chapter2/StrongBundle · pullback_image",
+     "Chapter2/StrongBundle · isStrongBundleRetract_pullback"
+    ]
+   },
+   "verdict": "explicit",
+   "chips": [
+    "paracompactness of $f^*Y$ proved",
+    "atlas of all pulled-back charts"
+   ],
+   "diff": [
+    "\\\"Natural structure\\\" is the atlas of all pulled-back charts; any two are compatible, so it involves no choice.",
+    "The paracompactness of $f^*Y$, required by Definition 2.51 and not mentioned in the text, is proved from Theorem 2.16 for $Z$ and $Y[0]$.",
+    "“Natural” presumably also says that $P' : f^*Y \\to Y$ is a strong bundle map (sc-smooth on $[0]$ and $[1]$); that is not formalized. In the charts $\\Phi_f$, $\\Phi$ it is $(w, h) \\mapsto (g(w), h)$ on $K_g$ (Findings, Chapter 2, item 51; round-trip item V2.61). Recorded in the third addendum of this page."
+   ]
+  },
+  {
+   "id": "V2.62",
+   "title": "Theorem 2.55: Smirnov's metrization theorem",
+   "book": {
+    "label": "§2.6.2, Theorem 2.55, p. 56",
+    "page": 56,
+    "statement": "A paracompact Hausdorff space in which every point has a metrizable open neighbourhood is metrizable (quoted from Smirnov)."
+   },
+   "lean": {
+    "statement": "A paracompact Hausdorff space in which every point has a metrizable open neighbourhood is metrizable. More generally: a space $Y$ with open metrizable $V_i$ and a locally finite family of continuous $\\rho_i \\ge 0$, $\\operatorname{supp}\\rho_i \\subseteq V_i$, not all zero at any point, is metrizable, with the metric $\\sum_i |\\rho_i(x) - \\rho_i(y)| + \\min(\\rho_i(x), \\rho_i(y)) \\min(d_i(x, y), 1)$; and if $\\pi : Y \\to X$ is continuous into a paracompact Hausdorff $X$ and every point of $X$ has an open $U$ with $\\pi^{-1}(U)$ metrizable, $Y$ is metrizable. Metrizable spaces are paracompact (Stone, from Mathlib).",
+    "decls": [
+     "Chapter2/Metrizable · metrizableSpace_of_locally",
+     "Chapter2/Metrizable · metrizableSpace_of_partition",
+     "Chapter2/Metrizable · metrizableSpace_of_pullback",
+     "Chapter2/Metrizable · cone_triangle",
+     "Chapter2/Metrizable · truncDist",
+     "Chapter2/Metrizable · paracompactSpace_of_metrizableSpace"
+    ]
+   },
+   "verdict": "stronger",
+   "chips": [
+    "proved, not quoted",
+    "pull-back form"
+   ],
+   "diff": [
+    "Quoted in the text; proved here (Mathlib does not have it), in the stronger pull-back form that Theorem 2.16 and Proposition 2.19(3) use."
+   ]
+  },
+  {
+   "id": "V2.63",
+   "title": "Restriction and locality of sc$^k$ maps",
+   "book": {
+    "label": "§2.1–§2.2, used in Propositions 2.4, 2.10 and Definitions 2.13–2.14",
+    "page": 19,
+    "statement": "Used without statement: an sc-smooth map restricted to a smaller relatively open set is sc-smooth (e.g. \\\"$r : U \\to U \\cap U'$ is sc-smooth\\\"), and sc-smoothness is a local property."
+   },
+   "lean": {
+    "statement": "On sc-domains: an $\\mathrm{sc}^k$ (sc-smooth) map on $U$ is $\\mathrm{sc}^k$ (sc-smooth) on every smaller sc-domain $U'$, with the same tangent map on $TU'$; a map that is $\\mathrm{sc}^1$, $\\mathrm{sc}^k$ or sc-smooth on $U \\cap W$ for an open $W$ around each point of $U$ is so on $U$; sc-smoothness depends only on the values on $U$.",
+    "decls": [
+     "Chapter2/Retracts · IsSck.of_subset",
+     "Chapter2/Retracts · IsScSmooth.of_subset",
+     "Chapter2/Retracts · IsSc1.tangentMap_eqOn_of_subset",
+     "Chapter2/Retracts · IsSc1.of_locally",
+     "Chapter2/Retracts · IsSck.of_locally",
+     "Chapter2/Retracts · IsScSmooth.of_locally",
+     "Chapter2/Retracts · IsScSmooth.congr"
+    ]
+   },
+   "verdict": "extra",
+   "chips": [
+    "used silently in the text"
+   ],
+   "diff": [
+    "Not stated in the text. The restriction needs the uniqueness of derivatives on the smaller domain, because the tangent map is built from a chosen derivative; the locality glues the local derivatives into one family."
+   ]
+  },
+  {
+   "id": "V2.64",
+   "title": "The space $Y[1]$ and the inclusion $Y[1] \\to Y[0]$",
+   "book": {
+    "label": "§2.5, after Definition 2.51, p. 52",
+    "page": 52,
+    "statement": "Not stated: the text takes $Y[1]$ to be an M-polyfold on the set $Y_{0,1}$ without discussing its topology, its paracompactness or its inclusion into $Y[0]$."
+   },
+   "lean": {
+    "statement": "$Y_{0,1}$ is the set of points whose fibre component lies in $F_1$ in one, equivalently every, chart of the atlas around them. With the topology generated by the charts $\\Phi[1]$, the inclusion $Y[1] \\to Y$ is continuous, so $Y[1]$ is Hausdorff; $Y[1]$ is metrizable, hence paracompact; and the inclusion $Y[1] \\to Y[0]$ is sc-smooth (in the charts it is $(u, h) \\mapsto (u, \\iota h)$).",
+    "decls": [
+     "Chapter2/StrongBundleOne · StrongBundle.oneSet",
+     "Chapter2/StrongBundleOne · StrongBundle.mem_oneSet_iff",
+     "Chapter2/StrongBundleOne · StrongBundle.One",
+     "Chapter2/StrongBundleOne · StrongBundle.continuous_oneVal",
+     "Chapter2/StrongBundleOne · StrongBundle.metrizableSpace_one",
+     "Chapter2/StrongBundleOne · StrongBundle.paracompactSpace_one",
+     "Chapter2/StrongBundleOne · StrongBundle.isScSmoothMap_oneVal"
+    ]
+   },
+   "verdict": "extra",
+   "chips": [
+    "not in the text",
+    "paracompact by Smirnov"
+   ],
+   "diff": [
+    "Not stated in the text. Paracompactness is needed for $Y[1]$ to be an M-polyfold (Definition 2.13); it follows, as in Theorem 2.16, from the pull-back form of Smirnov's theorem over the paracompact base (V2.62).",
+    "The sc-smooth inclusion $Y[1] \\to Y[0]$ is the global form of $K[1] \\to K[0]$ (V2.55)."
+   ]
+  }
+ ],
+ "notFormalized": [
+  {
+   "title": "Proposition 2.2: classical smooth retractions have submanifold images",
+   "label": "§2.1, Proposition 2.2, p. 18 (proof §2.6.1, pp. 54–55)",
+   "page": 18,
+   "book": "If $r : U \\to U$ is a $C^\\infty$ retraction of an open subset of a Banach space $E$, then $O = r(U)$ is a $C^\\infty$ submanifold: near each $x \\in O$ there are a splitting $E = R \\oplus N$ and a diffeomorphism $\\psi : V \\to W$ with $\\psi(O \\cap V) = R \\cap W$ (the text prints $\\psi(0) = x$ for $\\psi(x) = 0$).",
+   "instead": "**Not formalized.** The proposition is classical and is used only as motivation (the contrast with sc-smooth retractions, whose images can change dimension). The exposition proves it in §8.1 with the inverse function theorem; its Lean version would need Mathlib's inverse function theorem for $C^\\infty$ maps between Banach spaces and the splitting by the projection $Dr(0)$. Not attempted."
+  },
+  {
+   "title": "Definition 2.9: sc-smooth bundle retractions and bundle maps",
+   "label": "§2.1, Definition 2.9, p. 22",
+   "page": 22,
+   "book": "A trivial sc-bundle $U \\oplus F \\to U$; an sc-smooth $R(u, v) = (r(u), \\rho(u, v))$, $\\rho$ linear in $v$, $R \\circ R = R$, is an sc-smooth bundle retraction with bundle retract $B = R(U \\oplus F) \\to O$; bundle maps $\\Phi(u, v) = (a(u), \\phi(u, v))$ with \\\"$p' \\circ \\Phi = p$\\\" (read $a \\circ p$); the category $\\mathcal{BR}$ and the functor $T : \\mathcal R \\to \\mathcal{BR}$.",
+   "instead": "**Not formalized as a definition.** The tangent retraction $Tr$ (V2.8) and the strong bundle retractions of §2.5 (V2.54) are the instances the theory uses; both are formalized as sc-smooth retractions of the stated form, with linearity in the fibre where it is needed. The categories $\\mathcal R$, $\\mathcal{BR}$, $\\mathcal{SBR}$ and their functors are not formalized."
+  },
+  {
+   "title": "$X_m$ as an M-polyfold for $m \\ge 2$",
+   "label": "§2.2, after Definition 2.14, p. 25",
+   "page": 25,
+   "book": "For every $m$, the charts $(V_m, \\varphi, (O_m, C_m, E_m))$ form an atlas on $X_m$.",
+   "instead": "**Proved for $m = 1$** (V2.16). For $m \\ge 2$ the structure is the iterate $(X^1)^1 \\cdots$, whose underlying space is the level of a level. Since the fourth addendum its points are known to be those of $X_m$: $(X^1)_m = X_{m+1}$ and $(X^1)_\\infty = X_\\infty$ as sets, and an sc-smooth map $X \\to Z$ induces an sc-smooth map $X^1 \\to Z^1$; that the topology of $(X^1)_m$ is that of $X_{m+1}$ (V2.14), and so that the iterate is $X_m$ with its charts, is not formalized (Findings, Chapter 5, items 142, 146). Theorem 2.16 is proved for every $X_m$ directly (V2.17).",
+   "decls": [
+    "Chapter5/StrongBundleShift · MPolyfold.mem_shift_levelSet_iff",
+    "Chapter5/StrongBundleShift · MPolyfold.mem_shift_smoothSet_iff",
+    "Chapter5/StrongBundleShift · MPolyfold.IsScSmoothMap.levelOne"
+   ]
+  },
+  {
+   "title": "Definition 2.18: the linear structure of $T_xX$; Proposition 2.21 (3) in $T_aX$",
+   "label": "§2.2, Definition 2.18 and Proposition 2.21 (3), (4), pp. 26–30",
+   "page": 26,
+   "book": "$T_xX$ is a vector space with $\\lambda[(x, \\varphi, h_1)] + \\mu[(x, \\varphi, h_2)] = [(x, \\varphi, \\lambda h_1 + \\mu h_2)]$, a Banach space through $T\\varphi$, an sc-Banach space at smooth $x$; Proposition 2.21 (3): $T_aA$ has an sc-complement in $T_aX$.",
+   "instead": "**Not formalized.** $T_xX$ is a set identified with $T_{\\varphi(x)}O$ by $T\\varphi$ (V2.19); the vector space, Banach and sc-structures on it are not defined. Proposition 2.21 (3), (4) are proved in a chart (V2.25), which is how the text proves them; their transport to $T_aX$ is not."
+  },
+  {
+   "title": "Proposition 2.19 (2): $p : TX \\to X_1$ is open",
+   "label": "§2.2, Proposition 2.19 (2), p. 27",
+   "page": 27,
+   "book": "The projection $p : TX \\to X_1$ is an open map.",
+   "instead": "**Not formalized** (not used). Continuity of $p$ is V2.20. The exposition's §8.3 proves openness with the $\\mathrm{sc}^0$ property of $Tr$."
+  },
+  {
+   "title": "Remark 2.28: $C_xO$ need not be a partial quadrant",
+   "label": "§2.3, Remark 2.28, p. 33",
+   "page": 33,
+   "book": "Naively one might expect $C_xO$ to be a partial quadrant in $T_xO$; \\\"however, this is in general not the case\\\".",
+   "instead": "**Settled since the first edition of this page, in the negative** (third addendum; V2.33): the claim is false. At every smooth point of every sc-smooth retract, tame or not, $C_xO$ is a partial quadrant in $T_xO$ (with the sc-structure induced from $E$), of dimension $\\dim(T_xO/T^R_xO) \\le d_C(x)$; the proof reduces it to Flor's theorem on nonnegative idempotent matrices, proved in the needed case. For a non-tame retract only the equality of that dimension with $d_C(x)$ can fail (Theorem 2.31). The text gives no example, and none exists (Findings, Chapter 2, item 50).",
+   "formalized": [
+    "V2.33"
+   ],
+   "decls": [
+    "Chapter2/PartialConeQuadrant · remark_2_28_isPartialQuadrant",
+    "Chapter2/PartialConeQuadrant · flor_nonnegRange_simplicial"
+   ]
+  },
+  {
+   "title": "Lemma 2.29: $T^R_xO$ and $C_xO$ through sc-smooth paths; $T_xO = C_xO - C_xO$",
+   "label": "§2.3, Lemma 2.29, pp. 33–35",
+   "page": 33,
+   "book": "For a retract and a smooth $x \\in O$: (1) $T^R_xO$ is the closure of the derivatives $\\dot\\alpha(0)$ of sc-smooth paths $\\alpha : (-\\varepsilon, \\varepsilon) \\to O$ through $x$; (2) $C_xO$ the closure of the one-sided derivatives of sc-smooth paths $\\alpha : [0, \\varepsilon) \\to O$; (3) $T_xO = C_xO - C_xO$.",
+   "instead": "**Not formalized in the path formulation.** Sc-smooth paths would need the constant sc-structure on an interval as a retract and the density of smooth points of $T^R_xO$ and $C_xO$ (the exposition's Lemma 3.A on all levels). The sign arguments that the proof consists of are formalized (V2.34), and Proposition 2.30 is proved from them, not from the lemma. (3) is not formalized."
+  },
+  {
+   "title": "Theorem 2.31, second statement: equality makes $C_xO$ a partial quadrant",
+   "label": "§2.3, Theorem 2.31, p. 35 (second statement)",
+   "page": 35,
+   "book": "If $\\dim(T_xO/T^R_xO) = d_O(x)$, then $C_xO$ is a partial quadrant in $T_xO$.",
+   "instead": "**Formalized since the first edition of this page** (third addendum; V2.33, V2.37), without the hypothesis: $C_xO$ is a partial quadrant in $T_xO$ at every smooth point of every sc-smooth retract, whatever $\\dim(T_xO/T^R_xO)$ is, and the quadrant has dimension $\\dim(T_xO/T^R_xO)$, which is $d_O(x)$ under the hypothesis. The sc-Banach structure of $T_xO$ and $T^R_xO$ as an sc-subspace, which the exposition supplied on paper, are proved without tameness; the smooth lifts come from the columns given by Flor's theorem (V2.33).",
+   "formalized": [
+    "V2.33",
+    "V2.37"
+   ],
+   "decls": [
+    "Chapter2/PartialConeQuadrant · remark_2_28_isPartialQuadrant"
+   ]
+  },
+  {
+   "title": "The extended faces of a partial quadrant, intrinsically",
+   "label": "§2.4, p. 39",
+   "page": 39,
+   "book": "$\\{e \\in C : d_C(e) = 1\\}$ has exactly $k$ connected components $A_i$; each lies in a smallest subspace $f_i$ (an extended face), with a half-space $H_{f_i} \\supset C$; $\\mathcal F(e) = \\{f : e \\in f\\}$ and $d_C(e) = \\#\\mathcal F(e)$.",
+   "instead": "**Not formalized as stated.** The formalization works with a presentation $T$ of $C$ and takes the coordinate hyperplanes $f_i = \\{\\lambda_i = 0\\}$ as the extended faces (`coordHyper`); that a connected piece of $\\{d_C = 1\\}$ lies in one $f_i$ is `subset_coordHyper_of_isPreconnected` (V2.45). That $E_x$ does not depend on the presentation is proved (`minimalSubspaceWith_eq`, V2.39); the count of components, the minimality of $f_i$ and the intrinsic description of the extended faces are not formalized."
+  },
+  {
+   "title": "Definition 2.38: $T^R_xX$ and $C_xX$ of an M-polyfold",
+   "label": "§2.4, Definition 2.38, p. 42",
+   "page": 42,
+   "book": "For a smooth $x \\in X$, $T^R_xX$ and $C_xX$ are the preimages of $T^R_oO$ and $C_oO$ under $T\\psi(x)$ for any chart $\\psi$; well defined by Proposition 2.30. For tame $X$, $C_xX$ is a partial quadrant and $d_X(x) = \\dim(T_xX/T^R_xX) = d_{C_xX}(0_x)$.",
+   "instead": "**Only the local form is formalized**: $T^R_xO$ and $C_xO$ in a chart (V2.32) and their invariance under chart changes (V2.35). The global objects in $T_xX$ are not defined, since $T_xX$ carries no linear structure here (G.7); in a tame chart, $d_X(x) = \\dim(T_xO/T^R_xO)$ is V2.42. In a tame chart at a smooth point, $C_oO$ is a partial quadrant in $T_oO$ (V2.42); its transport to $T_xX$ and $d_{C_xX}(0_x) = d_X(x)$ are not formalized."
+  },
+  {
+   "title": "Definition 2.47: strong bundle isomorphisms; the category $\\mathcal{SBR}$",
+   "label": "§2.5, Definition 2.47 and after Definition 2.49, pp. 48–51",
+   "page": 48,
+   "book": "A strong bundle isomorphism is an invertible strong bundle map with strong bundle inverse. The category $\\mathcal{SBR}$ of local strong bundle retracts and the functors $\\mathrm{forget}[i] : \\mathcal{SBR} \\to \\mathcal{BR}$.",
+   "instead": "**Not formalized.** Strong bundle maps and retractions are V2.54; the transition maps of strong bundle charts are required to be sc-smooth on $[0]$ and $[1]$ in both directions (V2.57), which is the isomorphism property in the form it is used."
+  },
+  {
+   "title": "Lemma 2.56 and Proposition 2.57: closed locally finite refinements",
+   "label": "§2.6.2, Lemma 2.56 and Proposition 2.57, p. 56",
+   "page": 56,
+   "book": "Lemma 2.56 (Michael): a regular Hausdorff space is paracompact iff every open cover has a closed locally finite refinement. Proposition 2.57: a regular space with a locally finite cover by closed paracompact subspaces is paracompact.",
+   "instead": "**Not formalized, because not needed.** The proofs of Theorem 2.16 and Proposition 2.19(3) avoid them (V2.17, V2.20, V2.62). The text applies Proposition 2.57 to $X_m$ and $TX$ without checking that they are regular."
+  }
+ ]
+}

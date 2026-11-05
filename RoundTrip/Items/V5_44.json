@@ -1,0 +1,25 @@
+{
+ "id": "V5_44",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = exists_scPlusSection_linAt ∧ lemma_5_24 (universes 0). B is Lemma 5.24 in the setting of Lemma 5.23: tame strong bundle, AdmitsBumpFunctionsWeak, f with tame germ data (germ reading), x a smooth zero, Z a smooth line splitting T_zO = Z ⊕ ker dt(x), b : T_xS → Z with dt∘b = τ, and any open V ∋ x. A ⇒ B fails only at the bump-function hypothesis. B gives a bump f ≢ 0, while A needs f(x) ≠ 0 (the construction uses β = 1 near x, Proposition 5.30), and the project has only strong ⇒ weak. With the strong reading it is proved: A_to_BStrong (#rt_check OK). It writes b v = (τ v/dt(x)ζ)·ζ and puts Dg(ζ) in K_{φ(x)} via rho_scDeriv_comp_r at the zero. Dg(ζ) is smooth by the level operators, so it is Φ(e)₂ for a smooth e over x. A Hahn–Banach extension ℓ of −τ/dt(x)ζ then feeds A's exists_scPlusSection_linAt; no finite-dimensionality of T_xS is needed. B ⇒ A fails genuinely. A prescribes s'(x) on all of T_zO for an arbitrary functional ℓ and smooth e, and allows an arbitrary section f and finite-dimensional K, with no tame strong bundle and no t or Z. B only controls s'(x) on ker f'(x) for b into a smooth complement of ker dt(x), under extra tameness hypotheses.",
+ "B_issue": "Not a bug, but the same reading choice as V5_29/V5_38/V5_39/V5_45, and it decides A ⇒ B: 'bump functions' is read as AdmitsBumpFunctionsWeak (f not identically zero), whereas the project uses f(x) ≠ 0. The blind author flags this caveat. B also adds IsTameStrongBundle, which is not needed (A_to_BStrong ignores it).",
+ "intended": "BStrong (B with AdmitsBumpFunctions) is implied by A (A_to_BStrong) and by B (BStrong_of_B), so the bump-function reading is the only obstruction to A ⇒ B.",
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "No declaration of A changed; B's IsScFredholmSectionTame now denotes the germ reading and still supplies the sc-smoothness of f in every chart used by A ⇒ BStrong. The obstacle (weak vs pointwise bump functions) is untouched. Result unchanged."
+ }
+}

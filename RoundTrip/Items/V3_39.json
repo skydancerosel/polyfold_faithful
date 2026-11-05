@@ -1,0 +1,15 @@
+{
+ "id": "V3_39",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = ShiftedBasicData.Deriv.ker_Dg_eq ∧ snd_Dg_inr ∧ DH₀_surjective (no universe parameters), stated for the project's data 𝒟 : ShiftedBasicData (g an sc-smooth germ on G₀ whose index raise is basic on exactly the shifted germ G₁, δ = 𝒞.sol) with 𝒱 : 𝒟.Deriv. Proved: kerEquiv_of_A — in A's own setting A gives exactly B's conclusion (a linear equivalence ker DH(0) ≃ ker Dg(0), α ↦ (α, ι Dδ(0)α)). A ⇒ B fails on the setting: one must build a ShiftedBasicData from B's push-forward data, which needs g = Φ_*(h + s) to be an sc-smooth germ on a germ G₀ whose shift is (a shrinking of) B's G₁ — a germ chain rule (B only gives g sc¹ on some G'; the level-0 tangent regularity is not determined by g¹; the project proves this only for its own coordinate change, pushMap₀_isScSmoothGerm) — plus restricting the basic germ, identifying B's arbitrary δ with 𝒞.sol near 0 (fixed-point uniqueness) and B's L, M, D'0 with Dδ₀, DH₀, Dg (uniqueness of derivatives). Believed true but substantial, not mere unfolding. B ⇒ A fails genuinely: A holds for every ShiftedBasicData (arbitrary finite-dimensional P, Q; any sc-smooth g with g¹ basic), which need not be Φ_*(h + s) with h basic on level 0, and A's snd_Dg_inr and DH₀_surjective have no counterpart in B.",
+ "B_issue": null,
+ "overlap": "n/a (no direction proved); kerEquiv_of_A passes #rt_check (uses A as hypothesis).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

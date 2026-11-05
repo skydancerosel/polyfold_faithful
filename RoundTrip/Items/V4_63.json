@@ -1,0 +1,12 @@
+{
+ "id": "V4_63",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = exists_local_family (universe 0): for X tame, A ⊆ ℝᵐ × X a smooth submanifold in general position everywhere (no compactness, no (1), no tameness of A), each z₀ ∈ A has an open U and a null CV with FibreLocal at every z ∈ A ∩ U, z.1 ∉ CV (stratified regularity T_zA ∩ E_z ↠ ℝᵐ, local sc⁺-data for A_{z.1}, general and good position of A_{z.1}). B: under all hypotheses of Theorem 4.23, an open U ∋ z with exactly d_Z(z) local faces (Theorem 4.22 (1)), full measure of the common regular values of the p_σ on the open strata A ∩ F_σ° (read through sc⁺-data of each stratum), and over them (A ∩ U)_λ a smooth submanifold in general position. A ⇒ B fails genuinely: A's U carries no face structure, and B's regular values of the p_σ need the strata to be submanifolds with T(A ∩ F_σ°) = T A ∩ E (Theorem 4.22 (4)); only the fibre conclusions would be glue (shrinking A's sc⁺-retraction to U, IsGeneralPositionAt.congr_nhds). B ⇒ A fails genuinely: B assumes compact closure, compact NONEMPTY fibres for |λ| ≤ ε and tameness of A, which A does not and which cannot be arranged by localizing (at a critical point of p some small fibres are empty); B also does not yield A's stratified regularity from p_σ-regularity on T(A ∩ F_σ°) without the same identification, nor good position of the fibre, nor sc⁺-data for A_λ itself rather than (A ∩ U)_λ.",
+ "B_issue": null,
+ "overlap": "No direction proved; no #rt_overlap run.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

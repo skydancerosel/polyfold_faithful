@@ -1,0 +1,12 @@
+{
+ "id": "V2_23",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: A is only isSubMPolyfold_univ (X is a sub-M-polyfold of itself, universe 0); the real comparison is P.IsSubMPolyfold vs B's IsSubMPolyfoldB, which are proved equivalent for every A (isSubMPolyfold_iff). Both have the same V, r, r(V) ⊆ V, r∘r = r on V, r(V) = A ∩ V; they differ only in the reading of 'r sc-smooth on V': the project quantifies over ALL charts and all open W ⊆ V ∩ dom φ with r(W) ⊆ dom ψ, includes continuity, and uses Definition 2.7 for every retraction; B asks for SOME charts around each point with domains inside V and SOME retraction, with no continuity clause. Project ⇒ B by restricting charts (IsChart.restrict); B ⇒ project by IsScSmoothOn.of_exists_charts, with continuity of r recovered from the chart representatives (IsScSmoothRetractMap.continuousOn). A ⇒ B proves B outright (A unused); B ⇒ A instantiates B at A = univ and checks id is a retraction in B's reading.",
+ "B_issue": null,
+ "overlap": "84 shared project theorems, all basic sc-calculus / retract / chart infrastructure (IsScSmooth.congr, ScRetraction.isScSmooth/isScDomain/apply_mem_retract, MChart.apply_symm_apply, MChart.target_eq, MAtlas.cover, LocalModel.isScRetract, ScBanach/ScScale lemmas). The proof of isSubMPolyfold_univ (isScSmoothMap_id) is not reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

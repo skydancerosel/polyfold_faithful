@@ -1,0 +1,12 @@
+{
+ "id": "V3_25",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "All listed declarations are definitions, so A = True and both directions are vacuous; the content is B itself, the vocabulary check IsSc0ContractionGerm Ct G B <-> IsSc0ContractionGermText Ct G B, proved outright (iff_text, without even using the partial-quadrant hypothesis). sc0 of B and of f = w - B(a,w) are equivalent (contractionMap is an involution preserving sc0); B(0,0) = 0 iff f(0,0) = 0; the project's estimate ranges over a in C~, |a|,|w|_m,|w'|_m < r and asserts (a,w) in U_m, the text's over (a,w),(a,w') in U_m near 0 -- they agree because U_m is relatively open in C~ x W_m and contains 0, and the level-m values (project: levelMap, text: any preimage in W_m) coincide on U_m since B is sc0. So the project's Definition 3.28 is exactly the text's. The working form ContractionGerm (a 1/2-contraction on explicit regions) and toContractionGerm are extra vocabulary that B does not mention.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial; A_to_B uses only germ API lemmas)",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

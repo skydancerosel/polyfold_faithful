@@ -1,0 +1,24 @@
+{
+ "id": "V5_41",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A = IsGenCompactHomotopy.isCompact_solutionSet_restrict (universes 0): the restricted problems have compact solution sets. This is a corollary of the definition and says nothing about whether the definition is correct. B says the project's IsGenCompactHomotopy equals B's notion. The two definitions differ in one clause only. B asks for a tame strong bundle: IsTameStrongBundle = PX.IsTame plus an EQUIVALENT strong bundle atlas whose base retractions are all tame. The project asks only PX.IsTame (tame retracts), plus tame germ data at smooth points for f and each f|X_τ (IsScFredholmSectionTame, the germ reading, the same notion B uses). All other clauses agree literally (solSet = solutionSet; the instance, inclusion and IsSection arguments are propositions). Proved: B-notion ⇒ project notion (project_of_B); project notion + IsTameStrongBundle ⇒ B-notion (B_of_project); hence B ↔ 'every bundle carrying a project homotopy is a tame strong bundle' (B_iff_tame). That last statement is believed true: over a tame chart, a strong bundle chart can be rebuilt as R'(u,h) = (r'(u), Γ(σ r'(u), h)) with r' tame. But the project has no such construction, and building it (new charts, compatibility, atlas equivalence) is substantial glue. B ⇒ A is vacuous: A is re-proved directly in a few lines.",
+ "B_issue": null,
+ "overlap": "158 shared project theorems: sc-calculus/retraction/chart infrastructure reached through the definitions (ScBanach.*, IsSc1With.*, StrongBundleChart.*, pullbackFiberEquiv._proof_*, realPolyfold._proof_*), the structure projections of IsGenCompactHomotopy, and isZeroAt_restrictSection_iff (the one lemma the project's own proof uses); nothing else from Chapter 5.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "proved",
+   "relation": "A_narrower"
+  },
+  "note": "The sc-Fredholm clauses of the project's IsGenCompactHomotopy (f and every f|X_τ, IsScFredholmSectionTame) and of B's notion now both denote the germ reading, so they still agree literally; the only difference remains B's tame strong bundle atlas, which the project cannot construct from PX.IsTame. Result unchanged."
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "id": "V3_14",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same conclusion: nested open neighbourhoods O(i) of x0 with cl_X{x in O(i) | f(x)=0} a compact subset of X_i for the level topology; A phrases it as levelVal '' K = closure with K compact in PX.Level i (= levelSet i with levelTopology i), B as closure inside levelSet i plus compactness of its preimage, equivalent by injectivity of levelVal. At HEAD both sides use the germ reading of Definition 3.11 (theorem_3_12's hypothesis IsScFredholmGerm and B's IsScFredholmGermTame both have the filling and the sc+-section as germs, IsFillingGerm/IsScPlusGerm), so the hypotheses match in kind; A => B discards B's extra hypotheses: tameness of the bundle (IsTameStrongBundle), tame germ data (IsScFredholmGermTame.isScFredholmGerm: a tame chart is a chart) and sc-smoothness of f (A needs only IsSection). B => A fails genuinely: theorem_3_12 has no tameness of the bundle or of the chart and no sc-smoothness of f, and A's other conjuncts (the local theorem for basic germs, snd_eq_zero_iff, continuity of levelChartSymm, a closure lemma) are auxiliary statements B does not speak about.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "theorem_3_12 now states the germ reading (IsScFredholmGerm with IsFillingGerm/IsScPlusGerm) and B's IsScFredholmGermTame is the germ reading as well; the old proof of A_to_B still checks unchanged (rt_check OK, hypothesis used). Result unchanged: A_stronger."
+ }
+}

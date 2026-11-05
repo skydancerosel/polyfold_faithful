@@ -1,0 +1,12 @@
+{
+ "id": "V1_5",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions on both sides (the project's IsScSubspace, smooth, IsScSplitting; finite-dimensionality as an instance in A, an explicit hypothesis in B). The only difference is packaging of the second sentence: A's proposition_1_6 assumes F ≤ E_∞, B's assumes F is an sc-subspace; the shared first conjunct (the iff) converts one hypothesis into the other, so each direction is a two-line rearrangement. No universe parameters.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

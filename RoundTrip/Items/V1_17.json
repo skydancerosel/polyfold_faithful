@@ -1,0 +1,12 @@
+{
+ "id": "V1_17",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notions on both sides (the project's IsSck, Mathlib ContDiffOn on U_{m+l}); B's levelTo f (m+l) m is definitionally invFun ι_m ∘ f ∘ ι_{m+l} = levelMap f m ∘ inclK m l, so A ⇒ B is glue plus IsRelOpenInQuadrant.isScDomain. B ⇒ A fails for a genuine reason: every conjunct of A is stated for an arbitrary IsScDomain U (level-wise open ∩ convex with unique differentiability, e.g. a closed disc in ℝ², which is not relatively open in any partial quadrant), while B only covers relatively open subsets of partial quadrants. Restricted to those domains, A's most general conjunct contDiffOn_levels' (arbitrary compatible ρ : E_n → E_m) does follow from B (B_to_levels'_quadrant, rt_check OK, taking V = C' = F₀), so the only gap is the domain class. B's extra hypotheses (V relatively open, f(U) ⊆ V) are only used for its MapsTo conjunct.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

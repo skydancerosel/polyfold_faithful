@@ -1,0 +1,12 @@
+{
+ "id": "V2_7",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions on both sides (ScRetraction, IsScRetract, tangentMap of Definition 1.14, TO = Tr(TU)). B's hypothesis 'f∘r sc-smooth for SOME retraction' is the project's IsScSmoothRetractMap ('for EVERY retraction') by Proposition 2.6(1) (isScSmoothRetractMap_iff_exists), and the project's retractTangentMap/retractTangent unfold to T(·∘r)/Tr(TU) for the chosen retraction hO.choose, so A ⇒ B is theorem_2_8 read through retractTangentMap_eqOn, and B ⇒ theorem_2_8 instantiates B's 'for every r, r'' at hO.choose, hO'.choose. B additionally assumes O'' is a retract (theorem_2_8 does not); this is removed by applying B with the trivial target retract (E''₀, univ, E'') and getting (g∘f)(O) ⊆ O'' directly. A's IsScSmoothRetractMap.comp lacks the hypothesis that O is a retract, but its ∀-retraction clause is vacuous otherwise. The three auxiliary conjuncts of A (isScSmoothRetractMap_id, ScRetraction.isScSmoothRetractMap, IsScSmoothRetractMap.congr) are not part of the text's Theorem 2.8 and were proved directly from the definitions (IsScSmooth.comp, IsScSmooth.congr), without B.",
+ "B_issue": null,
+ "overlap": "102 shared project theorems, all sc-calculus infrastructure (scale/level lemmas, IsSc1With/IsSck/IsScSmooth.comp, theorem_1_21', IsScSmooth.congr, quadrant lemmas); they come from the direct proofs of the auxiliary conjuncts ScRetraction.isScSmoothRetractMap (sc-smooth chain rule of Ch. 1) and IsScSmoothRetractMap.congr. None of the retract-level content of Theorem 2.8 (comp_comp_comp_eqOn, proposition_2_6_*) is reused; the retract chain rule itself comes from B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

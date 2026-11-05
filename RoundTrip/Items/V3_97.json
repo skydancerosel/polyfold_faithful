@@ -1,0 +1,24 @@
+{
+ "id": "V3_97",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = theorem_3_54_tangentGermChart_index ∧ …_solutionSet_index ∧ theorem_3_54_two_index ∧ theorem_3_23_index ∧ theorem_3_19_index ∧ theorem_3_57_index ∧ theorem_3_54_graph_proj_conj ∧ theorem_3_54_tangentGermChart_proj_conj ∧ linAt_isScFredholm_of_isSurjLinOfIndex (germ reading, universes 0). Proved from A (rt_check OK): A_to_B_354_part (under B's 3.54 hypotheses, an open V ∋ x and d with dim ker f'(x) = d in every chart, B's KerDimInChart exactly, and the project's tangent germ datum of S(f,V) at x of dimension d; B's whole-chart IsGoodPositionGermSc -> IsGoodPositionGermTameWholeChart -> germ IsGoodPositionGermTame) and chartLinScFredholm_of_isSurjLinOfIndex (from the new conjunct: IsSurjLinOfIndex f x d gives B's ChartLinScFredholm c f x d in every chart, closing the audit's level-0-only gap). Remaining gaps to A => B: (3.54) B's HasTangentGermPropertyB at every point needs an sc-complement and a single sc-smooth germ delta, whereas the project's TangentGermChart has a closed algebraic complement and a level/order-dependent germ reading (the open half of V3_22, not glue); (3.19) B assumes only IsScFredholmSection (no tame germ data) and IsLinSurjAt, while theorem_3_19_index needs IsScFredholmSectionTame and tame good position, which the project cannot produce from B's hypotheses (as in V3_68). B => A fails genuinely: A needs no tame bundle, concludes surjectivity, good position at nearby zeros, tameness and corner structure of S, the global Theorem 3.57 and explicit conjugation data, none of which B states.",
+ "B_issue": "B's (3.54) hypothesis IsGoodPositionGermSc is built from whole-chart data (IsFilledVersion, s sc-smooth on all of U), stronger than the text's germ data (Definition 3.11 in the germ reading); B's (3.54) conjunct therefore covers fewer germs than the text. B's (3.19) conjunct assumes no tameness (the blind file flags this doubt itself).",
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "The item file did not compile at HEAD (IsGoodPositionGermTame switched to the germ reading); the glue now goes through IsGoodPositionGermTameWholeChart. The new conjunct linAt_isScFredholm_of_isSurjLinOfIndex closes the sc-Fredholm-in-every-chart part of B (chartLinScFredholm_of_isSurjLinOfIndex), but the tameness gap of (3.19) and the tangent germ property gap of (3.54) remain: both directions still fail."
+ }
+}

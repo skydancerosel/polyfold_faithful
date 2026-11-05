@@ -1,0 +1,24 @@
+{
+ "id": "V3_92",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = linAt_paramSection_zero ∧ linAt_paramSection ∧ scDeriv_paramSection ∧ PullbackChartData.ofProd_mem_tangent (universes 0); at HEAD the three formulas take f an sc-Fredholm section in the germ reading (only its sc-smoothness is used), as does B, so the germ reading plays no role here. Every conjunct computes D(F̂∘(1×r))(0) only at the chart point 0, while B asks for the formula in every strong bundle chart around x₀ at any level-1 lift z₁ of φ(x₀). This gap is glue at HEAD: A_to_B (rt_check OK; hypothesis = A's third conjunct scDeriv_paramSection, because the statement of A's conjunct linAt_paramSection contains the proof term ofProd_mem_tangent, which #rt_check and #rt_check_soft see through the definition A) re-centres the chart at x₀ (x₀ is smooth as a zero of an sc-Fredholm section, so e = φ(x₀) is a smooth vector; StrongBundleChart.recentre with StrongBundle.IsChart.recentre, Chapter4/Recentre.lean), applies A's formula in the re-centred chart and its product chart, and transports both sides back along the translations by e and (0, e) (chain rule scDeriv_comp_apply_of_isScDomain, derivative of a translation = id, levelMap (·+e) 1 0 = z₁; f̂_e∘r_e = (f̂∘r)(·+e) on U_e; ofProd_principal_paramSection in both product charts). The audit's reason ('the project has no recentring of charts') is false at HEAD. B ⇒ A fails genuinely: B assumes a tame bundle, f(x₀) = 0 and r₀ = 0, while A holds without tameness, at any r₀ (Ĝ = f̂ + Σ r₀ᵢŝᵢ), in linAt form, and includes the tangent-space lemma ofProd_mem_tangent.",
+ "B_issue": null,
+ "overlap": "A_to_B: 483 shared project theorems — chart/pull-back machinery (PullbackChartData.toChart/isChart_toChart, ofProd proof fields), sc-calculus, the sc-smoothness of F (IsScSmoothSection.pullback, sectionAdd, isScPlusSection_paramComb) and the principal-part formula ofProd_principal_paramSection, i.e. the inputs of the project's scDeriv_paramSection_of_isScSmoothSection (not itself used); none of the four banned theorems. A_to_B_centred (audit) still checks. B_to_A not proved.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "A's formulas now assume the germ-reading IsScFredholmSection (irrelevant here: only sc-smoothness of f enters). The audit's obstacle was non-centred charts, not the germ reading; with the project's re-centred strong bundle charts (Recentre.lean) and a translation chain-rule lemma, A_to_B is now proved in every chart. Relation incomparable → A_stronger."
+ }
+}

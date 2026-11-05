@@ -1,0 +1,12 @@
+{
+ "id": "V3_73",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B is false (not_B, rt_check OK), as its author predicted: it claims, for every Definition 3.25 datum at x ∈ M, every v₀ ∈ V and every datum at x₀ = φ⁻¹(v₀ + δ(v₀)), that k(w) = πφψ⁻¹(w + τ(w)) has an invertible linearization, is a local diffeomorphism, and that δ is an sc^∞-germ near v₀; Definition 3.25 controls δ only near 0. Counter-model (shared with V3_74): X = ℝ² (tame), M = {(t³, t)} with the blind tangent germ property; at (1,1) the datum N = ℝ(3,1), Y = ℝ(0,1), δ(v) = (∛(1+v₁) − 1 − v₁/3)(0,1) is valid but δ is not differentiable at v₀ = −(1/3)(3,1) (x₀ = (0,0), where M is tangent to Y), so the third conjunct fails for the datum at x₀ provided by the tangent germ property. Hence ¬(A → B), B ⇒ A only ex falso (formal relation label). A is the corrected lemma (Finding 82): recentre_contDiffOn_levels assumes the first graph map σ₁ is C¹ on its whole domain, exactly what B's setting lacks, plus analytic tools (Sard-type dimension bound, C^k inverse lemma, InvDataW, retract tangent identity) that B does not state.",
+ "B_issue": "False as quoted (the author formalized it literally and flagged it): the claim holds only for v₀ near 0 (more precisely where δ is C¹), not for every v₀ ∈ V.",
+ "overlap": "B_to_A (ex falso via not_B): 172 shared project theorems, all sc-calculus/chart glue (constant sc-structure, germ machinery, chart restriction) reached through the counter-model and through the statement A; no banned theorem. not_B passes #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

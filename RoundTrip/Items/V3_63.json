@@ -1,0 +1,12 @@
+{
+ "id": "V3_63",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = theorem_3_78 ∧ ContractionData.exists_solution (no universe parameters). A ⇒ B: B's setting (ℝⁿ = Fin n → ℝ, C = quadC n k, f into Fin N → ℝ) is an instance of theorem_3_78. quadC is a partial quadrant via ℝⁿ ≅ ℝᵏ × ℝⁿ⁻ᵏ, fderivWithin f U 0 = L by unique differentiability of U, B's good position and good complement are the project's notions verbatim, and τ is composed with Y ↪ ℝⁿ. B ⇒ A fails for a real reason: B follows the literal text, whose clause (1) does not say f(k + τ(k)) = 0. B never asserts that the graph of τ consists of zeros of f; its only statement about zeros is the uniqueness clause (3), whose hypothesis is a zero. No instance of B yields a zero of anything, so A's existence clause would need the contraction argument of Lemmas 3.79–3.82 to be proved again. B_to_A378_without_existence (passes #rt_check) proves from B every other clause of theorem_3_78 in the blind coordinates; the remaining differences are transport glue only: any finite-dimensional V with any norm, a normed target F (finite-dimensional because Df(0) is onto), an abstract partial quadrant, and the normalized conjunct exists_solution.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). For information: #rt_overlap on A_to_B gives 35 shared project theorems, and on B_to_A378_without_existence 36. All are sc-scale and partial-quadrant infrastructure (constScale/prodScale proofs, quadrant_convex, IsPartialQuadrant.convex/lvlSet_eq/interior_lvlSet_nonempty, IsGoodComplement/IsInGoodPosition projections). None of the QuadrantIFT content (Radii, the contraction lemmas) is shared.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

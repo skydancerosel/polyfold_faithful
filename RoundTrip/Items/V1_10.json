@@ -1,0 +1,12 @@
+{
+ "id": "V1_10",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The project's definitions agree with the text's (B is true): IsPartialQuadrant writes C = T₀⁻¹([0,∞)ⁿ ⊕ W₀) where the text writes T₀(C) = [0,∞)ⁿ ⊕ W₀ plus 'C closed convex' — equivalent because T₀ is bijective, and closedness/convexity are exactly A's IsPartialQuadrant.isClosed/.convex (used in A_to_B); IsRelOpenInQuadrant writes U = O ∩ C with O open in E₀, the text 'U ⊆ C open in the subspace topology', equivalent by the definition of the induced topology. Both use the same model ℝⁿ ⊕ W (ScBanach.const (Fin n → ℝ)).prod W and the same ScIso. In B_to_A only IsPartialQuadrant.convex, .isClosed and .uniqueDiffWithinAt_lvlSet (via convexity of C from B, pushed to E_m) use B; quadrant_convex, quadrant_isClosed, lvlSet_quadrant and isPartialQuadrant_univ are elementary facts about the model quadrant / C = E that B (a characterization of the definitions) does not address and were re-proved outright. No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A: 28 shared project theorems, all sc-structure glue (prod/const toBase and smoothLvl lemmas, ScIso/ScOperator incl_comm and toBase_comm, mem_lvlSet, structure _proof_ fields) plus quadrant_interior_nonempty; the banned lvlSet_quadrant (reached through IsPartialQuadrant.interior_lvlSet_nonempty) was avoided by re-proving it locally.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

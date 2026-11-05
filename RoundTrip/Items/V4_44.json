@@ -1,0 +1,12 @@
+{
+ "id": "V4_44",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only IsGeneralPositionRetractAt, SubmanifoldData.IsGeneralPositionChart and MPolyfold.IsGeneralPositionAt are listed, so A = True and both implications are vacuous (flagged); the content is B, proved outright (B_holds): for a smooth submanifold A and a ∈ A, the project's IsGeneralPositionAt agrees with B's chart reading. Both sides ask for an sc-subspace B' ⊆ T_zO ∩ E_z with (T_zO)_m = N_m ⊕ B'_m on every level, so (unlike Definition 4.16, V4_38) no upgrade is needed and B's tameness hypothesis is unused. Only bookkeeping differs: B wants data (V, s) with V ⊆ dom φ and uses φ(A ∩ V), the project any data with a ∈ V ∩ dom φ and the shrunk set W = V ∩ dom φ ∩ s⁻¹(V ∩ dom φ) (restrict the sc⁺-retraction to W; W = V when V ⊆ dom φ); Disjoint vs ⊓ = ⊥.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial); B_holds uses only the SubData.shrink API and the sc⁺-retraction glue of V4_38.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

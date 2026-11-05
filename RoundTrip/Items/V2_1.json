@@ -1,0 +1,12 @@
+{
+ "id": "V2_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B's definition IsScRetractionB (relatively open U in a partial quadrant, r(U) ⊆ U, IsScSmooth U r, r ∘ r = r on U) is exactly the field list of the project's ScRetraction, so the definitional conjunct is structure packing (no universe parameters; ScBanach lives in Type). The projection claim for x ∈ O₁ is ScRetraction.scDeriv_comp_self in both directions (O₁ = lvlSet (r '' U) 1, definitionally). B additionally states the text's chain-rule identity Dr(r(x)) ∘ Dr(x) = Dr(x) for every x ∈ U₁, which A states only on O₁; A_to_B proves it from the project's non-item lemma ScRetraction.tangentMap_tangentMap (Tr ∘ Tr = Tr on TU) plus levelMap_eq_of_toBase_eq. The other three conjuncts of A (mem_retract_iff, apply_eq_self_of_mem_retract, lvlSet_retract_subset) are elementary facts about r(U) and are proved directly in B_to_A.",
+ "B_issue": null,
+ "overlap": "25 shared project theorems: ScRetraction structure projections (idem, mapsTo, relOpen, isScSmooth) and sc-scale glue (shift/prod scale proof terms, toBase_injective, smoothLvl lemmas) reached through the types; no mathematical content of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

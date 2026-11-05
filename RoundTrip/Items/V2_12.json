@@ -1,0 +1,12 @@
+{
+ "id": "V2_12",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions. MPolyfold X (for Hausdorff paracompact X) is one atlas standing for its class, and MPolyfold.IsChart (compatible with every chart of the atlas) is exactly 'lies in some atlas of the class' (B (c)): → by adjoining φ to P.atlas, ← by A's isChart_congr. B (a), that atlas equivalence is an equivalence relation (presupposed by the text), holds on every space by MAtlas.Equiv.refl/symm and compatible_of_locally (items V2_10, V2_11), not by A (A needs T2/paracompact); B (b) is definitional. B → A: IsChart.compatible, isChart_congr and exists_isChart_mem_source follow from B (a)+(c) (two charts of the class lie in equivalent atlases; equivalent atlases have the same class); IsChart.restrict is not in Definition 2.13 nor in B and was proved directly by Compatible.restrict_left (item V2_10 infrastructure).",
+ "B_issue": null,
+ "overlap": "155 shared project theorems, all reached through MChart.Compatible.restrict_left (the direct proof of IsChart.restrict): IsScSmoothRetractMap.restrict/mono_target, isScRetract_overlap, proposition_2_10_1, MChart.restrict proof fields and the sc-calculus behind them, plus MAtlas.equiv_iff and the field MAtlas.compatible. None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

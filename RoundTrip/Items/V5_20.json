@@ -1,0 +1,13 @@
+{
+ "id": "V5_20",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = lemma_5_11 (universes 0): for ANY strong bundle (no tameness), assuming AdmitsBumpFunctions (bump with f(x) != 0), an auxiliary norm, smooth x and e in (Y[0])_inf over x, it gives an sc+-section s with s(x) = e, supp s ⊆ U and N(s(y)) < N(e) + eps for EVERY y. B assumes tameness of base and bundle but only AdmitsBumpFunctionsWeak (not identically zero), and states the bound only at x (vacuous since s(x) = e). A => B fails only on the bump hypothesis (weak bumps do not give bumps non-zero at a given point; no lemma, not clearly true): with it strengthened, A_to_BIntendedStrong is proved (tameness ignored, B's smooth e (all Y_{m,m}) converted to A's (Y[0])_inf, A's global bound gives B's intended and literal bounds). B => A fails because B is restricted to tame bundles while A is for all bundles (genuine generality difference: the project's proof needs no tameness); B's literal pointwise-at-x bound is a second, glue-level gap (would need a cut-off by a strong bump).",
+ "B_issue": "The literal conjunct N(s(x)) < N(e) + eps is vacuous (s(x) = e); the blind author flagged it as a misprint and supplied BIntended (bound at all y), which matches the project's A.",
+ "overlap": "n/a (neither direction of the item proved); the diagnostic A_to_BIntendedStrong passes #rt_check against lemma_5_11.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false},
+ "intended": "A => BIntendedStrong proved (BIntended with AdmitsBumpFunctions in place of AdmitsBumpFunctionsWeak); A => BIntended fails for the same bump-hypothesis reason as A => B."
+}

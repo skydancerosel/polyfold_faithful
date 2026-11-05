@@ -1,0 +1,12 @@
+{
+ "id": "V2_36",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both directions are proved outright, so the comparison is between B and the project's definitions, which agree. A's theorems say little about the text's claim: selfChart_isChart concerns X_U for U relatively open in a partial quadrant (not a general retract), and Compatible.isDiffeoGerm turns compatible charts into sc¹ germs. 'A retract is an M-polyfold' is the definition LocalModel.toMPolyfold (atlas {id}; the empty atlas when O = ∅), and B (1) follows at once. 'd_O(x) = min d_{C'}(φ(x)) over germs' is not stated anywhere in the project; it is proved here (A unused) for (toMPolyfold).degIndex, an sInf over the charts compatible with id: a chart realizing the minimum gives the germ ψ∘id⁻¹ on the overlap O∩V, and every germ f : (O∩V, x) → (O'∩V', f x) with inverse g gives a chart z ↦ f z on {z ∈ O | z ∈ V} modelled on the retract O'∩V' (Proposition 2.10) and compatible with id (about 150 lines of chart glue). B ⇒ A re-proves A's two theorems directly (atlas membership; the ten-line Compatible.isDiffeoGerm argument) without B.",
+ "B_issue": null,
+ "overlap": "134 shared project theorems: the sc-calculus/retraction infrastructure under Compatible.isDiffeoGerm (IsSc1/IsScSmooth congr and tangent-map lemmas, ScRetraction.restrict_retract, MChart.transition_apply), the proof fields of selfChart/toMPolyfold, and scale lemmas; B ⇒ A repeats the project's own argument for Compatible.isDiffeoGerm.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

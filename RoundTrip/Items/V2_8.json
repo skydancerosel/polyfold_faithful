@@ -1,0 +1,12 @@
+{
+ "id": "V2_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions: B's TEB/TCB/TUB are E.tangent, E.tangentSet C, E.tangentSet U definitionally, and B's explicit TOB R equals Tr(TU) = retractTangent E C O (glue + retractTangent_eq). B's 'TO is a retract', 'Tf is a morphism TO → TO'' (Tf(TO) ⊆ TO' and Tf ∘ ρ sc-smooth for every ρ onto TO), 'T(1) = 1' and 'Tr : TU → TU is a retraction, TU relatively open in TC' correspond to IsScRetract.tangentSet, IsScSmoothRetractMap.tangent, retractTangentMap_id and IsRelOpenInQuadrant.tangentSet; IsPartialQuadrant.tangentSet follows from B (5) for the identity retraction on C. Content mismatch in both directions, closed with other project lemmas: B's T(g∘f) = Tg∘Tf is not among A's theorems (it is Theorem 2.8, retractTangentMap_comp, item V2_7) and B's formula Tf(x,h) = (f(x), D(f∘r)(x)h) and bundle-linearity of Tr are proved directly; conversely A's locality lemmas retractTangent_inter_isOpen / retractTangentMap_inter_isOpen (T(O∩W) = TO ∩ (W₁⊕E), Tf local) are project infrastructure absent from the text's sentence and from B, and tangentRetraction_retract is definitional; these three were re-proved directly (project argument via ScRetraction.restrict), not from B.",
+ "B_issue": null,
+ "overlap": "153 shared project theorems: sc-calculus infrastructure, the retract lemmas behind retractTangent_eq / retractTangentMap_eqOn (proposition_2_4, proposition_2_6_2, mem_tangent_iff, tangentMap_tangentMap, theorem_1_21), LocalModel.tangent_isScSmooth, and the restrict lemmas used by the re-proved locality conjuncts. Both directions pass only #rt_check_soft: the banned IsRelOpenInQuadrant.tangentSet and IsPartialQuadrant.tangentSet are reached solely through the proof field (relOpen) of the definition Polyfold.ScRetraction.tangentRetraction, which occurs in A's own statement (tangentRetraction_retract); the proofs themselves get these facts from the hypothesis.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

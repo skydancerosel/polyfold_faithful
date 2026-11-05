@@ -1,0 +1,13 @@
+{
+ "id": "V1_7",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "The literal B is false (not_B proved): its conjunct 'F = C ⊕ T(E_m)' read inside F₀ forces, for T = id, every inclusion E_m → E₀ to be onto (B_implies_toBase_surjective), hence the compact inclusion E₁ → E₀ to be invertible and every sc-Banach space to be finite-dimensional (B_implies_finiteDimensional); an explicit infinite-dimensional sc-Banach space (E_m = ℓ², inclusions diag(2⁻ⁿ), compact as a norm limit of finite-rank truncations) refutes it, so ¬(A → B) since A holds. B ⇒ A is proved with real use of B: K_le_smooth is B's 'K ⊂ E_∞' and range_lvl comes from B's 'T(X_m) = Y_m'; index_eq, ker_lvl and isFredholm are elementary consequences of the splitting data (re-proved without the banned theorems). The blind IsFredholmData has exactly the fields of the project's ScFredholmSplitting. No universe parameters.",
+ "intended": "equivalent: with B_intended (F_m = C_m ⊕ T(E_m) inside F_m) both A_to_B_intended and B_intended_to_A are proved and pass rt_check. A has extra content B_intended lacks only in the elementary sense (ker T_m = K_m, T_m Fredholm on every level, index = dim ker T₀ − codim range T₀), all derivable from the data; B_intended's 'E_m = K ⊕ X_m' is part of the sc-splitting hypothesis on both sides.",
+ "B_issue": "B formalizes 'F = C ⊕ T(E_m)' literally in F₀ (IsCompl C (T(E_m)) for every m), which is false whenever E has a non-trivial level (proved: not_B). The blind author flagged this misprint and supplied B_intended (F_m = C_m ⊕ T(E_m) in F_m), which is equivalent to A.",
+ "overlap": "B_to_A: 21 shared project theorems, mostly structure fields and level glue (ScFredholmSplitting fields, toBase/levelSub lemmas, ScOperator.ker_lvl, ScOperator.range_lvl_le) plus the project's Fredholm criterion isFredholm_of_banach and isStrictMap_of_isClosed_range, reused to re-derive isFredholm; K_le_smooth's Proposition 1.6 argument is not reused (taken from B).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

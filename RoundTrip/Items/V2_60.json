@@ -1,0 +1,12 @@
+{
+ "id": "V2_60",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The definitions agree definitionally: pullbackSpace P f = {(z, y) | P y = f z} with Mathlib's subtype (= induced) topology, pullbackProj = (z, y) ↦ z, pullbackProj' = (z, y) ↦ y; A ⇒ B is these rfl's plus pullback_comm for P ∘ P' = f ∘ P_f. B ⇒ A fails only by scope: B states P ∘ P' = f ∘ P_f in the text's setting (X, Z M-polyfolds, P a strong bundle, f sc-smooth), whereas pullback_comm holds for arbitrary maps between arbitrary types, and A's continuous_pullbackProj (P_f continuous) and isClosed_pullbackSpace (f*Y closed in Z × Y for continuous P, f into Hausdorff X) are extra elementary facts not in the item's text or in B.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

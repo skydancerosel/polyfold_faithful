@@ -1,0 +1,12 @@
+{
+ "id": "V4_47",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = exists_scComplement_le ∧ isGeneralPositionRetractAt_of_sup_eq_top: general sc-linear algebra (any finite-dimensional smooth N, any sc-subspace TR, M = N + TR) and its chart form for an arbitrary sc-retract Q ⊆ R.retract, R tame for T, at a smooth level-1 point y with T_yQ + E_0 = E. B is the instance in an M-polyfold chart: Q = φ(A ∩ V) for a smooth submanifold with data (V, s), V ⊆ dom φ, the model a tame retract, plus the two submodule equalities M = N + (E_0 ∩ M) = N + T^R_zO. A ⇒ B is glue: the data gives the sc⁺ chart retraction t onto φ(A ∩ V) (exists_chartRetraction; W = V since V ⊆ dom φ), so N = range Dt(z) is finite-dimensional and smooth (Lemma 4.7) and z is smooth; IsTameRetract's tame R is tame for the given T; the sc-complement B' ⊆ M ∩ E_z comes from A, and the equalities follow from M = N ⊕ B' by the modular law. B ⇒ A fails genuinely: A holds for arbitrary sc-retracts Q (not images of sc⁺-retractions) and arbitrary N, TR, which B does not cover.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved); A_to_B uses, besides the hypothesis, SubmanifoldData.exists_chartRetraction, apply_mem_smooth, lemma_4_7_ii, tangentSpace_eq_coe_submodule, isScSplitting_range_scDeriv, proposition_1_6_iff.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

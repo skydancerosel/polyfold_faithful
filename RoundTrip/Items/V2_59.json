@@ -1,0 +1,12 @@
+{
+ "id": "V2_59",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions. IsSection (∀ x, P (f x) = x) is B's P ∘ f = id (funext); StrongBundle.IsScSmoothSection is literally B's 'section, sc-smooth into Y[0] = toMPolyfold0'. The project defines sc⁺-sections chart-wise (principal part in F₁ and localRepOne : O → K[1] sc-smooth in every strong bundle chart), B as 'sc-smooth into the M-polyfold Y[1] = toMPolyfold1' (a corestriction g with oneVal ∘ g = f); A (isScPlusSection_iff) is exactly the equivalence of the two, so A ⇒ B and B ⇒ A are one-line repackagings (oneVal ∘ g = f vs ∀ x, oneVal (g x) = f x).",
+ "B_issue": null,
+ "overlap": "223 shared project theorems, none of the item's; all are proof fields and lemmas inside the vocabulary of the statement itself (toMPolyfold1, oneChart, atlas1, the ParacompactSpace B.One instance via metrizableSpace_one / paracompactSpace_of_metrizableSpace, isScRetract_one, toScRetractionOne_retract, proposition_2_10_1, retract and sc-calculus infrastructure), reached because the proof mentions the type of A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

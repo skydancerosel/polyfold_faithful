@@ -1,0 +1,12 @@
+{
+ "id": "V2_10",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions. A project MChart is exactly a text chart (open V, homeomorphism V ≃ₜ O onto a LocalModel), and every text chart around a point x₀ is a project chart with the same model and source (glue: chartHomeo / mkChart, x₀ as junk value of the total inverse; only the chart on an empty domain in an empty space has no MChart, which B excludes). MChart.Compatible is B's CompatibleB: B's choice-based transition agrees with ψ ∘ φ.symm on φ(V ∩ V'), ψ(V' ∩ V) = ψ(V ∩ V'), and B's 'some retraction' Definition 2.7 equals the project's 'every retraction' one on a retract (isScSmoothRetractMap_iff_exists, item V2_6), the overlap being a retract by A's isScRetract_overlap, which also gives B (d) (empty overlaps via Prop. 2.10(1) with W = ∅). B → A: isScRetract_overlap from B (a)+(d); compatible_self, Compatible.restrict and compatible_of_locally are not in Definition 2.11 nor in B (infrastructure: self-compatibility, restriction, and locality via the chain rule) and were re-proved directly with the project's arguments, taking the overlap-retract fact from B.",
+ "B_issue": null,
+ "overlap": "168 shared project theorems: sc-calculus infrastructure (IsSc0/IsSc1/IsSck lemmas, chain rule pieces, of_locally, restrict), IsScSmoothRetractMap.{comp,congr,restrict,mono_target,of_locally}, proposition_2_10_1, isScRetract_image, exists_isOpen_image_eq, overlap_restrict_eq, transition_mapsTo/transition_eq_comp_on and MChart.restrict proof fields; these come from re-proving compatible_of_locally and Compatible.restrict. None of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

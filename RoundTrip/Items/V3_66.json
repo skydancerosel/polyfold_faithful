@@ -1,0 +1,24 @@
+{
+ "id": "V3_66",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = Radii.norm_τ_le ∧ norm_τ_sub_le ∧ continuousOn_τ ∧ (new) norm_τ_sub_le_global ∧ norm_τ_sub_le_eps ∧ lipschitzOnWith_τ ∧ norm_τ_sub_le_of_norm_le (no universe parameters): for abstract normalized data and any admissible Radii, |τ(k)| ≤ ε|k|/2, |τ(k) − τ(k₀)| ≤ (1 + 2ε)|k − k₀|, τ continuous on V₀, and now the text's estimate |τ(k) − τ(k₀)| ≤ ε/(1+ε)|k − k₀| ≤ ε|k − k₀| on all of V₀. A ⇒ B: same glue as V3_65 (blind quadrant setting → ContractionData; radii built by hand for B's ε with a ≤ a₀, b ≤ b₀; τ := S.τ h); A gives continuity, |τ| ≤ ε|k|/2 and (now directly, norm_τ_sub_le_eps) the Lipschitz bound with the text's constant; the project's τ_fixed, norm_τ_le_eps and eq_τ give the fixed-point characterization. The audit's argument recovering ε (symmetric case split |k₀| ≤ 2|k| or |k| ≤ 2|k₀|) has moved into the project (norm_τ_sub_le_of_norm_le, norm_τ_sub_le_global), so the item's local lemmas were removed. B ⇒ A fails genuinely: A is uniform over every admissible Radii for abstract data, while B concerns the concrete quadrant and only asserts that some small a, b work.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. #rt_overlap on A_to_B: 34 shared project theorems, all Radii/ContractionData infrastructure (τ_fixed, τ_mem_R, norm_τ_le_eps, mem_R_of_mem_V₀, norm_B_sub_le_snd, region_sub, mapsTo_ball, exists_fixed through the definition of τ, c₀ lemmas, structure projections). None of the seven banned theorems is used.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "proved",
+   "B_to_A": "failed",
+   "relation": "A_stronger"
+  },
+  "note": "A gained the global Lipschitz estimate (norm_τ_sub_le_global/_eps, lipschitzOnWith_τ, the case lemma norm_τ_sub_le_of_norm_le), i.e. the audit's item-file glue moved into the project; A_to_B now takes the text's constant ε from A. Result unchanged: A_stronger."
+ }
+}

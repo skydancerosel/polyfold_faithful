@@ -1,0 +1,4366 @@
+import Polyfold
+
+/-!
+# Axiom check and examples
+
+`#print axioms` for every theorem of the project; the expected output is only
+`propext`, `Classical.choice`, `Quot.sound`.  Then a few examples: `ℝⁿ` with the constant
+sc-structure is an sc-Banach space, and for maps between finite-dimensional spaces (with their
+constant sc-structures) on an open set, sc¹ is the same as `C¹`.
+-/
+
+open Set
+
+namespace Polyfold
+
+/-! ### Axioms: ScBanach.lean (Definitions 1.1–1.5, Propositions 1.6, 1.7) -/
+
+#print axioms ScBanach.denseRange_inclK
+#print axioms ScBanach.const
+#print axioms ScBanach.prod
+#print axioms ScBanach.shift
+#print axioms ScOperator.ext_base
+#print axioms ScOperator.mapsTo_smoothLvl
+#print axioms IsScOperator.toScOperator_zero
+#print axioms ScPlus.isCompactOperator
+#print axioms ScBanach.ofSubspace
+#print axioms ScBanach.IsScSplitting.closedComplemented
+#print axioms ScBanach.proposition_1_6_iff
+#print axioms ScBanach.proposition_1_6
+#print axioms ScBanach.quotient
+#print axioms ScBanach.proposition_1_7
+
+/-! ### Axioms: ScSmooth.lean (Definitions 1.11–1.15) -/
+
+#print axioms IsSc0.comp
+#print axioms IsSc1With.eq_of_uniqueDiffWithinAt
+#print axioms IsSc1.tangentMap_eqOn
+#print axioms IsSck.of_le
+#print axioms isScSmooth_iff
+#print axioms IsPartialQuadrant.uniqueDiffWithinAt_lvlSet
+#print axioms isPartialQuadrant_univ
+#print axioms IsRelOpenInQuadrant.isScDomain
+#print axioms IsScDomain.tangentSet
+
+/-! ### Axioms: ChainRule.lean (Theorem 1.21) -/
+
+#print axioms IsSc1With.hasFDerivWithinAt_comp
+#print axioms IsSc1With.comp
+#print axioms theorem_1_21'
+#print axioms theorem_1_21
+#print axioms IsSck.congr
+#print axioms IsSck.comp
+#print axioms IsScSmooth.comp
+#print axioms IsSck.comp_of_isRelOpenInQuadrant
+
+/-! ### Axioms: Degeneracy.lean (Definition 1.23, Lemma 1.24) -/
+
+#print axioms quadrantDeg_eq_of_equiv
+#print axioms lemma_1_24
+#print axioms lemma_1_24_dim
+#print axioms degIndex_eq
+#print axioms degIndex_quadrant
+
+/-! ### Axioms: FredholmPerturbation.lean (infrastructure) -/
+
+#print axioms isStrictMap_of_isClosed_range
+#print axioms isFredholm_of_banach
+#print axioms isCompactOperator_of_finiteDimensional_range
+#print axioms finiteDimensional_ker_one_add
+#print axioms isClosed_range_one_add
+#print axioms coFG_range_one_add
+#print axioms isFredholm_one_add
+#print axioms isFredholm_add_isCompactOperator
+
+/-! ### Axioms: ScFredholm.lean (Definition 1.8, Propositions 1.9, 1.10) -/
+
+#print axioms ScFredholmSplitting.index_eq
+#print axioms ScFredholmSplitting.K_le_smooth
+#print axioms ScFredholmSplitting.isFredholm
+#print axioms proposition_1_9
+#print axioms ScPlus.regularizing_add
+#print axioms proposition_1_10
+
+/-! ### Axioms: Properties.lean (Propositions 1.16, 1.18, 1.19, Corollary 1.20, partial) -/
+
+#print axioms IsSc1With.exists_delta_deriv
+#print axioms IsSc1With.continuousOn_deriv_clm
+#print axioms IsSc1With.contDiffOn_base
+#print axioms IsSc1With.scOperator_deriv
+#print axioms proposition_1_19_zero
+#print axioms corollary_1_20_zero
+
+/-! ### Examples -/
+
+section Examples
+
+/-- `ℝⁿ` with the constant structure is an sc-Banach space; all its points are smooth. -/
+noncomputable example (n : ℕ) : ScBanach := ScBanach.const (Fin n → ℝ)
+
+example (n : ℕ) : (ScBanach.const (Fin n → ℝ)).smooth = ⊤ :=
+  Submodule.eq_top_iff'.2 fun x =>
+    (ScScale.mem_smooth_iff _).2 fun m => ⟨x, ScBanach.const_toBase _ m x⟩
+
+/-- The level sets of the constant structure are the set itself. -/
+lemma const_lvlSet {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
+    (U : Set V) (m : ℕ) : (ScBanach.const V).lvlSet U m = U := by
+  ext x
+  rw [ScBanach.mem_lvlSet, ScBanach.const_toBase]
+
+/-- An open subset of a finite-dimensional space is a relatively open subset of the partial
+quadrant `C = V` (`n = 0`). -/
+lemma isRelOpenInQuadrant_of_isOpen {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
+    [FiniteDimensional ℝ V] {U : Set V} (hU : IsOpen U) :
+    IsRelOpenInQuadrant (ScBanach.const V) univ U :=
+  ⟨isPartialQuadrant_univ _, U, hU, (inter_univ U).symm⟩
+
+variable {V W : Type} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
+  [NormedAddCommGroup W] [NormedSpace ℝ W] [FiniteDimensional ℝ W]
+
+/-- **Finite dimensions: sc¹ is `C¹`.**  For `f : V → W` between finite-dimensional spaces with
+their constant sc-structures and `U ⊆ V` open, `f` is sc¹ on `U` iff `f` is `C¹` on `U`
+(the sentence after Definition 1.14: "the sc¹-maps between finite dimensional Banach spaces are
+the familiar `C¹`-maps"). -/
+theorem isSc1_iff_contDiffOn_of_finiteDimensional {U : Set V} (hU : IsOpen U)
+    (f : (ScBanach.const V) 0 → (ScBanach.const W) 0) :
+    IsSc1 U f ↔ ContDiffOn ℝ 1 f U := by
+  constructor
+  · rintro ⟨D, hD⟩
+    have := hD.contDiffOn_base
+    rwa [const_lvlSet, show (f ∘ (ScBanach.const V).toBase 1) = f from
+      funext fun x => congrArg f (ScBanach.const_toBase V 1 x)] at this
+  · intro hf
+    refine corollary_1_20_zero (isRelOpenInQuadrant_of_isOpen hU).isScDomain fun m => ?_
+    rw [const_lvlSet, show (f ∘ (ScBanach.const V).toBase m) = f from
+      funext fun x => congrArg f (ScBanach.const_toBase V m x)]
+    exact hf
+
+#print axioms isSc1_iff_contDiffOn_of_finiteDimensional
+
+end Examples
+
+/-! ### Axioms: Chapter3/ContractionGerm.lean (Definition 3.28, Theorems 3.29, 3.30) -/
+
+#print axioms ScBanach.paramProd_toBase
+#print axioms ScBanach.paramProd_incl
+#print axioms ScBanach.paramProd_shift_toBase
+#print axioms ScBanach.paramProd_lvlSet
+#print axioms ScBanach.const_lvlSet
+#print axioms isQuadrantLike_const_iff
+#print axioms IsQuadrantLike.paramProd
+#print axioms IsQuadrantLike.prod_univ_const
+#print axioms ContractionGerm.N_anti_le
+#print axioms ContractionGerm.zero_mem_O
+#print axioms ContractionGerm.K_inclK
+#print axioms ContractionGerm.exists_fixed
+#print axioms ContractionGerm.fixed_unique
+#print axioms ContractionGerm.fixLvl_mem_K
+#print axioms ContractionGerm.fixLvl_mem_O
+#print axioms ContractionGerm.fixLvl_fixed
+#print axioms ContractionGerm.mem_G_fixLvl
+#print axioms ContractionGerm.eq_fixLvl
+#print axioms ContractionGerm.incl_fixLvl
+#print axioms ContractionGerm.shift_toBase_fixLvl
+#print axioms ContractionGerm.toBase_fixLvl
+#print axioms ContractionGerm.sol_fixed
+#print axioms ContractionGerm.sol_zero
+#print axioms ContractionGerm.eq_sol
+#print axioms ContractionGerm.levelMap_sol
+#print axioms ContractionGerm.continuousOn_fixLvl
+#print axioms ContractionGerm.germ_U_subset
+#print axioms theorem_3_29
+#print axioms ContractionGerm.isSolutionGerm_germ
+#print axioms ContractionGerm.eq_zero_of_norm_le_half
+#print axioms ContractionGerm.norm_levelDeriv_snd_le
+#print axioms ContractionGerm.solDeriv_of_mem
+#print axioms ContractionGerm.Lop_apply
+#print axioms ContractionGerm.norm_Top_le
+#print axioms ContractionGerm.isUnit_one_sub_Top
+#print axioms ContractionGerm.Lop_Aop
+#print axioms ContractionGerm.eq_Aop
+#print axioms ContractionGerm.toBase_Lop
+#print axioms ContractionGerm.toBase_Aop
+#print axioms ContractionGerm.hasFDerivWithinAt_sol
+#print axioms ContractionGerm.tangent_toBase_sol
+#print axioms ContractionGerm.continuousOn_Aop
+#print axioms ContractionGerm.isSc1GermWith_sol
+#print axioms theorem_3_30
+
+/-! ### Axioms: Chapter3/GermLevels.lean, continued (Proposition 1.18 for germs) -/
+
+#print axioms ScNbhdGerm.shift_inclK_mem
+#print axioms ScNbhdGerm.uniqueDiffOn
+#print axioms IsSckGerm.contDiffOn_levels'
+#print axioms IsSckGerm.contDiffOn_levels
+#print axioms IsSckGerm.contDiffOn_base
+
+/-! ### Axioms: Chapter3/GermIFT.lean (Lemma 3.31, Theorem 3.33, Corollary 3.34, Theorem 3.35) -/
+
+#print axioms tangentShuffle_apply
+#print axioms projV_apply
+#print axioms projBW_apply
+#print axioms shiftParamOp_apply
+#print axioms constTangentOp_apply
+#print axioms constTangentOp'_apply
+#print axioms ContractionGerm.nextG_U
+#print axioms ContractionGerm.mem_Ct_of_mem_nextG
+#print axioms ContractionGerm.nextΓ_apply
+#print axioms ContractionGerm.nextB_apply
+#print axioms ContractionGerm.isQuadrantLike_next
+#print axioms ContractionGerm.levelMap_nextΓ
+#print axioms ContractionGerm.nextΓ_mapsToGerm
+#print axioms ContractionGerm.tangentShuffle_mapsToGerm
+#print axioms ContractionGerm.projV_mapsToGerm
+#print axioms ContractionGerm.nextΓ_isSckGerm
+#print axioms ContractionGerm.nextB_isSckGerm
+#print axioms ContractionGerm.levelB_next
+#print axioms ContractionGerm.nextB_zero
+#print axioms ContractionGerm.next_B
+#print axioms ContractionGerm.next_G
+#print axioms ContractionGerm.next_N
+#print axioms ContractionGerm.next_O
+#print axioms ContractionGerm.next_sol
+#print axioms ContractionGerm.next_sol_eq_tangentMapWith
+#print axioms ContractionGerm.lemma_3_31
+#print axioms ContractionGerm.isSckGerm_succ_of_next
+#print axioms ContractionGerm.sol_isSckGerm
+#print axioms theorem_3_33
+#print axioms theorem_3_33_smooth
+#print axioms ScBanach.const_inclK
+#print axioms corollary_3_34
+#print axioms theorem_3_35
+#print axioms theorem_3_35_smooth
+#print axioms IsSc0ContractionGerm.rad_pos
+#print axioms IsSc0ContractionGerm.rad_spec
+#print axioms IsSc0ContractionGerm.rad'_pos
+#print axioms IsSc0ContractionGerm.rad'_le
+#print axioms IsSc0ContractionGerm.norm_incl_le_of_le
+#print axioms IsSc0ContractionGerm.levelB_zero_eq
+#print axioms IsSc0ContractionGerm.exists_cont_rad
+#print axioms IsSc0ContractionGerm.contRad_pos
+#print axioms IsSc0ContractionGerm.contRad_spec
+#print axioms IsSc0ContractionGerm.prad_pos
+#print axioms IsSc0ContractionGerm.prad_le_contRad
+#print axioms IsSc0ContractionGerm.prad_le_rad'
+#print axioms IsSc0ContractionGerm.prad_anti
+#print axioms IsSc0ContractionGerm.toContractionGerm_B
+#print axioms IsSc0ContractionGerm.toContractionGerm_G
+#print axioms theorem_3_29_of_isSc0ContractionGerm
+#print axioms theorem_3_33_of_isSc0ContractionGerm
+
+/-! ### Axioms: Chapter3/LocalCompactness.lean (Definition 3.7, Theorem 3.40, local Theorem 3.12,
+  Corollary 3.13) -/
+
+#print axioms exists_fixedPoint_continuousOn
+#print axioms IsSc0ContractionGerm.crad_pos
+#print axioms IsSc0ContractionGerm.crad_le
+#print axioms IsSc0ContractionGerm.crad_zero_le
+#print axioms IsSc0ContractionGerm.norm_toBase_lt_rad
+#print axioms IsSc0ContractionGerm.mem_G_of_lt
+#print axioms IsSc0ContractionGerm.contr_of_lt
+#print axioms IsSc0ContractionGerm.exists_cprad
+#print axioms IsSc0ContractionGerm.cprad_pos
+#print axioms IsSc0ContractionGerm.cprad_le
+#print axioms IsSc0ContractionGerm.cprad_spec
+#print axioms IsSc0ContractionGerm.gmap_mapsTo
+#print axioms IsSc0ContractionGerm.gmap_contr
+#print axioms IsSc0ContractionGerm.gmap_continuousOn
+#print axioms IsSc0ContractionGerm.exists_delta
+#print axioms IsSc0ContractionGerm.delta_mem
+#print axioms IsSc0ContractionGerm.norm_delta_le
+#print axioms IsSc0ContractionGerm.delta_fixed
+#print axioms IsSc0ContractionGerm.delta_continuousOn
+#print axioms solSet_mono
+#print axioms levelMap_s_zero
+#print axioms IsSc0ContractionGerm.solSet_subset_G
+#print axioms IsSc0ContractionGerm.zero_mem_solSet
+#print axioms IsSc0ContractionGerm.isClosed_solSet
+#print axioms IsSc0ContractionGerm.exists_lift
+#print axioms ScBanach.toBase_succ_isCompactOperator
+#print axioms IsSc0ContractionGerm.isCompact_lift_image
+#print axioms theorem_3_40_compactness
+#print axioms theorem_3_40_regularity
+#print axioms theorem_3_12_local
+#print axioms corollary_3_13_local
+
+/-! ### Axioms: Chapter3/Filler.lean (Definition 3.4, Lemmas 3.16, 3.17 for principal parts) -/
+
+#print axioms StrongRetr.apply_eq
+#print axioms StrongRetr.r_mem
+#print axioms StrongRetr.r_r
+#print axioms StrongRetr.ρ_r_ρ
+#print axioms StrongRetr.r_eq_self
+#print axioms StrongRetr.mem_U_of_mem_O
+#print axioms StrongRetr.ρ_ρ
+#print axioms StrongRetr.apply_eq_self_of_mem_K
+#print axioms StrongRetr.ρ_eq_self_of_mem_K
+#print axioms StrongRetr.ρ_isLinear
+#print axioms StrongRetr.ρ_continuous
+#print axioms StrongRetr.ρCLM_apply
+#print axioms lemma_3_16
+#print axioms lemma_3_17
+
+end Polyfold
+
+/-! ### Axioms: Levels.lean (Propositions 1.16–1.19 and Corollary 1.20 on all levels) -/
+
+open scoped ContDiff
+
+namespace Polyfold
+
+#print axioms contDiffOn_clm_comp_of_isCompactOperator
+#print axioms IsSc1With.continuousOn_levelDeriv
+#print axioms IsSc1With.continuousOn_levelDeriv_clm
+#print axioms IsSc1With.hasFDerivWithinAt_level
+#print axioms IsSc1With.contDiffOn_level
+#print axioms IsSc1With.levelDeriv_eq
+#print axioms IsSc1Levels.toBase_apply
+#print axioms IsSc1Levels.isSc1With
+#print axioms proposition_1_16
+#print axioms IsSc0.shift
+#print axioms IsSc1With.shift
+#print axioms IsSck.shift
+#print axioms IsScSmooth.shift
+#print axioms IsSck.contDiffOn_levels
+#print axioms IsSck.contDiffOn_levels_of_le
+#print axioms IsSck.contDiffOn_base
+#print axioms IsScSmooth.contDiffOn_levels
+#print axioms proposition_1_19
+#print axioms corollary_1_20
+#print axioms corollary_1_20_base
+#print axioms IsScSmooth.of_contDiffOn_levels
+#print axioms IsScSmooth.of_contDiffOn_finiteDimensional
+
+section ExamplesLevels
+
+variable {V W : Type} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
+  [NormedAddCommGroup W] [NormedSpace ℝ W] [FiniteDimensional ℝ W]
+
+/-- **Finite dimensions: sc-smooth is `C^∞`.**  For `f : V → W` between finite-dimensional spaces
+with their constant sc-structures and `U ⊆ V` open, `f` is sc-smooth on `U` iff `f` is `C^∞` on `U`
+(Proposition 1.18 with `m = 0` for (⇒), Corollary 1.20 for (⇐)). -/
+theorem isScSmooth_iff_contDiffOn_of_finiteDimensional {U : Set V} (hU : IsOpen U)
+    (f : (ScBanach.const V) 0 → (ScBanach.const W) 0) :
+    IsScSmooth U f ↔ ContDiffOn ℝ ∞ f U := by
+  constructor
+  · intro hf
+    rw [contDiffOn_infty]
+    intro k
+    have := (hf k).contDiffOn_base (isRelOpenInQuadrant_of_isOpen hU).isScDomain
+    rwa [const_lvlSet, show (f ∘ (ScBanach.const V).toBase k) = f from
+      funext fun x => congrArg f (ScBanach.const_toBase V k x)] at this
+  · intro hf
+    exact IsScSmooth.of_contDiffOn_finiteDimensional (isRelOpenInQuadrant_of_isOpen hU).isScDomain hf
+
+#print axioms isScSmooth_iff_contDiffOn_of_finiteDimensional
+
+end ExamplesLevels
+
+end Polyfold
+
+/-!
+# Axiom check for Chapter 2 (`Polyfold/Chapter2/`)
+
+Appended with Chapter 2; expected output again only `propext`, `Classical.choice`, `Quot.sound`.
+-/
+
+namespace Polyfold
+
+/-! ### Axioms: Chapter2/Retracts.lean (§2.1: Definitions 2.1–2.7, Propositions 2.4, 2.6, 2.10,
+Theorem 2.8; locality of sc-smoothness) -/
+
+#print axioms IsSck.of_subset
+#print axioms IsSc1.of_locally
+#print axioms IsSck.of_locally
+#print axioms IsScSmooth.of_locally
+#print axioms isSck_id
+#print axioms ScRetraction.mem_tangent_iff
+#print axioms ScRetraction.mem_tangent_iff_mem_range
+#print axioms ScRetraction.scDeriv_comp_self
+#print axioms proposition_2_4
+#print axioms retractTangent_eq
+#print axioms tangentSpace_eq_range
+#print axioms proposition_2_6_1
+#print axioms proposition_2_6_2
+#print axioms proposition_2_6_3
+#print axioms isScSmoothRetractMap_iff_exists
+#print axioms retractTangentMap_eqOn
+#print axioms IsScSmoothRetractMap.tangentMap_mapsTo
+#print axioms IsScSmoothRetractMap.comp
+#print axioms retractTangentMap_comp
+#print axioms theorem_2_8
+#print axioms IsScSmoothRetractMap.continuousOn
+#print axioms IsScSmoothRetractMap.mem_range_toBase
+#print axioms proposition_2_10_1
+#print axioms proposition_2_10_2
+#print axioms IsScSmoothRetractMap.restrict
+#print axioms IsScSmoothRetractMap.of_locally
+
+/-! ### Axioms: Chapter2/MPolyfold.lean (§2.2: Definitions 2.11–2.14, 2.20, Lemma 2.15) -/
+
+#print axioms MChart.isScRetract_overlap
+#print axioms MChart.compatible_self
+#print axioms MChart.Compatible.restrict
+#print axioms MChart.compatible_of_locally
+#print axioms MAtlas.equiv_iff
+#print axioms MPolyfold.IsChart.compatible
+#print axioms MPolyfold.IsChart.restrict
+#print axioms MPolyfold.isChart_congr
+#print axioms MPolyfold.mem_levelSet_iff
+#print axioms MPolyfold.levelSet_antitone
+#print axioms lemma_2_15
+#print axioms MPolyfold.isScSmoothMap_id
+#print axioms MPolyfold.IsScSmoothOn.comp
+#print axioms MPolyfold.IsScSmoothMap.comp
+#print axioms MPolyfold.isSubMPolyfold_univ
+#print axioms LocalModel.toMPolyfold
+
+/-! ### Axioms: Chapter2/DegeneracyIndex.lean (§2.3: Definitions 2.22, 2.25, Lemma 2.23,
+Proposition 2.24, Corollary 2.32; Theorem 1.25) -/
+
+#print axioms finrank_quotient_minimalSubspaceWith
+#print axioms eventually_degIndexWith_le
+#print axioms exists_tendsto_lvl1_degIndexWith
+#print axioms eventually_add_smul_mem_lvlSet
+#print axioms IsSc1With.deriv_mem_minimalSubspace_of_lvl1
+#print axioms ScBanach.subset_closure_ker_inter_range_toBase
+#print axioms IsSc1With.mapsTo_minimalSubspace
+#print axioms scDeriv_comp_eq_self
+#print axioms degIndexWith_le_of_germ
+#print axioms theorem_1_25_lvl1
+#print axioms theorem_1_25
+#print axioms MPolyfold.exists_isChart_degIndex_eq
+#print axioms lemma_2_23
+#print axioms MPolyfold.isWithoutBoundary_iff
+#print axioms MPolyfold.transportChart_isChart
+#print axioms MPolyfold.degIndex_le_of_isScDiffeoOn
+#print axioms proposition_2_24
+#print axioms IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1
+#print axioms corollary_2_32
+
+/-! ### Axioms: Chapter2/Tame.lean (§2.4, §2.5: definitions) -/
+
+#print axioms ScRetraction.id_isTame
+#print axioms reducedTangentSpaceWith_subset_partialConeWith
+#print axioms MPolyfold.IsFace.isClosed
+#print axioms IsScPlusSection.mem
+
+end Polyfold
+
+namespace Polyfold
+
+/-! ### Axioms: Chapter2/LevelPolyfold.lean (`X¹` as an M-polyfold), TangentBundle.lean
+(Definitions 2.17–2.19, `TX` as an M-polyfold), TangentMap.lean (`Tf` and the chain rule) -/
+
+#print axioms IsPartialQuadrant.shift
+#print axioms ScRetraction.shift_retract
+#print axioms IsScSmoothRetractMap.shift
+#print axioms MPolyfold.IsScSmoothOn.of_exists_charts
+#print axioms MPolyfold.continuous_levelVal
+#print axioms MPolyfold.levelChart_compatible
+#print axioms MPolyfold.shift
+#print axioms MPolyfold.shift_isChart
+#print axioms ScOperator.isScSmooth
+#print axioms IsPartialQuadrant.tangentSet
+#print axioms ScRetraction.tangentRetraction_retract
+#print axioms retractTangent_inter_isOpen
+#print axioms retractTangentMap_id
+#print axioms retractTangentMap_inter_isOpen
+#print axioms IsScSmoothRetractMap.tangent
+#print axioms MPolyfold.TangentPre.transport_transport
+#print axioms MPolyfold.TangentPre.Rel.transport
+#print axioms MPolyfold.TangentPre.setoid
+#print axioms MPolyfold.tangentChartMap_injOn
+#print axioms MPolyfold.continuous_tangentProj
+#print axioms MPolyfold.instT2SpaceTangentSpace
+#print axioms MPolyfold.tangentChart_overlap
+#print axioms MPolyfold.tangentChart_transition
+#print axioms MPolyfold.tangentChart_compatible
+#print axioms MPolyfold.tangentPolyfold
+#print axioms MPolyfold.tangentProj_isScSmooth
+#print axioms MChart.retractTangentMap_comp_image
+#print axioms MPolyfold.IsScSmoothMap.mapsTo_levelSet
+#print axioms MPolyfold.TangentPre.ftransport_transport
+#print axioms MPolyfold.TangentPre.Rel.ftransport
+#print axioms MPolyfold.tangentMap_mk
+#print axioms MPolyfold.tangentChartMap_tangentMap
+#print axioms MPolyfold.tangentMap_id
+#print axioms MPolyfold.tangentMap_comp
+#print axioms MPolyfold.continuous_tangentMap
+#print axioms MPolyfold.tangentMap_isScSmooth
+
+end Polyfold
+
+namespace Polyfold
+
+/-! ### Axioms: Chapter2/SubMPolyfold.lean (Proposition 2.21 (1), (2), Lemma 2.26) -/
+
+#print axioms IsScSmoothRetractMap.mono_source
+#print axioms MPolyfold.SubData.image_shrink
+#print axioms MPolyfold.SubData.isScRetract_image
+#print axioms MPolyfold.subChart_compatible
+#print axioms MPolyfold.subPolyfold
+#print axioms MPolyfold.paracompactSpace_of_isClosed
+#print axioms MPolyfold.subPolyfold_inclusion_isScSmooth
+#print axioms MPolyfold.subPolyfold_retraction_isScSmooth
+#print axioms lemma_2_26
+
+
+/-! ### Axioms: Chapter1/FredholmIndex.lean -/
+
+#print axioms finite_of_finite_quotient
+#print axioms finite_of_finite_ker_range
+#print axioms finiteDimensional_ker_of_comp
+#print axioms finiteDimensional_coker_of_comp
+#print axioms HasFiniteIndex.comp_and_linIndex
+#print axioms HasFiniteIndex.comp
+#print axioms linIndex_comp
+#print axioms HasFiniteIndex.equiv
+#print axioms linIndex_equiv
+#print axioms HasFiniteIndex.of_finiteRange_sub_id_and_linIndex
+#print axioms HasFiniteIndex.of_finiteRange_sub_id
+#print axioms linIndex_eq_zero_of_finiteRange_sub_id
+
+/-! ### Axioms: Chapter2/Boundary.lean -/
+
+#print axioms MPolyfold.isOpen_setOf_degIndex_lt
+#print axioms MPolyfold.isClosed_setOf_le_degIndex
+#print axioms MPolyfold.isClosed_boundary
+#print axioms MPolyfold.isOpen_interior
+#print axioms MPolyfold.isClosed_corners
+#print axioms MPolyfold.corners_subset_boundary
+#print axioms MPolyfold.IsFace.subset_boundary
+#print axioms MPolyfold.IsFace.connectedComponentIn_subset
+#print axioms MPolyfold.IsScDiffeoOn.mem_boundary_iff
+#print axioms isClosed_partialQuadrantAtWith
+#print axioms partialQuadrantAtWith_subset_closure
+#print axioms eventually_add_smul_mem_lvlSet_of_cone
+#print axioms nonneg_of_hasDerivWithinAt_Ici
+#print axioms IsSc1With.deriv_mem_partialQuadrant_of_lvl1
+#print axioms IsSc1With.mapsTo_partialQuadrant
+#print axioms ScRetraction.U_subset_C
+#print axioms ScRetraction.retract_subset_C
+#print axioms ScRetraction.IsDiffeoGerm.symm
+#print axioms ScRetraction.IsDiffeoGerm.mapsTo_U
+#print axioms ScRetraction.IsDiffeoGerm.mapsTo_C'
+#print axioms ScRetraction.IsDiffeoGerm.comp_eq
+#print axioms IsScSmoothRetractMap.isDiffeoGerm
+#print axioms ScRetraction.IsDiffeoGerm.image_mem
+#print axioms ScRetraction.IsDiffeoGerm.toBase_image
+#print axioms ScRetraction.IsDiffeoGerm.image_image
+#print axioms ScRetraction.IsDiffeoGerm.deriv_inv_deriv
+#print axioms ScRetraction.IsDiffeoGerm.deriv_deriv_inv
+#print axioms ScRetraction.IsDiffeoGerm.deriv_mem_range
+#print axioms ScRetraction.IsDiffeoGerm.deriv_mapsTo_minimalSubspace
+#print axioms ScRetraction.IsDiffeoGerm.deriv_mapsTo_partialQuadrant
+#print axioms proposition_2_30_reduced
+#print axioms proposition_2_30_cone
+#print axioms quotDim_congr
+#print axioms quotDim_inf_minimalSubspace_le
+#print axioms quotDim_reducedTangentSpaceWith_le
+#print axioms ScRetraction.scDeriv_restrict
+#print axioms reducedTangentSpaceWith_restrict
+#print axioms ScRetraction.IsDiffeoGerm.quotDim_le
+#print axioms MChart.Compatible.isDiffeoGerm
+#print axioms MPolyfold.quotDim_le_chartDegIndex
+#print axioms theorem_2_31
+#print axioms theorem_2_31_retract
+
+/-! ### Axioms: Chapter3/Germ.lean -/
+
+#print axioms IsPartialQuadrant.isQuadrantLike
+#print axioms isQuadrantLike_univ
+#print axioms IsQuadrantLike.tangentSet
+#print axioms isQuadrantLike_prod_univ
+#print axioms IsQuadrantLike.uniqueDiffWithinAt
+#print axioms ScNbhdGerm.U_subset
+#print axioms ScNbhdGerm.inclK_mem
+#print axioms ScNbhdGerm.toBase_mem
+#print axioms ScNbhdGerm.shift_toBase_mem
+#print axioms ScNbhdGerm.uniqueDiffWithinAt
+#print axioms ScNbhdGerm.relOpenConvex
+#print axioms ScNbhdGerm.tangent_U
+#print axioms ScNbhdGerm.mem_tangent_U
+#print axioms ScNbhdGerm.ofSet_U
+#print axioms ScNbhdGerm.tangentSet_relOpen
+#print axioms ScNbhdGerm.zero_mem_tangentSet
+#print axioms ScNbhdGerm.ofSet_tangent
+#print axioms ScNbhdGerm.full_U
+#print axioms ScNbhdGerm.mapsToGerm_full
+#print axioms IsSc0Germ.toBase_levelMap
+#print axioms IsSc0Germ.continuousOn_base
+#print axioms IsSc0Germ.incl_levelMap
+#print axioms IsSc0Germ.inclK_levelMap
+#print axioms IsSc0Germ.mono
+#print axioms IsSc0Germ.levelMap_congr
+#print axioms IsSc0Germ.congr
+#print axioms IsSc0Germ.levelMap_comp
+#print axioms IsSc0Germ.comp
+#print axioms IsSc0.isSc0Germ
+#print axioms ScOperator.isSc0Germ
+#print axioms IsSc1GermWith.isSc1Germ
+#print axioms IsSc1GermWith.levelMap_tangent_fst
+#print axioms IsSc1GermWith.tangentMapWith_mapsTo
+#print axioms IsSc1GermWith.continuousOn_deriv
+#print axioms IsSc1GermWith.congr
+#print axioms IsSc1GermWith.mono
+#print axioms IsSc1GermWith.eq_of_uniqueDiffWithinAt
+#print axioms IsSc1Germ.isSc1GermWith_scDerivGerm
+#print axioms IsSc1Germ.isSc0
+#print axioms IsSc1Germ.tangentMapGerm_isSc0
+#print axioms IsSc1Germ.scDerivGerm_eqOn
+#print axioms IsSc1Germ.tangentMapGerm_eqOn
+#print axioms IsSc1Germ.congr
+#print axioms IsSc1Germ.mono
+#print axioms IsSc1Germ.tangentMapGerm_congr
+#print axioms IsSc1Germ.tangentMapGerm_mono
+#print axioms isSckGerm_zero_iff
+#print axioms isSckGerm_succ_iff
+#print axioms IsSckGerm.isSc0
+#print axioms IsSckGerm.isSc1
+#print axioms IsSckGerm.of_succ
+#print axioms IsSckGerm.of_le
+#print axioms IsScSmoothGerm.isSckGerm
+#print axioms isScSmoothGerm_iff
+#print axioms IsSckGerm.congr
+#print axioms IsSckGerm.mono
+#print axioms IsScSmoothGerm.mono
+#print axioms IsSc1.scDerivGerm_ofSet_eqOn
+#print axioms IsSck.isSckGerm
+#print axioms IsScSmooth.isScSmoothGerm
+#print axioms IsSc1GermWith.hasFDerivWithinAt_comp
+#print axioms IsSc1GermWith.tangentMapWith_comp
+#print axioms IsSc1GermWith.comp
+#print axioms IsSc1Germ.comp
+#print axioms IsSckGerm.comp
+#print axioms IsScSmoothGerm.comp
+#print axioms ScOperator.tangentMapWith_eq
+#print axioms ScOperator.isSc1GermWith
+#print axioms ScOperator.isSckGerm
+#print axioms ScOperator.isScSmoothGerm
+#print axioms IsSckGerm.operator_comp
+#print axioms IsSc0Germ.levelMap_pair
+#print axioms IsSc0Germ.pair
+#print axioms tangentMapWith_pair
+#print axioms IsSc1GermWith.pair
+#print axioms IsSckGerm.pair
+#print axioms IsScSmoothGerm.pair
+#print axioms ScBanach.fstOp_apply
+#print axioms ScBanach.sndOp_apply
+
+/-! ### Axioms: Chapter3/GermLevels.lean -/
+
+#print axioms IsSc0Germ.of_U_eq
+#print axioms ScNbhdGerm.tangent_U_eq
+#print axioms IsSc1GermWith.of_U_eq
+#print axioms ScNbhdGerm.uniqueDiffWithinAt_of_U_eq
+#print axioms IsSckGerm.of_U_eq
+#print axioms IsSc1GermWith.exists_levelDeriv
+#print axioms IsSc1GermWith.toBase_levelDeriv
+#print axioms IsSc1GermWith.levelMap_shift_toBase
+#print axioms IsSc1GermWith.levelMap_tangentMapWith
+#print axioms IsSc1GermWith.continuousOn_levelDeriv
+#print axioms IsSc1GermWith.continuousOn_levelDeriv_clm
+#print axioms IsSc1GermWith.hasFDerivWithinAt_level
+#print axioms ScNbhdGerm.shift_U
+#print axioms ScNbhdGerm.shift_tangent_U_eq
+#print axioms IsQuadrantLike.shift
+#print axioms IsSc0Germ.levelMap_shift
+#print axioms IsSc0Germ.shift
+#print axioms IsSc1GermWith.shift
+#print axioms IsSckGerm.shift
+
+/-! ### Axioms: Chapter1/FredholmIndex.lean (the index: Lemma 2.D, Proposition 1.10) -/
+
+#print axioms HasFiniteIndex.of_bijective_add_and_linIndex
+#print axioms HasFiniteIndex.of_comp_of_comp
+#print axioms IsFredholm.hasFiniteIndex
+#print axioms fredholmIndex_add_of_norm_lt
+#print axioms fredholmIndex_add_isCompactOperator
+#print axioms ScBanach.finrank_levelSub_of_le_smooth
+#print axioms ScFredholmSplitting.C_le_smooth
+#print axioms ScFredholmSplitting.fredholmIndex_lvl
+#print axioms IsScFredholm.fredholmIndex_lvl
+#print axioms scIndex_eq_fredholmIndex
+#print axioms proposition_1_10_index
+#print axioms proposition_1_10_index_lvl
+
+/-! ### Axioms: Chapter1/ExpositionLemmas.lean (exposition Lemmas 1.A(2)–(3), 2.B, 2.C, 3.F;
+  sc¹ = C¹ on quadrants in finite dimensions) -/
+
+#print axioms ScScale.finiteDimensional_of_surjective_incl
+#print axioms ScBanach.smooth_eq_top_of_finiteDimensional
+#print axioms ScBanach.toBase_bijective_of_finiteDimensional
+#print axioms ScBanach.isoConstOfFiniteDimensional
+#print axioms ScBanach.isoConstOfFiniteDimensional_apply
+#print axioms ScBanach.IsScSplitting.isTopCompl
+#print axioms ScBanach.IsScSplitting.scProj
+#print axioms ScBanach.IsScSplitting.scProj_apply
+#print axioms ScBanach.IsScSplitting.scProj_idem
+#print axioms ScBanach.IsScSplitting.range_scProj
+#print axioms ScBanach.IsScSplitting.ker_scProj
+#print axioms ScOperator.idem_lvl
+#print axioms ScOperator.levelSub_range_eq
+#print axioms ScBanach.isScSplitting_of_idem
+#print axioms ScBanach.isScSplitting_iff_exists_scProj
+#print axioms ScBanach.exists_smooth_mem_coset
+#print axioms ScBanach.mk_mem_quotient_smooth_iff
+#print axioms continuousOn_apply_iff_uniformOnCompact
+#print axioms IsSc1With.deriv_uniformOnCompact
+#print axioms ScBanach.lvlSet_const
+#print axioms isSc1_iff_contDiffOn_const
+#print axioms isSc1_iff_fderivWithin_const
+#print axioms isScSmooth_iff_contDiffOn_const
+#print axioms isSc1_iff_contDiffOn_of_isRelOpenInQuadrant
+#print axioms isScSmooth_iff_contDiffOn_of_isRelOpenInQuadrant
+
+/-! ### Axioms: Chapter2/TameRetracts.lean (§2.4: Propositions 2.35, 2.36, Lemma 2.40,
+  Corollary 2.41, Propositions 2.42, 2.43, Theorem 2.45 in part) -/
+
+#print axioms quotDim_eq_finrank_quotient_of_isCompl
+#print axioms ScRetraction.scDeriv_mapsTo_minimalSubspace
+#print axioms ScRetraction.isScOperator_scDeriv
+#print axioms ScRetraction.isScSplitting_range_scDeriv
+#print axioms proposition_2_35
+#print axioms quotDim_reducedTangentSpaceWith_eq
+#print axioms exists_tendsto_smooth_degIndexWith
+#print axioms IsSc0.mem_smooth
+#print axioms exists_smoothLvl_one_of_mem_smooth
+#print axioms MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith
+#print axioms MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract
+#print axioms LocalModel.degIndex_toMPolyfold_of_isTameWith
+#print axioms proposition_2_36_degIndex
+#print axioms proposition_2_36
+#print axioms degIndexWith_eq_card_zeroSet
+#print axioms mem_zeroSet
+#print axioms continuous_coord
+#print axioms isClosed_coordHyper
+#print axioms eventually_zeroSet_subset
+#print axioms coord_nonneg
+#print axioms zeroSet_eq_singleton
+#print axioms subset_coordHyper_of_isPreconnected
+#print axioms IsSc1With.apply_deriv_eq_zero_of_ray
+#print axioms coord_scDeriv_eq
+#print axioms ray_zeroSet
+#print axioms ScRetraction.faceStratum_subset
+#print axioms coord_coordVec
+#print axioms exists_lvl1_coordVec
+#print axioms rayDir_self
+#print axioms rayDir_nonneg
+#print axioms rayDir_pos
+#print axioms rayDir_eq_zero
+#print axioms convex_ball_inter_zeroSet_eq
+#print axioms local_face_structure
+#print axioms subset_of_relClopen_of_isPreconnected
+#print axioms image_val_connectedComponentIn
+#print axioms faceStratum_degIndexWith
+#print axioms connectedComponentIn_faceStratum_subset
+#print axioms connectedComponentIn_eq_of_mem_closure
+#print axioms closure_connectedComponentIn_faceStratum
+#print axioms connectedComponentIn_coordHyper_eq
+#print axioms lemma_2_40
+#print axioms lemma_2_40_injective
+#print axioms corollary_2_41_retract
+#print axioms image_val_closure
+#print axioms LocalModel.isFace_toMPolyfold_iff
+#print axioms LocalModel.isFaceStructured_toMPolyfold
+#print axioms corollary_2_41
+#print axioms MPolyfold.isChart_of_mem_equiv
+#print axioms MPolyfold.IsTame.exists_chart
+#print axioms MPolyfold.faces_encard_le
+#print axioms proposition_2_42
+#print axioms killCoordL_apply
+#print axioms killCoord_apply
+#print axioms killCoord_coord
+#print axioms killCoord_eq_self
+#print axioms killCoord_mem
+#print axioms killCoord_coord_self
+#print axioms proposition_2_43
+#print axioms LocalModel.selfChart_symm_apply
+#print axioms LocalModel.isSubMPolyfold_of_isFace
+#print axioms MPolyfold.theorem_2_45_interior
+
+/-! ### Axioms: Chapter2/StrongBundle.lean (§2.5: Lemmas 5.A, 5.B of the exposition,
+  Definitions 2.50–2.53, the local content of Proposition 2.54) -/
+
+#print axioms isScDomain_univ
+#print axioms IsSc0.levelMap_scPair
+#print axioms IsSc0.scPair
+#print axioms tangentMapWith_scPair
+#print axioms IsSc1With.scPair
+#print axioms IsSck.scPair
+#print axioms IsScSmooth.scPair
+#print axioms ScBanach.prodShiftInclOp_apply
+#print axioms IsPartialQuadrant.prod_univ
+#print axioms IsRelOpenInQuadrant.prod_univ
+#print axioms IsStrongBundleRetraction.apply_fst
+#print axioms IsStrongBundleRetraction.mapsTo_fst
+#print axioms IsStrongBundleRetraction.baseRetraction_apply
+#print axioms IsStrongBundleRetraction.fiber_idem
+#print axioms IsStrongBundleRetraction.mem_image_iff
+#print axioms IsStrongBundleRetraction.toScRetraction_retract
+#print axioms IsStrongBundleRetraction.snd_mem_range
+#print axioms IsStrongBundleRetraction.toBase_shiftFiber_snd
+#print axioms IsStrongBundleRetraction.toScRetractionOne_retract
+#print axioms IsStrongBundleRetract.isScRetract
+#print axioms IsStrongBundleRetract.isScRetract_one
+#print axioms IsStrongBundleRetract.base_eq
+#print axioms IsStrongBundleRetract.isScSmoothRetractMap_fst
+#print axioms IsStrongBundleRetract.isScSmoothRetractMap_fst_one
+#print axioms IsStrongBundleRetract.isScSmoothRetractMap_shiftIncl
+#print axioms IsScPlusSection.isScSmoothSection
+#print axioms pullback_mem_O
+#print axioms pullback_mem_U
+#print axioms isStrongBundleRetraction_pullback
+#print axioms pullback_image
+#print axioms isStrongBundleRetract_pullback
+#print axioms StrongBundleChart.isStrongBundleRetract
+#print axioms StrongBundleChart.isScRetract
+#print axioms StrongBundleChart.isScRetract_one
+#print axioms StrongBundleChart.isOpen_source
+#print axioms StrongBundleChart.continuous_fiber
+#print axioms StrongBundleChart.Compatible.symm
+#print axioms StrongBundleChart.Compatible.toMChart
+#print axioms StrongBundleChart.image_source
+#print axioms StrongBundleChart.base_K
+#print axioms StrongBundle.isChart_toMChart
+#print axioms StrongBundle.isScSmoothMap_proj
+#print axioms pullback_comm
+#print axioms continuous_pullbackProj
+#print axioms isClosed_pullbackSpace
+
+/-! ### Axioms: Chapter3/GoodPosition.lean (Definition 3.21, Proposition 3.22, Lemma 3.45,
+  Lemma 3.65, Proposition 3.69) -/
+
+#print axioms mem_quadCone
+#print axioms zero_mem_quadCone
+#print axioms smul_mem_quadCone
+#print axioms add_mem_quadCone
+#print axioms restrFun_apply
+#print axioms continuous_restrFun
+#print axioms quadCone_isClosed
+#print axioms mem_vanIdx
+#print axioms pos_of_not_mem_vanIdx
+#print axioms lemma_3_65
+#print axioms sigmaCoord_apply
+#print axioms mem_nullSpace
+#print axioms sigmaCoord_surjective
+#print axioms restrFun_eq_zero_of_interior
+#print axioms mem_quadCone_of_vanIdx
+#print axioms splitEquiv_apply_fst
+#print axioms quadrantNormalForm_of_vanIdx
+#print axioms quadrantNormalForm_of_eq_univ
+#print axioms quadrantNormalForm_of_vanIdx_empty
+#print axioms exists_quadrantNormalForm
+#print axioms coordFun_apply
+#print axioms coordFun_surj
+#print axioms quadCone_coordFun
+#print axioms scIsoOfLinearEquiv_apply
+#print axioms IsInGoodPosition.quadrantNormalForm
+#print axioms preimage_eq_of_normalForm
+#print axioms proposition_3_22
+#print axioms IsGoodComplement.map
+#print axioms IsInGoodPosition.map
+#print axioms proposition_3_69
+
+/-! ### Axioms: Chapter2/Metrizable.lean (Theorem 2.16 with Smirnov's theorem, Propositions
+  2.19 (3), 2.21 (3)–(4)) -/
+
+#print axioms cone_triangle
+#print axioms truncDist_nonneg
+#print axioms truncDist_le_one
+#print axioms truncDist_self
+#print axioms truncDist_comm
+#print axioms truncDist_triangle
+#print axioms truncDist_eq_zero
+#print axioms truncDist_lt
+#print axioms metrizableSpace_of_partition
+#print axioms metrizableSpace_of_pullback
+#print axioms metrizableSpace_of_locally
+#print axioms paracompactSpace_of_metrizableSpace
+#print axioms metrizableSpace_pi_nat
+#print axioms MChart.metrizableSpace_source
+#print axioms MPolyfold.metrizableSpace
+#print axioms MPolyfold.isEmbedding_levelLift
+#print axioms MPolyfold.metrizableSpace_level
+#print axioms MPolyfold.paracompactSpace_level
+#print axioms MPolyfold.smoothLevel_topology_eq
+#print axioms MPolyfold.metrizableSpace_smoothLevel
+#print axioms theorem_2_16
+#print axioms MPolyfold.paracompactSpace_subtype
+#print axioms MPolyfold.metrizableSpace_tangentSpace
+#print axioms MPolyfold.paracompactSpace_tangentSpace
+#print axioms proposition_2_19_3
+#print axioms ScOperator.lvl_comp_of_base
+#print axioms ScOperator.lvl_comp_eq_zero_of_base
+#print axioms ScOperator.lvl_eq_add_of_base
+#print axioms ScRetraction.compRetraction_retract
+#print axioms proposition_2_21_3
+#print axioms proposition_2_21_4
+
+/-! ### Axioms: Chapter2/StrongBundlePullback.lean (Proposition 2.54) -/
+
+#print axioms ScOperator.isScSmoothRetractMap
+#print axioms IsScSmoothRetractMap.scPair
+#print axioms isScRetract_univ
+#print axioms pullbackFiberEquiv_add
+#print axioms pullbackFiberEquiv_smul
+#print axioms PullbackChartData.g_smooth
+#print axioms PullbackChartData.image_eq_Kg
+#print axioms PullbackChartData.mem_c_source
+#print axioms PullbackChartData.g_apply
+#print axioms PullbackChartData.mem_Kg
+#print axioms PullbackChartData.symm_mem_pullback
+#print axioms PullbackChartData.invFun_of_mem
+#print axioms PullbackChartData.toChart_apply
+#print axioms PullbackChartData.toChart_source
+#print axioms StrongBundleChart.overlap_eq_inter
+#print axioms StrongBundleChart.isScRetract_overlap
+#print axioms StrongBundleChart.isScRetract_overlap_one
+#print axioms StrongBundleChart.mem_overlap_iff
+#print axioms StrongBundleChart.transition_apply
+#print axioms PullbackChartData.mem_overlap_iff
+#print axioms PullbackChartData.transition_eqOn
+#print axioms PullbackChartData.fst_mem_overlap
+#print axioms PullbackChartData.fst_mem_retract
+#print axioms PullbackChartData.gPair_mem
+#print axioms PullbackChartData.transition_mem
+#print axioms PullbackChartData.transition_snd_mem_range
+#print axioms PullbackChartData.transition_isScSmooth
+#print axioms PullbackChartData.transitionOne_eqOn
+#print axioms PullbackChartData.transitionOne_isScSmooth
+#print axioms PullbackChartData.compatible_toChart
+#print axioms paracompactSpace_pullbackSpace
+#print axioms proposition_2_54
+
+/-! ### Axioms: Chapter3/QuadrantIFT.lean (Theorem 3.78, Lemmas 3.79-3.82) -/
+
+#print axioms ContractionData.zero_mem
+#print axioms ContractionData.uniqueDiffOn_U
+#print axioms ContractionData.one_le'
+#print axioms ContractionData.hasFDerivWithinAt
+#print axioms ContractionData.contDiffOn_deriv
+#print axioms ContractionData.continuousOn_deriv
+#print axioms ContractionData.exists_radii
+#print axioms Radii.c₀_pos
+#print axioms Radii.c₀_le_half
+#print axioms Radii.c₀_mul
+#print axioms Radii.R_sub_U
+#print axioms Radii.zero_mem_V₀
+#print axioms Radii.mem_R_of_mem_V₀
+#print axioms Radii.convex_norm_fst_le
+#print axioms Radii.convex_norm_snd_le
+#print axioms Radii.R_convex
+#print axioms Radii.zero_mem_R
+#print axioms Radii.norm_sub_le
+#print axioms Radii.norm_B_le
+#print axioms Radii.norm_B_sub_le_snd
+#print axioms Radii.norm_B_sub_le_fst
+#print axioms Radii.mapsTo_ball
+#print axioms Radii.exists_fixed
+#print axioms Radii.norm_τ_le_eps
+#print axioms Radii.τ_fixed
+#print axioms Radii.τ_mem_R
+#print axioms Radii.norm_τ_le
+#print axioms Radii.τ_zero
+#print axioms Radii.eq_τ
+#print axioms Radii.norm_τ_sub_le
+#print axioms Radii.continuousOn_τ
+#print axioms Radii.norm_D₂_le
+#print axioms Radii.norm_D₂_lt_one
+#print axioms Radii.M_mul
+#print axioms Radii.convex_CK
+#print axioms Radii.uniqueDiffOn_V₀
+#print axioms Radii.hasFDerivWithinAt_τ
+#print axioms Radii.fderivWithin_τ
+#print axioms Radii.contDiffOn_Φ
+#print axioms Radii.contDiffOn_τ
+#print axioms ContractionData.exists_solution
+#print axioms theorem_3_78
+
+/-! ### Axioms: Chapter3/QuadrantInverse.lean (Theorem 3.72, Proposition 3.73, Lemmas 3.74, 3.77;
+  interior points and the degeneracy index) -/
+
+#print axioms interior_quadrant
+#print axioms degIndex_eq_zero_iff
+#print axioms degIndex_map_eq
+#print axioms InvData.convex_C
+#print axioms InvData.isClosed_C
+#print axioms InvData.interior_C_nonempty
+#print axioms InvData.U_subset
+#print axioms InvData.uniqueDiffOn_U
+#print axioms InvData.j_ne_zero
+#print axioms InvData.hasFDerivWithinAt
+#print axioms InvData.continuousOn
+#print axioms InvData.norm_sub_sub_le
+#print axioms InvData.half_norm_le
+#print axioms InvData.norm_sub_le
+#print axioms InvData.injOn
+#print axioms InvData.derivUnit_val
+#print axioms InvData.isUnit_deriv
+#print axioms InvData.U_mem_nhds
+#print axioms InvData.map_nhds_eq
+#print axioms InvData.ball_inter_subset_image
+#print axioms InvData.image_relOpen
+#print axioms InvData.inv_mem
+#print axioms InvData.apply_inv
+#print axioms InvData.inv_apply
+#print axioms InvData.norm_inv_sub_le
+#print axioms InvData.continuousOn_inv
+#print axioms InvData.uniqueDiffOn_image
+#print axioms InvData.hasFDerivWithinAt_inv
+#print axioms InvData.contDiffOn_inverse_deriv
+#print axioms InvData.contDiffOn_inv
+#print axioms proposition_3_73
+#print axioms surjective_of_image_eq
+#print axioms theorem_3_72
+#print axioms corollary_3_75
+
+-- Chapter 2, §2.4: faces of tame M-polyfolds (TameFaces.lean)
+#print axioms minimalSubspaceWith_le
+#print axioms minimalSubspaceWith_eq
+#print axioms eventually_add_smul_mem_of_minimalSubspace
+#print axioms ScRetraction.IsTameWith.isTame
+#print axioms ScRetraction.IsTameWith.restrict
+#print axioms ScOperator.scDeriv_eq
+#print axioms insertCoordL_apply_self
+#print axioms insertCoordL_apply_succAbove
+#print axioms removeCoordL_apply
+#print axioms faceIncl_apply
+#print axioms faceProj_apply
+#print axioms coord_faceIncl_self
+#print axioms coord_faceIncl_succAbove
+#print axioms faceProj_faceIncl
+#print axioms faceIncl_faceProj
+#print axioms faceIncl_mem
+#print axioms faceProj_mem
+#print axioms degIndexWith_eq_quadrantDeg_faceProj_add_one
+#print axioms scDeriv_comp_apply_of_isScDomain
+#print axioms proposition_2_43_tameModel
+#print axioms MPolyfold.faceChartInv_spec
+#print axioms MPolyfold.faceChart_compatible_subChart
+#print axioms MPolyfold.isChart_subPolyfold_of_compatible
+#print axioms MPolyfold.isTame_of_forall_exists_chart
+#print axioms LocalModel.proposition_2_43_isTame
+#print axioms MPolyfold.isSubMPolyfold_of_local
+#print axioms MPolyfold.theorem_2_45_isSubMPolyfold_interior
+#print axioms MPolyfold.exists_localFace_of_isFaceStructured
+#print axioms MPolyfold.theorem_2_45_isSubMPolyfold_face
+#print axioms MPolyfold.theorem_2_45_isTame_face
+#print axioms MPolyfold.proposition_2_44
+
+
+/-! ### Axioms: Chapter3/GoodPositionGraph.lean (Lemma 3.70, the ray decomposition of `N ∩ C`) -/
+
+#print axioms exists_pos_le_of_forall_pos
+#print axioms quadCone_convex
+#print axioms exists_rayDecomp
+#print axioms exists_lipschitz_small
+#print axioms lemma_3_70_core
+#print axioms coordCLM_apply
+#print axioms quadCone_coordCLM
+#print axioms lemma_3_70
+
+/-! ### Axioms: Chapter3/StrongBundleSections.lean (Definitions 3.3, 3.6, 3.11, 3.14; Theorem 3.15) -/
+
+#print axioms ScBanach.addOp
+#print axioms ScBanach.negOp
+#print axioms IsScSmooth.add
+#print axioms IsScSmooth.neg
+#print axioms IsScSmooth.sub
+#print axioms IsScSmooth.toBase_shift
+#print axioms IsScSmooth.snd
+#print axioms IsScSmooth.fst
+#print axioms proj_fiberZero
+#print axioms sectionAdd_apply
+#print axioms IsSection.sectionAdd
+#print axioms isSection_fiberZero
+#print axioms StrongBundleChart.localRepOne_eq
+#print axioms StrongBundleChart.mem_source_of_proj
+#print axioms StrongBundleChart.fst_apply
+#print axioms StrongBundleChart.apply_section
+#print axioms StrongBundleChart.apply_section'
+#print axioms StrongBundleChart.snd_add
+#print axioms StrongBundleChart.snd_fiberZero
+#print axioms StrongBundleChart.snd_sub
+#print axioms StrongBundleChart.principal_sectionAdd
+#print axioms StrongBundleChart.isZeroAt_iff
+#print axioms StrongBundleChart.principal_eq_zero_of_isZeroAt
+#print axioms StrongBundleChart.add_mem_K
+#print axioms StrongBundle.isChart_of_mem
+#print axioms StrongBundle.IsChart.toMChart
+#print axioms StrongBundle.IsScSmoothSection.isScSmoothRetractMap
+#print axioms StrongBundle.IsScSmoothSection.continuousOn_principal
+#print axioms StrongBundle.IsScPlusSection.principal_mem_range
+#print axioms StrongBundle.IsScPlusSection.isScSmoothRetractMap_one
+#print axioms StrongBundle.IsScPlusSection.continuousOn_source
+#print axioms IsConjugateToBasicGerm.congr
+#print axioms IsFillerOf.congr_left
+#print axioms StrongBundleChart.r_image
+#print axioms StrongBundleChart.r_mem_O
+#print axioms StrongBundleChart.zero_mem_U
+#print axioms StrongBundleChart.isQuadrantLike
+#print axioms StrongBundle.exists_chart_mem
+#print axioms StrongBundle.IsScPlusSection.toBase_principalLift
+#print axioms StrongBundle.IsScPlusSection.mem_K
+#print axioms StrongBundle.IsScPlusSection.snd_mem_range
+#print axioms StrongBundle.IsScSmoothSection.add_isScSmoothRetractMap
+#print axioms StrongBundle.continuousOn_sectionAdd
+#print axioms StrongBundle.IsScSmoothSection.sectionAdd
+#print axioms StrongBundle.IsScSmoothSection.isScSmoothSectionGerm
+#print axioms StrongBundle.regularizing_sectionAdd_wholeChart
+#print axioms StrongBundle.IsScFredholmGermWholeChart.sectionAdd
+#print axioms theorem_3_15_wholeChart
+
+-- Chapter 2, §2.4: products and fibred products (FibredProduct.lean)
+#print axioms prodPresentation_apply
+#print axioms prodPresentation_castAdd
+#print axioms prodPresentation_natAdd
+#print axioms prod_eq_prodPresentation
+#print axioms IsPartialQuadrant.prod
+#print axioms degIndexWith_prodPresentation
+#print axioms degIndex_prod
+#print axioms minimalSubspaceWith_prodPresentation
+#print axioms IsRelOpenInQuadrant.prod
+#print axioms lvlSet_prod
+#print axioms IsScSmooth.prodMap
+#print axioms scDeriv_prodMap
+#print axioms ScRetraction.prod_apply
+#print axioms ScRetraction.prod_retract
+#print axioms IsScRetract.prod
+#print axioms IsScSmoothRetractMap.prodMap
+#print axioms levelSub_prod
+#print axioms IsScSubspace.prod
+#print axioms IsScSplitting.prod
+#print axioms ScRetraction.IsTameWith.prod
+#print axioms MChart.prod_apply
+#print axioms MChart.prod_source
+#print axioms MChart.prod_symm_apply
+#print axioms MChart.prod_model_O
+#print axioms MChart.overlap_prod
+#print axioms MChart.Compatible.prod
+#print axioms MPolyfold.paracompactSpace_prod
+#print axioms MPolyfold.IsChart.prod
+#print axioms MPolyfold.chartDegIndex_prod
+#print axioms MPolyfold.degIndex_prod_le
+#print axioms MPolyfold.isTame_prod
+#print axioms MPolyfold.isScSmoothMap_fst
+#print axioms MPolyfold.isScSmoothMap_snd
+#print axioms MPolyfold.IsScSmoothOn.prodMk
+#print axioms MPolyfold.IsLocalScDiffeo.continuous
+#print axioms MPolyfold.isClosed_fibredProduct
+#print axioms MPolyfold.isSubMPolyfold_fibredProduct
+#print axioms MPolyfold.isSubMPolyfold_fibredProduct'
+#print axioms MPolyfold.IsLocalScDiffeo.isScSmoothMap
+#print axioms MPolyfold.isScDiffeoOn_snd_fibredProduct
+#print axioms MPolyfold.isScDiffeoOn_fst_fibredProduct
+#print axioms MPolyfold.degIndex_fibredProduct_eq_snd
+#print axioms MPolyfold.degIndex_fibredProduct_eq_fst
+#print axioms MPolyfold.isTame_fibredProduct
+#print axioms MPolyfold.proposition_2_46
+#print axioms MPolyfold.proposition_2_46_of_isLocalScDiffeo
+
+/-! ### Axioms: Chapter3/SectionCompactness.lean (Theorem 3.12, Corollary 3.13 for sections) -/
+
+#print axioms IsStrongBundleMap.apply_eq
+#print axioms IsStrongBundleMap.base_mem
+#print axioms IsStrongBundleMap.snd_zero
+#print axioms IsStrongBundleMap.snd_sub
+#print axioms IsStrongBundleMap.base_isScSmooth
+#print axioms IsStrongBundleMap.toBase_shiftFiber_snd
+#print axioms IsStrongBundleIso.base_base
+#print axioms IsStrongBundleIso.base_base'
+#print axioms IsStrongBundleIso.snd_eq_zero_iff
+#print axioms IsStrongBundleIso.base_zero'
+#print axioms eq_of_mem_closure_of_continuousOn
+#print axioms tendsto_of_isCompact_of_tendsto_map
+#print axioms MPolyfold.levelVal_levelChartSymm
+#print axioms MPolyfold.continuousOn_levelChartSymm
+#print axioms theorem_3_12_local_subset
+#print axioms theorem_3_12_wholeChart
+#print axioms corollary_3_13_wholeChart
+#print axioms StrongBundle.fiberZero_mem_doubleLevel
+#print axioms StrongBundle.IsScFredholmSectionWholeChart.mem_smoothSet_of_isZeroAt
+#print axioms StrongBundle.IsScSmoothSection.isZeroAt_of_tendsto
+#print axioms corollary_3_13_section_wholeChart
+
+-- Chapter 2, §2.4: the partial cone of a tame retract (PartialCone.lean)
+#print axioms toBase_smoothLift
+#print axioms incl_smoothLift
+#print axioms le_of_mem_iff
+#print axioms sub_sum_mem
+#print axioms splitFwd_fst
+#print axioms splitFwd_snd
+#print axioms splitBwd_val
+#print axioms ell_toBase_splitBwd
+#print axioms splitBwd_splitFwd
+#print axioms splitFwd_splitBwd
+#print axioms splitIso_fst
+#print axioms isPartialQuadrant_ofSubspace
+#print axioms coordVec_mem_smooth
+#print axioms proposition_2_36_partialCone
+
+-- Chapter 2, §2.4: corner germs (CornerGerms.lean)
+#print axioms cornerIdx_not_mem
+#print axioms cornerIdx_injective
+#print axioms exists_cornerIdx
+#print axioms cornerInsertL_apply_mem
+#print axioms cornerInsertL_apply_idx
+#print axioms cornerRemoveL_cornerInsertL
+#print axioms cornerInsertL_cornerRemoveL
+#print axioms cornerIncl_apply
+#print axioms cornerProj_apply
+#print axioms coord_cornerIncl_mem
+#print axioms coord_cornerIncl_idx
+#print axioms cornerProj_cornerIncl
+#print axioms cornerIncl_cornerProj
+#print axioms cornerIncl_mem
+#print axioms cornerProj_mem
+#print axioms degIndexWith_eq_quadrantDeg_cornerProj_add_card
+#print axioms cornerKill_apply
+#print axioms cornerKill_eq_self
+#print axioms cornerKill_coord_mem
+#print axioms cornerKill_mem
+#print axioms corner_retraction
+#print axioms corner_tameModel
+#print axioms MPolyfold.proposition_2_44_corner
+
+/-! ### Axioms: Chapter3/BasicGermLinearization.lean (Lemma 3.9 at 0, Proposition 3.10) -/
+
+#print axioms IsSc1GermWith.isScOperator_deriv_zero
+#print axioms IsSc0ContractionGerm.deriv_zero_snd
+#print axioms ScBanach.projWOp
+#print axioms ScBanach.projParamOp
+#print axioms ScBanach.projParamOp_idem
+#print axioms ScBanach.range_projParamOp
+#print axioms ScBanach.projWSplitting
+#print axioms ScBanach.isScFredholm_projWOp
+#print axioms ScBanach.scIndex_projWOp
+#print axioms proposition_3_10_scPlus
+#print axioms ContinuousLinearMap.ext_of_comp_toBase_one
+#print axioms proposition_3_10
+
+-- Chapter 2, §2.5: the M-polyfold Y[1] (StrongBundleOne.lean)
+#print axioms strongShiftOne_mono
+#print axioms StrongBundleChart.overlap_subset_K
+#print axioms StrongBundleChart.toBase_liftOne
+#print axioms StrongBundleChart.liftOne_mem
+#print axioms StrongBundle.mem_oneSet_iff
+#print axioms StrongBundle.oneVal_oneMk
+#print axioms StrongBundle.oneVal_mem
+#print axioms StrongBundle.oneVal_injective
+#print axioms StrongBundle.isOpen_one_basic
+#print axioms StrongBundle.continuous_oneVal
+#print axioms StrongBundle.symm_mem_oneSet
+#print axioms StrongBundle.oneVal_oneChartInv
+#print axioms StrongBundle.liftOne_symm
+#print axioms StrongBundle.oneChart_apply
+#print axioms StrongBundle.oneChart_source
+#print axioms StrongBundle.oneChart_symm_apply
+#print axioms StrongBundle.oneChart_overlap
+#print axioms StrongBundle.oneChart_transition
+#print axioms StrongBundle.oneChart_compatible
+#print axioms StrongBundle.metrizableSpace_one
+#print axioms StrongBundle.isChart_oneChart
+#print axioms StrongBundle.isScSmoothMap_proj1
+#print axioms StrongBundle.isScSmoothMap_oneVal
+#print axioms StrongBundle.isScPlusSection_iff
+#print axioms StrongBundle.range_toBase_mono
+#print axioms StrongBundle.mem_doubleLevel_iff
+
+/-! ### Axioms: Chapter3/BasicClass.lean (Theorem 3.38, weak stability of basic germs) -/
+
+#print axioms ScBanach.smoothLevelEquiv
+#print axioms ScBanach.coe_smoothLevelEquiv
+#print axioms ScBanach.toBase_smoothLevelEquiv_symm
+#print axioms ScBanach.finLift
+#print axioms ScBanach.toBase_finLift
+#print axioms ScBanach.finLift_mem
+#print axioms ScBanach.incl_finLift
+#print axioms ScBanach.finLift_zero_apply
+#print axioms ScBanach.finLift_eq_of_toBase
+#print axioms ScBanach.levelToSub
+#print axioms ScBanach.coe_levelToSub
+#print axioms ScBanach.IsScSplitting.proj
+#print axioms ScBanach.IsScSplitting.proj_add
+#print axioms ScBanach.IsScSplitting.proj_apply_left
+#print axioms ScBanach.IsScSplitting.proj_apply_right
+#print axioms ScBanach.IsScSplitting.exists_add
+#print axioms ScBanach.IsScSplitting.sub_proj_mem
+#print axioms ScBanach.IsScSplitting.incl_proj
+#print axioms ScBanach.IsScSplitting.toBase_proj
+#print axioms ScBanach.IsScSplitting.left
+#print axioms ScBanach.IsScSplitting.projOp
+#print axioms ScBanach.IsScSplitting.projOp_apply
+#print axioms ScBanach.IsScSubspace.inclOp
+#print axioms ScBanach.IsScSubspace.inclOp_apply
+#print axioms ScBanach.ofSubspace_toBase_coe
+#print axioms ScBanach.ofSubspace_incl_coe
+#print axioms ScBanach.isScSubspace_bot
+#print axioms ScBanach.isScSubspace_top
+#print axioms ScBanach.levelSub_bot
+#print axioms ScBanach.levelSub_top
+#print axioms ScBanach.isScSplitting_bot_top
+#print axioms ScOperator.idSplitting
+#print axioms isScFredholm_id
+#print axioms scIndex_id
+#print axioms scPlusOfDeriv
+#print axioms scPlusOfDeriv_apply
+#print axioms scPlusOfDeriv_zero_apply
+#print axioms scPlusRemainder
+#print axioms scPlusRemainder_contraction
+#print axioms StabilityData
+#print axioms StabilityData.hs
+#print axioms StabilityData.A
+#print axioms StabilityData.T
+#print axioms StabilityData.T_apply
+#print axioms StabilityData.Cs
+#print axioms StabilityData.Xs
+#print axioms StabilityData.Zs
+#print axioms StabilityData.Rs
+#print axioms StabilityData.Cs_le_smooth
+#print axioms StabilityData.Zs_le_smooth
+#print axioms StabilityData.splitX
+#print axioms StabilityData.splitC
+#print axioms StabilityData.splitR
+#print axioms StabilityData.splitZ
+#print axioms StabilityData.XB
+#print axioms StabilityData.XB_lvl
+#print axioms StabilityData.projX
+#print axioms StabilityData.projC
+#print axioms StabilityData.projR
+#print axioms StabilityData.projZ
+#print axioms StabilityData.projX_add_projC
+#print axioms StabilityData.projC_add_projX
+#print axioms StabilityData.projR_add_projZ
+#print axioms StabilityData.T_eq_zero_of_mem
+#print axioms StabilityData.T_mem_Rs
+#print axioms StabilityData.projR_T
+#print axioms StabilityData.Lm
+#print axioms StabilityData.coe_Lm
+#print axioms StabilityData.Lm_bijective
+#print axioms StabilityData.Lequiv
+#print axioms StabilityData.Lequiv_apply
+#print axioms StabilityData.LinvP
+#print axioms StabilityData.LinvP_apply
+#print axioms StabilityData.LinvP_eq_of
+#print axioms StabilityData.LinvP_T
+#print axioms StabilityData.T_LinvP
+#print axioms StabilityData.incl_LinvP
+#print axioms StabilityData.LinvPOp
+#print axioms StabilityData.LinvPOp_apply
+#print axioms StabilityData.liftC
+#print axioms StabilityData.liftZ
+#print axioms StabilityData.toC
+#print axioms StabilityData.toZ
+#print axioms StabilityData.liftC_toC
+#print axioms StabilityData.liftZ_toZ
+#print axioms StabilityData.toC_liftC
+#print axioms StabilityData.toZ_liftZ
+#print axioms StabilityData.toC_coe_Xs
+#print axioms StabilityData.toZ_T
+#print axioms StabilityData.projR_liftZ
+#print axioms StabilityData.projX_liftC
+#print axioms StabilityData.T_liftC
+#print axioms StabilityData.toC_incl
+#print axioms StabilityData.toZ_incl
+#print axioms StabilityData.E'
+#print axioms StabilityData.F'
+#print axioms StabilityData.glue
+#print axioms StabilityData.glue_apply
+#print axioms StabilityData.split
+#print axioms StabilityData.split_apply
+#print axioms StabilityData.glue_split
+#print axioms StabilityData.split_glue
+#print axioms StabilityData.fiber
+#print axioms StabilityData.fiber_apply
+#print axioms StabilityData.fiberInv
+#print axioms StabilityData.fiberInv_apply
+#print axioms StabilityData.fiber_fiberInv
+#print axioms StabilityData.fiberInv_fiber
+#print axioms StabilityData.fiber_eq_zero_iff
+#print axioms ScOperator.shiftOp
+#print axioms ScOperator.shiftOp_apply
+#print axioms ScBanach.inrOp
+#print axioms StabilityData.fsum
+#print axioms StabilityData.fsum_apply
+#print axioms StabilityData.Bbar
+#print axioms StabilityData.Bbar_apply
+#print axioms StabilityData.Bbar_zero
+#print axioms StabilityData.pushGerm
+#print axioms StabilityData.mem_pushGerm_U
+#print axioms StabilityData.glue_mapsToGerm
+#print axioms StabilityData.pushMap
+#print axioms StabilityData.pushB
+#print axioms StabilityData.isQuadrantLike_E'
+#print axioms StabilityData.fsum_isScSmoothGerm
+#print axioms StabilityData.Bbar_isSc0Germ
+#print axioms StabilityData.pushMap_isScSmoothGerm
+#print axioms StabilityData.snd_levelMap_fsum
+#print axioms StabilityData.snd_pushMap
+#print axioms StabilityData.pushMap_zero
+#print axioms StabilityData.pushB_zero
+#print axioms StabilityData.levelMap_Bbar
+#print axioms StabilityData.levelMap_pushB
+#print axioms StabilityData.pushB_isSc0ContractionGerm
+#print axioms theorem_3_38
+#print axioms StabilityData.pushMap_eq_zero_iff
+#print axioms StabilityData.finrank_Cs_eq_finrank_Zs
+#print axioms StabilityData.exists_of_scPlus
+#print axioms StabilityData.E₀'
+#print axioms StabilityData.F₀'
+#print axioms StabilityData.glue₀
+#print axioms StabilityData.glue₀_apply
+#print axioms StabilityData.glue_eq_glue₀
+#print axioms StabilityData.split₀
+#print axioms StabilityData.split₀_apply
+#print axioms StabilityData.split_eq_split₀
+#print axioms StabilityData.glue₀_split₀
+#print axioms StabilityData.split₀_glue₀
+#print axioms StabilityData.fiber₀
+#print axioms StabilityData.fiber₀_apply
+#print axioms StabilityData.fiber_eq_fiber₀
+#print axioms StabilityData.fiberInv₀
+#print axioms StabilityData.fiberInv₀_apply
+#print axioms StabilityData.fiber₀_fiberInv₀
+#print axioms StabilityData.fiberInv₀_fiber₀
+#print axioms StabilityData.fiber₀_eq_zero_iff
+#print axioms StabilityData.pushGerm₀
+#print axioms StabilityData.mem_pushGerm₀_U
+#print axioms StabilityData.pushGerm_U_eq
+#print axioms StabilityData.glue₀_mapsToGerm
+#print axioms StabilityData.pushMap₀
+#print axioms StabilityData.pushMap₀_isScSmoothGerm
+#print axioms StabilityData.pushMap₀_zero
+#print axioms StabilityData.pushMap_eq_levelMap_pushMap₀
+
+/-! ### Axioms: Chapter3/FillerLinearAlgebra.lean and FillerLinearization.lean (Proposition 3.5,
+the matrix of `Dg(0)`, Remark 3.49) -/
+
+#print axioms fillerRestrict
+#print axioms fillerRestrictₗ
+#print axioms ker_fillerRestrict
+#print axioms range_fillerRestrict
+#print axioms isClosed_range_of_idem
+#print axioms fillerRestrict_mem_range_of
+#print axioms fillerRestrict_exists_of
+#print axioms fillerRestrict_q_sub
+#print axioms fillerRestrict_surjective_iff
+#print axioms fillerRestrict_kerMap
+#print axioms fillerRestrict_kerMap_injective
+#print axioms fillerRestrict_kerMap_surjective
+#print axioms fillerRestrict_kerEquiv
+#print axioms fillerRestrict_mem_range_iff
+#print axioms fillerRestrict_cokerEquiv
+#print axioms fredholmIndex_fillerRestrict
+#print axioms fillerRestrict_isClosed_range_of
+#print axioms isClosed_range_of_fillerRestrict
+#print axioms fillerRestrict_isFredholm_iff
+#print axioms proposition_3_5
+#print axioms scDeriv_comp_apply'
+#print axioms StrongRetr.r_isScSmooth
+#print axioms StrongRetr.r_zero
+#print axioms StrongRetr.scDeriv_r_idem
+#print axioms StrongRetr.ρCLM_idem
+#print axioms StrongRetr.fiber_isSc1
+#print axioms StrongRetr.scDeriv_fiber_zero
+#print axioms ContinuousLinearMap.prod_comp'
+#print axioms IsFillerOf.scDeriv_sub_eq
+#print axioms IsFillerOf.deriv_comp_r_eq_zero
+#print axioms IsFillerOf.exists_kerEquiv
+#print axioms IsFillerOf.ρ_deriv_comp_r
+#print axioms IsFillerOf.proposition_3_5
+#print axioms IsFillerOf.scDeriv_section_comp_r
+#print axioms IsFillerOf.remark_3_49
+
+/-! ### Axioms: Chapter3/FredholmGermLinearization.lean (Proposition 3.52: the linearization of an
+sc-Fredholm germ at a zero is Fredholm of index `n − N`) -/
+
+#print axioms ScNbhdGerm.preimage
+#print axioms ScNbhdGerm.preimage_U
+#print axioms ScNbhdGerm.preimage_subset
+#print axioms ScNbhdGerm.preimage_mapsToGerm
+#print axioms IsStrongBundleMap.fiber_continuous
+#print axioms IsStrongBundleMap.fiberCLM
+#print axioms IsStrongBundleMap.fiberCLM_apply
+#print axioms IsStrongBundleMap.fiber_isSc1
+#print axioms IsStrongBundleMap.scDeriv_fiber_zero
+#print axioms IsStrongBundleMap.scDeriv_fiber_comp
+#print axioms isFredholm_equiv_comp_equiv
+#print axioms ScOperator.zero
+#print axioms proposition_3_10_basic
+#print axioms proposition_3_10_basic_level_zero
+#print axioms IsConjugateToBasicGerm.scDeriv_isFredholm_wholeChart
+#print axioms proposition_3_52_local_wholeChart
+#print axioms proposition_3_52_wholeChart
+
+/-! ### Axioms: Chapter3/GoodPositionOpen.lean (Lemma 3.55: good position along the graph of a
+`C^1`-map with `τ(0) = 0`, `Dτ(0) = 0`) -/
+
+#print axioms tangentConeAt_subset_of_subset_closed
+#print axioms fderivWithin_mem_of_mapsTo
+#print axioms graphSpace
+#print axioms mem_graphSpace
+#print axioms add_mem_graphSpace
+#print axioms graphSpace_isClosed
+#print axioms graphSpace_isCompl
+#print axioms lemma_3_55_core
+#print axioms lemma_3_55
+
+/-! ### Axioms: Chapter3/GoodPositionGerm.lean (Definition 3.53 in the chart, the linear part of
+Theorem 3.54 and the push-forward `Ψ_*(g) = h + t`) -/
+
+#print axioms IsInGoodPositionIn
+#print axioms isInGoodPositionIn_top_iff
+#print axioms IsInGoodPositionIn.isInGoodPosition
+#print axioms IsFillerOf.ker_deriv_le_range
+#print axioms IsFillerOf.map_ker_fillerRestrict
+#print axioms IsGoodPositionAt
+#print axioms IsGoodPositionAt.surjective_fillerRestrict
+#print axioms theorem_3_54_linear_wholeChart
+#print axioms theorem_3_54_linear_of_isTameWith_wholeChart
+#print axioms partialQuadrantAtWith_zero
+#print axioms scDeriv_mem_iff_of_inverse
+#print axioms pushforward
+#print axioms IsStrongBundleIso.pushforward_linearization_wholeChart
+#print axioms IsStrongBundleIso.pushforward_surjective_wholeChart
+#print axioms IsStrongBundleIso.pushforward_ker_isInGoodPosition_wholeChart
+#print axioms theorem_3_54_pushforward_wholeChart
+#print axioms StrongBundle.IsGoodPositionGermWholeChart
+#print axioms StrongBundle.IsGoodPositionGermWholeChart.isScFredholmGerm
+#print axioms theorem_3_54_pushforward_section_wholeChart
+
+/-! ### Axioms: Chapter3/LocalSolvability.lean (Lemmas 3.42, 3.44, 3.46, Theorems 3.43, 3.47,
+local germ-solvability) -/
+
+#print axioms graphMap
+#print axioms graphMap_apply
+#print axioms graphMap_injective
+#print axioms mem_map_graphMap
+#print axioms graphMap_mem_prod_iff
+#print axioms lemma_3_46
+#print axioms lemma_3_46_isInGoodPosition
+#print axioms IsBasicGerm.B_isScSmoothGerm
+#print axioms exists_norm_le_of_injOn
+#print axioms exists_proj_mem_of_eq_zero
+#print axioms ShiftedBasicData
+#print axioms ShiftedBasicData.𝒞
+#print axioms ShiftedBasicData.δ
+#print axioms ShiftedBasicData.δ_zero
+#print axioms ShiftedBasicData.B_isScSmooth
+#print axioms ShiftedBasicData.sol_mem
+#print axioms ShiftedBasicData.snd_g₁_sol
+#print axioms ShiftedBasicData.eq_δ
+#print axioms ShiftedBasicData.Dg
+#print axioms ShiftedBasicData.hg1
+#print axioms ShiftedBasicData.snd_g_sol
+#print axioms ShiftedBasicData.H
+#print axioms ShiftedBasicData.H_eq
+#print axioms ShiftedBasicData.H_zero
+#print axioms ShiftedBasicData.H_contDiffOn
+#print axioms ShiftedBasicData.Deriv
+#print axioms ShiftedBasicData.exists_deriv
+#print axioms ShiftedBasicData.Deriv.uniqueDiffWithinAt
+#print axioms ShiftedBasicData.Deriv.Dδ₀
+#print axioms ShiftedBasicData.Deriv.hasFDerivWithinAt_δ
+#print axioms ShiftedBasicData.Deriv.L
+#print axioms ShiftedBasicData.Deriv.graphCLM
+#print axioms ShiftedBasicData.Deriv.graphCLM_apply
+#print axioms ShiftedBasicData.Deriv.DH₀
+#print axioms ShiftedBasicData.Deriv.DH₀_apply
+#print axioms ShiftedBasicData.Deriv.hasFDerivWithinAt_curve
+#print axioms ShiftedBasicData.Deriv.curve_mapsTo
+#print axioms ShiftedBasicData.Deriv.hasFDerivWithinAt_comp
+#print axioms ShiftedBasicData.Deriv.hasFDerivWithinAt_H
+#print axioms ShiftedBasicData.Deriv.fderivWithin_H
+#print axioms ShiftedBasicData.Deriv.snd_Dg_inr
+#print axioms ShiftedBasicData.Deriv.snd_Dg_graph
+#print axioms ShiftedBasicData.Deriv.ker_Dg_eq
+#print axioms ShiftedBasicData.Deriv.DH₀_surjective
+#print axioms ShiftedBasicData.K'
+#print axioms ShiftedBasicData.Sol
+#print axioms ShiftedBasicData.exists_sol
+#print axioms ShiftedBasicData.Sol.Kt
+#print axioms ShiftedBasicData.Sol.mem_K'_iff
+#print axioms ShiftedBasicData.Sol.π
+#print axioms ShiftedBasicData.Sol.coe_π
+#print axioms ShiftedBasicData.Sol.snd_eq_L
+#print axioms ShiftedBasicData.Sol.coe_eq_graph
+#print axioms ShiftedBasicData.Sol.lift
+#print axioms ShiftedBasicData.Sol.coe_lift
+#print axioms ShiftedBasicData.Sol.π_lift
+#print axioms ShiftedBasicData.Sol.lift_π
+#print axioms ShiftedBasicData.Sol.mem_C'_iff
+#print axioms ShiftedBasicData.Sol.τ
+#print axioms ShiftedBasicData.Sol.V
+#print axioms ShiftedBasicData.Sol.mem_V
+#print axioms ShiftedBasicData.Sol.V_relOpen
+#print axioms ShiftedBasicData.Sol.zero_mem_V
+#print axioms ShiftedBasicData.Sol.τ_mem_Y
+#print axioms ShiftedBasicData.Sol.τ_zero
+#print axioms ShiftedBasicData.Sol.coe_add_τ
+#print axioms ShiftedBasicData.Sol.sol_mem_and_eq_zero
+#print axioms ShiftedBasicData.Sol.a_contDiffOn
+#print axioms ShiftedBasicData.Sol.a_mapsTo
+#print axioms ShiftedBasicData.Sol.τ_contDiffOn
+#print axioms ShiftedBasicData.Sol.snd_τ_mem_range
+#print axioms ShiftedBasicData.Sol.uniqueDiffWithinAt_V
+#print axioms ShiftedBasicData.Sol.hasFDerivWithinAt_τ
+#print axioms ShiftedBasicData.Sol.fderivWithin_τ
+#print axioms ShiftedBasicData.Sol.projK
+#print axioms ShiftedBasicData.Sol.sub_projK_mem
+#print axioms ShiftedBasicData.Sol.exists_eq_add_τ
+#print axioms ShiftedBasicData.Sol.exists_contDiffOn_level
+#print axioms theorem_3_43_sc_smooth
+#print axioms theorem_3_43
+#print axioms StabilityData.toShiftedBasicData
+#print axioms StabilityData.lemma_3_42
+#print axioms StabilityData.Dfs
+#print axioms StabilityData.scDerivGerm_pushMap₀
+#print axioms IsPartialQuadrant.const_prod_univ
+#print axioms theorem_3_47_sc_smooth
+#print axioms theorem_3_47
+
+/-! ### Axioms: Chapter3/SolutionLinearization.lean (Corollary 3.41: the linearization at nearby
+solutions; Fredholm stability under small perturbations, Lemma 3.9 on level 0) -/
+
+#print axioms isFredholm_add_of_norm_lt
+#print axioms isFredholm_fredholmIndex_add_of_norm_lt
+#print axioms HasFiniteIndex.surjective_of_finrank_ker_le
+#print axioms IsSc0ContractionGerm.exists_norm_deriv_snd_le
+#print axioms StabilityData.Dfs'
+#print axioms StabilityData.Ds
+#print axioms StabilityData.Df
+#print axioms StabilityData.DB
+#print axioms StabilityData.Dfs'_zero
+#print axioms StabilityData.isSc1GermWith_Dfs'
+#print axioms StabilityData.isSc1GermWith_Ds
+#print axioms StabilityData.isSc1GermWith_Df
+#print axioms StabilityData.isSc1GermWith_DB
+#print axioms StabilityData.Dfs'_eq
+#print axioms StabilityData.snd_Df_eq
+#print axioms StabilityData.DB_zero_snd
+#print axioms StabilityData.Sop
+#print axioms StabilityData.Sop_apply
+#print axioms StabilityData.Kop
+#print axioms StabilityData.Dfs'_eq_add
+#print axioms StabilityData.exists_norm_Sop_le
+#print axioms StabilityData.Kop_isCompactOperator
+#print axioms StabilityData.isFredholm_Dfs
+#print axioms StabilityData.exists_isFredholm_Dfs'
+#print axioms IsSc1GermWith.tendsto_deriv
+#print axioms IsSc1GermWith.exists_norm_deriv_le
+#print axioms StabilityData.exists_ker_Dfs'_inf_eq_bot
+#print axioms StabilityData.corollary_3_41
+
+/-! ### Axioms: Chapter3/InverseFamily.lean (Lemma 3.61: the inverse `(v, k) ↦ L(v)⁻¹k` of a family
+of sc-isomorphisms is sc-smooth) -/
+
+#print axioms ScNbhdGerm.prodFull
+#print axioms ScNbhdGerm.prodFull_U
+#print axioms ScNbhdGerm.const_U_subset
+#print axioms ScNbhdGerm.const_U_succ_subset
+#print axioms famMap
+#print axioms famInv
+#print axioms famMap_apply
+#print axioms famInv_apply
+#print axioms levelMap_famMap
+#print axioms levelMap_famInv
+#print axioms famInv_isSc0Germ
+#print axioms exists_forall_norm_le_of_isCompact
+#print axioms ScIso.symm_shift_toBase
+#print axioms famInvDeriv
+#print axioms famInvDeriv_apply
+#print axioms famInv_hasFDerivWithinAt
+#print axioms ScIso.toBase_symm_apply
+#print axioms tangentFamInvValue
+#print axioms toBase_tangentFamInvValue
+#print axioms levelMap_tangentMapWith_famInv
+#print axioms famInv_tangent_isSc0
+#print axioms famInv_isSc1GermWith
+#print axioms tangentBaseOp
+#print axioms tangentInlOp
+#print axioms tangentFiberOp
+#print axioms ScBanach.subOp
+#print axioms famInv_isSckGerm
+#print axioms lemma_3_61
+
+/-! ### Axioms: Chapter3/BasicGermCriterion.lean (Lemmas 3.59, 3.60 in abstract form, towards
+Theorem 3.58) -/
+
+#print axioms FamilyCompactness
+#print axioms lemma_3_59
+#print axioms lemma_3_60
+
+/-! ### Axioms: Chapter1/LevelsWeak.lean (Proposition 1.19 and Corollary 1.20 under the text's
+hypothesis) -/
+
+#print axioms ScBanach.shiftAdd
+#print axioms ScBanach.shiftAddZeroIso
+#print axioms ScBanach.shiftAddShiftIso
+#print axioms IsSck.add
+#print axioms IsSck.sum
+#print axioms hasFDerivAt_cmm_eval
+#print axioms isDerivTower_of_contDiffOn_levels
+#print axioms ElemData.isSc0
+#print axioms ElemData.isSc1With
+#print axioms ElemData.tangentMap_eqOn
+#print axioms ElemData.isSck
+#print axioms proposition_1_19_text
+#print axioms IsScSmooth.of_contDiffOn_levels_text
+#print axioms corollary_1_20_text
+#print axioms IsScSmooth.of_contDiffOn_levels_finiteDimensional_text
+
+
+/-! ### Axioms: Chapter3/TangentGerm.lean (Definition 3.25, the tangent germ property; Theorem 3.27
+under the regularity conditions `IsRegular`) -/
+
+#print axioms IsScSmoothGerm.isScInftyGermAt
+#print axioms IsScSmooth.isScInftyGermAt
+#print axioms IsScInftyGermAt.continuousOn_level
+#print axioms IsScInftyGermAt.contDiffOn_one
+#print axioms toBase_finSmoothLift
+#print axioms isScSmooth_subtype_val
+#print axioms MPolyfold.TangentGermChart.isPartialQuadrant
+#print axioms MPolyfold.TangentGermChart.V_isRelOpenInQuadrant
+#print axioms MPolyfold.TangentGermChart.isTopCompl
+#print axioms MPolyfold.TangentGermChart.π_graph
+#print axioms MPolyfold.TangentGermChart.Γ_mem_O
+#print axioms MPolyfold.TangentGermChart.symm_Γ_mem
+#print axioms MPolyfold.TangentGermChart.exists_eq_Γ
+#print axioms MPolyfold.TangentGermChart.t_mem_Sig
+#print axioms MPolyfold.TangentGermChart.t_t
+#print axioms MPolyfold.TangentGermChart.Sig_eq
+#print axioms MPolyfold.TangentGermChart.isOpen_U₀
+#print axioms MPolyfold.TangentGermChart.image_U₀
+#print axioms MPolyfold.TangentGermChart.s_mem
+#print axioms MPolyfold.TangentGermChart.s_eq_self
+#print axioms MPolyfold.TangentGermChart.image_s
+#print axioms MPolyfold.TangentGermChart.Γ_isScSmooth
+#print axioms MPolyfold.TangentGermChart.π_isScSmooth
+#print axioms MPolyfold.TangentGermChart.t_isScSmoothRetractMap
+#print axioms MPolyfold.TangentGermChart.s_isScSmoothOn
+#print axioms theorem_3_27_isSubMPolyfold
+#print axioms MPolyfold.TangentGermChart.model_isTameRetract
+#print axioms MPolyfold.TangentGermChart.chart
+#print axioms MPolyfold.TangentGermChart.chart_symm_apply
+#print axioms MPolyfold.TangentGermChart.chart_isCorner
+#print axioms MPolyfold.TangentGermChart.mem_chart_source
+#print axioms MPolyfold.TangentGermChart.Γ_isScSmoothRetractMap
+#print axioms MPolyfold.TangentGermChart.π_isScSmoothRetractMap
+#print axioms MPolyfold.TangentGermChart.chart_compatible_subChart
+#print axioms MPolyfold.theorem_3_27_isChart
+#print axioms MPolyfold.tangentCharts_compatible
+#print axioms MPolyfold.germAtlas
+#print axioms MPolyfold.theorem_3_27_atlas_equiv
+#print axioms MPolyfold.theorem_3_27_isTame
+#print axioms MPolyfold.theorem_3_27_isManifoldWithCorners
+#print axioms theorem_3_27
+#print axioms MPolyfold.theorem_3_27_degIndex
+#print axioms MPolyfold.TangentGermChart.transport
+#print axioms proposition_3_26_image
+#print axioms proposition_3_26
+
+
+/-! ### Axioms: Chapter3/GlobalIFT.lean (Theorem 3.54, the graph description of the solution set;
+Theorems 3.56, 3.57 from the tangent germ property) -/
+
+#print axioms ScBanach.qPartOp
+#print axioms ScBanach.wPartOp
+#print axioms scDeriv_eq_of_eqOn_nhds
+#print axioms theorem_3_54_graph_wholeChart
+#print axioms theorem_3_57_of_tangentGerm
+#print axioms theorem_3_56_of_tangentGerm
+
+/-! ### Axioms: Chapter2/TameInvariance.lean (tameness is carried by sc-diffeomorphisms) -/
+
+#print axioms scIsoLevel
+#print axioms toBase_scIsoLevel
+#print axioms levelSub_map_eq
+#print axioms mem_smoothLvl_of_isScOperator
+#print axioms IsScSubspace.map
+#print axioms IsScSplitting.map
+#print axioms IsScDiffeoQuadrant.transport
+#print axioms IsScDiffeoQuadrant.transport_retract
+#print axioms IsScDiffeoQuadrant.degIndex_eq
+#print axioms IsScDiffeoQuadrant.scDeriv_transport
+#print axioms IsScDiffeoQuadrant.isTameWith_transport
+#print axioms IsScDiffeoQuadrant.isTame_transport
+#print axioms IsScDiffeoQuadrant.isTameRetract_image
+
+/-! ### Axioms: Chapter3/SolutionGermRegularity.lean (the sc^∞-germ property from the `C^k`-lifts;
+the kernel of `D(h + s)(0)` is smooth) -/
+
+#print axioms exists_clm_toBase_eq
+#print axioms isScInftyGermAt_of_lifts
+#print axioms StabilityData.ker_Dfs_le_smooth
+
+/-! ### Axioms: Chapter3/LocalSolvabilityClosed.lean (Theorems 3.43, 3.47 with the closedness of
+the good complement) -/
+
+#print axioms theorem_3_43_closed
+#print axioms theorem_3_47_closed
+
+/-! ### Axioms: Chapter3/GlobalIFTFull.lean (Theorem 3.54 (1) in the chart at `x₀`: Corollary 3.41
+and Lemma 3.55 at the nearby zeros) -/
+
+#print axioms coordCLMWith
+#print axioms mem_iff_coordCLMWith
+#print axioms subset_partialQuadrantAtWith
+#print axioms lemma_3_55_relOpen
+#print axioms StabilityData.exists_surjective_Dfs'_graph
+#print axioms theorem_3_54_nearby_wholeChart
+
+/-! ### Axioms: Chapter3/GlobalIFTCenter.lean (the chart `ψ ∘ ϕ`; the data of Definition 3.25 (2) for
+the solution set at `x₀`) -/
+
+#print axioms IsScSmooth.isScSmoothRetractMap_of_subset
+#print axioms MChart.compDiffeo
+#print axioms MChart.compDiffeo_isChart
+#print axioms theorem_3_54_tangentGermChart_wholeChart
+
+/-! ### Axioms: Chapter3/BasicGermCriterionProof.lean (Theorem 3.58 from the family of
+sc-isomorphisms `L(b) = P ∘ D₂f(b, 0)|X`: the contraction estimate, the strong bundle isomorphism
+`Φ`, conjugation to a basic germ) -/
+
+#print axioms norm_sub_sub_le_of_hasFDerivWithinAt_segment
+#print axioms pushGerm358_snd
+#print axioms snd_levelDeriv_eq_L
+#print axioms norm_symm_le
+#print axioms levelMap_contrMap358
+#print axioms mem_lvlSet_of_small
+#print axioms contrMap358_contraction
+#print axioms IsSc0Germ.isSc0_ofSet
+#print axioms IsSckGerm.isSck_ofSet
+#print axioms IsScSmoothGerm.isScSmooth_ofSet
+#print axioms shiftFam_apply
+#print axioms famMap_shiftFam
+#print axioms IsScDomain.paramProd_shift
+#print axioms famMap_shiftFam_isScSmooth
+#print axioms fiberIsoMap_isScSmooth
+#print axioms isRelOpenInQuadrant_param
+#print axioms shiftFiber_fiberIsoMap
+#print axioms fiberIsoMap_isStrongBundleMap
+#print axioms fiberIsoMap_isStrongBundleIso
+#print axioms famMap_isScSmooth_of_deriv
+#print axioms famInv_isScSmooth_of
+#print axioms theorem_3_58_of_family
+
+/-! ### Axioms: Chapter3/BasicGermCriterionIndex.lean (Theorem 3.58: the family `L(b)` from
+conditions (1), (2) via Lemmas 3.59, 3.60 and the index argument) -/
+
+#print axioms exists_bound_of_continuousOn_clm
+#print axioms hasFiniteIndex_snd_and_linIndex
+#print axioms hasFiniteIndex_inr_and_linIndex
+#print axioms fredholmIndex_block
+#print axioms surjective_of_fredholmIndex_block
+#print axioms mem_lvlSet_param
+#print axioms param_mem_smoothLvl
+#print axioms derivParamOp_zero
+#print axioms derivParamOp_lvl
+#print axioms derivFamOp_apply
+#print axioms continuousOn_levelDeriv_param
+#print axioms continuousOn_derivFamOp
+#print axioms familyCompactness_derivFamOp
+#print axioms ScOperator.injective_lvl
+#print axioms FamilyCompactness.mono
+#print axioms theorem_3_58
+
+/-! ### Axioms: Chapter3/LinearizationCharts.lean (the chart independence of the linearization of a
+section at a zero and of good position; Definition 3.53 at a zero from a non-centred chart) -/
+
+#print axioms eq_comp_of_conj
+#print axioms surjective_iff_of_conj
+#print axioms ker_eq_map_of_conj
+#print axioms isFredholm_iff_of_conj
+#print axioms dense_image_of_conj
+#print axioms restrictEquiv
+#print axioms restrictEquiv_apply
+#print axioms transportSub
+#print axioms mem_transportSub
+#print axioms transportSub_le
+#print axioms mem_transportSub_iff
+#print axioms transportSub_symm
+#print axioms transportSub_eq_map
+#print axioms IsInGoodPositionIn.transport
+#print axioms isInGoodPositionIn_transport_iff
+#print axioms scDeriv_eq_of_eqOn_relOpen
+#print axioms scDeriv_scPair
+#print axioms IsSc1.scPair'
+#print axioms scDeriv_fiber_of_vanishing
+#print axioms linAt
+#print axioms linAt_apply
+#print axioms scDeriv_r_idem_at
+#print axioms rho_scDeriv_comp_r
+#print axioms scDeriv_comp_r_eq_of_eventuallyEq
+#print axioms linAt_eq_scDeriv
+#print axioms mem_rangeS_ρCLM_iff
+#print axioms IsFilledVersion.fillerRestrict_eq_linAt
+#print axioms MChart.symm_mem_of_mem_overlap
+#print axioms StrongBundleChart.fst_mem_O
+#print axioms StrongBundleChart.symm_mem_source
+#print axioms StrongBundleChart.apply_symm
+#print axioms StrongBundleChart.proj_symm
+#print axioms StrongBundleChart.smul_mem_K
+#print axioms StrongBundleChart.mem_K_ρ
+#print axioms StrongBundleChart.fiberSymm
+#print axioms StrongBundleChart.fiberSymm_coe
+#print axioms StrongBundleChart.symm_add
+#print axioms StrongBundleChart.symm_smul
+#print axioms StrongBundleChart.transition_fst
+#print axioms StrongBundleChart.transition_snd_add
+#print axioms StrongBundleChart.transition_snd_smul
+#print axioms StrongBundleChart.transition_snd_zero
+#print axioms StrongBundleChart.transition_mem_K
+#print axioms StrongBundleChart.transition_transition
+#print axioms StrongBundleChart.transitionFiberCLM
+#print axioms StrongBundleChart.transitionFiberCLM_apply
+#print axioms StrongBundleChart.transitionFiberCLM_apply_of_mem
+#print axioms StrongBundleChart.overlap_eq_inter_prod
+#print axioms linAt_chart_change
+#print axioms StrongBundle.IsChart.transition_isScSmoothRetractMap
+#print axioms StrongBundleChart.principal_mem_K
+#print axioms StrongBundle.isGoodPositionGerm_of_chart_dense
+#print axioms StrongBundle.isGoodPositionGerm_of_chart_wholeChart
+#print axioms StrongBundle.isGoodPositionGerm_of_linAt
+#print axioms StrongBundle.isGoodPositionGerm_of_linAt_surj_wholeChart
+#print axioms StrongBundle.linAt_chart_independence
+
+/-! ### Axioms: Chapter3/GlobalIFTNearbyGraph.lean, GlobalIFTNearbyKernel.lean,
+GlobalIFTNearbySurj.lean (Theorem 3.54 (1) at the nearby zeros in the chart at `x₀`: the kernel of
+the linearization, `N_v = ker D(h + t)(z)`, and Theorem 3.54 (1) under condition (3) of the filler
+at the nearby zeros) -/
+
+#print axioms scDeriv_eq_of_eqOn_nhds_at
+#print axioms IsStrongBundleMap.scDeriv_fiber_at
+#print axioms IsStrongBundleMap.scDeriv_fiber_comp_at
+#print axioms IsStrongBundleIso.levelMap_base_base
+#print axioms IsStrongBundleIso.levelMap_base_mem
+#print axioms IsStrongBundleIso.toBase_levelMap_base
+#print axioms IsStrongBundleIso.scDeriv_pushforward_at
+#print axioms IsStrongBundleIso.scDeriv_base_inv_base
+#print axioms IsStrongBundleIso.scDeriv_base_base_inv
+#print axioms IsStrongBundleIso.derivInvEquiv_apply
+#print axioms IsStrongBundleIso.fiberCLM_injective
+#print axioms IsStrongBundleIso.ker_scDeriv_eq_map
+#print axioms scDeriv_mem_partialQuadrantAtWith_iff
+#print axioms scDeriv_apply_toBase_deriv_eq_of_fixed
+#print axioms finrank_ker_eq_fredholmIndex_of_surjective
+#print axioms finrank_graphSpace_of_compl
+#print axioms uniqueDiffWithinAt_relOpen_cone
+#print axioms relOpen_cone_inter
+#print axioms fderivWithin_eq_toBase_comp
+#print axioms IsInGoodPosition.isInGoodPositionIn_of_le
+#print axioms StabilityData.graphSpace_le_ker_Dfs'
+#print axioms StabilityData.graphSpace_eq_ker_Dfs'
+#print axioms theorem_3_54_chart_graph_wholeChart
+#print axioms theorem_3_54_chart_kernel_wholeChart
+#print axioms exists_range_scDeriv_eq_ρ_of_normal_injective
+#print axioms StrongBundle.IsScSmoothSection.isSc1_principal_comp_r
+#print axioms theorem_3_54_nearby_kernel_wholeChart
+#print axioms StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGerm
+#print axioms theorem_3_54_one_wholeChart
+
+
+/-! ### Axioms: Chapter3/GoodComplementProjection.lean and the `_proj` theorems in
+LocalSolvabilityClosed.lean, GlobalIFT.lean, GlobalIFTCenter.lean (good complements whose
+projection maps the partial quadrant into itself; condition (b) of `IsRegular` for the solution set
+at the centre) -/
+
+#print axioms ProjectsInto.projectionOnto_mem
+#print axioms projectsInto_of_projectionOnto_mem
+#print axioms ProjectsInto.map
+#print axioms ProjectsInto.mapL
+#print axioms coordOn_apply
+#print axioms sigmaCoord_eq_coordOn
+#print axioms mem_quadCone_of_zero_mem_interior
+#print axioms mem_quadCone_of_coordSet
+#print axioms exists_coordSet
+#print axioms exists_coord_ge
+#print axioms exists_pos_le_of_finite
+#print axioms exists_proj_quadCone
+#print axioms continuous_coordFun
+#print axioms exists_proj_goodComplement
+#print axioms exists_goodComplement_projectsInto
+#print axioms IsGoodComplement.prod_top_graph
+#print axioms ProjectsInto.prod_top_graph
+#print axioms ShiftedBasicData.exists_sol_of_goodComplement
+#print axioms ShiftedBasicData.exists_sol_proj
+#print axioms theorem_3_43_proj
+#print axioms theorem_3_47_proj
+#print axioms theorem_3_54_graph_proj_wholeChart
+#print axioms MPolyfold.TangentGermChart.π_mem_of_projectsInto
+#print axioms MPolyfold.TangentGermChart.isRegular_of_projectsInto
+#print axioms theorem_3_54_tangentGermChart_proj_wholeChart
+
+/-! ### Axioms: Chapter3/GlobalIFTNearbyPerturb.lean (the linear algebra of the λ-extended problem
+of Proposition 6.2: the obstruction to good position at the corner and the tilted kernel) -/
+
+#print axioms mem_lineality_of_goodComplement_prod
+#print axioms sup_lineality_eq_top_of_goodComplement_prod
+#print axioms extProj_apply
+#print axioms extParam_apply
+#print axioms mem_extendedKernel
+#print axioms mem_extendedCompl
+#print axioms isInGoodPosition_extendedKernel
+
+/-! ### Axioms: Chapter3/FredholmGermIndex.lean (Proposition 3.52 with the index `n − N` of the
+given conjugation to a basic germ) -/
+
+#print axioms isConjugateToBasicGerm_iff_nonempty
+#print axioms ConjugationData.scDeriv_isFredholm_index_wholeChart
+#print axioms ConjugationData.index_eq_wholeChart
+#print axioms proposition_3_52_local_index_wholeChart
+#print axioms proposition_3_52_index_wholeChart
+
+/-! ### Axioms: Chapter3/BasicClassComposition.lean (Corollary 3.39: strong bundle isomorphisms
+from sc-operators, the index raise, composition, push-forwards, Theorem 3.38's change as a strong
+bundle isomorphism) -/
+
+#print axioms ScOperator.prodMap
+#print axioms ScOperator.prodMap_apply
+#print axioms ScOperator.isStrongBundleMap_prodMap
+#print axioms ScOperator.isStrongBundleIso_prodMap
+#print axioms IsStrongBundleMap.toBase_strongShift
+#print axioms IsStrongBundleMap.toBase_strongShift_fst
+#print axioms IsStrongBundleMap.toBase_strongShift_snd
+#print axioms IsStrongBundleMap.toBase_base_strongShift
+#print axioms IsStrongBundleMap.shift
+#print axioms IsStrongBundleIso.shift
+#print axioms IsStrongBundleMap.base_comp
+#print axioms IsStrongBundleMap.shiftFiber_comp
+#print axioms IsStrongBundleMap.comp
+#print axioms IsStrongBundleIso.comp
+#print axioms IsStrongBundleIso.pushforward_comp
+#print axioms IsStrongBundleMap.strongShift_comp
+#print axioms StabilityData.linIso_apply
+#print axioms StabilityData.base_linIso
+#print axioms StabilityData.isRelOpen_glue_preimage
+#print axioms StabilityData.linIso_isStrongBundleIso
+#print axioms StabilityData.isRelOpen_glue₀_preimage
+#print axioms StabilityData.linIso₀_isStrongBundleIso
+#print axioms StabilityData.strongShift_linIso₀
+#print axioms ConjugationData.compIso_eq
+#print axioms ConjugationData.compIsoInv_eq
+#print axioms ConjugationData.compIso_eq_strongShift
+#print axioms corollary_3_39
+#print axioms corollary_3_39_isConjugate
+
+/-! ### Axioms: Chapter3/SolutionGermRecentre.lean (the regularity of the solution germ away from
+the centre: the re-centring lemma, condition (a) of `IsRegular`, the shrinking of the data of
+Definition 3.25 (2), the inverse function machinery with weak hypotheses, Sard in fixed dimension,
+tameness of open subsets of tame retracts) -/
+
+#print axioms InvDataW.j_ne_zero
+#print axioms InvDataW.hasFDerivWithinAt
+#print axioms InvDataW.continuousOn
+#print axioms InvDataW.norm_sub_sub_le
+#print axioms InvDataW.half_norm_le
+#print axioms InvDataW.injOn
+#print axioms InvDataW.derivUnit_val
+#print axioms InvDataW.isUnit_deriv
+#print axioms InvDataW.inv_mem
+#print axioms InvDataW.apply_inv
+#print axioms InvDataW.inv_apply
+#print axioms InvDataW.norm_inv_sub_le
+#print axioms InvDataW.continuousOn_inv
+#print axioms InvDataW.hasFDerivWithinAt_inv
+#print axioms InvDataW.contDiffOn_inverse_deriv
+#print axioms InvDataW.contDiffOn_inv
+#print axioms exists_linearMap_surjective
+#print axioms finrank_le_of_interior_image_nonempty
+#print axioms uniqueDiffOn_relOpen_convex
+#print axioms interior_nonempty_of_relOpen_convex
+#print axioms exists_contDiffOn_inverse
+#print axioms recentre_contDiffOn_levels
+#print axioms ScRetraction.restrict_isTame
+#print axioms IsTameRetract.inter_isOpen
+#print axioms MChart.isTameRetract_image
+#print axioms MPolyfold.TangentGermChart.shrink_φ_source
+#print axioms MPolyfold.TangentGermChart.shrink_φ_model_O
+#print axioms MPolyfold.TangentGermChart.shrink_φ_apply
+#print axioms MPolyfold.TangentGermChart.shrink_N
+#print axioms MPolyfold.TangentGermChart.shrink_V
+#print axioms MPolyfold.TangentGermChart.shrink_δ
+#print axioms MPolyfold.TangentGermChart.shrink_π
+#print axioms MPolyfold.TangentGermChart.shrink_isRegular
+#print axioms MPolyfold.TangentGermChart.exists_shrinkData
+#print axioms MPolyfold.TangentGermChart.exists_lift
+#print axioms MPolyfold.TangentGermChart.fderivWithin_V_zero
+#print axioms MPolyfold.TangentGermChart.exists_isRegular_of_locally
+
+/-! ### Axioms: Chapter3/GlobalIFTTheorems.lean (Theorem 3.27 with locally constant dimension;
+Theorems 3.54 (2), 3.19, 3.23, 3.56, 3.57, Corollary 3.24 for the solution set of an sc-Fredholm
+section; the decomposition of the solution set by dimension) -/
+
+#print axioms MPolyfold.IsManifoldWithCorners.isManifoldWithCornersLoc
+#print axioms MPolyfold.theorem_3_27_loc_isSubMPolyfold
+#print axioms MPolyfold.theorem_3_27_loc_isChart
+#print axioms MPolyfold.tangentChartsLoc_compatible
+#print axioms MPolyfold.theorem_3_27_loc_atlas_equiv
+#print axioms MPolyfold.theorem_3_27_loc_isTame
+#print axioms MPolyfold.theorem_3_27_loc_isManifoldWithCornersLoc
+#print axioms theorem_3_27_loc
+#print axioms theorem_3_54_tangentGermChart_solutionSet_wholeChart
+#print axioms theorem_3_54_two_wholeChart
+#print axioms theorem_3_54_wholeChart
+#print axioms theorem_3_23_of_nearby_wholeChart
+#print axioms theorem_3_23_wholeChart
+#print axioms theorem_3_19_linearization_wholeChart
+#print axioms theorem_3_19_wholeChart
+#print axioms theorem_3_57_wholeChart
+#print axioms corollary_3_24_wholeChart
+#print axioms theorem_3_56_wholeChart
+#print axioms isOpen_solutionSetDimOpen
+#print axioms theorem_3_57_dim_wholeChart
+
+/-! ### Axioms: Chapter3/ParamPerturbation.lean (Theorem 3.18: `ℝⁿ` and `ℝⁿ × X`, the pull-back
+bundle as a structure, the `Λ`-extension of strong bundle isomorphisms and basic germs, the
+product chart, the sc-Fredholm sections `f̃` and `F = f̃ + s̃`, the linearization of `F`) -/
+
+#print axioms rnSc
+#print axioms rn_relOpen_univ
+#print axioms rnModel
+#print axioms rnChart
+#print axioms rnChart_apply
+#print axioms rnChart_symm_apply
+#print axioms rnChart_source
+#print axioms rnChart_model_O
+#print axioms isScSmoothRetractMap_const_of_contDiff
+#print axioms rnChart_overlap
+#print axioms rnChart_compatible
+#print axioms rnPolyfold
+#print axioms isChart_rnChart
+#print axioms rnPolyfold_isTame
+#print axioms rnPolyfold_levelSet
+#print axioms prod_rn_mem_levelSet_iff
+#print axioms prod_rn_mem_smoothSet_iff
+#print axioms prod_rn_isTame
+#print axioms isScSmooth_smul
+#print axioms IsScSmooth.smul
+#print axioms IsScSmooth.finsetSum
+#print axioms rnCoordOp
+#print axioms ScBanach.assocOp
+#print axioms ScBanach.assocInvOp
+#print axioms relOpen_univ_const
+#print axioms IsRelOpenInQuadrant.univ_prod
+#print axioms paramMap
+#print axioms paramMap_shiftFiber
+#print axioms IsStrongBundleMap.paramMap
+#print axioms IsStrongBundleIso.paramMap
+#print axioms levelMap_comp_scOperator
+#print axioms paramForgetOp
+#print axioms paramForgetOp_apply
+#print axioms paramSwapOp
+#print axioms paramSwapInvOp
+#print axioms paramSwapOp_apply
+#print axioms paramSwapInvOp_apply
+#print axioms ScNbhdGerm.paramExtend
+#print axioms IsBasicGerm.paramExtend
+#print axioms IsConjugateToBasicGerm.paramExtend
+#print axioms StrongBundle.pullback
+#print axioms exists_pullbackChartData
+#print axioms PullbackChartData.isChart_toChart
+#print axioms pullbackLift
+#print axioms isSection_pullbackLift
+#print axioms continuous_pullbackLift
+#print axioms PullbackChartData.toChart_pullbackLift
+#print axioms PullbackChartData.g_mem_O
+#print axioms PullbackChartData.toChart_pullbackLift_comp
+#print axioms StrongBundle.IsScSmoothSection.pullback
+#print axioms fiberComb
+#print axioms paramSection
+#print axioms paramLift
+#print axioms paramComb
+#print axioms paramSection_eq_sectionAdd
+#print axioms PullbackChartData.toChart_paramComb
+#print axioms isScSmooth_chart_coord
+#print axioms StrongBundle.isScPlusSection_paramComb
+#print axioms PullbackChartData.ofProd
+#print axioms PullbackChartData.ofProd_isFillerOf
+#print axioms PullbackChartData.ofProd_principal_paramComb
+#print axioms PullbackChartData.ofProd_principal_paramSection
+#print axioms StrongBundle.IsScFredholmGermWholeChart.param
+#print axioms StrongBundle.regularizing_paramLift_wholeChart
+#print axioms StrongBundle.IsScFredholmSectionWholeChart.param
+#print axioms theorem_3_18_wholeChart
+#print axioms theorem_3_18'_wholeChart
+#print axioms scDeriv_paramSection_wholeChart
+#print axioms PullbackChartData.ofProd_scDeriv_r
+#print axioms PullbackChartData.ofProd_mem_tangent
+#print axioms linAt_paramSection_wholeChart
+#print axioms linAt_paramSection_zero_wholeChart
+
+/-! ### Axioms: Chapter4/ScPlus.lean (sc⁺-maps; Definitions 4.4, 4.6, Lemmas 4.5, 4.7,
+Proposition 4.8 in the retract and chart forms; Remark 4.3; finite-dimensional sc-Banach spaces) -/
+
+#print axioms ScBanach.toBase_liftOne
+#print axioms ScBanach.liftOne_toBase
+#print axioms ScBanach.liftOne_eq_iff
+#print axioms IsScPlus.toBase_lift
+#print axioms IsScPlus.mem_range_succ
+#print axioms IsScPlus.iff_exists
+#print axioms IsScPlus.isScSmooth
+#print axioms IsScPlus.congr
+#print axioms IsScPlus.mono
+#print axioms IsScPlus.comp_isScSmooth
+#print axioms IsScSmooth.comp_isScPlus
+#print axioms ScPlus.isScPlus
+#print axioms IsScPlus.exists_scPlus_deriv
+#print axioms IsScPlus.isCompactOperator_deriv
+#print axioms finiteDimensional_range_of_isCompactOperator_of_idem
+#print axioms ScRetraction.IsScPlus.mem_lvlSet_succ
+#print axioms lemma_4_5
+#print axioms IsScPlusRetract.isScRetract
+#print axioms IsScPlusRetract.isScPlus
+#print axioms isScPlusRetract_iff_forall
+#print axioms lemma_4_7_i
+#print axioms lemma_4_7_ii
+#print axioms lemma_4_7_ii_tangentSpace
+#print axioms proposition_4_8
+#print axioms ScBanach.finiteDimensional_lvl
+#print axioms ScBanach.toBase_surjective
+#print axioms ScBanach.scIsoConst
+#print axioms ScBanach.scIsoConst_apply
+#print axioms remark_4_3_const
+#print axioms MPolyfold.levelVal_toLevelOne
+#print axioms MPolyfold.toLevelOne_levelVal
+#print axioms MPolyfold.levelChart_toLevelOne
+#print axioms isScSmoothRetractMap_toBase_one
+#print axioms MPolyfold.remark_4_3_levelVal
+#print axioms MPolyfold.remark_4_3_isScDiffeo
+#print axioms MPolyfold.mem_smoothSet_iff
+#print axioms MPolyfold.smoothSet_subset_levelSet
+#print axioms MPolyfold.proposition_4_8_chart
+#print axioms MPolyfold.isScSmoothMap_toLevelOne_iff
+
+/-! ### Axioms: Chapter4/Recentre.lean (re-centring of charts and strong bundle charts at a smooth
+point: the partial quadrant `C_e`, translations, `MChart.recentre`, `StrongBundleChart.recentre`) -/
+
+#print axioms isOpen_recentreNbhd
+#print axioms mem_recentreNbhd
+#print axioms recentreNbhd_inter_eq
+#print axioms add_mem_partialQuadrantAtWith_iff
+#print axioms sub_mem_partialQuadrantAtWith_iff
+#print axioms image_sub_partialQuadrantAtWith
+#print axioms zeroIdxEnum_mem
+#print axioms zeroIdxEnum_injective
+#print axioms zeroIdxEnum_equivFin
+#print axioms splitCoordsL
+#print axioms splitCoordsIso
+#print axioms recentreIso
+#print axioms recentreIso_fst
+#print axioms partialQuadrantAtWith_eq_preimage
+#print axioms isPartialQuadrant_partialQuadrantAtWith
+#print axioms recentreIso_fst_sub
+#print axioms zero_of_mem_recentreNbhd
+#print axioms degIndexWith_recentreIso
+#print axioms degIndex_sub_recentre
+#print axioms minimalSubspaceWith_recentreIso
+#print axioms partialQuadrantAtWith_recentreIso
+#print axioms isScSmooth_add_const
+#print axioms isScSmooth_sub_const
+#print axioms relOpen_translate
+#print axioms isScDiffeoQuadrant_translate
+#print axioms ScRetraction.restrictIn
+#print axioms ScRetraction.restrictIn_U
+#print axioms ScRetraction.restrictIn_U_subset
+#print axioms ScRetraction.restrictIn_apply
+#print axioms ScRetraction.restrictIn_retract
+#print axioms ScRetraction.scDeriv_restrictIn
+#print axioms ScRetraction.IsTameWith.restrictIn
+#print axioms ScRetraction.restrictIn_isTame
+#print axioms isScRetract_recentre
+#print axioms isTameRetract_recentre
+#print axioms MChart.isOpen_recentreSource
+#print axioms MChart.image_recentreSource
+#print axioms MChart.relOpen_recentreDom
+#print axioms MChart.recentreSource_subset
+#print axioms MChart.recentre
+#print axioms MChart.recentre_source
+#print axioms MChart.recentre_apply
+#print axioms MChart.recentre_symm_apply
+#print axioms MChart.recentre_model_E
+#print axioms MChart.recentre_model_C
+#print axioms MChart.recentre_model_O
+#print axioms MChart.mem_recentre_source
+#print axioms MChart.recentre_apply_self
+#print axioms MChart.recentre_isChart
+#print axioms MChart.isTameRetract_recentre
+#print axioms MChart.chartDegIndex_recentre
+#print axioms addFst_subFst
+#print axioms subFst_addFst
+#print axioms mem_smooth_prod_zero
+#print axioms isScSmooth_addFst
+#print axioms isScSmooth_subFst
+#print axioms continuous_addFst
+#print axioms continuous_subFst
+#print axioms isScSmoothRetractMap_of_isScSmooth_univ
+#print axioms IsStrongBundleRetraction.restrictIn
+#print axioms IsStrongBundleRetraction.restrictIn_base_retract
+#print axioms IsStrongBundleRetraction.translate
+#print axioms IsStrongBundleRetraction.translate_base_retract
+#print axioms StrongBundleChart.mem_source_iff'
+#print axioms StrongBundleChart.apply_mem_K'
+#print axioms StrongBundleChart.R_apply_of_mem_K
+#print axioms StrongBundleChart.recentreBaseR_retract
+#print axioms StrongBundleChart.recentre_mem_target
+#print axioms StrongBundleChart.recentre_addFst_mem_K
+#print axioms StrongBundleChart.recentrePE
+#print axioms StrongBundleChart.recentre
+#print axioms StrongBundleChart.recentre_apply
+#print axioms StrongBundleChart.recentre_symm_apply
+#print axioms StrongBundleChart.recentre_source
+#print axioms StrongBundleChart.recentre_φ
+#print axioms StrongBundleChart.recentre_R
+#print axioms StrongBundleChart.mem_recentre_source_iff
+#print axioms StrongBundleChart.recentre_overlap
+#print axioms StrongBundleChart.mem_overlap_recentre_iff
+#print axioms StrongBundleChart.overlap_recentre_eq
+#print axioms StrongBundleChart.Compatible.recentre
+#print axioms StrongBundle.IsChart.recentre
+#print axioms MPolyfold.exists_centredChart
+#print axioms MPolyfold.IsTame.exists_centredChart
+#print axioms StrongBundle.IsChart.exists_centred
+
+/-! ### Axioms: Chapter4/ScPlusGraph.lean (Proposition 4.9 with Lemmas 4.11 and 4.12, by the direct
+proof: the sc-diffeomorphism `p : O ∩ W → V ⊆ T₀O ∩ C` of an sc⁺-retract near a point) -/
+
+#print axioms exists_norm_sub_sub_le_of_hasFDerivWithinAt
+#print axioms ScRetraction.liftOne
+#print axioms ScRetraction.liftDeriv
+#print axioms ScRetraction.lvlMap
+#print axioms ScRetraction.lvlDeriv
+#print axioms ScRetraction.IsScPlus.isScSmooth_liftOne
+#print axioms ScRetraction.IsScPlus.isSc1With_liftOne
+#print axioms ScRetraction.IsScPlus.hasFDerivWithinAt_lvlMap
+#print axioms ScRetraction.IsScPlus.continuousOn_lvlDeriv
+#print axioms ScRetraction.IsScPlus.continuousOn_lvlMap
+#print axioms ScRetraction.IsScPlus.lvlMap_eq_self
+#print axioms ScRetraction.IsScPlus.toBase_lvlMap
+#print axioms ScRetraction.IsScPlus.toBase_liftDeriv
+#print axioms ScRetraction.IsScPlus.toBase_lvlDeriv
+#print axioms ScRetraction.IsScPlus.lvlDeriv_lvlDeriv
+#print axioms ScRetraction.exists_ball_inter_subset
+#print axioms ScRetraction.lvlSet_U_subset_lvlSet_C
+#print axioms ScRetraction.IsScPlus.exists_mvt
+#print axioms GraphData.zero_mem_lvlSet_retract
+#print axioms GraphData.zero_mem_lvlSet_U
+#print axioms GraphData.N_eq_range
+#print axioms GraphData.finiteDimensional
+#print axioms GraphData.scDeriv_zero_mem
+#print axioms GraphData.scDeriv_zero_of_mem
+#print axioms GraphData.smooth
+#print axioms GraphData.isCompl
+#print axioms GraphData.mem_Y_iff
+#print axioms GraphData.sub_p_mem_Y
+#print axioms GraphData.p_coe_mem_N
+#print axioms GraphData.liftN
+#print axioms GraphData.liftN_eq_iff
+#print axioms GraphData.pL
+#print axioms GraphData.qL
+#print axioms GraphData.toBase_pL
+#print axioms GraphData.qL_apply
+#print axioms GraphData.toBase_qL
+#print axioms GraphData.toBase_qL_mem_Y
+#print axioms GraphData.pL_of_mem_N
+#print axioms GraphData.pL_of_mem_Y
+#print axioms GraphData.qL_of_mem_N
+#print axioms GraphData.qL_of_mem_Y
+#print axioms GraphData.qL_eq_zero_iff
+#print axioms GraphData.qL_add_pL
+#print axioms GraphData.qL_lvlDeriv_zero
+#print axioms GraphData.lvlDeriv_zero_of_mem_N
+#print axioms GraphData.norm_coe
+#print axioms GraphData.eps
+#print axioms GraphData.eps_pos
+#print axioms GraphData.eps_spec
+#print axioms GraphData.eps'
+#print axioms GraphData.eps'_pos
+#print axioms GraphData.norm_toBase_le_eps_mul
+#print axioms GraphData.exists_contraction_radius
+#print axioms GraphData.eq_of_p_eq
+#print axioms GraphData.exists_graph_point
+#print axioms GraphData.p_mem_C
+#print axioms GraphData.Nbhd.V
+#print axioms GraphData.Nbhd.V_relOpen
+#print axioms GraphData.Nbhd.zero_mem_V
+#print axioms GraphData.Nbhd.V_subset
+#print axioms GraphData.Nbhd.image_V
+#print axioms GraphData.Nbhd.Γ_zero
+#print axioms GraphData.Nbhd.injOn_p
+#print axioms GraphData.exists_nbhd
+#print axioms norm_sub_le_of_projection
+#print axioms hasFDerivWithinAt_of_projection
+#print axioms GraphData.A
+#print axioms GraphData.A_apply
+#print axioms GraphData.M
+#print axioms GraphData.frame
+#print axioms GraphData.frame_apply
+#print axioms GraphData.liftN_shift_inclK
+#print axioms GraphData.frameL
+#print axioms GraphData.frameL_apply
+#print axioms GraphData.toBase_frameL
+#print axioms GraphData.scDeriv_sub_eq
+#print axioms GraphData.FrameSmall
+#print axioms GraphData.exists_frameSmall
+#print axioms GraphData.A_injective
+#print axioms GraphData.Aeq
+#print axioms GraphData.coe_Aeq
+#print axioms GraphData.M_eq_symm
+#print axioms GraphData.A_M
+#print axioms GraphData.p_frame
+#print axioms GraphData.eq_zero_of_mem_Y_of_scDeriv_eq
+#print axioms GraphData.scDeriv_sub_frame
+#print axioms GraphData.scDeriv_frame
+#print axioms GraphData.p_toBase_frameL
+#print axioms GraphData.lvlDeriv_sub_frameL
+#print axioms GraphData.Nbhd.V_isRelOpenInQuadrant
+#print axioms GraphData.Nbhd.isScDomain_V
+#print axioms GraphData.Nbhd.uniqueDiffOn_V
+#print axioms GraphData.Nbhd.Γ_lvl
+#print axioms GraphData.Nbhd.Γ_mem_smooth
+#print axioms GraphData.Nbhd.toBase_Γ_lvl
+#print axioms GraphData.Nbhd.Γ_lvl_eq_iff
+#print axioms GraphData.Nbhd.levelMap_Γ_eq
+#print axioms GraphData.Nbhd.Γ_lvl_zero
+#print axioms GraphData.Nbhd.Γ_lvl_one
+#print axioms GraphData.Nbhd.Γ_lvl_mem_retract
+#print axioms GraphData.Nbhd.Γ_lvl_mem_U
+#print axioms GraphData.Nbhd.Γ_lvl_mem_C
+#print axioms GraphData.Nbhd.norm_Γ_lvl_one_lt
+#print axioms GraphData.Nbhd.shift_toBase_Γ_lvl
+#print axioms GraphData.Nbhd.shift_inclK_Γ_lvl
+#print axioms GraphData.Nbhd.deriv_bound_Γ
+#print axioms GraphData.Nbhd.norm_Γ_lvl_one_sub_le
+#print axioms GraphData.Nbhd.continuousOn_Γ_lvl_one
+#print axioms GraphData.Nbhd.Γ_lvl_succ
+#print axioms GraphData.Nbhd.continuousOn_Γ_lvl
+#print axioms GraphData.Nbhd.continuousOn_Γ
+#print axioms GraphData.Nbhd.hasFDerivWithinAt_Γ_lvl
+#print axioms GraphData.contDiffOn_lvlDeriv_apply
+#print axioms GraphData.Nbhd.contDiffOn_lvlDeriv_Γ
+#print axioms GraphData.Nbhd.contDiffOn_A_Γ
+#print axioms GraphData.Nbhd.contDiffOn_M_Γ
+#print axioms GraphData.Nbhd.contDiffOn_Γ_lvl
+#print axioms GraphData.Nbhd.contDiffOn_Γ_lvl_succ_infty
+#print axioms GraphData.Nbhd.contDiffOn_Γ_lvl_infty
+#print axioms GraphData.Nbhd.isScSmooth_Γ
+#print axioms GraphData.Nbhd.isScRetract_inter_W
+#print axioms GraphData.Nbhd.isScRetract_V
+#print axioms GraphData.p_isScSmooth
+#print axioms GraphData.Nbhd.p_isScSmoothRetractMap
+#print axioms GraphData.Nbhd.Γ_isScSmoothRetractMap
+#print axioms finiteDimensional_tangentSpace_zero
+#print axioms proposition_4_9
+
+/-! ### Axioms: Chapter4/Characterization.lean (Definition 4.1 and Theorem 4.2: M-polyfolds with a
+compatible structure of a manifold with boundary with corners) -/
+
+#print axioms ScBanach.mem_smooth_of_finiteDimensional
+#print axioms tangentSpace_relOpen
+#print axioms isInGoodPosition_top
+#print axioms MChart.compRetract
+#print axioms MChart.compRetract_source
+#print axioms MChart.compRetract_apply
+#print axioms MChart.compRetract_model
+#print axioms MChart.compRetract_isChart
+#print axioms MChart.IsCornerChart
+#print axioms MChart.IsCornerChart.isRelOpenInQuadrant
+#print axioms MChart.IsCornerChart.finiteDimensional
+#print axioms MChart.IsCornerChart.isTameRetract
+#print axioms MChart.IsCornerChart.isScPlusRetract
+#print axioms MChart.IsCornerChart.mem_smooth
+#print axioms MPolyfold.HasCornerStructure
+#print axioms MPolyfold.hasCornerStructure_iff
+#print axioms MPolyfold.HasCornerStructure.isTame
+#print axioms MChart.isRelOpenInQuadrant_overlap
+#print axioms MChart.IsCornerChart.contDiffOn_transition
+#print axioms IsPartialQuadrant.toConst
+#print axioms IsRelOpenInQuadrant.toConst
+#print axioms IsRelOpenInQuadrant.isScDiffeoQuadrant_toConst
+#print axioms MChart.exists_isCornerChart_of_finiteDimensional
+#print axioms MPolyfold.hasCornerStructure_iff_finiteDimensional
+#print axioms MPolyfold.isManifoldWithCorners_iff
+#print axioms MPolyfold.IsManifoldWithCorners.hasCornerStructure
+#print axioms MPolyfold.isScSmoothMap_toLevelOne_of_cover
+#print axioms image_sub_const_eq_preimage_add'
+#print axioms MChart.IsCornerChart.exists_centred
+#print axioms MChart.IsCornerChart.exists_centred_tame
+#print axioms CornerChartData
+#print axioms CornerChartData.model
+#print axioms CornerChartData.source
+#print axioms CornerChartData.isOpen_source
+#print axioms CornerChartData.image_source
+#print axioms CornerChartData.chart
+#print axioms CornerChartData.chart_source
+#print axioms CornerChartData.chart_apply
+#print axioms CornerChartData.chart_symm_apply
+#print axioms CornerChartData.chart_model
+#print axioms CornerChartData.chart_isCornerChart
+#print axioms CornerChartData.chart_isChart
+#print axioms CornerChartData.mem_chart_source
+#print axioms CornerChartData.chart_apply_eq_zero
+#print axioms exists_cornerChartData
+#print axioms MPolyfold.theorem_4_2_chart
+#print axioms MPolyfold.hasCornerStructure_of_centred
+#print axioms MPolyfold.theorem_4_2_general
+#print axioms MPolyfold.theorem_4_2
+
+/-! ### Axioms: Chapter4/Submanifolds.lean (§4.2: Definition 4.13, Remark 4.14, Proposition 4.15,
+Definitions 4.16, 4.17, 4.21 in charts with chart independence, Lemma 4.19, Theorem 4.18,
+Remark 4.20) -/
+
+#print axioms tangentSpace_inter_isOpen
+#print axioms tangentSpace_subset_of_subset
+#print axioms scDeriv_mem_tangentSpace_of_subset
+#print axioms IsGoodPositionRetractAt
+#print axioms IsGoodPositionRetractAt.congr
+#print axioms IsGoodPositionRetractAt.transport
+#print axioms IsGeneralPositionRetractAt
+#print axioms IsGeneralPositionRetractAt.congr
+#print axioms IsGeneralPositionRetractAt.transport
+#print axioms isInGoodPosition_univ
+#print axioms partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero
+#print axioms hasFDerivWithinAt_scDeriv_const
+#print axioms tangentSpace_eq_range_graph
+#print axioms isGoodComplement_sup_range
+#print axioms lemma_4_19
+#print axioms MPolyfold.SubmanifoldData
+#print axioms MPolyfold.IsSmoothSubmanifold
+#print axioms MPolyfold.isSmoothSubmanifold_iff
+#print axioms MPolyfold.SubmanifoldData.toSubData
+#print axioms MPolyfold.SubmanifoldData.toSubData_V
+#print axioms MPolyfold.SubmanifoldData.toSubData_r
+#print axioms MPolyfold.SubmanifoldData.apply_eq_self
+#print axioms MPolyfold.SubmanifoldData.mem_levelSet_one
+#print axioms MPolyfold.SubmanifoldData.isScSmoothRetractMap_lift
+#print axioms MPolyfold.SubmanifoldData.exists_chartRetraction
+#print axioms MPolyfold.SubmanifoldData.isScPlusRetract_image
+#print axioms MPolyfold.SubmanifoldData.apply_mem_smooth
+#print axioms MPolyfold.SubmanifoldData.remark_4_14
+#print axioms MPolyfold.IsSmoothSubmanifold.data
+#print axioms MPolyfold.IsSmoothSubmanifold.mem_data_V
+#print axioms MPolyfold.IsSmoothSubmanifold.isSubMPolyfold
+#print axioms MPolyfold.IsSmoothSubmanifold.mem_levelSet_one
+#print axioms MPolyfold.IsSmoothSubmanifold.subset_smoothSet
+#print axioms MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_4
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_1
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_2
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_3
+#print axioms MChart.image_inter_eq_inter
+#print axioms MPolyfold.chart_change_of_transport
+#print axioms MPolyfold.isGoodPositionRetractAt_chart_change
+#print axioms MPolyfold.isGeneralPositionRetractAt_chart_change
+#print axioms MPolyfold.SubmanifoldData.IsGoodPositionChart
+#print axioms MPolyfold.IsGoodPositionAt
+#print axioms MPolyfold.IsGoodPositionAt.isGoodPositionChart
+#print axioms MPolyfold.isGoodPositionAt_iff_forall
+#print axioms MPolyfold.SubmanifoldData.isGoodPositionChart_iff
+#print axioms MPolyfold.SubmanifoldData.IsGeneralPositionChart
+#print axioms MPolyfold.IsGeneralPositionAt
+#print axioms MPolyfold.IsGeneralPositionAt.isGeneralPositionChart
+#print axioms MPolyfold.isGeneralPositionAt_iff_forall
+#print axioms MPolyfold.IsTameSubmanifold
+#print axioms MPolyfold.hasCornerStructure_of_centred_isInGoodPosition
+#print axioms MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame
+#print axioms MPolyfold.theorem_4_18
+#print axioms MPolyfold.isGoodPositionAt_of_degIndex_eq_zero
+#print axioms MPolyfold.hasCornerStructure_of_degIndex_eq_zero
+#print axioms MPolyfold.remark_4_20
+
+/-! ### Axioms: Chapter3/GlobalIFTNearbyOntoLemmas.lean, GlobalIFTNearbyOntoGerm.lean,
+GlobalIFTNearbyOntoCurve.lean, GlobalIFTNearbyOntoXi.lean, GlobalIFTNearbyOnto.lean (Theorem 3.54
+(1) with the text's hypotheses: the surjectivity of `f'(y)` at the nearby zeros by the implicit
+function theorem for the perturbed equation `g(u) + μ ρ(r(u)) λ = 0` at the nearby zero, with the
+`λ`-extended contraction germ; Theorems 3.54, 3.23, 3.19 with the text's hypotheses) -/
+
+#print axioms exists_pos_le_of_forall_pos_fin
+#print axioms exists_inward_of_isInGoodPosition
+#print axioms inward_add_smul
+#print axioms dist_curve_le
+#print axioms exists_curve_of_inward
+#print axioms hasDerivWithinAt_smul_right_of_continuousWithinAt
+#print axioms eq_of_hasDerivWithinAt_Ici
+#print axioms StrongRetr.mem_O_of_perturbed_zero
+#print axioms perturbEW
+#print axioms perturbProj
+#print axioms perturbMuProj
+#print axioms isQuadrantLike_perturb
+#print axioms ShiftedBasicData.levelMap_e_isScSmoothGerm
+#print axioms ShiftedBasicData.eW_eq_on
+#print axioms ShiftedBasicData.eW_isScSmoothGerm
+#print axioms ShiftedBasicData.levelB_eW
+#print axioms ShiftedBasicData.Radii
+#print axioms ShiftedBasicData.Radii.ν_anti_le
+#print axioms ShiftedBasicData.levelB_B_zero
+#print axioms ShiftedBasicData.exists_radii
+#print axioms ShiftedBasicData.perturbGerm
+#print axioms ShiftedBasicData.perturbProj_mapsToGerm
+#print axioms ShiftedBasicData.perturbB
+#print axioms ShiftedBasicData.perturbB_zero
+#print axioms ShiftedBasicData.perturbB_isScSmoothGerm
+#print axioms ShiftedBasicData.levelB_perturbB
+#print axioms ShiftedBasicData.perturbMu
+#print axioms ShiftedBasicData.perturbMu_pos
+#print axioms ShiftedBasicData.perturbMu_anti
+#print axioms ShiftedBasicData.perturbMu_le
+#print axioms ShiftedBasicData.perturbMu_mul_le
+#print axioms ShiftedBasicData.perturbContraction
+#print axioms ShiftedBasicData.mem_perturbContraction_N_iff
+#print axioms ShiftedBasicData.perturbContraction_isSc1GermWith
+#print axioms ShiftedBasicData.perturbContraction_sol_zero
+#print axioms ShiftedBasicData.Dg'
+#print axioms ShiftedBasicData.hasFDerivWithinAt_Dg'
+#print axioms ShiftedBasicData.snd_g_toBase
+#print axioms ShiftedBasicData.B_eq_of_zero
+#print axioms ShiftedBasicData.curveLift
+#print axioms ShiftedBasicData.curveMap
+#print axioms ShiftedBasicData.curveDom
+#print axioms ShiftedBasicData.curveDom_subset
+#print axioms ShiftedBasicData.mem_curveDom_iff
+#print axioms ShiftedBasicData.uniqueDiffOn_curveDom
+#print axioms ShiftedBasicData.curveLift_mem
+#print axioms ShiftedBasicData.curveMap_snd
+#print axioms ShiftedBasicData.contDiffOn_curveMap
+#print axioms ShiftedBasicData.solD
+#print axioms ShiftedBasicData.curveDeriv
+#print axioms ShiftedBasicData.zero_mem_curveDom
+#print axioms ShiftedBasicData.sol_zero_eq
+#print axioms ShiftedBasicData.curveLift_zero_eq
+#print axioms ShiftedBasicData.hasFDerivWithinAt_curveMap
+#print axioms ShiftedBasicData.curveDeriv_snd
+#print axioms ShiftedBasicData.DH
+#print axioms ShiftedBasicData.solL
+#print axioms ShiftedBasicData.curveDeriv_inr
+#print axioms ShiftedBasicData.Dg'_graph
+#print axioms ShiftedBasicData.map_graph_le_ker
+#print axioms ShiftedBasicData.surjective_DH_and_ker_eq
+#print axioms ShiftedBasicData.exists_perturbed_curve
+#print axioms isScSmooth_const_of_smooth
+#print axioms xiMap
+#print axioms xiDom
+#print axioms glue₀_preimage_relOpen
+#print axioms xiDom_relOpen
+#print axioms xiMap_isScSmooth
+#print axioms xiMap_smul
+#print axioms xiMap_zero
+#print axioms levelMap_xiMap_smul
+#print axioms ehat
+#print axioms ehat_isScSmooth
+#print axioms pushGerm₀_U_subset
+#print axioms ehat_isScSmoothGerm
+#print axioms levelMap_ehat
+#print axioms exists_xi_bounds
+#print axioms exists_xi_radii_bounds
+#print axioms StabilityData.scDerivGerm_pushMap₀_at
+#print axioms StabilityData.split₀_injective
+#print axioms StabilityData.ker_fiber₀_comp_glue₀
+#print axioms exists_Ico_of_eventually_nhdsWithin_Ici
+#print axioms theorem_3_54_chart_onto_wholeChart
+#print axioms theorem_3_54_one'_wholeChart
+#print axioms theorem_3_54'_wholeChart
+#print axioms theorem_3_23'_wholeChart
+#print axioms theorem_3_19'_wholeChart
+
+/-! ### Axioms: Chapter3/GlobalIFTIndex.lean and the `_conj` theorems of GlobalIFT.lean and
+GlobalIFTCenter.lean (Chapter 3 polish: the dimension of the solution set is the Fredholm index,
+the index is locally constant along the solution set, `ker f'(y) = T_yS` in a chart, good position
+and surjectivity when `d_X = 0`, Theorems 3.19, 3.23, 3.54, 3.56, 3.57 with these clauses, the
+converse in Finding 100) -/
+
+#print axioms theorem_3_54_graph_proj_conj_wholeChart
+#print axioms theorem_3_54_tangentGermChart_proj_conj_wholeChart
+#print axioms isInGoodPositionIn_of_subset
+#print axioms normal_injective_of_exists_range_scDeriv_eq_ρ
+#print axioms exists_range_scDeriv_eq_ρ_iff_normal_injective
+#print axioms exists_rangeS_ρCLM_equiv
+#print axioms StrongBundle.IsSurjLinOfIndex
+#print axioms StrongBundle.IsLinSurjAt
+#print axioms StrongBundle.linAt_index_of_conjugationData_wholeChart
+#print axioms StrongBundle.isSurjLinOfIndex_of_conjugationData_wholeChart
+#print axioms StrongBundle.IsGoodPositionGermWholeChart.exists_isSurjLinOfIndex
+#print axioms StrongBundle.IsGoodPositionGermWholeChart.isLinSurjAt
+#print axioms StrongBundle.isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero_wholeChart
+#print axioms StrongBundle.isGoodPositionGerm_of_isLinSurjAt_wholeChart
+#print axioms StrongBundle.isGoodPositionGerm_iff_isLinSurjAt_wholeChart
+#print axioms theorem_3_19_linearization_index_wholeChart
+#print axioms theorem_3_54_tangentGermChart_index_wholeChart
+#print axioms theorem_3_54_tangentGermChart_solutionSet_index_wholeChart
+#print axioms theorem_3_54_two_index_wholeChart
+#print axioms isSurjLinOfIndex_of_forall_dim_wholeChart
+#print axioms theorem_3_54_index_locally_constant_wholeChart
+#print axioms theorem_3_54_index_wholeChart
+#print axioms theorem_3_23_index_wholeChart
+#print axioms theorem_3_19_index_wholeChart
+#print axioms theorem_3_19_of_surjective_wholeChart
+#print axioms theorem_3_57_index_wholeChart
+#print axioms theorem_3_56_tame_wholeChart
+#print axioms theorem_3_56_of_surjective_wholeChart
+#print axioms theorem_3_54_ker_eq_tangent_wholeChart
+#print axioms isGoodPositionGermFilled_of_isGoodPositionGerm_wholeChart
+
+/-! ### Axioms: Chapter4/LocalStructure.lean (Theorem 4.22 (1)–(4), Remark 4.24) -/
+
+#print axioms exists_isClosed_isCompl_le
+#print axioms exists_proj_of_isCompl
+#print axioms mem_minimalSubspaceWith_zero
+#print axioms minimalSubspaceWith_zero_le
+#print axioms coord_add_of_mem_zero
+#print axioms degIndexWith_add_of_mem_zero
+#print axioms add_mem_iff_of_mem_zero
+#print axioms coordsOn
+#print axioms coordsOn_surjective
+#print axioms interior_nonempty_of_sup_eq_top
+#print axioms isGoodComplement_of_le_zero
+#print axioms exists_goodComplement_le_zero
+#print axioms degIndex_slice
+#print axioms exists_scComplement_le
+#print axioms isGeneralPositionRetractAt_of_sup_eq_top
+#print axioms sup_minimalSubspaceWith_eq_top
+#print axioms sup_minimalSubspaceWith_eq_top_graph
+#print axioms theorem_4_22_chart
+#print axioms quotDim_le_finrank_of_eq_sup
+#print axioms remark_4_24_chart
+#print axioms IsGeneralPositionRetractAt.isGoodPositionRetractAt
+#print axioms maskL
+#print axioms maskL_apply_mem
+#print axioms maskL_apply_not_mem
+#print axioms killOn
+#print axioms coordsOn_killOn
+#print axioms killOn_eq_self
+#print axioms killOn_idem
+#print axioms killOn_mem
+#print axioms opToConst
+#print axioms opToConst_zero_apply
+#print axioms exists_scPlus_retraction_corner
+#print axioms exists_cornerModel_retraction
+#print axioms theorem_4_22_four_chart
+#print axioms MPolyfold.isScPlusRetractionOn_of_chart
+#print axioms MChart.cornerPreimage
+#print axioms MPolyfold.theorem_4_22_four_of_chart
+#print axioms MPolyfold.theorem_4_22
+#print axioms MPolyfold.remark_4_24_codim
+#print axioms MPolyfold.remark_4_24
+#print axioms MPolyfold.remark_4_24_not_mem_boundary
+
+/-! ### Vendored: Milnor's Sard (`Vendor/MilnorSard/*`, copied from
+`Milnor/Chapter1/InverseFunction.lean` and
+`Milnor/Chapter3/{Basic,Straighten,Step1,Step2,Step3,Sard}.lean`; Sard's theorem for `C^∞` maps
+between finite-dimensional real normed spaces on an open set) -/
+
+#print axioms MilnorSard.isLocalDiffeomorphAt_of_isInvertible_mfderiv
+#print axioms MilnorSard.Sard.critSet
+#print axioms MilnorSard.Sard.addHaar_eq_zero_of_dimH_lt_finrank
+#print axioms MilnorSard.Sard.sardStatement
+#print axioms MilnorSard.sard
+#print axioms MilnorSard.dense_compl_image_critSet
+
+/-! ### Axioms: Chapter4/FamiliesLocal.lean (the finite-dimensional core of Theorem 4.23: Sard's
+theorem on the strata of a partial quadrant, Theorem 3.78 in `C^∞` form, the retraction onto the
+fibre over a stratified regular value) -/
+
+#print axioms quadC
+#print axioms stratSub
+#print axioms zeroSetOf
+#print axioms mem_zeroSetOf
+#print axioms mem_stratSub_zeroSetOf
+#print axioms finrank_stratSub
+#print axioms stratCritSet
+#print axioms measure_image_stratCritSet
+#print axioms ContractionData.exists_solution_smooth
+#print axioms theorem_3_78_smooth
+#print axioms quadAt
+#print axioms sliceEquiv
+#print axioms isPartialQuadrant_quadC
+#print axioms isPartialQuadrant_quadAt
+#print axioms convex_quadC
+#print axioms interior_quadC_nonempty
+#print axioms uniqueDiffWithinAt_quadC
+#print axioms exists_goodComplement_stratSub
+#print axioms exists_fibre_retraction
+
+/-! ### Axioms: Chapter4/Families.lean (Theorem 4.23: the sc⁺-retraction onto the fibre over a
+regular value in a product chart, its general position, stratified regular points, the local step
+and Theorem 4.23) -/
+
+#print axioms ScBanach.prodInrOp
+#print axioms mem_smooth_rn_zero
+#print axioms isScSmooth_slice
+#print axioms scDeriv_slice
+#print axioms hasFDerivWithinAt_scDeriv_const'
+#print axioms exists_slice_retraction
+#print axioms isGeneralPositionRetractAt_slice
+#print axioms fibreSet
+#print axioms rnPres
+#print axioms rnPres_eq
+#print axioms IsStratRegularPoint
+#print axioms IsStratRegularValue
+#print axioms FibreLocal
+#print axioms exists_local_family
+#print axioms theorem_4_23_of_subset
+#print axioms theorem_4_23
+
+/-! ### Axioms: Chapter5/Compactness.lean (Definition 5.4, Theorems 5.5–5.7, Corollary 5.8 in a
+chart, Remark 5.12) -/
+
+#print axioms theorem_5_6
+#print axioms MPolyfold.smoothMk
+#print axioms MPolyfold.smoothVal
+#print axioms MPolyfold.smoothVal_mem
+#print axioms MPolyfold.smoothVal_smoothMk
+#print axioms MPolyfold.levelVal_smoothIncl
+#print axioms MPolyfold.continuous_smoothIncl
+#print axioms MPolyfold.continuous_smoothVal
+#print axioms MPolyfold.tendsto_smoothLevel_iff
+#print axioms theorem_5_7
+#print axioms isCompact_solutionSet_level
+#print axioms ScNbhdGerm.shiftParam
+#print axioms ScNbhdGerm.shiftParam_U
+#print axioms IsSc0ContractionGerm.shift
+#print axioms IsBasicGerm.shift
+#print axioms IsConjugateToBasicGerm.shift
+#print axioms IsConjugateToBasicGerm.shift_germ
+#print axioms corollary_5_8_chart
+#print axioms IsSc0ContractionGerm.eq_delta_zero
+#print axioms IsSc0ContractionGerm.exists_isCompact_bdd
+#print axioms IsBasicGerm.exists_isCompact_bdd
+#print axioms IsStrongBundleMap.shiftFiber_snd_zero
+#print axioms IsStrongBundleMap.shiftFiber_snd_smul
+#print axioms IsStrongBundleMap.exists_fiber_bound_one
+#print axioms exists_nbhd_isCompact_closure_bdd
+#print axioms StrongBundle.AuxLe
+#print axioms StrongBundle.IsWeaklyProper
+#print axioms StrongBundle.IsProper
+#print axioms StrongBundle.AuxLe.congr
+#print axioms StrongBundle.IsAuxNorm.auxLe_of_sectionAdd
+#print axioms theorem_5_5
+#print axioms StrongBundle.IsProper.isWeaklyProper
+#print axioms StrongBundle.IsWeaklyProper.isCompact_solutionSet
+#print axioms theorem_5_5_iff
+#print axioms remark_5_12
+
+/-! ### Axioms: Chapter5/AuxNorm.lean (Definition 5.1, Lemma 5.2, Proposition 5.3: auxiliary norms;
+the charts `Φ[1]` of every strong bundle chart, the fibres `(Y_{0,1})_x`) -/
+
+#print axioms StrongBundle.mem_oneSet_iff_of_isChart
+#print axioms StrongBundle.symm_mem_oneSet_of_isChart
+#print axioms StrongBundle.oneChartInvOf
+#print axioms StrongBundle.oneVal_oneChartInvOf
+#print axioms StrongBundle.liftOne_symm'
+#print axioms StrongBundle.shiftFiber_transition_liftOne
+#print axioms StrongBundle.liftOne_mem_overlap
+#print axioms StrongBundle.oneChartOf
+#print axioms StrongBundle.oneChartOf_apply
+#print axioms StrongBundle.oneChartOf_source
+#print axioms StrongBundle.mem_oneChartOf_source
+#print axioms StrongBundle.oneChartOf_symm_apply
+#print axioms StrongBundle.oneChart_eq_oneChartOf
+#print axioms StrongBundle.oneChartOf_overlap
+#print axioms StrongBundle.oneChartOf_transition
+#print axioms StrongBundle.oneChartOf_compatible
+#print axioms StrongBundle.isChart_oneChartOf
+#print axioms StrongBundle.fiberZero_mem_oneSet
+#print axioms StrongBundle.oneFiber
+#print axioms StrongBundle.toOne
+#print axioms StrongBundle.ofOne
+#print axioms StrongBundle.toOne_ofOne
+#print axioms StrongBundle.oneVal_toOne
+#print axioms StrongBundle.proj_oneVal_toOne
+#print axioms StrongBundle.zeroOne
+#print axioms StrongBundle.oneVal_zeroOne
+#print axioms StrongBundle.proj_oneVal_zeroOne
+#print axioms StrongBundle.fst_liftOne
+#print axioms StrongBundle.toBase_liftOne_snd
+#print axioms StrongBundle.liftOne_fiberZero
+#print axioms StrongBundle.mem_source_of_mem_fiber
+#print axioms StrongBundle.liftOneFiber
+#print axioms StrongBundle.liftOneFiber_apply
+#print axioms StrongBundle.liftOneFiber_ofOne
+#print axioms StrongBundle.liftOneFiber_injective
+#print axioms StrongBundle.liftOneFiber_eq_zero_iff
+#print axioms StrongBundle.mem_range_liftOneFiber
+#print axioms StrongBundle.liftOneFiber_mem
+#print axioms StrongBundle.isClosed_slice
+#print axioms StrongBundle.complete_liftOneFiber
+#print axioms StrongBundle.IsCompleteFiberNorm
+#print axioms StrongBundle.IsAuxNorm
+#print axioms StrongBundle.IsCompleteFiberNorm.map_zero
+#print axioms StrongBundle.IsCompleteFiberNorm.nonneg
+#print axioms StrongBundle.IsAuxNorm.nonneg
+#print axioms StrongBundle.IsAuxNorm.smul
+#print axioms StrongBundle.exists_le_mul_norm_liftOne
+#print axioms StrongBundle.IsAuxNorm.exists_norm_liftOne_le
+#print axioms StrongBundle.IsAuxNorm.exists_bounds
+#print axioms lemma_5_2
+#print axioms StrongBundle.exists_norm_liftOne_le_mul
+#print axioms StrongBundle.exists_uniform_comparison
+#print axioms StrongBundle.complete_of_bounds
+#print axioms StrongBundle.gluedNorm
+#print axioms StrongBundle.sum_partition_eq_one
+#print axioms StrongBundle.gluedNorm_eq_sum
+#print axioms StrongBundle.gluedNorm_nonneg
+#print axioms StrongBundle.continuous_gluedNorm
+#print axioms StrongBundle.gluedNorm_bounds
+#print axioms StrongBundle.isCompleteFiberNorm_gluedNorm
+#print axioms proposition_5_3_exists
+#print axioms proposition_5_3_compare
+
+/-! ### Axioms: Chapter5/BumpFunctions.lean (Definitions 5.9, 5.29, 5.33, Propositions 5.10, 5.30,
+5.35, Theorem 5.34, Lemma 5.11; `ℝ` as an M-polyfold, `Γ⁺(P)`, `Γ^{+,1}_U(P)`, products and sums of
+sc⁺-sections) -/
+
+#print axioms realSc
+#print axioms real_relOpen_univ
+#print axioms realChart
+#print axioms realChart_compatible
+#print axioms realPolyfold
+#print axioms isChart_realChart
+#print axioms MPolyfold.isScSmoothMap_of_local
+#print axioms MPolyfold.IsScSmoothMap.real_chart
+#print axioms isScSmoothMap_real_of_local
+#print axioms isScSmoothMap_real_const
+#print axioms isScSmoothMap_real_of_contDiff
+#print axioms MPolyfold.IsScSmoothMap.comp_contDiff
+#print axioms MPolyfold.AdmitsBumpFunctions
+#print axioms MPolyfold.AdmitsBumpFunctionsWeak
+#print axioms MPolyfold.AdmitsBumpFunctions.weak
+#print axioms proposition_5_30
+#print axioms proposition_5_10
+#print axioms LocalModel.HasBumpProperty
+#print axioms closure_inter_ball_subset
+#print axioms theorem_5_34
+#print axioms LocalModel.hasBumpProperty_of_quadratic
+#print axioms proposition_5_35
+#print axioms MPolyfold.admitsBumpFunctions_of_hilbert
+#print axioms isScSmooth_const_of_mem_smooth
+#print axioms sectionSupport
+#print axioms sectionSmul
+#print axioms sectionSum
+#print axioms sectionSmul_apply
+#print axioms IsSection.sectionSmul
+#print axioms sectionSum_apply
+#print axioms StrongBundleChart.zero_mem_K
+#print axioms StrongBundleChart.smul_mem_strongShiftOne
+#print axioms StrongBundleChart.add_mem_strongShiftOne
+#print axioms StrongBundle.scPlusSections
+#print axioms StrongBundle.allowableSections
+#print axioms StrongBundle.IsScPlusSection.mem_oneSet
+#print axioms StrongBundle.localRepOne_fst
+#print axioms StrongBundle.toBase_localRepOne_snd
+#print axioms StrongBundle.isScPlusSection_fiberZero
+#print axioms StrongBundle.IsScPlusSection.smul_left
+#print axioms StrongBundle.IsScPlusSection.add
+#print axioms StrongBundle.isScPlusSection_sectionSum
+#print axioms StrongBundle.cutoffSection
+#print axioms StrongBundle.cutoff_mem_K
+#print axioms StrongBundle.apply_cutoffSection
+#print axioms StrongBundle.cutoffSection_mem_source
+#print axioms StrongBundle.isSection_cutoffSection
+#print axioms StrongBundle.cutoffSection_eq_zero
+#print axioms StrongBundle.cutoffSection_mem_oneSet
+#print axioms StrongBundle.liftOne_cutoffSection
+#print axioms StrongBundle.isScPlusSection_cutoffSection
+#print axioms lemma_5_11
+
+/-! ### Axioms: Chapter5/PartitionsOfUnity.lean (Definitions 5.28, 5.31, 5.36, 5.39, 5.41,
+Theorem 5.37, Propositions 5.38, 5.42, Corollary 5.44; Theorems 5.40, 5.43 as statements; sums,
+products and locally finite sums of sc-smooth functions) -/
+
+#print axioms IsScSmoothRetractMap.real_add
+#print axioms IsScSmoothRetractMap.real_mul
+#print axioms IsScSmoothRetractMap.real_sub
+#print axioms MPolyfold.IsScSmoothMap.real_chart_on
+#print axioms isScSmoothMap_real_of_eventuallyEq
+#print axioms MPolyfold.IsScSmoothMap.real_add
+#print axioms MPolyfold.IsScSmoothMap.real_mul
+#print axioms MPolyfold.IsScSmoothMap.real_sub
+#print axioms isScSmoothMap_real_finsetSum
+#print axioms isScSmoothMap_real_finsetProd
+#print axioms isScSmoothMap_real_finsum
+#print axioms isScSmoothMap_real_of_chart
+#print axioms PartitionOfUnity.finsum_mul_eq_sum
+#print axioms PartitionOfUnity.abs_sub_finsum_mul_le
+#print axioms PartitionOfUnity.finsum_mul_mem_Icc
+#print axioms PartitionOfUnity.locallyFinite_mul
+#print axioms PartitionOfUnity.tsupport_finsum_mul_subset
+#print axioms MPolyfold.IsScSmoothPartitionOfUnity
+#print axioms MPolyfold.AdmitsScPartitionsOfUnity
+#print axioms LocalModel.HasApproxProperty
+#print axioms MChart.isClosed_inter_preimage
+#print axioms MChart.exists_small_nhds
+#print axioms LocalModel.HasApproxProperty.exists_approx
+#print axioms exists_isScSmoothMap_urysohn
+#print axioms admitsScPartitionsOfUnity_of_approx
+#print axioms hasApproxProperty_restrict
+#print axioms theorem_5_37
+#print axioms AdmitsContDiffPartitionsOfUnity
+#print axioms HasContDiffBump
+#print axioms proposition_5_38
+#print axioms cZero
+#print axioms mem_cZero_iff
+#print axioms norm_cZero
+#print axioms IsCoordinatewiseContDiffEmbedding
+#print axioms TorunczykStatement
+#print axioms IsWCG
+#print axioms IsReflexive
+#print axioms span_closedBall_eq_top
+#print axioms proposition_5_42_reflexive
+#print axioms proposition_5_42_separable
+#print axioms hasContDiffBump_of_hilbert
+#print axioms isReflexive_of_hilbert
+#print axioms GodefroyTroyanskiWhitfieldZizlerStatement
+#print axioms corollary_5_44
+#print axioms MPolyfold.admitsScPartitionsOfUnity_of_hilbert
+#print axioms MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions
+
+/-! ### Axioms: Chapter5/Transversality.lean (Definitions 5.15, 5.17, Lemma 5.26, Theorem 5.13;
+the parametrized section and its slices, the spanning sections, the Sard step) -/
+
+#print axioms surjective_of_forall_exists_ker_fst
+#print axioms forall_exists_ker_fst_of_surjective
+#print axioms exists_fin_mem_of_dense_of_closedComplemented
+#print axioms isInGoodPositionIn_of_scComplement_le_reduced
+#print axioms StrongBundle.IsTransversal
+#print axioms StrongBundle.IsLinSurjAt.linAt_surjective
+#print axioms StrongBundleChart.linKer
+#print axioms StrongBundle.IsGeneralPositionGerm
+#print axioms StrongBundle.IsGeneralPositionGerm.isLinSurjAt
+#print axioms StrongBundle.IsGeneralPositionGerm.isGoodPositionGerm
+#print axioms sectionSupport_sectionSmul_const_subset
+#print axioms StrongBundle.IsAuxNorm.oneMk_sectionSmul_const
+#print axioms principal_sectionSmul_const
+#print axioms mem_smoothSet_toMPolyfold0_of_chart
+#print axioms exists_spanning_sections
+#print axioms paramSlice
+#print axioms isSection_paramSlice
+#print axioms paramSection_val
+#print axioms isZeroAt_paramSection_iff
+#print axioms paramSlice_eq_sectionAdd
+#print axioms isScFredholmSection_paramSlice
+#print axioms principal_paramSlice
+#print axioms linAt_congr
+#print axioms ofProd_apply_eq_zero
+#print axioms mem_K_ofProd_zero_iff
+#print axioms isLinSurjAt_paramSlice_of_ker_fst
+#print axioms isLinSurjAt_paramSection_zero_of_spanning
+#print axioms rnPolyfold_degIndex
+#print axioms isWithoutBoundary_prod_rn
+#print axioms isClosed_solutionSet
+#print axioms exists_sum_comp_eq
+#print axioms paramSlice_zero
+#print axioms isLinSurjAt_paramSection_zero_of_comp
+#print axioms exists_isOpen_goodPosition_of_isLinSurjAt
+#print axioms exists_isOpen_isLinSurjAt_zero_near
+#print axioms exists_pos_forall_mem_of_isCompact
+#print axioms StrongBundle.IsAuxNorm.toOne_sum_le
+#print axioms sectionAdd_paramSlice
+#print axioms isZeroAt_paramSlice_of_not_mem_support
+#print axioms isScPlusSection_paramSlice
+#print axioms sectionSupport_paramSlice_subset
+#print axioms auxLe_paramSlice
+#print axioms exists_null_isLinSurjAt_paramSlice_near
+#print axioms StrongBundle.SolutionSetIsManifold
+#print axioms theorem_5_13_generic
+#print axioms StrongBundle.sectionDistAt
+#print axioms theorem_5_13
+
+/-! ### Axioms: Chapter3/TameGerms.lean and the tame forms of §3.6 (Definitions 3.50, 3.51, 3.53 in
+a tame chart; good position in any chart of the germ data; Theorems 3.15 and 3.18 for tame germ
+data; Lemma 5.26 in a tame chart; Findings Chapter 3 items 190–199, Chapter 5 items 74–79) -/
+
+#print axioms ScRetraction.IsTame.congr
+#print axioms StrongBundle.IsTameChart
+#print axioms StrongBundle.IsTameChart.isChart
+#print axioms StrongBundle.IsTameChart.isTame
+#print axioms StrongBundle.IsScFredholmGermTameWholeChart
+#print axioms StrongBundle.IsGoodPositionGermTameWholeChart
+#print axioms StrongBundle.IsScFredholmSectionTameWholeChart
+#print axioms StrongBundle.IsScFredholmGermTameWholeChart.isScFredholmGerm
+#print axioms StrongBundle.IsGoodPositionGermTameWholeChart.isGoodPositionGerm
+#print axioms StrongBundle.IsGoodPositionGermTameWholeChart.isScFredholmGermTame
+#print axioms StrongBundle.IsGoodPositionGermWholeChart.toTame
+#print axioms StrongBundle.IsScFredholmGermTameWholeChart.sectionAdd
+#print axioms StrongBundle.isTameChart_of_eqOn_id
+#print axioms theorem_3_15_tame_wholeChart
+#print axioms StrongBundle.isGoodPositionAt_of_chart_dense
+#print axioms StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGermTame
+#print axioms PullbackChartData.ofProd_isTame
+#print axioms StrongBundle.IsScFredholmGermTameWholeChart.param
+#print axioms StrongBundle.IsScFredholmSectionTameWholeChart.param
+#print axioms theorem_3_18_tame_wholeChart
+#print axioms StrongBundle.IsGeneralPositionGerm.isGoodPositionGermTame
+#print axioms halfLineSc
+#print axioms isRelOpenInQuadrant_quadrant_one
+#print axioms halfLineOne
+#print axioms halfLineOne_mem_smooth
+#print axioms ScRetraction.halfLineConst
+#print axioms ScRetraction.halfLineConst_retract
+#print axioms ScRetraction.halfLineConst_prod_not_isTame
+
+/-! ### Axioms: Chapter3/NonVacuity.lean (the hypotheses of the §3.6 implicit function theorems
+are satisfiable: the trivial bundle `ℝⁿ × ℝᵏ → ℝⁿ` and the graph of a `C^∞` map with `0` a regular
+value; Findings Chapter 3 item 200) -/
+
+#print axioms isScSmooth_of_bijective_toBase
+#print axioms bijective_toBase_const
+#print axioms bijective_toBase_prod
+#print axioms bijective_toBase_shift
+#print axioms scDeriv_univ_const
+#print axioms isScSmoothRetractMap_of_bijective_toBase
+#print axioms isStrongBundleRetraction_id
+#print axioms TrivialBundle.proj
+#print axioms TrivialBundle.fibEquiv
+#print axioms TrivialBundle.isLinearMap_fibEquiv
+#print axioms TrivialBundle.chart
+#print axioms TrivialBundle.chart_overlap
+#print axioms TrivialBundle.bijective_toBase_model
+#print axioms TrivialBundle.relOpen_model
+#print axioms TrivialBundle.isScSmoothRetractMap_transition
+#print axioms TrivialBundle.chart_compatible
+#print axioms TrivialBundle.bundle
+#print axioms TrivialBundle.isChart_chart
+#print axioms TrivialBundle.zeroSc
+#print axioms TrivialBundle.bijective_toBase_param
+#print axioms TrivialBundle.isConjugateToBasicGerm_of_contDiff
+#print axioms TrivialBundle.graphSection
+#print axioms TrivialBundle.isSection_graphSection
+#print axioms TrivialBundle.rnPolyfold_smoothSet
+#print axioms TrivialBundle.isZeroAt_graphSection_iff
+#print axioms TrivialBundle.isTameChart_chart
+#print axioms TrivialBundle.isScSmoothSection_graphSection
+#print axioms TrivialBundle.principal_graphSection
+#print axioms TrivialBundle.scDeriv_r
+#print axioms TrivialBundle.loc
+#print axioms TrivialBundle.contDiff_loc
+#print axioms TrivialBundle.scDeriv_loc
+#print axioms TrivialBundle.exists_kerEquiv_of_injective
+#print axioms TrivialBundle.isInGoodPositionIn_univ
+#print axioms TrivialBundle.germData_graphSection
+#print axioms TrivialBundle.isScFredholmGermTame_graphSection_wholeChart
+#print axioms TrivialBundle.isGoodPositionGermTame_graphSection_wholeChart
+#print axioms TrivialBundle.isScFredholmSection_graphSection_wholeChart
+#print axioms TrivialBundle.isScFredholmSectionTame_graphSection_wholeChart
+#print axioms TrivialBundle.hypotheses_theorem_3_57_graphSection_wholeChart
+#print axioms TrivialBundle.theorem_3_57_trivialBundle
+#print axioms TrivialBundle.hypotheses_theorem_3_57_linear_wholeChart
+#print axioms TrivialBundle.exampleMap
+#print axioms TrivialBundle.theorem_3_57_example
+
+/-! ### Axioms: Chapter3/NonVacuityCorner.lean (the hypotheses of the §3.6 implicit function
+theorems over the half-space `[0, ∞) × ℝᵐ`, good position at boundary zeros; Findings Chapter 3
+item 201) -/
+
+#print axioms StrongBundleChart.compatible_self
+#print axioms scDeriv_eq_of_hasFDerivAt
+#print axioms scDeriv_zero_eq_of_hasFDerivAt
+#print axioms halfSpaceSc
+#print axioms mem_quadrant_one_iff
+#print axioms isInGoodPositionIn_halfSpace
+#print axioms HalfSpaceBundle.H
+#print axioms HalfSpaceBundle.relOpen_H
+#print axioms HalfSpaceBundle.H_nonempty
+#print axioms HalfSpaceBundle.basePoly
+#print axioms HalfSpaceBundle.baseChart
+#print axioms HalfSpaceBundle.proj
+#print axioms HalfSpaceBundle.bijective_toBase_E
+#print axioms HalfSpaceBundle.mem_smooth
+#print axioms HalfSpaceBundle.baseChart_symm_val
+#print axioms HalfSpaceBundle.fibEquiv
+#print axioms HalfSpaceBundle.isStrongBundleRetraction_id_H
+#print axioms HalfSpaceBundle.chart₀
+#print axioms HalfSpaceBundle.bundle
+#print axioms HalfSpaceBundle.isChart_chart₀
+#print axioms HalfSpaceBundle.levelSet_eq_univ
+#print axioms HalfSpaceBundle.smoothSet_eq_univ
+#print axioms HalfSpaceBundle.hT₀
+#print axioms HalfSpaceBundle.chartAt
+#print axioms HalfSpaceBundle.isChart_chartAt
+#print axioms HalfSpaceBundle.r_chartAt
+#print axioms HalfSpaceBundle.isTameChart_chartAt
+#print axioms HalfSpaceBundle.mem_source_chartAt
+#print axioms HalfSpaceBundle.chartAt_self
+#print axioms HalfSpaceBundle.mem_U_chartAt
+#print axioms HalfSpaceBundle.zero_mem_U_chartAt
+#print axioms HalfSpaceBundle.Pm
+#print axioms HalfSpaceBundle.isConjugateToBasicGerm_halfSpace
+#print axioms HalfSpaceBundle.graphSection
+#print axioms HalfSpaceBundle.isSection_graphSection
+#print axioms HalfSpaceBundle.isZeroAt_graphSection_iff
+#print axioms HalfSpaceBundle.isScSmoothSection_graphSection
+#print axioms HalfSpaceBundle.loc
+#print axioms HalfSpaceBundle.contDiff_loc
+#print axioms HalfSpaceBundle.principal_chartAt
+#print axioms HalfSpaceBundle.scDeriv_r_chartAt
+#print axioms HalfSpaceBundle.scDeriv_loc
+#print axioms HalfSpaceBundle.C_chartAt
+#print axioms HalfSpaceBundle.constPmIso
+#print axioms HalfSpaceBundle.isPartialQuadrant_C_chartAt
+#print axioms HalfSpaceBundle.germData_graphSection
+#print axioms HalfSpaceBundle.isScFredholmGermTame_graphSection_wholeChart
+#print axioms HalfSpaceBundle.isGoodPositionGermTame_graphSection_wholeChart
+#print axioms HalfSpaceBundle.isScFredholmSection_graphSection_wholeChart
+#print axioms HalfSpaceBundle.isScFredholmSectionTame_graphSection_wholeChart
+#print axioms HalfSpaceBundle.IsRegularOnHalfSpace
+#print axioms HalfSpaceBundle.hypotheses_theorem_3_57_halfSpace_wholeChart
+#print axioms HalfSpaceBundle.theorem_3_57_halfSpace
+#print axioms HalfSpaceBundle.exampleMap
+#print axioms HalfSpaceBundle.theorem_3_57_halfSpace_example
+
+/-! ### Axioms: Chapter3/TameVacuityChart.lean (the old hypothesis `htame` fails for the trivial
+bundle of `NonVacuity.lean`: a compatible strong bundle chart with a non-tame base retraction;
+Findings Chapter 3 item 202) -/
+
+#print axioms TrivialBundle.Eodd
+#print axioms TrivialBundle.bijective_toBase_Eodd
+#print axioms TrivialBundle.Rodd
+#print axioms TrivialBundle.Rodd_retract
+#print axioms TrivialBundle.mem_Rodd_retract
+#print axioms TrivialBundle.oddChart
+#print axioms TrivialBundle.oddChart_overlap
+#print axioms TrivialBundle.rnChart_overlap_odd
+#print axioms TrivialBundle.isChart_oddChart
+#print axioms TrivialBundle.Rbodd
+#print axioms TrivialBundle.bijective_toBase_EoddF
+#print axioms TrivialBundle.bijective_toBase_EoddF1
+#print axioms TrivialBundle.contDiff_Rbodd
+#print axioms TrivialBundle.isStrongBundleRetraction_Rbodd
+#print axioms TrivialBundle.oddBundleChart
+#print axioms TrivialBundle.oddBundleChart_overlap
+#print axioms TrivialBundle.chart_overlap_odd
+#print axioms TrivialBundle.relOpen_univ_shift
+#print axioms TrivialBundle.oddBundleChart_compatible
+#print axioms TrivialBundle.isChart_oddBundleChart
+#print axioms TrivialBundle.not_forall_isTame_of_isChart
+#print axioms TrivialBundle.htame_fails_repaired_holds_wholeChart
+
+
+/-! ### Axioms: Chapter5/Homotopy.lean (Definition 5.20, Lemmas 5.23 and 5.24; Theorems 5.22 and
+5.27 not formalized) -/
+
+#print axioms lemma_5_23
+#print axioms ne_zero_of_isCompl_ker
+#print axioms exists_isCompl_ker_of_ne_zero
+#print axioms restrictSection
+#print axioms isZeroAt_restrictSection_iff
+#print axioms StrongBundle.IsGenCompactHomotopy
+#print axioms StrongBundle.IsGenCompactHomotopy.isCompact_solutionSet_restrict
+#print axioms scDeriv_smul_apply
+#print axioms scDeriv_clm_sub_apply
+#print axioms chartLinCutoff
+#print axioms chartLinCutoff_of_mem
+#print axioms isScSmoothMap_chartLinCutoff
+#print axioms sectionSupport_sectionSmul_subset
+#print axioms principal_sectionSmul
+#print axioms exists_scPlusSection_linAt
+#print axioms lemma_5_24
+
+
+/-! ### Axioms: Chapter5/GeneralPosition.lean (Theorems 5.18, 5.19, 5.25; the bridge lemma,
+`T_yS = ker f'(y)`, Definition 5.17 = Definition 4.21, openness of general position) -/
+
+#print axioms isScPlus_of_isScSmooth_const
+#print axioms MPolyfold.TangentGermChart.Γ_isScPlus
+#print axioms MPolyfold.TangentGermChart.exists_scPlusRetraction
+#print axioms MPolyfold.TangentGermChart.exists_linearIndependent_tangentSpace
+#print axioms MPolyfold.TangentGermChart.exists_isScPlusRetractionOn
+#print axioms MPolyfold.isSmoothSubmanifold_of_isRegular
+#print axioms MPolyfold.IsGeneralPositionAt.congr_nhds
+#print axioms HasIndepTangent
+#print axioms HasIndepTangent.transport
+#print axioms StrongBundle.isSmoothSubmanifold_solutionSet_inter
+#print axioms StrongBundleChart.mem_linKer_iff
+#print axioms tangentSpace_subset_linKer
+#print axioms exists_tangentSpace_eq_linKer
+#print axioms StrongBundleChart.linKer_le
+#print axioms exists_compl_le_of_sup_eq
+#print axioms isGoodPositionGermTame_of_isGeneralPositionAt
+#print axioms exists_isGeneralPositionGerm_iff
+#print axioms exists_isOpen_isGeneralPositionGerm
+#print axioms StrongBundle.SolutionSetInGeneralPosition
+#print axioms theorem_5_18_of_family
+#print axioms StrongBundleChart.IsParamGP
+#print axioms StrongBundleChart.IsParamGP.comp
+#print axioms minimalSubspaceWith_rnPres
+#print axioms pc0
+#print axioms ofProd_mem_rangeS
+#print axioms isGeneralPositionGerm_paramSection_of_isParamGP
+#print axioms isParamGP_of_isGeneralPositionGerm
+#print axioms spanning_of_isLinSurjAt
+#print axioms exists_sections_isParamGP
+#print axioms isZeroAt_of_sectionAdd
+#print axioms theorem_5_18
+#print axioms StrongBundle.IsAuxNorm.fiberZero_eq
+#print axioms theorem_5_25
+#print axioms theorem_5_18_dense
+#print axioms StrongBundle.IsGoodPositionGermTame.congr_nhds
+#print axioms sectionAdd_fiberZero
+#print axioms theorem_5_19
+
+
+/-! ### Axioms: Chapter3/GoodPositionSc.lean (Definition 3.21 with the text's sc-complement,
+Definition 3.53 with it, Theorem 3.54 (1) with the text's notion of good position) -/
+
+#print axioms IsScGoodComplement.toIsGoodComplement
+#print axioms IsScGoodComplement.isClosed
+#print axioms IsScGoodComplement.le_smooth
+#print axioms IsInGoodPositionSc.toIsInGoodPosition
+#print axioms IsInGoodPositionSc.le_smooth
+#print axioms IsInGoodPositionScIn.toIsInGoodPositionIn
+#print axioms IsInGoodPositionScIn.le_smooth
+#print axioms isScGoodComplementIn_top_iff
+#print axioms isInGoodPositionScIn_top_iff
+#print axioms isInGoodPositionScIn_inter_iff
+#print axioms IsGoodComplement.isScGoodComplementIn
+#print axioms IsGoodComplement.isScGoodComplement
+#print axioms isScGoodComplement_iff
+#print axioms IsInGoodPosition.isInGoodPositionScIn
+#print axioms IsInGoodPosition.isInGoodPositionSc
+#print axioms isInGoodPositionSc_iff
+#print axioms IsSc1.scDeriv_mem_smooth
+#print axioms IsGoodPositionAtSc.isGoodPositionAt
+#print axioms StrongBundle.IsGoodPositionGermScWholeChart.isGoodPositionGermTame
+#print axioms StrongBundle.IsGoodPositionGermTameWholeChart.isGoodPositionGermSc
+#print axioms StrongBundle.isGoodPositionGermSc_iff_wholeChart
+#print axioms theorem_3_54_one_sc_of_tame_wholeChart
+#print axioms theorem_3_54_one_sc_wholeChart
+#print axioms theorem_3_54_sc_wholeChart
+#print axioms theorem_3_23_sc_wholeChart
+#print axioms forall_isGoodPositionGermSc_iff_wholeChart
+#print axioms theorem_3_57_sc_wholeChart
+#print axioms corollary_3_24_sc_wholeChart
+#print axioms theorem_3_56_sc_wholeChart
+
+
+/-! ### Axioms: Chapter2/StrongBundleRestrict.lean, Chapter3/StrongBundleMaximalAtlas.lean,
+Chapter5/AuxNormLiteral.lean (restriction of strong bundle charts, locality of compatibility,
+equivalence of strong bundle atlases and of M-polyfold atlases, the maximal strong bundle atlas,
+Lemma 5.2 in the text's literal form; Findings Chapter 2 items 40–44) -/
+
+#print axioms MAtlas.Equiv.trans
+#print axioms MAtlas.equivalence
+#print axioms IsStrongBundleRetraction.restrict
+#print axioms IsStrongBundleRetraction.restrict_base_retract
+#print axioms strongShiftOne_inter_prod
+#print axioms StrongBundleChart.mem_source_of_mem_base
+#print axioms StrongBundleChart.mem_base_of_mem_source
+#print axioms StrongBundleChart.fst_mem_model_O
+#print axioms StrongBundleChart.R_eq_self_of_mem_K
+#print axioms StrongBundleChart.image_preimage_eq
+#print axioms StrongBundleChart.overlap_eq_image_preimage
+#print axioms StrongBundleChart.exists_overlap_eq
+#print axioms StrongBundleChart.isScRetract_image_preimage
+#print axioms StrongBundleChart.isScRetract_one_image_preimage
+#print axioms StrongBundleChart.isScRetract_overlap'
+#print axioms StrongBundleChart.isScRetract_overlap_one'
+#print axioms StrongBundleChart.overlap_inter_eq
+#print axioms StrongBundleChart.transition_mapsTo_image_preimage
+#print axioms StrongBundleChart.transition_mapsTo
+#print axioms StrongBundleChart.shiftFiber_transition_eq
+#print axioms StrongBundleChart.toBase_shiftFiber_transition
+#print axioms StrongBundleChart.shiftFiber_transition_mapsTo
+#print axioms StrongBundleChart.Compatible.isScSmoothRetractMap_image_preimage
+#print axioms StrongBundleChart.Compatible.isScSmoothRetractMap_image_preimage_one
+#print axioms StrongBundleChart.compatible_of_locally
+#print axioms StrongBundleChart.restrictOpen
+#print axioms StrongBundleChart.isOpen_restrictOpen
+#print axioms StrongBundleChart.image_eq_restrictOpen
+#print axioms StrongBundleChart.restrictBase
+#print axioms StrongBundleChart.restrictBase_retract
+#print axioms StrongBundleChart.mem_restrict_K_iff
+#print axioms StrongBundleChart.restrictPE
+#print axioms StrongBundleChart.restrict
+#print axioms StrongBundleChart.restrict_φ
+#print axioms StrongBundleChart.restrict_F
+#print axioms StrongBundleChart.restrict_R
+#print axioms StrongBundleChart.restrict_apply
+#print axioms StrongBundleChart.restrict_symm_apply
+#print axioms StrongBundleChart.restrict_source
+#print axioms StrongBundleChart.restrict_φ_source
+#print axioms StrongBundleChart.restrict_K
+#print axioms StrongBundleChart.restrict_U
+#print axioms StrongBundleChart.liftOne_restrict
+#print axioms StrongBundleChart.restrict_overlap
+#print axioms StrongBundleChart.overlap_restrict
+#print axioms StrongBundleChart.Compatible.restrict_left
+#print axioms StrongBundleChart.Compatible.restrict_right
+#print axioms StrongBundleChart.Compatible.restrict
+#print axioms StrongBundleAtlas.equiv_iff
+#print axioms StrongBundleAtlas.Equiv.refl
+#print axioms StrongBundleAtlas.Equiv.symm
+#print axioms StrongBundleAtlas.Equiv.trans
+#print axioms StrongBundleAtlas.equivalence
+#print axioms StrongBundle.IsChart.compatible
+#print axioms StrongBundle.IsChart.restrict
+#print axioms StrongBundle.maximalAtlas
+#print axioms StrongBundle.maximalAtlas_equiv
+#print axioms StrongBundle.isChart_iff_exists_equiv
+#print axioms StrongBundle.isChart_congr
+#print axioms lemma_5_2_literal
+
+
+/-! ### Axioms: Chapter5/SolutionSetClosed.lean, and additions to Chapter3/SolutionLinearization.lean
+and Chapter3/QuadrantIFT.lean (Remark 5.12 with the closedness of the solution set, Lemma 3.9 with
+smallness on level `m`, Lemma 3.81's Lipschitz estimate on all of `V₀`; Findings Chapter 5 items
+130–131, Chapter 3 items 215–217) -/
+
+#print axioms StrongBundle.isInAllowableCompletion_of_mem
+#print axioms StrongBundle.sectionOneVec_eq_zero_of_mem_allowableSections
+#print axioms StrongBundle.IsInAllowableCompletion.isZeroAt_of_not_mem
+#print axioms StrongBundle.IsInAllowableCompletion.auxLe_one
+#print axioms StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd
+#print axioms remark_5_12_completion
+#print axioms remark_5_12_of_isScFredholmSection
+#print axioms IsSc0ContractionGerm.exists_norm_deriv_snd_le_base
+#print axioms IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le
+#print axioms Radii.norm_τ_sub_le_of_norm_le
+#print axioms Radii.norm_τ_sub_le_global
+#print axioms Radii.norm_τ_sub_le_eps
+#print axioms Radii.lipschitzOnWith_τ
+
+/-! ### Axioms: Chapter2/PartialConeQuadrant.lean (Remark 2.28 is false: the partial cone is a
+partial quadrant at every smooth point of every retract; Flor's theorem, needed case; Findings
+Chapter 2 item 50) -/
+
+#print axioms image_orthant_eq_nonnegRange
+#print axioms matEntry_mul_le
+#print axioms exists_colSupp_subset_posSupp
+#print axioms exists_isMinCol_subset
+#print axioms IsMinCol.exists_private
+#print axioms exists_nonneg_comb_coneGen
+#print axioms linearIndependent_coneGen
+#print axioms flor_nonnegRange_simplicial
+#print axioms ScRetraction.scDeriv_mapsTo_partialQuadrant
+#print axioms partialConeWith_eq_image_scDeriv
+#print axioms coordMapL_scDeriv
+#print axioms coneMatrix_idem
+#print axioms coneMatrix_mapsTo_orthant
+#print axioms coordMapL_mem_range_coneMatrix
+#print axioms coordMapL_image_partialConeWith
+#print axioms remark_2_28_quotient_simplicial
+#print axioms ScRetraction.isScSubspace_reducedTangentSpaceWith
+#print axioms remark_2_28_isPartialQuadrant
+#print axioms remark_2_28_partialConeWith
+
+/-! ### Axioms: Chapter3/BasicGermLinearizationLevel.lean (Proposition 3.10, second statement, on
+every level `m`; round-trip item V3.12; Findings Chapter 3 item 230) -/
+
+#print axioms isCompactOperator_of_finiteDimensional_domain
+#print axioms IsBasicGerm.snd_deriv_add
+#print axioms IsBasicGerm.snd_levelDeriv_add
+#print axioms IsBasicGerm.levelS_apply
+#print axioms IsBasicGerm.levelDeriv_add_eq
+#print axioms IsBasicGerm.isCompactOperator_levelK
+#print axioms proposition_3_10_level
+#print axioms proposition_3_10_full
+
+/-! ### Axioms: Chapter1/ScFredholmCriterion.lean (sc-Fredholm = Fredholm on level `0` +
+regularizing; restriction to sc-subspaces; Findings Chapter 3 items 233–234) -/
+
+#print axioms ScOperator.IsRegularizing.ker_le_smooth
+#print axioms ScOperator.IsRegularizing.surjective
+#print axioms IsScFredholm.isRegularizing
+#print axioms isScFredholm_of_isRegularizing
+#print axioms isScFredholm_of_isRegularizing_index
+#print axioms isScFredholm_iff
+#print axioms isScOperator_of_mapsTo
+#print axioms ScBanach.ofSubspace_mem_range_toBase_iff
+#print axioms ScOperator.restrict
+#print axioms ScOperator.restrict_apply_coe
+#print axioms ScOperator.IsRegularizing.restrict
+#print axioms ScOperator.IsRegularizing.isScFredholm_restrict
+#print axioms IsScFredholm.restrict
+
+/-! ### Axioms: Chapter3/FredholmGermLinearizationSc.lean (Propositions 3.5 and 3.52 and
+Theorem 3.19's "`f'(x₀)` is sc-Fredholm", sc form; round-trip items V3.46, V3.68, V3.96; Findings
+Chapter 3 items 235–236) -/
+
+#print axioms ScBanach.levelSubZeroEquiv
+#print axioms ScBanach.levelSubZeroEquiv_apply_coe
+#print axioms ScBanach.levelSubZeroEquiv_symm_apply_coe
+#print axioms ScOperator.isFredholm_restrict_zero
+#print axioms ScBanach.zero_mem_smoothLvl_one
+#print axioms ConjugationData.scDeriv_isRegularizing_wholeChart
+#print axioms ConjugationData.scDeriv_isScFredholm_wholeChart
+#print axioms StrongRetr.isScOperator_scDeriv_r
+#print axioms StrongRetr.isScSubspace_range_scDeriv_r
+#print axioms StrongRetr.isScOperator_ρCLM
+#print axioms StrongRetr.isScSubspace_range_ρCLM
+#print axioms IsFillerOf.proposition_3_5_sc
+#print axioms proposition_3_52_local_sc_wholeChart
+#print axioms proposition_3_52_sc_wholeChart
+#print axioms theorem_3_19_linearization_sc_wholeChart
+
+/-! ### Axioms: Chapter3/GermIFTSmooth.lean (Corollary 3.34 and Theorem 3.35 on one germ for all
+`k`; Theorem 3.35 for any representative; Lemma 3.31's `f⁽¹⁾` satisfies Definition 3.28;
+round-trip items V3.28, V3.31, V3.32; Findings Chapter 3, items 250–252) -/
+
+#print axioms ScNbhdGerm.inter
+#print axioms ScNbhdGerm.inter_U
+#print axioms ScNbhdGerm.ofOpen
+#print axioms ScNbhdGerm.ofOpen_U
+#print axioms isSckGerm_of_levels
+#print axioms isScSmoothGerm_of_levels
+#print axioms ContractionGerm.germDiag
+#print axioms ContractionGerm.germDiag_U
+#print axioms ContractionGerm.isSolutionGerm_germDiag
+#print axioms ContractionGerm.diagShift_succ
+#print axioms ContractionGerm.le_diagShift
+#print axioms ContractionGerm.isScSmoothGerm_germDiag
+#print axioms corollary_3_34_isScSmoothGerm
+#print axioms theorem_3_35_isScSmoothGerm
+#print axioms isSckGerm_contractionMap_iff
+#print axioms IsSc0ContractionGerm.exists_eq_sol
+#print axioms theorem_3_35_of_isSc0ContractionGerm
+#print axioms ContractionGerm.isSc0ContractionGerm_next
+
+/-! ### Axioms: Chapter1/ScOneNotNormContinuous.lean (the remark after Definition 1.14: an sc¹
+map whose derivative is not continuous in the operator norm; the weighted sequence sc-Banach space
+`ScOneExample.X`; round-trip items V1.13, V1.34; Findings Chapter 1, follow-up item 1) -/
+
+#print axioms ScOneExample.mkC0
+#print axioms ScOneExample.tendsto_c0
+#print axioms ScOneExample.abs_apply_le_norm
+#print axioms ScOneExample.norm_le_of_forall
+#print axioms ScOneExample.eventually_abs_lt
+#print axioms ScOneExample.eventually_forall_abs_mul_le
+#print axioms ScOneExample.diag
+#print axioms ScOneExample.diag_apply
+#print axioms ScOneExample.norm_diag_le
+#print axioms ScOneExample.continuous_diag_family
+#print axioms ScOneExample.w_pos
+#print axioms ScOneExample.abs_w_le
+#print axioms ScOneExample.natCast_mul_w_le
+#print axioms ScOneExample.inclOp_injective
+#print axioms ScOneExample.abs_wTrunc_le
+#print axioms ScOneExample.isCompactOperator_diag_wTrunc
+#print axioms ScOneExample.tendsto_diag_wTrunc
+#print axioms ScOneExample.inclOp_isCompactOperator
+#print axioms ScOneExample.XScale_toBase_apply
+#print axioms ScOneExample.mem_smoothLvl_of_finSupp
+#print axioms ScOneExample.X
+#print axioms ScOneExample.X_toBase_apply
+#print axioms ScOneExample.X_shift_toBase_apply
+#print axioms ScOneExample.shiftScale_XScale_toBase_apply
+#print axioms ScOneExample.X_toBase_diag
+#print axioms ScOneExample.X_shift_toBase_diag
+#print axioms ScOneExample.abs_cosMul_le
+#print axioms ScOneExample.abs_sinMul_le
+#print axioms ScOneExample.continuous_cosOp
+#print axioms ScOneExample.continuous_sinOp
+#print axioms ScOneExample.f
+#print axioms ScOneExample.D
+#print axioms ScOneExample.D_apply
+#print axioms ScOneExample.E_toBase
+#print axioms ScOneExample.E_shift_toBase
+#print axioms ScOneExample.levelMap_f
+#print axioms ScOneExample.isSc0_f
+#print axioms ScOneExample.hasFDerivAt_f
+#print axioms ScOneExample.X_toBase_one
+#print axioms ScOneExample.continuous_tangentLevel
+#print axioms ScOneExample.toBase_tangentLevel
+#print axioms ScOneExample.isSc1With
+#print axioms ScOneExample.isSc1
+#print axioms ScOneExample.norm_unitVec_le
+#print axioms ScOneExample.two_le_norm_D_sub
+#print axioms ScOneExample.not_continuousAt_D
+#print axioms ScOneExample.not_continuousOn_of_isSc1With
+#print axioms exists_isSc1_not_continuousOn_deriv
+
+/-! ### Axioms: Chapter3/LinearizationChartsSc.lean (condition (3) of a filler on every level at a
+zero; the converse of Proposition 3.5 in sc form; the linearization at a zero is sc-Fredholm in
+every strong bundle chart; round-trip items V3.46, V3.96, V3.98; Findings Chapter 3, items
+237–239) -/
+
+#print axioms ScBanach.add_mem_range_toBase
+#print axioms ScBanach.sub_mem_range_toBase
+#print axioms ScBanach.neg_mem_range_toBase_iff
+#print axioms IsScOperator.mem_range_toBase
+#print axioms ScOperator.exists_sub_mem_smooth
+#print axioms ScOperator.IsRegularizing.bijective
+#print axioms ScOperator.isFredholm_restrict_zero_iff
+#print axioms ScIso.ofBijective
+#print axioms ScIso.ofBijective_apply
+#print axioms StrongRetr.isScSubspace_ker_scDeriv_r
+#print axioms StrongRetr.isScSubspace_ker_ρCLM
+#print axioms StrongRetr.isScOperator_ρCLM_of_mem_smooth
+#print axioms StrongRetr.isScSubspace_range_ρCLM_of_mem_smooth
+#print axioms StrongRetr.isScOperator_scDeriv_r_at
+#print axioms StrongRetr.isScSubspace_range_scDeriv_r_at
+#print axioms StrongRetr.rangeS_ρCLM_congr
+#print axioms IsFillerOf.mem_range_toBase_of_scDeriv_r_eq_zero
+#print axioms IsFillerOf.filler_condition_three_sc
+#print axioms IsFillerOf.proposition_3_5_sc_converse
+#print axioms IsFillerOf.proposition_3_5_sc_iff
+#print axioms linAt_chart_change_sc
+#print axioms StrongBundle.linAt_sc_of_germ_wholeChart
+#print axioms StrongBundle.linAt_isScFredholm_wholeChart
+#print axioms StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex_wholeChart
+#print axioms theorem_3_54_index_locally_constant_sc_wholeChart
+
+/-! ### Axioms: Chapter3/IndexLocallyConstant.lean (the Fredholm index is locally constant along
+the zero set without good position, for sections with tame germ data on an M-polyfold admitting
+bump functions; round-trip item V3.98 (b); Findings Chapter 3, items 240–244) -/
+
+#print axioms linIndex_snd
+#print axioms fredholmIndex_eq_of_param
+#print axioms StrongBundle.IsLinOfIndex
+#print axioms StrongBundle.IsSurjLinOfIndex.isLinOfIndex
+#print axioms StrongBundle.isLinOfIndex_of_conjugationData_wholeChart
+#print axioms StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex_wholeChart
+#print axioms index_locally_constant_of_admitsBumpFunctions_wholeChart
+#print axioms theorem_3_54_index_locally_constant_general_wholeChart
+
+/-! ### Axioms: Chapter3/GermVsChart.lean (the example of item 221 machine-checked: an sc-smooth
+germ with shrinking levels, sc-smooth on no neighbourhood; Definition 3.11 in the text's germ
+reading; project ⇒ text, text ⇒ project for whole-chart germs, the reduction; the trivial
+retraction; Findings Chapter 3, items 260–269) -/
+
+#print axioms GermVsChart.continuous_H
+#print axioms GermVsChart.deriv_H_succ
+#print axioms GermVsChart.abs_H
+#print axioms GermVsChart.abs_H_le
+#print axioms GermVsChart.a_pos
+#print axioms GermVsChart.a_le_half
+#print axioms GermVsChart.a_mem_Ioo
+#print axioms GermVsChart.a_injective
+#print axioms GermVsChart.c_pos
+#print axioms GermVsChart.iteratedDeriv_term
+#print axioms GermVsChart.summable_bound
+#print axioms GermVsChart.summable_term
+#print axioms GermVsChart.contDiff_term
+#print axioms GermVsChart.contDiffOn_term_of_le
+#print axioms GermVsChart.summable_bound_shift
+#print axioms GermVsChart.contDiffOn_term_of_ne
+#print axioms GermVsChart.zero_mem_Uk
+#print axioms GermVsChart.Uk_mono
+#print axioms GermVsChart.Uk_subset_Ioo
+#print axioms GermVsChart.a_not_mem_Uk
+#print axioms GermVsChart.f_eq_split
+#print axioms GermVsChart.exists_a_mem
+#print axioms GermVsChart.isSc0_const_of_continuousOn
+#print axioms GermVsChart.hasDerivAt_mul_abs
+#print axioms GermVsChart.hasDerivAt_H_succ
+#print axioms GermVsChart.contDiff_H
+#print axioms GermVsChart.iteratedDeriv_H
+#print axioms GermVsChart.not_contDiffOn_H
+#print axioms GermVsChart.norm_iteratedDeriv_term_le
+#print axioms GermVsChart.contDiffOn_tsum_of_isOpen
+#print axioms GermVsChart.contDiffOn_tail
+#print axioms GermVsChart.contDiffOn_f
+#print axioms GermVsChart.not_contDiffOn_f
+#print axioms GermVsChart.levelMap_const
+#print axioms GermVsChart.isScDomain_const_of_isOpen
+#print axioms GermVsChart.isSck_const_of_contDiffOn
+#print axioms GermVsChart.isScSmoothGerm_f
+#print axioms GermVsChart.not_isScSmooth_f
+#print axioms exists_isScSmoothGerm_not_isScSmooth
+#print axioms IsSc1.isSc1GermWith_ofSet
+#print axioms IsFilledVersion.isFillingGerm
+#print axioms fillDefect_isScSmooth
+#print axioms IsFillingGerm.isFilledVersion
+#print axioms IsConjugateToBasicGerm.congr_nhds
+#print axioms isStrongBundleRetraction_id_of_relOpen
+#print axioms isFilledVersion_id
+#print axioms exists_wholeChart_filledVersion_of_id
+#print axioms StrongBundle.IsScFredholmGermWholeChart.isScFredholmGerm
+#print axioms StrongBundle.isScFredholmGerm_iff_germG_wholeChart
+
+/-! ### Axioms: Chapter3/BasicGermShrink.lean and Chapter3/BasicGermShrinkIFT.lean (basic germs on
+smaller germs; the conjugation of Definition 3.11 with the basic germ shrunk to the germ `G″` of
+the points that `ψ'` maps into `G_g ∩ G_s`; Corollary 3.41 on `G″`; Findings Chapter 3,
+items 275–279) -/
+
+#print axioms ScNbhdGerm.exists_ball_paramProd
+#print axioms IsSc0ContractionGerm.mono
+#print axioms IsSc0ContractionGerm.inter
+#print axioms IsBasicGerm.mono
+#print axioms IsBasicGerm.inter
+#print axioms ScNbhdGerm.inter_preimage_U
+#print axioms ConjugationData.zero_mem_U'
+#print axioms ConjugationData.baseInv_zero
+#print axioms ConjugationData.baseInv_isSc0Germ
+#print axioms ConjugationData.baseInv_mapsTo
+#print axioms ConjugationData.shrinkGerm
+#print axioms ConjugationData.mem_shrinkGerm_U
+#print axioms ConjugationData.shrinkGerm_subset
+#print axioms ConjugationData.shrinkGerm_subset_U'
+#print axioms ConjugationData.shrinkGerm_mapsToGerm
+#print axioms ConjugationData.levelMap_mem_of_mem_shrinkGerm
+#print axioms ConjugationData.levelMap_mem_inter_of_mem_shrinkGerm
+#print axioms ConjugationData.levelMap_mem_of_subset_shrinkGerm
+#print axioms ConjugationData.levelMap_inclK_mem_of_subset_shrinkGerm
+#print axioms ConjugationData.mem_of_levelMap_base_mem
+#print axioms ConjugationData.toBase_levelMap_of_mem_shrinkGerm
+#print axioms ConjugationData.shrinkGerm_mono
+#print axioms ConjugationData.basic_shrinkGerm
+#print axioms ConjugationData.shrink
+#print axioms ConjugationData.shrink_G
+#print axioms ConjugationData.shrink_Ψ
+#print axioms ConjugationData.shrink_Ψ'
+#print axioms ConjugationData.shrink_h
+#print axioms ConjugationData.shrink_Bc
+#print axioms ConjugationData.shrink_U'
+#print axioms ConjugationData.levelMap_mem_of_mem_shrink
+#print axioms ConjugationData.levelMap_mem_inter_of_mem_shrink
+#print axioms ConjugationData.shrink_G_subset
+#print axioms ConjugationData.congr
+#print axioms ConjugationData.shrinkGerm_congr
+#print axioms IsConjugateToBasicGerm.exists_conjugationData_mapsToGerm
+#print axioms ConjugationData.corollary_3_41_of_subset_shrinkGerm
+#print axioms ConjugationData.corollary_3_41_shrink
+#print axioms ConjugationData.exists_stabilityData_shrinkGerm
+
+/-! ### Axioms: Chapter3/GermCalculus.lean and Chapter3/GermCalculusParam.lean (the germ calculus
+for Definition 3.11 on germs: germ arithmetic, composition with whole-chart maps and the chain
+rules, the fill defect of a germ, Lemma 3.17 for germs, the push-forward by a strong bundle
+isomorphism, the product germ `ℝⁿ × G` of Theorem 3.18; Findings Chapter 3, items 270–274) -/
+
+#print axioms ContinuousLinearMap.ext_of_toBase_one
+#print axioms IsRelOpenInQuadrant.subset_quadrant
+#print axioms IsSc1GermWith.congr_deriv
+#print axioms ScNbhdGerm.U_subset_lvlSet
+#print axioms IsScSmooth.isScSmoothGerm_of_subset
+#print axioms IsSc1.isSc1GermWith_of_subset
+#print axioms IsSc0Germ.levelMap_mapsTo
+#print axioms IsSc1GermWith.tangentMapWith_mapsTo_set
+#print axioms ScNbhdGerm.inter_subset_left
+#print axioms ScNbhdGerm.inter_subset_right
+#print axioms ScNbhdGerm.full_relOpenConvex
+#print axioms ScOperator.negOp
+#print axioms ScOperator.smulOp
+#print axioms IsSc1GermWith.operator_comp
+#print axioms IsSc1GermWith.add
+#print axioms IsSc1GermWith.neg
+#print axioms IsSc1GermWith.sub
+#print axioms IsSc1GermWith.smul
+#print axioms IsSc1GermWith.add_inter
+#print axioms IsSc1GermWith.sub_inter
+#print axioms IsSckGerm.add
+#print axioms IsSckGerm.neg
+#print axioms IsSckGerm.sub
+#print axioms IsSckGerm.smul
+#print axioms IsSckGerm.add_inter
+#print axioms IsSckGerm.sub_inter
+#print axioms IsScSmoothGerm.operator_comp
+#print axioms IsScSmoothGerm.add
+#print axioms IsScSmoothGerm.neg
+#print axioms IsScSmoothGerm.sub
+#print axioms IsScSmoothGerm.smul
+#print axioms IsScSmoothGerm.add_inter
+#print axioms IsScSmoothGerm.sub_inter
+#print axioms IsSc0.levelMap_comp_germ
+#print axioms IsSc0.comp_germ
+#print axioms IsSc1With.hasFDerivWithinAt_comp_germ
+#print axioms tangentMapWith_comp_germ
+#print axioms IsSc1With.comp_germ
+#print axioms IsSck.comp_germ
+#print axioms IsScSmooth.comp_germ
+#print axioms IsSc1GermWith.pair_id
+#print axioms IsSckGerm.pair_id
+#print axioms IsScSmoothGerm.pair_id
+#print axioms IsSckGerm.comp_preimage
+#print axioms IsScSmoothGerm.comp_preimage
+#print axioms IsSc1GermWith.comp_preimage
+#print axioms StrongRetr.fiber_isScSmooth
+#print axioms StrongRetr.r_isScSmoothGerm
+#print axioms StrongRetr.r_isSc1GermWith
+#print axioms StrongRetr.pairMap_mapsTo
+#print axioms fillDefect_isScSmoothGerm
+#print axioms fillDefectDeriv
+#print axioms fillDefect_isSc1GermWith
+#print axioms levelMap_pairMap_r_zero
+#print axioms fillDefectDeriv_zero
+#print axioms fillDefect_deriv_zero_eq
+#print axioms IsFillingGerm.add_section
+#print axioms IsFillingGerm.add_section_germ
+#print axioms IsStrongBundleMap.fiber_isScSmooth
+#print axioms pairMap_id_mapsTo
+#print axioms IsStrongBundleMap.fiber_comp_isScSmoothGerm
+#print axioms fiberCompDeriv
+#print axioms IsStrongBundleMap.fiber_comp_isSc1GermWith
+#print axioms levelMap_pairMap_id_zero
+#print axioms fiberCompDeriv_zero
+#print axioms IsStrongBundleMap.pushforward_isScSmoothGerm
+#print axioms pushforwardDeriv
+#print axioms IsStrongBundleMap.pushforward_isSc1GermWith
+#print axioms levelMap_one_zero_of_zero
+#print axioms pushforwardDeriv_zero
+#print axioms fillDefectDeriv_zero_eq
+#print axioms fillDefect_deriv_zero_eq_rho
+#print axioms IsFillingGerm.exists_kerEquiv
+#print axioms IsFillingGerm.deriv_comp_r_eq_zero
+#print axioms IsFillingGerm.ρ_deriv_comp_r
+#print axioms IsFillingGerm.proposition_3_5
+#print axioms fiberCompDeriv_zero_eq
+#print axioms pushforwardDeriv_zero_eq
+#print axioms IsStrongBundleIso.zero_mem'
+#print axioms IsStrongBundleIso.base_inv_mapsTo_quadrant
+#print axioms IsStrongBundleIso.base_inv_isSc0Germ
+#print axioms IsStrongBundleIso.pullGerm
+#print axioms IsStrongBundleIso.pullGerm_U
+#print axioms IsStrongBundleIso.pullGerm_subset
+#print axioms IsStrongBundleIso.pullGerm_mapsToGerm
+#print axioms IsStrongBundleIso.pushforward_eq
+#print axioms IsStrongBundleIso.pushforward_isScSmoothGerm
+#print axioms IsStrongBundleIso.pushforward_isSc1GermWith
+#print axioms IsStrongBundleIso.pushforwardDeriv_zero
+#print axioms ScBanach.mem_lvlSet_univ_prod
+#print axioms IsQuadrantLike.univ_prod
+#print axioms ScNbhdGerm.univProd
+#print axioms ScNbhdGerm.univProd_U
+#print axioms ScNbhdGerm.univProd_mapsToGerm_snd
+#print axioms IsSckGerm.univProd
+#print axioms IsScSmoothGerm.univProd
+#print axioms IsSc1GermWith.univProd
+#print axioms PullbackChartData.ofProd_isFillingGerm
+
+/-! ### Axioms: Chapter3/FredholmGermLinearizationG.lean, FredholmGermIndexG.lean,
+FredholmGermLinearizationScG.lean and SectionCompactnessG.lean (Proposition 3.52, its index and
+sc forms, Proposition 3.5 sc form, Theorem 3.19 "`f'(x₀)` is sc-Fredholm", Theorem 3.12 and
+Corollary 3.13 in the germ reading of Definition 3.11; Findings Chapter 3, items 287–293) -/
+
+#print axioms IsStrongBundleIso.fiberCLM_comp_deriv_zero_eq_germ
+#print axioms IsStrongBundleIso.deriv_zero_isFredholm_germ
+#print axioms IsConjugateToBasicGerm.scDeriv_isFredholm
+#print axioms IsSc1GermWith.sub_toBase_shift
+#print axioms IsSc1GermWith.deriv_zero_eq_add_scPlus
+#print axioms proposition_3_52_local
+#print axioms proposition_3_52_local_of_germ
+#print axioms StrongBundleChart.zero_data
+#print axioms proposition_3_52
+#print axioms ConjugationData.scDeriv_isFredholm_index
+#print axioms ConjugationData.index_eq
+#print axioms proposition_3_52_local_index
+#print axioms proposition_3_52_index
+#print axioms ConjugationData.scDeriv_isRegularizing
+#print axioms ConjugationData.scDeriv_isScFredholm
+#print axioms IsFillingGerm.proposition_3_5_sc
+#print axioms proposition_3_52_local_sc
+#print axioms theorem_3_19_linearization_sc_local_germ
+#print axioms proposition_3_52_sc
+#print axioms theorem_3_19_linearization_sc
+#print axioms theorem_3_12
+#print axioms corollary_3_13
+
+/-! ### Axioms: Chapter3/GoodPositionGermG.lean and Chapter3/LinearizationChartsG.lean
+(Definition 3.53, the linear part of Theorem 3.54 and its push-forward step, and the assembly of
+Definition 3.53 from a non-centred chart, in the germ reading of Definition 3.11; Findings
+Chapter 3, items 280–285) -/
+
+#print axioms IsSc1GermWith.deriv_zero_eq
+#print axioms IsSc1GermWith.deriv_zero_eq_scDeriv
+#print axioms IsFillingGerm.ker_deriv_le_range
+#print axioms IsFillingGerm.map_ker_fillerRestrict
+#print axioms IsGoodPositionAtGerm
+#print axioms isGoodPositionAt_iff_germ
+#print axioms IsGoodPositionAt.isGoodPositionAtGerm
+#print axioms IsGoodPositionAtGerm.surjective_fillerRestrict
+#print axioms IsGoodPositionAtGerm.congr
+#print axioms IsGoodPositionAtGerm.of_isSc1GermWith
+#print axioms theorem_3_54_linear
+#print axioms theorem_3_54_linear_of_isTameWith
+#print axioms IsStrongBundleIso.exists_fiber_base_equiv
+#print axioms IsStrongBundleIso.pushforward_linearization
+#print axioms IsStrongBundleIso.pushforward_surjective
+#print axioms IsStrongBundleIso.pushforward_ker_isInGoodPosition
+#print axioms IsStrongBundleIso.pushforward_isFredholm_germ
+#print axioms theorem_3_54_pushforward
+#print axioms StrongBundle.IsGoodPositionGerm
+#print axioms StrongBundle.IsGoodPositionGerm.isScFredholmGerm
+#print axioms StrongBundle.IsGoodPositionGermWholeChart.isGoodPositionGerm
+#print axioms StrongBundle.IsGoodPositionGerm.forall_isGoodPositionAtGerm
+#print axioms StrongBundle.isGoodPositionGerm_iff_germG_wholeChart
+#print axioms theorem_3_54_pushforward_section
+#print axioms scDeriv_comp_r_eq_germ
+#print axioms linAt_eq_germDeriv
+#print axioms IsFillingGerm.fillerRestrict_eq_linAt
+#print axioms StrongBundle.IsScSmoothSection.principal_comp_r_isSc1
+#print axioms StrongBundle.isInGoodPositionIn_ker_germ_of_linAt
+#print axioms StrongBundle.isGoodPositionAtGerm_of_linAt_surj
+#print axioms StrongBundle.isGoodPositionAtGerm_of_linAt_dense
+#print axioms StrongBundle.linAt_eq_germDeriv_chart
+#print axioms StrongBundle.isGoodPositionAtGerm_of_chart
+#print axioms StrongBundle.isGoodPositionAtGerm_of_chart_dense
+#print axioms StrongBundle.isGoodPositionGerm_of_linAt_surj
+#print axioms StrongBundle.isGoodPositionGerm_of_chart
+
+-- Chapter3/TameGermsG.lean (phase 2: sections and tame germ data, germ reading)
+#print axioms StrongBundle.IsScFredholmSectionWholeChart.isScFredholmSection
+#print axioms StrongBundle.IsScFredholmGermTame.isScFredholmGerm
+#print axioms StrongBundle.IsScFredholmGermTameWholeChart.isScFredholmGermTame
+#print axioms StrongBundle.IsGoodPositionGermTame.isGoodPositionGerm
+#print axioms StrongBundle.IsGoodPositionGermTame.isScFredholmGermTame
+#print axioms StrongBundle.IsGoodPositionGermTameWholeChart.isGoodPositionGermTame
+#print axioms StrongBundle.IsScFredholmSectionTameWholeChart.isScFredholmSectionTame
+
+-- Chapter3/FredholmSectionsG.lean, TameGermsAddG.lean, ParamPerturbationG.lean, NonVacuityG.lean
+-- (phase 2: Theorems 3.15 and 3.18 for sections sc-Fredholm in the germ reading of Definition 3.11;
+-- Findings Chapter 3, items 300–309)
+#print axioms IsFillingGerm.congr
+#print axioms StrongBundle.sectionAdd_chartData_germ
+#print axioms StrongBundle.IsScFredholmGerm.sectionAdd
+#print axioms StrongBundle.regularizing_sectionAdd
+#print axioms StrongBundle.IsScFredholmGermWholeChart.sectionAdd_germG
+#print axioms theorem_3_15
+#print axioms StrongBundle.IsGoodPositionGerm.toTame
+#print axioms StrongBundle.IsScFredholmGermTame.sectionAdd
+#print axioms theorem_3_15_tame
+#print axioms StrongBundle.IsScFredholmGerm.param
+#print axioms StrongBundle.regularizing_paramLift
+#print axioms StrongBundle.IsScFredholmSection.param
+#print axioms theorem_3_18
+#print axioms theorem_3_18'
+#print axioms StrongBundle.IsScFredholmGermTame.param
+#print axioms StrongBundle.IsScFredholmSectionTame.param
+#print axioms theorem_3_18_tame
+#print axioms scDeriv_paramSection_of_isScSmoothSection
+#print axioms scDeriv_paramSection
+#print axioms linAt_paramSection
+#print axioms linAt_paramSection_zero
+#print axioms TrivialBundle.isScFredholmGermTame_graphSection
+#print axioms TrivialBundle.isGoodPositionGermTame_graphSection
+#print axioms TrivialBundle.isScFredholmSection_graphSection
+#print axioms TrivialBundle.isScFredholmSectionTame_graphSection
+#print axioms TrivialBundle.hypotheses_theorem_3_57_graphSection
+#print axioms TrivialBundle.hypotheses_theorem_3_57_linear
+#print axioms TrivialBundle.htame_fails_repaired_holds
+#print axioms HalfSpaceBundle.isScFredholmGermTame_graphSection
+#print axioms HalfSpaceBundle.isGoodPositionGermTame_graphSection
+#print axioms HalfSpaceBundle.isScFredholmSection_graphSection
+#print axioms HalfSpaceBundle.isScFredholmSectionTame_graphSection
+#print axioms HalfSpaceBundle.hypotheses_theorem_3_57_halfSpace
+
+-- Chapter3/GlobalIFTNearbyGraphG.lean (phase 2: Theorem 3.54 (3) in the chart, germ reading)
+#print axioms levelMap_pairMap_id_at
+#print axioms IsStrongBundleMap.fiberCompDeriv_at
+#print axioms IsStrongBundleIso.pushforwardDeriv_at
+#print axioms IsStrongBundleIso.ker_deriv_eq_map_germ
+#print axioms theorem_3_54_chart_graph
+
+-- Chapter3/GlobalIFTG.lean (phase 2: Theorem 3.54 (3) for sections, germ reading)
+#print axioms StrongBundle.IsTameChart.range_id_sub_scDeriv_le
+#print axioms theorem_3_54_graph_proj_conj
+#print axioms theorem_3_54_graph_proj
+#print axioms theorem_3_54_graph
+
+-- Chapter3/GlobalIFTFullG.lean (phase 2: Theorem 3.54 (1) in the chart at `x₀`, germ reading)
+#print axioms theorem_3_54_nearby
+
+-- Chapter3/GlobalIFTCenterG.lean (phase 2: Theorem 3.54 (2) at the centre, germ reading)
+#print axioms theorem_3_54_tangentGermChart_proj_conj
+#print axioms theorem_3_54_tangentGermChart_proj
+#print axioms theorem_3_54_tangentGermChart
+
+-- Chapter3/GlobalIFTNearbyKernelG.lean (phase 2: Theorem 3.54 (1), the kernel, germ reading)
+#print axioms theorem_3_54_chart_kernel
+
+-- Chapter3/GlobalIFTNearbySurjG.lean (phase 2: Theorem 3.54 (1) for sections, germ reading)
+#print axioms exists_range_deriv_eq_ρ_of_normal_injective_germ
+#print axioms StrongBundle.IsScFredholmSection.mem_smoothSet_of_isZeroAt
+#print axioms StrongBundle.isGoodPositionGermTame_of_chart_dense
+#print axioms theorem_3_54_nearby_kernel
+#print axioms StrongBundle.IsGoodPositionGermFilled
+#print axioms StrongBundle.IsGoodPositionGermFilled.isGoodPositionGermTame
+#print axioms StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm
+#print axioms StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGermFilled
+#print axioms theorem_3_54_one
+
+-- Chapter3/GlobalIFTTheoremsG.lean (phase 2: the main theorems, germ reading)
+#print axioms theorem_3_54_tangentGermChart_solutionSet
+#print axioms theorem_3_54_two
+#print axioms theorem_3_54
+#print axioms theorem_3_23_of_nearby
+#print axioms theorem_3_23
+#print axioms theorem_3_19_linearization
+#print axioms theorem_3_19
+#print axioms theorem_3_57
+#print axioms corollary_3_24
+#print axioms theorem_3_56
+#print axioms theorem_3_57_dim
+
+-- Chapter3/GlobalIFTNearbyOntoG.lean (phase 2: Theorem 3.54 (1) with the text's hypotheses, germ reading)
+#print axioms theorem_3_54_chart_onto
+#print axioms theorem_3_54_one'
+#print axioms theorem_3_54'
+#print axioms theorem_3_23'
+#print axioms theorem_3_19'
+
+-- Chapter3/GoodPositionScG.lean (phase 2: good position with an sc-complement, germ reading;
+-- Findings Chapter 3, items 320–329)
+#print axioms isGoodPositionAtSc_iff_germ
+#print axioms IsGoodPositionAtScGerm.isGoodPositionAtGerm
+#print axioms IsGoodPositionAtScGerm.congr
+#print axioms IsGoodPositionAtScGerm.of_isSc1GermWith
+#print axioms StrongBundle.IsGoodPositionGermSc.isGoodPositionGermTame
+#print axioms StrongBundle.IsGoodPositionGermScWholeChart.isGoodPositionGermSc
+#print axioms StrongBundle.IsGoodPositionGermTame.isGoodPositionGermSc
+#print axioms StrongBundle.isGoodPositionGermSc_iff
+#print axioms theorem_3_54_one_sc_of_tame
+#print axioms theorem_3_54_one_sc
+#print axioms theorem_3_54_sc
+#print axioms theorem_3_23_sc
+#print axioms forall_isGoodPositionGermSc_iff
+#print axioms theorem_3_57_sc
+#print axioms corollary_3_24_sc
+#print axioms theorem_3_56_sc
+
+-- Chapter3/Chapter5BridgeG.lean (phase 2: the Chapter 5 interface, germ reading)
+#print axioms corollary_3_13_section
+#print axioms StrongBundle.IsGoodPositionGermTame.congr_nhds
+
+-- Chapter3/GlobalIFTIndexG.lean (phase 2: the index statements, germ reading;
+-- Findings Chapter 3, items 310–319)
+#print axioms normal_injective_of_exists_range_deriv_eq_ρ_germ
+#print axioms exists_range_deriv_eq_ρ_iff_normal_injective_germ
+#print axioms StrongBundle.linAt_index_of_conjugationData
+#print axioms StrongBundle.isSurjLinOfIndex_of_conjugationData
+#print axioms StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex
+#print axioms StrongBundle.IsGoodPositionGerm.isLinSurjAt
+#print axioms StrongBundle.isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero
+#print axioms StrongBundle.isGoodPositionGerm_of_isLinSurjAt
+#print axioms StrongBundle.isGoodPositionGerm_iff_isLinSurjAt
+#print axioms theorem_3_19_linearization_index
+#print axioms theorem_3_54_tangentGermChart_index
+#print axioms theorem_3_54_tangentGermChart_solutionSet_index
+#print axioms theorem_3_54_two_index
+#print axioms isSurjLinOfIndex_of_forall_dim
+#print axioms theorem_3_54_index_locally_constant
+#print axioms theorem_3_54_index
+#print axioms theorem_3_23_index
+#print axioms theorem_3_19_index
+#print axioms theorem_3_19_of_surjective
+#print axioms theorem_3_57_index
+#print axioms theorem_3_56_tame
+#print axioms theorem_3_56_of_surjective
+#print axioms theorem_3_54_ker_eq_tangent
+#print axioms isGoodPositionGermFilled_of_isGoodPositionGerm
+
+-- Chapter3/LinearizationChartsScG.lean (phase 2: sc-Fredholm linearizations, germ reading)
+#print axioms IsFillingGerm.mem_range_toBase_of_scDeriv_r_eq_zero
+#print axioms IsFillingGerm.filler_condition_three_sc
+#print axioms IsFillingGerm.proposition_3_5_sc_converse
+#print axioms IsFillingGerm.proposition_3_5_sc_iff
+#print axioms StrongBundle.linAt_sc_of_germ
+#print axioms StrongBundle.linAt_isScFredholm
+#print axioms StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex
+#print axioms theorem_3_54_index_locally_constant_sc
+
+-- Chapter3/IndexLocallyConstantG.lean (phase 2: the index along the zero set, germ reading)
+#print axioms StrongBundle.isLinOfIndex_of_conjugationData
+#print axioms StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex
+#print axioms exists_spanning_sections_germ
+#print axioms isLinSurjAt_paramSection_zero_of_spanning_germ
+#print axioms spanning_of_isLinSurjAt_germ
+#print axioms exists_sections_isParamGP_germ
+#print axioms isGoodPositionGermTame_paramSection_of_isParamGP
+#print axioms index_locally_constant_of_admitsBumpFunctions
+#print axioms theorem_3_54_index_locally_constant_general
+
+/-! ### Axioms: Chapter5/StrongBundleShift.lean and Chapter5/Corollary58.lean (the shifted strong
+bundle `P¹ : Y¹ → X¹` and Corollary 5.8: `f¹` an sc-Fredholm section of `P¹` with compact solution
+set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, items 140–149) -/
+
+#print axioms IsStrongBundleRetraction.shift
+#print axioms IsStrongBundleRetraction.toBase_strongShift
+#print axioms IsStrongBundleRetraction.strongShift_image
+#print axioms IsStrongBundleRetraction.shift_baseRetraction_retract
+#print axioms StrongBundleChart.fiberK
+#print axioms StrongBundleChart.mem_fiberK_iff
+#print axioms StrongBundleChart.O_subset_U
+#print axioms StrongBundleChart.mem_K_iff
+#print axioms StrongBundleChart.isClosed_fiberK
+#print axioms StrongBundleChart.mem_source_of_fiber
+#print axioms StrongBundleChart.apply_fiber
+#print axioms StrongBundleChart.snd_mem_fiberK
+#print axioms StrongBundleChart.symm_mem_fiber
+#print axioms StrongBundleChart.fiberCLE
+#print axioms StrongBundleChart.continuousOn_proj
+#print axioms StrongBundleChart.isBanachable_fiber
+#print axioms ScBanach.mem_range_shift_toBase_iff
+#print axioms MPolyfold.mem_shift_levelSet_iff
+#print axioms MPolyfold.mem_shift_smoothSet_iff
+#print axioms MPolyfold.levelChart_image_preimage
+#print axioms MPolyfold.levelChart_apply_levelOne
+#print axioms MPolyfold.IsScSmoothMap.levelOne
+#print axioms StrongBundle.mem_levelSet0_iff
+#print axioms StrongBundle.proj_mem_levelSet
+#print axioms StrongBundle.mem_levelSet0_one_iff_of_fiber
+#print axioms StrongBundle.ShiftSpace
+#print axioms StrongBundle.shiftProj
+#print axioms StrongBundle.levelVal_shiftProj
+#print axioms StrongBundle.shiftFiberSubmodule
+#print axioms StrongBundle.shiftFiberEquiv
+#print axioms StrongBundle.shiftFiber_addCommGroup
+#print axioms StrongBundle.shiftFiber_module
+#print axioms StrongBundle.shiftFiberEquiv_add
+#print axioms StrongBundle.shiftFiberEquiv_smul
+#print axioms StrongBundle.levelVal_shiftFiber_add
+#print axioms StrongBundle.levelVal_shiftFiber_smul
+#print axioms StrongBundleChart.toBase_levelChart
+#print axioms StrongBundleChart.toBase_levelChart_fst
+#print axioms StrongBundleChart.toBase_levelChart_snd
+#print axioms StrongBundleChart.levelVal_mem_source_of_fiber
+#print axioms StrongBundleChart.shift_covers
+#print axioms StrongBundleChart.shift_fiber_linear
+#print axioms StrongBundleChart.shift
+#print axioms StrongBundleChart.shift_φ
+#print axioms StrongBundleChart.shift_F
+#print axioms StrongBundleChart.shift_U
+#print axioms StrongBundleChart.shift_R
+#print axioms StrongBundleChart.shift_apply
+#print axioms StrongBundleChart.shift_source
+#print axioms StrongBundleChart.shift_K
+#print axioms StrongBundleChart.toBase_shift_apply
+#print axioms StrongBundleChart.toBase_shift_apply_fst
+#print axioms StrongBundleChart.toBase_shift_apply_snd
+#print axioms StrongBundleChart.shift_overlap
+#print axioms StrongBundleChart.shift_transition
+#print axioms StrongBundleChart.strongShiftOne_shift_overlap
+#print axioms StrongBundleChart.shift_transition_one
+#print axioms StrongBundleChart.shift_compatible_one
+#print axioms StrongBundleChart.shift_compatible_range
+#print axioms StrongBundleChart.Compatible.shift
+#print axioms StrongBundle.shiftAtlas
+#print axioms StrongBundle.continuous_shiftProj
+#print axioms StrongBundle.shiftZero
+#print axioms StrongBundle.shiftProj_shiftZero
+#print axioms StrongBundle.levelVal_shiftZero
+#print axioms StrongBundle.surjective_shiftProj
+#print axioms StrongBundle.banachable_shift
+#print axioms StrongBundle.shift
+#print axioms StrongBundle.shift_atlas
+#print axioms StrongBundle.isChart_shift
+#print axioms StrongBundle.shift_mem_atlas
+#print axioms StrongBundle.shift_toMChart_compatible
+#print axioms StrongBundle.isChart_shift_toMPolyfold0_iff
+#print axioms StrongBundle.mem_shift_doubleLevel_iff
+#print axioms StrongBundle.sectionShift
+#print axioms StrongBundle.IsScSmoothSection.mem_levelSet
+#print axioms StrongBundle.levelVal_sectionShift
+#print axioms StrongBundle.isSection_sectionShift
+#print axioms StrongBundle.IsScSmoothSection.shift
+#print axioms StrongBundle.fiberZero_shiftProj
+#print axioms StrongBundle.isZeroAt_sectionShift_iff
+#print axioms StrongBundle.solutionSet_sectionShift
+#print axioms StrongBundle.regularizing_sectionShift
+#print axioms IsScSmoothGerm.toBase_zero_mem_smooth
+#print axioms IsFillingGerm.mem_range_toBase_of_fillDefect
+#print axioms toBase_scDeriv_r_shift
+#print axioms toBase_ρCLM_shift
+#print axioms IsFillingGerm.germ_shift
+#print axioms StrongBundleChart.principal_sectionShift
+#print axioms StrongBundleChart.shift_φ_eq_zero
+#print axioms ScNbhdGerm.eventually_mem_one
+#print axioms StrongBundleChart.U_subset_C
+#print axioms StrongBundleChart.tendsto_toBase_one
+#print axioms StrongBundleChart.shift_filling_eq_on
+#print axioms StrongBundleChart.shift_filling_mem_of_fixed
+#print axioms StrongBundleChart.principal_mem_image
+#print axioms StrongBundleChart.shift_isFillingGerm
+#print axioms isScFredholmGerm_sectionShift
+#print axioms corollary_5_8_isScFredholmSection
+#print axioms corollary_5_8
+#print axioms corollary_5_8_two
+#print axioms corollary_5_8_data
+
+-- Chapter3/IndexAlongPaths.lean (Definition 6.1, the index at non-zeros; Proposition 6.2 along
+-- paths: the local form and the text's device on ℝ × X)
+#print axioms IsZeroAt.sectionAdd
+#print axioms fiberZero_sectionAdd
+#print axioms isZeroAt_of_isZeroAt_sectionAdd
+#print axioms IsZeroAt.sectionSmul
+#print axioms sectionDiff_mk
+#print axioms sectionAdd_sectionAdd_sectionDiff
+#print axioms isZeroAt_sectionDiff_of_isZeroAt_sectionAdd
+#print axioms StrongBundle.IsLinOfIndex.unique
+#print axioms StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt
+#print axioms StrongBundle.IsIndexAt.unique
+#print axioms StrongBundle.isIndexAt_of_isZeroAt
+#print axioms StrongBundle.IsIndexAt.isLinOfIndex_of_isZeroAt
+#print axioms StrongBundle.exists_isIndexAt
+#print axioms isIndexAt_locally_constant_of_isZeroAt_sectionAdd
+#print axioms isIndexAt_eventually_const_of_path
+#print axioms isIndexAt_const_of_forall_eventually
+#print axioms isIndexAt_const_of_path
+#print axioms isScSmoothMap_rn_real_of_contDiff
+#print axioms MPolyfold.IsScSmoothMap.mul
+#print axioms tsupport_prod_mul_subset
+#print axioms MPolyfold.admitsBumpFunctions_prod_rn
+#print axioms isLinOfIndex_paramLift_sectionAdd_eventually_const
+#print axioms proposition_6_2_of_sections_of_slice
+
+-- Chapter3/IndexAlongPathsDevice.lean (Proposition 6.2 closed: the sc⁺-section along the path
+-- and the slice relation)
+#print axioms ScBanach.prodSndLeftOp
+#print axioms pullbackSlice
+#print axioms IsSection.pullbackSlice
+#print axioms isZeroAt_pullback_iff_pullbackSlice
+#print axioms pullbackSlice_sectionAdd_paramLift
+#print axioms StrongBundle.IsScPlusSection.pullbackSlice
+#print axioms PullbackChartData.r_ofProd
+#print axioms StrongBundle.linAt_ofProd_slice
+#print axioms StrongBundle.isLinOfIndex_pullbackSlice_of_isLinOfIndex
+#print axioms StrongBundle.isIndexAt_of_pullback_isLinOfIndex
+#print axioms isScSmoothMap_rn_of_contDiff
+#print axioms exists_contDiff_eq_id_near_mapsTo
+#print axioms exists_isScPlusSection_pullback_of_path
+#print axioms proposition_6_2
+#print axioms proposition_6_2'
+
+-- Chapter4/RemarkFourThreeExample.lean (Remark 4.3, "X¹ ≠ X is possible": an sc-smoothness
+-- criterion with one level of loss, and the reduction of the example to a loss family)
+#print axioms IsLossFamily.famLoss_toBase
+#print axioms IsLossFamily.famDeriv_toBase
+#print axioms IsLossFamily.tangent
+#print axioms IsLossFamily.isSc0
+#print axioms tangentMapWith_lossFamMap_eq
+#print axioms IsLossFamily.isSc1With
+#print axioms isSck_lossFamMap
+#print axioms IsLossFamily.isScSmooth
+#print axioms IsLossFamily.isScSmooth_famRetr
+#print axioms IsLossFamily.retraction
+#print axioms IsLossFamily.retract_subset_smooth
+#print axioms IsLossFamily.not_isScPlusRetract
+#print axioms exists_retract_smooth_not_scPlus_of_data
+
+-- Chapter4/RemarkFourThreeFamily.lean (Remark 4.3's example: the moving rank-one projections on
+-- the weighted sequence space; an M-polyfold with X₀ = X_∞ and 1₀¹ not sc-smooth)
+#print axioms RemarkFourThree.exists_bound_iteratedFDeriv
+#print axioms RemarkFourThree.DerivBound.mul
+#print axioms RemarkFourThree.bb_eq_zero_of_pos
+#print axioms RemarkFourThree.fam_of_pos
+#print axioms RemarkFourThree.toBase_fam
+#print axioms RemarkFourThree.norm_fam_le
+#print axioms RemarkFourThree.continuous_apply_of_bound
+#print axioms RemarkFourThree.contDiff_fam_comp
+#print axioms RemarkFourThree.isLossFamily_fam
+#print axioms RemarkFourThree.fam_idem
+#print axioms RemarkFourThree.fam_mem_smooth
+#print axioms RemarkFourThree.not_continuousOn_liftOne
+#print axioms RemarkFourThree.remarkFourThreeData
+#print axioms remark_4_3_retract_example
+#print axioms retractPolyfold
+#print axioms retractPolyfold_smooth_not_toLevelOne
+#print axioms remark_4_3_example
+
+-- Chapter5/AllowableSectionsMetric.lean (§5.3: the metric ρ on Γ^{+,1}_U(P); not complete on the
+-- trivial bundle ℝ × ℝ → ℝ; complete for U = ∅ and over a point)
+#print axioms StrongBundle.sectionDistAt_le_two
+#print axioms StrongBundle.allowableDist_le_two
+#print axioms StrongBundle.allowableDist_le_iff
+#print axioms StrongBundle.allowableDist_self
+#print axioms StrongBundle.allowableDist_comm
+#print axioms StrongBundle.allowableDist_triangle
+#print axioms StrongBundle.eq_of_allowableDist_eq_zero
+#print axioms StrongBundle.allowableMetric
+#print axioms StrongBundle.subsingleton_allowableSections_empty
+#print axioms StrongBundle.completeSpace_allowableSections_empty
+#print axioms TrivialBundle.isAuxNorm_fibNorm
+#print axioms TrivialBundle.sectionDistAt_fibNorm
+#print axioms TrivialBundle.isScPlusSection_graphSection
+#print axioms TrivialBundle.differentiable_snd_of_isScPlusSection
+#print axioms TrivialBundle.not_differentiableAt_limit
+#print axioms TrivialBundle.not_completeSpace_allowableSections
+#print axioms TrivialBundle.completeSpace_allowableSections_point
+
+-- Chapter3/TameGermData.lean (Definition 3.11 ⟹ Definition 3.50 under a tame atlas: the filler
+-- is chart-bound; a tame atlas chart of the trivial bundle in which no section has a filling)
+#print axioms IsFillingGerm.nonempty_kerEquiv
+#print axioms not_isFillingGerm_of_ker
+#print axioms TrivialBundle.zeroRetr_isTameWith
+#print axioms TrivialBundle.Reven_isTame
+#print axioms TrivialBundle.isChart_evenChart
+#print axioms TrivialBundle.evenBundleChart_compatible
+#print axioms TrivialBundle.isChart_evenBundleChart
+#print axioms TrivialBundle.isTameChart_evenBundleChart
+#print axioms TrivialBundle.scDeriv_r_evenBundleChart_apply
+#print axioms TrivialBundle.not_isFillingGerm_evenBundleChart
+#print axioms TrivialBundle.bundleEven_atlas_isTameChart
+#print axioms TrivialBundle.isTameChart_chart_even
+#print axioms TrivialBundle.isScSmoothSection_graphSection_even
+#print axioms TrivialBundle.isScFredholmSectionTame_graphSection_even
+#print axioms TrivialBundle.tame_atlas_no_germData_in_atlas_chart
+
+-- Chapter5/BumpWeakPointwise.lean (Definition 5.29 "not identically zero" against Definition 5.9
+-- "f(x) ≠ 0": bump points; translations by non-smooth vectors are not sc⁰; on an sc-Banach space
+-- the weak reading gives bump points at all smooth points)
+#print axioms MPolyfold.admitsBumpFunctions_iff_forall_hasBumpAt
+#print axioms MPolyfold.admitsBumpFunctionsWeak_of_dense
+#print axioms not_isSc0_add_const
+#print axioms not_isScSmooth_add_const
+#print axioms isChart_scChart
+#print axioms isScSmoothMap_scPolyfold_iff
+#print axioms MPolyfold.AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth
+#print axioms MPolyfold.AdmitsBumpFunctionsWeak.exists_bump_of_mem_smooth
+
+-- Proposition 6.2 and the index along the zero set without bump functions (2026-11-02):
+-- RestrictOpen, RestrictOpenGerms, IndexLocallyConstantLocal, IndexAlongPathsLocal, IndexAlongPathsLocalBump
+-- RestrictOpen.lean
+#print axioms Polyfold.MChart.restrictTo
+#print axioms Polyfold.MChart.Compatible.restrictTo
+#print axioms Polyfold.MPolyfold.restrictOpen
+#print axioms Polyfold.MPolyfold.isChart_restrictTo
+#print axioms Polyfold.MPolyfold.mem_levelSet_restrictOpen_iff
+#print axioms Polyfold.MPolyfold.mem_smoothSet_restrictOpen_iff
+#print axioms Polyfold.MPolyfold.IsScSmoothMap.codRestrict_restrictOpen
+#print axioms Polyfold.StrongBundleChart.restrictTo
+#print axioms Polyfold.StrongBundleChart.Compatible.restrictTo
+#print axioms Polyfold.StrongBundle.restrictOpen
+#print axioms Polyfold.StrongBundle.restrictOpen_isChart_restrictTo
+#print axioms Polyfold.StrongBundleChart.restrictInter
+#print axioms Polyfold.StrongBundle.IsChart.restrictInter
+#print axioms Polyfold.StrongBundle.IsScSmoothSection.restrictOpen
+#print axioms Polyfold.StrongBundle.IsScPlusSection.restrictOpen
+#print axioms Polyfold.StrongBundle.regularizing_restrictOpen
+-- RestrictOpenGerms.lean
+#print axioms Polyfold.IsFillingGerm.of_subset
+#print axioms Polyfold.IsScPlusGerm.of_subset
+#print axioms Polyfold.ConjugationData.ofSubset
+#print axioms Polyfold.IsConjugateToBasicGerm.of_subset
+#print axioms Polyfold.StrongBundleChart.germData_restrictInter
+#print axioms Polyfold.StrongBundle.IsTameChart.restrictInter
+#print axioms Polyfold.StrongBundle.IsScFredholmGerm.restrictOpen
+#print axioms Polyfold.StrongBundle.IsScFredholmGermTame.restrictOpen
+#print axioms Polyfold.StrongBundle.IsScFredholmSection.restrictOpen
+#print axioms Polyfold.StrongBundle.IsScFredholmSectionTame.restrictOpen
+#print axioms Polyfold.restrictSection_sectionAdd
+#print axioms Polyfold.StrongBundle.isLinOfIndex_restrictOpen_of_conjugationData
+#print axioms Polyfold.StrongBundle.IsLinOfIndex.restrictOpen
+#print axioms Polyfold.StrongBundle.IsLinOfIndex.of_restrictOpen
+#print axioms Polyfold.StrongBundle.IsIndexAt.restrictOpen
+-- IndexLocallyConstantLocal.lean
+#print axioms Polyfold.StrongBundle.HasScPlusSectionsThrough
+#print axioms Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough
+#print axioms Polyfold.StrongBundle.hasScPlusSectionsThrough_of_chart
+#print axioms Polyfold.exists_spanning_sections_of_sections
+#print axioms Polyfold.exists_sections_isParamGP_of_sections
+#print axioms Polyfold.index_locally_constant_of_sections
+#print axioms Polyfold.index_locally_constant_tame
+#print axioms Polyfold.theorem_3_54_index_locally_constant_general_tame
+-- IndexAlongPathsLocal.lean
+#print axioms Polyfold.sectionRestrict
+#print axioms Polyfold.StrongBundle.IsScPlusSection.restrictOpen_of_subset
+#print axioms Polyfold.StrongBundle.IsLinOfIndex.restrictOpen_of_subset
+#print axioms Polyfold.StrongBundle.IsIndexAt.restrictOpen_of_subset
+#print axioms Polyfold.StrongBundle.IsIndexAtLocal
+#print axioms Polyfold.StrongBundle.IsIndexAt.isIndexAtLocal
+#print axioms Polyfold.StrongBundle.IsIndexAtLocal.unique
+#print axioms Polyfold.StrongBundle.isIndexAtLocal_of_isZeroAt
+#print axioms Polyfold.StrongBundle.exists_isIndexAtLocal
+#print axioms Polyfold.isIndexAtLocal_const_of_forall_eventually
+#print axioms Polyfold.exists_isScPlusSection_pullback_of_path_of_bump
+#print axioms Polyfold.exists_isScPlusSection_pullback_of_path_of_chart
+#print axioms Polyfold.hasScPlusSectionsThrough_pullback_rn_of_chart
+#print axioms Polyfold.isLinOfIndex_paramLift_sectionAdd_eventually_const_of_sections
+#print axioms Polyfold.isIndexAtLocal_eventually_const_of_path
+#print axioms Polyfold.proposition_6_2_local
+#print axioms Polyfold.proposition_6_2_local'
+-- IndexAlongPathsLocalBump.lean
+#print axioms Polyfold.StrongBundle.cutoffSection_mem_oneSet_of_isChart
+#print axioms Polyfold.StrongBundle.isScPlusSection_cutoffSection_of_isChart
+#print axioms Polyfold.StrongBundle.IsIndexAtLocal.isIndexAt
+#print axioms Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt
+
+end Polyfold

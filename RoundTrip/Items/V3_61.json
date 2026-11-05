@@ -1,0 +1,12 @@
+{
+ "id": "V3_61",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = type of corollary_3_75 (no universe parameters, V : Type): under InvData C U f j, f is continuous on U, g = invFunOn f U is continuous on f(U), and g∘f = id on U, f∘g = id on f(U). A ⇒ B: B's Hyp373 gives InvData C U f 1 (C^∞ ⇒ C¹; d_C-equality used only through d_C = 0 ⟺ interior, degIndex_eq_zero_iff), and A's four clauses assemble the homeomorphism U ≃ₜ f(U) with h(x) = f(x). A itself does not state that V = f(U) is relatively open in C (the text's corollary does); that clause of B comes from the separate project theorem InvData.image_relOpen (Lemma 3.74), so the corollary as formalized is slightly weaker than the text's sentence, with the missing clause elsewhere in the project (proposition_3_73). B ⇒ A fails genuinely: A is stated for C^j maps (j ≥ 1) preserving only interior points, with no 0 ∈ U and no f(0) = 0, while B assumes C^∞, 0 ∈ U, f(0) = 0 and d_C(x) = d_C(f(x)); no instance of B covers a C^1 map. B_to_A_smooth (passes #rt_check) shows B yields A's conclusion on B's hypothesis set.",
+ "B_issue": null,
+ "overlap": "B_to_A not proved. #rt_overlap on A_to_B: 12 shared project theorems, all InvData infrastructure (half_norm_le, norm_sub_sub_le, hasFDerivWithinAt, continuousOn, structure projections, inv._proof_1), reached through InvData.image_relOpen used for the relative-openness clause.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

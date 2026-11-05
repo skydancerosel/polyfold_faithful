@@ -1,0 +1,12 @@
+{
+ "id": "V1_3",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B (1) characterizes the project's ScPlus E F (= ScOperator E F.shift, with underlying sc-operator F.shiftIncl ∘ S) as the text's sc⁺-operator, and (2) asserts sc-compactness; both are proved from A, (1) by glue (the text's level maps S_m : E_m → F_{m+1} are automatically linear and commute with the inclusions because F_{m+1} → F₀ is injective) and (2) by A's isCompactOperator applied to the ScPlus built in (1). Conversely isCompactOperator follows from B (1)⇒ and (2) (the level map B provides equals S.toScOperator m by injectivity), and the level-raising lemma toScOperator_mem_range_toBase_succ from B (1)⇒. So the project's definition matches the text, and A's two lemmas are exactly the content of B. No universe parameters.",
+ "B_issue": null,
+ "overlap": "20 shared project theorems, all reached through the vocabulary (proof fields of ScBanach.shift/shiftScale/shiftIncl/ScOperator.comp, structure fields, toBase_comm/toBase_succ/toBase_injective, shiftScale_toBase/shiftScale_smoothLvl); no mathematical content of isCompactOperator (Mathlib's IsCompactOperator.comp_clm) is shared",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

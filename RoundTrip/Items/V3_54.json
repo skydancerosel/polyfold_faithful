@@ -1,0 +1,12 @@
+{
+ "id": "V3_54",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = lemma_3_61 ∧ famInv_isSc0Germ ∧ famInv_isSc1GermWith ∧ famInv_hasFDerivWithinAt ∧ famInv_isSckGerm ∧ exists_forall_norm_le_of_isCompact (no universe parameters). lemma_3_61 is stated for sc-germs at 0 (a germ Gv of relatively open neighbourhoods of 0 in C̃, levels allowed to shrink with m), B for an arbitrary relatively open V ⊆ C_G (0 ∉ V allowed). A ⇒ B was proved from the lemma_3_61 conjunct: sc-smoothness is local (IsScSmooth.of_locally); near (e, k) the family is re-centred, L'(u) = L(u + e) on a neighbourhood of 0 in the partial quadrant C_e (Definition 2.33, the project's recentreNbhd / isPartialQuadrant_partialQuadrantAtWith), lemma_3_61 is applied to the constant germ ofSet, and the result is translated back by the sc-smooth (u, k) ↦ (u − e, k). B ⇒ A fails genuinely: B says nothing about germs whose level-m neighbourhoods shrink with m (no single V carries the hypotheses on every level), and the other conjuncts are intermediate statements of the proof (explicit derivative formula, sc^k induction step, a compactness bound) that B does not contain.",
+ "B_issue": null,
+ "overlap": "rt_overlap on A_to_B: 111 shared project theorems, all sc-calculus / germ infrastructure (IsSc0Germ/IsSc1GermWith API, ofSet/prodFull/of_U_eq, levelMap/levelDeriv, quadrant convexity, paramProd and ScScale lemmas); none of the content lemmas of Lemma 3.61 (the banned famInv_* theorems) is reached.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

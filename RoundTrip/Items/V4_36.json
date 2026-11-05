@@ -1,0 +1,12 @@
+{
+ "id": "V4_36",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = proposition_4_15_4 (universe 0): for every junk value x₀ ∈ A¹, every point of A is smooth for the induced structure and toLevelOne x₀ : A → A¹ is sc-smooth. B: A = A_1 for the induced structure and toLevelOne a₀ is sc-smooth for every a₀. A ⇒ B: the sc-smoothness is A's; B's A = A_1 cannot be read off A (A's conclusions need a base point x₀ ∈ A_1 before they say anything), so it comes from the non-banned vocabulary lemmas mem_levelSet_subPolyfold_iff + mem_levelSet_one (level traces of the induced structure; true for any smooth submanifold). B ⇒ A: A's extra conjunct A = A_∞ follows from B (sc-smooth maps preserve levels, IsScSmoothMap.mapsTo_levelSet, and level m of A¹ lies over level m+1 of A, proved here in the level charts; induction from A = A_1). So the statements carry the same content (A's 'A = A_∞' and B's 'A = A_1' are each derivable in context).",
+ "B_issue": null,
+ "overlap": "313 shared project theorems, all vocabulary reached through the statements and glue (subPolyfold/subChart/IsSubMPolyfold.data proof fields, level charts levelChart/shift_isChart, sc-calculus API, metrizability instances for A¹); none of the proof of Proposition 4.15 (4) (isScSmoothMap_toLevelOne_of_cover, isScPlusRetract_image, exists_chartRetraction, lemma_4_7_*) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

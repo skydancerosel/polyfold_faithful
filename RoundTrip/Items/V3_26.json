@@ -1,0 +1,12 @@
+{
+ "id": "V3_26",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A => B: existence is the conjunct theorem_3_29_of_isSc0ContractionGerm of A (partial quadrant => quadrant-like; level-0 membership from the level-m one via levelMap_zero); B's uniqueness as a germ follows from the same conjunct's radius r: two solution germs delta, delta' are continuous with value 0 at 0, so on V'' = V cap V' cap V0 cap {|delta|<r} cap {|delta'|<r} both equal the canonical delta0. B => A fails for genuine generality: A is about any finite-dimensional P and any quadrant-like C~ (B: R^n and partial quadrants), about the working form ContractionGerm (only a 1/2-contraction on explicit regions N m, O m, K m, not Definition 3.28's eps-contraction), asserts that the specific sol is a solution germ on the explicit germ (N m cap C~)_m and is unique in O 0, and also contains the general parametrized Banach fixed point theorem (exists_fixedPoint_continuousOn) and the internal compatibility lemma incl_fixLvl, none of which follow from B's abstract germ statement.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

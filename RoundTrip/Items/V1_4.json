@@ -1,0 +1,12 @@
+{
+ "id": "V1_4",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: B says the project's IsScSubspace and IsScSplitting are exactly the text's sc-subspace and sc-splitting (full sc-structure on F_m = F ∩ E_m: complete levels, injective compact inclusions, F ∩ E_∞ dense in every F_m; complement G with its own sc-structure and E_m = F_m ⊕ G_m topological). Both characterizations are proved: the project keeps only closedness + density because completeness, injectivity and compactness of F_{m+1} → F_m follow from closedness of the levels (A's isClosed_levelSub), and keeps only IsCompl on each level because closed complementary subspaces of a Banach space give a topological direct sum (Mathlib's prodEquivOfClosedCompl); conversely the text's completeness of G₀ = G gives G closed and a topological direct sum is IsCompl. B_to_A derives closedComplemented and symm from B; isClosed_levelSub (stated for every closed A, not only sc-subspaces) is a one-line consequence of the definitions re-proved outright. So the project's definitions agree with the text. No universe parameters.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

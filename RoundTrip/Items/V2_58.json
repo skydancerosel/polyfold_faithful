@@ -1,0 +1,24 @@
+{
+ "id": "V2_58",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The notions agree where both speak: B's clauses (b) (strong bundle structures = classes of atlases of project StrongBundles), (d) (Y_{m,k} nested, = doubleLevel, oneSet = Y_{0,1}), (e) (Y[0] = toMPolyfold0 with levels Y_{m,m}, P[0] sc-smooth) and (f) (Y[1] = toMPolyfold1 with levels Y_{m,m+1}, P[1] sc-smooth) follow from A (A_to_Bpart). The two clauses that failed in the audit are now closed with project lemmas outside this row (not banned): (a) atlas equivalence is an equivalence relation for an arbitrary P — the project's new StrongBundleAtlas.equivalence (transitivity by locality of compatibility); (c) chart independence of Φ(y) ∈ K_{m,k} for equivalent atlases of an ARBITRARY P — charts of equivalent atlases are compatible (StrongBundleAtlas.equiv_iff), and the argument of mem_doubleLevel_iff, re-done for any two compatible charts (inKB_of_compatible), needs no continuity now that the overlaps are retracts without it (isScRetract_overlap', _one'). So A ⇒ B is proved, with (a), (c) from those lemmas rather than from A. B ⇒ A still fails genuinely: Compatible.toMChart is stated for any two compatible charts of any continuous P (B only covers charts of a strong bundle's atlas), and oneChart_compatible is not asserted by B (it is a proof field of atlas1). B does give isScSmoothMap_proj, mem_doubleLevel_iff, isScSmoothMap_proj1 (B_to_Apart) and four of the five new conjuncts (B_to_Anew4: isChart_congr from B's (a), the others from unbanned project lemmas); maximalAtlas_equiv is true by equiv_iff but cannot pass the harness (its statement names maximalAtlas, whose body contains the banned IsChart.compatible).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). Harness: statements mentioning toMPolyfold0/toMPolyfold1 reach the banned Compatible.toMChart/oneChart_compatible through the proof fields of atlas0/atlas1 (#rt_check_soft OK with review for A_to_B_core, B_to_Apart, B_to_Anew4). A's statement names StrongBundle.maximalAtlas, whose body contains IsChart.compatible un-abstracted, so anything mentioning A fails even #rt_check_soft; the checked proof is A_to_B_core : A5 → B (A5 = the five audit conjuncts, the only ones used), and A_to_B is it after projection.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ },
+ "refresh": {
+  "date": "2026-11-02",
+  "before": {
+   "A_to_B": "failed",
+   "B_to_A": "failed",
+   "relation": "incomparable"
+  },
+  "note": "A gained the maximal strong bundle atlas lemmas (IsChart.compatible, isChart_congr, …). With the project's new StrongBundleAtlas.equivalence and the continuity-free overlap lemmas (outside this row, not banned), B's clauses (a) and (c) are now provable, so A_to_B is proved; B_to_A still fails (Compatible.toMChart, oneChart_compatible). Relation incomparable → A_stronger."
+ }
+}
