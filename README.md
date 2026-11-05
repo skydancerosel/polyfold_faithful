@@ -12,6 +12,35 @@ The Lean code, the exposition and the reports were written by AI agents (Claude 
 direction of the project lead. Lean checks the proofs; whether the definitions and statements mean
 what the authors meant is for human readers to confirm, and that review has not started yet.
 
+## How to check it and sign off
+
+No Lean and no GitHub account are needed: a web browser is enough, and you can work at your own
+pace.
+
+1. **Download.** Click [Download
+   ZIP](https://github.com/skydancerosel/polyfold_faithful/archive/refs/heads/main.zip) and unzip
+   the file (on a Mac, double-click it).
+2. **Open the sign-off page.** In the unzipped folder, double-click
+   `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
+   typeset from the internet.
+3. **Check each item.** Each of the 337 items has a one-sentence summary and a label saying how the
+   formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
+   narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
+   statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
+   statement says what the book means, tick **says what HWZ mean**; if not, leave it unticked and
+   write your objection or question in the notes box.
+4. **Stop and come back whenever you like.** Ticks and notes are saved in your browser as you go: to
+   continue, open the same file in the same browser. **unsigned only** hides the items you have
+   already ticked.
+5. **Send it back.** When you are done, or want to send what you have so far, click **Export
+   SIGNOFF.md**. This saves a small text file; email it to the person who invited you to review.
+   **Import…** loads such a file again, for example to continue on another computer.
+
+To read rather than sign: `Exposition/Verification.pdf` has the same items as a document, and
+`Exposition/polyfold-beside-lean.html` puts every statement of the book beside its formal version
+(open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
+GitHub displays it directly.
+
 ## Status (2 November 2026)
 
 * **Chapters 1–5 are formalized**: about 105,000 lines of Lean; every theorem has its axioms
