@@ -299,7 +299,18 @@ Found while reading for the plan (to be checked in Lean, then recorded in `Findi
   smooth `ρ : ℝ → [0, 1]` flat at `0` and `1`, which keeps the end points and the homotopy class.
   Verdict "narrower" where it applies. The alternative, `[0, 1]` as a tame M-polyfold with boundary
   (two charts on `[0, ∞)`) and its products, is a separate piece of work that would also upgrade
-  V3.98; not proposed now.
+  V3.98; not proposed now. **Confirmed by the project lead, 2026-11-06**, with a way back kept open.
+  So that a later `[0, 1]` needs only a bridge lemma and no rewrite, every path notion of Chapter 6
+  is stated through `[0, 1]` alone: the propagation `φ_*` and `Γ_f([φ])` are proved to depend only
+  on `φ|[0, 1]`, and homotopies `H : ℝ² → X` are asked to fix the end points only for `τ ∈ [0, 1]`.
+  For the orientations themselves (propagation, `Γ_f`, orientability, Theorem 6.41) nothing is lost.
+  What `ℝ` does not give directly is a parameter interval *with boundary*: the homotopy invariance
+  of invariants (Theorem 6.43 (2), and later Part III), where the solution set of a homotopy on
+  `X × [0, 1]` is a cobordism whose ends are its boundary over `t = 0, 1`. On `X × ℝ` one must
+  instead arrange `0, 1` to be regular values of `t` on the solution set (a small perturbation and
+  Sard, which is vendored), as Chapter 5 already does for Definition 5.20 (`t` read as a function
+  into `ℝ` with image `[0, 1]`). **Follow-up before Part III**: `[0, 1]` as a tame M-polyfold, the
+  bridge lemma, and the upgrade of V3.98 and the Chapter 6 path items.
 * **D3. Numbering.** Proposition 6.2 stays V3.98 (no second sign-off item for the same theorem);
   Chapter 6 items are V6.1, V6.2, … in book order, V6.1 being Definition 6.1 with the new set
   `Lin(f, x)`. Gaps continue from G.54, findings in a new "## Chapter 6" of `Findings.md`.
