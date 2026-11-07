@@ -5,7 +5,7 @@ import Polyfold.Chapter1.FredholmPerturbation
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.3,
 pp. 207–208: **Definition 6.9** (good left-projections `Π_T` and their order) and **Lemma 6.10**
-(two good left-projections have a common lower bound) *(book 2017: Definition 6.6; Lemma 6.10 is
+(two good left-projections have a common lower bound) *(book 2017: Definition 6.5; Lemma 6.10 is
 not in the 2017 version, see below and `BookConcordance.md`)*.
 
 # Good left-projections

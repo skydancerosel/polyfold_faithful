@@ -2,7 +2,8 @@
 
 Written 2026-10-24 at the end of a cloud session; rewritten 2026-10-26 at the end of the first local
 session on the Mac (Chapters 1–5 of Part I complete; the round-trip audit is next). Everything is committed on `main`. Resume with
-the first message in §4.
+the first message in §4. Updated 2026-11-07: Chapter 6 is formalized except Theorem 6.43 (G.54) and
+§6.6 (G.55); Part II is next (§2, §3 item 10).
 
 ## 1. Setup
 
@@ -22,7 +23,8 @@ Sources (not in git): the pdftotext of the two arXiv preprints go in `Exposition
 `HWZ-PartI-2014.txt` (arXiv 1407.3185, Part I of the book) and `HWZ-ScSmoothness-2010.txt` (arXiv
 1002.3381): `curl -sSL https://arxiv.org/pdf/1407.3185 -o a.pdf && pdftotext -layout a.pdf
 Exposition/sources/HWZ-PartI-2014.txt`, same for the other. Chapter line ranges in the Part I text:
-Ch. 1 = 151–633, Ch. 2 = 633–2395, Ch. 3 = 2395–6021, Ch. 4 = 6021–6914, Ch. 5 = 6914–end.
+Ch. 1 = 151–633, Ch. 2 = 633–2395, Ch. 3 = 2395–6021, Ch. 4 = 6021–6914, Ch. 5 = 6914–8184,
+Ch. 6 = 8185–9775 (the references follow).
 The book's PDF (Springer 2021), when available, is kept untracked as `PolyfoldFredholm.pdf`;
 every statement number and page in the exposition and reports is the preprint's, marked *(book?)*
 until checked.
@@ -35,7 +37,8 @@ on the PATH for every lake or check-script call. Mathlib was not downloaded: `cp
 Morse the same way if it disappears). The preprint text was regenerated from the local
 `~/math_faithful/1407.3185v1.pdf` (same line ranges); the 2010 paper could not be downloaded. The book's arXiv
 version (1707.08941, July 2017) is used as a stand-in for the Springer PDF (not on this Mac):
-`Exposition/BookConcordance.md` maps every numbered item of preprint Chapters 1–5 to it, and the
+`Exposition/BookConcordance.md` maps every numbered item of preprint Chapters 1–6 to it (Chapter 6
+added 2026-11-07; the 2017 Chapter 6 is pp. 181–221), and the
 *(book?)* marks are annotated *(book 2017: …)*. Its `pdftotext -layout` text is kept untracked as
 `Exposition/sources/HWZ-Book-2017.txt` (since 2026-11-02). On 2026-11-02 every *(book 2017: …)*
 annotation was checked against it: those of Chapters 1–3 were right; Findings Ch. 4 item 87, Ch. 5
@@ -65,15 +68,17 @@ brief, this README, `RoundTrip/REPORT.md`), a counterexample refutes *our readin
 not the statement. Say "does not hold as we read it", "we could not see why", "possible misprint";
 do not call the text wrong or speak of its "errors".
 
-## 2. State (2026-10-26, end of the first local session)
+## 2. State (2026-10-26, end of the first local session; Chapter 6 added 2026-11-07)
 
-* **Chapters 1–5 of Part I are complete**: Lean, exposition (`Exposition/Chapter1.md` – `Chapter5.md`)
-  and reports (`verification/ch01–ch05.md`, `cmp/ch01–ch05.json`, `pbp/part01–part05.md`; outputs
+* **Chapters 1–6 of Part I are complete** (Chapter 6 except Theorem 6.43 and §6.6, see below): Lean,
+  exposition (`Exposition/Chapter1.md` – `Chapter6.md`) and reports (`verification/ch01–ch06.md`,
+  `cmp/ch01–ch06.json`, `pbp/part01–part06.md`; outputs
   `polyfold-beside-lean.html`, `Verification.md/.pdf`, `ProofByProof.md/.pdf`,
   `polyfold-proof-by-proof.html`, `polyfold-signoff.html`). V-items V1.1–V1.39, V2.1–V2.64,
-  V3.1–V3.107, V4.1–V4.64, V5.1–V5.63; **337 sign-off items**; gaps G.1–G.53; 3,741 trace tags
-  (3,127 distinct declarations; 2026-11-02). The user started hand-checking on 2026-10-26 from
-  copies in `Exposition/review-2026-10-26/` (untracked); the sign-off page keeps ticks in browser
+  V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64; **401 sign-off items**; gaps G.1–G.69;
+  3,741 trace tags (3,127 distinct declarations; 2026-11-02, Chapters 1–5). The user started
+  hand-checking on 2026-10-26 from copies in `Exposition/review-2026-10-26/` (untracked); the
+  sign-off page keeps ticks in browser
   storage keyed by V-id (export SIGNOFF.md). **No sign-off is recorded in the repository yet**, so
   V-items may still be edited in place; never renumber them.
 * **Chapter 3: the sc-Fredholm implicit function theorem holds with the text's hypotheses**
@@ -124,9 +129,23 @@ do not call the text wrong or speak of its "errors".
   `ℝ × ℝ → ℝ` and false for `U = ∅` or a point base, so it needs a hypothesis; G.42 closed). Theorem 5.18
   needs `X` tame (hidden hypothesis); Finding 88 (the parametrized section of Theorem 5.19 is not in
   good position at boundary zeros) is checked on paper only.
-* **Lean counts** (2026-11-02): 3,738 `#print axioms` lines in `Test.lean`, all on `propext,
-  Classical.choice, Quot.sound`; no `sorry`, no `axiom`.
-* **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–5/` that agents could
+* **Chapter 6** (2026-11-06 to 2026-11-07; plan in `PLAN.md` §6): formalized except Theorem 6.43,
+  the invariant `Ψ_(f,o)` (it needs §4.4's sc-differential forms, integration and Stokes' theorem;
+  decision D1, G.54), and the admissible sections of §6.6, used only there (G.55). V6.1–V6.64
+  (`verification/ch06.md`), Findings "## Chapter 6". Theorems 6.35 and 6.37 (the local propagation
+  of orientations and the functor `Γ_f`) hold with the readings recorded there; Proposition 6.28 (1)
+  is replaced by (1′) (G.61); Theorem 6.41 is verified as tangent orientations along the paths of
+  zeros in a chart and Remark 6.42 at a point, their global parts and the perturbation paragraph
+  after Theorem 6.41 are not formalized (G.66–G.69). Lemma 6.10 holds by another construction (the
+  text's proof and the 2017 remark do not hold as we read them; Findings Ch. 6 item 4); formula (94)
+  and Remark 6.42 are used with the sign `(−1)^{dim coker}` (items 50, 95). Paths on `ℝ` (decision
+  D2, G.65). The round-trip audit of the Chapter 6 items (`PLAN.md` §6.7, step 6) is not done.
+  **Part II is next.**
+* **Lean counts** (2026-11-07): 4,942 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
+  1,204 for Chapter 6), all on `propext, Classical.choice, Quot.sound`; no `sorry`, no `axiom`;
+  204 Lean files and 127,495 lines under `Polyfold/` (`wc -l`, tracked files, without `WIP_` files),
+  of which 36 files and 20,793 lines in `Chapter6/`.
+* **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–6/` that agents could
   not delete (some duplicate declarations and would not compile; delete them). The book's Springer
   PDF was not available: the *(book?)* marks are annotated against the arXiv version 1707.08941
   (*(book 2017: …)*, `Exposition/BookConcordance.md`, text in `sources/HWZ-Book-2017.txt`); the 2010
@@ -289,6 +308,9 @@ each chapter lands)
    The round-trip items (`RoundTrip/Items/`) were not renamed: they are pinned to commit b4d1d8c,
    where the canonical names denote the whole-chart notions. The comparison rows, verification text
    and REPORT were updated for the switch (V3.5–V3.107, V5.14).
+10. ~~**Chapter 6**~~ — done 2026-11-07 except Theorem 6.43 (G.54) and §6.6 (G.55) (`PLAN.md` §6;
+    state in §2). Left for Chapter 6: the round-trip audit of its non-extra items (`PLAN.md` §6.7,
+    step 6) and the gaps G.56–G.69. **Next: Part II.**
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

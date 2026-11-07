@@ -38,6 +38,10 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "finite-dimensional submanifolds, families and Sard's theorem (vendored)", ["Chapter4", "Vendor/MilnorSard"]),
     ("05", "Ch. 5, §§5.1–5.4", "the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and "
      "bump functions, transversality, general and good position, homotopies, partitions of unity", ["Chapter5"]),
+    ("06", "Ch. 6, §§6.1–6.5, 6.7", "linearizations and orientations: determinant lines and exact sequences, the "
+     "determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the "
+     "propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of "
+     "the solution set", ["Chapter6"]),
 ]
 # ------------------------------------------------------------------------------------------------
 

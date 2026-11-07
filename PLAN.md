@@ -20,7 +20,7 @@ sc-Fredholm sections as its headline. Everything later (ep-groupoids, polyfolds,
 SFT) rests on it. It is also settled: the book corrects the 2007–2009 papers, and the Gromov–Witten
 memoir uses it as stated.
 
-Status as of 2026-10-26, end of the first local session (see `HANDOFF.md`): **Part I, Chapters 1–5, done** (Lean, exposition, reports: V1–V5, 337 sign-off items, gaps G.1–G.53). The sc-Fredholm implicit function theorem (Theorems 3.19, 3.23, 3.54, 3.56, 3.57, Corollary 3.24) is proved with the text's hypotheses; two gaps of the text's proofs are closed by new arguments (surjectivity at the nearby zeros, also missing in the book's arXiv version; Theorem 3.27 for solution sets), and a vacuous tameness hypothesis of an earlier formalization was found and repaired. Chapter 4 (Prop 4.9 by a direct proof, Theorems 4.2, 4.18, 4.22, 4.23 with Sard vendored from the Milnor project) and Chapter 5 (Theorems 5.5–5.7, 5.13, 5.18, 5.19, 5.25, the appendix) done except what HANDOFF §2 lists. 2,708 theorems checked in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`. Next: the round-trip audit.
+Status as of 2026-11-07 (see `HANDOFF.md`): **Part I, Chapters 1–6, done** (Lean, exposition, reports: V1–V6, 401 sign-off items, gaps G.1–G.69), Chapter 6 (§6 below) except Theorem 6.43 (G.54) and §6.6 (G.55); 4,942 `#print axioms` lines in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`. The round-trip audit of Chapters 1–5 is done (2026-11-01); that of the Chapter 6 items is §6.7, step 6. **Next: Part II.** As of 2026-10-26, end of the first local session: **Part I, Chapters 1–5, done** (Lean, exposition, reports: V1–V5, 337 sign-off items, gaps G.1–G.53). The sc-Fredholm implicit function theorem (Theorems 3.19, 3.23, 3.54, 3.56, 3.57, Corollary 3.24) is proved with the text's hypotheses; two gaps of the text's proofs are closed by new arguments (surjectivity at the nearby zeros, also missing in the book's arXiv version; Theorem 3.27 for solution sets), and a vacuous tameness hypothesis of an earlier formalization was found and repaired. Chapter 4 (Prop 4.9 by a direct proof, Theorems 4.2, 4.18, 4.22, 4.23 with Sard vendored from the Milnor project) and Chapter 5 (Theorems 5.5–5.7, 5.13, 5.18, 5.19, 5.25, the appendix) done except what HANDOFF §2 lists. 2,708 theorems were then checked in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`, and the round-trip audit came next.
 
 ## 1. Headline theorems (Part I)
 
@@ -79,7 +79,10 @@ Status as of 2026-10-26, end of the first local session (see `HANDOFF.md`): **Pa
 4. Chapter 3: sc-Fredholm sections and the implicit function theorem (H5, H6).
 5. Reports, sign-off page, audit; then Part I's remaining chapters (H7) and, later, Part II.
 6. Chapter 6 (orientations): planned 2026-11-06, §6 below. The project lead decided to finish Part I
-   before Part II; until Chapter 6 is done, "Part I formalized" means Chapters 1–5.
+   before Part II; until Chapter 6 is done, "Part I formalized" means Chapters 1–5. Done 2026-11-07
+   except Theorem 6.43 (G.54) and §6.6 (G.55): "Part I formalized" now means Chapters 1–6 with
+   these two exceptions.
+7. Part II: next.
 
 ## 6. Chapter 6: Linearizations, Orientations, and Invariants (plan, 2026-11-06)
 
@@ -89,9 +92,10 @@ Fredholm operator, §6.4 classical local determinant bundles, §6.5 local orient
 orientability, §6.6 invariants of proper sc-Fredholm sections, §6.7 appendix (the proofs of
 Lemma 6.5 and Proposition 6.12). The 2017 version (arXiv 1707.08941) is its Chapter 6
 "Orientations" (`sources/HWZ-Book-2017.txt` lines 8669–10688, pp. 181–221); it renumbers by kind
-and **rewrites §6.3–6.4** (below, finding 1). `BookConcordance.md` gets a Chapter 6 table.
+and **rewrites §6.3–6.4** (below, finding 1). `BookConcordance.md` has a Chapter 6 table (added
+2026-11-07).
 
-### 6.1 Inventory (43 numbered items; 2017 numbers provisional until the concordance is checked)
+### 6.1 Inventory (43 numbered items; the 2017 numbers agree with `BookConcordance.md`, checked 2026-11-07)
 
 Tiers: **A** finite-dimensional linear algebra, Mathlib only; **B** Banach-space topology of
 determinant lines; **C** sc-Fredholm sections (needs Chapters 2–5); **—** not formalized (reason
@@ -329,11 +333,12 @@ Found while reading for the plan (to be checked in Lean, then recorded in `Findi
    witnesses): 16 items; the largest phase. Commit after Theorem 6.35 and after Theorem 6.41. If a
    step of the text cannot be completed as written, the weakest added hypothesis or a new argument is
    recorded, as in Chapters 3–5.
-5. **Reports**: `Exposition/Chapter6.md` (STYLE.md shape; figure: the propagation of an orientation
-   along a path through the kernel bundle `L_t`); `verification/ch06.md` (V6.1, …), `cmp/ch06.json`
+5. **Reports**: `Exposition/Chapter6.md` (STYLE.md shape; written 2026-11-07 without its figure, which
+   is deferred: the propagation of an orientation along a path through the kernel bundle `L_t`); `verification/ch06.md` (V6.1, …), `cmp/ch06.json`
    (with `notFormalized` for Theorem 6.43 and the remark on non-orientability), `pbp/part06.md`;
-   `BookConcordance.md` Chapter 6; regenerate with `build_verification.py`, `build_signoff.py`,
+   `BookConcordance.md` Chapter 6 (done 2026-11-07); regenerate with `build_verification.py`, `build_signoff.py`,
    `assemble_pbp.py`, `build_proofbyproof.py`, `build_comparison.py` from the repository root.
 6. **Round-trip audit** of the new non-extra items (`RoundTrip/`, as for Chapters 1–5).
 7. **Counts and status** in `README.md` (Status; the "337 items" of "How to check it and sign off"),
-   `HANDOFF.md`, this file. The four checks of `HANDOFF.md` §1 green at every commit.
+   `HANDOFF.md`, this file. The four checks of `HANDOFF.md` §1 green at every commit. Done
+   2026-11-07 (401 sign-off items, gaps to G.69, 4,942 `#print axioms` lines).

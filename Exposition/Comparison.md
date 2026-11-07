@@ -6095,6 +6095,1308 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 *What differs.*
 - "In view of Theorem 5.37" is Proposition 5.38; the bump Theorem 5.43 needs is the classical $C^\infty$ one (Findings, Chapter 5, item 116).
 
+## Chapter 6
+
+*HWZ Chapter 6 §§6.1–6.7, preprint pp. 200–237: linearizations, the determinant of Fredholm operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm sections, the orientation of the solution set, the product with [0, 1]; Theorem 6.43 is not formalized*
+
+### V6.1. Definition 6.1: the space $\mathrm{Lin}(f, x)$ of linearizations
+
+*restated* · made at a chart point · global sc⁺-sections · Fredholm on level $0$ only
+
+**HWZ (§6.1, Definition 6.1, p. 201 (with pp. 200–201, 219)).** For an sc-Fredholm section $f$ and a smooth point $x$, $\mathrm{Lin}(f, x) = \{(f - s)'(x) + a \mid a : T_xX \to Y_x$ an sc⁺-operator$\}$, where $s$ is a local sc⁺-section with $s(x) = f(x)$, made in a strong bundle chart as $s(y) = R(y, f(x))$. Its members differ by sc⁺-operators and are sc-Fredholm of one index $\mathrm{ind}(f, x)$; §6.5 adds that $\mathrm{Lin}(f, x)$ is convex (p. 219).
+
+**Proved in Lean.** At a chart point $p = (c, z)$ of $x$ (`ChartPoint`, with the spaces $T_zO$ and $K_z$ as `ChartPoint.T`, `ChartPoint.K`), `ChartPoint.linSet` is the set of operators $(f + s)'(x) + a : T_zO \to K_z$ for an sc⁺-section $s$ with $(f + s)(x) = 0$ and an sc⁺-operator $a$ (`ChartPoint.IsScPlusOp`); for one such $s$ it is $(f + s)'(x)$ plus the sc⁺-operators (`ChartPoint.mem_linSet_iff`). Two such sections give linearizations that differ by an sc⁺-operator; the members are Fredholm on level $0$, all of the index $\mathrm{ind}(f, x)$ of V3.98 (`ChartPoint.exists_index_linSet`, `ChartPoint.fredholmIndex_of_mem_linSet`); `linSet` is convex, and it is not empty when $P$ has sc⁺-sections through the smooth points of its fibres (`StrongBundle.HasScPlusSectionsThrough`), which bump functions give.
+
+- `Polyfold.ChartPoint` — Polyfold/Chapter6/LinSet.lean, line 109
+- `Polyfold.ChartPoint.T` — Polyfold/Chapter6/LinSet.lean, line 129
+- `Polyfold.ChartPoint.K` — Polyfold/Chapter6/LinSet.lean, line 132
+- `Polyfold.ChartPoint.IsScPlusOp` — Polyfold/Chapter6/LinSet.lean, line 143
+- `Polyfold.ChartPoint.linSet` — Polyfold/Chapter6/LinSet.lean, line 153
+- `Polyfold.ChartPoint.mem_linSet_iff` — Polyfold/Chapter6/LinSet.lean, line 309
+- `Polyfold.ChartPoint.exists_isScPlusOp_linAt_eq` — Polyfold/Chapter6/LinSet.lean, line 260
+- `Polyfold.ChartPoint.linSet_nonempty` — Polyfold/Chapter6/LinSet.lean, line 323
+- `Polyfold.ChartPoint.isScPlusOp_sub_of_mem_linSet` — Polyfold/Chapter6/LinSet.lean, line 348
+- `Polyfold.ChartPoint.isFredholm_isIndexAt_of_mem_linSet` — Polyfold/Chapter6/LinSet.lean, line 362
+- `Polyfold.ChartPoint.exists_index_linSet` — Polyfold/Chapter6/LinSet.lean, line 388
+- `Polyfold.ChartPoint.fredholmIndex_of_mem_linSet` — Polyfold/Chapter6/LinSet.lean, line 397
+- `Polyfold.ChartPoint.convex_linSet` — Polyfold/Chapter6/LinSet.lean, line 404
+- `Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough` — Polyfold/Chapter3/IndexLocallyConstantLocal.lean, line 82
+
+*What differs.*
+- $T_xX$ and $Y_x$ carry no linear structure in the project (gaps G.6, G.7, G.13), so $\mathrm{Lin}(f, x)$ is made at a chart point; chart points are compared in V6.53–V6.55. The text's $f - s$ with $s(x) = f(x)$ is $f + s$ with $(f + s)(x) = 0$ (Findings, Chapter 6, item 40).
+- The text constructs a local section through $f(x)$ in a chart; the project uses global ones, which exist under the standing bump functions (the text assumes sc-smooth partitions of unity from §6.2 on, and these give bump functions, V5.49) (Findings, Chapter 6, items 40, 43).
+- "Sc-Fredholm" is proved on level $0$, which is what the determinant lines use, and not on every level (gap G.64).
+- The paragraph before the definition compares $(f - s)'(x)$ with itself where $(f - t)'(x)$ is meant (possible misprint) (Findings, Chapter 6, item 41).
+
+### V6.2. The determinant lines $\lambda(E)$, $\lambda^*(E)$ and the maps $\lambda(\Phi)$
+
+*as in the book* · two-block wedges for (91)
+
+**HWZ (§6.2, pp. 203–204).** $\lambda(E) = \Lambda^{\max}E$ and $\lambda^*(E) = (\lambda(E))^*$. For $\Phi : E \to F$ between spaces of the same dimension, $\lambda(\Phi)(a_1 \wedge \dots \wedge a_n) = \Phi(a_1) \wedge \dots \wedge \Phi(a_n)$, nontrivial iff $\Phi$ is an isomorphism, with $\lambda(\Psi \circ \Phi) = \lambda(\Psi) \circ \lambda(\Phi)$; $\lambda^*(\Phi)$ is the dual of $\lambda(\Phi)$. The dual vector $v^*$ of $v \ne 0$ in a line is fixed by $v^*(v) = 1$ (p. 204).
+
+**Proved in Lean.** `maxPow E`, the top exterior power of a finite-dimensional real space, is a line (`finrank_maxPow`), and `maxPowDual E` is its dual. A change of basis multiplies the `wedge` by the determinant (`wedge_eq_det_smul`), also in one block of a two-block wedge (`wedge_append_basis_left`, `wedge_append_basis_right`), and adding to one block vectors of the span of the other does not change the wedge (`wedge_append_add_left`, `wedge_append_add_right`). `dualVec v` is the functional with $v^*(v) = 1$. For $\dim E = \dim F$, `maxPowMap` is $\lambda(\Phi)$ on wedges (`maxPowMap_wedge`), with $\lambda(\Psi\Phi) = \lambda(\Psi)\lambda(\Phi)$ (`maxPowMap_comp`), nonzero iff $\Phi$ is bijective (`maxPowMap_ne_zero_iff`); `maxPowDualMap` is its dual.
+
+- `Polyfold.maxPow` — Polyfold/Chapter6/DetLine.lean, line 72
+- `Polyfold.maxPowDual` — Polyfold/Chapter6/DetLine.lean, line 76
+- `Polyfold.finrank_maxPow` — Polyfold/Chapter6/DetLine.lean, line 79
+- `Polyfold.wedge` — Polyfold/Chapter6/DetLine.lean, line 162
+- `Polyfold.wedge_eq_det_smul` — Polyfold/Chapter6/DetLine.lean, line 205
+- `Polyfold.wedge_append_basis_left` — Polyfold/Chapter6/DetLine.lean, line 461
+- `Polyfold.wedge_append_basis_right` — Polyfold/Chapter6/DetLine.lean, line 472
+- `Polyfold.wedge_append_add_left` — Polyfold/Chapter6/DetLine.lean, line 499
+- `Polyfold.wedge_append_add_right` — Polyfold/Chapter6/DetLine.lean, line 483
+- `Polyfold.dualVec` — Polyfold/Chapter6/DetLine.lean, line 102
+- `Polyfold.dualVec_self` — Polyfold/Chapter6/DetLine.lean, line 110
+- `Polyfold.eq_dualVec_of_apply_eq_one` — Polyfold/Chapter6/DetLine.lean, line 140
+- `Polyfold.maxPowMap` — Polyfold/Chapter6/DetLine.lean, line 530
+- `Polyfold.maxPowMap_wedge` — Polyfold/Chapter6/DetLine.lean, line 534
+- `Polyfold.maxPowMap_comp` — Polyfold/Chapter6/DetLine.lean, line 544
+- `Polyfold.maxPowMap_ne_zero_iff` — Polyfold/Chapter6/DetLine.lean, line 562
+- `Polyfold.maxPowDualMap` — Polyfold/Chapter6/DetLine.lean, line 589
+
+*What differs.*
+- As in the text; the facts on two-block wedges are the tools of every later computation with (91).
+
+### V6.3. Definition 6.3: the isomorphism $\iota : \lambda(E^*) \to \lambda^*(E)$
+
+*as in the book* · $n = 0$: the zeroth power
+
+**HWZ (§6.2, Definition 6.3, p. 204).** $\iota(e_1^* \wedge \dots \wedge e_n^*)(a_1 \wedge \dots \wedge a_n) = \det(e_i^*(a_j))$, $n = \dim E$, with $\lambda(\{0\}^*) = \mathbb R$ for $n = 0$. For a basis and its dual basis, $\iota(e_1^* \wedge \dots \wedge e_n^*) = (e_1 \wedge \dots \wedge e_n)^*$.
+
+**Proved in Lean.** `iotaDual`: a nonzero linear map of lines $\lambda(E^*) \to \lambda^*(E)$ (`iotaDual_ne_zero`) with the value $\det(e_i^*(a_j))$ on wedges (`iotaDual_wedge_wedge`), and $\iota(e_1^* \wedge \dots \wedge e_n^*) = (e_1 \wedge \dots \wedge e_n)^*$ for a basis and its dual basis (`iotaDual_wedge_dualBasis`).
+
+- `Polyfold.iotaDual` — Polyfold/Chapter6/DetLine.lean, line 601
+- `Polyfold.iotaDual_wedge_wedge` — Polyfold/Chapter6/DetLine.lean, line 606
+- `Polyfold.iotaDual_wedge_dualBasis` — Polyfold/Chapter6/DetLine.lean, line 617
+- `Polyfold.iotaDual_ne_zero` — Polyfold/Chapter6/DetLine.lean, line 629
+
+*What differs.*
+- As in the text; the convention $\lambda(\{0\}^*) = \mathbb R$ is the zeroth exterior power, and the text's matrix $(e_i^*(a_j))$ is the transpose of Mathlib's, with the same determinant.
+
+### V6.4. Proposition 6.4
+
+*as in the book*
+
+**HWZ (§6.2, Proposition 6.4, p. 205).** For an isomorphism $\Phi : E \to F$ of finite-dimensional spaces, the square with $\lambda(\Phi^*) : \lambda(F^*) \to \lambda(E^*)$, $\lambda^*(\Phi) : \lambda^*(F) \to \lambda^*(E)$ and the two maps $\iota$ commutes: $\lambda^*(\Phi) \circ \iota = \iota \circ \lambda(\Phi^*)$.
+
+**Proved in Lean.** `proposition_6_4`: $\lambda^*(\Phi) \circ \iota = \iota \circ \lambda(\Phi^*)$.
+
+- `Polyfold.proposition_6_4` — Polyfold/Chapter6/DetLine.lean, line 691
+
+*What differs.*
+- As in the text.
+
+### V6.5. Four-term exact sequences and the isomorphism $\Phi_E$ of (91)
+
+*as in the book* · defined from one choice
+
+**HWZ (§6.2, p. 206, formula (91)).** For an exact sequence $0 \to A \xrightarrow{\alpha} B \xrightarrow{\beta} C \xrightarrow{\gamma} D \to 0$ of finite-dimensional spaces, choose $B = \alpha(A) \oplus Z$, $C = \beta(B) \oplus V$, bases $a$ of $A$, $d$ of $D$, $b'$ of $Z$, $c_i \in V$ with $\gamma(c_i) = d_i$ and $c'_i = \beta(b'_i)$. Then $\Phi_E((a_1 \wedge \dots \wedge a_n) \otimes (d_1 \wedge \dots \wedge d_l)^*) = (\alpha(a_1) \wedge \dots \wedge \alpha(a_n) \wedge b'_1 \wedge \dots \wedge b'_{m-n}) \otimes (c_1 \wedge \dots \wedge c_l \wedge c'_1 \wedge \dots \wedge c'_{m-n})^*$, with the two conventions on the order of the vectors.
+
+**Proved in Lean.** `FourTermExact`: the exact sequence. A `FourTermExact.Choice` is the data of (91) (the complements $Z$ of $\alpha(A)$ and $V$ of $\beta(B)$, bases of $A$, $D$, $Z$, and the $\gamma$-preimages in $V$ of the basis of $D$), and `Choice.value` is the right-hand side of (91). `FourTermExact.phi`: the linear map $\lambda(A) \otimes \lambda^*(D) \to \lambda(B) \otimes \lambda^*(C)$ given by (91) for one choice (`canonicalChoice`), nonzero (`phi_ne_zero`), an isomorphism of lines (`phiEquiv`).
+
+- `Polyfold.FourTermExact` — Polyfold/Chapter6/ExactSequence.lean, line 101
+- `Polyfold.FourTermExact.Choice` — Polyfold/Chapter6/ExactSequence.lean, line 160
+- `Polyfold.FourTermExact.Choice.value` — Polyfold/Chapter6/ExactSequence.lean, line 223
+- `Polyfold.FourTermExact.canonicalChoice` — Polyfold/Chapter6/ExactSequence.lean, line 367
+- `Polyfold.FourTermExact.phi` — Polyfold/Chapter6/ExactSequence.lean, line 405
+- `Polyfold.FourTermExact.phi_ne_zero` — Polyfold/Chapter6/ExactSequence.lean, line 420
+- `Polyfold.FourTermExact.phiEquiv` — Polyfold/Chapter6/ExactSequence.lean, line 445
+
+*What differs.*
+- As in the text; that the definition does not depend on the choice is Lemma 6.5 (V6.6).
+
+### V6.6. Lemma 6.5: $\Phi_E$ does not depend on the choices
+
+*restated* · (91) holds for every choice
+
+**HWZ (§6.2, Lemma 6.5, p. 206 (proof §6.7.1, pp. 234–235)).** With the two ordering conventions, the definition of $\Phi_E$ does not depend on the choices.
+
+**Proved in Lean.** `FourTermExact.lemma_6_5`: $\Phi_E$, defined from one choice, maps $(a_1 \wedge \dots \wedge a_n) \otimes (d_1 \wedge \dots \wedge d_l)^*$ to the right-hand side of (91) computed with any other choice, for all bases $a$ of $A$ and $d$ of $D$.
+
+- `Polyfold.FourTermExact.lemma_6_5` — Polyfold/Chapter6/ExactSequence.lean, line 413
+
+*What differs.*
+- "Does not depend on the choices" is read as (91) holding for every choice, the strongest form and the one every later computation of $\gamma^P_T$ uses, each with its own choices. The proof follows §6.7.1 (V6.63) (Findings, Chapter 6, item 1).
+
+### V6.7. Proposition 6.6: the isomorphism $\Psi_E$
+
+*restated* · the wedge in $C$ in the order of (91)
+
+**HWZ (§6.2, (92) and Proposition 6.6, p. 207).** $\Psi_E : \lambda(C) \otimes \lambda(A) \otimes \lambda^*(D) \to \lambda(B)$ is $c \otimes h \mapsto \bar\iota(c \otimes \Phi_E(h))$, with $\bar\iota(v \otimes b \otimes v^*) = b$. With the bases of (91) and $c = c'_1 \wedge \dots \wedge c'_l \wedge c_1 \wedge \dots \wedge c_{m-n}$, $\Psi_E(c \otimes a \otimes d^*) = b_1 \wedge \dots \wedge b_n \wedge b'_1 \wedge \dots \wedge b'_{m-n}$.
+
+**Proved in Lean.** `contractDual`: $\bar\iota(v \otimes b \otimes \varphi) = \varphi(v)\,b$; `FourTermExact.psi`: $\Psi_E(c \otimes h) = \bar\iota(c \otimes \Phi_E(h))$. `FourTermExact.proposition_6_6`: $\Psi_E$ maps the wedge of the basis of $C$ of (91), the $\gamma$-preimages first, tensored with $(a_1 \wedge \dots \wedge a_n) \otimes (d_1 \wedge \dots \wedge d_l)^*$, to $\alpha(a_1) \wedge \dots \wedge \alpha(a_n) \wedge b'_1 \wedge \dots \wedge b'_{m-n}$.
+
+- `Polyfold.contractDual` — Polyfold/Chapter6/ExactSequence.lean, line 567
+- `Polyfold.FourTermExact.psi` — Polyfold/Chapter6/ExactSequence.lean, line 585
+- `Polyfold.FourTermExact.proposition_6_6` — Polyfold/Chapter6/ExactSequence.lean, line 591
+
+*What differs.*
+- The statement writes the basis of $C$ with the names of its two blocks exchanged with respect to (91) (possible misprint); the order meant is (91)'s, the $\gamma$-preimages first, and the formal statement uses it (Findings, Chapter 6, item 2).
+
+### V6.8. Definition 6.7: the determinant $\det(T)$
+
+*as in the book* · alternative definition: gap G.57
+
+**HWZ (§6.3, Definition 6.7, p. 208).** For a bounded Fredholm operator $T : E \to F$ between real Banach spaces, $\det(T) = \lambda(\ker T) \otimes \lambda^*(\operatorname{coker} T)$, a line. Some authors use $\lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$; the two are naturally isomorphic given a convention identifying $\lambda^*(A)$ and $\lambda(A^*)$.
+
+**Proved in Lean.** `linDet`, `fredholmDet`: $\det(T) = \lambda(\ker T) \otimes \lambda^*(F/R(T))$, a line for $T$ Fredholm (`finrank_fredholmDet`); equal operators have identified determinants (`linDetEquivOfEq`).
+
+- `Polyfold.linDet` — Polyfold/Chapter6/FredholmDet.lean, line 50
+- `Polyfold.fredholmDet` — Polyfold/Chapter6/FredholmDet.lean, line 133
+- `Polyfold.finrank_fredholmDet` — Polyfold/Chapter6/FredholmDet.lean, line 136
+- `Polyfold.linDetEquivOfEq` — Polyfold/Chapter6/FredholmDet.lean, line 60
+
+*What differs.*
+- As in the text; the alternative definition and its identification with Definition 6.7 are not formalized and not used (gap G.57; Findings, Chapter 6, item 10).
+
+### V6.9. Definition 6.8: orientations of a Fredholm operator
+
+*as in the book* · orientation = ray
+
+**HWZ (§6.3, Definition 6.8, p. 208).** An orientation of a Fredholm operator $T : E \to F$ is an orientation of the line $\det(T)$.
+
+**Proved in Lean.** `FredholmOrientation T`: a ray of $\det(T)$ (Mathlib's `Module.Ray`); a Fredholm operator has one (`nonempty_fredholmOrientation`), and exactly two (`exists_two_fredholmOrientation`).
+
+- `Polyfold.FredholmOrientation` — Polyfold/Chapter6/FredholmDet.lean, line 144
+- `Polyfold.nonempty_fredholmOrientation` — Polyfold/Chapter6/FredholmDet.lean, line 147
+- `Polyfold.exists_two_fredholmOrientation` — Polyfold/Chapter6/FredholmDet.lean, line 154
+
+*What differs.*
+- As in the text.
+
+### V6.10. Definition 6.9: good left-projections and their order
+
+*as in the book* · $\Pi_T \ne \emptyset$ proved
+
+**HWZ (§6.3, Definition 6.9 and the paragraphs after it, p. 208).** A good left-projection for a Fredholm $T : E \to F$ is a bounded projection $P : F \to F$ with (1) $\dim F/R(P) < \infty$ and (2) $R(P \circ T) = R(P)$; $\Pi_T$ is their set. Then $P$ is Fredholm of index $0$, $PT$ is Fredholm with $\mathrm{ind}(PT) = \mathrm{ind}(T)$, $P \le Q$ iff $P = PQ = QP$ is a partial order on $\Pi_T$, and $R(P) \cap R(P')$ has finite codimension.
+
+**Proved in Lean.** `IsGoodLeftProj T P`, `goodLeftProjs T`; `ProjLE` is reflexive, antisymmetric and transitive (`ProjLE.refl`, `ProjLE.antisymm`, `ProjLE.trans`). A good left-projection is Fredholm of index $0$ (`IsGoodLeftProj.isFredholm`, `IsGoodLeftProj.fredholmIndex_eq_zero`), $PT$ is Fredholm with $\mathrm{ind}(PT) = \mathrm{ind}(T)$ (`IsGoodLeftProj.isFredholm_comp`, `IsGoodLeftProj.fredholmIndex_comp`), $F/(R(P) \cap R(P'))$ is finite-dimensional (`IsGoodLeftProj.finiteDimensional_quotient_inf`), and $\Pi_T$ is not empty for $T$ Fredholm (`exists_isGoodLeftProj`).
+
+- `Polyfold.IsGoodLeftProj` — Polyfold/Chapter6/GoodProjections.lean, line 67
+- `Polyfold.goodLeftProjs` — Polyfold/Chapter6/GoodProjections.lean, line 77
+- `Polyfold.ProjLE` — Polyfold/Chapter6/GoodProjections.lean, line 80
+- `Polyfold.ProjLE.refl` — Polyfold/Chapter6/GoodProjections.lean, line 84
+- `Polyfold.ProjLE.antisymm` — Polyfold/Chapter6/GoodProjections.lean, line 88
+- `Polyfold.ProjLE.trans` — Polyfold/Chapter6/GoodProjections.lean, line 93
+- `Polyfold.IsGoodLeftProj.isFredholm` — Polyfold/Chapter6/GoodProjections.lean, line 137
+- `Polyfold.IsGoodLeftProj.fredholmIndex_eq_zero` — Polyfold/Chapter6/GoodProjections.lean, line 142
+- `Polyfold.IsGoodLeftProj.isFredholm_comp` — Polyfold/Chapter6/GoodProjections.lean, line 150
+- `Polyfold.IsGoodLeftProj.fredholmIndex_comp` — Polyfold/Chapter6/GoodProjections.lean, line 158
+- `Polyfold.IsGoodLeftProj.finiteDimensional_quotient_inf` — Polyfold/Chapter6/GoodProjections.lean, line 167
+- `Polyfold.exists_isGoodLeftProj` — Polyfold/Chapter6/GoodProjections.lean, line 177
+
+*What differs.*
+- As in the text. That $\Pi_T \ne \emptyset$, used from Lemma 6.11 on, is not stated there; for $T$ Fredholm the projection onto $R(T)$ along a finite-dimensional complement is good (Findings, Chapter 6, item 3).
+
+### V6.11. Lemma 6.10: a common lower bound in $\Pi_T$
+
+*stronger* · $T$ need not be Fredholm · another construction
+
+**HWZ (§6.3, Lemma 6.10, p. 208 (proof pp. 208–209)).** For $P, P' \in \Pi_T$ there is $P'' \in \Pi_T$ with $P'' \le P$ and $P'' \le P'$. The proof takes topological complements $X$, $X'$ of $R(P) \cap R(P')$ in $R(P)$, $R(P')$, a topological complement $Z$ of $X \oplus X' \oplus (R(P) \cap R(P'))$ in $F$, and $P''$ the projection onto $R(P) \cap R(P')$ along $Z \oplus X \oplus X'$.
+
+**Proved in Lean.** `lemma_6_10`: for any bounded $T$, not necessarily Fredholm, and $P, P' \in \Pi_T$, some $P'' \in \Pi_T$ with $P'' \le P$ and $P'' \le P'$. `lemma_6_10_text_reading`: on $\mathbb R^2$ with $T = 1$ there are $P, P' \in \Pi_T$ such that no projection with range $R(P) \cap R(P')$ lies below both.
+
+- `Polyfold.lemma_6_10` — Polyfold/Chapter6/GoodProjections.lean, line 225
+- `Polyfold.lemma_6_10_text_reading` — Polyfold/Chapter6/GoodProjections.lean, line 259
+
+*What differs.*
+- As we read it, $P'' = P''P$ does not hold for the text's $P''$ in general, since it needs $\ker P \subseteq \ker P''$: for $P$ the projection of $\mathbb R^2$ onto the $x$-axis along the $y$-axis and $P'$ the one along the diagonal, a projection onto $R(P) \cap R(P')$ below both would equal both. The formalized $P''$ projects onto $R(P) \cap R(P') \cap N$, for a closed finite-codimensional $N$ meeting $\ker P + \ker P'$ only in $0$ (Hahn–Banach), along a closed complement containing $\ker P + \ker P'$ (Findings, Chapter 6, item 4).
+- The 2017 version drops the lemma and remarks that such a lower bound need not exist; with the order $P \le Q$ iff $P = PQ = QP$ it always exists, as we read it, so the preprint's route to Lemma 6.25 is the one formalized (Findings, Chapter 6, item 4).
+
+### V6.12. Lemma 6.11: the exact sequence $E(T, P)$
+
+*as in the book*
+
+**HWZ (§6.3, Lemma 6.11, p. 209).** For $P \in \Pi_T$ the sequence $0 \to \ker T \to \ker(PT) \to F/R(P) \to \operatorname{coker} T \to 0$, with the inclusion $j^P_T$, $\Phi^P_T(x) = Tx + R(P)$ and $\pi^P_T(f + R(P)) = (I - P)f + R(T)$, is exact.
+
+**Proved in Lean.** `projSeqJ`, `projSeqPhi`, `projSeqPi`: the three maps; `lemma_6_11`: the sequence is exact, and `projSeq` is it as a four-term exact sequence.
+
+- `Polyfold.projSeqJ` — Polyfold/Chapter6/ProjectionSequence.lean, line 70
+- `Polyfold.projSeqPhi` — Polyfold/Chapter6/ProjectionSequence.lean, line 75
+- `Polyfold.projSeqPi` — Polyfold/Chapter6/ProjectionSequence.lean, line 84
+- `Polyfold.lemma_6_11` — Polyfold/Chapter6/ProjectionSequence.lean, line 99
+- `Polyfold.projSeq` — Polyfold/Chapter6/ProjectionSequence.lean, line 165
+
+*What differs.*
+- As in the text.
+
+### V6.13. The isomorphism $\gamma^P_T : \det(T) \to \det(PT)$
+
+*as in the book* · $F/R(P) = F/R(PT)$ made explicit
+
+**HWZ (§6.3, p. 210).** From $E(T, P)$, "recalling $R(P) = R(PT)$", $\Phi_{E(T,P)}$ is an isomorphism $\det(T) \to \det(PT)$, renamed $\gamma^P_T$.
+
+**Proved in Lean.** `gammaProj`: $\Phi_{E(T,P)}$ followed by the identification of $\lambda^*(F/R(P))$ with $\lambda^*(F/R(PT))$ by the identity of $F$; on wedges it is given by (91), for any choice (`gammaProj_tmul`, `gammaProj_wedge_tmul`).
+
+- `Polyfold.gammaProj` — Polyfold/Chapter6/ProjectionSequence.lean, line 191
+- `Polyfold.gammaProj_tmul` — Polyfold/Chapter6/ProjectionSequence.lean, line 204
+- `Polyfold.gammaProj_wedge_tmul` — Polyfold/Chapter6/ProjectionSequence.lean, line 221
+
+*What differs.*
+- "Recalling $R(P) = R(PT)$" is read as this identification. In Proposition 6.12 and Corollary 6.13 the equal operators $P(QT)$ and $PT$ have kernels of different types, so the statements carry the identification $\det(P(QT)) = \det(PT)$ (`linDetEquivOfEq`), bookkeeping, not a change of content (Findings, Chapter 6, item 5).
+
+### V6.14. Proposition 6.12: $\gamma^P_{QT} \circ \gamma^Q_T = \gamma^P_T$
+
+*as in the book* · up to $\det(PQT) = \det(PT)$
+
+**HWZ (§6.3, Proposition 6.12, p. 211 (proof §6.7.2, pp. 235–237)).** For a Fredholm $T$ and $Q, P \in \Pi_T$ with $P \le Q$, $QT$ is Fredholm, $P \in \Pi_{QT}$, and $\gamma^P_{QT} \circ \gamma^Q_T = \gamma^P_T$.
+
+**Proved in Lean.** `proposition_6_12`: the same, up to the identification $\det(P(QT)) = \det(PT)$ of the equal operators $PQT = PT$ (`comp_comp_eq_of_projLE`); $P \in \Pi_{QT}$ is `IsGoodLeftProj.of_projLE`.
+
+- `Polyfold.proposition_6_12` — Polyfold/Chapter6/ProjectionSequence.lean, line 321
+- `Polyfold.IsGoodLeftProj.of_projLE` — Polyfold/Chapter6/ProjectionSequence.lean, line 258
+- `Polyfold.comp_comp_eq_of_projLE` — Polyfold/Chapter6/ProjectionSequence.lean, line 253
+
+*What differs.*
+- As in the text; the proof is that of §6.7.2 (V6.64) (Findings, Chapter 6, items 5, 6).
+
+### V6.15. Corollary 6.13
+
+*as in the book*
+
+**HWZ (§6.3, Corollary 6.13, p. 211).** For $P, R, S \in \Pi_T$ with $P \le R$ and $P \le S$, the map $h \mapsto (\gamma^P_{RT})^{-1} \circ \gamma^P_{ST}(h)$, $\det(ST) \to \det(RT)$, does not depend on $P$, and it equals $\gamma^R_T \circ (\gamma^S_T)^{-1}$.
+
+**Proved in Lean.** `corollary_6_13`: $(\gamma^P_{RT})^{-1} \circ \gamma^P_{ST} = \gamma^R_T \circ (\gamma^S_T)^{-1}$ for every such $P$, so the left side does not depend on $P$.
+
+- `Polyfold.corollary_6_13` — Polyfold/Chapter6/ProjectionSequence.lean, line 548
+
+*What differs.*
+- As in the text.
+
+### V6.16. The stabilization $T_\varphi$ and Lemma 6.14
+
+*as in the book* · stabilizations exist
+
+**HWZ (§6.3, pp. 211–212, Lemma 6.14, p. 212).** For $T$ Fredholm and a linear $\varphi : \mathbb R^n \to F$ with $T_\varphi(e, r) = Te + \varphi(r)$ onto, the sequence $0 \to \ker T \to \ker T_\varphi \to \mathbb R^n \to F/R(T) \to 0$ with $j(e) = (e, 0)$, $\pi(e, r) = r$ and $[\varphi](r) = \varphi(r) + R(T)$ is exact.
+
+**Proved in Lean.** `stabJ`, `stabPi`, `stabClass`: the maps; `lemma_6_14`: the sequence is exact, and `stabSeq` is it as a four-term exact sequence; `exists_surjective_coprod`: every Fredholm $T$ has a stabilizing $\varphi$.
+
+- `Polyfold.stabJ` — Polyfold/Chapter6/Stabilization.lean, line 101
+- `Polyfold.stabPi` — Polyfold/Chapter6/Stabilization.lean, line 108
+- `Polyfold.stabClass` — Polyfold/Chapter6/Stabilization.lean, line 114
+- `Polyfold.lemma_6_14` — Polyfold/Chapter6/Stabilization.lean, line 197
+- `Polyfold.stabSeq` — Polyfold/Chapter6/Stabilization.lean, line 205
+- `Polyfold.exists_surjective_coprod` — Polyfold/Chapter6/Stabilization.lean, line 220
+
+*What differs.*
+- As in the text; the proof writes $j(e) = (0, e)$ for $(e, 0)$ (possible misprint) (Findings, Chapter 6, item 8).
+
+### V6.17. Formula (94): the isomorphism $\psi : \lambda^*(\mathbb R^n) \to \lambda^*(\{0\})$
+
+*as in the book*
+
+**HWZ (§6.3, formula (94), p. 212).** $\psi((e_1 \wedge \dots \wedge e_n)^*) = 1^*$ for the standard basis; then $\psi((c_1 \wedge \dots \wedge c_n)^*) = \det([c_1, \dots, c_n])^{-1}\,1^*$ for every basis $c$ of $\mathbb R^n$.
+
+**Proved in Lean.** `stdWedge` (the wedge of the standard basis), `stabOne` ($1^* \in \lambda^*(\{0\})$) and `stabPsi`; `stabPsi_dualVec`: formula (94) for every basis.
+
+- `Polyfold.stdWedge` — Polyfold/Chapter6/Stabilization.lean, line 260
+- `Polyfold.stabOne` — Polyfold/Chapter6/Stabilization.lean, line 264
+- `Polyfold.stabPsi` — Polyfold/Chapter6/Stabilization.lean, line 270
+- `Polyfold.stabPsi_dualVec` — Polyfold/Chapter6/Stabilization.lean, line 295
+
+*What differs.*
+- As in the text.
+
+### V6.18. Proposition 6.15: the isomorphism $\iota_\varphi : \det(T) \to \det(T_\varphi)$
+
+*restated* · $m + l = n$ proved · (95): gap G.58
+
+**HWZ (§6.3, Proposition 6.15, p. 213).** With (94), $\iota_\varphi$ is given as follows: for a basis $a$ of $\ker T$, $\bar d_i = \varphi(\bar c_i) + R(T)$ a basis of $F/R(T)$ and $\bar b_j = (b_j, r_j)$ completing $(a_i, 0)$ to a basis of $\ker T_\varphi$, the $r_j$ and $\bar c_i$ form a basis of $\mathbb R^n$, and $\iota_\varphi(h) = \det(\bar c_1, \dots, \bar c_m, r_1, \dots, r_l)^{-1}((a_1, 0) \wedge \dots \wedge (a_k, 0) \wedge \bar b_1 \wedge \dots \wedge \bar b_l) \otimes 1^*$.
+
+**Proved in Lean.** `stabIota`: $\iota_\varphi = (1 \otimes \psi) \circ \Phi_E$, an isomorphism (`stabIota_bijective`). `proposition_6_15`: the formula, under the hypothesis $m + l = n$ needed to form $\det(\bar c, r)$, which always holds (`stab_card_eq`); the $r_j$ and $\bar c_i$ form a basis of $\mathbb R^n$ (`isCompl_range_stabPi_span`).
+
+- `Polyfold.stabIota` — Polyfold/Chapter6/Stabilization.lean, line 338
+- `Polyfold.stabIota_bijective` — Polyfold/Chapter6/Stabilization.lean, line 357
+- `Polyfold.stab_card_eq` — Polyfold/Chapter6/Stabilization.lean, line 368
+- `Polyfold.isCompl_range_stabPi_span` — Polyfold/Chapter6/Stabilization.lean, line 387
+- `Polyfold.proposition_6_15` — Polyfold/Chapter6/Stabilization.lean, line 421
+
+*What differs.*
+- The two facts the text notices, $m + l = n$ and the basis of $\mathbb R^n$, are proved. The statement calls $\psi$ "$\varphi$", already the name of the stabilizing map (possible misprint) (Findings, Chapter 6, item 9).
+- The identification (95) and the maps $V \otimes \lambda(\mathbb R^n) \to V$, $V \otimes \lambda^*(\mathbb R^n) \to V$ after the proposition are not formalized; the formal statements use (94) only (gap G.58; Findings, Chapter 6, item 10).
+
+### V6.19. Definition 6.16: the direct sum convention
+
+*as in the book* · "natural" = the formula for every choice
+
+**HWZ (§6.3, Definition 6.16, p. 214).** For Fredholm $T : E \to F$ and $S : E' \to F'$, $T \oplus S$ is Fredholm, and the natural isomorphism $\det(T) \otimes \det(S) \to \det(T \oplus S)$ maps $h \otimes h'$, $h = a \otimes d^*$, $h' = a' \otimes d'^*$, to $(a_1 \wedge \dots \wedge a_n \wedge a'_1 \wedge \dots \wedge a'_{n'}) \otimes (d_1 \wedge \dots \wedge d_l \wedge d'_1 \wedge \dots \wedge d'_{l'})^*$.
+
+**Proved in Lean.** $\ker(T \oplus S) \cong \ker T \times \ker S$ and $\operatorname{coker}(T \oplus S) \cong \operatorname{coker} T \times \operatorname{coker} S$ (`kerProdEquiv`, `cokerProdEquiv`, from `kerInl`, `kerInr`, `cokerInl`, `cokerInr`, with `finrank_ker_prodMap`, `finrank_coker_prodMap`), so $T \oplus S$ is Fredholm (`isFredholm_prodMap`). `directSumDet`, defined by the formula for one choice of bases (`directSumVec`), satisfies it for every choice (`directSumVec_eq_smul`, `definition_6_16`) and is an isomorphism (`directSumDet_bijective`).
+
+- `Polyfold.kerInl` — Polyfold/Chapter6/DirectSumDet.lean, line 101
+- `Polyfold.kerInr` — Polyfold/Chapter6/DirectSumDet.lean, line 107
+- `Polyfold.cokerInl` — Polyfold/Chapter6/DirectSumDet.lean, line 113
+- `Polyfold.cokerInr` — Polyfold/Chapter6/DirectSumDet.lean, line 120
+- `Polyfold.kerProdEquiv` — Polyfold/Chapter6/DirectSumDet.lean, line 194
+- `Polyfold.cokerProdEquiv` — Polyfold/Chapter6/DirectSumDet.lean, line 200
+- `Polyfold.finrank_ker_prodMap` — Polyfold/Chapter6/DirectSumDet.lean, line 208
+- `Polyfold.finrank_coker_prodMap` — Polyfold/Chapter6/DirectSumDet.lean, line 217
+- `Polyfold.isFredholm_prodMap` — Polyfold/Chapter6/DirectSumDet.lean, line 228
+- `Polyfold.directSumVec` — Polyfold/Chapter6/DirectSumDet.lean, line 258
+- `Polyfold.directSumDet` — Polyfold/Chapter6/DirectSumDet.lean, line 274
+- `Polyfold.directSumVec_eq_smul` — Polyfold/Chapter6/DirectSumDet.lean, line 293
+- `Polyfold.definition_6_16` — Polyfold/Chapter6/DirectSumDet.lean, line 338
+- `Polyfold.directSumDet_bijective` — Polyfold/Chapter6/DirectSumDet.lean, line 376
+
+*What differs.*
+- "Natural" is read as the formula for every choice of bases, as for Lemma 6.5 (Findings, Chapter 6, item 11).
+
+### V6.20. Lemma 6.17
+
+*stronger* · $T$ need not be Fredholm
+
+**HWZ (§6.4, Lemma 6.17, p. 214).** For a Fredholm $T$, $P \in \Pi_T$ and a topological complement $Y$ of $\ker(PT)$ in $E$ there is $\varepsilon > 0$ such that for $\|S - T\| < \varepsilon$: (1) $P \in \Pi_S$; (2) $PS|_Y : Y \to R(P)$ is a topological isomorphism.
+
+**Proved in Lean.** `lemma_6_17`: the same for any bounded $T$, with $Y$ a topological complement in the sense of Mathlib's `Submodule.IsTopCompl` (an algebraic complement with a continuous projection); `projRestrict P S Y` is $PS|_Y$, and `FredholmOp` is the space of Fredholm operators.
+
+- `Polyfold.FredholmOp` — Polyfold/Chapter6/LocalDetBundle.lean, line 66
+- `Polyfold.projRestrict` — Polyfold/Chapter6/LocalDetBundle.lean, line 69
+- `Polyfold.lemma_6_17` — Polyfold/Chapter6/LocalDetBundle.lean, line 129
+
+*What differs.*
+- The hypothesis that $T$ is Fredholm is not used (Findings, Chapter 6, item 20).
+
+### V6.21. Lemma 6.18: the kernels $\ker(PS)$ form a trivial bundle
+
+*restated* · "trivial bundle" made concrete
+
+**HWZ (§6.4, Lemma 6.18, p. 215).** With $y(k, S) = -(PS|_Y)^{-1}PSk$, continuous in $(k, S)$, the space $\bigcup_{\|S - T\| < \varepsilon}\{S\} \times \ker(PS)$ with its projection "has the structure of a trivial vector bundle": $(S, k) \mapsto (S, k + y(k, S))$ is a continuous bijection from $\{\|S - T\| < \varepsilon\} \times \ker(PT)$, with inverse $(S, k + y) \mapsto (S, k)$.
+
+**Proved in Lean.** `LocalDetChart`: the data $(T, P, Y, \varepsilon)$ of Lemma 6.17 with its conclusions; `LocalDetChart.ySol` is $y(k, S)$. `LocalDetChart.lemma_6_18`: `kerMap`, $(S, k) \mapsto (S, k + y(k, S))$, is continuous and maps $\ker(PT)$ onto $\bigcup_S\{S\} \times \ker(PS)$, and it is inverted by the continuous projection `kerProj` onto $\ker(PT)$ along $Y$.
+
+- `Polyfold.LocalDetChart` — Polyfold/Chapter6/LocalDetBundle.lean, line 180
+- `Polyfold.LocalDetChart.ySol` — Polyfold/Chapter6/LocalDetBundle.lean, line 216
+- `Polyfold.LocalDetChart.kerMap` — Polyfold/Chapter6/LocalDetBundle.lean, line 220
+- `Polyfold.LocalDetChart.kerProj` — Polyfold/Chapter6/LocalDetBundle.lean, line 223
+- `Polyfold.LocalDetChart.lemma_6_18` — Polyfold/Chapter6/LocalDetBundle.lean, line 317
+
+*What differs.*
+- "Is a trivial vector bundle" is stated as this trivialization and its continuous inverse (Findings, Chapter 6, item 21).
+
+### V6.22. Lemma 6.19 in the case used, and Proposition 6.20: $\mathrm{DET}(T, P, \varepsilon)$
+
+*narrower* · Lemma 6.19 for trivial bundles only · explicit frames
+
+**HWZ (§6.4, Lemma 6.19 and Proposition 6.20, p. 216).** Lemma 6.19, a standard lemma: for finite-dimensional topological vector bundles $E$, $F$, the bundles $\lambda(E)$, $\lambda^*(F)$, $E \oplus F$ and $E \otimes F$ are topological vector bundles in a natural way. Proposition 6.20, deduced from it: $\mathrm{DET}(T, P, \varepsilon) = \bigcup_{\|S - T\| < \varepsilon}\{S\} \times \det(PS)$ has in a natural way the structure of a topological line bundle.
+
+**Proved in Lean.** Over the ball of a local determinant chart, `LocalDetChart.frame` $\omega(S) = (k_1(S) \wedge \dots \wedge k_n(S)) \otimes (e_1 \wedge \dots \wedge e_l)^*$, with $k_i(S) = k_i + y(k_i, S)$ (`kerFrame`) and a constant basis $e$ of $F/R(P) = F/R(PS)$, is nowhere zero (`LocalDetChart.frame_ne_zero`). `proposition_6_20`: the frames of two charts with the same $P$ differ by a continuous nowhere-zero factor.
+
+- `Polyfold.LocalDetChart.kerFrame` — Polyfold/Chapter6/LocalDetBundle.lean, line 366
+- `Polyfold.LocalDetChart.frame` — Polyfold/Chapter6/LocalDetBundle.lean, line 379
+- `Polyfold.LocalDetChart.frame_ne_zero` — Polyfold/Chapter6/LocalDetBundle.lean, line 428
+- `Polyfold.proposition_6_20` — Polyfold/Chapter6/LocalDetBundle.lean, line 524
+
+*What differs.*
+- Lemma 6.19 is not formalized in general (Mathlib has no exterior powers or tensor products of vector bundles; gap G.59). The bundles it is applied to are trivial, and Proposition 6.20 is proved with the explicit frames; "in a natural way" is read as the relation between the frames of two charts (Findings, Chapter 6, item 22).
+
+### V6.23. Lemma 6.21
+
+*stronger* · two charts, any centres and radii
+
+**HWZ (§6.4, Lemma 6.21, p. 216 (sketch pp. 216–217)).** For $Q \le P$ in $\Pi_T$, $(S, h) \mapsto (S, \gamma^Q_{PS}(h))$, $\mathrm{DET}(T, P, \varepsilon) \to \mathrm{DET}(T, Q, \varepsilon)$, is a topological line bundle isomorphism; "this is trivial", and the sketch extends continuous sections spanning $\ker(PS)$ to sections spanning $\ker(QS)$.
+
+**Proved in Lean.** `LocalDetChart.gammaProj_frame_eq`, `lemma_6_21`: on the common ball of any two local determinant charts with projections $Q \le P$, $\gamma^Q_{PS}$ maps the $P$-frame at $S$ to a continuous nowhere-zero multiple of the $Q$-frame.
+
+- `Polyfold.LocalDetChart.gammaProj_frame_eq` — Polyfold/Chapter6/LocalDetBundle.lean, line 760
+- `Polyfold.lemma_6_21` — Polyfold/Chapter6/LocalDetBundle.lean, line 824
+
+*What differs.*
+- Stated for two charts with different centres and radii, the form Lemma 6.25 uses; the text's sketch, extending the kernel sections of $PS$ to sections spanning $\ker(QS)$, is the proof (Findings, Chapter 6, item 23).
+
+### V6.24. $\mathrm{DET}(E, F)$ and the charts $\gamma_{(T,P,\varepsilon)}$
+
+*restated* · a Mathlib vector prebundle · charts read in frames
+
+**HWZ (§6.4, p. 217).** $\mathrm{DET}(E, F) = \bigcup_S\{S\} \times \det(S)$ over the Fredholm operators $S$. For a Fredholm $T$, Proposition 6.20 gives $\varepsilon > 0$ and $P \in \Pi_T$ with $\gamma_{(T,P,\varepsilon)} : (S, h) \mapsto (S, \gamma^P_S(h))$ a fibrewise linear bijection from $\mathrm{DET}(E, F)$ over the ball onto $\mathrm{DET}(T, P, \varepsilon)$.
+
+**Proved in Lean.** `DetFiber`: the fibre $\det(S)$ over a Fredholm $S$. `LocalDetChart.pretriv`: the pretrivialization $(S, h) \mapsto (S, \omega(S)^*(\gamma^P_S h))$ with model fibre $\mathbb R$ (`LocalDetChart.coord`); every Fredholm operator is the centre of a chart (`exists_localDetChart`); `detPrebundle`: the Mathlib vector prebundle these charts form, whose topology and bundle structure are those of $\mathrm{DET}(E, F)$.
+
+- `Polyfold.DetFiber` — Polyfold/Chapter6/DetBundle.lean, line 71
+- `Polyfold.LocalDetChart.pretriv` — Polyfold/Chapter6/DetBundle.lean, line 141
+- `Polyfold.LocalDetChart.coord` — Polyfold/Chapter6/DetBundle.lean, line 102
+- `Polyfold.exists_localDetChart` — Polyfold/Chapter6/DetBundle.lean, line 182
+- `Polyfold.detPrebundle` — Polyfold/Chapter6/DetBundle.lean, line 273
+
+*What differs.*
+- $\gamma_{(T,P,\varepsilon)}$ is read in the frame of Proposition 6.20 (Findings, Chapter 6, item 24).
+
+### V6.25. Definition 6.22: the collection $\mathcal B$
+
+*as in the book*
+
+**HWZ (§6.4, Definition 6.22, p. 218).** $\mathcal B$ is the collection of the subsets $B$ of $\mathrm{DET}(E, F)$ for which some $\gamma_{(T,P,\varepsilon)}(B)$ is open in $\mathrm{DET}(T, P, \varepsilon)$.
+
+**Proved in Lean.** `detBasis`: the sets lying over the ball of some chart whose image in ball $\times\,\mathbb R$ is open.
+
+- `Polyfold.detBasis` — Polyfold/Chapter6/DetBundle.lean, line 309
+
+*What differs.*
+- As in the text, with the charts read in their frames (V6.24) (Findings, Chapter 6, item 24).
+
+### V6.26. Proposition 6.23
+
+*as in the book*
+
+**HWZ (§6.4, Proposition 6.23, p. 218).** The collection $\mathcal B$ is a basis for a topology on $\mathrm{DET}(E, F)$.
+
+**Proved in Lean.** `proposition_6_23`: $\mathcal B$ is a basis of the topology of the prebundle of V6.24, so the topology it generates is that one.
+
+- `Polyfold.proposition_6_23` — Polyfold/Chapter6/DetBundle.lean, line 314
+
+*What differs.*
+- As in the text (Findings, Chapter 6, item 24).
+
+### V6.27. Proposition 6.24
+
+*as in the book*
+
+**HWZ (§6.4, Proposition 6.24, p. 218).** $\mathrm{DET}(E, F)$, with its linear structure on the fibres and the topology of $\mathcal B$, is a topological line bundle, and the maps $\gamma_{(T,P,\varepsilon)}$ are topological bundle isomorphisms.
+
+**Proved in Lean.** `proposition_6_24`: $\mathrm{DET}(E, F)$ is a topological vector bundle with model fibre $\mathbb R$ (Mathlib's `VectorBundle`), and every $\gamma_{(T,P,\varepsilon)}$, read in its frame, is a trivialization.
+
+- `Polyfold.proposition_6_24` — Polyfold/Chapter6/DetBundle.lean, line 337
+
+*What differs.*
+- As in the text (Findings, Chapter 6, item 24).
+
+### V6.28. Lemma 6.25: the transition maps
+
+*as in the book*
+
+**HWZ (§6.4, Lemma 6.25, p. 218).** $\gamma_{(T',P',\varepsilon')} \circ \gamma_{(T,P,\varepsilon)}^{-1}$ is a topological isomorphism of line bundles: for $Q \le P$, $Q \le P'$ it is $(S, h) \mapsto (S, (\gamma^Q_{P'S})^{-1} \circ \gamma^Q_{PS}(h))$ by Corollary 6.13, continuous by Lemma 6.21.
+
+**Proved in Lean.** `lemma_6_25`: the transition between two charts is $(S, t) \mapsto (S, g(S)t)$ with $g$ continuous and nowhere zero on the common ball; `lemma_6_25_local`: the same near a base point $S_0$.
+
+- `Polyfold.lemma_6_25` — Polyfold/Chapter6/DetBundle.lean, line 259
+- `Polyfold.lemma_6_25_local` — Polyfold/Chapter6/DetBundle.lean, line 214
+
+*What differs.*
+- The proof is the text's: a common lower bound $Q \le P, P'$ (Lemma 6.10, V6.11), Corollary 6.13 and Lemma 6.21 (Findings, Chapter 6, items 4, 24).
+
+### V6.29. Orientations of line bundles over simply connected bases
+
+*not in the book* · the theorem contractibility needs · lifting criterion
+
+**HWZ (§6.5, Proposition 6.26 and the opening of §6.5, p. 219).** Proposition 6.26: $\mathrm{DET}(f, x)$ has two possible orientations "since the base space is contractible". The opening of §6.5: over a contractible $U$ the determinant line bundle of a classical Fredholm section has precisely two orientations, the orientation of one line determining that of all the others.
+
+**Proved in Lean.** `IsLineOrientation`, `LineOrientation`: a choice of rays of the fibres given near every point by a continuous nowhere-zero section. Two orientations that agree on one fibre agree over a preconnected base (`LineOrientation.eq_of_apply_eq`); the rays of the fibres form a two-sheeted covering (`OrCover`, `isCoveringMap_orCover`); over a simply connected, locally path-connected base every orientation of one fibre extends (`exists_lineOrientation_apply_eq`), and over a nonempty such base there are exactly two orientations (`exists_two_lineOrientation`).
+
+- `Polyfold.IsLineOrientation` — Polyfold/Chapter6/LineBundleOrientation.lean, line 59
+- `Polyfold.LineOrientation` — Polyfold/Chapter6/LineBundleOrientation.lean, line 66
+- `Polyfold.LineOrientation.eq_of_apply_eq` — Polyfold/Chapter6/LineBundleOrientation.lean, line 171
+- `Polyfold.OrCover` — Polyfold/Chapter6/LineBundleOrientation.lean, line 330
+- `Polyfold.isCoveringMap_orCover` — Polyfold/Chapter6/LineBundleOrientation.lean, line 337
+- `Polyfold.exists_lineOrientation_apply_eq` — Polyfold/Chapter6/LineBundleOrientation.lean, line 350
+- `Polyfold.exists_two_lineOrientation` — Polyfold/Chapter6/LineBundleOrientation.lean, line 380
+
+*What differs.*
+- The text cites contractibility without the theorem it needs. The proof is the lifting criterion for the orientation double cover; nonempty convex sets of normed spaces are simply connected and locally path-connected (Findings, Chapter 6, item 25).
+
+### V6.30. Proposition 6.26: $\mathrm{DET}$ over a convex set of Fredholm operators
+
+*stronger* · any nonempty convex $C$
+
+**HWZ (§6.5, Proposition 6.26, p. 219).** $\mathrm{DET}(f, x) = \bigcup_{L \in \mathrm{Lin}(f,x)}\{L\} \times \det(L)$ has in a natural way the structure of a topological line bundle over $\mathrm{Lin}(f, x)$, and two possible orientations, the base being convex, hence contractible.
+
+**Proved in Lean.** `proposition_6_26`: for every nonempty convex set $C$ of Fredholm operators, the restriction `DetOn C` of $\mathrm{DET}(E, F)$ along the inclusion `fredholmIncl` is a topological line bundle with exactly two orientations.
+
+- `Polyfold.fredholmIncl` — Polyfold/Chapter6/DetBundle.lean, line 345
+- `Polyfold.DetOn` — Polyfold/Chapter6/DetBundle.lean, line 350
+- `Polyfold.proposition_6_26` — Polyfold/Chapter6/DetBundle.lean, line 356
+
+*What differs.*
+- Stated for any nonempty convex $C$; $\mathrm{Lin}(f, x)$ is one (V6.1, V6.31) (Findings, Chapter 6, item 25).
+
+### V6.31. Definition 6.27: $\mathrm{DET}(f, x)$, $\mathrm{Or}^f_x$ and the category $\mathcal O_f$
+
+*restated* · made at a chart point · $\mathcal O_f$: types and bijections
+
+**HWZ (§6.5, Definition 6.27, pp. 219–220).** An orientation of $(f, x)$, $x$ smooth, is a choice of one of the two orientations of $\mathrm{DET}(f, x)$. The objects of a category are the sets $\mathrm{Or}^f_x = \{o_x, -o_x\}$; for smooth $x$, $y$ in the same path component the morphisms are the two bijections $\pm o_x \mapsto \pm o_y$ and $\pm o_x \mapsto \mp o_y$.
+
+**Proved in Lean.** At a chart point the members of $\mathrm{Lin}(f, x)$ are Fredholm (`ChartPoint.isFredholm_of_mem_linSet`); `ChartPoint.detLin` is the pull-back of $\mathrm{DET}(T_zO, K_z)$ to $\mathrm{Lin}(f, x)$ and `ChartPoint.Or` the type of its orientations, with exactly two elements (`ChartPoint.exists_two_or`); for $L \in \mathrm{Lin}(f, x)$, $o \mapsto o(L)$ is a bijection onto the two orientations of $\det(L)$ (`ChartPoint.orEquivRay`). Between two two-element types there are bijections, and one value determines a bijection (`nonempty_equiv_of_two`, `equiv_eq_of_apply_eq_of_two`).
+
+- `Polyfold.ChartPoint.isFredholm_of_mem_linSet` — Polyfold/Chapter6/LinOrientation.lean, line 52
+- `Polyfold.ChartPoint.detLin` — Polyfold/Chapter6/LinOrientation.lean, line 58
+- `Polyfold.ChartPoint.Or` — Polyfold/Chapter6/LinOrientation.lean, line 63
+- `Polyfold.ChartPoint.exists_two_or` — Polyfold/Chapter6/LinOrientation.lean, line 67
+- `Polyfold.ChartPoint.orEquivRay` — Polyfold/Chapter6/LinOrientation.lean, line 75
+- `Polyfold.nonempty_equiv_of_two` — Polyfold/Chapter6/OrientationFunctor.lean, line 134
+- `Polyfold.equiv_eq_of_apply_eq_of_two` — Polyfold/Chapter6/OrientationFunctor.lean, line 153
+
+*What differs.*
+- Made at a chart point; V6.53–V6.55 compare chart points. On the tensor products no negation is set up, so $\{o_x, -o_x\}$ is stated as "exactly two elements"; the morphisms are bijections (Findings, Chapter 6, items 44, 70).
+
+### V6.32. Proposition 6.28: the neighbourhoods $U(x)$
+
+*narrower* · (1′) in place of (1): gap G.61 · global sections, bump functions · (3) for families $\mathbb R^n \to X$
+
+**HWZ (§6.5, Proposition 6.28, p. 220 (proof pp. 220–221)).** For an sc-Fredholm section $f$, every smooth $x$ has an open $U$ with (1) $U$ sc-smoothly contractible; (2) $\{y \in \operatorname{cl}_X(U) \mid f(y) = 0\}$ compact; (3) for every sc-smooth path $\varphi : [0, 1] \to U$ an sc⁺-section $s : U \times [0, 1] \to Y$ with $s(\varphi(t), t) = f(\varphi(t))$; (4) for $t_0 \in [0, 1]$, $y_0 \in U_\infty$ and a smooth $e_0 \in Y_{y_0}$ an sc⁺-section $q$ with $q(y_0, t_0) = e_0$. The proof contracts $U = r(V')$, $V'$ convex, by $(t, y) \mapsto r(ty)$.
+
+**Proved in Lean.** `proposition_6_28` (bump functions): open $U \subseteq W$ in the domain of one chart of the atlas with (1′) any two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in $W$ with the end points fixed (`IsScHomotopyRel`); (2) $\{y \in \operatorname{cl}(U) \mid f(y) = 0\}$ compact (`exists_nhds_isCompact_zeros`); (3) for every sc-smooth family $\Phi : \mathbb R^n \to X$ with $\Phi([0, 1]^n) \subseteq W$ an sc⁺-section $S$ of $\pi^*P \to \mathbb R^n \times X$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, depending on $q \in [0, 1]^n$ only through $\Phi(q)$ (`exists_isScPlusSection_pullback_of_family`); (4) $\pi^*P$ has sc⁺-sections through all smooth fibre points (`hasScPlusSectionsThrough_pullback_rn_of_bump`). $\mathbb R^n \times X$ and $\pi^*P$ are paracompact (`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`).
+
+- `Polyfold.IsScHomotopyRel` — Polyfold/Chapter6/OrientableNbhd.lean, line 276
+- `Polyfold.pt1` — Polyfold/Chapter6/OrientableNbhd.lean, line 267
+- `Polyfold.pt2` — Polyfold/Chapter6/OrientableNbhd.lean, line 270
+- `Polyfold.exists_contDiff_eq_id_near_Icc_mapsTo` — Polyfold/Chapter6/OrientableNbhd.lean, line 140
+- `Polyfold.exists_isScSmoothMap_eq_one_nhdsSet` — Polyfold/Chapter6/OrientableNbhd.lean, line 179
+- `Polyfold.exists_nhds_isCompact_zeros` — Polyfold/Chapter6/OrientableNbhd.lean, line 249
+- `Polyfold.exists_isScPlusSection_pullback_of_mapsTo_of_bump` — Polyfold/Chapter6/OrientableNbhd.lean, line 297
+- `Polyfold.exists_isScPlusSection_pullback_of_family` — Polyfold/Chapter6/OrientableNbhd.lean, line 479
+- `Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump` — Polyfold/Chapter6/OrientableNbhd.lean, line 511
+- `Polyfold.proposition_6_28` — Polyfold/Chapter6/OrientableNbhd.lean, line 529
+- `Polyfold.MPolyfold.paracompactSpace_prod` — Polyfold/Chapter2/FibredProduct.lean, line 455
+- `Polyfold.paracompactSpace_pullbackSpace` — Polyfold/Chapter2/StrongBundlePullback.lean, line 555
+
+*What differs.*
+- As we read it, (1) is not established for $U$ by the proof: $r(ty)$ contracts $r(V)$ for a convex $V$, but for $U = r(V')$ it needs $r(V') \subseteq V'$, which is not stated. What Theorem 6.35 uses is (1′), proved with $W = O \cap B_\delta$, $U = O \cap B_{\delta'}$, $r(B_{\delta'}) \subseteq B_\delta$ and the homotopy $\Phi(\tau, t) = r((1 - \rho(\tau))\varphi(\gamma_0(t)) + \rho(\tau)\varphi(\gamma_1(t)))$ in the chart (gap G.61; Findings, Chapter 6, item 45).
+- The sections of (3) and (4) are global sc⁺-sections of the pull-back, made with bump functions, in place of sections over $U \times [0, 1]$ after "assuming $X = U$" (the text assumes partitions of unity from §6.2 on); (3) is stated for families, as the homotopies of Theorem 6.35 need it. Neither the smoothness of $x$ nor the tameness of $X$ is used (Findings, Chapter 6, items 43, 46).
+- Paths and families are maps on $\mathbb R$, $\mathbb R^n$ of which only $[0, 1]$, $[0, 1]^n$ matters, and $U \times [0, 1]$ is read through $\mathbb R^n \times X$ (decision D2; gap G.65).
+
+### V6.33. Lemma 6.29: the sections $s_1, \dots, s_k$
+
+*narrower* · $X$ tame, tame germ data · general position of $F$, not (P) · the proof of Theorem 5.18
+
+**HWZ (§6.5, the section $F$, p. 221; Lemma 6.29 and the paragraph after it, p. 222).** With $s(\varphi(t), t) = f(\varphi(t))$ and $F(t, y, \lambda) = f(y) - s(y, t) + \sum\lambda_is_i(y, t)$ on $[0, 1] \times X \times \mathbb R^k$, there are finitely many sc⁺-sections $s_1, \dots, s_k$ with (P): for every fixed $t$, $F_t$ is at $(\varphi(t), 0)$ in general position to the boundary of $X \times \mathbb R^k$. (P) implies that $F$ is in general position at all $(t, \varphi(t), 0)$. The choice is made "using the results from the transversality theory".
+
+**Proved in Lean.** `lemma_6_29` ($X$ tame, bump functions, $f$ with tame germ data): for an sc-smooth $\Phi : \mathbb R^n \to X$ and an sc⁺-section $S$ of $\pi^*P$ with $(f + S)(q, \Phi(q)) = 0$ for $q$ near $[0, 1]^n$, finitely many sc⁺-sections $s_1, \dots, s_k$ of $\pi^*P$ such that $F(\lambda, (q, y)) = f(y) + S(q, y) + \sum\lambda_is_i(q, y)$ is in general position at $(0, (q, \Phi(q)))$ for all $q$ near $[0, 1]^n$ (`exists_sections_isGeneralPositionGerm_of_isCompact`; the points $(0, (q, \Phi(q)))$ are zeros of $F$, `isZeroAt_paramSection_zero`).
+
+- `Polyfold.isZeroAt_paramSection_zero` — Polyfold/Chapter6/Lemma629.lean, line 81
+- `Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact` — Polyfold/Chapter6/Lemma629.lean, line 102
+- `Polyfold.lemma_6_29` — Polyfold/Chapter6/Lemma629.lean, line 203
+
+*What differs.*
+- The text gives no proof; the one formalized is that of Theorem 5.18 (V5.38), under its hypotheses, which are the standing ones of §6.5 (Findings, Chapter 6, item 47).
+- The conclusion is the general position of $F$ at the points $(t, \varphi(t), 0)$, which the text derives from (P) and which Lemmas 6.30, 6.31 use. (P) itself, the general position of each slice $F_t$, is not stated; as we read it, it follows, since the tangent vectors of the family of zeros lie in $\ker F'$ and $\mathbb R^n$ has no boundary (gap G.63; Findings, Chapter 6, item 47).
+
+### V6.34. Lemma 6.30: the kernels along a family of zeros
+
+*narrower* · a continuous family of kernels · manifold statements: gap G.62
+
+**HWZ (§6.5, Lemma 6.30, p. 222).** The solution set $S$ of $F = 0$ near $(t, \varphi(t), 0)$ is a smooth manifold with boundary with corners containing $\{(t, \varphi(t), 0)\}$; by (P) the projection $\pi : S \to [0, 1]$ is a submersion, and its fibres $S_t$ are manifolds with boundary with corners. $L_t = T_{(\varphi(t),0)}S_t = \ker F_t'(\varphi(t), 0)$, and $L$ is a smooth vector bundle over $[0, 1]$.
+
+**Proved in Lean.** For an sc-Fredholm section with tame germ data and a continuous family $y_q$ of zeros in good position, read in one chart at continuously varying level-$1$ points, the kernels of the linearizations form a continuous family of subspaces of the model space (`exists_subspaceFamily_linKer`, from local frames, `exists_local_frame_linKer`), of dimension the index (`StrongBundle.IsSurjLinOfIndex.finrank_linKer`). The derivative of an sc-smooth family of zeros $\mathbb R^n \to X$, read in a chart, lies in the kernel of the linearization (`hasFDerivAt_scDeriv_rn`, `fderiv_mem_linKer`).
+
+- `Polyfold.StrongBundle.IsSurjLinOfIndex.finrank_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 57
+- `Polyfold.exists_local_frame_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 94
+- `Polyfold.exists_subspaceFamily_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 166
+- `Polyfold.hasFDerivAt_scDeriv_rn` — Polyfold/Chapter6/KernelFamily.lean, line 197
+- `Polyfold.fderiv_mem_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 217
+
+*What differs.*
+- The bundle $L$ is a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.54), the range of the derivative of an sc-retraction. The solution set as a manifold with boundary with corners near $(t, \varphi(t), 0)$, the map $\pi$ and the smooth structure of $L$ are not formalized; the continuation of orientations does not need them (gap G.62; Findings, Chapter 6, item 48).
+
+### V6.35. Continuous families of subspaces and their determinant lines
+
+*restated* · "vector bundle" = family of subspaces
+
+**HWZ (§6.5, pp. 222–223; the bundles $\tilde L$, pp. 224–227).** $L = \bigcup_{t \in [0,1]}\{t\} \times L_t$ and $\lambda(L) = \bigcup_t\{t\} \times \lambda(L_t)$ over $[0, 1]$; an orientation of one line $\lambda(L_t)$ determines, by continuation, those of all the others, in particular one of $\lambda(L_0)$ determines one of $\lambda(L_1)$. The bundles $\tilde L$ over $[0, 1]^2$ are used in the same way.
+
+**Proved in Lean.** `SubspaceFamily`: a family of $n$-dimensional subspaces of a normed space spanned near every point by a continuous frame; `SubspaceFamily.det`: the line bundle $b \mapsto \lambda(L_b)$, with the frames as trivializations (`SubspaceFamily.Frame.pretriv`, `SubspaceFamily.Frame.coordChange_continuousOn`). Families and orientations restrict along continuous maps (`SubspaceFamily.comp`, `LineOrientation.comp`); over $[0, 1]$ an orientation of $\lambda(L_0)$ is continued to $\lambda(L_1)$ (`SubspaceFamily.transport`, `SubspaceFamily.transport_eq`), injectively (`SubspaceFamily.transport_injective`), and over a simply connected, locally path-connected base the continuation along a path depends only on its end points (`SubspaceFamily.transport_comp`).
+
+- `Polyfold.SubspaceFamily` — Polyfold/Chapter6/SubspaceBundle.lean, line 61
+- `Polyfold.SubspaceFamily.det` — Polyfold/Chapter6/SubspaceBundle.lean, line 78
+- `Polyfold.SubspaceFamily.Frame.pretriv` — Polyfold/Chapter6/SubspaceBundle.lean, line 154
+- `Polyfold.SubspaceFamily.Frame.coordChange_continuousOn` — Polyfold/Chapter6/SubspaceBundle.lean, line 248
+- `Polyfold.SubspaceFamily.comp` — Polyfold/Chapter6/SubspaceBundle.lean, line 323
+- `Polyfold.LineOrientation.comp` — Polyfold/Chapter6/SubspaceBundle.lean, line 352
+- `Polyfold.SubspaceFamily.transport` — Polyfold/Chapter6/SubspaceBundle.lean, line 374
+- `Polyfold.SubspaceFamily.transport_eq` — Polyfold/Chapter6/SubspaceBundle.lean, line 380
+- `Polyfold.SubspaceFamily.transport_injective` — Polyfold/Chapter6/SubspaceBundle.lean, line 390
+- `Polyfold.SubspaceFamily.transport_comp` — Polyfold/Chapter6/SubspaceBundle.lean, line 403
+
+*What differs.*
+- "Vector bundle" is read as a family of subspaces of one model space with continuous local frames; the smooth structure of $L$ is not used (gap G.62).
+
+### V6.36. Kernels, images and cuts of continuous families
+
+*not in the book* · "varies continuously" made precise
+
+**HWZ (§6.5, the continuity statements of pp. 223–226).** The proofs of Lemmas 6.33, 6.34 and of Theorem 6.35 use that "as $\tau$ varies, the bundle varies continuously", and that the data of the exact sequences at the end points vary continuously.
+
+**Proved in Lean.** `exists_subspaceFamily_ker`: the kernels of a norm-continuous family of surjective Fredholm operators over a connected base form a continuous family of subspaces. `SubspaceFamily.exists_map`, `SubspaceFamily.isLineOrientation_map`: so do the images of a continuous family under a jointly continuous family of linear maps injective on its members, and orientations are carried along. `SubspaceFamily.exists_inf_ker`: cutting a continuous family by the kernel of a fixed $\ell$ that is onto on every member gives one.
+
+- `Polyfold.exists_subspaceFamily_ker` — Polyfold/Chapter6/StabilizationContinuity.lean, line 128
+- `Polyfold.SubspaceFamily.exists_map` — Polyfold/Chapter6/StabilizationContinuity.lean, line 170
+- `Polyfold.SubspaceFamily.isLineOrientation_map` — Polyfold/Chapter6/StabilizationContinuity.lean, line 192
+- `Polyfold.SubspaceFamily.exists_inf_ker` — Polyfold/Chapter6/StabilizationContinuity.lean, line 244
+
+*What differs.*
+- "Varies continuously" is read in the operator norm, and for maps into a model space as joint continuity.
+
+### V6.37. The stabilized section in a product chart
+
+*restated* · $\ker F_t'$ = $\ker F'$ cut by $\sigma = 0$
+
+**HWZ (§6.5, $F$, p. 221; $F_t$, $L_t$ and (96), pp. 222–223).** $F_t(y, \lambda) = F(t, y, \lambda)$ on $X \times \mathbb R^k$, $L_t = \ker F_t'(\varphi(t), 0)$, and the exact sequence (96) relates $\ker((f - s(\cdot, t))'(\varphi(t)))$, $\ker F_t'(\varphi(t), 0)$, $\mathbb R^k$ and $Y_{\varphi(t)}/R((f - s(\cdot, t))'(\varphi(t)))$.
+
+**Proved in Lean.** In the product chart $(\lambda \mapsto \lambda) \times ((q \mapsto q) \times \varphi)$ at $(0, (q, z))$ the linearization of $F$ is $(\lambda, (\sigma, v)) \mapsto D(\hat g_q \circ r)(z)v + \sum\lambda_i\hat s_i(q, \cdot)(z) + D_q\sigma$, with $g_q = f + S(q, \cdot)$ (`StrongBundle.scDeriv_paramSection_ofProd_ofProd`, with the chart lemmas `PullbackChartData.ofProd_scDeriv_r_apply`, `StrongBundle.scDeriv_ofProd_slice_apply`, `StrongBundleChart.paramDerivAt`). Its kernel cut by $\sigma = 0$ (`sliceProj`, `sliceIncl`) is the image of $\ker(T \oplus \varphi)$, with $T = g_q'(x) \in \mathrm{Lin}(f, x)$ (`mem_linSet_sectionAdd_pullbackSlice`) and $\varphi(\lambda) = \sum\lambda_is_i(q, x)$ (`linKer_inf_ker_sliceProj_eq_map`, `exists_sliceOps`, `exists_sliceKernel`); $T \oplus \varphi$ is onto when $F$ is in general position at $(0, (q, \Phi(q)))$ (`surjective_coprod_of_isLinSurjAt`).
+
+- `Polyfold.PullbackChartData.ofProd_scDeriv_r_apply` — Polyfold/Chapter6/ParamKernel.lean, line 96
+- `Polyfold.PullbackChartData.ofProd_mem_tangent_iff` — Polyfold/Chapter6/ParamKernel.lean, line 120
+- `Polyfold.PullbackChartData.mem_K_ofProd_iff` — Polyfold/Chapter6/ParamKernel.lean, line 136
+- `Polyfold.StrongBundle.scDeriv_ofProd_slice_apply` — Polyfold/Chapter6/ParamKernel.lean, line 164
+- `Polyfold.StrongBundle.scDeriv_paramSection_apply` — Polyfold/Chapter6/ParamKernel.lean, line 225
+- `Polyfold.StrongBundleChart.paramDerivAt` — Polyfold/Chapter6/ParamKernel.lean, line 375
+- `Polyfold.StrongBundle.scDeriv_paramSection_ofProd_ofProd` — Polyfold/Chapter6/ParamKernel.lean, line 390
+- `Polyfold.sliceProj` — Polyfold/Chapter6/ParamKernel.lean, line 450
+- `Polyfold.sliceIncl` — Polyfold/Chapter6/ParamKernel.lean, line 461
+- `Polyfold.linKer_inf_ker_sliceProj_eq_map` — Polyfold/Chapter6/ParamKernel.lean, line 503
+- `Polyfold.exists_sliceOps` — Polyfold/Chapter6/ParamKernel.lean, line 566
+- `Polyfold.mem_linSet_sectionAdd_pullbackSlice` — Polyfold/Chapter6/ParamKernel.lean, line 595
+- `Polyfold.surjective_coprod_of_isLinSurjAt` — Polyfold/Chapter6/ParamKernel.lean, line 627
+- `Polyfold.exists_sliceKernel` — Polyfold/Chapter6/ParamKernel.lean, line 745
+
+*What differs.*
+- $\ker F_t'(\varphi(t), 0)$ is read as the kernel of the linearization of the whole $F$ cut by $\sigma = 0$; in the product chart the linearization of the slice is $(v, \lambda) \mapsto Tv + \varphi\lambda$ (Findings, Chapter 6, item 49).
+
+### V6.38. Lemma 6.31: the sequence (96) is exact
+
+*restated* · $c$ onto by general position of $F$
+
+**HWZ (§6.5, (96) and Lemma 6.31, p. 223).** The sequence (96), $0 \to \ker((f - s(\cdot, t))'(\varphi(t))) \to \ker F_t'(\varphi(t), 0) \to \mathbb R^k \to Y_{\varphi(t)}/R((f - s(\cdot, t))'(\varphi(t))) \to 0$, with $j$ the inclusion, $p$ the projection onto $\mathbb R^k$ and $c(\lambda) = \sum\lambda_is_i(t, \varphi(t)) + R(\cdot)$, is exact; $c$ is onto by property (P).
+
+**Proved in Lean.** `lemma_6_31`: with the operators of V6.37, (96) $0 \to \ker T \to \ker(T \oplus \varphi) \to \mathbb R^k \to K_z/R(T) \to 0$ is the stabilization sequence of $T$ and $\varphi$ (V6.16), hence exact.
+
+- `Polyfold.lemma_6_31` — Polyfold/Chapter6/ParamKernel.lean, line 797
+
+*What differs.*
+- The text has $c$ onto by (P); here $T \oplus \varphi$ is onto by the general position of $F$ (V6.33), and the $\mathbb R^n$-directions are absorbed because the derivative of the family of zeros lies in $\ker F'$ (`fderiv_mem_linKer`) (Findings, Chapter 6, item 49).
+
+### V6.39. Continuation and the isomorphisms $\Phi_{E_t}$
+
+*restated* · one statement for paths and squares
+
+**HWZ (§6.5, pp. 223–224, after Lemma 6.31).** $\Phi_{E_t} : \det((f - s(\cdot, t))'(\varphi(t))) \to \lambda(L_t) \otimes \lambda^*(\mathbb R^k)$. An orientation $o_0$ of $\mathrm{DET}(f, \varphi(0))$ orients $\det((f - s(\cdot, 0))'(\varphi(0)))$; $\Phi_{E_0}$ turns it into an orientation of $\lambda(L_0) \otimes \lambda^*(\mathbb R^k)$, continuation extends it to $t = 1$, and $(\Phi_{E_1})^{-1}$ gives an orientation of $\det((f - s(\cdot, 1))'(\varphi(1)))$, hence $o_1$.
+
+**Proved in Lean.** `SubspaceFamily.cont`: over a simply connected, locally path-connected base, the continuation of a ray of $\lambda(L_{q_0})$ to $\lambda(L_{q_1})$, a bijection (`SubspaceFamily.contEquiv`, `cont_eq`), compatible with composition and pull-back (`cont_self`, `cont_trans`, `cont_comp`), and along $[0, 1]$ the continuation of V6.35 (`cont_eq_transport`). For a stabilization $T \oplus \varphi$ onto and an identification of its kernel with $L$, the rays of $\det(T)$ and of $\lambda(L)$ correspond (`stabRayEquiv`, through $\iota_\varphi$ of V6.18 and $\det(T \oplus \varphi) \cong \lambda(\ker(T \oplus \varphi))$, `detEquivOfSurjective`); `propagate`: $\Phi_{E_0}$, continuation and $\Phi_{E_1}^{-1}$ composed, a bijection of the rays of $\det(T_0)$ and $\det(T_1)$ (`propagate_self`, `propagate_trans`, `propagate_comp`).
+
+- `Polyfold.SubspaceFamily.cont` — Polyfold/Chapter6/Continuation.lean, line 63
+- `Polyfold.SubspaceFamily.cont_eq` — Polyfold/Chapter6/Continuation.lean, line 67
+- `Polyfold.SubspaceFamily.cont_self` — Polyfold/Chapter6/Continuation.lean, line 74
+- `Polyfold.SubspaceFamily.cont_trans` — Polyfold/Chapter6/Continuation.lean, line 78
+- `Polyfold.SubspaceFamily.contEquiv` — Polyfold/Chapter6/Continuation.lean, line 84
+- `Polyfold.SubspaceFamily.cont_comp` — Polyfold/Chapter6/Continuation.lean, line 96
+- `Polyfold.SubspaceFamily.cont_eq_transport` — Polyfold/Chapter6/Continuation.lean, line 106
+- `Polyfold.detEquivOfSurjective` — Polyfold/Chapter6/Continuation.lean, line 156
+- `Polyfold.stabRayEquiv` — Polyfold/Chapter6/Continuation.lean, line 179
+- `Polyfold.propagate` — Polyfold/Chapter6/Continuation.lean, line 200
+- `Polyfold.propagate_self` — Polyfold/Chapter6/Continuation.lean, line 211
+- `Polyfold.propagate_trans` — Polyfold/Chapter6/Continuation.lean, line 221
+- `Polyfold.propagate_comp` — Polyfold/Chapter6/Continuation.lean, line 242
+
+*What differs.*
+- Over any simply connected, locally path-connected base, so that one statement serves the paths and the squares; the fixed identification $\lambda^*(\mathbb R^k) \cong \lambda^*(\{0\})$ of (94) is used at both ends.
+
+### V6.40. The stabilization sign $(-1)^{\dim\operatorname{coker}T}$
+
+*restated* · sign $(-1)^{\dim\operatorname{coker}T}$ · an example without the sign
+
+**HWZ (§6.3, formula (94), p. 212, as it is used on pp. 223–226).** The orientations carried by $\Phi_{E_t}$ along $t$, and those of the bundles $\tilde L_\tau$ along $\tau$, are used as varying continuously with the parameter (Lemmas 6.33, 6.34 and the homotopy argument before Theorem 6.35).
+
+**Proved in Lean.** `coord_stabIota`: in a local determinant chart with projection $P$, the chart coordinate of $\iota_\psi(x) \in \det(S \oplus \psi)$ is $(-1)^{k\dim F/R(P) + \dim\operatorname{coker} S}D(S, \psi)$ times that of $x$, with $D$ (`stabD`) continuous and nowhere zero near the centre (`continuousOn_stabD`, `stabD_ne_zero`). `isLineOrientation_stabRay`: for a continuous orientation $o$ of $\mathrm{DET}$, a norm-continuous family $T_q$ and a continuous stabilization $\varphi_q$ with $T_q \oplus \varphi_q$ onto, the rays $(-1)^{\dim\operatorname{coker} T_q}\,\Phi(o(T_q))$ (`stabSign`) of $\lambda(\ker(T_q \oplus \varphi_q))$ form an orientation. `not_isLineOrientation_stabRay_uncorrected`: without the sign they need not ($E = F = \mathbb R$, $k = 1$, $T_q = q/(1 + |q|)$, $\varphi(r) = r_0$).
+
+- `Polyfold.coord_stabIota` — Polyfold/Chapter6/StabilizationContinuity.lean, line 942
+- `Polyfold.stabD` — Polyfold/Chapter6/StabilizationContinuity.lean, line 665
+- `Polyfold.continuousOn_stabD` — Polyfold/Chapter6/StabilizationContinuity.lean, line 1172
+- `Polyfold.stabD_ne_zero` — Polyfold/Chapter6/StabilizationContinuity.lean, line 721
+- `Polyfold.stabSign` — Polyfold/Chapter6/StabilizationContinuity.lean, line 1009
+- `Polyfold.isLineOrientation_stabRay` — Polyfold/Chapter6/StabilizationContinuity.lean, line 1371
+- `Polyfold.not_isLineOrientation_stabRay_uncorrected` — Polyfold/Chapter6/StabilizationContinuity.lean, line 2060
+
+*What differs.*
+- As we read it, the orientations carried by $\Phi_E$ of (94) along a continuous family are not continuous where $\dim\operatorname{coker} T$ changes parity: the first exponent is constant on a chart, the second is not. The propagation uses the sign-normalized $(-1)^{\dim\operatorname{coker} T}\Phi_E$, which on each operator carries the text's orientation or its opposite (Findings, Chapter 6, item 50).
+
+### V6.41. The push-forward $o_1 = \varphi_*o_0$ along stabilized kernels
+
+*restated* · the sign at both end points · sections enter pointwise
+
+**HWZ (§6.5, the push-forward, p. 224).** The orientation $o_1$ of $\mathrm{DET}(f, \varphi(1))$ obtained from $o_0$ by $\Phi_{E_0}$, continuation and $(\Phi_{E_1})^{-1}$ is the push-forward orientation $o_1 = \varphi_*o_0$; a priori it might depend on the choices of $s(y, t)$ and $s_1, \dots, s_k$.
+
+**Proved in Lean.** At a chart point, `ChartPoint.stabT` is $T = (f + S)'(x) \in \mathrm{Lin}(f, x)$ (`ChartPoint.stabT_mem_linSet`) and `ChartPoint.stabPhi` is $\varphi(\lambda) = \sum\lambda_i\hat s_i(x)$. `IsStabKernels`: a continuous family $\Lambda$, over a parameter space, of the subspaces $\ker(T_q \oplus \varphi_q)$ of $E_0 \times \mathbb R^k$ at points $y(q)$, read in one chart. `IsStabKernels.push`: $\mathrm{Or}^f_{x_0} \to \mathrm{Or}^f_{x_1}$, $o \mapsto o(T_a) \mapsto (-1)^{\dim\operatorname{coker} T_a}\Phi_{E_a}(o(T_a))$, continued to $\lambda(\Lambda_b)$ and carried back in the same way at $T_b$. It depends only on the data (`IsStabKernels.push_congr`), is compatible with pull-back (`IsStabKernels.comp`, `IsStabKernels.push_comp`) and with concatenation (`IsStabKernels.push_trans`), and along a path with continuously varying data continuation carries the rays read at one parameter to those read at the next (`IsStabKernels.orRay`, `IsStabKernels.push_eq_orRay`, `IsStabKernels.cont_orRay_path`).
+
+- `Polyfold.chartPt` — Polyfold/Chapter6/Propagation.lean, line 75
+- `Polyfold.ChartPoint.stabT` — Polyfold/Chapter6/Propagation.lean, line 85
+- `Polyfold.ChartPoint.stabT_mem_linSet` — Polyfold/Chapter6/Propagation.lean, line 97
+- `Polyfold.ChartPoint.stabPhi` — Polyfold/Chapter6/Propagation.lean, line 112
+- `Polyfold.ChartPoint.stabPhi_finAppend` — Polyfold/Chapter6/Propagation.lean, line 123
+- `Polyfold.stabSign_inv` — Polyfold/Chapter6/Propagation.lean, line 143
+- `Polyfold.toPerm_stabSign_symm` — Polyfold/Chapter6/Propagation.lean, line 147
+- `Polyfold.isFredholm_stabCoprod` — Polyfold/Chapter6/Propagation.lean, line 181
+- `Polyfold.IsStabKernels` — Polyfold/Chapter6/Propagation.lean, line 322
+- `Polyfold.IsStabKernels.comp` — Polyfold/Chapter6/Propagation.lean, line 349
+- `Polyfold.IsStabKernels.push` — Polyfold/Chapter6/Propagation.lean, line 365
+- `Polyfold.IsStabKernels.push_congr` — Polyfold/Chapter6/Propagation.lean, line 394
+- `Polyfold.IsStabKernels.orRay` — Polyfold/Chapter6/Propagation.lean, line 419
+- `Polyfold.IsStabKernels.push_eq_orRay` — Polyfold/Chapter6/Propagation.lean, line 436
+- `Polyfold.IsStabKernels.cont_orRay_path` — Polyfold/Chapter6/Propagation.lean, line 449
+- `Polyfold.IsStabKernels.push_comp` — Polyfold/Chapter6/Propagation.lean, line 512
+- `Polyfold.IsStabKernels.push_trans` — Polyfold/Chapter6/Propagation.lean, line 526
+
+*What differs.*
+- The sign of V6.40 is used at both end points; for given end-point operators the result differs from the text's by $(-1)^{\dim\operatorname{coker} T_a + \dim\operatorname{coker} T_b}$. The sections enter pointwise, and the continuity in the parameter is that of $\Lambda$ (Findings, Chapter 6, item 50).
+
+### V6.42. Lemma 6.30 for the push-forward: the stabilized kernels exist
+
+*narrower* · manifold statements: gap G.62
+
+**HWZ (§6.5, Lemma 6.30 and the bundle $L$ after it, pp. 222–223).** Along the path the kernels $L_t = \ker F_t'(\varphi(t), 0)$, tangent spaces of the solution manifold $S_t$ of Lemma 6.30, form the smooth vector bundle $L$ over $[0, 1]$.
+
+**Proved in Lean.** `exists_isStabKernels`: for an sc-smooth $\Phi : \mathbb R^n \to X$ with $\Phi([0, 1]^n)$ in the domain of a chart, an sc⁺-section $S$ with $f + S = 0$ along $\Phi$ near $[0, 1]^n$ and sc⁺-sections $s_1, \dots, s_k$ as in V6.33, the stabilized kernels of the slices form a continuous family over $[0, 1]^n$ (`IsStabKernels`), the points read through continuous lifts into the chart (`exists_continuousOn_lift_chart`).
+
+- `Polyfold.exists_continuousOn_lift_chart` — Polyfold/Chapter6/StabKernelsExist.lean, line 57
+- `Polyfold.exists_isStabKernels` — Polyfold/Chapter6/StabKernelsExist.lean, line 88
+
+*What differs.*
+- As V6.34 (gap G.62): the family is the tangent spaces of the solution set (V6.34) cut by $\{dt = 0\}$ (V6.36) and identified with $\ker(T_q \oplus \varphi_q)$ (V6.37) (Findings, Chapter 6, item 48).
+
+### V6.43. Push-forward data along paths
+
+*restated* · global sections of the pull-back · (P) used only to construct
+
+**HWZ (§6.5, the choices along the path, pp. 221, 224).** Along an sc-smooth $\varphi : [0, 1] \to X$, "assuming $X = U$", one chooses by Proposition 6.28 an sc⁺-section $s$ with $s(\varphi(t), t) = f(\varphi(t))$, adds sections $s_1, \dots, s_k$ on $X \times [0, 1]$ with (P), and builds the push-forward from these choices.
+
+**Proved in Lean.** `IsPush`: $e$ is a push-forward along an sc-smooth path $\gamma$ in a chart if there are global sc⁺-sections $S, s_1, \dots, s_k$ of $\pi^*P \to \mathbb R \times X$ with $(f + S)(t, \gamma(t)) = 0$ for $t$ near $[0, 1]$ (`isZeroAt_sectionAdd_reparamSection`) and a family of stabilized kernels of their slices along $\gamma$ whose push-forward is $e$. A push-forward along $\gamma$ is the composite of push-forwards along its two halves (`IsPush.split`, `isPush_reparam`), and along every sc-smooth path in a set with property (3) of Proposition 6.28 there is one (`exists_isPush`).
+
+- `Polyfold.pt1_mem_Icc` — Polyfold/Chapter6/PushData.lean, line 64
+- `Polyfold.exists_lift_of_smooth` — Polyfold/Chapter6/PushData.lean, line 72
+- `Polyfold.chartPtOf` — Polyfold/Chapter6/PushData.lean, line 78
+- `Polyfold.isZeroAt_sectionAdd_reparamSection` — Polyfold/Chapter6/PushData.lean, line 88
+- `Polyfold.IsStabKernels.push_eq_of_eq` — Polyfold/Chapter6/PushData.lean, line 115
+- `Polyfold.IsPush` — Polyfold/Chapter6/PushData.lean, line 139
+- `Polyfold.isPush_reparam` — Polyfold/Chapter6/PushData.lean, line 161
+- `Polyfold.IsPush.split` — Polyfold/Chapter6/PushData.lean, line 202
+- `Polyfold.exists_isPush` — Polyfold/Chapter6/PushData.lean, line 257
+
+*What differs.*
+- Global sections of the pull-back in place of sections over $U \times [0, 1]$; property (P) is used only to construct a push-forward (Findings, Chapter 6, item 46).
+
+### V6.44. Proposition 6.32: the push-forward does not depend on the choices
+
+*restated* · one square for Lemmas 6.33, 6.34
+
+**HWZ (§6.5, Proposition 6.32, p. 224 (proof pp. 224–226)).** For $U$ as in Proposition 6.28 and an sc-smooth $\varphi : [0, 1] \to U$, $o \mapsto \varphi_*o$ does not depend on the choices as long as the hypotheses of Lemma 6.29 hold. The proof adds sections to both data so that they have the same number and (P) holds along a convex homotopy, and applies Lemmas 6.33 and 6.34.
+
+**Proved in Lean.** `proposition_6_32` ($X$ tame, bump functions, $f$ with tame germ data): two push-forwards (`IsPush`) along the same sc-smooth path in the domain of a chart agree. The proof uses one square: $S^\tau = (1 - \tau)S^0 + \tau S^1$ with the two families of sections interpolated (`isZeroAt_sectionAdd_combo`, `linAt_principal_combo`, `continuous_principal_pullbackSlice`) and the sections of Lemma 6.29 on the square appended (`IsStabKernels.push_eq_of_prefix`, `IsStabKernels.congr_data`, `IsStabKernels.push_congr_data`).
+
+- `Polyfold.IsStabKernels.congr_data` — Polyfold/Chapter6/PropagationWellDefined.lean, line 91
+- `Polyfold.IsStabKernels.push_congr_data` — Polyfold/Chapter6/PropagationWellDefined.lean, line 101
+- `Polyfold.IsStabKernels.push_eq_of_prefix` — Polyfold/Chapter6/PropagationWellDefined.lean, line 114
+- `Polyfold.isZeroAt_sectionAdd_combo` — Polyfold/Chapter6/PropagationWellDefined.lean, line 184
+- `Polyfold.linAt_principal_combo` — Polyfold/Chapter6/PropagationWellDefined.lean, line 283
+- `Polyfold.continuous_principal_pullbackSlice` — Polyfold/Chapter6/PropagationWellDefined.lean, line 317
+- `Polyfold.proposition_6_32` — Polyfold/Chapter6/PropagationWellDefined.lean, line 390
+
+*What differs.*
+- "Does not depend on the choices" is read as the agreement of any two data. Lemmas 6.33 and 6.34 are combined over one square: at $\tau = 0$ the sections $s^0$ are the first $k^0$ of the family and at $\tau = 1$ the sections $s^1$ are the first $k^1$, so Lemma 6.33 applies on both edges without reordering; along the edges $t = 0, 1$ the operators are affine in $\tau$, hence continuous (Findings, Chapter 6, item 52).
+
+### V6.45. Lemma 6.33: adding sections does not change the push-forward
+
+*restated* · no homotopy needed · exact, with no sign
+
+**HWZ (§6.5, Lemma 6.33, p. 224 (proof p. 225)).** If $F$ has property (P), the section $F(t, y, \lambda) + \sum\mu_j\bar s_j(y, t)$ on $[0, 1] \times X \times \mathbb R^{k+l}$ defines the same propagation along $\varphi$. The proof passes through the homotopy $\tilde F(\tau, \cdot)$, and at $\tau = 0$ "one verifies by a simple computation" that $\tilde L_0 = L \oplus ([0, 1] \times \mathbb R^l)$ defines the same propagation.
+
+**Proved in Lean.** `detEquiv_stabIota_append`: with the appended sections last (`appendStab`, `kerAppend`), the stabilization isomorphism of $(\varphi, \psi)$ is that of $\varphi$ followed by `wedgeExt`, $w \mapsto (w, 0) \wedge \ell_1 \wedge \dots \wedge \ell_d$, for any $\ell_j \in \ker(T \oplus (\varphi, \psi))$ with $\psi$-coordinates the standard basis (`wedgeExt_wedge`, `wedgeExt_congr`, `wedgeExt_bijective`); this map carries continuous orientations along the family (`isLineOrientation_wedgeExt`, with `SubspaceFamily.exists_continuous_lifts`, `kerEquivMap`). Hence appending sections does not change the push-forward (`stabRayEquiv_append`, `propagate_append`, `IsStabKernels.push_append`).
+
+- `Polyfold.wedgeExt` — Polyfold/Chapter6/AddSections.lean, line 54
+- `Polyfold.wedgeExt_wedge` — Polyfold/Chapter6/AddSections.lean, line 61
+- `Polyfold.wedgeExt_congr` — Polyfold/Chapter6/AddSections.lean, line 79
+- `Polyfold.wedgeExt_bijective` — Polyfold/Chapter6/AddSections.lean, line 153
+- `Polyfold.appendStab` — Polyfold/Chapter6/AddSections.lean, line 252
+- `Polyfold.kerAppend` — Polyfold/Chapter6/AddSections.lean, line 276
+- `Polyfold.detEquiv_stabIota_append` — Polyfold/Chapter6/AddSections.lean, line 515
+- `Polyfold.SubspaceFamily.exists_continuous_lifts` — Polyfold/Chapter6/AddSections.lean, line 552
+- `Polyfold.isLineOrientation_wedgeExt` — Polyfold/Chapter6/AddSections.lean, line 611
+- `Polyfold.kerEquivMap` — Polyfold/Chapter6/AddSections.lean, line 720
+- `Polyfold.stabRayEquiv_append` — Polyfold/Chapter6/AddSections.lean, line 770
+- `Polyfold.propagate_append` — Polyfold/Chapter6/AddSections.lean, line 828
+- `Polyfold.IsStabKernels.push_append` — Polyfold/Chapter6/Propagation.lean, line 543
+
+*What differs.*
+- The homotopy $\tilde F(\tau, \cdot)$ of the text's proof is not needed: with the appended sections last the two isomorphisms agree exactly, with no sign. The comparison is made directly between $T \oplus \varphi$ and $T \oplus (\varphi, \psi)$, at the end points by Proposition 6.15 and along the family by `isLineOrientation_wedgeExt` (Findings, Chapter 6, item 51).
+
+### V6.46. Sections over parameter families
+
+*as in the book*
+
+**HWZ (§6.5, pp. 224–226).** The added sections $\bar s_j(y, t)$ of Lemma 6.33 (p. 224) and the sections $s(y, \tau, t)$, $s_i(y, \tau, t)$ over a square (p. 226) are used as sc⁺-sections over the products, and adding sections is taken to keep the general position (said in the proof of Theorem 5.18, p. 178).
+
+**Proved in Lean.** `reparamSection`: for $g$ affine, $(q, y) \mapsto S(g(q), y)$ is again an sc⁺-section of the pull-back (`StrongBundle.IsScPlusSection.reparam`, `pullbackSlice_reparamSection`, `rnProdMapOp`); `StrongBundle.isScPlusSection_of_local`: sc⁺-sections may be checked in one chart around each point; `StrongBundle.isGeneralPositionGerm_paramSection_of_comp`: adding sections keeps the general position of $F$ at $(0, y)$.
+
+- `Polyfold.reparamSection` — Polyfold/Chapter6/FamilySections.lean, line 37
+- `Polyfold.pullbackSlice_reparamSection` — Polyfold/Chapter6/FamilySections.lean, line 46
+- `Polyfold.rnProdMapOp` — Polyfold/Chapter6/FamilySections.lean, line 53
+- `Polyfold.StrongBundle.isScPlusSection_of_local` — Polyfold/Chapter6/FamilySections.lean, line 61
+- `Polyfold.StrongBundle.IsScPlusSection.reparam` — Polyfold/Chapter6/FamilySections.lean, line 82
+- `Polyfold.StrongBundle.isGeneralPositionGerm_paramSection_of_comp` — Polyfold/Chapter6/FamilySections.lean, line 142
+
+*What differs.*
+- As the text uses them; these are the tools of V6.43–V6.45.
+
+### V6.47. Lemma 6.34: the convex homotopy of the sections $s$
+
+*restated* · part of the square of V6.44
+
+**HWZ (§6.5, Lemma 6.34, p. 226).** For sc⁺-sections $s^0$, $s^1$ with $s^i(\varphi(t), t) = f(\varphi(t))$, $s^\tau = \tau s^1 + (1 - \tau)s^0$ and sections $s^\tau_1, \dots, s^\tau_k$ with (P) for every $\tau$, the propagation along $\varphi$ is the same for every $\tau$; at $t = 0, 1$ the linearizations vary continuously in $\mathrm{DET}(f, \varphi(0))$ and $\mathrm{DET}(f, \varphi(1))$.
+
+**Proved in Lean.** `IsStabKernels.push_square`: for a family of stabilized kernels over the square $[0, 1]^2$ with the end points $x_0$, $x_1$ fixed and the end-point operators varying continuously, the push-forwards along the edges $\tau = 0$ and $\tau = 1$ (`sqEdge`, `sqPath`) agree.
+
+- `Polyfold.IsStabKernels.push_square` — Polyfold/Chapter6/Propagation.lean, line 641
+- `Polyfold.sqEdge` — Polyfold/Chapter6/PropagationWellDefined.lean, line 360
+- `Polyfold.sqPath` — Polyfold/Chapter6/PropagationWellDefined.lean, line 367
+
+*What differs.*
+- The convex homotopy $s^\tau$ of the lemma is part of the square of V6.44; the continuity of the end-point orientations along $\tau$ is that of V6.40, with the sign (Findings, Chapter 6, items 50, 52).
+
+### V6.48. Theorem 6.35: local propagation
+
+*narrower* · the section $f$ supplied · contractibility: gap G.61 · (1′) and a reparametrization
+
+**HWZ (§6.5, the homotopy argument, pp. 226–227, and Theorem 6.35, p. 227).** For a strong bundle over a tame $X$ and a smooth $x$ there is an open sc-smoothly contractible $U(x)$ such that along every sc-smooth path $\varphi : [0, 1] \to U$ there is a well-defined propagation $o \mapsto \varphi_*o$ of orientations of $\mathrm{DET}(f, \varphi(0))$, and $\varphi_{0*}o = \varphi_{1*}o$ for two such paths with the same end points. The proof homotopes $\varphi_0$ to $\varphi_1$ in $U$, using that $U$ is sc-smoothly contractible.
+
+**Proved in Lean.** `theorem_6_35` ($X$ tame, bump functions, $f$ with tame germ data): every smooth $x$ has an open $U \ni x$ and a chart $c$ of the atlas with `HasLocalPropagation`: push-forwards exist along the sc-smooth paths in $U$ with smooth end points and depend only on their end points. `push_eq_of_homotopy`: push-forwards along two paths related by an sc-smooth homotopy with fixed end points agree.
+
+- `Polyfold.push_eq_of_homotopy` — Polyfold/Chapter6/PropagationWellDefined.lean, line 601
+- `Polyfold.HasLocalPropagation` — Polyfold/Chapter6/PropagationWellDefined.lean, line 719
+- `Polyfold.theorem_6_35` — Polyfold/Chapter6/PropagationWellDefined.lean, line 740
+
+*What differs.*
+- The statement does not introduce the section $f$ (possible omission); it is read for an sc-Fredholm section with tame germ data, under the standing hypotheses (Findings, Chapter 6, item 53).
+- $U$ is not shown to be sc-smoothly contractible (gap G.61); what the proof uses is (1′) of V6.32. Since the homotopy of (1′) meets its edge conditions only on $[0, 1]$, while a push-forward datum needs $f + S = 0$ near $[0, 1]$, the proof passes through the reparametrized paths $\gamma_i \circ \kappa$, with three homotopies whose edges are exact (Findings, Chapter 6, item 53).
+
+### V6.49. Sc-smooth paths in a chart and their concatenation
+
+*narrower* · paths joined only inside a chart · p. 201 facts: gap G.56
+
+**HWZ (§6.5, the paths after Theorem 6.35, p. 227, and the concatenation, p. 228).** For $y \in U$ one takes an sc-smooth path $\varphi : [0, 1] \to U$ from $x$ to $y$. The composition of paths is $\varphi(\beta(s))$ for $s \in [0, 1/2]$ and $\psi(\beta(s))$ for $s \in [1/2, 1]$, for a smooth $\beta$ with $\beta([0, 1/2]) = [0, 1]$, $\beta([1/2, 1]) = [1, 2]$, constant near $1/2$. On p. 201 the text recalls that an M-polyfold is locally path connected and that smooth points of one path component are joined by an sc⁺-smooth path.
+
+**Proved in Lean.** `exists_nhds_scPath`: for an open $U$ in the domain of a chart and $x \in U$ there is an open $V \ni x$ in $U$ whose smooth points are pairwise joined by sc-smooth paths in $U$. `concatPath`: $\gamma_1(\kappa(3s))$ for $s \le 1/2$ and $\gamma_2(\kappa(3s - 2))$ for $s > 1/2$, $\kappa$ the smooth transition function, is sc-smooth (`isScSmoothMap_concatPath`), with the right end points and halves (`concatPath_zero`, `concatPath_one`, `concatPath_half₁`, `concatPath_half₂`); reparametrizing by a $C^\infty$ map keeps sc-smoothness (`isScSmoothMap_reparam`); push-forwards compose along concatenations (`HasLocalPropagation.eq_trans`).
+
+- `Polyfold.MPolyfold.isScSmoothMap_of_eventuallyEq` — Polyfold/Chapter6/ScPaths.lean, line 54
+- `Polyfold.pt1_apply` — Polyfold/Chapter6/ScPaths.lean, line 72
+- `Polyfold.contDiff_pt1_comp` — Polyfold/Chapter6/ScPaths.lean, line 75
+- `Polyfold.exists_nhds_scPath` — Polyfold/Chapter6/ScPaths.lean, line 84
+- `Polyfold.concatPath` — Polyfold/Chapter6/ScPaths.lean, line 177
+- `Polyfold.concatPath_of_le` — Polyfold/Chapter6/ScPaths.lean, line 186
+- `Polyfold.concatPath_of_gt` — Polyfold/Chapter6/ScPaths.lean, line 191
+- `Polyfold.isScSmoothMap_concatPath` — Polyfold/Chapter6/ScPaths.lean, line 196
+- `Polyfold.concatPath_zero` — Polyfold/Chapter6/ScPaths.lean, line 236
+- `Polyfold.concatPath_one` — Polyfold/Chapter6/ScPaths.lean, line 240
+- `Polyfold.concatPath_half₁` — Polyfold/Chapter6/ScPaths.lean, line 256
+- `Polyfold.concatPath_half₂` — Polyfold/Chapter6/ScPaths.lean, line 262
+- `Polyfold.isScSmoothMap_reparam` — Polyfold/Chapter6/ScPaths.lean, line 275
+- `Polyfold.HasLocalPropagation.eq_trans` — Polyfold/Chapter6/ContinuousOrientation.lean, line 59
+
+*What differs.*
+- Paths are joined only locally, inside a chart; the global facts recalled on p. 201 (local path connectedness, sc⁺-smooth paths within a path component) are not formalized (gap G.56; Findings, Chapter 6, item 42).
+
+### V6.50. Definition 6.36: orientable neighbourhoods and continuous orientations
+
+*restated* · a pair $V \subseteq U$
+
+**HWZ (§6.5, the paragraph after Theorem 6.35 and Definition 6.36, p. 227).** Fixing $o_x$, $o_y = \varphi_*o_x$ for a path $\varphi$ in $U$ from $x$ to $y$ does not depend on the path, and $\psi_*o_{y_1} = o_{y_2}$ for paths in $U$. An open contractible $U(x)$ on which the local propagation can be carried out is an orientable neighbourhood of $(f, x)$; a choice of orientations of $\mathrm{DET}(f, y)$, $y \in U_\infty$, with the propagation property is a continuous orientation, and an orientable neighbourhood has precisely two.
+
+**Proved in Lean.** `IsOrientableNbhd`: a pair $V \subseteq U$, $U$ open with the local propagation property in a chart, $V \ni x$ open with any two smooth points joined by an sc-smooth path in $U$; every smooth point has one (`exists_orientableNbhd`, `exists_isOrientableNbhd`). `IsContinuousOrientation`: a choice $y \mapsto o_y$ on $V_\infty$ carried into itself by the push-forwards along paths in $U$; there are exactly two (`exists_two_isContinuousOrientation`).
+
+- `Polyfold.IsContinuousOrientation` — Polyfold/Chapter6/ContinuousOrientation.lean, line 126
+- `Polyfold.exists_two_isContinuousOrientation` — Polyfold/Chapter6/ContinuousOrientation.lean, line 141
+- `Polyfold.exists_orientableNbhd` — Polyfold/Chapter6/ContinuousOrientation.lean, line 201
+- `Polyfold.IsOrientableNbhd` — Polyfold/Chapter6/SectionOrientation.lean, line 100
+- `Polyfold.exists_isOrientableNbhd` — Polyfold/Chapter6/SectionOrientation.lean, line 112
+
+*What differs.*
+- The pair $V \subseteq U$ replaces an open contractible $U$, since Proposition 6.28 gives (1′) (gap G.61; Findings, Chapter 6, item 54).
+
+### V6.51. Reparametrization homotopies
+
+*as in the book*
+
+**HWZ (§6.5, the homotopy classes $[\varphi]$, pp. 227–228).** $[\varphi]$ is the sc-smooth homotopy class of $\varphi : [0, 1] \to X$ with the end points fixed, with source $\varphi(0)$ and target $\varphi(1)$; the composition of classes is defined through a reparametrization $\beta$.
+
+**Proved in Lean.** `isScHomotopyRel_reparam`: for a $C^\infty$ $\theta$ with $\theta(0) = 0$ and $\theta(1) = 1$, $\gamma \circ \theta$ is sc-smoothly homotopic to $\gamma$ with the end points fixed, inside every set containing $\gamma([0, 1])$ when $\theta([0, 1]) \subseteq [0, 1]$ (`reparam_mem`); the concatenation of the two halves of $\gamma$ is such a reparametrization (`leftHalf`, `rightHalf`, `halvesReparam`, `concatPath_halves`).
+
+- `Polyfold.mem_smoothSet_of_isScSmoothMap` — Polyfold/Chapter6/ScHomotopy.lean, line 47
+- `Polyfold.contDiff_pt2_comp` — Polyfold/Chapter6/ScHomotopy.lean, line 52
+- `Polyfold.isScHomotopyRel_reparam` — Polyfold/Chapter6/ScHomotopy.lean, line 62
+- `Polyfold.reparam_mem` — Polyfold/Chapter6/ScHomotopy.lean, line 83
+- `Polyfold.leftHalf` — Polyfold/Chapter6/ScHomotopy.lean, line 98
+- `Polyfold.rightHalf` — Polyfold/Chapter6/ScHomotopy.lean, line 101
+- `Polyfold.halvesReparam` — Polyfold/Chapter6/ScHomotopy.lean, line 137
+- `Polyfold.concatPath_halves` — Polyfold/Chapter6/ScHomotopy.lean, line 165
+
+*What differs.*
+- As the text uses them; these are the tools of V6.52 and V6.56.
+
+### V6.52. The path category $PX$
+
+*restated* · a groupoid · identities: the constant paths · second piece read as $\psi(\beta(s) - 1)$
+
+**HWZ (§6.5, the classes $[\varphi]$, their composition and the category $PX$, pp. 227–228).** For $t([\varphi]) = s([\psi])$, $[\psi] * [\varphi]$ is the class of $\gamma$, equal to $\varphi(\beta(s))$ on $[0, 1/2]$ and $\psi(\beta(s))$ on $[1/2, 1]$; this gives a category $PX$ whose objects are the smooth points of $X$ and whose morphisms $x \to y$ are the classes with source $x$ and target $y$.
+
+**Proved in Lean.** `ScHomotopic`: sc-smooth homotopy with the end points fixed, an equivalence relation on the sc-smooth paths `ScPath` between two points (`ScHomotopic.refl`, `ScHomotopic.symm`, `ScHomotopic.trans`). `ScPath.concat` is well defined on classes (`ScPath.concat_congr`), associative (`ScPath.concat_assoc`, via `assocReparam`, `isScHomotopyRel_triHomotopy`), with the classes of the constant paths as units (`ScPath.const_concat`, `ScPath.concat_const`) and the reversed paths as inverses (`ScPath.concat_reverse`, `ScPath.reverse_concat`). `PathCat`: the smooth points with the classes `ScPathClass` form a category (`PathCat.category`), indeed a groupoid (`PathCat.groupoid`).
+
+- `Polyfold.smoothTransition_half` — Polyfold/Chapter6/PathCategory.lean, line 80
+- `Polyfold.isScSmoothMap_const_of_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 87
+- `Polyfold.isScSmoothMap_ite` — Polyfold/Chapter6/PathCategory.lean, line 99
+- `Polyfold.isScSmoothMap_ite₃` — Polyfold/Chapter6/PathCategory.lean, line 118
+- `Polyfold.concatPath_of_le_two_thirds` — Polyfold/Chapter6/PathCategory.lean, line 155
+- `Polyfold.concatPath_of_one_third_le` — Polyfold/Chapter6/PathCategory.lean, line 165
+- `Polyfold.ScHomotopic` — Polyfold/Chapter6/PathCategory.lean, line 180
+- `Polyfold.ScHomotopic.refl` — Polyfold/Chapter6/PathCategory.lean, line 284
+- `Polyfold.ScHomotopic.symm` — Polyfold/Chapter6/PathCategory.lean, line 288
+- `Polyfold.ScHomotopic.trans` — Polyfold/Chapter6/PathCategory.lean, line 296
+- `Polyfold.isScHomotopyRel_triHomotopy` — Polyfold/Chapter6/PathCategory.lean, line 410
+- `Polyfold.assocReparam` — Polyfold/Chapter6/PathCategory.lean, line 455
+- `Polyfold.ScPath` — Polyfold/Chapter6/PathCategory.lean, line 688
+- `Polyfold.ScPath.source_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 703
+- `Polyfold.ScPath.target_mem_smoothSet` — Polyfold/Chapter6/PathCategory.lean, line 707
+- `Polyfold.ScPath.const` — Polyfold/Chapter6/PathCategory.lean, line 725
+- `Polyfold.ScPath.concat` — Polyfold/Chapter6/PathCategory.lean, line 733
+- `Polyfold.ScPath.reverse` — Polyfold/Chapter6/PathCategory.lean, line 742
+- `Polyfold.ScPath.concat_congr` — Polyfold/Chapter6/PathCategory.lean, line 750
+- `Polyfold.ScPath.const_concat` — Polyfold/Chapter6/PathCategory.lean, line 758
+- `Polyfold.ScPath.concat_const` — Polyfold/Chapter6/PathCategory.lean, line 773
+- `Polyfold.ScPath.concat_assoc` — Polyfold/Chapter6/PathCategory.lean, line 787
+- `Polyfold.ScPath.concat_reverse` — Polyfold/Chapter6/PathCategory.lean, line 803
+- `Polyfold.ScPath.reverse_concat` — Polyfold/Chapter6/PathCategory.lean, line 808
+- `Polyfold.ScPathClass` — Polyfold/Chapter6/PathCategory.lean, line 817
+- `Polyfold.ScPathClass.comp` — Polyfold/Chapter6/PathCategory.lean, line 824
+- `Polyfold.PathCat` — Polyfold/Chapter6/PathCategory.lean, line 845
+- `Polyfold.PathCat.category` — Polyfold/Chapter6/PathCategory.lean, line 857
+- `Polyfold.PathCat.groupoid` — Polyfold/Chapter6/PathCategory.lean, line 889
+- `Polyfold.PathCat.homMk` — Polyfold/Chapter6/PathCategory.lean, line 868
+- `Polyfold.PathCat.comp_mk` — Polyfold/Chapter6/PathCategory.lean, line 871
+- `Polyfold.PathCat.id_eq_mk` — Polyfold/Chapter6/PathCategory.lean, line 875
+- `Polyfold.PathCat.mk_eq_mk_iff` — Polyfold/Chapter6/PathCategory.lean, line 878
+- `Polyfold.PathCat.exists_eq_mk` — Polyfold/Chapter6/PathCategory.lean, line 883
+- `Polyfold.PathCat.inv_mk` — Polyfold/Chapter6/PathCategory.lean, line 898
+
+*What differs.*
+- The edge conditions of a homotopy hold only on $[0, 1]$ (decision D2), so transitivity is proved after reparametrizing by $\kappa$; the identities, which the text does not name, are the classes of the constant paths (Findings, Chapter 6, item 71).
+- With $\beta([1/2, 1]) = [1, 2]$ the second piece $\psi(\beta(s))$ leaves $[0, 1]$; it is read as $\psi(\beta(s) - 1)$ (possible misprint). Mathlib's $[\varphi] \gg [\psi]$ is the text's $[\psi] * [\varphi]$ (Findings, Chapter 6, item 55).
+
+### V6.53. Transferring orientations between chart points
+
+*not in the book* · chart-free objects compared in charts
+
+**HWZ (§6.5, p. 219, and the proof of Theorem 6.37, p. 228).** $T_xX$, $Y_x$ and $\mathrm{Lin}(f, x) \subseteq \mathcal L(T_xX, Y_x)$, with the metric of the operator norm, are used as intrinsic objects (p. 219); the proof of Theorem 6.37 carries orientations along orientable neighbourhoods of different points of a path.
+
+**Proved in Lean.** `conjDet`: for isomorphisms $A$, $\Gamma$ with $S'A = \Gamma S$, $\det(S) \cong \det(S')$ by $A$ on kernels and $\Gamma$ on cokernels (`conjKerEquiv`, `conjCokerEquiv`, `conjDet_wedge_tmul`), compatible with composition (`conjDet_refl`, `conjDet_trans`, `conjDet_congr`) and with the $\gamma^P$ (`IsGoodLeftProj.conj`, `gammaProj_conjDet`, `coord_conjDet_coordInv`); continuous orientations of $\mathrm{DET}$ are carried along (`isLineOrientation_conj`, `LineOrientation.conj`). For two chart points at $x$, $A$ is the derivative at $z$ of the base transition (`ChartPoint.baseDeriv`) and $\Gamma$ the fibre part of the strong bundle transition (`ChartPoint.fiberMap`), with the cocycle rules (`ChartPoint.transferT`, `ChartPoint.transferK`); $L \in \mathrm{Lin}_p(f, x)$ iff $\Gamma LA^{-1} \in \mathrm{Lin}_{p'}(f, x)$ (`ChartPoint.mem_linSet_transfer_iff`), and the induced bijection $\mathrm{Or}^f_x(p) \cong \mathrm{Or}^f_x(p')$ (`ChartPoint.orTransfer`) satisfies the cocycle rules (`ChartPoint.orTransfer_self`, `ChartPoint.orTransfer_trans`).
+
+- `Polyfold.conjKerEquiv` — Polyfold/Chapter6/ChartTransfer.lean, line 87
+- `Polyfold.conjCokerEquiv` — Polyfold/Chapter6/ChartTransfer.lean, line 121
+- `Polyfold.conjDet` — Polyfold/Chapter6/ChartTransfer.lean, line 132
+- `Polyfold.conjDet_wedge_tmul` — Polyfold/Chapter6/ChartTransfer.lean, line 138
+- `Polyfold.conjDet_trans` — Polyfold/Chapter6/ChartTransfer.lean, line 171
+- `Polyfold.conjDet_congr` — Polyfold/Chapter6/ChartTransfer.lean, line 188
+- `Polyfold.conjDet_refl` — Polyfold/Chapter6/ChartTransfer.lean, line 196
+- `Polyfold.IsGoodLeftProj.conj` — Polyfold/Chapter6/ChartTransfer.lean, line 238
+- `Polyfold.gammaProj_conjDet` — Polyfold/Chapter6/ChartTransfer.lean, line 257
+- `Polyfold.coord_conjDet_coordInv` — Polyfold/Chapter6/ChartTransfer.lean, line 367
+- `Polyfold.isLineOrientation_conj` — Polyfold/Chapter6/ChartTransfer.lean, line 472
+- `Polyfold.LineOrientation.conj` — Polyfold/Chapter6/ChartTransfer.lean, line 587
+- `Polyfold.LineOrientation.conj_apply` — Polyfold/Chapter6/ChartTransfer.lean, line 604
+- `Polyfold.LineOrientation.conj_refl` — Polyfold/Chapter6/ChartTransfer.lean, line 612
+- `Polyfold.LineOrientation.conj_trans` — Polyfold/Chapter6/ChartTransfer.lean, line 637
+- `Polyfold.LineOrientation.conj_congr` — Polyfold/Chapter6/ChartTransfer.lean, line 660
+- `Polyfold.ChartPoint.baseDeriv` — Polyfold/Chapter6/ChartTransfer.lean, line 762
+- `Polyfold.ChartPoint.baseDeriv_self` — Polyfold/Chapter6/ChartTransfer.lean, line 766
+- `Polyfold.ChartPoint.baseDeriv_trans` — Polyfold/Chapter6/ChartTransfer.lean, line 779
+- `Polyfold.ChartPoint.isScOperator_baseDeriv` — Polyfold/Chapter6/ChartTransfer.lean, line 845
+- `Polyfold.ChartPoint.fiberMap` — Polyfold/Chapter6/ChartTransfer.lean, line 857
+- `Polyfold.ChartPoint.fiberMap_self` — Polyfold/Chapter6/ChartTransfer.lean, line 886
+- `Polyfold.ChartPoint.fiberMap_trans` — Polyfold/Chapter6/ChartTransfer.lean, line 893
+- `Polyfold.ChartPoint.isScOperator_fiberMap` — Polyfold/Chapter6/ChartTransfer.lean, line 989
+- `Polyfold.ChartPoint.transferT` — Polyfold/Chapter6/ChartTransfer.lean, line 907
+- `Polyfold.ChartPoint.transferK` — Polyfold/Chapter6/ChartTransfer.lean, line 913
+- `Polyfold.ChartPoint.transferT_self_apply` — Polyfold/Chapter6/ChartTransfer.lean, line 929
+- `Polyfold.ChartPoint.transferT_trans_apply` — Polyfold/Chapter6/ChartTransfer.lean, line 939
+- `Polyfold.ChartPoint.scDeriv_principal_baseDeriv` — Polyfold/Chapter6/ChartTransfer.lean, line 1009
+- `Polyfold.ChartPoint.IsScPlusOp.conj` — Polyfold/Chapter6/ChartTransfer.lean, line 1115
+- `Polyfold.ChartPoint.mem_linSet_transfer_iff` — Polyfold/Chapter6/ChartTransfer.lean, line 1157
+- `Polyfold.ChartPoint.orTransfer` — Polyfold/Chapter6/ChartTransfer.lean, line 1205
+- `Polyfold.ChartPoint.orTransfer_apply` — Polyfold/Chapter6/ChartTransfer.lean, line 1216
+- `Polyfold.ChartPoint.orTransfer_self` — Polyfold/Chapter6/ChartTransfer.lean, line 1224
+- `Polyfold.ChartPoint.orTransfer_trans` — Polyfold/Chapter6/ChartTransfer.lean, line 1234
+
+*What differs.*
+- The text treats $T_xX$, $Y_x$, $\mathrm{Lin}(f, x)$ and $\mathrm{Or}^f_x$ as chart-free; here $T_xX$ has no linear structure (gaps G.6, G.7, G.13), and the identification between charts is made explicit (Findings, Chapter 6, item 70).
+
+### V6.54. The push-forward does not depend on the chart
+
+*not in the book* · the text does not compare charts
+
+**HWZ (§6.5, the push-forward and the proof of Theorem 6.37, pp. 222–228).** The push-forward is built in one strong bundle chart; the proof of Theorem 6.37 uses orientable neighbourhoods of different points of a path, which may lie in different charts.
+
+**Proved in Lean.** The stabilization isomorphism and the sign are natural under conjugation (`stabSign_conj`, `coprod_conj`, `ker_coprod_conj`, `surjective_coprod_conj`, `conj_stab_key`, `stabRayEquiv_conjDet`), and continuation is natural under jointly continuous families of injective linear maps (`SubspaceFamily.cont_map`). A family of stabilized kernels in one chart is carried by the derivative of the base transition (`continuous_baseDeriv`) to one in a second chart, with the same sections (`IsStabKernels.exists_transfer`, `IsStabKernels.orRay_transfer`, with `ChartPoint.fiberMap_principal`, `ChartPoint.conj_of_linAt`, `ChartPoint.conj_of_principal`); a push-forward in one chart, conjugated by the transfer of V6.53 at the end points, is a push-forward in the other (`IsPush.transfer`), so the local propagations of two charts agree (`HasLocalPropagation.push_compat`).
+
+- `Polyfold.stabSign_conj` — Polyfold/Chapter6/PushTransfer.lean, line 71
+- `Polyfold.coprod_conj` — Polyfold/Chapter6/PushTransfer.lean, line 76
+- `Polyfold.ker_coprod_conj` — Polyfold/Chapter6/PushTransfer.lean, line 86
+- `Polyfold.surjective_coprod_conj` — Polyfold/Chapter6/PushTransfer.lean, line 108
+- `Polyfold.conj_stab_key` — Polyfold/Chapter6/PushTransfer.lean, line 119
+- `Polyfold.stabRayEquiv_conjDet` — Polyfold/Chapter6/PushTransfer.lean, line 212
+- `Polyfold.SubspaceFamily.cont_map` — Polyfold/Chapter6/PushTransfer.lean, line 285
+- `Polyfold.ChartPoint.fiberMap_principal` — Polyfold/Chapter6/PushTransfer.lean, line 313
+- `Polyfold.ChartPoint.conj_of_linAt` — Polyfold/Chapter6/PushTransfer.lean, line 325
+- `Polyfold.ChartPoint.conj_of_principal` — Polyfold/Chapter6/PushTransfer.lean, line 335
+- `Polyfold.continuous_baseDeriv` — Polyfold/Chapter6/PushTransfer.lean, line 365
+- `Polyfold.IsStabKernels.exists_transfer` — Polyfold/Chapter6/PushTransfer.lean, line 399
+- `Polyfold.IsStabKernels.orRay_transfer` — Polyfold/Chapter6/PushTransfer.lean, line 458
+- `Polyfold.IsPush.transfer` — Polyfold/Chapter6/PushTransfer.lean, line 536
+- `Polyfold.HasLocalPropagation.push_compat` — Polyfold/Chapter6/PushTransfer.lean, line 606
+
+*What differs.*
+- Needed for Theorem 6.37; the text does not compare charts (Findings, Chapter 6, item 70).
+
+### V6.55. $\mathrm{Or}^f_x$ in a chosen chart
+
+*restated* · a chosen chart
+
+**HWZ (§6.5, Definition 6.27 and the objects of Theorem 6.37, pp. 220, 228).** $\mathrm{Or}^f_x$, the set of the two orientations of $\mathrm{DET}(f, x)$, is the object that $\Gamma_f$ assigns to the smooth point $x$.
+
+**Proved in Lean.** `orChart x`: a chosen chart of the atlas at $x$ (`isChart_orChart`, `mem_orChart`); `Orx`: the orientations read in it, with two elements (`exists_two_orx`); `toChartOr`: their identification with the orientations read in any other chart at $x$ by the transfer of V6.53, compatible with composition (`toChartOr_orChart`, `toChartOr_trans`); `restrictOr`: a family $y \mapsto o_y$ read in the chart of an orientable neighbourhood.
+
+- `Polyfold.orChart` — Polyfold/Chapter6/SectionOrientation.lean, line 62
+- `Polyfold.isChart_orChart` — Polyfold/Chapter6/SectionOrientation.lean, line 64
+- `Polyfold.mem_orChart` — Polyfold/Chapter6/SectionOrientation.lean, line 67
+- `Polyfold.Orx` — Polyfold/Chapter6/SectionOrientation.lean, line 73
+- `Polyfold.toChartOr` — Polyfold/Chapter6/SectionOrientation.lean, line 78
+- `Polyfold.toChartOr_orChart` — Polyfold/Chapter6/SectionOrientation.lean, line 85
+- `Polyfold.toChartOr_trans` — Polyfold/Chapter6/OrientationFunctor.lean, line 263
+- `Polyfold.exists_two_orx` — Polyfold/Chapter6/OrientationFunctor.lean, line 257
+- `Polyfold.restrictOr` — Polyfold/Chapter6/SectionOrientation.lean, line 124
+
+*What differs.*
+- A chosen chart stands for the text's chart-free $\mathrm{Or}^f_x$ (Findings, Chapter 6, item 70).
+
+### V6.56. Transport along paths from local push-forwards
+
+*restated* · dyadic subdivisions
+
+**HWZ (§6.5, the proof of Theorem 6.37, p. 228).** For a path $\varphi$ and $t_0 \in [0, 1]$ one chooses an orientable neighbourhood $U(\varphi(t_0))$ and an open interval $I(t_0)$ on which orientations propagate; using the compactness of $[0, 1]$ and a finite covering, $o_0$ is transported to $o_1$; "by a covering argument" $\varphi_*$ depends only on $[\varphi]$, and the uniqueness of $\Gamma_f$ is called obvious.
+
+**Proved in Lean.** `LocalTransport`: local data (good open sets covering $X_\infty$ and push-forwards along paths in a good set, compatible with concatenation and independent of the good set; `LocalTransport.push_eq_refl`, `LocalTransport.push_eq_push`, `LocalTransport.push_congr`). `LocalTransport.transportN`: the composite of the push-forwards along the $2^N$ dyadic pieces of a path (`vSeg`, `hSeg`, `dSeg`), the same for every $N$ at which every piece lies in a good set (`LocalTransport.IsFine`, `LocalTransport.transportN_eq_of_isFine`); such $N$ exist by the Lebesgue number lemma (`LocalTransport.exists_isLebesgueNumber`). `LocalTransport.transport` is the push-forward on a path in a good set (`LocalTransport.transport_eq_push`), homotopy invariant (`LocalTransport.transport_eq_of_isScHomotopyRel`, on dyadic squares: `LocalTransport.transportN_square`, `equiv_paste_squares`), compatible with concatenation and reparametrization, the identity on constant paths, and the only family with these properties (`LocalTransport.transport_unique`).
+
+- `Polyfold.LocalTransport` — Polyfold/Chapter6/PathTransport.lean, line 93
+- `Polyfold.LocalTransport.push_eq_refl` — Polyfold/Chapter6/PathTransport.lean, line 133
+- `Polyfold.LocalTransport.push_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 145
+- `Polyfold.LocalTransport.push_congr` — Polyfold/Chapter6/PathTransport.lean, line 159
+- `Polyfold.LocalTransport.transportN` — Polyfold/Chapter6/PathTransport.lean, line 176
+- `Polyfold.LocalTransport.transportN_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 224
+- `Polyfold.LocalTransport.IsFine` — Polyfold/Chapter6/PathTransport.lean, line 344
+- `Polyfold.LocalTransport.transportN_eq_of_isFine` — Polyfold/Chapter6/PathTransport.lean, line 350
+- `Polyfold.LocalTransport.IsLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 292
+- `Polyfold.LocalTransport.exists_isLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 326
+- `Polyfold.LocalTransport.isFine_of_isLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 368
+- `Polyfold.LocalTransport.transport` — Polyfold/Chapter6/PathTransport.lean, line 400
+- `Polyfold.LocalTransport.transport_eq_push` — Polyfold/Chapter6/PathTransport.lean, line 428
+- `Polyfold.LocalTransport.transport_congr` — Polyfold/Chapter6/PathTransport.lean, line 442
+- `Polyfold.LocalTransport.transport_const` — Polyfold/Chapter6/PathTransport.lean, line 436
+- `Polyfold.LocalTransport.transport_halves` — Polyfold/Chapter6/PathTransport.lean, line 452
+- `Polyfold.LocalTransport.transportN_square` — Polyfold/Chapter6/PathTransport.lean, line 662
+- `Polyfold.LocalTransport.exists_isSqLebesgueNumber` — Polyfold/Chapter6/PathTransport.lean, line 612
+- `Polyfold.LocalTransport.transport_eq_of_isScHomotopyRel` — Polyfold/Chapter6/PathTransport.lean, line 732
+- `Polyfold.LocalTransport.transport_reparam` — Polyfold/Chapter6/PathTransport.lean, line 783
+- `Polyfold.LocalTransport.transport_concatPath` — Polyfold/Chapter6/PathTransport.lean, line 795
+- `Polyfold.LocalTransport.transport_unique` — Polyfold/Chapter6/PathTransport.lean, line 835
+- `Polyfold.equiv_paste_squares` — Polyfold/Chapter6/PathTransport.lean, line 575
+- `Polyfold.vSeg` — Polyfold/Chapter6/PathTransport.lean, line 476
+- `Polyfold.hSeg` — Polyfold/Chapter6/PathTransport.lean, line 480
+- `Polyfold.dSeg` — Polyfold/Chapter6/PathTransport.lean, line 484
+
+*What differs.*
+- Dyadic subdivisions of $[0, 1]$ and of $[0, 1]^2$ in place of arbitrary finite coverings (Findings, Chapter 6, item 72).
+
+### V6.57. Theorem 6.37: the functor $\Gamma_f$
+
+*restated* · (∗) on every propagation set · $\mathcal O_f$: types and bijections · unique on morphisms
+
+**HWZ (§6.5, Theorem 6.37 and its proof, p. 228).** For a strong bundle over a tame $X$ and an sc-Fredholm $f$ there is a uniquely determined functor $\Gamma_f : PX \to \mathcal O_f$, $x \mapsto \mathrm{Or}^f_x$, $[\varphi] \mapsto \Gamma_f([\varphi]) : \mathrm{Or}^f_x \to \mathrm{Or}^f_y$, with property (∗): for every sc-smoothly contractible open $U(x)$ on which $f$ has the local propagation property, $\varphi_* = \Gamma_f([\varphi])$ for every sc-smooth path $\varphi$ in $U$.
+
+**Proved in Lean.** `theorem_6_37` ($X$ tame, bump functions, $f$ with tame germ data, $P$ with sc⁺-sections through the smooth fibre points): there is exactly one family of bijections $\Gamma_f([\varphi]) : \mathrm{Or}^f_x \to \mathrm{Or}^f_y$ on the morphisms of $PX$ that takes identities to identities and compositions to composites and has (∗) (`IsStarProperty`, `IsStarPropertyOn`): for every chart $c$, every open $U$ with the local propagation property in $c$ (`IsPropagationNbhd`) and every sc-smooth path $\varphi$ in $U$, $\Gamma_f([\varphi])$ is every push-forward along $\varphi$ in $c$ (`orPush`), read through $\mathrm{Or}^f$ of the chosen charts. `orFunctor`: the functor $PX \to$ Type, $x \mapsto \mathrm{Or}^f_x$ (`orFunctorMap`, `orFunctorMap_id`, `orFunctorMap_comp`); the uniqueness needs (∗) only on a family of such open sets covering $X_\infty$ (`orFunctorMap_unique_of_cover`).
+
+- `Polyfold.IsPropagationNbhd` — Polyfold/Chapter6/OrientationFunctor.lean, line 281
+- `Polyfold.orPush` — Polyfold/Chapter6/OrientationFunctor.lean, line 287
+- `Polyfold.orPush_eq` — Polyfold/Chapter6/OrientationFunctor.lean, line 306
+- `Polyfold.orPush_compat` — Polyfold/Chapter6/OrientationFunctor.lean, line 332
+- `Polyfold.orPush_trans` — Polyfold/Chapter6/OrientationFunctor.lean, line 348
+- `Polyfold.IsStarPropertyOn` — Polyfold/Chapter6/OrientationFunctor.lean, line 380
+- `Polyfold.IsStarProperty` — Polyfold/Chapter6/OrientationFunctor.lean, line 397
+- `Polyfold.orLocalTransport` — Polyfold/Chapter6/OrientationFunctor.lean, line 418
+- `Polyfold.orLocalTransport_transport_eq` — Polyfold/Chapter6/OrientationFunctor.lean, line 438
+- `Polyfold.LocalTransport.restrict` — Polyfold/Chapter6/OrientationFunctor.lean, line 186
+- `Polyfold.LocalTransport.transport_apply_eq_of_local` — Polyfold/Chapter6/OrientationFunctor.lean, line 205
+- `Polyfold.orFunctorMap` — Polyfold/Chapter6/OrientationFunctor.lean, line 458
+- `Polyfold.orFunctorMap_mk` — Polyfold/Chapter6/OrientationFunctor.lean, line 470
+- `Polyfold.orFunctorMap_id` — Polyfold/Chapter6/OrientationFunctor.lean, line 477
+- `Polyfold.orFunctorMap_comp` — Polyfold/Chapter6/OrientationFunctor.lean, line 482
+- `Polyfold.orFunctor` — Polyfold/Chapter6/OrientationFunctor.lean, line 492
+- `Polyfold.orFunctorMap_isStarProperty` — Polyfold/Chapter6/OrientationFunctor.lean, line 514
+- `Polyfold.orFunctorMap_unique_of_cover` — Polyfold/Chapter6/OrientationFunctor.lean, line 525
+- `Polyfold.orFunctorMap_unique` — Polyfold/Chapter6/OrientationFunctor.lean, line 596
+- `Polyfold.theorem_6_37` — Polyfold/Chapter6/OrientationFunctor.lean, line 611
+
+*What differs.*
+- (∗) is asked for every open set with the local propagation property, not only for sc-smoothly contractible ones (gap G.61); $\mathcal O_f$ is read as types and bijections; "uniquely determined" is read for the maps on morphisms, since on objects there is no choice (Findings, Chapter 6, item 72).
+- The hypotheses are the standing ones of Theorem 6.35 and sc⁺-sections through every smooth fibre point, so that every $\mathrm{Or}^f_x$ has two elements; bump functions give them (Findings, Chapter 6, item 72).
+
+### V6.58. Definition 6.38: orientable sections
+
+*restated* · path component via sc-smooth paths
+
+**HWZ (§6.5, Definition 6.38, p. 229).** An sc-Fredholm section $f$ over a tame $X$ is orientable if, for any two smooth points $x$, $y$ in the same path component, $\Gamma_f([\varphi])$ does not depend on the class $[\varphi] : x \to y$.
+
+**Proved in Lean.** `IsOrientableSection`: $\Gamma_f([\varphi]) = \Gamma_f([\psi])$ for any two morphisms $x \to y$ of $PX$ (classes for `scPathSetoid`); `isOrientableSection_iff_exists`: equivalently, there is $y \mapsto o_y$ with $\Gamma_f([\varphi])o_x = o_y$ for every $[\varphi] : x \to y$.
+
+- `Polyfold.scPathSetoid` — Polyfold/Chapter6/OrientationFunctor.lean, line 243
+- `Polyfold.IsOrientableSection` — Polyfold/Chapter6/OrientationFunctor.lean, line 629
+- `Polyfold.isOrientableSection_iff_exists` — Polyfold/Chapter6/OrientationFunctor.lean, line 719
+
+*What differs.*
+- "Smooth points in the same path component" is read as smooth points joined by an sc-smooth path; for points not so joined there is nothing to check (gap G.56; Findings, Chapter 6, items 42, 73).
+
+### V6.59. Definition 6.39 and its equivalence with Definition 6.38
+
+*stronger* · the equivalence proved · $U_\infty$ read as $X_\infty$
+
+**HWZ (§6.5, Definition 6.39, p. 229).** "An equivalent version": $f$ is orientable if there is a map $y \mapsto o_y$, $y \in U_\infty$, $o_y$ an orientation of $\mathrm{DET}(f, y)$, such that every smooth $x$ has an orientable neighbourhood $U(x)$ on which $y \mapsto o_y$ is one of the two continuous orientations.
+
+**Proved in Lean.** `IsOrientableSection'`: a map $y \mapsto o_y$ on $X_\infty$ such that every smooth point has an orientable neighbourhood over which it is a continuous orientation; `isOrientableSection'_iff_exists`: this holds iff there is $y \mapsto o_y$ with $\Gamma_f([\varphi])o_x = o_y$ for all $[\varphi]$; `isOrientableSection_iff`: Definitions 6.38 and 6.39 are equivalent.
+
+- `Polyfold.IsOrientableSection'` — Polyfold/Chapter6/SectionOrientation.lean, line 135
+- `Polyfold.isOrientableSection'_iff_exists` — Polyfold/Chapter6/OrientationFunctor.lean, line 731
+- `Polyfold.isOrientableSection_iff` — Polyfold/Chapter6/OrientationFunctor.lean, line 742
+
+*What differs.*
+- The equivalence, stated without proof, is proved: from 6.39 to 6.38 the transport along a path is computed on dyadic pieces inside orientable neighbourhoods (`LocalTransport.transport_apply_eq_of_local`); from 6.38 to 6.39 a base point is chosen in each class of points joined by sc-smooth paths (Findings, Chapter 6, item 73).
+- "$y \in U_\infty$", before any $U$ is introduced, is read as $y \in X_\infty$ (possible misprint) (Findings, Chapter 6, item 74).
+
+### V6.60. Definition 6.40: orientations of sc-Fredholm sections
+
+*restated* · orientable nbhd: the pair of V6.50
+
+**HWZ (§6.5, Definition 6.40, p. 229).** An orientation of $f$ assigns to every smooth $y$ an orientation $o^f_y$ of $\mathrm{DET}(f, y)$ such that, for every smooth $x$ and every orientable neighbourhood $U(x)$, the restriction to $U_\infty$ is one of the two continuous orientations.
+
+**Proved in Lean.** `IsSectionOrientation`: a map $y \mapsto o_y$ on $X_\infty$ whose restriction to every orientable neighbourhood of every smooth point is a continuous orientation; equivalently $\Gamma_f([\varphi])o_x = o_y$ for all $[\varphi] : x \to y$ (`isSectionOrientation_iff`). $f$ has an orientation iff it is orientable (`exists_isSectionOrientation_iff`); two orientations that agree at a point agree on the smooth points joined to it by sc-smooth paths (`IsSectionOrientation.apply_eq_iff`), and there are exactly two on each such class (`IsSectionOrientation.exists_two`).
+
+- `Polyfold.IsSectionOrientation` — Polyfold/Chapter6/SectionOrientation.lean, line 144
+- `Polyfold.isSectionOrientation_iff` — Polyfold/Chapter6/OrientationFunctor.lean, line 749
+- `Polyfold.exists_isSectionOrientation_iff` — Polyfold/Chapter6/OrientationFunctor.lean, line 760
+- `Polyfold.IsSectionOrientation.apply_eq_iff` — Polyfold/Chapter6/OrientationFunctor.lean, line 768
+- `Polyfold.IsSectionOrientation.exists_two` — Polyfold/Chapter6/OrientationFunctor.lean, line 781
+
+*What differs.*
+- An orientable neighbourhood is the pair $V \subseteq U$ of V6.50 (Findings, Chapter 6, items 54, 75).
+
+### V6.61. Theorem 6.41: the natural orientation of the solution set
+
+*narrower* · orientation along paths of zeros · on $S$ as a manifold: gap G.67 · two charts: gap G.68 · perturbation paragraph: gap G.69
+
+**HWZ (§6.5, Theorem 6.41 and its proof, p. 229; the paragraph after it, pp. 229–230).** Over a tame $X$, for a proper sc-Fredholm section $f$ with $(f, x)$ in general position to $\partial X$ at every zero and an orientation $o^f$ of $f$, the solution set $S = f^{-1}(0)$ is a smooth compact manifold with boundary with corners with a natural orientation. Proof: $T_xS = \ker f'(x)$ is oriented by $o^f_x$ since $f'(x)$ is onto, and the local prolongation of this orientation on $S$ is the Fredholm one. For $f$ not generic, a small perturbation $s$ supported near the zero set orients $S_{f+s}$.
+
+**Proved in Lean.** `theorem_6_41_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.17) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.18; Lemma 4.19 for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \in \mathrm{Or}^f_x$ gives a ray of $\det f'(x) \cong \lambda(\ker f'(x)) = \lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_41`: moreover, for an orientation $o$ of $f$ (Definition 6.40) and every sc-smooth path $\gamma$ of zeros in an orientable neighbourhood $V \subseteq U$, the kernels $\ker f'(\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).
+
+- `Polyfold.theorem_6_41_solutionSet` — Polyfold/Chapter6/SolutionOrientation.lean, line 305
+- `Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt` — Polyfold/Chapter6/SolutionOrientation.lean, line 267
+- `Polyfold.tangentSpace_solutionSet_eq_linKer` — Polyfold/Chapter6/SolutionOrientation.lean, line 335
+- `Polyfold.ChartPoint.linZero` — Polyfold/Chapter6/SolutionOrientation.lean, line 367
+- `Polyfold.ChartPoint.linZero_mem_linSet` — Polyfold/Chapter6/SolutionOrientation.lean, line 377
+- `Polyfold.ChartPoint.linZero_surjective` — Polyfold/Chapter6/SolutionOrientation.lean, line 386
+- `Polyfold.ChartPoint.map_ker_linZero` — Polyfold/Chapter6/SolutionOrientation.lean, line 397
+- `Polyfold.ChartPoint.tangentOr` — Polyfold/Chapter6/SolutionOrientation.lean, line 414
+- `Polyfold.tangentOrAt` — Polyfold/Chapter6/SolutionOrientation.lean, line 707
+- `Polyfold.stabSign_of_surjective` — Polyfold/Chapter6/SolutionOrientation.lean, line 114
+- `Polyfold.stabRayEquiv_zero` — Polyfold/Chapter6/SolutionOrientation.lean, line 200
+- `Polyfold.ChartPoint.stabRayEquiv_eq_tangentOr` — Polyfold/Chapter6/SolutionOrientation.lean, line 489
+- `Polyfold.IsStabKernels.orRay_eq_tangentOr` — Polyfold/Chapter6/SolutionOrientation.lean, line 521
+- `Polyfold.isStabKernels_zero` — Polyfold/Chapter6/SolutionOrientation.lean, line 624
+- `Polyfold.SubspaceFamily.congrL` — Polyfold/Chapter6/SolutionOrientation.lean, line 432
+- `Polyfold.exists_tangentFamily` — Polyfold/Chapter6/SolutionOrientation.lean, line 563
+- `Polyfold.tangentFamily` — Polyfold/Chapter6/SolutionOrientation.lean, line 590
+- `Polyfold.tangentFamily_L` — Polyfold/Chapter6/SolutionOrientation.lean, line 600
+- `Polyfold.cont_tangentOr` — Polyfold/Chapter6/SolutionOrientation.lean, line 723
+- `Polyfold.isLineOrientation_tangentOr` — Polyfold/Chapter6/SolutionOrientation.lean, line 802
+- `Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation` — Polyfold/Chapter6/SolutionOrientation.lean, line 865
+- `Polyfold.theorem_6_41` — Polyfold/Chapter6/SolutionOrientation.lean, line 892
+
+*What differs.*
+- "A natural orientation" is read as the tangent orientations with their continuity along the sc-smooth paths of zeros in a chart, and "the local prolongation of the orientation on $S$ is the Fredholm one" as the identity of continuation and push-forward along such paths; intermediate points are reached by the paths $s \mapsto \gamma(t\kappa(s))$, which stay in $\gamma([0, t])$ (Findings, Chapter 6, item 91).
+- Not formalized: an orientation of $S$ as an abstract manifold, of its tangent bundle in the charts of the induced structure (gap G.67), the compatibility of the tangent orientations read in two charts at one zero (gap G.68), and the perturbation paragraph after the theorem, with $S_{f+s}$ and $\mathrm{Lin}(f + s, x) = \mathrm{Lin}(f, x)$ (gap G.69) (Findings, Chapter 6, items 92, 93).
+- Tame germ data is the standing hypothesis of Chapter 5; the orientation $o$ exists iff $f$ is orientable (V6.60). "Proper" is the text's hypothesis; the proof uses only the compactness of $S$, which for sc-Fredholm sections is equivalent to it (V5.10), so nothing of the hypothesis is lost (Findings, Chapter 6, item 90).
+
+### V6.62. Remark 6.42: the orientation over $X \times [0, 1]$, at a point
+
+*narrower* · at a point · sign $(-1)^{\dim\operatorname{coker}L}$ · $X \times [0, 1]$ as $\mathbb R \times X$
+
+**HWZ (§6.5, Remark 6.42, p. 230).** For an oriented $(f, o)$ and an sc⁺-section $s$ of $Y \to X \times [0, 1]$, $\hat f(x, t) = f(x) + s(x, t)$ has a natural orientation from $o$ and the standard orientation of $[0, 1]$: for $L = (f - t)'(x)$ oriented by $h = (a_1 \wedge \dots \wedge a_n) \otimes (b_1 \wedge \dots \wedge b_l)^*$, the operator $\tilde L(a, b) = La$ on $T_{(x,t)}(X \times [0, 1])$ is oriented by $\tilde h = (a_1 \wedge \dots \wedge a_n \wedge e) \otimes (b_1 \wedge \dots \wedge b_l)^*$, $e$ the standard orientation of $[0, 1]$, and $\tilde L$ lies in the linearization space of $\hat f$ at $(x, t)$.
+
+**Proved in Lean.** `extOp`: for Fredholm $L$, $\tilde L = L \oplus 0 : E \times \mathbb R \to F$ is Fredholm (`isFredholm_extOp`) with $\ker\tilde L = \ker L \times \mathbb R$ and $\operatorname{coker}\tilde L = \operatorname{coker}L$ (`finrank_ker_extOp`, `extE`, `range_extOp`, `extCoker`). `extDet`: $h \mapsto \tilde h$, $(a_1 \wedge \dots \wedge a_n) \otimes d^* \mapsto ((a_1, 0) \wedge \dots \wedge (a_n, 0) \wedge e) \otimes d^*$ with $e = (0, 1)$, an isomorphism $\det(L) \cong \det(\tilde L)$ (`extDet_wedge_tmul`); in local determinant charts its coordinate is $(-1)^{\dim F/R(P) + \dim\operatorname{coker}L}$ times a continuous nowhere-zero function (`coord_extDet`). `extDetN` $= (-1)^{\dim\operatorname{coker}L}$ `extDet` pulls continuous orientations back along $L \mapsto \tilde L$ (`coord_extDetN`, `isLineOrientation_extPull`, `LineOrientation.extPull`) and agrees with `extDet` for $L$ onto (`extDetN_eq_of_surjective`); `extConjOp`, `extConjDet`, `existsUnique_extConjOr`: the same after the swap of the factors. In charts: for $\hat f = \tilde f + S$, $\tilde f(t, y) = f(y)$, $S$ an sc⁺-section of $\pi^*P \to \mathbb R \times X$, and the product chart point (`ChartPoint.prodPt`, `ChartPoint.prodT`, `ChartPoint.prodK`), $\hat L(\sigma, v) = Lv$ (`ChartPoint.prodLin`) lies in $\mathrm{Lin}(\hat f, (t, x))$ for every $L \in \mathrm{Lin}(f, x)$ (`ChartPoint.prodLin_mem_linSet`, through the $t$-constant lift `constLift`); an orientation $o$ of $\mathrm{DET}(f, x)$ gives exactly one orientation $\hat o$ of $\mathrm{DET}(\hat f, (t, x))$ with $\hat o(\hat L)$ the image of $o(L)$ for **every** $L$ (`ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr`, `ChartPoint.prodOr_apply`), and $o \mapsto \hat o$ is injective (`ChartPoint.prodOr_injective`).
+
+- `Polyfold.extOp` — Polyfold/Chapter6/ProductOrientation.lean, line 99
+- `Polyfold.isFredholm_extOp` — Polyfold/Chapter6/ProductOrientation.lean, line 160
+- `Polyfold.finrank_ker_extOp` — Polyfold/Chapter6/ProductOrientation.lean, line 136
+- `Polyfold.extE` — Polyfold/Chapter6/ProductOrientation.lean, line 113
+- `Polyfold.range_extOp` — Polyfold/Chapter6/ProductOrientation.lean, line 150
+- `Polyfold.extCoker` — Polyfold/Chapter6/ProductOrientation.lean, line 197
+- `Polyfold.extDet` — Polyfold/Chapter6/ProductOrientation.lean, line 204
+- `Polyfold.extDet_wedge_tmul` — Polyfold/Chapter6/ProductOrientation.lean, line 210
+- `Polyfold.extDetN` — Polyfold/Chapter6/ProductOrientation.lean, line 225
+- `Polyfold.extDetN_eq_of_surjective` — Polyfold/Chapter6/ProductOrientation.lean, line 238
+- `Polyfold.coord_extDet` — Polyfold/Chapter6/ProductOrientation.lean, line 420
+- `Polyfold.coord_extDetN` — Polyfold/Chapter6/ProductOrientation.lean, line 471
+- `Polyfold.isLineOrientation_extPull` — Polyfold/Chapter6/ProductOrientation.lean, line 548
+- `Polyfold.LineOrientation.extPull` — Polyfold/Chapter6/ProductOrientation.lean, line 660
+- `Polyfold.extConjOp` — Polyfold/Chapter6/ProductOrientation.lean, line 733
+- `Polyfold.extConjDet` — Polyfold/Chapter6/ProductOrientation.lean, line 744
+- `Polyfold.existsUnique_extConjOr` — Polyfold/Chapter6/ProductOrientation.lean, line 792
+- `Polyfold.ChartPoint.prodPt` — Polyfold/Chapter6/ProductOrientation.lean, line 848
+- `Polyfold.ChartPoint.mem_prodPt_T_iff` — Polyfold/Chapter6/ProductOrientation.lean, line 862
+- `Polyfold.ChartPoint.mem_prodPt_K_iff` — Polyfold/Chapter6/ProductOrientation.lean, line 867
+- `Polyfold.ChartPoint.prodT` — Polyfold/Chapter6/ProductOrientation.lean, line 882
+- `Polyfold.ChartPoint.prodK` — Polyfold/Chapter6/ProductOrientation.lean, line 907
+- `Polyfold.ChartPoint.prodLin` — Polyfold/Chapter6/ProductOrientation.lean, line 923
+- `Polyfold.ChartPoint.IsScPlusOp.prodPt` — Polyfold/Chapter6/ProductOrientation.lean, line 941
+- `Polyfold.constLift` — Polyfold/Chapter6/ProductOrientation.lean, line 985
+- `Polyfold.ChartPoint.prodLin_mem_linSet` — Polyfold/Chapter6/ProductOrientation.lean, line 1052
+- `Polyfold.ChartPoint.existsUnique_prodOr` — Polyfold/Chapter6/ProductOrientation.lean, line 1136
+- `Polyfold.ChartPoint.prodOr` — Polyfold/Chapter6/ProductOrientation.lean, line 1165
+- `Polyfold.ChartPoint.prodOr_apply` — Polyfold/Chapter6/ProductOrientation.lean, line 1174
+- `Polyfold.ChartPoint.prodOr_injective` — Polyfold/Chapter6/ProductOrientation.lean, line 1188
+
+*What differs.*
+- As we read it, the literal $h \mapsto \tilde h$ is not continuous in $L$ where the parity of $\dim\operatorname{coker}L$ changes, so the orientation of $\mathrm{DET}(\hat f, (x, t))$ it defines could depend on the choice of $L$; the sign $(-1)^{\dim\operatorname{coker}L}$ (the sign of V6.40) is used, which agrees with the text's map when $L$ is onto (Findings, Chapter 6, item 95).
+- $X \times [0, 1]$ is read as $\mathbb R \times X$ (decision D2), with the parameter first, so $\tilde L(a, b) = La$ is conjugated by the swap of the factors. Only an orientation of $\mathrm{DET}(f, x)$ at the one point and $\mathrm{Lin}(f, x) \ne \emptyset$ (bump functions, V6.1) are used, not an orientation of $f$ (Findings, Chapter 6, item 96).
+- That $(t, y) \mapsto \hat o$ is an orientation of $\hat f$ in the sense of Definition 6.40, built from an orientation of $f$, is not formalized (gap G.66; Findings, Chapter 6, item 97).
+
+### V6.63. §6.7.1: the proof of Lemma 6.5
+
+*restated* · homogeneity in the bases of $A$, $D$
+
+**HWZ (§6.7.1, pp. 234–235).** With complements $(V, W)$, a change of the basis of $V$ by $\sigma$ multiplies both wedges of (91) by $\det(\sigma)$, so has no influence. A change of the bases of $A$ and $D$ multiplies $a \otimes d^*$ by $\det(\tau)/\det(\varepsilon)$, and the vector is said to be independent of the bases iff $\det(\tau) = \det(\varepsilon)$. For two choices of complements, the new basis vectors differ from the old by $q_i \in \alpha(A)$ and $p_i \in \beta(C)$, which leaves the wedges unchanged.
+
+**Proved in Lean.** `FourTermExact.Choice.exists_smul_source_value`: for two choices of (91) the right-hand sides are related as the sources are. A change of the basis of $Z$ multiplies both wedges by its determinant, a change of the bases of $A$ and $D$ multiplies both sides by the same factor, and a change of complements adds to the basis of $Z$ vectors of $\alpha(A)$ and to the $\gamma$-preimages vectors of $\beta(B)$ (`FourTermExact.Choice.wedgeC`), which leaves the wedges unchanged.
+
+- `Polyfold.FourTermExact.Choice.exists_smul_source_value` — Polyfold/Chapter6/ExactSequence.lean, line 284
+- `Polyfold.FourTermExact.Choice.wedgeC` — Polyfold/Chapter6/ExactSequence.lean, line 215
+
+*What differs.*
+- The step "if and only if $\det(\tau) = \det(\varepsilon)$" is read as the homogeneity of (91) in the bases of $A$ and $D$, both sides scaling by $\det(\sigma)/\det(\varepsilon)$, $\tau$ being the $\sigma$ just introduced (possible misprint). The corrections $p_i$ lie in $\beta(B)$ (written $\beta(C)$) and are combinations of the $\beta$-images, whose names are exchanged with those of the $\gamma$-preimages in the last step (possible misprints) (Findings, Chapter 6, item 1).
+
+### V6.64. §6.7.2: the proof of Proposition 6.12
+
+*restated* · spanning proved directly in $F$
+
+**HWZ (§6.7.2, pp. 235–237).** With $d_i \in R(I - Q)$, bases $a, b$ of $\ker(QT)$ and $a, b, \tilde b$ of $\ker(PT)$, the text computes $\gamma^P_{QT}(\gamma^Q_T(h)) = \alpha^P \otimes (\beta^P)^*$, splits $F/R(P) = \ker\tilde Q \oplus \ker(I - \tilde Q)$, replaces $[QT(\tilde b_i)]$ by $[T(\tilde b_i)]$ in the wedge, and finds the same vector for $\gamma^P_T(h)$.
+
+**Proved in Lean.** `mem_span_append_of_ker`: if $Qg = 0$, then $g$ is a combination of the $d_i$ plus $Tx$ with $x \in \ker(QT)$, so the classes of the $d_i$ and $Tb_j$ span what the text calls $\ker\tilde Q$; the classes $[T\tilde b]$ and $[QT\tilde b]$ in $F/R(P)$ differ by elements of that span, which does not change the wedge. With `gammaProj_wedge_tmul` and `comp_comp_eq_of_projLE` this gives Proposition 6.12 (V6.14).
+
+- `Polyfold.mem_span_append_of_ker` — Polyfold/Chapter6/ProjectionSequence.lean, line 267
+- `Polyfold.gammaProj_wedge_tmul` — Polyfold/Chapter6/ProjectionSequence.lean, line 221
+- `Polyfold.comp_comp_eq_of_projLE` — Polyfold/Chapter6/ProjectionSequence.lean, line 253
+
+*What differs.*
+- The spanning step is proved directly in $F$; the name $\alpha_q$ in the last part is read as $\alpha^P$ (possible misprint) (Findings, Chapter 6, items 6, 7).
+
 ## Not formalized
 
 *What the book states and the formalization does not prove, and what it does instead; an entry proved since the first edition of this page keeps its number and is marked “formalized since”*
@@ -6642,4 +7944,169 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 - `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1072
 - `Polyfold.corollary_5_44` — Polyfold/Chapter5/PartitionsOfUnity.lean, line 1083
+
+### G.54. Theorem 6.43: the invariant $\Psi_{(f,o)}$
+
+*not formalized*
+
+**HWZ (§6.6, Theorem 6.43, p. 231 (proof pp. 231–233)).** Over a tame $X$ with sc-smooth bump functions, a proper oriented sc-Fredholm section $(f, o)$ defines a linear map $\Psi_{(f,o)} : H^*_{dR}(X, \partial X) \to \mathbb R$ with (1) $\Psi_{(f,o)}([\omega, \tau]) = \int_{S_{f+s}}\omega - \int_{\partial S_{f+s}}\tau$ for every $s$ admissible for $(N, U)$, and (2) $\Psi_{(f_0,o_0)} = \Psi_{(f_1,o_1)}$ for a proper oriented homotopy. For $\partial X = \emptyset$, $\Psi_{(f,o)}([\omega]) = \int_{S_{f+s}}\omega$ on $H^n_{dR}(X)$, $n$ the index (p. 233).
+
+**Proved in Lean.** **Not formalized** (decision D1). It needs the sc-differential forms and their cohomology of §4.4 (gaps G.37–G.40), integration over oriented compact manifolds with boundary with corners and Stokes' theorem, which Mathlib does not have; its proof also uses the homotopy of Remark 5.16 (gap G.44). What the theorem rests on is formalized: the perturbations of Theorem 5.18 (V5.38, V5.39) and the tangent orientations of Theorem 6.41 (V6.61) (Findings, Chapter 6, item 100).
+
+- `Polyfold.theorem_5_18` — Polyfold/Chapter5/GeneralPosition.lean, line 1779
+- `Polyfold.theorem_6_41` — Polyfold/Chapter6/SolutionOrientation.lean, line 892
+
+### G.55. §6.6: the sections admissible for $(N, U)$
+
+*not formalized*
+
+**HWZ (§6.6, p. 230).** For a proper oriented $(f, o)$ over a tame $X$ with bump functions and an auxiliary norm $N$, Theorem 5.18 gives an open $U \supseteq S$ such that every sc⁺-section supported in $U$ with $N(s(x)) \le 1$ has a compact $S_{f+s}$; the distinguished ones, with $(f + s, x)$ in general position at every zero, have oriented solution sets and are called admissible for $(N, U)$.
+
+**Proved in Lean.** **Not formalized** as a notion; it is used only in Theorem 6.43 (gap G.54). The facts recalled are formalized: Theorem 5.18 (V5.38, V5.39) and the tangent orientations of the solution set (V6.61); the orientation of $S_{f+s}$ for a perturbed $f$ is gap G.69 (Findings, Chapter 6, item 101).
+
+- `Polyfold.theorem_5_18_dense` — Polyfold/Chapter5/GeneralPosition.lean, line 1968
+
+### G.56. The facts on paths recalled on p. 201
+
+*not formalized*
+
+**HWZ (§6.1, before Proposition 6.2, p. 201).** An M-polyfold is locally path connected, and any two smooth points in the same path component can be joined by an sc⁺-smooth path $\varphi : [0, 1] \to X$.
+
+**Proved in Lean.** **Not formalized** beyond a chart: inside the domain of a chart, nearby smooth points are joined by sc-smooth paths (`exists_nhds_scPath`, V6.49), and "in the same path component" (Definitions 6.27, 6.38) is read as "joined by an sc-smooth path" (V6.58) (Findings, Chapter 6, item 42).
+
+- `Polyfold.exists_nhds_scPath` — Polyfold/Chapter6/ScPaths.lean, line 84
+
+### G.57. The alternative determinant $\lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$
+
+*not formalized*
+
+**HWZ (§6.3, after Definition 6.7, p. 208).** Some authors use $\det(T) = \lambda(\ker T) \otimes \lambda(\operatorname{coker}(T)^*)$; the two definitions are naturally isomorphic, given a convention identifying $\lambda^*(A)$ and $\lambda(A^*)$.
+
+**Proved in Lean.** **Not formalized**, and not used: the chapter's formal statements use Definition 6.7 (V6.8); the convention $\iota$ of Definition 6.3 is V6.3 (Findings, Chapter 6, item 10).
+
+- `Polyfold.fredholmDet` — Polyfold/Chapter6/FredholmDet.lean, line 133
+- `Polyfold.iotaDual` — Polyfold/Chapter6/DetLine.lean, line 601
+
+### G.58. The identification (95) and the maps $V \otimes \lambda(\mathbb R^n) \to V$
+
+*not formalized*
+
+**HWZ (§6.3, after Proposition 6.15, p. 213).** Dual to (94), $\mathbb R \to \lambda(\mathbb R^n)$ maps $1$ to the wedge of the standard basis, with inverse (95) $c_1 \wedge \dots \wedge c_n \mapsto \det([c_1, \dots, c_n])$; this gives identifications $V \otimes \lambda(\mathbb R^n) \to V$ and $V \otimes \lambda^*(\mathbb R^n) \to V$ for every finite-dimensional $V$.
+
+**Proved in Lean.** **Not formalized**, and not used: the formal statements use (94) only (V6.17, V6.18) (Findings, Chapter 6, item 10).
+
+- `Polyfold.stabPsi_dualVec` — Polyfold/Chapter6/Stabilization.lean, line 295
+
+### G.59. Lemma 6.19 in general
+
+*not formalized*
+
+**HWZ (§6.4, Lemma 6.19, p. 216).** For finite-dimensional topological vector bundles $E$, $F$ over $X$, the bundles $\lambda(E)$, $\lambda^*(F)$, $E \oplus F$ and $E \otimes F$ have the structure of topological vector bundles in a natural way (a standard lemma, cited from [29]).
+
+**Proved in Lean.** **Not formalized** in general: Mathlib has no exterior powers or tensor products of vector bundles. The lemma is applied only to trivial bundles, and Proposition 6.20 is proved with explicit frames (V6.22) (Findings, Chapter 6, item 22).
+
+- `Polyfold.LocalDetChart.frame` — Polyfold/Chapter6/LocalDetBundle.lean, line 379
+- `Polyfold.proposition_6_20` — Polyfold/Chapter6/LocalDetBundle.lean, line 524
+
+### G.60. $\mathrm{DET}(E, F)$ is not orientable; the classical case
+
+*not formalized*
+
+**HWZ (§6.4, p. 218; the opening of §6.5, p. 219).** The text remarks that $\mathrm{DET}(E, F)$ is known to be non-orientable, though orientable over certain subsets. For a classical Fredholm map $f : U \to F$, the determinant line bundle of the $Df(x)$ is a smooth line bundle over $U$, with precisely two orientations if $U$ is contractible.
+
+**Proved in Lean.** **Not formalized** (remarks, not used). The orientability over convex sets of Fredholm operators, which is what the chapter uses, is Proposition 6.26 (V6.30) (Findings, Chapter 6, item 26).
+
+- `Polyfold.proposition_6_26` — Polyfold/Chapter6/DetBundle.lean, line 356
+
+### G.61. Proposition 6.28 (1): sc-smooth contractibility
+
+*not formalized*
+
+**HWZ (§6.5, Proposition 6.28 (1), p. 220; Theorem 6.35, Definition 6.36, Theorem 6.37).** The neighbourhood $U(x)$ of Proposition 6.28 is sc-smoothly contractible (by $r(ty)$ on $U = r(V')$, $V'$ convex), and Theorem 6.35, Definition 6.36 and property (∗) of Theorem 6.37 ask for sc-smoothly contractible neighbourhoods.
+
+**Proved in Lean.** **Not formalized.** As we read it, the proof does not establish (1) for $U$: it needs $r(V') \subseteq V'$, which is not stated. (1′) is proved instead (two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in a larger $W$ with the end points fixed) and is what the proofs use (V6.32, V6.48, V6.50, V6.57) (Findings, Chapter 6, items 45, 53, 54, 72).
+
+- `Polyfold.proposition_6_28` — Polyfold/Chapter6/OrientableNbhd.lean, line 529
+- `Polyfold.theorem_6_35` — Polyfold/Chapter6/PropagationWellDefined.lean, line 740
+
+### G.62. Lemma 6.30 as a statement about manifolds
+
+*not formalized*
+
+**HWZ (§6.5, Lemma 6.30, p. 222).** The solution set of $F = 0$ near $(t, \varphi(t), 0)$ is a smooth manifold with boundary with corners, $\pi : S \to [0, 1]$ is a submersion, its fibres $S_t$ are manifolds with boundary with corners, and $L$ is a smooth vector bundle over $[0, 1]$.
+
+**Proved in Lean.** **Not formalized.** The kernels are formalized as a continuous family of subspaces of the model space (V6.34, V6.42), which is all the continuation of orientations needs (Findings, Chapter 6, item 48).
+
+- `Polyfold.exists_subspaceFamily_linKer` — Polyfold/Chapter6/KernelFamily.lean, line 166
+- `Polyfold.exists_isStabKernels` — Polyfold/Chapter6/StabKernelsExist.lean, line 88
+
+### G.63. Property (P) of Lemma 6.29 for the slices $F_t$
+
+*not formalized*
+
+**HWZ (§6.5, Lemma 6.29, p. 222).** (P): for every fixed $t \in [0, 1]$, the section $F_t$ is at $(\varphi(t), 0)$ in general position to the boundary of $X \times \mathbb R^k$.
+
+**Proved in Lean.** **Not formalized.** The general position of $F$ at the points $(t, \varphi(t), 0)$, which the text derives from (P) and which Lemmas 6.30, 6.31 use, is proved (V6.33). As we read it, (P) follows, since the tangent vectors of the family of zeros lie in $\ker F'$ and $\mathbb R^n$ has no boundary; this chart computation is not carried out (Findings, Chapter 6, item 47).
+
+- `Polyfold.lemma_6_29` — Polyfold/Chapter6/Lemma629.lean, line 203
+
+### G.64. $\mathrm{Lin}(f, x)$ as sc-Fredholm operators on every level
+
+*not formalized*
+
+**HWZ (§6.1, Definition 6.1, p. 201).** The operators in $\mathrm{Lin}(f, x)$ are sc-Fredholm operators $T_xX \to Y_x$, all with the same Fredholm index.
+
+**Proved in Lean.** **Not formalized** on every level: at a chart point the members are shown Fredholm on level $0$, with the index $\mathrm{ind}(f, x)$ of V3.98, which is what the determinant lines use (V6.1) (Findings, Chapter 6, item 40).
+
+- `Polyfold.ChartPoint.exists_index_linSet` — Polyfold/Chapter6/LinSet.lean, line 388
+
+### G.65. Paths and families on $[0, 1]$; $X \times [0, 1]$ as an M-polyfold
+
+*not formalized*
+
+**HWZ (§6.5, pp. 220–230).** Paths, homotopies and families are sc-smooth maps on $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$, and $X \times [0, 1]$, $[0, 1] \times X \times \mathbb R^k$ are M-polyfolds with boundary (Proposition 6.28, Lemmas 6.29–6.34, Theorem 6.35, Remark 6.42).
+
+**Proved in Lean.** **Not formalized** as stated: they are read on $\mathbb R$, $\mathbb R^2$, $\mathbb R^n$ and $\mathbb R^n \times X$, of which only $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$ matters (decision D2), as for Proposition 6.2 in Chapter 3 (V3.98); a path that does not extend sc-smoothly to $\mathbb R$ is not covered (Findings, Chapter 6, items 71, 102).
+
+
+### G.66. Remark 6.42 beyond a point
+
+*not formalized*
+
+**HWZ (§6.5, Remark 6.42, p. 230).** $\hat f(x, t) = f(x) + s(x, t)$ on $X \times [0, 1]$ has a natural orientation associated with $o$ and the standard orientation of $[0, 1]$.
+
+**Proved in Lean.** **Not formalized** beyond a point: that $(t, y) \mapsto \hat o$ is an orientation of $\hat f$ in the sense of Definition 6.40 (continuity over the orientable neighbourhoods of $\mathbb R \times X$, independence of the chart of the pull-back bundle), built from an orientation of $f$. At a point the remark is V6.62 (Findings, Chapter 6, item 97).
+
+- `Polyfold.ChartPoint.existsUnique_prodOr` — Polyfold/Chapter6/ProductOrientation.lean, line 1136
+
+### G.67. Theorem 6.41: the orientation of $S$ as a manifold
+
+*not formalized*
+
+**HWZ (§6.5, Theorem 6.41, p. 229).** The solution set $S$ is a smooth compact manifold with boundary with corners possessing a natural orientation.
+
+**Proved in Lean.** **Not formalized** as an orientation of the abstract finite-dimensional manifold $S$ (of its tangent bundle in the charts of the induced structure). What is formalized is the tangent orientation at each zero and its continuity along the sc-smooth paths of zeros in a chart (V6.61) (Findings, Chapter 6, item 92).
+
+- `Polyfold.theorem_6_41` — Polyfold/Chapter6/SolutionOrientation.lean, line 892
+
+### G.68. Theorem 6.41: tangent orientations read in two charts
+
+*not formalized*
+
+**HWZ (§6.5, Theorem 6.41, p. 229).** $T_xS = \ker f'(x)$ is oriented by $o^f_x$, an object the text treats as independent of the chart.
+
+**Proved in Lean.** **Not formalized**: the compatibility of the tangent orientations read in two charts at the same zero. $\mathrm{Or}^f_x$ itself is identified between charts (V6.53–V6.55) (Findings, Chapter 6, item 92).
+
+- `Polyfold.ChartPoint.tangentOr` — Polyfold/Chapter6/SolutionOrientation.lean, line 414
+- `Polyfold.ChartPoint.orTransfer` — Polyfold/Chapter6/ChartTransfer.lean, line 1205
+
+### G.69. The paragraph after Theorem 6.41: perturbed solution sets
+
+*not formalized*
+
+**HWZ (§6.5, after Theorem 6.41, pp. 229–230).** If $f$ is not generic, a small perturbation $s$ supported near the zero set gives $S_{f+s}$ a natural orientation coming from $o^f$, since $\det((f + s)'(x))$ is oriented from $\mathrm{DET}(f, x)$ for $x \in S_{f+s}$.
+
+**Proved in Lean.** **Not formalized**: the perturbation, the orientation of $S_{f+s}$ coming from $o^f$, and the identification $\mathrm{Lin}(f + s, x) = \mathrm{Lin}(f, x)$ for an sc⁺-section $s$ that it uses. The perturbations themselves are Theorem 5.18 (V5.38, V5.39) (Findings, Chapter 6, item 93).
+
+- `Polyfold.theorem_5_18` — Polyfold/Chapter5/GeneralPosition.lean, line 1779
 

@@ -6781,7 +6781,7 @@ Found while formalizing §§6.2–6.3 and Appendix 6.7 (2026-11-06).
    but their kernels are different types, so the statements carry the identification
    `det(P(QT)) = det(PT)` (`linDetEquivOfEq`); this is bookkeeping, not a change of content.
 6. **Proposition 6.12: the spanning step of §6.7.2 is proved directly in `F`** *(book 2017:
-   Proposition 6.5, p. 193; §6.7.2, pp. 219–222)*. The step "the classes of `d₁, …, d_l, T b₁, …`
+   Proposition 6.5, p. 193; §6.7.2, pp. 219–221)*. The step "the classes of `d₁, …, d_l, T b₁, …`
    span `ker Q̃`" is proved as: if `Q g = 0`, then `g` is a combination of the `dᵢ` plus `T x`
    with `x ∈ ker(QT)` (`mem_span_append_of_ker`); the classes `[T b̃]` and `[Q T b̃]` in `F/R(P)`
    then differ by elements of the span of `[d]`, `[T b]`, which does not change the wedge
@@ -6799,7 +6799,7 @@ Found while formalizing §§6.2–6.3 and Appendix 6.7 (2026-11-06).
    that always holds (`stab_card_eq`). The statement opens with "the chosen isomorphism
    `φ : λ*(ℝⁿ) → λ*({0})`", which is the `ψ` of (94); `φ` is already the stabilizing map
    (possible misprint; the same in 2017).
-10. **Not formalized in §§6.2–6.3** *(book 2017: Definition 6.4, p. 189; after Proposition 6.7,
+10. **Not formalized in §§6.2–6.3** *(book 2017: Definition 6.3, p. 189; after Proposition 6.7,
     p. 200)*. The alternative determinant `λ(ker T) ⊗ λ(coker(T)*)` mentioned after Definition 6.7
     and its identification with Definition 6.7 (gap G.57), and the identification (95) with the
     maps `V ⊗ λ(ℝⁿ) → V`, `V ⊗ λ*(ℝⁿ) → V` after Proposition 6.15 (gap G.58). Neither is used by
@@ -6860,8 +6860,8 @@ Found while formalizing Definition 6.1 and §6.5, Definitions 6.27–6.36 (2026-
     give (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`). The members are shown Fredholm
     on level `0` with the index `ind(f, x)` (`ChartPoint.exists_index_linSet`), which is what the
     determinant lines use; that they are sc-Fredholm on every level is not stated (gap G.64).
-41. **The paragraph before Definition 6.1 compares `(f − s)'(x)` with itself** *(book 2017: before
-    Definition 6.1, p. 182)*. "`(f − s)'(x)` is a sc-Fredholm operator if and only if `(f − s)'(x)`
+41. **The paragraph before Definition 6.1 compares `(f − s)'(x)` with itself** *(book 2017: corrected
+    to `(f − t)'(x)`, before Definition 6.1, p. 182)*. "`(f − s)'(x)` is a sc-Fredholm operator if and only if `(f − s)'(x)`
     is" is read with `(f − t)'(x)` in the second place (possible misprint).
 42. **The facts on paths recalled on p. 201 are not formalized** *(book 2017: before Proposition
     6.1, p. 183)*. That an M-polyfold is locally path connected and that two smooth points in one
@@ -6881,13 +6881,16 @@ Found while formalizing Definition 6.1 and §6.5, Definitions 6.27–6.36 (2026-
     bijections; between two two-element types there are exactly two, each determined by one value
     (`nonempty_equiv_of_two`, `equiv_eq_of_apply_eq_of_two`).
 45. **Proposition 6.28 (1) is not established for `U` as we read it; (1′) is proved instead**
-    *(book 2017: Proposition 6.12, p. 205)*. The contraction `r̂(t, y) = r(ty)` contracts
+    *(book 2017: Proposition 6.12, p. 205, with a `U′ ⊂ U` and (1) "`U′ ⊂ U` is sc-smoothly
+    contractible in `U` to the point `x`", close to the reading (1′))*. The contraction `r̂(t, y) = r(ty)` contracts
     `O = r(V)` for a convex `V`; for `U = r(V')` it needs `r(V') ⊆ V'`, which is not stated, and a
     convex domain of the retraction is not available in general. What the proof of Theorem 6.35
     uses is (1′): two sc-smooth paths in `U` with the same end points are sc-smoothly homotopic,
     with the end points fixed, in a larger region `W` where (3) holds. `proposition_6_28` proves
     (1′) with `W = O ∩ B_δ`, `U = O ∩ B_δ'` and `r(B_δ') ⊆ B_δ`, by
-    `Φ(τ, t) = r((1 − ρ(τ)) φ(γ₀(t)) + ρ(τ) φ(γ₁(t)))` in the chart (gap G.61).
+    `Φ(τ, t) = r((1 − ρ(τ)) φ(γ₀(σ(t))) + ρ(τ) φ(γ₁(σ(t))))` in the chart, with `σ` the identity
+    near `[0, 1]` and taking values where both paths lie in `U` (the paths lie in `U` only on
+    `[0, 1]`; `exists_contDiff_eq_id_near_Icc_mapsTo`) (gap G.61).
 46. **Proposition 6.28: the sections are global, (3) is stated for families, and the smoothness of
     `x` is not used** *(book 2017: Proposition 6.12, p. 205)*. The sections of (3) and (4) are
     global sc⁺-sections of `ℝⁿ × X → Y`, made with bump functions, in place of sections over
@@ -6945,7 +6948,8 @@ Found while formalizing Definition 6.1 and §6.5, Definitions 6.27–6.36 (2026-
     6.33 applies on both edges without reordering (`IsStabKernels.push_eq_of_prefix`); along the
     edges `t = 0, 1` the operators are affine in `τ` (`linAt_principal_combo`), hence continuous.
 53. **Theorem 6.35 does not introduce `f`; contractibility is replaced by (1′), and the proof needs a
-    reparametrization** *(book 2017: Theorem 6.1, p. 212)*. The statement names the bundle and the
+    reparametrization** *(book 2017: unchanged as to `f`, Theorem 6.1, p. 212, which drops "sc-smoothly
+    contractible")*. The statement names the bundle and the
     point but not the section (possible omission); it is read for an sc-Fredholm section with tame
     germ data, under the standing hypotheses (`theorem_6_35`: `X` tame, bump functions). The
     homotopy of (1′) meets its edge conditions only for `t ∈ [0, 1]`, while a push-forward datum
@@ -6953,7 +6957,8 @@ Found while formalizing Definition 6.1 and §6.5, Definitions 6.27–6.36 (2026-
     smooth transition function, with three homotopies whose edges are exact for all `t`
     (`push_eq_of_homotopy`). The neighbourhood is not shown to be sc-smoothly contractible (gap
     G.61).
-54. **Definition 6.36 is read over a pair `V ⊆ U`** *(book 2017: Definition 6.10, p. 212)*. Since
+54. **Definition 6.36 is read over a pair `V ⊆ U`** *(book 2017: Definition 6.10, p. 212, "open path
+    connected", without "contractible")*. Since
     Proposition 6.28 gives (1′), an orientable neighbourhood is `U` with the local propagation
     property and an open `V ∋ x` whose smooth points are joined by sc-smooth paths in `U`
     (`exists_nhds_scPath`); the continuous orientations live over `V_∞` and are preserved by the
@@ -6982,7 +6987,7 @@ Found while formalizing Theorem 6.37 and Definitions 6.38–6.40 (2026-11-07).
     read in a chosen chart (`Orx`, `toChartOr`).
 71. **Homotopy classes: the edge conditions hold only on `[0, 1]`, so transitivity needs a
     reparametrization; the identities are the constant paths** *(book 2017: before Theorem 6.2,
-    p. 213)*. Paths are maps `ℝ → X` and homotopies maps `ℝ² → X` whose edge conditions are imposed
+    pp. 212–213)*. Paths are maps `ℝ → X` and homotopies maps `ℝ² → X` whose edge conditions are imposed
     for parameters in `[0, 1]` (decision D2). Two homotopies glued in `τ` need not agree off
     `[0, 1]`, so `ScHomotopic.trans` first reparametrizes all paths and homotopies by `κ` in `t`.
     The text does not name the identities of `PX`; they are the classes of the constant paths. The
@@ -7009,8 +7014,8 @@ Found while formalizing Theorem 6.37 and Definitions 6.38–6.40 (2026-11-07).
     to 6.38 the transport along a path is computed on dyadic pieces inside orientable
     neighbourhoods (`LocalTransport.transport_apply_eq_of_local`); from 6.38 to 6.39 a base point is
     chosen in each class of points joined by sc-smooth paths.
-74. **Definition 6.39 writes "`y ∈ U_∞`" before any `U` is introduced** *(book 2017: Definition
-    6.12, p. 213)*. It is read as `y ∈ X_∞` (possible misprint).
+74. **Definition 6.39 writes "`y ∈ U_∞`" before any `U` is introduced** *(book 2017: corrected
+    to `y ∈ X_∞`, Definition 6.12, p. 213)*. It is read as `y ∈ X_∞` (possible misprint).
 75. **Definition 6.40: orientations are the families preserved by `Γ_f`** *(book 2017: Definition
     6.13, p. 214)*. With the orientable neighbourhoods of item 54, an orientation of `f` is a map
     `y ↦ o_y` with `Γ_f([φ]) o_x = o_y` for all `[φ]` (`isSectionOrientation_iff`); `f` has one iff
@@ -7082,7 +7087,7 @@ Found while formalizing Theorem 6.41 and Remark 6.42 (2026-11-07).
 Not formalized (2026-11-07).
 
 100. **Theorem 6.43 is not formalized** *(book 2017: Theorem 6.4, p. 215, and the case `∂X = ∅`, p.
-     218)*. The map `Ψ_(f,o) : H*_dR(X, ∂X) → ℝ`, its proof (pp. 231–233) and the case `∂X = ∅`
+     217)*. The map `Ψ_(f,o) : H*_dR(X, ∂X) → ℝ`, its proof (pp. 231–233) and the case `∂X = ∅`
      (p. 233) need the sc-differential forms and their cohomology of §4.4, which are not
      formalized (gaps G.37–G.40), integration over oriented compact manifolds with boundary with
      corners and Stokes' theorem, which Mathlib does not have (decision D1, gap G.54). What the
@@ -7097,3 +7102,11 @@ Not formalized (2026-11-07).
      as an M-polyfold with boundary, are read on `ℝ`, `ℝ²`, `ℝⁿ` and `ℝⁿ × X` (decision D2), as
      for Proposition 6.2 in Chapter 3; a path that does not extend sc-smoothly to `ℝ` is not
      covered (gap G.65).
+103. **The proof of Theorem 6.43 extends `ω` as `ω̄ = p₁*ω ∧ p₂*dt`** *(book 2017: unchanged,
+     proof of Theorem 6.4)*. To show that (97) does not depend on the admissible section, the
+     proof (p. 232) introduces `ω̄ = p₁*ω ∧ p₂*dt` on `X × [0, 1]` with `ω̄|∂X×[0,1] = dτ̄`,
+     `dτ̄ = p₁*(dτ) ∧ p₂*dt`, and applies Stokes' theorem on `S_F`. As we read it, the
+     computation needs `p₁*ω` and `p₁*τ` themselves: `p₂*dt` restricts to zero on `X × {0}` and
+     `X × {1}`, where the integrals over `S₀` and `S₁` are to appear, and `p₁*ω ∧ p₂*dt` has
+     degree one more than `dim ∂S_F` (possible misprint). Not formalized (gap G.54); noted in
+     `Exposition/Chapter6.md`, §7.

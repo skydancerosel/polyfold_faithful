@@ -58,6 +58,9 @@ CHAPTERS = [
     ('V5', 'Chapter 5', 'HWZ Chapter 5 §§5.1–5.4, preprint pp. 169–199: the Fredholm package for M-polyfolds — '
            'auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, '
            'homotopies, partitions of unity'),
+    ('V6', 'Chapter 6', 'HWZ Chapter 6 §§6.1–6.7, preprint pp. 200–237: linearizations, the determinant of Fredholm '
+           'operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm '
+           'sections, the orientation of the solution set, the product with [0, 1]; Theorem 6.43 is not formalized'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

@@ -13,7 +13,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 pp. 222–227: the bundle `L = ⋃_t {t} × L_t` of kernels along a path, its line bundle
 `λ(L) = ⋃_t {t} × λ(L_t)`, and "an orientation of the lines `λ(L_t)` determines by continuation an
 orientation of all the other lines" (before (96)); the two-parameter bundles `L̃` of Lemmas 6.33,
-6.34 and of the proof of Theorem 6.35 *(book 2017: §6.4; see `BookConcordance.md`)*.
+6.34 and of the proof of Theorem 6.35 *(book 2017: §6.5; see `BookConcordance.md`)*.
 
 # Continuous families of finite-dimensional subspaces and their determinant lines
 

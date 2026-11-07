@@ -1,7 +1,8 @@
 # Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory*, Part I, in Lean 4
 
 Part I of HWZ's book, *Basic Theory in M-Polyfolds* (the sc-calculus, retracts and M-polyfolds,
-strong bundles, sc-Fredholm sections, the implicit function theorems and the Fredholm package),
+strong bundles, sc-Fredholm sections, the implicit function theorems, the Fredholm package and
+orientations),
 formalized against Mathlib with the same faithful layer as our formalizations of Milnor's
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). The text used is the 2014
@@ -23,7 +24,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 337 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 401 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -41,17 +42,19 @@ To read rather than sign: `Exposition/Verification.pdf` has the same items as a 
 (open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
 GitHub displays it directly.
 
-## Status (2 November 2026)
+## Status (7 November 2026)
 
-* **Chapters 1–5 are formalized**: about 105,000 lines of Lean; every theorem has its axioms
-  printed in `Polyfold/Test.lean` (3,700+ declarations), all on `propext`, `Classical.choice`,
-  `Quot.sound`; no `sorry`, no `axiom`.
-* **Every numbered item of the text is compared with its formal version** (337 items, each with a
+* **Chapters 1–6 are formalized**, Chapter 6 except Theorem 6.43 (the invariant `Ψ_(f,o)`) and the
+  admissible sections of §6.6: about 127,500 lines of Lean in 204 files; every theorem has its
+  axioms printed in `Polyfold/Test.lean` (4,942 declarations), all on `propext`,
+  `Classical.choice`, `Quot.sound`; no `sorry`, no `axiom`.
+* **Every numbered item of the text is compared with its formal version** (401 items, each with a
   verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap list
-  of what is not formalized and why.
-* **Round-trip audit**: for all 269 items not labelled *extra*, an independent model formalized the
-  text's statement blind, and the two statements were related by short Lean proofs
-  (`RoundTrip/REPORT.md`; refreshed against the current code on 2 November 2026).
+  of what is not formalized and why (G.1–G.69).
+* **Round-trip audit**: for all 269 items of Chapters 1–5 not labelled *extra*, an independent model
+  formalized the text's statement blind, and the two statements were related by short Lean proofs
+  (`RoundTrip/REPORT.md`; refreshed against the current code on 2 November 2026). The Chapter 6
+  items have not been audited yet.
 * **Human sign-off**: not started.
 
 ## Where to start reading (no Lean needed)
@@ -63,7 +66,7 @@ GitHub displays it directly.
 | `Exposition/Verification.pdf` | The verified edition: each item as a short paragraph ending in the sentence to confirm. |
 | `Exposition/Findings.md` | Every gap, hidden hypothesis, counterexample, reading chosen and possible misprint, numbered, with what was done about it. |
 | `Exposition/ProofByProof.pdf` (or `polyfold-proof-by-proof.html`) | Each formal proof retold step by step, with a tag on every step naming the Lean declaration that checks it. |
-| `Exposition/Chapter1.md` … `Chapter5.md` | The expanded exposition, with complete proofs, for a first-year graduate student. |
+| `Exposition/Chapter1.md` … `Chapter6.md` | The expanded exposition, with complete proofs, for a first-year graduate student. |
 | `RoundTrip/REPORT.md` | The round-trip audit: results, disagreements for human review, statements of the text that do not hold in the formal reading. |
 
 Open the HTML pages in a browser straight from the folder; they need no server.
@@ -113,8 +116,10 @@ None of these is a hypothesis of a theorem of the project; each is stated precis
 
 Not formalized (by decision, see the gap list in the comparison): Theorems 5.22 and 5.27 (5.27 has
 no proof in the text), the Banach-space theorems 5.32, 5.40, 5.43 (cited, used as hypotheses),
-§4.4 (sc-differential forms), Lemma 4.10, the dense form of Theorem 5.19, and the
-infinite-dimensional examples of the applications (weighted Sobolev scales, splicings).
+§4.4 (sc-differential forms), Lemma 4.10, the dense form of Theorem 5.19, Theorem 6.43 (it needs
+§4.4, integration and Stokes' theorem; G.54) with the admissible sections of §6.6, used only there
+(G.55), and the infinite-dimensional examples of the applications (weighted Sobolev scales,
+splicings).
 
 ## License
 

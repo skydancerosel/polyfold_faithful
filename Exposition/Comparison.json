@@ -9309,6 +9309,1890 @@
    "diff": [
     "\"In view of Theorem 5.37\" is Proposition 5.38; the bump Theorem 5.43 needs is the classical $C^\\infty$ one (Findings, Chapter 5, item 116)."
    ]
+  },
+  {
+   "id": "V6.1",
+   "title": "Definition 6.1: the space $\\mathrm{Lin}(f, x)$ of linearizations",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.1, Definition 6.1, p. 201 (with pp. 200–201, 219)",
+    "page": 201,
+    "statement": "For an sc-Fredholm section $f$ and a smooth point $x$, $\\mathrm{Lin}(f, x) = \\{(f - s)'(x) + a \\mid a : T_xX \\to Y_x$ an sc⁺-operator$\\}$, where $s$ is a local sc⁺-section with $s(x) = f(x)$, made in a strong bundle chart as $s(y) = R(y, f(x))$. Its members differ by sc⁺-operators and are sc-Fredholm of one index $\\mathrm{ind}(f, x)$; §6.5 adds that $\\mathrm{Lin}(f, x)$ is convex (p. 219)."
+   },
+   "lean": {
+    "statement": "At a chart point $p = (c, z)$ of $x$ (`ChartPoint`, with the spaces $T_zO$ and $K_z$ as `ChartPoint.T`, `ChartPoint.K`), `ChartPoint.linSet` is the set of operators $(f + s)'(x) + a : T_zO \\to K_z$ for an sc⁺-section $s$ with $(f + s)(x) = 0$ and an sc⁺-operator $a$ (`ChartPoint.IsScPlusOp`); for one such $s$ it is $(f + s)'(x)$ plus the sc⁺-operators (`ChartPoint.mem_linSet_iff`). Two such sections give linearizations that differ by an sc⁺-operator; the members are Fredholm on level $0$, all of the index $\\mathrm{ind}(f, x)$ of V3.98 (`ChartPoint.exists_index_linSet`, `ChartPoint.fredholmIndex_of_mem_linSet`); `linSet` is convex, and it is not empty when $P$ has sc⁺-sections through the smooth points of its fibres (`StrongBundle.HasScPlusSectionsThrough`), which bump functions give.",
+    "decls": [
+     "Chapter6/LinSet · ChartPoint",
+     "Chapter6/LinSet · ChartPoint.T",
+     "Chapter6/LinSet · ChartPoint.K",
+     "Chapter6/LinSet · ChartPoint.IsScPlusOp",
+     "Chapter6/LinSet · ChartPoint.linSet",
+     "Chapter6/LinSet · ChartPoint.mem_linSet_iff",
+     "Chapter6/LinSet · ChartPoint.exists_isScPlusOp_linAt_eq",
+     "Chapter6/LinSet · ChartPoint.linSet_nonempty",
+     "Chapter6/LinSet · ChartPoint.isScPlusOp_sub_of_mem_linSet",
+     "Chapter6/LinSet · ChartPoint.isFredholm_isIndexAt_of_mem_linSet",
+     "Chapter6/LinSet · ChartPoint.exists_index_linSet",
+     "Chapter6/LinSet · ChartPoint.fredholmIndex_of_mem_linSet",
+     "Chapter6/LinSet · ChartPoint.convex_linSet",
+     "Chapter3/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough"
+    ]
+   },
+   "chips": [
+    "made at a chart point",
+    "global sc⁺-sections",
+    "Fredholm on level $0$ only"
+   ],
+   "diff": [
+    "$T_xX$ and $Y_x$ carry no linear structure in the project (gaps G.6, G.7, G.13), so $\\mathrm{Lin}(f, x)$ is made at a chart point; chart points are compared in V6.53–V6.55. The text's $f - s$ with $s(x) = f(x)$ is $f + s$ with $(f + s)(x) = 0$ (Findings, Chapter 6, item 40).",
+    "The text constructs a local section through $f(x)$ in a chart; the project uses global ones, which exist under the standing bump functions (the text assumes sc-smooth partitions of unity from §6.2 on, and these give bump functions, V5.49) (Findings, Chapter 6, items 40, 43).",
+    "\"Sc-Fredholm\" is proved on level $0$, which is what the determinant lines use, and not on every level (gap G.64).",
+    "The paragraph before the definition compares $(f - s)'(x)$ with itself where $(f - t)'(x)$ is meant (possible misprint) (Findings, Chapter 6, item 41)."
+   ]
+  },
+  {
+   "id": "V6.2",
+   "title": "The determinant lines $\\lambda(E)$, $\\lambda^*(E)$ and the maps $\\lambda(\\Phi)$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.2, pp. 203–204",
+    "page": 203,
+    "statement": "$\\lambda(E) = \\Lambda^{\\max}E$ and $\\lambda^*(E) = (\\lambda(E))^*$. For $\\Phi : E \\to F$ between spaces of the same dimension, $\\lambda(\\Phi)(a_1 \\wedge \\dots \\wedge a_n) = \\Phi(a_1) \\wedge \\dots \\wedge \\Phi(a_n)$, nontrivial iff $\\Phi$ is an isomorphism, with $\\lambda(\\Psi \\circ \\Phi) = \\lambda(\\Psi) \\circ \\lambda(\\Phi)$; $\\lambda^*(\\Phi)$ is the dual of $\\lambda(\\Phi)$. The dual vector $v^*$ of $v \\ne 0$ in a line is fixed by $v^*(v) = 1$ (p. 204)."
+   },
+   "lean": {
+    "statement": "`maxPow E`, the top exterior power of a finite-dimensional real space, is a line (`finrank_maxPow`), and `maxPowDual E` is its dual. A change of basis multiplies the `wedge` by the determinant (`wedge_eq_det_smul`), also in one block of a two-block wedge (`wedge_append_basis_left`, `wedge_append_basis_right`), and adding to one block vectors of the span of the other does not change the wedge (`wedge_append_add_left`, `wedge_append_add_right`). `dualVec v` is the functional with $v^*(v) = 1$. For $\\dim E = \\dim F$, `maxPowMap` is $\\lambda(\\Phi)$ on wedges (`maxPowMap_wedge`), with $\\lambda(\\Psi\\Phi) = \\lambda(\\Psi)\\lambda(\\Phi)$ (`maxPowMap_comp`), nonzero iff $\\Phi$ is bijective (`maxPowMap_ne_zero_iff`); `maxPowDualMap` is its dual.",
+    "decls": [
+     "Chapter6/DetLine · maxPow",
+     "Chapter6/DetLine · maxPowDual",
+     "Chapter6/DetLine · finrank_maxPow",
+     "Chapter6/DetLine · wedge",
+     "Chapter6/DetLine · wedge_eq_det_smul",
+     "Chapter6/DetLine · wedge_append_basis_left",
+     "Chapter6/DetLine · wedge_append_basis_right",
+     "Chapter6/DetLine · wedge_append_add_left",
+     "Chapter6/DetLine · wedge_append_add_right",
+     "Chapter6/DetLine · dualVec",
+     "Chapter6/DetLine · dualVec_self",
+     "Chapter6/DetLine · eq_dualVec_of_apply_eq_one",
+     "Chapter6/DetLine · maxPowMap",
+     "Chapter6/DetLine · maxPowMap_wedge",
+     "Chapter6/DetLine · maxPowMap_comp",
+     "Chapter6/DetLine · maxPowMap_ne_zero_iff",
+     "Chapter6/DetLine · maxPowDualMap"
+    ]
+   },
+   "chips": [
+    "two-block wedges for (91)"
+   ],
+   "diff": [
+    "As in the text; the facts on two-block wedges are the tools of every later computation with (91)."
+   ]
+  },
+  {
+   "id": "V6.3",
+   "title": "Definition 6.3: the isomorphism $\\iota : \\lambda(E^*) \\to \\lambda^*(E)$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.2, Definition 6.3, p. 204",
+    "page": 204,
+    "statement": "$\\iota(e_1^* \\wedge \\dots \\wedge e_n^*)(a_1 \\wedge \\dots \\wedge a_n) = \\det(e_i^*(a_j))$, $n = \\dim E$, with $\\lambda(\\{0\\}^*) = \\mathbb R$ for $n = 0$. For a basis and its dual basis, $\\iota(e_1^* \\wedge \\dots \\wedge e_n^*) = (e_1 \\wedge \\dots \\wedge e_n)^*$."
+   },
+   "lean": {
+    "statement": "`iotaDual`: a nonzero linear map of lines $\\lambda(E^*) \\to \\lambda^*(E)$ (`iotaDual_ne_zero`) with the value $\\det(e_i^*(a_j))$ on wedges (`iotaDual_wedge_wedge`), and $\\iota(e_1^* \\wedge \\dots \\wedge e_n^*) = (e_1 \\wedge \\dots \\wedge e_n)^*$ for a basis and its dual basis (`iotaDual_wedge_dualBasis`).",
+    "decls": [
+     "Chapter6/DetLine · iotaDual",
+     "Chapter6/DetLine · iotaDual_wedge_wedge",
+     "Chapter6/DetLine · iotaDual_wedge_dualBasis",
+     "Chapter6/DetLine · iotaDual_ne_zero"
+    ]
+   },
+   "chips": [
+    "$n = 0$: the zeroth power"
+   ],
+   "diff": [
+    "As in the text; the convention $\\lambda(\\{0\\}^*) = \\mathbb R$ is the zeroth exterior power, and the text's matrix $(e_i^*(a_j))$ is the transpose of Mathlib's, with the same determinant."
+   ]
+  },
+  {
+   "id": "V6.4",
+   "title": "Proposition 6.4",
+   "verdict": "same",
+   "book": {
+    "label": "§6.2, Proposition 6.4, p. 205",
+    "page": 205,
+    "statement": "For an isomorphism $\\Phi : E \\to F$ of finite-dimensional spaces, the square with $\\lambda(\\Phi^*) : \\lambda(F^*) \\to \\lambda(E^*)$, $\\lambda^*(\\Phi) : \\lambda^*(F) \\to \\lambda^*(E)$ and the two maps $\\iota$ commutes: $\\lambda^*(\\Phi) \\circ \\iota = \\iota \\circ \\lambda(\\Phi^*)$."
+   },
+   "lean": {
+    "statement": "`proposition_6_4`: $\\lambda^*(\\Phi) \\circ \\iota = \\iota \\circ \\lambda(\\Phi^*)$.",
+    "decls": [
+     "Chapter6/DetLine · proposition_6_4"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As in the text."
+   ]
+  },
+  {
+   "id": "V6.5",
+   "title": "Four-term exact sequences and the isomorphism $\\Phi_E$ of (91)",
+   "verdict": "same",
+   "book": {
+    "label": "§6.2, p. 206, formula (91)",
+    "page": 206,
+    "statement": "For an exact sequence $0 \\to A \\xrightarrow{\\alpha} B \\xrightarrow{\\beta} C \\xrightarrow{\\gamma} D \\to 0$ of finite-dimensional spaces, choose $B = \\alpha(A) \\oplus Z$, $C = \\beta(B) \\oplus V$, bases $a$ of $A$, $d$ of $D$, $b'$ of $Z$, $c_i \\in V$ with $\\gamma(c_i) = d_i$ and $c'_i = \\beta(b'_i)$. Then $\\Phi_E((a_1 \\wedge \\dots \\wedge a_n) \\otimes (d_1 \\wedge \\dots \\wedge d_l)^*) = (\\alpha(a_1) \\wedge \\dots \\wedge \\alpha(a_n) \\wedge b'_1 \\wedge \\dots \\wedge b'_{m-n}) \\otimes (c_1 \\wedge \\dots \\wedge c_l \\wedge c'_1 \\wedge \\dots \\wedge c'_{m-n})^*$, with the two conventions on the order of the vectors."
+   },
+   "lean": {
+    "statement": "`FourTermExact`: the exact sequence. A `FourTermExact.Choice` is the data of (91) (the complements $Z$ of $\\alpha(A)$ and $V$ of $\\beta(B)$, bases of $A$, $D$, $Z$, and the $\\gamma$-preimages in $V$ of the basis of $D$), and `Choice.value` is the right-hand side of (91). `FourTermExact.phi`: the linear map $\\lambda(A) \\otimes \\lambda^*(D) \\to \\lambda(B) \\otimes \\lambda^*(C)$ given by (91) for one choice (`canonicalChoice`), nonzero (`phi_ne_zero`), an isomorphism of lines (`phiEquiv`).",
+    "decls": [
+     "Chapter6/ExactSequence · FourTermExact",
+     "Chapter6/ExactSequence · FourTermExact.Choice",
+     "Chapter6/ExactSequence · FourTermExact.Choice.value",
+     "Chapter6/ExactSequence · FourTermExact.canonicalChoice",
+     "Chapter6/ExactSequence · FourTermExact.phi",
+     "Chapter6/ExactSequence · FourTermExact.phi_ne_zero",
+     "Chapter6/ExactSequence · FourTermExact.phiEquiv"
+    ]
+   },
+   "chips": [
+    "defined from one choice"
+   ],
+   "diff": [
+    "As in the text; that the definition does not depend on the choice is Lemma 6.5 (V6.6)."
+   ]
+  },
+  {
+   "id": "V6.6",
+   "title": "Lemma 6.5: $\\Phi_E$ does not depend on the choices",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.2, Lemma 6.5, p. 206 (proof §6.7.1, pp. 234–235)",
+    "page": 206,
+    "statement": "With the two ordering conventions, the definition of $\\Phi_E$ does not depend on the choices."
+   },
+   "lean": {
+    "statement": "`FourTermExact.lemma_6_5`: $\\Phi_E$, defined from one choice, maps $(a_1 \\wedge \\dots \\wedge a_n) \\otimes (d_1 \\wedge \\dots \\wedge d_l)^*$ to the right-hand side of (91) computed with any other choice, for all bases $a$ of $A$ and $d$ of $D$.",
+    "decls": [
+     "Chapter6/ExactSequence · FourTermExact.lemma_6_5"
+    ]
+   },
+   "chips": [
+    "(91) holds for every choice"
+   ],
+   "diff": [
+    "\"Does not depend on the choices\" is read as (91) holding for every choice, the strongest form and the one every later computation of $\\gamma^P_T$ uses, each with its own choices. The proof follows §6.7.1 (V6.63) (Findings, Chapter 6, item 1)."
+   ]
+  },
+  {
+   "id": "V6.7",
+   "title": "Proposition 6.6: the isomorphism $\\Psi_E$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.2, (92) and Proposition 6.6, p. 207",
+    "page": 207,
+    "statement": "$\\Psi_E : \\lambda(C) \\otimes \\lambda(A) \\otimes \\lambda^*(D) \\to \\lambda(B)$ is $c \\otimes h \\mapsto \\bar\\iota(c \\otimes \\Phi_E(h))$, with $\\bar\\iota(v \\otimes b \\otimes v^*) = b$. With the bases of (91) and $c = c'_1 \\wedge \\dots \\wedge c'_l \\wedge c_1 \\wedge \\dots \\wedge c_{m-n}$, $\\Psi_E(c \\otimes a \\otimes d^*) = b_1 \\wedge \\dots \\wedge b_n \\wedge b'_1 \\wedge \\dots \\wedge b'_{m-n}$."
+   },
+   "lean": {
+    "statement": "`contractDual`: $\\bar\\iota(v \\otimes b \\otimes \\varphi) = \\varphi(v)\\,b$; `FourTermExact.psi`: $\\Psi_E(c \\otimes h) = \\bar\\iota(c \\otimes \\Phi_E(h))$. `FourTermExact.proposition_6_6`: $\\Psi_E$ maps the wedge of the basis of $C$ of (91), the $\\gamma$-preimages first, tensored with $(a_1 \\wedge \\dots \\wedge a_n) \\otimes (d_1 \\wedge \\dots \\wedge d_l)^*$, to $\\alpha(a_1) \\wedge \\dots \\wedge \\alpha(a_n) \\wedge b'_1 \\wedge \\dots \\wedge b'_{m-n}$.",
+    "decls": [
+     "Chapter6/ExactSequence · contractDual",
+     "Chapter6/ExactSequence · FourTermExact.psi",
+     "Chapter6/ExactSequence · FourTermExact.proposition_6_6"
+    ]
+   },
+   "chips": [
+    "the wedge in $C$ in the order of (91)"
+   ],
+   "diff": [
+    "The statement writes the basis of $C$ with the names of its two blocks exchanged with respect to (91) (possible misprint); the order meant is (91)'s, the $\\gamma$-preimages first, and the formal statement uses it (Findings, Chapter 6, item 2)."
+   ]
+  },
+  {
+   "id": "V6.8",
+   "title": "Definition 6.7: the determinant $\\det(T)$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, Definition 6.7, p. 208",
+    "page": 208,
+    "statement": "For a bounded Fredholm operator $T : E \\to F$ between real Banach spaces, $\\det(T) = \\lambda(\\ker T) \\otimes \\lambda^*(\\operatorname{coker} T)$, a line. Some authors use $\\lambda(\\ker T) \\otimes \\lambda(\\operatorname{coker}(T)^*)$; the two are naturally isomorphic given a convention identifying $\\lambda^*(A)$ and $\\lambda(A^*)$."
+   },
+   "lean": {
+    "statement": "`linDet`, `fredholmDet`: $\\det(T) = \\lambda(\\ker T) \\otimes \\lambda^*(F/R(T))$, a line for $T$ Fredholm (`finrank_fredholmDet`); equal operators have identified determinants (`linDetEquivOfEq`).",
+    "decls": [
+     "Chapter6/FredholmDet · linDet",
+     "Chapter6/FredholmDet · fredholmDet",
+     "Chapter6/FredholmDet · finrank_fredholmDet",
+     "Chapter6/FredholmDet · linDetEquivOfEq"
+    ]
+   },
+   "chips": [
+    "alternative definition: gap G.57"
+   ],
+   "diff": [
+    "As in the text; the alternative definition and its identification with Definition 6.7 are not formalized and not used (gap G.57; Findings, Chapter 6, item 10)."
+   ]
+  },
+  {
+   "id": "V6.9",
+   "title": "Definition 6.8: orientations of a Fredholm operator",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, Definition 6.8, p. 208",
+    "page": 208,
+    "statement": "An orientation of a Fredholm operator $T : E \\to F$ is an orientation of the line $\\det(T)$."
+   },
+   "lean": {
+    "statement": "`FredholmOrientation T`: a ray of $\\det(T)$ (Mathlib's `Module.Ray`); a Fredholm operator has one (`nonempty_fredholmOrientation`), and exactly two (`exists_two_fredholmOrientation`).",
+    "decls": [
+     "Chapter6/FredholmDet · FredholmOrientation",
+     "Chapter6/FredholmDet · nonempty_fredholmOrientation",
+     "Chapter6/FredholmDet · exists_two_fredholmOrientation"
+    ]
+   },
+   "chips": [
+    "orientation = ray"
+   ],
+   "diff": [
+    "As in the text."
+   ]
+  },
+  {
+   "id": "V6.10",
+   "title": "Definition 6.9: good left-projections and their order",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, Definition 6.9 and the paragraphs after it, p. 208",
+    "page": 208,
+    "statement": "A good left-projection for a Fredholm $T : E \\to F$ is a bounded projection $P : F \\to F$ with (1) $\\dim F/R(P) < \\infty$ and (2) $R(P \\circ T) = R(P)$; $\\Pi_T$ is their set. Then $P$ is Fredholm of index $0$, $PT$ is Fredholm with $\\mathrm{ind}(PT) = \\mathrm{ind}(T)$, $P \\le Q$ iff $P = PQ = QP$ is a partial order on $\\Pi_T$, and $R(P) \\cap R(P')$ has finite codimension."
+   },
+   "lean": {
+    "statement": "`IsGoodLeftProj T P`, `goodLeftProjs T`; `ProjLE` is reflexive, antisymmetric and transitive (`ProjLE.refl`, `ProjLE.antisymm`, `ProjLE.trans`). A good left-projection is Fredholm of index $0$ (`IsGoodLeftProj.isFredholm`, `IsGoodLeftProj.fredholmIndex_eq_zero`), $PT$ is Fredholm with $\\mathrm{ind}(PT) = \\mathrm{ind}(T)$ (`IsGoodLeftProj.isFredholm_comp`, `IsGoodLeftProj.fredholmIndex_comp`), $F/(R(P) \\cap R(P'))$ is finite-dimensional (`IsGoodLeftProj.finiteDimensional_quotient_inf`), and $\\Pi_T$ is not empty for $T$ Fredholm (`exists_isGoodLeftProj`).",
+    "decls": [
+     "Chapter6/GoodProjections · IsGoodLeftProj",
+     "Chapter6/GoodProjections · goodLeftProjs",
+     "Chapter6/GoodProjections · ProjLE",
+     "Chapter6/GoodProjections · ProjLE.refl",
+     "Chapter6/GoodProjections · ProjLE.antisymm",
+     "Chapter6/GoodProjections · ProjLE.trans",
+     "Chapter6/GoodProjections · IsGoodLeftProj.isFredholm",
+     "Chapter6/GoodProjections · IsGoodLeftProj.fredholmIndex_eq_zero",
+     "Chapter6/GoodProjections · IsGoodLeftProj.isFredholm_comp",
+     "Chapter6/GoodProjections · IsGoodLeftProj.fredholmIndex_comp",
+     "Chapter6/GoodProjections · IsGoodLeftProj.finiteDimensional_quotient_inf",
+     "Chapter6/GoodProjections · exists_isGoodLeftProj"
+    ]
+   },
+   "chips": [
+    "$\\Pi_T \\ne \\emptyset$ proved"
+   ],
+   "diff": [
+    "As in the text. That $\\Pi_T \\ne \\emptyset$, used from Lemma 6.11 on, is not stated there; for $T$ Fredholm the projection onto $R(T)$ along a finite-dimensional complement is good (Findings, Chapter 6, item 3)."
+   ]
+  },
+  {
+   "id": "V6.11",
+   "title": "Lemma 6.10: a common lower bound in $\\Pi_T$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§6.3, Lemma 6.10, p. 208 (proof pp. 208–209)",
+    "page": 208,
+    "statement": "For $P, P' \\in \\Pi_T$ there is $P'' \\in \\Pi_T$ with $P'' \\le P$ and $P'' \\le P'$. The proof takes topological complements $X$, $X'$ of $R(P) \\cap R(P')$ in $R(P)$, $R(P')$, a topological complement $Z$ of $X \\oplus X' \\oplus (R(P) \\cap R(P'))$ in $F$, and $P''$ the projection onto $R(P) \\cap R(P')$ along $Z \\oplus X \\oplus X'$."
+   },
+   "lean": {
+    "statement": "`lemma_6_10`: for any bounded $T$, not necessarily Fredholm, and $P, P' \\in \\Pi_T$, some $P'' \\in \\Pi_T$ with $P'' \\le P$ and $P'' \\le P'$. `lemma_6_10_text_reading`: on $\\mathbb R^2$ with $T = 1$ there are $P, P' \\in \\Pi_T$ such that no projection with range $R(P) \\cap R(P')$ lies below both.",
+    "decls": [
+     "Chapter6/GoodProjections · lemma_6_10",
+     "Chapter6/GoodProjections · lemma_6_10_text_reading"
+    ]
+   },
+   "chips": [
+    "$T$ need not be Fredholm",
+    "another construction"
+   ],
+   "diff": [
+    "As we read it, $P'' = P''P$ does not hold for the text's $P''$ in general, since it needs $\\ker P \\subseteq \\ker P''$: for $P$ the projection of $\\mathbb R^2$ onto the $x$-axis along the $y$-axis and $P'$ the one along the diagonal, a projection onto $R(P) \\cap R(P')$ below both would equal both. The formalized $P''$ projects onto $R(P) \\cap R(P') \\cap N$, for a closed finite-codimensional $N$ meeting $\\ker P + \\ker P'$ only in $0$ (Hahn–Banach), along a closed complement containing $\\ker P + \\ker P'$ (Findings, Chapter 6, item 4).",
+    "The 2017 version drops the lemma and remarks that such a lower bound need not exist; with the order $P \\le Q$ iff $P = PQ = QP$ it always exists, as we read it, so the preprint's route to Lemma 6.25 is the one formalized (Findings, Chapter 6, item 4)."
+   ]
+  },
+  {
+   "id": "V6.12",
+   "title": "Lemma 6.11: the exact sequence $E(T, P)$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, Lemma 6.11, p. 209",
+    "page": 209,
+    "statement": "For $P \\in \\Pi_T$ the sequence $0 \\to \\ker T \\to \\ker(PT) \\to F/R(P) \\to \\operatorname{coker} T \\to 0$, with the inclusion $j^P_T$, $\\Phi^P_T(x) = Tx + R(P)$ and $\\pi^P_T(f + R(P)) = (I - P)f + R(T)$, is exact."
+   },
+   "lean": {
+    "statement": "`projSeqJ`, `projSeqPhi`, `projSeqPi`: the three maps; `lemma_6_11`: the sequence is exact, and `projSeq` is it as a four-term exact sequence.",
+    "decls": [
+     "Chapter6/ProjectionSequence · projSeqJ",
+     "Chapter6/ProjectionSequence · projSeqPhi",
+     "Chapter6/ProjectionSequence · projSeqPi",
+     "Chapter6/ProjectionSequence · lemma_6_11",
+     "Chapter6/ProjectionSequence · projSeq"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As in the text."
+   ]
+  },
+  {
+   "id": "V6.13",
+   "title": "The isomorphism $\\gamma^P_T : \\det(T) \\to \\det(PT)$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, p. 210",
+    "page": 210,
+    "statement": "From $E(T, P)$, \"recalling $R(P) = R(PT)$\", $\\Phi_{E(T,P)}$ is an isomorphism $\\det(T) \\to \\det(PT)$, renamed $\\gamma^P_T$."
+   },
+   "lean": {
+    "statement": "`gammaProj`: $\\Phi_{E(T,P)}$ followed by the identification of $\\lambda^*(F/R(P))$ with $\\lambda^*(F/R(PT))$ by the identity of $F$; on wedges it is given by (91), for any choice (`gammaProj_tmul`, `gammaProj_wedge_tmul`).",
+    "decls": [
+     "Chapter6/ProjectionSequence · gammaProj",
+     "Chapter6/ProjectionSequence · gammaProj_tmul",
+     "Chapter6/ProjectionSequence · gammaProj_wedge_tmul"
+    ]
+   },
+   "chips": [
+    "$F/R(P) = F/R(PT)$ made explicit"
+   ],
+   "diff": [
+    "\"Recalling $R(P) = R(PT)$\" is read as this identification. In Proposition 6.12 and Corollary 6.13 the equal operators $P(QT)$ and $PT$ have kernels of different types, so the statements carry the identification $\\det(P(QT)) = \\det(PT)$ (`linDetEquivOfEq`), bookkeeping, not a change of content (Findings, Chapter 6, item 5)."
+   ]
+  },
+  {
+   "id": "V6.14",
+   "title": "Proposition 6.12: $\\gamma^P_{QT} \\circ \\gamma^Q_T = \\gamma^P_T$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, Proposition 6.12, p. 211 (proof §6.7.2, pp. 235–237)",
+    "page": 211,
+    "statement": "For a Fredholm $T$ and $Q, P \\in \\Pi_T$ with $P \\le Q$, $QT$ is Fredholm, $P \\in \\Pi_{QT}$, and $\\gamma^P_{QT} \\circ \\gamma^Q_T = \\gamma^P_T$."
+   },
+   "lean": {
+    "statement": "`proposition_6_12`: the same, up to the identification $\\det(P(QT)) = \\det(PT)$ of the equal operators $PQT = PT$ (`comp_comp_eq_of_projLE`); $P \\in \\Pi_{QT}$ is `IsGoodLeftProj.of_projLE`.",
+    "decls": [
+     "Chapter6/ProjectionSequence · proposition_6_12",
+     "Chapter6/ProjectionSequence · IsGoodLeftProj.of_projLE",
+     "Chapter6/ProjectionSequence · comp_comp_eq_of_projLE"
+    ]
+   },
+   "chips": [
+    "up to $\\det(PQT) = \\det(PT)$"
+   ],
+   "diff": [
+    "As in the text; the proof is that of §6.7.2 (V6.64) (Findings, Chapter 6, items 5, 6)."
+   ]
+  },
+  {
+   "id": "V6.15",
+   "title": "Corollary 6.13",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, Corollary 6.13, p. 211",
+    "page": 211,
+    "statement": "For $P, R, S \\in \\Pi_T$ with $P \\le R$ and $P \\le S$, the map $h \\mapsto (\\gamma^P_{RT})^{-1} \\circ \\gamma^P_{ST}(h)$, $\\det(ST) \\to \\det(RT)$, does not depend on $P$, and it equals $\\gamma^R_T \\circ (\\gamma^S_T)^{-1}$."
+   },
+   "lean": {
+    "statement": "`corollary_6_13`: $(\\gamma^P_{RT})^{-1} \\circ \\gamma^P_{ST} = \\gamma^R_T \\circ (\\gamma^S_T)^{-1}$ for every such $P$, so the left side does not depend on $P$.",
+    "decls": [
+     "Chapter6/ProjectionSequence · corollary_6_13"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As in the text."
+   ]
+  },
+  {
+   "id": "V6.16",
+   "title": "The stabilization $T_\\varphi$ and Lemma 6.14",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, pp. 211–212, Lemma 6.14, p. 212",
+    "page": 211,
+    "statement": "For $T$ Fredholm and a linear $\\varphi : \\mathbb R^n \\to F$ with $T_\\varphi(e, r) = Te + \\varphi(r)$ onto, the sequence $0 \\to \\ker T \\to \\ker T_\\varphi \\to \\mathbb R^n \\to F/R(T) \\to 0$ with $j(e) = (e, 0)$, $\\pi(e, r) = r$ and $[\\varphi](r) = \\varphi(r) + R(T)$ is exact."
+   },
+   "lean": {
+    "statement": "`stabJ`, `stabPi`, `stabClass`: the maps; `lemma_6_14`: the sequence is exact, and `stabSeq` is it as a four-term exact sequence; `exists_surjective_coprod`: every Fredholm $T$ has a stabilizing $\\varphi$.",
+    "decls": [
+     "Chapter6/Stabilization · stabJ",
+     "Chapter6/Stabilization · stabPi",
+     "Chapter6/Stabilization · stabClass",
+     "Chapter6/Stabilization · lemma_6_14",
+     "Chapter6/Stabilization · stabSeq",
+     "Chapter6/Stabilization · exists_surjective_coprod"
+    ]
+   },
+   "chips": [
+    "stabilizations exist"
+   ],
+   "diff": [
+    "As in the text; the proof writes $j(e) = (0, e)$ for $(e, 0)$ (possible misprint) (Findings, Chapter 6, item 8)."
+   ]
+  },
+  {
+   "id": "V6.17",
+   "title": "Formula (94): the isomorphism $\\psi : \\lambda^*(\\mathbb R^n) \\to \\lambda^*(\\{0\\})$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, formula (94), p. 212",
+    "page": 212,
+    "statement": "$\\psi((e_1 \\wedge \\dots \\wedge e_n)^*) = 1^*$ for the standard basis; then $\\psi((c_1 \\wedge \\dots \\wedge c_n)^*) = \\det([c_1, \\dots, c_n])^{-1}\\,1^*$ for every basis $c$ of $\\mathbb R^n$."
+   },
+   "lean": {
+    "statement": "`stdWedge` (the wedge of the standard basis), `stabOne` ($1^* \\in \\lambda^*(\\{0\\})$) and `stabPsi`; `stabPsi_dualVec`: formula (94) for every basis.",
+    "decls": [
+     "Chapter6/Stabilization · stdWedge",
+     "Chapter6/Stabilization · stabOne",
+     "Chapter6/Stabilization · stabPsi",
+     "Chapter6/Stabilization · stabPsi_dualVec"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As in the text."
+   ]
+  },
+  {
+   "id": "V6.18",
+   "title": "Proposition 6.15: the isomorphism $\\iota_\\varphi : \\det(T) \\to \\det(T_\\varphi)$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.3, Proposition 6.15, p. 213",
+    "page": 213,
+    "statement": "With (94), $\\iota_\\varphi$ is given as follows: for a basis $a$ of $\\ker T$, $\\bar d_i = \\varphi(\\bar c_i) + R(T)$ a basis of $F/R(T)$ and $\\bar b_j = (b_j, r_j)$ completing $(a_i, 0)$ to a basis of $\\ker T_\\varphi$, the $r_j$ and $\\bar c_i$ form a basis of $\\mathbb R^n$, and $\\iota_\\varphi(h) = \\det(\\bar c_1, \\dots, \\bar c_m, r_1, \\dots, r_l)^{-1}((a_1, 0) \\wedge \\dots \\wedge (a_k, 0) \\wedge \\bar b_1 \\wedge \\dots \\wedge \\bar b_l) \\otimes 1^*$."
+   },
+   "lean": {
+    "statement": "`stabIota`: $\\iota_\\varphi = (1 \\otimes \\psi) \\circ \\Phi_E$, an isomorphism (`stabIota_bijective`). `proposition_6_15`: the formula, under the hypothesis $m + l = n$ needed to form $\\det(\\bar c, r)$, which always holds (`stab_card_eq`); the $r_j$ and $\\bar c_i$ form a basis of $\\mathbb R^n$ (`isCompl_range_stabPi_span`).",
+    "decls": [
+     "Chapter6/Stabilization · stabIota",
+     "Chapter6/Stabilization · stabIota_bijective",
+     "Chapter6/Stabilization · stab_card_eq",
+     "Chapter6/Stabilization · isCompl_range_stabPi_span",
+     "Chapter6/Stabilization · proposition_6_15"
+    ]
+   },
+   "chips": [
+    "$m + l = n$ proved",
+    "(95): gap G.58"
+   ],
+   "diff": [
+    "The two facts the text notices, $m + l = n$ and the basis of $\\mathbb R^n$, are proved. The statement calls $\\psi$ \"$\\varphi$\", already the name of the stabilizing map (possible misprint) (Findings, Chapter 6, item 9).",
+    "The identification (95) and the maps $V \\otimes \\lambda(\\mathbb R^n) \\to V$, $V \\otimes \\lambda^*(\\mathbb R^n) \\to V$ after the proposition are not formalized; the formal statements use (94) only (gap G.58; Findings, Chapter 6, item 10)."
+   ]
+  },
+  {
+   "id": "V6.19",
+   "title": "Definition 6.16: the direct sum convention",
+   "verdict": "same",
+   "book": {
+    "label": "§6.3, Definition 6.16, p. 214",
+    "page": 214,
+    "statement": "For Fredholm $T : E \\to F$ and $S : E' \\to F'$, $T \\oplus S$ is Fredholm, and the natural isomorphism $\\det(T) \\otimes \\det(S) \\to \\det(T \\oplus S)$ maps $h \\otimes h'$, $h = a \\otimes d^*$, $h' = a' \\otimes d'^*$, to $(a_1 \\wedge \\dots \\wedge a_n \\wedge a'_1 \\wedge \\dots \\wedge a'_{n'}) \\otimes (d_1 \\wedge \\dots \\wedge d_l \\wedge d'_1 \\wedge \\dots \\wedge d'_{l'})^*$."
+   },
+   "lean": {
+    "statement": "$\\ker(T \\oplus S) \\cong \\ker T \\times \\ker S$ and $\\operatorname{coker}(T \\oplus S) \\cong \\operatorname{coker} T \\times \\operatorname{coker} S$ (`kerProdEquiv`, `cokerProdEquiv`, from `kerInl`, `kerInr`, `cokerInl`, `cokerInr`, with `finrank_ker_prodMap`, `finrank_coker_prodMap`), so $T \\oplus S$ is Fredholm (`isFredholm_prodMap`). `directSumDet`, defined by the formula for one choice of bases (`directSumVec`), satisfies it for every choice (`directSumVec_eq_smul`, `definition_6_16`) and is an isomorphism (`directSumDet_bijective`).",
+    "decls": [
+     "Chapter6/DirectSumDet · kerInl",
+     "Chapter6/DirectSumDet · kerInr",
+     "Chapter6/DirectSumDet · cokerInl",
+     "Chapter6/DirectSumDet · cokerInr",
+     "Chapter6/DirectSumDet · kerProdEquiv",
+     "Chapter6/DirectSumDet · cokerProdEquiv",
+     "Chapter6/DirectSumDet · finrank_ker_prodMap",
+     "Chapter6/DirectSumDet · finrank_coker_prodMap",
+     "Chapter6/DirectSumDet · isFredholm_prodMap",
+     "Chapter6/DirectSumDet · directSumVec",
+     "Chapter6/DirectSumDet · directSumDet",
+     "Chapter6/DirectSumDet · directSumVec_eq_smul",
+     "Chapter6/DirectSumDet · definition_6_16",
+     "Chapter6/DirectSumDet · directSumDet_bijective"
+    ]
+   },
+   "chips": [
+    "\"natural\" = the formula for every choice"
+   ],
+   "diff": [
+    "\"Natural\" is read as the formula for every choice of bases, as for Lemma 6.5 (Findings, Chapter 6, item 11)."
+   ]
+  },
+  {
+   "id": "V6.20",
+   "title": "Lemma 6.17",
+   "verdict": "stronger",
+   "book": {
+    "label": "§6.4, Lemma 6.17, p. 214",
+    "page": 214,
+    "statement": "For a Fredholm $T$, $P \\in \\Pi_T$ and a topological complement $Y$ of $\\ker(PT)$ in $E$ there is $\\varepsilon > 0$ such that for $\\|S - T\\| < \\varepsilon$: (1) $P \\in \\Pi_S$; (2) $PS|_Y : Y \\to R(P)$ is a topological isomorphism."
+   },
+   "lean": {
+    "statement": "`lemma_6_17`: the same for any bounded $T$, with $Y$ a topological complement in the sense of Mathlib's `Submodule.IsTopCompl` (an algebraic complement with a continuous projection); `projRestrict P S Y` is $PS|_Y$, and `FredholmOp` is the space of Fredholm operators.",
+    "decls": [
+     "Chapter6/LocalDetBundle · FredholmOp",
+     "Chapter6/LocalDetBundle · projRestrict",
+     "Chapter6/LocalDetBundle · lemma_6_17"
+    ]
+   },
+   "chips": [
+    "$T$ need not be Fredholm"
+   ],
+   "diff": [
+    "The hypothesis that $T$ is Fredholm is not used (Findings, Chapter 6, item 20)."
+   ]
+  },
+  {
+   "id": "V6.21",
+   "title": "Lemma 6.18: the kernels $\\ker(PS)$ form a trivial bundle",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.4, Lemma 6.18, p. 215",
+    "page": 215,
+    "statement": "With $y(k, S) = -(PS|_Y)^{-1}PSk$, continuous in $(k, S)$, the space $\\bigcup_{\\|S - T\\| < \\varepsilon}\\{S\\} \\times \\ker(PS)$ with its projection \"has the structure of a trivial vector bundle\": $(S, k) \\mapsto (S, k + y(k, S))$ is a continuous bijection from $\\{\\|S - T\\| < \\varepsilon\\} \\times \\ker(PT)$, with inverse $(S, k + y) \\mapsto (S, k)$."
+   },
+   "lean": {
+    "statement": "`LocalDetChart`: the data $(T, P, Y, \\varepsilon)$ of Lemma 6.17 with its conclusions; `LocalDetChart.ySol` is $y(k, S)$. `LocalDetChart.lemma_6_18`: `kerMap`, $(S, k) \\mapsto (S, k + y(k, S))$, is continuous and maps $\\ker(PT)$ onto $\\bigcup_S\\{S\\} \\times \\ker(PS)$, and it is inverted by the continuous projection `kerProj` onto $\\ker(PT)$ along $Y$.",
+    "decls": [
+     "Chapter6/LocalDetBundle · LocalDetChart",
+     "Chapter6/LocalDetBundle · LocalDetChart.ySol",
+     "Chapter6/LocalDetBundle · LocalDetChart.kerMap",
+     "Chapter6/LocalDetBundle · LocalDetChart.kerProj",
+     "Chapter6/LocalDetBundle · LocalDetChart.lemma_6_18"
+    ]
+   },
+   "chips": [
+    "\"trivial bundle\" made concrete"
+   ],
+   "diff": [
+    "\"Is a trivial vector bundle\" is stated as this trivialization and its continuous inverse (Findings, Chapter 6, item 21)."
+   ]
+  },
+  {
+   "id": "V6.22",
+   "title": "Lemma 6.19 in the case used, and Proposition 6.20: $\\mathrm{DET}(T, P, \\varepsilon)$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.4, Lemma 6.19 and Proposition 6.20, p. 216",
+    "page": 216,
+    "statement": "Lemma 6.19, a standard lemma: for finite-dimensional topological vector bundles $E$, $F$, the bundles $\\lambda(E)$, $\\lambda^*(F)$, $E \\oplus F$ and $E \\otimes F$ are topological vector bundles in a natural way. Proposition 6.20, deduced from it: $\\mathrm{DET}(T, P, \\varepsilon) = \\bigcup_{\\|S - T\\| < \\varepsilon}\\{S\\} \\times \\det(PS)$ has in a natural way the structure of a topological line bundle."
+   },
+   "lean": {
+    "statement": "Over the ball of a local determinant chart, `LocalDetChart.frame` $\\omega(S) = (k_1(S) \\wedge \\dots \\wedge k_n(S)) \\otimes (e_1 \\wedge \\dots \\wedge e_l)^*$, with $k_i(S) = k_i + y(k_i, S)$ (`kerFrame`) and a constant basis $e$ of $F/R(P) = F/R(PS)$, is nowhere zero (`LocalDetChart.frame_ne_zero`). `proposition_6_20`: the frames of two charts with the same $P$ differ by a continuous nowhere-zero factor.",
+    "decls": [
+     "Chapter6/LocalDetBundle · LocalDetChart.kerFrame",
+     "Chapter6/LocalDetBundle · LocalDetChart.frame",
+     "Chapter6/LocalDetBundle · LocalDetChart.frame_ne_zero",
+     "Chapter6/LocalDetBundle · proposition_6_20"
+    ]
+   },
+   "chips": [
+    "Lemma 6.19 for trivial bundles only",
+    "explicit frames"
+   ],
+   "diff": [
+    "Lemma 6.19 is not formalized in general (Mathlib has no exterior powers or tensor products of vector bundles; gap G.59). The bundles it is applied to are trivial, and Proposition 6.20 is proved with the explicit frames; \"in a natural way\" is read as the relation between the frames of two charts (Findings, Chapter 6, item 22)."
+   ]
+  },
+  {
+   "id": "V6.23",
+   "title": "Lemma 6.21",
+   "verdict": "stronger",
+   "book": {
+    "label": "§6.4, Lemma 6.21, p. 216 (sketch pp. 216–217)",
+    "page": 216,
+    "statement": "For $Q \\le P$ in $\\Pi_T$, $(S, h) \\mapsto (S, \\gamma^Q_{PS}(h))$, $\\mathrm{DET}(T, P, \\varepsilon) \\to \\mathrm{DET}(T, Q, \\varepsilon)$, is a topological line bundle isomorphism; \"this is trivial\", and the sketch extends continuous sections spanning $\\ker(PS)$ to sections spanning $\\ker(QS)$."
+   },
+   "lean": {
+    "statement": "`LocalDetChart.gammaProj_frame_eq`, `lemma_6_21`: on the common ball of any two local determinant charts with projections $Q \\le P$, $\\gamma^Q_{PS}$ maps the $P$-frame at $S$ to a continuous nowhere-zero multiple of the $Q$-frame.",
+    "decls": [
+     "Chapter6/LocalDetBundle · LocalDetChart.gammaProj_frame_eq",
+     "Chapter6/LocalDetBundle · lemma_6_21"
+    ]
+   },
+   "chips": [
+    "two charts, any centres and radii"
+   ],
+   "diff": [
+    "Stated for two charts with different centres and radii, the form Lemma 6.25 uses; the text's sketch, extending the kernel sections of $PS$ to sections spanning $\\ker(QS)$, is the proof (Findings, Chapter 6, item 23)."
+   ]
+  },
+  {
+   "id": "V6.24",
+   "title": "$\\mathrm{DET}(E, F)$ and the charts $\\gamma_{(T,P,\\varepsilon)}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.4, p. 217",
+    "page": 217,
+    "statement": "$\\mathrm{DET}(E, F) = \\bigcup_S\\{S\\} \\times \\det(S)$ over the Fredholm operators $S$. For a Fredholm $T$, Proposition 6.20 gives $\\varepsilon > 0$ and $P \\in \\Pi_T$ with $\\gamma_{(T,P,\\varepsilon)} : (S, h) \\mapsto (S, \\gamma^P_S(h))$ a fibrewise linear bijection from $\\mathrm{DET}(E, F)$ over the ball onto $\\mathrm{DET}(T, P, \\varepsilon)$."
+   },
+   "lean": {
+    "statement": "`DetFiber`: the fibre $\\det(S)$ over a Fredholm $S$. `LocalDetChart.pretriv`: the pretrivialization $(S, h) \\mapsto (S, \\omega(S)^*(\\gamma^P_S h))$ with model fibre $\\mathbb R$ (`LocalDetChart.coord`); every Fredholm operator is the centre of a chart (`exists_localDetChart`); `detPrebundle`: the Mathlib vector prebundle these charts form, whose topology and bundle structure are those of $\\mathrm{DET}(E, F)$.",
+    "decls": [
+     "Chapter6/DetBundle · DetFiber",
+     "Chapter6/DetBundle · LocalDetChart.pretriv",
+     "Chapter6/DetBundle · LocalDetChart.coord",
+     "Chapter6/DetBundle · exists_localDetChart",
+     "Chapter6/DetBundle · detPrebundle"
+    ]
+   },
+   "chips": [
+    "a Mathlib vector prebundle",
+    "charts read in frames"
+   ],
+   "diff": [
+    "$\\gamma_{(T,P,\\varepsilon)}$ is read in the frame of Proposition 6.20 (Findings, Chapter 6, item 24)."
+   ]
+  },
+  {
+   "id": "V6.25",
+   "title": "Definition 6.22: the collection $\\mathcal B$",
+   "verdict": "same",
+   "book": {
+    "label": "§6.4, Definition 6.22, p. 218",
+    "page": 218,
+    "statement": "$\\mathcal B$ is the collection of the subsets $B$ of $\\mathrm{DET}(E, F)$ for which some $\\gamma_{(T,P,\\varepsilon)}(B)$ is open in $\\mathrm{DET}(T, P, \\varepsilon)$."
+   },
+   "lean": {
+    "statement": "`detBasis`: the sets lying over the ball of some chart whose image in ball $\\times\\,\\mathbb R$ is open.",
+    "decls": [
+     "Chapter6/DetBundle · detBasis"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As in the text, with the charts read in their frames (V6.24) (Findings, Chapter 6, item 24)."
+   ]
+  },
+  {
+   "id": "V6.26",
+   "title": "Proposition 6.23",
+   "verdict": "same",
+   "book": {
+    "label": "§6.4, Proposition 6.23, p. 218",
+    "page": 218,
+    "statement": "The collection $\\mathcal B$ is a basis for a topology on $\\mathrm{DET}(E, F)$."
+   },
+   "lean": {
+    "statement": "`proposition_6_23`: $\\mathcal B$ is a basis of the topology of the prebundle of V6.24, so the topology it generates is that one.",
+    "decls": [
+     "Chapter6/DetBundle · proposition_6_23"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As in the text (Findings, Chapter 6, item 24)."
+   ]
+  },
+  {
+   "id": "V6.27",
+   "title": "Proposition 6.24",
+   "verdict": "same",
+   "book": {
+    "label": "§6.4, Proposition 6.24, p. 218",
+    "page": 218,
+    "statement": "$\\mathrm{DET}(E, F)$, with its linear structure on the fibres and the topology of $\\mathcal B$, is a topological line bundle, and the maps $\\gamma_{(T,P,\\varepsilon)}$ are topological bundle isomorphisms."
+   },
+   "lean": {
+    "statement": "`proposition_6_24`: $\\mathrm{DET}(E, F)$ is a topological vector bundle with model fibre $\\mathbb R$ (Mathlib's `VectorBundle`), and every $\\gamma_{(T,P,\\varepsilon)}$, read in its frame, is a trivialization.",
+    "decls": [
+     "Chapter6/DetBundle · proposition_6_24"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As in the text (Findings, Chapter 6, item 24)."
+   ]
+  },
+  {
+   "id": "V6.28",
+   "title": "Lemma 6.25: the transition maps",
+   "verdict": "same",
+   "book": {
+    "label": "§6.4, Lemma 6.25, p. 218",
+    "page": 218,
+    "statement": "$\\gamma_{(T',P',\\varepsilon')} \\circ \\gamma_{(T,P,\\varepsilon)}^{-1}$ is a topological isomorphism of line bundles: for $Q \\le P$, $Q \\le P'$ it is $(S, h) \\mapsto (S, (\\gamma^Q_{P'S})^{-1} \\circ \\gamma^Q_{PS}(h))$ by Corollary 6.13, continuous by Lemma 6.21."
+   },
+   "lean": {
+    "statement": "`lemma_6_25`: the transition between two charts is $(S, t) \\mapsto (S, g(S)t)$ with $g$ continuous and nowhere zero on the common ball; `lemma_6_25_local`: the same near a base point $S_0$.",
+    "decls": [
+     "Chapter6/DetBundle · lemma_6_25",
+     "Chapter6/DetBundle · lemma_6_25_local"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "The proof is the text's: a common lower bound $Q \\le P, P'$ (Lemma 6.10, V6.11), Corollary 6.13 and Lemma 6.21 (Findings, Chapter 6, items 4, 24)."
+   ]
+  },
+  {
+   "id": "V6.29",
+   "title": "Orientations of line bundles over simply connected bases",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.5, Proposition 6.26 and the opening of §6.5, p. 219",
+    "page": 219,
+    "statement": "Proposition 6.26: $\\mathrm{DET}(f, x)$ has two possible orientations \"since the base space is contractible\". The opening of §6.5: over a contractible $U$ the determinant line bundle of a classical Fredholm section has precisely two orientations, the orientation of one line determining that of all the others."
+   },
+   "lean": {
+    "statement": "`IsLineOrientation`, `LineOrientation`: a choice of rays of the fibres given near every point by a continuous nowhere-zero section. Two orientations that agree on one fibre agree over a preconnected base (`LineOrientation.eq_of_apply_eq`); the rays of the fibres form a two-sheeted covering (`OrCover`, `isCoveringMap_orCover`); over a simply connected, locally path-connected base every orientation of one fibre extends (`exists_lineOrientation_apply_eq`), and over a nonempty such base there are exactly two orientations (`exists_two_lineOrientation`).",
+    "decls": [
+     "Chapter6/LineBundleOrientation · IsLineOrientation",
+     "Chapter6/LineBundleOrientation · LineOrientation",
+     "Chapter6/LineBundleOrientation · LineOrientation.eq_of_apply_eq",
+     "Chapter6/LineBundleOrientation · OrCover",
+     "Chapter6/LineBundleOrientation · isCoveringMap_orCover",
+     "Chapter6/LineBundleOrientation · exists_lineOrientation_apply_eq",
+     "Chapter6/LineBundleOrientation · exists_two_lineOrientation"
+    ]
+   },
+   "chips": [
+    "the theorem contractibility needs",
+    "lifting criterion"
+   ],
+   "diff": [
+    "The text cites contractibility without the theorem it needs. The proof is the lifting criterion for the orientation double cover; nonempty convex sets of normed spaces are simply connected and locally path-connected (Findings, Chapter 6, item 25)."
+   ]
+  },
+  {
+   "id": "V6.30",
+   "title": "Proposition 6.26: $\\mathrm{DET}$ over a convex set of Fredholm operators",
+   "verdict": "stronger",
+   "book": {
+    "label": "§6.5, Proposition 6.26, p. 219",
+    "page": 219,
+    "statement": "$\\mathrm{DET}(f, x) = \\bigcup_{L \\in \\mathrm{Lin}(f,x)}\\{L\\} \\times \\det(L)$ has in a natural way the structure of a topological line bundle over $\\mathrm{Lin}(f, x)$, and two possible orientations, the base being convex, hence contractible."
+   },
+   "lean": {
+    "statement": "`proposition_6_26`: for every nonempty convex set $C$ of Fredholm operators, the restriction `DetOn C` of $\\mathrm{DET}(E, F)$ along the inclusion `fredholmIncl` is a topological line bundle with exactly two orientations.",
+    "decls": [
+     "Chapter6/DetBundle · fredholmIncl",
+     "Chapter6/DetBundle · DetOn",
+     "Chapter6/DetBundle · proposition_6_26"
+    ]
+   },
+   "chips": [
+    "any nonempty convex $C$"
+   ],
+   "diff": [
+    "Stated for any nonempty convex $C$; $\\mathrm{Lin}(f, x)$ is one (V6.1, V6.31) (Findings, Chapter 6, item 25)."
+   ]
+  },
+  {
+   "id": "V6.31",
+   "title": "Definition 6.27: $\\mathrm{DET}(f, x)$, $\\mathrm{Or}^f_x$ and the category $\\mathcal O_f$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Definition 6.27, pp. 219–220",
+    "page": 219,
+    "statement": "An orientation of $(f, x)$, $x$ smooth, is a choice of one of the two orientations of $\\mathrm{DET}(f, x)$. The objects of a category are the sets $\\mathrm{Or}^f_x = \\{o_x, -o_x\\}$; for smooth $x$, $y$ in the same path component the morphisms are the two bijections $\\pm o_x \\mapsto \\pm o_y$ and $\\pm o_x \\mapsto \\mp o_y$."
+   },
+   "lean": {
+    "statement": "At a chart point the members of $\\mathrm{Lin}(f, x)$ are Fredholm (`ChartPoint.isFredholm_of_mem_linSet`); `ChartPoint.detLin` is the pull-back of $\\mathrm{DET}(T_zO, K_z)$ to $\\mathrm{Lin}(f, x)$ and `ChartPoint.Or` the type of its orientations, with exactly two elements (`ChartPoint.exists_two_or`); for $L \\in \\mathrm{Lin}(f, x)$, $o \\mapsto o(L)$ is a bijection onto the two orientations of $\\det(L)$ (`ChartPoint.orEquivRay`). Between two two-element types there are bijections, and one value determines a bijection (`nonempty_equiv_of_two`, `equiv_eq_of_apply_eq_of_two`).",
+    "decls": [
+     "Chapter6/LinOrientation · ChartPoint.isFredholm_of_mem_linSet",
+     "Chapter6/LinOrientation · ChartPoint.detLin",
+     "Chapter6/LinOrientation · ChartPoint.Or",
+     "Chapter6/LinOrientation · ChartPoint.exists_two_or",
+     "Chapter6/LinOrientation · ChartPoint.orEquivRay",
+     "Chapter6/OrientationFunctor · nonempty_equiv_of_two",
+     "Chapter6/OrientationFunctor · equiv_eq_of_apply_eq_of_two"
+    ]
+   },
+   "chips": [
+    "made at a chart point",
+    "$\\mathcal O_f$: types and bijections"
+   ],
+   "diff": [
+    "Made at a chart point; V6.53–V6.55 compare chart points. On the tensor products no negation is set up, so $\\{o_x, -o_x\\}$ is stated as \"exactly two elements\"; the morphisms are bijections (Findings, Chapter 6, items 44, 70)."
+   ]
+  },
+  {
+   "id": "V6.32",
+   "title": "Proposition 6.28: the neighbourhoods $U(x)$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, Proposition 6.28, p. 220 (proof pp. 220–221)",
+    "page": 220,
+    "statement": "For an sc-Fredholm section $f$, every smooth $x$ has an open $U$ with (1) $U$ sc-smoothly contractible; (2) $\\{y \\in \\operatorname{cl}_X(U) \\mid f(y) = 0\\}$ compact; (3) for every sc-smooth path $\\varphi : [0, 1] \\to U$ an sc⁺-section $s : U \\times [0, 1] \\to Y$ with $s(\\varphi(t), t) = f(\\varphi(t))$; (4) for $t_0 \\in [0, 1]$, $y_0 \\in U_\\infty$ and a smooth $e_0 \\in Y_{y_0}$ an sc⁺-section $q$ with $q(y_0, t_0) = e_0$. The proof contracts $U = r(V')$, $V'$ convex, by $(t, y) \\mapsto r(ty)$."
+   },
+   "lean": {
+    "statement": "`proposition_6_28` (bump functions): open $U \\subseteq W$ in the domain of one chart of the atlas with (1′) any two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in $W$ with the end points fixed (`IsScHomotopyRel`); (2) $\\{y \\in \\operatorname{cl}(U) \\mid f(y) = 0\\}$ compact (`exists_nhds_isCompact_zeros`); (3) for every sc-smooth family $\\Phi : \\mathbb R^n \\to X$ with $\\Phi([0, 1]^n) \\subseteq W$ an sc⁺-section $S$ of $\\pi^*P \\to \\mathbb R^n \\times X$ with $(f + S)(q, \\Phi(q)) = 0$ for $q$ near $[0, 1]^n$, depending on $q \\in [0, 1]^n$ only through $\\Phi(q)$ (`exists_isScPlusSection_pullback_of_family`); (4) $\\pi^*P$ has sc⁺-sections through all smooth fibre points (`hasScPlusSectionsThrough_pullback_rn_of_bump`). $\\mathbb R^n \\times X$ and $\\pi^*P$ are paracompact (`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`).",
+    "decls": [
+     "Chapter6/OrientableNbhd · IsScHomotopyRel",
+     "Chapter6/OrientableNbhd · pt1",
+     "Chapter6/OrientableNbhd · pt2",
+     "Chapter6/OrientableNbhd · exists_contDiff_eq_id_near_Icc_mapsTo",
+     "Chapter6/OrientableNbhd · exists_isScSmoothMap_eq_one_nhdsSet",
+     "Chapter6/OrientableNbhd · exists_nhds_isCompact_zeros",
+     "Chapter6/OrientableNbhd · exists_isScPlusSection_pullback_of_mapsTo_of_bump",
+     "Chapter6/OrientableNbhd · exists_isScPlusSection_pullback_of_family",
+     "Chapter6/OrientableNbhd · hasScPlusSectionsThrough_pullback_rn_of_bump",
+     "Chapter6/OrientableNbhd · proposition_6_28",
+     "Chapter2/FibredProduct · MPolyfold.paracompactSpace_prod",
+     "Chapter2/StrongBundlePullback · paracompactSpace_pullbackSpace"
+    ]
+   },
+   "chips": [
+    "(1′) in place of (1): gap G.61",
+    "global sections, bump functions",
+    "(3) for families $\\mathbb R^n \\to X$"
+   ],
+   "diff": [
+    "As we read it, (1) is not established for $U$ by the proof: $r(ty)$ contracts $r(V)$ for a convex $V$, but for $U = r(V')$ it needs $r(V') \\subseteq V'$, which is not stated. What Theorem 6.35 uses is (1′), proved with $W = O \\cap B_\\delta$, $U = O \\cap B_{\\delta'}$, $r(B_{\\delta'}) \\subseteq B_\\delta$ and the homotopy $\\Phi(\\tau, t) = r((1 - \\rho(\\tau))\\varphi(\\gamma_0(t)) + \\rho(\\tau)\\varphi(\\gamma_1(t)))$ in the chart (gap G.61; Findings, Chapter 6, item 45).",
+    "The sections of (3) and (4) are global sc⁺-sections of the pull-back, made with bump functions, in place of sections over $U \\times [0, 1]$ after \"assuming $X = U$\" (the text assumes partitions of unity from §6.2 on); (3) is stated for families, as the homotopies of Theorem 6.35 need it. Neither the smoothness of $x$ nor the tameness of $X$ is used (Findings, Chapter 6, items 43, 46).",
+    "Paths and families are maps on $\\mathbb R$, $\\mathbb R^n$ of which only $[0, 1]$, $[0, 1]^n$ matters, and $U \\times [0, 1]$ is read through $\\mathbb R^n \\times X$ (decision D2; gap G.65)."
+   ]
+  },
+  {
+   "id": "V6.33",
+   "title": "Lemma 6.29: the sections $s_1, \\dots, s_k$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, the section $F$, p. 221; Lemma 6.29 and the paragraph after it, p. 222",
+    "page": 221,
+    "statement": "With $s(\\varphi(t), t) = f(\\varphi(t))$ and $F(t, y, \\lambda) = f(y) - s(y, t) + \\sum\\lambda_is_i(y, t)$ on $[0, 1] \\times X \\times \\mathbb R^k$, there are finitely many sc⁺-sections $s_1, \\dots, s_k$ with (P): for every fixed $t$, $F_t$ is at $(\\varphi(t), 0)$ in general position to the boundary of $X \\times \\mathbb R^k$. (P) implies that $F$ is in general position at all $(t, \\varphi(t), 0)$. The choice is made \"using the results from the transversality theory\"."
+   },
+   "lean": {
+    "statement": "`lemma_6_29` ($X$ tame, bump functions, $f$ with tame germ data): for an sc-smooth $\\Phi : \\mathbb R^n \\to X$ and an sc⁺-section $S$ of $\\pi^*P$ with $(f + S)(q, \\Phi(q)) = 0$ for $q$ near $[0, 1]^n$, finitely many sc⁺-sections $s_1, \\dots, s_k$ of $\\pi^*P$ such that $F(\\lambda, (q, y)) = f(y) + S(q, y) + \\sum\\lambda_is_i(q, y)$ is in general position at $(0, (q, \\Phi(q)))$ for all $q$ near $[0, 1]^n$ (`exists_sections_isGeneralPositionGerm_of_isCompact`; the points $(0, (q, \\Phi(q)))$ are zeros of $F$, `isZeroAt_paramSection_zero`).",
+    "decls": [
+     "Chapter6/Lemma629 · isZeroAt_paramSection_zero",
+     "Chapter6/Lemma629 · exists_sections_isGeneralPositionGerm_of_isCompact",
+     "Chapter6/Lemma629 · lemma_6_29"
+    ]
+   },
+   "chips": [
+    "$X$ tame, tame germ data",
+    "general position of $F$, not (P)",
+    "the proof of Theorem 5.18"
+   ],
+   "diff": [
+    "The text gives no proof; the one formalized is that of Theorem 5.18 (V5.38), under its hypotheses, which are the standing ones of §6.5 (Findings, Chapter 6, item 47).",
+    "The conclusion is the general position of $F$ at the points $(t, \\varphi(t), 0)$, which the text derives from (P) and which Lemmas 6.30, 6.31 use. (P) itself, the general position of each slice $F_t$, is not stated; as we read it, it follows, since the tangent vectors of the family of zeros lie in $\\ker F'$ and $\\mathbb R^n$ has no boundary (gap G.63; Findings, Chapter 6, item 47)."
+   ]
+  },
+  {
+   "id": "V6.34",
+   "title": "Lemma 6.30: the kernels along a family of zeros",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, Lemma 6.30, p. 222",
+    "page": 222,
+    "statement": "The solution set $S$ of $F = 0$ near $(t, \\varphi(t), 0)$ is a smooth manifold with boundary with corners containing $\\{(t, \\varphi(t), 0)\\}$; by (P) the projection $\\pi : S \\to [0, 1]$ is a submersion, and its fibres $S_t$ are manifolds with boundary with corners. $L_t = T_{(\\varphi(t),0)}S_t = \\ker F_t'(\\varphi(t), 0)$, and $L$ is a smooth vector bundle over $[0, 1]$."
+   },
+   "lean": {
+    "statement": "For an sc-Fredholm section with tame germ data and a continuous family $y_q$ of zeros in good position, read in one chart at continuously varying level-$1$ points, the kernels of the linearizations form a continuous family of subspaces of the model space (`exists_subspaceFamily_linKer`, from local frames, `exists_local_frame_linKer`), of dimension the index (`StrongBundle.IsSurjLinOfIndex.finrank_linKer`). The derivative of an sc-smooth family of zeros $\\mathbb R^n \\to X$, read in a chart, lies in the kernel of the linearization (`hasFDerivAt_scDeriv_rn`, `fderiv_mem_linKer`).",
+    "decls": [
+     "Chapter6/KernelFamily · StrongBundle.IsSurjLinOfIndex.finrank_linKer",
+     "Chapter6/KernelFamily · exists_local_frame_linKer",
+     "Chapter6/KernelFamily · exists_subspaceFamily_linKer",
+     "Chapter6/KernelFamily · hasFDerivAt_scDeriv_rn",
+     "Chapter6/KernelFamily · fderiv_mem_linKer"
+    ]
+   },
+   "chips": [
+    "a continuous family of kernels",
+    "manifold statements: gap G.62"
+   ],
+   "diff": [
+    "The bundle $L$ is a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.54), the range of the derivative of an sc-retraction. The solution set as a manifold with boundary with corners near $(t, \\varphi(t), 0)$, the map $\\pi$ and the smooth structure of $L$ are not formalized; the continuation of orientations does not need them (gap G.62; Findings, Chapter 6, item 48)."
+   ]
+  },
+  {
+   "id": "V6.35",
+   "title": "Continuous families of subspaces and their determinant lines",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, pp. 222–223; the bundles $\\tilde L$, pp. 224–227",
+    "page": 222,
+    "statement": "$L = \\bigcup_{t \\in [0,1]}\\{t\\} \\times L_t$ and $\\lambda(L) = \\bigcup_t\\{t\\} \\times \\lambda(L_t)$ over $[0, 1]$; an orientation of one line $\\lambda(L_t)$ determines, by continuation, those of all the others, in particular one of $\\lambda(L_0)$ determines one of $\\lambda(L_1)$. The bundles $\\tilde L$ over $[0, 1]^2$ are used in the same way."
+   },
+   "lean": {
+    "statement": "`SubspaceFamily`: a family of $n$-dimensional subspaces of a normed space spanned near every point by a continuous frame; `SubspaceFamily.det`: the line bundle $b \\mapsto \\lambda(L_b)$, with the frames as trivializations (`SubspaceFamily.Frame.pretriv`, `SubspaceFamily.Frame.coordChange_continuousOn`). Families and orientations restrict along continuous maps (`SubspaceFamily.comp`, `LineOrientation.comp`); over $[0, 1]$ an orientation of $\\lambda(L_0)$ is continued to $\\lambda(L_1)$ (`SubspaceFamily.transport`, `SubspaceFamily.transport_eq`), injectively (`SubspaceFamily.transport_injective`), and over a simply connected, locally path-connected base the continuation along a path depends only on its end points (`SubspaceFamily.transport_comp`).",
+    "decls": [
+     "Chapter6/SubspaceBundle · SubspaceFamily",
+     "Chapter6/SubspaceBundle · SubspaceFamily.det",
+     "Chapter6/SubspaceBundle · SubspaceFamily.Frame.pretriv",
+     "Chapter6/SubspaceBundle · SubspaceFamily.Frame.coordChange_continuousOn",
+     "Chapter6/SubspaceBundle · SubspaceFamily.comp",
+     "Chapter6/SubspaceBundle · LineOrientation.comp",
+     "Chapter6/SubspaceBundle · SubspaceFamily.transport",
+     "Chapter6/SubspaceBundle · SubspaceFamily.transport_eq",
+     "Chapter6/SubspaceBundle · SubspaceFamily.transport_injective",
+     "Chapter6/SubspaceBundle · SubspaceFamily.transport_comp"
+    ]
+   },
+   "chips": [
+    "\"vector bundle\" = family of subspaces"
+   ],
+   "diff": [
+    "\"Vector bundle\" is read as a family of subspaces of one model space with continuous local frames; the smooth structure of $L$ is not used (gap G.62)."
+   ]
+  },
+  {
+   "id": "V6.36",
+   "title": "Kernels, images and cuts of continuous families",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.5, the continuity statements of pp. 223–226",
+    "page": 223,
+    "statement": "The proofs of Lemmas 6.33, 6.34 and of Theorem 6.35 use that \"as $\\tau$ varies, the bundle varies continuously\", and that the data of the exact sequences at the end points vary continuously."
+   },
+   "lean": {
+    "statement": "`exists_subspaceFamily_ker`: the kernels of a norm-continuous family of surjective Fredholm operators over a connected base form a continuous family of subspaces. `SubspaceFamily.exists_map`, `SubspaceFamily.isLineOrientation_map`: so do the images of a continuous family under a jointly continuous family of linear maps injective on its members, and orientations are carried along. `SubspaceFamily.exists_inf_ker`: cutting a continuous family by the kernel of a fixed $\\ell$ that is onto on every member gives one.",
+    "decls": [
+     "Chapter6/StabilizationContinuity · exists_subspaceFamily_ker",
+     "Chapter6/StabilizationContinuity · SubspaceFamily.exists_map",
+     "Chapter6/StabilizationContinuity · SubspaceFamily.isLineOrientation_map",
+     "Chapter6/StabilizationContinuity · SubspaceFamily.exists_inf_ker"
+    ]
+   },
+   "chips": [
+    "\"varies continuously\" made precise"
+   ],
+   "diff": [
+    "\"Varies continuously\" is read in the operator norm, and for maps into a model space as joint continuity."
+   ]
+  },
+  {
+   "id": "V6.37",
+   "title": "The stabilized section in a product chart",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, $F$, p. 221; $F_t$, $L_t$ and (96), pp. 222–223",
+    "page": 221,
+    "statement": "$F_t(y, \\lambda) = F(t, y, \\lambda)$ on $X \\times \\mathbb R^k$, $L_t = \\ker F_t'(\\varphi(t), 0)$, and the exact sequence (96) relates $\\ker((f - s(\\cdot, t))'(\\varphi(t)))$, $\\ker F_t'(\\varphi(t), 0)$, $\\mathbb R^k$ and $Y_{\\varphi(t)}/R((f - s(\\cdot, t))'(\\varphi(t)))$."
+   },
+   "lean": {
+    "statement": "In the product chart $(\\lambda \\mapsto \\lambda) \\times ((q \\mapsto q) \\times \\varphi)$ at $(0, (q, z))$ the linearization of $F$ is $(\\lambda, (\\sigma, v)) \\mapsto D(\\hat g_q \\circ r)(z)v + \\sum\\lambda_i\\hat s_i(q, \\cdot)(z) + D_q\\sigma$, with $g_q = f + S(q, \\cdot)$ (`StrongBundle.scDeriv_paramSection_ofProd_ofProd`, with the chart lemmas `PullbackChartData.ofProd_scDeriv_r_apply`, `StrongBundle.scDeriv_ofProd_slice_apply`, `StrongBundleChart.paramDerivAt`). Its kernel cut by $\\sigma = 0$ (`sliceProj`, `sliceIncl`) is the image of $\\ker(T \\oplus \\varphi)$, with $T = g_q'(x) \\in \\mathrm{Lin}(f, x)$ (`mem_linSet_sectionAdd_pullbackSlice`) and $\\varphi(\\lambda) = \\sum\\lambda_is_i(q, x)$ (`linKer_inf_ker_sliceProj_eq_map`, `exists_sliceOps`, `exists_sliceKernel`); $T \\oplus \\varphi$ is onto when $F$ is in general position at $(0, (q, \\Phi(q)))$ (`surjective_coprod_of_isLinSurjAt`).",
+    "decls": [
+     "Chapter6/ParamKernel · PullbackChartData.ofProd_scDeriv_r_apply",
+     "Chapter6/ParamKernel · PullbackChartData.ofProd_mem_tangent_iff",
+     "Chapter6/ParamKernel · PullbackChartData.mem_K_ofProd_iff",
+     "Chapter6/ParamKernel · StrongBundle.scDeriv_ofProd_slice_apply",
+     "Chapter6/ParamKernel · StrongBundle.scDeriv_paramSection_apply",
+     "Chapter6/ParamKernel · StrongBundleChart.paramDerivAt",
+     "Chapter6/ParamKernel · StrongBundle.scDeriv_paramSection_ofProd_ofProd",
+     "Chapter6/ParamKernel · sliceProj",
+     "Chapter6/ParamKernel · sliceIncl",
+     "Chapter6/ParamKernel · linKer_inf_ker_sliceProj_eq_map",
+     "Chapter6/ParamKernel · exists_sliceOps",
+     "Chapter6/ParamKernel · mem_linSet_sectionAdd_pullbackSlice",
+     "Chapter6/ParamKernel · surjective_coprod_of_isLinSurjAt",
+     "Chapter6/ParamKernel · exists_sliceKernel"
+    ]
+   },
+   "chips": [
+    "$\\ker F_t'$ = $\\ker F'$ cut by $\\sigma = 0$"
+   ],
+   "diff": [
+    "$\\ker F_t'(\\varphi(t), 0)$ is read as the kernel of the linearization of the whole $F$ cut by $\\sigma = 0$; in the product chart the linearization of the slice is $(v, \\lambda) \\mapsto Tv + \\varphi\\lambda$ (Findings, Chapter 6, item 49)."
+   ]
+  },
+  {
+   "id": "V6.38",
+   "title": "Lemma 6.31: the sequence (96) is exact",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, (96) and Lemma 6.31, p. 223",
+    "page": 223,
+    "statement": "The sequence (96), $0 \\to \\ker((f - s(\\cdot, t))'(\\varphi(t))) \\to \\ker F_t'(\\varphi(t), 0) \\to \\mathbb R^k \\to Y_{\\varphi(t)}/R((f - s(\\cdot, t))'(\\varphi(t))) \\to 0$, with $j$ the inclusion, $p$ the projection onto $\\mathbb R^k$ and $c(\\lambda) = \\sum\\lambda_is_i(t, \\varphi(t)) + R(\\cdot)$, is exact; $c$ is onto by property (P)."
+   },
+   "lean": {
+    "statement": "`lemma_6_31`: with the operators of V6.37, (96) $0 \\to \\ker T \\to \\ker(T \\oplus \\varphi) \\to \\mathbb R^k \\to K_z/R(T) \\to 0$ is the stabilization sequence of $T$ and $\\varphi$ (V6.16), hence exact.",
+    "decls": [
+     "Chapter6/ParamKernel · lemma_6_31"
+    ]
+   },
+   "chips": [
+    "$c$ onto by general position of $F$"
+   ],
+   "diff": [
+    "The text has $c$ onto by (P); here $T \\oplus \\varphi$ is onto by the general position of $F$ (V6.33), and the $\\mathbb R^n$-directions are absorbed because the derivative of the family of zeros lies in $\\ker F'$ (`fderiv_mem_linKer`) (Findings, Chapter 6, item 49)."
+   ]
+  },
+  {
+   "id": "V6.39",
+   "title": "Continuation and the isomorphisms $\\Phi_{E_t}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, pp. 223–224, after Lemma 6.31",
+    "page": 223,
+    "statement": "$\\Phi_{E_t} : \\det((f - s(\\cdot, t))'(\\varphi(t))) \\to \\lambda(L_t) \\otimes \\lambda^*(\\mathbb R^k)$. An orientation $o_0$ of $\\mathrm{DET}(f, \\varphi(0))$ orients $\\det((f - s(\\cdot, 0))'(\\varphi(0)))$; $\\Phi_{E_0}$ turns it into an orientation of $\\lambda(L_0) \\otimes \\lambda^*(\\mathbb R^k)$, continuation extends it to $t = 1$, and $(\\Phi_{E_1})^{-1}$ gives an orientation of $\\det((f - s(\\cdot, 1))'(\\varphi(1)))$, hence $o_1$."
+   },
+   "lean": {
+    "statement": "`SubspaceFamily.cont`: over a simply connected, locally path-connected base, the continuation of a ray of $\\lambda(L_{q_0})$ to $\\lambda(L_{q_1})$, a bijection (`SubspaceFamily.contEquiv`, `cont_eq`), compatible with composition and pull-back (`cont_self`, `cont_trans`, `cont_comp`), and along $[0, 1]$ the continuation of V6.35 (`cont_eq_transport`). For a stabilization $T \\oplus \\varphi$ onto and an identification of its kernel with $L$, the rays of $\\det(T)$ and of $\\lambda(L)$ correspond (`stabRayEquiv`, through $\\iota_\\varphi$ of V6.18 and $\\det(T \\oplus \\varphi) \\cong \\lambda(\\ker(T \\oplus \\varphi))$, `detEquivOfSurjective`); `propagate`: $\\Phi_{E_0}$, continuation and $\\Phi_{E_1}^{-1}$ composed, a bijection of the rays of $\\det(T_0)$ and $\\det(T_1)$ (`propagate_self`, `propagate_trans`, `propagate_comp`).",
+    "decls": [
+     "Chapter6/Continuation · SubspaceFamily.cont",
+     "Chapter6/Continuation · SubspaceFamily.cont_eq",
+     "Chapter6/Continuation · SubspaceFamily.cont_self",
+     "Chapter6/Continuation · SubspaceFamily.cont_trans",
+     "Chapter6/Continuation · SubspaceFamily.contEquiv",
+     "Chapter6/Continuation · SubspaceFamily.cont_comp",
+     "Chapter6/Continuation · SubspaceFamily.cont_eq_transport",
+     "Chapter6/Continuation · detEquivOfSurjective",
+     "Chapter6/Continuation · stabRayEquiv",
+     "Chapter6/Continuation · propagate",
+     "Chapter6/Continuation · propagate_self",
+     "Chapter6/Continuation · propagate_trans",
+     "Chapter6/Continuation · propagate_comp"
+    ]
+   },
+   "chips": [
+    "one statement for paths and squares"
+   ],
+   "diff": [
+    "Over any simply connected, locally path-connected base, so that one statement serves the paths and the squares; the fixed identification $\\lambda^*(\\mathbb R^k) \\cong \\lambda^*(\\{0\\})$ of (94) is used at both ends."
+   ]
+  },
+  {
+   "id": "V6.40",
+   "title": "The stabilization sign $(-1)^{\\dim\\operatorname{coker}T}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.3, formula (94), p. 212, as it is used on pp. 223–226",
+    "page": 212,
+    "statement": "The orientations carried by $\\Phi_{E_t}$ along $t$, and those of the bundles $\\tilde L_\\tau$ along $\\tau$, are used as varying continuously with the parameter (Lemmas 6.33, 6.34 and the homotopy argument before Theorem 6.35)."
+   },
+   "lean": {
+    "statement": "`coord_stabIota`: in a local determinant chart with projection $P$, the chart coordinate of $\\iota_\\psi(x) \\in \\det(S \\oplus \\psi)$ is $(-1)^{k\\dim F/R(P) + \\dim\\operatorname{coker} S}D(S, \\psi)$ times that of $x$, with $D$ (`stabD`) continuous and nowhere zero near the centre (`continuousOn_stabD`, `stabD_ne_zero`). `isLineOrientation_stabRay`: for a continuous orientation $o$ of $\\mathrm{DET}$, a norm-continuous family $T_q$ and a continuous stabilization $\\varphi_q$ with $T_q \\oplus \\varphi_q$ onto, the rays $(-1)^{\\dim\\operatorname{coker} T_q}\\,\\Phi(o(T_q))$ (`stabSign`) of $\\lambda(\\ker(T_q \\oplus \\varphi_q))$ form an orientation. `not_isLineOrientation_stabRay_uncorrected`: without the sign they need not ($E = F = \\mathbb R$, $k = 1$, $T_q = q/(1 + |q|)$, $\\varphi(r) = r_0$).",
+    "decls": [
+     "Chapter6/StabilizationContinuity · coord_stabIota",
+     "Chapter6/StabilizationContinuity · stabD",
+     "Chapter6/StabilizationContinuity · continuousOn_stabD",
+     "Chapter6/StabilizationContinuity · stabD_ne_zero",
+     "Chapter6/StabilizationContinuity · stabSign",
+     "Chapter6/StabilizationContinuity · isLineOrientation_stabRay",
+     "Chapter6/StabilizationContinuity · not_isLineOrientation_stabRay_uncorrected"
+    ]
+   },
+   "chips": [
+    "sign $(-1)^{\\dim\\operatorname{coker}T}$",
+    "an example without the sign"
+   ],
+   "diff": [
+    "As we read it, the orientations carried by $\\Phi_E$ of (94) along a continuous family are not continuous where $\\dim\\operatorname{coker} T$ changes parity: the first exponent is constant on a chart, the second is not. The propagation uses the sign-normalized $(-1)^{\\dim\\operatorname{coker} T}\\Phi_E$, which on each operator carries the text's orientation or its opposite (Findings, Chapter 6, item 50)."
+   ]
+  },
+  {
+   "id": "V6.41",
+   "title": "The push-forward $o_1 = \\varphi_*o_0$ along stabilized kernels",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, the push-forward, p. 224",
+    "page": 224,
+    "statement": "The orientation $o_1$ of $\\mathrm{DET}(f, \\varphi(1))$ obtained from $o_0$ by $\\Phi_{E_0}$, continuation and $(\\Phi_{E_1})^{-1}$ is the push-forward orientation $o_1 = \\varphi_*o_0$; a priori it might depend on the choices of $s(y, t)$ and $s_1, \\dots, s_k$."
+   },
+   "lean": {
+    "statement": "At a chart point, `ChartPoint.stabT` is $T = (f + S)'(x) \\in \\mathrm{Lin}(f, x)$ (`ChartPoint.stabT_mem_linSet`) and `ChartPoint.stabPhi` is $\\varphi(\\lambda) = \\sum\\lambda_i\\hat s_i(x)$. `IsStabKernels`: a continuous family $\\Lambda$, over a parameter space, of the subspaces $\\ker(T_q \\oplus \\varphi_q)$ of $E_0 \\times \\mathbb R^k$ at points $y(q)$, read in one chart. `IsStabKernels.push`: $\\mathrm{Or}^f_{x_0} \\to \\mathrm{Or}^f_{x_1}$, $o \\mapsto o(T_a) \\mapsto (-1)^{\\dim\\operatorname{coker} T_a}\\Phi_{E_a}(o(T_a))$, continued to $\\lambda(\\Lambda_b)$ and carried back in the same way at $T_b$. It depends only on the data (`IsStabKernels.push_congr`), is compatible with pull-back (`IsStabKernels.comp`, `IsStabKernels.push_comp`) and with concatenation (`IsStabKernels.push_trans`), and along a path with continuously varying data continuation carries the rays read at one parameter to those read at the next (`IsStabKernels.orRay`, `IsStabKernels.push_eq_orRay`, `IsStabKernels.cont_orRay_path`).",
+    "decls": [
+     "Chapter6/Propagation · chartPt",
+     "Chapter6/Propagation · ChartPoint.stabT",
+     "Chapter6/Propagation · ChartPoint.stabT_mem_linSet",
+     "Chapter6/Propagation · ChartPoint.stabPhi",
+     "Chapter6/Propagation · ChartPoint.stabPhi_finAppend",
+     "Chapter6/Propagation · stabSign_inv",
+     "Chapter6/Propagation · toPerm_stabSign_symm",
+     "Chapter6/Propagation · isFredholm_stabCoprod",
+     "Chapter6/Propagation · IsStabKernels",
+     "Chapter6/Propagation · IsStabKernels.comp",
+     "Chapter6/Propagation · IsStabKernels.push",
+     "Chapter6/Propagation · IsStabKernels.push_congr",
+     "Chapter6/Propagation · IsStabKernels.orRay",
+     "Chapter6/Propagation · IsStabKernels.push_eq_orRay",
+     "Chapter6/Propagation · IsStabKernels.cont_orRay_path",
+     "Chapter6/Propagation · IsStabKernels.push_comp",
+     "Chapter6/Propagation · IsStabKernels.push_trans"
+    ]
+   },
+   "chips": [
+    "the sign at both end points",
+    "sections enter pointwise"
+   ],
+   "diff": [
+    "The sign of V6.40 is used at both end points; for given end-point operators the result differs from the text's by $(-1)^{\\dim\\operatorname{coker} T_a + \\dim\\operatorname{coker} T_b}$. The sections enter pointwise, and the continuity in the parameter is that of $\\Lambda$ (Findings, Chapter 6, item 50)."
+   ]
+  },
+  {
+   "id": "V6.42",
+   "title": "Lemma 6.30 for the push-forward: the stabilized kernels exist",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, Lemma 6.30 and the bundle $L$ after it, pp. 222–223",
+    "page": 222,
+    "statement": "Along the path the kernels $L_t = \\ker F_t'(\\varphi(t), 0)$, tangent spaces of the solution manifold $S_t$ of Lemma 6.30, form the smooth vector bundle $L$ over $[0, 1]$."
+   },
+   "lean": {
+    "statement": "`exists_isStabKernels`: for an sc-smooth $\\Phi : \\mathbb R^n \\to X$ with $\\Phi([0, 1]^n)$ in the domain of a chart, an sc⁺-section $S$ with $f + S = 0$ along $\\Phi$ near $[0, 1]^n$ and sc⁺-sections $s_1, \\dots, s_k$ as in V6.33, the stabilized kernels of the slices form a continuous family over $[0, 1]^n$ (`IsStabKernels`), the points read through continuous lifts into the chart (`exists_continuousOn_lift_chart`).",
+    "decls": [
+     "Chapter6/StabKernelsExist · exists_continuousOn_lift_chart",
+     "Chapter6/StabKernelsExist · exists_isStabKernels"
+    ]
+   },
+   "chips": [
+    "manifold statements: gap G.62"
+   ],
+   "diff": [
+    "As V6.34 (gap G.62): the family is the tangent spaces of the solution set (V6.34) cut by $\\{dt = 0\\}$ (V6.36) and identified with $\\ker(T_q \\oplus \\varphi_q)$ (V6.37) (Findings, Chapter 6, item 48)."
+   ]
+  },
+  {
+   "id": "V6.43",
+   "title": "Push-forward data along paths",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, the choices along the path, pp. 221, 224",
+    "page": 221,
+    "statement": "Along an sc-smooth $\\varphi : [0, 1] \\to X$, \"assuming $X = U$\", one chooses by Proposition 6.28 an sc⁺-section $s$ with $s(\\varphi(t), t) = f(\\varphi(t))$, adds sections $s_1, \\dots, s_k$ on $X \\times [0, 1]$ with (P), and builds the push-forward from these choices."
+   },
+   "lean": {
+    "statement": "`IsPush`: $e$ is a push-forward along an sc-smooth path $\\gamma$ in a chart if there are global sc⁺-sections $S, s_1, \\dots, s_k$ of $\\pi^*P \\to \\mathbb R \\times X$ with $(f + S)(t, \\gamma(t)) = 0$ for $t$ near $[0, 1]$ (`isZeroAt_sectionAdd_reparamSection`) and a family of stabilized kernels of their slices along $\\gamma$ whose push-forward is $e$. A push-forward along $\\gamma$ is the composite of push-forwards along its two halves (`IsPush.split`, `isPush_reparam`), and along every sc-smooth path in a set with property (3) of Proposition 6.28 there is one (`exists_isPush`).",
+    "decls": [
+     "Chapter6/PushData · pt1_mem_Icc",
+     "Chapter6/PushData · exists_lift_of_smooth",
+     "Chapter6/PushData · chartPtOf",
+     "Chapter6/PushData · isZeroAt_sectionAdd_reparamSection",
+     "Chapter6/PushData · IsStabKernels.push_eq_of_eq",
+     "Chapter6/PushData · IsPush",
+     "Chapter6/PushData · isPush_reparam",
+     "Chapter6/PushData · IsPush.split",
+     "Chapter6/PushData · exists_isPush"
+    ]
+   },
+   "chips": [
+    "global sections of the pull-back",
+    "(P) used only to construct"
+   ],
+   "diff": [
+    "Global sections of the pull-back in place of sections over $U \\times [0, 1]$; property (P) is used only to construct a push-forward (Findings, Chapter 6, item 46)."
+   ]
+  },
+  {
+   "id": "V6.44",
+   "title": "Proposition 6.32: the push-forward does not depend on the choices",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Proposition 6.32, p. 224 (proof pp. 224–226)",
+    "page": 224,
+    "statement": "For $U$ as in Proposition 6.28 and an sc-smooth $\\varphi : [0, 1] \\to U$, $o \\mapsto \\varphi_*o$ does not depend on the choices as long as the hypotheses of Lemma 6.29 hold. The proof adds sections to both data so that they have the same number and (P) holds along a convex homotopy, and applies Lemmas 6.33 and 6.34."
+   },
+   "lean": {
+    "statement": "`proposition_6_32` ($X$ tame, bump functions, $f$ with tame germ data): two push-forwards (`IsPush`) along the same sc-smooth path in the domain of a chart agree. The proof uses one square: $S^\\tau = (1 - \\tau)S^0 + \\tau S^1$ with the two families of sections interpolated (`isZeroAt_sectionAdd_combo`, `linAt_principal_combo`, `continuous_principal_pullbackSlice`) and the sections of Lemma 6.29 on the square appended (`IsStabKernels.push_eq_of_prefix`, `IsStabKernels.congr_data`, `IsStabKernels.push_congr_data`).",
+    "decls": [
+     "Chapter6/PropagationWellDefined · IsStabKernels.congr_data",
+     "Chapter6/PropagationWellDefined · IsStabKernels.push_congr_data",
+     "Chapter6/PropagationWellDefined · IsStabKernels.push_eq_of_prefix",
+     "Chapter6/PropagationWellDefined · isZeroAt_sectionAdd_combo",
+     "Chapter6/PropagationWellDefined · linAt_principal_combo",
+     "Chapter6/PropagationWellDefined · continuous_principal_pullbackSlice",
+     "Chapter6/PropagationWellDefined · proposition_6_32"
+    ]
+   },
+   "chips": [
+    "one square for Lemmas 6.33, 6.34"
+   ],
+   "diff": [
+    "\"Does not depend on the choices\" is read as the agreement of any two data. Lemmas 6.33 and 6.34 are combined over one square: at $\\tau = 0$ the sections $s^0$ are the first $k^0$ of the family and at $\\tau = 1$ the sections $s^1$ are the first $k^1$, so Lemma 6.33 applies on both edges without reordering; along the edges $t = 0, 1$ the operators are affine in $\\tau$, hence continuous (Findings, Chapter 6, item 52)."
+   ]
+  },
+  {
+   "id": "V6.45",
+   "title": "Lemma 6.33: adding sections does not change the push-forward",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Lemma 6.33, p. 224 (proof p. 225)",
+    "page": 224,
+    "statement": "If $F$ has property (P), the section $F(t, y, \\lambda) + \\sum\\mu_j\\bar s_j(y, t)$ on $[0, 1] \\times X \\times \\mathbb R^{k+l}$ defines the same propagation along $\\varphi$. The proof passes through the homotopy $\\tilde F(\\tau, \\cdot)$, and at $\\tau = 0$ \"one verifies by a simple computation\" that $\\tilde L_0 = L \\oplus ([0, 1] \\times \\mathbb R^l)$ defines the same propagation."
+   },
+   "lean": {
+    "statement": "`detEquiv_stabIota_append`: with the appended sections last (`appendStab`, `kerAppend`), the stabilization isomorphism of $(\\varphi, \\psi)$ is that of $\\varphi$ followed by `wedgeExt`, $w \\mapsto (w, 0) \\wedge \\ell_1 \\wedge \\dots \\wedge \\ell_d$, for any $\\ell_j \\in \\ker(T \\oplus (\\varphi, \\psi))$ with $\\psi$-coordinates the standard basis (`wedgeExt_wedge`, `wedgeExt_congr`, `wedgeExt_bijective`); this map carries continuous orientations along the family (`isLineOrientation_wedgeExt`, with `SubspaceFamily.exists_continuous_lifts`, `kerEquivMap`). Hence appending sections does not change the push-forward (`stabRayEquiv_append`, `propagate_append`, `IsStabKernels.push_append`).",
+    "decls": [
+     "Chapter6/AddSections · wedgeExt",
+     "Chapter6/AddSections · wedgeExt_wedge",
+     "Chapter6/AddSections · wedgeExt_congr",
+     "Chapter6/AddSections · wedgeExt_bijective",
+     "Chapter6/AddSections · appendStab",
+     "Chapter6/AddSections · kerAppend",
+     "Chapter6/AddSections · detEquiv_stabIota_append",
+     "Chapter6/AddSections · SubspaceFamily.exists_continuous_lifts",
+     "Chapter6/AddSections · isLineOrientation_wedgeExt",
+     "Chapter6/AddSections · kerEquivMap",
+     "Chapter6/AddSections · stabRayEquiv_append",
+     "Chapter6/AddSections · propagate_append",
+     "Chapter6/Propagation · IsStabKernels.push_append"
+    ]
+   },
+   "chips": [
+    "no homotopy needed",
+    "exact, with no sign"
+   ],
+   "diff": [
+    "The homotopy $\\tilde F(\\tau, \\cdot)$ of the text's proof is not needed: with the appended sections last the two isomorphisms agree exactly, with no sign. The comparison is made directly between $T \\oplus \\varphi$ and $T \\oplus (\\varphi, \\psi)$, at the end points by Proposition 6.15 and along the family by `isLineOrientation_wedgeExt` (Findings, Chapter 6, item 51)."
+   ]
+  },
+  {
+   "id": "V6.46",
+   "title": "Sections over parameter families",
+   "verdict": "same",
+   "book": {
+    "label": "§6.5, pp. 224–226",
+    "page": 224,
+    "statement": "The added sections $\\bar s_j(y, t)$ of Lemma 6.33 (p. 224) and the sections $s(y, \\tau, t)$, $s_i(y, \\tau, t)$ over a square (p. 226) are used as sc⁺-sections over the products, and adding sections is taken to keep the general position (said in the proof of Theorem 5.18, p. 178)."
+   },
+   "lean": {
+    "statement": "`reparamSection`: for $g$ affine, $(q, y) \\mapsto S(g(q), y)$ is again an sc⁺-section of the pull-back (`StrongBundle.IsScPlusSection.reparam`, `pullbackSlice_reparamSection`, `rnProdMapOp`); `StrongBundle.isScPlusSection_of_local`: sc⁺-sections may be checked in one chart around each point; `StrongBundle.isGeneralPositionGerm_paramSection_of_comp`: adding sections keeps the general position of $F$ at $(0, y)$.",
+    "decls": [
+     "Chapter6/FamilySections · reparamSection",
+     "Chapter6/FamilySections · pullbackSlice_reparamSection",
+     "Chapter6/FamilySections · rnProdMapOp",
+     "Chapter6/FamilySections · StrongBundle.isScPlusSection_of_local",
+     "Chapter6/FamilySections · StrongBundle.IsScPlusSection.reparam",
+     "Chapter6/FamilySections · StrongBundle.isGeneralPositionGerm_paramSection_of_comp"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As the text uses them; these are the tools of V6.43–V6.45."
+   ]
+  },
+  {
+   "id": "V6.47",
+   "title": "Lemma 6.34: the convex homotopy of the sections $s$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Lemma 6.34, p. 226",
+    "page": 226,
+    "statement": "For sc⁺-sections $s^0$, $s^1$ with $s^i(\\varphi(t), t) = f(\\varphi(t))$, $s^\\tau = \\tau s^1 + (1 - \\tau)s^0$ and sections $s^\\tau_1, \\dots, s^\\tau_k$ with (P) for every $\\tau$, the propagation along $\\varphi$ is the same for every $\\tau$; at $t = 0, 1$ the linearizations vary continuously in $\\mathrm{DET}(f, \\varphi(0))$ and $\\mathrm{DET}(f, \\varphi(1))$."
+   },
+   "lean": {
+    "statement": "`IsStabKernels.push_square`: for a family of stabilized kernels over the square $[0, 1]^2$ with the end points $x_0$, $x_1$ fixed and the end-point operators varying continuously, the push-forwards along the edges $\\tau = 0$ and $\\tau = 1$ (`sqEdge`, `sqPath`) agree.",
+    "decls": [
+     "Chapter6/Propagation · IsStabKernels.push_square",
+     "Chapter6/PropagationWellDefined · sqEdge",
+     "Chapter6/PropagationWellDefined · sqPath"
+    ]
+   },
+   "chips": [
+    "part of the square of V6.44"
+   ],
+   "diff": [
+    "The convex homotopy $s^\\tau$ of the lemma is part of the square of V6.44; the continuity of the end-point orientations along $\\tau$ is that of V6.40, with the sign (Findings, Chapter 6, items 50, 52)."
+   ]
+  },
+  {
+   "id": "V6.48",
+   "title": "Theorem 6.35: local propagation",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, the homotopy argument, pp. 226–227, and Theorem 6.35, p. 227",
+    "page": 227,
+    "statement": "For a strong bundle over a tame $X$ and a smooth $x$ there is an open sc-smoothly contractible $U(x)$ such that along every sc-smooth path $\\varphi : [0, 1] \\to U$ there is a well-defined propagation $o \\mapsto \\varphi_*o$ of orientations of $\\mathrm{DET}(f, \\varphi(0))$, and $\\varphi_{0*}o = \\varphi_{1*}o$ for two such paths with the same end points. The proof homotopes $\\varphi_0$ to $\\varphi_1$ in $U$, using that $U$ is sc-smoothly contractible."
+   },
+   "lean": {
+    "statement": "`theorem_6_35` ($X$ tame, bump functions, $f$ with tame germ data): every smooth $x$ has an open $U \\ni x$ and a chart $c$ of the atlas with `HasLocalPropagation`: push-forwards exist along the sc-smooth paths in $U$ with smooth end points and depend only on their end points. `push_eq_of_homotopy`: push-forwards along two paths related by an sc-smooth homotopy with fixed end points agree.",
+    "decls": [
+     "Chapter6/PropagationWellDefined · push_eq_of_homotopy",
+     "Chapter6/PropagationWellDefined · HasLocalPropagation",
+     "Chapter6/PropagationWellDefined · theorem_6_35"
+    ]
+   },
+   "chips": [
+    "the section $f$ supplied",
+    "contractibility: gap G.61",
+    "(1′) and a reparametrization"
+   ],
+   "diff": [
+    "The statement does not introduce the section $f$ (possible omission); it is read for an sc-Fredholm section with tame germ data, under the standing hypotheses (Findings, Chapter 6, item 53).",
+    "$U$ is not shown to be sc-smoothly contractible (gap G.61); what the proof uses is (1′) of V6.32. Since the homotopy of (1′) meets its edge conditions only on $[0, 1]$, while a push-forward datum needs $f + S = 0$ near $[0, 1]$, the proof passes through the reparametrized paths $\\gamma_i \\circ \\kappa$, with three homotopies whose edges are exact (Findings, Chapter 6, item 53)."
+   ]
+  },
+  {
+   "id": "V6.49",
+   "title": "Sc-smooth paths in a chart and their concatenation",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, the paths after Theorem 6.35, p. 227, and the concatenation, p. 228",
+    "page": 227,
+    "statement": "For $y \\in U$ one takes an sc-smooth path $\\varphi : [0, 1] \\to U$ from $x$ to $y$. The composition of paths is $\\varphi(\\beta(s))$ for $s \\in [0, 1/2]$ and $\\psi(\\beta(s))$ for $s \\in [1/2, 1]$, for a smooth $\\beta$ with $\\beta([0, 1/2]) = [0, 1]$, $\\beta([1/2, 1]) = [1, 2]$, constant near $1/2$. On p. 201 the text recalls that an M-polyfold is locally path connected and that smooth points of one path component are joined by an sc⁺-smooth path."
+   },
+   "lean": {
+    "statement": "`exists_nhds_scPath`: for an open $U$ in the domain of a chart and $x \\in U$ there is an open $V \\ni x$ in $U$ whose smooth points are pairwise joined by sc-smooth paths in $U$. `concatPath`: $\\gamma_1(\\kappa(3s))$ for $s \\le 1/2$ and $\\gamma_2(\\kappa(3s - 2))$ for $s > 1/2$, $\\kappa$ the smooth transition function, is sc-smooth (`isScSmoothMap_concatPath`), with the right end points and halves (`concatPath_zero`, `concatPath_one`, `concatPath_half₁`, `concatPath_half₂`); reparametrizing by a $C^\\infty$ map keeps sc-smoothness (`isScSmoothMap_reparam`); push-forwards compose along concatenations (`HasLocalPropagation.eq_trans`).",
+    "decls": [
+     "Chapter6/ScPaths · MPolyfold.isScSmoothMap_of_eventuallyEq",
+     "Chapter6/ScPaths · pt1_apply",
+     "Chapter6/ScPaths · contDiff_pt1_comp",
+     "Chapter6/ScPaths · exists_nhds_scPath",
+     "Chapter6/ScPaths · concatPath",
+     "Chapter6/ScPaths · concatPath_of_le",
+     "Chapter6/ScPaths · concatPath_of_gt",
+     "Chapter6/ScPaths · isScSmoothMap_concatPath",
+     "Chapter6/ScPaths · concatPath_zero",
+     "Chapter6/ScPaths · concatPath_one",
+     "Chapter6/ScPaths · concatPath_half₁",
+     "Chapter6/ScPaths · concatPath_half₂",
+     "Chapter6/ScPaths · isScSmoothMap_reparam",
+     "Chapter6/ContinuousOrientation · HasLocalPropagation.eq_trans"
+    ]
+   },
+   "chips": [
+    "paths joined only inside a chart",
+    "p. 201 facts: gap G.56"
+   ],
+   "diff": [
+    "Paths are joined only locally, inside a chart; the global facts recalled on p. 201 (local path connectedness, sc⁺-smooth paths within a path component) are not formalized (gap G.56; Findings, Chapter 6, item 42)."
+   ]
+  },
+  {
+   "id": "V6.50",
+   "title": "Definition 6.36: orientable neighbourhoods and continuous orientations",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, the paragraph after Theorem 6.35 and Definition 6.36, p. 227",
+    "page": 227,
+    "statement": "Fixing $o_x$, $o_y = \\varphi_*o_x$ for a path $\\varphi$ in $U$ from $x$ to $y$ does not depend on the path, and $\\psi_*o_{y_1} = o_{y_2}$ for paths in $U$. An open contractible $U(x)$ on which the local propagation can be carried out is an orientable neighbourhood of $(f, x)$; a choice of orientations of $\\mathrm{DET}(f, y)$, $y \\in U_\\infty$, with the propagation property is a continuous orientation, and an orientable neighbourhood has precisely two."
+   },
+   "lean": {
+    "statement": "`IsOrientableNbhd`: a pair $V \\subseteq U$, $U$ open with the local propagation property in a chart, $V \\ni x$ open with any two smooth points joined by an sc-smooth path in $U$; every smooth point has one (`exists_orientableNbhd`, `exists_isOrientableNbhd`). `IsContinuousOrientation`: a choice $y \\mapsto o_y$ on $V_\\infty$ carried into itself by the push-forwards along paths in $U$; there are exactly two (`exists_two_isContinuousOrientation`).",
+    "decls": [
+     "Chapter6/ContinuousOrientation · IsContinuousOrientation",
+     "Chapter6/ContinuousOrientation · exists_two_isContinuousOrientation",
+     "Chapter6/ContinuousOrientation · exists_orientableNbhd",
+     "Chapter6/SectionOrientation · IsOrientableNbhd",
+     "Chapter6/SectionOrientation · exists_isOrientableNbhd"
+    ]
+   },
+   "chips": [
+    "a pair $V \\subseteq U$"
+   ],
+   "diff": [
+    "The pair $V \\subseteq U$ replaces an open contractible $U$, since Proposition 6.28 gives (1′) (gap G.61; Findings, Chapter 6, item 54)."
+   ]
+  },
+  {
+   "id": "V6.51",
+   "title": "Reparametrization homotopies",
+   "verdict": "same",
+   "book": {
+    "label": "§6.5, the homotopy classes $[\\varphi]$, pp. 227–228",
+    "page": 227,
+    "statement": "$[\\varphi]$ is the sc-smooth homotopy class of $\\varphi : [0, 1] \\to X$ with the end points fixed, with source $\\varphi(0)$ and target $\\varphi(1)$; the composition of classes is defined through a reparametrization $\\beta$."
+   },
+   "lean": {
+    "statement": "`isScHomotopyRel_reparam`: for a $C^\\infty$ $\\theta$ with $\\theta(0) = 0$ and $\\theta(1) = 1$, $\\gamma \\circ \\theta$ is sc-smoothly homotopic to $\\gamma$ with the end points fixed, inside every set containing $\\gamma([0, 1])$ when $\\theta([0, 1]) \\subseteq [0, 1]$ (`reparam_mem`); the concatenation of the two halves of $\\gamma$ is such a reparametrization (`leftHalf`, `rightHalf`, `halvesReparam`, `concatPath_halves`).",
+    "decls": [
+     "Chapter6/ScHomotopy · mem_smoothSet_of_isScSmoothMap",
+     "Chapter6/ScHomotopy · contDiff_pt2_comp",
+     "Chapter6/ScHomotopy · isScHomotopyRel_reparam",
+     "Chapter6/ScHomotopy · reparam_mem",
+     "Chapter6/ScHomotopy · leftHalf",
+     "Chapter6/ScHomotopy · rightHalf",
+     "Chapter6/ScHomotopy · halvesReparam",
+     "Chapter6/ScHomotopy · concatPath_halves"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "As the text uses them; these are the tools of V6.52 and V6.56."
+   ]
+  },
+  {
+   "id": "V6.52",
+   "title": "The path category $PX$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, the classes $[\\varphi]$, their composition and the category $PX$, pp. 227–228",
+    "page": 227,
+    "statement": "For $t([\\varphi]) = s([\\psi])$, $[\\psi] * [\\varphi]$ is the class of $\\gamma$, equal to $\\varphi(\\beta(s))$ on $[0, 1/2]$ and $\\psi(\\beta(s))$ on $[1/2, 1]$; this gives a category $PX$ whose objects are the smooth points of $X$ and whose morphisms $x \\to y$ are the classes with source $x$ and target $y$."
+   },
+   "lean": {
+    "statement": "`ScHomotopic`: sc-smooth homotopy with the end points fixed, an equivalence relation on the sc-smooth paths `ScPath` between two points (`ScHomotopic.refl`, `ScHomotopic.symm`, `ScHomotopic.trans`). `ScPath.concat` is well defined on classes (`ScPath.concat_congr`), associative (`ScPath.concat_assoc`, via `assocReparam`, `isScHomotopyRel_triHomotopy`), with the classes of the constant paths as units (`ScPath.const_concat`, `ScPath.concat_const`) and the reversed paths as inverses (`ScPath.concat_reverse`, `ScPath.reverse_concat`). `PathCat`: the smooth points with the classes `ScPathClass` form a category (`PathCat.category`), indeed a groupoid (`PathCat.groupoid`).",
+    "decls": [
+     "Chapter6/PathCategory · smoothTransition_half",
+     "Chapter6/PathCategory · isScSmoothMap_const_of_mem_smoothSet",
+     "Chapter6/PathCategory · isScSmoothMap_ite",
+     "Chapter6/PathCategory · isScSmoothMap_ite₃",
+     "Chapter6/PathCategory · concatPath_of_le_two_thirds",
+     "Chapter6/PathCategory · concatPath_of_one_third_le",
+     "Chapter6/PathCategory · ScHomotopic",
+     "Chapter6/PathCategory · ScHomotopic.refl",
+     "Chapter6/PathCategory · ScHomotopic.symm",
+     "Chapter6/PathCategory · ScHomotopic.trans",
+     "Chapter6/PathCategory · isScHomotopyRel_triHomotopy",
+     "Chapter6/PathCategory · assocReparam",
+     "Chapter6/PathCategory · ScPath",
+     "Chapter6/PathCategory · ScPath.source_mem_smoothSet",
+     "Chapter6/PathCategory · ScPath.target_mem_smoothSet",
+     "Chapter6/PathCategory · ScPath.const",
+     "Chapter6/PathCategory · ScPath.concat",
+     "Chapter6/PathCategory · ScPath.reverse",
+     "Chapter6/PathCategory · ScPath.concat_congr",
+     "Chapter6/PathCategory · ScPath.const_concat",
+     "Chapter6/PathCategory · ScPath.concat_const",
+     "Chapter6/PathCategory · ScPath.concat_assoc",
+     "Chapter6/PathCategory · ScPath.concat_reverse",
+     "Chapter6/PathCategory · ScPath.reverse_concat",
+     "Chapter6/PathCategory · ScPathClass",
+     "Chapter6/PathCategory · ScPathClass.comp",
+     "Chapter6/PathCategory · PathCat",
+     "Chapter6/PathCategory · PathCat.category",
+     "Chapter6/PathCategory · PathCat.groupoid",
+     "Chapter6/PathCategory · PathCat.homMk",
+     "Chapter6/PathCategory · PathCat.comp_mk",
+     "Chapter6/PathCategory · PathCat.id_eq_mk",
+     "Chapter6/PathCategory · PathCat.mk_eq_mk_iff",
+     "Chapter6/PathCategory · PathCat.exists_eq_mk",
+     "Chapter6/PathCategory · PathCat.inv_mk"
+    ]
+   },
+   "chips": [
+    "a groupoid",
+    "identities: the constant paths",
+    "second piece read as $\\psi(\\beta(s) - 1)$"
+   ],
+   "diff": [
+    "The edge conditions of a homotopy hold only on $[0, 1]$ (decision D2), so transitivity is proved after reparametrizing by $\\kappa$; the identities, which the text does not name, are the classes of the constant paths (Findings, Chapter 6, item 71).",
+    "With $\\beta([1/2, 1]) = [1, 2]$ the second piece $\\psi(\\beta(s))$ leaves $[0, 1]$; it is read as $\\psi(\\beta(s) - 1)$ (possible misprint). Mathlib's $[\\varphi] \\gg [\\psi]$ is the text's $[\\psi] * [\\varphi]$ (Findings, Chapter 6, item 55)."
+   ]
+  },
+  {
+   "id": "V6.53",
+   "title": "Transferring orientations between chart points",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.5, p. 219, and the proof of Theorem 6.37, p. 228",
+    "page": 219,
+    "statement": "$T_xX$, $Y_x$ and $\\mathrm{Lin}(f, x) \\subseteq \\mathcal L(T_xX, Y_x)$, with the metric of the operator norm, are used as intrinsic objects (p. 219); the proof of Theorem 6.37 carries orientations along orientable neighbourhoods of different points of a path."
+   },
+   "lean": {
+    "statement": "`conjDet`: for isomorphisms $A$, $\\Gamma$ with $S'A = \\Gamma S$, $\\det(S) \\cong \\det(S')$ by $A$ on kernels and $\\Gamma$ on cokernels (`conjKerEquiv`, `conjCokerEquiv`, `conjDet_wedge_tmul`), compatible with composition (`conjDet_refl`, `conjDet_trans`, `conjDet_congr`) and with the $\\gamma^P$ (`IsGoodLeftProj.conj`, `gammaProj_conjDet`, `coord_conjDet_coordInv`); continuous orientations of $\\mathrm{DET}$ are carried along (`isLineOrientation_conj`, `LineOrientation.conj`). For two chart points at $x$, $A$ is the derivative at $z$ of the base transition (`ChartPoint.baseDeriv`) and $\\Gamma$ the fibre part of the strong bundle transition (`ChartPoint.fiberMap`), with the cocycle rules (`ChartPoint.transferT`, `ChartPoint.transferK`); $L \\in \\mathrm{Lin}_p(f, x)$ iff $\\Gamma LA^{-1} \\in \\mathrm{Lin}_{p'}(f, x)$ (`ChartPoint.mem_linSet_transfer_iff`), and the induced bijection $\\mathrm{Or}^f_x(p) \\cong \\mathrm{Or}^f_x(p')$ (`ChartPoint.orTransfer`) satisfies the cocycle rules (`ChartPoint.orTransfer_self`, `ChartPoint.orTransfer_trans`).",
+    "decls": [
+     "Chapter6/ChartTransfer · conjKerEquiv",
+     "Chapter6/ChartTransfer · conjCokerEquiv",
+     "Chapter6/ChartTransfer · conjDet",
+     "Chapter6/ChartTransfer · conjDet_wedge_tmul",
+     "Chapter6/ChartTransfer · conjDet_trans",
+     "Chapter6/ChartTransfer · conjDet_congr",
+     "Chapter6/ChartTransfer · conjDet_refl",
+     "Chapter6/ChartTransfer · IsGoodLeftProj.conj",
+     "Chapter6/ChartTransfer · gammaProj_conjDet",
+     "Chapter6/ChartTransfer · coord_conjDet_coordInv",
+     "Chapter6/ChartTransfer · isLineOrientation_conj",
+     "Chapter6/ChartTransfer · LineOrientation.conj",
+     "Chapter6/ChartTransfer · LineOrientation.conj_apply",
+     "Chapter6/ChartTransfer · LineOrientation.conj_refl",
+     "Chapter6/ChartTransfer · LineOrientation.conj_trans",
+     "Chapter6/ChartTransfer · LineOrientation.conj_congr",
+     "Chapter6/ChartTransfer · ChartPoint.baseDeriv",
+     "Chapter6/ChartTransfer · ChartPoint.baseDeriv_self",
+     "Chapter6/ChartTransfer · ChartPoint.baseDeriv_trans",
+     "Chapter6/ChartTransfer · ChartPoint.isScOperator_baseDeriv",
+     "Chapter6/ChartTransfer · ChartPoint.fiberMap",
+     "Chapter6/ChartTransfer · ChartPoint.fiberMap_self",
+     "Chapter6/ChartTransfer · ChartPoint.fiberMap_trans",
+     "Chapter6/ChartTransfer · ChartPoint.isScOperator_fiberMap",
+     "Chapter6/ChartTransfer · ChartPoint.transferT",
+     "Chapter6/ChartTransfer · ChartPoint.transferK",
+     "Chapter6/ChartTransfer · ChartPoint.transferT_self_apply",
+     "Chapter6/ChartTransfer · ChartPoint.transferT_trans_apply",
+     "Chapter6/ChartTransfer · ChartPoint.scDeriv_principal_baseDeriv",
+     "Chapter6/ChartTransfer · ChartPoint.IsScPlusOp.conj",
+     "Chapter6/ChartTransfer · ChartPoint.mem_linSet_transfer_iff",
+     "Chapter6/ChartTransfer · ChartPoint.orTransfer",
+     "Chapter6/ChartTransfer · ChartPoint.orTransfer_apply",
+     "Chapter6/ChartTransfer · ChartPoint.orTransfer_self",
+     "Chapter6/ChartTransfer · ChartPoint.orTransfer_trans"
+    ]
+   },
+   "chips": [
+    "chart-free objects compared in charts"
+   ],
+   "diff": [
+    "The text treats $T_xX$, $Y_x$, $\\mathrm{Lin}(f, x)$ and $\\mathrm{Or}^f_x$ as chart-free; here $T_xX$ has no linear structure (gaps G.6, G.7, G.13), and the identification between charts is made explicit (Findings, Chapter 6, item 70)."
+   ]
+  },
+  {
+   "id": "V6.54",
+   "title": "The push-forward does not depend on the chart",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.5, the push-forward and the proof of Theorem 6.37, pp. 222–228",
+    "page": 222,
+    "statement": "The push-forward is built in one strong bundle chart; the proof of Theorem 6.37 uses orientable neighbourhoods of different points of a path, which may lie in different charts."
+   },
+   "lean": {
+    "statement": "The stabilization isomorphism and the sign are natural under conjugation (`stabSign_conj`, `coprod_conj`, `ker_coprod_conj`, `surjective_coprod_conj`, `conj_stab_key`, `stabRayEquiv_conjDet`), and continuation is natural under jointly continuous families of injective linear maps (`SubspaceFamily.cont_map`). A family of stabilized kernels in one chart is carried by the derivative of the base transition (`continuous_baseDeriv`) to one in a second chart, with the same sections (`IsStabKernels.exists_transfer`, `IsStabKernels.orRay_transfer`, with `ChartPoint.fiberMap_principal`, `ChartPoint.conj_of_linAt`, `ChartPoint.conj_of_principal`); a push-forward in one chart, conjugated by the transfer of V6.53 at the end points, is a push-forward in the other (`IsPush.transfer`), so the local propagations of two charts agree (`HasLocalPropagation.push_compat`).",
+    "decls": [
+     "Chapter6/PushTransfer · stabSign_conj",
+     "Chapter6/PushTransfer · coprod_conj",
+     "Chapter6/PushTransfer · ker_coprod_conj",
+     "Chapter6/PushTransfer · surjective_coprod_conj",
+     "Chapter6/PushTransfer · conj_stab_key",
+     "Chapter6/PushTransfer · stabRayEquiv_conjDet",
+     "Chapter6/PushTransfer · SubspaceFamily.cont_map",
+     "Chapter6/PushTransfer · ChartPoint.fiberMap_principal",
+     "Chapter6/PushTransfer · ChartPoint.conj_of_linAt",
+     "Chapter6/PushTransfer · ChartPoint.conj_of_principal",
+     "Chapter6/PushTransfer · continuous_baseDeriv",
+     "Chapter6/PushTransfer · IsStabKernels.exists_transfer",
+     "Chapter6/PushTransfer · IsStabKernels.orRay_transfer",
+     "Chapter6/PushTransfer · IsPush.transfer",
+     "Chapter6/PushTransfer · HasLocalPropagation.push_compat"
+    ]
+   },
+   "chips": [
+    "the text does not compare charts"
+   ],
+   "diff": [
+    "Needed for Theorem 6.37; the text does not compare charts (Findings, Chapter 6, item 70)."
+   ]
+  },
+  {
+   "id": "V6.55",
+   "title": "$\\mathrm{Or}^f_x$ in a chosen chart",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Definition 6.27 and the objects of Theorem 6.37, pp. 220, 228",
+    "page": 220,
+    "statement": "$\\mathrm{Or}^f_x$, the set of the two orientations of $\\mathrm{DET}(f, x)$, is the object that $\\Gamma_f$ assigns to the smooth point $x$."
+   },
+   "lean": {
+    "statement": "`orChart x`: a chosen chart of the atlas at $x$ (`isChart_orChart`, `mem_orChart`); `Orx`: the orientations read in it, with two elements (`exists_two_orx`); `toChartOr`: their identification with the orientations read in any other chart at $x$ by the transfer of V6.53, compatible with composition (`toChartOr_orChart`, `toChartOr_trans`); `restrictOr`: a family $y \\mapsto o_y$ read in the chart of an orientable neighbourhood.",
+    "decls": [
+     "Chapter6/SectionOrientation · orChart",
+     "Chapter6/SectionOrientation · isChart_orChart",
+     "Chapter6/SectionOrientation · mem_orChart",
+     "Chapter6/SectionOrientation · Orx",
+     "Chapter6/SectionOrientation · toChartOr",
+     "Chapter6/SectionOrientation · toChartOr_orChart",
+     "Chapter6/OrientationFunctor · toChartOr_trans",
+     "Chapter6/OrientationFunctor · exists_two_orx",
+     "Chapter6/SectionOrientation · restrictOr"
+    ]
+   },
+   "chips": [
+    "a chosen chart"
+   ],
+   "diff": [
+    "A chosen chart stands for the text's chart-free $\\mathrm{Or}^f_x$ (Findings, Chapter 6, item 70)."
+   ]
+  },
+  {
+   "id": "V6.56",
+   "title": "Transport along paths from local push-forwards",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, the proof of Theorem 6.37, p. 228",
+    "page": 228,
+    "statement": "For a path $\\varphi$ and $t_0 \\in [0, 1]$ one chooses an orientable neighbourhood $U(\\varphi(t_0))$ and an open interval $I(t_0)$ on which orientations propagate; using the compactness of $[0, 1]$ and a finite covering, $o_0$ is transported to $o_1$; \"by a covering argument\" $\\varphi_*$ depends only on $[\\varphi]$, and the uniqueness of $\\Gamma_f$ is called obvious."
+   },
+   "lean": {
+    "statement": "`LocalTransport`: local data (good open sets covering $X_\\infty$ and push-forwards along paths in a good set, compatible with concatenation and independent of the good set; `LocalTransport.push_eq_refl`, `LocalTransport.push_eq_push`, `LocalTransport.push_congr`). `LocalTransport.transportN`: the composite of the push-forwards along the $2^N$ dyadic pieces of a path (`vSeg`, `hSeg`, `dSeg`), the same for every $N$ at which every piece lies in a good set (`LocalTransport.IsFine`, `LocalTransport.transportN_eq_of_isFine`); such $N$ exist by the Lebesgue number lemma (`LocalTransport.exists_isLebesgueNumber`). `LocalTransport.transport` is the push-forward on a path in a good set (`LocalTransport.transport_eq_push`), homotopy invariant (`LocalTransport.transport_eq_of_isScHomotopyRel`, on dyadic squares: `LocalTransport.transportN_square`, `equiv_paste_squares`), compatible with concatenation and reparametrization, the identity on constant paths, and the only family with these properties (`LocalTransport.transport_unique`).",
+    "decls": [
+     "Chapter6/PathTransport · LocalTransport",
+     "Chapter6/PathTransport · LocalTransport.push_eq_refl",
+     "Chapter6/PathTransport · LocalTransport.push_eq_push",
+     "Chapter6/PathTransport · LocalTransport.push_congr",
+     "Chapter6/PathTransport · LocalTransport.transportN",
+     "Chapter6/PathTransport · LocalTransport.transportN_eq_push",
+     "Chapter6/PathTransport · LocalTransport.IsFine",
+     "Chapter6/PathTransport · LocalTransport.transportN_eq_of_isFine",
+     "Chapter6/PathTransport · LocalTransport.IsLebesgueNumber",
+     "Chapter6/PathTransport · LocalTransport.exists_isLebesgueNumber",
+     "Chapter6/PathTransport · LocalTransport.isFine_of_isLebesgueNumber",
+     "Chapter6/PathTransport · LocalTransport.transport",
+     "Chapter6/PathTransport · LocalTransport.transport_eq_push",
+     "Chapter6/PathTransport · LocalTransport.transport_congr",
+     "Chapter6/PathTransport · LocalTransport.transport_const",
+     "Chapter6/PathTransport · LocalTransport.transport_halves",
+     "Chapter6/PathTransport · LocalTransport.transportN_square",
+     "Chapter6/PathTransport · LocalTransport.exists_isSqLebesgueNumber",
+     "Chapter6/PathTransport · LocalTransport.transport_eq_of_isScHomotopyRel",
+     "Chapter6/PathTransport · LocalTransport.transport_reparam",
+     "Chapter6/PathTransport · LocalTransport.transport_concatPath",
+     "Chapter6/PathTransport · LocalTransport.transport_unique",
+     "Chapter6/PathTransport · equiv_paste_squares",
+     "Chapter6/PathTransport · vSeg",
+     "Chapter6/PathTransport · hSeg",
+     "Chapter6/PathTransport · dSeg"
+    ]
+   },
+   "chips": [
+    "dyadic subdivisions"
+   ],
+   "diff": [
+    "Dyadic subdivisions of $[0, 1]$ and of $[0, 1]^2$ in place of arbitrary finite coverings (Findings, Chapter 6, item 72)."
+   ]
+  },
+  {
+   "id": "V6.57",
+   "title": "Theorem 6.37: the functor $\\Gamma_f$",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Theorem 6.37 and its proof, p. 228",
+    "page": 228,
+    "statement": "For a strong bundle over a tame $X$ and an sc-Fredholm $f$ there is a uniquely determined functor $\\Gamma_f : PX \\to \\mathcal O_f$, $x \\mapsto \\mathrm{Or}^f_x$, $[\\varphi] \\mapsto \\Gamma_f([\\varphi]) : \\mathrm{Or}^f_x \\to \\mathrm{Or}^f_y$, with property (∗): for every sc-smoothly contractible open $U(x)$ on which $f$ has the local propagation property, $\\varphi_* = \\Gamma_f([\\varphi])$ for every sc-smooth path $\\varphi$ in $U$."
+   },
+   "lean": {
+    "statement": "`theorem_6_37` ($X$ tame, bump functions, $f$ with tame germ data, $P$ with sc⁺-sections through the smooth fibre points): there is exactly one family of bijections $\\Gamma_f([\\varphi]) : \\mathrm{Or}^f_x \\to \\mathrm{Or}^f_y$ on the morphisms of $PX$ that takes identities to identities and compositions to composites and has (∗) (`IsStarProperty`, `IsStarPropertyOn`): for every chart $c$, every open $U$ with the local propagation property in $c$ (`IsPropagationNbhd`) and every sc-smooth path $\\varphi$ in $U$, $\\Gamma_f([\\varphi])$ is every push-forward along $\\varphi$ in $c$ (`orPush`), read through $\\mathrm{Or}^f$ of the chosen charts. `orFunctor`: the functor $PX \\to$ Type, $x \\mapsto \\mathrm{Or}^f_x$ (`orFunctorMap`, `orFunctorMap_id`, `orFunctorMap_comp`); the uniqueness needs (∗) only on a family of such open sets covering $X_\\infty$ (`orFunctorMap_unique_of_cover`).",
+    "decls": [
+     "Chapter6/OrientationFunctor · IsPropagationNbhd",
+     "Chapter6/OrientationFunctor · orPush",
+     "Chapter6/OrientationFunctor · orPush_eq",
+     "Chapter6/OrientationFunctor · orPush_compat",
+     "Chapter6/OrientationFunctor · orPush_trans",
+     "Chapter6/OrientationFunctor · IsStarPropertyOn",
+     "Chapter6/OrientationFunctor · IsStarProperty",
+     "Chapter6/OrientationFunctor · orLocalTransport",
+     "Chapter6/OrientationFunctor · orLocalTransport_transport_eq",
+     "Chapter6/OrientationFunctor · LocalTransport.restrict",
+     "Chapter6/OrientationFunctor · LocalTransport.transport_apply_eq_of_local",
+     "Chapter6/OrientationFunctor · orFunctorMap",
+     "Chapter6/OrientationFunctor · orFunctorMap_mk",
+     "Chapter6/OrientationFunctor · orFunctorMap_id",
+     "Chapter6/OrientationFunctor · orFunctorMap_comp",
+     "Chapter6/OrientationFunctor · orFunctor",
+     "Chapter6/OrientationFunctor · orFunctorMap_isStarProperty",
+     "Chapter6/OrientationFunctor · orFunctorMap_unique_of_cover",
+     "Chapter6/OrientationFunctor · orFunctorMap_unique",
+     "Chapter6/OrientationFunctor · theorem_6_37"
+    ]
+   },
+   "chips": [
+    "(∗) on every propagation set",
+    "$\\mathcal O_f$: types and bijections",
+    "unique on morphisms"
+   ],
+   "diff": [
+    "(∗) is asked for every open set with the local propagation property, not only for sc-smoothly contractible ones (gap G.61); $\\mathcal O_f$ is read as types and bijections; \"uniquely determined\" is read for the maps on morphisms, since on objects there is no choice (Findings, Chapter 6, item 72).",
+    "The hypotheses are the standing ones of Theorem 6.35 and sc⁺-sections through every smooth fibre point, so that every $\\mathrm{Or}^f_x$ has two elements; bump functions give them (Findings, Chapter 6, item 72)."
+   ]
+  },
+  {
+   "id": "V6.58",
+   "title": "Definition 6.38: orientable sections",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Definition 6.38, p. 229",
+    "page": 229,
+    "statement": "An sc-Fredholm section $f$ over a tame $X$ is orientable if, for any two smooth points $x$, $y$ in the same path component, $\\Gamma_f([\\varphi])$ does not depend on the class $[\\varphi] : x \\to y$."
+   },
+   "lean": {
+    "statement": "`IsOrientableSection`: $\\Gamma_f([\\varphi]) = \\Gamma_f([\\psi])$ for any two morphisms $x \\to y$ of $PX$ (classes for `scPathSetoid`); `isOrientableSection_iff_exists`: equivalently, there is $y \\mapsto o_y$ with $\\Gamma_f([\\varphi])o_x = o_y$ for every $[\\varphi] : x \\to y$.",
+    "decls": [
+     "Chapter6/OrientationFunctor · scPathSetoid",
+     "Chapter6/OrientationFunctor · IsOrientableSection",
+     "Chapter6/OrientationFunctor · isOrientableSection_iff_exists"
+    ]
+   },
+   "chips": [
+    "path component via sc-smooth paths"
+   ],
+   "diff": [
+    "\"Smooth points in the same path component\" is read as smooth points joined by an sc-smooth path; for points not so joined there is nothing to check (gap G.56; Findings, Chapter 6, items 42, 73)."
+   ]
+  },
+  {
+   "id": "V6.59",
+   "title": "Definition 6.39 and its equivalence with Definition 6.38",
+   "verdict": "stronger",
+   "book": {
+    "label": "§6.5, Definition 6.39, p. 229",
+    "page": 229,
+    "statement": "\"An equivalent version\": $f$ is orientable if there is a map $y \\mapsto o_y$, $y \\in U_\\infty$, $o_y$ an orientation of $\\mathrm{DET}(f, y)$, such that every smooth $x$ has an orientable neighbourhood $U(x)$ on which $y \\mapsto o_y$ is one of the two continuous orientations."
+   },
+   "lean": {
+    "statement": "`IsOrientableSection'`: a map $y \\mapsto o_y$ on $X_\\infty$ such that every smooth point has an orientable neighbourhood over which it is a continuous orientation; `isOrientableSection'_iff_exists`: this holds iff there is $y \\mapsto o_y$ with $\\Gamma_f([\\varphi])o_x = o_y$ for all $[\\varphi]$; `isOrientableSection_iff`: Definitions 6.38 and 6.39 are equivalent.",
+    "decls": [
+     "Chapter6/SectionOrientation · IsOrientableSection'",
+     "Chapter6/OrientationFunctor · isOrientableSection'_iff_exists",
+     "Chapter6/OrientationFunctor · isOrientableSection_iff"
+    ]
+   },
+   "chips": [
+    "the equivalence proved",
+    "$U_\\infty$ read as $X_\\infty$"
+   ],
+   "diff": [
+    "The equivalence, stated without proof, is proved: from 6.39 to 6.38 the transport along a path is computed on dyadic pieces inside orientable neighbourhoods (`LocalTransport.transport_apply_eq_of_local`); from 6.38 to 6.39 a base point is chosen in each class of points joined by sc-smooth paths (Findings, Chapter 6, item 73).",
+    "\"$y \\in U_\\infty$\", before any $U$ is introduced, is read as $y \\in X_\\infty$ (possible misprint) (Findings, Chapter 6, item 74)."
+   ]
+  },
+  {
+   "id": "V6.60",
+   "title": "Definition 6.40: orientations of sc-Fredholm sections",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.5, Definition 6.40, p. 229",
+    "page": 229,
+    "statement": "An orientation of $f$ assigns to every smooth $y$ an orientation $o^f_y$ of $\\mathrm{DET}(f, y)$ such that, for every smooth $x$ and every orientable neighbourhood $U(x)$, the restriction to $U_\\infty$ is one of the two continuous orientations."
+   },
+   "lean": {
+    "statement": "`IsSectionOrientation`: a map $y \\mapsto o_y$ on $X_\\infty$ whose restriction to every orientable neighbourhood of every smooth point is a continuous orientation; equivalently $\\Gamma_f([\\varphi])o_x = o_y$ for all $[\\varphi] : x \\to y$ (`isSectionOrientation_iff`). $f$ has an orientation iff it is orientable (`exists_isSectionOrientation_iff`); two orientations that agree at a point agree on the smooth points joined to it by sc-smooth paths (`IsSectionOrientation.apply_eq_iff`), and there are exactly two on each such class (`IsSectionOrientation.exists_two`).",
+    "decls": [
+     "Chapter6/SectionOrientation · IsSectionOrientation",
+     "Chapter6/OrientationFunctor · isSectionOrientation_iff",
+     "Chapter6/OrientationFunctor · exists_isSectionOrientation_iff",
+     "Chapter6/OrientationFunctor · IsSectionOrientation.apply_eq_iff",
+     "Chapter6/OrientationFunctor · IsSectionOrientation.exists_two"
+    ]
+   },
+   "chips": [
+    "orientable nbhd: the pair of V6.50"
+   ],
+   "diff": [
+    "An orientable neighbourhood is the pair $V \\subseteq U$ of V6.50 (Findings, Chapter 6, items 54, 75)."
+   ]
+  },
+  {
+   "id": "V6.61",
+   "title": "Theorem 6.41: the natural orientation of the solution set",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, Theorem 6.41 and its proof, p. 229; the paragraph after it, pp. 229–230",
+    "page": 229,
+    "statement": "Over a tame $X$, for a proper sc-Fredholm section $f$ with $(f, x)$ in general position to $\\partial X$ at every zero and an orientation $o^f$ of $f$, the solution set $S = f^{-1}(0)$ is a smooth compact manifold with boundary with corners with a natural orientation. Proof: $T_xS = \\ker f'(x)$ is oriented by $o^f_x$ since $f'(x)$ is onto, and the local prolongation of this orientation on $S$ is the Fredholm one. For $f$ not generic, a small perturbation $s$ supported near the zero set orients $S_{f+s}$."
+   },
+   "lean": {
+    "statement": "`theorem_6_41_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.17) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.18; Lemma 4.19 for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \\ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \\in \\mathrm{Or}^f_x$ gives a ray of $\\det f'(x) \\cong \\lambda(\\ker f'(x)) = \\lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_41`: moreover, for an orientation $o$ of $f$ (Definition 6.40) and every sc-smooth path $\\gamma$ of zeros in an orientable neighbourhood $V \\subseteq U$, the kernels $\\ker f'(\\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).",
+    "decls": [
+     "Chapter6/SolutionOrientation · theorem_6_41_solutionSet",
+     "Chapter6/SolutionOrientation · MPolyfold.IsGeneralPositionAt.isGoodPositionAt",
+     "Chapter6/SolutionOrientation · tangentSpace_solutionSet_eq_linKer",
+     "Chapter6/SolutionOrientation · ChartPoint.linZero",
+     "Chapter6/SolutionOrientation · ChartPoint.linZero_mem_linSet",
+     "Chapter6/SolutionOrientation · ChartPoint.linZero_surjective",
+     "Chapter6/SolutionOrientation · ChartPoint.map_ker_linZero",
+     "Chapter6/SolutionOrientation · ChartPoint.tangentOr",
+     "Chapter6/SolutionOrientation · tangentOrAt",
+     "Chapter6/SolutionOrientation · stabSign_of_surjective",
+     "Chapter6/SolutionOrientation · stabRayEquiv_zero",
+     "Chapter6/SolutionOrientation · ChartPoint.stabRayEquiv_eq_tangentOr",
+     "Chapter6/SolutionOrientation · IsStabKernels.orRay_eq_tangentOr",
+     "Chapter6/SolutionOrientation · isStabKernels_zero",
+     "Chapter6/SolutionOrientation · SubspaceFamily.congrL",
+     "Chapter6/SolutionOrientation · exists_tangentFamily",
+     "Chapter6/SolutionOrientation · tangentFamily",
+     "Chapter6/SolutionOrientation · tangentFamily_L",
+     "Chapter6/SolutionOrientation · cont_tangentOr",
+     "Chapter6/SolutionOrientation · isLineOrientation_tangentOr",
+     "Chapter6/SolutionOrientation · isLineOrientation_tangentOr_of_isSectionOrientation",
+     "Chapter6/SolutionOrientation · theorem_6_41"
+    ]
+   },
+   "chips": [
+    "orientation along paths of zeros",
+    "on $S$ as a manifold: gap G.67",
+    "two charts: gap G.68",
+    "perturbation paragraph: gap G.69"
+   ],
+   "diff": [
+    "\"A natural orientation\" is read as the tangent orientations with their continuity along the sc-smooth paths of zeros in a chart, and \"the local prolongation of the orientation on $S$ is the Fredholm one\" as the identity of continuation and push-forward along such paths; intermediate points are reached by the paths $s \\mapsto \\gamma(t\\kappa(s))$, which stay in $\\gamma([0, t])$ (Findings, Chapter 6, item 91).",
+    "Not formalized: an orientation of $S$ as an abstract manifold, of its tangent bundle in the charts of the induced structure (gap G.67), the compatibility of the tangent orientations read in two charts at one zero (gap G.68), and the perturbation paragraph after the theorem, with $S_{f+s}$ and $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$ (gap G.69) (Findings, Chapter 6, items 92, 93).",
+    "Tame germ data is the standing hypothesis of Chapter 5; the orientation $o$ exists iff $f$ is orientable (V6.60). \"Proper\" is the text's hypothesis; the proof uses only the compactness of $S$, which for sc-Fredholm sections is equivalent to it (V5.10), so nothing of the hypothesis is lost (Findings, Chapter 6, item 90)."
+   ]
+  },
+  {
+   "id": "V6.62",
+   "title": "Remark 6.42: the orientation over $X \\times [0, 1]$, at a point",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.5, Remark 6.42, p. 230",
+    "page": 230,
+    "statement": "For an oriented $(f, o)$ and an sc⁺-section $s$ of $Y \\to X \\times [0, 1]$, $\\hat f(x, t) = f(x) + s(x, t)$ has a natural orientation from $o$ and the standard orientation of $[0, 1]$: for $L = (f - t)'(x)$ oriented by $h = (a_1 \\wedge \\dots \\wedge a_n) \\otimes (b_1 \\wedge \\dots \\wedge b_l)^*$, the operator $\\tilde L(a, b) = La$ on $T_{(x,t)}(X \\times [0, 1])$ is oriented by $\\tilde h = (a_1 \\wedge \\dots \\wedge a_n \\wedge e) \\otimes (b_1 \\wedge \\dots \\wedge b_l)^*$, $e$ the standard orientation of $[0, 1]$, and $\\tilde L$ lies in the linearization space of $\\hat f$ at $(x, t)$."
+   },
+   "lean": {
+    "statement": "`extOp`: for Fredholm $L$, $\\tilde L = L \\oplus 0 : E \\times \\mathbb R \\to F$ is Fredholm (`isFredholm_extOp`) with $\\ker\\tilde L = \\ker L \\times \\mathbb R$ and $\\operatorname{coker}\\tilde L = \\operatorname{coker}L$ (`finrank_ker_extOp`, `extE`, `range_extOp`, `extCoker`). `extDet`: $h \\mapsto \\tilde h$, $(a_1 \\wedge \\dots \\wedge a_n) \\otimes d^* \\mapsto ((a_1, 0) \\wedge \\dots \\wedge (a_n, 0) \\wedge e) \\otimes d^*$ with $e = (0, 1)$, an isomorphism $\\det(L) \\cong \\det(\\tilde L)$ (`extDet_wedge_tmul`); in local determinant charts its coordinate is $(-1)^{\\dim F/R(P) + \\dim\\operatorname{coker}L}$ times a continuous nowhere-zero function (`coord_extDet`). `extDetN` $= (-1)^{\\dim\\operatorname{coker}L}$ `extDet` pulls continuous orientations back along $L \\mapsto \\tilde L$ (`coord_extDetN`, `isLineOrientation_extPull`, `LineOrientation.extPull`) and agrees with `extDet` for $L$ onto (`extDetN_eq_of_surjective`); `extConjOp`, `extConjDet`, `existsUnique_extConjOr`: the same after the swap of the factors. In charts: for $\\hat f = \\tilde f + S$, $\\tilde f(t, y) = f(y)$, $S$ an sc⁺-section of $\\pi^*P \\to \\mathbb R \\times X$, and the product chart point (`ChartPoint.prodPt`, `ChartPoint.prodT`, `ChartPoint.prodK`), $\\hat L(\\sigma, v) = Lv$ (`ChartPoint.prodLin`) lies in $\\mathrm{Lin}(\\hat f, (t, x))$ for every $L \\in \\mathrm{Lin}(f, x)$ (`ChartPoint.prodLin_mem_linSet`, through the $t$-constant lift `constLift`); an orientation $o$ of $\\mathrm{DET}(f, x)$ gives exactly one orientation $\\hat o$ of $\\mathrm{DET}(\\hat f, (t, x))$ with $\\hat o(\\hat L)$ the image of $o(L)$ for **every** $L$ (`ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr`, `ChartPoint.prodOr_apply`), and $o \\mapsto \\hat o$ is injective (`ChartPoint.prodOr_injective`).",
+    "decls": [
+     "Chapter6/ProductOrientation · extOp",
+     "Chapter6/ProductOrientation · isFredholm_extOp",
+     "Chapter6/ProductOrientation · finrank_ker_extOp",
+     "Chapter6/ProductOrientation · extE",
+     "Chapter6/ProductOrientation · range_extOp",
+     "Chapter6/ProductOrientation · extCoker",
+     "Chapter6/ProductOrientation · extDet",
+     "Chapter6/ProductOrientation · extDet_wedge_tmul",
+     "Chapter6/ProductOrientation · extDetN",
+     "Chapter6/ProductOrientation · extDetN_eq_of_surjective",
+     "Chapter6/ProductOrientation · coord_extDet",
+     "Chapter6/ProductOrientation · coord_extDetN",
+     "Chapter6/ProductOrientation · isLineOrientation_extPull",
+     "Chapter6/ProductOrientation · LineOrientation.extPull",
+     "Chapter6/ProductOrientation · extConjOp",
+     "Chapter6/ProductOrientation · extConjDet",
+     "Chapter6/ProductOrientation · existsUnique_extConjOr",
+     "Chapter6/ProductOrientation · ChartPoint.prodPt",
+     "Chapter6/ProductOrientation · ChartPoint.mem_prodPt_T_iff",
+     "Chapter6/ProductOrientation · ChartPoint.mem_prodPt_K_iff",
+     "Chapter6/ProductOrientation · ChartPoint.prodT",
+     "Chapter6/ProductOrientation · ChartPoint.prodK",
+     "Chapter6/ProductOrientation · ChartPoint.prodLin",
+     "Chapter6/ProductOrientation · ChartPoint.IsScPlusOp.prodPt",
+     "Chapter6/ProductOrientation · constLift",
+     "Chapter6/ProductOrientation · ChartPoint.prodLin_mem_linSet",
+     "Chapter6/ProductOrientation · ChartPoint.existsUnique_prodOr",
+     "Chapter6/ProductOrientation · ChartPoint.prodOr",
+     "Chapter6/ProductOrientation · ChartPoint.prodOr_apply",
+     "Chapter6/ProductOrientation · ChartPoint.prodOr_injective"
+    ]
+   },
+   "chips": [
+    "at a point",
+    "sign $(-1)^{\\dim\\operatorname{coker}L}$",
+    "$X \\times [0, 1]$ as $\\mathbb R \\times X$"
+   ],
+   "diff": [
+    "As we read it, the literal $h \\mapsto \\tilde h$ is not continuous in $L$ where the parity of $\\dim\\operatorname{coker}L$ changes, so the orientation of $\\mathrm{DET}(\\hat f, (x, t))$ it defines could depend on the choice of $L$; the sign $(-1)^{\\dim\\operatorname{coker}L}$ (the sign of V6.40) is used, which agrees with the text's map when $L$ is onto (Findings, Chapter 6, item 95).",
+    "$X \\times [0, 1]$ is read as $\\mathbb R \\times X$ (decision D2), with the parameter first, so $\\tilde L(a, b) = La$ is conjugated by the swap of the factors. Only an orientation of $\\mathrm{DET}(f, x)$ at the one point and $\\mathrm{Lin}(f, x) \\ne \\emptyset$ (bump functions, V6.1) are used, not an orientation of $f$ (Findings, Chapter 6, item 96).",
+    "That $(t, y) \\mapsto \\hat o$ is an orientation of $\\hat f$ in the sense of Definition 6.40, built from an orientation of $f$, is not formalized (gap G.66; Findings, Chapter 6, item 97)."
+   ]
+  },
+  {
+   "id": "V6.63",
+   "title": "§6.7.1: the proof of Lemma 6.5",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.7.1, pp. 234–235",
+    "page": 234,
+    "statement": "With complements $(V, W)$, a change of the basis of $V$ by $\\sigma$ multiplies both wedges of (91) by $\\det(\\sigma)$, so has no influence. A change of the bases of $A$ and $D$ multiplies $a \\otimes d^*$ by $\\det(\\tau)/\\det(\\varepsilon)$, and the vector is said to be independent of the bases iff $\\det(\\tau) = \\det(\\varepsilon)$. For two choices of complements, the new basis vectors differ from the old by $q_i \\in \\alpha(A)$ and $p_i \\in \\beta(C)$, which leaves the wedges unchanged."
+   },
+   "lean": {
+    "statement": "`FourTermExact.Choice.exists_smul_source_value`: for two choices of (91) the right-hand sides are related as the sources are. A change of the basis of $Z$ multiplies both wedges by its determinant, a change of the bases of $A$ and $D$ multiplies both sides by the same factor, and a change of complements adds to the basis of $Z$ vectors of $\\alpha(A)$ and to the $\\gamma$-preimages vectors of $\\beta(B)$ (`FourTermExact.Choice.wedgeC`), which leaves the wedges unchanged.",
+    "decls": [
+     "Chapter6/ExactSequence · FourTermExact.Choice.exists_smul_source_value",
+     "Chapter6/ExactSequence · FourTermExact.Choice.wedgeC"
+    ]
+   },
+   "chips": [
+    "homogeneity in the bases of $A$, $D$"
+   ],
+   "diff": [
+    "The step \"if and only if $\\det(\\tau) = \\det(\\varepsilon)$\" is read as the homogeneity of (91) in the bases of $A$ and $D$, both sides scaling by $\\det(\\sigma)/\\det(\\varepsilon)$, $\\tau$ being the $\\sigma$ just introduced (possible misprint). The corrections $p_i$ lie in $\\beta(B)$ (written $\\beta(C)$) and are combinations of the $\\beta$-images, whose names are exchanged with those of the $\\gamma$-preimages in the last step (possible misprints) (Findings, Chapter 6, item 1)."
+   ]
+  },
+  {
+   "id": "V6.64",
+   "title": "§6.7.2: the proof of Proposition 6.12",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.7.2, pp. 235–237",
+    "page": 235,
+    "statement": "With $d_i \\in R(I - Q)$, bases $a, b$ of $\\ker(QT)$ and $a, b, \\tilde b$ of $\\ker(PT)$, the text computes $\\gamma^P_{QT}(\\gamma^Q_T(h)) = \\alpha^P \\otimes (\\beta^P)^*$, splits $F/R(P) = \\ker\\tilde Q \\oplus \\ker(I - \\tilde Q)$, replaces $[QT(\\tilde b_i)]$ by $[T(\\tilde b_i)]$ in the wedge, and finds the same vector for $\\gamma^P_T(h)$."
+   },
+   "lean": {
+    "statement": "`mem_span_append_of_ker`: if $Qg = 0$, then $g$ is a combination of the $d_i$ plus $Tx$ with $x \\in \\ker(QT)$, so the classes of the $d_i$ and $Tb_j$ span what the text calls $\\ker\\tilde Q$; the classes $[T\\tilde b]$ and $[QT\\tilde b]$ in $F/R(P)$ differ by elements of that span, which does not change the wedge. With `gammaProj_wedge_tmul` and `comp_comp_eq_of_projLE` this gives Proposition 6.12 (V6.14).",
+    "decls": [
+     "Chapter6/ProjectionSequence · mem_span_append_of_ker",
+     "Chapter6/ProjectionSequence · gammaProj_wedge_tmul",
+     "Chapter6/ProjectionSequence · comp_comp_eq_of_projLE"
+    ]
+   },
+   "chips": [
+    "spanning proved directly in $F$"
+   ],
+   "diff": [
+    "The spanning step is proved directly in $F$; the name $\\alpha_q$ in the last part is read as $\\alpha^P$ (possible misprint) (Findings, Chapter 6, items 6, 7)."
+   ]
   }
  ],
  "notFormalized": [
@@ -9863,6 +11747,169 @@
    "decls": [
     "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
     "Chapter5/PartitionsOfUnity · corollary_5_44"
+   ]
+  },
+  {
+   "title": "Theorem 6.43: the invariant $\\Psi_{(f,o)}$",
+   "label": "§6.6, Theorem 6.43, p. 231 (proof pp. 231–233)",
+   "page": 231,
+   "book": "Over a tame $X$ with sc-smooth bump functions, a proper oriented sc-Fredholm section $(f, o)$ defines a linear map $\\Psi_{(f,o)} : H^*_{dR}(X, \\partial X) \\to \\mathbb R$ with (1) $\\Psi_{(f,o)}([\\omega, \\tau]) = \\int_{S_{f+s}}\\omega - \\int_{\\partial S_{f+s}}\\tau$ for every $s$ admissible for $(N, U)$, and (2) $\\Psi_{(f_0,o_0)} = \\Psi_{(f_1,o_1)}$ for a proper oriented homotopy. For $\\partial X = \\emptyset$, $\\Psi_{(f,o)}([\\omega]) = \\int_{S_{f+s}}\\omega$ on $H^n_{dR}(X)$, $n$ the index (p. 233).",
+   "instead": "**Not formalized** (decision D1). It needs the sc-differential forms and their cohomology of §4.4 (gaps G.37–G.40), integration over oriented compact manifolds with boundary with corners and Stokes' theorem, which Mathlib does not have; its proof also uses the homotopy of Remark 5.16 (gap G.44). What the theorem rests on is formalized: the perturbations of Theorem 5.18 (V5.38, V5.39) and the tangent orientations of Theorem 6.41 (V6.61) (Findings, Chapter 6, item 100).",
+   "decls": [
+    "Chapter5/GeneralPosition · theorem_5_18",
+    "Chapter6/SolutionOrientation · theorem_6_41"
+   ]
+  },
+  {
+   "title": "§6.6: the sections admissible for $(N, U)$",
+   "label": "§6.6, p. 230",
+   "page": 230,
+   "book": "For a proper oriented $(f, o)$ over a tame $X$ with bump functions and an auxiliary norm $N$, Theorem 5.18 gives an open $U \\supseteq S$ such that every sc⁺-section supported in $U$ with $N(s(x)) \\le 1$ has a compact $S_{f+s}$; the distinguished ones, with $(f + s, x)$ in general position at every zero, have oriented solution sets and are called admissible for $(N, U)$.",
+   "instead": "**Not formalized** as a notion; it is used only in Theorem 6.43 (gap G.54). The facts recalled are formalized: Theorem 5.18 (V5.38, V5.39) and the tangent orientations of the solution set (V6.61); the orientation of $S_{f+s}$ for a perturbed $f$ is gap G.69 (Findings, Chapter 6, item 101).",
+   "decls": [
+    "Chapter5/GeneralPosition · theorem_5_18_dense"
+   ]
+  },
+  {
+   "title": "The facts on paths recalled on p. 201",
+   "label": "§6.1, before Proposition 6.2, p. 201",
+   "page": 201,
+   "book": "An M-polyfold is locally path connected, and any two smooth points in the same path component can be joined by an sc⁺-smooth path $\\varphi : [0, 1] \\to X$.",
+   "instead": "**Not formalized** beyond a chart: inside the domain of a chart, nearby smooth points are joined by sc-smooth paths (`exists_nhds_scPath`, V6.49), and \"in the same path component\" (Definitions 6.27, 6.38) is read as \"joined by an sc-smooth path\" (V6.58) (Findings, Chapter 6, item 42).",
+   "decls": [
+    "Chapter6/ScPaths · exists_nhds_scPath"
+   ]
+  },
+  {
+   "title": "The alternative determinant $\\lambda(\\ker T) \\otimes \\lambda(\\operatorname{coker}(T)^*)$",
+   "label": "§6.3, after Definition 6.7, p. 208",
+   "page": 208,
+   "book": "Some authors use $\\det(T) = \\lambda(\\ker T) \\otimes \\lambda(\\operatorname{coker}(T)^*)$; the two definitions are naturally isomorphic, given a convention identifying $\\lambda^*(A)$ and $\\lambda(A^*)$.",
+   "instead": "**Not formalized**, and not used: the chapter's formal statements use Definition 6.7 (V6.8); the convention $\\iota$ of Definition 6.3 is V6.3 (Findings, Chapter 6, item 10).",
+   "decls": [
+    "Chapter6/FredholmDet · fredholmDet",
+    "Chapter6/DetLine · iotaDual"
+   ]
+  },
+  {
+   "title": "The identification (95) and the maps $V \\otimes \\lambda(\\mathbb R^n) \\to V$",
+   "label": "§6.3, after Proposition 6.15, p. 213",
+   "page": 213,
+   "book": "Dual to (94), $\\mathbb R \\to \\lambda(\\mathbb R^n)$ maps $1$ to the wedge of the standard basis, with inverse (95) $c_1 \\wedge \\dots \\wedge c_n \\mapsto \\det([c_1, \\dots, c_n])$; this gives identifications $V \\otimes \\lambda(\\mathbb R^n) \\to V$ and $V \\otimes \\lambda^*(\\mathbb R^n) \\to V$ for every finite-dimensional $V$.",
+   "instead": "**Not formalized**, and not used: the formal statements use (94) only (V6.17, V6.18) (Findings, Chapter 6, item 10).",
+   "decls": [
+    "Chapter6/Stabilization · stabPsi_dualVec"
+   ]
+  },
+  {
+   "title": "Lemma 6.19 in general",
+   "label": "§6.4, Lemma 6.19, p. 216",
+   "page": 216,
+   "book": "For finite-dimensional topological vector bundles $E$, $F$ over $X$, the bundles $\\lambda(E)$, $\\lambda^*(F)$, $E \\oplus F$ and $E \\otimes F$ have the structure of topological vector bundles in a natural way (a standard lemma, cited from [29]).",
+   "instead": "**Not formalized** in general: Mathlib has no exterior powers or tensor products of vector bundles. The lemma is applied only to trivial bundles, and Proposition 6.20 is proved with explicit frames (V6.22) (Findings, Chapter 6, item 22).",
+   "decls": [
+    "Chapter6/LocalDetBundle · LocalDetChart.frame",
+    "Chapter6/LocalDetBundle · proposition_6_20"
+   ]
+  },
+  {
+   "title": "$\\mathrm{DET}(E, F)$ is not orientable; the classical case",
+   "label": "§6.4, p. 218; the opening of §6.5, p. 219",
+   "page": 218,
+   "book": "The text remarks that $\\mathrm{DET}(E, F)$ is known to be non-orientable, though orientable over certain subsets. For a classical Fredholm map $f : U \\to F$, the determinant line bundle of the $Df(x)$ is a smooth line bundle over $U$, with precisely two orientations if $U$ is contractible.",
+   "instead": "**Not formalized** (remarks, not used). The orientability over convex sets of Fredholm operators, which is what the chapter uses, is Proposition 6.26 (V6.30) (Findings, Chapter 6, item 26).",
+   "decls": [
+    "Chapter6/DetBundle · proposition_6_26"
+   ]
+  },
+  {
+   "title": "Proposition 6.28 (1): sc-smooth contractibility",
+   "label": "§6.5, Proposition 6.28 (1), p. 220; Theorem 6.35, Definition 6.36, Theorem 6.37",
+   "page": 220,
+   "book": "The neighbourhood $U(x)$ of Proposition 6.28 is sc-smoothly contractible (by $r(ty)$ on $U = r(V')$, $V'$ convex), and Theorem 6.35, Definition 6.36 and property (∗) of Theorem 6.37 ask for sc-smoothly contractible neighbourhoods.",
+   "instead": "**Not formalized.** As we read it, the proof does not establish (1) for $U$: it needs $r(V') \\subseteq V'$, which is not stated. (1′) is proved instead (two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in a larger $W$ with the end points fixed) and is what the proofs use (V6.32, V6.48, V6.50, V6.57) (Findings, Chapter 6, items 45, 53, 54, 72).",
+   "decls": [
+    "Chapter6/OrientableNbhd · proposition_6_28",
+    "Chapter6/PropagationWellDefined · theorem_6_35"
+   ]
+  },
+  {
+   "title": "Lemma 6.30 as a statement about manifolds",
+   "label": "§6.5, Lemma 6.30, p. 222",
+   "page": 222,
+   "book": "The solution set of $F = 0$ near $(t, \\varphi(t), 0)$ is a smooth manifold with boundary with corners, $\\pi : S \\to [0, 1]$ is a submersion, its fibres $S_t$ are manifolds with boundary with corners, and $L$ is a smooth vector bundle over $[0, 1]$.",
+   "instead": "**Not formalized.** The kernels are formalized as a continuous family of subspaces of the model space (V6.34, V6.42), which is all the continuation of orientations needs (Findings, Chapter 6, item 48).",
+   "decls": [
+    "Chapter6/KernelFamily · exists_subspaceFamily_linKer",
+    "Chapter6/StabKernelsExist · exists_isStabKernels"
+   ]
+  },
+  {
+   "title": "Property (P) of Lemma 6.29 for the slices $F_t$",
+   "label": "§6.5, Lemma 6.29, p. 222",
+   "page": 222,
+   "book": "(P): for every fixed $t \\in [0, 1]$, the section $F_t$ is at $(\\varphi(t), 0)$ in general position to the boundary of $X \\times \\mathbb R^k$.",
+   "instead": "**Not formalized.** The general position of $F$ at the points $(t, \\varphi(t), 0)$, which the text derives from (P) and which Lemmas 6.30, 6.31 use, is proved (V6.33). As we read it, (P) follows, since the tangent vectors of the family of zeros lie in $\\ker F'$ and $\\mathbb R^n$ has no boundary; this chart computation is not carried out (Findings, Chapter 6, item 47).",
+   "decls": [
+    "Chapter6/Lemma629 · lemma_6_29"
+   ]
+  },
+  {
+   "title": "$\\mathrm{Lin}(f, x)$ as sc-Fredholm operators on every level",
+   "label": "§6.1, Definition 6.1, p. 201",
+   "page": 201,
+   "book": "The operators in $\\mathrm{Lin}(f, x)$ are sc-Fredholm operators $T_xX \\to Y_x$, all with the same Fredholm index.",
+   "instead": "**Not formalized** on every level: at a chart point the members are shown Fredholm on level $0$, with the index $\\mathrm{ind}(f, x)$ of V3.98, which is what the determinant lines use (V6.1) (Findings, Chapter 6, item 40).",
+   "decls": [
+    "Chapter6/LinSet · ChartPoint.exists_index_linSet"
+   ]
+  },
+  {
+   "title": "Paths and families on $[0, 1]$; $X \\times [0, 1]$ as an M-polyfold",
+   "label": "§6.5, pp. 220–230",
+   "page": 220,
+   "book": "Paths, homotopies and families are sc-smooth maps on $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$, and $X \\times [0, 1]$, $[0, 1] \\times X \\times \\mathbb R^k$ are M-polyfolds with boundary (Proposition 6.28, Lemmas 6.29–6.34, Theorem 6.35, Remark 6.42).",
+   "instead": "**Not formalized** as stated: they are read on $\\mathbb R$, $\\mathbb R^2$, $\\mathbb R^n$ and $\\mathbb R^n \\times X$, of which only $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$ matters (decision D2), as for Proposition 6.2 in Chapter 3 (V3.98); a path that does not extend sc-smoothly to $\\mathbb R$ is not covered (Findings, Chapter 6, items 71, 102)."
+  },
+  {
+   "title": "Remark 6.42 beyond a point",
+   "label": "§6.5, Remark 6.42, p. 230",
+   "page": 230,
+   "book": "$\\hat f(x, t) = f(x) + s(x, t)$ on $X \\times [0, 1]$ has a natural orientation associated with $o$ and the standard orientation of $[0, 1]$.",
+   "instead": "**Not formalized** beyond a point: that $(t, y) \\mapsto \\hat o$ is an orientation of $\\hat f$ in the sense of Definition 6.40 (continuity over the orientable neighbourhoods of $\\mathbb R \\times X$, independence of the chart of the pull-back bundle), built from an orientation of $f$. At a point the remark is V6.62 (Findings, Chapter 6, item 97).",
+   "decls": [
+    "Chapter6/ProductOrientation · ChartPoint.existsUnique_prodOr"
+   ]
+  },
+  {
+   "title": "Theorem 6.41: the orientation of $S$ as a manifold",
+   "label": "§6.5, Theorem 6.41, p. 229",
+   "page": 229,
+   "book": "The solution set $S$ is a smooth compact manifold with boundary with corners possessing a natural orientation.",
+   "instead": "**Not formalized** as an orientation of the abstract finite-dimensional manifold $S$ (of its tangent bundle in the charts of the induced structure). What is formalized is the tangent orientation at each zero and its continuity along the sc-smooth paths of zeros in a chart (V6.61) (Findings, Chapter 6, item 92).",
+   "decls": [
+    "Chapter6/SolutionOrientation · theorem_6_41"
+   ]
+  },
+  {
+   "title": "Theorem 6.41: tangent orientations read in two charts",
+   "label": "§6.5, Theorem 6.41, p. 229",
+   "page": 229,
+   "book": "$T_xS = \\ker f'(x)$ is oriented by $o^f_x$, an object the text treats as independent of the chart.",
+   "instead": "**Not formalized**: the compatibility of the tangent orientations read in two charts at the same zero. $\\mathrm{Or}^f_x$ itself is identified between charts (V6.53–V6.55) (Findings, Chapter 6, item 92).",
+   "decls": [
+    "Chapter6/SolutionOrientation · ChartPoint.tangentOr",
+    "Chapter6/ChartTransfer · ChartPoint.orTransfer"
+   ]
+  },
+  {
+   "title": "The paragraph after Theorem 6.41: perturbed solution sets",
+   "label": "§6.5, after Theorem 6.41, pp. 229–230",
+   "page": 229,
+   "book": "If $f$ is not generic, a small perturbation $s$ supported near the zero set gives $S_{f+s}$ a natural orientation coming from $o^f$, since $\\det((f + s)'(x))$ is oriented from $\\mathrm{DET}(f, x)$ for $x \\in S_{f+s}$.",
+   "instead": "**Not formalized**: the perturbation, the orientation of $S_{f+s}$ coming from $o^f$, and the identification $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$ for an sc⁺-section $s$ that it uses. The perturbations themselves are Theorem 5.18 (V5.38, V5.39) (Findings, Chapter 6, item 93).",
+   "decls": [
+    "Chapter5/GeneralPosition · theorem_5_18"
    ]
   }
  ]

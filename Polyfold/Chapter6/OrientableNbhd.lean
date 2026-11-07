@@ -45,7 +45,7 @@ set (local compactness); `s(y, t) = R(y, f(φ(t)))` and `q(y, t) = R(y, e₀)`.
 ## Reading
 
 Paths are on `ℝ` and only `[0, 1]` matters (decision D2).  The text assumes sc-smooth partitions
-of unity from §6.2 on (p. 202); here the sections of (3) and (4) are global sc⁺-sections of
+of unity from §6.2 on (p. 203); here the sections of (3) and (4) are global sc⁺-sections of
 `ℝⁿ × X → Y`, made with bump functions, in place of sections over `U × [0, 1]` after "assuming
 `X = U`".  Property (1): the contraction `r̂(t, y) = r(ty)` contracts `O = r(V)` for a convex `V`,
 but for `U = r(V')` it needs `r(V') ⊆ V'`, which is not stated, and a convex domain of the

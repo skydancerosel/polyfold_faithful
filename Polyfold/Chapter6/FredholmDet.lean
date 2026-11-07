@@ -5,7 +5,7 @@ import Mathlib.LinearAlgebra.Ray
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.3, p. 207:
 **Definition 6.7** (the determinant `det(T)` of a Fredholm operator) and **Definition 6.8** (an
-orientation of `T`) *(book 2017: Definitions 6.4 and 6.5; see `BookConcordance.md`)*.
+orientation of `T`) *(book 2017: Definitions 6.3 and 6.4; see `BookConcordance.md`)*.
 
 # The determinant line of a Fredholm operator
 
