@@ -201,3 +201,7 @@ import Polyfold.Chapter7.Uniformizer
 import Polyfold.Chapter7.OrbitTopology
 import Polyfold.Chapter7.Effective
 import Polyfold.Chapter7.SubGroupoid
+import Polyfold.Chapter7.Reduced
+import Polyfold.Chapter7.Lift
+import Polyfold.Chapter7.PartitionsOfUnity
+import Polyfold.Chapter7.NonVacuity
