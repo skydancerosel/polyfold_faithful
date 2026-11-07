@@ -192,3 +192,7 @@ import Polyfold.Chapter7.Discrete
 import Polyfold.Chapter7.LocalDiffeo
 import Polyfold.Chapter7.Groupoid
 import Polyfold.Chapter7.EpGroupoid
+import Polyfold.Chapter7.Basic
+import Polyfold.Chapter7.ProperSubsets
+import Polyfold.Chapter7.NaturalRep
+import Polyfold.Chapter7.NaturalAction

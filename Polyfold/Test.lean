@@ -5615,7 +5615,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! Axioms: Part II, Chapter 7 (ep-groupoids), waves W0–W1: definitions and infrastructure -/
 
--- Chapter6/Michael.lean
+-- Chapter7/Michael.lean
 #print axioms Polyfold.locallyFinite_image_val
 #print axioms Polyfold.homeomorphPreimageVal
 #print axioms Polyfold.paracompactSpace_of_closed_refinement
@@ -5633,7 +5633,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.paracompactSpace_biUnion_of_finite
 #print axioms Polyfold.paracompactSpace_union
 #print axioms Polyfold.paracompactSpace_of_isClosed_subset
--- Chapter6/ProperMaps.lean
+-- Chapter7/ProperMaps.lean
 #print axioms Polyfold.exists_tendsto_subseq_of_isProperMap
 #print axioms Polyfold.isProperMap_of_exists_tendsto_subseq
 #print axioms Polyfold.isProperMap_iff_exists_tendsto_subseq
@@ -5654,7 +5654,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.isProperMap_domRestrict_iff_of_isClosed
 #print axioms Polyfold.MPolyfold.isProperMap_domRestrict_iff_isCompact_preimage
 #print axioms Polyfold.MPolyfold.exists_tendsto_subseq_of_isProperMap_domRestrict
--- Chapter6/LocConnected.lean
+-- Chapter7/LocConnected.lean
 #print axioms Polyfold.ScRetraction.exists_ball_joinedIn
 #print axioms Polyfold.IsScRetract.locallyPathConnectedSpace
 #print axioms Polyfold.MChart.pathComponentIn_mem_nhds
@@ -5671,7 +5671,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.exists_pairwiseDisjoint_isOpen_isConnected
 #print axioms Polyfold.MPolyfold.exists_pairwiseDisjoint_isOpen_isConnected
 #print axioms Polyfold.eqOn_sections_of_isPreconnected
--- Chapter6/Discrete.lean
+-- Chapter7/Discrete.lean
 #print axioms Polyfold.IsLocallyInjective.isDiscrete_preimage_singleton
 #print axioms Polyfold.IsLocallyInjective.isDiscrete_of_subset_preimage
 #print axioms Polyfold.IsLocalHomeomorph.isDiscrete_preimage_singleton
@@ -5710,7 +5710,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isScSmoothOn_prod_discrete_iff
 #print axioms Polyfold.isScSmoothOn_univ_prod_discrete_iff
 #print axioms Polyfold.isScSmoothMap_prod_discrete_iff
--- Chapter6/LocalDiffeo.lean
+-- Chapter7/LocalDiffeo.lean
 #print axioms Polyfold.MPolyfold.IsScDiffeoOn.isOpen_source
 #print axioms Polyfold.MPolyfold.IsScDiffeoOn.isOpen_target
 #print axioms Polyfold.MPolyfold.IsScDiffeoOn.injOn
@@ -5753,7 +5753,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isLocalScDiffeo_rn_of_contDiff
 #print axioms Polyfold.isLocalScDiffeo_rn_neg
 #print axioms Polyfold.rnPolyfold_maxLevel
--- Chapter6/Groupoid.lean
+-- Chapter7/Groupoid.lean
 #print axioms Polyfold.GroupoidStr
 #print axioms Polyfold.GroupoidStr.src
 #print axioms Polyfold.GroupoidStr.tgt
@@ -5851,7 +5851,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GroupoidFunctor.toFunctor_map_val
 #print axioms Polyfold.GroupoidFunctor.orbitMap
 #print axioms Polyfold.GroupoidFunctor.orbitMap_π
--- Chapter6/EpGroupoid.lean
+-- Chapter7/EpGroupoid.lean
 #print axioms Polyfold.MPolyfold.fibredSubDataL.congr_simp
 #print axioms Polyfold.IsScSmoothComp
 #print axioms Polyfold.IsScSmoothCompSheet
@@ -6002,5 +6002,173 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.trivialNaturalRep
 #print axioms Polyfold.EpGroupoid.actsTrivially_trivial
 #print axioms Polyfold.EpGroupoid.trivialNaturalRepFinite
+
+/-! Axioms: Part II, Chapter 7 (ep-groupoids), wave W2: basic properties, natural representation, proper subsets -/
+-- Chapter7/Basic.lean
+#print axioms Polyfold.EpGroupoid.proposition_7_1
+#print axioms Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap
+#print axioms Polyfold.EpGroupoid.proposition_7_1_map_nhds
+#print axioms Polyfold.EpGroupoid.proposition_7_2_of_hasAntitoneBasis
+#print axioms Polyfold.EpGroupoid.proposition_7_2
+#print axioms Polyfold.EpGroupoid.proposition_7_2_firstCountableTopology
+#print axioms Polyfold.EpGroupoid.proposition_7_3_of_isProperMap
+#print axioms Polyfold.EpGroupoid.proposition_7_3
+#print axioms Polyfold.EpGroupoid.lemma_7_1_swap_of_isProperMap
+#print axioms Polyfold.EpGroupoid.lemma_7_1_of_isProperMap
+#print axioms Polyfold.EpGroupoid.lemma_7_1
+#print axioms Polyfold.EpGroupoid.lemma_7_1_swap
+#print axioms Polyfold.EpGroupoid.proposition_7_4
+#print axioms Polyfold.EpGroupoid.conjIsotropy
+#print axioms Polyfold.EpGroupoid.conjIsotropy_val
+#print axioms Polyfold.EpGroupoid.nonempty_isotropy_mulEquiv
+#print axioms Polyfold.EpGroupoid.nat_card_isotropy_eq
+#print axioms Polyfold.EpGroupoid.isotropyConj_eq_isotropyConj_conj
+#print axioms Polyfold.EpGroupoid.mor_eq_srcInv_obj_src
+#print axioms Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous
+#print axioms Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous
+#print axioms Polyfold.EpFunctor.continuous_mor
+#print axioms Polyfold.EpFunctor.ofContinuous
+#print axioms Polyfold.EpFunctor.ofContinuous_toGroupoidFunctor
+-- Chapter7/ProperSubsets.lean
+#print axioms Polyfold.EpGroupoid.isProperSubset_iff_isCompact
+#print axioms Polyfold.EpGroupoid.isProperSubset_iff_exists_tendsto_subseq
+#print axioms Polyfold.EpGroupoid.proposition_7_13
+#print axioms Polyfold.EpGroupoid.IsProperSubset.isClosed
+#print axioms Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset
+#print axioms Polyfold.EpGroupoid.proposition_7_14_one
+#print axioms Polyfold.EpGroupoid.IsProperSubset.of_subset
+#print axioms Polyfold.EpGroupoid.isProperSubset_empty
+#print axioms Polyfold.EpGroupoid.IsProperSubset.union
+#print axioms Polyfold.EpGroupoid.isProperSubset_biUnion
+#print axioms Polyfold.EpGroupoid.isProperSubset_iUnion
+#print axioms Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite
+#print axioms Polyfold.EpGroupoid.isProperSubset_of_isCompact
+#print axioms Polyfold.EpGroupoid.HasPropernessProperty.isProperSubset
+#print axioms Polyfold.EpGroupoid.HasPropernessProperty.mono
+#print axioms Polyfold.EpGroupoid.exists_hasPropernessProperty_subset
+#print axioms Polyfold.EpGroupoid.exists_hasPropernessProperty_isConnected_subset
+#print axioms Polyfold.EpGroupoid.proposition_7_14_two
+-- Chapter7/NaturalRep.lean
+#print axioms Polyfold.EpGroupoid.lemma_7_8
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.finite_isotropy
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.N
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.S
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.σ
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.mem_N
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.disjoint_N
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isScDiffeoOn_src
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isScDiffeoOn_tgt
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.exists_sheets
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.unionHat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_apply
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isOpen_N
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isOpen_S
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.mem_S
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.σ_self
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.src_σ
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.σ_mem_N
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.σ_src
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_self
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.continuousOn_σ
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.continuousOn_hat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.eq_of_mem_N
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.image_σ
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isOpen_image_hat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isScSmoothOn_hat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.mem_unionHat_iff
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.mem_unionHat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isOpen_unionHat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isConnected_unionHat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_one
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_one
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_mul
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_mul
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isScDiffeoOn_hat
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.mkRep
+#print axioms Polyfold.EpGroupoid.lemma_7_9
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets
+#print axioms Polyfold.EpGroupoid.NatRepConstruction.restrict
+#print axioms Polyfold.EpGroupoid.theorem_7_1
+#print axioms Polyfold.EpGroupoid.theorem_7_5
+#print axioms Polyfold.EpGroupoid.exists_naturalRep_restrict
+#print axioms Polyfold.EpGroupoid.exists_naturalRep_shrink
+-- Chapter7/NaturalAction.lean
+#print axioms Polyfold.EpGroupoid.NaturalRep.continuousOn_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.continuousOn_Φ
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φ_inv_Φ
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φ_Φ_inv
+#print axioms Polyfold.EpGroupoid.NaturalRep.isOpen_image_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_mem_image
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_src_of_mem_image
+#print axioms Polyfold.EpGroupoid.NaturalRep.src_mem_of_mem_image
+#print axioms Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_src_image
+#print axioms Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_tgt_image
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_inj
+#print axioms Polyfold.EpGroupoid.NaturalRep.pairwise_disjoint_image_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.iUnion_image_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.isOpen_morOn
+#print axioms Polyfold.EpGroupoid.NaturalRep.isConnected_image_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.connectedComponentIn_morOn
+#print axioms Polyfold.EpGroupoid.NaturalRep.injective_image_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.bijOn_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.exists_Γ_eq
+#print axioms Polyfold.EpGroupoid.NaturalRep.index
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_index
+#print axioms Polyfold.EpGroupoid.NaturalRep.tgt_eq_Φ_index
+#print axioms Polyfold.EpGroupoid.NaturalRep.index_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.index_eq_iff
+#print axioms Polyfold.EpGroupoid.NaturalRep.eventually_index_eq
+#print axioms Polyfold.EpGroupoid.NaturalRep.isScSmoothOn_comp_Γ_tgt
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_mul
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_one
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_inv
+#print axioms Polyfold.EpGroupoid.NaturalRep.functor
+#print axioms Polyfold.EpGroupoid.NaturalRep.functor_obj
+#print axioms Polyfold.EpGroupoid.NaturalRep.functor_mor
+#print axioms Polyfold.EpGroupoid.NaturalRep.full
+#print axioms Polyfold.EpGroupoid.NaturalRep.faithful
+#print axioms Polyfold.EpGroupoid.NaturalRep.isOpen_connectedComponentIn_inter
+#print axioms Polyfold.EpGroupoid.NaturalRep.mem_connectedComponentIn_inter
+#print axioms Polyfold.EpGroupoid.NaturalRep.isConnected_connectedComponentIn_inter
+#print axioms Polyfold.EpGroupoid.NaturalRep.Γ_eqOn
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φ_eqOn
+#print axioms Polyfold.EpGroupoid.NaturalRep.mapsTo_Φ_connectedComponentIn
+#print axioms Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq_of_actsTrivially
+#print axioms Polyfold.EpGroupoid.NaturalRep.restrict
+#print axioms Polyfold.EpGroupoid.NaturalRep.restrict_U
+#print axioms Polyfold.EpGroupoid.NaturalRep.restrictInter
+#print axioms Polyfold.EpGroupoid.NaturalRep.restrictInter_eq
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φhat_Γ
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φhat_mem_image
+#print axioms Polyfold.EpGroupoid.NaturalRep.index_Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.src_Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φ_conj
+#print axioms Polyfold.EpGroupoid.NaturalRep.tgt_Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.mapsTo_Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φhat_one
+#print axioms Polyfold.EpGroupoid.NaturalRep.Φhat_mul
+#print axioms Polyfold.EpGroupoid.NaturalRep.isScSmoothOn_Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.image_Φhat
+#print axioms Polyfold.EpGroupoid.NaturalRep.instTopologicalSpaceIsotropy
+#print axioms Polyfold.EpGroupoid.NaturalRep.instDiscreteTopologyIsotropy
+#print axioms Polyfold.EpGroupoid.NaturalRep.instNonemptyElemU
+#print axioms Polyfold.EpGroupoid.NaturalRep.instParacompactSpaceElemU
+#print axioms Polyfold.EpGroupoid.NaturalRep.objPolyfold
+#print axioms Polyfold.EpGroupoid.NaturalRep.instParacompactSpaceProdIsotropyElemU
+#print axioms Polyfold.EpGroupoid.NaturalRep.morPolyfold
+#print axioms Polyfold.EpGroupoid.NaturalRep.isScSmoothMap_smul
+#print axioms Polyfold.EpGroupoid.NaturalRep.continuous_smul'
+#print axioms Polyfold.EpGroupoid.NaturalRep.continuous_smul_prod
+#print axioms Polyfold.EpGroupoid.NaturalRep.shearHomeomorph
+#print axioms Polyfold.EpGroupoid.NaturalRep.translation_isLocalScDiffeo_src
+#print axioms Polyfold.EpGroupoid.NaturalRep.translation_isLocalScDiffeo_tgt
+#print axioms Polyfold.EpGroupoid.NaturalRep.translation_isScSmoothCompSheet
+#print axioms Polyfold.EpGroupoid.NaturalRep.translation_isProperMap
+#print axioms Polyfold.EpGroupoid.NaturalRep.translationEpGroupoid
+#print axioms Polyfold.EpGroupoid.NaturalRep.epFunctor
 
 end Polyfold
