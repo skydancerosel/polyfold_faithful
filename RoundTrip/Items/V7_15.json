@@ -1,0 +1,12 @@
+{
+ "id": "V7_15",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The project's proposition_7_4 (instance Finite (X.Isotropy x)) and B ({g | s g = x ∧ t g = x}.Finite) say the same thing: X.Isotropy x is the structure of morphisms with the two equations, and val is a bijection onto B's set (Isotropy.ext for injectivity). A_to_B uses A's instance; B_to_A derives proposition_7_4 from B. The second conjunct of A, MPolyfold.finite_isotropy_of_isLocalScDiffeo, is an abstract statement for arbitrary maps s, t : Y → X of M-polyfolds (t a local sc-diffeomorphism, t proper on s⁻¹(cl V)); it is not about an ep-groupoid and cannot follow from B, so it was re-proved outright (compact discrete fibre). Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 8 shared project theorems — Isotropy.ext/src_val/tgt_val, IsLocalScDiffeo.isLocallyInjective, IsLocallyInjective.isDiscrete_preimage_singleton and IsScDiffeoOn field accessors; the ingredients of the project's abstract finiteness lemma, re-assembled.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

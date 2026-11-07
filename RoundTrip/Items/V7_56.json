@@ -1,0 +1,15 @@
+{
+ "id": "V7_56",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item (HasScPartitionsOfUnity, IsScSmoothPartitionOfUnity), so A = True and both directions are vacuous; the content is B itself, proved outright as B_holds: the project's HasScPartitionsOfUnity is B's HasScPUB field by field (same Mathlib PartitionOfUnity indexed by a type in Obj's universe, Type at universe 0; IsSubordinate; every β_λ IsScSmoothMap into realPolyfold; GroupoidStr.IsSaturated is literally π⁻¹(π(W)) = W; finitely many tsupports met). The only rephrasing is invariance: β(s φ) = β(t φ) for all morphisms vs. β z = β y whenever some φ : y → z.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_holds is pure unfolding).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

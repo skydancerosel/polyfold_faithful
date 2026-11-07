@@ -1,0 +1,12 @@
+{
+ "id": "V7_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A = translation_isLocalScDiffeo_src/_tgt, translation_isScSmoothCompSheet, translation_isProperMap (every V) at universe 0, all for R : X.NaturalRep x (U connected); B asks, for every natural action with U merely open, for an EpGroupoid on (U, G_x × U) with the text's s, t, ∘ and the charts of restrictOpen U and discretePolyfold G_x × U. A cannot be applied to a disconnected U, so A_to_B does NOT use A: B is proved outright (B_holds) from the project's generic Examples.actionEpGroupoid (NonVacuity.lean, proved independently of the four theorems) — the ep-groupoid structure only needs Φ to be a finite group action by sc-diffeomorphisms (Φ(1) = id follows from injectivity), not Γ or connectedness; so the project's connectedness hypothesis is superfluous for this item. B_to_A genuinely uses B for the first three conjuncts (B's E has the same s, t, ∘ on composable pairs and the same charts; sc-smoothness, sc-diffeomorphisms and the sheet form of (4) depend only on charts). The fourth conjunct, properness of t on s⁻¹(cl V) for every V, is stronger than Definition 7.3 (3) (one V(x) per point) and is re-proved outright (t = π₂ ∘ shear, G_x finite).",
+ "B_issue": null,
+ "overlap": "B_to_A: 415 shared project theorems, mostly M-polyfold infrastructure (charts, restrictOpen, discretePolyfold, prod) reached through the types, plus NaturalRep field accessors, the scoped instances and the proof fields of shearHomeomorph (continuous_smul', continuous_smul_prod, isScSmoothMap_smul), used in the outright properness proof exactly as in the project, and finite_isotropy_of_isLocalScDiffeo. A_to_B uses Examples.actionEpGroupoid and passes plain #rt_check, but does not use the hypothesis.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V7_19",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A's ten NaturalRep facts say that for EVERY natural representation R (U connected) the sheets 𝐔(g) = Γ(g, U) are open, connected, pairwise disjoint, cover 𝐔(x) = morOn U, are its connected components, and s, t : 𝐔(g) → U are sc-diffeomorphisms; A's lemma_7_8 gives the 'properness' shrinking. B is an existence statement: for any V ∋ x and open W ⊇ G_x some connected U ⊆ V carrying Theorem 7.1 data has 𝐔(x) ⊆ W and splits. A ⇒ B: lemma_7_8 with N_g = W for all g gives U₁ ⊆ V with 𝐔(U₁) ⊆ W; a NaturalRep inside U₁ is obtained from the project's construction (Sheets, lemma_7_9, mkRep) re-assembled with A's lemma_7_8 — the existence (theorem_7_1) is not among A's conjuncts and its project proof uses lemma_7_8, so it could not be cited; then A's facts give every splitting clause (connectedComponentIn_morOn at g = Γ(g, x)). B ⇒ A: lemma_7_8 follows from B (V = int U₀, W = ⋃ N_g); the ten 'for every R' facts are not consequences of an existence statement and were re-proved outright from the NaturalRep fields, as in the project. No genuine mathematical difference: the project proves the splitting for every connected natural representation, which is stronger than (and implies) B's 'one can choose U so small'.",
+ "B_issue": null,
+ "overlap": "B_to_A: 209 shared project theorems — overwhelmingly generic M-polyfold/sc-calculus infrastructure (via IsScSmoothOn.mono/comp, isScSmoothMap_src/tgt), plus NaturalRep field accessors and the non-banned NaturalAction helpers Γ_inj, Γ_mem_morOn, Γ_src_of_mem_image, src_mem_of_mem_image, exists_Γ_eq, mapsTo_Φ, Φ_inv_Φ, Φ_Φ_inv (the ingredients of the project's own proofs of the ten facts, re-assembled).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,13 +1,14 @@
-# Round-trip audit of Part I — report
+# Round-trip audit of Part I and Part II, Chapter 7 — report
 
-Status 2026-11-01 (the audit; Chapter 6 added 2026-11-07, see "Chapter 6, audited on 2026-11-07" below); the lists of what the project lacks updated 2026-11-02; refreshed against
+Status 2026-11-01 (the audit; Chapter 6 added 2026-11-07, see "Chapter 6, audited on 2026-11-07" below; Part II, Chapter 7 added 2026-11-07, see "Chapter 7, audited on 2026-11-07"); the lists of what the project lacks updated 2026-11-02; refreshed against
 HEAD (commit 12924a4) on 2026-11-02, see "Refreshed on 2026-11-02" below. Method and how to run:
 `README.md`. Layer 1 (statements).
 
 ## Coverage
 
-**All 329 items** of the comparison that are not labelled *extra* (Chapter 1: 31, Chapter 2: 58,
-Chapter 3: 95, Chapter 4: 43, Chapter 5: 42, Chapter 6: 60; Chapter 6 against commit 439bc62). Every item has a blind statement
+**All 393 items** of the comparison that are not labelled *extra* (Chapter 1: 31, Chapter 2: 58,
+Chapter 3: 95, Chapter 4: 43, Chapter 5: 42, Chapter 6: 60, Chapter 7: 64; Chapter 6 against commit 439bc62,
+Chapter 7 against commit 919831f; V7.57 is a gap and has no item). Every item has a blind statement
 (`Blind/<ID>.lean`) and a prover record (`Items/<ID>.lean`, `Items/<ID>.json`); all files compile
 against HEAD (commit 12924a4, recompiled 2026-11-02), no `sorry`, and every proved direction passes
 `#rt_check` (or `#rt_check_soft`, or a documented `A'`-factoring, noted in the item's JSON; see
@@ -15,7 +16,8 @@ against HEAD (commit 12924a4, recompiled 2026-11-02), no `sorry`, and every prov
 about 9 items, prover batches of 5–8), four at a time; the refresh of 82 items: nine more prover
 agents, then three blind and three prover agents for seven second blind statements, three Lean
 processes at a time. Chapter 6: 21 more Opus agents (seven blind batches of 6–9 items, fourteen
-prover batches of 3–5), up to twelve at a time on the 137 GB machine.
+prover batches of 3–5), up to twelve at a time on the 137 GB machine. Chapter 7: 18 more Opus agents (seven blind
+batches of 9–10 items, eleven prover batches of 5–6), up to seven at a time.
 
 ## Results
 
@@ -29,30 +31,32 @@ Proved directions (vacuous directions not counted), by chapter:
 | V4 | 16 | 14 | 1 | 11 | 1 | 43 |
 | V5 | 7 | 13 | 4 | 17 | 1 | 42 |
 | V6 | 19 | 9 | 4 | 22 | 6 | 60 |
+| V7 | 39 | 6 | 8 | 6 | 5 | 64 |
 
 Proved directions by verdict:
 
 | | equivalent | A ⇒ B only | B ⇒ A only | neither | B false | n |
 |---|---|---|---|---|---|---|
-| same | 35 | 23 | 6 | 16 | 1 | 81 |
+| same | 48 | 23 | 8 | 18 | 1 | 98 |
 | explicit | 12 | 21 | 1 | 9 | 0 | 43 |
-| narrower | 2 | 6 | 4 | 19 | 5 | 36 |
-| restated | 34 | 34 | 3 | 43 | 5 | 119 |
-| stronger | 6 | 31 | 1 | 8 | 4 | 50 |
+| narrower | 2 | 6 | 8 | 20 | 7 | 43 |
+| restated | 50 | 37 | 4 | 45 | 6 | 142 |
+| stronger | 16 | 34 | 2 | 9 | 6 | 67 |
 
 Provers' judgement of content, by verdict:
 
 | | equivalent | A_stronger | A_narrower | incomparable | n |
 |---|---|---|---|---|---|
-| same | 50 | 23 | 3 | 5 | 81 |
+| same | 66 | 23 | 4 | 5 | 98 |
 | explicit | 14 | 22 | 1 | 6 | 43 |
-| narrower | 2 | 10 | 7 | 17 | 36 |
-| restated | 46 | 37 | 8 | 28 | 119 |
-| stronger | 6 | 32 | 3 | 9 | 50 |
+| narrower | 2 | 10 | 12 | 19 | 43 |
+| restated | 66 | 37 | 8 | 31 | 142 |
+| stronger | 16 | 35 | 6 | 10 | 67 |
 
-Against the verdict: {'match': 149, 'mismatch': 154, 'partial': 26}
+Against the verdict: {'match': 193, 'mismatch': 171, 'partial': 29}
 
-(Chapters 1–5 alone: {'match': 125, 'mismatch': 127, 'partial': 17}.)
+(Chapter 7 alone: {'match': 44, 'mismatch': 17, 'partial': 3}; Chapters 1–6 alone: {'match': 149,
+'mismatch': 154, 'partial': 26}; Chapters 1–5 alone: {'match': 125, 'mismatch': 127, 'partial': 17}.)
 
 (At the audit, with the verdicts of that time: {'match': 117, 'mismatch': 128, 'partial': 24}. The
 refresh changed the result or the score of 29 items, listed in "Refreshed on 2026-11-02" below.)
@@ -526,6 +530,88 @@ factoring or a local `#rt_check_except_defs`, with the plain check's failure kep
 the JSON of each item says which. Cost: about 5.4M agent tokens (Opus 5.5), roughly 7% of a week's
 budget.
 
+### Chapter 7, audited on 2026-11-07 (commit 919831f)
+
+The 64 items of `Exposition/cmp/ch07.json` not labelled *extra* or *gap* (V7.4, V7.18, V7.24 are
+extra; V7.57, Remark 7.2, is a gap). Part II has no preprint: its blind inputs quote the 2017 book
+(arXiv 1707.08941; `harness/make_inputs.py`). Every blind statement and item file compiles at
+919831f (all 64 item files recompiled at the end: no error, no `rt_check FAIL`, no `sorry`).
+Chapter 7: 39 equivalent, 6 A ⇒ B only, 8 B ⇒ A only, 6 neither, 5 B false. Three of the
+*neither* are definition items (V7.26, V7.49, V7.56): A = True, both directions are vacuous, and
+`B_holds` proves that the project's definition is the text's.
+
+**Statements of the text that do not hold in the formal reading (`¬B` proved).** Each agrees with
+a reading the project already records (`Exposition/Findings.md`, Chapter 7).
+* V7.10 (the remark after Definition 7.7, "sc-smooth on objects suffices"): `not_B` by the project's
+  `remarkFunctor` on `ℤ/3 × ℝ ⇉ ℝ`; with `Continuous f₁` added (`BRepaired`) B ⇔ A (Findings,
+  items 9, 104). The blind formalizer found a counterexample of the same kind (`ℤ/2 ⋉ ℝ`) on its own.
+* V7.40 (Proposition 7.10; the same claim is V7.39, Proposition 7.9): `𝐗^R` need not be Hausdorff.
+  `Items/V7_40.lean`, namespace `NotB`: `ℤˣ` acting by `(t, z) ↦ (t, ±z)` on the dimension-jumping
+  sc-retract of Remark 4.3 (`RemarkFourThree.fam`: a point over `t ≤ 0`, a line over `t > 0`), as
+  `actionEpGroupoid`; `(−1, (t, 0)) ∈ 𝐗^T` for `t < 0` but `(−1, (0, 0)) ∉ 𝐗^T`, so the classes of
+  `(±1, (−1/(n+1), 0))` converge to both `[(−1, 0)] ≠ [(1, 0)]` (`NotB.not_t2 : ¬ T2Space
+  Xg.ReducedMor`; axioms propext, Classical.choice, Quot.sound). With `𝐗^R` Hausdorff and
+  paracompact, A ⇒ B (`A_to_B_of_hyp`): the hypotheses the project adds are exactly what is missing.
+  This settles the Hausdorff half of gap G.71 negatively; the example was on paper in `PLAN.md`
+  (II.6, item 2), and the blind formalizer of V7.39 found it independently. V7.39 (*B ⇒ A only*)
+  was not refuted separately; V7.40's example applies to it. Not yet moved into `Polyfold/`.
+* V7.22 and V7.27 (pp. 231–237: `Γ` a functor; Proposition 7.6): with "natural representation"
+  read from Theorem 7.1 as printed, where `U` need not be connected, `Γ` need not be a functor:
+  `not_B` on `trivialZ3EpGroupoid` with `U = {y < 1} ∪ {y > 1}` and `Γ` twisted on `{y > 1}`. This
+  is why the project's `NaturalRep` asks `U` connected (Findings, items 20, 22; p. 231 speaks of
+  "the connected open neighborhood `U(x)`").
+* V7.28 (Definition 7.9): B's clause (D) identified its own reading of a local uniformizer with
+  `LocalUniformizer`; refuted twice (`U` connected; `Ψ` the inclusion on objects), both readings
+  its author had flagged (`B_issue`). This is not a statement of the text.
+
+**Where the readings differ.**
+* *Connectedness of `U(x)`* (V7.21, V7.23, V7.64, V7.66, V7.67). The blind statements' natural
+  action allows a disconnected `U`; the project's `NaturalRep` does not. For Theorems 7.1 and 7.5
+  it costs nothing (V7.17, V7.62: B ⇒ A shrinks `U` to the component of `x`, open because
+  M-polyfolds are locally connected). Where no functoriality is used the text's claim holds without
+  it: V7.21's B (`G_x ⋉ U` an ep-groupoid) holds outright by `actionEpGroupoid`, so
+  `translationEpGroupoid` is narrower than it needs to be. For connected `V(x)`, A ⇒ B for Lemma 7.10
+  (`A_to_B_of_isConnected`, V7.66).
+* Lemma 7.10 (V7.66): the project drops `x ∈ U(x)` and adds `tsupport f ⊆ cl U(x)`. The proof of
+  Theorem 7.4 (V7.67): the blind statement follows the text's steps for every choice, with the
+  normalisation `h_i/Σh_j`; the project goes through `BumpCovering` on `|X|`, and only the first two
+  claims follow (`A_to_B_first_claims`).
+* Generality (*A ⇒ B only*, A_stronger): V7.50 (Michael's lemma without Hausdorff or regularity;
+  B ⇏ A, since locally finite closed refinements do not give regularity), V7.54 (local metrizability
+  of `|X¹|` without paracompactness), V7.64 (Lemma 7.9 with the identities that make `Φ` a
+  homomorphism). Ten *stronger* items come out *equivalent* (V7.13, V7.16, V7.17, V7.32, V7.34–V7.37,
+  V7.61, V7.63): the project's extra conjuncts are true facts that B ⇒ A re-proves from other project
+  lemmas, so "equivalent" there means that the main claim matches.
+
+**Missing in the project, believed true (effort only).**
+* V7.5 (Definition 7.4): the tangent claims on `Tφ` (gap G.70): `Ts` injective on the fibre, the
+  locality of tangent maps, `T_xU ≅ T_xX` for open `U`, linearity in charts.
+* V7.6 (p. 227): "`X_∞` is dense in every `X_k`". The text states it without proof, Part I does not
+  state it for M-polyfolds, and the project has it only for sc-Banach spaces
+  (`ScBanach.denseRange_incl`); `A_to_B_of_density` shows it is the only difference. The sentence
+  "the density of `X_∞` is Part I's" in `verification/ch07.md` (V7.6) and Findings item 112 is to be
+  corrected.
+* V7.30, V7.31 (Proposition 7.7, p. 238): the tangent facts (3)–(4) of sub-M-polyfolds (gap G.7, as
+  in V2.25).
+* V7.68 (Corollary 7.3): the project assumes the Godefroy–Troyanski–Whitfield–Zizler statement for
+  each chart's `E₀` (not formalized; Findings, item 95).
+* V7.23: (i)–(v) without connectedness would mean re-proving the item.
+
+**Blind statements doubted in their own reading** (`B_issue`): V7.28 above. V7.25 and V7.26 read the
+target of `t` as `U(y′)` where the text has `U(y)` (possible misprint; the project reads it the same
+way).
+
+**Harness.** Banned theorems inside definitions (`liftOne`, `reducedEpGroupoid`, `sheetAt :=
+(exists_sheet φ).choose`, `subMorPolyfold`, `subEpGroupoid`, `discretePolyfold`, `IsScSmoothComp`,
+`NaturalRep.functor`, `NaturalRep.orbitQuotientMap`, `trivialSubgroup`, `reducedSetoid`,
+`reducedChart`) were handled by `#rt_check_soft`, a definitionally equal restatement `Ar` (V7.52),
+checked cores, or a local `#rt_check_except_defs` / `#rt_check_opaque` (V7.5, V7.31, V7.32, V7.40),
+with the plain check's failure kept by `#guard_msgs`; the JSON of each item says which. In V7.54
+`metrizableSpace_of_pullback` is left off the banned list: the instance
+`MPolyfold.paracompactSpace_level`, needed to state `X¹`, reaches it, and so does B. Cost: 18 Opus
+5.5 agents (seven blind batches of 9–10 items, eleven prover batches of 5–6), up to seven at a time;
+about 4.5M agent tokens, roughly 5% of a week's budget.
+
 ### Harness
 
 * **Banned theorems inside definitions.** When a definition in A's statement calls one of the item's
@@ -875,3 +961,67 @@ diagnosis is in each item's JSON.
 | V6_62 | narrower | B false | A_narrower | B is false, as its author predicted, and A ⇒ ¬B is proved (A_to_not_B). B asks for an orientation ô of DET(f̂,(t,x)) with ô(L̂) = conjDet(extDet(ω(L))) for every L ∈ Lin(f,x), i.e. the text's h ↦ h̃ WITHOUT the sign (−1)^{dim coker L} that the project puts into extDetN. Counterexample: the trivial b |
 | V6_63 | restated | equivalent | equivalent | A (Choice.exists_smul_source_value) is the conclusion of §6.7.1: for two choices χ, χ' of the data of (91), source and value scale by one common r ≠ 0. B is the blind author's three steps: (1) a change of the basis of Z by any σ multiplies both wedges by det σ (and leaves wB ⊗ wC* unchanged if det σ |
 | V6_64 | restated | equivalent | equivalent | A is the three lemmas the project extracts from §6.7.2: gammaProj_wedge_tmul (formula (91) for γ^P_T on arbitrary families a, d, b, lifts c), mem_span_append_of_ker (in F: g ∈ ker Q lies in span(d, Tb)) and comp_comp_eq_of_projLE (P(QT) = PT). B is the blind author's computation for the text's speci |
+| V7_1 | restated | equivalent | equivalent | The listed theorems are GroupoidStr.π_eq_π_iff, isSaturated_iff and orbitSetoid_eq (universe 0); the rest are definitions, which B characterizes. B (a)/(b): the project's GroupoidStr (total comp whose laws are asked only on composable pairs, units stated as φ ∘ 1_{sφ} = φ) is exactly the text's grou |
+| V7_2 | restated | equivalent | equivalent | A is Isotropy.val_mul, val_one, val_inv (universe 0): the group operations of the project's Isotropy x are g * h = g ∘ h, 1 = 1_x, g⁻¹ = ι g, in the text's order. These are verbatim B's last three conjuncts; B's other conjuncts (G_x = {φ / sφ = x = tφ} closed under ∘, 1_x, ι; val injective; range va |
+| V7_3 | restated | equivalent | equivalent | B (a)/(b): the project's EpGroupoid is exactly B's text ep-groupoid. The only non-literal points: (3) the project's IsProperMap vs B's 'continuous with compact preimages' — equivalent because X is metrizable (MPolyfold.metrizableSpace), hence compactly generated Hausdorff (isProperMap_iff_isCompact_ |
+| V7_5 | narrower | B ⇒ A only | A_narrower | A (universe 0) is Sheet.isScDiffeoOn_hat, exists_sheet, mem_sheetAt, isScDiffeoOn_hat, hat_src: only the sheets and φ̂. B (1)–(3) follow from A (A_to_B_sheets in the file). B (4)–(7) are claims about Tφ = tangentMor φ (Tφ ∘ Tj = Tφ̂ on T_xU(x), with Tj : T_xU(x) → T_xX onto; Tφ : T_xX → T_yX bijecti |
+| V7_6 | narrower | B ⇒ A only | A_narrower | A (universes 0) is mem_levelSet_src_iff/_tgt_iff, IsLocalScDiffeo.maxLevel_eq, IsLocalScDiffeo.degIndex_eq, degIndex_src/_tgt. A ⇒ B fails at exactly one conjunct: B's FiltrationB asserts that X_∞ is dense in every X_k for the level-k topology (levelTopology k), for both X and 𝐗; A says nothing abou |
+| V7_7 | same | equivalent | equivalent | A is degIndexOrbit_π: d_{/X/}(π x) = d_X(x) (universe 0), which is B (b). B's presupposition (a), d_X(x) = d_X(x') for x ∼ x', also follows from A: π x = π x' (Quotient.sound) so d_X(x) = d_{/X/}(π x) = d_{/X/}(π x') = d_X(x'). The project's well-definedness proof (the Quotient.lift field of degInde |
+| V7_8 | restated | equivalent | equivalent | A = exists_tame_chart ∧ IsLocalScDiffeo.isTame ∧ isTame_iff_of_surjective (universes 0, 0). B (a) is Iff.rfl because EpGroupoid.IsTame is defined as X.PObj.IsTame; (b) is isTame applied to s : 𝐗 → X (X.isLocalScDiffeo_src); (c) is literally isTame. B_to_A: isTame and the backward half of isTame_iff_ |
+| V7_9 | restated | A ⇒ B only | equivalent | The item is mostly definitions. A has only two theorems, GroupoidFunctor.mor_inv and EpFunctor.ext (universes 0, 0). The real check is B's comparison of the project's definitions with the text, proved in A_to_B. EpFunctor's fields are exactly B's IsFunctorB (s, t, m on composable pairs, u) plus sc-s |
+| V7_10 | narrower | B false | incomparable | B reads the remark literally: a functor (f₀, f₁) between ep-groupoids with f₀ sc-smooth has f₁ sc-smooth, plus the local neighbourhoods and the formula. As its author predicted, B does not hold as we read it. not_B applies B to the project's remarkFunctor on ℤ/3 × ℝ ⇉ ℝ (trivial action): the identit |
+| V7_11 | restated | equivalent | equivalent | B is that π is open for the quotient topology orbitTop X = coinduced X.π. This is definitionally the project's instance on X.OrbitSpace (Mathlib's quotient topology on Quotient X.orbitSetoid), so A_to_B is proposition_7_1 at universe 0. B_to_A: proposition_7_1 is B. proposition_7_1_isOpenQuotientMap |
+| V7_12 | restated | equivalent | equivalent | proposition_7_2 states ∃ V : ℕ → Set /X/, (∀ k, IsOpen (V k) ∧ z ∈ V k) ∧ (𝓝 z).HasAntitoneBasis V. This is B's 'open, containing z, V (k+1) ⊆ V k, every open N ∋ z contains some V k' repackaged. HasAntitoneBasis gives the basis property and Antitone, and conversely antitone_nat_of_succ_le with mem_ |
+| V7_13 | stronger | equivalent | equivalent | B is proposition_7_3 with an extra, redundant z and the hypothesis π x = z, over the same topology (B's orbitTop is definitionally the project's quotient instance). A_to_B is hA.1 X x; B_to_A gets proposition_7_3 from B at z = π x. A's second conjunct, proposition_7_3_of_isProperMap, is more general |
+| V7_14 | restated | equivalent | equivalent | B is literally the project's EpGroupoid.lemma_7_1 at universe 0 (same open U ∋ x₀, same properness of (s⁻¹(cl U)).domRestrict t, same set {ψ / s ψ = x ∧ t ψ ∈ U}); A_to_B is hA.1 with binders reordered. B_to_A: lemma_7_1 is B, and lemma_7_1_swap (s and t exchanged, the form of the text's proof) foll |
+| V7_15 | same | equivalent | equivalent | The project's proposition_7_4 (instance Finite (X.Isotropy x)) and B ({g / s g = x ∧ t g = x}.Finite) say the same thing: X.Isotropy x is the structure of morphisms with the two equations, and val is a bijection onto B's set (Isotropy.ext for injectivity). A_to_B uses A's instance; B_to_A derives pr |
+| V7_16 | stronger | equivalent | equivalent | B's two claims ((1) isomorphic objects have isomorphic isotropy groups; (2) for φ : x → y, g ↦ φ ∘ (g ∘ φ⁻¹) is a multiplicative bijection Gset x → Gset y) follow from A: by A's isotropyConj_val the project's MulEquiv isotropyConj φ : G_x ≃* G_y has underlying morphism (φ ∘ g) ∘ φ⁻¹, equal to B's co |
+| V7_17 | stronger | equivalent | equivalent | A's theorem_7_1 (∃ R : X.NaturalRep x, R.U ⊆ V) gives every clause of B's IsNatRepData directly from the NaturalRep fields (Φ(g⁻¹) as the inverse witness, Φ_mul for the homomorphism, Γ sc-smooth on U, (1)–(3)), with B's Gx (a subtype) and the project's Isotropy (a structure) identified and the produ |
+| V7_19 | same | equivalent | equivalent | A's ten NaturalRep facts say that for EVERY natural representation R (U connected) the sheets 𝐔(g) = Γ(g, U) are open, connected, pairwise disjoint, cover 𝐔(x) = morOn U, are its connected components, and s, t : 𝐔(g) → U are sc-diffeomorphisms; A's lemma_7_8 gives the 'properness' shrinking. B is an |
+| V7_20 | restated | A ⇒ B only | equivalent | B asks for the existence of SOME M-polyfold structure on Gx × U (any open U ∋ x) whose sheets {g} × U are sc-diffeomorphic to U ⊆ X by the projection. A consists of properties of the project's specific construction (discreteChart charts pairwise compatible; maps into discretePolyfold are sc-smooth i |
+| V7_21 | stronger | B ⇒ A only | A_narrower | A = translation_isLocalScDiffeo_src/_tgt, translation_isScSmoothCompSheet, translation_isProperMap (every V) at universe 0, all for R : X.NaturalRep x (U connected); B asks, for every natural action with U merely open, for an EpGroupoid on (U, G_x × U) with the text's s, t, ∘ and the charts of restr |
+| V7_22 | stronger | B false | A_narrower | A (Γ_mul, Γ_one, Γ_inv, full, faithful at universe 0) is stated for R : X.NaturalRep x, whose U is required connected; B is stated for every natural action IsNatAction (Theorem 7.1's data and (1)-(3), U open but not required connected). On a disconnected U, (1)-(3) do not force Γ to be a functor, an |
+| V7_23 | same | B ⇒ A only | A_narrower | A = the ten listed theorems at universe 0, about the project's Φhat (defined as the conjugation Γ(g, tφ) ∘ φ ∘ Γ(g, sφ)⁻¹) for R : NaturalRep (U connected). B uses the text's formula Φ̂(g)(φ) = Γ(ghg⁻¹, g∗sφ) for φ ∈ 𝐔(h) (index chosen) and asserts (i)–(v) for every natural action with U merely open |
+| V7_25 | restated | equivalent | equivalent | A = exists_star ∧ proposition_7_5 ∧ proposition_7_5_of_mem_nhdsSet at universe 0. The main content, Nonempty (X.NaturalRepFinite Y V) for mutually isomorphic finite Y and V ∈ 𝓝ˢ Y, is equivalent to B's ∃ U F, IsNatRepFinB X Y V U F: isNatRepFinB_of / exists_natRepFinite (the V7_26 comparison: the pr |
+| V7_26 | same | neither | equivalent | The item lists only definitions (the structure EpGroupoid.NaturalRepFinite = Definition 7.8, and the def NatRepFinite.mono), so A = True and the comparison is B itself, proved outright as B_holds: B's IsNatRepFinB (the properties of Proposition 7.5, with 𝐔(ψ) read as connectedComponentIn 𝐔 ψ and the |
+| V7_27 | stronger | B false | A_narrower | A = the three listed theorems at universe 0 (π_eq_π_iff_exists_smul, isOpenEmbedding_orbitQuotientMap, range_orbitQuotientMap); proposition_7_6, proposition_7_6_fullyFaithful, proposition_7_6_orbitMap, translationOrbitHomeomorph and orbitQuotientMap are data definitions (proposition_7_6 is assembled |
+| V7_28 | restated | B false | incomparable | B is false (not_B, two independent counterexamples, both on readings B's author flagged as doubts). B's conjunct (D) claims the text's notion IsLocalUniformizerB is equivalent to the data of a project LocalUniformizer; text ⇒ project fails because the project's LocalUniformizer (i) contains a Natura |
+| V7_29 | same | B ⇒ A only | equivalent | B is the definitional statement 'X.IsEpSubgroupoid A ↔ A is a sub-M-polyfold of X.PObj and π⁻¹(π(A)) = A'; the project's structure IsEpSubgroupoid has exactly these two fields and GroupoidStr.IsSaturated is literally π⁻¹(π(A)) = A, so B holds outright (B_holds) and A → B does not use A. A's four the |
+| V7_30 | narrower | neither | incomparable | A is facts (1), (2) for the project's specific structure subObjPolyfold hA; B asserts ONE structure Q on A with facts (1)–(4), including the tangent-space facts (3) T_aA has an sc-complement in T_aX and (4) T_aA = Tr(a)T_aX. With Q = subObjPolyfold hA, A gives (1), (2) and the sc-smoothness half of  |
+| V7_31 | restated | B ⇒ A only | incomparable | B = (a) at every φ ∈ 𝐀 a sheet s : 𝐔(φ) → U(a) and a retraction r of U(a) onto U(a) ∩ A exist, (b) for EVERY such choice σ∘r∘s retracts 𝐔 onto 𝐔 ∩ 𝐀, (c) 𝐀 is a sub-M-polyfold, (d) some structure on 𝐀 with facts (1)–(4). All but the tangent facts (3), (4) of (d) are proved from A (A_to_B_noTangent:  |
+| V7_32 | stronger | equivalent | equivalent | A → B: B's Y is assembled from A's six conditions of Definition 7.3 for fullSub A with subObjPolyfold/subMorPolyfold (not from the definition subEpGroupoid); facts (1), (2) for these structures are Part I's, the structure-map equations are rfl and fullSub_comp_val. B → A: the six conditions for the  |
+| V7_33 | same | equivalent | equivalent | B = the project's IsEffective, IsRegular, regularSet agree with B's (which state g ≠ 1_x, G_x = {1_x} on the underlying morphisms) plus 'if s(φ) is regular so is t(φ)'. The definitional parts hold outright (Isotropy.ext and (1 : G_x).val = u(x) by rfl); B's last conjunct is A's isRegular_tgt_of_isRe |
+| V7_34 | stronger | equivalent | equivalent | A is lemma_7_2 (IsOpen X.regularSet) and NaturalRep.subset_regularSet (for every natural representation R at a regular x, R.U ⊆ X_reg), universes at 0. B's X_reg = {x / ∀ g : G_x, g.val = 1_x} is the project's regularSet = {x / ∀ g, g = 1} by Isotropy.ext, so lemma_7_2 and B are the same statement.  |
+| V7_35 | stronger | equivalent | equivalent | B is lemma_7_3 after a dictionary: IsEffectiveB (g.val ≠ 1_x) = IsEffective (g ≠ 1); B's NatRepB has the same fields as NaturalRep (both with U connected) except that Φ(g) need only have some sc-smooth inverse, and Φ(g⁻¹) is recovered from Φ(1) = id on U; B's injectivity (Φg = Φh on U ⇒ g = h) is eq |
+| V7_36 | stronger | equivalent | equivalent | proposition_7_8 is B after the dictionary IsEffectiveB = IsEffective and XregB = regularSet (Isotropy.ext). A also contains the converse isEffective_of_dense_regularSet and the equivalence isEffective_iff_dense_regularSet, which are not in the text and do not follow from B; they are re-proved outrig |
+| V7_37 | stronger | equivalent | equivalent | With the dictionary NatRepB/NaturalRep (so ActsTriviallyB = ActsTrivially and TxB = trivialSet, needing no hypothesis), B's (a) arbitrarily small natural representations, (c) 1 ∈ T_x, (d) arbitrarily small U with ker Φ = T_x and (e) T_x normal follow from A's exists_naturalRep_trivialSet_iff, one_me |
+| V7_38 | restated | A ⇒ B only | equivalent | B says the project's definitions are the text's: nonEffectivePart = 𝐗^T, ReducedRel = ∼ (both hold by the dictionary TxB = trivialSet alone, the formulas being identical), ∼ is an equivalence relation, and reducedπ is onto and identifies exactly the ∼-equivalent morphisms. In A → B the equivalence-r |
+| V7_39 | narrower | B ⇒ A only | A_narrower | B's last conjunct asserts for EVERY ep-groupoid that 𝐗^R (quotient topology) is Hausdorff and paracompact and carries an M-polyfold structure Q making each Ψ = π/W an sc-diffeomorphism. A has Hausdorff/paracompact only for effective X (t2Space_/paracompactSpace_reducedMor_of_isEffective) or from reg |
+| V7_40 | narrower | B false | A_narrower | A (universes at 0) gives the six conditions of Definition 7.3 for (X, 𝐗^R), effectivity of reducedEpGroupoid and proposition_7_10, all (except exists_isProperMap_reduced) under the hypotheses [T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor] (satisfiable, e.g. for effective X). B asserts for ev |
+| V7_41 | same | equivalent | equivalent | A (universes at 0) = surjective_reducedIsotropyHom ∧ ker_reducedIsotropyHom ∧ normalClosure_trivialSet: g ↦ [g], G_x → G̃_x (isotropy of x in reducedGroupoidStr) is onto with kernel T_x, and normalClosure(T_x) = T_x (the other five listed declarations are definitions). B: T_x normal, g ↦ [g] onto wi |
+| V7_42 | restated | equivalent | equivalent | A (universes at 0) = theorem_7_2 (/X/ locally metrizable, RegularSpace, T2Space) ∧ theorem_7_2_metrizable (ParacompactSpace /X/ → MetrizableSpace /X/) ∧ metrizableSpace_of_locally (Part I: every paracompact Hausdorff locally metrizable space is metrizable). B: locally metrizable, the text's regulari |
+| V7_43 | restated | equivalent | equivalent | A (universes at 0) = metrizableSpace_orbitRel_quotient_naturalRep (G_x\U(x) metrizable for every natural representation R) ∧ lemma_7_4_naturalRep (π(R.U) metrizable) ∧ lemma_7_4 (every z ∈ /X/ has an open metrizable neighbourhood). B: the local metrizability, and for every natural representation R a |
+| V7_44 | same | equivalent | equivalent | A is lemma_7_5 at universe 0: for every ep-groupoid X (Obj Mor : Type) and z ∈ /X/ there is V : ℕ → Set /X/ with every V k open and containing z and (𝓝 z).HasAntitoneBasis V. B: open V k, z ∈ V (k+1) ⊆ V k, and (𝓝 z).HasBasis (fun _ ↦ True) V (index shift ℕ from 0 instead of 1). Mathlib's HasAntiton |
+| V7_45 | restated | equivalent | equivalent | A (universes at 0) is t1Space_orbitSpace ∧ lemma_7_6: /X/ = X.OrbitSpace (quotient topology) is T1 and T2 for every ep-groupoid X : EpGroupoid Obj Mor, Obj Mor : Type. B is T2Space X.OrbitSpace in the same setting. A ⇒ B is the second conjunct; B ⇒ A adds T1 from T2 (Mathlib instance). The extra T1  |
+| V7_46 | restated | equivalent | equivalent | A is EpGroupoid.lemma_7_7 at universe 0 (Mathlib RegularSpace on the quotient topology of X.OrbitSpace, for every ep-groupoid with Obj Mor : Type); B is the text's definition of regularity stated literally (nonempty closed set and an outside point have disjoint open neighbourhoods). The two notions  |
+| V7_47 | same | equivalent | equivalent | A is EpGroupoid.corollary_7_1 at universe 0: for every ep-groupoid with [SecondCountableTopology X.OrbitSpace], MetrizableSpace X.OrbitSpace. B is the same statement with second countability as an explicit hypothesis; same Mathlib notions on the same quotient topology. The two are the same propositi |
+| V7_48 | same | equivalent | equivalent | A = exists_metrizable_nhds_subtype (every subset S of /X/ is locally metrizable) ∧ metrizableSpace_of_paracompactSpace_subtype (paracompact subsets are metrizable), universes 0. B = every subset is locally metrizable, regular (text's definition) and Hausdorff. A ⇒ B: local metrizability is A's first |
+| V7_49 | same | neither | equivalent | Definition item: only EpGroupoid.IsComponentCompact is listed, so A = True and both implications are vacuous. The content is B itself, proved outright as B_holds: the project's IsComponentCompact K (∀ z, IsCompact (K ∩ connectedComponent z)) is B's text notion (∀ C of the form connectedComponent z,  |
+| V7_50 | stronger | A ⇒ B only | A_stronger | A ⇒ B: B's Lemma 2.7 is lemma_2_56 and B's Proposition 2.17 is proposition_2_57 (universes 0; B's extra [T2Space] is simply unused). B ⇒ A fails for a genuine reason: A is strictly more general. All ten listed theorems drop the text's Hausdorff assumption (RegularSpace only), and paracompactSpace_of |
+| V7_51 | restated | equivalent | equivalent | A = locallyPathConnectedSpace_orbitSpace ∧ exists_isOpen_metrizableSpace_closure ∧ corollary_7_2_of_isCompact ∧ corollary_7_2 (universes 0); B = the text's Corollary 7.2 (open U ⊇ K, cl U paracompact and metrizable, U metrizable) with B's IsComponentCompactB, which is the project's IsComponentCompac |
+| V7_52 | restated | equivalent | equivalent | A (13 theorems, universes 0) says the project's liftOne is an ep-groupoid on (X_1, X_1-morphisms) with PObj = X.PObj.shift, PMor = X.PMor.shift, the level-1 restrictions of s,t,u,i,m, tame if X is; B says some ep-groupoid Y with atlases equivalent to those of X^1, 𝐗^1 and the same restricted structu |
+| V7_53 | restated | equivalent | equivalent | Definition 7.15: HasParacompactOrbitSpace is Mathlib's ParacompactSpace X.OrbitSpace, whose single field is literally B's IsParacompactB (index types in Type, no Hausdorff condition), so B's first conjunct holds outright. The sentence before Remark 7.1 is remark_7_1 in A and B's second conjunct, bot |
+| V7_54 | stronger | A ⇒ B only | A_stronger | A ⇒ B: Y = X.liftOne satisfies IsLiftB by rfl/liftOne_comp_val and proposition_7_12 gives paracompactness. B gives back the headline conjuncts: proposition_7_12 for liftOne (B's Y has the same s,t, hence the same orbit setoid and orbit space; B_gives_proposition_7_12) and metrizableSpace_liftOne_orb |
+| V7_55 | same | equivalent | equivalent | theorem_7_3 and B agree: (1) is identical (Mathlib PartitionOfUnity on /X/, IsSubordinate, index type in Type); in (2) A's saturated open neighbourhood W ⊆ X meeting finitely many tsupports corresponds to B's open V ⊆ /X/ with π⁻¹(V) meeting finitely many (V = π(W), open since π is open, Proposition |
+| V7_56 | restated | neither | equivalent | Definition item (HasScPartitionsOfUnity, IsScSmoothPartitionOfUnity), so A = True and both directions are vacuous; the content is B itself, proved outright as B_holds: the project's HasScPartitionsOfUnity is B's HasScPUB field by field (same Mathlib PartitionOfUnity indexed by a type in Obj's univer |
+| V7_58 | same | equivalent | equivalent | theorem_7_4 (universe 0) and B have the same hypotheses (HasParacompactOrbitSpace, PObj.AdmitsScPartitionsOfUnity) and conclusions that agree by the V7_56 rephrasing (HasScPartitionsOfUnity ⇔ B's HasScPUB: invariance β(s φ) = β(t φ) vs. IsoB y z → β z = β y, everything else literally equal). Both di |
+| V7_59 | same | equivalent | equivalent | A (universes 0) is the conjunction of exists_hasPropernessProperty, HasPropernessProperty.mono, isProperSubset_iff_isCompact and isProperSubset_iff_exists_tendsto_subseq; B says the project's IsProperSubset (Mathlib IsProperMap of t on s^{-1}(Q)) and HasPropernessProperty (for open U) agree with the |
+| V7_60 | same | equivalent | equivalent | A (universes 0) is the conjunction of proposition_7_13 and its alias IsProperSubset.isClosed, both 'X.IsProperSubset Q -> IsClosed Q' in the object space; B is the same statement with all binders explicit. Both directions are one-line re-applications of the hypothesis; same definitions on both sides |
+| V7_61 | stronger | equivalent | equivalent | A (universes 0; the index type of isProperSubset_iUnion_of_locallyFinite also at Type) is the conjunction of 8 theorems; its proposition_7_14_one and proposition_7_14_two ([ParacompactSpace X.OrbitSpace] as instance) are exactly B's (1) and (2), with the same orbit space, quotient topology, pi and I |
+| V7_62 | restated | equivalent | equivalent | A (universes 0) is theorem_7_5 (exists NaturalRep R with R.U in V), exists_sheets and exists_naturalRep_sheets (Sheets D and R with R.U in V, R.U in s(N_g), R.Phi = t_g o s_g^{-1}, R.Gamma = s_g^{-1} as functions). B asks for an open U in V with the natural action (U NOT required connected, unlike t |
+| V7_63 | stronger | equivalent | equivalent | A (lemma_7_8, universe 0) holds for ANY open N_g containing g and any neighbourhood U0 of x; B holds only for the proof's choices (U0 open, N^s_g, N^t_g open with s, resp. t, an sc-diffeomorphism onto U0, the N^s_g u N^t_g pairwise disjoint, N_g = N^s_g n N^t_g). So A is formally more general; A->B  |
+| V7_64 | stronger | A ⇒ B only | A_stronger | A_to_B uses only the lemma_7_9 conjunct: B's choices (s, t sc-diffeomorphisms of N^s_g, N^t_g onto a common U0, N^s_g u N^t_g disjoint) give project Sheets on N_g = N^s_g n N^t_g by restriction; B's U1 lies in U0 but need not lie in the smaller s(N_g), so Lemma 7.9 is applied to U1 n (intersection o |
+| V7_65 | same | equivalent | equivalent | A is EpGroupoid.theorem_7_6 at universe 0: HasParacompactOrbitSpace (by definition ParacompactSpace X.OrbitSpace) and X.PObj.AdmitsScPartitionsOfUnity imply HasScPartitionsOfUnity (Definition 7.16 with a Mathlib PartitionOfUnity indexed by a Type). B has the same hypotheses and the same conclusion w |
+| V7_66 | stronger | neither | incomparable | A (lemma_7_10) takes the natural action as a project NaturalRep, whose domain V(x) = R.U must be CONNECTED; B takes Theorem 7.1's clauses as data on any open V(x) (IsNatActionB, no connectedness). For connected V(x) B's data is a NaturalRep (Phi(1) = id and Phi(g)^-1 = Phi(g^-1) follow from Phi_mul) |
+| V7_67 | restated | neither | incomparable | A is 7 lemmas of the project's proof (neighbourhoods (1)-(4), orbitExtension sc-smoothness, the invariant sc-smooth Urysohn lemma, Part I's admitsScPartitionsOfUnity_of_approx, theorem_7_4); B is the text's chain of claims, quantified over EVERY choice of V(x), W(x) with B's natural action (IsNatAct |
+| V7_68 | narrower | B ⇒ A only | A_narrower | A (corollary_7_3, MPolyfold.admitsScPartitionsOfUnity_of_hilbert, corollary_7_3_hypotheses_rn) requires for each chart's E0, besides a Hilbert norm (norm^2 = b(v,v), b continuous bilinear), the explicit hypothesis GodefroyTroyanskiWhitfieldZizlerStatement E0 (WCG + C^inf bump implies C^inf partition |

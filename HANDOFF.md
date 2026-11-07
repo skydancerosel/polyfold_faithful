@@ -4,8 +4,8 @@ Written 2026-10-24 at the end of a cloud session; rewritten 2026-10-26 at the en
 session on the Mac (Chapters 1–5 of Part I complete; the round-trip audit is next). Everything is committed on `main`. Resume with
 the first message in §4. Updated 2026-11-07: Chapter 6 is formalized except Theorem 6.43 (G.54) and
 §6.6 (G.55). Later on 2026-11-07: Part II has begun; Chapter 7 is formalized (waves W0–W4 of the Part
-II plan in `PLAN.md`), its reports are being written (wave W5, in progress) and its round-trip audit
-is in progress (§2, §3 item 11).
+II plan in `PLAN.md`), its reports are written (wave W5, commit 919831f) and its round-trip audit is
+done (§2, §3 item 11).
 
 ## 1. Setup
 
@@ -156,9 +156,11 @@ do not call the text wrong or speak of its "errors".
   to Chapter 8); `|X_∞|` not stated (G.72). The remark after Definition 7.7 does not hold as we read it
   (counterexample `Examples.remark_definition_7_7_counterexample`); it holds for functors continuous
   on morphisms. Proved on the way: the local path connectedness of M-polyfolds (G.56, first fact),
-  Michael's theorem (G.15), the tameness of index lifts (Ch. 5 item 145). **In progress (wave W5):**
-  `cmp/ch07.json`, `pbp/part07.md` and the regenerated comparison and proof-by-proof; the round-trip
-  audit of Chapter 7.
+  Michael's theorem (G.15), the tameness of index lifts (Ch. 5 item 145). Wave W5 done: the reports
+  (commit 919831f) and the round-trip audit of the 64 non-extra, non-gap items (`RoundTrip/REPORT.md`,
+  "Chapter 7, audited on 2026-11-07": 39 equivalent, 5 B false). The audit proved that `𝐗^R` need
+  not be Hausdorff (`RoundTrip/Items/V7_40.lean`, namespace `NotB`, on Remark 4.3's retract), which
+  settles the Hausdorff half of G.71 negatively; not yet moved into `Polyfold/`.
 * **Lean counts** (2026-11-07): 5,905 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
   1,204 for Chapter 6, 963 for Chapter 7), all on `propext, Classical.choice, Quot.sound`; no
   `sorry`, no `axiom`; 224 Lean files and 140,263 lines under `Polyfold/` (`wc -l`, without `WIP_`
@@ -331,9 +333,9 @@ each chapter lands)
     state in §2). Round-trip audit of its 60 non-extra items done 2026-11-07. Left for Chapter 6: the gaps
     G.56–G.69.
 11. **Part II, Chapter 7** — Lean done 2026-11-07 (waves W0–W4 of the Part II plan in `PLAN.md`; state
-    in §2). **In progress:** wave W5, the reports (`cmp/ch07.json`, `pbp/part07.md`, the regenerated
-    comparison and proof-by-proof), and the round-trip audit of the Chapter 7 items. Left for Chapter
-    7: the gaps G.70–G.72 (G.70 with Chapter 8). **Next: Chapter 8.**
+    in §2). Wave W5 done: the reports and the round-trip audit (2026-11-07). Left for Chapter 7: the
+    gaps G.70–G.72 (G.70 with Chapter 8); moving the audit's `𝐗^R` counterexample into `Polyfold/`;
+    the density of `X_∞` in `X_k` (V7.6, not in Part I for M-polyfolds). **Next: Chapter 8.**
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

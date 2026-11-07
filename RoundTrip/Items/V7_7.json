@@ -1,0 +1,12 @@
+{
+ "id": "V7_7",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is degIndexOrbit_π: d_{|X|}(π x) = d_X(x) (universe 0), which is B (b). B's presupposition (a), d_X(x) = d_X(x') for x ∼ x', also follows from A: π x = π x' (Quotient.sound) so d_X(x) = d_{|X|}(π x) = d_{|X|}(π x') = d_X(x'). The project's well-definedness proof (the Quotient.lift field of degIndexOrbit, via degIndex_src/degIndex_tgt) is part of the definition.",
+ "B_issue": null,
+ "overlap": "B_to_A: 163 shared project theorems, all reached through the definition degIndexOrbit (its Quotient.lift proof field degIndexOrbit._proof_1: degIndex_src/degIndex_tgt, Proposition 2.24 and the sc-calculus under it); the proofs themselves only use hA/hB and Quotient.sound.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

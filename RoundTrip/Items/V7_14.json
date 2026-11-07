@@ -1,0 +1,12 @@
+{
+ "id": "V7_14",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B is literally the project's EpGroupoid.lemma_7_1 at universe 0 (same open U ∋ x₀, same properness of (s⁻¹(cl U)).domRestrict t, same set {ψ | s ψ = x ∧ t ψ ∈ U}); A_to_B is hA.1 with binders reordered. B_to_A: lemma_7_1 is B, and lemma_7_1_swap (s and t exchanged, the form of the text's proof) follows from B via the inverse ι. The other four conjuncts of A are strictly more general and not consequences of B: lemma_7_1_of_isProperMap / _swap_of_isProperMap allow t(ψ) ∈ cl U (no openness, x₀ unused), and finite_setOf_mem_of_isProperMap_domRestrict / IsProperMap.finite_preimage_singleton_of_isLocallyInjective are abstract statements about arbitrary maps; these were re-proved outright (a fibre of a proper locally injective map is compact and discrete, hence finite). So the equivalence holds for the item's main statement; the extra conjuncts are proved without B. Universes: all at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 17 shared project theorems, all groupoid-axiom glue (GroupoidStr.inv_inv, src_inv, tgt_inv, comp_assoc, …) plus IsLocalScDiffeo.isLocallyInjective, EpGroupoid.isLocalScDiffeo_tgt and IsLocallyInjective.isDiscrete_preimage_singleton — exactly the ingredients of the project's proof, re-assembled.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

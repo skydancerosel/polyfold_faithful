@@ -1,0 +1,15 @@
+{
+ "id": "V7_36",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "proposition_7_8 is B after the dictionary IsEffectiveB = IsEffective and XregB = regularSet (Isotropy.ext). A also contains the converse isEffective_of_dense_regularSet and the equivalence isEffective_iff_dense_regularSet, which are not in the text and do not follow from B; they are re-proved outright in B → A (a regular a near x with Γ(g, a) in a given open W ∋ g has Γ(g, a) ≠ 1_a = Γ(1, a)). stabilizerEquivIsotropy is a definition (vocabulary).",
+ "B_issue": null,
+ "overlap": "B_to_A: 470 shared project theorems, mostly theorem_7_1 and its construction plus NaturalRep API (Γ_one, Γ_inj, continuousOn_Γ), all used only in the outright converse.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

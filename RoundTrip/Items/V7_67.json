@@ -1,0 +1,12 @@
+{
+ "id": "V7_67",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A is 7 lemmas of the project's proof (neighbourhoods (1)-(4), orbitExtension sc-smoothness, the invariant sc-smooth Urysohn lemma, Part I's admitsScPartitionsOfUnity_of_approx, theorem_7_4); B is the text's chain of claims, quantified over EVERY choice of V(x), W(x) with B's natural action (IsNatActionB, W(x) not required connected), every refinement and every beta, ending with h_i / sum h_j. From A only B's first two claims follow (proved: A_to_B_first_claims, via exists_invariant_nhds_of_isOpen and saturation_diff_inter_eq_empty). The rest cannot use A: A's extension lemmas and Lemma 7.10 need a connected NaturalRep, and A's theorem_7_4 normalises through a bump covering of |X| rather than h_i / sum h_j for the given data; B is true as we read it but would need the whole construction re-proved. B_to_A fails genuinely: Part I's admitsScPartitionsOfUnity_of_approx (M-polyfolds with the approximation property) and the Urysohn lemma are not among B's claims.",
+ "B_issue": null,
+ "overlap": "A_to_B_first_claims: 157 shared project theorems: vocabulary proof fields plus NaturalRep field projections, proposition_7_1 (pi open), isLocalScDiffeo_src/tgt and IsScDiffeoOn projections.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

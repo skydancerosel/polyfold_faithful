@@ -1,0 +1,12 @@
+{
+ "id": "V7_17",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A's theorem_7_1 (∃ R : X.NaturalRep x, R.U ⊆ V) gives every clause of B's IsNatRepData directly from the NaturalRep fields (Φ(g⁻¹) as the inverse witness, Φ_mul for the homomorphism, Γ sc-smooth on U, (1)–(3)), with B's Gx (a subtype) and the project's Isotropy (a structure) identified and the products agreeing; B's 'i.e.' bijection is A's bijOn_Γ transported. The project's NaturalRep is a priori stronger than B's data in two ways: U is required to be connected (the text's theorem does not say so), and the inverse of Φ(g) must be Φ(g⁻¹). Neither is a genuine difference: Φ(1) = id on U follows from injectivity and idempotence, giving Φ(g⁻¹) as inverse, and U can be shrunk to the connected component of x in U, which is open (M-polyfolds are locally connected, MPolyfold.isOpen_connectedComponentIn) and Φ-invariant (each Φ(g) is a homeomorphism of U fixing x); so B ⇒ theorem_7_1. The other conjuncts (Φ_one, mapsTo_Φ, Φ_inv_Φ, bijOn_Γ) are facts about an arbitrary NaturalRep, re-proved outright from its fields. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 118 shared project theorems — almost all generic M-polyfold/sc-calculus infrastructure reached through IsScSmoothOn.mono and MPolyfold.isOpen_connectedComponentIn (locallyConnectedSpace, locallyPathConnectedSpace, chart/retraction lemmas), plus groupoid axioms and NaturalRep field accessors; no Chapter 7 construction lemma (lemma_7_8, lemma_7_9, NatRepConstruction) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

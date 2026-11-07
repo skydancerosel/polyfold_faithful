@@ -1,0 +1,12 @@
+{
+ "id": "V7_26",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item lists only definitions (the structure EpGroupoid.NaturalRepFinite = Definition 7.8, and the def NatRepFinite.mono), so A = True and the comparison is B itself, proved outright as B_holds: B's IsNatRepFinB (the properties of Proposition 7.5, with 𝐔(ψ) read as connectedComponentIn 𝐔 ψ and the t-target read as U(y')) holds for (U, F) iff (U, F) agree on Y / on U(s ψ) with some N : X.NaturalRepFinite Y V. The project's structure carries data that B leaves existential — the sheets 𝐔(ψ) as a field (open, connected, ψ ∈ 𝐔(ψ), disjoint, covering), the inverse (s|𝐔(ψ))⁻¹, the inverse F(ψ⁻¹) of F ψ, and a NaturalRep at each y (U(y) connected) — and all of it is recovered from B's property: sheets = components (NatRepFinite.connectedComponentIn_morOn for the converse), F(ψ⁻¹) is the inverse by functoriality, the NaturalRep is built from B's natural action plus connectedness of U(y). So the definitions agree. A_to_B is B_holds (uses_hypothesis false, as A = True); B_to_A is trivial.",
+ "B_issue": null,
+ "overlap": "A_to_B (= B_holds): 17 shared project theorems, all field projections of NaturalRepFinite (isOpen_U, F_comp, morOn_eq, isScDiffeoOn_src, natural, …) shared with the body of NatRepFinite.mono; the only other project lemma used is NatRepFinite.connectedComponentIn_morOn (not listed in the item).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

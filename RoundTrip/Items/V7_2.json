@@ -1,0 +1,12 @@
+{
+ "id": "V7_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is Isotropy.val_mul, val_one, val_inv (universe 0): the group operations of the project's Isotropy x are g * h = g ∘ h, 1 = 1_x, g⁻¹ = ι g, in the text's order. These are verbatim B's last three conjuncts; B's other conjuncts (G_x = {φ | sφ = x = tφ} closed under ∘, 1_x, ι; val injective; range val = G_x) follow from the groupoid axioms and structure eta. Isotropy, isotropyEquivVertexGroup, isotropyEquivAut are definitions; B does not mention the two equivalences.",
+ "B_issue": null,
+ "overlap": "B_to_A: 12 shared project theorems, groupoid axiom fields (src_comp, tgt_comp, src_inv, …), Isotropy.src_val/tgt_val and the proof fields of the Isotropy Mul/Inv instances; no substantive lemma.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

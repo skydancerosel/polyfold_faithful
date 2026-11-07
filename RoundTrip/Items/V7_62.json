@@ -1,0 +1,12 @@
+{
+ "id": "V7_62",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) is theorem_7_5 (exists NaturalRep R with R.U in V), exists_sheets and exists_naturalRep_sheets (Sheets D and R with R.U in V, R.U in s(N_g), R.Phi = t_g o s_g^{-1}, R.Gamma = s_g^{-1} as functions). B asks for an open U in V with the natural action (U NOT required connected, unlike the project's NaturalRep) and disjoint sheets N_g of s and t with Gamma(g,y) in N_g. A->B: take U = R.U, N = D.N. B->A: B's sheets form a Sheets D; on U, s_g^{-1} = Gamma(g,.) and t_g s_g^{-1} = Phi(g); the connected component C of x0 in U is open (M-polyfolds locally connected) and Phi-invariant (Phi(g) continuous, fixes x0), and the NaturalRep on C with Phi := D.hat, Gamma := D.sigma is built field by field from B's clauses (Phi(1) = id from the homomorphism law plus injectivity, smoothness by congr), without Sheets.mkRep. So the project's extra connectedness of U costs nothing: it is obtained by passing to a component.",
+ "B_issue": null,
+ "overlap": "A_to_B: 15 shared theorems (Sheets.sigma_mem_N, Isotropy group axioms). B_to_A: 151, essentially the local connectedness of M-polyfolds (MPolyfold.locallyConnectedSpace and the sc-calculus/chart lemmas behind it), IsScSmoothOn.mono/congr, IsScDiffeoOn field accessors, Sheets.hat_apply and Isotropy group-structure lemmas; no use of mkRep, lemma_7_8 or lemma_7_9.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

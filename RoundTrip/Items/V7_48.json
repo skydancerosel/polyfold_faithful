@@ -1,0 +1,12 @@
+{
+ "id": "V7_48",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = exists_metrizable_nhds_subtype (every subset S of |X| is locally metrizable) ∧ metrizableSpace_of_paracompactSpace_subtype (paracompact subsets are metrizable), universes 0. B = every subset is locally metrizable, regular (text's definition) and Hausdorff. A ⇒ B: local metrizability is A's first theorem, but regularity and Hausdorffness of subsets are NOT stated by A's listed theorems; they come (outright, not from the hypothesis) from Mathlib's subtype instances over the project's instances EpGroupoid.lemma_7_7 and lemma_7_6 (Lemmas 7.7, 7.6; separate items), as the docstring of exists_metrizable_nhds_subtype says. A's two theorems alone do not abstractly yield regularity (a Hausdorff, locally metrizable, non-regular space satisfies both). B ⇒ A uses B fully: the second theorem is Smirnov's theorem (Part I, metrizableSpace_of_locally) in S with B's T2Space S and local metrizability; A's extra conjunct is thus a consequence of B.",
+ "B_issue": null,
+ "overlap": "B_to_A: 25 shared project theorems = GroupoidStr vocabulary plus Part I Smirnov theorem metrizableSpace_of_locally and its helpers (truncDist_*, metrizableSpace_of_partition, metrizableSpace_of_pullback, cone_triangle), which the project's proof of metrizableSpace_of_paracompactSpace_subtype also uses. A_to_B: 97 shared (lemma_7_7, lemma_7_6, t1Space_orbitSpace and their proper-map / Prop 7.1, 7.3, 7.13, 7.14 infrastructure, MPolyfold.metrizableSpace), because the banned subtype theorem also needs T2Space |X|.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

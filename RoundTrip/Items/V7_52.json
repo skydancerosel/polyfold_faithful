@@ -1,0 +1,15 @@
+{
+ "id": "V7_52",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (13 theorems, universes 0) says the project's liftOne is an ep-groupoid on (X_1, X_1-morphisms) with PObj = X.PObj.shift, PMor = X.PMor.shift, the level-1 restrictions of s,t,u,i,m, tame if X is; B says some ep-groupoid Y with atlases equivalent to those of X^1, 𝐗^1 and the same restricted structure maps exists, tame if X is. A ⇒ B: Y assembled from A's conjuncts (fields of liftOne), IsLiftB by MAtlas.Equiv.refl and proposition_7_11. B ⇒ A: Y's fields (1)-(4) transported along the atlas equivalences (every notion depends on the atlas only through IsChart, isChart_congr; Y.comp = liftComp on composable pairs suffices for the sheet form) give isLocalScDiffeo_liftSrc/Tgt, isScSmoothMap_liftUnit/Inv, exists_isProperMap_lift, isScSmoothCompSheet_lift, isScSmoothComp_lift; IsTame.levelOne from B on EpGroupoid.trivial P. A carries three general Part I statements B cannot give (comp_mem_levelSet for every level m, IsLocalScDiffeo.levelOne and IsScSmoothMap.levelOne for arbitrary M-polyfolds); they are proved outright in a few lines from the unbanned mem_levelSet_tgt_iff, IsScDiffeoOn.levelOne, IsScSmoothOn.levelOne, so the equivalence of the item's own content is genuine. Technical: liftOne stores the banned field theorems unabstracted (no _proof_N), so both directions go through Ar, a definitionally equal restatement of A with liftOne.F replaced by its reduct and the IsScSmoothComp proof arguments by our own proofs (kernel-checked A_to_B := Ar_to_B, B_to_A := B_to_Ar).",
+ "B_issue": null,
+ "overlap": "B_to_A: rt_check OK; 437 shared project theorems, mostly Part I sc-calculus/level-chart infrastructure; the Chapter 7 ones are the EpGroupoid fields (isLocalScDiffeo_src/tgt, isScSmoothMap_unit/inv, exists_isProperMap, isScSmoothComp), mem_levelSet_tgt_iff, isScSmoothComp_iff_sheet, IsScDiffeoOn.levelOne, IsScSmoothOn.levelOne. A_to_B passes only #rt_check_soft: comp_mem_levelSet is reached through the proof fields of the listed definition EpGroupoid.liftGroupoidStr (X^1's groupoid structure, used as Y's toGroupoidStr).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

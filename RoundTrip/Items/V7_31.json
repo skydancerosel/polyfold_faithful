@@ -1,0 +1,15 @@
+{
+ "id": "V7_31",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "B = (a) at every φ ∈ 𝐀 a sheet s : 𝐔(φ) → U(a) and a retraction r of U(a) onto U(a) ∩ A exist, (b) for EVERY such choice σ∘r∘s retracts 𝐔 onto 𝐔 ∩ 𝐀, (c) 𝐀 is a sub-M-polyfold, (d) some structure on 𝐀 with facts (1)–(4). All but the tangent facts (3), (4) of (d) are proved from A (A_to_B_noTangent: (a) by shrinking U = (V∩V₀)∩r⁻¹(V∩V₀), re-done since A has no such statement; (b) by comp_retract plus A's morOn_eq_preimage_src; (c), (d)(1),(2) are A's). The tangent facts for 𝐀 are not in A (gap G.7, as in V7_30/V2_25): believed true, not attempted. B → A is proved but mostly outright: only isSubMPolyfold_morOn comes from B's (c); the saturation identities are elementary, the preimage lemmas isSubMPolyfold_preimage_src/tgt hold for EVERY sub-M-polyfold (no saturation) while B only treats saturated A, so they were re-proved (same σ∘r∘s construction), and facts (1), (2) for the specific subMorPolyfold come from Part I. So A is more general (non-saturated preimages, the specific structure) and B has the tangent facts and the 'every choice' clause (b).",
+ "B_issue": null,
+ "overlap": "Harness: the types of isScSmoothMap_val_subMor/isScSmoothOn_retractInto_subMor mention subMorPolyfold hA = subPolyfold (isSubMPolyfold_morOn hA) (non-abstracted), so every term mentioning A fails #rt_check/#rt_check_soft (B_to_A's failure recorded with #guard_msgs). A'_to_B_noTangent (Q existential) passes #rt_check; A_to_B_noTangent and B_to_A pass #rt_check_except_defs with subMorPolyfold's body not unfolded. B_to_A overlap: 278 shared project theorems — Part I subPolyfold infrastructure, GroupoidStr laws/isSaturated_iff, ep-groupoid fields, and (only via subMorPolyfold in A's statement) isSubMPolyfold_morOn, morOn_eq_preimage_src, isSubMPolyfold_preimage_src.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

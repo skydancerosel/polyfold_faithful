@@ -1,0 +1,12 @@
+{
+ "id": "V7_65",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is EpGroupoid.theorem_7_6 at universe 0: HasParacompactOrbitSpace (by definition ParacompactSpace X.OrbitSpace) and X.PObj.AdmitsScPartitionsOfUnity imply HasScPartitionsOfUnity (Definition 7.16 with a Mathlib PartitionOfUnity indexed by a Type). B has the same hypotheses and the same conclusion written with a bare family of real functions (sc-smooth, >= 0, finsum = 1, saturated neighbourhoods meeting finitely many tsupports, beta(s phi) = beta(t phi), tsupport in U_lambda). The only glue is repackaging: continuity from sc-smoothness and local finiteness of the supports from the saturated-neighbourhood condition. Same statement.",
+ "B_issue": null,
+ "overlap": "122 (B_to_A) / 121 (A_to_B) shared project theorems, all proof fields of vocabulary reached through the statement's definitions (realPolyfold/realChart construction, ScBanach/ScScale/IsSc1 basics, GroupoidStr orbit-setoid lemmas, IsScSmoothOn.continuousOn); no Chapter 7 content lemma.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

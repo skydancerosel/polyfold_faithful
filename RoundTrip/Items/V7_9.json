@@ -1,0 +1,12 @@
+{
+ "id": "V7_9",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is mostly definitions. A has only two theorems, GroupoidFunctor.mor_inv and EpFunctor.ext (universes 0, 0). The real check is B's comparison of the project's definitions with the text, proved in A_to_B. EpFunctor's fields are exactly B's IsFunctorB (s, t, m on composable pairs, u) plus sc-smoothness on objects and on morphisms, so EpFunctor X Y matches the IsEPMorB pairs in both directions. Identities and composites are morphisms (isScSmoothMap_id, IsScSmoothMap.comp). EpFunctor.id and EpFunctor.comp are the identity and the composite of the maps (rfl). The unit and associativity laws hold by EpFunctor.ext, taken from the hypothesis A. B_to_A does NOT use B: mor_inv (about functors between arbitrary groupoids) and EpFunctor.ext (structure eta) are re-proved outright. B gives existence, not uniqueness, of an EpFunctor with given maps, so it cannot yield ext. So the directions are 'equivalent' only because A is provable outright. The substantive finding is that the project's definitions agree with the text's Definition 7.7. B does not cover the vocabulary GroupoidFunctor.toFunctor, orbitMap or the bundled EP / LargeCategory instance (whose Hom, id and comp are EpFunctor, EpFunctor.id and comp by definition).",
+ "B_issue": null,
+ "overlap": "B_to_A: 15 shared project theorems, all groupoid-axiom glue used to re-prove mor_inv (GroupoidStr.eq_inv_of_comp_eq_unit, src_inv, tgt_inv, inv_comp, comp_inv, comp_assoc, unit_comp, comp_unit, …, and the GroupoidFunctor field projections src_mor, tgt_mor, mor_comp, mor_unit).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

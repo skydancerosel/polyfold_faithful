@@ -1,0 +1,12 @@
+{
+ "id": "V7_12",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "proposition_7_2 states ∃ V : ℕ → Set |X|, (∀ k, IsOpen (V k) ∧ z ∈ V k) ∧ (𝓝 z).HasAntitoneBasis V. This is B's 'open, containing z, V (k+1) ⊆ V k, every open N ∋ z contains some V k' repackaged. HasAntitoneBasis gives the basis property and Antitone, and conversely antitone_nat_of_succ_le with mem_nhds_iff gives it back. The topology is the same: the project's instance is definitionally B's orbitTop. B_to_A also derives the FirstCountableTopology instance from the reconstructed proposition_7_2. proposition_7_2_of_hasAntitoneBasis says the images π(O_k) of a given antitone basis at x form one at π(x). It is not a consequence of B, since it needs map π (𝓝 x) = 𝓝 (π x), i.e. openness of π. It was proved from proposition_7_1_map_nhds (Proposition 7.1, an item theorem of V7_11, not banned here) and HasAntitoneBasis.map, without B. Universes: 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 35 shared project theorems. These are Proposition 7.1 (proposition_7_1, proposition_7_1_isOpenQuotientMap, proposition_7_1_map_nhds, continuous_π) and what is under it (IsLocalScDiffeo.isOpenMap / isLocalHomeomorph, isLocalScDiffeo_src/tgt, IsScDiffeoOn fields, π_eq_π_iff, π_src_eq_π_tgt, surjective_π, orbit-setoid glue). All of it is used only for the conjunct proposition_7_2_of_hasAntitoneBasis.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

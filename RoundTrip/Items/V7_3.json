@@ -1,0 +1,12 @@
+{
+ "id": "V7_3",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B (a)/(b): the project's EpGroupoid is exactly B's text ep-groupoid. The only non-literal points: (3) the project's IsProperMap vs B's 'continuous with compact preimages' — equivalent because X is metrizable (MPolyfold.metrizableSpace), hence compactly generated Hausdorff (isProperMap_iff_isCompact_preimage); (4) B's existentially chosen paracompactness instances and sub-M-polyfold proof hA of 𝐗 ₛ×ₜ 𝐗 vs the project's fixed ones — all Props, identified by proof irrelevance. B (c) is A's Proposition 2.46 (hypothesis), (d) is A's isScSmoothMap_src/tgt. B_to_A: isScSmoothMap_src/tgt come from B (d); isScSmoothComp_iff_sheet, EpGroupoid.isScSmoothCompSheet and the general Proposition 2.46 (arbitrary f, g, X, Y, Z) are not consequences of B (B never mentions the sheet form; B (c) is only for s, t of a groupoid) and are re-proved outright along the project's own route. Universes at 0. #rt_check fails only because the definition IsScSmoothComp (the statement of (4)) contains isSubMPolyfold_fibredProduct in its proof field IsScSmoothComp._proof_3, so #rt_check_soft is used for both directions (OK with review: banned theorem reached only through the proof fields of IsScSmoothComp).",
+ "B_issue": null,
+ "overlap": "B_to_A: 351 shared project theorems — the M-polyfold/sc-calculus infrastructure plus the ingredients of the project's proofs of Proposition 2.46 and isScSmoothComp_iff_sheet (fibredSubDataL proof fields, isScDiffeoOn_snd_fibredProduct, IsScSmoothOn.of_exists_charts), which B_to_A re-assembles for the conjuncts B does not imply; isSubMPolyfold_fibredProduct and EpGroupoid.isScSmoothComp appear only through IsScSmoothComp's proof field / the structure field.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

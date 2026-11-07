@@ -1,0 +1,15 @@
+{
+ "id": "V7_39",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B's last conjunct asserts for EVERY ep-groupoid that 𝐗^R (quotient topology) is Hausdorff and paracompact and carries an M-polyfold structure Q making each Ψ = π|W an sc-diffeomorphism. A has Hausdorff/paracompact only for effective X (t2Space_/paracompactSpace_reducedMor_of_isEffective) or from regularity + second countability, and otherwise takes [T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor] as hypotheses of reducedPolyfold; nothing in A gives them in general, and both the blind formalizer (dimension-jumping retract with a ℤ/2 action, T_x jumping from ℤ/2 to 1) and the project's notes believe the claim fails, so the failure is a genuine difference, not effort (¬B not attempted, as instructed). Everything else of B follows from A: the Items file proves A_and_t2_to_B (A + 'every 𝐗^R is T2 and paracompact' ⇒ B; π(W) open and π|W a homeomorphism from isOpenMap/injOn, transitions = σ₁∘s, Q = reducedPolyfold). B → A: openness, injectivity, chart compatibility (σ₂∘s smooth on the overlap is B(2)) and the three T2/paracompact conjuncts come from B; isChart_reducedChart, isScDiffeoOn_reducedπ, isLocalScDiffeo_reducedπ, proposition_7_9 concern the project's specific atlas (not B's Q) and are re-proved by copying the project proofs with B-derived openness. #rt_check_soft: reducedChart's isOpen_source field uses isOpenMap_reducedπ and reducedAtlas's compatible field uses reducedChart_compatible.",
+ "B_issue": null,
+ "overlap": "B_to_A: 600 shared project theorems: the reduced-groupoid API (reducedπ_eq_iff, ReducedRel.src_eq, overlap_reducedChart, reducedChart_source/π, sheet_inv_*, continuousOn_sheet_inv, exists_chart_sheet), the T_x machinery and theorem_7_1 construction reached through reducedSetoid/trivialSubgroup, M-polyfold chart infrastructure; the banned isOpenMap_reducedπ, isQuotientMap_reducedπ, reducedChart_compatible appear only through the proof fields of reducedChart and reducedAtlas.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

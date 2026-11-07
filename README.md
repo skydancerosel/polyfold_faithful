@@ -58,10 +58,11 @@ GitHub displays it directly.
 * **Every numbered item of the text is compared with its formal version** (469 items, each with a
   verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap list
   of what is not formalized and why (G.1–G.72).
-* **Round-trip audit**: for all 329 items of Chapters 1–6 not labelled *extra*, an independent model
-  formalized the text's statement blind, and the two statements were related by short Lean proofs
-  (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2 November 2026,
-  Chapter 6 audited on 7 November 2026). The audit of Chapter 7 is in progress.
+* **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
+  independent model formalized the text's statement blind, and the two statements were related by
+  short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
+  November 2026, Chapters 6 and 7 audited on 7 November 2026). In Chapter 7 it proved that `𝐗^R`
+  need not be Hausdorff (Propositions 7.9–7.10, gap G.71; `RoundTrip/Items/V7_40.lean`).
 * **Human sign-off**: not started.
 
 ## Where to start reading (no Lean needed)

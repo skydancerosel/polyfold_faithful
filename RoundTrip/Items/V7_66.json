@@ -1,0 +1,12 @@
+{
+ "id": "V7_66",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (lemma_7_10) takes the natural action as a project NaturalRep, whose domain V(x) = R.U must be CONNECTED; B takes Theorem 7.1's clauses as data on any open V(x) (IsNatActionB, no connectedness). For connected V(x) B's data is a NaturalRep (Phi(1) = id and Phi(g)^-1 = Phi(g^-1) follow from Phi_mul) and A gives B: proved as A_to_B_of_isConnected; for disconnected V(x) A says nothing, and B (true, the averaging proof needs no connectedness) would have to be re-proved. Conversely A drops the hypothesis x in U(x) and adds the conclusion tsupport f in cl U(x); B gives only tsupport f in V(x) and needs x in U(x), so B does not yield A (e.g. for x in cl U(x) minus U(x)). Both differences are genuine statement differences, not proof effort.",
+ "B_issue": null,
+ "overlap": "A_to_B_of_isConnected: 146 shared project theorems, all vocabulary proof fields (realPolyfold/ScBanach/GroupoidStr basics) plus IsScDiffeoOn.mapsTo; no Chapter 7 content lemma.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

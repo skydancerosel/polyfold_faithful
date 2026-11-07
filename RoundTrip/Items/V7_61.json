@@ -1,0 +1,12 @@
+{
+ "id": "V7_61",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0; the index type of isProperSubset_iUnion_of_locallyFinite also at Type) is the conjunction of 8 theorems; its proposition_7_14_one and proposition_7_14_two ([ParacompactSpace X.OrbitSpace] as instance) are exactly B's (1) and (2), with the same orbit space, quotient topology, pi and IsProperSubset. A->B is immediate. B->A: 7.14 (1), (2) and the closedness of the saturation pi^{-1}(pi(Q)) (preimage of a closed set under continuous pi) come from B; the remaining five conjuncts (of_subset, union, locally finite unions, compact sets are proper, small neighbourhoods with the properness property) are auxiliary lemmas B does not state and are re-proved without B from isProperSubset_iff_isCompact, isProperSubset_biUnion, the generic isProperMap_domRestrict_of_subset_of_isClosed and exists_isProperMap. No hypothesis issue: paracompactness of |X| is the text's own hypothesis.",
+ "B_issue": null,
+ "overlap": "A_to_B: 10 shared theorems (GroupoidStr groupoid axioms behind X.OrbitSpace, vocabulary). B_to_A: 66, from the auxiliary conjuncts re-proved without B: isProperSubset_iff_isCompact, isProperSubset_biUnion, isProperMap_domRestrict_of_subset, exists_isProperMap, continuous_pi, pi_src_eq_pi_tgt, and the metrizability chain behind isProperSubset_iff_isCompact.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

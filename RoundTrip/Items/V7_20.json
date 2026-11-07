@@ -1,0 +1,12 @@
+{
+ "id": "V7_20",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B asks for the existence of SOME M-polyfold structure on Gx × U (any open U ∋ x) whose sheets {g} × U are sc-diffeomorphic to U ⊆ X by the projection. A consists of properties of the project's specific construction (discreteChart charts pairwise compatible; maps into discretePolyfold are sc-smooth iff continuous; maps on discretePolyfold G × X are sc-smooth iff sheetwise; y ↦ g • y sc-smooth on objPolyfold). A ⇒ B: take (discretePolyfold Gx).prod (X.PObj.restrictOpen hU) — the project's morPolyfold, for an arbitrary open U and B's subtype Gx; A's isScSmoothMap_prod_discrete_iff and isScSmoothMap_discrete_iff give sc-smoothness of the projection and of the sheet inclusion y ↦ (g, ⟨y,_⟩), with two chart lemmas for U ↪ X and its inverse on U proved here (the project's inclusion lemma is private). B ⇒ A is vacuous: an existence statement about some structure says nothing about the project's definitions, so A's conjuncts were re-proved outright (copies of the project's proofs, using the unlisted isScSmoothOn_prod_discrete_iff and isScSmoothMap_discrete_of_continuous). No mathematical disagreement; A is the project's witness for B. Both checks are #rt_check_soft: the banned discreteChart_compatible is reached only through the proof field `compatible` of the definition discretePolyfold, which every statement involving discretePolyfold uses. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 363 shared project theorems — the sc-calculus/chart infrastructure under discretePolyfold, MPolyfold.prod and restrictOpen (chart restriction, retractions, isScSmoothRetractMap_id, codRestrict_restrictOpen), isScSmoothOn_prod_discrete_iff, isScSmoothMap_discrete_of_continuous and NaturalRep scoped instances: the project's own proofs, re-assembled.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

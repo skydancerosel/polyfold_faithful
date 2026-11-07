@@ -1,0 +1,15 @@
+{
+ "id": "V7_55",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "theorem_7_3 and B agree: (1) is identical (Mathlib PartitionOfUnity on |X|, IsSubordinate, index type in Type); in (2) A's saturated open neighbourhood W ⊆ X meeting finitely many tsupports corresponds to B's open V ⊆ |X| with π⁻¹(V) meeting finitely many (V = π(W), open since π is open, Proposition 7.1, and π⁻¹(π(W)) = W; conversely W = π⁻¹(V), open and saturated since π is continuous and surjective), and invariance β(s φ) = β(t φ) is B's IsoB y z → β y = β z. A also lists two lemmas about the project's construction orbitPullback (σ ∘ π) that B does not mention; they are proved outright in B ⇒ A from supp(σ∘π) ⊆ π⁻¹(supp σ) and local finiteness of the supports at π(x).",
+ "B_issue": null,
+ "overlap": "Both directions rt_check OK. B_to_A shares 16 project theorems: groupoid/orbit-setoid basics (src_comp, tgt_inv, Isomorphic.trans, surjective_π, ...), continuous_π, and the proof fields of orbitPullback (which appears in A's statement).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

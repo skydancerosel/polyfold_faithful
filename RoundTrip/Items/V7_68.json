@@ -1,0 +1,15 @@
+{
+ "id": "V7_68",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A (corollary_7_3, MPolyfold.admitsScPartitionsOfUnity_of_hilbert, corollary_7_3_hypotheses_rn) requires for each chart's E0, besides a Hilbert norm (norm^2 = b(v,v), b continuous bilinear), the explicit hypothesis GodefroyTroyanskiWhitfieldZizlerStatement E0 (WCG + C^inf bump implies C^inf partitions of unity), the cited Theorem 5.14 [5.43]. B assumes only an atlas equivalent to the given one with Hilbert (parallelogram) norms on E0. B_to_A: the Hilbert charts of the structure form such an atlas (IsChart.compatible, MAtlas.equiv_iff), bilinear gives parallelogram, the M-polyfold conjunct goes through the trivial ep-groupoid, the GTWZ hypothesis is dropped; the satisfiability conjunct (corollary_7_3_hypotheses_rn) is proved directly, not from B. A_to_B fails only on GTWZ for (possibly non-separable) Hilbert E0: believed true (a deep theorem of Banach space geometry), absent from Mathlib and the project.",
+ "B_issue": null,
+ "overlap": "417 shared project theorems: the chain behind rnPolyfold_one_hilbert_hypothesis and hasParacompactOrbitSpace_trivial (used for the satisfiability conjunct, proved without B), MPolyfold.IsChart.compatible / MChart.compatible_of_locally and the trivial ep-groupoid's vocabulary (fibred products, sub-M-polyfolds), plus basic sc-calculus lemmas.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

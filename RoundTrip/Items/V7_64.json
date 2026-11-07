@@ -1,0 +1,12 @@
+{
+ "id": "V7_64",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A_to_B uses only the lemma_7_9 conjunct: B's choices (s, t sc-diffeomorphisms of N^s_g, N^t_g onto a common U0, N^s_g u N^t_g disjoint) give project Sheets on N_g = N^s_g n N^t_g by restriction; B's U1 lies in U0 but need not lie in the smaller s(N_g), so Lemma 7.9 is applied to U1 n (intersection of the s(N_g)) (open as G_x is finite), and B's t(N_g n s^-1 A) is D.hat g '' A. B_to_A fails for a genuine reason: A also contains the homomorphism lemmas eqOn_sigma_one, eqOn_sigma_mul, hat_one, hat_mul (Phi(1) = id, Phi(gh) = Phi(g)Phi(h) on a connected invariant U) and the connectedness of U2 and of unionHat U2, none of which B states; A's Sheets are also more general than B's choices (no common U0), though that part could be bridged by shrinking.",
+ "B_issue": null,
+ "overlap": "43 shared project theorems: Sheets API (mem_S, src_sigma, sigma_self, hat_self, mem_unionHat, isOpen_S, ...), NatRepConstruction.finite_isotropy and its finiteness chain (finite_isotropy_of_isLocalScDiffeo, IsProperMap lemmas), IsScDiffeoOn field projections, GroupoidStr basics.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

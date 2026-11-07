@@ -1,0 +1,12 @@
+{
+ "id": "V7_59",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) is the conjunction of exists_hasPropernessProperty, HasPropernessProperty.mono, isProperSubset_iff_isCompact and isProperSubset_iff_exists_tendsto_subseq; B says the project's IsProperSubset (Mathlib IsProperMap of t on s^{-1}(Q)) and HasPropernessProperty (for open U) agree with the classical 'continuous with compact preimages of compact sets'. A->B uses only the conjunct isProperSubset_iff_isCompact plus the subtype-embedding identification of compact sets and continuity of t. B->A: the compact-set conjunct and mono come from B (closed subsets of compact sets are compact); exists_hasPropernessProperty (the field exists_isProperMap of X) and the sequential form (project lemma MPolyfold.isProperMap_domRestrict_iff_of_isClosed) are proved without B, since B does not speak of them. The definitions themselves match the text: proper = t: s^{-1}(Q) -> X proper; properness property = open U with proper closure.",
+ "B_issue": null,
+ "overlap": "A_to_B: 6 shared theorems (continuity of t via isLocalScDiffeo_tgt). B_to_A: 55, all from the two conjuncts proved without B: exists_isProperMap and the sequential-properness/metrizability chain (isProperMap_domRestrict_iff_of_isClosed, metrizableSpace_of_*, truncDist_*, MChart.*).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

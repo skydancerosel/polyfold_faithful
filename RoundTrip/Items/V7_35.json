@@ -1,0 +1,15 @@
+{
+ "id": "V7_35",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B is lemma_7_3 after a dictionary: IsEffectiveB (g.val ≠ 1_x) = IsEffective (g ≠ 1); B's NatRepB has the same fields as NaturalRep (both with U connected) except that Φ(g) need only have some sc-smooth inverse, and Φ(g⁻¹) is recovered from Φ(1) = id on U; B's injectivity (Φg = Φh on U ⇒ g = h) is equivalent to the project's (Φg = id on U ⇒ g = 1). A's IsEffective.eq_one (injectivity for EVERY natural representation, not only small ones) follows from B with the uniqueness of Φ on connected sets (NaturalRep.Φ_eqOn); isEffective_iff_forall_naturalRep then follows with theorem_7_1. injective_Φ_iff and kerΦ_eq_bot_iff are reformulations about an arbitrary R, re-proved outright.",
+ "B_issue": null,
+ "overlap": "B_to_A: 476 shared project theorems, almost all theorem_7_1 and its construction (NatRepConstruction.*, lemma_7_8, lemma_7_9), used for the ⇐ of isEffective_iff_forall_naturalRep, plus NaturalRep API (Φ_eqOn, Γ_eqOn, Φ_one, Φ_inv_Φ, mem_kerΦ) and M-polyfold infrastructure.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

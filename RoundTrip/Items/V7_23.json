@@ -1,0 +1,12 @@
+{
+ "id": "V7_23",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A = the ten listed theorems at universe 0, about the project's Φhat (defined as the conjugation Γ(g, tφ) ∘ φ ∘ Γ(g, sφ)⁻¹) for R : NaturalRep (U connected). B uses the text's formula Φ̂(g)(φ) = Γ(ghg⁻¹, g∗sφ) for φ ∈ 𝐔(h) (index chosen) and asserts (i)–(v) for every natural action with U merely open, plus (vi) a small connected U(x) with the sheet decomposition. A_to_B fails because A cannot be applied to a disconnected U, and there the project's conjugation need not equal the text's formula (their agreement, Φhat_Γ, rests on Γ being a functor, i.e. on connectedness). We believe (i)–(v) still hold for disconnected U, since the text's formula only needs Theorem 7.1 (3) (index(Γ(k,z)) = k); proving that would mean re-proving the item outright, the sc-diffeomorphism claim (ii) included, so this is proof effort, not a genuine difference. B_to_A: on a natural representation R.Φhat g = PhiHatB g on 𝐔(x) (agree, from Γ_mul and Γ_inv of V7_22); then src/tgt_Φhat come from (v), Φhat_mul from (iii), Φhat_one from (i), Φhat_mem_image and image_Φhat from (iv), and isScDiffeoOn_Φhat from (ii), with B's inverse identified as Φ̂(g⁻¹). Φhat_Γ, index_Φhat and Φ_conj are identities about the project's own Φhat, index and Φ, and are re-proved outright.",
+ "B_issue": "B's IsNatAction does not require U connected (the text's U(x) is the connected neighbourhood of Theorem 7.1). This does not make B false here: the text's Φ̂ formula works without connectedness. It only blocks A ⇒ B.",
+ "overlap": "B_to_A: 423 shared project theorems, mostly sc-calculus/M-polyfold infrastructure reached through the types, plus Chapter 7 NaturalRep lemmas that are not this item's: Γ_mul, Γ_inv, Γ_one (V7_22, which underlie the formula Φhat = text's Φ̂ exactly as in the project), eqOn_sections_of_isPreconnected (the connectedness argument), Γ_index, index_Γ, exists_Γ_eq, Γ_mem_morOn, Φ_mul, Φ_inv_Φ. No banned theorem is reached (plain #rt_check).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

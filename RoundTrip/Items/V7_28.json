@@ -1,0 +1,15 @@
+{
+ "id": "V7_28",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B is false (not_B, two independent counterexamples, both on readings B's author flagged as doubts). B's conjunct (D) claims the text's notion IsLocalUniformizerB is equivalent to the data of a project LocalUniformizer; text ⇒ project fails because the project's LocalUniformizer (i) contains a NaturalRep, whose U must be connected (NaturalRep.isConnected_U) — refuted by the trivial ep-groupoid of the two-point discrete M-polyfold Bool with U = univ, Ψ = id (not_B_connected) — and (ii) requires Ψ_x to be the inclusion on objects (obj_eq), whereas B reads 'embedding' as merely injective — refuted by the trivial ep-groupoid of ℝ¹ with connected U = univ and Ψ_x = −id (not_B_obj). Both come from one lemma: in a trivial ep-groupoid every self-homeomorphism of Z is a local uniformizer in B's sense. Since A holds, A → B is false (not_A_to_B); B → A only ex falso. B's other conjuncts ((E) existence, (I) injectivity, (O) π(U) open) are not refuted and are believed true; A additionally has the open-embedding statements isOpenEmbedding_functor_obj/_mor and existence inside every open V, which B lacks.",
+ "B_issue": "B's (D) is an iff between its own reading of Definition 7.9 and the project's structure; it is false because of two readings its author flagged as doubts: the natural action without connectedness of U(x), and 'embedding' = injective on objects (the project takes Ψ_x to be the inclusion on objects). The text's context (p. 231, 'one chooses the connected open neighborhood U(x)') supports the project's connectedness; the 'embedding' point is a genuine reading difference (the project's notion is narrower).",
+ "overlap": "B_to_A (ex falso via not_B_connected): 434 shared project theorems, reached through A's statement vocabulary (NaturalRep fields and NaturalRep.functor lemmas, GroupoidStr/Isotropy laws) and the trivial ep-groupoid's construction (subPolyfold / fibred-product infrastructure); none of the five banned theorems (rt_check OK for not_B_connected, not_B_obj, B_to_A).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

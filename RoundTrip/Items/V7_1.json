@@ -1,0 +1,12 @@
+{
+ "id": "V7_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The listed theorems are GroupoidStr.π_eq_π_iff, isSaturated_iff and orbitSetoid_eq (universe 0); the rest are definitions, which B characterizes. B (a)/(b): the project's GroupoidStr (total comp whose laws are asked only on composable pairs, units stated as φ ∘ 1_{sφ} = φ) is exactly the text's groupoid with m on the fibred product (comp restricted to 𝐗 ₛ×ₜ 𝐗; conversely m extended by a junk value); (c), (d) mor and Isomorphic are literally the text's; (e) |X| ≃ {|x|} with π x ↦ |x|, whose injectivity uses the hypothesis π x = π y ↔ x ∼ y. B_to_A derives π_eq_π_iff from B (d)+(e) and isSaturated_iff from that; orbitSetoid_eq (the bridge to Mathlib's isIsomorphicSetoid) is not about anything in B and is re-proved outright. Pure packaging; no mathematical difference.",
+ "B_issue": null,
+ "overlap": "B_to_A: 32 shared project theorems, all GroupoidStr axiom fields (src_comp, comp_assoc, comp_unit, …), Isomorphic.refl/symm/trans, comp_unit_of_eq/unit_comp_of_eq and the proof fields of instGroupoid/orbitSetoid/homMk (reached through the statement of orbitSetoid_eq); no substantive lemma.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

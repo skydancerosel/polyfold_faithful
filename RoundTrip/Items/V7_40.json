@@ -1,0 +1,12 @@
+{
+ "id": "V7_40",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A (universes at 0) gives the six conditions of Definition 7.3 for (X, 𝐗^R), effectivity of reducedEpGroupoid and proposition_7_10, all (except exists_isProperMap_reduced) under the hypotheses [T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor] (satisfiable, e.g. for effective X). B asserts for every ep-groupoid that 𝐗^R is Hausdorff and paracompact and carries an effective ep-groupoid structure with the reduced data and reducedPolyfold. B ⇒ A reads every conjunct off B's Y (isotropy and functor conjuncts of proposition_7_10 from the project's quotientTrivialSubgroupEquiv and reductionFunctor); with Hausdorff+paracompact 𝐗^R as an added hypothesis A ⇒ B holds (A_to_B_of_hyp), so the hypotheses are the only difference. But B does not hold as we read the text (not_B, hence not_A_to_B): for ℤ/2 ⋉ O, O the dimension-jumping sc-retract of Remark 4.3 (Part I's RemarkFourThree.fam: O = {(t,0)} for t ≤ 0, a line over t > 0) with (t,z) ↦ (t,±z), (−1,(t,0)) ∈ 𝐗^T for t < 0 but (−1,0) ∉ 𝐗^T, so [(±1, (−1/(n+1),0))] converges to both [(−1,0)] ≠ [(1,0)] and 𝐗^R is not Hausdorff.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 662 shared project theorems, including the banned ones, all reached through the body of reducedEpGroupoid in A's statement. HARNESS: reducedEpGroupoid passes five of the banned theorems as its Prop fields as plain applications (not abstracted into _proof_N), so every term mentioning A reaches them and both #rt_check and #rt_check_soft fail on B_to_A (recorded with #guard_msgs). A local #rt_check_except_defs (harness rtCollect with reducedEpGroupoid's body not unfolded) passes on B_to_A and A_to_B_of_hyp: the proofs use the fields of B's Y resp. A's conjuncts, never those of reducedEpGroupoid. With that body not unfolded, 449 shared non-internal theorems remain: definitions in the statements (reducedPolyfold/reducedChart atlas, reducedGroupoidStr/ReducedRel descent, trivialSubgroup via theorem_7_1) and the project constructions used for proposition_7_10's isotropy and functor conjuncts (quotientTrivialSubgroupEquiv, reductionFunctor/isScSmoothMap_reducedπ) plus isScSmoothComp_iff_sheet. not_B passes plain #rt_check (axioms: propext, Classical.choice, Quot.sound).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

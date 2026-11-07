@@ -1,0 +1,15 @@
+{
+ "id": "V7_53",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition 7.15: HasParacompactOrbitSpace is Mathlib's ParacompactSpace X.OrbitSpace, whose single field is literally B's IsParacompactB (index types in Type, no Hausdorff condition), so B's first conjunct holds outright. The sentence before Remark 7.1 is remark_7_1 in A and B's second conjunct, both reading 'X second countable' as the object space. A also contains two statements B (and the text's paragraph) does not: second countable |X| ⇒ paracompact, and |X| paracompact ⇔ metrizable (Theorem 7.2); in B ⇒ A these are proved outright from the unbanned corollary_7_1 and theorem_7_2_metrizable plus Stone's theorem, so they are extra content of A, not a disagreement. Remark 7.1 and 'it is not known whether (5) follows from (1)-(4)' have no formal content on either side.",
+ "B_issue": null,
+ "overlap": "Both directions rt_check OK. B_to_A shares 553 project theorems, all through theorem_7_2_metrizable and corollary_7_1 (Theorem 7.1, Lemma 7.4/7.7, Propositions 7.1/7.3/7.4 machinery), used only for the two conjuncts of A that B lacks; the conjunct matching B (remark_7_1) comes from B.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

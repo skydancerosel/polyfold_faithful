@@ -1,0 +1,12 @@
+{
+ "id": "V7_16",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B's two claims ((1) isomorphic objects have isomorphic isotropy groups; (2) for φ : x → y, g ↦ φ ∘ (g ∘ φ⁻¹) is a multiplicative bijection Gset x → Gset y) follow from A: by A's isotropyConj_val the project's MulEquiv isotropyConj φ : G_x ≃* G_y has underlying morphism (φ ∘ g) ∘ φ⁻¹, equal to B's conj by associativity, and the product conventions agree ((g*h).val = X.comp g h). Conversely B (1) gives nonempty_isotropy_mulEquiv (repackaging a multiplicative bijection of sets as a MulEquiv of the project's Isotropy groups) and hence nat_card_isotropy_eq. The remaining conjuncts of A are facts about the project's definition isotropyConj — two rfl lemmas and isotropyConj_eq_isotropyConj_conj (the choices φ, φ' differ by the inner automorphism by φ⁻¹ ∘ φ') — which B does not mention (B treats 'no canonical identification' as a remark, its separate Remark def); they were re-proved outright. So A carries one extra piece of content (the inner-automorphism relation), not implied by B; everything B says is in A. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 48 shared project theorems — the abstracted proof fields of the definitions isotropyEquivVertexGroup, instGroupoid, Isotropy.instMul/instInv, homMk, conjIsotropy, plus groupoid-axiom glue (comp_assoc, src_inv, …); they come from the outright re-proof of isotropyConj_eq_isotropyConj_conj, which copies the project's proof.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

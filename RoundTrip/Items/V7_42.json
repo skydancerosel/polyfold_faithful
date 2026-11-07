@@ -1,0 +1,12 @@
+{
+ "id": "V7_42",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) = theorem_7_2 (|X| locally metrizable, RegularSpace, T2Space) ∧ theorem_7_2_metrizable (ParacompactSpace |X| → MetrizableSpace |X|) ∧ metrizableSpace_of_locally (Part I: every paracompact Hausdorff locally metrizable space is metrizable). B: locally metrizable, the text's regularity (nonempty closed set vs point, no T1), T2, paracompact → metrizable, for |X|. The ep-groupoid part agrees exactly (Mathlib RegularSpace = the text's regularity, regular_iff_text; B_to_A_core uses only B). The difference: A's third conjunct is a general metrization theorem about arbitrary spaces, which the text cites only as the reason (Nagata/Smirnov); B cannot give it, so in B_to_A it is proved outright, without B, from the project's Part I lemma metrizableSpace_of_pullback (applied to id) — that conjunct of B ⇒ A is vacuous for the audit.",
+ "B_issue": null,
+ "overlap": "B_to_A: 24 shared project theorems — the 10 GroupoidStr/orbitSetoid lemmas from the definition of X.OrbitSpace, and Smirnov's argument (metrizableSpace_of_pullback, metrizableSpace_of_partition, truncDist lemmas, cone_triangle) used for the general-topology conjunct metrizableSpace_of_locally, which is the project's own proof of that conjunct. B_to_A_core (the ep-groupoid conjuncts): only the 10 orbitSetoid lemmas.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

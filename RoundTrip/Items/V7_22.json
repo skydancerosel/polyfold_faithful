@@ -1,0 +1,12 @@
+{
+ "id": "V7_22",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A (Γ_mul, Γ_one, Γ_inv, full, faithful at universe 0) is stated for R : X.NaturalRep x, whose U is required connected; B is stated for every natural action IsNatAction (Theorem 7.1's data and (1)-(3), U open but not required connected). On a disconnected U, (1)-(3) do not force Γ to be a functor, and B is false (not_B): in the project's trivialZ3EpGroupoid (ℤ/3 × ℝ ⇉ ℝ, trivial action) take x = 0, U = {y<1} ∪ {y>1}, Φ = id, Γ(g,y) = (g,y) for y<1 and (g·c,y) for y>1 (c ≠ 1); this satisfies B's IsNatAction but Γ(1,2) = (c,2) ≠ 1_2. Since A holds, A → B is false (not_A_to_B). B → A: B applied to the natural action underlying R yields Γ_mul, Γ_one, Γ_inv (uniqueness of inverses), and full/faithful from B's bijection onto mor(y,z) and injectivity on G × U. The fullness/faithfulness/image claims of B are true for disconnected U too; only the functoriality conjuncts fail, which is exactly why the project assumes U connected.",
+ "B_issue": "B's IsNatAction omits connectedness of U(x); the text's U(x) in §7.1 is the connected neighbourhood of Theorem 7.1 (and functoriality of Γ, used implicitly in 'the natural functor', needs it). With disconnected U the functor claim is false (not_B).",
+ "overlap": "B_to_A checked with #rt_check_soft: Γ_mul and Γ_one are reached only through the proof fields (mor_comp, mor_unit) of the definition NaturalRep.functor, which occurs in the statements of full/faithful. #rt_overlap lists 456 shared project theorems, almost all M-polyfold/sc-calculus infrastructure reached through the types (EpGroupoid, NaturalRep, functor), plus groupoid glue (GroupoidStr.*, Isotropy.*) and Γ_one via functor; no other Chapter 7 result is reused. not_B passes plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}
