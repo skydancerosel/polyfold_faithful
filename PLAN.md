@@ -401,7 +401,7 @@ unnumbered claims of the text that later items use.
 | Lemma 7.2 | 239 | `X_reg` open | — | — | A | `Effective.lean` |
 | Lemma 7.3 | 239 | effective ⟺ `Φ` injective on small `U(x)` | — | `MonoidHom.ker` | B | `Effective.lean` |
 | Prop 7.8 | 240 | effective ⇒ `X_reg` open and dense | — | `Dense`, `Nat.card` | B | `Effective.lean` |
-| Def 7.12 | 241 | `T_x` (acting trivially, normal), `X^T`, `X^R = X/∼` | — | `Subgroup.Normal`, `Quotient` | B | `Reduced.lean` |
+| Def 7.12 | 241 | `T_x` (acting trivially, normal), `X^T`, `X^R = X/∼` | — | `Subgroup.Normal`, `Quotient` | B | `Reduced.lean` (`T_x` normal: `Effective.lean`) |
 | Prop 7.9 | 242 | `X^R` has a natural M-polyfold structure | `MChart`, `MAtlas`, `MChart.Compatible` | quotient topology | C | `Reduced.lean` |
 | Prop 7.10 | 244 | reduced ep-groupoid `X_R`, effective; (text) its isotropy is `G_x/T_x` | — | `QuotientGroup` | C | `Reduced.lean` |
 | Def 7.13 | 244 | `G_x^eff = G_x/T_x` | — | `QuotientGroup` | A | `Reduced.lean` |
@@ -490,7 +490,7 @@ no Michael theorem).
 | W1 | `ProperMaps.lean`, `LocConnected.lean`, `Discrete.lean`, `LocalDiffeo.lean`, `Michael.lean` | infrastructure; (text) p. 227–228, Def 7.6's tame `Mor` | 5 in parallel | 2,200 |
 | W2 | `Basic.lean`; `NaturalRep.lean`; `ProperSubsets.lean` | Props 7.1–7.4, Lemma 7.1, Def 7.7 remark; Thm 7.1 = 7.5, Lemmas 7.8–7.9, `G_x ⋉ U`; Props 7.13, 7.14 (1) | 3 (`NaturalRep` may need 2 sessions) | 2,600 |
 | W3 | `NaturalRepFinite.lean`; `Uniformizer.lean` + `OrbitTopology.lean`; `Effective.lean`; `SubGroupoid.lean` | Prop 7.5, Def 7.8; Prop 7.6, Def 7.9, Thm 7.2, Lemmas 7.4–7.7, Cors 7.1–7.2; Lemmas 7.2–7.3, Prop 7.8; Prop 7.7 | 4 | 3,200 |
-| W4 | `Reduced.lean`; `Lift.lean`; `PartitionsOfUnity.lean`; `ProperSubsets.lean` (7.14 (2)) | Props 7.9–7.10, Def 7.13; Prop 7.11–7.12, Rem 7.1; Thms 7.3–7.4, Lemma 7.10, Cor 7.3; Prop 7.14 (2) | 4 | 3,000 |
+| W4 | `Reduced.lean`; `Lift.lean`; `PartitionsOfUnity.lean`; `ProperSubsets.lean` (7.14 (2), done in W2) | Props 7.9–7.10, Def 7.13; Prop 7.11–7.12, Rem 7.1; Thms 7.3–7.4, Lemma 7.10, Cor 7.3; Prop 7.14 (2) | 4 | 3,000 |
 | W5 | `NonVacuity.lean`, then the reports | witnesses (II.5), the counterexample of II.6, 1; `Exposition/Chapter7.md`, `verification/ch07.md`, `cmp/ch07.json`, `pbp/part07.md`, concordance; round-trip audit | 1–2, then the lead | 800 |
 
 Dependencies: W2 needs W0 and `ProperMaps`; `NaturalRep` needs `LocConnected` and `Discrete`; W3 needs

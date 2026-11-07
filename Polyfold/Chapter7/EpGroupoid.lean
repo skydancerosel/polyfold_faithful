@@ -117,10 +117,11 @@ property if `cl_X(U)` is proper.
   "`Ψ_x ◦ G_x ⋉ U(x) → X`" is read as `Ψ_x : G_x ⋉ U(x) → X` (possible misprint).
 * **Definition 7.12**: `T_x` is the *set* `{g | ∃ natural representation with Φ(g) = id on U}`.
   That it is a normal subgroup, the kernel of `Φ` for small `U(x)` (p. 241), needs Theorem 7.1 and
-  the uniqueness of `(Φ, Γ)`; it is proved in `Reduced.lean`.  Hence `∼` is `ReducedRel` (a
+  the uniqueness of `(Φ, Γ)`; it is proved in `Effective.lean` (`trivialSubgroup`,
+  `exists_naturalRep_trivialSet_iff`).  Hence `∼` is `ReducedRel` (a
   relation; an equivalence relation once `T_x` is a subgroup) and `𝐗^R` is `Quot ReducedRel`.
 * **Definition 7.13**: `G_x/T_x` is `G_x ⧸ normalClosure(T_x)`, which is `G_x/T_x` once `T_x` is
-  shown a normal subgroup.
+  shown a normal subgroup (`normalClosure_trivialSet`, `effIsotropyEquiv` in `Effective.lean`).
 * **Definition 7.14**: the components of `|X|` are `connectedComponent z`.
 * **Definition 7.15**: Mathlib's `ParacompactSpace` does not include Hausdorff, as the text
   stipulates ("We do not require a paracompact space to be Hausdorff").
@@ -585,7 +586,7 @@ def IsEffective : Prop :=
 def ActsTrivially {x : Obj} (g : X.Isotropy x) : Prop :=
   ∃ R : X.NaturalRep x, ∀ y ∈ R.U, R.Φ g y = y
 
-/-- `T_x ⊆ G_x`, the elements acting trivially (p. 241; a normal subgroup, `Reduced.lean`). -/
+/-- `T_x ⊆ G_x`, the elements acting trivially (p. 241; a normal subgroup, `Effective.lean`). -/
 def trivialSet (x : Obj) : Set (X.Isotropy x) := {g | X.ActsTrivially g}
 
 theorem one_mem_trivialSet {x : Obj} (R : X.NaturalRep x) : (1 : X.Isotropy x) ∈ X.trivialSet x :=

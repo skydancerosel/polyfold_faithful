@@ -196,3 +196,8 @@ import Polyfold.Chapter7.Basic
 import Polyfold.Chapter7.ProperSubsets
 import Polyfold.Chapter7.NaturalRep
 import Polyfold.Chapter7.NaturalAction
+import Polyfold.Chapter7.NaturalRepFinite
+import Polyfold.Chapter7.Uniformizer
+import Polyfold.Chapter7.OrbitTopology
+import Polyfold.Chapter7.Effective
+import Polyfold.Chapter7.SubGroupoid
