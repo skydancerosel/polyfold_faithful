@@ -80,7 +80,7 @@ do not call the text wrong or speak of its "errors".
   `polyfold-beside-lean.html`, `Verification.md/.pdf`, `ProofByProof.md/.pdf`,
   `polyfold-proof-by-proof.html`, `polyfold-signoff.html`). V-items V1.1–V1.39, V2.1–V2.64,
   V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64, and V7.1–V7.68 for Part II's Chapter 7 (below);
-  **469 sign-off items** (401 for Part I, 68 for Chapter 7); gaps G.1–G.72 (G.70–G.72 for Chapter 7);
+  **469 sign-off items** (401 for Part I, 68 for Chapter 7); gaps G.1–G.73 (G.70–G.73 for Chapter 7);
   3,741 trace tags (3,127 distinct declarations; 2026-11-02, Chapters 1–5). The user started
   hand-checking on 2026-10-26 from copies in `Exposition/review-2026-10-26/` (untracked); the
   sign-off page keeps ticks in browser
@@ -147,24 +147,27 @@ do not call the text wrong or speak of its "errors".
   D2, G.65). The round-trip audit of the 60 non-extra Chapter 6 items is done (2026-11-07; `RoundTrip/REPORT.md`, "Chapter 6, audited on 2026-11-07").
   Part II followed (next item).
 * **Part II has begun: Chapter 7** (2026-11-07; plan in `PLAN.md`, "Part II plan"): formalized in
-  `Polyfold/Chapter7/` (20 files; waves W0–W4); V7.1–V7.68 (`verification/ch07.md`), Findings
-  "## Chapter 7" (items 1–115, numbered in blocks), exposition `Exposition/Chapter7.md`, the "Part II"
+  `Polyfold/Chapter7/` (21 files; waves W0–W4, and `ReducedNotHausdorff.lean` after the audit);
+  V7.1–V7.68 (`verification/ch07.md`), Findings "## Chapter 7" (items 1–116, numbered in blocks), exposition `Exposition/Chapter7.md`, the "Part II"
   table of `BookConcordance.md`. Part II has no preprint: numbers and pages are the 2017 text's
   (pp. 225–256). Theorems 7.1–7.6 hold with the readings recorded there; Propositions 7.9 and 7.10
   under `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`, which the proof does not give as
-  we read it (G.71; discharged for effective `X`); `Tφ` of Definition 7.4 only defined (G.70, deferred
-  to Chapter 8); `|X_∞|` not stated (G.72). The remark after Definition 7.7 does not hold as we read it
+  we read it (G.71; discharged for effective `X`; `Examples.exists_not_t2Space_reducedMor` shows that
+  `𝐗^R` need not be Hausdorff); `Tφ` of Definition 7.4 only defined (G.70, deferred to Chapter 8);
+  `|X_∞|` not stated (G.72); the density of `X_∞` in `X_k` not formalized (G.73). The remark after Definition 7.7 does not hold as we read it
   (counterexample `Examples.remark_definition_7_7_counterexample`); it holds for functors continuous
   on morphisms. Proved on the way: the local path connectedness of M-polyfolds (G.56, first fact),
   Michael's theorem (G.15), the tameness of index lifts (Ch. 5 item 145). Wave W5 done: the reports
   (commit 919831f) and the round-trip audit of the 64 non-extra, non-gap items (`RoundTrip/REPORT.md`,
   "Chapter 7, audited on 2026-11-07": 39 equivalent, 5 B false). The audit proved that `𝐗^R` need
   not be Hausdorff (`RoundTrip/Items/V7_40.lean`, namespace `NotB`, on Remark 4.3's retract), which
-  settles the Hausdorff half of G.71 negatively; not yet moved into `Polyfold/`.
-* **Lean counts** (2026-11-07): 5,905 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
-  1,204 for Chapter 6, 963 for Chapter 7), all on `propext, Classical.choice, Quot.sound`; no
-  `sorry`, no `axiom`; 224 Lean files and 140,263 lines under `Polyfold/` (`wc -l`, without `WIP_`
-  files), of which 36 files and 20,793 lines in `Chapter6/` and 20 files and 11,776 lines in
+  settles the Hausdorff half of G.71 negatively; moved into `Polyfold/Chapter7/ReducedNotHausdorff.lean`
+  the same day (Findings, Chapter 7, item 107). The audit also found that the density of `X_∞` in
+  `X_k` (p. 227) is not in Part I for M-polyfolds (G.73, Findings item 116).
+* **Lean counts** (2026-11-07): 5,931 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
+  1,204 for Chapter 6, 989 for Chapter 7), all on `propext, Classical.choice, Quot.sound`; no
+  `sorry`, no `axiom`; 225 Lean files and 140,563 lines under `Polyfold/` (`wc -l`, without `WIP_`
+  files), of which 36 files and 20,793 lines in `Chapter6/` and 21 files and 12,046 lines in
   `Chapter7/`.
 * **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–7/` that agents could
   not delete (some duplicate declarations and would not compile; delete them). The book's Springer
@@ -334,8 +337,8 @@ each chapter lands)
     G.56–G.69.
 11. **Part II, Chapter 7** — Lean done 2026-11-07 (waves W0–W4 of the Part II plan in `PLAN.md`; state
     in §2). Wave W5 done: the reports and the round-trip audit (2026-11-07). Left for Chapter 7: the
-    gaps G.70–G.72 (G.70 with Chapter 8); moving the audit's `𝐗^R` counterexample into `Polyfold/`;
-    the density of `X_∞` in `X_k` (V7.6, not in Part I for M-polyfolds). **Next: Chapter 8.**
+    gaps G.70–G.73 (G.70 with Chapter 8; G.71 now only paracompactness, since `𝐗^R` need not be
+    Hausdorff). **Next: Chapter 8.**
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

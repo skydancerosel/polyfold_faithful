@@ -651,10 +651,11 @@ the others the notions or witnesses it uses. The verdicts are in the comparison,
 
 The sentence before Remark 7.1 is part of V7.53, the reduced ep-groupoid $X_R$ (p. 243) of V7.40
 and the isotropy $G_x/T_x$ (p. 244) of V7.41. The witnesses that show the hypotheses can hold
-(`NonVacuity.lean` and the witnesses in the other files; `Findings.md`, Chapter 7, items 100–106)
-have no V-item of their own. Gaps opened in Chapter 7: G.70 (Definition 7.4, $T\varphi$ as an
-sc-isomorphism), G.71 (Propositions 7.9–7.10, $\mathbf X^R$ Hausdorff and paracompact), G.72
-(p. 228, $\lvert X_\infty\rvert = \bigcap_k \lvert X_k\rvert$). `verification/ch07.md` contains no
+(`NonVacuity.lean`, `ReducedNotHausdorff.lean` and the witnesses in the other files; `Findings.md`,
+Chapter 7, items 100–107) have no V-item of their own. Gaps opened in Chapter 7: G.70 (Definition
+7.4, $T\varphi$ as an sc-isomorphism), G.71 (Propositions 7.9–7.10, $\mathbf X^R$ Hausdorff and
+paracompact; Hausdorffness fails in general, `ReducedNotHausdorff.lean`), G.72 (p. 228, $\lvert
+X_\infty\rvert = \bigcap_k \lvert X_k\rvert$), G.73 (p. 227, $X_\infty$ dense in every $X_k$). `verification/ch07.md` contains no
 *(book?)* mark: there is no other numbering to check against.
 
 ## Marks in the report sources

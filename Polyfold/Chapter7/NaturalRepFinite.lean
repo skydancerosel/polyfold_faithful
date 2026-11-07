@@ -99,8 +99,11 @@ Proposition 7.5 is the natural representation of `𝐘` on neighbourhoods contai
   Further possible misprints on the same pages: "The images `𝐔(ψ_g)`" (p. 235) for `𝐔(γ_g)`;
   "`φ = Γ(g, s(φ)) ∘ ψ` … `ψ ∈ 𝐔(γ₁)`" (p. 235), where `Γ(g, ·)` lives on `U(y₂)` while
   `s(φ) ∈ U(y₁)`: `φ = Γ(g, t(ψ)) ∘ ψ` is meant; "for a unique `g ∈ G_x`" (p. 234) for `G_{y₁}`;
-  two morphisms named `φ` ("`φ : u → z` and `φ : u' → z'`", p. 234); "`y : 𝐔(δ_j) → U(y_j)`"
-  (p. 235) for `t`; "`Γ(g, z') : z' → z` for some `g ∈ G_{y_i}`" (p. 236) for `G_{y_j}`.
+  two morphisms named `φ` ("`φ : u → z` and `φ : u' → z'`", p. 234); the garbled sentence "It is
+  also which implies" (p. 234); "as in the case `k = 1`" (p. 235), where the two-object case is
+  meant; "`s : 𝐔'(φ) → U'(y_i)`" (p. 235) with `φ` for `γ`; "`y : 𝐔(δ_j) → U(y_j)`" (p. 235) for
+  `t`; "`Γ(g, z') : z' → z` for some `g ∈ G_{y_i}`" (p. 236) for `G_{y_j}`.  Twelve in all, as in
+  `Exposition/Findings.md`, Chapter 7, item 26.
 -/
 
 open Set Filter Topology Function

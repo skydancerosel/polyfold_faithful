@@ -77,8 +77,8 @@ property if `cl_X(U)` is proper.
   existential per point as in the text (a universal reading, "for every neighbourhood", fails for
   the pair groupoid of `ℤ`; PLAN II.5, 4).  Definition 7.17 uses the same form.
 * **(4)** (P5) is stated literally on the sub-M-polyfold `𝐗 ₛ×ₜ 𝐗 = fibredProduct src tgt` of
-  `𝐗 × 𝐗` (Proposition 2.15 [2.46] of the text; Definition 7.3 cites "[38], Lemma 2.8", possible
-  misprint), the paracompactness instances of `𝐗 × 𝐗` and of the subtype supplied inside the
+  `𝐗 × 𝐗` (Proposition 2.15 [2.46] of the text; Definition 7.3 cites "[38], Lemma 2.8", an outside
+  reference, read as the same fact), the paracompactness instances of `𝐗 × 𝐗` and of the subtype supplied inside the
   definition by `paracompactSpace_prod`, `paracompactSpace_subtype` (Theorem 2.2 [2.16]).  The
   **sheet form** `IsScSmoothCompSheet`: for every sc-diffeomorphism `s : W → V` with inverse `σ`,
   `ψ ↦ m(σ(t ψ), ψ)` is sc-smooth on `t⁻¹(V)`.  It is equivalent (`isScSmoothComp_iff_sheet`,

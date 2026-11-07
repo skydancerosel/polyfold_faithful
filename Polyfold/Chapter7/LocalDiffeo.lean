@@ -76,8 +76,8 @@ atlases whose `E₀` are Hilbert spaces.
   `𝐗` is the transported one, not "every chart".  Tameness passes from the target to the source;
   the converse needs surjectivity (`isTame_iff_of_surjective`), which `s` has (`s(1_x) = x`).
 * The level-`1` lift `g₁` of a local inverse `g` is only determined on `V ∩ Y₁`; elsewhere it takes
-  a junk value (as Part I's `levelChart`).  Tameness of `X¹` is not treated (Part I leaves the
-  shift of tameness open).
+  a junk value (as Part I's `levelChart`).  Tameness of `X¹` is not treated here (Part I leaves the
+  shift of tameness open); it is proved in `Lift.lean` (`MPolyfold.IsTame.levelOne`).
 * The sup norm of `ℝⁿ` is not a Hilbert norm for `n ≥ 2`, so the Hilbert witness is `ℝ¹`; for
   every `n`, `ℝⁿ` admits sc-smooth partitions of unity by Proposition 5.38.
 -/

@@ -7191,7 +7191,8 @@ Found while formalizing §7.1 up to Proposition 7.4 (2026-11-07).
    `d_X(s φ) = d_𝐗(φ) = d_X(t φ)` by Part I's Proposition 2.7 (`MPolyfold.IsLocalScDiffeo.degIndex_eq`,
    `degIndex_src`, `degIndex_tgt`); `d_|X|` of Definition 7.5 is `degIndexOrbit`, well defined by
    `degIndexOrbit_π`. The sets `|X_k| = π(X_k)` are `orbitLevel k`; the set `|X_∞|` and the identity
-   `|X_∞| = ⋂_k |X_k|` (immediate, as `ml` is constant on classes) are not stated (gap G.72).
+   `|X_∞| = ⋂_k |X_k|` (immediate, as `ml` is constant on classes) are not stated (gap G.72). The
+   density of `X_∞` in every `X_k` (p. 227) is item 116 (gap G.73).
 7. **Definition 7.6 and the tameness of `𝐗`** *(Definition 7.6 and the paragraph after it, p.
    228)*. "`X` is a tame M-polyfold" is `MPolyfold.IsTame`, the existence of an equivalent tame
    atlas (Definition 2.19). The claim that `𝐗` is then tame is proved by transporting tame charts
@@ -7423,8 +7424,8 @@ Found while formalizing §7.2 (2026-11-07).
     quotient topology, the openness of the projection (`isOpenMap_reducedπ`), the charts
     `Ψ_φ = ψ ∘ σ ∘ s` on `π(dom ψ)` (`reducedChart`) and their sc-smooth transitions
     `ψ₂ ∘ σ₂ ∘ s ∘ ψ₁⁻¹` (`reducedChart_compatible`), all without hypotheses; but, as we read it,
-    neither Hausdorffness nor paracompactness, and `𝐗^R` need not be Hausdorff (the splicing example
-    of PLAN II.6, 2, not formalized: it needs a dimension-jumping retract). So `reducedPolyfold`, and
+    neither Hausdorffness nor paracompactness, and `𝐗^R` need not be Hausdorff (item 107: `ℤ/2`
+    acting on the dimension-jumping retract of Part I's Remark 4.3). So `reducedPolyfold`, and
     `proposition_7_9`, take `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` (gap G.71).
     Small sheets are not needed. The hypotheses are satisfiable (item 60).
 57. **Possible misprints in the proof of Proposition 7.9** *(pp. 242–243)*. "`ψ' = (s|𝐔(ψ))⁻¹(s(ψ))`"
@@ -7459,7 +7460,8 @@ Found while formalizing §7.2 (2026-11-07).
     is second countable (`paracompactSpace_reducedMor_of_t3`). No non-effective witness is given:
     for the trivial `ℤ/3`-action (item 102) Hausdorffness of `𝐗^R` is not proved, and Hausdorff with
     `𝐗` second countable is not shown to suffice (a locally metrizable, second countable Hausdorff
-    space need not be regular, the `K`-topology on `ℝ`).
+    space need not be regular, the `K`-topology on `ℝ`). For the non-effective `ℤ/2 ⋉ O` of item
+    107, `𝐗^R` is not Hausdorff (added 2026-11-07, after the round-trip audit).
 
 Found while formalizing §7.3 up to Corollary 7.2 (2026-11-07).
 
@@ -7672,6 +7674,21 @@ files, 2026-11-07; not in the text).
      hold for the trivial ep-groupoid of `ℝⁿ` (`hasParacompactOrbitSpace_trivial`,
      `trivialOrbitHomeomorph`). No hypothesis of the form "for all compatible charts" is made in
      Chapter 7.
+107. **`𝐗^R` need not be Hausdorff; Propositions 7.9 and 7.10 need the hypothesis**
+     (`Examples.exists_not_t2Space_reducedMor`, `ReducedNotHausdorff.lean`; Propositions 7.9, 7.10,
+     pp. 242–244). `O` is the sc-retract of Part I's Remark 4.3 example (`RemarkFourThree.fam`), a
+     point over each `t ≤ 0` and a line over each `t > 0`, with its one chart; `ℤ/2 = ℤˣ` acts by
+     `(t, z) ↦ (t, ±z)`, the restriction of an sc-operator (`JumpingRetract.isScSmoothMap_smul`),
+     and `JumpingRetract.X = ℤ/2 ⋉ O` is `actionEpGroupoid`. Over `t < 0` both elements act
+     trivially, so `(−1, (t, 0)) ∈ 𝐗^T`; at `(0, 0)` the points `(1/(k+1), (1/(k+1)) e_{n_k}) → 0`
+     of `O` are moved by `−1`, so `(−1, (0, 0)) ∉ 𝐗^T` (`not_mem_nonEffectivePart`). The classes of
+     `(±1, (−1/(n+1), 0))` coincide and converge to both `[(−1, 0)] ≠ [(1, 0)]`:
+     `JumpingRetract.not_t2Space_reducedMor`. So, as we read them, Propositions 7.9 and 7.10 need
+     `𝐗^R` Hausdorff, which the text does not state; with `𝐗^R` Hausdorff and paracompact the
+     project's statements give the text's (`RoundTrip/Items/V7_40.lean`, `A_to_B_of_hyp`). This is
+     the splicing example of PLAN II.6, 2; the round-trip audit proved it (`RoundTrip/Items/V7_40.lean`,
+     namespace `NotB`; its blind formalizer of V7.39 found the example independently), and it was
+     moved into the project unchanged on 2026-11-07. It settles the Hausdorff half of gap G.71.
 
 Not formalized (2026-11-07).
 
@@ -7682,12 +7699,13 @@ Not formalized (2026-11-07).
      (gap G.70).
 111. **`𝐗^R` Hausdorff and paracompact** *(Propositions 7.9, 7.10, pp. 242–244)*. Taken as
      hypotheses (item 56); discharged for effective `X` and for the trivial ep-groupoid (item 60).
-     Not formalized: Hausdorffness or paracompactness of `𝐗^R` for a general ep-groupoid, the
-     splicing example showing that `𝐗^R` need not be Hausdorff, and whether Hausdorff with `𝐗` second
-     countable suffices for paracompactness (gap G.71).
+     Hausdorffness does not hold in general (item 107, formalized 2026-11-07 after the round-trip
+     audit), so this half of the gap is settled negatively. Not formalized: whether `𝐗^R` is
+     paracompact when it is Hausdorff, and whether Hausdorff with `𝐗` second countable suffices for
+     paracompactness (gap G.71).
 112. **The filtration of `|X|`** *(p. 228)*. `|X_k|` is `orbitLevel k`; the set `|X_∞|` and the
-     identity `|X_∞| = ⋂_k |X_k|` are not stated (gap G.72). The density of `X_∞` in `X_k` is Part
-     I's.
+     identity `|X_∞| = ⋂_k |X_k|` are not stated (gap G.72). The density of `X_∞` in `X_k` is item
+     116 (gap G.73).
 113. **Not formalized, without a gap** *(pp. 227, 249, 251)*. The comparison with the classical
      properness of `(s, t)` (p. 227) and Remark 7.2 (p. 251) have no formal content; Remark 7.1 (p.
      249) has none. "It is presently not known whether the property (5) is a consequence of the
@@ -7706,3 +7724,13 @@ Not formalized (2026-11-07).
      retraction `r¹` with respect to every presentation of `C¹`; the tame variants for `f¹`
      (`IsScFredholmSectionTame` for the shifted section) remain not stated. Recorded at the end of
      Chapter 5, item 145.
+116. **The density of `X_∞` in `X_k`** *(p. 227: "The set `X∞` is dense in every space `Xk`")*. The
+     text states it without proof. Part I proves the density only for sc-Banach spaces
+     (`ScBanach.denseRange_incl`, `denseRange_inclK`), and its text does not state it for
+     M-polyfolds or retracts. For a retract `O = r(U)` it follows from the continuity of `r` on level
+     `k` and the density of `U_∞` in `U_k`; for `U` open in a partial quadrant `C` this needs `C ∩
+     E_∞` dense in `C ∩ E_k`. Not formalized (gap G.73; Chapter 7 uses the filtration, never the
+     density). Found by the round-trip audit (2026-11-07): V7.6's blind statement asserts the
+     density, and `A_to_B_of_density` (`RoundTrip/Items/V7_6.lean`) shows it is the only
+     difference. Before the audit, item 112 and V7.6 said the density was Part I's; that was
+     an oversight of this report, corrected here.

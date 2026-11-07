@@ -114,7 +114,9 @@ its $X$ (possible misprint or extraction artefact) (Findings, items 5, 110). *Ch
 Part I's Proposition 2.7, the degeneracy index. So for $\varphi:x\to y$ the points $x$, $\varphi$, $y$ lie on the same levels, and
 $d_X(s(\varphi)) = d_{\mathbf X}(\varphi) = d_X(t(\varphi))$. Hence $d_X$ is constant on classes, and Definition 7.5 sets $d_{|X|}(|x|) = d_X(x)$. The sets
 $|X_k| = \pi(X_k)$ of the filtration $|X| = |X_0|\supset|X_1|\supset\cdots$ are defined; the set $|X_\infty|$ and the identity $|X_\infty| = \bigcap_k|X_k|$, immediate
-since the level is constant on classes, are not stated (gap G.72) (Findings, items 6, 112). *Checked by machine (V7.6,
+since the level is constant on classes, are not stated (gap G.72) (Findings, items 6, 112). The text's remark that $X_\infty$ is
+dense in every $X_k$ is made without proof; Part I proves it only for sc-Banach spaces, and it is not formalized (gap G.73;
+Findings, item 116). *Checked by machine (V7.6,
 V7.7):* `Polyfold.EpGroupoid.mem_levelSet_src_iff`, `Polyfold.MPolyfold.IsLocalScDiffeo.degIndex_eq`,
 `Polyfold.EpGroupoid.degIndex_src`, `Polyfold.EpGroupoid.degIndex_tgt`, `Polyfold.EpGroupoid.orbitLevel`,
 `Polyfold.EpGroupoid.degIndexOrbit`, `Polyfold.EpGroupoid.degIndexOrbit_π`.
@@ -431,13 +433,14 @@ projection is injective, since equivalent morphisms have the same source. A char
 chart $[\varphi']\mapsto\psi(\sigma(s(\varphi')))$ of $\mathbf X^R$ on the image of its domain, well defined for the same reason. The transition maps $\psi_2\circ\sigma_2\circ s\circ\psi_1^{-1}$ are sc-smooth. All of this holds without hypotheses.
 
 > **$\mathbf X^R$ need not be Hausdorff, as we read it.** An M-polyfold is a Hausdorff paracompact space (Definition 2.8), and
-> the proof gives neither property. On paper (not checked in Lean): take an sc-smooth splicing $\pi_t$ on $\mathbb R\times E$ with $\pi_t = 0$
+> the proof gives neither property. Checked in Lean (after the round-trip audit): take an sc-smooth splicing $\pi_t$ on $\mathbb R\times E$ with $\pi_t = 0$
 > for $t\le0$ and $\pi_t$ of rank one for $t>0$, the retract $O = r(\mathbb R\times E)$, $r(t,e) = (t,\pi_te)$, and $\mathbb Z/2$ acting by $(t,e)\mapsto(t,-e)$. In
 > the translation groupoid $\mathbb Z/2\ltimes O$ the generator $g$ acts trivially near $y = (t,0)$ for $t<0$, where $O$ is the line $\{(t,0)\}$, so
 > $T_y = \mathbb Z/2$; but every neighbourhood of $(0,0)$ in $O$ contains points $(t,e)$, $t>0$, $e\neq0$, which $g$ moves, so $T_{(0,0)} = 1$. The
 > classes of the morphisms $(1,(0,0))$ and $(g,(0,0))$ are then distinct points of $\mathbf X^R$, but every pair of neighbourhoods of them
-> contains the classes of $(1,(t,0))$ and $(g,(t,0))$ for small $t<0$, which coincide. A Lean version needs a retract whose
-> dimension jumps, which the project does not have.
+> contains the classes of $(1,(t,0))$ and $(g,(t,0))$ for small $t<0$, which coincide. In Lean the retract is the one of Part I's
+> Remark 4.3 example, a point over each $t\le0$ and a line over each $t>0$
+> (`Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor`; Findings, item 107).
 
 So Propositions 7.9 and 7.10 are proved under the hypothesis that $\mathbf X^R$ is Hausdorff and paracompact (gap G.71). The
 hypothesis is satisfiable: for effective $X$ the projection $\mathbf X\to\mathbf X^R$ is a homeomorphism, which covers the trivial ep-groupoid
@@ -774,7 +777,8 @@ and globally; Theorem 7.4 is needed when the symmetry is only local.
 *Symmetries that move nothing.* Let $S_3\times\mathbb Z/2$ act, the factor $\mathbb Z/2$ trivially. Then $G_x$ is the stabilizer times $\mathbb Z/2$, and $T_x = \{1\}\times\mathbb Z/2$
 for every $x$: an element acts trivially near $x$ exactly when its $S_3$-part is $1$. The ep-groupoid is not effective, and $\mathbf X^R$ is
 $(S_3\times\mathbb Z/2\times\mathbb R^3)/(\mathbb Z/2)\cong S_3\times\mathbb R^3$, Hausdorff and paracompact, so that $X_R = S_3\ltimes\mathbb R^3$ and $G^{\mathrm{eff}}_x$ is the stabilizer in $S_3$. Here $T_x$ is
-the same at every point; in the splicing example of §5 it jumps, and there, on paper, $\mathbf X^R$ is not Hausdorff (gap G.71).
+the same at every point; in the splicing example of §5 it jumps, and there $\mathbf X^R$ is not Hausdorff (checked by machine;
+gap G.71).
 
 ## 11. Summary of what was silently assumed, now made explicit
 
@@ -784,6 +788,7 @@ the same at every point; in the splicing example of §5 it jumps, and there, on 
 | p. 227, Def. 7.3 (4) | "Lemma 2.8 in [38]" | Part I's Proposition 2.15 (an external citation); the sheet form |
 | p. 227, Def. 7.4 | $T\varphi$ an sc-isomorphism; "$\circ\, U(x)\to U(y)$" | only defined (G.7, G.70); a colon (possible misprint) |
 | p. 228 | $\lvert X_\infty\rvert = \bigcap_k\lvert X_k\rvert$ | not stated (G.72) |
+| p. 227 | $X_\infty$ dense in every $X_k$ | not formalized (G.73) |
 | p. 228, Def. 7.6 | $\mathbf X$ tame | the tame atlas transported along $s$ |
 | pp. 228–229, remark after Def. 7.7 | sc-smooth on objects suffices | also continuous on morphisms; without it, does not hold as we read it |
 | pp. 229–230, Props. 7.1, 7.3 | point by point; sequences | the saturation $t(s^{-1}(U))$; closedness of proper maps, for $A\subseteq\mathrm{cl}\,U$ |
@@ -801,7 +806,7 @@ the same at every point; in the splicing example of §5 it jumps, and there, on 
 | pp. 240–241, Prop. 7.8 | the minimum over $U(x_0)$ | the minimum over the open set; the converse |
 | p. 241 | "$U(x)$ so small that the kernel is $T_x$" | one $N$ for all natural representations inside it; $\varphi T_x\varphi^{-1} = T_y$ |
 | p. 241, Def. 7.12 | "the subset $\mathbf X^R$" | a quotient (possible misprint) |
-| pp. 242–244, Props. 7.9, 7.10 | $\mathbf X^R$ an M-polyfold | $\mathbf X^R$ Hausdorff and paracompact as hypotheses (G.71) |
+| pp. 242–244, Props. 7.9, 7.10 | $\mathbf X^R$ an M-polyfold | $\mathbf X^R$ Hausdorff and paracompact as hypotheses (G.71); not Hausdorff in general |
 | pp. 245–246, Lemmas 7.6, 7.7 | Lemma 7.6 directly | Lemma 7.7 first, then closed points |
 | p. 247, Cor. 7.2 | "work in a connected component" | open components; a locally finite union; Michael's theorem |
 | pp. 247–248, Prop. 7.11 | "(1), (2) and (4) trivially"; "if $X$ is tame so is $X^1$" | the sheet form; the tameness of index lifts, proved |
@@ -830,8 +835,8 @@ form: Theorem 7.1 with $U$ connected; Proposition 7.5 by transport; Propositions
 closedness and the fibres of proper maps; Proposition 7.12 with the stronger conclusion that $|X^1|$ is metrizable;
 Proposition 7.14 (2) from paracompactness alone; Lemma 7.10 with the support bound; the remark after Definition 7.7 for
 functors continuous on morphisms (without that it does not hold as we read it). Not formalized: the properties of $T\varphi$
-(gap G.70); the Hausdorff and paracompact properties of $\mathbf X^R$ for a general ep-groupoid, and the splicing example (G.71);
-the set $|X_\infty|$ (G.72); the tangent facts (3), (4) before Proposition 7.7 (G.7); the comparison with classical properness
+(gap G.70); the paracompactness of $\mathbf X^R$ when it is Hausdorff (G.71; Hausdorffness itself fails in general, by the
+splicing example, checked by machine); the set $|X_\infty|$ (G.72); the density of $X_\infty$ in $X_k$ (G.73); the tangent facts (3), (4) before Proposition 7.7 (G.7); the comparison with classical properness
 (p. 227) and the open question of p. 249, without a gap; Remarks 7.1 and 7.2, which have no formal content; the
 computations of §10, done by hand. The machine-checked statements are listed in `Exposition/Verification.md`
 (V7.1–V7.68), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.

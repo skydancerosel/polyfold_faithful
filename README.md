@@ -51,13 +51,14 @@ GitHub displays it directly.
   and the admissible sections of §6.6.
 * **Part II has begun: Chapter 7 is formalized**, Propositions 7.9 and 7.10 (the reduced
   ep-groupoid) under the hypothesis that the reduced morphism space is Hausdorff and paracompact,
-  and the tangent `Tφ` of a morphism as a definition only (gaps G.70, G.71).
-* About 140,300 lines of Lean in 224 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (5,905 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+  a hypothesis that cannot be dropped (`𝐗^R` need not be Hausdorff, checked in Lean), and the
+  tangent `Tφ` of a morphism as a definition only (gaps G.70, G.71).
+* About 140,600 lines of Lean in 225 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (5,931 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
 * **Every numbered item of the text is compared with its formal version** (469 items, each with a
   verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap list
-  of what is not formalized and why (G.1–G.72).
+  of what is not formalized and why (G.1–G.73).
 * **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -142,8 +143,9 @@ no proof in the text), the Banach-space theorems 5.32, 5.40, 5.43 (cited, used a
 §4.4, integration and Stokes' theorem; G.54) with the admissible sections of §6.6, used only there
 (G.55), and the infinite-dimensional examples of the applications (weighted Sobolev scales,
 splicings). In Chapter 7: the tangent `Tφ` of a morphism as an sc-isomorphism (deferred to Chapter
-8; G.70), the Hausdorff and paracompact properties of `𝐗^R` for a general ep-groupoid (G.71), and
-the set `|X_∞|` of the filtration of the orbit space (G.72).
+8; G.70), the paracompactness of `𝐗^R` when it is Hausdorff (G.71; Hausdorffness itself fails in
+general, `Polyfold/Chapter7/ReducedNotHausdorff.lean`), the set `|X_∞|` of the filtration of the
+orbit space (G.72), and the density of `X_∞` in `X_k` (G.73).
 
 ## License
 

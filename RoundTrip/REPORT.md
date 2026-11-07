@@ -554,7 +554,9 @@ a reading the project already records (`Exposition/Findings.md`, Chapter 7).
   paracompact, A ⇒ B (`A_to_B_of_hyp`): the hypotheses the project adds are exactly what is missing.
   This settles the Hausdorff half of gap G.71 negatively; the example was on paper in `PLAN.md`
   (II.6, item 2), and the blind formalizer of V7.39 found it independently. V7.39 (*B ⇒ A only*)
-  was not refuted separately; V7.40's example applies to it. Not yet moved into `Polyfold/`.
+  was not refuted separately; V7.40's example applies to it. Moved the same day into
+  `Polyfold/Chapter7/ReducedNotHausdorff.lean` (`EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor`;
+  `Exposition/Findings.md`, Chapter 7, item 107).
 * V7.22 and V7.27 (pp. 231–237: `Γ` a functor; Proposition 7.6): with "natural representation"
   read from Theorem 7.1 as printed, where `U` need not be connected, `Γ` need not be a functor:
   `not_B` on `trivialZ3EpGroupoid` with `U = {y < 1} ∪ {y > 1}` and `Γ` twisted on `{y > 1}`. This

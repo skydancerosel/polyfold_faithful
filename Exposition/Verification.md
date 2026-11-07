@@ -44,9 +44,9 @@ A result has the same number, V1.5 say, in this edition, the comparison and the 
 | Chapter 4 | Ch. 4, §§4.1–4.4 | manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard's theorem (vendored) | **verified except Lemma 4.10 and §4.4** | 12,083 |
 | Chapter 5 | Ch. 5, §§5.1–5.4 | the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity | **verified except Theorems 5.22, 5.27 and the cited Theorems 5.32, 5.40, 5.43** | 12,100 |
 | Chapter 6 | Ch. 6, §§6.1–6.5, 6.7 | linearizations and orientations: determinant lines and exact sequences, the determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of the solution set | **verified except Proposition 6.28 (1), the global parts of Theorem 6.41 and Remark 6.42, and Theorem 6.43** | 20,793 |
-| Chapter 7 | Part II, Ch. 7, §§7.1–7.5 (2017 numbering) | ep-groupoids: groupoids of M-polyfolds with local sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets | **verified except the tangent $T\varphi$ of Definition 7.4, the remark after Definition 7.7, and the Hausdorff and paracompact properties of $\mathbf X^R$ in Propositions 7.9, 7.10** | 11,776 |
+| Chapter 7 | Part II, Ch. 7, §§7.1–7.5 (2017 numbering) | ep-groupoids: groupoids of M-polyfolds with local sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets | **verified except the tangent $T\varphi$ of Definition 7.4, the remark after Definition 7.7, and the Hausdorff and paracompact properties of $\mathbf X^R$ in Propositions 7.9, 7.10** | 12,046 |
 
-Total: 133,642 lines of Lean in 222 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 7 November 2026.
+Total: 133,912 lines of Lean in 223 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 7 November 2026.
 
 ---
 
@@ -5694,8 +5694,8 @@ items 5, 110).
 `Polyfold.EpGroupoid.orbitLevel`).** $s$ and $t$ preserve the levels, so $ml(x) = ml(\varphi) = ml(y)$ for $\varphi : x \to
 y$; $d_X(s(\varphi)) = d_{\mathbf X}(\varphi) = d_X(t(\varphi))$, so $d_X$ is constant on classes; $|X_k| = \pi(X_k)$.
 *Book:* pp. 227–228, with Part I's Proposition 2.7. *Hidden hypotheses:* none. *Deviation (narrower):* the set $|X_\infty|$
-and $|X_\infty| = \bigcap_k |X_k|$ are not stated (gap G.72); the density of $X_\infty$ is Part I's (Findings, items 6,
-112).
+and $|X_\infty| = \bigcap_k |X_k|$ are not stated (gap G.72); the density of $X_\infty$ in every $X_k$, stated on p. 227
+without proof, is not formalized and is not in Part I for M-polyfolds (gap G.73; Findings, items 6, 112, 116).
 
 **V7.7 (Definition 7.5, the induced degeneracy index; `Polyfold.EpGroupoid.degIndexOrbit`,
 `Polyfold.EpGroupoid.degIndexOrbit_π`).** $d_{|X|}(|x|) = d_X(x)$ is well defined. *Book:* Definition 7.5, p. 228. *Hidden
@@ -5990,13 +5990,16 @@ item 55).
 `Polyfold.EpGroupoid.reducedAtlas`, `Polyfold.EpGroupoid.reducedPolyfold`, `Polyfold.EpGroupoid.isChart_reducedChart`,
 `Polyfold.EpGroupoid.isScDiffeoOn_reducedπ`, `Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ`,
 `Polyfold.EpGroupoid.proposition_7_9`, `Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective`,
-`Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective`, `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3`).**
+`Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective`, `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3`,
+`Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor`).**
 $\mathbf X^R$ has a natural M-polyfold structure. *Book:* Proposition 7.9, pp. 242–243. *Hidden hypotheses:* $\mathbf X^R$
 Hausdorff and paracompact, taken as hypotheses of `Polyfold.EpGroupoid.reducedPolyfold`, which the proof does not give as
 we read it; satisfiable for effective $X$ and the trivial ep-groupoid, and paracompactness follows from regularity when
 $\mathbf X$ is second countable. *Deviation (narrower):* the quotient topology, the openness of the projection, the charts
 $\psi \circ \sigma \circ s$ and their sc-smooth transitions are proved without hypotheses; the M-polyfold under the two
-hypotheses (gap G.71). Four possible misprints in the proof (Findings, items 56, 57, 60, 111).
+hypotheses (gap G.71). The Hausdorff hypothesis cannot be dropped: for $\mathbb Z/2$ acting on the dimension-jumping
+retract of Part I's Remark 4.3, $\mathbf X^R$ is not Hausdorff (`Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor`).
+Four possible misprints in the proof (Findings, items 56, 57, 60, 107, 111).
 
 **V7.40 (the reduced ep-groupoid $X_R$ and Proposition 7.10; `Polyfold.EpGroupoid.reducedSrc`,
 `Polyfold.EpGroupoid.reducedTgt`, `Polyfold.EpGroupoid.reducedUnit`, `Polyfold.EpGroupoid.reducedInv`,
@@ -6008,8 +6011,9 @@ hypotheses (gap G.71). Four possible misprints in the proof (Findings, items 56,
 `Polyfold.EpGroupoid.proposition_7_10`, `Polyfold.EpGroupoid.reductionIso`).** $(X, \mathbf X^R)$ with the induced structure
 maps is an ep-groupoid $X_R$, and it is effective. *Book:* p. 243 and Proposition 7.10, p. 244. *Hidden hypotheses:* those of
 V7.39 (gap G.71). *Deviation (narrower):* (3) via the continuous surjection $\mathbf X \to \mathbf X^R$; (4) in sheet form, with a step
-the text leaves implicit; effectiveness from the intrinsic form of $T_x$; for effective $X$, $X_R \cong X$ (Findings,
-items 58, 60).
+the text leaves implicit; effectiveness from the intrinsic form of $T_x$; for effective $X$, $X_R \cong X$. Without the
+hypotheses $X_R$ is not an ep-groupoid in general, since $\mathbf X^R$ need not be Hausdorff (V7.39) (Findings, items 58,
+60, 107).
 
 **V7.41 (the isotropy groups of $X_R$ and Definition 7.13, the effective isotropy group;
 `Polyfold.EpGroupoid.reducedIsotropyHom`, `Polyfold.EpGroupoid.surjective_reducedIsotropyHom`,
@@ -6204,15 +6208,18 @@ unsatisfiable (Findings, items 95, 106).
 - p. 227, the comparison with the classical properness of $(s, t) : \mathbf X \to X \times X$; no formal content.
 - p. 228, the filtration $|X| = |X_0| \supset |X_1| \supset \dots \supset |X_\infty| = \bigcap_k |X_k|$: $|X_k|$ is defined
   (`Polyfold.EpGroupoid.orbitLevel`), $|X_\infty|$ and the identity are not stated (V7.6) (gap G.72; Findings, item 112).
+- p. 227, "the set $X_\infty$ is dense in every space $X_k$": stated without proof; Part I proves it only for sc-Banach
+  spaces, not for M-polyfolds; not formalized (V7.6) (gap G.73; Findings, item 116).
 - pp. 228–229, the remark after Definition 7.7: it does not hold as we read it; only the form for functors continuous on
   morphisms is verified (V7.10) (Findings, item 9).
 - pp. 237–238, the tangent facts (3) and (4) recalled before Proposition 7.7 ($T_aA$ has an sc-complement in $T_aX$; $T_aA =
   Tr(a)T_aX$): not restated, since $T_aA$ and $T_aX$ carry no linear structure here; in a chart they are Part I's
   `Polyfold.proposition_2_21_3`, `Polyfold.proposition_2_21_4` (V7.30) (gap G.7; Findings, item 40).
 - pp. 242–244, Propositions 7.9 and 7.10 for a general ep-groupoid: that $\mathbf X^R$ is Hausdorff and paracompact is a
-  hypothesis, discharged for effective $X$ and the trivial ep-groupoid; not formalized: these properties in general, the
-  splicing example in which $\mathbf X^R$ is not Hausdorff, and whether Hausdorffness with $\mathbf X$ second countable
-  suffices (V7.39, V7.40) (gap G.71; Findings, items 56, 60, 111).
+  hypothesis, discharged for effective $X$ and the trivial ep-groupoid. Hausdorffness fails in general
+  (`Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor`, formalized after the round-trip audit); not formalized:
+  paracompactness when $\mathbf X^R$ is Hausdorff, and whether Hausdorffness with $\mathbf X$ second countable suffices
+  (V7.39, V7.40) (gap G.71; Findings, items 56, 60, 107, 111).
 - p. 249, "It is presently not known whether the property (5) is a consequence of the properties (1)–(4)": an open
   question of the text, not formalized and not given a gap, since nothing depends on it; Remark 7.1 has no formal content
   (V7.53) (Findings, items 82, 113).

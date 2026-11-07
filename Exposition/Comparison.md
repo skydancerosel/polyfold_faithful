@@ -7518,7 +7518,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V7.6. The levels of an ep-groupoid and the filtration of $|X|$
 
-*narrower* · $|X_\infty|$ not stated: gap G.72
+*narrower* · $|X_\infty|$ not stated: gap G.72 · density of $X_\infty$ not formalized: gap G.73
 
 **HWZ (§7.1, pp. 227–228).** The M-polyfolds $X$ and $\mathbf X$ are equipped with the filtrations $X = X_0 \supset X_1 \supset X_2 \supset \dots \supset X_\infty = \bigcap_{k \ge 0} X_k$ and similarly for $\mathbf X$; $X_\infty$ is dense in every $X_k$. For $x$ in the M-polyfold $X$, $ml(x) \in \mathbb N \cup \{\infty\}$ is the largest non-negative integer $m$, or $\infty$, such that $x \in X_m$. Since the source and target maps are local sc-diffeomorphisms and therefore preserve the levels, $ml(x) = ml(y) = ml(\varphi)$ for every morphism $\varphi : x \to y$; consequently the filtration of $X$ induces the filtration $|X| = |X_0| \supset |X_1| \supset \dots \supset |X_\infty| = \bigcap_{k \ge 0}|X_k|$ of the orbit space. The degeneracy indices $d_X : X \to \mathbb N$ and $d_{\mathbf X} : \mathbf X \to \mathbb N$ are invariant under local sc-diffeomorphisms (Proposition 2.7), so $d_X(s(\varphi)) = d_{\mathbf X}(\varphi) = d_X(t(\varphi))$ for every morphism $\varphi$; in particular $d_X(x) = d_X(x')$ if $x \sim x'$.
 
@@ -7534,7 +7534,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.orbitLevel` — Polyfold/Chapter7/EpGroupoid.lean, line 417
 
 *What differs.*
-- The set $|X_\infty|$ and the identity $|X_\infty| = \bigcap_k |X_k|$ are not stated (gap G.72); they are immediate, as $ml$ is constant on classes. The density of $X_\infty$ in $X_k$ is Part I's (Findings, Chapter 7, items 6, 112).
+- The set $|X_\infty|$ and the identity $|X_\infty| = \bigcap_k |X_k|$ are not stated (gap G.72); they are immediate, as $ml$ is constant on classes. The density of $X_\infty$ in every $X_k$, which the text states without proof, is not formalized; Part I proves it only for sc-Banach spaces, not for M-polyfolds (gap G.73) (Findings, Chapter 7, items 112, 116).
 - Proposition 2.7 of the 2017 text is the preprint's Proposition 2.24.
 
 ### V7.7. Definition 7.5: the induced degeneracy index $d_{|X|}$
@@ -7888,12 +7888,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `NaturalRepFinite Y V` (the datum of Definition 7.8, V7.26): sets $U(y)$, $y \in Y$, open, connected, containing $y$, contained in $V$ and pairwise disjoint; maps $f(\psi)$, for $\psi$ between points of $Y$, that are sc-diffeomorphisms $U(s(\psi)) \to U(t(\psi))$ with inverse $f(\psi^{-1})$, with $f(\varphi \circ \psi) = f(\varphi) f(\psi)$ and $f(1_y) = \mathrm{id}$; open connected pairwise disjoint sets $\mathbf U(\psi) \ni \psi$ whose union is the set of morphisms between points of $\bigcup_y U(y)$; (1) at each $y$ a natural representation on $U(y)$ whose action is $g \mapsto f(g)$; (2) $s : \mathbf U(\psi) \to U(s(\psi))$ and $t : \mathbf U(\psi) \to U(t(\psi))$ sc-diffeomorphisms; (3) $f(\psi) = t \circ (s|\mathbf U(\psi))^{-1}$ on $U(s(\psi))$ (fields of the structure). `proposition_7_5`: for a finite set $Y$ of mutually isomorphic objects and an open $V \supseteq Y$ such a datum exists; `proposition_7_5_of_mem_nhdsSet`: for every neighbourhood $V$ of the set $Y$. The construction: `NatRepFinite.transportRep` (a natural representation transported along a sheet), `NatRepFinite.Star`, `NatRepFinite.exists_star`; `NatRepFinite.emptyNaturalRepFinite` for $Y = \emptyset$.
 
 - `Polyfold.EpGroupoid.NaturalRepFinite` — Polyfold/Chapter7/EpGroupoid.lean, line 516
-- `Polyfold.EpGroupoid.NatRepFinite.transportRep` — Polyfold/Chapter7/NaturalRepFinite.lean, line 468
-- `Polyfold.EpGroupoid.NatRepFinite.Star` — Polyfold/Chapter7/NaturalRepFinite.lean, line 528
-- `Polyfold.EpGroupoid.NatRepFinite.exists_star` — Polyfold/Chapter7/NaturalRepFinite.lean, line 756
-- `Polyfold.EpGroupoid.NatRepFinite.emptyNaturalRepFinite` — Polyfold/Chapter7/NaturalRepFinite.lean, line 788
-- `Polyfold.EpGroupoid.proposition_7_5` — Polyfold/Chapter7/NaturalRepFinite.lean, line 857
-- `Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet` — Polyfold/Chapter7/NaturalRepFinite.lean, line 866
+- `Polyfold.EpGroupoid.NatRepFinite.transportRep` — Polyfold/Chapter7/NaturalRepFinite.lean, line 471
+- `Polyfold.EpGroupoid.NatRepFinite.Star` — Polyfold/Chapter7/NaturalRepFinite.lean, line 531
+- `Polyfold.EpGroupoid.NatRepFinite.exists_star` — Polyfold/Chapter7/NaturalRepFinite.lean, line 759
+- `Polyfold.EpGroupoid.NatRepFinite.emptyNaturalRepFinite` — Polyfold/Chapter7/NaturalRepFinite.lean, line 791
+- `Polyfold.EpGroupoid.proposition_7_5` — Polyfold/Chapter7/NaturalRepFinite.lean, line 860
+- `Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet` — Polyfold/Chapter7/NaturalRepFinite.lean, line 869
 
 *What differs.*
 - Proved by transporting one natural representation, at an object isomorphic to all of $Y$, along chosen morphisms, without the text's induction on $k$ and its shrinking at each step; $Y = \emptyset$ is allowed (Findings, Chapter 7, item 25).
@@ -7909,7 +7909,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `NaturalRepFinite Y V` is that datum (V7.25); `NatRepFinite.mono`: a natural representation on neighbourhoods contained in $V$ is one on neighbourhoods contained in every $V' \supseteq V$.
 
 - `Polyfold.EpGroupoid.NaturalRepFinite` — Polyfold/Chapter7/EpGroupoid.lean, line 516
-- `Polyfold.EpGroupoid.NatRepFinite.mono` — Polyfold/Chapter7/NaturalRepFinite.lean, line 817
+- `Polyfold.EpGroupoid.NatRepFinite.mono` — Polyfold/Chapter7/NaturalRepFinite.lean, line 820
 
 *What differs.*
 - As in the text (Findings, Chapter 7, item 25).
@@ -8154,11 +8154,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V7.39. Proposition 7.9: the M-polyfold structure of $\mathbf X^R$
 
-*narrower* · added: $\mathbf X^R$ Hausdorff, paracompact · charts, transitions: no hypotheses · gap G.71
+*narrower* · added: $\mathbf X^R$ Hausdorff, paracompact · $\mathbf X^R$ not Hausdorff in general: counterexample · charts, transitions: no hypotheses · gap G.71
 
 **HWZ (§7.2, Proposition 7.9, p. 242 (proof pp. 242–243)).** The reduced morphism set $\mathbf X^R$ has a natural M-polyfold structure. (The proof equips $\mathbf X^R$ with the quotient topology of $\pi : \mathbf X \to \mathbf X^R$; for an open $\mathbf U(\varphi_0)$ on which $s$ is an sc-diffeomorphism, the maps $\Psi_{\varphi_0} : \mathbf U(\varphi_0) \to \mathbf U([\varphi_0])$, $\varphi \mapsto [\varphi]$, are homeomorphisms between open subsets of the M-polyfold $\mathbf X$ and open subsets of $\mathbf X^R$ with sc-smooth transition maps, and this defines the natural M-polyfold structure on $\mathbf X^R$.)
 
-**Proved in Lean.** Without hypotheses: `reducedπ` $: \mathbf X \to \mathbf X^R$ is a quotient map (`isQuotientMap_reducedπ`), open (`isOpenMap_reducedπ`), injective on every sheet of $s$ (`injOn_reducedπ`); `reducedChart` is the chart $\psi \circ \sigma \circ s$ of $\mathbf X^R$ over $\pi(\mathrm{dom}\,\psi)$, for a chart $\psi$ of $\mathbf X$ inside a sheet $\sigma$ of $s$; any two are compatible (`reducedChart_compatible`); `reducedCharts`, `reducedAtlas`. **Under** `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`: `reducedPolyfold` is $\mathbf X^R$ as an M-polyfold, the reduced charts are charts of it (`isChart_reducedChart`), $\pi$ is an sc-diffeomorphism on every sheet of $s$ (`isScDiffeoOn_reducedπ`) and a local sc-diffeomorphism (`isLocalScDiffeo_reducedπ`); `proposition_7_9` collects these. The two hypotheses hold for effective $X$ (`t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`), and paracompactness follows from regularity of $\mathbf X^R$ when $\mathbf X$ is second countable (`paracompactSpace_reducedMor_of_t3`).
+**Proved in Lean.** Without hypotheses: `reducedπ` $: \mathbf X \to \mathbf X^R$ is a quotient map (`isQuotientMap_reducedπ`), open (`isOpenMap_reducedπ`), injective on every sheet of $s$ (`injOn_reducedπ`); `reducedChart` is the chart $\psi \circ \sigma \circ s$ of $\mathbf X^R$ over $\pi(\mathrm{dom}\,\psi)$, for a chart $\psi$ of $\mathbf X$ inside a sheet $\sigma$ of $s$; any two are compatible (`reducedChart_compatible`); `reducedCharts`, `reducedAtlas`. **Under** `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`: `reducedPolyfold` is $\mathbf X^R$ as an M-polyfold, the reduced charts are charts of it (`isChart_reducedChart`), $\pi$ is an sc-diffeomorphism on every sheet of $s$ (`isScDiffeoOn_reducedπ`) and a local sc-diffeomorphism (`isLocalScDiffeo_reducedπ`); `proposition_7_9` collects these. The two hypotheses hold for effective $X$ (`t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`), and paracompactness follows from regularity of $\mathbf X^R$ when $\mathbf X$ is second countable (`paracompactSpace_reducedMor_of_t3`). The Hausdorff hypothesis cannot be dropped: `Examples.exists_not_t2Space_reducedMor` gives an ep-groupoid ($\mathbb Z/2$ acting by $(t, z) \mapsto (t, \pm z)$ on the dimension-jumping retract of Part I's Remark 4.3) whose $\mathbf X^R$ is not Hausdorff.
 
 - `Polyfold.EpGroupoid.reducedπ` — Polyfold/Chapter7/Reduced.lean, line 320
 - `Polyfold.EpGroupoid.isQuotientMap_reducedπ` — Polyfold/Chapter7/Reduced.lean, line 327
@@ -8176,9 +8176,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective` — Polyfold/Chapter7/Reduced.lean, line 1078
 - `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective` — Polyfold/Chapter7/Reduced.lean, line 1082
 - `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3` — Polyfold/Chapter7/Reduced.lean, line 1146
+- `Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor` — Polyfold/Chapter7/ReducedNotHausdorff.lean, line 254
 
 *What differs.*
-- An M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.8). As we read it, the proof gives the quotient topology, the openness of the projection, the charts and their sc-smooth transitions, but neither Hausdorffness nor paracompactness, and $\mathbf X^R$ need not be Hausdorff (a splicing example, not formalized); both are hypotheses of `reducedPolyfold` (gap G.71) (Findings, Chapter 7, items 56, 111).
+- An M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.8). As we read it, the proof gives the quotient topology, the openness of the projection, the charts and their sc-smooth transitions, but neither Hausdorffness nor paracompactness, and $\mathbf X^R$ need not be Hausdorff (`Examples.exists_not_t2Space_reducedMor`, on the dimension-jumping retract of Part I's Remark 4.3); both are hypotheses of `reducedPolyfold` (gap G.71) (Findings, Chapter 7, items 56, 107, 111).
 - The hypotheses are satisfiable: for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, $\mathbf X \to \mathbf X^R$ is a homeomorphism (Findings, Chapter 7, item 60).
 - Four possible misprints in the proof, two of them possibly extraction artefacts: "$\psi' = (s|\mathbf U(\psi))^{-1}(s(\psi))$" for $(s|\mathbf U(\psi))^{-1}(s(\psi'))$; "$\mathbf U(\varphi) \subset \Psi_{\varphi_0}(\mathbf U([\varphi_0]) \cap \mathbf U([\psi_0]))$" for $\Psi_{\varphi_0}^{-1}$; "$T_x$ agrees with the kernel of the $G_{s(\varphi)}$-action" for $T_{s(\varphi)}$; and the garbled sentence on the source and target maps (p. 243) (Findings, Chapter 7, item 57).
 
@@ -8209,7 +8210,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.reductionIso` — Polyfold/Chapter7/Reduced.lean, line 1124
 
 *What differs.*
-- Under the two hypotheses on $\mathbf X^R$ of V7.39, which the text does not make (gap G.71) (Findings, Chapter 7, items 56, 111).
+- Under the two hypotheses on $\mathbf X^R$ of V7.39, which the text does not make (gap G.71); without them $X_R$ need not be an ep-groupoid, since $\mathbf X^R$ need not be Hausdorff (V7.39) (Findings, Chapter 7, items 56, 107, 111).
 - (3) via the continuous surjection $\mathbf X \to \mathbf X^R$, with $t \circ \pi = t_X$; (4) in sheet form, with a step the text leaves implicit; effectiveness from the intrinsic form of $T_x$ (V7.37) instead of a point with $\Phi(g)(a) \ne a$ (Findings, Chapter 7, item 58).
 
 ### V7.41. The isotropy of $X_R$ and Definition 7.13: the effective isotropy group
@@ -8351,16 +8352,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** For a regular space $X$, not assumed Hausdorff: `lemma_2_56`: $X$ is paracompact iff every open cover has a closed locally finite refinement; `michael_tfae`: Michael's equivalent conditions; `paracompactSpace_of_closed_refinement`: the converse direction, without regularity; `exists_closed_precise_refinement`: a closed locally finite precise refinement of an open cover of a paracompact regular space. `proposition_2_57`: a locally finite cover by closed paracompact subspaces makes $X$ paracompact; for unions of subsets: `paracompactSpace_iUnion` (locally finite families), `paracompactSpace_iUnion_of_finite`, `paracompactSpace_biUnion_of_finite`, `paracompactSpace_union`; `paracompactSpace_of_isClosed_subset`: a closed subset of a paracompact subset is paracompact.
 
-- `Polyfold.lemma_2_56` — Polyfold/Chapter7/Michael.lean, line 252
-- `Polyfold.michael_tfae` — Polyfold/Chapter7/Michael.lean, line 264
-- `Polyfold.proposition_2_57` — Polyfold/Chapter7/Michael.lean, line 289
-- `Polyfold.paracompactSpace_of_closed_refinement` — Polyfold/Chapter7/Michael.lean, line 114
-- `Polyfold.exists_closed_precise_refinement` — Polyfold/Chapter7/Michael.lean, line 219
-- `Polyfold.paracompactSpace_iUnion` — Polyfold/Chapter7/Michael.lean, line 321
-- `Polyfold.paracompactSpace_iUnion_of_finite` — Polyfold/Chapter7/Michael.lean, line 333
-- `Polyfold.paracompactSpace_biUnion_of_finite` — Polyfold/Chapter7/Michael.lean, line 340
-- `Polyfold.paracompactSpace_union` — Polyfold/Chapter7/Michael.lean, line 349
-- `Polyfold.paracompactSpace_of_isClosed_subset` — Polyfold/Chapter7/Michael.lean, line 357
+- `Polyfold.lemma_2_56` — Polyfold/Chapter7/Michael.lean, line 254
+- `Polyfold.michael_tfae` — Polyfold/Chapter7/Michael.lean, line 266
+- `Polyfold.proposition_2_57` — Polyfold/Chapter7/Michael.lean, line 291
+- `Polyfold.paracompactSpace_of_closed_refinement` — Polyfold/Chapter7/Michael.lean, line 116
+- `Polyfold.exists_closed_precise_refinement` — Polyfold/Chapter7/Michael.lean, line 221
+- `Polyfold.paracompactSpace_iUnion` — Polyfold/Chapter7/Michael.lean, line 323
+- `Polyfold.paracompactSpace_iUnion_of_finite` — Polyfold/Chapter7/Michael.lean, line 335
+- `Polyfold.paracompactSpace_biUnion_of_finite` — Polyfold/Chapter7/Michael.lean, line 342
+- `Polyfold.paracompactSpace_union` — Polyfold/Chapter7/Michael.lean, line 351
+- `Polyfold.paracompactSpace_of_isClosed_subset` — Polyfold/Chapter7/Michael.lean, line 359
 
 *What differs.*
 - Proved for regular spaces; the Hausdorff property, which the 2017 text assumes, is not used. Gap G.15 of Part I (Lemma 2.7 and Proposition 2.17, the preprint's Lemma 2.56 and Proposition 2.57) is now formalized (Findings, Chapter 7, items 75, 114).
@@ -9412,12 +9413,13 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§7.2, Propositions 7.9 and 7.10, pp. 242–244).** Proposition 7.9: the reduced morphism set $\mathbf X^R$ has a natural M-polyfold structure. Proposition 7.10: every ep-groupoid $X$ possesses an associated reduced ep-groupoid $X_R$, and $X_R$ is effective. Since an M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.8), these assert in particular that $\mathbf X^R$, with the quotient topology, is Hausdorff and paracompact, for every ep-groupoid $X$.
 
-**Proved in Lean.** **Not formalized** for a general ep-groupoid: as we read it, the proof of Proposition 7.9 gives neither property, and both are hypotheses (`[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`) of `reducedPolyfold` and so of Propositions 7.9 and 7.10 (V7.39, V7.40). They are discharged for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, and paracompactness follows from regularity when $\mathbf X$ is second countable. Also not formalized: a splicing example in which, as we read it, $\mathbf X^R$ is not Hausdorff, and whether Hausdorffness with $\mathbf X$ second countable suffices for paracompactness (Findings, Chapter 7, items 56, 60, 111).
+**Proved in Lean.** **Not formalized** for a general ep-groupoid: as we read it, the proof of Proposition 7.9 gives neither property, and both are hypotheses (`[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`) of `reducedPolyfold` and so of Propositions 7.9 and 7.10 (V7.39, V7.40). They are discharged for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, and paracompactness follows from regularity when $\mathbf X$ is second countable. Hausdorffness fails in general: for $\mathbb Z/2$ acting on the dimension-jumping retract of Part I's Remark 4.3, $\mathbf X^R$ is not Hausdorff (`Examples.exists_not_t2Space_reducedMor`, formalized after the round-trip audit). Not formalized: whether $\mathbf X^R$ is paracompact when it is Hausdorff, and whether Hausdorffness with $\mathbf X$ second countable suffices for paracompactness (Findings, Chapter 7, items 56, 60, 107, 111).
 
 - `Polyfold.EpGroupoid.reducedPolyfold` — Polyfold/Chapter7/Reduced.lean, line 696
 - `Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective` — Polyfold/Chapter7/Reduced.lean, line 1078
 - `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective` — Polyfold/Chapter7/Reduced.lean, line 1082
 - `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3` — Polyfold/Chapter7/Reduced.lean, line 1146
+- `Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor` — Polyfold/Chapter7/ReducedNotHausdorff.lean, line 254
 
 ### G.72. The filtration of $|X|$: the set $|X_\infty|$
 
@@ -9430,4 +9432,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.orbitLevel` — Polyfold/Chapter7/EpGroupoid.lean, line 417
 - `Polyfold.EpGroupoid.mem_levelSet_src_iff` — Polyfold/Chapter7/EpGroupoid.lean, line 391
 - `Polyfold.EpGroupoid.mem_levelSet_tgt_iff` — Polyfold/Chapter7/EpGroupoid.lean, line 399
+
+### G.73. The density of $X_\infty$ in $X_k$
+
+*not formalized*
+
+**HWZ (§7.1, p. 227).** The M-polyfolds $X$ and $\mathbf X$ carry the filtrations $X = X_0 \supset X_1 \supset \dots \supset X_\infty = \bigcap_k X_k$; the set $X_\infty$ is dense in every space $X_k$.
+
+**Proved in Lean.** **Not formalized**: the text states the density without proof; Part I proves it only for sc-Banach spaces (`ScBanach.denseRange_incl`), and its text does not state it for M-polyfolds or retracts. For a retract $O = r(U)$ it follows from the continuity of $r$ on level $k$ and the density of $U_\infty$ in $U_k$, which for $U$ open in a partial quadrant $C$ needs $C \cap E_\infty$ dense in $C \cap E_k$. Chapter 7 uses the filtration, never the density. Found by the round-trip audit (V7.6) (gap G.73; Findings, Chapter 7, item 116).
+
+- `Polyfold.ScBanach.denseRange_incl` — Polyfold/Chapter1/ScBanach.lean, line 184
+- `Polyfold.ScBanach.denseRange_inclK` — Polyfold/Chapter1/ScBanach.lean, line 181
 

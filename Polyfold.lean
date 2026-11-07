@@ -205,3 +205,4 @@ import Polyfold.Chapter7.Reduced
 import Polyfold.Chapter7.Lift
 import Polyfold.Chapter7.PartitionsOfUnity
 import Polyfold.Chapter7.NonVacuity
+import Polyfold.Chapter7.ReducedNotHausdorff

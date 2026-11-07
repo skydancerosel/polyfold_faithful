@@ -6605,4 +6605,34 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.pair_exists_not_isProperMap
 #print axioms Polyfold.EpGroupoid.Examples.pair_not_forall_isProperMap
 
+/-! Axioms: Part II, Chapter 7 (ep-groupoids), after the audit: `𝐗^R` need not be Hausdorff -/
+
+-- Chapter7/ReducedNotHausdorff.lean
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.E
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.Rt
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.O
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.Rt_apply
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.mem_O_iff
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.c
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.smul_mem
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.smulO
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.instMulActionUnitsIntElemLvlEOfNatNatO
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.smul_val
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.zero_mem
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.o₀
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.P
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.scaleOp
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.continuous_smulO
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.isScSmoothMap_smul
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.X
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.smul_eq_self_of_nonpos
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.yn
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.tendsto_yn
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.mem_nonEffectivePart
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_mem_nonEffectivePart
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.reducedπ_eq
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.reducedπ_ne
+#print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor
+#print axioms Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor
+
 end Polyfold
