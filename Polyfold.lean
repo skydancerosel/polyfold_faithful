@@ -185,3 +185,10 @@ import Polyfold.Chapter6.PushTransfer
 import Polyfold.Chapter6.OrientationFunctor
 import Polyfold.Chapter6.ProductOrientation
 import Polyfold.Chapter6.SolutionOrientation
+import Polyfold.Chapter7.Michael
+import Polyfold.Chapter7.ProperMaps
+import Polyfold.Chapter7.LocConnected
+import Polyfold.Chapter7.Discrete
+import Polyfold.Chapter7.LocalDiffeo
+import Polyfold.Chapter7.Groupoid
+import Polyfold.Chapter7.EpGroupoid
