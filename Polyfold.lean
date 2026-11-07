@@ -176,3 +176,5 @@ import Polyfold.Chapter6.ScPaths
 import Polyfold.Chapter6.PushData
 import Polyfold.Chapter6.PropagationWellDefined
 import Polyfold.Chapter6.ContinuousOrientation
+import Polyfold.Chapter6.ChartTransfer
+import Polyfold.Chapter6.ScHomotopy
