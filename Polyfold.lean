@@ -156,3 +156,8 @@ import Polyfold.Chapter6.GoodProjections
 import Polyfold.Chapter6.ProjectionSequence
 import Polyfold.Chapter6.Stabilization
 import Polyfold.Chapter6.DirectSumDet
+import Polyfold.Chapter6.LineBundleOrientation
+import Polyfold.Chapter6.LocalDetBundle
+import Polyfold.Chapter6.DetBundle
+import Polyfold.Chapter6.SubspaceBundle
+import Polyfold.Chapter6.LinSet
