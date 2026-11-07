@@ -1,0 +1,15 @@
+{
+ "id": "V6_63",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (Choice.exists_smul_source_value) is the conclusion of §6.7.1: for two choices χ, χ' of the data of (91), source and value scale by one common r ≠ 0. B is the blind author's three steps: (1) a change of the basis of Z by any σ multiplies both wedges by det σ (and leaves wB ⊗ wC* unchanged if det σ ≠ 0); (2) a change of the bases of A, D by τ, ε multiplies source and value by det τ/det ε, each equal to the old one iff det τ = det ε; (3) new complements give a basis b₂ ≡ b' mod α(A), lifts c₂ ≡ c mod β(B), and such perturbations leave both wedges unchanged. A ⇒ B: (1), (3) and the source half of (2) are direct multilinear algebra (no use of A); the value half of (2) and its iff use A for the choices (Z,V,a,d,b',c), (Z,V,a',d',b',c'), with r identified as det τ/det ε from the source side. B ⇒ A: the text's chain of three changes, B(3) then B(2) then B(1), giving r = det τ/det ε. B's steps are finer than A (individual wedges, singular σ, the complement-change lemma), but each is elementary, so the two statements carry the same content: A is exactly what B's steps were for.",
+ "B_issue": "None affecting the comparison. B records the text's misprint 'pᵢ ∈ β(C)' and reads it as β(B) (= ker γ), which is the set in which two lifts differ; B reads 'independent of the bases iff det τ = det ε' literally (the vector equals the old one iff det τ = det ε), which is true and is proved here from A.",
+ "overlap": "#rt_overlap B_to_A: 19 shared project theorems — FourTermExact fields (injective_α, range_α, range_β, surjective_γ), injective_β_restrict, range_β_restrict, bijective_γ_restrict, Choice fields and n_eq/l_eq/hB/hC, proof fields of dualVec, wedge, Choice.source; no banned theorem. Both directions pass the hard #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

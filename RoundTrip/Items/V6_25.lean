@@ -1,0 +1,397 @@
+import Polyfold
+import RoundTrip.Check
+import RoundTrip.Blind.V6_25
+
+/-! Round trip for V6_25 (Definition 6.22: the collection `𝓑`).
+
+The only listed declaration is the definition `detBasis`, so `A = True`; the content of the audit
+is B itself (`detBasis E F = detB`), proved outright here (`B_holds`).
+
+* Charts: B's admissible triples are the `(c.T, c.P, c.ε)` of the project's `LocalDetChart`s
+  (`chartOf`, `hcOf`).
+* Every `S` of the ball is Fredholm (`chart_isFredholm`).
+* B's natural topology `natTopD` of `DET(T, P, ε)` (final topology of all frame maps of continuous
+  local frames of `ker(PS)` and `coker(PS)`) is the topology transported from `ball × ℝ` by the
+  project's frame `ω(S)` (`natTop_iff`): `⇒` because `ω` is one of B's frames (`frame₀`, the kernel
+  frame `kᵢ + y(kᵢ, S)` and constant lifts of a basis of `F / R(P)`); `⇐` because every frame of B
+  is `g(S) ω(S)` with `g` continuous (`frame_smul`, via the project's `linDetEquivOfEq_wedge_tmul`:
+  `g = det(kerProj ∘ σ) · det([f])⁻¹`; the cokernel determinant is continuous through `1 − P`
+  and never zero because B's frame wedge is not zero).
+* `γ_(T,P,ε)` in the frame `ω` is the project's `pretriv` (`gammaChart_eq`), so the image of `B` in
+  `DET(T, P, ε)` is open iff its image under `pretriv` is open in `F(E,F) × ℝ` (`preimage_eq`,
+  `isOpen_pretriv_image_iff`: `ball → F(E,F)` is an open embedding onto `c.baseSet`).
+-/
+
+namespace RoundTrip.V6_25
+open Polyfold Bundle Module
+
+noncomputable section
+
+/-- Only a definition is listed: `A = True`. -/
+def A : Prop := True
+
+theorem A_holds : A := trivial
+
+section Glue
+
+set_option linter.unusedSectionVars false
+
+variable {E F : Type} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
+  [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
+
+/-- A project chart from an admissible triple of B. -/
+def chartOf {T : E →L[ℝ] F} {P : F →L[ℝ] F} {ε : ℝ} (hc : IsDetChart T P ε) :
+    LocalDetChart E F where
+  T := T
+  isFredholm := hc.1
+  P := P
+  isGoodLeftProj := hc.2.1
+  Y := hc.2.2.2.2.choose
+  isTopCompl := hc.2.2.2.2.choose_spec.1
+  ε := ε
+  ε_pos := hc.2.2.1
+  isGoodLeftProj_of_lt := hc.2.2.2.1
+  exists_equiv_of_lt S hS := by
+    obtain ⟨e, he⟩ := hc.2.2.2.2.choose_spec.2 S hS
+    exact ⟨e, ContinuousLinearMap.ext fun y =>
+      Subtype.ext ((he y).trans (coe_projRestrict_apply _ _ _ y).symm)⟩
+
+/-- The admissible triple of a project chart. -/
+theorem hcOf (c : LocalDetChart E F) : IsDetChart c.T c.P c.ε := by
+  refine ⟨c.isFredholm, c.isGoodLeftProj, c.ε_pos, c.isGoodLeftProj_of_lt, c.Y, c.isTopCompl,
+    fun S hS => ?_⟩
+  obtain ⟨e, he⟩ := c.exists_equiv_of_lt S hS
+  exact ⟨e, fun y => by rw [← coe_projRestrict_apply, ← he]; rfl⟩
+
+/-- Every `S` of the ball of a chart is Fredholm. -/
+theorem chart_isFredholm (c : LocalDetChart E F) (S : E →L[ℝ] F) (hS : ‖S - c.T‖ < c.ε) :
+    S.IsFredholm := by
+  have hP := c.isGoodLeftProj_of_lt S hS
+  have hK := c.finiteDimensional_ker S hS
+  have hkP := hP.finiteDimensional_ker
+  obtain ⟨e, he⟩ := c.exists_equiv_of_lt S hS
+  have hey : ∀ y : c.Y, (e y : F) = c.P (S y) := fun y => by
+    rw [← coe_projRestrict_apply, ← he]; rfl
+  refine isFredholm_of_banach S ?_ ?_ ?_
+  · refine Submodule.finiteDimensional_of_le (S₂ := LinearMap.ker
+      ((c.P ∘L S : E →L[ℝ] F) : E →ₗ[ℝ] F)) fun x hx => ?_
+    change c.P (S x) = 0
+    rw [show S x = 0 from hx, map_zero]
+  · have hYfin : Module.Finite ℝ (E ⧸ c.Y) :=
+      Module.Finite.equiv (Submodule.quotientEquivOfIsCompl c.Y c.K c.isTopCompl.isCompl.symm).symm
+    have : c.Y.CoFG := hYfin
+    refine LinearMap.isClosed_range_of_isClosed_map_of_finiteDimensional_quotient (s := c.Y) ?_
+    let f : F →L[ℝ] LinearMap.range (c.P : F →ₗ[ℝ] F) :=
+      c.P.codRestrict _ (fun x => LinearMap.mem_range_self _ x)
+    let g : LinearMap.range (c.P : F →ₗ[ℝ] F) → F := fun r => S (e.symm r : E)
+    have hfg : Function.LeftInverse f g := fun r => Subtype.ext <| by
+      change c.P (S (e.symm r : E)) = r
+      rw [← hey, e.apply_symm_apply]
+    have hg : Continuous g := S.continuous.comp (continuous_subtype_val.comp e.symm.continuous)
+    have hcl := hfg.isClosed_range f.continuous hg
+    convert hcl using 1
+    ext x
+    constructor
+    · rintro ⟨y, hy, rfl⟩
+      exact ⟨e ⟨y, hy⟩, by simp [g]⟩
+    · rintro ⟨r, rfl⟩
+      exact ⟨e.symm r, (e.symm r).2, rfl⟩
+  · let φ : LinearMap.ker (c.P : F →ₗ[ℝ] F) →ₗ[ℝ] F ⧸ LinearMap.range (S : E →ₗ[ℝ] F) :=
+      (LinearMap.range (S : E →ₗ[ℝ] F)).mkQ ∘ₗ (LinearMap.ker (c.P : F →ₗ[ℝ] F)).subtype
+    refine Module.Finite.of_surjective φ fun q => ?_
+    obtain ⟨x, rfl⟩ := Submodule.Quotient.mk_surjective _ q
+    have hx : c.P x ∈ LinearMap.range ((c.P ∘L S : E →L[ℝ] F) : E →ₗ[ℝ] F) := by
+      rw [hP.range_comp]; exact LinearMap.mem_range_self _ x
+    obtain ⟨y, hy⟩ := hx
+    have hy' : c.P (S y) = c.P x := hy
+    refine ⟨⟨x - S y, by
+      change c.P (x - S y) = 0
+      rw [map_sub, hy', sub_self]⟩, ?_⟩
+    change Submodule.Quotient.mk (x - S y) = Submodule.Quotient.mk x
+    rw [Submodule.Quotient.eq]
+    exact ⟨-y, by simp⟩
+
+variable (c : LocalDetChart E F)
+
+theorem lt_of_mem_ball {S : E →L[ℝ] F} (hS : S ∈ Metric.ball c.T c.ε) : ‖S - c.T‖ < c.ε :=
+  mem_ball_iff_norm.mp hS
+
+/-- `(S, t) ↦ (S, t ω(S))`, `ball × ℝ → DET(T, P, ε)`: the frame of the project's chart. -/
+def Ψ : ↥(Metric.ball c.T c.ε) × ℝ → TotalSpace ℝ (LD c.T c.P c.ε) :=
+  fun q => ⟨q.1, q.2 • c.frame q.1.1 (lt_of_mem_ball c q.1.2)⟩
+
+theorem Ψ_injective : Function.Injective (Ψ c) := by
+  rintro ⟨S, t⟩ ⟨S', t'⟩ h
+  simp only [Ψ] at h
+  injection h with h1 h2
+  subst h1
+  have h3 := eq_of_heq h2
+  have hinj : Function.Injective fun x : ℝ => x • c.frame S.1 (lt_of_mem_ball c S.2) :=
+    smul_left_injective ℝ (M := fredholmDet (c.P ∘L S.1)) (c.frame_ne_zero S.1 (lt_of_mem_ball c S.2))
+  rw [hinj h3]
+
+/-- `γ_(T,P,ε)` read in the frame: `γ(x) = Ψ(S, coord_S(x))`, `(S, coord_S(x)) = c.pretriv x`. -/
+theorem gammaChart_eq
+    (p : {p : TotalSpace ℝ (DETF (E := E) (F := F)) //
+      (p.proj : E →L[ℝ] F) ∈ Metric.ball c.T c.ε}) :
+    gammaChart (hcOf c) p = Ψ c (⟨p.1.proj.1, p.2⟩, c.coord p.1.proj p.1.2) := by
+  have hS : ‖p.1.proj.1 - c.T‖ < c.ε := mem_ball_iff_norm.mp p.2
+  have h1 := finrank_fredholmDet ((c.isGoodLeftProj_of_lt _ hS).isFredholm_comp p.1.proj.2)
+  refine congrArg (TotalSpace.mk _) ?_
+  exact (dualVec_apply_smul h1 (c.frame_ne_zero _ hS) _).symm.trans
+    (congrArg (· • c.frame p.1.proj.1 hS) (c.coord_apply hS p.1.2).symm)
+
+/-- The inclusion of the ball into `F(E, F)`. -/
+def jB : ↥(Metric.ball c.T c.ε) → FredholmOp E F :=
+  fun S => ⟨S.1, chart_isFredholm c S.1 (lt_of_mem_ball c S.2)⟩
+
+theorem jB_isOpenEmbedding : Topology.IsOpenEmbedding (jB c) := by
+  refine ⟨⟨(Topology.IsInducing.subtypeVal.of_comp_iff).1 Topology.IsInducing.subtypeVal,
+    fun S S' h => Subtype.ext (show S.1 = S'.1 from congrArg (fun x : FredholmOp E F => x.1) h)⟩,
+    ?_⟩
+  convert c.isOpen_baseSet using 1
+  ext S
+  constructor
+  · rintro ⟨S', rfl⟩
+    exact lt_of_mem_ball c S'.2
+  · intro hS
+    exact ⟨⟨S.1, mem_ball_iff_norm.mpr hS⟩, rfl⟩
+
+/-! ### The frames of B -/
+
+/-- The lifts of the basis `Module.finBasis` of `F / R(P)`. -/
+def lift (j : Fin (finrank ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F)))) : F :=
+  (Submodule.mkQ_surjective _ (Module.finBasis ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F)) j)).choose
+
+theorem mk_lift (S : E →L[ℝ] F) (hS : ‖S - c.T‖ < c.ε) :
+    (fun j => (Submodule.Quotient.mk (lift c j) : cokPS c.P S)) = c.cokerFrame S hS := by
+  funext j
+  refine (LinearEquiv.eq_symm_apply _).2 ?_
+  change Submodule.quotEquivOfEq _ _ _ (Submodule.Quotient.mk (lift c j)) = _
+  rw [Submodule.quotEquivOfEq_mk]
+  exact (Submodule.mkQ_surjective _ _).choose_spec
+
+/-- The ball, as an open subset of the ball. -/
+def U₀ : OpenSub c.T c.ε := ⟨Metric.ball c.T c.ε, Metric.isOpen_ball, subset_rfl⟩
+
+/-- The project's kernel frame `kᵢ(S) = kᵢ + y(kᵢ, S)` as a frame of B. -/
+def kerFrame₀ : KerFrame c.P (U₀ c).1 where
+  n := finrank ℝ c.K
+  σ S i := c.kerMap S.1 (Module.finBasis ℝ c.K i)
+  cont := continuous_pi fun i =>
+    ((c.continuousOn_kerMap_apply _).mono fun S hS => lt_of_mem_ball c hS).restrict
+  mem S i := (c.lemma_6_18).2.1 S.1 (lt_of_mem_ball c S.2) _ (Module.finBasis ℝ c.K i).2
+  li S := (c.kerFrame_linearIndependent S.1 (lt_of_mem_ball c S.2)).map'
+    (LinearMap.ker ((c.P ∘L S.1 : E →L[ℝ] F) : E →ₗ[ℝ] F)).subtype (Submodule.ker_subtype _)
+  card S := (c.kerEquiv S.1 (lt_of_mem_ball c S.2)).finrank_eq
+
+/-- The constant lifts of a basis of `F / R(P)` as a cokernel frame of B. -/
+def cokFrame₀ : CokFrame c.P (U₀ c).1 where
+  l := finrank ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F))
+  f _ j := lift c j
+  cont := continuous_const
+  li S := by
+    have := c.cokerFrame_linearIndependent S.1 (lt_of_mem_ball c S.2)
+    rwa [← mk_lift c S.1 (lt_of_mem_ball c S.2)] at this
+  card S := (cokerCompEquiv (c.isGoodLeftProj_of_lt S.1 (lt_of_mem_ball c S.2))).finrank_eq.symm
+
+theorem frame₀_eq (S : (U₀ c).1) :
+    (kerFrame₀ c).wedgeAt S ⊗ₜ[ℝ] (cokFrame₀ c).dualAt S =
+      c.frame S.1 (lt_of_mem_ball c S.2) := by
+  have h := mk_lift c S.1 (lt_of_mem_ball c S.2)
+  simp only [KerFrame.wedgeAt, CokFrame.dualAt, LocalDetChart.frame]
+  congr 2
+  exact congrArg (fun w => wedge w _) h
+
+/-- The cokernel determinant `S ↦ det_u([f₁(S)], …, [f_l(S)])` is continuous. -/
+theorem continuous_det_mk {X : Type*} [TopologicalSpace X] {l : ℕ}
+    (u2 : Basis (Fin l) ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F))) (w : X → Fin l → F)
+    (hw : Continuous w) :
+    Continuous fun x => u2.det (fun j => Submodule.Quotient.mk (w x j)) := by
+  have hkP := c.isGoodLeftProj.finiteDimensional_ker
+  have hcoord : ∀ i, Continuous fun y : F => u2.repr (Submodule.Quotient.mk y) i := by
+    intro i
+    let Q : F →L[ℝ] LinearMap.ker (c.P : F →ₗ[ℝ] F) :=
+      (ContinuousLinearMap.id ℝ F - c.P).codRestrict _ (fun y => by
+        change c.P (y - c.P y) = 0
+        have hPP : c.P (c.P y) = c.P y := DFunLike.congr_fun c.isGoodLeftProj.isProj y
+        rw [map_sub, hPP, sub_self])
+    let L : LinearMap.ker (c.P : F →ₗ[ℝ] F) →ₗ[ℝ] ℝ :=
+      (u2.coord i) ∘ₗ (LinearMap.range (c.P : F →ₗ[ℝ] F)).mkQ ∘ₗ
+        (LinearMap.ker (c.P : F →ₗ[ℝ] F)).subtype
+    have hL : Continuous L := LinearMap.continuous_of_finiteDimensional L
+    convert hL.comp Q.continuous using 1
+    funext y
+    change u2.repr (Submodule.Quotient.mk y) i =
+      u2.coord i (Submodule.Quotient.mk (y - c.P y))
+    rw [Basis.coord_apply]
+    congr 2
+    rw [Submodule.Quotient.eq]
+    exact ⟨y, by simp⟩
+  simp_rw [Basis.det_apply]
+  refine Continuous.matrix_det (continuous_matrix fun i j => ?_)
+  simp_rw [Basis.toMatrix_apply]
+  exact (hcoord i).comp ((continuous_apply j).comp hw)
+
+/-- The kernel coefficient `det_u(kerProj ∘ σ(S))`. -/
+def detK {U : Set (E →L[ℝ] F)} (σ : KerFrame c.P U) (h1 : finrank ℝ c.K = σ.n) (S : U) : ℝ :=
+  ((Module.finBasis ℝ c.K).reindex (finCongr h1)).det (fun i => c.kerProj (σ.σ S i))
+
+/-- The cokernel coefficient `det_u([f₁(S)], …, [f_l(S)])`. -/
+def detC {U : Set (E →L[ℝ] F)} (f : CokFrame c.P U)
+    (h2 : finrank ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F)) = f.l) (S : U) : ℝ :=
+  ((Module.finBasis ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F))).reindex (finCongr h2)).det
+    (fun j => Submodule.Quotient.mk (f.f S j))
+
+theorem frame_tmul_eq (U : OpenSub c.T c.ε) (σ : KerFrame c.P U.1) (f : CokFrame c.P U.1)
+    (h1 : finrank ℝ c.K = σ.n) (h2 : finrank ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F)) = f.l)
+    (S : U.1) :
+    σ.wedgeAt S ⊗ₜ[ℝ] f.dualAt S =
+      (detK c σ h1 S * (detC c f h2 S)⁻¹) • c.frame S.1 (lt_of_mem_ball c (U.2.2 S.2)) := by
+  have hS := lt_of_mem_ball c (U.2.2 S.2)
+  have := c.linDetEquivOfEq_wedge_tmul S.1 hS rfl (fun i => ⟨σ.σ S i, σ.mem S i⟩) (σ.card S)
+    (fun j => Submodule.Quotient.mk (f.f S j)) (f.card S) h1 h2
+    (c.isGoodLeftProj_of_lt S.1 hS).range_comp
+  rw [linDetEquivOfEq_self, LinearEquiv.refl_apply] at this
+  simp only [Submodule.quotEquivOfEq_mk] at this
+  exact this
+
+theorem frame_tmul_ne_zero (U : OpenSub c.T c.ε) (σ : KerFrame c.P U.1) (f : CokFrame c.P U.1)
+    (S : U.1) : σ.wedgeAt S ⊗ₜ[ℝ] f.dualAt S ≠ 0 := by
+  have hS := lt_of_mem_ball c (U.2.2 S.2)
+  have := c.finiteDimensional_ker S.1 hS
+  have := c.finiteDimensional_coker S.1 hS
+  refine tmul_ne_zero_of_ne_zero ?_ (dualVec_ne_zero finrank_maxPow ?_)
+  · exact (wedge_ne_zero_iff _).2 (LinearIndependent.of_comp
+      (LinearMap.ker ((c.P ∘L S.1 : E →L[ℝ] F) : E →ₗ[ℝ] F)).subtype (σ.li S))
+  · exact (wedge_ne_zero_iff _).2 (f.li S)
+
+/-- **Every frame of B is a continuous multiple of the project's frame `ω`.** -/
+theorem frame_smul (U : OpenSub c.T c.ε) (σ : KerFrame c.P U.1) (f : CokFrame c.P U.1) :
+    ∃ g : U.1 → ℝ, Continuous g ∧ ∀ S : U.1,
+      σ.wedgeAt S ⊗ₜ[ℝ] f.dualAt S = g S • c.frame S.1 (lt_of_mem_ball c (U.2.2 S.2)) := by
+  rcases isEmpty_or_nonempty U.1 with hU | hU
+  · exact ⟨0, continuous_const, fun S => isEmptyElim S⟩
+  obtain ⟨S₀⟩ := hU
+  have hS₀ := lt_of_mem_ball c (U.2.2 S₀.2)
+  have h1 : finrank ℝ c.K = σ.n := (c.kerEquiv S₀.1 hS₀).finrank_eq.trans (σ.card S₀).symm
+  have h2 : finrank ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F)) = f.l :=
+    (cokerCompEquiv (c.isGoodLeftProj_of_lt _ hS₀)).finrank_eq.symm.trans (f.card S₀).symm
+  have hb : ∀ S, detC c f h2 S ≠ 0 := by
+    intro S hb0
+    have hne := frame_tmul_ne_zero c U σ f S
+    rw [frame_tmul_eq c U σ f h1 h2 S, hb0, inv_zero, mul_zero, zero_smul] at hne
+    exact hne rfl
+  have ha : Continuous (detK c σ h1) := (continuous_basis_det _).comp (continuous_pi fun i =>
+    c.kerProj.continuous.comp ((continuous_apply i).comp σ.cont))
+  have hbc : Continuous (detC c f h2) := continuous_det_mk c _ f.f f.cont
+  exact ⟨fun S => detK c σ h1 S * (detC c f h2 S)⁻¹, ha.mul (hbc.inv₀ hb),
+    frame_tmul_eq c U σ f h1 h2⟩
+
+/-- **B's natural topology of `DET(T, P, ε)` is the frame topology of the project's chart.** -/
+theorem natTop_iff (V : Set (TotalSpace ℝ (LD c.T c.P c.ε))) :
+    @IsOpen _ (natTopD c.T c.P c.ε) V ↔ IsOpen (Ψ c ⁻¹' V) := by
+  rw [natTopD, isOpen_iSup_iff]
+  constructor
+  · intro h
+    have h0 : IsOpen (frameMap (Fib := LD c.T c.P c.ε) (U₀ c)
+        (fun S => (kerFrame₀ c).wedgeAt S ⊗ₜ[ℝ] (cokFrame₀ c).dualAt S) ⁻¹' V) :=
+      isOpen_coinduced.1 (h ⟨U₀ c, kerFrame₀ c, cokFrame₀ c⟩)
+    have hfun : ∀ q, frameMap (Fib := LD c.T c.P c.ε) (U₀ c)
+        (fun S => (kerFrame₀ c).wedgeAt S ⊗ₜ[ℝ] (cokFrame₀ c).dualAt S) q = Ψ c q := fun q =>
+      congrArg (TotalSpace.mk _) (congrArg (q.2 • ·) (frame₀_eq c q.1))
+    have hpre : frameMap (Fib := LD c.T c.P c.ε) (U₀ c)
+        (fun S => (kerFrame₀ c).wedgeAt S ⊗ₜ[ℝ] (cokFrame₀ c).dualAt S) ⁻¹' V = Ψ c ⁻¹' V :=
+      Set.ext fun q => by
+        change _ ∈ V ↔ Ψ c q ∈ V
+        rw [hfun q]
+    rw [hpre] at h0
+    exact h0
+  · rintro h ⟨U, σ, f⟩
+    refine isOpen_coinduced.2 ?_
+    obtain ⟨g, hg, hgeq⟩ := frame_smul c U σ f
+    let m : U.1 × ℝ → ↥(Metric.ball c.T c.ε) × ℝ := fun q => (⟨q.1.1, U.2.2 q.1.2⟩, q.2 * g q.1)
+    have hm : Continuous m :=
+      (Continuous.subtype_mk (continuous_subtype_val.comp continuous_fst) _).prodMk
+        (continuous_snd.mul (hg.comp continuous_fst))
+    have heq : ∀ q, frameMap (Fib := LD c.T c.P c.ε) U
+        (fun S => σ.wedgeAt S ⊗ₜ[ℝ] f.dualAt S) q = Ψ c (m q) := by
+      intro q
+      refine congrArg (TotalSpace.mk _) ?_
+      change q.2 • (σ.wedgeAt q.1 ⊗ₜ[ℝ] f.dualAt q.1) = (q.2 * g q.1) • _
+      rw [hgeq, smul_smul]
+    have hpre : frameMap (Fib := LD c.T c.P c.ε) U
+        (fun S => σ.wedgeAt S ⊗ₜ[ℝ] f.dualAt S) ⁻¹' V = m ⁻¹' (Ψ c ⁻¹' V) :=
+      Set.ext fun q => by simp only [Set.mem_preimage, heq q]
+    change IsOpen (frameMap (Fib := LD c.T c.P c.ε) U
+        (fun S => σ.wedgeAt S ⊗ₜ[ℝ] f.dualAt S) ⁻¹' V)
+    rw [hpre]
+    exact h.preimage hm
+
+/-- The image of `B` in `DET(T, P, ε)`, read in the frame, is the image under `pretriv`, read on
+the ball. -/
+theorem preimage_eq (B : Set (TotalSpace ℝ (DETF (E := E) (F := F))))
+    (hB : ∀ x ∈ B, ‖x.proj.1 - c.T‖ < c.ε) :
+    Ψ c ⁻¹' (gammaChart (hcOf c) '' {p | p.1 ∈ B}) =
+      Prod.map (jB c) id ⁻¹' (c.pretriv '' B) := by
+  ext ⟨S, t⟩
+  simp only [Set.mem_preimage, Set.mem_image, Set.mem_setOf_eq, Prod.map_apply, id]
+  constructor
+  · rintro ⟨p, hp, hpe⟩
+    rw [gammaChart_eq] at hpe
+    have h := Prod.ext_iff.1 (Ψ_injective c hpe)
+    refine ⟨p.1, hp, Prod.ext (Subtype.ext ?_) ?_⟩
+    · have h' := congrArg Subtype.val h.1
+      exact h'
+    · exact h.2
+  · rintro ⟨x, hx, hxe⟩
+    have h := Prod.ext_iff.1 hxe
+    refine ⟨⟨x, mem_ball_iff_norm.mpr (hB x hx)⟩, hx, ?_⟩
+    rw [gammaChart_eq]
+    congr 1
+    refine Prod.ext (Subtype.ext ?_) h.2
+    have h' := congrArg Subtype.val h.1
+    exact h'
+
+theorem isOpen_pretriv_image_iff (B : Set (TotalSpace ℝ (DETF (E := E) (F := F))))
+    (hB : ∀ x ∈ B, ‖x.proj.1 - c.T‖ < c.ε) :
+    IsOpen (c.pretriv '' B) ↔ IsOpen (Prod.map (jB c) id ⁻¹' (c.pretriv '' B)) := by
+  refine ((jB_isOpenEmbedding c).prodMap Topology.IsOpenEmbedding.id).isOpen_iff_preimage_isOpen ?_
+  rintro _ ⟨x, hx, rfl⟩
+  exact ⟨(⟨x.proj.1, mem_ball_iff_norm.mpr (hB x hx)⟩, c.coord x.proj x.2), rfl⟩
+
+/-- **Definition 6.22**: the project's `detBasis` is B's `𝓑`. -/
+theorem detBasis_eq :
+    (detBasis E F : Set (Set (TotalSpace ℝ (DETF (E := E) (F := F))))) = detB := by
+  ext B
+  constructor
+  · rintro ⟨c, hBs, hBo⟩
+    have hB : ∀ x ∈ B, ‖x.proj.1 - c.T‖ < c.ε := fun x hx => hBs hx
+    refine ⟨c.T, c.P, c.ε, hcOf c, fun p hp => mem_ball_iff_norm.mpr (hB p hp), ?_⟩
+    rw [natTop_iff c, preimage_eq c B hB]
+    exact (isOpen_pretriv_image_iff c B hB).1 hBo
+  · rintro ⟨T, P, ε, hc, hBs, hBo⟩
+    have hB : ∀ x ∈ B, ‖x.proj.1 - (chartOf hc).T‖ < (chartOf hc).ε :=
+      fun x hx => mem_ball_iff_norm.mp (hBs x hx)
+    refine ⟨chartOf hc, fun x hx => hB x hx, ?_⟩
+    have h' := (natTop_iff (chartOf hc) _).1 hBo
+    have h := (congrArg IsOpen (preimage_eq (chartOf hc) B hB)).mp h'
+    exact (isOpen_pretriv_image_iff (chartOf hc) B hB).2 h
+
+end Glue
+
+/-- **B holds**: the project's `𝓑` is the text's. -/
+theorem B_holds : B := fun {_ _} _ _ _ _ _ _ => detBasis_eq
+
+theorem A_to_B : A → B := fun _ => B_holds
+
+theorem B_to_A : B → A := fun _ => trivial
+
+#rt_check RoundTrip.V6_25.A_to_B []
+#rt_check RoundTrip.V6_25.B_to_A []
+#rt_overlap RoundTrip.V6_25.B_to_A []
+#rt_check RoundTrip.V6_25.B_holds [Polyfold.proposition_6_23, Polyfold.proposition_6_24]
+
+end
+
+end RoundTrip.V6_25

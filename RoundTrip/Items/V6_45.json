@@ -1,0 +1,15 @@
+{
+ "id": "V6_45",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A ⇒ B from the conjunct propagate_append: the operators T_t of the enlarged reading equal those of the original (same s), its stabilization is appendStab φ_t ψ_t with ψ_t = Φ'_t(0 ++ ·), and the side conditions of propagate_append (λ ↦ λ ++ 0 maps L_t into L'_t, the added coordinates of L'_t are onto, dim L' = dim L + l) follow from the surjectivity of T_t ⊕ φ_t; the end-point orEquivRay steps are the same on both sides, so B's missing sign is irrelevant (T is unchanged). B's (P) and PX.IsTame are unused. B ⇒ A fails: A is the general linear algebra (wedgeExt, detEquiv_stabIota_append, exists_continuous_lifts, isLineOrientation_wedgeExt, propagate_append over any simply connected base, push_append for the signed push), B a single application along [0,1].",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

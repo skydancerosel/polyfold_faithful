@@ -1,0 +1,16 @@
+{
+ "id": "V6_28",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A = lemma_6_25 ∧ lemma_6_25_local (universes 0): the transition function g(S) = c'.coord S (c.coordInv S 1) is continuous and nowhere zero on the common ball (locally: a continuous nowhere-zero φ near each S₀). B = Formula ∧ TopIso: TopIso (the transition (S, t) ↦ (S, coord'(coordInv t)) is a homeomorphism of (ball ∩ ball') × ℝ) is equivalent to A: A ⇒ TopIso by the explicit homeomorphism (S, t) ↦ (S, g(S)t) with inverse t ↦ t/g(S) (fibrewise linearity of coord ∘ coordInv); TopIso ⇒ A since g(S) = (Φ(S,1)).2 is continuous on the subtype and g(S) = 0 would give Φ(S,1) = (S,0) = Φ(S,0), contradicting injectivity; the local form takes N = ball ∩ ball'. B's Formula (Corollary 6.13 on each fibre, for any Q ≤ P, P' good for P S, P' S) is not part of A: it is proved outright from the project's corollary_6_13 (§6.2, not an item theorem) after the glue Q ∈ Π_{PS}, Q ≤ P ⇒ Q ∈ Π_S (QPS = QS). So the equivalence is A ⇔ TopIso, with Formula a true side conjunct of B.",
+ "B_issue": null,
+ "overlap": "164 shared project theorems, all reached through the vocabulary of the statements (LocalDetChart fields and lemma_6_17/6_18 proof fields, gammaProj/FourTermExact/maxPow/dualVec infrastructure, LocalDetChart.isOpen_baseSet, IsGoodLeftProj.*); none of the item's own continuity argument (lemma_6_21, corollary_6_13, lemma_6_10, transition_smul_eq) is reused by B_to_A.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ },
+ "notes": "A_to_B uses the hypothesis only for TopIso; B's Formula conjunct is proved outright from corollary_6_13 (so that conjunct of A ⇒ B is vacuous for the audit)."
+}

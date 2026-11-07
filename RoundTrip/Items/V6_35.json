@@ -1,0 +1,15 @@
+{
+ "id": "V6_35",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both sides use the project's SubspaceFamily, det (λ(L) with the frame-trivialization bundle structure) and LineOrientation, and the base [0, 1] is unitInterval on both sides (here B did not replace [0, 1] by ℝ). B says that an orientation of one line λ(L_q₀) extends to exactly one orientation of λ(L), over I and over I × I. A ⇒ B: uniqueness comes from A's transport_comp (continue both orientations along a path from q₀); existence is not stated by A at all. It sits inside the definition of transport (a choose of exists_lineOrientation_apply_eq) and was taken from that non-item lemma (I and I × I are contractible and locally path-connected). B ⇒ A: transport_eq follows from B's uniqueness over I, transport_injective from B's existence and uniqueness, and transport_comp from transport_eq for Λ.comp γ. The conjunct Frame.coordChange_continuousOn (the coordinate changes are continuous and nowhere zero) is not addressed by B and was re-proved outright from coordChange_continuousAt, coord_ne_zero and wedgeAt_ne_zero. B's I × I half is not needed for A, and A's general-base transport_comp gives the I × I uniqueness.",
+ "B_issue": null,
+ "overlap": "122 shared project theorems, all from the line-bundle machinery that both statements are written in or that the existence step uses: the frame trivializations of λ(L) (SubspaceFamily.prebundle, coordChange_continuousAt, coord_* and wedge_* lemmas, continuousWithinAt_section_iff), the orientation double cover (isCoveringMap_orCover, orPretriv, rayAt and posRay lemmas) behind exists_lineOrientation_apply_eq, and finrank_maxPow / dualVec. #rt_check_soft was needed for both directions: coordChange_continuousOn (an item theorem) is reached only through the proof fields of the definitions SubspaceFamily.prebundle (the exists_coordChange field of λ(L)'s vector-bundle structure, which B's LineOrientation Λ.det itself needs), transport and LineOrientation.comp.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

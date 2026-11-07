@@ -1,0 +1,19 @@
+{
+ "id": "V6_49",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B is false (not_B, as its author predicted): the literal composition formula ψ(β(s)) on [1/2, 1] forces φ(β(1/2)) = ψ(β(1/2)) at s = 1/2; for φ = id (from 0 to 1) and ψ = 1 + id (from 1 to 2) on ℝ¹ this is impossible whatever β(1/2) is. So ¬(A → B) (not_A_to_B, since A holds) and B ⇒ A only ex falso. Against the intended reading BIntended (ψ(β(s) − 1), β(0) = 0, β(1) = 2): A ⇒ ClaimA ∧ ClaimBInt is proved using A (A_to_BIntended_ab: the paths of an sc-smoothly contractible U are concatPath of t ↦ H(κ(t), x) and t ↦ H(κ(1 − t), y), with A's isScSmoothMap_concatPath, concatPath_zero/one/of_le/of_gt, pt1_apply, contDiff_pt1_comp; the composite through an arbitrary admissible β is sc-smooth by A's isScSmoothMap_of_eventuallyEq and isScSmoothMap_reparam, being constant φ(1) = ψ(0) near s = 1/2). ClaimC (M-polyfolds are locally path connected; smooth points of one path component are joined by an sc⁺-smooth path, p. 201) has no counterpart in A and is not proved (substantial new mathematics). BIntended ⇒ A fails genuinely: A's HasLocalPropagation.eq_trans (push-forwards compose) and exists_nhds_scPath (chart-local paths in U between smooth points of a smaller V, values in U for all t) are not in BIntended. Contractibility vs pairs: the project gets its paths from exists_nhds_scPath (pairs V ⊆ U); B's ClaimA (paths in a contractible U) follows from A anyway.",
+ "B_issue": "As formalized literally (ψ(β(s)) on [1/2, 1], with β([1/2, 1]) = [1, 2]), ClaimBLit is false (not_ClaimBLit); the author flagged the misprint and supplied BIntended with ψ(β(s) − 1) and β(0) = 0, β(1) = 2.",
+ "overlap": "B_to_A (ex falso via not_B): 1560 shared project theorems, all reached through the statement of A (HasLocalPropagation.eq_trans mentions IsPush, ChartPoint.Or, strong bundle charts …: auxiliary _proof_ terms and infrastructure); no proof lemma is used (not_B uses only isScSmoothMap_rn_rn_of_contDiff). not_B and A_to_BIntended_ab also pass #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true},
+ "intended": {
+  "A_to_B": "failed",
+  "B_to_A": "failed",
+  "relation": "incomparable",
+  "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+  "note": "A ⇒ ClaimA ∧ ClaimBInt proved from A (A_to_BIntended_ab); ClaimC (local path connectivity, sc⁺-paths, p. 201) is not in A; A's push-forward composition (eq_trans) and exists_nhds_scPath are not in BIntended."
+ }
+}

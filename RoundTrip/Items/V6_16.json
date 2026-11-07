@@ -1,0 +1,15 @@
+{
+ "id": "V6_16",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "B's Tphi, jS, piS, clsPhi are definitionally the project's T.coprod φ, stabJ, stabPi, stabClass, and B's exactness conclusion is literally lemma_6_14's, so A ⇒ B is instantiation (B's IsFredholmOp and completeness hypotheses unused). B ⇒ A fails for genuine reasons: lemma_6_14 holds for arbitrary normed spaces and arbitrary bounded T (no Fredholm, no completeness; the exactness is pure linear algebra), and A's second conjunct exists_surjective_coprod (a stabilizing φ exists for Fredholm T, the remark introducing T_φ) has no counterpart in B. A is strictly stronger than the text's lemma; nothing in A is wrong.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

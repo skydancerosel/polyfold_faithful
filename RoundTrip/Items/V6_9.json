@@ -1,0 +1,12 @@
+{
+ "id": "V6_9",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item with two extra theorems. B is the definitional reading of Definition 6.8 (for Banach spaces and textbook-Fredholm T, FredholmOrientation T = Module.Ray ℝ (λ(ker T) ⊗ λ*(coker T))); it holds by rfl (B_holds): the project's FredholmOrientation is the abbrev Module.Ray ℝ (fredholmDet T), and fredholmDet T = linDet ↑T is literally B's detB T, so the project's notion is exactly the text's. A is nonempty_fredholmOrientation ∧ exists_two_fredholmOrientation (a Fredholm operator has an orientation, and exactly two), content beyond the text's Definition 6.8 but true. Both directions are therefore VACUOUS: A ⇒ B is B_holds (hypothesis unused), B ⇒ A proves A outright (finrank_fredholmDet, not banned here, plus 'a real line has exactly two rays', rays_of_line) since a type equality carries no information on the number of rays.",
+ "B_issue": null,
+ "overlap": "6 shared project theorems: finrank_fredholmDet, finrank_linDet, finrank_maxPow, finrank_maxPowDual, the FiniteDimensional instance on maxPow, linDet._proof_1 — B_to_A re-proves A along the formal proof's route (det(T) is a line), as expected for a vacuous direction.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V6_58",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (isOrientableSection_iff_exists) is an internal characterization: Gamma_f([phi]) is path-independent iff some y -> o_y is carried along by Gamma_f. B identifies the project's IsOrientableSection, under hX, hbump, tame hfT and hsec, with the text's notion IsOrientableB (every functor G with B's (*) on contractible propagation sets is path-independent). A says nothing about IsOrientableB, so A => B fails. B => A is proved only by proving A outright, so it is VACUOUS (uses_hypothesis false); formally that would label the pair A_narrower, but each statement has content the other lacks. Proved without A: B's <- holds unconditionally (B_mpr: Gamma_f on representatives is such a G), and B holds under ContractibleCover (B_of_cover). B's -> without the cover is not proved: G may differ from Gamma_f by a homomorphism PX -> Z/2 that is trivial on paths inside the existing contractible propagation sets, and the project never shows such sets cover X_inf.",
+ "B_issue": null,
+ "overlap": "B_to_A (vacuous): 4300 shared project theorems, through the project's proof of A via exists_apply_eq_of_isOrientableSection and isOrientableSection_of_apply_eq; banned isOrientableSection_iff_exists not reached. B_to_A, B_mpr and B_of_cover all pass plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -51,10 +51,10 @@ GitHub displays it directly.
 * **Every numbered item of the text is compared with its formal version** (401 items, each with a
   verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap list
   of what is not formalized and why (G.1–G.69).
-* **Round-trip audit**: for all 269 items of Chapters 1–5 not labelled *extra*, an independent model
+* **Round-trip audit**: for all 329 items of Chapters 1–6 not labelled *extra*, an independent model
   formalized the text's statement blind, and the two statements were related by short Lean proofs
-  (`RoundTrip/REPORT.md`; refreshed against the current code on 2 November 2026). The Chapter 6
-  items have not been audited yet.
+  (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2 November 2026,
+  Chapter 6 audited on 7 November 2026).
 * **Human sign-off**: not started.
 
 ## Where to start reading (no Lean needed)

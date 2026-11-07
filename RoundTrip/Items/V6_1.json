@@ -1,0 +1,15 @@
+{
+ "id": "V6_1",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "The project's Lin(f, x) (ChartPoint.linSet) is built from GLOBAL sc⁺-sections s with (f + s)(x) = 0; the text's, and B's LinB, from LOCAL sc⁺-sections in a chart (the text's s(y) = R(y, f(x))). B's clause (1) asserts linSet = LinB at every smooth point, and with B's (2) (LinB nonempty) this already yields a global sc⁺-section through −f(x) for every sc-Fredholm f and chart point (proved: B_gives_sections), which A only has under HasScPlusSectionsThrough (bump functions, Lemma 5.11) — that is why A ⇒ B fails, and it is a genuine difference, not proof effort: A's linSet is empty where no global section through −f(x) exists, while the text's Lin(f, x) is not. A ⇒ B would in addition need facts A does not contain: the independence of LinB from the LOCAL section (A's exists_isScPlusOp_linAt_eq is for global sections), the text's R(y, f(x)) being a local sc⁺-section, and sc-Fredholmness on all levels (A proves level-0 Fredholm only, as its docstring says). B ⇒ A holds: every linSet conjunct follows by rewriting linSet = LinB (smoothness of x from a zero of f + s, Theorem 3.15) and B's (2)–(6), with IsScPlusOpB = IsScPlusOp and B's sc-Fredholm index giving the level-0 Fredholm index; linSet_nonempty even follows without its hypothesis HasScPlusSectionsThrough. The last conjunct (AdmitsBumpFunctions ⇒ HasScPlusSectionsThrough, Lemma 5.11) is not addressed by B and was re-proved outright from lemma_5_11.",
+ "B_issue": "Clause (1) equates the project's global-section linSet with the local-section LinB. Together with clause (2) it implies the existence of a global sc⁺-section s with (f + s)(x) = 0 for every sc-Fredholm section f, smooth point x and chart point (B_gives_sections) — a claim the text's §6.1 does not make (it holds with sc-smooth bump functions or a chart over the whole base). So B is stronger than the text's Definition 6.1 and may be false on M-polyfolds without bump functions; no counterexample was constructed. The blind formalizer flagged exactly this doubt. B's (6) also asks for sc-Fredholmness on every level, stronger than the project's level-0 reading (true in the text).",
+ "overlap": "708 shared project theorems; 456 of them come from the outright re-proof of AdmitsBumpFunctions.hasScPlusSectionsThrough (lemma_5_11, proposition_5_3_exists and their closure). The ~250 from the part that uses B are the formal proof's own glue: theorem_3_15 (via IsScFredholmSection.mem_smoothSet_of_isZeroAt, to know x is smooth), ChartPoint.scDeriv_mem_K and rho_scDeriv_comp_r (to place (f + s)'(x) in linSet), ChartPoint.isScPlusOp_zero (isScSubspace_T/K), isFredholm_equiv_comp_equiv, ScFredholmSplitting.isFredholm and scIndex_eq_fredholmIndex (sc-Fredholm ⇒ level-0 Fredholm), plus the sc-calculus behind them.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

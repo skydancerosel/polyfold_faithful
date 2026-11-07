@@ -1,0 +1,12 @@
+{
+ "id": "V6_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (finrank_fredholmDet) is 'det(T) is a line' for Mathlib-Fredholm T (strict, closed range, finite-dimensional kernel, finite codimension, complemented kernel) between normed spaces, not necessarily complete; B, for Banach spaces and textbook-Fredholm T, conjoins (1) fredholmDet T = λ(ker T) ⊗ λ*(coker T), (2) finrank det(T) = 1, (3) 1 ⊗ ι : λ(ker T) ⊗ λ(coker(T)*) → det(T) bijective. A ⇒ B: (1) is rfl (fredholmDet/linDet are abbrevs of exactly B's type); (2) is A, since between Banach spaces textbook-Fredholm gives Mathlib's IsFredholm (project lemma isFredholm_of_banach: open mapping + Hahn–Banach); (3) is independent of A (ι is a nonzero map of lines, iotaDual_ne_zero). B ⇒ A: the generality gaps (completeness, the extra clauses of Mathlib's IsFredholm) are immaterial, since det(T) depends up to isomorphism only on dim ker T and dim coker T: A is reduced to B for the zero operator ℝⁿ → ℝᵏ (n = dim ker T, k = dim coker T) via det(T) ≅ det(0) built from maxPowEquiv/maxPowDualEquiv of finrank-equivalences. linDetEquivOfEq (listed vocabulary) is not mentioned by B and was not compared.",
+ "B_issue": null,
+ "overlap": "1 shared project theorem: linDet._proof_1 (an auxiliary proof inside the definition linDet, reached through B's statement). B_to_A uses neither finrank_linDet nor finrank_maxPow: the finrank comes from B applied to the zero operator.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

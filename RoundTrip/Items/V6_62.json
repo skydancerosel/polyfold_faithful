@@ -1,0 +1,16 @@
+{
+ "id": "V6_62",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B is false, as its author predicted, and A ⇒ ¬B is proved (A_to_not_B). B asks for an orientation ô of DET(f̂,(t,x)) with ô(L̂) = conjDet(extDet(ω(L))) for every L ∈ Lin(f,x), i.e. the text's h ↦ h̃ WITHOUT the sign (−1)^{dim coker L} that the project puts into extDetN. Counterexample: the trivial bundle ℝ¹×ℝ¹→ℝ¹, f = 0 (graph section, sc-Fredholm), translation chart at x = 0, t = 0, S = 0. Lin(f,0) contains L₀ = 0 (dim coker 1) and L₁ = id (onto; from s = graph id). Conjugating B's ô back and pulling it back along extDetN (extPullRay, an orientation by A's isLineOrientation_extPull) gives Φ with Φ(L) = (−1)^{dim coker L}·ω(L); Φ = ω at L₁, hence everywhere on the convex Lin(f,0), contradicting Φ(L₀) = −ω(L₀). So A ⇒ B is false (not_A_to_B) and B ⇒ A holds only ex falso. The refutation uses from A only the continuity of extDetN (through the hypothesis); an A-free refutation would have to re-prove that continuity (coord_extDet, the Proposition 6.24 chart coordinates), which was not attempted.",
+ "B_issue": "B formalizes the text's h ↦ h̃ literally (extDet, no sign); this is the point of the item, not a bug. Its author's reading (L̃ ∈ Lin(f̂), ω ∈ Or arbitrary, chart point prodPt) matches the project's.",
+ "rt_check": "No proof mentioning B can pass #rt_check or #rt_check_soft: B's vocabulary extDet reaches finrank_ker_extOp (body of extKer) and range_extOp (body of extCoker) as direct arguments, not as _proof_N fields (B_vocab). The statement A reaches isFredholm_extOp, mem_prodPt_T_iff, mem_prodPt_K_iff, IsScPlusOp.prodPt, prodLin_mem_linSet (proof terms inside the types of its theorems). #guard_msgs in the file records that A_to_not_B reaches exactly the banned names of the bare statements A → B → True (AB_vocab), so its proof uses no banned theorem beyond the vocabulary and uses isLineOrientation_extPull only through hA. not_B = A_to_not_B A_holds, not_A_to_B and B_to_A (ex falso via not_B) go through A_holds and reach every banned theorem.",
+ "overlap": "#rt_overlap A_to_not_B: 1722 shared project theorems — the closure of the statements A and B (Chapters 1–6 infrastructure: sc-calculus, charts, theorem_3_15, determinant lines, FourTermExact, gammaProj, extDetFiber) plus convex_linSet, proposition_6_26, conjDet_trans/congr/refl, extDetFiber_rfl_apply, extDetN_apply, conj_apply_of_conj, isFredholm_of_conj, extConjOp_conj; none of the banned row theorems except those reached by the statements' vocabulary.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

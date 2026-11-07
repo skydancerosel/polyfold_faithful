@@ -1,0 +1,12 @@
+{
+ "id": "V6_23",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "A = gammaProj_frame_eq (an explicit formula (91): γ^Q_{PS}(ω_c(S)) = (det(kerProj(k,z))·det([d],[f])⁻¹)·ω_{c'}(S)) ∧ lemma_6_21 (γ^Q_{PS}(ω_c) = g·ω_{c'} with g continuous and nowhere zero, for two charts with arbitrary centres and radii, S Fredholm in both balls): statements about chart frames only, with no topology on ⋃{S}×det(PS). B = for (T,P,ε), (T,Q,ε) admissible and Q ≤ P, gammaQP is a homeomorphism for the natural final topologies natTopD of ALL continuous kernel/cokernel frame pairs. A ⇒ B needs Lemma 6.19 for these ⨆-coinduced topologies (continuity of the coefficients of arbitrary frames against ω_c, so that chart frame maps are local trivializations), which the project does not formalize (same gap as V6_22 A ⇒ B). B ⇒ A fails: B has no information about the explicit formula, and extracting the continuity of g from a homeomorphism of natTopD again needs Lemma 6.19 (coordinates out of the final topology), plus localization to charts with different centres and radii. Modulo Lemma 6.19, A would be the stronger statement (the formula is extra).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). Partial check: side_conditions (B's existential witnesses hF: P S Fredholm on the ball, hQ: Q ∈ Π_{PS}, hQP: QPS = QS follow from IsDetChart T P ε, IsDetChart T Q ε, ProjLE Q P; so B is well-posed) passes #rt_check against [gammaProj_frame_eq, lemma_6_21], using IsGoodLeftProj.isFredholm_comp / of_projLE, comp_comp_eq_of_projLE and isFredholm_of_banach.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

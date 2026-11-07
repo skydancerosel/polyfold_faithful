@@ -1,0 +1,15 @@
+{
+ "id": "V6_3",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same iotaDual on both sides. A's iotaDual_wedge_wedge and iotaDual_wedge_dualBasis give B's (1) and (4) at k = dim E (proof irrelevance for the dimension casts), and A's iotaDual_ne_zero gives B's (3) (a nonzero map of lines is bijective). B's (2), the convention λ({0}*) = ℝ, is not in A and was proved outright (⋀⁰ = 1 = range algebraMap). Conversely B's (1), (4), (3) give A's three theorems for every k (subst k = dim E) and 'injective out of a line ⇒ nonzero'; only the infinite-dimensional case of iotaDual_wedge_wedge (A has no FiniteDimensional hypothesis there, B speaks of finite-dimensional E as the text does) was re-proved outright.",
+ "B_issue": null,
+ "overlap": "12 shared project theorems: finrank_maxPow (to know λ(E*) is a line), wedge_eq_ιMulti and iotaDual.eq_1 (in the outright infinite-dimensional formula), and _proof_ terms of iotaDual, dualVec, wedge, maxPowMap.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

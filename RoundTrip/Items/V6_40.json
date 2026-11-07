@@ -1,0 +1,15 @@
+{
+ "id": "V6_40",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B (the formula (94) principle read literally, without the sign): for every norm-continuous family T_q of Fredholm operators over J = [0,1] with continuous φ_q, T_q ⊕ φ_q onto, and every orientation o_q of DET continuous along q ↦ T_q, the rays Φ(o_q) of λ(ker(T_q ⊕ φ_q)) form an orientation. This does not hold as we read it: not_B transports the project's StabCounterexample (T_q = f(q)·1 on ℝ, f(q) = q/(1+|q|), φ = pr₀, o the chart orientation of DET at 0) to J along t ↦ t₀ (dim coker T_t jumps from 1 at t = 0 to 0 for t > 0) and repeats its sign argument in the frame (1, −f(q)): the coordinate of Φ(o_t) is positive at t = 0 and negative for t > 0, contradicting continuity. A contains exactly the corrected principle (isLineOrientation_stabRay, with α(T) = (−1)^{dim coker T}) and the project's own refutation over Q = ℝ (not_isLineOrientation_stabRay_uncorrected) plus the chart-coordinate formula behind them (coord_stabIota, stabD). So A ⇒ B is false (A holds, B does not) and B ⇒ A only ex falso. The two differ precisely by the sign (−1)^{dim coker T_q}; A's corrected statement also takes o as an orientation of DET over a set C of operators, B's IsContAlong as one along the parameter, which was not compared.",
+ "B_issue": null,
+ "overlap": "B_to_A is ex falso via not_B; both pass #rt_check (no banned theorem reached). rt_overlap: 517 shared project theorems — the StabCounterexample lemmas (stabRays_eq, coord_x0, coord_xNe, stab_x0, stab_xNe, D₂_eq, chart0 and its proof fields, kv/ker_eq_span), the local determinant charts and detPrebundle, Proposition 6.15 / gammaProj machinery and the SubspaceFamily frame lemmas: not_B reuses the computations of the project's counterexample (everything except its final step not_isLineOrientation_stabRays, whose argument is redone over J).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

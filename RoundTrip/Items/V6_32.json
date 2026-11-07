@@ -1,0 +1,15 @@
+{
+ "id": "V6_32",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes 0) = proposition_6_28 plus eight tool lemmas. proposition_6_28 assumes PX.AdmitsBumpFunctions and gives open U ⊆ W ⊆ dom φ_c with (1′) two sc-smooth paths in U with equal end points are sc-smoothly homotopic rel end points inside the larger W, (2) compact solution set in cl U, (3) for all n and globally sc-smooth Φ : ℝⁿ → X with Φ([0,1]ⁿ) ⊆ W a global sc⁺-section S with (f + S)(q, Φ q) = 0 near [0,1]ⁿ, depending on q only through Φ(q), (4) global sc⁺-sections of ℝⁿ × X → Y through all smooth fibre points. B (no bump functions) asks for U with (1) U sc-smoothly contractible in itself (H([0,1] × U) ⊆ U), (2), and (3)/(4) with sections only near [0,1] × U. A ⇒ B fails on two points: the hypothesis AdmitsBumpFunctions, not given by B (satisfiable, e.g. Hilbert or ℝⁿ models, not implied); and B's (1), which A does not assert — A's straight-line contraction r((1 − t)u₀ + tφ(y)) of U = φ⁻¹(B_δ'(u₀)) lands in W = φ⁻¹(B_δ(u₀)), not in U, and an r-invariant star-shaped neighbourhood is not available in general (the project reads (1) as not established for U itself): real mathematics. (Remaining glue would be s := −S, restricting global sections to an open W ⊇ [0,1] × U, and B's paths being sc-smooth only near [0, 1].) B ⇒ A fails: A has a chart domain W ⊇ U, homotopies rel end points (B's contraction gives only null-homotopies), n-parameter families with the dependence clause, global sections (not obtainable from B without bump functions) and analytic tool lemmas B does not speak about.",
+ "B_issue": null,
+ "overlap": "n/a (neither direction proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V6_33",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes 0) = isZeroAt_paramSection_zero ∧ exists_sections_isGeneralPositionGerm_of_isCompact ∧ lemma_6_29. lemma_6_29 assumes PX.IsTame, PX.AdmitsBumpFunctions and IsScFredholmSectionTame f, a globally sc-smooth Φ : ℝⁿ → X and a global sc⁺-section S with (f̃ + S)(q, Φ q) = 0 near [0,1]ⁿ, and gives global s₁..s_k with the FAMILY F(λ,(q,y)) over ℝᵏ × (ℝⁿ × X) in general position at (0,(q, Φ q)). B (tame strong bundle charts, f only sc-Fredholm, U from Prop. 6.28, φ sc-smooth near [0, 1], s sc⁺ near [0,1] × U with s(t, φ t) = f(φ t) on [0, 1]) asks (a) for s₁..s_k making every SLICE F_t over ℝᵏ × X general at (0, φ t), and (b) that for every family (P) implies general position of F over ℝ¹ × (ℝᵏ × X). A ⇒ B: A's hypotheses not given by B are AdmitsBumpFunctions (satisfiable, not implied), tame germ data of f (satisfiable; B has only IsScFredholmSection plus tame charts), PX.IsTame (B's tame charts should give it via isTame_of_forall_exists_chart: glue), and the global S/Φ with the zero condition near the cube (B: local s, agreement on [0, 1] only). Beyond hypotheses, the conclusions differ in substance: slice general position (B (a)) is not proved in the project (its docstring: the chart computation relating the reduced tangent spaces of ℝᵏ × X and ℝᵏ × (ℝ × X) is not carried out), and the implication (P) ⇒ family general position (B (b)), over another factor order, is not in A at all. Real mathematics. B ⇒ A: A covers arbitrary n-parameter families, global sections and arbitrary compact sets of zeros; B only paths in a U of Prop. 6.28 (whose existence with B's contractibility is itself open, V6_32) with local sections.",
+ "B_issue": "The blind side's DOUBT stands: [0, 1] is replaced by the boundaryless ℝ¹ in the family F, so the boundary of [0, 1] at t ∈ {0, 1} is not seen (the project makes the same reading, decision D2). B also requires the U of V6_32's B (with contractibility (1)), so B may be vacuous where such U does not exist.",
+ "overlap": "n/a (neither direction proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

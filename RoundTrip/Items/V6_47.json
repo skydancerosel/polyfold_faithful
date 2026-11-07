@@ -1,0 +1,15 @@
+{
+ "id": "V6_47",
+ "A_to_B": "false",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (push_square) is invariance of the sign-normalized IsStabKernels.push under deformations with fixed end points over any parameter space; B(1) asserts invariance of the literal, unsigned Facts.push along the convex homotopy s^τ. They differ by α(T^τ_0)α(T^τ_1) with α = (−1)^{dim coker}, and T^τ_{0,1} move with τ: B(1) does not hold as we read it. Counterexample (informal, not formalized): X = ℝ, trivial bundle, f = 0, φ ≡ 0, s0 = 0, s1 = t·y, σ1 ≡ 1; T^τ_0 = 0, T^τ_1 = −τ, so αα = +1 at τ = 0 and −1 at τ = 1 and (F 1).push = −(F 0).push. Even sign-corrected, A ⇒ B(1) needs one kernel family over the square (B gives a separate Facts per τ), and B(2)–(3) (end-point operators in Lin, continuous in τ) are not in A. B ⇒ A holds only vacuously.",
+ "B_issue": null,
+ "overlap": "n/a (no direction proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

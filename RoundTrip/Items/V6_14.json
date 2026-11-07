@@ -1,0 +1,14 @@
+{
+ "id": "V6_14",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions: B's gammas are characterized by (91) (IsGamma) and are exactly the project's gammaProj (gammaProj_eq_of_isGamma, from B-side data plus the definition of gammaProj; conversely isGamma_gammaProj from V6_13's gammaProj_wedge_tmul, not banned here); B's identification det(P(QT)) = det(PT) is the project's linDetEquivOfEq. A => B: B's three gammas are gammaProjs and proposition_6_12 gives the law; QT Fredholm and P in Pi_QT from A. B => A: B applied to the three gammaProjs gives proposition_6_12's law, QT Fredholm and P in Pi_QT come from B. A's helper conjuncts of_projLE (P <= Q, P in Pi_T => P in Pi_QT, for ANY T, Q) and comp_comp_eq_of_projLE (P(QT) = PT) are proved directly in two lines without B (of_projLE is more general than B's clause, which assumes T Fredholm and Q in Pi_T). rt_check: A's own statement contains the banned of_projLE and comp_comp_eq_of_projLE (as proof arguments in proposition_6_12's type), so A_to_B/B_to_A fail #rt_check with the full list only for that reason (recorded with #guard_msgs); via A' (A with those proof arguments abstracted, A_to_A'/A'_to_A by proof irrelevance), A'_to_B and B_to_A' pass #rt_check with the full list, and A_to_B, B_to_A pass with proposition_6_12 banned.",
+ "B_issue": null,
+ "overlap": "B_to_A' shares 160 project theorems with the item's proofs: gammaProj_wedge_tmul (through isGamma_gammaProj) and with it lemma_6_5/phi_wedge_tmul, lemma_6_11 (projSeq's fields), isFredholm_comp, and the determinant-line library (wedge_*, dualVec_*, maxPow*, Choice.*). The core lemma of the project's proof of Proposition 6.12 (mem_span_append_of_ker) is not shared.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "uses_hypothesis_note": "B_to_A uses B for the main conjunct (proposition_6_12); the two elementary helper conjuncts are proved without B.",
+ "universes": "All three theorems instantiated at universes 0, 0."
+}

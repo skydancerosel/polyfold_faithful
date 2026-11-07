@@ -1,0 +1,15 @@
+{
+ "id": "V6_27",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (proposition_6_24, universes 0): for 𝒯, VectorBundle ℝ ℝ DetFiber, and every chart c has an atlas trivialization e with e.baseSet = c.baseSet and e = c.pretriv. B: for generateFrom 𝓑, every point lies in a fibrewise-linear trivialization with fibre ℝ, and every γ_(T,P,ε) is a homeomorphism from the subspace topology onto natTopD. A ⇒ B uses A's trivializations. First, 𝒯 = generateFrom 𝓑, from Proposition 6.23 (another item's theorem, not banned here) and detBasis_eq. Then e = pretriv gives B's linear charts. On the ball, γ = Ψ ∘ (jB × id) ∘ e, where Ψ is the frame map (a homeomorphism by natTop_iff) and jB : ball → F(E,F) is an open embedding (every S of the ball is Fredholm). So γ is continuous and open, and bijective as in V6_24. B ⇒ A holds only outright (B unused). A's VectorBundle is the instance derived from detPrebundle and its trivializations are trivializationOfMemPretrivializationAtlas, so A is true by construction for 𝒯. B, about generateFrom 𝓑, gives neither the FiberBundle structure (fibre topology, atlas, MemTrivializationAtlas) nor 𝒯 = generateFrom 𝓑 (Prop 6.23).",
+ "B_issue": null,
+ "overlap": "A_to_B shares 314 and B_to_A 315 project theorems, essentially the body of detPrebundle reached through the instances in A's statement (Lemma 6.25 and the lemma_6_21 / corollary_6_13 machinery) plus the chart API. A_to_B also uses proposition_6_23 through topology_eq; that is allowed and is not in 6.24's closure.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

@@ -1,0 +1,148 @@
+import Polyfold
+/-! Blind formalization of V6_25 (the text's §6.4, Definition 6.22, p. 218). Choices:
+- This item is a definition.  B says that the project's `detBasis E F` (Definition 6.22; only its
+  type and docstring were seen) is the text's collection `𝓑` written below (`detB`).
+- `𝓑` (`detB`, Definition 6.22): `B ⊆ DET(E, F)` such that for some admissible `(T, P, ε)`,
+  `B` lies over the ball `‖S − T‖ < ε` (the text's `γ_(T,P,ε)(B)` presupposes that `B` is in the
+  domain of `γ_(T,P,ε)`) and `γ_(T,P,ε)(B)` is open in `DET(T, P, ε)` with its natural topology.
+- Setting: real Banach spaces `E F : Type` (universe 0); `L(E, F)` with the operator norm; the
+  ball `{‖S − T‖ < ε}` is `Metric.ball T ε` with the subspace topology.  Fredholm is Mathlib's
+  `ContinuousLinearMap.IsFredholm` (for Banach spaces the text's notion).
+- `DET(T, P, ε)` is "defined" for the admissible triples `IsDetChart T P ε`: `T` Fredholm,
+  `P ∈ Π_T`, `ε > 0`, and for some topological complement `Y` of `ker(PT)` (Mathlib's
+  `Submodule.IsTopCompl`) the conclusions of Lemma 6.17 hold on the ball (`P ∈ Π_S`, and
+  `y ↦ PSy` is a topological isomorphism `Y ≅ R(P)`).  Every such `ε` is allowed, not only the
+  one produced by the proof of Lemma 6.17.  (These conditions imply that every `S` of the ball is
+  Fredholm; I do not add this as a hypothesis.)
+- "In a natural way" (Lemma 6.19 applied to the trivial kernel bundle of Lemma 6.18 and the
+  constant cokernel bundle `F/R(PS) = F/R(P)`): I define the natural topology of
+  `DET(T, P, ε) = ⋃ {S} × det(PS)` myself, as the final topology of all frame maps
+  `U × ℝ → DET(T, P, ε)`, `(S, t) ↦ (S, t (σ₁(S) ∧ … ∧ σₙ(S)) ⊗ ([f₁(S)] ∧ … ∧ [f_l(S)])*)`,
+  for `U` open in the ball, `σᵢ : U → E` continuous with `σ(S)` a basis of `ker(PS)` (a continuous
+  local frame of the kernel bundle, whose topology is that of `⋃ {S} × ker(PS) ⊆ L(E,F) × E`),
+  and `fⱼ : U → F` continuous with classes a basis of `F/R(PS)`.  These are the trivializations
+  induced, as in Lemma 6.19, by local trivializations of the two bundles.  (A set is open iff its
+  preimage under every frame map is open.)
+- Project definitions used (checked with `#print`): `fredholmDet T = λ(ker T) ⊗ λ*(F ⧸ R(T))`,
+  `maxPow` (`λ`, top exterior power), `maxPowDual` (`λ*`), `wedge` (`v₁ ∧ … ∧ vₖ`), `dualVec`
+  (`v ↦ v*`, `v*(v) = 1`), `IsGoodLeftProj` (`Π_T`: `P² = P`, `dim F/R(P) < ∞`,
+  `R(PT) = R(P)`).
+- `DET(E, F) = ⋃_S {S} × det(S)`: `Bundle.TotalSpace ℝ DETF` over the project's
+  `FredholmOp E F` (checked with `#print`: the subtype `{S // S.IsFredholm}` of `L(E, F)`, with
+  the subspace topology of the norm topology); the fibre `DETF S` is `fredholmDet S` with the
+  tensor product's linear structure.  I do not use the project's topology on `DET(E, F)`; every
+  topology is passed explicitly.
+- `γ_(T,P,ε)` (`gammaChart`) is defined on the points of `DET(E, F)` over the ball (`S` Fredholm,
+  `‖S − T‖ < ε`), with values in `DET(T, P, ε)` (over the whole ball); fibrewise it is the linear
+  isomorphism `γ^P_S`, so it is fibrewise linear by construction.
+- `γ^P_T : det(T) → det(PT)` is the project's `gammaProj` (only its type was checked; its
+  docstring: `Φ_{E(T,P)}` of the exact sequence `E(T,P)` followed by `λ*(F/R(P)) = λ*(F/R(PT))`).
+  I did not re-derive this map; I take it to be the text's `γ^P_T`.
+- Nothing looks false to me.
+-/
+namespace RoundTrip.V6_25
+open Polyfold Bundle
+
+noncomputable section
+
+variable {E F : Type} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
+  [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
+
+/-- `ker(PS)`. -/
+abbrev kerPS (P : F →L[ℝ] F) (S : E →L[ℝ] F) : Submodule ℝ E :=
+  LinearMap.ker ((P.comp S : E →L[ℝ] F) : E →ₗ[ℝ] F)
+
+/-- `coker(PS) = F ⧸ R(PS)`. -/
+abbrev cokPS (P : F →L[ℝ] F) (S : E →L[ℝ] F) : Type :=
+  F ⧸ LinearMap.range ((P.comp S : E →L[ℝ] F) : E →ₗ[ℝ] F)
+
+/-- `(T, P, ε)` is admissible, i.e. `DET(T, P, ε)` is defined: `T` Fredholm, `P ∈ Π_T`, `ε > 0`,
+and the conclusions of Lemma 6.17 hold on the ball `‖S − T‖ < ε` for some topological complement
+`Y` of `ker(PT)`: `P ∈ Π_S`, and `y ↦ PSy` is a topological isomorphism `Y ≅ R(P)`. -/
+def IsDetChart (T : E →L[ℝ] F) (P : F →L[ℝ] F) (ε : ℝ) : Prop :=
+  T.IsFredholm ∧ IsGoodLeftProj T P ∧ 0 < ε ∧
+  (∀ S : E →L[ℝ] F, ‖S - T‖ < ε → IsGoodLeftProj S P) ∧
+  ∃ Y : Submodule ℝ E, Submodule.IsTopCompl (kerPS P T) Y ∧
+    ∀ S : E →L[ℝ] F, ‖S - T‖ < ε →
+      ∃ e : Y ≃L[ℝ] LinearMap.range (P : F →ₗ[ℝ] F), ∀ y : Y, (e y : F) = P (S y)
+
+/-- The fibre `det(PS)` of `DET(T, P, ε) = ⋃_{‖S−T‖<ε} {S} × det(PS)`. -/
+abbrev LD (T : E →L[ℝ] F) (P : F →L[ℝ] F) (ε : ℝ) (S : Metric.ball T ε) : Type :=
+  fredholmDet (P.comp (S : E →L[ℝ] F))
+
+/-- A continuous local frame of the kernel bundle `⋃ {S} × ker(PS)` over `U ⊆ L(E, F)`:
+continuous `σ₁, …, σₙ : U → E` forming a basis of `ker(PS)` at every `S ∈ U`. -/
+structure KerFrame (P : F →L[ℝ] F) (U : Set (E →L[ℝ] F)) where
+  n : ℕ
+  σ : U → Fin n → E
+  cont : Continuous σ
+  mem : ∀ (S : U) (i : Fin n), σ S i ∈ kerPS P (S : E →L[ℝ] F)
+  li : ∀ S : U, LinearIndependent ℝ (σ S)
+  card : ∀ S : U, n = Module.finrank ℝ (kerPS P (S : E →L[ℝ] F))
+
+/-- `σ₁(S) ∧ … ∧ σₙ(S) ∈ λ(ker(PS))`. -/
+def KerFrame.wedgeAt {P : F →L[ℝ] F} {U : Set (E →L[ℝ] F)} (k : KerFrame P U) (S : U) :
+    ↥(maxPow (kerPS P (S : E →L[ℝ] F))) :=
+  wedge (fun i => (⟨k.σ S i, k.mem S i⟩ : kerPS P (S : E →L[ℝ] F))) (k.card S)
+
+/-- A continuous local frame of the cokernel bundle `⋃ {S} × coker(PS)` over `U`: continuous
+`f₁, …, f_l : U → F` whose classes form a basis of `F ⧸ R(PS)` at every `S ∈ U`. -/
+structure CokFrame (P : F →L[ℝ] F) (U : Set (E →L[ℝ] F)) where
+  l : ℕ
+  f : U → Fin l → F
+  cont : Continuous f
+  li : ∀ S : U, LinearIndependent ℝ
+    (fun j => (Submodule.Quotient.mk (f S j) : cokPS P (S : E →L[ℝ] F)))
+  card : ∀ S : U, l = Module.finrank ℝ (cokPS P (S : E →L[ℝ] F))
+
+/-- `([f₁(S)] ∧ … ∧ [f_l(S)])* ∈ λ*(coker(PS))`. -/
+def CokFrame.dualAt {P : F →L[ℝ] F} {U : Set (E →L[ℝ] F)} (c : CokFrame P U) (S : U) :
+    maxPowDual (cokPS P (S : E →L[ℝ] F)) :=
+  dualVec (wedge (fun j => (Submodule.Quotient.mk (c.f S j) : cokPS P (S : E →L[ℝ] F))) (c.card S))
+
+/-- Open subsets `U` of the ball `‖S − T‖ < ε` (as subsets of `L(E, F)`). -/
+def OpenSub (T : E →L[ℝ] F) (ε : ℝ) : Type :=
+  {U : Set (E →L[ℝ] F) // IsOpen U ∧ U ⊆ Metric.ball T ε}
+
+/-- The frame map `U × ℝ → ⋃ {S} × Fib(S)`, `(S, t) ↦ (S, t s(S))` of a section `s` over `U`. -/
+def frameMap {T : E →L[ℝ] F} {ε : ℝ} {Fib : Metric.ball T ε → Type}
+    [∀ S, AddCommGroup (Fib S)] [∀ S, Module ℝ (Fib S)]
+    (U : OpenSub T ε) (s : ∀ S : U.1, Fib ⟨S.1, U.2.2 S.2⟩) : U.1 × ℝ → TotalSpace ℝ Fib :=
+  fun p => ⟨⟨p.1.1, U.2.2 p.1.2⟩, p.2 • s p.1⟩
+
+/-- The natural topology of `DET(T, P, ε)` (Lemma 6.19 / Proposition 6.20): the final topology of
+the frame maps `(S, t) ↦ (S, t (σ₁(S) ∧ … ∧ σₙ(S)) ⊗ ([f₁(S)] ∧ … ∧ [f_l(S)])*)` of all pairs of
+continuous local frames `σ` of `ker(PS)` and `f` of `coker(PS)` over a common open `U`. -/
+@[instance_reducible] def natTopD (T : E →L[ℝ] F) (P : F →L[ℝ] F) (ε : ℝ) :
+    TopologicalSpace (TotalSpace ℝ (LD T P ε)) :=
+  ⨆ i : (Σ U : OpenSub T ε, KerFrame P U.1 × CokFrame P U.1),
+    TopologicalSpace.coinduced (frameMap (Fib := LD T P ε) i.1
+      (fun S => i.2.1.wedgeAt S ⊗ₜ[ℝ] i.2.2.dualAt S)) inferInstance
+
+/-- The fibre `det(S)` of `DET(E, F) = ⋃_S {S} × det(S)` over a Fredholm `S` (the base is the
+project's `FredholmOp E F = {S // S.IsFredholm}`, with the norm topology). -/
+abbrev DETF (S : FredholmOp E F) : Type := fredholmDet (S : E →L[ℝ] F)
+
+/-- `γ_(T,P,ε) : (S, h) ↦ (S, γ^P_S(h))`, from `DET(E, F)` over the ball to `DET(T, P, ε)`. -/
+def gammaChart {T : E →L[ℝ] F} {P : F →L[ℝ] F} {ε : ℝ} (hc : IsDetChart T P ε) :
+    {p : TotalSpace ℝ (DETF (E := E) (F := F)) // (p.proj : E →L[ℝ] F) ∈ Metric.ball T ε} →
+      TotalSpace ℝ (LD T P ε) :=
+  fun p => ⟨⟨p.1.proj.1, p.2⟩,
+    gammaProj p.1.proj.2 (hc.2.2.2.1 _ (mem_ball_iff_norm.mp p.2)) p.1.2⟩
+
+/-- **Definition 6.22**, the text's `𝓑`: the subsets `B ⊆ DET(E, F)` lying over the ball of some
+admissible `(T, P, ε)` whose image `γ_(T,P,ε)(B)` is open in `DET(T, P, ε)` (natural topology). -/
+def detB : Set (Set (TotalSpace ℝ (DETF (E := E) (F := F)))) :=
+  {B | ∃ (T : E →L[ℝ] F) (P : F →L[ℝ] F) (ε : ℝ) (hc : IsDetChart T P ε),
+    (∀ p ∈ B, (p.proj : E →L[ℝ] F) ∈ Metric.ball T ε) ∧
+    @IsOpen _ (natTopD T P ε) (gammaChart hc '' {p | p.1 ∈ B})}
+
+/-- Definition 6.22: the project's `𝓑` (`detBasis`) is the text's collection `𝓑`. -/
+def B : Prop :=
+  ∀ {E F : Type} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
+    [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F],
+    (detBasis E F : Set (Set (TotalSpace ℝ (DETF (E := E) (F := F))))) = detB
+
+end
+
+end RoundTrip.V6_25

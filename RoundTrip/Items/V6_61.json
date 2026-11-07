@@ -1,0 +1,22 @@
+{
+ "id": "V6_61",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A is the conjunction of the 16 theorems among the 22 declarations (universes 0). B is Theorem 6.41 plus the non-generic sentence. Hypotheses: A's give B's, since IsSectionOrientation → D640 is proved (D640_of_isSectionOrientation, rt_check OK). B's do not give A's. D640 → IsSectionOrientation needs a basis of sc-smoothly contractible neighbourhoods (see V6_60), and B's f lacks the tame germ data A uses at every smooth point. Corners: SolutionSetInGeneralPosition gives IsCompactCornerManifold by glue (proved), so with tame germ data A gives that part of B (corner_of_A). Orientation: A's continuity is path-wise, in the chart of an orientable pair; B asks for continuous local frames of ker f' on W ∩ S, in some chart, with the right ray. Either way needs real work: kernel continuity over S, local frames, sc-smooth paths of zeros, and tangentOr agreeing across charts (not formalized). B's part (2), orienting S_{f+s} through an induced orientation of f + s, is absent from the project. B ⇒ A also fails: B gives none of the lemmas and less than SolutionSetInGeneralPosition.",
+ "B_issue": "Not a misreading: B follows the text's sc-smoothly contractible orientable neighbourhoods. But its hypothesis D640 constrains o only on such sets. Where none exist near a zero, D640 holds for arbitrary o, and B's conclusion TangentOrContinuous could fail. The blind author flags this, and it is not decided here. B reads the non-generic case for every sc⁺-perturbation s with f + s proper and generic, dropping 'small, supported near the zero set'. That looks harmless, since the induced orientation should exist for any s.",
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "partial": {
+  "D640_of_isSectionOrientation": "proved, rt_check OK: A's hypothesis IsSectionOrientation gives B's D640",
+  "isCompactCornerManifold_of_solutionSetInGeneralPosition": "proved: SolutionSetInGeneralPosition → IsCompactCornerManifold",
+  "corner_of_A": "proved, rt_check OK, uses the hypothesis theorem_6_41_solutionSet (A's first conjunct), stated on that conjunct because A's type mentions tangentFamily, whose body is exists_tangentFamily.choose, which rt_check would otherwise traverse: with tame germ data, B's IsCompactCornerManifold",
+  "missing_A_to_B": "tame germ data from B's hypotheses; D640 → IsSectionOrientation; TangentOrContinuous from path-wise IsLineOrientation; B's part (2)",
+  "missing_B_to_A": "the auxiliary lemmas; transversality, general position, tameness and d_S = d_X of S; path-wise IsLineOrientation in the orientable pair's chart from B's frames in another chart (cross-chart agreement of tangentOr)"
+ }
+}

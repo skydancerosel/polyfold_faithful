@@ -1,0 +1,15 @@
+{
+ "id": "V6_20",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions (IsGoodLeftProj = Π_T, Submodule.IsTopCompl, operator norm); A's (e : Y →L R(P)) = projRestrict P S Y is B's pointwise e y = P (S y). A has no hypothesis that T is Fredholm, B has one, so A => B is instantiation. B => A is not instantiation: B is applied to a different Fredholm operator, T'' = P T|_Y : Y → F on the closed (Banach) subspace Y, which is injective with range R(PT) = R(P) (closed, finite codimension), hence Fredholm (project lemma isFredholm_of_banach), with P ∈ Π_{T''}, ker(PT'') = 0 and complement ⊤. For ‖S − T‖ < ε'/(‖P‖+1), S'' = P S|_Y is within ε' of T'', so B gives R(PS'') = R(P) (hence R(PS) = R(P)) and an isomorphism ⊤ ≅ R(P), y ↦ P S y, whence P S|_Y is bijective and, by the open mapping theorem, a topological isomorphism. So the Fredholm hypothesis on T is inessential and the two statements are equivalent.",
+ "B_issue": null,
+ "overlap": "7 shared project theorems: projRestrict._proof_1/_proof_2 (the definition's codomain proof) and the IsGoodLeftProj API (isProj, isClosed_range, finite_coker, range_comp, isTopCompl_range_ker_of_comp_self); none of the specific argument of lemma_6_17 (the openness of the invertible operators) is shared beyond what B supplies.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

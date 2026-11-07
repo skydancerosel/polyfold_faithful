@@ -1,0 +1,19 @@
+{
+ "id": "V6_39",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0) is the continuation algebra of λ(L) over an arbitrary simply connected, locally path-connected base Q (SubspaceFamily.cont_eq/self/trans/comp/eq_transport) and the push-forward lemmas propagate_self/trans/comp for given stabilized end points. B is the text's construction along a path: for choices s, s₁…s_k with the text's pointwise (P) (general position of F_t on ℝᵏ × X for each fixed t ∈ [0,1]), read in a chart, (1) T_0, T_1 ∈ Lin, (2) T_t Fredholm and T_t ⊕ φ_t onto, (3) Φ_{E_t} bijective, (4) the L_t a continuous family, (5) unique continuation. A gives (5) (A_to_B5: uniqueness from cont_eq, existence from the non-item exists_lineOrientation_apply_eq) and (3) is the non-item stabIota_bijective, but (1), (2), (4) are Lemmas 6.29–6.31 under the pointwise (P), about which A says nothing; the project proves the corresponding facts (exists_isStabKernels, V6_42) only under a different, parametrized (P) on a neighbourhood of [0,1], so bridging is Lemma 6.30 work, not glue (B is believed true). B ⇒ A holds only OUTRIGHT (A_outright redoes the item's short proofs from exists_lineOrientation_apply_eq, eq_of_apply_eq, transport_comp; B unused): from B itself A does not follow, since B's (5) is for J only and under the passage's hypotheses, while A is over every simply connected Q.",
+ "B_issue": null,
+ "overlap": "B_to_A (outright) passes #rt_check_soft: the banned cont_eq, cont_self, cont_trans are reached only through the proof fields of the definition SubspaceFamily.contEquiv (used by propagate, hence by A's statement); A_to_B5 likewise (rt_check_soft, same reason). rt_overlap: 234 shared project theorems — the orientation-cover machinery (exists_lineOrientation_apply_eq, LineOrientation.eq_of_apply_eq, transport_eq/transport_comp, orPretriv/orPrebundle, isCoveringMap_orCover), the frame/prebundle lemmas of SubspaceFamily, and stabIota/maxPow proof fields; these are exactly the lemmas the item's own one-line proofs rest on.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "partial": {
+  "A_to_B5": "proved (uses A's cont_eq), rt_check_soft OK",
+  "B3_holds": "proved from stabIota_bijective (no hypothesis)"
+ }
+}

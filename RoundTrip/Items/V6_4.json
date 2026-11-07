@@ -1,0 +1,15 @@
+{
+ "id": "V6_4",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (proposition_6_4, universes at 0) and B are the same equality of linear maps lambda*(Phi) o iota_F = iota_E o lambda(Phi*) : lambda(F*) -> lambda*(E) for a linear isomorphism Phi : E ≃ F of finite-dimensional real spaces, built from the same maxPowDualMap, iotaDual and maxPowMap. The only differences are that B writes Phi* as LinearMap.dualMap and A as Module.Dual.transpose (definitionally equal in Mathlib), and the two dimension-equality proofs passed to maxPowMap are different proofs of one Prop; both directions are a single application of the hypothesis.",
+ "B_issue": null,
+ "overlap": "8 shared project theorems, all auto-generated _proof_ terms of the definitions maxPowMap, maxPowDualMap and iotaDual (the dimension casts); no mathematical lemma of the formal proof is reused.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

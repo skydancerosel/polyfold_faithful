@@ -139,7 +139,7 @@ do not call the text wrong or speak of its "errors".
   after Theorem 6.41 are not formalized (G.66–G.69). Lemma 6.10 holds by another construction (the
   text's proof and the 2017 remark do not hold as we read them; Findings Ch. 6 item 4); formula (94)
   and Remark 6.42 are used with the sign `(−1)^{dim coker}` (items 50, 95). Paths on `ℝ` (decision
-  D2, G.65). The round-trip audit of the Chapter 6 items (`PLAN.md` §6.7, step 6) is not done.
+  D2, G.65). The round-trip audit of the 60 non-extra Chapter 6 items is done (2026-11-07; `RoundTrip/REPORT.md`, "Chapter 6, audited on 2026-11-07").
   **Part II is next.**
 * **Lean counts** (2026-11-07): 4,942 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
   1,204 for Chapter 6), all on `propext, Classical.choice, Quot.sound`; no `sorry`, no `axiom`;
@@ -309,8 +309,8 @@ each chapter lands)
    where the canonical names denote the whole-chart notions. The comparison rows, verification text
    and REPORT were updated for the switch (V3.5–V3.107, V5.14).
 10. ~~**Chapter 6**~~ — done 2026-11-07 except Theorem 6.43 (G.54) and §6.6 (G.55) (`PLAN.md` §6;
-    state in §2). Left for Chapter 6: the round-trip audit of its non-extra items (`PLAN.md` §6.7,
-    step 6) and the gaps G.56–G.69. **Next: Part II.**
+    state in §2). Round-trip audit of its 60 non-extra items done 2026-11-07. Left for Chapter 6: the gaps
+    G.56–G.69. **Next: Part II.**
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

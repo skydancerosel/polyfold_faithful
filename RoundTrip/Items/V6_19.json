@@ -1,0 +1,15 @@
+{
+ "id": "V6_19",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions on both sides (fredholmDet, wedge, dualVec, kerInl/kerInr/cokerInl/cokerInr, prodMap). A => B: Psi := directSumDet, an equivalence by directSumDet_bijective, and B's formula is definition_6_16 (B's length proofs hk, hc agree with directSumVec's by proof irrelevance). B => A: T ⊕ S Fredholm is B's first conjunct; directSumVec_eq_smul follows from the basis-independence of B's formula and the project lemma wedge_tmul_dualVec_eq_smul; directSumDet = Psi because both are linear and agree on pure tensors (each line det T, det S is spanned by its standard-basis vector, where directSumDet is defined by the formula), giving definition_6_16 and directSumDet_bijective. The only parts of A not in B are the dimension identities finrank_ker_prodMap / finrank_coker_prodMap, which B takes as hypotheses hk, hc of its formula (they are true and were proved directly in two lines from kerProdEquiv/cokerProdEquiv, without B).",
+ "B_issue": null,
+ "overlap": "52 shared project theorems, mostly determinant-line infrastructure (wedge_tmul_dualVec_eq_smul, dualVec_self, dualVec_ne_zero, wedge_basis_ne_zero, tmul_ne_zero_of_ne_zero, finrank_fredholmDet, exists_smul_eq_of_finrank_eq_one, bijective_coprod_kerInl_kerInr/cokerInl_cokerInr via kerProdEquiv/cokerProdEquiv) and directSumDet._proof_N; finrank_ker_prodMap and finrank_coker_prodMap appear only through the body of directSumVec. HARNESS: A's statement mentions directSumVec, whose body passes the banned finrank_ker_prodMap, finrank_coker_prodMap (not abstracted into _proof_N) as wedge length proofs, so both directions fail plain #rt_check and #rt_check_soft (recorded with #guard_msgs); as in V1_32/V2_24 a local #rt_check_except_defs with the body of directSumVec not unfolded passes on A_to_B and B_to_A.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

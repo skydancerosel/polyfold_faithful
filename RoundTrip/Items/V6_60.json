@@ -1,0 +1,20 @@
+{
+ "id": "V6_60",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B is definitional. For every M-polyfold (no tameness) and every y ↦ o_y, the project's IsSectionOrientation equals the text's D640. The project asks continuity over V, for paths in U, for every orientable pair V ⊆ U. D640 asks continuity over every open, sc-smoothly contractible U with the local propagation property. A is four theorems relating IsSectionOrientation to Γ_f (isSectionOrientation_iff, exists_isSectionOrientation_iff, apply_eq_iff, exists_two). They hold under tameness, bump functions, tame germ data and HasScPlusSectionsThrough. IsSectionOrientation → D640 is glue and is proved (D640_of_isSectionOrientation, rt_check OK). A contractible U with the propagation property joins its smooth points by sc-smooth paths in U, so (U, U) is a project pair. D640 → IsSectionOrientation is the genuine gap. D640 says nothing about pairs. To get continuity along a path in U, one must cover the path by sc-smoothly contractible open subsets of U, then compose push-forwards. That needs a basis of sc-smoothly contractible neighbourhoods at smooth points, which the project does not have and A does not give: mathematics, truth open here. Where such sets are missing, D640 is vacuous and strictly weaker. B ⇒ A fails because A's Γ_f characterizations do not follow from B; getting them would mean re-proving A outright.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "partial": {
+  "D640_of_isSectionOrientation": "proved, rt_check OK: IsSectionOrientation → D640 (B's →), with exists_path_of_contractible",
+  "missing": "D640 → IsSectionOrientation: needs sc-smoothly contractible open sets with the propagation property around every point of every path in U (a neighbourhood basis)"
+ },
+ "satisfiability": "D640 is satisfiable whenever IsSectionOrientation is (it is implied by it). IsSectionOrientation is satisfiable exactly when f is orientable (exists_isSectionOrientation_iff). The project's IsOrientableNbhd exists under A's hypotheses (exists_isOrientableNbhd)."
+}

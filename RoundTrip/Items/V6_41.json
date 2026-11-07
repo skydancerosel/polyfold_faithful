@@ -1,0 +1,16 @@
+{
+ "id": "V6_41",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B says the project's IsStabKernels.push equals the text's literal push-forward F.push (o₀ ↦ o₀(T_0), Φ_{E_0}, continuation, Φ_{E_1}⁻¹, no sign); the project's push inserts stabSign α(T) = (−1)^{dim coker T} at both end points, and A's lemmas are about that signed push. Proved (push_eq_iff, rt_check_soft OK): for every datum of B, hΛ.push = F.push ↔ stabSign T_0 = stabSign T_1, i.e. iff dim coker T_0 ≡ dim coker T_1 (mod 2) — via R.T = stabT, R.Φ = stabPhi (ext on the defining equations), sign-equivariance of continuation and of Φ_E (propagate_units_smul) and the ±1 bookkeeping (signs_iff). So B holds iff the cokernel parity is the same at both ends of every path with choices satisfying (P); it does change in general (finite-dimensional model: X = ℝ, f(x) = x², φ(t) = t, s₁ = 1: dim coker T_0 = 1, dim coker T_1 = 0), so B is believed false and A ⇒ B fails for this genuine reason (the sign). not_B is not proved: it needs that instance inside the M-polyfold framework (strong bundle, sc-Fredholm f, general-position germs in the pulled-back bundle over ℝᵏ × X, Reading, Facts, IsStabKernels), beyond this audit's budget. B ⇒ A not attempted (A is about the project's signed push; B would only identify it with the unsigned one, and is believed false).",
+ "B_issue": null,
+ "overlap": "No direction proved. The diagnostic push_eq_iff passes #rt_check_soft: the banned ChartPoint.stabT_mem_linSet is reached only through the proof fields of the definition IsStabKernels.push (which B's statement mentions); it uses cont_eq, exists_lineOrientation_apply_eq, rayMap_units_smul-style lemmas (re-proved for monoid modules), kerEquivMap, coe_stabPhi, finrank_fredholmDet.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ },
+ "diagnostic": "push_eq_iff : hΛ.push hf iccZero iccOne … = F.push hf ↔ stabSign (R.T iccZero) = stabSign (R.T iccOne) (proved)"
+}

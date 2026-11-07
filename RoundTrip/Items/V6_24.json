@@ -1,0 +1,15 @@
+{
+ "id": "V6_24",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A is exists_localDetChart (universes 0): every Fredholm T is the centre of a LocalDetChart. B's admissible triples IsDetChart T P ε are exactly the (c.T, c.P, c.ε) of the project's charts (chartOf/hcOf; Y is existential in B), so B (1) ⇔ A, and B_to_A uses B (1). B (2), that γ_(T,P,ε) is a bijection from DET(E,F) over the ball onto DET(T,P,ε) for EVERY admissible triple, does not follow from A; A_to_B proves it outright (gammaChart_bijective). Fibrewise γ is gammaProj, a linear equivalence, but surjectivity needs every S of the ball to be Fredholm (chart_isFredholm: ker S ⊆ ker PS; S(Y) is closed because P is a left inverse of S∘(PS|_Y)⁻¹; F = R(S) + ker P). The project never states this: its pretriv, which is γ read in the frame ω (gammaChart_eq), is a pretrivialization only over c.baseSet, the Fredholm part of the ball. So B carries a true claim that A lacks (about 60 lines here), and nothing in A is missing from B.",
+ "B_issue": null,
+ "overlap": "A_to_B 22 and B_to_A 21 shared project theorems, all general Π_T/Fredholm API (IsGoodLeftProj.isFredholm_comp, finiteDimensional_ker, isClosed_range, range_comp; isFredholm_of_banach, isStrictMap_of_isClosed_range; HasFiniteIndex.*; norm_projRestrict_sub_le). They come from gammaProj in B's statement and from chart_isFredholm. None of them is the item's theorem.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

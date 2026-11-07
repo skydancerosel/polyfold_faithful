@@ -1,0 +1,15 @@
+{
+ "id": "V6_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The definitions are the text's: maxPow E is literally ⋀[ℝ]^(dim E) E, maxPowDual E is Module.Dual ℝ (maxPow E), maxPowDualMap is the transpose of maxPowMap (B's (1), (2), (6) hold by rfl), and A's finrank_maxPow, maxPowMap_wedge, maxPowMap_ne_zero_iff, maxPowMap_comp, dualVec_self give B's (1), (3), (4), (5), (7) by instantiation. B ⇒ A uses B for finrank_maxPow, dualVec_self, eq_dualVec_of_apply_eq_one (B's v*(v)=1 plus 'a functional on a line is fixed by one value', dual_ext_of_ne_zero), maxPowMap_ne_zero_iff, and maxPowMap_wedge / maxPowMap_comp for finite-dimensional spaces. A has content B does not state, re-proved outright: the five wedge lemmas (wedge_eq_det_smul, wedge_append_basis_left/right, wedge_append_add_left/right — proof lemmas for Lemma 6.5, not claims of pp. 203–204), the general-k form of maxPowMap_wedge, and the infinite-dimensional cases of maxPowMap_wedge and maxPowMap_comp (A has no FiniteDimensional hypothesis there; B, like the text, speaks of finite-dimensional spaces).",
+ "B_issue": null,
+ "overlap": "24 shared project theorems: the infrastructure behind the outright re-proofs of the wedge lemmas (alternatingMap_eq_det_smul, alternatingMap_eq_of_sub_mem_span, appendLeftMap/appendRightMap and their _proof_ terms, append_update_left/right, image_append_range_castAdd/natAdd), dual_ext_of_ne_zero and exists_smul_eq_of_finrank_eq_one (for eq_dualVec_of_apply_eq_one), and _proof_ terms of wedge, dualVec, maxPowMap.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

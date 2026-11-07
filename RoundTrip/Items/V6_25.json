@@ -1,0 +1,15 @@
+{
+ "id": "V6_25",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only detBasis is listed, so A = True and both implications are vacuous. The content is B (detBasis E F = detB), proved outright as B_holds. The project's 𝓑: B ⊆ c.pretriv.source with c.pretriv '' B open in F(E,F) × ℝ. B's 𝓑: B lies over the ball of an admissible (T,P,ε) and γ(B) is open for B's natural topology natTopD, the final topology of all frame maps of continuous local frames of ker(PS) and coker(PS). They agree for three reasons. (i) Admissible triples are charts. (ii) natTopD is the topology carried over from ball × ℝ by the project's frame ω (natTop_iff). ω is itself one of B's frames (kernel frame kᵢ + y(kᵢ,S), constant lifts of a basis of F/R(P)). Conversely every B-frame equals g(S)·ω(S) with g = det(kerProj∘σ)·det([f])⁻¹ continuous, via linDetEquivOfEq_wedge_tmul; the cokernel determinant is continuous through 1 − P and nonzero because B's wedge is nonzero. (iii) γ read in ω is pretriv (gammaChart_eq), and ball → F(E,F) is an open embedding onto c.baseSet because every S of the ball is Fredholm. So the project's reading of 'in a natural way' (DET(T,P,ε) ≅ ball × ℝ through ω) is the text's natural topology.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial). B_holds avoids proposition_6_23/6_24 (#rt_check). It uses the LocalDetBundle/DetBundle chart API (kerFrame/cokerFrame linear independence, frame_ne_zero, lemma_6_18, continuousOn_kerMap_apply, linDetEquivOfEq_wedge_tmul, continuous_basis_det, coord_apply, isOpen_baseSet) and isFredholm_of_banach.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

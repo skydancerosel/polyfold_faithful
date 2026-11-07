@@ -1,0 +1,13 @@
+{
+ "id": "V6_13",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A says the project's gammaProj hT hP satisfies (91) for every Choice of E(T,P) (gammaProj_tmul) and for every family choice (gammaProj_wedge_tmul); B says some isomorphism det T -> det PT satisfies (91) for every family choice. A => B: gamma := gammaProj, with A's family form; the C-side cosets (cokerCompEquiv)^-1 (f + R(P), Tb' + R(P)) are B's (f + R(PT), Tb' + R(PT)) (symm_comp_append). B => A uses B substantively: a map with B's IsGamma has value (91) on every project Choice (value_of_isGamma: translate the Choice to bases a, d, b' = Z o b', lifts f of c), and gammaProj, by its definition from the canonical choice (phi = smulRight (dualVec chi0.source) chi0.value), agrees with B's gamma on chi0.source != 0, so gammaProj = gamma on the line det T (gammaProj_eq_of_isGamma); both conjuncts follow. A separate #rt_check shows B => A avoids lemma_6_5, phi_wedge_tmul and exists_smul_source_value: the choice-independence (Lemma 6.5 for E(T,P)) comes from B. Same reading of 'recalling R(P) = R(PT)' on both sides (identity of F).",
+ "B_issue": null,
+ "overlap": "110 shared project theorems, all through the definition of gammaProj (projSeq's fields = lemma_6_11, phi_bijective, isFredholm_comp, finite-dimensionality lemmas) and the determinant-line library (wedge_ne_zero_iff, maxPowDualEquiv_dualVec_symm, dualVec_self, Choice.source_ne_zero, wedgeB/wedgeC_ne_zero, tmul_ne_zero_of_ne_zero, ...). lemma_6_5 and phi_wedge_tmul are not among them.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true},
+ "universes": "gammaProj_tmul and gammaProj_wedge_tmul instantiated at universes 0, 0."
+}

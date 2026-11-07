@@ -1,0 +1,17 @@
+{
+ "id": "V6_50",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A = exists_two_isContinuousOrientation ∧ exists_orientableNbhd ∧ exists_isOrientableNbhd (universes 0). B: (1) path independence and ψ_*o_{y₁} = o_{y₂} in an orientable neighbourhood, (2) IsContinuousOrientation (V = U) = B's IsContOrB, (3) an orientable neighbourhood (open, sc-smoothly contractible, HasLocalPropagation) has exactly two continuous orientations. (1) is HasLocalPropagation.eq / .eq_trans, (2) is Iff.rfl. (3) follows from A (A_to_ThreeSec) with V = U, the paths hypothesis built from the contraction, and B.HasScPlusSectionsThrough — a hypothesis of A that B does not give (satisfiable: AdmitsBumpFunctions.hasScPlusSectionsThrough via Lemma 5.11, or hasScPlusSectionsThrough_of_chart). It is used only for Lin(f, x) ≠ ∅, and is redundant in an orientable neighbourhood: the push-forward datum along the constant path at x contains an sc⁺-section S of π*Y with (f + S(0, ·))(x) = 0, so (f + S(0, ·))'(x) ∈ Lin(f, x) (linSet_nonempty_of_localPropagation). With this, B is proved outright (B_outright, re-running the argument of exists_two_isContinuousOrientation), so the recorded A_to_B is vacuous. B ⇒ A fails genuinely: B has no existence statement (exists_orientableNbhd, exists_isOrientableNbhd are Theorem 6.35 + exists_nhds_scPath, with hypotheses bump functions, tame section, sections, extra paracompactness families), and B's (3) is only for V = U contractible and open, while the project's notion is a pair V ⊆ U whose smooth points are joined by paths in U (more general; the project never produces a contractible one).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved). A_to_B (outright) and A_to_ThreeSec pass #rt_check; they use HasLocalPropagation.eq_trans, proposition_6_26, convex_linSet, isFredholm_of_mem_linSet, the pullbackSlice lemmas, concatPath lemmas — none of the item's theorems.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false},
+ "partial": {
+  "A_to_ThreeSec": "proved using A (exists_two_isContinuousOrientation), under the extra hypothesis Bd.HasScPlusSectionsThrough",
+  "B_outright": "proved without A and without the sections hypothesis",
+  "note": "So A ⇒ B up to the sections hypothesis, which is satisfiable and redundant here; B is true."
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V6_64",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is the three lemmas the project extracts from §6.7.2: gammaProj_wedge_tmul (formula (91) for γ^P_T on arbitrary families a, d, b, lifts c), mem_span_append_of_ker (in F: g ∈ ker Q lies in span(d, Tb)) and comp_comp_eq_of_projLE (P(QT) = PT). B is the blind author's computation for the text's specific data. A ⇒ B: B(1) is gammaProj_wedge_tmul applied twice (lifts [d]_Q, then [d]_P,[Tb]_P) plus linDetEquivOfEq_tmul; B(4) is one more application plus re-bracketing (wedge_append_assoc); B(3) is mem_span_append_of_ker pushed to F/R(PT) and wedge_append_add_right; B(2) (the IsCompl split, using QP = P) is elementary and proved directly. B ⇒ A: gammaProj_wedge_tmul is B(4) at Q := P, m = 0 (no b̃), with dᵢ := fᵢ − P fᵢ for representatives fᵢ of the given lifts cᵢ (then [dᵢ]_T = π(cᵢ) and [dᵢ]_{PT} = cᵢ); P ∈ Π_{PT} is built by hand. The two auxiliary lemmas are not consequences of B (B only states their effect inside the quotient F/R(PT)); they are elementary and are re-proved outright in the file (mem_span_append_of_ker' copies the project's argument; comp_comp_eq_of_projLE is one rewrite). So the substantive content (γ^P_T on wedges) is equivalent; B is the special case the text needs and already implies the general formula.",
+ "B_issue": null,
+ "overlap": "#rt_overlap B_to_A: 106 shared project theorems — the determinant-line and exact-sequence infrastructure (FourTermExact fields and canonicalChoice proof fields, wedge/dualVec/maxPowMap lemmas, gammaProj/projSeq/projSeqPi proof fields, IsGoodLeftProj fields, isFredholm_comp, ker_le_ker_comp, Fredholm finiteness lemmas); none of the three banned theorems. Both directions pass the hard #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V6_55",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A's exists_two_orx assumes Bd.HasScPlusSectionsThrough, and B's setting does not give it. The project's Lin(f,x) (linSet) is built from GLOBAL sc+-sections s with f(x)+s(x)=0. When there is none, linSet is empty, and Or = LineOrientation over an empty base has exactly one element, so B (Nat.card = 2) would fail there; B's author flagged this. With hsec added, A => B is proved (A_to_B_hsec, through A' = isChart_orChart, mem_orChart, exists_two_orx): A's two elements of Orx are carried to any chart point by ChartPoint.orTransfer, and tameness is not used. Conversely, B gives exists_two_orx only for TAME X (B_to_existsTwo_tame). A's other conjuncts (the chosen chart orChart is a chart at x; toChartOr is the identity in it and composes with orTransfer) are facts about project definitions that B does not state. Unstated hypothesis: hsec is satisfiable (it follows from sc-smooth bump functions, AdmitsBumpFunctions.hasScPlusSectionsThrough).",
+ "B_issue": null,
+ "overlap": "B_to_existsTwo_tame: 1139 shared project theorems (sc-calculus, charts, Fredholm and determinant glue under ChartPoint.Or); none of the item's five theorems. A'_to_B_hsec and B_to_existsTwo_tame fail #rt_check_soft, recorded with #guard_msgs: their statements mention Orx, whose body passes isChart_orChart and mem_orChart directly to chartPtOf, not as a _proof_N. They pass #rt_check_except_defs [Polyfold.Orx] (as in V1_32, V3_64, V6_19). A_to_B_hsec cannot pass any traversal: A's toChartOr_orChart statement contains isChart_orChart and mem_orChart as proof terms; hence the factoring through A'.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

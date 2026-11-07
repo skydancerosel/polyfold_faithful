@@ -46,7 +46,7 @@ the prompts before handing them to an agent. Four Lean agents at a time worked o
 
 ## Status
 
-2026-11-01: complete — all 269 non-extra items audited; see `REPORT.md`. 2026-11-02: refreshed against
+2026-11-01: complete — all 269 non-extra items audited; see `REPORT.md`. 2026-11-07: the 60 non-extra Chapter 6 items audited against commit 439bc62 (`REPORT.md`, "Chapter 6, audited on 2026-11-07"); all 329 items now. 2026-11-02: refreshed against
 HEAD (below), second blind statements for seven items, Proposition 6.2 without bump functions in V3.98.
 
 The items compile against HEAD (commit 12924a4; refreshed 2026-11-02). After the audit, phase 2 of the

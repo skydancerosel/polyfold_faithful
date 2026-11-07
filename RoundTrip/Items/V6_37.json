@@ -1,0 +1,15 @@
+{
+ "id": "V6_37",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B's claim: in the product chart (ofProd p.c 0).toChart q₀ at (0, z), F_t'(λ, v) = T v + Σ λᵢ sᵢ(φ(t), t), with T = (f − s(·, t))'(φ(t)) and T(ℝᵏ × O) ≅ ℝᵏ × T_zO. This is one instance of A's scDeriv_paramSection_apply (at a = r₀ = 0) together with A's ofProd_mem_tangent_iff. A needs one hypothesis that B does not give: the slice f − s(·, t) must be an sc-smooth section and the sᵢ(·, t) sc⁺-sections of P on ALL of X. B has s and sᵢ sc⁺ only on an open neighbourhood of [0, 1] × U, yet reads the linearizations in EVERY chart point p of φ(t). The hypothesis is satisfiable (global sections; the project's Chapter 6 works with them). With it added, A ⇒ B is proved (B_concl_of_A): A's ofProd_mem_tangent_iff gives e, and its scDeriv_paramSection_apply gives the formula. All of B's other hypotheses (Proposition 6.28's U, the path φ, s(φ(t), t) = f(φ(t))) are unused. Without it, A ⇒ B is believed false: the project's linAt is the junk value 0 unless f̂ ∘ r is sc¹ on the whole chart domain (linAt_eq_zero_of_not_isSc1). B_concl_forces_Phi_zero shows that B's conclusion, in a chart point where F̂_t ∘ r is not sc¹, forces every sᵢ(φ(t), t) to be 0. B ⇒ A fails: B is a special case of one conjunct of A, and the other ten (the formula at a general point (a, w) and centre r₀, the tangent spaces and fibres of product charts, the double product chart over ℝᵏ × ℝⁿ × X, the slice kernel J(ker(T ⊕ φ)), T ∈ Lin(f, x), T ⊕ φ onto) are not in B. Only a verbatim copy of the eleven proofs would prove A here (a vacuous direction), so it was not attempted.",
+ "B_issue": "B quantifies over all chart points p : ChartPoint Bd (φ(t)) while its s and sᵢ are sc⁺ only on a neighbourhood W of [0, 1] × U (IsScPlusNear). The project's scDeriv, and so linAt, is the junk value 0 unless the principal part composed with r is sc¹ on the whole chart domain. In a chart reaching outside W, where s is an arbitrary set-theoretic section, both sides can become junk, and B then forces Σ λᵢ ŝᵢ(φ(x)) = 0 (proved: B_concl_forces_Phi_zero). So B is believed false in its generality (no explicit counterexample formalized). The text's chart-level reading of F_t' presupposes that the sections are smooth on the chart domain; B's fix would be to restrict to charts inside W or to assume global sections.",
+ "overlap": "n/a (B_to_A not proved). B_concl_of_A uses only A's ofProd_mem_tangent_iff and scDeriv_paramSection_apply (through the hypothesis), plus ChartPoint.coe_stabPhi, ChartPoint.mem_U / mem_O / toBase_z and StrongRetr.r_eq_self.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

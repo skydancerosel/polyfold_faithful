@@ -1,0 +1,15 @@
+{
+ "id": "V6_18",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = stabIota_bijective ∧ stab_card_eq ∧ isCompl_range_stabPi_span ∧ proposition_6_15 for the project's ι_φ = lTensor(stabPsi) ∘ (stabSeq hφ).phi. A ⇒ B: m + l = n is stab_card_eq; B's Φ_E (any map with (91) for every choice) agrees with (stabSeq hφ).phi on the given vector (phi_wedge_tmul for the same choice), B's ψ equals stabPsi (lines), so B's ι_φ(h) is stabIota h and Proposition 6.15 gives the formula (det via Basis.det_apply); the linear independence of (c̄, r) comes from the same formula, since ι_φ is injective (A) so det(c̄, r)⁻¹ ≠ 0. B ⇒ A fails for a genuine generality difference: all four theorems of A are stated for arbitrary normed (non-complete) spaces with Mathlib's IsFredholm, B only for Banach spaces; isCompl_range_stabPi_span moreover needs neither Fredholmness (only dim coker T < ∞) nor T_φ onto, and bijectivity of ι_φ is not stated in B (on Banach spaces it, m + l = n and the formula would follow from B, but the completeness gap is not glue).",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V6_17",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (stabPsi_dualVec) is (94) for the project's specific ψ = stabPsi hφ : λ*(ℝⁿ) → λ*(F/R(T_φ)) (a smulRight with value 1* at (e₁∧…∧eₙ)*), with det taken as (Pi.basisFun).det c; B is (94) for every linear ψ with ψ((e₁∧…∧eₙ)*) = 1* into λ*(Z) for an arbitrary subsingleton Z, plus the existence of such an isomorphism. The determinants agree (Basis.det_apply, columns c_j). B ⇒ A: B at Z = F/R(T_φ) (subsingleton since T_φ onto) and ψ = stabPsi (which satisfies IsPsi by stabPsi_dualVec_stdWedge). A ⇒ B: every ψ with IsPsi equals psi0 = x ↦ (e*)*(x)·1* (lines); the scalar (e*)*((c₁∧…∧cₙ)*) = det(c)⁻¹ is read off A at T = id_ℝ, φ = 0, using 1* ≠ 0; B's existence conjunct (not in A) is the elementary fact that psi0 is bijective, proved directly.",
+ "B_issue": null,
+ "overlap": "27 shared project theorems: basic wedge/dualVec facts (dualVec_self, dualVec_ne_zero, wedge_ne_zero_iff, wedge_basis_ne_zero', finrank_maxPow(Dual), stdWedge_ne_zero), stabPsi_dualVec_stdWedge (ψ(e*) = 1*), subsingleton_coker_coprod, finrank_coker_coprod; the change-of-basis step (wedge_eq_det_smul, dualVec_smul) of the project's proof is not used.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

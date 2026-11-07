@@ -1,0 +1,15 @@
+{
+ "id": "V6_42",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0): exists_continuousOn_lift_chart and exists_isStabKernels — for Φ : ℝⁿ → X with Φ([0,1]ⁿ) in a chart, S with f̃ + S = 0 along Φ near [0,1]ⁿ and s₁…s_k with the project's parametrized (P) (general position of f̃ + S + Σλᵢsᵢ on ℝᵏ × ℝⁿ × X near [0,1]ⁿ, IsScFredholmSectionTame), the stabilized kernels form a CONTINUOUS family (IsStabKernels). B: for a path, choices with the text's pointwise (P) (general position of each F_t on ℝᵏ × X at t ∈ [0,1], zeros only on [0,1], IsScFredholmSection + PX.IsTame), the L_t form a SMOOTH family (C^∞ local frames on level 0). A ⇒ B fails genuinely: A gives no smoothness in t, and B's hypotheses do not give A's (pointwise vs parametrized (P), [0,1] vs a neighbourhood, tame germ data) — bridging is Lemma 6.30 work. B ⇒ A fails genuinely: A covers cubes [0,1]ⁿ of every dimension (needed for the homotopies of Theorem 6.35) and records surjectivity of T_q ⊕ φ_q and the identification of Λ_q at every lift, and B's pointwise (P) does not follow from A's hypotheses. B is believed true.",
+ "B_issue": null,
+ "overlap": "n/a (no direction proved)",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

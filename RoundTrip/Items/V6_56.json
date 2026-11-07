@@ -1,0 +1,12 @@
+{
+ "id": "V6_56",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A is the abstract transport theory of an arbitrary LocalTransport: any family O x, good open sets covering X_inf, and push-forwards that compose. It covers dyadic transport, Lebesgue numbers, (*), homotopy invariance, reparametrization, concatenation and uniqueness, plus equiv_paste_squares (taken at Sort 1 = Type). It mentions no orientations, HasLocalPropagation or contractibility. B is concrete. For EVERY tame X and EVERY sc-Fredholm f (no bump functions, no tame section, no sc+-sections), part (a) gives each smooth point an open, sc-smoothly contractible neighbourhood with the local propagation property (B_implies_orNbhdCover, rt_check OK). The project never proves this: Theorem 6.35 gives open propagation sets only under bump functions plus a tame section, and never contractible ones. So A => B would need orLocalTransport (V6_57's extra hypotheses) and this cover. The cover is also what B's (b) existence and B's (d) need (see V6_57 A_to_BExtra). B => A cannot hold, because B concerns one instance and A every LocalTransport.",
+ "B_issue": null,
+ "overlap": "No direction proved, so no #rt_overlap. The auxiliary lemma B_implies_orNbhdCover (B's (a) applied to the constant path) passes #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

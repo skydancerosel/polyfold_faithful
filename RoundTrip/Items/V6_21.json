@@ -1,0 +1,15 @@
+{
+ "id": "V6_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B's hypotheses are exactly the fields of a LocalDetChart, so A => B instantiates A at that chart: y := ySol, Φ(S,k) = (S, kerMap S k) with inverse (S,x) ↦ (S, kerProj x) (A's third and fourth conjuncts), continuous by A's first conjunct and continuity of kerProj (kerProj is definitionally B's projectionOnto). B => A: B's y equals the project's ySol on ball × ker(PT) (both lie in Y and solve PS(k+y) = 0; PS|_Y injective on the ball), which gives A's second conjunct; A's third follows from Φ∘Φ⁻¹ = id; A's first (continuity on ball × E rather than ball × ker(PT)) from B's joint continuity plus kerMap S x = kerMap S (kerProj x) on the ball. The only part of A not in B is the fourth conjunct for S OUTSIDE the ball (kerProj (kerMap S k) = k for every S, a property of the project's junk extension of ySol), proved directly from ySol_mem; it carries no content of the text.",
+ "B_issue": null,
+ "overlap": "13 shared project theorems: the elementary LocalDetChart API (ySol_mem, proj_apply_ySol, inverse_projRestrict_apply, projRestrict_inverse_apply, proj_apply_inverse, exists_equiv_of_lt, isTopCompl, kerProj.eq_1) and auxiliary _proof_N of projRestrict/ySol/kerMap/projComp. The continuity lemmas continuousAt_kerMap/continuousAt_inverse used by lemma_6_18 are not used (continuity comes from B).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

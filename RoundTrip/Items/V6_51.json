@@ -1,0 +1,12 @@
+{
+ "id": "V6_51",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A = mem_smoothSet_of_isScSmoothMap ∧ contDiff_pt2_comp ∧ isScHomotopyRel_reparam ∧ reparam_mem ∧ concatPath_halves (universes 0). B: ScHomotopic is an equivalence relation on the paths x → y, homotopic paths have the same end points, and the composite through any admissible β (corrected ψ(β(s) − 1), β(0) = 0, β(1) = 2) exists and depends only on the classes and not on β. A ⇒ B uses A's contDiff_pt2_comp and isScHomotopyRel_reparam: the project's IsScHomotopyRel.symm/.glue/.comp_smoothTransition, ScHomotopic.trans and isScHomotopyRel_concatHomotopy all reach these two banned theorems, so they were re-derived from the hypothesis with the project's proofs; the new glue is the straight-line homotopy of reparametrizations between the composite through β and concatPath (= composite through β_c(s) = κ(3s) + κ(3s − 2)), and 'paths agreeing on [0, 1] are homotopic' (via γ ∘ κ). B ⇒ A holds only outright (A_outright, uses_hypothesis false): A's lemmas (an explicit homotopy formula, values of sc-smooth maps ℝⁿ → X are smooth, concatPath (leftHalf γ) (rightHalf γ) = γ ∘ halvesReparam, two calculus facts) are lemma-level and not contained in B's existence/class statements. No unstated hypotheses; contractibility plays no role here.",
+ "B_issue": null,
+ "overlap": "B_to_A (outright): 241 shared project theorems, essentially sc-calculus/chart infrastructure reached through the statements (rnPolyfold_levelSet, mem_levelSet_iff, IsSc1With/IsScSmoothRetractMap glue, _proof_ terms), plus concatPath_of_le/of_gt used to re-prove concatPath_halves. A_to_B passes #rt_check (uses isScSmoothMap_ite, isScSmoothMap_comp_pt1₂, contDiff_lerp, glueHomotopy_one, concatPath_of_le/of_gt, concatPath_zero/one — none of the item's theorems).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

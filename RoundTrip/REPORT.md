@@ -1,20 +1,21 @@
 # Round-trip audit of Part I — report
 
-Status 2026-11-01 (the audit); the lists of what the project lacks updated 2026-11-02; refreshed against
+Status 2026-11-01 (the audit; Chapter 6 added 2026-11-07, see "Chapter 6, audited on 2026-11-07" below); the lists of what the project lacks updated 2026-11-02; refreshed against
 HEAD (commit 12924a4) on 2026-11-02, see "Refreshed on 2026-11-02" below. Method and how to run:
 `README.md`. Layer 1 (statements).
 
 ## Coverage
 
-**All 269 items** of the comparison that are not labelled *extra* (Chapter 1: 31, Chapter 2: 58,
-Chapter 3: 95, Chapter 4: 43, Chapter 5: 42). Every item has a blind statement
+**All 329 items** of the comparison that are not labelled *extra* (Chapter 1: 31, Chapter 2: 58,
+Chapter 3: 95, Chapter 4: 43, Chapter 5: 42, Chapter 6: 60; Chapter 6 against commit 439bc62). Every item has a blind statement
 (`Blind/<ID>.lean`) and a prover record (`Items/<ID>.lean`, `Items/<ID>.json`); all files compile
 against HEAD (commit 12924a4, recompiled 2026-11-02), no `sorry`, and every proved direction passes
 `#rt_check` (or `#rt_check_soft`, or a documented `A'`-factoring, noted in the item's JSON; see
 "Harness" below). 134 Opus agents (blind batches of
 about 9 items, prover batches of 5–8), four at a time; the refresh of 82 items: nine more prover
 agents, then three blind and three prover agents for seven second blind statements, three Lean
-processes at a time.
+processes at a time. Chapter 6: 21 more Opus agents (seven blind batches of 6–9 items, fourteen
+prover batches of 3–5), up to twelve at a time on the 137 GB machine.
 
 ## Results
 
@@ -27,28 +28,31 @@ Proved directions (vacuous directions not counted), by chapter:
 | V3 | 1 | 54 | 0 | 36 | 4 | 95 |
 | V4 | 16 | 14 | 1 | 11 | 1 | 43 |
 | V5 | 7 | 13 | 4 | 17 | 1 | 42 |
+| V6 | 19 | 9 | 4 | 22 | 6 | 60 |
 
 Proved directions by verdict:
 
 | | equivalent | A ⇒ B only | B ⇒ A only | neither | B false | n |
 |---|---|---|---|---|---|---|
-| same | 24 | 19 | 6 | 13 | 1 | 63 |
+| same | 35 | 23 | 6 | 16 | 1 | 81 |
 | explicit | 12 | 21 | 1 | 9 | 0 | 43 |
-| narrower | 2 | 6 | 3 | 13 | 3 | 27 |
-| restated | 27 | 32 | 1 | 32 | 1 | 93 |
-| stronger | 5 | 28 | 0 | 6 | 4 | 43 |
+| narrower | 2 | 6 | 4 | 19 | 5 | 36 |
+| restated | 34 | 34 | 3 | 43 | 5 | 119 |
+| stronger | 6 | 31 | 1 | 8 | 4 | 50 |
 
 Provers' judgement of content, by verdict:
 
 | | equivalent | A_stronger | A_narrower | incomparable | n |
 |---|---|---|---|---|---|
-| same | 37 | 19 | 3 | 4 | 63 |
+| same | 50 | 23 | 3 | 5 | 81 |
 | explicit | 14 | 22 | 1 | 6 | 43 |
-| narrower | 2 | 10 | 5 | 10 | 27 |
-| restated | 40 | 35 | 4 | 14 | 93 |
-| stronger | 5 | 29 | 2 | 7 | 43 |
+| narrower | 2 | 10 | 7 | 17 | 36 |
+| restated | 46 | 37 | 8 | 28 | 119 |
+| stronger | 6 | 32 | 3 | 9 | 50 |
 
-Against the verdict: {'match': 125, 'mismatch': 127, 'partial': 17}
+Against the verdict: {'match': 149, 'mismatch': 154, 'partial': 26}
+
+(Chapters 1–5 alone: {'match': 125, 'mismatch': 127, 'partial': 17}.)
 
 (At the audit, with the verdicts of that time: {'match': 117, 'mismatch': 128, 'partial': 24}. The
 refresh changed the result or the score of 29 items, listed in "Refreshed on 2026-11-02" below.)
@@ -457,6 +461,71 @@ lines; 11 items prove no direction and have no check, as in their records; only 
 deprecation warnings, in 9 files). The seven `Blind/<ID>_r2.lean` compile, and so do the 269 first
 blind statements (unchanged).
 
+### Chapter 6, audited on 2026-11-07 (commit 439bc62)
+
+The 60 items of `Exposition/cmp/ch06.json` not labelled *extra* (V6.29, V6.36, V6.53, V6.54 are
+extra). Every blind statement and item file compiles at 439bc62 (all 60 item files recompiled at the
+end: no error, no `rt_check FAIL`, no `sorry`). Chapter 6: 19 equivalent, 9 A ⇒ B only, 4 B ⇒ A
+only, 22 neither, 6 B false.
+
+**Statements of the text that do not hold in the formal reading.** Each agrees with a reading the
+project already records (`Exposition/Findings.md`, Chapter 6).
+* V6.11 (Lemma 6.10): the lemma holds (A ⇒ B); the construction of its proof, formalized separately
+  as `B_proof`, is refuted (`not_B_proof`, on ℝ² with `T = id`), and the project's
+  `lemma_6_10_text_reading` implies the refutation (Findings, item 4).
+* V6.40 (the stabilization principle without the sign `(−1)^{dim coker}` of formula (94)): `not_B`,
+  from the project's `StabCounterexample` moved to `[0, 1]` (Findings, item 50).
+* V6.41: `push_eq_iff` — the text's unsigned push-forward equals the project's exactly when
+  `dim coker T₀` and `dim coker T₁` have the same parity, which changes in a finite-dimensional model
+  (`not_B` not formalized; counted as *neither*).
+* V6.44 (Proposition 6.32) and V6.47 (Lemma 6.34), the unsigned push-forward: counterexamples on
+  paper on `X = ℝ` with the trivial bundle (the sections `s = 0` and `s′ = t·y`; the cokernel
+  dimension jumps at `t = 1`); not formalized, since the whole instance would be needed.
+* V6.49 and V6.52 (the composition of paths with `ψ(β(s))` on `[1/2, 1]`): `not_B` at `s = 1/2`; with
+  `ψ(β(s) − 1)` (`BIntended`) the project's statements imply the text's.
+* V6.62 (Remark 6.42): `not_B` (`A → ¬B`): with `L₀ = 0` and `L₁ = id` in `Lin(f, 0)` on the trivial
+  bundle `ℝ¹ × ℝ¹`, the literal `h ↦ h̃` is not continuous; the project's `extDetN` carries the sign
+  `(−1)^{dim coker L}` (Findings, items 95–97).
+
+**Where the readings differ** (most of the *neither*).
+* *Contractible neighbourhoods* (gap G.61; V6.48, V6.50, V6.55–V6.61). The blind statements use
+  sc-smoothly contractible open sets, the project pairs `V ⊆ U` and property (∗) on every open
+  propagation neighbourhood. Contractible ⇒ pair is glue (`exists_path_of_contractible`, V6.59). The
+  converse needs a basis of sc-smoothly contractible open sets at the smooth points, which neither
+  the text nor the project supplies; with such a cover assumed, the uniqueness of `Γ_f` and
+  6.38 ⇔ 6.39 carry over (V6.57 `A_to_BExtra`, V6.59 `D638_of_D639_of_A`), and without it (∗) on the
+  contractible sets alone does not exclude a functor twisted by `ℤ/2` (V6.57).
+* *Property (P)*: general position of the slices `F_t` in the text against that of the parametrized
+  section near `[0, 1]` in the project (V6.33, V6.39, V6.42, V6.43); bridging it is Lemma 6.30 work.
+* Lemma 6.19 (gap G.59) blocks V6.22 A ⇒ B and V6.23 (effort only); the manifold statements of
+  Lemma 6.30 (gap G.62) V6.34; tame germ data (`IsScFredholmSectionTame` in Chapter 6 against
+  `IsScFredholmSection` with `PX.IsTame` in the blind statements, no bridge) V6.46, V6.61.
+* Extra hypotheses of A, all satisfiable: bump functions, `HasScPlusSectionsThrough`, tame germ data,
+  paracompactness instances (V6.30–V6.33, V6.48, V6.55, V6.57, V6.58). The project's `Lin(f, x)` is
+  made with global sc⁺-sections where the text's are local (V6.1, *B ⇒ A only*).
+* Generality: the §6.3 lemmas drop completeness and Fredholmness (V6.10, V6.12, V6.16, V6.18,
+  *A ⇒ B only*).
+
+**Missing in the project, believed true.**
+* Every operator of the ball of an admissible triple `(T, P, ε)` is Fredholm, which the text's "γ maps
+  onto `DET(T, P, ε)`" needs; proved in `Items/V6_24.lean` (`chart_isFredholm`, about 60 lines).
+* In an orientable neighbourhood `HasScPlusSectionsThrough` is redundant:
+  `linSet_nonempty_of_localPropagation` (`Items/V6_50.lean`).
+* V6.12 B ⇒ A through `E/ker T` and the closed range theorem (effort only); Lemma 6.19, the manifold
+  statements of Lemma 6.30 and contractible propagation neighbourhoods (above).
+
+**Blind statements doubted in their own generality** (recorded as `B_issue`, not decided): V6.34,
+V6.37, V6.38 quantify over every chart point while their sections are sc⁺ only near `[0, 1] × U`,
+where the chart linearization is the junk value `0` (`kerProd_eq_TProd_of_not_isSc1`,
+`B_concl_forces_Phi_zero`); V6.61 where its Definition 6.40 is vacuous; V6.1, whose clauses imply
+global sc⁺-sections.
+
+**Harness.** Banned theorems inside definitions (`directSumVec`, `ScPathClass.comp`, `Orx`, `extDet`,
+`SubspaceFamily.contEquiv`, `ChartPoint.detLin`) were handled as before by `#rt_check_soft`, an `A′`
+factoring or a local `#rt_check_except_defs`, with the plain check's failure kept by `#guard_msgs`;
+the JSON of each item says which. Cost: about 5.4M agent tokens (Opus 5.5), roughly 7% of a week's
+budget.
+
 ### Harness
 
 * **Banned theorems inside definitions.** When a definition in A's statement calls one of the item's
@@ -746,3 +815,63 @@ diagnosis is in each item's JSON.
 | V5_60 | same | neither | equivalent | Definition item: only IsWCG and IsReflexive are listed, so A = True and both implications are vacuous (flagged). The content is B, proved outright (B_holds): for every real Banach space V : Type, the project's IsWCG V is B's IsWCGB V. The two differ only in how 'weakly compact' is written. The proje |
 | V5_61 | same | equivalent | equivalent | Both sides use the project's IsReflexive and IsWCG. A (all three theorems at universe 0) is stated for every real normed space; B, following the text's 'E a Banach space', only for complete ones. A => B is specialization. B => A has three parts. (i) A reflexive normed space is automatically complete |
 | V5_63 | narrower | B ⇒ A only | A_narrower | Both sides use the same approximation property, and their Hilbert notions agree: the project asks for a continuous bilinear b with //v//^2 = b(v,v), B also asks b to be symmetric, and symmetrizing to (b + b^T)/2 makes them equal (hilbert_iff). The real difference is that corollary_5_44 takes the cit |
+| V6_1 | restated | B ⇒ A only | A_narrower | The project's Lin(f, x) (ChartPoint.linSet) is built from GLOBAL sc⁺-sections s with (f + s)(x) = 0; the text's, and B's LinB, from LOCAL sc⁺-sections in a chart (the text's s(y) = R(y, f(x))). B's clause (1) asserts linSet = LinB at every smooth point, and with B's (2) (LinB nonempty) this already  |
+| V6_2 | same | equivalent | equivalent | The definitions are the text's: maxPow E is literally ⋀[ℝ]^(dim E) E, maxPowDual E is Module.Dual ℝ (maxPow E), maxPowDualMap is the transpose of maxPowMap (B's (1), (2), (6) hold by rfl), and A's finrank_maxPow, maxPowMap_wedge, maxPowMap_ne_zero_iff, maxPowMap_comp, dualVec_self give B's (1), (3), |
+| V6_3 | same | equivalent | equivalent | Same iotaDual on both sides. A's iotaDual_wedge_wedge and iotaDual_wedge_dualBasis give B's (1) and (4) at k = dim E (proof irrelevance for the dimension casts), and A's iotaDual_ne_zero gives B's (3) (a nonzero map of lines is bijective). B's (2), the convention λ({0}*) = ℝ, is not in A and was pro |
+| V6_4 | same | equivalent | equivalent | A (proposition_6_4, universes at 0) and B are the same equality of linear maps lambda*(Phi) o iota_F = iota_E o lambda(Phi*) : lambda(F*) -> lambda*(E) for a linear isomorphism Phi : E ≃ F of finite-dimensional real spaces, built from the same maxPowDualMap, iotaDual and maxPowMap. The only differen |
+| V6_5 | same | equivalent | equivalent | The row is mostly definitions (FourTermExact, Choice, Choice.value, canonicalChoice, phi, phiEquiv); its only theorem, A = phi_ne_zero (Φ_E ≠ 0), is equivalent to B's clause (3) (Φ_E bijective) because both sides are lines: a nonzero map of lines is bijective, an injective map out of a line is nonze |
+| V6_6 | restated | equivalent | equivalent | A (lemma_6_5) says the project's Φ_E, defined by (91) from the canonical choice, satisfies (91) for every project Choice; B is that same statement for B's Choice91 (bases indexed by Fin (finrank ·), dimension equations as fields; the wedges are definitionally the project's wedgeB/wedgeC/source), con |
+| V6_7 | restated | equivalent | equivalent | A (proposition_6_6) is Ψ_E(w_C ⊗ (w_A ⊗ w_D*)) = w_B for every project Choice; B conjoins (1) ῑ(v ⊗ b ⊗ v*) = b, (2) the defining formula (92) Ψ_E(c ⊗ h) = ῑ(c ⊗ Φ_E(h)), (3) Ψ_E bijective, (4) the same formula as A for every Choice91 and every φ_D with φ_D(w_D) = 1. (1) is contractDual_tmul (ῑ(v ⊗  |
+| V6_8 | same | equivalent | equivalent | A (finrank_fredholmDet) is 'det(T) is a line' for Mathlib-Fredholm T (strict, closed range, finite-dimensional kernel, finite codimension, complemented kernel) between normed spaces, not necessarily complete; B, for Banach spaces and textbook-Fredholm T, conjoins (1) fredholmDet T = λ(ker T) ⊗ λ*(co |
+| V6_9 | same | neither | equivalent | Definition item with two extra theorems. B is the definitional reading of Definition 6.8 (for Banach spaces and textbook-Fredholm T, FredholmOrientation T = Module.Ray ℝ (λ(ker T) ⊗ λ*(coker T))); it holds by rfl (B_holds): the project's FredholmOrientation is the abbrev Module.Ray ℝ (fredholmDet T) |
+| V6_10 | same | A ⇒ B only | A_stronger | The definitions agree literally: B's IsGLP/PiT/PLe are the project's IsGoodLeftProj (same three fields), goodLeftProjs and ProjLE (isGLP_iff, piT_eq, pLe_iff, rt_check OK), and fredIdx is fredholmIndex by rfl; B's classical IsFredholmOp is Mathlib's IsFredholm on Banach spaces (isFredholm_of_banach  |
+| V6_11 | stronger | A ⇒ B only | A_stronger | A = lemma_6_10 (no Fredholm hypothesis, arbitrary normed spaces) and lemma_6_10_text_reading (a concrete R^2 counterexample to the text's construction). A => B by instantiating lemma_6_10. B => A fails: B only covers Banach spaces with T Fredholm, and the conjunct lemma_6_10_text_reading is unrelate |
+| V6_12 | same | A ⇒ B only | A_stronger | The maps are definitionally B's (jMap = projSeqJ, PhiMap = projSeqPhi, piMap = projSeqPi, all rfl; IsGLP = IsGoodLeftProj fieldwise), and A => B is instantiation. The only difference: A (lemma_6_11) has no Fredholm hypothesis on T, B keeps the text's standing assumption that T is Fredholm (unused by |
+| V6_13 | same | equivalent | equivalent | A says the project's gammaProj hT hP satisfies (91) for every Choice of E(T,P) (gammaProj_tmul) and for every family choice (gammaProj_wedge_tmul); B says some isomorphism det T -> det PT satisfies (91) for every family choice. A => B: gamma := gammaProj, with A's family form; the C-side cosets (cok |
+| V6_14 | same | equivalent | equivalent | Same notions: B's gammas are characterized by (91) (IsGamma) and are exactly the project's gammaProj (gammaProj_eq_of_isGamma, from B-side data plus the definition of gammaProj; conversely isGamma_gammaProj from V6_13's gammaProj_wedge_tmul, not banned here); B's identification det(P(QT)) = det(PT)  |
+| V6_15 | same | equivalent | equivalent | A (corollary_6_13) is the formula (γ^P_{RT})⁻¹ ∘ γ^P_{ST} = γ^R_T ∘ (γ^S_T)⁻¹ for the project's gammaProj, with the identification linDetEquivOfEq of det(P(ST)) = det(P(RT)) in between; B states the same formula (and independence of P) for arbitrary maps characterized by (91) for every choice (IsGam |
+| V6_16 | same | A ⇒ B only | A_stronger | B's Tphi, jS, piS, clsPhi are definitionally the project's T.coprod φ, stabJ, stabPi, stabClass, and B's exactness conclusion is literally lemma_6_14's, so A ⇒ B is instantiation (B's IsFredholmOp and completeness hypotheses unused). B ⇒ A fails for genuine reasons: lemma_6_14 holds for arbitrary no |
+| V6_17 | same | equivalent | equivalent | A (stabPsi_dualVec) is (94) for the project's specific ψ = stabPsi hφ : λ*(ℝⁿ) → λ*(F/R(T_φ)) (a smulRight with value 1* at (e₁∧…∧eₙ)*), with det taken as (Pi.basisFun).det c; B is (94) for every linear ψ with ψ((e₁∧…∧eₙ)*) = 1* into λ*(Z) for an arbitrary subsingleton Z, plus the existence of such  |
+| V6_18 | restated | A ⇒ B only | A_stronger | A = stabIota_bijective ∧ stab_card_eq ∧ isCompl_range_stabPi_span ∧ proposition_6_15 for the project's ι_φ = lTensor(stabPsi) ∘ (stabSeq hφ).phi. A ⇒ B: m + l = n is stab_card_eq; B's Φ_E (any map with (91) for every choice) agrees with (stabSeq hφ).phi on the given vector (phi_wedge_tmul for the sa |
+| V6_19 | same | equivalent | equivalent | Same notions on both sides (fredholmDet, wedge, dualVec, kerInl/kerInr/cokerInl/cokerInr, prodMap). A => B: Psi := directSumDet, an equivalence by directSumDet_bijective, and B's formula is definition_6_16 (B's length proofs hk, hc agree with directSumVec's by proof irrelevance). B => A: T ⊕ S Fredh |
+| V6_20 | stronger | equivalent | equivalent | Same notions (IsGoodLeftProj = Π_T, Submodule.IsTopCompl, operator norm); A's (e : Y →L R(P)) = projRestrict P S Y is B's pointwise e y = P (S y). A has no hypothesis that T is Fredholm, B has one, so A => B is instantiation. B => A is not instantiation: B is applied to a different Fredholm operator |
+| V6_21 | restated | equivalent | equivalent | B's hypotheses are exactly the fields of a LocalDetChart, so A => B instantiates A at that chart: y := ySol, Φ(S,k) = (S, kerMap S k) with inverse (S,x) ↦ (S, kerProj x) (A's third and fourth conjuncts), continuous by A's first conjunct and continuity of kerProj (kerProj is definitionally B's projec |
+| V6_22 | narrower | B ⇒ A only | A_narrower | A = frame_ne_zero (the chart frame ω(S) ≠ 0) ∧ proposition_6_20 (frames of two charts with the same P differ by a continuous nowhere-zero factor on the common ball); B = λ(ker PS), λ*(coker PS) and DET(T,P,ε) are topological line bundles for the final topologies of ALL continuous local frames. B =>  |
+| V6_23 | stronger | neither | incomparable | A = gammaProj_frame_eq (an explicit formula (91): γ^Q_{PS}(ω_c(S)) = (det(kerProj(k,z))·det([d],[f])⁻¹)·ω_{c'}(S)) ∧ lemma_6_21 (γ^Q_{PS}(ω_c) = g·ω_{c'} with g continuous and nowhere zero, for two charts with arbitrary centres and radii, S Fredholm in both balls): statements about chart frames only |
+| V6_24 | restated | equivalent | A_narrower | A is exists_localDetChart (universes 0): every Fredholm T is the centre of a LocalDetChart. B's admissible triples IsDetChart T P ε are exactly the (c.T, c.P, c.ε) of the project's charts (chartOf/hcOf; Y is existential in B), so B (1) ⇔ A, and B_to_A uses B (1). B (2), that γ_(T,P,ε) is a bijection |
+| V6_25 | same | neither | equivalent | Definition item: only detBasis is listed, so A = True and both implications are vacuous. The content is B (detBasis E F = detB), proved outright as B_holds. The project's 𝓑: B ⊆ c.pretriv.source with c.pretriv '' B open in F(E,F) × ℝ. B's 𝓑: B lies over the ball of an admissible (T,P,ε) and γ(B) is  |
+| V6_26 | same | A ⇒ B only | A_stronger | Both sides use the same 𝓑 (detBasis_eq, with the glue of V6_25). A (proposition_6_23, universes 0) says 𝓑 is a topological basis of the project's topology 𝒯, the total-space topology of detPrebundle. B says 𝓑 is a basis of generateFrom 𝓑. A ⇒ B uses A: IsTopologicalBasis.eq_generateFrom gives 𝒯 = ge |
+| V6_27 | same | A ⇒ B only | A_stronger | A (proposition_6_24, universes 0): for 𝒯, VectorBundle ℝ ℝ DetFiber, and every chart c has an atlas trivialization e with e.baseSet = c.baseSet and e = c.pretriv. B: for generateFrom 𝓑, every point lies in a fibrewise-linear trivialization with fibre ℝ, and every γ_(T,P,ε) is a homeomorphism from th |
+| V6_28 | same | equivalent | equivalent | A = lemma_6_25 ∧ lemma_6_25_local (universes 0): the transition function g(S) = c'.coord S (c.coordInv S 1) is continuous and nowhere zero on the common ball (locally: a continuous nowhere-zero φ near each S₀). B = Formula ∧ TopIso: TopIso (the transition (S, t) ↦ (S, coord'(coordInv t)) is a homeom |
+| V6_30 | stronger | neither | incomparable | A = proposition_6_26 (universes 0): for a NONEMPTY convex set C of Fredholm operators between arbitrary Banach spaces, DetOn C is a vector bundle with exactly two orientations. B: for every chart point of a smooth x, Lin(f, x) is convex and contractible, DET(f, x) is a vector bundle and has Nat.card |
+| V6_31 | restated | B ⇒ A only | A_narrower | A = isFredholm_of_mem_linSet ∧ exists_two_or ∧ nonempty_equiv_of_two ∧ equiv_eq_of_apply_eq_of_two (first two at universes 0; the last two are stated for Sort u and are instantiated at 1, i.e. for types — at 0 they would speak about propositions). B: (1) every orientation o of DET(f, x) has an oppos |
+| V6_32 | narrower | neither | incomparable | A (universes 0) = proposition_6_28 plus eight tool lemmas. proposition_6_28 assumes PX.AdmitsBumpFunctions and gives open U ⊆ W ⊆ dom φ_c with (1′) two sc-smooth paths in U with equal end points are sc-smoothly homotopic rel end points inside the larger W, (2) compact solution set in cl U, (3) for a |
+| V6_33 | narrower | neither | incomparable | A (universes 0) = isZeroAt_paramSection_zero ∧ exists_sections_isGeneralPositionGerm_of_isCompact ∧ lemma_6_29. lemma_6_29 assumes PX.IsTame, PX.AdmitsBumpFunctions and IsScFredholmSectionTame f, a globally sc-smooth Φ : ℝⁿ → X and a global sc⁺-section S with (f̃ + S)(q, Φ q) = 0 near [0,1]ⁿ, and gi |
+| V6_34 | narrower | neither | incomparable | The two sides state different things. A is the analytic core used later: in every chart the kernel has the dimension of the index (finrank_linKer); along a continuous family of zeros in tame good position inside ONE chart, the kernels ker Lin(z_q) ⊆ E₀ have continuous local frames and form a Subspac |
+| V6_35 | restated | equivalent | equivalent | Both sides use the project's SubspaceFamily, det (λ(L) with the frame-trivialization bundle structure) and LineOrientation, and the base [0, 1] is unitInterval on both sides (here B did not replace [0, 1] by ℝ). B says that an orientation of one line λ(L_q₀) extends to exactly one orientation of λ(L |
+| V6_37 | restated | neither | incomparable | B's claim: in the product chart (ofProd p.c 0).toChart q₀ at (0, z), F_t'(λ, v) = T v + Σ λᵢ sᵢ(φ(t), t), with T = (f − s(·, t))'(φ(t)) and T(ℝᵏ × O) ≅ ℝᵏ × T_zO. This is one instance of A's scDeriv_paramSection_apply (at a = r₀ = 0) together with A's ofProd_mem_tangent_iff. A needs one hypothesis t |
+| V6_38 | restated | neither | incomparable | B has four conjuncts. Its first three (j injective, exactness at ker(T ⊕ φ) and at ℝᵏ) are pure linear algebra for any T and φ and are proved outright (B_alg_part, without A). The content is the fourth: c is onto under (P), read as general position of the slice F_t = (f − S) + Σ λᵢ σᵢ at (0, x) over |
+| V6_39 | restated | neither | incomparable | A (universes at 0) is the continuation algebra of λ(L) over an arbitrary simply connected, locally path-connected base Q (SubspaceFamily.cont_eq/self/trans/comp/eq_transport) and the push-forward lemmas propagate_self/trans/comp for given stabilized end points. B is the text's construction along a p |
+| V6_40 | restated | B false | incomparable | B (the formula (94) principle read literally, without the sign): for every norm-continuous family T_q of Fredholm operators over J = [0,1] with continuous φ_q, T_q ⊕ φ_q onto, and every orientation o_q of DET continuous along q ↦ T_q, the rays Φ(o_q) of λ(ker(T_q ⊕ φ_q)) form an orientation. This do |
+| V6_41 | restated | neither | incomparable | B says the project's IsStabKernels.push equals the text's literal push-forward F.push (o₀ ↦ o₀(T_0), Φ_{E_0}, continuation, Φ_{E_1}⁻¹, no sign); the project's push inserts stabSign α(T) = (−1)^{dim coker T} at both end points, and A's lemmas are about that signed push. Proved (push_eq_iff, rt_check_ |
+| V6_42 | narrower | neither | incomparable | A (universes at 0): exists_continuousOn_lift_chart and exists_isStabKernels — for Φ : ℝⁿ → X with Φ([0,1]ⁿ) in a chart, S with f̃ + S = 0 along Φ near [0,1]ⁿ and s₁…s_k with the project's parametrized (P) (general position of f̃ + S + Σλᵢsᵢ on ℝᵏ × ℝⁿ × X near [0,1]ⁿ, IsScFredholmSectionTame), the s |
+| V6_43 | restated | neither | incomparable | A (universes at 0): pt1_mem_Icc, exists_lift_of_smooth, isZeroAt_sectionAdd_reparamSection, push_eq_of_eq, isPush_reparam, IsPush.split and exists_isPush (tame X admitting bump functions, f with tame germ data, a chart c and W ⊆ dom c with property (3) of Proposition 6.28 giving f̃ + S = 0 along pat |
+| V6_44 | restated | B false | incomparable | A (proposition_6_32 via IsPush/IsStabKernels.push) is about the sign-normalized push-forward orEquivRay^-1 ∘ α(T1) ∘ propagate ∘ α(T0) ∘ orEquivRay, α(T) = stabSign T = (−1)^{dim coker T}; B's Facts.push is the text's map read literally, without α. For the same data they differ by α(T0)α(T1), which  |
+| V6_45 | restated | A ⇒ B only | A_stronger | A ⇒ B from the conjunct propagate_append: the operators T_t of the enlarged reading equal those of the original (same s), its stabilization is appendStab φ_t ψ_t with ψ_t = Φ'_t(0 ++ ·), and the side conditions of propagate_append (λ ↦ λ ++ 0 maps L_t into L'_t, the added coordinates of L'_t are ont |
+| V6_46 | same | neither | incomparable | Proved: A ⇒ B(1)∧(2)∧(3) (A_to_B123: linear reparametrization = A's affine reparam with b = 0; slices = project lemma IsScPlusSection.pullbackSlice; the convex combination over the square = A's reparam along (τ,t) ↦ t, product rule and sum), and A ⇒ B(4) for g with tame germ data (A_to_B4_tame, afte |
+| V6_47 | restated | B false | incomparable | A (push_square) is invariance of the sign-normalized IsStabKernels.push under deformations with fixed end points over any parameter space; B(1) asserts invariance of the literal, unsigned Facts.push along the convex homotopy s^τ. They differ by α(T^τ_0)α(T^τ_1) with α = (−1)^{dim coker}, and T^τ_{0, |
+| V6_48 | narrower | neither | incomparable | A = theorem_6_35 ∧ push_eq_of_homotopy (universes at 0). B = (B1) every smooth x of a tame X has an open, sc-smoothly contractible U ∋ x with HasLocalPropagation in some chart, for any sc-Fredholm f, ∧ (B2) two sc-smooth paths with the same end points in an open sc-smoothly contractible U are sc-smo |
+| V6_49 | narrower | B false | incomparable | B is false (not_B, as its author predicted): the literal composition formula ψ(β(s)) on [1/2, 1] forces φ(β(1/2)) = ψ(β(1/2)) at s = 1/2; for φ = id (from 0 to 1) and ψ = 1 + id (from 1 to 2) on ℝ¹ this is impossible whatever β(1/2) is. So ¬(A → B) (not_A_to_B, since A holds) and B ⇒ A only ex falso |
+| V6_50 | restated | neither | incomparable | A = exists_two_isContinuousOrientation ∧ exists_orientableNbhd ∧ exists_isOrientableNbhd (universes 0). B: (1) path independence and ψ_*o_{y₁} = o_{y₂} in an orientable neighbourhood, (2) IsContinuousOrientation (V = U) = B's IsContOrB, (3) an orientable neighbourhood (open, sc-smoothly contractible |
+| V6_51 | same | A ⇒ B only | A_stronger | A = mem_smoothSet_of_isScSmoothMap ∧ contDiff_pt2_comp ∧ isScHomotopyRel_reparam ∧ reparam_mem ∧ concatPath_halves (universes 0). B: ScHomotopic is an equivalence relation on the paths x → y, homotopic paths have the same end points, and the composite through any admissible β (corrected ψ(β(s) − 1), |
+| V6_52 | restated | B false | A_narrower | B is false (not_B, rt_check OK), as its author predicted. B uses the literal p. 228 formula, psi(beta(s)) on [1/2,1]. Take beta0(s) = kappa(3s) + kappa(3s-2), which satisfies all of B's conditions. In X = R^1, phi = the constant path at 0 and psi = id, a path from 0 to 1, have no composite: at s = 1 |
+| V6_55 | restated | neither | incomparable | A's exists_two_orx assumes Bd.HasScPlusSectionsThrough, and B's setting does not give it. The project's Lin(f,x) (linSet) is built from GLOBAL sc+-sections s with f(x)+s(x)=0. When there is none, linSet is empty, and Or = LineOrientation over an empty base has exactly one element, so B (Nat.card = 2 |
+| V6_56 | restated | neither | incomparable | A is the abstract transport theory of an arbitrary LocalTransport: any family O x, good open sets covering X_inf, and push-forwards that compose. It covers dyadic transport, Lebesgue numbers, (*), homotopy invariance, reparametrization, concatenation and uniqueness, plus equiv_paste_squares (taken a |
+| V6_57 | restated | neither | incomparable | Every theorem of A, theorem_6_37 included, assumes PX.AdmitsBumpFunctions, a TAME sc-Fredholm section (IsScFredholmSectionTame), HasScPlusSectionsThrough (from the bumps) and two more paracompactness instance families. B gives none of these; they are satisfiable but not consequences of B. With them  |
+| V6_58 | restated | neither | incomparable | A (isOrientableSection_iff_exists) is an internal characterization: Gamma_f([phi]) is path-independent iff some y -> o_y is carried along by Gamma_f. B identifies the project's IsOrientableSection, under hX, hbump, tame hfT and hsec, with the text's notion IsOrientableB (every functor G with B's (*) |
+| V6_59 | stronger | B ⇒ A only | A_narrower | A is isOrientableSection'_iff_exists ∧ isOrientableSection_iff (universes 0), stated under tameness, bump functions, tame germ data and sc⁺-sections through points. B ⇒ A works by glue: B's (2) applied to Γ_f = orFunctorMap gives 6.38 ⇔ text-6.39, B's (1) gives text-6.39 ⇔ project-6.39. B's IsGammaF |
+| V6_60 | restated | neither | incomparable | B is definitional. For every M-polyfold (no tameness) and every y ↦ o_y, the project's IsSectionOrientation equals the text's D640. The project asks continuity over V, for paths in U, for every orientable pair V ⊆ U. D640 asks continuity over every open, sc-smoothly contractible U with the local pro |
+| V6_61 | narrower | neither | incomparable | A is the conjunction of the 16 theorems among the 22 declarations (universes 0). B is Theorem 6.41 plus the non-generic sentence. Hypotheses: A's give B's, since IsSectionOrientation → D640 is proved (D640_of_isSectionOrientation, rt_check OK). B's do not give A's. D640 → IsSectionOrientation needs  |
+| V6_62 | narrower | B false | A_narrower | B is false, as its author predicted, and A ⇒ ¬B is proved (A_to_not_B). B asks for an orientation ô of DET(f̂,(t,x)) with ô(L̂) = conjDet(extDet(ω(L))) for every L ∈ Lin(f,x), i.e. the text's h ↦ h̃ WITHOUT the sign (−1)^{dim coker L} that the project puts into extDetN. Counterexample: the trivial b |
+| V6_63 | restated | equivalent | equivalent | A (Choice.exists_smul_source_value) is the conclusion of §6.7.1: for two choices χ, χ' of the data of (91), source and value scale by one common r ≠ 0. B is the blind author's three steps: (1) a change of the basis of Z by any σ multiplies both wedges by det σ (and leaves wB ⊗ wC* unchanged if det σ |
+| V6_64 | restated | equivalent | equivalent | A is the three lemmas the project extracts from §6.7.2: gammaProj_wedge_tmul (formula (91) for γ^P_T on arbitrary families a, d, b, lifts c), mem_span_append_of_ker (in F: g ∈ ker Q lies in span(d, Tb)) and comp_comp_eq_of_projLE (P(QT) = PT). B is the blind author's computation for the text's speci |

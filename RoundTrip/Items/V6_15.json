@@ -1,0 +1,15 @@
+{
+ "id": "V6_15",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (corollary_6_13) is the formula (γ^P_{RT})⁻¹ ∘ γ^P_{ST} = γ^R_T ∘ (γ^S_T)⁻¹ for the project's gammaProj, with the identification linDetEquivOfEq of det(P(ST)) = det(P(RT)) in between; B states the same formula (and independence of P) for arbitrary maps characterized by (91) for every choice (IsGamma). Glue: IsFredholmOp ↔ T.IsFredholm on Banach spaces (isFredholm_of_banach), IsGLP ↔ IsGoodLeftProj, PLe = ProjLE; gammaProj satisfies IsGamma (from gammaProj_wedge_tmul, the C-wedge matching B's by rfl after funext), and any map with IsGamma equals gammaProj (one explicit choice gives agreement on a nonzero vector of the line det(T)). A ⇒ B then is Corollary 6.13 (independence of P follows from the formula); B ⇒ A is B instantiated at the gammaProj's. Universes of corollary_6_13 instantiated at 0.",
+ "B_issue": null,
+ "overlap": "162 shared project theorems: the Φ_E / γ^P_T machinery (gammaProj_wedge_tmul, FourTermExact.phi_wedge_tmul, lemma_6_5, the Choice API, lemma_6_11, wedge/dualVec lemmas, comp_comp_eq_of_projLE via IsGoodLeftProj.of_projLE), used only to show gammaProj satisfies (91); proposition_6_12 and mem_span_append_of_ker (the substance of the project's proof) are not used.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

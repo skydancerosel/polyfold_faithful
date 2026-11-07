@@ -1,0 +1,13 @@
+{
+ "id": "V6_10",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The definitions agree literally: B's IsGLP/PiT/PLe are the project's IsGoodLeftProj (same three fields), goodLeftProjs and ProjLE (isGLP_iff, piT_eq, pLe_iff, rt_check OK), and fredIdx is fredholmIndex by rfl; B's classical IsFredholmOp is Mathlib's IsFredholm on Banach spaces (isFredholm_of_banach and the fields). A => B by instantiation. B => A fails for genuine content, not proof effort: A contains exists_isGoodLeftProj (Pi_T is nonempty for T Fredholm), which B does not state (the text uses it without stating it), and A's remarks are more general than B's (refl/antisymm/trans for all projections, not just on Pi_T; fredholmIndex_eq_zero and finiteDimensional_quotient_inf for arbitrary normed spaces and arbitrary T; isFredholm with E incomplete and T arbitrary). The extra content is elementary but not derivable from B.",
+ "B_issue": null,
+ "overlap": "n/a (B_to_A not proved)",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
+ "universes": "A instantiates every theorem at universe 0 (ProjLE.* have one universe, the others two)."
+}
