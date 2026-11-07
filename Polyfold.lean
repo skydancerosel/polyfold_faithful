@@ -178,3 +178,6 @@ import Polyfold.Chapter6.PropagationWellDefined
 import Polyfold.Chapter6.ContinuousOrientation
 import Polyfold.Chapter6.ChartTransfer
 import Polyfold.Chapter6.ScHomotopy
+import Polyfold.Chapter6.PathCategory
+import Polyfold.Chapter6.PathTransport
+import Polyfold.Chapter6.SectionOrientation

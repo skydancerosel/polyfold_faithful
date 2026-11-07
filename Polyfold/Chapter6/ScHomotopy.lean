@@ -43,6 +43,19 @@ lemma contDiff_pt1_comp₂ {σ : (Fin 2 → ℝ) → ℝ} (hσ : ContDiff ℝ �
     ContDiff ℝ ∞ fun q => pt1 (σ q) :=
   contDiff_pi.2 fun _ => hσ
 
+/-- **The values of an sc-smooth map `ℝⁿ → X` are smooth points.** -/
+theorem mem_smoothSet_of_isScSmoothMap {n : ℕ} {γ : (Fin n → ℝ) → X}
+    (hγ : (rnPolyfold n).IsScSmoothMap PX γ) (p : Fin n → ℝ) : γ p ∈ PX.smoothSet :=
+  mem_iInter.2 fun m => hγ.mapsTo_levelSet m (by rw [rnPolyfold_levelSet]; exact mem_univ p)
+
+/-- `s ↦ pt2 (σ₁ s) (σ₂ s)` is `C^∞` for `C^∞` maps `σ₁, σ₂ : ℝᵏ → ℝ`. -/
+theorem contDiff_pt2_comp {k : ℕ} {σ₁ σ₂ : (Fin k → ℝ) → ℝ} (h₁ : ContDiff ℝ ∞ σ₁)
+    (h₂ : ContDiff ℝ ∞ σ₂) : ContDiff ℝ ∞ fun s => pt2 (σ₁ s) (σ₂ s) := by
+  refine contDiff_pi.2 fun i => ?_
+  fin_cases i
+  · simpa only [Fin.zero_eta, Fin.isValue, pt2_apply_zero] using h₁
+  · simpa only [Fin.mk_one, Fin.isValue, pt2_apply_one] using h₂
+
 /-- **Reparametrization**: for a `C^∞` map `θ : ℝ → ℝ` with `θ(0) = 0` and `θ(1) = 1`, the path
 `γ ∘ θ` is sc-smoothly homotopic to `γ` with end points fixed, by the straight-line homotopy
 `(τ, s) ↦ γ((1 − τ) θ(s) + τ s)`. -/
