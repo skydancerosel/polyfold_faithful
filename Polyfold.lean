@@ -149,3 +149,10 @@ import Polyfold.Chapter3.IndexAlongPathsLocalBump
 import Polyfold.Chapter5.GeneralPosition
 import Polyfold.Chapter5.AllowableSectionsMetric
 import Polyfold.Chapter5.BumpWeakPointwise
+import Polyfold.Chapter6.DetLine
+import Polyfold.Chapter6.ExactSequence
+import Polyfold.Chapter6.FredholmDet
+import Polyfold.Chapter6.GoodProjections
+import Polyfold.Chapter6.ProjectionSequence
+import Polyfold.Chapter6.Stabilization
+import Polyfold.Chapter6.DirectSumDet
