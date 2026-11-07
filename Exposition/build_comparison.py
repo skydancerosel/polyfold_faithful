@@ -30,11 +30,12 @@ BOOK_KEY = 'book'                          # the JSON key of the left column
 LEGACY_KEYS = ('milnor',)                  # older names of that key, accepted on load
 TITLE = 'Polyfold Theory beside Lean'
 H1 = 'Polyfold Theory <em>beside</em> Lean'
-EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I · the statements compared'
+EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapter 7 · the statements compared'
 DEK = ('Every result of the book beside the statement the machine actually checked. The left column is '
        'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the 2014 preprint '
        '(arXiv 1407.3185); the corresponding numbers and pages of the book’s arXiv version (1707.08941) '
-       'are in Exposition/BookConcordance.md (the Springer edition is not checked). The right column is the '
+       'are in Exposition/BookConcordance.md (the Springer edition is not checked). Part II, from Chapter 7 on, '
+       'has no preprint: its numbers and pages are those of arXiv 1707.08941. The right column is the '
        'formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration '
        'to see the Lean it names.')
 OUT_HTML = 'polyfold-beside-lean.html'
@@ -43,7 +44,8 @@ OUT_MD = 'Comparison.md'
 FOOT = ('Left column: H. Hofer, K. Wysocki, E. Zehnder, <em>Polyfold and Fredholm Theory</em>, Part I '
         '(Springer 2021; here the 2014 preprint arXiv 1407.3185), paraphrased, with the preprint’s page '
         'numbers; for the numbers and pages of the book’s arXiv version (1707.08941) see '
-        'Exposition/BookConcordance.md (the Springer edition is not checked). Right column: the statements proved in Lean 4 '
+        'Exposition/BookConcordance.md (the Springer edition is not checked); Part II (Chapter 7) has no preprint, and '
+        'its numbers and pages are those of arXiv 1707.08941. Right column: the statements proved in Lean 4 '
         'against Mathlib in Polyfold/*.lean, checked by Lean’s kernel, depending only on propext, '
         'Classical.choice and Quot.sound. Every declaration named here was resolved mechanically in the '
         'source. Companion texts: Exposition/Verification.md, Exposition/ProofByProof.md.')
@@ -61,6 +63,10 @@ CHAPTERS = [
     ('V6', 'Chapter 6', 'HWZ Chapter 6 §§6.1–6.7, preprint pp. 200–237: linearizations, the determinant of Fredholm '
            'operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm '
            'sections, the orientation of the solution set, the product with [0, 1]; Theorem 6.43 is not formalized'),
+    ('V7', 'Part II, Chapter 7', 'HWZ Part II, Chapter 7 §§7.1–7.5, 2017 text pp. 225–256 (Part II has no 2014 '
+           'preprint; numbers and pages are those of arXiv 1707.08941): ep-groupoids, natural representations of the '
+           'isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of '
+           'the orbit space, index lifting, paracompact orbit spaces, proper subsets, sc-smooth partitions of unity'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

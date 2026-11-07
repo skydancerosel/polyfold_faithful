@@ -6606,6 +6606,12 @@ Follow-ups of the round-trip audit (`RoundTrip/`, item V5.22): Remark 5.12 as st
      presentations of `C`; the tameness of `r¹` needs the presentation independence of the
      degeneracy index and of `E_x` for `C¹` and that `A ∩ E₁` is an sc-complement of `T_xO¹` when
      `A` is one of `T_xO` (the sc-splitting shifts). Not done; no counterexample either.
+     (2026-11-07) Chapter 7 settles this only for M-polyfold tameness: `MPolyfold.IsTame.levelOne`
+     (`Polyfold/Chapter7/Lift.lean`) proves that the index lift `X¹` of a tame M-polyfold is tame,
+     through a step showing that `r¹` is tame with respect to every presentation of `C¹` (the
+     degeneracy index, `E_x ∩ E₁` and the sc-complement `A ∩ E₁`, then
+     `ScRetraction.IsTameWith.isTame`), while the tame variants for `f¹` (`IsScFredholmSectionTame`
+     for the shifted section) remain not stated (Chapter 7, items 81, 115).
 146. **`i ≥ 2` by iteration.** `StrongBundle.shift` applies to `P¹` itself, and Corollary 5.8 for
      `i = 1` applies to the sc-Fredholm `f¹` with its compact solution set:
      `Polyfold.corollary_5_8_two` (`f² = (f¹)¹` is an sc-Fredholm section of `P² = (P¹)¹` with
@@ -7110,3 +7116,593 @@ Not formalized (2026-11-07).
      `X × {1}`, where the integrals over `S₀` and `S₁` are to appear, and `p₁*ω ∧ p₂*dt` has
      degree one more than `dim ∂S_F` (possible misprint). Not formalized (gap G.54); noted in
      `Exposition/Chapter6.md`, §7.
+
+## Chapter 7 (Ep-groupoids; Lean `Polyfold/Chapter7/`)
+
+*Numbering.* The items of this section are numbered in blocks, one block per part of the chapter,
+so that agents working at the same time do not collide; the gaps in the numbering are unused
+numbers, not deleted items. 1–19: §7.1 up to Proposition 7.4, groupoids, ep-groupoids and their
+first properties (Definitions 7.1–7.7, Propositions 7.1–7.4, Lemma 7.1; `Chapter7/Groupoid.lean`,
+`EpGroupoid.lean`, `ProperMaps.lean`, `LocalDiffeo.lean`, `Basic.lean`); 20–39: natural
+representations and local uniformizers (Theorems 7.1, 7.5, pp. 231–233, Proposition 7.5,
+Definitions 7.8, 7.9, Proposition 7.6, Lemmas 7.8, 7.9 of Appendix 7.5.1; `LocConnected.lean`,
+`Discrete.lean`, `NaturalRep.lean`, `NaturalAction.lean`, `NaturalRepFinite.lean`,
+`Uniformizer.lean`); 40–49: ep-subgroupoids (Definition 7.10, Proposition 7.7; `SubGroupoid.lean`);
+50–69: §7.2, effective and reduced ep-groupoids (Definitions 7.11–7.13, Lemmas 7.2, 7.3,
+Propositions 7.8–7.10; `Effective.lean`, `Reduced.lean`); 70–79: §7.3 up to Corollary 7.2, the
+topology of `|X|` (Theorem 7.2, Lemmas 7.4–7.7, Corollaries 7.1, 7.2, Definition 7.14;
+`OrbitTopology.lean`, `Michael.lean`); 80–89: index lifts and paracompact orbit spaces
+(Propositions 7.11, 7.12, Definition 7.15, Remark 7.1; `Lift.lean`); 90–99: §7.4 and Appendix
+7.5.2, partitions of unity and proper subsets (Theorems 7.3, 7.4, 7.6, Definitions 7.16, 7.17,
+Remark 7.2, Propositions 7.13, 7.14, Lemma 7.10, Corollary 7.3; `ProperSubsets.lean`,
+`PartitionsOfUnity.lean`); 100–109: witnesses, counterexamples and the check of the hypotheses
+(`NonVacuity.lean` and the witnesses of the other files); 110–119: not formalized, and the gaps of
+Part I taken up here. Part II has no 2014 preprint: statement numbers and pages are the 2017
+text's (pp. 225–256); Part I results are cited by their 2017 numbers. The comparison items are
+`Exposition/verification/ch07.md` (V7.1–V7.68).
+
+Found while formalizing §7.1 up to Proposition 7.4 (2026-11-07).
+
+1. **Definition 7.1 is read as a structure of maps; the composition is total** *(Definition 7.1,
+   pp. 225–226)*. A groupoid is `GroupoidStr Obj Mor`: maps `src`, `tgt`, `comp`, `unit`, `inv`
+   with the laws of (1)–(4) required on composable pairs only; `comp φ ψ` of a non-composable
+   pair is a junk value, never used. `mor(x, y)`, the relation `x ∼ y` (`Isomorphic`,
+   `orbitSetoid`), `|X|` (`OrbitSpace`) and `π` are as in the text; the saturation `π⁻¹(π(A))`
+   used from Definition 7.10 on is `saturation`, with `isSaturated_iff`. Not in the text: the
+   bridge `GroupoidStr.Ob` to Mathlib's `CategoryTheory.Groupoid` and `GroupoidFunctor.toFunctor`,
+   so that "full" and "faithful" (p. 232, Proposition 7.6) are Mathlib's `Functor.Full`,
+   `Functor.Faithful`.
+2. **The isotropy group has the text's multiplication** *(Definition 7.2, p. 226)*. `Isotropy x`
+   is the group of `φ : x → x` with `g * h = g ∘ h`, which is the text's. Mathlib's vertex group
+   `x ⟶ x` multiplies in the other order: `isotropyEquivVertexGroup` identifies `G_x` with its
+   opposite group, and `isotropyEquivAut` with `Aut x`.
+3. **Definition 7.3 (3) is read existentially, with Mathlib's proper maps** *(Definition 7.3 (3),
+   p. 227)*. "Every point `x` possesses an open neighbourhood `V(x)` such that
+   `t : s⁻¹(cl_X(V(x))) → X` is proper" is `exists_isProperMap`: for each `x` there is such a `V`,
+   and "proper" is `IsProperMap` of the restriction (`domRestrict`). The text's proofs use the
+   sequential form ("after perhaps taking a subsequence"; Proposition 7.3, Lemma 7.1,
+   Propositions 7.7, 7.11, 7.13, Lemma 7.8); it is equivalent here (`isProperMap_iff_exists_tendsto_subseq`, `isProperMap_domRestrict_iff`,
+   `MPolyfold.isProperMap_domRestrict_iff_isCompact_preimage`), since M-polyfolds are metrizable
+   (Theorem 2.2). Two facts the text uses without comment are proved: properness passes to every
+   smaller open `V' ⊆ V(x)` (`isProperMap_domRestrict_closure_mono`, `HasPropernessProperty.mono`),
+   and it cannot be asked of every neighbourhood (item 103).
+4. **Definition 7.3 (4): the fibred product, and the citation "Lemma 2.8 in [38]"** *(Definition
+   7.3 (4), p. 227)*. The text makes `𝐗 ₛ×ₜ 𝐗` an M-polyfold "in view of Lemma 2.8 in [38]", the
+   paper *A General Fredholm Theory III* (bibliography, entry [38]); this is an external citation,
+   not a misprint. Its statement in the book is Part I's Proposition 2.15, which the formalization
+   uses (`MPolyfold.isSubMPolyfold_fibredProduct`, `MPolyfold.subPolyfold`): (4) is `IsScSmoothComp`,
+   sc-smoothness of `m` on that sub-M-polyfold of `𝐗 × 𝐗`. The proofs use the equivalent sheet form
+   `IsScSmoothCompSheet` (for every sheet `σ` of `s`, `ψ ↦ m(σ(t ψ), ψ)` is sc-smooth), proved
+   equivalent in `isScSmoothComp_iff_sheet`.
+5. **`φ̂` and Definition 7.4; `Tφ` is only defined** *(p. 227, Definition 7.4)*. The open sets
+   `𝐔(φ)`, `U(x)`, `U(y)` on which `s` and `t` are sc-diffeomorphisms are `Sheet` (`exists_sheet`,
+   `sheetAt`), and `φ̂ = t ∘ (s|𝐔(φ))⁻¹ : U(x) → U(y)` is `hat`, an sc-diffeomorphism
+   (`isScDiffeoOn_hat`) with `φ̂(x) = y` (`hat_src`). `Tφ := Tφ̂(x)` is `tangentMor`, a definition
+   only: that it is well defined (`Ts` injective on `T_φ𝐗`), equal to `Tφ̂(s(φ))`, bijective, a
+   bounded linear isomorphism on level `0` for `φ ∈ 𝐗₁`, and an sc-operator for smooth `φ` is not
+   formalized; the linearity needs the linear structure of `T_xX` (gap G.7) and is deferred to
+   Chapter 8 (gap G.70). In the extracted text the display reads "`φ̂ = t ∘ (s|𝐔(φ))⁻¹ ∘ U(x) →
+   U(y)`", `∘` for `:` (possible misprint; the same slip as in Definition 7.9, item 28), and
+   "`Tφ : T_{s(φ)}X → T_{t(φ)}`" lacks the `X` (possible misprint or extraction artefact; check
+   against the printed page).
+6. **Levels, the degeneracy index, and the filtration of `|X|`** *(pp. 227–228, Definition 7.5)*.
+   `s` and `t` preserve the levels (`mem_levelSet_src_iff`, `mem_levelSet_tgt_iff`), so
+   `ml(x) = ml(φ) = ml(y)` (`MPolyfold.maxLevel`, `MPolyfold.IsLocalScDiffeo.maxLevel_eq`), and
+   `d_X(s φ) = d_𝐗(φ) = d_X(t φ)` by Part I's Proposition 2.7 (`MPolyfold.IsLocalScDiffeo.degIndex_eq`,
+   `degIndex_src`, `degIndex_tgt`); `d_|X|` of Definition 7.5 is `degIndexOrbit`, well defined by
+   `degIndexOrbit_π`. The sets `|X_k| = π(X_k)` are `orbitLevel k`; the set `|X_∞|` and the identity
+   `|X_∞| = ⋂_k |X_k|` (immediate, as `ml` is constant on classes) are not stated (gap G.72).
+7. **Definition 7.6 and the tameness of `𝐗`** *(Definition 7.6 and the paragraph after it, p.
+   228)*. "`X` is a tame M-polyfold" is `MPolyfold.IsTame`, the existence of an equivalent tame
+   atlas (Definition 2.19). The claim that `𝐗` is then tame is proved by transporting tame charts
+   along the local sc-diffeomorphism `s` (`MPolyfold.IsScDiffeoOn.exists_tame_chart`,
+   `MPolyfold.IsLocalScDiffeo.isTame`; the converse for surjective maps is
+   `MPolyfold.IsLocalScDiffeo.isTame_iff_of_surjective`). Read as "every chart is modelled on a
+   tame retract" the definition would be unsatisfiable (item 106, point 1).
+8. **Definition 7.7: the category `EP`** *(Definition 7.7, p. 228)*. Morphisms are `EpFunctor`s:
+   `GroupoidFunctor`s (maps on objects and morphisms commuting with `s`, `t`, `m`, `u`) that are
+   sc-smooth on both spaces. That a functor commutes with `ι` is derived (`GroupoidFunctor.mor_inv`);
+   identities and composites (`EpFunctor.id`, `EpFunctor.comp`) make `EP` a category, and functors
+   induce continuous maps of orbit spaces (`GroupoidFunctor.orbitMap`).
+9. **The remark after Definition 7.7 does not hold as we read it; it holds for functors continuous
+   on morphisms** *(pp. 228–229)*. The text says that sc-smoothness of `f` on objects suffices,
+   because `f(γ) = (s|𝐔(ψ))⁻¹(f(s(γ)))` on `𝐔(φ)`, given neighbourhoods with
+   `f(𝐔(φ)) ⊆ 𝐔(ψ)`. Such neighbourhoods need `f` to be continuous on morphisms, and without that
+   the claim fails: on the ep-groupoid of `ℤ/3` acting trivially on `ℝ`, the functor that is the
+   identity on objects and sends `(g, y)` to `(g, y)` for `y ≤ 0` and to `(g², y)` for `y > 0` is a
+   functor, sc-smooth on objects, not continuous on morphisms
+   (`Examples.remark_definition_7_7_counterexample`, item 104). With continuity the argument goes
+   through, and needs only a sheet `𝐔(ψ)` of `s` at `ψ = f(φ)` and `𝐔(φ) = f⁻¹(𝐔(ψ))`
+   (`isScSmoothMap_mor_of_continuous`, `isScSmoothMap_mor_iff_continuous`, `EpFunctor.ofContinuous`;
+   the formula is `mor_eq_srcInv_obj_src`).
+10. **Propositions 7.1 and 7.2: the proofs** *(p. 229)*. Proposition 7.1 is proved through the
+    saturation: `π⁻¹(π(U)) = t(s⁻¹(U))` is open since `t` is an open map
+    (`proposition_7_1`; also `proposition_7_1_isOpenQuotientMap`, `proposition_7_1_map_nhds`); the
+    text argues point by point with the same sheets. Proposition 7.2 uses the metrizability of `X`
+    (Theorem 2.2, `MPolyfold.metrizableSpace`): balls of radius `1/(k + 1)` give a monotone
+    countable basis, read as Mathlib's `HasAntitoneBasis` (`proposition_7_2_of_hasAntitoneBasis`,
+    `proposition_7_2`, `proposition_7_2_firstCountableTopology`).
+11. **Proposition 7.3 is proved without sequences, for every `A ⊆ cl U`** *(Proposition 7.3, pp.
+    229–230)*. For `U` with the properness property, `π(cl A) = cl π(A)` holds for every
+    `A ⊆ cl_X(U)` (`proposition_7_3_of_isProperMap`), from the closedness of the proper map
+    `t : s⁻¹(cl U) → X` (`isClosed_image_preimage_of_isProperMap_domRestrict`); the statement for
+    `A ⊆ U` is `proposition_7_3`. The text's sequence argument is the same fact.
+12. **Lemma 7.1: the proof works with the inverses; misprints** *(Lemma 7.1, p. 230)*. The
+    statement counts the `ψ` with `s(ψ) = x`, `t(ψ) ∈ U(x₀)` (`lemma_7_1`); the proof takes
+    `ψ_n : s(ψ_n) → x` with `s(ψ_n) ∈ U(x₀)`, the inverses of those, with `s` and `t` exchanged
+    (possible misprint; both forms are proved, the proof's as `lemma_7_1_swap`, and they are
+    equivalent by `ι`). In the proof, "`t : V(ψ) → V(y)`" is meant for `V(x)`, and the limit
+    satisfies "`s(ψ) ∈ s⁻¹(cl_X(U(x₀)))`" where `ψ ∈ s⁻¹(cl_X(U(x₀)))`, i.e. `s(ψ) ∈ cl_X(U(x₀))`,
+    is meant (possible misprints; for the parentheses see item 96). The openness of `U(x₀)` and
+    `x₀ ∈ U(x₀)` are not used (`_hU`, `_hx₀`). The finiteness is proved without sequences: the
+    fibre over `x` of the proper map is compact and discrete, as `t` is a local homeomorphism
+    (`finite_setOf_mem_of_isProperMap_domRestrict`,
+    `IsProperMap.finite_preimage_singleton_of_isLocallyInjective`).
+13. **Proposition 7.4 and the conjugation `G_x → G_y`** *(Proposition 7.4 and the paragraph after
+    it, p. 230)*. `G_x` is finite by Lemma 7.1 with `x₀ = x` (`proposition_7_4`, an instance; the
+    abstract form is `MPolyfold.finite_isotropy_of_isLocalScDiffeo`). The isomorphism
+    `g ↦ φ ∘ g ∘ φ⁻¹` is `conjIsotropy` (`nonempty_isotropy_mulEquiv`, `nat_card_isotropy_eq`);
+    "there is no canonical identification" is made precise: two choices of `φ` give isomorphisms
+    that differ by an inner automorphism of `G_y` (`isotropyConj_eq_isotropyConj_conj`).
+
+Found while formalizing the natural representations and local uniformizers (2026-11-07).
+
+20. **Theorem 7.1 is read as the datum `NaturalRep`, with `U` connected** *(Theorem 7.1, p. 231)*.
+    `NaturalRep x` holds `U` open, connected, containing `x`, `Φ` and `Γ` with (1)–(3); the theorem
+    is `theorem_7_1`: for every open `V ∋ x` there is one with `U ⊆ V`. The statement does not say
+    "connected", but the text chooses "the connected open neighborhood `U(x)`" two paragraphs later
+    (p. 231), and connectedness is what makes `Φ` a homomorphism with `Φ(1) = id`: two sections of
+    `s` through the same morphism agree on a connected set (`eqOn_sections_of_isPreconnected`).
+    `Φ(g) ∈ Diff_sc(U)` is read as an sc-diffeomorphism of `U` with inverse `Φ(g⁻¹)`
+    (`isScDiffeoOn_Φ`, `Φ_mul`), and "`Γ : G × U → 𝐗` sc-smooth" per sheet, `y ↦ Γ(g, y)`
+    sc-smooth for each `g` (`isScSmoothOn_Γ`), which is sc-smoothness on `G × U` (item 23). (3) is
+    `existsUnique_Γ`, with the bijection `NaturalRep.bijOn_Γ`.
+21. **Local path connectedness of M-polyfolds is proved** *(used on p. 231, in Lemma 7.9 and in
+    Corollary 7.2)*. The text takes connected neighbourhoods `U(x)`, `U₂` and open connected
+    components for granted. An sc-retract `O = r(U)` is locally path connected: a point `p ∈ O`
+    near `o` is joined to `o` inside `O ∩ W` by the path `τ ↦ r(o + τ(p − o))`
+    (`ScRetraction.exists_ball_joinedIn`, `IsScRetract.locallyPathConnectedSpace`); hence so is
+    every M-polyfold
+    (`MPolyfold.locallyPathConnectedSpace`, `MPolyfold.locallyConnectedSpace`,
+    `MPolyfold.hasBasis_isOpen_isConnected`, `MPolyfold.isOpen_connectedComponent`) and every
+    quotient of one (`MPolyfold.locallyPathConnectedSpace_quotient`). This is the first of the two
+    facts of gap G.56 (item 114).
+22. **The discussion on pp. 231–233 is formalized** *(pp. 231–233)*. The splitting
+    `𝐔(x) = ⊔_g 𝐔(g)` into the connected open sets `𝐔(g) = Γ(g, U)` with `s, t : 𝐔(g) → U`
+    sc-diffeomorphisms (`NaturalRep.pairwise_disjoint_image_Γ`, `NaturalRep.iUnion_image_Γ`,
+    `NaturalRep.connectedComponentIn_morOn`, `NaturalRep.isScDiffeoOn_src_image`,
+    `NaturalRep.isScDiffeoOn_tgt_image`); "`𝐔(x)` fits into an arbitrarily small open neighbourhood
+    of `G_x`" is Lemma 7.8 with any open `N_g ∋ g` followed by Theorem 7.1 with `V = U₁`
+    (`lemma_7_8`, `theorem_7_1`). The translation groupoid `G_x ⋉ U(x)` is an ep-groupoid built from
+    the data `(Φ, Γ)` alone (`NaturalRep.translationEpGroupoid`), with the properness for every `V`
+    (`NaturalRep.translation_isProperMap`), "using the proof of Theorem 7.1" not being needed. The
+    functor `Γ` is a functor because `U` is connected (`NaturalRep.Γ_mul`, `NaturalRep.Γ_one`,
+    `NaturalRep.Γ_inv`), full and faithful by (3) (`NaturalRep.full`, `NaturalRep.faithful`), an
+    `EpFunctor` (`NaturalRep.epFunctor`), with image the full subcategory on `U`. `Φ̂` is defined by
+    the text's formula (`NaturalRep.Φhat`, `NaturalRep.Φhat_Γ`); it is a homomorphism of
+    sc-diffeomorphisms of `𝐔(x)` with the two commutative diagrams (`NaturalRep.Φhat_mul`,
+    `NaturalRep.Φhat_one`, `NaturalRep.src_Φhat`, `NaturalRep.tgt_Φhat`, `NaturalRep.image_Φhat`,
+    `NaturalRep.isScDiffeoOn_Φhat`). One possible misprint (p. 232, added 2026-11-07 from the
+    comparison): the composability condition reads "`y = s(g, y) = t(h, z) = Φ(h)(y)`", where
+    `Φ(h)(z)` is meant.
+23. **`G × U` as an M-polyfold** *(p. 232)*. "The finite disjoint union of copies of the
+    M-polyfold `U`" is the product of `U` with the discrete M-polyfold on `G`
+    (`discretePolyfold`, `discreteChart`); a map on `G × U` is sc-smooth iff it is on every slice
+    (`isScSmoothOn_univ_prod_discrete_iff`, `isScSmoothMap_prod_discrete_iff`). The source and target
+    of `G ⋉ U` are local sc-diffeomorphisms, `t` through the shear `(g, y) ↦ (g, Φ(g)(y))`
+    (`NaturalRep.shearHomeomorph`).
+24. **Uniqueness and restriction of natural representations** *(used on pp. 239–241: "`U(x)` can be
+    chosen arbitrarily small", "adapting restrictions" in Lemma 7.3)*. Two natural representations
+    at `x` agree on the connected component of `x` in `U ∩ U'` (`NaturalRep.Γ_eqOn`,
+    `NaturalRep.Φ_eqOn`), and a natural representation restricts to every `G_x`-invariant connected
+    open neighbourhood (`NaturalRep.restrict`, `NaturalRep.restrictInter`,
+    `exists_naturalRep_restrict`, `exists_naturalRep_shrink`). The text uses both without
+    statement.
+25. **Proposition 7.5 is proved by a star construction, without induction or shrinking**
+    *(Proposition 7.5, pp. 233–236)*. The functor `f` with its properties is the datum
+    `NaturalRepFinite Y V` (Definition 7.8). Instead of the text's induction on `k`, which shrinks
+    the neighbourhoods at each step, the formalization fixes a natural representation at one object
+    `x` (which need not lie in `Y`), chooses morphisms `x → y` for `y ∈ Y` and transports it along
+    them (`NatRepFinite.transportRep`, `NatRepFinite.Star`, `NatRepFinite.exists_star`); (1) holds
+    with the transported natural representations. `V` is read as a neighbourhood of the set `Y`
+    (`proposition_7_5_of_mem_nhdsSet`; the open form `proposition_7_5`), and `Y = ∅` is allowed
+    (`NatRepFinite.emptyNaturalRepFinite`).
+26. **Possible misprints in the proof of Proposition 7.5** *(pp. 234–236)*. p. 234: "unique
+    `g ∈ G_x`" for `G_{y₁}`; two morphisms both named `φ` (`φ : u → z` and `φ : u' → z'`; a lost
+    prime is possible, an extraction artefact); "Fixing `g ∈ G_{y1}`" for `G_{y2}`; the garbled
+    sentence "It is also which implies". p. 235: "`𝐔(γ_g) := Ψ_g(𝐔(γ₁))`" for `Φ_g`; "images
+    `𝐔(ψ_g)`" for `𝐔(γ_g)`; "`φ = Γ(g, s(φ)) ∘ ψ`" for `Γ(g, t(ψ)) ∘ ψ`; "Let `k ≥ 3`" for
+    `k ≥ 2`; "as in the case `k = 1`" where the two-object case `k = 2` is meant;
+    "`s : 𝐔'(φ) → U'(y_i)`" with `φ` for `γ`; "`y : 𝐔(δ_j) → U(y_j)`" for `t`. p. 236: "`g ∈ G_{y_i}`"
+    for `G_{y_j}`. None affects the argument, which is replaced by item 25.
+27. **Proposition 7.6: the openness of `σ` is not needed** *(Proposition 7.6, pp. 236–237)*. The
+    proof follows the text (injectivity by Theorem 7.1 (3), openness of `|U(x)|` by Proposition
+    7.1). The image of an open `Q ⊆ G_x\U(x)` is `π(σ⁻¹(Q))` with `σ⁻¹(Q)` open in `U(x)`, so `τ`
+    into `|X|` is a continuous injective open map, an open embedding onto `π(U(x))`
+    (`NaturalRep.isOpenEmbedding_orbitQuotientMap`, `proposition_7_6`); the second form is
+    `proposition_7_6_fullyFaithful` and `proposition_7_6_orbitMap`.
+28. **Definition 7.9 and the claims after it** *(Definition 7.9, p. 237)*. "`Ψx ◦ Gx ⋉ U(x) → X`"
+    is read as `Ψ_x : G_x ⋉ U(x) → X` (possible misprint), and "a a local uniformizer" doubles the
+    article (possible misprint). `LocalUniformizer` has `Ψ_x` the inclusion on objects, full and
+    faithful, inducing a homeomorphism onto `π(U(x))`; "embedding" is not a separate field: the
+    injectivity on objects and morphisms that the text notes afterwards follows
+    (`LocalUniformizer.injective_obj`, `LocalUniformizer.injective_mor`), and for the uniformizers
+    built from natural representations `Ψ_x` is an open embedding on both spaces
+    (`NaturalRep.isOpenEmbedding_functor_obj`, `NaturalRep.isOpenEmbedding_functor_mor`). Existence
+    is proved inside every open `V ∋ x` (`exists_localUniformizer`).
+29. **The proof of Theorem 7.5 (= Theorem 7.1)** *(Theorem 7.5, pp. 253–254)*. `theorem_7_5` is
+    `theorem_7_1` (the text restates Theorem 7.1 in Appendix 7.5.1), proved along the text with
+    Lemmas 7.8 and 7.9 (`NatRepConstruction.exists_sheets`, `NatRepConstruction.Sheets.mkRep`).
+    Readings: the neighbourhood is started at `U₀ := V ∩ ⋂_g s(N_g)`, so that `U ⊆ V`, which the
+    text's proof does not address; only `s_g` has to be an sc-diffeomorphism onto `U₀`; the
+    disjointness of the `N_g` is used only for the uniqueness in (3); "contractible" `N^t_g`, `N^s_g`
+    is not needed. In the statement, "`Φ : G_x → Diff_sc(U)`" in the sentence after the bullets is
+    meant for `G_{x₀}` (possible misprint).
+30. **Lemma 7.8** *(Lemma 7.8, pp. 253–254)*. The indirect argument is run along a countable basis
+    of `x₀`; properness applies once `s(h_k)`, `t(h_k)` lie in a neighbourhood with the properness
+    property, i.e. for large `k`. The lemma holds for any open `N_g ∋ g` and any neighbourhood `U₀`
+    (`lemma_7_8`). "By the properness assumption of ep-polyfolds" is meant for ep-groupoids
+    (possible misprint).
+31. **Lemma 7.9: `U₂` connected** *(Lemma 7.9, p. 254)*. `U₂` is chosen connected, by item 21
+    (the text does not say so); then `U = ⋃_g t_g s_g⁻¹(U₂)` is connected as each piece contains
+    `x₀` (`NatRepConstruction.Sheets.isConnected_unionHat`), which the homomorphism property needs.
+    The invariance and `U ⊆ U₁` are `lemma_7_9`; the continuity of the composition used for
+    `Φ(gh) = Φ(g)Φ(h)` comes from (4) in sheet form (`NatRepConstruction.Sheets.eqOn_σ_mul`,
+    `NatRepConstruction.Sheets.hat_mul`, `NatRepConstruction.Sheets.hat_one`).
+
+Found while formalizing the ep-subgroupoids (2026-11-07).
+
+40. **Definition 7.10 and the facts (1)–(4) of a sub-M-polyfold** *(Definition 7.10 and pp.
+    237–238)*. Definition 7.10 is `IsEpSubgroupoid` (sub-M-polyfold and saturated). The four facts
+    recalled from Part I's Proposition 2.6 are used in their forms (1) and (2) (`subObjPolyfold`,
+    `isScSmoothMap_val_subObj`, `isScSmoothOn_retractInto_subObj`); the tangent facts (3) and (4) are
+    not restated, as `T_aA` and `T_aX` carry no linear structure here (gap G.7); in a chart they are
+    Part I's `proposition_2_21_3`, `proposition_2_21_4`.
+41. **The morphisms `𝐀` and the retraction `𝐫`** *(p. 238)*. For saturated `A`, `𝐀 = s⁻¹(A) =
+    t⁻¹(A)` (`morOn_eq_preimage_src`, `morOn_eq_preimage_tgt`, `src_mem_of_tgt_mem_of_isSaturated`),
+    the preimage of a sub-M-polyfold under a local sc-diffeomorphism, hence a sub-M-polyfold
+    (`isSubMPolyfold_preimage_src`, `isSubMPolyfold_morOn`); the text's `𝐫 = (s|𝐔(φ))⁻¹ ∘ r ∘ s` is
+    that construction. The extracted text has "`s(𝐫(ψ)) = r(s(ψ)) ∈ A` and `t(𝐫(ψ)) ∈ U(a)`, so that
+    `𝐫(ψ) ∈ 𝐔(a)`": the second claim need not hold (`t(𝐫(ψ))` lies near `t(φ)`, not near `a`) and is
+    not used, since `𝐫(ψ) ∈ 𝐀` follows from `s(𝐫(ψ)) ∈ A` and saturation (possible misprint or
+    extraction artefact; check against the printed page).
+42. **Proposition 7.7: steps the text leaves out** *(Proposition 7.7, pp. 238–239)*. (i) A map that
+    is sc-smooth into `X` and takes values in the sub-M-polyfold `A` is sc-smooth into `A` (a private
+    lemma of `SubGroupoid.lean`); this is what "restrictions of sc-smooth maps" needs. (ii) The
+    fibred product of `𝐀` includes sc-smoothly into that of `𝐗`, which (4) for `A` needs
+    (`isScSmoothComp_fullSub`). (iii)
+    `A` and `𝐀` must be paracompact for the project's M-polyfolds; the text does not address it
+    (`instParacompactSpaceMorOn`, scoped). (iv) The properness: any `V(a)` with the properness
+    property works, the `G_a`-invariance of `U(a)` is not used, and the subsequence is taken by the
+    sequential criterion (`exists_isProperMap_fullSub`). Not in the text: the inclusion is a fully
+    faithful functor (`subEpFunctor`, `subEpFunctor_full`, `subEpFunctor_faithful`). The conclusion is
+    `proposition_7_7`, with `subEpGroupoid`.
+
+Found while formalizing §7.2 (2026-11-07).
+
+50. **Definition 7.11 and the regular objects** *(Definition 7.11 and the sentence after it, p.
+    239)*. `IsEffective` is the text's condition (every open neighbourhood of `g ≠ 1_x` contains `ψ`
+    with `s(ψ) ≠ t(ψ)`); regular objects are `GroupoidStr.IsRegular`, `X_reg` is `regularSet`. The
+    sentence "if `s(φ)` is regular, so is `t(φ)`" is `isRegular_tgt_of_isRegular_src`, by the
+    conjugation of item 13; `X_reg` is saturated (`isSaturated_regularSet`).
+51. **Lemma 7.2 uses `Γ(1, a) = 1_a`** *(Lemma 7.2, p. 239)*. For `a ∈ U(x)` the morphisms
+    `a → a` are `Γ(g, a)` with `Φ(g)(a) = a`; that `G_x = {1}` gives `G_a = {1_a}` needs
+    `Γ(1, a) = 1_a`, which holds because `U` is connected (item 20). The lemma holds for every
+    natural representation (`NaturalRep.subset_regularSet`, `lemma_7_2`).
+52. **Lemma 7.3: "adapting restrictions" through uniqueness** *(Lemma 7.3, pp. 239–240)*. (2) is
+    read with "injective" as "trivial kernel" (`NaturalRep.injective_Φ_iff`,
+    `NaturalRep.kerΦ_eq_bot_iff`). (1) ⇒ (2) holds for every natural representation and is proved
+    without sequences (`IsEffective.eq_one`, `isEffective_iff_forall_naturalRep`). (2) ⇒ (1): the
+    text's "adapting restrictions" is read through the uniqueness of item 24, applied once with
+    `V = {y ∈ U₀ | Γ₀(g, y) ∈ 𝐔(g)}`. The equivalence is `lemma_7_3`.
+53. **Proposition 7.8: the minimum is taken over the open set itself; the converse holds**
+    *(Proposition 7.8, pp. 240–241)*. The text minimizes `#G_x` over `U(x₀)`; the formalization
+    minimizes over the given open set, so `U(x₀)` is not needed, and identifies `G_a` with the
+    stabilizer of `a` in `G_x` (`NaturalRep.stabilizerEquivIsotropy`, the text's `H`). The converse,
+    not in the text, also holds: `X` is effective iff `X_reg` is dense
+    (`isEffective_of_dense_regularSet`, `isEffective_iff_dense_regularSet`).
+54. **The subgroup `T_x`** *(p. 241)*. "`g` acts trivially" is `ActsTrivially` (there is a natural
+    representation with `Φ(g) = id`), `T_x` is `trivialSet` and `trivialSubgroup`. The kernel of `Φ`
+    depends on `U(x)` (sc-smooth maps are not analytic); the text's "we can choose `U(x)` so small
+    that the kernel is `T_x`" is proved in the form: there is a neighbourhood `N` of `x` such that
+    `ker Φ = T_x` for every natural representation inside `N` (`exists_mem_nhds_trivialSet_iff`,
+    `exists_naturalRep_kerΦ_eq`). Not in the text: the intrinsic form `g ∈ T_x` iff `s = t` near `g`
+    in `𝐗` (`mem_trivialSet_iff_eventually`); `T_x` is a normal subgroup (`trivialSubgroup_normal`),
+    trivial for all `x` iff `X` is effective (`isEffective_iff_trivialSubgroup_eq_bot`). Needed for
+    Definition 7.12 and not stated: `φ T_x φ⁻¹ = T_y` for `φ : x → y`
+    (`isotropyConj_mem_trivialSet`, `map_isotropyConj_trivialSubgroup`). "`Diff_sc(U(x)`" lacks a
+    parenthesis (possible misprint or extraction artefact; check against the printed page).
+55. **Definition 7.12: `∼` is an equivalence relation; "the subset `𝐗^R`"** *(Definition 7.12, p.
+    241)*. `∼` is an equivalence relation because `T_x` is a subgroup (`reducedSetoid`). Equivalent
+    forms: `φ = φ' ∘ k` with `k ∈ 𝐗^T`, and `𝐗^T` is the interior of `{s = t}`
+    (`nonEffectivePart_eq_interior`); the left form `k ∘ φ` (`reducedRel_comp_left`). `𝐗^R` is called
+    "the subset of reduced morphisms"; it is a quotient of `𝐗`, as the next sentence says
+    ("the collection of all equivalence classes") (possible misprint). `𝐗^R` is `ReducedMor`.
+56. **Proposition 7.9 takes `𝐗^R` Hausdorff and paracompact as hypotheses** *(Proposition 7.9, pp.
+    242–243)*. An M-polyfold is a paracompact Hausdorff space (Definition 2.8). The proof gives the
+    quotient topology, the openness of the projection (`isOpenMap_reducedπ`), the charts
+    `Ψ_φ = ψ ∘ σ ∘ s` on `π(dom ψ)` (`reducedChart`) and their sc-smooth transitions
+    `ψ₂ ∘ σ₂ ∘ s ∘ ψ₁⁻¹` (`reducedChart_compatible`), all without hypotheses; but, as we read it,
+    neither Hausdorffness nor paracompactness, and `𝐗^R` need not be Hausdorff (the splicing example
+    of PLAN II.6, 2, not formalized: it needs a dimension-jumping retract). So `reducedPolyfold`, and
+    `proposition_7_9`, take `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` (gap G.71).
+    Small sheets are not needed. The hypotheses are satisfiable (item 60).
+57. **Possible misprints in the proof of Proposition 7.9** *(pp. 242–243)*. "`ψ' = (s|𝐔(ψ))⁻¹(s(ψ))`"
+    for `(s|𝐔(ψ))⁻¹(s(ψ'))` (a displaced prime is possible, an extraction artefact);
+    "`𝐔(φ) ⊂ Ψ_{φ₀}(𝐔([φ₀]) ∩ 𝐔([ψ₀]))`" for `Ψ_{φ₀}⁻¹(…)` (a lost superscript is possible, an
+    extraction artefact); "such that `T_x` agrees with the kernel of the `G_{s(φ)}`-action" for
+    `T_{s(φ)}`; the garbled sentence "which show that the source and target maps are smoothness of
+    the natural maps can be reduced" (p. 243).
+58. **Proposition 7.10: the conditions of Definition 7.3 for `X_R`** *(p. 243, Proposition 7.10, p.
+    244)*. `X_R` is `reducedEpGroupoid`, with `reductionFunctor : X → X_R`. (1): on a sheet,
+    `s, t` of `𝐗^R` are `s_X ∘ (π|𝐔)⁻¹`, `t_X ∘ (π|𝐔)⁻¹`. (3), "proved similarly": `t ∘ π = t_X` with
+    `π` a continuous surjection (Mathlib's `isProperMap_of_comp_of_surj`, `exists_isProperMap_reduced`).
+    (4), "reduced by our local charts", in the sheet form, with `κ = σ₂ ∘ s ∘ σ'` the inverse of `s` on
+    an open set of `𝐗`, a step the text leaves implicit (`isScSmoothCompSheet_reduced`). The text
+    obtains the continuity of `δ` from (4) applied to inverses; the formalization uses the left form
+    `Γ(g, t ψ') ∘ ψ'` (`NaturalRep.isScSmoothOn_comp_Γ_tgt`). Effectiveness is proved from the
+    intrinsic `T_x` of item 54 instead of a point with `Φ(g)(a) ≠ a` (`isEffective_reducedEpGroupoid`).
+    The conclusion is `proposition_7_10`.
+59. **The isotropy of `X_R` and Definition 7.13** *(p. 244, Definition 7.13)*. `[1_x] = T_x` is
+    `ker_reducedIsotropyHom`, and the isotropy of `X_R` at `x` is `G_x/T_x`
+    (`surjective_reducedIsotropyHom`, `quotientTrivialSubgroupEquiv`). `G_x^eff` is `EffIsotropy`, the
+    quotient by the normal closure of `T_x`, which is `T_x` (`normalClosure_trivialSet`,
+    `effIsotropyEquiv`, `effIsotropyEquivReduced`). "For and object" (Definition 7.13) (possible
+    misprint).
+60. **The hypotheses on `𝐗^R` are satisfiable; for non-effective `X` they are not shown to hold**
+    *(not in the text)*. For effective `X` the projection `𝐗 → 𝐗^R` is a homeomorphism
+    (`reducedHomeomorph`), so `𝐗^R` is Hausdorff, paracompact and regular
+    (`t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`,
+    `t3Space_reducedMor_of_isEffective`) and `X_R ≅ X` (`reductionIso`); this covers the trivial
+    ep-groupoid of every M-polyfold (`t2Space_reducedMor_trivial`,
+    `paracompactSpace_reducedMor_trivial`). Paracompactness follows from regularity of `𝐗^R` when `𝐗`
+    is second countable (`paracompactSpace_reducedMor_of_t3`). No non-effective witness is given:
+    for the trivial `ℤ/3`-action (item 102) Hausdorffness of `𝐗^R` is not proved, and Hausdorff with
+    `𝐗` second countable is not shown to suffice (a locally metrizable, second countable Hausdorff
+    space need not be regular, the `K`-topology on `ℝ`).
+
+Found while formalizing §7.3 up to Corollary 7.2 (2026-11-07).
+
+70. **Theorem 7.2** *(Theorem 7.2, p. 244)*. "Locally metrizable" is read as: every point has an
+    open neighbourhood that is metrizable in the subspace topology (`theorem_7_2`). The metrizability
+    of a paracompact `|X|` is proved by Smirnov's theorem in the form of Part I
+    (`metrizableSpace_of_locally`, `theorem_7_2_metrizable`), as the text indicates.
+71. **Lemma 7.4: the metric `ρ̂`** *(Lemma 7.4, pp. 244–245)*. The text's invariant metric
+    `ρ(y, y') = max_g d(g ∗ y, g ∗ y')` and the quotient metric are used; `ρ̂([y], [y'])` is computed
+    as `min_h ρ(y, h ∗ y')`, equal to the text's expression by invariance, and the topology is
+    checked through Mathlib's `MetricSpace.ofDistTopology` (`metrizableSpace_orbitRel_quotient_naturalRep`,
+    `lemma_7_4_naturalRep`, `lemma_7_4`). With Proposition 7.6 this gives the metrizability of
+    `|U(x)|`, the text's "in fact one can take `|U(x)|`".
+72. **Lemmas 7.5–7.7: the order of proof** *(pp. 245–246)*. Lemma 7.5 is Proposition 7.2
+    (`lemma_7_5`; the text derives it from Lemma 7.4). Lemma 7.7 is proved with a closed
+    neighbourhood basis and Proposition 7.3 (`lemma_7_7`), and Lemma 7.6 from Lemma 7.7 and the
+    closedness of points (`t1Space_orbitSpace`, Proposition 7.14 (1) for `{x}`; `lemma_7_6`); the text
+    proves Lemma 7.6 directly.
+73. **Corollary 7.1 and subsets of `|X|`** *(Corollary 7.1 and the sentence before Definition 7.14, p. 247)*. Corollary 7.1 is
+    Urysohn's theorem (`corollary_7_1`). The sentence before Definition 7.14, that a subset of `|X|`
+    is again locally metrizable, regular and Hausdorff, is `exists_metrizable_nhds_subtype` and
+    Mathlib's instances; a paracompact subset is metrizable
+    (`metrizableSpace_of_paracompactSpace_subtype`).
+74. **Corollary 7.2: from compact pieces to a component compact `K`; `U` names two sets**
+    *(Definition 7.14, Corollary 7.2, p. 247)*. Definition 7.14 is `IsComponentCompact`. "We work in a
+    connected component of `K` and may assume … `K` compact" needs that the components of `|X|` are
+    open (local connectedness of `|X|`, `locallyPathConnectedSpace_orbitSpace`, from item 21) and a
+    step the text does not give: the neighbourhoods found in the components form a locally finite
+    family of closed paracompact sets, whose union is paracompact (`paracompactSpace_iUnion`). The
+    finite union of closed paracompact sets is paracompact by Michael's theorem (item 75), which the
+    text does not cite (`paracompactSpace_biUnion_of_finite`). The compact case is
+    `corollary_7_2_of_isCompact` (with `cl U` inside a given open `W ⊇ K`), the general one
+    `corollary_7_2`. In the proof `U` denotes both `⋃ cl_|X|(U(z_i))` and `⋃ U(z_i)` (possible
+    misprint). No other possible misprint was found on pp. 244–247.
+75. **Michael's theorem and the paracompact unions** *(Part I, Lemma 2.7 and Proposition 2.17, used
+    for Corollary 7.2 and on the text's route to Proposition 7.12)*. Part I left Lemma 2.7 (Michael)
+    and Proposition 2.17 unformalized, as not needed (gap G.15). They are now proved
+    (`lemma_2_56`, `proposition_2_57`, `michael_tfae`, `paracompactSpace_of_closed_refinement`,
+    `exists_closed_precise_refinement`), with the unions used here (`paracompactSpace_iUnion`,
+    `paracompactSpace_iUnion_of_finite`, `paracompactSpace_union`,
+    `paracompactSpace_of_isClosed_subset`). Both are proved for regular spaces; the Hausdorff
+    property, which the 2017 text assumes, is not used.
+
+Found while formalizing the index lifts and paracompact orbit spaces (2026-11-07).
+
+80. **Proposition 7.11: "(1), (2) and (4) trivially"** *(Proposition 7.11, pp. 247–248)*. `X¹` is
+    `liftOne`. The structure maps of `X¹` are the restrictions to level `1`; that `m(φ, ψ)` lies on
+    level `1` uses `ml(t(φ ∘ ψ)) = ml(φ)` (item 6, `comp_mem_levelSet`); `liftComp` of a
+    non-composable pair is a junk value. (1) is the level-`1` lift of a local sc-diffeomorphism
+    (`MPolyfold.IsLocalScDiffeo.levelOne`), (2) Part I's `MPolyfold.IsScSmoothMap.levelOne`. For (4)
+    the "trivially" uses, as we read it, `(𝐗 ₛ×ₜ 𝐗)¹ = 𝐗¹ ₛ×ₜ 𝐗¹` as M-polyfolds, which is not proved;
+    it is avoided through the sheet form (`isScSmoothCompSheet_lift`, `isScSmoothComp_lift`). (3)
+    follows the text, with "`(t(φ_k))` belongs to a compact subset of `X₁`" replaced by "`t(φ_k)`
+    converges in `X₁`" and without the text's step (b) (`exists_isProperMap_lift`). The conclusion is
+    `proposition_7_11`.
+81. **Proposition 7.11: the tameness of `X¹` is proved** *(Proposition 7.11, p. 247, "If `X` is tame
+    so is `X¹`")*. The text gives no argument. As we read it, the claim needs that the index lift of
+    a tame retraction is tame, which Part I left open (Chapter 5, item 145). It is proved
+    (`MPolyfold.IsTame.levelOne`, `isTame_liftOne`): for a presentation `T : E ≅ ℝⁿ ⊕ W` of `C`, the
+    shifted presentation of `C¹` has the same `ℝⁿ`-coordinates, so `d_{C¹} = d_C` on `C¹` and
+    `E_x` for it is `E_x ∩ E₁`; `Dr¹(x) = Dr(x)|E₁` has range `T_xO ∩ E₁`; an sc-complement `A` of
+    `T_xO` gives the sc-complement `A ∩ E₁` of `T_xO¹`. Part I's presentation independence
+    (`ScRetraction.IsTameWith.isTame`) then gives tameness for every presentation of `C¹`, and the
+    level charts of tame charts form a tame atlas of `X¹`.
+82. **Definition 7.15, the sentence before Remark 7.1, and Remark 7.1** *(p. 249)*. Definition 7.15
+    is `HasParacompactOrbitSpace`, Mathlib's `ParacompactSpace` without Hausdorff, as the text
+    stipulates. "In case `X` has a second countable topology we have already seen that (1)–(4) imply
+    (5)" is read with `X` the object space: `|X|` is then second countable (`π` is open), metrizable
+    by Corollary 7.1, hence paracompact (`remark_7_1`); also for `|X|` second countable
+    (`hasParacompactOrbitSpace_of_secondCountableTopology`). "It is presently not known whether the
+    property (5) is a consequence of the properties (1)–(4)" is an open question, recorded without a
+    gap (item 113). Remark 7.1 itself, on the requirement of [38], has no formal content.
+83. **Proposition 7.12 by metrizability; `|X¹| → |X|`** *(Proposition 7.12, pp. 249–250)*. The text
+    writes `|X₁|` for the orbit space of `X¹` and treats it as the subset `π(X₁)` of `|X|`. Here `|X¹|`
+    keeps its quotient topology, and `orbitIncl : |X¹| → |X|` is a continuous injection onto
+    `π(X₁)` (`continuous_orbitIncl`, `orbitIncl_injective`, `range_orbitIncl`). The text's route
+    (Lemma 2.7, a locally finite closed refinement, Michael's union of closed paracompact sets) is
+    replaced by Smirnov's theorem pulled back along `orbitIncl` (`metrizableSpace_of_pullback`): every
+    point of `|X|` has the neighbourhood `π(U(x))` whose preimage is metrizable
+    (`NaturalRep.metrizableSpace_preimage_orbitIncl`), so `|X¹|` is metrizable
+    (`metrizableSpace_liftOne_orbitSpace`), hence paracompact (`proposition_7_12`), a stronger
+    conclusion. "`U(x)₁` has the natural `G_x`-action" is read as the restricted action only
+    (`NaturalRep.liftMulAction`): `U(x)₁` need not be connected in `X¹`, so it is not a natural
+    representation of `X¹`. The regularity of `|X¹|` is not needed on this route.
+
+Found while formalizing §7.4 and Appendix 7.5.2 (2026-11-07).
+
+90. **Theorem 7.3 needs `|X|` normal: paracompact and Hausdorff** *(Theorem 7.3, p. 250)*. "Due to
+    paracompactness … a partition of unity" needs `|X|` normal; Definition 7.15 does not require
+    Hausdorff, which comes from Lemma 7.6 (`lemma_7_6`). Index types are arbitrary; the second part
+    gives the conclusions of Definition 7.16 except sc-smoothness, the invariance read as
+    `β_λ(s φ) = β_λ(t φ)` (`theorem_7_3`, `orbitPullback`, `orbitPullback_isSubordinate`).
+91. **Definition 7.16 and Remark 7.2** *(Definition 7.16, pp. 250–251; Remark 7.2, p. 251)*.
+    `HasScPartitionsOfUnity`: for every saturated open cover indexed by a type in the universe of
+    `X`, a subordinate partition of unity sc-smooth in the sense of Part I
+    (`MPolyfold.IsScSmoothPartitionOfUnity`), with `supp` read as `tsupport`, (1) a saturated open
+    neighbourhood meeting finitely many supports, (2) `β_λ(s φ) = β_λ(t φ)`. Remark 7.2 has no formal
+    content; the sc-Hilbert case it mentions is Part I's
+    `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (Corollary 7.3, item 95).
+92. **Definition 7.17, Propositions 7.13, 7.14** *(pp. 251–252)*. Definition 7.17 is
+    `IsProperSubset` and `HasPropernessProperty`. Proposition 7.13 is proved by the compactness of
+    the preimage (`proposition_7_13`), Proposition 7.14 (1) through the closedness of the saturation
+    (`isClosed_saturation_of_isProperSubset`, `proposition_7_14_one`). (2) is proved with only the
+    paracompactness of `|X|` (`proposition_7_14_two`): a precise locally finite refinement
+    (`precise_refinement_set`) replaces Lemma 2.7, no regularity is used, the representatives are
+    chosen by `Quotient.out`, and any neighbourhood with the properness property serves
+    (`exists_hasPropernessProperty_subset`, `isProperSubset_iUnion_of_locallyFinite`). In the proof of
+    (2), "`cl_X(U_{x_{z_i}})`" stands for `cl_X(U(x_{z_i}))` (possible misprint, notation).
+93. **Lemma 7.10: the cover of `X`, and a stronger statement** *(Lemma 7.10, p. 255)*. "`V(x)` admits
+    the natural `G_x`-action" is a natural representation with `V(x) = R.U`. The partition of unity
+    "of `V(x)`" is taken for a cover of `X`, since the hypothesis is that `X`, not `V(x)`, admits
+    sc-smooth partitions of unity: the text's cover of `V(x)` is completed by `X ∖ cl U(x)` and
+    coarsened to the two sets `U(x)` and `X ∖ supp β`. The conclusion adds `tsupport f ⊆ cl U(x)`,
+    which the proof gives and Theorem 7.4 needs (item 94); the hypothesis that `U(x)` contains `x` is
+    not used and is omitted (stronger); the paracompactness of `|X|` and the continuity of `β` are
+    kept but not used (`lemma_7_10`, `_hpara`, `_hβ`).
+94. **The proof of Theorem 7.4** *(pp. 255–256)*. Properties (1)–(3) are
+    `exists_invariant_nhds_of_isOpen`; (4) follows from (1) and is not a further choice
+    (`mem_of_π_mem_image_of_invariant`, `saturation_diff_inter_eq_empty`). Four points, all of which
+    stand: Lemma 7.10 is applied with `W(x_i)` in the role of `V(x)` and `U''_i` in the role of
+    `U(x)`, where the text's "approximate `(β_i ∘ π)|V(x_i)` using Lemma 7.10" reads as `V(x_i)` in the
+    role of `V(x)` (possible misprint); the continuity of the cut-off `(β_i ∘ π)|V(x_i)` extended by
+    `0` uses (4); "the sum of all `h_i` is locally finite" needs `supp f_i ⊆ π⁻¹(cl V'_i)`, which the
+    lemma as stated does not give and its proof does (item 93); the sc-smoothness of `h_i` uses that
+    saturations of proper sets are closed (`isClosed_saturation_of_isProperSubset`). "We average"
+    needs no second average, `f_i` being invariant; the extension to the saturation is
+    `orbitExtension`. The normalization `(h_i/h)` and the return from the index set of the refinement
+    to `Λ`, which the text leaves implicit, are replaced by Mathlib's
+    `BumpCovering.exists_isSubordinate_of_prop`, as in Part I's Theorem 5.12
+    (`admitsScPartitionsOfUnity_of_approx`), with the text's construction as the Urysohn input
+    (`exists_isScSmoothMap_orbit_urysohn`). The theorem is `theorem_7_4`.
+95. **Theorem 7.6 (= Theorem 7.4) and Corollary 7.3** *(p. 255; Corollary 7.3, p. 256)*.
+    `theorem_7_6` is `theorem_7_4` (the text restates the theorem in Appendix 7.5.2). In Corollary
+    7.3, "an atlas consisting of charts whose local models have Hilbert spaces `E₀`" is existential,
+    one chart per point, as in Part I; "Hilbert" is `‖v‖² = b(v, v)` for a continuous bilinear `b`.
+    The theorem of Godefroy–Troyanski–Whitfield–Zizler (Part I's Theorem 5.14) is an explicit
+    hypothesis, `GodefroyTroyanskiWhitfieldZizlerStatement`, as in Part I (gap G.53); the text's
+    references Proposition 5.6, Theorem 5.12 and Corollary 5.2 are the ingredients of
+    `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`. The corollary is `corollary_7_3`.
+96. **Unbalanced parentheses** *(pp. 230, 248, 256)*. "`t : s⁻¹(cl_X(U(x₀)) → X`" in the statement
+    and the proof of Lemma 7.1 (p. 230), "`s⁻¹(cl_{X₁}(W(x)) → X₁`" twice in the proof of
+    Proposition 7.11, display (7.5) (p. 248), and "`t : s⁻¹(cl_X(V(x)) → X`" in property (2) of the
+    proof of Theorem 7.4 (p. 256) each lack a closing parenthesis (possible misprints). The
+    statement of Definition 7.3 (3) has the balanced form.
+
+Found while checking that the hypotheses can hold (`NonVacuity.lean` and the witnesses of the other
+files, 2026-11-07; not in the text).
+
+100. **Action ep-groupoids** (`Examples.actionEpGroupoid`). A finite discrete group `K` acting on an
+     M-polyfold `U` by sc-smooth maps gives an ep-groupoid with morphisms `K × U`, `s(g, y) = y`,
+     `t(g, y) = g · y`. Its isotropy is the stabilizer (`Examples.isotropyEquivStabilizer`), its
+     orbit space the orbit space of the action (`Examples.actionOrbitHomeomorph`); every subset is
+     proper iff closed (`Examples.isProperSubset_action_iff`), every open set has the properness
+     property (`Examples.hasPropernessProperty_action`), and the orbit space is paracompact for second
+     countable `U` (`Examples.hasParacompactOrbitSpace_action`).
+101. **An effective ep-groupoid with non-trivial isotropy** (`Examples.reflectionEpGroupoid`). `ℤˣ`
+     acting on `ℝ` by `x ↦ ±x`: effective (`Examples.isEffective_reflection_nonvacuous`) with
+     `G_0 ≅ ℤˣ` (`Examples.reflectionIsotropyZeroEquiv`), so Definition 7.11 is not vacuous;
+     `X_reg = {x ≠ 0}` (`Examples.regularSet_reflection`), `T_0 = 1`
+     (`Examples.trivialSubgroup_reflection`); tame (`Examples.isTame_reflection`) with paracompact
+     orbit space (`Examples.hasParacompactOrbitSpace_reflection`).
+102. **A non-effective ep-groupoid** (`Examples.trivialZ3EpGroupoid`). `ℤ/3` acting trivially on
+     `ℝ`: `G_x ≅ ℤ/3` (`Examples.trivialZ3IsotropyEquiv`), `T_x = G_x`
+     (`Examples.trivialSubgroup_trivialZ3`, `Examples.trivialZ3TrivialSubgroupEquiv`), not effective
+     (`Examples.not_isEffective_trivialZ3`), `X_reg = ∅` (`Examples.regularSet_trivialZ3`).
+103. **The properness of Definition 7.3 (3) cannot be asked of every neighbourhood**
+     (`Examples.pairEpGroupoid`). The pair groupoid of `ℤ` (one morphism between any two integers,
+     discrete topologies) is an ep-groupoid (`Examples.pair_isProperMap`), but `t : s⁻¹(cl V) → X` is
+     not proper for `V = ℤ` (`Examples.pair_not_isProperMap_univ`, `Examples.pair_exists_not_isProperMap`),
+     so the reading "for every open `V ∋ x`" fails (`Examples.pair_not_forall_isProperMap`); every open
+     `V' ⊆ V(x)` works (item 3).
+104. **The counterexample to the remark after Definition 7.7** (`Examples.remarkFunctor`). On the
+     ep-groupoid of item 102, the functor of item 9 is a functor
+     (`Examples.remarkFunctor_obj`, `Examples.remarkFunctor_mor`), sc-smooth on objects
+     (`Examples.isScSmoothMap_remarkFunctor_obj`), not continuous and not sc-smooth on morphisms
+     (`Examples.not_continuous_remarkFunctor_mor`, `Examples.not_isScSmoothMap_remarkFunctor_mor`),
+     and not an `EpFunctor` (`Examples.not_exists_epFunctor_remarkFunctor`).
+105. **The trivial ep-groupoid of an M-polyfold** (`EpGroupoid.lean`, `SubGroupoid.lean`,
+     `PartitionsOfUnity.lean`, `LocalDiffeo.lean`). Every M-polyfold `P` gives the ep-groupoid
+     `trivial P` with only identities: tame for tame `P` (`isTame_trivial`, `isTame_trivial_rn`),
+     effective (`isEffective_trivial`), `X_reg = X` (`regularSet_trivial`), every closed set proper
+     (`isProperSubset_trivial`, `hasPropernessProperty_trivial`), `|X| ≅ X`
+     (`trivialOrbitHomeomorph`), paracompact orbit space (`hasParacompactOrbitSpace_trivial`), with
+     natural representations (`trivialNaturalRep`, `actsTrivially_trivial`, `trivialNaturalRepFinite`)
+     and ep-subgroupoids (`isEpSubgroupoid_trivial`, `isEpSubgroupoid_of_isOpen`,
+     `isEpSubgroupoid_saturation`). On `ℝⁿ` it satisfies the hypotheses of Theorems 7.4, 7.6 and of
+     Corollary 7.3 (`theorem_7_4_hypotheses_rn`, `hasScPartitionsOfUnity_trivial_rn_of_theorem_7_4`,
+     `corollary_7_3_hypotheses_rn`, `rnPolyfold_admitsScPartitionsOfUnity`,
+     `rnPolyfold_one_hilbert_hypothesis`).
+106. **Hypotheses check (PLAN II.5): every hypothesis that quantifies over charts or
+     neighbourhoods is satisfiable** *(2026-11-07)*. (1) Tameness (Definitions 7.6, Proposition
+     7.11) is existential, a tame atlas (`MPolyfold.IsTame`), transported to `𝐗` by item 7; "every
+     chart is modelled on a tame retract" is unsatisfiable by the construction of Chapter 3, item 190
+     (a `[0, ∞)` factor with a constant retraction); witness `isTame_trivial_rn`,
+     `Examples.isTame_reflection`. (2) The Hilbert atlas of Corollary 7.3 is
+     existential, one chart per point; "every compatible chart has a Hilbert `E₀`" would be
+     unsatisfiable, since `(φ, 0)` into `E ⊕ X'`, with `X'` an sc-Banach space whose level `0` is
+     `c₀`, is compatible with `φ`; witness `rnPolyfold_one_hilbert_hypothesis`, `corollary_7_3_hypotheses_rn`.
+     (3) Sc-smooth partitions of unity of the object M-polyfold (Theorems 7.4, 7.6, Lemma 7.10):
+     witness `rnPolyfold_admitsScPartitionsOfUnity`, `theorem_7_4_hypotheses_rn`. (4) Properness
+     (Definition 7.3 (3)) is existential per point; the universal form fails (item 103); every
+     smaller open neighbourhood works (`HasPropernessProperty.mono`). (5) Effectiveness (Definition
+     7.11, Lemma 7.3, Proposition 7.8) is satisfiable non-vacuously (item 101) and vacuously (item
+     105), and fails for item 102. (6) "`U(x)` equipped with the natural `G_x`-action" (Proposition
+     7.6, Lemmas 7.4, 7.10, Theorem 7.4) is a `NaturalRep` datum, which exists inside every
+     neighbourhood (`theorem_7_1`); no hypothesis "for every `U(x)` with the natural action" is
+     made. (7) `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` of Propositions 7.9, 7.10 are
+     satisfiable (item 60). The other hypotheses (`HasParacompactOrbitSpace`,
+     `SecondCountableTopology Obj`, `SecondCountableTopology X.OrbitSpace`, component compact `K`)
+     hold for the trivial ep-groupoid of `ℝⁿ` (`hasParacompactOrbitSpace_trivial`,
+     `trivialOrbitHomeomorph`). No hypothesis of the form "for all compatible charts" is made in
+     Chapter 7.
+
+Not formalized (2026-11-07).
+
+110. **`Tφ` as an sc-isomorphism** *(p. 227, Definition 7.4)*. `tangentMor` is defined, but its
+     properties (well defined, `= Tφ̂(s(φ))`, bijective, a bounded linear isomorphism on level `0` for
+     `φ ∈ 𝐗₁`, an sc-operator for smooth `φ`) are not formalized; the linearity needs the linear
+     structure of the tangent spaces (gap G.7). Not used in Chapter 7; deferred to Chapter 8
+     (gap G.70).
+111. **`𝐗^R` Hausdorff and paracompact** *(Propositions 7.9, 7.10, pp. 242–244)*. Taken as
+     hypotheses (item 56); discharged for effective `X` and for the trivial ep-groupoid (item 60).
+     Not formalized: Hausdorffness or paracompactness of `𝐗^R` for a general ep-groupoid, the
+     splicing example showing that `𝐗^R` need not be Hausdorff, and whether Hausdorff with `𝐗` second
+     countable suffices for paracompactness (gap G.71).
+112. **The filtration of `|X|`** *(p. 228)*. `|X_k|` is `orbitLevel k`; the set `|X_∞|` and the
+     identity `|X_∞| = ⋂_k |X_k|` are not stated (gap G.72). The density of `X_∞` in `X_k` is Part
+     I's.
+113. **Not formalized, without a gap** *(pp. 227, 249, 251)*. The comparison with the classical
+     properness of `(s, t)` (p. 227) and Remark 7.2 (p. 251) have no formal content; Remark 7.1 (p.
+     249) has none. "It is presently not known whether the property (5) is a consequence of the
+     properties (1)–(4)" (p. 249) is an open question of the text; unlike Part I's open question
+     after Proposition 4.15 (gap G.34) it is not given a gap, since nothing in the chapter depends on
+     it.
+114. **Gaps of Part I taken up in Chapter 7.** G.15 (Lemma 2.7 and Proposition 2.17 of Part I,
+     closed locally finite refinements): now formalized (`lemma_2_56`, `proposition_2_57`,
+     `michael_tfae`; item 75). G.56, its first fact (an M-polyfold is locally path connected): now
+     formalized (`MPolyfold.locallyPathConnectedSpace`; item 21); the second fact (smooth points in one
+     path component are joined by an sc⁺-smooth path) is not. G.53 (Theorem 5.14 of Part I) remains
+     an explicit hypothesis; it holds for finite-dimensional spaces
+     (`godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional`).
+115. **Chapter 5, item 145 and Proposition 7.11.** `MPolyfold.IsTame.levelOne` (item 81) proves the
+     tameness of the index lift of a tame M-polyfold, and with it the tameness of the lifted chart
+     retraction `r¹` with respect to every presentation of `C¹`; the tame variants for `f¹`
+     (`IsScFredholmSectionTame` for the shifted section) remain not stated. Recorded at the end of
+     Chapter 5, item 145.

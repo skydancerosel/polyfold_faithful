@@ -18,7 +18,7 @@ LEGACY_KEYS = ('milnor',)
 BOOKS = {
     'polyfold': dict(
         title='Polyfold and Fredholm Theory', short='Polyfold', authors='HWZ',
-        eyebrow='Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I · the verified edition, signed off',
+        eyebrow='Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II (Chapter 7) · the verified edition, signed off',
         verification=os.path.join(HERE, 'Verification.md'),
         cmp=glob.glob(os.path.join(HERE, 'cmp', '*.json')),
         out=os.path.join(HERE, 'polyfold-signoff.html'),

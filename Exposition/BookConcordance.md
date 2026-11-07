@@ -1,8 +1,9 @@
-# Book concordance: the 2014 preprint and the book's arXiv version (Chapters 1–6)
+# Book concordance: the 2014 preprint and the book's arXiv version (Chapters 1–6; Part II, Chapter 7)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); every statement number
-and page in `Findings.md`, the chapters and the reports is the preprint's. The published book
+and page of Part I in `Findings.md`, the chapters and the reports is the preprint's. Part II has no
+preprint, and there the 2017 numbering is the only one (section "Part II" at the end). The published book
 (Springer 2021) is not available here. What is available is the book's arXiv version, **arXiv
 1707.08941v1 (27 July 2017)**, the only version on arXiv (text in `sources/HWZ-Book-2017.txt`),
 whose Part I (Chapters 1–6) corresponds to the preprint's Part I. It is
@@ -540,6 +541,121 @@ does not certify that the statement is verbatim.
 | Definition 6.6 | 191 | new (the projections $\mathcal P_H$ onto a closed subspace $H$ of finite codimension) |
 | Lemma 6.5 | 191 | new ($Q = P + Q(I - P)$ for $P, Q \in \mathcal P_H$) |
 | Proposition 6.6 | 195 | new (isomorphisms between $E(T,P)$ and $E(T,Q)$ for $P, Q \in \Pi_T \cap \mathcal P_H$, continuous in $T$) |
+
+## Part II: the 2017 numbering is the only numbering (Chapter 7)
+
+Part II, *Ep-Groupoids* (Chapters 7–11), has no 2014 preprint: the preprint arXiv 1407.3185 is
+Part I alone. For Part II the book's arXiv version 1707.08941 is the text, and **its statement
+numbers and printed pages are the only numbering of Part II** used in the project: in
+`Findings.md` ("## Chapter 7"), `Chapter7.md`, the reports (`verification/ch07.md`, V7.1–V7.68)
+and the Lean docstrings. There is nothing to concord, so this section has no preprint column; it
+lists the numbered items and sections of Chapter 7 with their pages, their V-items and the Lean
+files of `Polyfold/Chapter7/` that formalize them, so that a reader holding the book can find each
+of them. Part I results cited in Part II carry their 2017 numbers, with the preprint number of the
+Lean name in brackets where it matters (for example Theorem 2.2 [2.16], `Polyfold.theorem_2_16`).
+
+Pages are printed pages, read off the running heads of `sources/HWZ-Book-2017.txt` (even pages
+"226 7 Ep-Groupoids", odd pages "7.1 … 227"; p. 225, the first page of the chapter, has no head),
+as for Chapter 6; Chapter 7 is lines 10704–12250 of that text (Part II opens at line 10687, p. 223).
+Each kind of statement has its own counter (Definition 7.3 and Proposition 7.3 are different
+statements). Chapter 7 has 52 numbered items: 17 definitions, 14 propositions, 10 lemmas, 6
+theorems, 3 corollaries and 2 remarks. "p." is the page of the statement's heading (for a section,
+of its title). The Lean files are in `Polyfold/Chapter7/`; the first one named holds the statement,
+the others the notions or witnesses it uses. The verdicts are in the comparison, not here.
+
+### Chapter 7 (arXiv 1707.08941 pp. 225–256)
+
+| arXiv 1707.08941 | p. | V-item | Lean file | Note |
+|---|---|---|---|---|
+| §7.1 Ep-Groupoids and Basic Properties | 225 | — | — |  |
+| Definition 7.1 | 225 | V7.1 | `Groupoid.lean` | groupoid, `mor(x, y)`, orbit space $\lvert X\rvert$, $\pi$ (pp. 225–226) |
+| Definition 7.2 | 226 | V7.2 | `Groupoid.lean` | isotropy group $G_x$ |
+| Definition 7.3 | 226 | V7.3 | `EpGroupoid.lean` | ep-groupoid (pp. 226–227); (4) cites "Lemma 2.8 in [38]", in the book Part I's Proposition 2.15 |
+| Definition 7.4 | 227 | V7.5 | `EpGroupoid.lean`, `LocalDiffeo.lean` | $\hat\varphi$; $T\varphi$ only defined (gap G.70) |
+| Definition 7.5 | 228 | V7.7 | `EpGroupoid.lean` | induced degeneracy index; the levels before it: V7.6 |
+| Definition 7.6 | 228 | V7.8 | `EpGroupoid.lean`, `LocalDiffeo.lean` | tame ep-groupoid, with the tameness of the morphism M-polyfold |
+| Definition 7.7 | 228 | V7.9 | `EpGroupoid.lean`, `Groupoid.lean` | the category $\mathcal{EP}$; the remark after it (pp. 228–229): V7.10, `Basic.lean`, `NonVacuity.lean` |
+| Proposition 7.1 | 229 | V7.11 | `Basic.lean` | openness of $\pi$ |
+| Proposition 7.2 | 229 | V7.12 | `Basic.lean` | countable neighbourhood bases |
+| Proposition 7.3 | 229 | V7.13 | `Basic.lean` | local closure relation; proof ends on p. 230 |
+| Lemma 7.1 | 230 | V7.14 | `Basic.lean`, `ProperMaps.lean` |  |
+| Proposition 7.4 | 230 | V7.15 | `Basic.lean` | finiteness of $G_x$; the conjugation after it: V7.16 |
+| Theorem 7.1 | 231 | V7.17 | `NaturalRep.lean`, `EpGroupoid.lean` | natural representation; proved in Appendix 7.5.1 as Theorem 7.5 |
+| Proposition 7.5 | 233 | V7.25 | `NaturalRepFinite.lean` | finite sets of isomorphic objects; proof pp. 234–236 |
+| Definition 7.8 | 236 | V7.26 | `NaturalRepFinite.lean`, `EpGroupoid.lean` |  |
+| Proposition 7.6 | 236 | V7.27 | `Uniformizer.lean` | $G_x\backslash U(x) \cong \pi(U(x))$; proof ends on p. 237 |
+| Definition 7.9 | 237 | V7.28 | `Uniformizer.lean`, `EpGroupoid.lean` | local uniformizer |
+| Definition 7.10 | 237 | V7.29 | `SubGroupoid.lean`, `EpGroupoid.lean` | ep-subgroupoid |
+| Proposition 7.7 | 238 | V7.32 | `SubGroupoid.lean` | proof ends on p. 239 |
+| §7.2 Effective and Reduced Ep-Groupoids | 239 | — | — |  |
+| Definition 7.11 | 239 | V7.33 | `Effective.lean`, `EpGroupoid.lean` | effective; regular objects |
+| Lemma 7.2 | 239 | V7.34 | `Effective.lean` | $X_{reg}$ open |
+| Lemma 7.3 | 239 | V7.35 | `Effective.lean` | proof p. 240 |
+| Proposition 7.8 | 240 | V7.36 | `Effective.lean` | $X_{reg}$ open and dense |
+| Definition 7.12 | 241 | V7.38 | `Reduced.lean`, `EpGroupoid.lean` | $\mathbf X^T$, $\mathbf X^R$; the subgroup $T_x$ before it: V7.37, `Effective.lean` |
+| Proposition 7.9 | 242 | V7.39 | `Reduced.lean` | $\mathbf X^R$ Hausdorff and paracompact taken as hypotheses (gap G.71) |
+| Proposition 7.10 | 244 | V7.40 | `Reduced.lean` | the reduced ep-groupoid $X_R$ (p. 243); hypotheses as Proposition 7.9 |
+| Definition 7.13 | 244 | V7.41 | `Reduced.lean`, `Effective.lean` | $G_x^{\mathrm{eff}} = G_x/T_x$ |
+| §7.3 Topological Properties of Ep-Groupoids | 244 | — | — |  |
+| Theorem 7.2 | 244 | V7.42 | `OrbitTopology.lean` | $\lvert X\rvert$ locally metrizable, regular, Hausdorff |
+| Lemma 7.4 | 244 | V7.43 | `OrbitTopology.lean` | proof p. 245 |
+| Lemma 7.5 | 245 | V7.44 | `OrbitTopology.lean` |  |
+| Lemma 7.6 | 245 | V7.45 | `OrbitTopology.lean` | proof ends on p. 246 |
+| Lemma 7.7 | 246 | V7.46 | `OrbitTopology.lean` |  |
+| Corollary 7.1 | 247 | V7.47 | `OrbitTopology.lean` | subsets of $\lvert X\rvert$ (p. 247): V7.48 |
+| Definition 7.14 | 247 | V7.49 | `EpGroupoid.lean` | component compact |
+| Corollary 7.2 | 247 | V7.51 | `OrbitTopology.lean`, `Michael.lean` |  |
+| Proposition 7.11 | 247 | V7.52 | `Lift.lean`, `LocalDiffeo.lean` | index lifting; proof p. 248 |
+| §7.4 Paracompact Orbit Spaces | 249 | — | — |  |
+| Definition 7.15 | 249 | V7.53 | `EpGroupoid.lean`, `Lift.lean` | with the sentence before Remark 7.1; the open question there is not formalized |
+| Remark 7.1 | 249 | V7.53 | — | no formal content |
+| Proposition 7.12 | 249 | V7.54 | `Lift.lean` | proof ends on p. 250 |
+| Theorem 7.3 | 250 | V7.55 | `PartitionsOfUnity.lean` | continuous partitions of unity |
+| Definition 7.16 | 250 | V7.56 | `EpGroupoid.lean` | sc-smooth partitions of unity (pp. 250–251) |
+| Remark 7.2 | 251 | V7.57 | — | no formal content |
+| Theorem 7.4 | 251 | V7.58 | `PartitionsOfUnity.lean` | proved in Appendix 7.5.2 as Theorem 7.6; the proof: V7.67 |
+| Definition 7.17 | 251 | V7.59 | `EpGroupoid.lean`, `ProperSubsets.lean` | proper subsets, the properness property |
+| Proposition 7.13 | 251 | V7.60 | `ProperSubsets.lean` |  |
+| Proposition 7.14 | 251 | V7.61 | `ProperSubsets.lean` | proof p. 252 |
+| §7.5 Appendix | 253 | — | — |  |
+| §7.5.1 The Natural Representation | 253 | — | — |  |
+| Theorem 7.5 | 253 | V7.62 | `NaturalRep.lean` | restates Theorem 7.1; proof pp. 253–254 |
+| Lemma 7.8 | 253 | V7.63 | `NaturalRep.lean` | proof p. 254 |
+| Lemma 7.9 | 254 | V7.64 | `NaturalRep.lean` | proof on p. 254; Theorem 7.5 is proved by p. 254 |
+| §7.5.2 Sc-Smooth Partitions of Unity | 254 | — | — |  |
+| Theorem 7.6 | 255 | V7.65 | `PartitionsOfUnity.lean` | restates Theorem 7.4 |
+| Lemma 7.10 | 255 | V7.66 | `PartitionsOfUnity.lean` | the proof of Theorem 7.4 follows, pp. 255–256 (V7.67) |
+| Corollary 7.3 | 256 | V7.68 | `PartitionsOfUnity.lean` | the last page of the chapter |
+
+**Unnumbered claims of Chapter 7 with a V-item of their own.**
+
+| Claim | pp. | V-item | Lean file |
+|---|---|---|---|
+| properness of Definition 7.3 (3) and its sequential form, used in the proofs | 227–254 | V7.4 | `ProperMaps.lean` |
+| levels and degeneracy index of $s$, $t$; the filtration of $\lvert X\rvert$ | 227–228 | V7.6 | `EpGroupoid.lean`, `LocalDiffeo.lean` |
+| the remark after Definition 7.7 (sc-smoothness on objects suffices) | 228–229 | V7.10 | `Basic.lean`, `NonVacuity.lean` |
+| the conjugation $G_x \to G_y$ | 230 | V7.16 | `Groupoid.lean`, `Basic.lean` |
+| local path connectedness of M-polyfolds (used, not stated) | 231 | V7.18 | `LocConnected.lean` |
+| the splitting $\mathbf U(x) = \bigsqcup_g \mathbf U(g)$ | 231 | V7.19 | `NaturalAction.lean`, `NaturalRep.lean` |
+| the M-polyfold $G \times U$ | 232 | V7.20 | `Discrete.lean`, `NaturalAction.lean` |
+| the translation groupoid $G_x \ltimes U(x)$ | 232 | V7.21 | `NaturalAction.lean`, `Groupoid.lean` |
+| the functor $\Gamma$, fully faithful | 232 | V7.22 | `NaturalAction.lean` |
+| the map $\hat\Phi$ on morphisms | 232–233 | V7.23 | `NaturalAction.lean` |
+| uniqueness and restriction of natural representations (used, not stated) | 239–241 | V7.24 | `NaturalAction.lean`, `NaturalRep.lean` |
+| the facts (1)–(4) on a sub-M-polyfold $A$ | 237–238 | V7.30 | `SubGroupoid.lean` |
+| the morphisms $\mathbf A$ form a sub-M-polyfold | 238 | V7.31 | `SubGroupoid.lean` |
+| the subgroup $T_x$ of elements acting trivially | 241 | V7.37 | `Effective.lean` |
+| subsets of $\lvert X\rvert$ are locally metrizable, regular, Hausdorff | 247 | V7.48 | `OrbitTopology.lean` |
+| Part I's Lemma 2.7 and Proposition 2.17 (Michael), used for Corollary 7.2 | 247, 249 | V7.50 | `Michael.lean` |
+| the proof of Theorem 7.4 | 255–256 | V7.67 | `PartitionsOfUnity.lean` |
+
+The sentence before Remark 7.1 is part of V7.53, the reduced ep-groupoid $X_R$ (p. 243) of V7.40
+and the isotropy $G_x/T_x$ (p. 244) of V7.41. The witnesses that show the hypotheses can hold
+(`NonVacuity.lean` and the witnesses in the other files; `Findings.md`, Chapter 7, items 100–106)
+have no V-item of their own. Gaps opened in Chapter 7: G.70 (Definition 7.4, $T\varphi$ as an
+sc-isomorphism), G.71 (Propositions 7.9–7.10, $\mathbf X^R$ Hausdorff and paracompact), G.72
+(p. 228, $\lvert X_\infty\rvert = \bigcap_k \lvert X_k\rvert$). `verification/ch07.md` contains no
+*(book?)* mark: there is no other numbering to check against.
 
 ## Marks in the report sources
 

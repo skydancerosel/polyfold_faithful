@@ -13,9 +13,15 @@ here = os.path.dirname(os.path.abspath(__file__))
 for f in sorted(glob.glob(os.path.join(here, '../../Exposition/cmp/*.json'))):
     for e in json.load(open(f))['items']:
         i = e['id'].replace('.', '_'); b = e['book']
+        # Part I (Chapters 1-6) is quoted from the 2014 preprint; Part II (Chapters 7-11) has no
+        # preprint and is quoted from the 2017 book.
+        n = e['id'][1:].split('.')[0]
+        src = ("*Polyfold and Fredholm Theory* (2017 book, arXiv 1707.08941), Part II"
+               if n.isdigit() and int(n) >= 7
+               else "*Polyfold and Fredholm Theory I* (preprint, arXiv 1407.3185)")
         open(f'{R}/blind/{i}.md', 'w').write(
-            f"# {e['id']}: {e['title']}\n\nHofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* "
-            f"(preprint, arXiv 1407.3185), {b['label']}.\n\n{b['statement']}\n")
+            f"# {e['id']}: {e['title']}\n\nHofer–Wysocki–Zehnder, {src}, {b['label']}.\n\n"
+            f"{b['statement']}\n")
         json.dump(e, open(f'{R}/keys/{i}.json', 'w'), ensure_ascii=False, indent=1)
         open(f'{R}/decls/{i}.txt', 'w').write(
             '\n'.join(d.split('·')[-1].strip() for d in e['lean']['decls']) + '\n')

@@ -20,7 +20,7 @@ sc-Fredholm sections as its headline. Everything later (ep-groupoids, polyfolds,
 SFT) rests on it. It is also settled: the book corrects the 2007–2009 papers, and the Gromov–Witten
 memoir uses it as stated.
 
-Status as of 2026-11-07 (see `HANDOFF.md`): **Part I, Chapters 1–6, done** (Lean, exposition, reports: V1–V6, 401 sign-off items, gaps G.1–G.69), Chapter 6 (§6 below) except Theorem 6.43 (G.54) and §6.6 (G.55); 4,942 `#print axioms` lines in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`. The round-trip audit is done for Chapters 1–5 (2026-11-01) and for the 60 non-extra Chapter 6 items (2026-11-07, §6.7 step 6). **Next: Part II.** As of 2026-10-26, end of the first local session: **Part I, Chapters 1–5, done** (Lean, exposition, reports: V1–V5, 337 sign-off items, gaps G.1–G.53). The sc-Fredholm implicit function theorem (Theorems 3.19, 3.23, 3.54, 3.56, 3.57, Corollary 3.24) is proved with the text's hypotheses; two gaps of the text's proofs are closed by new arguments (surjectivity at the nearby zeros, also missing in the book's arXiv version; Theorem 3.27 for solution sets), and a vacuous tameness hypothesis of an earlier formalization was found and repaired. Chapter 4 (Prop 4.9 by a direct proof, Theorems 4.2, 4.18, 4.22, 4.23 with Sard vendored from the Milnor project) and Chapter 5 (Theorems 5.5–5.7, 5.13, 5.18, 5.19, 5.25, the appendix) done except what HANDOFF §2 lists. 2,708 theorems were then checked in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`, and the round-trip audit came next.
+Status as of 2026-11-07 (see `HANDOFF.md`): **Part I, Chapters 1–6, done** (Lean, exposition, reports: V1–V6, 401 sign-off items, gaps G.1–G.69), Chapter 6 (§6 below) except Theorem 6.43 (G.54) and §6.6 (G.55). The round-trip audit is done for Chapters 1–5 (2026-11-01) and for the 60 non-extra Chapter 6 items (2026-11-07, §6.7 step 6). **Part II has begun: Chapter 7 is formalized** (waves W0–W4 of the Part II plan below; V7.1–V7.68, 68 sign-off items, gaps G.70–G.72), Propositions 7.9 and 7.10 under the hypothesis that `𝐗^R` is Hausdorff and paracompact (G.71); its reports (wave W5) and its round-trip audit are in progress. In all: 469 sign-off items, gaps G.1–G.72, 5,905 `#print axioms` lines in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`. **Next: finish wave W5, then Chapter 8.** As of 2026-10-26, end of the first local session: **Part I, Chapters 1–5, done** (Lean, exposition, reports: V1–V5, 337 sign-off items, gaps G.1–G.53). The sc-Fredholm implicit function theorem (Theorems 3.19, 3.23, 3.54, 3.56, 3.57, Corollary 3.24) is proved with the text's hypotheses; two gaps of the text's proofs are closed by new arguments (surjectivity at the nearby zeros, also missing in the book's arXiv version; Theorem 3.27 for solution sets), and a vacuous tameness hypothesis of an earlier formalization was found and repaired. Chapter 4 (Prop 4.9 by a direct proof, Theorems 4.2, 4.18, 4.22, 4.23 with Sard vendored from the Milnor project) and Chapter 5 (Theorems 5.5–5.7, 5.13, 5.18, 5.19, 5.25, the appendix) done except what HANDOFF §2 lists. 2,708 theorems were then checked in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`, and the round-trip audit came next.
 
 ## 1. Headline theorems (Part I)
 
@@ -82,7 +82,8 @@ Status as of 2026-11-07 (see `HANDOFF.md`): **Part I, Chapters 1–6, done** (Le
    before Part II; until Chapter 6 is done, "Part I formalized" means Chapters 1–5. Done 2026-11-07
    except Theorem 6.43 (G.54) and §6.6 (G.55): "Part I formalized" now means Chapters 1–6 with
    these two exceptions.
-7. Part II: next.
+7. Part II: begun 2026-11-07 (Part II plan below). Chapter 7 is formalized (waves W0–W4); its
+   reports and its round-trip audit are in progress (wave W5).
 
 ## 6. Chapter 6: Linearizations, Orientations, and Invariants (plan, 2026-11-06)
 
@@ -345,7 +346,8 @@ Found while reading for the plan (to be checked in Lean, then recorded in `Findi
 
 ## Part II plan
 
-(Plan, 2026-11-07; nothing below is in Lean yet.) **Text.** Part II, "Ep-Groupoids", is Chapters
+(Plan, 2026-11-07. Status, 2026-11-07: waves W0–W4 of II.4 are done, Chapter 7 is in Lean; wave
+W5, the reports and the round-trip audit, is in progress. The plan below is kept as written.) **Text.** Part II, "Ep-Groupoids", is Chapters
 7–11 of arXiv 1707.08941 (`sources/HWZ-Book-2017.txt`: Part II opens at line 10687, Chapter 7 is lines
 10704–12250, Chapter 8 starts at 12251, 9 at 13856, 10 at 15977, 11 at 18145, Part III at 20168). There
 is no 2014 preprint of Part II, so numbers and pages are the 2017 text's: printed page numbers read
@@ -486,12 +488,12 @@ no Michael theorem).
 
 | Wave | Files (all `Polyfold/Chapter7/`) | Items | Agents | Lines |
 |---|---|---|---|---|
-| W0 (lead) | `Groupoid.lean`, `EpGroupoid.lean`; the definitions of every other file | Defs 7.1–7.17, `NaturalRep`, P5 sheet form, bridge | lead, 1 session | 900 |
-| W1 | `ProperMaps.lean`, `LocConnected.lean`, `Discrete.lean`, `LocalDiffeo.lean`, `Michael.lean` | infrastructure; (text) p. 227–228, Def 7.6's tame `Mor` | 5 in parallel | 2,200 |
-| W2 | `Basic.lean`; `NaturalRep.lean`; `ProperSubsets.lean` | Props 7.1–7.4, Lemma 7.1, Def 7.7 remark; Thm 7.1 = 7.5, Lemmas 7.8–7.9, `G_x ⋉ U`; Props 7.13, 7.14 (1) | 3 (`NaturalRep` may need 2 sessions) | 2,600 |
-| W3 | `NaturalRepFinite.lean`; `Uniformizer.lean` + `OrbitTopology.lean`; `Effective.lean`; `SubGroupoid.lean` | Prop 7.5, Def 7.8; Prop 7.6, Def 7.9, Thm 7.2, Lemmas 7.4–7.7, Cors 7.1–7.2; Lemmas 7.2–7.3, Prop 7.8; Prop 7.7 | 4 | 3,200 |
-| W4 | `Reduced.lean`; `Lift.lean`; `PartitionsOfUnity.lean`; `ProperSubsets.lean` (7.14 (2), done in W2) | Props 7.9–7.10, Def 7.13; Prop 7.11–7.12, Rem 7.1; Thms 7.3–7.4, Lemma 7.10, Cor 7.3; Prop 7.14 (2) | 4 | 3,000 |
-| W5 | `NonVacuity.lean`, then the reports | witnesses (II.5), the counterexample of II.6, 1; `Exposition/Chapter7.md`, `verification/ch07.md`, `cmp/ch07.json`, `pbp/part07.md`, concordance; round-trip audit | 1–2, then the lead | 800 |
+| W0 (lead; done) | `Groupoid.lean`, `EpGroupoid.lean`; the definitions of every other file | Defs 7.1–7.17, `NaturalRep`, P5 sheet form, bridge | lead, 1 session | 900 |
+| W1 (done) | `ProperMaps.lean`, `LocConnected.lean`, `Discrete.lean`, `LocalDiffeo.lean`, `Michael.lean` | infrastructure; (text) p. 227–228, Def 7.6's tame `Mor` | 5 in parallel | 2,200 |
+| W2 (done) | `Basic.lean`; `NaturalRep.lean`; `ProperSubsets.lean` | Props 7.1–7.4, Lemma 7.1, Def 7.7 remark; Thm 7.1 = 7.5, Lemmas 7.8–7.9, `G_x ⋉ U`; Props 7.13, 7.14 (1) | 3 (`NaturalRep` may need 2 sessions) | 2,600 |
+| W3 (done) | `NaturalRepFinite.lean`; `Uniformizer.lean` + `OrbitTopology.lean`; `Effective.lean`; `SubGroupoid.lean` | Prop 7.5, Def 7.8; Prop 7.6, Def 7.9, Thm 7.2, Lemmas 7.4–7.7, Cors 7.1–7.2; Lemmas 7.2–7.3, Prop 7.8; Prop 7.7 | 4 | 3,200 |
+| W4 (done) | `Reduced.lean`; `Lift.lean`; `PartitionsOfUnity.lean`; `ProperSubsets.lean` (7.14 (2), done in W2) | Props 7.9–7.10, Def 7.13; Prop 7.11–7.12, Rem 7.1; Thms 7.3–7.4, Lemma 7.10, Cor 7.3; Prop 7.14 (2) | 4 | 3,000 |
+| W5 (in progress; `NonVacuity.lean` done) | `NonVacuity.lean`, then the reports | witnesses (II.5), the counterexample of II.6, 1; `Exposition/Chapter7.md`, `verification/ch07.md`, `cmp/ch07.json`, `pbp/part07.md`, concordance; round-trip audit | 1–2, then the lead | 800 |
 
 Dependencies: W2 needs W0 and `ProperMaps`; `NaturalRep` needs `LocConnected` and `Discrete`; W3 needs
 `NaturalRep`; Cor 7.2 needs `Michael`; W4's `Reduced` needs `Effective`, `PartitionsOfUnity` needs

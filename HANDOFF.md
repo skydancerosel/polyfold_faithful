@@ -3,7 +3,9 @@
 Written 2026-10-24 at the end of a cloud session; rewritten 2026-10-26 at the end of the first local
 session on the Mac (Chapters 1–5 of Part I complete; the round-trip audit is next). Everything is committed on `main`. Resume with
 the first message in §4. Updated 2026-11-07: Chapter 6 is formalized except Theorem 6.43 (G.54) and
-§6.6 (G.55); Part II is next (§2, §3 item 10).
+§6.6 (G.55). Later on 2026-11-07: Part II has begun; Chapter 7 is formalized (waves W0–W4 of the Part
+II plan in `PLAN.md`), its reports are being written (wave W5, in progress) and its round-trip audit
+is in progress (§2, §3 item 11).
 
 ## 1. Setup
 
@@ -38,7 +40,9 @@ Morse the same way if it disappears). The preprint text was regenerated from the
 `~/math_faithful/1407.3185v1.pdf` (same line ranges); the 2010 paper could not be downloaded. The book's arXiv
 version (1707.08941, July 2017) is used as a stand-in for the Springer PDF (not on this Mac):
 `Exposition/BookConcordance.md` maps every numbered item of preprint Chapters 1–6 to it (Chapter 6
-added 2026-11-07; the 2017 Chapter 6 is pp. 181–221), and the
+added 2026-11-07; the 2017 Chapter 6 is pp. 181–221); its section "Part II" lists the items of
+Chapter 7 (pp. 225–256) by their 2017 numbers, the only numbering of Part II, which has no preprint
+(added 2026-11-07); and the
 *(book?)* marks are annotated *(book 2017: …)*. Its `pdftotext -layout` text is kept untracked as
 `Exposition/sources/HWZ-Book-2017.txt` (since 2026-11-02). On 2026-11-02 every *(book 2017: …)*
 annotation was checked against it: those of Chapters 1–3 were right; Findings Ch. 4 item 87, Ch. 5
@@ -68,14 +72,15 @@ brief, this README, `RoundTrip/REPORT.md`), a counterexample refutes *our readin
 not the statement. Say "does not hold as we read it", "we could not see why", "possible misprint";
 do not call the text wrong or speak of its "errors".
 
-## 2. State (2026-10-26, end of the first local session; Chapter 6 added 2026-11-07)
+## 2. State (2026-10-26, end of the first local session; Chapters 6 and 7 added 2026-11-07)
 
 * **Chapters 1–6 of Part I are complete** (Chapter 6 except Theorem 6.43 and §6.6, see below): Lean,
   exposition (`Exposition/Chapter1.md` – `Chapter6.md`) and reports (`verification/ch01–ch06.md`,
   `cmp/ch01–ch06.json`, `pbp/part01–part06.md`; outputs
   `polyfold-beside-lean.html`, `Verification.md/.pdf`, `ProofByProof.md/.pdf`,
   `polyfold-proof-by-proof.html`, `polyfold-signoff.html`). V-items V1.1–V1.39, V2.1–V2.64,
-  V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64; **401 sign-off items**; gaps G.1–G.69;
+  V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64, and V7.1–V7.68 for Part II's Chapter 7 (below);
+  **469 sign-off items** (401 for Part I, 68 for Chapter 7); gaps G.1–G.72 (G.70–G.72 for Chapter 7);
   3,741 trace tags (3,127 distinct declarations; 2026-11-02, Chapters 1–5). The user started
   hand-checking on 2026-10-26 from copies in `Exposition/review-2026-10-26/` (untracked); the
   sign-off page keeps ticks in browser
@@ -140,12 +145,26 @@ do not call the text wrong or speak of its "errors".
   text's proof and the 2017 remark do not hold as we read them; Findings Ch. 6 item 4); formula (94)
   and Remark 6.42 are used with the sign `(−1)^{dim coker}` (items 50, 95). Paths on `ℝ` (decision
   D2, G.65). The round-trip audit of the 60 non-extra Chapter 6 items is done (2026-11-07; `RoundTrip/REPORT.md`, "Chapter 6, audited on 2026-11-07").
-  **Part II is next.**
-* **Lean counts** (2026-11-07): 4,942 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
-  1,204 for Chapter 6), all on `propext, Classical.choice, Quot.sound`; no `sorry`, no `axiom`;
-  204 Lean files and 127,495 lines under `Polyfold/` (`wc -l`, tracked files, without `WIP_` files),
-  of which 36 files and 20,793 lines in `Chapter6/`.
-* **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–6/` that agents could
+  Part II followed (next item).
+* **Part II has begun: Chapter 7** (2026-11-07; plan in `PLAN.md`, "Part II plan"): formalized in
+  `Polyfold/Chapter7/` (20 files; waves W0–W4); V7.1–V7.68 (`verification/ch07.md`), Findings
+  "## Chapter 7" (items 1–115, numbered in blocks), exposition `Exposition/Chapter7.md`, the "Part II"
+  table of `BookConcordance.md`. Part II has no preprint: numbers and pages are the 2017 text's
+  (pp. 225–256). Theorems 7.1–7.6 hold with the readings recorded there; Propositions 7.9 and 7.10
+  under `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`, which the proof does not give as
+  we read it (G.71; discharged for effective `X`); `Tφ` of Definition 7.4 only defined (G.70, deferred
+  to Chapter 8); `|X_∞|` not stated (G.72). The remark after Definition 7.7 does not hold as we read it
+  (counterexample `Examples.remark_definition_7_7_counterexample`); it holds for functors continuous
+  on morphisms. Proved on the way: the local path connectedness of M-polyfolds (G.56, first fact),
+  Michael's theorem (G.15), the tameness of index lifts (Ch. 5 item 145). **In progress (wave W5):**
+  `cmp/ch07.json`, `pbp/part07.md` and the regenerated comparison and proof-by-proof; the round-trip
+  audit of Chapter 7.
+* **Lean counts** (2026-11-07): 5,905 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
+  1,204 for Chapter 6, 963 for Chapter 7), all on `propext, Classical.choice, Quot.sound`; no
+  `sorry`, no `axiom`; 224 Lean files and 140,263 lines under `Polyfold/` (`wc -l`, without `WIP_`
+  files), of which 36 files and 20,793 lines in `Chapter6/` and 20 files and 11,776 lines in
+  `Chapter7/`.
+* **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–7/` that agents could
   not delete (some duplicate declarations and would not compile; delete them). The book's Springer
   PDF was not available: the *(book?)* marks are annotated against the arXiv version 1707.08941
   (*(book 2017: …)*, `Exposition/BookConcordance.md`, text in `sources/HWZ-Book-2017.txt`); the 2010
@@ -310,7 +329,11 @@ each chapter lands)
    and REPORT were updated for the switch (V3.5–V3.107, V5.14).
 10. ~~**Chapter 6**~~ — done 2026-11-07 except Theorem 6.43 (G.54) and §6.6 (G.55) (`PLAN.md` §6;
     state in §2). Round-trip audit of its 60 non-extra items done 2026-11-07. Left for Chapter 6: the gaps
-    G.56–G.69. **Next: Part II.**
+    G.56–G.69.
+11. **Part II, Chapter 7** — Lean done 2026-11-07 (waves W0–W4 of the Part II plan in `PLAN.md`; state
+    in §2). **In progress:** wave W5, the reports (`cmp/ch07.json`, `pbp/part07.md`, the regenerated
+    comparison and proof-by-proof), and the round-trip audit of the Chapter 7 items. Left for Chapter
+    7: the gaps G.70–G.72 (G.70 with Chapter 8). **Next: Chapter 8.**
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

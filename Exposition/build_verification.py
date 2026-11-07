@@ -42,15 +42,21 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the "
      "propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of "
      "the solution set", ["Chapter6"]),
+    ("07", "Part II, Ch. 7, §§7.1–7.5 (2017 numbering)", "ep-groupoids: groupoids of M-polyfolds with local "
+     "sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation "
+     "of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology "
+     "of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets", ["Chapter7"]),
 ]
 # ------------------------------------------------------------------------------------------------
 
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I of H. Hofer, K. Wysocki and E. Zehnder's* Polyfold
-and Fredholm Theory *(Springer 2021; the 2014 preprint arXiv 1407.3185 is the text in hand, and its
-numbering and pages are used, marked as such; the numbers and pages of the book's arXiv version,
-1707.08941, are in `Exposition/BookConcordance.md`, and the Springer edition is not checked). That exposition is
+*A companion to the expanded exposition of Part I, and of Chapter 7 of Part II, of H. Hofer, K. Wysocki and
+E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021; for Part I the 2014 preprint arXiv 1407.3185 is the
+text in hand, and its numbering and pages are used, marked as such; the numbers and pages of the book's arXiv
+version, 1707.08941, are in `Exposition/BookConcordance.md`. Part II has no preprint: for it the 2017 arXiv
+version is the text, and its numbers and printed pages are the only numbering used. The Springer edition is not
+checked). That exposition is
 written to be read; this edition is written to be checked. It records, chapter by chapter, exactly
 which statements of the text have been verified by the Lean 4 proof assistant against the Mathlib
 library, what each verified statement says when read back in ordinary language, which hypotheses the
