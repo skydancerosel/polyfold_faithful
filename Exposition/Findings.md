@@ -6713,3 +6713,387 @@ comparison items V5.16, V5.17, V5.51; sharpens item 41.)
      everywhere (`admitsBumpFunctions_of_hilbert`), and the weak reading is the density of the bump
      points (`HasBumpAt`; one direction formalized) (Findings, Chapter 5, items 160–163)". V5.17
      and V5.51 unchanged. No gap entry changes.
+
+## Chapter 6 (Linearizations, orientations and invariants; Lean `Polyfold/Chapter6/`)
+
+*Numbering.* The items of this section are numbered in blocks, one block per phase of the work, so
+that agents working at the same time do not collide; the gaps in the numbering are unused numbers,
+not deleted items. 1–19: §§6.2–6.3 and Appendix 6.7, determinant lines, exact sequences, good
+left-projections and stabilization (Definitions 6.3, 6.7–6.9, 6.16, Propositions 6.4, 6.6, 6.12,
+6.15, Lemmas 6.5, 6.10, 6.11, 6.14, Corollary 6.13; `Chapter6/DetLine.lean` to
+`Chapter6/DirectSumDet.lean`); 20–39: §6.4 and Proposition 6.26, the determinant bundle
+(`LocalDetBundle`, `DetBundle`, `LineBundleOrientation`); 40–69: Definition 6.1 and §6.5 from
+Definition 6.27 to Definition 6.36, the local propagation (`LinSet` to `ContinuousOrientation`);
+70–89: Theorem 6.37 and Definitions 6.38–6.40 (`ChartTransfer` to `OrientationFunctor`); 90–99:
+Theorem 6.41 and Remark 6.42 (`SolutionOrientation`, `ProductOrientation`); 100–109: not
+formalized (Theorem 6.43, §6.6). Proposition 6.2 is Chapter 3's (comparison item V3.98; Chapter 3,
+items 340–369). Statement numbers and pages are the preprint's *(book 2017: see
+`BookConcordance.md`)*.
+
+Found while formalizing §§6.2–6.3 and Appendix 6.7 (2026-11-06).
+
+1. **Lemma 6.5 is read as "(91) holds for every choice", and the step "if and only if
+   `det(τ) = det(ε)`" of §6.7.1 as homogeneity** *(book 2017: Lemma 6.1, p. 187; §6.7.1, pp.
+   218–219)*. "The definition of `Φ_E` does not depend on the choices" is formalized as: the
+   linear map `FourTermExact.phi`, defined by (91) for one choice (`canonicalChoice`), satisfies
+   (91) for every choice (`lemma_6_5`). This is the form every later computation uses: each
+   evaluation of `γ^P_T` in §6.3 and §6.7.2 makes its own choices. The proof follows §6.7.1
+   (`Choice.exists_smul_source_value`). In §6.7.1 the bases of `A` are changed by a map named `σ`
+   and the factor is then written `det(τ)` (possible misprint, `τ` for `σ`); "the vector … is
+   independent of the choices of the basis if and only if `det(τ) = det(ε)`" states a condition
+   where what is needed is that both sides of (91) scale by the same factor `det(σ)/det(ε)`, and
+   the proof goes through with that. In the last step the corrections are chosen in "`β(C)`",
+   which is read as `β(B)` (possible misprint), and they are combinations of the `β`-images, not
+   of the `γ`-preimages: the names of the two blocks of the wedge in `C` are exchanged there with
+   respect to the first part of the proof (possible misprint). The 2017 text has the same wording.
+2. **Proposition 6.6 exchanges the names of the two blocks of the wedge in `C`** *(book 2017:
+   Proposition 6.3, p. 188)*. The statement writes the basis of `C` with the `β`-images first and
+   the `γ`-preimages second, under the names that (91) gives the other way round; the order meant
+   is (91)'s, `γ`-preimages first (possible misprint). `proposition_6_6` is stated in the order of
+   (91). The 2017 text has the same wording.
+3. **`Π_T` is not empty, which the text uses without stating it** *(book 2017: Definition 6.5, p.
+   189)*. From Lemma 6.11 on, constructions start with "`P ∈ Π_T`". For `T` Fredholm the
+   projection onto `R(T)` along a finite-dimensional complement is good
+   (`exists_isGoodLeftProj`). The remarks after Definition 6.9 (`P` Fredholm of index `0`, `P T`
+   Fredholm of index `ind T`, `R(P) ∩ R(P')` of finite codimension) are formalized as stated
+   (`IsGoodLeftProj.isFredholm`, `IsGoodLeftProj.fredholmIndex_comp`,
+   `IsGoodLeftProj.finiteDimensional_quotient_inf`).
+4. **Lemma 6.10: the projection of the text's proof is not below `P` and `P'` as we read it; the
+   lemma holds by another construction, without `T` Fredholm; the 2017 remark that a common lower
+   bound need not exist does not hold as we read it** *(book 2017: dropped; the remark on p. 190
+   before Remark 6.3, and the new Lemmas 6.3–6.5, Definition 6.6, Proposition 6.6)*. The text's
+   `P''` projects onto `R(P) ∩ R(P')` along a complement `Z ⊕ X ⊕ X'`, and `P'' = P''P` needs
+   `ker P ⊆ ker P''`. On `ℝ²` with `T = 1`, `P` the projection onto the `x`-axis along the
+   `y`-axis and `P'` the one along the diagonal, `R(P) ∩ R(P')` is the `x`-axis and a projection
+   onto it below both would equal both (`lemma_6_10_text_reading`). The lemma holds with a
+   smaller range: for `K = ker P + ker P'` (finite-dimensional), a closed finite-codimensional `N`
+   with `N ∩ K = 0` (Hahn–Banach), `R'' = R(P) ∩ R(P') ∩ N` and a closed complement `C ⊇ K` of
+   `R''`, the projection onto `R''` along `C` lies in `Π_T` and below `P` and `P'`; `T` need not
+   be Fredholm (`lemma_6_10`). The 2017 version replaces the lemma by the remark that for `P, Q ∈
+   Π_T` there need not be `L ∈ Π_T` with `L ≤ P`, `L ≤ Q`, and rebuilds §§6.3–6.4 around the
+   projections `P_H` onto a fixed range; with the order `P ≤ Q` iff `P = PQ = QP` of both versions
+   such an `L` always exists, as we read it. The preprint's route to Lemma 6.25 (a common lower
+   bound, Corollary 6.13, Lemma 6.21) is therefore sound and is the one formalized.
+5. **`γ^P_T` is read with the identification `F/R(P) = F/R(PT)`** *(book 2017: Proposition 6.4,
+   p. 192)*. `Φ_{E(T,P)}` takes values in `λ(ker PT) ⊗ λ*(F/R(P))`; "recalling `R(P) = R(PT)`" is
+   read as the identification of `λ*(F/R(P))` with `λ*(F/R(PT))` by the identity of `F`
+   (`gammaProj`). In Proposition 6.12 and Corollary 6.13 the operators `P(QT)` and `PT` are equal
+   but their kernels are different types, so the statements carry the identification
+   `det(P(QT)) = det(PT)` (`linDetEquivOfEq`); this is bookkeeping, not a change of content.
+6. **Proposition 6.12: the spanning step of §6.7.2 is proved directly in `F`** *(book 2017:
+   Proposition 6.5, p. 193; §6.7.2, pp. 219–222)*. The step "the classes of `d₁, …, d_l, T b₁, …`
+   span `ker Q̃`" is proved as: if `Q g = 0`, then `g` is a combination of the `dᵢ` plus `T x`
+   with `x ∈ ker(QT)` (`mem_span_append_of_ker`); the classes `[T b̃]` and `[Q T b̃]` in `F/R(P)`
+   then differ by elements of the span of `[d]`, `[T b]`, which does not change the wedge
+   (`wedge_append_add_right`).
+7. **§6.7.2 names the final wedge `α_q`, read as `α^P`** *(book 2017: §6.7.2, the same name)*.
+   The wedge introduced as `α^P` is called `α_q` a few lines later (possible misprint).
+8. **Lemma 6.14: "`j(e) = (0, e)`" in the proof is read as `(e, 0)`** *(book 2017: Lemma 6.6,
+   p. 199, the same wording)*. The sequence defines `j(e) = (e, 0)`; the proof's
+   `j(e) = (0, e) = (e, r)` is read with `(e, 0)` (possible misprint). "`[φ(r)] = R(T)`" means
+   that the class of `φ(r)` in `F/R(T)` is zero.
+9. **Proposition 6.15: two facts the text notices are proved, and the isomorphism of (94) is called
+   `φ`** *(book 2017: Proposition 6.7, p. 199)*. That the `rᵢ = π(b̄ᵢ)` and the `c̄ⱼ` together
+   form a basis of `ℝⁿ` follows from the exactness at `ℝⁿ` (`isCompl_range_stabPi_span`), and
+   the identity `m + l = n`, needed to form `det(c̄, r)`, is a hypothesis of `proposition_6_15`
+   that always holds (`stab_card_eq`). The statement opens with "the chosen isomorphism
+   `φ : λ*(ℝⁿ) → λ*({0})`", which is the `ψ` of (94); `φ` is already the stabilizing map
+   (possible misprint; the same in 2017).
+10. **Not formalized in §§6.2–6.3** *(book 2017: Definition 6.4, p. 189; after Proposition 6.7,
+    p. 200)*. The alternative determinant `λ(ker T) ⊗ λ(coker(T)*)` mentioned after Definition 6.7
+    and its identification with Definition 6.7 (gap G.57), and the identification (95) with the
+    maps `V ⊗ λ(ℝⁿ) → V`, `V ⊗ λ*(ℝⁿ) → V` after Proposition 6.15 (gap G.58). Neither is used by
+    the formalized statements of the chapter, which use (94) only.
+11. **Definition 6.16 is a definition by a formula in bases; "natural" is read as the formula for
+    every choice** *(book 2017: Definition 6.7, p. 200)*. `directSumDet` is defined by the formula
+    for one choice of bases, and `definition_6_16` shows that it satisfies the formula for every
+    choice (`directSumVec_eq_smul`), as for Lemma 6.5.
+
+Found while formalizing §6.4 and Proposition 6.26 (2026-11-06).
+
+20. **Lemma 6.17 does not use that `T` is Fredholm** *(book 2017: Lemma 6.7, p. 201)*. For a
+    bounded `T`, `P ∈ Π_T` and a topological complement `Y` of `ker(PT)` (an algebraic complement
+    with a continuous projection, `Submodule.IsTopCompl`), `P ∈ Π_S` and `PS|_Y` is an isomorphism
+    onto `R(P)` for `S` near `T` (`lemma_6_17`); the Fredholm hypothesis is not needed.
+21. **Lemma 6.18 is stated concretely** *(book 2017: Lemma 6.8, p. 201)*. "Is a trivial vector
+    bundle" is formalized as: `(S, k) ↦ (S, k + y(k, S))` is continuous, maps `ker(PT)` onto
+    `ker(PS)`, and is inverted by the continuous projection onto `ker(PT)` along `Y`
+    (`LocalDetChart.lemma_6_18`).
+22. **Lemma 6.19 is used only for trivial bundles, and Proposition 6.20 is proved with explicit
+    frames** *(book 2017: Lemma 6.9, Proposition 6.8, p. 202)*. Mathlib has no exterior powers or
+    tensor products of vector bundles, and the general Lemma 6.19 is not formalized (gap G.59).
+    The bundles it is applied to are trivial; `DET(T, P, ε)` is given the frame
+    `ω(S) = (k₁(S) ∧ … ∧ kₙ(S)) ⊗ (e₁ ∧ … ∧ e_l)*` (`LocalDetChart.frame`), and "in a natural way"
+    is read as: the frames of two charts with the same `P` differ by a continuous nowhere-zero
+    factor (`proposition_6_20`).
+23. **Lemma 6.21 is stated for two charts, and the text's sketch is the proof** *(book 2017:
+    Lemma 6.10, p. 202)*. Lemma 6.25 compares charts with different centres and radii, so
+    `lemma_6_21` is stated on the common ball of any two charts. The text's "this is trivial and
+    follows from an inspection" is carried out by extending the kernel sections of `PS` to
+    sections spanning `ker(QS)`, as the sketch says.
+24. **`DET(E,F)` is built as a Mathlib vector prebundle** *(book 2017: Definition 6.8,
+    Propositions 6.9, 6.10, Lemma 6.11, p. 204)*. The charts `γ_(T,P,ε)`, read in their frames, are
+    the pretrivializations of `detPrebundle`; its topology and its `FiberBundle` and
+    `VectorBundle` instances are Mathlib's. Definition 6.22 and Proposition 6.23 become: the
+    collection `𝓑` is a basis of that topology (`detBasis`, `proposition_6_23`); Proposition 6.24
+    and Lemma 6.25 are as stated (`proposition_6_24`, `lemma_6_25`).
+25. **Proposition 6.26 cites contractibility without the theorem it needs** *(book 2017:
+    Proposition 6.11, p. 205)*. "Consequently has two possible orientations since the base space
+    is contractible" needs that a line bundle over such a base is orientable. The proof formalized
+    is the standard one: the rays of the fibres form a two-sheeted covering (`OrCover`,
+    `isCoveringMap_orCover`), an orientation is a continuous section of it, and the lifting
+    criterion applies over a simply connected, locally path-connected base
+    (`exists_lineOrientation_apply_eq`, `exists_two_lineOrientation`); a nonempty convex set of
+    Fredholm operators is such a base. `proposition_6_26` is stated for every nonempty convex set.
+26. **Not formalized in §6.4** *(book 2017: p. 204, and §6.5, p. 205)*. The remark that `DET(E,F)`
+    is not orientable, and the classical case with which §6.5 opens (the determinant line bundle
+    of a classical Fredholm map over a contractible `U`), are not formalized (gap G.60).
+
+Found while formalizing Definition 6.1 and §6.5, Definitions 6.27–6.36 (2026-11-07).
+
+40. **Definition 6.1 is made in a chart point, with global sc⁺-sections, and "sc-Fredholm" is
+    proved on level `0`** *(book 2017: Definition 6.1, p. 182)*. `T_xX` and `Y_x` carry no linear
+    structure in the project (gaps G.6, G.7, G.13), so `Lin(f, x)` is made at a chart point
+    `(c, z)`: operators `T_zO → K_z` (`ChartPoint.linSet`). The text's `f − s` with `s(x) = f(x)` is
+    `f + s` with `(f + s)(x) = 0` (`sectionAdd`). The sections are global; one through `−f(x)`
+    exists under `HasScPlusSectionsThrough` (`ChartPoint.linSet_nonempty`), which bump functions
+    give (`MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`). The members are shown Fredholm
+    on level `0` with the index `ind(f, x)` (`ChartPoint.exists_index_linSet`), which is what the
+    determinant lines use; that they are sc-Fredholm on every level is not stated (gap G.64).
+41. **The paragraph before Definition 6.1 compares `(f − s)'(x)` with itself** *(book 2017: before
+    Definition 6.1, p. 182)*. "`(f − s)'(x)` is a sc-Fredholm operator if and only if `(f − s)'(x)`
+    is" is read with `(f − t)'(x)` in the second place (possible misprint).
+42. **The facts on paths recalled on p. 201 are not formalized** *(book 2017: before Proposition
+    6.1, p. 183)*. That an M-polyfold is locally path connected and that two smooth points in one
+    path component are joined by an sc⁺-smooth path is formalized only locally, inside a chart
+    (`exists_nhds_scPath`); "in the same path component" (Definitions 6.27, 6.38) is read as
+    "joined by an sc-smooth path" (gap G.56).
+43. **The partitions of unity assumed from §6.2 on are replaced by bump functions** *(book 2017:
+    §6.2)*. §6.2 announces sc-smooth partitions of unity "to simplify the presentation"; the
+    formalization assumes sc-smooth bump functions (`MPolyfold.AdmitsBumpFunctions`), which
+    partitions of unity give (Chapter 5, comparison item V5.49), and uses them only for global
+    sc⁺-sections. The paracompactness instances on `ℝⁿ × X` and on the pull-back bundles hold
+    (`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`).
+44. **Definition 6.27: the category `𝒪_f` is read as types and bijections** *(book 2017: Definition
+    6.9, p. 205)*. `Or_x^f` is the type of orientations of `DET(f, x)` at a chart point
+    (`ChartPoint.Or`), with exactly two elements (`ChartPoint.exists_two_or`); on the tensor
+    products no negation is set up, so `{o_x, −o_x}` is stated as "exactly two". The morphisms are
+    bijections; between two two-element types there are exactly two, each determined by one value
+    (`nonempty_equiv_of_two`, `equiv_eq_of_apply_eq_of_two`).
+45. **Proposition 6.28 (1) is not established for `U` as we read it; (1′) is proved instead**
+    *(book 2017: Proposition 6.12, p. 205)*. The contraction `r̂(t, y) = r(ty)` contracts
+    `O = r(V)` for a convex `V`; for `U = r(V')` it needs `r(V') ⊆ V'`, which is not stated, and a
+    convex domain of the retraction is not available in general. What the proof of Theorem 6.35
+    uses is (1′): two sc-smooth paths in `U` with the same end points are sc-smoothly homotopic,
+    with the end points fixed, in a larger region `W` where (3) holds. `proposition_6_28` proves
+    (1′) with `W = O ∩ B_δ`, `U = O ∩ B_δ'` and `r(B_δ') ⊆ B_δ`, by
+    `Φ(τ, t) = r((1 − ρ(τ)) φ(γ₀(t)) + ρ(τ) φ(γ₁(t)))` in the chart (gap G.61).
+46. **Proposition 6.28: the sections are global, (3) is stated for families, and the smoothness of
+    `x` is not used** *(book 2017: Proposition 6.12, p. 205)*. The sections of (3) and (4) are
+    global sc⁺-sections of `ℝⁿ × X → Y`, made with bump functions, in place of sections over
+    `U × [0, 1]` after "assuming `X = U`"; (3) is stated for sc-smooth families `Φ : ℝⁿ → X`, as
+    the homotopies of Theorem 6.35 need, and its section depends on `q ∈ [0, 1]ⁿ` only through
+    `Φ(q)` (`exists_isScPlusSection_pullback_of_family`). The construction does not use that `x` is
+    smooth, nor that `X` is tame.
+47. **Lemma 6.29 has no proof in the text; the general position of `F` is proved, the slice form of
+    (P) is not stated** *(book 2017: Lemma 6.12, p. 207)*. The text's proof is the sentence "using
+    the results from the transversality theory". `lemma_6_29` follows the proof of Theorem 5.18,
+    under its hypotheses: `X` tame, bump functions, tame germ data. Its conclusion is the general
+    position of `F` at the points `(t, φ(t), 0)`, which the text derives from (P) and which Lemmas
+    6.30 and 6.31 use. (P) itself, the general position of each slice `F_t` on `X × ℝᵏ`, is not
+    stated (gap G.63); as we read it, it follows, since the tangent vectors of the family of zeros
+    lie in `ker F'` and `ℝⁿ` has no boundary, but this chart computation is not carried out.
+48. **Lemma 6.30 is formalized as a continuous family of kernels** *(book 2017: Lemma 6.13, p.
+    207)*. Near a zero in good position the kernel is the tangent space of the solution set
+    (Theorem 3.54), the range of the derivative of an sc-retraction, so the kernels along a
+    continuous family of zeros form a continuous family of subspaces of the model space
+    (`exists_subspaceFamily_linKer`). The manifold statements (the solution set as a manifold with
+    boundary with corners near `(t, φ(t), 0)`, the map `π`, `L` as a smooth bundle) are not
+    formalized (gap G.62); the continuation of orientations does not need them.
+49. **Lemma 6.31: `ker F_t'` is read as the kernel of `F'` cut by `σ = 0`, and `c` is onto by the
+    general position of `F`** *(book 2017: Lemma 6.14, p. 209)*. In the product chart the
+    linearization of the slice is `(v, λ) ↦ T v + φ λ`, and `ker F'(0, (q, z)) ∩ {σ = 0}` is the
+    image of `ker(T ⊕ φ)` (`linKer_inf_ker_sliceProj_eq_map`). The text has `c` onto by (P); here
+    `F'` is onto by `lemma_6_29`, and the `ℝⁿ`-directions are absorbed because the derivative of the
+    curve of zeros lies in `ker F'` (`fderiv_mem_linKer`, `surjective_coprod_of_isLinSurjAt`).
+    With this, (96) is the stabilization sequence of `T` and `φ` (`lemma_6_31`).
+50. **Formula (94): `Φ_E` does not vary continuously where `dim coker T` changes parity, as we read
+    it; the propagation uses `(−1)^{dim coker T} Φ_E`** *(book 2017: Proposition 6.7, p. 199, and
+    §6.5)*. In a local determinant chart with projection `P`, the coordinate of `ι_ψ(x)` in
+    `det(S ⊕ ψ)` is `(−1)^{k · dim F/R(P) + dim coker S} D(S, ψ)` times that of `x`, with `D`
+    continuous and nowhere zero (`coord_stabIota`); the first exponent is constant on a chart, the
+    second is not. So along a norm-continuous family `T_q` with continuous stabilizations, the rays
+    `Φ_E(o(T_q))` of `λ(ker(T_q ⊕ φ_q))` carried from a continuous orientation `o` need not form an
+    orientation: `not_isLineOrientation_stabRay_uncorrected` is an instance with `E = F = ℝ`,
+    `k = 1`, `T_q = q/(1 + |q|)`, `φ(r) = r₀`. Lemmas 6.33, 6.34 and the homotopy argument before
+    Theorem 6.35 use that these orientations vary continuously with the parameter. With
+    `α(T) = (−1)^{dim coker T}` (`stabSign`) the rays `α(T_q) Φ_E(o(T_q))` do form an orientation
+    (`isLineOrientation_stabRay`), and the push-forward uses `α Φ_E` at both end points
+    (`IsStabKernels.push`). On each operator `α(T) Φ_E` carries the text's orientation or its
+    opposite; for given end-point operators the two push-forwards differ by `α(T_a) α(T_b)`.
+51. **Lemma 6.33: the homotopy of the text's proof is not needed** *(book 2017: Lemma 6.15, p.
+    209)*. "One verifies by a simple computation" is `detEquiv_stabIota_append`: with the appended
+    sections last (`appendStab`), the stabilization isomorphism of `(φ, ψ)` is that of `φ` followed
+    by `w ↦ (w, 0) ∧ ℓ₁ ∧ … ∧ ℓ_d`, exactly, with no sign. The comparison is made directly between
+    `T ⊕ φ` and `T ⊕ (φ, ψ)`, at the end points by Proposition 6.15 and along the family by
+    `isLineOrientation_wedgeExt` (`propagate_append`, `IsStabKernels.push_append`).
+52. **Proposition 6.32: Lemmas 6.33 and 6.34 are combined over one square** *(book 2017:
+    Proposition 6.13, Lemmas 6.15, 6.16, pp. 209–211)*. For two data along the same path,
+    `S^τ = (1 − τ) S⁰ + τ S¹` with the sections `(1 − τ) ŝ⁰ⱼ + τ ŝ¹ⱼ` (`ŝⁱⱼ = sⁱⱼ` for `j < kⁱ`, `0`
+    otherwise), followed by the sections of Lemma 6.29 on the square. At `τ = 0` the sections `s⁰`
+    are the first `k⁰` of the family and at `τ = 1` the sections `s¹` are the first `k¹`, so Lemma
+    6.33 applies on both edges without reordering (`IsStabKernels.push_eq_of_prefix`); along the
+    edges `t = 0, 1` the operators are affine in `τ` (`linAt_principal_combo`), hence continuous.
+53. **Theorem 6.35 does not introduce `f`; contractibility is replaced by (1′), and the proof needs a
+    reparametrization** *(book 2017: Theorem 6.1, p. 212)*. The statement names the bundle and the
+    point but not the section (possible omission); it is read for an sc-Fredholm section with tame
+    germ data, under the standing hypotheses (`theorem_6_35`: `X` tame, bump functions). The
+    homotopy of (1′) meets its edge conditions only for `t ∈ [0, 1]`, while a push-forward datum
+    asks for zeros of `f + S` for `t` near `[0, 1]`; the proof passes through `γᵢ ∘ κ`, `κ` the
+    smooth transition function, with three homotopies whose edges are exact for all `t`
+    (`push_eq_of_homotopy`). The neighbourhood is not shown to be sc-smoothly contractible (gap
+    G.61).
+54. **Definition 6.36 is read over a pair `V ⊆ U`** *(book 2017: Definition 6.10, p. 212)*. Since
+    Proposition 6.28 gives (1′), an orientable neighbourhood is `U` with the local propagation
+    property and an open `V ∋ x` whose smooth points are joined by sc-smooth paths in `U`
+    (`exists_nhds_scPath`); the continuous orientations live over `V_∞` and are preserved by the
+    push-forwards along paths in `U` (`IsContinuousOrientation`). "An orientable neighborhood has
+    precisely two continuous orientations" is `exists_two_isContinuousOrientation`.
+55. **The composition of paths on p. 228 writes `ψ(β(s))` on `[1/2, 1]`, read as `ψ(β(s) − 1)`**
+    *(book 2017: before Theorem 6.2, p. 213, the same wording)*. With `β([1/2, 1]) = [1, 2]`,
+    `ψ(β(s))` leaves `[0, 1]`; the second piece is read as `ψ(β(s) − 1)` (possible misprint).
+    `concatPath` is such a concatenation, with `β = κ(3s)` on `[0, 1/2]` and `κ(3s − 2) + 1` on
+    `[1/2, 1]`.
+
+Found while formalizing Theorem 6.37 and Definitions 6.38–6.40 (2026-11-07).
+
+70. **`Or_x^f` is chart-free in the text; it is made in a chart point and identified between
+    charts, and the local propagation is shown to be independent of the chart** *(book 2017: §6.5,
+    p. 205, and Theorem 6.2, p. 213)*. The proof of Theorem 6.37 carries an orientation along
+    orientable neighbourhoods of different points of a path, which may lie in different charts; the
+    text takes `T_xX`, `Y_x`, `Lin(f, x)` and `Or_x^f` to be the same whichever chart is used. Here
+    two chart points at `x` are related by the derivative `A` of the base transition and the fibre
+    part `Γ` of the strong bundle transition (`ChartPoint.transferT`, `ChartPoint.transferK`, with
+    the cocycle rules), `L ↦ Γ L A⁻¹` maps `Lin_p(f, x)` onto `Lin_{p'}(f, x)`
+    (`ChartPoint.mem_linSet_transfer_iff`), and `ChartPoint.orTransfer` identifies the two sets
+    `Or_x^f`. The push-forward then agrees in the two charts (`IsPush.transfer`,
+    `HasLocalPropagation.push_compat`), by the naturality of the stabilization isomorphism
+    (`stabRayEquiv_conjDet`) and of continuation (`SubspaceFamily.cont_map`). `Or_x^f` itself is
+    read in a chosen chart (`Orx`, `toChartOr`).
+71. **Homotopy classes: the edge conditions hold only on `[0, 1]`, so transitivity needs a
+    reparametrization; the identities are the constant paths** *(book 2017: before Theorem 6.2,
+    p. 213)*. Paths are maps `ℝ → X` and homotopies maps `ℝ² → X` whose edge conditions are imposed
+    for parameters in `[0, 1]` (decision D2). Two homotopies glued in `τ` need not agree off
+    `[0, 1]`, so `ScHomotopic.trans` first reparametrizes all paths and homotopies by `κ` in `t`.
+    The text does not name the identities of `PX`; they are the classes of the constant paths. The
+    reversed paths give inverses, so `PX` is a groupoid (`PathCat.groupoid`).
+72. **Theorem 6.37: the covering argument is a dyadic subdivision, (∗) is asked on every open set
+    with the local propagation property, and uniqueness uses only composition and (∗)** *(book
+    2017: Theorem 6.2, p. 213)*. The transport along a path is the composite of the push-forwards
+    along its `2ᴺ` dyadic pieces for any `N` at which every piece lies in a good set (Lebesgue
+    number lemma); homotopy invariance is the same on the square (`LocalTransport`,
+    `transport_eq_of_isScHomotopyRel`). (∗) is formalized for every chart, every open `U` with the
+    local propagation property in it and every push-forward along a path in `U`
+    (`IsStarProperty`); the sc-smooth contractibility of `U` is not asked (gap G.61), and the
+    uniqueness needs (∗) only on a family of such sets covering `X_∞`
+    (`orFunctorMap_unique_of_cover`). "Uniquely determined functor" is read for the maps on
+    morphisms (on objects there is no choice), and `𝒪_f` as types and bijections (`orFunctor`).
+    The theorem uses the standing hypotheses of Theorem 6.35 and sc⁺-sections through every smooth
+    fibre point (so that every `Or_x^f` has two elements), which bump functions give.
+73. **Definitions 6.38 and 6.39 are called equivalent without proof; the equivalence is proved, with
+    "the same path component" read as "joined by an sc-smooth path"** *(book 2017: Definitions
+    6.11, 6.12, p. 213)*. For points not joined by an sc-smooth path there is nothing to check in
+    Definition 6.38 (`IsOrientableSection`). Both definitions are shown equivalent to the existence
+    of `y ↦ o_y` with `Γ_f([φ]) o_x = o_y` for all `[φ]` (`isOrientableSection_iff_exists`,
+    `isOrientableSection'_iff_exists`), hence to each other (`isOrientableSection_iff`). From 6.39
+    to 6.38 the transport along a path is computed on dyadic pieces inside orientable
+    neighbourhoods (`LocalTransport.transport_apply_eq_of_local`); from 6.38 to 6.39 a base point is
+    chosen in each class of points joined by sc-smooth paths.
+74. **Definition 6.39 writes "`y ∈ U_∞`" before any `U` is introduced** *(book 2017: Definition
+    6.12, p. 213)*. It is read as `y ∈ X_∞` (possible misprint).
+75. **Definition 6.40: orientations are the families preserved by `Γ_f`** *(book 2017: Definition
+    6.13, p. 214)*. With the orientable neighbourhoods of item 54, an orientation of `f` is a map
+    `y ↦ o_y` with `Γ_f([φ]) o_x = o_y` for all `[φ]` (`isSectionOrientation_iff`); `f` has one iff
+    it is orientable (`exists_isSectionOrientation_iff`), two that agree at a point agree on the
+    points joined to it by sc-smooth paths, and there are exactly two on each such class
+    (`IsSectionOrientation.apply_eq_iff`, `IsSectionOrientation.exists_two`).
+
+Found while formalizing Theorem 6.41 and Remark 6.42 (2026-11-07).
+
+90. **Theorem 6.41: the first assertion comes from Chapters 4 and 5; "proper" is used only through
+    the compactness of `S`** *(book 2017: Theorem 6.3, p. 214)*. "We already know from the
+    transversality discussion" is `theorem_6_41_solutionSet`: for `X` tame and `f` with tame germ
+    data in general position (Definition 5.17) at every zero, `S` is compact, a smooth submanifold
+    in general position with the induced structure of a tame manifold with boundary with corners
+    (the conclusions of Theorem 5.18), using Lemma 4.19 for good position
+    (`MPolyfold.IsGeneralPositionAt.isGoodPositionAt`). Of "proper" (`StrongBundle.IsProper`)
+    only the compactness of the solution set is used; for sc-Fredholm sections the two are
+    equivalent (Chapter 5, comparison item V5.10), so nothing of the hypothesis is lost.
+91. **"`T_xS` is oriented by `o_f(x)`" and "the local prolongation … is the Fredholm one" are read
+    in a chart, along the paths of zeros** *(book 2017: Theorem 6.3, p. 214)*. At a zero, `f'(x)`
+    (the linearization of `f + s` with `s = 0`) lies in `Lin(f, x)` and is onto, and
+    `det f'(x) ≅ λ(ker f'(x))`, with `ker f'(x) = T_xS` in the chart
+    (`tangentSpace_solutionSet_eq_linKer`); `ChartPoint.tangentOr` is the resulting orientation of
+    `λ(T_xS)`. The second sentence is read as: along every sc-smooth path of zeros in an orientable
+    neighbourhood, the kernels form a continuous family `Λ` (Lemma 6.30, `tangentFamily`) and the
+    tangent orientations of an orientation of `f` form an orientation of `λ(Λ)`
+    (`isLineOrientation_tangentOr`). The Fredholm side is the push-forward for the datum `S = 0`,
+    `k = 0`, which along a path of zeros is continuation between tangent orientations
+    (`isStabKernels_zero`, `IsStabKernels.orRay_eq_tangentOr`); intermediate points are reached by
+    the paths `s ↦ γ(t κ(s))`, which stay in `γ([0, t])` for all `s ∈ ℝ`.
+92. **Theorem 6.41: the orientation of `S` as a manifold and its chart independence are not
+    formalized** *(book 2017: Theorem 6.3, p. 214)*. "A natural orientation" is formalized as the
+    tangent orientations with their continuity along paths of zeros in a chart (`theorem_6_41`);
+    an orientation of `S` as an abstract finite-dimensional manifold, of its tangent bundle in the
+    charts of the induced structure (gap G.67), and the compatibility of the tangent orientations
+    read in two charts at the same zero (gap G.68) are not formalized.
+93. **The paragraph after Theorem 6.41 is not formalized** *(book 2017: after Theorem 6.3, p.
+    214)*. For `f` not generic, a small sc⁺-perturbation `s` supported near the zero set, the
+    orientation of `S_{f+s}` coming from `o_f`, and the identification of `det((f + s)'(x))` with a
+    fibre of `DET(f, x)` (`Lin(f + s, x) = Lin(f, x)` for an sc⁺-section `s`) are not formalized
+    (gap G.69).
+95. **Remark 6.42: the map `h ↦ h̃` is not continuous in `L` where the parity of `dim coker L`
+    changes, as we read it; the sign `(−1)^{dim coker L}` is used** *(book 2017: Remark 6.4, p.
+    214)*. For `L̃ = L ⊕ 0 : E × ℝ → F`, `h ↦ h̃ = (a₁ ∧ … ∧ aₙ ∧ e) ⊗ (b₁ ∧ … ∧ b_l)*` is an
+    isomorphism `det(L) ≅ det(L̃)` (`extDet`, `extDet_wedge_tmul`), and in local determinant charts
+    its coordinate is `(−1)^{dim F/R(P) + dim coker L}` times a continuous nowhere-zero function
+    (`coord_extDet`). Over the convex set `Lin(f, x)`, where `dim coker L` can change parity, the
+    orientation of `DET(f̂, (x, t))` defined by `h̃` at one `L` could therefore differ from the one
+    defined at another. With `extDetN = (−1)^{dim coker L} · extDet` (the sign `stabSign` of item 50)
+    the coordinate is continuous up to a sign constant on a chart (`coord_extDetN`), continuous
+    orientations pull back (`LineOrientation.extPull`), and an orientation `o` of `DET(f, x)` gives
+    exactly one orientation `ô` of `DET(f̂, (t, x))` with `ô(L̂)` the image of `o(L)` for every
+    `L ∈ Lin(f, x)` (`ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr`). The two maps agree when
+    `L` is onto (`extDetN_eq_of_surjective`). This is the same kind of sign as formula (94), item 50.
+96. **Remark 6.42: readings** *(book 2017: Remark 6.4, p. 214)*. `X × [0, 1]` is read as `ℝ¹ × X`
+    (decision D2), with the parameter first; `s` is an sc⁺-section `S` of the pull-back `π*P`, and
+    `f̂ = f̃ + S` with `f̃(t, x) = f(x)`. `Lin(f̂, (t, x))` is read in the product chart point
+    `ChartPoint.prodPt`, where `T_{(t,z)} = ℝ¹ × T_zO` and the fibre is `K_z`; the text's
+    `L̃(a, b) = La` puts the `ℝ`-factor second and is read as `L̂ = Γ⁻¹ (L ⊕ 0) A` with `A` the swap
+    of the factors (`ChartPoint.prodLin`), and `L̂ ∈ Lin(f̂, (t, x))` for every `L ∈ Lin(f, x)`
+    (`ChartPoint.prodLin_mem_linSet`, through the `t`-constant lift `constLift`). The remark needs
+    only an orientation of `DET(f, x)` at the one point and `Lin(f, x)` nonempty, not an orientation
+    of `f`.
+97. **Remark 6.42 beyond a point is not formalized** *(book 2017: Remark 6.4, p. 214)*. That
+    `(t, y) ↦ ô` is an orientation of `f̂` in the sense of Definition 6.40 (continuity over the
+    orientable neighbourhoods of `ℝ¹ × X`, independence of the chart of the pull-back bundle), built
+    from an orientation of `f`, is not formalized (gap G.66).
+
+Not formalized (2026-11-07).
+
+100. **Theorem 6.43 is not formalized** *(book 2017: Theorem 6.4, p. 215, and the case `∂X = ∅`, p.
+     218)*. The map `Ψ_(f,o) : H*_dR(X, ∂X) → ℝ`, its proof (pp. 231–233) and the case `∂X = ∅`
+     (p. 233) need the sc-differential forms and their cohomology of §4.4, which are not
+     formalized (gaps G.37–G.40), integration over oriented compact manifolds with boundary with
+     corners and Stokes' theorem, which Mathlib does not have (decision D1, gap G.54). What the
+     theorem rests on is formalized: the perturbations of Theorem 5.18 (Chapter 5) and the
+     tangent orientations of Theorem 6.41 (items 90–93).
+101. **§6.6: the sections "admissible for the pair `(N, U)`" are not formalized** *(book 2017: §6.6,
+     p. 215)*. The paragraph recalls Theorem 5.18 (formalized in Chapter 5, comparison items
+     V5.38, V5.39) and the orientation of `S_{f+s}` (item 93); the notion it defines is used only
+     in Theorem 6.43 (gap G.55).
+102. **Not formalized: the facts used with paths on `[0, 1]`** *(book 2017: §6.5)*. Paths,
+     homotopies and families sc-smooth on `[0, 1]`, `[0, 1]²`, `[0, 1]ⁿ` only, and `X × [0, 1]`
+     as an M-polyfold with boundary, are read on `ℝ`, `ℝ²`, `ℝⁿ` and `ℝⁿ × X` (decision D2), as
+     for Proposition 6.2 in Chapter 3; a path that does not extend sc-smoothly to `ℝ` is not
+     covered (gap G.65).
