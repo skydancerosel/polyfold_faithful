@@ -342,3 +342,252 @@ Found while reading for the plan (to be checked in Lean, then recorded in `Findi
 7. **Counts and status** in `README.md` (Status; the "337 items" of "How to check it and sign off"),
    `HANDOFF.md`, this file. The four checks of `HANDOFF.md` §1 green at every commit. Done
    2026-11-07 (401 sign-off items, gaps to G.69, 4,942 `#print axioms` lines).
+
+## Part II plan
+
+(Plan, 2026-11-07; nothing below is in Lean yet.) **Text.** Part II, "Ep-Groupoids", is Chapters
+7–11 of arXiv 1707.08941 (`sources/HWZ-Book-2017.txt`: Part II opens at line 10687, Chapter 7 is lines
+10704–12250, Chapter 8 starts at 12251, 9 at 13856, 10 at 15977, 11 at 18145, Part III at 20168). There
+is no 2014 preprint of Part II, so numbers and pages are the 2017 text's: printed page numbers read
+off the running heads (even pages "226 7 Ep-Groupoids", odd pages "7.1 … 227", the first page of a
+chapter from its footer), as `BookConcordance.md` does for Chapter 6. Each kind has its own counter
+(Definition 7.3 ≠ Proposition 7.3). Part I items cited by Part II carry their 2017 numbers, with the
+preprint number used by the Lean name in brackets: Theorem 2.2 [2.16] = `Polyfold.theorem_2_16`,
+Proposition 2.7 [2.24] = `Polyfold.proposition_2_24`, Proposition 2.15 [2.46] =
+`MPolyfold.proposition_2_46`, Definition 2.19 [2.37] = `MPolyfold.IsTame`, Lemma 2.7 [2.56] (Michael;
+not formalized, avoided in Part I). Lean names below are in namespace `Polyfold`.
+
+### II.1 Overview
+
+| Ch. | pp. | Items | Content | Needs from Part I |
+|---|---|---|---|---|
+| 7 Ep-Groupoids | 225–256 | 52 | groupoids whose object and morphism sets are M-polyfolds, `s, t` local sc-diffeomorphisms, a local properness; the orbit space `\|X\|`; the natural representation of `G_x`; effective and reduced ep-groupoids; topology of `\|X\|`; `X¹`; partitions of unity | Ch. 2 (M-polyfolds, local sc-diffeos, fibred products, sub-M-polyfolds, `X¹`, metrizability with Smirnov, degeneracy, tameness); Ch. 5 appendix (sc-smooth partitions of unity) |
+| 8 Bundles and Covering Functors | 257–290 | 33 | tangent ep-groupoid `TX`, sc-forms, strong bundles over ep-groupoids, proper covering functors | `MPolyfold.TangentSpace`, `MPolyfold.tangentMap`, `StrongBundle`, pull-backs; §8.2 needs sc-forms (G.37–G.40) |
+| 9 Branched Ep⁺-Subgroupoids | 291–332 | 59 | `Θ : X → ℚ⁺`, local branching structures, tangent and boundary, orientations, integration and Stokes | Ch. 4 (finite-dimensional submanifolds, sc⁺), Ch. 6 (orientations); M⁺-polyfolds (2017 Def 4.8, not in Part I); §9.5 needs measures and Stokes (as Thm 6.43, G.54) |
+| 10 Equivalences and Localization | 333–374 | 45 | equivalences, weak fibred product, localization at equivalences, generalized maps, strong bundle versions | Ch. 7–8; Mathlib `CategoryTheory.Localization`, calculus of fractions |
+| 11 Geometry up to Equivalences | 375–415 | 40 | tameness, faces, forms, branched subgroupoids, integration, bundles, coverings up to equivalence | Ch. 8–10; `MPolyfold.IsFace`, `MPolyfold.IsFaceStructured` |
+
+Chapter 7 is the base of everything else and is planned in full below; Chapters 8–11 in II.7.
+
+### II.2 Chapter 7 inventory (52 numbered items: 17 Def, 14 Prop, 10 Lemma, 6 Thm, 3 Cor, 2 Rem)
+
+Difficulty: **A** easy, **B** medium, **C** hard. Files in `Polyfold/Chapter7/`. "(text)" rows are
+unnumbered claims of the text that later items use.
+
+| 2017 | p. | Content | Part I (Lean) | Mathlib | Diff. | File |
+|---|---|---|---|---|---|---|
+| Def 7.1 | 225 | groupoid: small category, structure maps `s, t, m, u, ι`; `\|X\| = X/∼`, `π` | — | `CategoryTheory.Groupoid`, `CategoryTheory.isIsomorphicSetoid`, `Quotient` | A | `Groupoid.lean` |
+| Def 7.2 | 226 | isotropy group `G_x` | — | `CategoryTheory.Groupoid.vertexGroup`, `…vertexGroupIsomOfMap` | A | `Groupoid.lean` |
+| Def 7.3 | 226 | ep-groupoid: (1) `s, t` local sc-diffeos; (2) `u, ι` sc-smooth; (3) each `x` has open `V(x)` with `t : s⁻¹(cl V(x)) → X` proper; (4) `m` sc-smooth on `X s×t X` | `MPolyfold`, `MPolyfold.IsLocalScDiffeo`, `MPolyfold.IsScSmoothMap`, `MPolyfold.fibredProduct`, `MPolyfold.isSubMPolyfold_fibredProduct`, `MPolyfold.subPolyfold`, `MPolyfold.prod`, `MPolyfold.paracompactSpace_prod` | `IsProperMap`, `Set.restrict` | B | `EpGroupoid.lean` |
+| Def 7.4 | 227 | `φ̂ = t ∘ (s\|U(φ))⁻¹`; `Tφ` for `φ ∈ X_∞` | `MPolyfold.IsScDiffeoOn`, `MPolyfold.restrictOpen`, `MPolyfold.tangentMap` | — | B | `EpGroupoid.lean` |
+| (text) | 227–228 | `ml(sφ) = ml(φ) = ml(tφ)`, filtration `\|X_k\|`; `d_X(sφ) = d_X(φ) = d_X(tφ)` | `MPolyfold.levelSet`, `MPolyfold.IsScSmoothOn.mapsTo_levelSet`, `MPolyfold.degIndex`, `proposition_2_24` | `Set.image` | A | `EpGroupoid.lean` |
+| Def 7.5 | 228 | `d_{\|X\|}(\|x\|) = d_X(x)` | `MPolyfold.degIndex` | `Quotient.lift` | A | `EpGroupoid.lean` |
+| Def 7.6 | 228 | tame: `X` tame; (text) then the morphism M-polyfold is tame | `MPolyfold.IsTame`, `MPolyfold.transportChart`, `MPolyfold.transportChart_isChart` | — | A/B | `EpGroupoid.lean` |
+| Def 7.7 | 228 | category `EP`: functors sc-smooth on objects and morphisms; (text) sc-smooth on objects suffices | `MPolyfold.IsScSmoothMap.comp`, `MPolyfold.isScSmoothMap_id` | `CategoryTheory.Category` | A; B (II.6, 1) | `EpGroupoid.lean` |
+| Prop 7.1 | 229 | `π` is open | `MPolyfold.IsLocalScDiffeo` | `IsOpenMap`, `IsOpenQuotientMap` | A | `Basic.lean` |
+| Prop 7.2 | 229 | countable monotone neighbourhood bases in `\|X\|` | `MPolyfold.metrizableSpace` | `FirstCountableTopology` | A | `Basic.lean` |
+| Prop 7.3 | 229 | `π(cl A) = cl π(A)` for `A ⊂ U(x)` | `MPolyfold.metrizableSpace` | `IsCompact.tendsto_subseq` | B | `Basic.lean` |
+| Lemma 7.1 | 230 | finitely many `ψ` with `s ψ = x`, `t ψ ∈ U(x')` | `MPolyfold.IsLocalScDiffeo` | `IsProperMap.isCompact_preimage`, `Set.Finite` | B | `Basic.lean` |
+| Prop 7.4 | 230 | `G_x` finite | — | `Finite` | A | `Basic.lean` |
+| Thm 7.1 | 231 | natural representation: `U ⊂ V`, `Φ : G_x → Diff_sc(U)`, sc-smooth `Γ : G_x × U → X`, `Γ(g,x) = g`, `sΓ = id`, `tΓ = Φ(g)`, `Γ` onto the morphisms of `U` | `MPolyfold.IsScDiffeoOn`, `MPolyfold.IsLocalScDiffeo` | `MonoidHom`, `IsPreconnected` | C | `NaturalRep.lean` |
+| (text) | 231–233 | small connected `U(x)`: morphisms of `U(x)` = `⊔_g U(g)`; `G_x ⋉ U(x)` is an ep-groupoid; `Γ` fully faithful; `Φ̂` on morphisms | `MPolyfold.prod`, discrete M-polyfold (new) | `CategoryTheory.Functor.Full`, `…Faithful`, `MulAction` | B | `NaturalRep.lean` |
+| Prop 7.5 | 233 | natural representation of a finite set `Y` of isomorphic objects: a functor to sc-diffeos of disjoint connected `U(y)` | `MPolyfold.IsScDiffeoOn` | `CategoryTheory.Functor` | C | `NaturalRepFinite.lean` |
+| Def 7.8 | 236 | natural representation of `Y` | — | — | A | `NaturalRepFinite.lean` |
+| Prop 7.6 | 236 | `G_x\U(x) → \|U(x)\|` a homeomorphism; `G_x ⋉ U(x) → X` fully faithful | — | `MulAction.orbitRel.Quotient`, `isOpenMap_quotient_mk'_mul`, `Homeomorph` | B | `Uniformizer.lean` |
+| Def 7.9 | 237 | local uniformizer | — | `CategoryTheory.Functor.FullyFaithful` | A | `Uniformizer.lean` |
+| Def 7.10 | 237 | ep-subgroupoid: saturated sub-M-polyfold `A` | `MPolyfold.IsSubMPolyfold` | — | A | `SubGroupoid.lean` |
+| Prop 7.7 | 238 | the full subcategory on `A` is an ep-groupoid (with the text's (1)–(4) before it) | `MPolyfold.subPolyfold`, `MPolyfold.SubData`, `MPolyfold.subPolyfold_inclusion_isScSmooth`, `MPolyfold.subPolyfold_retraction_isScSmooth`, `MPolyfold.paracompactSpace_subtype` | — | C | `SubGroupoid.lean` |
+| Def 7.11 | 239 | effective; regular objects, `X_reg`; (text) `s φ` regular ⇒ `t φ` regular | — | — | A | `Effective.lean` |
+| Lemma 7.2 | 239 | `X_reg` open | — | — | A | `Effective.lean` |
+| Lemma 7.3 | 239 | effective ⟺ `Φ` injective on small `U(x)` | — | `MonoidHom.ker` | B | `Effective.lean` |
+| Prop 7.8 | 240 | effective ⇒ `X_reg` open and dense | — | `Dense`, `Nat.card` | B | `Effective.lean` |
+| Def 7.12 | 241 | `T_x` (acting trivially, normal), `X^T`, `X^R = X/∼` | — | `Subgroup.Normal`, `Quotient` | B | `Reduced.lean` |
+| Prop 7.9 | 242 | `X^R` has a natural M-polyfold structure | `MChart`, `MAtlas`, `MChart.Compatible` | quotient topology | C | `Reduced.lean` |
+| Prop 7.10 | 244 | reduced ep-groupoid `X_R`, effective; (text) its isotropy is `G_x/T_x` | — | `QuotientGroup` | C | `Reduced.lean` |
+| Def 7.13 | 244 | `G_x^eff = G_x/T_x` | — | `QuotientGroup` | A | `Reduced.lean` |
+| Thm 7.2 | 244 | `\|X\|` locally metrizable, regular, Hausdorff; paracompact ⇒ metrizable | `metrizableSpace_of_locally` (Smirnov) | `RegularSpace`, `T2Space`, `MetrizableSpace` | B | `OrbitTopology.lean` |
+| Lemma 7.4 | 244 | `\|U(x)\|` metrizable (a `G_x`-invariant metric) | `MPolyfold.metrizableSpace` | `MetricSpace`, `Finset.sup'` | B | `OrbitTopology.lean` |
+| Lemma 7.5 | 245 | countable neighbourhood bases | — | `FirstCountableTopology` | A | `OrbitTopology.lean` |
+| Lemma 7.6 | 245 | `\|X\|` Hausdorff | — | `T2Space` | B | `OrbitTopology.lean` |
+| Lemma 7.7 | 246 | `\|X\|` regular | `MPolyfold.metrizableSpace` | `RegularSpace` | B | `OrbitTopology.lean` |
+| Cor 7.1 | 247 | second countable `\|X\|` ⇒ metrizable (Urysohn) | — | `TopologicalSpace.metrizableSpace_of_t3_secondCountable` | A | `OrbitTopology.lean` |
+| Def 7.14 | 247 | component compact | — | `connectedComponent`, `IsCompact` | A | `OrbitTopology.lean` |
+| Cor 7.2 | 247 | component compact `K` has an open `U ⊃ K` with `cl U` paracompact, `U` metrizable | `metrizableSpace_of_locally` | `isOpen_connectedComponent`, `LocallyConnectedSpace` | C | `OrbitTopology.lean` |
+| Prop 7.11 | 247 | `X¹ = (X¹, 𝐗¹)` is an ep-groupoid; tame ⇒ tame | `MPolyfold.Level`, `MPolyfold.shift`, `MPolyfold.IsScSmoothMap.levelOne`, `theorem_2_16` | — | B | `Lift.lean` |
+| Def 7.15 | 249 | ep-groupoid with paracompact orbit space (5) | — | `ParacompactSpace` | A | `Lift.lean` |
+| Rem 7.1 | 249 | second countable objects ⇒ (5); (text) "not known" whether (1)–(4) ⇒ (5): not formalized | — | `SecondCountableTopology` | A | `Lift.lean` |
+| Prop 7.12 | 249 | `\|X\|` paracompact ⇒ `\|X¹\|` paracompact | `metrizableSpace_of_pullback` (avoids Lemma 2.7) | — | B | `Lift.lean` |
+| Thm 7.3 | 250 | continuous partitions of unity on `\|X\|`, invariant ones on `X` | — | `PartitionOfUnity.exists_isSubordinate` | A | `PartitionsOfUnity.lean` |
+| Def 7.16 | 250 | ep-groupoid with sc-smooth partitions of unity | `MPolyfold.IsScSmoothPartitionOfUnity` | `PartitionOfUnity` | A | `PartitionsOfUnity.lean` |
+| Rem 7.2 | 251 | no formal content | — | — | — | — |
+| Thm 7.4 (= Thm 7.6, p. 255) | 251 | `\|X\|` paracompact, `X` admits sc-smooth partitions of unity ⇒ invariant ones for saturated covers | `MPolyfold.AdmitsScPartitionsOfUnity`, `isScSmoothMap_real_finsum`, `MPolyfold.IsScSmoothMap.real_add` | `LocallyFinite` | C | `PartitionsOfUnity.lean` |
+| Def 7.17 | 251 | proper subsets; the properness property | — | `IsProperMap` | A | `ProperSubsets.lean` |
+| Prop 7.13 | 251 | a proper subset is closed | — | — | A | `ProperSubsets.lean` |
+| Prop 7.14 | 251 | `π(Q)` closed for proper `Q`; `\|X\|` paracompact: closed `A = π(Q)`, `Q` proper | — | `precise_refinement`, `exists_subset_iUnion_closure_subset` | B | `ProperSubsets.lean` |
+| Thm 7.5 | 253 | = Thm 7.1, with `Φ(g) = t_g ∘ s_g⁻¹` | — | — | (7.1) | `NaturalRep.lean` |
+| Lemma 7.8 | 253 | morphisms between points of `U₁` lie in the sheets `N_g` | — | `IsCompact.tendsto_subseq` | B | `NaturalRep.lean` |
+| Lemma 7.9 | 254 | `U = ⋃_g t_g s_g⁻¹(U₂)` is invariant | `MPolyfold.IsScDiffeoOn` | — | B | `NaturalRep.lean` |
+| Lemma 7.10 | 255 | invariant sc-smooth `f ≥ β` supported in `V(x)` | `MPolyfold.AdmitsScPartitionsOfUnity`, `isScSmoothMap_real_finsum` | — | B | `PartitionsOfUnity.lean` |
+| Cor 7.3 | 256 | an atlas with Hilbert `E₀` ⇒ invariant sc-smooth partitions of unity | `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, `corollary_5_44` (Theorem 5.14 [5.43] an explicit hypothesis, `GodefroyTroyanskiWhitfieldZizlerStatement`) | — | A | `PartitionsOfUnity.lean` |
+
+**New infrastructure** (no item of its own): `ProperMaps.lean` (proper maps between metrizable spaces
+⟺ the sequential criterion every proof of the text uses; closed subsets of proper sets are proper; the
+saturation `t(s⁻¹ Q')` of a closed `Q'` inside a proper set is closed), `LocConnected.lean` (retracts
+and M-polyfolds are locally path connected: `r` maps segments of the convex `U ∩ C` to paths;
+components are open), `Discrete.lean` (a finite discrete type as an M-polyfold with ℝ⁰ charts,
+`G × U` by `MPolyfold.prod`, sc-smoothness on `G × U` ⟺ on each sheet), `LocalDiffeo.lean` (levels,
+degeneracy, the transported tame atlas, level-1 versions of `IsScDiffeoOn` / `IsLocalScDiffeo`, `ℝⁿ`
+admits sc-smooth partitions of unity via `SmoothPartitionOfUnity.exists_isSubordinate` and
+`proposition_5_38`), `Michael.lean` (Lemma 2.7 [2.56]: a regular space whose open covers have locally
+finite closed refinements is paracompact; finite unions of closed paracompact subspaces; Mathlib has
+no Michael theorem).
+
+### II.3 Design decisions (recommendations; the project lead to confirm)
+
+* **P1. A structure of maps, with a bridge to `CategoryTheory`.** `GroupoidStr Obj Mor`: maps `src tgt :
+  Mor → Obj`, `unit : Obj → Mor`, `inv : Mor → Mor`, a total `comp : Mor → Mor → Mor` with the laws
+  asked on composable pairs (`src φ = tgt ψ`), i.e. Definition 7.1's five structure maps. `EpGroupoid`
+  adds `PObj : MPolyfold Obj`, `PMor : MPolyfold Mor` and (1)–(4) with Part I's predicates. A bridge
+  `EpGroupoid.Ob X` (type synonym) carries `CategoryTheory.Groupoid` with `Hom x y := {φ // src φ = x ∧
+  tgt φ = y}`: isotropy groups are Mathlib's `vertexGroup`, conjugation `vertexGroupIsomOfMap`, and
+  Props 7.5–7.6, Def 7.9 use `Functor.Full`/`Faithful`. Against `CategoryTheory` as the primary form:
+  every proof of the chapter works with sequences and sheets of morphisms with moving end points,
+  which live on the total space `Σ x y, x ⟶ y`; `eqToHom` bookkeeping would dominate, and the M-polyfold,
+  fibred-product and sub-M-polyfold API of Part I is for plain types.
+* **P2. Universes.** `Obj Mor : Type u`, one universe (Definition 7.1's "small category"; the bridge
+  is a `Groupoid.{u, u}`). The models stay in `Type` (`ScBanach`). The category `EP` (Def 7.7) is a
+  `LargeCategory` on bundled ep-groupoids in `Type (u+1)`; Chapter 10's weak fibred products stay in `u`.
+* **P3. Properness** is Mathlib's `IsProperMap ((src ⁻¹' closure V).restrict tgt)` for some open `V ∋ x`
+  (existential per point, as the text). Both spaces are metrizable (`MPolyfold.metrizableSpace`), so it
+  equals "preimages of compacts are compact" (`isProperMap_iff_isCompact_preimage`) and the sequential
+  criterion, proved once in `ProperMaps.lean`. Def 7.17 uses the same form.
+* **P4. The orbit space** is `Quotient X.orbitSetoid` (`x ∼ y ↔ ∃ φ, src φ = x ∧ tgt φ = y`) with the
+  quotient topology, proved equal to `isIsomorphicSetoid` of the bridge; `π = Quotient.mk`,
+  `|X_k| = π '' levelSet k`, Prop 7.1 as `IsOpenQuotientMap π`.
+* **P5. Condition (4)** is stated literally on `MPolyfold.subPolyfold (isSubMPolyfold_fibredProduct hs
+  ht)`, the instances `ParacompactSpace (Mor × Mor)` and of the subtype supplied by `letI` from
+  `MPolyfold.paracompactSpace_prod` and `MPolyfold.paracompactSpace_subtype`, inside one Prop-valued
+  `def`; an equivalent **sheet form** (for a sheet `U(φ)` of `s`, `ψ' ↦ m((s|U(φ))⁻¹(t ψ'), ψ')` is
+  sc-smooth near `ψ`) is proved and used in proofs.
+* **P6. Natural representations are data**: `NaturalRep X x` with `U` open **and connected**, `Φ : G_x →
+  Obj → Obj` a homomorphism into sc-diffeos of `U` (`IsScDiffeoOn` with inverse `Φ g⁻¹`), `Γ`, the
+  properties of Thm 7.1; Γ sc-smooth on `G_x × U` via `Discrete.lean`, equivalently on each sheet. The
+  uniqueness of `Γ` on connected `U` (two sections of `s` through `g` agree) is a lemma: Def 7.12's
+  `T_x`, Lemma 7.3 and Prop 7.9 depend on it.
+* **P7. Reduced groupoid.** Props 7.9–7.10 are formalized as an atlas of compatible charts `Ψ_φ` on
+  `X^R`; the M-polyfold `X^R` (Definition 2.8 asks Hausdorff and paracompact) takes these two properties
+  as hypotheses, discharged for effective `X` and for the witnesses (II.6, 2).
+* **P8. Bookkeeping.** Lean names `definition_7_3`, `theorem_7_1`, …; restatements `theorem_7_5 :=
+  theorem_7_1`, `theorem_7_6 := theorem_7_4`. Sign-off items V7.1, … in book order; gaps from G.70;
+  `Findings.md` new "## Chapter 7"; `BookConcordance.md` gets a Part II section (2017 items and pages
+  only). Definitions are written by the session lead first (§6.7, step 1), proofs delegated.
+
+### II.4 Order of work for Chapter 7
+
+| Wave | Files (all `Polyfold/Chapter7/`) | Items | Agents | Lines |
+|---|---|---|---|---|
+| W0 (lead) | `Groupoid.lean`, `EpGroupoid.lean`; the definitions of every other file | Defs 7.1–7.17, `NaturalRep`, P5 sheet form, bridge | lead, 1 session | 900 |
+| W1 | `ProperMaps.lean`, `LocConnected.lean`, `Discrete.lean`, `LocalDiffeo.lean`, `Michael.lean` | infrastructure; (text) p. 227–228, Def 7.6's tame `Mor` | 5 in parallel | 2,200 |
+| W2 | `Basic.lean`; `NaturalRep.lean`; `ProperSubsets.lean` | Props 7.1–7.4, Lemma 7.1, Def 7.7 remark; Thm 7.1 = 7.5, Lemmas 7.8–7.9, `G_x ⋉ U`; Props 7.13, 7.14 (1) | 3 (`NaturalRep` may need 2 sessions) | 2,600 |
+| W3 | `NaturalRepFinite.lean`; `Uniformizer.lean` + `OrbitTopology.lean`; `Effective.lean`; `SubGroupoid.lean` | Prop 7.5, Def 7.8; Prop 7.6, Def 7.9, Thm 7.2, Lemmas 7.4–7.7, Cors 7.1–7.2; Lemmas 7.2–7.3, Prop 7.8; Prop 7.7 | 4 | 3,200 |
+| W4 | `Reduced.lean`; `Lift.lean`; `PartitionsOfUnity.lean`; `ProperSubsets.lean` (7.14 (2)) | Props 7.9–7.10, Def 7.13; Prop 7.11–7.12, Rem 7.1; Thms 7.3–7.4, Lemma 7.10, Cor 7.3; Prop 7.14 (2) | 4 | 3,000 |
+| W5 | `NonVacuity.lean`, then the reports | witnesses (II.5), the counterexample of II.6, 1; `Exposition/Chapter7.md`, `verification/ch07.md`, `cmp/ch07.json`, `pbp/part07.md`, concordance; round-trip audit | 1–2, then the lead | 800 |
+
+Dependencies: W2 needs W0 and `ProperMaps`; `NaturalRep` needs `LocConnected` and `Discrete`; W3 needs
+`NaturalRep`; Cor 7.2 needs `Michael`; W4's `Reduced` needs `Effective`, `PartitionsOfUnity` needs
+`OrbitTopology` and `ProperSubsets`, `Lift` needs `LocalDiffeo` and `OrbitTopology`. Files of one wave
+do not import each other. Checkpoint (build green, `Test.lean` lines, commit) after every wave.
+
+### II.5 Hypotheses check (Findings, Chapter 3, item 190)
+
+Chapter 7 states no hypothesis "for all charts". The places where a universal reading would be
+vacuous or where satisfiability must be shown:
+
+1. **Tameness** (Def 7.6, Prop 7.11, the tame `Mor`): use `MPolyfold.IsTame` (an equivalent atlas of
+   tame retracts exists). "Every `IsChart` chart is modelled on a tame retract" is unsatisfiable by
+   item 190's construction (a `[0, ∞)` factor with a constant retraction); `Mor`'s tame atlas is the
+   transported one (`MPolyfold.transportChart`), not "all charts".
+2. **Hilbert atlas** (Cor 7.3): existential, as `admitsScPartitionsOfUnity_of_hilbert` (one chart per
+   point). "Every compatible chart has a Hilbert `E₀`" is unsatisfiable: `φ' = (φ, 0)` onto `O × {0} ⊂
+   E ⊕ X`, `X = ScOneExample.X` (level 0 is `c₀`), `r'(u, v) = (r u, 0)`, is compatible with `φ`.
+3. **Sc-smooth partitions of unity** (Def 7.16, Thm 7.4, Lemma 7.10: ∀ open cover ∃ partition):
+   satisfiable; witness `rnPolyfold n` (`LocalDiffeo.lean`), and `GodefroyTroyanskiWhitfieldZizlerStatement`
+   proved for `Fin n → ℝ` so that Cor 7.3's hypothesis is not empty either.
+4. **Properness** (Def 7.3 (3)): per point ∃ `V(x)`; "for every neighbourhood" would fail for the pair
+   groupoid of `ℤ`. Lemma: every open `V' ⊂ V(x)` also works.
+5. **Effective** (Def 7.11, ∀ x ∀ g ≠ 1 ∀ nbhd ∃ ψ): satisfiable non-vacuously (ℤ/2 reflecting ℝ) and
+   vacuously (trivial isotropy).
+6. "`U(x)` **equipped with the natural action**" (Lemmas 7.3, 7.4, 7.10, Def 7.9, Prop 7.6): always a
+   `NaturalRep` datum, which exists by Thm 7.1; never "every `U` with an action".
+7. P7's hypotheses on `X^R`: satisfiable (effective `X`; the trivial-action groupoid).
+
+Witnesses (`NonVacuity.lean`): the trivial ep-groupoid on `rnPolyfold n` (`Mor = Obj`, `s = t = id`;
+tame by `rnPolyfold_isTame`), `ℤ/2 ⋉ ℝ` by reflection (effective, `X_reg = ℝ ∖ {0}`), `ℤ/3 × ℝ ⇉ ℝ`
+with the trivial action (`T_x = G_x`, `X_R` trivial).
+
+### II.6 Found while reading (to be checked in Lean, then recorded in `Findings.md`, "## Chapter 7")
+
+1. **Def 7.7, remark (p. 228–229)**: "it is sufficient to require that the functor `f` is sc-smooth
+   between the object spaces" does not hold as we read it; the proof chooses `U(φ)` with `f(U(φ)) ⊂
+   U(ψ)`, i.e. uses continuity on morphisms. Example: `ℤ/3 × ℝ ⇉ ℝ` (trivial action), `f = id` on
+   objects, `(g, y) ↦ (g, y)` for `y ≤ 0` and `(g², y)` for `y > 0`: a functor, sc-smooth on objects,
+   not continuous on morphisms. With continuity added the remark holds.
+2. **Props 7.9–7.10 (pp. 242–244)**: the proof gives charts with sc-smooth transitions but not that
+   `X^R` is Hausdorff, which an M-polyfold must be; as we read it, it need not be. Take an sc-smooth
+   splicing `π_t` on `ℝ × E` (Def 2.18, p. 36; the "chap" of p. 24) with `π_t = 0` for `t ≤ 0` and
+   rank one for `t > 0`, `O = r(ℝ × E)`, and `ℤ/2` acting by `(t, e) ↦ (t, −e)`. In `ℤ/2 ⋉ O`, `T_y =
+   ℤ/2` for `y = (t, 0)`, `t < 0`, but `T_{(0,0)} = 1`: the classes of `(1, (0,0))` and `(g, (0,0))`
+   differ and cannot be separated. A Lean confirmation needs a dimension-jumping retract (not in the
+   project; cost C, optional).
+3. **Thm 7.1 / 7.5 (pp. 231, 253–254)**: "since the `N_g` are disjoint … `Φ` is a homomorphism" needs
+   `U` connected (the sheet index of `Γ(g, Φ(h)y) ∘ Γ(h, y)` is only locally constant); take `U₂`
+   connected, possible because M-polyfolds are locally path connected, which the text does not state.
+   The same connectedness gives the uniqueness of `(Φ, Γ)` used tacitly for `T_x` (Def 7.12) and in
+   Lemma 7.3.
+4. **Thm 7.4, proof (pp. 255–256)**: Lemma 7.10 is applied to `(β_i ∘ π)|V(x_i)` "supported in
+   `U''_i ⊂ V(x_i)`", but its hypothesis `cl U ⊂ V` holds for `W(x_i)` in the role of `V` (then `f_i` is
+   supported in `W(x_i)`, possible misprint); the continuity of that cut-off uses property (4); and
+   "the sum of all `h_i` is locally finite" needs `supp f_i ⊂ π⁻¹(cl V'_i)`, not stated. With these
+   (and the closedness of saturations from properness) the theorem holds as we read it. Lemma 7.10's
+   partition of unity "of `V(x)`" is taken for a cover of `X` (add `X ∖ cl U(x)`).
+5. **Cor 7.2 (p. 247)**: "work in a connected component of `K`" needs open components (local
+   connectedness of `|X|`), and "`U = ⋃ cl U(zᵢ)` is paracompact" needs Michael's lemma (Lemma 2.7);
+   `U` names two sets (possible misprint).
+6. Possible misprints: Lemma 7.1's proof exchanges source and target of the statement (it treats the
+   inverses) and writes `V(y)` for `V(x)`; Prop 7.5's proof writes `G_{y1}` for `G_{y2}`, `Ψ_g` for `Φ_g`,
+   "Let `k ≥ 3`" for `k ≥ 2`; Def 7.9 "`Ψx ◦ Gx ⋉ U(x) → X`"; Def 7.3 cites "[38], Lemma 2.8" for the
+   fibred product, which is the text's Prop 2.15. Prop 7.5 is best proved by a star construction around
+   `y₁` (all `U(y_j) = γ̂_j(U(y₁))`) rather than the text's induction.
+7. Unstated but harmless: Prop 7.11's "(1), (2), (4) trivially" uses level-1 lifts of local
+   sc-diffeomorphisms and `(X s×t X)¹ = X¹ s×t X¹` (level 1 only, no G.6 needed); Prop 7.12's proof
+   (Lemma 2.7, locally finite closed unions) is replaced by `metrizableSpace_of_pullback` along `|X¹| →
+   |X|`; Prop 7.14 (2) by shrinking in the normal `|X|`.
+
+### II.7 Chapters 8–11 (coarse; items by section, `D/L/P/T/R/E` = Def/Lemma/Prop/Thm/Remark/Example)
+
+| § | pp. | Items | Notes |
+|---|---|---|---|
+| 8.1 Tangent of an ep-groupoid | 257 | 15 (D1 L8 P1 T4 R1) | `TX` over `X¹` (Prop 7.11), functoriality, natural transformations |
+| 8.2 Sc-differential forms | 268 | 2 (D2) | blocked: sc-forms (G.37–G.40) |
+| 8.3 Strong bundles over ep-groupoids | 270 | 4 (D4) | `StrongBundle`, `StrongBundle.restrictOpen` |
+| 8.4–8.5 Proper covering functors, appendix | 275 | 12 (D3 L3 P3 T2 R1) | geometric lift, local structure (uses Prop 7.5) |
+| 9.1–9.2 Branched ep⁺-subgroupoids, tangent, boundary | 291 | 27 (D7 L9 P4 T1 R6) | M⁺-polyfolds (new), Ch. 4 submanifolds |
+| 9.3 Orientations | 310 | 9 (D4 L1 R3 E1) | Ch. 6 finite-dimensional orientations |
+| 9.4–9.5 Local branching, integration and Stokes | 315 | 23 (D6 L9 P2 T3 R3) | measures on branched manifolds, Stokes: likely "not formalized" as Thm 6.43 |
+| 10.1–10.2 Equivalences, weak fibred product | 333 | 15 (D3 L2 P5 T2 R2 E1) | |
+| 10.3 Localization | 347 | 16 (D6 L3 P1 T5 R1) | Mathlib `CategoryTheory.Localization`, calculus of fractions |
+| 10.4–10.6 Strong bundles, localization, appendix | 357 | 14 (D6 P3 T3 R2) | proofs of Thms 10.3–10.4 in §10.6 |
+| 11.1 Ep-groupoids and equivalences | 375 | 8 (D1 P3 T1 R2 E1) | faces: `MPolyfold.IsFace` |
+| 11.2, 11.4 Forms, integration | 380, 396 | 12 (D2 L4 P2 T3 R1) | blocked with §8.2, §9.5 |
+| 11.3, 11.5, 11.6 Branched, bundles, coverings | 389 | 20 (D5 L5 P3 T6 R1) | |
+
+Counts are of numbered items found at the start of a line (Chapter 7 checked by hand: 52); about 177 for
+Chapters 8–11, so about 229 for Part II. Of Chapters 8–11 about 37 items (§8.2, §9.4–9.5, §11.2, §11.4)
+need forms, measures or Stokes; a decision like Chapter 6's D1 is due before Chapter 9.
+
+### II.8 Size estimate
+
+Chapter 7: about 12,700 Lean lines (W0 900, W1 2,200, W2 2,600, W3 3,200, W4 3,000, W5 800; Part I's
+Chapter 2 is 15,200, Chapter 6 20,800), in about 18 agent sessions (W1 5, W2 3–4, W3 4–5, W4 4, W5 1–2)
+plus 1 lead session for W0 and 2 for the reports and audit. Chapters 8–11, without the blocked
+sections, roughly 25,000–35,000 lines; to be planned after Chapter 7's definitions have settled.
