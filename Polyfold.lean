@@ -184,3 +184,4 @@ import Polyfold.Chapter6.SectionOrientation
 import Polyfold.Chapter6.PushTransfer
 import Polyfold.Chapter6.OrientationFunctor
 import Polyfold.Chapter6.ProductOrientation
+import Polyfold.Chapter6.SolutionOrientation

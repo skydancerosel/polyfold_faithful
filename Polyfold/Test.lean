@@ -5575,5 +5575,42 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ChartPoint.prodOr
 #print axioms Polyfold.ChartPoint.prodOr_apply
 #print axioms Polyfold.ChartPoint.prodOr_injective
+-- Chapter6/SolutionOrientation.lean
+#print axioms Polyfold.ChartPoint.linZero.congr_simp
+#print axioms Polyfold.stabJ_surjective_zero
+#print axioms Polyfold.stabSign_of_surjective
+#print axioms Polyfold.stabIota_trans_zero
+#print axioms Polyfold.stabRayEquiv_zero
+#print axioms Polyfold.kerEquivOfMap
+#print axioms Polyfold.coe_kerEquivOfMap
+#print axioms Polyfold.surjRay
+#print axioms Polyfold.stabRayEquiv_eq_surjRay
+#print axioms Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt
+#print axioms Polyfold.theorem_6_41_solutionSet
+#print axioms Polyfold.tangentSpace_solutionSet_eq_linKer
+#print axioms Polyfold.ChartPoint.linZero
+#print axioms Polyfold.ChartPoint.coe_linZero
+#print axioms Polyfold.ChartPoint.linZero_mem_linSet
+#print axioms Polyfold.ChartPoint.linZero_surjective
+#print axioms Polyfold.ChartPoint.map_ker_linZero
+#print axioms Polyfold.ChartPoint.tangentOr
+#print axioms Polyfold.SubspaceFamily.congrL
+#print axioms Polyfold.ray_map_maxPowEquiv_ofEq_self
+#print axioms Polyfold.pullbackSlice_fiberZero
+#print axioms Polyfold.iccZero
+#print axioms Polyfold.iccOne
+#print axioms Polyfold.ChartPoint.stabRayEquiv_eq_tangentOr
+#print axioms Polyfold.equiv_trans_trans_symm_apply
+#print axioms Polyfold.IsStabKernels.orRay_eq_tangentOr
+#print axioms Polyfold.exists_tangentFamily
+#print axioms Polyfold.tangentFamily
+#print axioms Polyfold.tangentFamily_L
+#print axioms Polyfold.isStabKernels_zero
+#print axioms Polyfold.orRay_zero
+#print axioms Polyfold.tangentOrAt
+#print axioms Polyfold.cont_tangentOr
+#print axioms Polyfold.isLineOrientation_tangentOr
+#print axioms Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation
+#print axioms Polyfold.theorem_6_41
 
 end Polyfold
