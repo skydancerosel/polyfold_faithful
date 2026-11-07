@@ -181,3 +181,4 @@ import Polyfold.Chapter6.ScHomotopy
 import Polyfold.Chapter6.PathCategory
 import Polyfold.Chapter6.PathTransport
 import Polyfold.Chapter6.SectionOrientation
+import Polyfold.Chapter6.PushTransfer

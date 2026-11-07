@@ -5445,5 +5445,24 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.restrictOr
 #print axioms Polyfold.IsOrientableSection'
 #print axioms Polyfold.IsSectionOrientation
+-- Chapter6/PushTransfer.lean
+#print axioms Polyfold.stabSign_conj
+#print axioms Polyfold.coprod_conj
+#print axioms Polyfold.ker_coprod_conj
+#print axioms Polyfold.surjective_coprod_conj
+#print axioms Polyfold.conj_stab_key
+#print axioms Polyfold.stabRayEquiv_conjDet
+#print axioms Polyfold.ray_trans_conj_aux
+#print axioms Polyfold.equiv_conj_push_aux
+#print axioms Polyfold.SubspaceFamily.cont_map
+#print axioms Polyfold.ChartPoint.fiberMap_principal
+#print axioms Polyfold.ChartPoint.conj_of_linAt
+#print axioms Polyfold.ChartPoint.conj_of_principal
+#print axioms Polyfold.ChartPoint.baseDeriv_chartPt_eq
+#print axioms Polyfold.continuous_baseDeriv
+#print axioms Polyfold.IsStabKernels.exists_transfer
+#print axioms Polyfold.IsStabKernels.orRay_transfer
+#print axioms Polyfold.IsPush.transfer
+#print axioms Polyfold.HasLocalPropagation.push_compat
 
 end Polyfold
