@@ -373,9 +373,15 @@ each chapter lands)
     `PLAN.md` §II.10 (inventory, decisions P10.1–P10.4, waves W0–W4). Wave W0 done 2026-11-08 (`Chapter9/Basic.lean`,
     325 lines, 38 `#print axioms` lines, 6,799 in all): Definition 9.1 (`IsBranchedEpSubgroupoid`,
     `LocalBranchingStructure`), Definitions 9.2–9.3, Lemma 9.1 (`lemma_9_1`, by a shorter route than
-    the text), witnesses (`Θ = 0`, the indicator of a point of `ℝⁿ`). Not yet: dimension (`n`-dimensional,
-    locally equidimensional; Part I has no rank for tangent spaces, G.7), Lemma 9.2 and the restriction
-    remark (in progress: `Chapter9/Symmetric.lean`), Remark 9.2 (b), Proposition 9.1. **Next: finish W0, then decide P10.4 (forms,
+    the text), witnesses (`Θ = 0`, the indicator of a point of `ℝⁿ`). Then (same day, 2021 numbering): `Chapter9/Symmetric.lean`, the
+    restriction remark (`LocalBranchingStructure.restrict`, at `x`), Lemma 9.1.7 (2017: 9.2;
+    `lemma_9_1_7`, symmetric structures), Part I facts (`IsSmoothSubmanifold.inter_isOpen`,
+    `.image_of_isScDiffeoOn`); `Basic.lean` switched to 2021 numbering (`lemma_9_1` renamed
+    `lemma_9_1_5`) and Definition 9.1.2 (1) of 2021 adds that `|supp Θ|` is paracompact (field
+    `paracompactSpace_orbitSupp`; 2017 does not have it). 61 `#print axioms` lines for Chapter 9 (6,822
+    in all). Not yet: dimension (`n`-dimensional, locally equidimensional; Part I has no rank for
+    tangent spaces, G.7), Remark 9.1.3 (b), the restriction at another point `x₀`, Remark 9.1.4,
+    Propositions 9.1.9, 9.1.11, 9.1.12. **Next: finish W0, then decide P10.4 (forms,
     measures, Stokes) before §9.4–§9.5.** After Chapter 9, the user's order (2026-11-08): Chapter 10
     (Equivalences and Localization, p. 333) if budget remains.
 

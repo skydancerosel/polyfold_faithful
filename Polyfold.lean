@@ -221,3 +221,4 @@ import Polyfold.Chapter8.EpStrongBundle
 import Polyfold.Chapter8.NonVacuity
 import Polyfold.Chapter8.NonVacuityBundle
 import Polyfold.Chapter9.Basic
+import Polyfold.Chapter9.Symmetric

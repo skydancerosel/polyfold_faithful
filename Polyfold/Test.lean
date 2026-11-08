@@ -7495,11 +7495,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TrivialBundle.graphSection_mem_sectionFunctors_epBundle
 #print axioms Polyfold.TrivialBundle.graphSection_mem_fredholmSectionFunctors_epBundle
 
-/-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), wave W0: basic definitions -/
+/-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), §9.1 (2021 numbering) -/
 
 -- Chapter9/Basic.lean
 #print axioms Polyfold.EpGroupoid.IsFunctorial
 #print axioms Polyfold.EpGroupoid.supp
+#print axioms Polyfold.EpGroupoid.orbitSupp
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.U
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isOpen_U
@@ -7518,8 +7519,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.nonneg
 #print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.isFunctorial
 #print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.support_subset
+#print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.paracompactSpace_orbitSupp
 #print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.localBranching
-#print axioms Polyfold.EpGroupoid.orbitSupp
 #print axioms Polyfold.EpGroupoid.IsClosedBranched
 #print axioms Polyfold.EpGroupoid.IsCompactBranched
 #print axioms Polyfold.EpGroupoid.IsOrbifoldType
@@ -7528,13 +7529,37 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.mem_supp_iff
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isClosed_preimage_val_supp
 #print axioms Polyfold.EpGroupoid.isLocallyClosed_supp
-#print axioms Polyfold.EpGroupoid.lemma_9_1
+#print axioms Polyfold.EpGroupoid.lemma_9_1_5
 #print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_zero
 #print axioms Polyfold.rnPolyfold_isSmoothSubmanifold_singleton
 #print axioms Polyfold.EpGroupoid.localBranchingStructure_indicator
-#print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_indicator
 #print axioms Polyfold.EpGroupoid.supp_indicator_singleton
 #print axioms Polyfold.EpGroupoid.isCompactBranched_indicator
+#print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_indicator
 #print axioms Polyfold.EpGroupoid.isManifoldType_indicator
+
+-- Chapter9/Symmetric.lean
+#print axioms Polyfold.MPolyfold.IsScPlusRetractionOn.mono
+#print axioms Polyfold.MPolyfold.IsSmoothSubmanifold.exists_subset
+#print axioms Polyfold.MPolyfold.IsSmoothSubmanifold.image_of_isScDiffeoOn
+#print axioms Polyfold.MPolyfold.IsSmoothSubmanifold.inter_isOpen
+#print axioms Polyfold.isProperMap_inclusion_iff
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isClosed_M
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.restrict
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.restrict_U
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.restrict_M
+#print axioms Polyfold.EpGroupoid.SymmetricBranchingStructure
+#print axioms Polyfold.EpGroupoid.SymmetricBranchingStructure.toLocalBranchingStructure
+#print axioms Polyfold.EpGroupoid.SymmetricBranchingStructure.rep
+#print axioms Polyfold.EpGroupoid.SymmetricBranchingStructure.U_eq
+#print axioms Polyfold.EpGroupoid.SymmetricBranchingStructure.mulAction
+#print axioms Polyfold.EpGroupoid.SymmetricBranchingStructure.image_M
+#print axioms Polyfold.EpGroupoid.SymmetricBranchingStructure.σ_smul
+#print axioms Polyfold.EpGroupoid.IsFunctorial.apply_Φ
+#print axioms Polyfold.EpGroupoid.NaturalRep.mem_image_Φ_iff
+#print axioms Polyfold.EpGroupoid.mulActionProdLeft
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.symmetrize
+#print axioms Polyfold.EpGroupoid.lemma_9_1_7
+#print axioms Polyfold.EpGroupoid.lemma_9_1_7'
 
 end Polyfold
