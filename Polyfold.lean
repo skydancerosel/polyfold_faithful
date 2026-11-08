@@ -271,3 +271,6 @@ import Polyfold.Chapter9.OrientationUniqueness
 import Polyfold.Chapter9.OrientationBoundary
 import Polyfold.Chapter9.Orientation
 import Polyfold.Chapter9.OrientationRn
+import Polyfold.Chapter9.BranchingGeometryMeasure
+import Polyfold.Chapter9.BranchingGeometryManifold
+import Polyfold.Chapter9.BranchingGeometry
