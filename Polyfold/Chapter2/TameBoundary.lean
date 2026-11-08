@@ -102,7 +102,9 @@ a bijection by (2.44).
 * Definition 2.5.19 (3) is stated in a chart (gap G.7: `T_yX` has no linear structure here),
   for some chart around `y`; it is literally Chapter 4's `IsGeneralPositionRetractAt` condition.
   Its independence of the chart, the text's remark that a tame sub-M-polyfold is tame, and the
-  example in `[0,∞)² × ℝ` are not formalized.
+  examples A and B in `[0,∞)² × ℝ` are in `Chapter2/TameSub.lean`
+  (`TameSubData.hasReducedComplementAt_of_isChart_2021`,
+  `IsTameSubMPolyfold.hasTameInducedStructure_2021`, `TameSubExample.examples_A_B_2021`).
 -/
 
 open Set Filter Topology Function

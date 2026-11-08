@@ -60,7 +60,10 @@ points of degeneracy index at least `k`.
 * The characterization and Proposition 2.7.12 are proved for representatives with `V` centred at
   `x`: as we read it, for other representatives `Φ_{(x,V,θ)}` need not be onto `θ`
   (`phi_not_surjective_2021`, `TameBoundaryExample.lean`); every class has a centred
-  representative (`TameBoundary.BSpace.exists_centred_rep`).
+  representative (`TameBoundary.BSpace.exists_centred_rep`).  For every representative, `Φ` is an
+  sc-diffeomorphism onto the open part `θ ∩ V^x` of `θ`, and Proposition 2.7.12 holds as printed:
+  `Chapter2/TameBoundaryNonCentred.lean` (`phi_isScDiffeoOn_nonCentred_2021`,
+  `proposition_2_7_12_scDiffeo_nonCentred_2021`, `tameBoundaryPolyfold_unique_allReps_2021`).
 * "Uniquely characterized" is read as: any M-polyfold structure with the stated property has an
   equivalent atlas.
 * `bᵏX` needs a bundled tame M-polyfold (`TameMPolyfoldBundle`) so that `b` can be iterated.

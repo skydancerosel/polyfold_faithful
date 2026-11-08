@@ -246,6 +246,8 @@ import Polyfold.Chapter7.TameBoundaryEpStructure
 import Polyfold.Chapter6.OrientationSpace
 import Polyfold.Chapter2.LocalTopologyExample
 import Polyfold.Chapter6.Book2021Continuity
+import Polyfold.Chapter2.TameBoundaryNonCentred
+import Polyfold.Chapter2.TameSub
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
