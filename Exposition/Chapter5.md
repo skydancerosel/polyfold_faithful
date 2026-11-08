@@ -571,6 +571,67 @@ changes nothing. $\square$
 $\psi(v) = 2v/(1+\sqrt{1+4|v|_0^2})$ gives $\psi(\varphi(u)) = 2\varphi(u)/\big(1+\frac{1+t}{1-t}\big) = (1-t)\varphi(u) = u$. Both maps are a $C^\infty$ function of $|\cdot|_0^2$, which is
 $C^\infty$ on every $E_m$, times the identity, hence sc-smooth. $\square$
 
+## 11. The Springer 2021 edition (pp. 209–224, 230)
+
+The 2021 edition adds two compactness properties to Definition 5.2.1 (preprint 5.4), proves Theorem 5.2.2 (preprint 5.5) for them,
+concludes in Theorem 5.3.5 (preprint 5.13) that the perturbed solution sets are compact sub-M-polyfolds, and rewrites Definition
+5.3.13 (preprint 5.20). Chapter 5 has no item that is new in the 2021 edition.
+
+**Definition 5.2.1 (preprint 5.4), 2021 form.** (2) now bounds $N(s(y))\le1$ only for $y\in U$; since $s$ vanishes off $U$ and $N(0_x) = 0$,
+this is the notion of §2. New: (4) *weakly proper$_{<\infty}$*, as (2) for every sc$^+$-section $s$ supported in $U$ with $\sup_UN(s)<\infty$;
+(5) *proper$_{<\infty}$*, as (3) with $\operatorname{cl}_{X_0}\{x\in U:N(f(x))\le C\}$ compact for every constant $0<C<\infty$. The text lists the
+a priori dependencies: proper$_{<\infty}\Rightarrow$ proper and weakly proper$_{<\infty}$, weakly proper$_{<\infty}\Rightarrow$ weakly proper.
+Two of the arrows, from a properness to a weak properness, use that $\{f = s\}$ is closed, so $f$ continuous, as in §2: a solution
+of $f = s$ lies in $U$, where $N(f(x)) = N(s(x))\le C$. That the notions differ for general sc-smooth sections is a remark of the text,
+not formalized.
+
+*Checked by machine:* `Polyfold.StrongBundle.IsWeaklyProperOnU`, `Polyfold.StrongBundle.IsWeaklyProperLtInfty`,
+`Polyfold.StrongBundle.IsProperLtInfty`, `Polyfold.StrongBundle.isWeaklyProperOnU_iff`,
+`Polyfold.StrongBundle.IsProperLtInfty.isProper`, `Polyfold.StrongBundle.IsWeaklyProperLtInfty.isWeaklyProperOnU`,
+`Polyfold.StrongBundle.IsProper.isWeaklyProperOnU`, `Polyfold.StrongBundle.IsProperLtInfty.isWeaklyProperLtInfty`.
+
+**Theorem 5.2.2 (preprint 5.5), 2021 form.** An sc-Fredholm section with compact solution set is proper$_{<\infty}$; so for sc-Fredholm
+sections the five properties are equivalent. The proof of §2 gives this: near a zero the chart norm is at most $A\cdot N$, so the
+closure of $\{N(f)\le C\}$ lies in the compact set of the local step for the level-$1$ bound $A\cdot C$, on a neighbourhood that does not
+depend on $C$. (In the text's first display, "$N(f(x))\le d$" for the points $z$ of the set is a possible misprint for $N(f(z))\le d$.)
+
+*Checked by machine:* `Polyfold.theorem_5_2_2_2021`, `Polyfold.theorem_5_2_2_2021_tfae`.
+
+**Theorem 5.3.5 (preprint 5.13), 2021 form.** For $s$ in the dense set, $S_{f+s}$ is a *compact sub-M-polyfold* with the structure of a
+compact manifold without boundary. In §4 it is compact and, if non-empty, a manifold; the empty set is a sub-M-polyfold. The
+bound printed as "$N(f(x))\le1$" is read, as in §4, as $N(s(x))\le1$ (possible misprint).
+
+*Checked by machine:* `Polyfold.theorem_5_3_5_2021`, `Polyfold.isSubMPolyfold_solutionSet_of_manifold`.
+
+**Definition 5.3.13 (preprint 5.20), 2021 form.** A generalized compact homotopy is now: a tame strong bundle, an sc-Fredholm $f$ with
+compact solution set and an sc-smooth $t:X\to[0,1]$ with (1) $t^{-1}(i) = X_i$, (2) $(f|X_i,P|Y_i) = (f_i,P_i)$ for $i = 0,1$, and (3) $dt(x):T_xX\to\mathbb R$
+onto at every smooth $x$. Gone are the surjectivity of $t$ and the conditions on the fibres $X_\tau$, $0<\tau<1$. Read as in §6: the ends are
+the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ (Remark 5.3.14 (preprint 5.21) not formalized), and (3) is read in a chart $\varphi$ with a retraction
+$R$ onto its model and the level-$1$ point $z$ over $\varphi(x)$: $D(t\circ\varphi^{-1}\circ R)(z)$ is onto $\mathbb R$ on $T_zO = DR(z)(E_0)$. The data of §6
+together with (3) give the new data, and every fibre still has a compact solution set. The converse fails: on $\mathbb R\times\mathbb R\to\mathbb R$ the
+graph section of the identity and
+$$t(x) = \tfrac12+\tfrac1\pi\arctan x,\qquad t'(x) = \frac1{\pi(1+x^2)}\ne0,$$
+form a generalized compact homotopy in the 2021 sense, between empty problems ($t$ takes values in $(0,1)$), but not in the earlier
+one, since $t$ is not onto $[0,1]$.
+
+*Checked by machine:* `Polyfold.MPolyfold.HasSurjDerivAt`, `Polyfold.StrongBundle.IsCompactFredholmRestriction`,
+`Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy`, `Polyfold.StrongBundle.IsGenCompactHomotopy.isSubmersiveGenCompactHomotopy`,
+`Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isCompact_solutionSet_restrict`,
+`Polyfold.StrongBundle.isCompactFredholmRestriction_of_eq_empty`,
+`Polyfold.GenCompactHomotopyWitness.isSubmersiveGenCompactHomotopy_witness`,
+`Polyfold.GenCompactHomotopyWitness.not_isGenCompactHomotopy_witness`.
+
+**Lemma 5.3.16 (preprint 5.23), 2021 reading.** Condition (3) answers the hidden hypothesis of §6: if $dt(x)$ is onto, then $dt(x)\ne0$, so
+a one-dimensional complement $Z$ of $\ker dt(x)$ exists and Lemma 5.3.16 applies. Theorem 5.3.15 (preprint 5.22) itself, and the choice
+of a smooth $Z$, remain unformalized (gap G.48).
+
+*Checked by machine:* `Polyfold.lemma_5_3_16_2021`.
+
+*Theorem 5.5.5 (preprint 5.32).* The 2017 and 2021 statements print the exponent $p$ in (1) and (2), which the preprint omits; it is
+still cited and not stated (gap G.50).
+
+The findings are `Exposition/Findings.md`, "Chapter 5", items 170–179.
+
 ---
 
 **Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in `Polyfold/Chapter5/` (`AuxNorm.lean`,

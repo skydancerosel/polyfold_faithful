@@ -787,6 +787,36 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - The sum $g_1 + g_2$ is the composite of the pairing $(g_1, g_2)$, which is $\mathrm{sc}^k$ (one direction of the exposition's Lemma 3.G(3), proved in the Chapter 2 files), with the sc-operator $(y_1, y_2) \mapsto y_1 + y_2$, which is sc-smooth, so the chain rule (V1.20) applies. Scalar multiples, the rest of "linear combinations", are not needed.
 - The derivative of the evaluation is written through Mathlib's derivative of a continuous multilinear map in its arguments and the linearity in $A$; Mathlib has no lemma in this form.
 
+### V1.40. Remark 1.1.2: Banachable spaces and equivalent norms
+
+*restated* · two readings · same topology: no completeness needed
+
+**HWZ (§1.1, Remark 1.1.2, p. 5 (new in the 2021 edition)).** "Banach space" means a Banachable space: a vector space with a topology induced by a complete norm. All norms inducing the given topology are equivalent, in view of the open mapping theorem; where the choice matters, a norm is fixed.
+
+**Proved in Lean.** For a linear equivalence $e : E_1 \to E_2$ of real normed spaces (one vector space with two norms): (1) if $e$ and $e^{-1}$ are continuous, there is $c > 0$ with $\|e x\| \le c\|x\|$ and $\|x\| \le c\|e x\|$; (2) if both spaces are complete and $e$ is continuous, then $e^{-1}$ is continuous, and (1) applies.
+
+- `Polyfold.remark_1_1_2_2021` — Polyfold/Chapter1/Book2021.lean, line 63
+- `Polyfold.remark_1_1_2_2021_openMapping` — Polyfold/Chapter1/Book2021.lean, line 82
+
+*What differs.*
+- A convention, recorded by its mathematical content. Equivalence of two norms inducing the same topology needs neither completeness nor the open mapping theorem (part (1)); the open mapping theorem makes two complete norms, one dominating the other, equivalent (part (2)).
+
+### V1.41. Proposition 1.1.11 (preprint 1.10), the 2021 statement: the index
+
+*stronger* · index on every level · conjunction of V1.9 and V1.30
+
+**HWZ (§1.1, Proposition 1.1.11 (preprint 1.10), p. 9 (preprint p. 10); proof in Appendix 1.4.1, pp. 15–16).** If $T : E \to F$ is sc-Fredholm and $S : E \to F$ an sc$^+$-operator, then $T + S$ is sc-Fredholm and has the same index (the index is new in the 2021 statement; the proof is the earlier one and does not argue it).
+
+**Proved in Lean.** $T + S$ is sc-Fredholm, $\operatorname{ind}(T + S) = \operatorname{ind}(T)$, and for every $m$ the level map $(T + S)_m : E_m \to F_m$ is Fredholm of index $\operatorname{ind}(T)$.
+
+- `Polyfold.proposition_1_1_11_2021` — Polyfold/Chapter1/Book2021.lean, line 107
+- `Polyfold.proposition_1_10` — Polyfold/Chapter1/ScFredholm.lean, line 226
+- `Polyfold.proposition_1_10_index` — Polyfold/Chapter1/FredholmIndex.lean, line 509
+- `Polyfold.proposition_1_10_index_lvl` — Polyfold/Chapter1/FredholmIndex.lean, line 517
+
+*What differs.*
+- The index statement, the exposition's addition in V1.30, is now the book's; the level statement is the formalization's addition. The index rests on the invariance of the Fredholm index under compact perturbations (V1.28).
+
 ## Chapter 2
 
 *HWZ Chapter 2 §§2.1, 2.3–2.7, pp. 21–88 (preprint §§2.1–2.6, pp. 18–60): sc-smooth retractions and retracts, M-polyfolds, the degeneracy index, tame M-polyfolds and their faces, fibred products, strong bundles*
@@ -2100,6 +2130,480 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 *What differs.*
 - Not stated in the text. Paracompactness is needed for $Y[1]$ to be an M-polyfold (Definition 2.3.4 (preprint 2.13)); it follows, as in Theorem 2.3.10 (preprint 2.16), from the pull-back form of Smirnov's theorem over the paracompact base (V2.62).
 - The sc-smooth inclusion $Y[1] \to Y[0]$ is the global form of $K[1] \to K[0]$ (V2.55).
+
+### V2.65. Proposition 2.1.13 (preprint 2.6), the 2021 statement
+
+*as in the book* · the 2021 hypothesis in (3) · confirms the reading of V2.5
+
+**HWZ (§2.1, Proposition 2.1.13 (preprint 2.6), p. 27 (preprint p. 20)).** For sc-smooth retractions $r$, $s$ onto $O$ and $f : O \to O'$: (1) $f \circ r$ is sc-smooth iff $f \circ s$ is; (2) if $f \circ r$ is sc-smooth, $T(f \circ r) = T(f \circ s)$ on $TO$; (3) if $f \circ r$ is sc-smooth, $T(f \circ r)$ maps $TO$ into $TO'$. The hypothesis of (3) is new in the 2021 statement.
+
+**Proved in Lean.** For retractions $r$, $s$ onto the same $O$, a retraction $\rho$ onto $O'$ and $f(O) \subseteq O'$: (1) $f \circ r$ sc-smooth iff $f \circ s$ sc-smooth; (2) if $f \circ r$ is sc-smooth, $T(f \circ r) = T(f \circ s)$ on $Tr(TU)$; (3) if $f \circ r$ is sc-smooth, $T(f \circ r)$ maps $Tr(TU)$ into $T\rho(TU')$.
+
+- `Polyfold.proposition_2_1_13_2021` — Polyfold/Chapter2/Book2021.lean, line 49
+- `Polyfold.proposition_2_6_1` — Polyfold/Chapter2/Retracts.lean, line 516
+- `Polyfold.proposition_2_6_2` — Polyfold/Chapter2/Retracts.lean, line 523
+- `Polyfold.proposition_2_6_3` — Polyfold/Chapter2/Retracts.lean, line 540
+
+*What differs.*
+- The Lean statement of (3) in V2.5 already assumed $f \circ r$ sc-smooth; the 2021 text now states it.
+
+### V2.66. Proposition 2.1.4: complete closed neighbourhoods in a retract
+
+*stronger* · $W$ arbitrarily small · closed balls instead of $V'$
+
+**HWZ (§2.1, Proposition 2.1.4, p. 22 (new in the 2021 edition)).** With $d_O(x, y) = |x - y|_0$, every $x$ in an sc-smooth retract $O$ has open neighbourhoods $W(x)$, $V(x)$ with $\mathrm{cl}_O(V(x)) \subseteq W(x)$ and $d_O$ complete on $\mathrm{cl}_O(V(x))$.
+
+**Proved in Lean.** Every $x \in O$ has open $V \subseteq W$ in $O$ with $\mathrm{cl}_O(V) \subseteq W$ and $\mathrm{cl}_O(V)$ complete for the metric of $E_0$, with $W$ inside any given neighbourhood of $x$; $O \cap \bar B_\varepsilon(x)$ is closed in $E_0$ for small $\varepsilon$.
+
+- `Polyfold.ScRetraction.exists_isClosed_retract_inter_closedBall` — Polyfold/Chapter2/LocalTopology.lean, line 519
+- `Polyfold.IsScRetract.exists_isComplete_closure` — Polyfold/Chapter2/LocalTopology.lean, line 552
+- `Polyfold.proposition_2_1_4_2021` — Polyfold/Chapter2/LocalTopology.lean, line 585
+
+*What differs.*
+- The proof uses $O \cap \bar B_\varepsilon(x)$ in place of the text's set $V'$ with $r(V') \subseteq V'$.
+
+### V2.67. Definition 2.1.5: locally complete spaces
+
+*stronger* · Hausdorff follows · witness: $\mathbb R$
+
+**HWZ (§2.1, Definition 2.1.5, p. 23 (new in the 2021 edition)).** A Hausdorff space $X$ is locally complete if every $x$ has open neighbourhoods $W(x)$, $V(x)$ such that $W(x)$ carries a metric inducing its topology, $V(x) \subseteq W(x)$, $\mathrm{cl}_X(V(x)) \subseteq W(x)$, and $\mathrm{cl}_X(V(x))$ is complete for that metric.
+
+**Proved in Lean.** Every $x$ has open $V \ni x$ and $W$ with $\mathrm{cl}_X(V) \subseteq W$ and a metric on $W$ inducing its subspace topology for which $\mathrm{cl}_X(V)$ is complete. Such a space is regular, $T_1$ and Hausdorff, and $W$ can be chosen inside any neighbourhood of $x$; complete metric spaces, $\mathbb R$ in particular, are locally complete.
+
+- `Polyfold.AdmitsCompleteMetricOn` — Polyfold/Chapter2/LocalTopology.lean, line 183
+- `Polyfold.admitsCompleteMetricOn_of_isComplete` — Polyfold/Chapter2/LocalTopology.lean, line 187
+- `Polyfold.AdmitsCompleteMetricOn.metrizableSpace` — Polyfold/Chapter2/LocalTopology.lean, line 192
+- `Polyfold.AdmitsCompleteMetricOn.of_isEmbedding` — Polyfold/Chapter2/LocalTopology.lean, line 201
+- `Polyfold.AdmitsCompleteMetricOn.mono` — Polyfold/Chapter2/LocalTopology.lean, line 216
+- `Polyfold.isComplete_inter_of_isClosed` — Polyfold/Chapter2/LocalTopology.lean, line 171
+- `Polyfold.IsLocallyComplete` — Polyfold/Chapter2/LocalTopology.lean, line 234
+- `Polyfold.IsLocallyComplete.exists_subset` — Polyfold/Chapter2/LocalTopology.lean, line 239
+- `Polyfold.IsLocallyComplete.regularSpace` — Polyfold/Chapter2/LocalTopology.lean, line 274
+- `Polyfold.IsLocallyComplete.t1Space` — Polyfold/Chapter2/LocalTopology.lean, line 281
+- `Polyfold.IsLocallyComplete.t2Space` — Polyfold/Chapter2/LocalTopology.lean, line 296
+- `Polyfold.isLocallyComplete_of_completeSpace` — Polyfold/Chapter2/LocalTopology.lean, line 302
+- `Polyfold.isLocallyComplete_real` — Polyfold/Chapter2/LocalTopology.lean, line 309
+- `Polyfold.isLocallyComplete_of_metric` — Polyfold/Chapter2/LocalTopology.lean, line 313
+
+*What differs.*
+- The Hausdorff assumption is not part of the definition: it follows ($T_1$ from the metrizable $W$, regularity from $\mathrm{cl}_X(V) \subseteq W$). So Proposition 2.1.8, Lemma 2.1.9 and Proposition 2.1.10 need no Hausdorff hypothesis (except for the $T_{3\frac12}$ conclusion).
+
+### V2.68. Remark 2.1.6: the modified definition is weaker
+
+*narrower* · strictly weaker: not formalized (G.76)
+
+**HWZ (§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)).** The condition $\mathrm{cl}_X(V(x)) \subseteq W(x)$ is global; replacing $\mathrm{cl}_X(V(x))$ by the closure $\mathrm{cl}_{W(x)}(V(x))$ gives a weaker notion, since $\mathrm{cl}_X(V) \subseteq W$ implies $\mathrm{cl}_W(V) = \mathrm{cl}_X(V)$.
+
+**Proved in Lean.** If $\mathrm{cl}_X(V) \subseteq W$ then $\mathrm{cl}_W(V) = \mathrm{cl}_X(V)$; local completeness implies the modified notion ($V \subseteq W$, $\mathrm{cl}_W(V)$ complete).
+
+- `Polyfold.remark_2_1_6_2021` — Polyfold/Chapter2/LocalTopology.lean, line 332
+- `Polyfold.IsLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 346
+- `Polyfold.IsLocallyComplete.isLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 351
+
+*What differs.*
+- "Weaker" is proved as the implication; that the modified notion is strictly weaker is gap G.76.
+
+### V2.69. Corollary 2.1.7: retracts are locally complete
+
+*as in the book* · metric $d_O$ restricted to $W$
+
+**HWZ (§2.1, Corollary 2.1.7, p. 23 (new in the 2021 edition)).** An sc-smooth retract $O$ is locally complete.
+
+**Proved in Lean.** An sc-smooth retract $O$ with the topology of $E_0$ is locally complete; so is $E_0$.
+
+- `Polyfold.corollary_2_1_7_2021` — Polyfold/Chapter2/LocalTopology.lean, line 592
+- `Polyfold.isLocallyComplete_univ_retract` — Polyfold/Chapter2/LocalTopology.lean, line 597
+
+### V2.70. Proposition 2.1.8: permanence of local completeness
+
+*stronger* · no Hausdorff hypothesis · via embeddings
+
+**HWZ (§2.1, Proposition 2.1.8, p. 24 (new in the 2021 edition)).** For a Hausdorff locally complete $X$: (1) locally closed subspaces, (2) homeomorphic spaces, (3) open subsets are locally complete; a Hausdorff $Y$ with an open cover $(Y_i)$ by locally complete subspaces such that every $z \in Y_i$ has an open neighbourhood in $Y_i$ whose closure in $Y$ lies in $Y_i$ is locally complete.
+
+**Proved in Lean.** The same, without Hausdorff hypotheses; more generally a space embedded in a locally complete $X$ with locally closed image is locally complete.
+
+- `Polyfold.IsLocallyComplete.of_isEmbedding` — Polyfold/Chapter2/LocalTopology.lean, line 414
+- `Polyfold.proposition_2_1_8_1_2021` — Polyfold/Chapter2/LocalTopology.lean, line 441
+- `Polyfold.proposition_2_1_8_2_2021` — Polyfold/Chapter2/LocalTopology.lean, line 447
+- `Polyfold.proposition_2_1_8_3_2021` — Polyfold/Chapter2/LocalTopology.lean, line 453
+- `Polyfold.proposition_2_1_8_4_2021` — Polyfold/Chapter2/LocalTopology.lean, line 460
+
+*What differs.*
+- "Locally closed" is Mathlib's notion (open $\cap$ closed), equivalent to the text's use.
+
+### V2.71. Lemma 2.1.9 and Proposition 2.1.10: first countable, completely regular
+
+*stronger* · no Hausdorff for complete regularity · no sequences
+
+**HWZ (§2.1, Lemma 2.1.9 and Proposition 2.1.10, p. 25 (new in the 2021 edition)).** Points of a locally complete space have countable neighbourhood bases. A Hausdorff locally complete space is completely regular.
+
+**Proved in Lean.** A locally complete space is first countable and completely regular; if Hausdorff, it is $T_{3\frac12}$.
+
+- `Polyfold.lemma_2_1_9_2021` — Polyfold/Chapter2/LocalTopology.lean, line 361
+- `Polyfold.IsLocallyComplete.completelyRegularSpace` — Polyfold/Chapter2/LocalTopology.lean, line 370
+- `Polyfold.proposition_2_1_10_2021` — Polyfold/Chapter2/LocalTopology.lean, line 406
+
+*What differs.*
+- The proofs work with neighbourhood filters and a bump function built in the metrizable $W(x)$, instead of sequences.
+
+### V2.72. Lemma 2.2.1: the levels of a connected relatively open set are path-connected
+
+*hypotheses explicit* · $E_\infty$: inverse-limit topology · clopen argument, not polygons
+
+**HWZ (§2.2, Lemma 2.2.1, p. 30 (new in the 2021 edition)).** If $U \subseteq C$ is relatively open and connected, then for every $k \in \mathbb N \cup \{\infty\}$ the level $U_k$ with the $E_k$-topology is path-connected.
+
+**Proved in Lean.** For $k \in \mathbb N$, $U_k \subseteq E_k$ is path-connected; $U_\infty$, as the compatible sequences $(v_m) \in \prod_m E_m$ with $v_0 \in U$ (the topology of all the norms), is path-connected. Smooth points are dense in every $C_m$.
+
+- `Polyfold.ScBanach.lvlSetInfty` — Polyfold/Chapter2/LocalTopology.lean, line 778
+- `Polyfold.ScBanach.smoothSeq` — Polyfold/Chapter2/LocalTopology.lean, line 782
+- `Polyfold.ScBanach.toBase_smoothSeq` — Polyfold/Chapter2/LocalTopology.lean, line 785
+- `Polyfold.ScBanach.smoothSeq_mem` — Polyfold/Chapter2/LocalTopology.lean, line 789
+- `Polyfold.ScBanach.smoothSeq_zero` — Polyfold/Chapter2/LocalTopology.lean, line 794
+- `Polyfold.ScBanach.image_lvlSetInfty` — Polyfold/Chapter2/LocalTopology.lean, line 799
+- `Polyfold.ScBanach.joinedIn_lvlSetInfty_of_segment` — Polyfold/Chapter2/LocalTopology.lean, line 810
+- `Polyfold.IsPartialQuadrant.exists_smooth_near` — Polyfold/Chapter2/LocalTopology.lean, line 828
+- `Polyfold.IsRelOpenInQuadrant.exists_ball_inter_subset` — Polyfold/Chapter2/LocalTopology.lean, line 842
+- `Polyfold.lemma_2_2_1_2021` — Polyfold/Chapter2/LocalTopology.lean, line 921
+- `Polyfold.lemma_2_2_1_infty_2021` — Polyfold/Chapter2/LocalTopology.lean, line 852
+
+*What differs.*
+- The text does not specify the topology of $E_\infty$; the Lean uses that of all the norms $|\cdot|_m$.
+- The proof replaces the polygon along a path in $U_0$ by an open-and-closed argument in the connected $U$.
+
+### V2.73. Lemma 2.2.2, Definition 2.2.3, Theorem 2.2.4: retracts are locally path-connected
+
+*as in the book* · Theorem 2.2.4 proved earlier (Chapter 7)
+
+**HWZ (§2.2, Lemma 2.2.2, p. 31, Definition 2.2.3 and Theorem 2.2.4, p. 32 (new in the 2021 edition)).** For a retraction $r$ onto $O$, $x \in O$ and an open $V(x)$, $W(x) = V(x) \cap r^{-1}(V(x))$ is relatively open in $C$ with $W(x) \cap O = V(x) \cap O$, $r(W(x)) \subseteq W(x)$, $r(W(x)) = O \cap V(x)$. Locally path-connected: every open neighbourhood contains a path-connected open one. A retract is locally path-connected.
+
+**Proved in Lean.** The same, with $V(x) = V' \cap U$, $V'$ open in $E_0$; Definition 2.2.3 is Mathlib's local path-connectedness.
+
+- `Polyfold.lemma_2_2_2_2021` — Polyfold/Chapter2/LocalTopology.lean, line 967
+- `Polyfold.definition_2_2_3_2021` — Polyfold/Chapter2/LocalTopology.lean, line 1001
+- `Polyfold.theorem_2_2_4_2021` — Polyfold/Chapter2/LocalTopology.lean, line 1021
+- `Polyfold.IsScRetract.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 107
+
+*What differs.*
+- Theorem 2.2.4 was proved for Chapter 7 by joining nearby points along $\tau \mapsto r(o + \tau(p - o))$, not through Lemma 2.2.2 and components.
+
+### V2.74. Definition 2.2.5 and Proposition 2.2.6: almost local contractibility
+
+*as in the book* · $\Phi(t, y) = r((1 - t)y + tx)$
+
+**HWZ (§2.2, Definition 2.2.5 and Proposition 2.2.6, p. 33 (new in the 2021 edition)).** $Z$ is almost locally contractible if every $z$ and open $V(z)$ admit an open $W(z) \subseteq V(z)$ and a continuous $\Phi : [0, 1] \times W(z) \to V(z)$ with $\Phi(0, \cdot) = \mathrm{id}$, $\Phi(t, z) = z$, $\Phi(1, W(z)) = \{z\}$. A retract is almost locally contractible.
+
+**Proved in Lean.** The same definition; sc-smooth retracts and $E_0$ are almost locally contractible.
+
+- `Polyfold.IsAlmostLocallyContractible` — Polyfold/Chapter2/LocalTopology.lean, line 1034
+- `Polyfold.proposition_2_2_6_2021` — Polyfold/Chapter2/LocalTopology.lean, line 1043
+- `Polyfold.isAlmostLocallyContractible_univ` — Polyfold/Chapter2/LocalTopology.lean, line 1101
+
+### V2.75. Definition 2.3.4 (preprint 2.13), the footnote: paracompactness without Hausdorff
+
+*restated* · the footnote changes nothing · subcovering: possible misprint
+
+**HWZ (§2.3, Definition 2.3.4 (preprint 2.13), p. 35 (preprint p. 23), footnote (new in the 2021 edition); Appendix 2.7.2, p. 72).** An M-polyfold is a Hausdorff paracompact space with an equivalence class of sc-smooth atlases; the footnote: paracompactness asks only that every open covering have a locally finite open covering refining it, without the Hausdorff property. Appendix 2.7.2 states the convention with a locally finite open subcovering.
+
+**Proved in Lean.** Paracompact* (every open cover has a locally finite open refinement) is Mathlib's paracompactness, so "Hausdorff paracompact*" is exactly the hypothesis of an M-polyfold. With "subcover" in place of "refinement", $\mathbb R$ is not paracompact.
+
+- `Polyfold.IsLocallyFiniteSetFamily` — Polyfold/Chapter2/LocalTopology.lean, line 614
+- `Polyfold.IsParacompactStar` — Polyfold/Chapter2/LocalTopology.lean, line 620
+- `Polyfold.isParacompactStar_iff` — Polyfold/Chapter2/LocalTopology.lean, line 627
+- `Polyfold.definition_2_3_4_2021` — Polyfold/Chapter2/LocalTopology.lean, line 659
+- `Polyfold.isParacompactStar_real` — Polyfold/Chapter2/LocalTopology.lean, line 664
+- `Polyfold.IsParacompactBySubcover` — Polyfold/Chapter2/LocalTopology.lean, line 669
+- `Polyfold.not_isParacompactBySubcover_real` — Polyfold/Chapter2/LocalTopology.lean, line 676
+
+*What differs.*
+- The subcover wording of Appendix 2.7.2 (and 2017 Appendix 2.6.2) does not hold as we read it for $\mathbb R$ (the cover by $(-n-1, n+1)$); it is read as "refinement", as in the footnote (possible misprint).
+
+### V2.76. Lemmas 2.3.5 and 2.7.2: shrinking with closure
+
+*stronger* · Lemma 2.7.2 needs only regularity
+
+**HWZ (§2.3, Lemma 2.3.5, p. 35, and Appendix 2.7.2, Lemma 2.7.2, p. 72 (new in the 2021 edition)).** In an M-polyfold every open $W(x)$ contains an arbitrarily small open $V(x)$ with $\mathrm{cl}_X(V(x)) \subseteq W(x)$. In a regular Hausdorff space every open $U(x)$ contains an open $V(x)$ with $\mathrm{cl}_X(V(x)) \subseteq U(x)$.
+
+**Proved in Lean.** The same; Lemma 2.7.2 for regular spaces, Lemma 2.3.5 for Hausdorff paracompact spaces, with $V$ inside any given neighbourhood.
+
+- `Polyfold.lemma_2_7_2_2021` — Polyfold/Chapter2/LocalTopology.lean, line 700
+- `Polyfold.exists_isOpen_closure_subset_of_paracompact` — Polyfold/Chapter2/LocalTopology.lean, line 709
+- `Polyfold.lemma_2_3_5_2021` — Polyfold/Chapter2/LocalTopology.lean, line 737
+
+### V2.77. Propositions 2.3.6 and 2.3.7: M-polyfolds are locally complete and locally path-connected
+
+*as in the book* · via the open-cover part of 2.1.8
+
+**HWZ (§2.3, Proposition 2.3.6 and Proposition 2.3.7, p. 36 (new in the 2021 edition)).** An M-polyfold is locally complete, with $W(x)$ arbitrarily small and the metric inducing the level-$0$ topology. Every M-polyfold is locally path-connected.
+
+**Proved in Lean.** The same; chart domains are locally complete.
+
+- `Polyfold.MChart.isLocallyComplete_source` — Polyfold/Chapter2/LocalTopology.lean, line 723
+- `Polyfold.MPolyfold.isLocallyComplete` — Polyfold/Chapter2/LocalTopology.lean, line 742
+- `Polyfold.proposition_2_3_6_2021` — Polyfold/Chapter2/LocalTopology.lean, line 756
+- `Polyfold.proposition_2_3_7_2021` — Polyfold/Chapter2/LocalTopology.lean, line 764
+- `Polyfold.MPolyfold.locallyPathConnectedSpace` — Polyfold/Chapter7/LocConnected.lean, line 168
+
+*What differs.*
+- Proposition 2.3.6 is derived from Proposition 2.1.8 for the cover by chart domains; Proposition 2.3.7 was proved earlier for Chapter 7.
+
+### V2.78. Definitions 2.5.18 and 2.5.19: tame sub-M-polyfolds
+
+*narrower* · (3) in a chart · chart independence: G.77
+
+**HWZ (§2.5, Definition 2.5.18, p. 62, and Definition 2.5.19, p. 63 (new in the 2021 edition)).** The structure induced on a sub-M-polyfold $Y$ is tame if it has an equivalent atlas with tame local models. For a tame $X$, $Y$ is a tame sub-M-polyfold if every $y \in Y$ has an open $V$ and an sc-smooth retraction $r : V \to V$ with (1) $r(V) = Y \cap V$, (2) $d_X \circ r = d_X$ on $V$, (3) at smooth $y \in Y \cap V$ an sc-subspace $A \subseteq T^R_yX$ with $T_yX = T_yY \oplus A$.
+
+**Proved in Lean.** The same, with (3) stated in some chart around $y$: the tangent space of the chart image of $Y$ has an sc-complement in $T_zO$ inside $T_zO \cap E_z$. A tame sub-M-polyfold is a sub-M-polyfold; $Y = X$ is one, with tame induced structure.
+
+- `Polyfold.MPolyfold.HasTameInducedStructure` — Polyfold/Chapter2/TameBoundary.lean, line 1298
+- `Polyfold.MPolyfold.HasReducedComplementAt` — Polyfold/Chapter2/TameBoundary.lean, line 1325
+- `Polyfold.MPolyfold.hasReducedComplementAt_self` — Polyfold/Chapter2/TameBoundary.lean, line 1334
+- `Polyfold.MPolyfold.TameSubData` — Polyfold/Chapter2/TameBoundary.lean, line 1350
+- `Polyfold.MPolyfold.IsTameSubMPolyfold` — Polyfold/Chapter2/TameBoundary.lean, line 1362
+- `Polyfold.MPolyfold.IsTameSubMPolyfold.isSubMPolyfold` — Polyfold/Chapter2/TameBoundary.lean, line 1366
+- `Polyfold.MPolyfold.hasTameInducedStructure_univ` — Polyfold/Chapter2/TameBoundary.lean, line 1387
+- `Polyfold.MPolyfold.isTameSubMPolyfold_univ` — Polyfold/Chapter2/TameBoundary.lean, line 1400
+
+*What differs.*
+- $T_yX$ has no linear structure here (gap G.7), so (3) is stated in a chart. Its independence of the chart, the remark that a tame sub-M-polyfold is tame, and the examples in $[0, \infty)^2 \times \mathbb R$ are gap G.77.
+
+### V2.79. Faces of open sets and the corner axioms
+
+*not in the book* · all of §2.7.4 from the corner axioms · reused for ep-groupoids (§7.6.5)
+
+**HWZ (no counterpart in the text (§2.7.4, pp. 78–82, new in the 2021 edition)).** Not stated. §2.7.4 uses the faces of open subsets $V$ of a tame $X$ and the local structure of tame charts.
+
+**Proved in Lean.** For $d : X \to \mathbb N$ and an open $V$, a face of $V$ is the closure in $V$ of a component of $V \cap \{d = 1\}$. The corner axioms: $d$ upper semicontinuous, and near every point $d(y)$ separated preconnected pieces of $\{d = 1\}$ accumulating at $y$. A face of $U \subseteq V$ lies in a unique face of $V$. The degeneracy index of a tame M-polyfold, and $d \equiv 0$, satisfy the axioms.
+
+- `Polyfold.TameBoundary.faceAt` — Polyfold/Chapter2/TameBoundary.lean, line 128
+- `Polyfold.TameBoundary.IsFaceIn` — Polyfold/Chapter2/TameBoundary.lean, line 133
+- `Polyfold.TameBoundary.facesThrough` — Polyfold/Chapter2/TameBoundary.lean, line 136
+- `Polyfold.TameBoundary.LocalPieces` — Polyfold/Chapter2/TameBoundary.lean, line 141
+- `Polyfold.TameBoundary.IsCornerIndex` — Polyfold/Chapter2/TameBoundary.lean, line 159
+- `Polyfold.TameBoundary.faceAt_inter_eq` — Polyfold/Chapter2/TameBoundary.lean, line 254
+- `Polyfold.TameBoundary.faceExt` — Polyfold/Chapter2/TameBoundary.lean, line 388
+- `Polyfold.TameBoundary.faceExt_unique` — Polyfold/Chapter2/TameBoundary.lean, line 434
+- `Polyfold.TameBoundary.exists_faceExt_eq` — Polyfold/Chapter2/TameBoundary.lean, line 451
+- `Polyfold.TameBoundary.isCornerIndex_zero` — Polyfold/Chapter2/TameBoundary.lean, line 1430
+- `Polyfold.MPolyfold.exists_localPieces_chart` — Polyfold/Chapter2/TameBoundary.lean, line 1037
+- `Polyfold.MPolyfold.isCornerIndex_degIndex` — Polyfold/Chapter2/TameBoundary.lean, line 1211
+- `Polyfold.MPolyfold.isFaceIn_univ_iff` — Polyfold/Chapter2/TameBoundary.lean, line 1226
+
+*What differs.*
+- The faces of $V$ with its induced structure are defined directly from $d_X$, whose restriction is the degeneracy index of $V$ (Proposition 2.4.4).
+
+### V2.80. Proposition 2.7.5: face-structured neighbourhoods
+
+*as in the book* · proved from the corner axioms
+
+**HWZ (§2.7.4, Proposition 2.7.5, p. 78 (new in the 2021 edition)).** In a tame $X$ every $x$ has an open $V$ with $d_X \le d_X(x)$ on $V$, every $y \in V$ in exactly $d_X(y)$ faces of $V$, and an open $U(x) \subseteq V$ such that a face of $V$ meeting $U(x)$ contains $x$.
+
+**Proved in Lean.** The same, for every $d$ with the corner axioms; the last property for every open $V \ni x$.
+
+- `Polyfold.TameBoundary.exists_nbhd_faces_mem` — Polyfold/Chapter2/TameBoundary.lean, line 553
+- `Polyfold.TameBoundary.proposition_2_7_5` — Polyfold/Chapter2/TameBoundary.lean, line 562
+- `Polyfold.MPolyfold.proposition_2_7_5_2021` — Polyfold/Chapter2/TameBoundary.lean, line 1234
+
+### V2.81. Definition 2.7.6 and Proposition 2.7.7: the families $N_X$, $N_{X,x}$
+
+*as in the book* · quadrants: all open sets face-structured
+
+**HWZ (§2.7.4, Definition 2.7.6, p. 79, and Proposition 2.7.7, p. 80 (new in the 2021 edition)).** An open $V$ is face-structured if every $y \in V$ lies in exactly $d_X(y)$ faces of $V$; $N_X$: the nonempty ones with $d_X|V$ bounded; $N_{X,x}$: those containing $x$ with $d_X \le d_X(x)$. $N_{X,x} \ne \emptyset$; nonempty open subsets and nonempty intersections of members of $N_X$ are in $N_X$; $N_{X,x}$ is closed under intersections.
+
+**Proved in Lean.** The same, with $N_X = \bigcup_x N_{X,x}$; every open subset of $[0, \infty)^n \oplus W$ is face-structured.
+
+- `Polyfold.TameBoundary.IsFaceStructuredOpen` — Polyfold/Chapter2/TameBoundary.lean, line 487
+- `Polyfold.TameBoundary.faceStructuredOpens` — Polyfold/Chapter2/TameBoundary.lean, line 491
+- `Polyfold.TameBoundary.faceStructuredNbhds` — Polyfold/Chapter2/TameBoundary.lean, line 495
+- `Polyfold.TameBoundary.faceStructuredNbhdsAt` — Polyfold/Chapter2/TameBoundary.lean, line 500
+- `Polyfold.TameBoundary.faceStructuredNbhds_eq_iUnion` — Polyfold/Chapter2/TameBoundary.lean, line 505
+- `Polyfold.TameBoundary.faceStructuredNbhdsAt_nonempty` — Polyfold/Chapter2/TameBoundary.lean, line 574
+- `Polyfold.TameBoundary.sUnion_faceStructuredNbhds` — Polyfold/Chapter2/TameBoundary.lean, line 579
+- `Polyfold.TameBoundary.mem_faceStructuredNbhds_of_subset` — Polyfold/Chapter2/TameBoundary.lean, line 585
+- `Polyfold.TameBoundary.inter_mem_faceStructuredNbhds` — Polyfold/Chapter2/TameBoundary.lean, line 590
+- `Polyfold.TameBoundary.inter_mem_faceStructuredNbhdsAt` — Polyfold/Chapter2/TameBoundary.lean, line 602
+- `Polyfold.MPolyfold.proposition_2_7_7_2021` — Polyfold/Chapter2/TameBoundary.lean, line 1245
+- `Polyfold.TameBoundaryExample.isFaceStructuredOpen_quadrant` — Polyfold/Chapter2/TameBoundaryExample.lean, line 210
+
+### V2.82. Definitions 2.7.8 and 2.7.9: the category $L_X$ and the functor $F_X$
+
+*restated* · thin category · $\theta'$ by inclusion
+
+**HWZ (§2.7.4, Definition 2.7.8, p. 80, and Definition 2.7.9, p. 81 (new in the 2021 edition)).** Objects $(x, V)$, $x \in \partial X$, $V \in N_{X,x}$; one morphism $(x, V) \to (y, W)$ iff $V \subseteq W$, $x$ lies in $d_X(x)$ faces of $W$ and all contain $y$. $F_X(x, V)$ is the set of faces of $V$ through $x$, and a morphism sends $\theta$ to the face $\theta'$ of $W$ through $x$ and $y$ with $\theta \cap \theta'$ open in $\theta$, an injection (2.43).
+
+**Proved in Lean.** The same, $L_X$ as a preorder (thin category), $F_X$ into types, $\theta'$ the union of the faces of $W$ containing $\theta$; morphisms compose, $F_X(\varphi)$ is injective, and bijective over a fixed point.
+
+- `Polyfold.TameBoundary.IsMor` — Polyfold/Chapter2/TameBoundary.lean, line 630
+- `Polyfold.TameBoundary.IsMor.trans` — Polyfold/Chapter2/TameBoundary.lean, line 650
+- `Polyfold.TameBoundary.LObj` — Polyfold/Chapter2/TameBoundary.lean, line 663
+- `Polyfold.TameBoundary.boundaryFunctor` — Polyfold/Chapter2/TameBoundary.lean, line 699
+- `Polyfold.TameBoundary.boundaryFunctor_map_injective` — Polyfold/Chapter2/TameBoundary.lean, line 715
+- `Polyfold.TameBoundary.boundaryFunctor_map_bijective` — Polyfold/Chapter2/TameBoundary.lean, line 728
+- `Polyfold.MPolyfold.LocalBoundaryCategory` — Polyfold/Chapter2/TameBoundary.lean, line 1264
+- `Polyfold.MPolyfold.boundaryStructureFunctor` — Polyfold/Chapter2/TameBoundary.lean, line 1268
+
+### V2.83. Definition 2.7.10: the set $bX$ and the map $B$
+
+*stronger* · fibres of $d_X(x)$ points
+
+**HWZ (§2.7.4, Definition 2.7.10, p. 81 (new in the 2021 edition)).** Admissible triples $(x, V, \theta)$, $\theta$ a face of $V \in N_{X,x}$ through $x$; $(x, V, \theta) \sim (x, V', \theta')$ if a smaller $V'' \in N_{X,x}$ has a face sent to $\theta$ and $\theta'$; $bX$ is the set of classes and $B[x, V, \theta] = x$.
+
+**Proved in Lean.** The same; $\sim$ is an equivalence relation, $B$ has image $\partial X$, and $B^{-1}(x)$ has exactly $d_X(x)$ points.
+
+- `Polyfold.TameBoundary.BTriple` — Polyfold/Chapter2/TameBoundary.lean, line 746
+- `Polyfold.TameBoundary.BRel` — Polyfold/Chapter2/TameBoundary.lean, line 755
+- `Polyfold.TameBoundary.BRel.refl` — Polyfold/Chapter2/TameBoundary.lean, line 767
+- `Polyfold.TameBoundary.BRel.symm` — Polyfold/Chapter2/TameBoundary.lean, line 771
+- `Polyfold.TameBoundary.BRel.trans` — Polyfold/Chapter2/TameBoundary.lean, line 776
+- `Polyfold.TameBoundary.bSetoid` — Polyfold/Chapter2/TameBoundary.lean, line 798
+- `Polyfold.TameBoundary.BSpace` — Polyfold/Chapter2/TameBoundary.lean, line 804
+- `Polyfold.TameBoundary.bMap` — Polyfold/Chapter2/TameBoundary.lean, line 814
+- `Polyfold.TameBoundary.range_bMap` — Polyfold/Chapter2/TameBoundary.lean, line 1005
+- `Polyfold.TameBoundary.encard_bMap_preimage` — Polyfold/Chapter2/TameBoundary.lean, line 963
+- `Polyfold.MPolyfold.TameBoundarySpace` — Polyfold/Chapter2/TameBoundary.lean, line 1273
+- `Polyfold.MPolyfold.tameBoundaryMap` — Polyfold/Chapter2/TameBoundary.lean, line 1276
+- `Polyfold.MPolyfold.range_tameBoundaryMap` — Polyfold/Chapter2/TameBoundary.lean, line 1281
+- `Polyfold.MPolyfold.encard_tameBoundaryMap_preimage` — Polyfold/Chapter2/TameBoundary.lean, line 1284
+
+### V2.84. Definition 2.7.11 and (2.44): the sets $U(x, V, \theta)$ and the maps $\Phi$
+
+*narrower* · bijective for centred $V$ · (2.44) for every $V$: see V2.85
+
+**HWZ (§2.7.4, Definition 2.7.11 and (2.44), p. 82 (new in the 2021 edition)).** $U(x, V, \theta)$: the classes $[y, V', \theta']$ with $y \in \theta$ and a morphism $(y, V') \to (x, V)$ sending $\theta'$ to $\theta$. The canonical bijection $\Phi_{(x, V, \theta)} : U(x, V, \theta) \to \theta$, $[y, V', \theta'] \mapsto y$ (2.44).
+
+**Proved in Lean.** $\Phi$ is injective with image $\theta \cap V^x$, $V^x$ the open set of points of $V$ all of whose faces contain $x$; it is a bijection onto $\theta$ if every face of $V$ contains $x$. $V^x$ is such a set and lies in $N_{X,x}$.
+
+- `Polyfold.TameBoundary.uSet` — Polyfold/Chapter2/TameBoundary.lean, line 838
+- `Polyfold.TameBoundary.phi` — Polyfold/Chapter2/TameBoundary.lean, line 847
+- `Polyfold.TameBoundary.phi_injective` — Polyfold/Chapter2/TameBoundary.lean, line 885
+- `Polyfold.TameBoundary.reach` — Polyfold/Chapter2/TameBoundary.lean, line 828
+- `Polyfold.TameBoundary.IsCenteredAt` — Polyfold/Chapter2/TameBoundary.lean, line 831
+- `Polyfold.TameBoundary.isOpen_reach` — Polyfold/Chapter2/TameBoundary.lean, line 896
+- `Polyfold.TameBoundary.bMap_image_uSet` — Polyfold/Chapter2/TameBoundary.lean, line 907
+- `Polyfold.TameBoundary.phi_bijective_of_isCenteredAt` — Polyfold/Chapter2/TameBoundary.lean, line 932
+- `Polyfold.TameBoundary.isCenteredAt_reach` — Polyfold/Chapter2/TameBoundary.lean, line 941
+- `Polyfold.TameBoundary.reach_mem_faceStructuredNbhdsAt` — Polyfold/Chapter2/TameBoundary.lean, line 957
+
+*What differs.*
+- (2.44) does not hold as we read it for every $V \in N_{X,x}$ (V2.85); the centred neighbourhoods are cofinal, which is what "taking $V$ sufficiently small" (p. 85) provides.
+
+### V2.85. (2.44) for every $V \in N_{X,x}$: an example in $[0, \infty)^3$
+
+*not in the book* · (2.44) does not hold as we read it · repair: centred $V$ (V2.84)
+
+**HWZ (§2.7.4, Definition 2.7.11, (2.44), p. 82 (new in the 2021 edition)).** $\Phi_{(x, V, \theta)} : U(x, V, \theta) \to \theta$ is called a canonical bijection for every admissible triple.
+
+**Proved in Lean.** In $X = [0, \infty)^3 \oplus W$, for $x = (0, 0, 1)$, the slab $V = \{p_0 < 1/2,\ 1/2 < p_1 + p_2 < 3/2\} \in N_{X,x}$ and its face $\theta$ through the segment from $x$ to $(0, 1, 0)$: $(0, 1, 0) \in \theta$ is not in the image of $\Phi_{(x, V, \theta)}$; so not every $\Phi$ is a bijection.
+
+- `Polyfold.TameBoundaryExample.dq` — Polyfold/Chapter2/TameBoundaryExample.lean, line 71
+- `Polyfold.TameBoundaryExample.isCornerIndex_dq` — Polyfold/Chapter2/TameBoundaryExample.lean, line 74
+- `Polyfold.TameBoundaryExample.dq_eq` — Polyfold/Chapter2/TameBoundaryExample.lean, line 78
+- `Polyfold.TameBoundaryExample.part` — Polyfold/Chapter2/TameBoundaryExample.lean, line 85
+- `Polyfold.TameBoundaryExample.dq_eq_one_iff` — Polyfold/Chapter2/TameBoundaryExample.lean, line 88
+- `Polyfold.TameBoundaryExample.subset_part` — Polyfold/Chapter2/TameBoundaryExample.lean, line 107
+- `Polyfold.TameBoundaryExample.faceAt_subset_coord_eq_zero` — Polyfold/Chapter2/TameBoundaryExample.lean, line 139
+- `Polyfold.TameBoundaryExample.exists_part_mem_faceAt` — Polyfold/Chapter2/TameBoundaryExample.lean, line 151
+- `Polyfold.TameBoundaryExample.slab` — Polyfold/Chapter2/TameBoundaryExample.lean, line 272
+- `Polyfold.TameBoundaryExample.slab_mem_faceStructuredNbhdsAt` — Polyfold/Chapter2/TameBoundaryExample.lean, line 341
+- `Polyfold.TameBoundaryExample.slabFace` — Polyfold/Chapter2/TameBoundaryExample.lean, line 347
+- `Polyfold.TameBoundaryExample.counterTriple` — Polyfold/Chapter2/TameBoundaryExample.lean, line 357
+- `Polyfold.TameBoundaryExample.exists_face_not_mem` — Polyfold/Chapter2/TameBoundaryExample.lean, line 367
+- `Polyfold.TameBoundaryExample.pt_010_not_mem_image` — Polyfold/Chapter2/TameBoundaryExample.lean, line 377
+- `Polyfold.TameBoundaryExample.phi_not_surjective_2021` — Polyfold/Chapter2/TameBoundaryExample.lean, line 387
+- `Polyfold.TameBoundaryExample.not_forall_bijective_phi_2021` — Polyfold/Chapter2/TameBoundaryExample.lean, line 396
+
+*What differs.*
+- $(0, 1, 0)$ also lies on the face of $V$ in $\{p_2 = 0\}$, which misses $x$, so no morphism $(y, V') \to (x, V)$ starts there.
+
+### V2.86. Lemma 2.7.15: the topology $T_{bX}$
+
+*hypotheses explicit* · $O$ contains the class · no sc-smoothness needed
+
+**HWZ (§2.7.4.3, Lemma 2.7.15, p. 85, with the description of $T_{bX}$ before it (new in the 2021 edition)).** $\mathcal U \in T_{bX}$ if every class in $\mathcal U$ has a representative $(x, V, \theta)$ and a set $O \subseteq \mathcal U \cap U(x, V, \theta)$ with $\Phi_{(x, V, \theta)}(O)$ open in $\theta$; alternatively, a representative with $U(x, V, \theta) \subseteq \mathcal U$. $T_{bX}$ is a topology.
+
+**Proved in Lean.** The same, with $O$ containing the class; the two descriptions agree, and they define a topology.
+
+- `Polyfold.TameBoundary.IsBOpen` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 92
+- `Polyfold.TameBoundary.BTriple.exists_shrink` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 100
+- `Polyfold.TameBoundary.BRel.exists_common` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 113
+- `Polyfold.TameBoundary.eq_of_mem_uSet` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 129
+- `Polyfold.TameBoundary.isBOpen_iff` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 142
+- `Polyfold.TameBoundary.bTopology` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 165
+- `Polyfold.TameBoundary.isOpen_iff_isBOpen` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 183
+- `Polyfold.TameBoundary.isOpen_iff_forall_uSet` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 185
+- `Polyfold.TameBoundary.lemma_2_7_15` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 190
+- `Polyfold.MPolyfold.lemma_2_7_15_2021` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 510
+
+*What differs.*
+- Without "$O$ contains the class", $O = \emptyset$ would make every set open.
+- The proof uses a common refinement of equivalent triples, not the sc-smoothness of the transition maps.
+
+### V2.87. Proposition 2.7.12: transition maps of $bX$ (topological part)
+
+*narrower* · topological part · non-centred $V$: G.78
+
+**HWZ (§2.7.4, Proposition 2.7.12, p. 83 (new in the 2021 edition)).** The images $\Phi_{(x, V, \theta)}(U \cap U')$ and $\Phi_{(x', V', \theta')}(U \cap U')$ are open in $\theta$ and $\theta'$, and the transition map is an sc-diffeomorphism.
+
+**Proved in Lean.** The images are open in $\theta$ and $\theta'$ and the transition map is the identity on points of $X$; the $U(x, V, \theta)$ form a basis, $B$ is continuous, every $\Phi$ is an open embedding into $\theta$, a homeomorphism onto $\theta$ for $V$ centred at $x$.
+
+- `Polyfold.TameBoundary.isOpen_uSet` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 194
+- `Polyfold.TameBoundary.isTopologicalBasis_uSet` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 200
+- `Polyfold.TameBoundary.continuous_bMap` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 208
+- `Polyfold.TameBoundary.exists_nbhd_faceExt_inter_subset` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 216
+- `Polyfold.TameBoundary.exists_isOpen_bMap_image` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 246
+- `Polyfold.TameBoundary.isOpenEmbedding_phi` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 283
+- `Polyfold.TameBoundary.phiHomeomorph` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 305
+- `Polyfold.TameBoundary.proposition_2_7_12` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 332
+- `Polyfold.MPolyfold.proposition_2_7_12_2021` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 518
+
+*What differs.*
+- The sc-diffeomorphism statement is not part of this row: for centred representatives it is proved with the M-polyfold structure of $bX$ (`Chapter2/TameBoundaryStructure.lean`, reported separately); for representatives whose $V$ is not centred at $x$ it is gap G.78.
+
+### V2.88. Proposition 2.7.16: $bX$ is metrizable
+
+*as in the book* · pull-back form of Smirnov
+
+**HWZ (§2.7.4, Proposition 2.7.16, pp. 85–87 (new in the 2021 edition)).** $T_{bX}$ is metrizable: Hausdorff, locally metrizable through the $\Phi$, and paracompact; Nagata–Smirnov applies.
+
+**Proved in Lean.** $bX$ is Hausdorff (over a Hausdorff $X$) and metrizable (over a metrizable $X$); for a tame M-polyfold, Hausdorff and metrizable.
+
+- `Polyfold.TameBoundary.tripleOf` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 392
+- `Polyfold.TameBoundary.exists_mem_uSet_tripleOf` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 398
+- `Polyfold.TameBoundary.metrizableSpace_preimage` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 416
+- `Polyfold.TameBoundary.proposition_2_7_16` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 471
+- `Polyfold.MPolyfold.proposition_2_7_16_2021` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 527
+
+*What differs.*
+- Proved with the pull-back form of Smirnov's theorem (V2.62) along $B$, instead of the text's paracompactness argument.
+
+### V2.89. Theorem 2.7.13 (topological part) and Definition 2.7.14
+
+*narrower* · topological part · (2)–(4): reported separately
+
+**HWZ (§2.7.4, Theorem 2.7.13, pp. 83–84, and Definition 2.7.14, p. 84 (new in the 2021 edition)).** For a tame $X$: (1) $bX$ has a natural metrizable topology; (2) a natural tame M-polyfold structure; (3) $B$ is sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$; characterized by: every $U(x, V, \theta)$ open and every $\Phi$ a homeomorphism and sc-diffeomorphism onto $\theta$. The tame boundary is $B : bX \to X$.
+
+**Proved in Lean.** (1); every $U(x, V, \theta)$ open and every $\Phi$ an open embedding; $T_{bX}$ the only topology with these properties; $B$ continuous with image $\partial X$ and fibres of $d_X(x)$ points; the tame boundary as a continuous map.
+
+- `Polyfold.TameBoundary.eq_of_isOpen_uSet` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 311
+- `Polyfold.TameBoundary.theorem_2_7_13_topology` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 486
+- `Polyfold.MPolyfold.theorem_2_7_13_2021` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 537
+- `Polyfold.MPolyfold.tameBoundary` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 555
+
+*What differs.*
+- Parts (2)–(4) beyond the fibre count and the sc-half of the characterization, for centred representatives, are in `Chapter2/TameBoundaryStructure.lean`, reported separately; for non-centred representatives the sc-statements are gap G.78.
+
+### V2.90. The tame quadrant as a witness for §2.7.4
+
+*not in the book* · satisfiability
+
+**HWZ (no counterpart in the text (§2.7.4, new in the 2021 edition), p. 78).** Not stated.
+
+**Proved in Lean.** $[0, \infty)^n \oplus W$ is a tame M-polyfold; its corner has exactly $n$ preimages under $B$, so $bX \ne \emptyset$ for $n \ge 1$; $Y = X$ has tame induced structure and is a tame sub-M-polyfold.
+
+- `Polyfold.MPolyfold.quadrantPolyfold` — Polyfold/Chapter2/TameBoundary.lean, line 1464
+- `Polyfold.MPolyfold.quadrantPolyfold_isTame` — Polyfold/Chapter2/TameBoundary.lean, line 1468
+- `Polyfold.MPolyfold.quadrantPolyfold_encard_preimage` — Polyfold/Chapter2/TameBoundary.lean, line 1483
+- `Polyfold.MPolyfold.quadrantPolyfold_tameBoundarySpace_nonempty` — Polyfold/Chapter2/TameBoundary.lean, line 1488
+- `Polyfold.MPolyfold.quadrantPolyfold_univ` — Polyfold/Chapter2/TameBoundary.lean, line 1497
 
 ## Chapter 3
 
@@ -4096,6 +4600,209 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - V3.79 gives the good position in the chart that Definition 3.1.11 (preprint 3.11) provides at $y$; (a) gives it in every chart carrying germ data, and (b) applies (a) at $z = 0$ in the chart of the given good position. This is how the good position of the nearby zeros (V3.94) and the good position from surjectivity (V3.100) are obtained in tame charts (Findings, Chapter 3, items 193, 194). Added after the repair of the tameness hypothesis.
 - In the germ reading (b) needs no Fredholm input: in the chart of the given good position, centred at $y$, (a) applies at $z = 0$, which lies in every germ, and $K_0$ is the whole target, so the form with all of $K_z$ in the range suffices. The whole-chart form of (a) is `isGoodPositionAt_of_chart_dense` (Findings, Chapter 3, item 301). Updated after the switch of Definition 3.1.11 (preprint 3.11) to the text’s germ reading (phase 2).
 
+### V3.108. Definitions 3.1.4 and 3.6.1 (preprint 3.4 and 3.48): the 2021 filling
+
+*restated* · no tameness, as in V3.7 · 2017 filling implies 2021 filling
+
+**HWZ (§3.1, Definition 3.1.4 (preprint 3.4), p. 91 (preprint p. 64); §3.6, Definition 3.6.1 (preprint 3.48), p. 134 (preprint p. 109)).** For $K = R(U \triangleleft F) \to O$ covering the sc-smooth retraction $r$ with $r(0) = 0$, an sc-smooth section germ $(g, 0)$ fills $(f, 0)$ if (1) $f = g$ on $O$ near $0$, (2) $y$ near $0$ with $g(y) = \rho(r(y))g(y)$ lies in $O$, (3) the linearization of $[1 - \rho(r(y))]g(y)$ at $0$ restricted to $\ker Dr(0)$ is an isomorphism onto $\ker\rho(0)$. The 2017 text asks $r$ to be tame; the 2021 text does not.
+
+**Proved in Lean.** The same, as a germ on an sc-germ of neighbourhoods inside $U$, with $r(0) = 0$ a condition. It is the filling of V3.7 plus $r(0) = 0$ (automatic when $0 \in O$); the 2017 filling (tame $r$) implies it; the identity retraction gives fillings.
+
+- `Polyfold.IsFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 119
+- `Polyfold.HasFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 134
+- `Polyfold.IsFilling2017` — Polyfold/Chapter3/Book2021Germs.lean, line 141
+- `Polyfold.isFilling2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 151
+- `Polyfold.IsFilling2021.isFillingGerm` — Polyfold/Chapter3/Book2021Germs.lean, line 157
+- `Polyfold.IsFillingGerm.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 163
+- `Polyfold.IsFilledVersion.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 168
+- `Polyfold.IsFilling2017.isFilling2021` — Polyfold/Chapter3/Book2021Germs.lean, line 173
+- `Polyfold.isFilling2017_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 178
+- `Polyfold.isFilling2017_id` — Polyfold/Chapter3/Book2021Germs.lean, line 184
+- `Polyfold.isFilling2017_rn` — Polyfold/Chapter3/Book2021Germs.lean, line 191
+
+*What differs.*
+- The 2021 change brings the text to the germ reading of V3.7, which never asked for tameness.
+
+### V3.109. A 2021 filling over a retraction that is not tame
+
+*not in the book* · 2021 filling, not a 2017 one
+
+**HWZ (no counterpart in the text (Definition 3.1.4, p. 91, and its 2017 form)).** Not stated.
+
+**Proved in Lean.** On $C = U = [0, \infty) \times \mathbb R$ with $R((a, b), h) = ((0, b), 0)$: $r(a, b) = (0, b)$ is not tame, and $g(a, b) = a$ is a 2021 filling of the zero section, so not a 2017 filling.
+
+- `Polyfold.CornerFilling.Rc` — Polyfold/Chapter3/Book2021Germs.lean, line 220
+- `Polyfold.CornerFilling.gc` — Polyfold/Chapter3/Book2021Germs.lean, line 251
+- `Polyfold.CornerFilling.isFilledVersion_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 304
+- `Polyfold.CornerFilling.isFilling2021_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 319
+- `Polyfold.CornerFilling.not_isTame_r` — Polyfold/Chapter3/Book2021Germs.lean, line 325
+- `Polyfold.CornerFilling.not_isFilling2017_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 339
+- `Polyfold.exists_isFilling2021_not_isFilling2017` — Polyfold/Chapter3/Book2021Germs.lean, line 423
+
+### V3.110. Definitions 3.1.11, 3.1.16 = 3.6.3, 3.6.4 (preprint 3.11, 3.14 = 3.50, 3.51) with the 2021 filling
+
+*restated* · = the project's definitions · 2021 implies 2017: open (G.79)
+
+**HWZ (§3.1, Definitions 3.1.11, p. 96, and 3.1.16, p. 97 (preprint 3.11, 3.14, pp. 69–70); §3.6, Definitions 3.6.3, 3.6.4, p. 135 (preprint 3.50, 3.51, p. 110)).** $(f, x_0)$ is an sc-Fredholm germ if, in a strong bundle chart centred at the smooth $x_0$, the principal part has a filling $g$ and an sc$^+$-section $s$ with $s(0) = g(0)$ makes $g - s$ conjugate to a basic germ; an sc-Fredholm section is sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point.
+
+**Proved in Lean.** The same with the 2021 filling; the 2021 germ is the project's sc-Fredholm germ, the 2021 section the project's sc-Fredholm section, the 2017 germ the germ with tame germ data; graph sections are witnesses.
+
+- `Polyfold.StrongBundle.IsScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 481
+- `Polyfold.StrongBundle.IsScFredholmGerm2017` — Polyfold/Chapter3/Book2021Germs.lean, line 492
+- `Polyfold.StrongBundle.IsScFredholmSection2021` — Polyfold/Chapter3/Book2021Germs.lean, line 504
+- `Polyfold.StrongBundle.zero_mem_O_of_chart` — Polyfold/Chapter3/Book2021Germs.lean, line 510
+- `Polyfold.StrongBundle.isScFredholmGerm2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 517
+- `Polyfold.StrongBundle.isScFredholmGerm2017_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 528
+- `Polyfold.StrongBundle.IsScFredholmGerm2017.isScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 540
+- `Polyfold.StrongBundle.isScFredholmSection2021_iff` — Polyfold/Chapter3/Book2021Germs.lean, line 545
+- `Polyfold.isScFredholmSection2021_graphSection` — Polyfold/Chapter3/Book2021Germs.lean, line 616
+- `Polyfold.isScFredholmGerm2017_graphSection` — Polyfold/Chapter3/Book2021Germs.lean, line 623
+
+*What differs.*
+- Whether every 2021 sc-Fredholm germ has germ data in a tame chart is gap G.79 (Findings, Chapter 3, item 353).
+
+### V3.111. Proposition 3.1.5 (preprint 3.5) for the 2021 filling
+
+*restated* · V3.8 for the 2021 filling
+
+**HWZ (§3.1, Proposition 3.1.5 (preprint 3.5), p. 93 (preprint p. 65)).** If $g$ fills $\hat f$ and $\hat f(0) = 0$: $T\hat f(0)$ is onto iff $Dg(0)$ is, and one is Fredholm iff the other is, with the same index.
+
+**Proved in Lean.** The same for a 2021 filling; $Dg(0)$ maps $T_0O$ into $K_0$, so that the restriction is defined.
+
+- `Polyfold.proposition_3_1_5_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 642
+
+### V3.112. Theorem 3.1.13 (preprint 3.12) and Corollary 3.1.15 (preprint 3.13) for the 2021 definitions
+
+*restated* · no tameness used
+
+**HWZ (§3.1, Theorem 3.1.13 and Corollary 3.1.15 (preprint 3.12, 3.13), p. 97 (preprint p. 70)).** Local compactness of the zero set of an sc-Fredholm germ on every level, and convergence on every level of zeros converging on level $0$.
+
+**Proved in Lean.** The same for 2021 sc-Fredholm germs.
+
+- `Polyfold.theorem_3_1_13_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 558
+- `Polyfold.corollary_3_1_15_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 567
+
+### V3.113. Theorems 3.1.18 (preprint 3.15) and 3.1.21 (preprint 3.18) for the 2021 definitions
+
+*restated* · no tameness used
+
+**HWZ (§3.1, Theorem 3.1.18 (preprint 3.15), p. 98 (preprint p. 71), and Theorem 3.1.21 (preprint 3.18), p. 100 (preprint p. 74)).** An sc-Fredholm section plus an sc$^+$-section is sc-Fredholm; parametrized perturbations $f + \sum_i\lambda_is_i$ are sc-Fredholm.
+
+**Proved in Lean.** The same for 2021 sc-Fredholm sections.
+
+- `Polyfold.theorem_3_1_18_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 576
+- `Polyfold.theorem_3_1_21_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 582
+
+### V3.114. Proposition 3.6.5 (preprint 3.52) for the 2021 definitions
+
+*restated* · no tameness used
+
+**HWZ (§3.6, Proposition 3.6.5 (preprint 3.52), p. 135 (preprint p. 110)).** At a zero of an sc-Fredholm germ, the linearization is sc-Fredholm of index $n - N$.
+
+**Proved in Lean.** For a 2021 sc-Fredholm germ, in a chart centred at the zero: $Dg(0)$ and the restriction $T_0O \to K_0$ are Fredholm of index $n - N$.
+
+- `Polyfold.proposition_3_6_5_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 596
+
+### V3.115. Theorem 3.6.8 (preprint 3.54): the proof step on p. 138 without a tame chart
+
+*not in the book* · needs a tame chart · conclusion not refuted · untamed data: G.79
+
+**HWZ (§3.6, Theorem 3.6.8 (preprint 3.54), p. 136 (preprint p. 111), proof pp. 137–138).** The proof passes from good position of $\ker T\hat f(0)$ in $T_0O$ to good position of $\ker Dg(0)$ in $E$ through the sc-complement $\ker Dr(0) \subseteq E_0$ of $T_0O$ (Proposition 2.5.3 (preprint 2.35)), the retract being tame "by assumption".
+
+**Proved in Lean.** In the example of V3.109 the filling, $\hat f(0) = 0$, $Dg(0)$ onto, and good position in $T_0O$ hold, but the range of $1 - Dr(0)$ is not in $E_0$ and $\ker Dg(0) = 0 \oplus \mathbb R$ is not in good position to $C$.
+
+- `Polyfold.CornerFilling.isGoodPositionAtGerm_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 354
+- `Polyfold.CornerFilling.not_isInGoodPosition_gc` — Polyfold/Chapter3/Book2021Germs.lean, line 377
+- `Polyfold.CornerFilling.not_range_le_minimalSubspace` — Polyfold/Chapter3/Book2021Germs.lean, line 407
+- `Polyfold.theorem_3_6_8_tame_step_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 440
+
+*What differs.*
+- With the untamed 2021 definitions the step does not hold as we read it; the example's solution set is a manifold, so the theorem is not refuted. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103); for untamed data it is gap G.79.
+
+### V3.116. Theorem 3.5.1 (preprint 3.40) with the 2021 sequential conclusion
+
+*restated* · sequential conclusion new in 2021
+
+**HWZ (§3.5, Theorem 3.5.1 (preprint 3.40), p. 118 (preprint p. 94)).** For $f = h + s$, $h$ basic, $s$ sc$^+$, $f(0) = 0 = s(0)$, $S = \{f = 0\}$: nested relatively open $O(m)$ with $\mathrm{cl}(S \cap O(m)) \subseteq C_m$; new in 2021: $(a_k, w_k) \in S$ converging to $0$ in $E_0$ lie in $C_m$ from some $k_0(m)$ on and converge to $0$ on level $m$.
+
+**Proved in Lean.** The same, the closure in $E_0$, convergence on level $m$ through lifts $y_k \in E_m$ equal to $x_k$ for $k$ large.
+
+- `Polyfold.IsBasicGerm.solves` — Polyfold/Chapter3/Book2021Germs.lean, line 671
+- `Polyfold.theorem_3_5_1_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 691
+
+### V3.117. Closed convex cones and extreme rays (p. 145)
+
+*as in the book* · plus the quadrant normal form
+
+**HWZ (§3.8.1.3, p. 145 (new in the 2021 edition)).** A closed convex cone $P$ in a finite-dimensional $N$: closed, convex, $P \cap (-P) = \{0\}$, $\mathbb R_+P = P$; an extreme ray is $\mathbb R_+x$, $x \in P \setminus \{0\}$, with $y, x - y \in P$ implying $y \in \mathbb R_+x$.
+
+**Proved in Lean.** The same definitions, with witnesses; and for $N$ in good position with $N \cap C$ pointed, $N \cap C$ is carried onto $[0, \infty)^{\dim N}$ by a linear isomorphism.
+
+- `Polyfold.IsClosedConvexCone` — Polyfold/Chapter3/Book2021Items.lean, line 90
+- `Polyfold.IsExtremeRayGen` — Polyfold/Chapter3/Book2021Items.lean, line 98
+- `Polyfold.IsClosedConvexCone.eq_zero` — Polyfold/Chapter3/Book2021Items.lean, line 101
+- `Polyfold.isClosedConvexCone_Ici` — Polyfold/Chapter3/Book2021Items.lean, line 108
+- `Polyfold.isExtremeRayGen_one` — Polyfold/Chapter3/Book2021Items.lean, line 120
+- `Polyfold.isExtremeRayGen_symm_single` — Polyfold/Chapter3/Book2021Items.lean, line 128
+- `Polyfold.exists_sub_single_mem` — Polyfold/Chapter3/Book2021Items.lean, line 149
+- `Polyfold.exists_quadrantEquiv_of_pointed` — Polyfold/Chapter3/Book2021Items.lean, line 174
+
+*What differs.*
+- The quadrant normal form replaces the Krein–Milman-type Lemmas 3.8.1–3.8.3 in the proofs.
+
+### V3.118. Lemma 3.8.4
+
+*stronger* · (1), (3) without the cone hypothesis · no Krein–Milman
+
+**HWZ (§3.8.1.3, Lemma 3.8.4, p. 147 (new in the 2021 edition)).** If $N \cap C$ is a closed convex cone: (1) $y \in N^\perp$ has $y_i = 0$ for $i \in \sigma_a$, $a$ an extreme-ray generator; (2) $\Gamma$ is the union of the $\sigma_a$ over extreme-ray generators; (3) $y_i = 0$ for $y \in N^\perp$, $i \in \Gamma$.
+
+**Proved in Lean.** The same; (1) and (3) hold without the cone hypothesis (Lemma 3.8.8), (2) uses only that $N \cap C$ is pointed.
+
+- `Polyfold.lemma_3_8_4_2021` — Polyfold/Chapter3/Book2021Items.lean, line 207
+- `Polyfold.lemma_3_65` — Polyfold/Chapter3/GoodPosition.lean, line 124
+
+### V3.119. Lemma 3.8.5
+
+*restated* · the dichotomy the proof shows · $N = 0$: does not hold as we read it
+
+**HWZ (§3.8.1.3, Lemma 3.8.5, p. 147 (new in the 2021 edition)).** If $N \cap C$ is a closed convex cone, either $N \subseteq \mathbb R^{\Gamma^c} \oplus W$, in which case $\dim N = 1$ and $\Gamma = \emptyset$, or $N \cap (\mathbb R^{\Gamma^c} \oplus W) = \{0\}$.
+
+**Proved in Lean.** Either $N \cap (\mathbb R^{\Gamma^c} \oplus W) = \{0\}$, or $N \subseteq \mathbb R^{\Gamma^c} \oplus W$, $\dim N = 1$, $\Gamma = \emptyset$. For $N = 0$ in $E = \mathbb R$, $C = [0, \infty)$: $N \subseteq \mathbb R^{\Gamma^c} \oplus W$ and $\dim N = 0$.
+
+- `Polyfold.lemma_3_8_5_2021` — Polyfold/Chapter3/Book2021Items.lean, line 243
+- `Polyfold.lemma_3_8_5_not_literal_2021` — Polyfold/Chapter3/Book2021Items.lean, line 390
+
+*What differs.*
+- Read as "$N \subseteq \mathbb R^{\Gamma^c} \oplus W$ implies $\dim N = 1$", the lemma does not hold as we read it for $N = 0$; the proof assumes $N \cap (\mathbb R^{\Gamma^c} \oplus W) \ne \{0\}$.
+
+### V3.120. Lemma 3.8.6
+
+*narrower* · (1) without the cone hypothesis · (2) needs $N \ne 0$
+
+**HWZ (§3.8.1.3, Lemma 3.8.6, p. 148 (new in the 2021 edition)).** With $P : N \to \mathbb R^\Gamma$ the projection: (1) if $N \cap (\mathbb R^{\Gamma^c} \oplus W) = \{0\}$, $P$ is an isomorphism carrying $N \cap C$ onto $Q_\Gamma$; (2) if $N \subseteq \mathbb R^{\Gamma^c} \oplus W$, $(N, N \cap C) \cong (\mathbb R, \mathbb R_+)$; under the cone hypothesis.
+
+**Proved in Lean.** (1) without the cone hypothesis; (2) for $N \ne 0$; the hypotheses of (2) are satisfiable.
+
+- `Polyfold.lemma_3_8_6_2021` — Polyfold/Chapter3/Book2021Items.lean, line 314
+- `Polyfold.lemma_3_8_6_two_2021` — Polyfold/Chapter3/Book2021Items.lean, line 347
+- `Polyfold.halfLine_witness_2021` — Polyfold/Chapter3/Book2021Items.lean, line 425
+
+*What differs.*
+- (2) as printed does not hold as we read it for $N = 0$ (V3.119).
+
+### V3.121. Corollary 3.8.7
+
+*stronger* · a quadrant of $N$
+
+**HWZ (§3.8.1.3, Corollary 3.8.7, p. 149 (new in the 2021 edition)).** If $N$ is in good position and $N \cap C$ is a closed convex cone, $N \cap C$ is a partial quadrant in $N$.
+
+**Proved in Lean.** The same, and $N \cap C$ is carried onto $[0, \infty)^{\dim N}$ by a linear isomorphism $N \cong \mathbb R^{\dim N}$.
+
+- `Polyfold.corollary_3_8_7_2021` — Polyfold/Chapter3/Book2021Items.lean, line 368
+
+*What differs.*
+- The partial quadrant holds without the cone hypothesis (Proposition 3.1.25 (preprint 3.22), V3.21).
+
 ## Chapter 4
 
 *HWZ Chapter 4 §§4.1–4.4, pp. 175–204 (preprint pp. 147–168): manifolds with boundary with corners — sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard’s theorem*
@@ -4200,7 +4907,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.mem_shift_levelSet_iff` — Polyfold/Chapter5/StrongBundleShift.lean, line 304
 
 *What differs.*
-- “It is possible that $X^1 \ne X$ as M-polyfolds although the sets agree” is proved by an example the text does not give (fourth addendum of this page; formerly gap G.31). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).
+- “It is possible that $X^1 \ne X$ as M-polyfolds although the sets agree” is proved by an example the preprint and 2017 texts do not give (fourth addendum of this page; formerly gap G.31); the 2021 edition (p. 176) gives a different one, the space of its Subsection 1.4.4, which is not formalized (Findings, Chapter 4, item 159). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).
 - “$X^1 \ne X$” is read as “$1_0^1$ is not sc-smooth”, equivalently (by `remark_4_3_isScDiffeo`) “the identity is not an sc-diffeomorphism $X \to X^1$”. The sc-diffeomorphism clause needs only $X = X_1$, not $X_0 = X_\infty$. “$(X^1)_m = X_{m+1} = X_i$” misprints $X_0$; $(X^1)_m = X_{m+1}$ holds as sets, the topologies of the iterated levels being gap G.6 (Findings, Chapter 4, items 5, 125). Hence “stronger” (formerly “narrower”, for the missing example).
 
 ### V4.7. sc⁺-maps and their calculus
@@ -5104,6 +5811,152 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 *What differs.*
 - The set need not be compact: $A = (-2\varepsilon, 2\varepsilon) \times \{2\} \cup \{(\varepsilon(1 - x), x) : 0 < x < 1\}$; $A$ is second countable (compact closure in the metrizable $\mathbb R^m \times X$), and a countable subcover suffices (Findings, item 103).
 
+### V4.65. Theorem 4.2.11 (preprint 4.22) in the 2021 form of (1): the local faces contain $x$
+
+*restated* · faces of the chart model (G.35) · germs through $x$ inside $U$
+
+**HWZ (§4.2, Theorem 4.2.11 (1) (preprint 4.22), p. 190 (preprint p. 162)).** (2021) There are precisely $d = d_X(x)$ local faces $F_1, \dots, F_d$ contained in $U$ and containing $x$; (2)–(4) as in the earlier texts.
+
+**Proved in Lean.** `MPolyfold.theorem_4_2_11_2021`: the conclusions of `theorem_4_22` (V4.50) and, for every $i < n = d_X(x)$, a face $F_i \ni 0$ of the model retract in the $i$-th coordinate hyperplane and an open $G \ni 0$ with $x \in \psi^{-1}(G \cap F_i) \subseteq U$.
+
+- `Polyfold.MPolyfold.theorem_4_2_11_2021` — Polyfold/Chapter4/Book2021.lean, line 84
+- `Polyfold.MPolyfold.theorem_4_22` — Polyfold/Chapter4/LocalStructure.lean, line 1541
+
+*What differs.*
+- The count of V4.50 already counts the faces through $\psi(x)$, which is the 2021 statement; the germs that contain $x$ and lie in $U$ are read off from (4) for $\sigma = \{i\}$. The identification of the faces of the chart model with faces of $U$ itself remains gap G.35 (Findings, Chapter 4, items 130, 150).
+
+### V4.66. Theorem 4.3.1 (preprint 4.23) in the 2021 form: possibly empty fibres, measurable $\Sigma$
+
+*stronger* · stratified regular values · $\Sigma$ measurable (null hull removed)
+
+**HWZ (§4.3, Theorem 4.3.1 (preprint 4.23), p. 193 (preprint p. 165)).** (2021) As in the earlier texts, with (1) asking only that $p^{-1}(\lambda)$ be compact for $|\lambda| \le \varepsilon$ (not non-empty), and with a measurable set $\Sigma \subseteq \{|\lambda| < \varepsilon\}$ of regular values of full measure in $B^m(\varepsilon)$.
+
+**Proved in Lean.** `theorem_4_3_1_2021`: for $X$ tame, $A$ with tame induced structure and compact closure, (1) compact fibres over $|\lambda| \le \varepsilon$, (2) general position everywhere: a measurable $\Sigma \subseteq \{|\lambda| < \varepsilon\}$ with null complement there, of stratified regular values, with $A_\lambda$ compact, a submanifold in general position, with a corner structure, tame.
+
+- `Polyfold.theorem_4_3_1_2021` — Polyfold/Chapter4/Book2021.lean, line 155
+- `Polyfold.theorem_4_23_of_subset` — Polyfold/Chapter4/Families.lean, line 888
+
+*What differs.*
+- $\Sigma$ is that of V4.64 with a measurable null hull of its exceptional set removed (`MeasureTheory.toMeasurable`). Not used, as in V4.54: the tameness of $A$ and $\varepsilon > 0$; (1) gives the compactness of $A_\lambda$. Hypothesis (2) is printed as before and read as general position (Findings, Chapter 4, items 101, 151).
+
+### V4.67. Definition 4.4.3 in a local model: sc-smooth vector fields
+
+*restated* · in a local model · witness: $A = 0$
+
+**HWZ (§4.4, Definition 4.4.3, p. 195).** (New in the 2021 edition.) An sc-smooth vector field on $X$ is an sc-smooth section $A$ of $p : TX \to X^1$; its domain is $X^1$, not $X$. In a local model the principal part satisfies $A(x) = Dr(x)A(x)$ on $O_1$ (formula (4.8), p. 200).
+
+**Proved in Lean.** `IsRetractVectorField E C O A`: $x \mapsto (x, A(x))$ is sc-smooth from $(O^1, C^1, E^1)$ to $(TO, TC, TE)$. Then $(x, A(x)) \in TO$ on $O_1$, $A \circ r^1$ is sc-smooth, $Dr(x)A(x) = A(x)$ on $O_1$; $0$ is a vector field on every retract.
+
+- `Polyfold.IsRetractVectorField` — Polyfold/Chapter4/VectorFields.lean, line 108
+- `Polyfold.isRetractVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 113
+- `Polyfold.IsRetractVectorField.mem_retractTangent` — Polyfold/Chapter4/VectorFields.lean, line 122
+- `Polyfold.IsRetractVectorField.isScSmooth_comp` — Polyfold/Chapter4/VectorFields.lean, line 127
+- `Polyfold.IsRetractVectorField.scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 134
+
+*What differs.*
+- The definition read in the model of a chart, where Appendix 4.5 works; the principal part $A : E_1 \to E_0$ is the second component of the section (Findings, Chapter 4, item 152).
+
+### V4.68. Definition 4.4.3 on an M-polyfold
+
+*as in the book* · witness: the zero section
+
+**HWZ (§4.4, Definition 4.4.3, p. 195).** (New in the 2021 edition.) An sc-smooth vector field on the M-polyfold $X$ is an sc-smooth section $A$ of the M-polyfold bundle $p : TX \to X^1$.
+
+**Proved in Lean.** `MPolyfold.IsScVectorField`: $A : X^1 \to TX$ sc-smooth for the M-polyfold structures of $X^1$ and $TX$, with $p(A(x)) = x$. The zero section (reading $(\psi(x), 0)$ in every chart) is continuous and a vector field.
+
+- `Polyfold.MPolyfold.IsScVectorField` — Polyfold/Chapter4/VectorFields.lean, line 538
+- `Polyfold.MPolyfold.zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 558
+- `Polyfold.MPolyfold.tangentChartMap_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 574
+- `Polyfold.MPolyfold.continuous_zeroVectorField` — Polyfold/Chapter4/VectorFields.lean, line 581
+- `Polyfold.MPolyfold.isScVectorField_zero` — Polyfold/Chapter4/VectorFields.lean, line 596
+
+*What differs.*
+- Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are not covered by these items (V4.69, V4.72).
+
+### V4.69. Lemma 4.4.4 in a local model, $i = 1$: raising the index of a vector field
+
+*narrower* · local model, $i = 1$ · M-polyfold form needs G.6
+
+**HWZ (§4.4, Lemma 4.4.4, p. 196).** (New in the 2021 edition.) By the natural identification of $(TX)^i \to (X^1)^i$ with $T(X^i) \to X^{i+1}$, the index of a vector field $A$ can be raised by $i \ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \to X^{i+1}$.
+
+**Proved in Lean.** `retractTangent_shift`: $T(O^1) = (TO)^1$. `IsRetractVectorField.shift`: the level map $A_1 : E_2 \to E_1$ of a vector field on $(O, C, E)$ is a vector field on $(O^1, C^1, E^1)$.
+
+- `Polyfold.retractTangent_shift` — Polyfold/Chapter4/VectorFields.lean, line 143
+- `Polyfold.IsRetractVectorField.shift` — Polyfold/Chapter4/VectorFields.lean, line 180
+
+*What differs.*
+- Larger $i$ follow by iterating the local statement. On an M-polyfold the lemma needs the identification of the M-polyfolds $(TX)^i$ and $T(X^i)$ (gap G.6), which the text calls natural (Findings, Chapter 4, item 153).
+
+### V4.70. The symmetry of the second derivative (§4.5.1)
+
+*hypotheses explicit* · $D^2r$ defined through $Tr$ · density of $E_2$ in $E_1$
+
+**HWZ (§4.5.1, p. 200).** (New in the 2021 edition.) "Using the symmetry of the second derivative" $D^2r(x)(A(x), B(x)) = D^2r(x)(B(x), A(x))$ at $x \in O_2$.
+
+**Proved in Lean.** `scSecondDeriv U f z a b` ($z \in U_2$, $a, b \in E_1$): the second component of $D(Tf)(z, a)(b, 0)$. `scSecondDeriv_symm`: for $f$ sc² on $U$ relatively open in a partial quadrant, $D^2f(z)(a, b) = D^2f(z)(b, a)$.
+
+- `Polyfold.scSecondDeriv` — Polyfold/Chapter4/VectorFields.lean, line 212
+- `Polyfold.scSecondDeriv_symm` — Polyfold/Chapter4/VectorFields.lean, line 289
+- `Polyfold.fderivWithin_fderivWithin_eq` — Polyfold/Chapter4/VectorFields.lean, line 246
+- `Polyfold.IsRelOpenInQuadrant.mem_closure_interior_lvlSet` — Polyfold/Chapter4/VectorFields.lean, line 273
+- `Polyfold.scDeriv_tangentMap_inr` — Polyfold/Chapter4/VectorFields.lean, line 315
+
+*What differs.*
+- $r$ is twice differentiable only on level $2$, while $A(x)$, $B(x)$ lie in $E_1$; $D^2r(x)(a, b)$ is defined through the sc²-structure. Symmetry for $a, b \in E_2$ is Mathlib's `ContDiffWithinAt.isSymmSndFDerivWithinAt` (points of a partial quadrant lie in the closure of its interior), and extends to $E_1$ by density and continuity of $D(Tf)$ (Findings, Chapter 4, item 154).
+
+### V4.71. §4.5.1: the Lie bracket in a local model is tangent to $O$
+
+*hypotheses explicit* · $DA(x)$ = derivative of $A \circ r^1$
+
+**HWZ (§4.5.1, pp. 200–201).** (New in the 2021 edition.) Differentiating $A(x) = Dr(x)A(x)$ in the direction $B(x)$ and $B(x) = Dr(x)B(x)$ in the direction $A(x)$ at $x \in O_2$ and subtracting gives $Dr(x)[A, B](x) = [A, B](x)$ for $[A, B](x) = DA(x)B(x) - DB(x)A(x)$.
+
+**Proved in Lean.** `retractLieBracket R A B x` $= D\tilde A(x)B_1(x) - D\tilde B(x)A_1(x)$, $\tilde A = A \circ r^1$; antisymmetric. `IsRetractVectorField.diff_identity`: $D^2r(x)(A(x), b) + Dr(x)D\tilde A(x)b = D\tilde A(x)b$ for $b \in T_x(O^1)$. `retractLieBracket_mem_tangent`: $Dr(x)[A, B](x) = [A, B](x)$ on $O_2$.
+
+- `Polyfold.retractLieBracket` — Polyfold/Chapter4/VectorFields.lean, line 362
+- `Polyfold.retractLieBracket_antisymm` — Polyfold/Chapter4/VectorFields.lean, line 369
+- `Polyfold.IsRetractVectorField.diff_identity` — Polyfold/Chapter4/VectorFields.lean, line 389
+- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 442
+
+*What differs.*
+- The principal part is defined only on $O^1$, so $DA(x)$ is read as the derivative of $\tilde A = A \circ r^1$; the computation is the text's, with the symmetry of V4.70 (Findings, Chapter 4, item 154).
+
+### V4.72. Proposition 4.4.5 (preprint 4.26) in a local model: the bracket is an sc-smooth section over $O^2$
+
+*narrower* · in a local model · M-polyfold form: G.6, Lemma 4.5.1
+
+**HWZ (§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167) (proof §§4.5.1–4.5.2, pp. 200–202)).** (2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines the Lie bracket, an sc-smooth section $[A, B]$ of $TX|X^2 \to X^2$; proved in Appendix 4.5 (the earlier texts quote it from another paper, as a vector field on $X^1$).
+
+**Proved in Lean.** `proposition_4_4_5_local_2021`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \in TO$ for $x \in O_2$, and $x \mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.
+
+- `Polyfold.proposition_4_4_5_local_2021` — Polyfold/Chapter4/VectorFields.lean, line 492
+- `Polyfold.isScSmooth_scDeriv_apply` — Polyfold/Chapter4/VectorFields.lean, line 469
+- `Polyfold.levelMap_shift_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 459
+- `Polyfold.levelMap_comp_shift_eq` — Polyfold/Chapter4/VectorFields.lean, line 374
+
+*What differs.*
+- On an M-polyfold the statement needs $(TX)^i \cong T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \to X^2$ and Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader; not covered here (gap G.38). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, item 155).
+
+### V4.73. §4.5.1: the bracket at a point of $O_2$ need not lie in $E_1$
+
+*restated* · “level 1” as $E_1$: does not hold · $x \in O_{m+2} \Rightarrow E_m$: V4.72
+
+**HWZ (§4.5.1, pp. 200–201).** (New in the 2021 edition.) $DA(x)B(x) - DB(x)A(x)$ "belongs to the fiber $(T_xO)_1$ whenever $x \in O_2$" (p. 200); for $x \in O_2$, $[A, B](x)$ "belongs to the level 1", which is said to prove Proposition 4.4.5 (p. 201).
+
+**Proved in Lean.** `lieBracket_level_counterexample_2021`: a local model $(E, E, E)$ with the identity retraction, vector fields $A$, $B$ and $x \in O_2$ with $[A, B](x) \notin E_1$; `not_forall_lieBracket_mem_level_one_2021`: the universal statement fails. $E$: $|x|_m = \sup_k(k + 1)^m|x_k|$; $(Sx)_k = (-1)^k(k + 1)x_k$, $(Tx)_k = (k + 1)x_{k+1}$, $x_k = (k + 1)^{-3}$.
+
+- `Polyfold.lieBracket_level_counterexample_2021` — Polyfold/Chapter4/BracketLevel.lean, line 235
+- `Polyfold.not_forall_lieBracket_mem_level_one_2021` — Polyfold/Chapter4/BracketLevel.lean, line 247
+- `Polyfold.BracketLevel.opS` — Polyfold/Chapter4/BracketLevel.lean, line 105
+- `Polyfold.BracketLevel.opT` — Polyfold/Chapter4/BracketLevel.lean, line 138
+- `Polyfold.BracketLevel.xPt` — Polyfold/Chapter4/BracketLevel.lean, line 196
+- `Polyfold.BracketLevel.bracket_not_mem_level_one` — Polyfold/Chapter4/BracketLevel.lean, line 200
+- `Polyfold.isRetractVectorField_scOperator` — Polyfold/Chapter4/BracketLevel.lean, line 164
+- `Polyfold.retractLieBracket_scOperator` — Polyfold/Chapter4/BracketLevel.lean, line 178
+
+*What differs.*
+- Read as $[A, B](x) \in E_1$ the two sentences do not hold as we read them: $[S, T]x = ((-1)^k(k + 1)(2k + 3)x_{k+1})_k$, whose level-$1$ coordinates have absolute value $P^3 + P^2 \ge 1/4$, $P = (k + 1)/(k + 2)$ (here $(T_xO)_1 = E_1$).
+- Read as "a tangent vector at the point $x$ of level $1$ of $X^1$", i.e. $x \in O_{m+2}$ gives $[A, B](x) \in E_m$, the sentence is V4.72; Proposition 4.4.5 is not affected. A weighted $\ell^2$ version is sketched, not formalized (Findings, Chapter 4, item 156).
+
 ## Chapter 5
 
 *HWZ Chapter 5 §§5.1–5.3, 5.5, pp. 205–236 (preprint §§5.1–5.4, pp. 169–199): the Fredholm package for M-polyfolds — auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity*
@@ -5773,7 +6626,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.StrongBundle.IsGenCompactHomotopy.isCompact_solutionSet_restrict` — Polyfold/Chapter5/Homotopy.lean, line 252
 
 *What differs.*
-- The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is not formalized (gap G.47; Findings, Chapter 5, item 100).
+- The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is not formalized (gap G.47; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68).
 
 ### V5.42. Lemma 5.3.16 (preprint 5.23), and the hidden hypothesis of Theorem 5.3.15 (preprint 5.22)
 
@@ -5788,7 +6641,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.exists_isCompl_ker_of_ne_zero` — Polyfold/Chapter5/Homotopy.lean, line 162
 
 *What differs.*
-- At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101).
+- At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101). The 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth $x$, which gives $dt(x) \ne 0$ (V5.69).
 
 ### V5.43. The product rule at a level-$1$ point
 
@@ -6094,6 +6947,120 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 *What differs.*
 - "In view of Theorem 5.37" is Proposition 5.5.11 (preprint 5.38); the bump Theorem 5.5.16 (preprint 5.43) needs is the classical $C^\infty$ one (Findings, Chapter 5, item 116).
+
+### V5.64. Definition 5.2.1 (preprint 5.4), 2021 form: weakly proper on $U$, weakly proper$_{<\infty}$, proper$_{<\infty}$
+
+*hypotheses explicit* · (4), (5) new in 2021 · bound on $U$ = bound everywhere
+
+**HWZ (§5.2, Definition 5.2.1 (preprint 5.4), p. 209 (preprint p. 171)).** (2) weakly proper with the bound $N(s(y)) \le 1$ asked only for $y \in U$; new: (4) weakly proper$_{<\infty}$, the same for every sc⁺-section $s$ supported in $U$ with $\sup_U N(s) < \infty$; (5) proper$_{<\infty}$, $\operatorname{cl}_{X_0}\{x \in U \mid N(f(x)) \le C\}$ compact for every constant $0 < C < \infty$.
+
+**Proved in Lean.** `IsWeaklyProperOnU`, `IsWeaklyProperLtInfty` (a constant $C$ with `AuxLe N (s y) C` on $U$), `IsProperLtInfty` (every $C > 0$), with `AuxLe` for $N = \infty$ off $Y_{0,1}$. `isWeaklyProperOnU_iff`: the 2021 form of (2) is equivalent to `IsWeaklyProper` (bound everywhere).
+
+- `Polyfold.StrongBundle.IsWeaklyProperOnU` — Polyfold/Chapter5/Book2021.lean, line 110
+- `Polyfold.StrongBundle.IsWeaklyProperLtInfty` — Polyfold/Chapter5/Book2021.lean, line 119
+- `Polyfold.StrongBundle.IsProperLtInfty` — Polyfold/Chapter5/Book2021.lean, line 129
+- `Polyfold.StrongBundle.isWeaklyProperOnU_iff` — Polyfold/Chapter5/Book2021.lean, line 156
+- `Polyfold.StrongBundle.IsAuxNorm.auxLe_fiberZero` — Polyfold/Chapter5/Book2021.lean, line 134
+- `Polyfold.StrongBundle.isZeroAt_of_not_mem_of_support_subset` — Polyfold/Chapter5/Book2021.lean, line 149
+
+*What differs.*
+- The bound on $U$ is no weaker than the earlier bound everywhere: $s$ vanishes off $U$ and $N(0_x) = 0$ (Findings, Chapter 5, item 170).
+
+### V5.65. The a priori dependencies after Definition 5.2.1 (preprint 5.4), 2021
+
+*hypotheses explicit* · $f$ continuous for two arrows · "not equivalent in general": no example
+
+**HWZ (§5.2, the a priori dependencies after Definition 5.2.1 (preprint 5.4), p. 209).** Proper ⇒ weakly proper ⇒ compact solution set ("obviously"); proper$_{<\infty}$ ⇒ weakly proper$_{<\infty}$, proper$_{<\infty}$ ⇒ proper, weakly proper$_{<\infty}$ ⇒ weakly proper; in general not equivalent for sc-smooth sections.
+
+**Proved in Lean.** `IsProperLtInfty.isProper`, `IsWeaklyProperLtInfty.isWeaklyProperOnU`, `IsWeaklyProperOnU.isCompact_solutionSet`; for a continuous $f$: `IsProper.isWeaklyProperOnU`, `IsProperLtInfty.isWeaklyProperLtInfty`.
+
+- `Polyfold.StrongBundle.IsProperLtInfty.isProper` — Polyfold/Chapter5/Book2021.lean, line 173
+- `Polyfold.StrongBundle.IsWeaklyProperLtInfty.isWeaklyProperOnU` — Polyfold/Chapter5/Book2021.lean, line 179
+- `Polyfold.StrongBundle.IsProper.isWeaklyProperOnU` — Polyfold/Chapter5/Book2021.lean, line 186
+- `Polyfold.StrongBundle.IsProperLtInfty.isWeaklyProperLtInfty` — Polyfold/Chapter5/Book2021.lean, line 192
+- `Polyfold.StrongBundle.IsWeaklyProperOnU.isCompact_solutionSet` — Polyfold/Chapter5/Book2021.lean, line 213
+
+*What differs.*
+- A solution of $f = s$ lies in $U$ and has $N(f(x)) = N(s(x)) \le C$; closedness of $\{f = s\}$ needs $f$ continuous. The remark that the notions differ for sc-smooth sections is not formalized (Findings, Chapter 5, item 171).
+
+### V5.66. Theorem 5.2.2 (preprint 5.5), 2021 form: compact solution set implies proper$_{<\infty}$
+
+*as in the book* · no tameness · $U$ independent of $C$
+
+**HWZ (§5.2, Theorem 5.2.2 (preprint 5.5), p. 210 (preprint p. 172) (proof pp. 210–213)).** For an sc-Fredholm section of a strong bundle over an M-polyfold a compact solution set implies proper$_{<\infty}$; so the five properties of Definition 5.2.1 are equivalent.
+
+**Proved in Lean.** `theorem_5_2_2_2021`: compact solution set ⇒ `IsProperLtInfty f`. `theorem_5_2_2_2021_tfae`: the five properties are equivalent for sc-Fredholm sections.
+
+- `Polyfold.theorem_5_2_2_2021` — Polyfold/Chapter5/Book2021.lean, line 224
+- `Polyfold.theorem_5_2_2_2021_tfae` — Polyfold/Chapter5/Book2021.lean, line 255
+- `Polyfold.exists_nbhd_isCompact_closure_bdd` — Polyfold/Chapter5/Compactness.lean, line 695
+
+*What differs.*
+- The local compact set of V5.9 is taken for the bound $A \cdot C$, $A$ comparing $N$ with the chart norm; in the proof's first displayed set "$N(f(x)) \le d$" is read as $N(f(z)) \le d$ (possible misprint) (Findings, Chapter 5, item 172).
+
+### V5.67. Theorem 5.3.5 (preprint 5.13), 2021 form: a compact sub-M-polyfold
+
+*restated* · $N(f(x)) \le 1$ read as $N(s(x)) \le 1$ · density pointwise
+
+**HWZ (§5.3, Theorem 5.3.5 (preprint 5.13), pp. 217–218 (preprint pp. 174–175)).** As in the earlier texts, with sections $s$, $\operatorname{supp}s \subset U$, "$N(f(x)) \le 1$ for all $x \in X$"; for $s$ in a dense subset, $f + s$ is transversal and $S_{f+s}$ is a compact sub-M-polyfold with the structure of a compact manifold without boundary.
+
+**Proved in Lean.** `theorem_5_3_5_2021`: the conclusions of `theorem_5_13`, with $S_{f+s}$ a sub-M-polyfold and compact (a manifold when non-empty); `isSubMPolyfold_solutionSet_of_manifold`: the empty set is a sub-M-polyfold.
+
+- `Polyfold.theorem_5_3_5_2021` — Polyfold/Chapter5/Book2021.lean, line 289
+- `Polyfold.isSubMPolyfold_solutionSet_of_manifold` — Polyfold/Chapter5/Book2021.lean, line 277
+- `Polyfold.theorem_5_13` — Polyfold/Chapter5/Transversality.lean, line 1806
+
+*What differs.*
+- The printed bound on $f$ is read as a bound on $s$ (possible misprint; the proof bounds $s$); density is pointwise, as in V5.30 (Findings, Chapter 5, items 173, 174).
+
+### V5.68. Definition 5.3.13 (preprint 5.20), 2021 form: generalized compact homotopy with $dt$ onto
+
+*restated* · $t$ not onto; no fibre conditions · $dt(x)$ read in a chart · ends = restrictions
+
+**HWZ (§5.3, Definition 5.3.13 (preprint 5.20), p. 223 (preprint p. 180)).** A tame strong bundle, an sc-Fredholm $f$ with compact solution set and an sc-smooth $t : X \to [0, 1]$ with (1) $t^{-1}(i) = X_i$, (2) $(f|X_i, P|Y_i) = (f_i, P_i)$, (3) $dt(x)$ onto $\mathbb R$ at every smooth $x$.
+
+**Proved in Lean.** `IsSubmersiveGenCompactHomotopy f t`: $X$ tame, $f$ with tame germ data and compact solution set, $t$ sc-smooth with values in $[0, 1]$, the ends $t^{-1}(0)$, $t^{-1}(1)$ tame sc-Fredholm problems (`IsCompactFredholmRestriction`), and `HasSurjDerivAt` ($dt$ onto in a chart) at smooth points. The data of V5.41 with (3) give it; every fibre has a compact solution set.
+
+- `Polyfold.MPolyfold.HasSurjDerivAt` — Polyfold/Chapter5/Book2021.lean, line 319
+- `Polyfold.StrongBundle.IsCompactFredholmRestriction` — Polyfold/Chapter5/Book2021.lean, line 331
+- `Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy` — Polyfold/Chapter5/Book2021.lean, line 346
+- `Polyfold.StrongBundle.IsGenCompactHomotopy.isSubmersiveGenCompactHomotopy` — Polyfold/Chapter5/Book2021.lean, line 359
+- `Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isCompact_solutionSet_restrict` — Polyfold/Chapter5/Book2021.lean, line 374
+- `Polyfold.StrongBundle.isCompactFredholmRestriction_of_eq_empty` — Polyfold/Chapter5/Book2021.lean, line 445
+
+*What differs.*
+- 2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\tau$, $0 < \tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is still not formalized (gap G.47; Findings, Chapter 5, items 175, 176).
+
+### V5.69. Lemma 5.3.16 (preprint 5.23) under the 2021 Definition 5.3.13 (3)
+
+*hypotheses explicit* · $dt(x) \ne 0$ from (3) · $Z$ algebraic, not shown smooth
+
+**HWZ (§5.3, Lemma 5.3.16 (preprint 5.23), p. 224 (preprint p. 182)).** With a one-dimensional smooth $Z$, $T_xX = Z \oplus \ker dt(x)$, every $\tau \in T^*_xS$ is $dt(x) \circ b_\tau$ for a unique $b_\tau : T_xS \to Z$, and adding an operator into $\ker dt(x)$ keeps this; under the 2021 Definition 5.3.13 (3) $dt(x)$ is onto.
+
+**Proved in Lean.** `lemma_5_3_16_2021`: from `HasSurjDerivAt t x`, in a chart the derivative $\ell$ on $T_zO$ is non-zero, $\ker\ell$ has a one-dimensional complement $Z$, and Lemma 5.3.16 holds (`lemma_5_23`).
+
+- `Polyfold.lemma_5_3_16_2021` — Polyfold/Chapter5/Book2021.lean, line 400
+- `Polyfold.lemma_5_23` — Polyfold/Chapter5/Homotopy.lean, line 106
+- `Polyfold.exists_isCompl_ker_of_ne_zero` — Polyfold/Chapter5/Homotopy.lean, line 162
+
+*What differs.*
+- The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\ell$ is non-zero, its smoothness is not part of the statement (gap G.48 changed; Findings, Chapter 5, items 101, 178).
+
+### V5.70. A generalized compact homotopy in the 2021 sense that is not one in the earlier sense
+
+*not in the book* · witness: empty ends · 2021 data ⇏ earlier data
+
+**HWZ (§5.3, Definition 5.3.13 (preprint 5.20), p. 223 (preprint p. 180)).** Not in the book: satisfiability of the 2021 definition, and its relation to the earlier one.
+
+**Proved in Lean.** On $\mathbb R \times \mathbb R \to \mathbb R$, the graph section of $\mathrm{id}$ and $t(x) = 1/2 + \arctan(x)/\pi$ (values in $(0, 1)$, empty ends, $dt(x) \ne 0$) satisfy `IsSubmersiveGenCompactHomotopy`, not `IsGenCompactHomotopy`.
+
+- `Polyfold.GenCompactHomotopyWitness.arctanTime` — Polyfold/Chapter5/Book2021.lean, line 470
+- `Polyfold.GenCompactHomotopyWitness.hasSurjDerivAt_arctanTime` — Polyfold/Chapter5/Book2021.lean, line 516
+- `Polyfold.GenCompactHomotopyWitness.isSubmersiveGenCompactHomotopy_witness` — Polyfold/Chapter5/Book2021.lean, line 561
+- `Polyfold.GenCompactHomotopyWitness.not_isGenCompactHomotopy_witness` — Polyfold/Chapter5/Book2021.lean, line 575
+
+*What differs.*
+- Not in the book (Findings, Chapter 5, item 177).
 
 ## Chapter 6
 
@@ -7397,6 +8364,73 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 *What differs.*
 - The spanning step is proved directly in $F$; the name $\alpha_q$ in the last part is read as $\alpha^P$ (possible misprint) (Findings, Chapter 6, items 6, 7).
 
+### V6.65. Lemma 6.4.4 (2017: 6.3): Fredholm, good left-projection and the index near $(T_0, P_0)$
+
+*hypotheses explicit* · $\mathrm{ind}(P \circ T)$ as a map $E \to F$ · proof by $J(P)$, not $\Phi_{(P,T)}$
+
+**HWZ (§6.4, Lemma 6.4.4 (2017: 6.3), p. 247 (2017 p. 189)).** For $T_0$ Fredholm and $P_0 \in \Pi_{T_0}$ there is $\varepsilon > 0$ such that $\|T - T_0\| < \varepsilon$, $\|P - P_0\| < \varepsilon$, $P \circ P = P$ give: $T$ Fredholm, $P \in \Pi_T$, and (new in 2021) $\mathrm{ind}(P \circ T) = \mathrm{ind}(T) = \mathrm{ind}(T_0) = \mathrm{ind}(P_0 \circ T_0)$. The proof uses the map $\Phi_{(P,T)}(x, h) = PTx + (I - P)h$.
+
+**Proved in Lean.** `lemma_6_4_4_2021`: the statement, with $E$, $F$ in `Type` and the indices of $P \circ T$, $P_0 \circ T_0$ as maps $E \to F$. Proof by the intertwiner $J(P) = PP_0 + (1 - P)(1 - P_0)$ (`projIntertwiner`, `projIntertwiner_mul`: $J P_0 = P J$), a unit near $P_0$.
+
+- `Polyfold.projIntertwiner` — Polyfold/Chapter6/Book2021.lean, line 90
+- `Polyfold.projIntertwiner_self` — Polyfold/Chapter6/Book2021.lean, line 94
+- `Polyfold.projIntertwiner_mul` — Polyfold/Chapter6/Book2021.lean, line 102
+- `Polyfold.continuous_projIntertwiner` — Polyfold/Chapter6/Book2021.lean, line 113
+- `Polyfold.lemma_6_4_4_2021` — Polyfold/Chapter6/Book2021.lean, line 121
+- `Polyfold.lemma_6_17` — Polyfold/Chapter6/LocalDetBundle.lean, line 129
+- `Polyfold.IsGoodLeftProj.fredholmIndex_comp` — Polyfold/Chapter6/GoodProjections.lean, line 158
+
+*What differs.*
+- $P = J P_0 J^{-1}$ gives $R(P) = J R(P_0)$ and $R(PT) = J R(P_0 J^{-1} T) = R(P)$ by Lemma 6.5.1 (preprint 6.17) for $J^{-1}T$; $E$ and $F$ are taken in the universe `Type` (Findings, Chapter 6, items 110, 111).
+
+### V6.66. A common complement of two kernels of the same dimension
+
+*not in the book* · algebraic, not shown closed
+
+**HWZ (§6.4, proof of Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)).** "We can take a closed linear subspace $X$ of $E$" complementing both $\ker(PT)$ and $\ker(QT)$, of equal dimension.
+
+**Proved in Lean.** `exists_isCompl_isCompl_of_finrank_eq`: two finite-dimensional subspaces of the same dimension have a common algebraic complement (induction on $\dim(K_1 + K_2) - \dim K_1$, adding $a + b$).
+
+- `Polyfold.finrank_sup_span_singleton_of_notMem` — Polyfold/Chapter6/Book2021.lean, line 222
+- `Polyfold.isCompl_sup_span_singleton` — Polyfold/Chapter6/Book2021.lean, line 237
+- `Polyfold.exists_isCompl_isCompl_of_finrank_eq_aux` — Polyfold/Chapter6/Book2021.lean, line 259
+- `Polyfold.exists_isCompl_isCompl_of_finrank_eq` — Polyfold/Chapter6/Book2021.lean, line 300
+
+*What differs.*
+- Not in the book as a statement; the text takes $X$ closed without argument (Findings, Chapter 6, item 112).
+
+### V6.67. Proposition 6.4.13 (2017: 6.6): the isomorphisms $A_T$, $B_T$
+
+*narrower* · continuity in $T$ not formalized (G.81) · $X$ algebraic
+
+**HWZ (§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195) (proof pp. 253–255)).** For $T$ Fredholm, $H$ closed of finite codimension with $\Pi_T \cap \mathcal P_H \ne \emptyset$ (explicit in 2021) and $P, Q \in \Pi_T \cap \mathcal P_H$, isomorphisms $A_T : \ker(PT) \to \ker(QT)$, $B_T : F/H \to F/H$ make the diagram of $E(T, P)$, $E(T, Q)$ commute; they depend continuously on $T$.
+
+**Proved in Lean.** `proposition_6_4_13_2021`: for $P, Q \in \Pi_T$ with $R(P) = R(Q) = H$, linear isomorphisms $A$, $B$ (the text's construction) with $A \circ j_P = j_Q$, $\Phi_Q \circ A = B \circ \Phi_P$, $\pi_Q \circ B = \pi_P$ (`projSeqJ`, `projSeqPhi`, `projSeqPi`).
+
+- `Polyfold.proposition_6_4_13_2021` — Polyfold/Chapter6/Book2021.lean, line 320
+- `Polyfold.exists_isCompl_isCompl_of_finrank_eq` — Polyfold/Chapter6/Book2021.lean, line 300
+- `Polyfold.projSeqJ` — Polyfold/Chapter6/ProjectionSequence.lean, line 70
+- `Polyfold.projSeqPhi` — Polyfold/Chapter6/ProjectionSequence.lean, line 75
+- `Polyfold.projSeqPi` — Polyfold/Chapter6/ProjectionSequence.lean, line 84
+
+*What differs.*
+- The last sentence, continuity in $T$, is gap G.81; $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, Chapter 6, items 112, 113).
+
+### V6.68. Lemmas 6.6.8 and 6.6.9: dummy variables and added sections
+
+*restated* · dummy variables = zero sections · both from V6.45
+
+**HWZ (§6.6, Lemma 6.6.9 (with Lemma 6.6.8 (preprint 6.33)), pp. 267–269 (preprint p. 224)).** Lemma 6.6.8: parameters $\mu \in \mathbb R^l$ entering $F$ as dummy variables do not change the propagation. Lemma 6.6.9 (new as a separate lemma): adding $\sum\mu_j\bar s_j(y, t)$ to $F$ with property (P) does not change it.
+
+**Proved in Lean.** `lemma_6_6_8_2021` (the appended sections are $0$) and `lemma_6_6_9_2021` (arbitrary $\bar s_j$): the push-forwards along the stabilized kernels agree; both are `IsStabKernels.push_append` (V6.45).
+
+- `Polyfold.lemma_6_6_8_2021` — Polyfold/Chapter6/Book2021.lean, line 486
+- `Polyfold.lemma_6_6_9_2021` — Polyfold/Chapter6/Book2021.lean, line 499
+- `Polyfold.IsStabKernels.push_append` — Polyfold/Chapter6/Propagation.lean, line 543
+
+*What differs.*
+- The 2021 text splits preprint Lemma 6.33 (2017: 6.15): its statement is Lemma 6.6.9, the first step of its proof Lemma 6.6.8; the stabilized kernels of the appended data are a hypothesis, as in V6.45 (Findings, Chapter 6, item 114).
+
 ## Part II, Chapter 7
 
 *HWZ Part II, Chapter 7 §§7.1–7.3, 7.5–7.6, pp. 287–356 (2017 §§7.1–7.5, pp. 225–256; Part II has no 2014 preprint): ep-groupoids, natural representations of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of the orbit space, index lifting, paracompact orbit spaces, proper subsets, sc-smooth partitions of unity*
@@ -8154,7 +9188,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V7.39. Proposition 7.2.10 (2017: 7.9): the M-polyfold structure of $\mathbf X^R$
 
-*narrower* · added: $\mathbf X^R$ Hausdorff, paracompact · $\mathbf X^R$ need not be Hausdorff · charts, transitions: no hypotheses · gap G.71
+*narrower* · added: $\mathbf X^R$ Hausdorff, paracompact · $\mathbf X^R$ need not be Hausdorff · charts, transitions: no hypotheses · gap G.71 · 2021: paracompact always, Hausdorff assumed
 
 **HWZ (§7.2, Proposition 7.2.10 (2017: 7.9), p. 313 (2017 p. 242) (proof 2017 pp. 242–243)).** The reduced morphism set $\mathbf X^R$ has a natural M-polyfold structure. (The proof equips $\mathbf X^R$ with the quotient topology of $\pi : \mathbf X \to \mathbf X^R$; for an open $\mathbf U(\varphi_0)$ on which $s$ is an sc-diffeomorphism, the maps $\Psi_{\varphi_0} : \mathbf U(\varphi_0) \to \mathbf U([\varphi_0])$, $\varphi \mapsto [\varphi]$, are homeomorphisms between open subsets of the M-polyfold $\mathbf X$ and open subsets of $\mathbf X^R$ with sc-smooth transition maps, and this defines the natural M-polyfold structure on $\mathbf X^R$.)
 
@@ -8182,10 +9216,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - An M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.3.4 (2017: 2.8)). As we read it, the proof gives the quotient topology, the openness of the projection, the charts and their sc-smooth transitions, but neither Hausdorffness nor paracompactness, and $\mathbf X^R$ need not be Hausdorff (`Examples.exists_not_t2Space_reducedMor`, on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3)); both are hypotheses of `reducedPolyfold` (gap G.71) (Findings, Chapter 7, items 56, 107, 111).
 - The hypotheses are satisfiable: for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, $\mathbf X \to \mathbf X^R$ is a homeomorphism (Findings, Chapter 7, item 60).
 - Four possible misprints in the proof, two of them possibly extraction artefacts: "$\psi' = (s|\mathbf U(\psi))^{-1}(s(\psi))$" for $(s|\mathbf U(\psi))^{-1}(s(\psi'))$; "$\mathbf U(\varphi) \subset \Psi_{\varphi_0}(\mathbf U([\varphi_0]) \cap \mathbf U([\psi_0]))$" for $\Psi_{\varphi_0}^{-1}$; "$T_x$ agrees with the kernel of the $G_{s(\varphi)}$-action" for $T_{s(\varphi)}$; and the garbled sentence on the source and target maps (2017 p. 243) (Findings, Chapter 7, item 57).
+- *2021 edition:* Proposition 7.2.10 (p. 313) gives the charts and transitions for the quotient topology $T_R$ without further claim, Remark 7.2.8 (p. 311) says that the M-polyfold structure fails in general, Proposition 7.2.12 (p. 317) proves $T_R$ paracompact for every ep-groupoid (`paracompactSpace_reducedMor`, an instance, V7.77), and Proposition 7.2.13 (p. 318) makes it an M-polyfold exactly when it is Hausdorff (V7.78). So of the two hypotheses only the Hausdorff one remains, and it is the 2021 text's own; the example `Examples.exists_not_t2Space_reducedMor` is of the kind of Remark 7.2.8 and Appendix 7.6.3 (V7.82) (gap G.71, closed; Findings, Chapter 7, items 125, 126, 129).
 
 ### V7.40. The reduced ep-groupoid $X_R$ and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14)
 
-*narrower* · hypotheses of V7.39: gap G.71 · effective via the intrinsic $T_x$
+*narrower* · hypotheses of V7.39: gap G.71 · effective via the intrinsic $T_x$ · 2021 Theorem 7.2.14: the same hypothesis
 
 **HWZ (§7.2, 2017 p. 243 and Proposition 7.10 (2017), 2017 p. 244).** The reduced ep-groupoid $X_R$ associated with $X$: on the object level $X_R = X$, and as morphism M-polyfold one takes $\mathbf X^R$; the source and target maps $s, t : \mathbf X^R \to X$ are $s([\varphi]) := s_X(\varphi)$ and $t([\varphi]) := t_X(\varphi)$, well defined since two morphisms in an equivalence class have the same source and the same target. Through the local sc-diffeomorphisms $\Psi_\varphi : \mathbf U(\varphi) \to \mathbf U([\varphi])$, with $s(\Psi_\varphi(\varphi')) = s_X(\varphi')$ and $t(\Psi_\varphi(\varphi')) = t_X(\varphi')$, the smoothness of the natural maps is reduced to the corresponding statements for $X$, and the properness can be proved similarly. Proposition 7.10 (2017): Every ep-groupoid $X$ possesses an associated reduced ep-groupoid $X_R$. Moreover, $X_R$ is effective.
 
@@ -8212,6 +9247,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 *What differs.*
 - Under the two hypotheses on $\mathbf X^R$ of V7.39, which the text does not make (gap G.71); without them $X_R$ need not be an ep-groupoid, since $\mathbf X^R$ need not be Hausdorff (V7.39) (Findings, Chapter 7, items 56, 107, 111).
 - (3) via the continuous surjection $\mathbf X \to \mathbf X^R$, with $t \circ \pi = t_X$; (4) in sheet form, with a step the text leaves implicit; effectiveness from the intrinsic form of $T_x$ (V7.37) instead of a point with $\Phi(g)(a) \ne a$ (Findings, Chapter 7, item 58).
+- *2021 edition:* Theorem 7.2.14 (p. 318), which replaces Proposition 7.10, assumes that $T_R$ is Hausdorff, the hypothesis taken here, and Theorem 7.2.22 (p. 323) shows it equivalent to LUC and to $\mathbf X^T$ closed (V7.78, V7.81); paracompactness holds for every ep-groupoid (V7.77). The effectiveness of $X_R$ is 2021 Proposition 7.2.16 (gap G.71, closed; Findings, Chapter 7, items 126, 128, 129).
 
 ### V7.41. The isotropy of $X_R$ and Definition 7.2.15 (2017: 7.13): the effective isotropy group
 
@@ -8682,6 +9718,632 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 *What differs.*
 - The theorem of Godefroy–Troyanski–Whitfield–Zizler (Part I's Theorem 5.5.16 (2017: 5.14), the preprint's Theorem 5.43) is an explicit hypothesis, as in Part I (gap G.53); it holds for finite-dimensional spaces (`godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional`) (Findings, Chapter 7, items 95, 114).
 - "An atlas consisting of charts whose local models have Hilbert spaces $E_0$" is existential, one chart per point; "every compatible chart" would be unsatisfiable (Findings, Chapter 7, item 106). Proposition 5.5.8, Theorem 5.5.10 and Corollary 5.5.17 (2017: Proposition 5.6, Theorem 5.12 and Corollary 5.2) are the preprint's Proposition 5.35, Theorem 5.37 and Corollary 5.44.
+
+### V7.69. The remark after Definition 7.1.7, 2021 form: continuity on morphisms
+
+*restated* · changed in 2021: continuity assumed · 2017 counterexample is not continuous
+
+**HWZ (§7.1, the remark after Definition 7.1.7, p. 291 (2017: after Definition 7.7, p. 228)).** Let $f : X \to Y$ be a functor between ep-groupoids which is sc-smooth on the object M-polyfolds and continuous on the morphism spaces. Then $f$ is sc-smooth on the morphism spaces: for $\varphi \in \mathbf X$ and $\psi = f(\varphi)$ there are open neighbourhoods $U(\varphi)$, $U(\psi)$, $U(s(\varphi))$, $U(s(\psi))$ with $f(U(s(\varphi))) \subseteq U(s(\psi))$ and $f(U(\varphi)) \subseteq U(\psi)$, on which $s$ is an sc-diffeomorphism, and $f(\gamma) = (s|U(\psi))^{-1}(f(s(\gamma)))$ for $\gamma \in U(\varphi)$. (The 2017 remark did not assume continuity on morphisms.)
+
+**Proved in Lean.** `remark_7_1_7_2021`: for a functor `F` with `F.obj` sc-smooth and `F.mor` continuous, and every morphism $\varphi$, there exist open $U(\varphi) \ni \varphi$, $U(\psi) \ni F(\varphi)$, $U(s(\varphi))$, $U(s(\psi))$ and local inverses $\sigma_\varphi$, $\sigma_\psi$ with $F(U(s(\varphi))) \subseteq U(s(\psi))$, $F(U(\varphi)) \subseteq U(\psi)$, $s$ an sc-diffeomorphism $U(\varphi) \to U(s(\varphi))$ and $U(\psi) \to U(s(\psi))$, $F(\gamma) = \sigma_\psi(F(s(\gamma)))$ on $U(\varphi)$, and `F.mor` sc-smooth. `remark_7_1_7_2021_remarkFunctor`: the functor `Examples.remarkFunctor` of the 2017 counterexample (V7.10) is sc-smooth on objects and not continuous on morphisms.
+
+- `Polyfold.EpGroupoid.remark_7_1_7_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 140
+- `Polyfold.EpGroupoid.remark_7_1_7_2021_remarkFunctor` — Polyfold/Chapter7/Book2021Basic.lean, line 166
+
+*What differs.*
+- The 2021 remark assumes the continuity on morphisms that V7.10 found necessary; its form is proved, and the counterexample of V7.10 does not satisfy the new hypothesis (Findings, Chapter 7, items 9, 104, 117).
+
+### V7.70. The data (7.3) and Proposition 7.1.14: the natural representation near $x$ in sheet form
+
+*stronger* · new in the 2021 edition · property (3) not used · adds (7.4) from the proof
+
+**HWZ (§7.1, Proposition 7.1.14, p. 296 (new in the 2021 edition), with the data (7.3)).** (7.3): an open neighbourhood $W(x)$ and, for $g \in G_x$, open neighbourhoods $U^s(g)$, $U^t(g)$ of $g$ on which $s_g = s|U^s(g)$ and $t_g = t|U^t(g)$ are sc-diffeomorphisms onto $W(x)$. Proposition 7.1.14: let $U(x)$ be an open neighbourhood of $x$, $\Phi : G_x \to \mathrm{Diff}_{sc}(U(x))$ a homomorphism and $\Gamma$ with the properties (1)–(3) of Theorem 7.1.13, and fix data (7.3). Then there is an open $\Phi$-invariant $V(x) \subseteq W(x) \cap U(x)$ with $\Gamma(g, v) = s_g^{-1}(v)$ and $\Phi(g)(v) = t_g \circ s_g^{-1}(v)$ for $v \in V(x)$, $g \in G_x$.
+
+**Proved in Lean.** `IsotropySheetData x`: the data (7.3) (`W`, `srcSheet`, `tgtSheet`, `srcInv`, `tgtInv`, with $s$, $t$ sc-diffeomorphisms of the sheets onto `W`); `exists_isotropySheetData`: they exist at every object. `proposition_7_1_14_2021`: for open $U \ni x$, $\Phi(g)$ sc-diffeomorphisms of $U$ with inverse $\Phi(g^{-1})$ and $\Phi(gh) = \Phi(g) \circ \Phi(h)$ on $U$, $\Gamma(g, \cdot)$ sc-smooth on $U$ with $\Gamma(g, x) = g$, $s(\Gamma(g, y)) = y$, $t(\Gamma(g, y)) = \Phi(g)(y)$, property (3) (unused), and data `D`: there is an open $V \ni x$, $V \subseteq W \cap U$, invariant under every $\Phi(g)$, with $\Gamma(g, v) = s_g^{-1}(v)$, $\Phi(g)(v) = t(s_g^{-1}(v))$ and $\Gamma(g, v) = t_g^{-1}(\Phi(g)(v))$ on $V$. `proposition_7_1_14_2021_of_naturalRep`: the same for every `NaturalRep`.
+
+- `Polyfold.EpGroupoid.IsotropySheetData` — Polyfold/Chapter7/Book2021Basic.lean, line 183
+- `Polyfold.EpGroupoid.exists_isotropySheetData` — Polyfold/Chapter7/Book2021Basic.lean, line 202
+- `Polyfold.EpGroupoid.proposition_7_1_14_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 234
+- `Polyfold.EpGroupoid.proposition_7_1_14_2021_of_naturalRep` — Polyfold/Chapter7/Book2021Basic.lean, line 289
+
+*What differs.*
+- Property (3) of Theorem 7.1.13 is a hypothesis as printed but is not used; the identity $\Gamma(g, v) = t_g^{-1}(\Phi(g)(v))$ of (7.4) in the proof is part of the conclusion (Findings, Chapter 7, item 118).
+
+### V7.71. Proposition 7.1.15 in the 2021 form, and 2017 (2) as printed
+
+*as in the book* · (2) changed in 2021 · 2017 (2) as printed: not as we read it
+
+**HWZ (§7.1, Proposition 7.1.15, p. 297 (2017: 7.5, p. 233; (2) as printed in 2021)).** For a finite set $Y$ of mutually isomorphic objects and a neighbourhood $V$ of $Y$ there is a functor $f$ assigning mutually disjoint connected open $U(y) \subseteq V$ and sc-diffeomorphisms $f(\psi) : U(y) \to U(y')$; the morphisms between points of $U = \bigcup_y U(y)$ decompose into connected components $\mathbf U(\psi) \ni \psi$, $\psi \in \mathbf Y$, with (1) the natural action of $G_y$ on $U(y)$, (2) $s : \mathbf U(\psi) \to U(s(\psi))$ and $t : \mathbf U(\psi) \to U(t(\psi))$ sc-diffeomorphisms, (3) $f(\psi) = t \circ (s|\mathbf U(\psi))^{-1}$, and $t(\psi') = f(\psi)(s(\psi'))$ for $\psi' \in \mathbf U(\psi)$. (2017 printed (2) as $s, t : \mathbf U(\psi) \to U(y)$.)
+
+**Proved in Lean.** `proposition_7_1_15_2021`: for $Y$ finite with mutually isomorphic elements and $V \in \mathcal N(Y)$ there is `N : NaturalRepFinite Y V` such that for every morphism $\psi$ between points of $Y$: $\psi \in \mathbf U(\psi)$ and $\mathbf U(\psi)$ is the connected component of $\psi$ in the morphisms between points of $\bigcup_y U(y)$; $s : \mathbf U(\psi) \to U(s\psi)$ and $t : \mathbf U(\psi) \to U(t\psi)$ are sc-diffeomorphisms; $f(\psi)(z) = t((s|\mathbf U(\psi))^{-1}(z))$ on $U(s\psi)$; $t(\psi') = f(\psi)(s(\psi'))$ on $\mathbf U(\psi)$. `src_eq_tgt_of_printed_2017`: data with $y \in U(y)$, disjoint $U(y)$, the decomposition, and $s, t$ mapping $\mathbf U(\psi)$ into one $U(y)$ force $s(\psi) = t(\psi)$. `not_printed_2017_reflection`: for `reflectionEpGroupoid` ($\mathbb Z/2 \ltimes \mathbb R$) and $Y = \{1, -1\}$ the hypotheses hold, a `NaturalRepFinite` exists, and no such printed-2017 data exist.
+
+- `Polyfold.EpGroupoid.proposition_7_1_15_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 306
+- `Polyfold.EpGroupoid.src_eq_tgt_of_printed_2017` — Polyfold/Chapter7/Book2021Basic.lean, line 328
+- `Polyfold.EpGroupoid.not_printed_2017_reflection` — Polyfold/Chapter7/Book2021Basic.lean, line 349
+
+*What differs.*
+- The 2021 statement is the one V7.25's `NaturalRepFinite` already had. The 2017 form of (2), with one $y$ for $s$ and $t$, does not hold as we read it: it forces $s(\psi) = t(\psi)$, and $\mathbb Z/2 \ltimes \mathbb R$ with $Y = \{1, -1\}$ has no such data (Findings, Chapter 7, items 25, 119).
+
+### V7.72. Lemma 7.1.16: limits in $\mathbf U(\psi)$
+
+*as in the book* · new in the 2021 edition
+
+**HWZ (§7.1, Lemma 7.1.16, p. 300 (new in the 2021 edition)).** In the construction of Proposition 7.1.15, let $\psi \in \mathbf Y$ and $(\psi'_k) \subseteq \mathbf U(\psi)$ converge to $\psi' \in \mathbf X$. If $(s(\psi'_k))$ or $(t(\psi'_k))$ converges to a point of $U(s(\psi))$ or of $U(t(\psi))$, then $\psi' \in \mathbf U(\psi)$, and $s(\psi'_k) \to s(\psi') \in U(s(\psi))$, $t(\psi'_k) \to t(\psi') \in U(t(\psi))$.
+
+**Proved in Lean.** `lemma_7_1_16_2021`: for `N : NaturalRepFinite Y V`, $\psi$ between points of $Y$, $\psi_k \in \mathbf U(\psi)$ with $\psi_k \to \psi'$, and $s(\psi_k)$ or $t(\psi_k)$ converging to some $z \in U(s\psi) \cup U(t\psi)$: $\psi' \in \mathbf U(\psi)$, $s(\psi_k) \to s(\psi') \in U(s\psi)$, $t(\psi_k) \to t(\psi') \in U(t\psi)$. `NaturalRepFinite.mem_U_of_tendsto`: a limit in $U(b)$ of points of $U(a)$ lies in $U(a)$.
+
+- `Polyfold.EpGroupoid.NaturalRepFinite.mem_U_of_tendsto` — Polyfold/Chapter7/Book2021Basic.lean, line 398
+- `Polyfold.EpGroupoid.lemma_7_1_16_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 412
+
+*What differs.*
+- Hypothesis for hypothesis (Findings, Chapter 7, item 120).
+
+### V7.73. Corollary 7.1.17 (4)–(7)
+
+*restated* · new in the 2021 edition · (6) in the fibred-product sub-M-polyfold
+
+**HWZ (§7.1, Corollary 7.1.17, (4), (5), (6) and (7), p. 301 (new in the 2021 edition)).** The construction of Proposition 7.1.15 has the further properties: (4) for $x \in Y$ and $g \in G_x$, $f(g)(z) = t \circ \Gamma(g, z) = g * z$, the natural action; (5) $f(\varphi)$ is equivariant with respect to $\gamma_\varphi : G_{s(\varphi)} \to G_{t(\varphi)}$, $g \mapsto \varphi \circ g \circ \varphi^{-1}$; (6) for $s(\psi) = t(\varphi)$ the multiplication $\mathbf U(\psi)\,{}_s{\times}_t\,\mathbf U(\varphi) \to \mathbf X$ is an sc-diffeomorphism onto $\mathbf U(\psi \circ \varphi)$; (7) the $U(x)$ may be taken with the properness property.
+
+**Proved in Lean.** `corollary_7_1_17_4_2021`: for $x \in Y$ a `NaturalRep` on $U(x)$ with $\Gamma(g, z) = (s|\mathbf U(g))^{-1}(z)$ and $f(g)(z) = t(\Gamma(g, z)) = \Phi(g)(z)$. `corollary_7_1_17_5_2021`: $f(\varphi)(f(g)(z)) = f(\gamma_\varphi(g))(f(\varphi)(z))$ (`conjIsotropy`). `corollary_7_1_17_6_2021`: the multiplication is an sc-diffeomorphism from $\mathbf U(\psi)\,{}_s{\times}_t\,\mathbf U(\varphi)$, an open subset of the fibred-product sub-M-polyfold $\mathbf X\,{}_s{\times}_t\,\mathbf X$, onto $\mathbf U(\psi \circ \varphi)$. `corollary_7_1_17_7_2021`: a `NaturalRepFinite` whose $U(y)$ have the properness property.
+
+- `Polyfold.EpGroupoid.corollary_7_1_17_4_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 450
+- `Polyfold.EpGroupoid.corollary_7_1_17_5_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 480
+- `Polyfold.EpGroupoid.corollary_7_1_17_6_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 504
+- `Polyfold.EpGroupoid.corollary_7_1_17_7_2021` — Polyfold/Chapter7/Book2021Basic.lean, line 589
+
+*What differs.*
+- (1)–(3) are those of Proposition 7.1.15 (V7.71). In (6) the domain is read inside Part I's fibred-product sub-M-polyfold (Proposition 2.5.20 (2017: 2.15)) (Findings, Chapter 7, item 120).
+
+### V7.74. Definition 7.2.5 and Lemma 7.2.6: $T_x$ and its conjugates
+
+*restated* · Lemma 7.2.6 new in 2021 · maximality as two statements
+
+**HWZ (§7.2, Definition 7.2.5 and Lemma 7.2.6, p. 310 (Definition 7.2.5: 2017 p. 241; Lemma 7.2.6 new in the 2021 edition)).** $T_x \subseteq G_x$ is the normal subgroup of the elements acting trivially on some sufficiently small $W(x) \subseteq U(x)$, maximal with this property; it does not depend on $U(x)$. Lemma 7.2.6: for $\varphi : x \to y$, $g \mapsto \varphi \circ g \circ \varphi^{-1}$ is an injective homomorphism $T_x \to G_y$ with image $T_y$.
+
+**Proved in Lean.** `NaturalRep.kerOn V` $= T_x^V$, the $g$ with $\Phi(g) = \mathrm{id}$ on $V \cap U(x)$ (`mem_kerOn`), antitone in $V$ (`kerOn_anti`), normal for invariant $V$ (`kerOn_normal`), $\subseteq T_x$ for open $W \ni x$ (`kerOn_le_trivialSubgroup`). `definition_7_2_5_2021`: for every natural representation, $T_x^W \subseteq T_x$ for all open $W \ni x$, and there is an invariant open $V \ni x$ in $U(x)$ with $T_x^W = T_x$ for all open $x \in W \subseteq V$. `lemma_7_2_6_2021`: conjugation by $\varphi$ is injective on $T_x$ and maps it onto $T_y$; `trivialSubgroupEquiv_2021` is the isomorphism $T_x \cong T_y$ (`trivialSubgroupEquiv_2021_apply`).
+
+- `Polyfold.EpGroupoid.NaturalRep.kerOn` — Polyfold/Chapter7/ReducedCriterion.lean, line 182
+- `Polyfold.EpGroupoid.NaturalRep.mem_kerOn` — Polyfold/Chapter7/ReducedCriterion.lean, line 193
+- `Polyfold.EpGroupoid.NaturalRep.kerOn_anti` — Polyfold/Chapter7/ReducedCriterion.lean, line 198
+- `Polyfold.EpGroupoid.NaturalRep.kerOn_normal` — Polyfold/Chapter7/ReducedCriterion.lean, line 202
+- `Polyfold.EpGroupoid.NaturalRep.kerOn_le_trivialSubgroup` — Polyfold/Chapter7/ReducedCriterion.lean, line 209
+- `Polyfold.EpGroupoid.definition_7_2_5_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 222
+- `Polyfold.EpGroupoid.lemma_7_2_6_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 253
+- `Polyfold.EpGroupoid.trivialSubgroupEquiv_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 260
+- `Polyfold.EpGroupoid.trivialSubgroupEquiv_2021_apply` — Polyfold/Chapter7/ReducedCriterion.lean, line 266
+
+*What differs.*
+- "Maximal subgroup acting trivially on some small $W(x)$" is read as: $T_x$ contains $T_x^W$ for every open $W \ni x$ and equals it for every small $W$; the intrinsic $T_x$ is `trivialSubgroup` (V7.37) (Findings, Chapter 7, item 121).
+
+### V7.75. Definition 7.2.7, Remark 7.2.8 and Lemma 7.2.9: the topology $T_R$
+
+*restated* · Remark 7.2.8 new in 2021 · finest topology = quotient topology · Def. 7.2.7: possible misprint
+
+**HWZ (§7.2, Remark 7.2.8, p. 311 (new in the 2021 edition), with Definition 7.2.7, p. 310 (2017: 7.12), and Lemma 7.2.9, p. 311).** Definition 7.2.7 defines $\mathbf X^T$, the equivalence $\varphi \sim \varphi'$ and $\mathbf X^R$, with $s([\varphi]) = s_X(\varphi)$ and the target map printed as "$s([\varphi]) = t_X(\varphi)$". Remark 7.2.8: in general $(X, \mathbf X^R)$ cannot be made an ep-groupoid; let $T_R$ be the finest topology on $\mathbf X^R$ for which $\pi : \mathbf X \to \mathbf X^R$ is continuous; if $T_R$ is Hausdorff there is a natural ep-groupoid structure, and Appendix 7.6.3 gives an example where $T_R$ is not Hausdorff. Lemma 7.2.9: $\pi$ is open, and a homeomorphism from a sheet of $s$ onto its image.
+
+**Proved in Lean.** `remark_7_2_8_2021`: `reducedπ` is continuous for the topology of `ReducedMor` (the quotient topology), and that topology is finer than every topology making `reducedπ` continuous. `isOpenQuotientMap_reducedπ`: $\pi$ is an open quotient map; Lemma 7.2.9 is `isOpenMap_reducedπ` and `isOpenEmbedding_domRestrict_reducedπ` (V7.39). The target map is `reducedTgt`.
+
+- `Polyfold.EpGroupoid.remark_7_2_8_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 274
+- `Polyfold.EpGroupoid.isOpenQuotientMap_reducedπ` — Polyfold/Chapter7/ReducedCriterion.lean, line 442
+- `Polyfold.EpGroupoid.isOpenMap_reducedπ` — Polyfold/Chapter7/Reduced.lean, line 334
+- `Polyfold.EpGroupoid.isOpenEmbedding_domRestrict_reducedπ` — Polyfold/Chapter7/Reduced.lean, line 490
+- `Polyfold.EpGroupoid.reducedTgt` — Polyfold/Chapter7/Reduced.lean, line 366
+
+*What differs.*
+- "The finest topology for which $\pi$ is continuous" is the quotient topology. In Definition 7.2.7, "$s([\varphi]) = t_X(\varphi)$" for $t([\varphi])$ (possible misprint) (Findings, Chapter 7, items 122, 123).
+- Remark 7.2.8's "not true in general" is what the round-trip counterexample of V7.39 shows (V7.82).
+
+### V7.76. Lemma 7.2.11: neighbourhoods of a class of $\mathbf X^R$
+
+*hypotheses explicit* · new in the 2021 edition · added: $T_R$ Hausdorff · in general: not as we read it
+
+**HWZ (§7.2, Lemma 7.2.11, p. 315 (new in the 2021 edition)).** Let $\varphi_1, \dots, \varphi_k$ be the morphisms different from $\varphi_0$ and equivalent to it. There are open neighbourhoods $U(\varphi_i)$, $i = 0, \dots, k$, and $U([\varphi_0])$ such that (1) the closures of distinct $U(\varphi_i)$ are disjoint, (2) $U(\varphi_i) \to U([\varphi_0])$, $\varphi \mapsto [\varphi]$, are homeomorphisms, (3) every $\psi$ with $[\psi] \in U([\varphi_0])$ lies in some $U(\varphi_i)$.
+
+**Proved in Lean.** `finite_reducedπ_preimage`: the class of $\varphi_0$ is finite. `IsReducedEvenlyCovered φ₀` is the conclusion (1)–(3), with (2) as $\pi(U(\varphi)) = U([\varphi_0])$ and $\pi$ an open embedding on $U(\varphi)$. **Under** `[T2Space X.ReducedMor]`: `lemma_7_2_11_2021` (finiteness and (1)–(3) at every $\varphi_0$), via `exists_preimage_reducedπ_subset_of_t2Space` and `isReducedEvenlyCovered_of_t2Space`. Conversely `isClosed_nonEffectivePart_of_isReducedEvenlyCovered`: (1)–(3) at every unit make $\mathbf X^T$ closed; `isReducedEvenlyCovered_iff_t2Space`: (1)–(3) hold at every morphism iff $T_R$ is Hausdorff. `JumpingRetract.reducedπ_preimage_one`, `JumpingRetract.not_isReducedEvenlyCovered`: they fail at $(1, o_0)$ in the ep-groupoid of V7.82.
+
+- `Polyfold.EpGroupoid.finite_reducedπ_preimage` — Polyfold/Chapter7/ReducedCriterion.lean, line 641
+- `Polyfold.EpGroupoid.IsReducedEvenlyCovered` — Polyfold/Chapter7/ReducedCriterion.lean, line 651
+- `Polyfold.EpGroupoid.exists_preimage_reducedπ_subset_of_t2Space` — Polyfold/Chapter7/ReducedCriterion.lean, line 661
+- `Polyfold.EpGroupoid.isReducedEvenlyCovered_of_t2Space` — Polyfold/Chapter7/ReducedCriterion.lean, line 682
+- `Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_isReducedEvenlyCovered` — Polyfold/Chapter7/ReducedCriterion.lean, line 723
+- `Polyfold.EpGroupoid.isReducedEvenlyCovered_iff_t2Space` — Polyfold/Chapter7/ReducedCriterion.lean, line 772
+- `Polyfold.EpGroupoid.lemma_7_2_11_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 780
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.reducedπ_preimage_one` — Polyfold/Chapter7/ReducedCriterion.lean, line 1015
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isReducedEvenlyCovered` — Polyfold/Chapter7/ReducedCriterion.lean, line 1037
+
+*What differs.*
+- As we read it, the lemma needs $T_R$ Hausdorff: the proof of (3) uses the uniqueness of limits in $T_R$, its conclusion at every morphism is equivalent to $T_R$ Hausdorff, and it fails in the ep-groupoid of V7.82. It is proved under that hypothesis, the setting of Theorem 7.2.14 (Findings, Chapter 7, item 124).
+
+### V7.77. Proposition 7.2.12: $T_R$ is paracompact
+
+*as in the book* · new in the 2021 edition · proof without Lemma 7.2.11 · settles gap G.71
+
+**HWZ (§7.2, Proposition 7.2.12, p. 317 (new in the 2021 edition)).** For every ep-groupoid, $(\mathbf X^R, T_R)$ is a paracompact topological space (a footnote recalls that paracompactness does not include Hausdorffness).
+
+**Proved in Lean.** `paracompactSpace_reducedMor` (an instance), `proposition_7_2_12_2021`: `ParacompactSpace X.ReducedMor` for every ep-groupoid. Via `paracompactSpace_of_isOpenMap` (paracompactness descends along an open continuous surjection $p$ if every point $q$ has a compact $K$ such that every open $N \supseteq K$ contains $p^{-1}(O)$ for an open $O \ni q$) and `exists_isCompact_preimage_reducedπ_subset` (the compact $K = \{\varphi \in s^{-1}(\mathrm{cl}\,V) \mid (s, t)(\varphi) = (s, t)(q)\}$).
+
+- `Polyfold.EpGroupoid.paracompactSpace_of_isOpenMap` — Polyfold/Chapter7/ReducedCriterion.lean, line 285
+- `Polyfold.EpGroupoid.exists_isCompact_preimage_reducedπ_subset` — Polyfold/Chapter7/ReducedCriterion.lean, line 316
+- `Polyfold.EpGroupoid.paracompactSpace_reducedMor` — Polyfold/Chapter7/ReducedCriterion.lean, line 343
+- `Polyfold.EpGroupoid.proposition_7_2_12_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 350
+
+*What differs.*
+- The text's proof refines a cover through the neighbourhoods of Lemma 7.2.11 (1)–(3), which as we read it need $T_R$ Hausdorff (V7.76); the formal proof uses the openness of $\pi$ and the properness of $(s, t)$ instead, and holds for every ep-groupoid. This settles the paracompactness half of gap G.71 (Findings, Chapter 7, items 111, 125).
+
+### V7.78. Proposition 7.2.13 and Theorem 7.2.14: the reduced ep-groupoid when $T_R$ is Hausdorff
+
+*restated* · 7.2.13 new in 2021 · 7.2.14 assumes $T_R$ Hausdorff · gap G.71 closed
+
+**HWZ (§7.2, Proposition 7.2.13, p. 318 (new in the 2021 edition), and Theorem 7.2.14, p. 318 (2017: Proposition 7.10, p. 244)).** Proposition 7.2.13: the atlas of the natural charts defines an M-polyfold structure on $(\mathbf X^R, T_R)$ if and only if $T_R$ is Hausdorff. Theorem 7.2.14 (ep-groupoid criterion for the reduced groupoid): if the quotient topology $T_R$ on $\mathbf X^R$ is Hausdorff, then $(X, \mathbf X^R)$ is in a natural way an ep-groupoid.
+
+**Proved in Lean.** `proposition_7_2_13_2021`: there exist `T2Space`, `ParacompactSpace` and an M-polyfold structure on `X.ReducedMor` with atlas `reducedAtlas` iff `T2Space X.ReducedMor`. **Under** `[T2Space X.ReducedMor]`, `theorem_7_2_14_2021`: `reducedEpGroupoid` has the groupoid structure `reducedGroupoidStr`, the object M-polyfold `X.PObj`, the atlas `reducedAtlas` on $\mathbf X^R$, and there is an `EpFunctor X X.reducedEpGroupoid`. `reducedPolyfold` and `reducedEpGroupoid` (`Reduced.lean`) need no further hypothesis, `ParacompactSpace X.ReducedMor` being an instance (V7.77); `isEffective_reducedEpGroupoid` is Proposition 7.2.16.
+
+- `Polyfold.EpGroupoid.proposition_7_2_13_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 356
+- `Polyfold.EpGroupoid.theorem_7_2_14_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 365
+- `Polyfold.EpGroupoid.reducedPolyfold` — Polyfold/Chapter7/Reduced.lean, line 696
+- `Polyfold.EpGroupoid.reducedEpGroupoid` — Polyfold/Chapter7/Reduced.lean, line 907
+- `Polyfold.EpGroupoid.isEffective_reducedEpGroupoid` — Polyfold/Chapter7/Reduced.lean, line 932
+
+*What differs.*
+- An M-polyfold is Hausdorff and paracompact by definition, so Proposition 7.2.13 is read as the existence of the structure. Theorem 7.2.14 assumes exactly the hypothesis that V7.39 and V7.40 take, $T_R$ Hausdorff, and paracompactness holds always (V7.77); with Theorem 7.2.22 (V7.81) the hypothesis is characterized (gap G.71, closed) (Findings, Chapter 7, items 56, 107, 111, 126, 143).
+
+### V7.79. Proposition 7.2.17: $T_R$ Hausdorff iff $\mathbf X^T$ closed
+
+*as in the book* · new in the 2021 edition · proof via the open quotient map
+
+**HWZ (§7.2, Proposition 7.2.17, p. 320 (new in the 2021 edition)).** The topology $T_R$ on $\mathbf X^R$ is Hausdorff if and only if the non-effective part $\mathbf X^T$ is a closed subset of $\mathbf X$.
+
+**Proved in Lean.** `proposition_7_2_17_2021`: `T2Space X.ReducedMor ↔ IsClosed X.nonEffectivePart`. Steps: `reducedπ_eq_iff_comp_inv` ($[\varphi] = [\psi]$ iff $t\varphi = t\psi$ and $\psi^{-1} \circ \varphi \in \mathbf X^T$), `mem_nonEffectivePart_iff_reducedπ`, `continuous_comp_fibredProduct`, `continuousOn_comp_inv`, `isClosed_reducedπ_eq_of_isClosed` (the relation is closed if $\mathbf X^T$ is), `isClosed_nonEffectivePart_of_t2Space`; also `isClosed_src_eq_tgt`, `closure_nonEffectivePart_subset` ($\mathrm{cl}\,\mathbf X^T \subseteq \{s = t\}$).
+
+- `Polyfold.EpGroupoid.reducedπ_eq_iff_comp_inv` — Polyfold/Chapter7/ReducedCriterion.lean, line 374
+- `Polyfold.EpGroupoid.mem_nonEffectivePart_iff_reducedπ` — Polyfold/Chapter7/ReducedCriterion.lean, line 391
+- `Polyfold.EpGroupoid.continuous_comp_fibredProduct` — Polyfold/Chapter7/ReducedCriterion.lean, line 405
+- `Polyfold.EpGroupoid.continuousOn_comp_inv` — Polyfold/Chapter7/ReducedCriterion.lean, line 415
+- `Polyfold.EpGroupoid.isClosed_reducedπ_eq_of_isClosed` — Polyfold/Chapter7/ReducedCriterion.lean, line 430
+- `Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_t2Space` — Polyfold/Chapter7/ReducedCriterion.lean, line 447
+- `Polyfold.EpGroupoid.proposition_7_2_17_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 458
+- `Polyfold.EpGroupoid.isClosed_src_eq_tgt` — Polyfold/Chapter7/ReducedCriterion.lean, line 466
+- `Polyfold.EpGroupoid.closure_nonEffectivePart_subset` — Polyfold/Chapter7/ReducedCriterion.lean, line 470
+
+*What differs.*
+- The proof uses that a quotient by an open quotient map is Hausdorff iff the relation is closed (Mathlib), without properness (Findings, Chapter 7, item 127).
+
+### V7.80. Definition 7.2.18 (= 7.4.1), Remarks 7.2.19 and 7.2.20: the local unique continuation property
+
+*stronger* · new in the 2021 edition · independent of the natural representation · satisfiable, also non-effective
+
+**HWZ (§7.2, Definition 7.2.18, Remarks 7.2.19 and 7.2.20, p. 321 (new in the 2021 edition; Definition 7.4.1, p. 328, repeats it)).** $X$ has the local unique continuation property (LUC) if every object $x$ has an open neighbourhood $U(x)$ with the natural $G_x$-action such that, for $g \in G_x$, $\hat g$ is the identity on $U(x)$ as soon as it is the identity on a nonempty open subset. Remark 7.2.19: there are ep-groupoids without LUC (Appendix 7.6.3). Remark 7.2.20: $U(x)$ may be taken inside any given neighbourhood $O(x)$.
+
+**Proved in Lean.** `NaturalRep.HasLUC`, `IsLUC`: every $x$ has a natural representation with the property. `isLUC_iff_forall_naturalRep`: LUC iff every natural representation has it (`NaturalRep.hasLUC_of_isClosed`: every natural representation has it when $\mathbf X^T$ is closed). `remark_7_2_20_2021`: under LUC there is one inside every open $O \ni x$. `Examples.remark_7_2_19_2021`: some ep-groupoid is not LUC. Witnesses: `isLUC_trivial`, `isLUC_of_isEffective` ($\mathbf X^T$ is then the closed set of units: `isClosed_range_unit`, `nonEffectivePart_eq_range_unit_of_isEffective`), `Examples.isLUC_trivialZ3` (not effective), `Examples.isLUC_reflection`.
+
+- `Polyfold.EpGroupoid.NaturalRep.HasLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 151
+- `Polyfold.EpGroupoid.IsLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 163
+- `Polyfold.EpGroupoid.isLUC_iff_forall_naturalRep` — Polyfold/Chapter7/ReducedCriterion.lean, line 540
+- `Polyfold.EpGroupoid.NaturalRep.hasLUC_of_isClosed` — Polyfold/Chapter7/ReducedCriterion.lean, line 500
+- `Polyfold.EpGroupoid.remark_7_2_20_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 555
+- `Polyfold.EpGroupoid.Examples.remark_7_2_19_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 1076
+- `Polyfold.EpGroupoid.isLUC_trivial` — Polyfold/Chapter7/ReducedCriterion.lean, line 167
+- `Polyfold.EpGroupoid.isLUC_of_isEffective` — Polyfold/Chapter7/ReducedCriterion.lean, line 610
+- `Polyfold.EpGroupoid.isClosed_range_unit` — Polyfold/Chapter7/ReducedCriterion.lean, line 588
+- `Polyfold.EpGroupoid.nonEffectivePart_eq_range_unit_of_isEffective` — Polyfold/Chapter7/ReducedCriterion.lean, line 598
+- `Polyfold.EpGroupoid.Examples.isLUC_trivialZ3` — Polyfold/Chapter7/ReducedCriterion.lean, line 623
+- `Polyfold.EpGroupoid.Examples.isLUC_reflection` — Polyfold/Chapter7/ReducedCriterion.lean, line 633
+
+*What differs.*
+- The choice of $U(x)$ does not matter: under LUC every natural representation has the property (Findings, Chapter 7, items 128, 144).
+
+### V7.81. Proposition 7.2.21, Theorem 7.2.22 and Proposition 7.2.23: LUC, $\mathbf X^T$ closed, $T_R$ Hausdorff
+
+*as in the book* · new in the 2021 edition · characterizes the hypothesis of G.71
+
+**HWZ (§7.2, Proposition 7.2.21, p. 321, Theorem 7.2.22 and Proposition 7.2.23, p. 323 (new in the 2021 edition)).** Proposition 7.2.21: $X$ has LUC iff $\mathbf X^T$ is closed in $\mathbf X$. Theorem 7.2.22: equivalent are (1) $T_R$ is Hausdorff, (2) $X$ has LUC, (3) $\mathbf X^T$ is closed. Proposition 7.2.23: under LUC the reduced ep-groupoid $X_R$ is well defined.
+
+**Proved in Lean.** `proposition_7_2_21_2021`: `X.IsLUC ↔ IsClosed X.nonEffectivePart` (via `NaturalRep.eventually_Φ_eq_of_Γ_mem`, `NaturalRep.Γ_mem_of_eventually`, `isClosed_nonEffectivePart_of_isLUC`). `theorem_7_2_22_2021`: `List.TFAE [T2Space X.ReducedMor, X.IsLUC, IsClosed X.nonEffectivePart]`. `t2Space_reducedMor_of_isLUC`; `proposition_7_2_23_2021`: under LUC, $T_R$ is Hausdorff and `reducedEpGroupoid` has the structure of V7.78, is effective, with an ep-functor from $X$. `Examples.nonEffectivePart_trivialZ3`, `Examples.t2Space_reducedMor_trivialZ3`: for the trivial $\mathbb Z/3$-action $\mathbf X^T = \mathbf X$ and $T_R$ is Hausdorff.
+
+- `Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq_of_Γ_mem` — Polyfold/Chapter7/ReducedCriterion.lean, line 479
+- `Polyfold.EpGroupoid.NaturalRep.Γ_mem_of_eventually` — Polyfold/Chapter7/ReducedCriterion.lean, line 488
+- `Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_isLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 525
+- `Polyfold.EpGroupoid.proposition_7_2_21_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 549
+- `Polyfold.EpGroupoid.theorem_7_2_22_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 565
+- `Polyfold.EpGroupoid.t2Space_reducedMor_of_isLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 572
+- `Polyfold.EpGroupoid.proposition_7_2_23_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 578
+- `Polyfold.EpGroupoid.Examples.nonEffectivePart_trivialZ3` — Polyfold/Chapter7/ReducedCriterion.lean, line 618
+- `Polyfold.EpGroupoid.Examples.t2Space_reducedMor_trivialZ3` — Polyfold/Chapter7/ReducedCriterion.lean, line 629
+
+*What differs.*
+- Hypothesis for hypothesis. Proposition 7.2.21 by a connectedness argument: $\Gamma(g, y) \in \mathbf X^T$ iff $\Phi(g) = \mathrm{id}$ near $y$. The trivial $\mathbb Z/3$-action, for which item 60 had left Hausdorffness of $\mathbf X^R$ open, has $T_R$ Hausdorff (Findings, Chapter 7, items 60, 128, 129).
+
+### V7.82. Appendix 7.6.3: Zhou's example, for an analogue
+
+*narrower* · new in the 2021 edition · an analogue of Zhou's retract · gap G.83
+
+**HWZ (§7.6, Appendix 7.6.3, p. 348 (new in the 2021 edition)).** Zhou's example: $\mathbb Z/2$ acting on the retract of Part I's Subsection 1.4.4 by $(s, f) \mapsto (s, -f)$. The set $\mathrm{cl}(\mathbf X^T) \setminus \mathbf X^T$ consists of one point, so $\mathbf X^T$ is not closed, $T_R$ is not Hausdorff, and LUC fails.
+
+**Proved in Lean.** For `JumpingRetract.X` ($\mathbb Z/2$ acting by $(t, z) \mapsto (t, \pm z)$ on the retract of Part I's Remark 4.2.2 (2017: 4.3), `ReducedNotHausdorff.lean`, V7.39): `JumpingRetract.mem_closure_nonEffectivePart` ($(-1, o_0) \in \mathrm{cl}\,\mathbf X^T$), `JumpingRetract.not_isClosed_nonEffectivePart`, `JumpingRetract.not_t2Space_reducedMor`, `JumpingRetract.not_isLUC`; `Examples.remark_7_2_19_2021`.
+
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor` — Polyfold/Chapter7/ReducedNotHausdorff.lean, line 235
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.mem_closure_nonEffectivePart` — Polyfold/Chapter7/ReducedCriterion.lean, line 1056
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart` — Polyfold/Chapter7/ReducedCriterion.lean, line 1062
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 1067
+- `Polyfold.EpGroupoid.Examples.remark_7_2_19_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 1076
+
+*What differs.*
+- Our retract is not Zhou's but has the same features: the action is trivial over $t < 0$ and moves points arbitrarily close to the origin over $t > 0$. One point of $\mathrm{cl}(\mathbf X^T) \setminus \mathbf X^T$ is exhibited; $\mathbf X^T$ is not computed exactly (gap G.83).
+- The round-trip counterexample of V7.39 (`exists_not_t2Space_reducedMor`) is thus consistent with the 2021 text: it is of the kind Remark 7.2.8 announces and Appendix 7.6.3 gives, and it fails LUC as Theorem 7.2.22 requires (Findings, Chapter 7, items 107, 129, 130).
+
+### V7.83. Appendix 7.6.4: (7.24), Theorem 7.6.7 and Corollary 7.6.8 for $i = 1$
+
+*narrower* · new in the 2021 edition · $i = 1$, as sets, continuous · added: $U(x) \cap X_1$ connected, dense · gap G.82
+
+**HWZ (§7.6, Theorem 7.6.7 and Corollary 7.6.8, p. 351, with Appendix 7.6.4 and (7.24), pp. 348–350 (new in the 2021 edition)).** Under (SLUC) (every $X^i$ has LUC): $(\mathbf X^T)^1 \subseteq (\mathbf X^1)^T$ (7.24); conversely, for $g$ acting trivially near $x$ in $X^1$, $\hat g$ is the identity on the connected set $U(x) \cap X_1$ by LUC for $X^1$, hence on $U(x)$ by density; so $(\mathbf X^T)^1 = (\mathbf X^1)^T$. Theorem 7.6.7: the natural set-theoretic identification between $(X^1)_R$ and $(X_R)^1$ is an sc-diffeomorphism on objects and morphisms, and similarly for $(X^i)_R$ and $(X_R)^i$, every $i$. Corollary 7.6.8: the same under (ZHOU).
+
+**Proved in Lean.** `mem_nonEffectivePart_liftOne_of_levelVal`: (7.24). `HasConnectedDenseLevelOneReps`: every $x \in X_1$ has a natural representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$. `levelVal_mem_nonEffectivePart_of_liftOne`, `nonEffectivePart_liftOne_eq`: with $(\mathbf X^1)^T$ closed and this hypothesis, $(\mathbf X^1)^T = (\mathbf X^T)^1$ (through `NaturalRep.levelOneΓ` and its lemmas). `liftOne_reducedπ_eq_iff`, `reducedLevelOneMap`. `theorem_7_6_7_2021`: under `X.liftOne.IsLUC` and `HasConnectedDenseLevelOneReps`, $[\varphi]_1 \mapsto [\varphi]$ is well defined, injective and continuous $(\mathbf X^1)^R \to \mathbf X^R$ with range $\pi(\mathbf X_1)$. `corollary_7_6_8_2021`: the same with "(ZHOU) implies LUC for $X^1$" as a hypothesis; `corollary_7_6_8_2021_of_isZhou`: under (ZHOU) and `SmoothRegular` (V7.86, V7.90). Witnesses: `Examples.pointEpGroupoid` with `Examples.isLUC_liftOne_point`, `Examples.hasConnectedDenseLevelOneReps_point`, `Examples.theorem_7_6_7_2021_point`, `Examples.corollary_7_6_8_2021_of_isZhou_point`.
+
+- `Polyfold.EpGroupoid.mem_nonEffectivePart_liftOne_of_levelVal` — Polyfold/Chapter7/ReducedCriterion.lean, line 788
+- `Polyfold.EpGroupoid.NaturalRep.levelOneΓ` — Polyfold/Chapter7/ReducedCriterion.lean, line 802
+- `Polyfold.EpGroupoid.NaturalRep.continuousOn_levelOneΓ` — Polyfold/Chapter7/ReducedCriterion.lean, line 816
+- `Polyfold.EpGroupoid.NaturalRep.eventually_of_levelOneΓ_mem` — Polyfold/Chapter7/ReducedCriterion.lean, line 825
+- `Polyfold.EpGroupoid.NaturalRep.levelOneΓ_mem_of_eventually` — Polyfold/Chapter7/ReducedCriterion.lean, line 839
+- `Polyfold.EpGroupoid.levelVal_mem_nonEffectivePart_of_liftOne` — Polyfold/Chapter7/ReducedCriterion.lean, line 860
+- `Polyfold.EpGroupoid.HasConnectedDenseLevelOneReps` — Polyfold/Chapter7/ReducedCriterion.lean, line 895
+- `Polyfold.EpGroupoid.nonEffectivePart_liftOne_eq` — Polyfold/Chapter7/ReducedCriterion.lean, line 901
+- `Polyfold.EpGroupoid.liftOne_reducedπ_eq_iff` — Polyfold/Chapter7/ReducedCriterion.lean, line 911
+- `Polyfold.EpGroupoid.reducedLevelOneMap` — Polyfold/Chapter7/ReducedCriterion.lean, line 933
+- `Polyfold.EpGroupoid.theorem_7_6_7_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 943
+- `Polyfold.EpGroupoid.corollary_7_6_8_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 964
+- `Polyfold.EpGroupoid.corollary_7_6_8_2021_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 921
+- `Polyfold.EpGroupoid.Examples.pointEpGroupoid` — Polyfold/Chapter7/ReducedCriterion.lean, line 975
+- `Polyfold.EpGroupoid.Examples.isLUC_liftOne_point` — Polyfold/Chapter7/ReducedCriterion.lean, line 978
+- `Polyfold.EpGroupoid.Examples.hasConnectedDenseLevelOneReps_point` — Polyfold/Chapter7/ReducedCriterion.lean, line 984
+- `Polyfold.EpGroupoid.Examples.theorem_7_6_7_2021_point` — Polyfold/Chapter7/ReducedCriterion.lean, line 996
+- `Polyfold.EpGroupoid.Examples.corollary_7_6_8_2021_of_isZhou_point` — Polyfold/Chapter7/Zhou.lean, line 1342
+
+*What differs.*
+- The proof uses that $U(x) \cap X_1$ is connected in $X^1$ and dense in $U(x)$ (the density of $X_1$ in $X$, gap G.73); both are hypotheses, satisfied by the point ep-groupoid. Of (SLUC) only LUC for $X^1$ is used.
+- Not formalized: the sc-diffeomorphism $(X^1)_R \cong (X_R)^1$, which needs the M-polyfold $(\mathbf X^R)^1$, and $i \ge 2$ (gap G.82) (Findings, Chapter 7, item 131).
+
+### V7.84. Index lifts $X^i$, Proposition 7.4.2 and Remark 7.4.3
+
+*stronger* · new in the 2021 edition · every natural representation
+
+**HWZ (§7.4, Proposition 7.4.2, p. 328, and Remark 7.4.3, p. 329 (new in the 2021 edition), with the lifts $X^i$, p. 329).** $X^i$ is obtained by raising the index $i$ times. Proposition 7.4.2: under (LUC), if $U(x)$ is a connected invariant neighbourhood with the property of Definition 7.4.1 and $W(x) \supseteq U(x)$ a larger connected invariant one, then $W(x)$ has the property too. Remark 7.4.3: so the neighbourhoods in (LUC) can be taken arbitrarily small or large.
+
+**Proved in Lean.** `EP.liftOne`, `EP.lift` ($X^0 = X$, $X^{i+1} = (X^i)^1$; `EP.lift_zero`, `EP.lift_succ`, `EP.lift_succ'`: $X^{i+1} = (X^1)^i$). `proposition_7_4_2_2021`: under `X.IsLUC`, for natural representations $R$, $W$ at $x$ with $R.U \subseteq W.U$ and $R$ LUC (both unused), $W$ is LUC. `remark_7_4_3_2021`: under LUC, every natural representation is LUC, and there is one inside every open $O \ni x$.
+
+- `Polyfold.EP.liftOne` — Polyfold/Chapter7/Zhou.lean, line 129
+- `Polyfold.EP.lift` — Polyfold/Chapter7/Zhou.lean, line 135
+- `Polyfold.EP.lift_zero` — Polyfold/Chapter7/Zhou.lean, line 139
+- `Polyfold.EP.lift_succ` — Polyfold/Chapter7/Zhou.lean, line 141
+- `Polyfold.EP.lift_succ'` — Polyfold/Chapter7/Zhou.lean, line 144
+- `Polyfold.EpGroupoid.proposition_7_4_2_2021` — Polyfold/Chapter7/Zhou.lean, line 161
+- `Polyfold.EpGroupoid.remark_7_4_3_2021` — Polyfold/Chapter7/Zhou.lean, line 167
+
+*What differs.*
+- The hypotheses on $U(x)$ are not needed: under LUC every natural representation has the property (V7.80) (Findings, Chapter 7, item 132).
+
+### V7.85. Lemma 7.4.4: LUC passes down the index lifts
+
+*hypotheses explicit* · new in the 2021 edition · added: $U(x) \cap X_1$ connected, dense · gap G.85
+
+**HWZ (§7.4, Lemma 7.4.4, p. 329 (new in the 2021 edition)).** If $X^i$ has (LUC), then so has $X^k$ for every $k \le i$. The proof, for $i = 1$, uses that $U(x) \cap X_1$ is connected in $X^1$, shows that the set of its points near which $\hat g = \mathrm{id}$ in $X^1$ is open, closed and nonempty, and concludes by density of $U(x) \cap X_1$ in $U(x)$.
+
+**Proved in Lean.** `HasLevelOneConnectedDenseReps`: every object has a natural representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$. `NaturalRep.eqOn_of_isClosed_liftOne`, `isLUC_of_isLUC_liftOne` ($i = 1$). `lemma_7_4_4_2021`: for `A : EP` and $i$, if `HasLevelOneConnectedDenseReps` holds for every $X^k$, $k < i$, and $X^i$ is LUC, then $X$ and every $X^k$, $k \le i$, are LUC. Witnesses: `hasLevelOneConnectedDenseReps_of_subsingleton`, `Examples.hasLevelOneConnectedDenseReps_lift_pointEP`, `Examples.lemma_7_4_4_2021_pointEP`.
+
+- `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps` — Polyfold/Chapter7/Zhou.lean, line 178
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_of_isClosed_liftOne` — Polyfold/Chapter7/Zhou.lean, line 187
+- `Polyfold.EpGroupoid.isLUC_of_isLUC_liftOne` — Polyfold/Chapter7/Zhou.lean, line 215
+- `Polyfold.EpGroupoid.lemma_7_4_4_2021` — Polyfold/Chapter7/Zhou.lean, line 230
+- `Polyfold.EpGroupoid.hasLevelOneConnectedDenseReps_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 1313
+- `Polyfold.EpGroupoid.Examples.hasLevelOneConnectedDenseReps_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1326
+- `Polyfold.EpGroupoid.Examples.lemma_7_4_4_2021_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1332
+
+*What differs.*
+- The connectedness of $U(x) \cap X_1$ in $X^1$ is used without proof, and its density in $U(x)$ is that of $X_1$ in $X$ (gap G.73); both are hypotheses (gap G.85). In the proof, "$s : W(g) \to W(y)$" for $W(h)$ (possible misprint) (Findings, Chapter 7, item 133).
+
+### V7.86. The Part I facts used in §7.4
+
+*hypotheses explicit* · Part I facts as explicit hypotheses · satisfiable · gaps G.85, G.73, G.8
+
+**HWZ (§7.4, the proofs of Lemma 7.4.6, Propositions 7.4.8, 7.4.10, 7.4.22 and Lemma 7.4.15, pp. 331–340 (new in the 2021 edition)).** The proofs use, without stating them, facts about an M-polyfold $X$: $X_\infty$ is dense in every $X_m$ (stated on p. 289); $U(x) \cap X_\infty$ is connected for a connected open $U(x)$; tangent vectors at a point are approximated by tangent vectors at nearby smooth points; sc-smooth maps that agree near a smooth point in $X_\infty$ have the same tangent there; $(T_xX)_\infty$ is dense in $T_xX$.
+
+**Proved in Lean.** Hypotheses on the object M-polyfold: `MPolyfold.DenseSmooth`, `MPolyfold.SmoothConnected`, `MPolyfold.DenseSmoothTangent`, `MPolyfold.TangentDeterminedSmooth` (with `TangentDeterminedSmooth.eq_self`); `MPolyfold.SmoothRegular` bundles `DenseSmooth`, `SmoothConnected`, the openness of $p : TX \to X^1$ and `TangentDeterminedSmooth`. Consequences: `DenseSmooth.dense`, `DenseSmooth.subset_closure_inter`, `DenseSmooth.exists_smooth`, `eqOn_tangentFiber_of_mem_closure` (the approximation of tangent vectors, from the openness of $p$). Witnesses: `smoothRegular_of_subsingleton`, `smoothRegular_discrete_unit`, `denseSmoothTangent_discrete_unit`.
+
+- `Polyfold.MPolyfold.DenseSmooth` — Polyfold/Chapter7/Zhou.lean, line 260
+- `Polyfold.MPolyfold.SmoothConnected` — Polyfold/Chapter7/Zhou.lean, line 264
+- `Polyfold.MPolyfold.DenseSmoothTangent` — Polyfold/Chapter7/Zhou.lean, line 269
+- `Polyfold.MPolyfold.TangentDeterminedSmooth` — Polyfold/Chapter7/Zhou.lean, line 276
+- `Polyfold.MPolyfold.TangentDeterminedSmooth.eq_self` — Polyfold/Chapter7/Zhou.lean, line 283
+- `Polyfold.MPolyfold.DenseSmooth.dense` — Polyfold/Chapter7/Zhou.lean, line 296
+- `Polyfold.MPolyfold.DenseSmooth.subset_closure_inter` — Polyfold/Chapter7/Zhou.lean, line 304
+- `Polyfold.MPolyfold.DenseSmooth.exists_smooth` — Polyfold/Chapter7/Zhou.lean, line 309
+- `Polyfold.MPolyfold.eqOn_tangentFiber_of_mem_closure` — Polyfold/Chapter7/Zhou.lean, line 320
+- `Polyfold.MPolyfold.SmoothRegular` — Polyfold/Chapter7/Zhou.lean, line 638
+- `Polyfold.MPolyfold.smoothRegular_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 648
+- `Polyfold.MPolyfold.smoothRegular_discrete_unit` — Polyfold/Chapter7/Zhou.lean, line 971
+- `Polyfold.MPolyfold.denseSmoothTangent_discrete_unit` — Polyfold/Chapter7/Zhou.lean, line 959
+
+*What differs.*
+- Part I does not prove these facts for M-polyfolds; they are explicit hypotheses of the §7.4 results that use them, satisfiable (on a point) (gap G.85, with G.73 and G.8) (Findings, Chapter 7, item 134).
+
+### V7.87. The tangent $Tg$ of an isotropy element
+
+*restated* · a set map on $T_xX$; no linearity used
+
+**HWZ (§7.4, p. 331 (new in the 2021 edition), "the linearization $Tg$", and Proposition 8.1.16's $Tg = T\hat g(x)$).** For a smooth object $x$ and $g \in G_x$, the linearization $Tg : T_xX \to T_xX$ is the tangent of the local sc-diffeomorphism $\hat g$ at $x$.
+
+**Proved in Lean.** `NaturalRep.tangentMor_Γ`: Chapter 7's `tangentMor` (Definition 7.1.4, $Tt \circ (Ts|T_\varphi\mathbf X)^{-1}$, without charts) of $\Gamma(g, y)$ is $T\Phi(g)$ on $T_yX$; `NaturalRep.tangentMor_eq_tΦ`: $Tg = T\Phi(g)$ on $T_xX$; `NaturalRep.tΦ_eq_tΦ`: the same for all natural representations; `NaturalRep.tangentMor_isoΓ` at fixed points. `NaturalRep.isoΓ` ($\Gamma(g, z) \in G_z$ for a fixed point $z$, `isoΓ_val`), `NaturalRep.isoΓ_mem_trivialSubgroup_iff` (it lies in $T_z$ iff $\Phi(g) = \mathrm{id}$ near $z$), `NaturalRep.eventually_Φ_eq_Γ` (it acts near $z$ as $g$).
+
+- `Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq_Γ` — Polyfold/Chapter7/Zhou.lean, line 353
+- `Polyfold.EpGroupoid.NaturalRep.isoΓ` — Polyfold/Chapter7/Zhou.lean, line 369
+- `Polyfold.EpGroupoid.NaturalRep.isoΓ_val` — Polyfold/Chapter7/Zhou.lean, line 372
+- `Polyfold.EpGroupoid.NaturalRep.isoΓ_mem_trivialSubgroup_iff` — Polyfold/Chapter7/Zhou.lean, line 376
+- `Polyfold.EpGroupoid.NaturalRep.tangentMor_Γ` — Polyfold/Chapter7/Zhou.lean, line 388
+- `Polyfold.EpGroupoid.NaturalRep.tangentMor_eq_tΦ` — Polyfold/Chapter7/Zhou.lean, line 394
+- `Polyfold.EpGroupoid.NaturalRep.tΦ_eq_tΦ` — Polyfold/Chapter7/Zhou.lean, line 407
+- `Polyfold.EpGroupoid.NaturalRep.tangentMor_isoΓ` — Polyfold/Chapter7/Zhou.lean, line 538
+
+*What differs.*
+- $Tg$ is a set map on the fibre $T_xX$; (ZHOU) only asks that it be the identity, so the linear structure of $T_xX$ (gap G.7) is not needed (Findings, Chapter 7, item 135).
+
+### V7.88. Definitions 7.4.5 and 7.4.7: (ZHOU), $T_x^\infty$ and (ZHOU')
+
+*restated* · new in the 2021 edition · $Tg$ as in V7.87 · satisfiable, also with $T_x \ne 1$
+
+**HWZ (§7.4, Definition 7.4.5, p. 331 (new in the 2021 edition), with $T_x^\infty$ and Definition 7.4.7, p. 331).** (ZHOU): for every smooth object $x$ and $g \in G_x$, if $Tg : T_xX \to T_xX$ is the identity then $g \in T_x$. $T_x^\infty \supseteq T_x$ consists of the $g$ acting trivially near $x$ in $X_\infty$. (ZHOU'): if $Tg$ is the identity on $(T_xX)_\infty$ then $g \in T_x^\infty$.
+
+**Proved in Lean.** `IsZhou`: for every smooth $y$ and $g \in G_y$, `tangentMor g` $= \mathrm{id}$ on `tangentFiber` implies $g \in$ `trivialSubgroup`. `trivialSetInf`, `trivialSubgroupInf` ($T_x^\infty$; `mem_trivialSetInf_iff`, `mem_trivialSubgroupInf_iff`: testable in any natural representation), `trivialSubgroup_le_trivialSubgroupInf`. `IsZhou'`: the same with the smooth tangent vectors and $T_x^\infty$. Witnesses: `isZhou_of_trivialSubgroup_eq_top`, `isZhou'_of_trivialSubgroup_eq_top`, `isZhou_of_subsingleton`, `isZhou'_of_subsingleton`, `isZhou_trivial`, `isZhou'_trivial`, `Examples.isZhou_trivialZ3`, `Examples.isZhou'_trivialZ3`.
+
+- `Polyfold.EpGroupoid.IsZhou` — Polyfold/Chapter7/Zhou.lean, line 420
+- `Polyfold.EpGroupoid.trivialSetInf` — Polyfold/Chapter7/Zhou.lean, line 428
+- `Polyfold.EpGroupoid.mem_trivialSetInf_iff` — Polyfold/Chapter7/Zhou.lean, line 433
+- `Polyfold.EpGroupoid.trivialSubgroupInf` — Polyfold/Chapter7/Zhou.lean, line 444
+- `Polyfold.EpGroupoid.mem_trivialSubgroupInf_iff` — Polyfold/Chapter7/Zhou.lean, line 466
+- `Polyfold.EpGroupoid.trivialSubgroup_le_trivialSubgroupInf` — Polyfold/Chapter7/Zhou.lean, line 473
+- `Polyfold.EpGroupoid.IsZhou'` — Polyfold/Chapter7/Zhou.lean, line 484
+- `Polyfold.EpGroupoid.isZhou_of_trivialSubgroup_eq_top` — Polyfold/Chapter7/Zhou.lean, line 492
+- `Polyfold.EpGroupoid.isZhou'_of_trivialSubgroup_eq_top` — Polyfold/Chapter7/Zhou.lean, line 495
+- `Polyfold.EpGroupoid.isZhou_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 499
+- `Polyfold.EpGroupoid.isZhou'_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 502
+- `Polyfold.EpGroupoid.isZhou_trivial` — Polyfold/Chapter7/Zhou.lean, line 506
+- `Polyfold.EpGroupoid.isZhou'_trivial` — Polyfold/Chapter7/Zhou.lean, line 511
+- `Polyfold.EpGroupoid.Examples.isZhou_trivialZ3` — Polyfold/Chapter7/Zhou.lean, line 516
+- `Polyfold.EpGroupoid.Examples.isZhou'_trivialZ3` — Polyfold/Chapter7/Zhou.lean, line 519
+
+*What differs.*
+- $Tg$ is `tangentMor g` on the fibre (V7.87). Both conditions hold when every $T_x = G_x$, e.g. for the trivial $\mathbb Z/3$-action (Findings, Chapter 7, items 135, 144).
+
+### V7.89. Lemma 7.4.6 and Proposition 7.4.8: (ZHOU) iff (ZHOU')
+
+*hypotheses explicit* · new in the 2021 edition · added: Part I facts (V7.86) · proof: a clopen set in $U(x)_\infty$
+
+**HWZ (§7.4, Lemma 7.4.6, p. 331, and Proposition 7.4.8, p. 332 (new in the 2021 edition)).** Lemma 7.4.6: under (ZHOU), if $Tg$ is the identity on $(T_xX)_\infty$, then $g \in T_x^\infty$, i.e. (ZHOU) implies (ZHOU'). Proposition 7.4.8: (ZHOU) and (ZHOU') are equivalent; the proof shows that the smooth points near which $\hat g$ acts trivially form an open and closed subset of $U(x) \cap X_\infty$, using sequences.
+
+**Proved in Lean.** `lemma_7_4_6_2021`: `IsZhou` and `DenseSmoothTangent` give `IsZhou'`. `isZhou_of_isZhou'`: `SmoothRegular` and `IsZhou'` give `IsZhou`. `proposition_7_4_8_2021`: with `SmoothRegular` and `DenseSmoothTangent`, `IsZhou ↔ IsZhou'`. Steps: `NaturalRep.mem_tangentU_of_fiber`, `NaturalRep.tΦ_eq_self_of_eqOn`, `NaturalRep.fix_and_tangent_of_mem_closure` (the closure step), `NaturalRep.eq_self_of_smooth_clopen` and `NaturalRep.eq_self_of_smooth_tangent` (unique continuation through the connected $U(x)_\infty$), `eq_of_mem_closure_of_continuousAt`. Witness: `Examples.proposition_7_4_8_2021_point`.
+
+- `Polyfold.EpGroupoid.lemma_7_4_6_2021` — Polyfold/Chapter7/Zhou.lean, line 679
+- `Polyfold.EpGroupoid.isZhou_of_isZhou'` — Polyfold/Chapter7/Zhou.lean, line 694
+- `Polyfold.EpGroupoid.proposition_7_4_8_2021` — Polyfold/Chapter7/Zhou.lean, line 718
+- `Polyfold.EpGroupoid.NaturalRep.mem_tangentU_of_fiber` — Polyfold/Chapter7/Zhou.lean, line 552
+- `Polyfold.EpGroupoid.NaturalRep.tΦ_eq_self_of_eqOn` — Polyfold/Chapter7/Zhou.lean, line 559
+- `Polyfold.EpGroupoid.NaturalRep.fix_and_tangent_of_mem_closure` — Polyfold/Chapter7/Zhou.lean, line 572
+- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_clopen` — Polyfold/Chapter7/Zhou.lean, line 591
+- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_tangent` — Polyfold/Chapter7/Zhou.lean, line 609
+- `Polyfold.eq_of_mem_closure_of_continuousAt` — Polyfold/Chapter7/Zhou.lean, line 525
+- `Polyfold.EpGroupoid.Examples.proposition_7_4_8_2021_point` — Polyfold/Chapter7/Zhou.lean, line 1337
+
+*What differs.*
+- The Part I facts of V7.86 are hypotheses (gap G.85). The clopen argument in the connected $U(x)_\infty$ replaces the sequences; "$z_k \to Y$" for $z_k \to y$ in the proof (possible misprint) (Findings, Chapter 7, item 136).
+
+### V7.90. Proposition 7.4.10 and Corollary 7.4.11: (ZHOU) implies (LUC)
+
+*narrower* · new in the 2021 edition · Cor. 7.4.11: $X$, $X^1$; $X^i$ by hypothesis · gaps G.84, G.85
+
+**HWZ (§7.4, Proposition 7.4.10, p. 333, and Corollary 7.4.11, p. 334 (new in the 2021 edition)).** Proposition 7.4.10: (ZHOU) implies (LUC); the set of smooth points near which $\hat g$ is the identity is open and closed in the connected $U(x)_\infty$, closedness by approximating tangent vectors. Corollary 7.4.11 (with Proposition 7.4.9): under (ZHOU) every $X^i$ has (LUC).
+
+**Proved in Lean.** `proposition_7_4_10_2021`: `SmoothRegular` and `IsZhou` give `IsLUC`. `IsSmoothUC` (unique continuation through $X_\infty$), `isSmoothUC_of_isZhou`, `isLUC_of_isSmoothUC`, `isLUC_liftOne_of_isSmoothUC`. `corollary_7_4_11_2021`: LUC for $X$ and $X^1$. `corollary_7_4_11_2021_lift`: if every $X^i$ satisfies `IsZhou` and `SmoothRegular`, every $X^i$ is LUC.
+
+- `Polyfold.EpGroupoid.proposition_7_4_10_2021` — Polyfold/Chapter7/Zhou.lean, line 725
+- `Polyfold.EpGroupoid.IsSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 748
+- `Polyfold.EpGroupoid.isSmoothUC_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 756
+- `Polyfold.EpGroupoid.isLUC_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 774
+- `Polyfold.EpGroupoid.isLUC_liftOne_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 783
+- `Polyfold.EpGroupoid.corollary_7_4_11_2021` — Polyfold/Chapter7/Zhou.lean, line 814
+- `Polyfold.EpGroupoid.corollary_7_4_11_2021_lift` — Polyfold/Chapter7/Zhou.lean, line 832
+
+*What differs.*
+- The Part I facts of V7.86 are hypotheses (gap G.85). Corollary 7.4.11 is proved for $X$ and $X^1$; for every $X^i$ it takes (ZHOU) for every $X^i$, the conclusion of Proposition 7.4.9, as a hypothesis (gap G.84) (Findings, Chapter 7, items 136, 137).
+
+### V7.91. Definition 7.4.12 and Theorem 7.4.13: (ZHOU) implies (SLUC)
+
+*narrower* · new in the 2021 edition · (ZHOU) for every $X^i$ assumed · gap G.84
+
+**HWZ (§7.4, Definition 7.4.12 and Theorem 7.4.13, p. 334 (new in the 2021 edition)).** (SLUC), the strong local unique continuation property: every $X^i$ has (LUC). Theorem 7.4.13: (ZHOU) implies (SLUC).
+
+**Proved in Lean.** `EP.IsSLUC`: `(A.lift i).X.IsLUC` for all $i$. `theorem_7_4_13_2021`: if `IsZhou` and `SmoothRegular` hold for every $X^i$, then `A.IsSLUC`. Witnesses: `Examples.pointEP`, `Examples.lift_pointEP`, `Examples.smoothRegular_lift_pointEP`, `Examples.isZhou_lift_pointEP`, `Examples.isSLUC_pointEP`, `Examples.theorem_7_4_13_2021_pointEP`.
+
+- `Polyfold.EP.IsSLUC` — Polyfold/Chapter7/Zhou.lean, line 823
+- `Polyfold.EpGroupoid.theorem_7_4_13_2021` — Polyfold/Chapter7/Zhou.lean, line 838
+- `Polyfold.EpGroupoid.Examples.pointEP` — Polyfold/Chapter7/Zhou.lean, line 979
+- `Polyfold.EpGroupoid.Examples.lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 985
+- `Polyfold.EpGroupoid.Examples.smoothRegular_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 998
+- `Polyfold.EpGroupoid.Examples.isZhou_lift_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1003
+- `Polyfold.EpGroupoid.Examples.isSLUC_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1009
+- `Polyfold.EpGroupoid.Examples.theorem_7_4_13_2021_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1014
+
+*What differs.*
+- (ZHOU) for every $X^i$, which Proposition 7.4.9 derives from (ZHOU) for $X$, is a hypothesis: Proposition 7.4.9 needs the identification of $(X^i)_\infty$ with $X_\infty$ and of the tangent spaces (gaps G.6, G.7), not formalized (gap G.84) (Findings, Chapter 7, item 137).
+
+### V7.92. Definition 7.4.14, Lemma 7.4.15, Propositions 7.4.16–7.4.18: (VSLUC)
+
+*narrower* · new in the 2021 edition · 7.4.16 for $X^1$; 7.4.18 not formalized · gaps G.84, G.85
+
+**HWZ (§7.4, Definition 7.4.14 and Lemma 7.4.15, p. 335, Propositions 7.4.16, 7.4.17 and 7.4.18, p. 336 (new in the 2021 edition)).** (VSLUC): for every smooth $x$ there are $U(x)$ and a $G_x$-invariant open $V(x) \ni x$ of $X_\infty$ such that $\hat g = \mathrm{id}$ on a nonempty open subset of $V(x)$ forces $\hat g = \mathrm{id}$ on $V(x)$. Lemma 7.4.15: (VSLUC) implies (LUC). Proposition 7.4.16: (VSLUC) for $X$ gives (VSLUC) for every $X^i$. Proposition 7.4.17: (VSLUC) implies (SLUC). Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent.
+
+**Proved in Lean.** `IsVSLUC`. `isSmoothUC_of_isVSLUC` (with `DenseSmooth`, `SmoothConnected`), `isVSLUC_of_isSmoothUC`. `lemma_7_4_15_2021`: `DenseSmooth`, `SmoothConnected` and `IsVSLUC` give `IsLUC`. `proposition_7_4_16_2021`: they give LUC for $X$ and $X^1$. `proposition_7_4_17_2021`: (VSLUC), `DenseSmooth`, `SmoothConnected` for every $X^i$ give `A.IsSLUC`. `isVSLUC_of_isZhou`. Witnesses: `isSmoothUC_of_subsingleton`, `isVSLUC_of_subsingleton`, `isLUC_of_subsingleton_mor`, `isVSLUC_trivial`, `isSmoothUC_trivial`.
+
+- `Polyfold.EpGroupoid.IsVSLUC` — Polyfold/Chapter7/Zhou.lean, line 848
+- `Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC` — Polyfold/Chapter7/Zhou.lean, line 858
+- `Polyfold.EpGroupoid.isVSLUC_of_isSmoothUC` — Polyfold/Chapter7/Zhou.lean, line 887
+- `Polyfold.EpGroupoid.lemma_7_4_15_2021` — Polyfold/Chapter7/Zhou.lean, line 897
+- `Polyfold.EpGroupoid.proposition_7_4_16_2021` — Polyfold/Chapter7/Zhou.lean, line 903
+- `Polyfold.EpGroupoid.proposition_7_4_17_2021` — Polyfold/Chapter7/Zhou.lean, line 909
+- `Polyfold.EpGroupoid.isVSLUC_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 914
+- `Polyfold.EpGroupoid.isSmoothUC_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 932
+- `Polyfold.EpGroupoid.isVSLUC_of_subsingleton` — Polyfold/Chapter7/Zhou.lean, line 936
+- `Polyfold.EpGroupoid.isLUC_of_subsingleton_mor` — Polyfold/Chapter7/Zhou.lean, line 940
+- `Polyfold.EpGroupoid.isVSLUC_trivial` — Polyfold/Chapter7/Zhou.lean, line 944
+- `Polyfold.EpGroupoid.isSmoothUC_trivial` — Polyfold/Chapter7/Zhou.lean, line 949
+
+*What differs.*
+- $V(x)$ is read open in $X_\infty$, inside a natural representation and invariant. Proposition 7.4.16 is proved for $X^1$ (LUC for $X$ and $X^1$); Proposition 7.4.17 takes (VSLUC) for every $X^i$; Proposition 7.4.18, (SLUC) implies (VSLUC), is not formalized: it needs natural representations of $X^N$ in terms of those of $X$ (gap G.84). The Part I facts are hypotheses (gap G.85) (Findings, Chapter 7, items 136, 137).
+
+### V7.93. Definitions 7.4.19, 7.4.21 and Lemma 7.4.20: (LR) and (LR')
+
+*restated* · new in the 2021 edition · "arbitrarily small": inside every $O \ni x$
+
+**HWZ (§7.4, Definition 7.4.19 and Lemma 7.4.20, p. 337, Definition 7.4.21, p. 338 (new in the 2021 edition)).** (LR): every $x$ has arbitrarily small $U(x)$ such that every sc-diffeomorphism $\beta : U(x) \to U(x)$ with $|\beta(y)| = |y|$ is $\hat g$ for some $g \in G_x$. Lemma 7.4.20: an sc-diffeomorphism $\beta$ of $U(x)$ onto an open set with $\beta(x) = x$ and $|\beta(y)| = |y|$ maps $U(x)$ onto $U(x)$. (LR'): (LR) for such $\beta$; (LR) and (LR') are equivalent.
+
+**Proved in Lean.** `IsLR`: for every open $O \ni x$ a natural representation $U(x) \subseteq O$ such that every sc-diffeomorphism $\beta$ of $U(x)$ onto $U(x)$ with $\pi(\beta(y)) = \pi(y)$ equals some $\Phi(g)$ on $U(x)$. `IsLR'`: the same for $\beta$ onto $\beta(U(x))$ with $\beta(x) = x$. `NaturalRep.exists_Φ_eq_of_π_eq`, `NaturalRep.eq_self_of_π_eq`. `lemma_7_4_20_2021`: $\beta(U(x)) = U(x)$ and $\beta$ is an sc-diffeomorphism of $U(x)$. `isLR_iff_isLR'`.
+
+- `Polyfold.EpGroupoid.IsLR` — Polyfold/Chapter7/Zhou.lean, line 1040
+- `Polyfold.EpGroupoid.IsLR'` — Polyfold/Chapter7/Zhou.lean, line 1047
+- `Polyfold.EpGroupoid.NaturalRep.exists_Φ_eq_of_π_eq` — Polyfold/Chapter7/Zhou.lean, line 1057
+- `Polyfold.EpGroupoid.NaturalRep.eq_self_of_π_eq` — Polyfold/Chapter7/Zhou.lean, line 1065
+- `Polyfold.EpGroupoid.lemma_7_4_20_2021` — Polyfold/Chapter7/Zhou.lean, line 1072
+- `Polyfold.EpGroupoid.isLR_iff_isLR'` — Polyfold/Chapter7/Zhou.lean, line 1122
+
+*What differs.*
+- Lemma 7.4.20 is proved by the finite closed cover $U(x) = \bigcup_g \{\beta = \hat g\}$ and connectedness instead of paths (Findings, Chapter 7, item 138).
+
+### V7.94. Proposition 7.4.22, Definition 7.4.23 and Theorem 7.4.24: (ZHOU) implies (LR) and (SLR)
+
+*narrower* · new in the 2021 edition · (ZHOU) for every $X^i$ assumed · proof without reduction, density
+
+**HWZ (§7.4, Proposition 7.4.22, p. 338, Definition 7.4.23, p. 339, Theorem 7.4.24, p. 340 (new in the 2021 edition)).** Proposition 7.4.22: (ZHOU) implies (LR). Definition 7.4.23: (SLR), every $X^i$ has (LR). Theorem 7.4.24: (ZHOU) implies (SLR).
+
+**Proved in Lean.** `NaturalRep.eqOn_Φ_of_tangent`: under `IsZhou` and LUC for the representation, $\Phi(g)$ and $\Phi(g')$ agreeing with their tangents at a smooth point agree on $U(x)$. `NaturalRep.exists_eq_Φ_of_isZhou`, `proposition_7_4_22_2021`: `SmoothRegular` and `IsZhou` give `IsLR`. `EP.IsSLR`; `theorem_7_4_24_2021`: `IsZhou` and `SmoothRegular` for every $X^i$ give `A.IsSLR`. Witness: `Examples.isSLR_pointEP`.
+
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_Φ_of_tangent` — Polyfold/Chapter7/Zhou.lean, line 1141
+- `Polyfold.EpGroupoid.NaturalRep.exists_eq_Φ_of_isZhou` — Polyfold/Chapter7/Zhou.lean, line 1162
+- `Polyfold.EpGroupoid.proposition_7_4_22_2021` — Polyfold/Chapter7/Zhou.lean, line 1279
+- `Polyfold.EP.IsSLR` — Polyfold/Chapter7/Zhou.lean, line 1288
+- `Polyfold.EpGroupoid.theorem_7_4_24_2021` — Polyfold/Chapter7/Zhou.lean, line 1294
+- `Polyfold.EpGroupoid.Examples.isSLR_pointEP` — Polyfold/Chapter7/Zhou.lean, line 1299
+
+*What differs.*
+- Theorem 7.4.24 takes (ZHOU) for every $X^i$ as a hypothesis (gap G.84); the Part I facts are hypotheses (gap G.85). Proposition 7.4.22 is proved without passing to the reduced ep-groupoid and without the density of the regular points: on the open dense union of the $X_\infty$-interiors of the sets $\{\beta = \hat g\}$, pieces whose closures meet have equal tangents at a common smooth point (Findings, Chapter 7, item 138).
+
+### V7.95. The example of Appendix 7.6.3 fails (ZHOU)
+
+*narrower* · for the analogue of V7.82 · given the Part I facts · gap G.83
+
+**HWZ (§7.4, p. 331 (new in the 2021 edition): the example of Appendix 7.6.3 and the Zhou condition).** Subsection 7.6.3 provides an example of an ep-groupoid not satisfying the Zhou condition.
+
+**Proved in Lean.** `JumpingRetract.not_isZhou`: if the object M-polyfold of `JumpingRetract.X` satisfies `SmoothRegular`, then `JumpingRetract.X` does not satisfy `IsZhou` (it is not LUC, V7.82, and (ZHOU) implies LUC, V7.90).
+
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou` — Polyfold/Chapter7/Zhou.lean, line 1024
+
+*What differs.*
+- For our analogue of Zhou's example, and conditional on the Part I facts of V7.86 for its object M-polyfold (gap G.83) (Findings, Chapter 7, item 139).
+
+### V7.96. Transport of the tame boundary along index-preserving local homeomorphisms
+
+*not in the book* · a tool for (7.25)–(7.29) · generic over any corner index
+
+**HWZ (§7.6, Appendix 7.6.5.2, pp. 353–355 (new in the 2021 edition): the maps on $bX$ induced through sheets).** With a sheet $\mathbf V$ on which $s : \mathbf V \to V$ is an sc-diffeomorphism, a class $[\varphi, \mathbf V, \theta]$ of $b\mathbf X$ is carried to the class $[s(\varphi), s(\mathbf V), s(\theta)]$ of $bX$; in the charts $\Phi$ the map becomes the sc-diffeomorphism $s : \theta \to s(\theta)$.
+
+**Proved in Lean.** `TameBoundary.IsDHomeoOn d d' f W`: $f$ maps the open $W$ homeomorphically onto an open set and preserves the index; `IsDLocalHomeo`; `isDHomeoOn_id`. Its action on faces, face-structured neighbourhoods, the morphisms of $L_X$ and $F_X$ (`IsDHomeoOn.isFaceIn_image`, `IsDHomeoOn.mem_faceStructuredNbhdsAt_image`, `IsDHomeoOn.isMor_image`, `IsDHomeoOn.image_faceExt`), on triples (`BTriple.map`, `map_cls_eq`: the class does not depend on $W$); `IsLiftOf` (`IsLiftOf.unique`, `IsLiftOf.comp`, `isLiftOf_id`); `bLift f`, $[y, V, \theta] \mapsto [f(y), f(V), f(\theta)]$ (`bLift_cls`), continuous, open, a local homeomorphism (`continuous_bLift`, `isOpenMap_bLift`, `isLocalHomeomorph_bLift`); `isCompact_preimage_bMap`; `exists_rep_centered`. `MPolyfold.IsScDiffeoOn.isDHomeoOn`, `MPolyfold.IsLocalScDiffeo.isDLocalHomeo`: sc-diffeomorphisms preserve the degeneracy index.
+
+- `Polyfold.TameBoundary.IsDHomeoOn` — Polyfold/Chapter7/TameBoundaryEp.lean, line 120
+- `Polyfold.TameBoundary.IsDLocalHomeo` — Polyfold/Chapter7/TameBoundaryEp.lean, line 129
+- `Polyfold.TameBoundary.isDHomeoOn_id` — Polyfold/Chapter7/TameBoundaryEp.lean, line 134
+- `Polyfold.TameBoundary.IsDHomeoOn.isFaceIn_image` — Polyfold/Chapter7/TameBoundaryEp.lean, line 250
+- `Polyfold.TameBoundary.IsDHomeoOn.mem_faceStructuredNbhdsAt_image` — Polyfold/Chapter7/TameBoundaryEp.lean, line 287
+- `Polyfold.TameBoundary.IsDHomeoOn.isMor_image` — Polyfold/Chapter7/TameBoundaryEp.lean, line 311
+- `Polyfold.TameBoundary.IsDHomeoOn.image_faceExt` — Polyfold/Chapter7/TameBoundaryEp.lean, line 301
+- `Polyfold.TameBoundary.BTriple.map` — Polyfold/Chapter7/TameBoundaryEp.lean, line 383
+- `Polyfold.TameBoundary.map_cls_eq` — Polyfold/Chapter7/TameBoundaryEp.lean, line 416
+- `Polyfold.TameBoundary.IsLiftOf` — Polyfold/Chapter7/TameBoundaryEp.lean, line 431
+- `Polyfold.TameBoundary.IsLiftOf.unique` — Polyfold/Chapter7/TameBoundaryEp.lean, line 443
+- `Polyfold.TameBoundary.IsLiftOf.comp` — Polyfold/Chapter7/TameBoundaryEp.lean, line 464
+- `Polyfold.TameBoundary.isLiftOf_id` — Polyfold/Chapter7/TameBoundaryEp.lean, line 458
+- `Polyfold.TameBoundary.bLift` — Polyfold/Chapter7/TameBoundaryEp.lean, line 492
+- `Polyfold.TameBoundary.bLift_cls` — Polyfold/Chapter7/TameBoundaryEp.lean, line 508
+- `Polyfold.TameBoundary.continuous_bLift` — Polyfold/Chapter7/TameBoundaryEp.lean, line 525
+- `Polyfold.TameBoundary.isOpenMap_bLift` — Polyfold/Chapter7/TameBoundaryEp.lean, line 579
+- `Polyfold.TameBoundary.isLocalHomeomorph_bLift` — Polyfold/Chapter7/TameBoundaryEp.lean, line 591
+- `Polyfold.TameBoundary.isCompact_preimage_bMap` — Polyfold/Chapter7/TameBoundaryEp.lean, line 631
+- `Polyfold.TameBoundary.exists_rep_centered` — Polyfold/Chapter7/TameBoundaryEp.lean, line 355
+- `Polyfold.MPolyfold.IsScDiffeoOn.isDHomeoOn` — Polyfold/Chapter7/TameBoundaryEp.lean, line 703
+- `Polyfold.MPolyfold.IsLocalScDiffeo.isDLocalHomeo` — Polyfold/Chapter7/TameBoundaryEp.lean, line 713
+
+*What differs.*
+- The sc-diffeomorphisms of sheets that define (7.25)–(7.28) enter through their topological content, an index-preserving homeomorphism between open sets (Findings, Chapter 7, item 140).
+
+### V7.97. (7.25)–(7.29): the boundary groupoid $(bX, b\mathbf X)$
+
+*restated* · new in the 2021 edition · sc-diffeomorphisms used topologically · $m$: the class over $\psi\circ\varphi$
+
+**HWZ (§7.6, Appendix 7.6.5.2, (7.25)–(7.29), pp. 354–355 (new in the 2021 edition)).** For a tame ep-groupoid $\mathbf X$ is tame, and the tame boundary gives $B : bX \to X$ and $B : b\mathbf X \to \mathbf X$. (7.25) $s([\varphi, \mathbf V, \theta]) = [x, V, s(\theta)]$ for $\mathbf V$ so small that $s : \mathbf V \to V$ is an sc-diffeomorphism onto a suitable neighbourhood $V$ of $x = s(\varphi)$; similarly $t$. (7.26) a class is a morphism from its source to its target. (7.27) $\iota([\varphi, \mathbf V, \theta]) = [\varphi^{-1}, \mathbf V^{-1}, \theta^{-1}]$. (7.28) $u([x, V, \theta]) = [1_x, \mathbf V, \bar\theta]$. (7.29) $m([\psi, \mathbf W, \sigma], [\varphi, \mathbf V, \theta]) = [\psi \circ \varphi, \mathbf W\,{}_s{\circ}_t\,\mathbf V, \sigma\,{}_s{\circ}_t\,\theta]$.
+
+**Proved in Lean.** `isTame_PMor`; `bObj`, `bMor` (with `cornerObj`, `cornerMor`); `bSrc`, `bTgt`, `bInv`, `bUnit` are `bLift` of $s$, $t$, $\iota$, $u$ (`isDLocalHomeo_src`, `isDLocalHomeo_tgt`, `isScDiffeoOn_inv`, `isDLocalHomeo_inv`, `isDHomeoOn_unit`, `isDLocalHomeo_unit`), with the printed formulas `bSrc_cls`, `bTgt_cls`, `bInv_cls`, `bUnit_cls`. `bComp` (`exists_bComp`, `bComp_spec`): the unique class over $\psi \circ \varphi$ with source $s(b)$ (`eq_of_bMap_eq_of_bSrc_eq`); `eventuallyEq_comp_sheet`, `bComp_eq`: the printed class. `boundaryGroupoid`: the groupoid laws; `boundaryFunctor`: $B$ is a functor.
+
+- `Polyfold.EpGroupoid.isTame_PMor` — Polyfold/Chapter7/TameBoundaryEp.lean, line 732
+- `Polyfold.EpGroupoid.cornerObj` — Polyfold/Chapter7/TameBoundaryEp.lean, line 735
+- `Polyfold.EpGroupoid.cornerMor` — Polyfold/Chapter7/TameBoundaryEp.lean, line 739
+- `Polyfold.EpGroupoid.bObj` — Polyfold/Chapter7/TameBoundaryEp.lean, line 744
+- `Polyfold.EpGroupoid.bMor` — Polyfold/Chapter7/TameBoundaryEp.lean, line 747
+- `Polyfold.EpGroupoid.isDLocalHomeo_src` — Polyfold/Chapter7/TameBoundaryEp.lean, line 749
+- `Polyfold.EpGroupoid.isDLocalHomeo_tgt` — Polyfold/Chapter7/TameBoundaryEp.lean, line 752
+- `Polyfold.EpGroupoid.isScDiffeoOn_inv` — Polyfold/Chapter7/TameBoundaryEp.lean, line 756
+- `Polyfold.EpGroupoid.isDLocalHomeo_inv` — Polyfold/Chapter7/TameBoundaryEp.lean, line 761
+- `Polyfold.EpGroupoid.isDHomeoOn_unit` — Polyfold/Chapter7/TameBoundaryEp.lean, line 766
+- `Polyfold.EpGroupoid.isDLocalHomeo_unit` — Polyfold/Chapter7/TameBoundaryEp.lean, line 784
+- `Polyfold.EpGroupoid.bSrc` — Polyfold/Chapter7/TameBoundaryEp.lean, line 790
+- `Polyfold.EpGroupoid.bTgt` — Polyfold/Chapter7/TameBoundaryEp.lean, line 794
+- `Polyfold.EpGroupoid.bInv` — Polyfold/Chapter7/TameBoundaryEp.lean, line 798
+- `Polyfold.EpGroupoid.bUnit` — Polyfold/Chapter7/TameBoundaryEp.lean, line 803
+- `Polyfold.EpGroupoid.bSrc_cls` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1020
+- `Polyfold.EpGroupoid.bTgt_cls` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1027
+- `Polyfold.EpGroupoid.bInv_cls` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1033
+- `Polyfold.EpGroupoid.bUnit_cls` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1041
+- `Polyfold.EpGroupoid.eq_of_bMap_eq_of_bSrc_eq` — Polyfold/Chapter7/TameBoundaryEp.lean, line 854
+- `Polyfold.EpGroupoid.exists_bComp` — Polyfold/Chapter7/TameBoundaryEp.lean, line 865
+- `Polyfold.EpGroupoid.bComp` — Polyfold/Chapter7/TameBoundaryEp.lean, line 886
+- `Polyfold.EpGroupoid.bComp_spec` — Polyfold/Chapter7/TameBoundaryEp.lean, line 890
+- `Polyfold.EpGroupoid.eventuallyEq_comp_sheet` — Polyfold/Chapter7/TameBoundaryEp.lean, line 899
+- `Polyfold.EpGroupoid.bComp_eq` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1009
+- `Polyfold.EpGroupoid.boundaryGroupoid` — Polyfold/Chapter7/TameBoundaryEp.lean, line 964
+- `Polyfold.EpGroupoid.boundaryFunctor` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1121
+
+*What differs.*
+- Well defined by `map_cls_eq` (V7.96). (7.28) is read through $u$, an index-preserving homeomorphism onto the open set $u(X)$; (7.29) through the source and the image under $B$, which determine a class. Off the composable pairs $m$ takes a junk value (Findings, Chapter 7, item 140).
+
+### V7.98. Theorem 7.6.9: the boundary of a tame ep-groupoid, topological part
+
+*narrower* · new in the 2021 edition · topological part only · sc-smooth parts: reported separately · $\Phi$ onto $\theta$ only for centred $V$
+
+**HWZ (§7.6, Theorem 7.6.9, p. 355 (new in the 2021 edition), and the characterization after it).** For a tame ep-groupoid: (1) $bX$ and $b\mathbf X$ have natural metrizable topologies; (2) natural tame M-polyfold structures; (3) both maps $B$ are sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$, and likewise on $b\mathbf X$; (5) $(bX, b\mathbf X)$ with $s, t, u, \iota, m$ is a tame ep-groupoid. The topology and the M-polyfold structure are characterized by: every $U(x, V, \theta)$ is open and every $\Phi_{(x, V, \theta)} : U(x, V, \theta) \to \theta$ is a homeomorphism and an sc-diffeomorphism.
+
+**Proved in Lean.** `theorem_7_6_9_2021` (for `X.IsTame`): $bX$, $b\mathbf X$ metrizable (`metrizableSpace_bObj`, `metrizableSpace_bMor`); every `uSet` open and every `phi` an open embedding, and these determine the topologies; both `bMap` continuous; the fibre of `bMap` over a point of index $d$ has $d$ elements, on objects and morphisms; `bSrc`, `bTgt` local homeomorphisms (`isLocalHomeomorph_bSrc`, `isLocalHomeomorph_bTgt`), `bUnit`, `bInv` continuous (`continuous_bSrc`, `continuous_bTgt`, `continuous_bInv`, `continuous_bUnit`), `bComp` continuous on the composable pairs (`continuousOn_bComp`), the properness property (`exists_isProperMap_bTgt`), and a functor with object and morphism maps the two `bMap`. Witnesses: `bSrc_trivial`, `trivial_quadrant_witness` ($[0, \infty)^n \oplus W$, $n \ge 1$: tame, $bX$, $b\mathbf X$ nonempty, $n$ classes over the corner).
+
+- `Polyfold.EpGroupoid.metrizableSpace_bObj` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1111
+- `Polyfold.EpGroupoid.metrizableSpace_bMor` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1115
+- `Polyfold.EpGroupoid.continuous_bSrc` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1056
+- `Polyfold.EpGroupoid.continuous_bTgt` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1058
+- `Polyfold.EpGroupoid.continuous_bInv` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1060
+- `Polyfold.EpGroupoid.continuous_bUnit` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1062
+- `Polyfold.EpGroupoid.isLocalHomeomorph_bSrc` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1065
+- `Polyfold.EpGroupoid.isLocalHomeomorph_bTgt` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1069
+- `Polyfold.EpGroupoid.continuousOn_bComp` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1073
+- `Polyfold.EpGroupoid.exists_isProperMap_bTgt` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1132
+- `Polyfold.EpGroupoid.theorem_7_6_9_2021` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1178
+- `Polyfold.EpGroupoid.bSrc_trivial` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1225
+- `Polyfold.EpGroupoid.trivial_quadrant_witness` — Polyfold/Chapter7/TameBoundaryEp.lean, line 1232
+
+*What differs.*
+- Not covered by this row: (2), the sc-smoothness in (3), the index $d_{bX}$ in (4) beyond the fibre count, the sc-smoothness and tameness in (5). They depend on 2021 Theorem 2.7.13 (2), the M-polyfold structure of $bX$, and are formalized separately (`Chapter7/TameBoundaryEpStructure.lean`), reported separately; no ep-groupoid structure on $(bX, b\mathbf X)$ is built in `Chapter7/TameBoundaryEp.lean`.
+- "$\Phi$ is a homeomorphism onto $\theta$" holds as we read it only for $V$ centred at $x$, as for (2.44) in Chapter 2; in general $\Phi$ is an open embedding, the form used in the characterization (Findings, Chapter 7, items 140, 141).
 
 ## Part II, Chapter 8
 
@@ -9592,6 +11254,148 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 *What differs.*
 - The natural transformation $\mu_Y \to \mu_X \circ F$ is stated as its naturality identity; of Definition 8.5.9 (2017: 8.10) only the strong bundle functor part and the fibre isomorphisms $A_y$ enter (Findings, Chapter 8, item 75).
 
+### V8.44. Proposition 8.1.16: the Zhou condition for $TX$
+
+*narrower* · new in the 2021 edition · added: `TangentZhouReflect` · gap G.88
+
+**HWZ (§8.1, Proposition 8.1.16, p. 369 (new in the 2021 edition)).** If the ep-groupoid $X$ satisfies the Zhou condition (Definition 7.4.5), so does its tangent $TX$. The proof writes an isotropy element of a smooth $b \in TX$ over $x$ as $(g, h)$ with $g \in G_x$, differentiates the identity (8.16) relating the action of $(g, h)$ on $TX$ to $Tg$, and uses that $T\tau$ is onto to conclude from $T(g, h) = \mathrm{id}$ that $Tg = \mathrm{id}$, hence $g \in T_x$ and $(g, h) \in T_b$.
+
+**Proved in Lean.** `MPolyfold.levelVal_tangentProj_mem_smoothSet`: a smooth point of $TX$ lies over a smooth point of $X$. `mem_nonEffectivePart_tangent`: if the base $p(v)$ of $v \in T\mathbf X$ lies in $\mathbf X^T$ (so $s = t$ near $p(v)$), then $v \in (T\mathbf X)^T$. `TangentZhouReflect`: for smooth $b \in TX$ and $(g, h) \in G_b$, `tangentMor` of $(g, h)$ in $TX$ the identity on $T_b(TX)$ implies $Tg = \mathrm{id}$ on $T_{p(b)}X$. `proposition_8_1_16_2021`: `X.IsZhou` and `TangentZhouReflect` give `IsZhou` for the tangent ep-groupoid. Witnesses: `tangentMor_trivial`, `tangentZhouReflect_trivial` (every trivial ep-groupoid), `Examples.proposition_8_1_16_2021_point`.
+
+- `Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet` — Polyfold/Chapter8/TangentZhou.lean, line 82
+- `Polyfold.EpGroupoid.mem_nonEffectivePart_tangent` — Polyfold/Chapter8/TangentZhou.lean, line 97
+- `Polyfold.EpGroupoid.TangentZhouReflect` — Polyfold/Chapter8/TangentZhou.lean, line 113
+- `Polyfold.EpGroupoid.proposition_8_1_16_2021` — Polyfold/Chapter8/TangentZhou.lean, line 123
+- `Polyfold.EpGroupoid.tangentMor_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 183
+- `Polyfold.EpGroupoid.tangentZhouReflect_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 189
+- `Polyfold.EpGroupoid.Examples.proposition_8_1_16_2021_point` — Polyfold/Chapter8/TangentZhou.lean, line 206
+
+*What differs.*
+- The step from $T(g, h) = \mathrm{id}$ to $Tg = \mathrm{id}$, by differentiating (8.16) and $T\tau$ onto, needs the second tangent bundle $T(TX)$, not formalized; it is the hypothesis `TangentZhouReflect`, satisfiable (gap G.88). Tangents of isotropy elements are set maps, as in Chapter 7 (V7.87) (Findings, Chapter 8, item 115).
+
+### V8.45. Proposition 8.1.17: LUC and SLUC for $TX$
+
+*narrower* · new in the 2021 edition · (2) only for $(TX)^0$ · added: $U(x) \cap X_1$; $p$ open · gap G.88
+
+**HWZ (§8.1, Proposition 8.1.17, p. 371 (new in the 2021 edition)).** (1) If $X^1$ has the local unique continuation property, so has $TX$, and $(T\mathbf X)^T = p^{-1}((\mathbf X^1)^T)$. (2) If $X$ has (SLUC), so has $TX$.
+
+**Proved in Lean.** Under the hypotheses that every $x \in X_1$ has a natural representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$, and that $p : T\mathbf X \to \mathbf X^1$ is open: `nonEffectivePart_tangent_eq` and `proposition_8_1_17_2021_one`: if $X^1$ is LUC, $(T\mathbf X)^T = p^{-1}((\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_2021_two`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_2021_one_point`.
+
+- `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq` — Polyfold/Chapter8/TangentZhou.lean, line 145
+- `Polyfold.EpGroupoid.proposition_8_1_17_2021_one` — Polyfold/Chapter8/TangentZhou.lean, line 167
+- `Polyfold.EpGroupoid.proposition_8_1_17_2021_two` — Polyfold/Chapter8/TangentZhou.lean, line 174
+- `Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton` — Polyfold/Chapter8/TangentZhou.lean, line 194
+- `Polyfold.EpGroupoid.Examples.proposition_8_1_17_2021_one_point` — Polyfold/Chapter8/TangentZhou.lean, line 210
+
+*What differs.*
+- The connectedness and density of $U(x) \cap X_1$ (as for Appendix 7.6.4, V7.83; the density is gap G.73) and the openness of $p$ (gap G.8) are hypotheses. (1) goes through Proposition 7.2.21 for $TX$. (2) is proved for $(TX)^0 = TX$ only, since $(TX)^i = T(X^i)$ is not formalized (gap G.88) (Findings, Chapter 8, item 116).
+
+### V8.46. Definition 8.3.5: auxiliary norms on strong bundles over ep-groupoids
+
+*restated* · new in the 2021 edition · (3) as an equation in $W$ · satisfiable
+
+**HWZ (§8.3, Definition 8.3.5, p. 379 (new in the 2021 edition)).** An auxiliary norm for the strong bundle $(P : W \to X, \mu)$ over the ep-groupoid $X$ is a continuous $N : W_{0,1} \to [0, \infty)$ which (1) restricts to a complete norm on every fibre, (2) satisfies $h_k \to 0_x$ whenever $P(h_k) \to x$ and $N(h_k) \to 0$, and (3) is invariant: $N(h) = N(k)$ if $h = \mu(\varphi, k)$.
+
+**Proved in Lean.** `EpStrongBundle.IsAuxNorm`: Part I's auxiliary norm (continuity, (1), (2)) on the underlying strong bundle, together with (3) $N(h) = N(k)$ for $h \in W_{0,1}$, $s(\varphi) = P(k)$, $h = \mu(\varphi, k)$. `EpStrongBundle.exists_oneVal_eq_μ`: $\mu(\varphi, k) \in W_{0,1}$ for $k \in W_{0,1}$, so (3) is not vacuous. Witnesses: `EpStrongBundle.exists_isAuxNorm_trivial` (over the trivial ep-groupoid every auxiliary norm of Part I is one), `TrivialBundle.exists_isAuxNorm_epBundle` ($\mathbb R^n \times \mathbb R^k \to \mathbb R^n$).
+
+- `Polyfold.EpStrongBundle.IsAuxNorm` — Polyfold/Chapter8/Book2021.lean, line 315
+- `Polyfold.EpStrongBundle.exists_oneVal_eq_μ` — Polyfold/Chapter8/Book2021.lean, line 322
+- `Polyfold.EpStrongBundle.exists_isAuxNorm_trivial` — Polyfold/Chapter8/Book2021.lean, line 342
+- `Polyfold.TrivialBundle.exists_isAuxNorm_epBundle` — Polyfold/Chapter8/Book2021.lean, line 349
+
+*What differs.*
+- Values in $[0, \infty)$ follow from (1); in (3), $h$ ranges over $W_{0,1}$ and $h = \mu(\varphi, k)$ is an equation in $W$ (Findings, Chapter 8, item 117).
+
+### V8.47. Proposition 8.4.1: paracompactness of $|X|$ from that of $|W[0]|$
+
+*narrower* · new in the 2021 edition · only (2) ⇒ (1) · gap G.86
+
+**HWZ (§8.4, Proposition 8.4.1, p. 380 (new in the 2021 edition)).** For a strong bundle $P : W \to X$ over an ep-groupoid the following are equivalent: (1) $|X|$ is paracompact; (2) $|W[0]|$ is paracompact; (3) $|W[1]|$ is paracompact.
+
+**Proved in Lean.** `EpStrongBundle.μ_fiberZero`: $\mu(\varphi, 0_{s(\varphi)}) = 0_{t(\varphi)}$. `EpStrongBundle.zeroOrbitMap`: the map $|0| : |X| \to |W[0]|$ induced by the zero section, continuous (`continuous_zeroOrbitMap`), with left inverse $|P|$ (`leftInverse_zeroOrbitMap`), a topological embedding (`isEmbedding_zeroOrbitMap`). `EpStrongBundle.proposition_8_4_1_2021_two_imp_one`: if $|W[0]|$ is paracompact, so is $|X|$.
+
+- `Polyfold.EpStrongBundle.μ_fiberZero` — Polyfold/Chapter8/Book2021.lean, line 369
+- `Polyfold.EpStrongBundle.zeroOrbitMap` — Polyfold/Chapter8/Book2021.lean, line 377
+- `Polyfold.EpStrongBundle.continuous_zeroOrbitMap` — Polyfold/Chapter8/Book2021.lean, line 383
+- `Polyfold.EpStrongBundle.leftInverse_zeroOrbitMap` — Polyfold/Chapter8/Book2021.lean, line 388
+- `Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap` — Polyfold/Chapter8/Book2021.lean, line 394
+- `Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one` — Polyfold/Chapter8/Book2021.lean, line 403
+
+*What differs.*
+- Only (2) implies (1). $W[1]$ is not built as an ep-groupoid, and (1) implies (2), (3) needs $G_x$-equivariant bundle charts with invariant metrics (gap G.86). The proof: $|W[0]|$ is metrizable (Theorem 7.3.1 and Smirnov's theorem), so its subspace $|X|$ is, hence paracompact (Findings, Chapter 8, item 118).
+
+### V8.48. Definition 8.4.2: the local regularity property of a strong bundle
+
+*restated* · new in the 2021 edition · $B$ read via `IsStrongBundleIsoOn` · Prop. 8.4.3: gap G.86
+
+**HWZ (§8.4, Definition 8.4.2, p. 382 (new in the 2021 edition)).** With the natural lift of the $G_x$-action to $W|U(x)$, the strong bundle $P : W \to X$ has the local regularity property if every $x$ has arbitrarily small $U(x)$ such that every strong bundle isomorphism $B : W|U(x) \to W|U(x)$ with $|B(w)| = |w|$ is of the form $w \mapsto g * w$ for some $g \in G_x$. Proposition 8.4.3 (p. 382): for effective $X$ with (LR) the strong bundle has it.
+
+**Proved in Lean.** `EpStrongBundle.natLift`: $g * w = \mu(\Gamma(g, P(w)), w)$. `EpStrongBundle.IsLR`: inside every open $O \ni x$ a natural representation $U(x)$ such that every strong bundle map $\Phi : W \to W$ covering some $\beta$, a strong bundle isomorphism on $W|U(x)$ (`IsStrongBundleIsoOn`), with $|\Phi(w)| = |w|$ for $P(w) \in U(x)$, equals $w \mapsto g * w$ on $W|U(x)$ for some $g \in G_x$. Witness: `EpStrongBundle.isLR_trivial` (every strong bundle over a trivial ep-groupoid).
+
+- `Polyfold.EpStrongBundle.natLift` — Polyfold/Chapter8/TangentZhou.lean, line 230
+- `Polyfold.EpStrongBundle.IsLR` — Polyfold/Chapter8/TangentZhou.lean, line 239
+- `Polyfold.EpStrongBundle.isLR_trivial` — Polyfold/Chapter8/TangentZhou.lean, line 258
+
+*What differs.*
+- "Strong bundle isomorphism $B : W|U(x) \to W|U(x)$" is read as Part I's `IsStrongBundleIsoOn` for a strong bundle map $W \to W$, as for Definition 8.5.9 (V8.37), and $|B(w)| = |w|$ as equality of orbits. Proposition 8.4.3 is not formalized (gap G.86) (Findings, Chapter 8, item 119).
+
+### V8.49. The remark after Definition 8.5.5 and Example 8.5.6
+
+*as in the book* · Example 8.5.6 new in 2021
+
+**HWZ (§8.5, the remark after Definition 8.5.5 and Example 8.5.6, p. 388 (Example 8.5.6 new in the 2021 edition; Definition 8.5.5: 2017 8.9)).** For a covering functor $f : D \to C$ and $d \in D$ with $f(d) = x$, the map $f : G_d \to G_x$ is injective, but it need not be surjective. Example 8.5.6: $D$ with two objects $a$, $b$ and exactly one morphism between any two objects, $C$ with one object $x$ and $G_x = \{1_x, \varepsilon\}$, $f(\varphi) = f(\varphi^{-1}) = \varepsilon$ for the morphism $\varphi : a \to b$.
+
+**Proved in Lean.** `IsCoveringFunctor.injective_map_end`: $f : G_d \to G_{f(d)}$ is injective. `Example856D` (two objects, one morphism between any two), `example856Functor` (to $\mathbb Z^\times$ as a one-object category, $\varepsilon = -1$), `example_8_5_6_2021`: it is a covering functor, $G_a$ and $G_b$ are trivial, $G_x \cong \mathbb Z/2$ is not, and $f : G_a \to G_x$ is injective and not surjective.
+
+- `Polyfold.IsCoveringFunctor.injective_map_end` — Polyfold/Chapter8/Book2021.lean, line 222
+- `Polyfold.Example856D` — Polyfold/Chapter8/Book2021.lean, line 233
+- `Polyfold.example856Functor` — Polyfold/Chapter8/Book2021.lean, line 257
+- `Polyfold.example_8_5_6_2021` — Polyfold/Chapter8/Book2021.lean, line 271
+
+*What differs.*
+- As stated (Findings, Chapter 8, item 120).
+
+### V8.50. Definition 8.5.9, 2021 form: condition (0)
+
+*restated* · (0) new in the 2021 edition · equivalent to the reading of V8.37
+
+**HWZ (§8.5, Definition 8.5.9, p. 394 (2017: 8.10, p. 285), with (0) new in the 2021 edition).** For strong bundles $(W, \mu)$ over $Y$ and $(V, \tau)$ over $X$ and an ep-functor $F : Y \to X$, a strong bundle map $A : W \to V$ with $Q \circ A = F \circ P$ is a proper strong bundle covering functor if (0) $\tau(F(\psi), A(w)) = A(\mu(\psi, w))$, and (1)–(3) of the 2017 definition hold.
+
+**Proved in Lean.** `EpStrongBundle.IsProperStrongBundleCovering2021`: for the object map $A$, strong bundle map, $Q \circ A = F \circ P$, (0), and (1)–(3) as in V8.37. `EpStrongBundle.isProperStrongBundleCovering2021_iff`: it holds iff $A$ is the object map of a unique strong bundle functor that is a proper strong bundle covering functor in the sense of V8.37 (`IsProperStrongBundleCovering.isProperStrongBundleCovering2021`). Witnesses: `EpStrongBundle.isProperStrongBundleCovering2021_id`, `TrivialBundle.epBundle_isProperStrongBundleCovering2021`.
+
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021` — Polyfold/Chapter8/Book2021.lean, line 128
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering.isProperStrongBundleCovering2021` — Polyfold/Chapter8/Book2021.lean, line 156
+- `Polyfold.EpStrongBundle.isProperStrongBundleCovering2021_iff` — Polyfold/Chapter8/Book2021.lean, line 171
+- `Polyfold.EpStrongBundle.isProperStrongBundleCovering2021_id` — Polyfold/Chapter8/Book2021.lean, line 203
+- `Polyfold.TrivialBundle.epBundle_isProperStrongBundleCovering2021` — Polyfold/Chapter8/Book2021.lean, line 211
+
+*What differs.*
+- Stated for the object map; (0) is the strong bundle map property of Definition 8.3.2 (2017: 8.5). V8.37 had read 2017's "strong bundle map $A$" as a strong bundle functor, which contains (0); the two readings are equivalent (Findings, Chapter 8, items 70, 121).
+
+### V8.51. Lemma 8.5.10: $W \cong F^*V$ for a proper strong bundle covering
+
+*narrower* · new in the 2021 edition · $F^*V$ over $Y$: only $\mu_{F^*V}$ used · gap G.89
+
+**HWZ (§8.5, Lemma 8.5.10, p. 395 (new in the 2021 edition)).** For a proper strong bundle covering functor $A : W \to V$ covering $F : Y \to X$, the map $B : W \to F^*V$, $w \mapsto (P(w), A(w))$, is a strong bundle isomorphism over the ep-groupoid $Y$, where $F^*V$ carries $\mu_{F^*V}(\varphi, (y, v)) = (t(\varphi), \mu_X(F(\varphi), v))$; it satisfies (8.23) $B(\mu_Y(\varphi, w)) = \mu_{F^*V}(\varphi, B(w))$, and $A = \bar A \circ B$.
+
+**Proved in Lean.** `EpStrongBundle.pullbackμ`: $\mu_{F^*V}$. For `A : IsProperStrongBundleCovering2021`: `bundleB` with `bundleB_val`, (8.23) `bundleB_μ`; `bijective_bundleB` (via `eq_of_isStrongBundleIsoOn`); the inverse `bundleBInv` (`bundleBInv_eq_of`: near every point the inverse of a local strong bundle isomorphism of Definition 8.5.9 (1)); `isStrongBundleMap_bundleB`, `mapsTo_oneSet_bundleBInv`, `isStrongBundleMap_bundleBInv`. `lemma_8_5_10_2021`: $B$ is a strong bundle isomorphism $W \to F^*V$ covering the identity of $Y$, with (8.23) and $A = \bar A \circ B$.
+
+- `Polyfold.EpStrongBundle.pullbackμ` — Polyfold/Chapter8/Book2021.lean, line 433
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB` — Polyfold/Chapter8/Book2021.lean, line 446
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val` — Polyfold/Chapter8/Book2021.lean, line 450
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_μ` — Polyfold/Chapter8/Book2021.lean, line 454
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.eq_of_isStrongBundleIsoOn` — Polyfold/Chapter8/Book2021.lean, line 464
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bijective_bundleB` — Polyfold/Chapter8/Book2021.lean, line 473
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv` — Polyfold/Chapter8/Book2021.lean, line 488
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv_eq_of` — Polyfold/Chapter8/Book2021.lean, line 506
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB` — Polyfold/Chapter8/Book2021.lean, line 529
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv` — Polyfold/Chapter8/Book2021.lean, line 553
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv` — Polyfold/Chapter8/Book2021.lean, line 569
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021` — Polyfold/Chapter8/Book2021.lean, line 623
+
+*What differs.*
+- "Strong bundle isomorphism over the ep-groupoid $Y$" is read as a strong bundle isomorphism $W \to F^*V$ with (8.23); that $\mu_{F^*V}$ makes $F^*V$ a strong bundle over the ep-groupoid $Y$ is not proved, only its formula is used (gap G.89) (Findings, Chapter 8, item 122).
+
 ## Not formalized
 
 *What the book states and the formalization does not prove, and what it does instead; an entry proved since the first edition of this page keeps its number and is marked “formalized since”*
@@ -9739,6 +11543,38 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** **Not formalized, because not needed.** The proofs of Theorem 2.3.10 (preprint 2.16) and Proposition 2.3.15(3) (preprint 2.19) avoid them (V2.17, V2.20, V2.62). The text applies Proposition 2.7.4 (preprint 2.57) to $X_m$ and $TX$ without checking that they are regular.
 
+
+### G.76. Remark 2.1.6: the modified local completeness is strictly weaker
+
+*not formalized*
+
+**HWZ (§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)).** Replacing $\mathrm{cl}_X(V(x))$ by the closure of $V(x)$ in $W(x)$ (and $\mathrm{cl}_X(V(x)) \subseteq W(x)$ by $V(x) \subseteq W(x)$) in Definition 2.1.5 gives a weaker notion.
+
+**Proved in Lean.** **Not formalized: that the notion is strictly weaker.** The implication is proved (V2.68); no space that is locally complete in the modified sense but not in the sense of Definition 2.1.5 is constructed.
+
+- `Polyfold.IsLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 346
+- `Polyfold.IsLocallyComplete.isLocallyCompleteRel` — Polyfold/Chapter2/LocalTopology.lean, line 351
+
+### G.77. Definition 2.5.19: chart independence, "a tame sub-M-polyfold is tame", the examples
+
+*not formalized*
+
+**HWZ (§2.5, condition (3) of Definition 2.5.19 and the text after it, p. 63 (new in the 2021 edition)).** Condition (3) of Definition 2.5.19 is stated on $T_yX$; the text remarks that a tame sub-M-polyfold is tame and gives examples in $[0, \infty)^2 \times \mathbb R$: $\{(x, y, 0)\}$ is a tame sub-M-polyfold, the diagonal ray $\{(x, x, 0)\}$ is not, although its induced structure is tame.
+
+**Proved in Lean.** **Not formalized.** Condition (3) is stated in some chart around $y$ (V2.78), since $T_yX$ has no linear structure here (gap G.7); its independence of the chart, the remark that a tame sub-M-polyfold is tame (Definition 2.5.18), and the two examples are not formalized.
+
+- `Polyfold.MPolyfold.TameSubData` — Polyfold/Chapter2/TameBoundary.lean, line 1350
+- `Polyfold.MPolyfold.IsTameSubMPolyfold` — Polyfold/Chapter2/TameBoundary.lean, line 1362
+
+### G.78. Proposition 2.7.12 and the characterization after Theorem 2.7.13 for non-centred representatives
+
+*not formalized*
+
+**HWZ (§2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition)).** For every pair of admissible triples the transition map $\Phi_{(x', V', \theta')} \circ \Phi_{(x, V, \theta)}^{-1}$ is an sc-diffeomorphism; every $\Phi_{(x, V, \theta)}$ is a homeomorphism and an sc-diffeomorphism onto $\theta$.
+
+**Proved in Lean.** **Not formalized for representatives $(x, V, \theta)$ whose $V$ is not centred at $x$.** There $\Phi_{(x, V, \theta)}$ is an open embedding into $\theta$ (V2.87), not in general onto $\theta$ (V2.85), and the sc-smoothness of the transition maps is not formalized. Every class has a centred representative (`BSpace.exists_centred_rep`), for which the sc-statements are proved in `Chapter2/TameBoundaryStructure.lean`.
+
+- `Polyfold.TameBoundary.isOpenEmbedding_phi` — Polyfold/Chapter2/TameBoundaryTopology.lean, line 283
 
 ### G.16. Theorem 3.1.21 (preprint 3.18): parameterized perturbations
 
@@ -9908,13 +11744,24 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.StrongBundle.isGoodPositionGerm_iff_isLinSurjAt` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 358
 - `Polyfold.theorem_3_19_of_surjective` — Polyfold/Chapter3/GlobalIFTIndexG.lean, line 615
 
+### G.79. The 2021 (untamed) sc-Fredholm germs: tame fillings, and Theorem 3.6.8 for untamed data
+
+*not formalized*
+
+**HWZ (§3.1 and §3.6, Definitions 3.1.4, 3.6.1 and Theorem 3.6.8, pp. 91, 134–138; with Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10, 3.6.11).** The 2021 filling asks only for an sc-smooth retraction (no tameness). Theorem 3.6.8 describes the solution set near a zero in good position; its proof (p. 138) uses that the retract is tame. Theorems 3.1.22, 3.1.26, Corollary 3.1.27 and Theorems 3.6.10, 3.6.11 rest on it.
+
+**Proved in Lean.** **Open.** Whether every 2021 sc-Fredholm germ has germ data in a tame chart (Findings, Chapter 3, item 353), and Theorem 3.6.8 and the results resting on it for untamed germ data, are not formalized. The proof step on p. 138 does not go through without a tame chart (V3.115). These theorems are verified with tame germ data (V3.85, V3.94, V3.103); the 2021 corollaries whose proofs do not use tameness are V3.111–V3.114.
+
+- `Polyfold.theorem_3_6_8_tame_step_2021` — Polyfold/Chapter3/Book2021Germs.lean, line 440
+- `Polyfold.StrongBundle.IsScFredholmGerm2021` — Polyfold/Chapter3/Book2021Germs.lean, line 481
+
 ### G.31. Remark 4.1.3 (preprint 4.3): “$X^1 \ne X$ is possible”
 
 *formalized since* · now V4.6
 
 **HWZ (§4.1, Remark 4.1.3 (preprint 4.3), p. 176 (preprint p. 148)).** If $X_0 = X_\infty$, then $X_m = X_0$ as sets for all $m$; "however, it is possible that $X^1 \ne X$ as sc-smooth spaces despite the fact that $(X^1)_m = X_{m+1} = X_i$ as sets".
 
-**Proved in Lean.** **Formalized since the first edition of this page** (fourth addendum; V4.6), by an example the text does not give. On the weighted sequence space $X$ of V1.13 ($|x|_m = \sup_k(k+1)^m|x_k|$), $L(t)$ is the projection onto $\cos\theta\,e_{n_k} + \sin\theta\,e_{n_{k+1}}$ ($n_k = 2^k$), the angle $\theta$ turning from $0$ to $\pi/2$ with flat ends while $t$ runs through $[1/(k+2), 1/(k+1)]$, and $L(t) = 0$ for $t \le 0$. The retraction $r(t, z) = (t, L(t)z)$ of $\mathbb R \oplus X$ is sc-smooth by a criterion for parameter families of level operators with one level of loss; its retract $O$ consists of smooth points, and the lift $O \to E_1$ is discontinuous at $0$, so $O$ is not an sc⁺-retract (Proposition 4.1.8 (preprint 4.8)), and the M-polyfold $O$ with its single chart has $X_0 = X_\infty$ and $1_0^1$ not sc-smooth. Why an example needs a retraction that loses a level (one with $C^1$ level maps gives none) is an argument, not formalized (Findings, Chapter 4, items 140–146).
+**Proved in Lean.** **Formalized since the first edition of this page** (fourth addendum; V4.6), by an example the preprint and 2017 texts do not give. The 2021 edition (p. 176) adds an example: the space of its Subsection 1.4.4 (a line with a half-plane attached), made an M-polyfold with $X_\infty = X$, for which $1_0^1$ cannot be sc-smooth, since Theorem 4.1.2 (preprint 4.2) would make $X$ a manifold of constant local dimension; that argument holds as we read it and is not formalized (Findings, Chapter 4, item 159). On the weighted sequence space $X$ of V1.13 ($|x|_m = \sup_k(k+1)^m|x_k|$), $L(t)$ is the projection onto $\cos\theta\,e_{n_k} + \sin\theta\,e_{n_{k+1}}$ ($n_k = 2^k$), the angle $\theta$ turning from $0$ to $\pi/2$ with flat ends while $t$ runs through $[1/(k+2), 1/(k+1)]$, and $L(t) = 0$ for $t \le 0$. The retraction $r(t, z) = (t, L(t)z)$ of $\mathbb R \oplus X$ is sc-smooth by a criterion for parameter families of level operators with one level of loss; its retract $O$ consists of smooth points, and the lift $O \to E_1$ is discontinuous at $0$, so $O$ is not an sc⁺-retract (Proposition 4.1.8 (preprint 4.8)), and the M-polyfold $O$ with its single chart has $X_0 = X_\infty$ and $1_0^1$ not sc-smooth. Why an example needs a retraction that loses a level (one with $C^1$ level maps gives none) is an argument, not formalized (Findings, Chapter 4, items 140–146).
 
 - `Polyfold.remark_4_3_example` — Polyfold/Chapter4/RemarkFourThreeFamily.lean, line 922
 - `Polyfold.remark_4_3_retract_example` — Polyfold/Chapter4/RemarkFourThreeFamily.lean, line 856
@@ -9983,10 +11830,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 *not formalized*
 
-**HWZ (§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167)).** For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth vector field $[A, B]$ on $X^1$, a section of $T(X^1) \to X^2$ (quoted from another paper).
+**HWZ (§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167)).** (2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth section $[A, B]$ of $TX|X^2 \to X^2$, proved in Appendix 4.5 (§§4.5.1–4.5.2, pp. 200–202). The preprint and 2017 texts state an sc-smooth vector field on $X^1$, a section of $T(X^1) \to X^2$, quoted from another paper.
 
-**Proved in Lean.** **Not formalized** (no proof in the text; needs the tangent bundle of $X^1$ over $X^2$, gap G.6).
+**Proved in Lean.** **Formalized in a local model** (V4.67–V4.72): for vector fields $A$, $B$ on a local model $(O, C, E)$, $x \mapsto (x, [A, B](x))$ is an sc-smooth map from $O^2$ to $TO$ (`proposition_4_4_5_local_2021`). **Not formalized on an M-polyfold**: it needs the identification of $(TX)^i$ with $T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \to X^2$ and Lemma 4.5.1 (the bracket does not depend on the chart), whose proof the text leaves to the reader; the computation of §4.5.2 is that of Lemma 4.5.1. The sentence of p. 201 that the bracket at $x \in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157).
 
+- `Polyfold.proposition_4_4_5_local_2021` — Polyfold/Chapter4/VectorFields.lean, line 492
+- `Polyfold.retractLieBracket_mem_tangent` — Polyfold/Chapter4/VectorFields.lean, line 442
 
 ### G.39. The exterior derivative, Definition 4.4.6 (preprint 4.27) and the relative complex
 
@@ -10004,6 +11853,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **HWZ (§4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168)).** For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\omega$, $\int_N d\omega = \sum_F\int_F\omega$.
 
 **Proved in Lean.** **Not formalized** (no proof in the text; integration on manifolds with corners of varying dimension is not in Mathlib). The formula writes $\int_M$ for $\int_N$ (Findings, item 123).
+
+
+### G.80. 2021 §4.4 and Appendix 4.5: sc-differential forms, the exterior derivative, Stokes, the Poincaré lemma
+
+*not formalized*
+
+**HWZ (§4.4 and Appendix 4.5, pp. 195–208 (2021)).** Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\oplus_kTX$, the direct limit $\Omega^*_\infty(X)$), the exterior derivative $d : \Omega^k(X^i) \to \Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).
+
+**Proved in Lean.** **Not formalized** (continues G.37–G.40). It needs $\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$, $i \ge 2$, with $(TX)^i \cong T(X^i)$ (gap G.6), Lemma 4.5.1, and integration on manifolds with corners. The vector fields of Definition 4.4.3 and the bracket of Proposition 4.4.5 are formalized in a local model (V4.67–V4.72). The 2021 text runs $d$ as G.39 proposed and writes $\int_N$; in the displayed formula for $d\omega$ (p. 197) the sign $(-1)^{\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\ell+j}$ and $j$ (Findings, Chapter 4, item 158).
 
 
 ### G.41. Corollary 5.2.5 (preprint 5.8) beyond the chart level
@@ -10086,11 +11944,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§5.3, Theorem 5.3.15 (preprint 5.22), p. 223 (preprint p. 181) (proof pp. 223–228 (preprint pp. 181–186))).** For a generalized compact homotopy with end problems in general position and $\partial X = X_0 \sqcup X_1$, an arbitrarily small $s_0 \in \Gamma^{+,1}_U(P)$ vanishing near $\partial X$ makes $(f + s_0, x)$ in general position at every zero and $t : S_{f+s_0} \to [0, 1]$ a function with only Morse-type critical points.
 
-**Proved in Lean.** **Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\Phi_\lambda : S \to S_\lambda$ of the family (not "the classical standard implicit function theorem"); its proof also needs $dt(x) \ne 0$ at the critical points of $t|S$, which the statement does not assume (V5.42). Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103).
+**Proved in Lean.** **Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\Phi_\lambda : S \to S_\lambda$ of the family (not "the classical standard implicit function theorem"); its proof also needs $dt(x) \ne 0$ at the critical points of $t|S$, which the preprint and 2017 statements do not assume (V5.42); the 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth point and so supplies it (`lemma_5_3_16_2021`, V5.69), but the theorem itself is still not formalized. Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103, 178).
 
 - `Polyfold.lemma_5_23` — Polyfold/Chapter5/Homotopy.lean, line 106
 - `Polyfold.lemma_5_24` — Polyfold/Chapter5/Homotopy.lean, line 527
 - `Polyfold.ne_zero_of_isCompl_ker` — Polyfold/Chapter5/Homotopy.lean, line 150
+- `Polyfold.lemma_5_3_16_2021` — Polyfold/Chapter5/Book2021.lean, line 400
 
 ### G.49. Theorem 5.27 (preprint; not in the 2021 edition): cobordism between good position perturbations
 
@@ -10107,7 +11966,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§5.5 (preprint §5.4.2), Theorem 5.5.5 (preprint 5.32), p. 230 (preprint p. 193)).** On $L^p$, $\|\cdot\|^p$ is $C^\infty$ for $p$ an even integer, $C^{p-1}$ for $p$ odd, and $C^{[p]}$ for $p$ not an integer.
 
-**Proved in Lean.** **Not formalized** (cited from [9], Theorem 1; deep Banach space geometry, not used on the main line; the statement misses "$p$" in (1), (2)) (Findings, Chapter 5, items 117, 120).
+**Proved in Lean.** **Not formalized** (cited from [9], Theorem 1, in the 2021 edition from [25]; deep Banach space geometry, not used on the main line; the preprint statement misses "$p$" in (1), (2), which the 2017 and 2021 statements print) (Findings, Chapter 5, items 117, 120, 179).
 
 
 ### G.51. The $L^p$ and Sobolev remark
@@ -10305,6 +12164,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 - `Polyfold.theorem_5_18` — Polyfold/Chapter5/GeneralPosition.lean, line 1779
 
+### G.81. Proposition 6.4.13 (2017: 6.6), last sentence: continuity in $T$
+
+*not formalized*
+
+**HWZ (§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)).** For $T'$ near $T$ with $P, Q \in \Pi_{T'}$, the constructions of $A_{T'}$ and $B_{T'}$ depend continuously on $T'$ (keeping $X$, the equation for $x(e)$ stays uniquely solvable).
+
+**Proved in Lean.** **Not formalized.** It needs a closed common complement $X$ of the kernels (the formalized one is algebraic, V6.66) and a topology on the family of kernels $\ker(PT')$, between which $A_{T'}$ acts; the algebraic part is V6.67 (Findings, Chapter 6, item 113).
+
+- `Polyfold.proposition_6_4_13_2021` — Polyfold/Chapter6/Book2021.lean, line 320
+
 ### G.70. Definition 7.1.4 (2017: 7.4): the tangent $T\varphi$ as an sc-isomorphism
 
 *not formalized*
@@ -10321,17 +12190,20 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.71. Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14): $\mathbf X^R$ Hausdorff and paracompact
 
-*not formalized*
+*formalized since* · now V7.77 · now V7.78 · now V7.81
 
-**HWZ (§7.2, Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017), pp. 313–324 (2017 pp. 242–244)).** Proposition 7.2.10 (2017: 7.9): the reduced morphism set $\mathbf X^R$ has a natural M-polyfold structure. Proposition 7.10 (2017): every ep-groupoid $X$ possesses an associated reduced ep-groupoid $X_R$, and $X_R$ is effective. Since an M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.3.4 (2017: 2.8)), these assert in particular that $\mathbf X^R$, with the quotient topology, is Hausdorff and paracompact, for every ep-groupoid $X$.
+**HWZ (§7.2, Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017), pp. 313–324 (2017 pp. 242–244)).** Proposition 7.2.10 (2017: 7.9): the reduced morphism set $\mathbf X^R$ has a natural M-polyfold structure. Proposition 7.10 (2017): every ep-groupoid $X$ possesses an associated reduced ep-groupoid $X_R$, and $X_R$ is effective. Since an M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.3.4 (2017: 2.8)), these assert in particular that $\mathbf X^R$, with the quotient topology, is Hausdorff and paracompact, for every ep-groupoid $X$. The 2021 edition rewrites this: Remark 7.2.8 (p. 311) says that in general $(X, \mathbf X^R)$ cannot be made an ep-groupoid, Proposition 7.2.12 (p. 317) proves $T_R$ paracompact for every ep-groupoid, Proposition 7.2.13 (p. 318) makes it an M-polyfold exactly when it is Hausdorff, and Theorem 7.2.14 (p. 318) builds $X_R$ under the hypothesis that $T_R$ is Hausdorff, characterized in Theorem 7.2.22 (p. 323).
 
-**Proved in Lean.** **Not formalized** for a general ep-groupoid: as we read it, the proof of Proposition 7.2.10 (2017: 7.9) gives neither property, and both are hypotheses (`[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`) of `reducedPolyfold` and so of Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017) (V7.39, V7.40). They are discharged for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, and paracompactness follows from regularity when $\mathbf X$ is second countable. Hausdorffness fails in general: for $\mathbb Z/2$ acting on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3), $\mathbf X^R$ is not Hausdorff (`Examples.exists_not_t2Space_reducedMor`, formalized after the round-trip audit). Not formalized: whether $\mathbf X^R$ is paracompact when it is Hausdorff, and whether Hausdorffness with $\mathbf X$ second countable suffices for paracompactness (Findings, Chapter 7, items 56, 60, 107, 111).
+**Proved in Lean.** **Closed by the 2021 edition**, in its 2021 form. In the 2017 form, for every ep-groupoid, the statement does not hold as we read it: for $\mathbb Z/2$ acting on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3), $\mathbf X^R$ is not Hausdorff (`Examples.exists_not_t2Space_reducedMor`, formalized after the round-trip audit), and the hypotheses `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` of `reducedPolyfold` were the project's (V7.39, V7.40). The 2021 text is consistent with this: Remark 7.2.8 announces such examples, Appendix 7.6.3 gives Zhou's, of the same kind (V7.82). Paracompactness is now proved for every ep-groupoid (`paracompactSpace_reducedMor`, an instance, V7.77), which also settles the question, left open here, of paracompactness when $\mathbf X^R$ is Hausdorff; the Hausdorff hypothesis is exactly that of 2021 Theorem 7.2.14 (V7.78), and Theorem 7.2.22 characterizes it by LUC and the closedness of $\mathbf X^T$ (V7.81) (Findings, Chapter 7, items 56, 60, 107, 111, 125, 126, 129).
 
 - `Polyfold.EpGroupoid.reducedPolyfold` — Polyfold/Chapter7/Reduced.lean, line 696
 - `Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective` — Polyfold/Chapter7/Reduced.lean, line 1078
 - `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective` — Polyfold/Chapter7/Reduced.lean, line 1082
 - `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3` — Polyfold/Chapter7/Reduced.lean, line 1146
 - `Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor` — Polyfold/Chapter7/ReducedNotHausdorff.lean, line 254
+- `Polyfold.EpGroupoid.paracompactSpace_reducedMor` — Polyfold/Chapter7/ReducedCriterion.lean, line 343
+- `Polyfold.EpGroupoid.theorem_7_2_14_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 365
+- `Polyfold.EpGroupoid.theorem_7_2_22_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 565
 
 ### G.72. The filtration of $|X|$: the set $|X_\infty|$
 
@@ -10356,6 +12228,55 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.ScBanach.denseRange_incl` — Polyfold/Chapter1/ScBanach.lean, line 184
 - `Polyfold.ScBanach.denseRange_inclK` — Polyfold/Chapter1/ScBanach.lean, line 181
 
+### G.82. Theorem 7.6.7: the sc-diffeomorphism $(X^i)_R \cong (X_R)^i$, and $i \ge 2$
+
+*not formalized*
+
+**HWZ (§7.6, Theorem 7.6.7 and Corollary 7.6.8, p. 351 (new in the 2021 edition)).** Under (SLUC), the natural set-theoretic identification between $(X^1)_R$ and $(X_R)^1$ is an sc-diffeomorphism between the object spaces and the morphism spaces; for every $i$ there is a similar identification between $(X^i)_R$ and $(X_R)^i$. Corollary 7.6.8: the same under (ZHOU).
+
+**Proved in Lean.** **Not formalized** beyond $i = 1$ as sets: under LUC for $X^1$ and the hypothesis that every $x \in X_1$ has a natural representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$ (the density is gap G.73), $(\mathbf X^1)^T = (\mathbf X^T)^1$ and $[\varphi]_1 \mapsto [\varphi]$ is a continuous injection $(\mathbf X^1)^R \to \mathbf X^R$ onto $\pi(\mathbf X_1)$ (V7.83). The sc-diffeomorphism needs the M-polyfold $(\mathbf X^R)^1$; $i \ge 2$ needs the lifts of $X_R$ (Findings, Chapter 7, item 131).
+
+- `Polyfold.EpGroupoid.theorem_7_6_7_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 943
+- `Polyfold.EpGroupoid.corollary_7_6_8_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 964
+- `Polyfold.EpGroupoid.HasConnectedDenseLevelOneReps` — Polyfold/Chapter7/ReducedCriterion.lean, line 895
+
+### G.83. Appendix 7.6.3: Zhou's retract and its exact non-effective part
+
+*not formalized*
+
+**HWZ (§7.6, Appendix 7.6.3, p. 348, and §7.4, p. 331 (new in the 2021 edition)).** Zhou's example: $\mathbb Z/2$ acting on the retract of Part I's Subsection 1.4.4 by $(s, f) \mapsto (s, -f)$; $\mathrm{cl}(\mathbf X^T) \setminus \mathbf X^T$ is one point, so $T_R$ is not Hausdorff and (LUC) fails; the example does not satisfy the Zhou condition (p. 331).
+
+**Proved in Lean.** **Not formalized** for Zhou's retract: the analogue `JumpingRetract.X` ($\mathbb Z/2$ on the retract of Part I's Remark 4.2.2 (2017: 4.3)) has a point of $\mathrm{cl}(\mathbf X^T) \setminus \mathbf X^T$, $T_R$ not Hausdorff and LUC failing (V7.82); $\mathbf X^T$ is not computed exactly, and that it fails (ZHOU) is proved given the Part I facts `SmoothRegular` for its object M-polyfold (V7.95) (Findings, Chapter 7, items 130, 139).
+
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart` — Polyfold/Chapter7/ReducedCriterion.lean, line 1062
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC` — Polyfold/Chapter7/ReducedCriterion.lean, line 1067
+- `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou` — Polyfold/Chapter7/Zhou.lean, line 1024
+
+### G.84. §7.4 for the index lifts $X^i$, $i \ge 2$: Propositions 7.4.9 and 7.4.18
+
+*not formalized*
+
+**HWZ (§7.4, Proposition 7.4.9, p. 333, and Proposition 7.4.18, p. 336 (new in the 2021 edition)).** Proposition 7.4.9: if $X$ satisfies the Zhou condition, so does every $X^i$ (the condition (ZHOU') being the same for $X$ and $X^i$). Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent. Corollary 7.4.11, Theorems 7.4.13, 7.4.24 and Proposition 7.4.16 use them for every $X^i$.
+
+**Proved in Lean.** **Not formalized**: Proposition 7.4.9 needs the identification of $(X^i)_\infty$ with $X_\infty$ and of the tangent spaces of $X^i$ with those of $X$ (gaps G.6, G.7); Proposition 7.4.18 ((SLUC) implies (VSLUC)) needs natural representations of $X^N$ in terms of those of $X$. So Corollary 7.4.11 for all $i$, Theorems 7.4.13, 7.4.24 and Proposition 7.4.17 take the per-level hypotheses ((ZHOU), resp. (VSLUC), for every $X^i$), and Proposition 7.4.16 is proved for $X^1$ (V7.90–V7.92, V7.94) (Findings, Chapter 7, item 137).
+
+- `Polyfold.EpGroupoid.corollary_7_4_11_2021_lift` — Polyfold/Chapter7/Zhou.lean, line 832
+- `Polyfold.EpGroupoid.theorem_7_4_13_2021` — Polyfold/Chapter7/Zhou.lean, line 838
+- `Polyfold.EpGroupoid.proposition_7_4_17_2021` — Polyfold/Chapter7/Zhou.lean, line 909
+- `Polyfold.EpGroupoid.theorem_7_4_24_2021` — Polyfold/Chapter7/Zhou.lean, line 1294
+
+### G.85. The Part I facts used in §7.4, and the connectedness of $U(x) \cap X_1$
+
+*not formalized*
+
+**HWZ (§7.4, Lemma 7.4.4, p. 329, and the proofs of Lemma 7.4.6 to Proposition 7.4.22, pp. 331–340 (new in the 2021 edition)).** The proofs use facts about M-polyfolds: $X_\infty$ dense in every $X_m$; $U(x) \cap X_\infty$ connected for connected open $U(x)$; tangent vectors approximated by tangent vectors at nearby smooth points; sc-smooth maps agreeing near a smooth point in $X_\infty$ have the same tangent there; $(T_xX)_\infty$ dense in $T_xX$. The proof of Lemma 7.4.4 uses that $U(x) \cap X_1$ is connected in $X^1$ and dense in $U(x)$.
+
+**Proved in Lean.** **Not formalized**; explicit, satisfiable hypotheses: `MPolyfold.SmoothRegular` (`DenseSmooth`, gap G.73; `SmoothConnected`; the openness of $p : TX \to X^1$, gap G.8; `TangentDeterminedSmooth`), `MPolyfold.DenseSmoothTangent`, and `HasLevelOneConnectedDenseReps` / `HasConnectedDenseLevelOneReps`, each satisfied by the point ep-groupoid (V7.83, V7.85, V7.86) (Findings, Chapter 7, items 133, 134).
+
+- `Polyfold.MPolyfold.SmoothRegular` — Polyfold/Chapter7/Zhou.lean, line 638
+- `Polyfold.MPolyfold.DenseSmoothTangent` — Polyfold/Chapter7/Zhou.lean, line 269
+- `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps` — Polyfold/Chapter7/Zhou.lean, line 178
+
 ### G.74. Definitions 8.2.1, 8.2.2 (2017: 8.2, 8.3): sc-differential forms on ep-groupoids and the sc-de Rham complex
 
 *not formalized*
@@ -10375,4 +12296,47 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 - `Polyfold.EpGroupoid.lemma_8_1` — Polyfold/Chapter8/TangentEp.lean, line 364
 - `Polyfold.EpGroupoid.isScSmoothComp_tangent` — Polyfold/Chapter8/TangentEp.lean, line 525
+
+### G.86. Proposition 8.4.1, (1) ⇒ (2), (3), and Proposition 8.4.3
+
+*not formalized*
+
+**HWZ (§8.4, Proposition 8.4.1, p. 380, and Proposition 8.4.3, p. 382 (new in the 2021 edition)).** Proposition 8.4.1: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together. Proposition 8.4.3: if $X$ is effective and has the local regularity property (LR) of Definition 7.4.19, every strong bundle over $X$ has the local regularity property of Definition 8.4.2.
+
+**Proved in Lean.** **Not formalized**: (1) ⇒ (2), (3) needs $G_x$-equivariant strong bundle charts with invariant metrics and $W[1]$ as an ep-groupoid; Proposition 8.4.3 needs the openness of $P : W \to X$ and the lift of (LR) to the bundle. Formalized: (2) ⇒ (1) (V8.47) and Definition 8.4.2 (V8.48) (Findings, Chapter 8, items 118, 119).
+
+- `Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one` — Polyfold/Chapter8/Book2021.lean, line 403
+- `Polyfold.EpStrongBundle.IsLR` — Polyfold/Chapter8/TangentZhou.lean, line 239
+
+### G.87. Proposition 8.2.3: the Poincaré lemma for sc-differential forms on ep-groupoids
+
+*not formalized*
+
+**HWZ (§8.2, Proposition 8.2.3, p. 373 (new in the 2021 edition)).** Poincaré lemma: every object $x$ has saturated open neighbourhoods $V \subseteq U$ such that for every closed $[\omega] \in \Omega^k_{ep,\infty}(U)$, $k \ge 1$, there is $[\sigma] \in \Omega^{k-1}_{ep,\infty}(V)$ with $d[\sigma] = [\omega]$ on $V$; the proof averages a primitive from Lemma 4.4.8 over $G_x$.
+
+**Proved in Lean.** **Not formalized**, with the forms of §8.2 (gap G.74), which need the Whitney sums $\oplus^k TX$, the linear structure of $T_xX$ (gap G.7) and the forms of Part I's §4.4 (gaps G.37–G.40) (Findings, Chapter 8, item 123).
+
+
+### G.88. Proposition 8.1.16 without `TangentZhouReflect`, and Proposition 8.1.17 (2) for $(TX)^i$, $i \ge 1$
+
+*not formalized*
+
+**HWZ (§8.1, Proposition 8.1.16, p. 369, and Proposition 8.1.17 (2), p. 371 (new in the 2021 edition)).** Proposition 8.1.16: (ZHOU) for $X$ gives (ZHOU) for $TX$, by differentiating (8.16) and using that $T\tau$ is onto. Proposition 8.1.17 (2): (SLUC) for $X$ gives (SLUC) for $TX$, i.e. LUC for every $(TX)^i$.
+
+**Proved in Lean.** **Not formalized** in full: the step $T(g, h) = \mathrm{id} \Rightarrow Tg = \mathrm{id}$ needs the second tangent bundle $T(TX)$ and $T\tau$, and is the hypothesis `TangentZhouReflect` (V8.44); (2) needs $(TX)^i = T(X^i)$ and is proved for $(TX)^0$ (V8.45) (Findings, Chapter 8, items 115, 116).
+
+- `Polyfold.EpGroupoid.TangentZhouReflect` — Polyfold/Chapter8/TangentZhou.lean, line 113
+- `Polyfold.EpGroupoid.proposition_8_1_16_2021` — Polyfold/Chapter8/TangentZhou.lean, line 123
+- `Polyfold.EpGroupoid.proposition_8_1_17_2021_two` — Polyfold/Chapter8/TangentZhou.lean, line 174
+
+### G.89. Lemma 8.5.10: $F^*V$ with $\mu_{F^*V}$ as a strong bundle over the ep-groupoid $Y$
+
+*not formalized*
+
+**HWZ (§8.5, Lemma 8.5.10, p. 395 (new in the 2021 edition)).** The pull-back $F^*V$, with $\mu_{F^*V}(\varphi, (y, v)) = (t(\varphi), \mu_X(F(\varphi), v))$, is a strong bundle over the ep-groupoid $Y$, and $B : W \to F^*V$ is a strong bundle isomorphism over $Y$.
+
+**Proved in Lean.** **Not formalized**: that $\mu_{F^*V}$ satisfies the conditions of a strong bundle over an ep-groupoid (Definition 8.3.1 (2017: 8.4)); the lemma is proved with its formula only, $B$ a strong bundle isomorphism $W \to F^*V$ with (8.23) (V8.51) (Findings, Chapter 8, item 122).
+
+- `Polyfold.EpStrongBundle.pullbackμ` — Polyfold/Chapter8/Book2021.lean, line 433
+- `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021` — Polyfold/Chapter8/Book2021.lean, line 623
 

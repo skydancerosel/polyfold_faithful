@@ -991,6 +991,103 @@ space.
 | p. 399 (2017 p. 288), Prop. 8.6.4 (2017: 8.4) | "the structure of isomorphism classes stays the same"; $\mathbb N = \{1,2,\dots\}$ | the local constancy of $\#F^{-1}(x)$; Lean's $\mathbb N$, values $\ge1$ |
 | 2017 pp. 288–289, §8.6.2 (2017 §8.5.2) | a natural transformation of functors into $\mathrm{Ban}$ | its naturality identity |
 
+## 13. The additions of the 2021 edition (pp. 369–395)
+
+The Springer edition (2021) adds two propositions on the Zhou condition and unique continuation for the tangent $TX$
+(Chapter 7, §12), a Poincaré lemma for the forms of §5, auxiliary norms, a new §8.4 on paracompactness and local regularity of
+strong bundles, an example of a covering functor, condition (0) of Definition 8.5.9 and Lemma 8.5.10. This section retells them
+with the 2021 numbers and pages; all are new in the 2021 edition.
+
+**Proposition 8.1.16.** If $X$ satisfies the Zhou condition, so does $TX$.
+
+*Proof, as checked.* An isotropy element $k$ of a smooth point $b$ of $TX$ lies over an isotropy element $g$ of the smooth point
+$p(b)$ of $X$. If the tangent of $k$ is the identity, so is $Tg$; by (ZHOU) for $X$, $g\in T_x$, so $s = t$ near $g$, hence $Ts = Tt$ near $k$, and
+$k$ lies in $(T\mathbf X)^T$. $\square$
+
+The step "the tangent of $k$ is the identity, so $Tg$ is" is where the text differentiates (8.16) and uses that $T\tau$ is onto; it
+needs the second tangent bundle $T(TX)$, which is not formalized, and is a hypothesis, satisfiable (gap G.88). As in Chapter 7,
+tangents of isotropy elements are maps of sets, and no linear structure is used (Findings, item 115). *Checked by machine
+(V8.44):* `Polyfold.EpGroupoid.TangentZhouReflect`, `Polyfold.EpGroupoid.mem_nonEffectivePart_tangent`,
+`Polyfold.EpGroupoid.proposition_8_1_16_2021`, `Polyfold.EpGroupoid.tangentZhouReflect_trivial`.
+
+**Proposition 8.1.17.** (1) If $X^1$ has the local unique continuation property, so has $TX$, and $(T\mathbf X)^T = p^{-1}((\mathbf X^1)^T)$. (2) If every
+$X^i$ has it, so has every $(TX)^i$.
+
+*Proof of (1), as checked.* If $Ts = Tt$ near $v\in T\mathbf X$, then $s = t$ near $p(v)$ in $\mathbf X^1$, since $p$ is open; conversely, by Chapter 7's
+Theorem 7.6.7, $(\mathbf X^1)^T = (\mathbf X^T)^1$, and the last step of Proposition 8.1.16 applies. So $(T\mathbf X)^T$ is the preimage of the closed set
+$(\mathbf X^1)^T$, closed, and $TX$ has LUC by Proposition 7.2.21. $\square$
+
+The hypotheses are those of Theorem 7.6.7 — $U(x)\cap X_1$ connected in $X^1$ and dense in $U(x)$ (the density is gap G.73) — and the
+openness of $p:T\mathbf X\to\mathbf X^1$ (gap G.8). (2) is checked for $(TX)^0 = TX$; for $i\ge1$ it needs $(TX)^i = T(X^i)$ (gap G.88) (Findings,
+item 116). *Checked by machine (V8.45):* `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq`,
+`Polyfold.EpGroupoid.proposition_8_1_17_2021_one`, `Polyfold.EpGroupoid.proposition_8_1_17_2021_two`.
+
+**Proposition 8.2.3 (Poincaré lemma).** Every object has saturated open neighbourhoods $V\subseteq U$ such that every closed sc-form on $U$
+in the sense of §5 has a primitive on $V$; the proof averages a primitive of Part I's Lemma 4.4.8 over $G_x$. Not formalized, with
+the forms of §5 (gaps G.87, G.74) (Findings, item 123).
+
+**Definition 8.3.5 (auxiliary norm).** For a strong bundle $P:W\to X$ over an ep-groupoid, an auxiliary norm is a continuous
+$N:W_{0,1}\to[0,\infty)$ that is a complete norm on every fibre, with $h_k\to0_x$ whenever $P(h_k)\to x$ and $N(h_k)\to0$, and invariant:
+$N(\mu(\varphi,k)) = N(k)$.
+
+The first three conditions are Part I's auxiliary norm; the invariance is not vacuous, since $\mu$ preserves $W_{0,1}$. Over the trivial
+ep-groupoid every auxiliary norm of Part I is one (Findings, item 117). *Checked by machine (V8.46):*
+`Polyfold.EpStrongBundle.IsAuxNorm`, `Polyfold.EpStrongBundle.exists_oneVal_eq_μ`,
+`Polyfold.EpStrongBundle.exists_isAuxNorm_trivial`.
+
+**Proposition 8.4.1.** For a strong bundle $W\to X$ over an ep-groupoid, $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together.
+
+*Proof that $|W[0]|$ paracompact gives $|X|$ paracompact, as checked.* The zero section is compatible with $\mu$, so it induces a
+continuous map $|0|:|X|\to|W[0]|$ with left inverse $|P|$, a topological embedding. $|W[0]|$ is paracompact, hence metrizable by
+Chapter 7's Theorem 7.3.1 and Smirnov's theorem; so is its subspace $|X|$, which is therefore paracompact. $\square$
+
+The text concludes from closedness instead. The other implications need $G_x$-equivariant bundle charts with invariant metrics
+and $W[1]$ as an ep-groupoid; not formalized (gap G.86) (Findings, item 118). *Checked by machine (V8.47):*
+`Polyfold.EpStrongBundle.zeroOrbitMap`, `Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap`,
+`Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one`.
+
+**Definition 8.4.2 (local regularity of a strong bundle).** With the natural lift $g * w = \mu(\Gamma(g,P(w)),w)$ of the action of $G_x$, a
+strong bundle has the local regularity property if every $x$ has arbitrarily small $U(x)$ such that every strong bundle
+isomorphism $B$ of $W|U(x)$ with $|B(w)| = |w|$ is $w\mapsto g*w$ for some $g\in G_x$.
+
+The strong bundle isomorphism is read as for Definition 8.5.9 (§9); every strong bundle over a trivial ep-groupoid has the property.
+Proposition 8.4.3, that an effective $X$ with Chapter 7's (LR) gives it to every strong bundle, is not formalized (gap G.86)
+(Findings, item 119). *Checked by machine (V8.48):* `Polyfold.EpStrongBundle.natLift`, `Polyfold.EpStrongBundle.IsLR`,
+`Polyfold.EpStrongBundle.isLR_trivial`.
+
+*Example 8.5.6.* For a covering functor $f:D\to C$, $f:G_d\to G_{f(d)}$ is injective but need not be onto: for $D$ with two objects and one
+morphism between any two, mapped to the group $\{1,\varepsilon\}$ by sending both non-identity morphisms to $\varepsilon$, the groups $G_d$ are trivial
+and $G_x$ has two elements (Findings, item 120). *Checked by machine (V8.49):* `Polyfold.IsCoveringFunctor.injective_map_end`,
+`Polyfold.example_8_5_6_2021`.
+
+*Definition 8.5.9 in the 2021 form* adds (0), $\tau(F(\psi),A(w)) = A(\mu(\psi,w))$, the strong bundle map property of the object map $A$. §9 had
+read the 2017 "strong bundle map $A$" as a strong bundle functor, which contains (0), and the two readings are equivalent
+(Findings, items 70, 121). *Checked by machine (V8.50):* `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021`,
+`Polyfold.EpStrongBundle.isProperStrongBundleCovering2021_iff`.
+
+**Lemma 8.5.10.** For a proper strong bundle covering functor $A:W\to V$ over $F:Y\to X$, the map $B(w) = (P(w),A(w))$ is a strong bundle
+isomorphism of $W$ onto the pull-back $F^*V$ over $Y$, which carries $\mu_{F^*V}(\varphi,(y,v)) = (t(\varphi),\mu_X(F(\varphi),v))$; it intertwines the
+structure maps, (8.23), and $A$ is $B$ followed by the projection to $V$.
+
+*Proof, as checked.* (8.23) is condition (0). On the fibre over $y$, $A$ is the linear isomorphism of a local strong bundle isomorphism of
+Definition 8.5.9 (1), so $B$ is bijective; near every point $B^{-1}(y,v) = \Psi(v)$ for the inverse $\Psi$ of such a local isomorphism, so $B^{-1}$ is
+a strong bundle map. $\square$
+
+That $\mu_{F^*V}$ makes $F^*V$ a strong bundle over the ep-groupoid $Y$ is not proved; the lemma uses its formula only (gap G.89)
+(Findings, item 122). *Checked by machine (V8.51):* `Polyfold.EpStrongBundle.pullbackμ`,
+`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB`,
+`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bijective_bundleB`,
+`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021`.
+
+| Where (2021 text) | HWZ say | What is actually needed |
+|---|---|---|
+| p. 369, Prop. 8.1.16 | differentiate (8.16), $T\tau$ onto | $T(TX)$: a hypothesis (G.88) |
+| p. 371, Prop. 8.1.17 | (SLUC) for $TX$ | $U(x)\cap X_1$ connected and dense, $p$ open; $(TX)^i = T(X^i)$ for $i\ge1$ (G.88) |
+| p. 380, Prop. 8.4.1 | three equivalent conditions | (2) ⇒ (1), by metrizability; the rest not formalized (G.86) |
+| p. 382, Def. 8.4.2 | "strong bundle isomorphism $B$" | a strong bundle map that is an isomorphism over $U(x)$ |
+| p. 394, Def. 8.5.9 (0) | new condition | contained in the reading of 2017 Def. 8.10 |
+| p. 395, Lemma 8.5.10 | $F^*V$ a strong bundle over $Y$ | only the formula of $\mu_{F^*V}$ is used (G.89) |
+
 ---
 
 **Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in `Polyfold/Chapter8/` (`Basic.lean`,
@@ -1016,4 +1113,7 @@ before Proposition 8.6.4 (2017: 8.4) and the category $\mathrm{Ban}$ of §8.6.2 
 covering functors have one-point fibres. The machine-checked statements are listed in `Exposition/Verification.md`
 (V8.1–V8.43), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.
 The findings are `Exposition/Findings.md`, "Chapter 8", items
-1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the gaps in the numbering are unused numbers).
+1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the gaps in the numbering are unused numbers). The additions of the 2021 edition (§13) are formalized in `Book2021.lean` and `TangentZhou.lean`, verified as V8.44–V8.51, with
+the gaps G.86–G.89 (Proposition 8.4.1 (1) ⇒ (2), (3) and Proposition 8.4.3; Proposition 8.2.3; Proposition 8.1.16 without
+`TangentZhouReflect` and Proposition 8.1.17 (2) for $i\ge1$; $F^*V$ as a strong bundle over $Y$ in Lemma 8.5.10), and their findings are
+items 115–123.

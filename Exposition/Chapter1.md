@@ -1377,3 +1377,30 @@ hypothesis "$C^{k+1}$ on every level" are kept.) The machine-checked statements 
 `Exposition/Verification.md` (V1.1–V1.39), compared with the text in
 `Exposition/polyfold-beside-lean.html`, and their proofs retold in `Exposition/ProofByProof.md`
 (Part I).
+
+## 8. The Springer 2021 edition (pp. 5, 9)
+
+The 2021 edition changes this chapter in two places: Remark 1.1.2 is new, and Proposition 1.1.11 (preprint 1.10) states the index.
+
+**Remark 1.1.2 (p. 5, new in the 2021 edition).** "Banach space" means a *Banachable* space: a vector space whose topology is
+induced by some complete norm. Any two norms inducing that topology are equivalent, the text says, by the open mapping
+theorem. Model one vector space with two norms as normed spaces $E_1$, $E_2$ with a linear equivalence $e:E_1\to E_2$ (the
+identity of the underlying space). Two readings of the remark hold:
+
+1. if $e$ and $e^{-1}$ are continuous, there is $c>0$ with $\|ex\|\le c\|x\|$ and $\|x\|\le c\|ex\|$;
+2. if both norms are complete and $e$ is continuous, then $e^{-1}$ is continuous, and (1) applies.
+
+(1) needs neither completeness nor the open mapping theorem: a continuous linear map between normed spaces is bounded, and
+$c$ is the larger of the two operator norms plus one. The open mapping theorem gives (2), two complete norms one of which
+dominates the other. Read as "the same topology", the remark holds without it.
+
+*Checked by machine:* `Polyfold.remark_1_1_2_2021`, `Polyfold.remark_1_1_2_2021_openMapping`.
+
+**Proposition 1.1.11 (preprint 1.10), 2021 statement (p. 9).** The 2021 statement adds that $T+S$ has the index of $T$. This is
+the statement of §2 above, where the index was the exposition's addition. The proof in Appendix 1.4.1 (pp. 15–16) is the
+earlier one and does not argue the index; the argument of §2 does, by (F2) on level $0$ and Lemma 2.D. On every level
+$(T+S)_m:E_m\to F_m$ is Fredholm of index $\operatorname{ind}(T)$, which the text does not state.
+
+*Checked by machine:* `Polyfold.proposition_1_1_11_2021`, the conjunction of `Polyfold.proposition_1_10`,
+`Polyfold.proposition_1_10_index` and `Polyfold.proposition_1_10_index_lvl`. These are V1.40–V1.41 in
+`Exposition/Verification.md`.

@@ -1060,7 +1060,7 @@
     "ends = restrictions"
    ],
    "diff": [
-    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is not formalized (gap G.47; Findings, Chapter 5, item 100)."
+    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is not formalized (gap G.47; Findings, Chapter 5, item 100). The 2021 edition changes the definition (V5.68)."
    ]
   },
   {
@@ -1084,7 +1084,7 @@
     "needs $dt(x) \\ne 0$"
    ],
    "diff": [
-    "At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101)."
+    "At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101). The 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth $x$, which gives $dt(x) \\ne 0$ (V5.69)."
    ]
   },
   {
@@ -1585,6 +1585,191 @@
    "diff": [
     "\"In view of Theorem 5.37\" is Proposition 5.5.11 (preprint 5.38); the bump Theorem 5.5.16 (preprint 5.43) needs is the classical $C^\\infty$ one (Findings, Chapter 5, item 116)."
    ]
+  },
+  {
+   "id": "V5.64",
+   "title": "Definition 5.2.1 (preprint 5.4), 2021 form: weakly proper on $U$, weakly proper$_{<\\infty}$, proper$_{<\\infty}$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§5.2, Definition 5.2.1 (preprint 5.4), p. 209 (preprint p. 171)",
+    "page": 171,
+    "statement": "(2) weakly proper with the bound $N(s(y)) \\le 1$ asked only for $y \\in U$; new: (4) weakly proper$_{<\\infty}$, the same for every sc⁺-section $s$ supported in $U$ with $\\sup_U N(s) < \\infty$; (5) proper$_{<\\infty}$, $\\operatorname{cl}_{X_0}\\{x \\in U \\mid N(f(x)) \\le C\\}$ compact for every constant $0 < C < \\infty$."
+   },
+   "lean": {
+    "statement": "`IsWeaklyProperOnU`, `IsWeaklyProperLtInfty` (a constant $C$ with `AuxLe N (s y) C` on $U$), `IsProperLtInfty` (every $C > 0$), with `AuxLe` for $N = \\infty$ off $Y_{0,1}$. `isWeaklyProperOnU_iff`: the 2021 form of (2) is equivalent to `IsWeaklyProper` (bound everywhere).",
+    "decls": [
+     "Chapter5/Book2021 · StrongBundle.IsWeaklyProperOnU",
+     "Chapter5/Book2021 · StrongBundle.IsWeaklyProperLtInfty",
+     "Chapter5/Book2021 · StrongBundle.IsProperLtInfty",
+     "Chapter5/Book2021 · StrongBundle.isWeaklyProperOnU_iff",
+     "Chapter5/Book2021 · StrongBundle.IsAuxNorm.auxLe_fiberZero",
+     "Chapter5/Book2021 · StrongBundle.isZeroAt_of_not_mem_of_support_subset"
+    ]
+   },
+   "chips": [
+    "(4), (5) new in 2021",
+    "bound on $U$ = bound everywhere"
+   ],
+   "diff": [
+    "The bound on $U$ is no weaker than the earlier bound everywhere: $s$ vanishes off $U$ and $N(0_x) = 0$ (Findings, Chapter 5, item 170)."
+   ]
+  },
+  {
+   "id": "V5.65",
+   "title": "The a priori dependencies after Definition 5.2.1 (preprint 5.4), 2021",
+   "verdict": "explicit",
+   "book": {
+    "label": "§5.2, the a priori dependencies after Definition 5.2.1 (preprint 5.4), p. 209",
+    "page": 209,
+    "statement": "Proper ⇒ weakly proper ⇒ compact solution set (\"obviously\"); proper$_{<\\infty}$ ⇒ weakly proper$_{<\\infty}$, proper$_{<\\infty}$ ⇒ proper, weakly proper$_{<\\infty}$ ⇒ weakly proper; in general not equivalent for sc-smooth sections."
+   },
+   "lean": {
+    "statement": "`IsProperLtInfty.isProper`, `IsWeaklyProperLtInfty.isWeaklyProperOnU`, `IsWeaklyProperOnU.isCompact_solutionSet`; for a continuous $f$: `IsProper.isWeaklyProperOnU`, `IsProperLtInfty.isWeaklyProperLtInfty`.",
+    "decls": [
+     "Chapter5/Book2021 · StrongBundle.IsProperLtInfty.isProper",
+     "Chapter5/Book2021 · StrongBundle.IsWeaklyProperLtInfty.isWeaklyProperOnU",
+     "Chapter5/Book2021 · StrongBundle.IsProper.isWeaklyProperOnU",
+     "Chapter5/Book2021 · StrongBundle.IsProperLtInfty.isWeaklyProperLtInfty",
+     "Chapter5/Book2021 · StrongBundle.IsWeaklyProperOnU.isCompact_solutionSet"
+    ]
+   },
+   "chips": [
+    "$f$ continuous for two arrows",
+    "\"not equivalent in general\": no example"
+   ],
+   "diff": [
+    "A solution of $f = s$ lies in $U$ and has $N(f(x)) = N(s(x)) \\le C$; closedness of $\\{f = s\\}$ needs $f$ continuous. The remark that the notions differ for sc-smooth sections is not formalized (Findings, Chapter 5, item 171)."
+   ]
+  },
+  {
+   "id": "V5.66",
+   "title": "Theorem 5.2.2 (preprint 5.5), 2021 form: compact solution set implies proper$_{<\\infty}$",
+   "verdict": "same",
+   "book": {
+    "label": "§5.2, Theorem 5.2.2 (preprint 5.5), p. 210 (preprint p. 172) (proof pp. 210–213)",
+    "page": 172,
+    "statement": "For an sc-Fredholm section of a strong bundle over an M-polyfold a compact solution set implies proper$_{<\\infty}$; so the five properties of Definition 5.2.1 are equivalent."
+   },
+   "lean": {
+    "statement": "`theorem_5_2_2_2021`: compact solution set ⇒ `IsProperLtInfty f`. `theorem_5_2_2_2021_tfae`: the five properties are equivalent for sc-Fredholm sections.",
+    "decls": [
+     "Chapter5/Book2021 · theorem_5_2_2_2021",
+     "Chapter5/Book2021 · theorem_5_2_2_2021_tfae",
+     "Chapter5/Compactness · exists_nbhd_isCompact_closure_bdd"
+    ]
+   },
+   "chips": [
+    "no tameness",
+    "$U$ independent of $C$"
+   ],
+   "diff": [
+    "The local compact set of V5.9 is taken for the bound $A \\cdot C$, $A$ comparing $N$ with the chart norm; in the proof's first displayed set \"$N(f(x)) \\le d$\" is read as $N(f(z)) \\le d$ (possible misprint) (Findings, Chapter 5, item 172)."
+   ]
+  },
+  {
+   "id": "V5.67",
+   "title": "Theorem 5.3.5 (preprint 5.13), 2021 form: a compact sub-M-polyfold",
+   "verdict": "restated",
+   "book": {
+    "label": "§5.3, Theorem 5.3.5 (preprint 5.13), pp. 217–218 (preprint pp. 174–175)",
+    "page": 174,
+    "statement": "As in the earlier texts, with sections $s$, $\\operatorname{supp}s \\subset U$, \"$N(f(x)) \\le 1$ for all $x \\in X$\"; for $s$ in a dense subset, $f + s$ is transversal and $S_{f+s}$ is a compact sub-M-polyfold with the structure of a compact manifold without boundary."
+   },
+   "lean": {
+    "statement": "`theorem_5_3_5_2021`: the conclusions of `theorem_5_13`, with $S_{f+s}$ a sub-M-polyfold and compact (a manifold when non-empty); `isSubMPolyfold_solutionSet_of_manifold`: the empty set is a sub-M-polyfold.",
+    "decls": [
+     "Chapter5/Book2021 · theorem_5_3_5_2021",
+     "Chapter5/Book2021 · isSubMPolyfold_solutionSet_of_manifold",
+     "Chapter5/Transversality · theorem_5_13"
+    ]
+   },
+   "chips": [
+    "$N(f(x)) \\le 1$ read as $N(s(x)) \\le 1$",
+    "density pointwise"
+   ],
+   "diff": [
+    "The printed bound on $f$ is read as a bound on $s$ (possible misprint; the proof bounds $s$); density is pointwise, as in V5.30 (Findings, Chapter 5, items 173, 174)."
+   ]
+  },
+  {
+   "id": "V5.68",
+   "title": "Definition 5.3.13 (preprint 5.20), 2021 form: generalized compact homotopy with $dt$ onto",
+   "verdict": "restated",
+   "book": {
+    "label": "§5.3, Definition 5.3.13 (preprint 5.20), p. 223 (preprint p. 180)",
+    "page": 180,
+    "statement": "A tame strong bundle, an sc-Fredholm $f$ with compact solution set and an sc-smooth $t : X \\to [0, 1]$ with (1) $t^{-1}(i) = X_i$, (2) $(f|X_i, P|Y_i) = (f_i, P_i)$, (3) $dt(x)$ onto $\\mathbb R$ at every smooth $x$."
+   },
+   "lean": {
+    "statement": "`IsSubmersiveGenCompactHomotopy f t`: $X$ tame, $f$ with tame germ data and compact solution set, $t$ sc-smooth with values in $[0, 1]$, the ends $t^{-1}(0)$, $t^{-1}(1)$ tame sc-Fredholm problems (`IsCompactFredholmRestriction`), and `HasSurjDerivAt` ($dt$ onto in a chart) at smooth points. The data of V5.41 with (3) give it; every fibre has a compact solution set.",
+    "decls": [
+     "Chapter5/Book2021 · MPolyfold.HasSurjDerivAt",
+     "Chapter5/Book2021 · StrongBundle.IsCompactFredholmRestriction",
+     "Chapter5/Book2021 · StrongBundle.IsSubmersiveGenCompactHomotopy",
+     "Chapter5/Book2021 · StrongBundle.IsGenCompactHomotopy.isSubmersiveGenCompactHomotopy",
+     "Chapter5/Book2021 · StrongBundle.IsSubmersiveGenCompactHomotopy.isCompact_solutionSet_restrict",
+     "Chapter5/Book2021 · StrongBundle.isCompactFredholmRestriction_of_eq_empty"
+    ]
+   },
+   "chips": [
+    "$t$ not onto; no fibre conditions",
+    "$dt(x)$ read in a chart",
+    "ends = restrictions"
+   ],
+   "diff": [
+    "2021 drops the surjectivity of $t$ and the conditions on the fibres $X_\\tau$, $0 < \\tau < 1$, and adds (3); $dt(x)$ is read on $T_zO$ in a chart, as $T_xX$ has no linear structure here; Remark 5.3.14 (preprint 5.21) is still not formalized (gap G.47; Findings, Chapter 5, items 175, 176)."
+   ]
+  },
+  {
+   "id": "V5.69",
+   "title": "Lemma 5.3.16 (preprint 5.23) under the 2021 Definition 5.3.13 (3)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§5.3, Lemma 5.3.16 (preprint 5.23), p. 224 (preprint p. 182)",
+    "page": 182,
+    "statement": "With a one-dimensional smooth $Z$, $T_xX = Z \\oplus \\ker dt(x)$, every $\\tau \\in T^*_xS$ is $dt(x) \\circ b_\\tau$ for a unique $b_\\tau : T_xS \\to Z$, and adding an operator into $\\ker dt(x)$ keeps this; under the 2021 Definition 5.3.13 (3) $dt(x)$ is onto."
+   },
+   "lean": {
+    "statement": "`lemma_5_3_16_2021`: from `HasSurjDerivAt t x`, in a chart the derivative $\\ell$ on $T_zO$ is non-zero, $\\ker\\ell$ has a one-dimensional complement $Z$, and Lemma 5.3.16 holds (`lemma_5_23`).",
+    "decls": [
+     "Chapter5/Book2021 · lemma_5_3_16_2021",
+     "Chapter5/Homotopy · lemma_5_23",
+     "Chapter5/Homotopy · exists_isCompl_ker_of_ne_zero"
+    ]
+   },
+   "chips": [
+    "$dt(x) \\ne 0$ from (3)",
+    "$Z$ algebraic, not shown smooth"
+   ],
+   "diff": [
+    "The hidden hypothesis of V5.42 is supplied by the 2021 condition (3); $Z$ is spanned by a vector on which $\\ell$ is non-zero, its smoothness is not part of the statement (gap G.48 changed; Findings, Chapter 5, items 101, 178)."
+   ]
+  },
+  {
+   "id": "V5.70",
+   "title": "A generalized compact homotopy in the 2021 sense that is not one in the earlier sense",
+   "verdict": "extra",
+   "book": {
+    "label": "§5.3, Definition 5.3.13 (preprint 5.20), p. 223 (preprint p. 180)",
+    "page": 180,
+    "statement": "Not in the book: satisfiability of the 2021 definition, and its relation to the earlier one."
+   },
+   "lean": {
+    "statement": "On $\\mathbb R \\times \\mathbb R \\to \\mathbb R$, the graph section of $\\mathrm{id}$ and $t(x) = 1/2 + \\arctan(x)/\\pi$ (values in $(0, 1)$, empty ends, $dt(x) \\ne 0$) satisfy `IsSubmersiveGenCompactHomotopy`, not `IsGenCompactHomotopy`.",
+    "decls": [
+     "Chapter5/Book2021 · GenCompactHomotopyWitness.arctanTime",
+     "Chapter5/Book2021 · GenCompactHomotopyWitness.hasSurjDerivAt_arctanTime",
+     "Chapter5/Book2021 · GenCompactHomotopyWitness.isSubmersiveGenCompactHomotopy_witness",
+     "Chapter5/Book2021 · GenCompactHomotopyWitness.not_isGenCompactHomotopy_witness"
+    ]
+   },
+   "chips": [
+    "witness: empty ends",
+    "2021 data ⇏ earlier data"
+   ],
+   "diff": [
+    "Not in the book (Findings, Chapter 5, item 177)."
+   ]
   }
  ],
  "notFormalized": [
@@ -1668,11 +1853,12 @@
    "label": "§5.3, Theorem 5.3.15 (preprint 5.22), p. 223 (preprint p. 181) (proof pp. 223–228 (preprint pp. 181–186))",
    "page": 181,
    "book": "For a generalized compact homotopy with end problems in general position and $\\partial X = X_0 \\sqcup X_1$, an arbitrarily small $s_0 \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ makes $(f + s_0, x)$ in general position at every zero and $t : S_{f+s_0} \\to [0, 1]$ a function with only Morse-type critical points.",
-   "instead": "**Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\\Phi_\\lambda : S \\to S_\\lambda$ of the family (not \"the classical standard implicit function theorem\"); its proof also needs $dt(x) \\ne 0$ at the critical points of $t|S$, which the statement does not assume (V5.42). Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103).",
+   "instead": "**Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\\Phi_\\lambda : S \\to S_\\lambda$ of the family (not \"the classical standard implicit function theorem\"); its proof also needs $dt(x) \\ne 0$ at the critical points of $t|S$, which the preprint and 2017 statements do not assume (V5.42); the 2021 Definition 5.3.13 (3) asks $dt(x)$ onto at every smooth point and so supplies it (`lemma_5_3_16_2021`, V5.69), but the theorem itself is still not formalized. Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103, 178).",
    "decls": [
     "Chapter5/Homotopy · lemma_5_23",
     "Chapter5/Homotopy · lemma_5_24",
-    "Chapter5/Homotopy · ne_zero_of_isCompl_ker"
+    "Chapter5/Homotopy · ne_zero_of_isCompl_ker",
+    "Chapter5/Book2021 · lemma_5_3_16_2021"
    ]
   },
   {
@@ -1687,7 +1873,7 @@
    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.5 (preprint 5.32), p. 230 (preprint p. 193)",
    "page": 193,
    "book": "On $L^p$, $\\|\\cdot\\|^p$ is $C^\\infty$ for $p$ an even integer, $C^{p-1}$ for $p$ odd, and $C^{[p]}$ for $p$ not an integer.",
-   "instead": "**Not formalized** (cited from [9], Theorem 1; deep Banach space geometry, not used on the main line; the statement misses \"$p$\" in (1), (2)) (Findings, Chapter 5, items 117, 120)."
+   "instead": "**Not formalized** (cited from [9], Theorem 1, in the 2021 edition from [25]; deep Banach space geometry, not used on the main line; the preprint statement misses \"$p$\" in (1), (2), which the 2017 and 2021 statements print) (Findings, Chapter 5, items 117, 120, 179)."
   },
   {
    "title": "The $L^p$ and Sobolev remark",

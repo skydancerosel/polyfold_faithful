@@ -712,6 +712,88 @@ image of $\{Df\ \text{not onto}\}$ is Haar-null.* Mathlib has only $\dim V\le\di
 Hausdorff-dimension estimate for the cube count) is proved in our Milnor project (`math_faithful`; exposition, Chapter 3, Theorem 1.1)
 and copied unchanged except for the namespace: `Polyfold.MilnorSard.sard`.
 
+## 13. The Springer 2021 edition (pp. 176, 190–208)
+
+The 2021 edition changes Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23), rewrites §4.4 around sc-smooth vector fields, and
+proves Proposition 4.4.5 (preprint 4.26) in a new Appendix 4.5. Remark 4.1.3 (preprint 4.3) now has an example.
+
+**Theorem 4.2.11 (preprint 4.22), 2021 form.** In (1) the $d = d_X(x)$ local faces in $U$ also *contain $x$*. In the reading of §7
+(faces of the chart model) this is already so: (1) counts the faces through $\psi(x)$, and (4) with $\sigma = \{i\}$ gives for each
+coordinate face $F_i$ a germ $\psi^{-1}(G\cap F_i)$ that contains $x$ and lies in $U$. The identification with faces of $U$ itself
+remains open, as in §7.
+
+*Checked by machine:* `Polyfold.MPolyfold.theorem_4_2_11_2021`.
+
+**Theorem 4.3.1 (preprint 4.23), 2021 form.** Hypothesis (1) asks only that $p^{-1}(\lambda)$ be compact for $|\lambda|\le\varepsilon$; the
+set $\Sigma$ is *measurable*. Non-emptiness was never used (§8). The countable cover of §8 gives some $\Sigma_0$ with null
+complement; removing a measurable null set $N\supseteq B\setminus\Sigma_0$, $B = \{|\lambda|<\varepsilon\}$, leaves the measurable
+$\Sigma = B\setminus N\subseteq\Sigma_0$ with all the conclusions, and (1) makes each $A_\lambda$, $\lambda\in\Sigma$, compact.
+
+*Checked by machine:* `Polyfold.theorem_4_3_1_2021`.
+
+**Definition 4.4.3.** An *sc-smooth vector field* on $X$ is an sc-smooth section $A$ of $p:TX\to X^1$: it is defined on $X^1$, not on
+$X$. In a local model $O = r(U)$ its principal part is a map $A:E_1\to E_0$ with $x\mapsto(x,A(x))$ sc-smooth from $O^1$ to $TO$;
+then $A(x) = Dr(x)A(x)$ on $O_1$ (formula (4.8)), and $\tilde A := A\circ r^1$ is sc-smooth on $U^1$. The zero section, $(\psi(x),0)$
+in every chart, is one.
+
+**Lemma 4.4.4.** The index of a vector field can be raised: $A^{(i)}$ is a vector field on $X^i$, a section of $T(X^i)\to X^{i+1}$,
+"by the natural identification" of $(TX)^i$ with $T(X^i)$. In a local model, for $i = 1$, the identification is
+$T(O^1) = (TO)^1$ — both are the points $(x,h)\in E_2\oplus E_1$ with $Dr(x)h = h$, because the derivative of $r^1$ is the
+level-$1$ restriction of $Dr$ — and the level map $A_1:E_2\to E_1$ is a vector field on $O^1$. On an M-polyfold the identification
+of $(TX)^i$ and $T(X^i)$ as M-polyfolds is gap G.6.
+
+*The second derivative.* For an sc$^2$ map $f$, $z\in U_2$ and $a,b\in E_1$, let $D^2f(z)(a,b)$ be the second component of
+$D(Tf)(z,a)(b,0)$, the derivative of $z\mapsto Df(z)a$ in the direction $b$. It is needed because $A(x)$, $B(x)$ lie only in $E_1$,
+while $f$ is twice differentiable only in directions of $E_2$. On a relatively open subset of a partial quadrant it is
+**symmetric**: for $a,b\in E_2$ this is the classical symmetry of second derivatives within a set whose points lie in the closure
+of its interior, and it extends to $E_1$ by density of $E_2$ and continuity of $D(Tf)$.
+
+*The bracket in a local model* (§4.5.1). For $x\in E_2$ let
+$$[A,B](x) := D\tilde A(x)B(x)-D\tilde B(x)A(x),\qquad \tilde A = A\circ r^1,$$
+the text's $DA(x)$ being read as the derivative of $\tilde A$ (the principal part lives only on $O^1$). Since $(r^1,\tilde A)$ maps
+$U^1$ into $TO$, the fixed set of $Tr$, differentiating $Tr\circ(r^1,\tilde A) = (r^1,\tilde A)$ at $x\in O_2$ in a direction $b$ with
+$Dr^1(x)b = b$ gives
+$$D^2r(x)(A(x),b)+Dr(x)D\tilde A(x)b = D\tilde A(x)b .$$
+With $b = B(x)$, then with $A$, $B$ exchanged and $b = A(x)$ (both fixed by Lemma 4.4.4), subtracting and using the symmetry:
+$Dr(x)[A,B](x) = [A,B](x)$, so $[A,B](x)\in T_xO$ for $x\in O_2$.
+
+**Proposition 4.4.5 (preprint 4.26), 2021 form.** For sc-smooth vector fields $A$, $B$ the usual formula defines an sc-smooth section
+$[A,B]$ of $TX|X^2\to X^2$ (proof in Appendix 4.5; the earlier texts quote it, as a vector field on $X^1$). *In a local model:*
+$x\mapsto(x,[A,B](x))$ is an sc-smooth map from $O^2$ to $TO$. Its second component extends to $U^2$ as
+$y\mapsto D\tilde A(r^2y)\tilde B_1(y)-D\tilde B(r^2y)\tilde A_1(y)$, the tangent map of $\tilde A$ (sc-smooth since $\tilde A$ is)
+composed with the sc-smooth pair $(r^2,\tilde B_1)$, minus the same with $A$, $B$ exchanged.
+
+*The level of the bracket.* The text says that the bracket lies in $(T_xO)_1$ whenever $x\in O_2$ (p. 200) and that it "belongs to
+the level 1" (p. 201). Read as $[A,B](x)\in E_1$ this does not hold as we read it. On the weighted sequence space with
+$|x|_m = \sup_k(k+1)^m|x_k|$, with $O = E$ and $r = \mathrm{id}$, the sc-operators $(Sx)_k = (-1)^k(k+1)x_k$ and $(Tx)_k = (k+1)x_{k+1}$
+are vector fields, their bracket is the commutator,
+$$[S,T]x = \big((-1)^k(k+1)(2k+3)x_{k+1}\big)_k ,$$
+and for $x_k = (k+1)^{-3}\in E_2$ the level-$1$ coordinates $(k+1)[S,T](x)_k$ have absolute value $P^3+P^2\ge\tfrac14$,
+$P = \tfrac{k+1}{k+2}$, so $[S,T]x\notin E_1$. What holds is the shifted statement $x\in O_{m+2}\Rightarrow[A,B](x)\in E_m$: $[A,B](x)$ is
+a tangent vector at the point $x$ of level $1$ of $X^1$, which is what the proposition says.
+
+*Not formalized.* Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold (they need $(TX)^i\cong T(X^i)$, gap G.6, the pull-back
+$TX|X^2\to X^2$, and Lemma 4.5.1, the independence of the chart, whose proof the text leaves to the reader — the computation of
+§4.5.2, which ends with "The proof of Proposition 4.5.1 is complete", a possible misprint for Lemma 4.5.1, is that proof).
+Definitions 4.4.1–4.4.2, the exterior derivative $d:\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ — now running in the direction §9
+proposes — and $d^2 = 0$, Definition 4.4.6, Theorem 4.4.7 (now with $\int_N$) and the Poincaré Lemmas 4.4.8 and 4.5.2 (gap G.80). In
+the formula for $d\omega$ (p. 197) the sign $(-1)^{\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\ell+j}$ and $j$.
+
+*Remark 4.1.3 (preprint 4.3), the 2021 example.* The text recalls the space $X = \{(s,0)\}\cup\{(s,t):s>0\}\subset\mathbb R^2$ of its
+Subsection 1.4.4, made an M-polyfold with $X_\infty = X$; if $1_0^1$ were sc-smooth, Theorem 4.1.2 (preprint 4.2) would make the connected
+$X$ a manifold of constant local dimension, which it is not. The argument holds as we read it (here $C = E$, and an
+sc$^+$-retract has finite-dimensional tangent spaces); it is not formalized. The project proves "$X^1\ne X$ is possible" with a
+different example, added after §1 was written: `Polyfold.remark_4_3_example`, a retract $O = O_\infty$ whose retraction loses a level in
+its first derivative (Findings, Chapter 4, items 140–146).
+
+*Checked by machine:* `Polyfold.IsRetractVectorField`, `Polyfold.isRetractVectorField_zero`,
+`Polyfold.IsRetractVectorField.scDeriv_apply`, `Polyfold.MPolyfold.IsScVectorField`, `Polyfold.MPolyfold.isScVectorField_zero`
+(Definition 4.4.3); `Polyfold.retractTangent_shift`, `Polyfold.IsRetractVectorField.shift` (Lemma 4.4.4, $i = 1$);
+`Polyfold.scSecondDeriv`, `Polyfold.scSecondDeriv_symm`; `Polyfold.retractLieBracket`, `Polyfold.IsRetractVectorField.diff_identity`,
+`Polyfold.retractLieBracket_mem_tangent` (§4.5.1); `Polyfold.proposition_4_4_5_local_2021` (Proposition 4.4.5 in a local model);
+`Polyfold.lieBracket_level_counterexample_2021`, `Polyfold.not_forall_lieBracket_mem_level_one_2021` (the level of the bracket).
+The findings are `Exposition/Findings.md`, "Chapter 4", items 150–159.
+
 ---
 
 **Checked by machine.** The chapter is formalized in Lean 4 against Mathlib (`Polyfold/Chapter4/`, from `ScPlus.lean` to

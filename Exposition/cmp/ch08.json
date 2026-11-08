@@ -1293,6 +1293,234 @@
    "diff": [
     "The natural transformation $\\mu_Y \\to \\mu_X \\circ F$ is stated as its naturality identity; of Definition 8.5.9 (2017: 8.10) only the strong bundle functor part and the fibre isomorphisms $A_y$ enter (Findings, Chapter 8, item 75)."
    ]
+  },
+  {
+   "id": "V8.44",
+   "title": "Proposition 8.1.16: the Zhou condition for $TX$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§8.1, Proposition 8.1.16, p. 369 (new in the 2021 edition)",
+    "page": 369,
+    "statement": "If the ep-groupoid $X$ satisfies the Zhou condition (Definition 7.4.5), so does its tangent $TX$. The proof writes an isotropy element of a smooth $b \\in TX$ over $x$ as $(g, h)$ with $g \\in G_x$, differentiates the identity (8.16) relating the action of $(g, h)$ on $TX$ to $Tg$, and uses that $T\\tau$ is onto to conclude from $T(g, h) = \\mathrm{id}$ that $Tg = \\mathrm{id}$, hence $g \\in T_x$ and $(g, h) \\in T_b$."
+   },
+   "lean": {
+    "statement": "`MPolyfold.levelVal_tangentProj_mem_smoothSet`: a smooth point of $TX$ lies over a smooth point of $X$. `mem_nonEffectivePart_tangent`: if the base $p(v)$ of $v \\in T\\mathbf X$ lies in $\\mathbf X^T$ (so $s = t$ near $p(v)$), then $v \\in (T\\mathbf X)^T$. `TangentZhouReflect`: for smooth $b \\in TX$ and $(g, h) \\in G_b$, `tangentMor` of $(g, h)$ in $TX$ the identity on $T_b(TX)$ implies $Tg = \\mathrm{id}$ on $T_{p(b)}X$. `proposition_8_1_16_2021`: `X.IsZhou` and `TangentZhouReflect` give `IsZhou` for the tangent ep-groupoid. Witnesses: `tangentMor_trivial`, `tangentZhouReflect_trivial` (every trivial ep-groupoid), `Examples.proposition_8_1_16_2021_point`.",
+    "decls": [
+     "Chapter8/TangentZhou · MPolyfold.levelVal_tangentProj_mem_smoothSet",
+     "Chapter8/TangentZhou · EpGroupoid.mem_nonEffectivePart_tangent",
+     "Chapter8/TangentZhou · EpGroupoid.TangentZhouReflect",
+     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16_2021",
+     "Chapter8/TangentZhou · EpGroupoid.tangentMor_trivial",
+     "Chapter8/TangentZhou · EpGroupoid.tangentZhouReflect_trivial",
+     "Chapter8/TangentZhou · EpGroupoid.Examples.proposition_8_1_16_2021_point"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "added: `TangentZhouReflect`",
+    "gap G.88"
+   ],
+   "diff": [
+    "The step from $T(g, h) = \\mathrm{id}$ to $Tg = \\mathrm{id}$, by differentiating (8.16) and $T\\tau$ onto, needs the second tangent bundle $T(TX)$, not formalized; it is the hypothesis `TangentZhouReflect`, satisfiable (gap G.88). Tangents of isotropy elements are set maps, as in Chapter 7 (V7.87) (Findings, Chapter 8, item 115)."
+   ]
+  },
+  {
+   "id": "V8.45",
+   "title": "Proposition 8.1.17: LUC and SLUC for $TX$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§8.1, Proposition 8.1.17, p. 371 (new in the 2021 edition)",
+    "page": 371,
+    "statement": "(1) If $X^1$ has the local unique continuation property, so has $TX$, and $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$. (2) If $X$ has (SLUC), so has $TX$."
+   },
+   "lean": {
+    "statement": "Under the hypotheses that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$, and that $p : T\\mathbf X \\to \\mathbf X^1$ is open: `nonEffectivePart_tangent_eq` and `proposition_8_1_17_2021_one`: if $X^1$ is LUC, $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_2021_two`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_2021_one_point`.",
+    "decls": [
+     "Chapter8/TangentZhou · EpGroupoid.nonEffectivePart_tangent_eq",
+     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_one",
+     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_two",
+     "Chapter8/TangentZhou · EpGroupoid.isOpenMap_tangentProj_of_subsingleton",
+     "Chapter8/TangentZhou · EpGroupoid.Examples.proposition_8_1_17_2021_one_point"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(2) only for $(TX)^0$",
+    "added: $U(x) \\cap X_1$; $p$ open",
+    "gap G.88"
+   ],
+   "diff": [
+    "The connectedness and density of $U(x) \\cap X_1$ (as for Appendix 7.6.4, V7.83; the density is gap G.73) and the openness of $p$ (gap G.8) are hypotheses. (1) goes through Proposition 7.2.21 for $TX$. (2) is proved for $(TX)^0 = TX$ only, since $(TX)^i = T(X^i)$ is not formalized (gap G.88) (Findings, Chapter 8, item 116)."
+   ]
+  },
+  {
+   "id": "V8.46",
+   "title": "Definition 8.3.5: auxiliary norms on strong bundles over ep-groupoids",
+   "verdict": "restated",
+   "book": {
+    "label": "§8.3, Definition 8.3.5, p. 379 (new in the 2021 edition)",
+    "page": 379,
+    "statement": "An auxiliary norm for the strong bundle $(P : W \\to X, \\mu)$ over the ep-groupoid $X$ is a continuous $N : W_{0,1} \\to [0, \\infty)$ which (1) restricts to a complete norm on every fibre, (2) satisfies $h_k \\to 0_x$ whenever $P(h_k) \\to x$ and $N(h_k) \\to 0$, and (3) is invariant: $N(h) = N(k)$ if $h = \\mu(\\varphi, k)$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.IsAuxNorm`: Part I's auxiliary norm (continuity, (1), (2)) on the underlying strong bundle, together with (3) $N(h) = N(k)$ for $h \\in W_{0,1}$, $s(\\varphi) = P(k)$, $h = \\mu(\\varphi, k)$. `EpStrongBundle.exists_oneVal_eq_μ`: $\\mu(\\varphi, k) \\in W_{0,1}$ for $k \\in W_{0,1}$, so (3) is not vacuous. Witnesses: `EpStrongBundle.exists_isAuxNorm_trivial` (over the trivial ep-groupoid every auxiliary norm of Part I is one), `TrivialBundle.exists_isAuxNorm_epBundle` ($\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$).",
+    "decls": [
+     "Chapter8/Book2021 · EpStrongBundle.IsAuxNorm",
+     "Chapter8/Book2021 · EpStrongBundle.exists_oneVal_eq_μ",
+     "Chapter8/Book2021 · EpStrongBundle.exists_isAuxNorm_trivial",
+     "Chapter8/Book2021 · TrivialBundle.exists_isAuxNorm_epBundle"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(3) as an equation in $W$",
+    "satisfiable"
+   ],
+   "diff": [
+    "Values in $[0, \\infty)$ follow from (1); in (3), $h$ ranges over $W_{0,1}$ and $h = \\mu(\\varphi, k)$ is an equation in $W$ (Findings, Chapter 8, item 117)."
+   ]
+  },
+  {
+   "id": "V8.47",
+   "title": "Proposition 8.4.1: paracompactness of $|X|$ from that of $|W[0]|$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§8.4, Proposition 8.4.1, p. 380 (new in the 2021 edition)",
+    "page": 380,
+    "statement": "For a strong bundle $P : W \\to X$ over an ep-groupoid the following are equivalent: (1) $|X|$ is paracompact; (2) $|W[0]|$ is paracompact; (3) $|W[1]|$ is paracompact."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.μ_fiberZero`: $\\mu(\\varphi, 0_{s(\\varphi)}) = 0_{t(\\varphi)}$. `EpStrongBundle.zeroOrbitMap`: the map $|0| : |X| \\to |W[0]|$ induced by the zero section, continuous (`continuous_zeroOrbitMap`), with left inverse $|P|$ (`leftInverse_zeroOrbitMap`), a topological embedding (`isEmbedding_zeroOrbitMap`). `EpStrongBundle.proposition_8_4_1_2021_two_imp_one`: if $|W[0]|$ is paracompact, so is $|X|$.",
+    "decls": [
+     "Chapter8/Book2021 · EpStrongBundle.μ_fiberZero",
+     "Chapter8/Book2021 · EpStrongBundle.zeroOrbitMap",
+     "Chapter8/Book2021 · EpStrongBundle.continuous_zeroOrbitMap",
+     "Chapter8/Book2021 · EpStrongBundle.leftInverse_zeroOrbitMap",
+     "Chapter8/Book2021 · EpStrongBundle.isEmbedding_zeroOrbitMap",
+     "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_2021_two_imp_one"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "only (2) ⇒ (1)",
+    "gap G.86"
+   ],
+   "diff": [
+    "Only (2) implies (1). $W[1]$ is not built as an ep-groupoid, and (1) implies (2), (3) needs $G_x$-equivariant bundle charts with invariant metrics (gap G.86). The proof: $|W[0]|$ is metrizable (Theorem 7.3.1 and Smirnov's theorem), so its subspace $|X|$ is, hence paracompact (Findings, Chapter 8, item 118)."
+   ]
+  },
+  {
+   "id": "V8.48",
+   "title": "Definition 8.4.2: the local regularity property of a strong bundle",
+   "verdict": "restated",
+   "book": {
+    "label": "§8.4, Definition 8.4.2, p. 382 (new in the 2021 edition)",
+    "page": 382,
+    "statement": "With the natural lift of the $G_x$-action to $W|U(x)$, the strong bundle $P : W \\to X$ has the local regularity property if every $x$ has arbitrarily small $U(x)$ such that every strong bundle isomorphism $B : W|U(x) \\to W|U(x)$ with $|B(w)| = |w|$ is of the form $w \\mapsto g * w$ for some $g \\in G_x$. Proposition 8.4.3 (p. 382): for effective $X$ with (LR) the strong bundle has it."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.natLift`: $g * w = \\mu(\\Gamma(g, P(w)), w)$. `EpStrongBundle.IsLR`: inside every open $O \\ni x$ a natural representation $U(x)$ such that every strong bundle map $\\Phi : W \\to W$ covering some $\\beta$, a strong bundle isomorphism on $W|U(x)$ (`IsStrongBundleIsoOn`), with $|\\Phi(w)| = |w|$ for $P(w) \\in U(x)$, equals $w \\mapsto g * w$ on $W|U(x)$ for some $g \\in G_x$. Witness: `EpStrongBundle.isLR_trivial` (every strong bundle over a trivial ep-groupoid).",
+    "decls": [
+     "Chapter8/TangentZhou · EpStrongBundle.natLift",
+     "Chapter8/TangentZhou · EpStrongBundle.IsLR",
+     "Chapter8/TangentZhou · EpStrongBundle.isLR_trivial"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$B$ read via `IsStrongBundleIsoOn`",
+    "Prop. 8.4.3: gap G.86"
+   ],
+   "diff": [
+    "\"Strong bundle isomorphism $B : W|U(x) \\to W|U(x)$\" is read as Part I's `IsStrongBundleIsoOn` for a strong bundle map $W \\to W$, as for Definition 8.5.9 (V8.37), and $|B(w)| = |w|$ as equality of orbits. Proposition 8.4.3 is not formalized (gap G.86) (Findings, Chapter 8, item 119)."
+   ]
+  },
+  {
+   "id": "V8.49",
+   "title": "The remark after Definition 8.5.5 and Example 8.5.6",
+   "verdict": "same",
+   "book": {
+    "label": "§8.5, the remark after Definition 8.5.5 and Example 8.5.6, p. 388 (Example 8.5.6 new in the 2021 edition; Definition 8.5.5: 2017 8.9)",
+    "page": 388,
+    "statement": "For a covering functor $f : D \\to C$ and $d \\in D$ with $f(d) = x$, the map $f : G_d \\to G_x$ is injective, but it need not be surjective. Example 8.5.6: $D$ with two objects $a$, $b$ and exactly one morphism between any two objects, $C$ with one object $x$ and $G_x = \\{1_x, \\varepsilon\\}$, $f(\\varphi) = f(\\varphi^{-1}) = \\varepsilon$ for the morphism $\\varphi : a \\to b$."
+   },
+   "lean": {
+    "statement": "`IsCoveringFunctor.injective_map_end`: $f : G_d \\to G_{f(d)}$ is injective. `Example856D` (two objects, one morphism between any two), `example856Functor` (to $\\mathbb Z^\\times$ as a one-object category, $\\varepsilon = -1$), `example_8_5_6_2021`: it is a covering functor, $G_a$ and $G_b$ are trivial, $G_x \\cong \\mathbb Z/2$ is not, and $f : G_a \\to G_x$ is injective and not surjective.",
+    "decls": [
+     "Chapter8/Book2021 · IsCoveringFunctor.injective_map_end",
+     "Chapter8/Book2021 · Example856D",
+     "Chapter8/Book2021 · example856Functor",
+     "Chapter8/Book2021 · example_8_5_6_2021"
+    ]
+   },
+   "chips": [
+    "Example 8.5.6 new in 2021"
+   ],
+   "diff": [
+    "As stated (Findings, Chapter 8, item 120)."
+   ]
+  },
+  {
+   "id": "V8.50",
+   "title": "Definition 8.5.9, 2021 form: condition (0)",
+   "verdict": "restated",
+   "book": {
+    "label": "§8.5, Definition 8.5.9, p. 394 (2017: 8.10, p. 285), with (0) new in the 2021 edition",
+    "page": 394,
+    "statement": "For strong bundles $(W, \\mu)$ over $Y$ and $(V, \\tau)$ over $X$ and an ep-functor $F : Y \\to X$, a strong bundle map $A : W \\to V$ with $Q \\circ A = F \\circ P$ is a proper strong bundle covering functor if (0) $\\tau(F(\\psi), A(w)) = A(\\mu(\\psi, w))$, and (1)–(3) of the 2017 definition hold."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.IsProperStrongBundleCovering2021`: for the object map $A$, strong bundle map, $Q \\circ A = F \\circ P$, (0), and (1)–(3) as in V8.37. `EpStrongBundle.isProperStrongBundleCovering2021_iff`: it holds iff $A$ is the object map of a unique strong bundle functor that is a proper strong bundle covering functor in the sense of V8.37 (`IsProperStrongBundleCovering.isProperStrongBundleCovering2021`). Witnesses: `EpStrongBundle.isProperStrongBundleCovering2021_id`, `TrivialBundle.epBundle_isProperStrongBundleCovering2021`.",
+    "decls": [
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering.isProperStrongBundleCovering2021",
+     "Chapter8/Book2021 · EpStrongBundle.isProperStrongBundleCovering2021_iff",
+     "Chapter8/Book2021 · EpStrongBundle.isProperStrongBundleCovering2021_id",
+     "Chapter8/Book2021 · TrivialBundle.epBundle_isProperStrongBundleCovering2021"
+    ]
+   },
+   "chips": [
+    "(0) new in the 2021 edition",
+    "equivalent to the reading of V8.37"
+   ],
+   "diff": [
+    "Stated for the object map; (0) is the strong bundle map property of Definition 8.3.2 (2017: 8.5). V8.37 had read 2017's \"strong bundle map $A$\" as a strong bundle functor, which contains (0); the two readings are equivalent (Findings, Chapter 8, items 70, 121)."
+   ]
+  },
+  {
+   "id": "V8.51",
+   "title": "Lemma 8.5.10: $W \\cong F^*V$ for a proper strong bundle covering",
+   "verdict": "narrower",
+   "book": {
+    "label": "§8.5, Lemma 8.5.10, p. 395 (new in the 2021 edition)",
+    "page": 395,
+    "statement": "For a proper strong bundle covering functor $A : W \\to V$ covering $F : Y \\to X$, the map $B : W \\to F^*V$, $w \\mapsto (P(w), A(w))$, is a strong bundle isomorphism over the ep-groupoid $Y$, where $F^*V$ carries $\\mu_{F^*V}(\\varphi, (y, v)) = (t(\\varphi), \\mu_X(F(\\varphi), v))$; it satisfies (8.23) $B(\\mu_Y(\\varphi, w)) = \\mu_{F^*V}(\\varphi, B(w))$, and $A = \\bar A \\circ B$."
+   },
+   "lean": {
+    "statement": "`EpStrongBundle.pullbackμ`: $\\mu_{F^*V}$. For `A : IsProperStrongBundleCovering2021`: `bundleB` with `bundleB_val`, (8.23) `bundleB_μ`; `bijective_bundleB` (via `eq_of_isStrongBundleIsoOn`); the inverse `bundleBInv` (`bundleBInv_eq_of`: near every point the inverse of a local strong bundle isomorphism of Definition 8.5.9 (1)); `isStrongBundleMap_bundleB`, `mapsTo_oneSet_bundleBInv`, `isStrongBundleMap_bundleBInv`. `lemma_8_5_10_2021`: $B$ is a strong bundle isomorphism $W \\to F^*V$ covering the identity of $Y$, with (8.23) and $A = \\bar A \\circ B$.",
+    "decls": [
+     "Chapter8/Book2021 · EpStrongBundle.pullbackμ",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_μ",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.eq_of_isStrongBundleIsoOn",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bijective_bundleB",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleBInv_eq_of",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv",
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$F^*V$ over $Y$: only $\\mu_{F^*V}$ used",
+    "gap G.89"
+   ],
+   "diff": [
+    "\"Strong bundle isomorphism over the ep-groupoid $Y$\" is read as a strong bundle isomorphism $W \\to F^*V$ with (8.23); that $\\mu_{F^*V}$ makes $F^*V$ a strong bundle over the ep-groupoid $Y$ is not proved, only its formula is used (gap G.89) (Findings, Chapter 8, item 122)."
+   ]
   }
  ],
  "notFormalized": [
@@ -1312,6 +1540,51 @@
    "decls": [
     "Chapter8/TangentEp · EpGroupoid.lemma_8_1",
     "Chapter8/TangentEp · EpGroupoid.isScSmoothComp_tangent"
+   ]
+  },
+  {
+   "g": 86,
+   "title": "Proposition 8.4.1, (1) ⇒ (2), (3), and Proposition 8.4.3",
+   "label": "§8.4, Proposition 8.4.1, p. 380, and Proposition 8.4.3, p. 382 (new in the 2021 edition)",
+   "page": 380,
+   "book": "Proposition 8.4.1: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together. Proposition 8.4.3: if $X$ is effective and has the local regularity property (LR) of Definition 7.4.19, every strong bundle over $X$ has the local regularity property of Definition 8.4.2.",
+   "instead": "**Not formalized**: (1) ⇒ (2), (3) needs $G_x$-equivariant strong bundle charts with invariant metrics and $W[1]$ as an ep-groupoid; Proposition 8.4.3 needs the openness of $P : W \\to X$ and the lift of (LR) to the bundle. Formalized: (2) ⇒ (1) (V8.47) and Definition 8.4.2 (V8.48) (Findings, Chapter 8, items 118, 119).",
+   "decls": [
+    "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_2021_two_imp_one",
+    "Chapter8/TangentZhou · EpStrongBundle.IsLR"
+   ]
+  },
+  {
+   "g": 87,
+   "title": "Proposition 8.2.3: the Poincaré lemma for sc-differential forms on ep-groupoids",
+   "label": "§8.2, Proposition 8.2.3, p. 373 (new in the 2021 edition)",
+   "page": 373,
+   "book": "Poincaré lemma: every object $x$ has saturated open neighbourhoods $V \\subseteq U$ such that for every closed $[\\omega] \\in \\Omega^k_{ep,\\infty}(U)$, $k \\ge 1$, there is $[\\sigma] \\in \\Omega^{k-1}_{ep,\\infty}(V)$ with $d[\\sigma] = [\\omega]$ on $V$; the proof averages a primitive from Lemma 4.4.8 over $G_x$.",
+   "instead": "**Not formalized**, with the forms of §8.2 (gap G.74), which need the Whitney sums $\\oplus^k TX$, the linear structure of $T_xX$ (gap G.7) and the forms of Part I's §4.4 (gaps G.37–G.40) (Findings, Chapter 8, item 123)."
+  },
+  {
+   "g": 88,
+   "title": "Proposition 8.1.16 without `TangentZhouReflect`, and Proposition 8.1.17 (2) for $(TX)^i$, $i \\ge 1$",
+   "label": "§8.1, Proposition 8.1.16, p. 369, and Proposition 8.1.17 (2), p. 371 (new in the 2021 edition)",
+   "page": 369,
+   "book": "Proposition 8.1.16: (ZHOU) for $X$ gives (ZHOU) for $TX$, by differentiating (8.16) and using that $T\\tau$ is onto. Proposition 8.1.17 (2): (SLUC) for $X$ gives (SLUC) for $TX$, i.e. LUC for every $(TX)^i$.",
+   "instead": "**Not formalized** in full: the step $T(g, h) = \\mathrm{id} \\Rightarrow Tg = \\mathrm{id}$ needs the second tangent bundle $T(TX)$ and $T\\tau$, and is the hypothesis `TangentZhouReflect` (V8.44); (2) needs $(TX)^i = T(X^i)$ and is proved for $(TX)^0$ (V8.45) (Findings, Chapter 8, items 115, 116).",
+   "decls": [
+    "Chapter8/TangentZhou · EpGroupoid.TangentZhouReflect",
+    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16_2021",
+    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_two"
+   ]
+  },
+  {
+   "g": 89,
+   "title": "Lemma 8.5.10: $F^*V$ with $\\mu_{F^*V}$ as a strong bundle over the ep-groupoid $Y$",
+   "label": "§8.5, Lemma 8.5.10, p. 395 (new in the 2021 edition)",
+   "page": 395,
+   "book": "The pull-back $F^*V$, with $\\mu_{F^*V}(\\varphi, (y, v)) = (t(\\varphi), \\mu_X(F(\\varphi), v))$, is a strong bundle over the ep-groupoid $Y$, and $B : W \\to F^*V$ is a strong bundle isomorphism over $Y$.",
+   "instead": "**Not formalized**: that $\\mu_{F^*V}$ satisfies the conditions of a strong bundle over an ep-groupoid (Definition 8.3.1 (2017: 8.4)); the lemma is proved with its formula only, $B$ a strong bundle isomorphism $W \\to F^*V$ with (8.23) (V8.51) (Findings, Chapter 8, item 122).",
+   "decls": [
+    "Chapter8/Book2021 · EpStrongBundle.pullbackμ",
+    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021"
    ]
   }
  ]

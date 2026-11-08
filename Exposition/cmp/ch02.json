@@ -1904,6 +1904,737 @@
     "Not stated in the text. Paracompactness is needed for $Y[1]$ to be an M-polyfold (Definition 2.3.4 (preprint 2.13)); it follows, as in Theorem 2.3.10 (preprint 2.16), from the pull-back form of Smirnov's theorem over the paracompact base (V2.62).",
     "The sc-smooth inclusion $Y[1] \\to Y[0]$ is the global form of $K[1] \\to K[0]$ (V2.55)."
    ]
+  },
+  {
+   "id": "V2.65",
+   "title": "Proposition 2.1.13 (preprint 2.6), the 2021 statement",
+   "verdict": "same",
+   "book": {
+    "label": "§2.1, Proposition 2.1.13 (preprint 2.6), p. 27 (preprint p. 20)",
+    "page": 20,
+    "statement": "For sc-smooth retractions $r$, $s$ onto $O$ and $f : O \\to O'$: (1) $f \\circ r$ is sc-smooth iff $f \\circ s$ is; (2) if $f \\circ r$ is sc-smooth, $T(f \\circ r) = T(f \\circ s)$ on $TO$; (3) if $f \\circ r$ is sc-smooth, $T(f \\circ r)$ maps $TO$ into $TO'$. The hypothesis of (3) is new in the 2021 statement."
+   },
+   "lean": {
+    "statement": "For retractions $r$, $s$ onto the same $O$, a retraction $\\rho$ onto $O'$ and $f(O) \\subseteq O'$: (1) $f \\circ r$ sc-smooth iff $f \\circ s$ sc-smooth; (2) if $f \\circ r$ is sc-smooth, $T(f \\circ r) = T(f \\circ s)$ on $Tr(TU)$; (3) if $f \\circ r$ is sc-smooth, $T(f \\circ r)$ maps $Tr(TU)$ into $T\\rho(TU')$.",
+    "decls": [
+     "Chapter2/Book2021 · proposition_2_1_13_2021",
+     "Chapter2/Retracts · proposition_2_6_1",
+     "Chapter2/Retracts · proposition_2_6_2",
+     "Chapter2/Retracts · proposition_2_6_3"
+    ]
+   },
+   "chips": [
+    "the 2021 hypothesis in (3)",
+    "confirms the reading of V2.5"
+   ],
+   "diff": [
+    "The Lean statement of (3) in V2.5 already assumed $f \\circ r$ sc-smooth; the 2021 text now states it."
+   ]
+  },
+  {
+   "id": "V2.66",
+   "title": "Proposition 2.1.4: complete closed neighbourhoods in a retract",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.1, Proposition 2.1.4, p. 22 (new in the 2021 edition)",
+    "page": 22,
+    "statement": "With $d_O(x, y) = |x - y|_0$, every $x$ in an sc-smooth retract $O$ has open neighbourhoods $W(x)$, $V(x)$ with $\\mathrm{cl}_O(V(x)) \\subseteq W(x)$ and $d_O$ complete on $\\mathrm{cl}_O(V(x))$."
+   },
+   "lean": {
+    "statement": "Every $x \\in O$ has open $V \\subseteq W$ in $O$ with $\\mathrm{cl}_O(V) \\subseteq W$ and $\\mathrm{cl}_O(V)$ complete for the metric of $E_0$, with $W$ inside any given neighbourhood of $x$; $O \\cap \\bar B_\\varepsilon(x)$ is closed in $E_0$ for small $\\varepsilon$.",
+    "decls": [
+     "Chapter2/LocalTopology · ScRetraction.exists_isClosed_retract_inter_closedBall",
+     "Chapter2/LocalTopology · IsScRetract.exists_isComplete_closure",
+     "Chapter2/LocalTopology · proposition_2_1_4_2021"
+    ]
+   },
+   "chips": [
+    "$W$ arbitrarily small",
+    "closed balls instead of $V'$"
+   ],
+   "diff": [
+    "The proof uses $O \\cap \\bar B_\\varepsilon(x)$ in place of the text's set $V'$ with $r(V') \\subseteq V'$."
+   ]
+  },
+  {
+   "id": "V2.67",
+   "title": "Definition 2.1.5: locally complete spaces",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.1, Definition 2.1.5, p. 23 (new in the 2021 edition)",
+    "page": 23,
+    "statement": "A Hausdorff space $X$ is locally complete if every $x$ has open neighbourhoods $W(x)$, $V(x)$ such that $W(x)$ carries a metric inducing its topology, $V(x) \\subseteq W(x)$, $\\mathrm{cl}_X(V(x)) \\subseteq W(x)$, and $\\mathrm{cl}_X(V(x))$ is complete for that metric."
+   },
+   "lean": {
+    "statement": "Every $x$ has open $V \\ni x$ and $W$ with $\\mathrm{cl}_X(V) \\subseteq W$ and a metric on $W$ inducing its subspace topology for which $\\mathrm{cl}_X(V)$ is complete. Such a space is regular, $T_1$ and Hausdorff, and $W$ can be chosen inside any neighbourhood of $x$; complete metric spaces, $\\mathbb R$ in particular, are locally complete.",
+    "decls": [
+     "Chapter2/LocalTopology · AdmitsCompleteMetricOn",
+     "Chapter2/LocalTopology · admitsCompleteMetricOn_of_isComplete",
+     "Chapter2/LocalTopology · AdmitsCompleteMetricOn.metrizableSpace",
+     "Chapter2/LocalTopology · AdmitsCompleteMetricOn.of_isEmbedding",
+     "Chapter2/LocalTopology · AdmitsCompleteMetricOn.mono",
+     "Chapter2/LocalTopology · isComplete_inter_of_isClosed",
+     "Chapter2/LocalTopology · IsLocallyComplete",
+     "Chapter2/LocalTopology · IsLocallyComplete.exists_subset",
+     "Chapter2/LocalTopology · IsLocallyComplete.regularSpace",
+     "Chapter2/LocalTopology · IsLocallyComplete.t1Space",
+     "Chapter2/LocalTopology · IsLocallyComplete.t2Space",
+     "Chapter2/LocalTopology · isLocallyComplete_of_completeSpace",
+     "Chapter2/LocalTopology · isLocallyComplete_real",
+     "Chapter2/LocalTopology · isLocallyComplete_of_metric"
+    ]
+   },
+   "chips": [
+    "Hausdorff follows",
+    "witness: $\\mathbb R$"
+   ],
+   "diff": [
+    "The Hausdorff assumption is not part of the definition: it follows ($T_1$ from the metrizable $W$, regularity from $\\mathrm{cl}_X(V) \\subseteq W$). So Proposition 2.1.8, Lemma 2.1.9 and Proposition 2.1.10 need no Hausdorff hypothesis (except for the $T_{3\\frac12}$ conclusion)."
+   ]
+  },
+  {
+   "id": "V2.68",
+   "title": "Remark 2.1.6: the modified definition is weaker",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)",
+    "page": 23,
+    "statement": "The condition $\\mathrm{cl}_X(V(x)) \\subseteq W(x)$ is global; replacing $\\mathrm{cl}_X(V(x))$ by the closure $\\mathrm{cl}_{W(x)}(V(x))$ gives a weaker notion, since $\\mathrm{cl}_X(V) \\subseteq W$ implies $\\mathrm{cl}_W(V) = \\mathrm{cl}_X(V)$."
+   },
+   "lean": {
+    "statement": "If $\\mathrm{cl}_X(V) \\subseteq W$ then $\\mathrm{cl}_W(V) = \\mathrm{cl}_X(V)$; local completeness implies the modified notion ($V \\subseteq W$, $\\mathrm{cl}_W(V)$ complete).",
+    "decls": [
+     "Chapter2/LocalTopology · remark_2_1_6_2021",
+     "Chapter2/LocalTopology · IsLocallyCompleteRel",
+     "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel"
+    ]
+   },
+   "chips": [
+    "strictly weaker: not formalized (G.76)"
+   ],
+   "diff": [
+    "\"Weaker\" is proved as the implication; that the modified notion is strictly weaker is gap G.76."
+   ]
+  },
+  {
+   "id": "V2.69",
+   "title": "Corollary 2.1.7: retracts are locally complete",
+   "verdict": "same",
+   "book": {
+    "label": "§2.1, Corollary 2.1.7, p. 23 (new in the 2021 edition)",
+    "page": 23,
+    "statement": "An sc-smooth retract $O$ is locally complete."
+   },
+   "lean": {
+    "statement": "An sc-smooth retract $O$ with the topology of $E_0$ is locally complete; so is $E_0$.",
+    "decls": [
+     "Chapter2/LocalTopology · corollary_2_1_7_2021",
+     "Chapter2/LocalTopology · isLocallyComplete_univ_retract"
+    ]
+   },
+   "chips": [
+    "metric $d_O$ restricted to $W$"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.70",
+   "title": "Proposition 2.1.8: permanence of local completeness",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.1, Proposition 2.1.8, p. 24 (new in the 2021 edition)",
+    "page": 24,
+    "statement": "For a Hausdorff locally complete $X$: (1) locally closed subspaces, (2) homeomorphic spaces, (3) open subsets are locally complete; a Hausdorff $Y$ with an open cover $(Y_i)$ by locally complete subspaces such that every $z \\in Y_i$ has an open neighbourhood in $Y_i$ whose closure in $Y$ lies in $Y_i$ is locally complete."
+   },
+   "lean": {
+    "statement": "The same, without Hausdorff hypotheses; more generally a space embedded in a locally complete $X$ with locally closed image is locally complete.",
+    "decls": [
+     "Chapter2/LocalTopology · IsLocallyComplete.of_isEmbedding",
+     "Chapter2/LocalTopology · proposition_2_1_8_1_2021",
+     "Chapter2/LocalTopology · proposition_2_1_8_2_2021",
+     "Chapter2/LocalTopology · proposition_2_1_8_3_2021",
+     "Chapter2/LocalTopology · proposition_2_1_8_4_2021"
+    ]
+   },
+   "chips": [
+    "no Hausdorff hypothesis",
+    "via embeddings"
+   ],
+   "diff": [
+    "\"Locally closed\" is Mathlib's notion (open $\\cap$ closed), equivalent to the text's use."
+   ]
+  },
+  {
+   "id": "V2.71",
+   "title": "Lemma 2.1.9 and Proposition 2.1.10: first countable, completely regular",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.1, Lemma 2.1.9 and Proposition 2.1.10, p. 25 (new in the 2021 edition)",
+    "page": 25,
+    "statement": "Points of a locally complete space have countable neighbourhood bases. A Hausdorff locally complete space is completely regular."
+   },
+   "lean": {
+    "statement": "A locally complete space is first countable and completely regular; if Hausdorff, it is $T_{3\\frac12}$.",
+    "decls": [
+     "Chapter2/LocalTopology · lemma_2_1_9_2021",
+     "Chapter2/LocalTopology · IsLocallyComplete.completelyRegularSpace",
+     "Chapter2/LocalTopology · proposition_2_1_10_2021"
+    ]
+   },
+   "chips": [
+    "no Hausdorff for complete regularity",
+    "no sequences"
+   ],
+   "diff": [
+    "The proofs work with neighbourhood filters and a bump function built in the metrizable $W(x)$, instead of sequences."
+   ]
+  },
+  {
+   "id": "V2.72",
+   "title": "Lemma 2.2.1: the levels of a connected relatively open set are path-connected",
+   "verdict": "explicit",
+   "book": {
+    "label": "§2.2, Lemma 2.2.1, p. 30 (new in the 2021 edition)",
+    "page": 30,
+    "statement": "If $U \\subseteq C$ is relatively open and connected, then for every $k \\in \\mathbb N \\cup \\{\\infty\\}$ the level $U_k$ with the $E_k$-topology is path-connected."
+   },
+   "lean": {
+    "statement": "For $k \\in \\mathbb N$, $U_k \\subseteq E_k$ is path-connected; $U_\\infty$, as the compatible sequences $(v_m) \\in \\prod_m E_m$ with $v_0 \\in U$ (the topology of all the norms), is path-connected. Smooth points are dense in every $C_m$.",
+    "decls": [
+     "Chapter2/LocalTopology · ScBanach.lvlSetInfty",
+     "Chapter2/LocalTopology · ScBanach.smoothSeq",
+     "Chapter2/LocalTopology · ScBanach.toBase_smoothSeq",
+     "Chapter2/LocalTopology · ScBanach.smoothSeq_mem",
+     "Chapter2/LocalTopology · ScBanach.smoothSeq_zero",
+     "Chapter2/LocalTopology · ScBanach.image_lvlSetInfty",
+     "Chapter2/LocalTopology · ScBanach.joinedIn_lvlSetInfty_of_segment",
+     "Chapter2/LocalTopology · IsPartialQuadrant.exists_smooth_near",
+     "Chapter2/LocalTopology · IsRelOpenInQuadrant.exists_ball_inter_subset",
+     "Chapter2/LocalTopology · lemma_2_2_1_2021",
+     "Chapter2/LocalTopology · lemma_2_2_1_infty_2021"
+    ]
+   },
+   "chips": [
+    "$E_\\infty$: inverse-limit topology",
+    "clopen argument, not polygons"
+   ],
+   "diff": [
+    "The text does not specify the topology of $E_\\infty$; the Lean uses that of all the norms $|\\cdot|_m$.",
+    "The proof replaces the polygon along a path in $U_0$ by an open-and-closed argument in the connected $U$."
+   ]
+  },
+  {
+   "id": "V2.73",
+   "title": "Lemma 2.2.2, Definition 2.2.3, Theorem 2.2.4: retracts are locally path-connected",
+   "verdict": "same",
+   "book": {
+    "label": "§2.2, Lemma 2.2.2, p. 31, Definition 2.2.3 and Theorem 2.2.4, p. 32 (new in the 2021 edition)",
+    "page": 31,
+    "statement": "For a retraction $r$ onto $O$, $x \\in O$ and an open $V(x)$, $W(x) = V(x) \\cap r^{-1}(V(x))$ is relatively open in $C$ with $W(x) \\cap O = V(x) \\cap O$, $r(W(x)) \\subseteq W(x)$, $r(W(x)) = O \\cap V(x)$. Locally path-connected: every open neighbourhood contains a path-connected open one. A retract is locally path-connected."
+   },
+   "lean": {
+    "statement": "The same, with $V(x) = V' \\cap U$, $V'$ open in $E_0$; Definition 2.2.3 is Mathlib's local path-connectedness.",
+    "decls": [
+     "Chapter2/LocalTopology · lemma_2_2_2_2021",
+     "Chapter2/LocalTopology · definition_2_2_3_2021",
+     "Chapter2/LocalTopology · theorem_2_2_4_2021",
+     "Chapter7/LocConnected · IsScRetract.locallyPathConnectedSpace"
+    ]
+   },
+   "chips": [
+    "Theorem 2.2.4 proved earlier (Chapter 7)"
+   ],
+   "diff": [
+    "Theorem 2.2.4 was proved for Chapter 7 by joining nearby points along $\\tau \\mapsto r(o + \\tau(p - o))$, not through Lemma 2.2.2 and components."
+   ]
+  },
+  {
+   "id": "V2.74",
+   "title": "Definition 2.2.5 and Proposition 2.2.6: almost local contractibility",
+   "verdict": "same",
+   "book": {
+    "label": "§2.2, Definition 2.2.5 and Proposition 2.2.6, p. 33 (new in the 2021 edition)",
+    "page": 33,
+    "statement": "$Z$ is almost locally contractible if every $z$ and open $V(z)$ admit an open $W(z) \\subseteq V(z)$ and a continuous $\\Phi : [0, 1] \\times W(z) \\to V(z)$ with $\\Phi(0, \\cdot) = \\mathrm{id}$, $\\Phi(t, z) = z$, $\\Phi(1, W(z)) = \\{z\\}$. A retract is almost locally contractible."
+   },
+   "lean": {
+    "statement": "The same definition; sc-smooth retracts and $E_0$ are almost locally contractible.",
+    "decls": [
+     "Chapter2/LocalTopology · IsAlmostLocallyContractible",
+     "Chapter2/LocalTopology · proposition_2_2_6_2021",
+     "Chapter2/LocalTopology · isAlmostLocallyContractible_univ"
+    ]
+   },
+   "chips": [
+    "$\\Phi(t, y) = r((1 - t)y + tx)$"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.75",
+   "title": "Definition 2.3.4 (preprint 2.13), the footnote: paracompactness without Hausdorff",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.3, Definition 2.3.4 (preprint 2.13), p. 35 (preprint p. 23), footnote (new in the 2021 edition); Appendix 2.7.2, p. 72",
+    "page": 23,
+    "statement": "An M-polyfold is a Hausdorff paracompact space with an equivalence class of sc-smooth atlases; the footnote: paracompactness asks only that every open covering have a locally finite open covering refining it, without the Hausdorff property. Appendix 2.7.2 states the convention with a locally finite open subcovering."
+   },
+   "lean": {
+    "statement": "Paracompact* (every open cover has a locally finite open refinement) is Mathlib's paracompactness, so \"Hausdorff paracompact*\" is exactly the hypothesis of an M-polyfold. With \"subcover\" in place of \"refinement\", $\\mathbb R$ is not paracompact.",
+    "decls": [
+     "Chapter2/LocalTopology · IsLocallyFiniteSetFamily",
+     "Chapter2/LocalTopology · IsParacompactStar",
+     "Chapter2/LocalTopology · isParacompactStar_iff",
+     "Chapter2/LocalTopology · definition_2_3_4_2021",
+     "Chapter2/LocalTopology · isParacompactStar_real",
+     "Chapter2/LocalTopology · IsParacompactBySubcover",
+     "Chapter2/LocalTopology · not_isParacompactBySubcover_real"
+    ]
+   },
+   "chips": [
+    "the footnote changes nothing",
+    "subcovering: possible misprint"
+   ],
+   "diff": [
+    "The subcover wording of Appendix 2.7.2 (and 2017 Appendix 2.6.2) does not hold as we read it for $\\mathbb R$ (the cover by $(-n-1, n+1)$); it is read as \"refinement\", as in the footnote (possible misprint)."
+   ]
+  },
+  {
+   "id": "V2.76",
+   "title": "Lemmas 2.3.5 and 2.7.2: shrinking with closure",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.3, Lemma 2.3.5, p. 35, and Appendix 2.7.2, Lemma 2.7.2, p. 72 (new in the 2021 edition)",
+    "page": 35,
+    "statement": "In an M-polyfold every open $W(x)$ contains an arbitrarily small open $V(x)$ with $\\mathrm{cl}_X(V(x)) \\subseteq W(x)$. In a regular Hausdorff space every open $U(x)$ contains an open $V(x)$ with $\\mathrm{cl}_X(V(x)) \\subseteq U(x)$."
+   },
+   "lean": {
+    "statement": "The same; Lemma 2.7.2 for regular spaces, Lemma 2.3.5 for Hausdorff paracompact spaces, with $V$ inside any given neighbourhood.",
+    "decls": [
+     "Chapter2/LocalTopology · lemma_2_7_2_2021",
+     "Chapter2/LocalTopology · exists_isOpen_closure_subset_of_paracompact",
+     "Chapter2/LocalTopology · lemma_2_3_5_2021"
+    ]
+   },
+   "chips": [
+    "Lemma 2.7.2 needs only regularity"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.77",
+   "title": "Propositions 2.3.6 and 2.3.7: M-polyfolds are locally complete and locally path-connected",
+   "verdict": "same",
+   "book": {
+    "label": "§2.3, Proposition 2.3.6 and Proposition 2.3.7, p. 36 (new in the 2021 edition)",
+    "page": 36,
+    "statement": "An M-polyfold is locally complete, with $W(x)$ arbitrarily small and the metric inducing the level-$0$ topology. Every M-polyfold is locally path-connected."
+   },
+   "lean": {
+    "statement": "The same; chart domains are locally complete.",
+    "decls": [
+     "Chapter2/LocalTopology · MChart.isLocallyComplete_source",
+     "Chapter2/LocalTopology · MPolyfold.isLocallyComplete",
+     "Chapter2/LocalTopology · proposition_2_3_6_2021",
+     "Chapter2/LocalTopology · proposition_2_3_7_2021",
+     "Chapter7/LocConnected · MPolyfold.locallyPathConnectedSpace"
+    ]
+   },
+   "chips": [
+    "via the open-cover part of 2.1.8"
+   ],
+   "diff": [
+    "Proposition 2.3.6 is derived from Proposition 2.1.8 for the cover by chart domains; Proposition 2.3.7 was proved earlier for Chapter 7."
+   ]
+  },
+  {
+   "id": "V2.78",
+   "title": "Definitions 2.5.18 and 2.5.19: tame sub-M-polyfolds",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.5, Definition 2.5.18, p. 62, and Definition 2.5.19, p. 63 (new in the 2021 edition)",
+    "page": 62,
+    "statement": "The structure induced on a sub-M-polyfold $Y$ is tame if it has an equivalent atlas with tame local models. For a tame $X$, $Y$ is a tame sub-M-polyfold if every $y \\in Y$ has an open $V$ and an sc-smooth retraction $r : V \\to V$ with (1) $r(V) = Y \\cap V$, (2) $d_X \\circ r = d_X$ on $V$, (3) at smooth $y \\in Y \\cap V$ an sc-subspace $A \\subseteq T^R_yX$ with $T_yX = T_yY \\oplus A$."
+   },
+   "lean": {
+    "statement": "The same, with (3) stated in some chart around $y$: the tangent space of the chart image of $Y$ has an sc-complement in $T_zO$ inside $T_zO \\cap E_z$. A tame sub-M-polyfold is a sub-M-polyfold; $Y = X$ is one, with tame induced structure.",
+    "decls": [
+     "Chapter2/TameBoundary · MPolyfold.HasTameInducedStructure",
+     "Chapter2/TameBoundary · MPolyfold.HasReducedComplementAt",
+     "Chapter2/TameBoundary · MPolyfold.hasReducedComplementAt_self",
+     "Chapter2/TameBoundary · MPolyfold.TameSubData",
+     "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold",
+     "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold.isSubMPolyfold",
+     "Chapter2/TameBoundary · MPolyfold.hasTameInducedStructure_univ",
+     "Chapter2/TameBoundary · MPolyfold.isTameSubMPolyfold_univ"
+    ]
+   },
+   "chips": [
+    "(3) in a chart",
+    "chart independence: G.77"
+   ],
+   "diff": [
+    "$T_yX$ has no linear structure here (gap G.7), so (3) is stated in a chart. Its independence of the chart, the remark that a tame sub-M-polyfold is tame, and the examples in $[0, \\infty)^2 \\times \\mathbb R$ are gap G.77."
+   ]
+  },
+  {
+   "id": "V2.79",
+   "title": "Faces of open sets and the corner axioms",
+   "verdict": "extra",
+   "book": {
+    "label": "no counterpart in the text (§2.7.4, pp. 78–82, new in the 2021 edition)",
+    "page": 78,
+    "statement": "Not stated. §2.7.4 uses the faces of open subsets $V$ of a tame $X$ and the local structure of tame charts."
+   },
+   "lean": {
+    "statement": "For $d : X \\to \\mathbb N$ and an open $V$, a face of $V$ is the closure in $V$ of a component of $V \\cap \\{d = 1\\}$. The corner axioms: $d$ upper semicontinuous, and near every point $d(y)$ separated preconnected pieces of $\\{d = 1\\}$ accumulating at $y$. A face of $U \\subseteq V$ lies in a unique face of $V$. The degeneracy index of a tame M-polyfold, and $d \\equiv 0$, satisfy the axioms.",
+    "decls": [
+     "Chapter2/TameBoundary · TameBoundary.faceAt",
+     "Chapter2/TameBoundary · TameBoundary.IsFaceIn",
+     "Chapter2/TameBoundary · TameBoundary.facesThrough",
+     "Chapter2/TameBoundary · TameBoundary.LocalPieces",
+     "Chapter2/TameBoundary · TameBoundary.IsCornerIndex",
+     "Chapter2/TameBoundary · TameBoundary.faceAt_inter_eq",
+     "Chapter2/TameBoundary · TameBoundary.faceExt",
+     "Chapter2/TameBoundary · TameBoundary.faceExt_unique",
+     "Chapter2/TameBoundary · TameBoundary.exists_faceExt_eq",
+     "Chapter2/TameBoundary · TameBoundary.isCornerIndex_zero",
+     "Chapter2/TameBoundary · MPolyfold.exists_localPieces_chart",
+     "Chapter2/TameBoundary · MPolyfold.isCornerIndex_degIndex",
+     "Chapter2/TameBoundary · MPolyfold.isFaceIn_univ_iff"
+    ]
+   },
+   "chips": [
+    "all of §2.7.4 from the corner axioms",
+    "reused for ep-groupoids (§7.6.5)"
+   ],
+   "diff": [
+    "The faces of $V$ with its induced structure are defined directly from $d_X$, whose restriction is the degeneracy index of $V$ (Proposition 2.4.4)."
+   ]
+  },
+  {
+   "id": "V2.80",
+   "title": "Proposition 2.7.5: face-structured neighbourhoods",
+   "verdict": "same",
+   "book": {
+    "label": "§2.7.4, Proposition 2.7.5, p. 78 (new in the 2021 edition)",
+    "page": 78,
+    "statement": "In a tame $X$ every $x$ has an open $V$ with $d_X \\le d_X(x)$ on $V$, every $y \\in V$ in exactly $d_X(y)$ faces of $V$, and an open $U(x) \\subseteq V$ such that a face of $V$ meeting $U(x)$ contains $x$."
+   },
+   "lean": {
+    "statement": "The same, for every $d$ with the corner axioms; the last property for every open $V \\ni x$.",
+    "decls": [
+     "Chapter2/TameBoundary · TameBoundary.exists_nbhd_faces_mem",
+     "Chapter2/TameBoundary · TameBoundary.proposition_2_7_5",
+     "Chapter2/TameBoundary · MPolyfold.proposition_2_7_5_2021"
+    ]
+   },
+   "chips": [
+    "proved from the corner axioms"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.81",
+   "title": "Definition 2.7.6 and Proposition 2.7.7: the families $N_X$, $N_{X,x}$",
+   "verdict": "same",
+   "book": {
+    "label": "§2.7.4, Definition 2.7.6, p. 79, and Proposition 2.7.7, p. 80 (new in the 2021 edition)",
+    "page": 79,
+    "statement": "An open $V$ is face-structured if every $y \\in V$ lies in exactly $d_X(y)$ faces of $V$; $N_X$: the nonempty ones with $d_X|V$ bounded; $N_{X,x}$: those containing $x$ with $d_X \\le d_X(x)$. $N_{X,x} \\ne \\emptyset$; nonempty open subsets and nonempty intersections of members of $N_X$ are in $N_X$; $N_{X,x}$ is closed under intersections."
+   },
+   "lean": {
+    "statement": "The same, with $N_X = \\bigcup_x N_{X,x}$; every open subset of $[0, \\infty)^n \\oplus W$ is face-structured.",
+    "decls": [
+     "Chapter2/TameBoundary · TameBoundary.IsFaceStructuredOpen",
+     "Chapter2/TameBoundary · TameBoundary.faceStructuredOpens",
+     "Chapter2/TameBoundary · TameBoundary.faceStructuredNbhds",
+     "Chapter2/TameBoundary · TameBoundary.faceStructuredNbhdsAt",
+     "Chapter2/TameBoundary · TameBoundary.faceStructuredNbhds_eq_iUnion",
+     "Chapter2/TameBoundary · TameBoundary.faceStructuredNbhdsAt_nonempty",
+     "Chapter2/TameBoundary · TameBoundary.sUnion_faceStructuredNbhds",
+     "Chapter2/TameBoundary · TameBoundary.mem_faceStructuredNbhds_of_subset",
+     "Chapter2/TameBoundary · TameBoundary.inter_mem_faceStructuredNbhds",
+     "Chapter2/TameBoundary · TameBoundary.inter_mem_faceStructuredNbhdsAt",
+     "Chapter2/TameBoundary · MPolyfold.proposition_2_7_7_2021",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.isFaceStructuredOpen_quadrant"
+    ]
+   },
+   "chips": [
+    "quadrants: all open sets face-structured"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.82",
+   "title": "Definitions 2.7.8 and 2.7.9: the category $L_X$ and the functor $F_X$",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.7.4, Definition 2.7.8, p. 80, and Definition 2.7.9, p. 81 (new in the 2021 edition)",
+    "page": 80,
+    "statement": "Objects $(x, V)$, $x \\in \\partial X$, $V \\in N_{X,x}$; one morphism $(x, V) \\to (y, W)$ iff $V \\subseteq W$, $x$ lies in $d_X(x)$ faces of $W$ and all contain $y$. $F_X(x, V)$ is the set of faces of $V$ through $x$, and a morphism sends $\\theta$ to the face $\\theta'$ of $W$ through $x$ and $y$ with $\\theta \\cap \\theta'$ open in $\\theta$, an injection (2.43)."
+   },
+   "lean": {
+    "statement": "The same, $L_X$ as a preorder (thin category), $F_X$ into types, $\\theta'$ the union of the faces of $W$ containing $\\theta$; morphisms compose, $F_X(\\varphi)$ is injective, and bijective over a fixed point.",
+    "decls": [
+     "Chapter2/TameBoundary · TameBoundary.IsMor",
+     "Chapter2/TameBoundary · TameBoundary.IsMor.trans",
+     "Chapter2/TameBoundary · TameBoundary.LObj",
+     "Chapter2/TameBoundary · TameBoundary.boundaryFunctor",
+     "Chapter2/TameBoundary · TameBoundary.boundaryFunctor_map_injective",
+     "Chapter2/TameBoundary · TameBoundary.boundaryFunctor_map_bijective",
+     "Chapter2/TameBoundary · MPolyfold.LocalBoundaryCategory",
+     "Chapter2/TameBoundary · MPolyfold.boundaryStructureFunctor"
+    ]
+   },
+   "chips": [
+    "thin category",
+    "$\\theta'$ by inclusion"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.83",
+   "title": "Definition 2.7.10: the set $bX$ and the map $B$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.7.4, Definition 2.7.10, p. 81 (new in the 2021 edition)",
+    "page": 81,
+    "statement": "Admissible triples $(x, V, \\theta)$, $\\theta$ a face of $V \\in N_{X,x}$ through $x$; $(x, V, \\theta) \\sim (x, V', \\theta')$ if a smaller $V'' \\in N_{X,x}$ has a face sent to $\\theta$ and $\\theta'$; $bX$ is the set of classes and $B[x, V, \\theta] = x$."
+   },
+   "lean": {
+    "statement": "The same; $\\sim$ is an equivalence relation, $B$ has image $\\partial X$, and $B^{-1}(x)$ has exactly $d_X(x)$ points.",
+    "decls": [
+     "Chapter2/TameBoundary · TameBoundary.BTriple",
+     "Chapter2/TameBoundary · TameBoundary.BRel",
+     "Chapter2/TameBoundary · TameBoundary.BRel.refl",
+     "Chapter2/TameBoundary · TameBoundary.BRel.symm",
+     "Chapter2/TameBoundary · TameBoundary.BRel.trans",
+     "Chapter2/TameBoundary · TameBoundary.bSetoid",
+     "Chapter2/TameBoundary · TameBoundary.BSpace",
+     "Chapter2/TameBoundary · TameBoundary.bMap",
+     "Chapter2/TameBoundary · TameBoundary.range_bMap",
+     "Chapter2/TameBoundary · TameBoundary.encard_bMap_preimage",
+     "Chapter2/TameBoundary · MPolyfold.TameBoundarySpace",
+     "Chapter2/TameBoundary · MPolyfold.tameBoundaryMap",
+     "Chapter2/TameBoundary · MPolyfold.range_tameBoundaryMap",
+     "Chapter2/TameBoundary · MPolyfold.encard_tameBoundaryMap_preimage"
+    ]
+   },
+   "chips": [
+    "fibres of $d_X(x)$ points"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.84",
+   "title": "Definition 2.7.11 and (2.44): the sets $U(x, V, \\theta)$ and the maps $\\Phi$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.7.4, Definition 2.7.11 and (2.44), p. 82 (new in the 2021 edition)",
+    "page": 82,
+    "statement": "$U(x, V, \\theta)$: the classes $[y, V', \\theta']$ with $y \\in \\theta$ and a morphism $(y, V') \\to (x, V)$ sending $\\theta'$ to $\\theta$. The canonical bijection $\\Phi_{(x, V, \\theta)} : U(x, V, \\theta) \\to \\theta$, $[y, V', \\theta'] \\mapsto y$ (2.44)."
+   },
+   "lean": {
+    "statement": "$\\Phi$ is injective with image $\\theta \\cap V^x$, $V^x$ the open set of points of $V$ all of whose faces contain $x$; it is a bijection onto $\\theta$ if every face of $V$ contains $x$. $V^x$ is such a set and lies in $N_{X,x}$.",
+    "decls": [
+     "Chapter2/TameBoundary · TameBoundary.uSet",
+     "Chapter2/TameBoundary · TameBoundary.phi",
+     "Chapter2/TameBoundary · TameBoundary.phi_injective",
+     "Chapter2/TameBoundary · TameBoundary.reach",
+     "Chapter2/TameBoundary · TameBoundary.IsCenteredAt",
+     "Chapter2/TameBoundary · TameBoundary.isOpen_reach",
+     "Chapter2/TameBoundary · TameBoundary.bMap_image_uSet",
+     "Chapter2/TameBoundary · TameBoundary.phi_bijective_of_isCenteredAt",
+     "Chapter2/TameBoundary · TameBoundary.isCenteredAt_reach",
+     "Chapter2/TameBoundary · TameBoundary.reach_mem_faceStructuredNbhdsAt"
+    ]
+   },
+   "chips": [
+    "bijective for centred $V$",
+    "(2.44) for every $V$: see V2.85"
+   ],
+   "diff": [
+    "(2.44) does not hold as we read it for every $V \\in N_{X,x}$ (V2.85); the centred neighbourhoods are cofinal, which is what \"taking $V$ sufficiently small\" (p. 85) provides."
+   ]
+  },
+  {
+   "id": "V2.85",
+   "title": "(2.44) for every $V \\in N_{X,x}$: an example in $[0, \\infty)^3$",
+   "verdict": "extra",
+   "book": {
+    "label": "§2.7.4, Definition 2.7.11, (2.44), p. 82 (new in the 2021 edition)",
+    "page": 82,
+    "statement": "$\\Phi_{(x, V, \\theta)} : U(x, V, \\theta) \\to \\theta$ is called a canonical bijection for every admissible triple."
+   },
+   "lean": {
+    "statement": "In $X = [0, \\infty)^3 \\oplus W$, for $x = (0, 0, 1)$, the slab $V = \\{p_0 < 1/2,\\ 1/2 < p_1 + p_2 < 3/2\\} \\in N_{X,x}$ and its face $\\theta$ through the segment from $x$ to $(0, 1, 0)$: $(0, 1, 0) \\in \\theta$ is not in the image of $\\Phi_{(x, V, \\theta)}$; so not every $\\Phi$ is a bijection.",
+    "decls": [
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.dq",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.isCornerIndex_dq",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.dq_eq",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.part",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.dq_eq_one_iff",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.subset_part",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.faceAt_subset_coord_eq_zero",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.exists_part_mem_faceAt",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.slab",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.slab_mem_faceStructuredNbhdsAt",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.slabFace",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.counterTriple",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.exists_face_not_mem",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.pt_010_not_mem_image",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.phi_not_surjective_2021",
+     "Chapter2/TameBoundaryExample · TameBoundaryExample.not_forall_bijective_phi_2021"
+    ]
+   },
+   "chips": [
+    "(2.44) does not hold as we read it",
+    "repair: centred $V$ (V2.84)"
+   ],
+   "diff": [
+    "$(0, 1, 0)$ also lies on the face of $V$ in $\\{p_2 = 0\\}$, which misses $x$, so no morphism $(y, V') \\to (x, V)$ starts there."
+   ]
+  },
+  {
+   "id": "V2.86",
+   "title": "Lemma 2.7.15: the topology $T_{bX}$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§2.7.4.3, Lemma 2.7.15, p. 85, with the description of $T_{bX}$ before it (new in the 2021 edition)",
+    "page": 85,
+    "statement": "$\\mathcal U \\in T_{bX}$ if every class in $\\mathcal U$ has a representative $(x, V, \\theta)$ and a set $O \\subseteq \\mathcal U \\cap U(x, V, \\theta)$ with $\\Phi_{(x, V, \\theta)}(O)$ open in $\\theta$; alternatively, a representative with $U(x, V, \\theta) \\subseteq \\mathcal U$. $T_{bX}$ is a topology."
+   },
+   "lean": {
+    "statement": "The same, with $O$ containing the class; the two descriptions agree, and they define a topology.",
+    "decls": [
+     "Chapter2/TameBoundaryTopology · TameBoundary.IsBOpen",
+     "Chapter2/TameBoundaryTopology · TameBoundary.BTriple.exists_shrink",
+     "Chapter2/TameBoundaryTopology · TameBoundary.BRel.exists_common",
+     "Chapter2/TameBoundaryTopology · TameBoundary.eq_of_mem_uSet",
+     "Chapter2/TameBoundaryTopology · TameBoundary.isBOpen_iff",
+     "Chapter2/TameBoundaryTopology · TameBoundary.bTopology",
+     "Chapter2/TameBoundaryTopology · TameBoundary.isOpen_iff_isBOpen",
+     "Chapter2/TameBoundaryTopology · TameBoundary.isOpen_iff_forall_uSet",
+     "Chapter2/TameBoundaryTopology · TameBoundary.lemma_2_7_15",
+     "Chapter2/TameBoundaryTopology · MPolyfold.lemma_2_7_15_2021"
+    ]
+   },
+   "chips": [
+    "$O$ contains the class",
+    "no sc-smoothness needed"
+   ],
+   "diff": [
+    "Without \"$O$ contains the class\", $O = \\emptyset$ would make every set open.",
+    "The proof uses a common refinement of equivalent triples, not the sc-smoothness of the transition maps."
+   ]
+  },
+  {
+   "id": "V2.87",
+   "title": "Proposition 2.7.12: transition maps of $bX$ (topological part)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.7.4, Proposition 2.7.12, p. 83 (new in the 2021 edition)",
+    "page": 83,
+    "statement": "The images $\\Phi_{(x, V, \\theta)}(U \\cap U')$ and $\\Phi_{(x', V', \\theta')}(U \\cap U')$ are open in $\\theta$ and $\\theta'$, and the transition map is an sc-diffeomorphism."
+   },
+   "lean": {
+    "statement": "The images are open in $\\theta$ and $\\theta'$ and the transition map is the identity on points of $X$; the $U(x, V, \\theta)$ form a basis, $B$ is continuous, every $\\Phi$ is an open embedding into $\\theta$, a homeomorphism onto $\\theta$ for $V$ centred at $x$.",
+    "decls": [
+     "Chapter2/TameBoundaryTopology · TameBoundary.isOpen_uSet",
+     "Chapter2/TameBoundaryTopology · TameBoundary.isTopologicalBasis_uSet",
+     "Chapter2/TameBoundaryTopology · TameBoundary.continuous_bMap",
+     "Chapter2/TameBoundaryTopology · TameBoundary.exists_nbhd_faceExt_inter_subset",
+     "Chapter2/TameBoundaryTopology · TameBoundary.exists_isOpen_bMap_image",
+     "Chapter2/TameBoundaryTopology · TameBoundary.isOpenEmbedding_phi",
+     "Chapter2/TameBoundaryTopology · TameBoundary.phiHomeomorph",
+     "Chapter2/TameBoundaryTopology · TameBoundary.proposition_2_7_12",
+     "Chapter2/TameBoundaryTopology · MPolyfold.proposition_2_7_12_2021"
+    ]
+   },
+   "chips": [
+    "topological part",
+    "non-centred $V$: G.78"
+   ],
+   "diff": [
+    "The sc-diffeomorphism statement is not part of this row: for centred representatives it is proved with the M-polyfold structure of $bX$ (`Chapter2/TameBoundaryStructure.lean`, reported separately); for representatives whose $V$ is not centred at $x$ it is gap G.78."
+   ]
+  },
+  {
+   "id": "V2.88",
+   "title": "Proposition 2.7.16: $bX$ is metrizable",
+   "verdict": "same",
+   "book": {
+    "label": "§2.7.4, Proposition 2.7.16, pp. 85–87 (new in the 2021 edition)",
+    "page": 85,
+    "statement": "$T_{bX}$ is metrizable: Hausdorff, locally metrizable through the $\\Phi$, and paracompact; Nagata–Smirnov applies."
+   },
+   "lean": {
+    "statement": "$bX$ is Hausdorff (over a Hausdorff $X$) and metrizable (over a metrizable $X$); for a tame M-polyfold, Hausdorff and metrizable.",
+    "decls": [
+     "Chapter2/TameBoundaryTopology · TameBoundary.tripleOf",
+     "Chapter2/TameBoundaryTopology · TameBoundary.exists_mem_uSet_tripleOf",
+     "Chapter2/TameBoundaryTopology · TameBoundary.metrizableSpace_preimage",
+     "Chapter2/TameBoundaryTopology · TameBoundary.proposition_2_7_16",
+     "Chapter2/TameBoundaryTopology · MPolyfold.proposition_2_7_16_2021"
+    ]
+   },
+   "chips": [
+    "pull-back form of Smirnov"
+   ],
+   "diff": [
+    "Proved with the pull-back form of Smirnov's theorem (V2.62) along $B$, instead of the text's paracompactness argument."
+   ]
+  },
+  {
+   "id": "V2.89",
+   "title": "Theorem 2.7.13 (topological part) and Definition 2.7.14",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.7.4, Theorem 2.7.13, pp. 83–84, and Definition 2.7.14, p. 84 (new in the 2021 edition)",
+    "page": 83,
+    "statement": "For a tame $X$: (1) $bX$ has a natural metrizable topology; (2) a natural tame M-polyfold structure; (3) $B$ is sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$; characterized by: every $U(x, V, \\theta)$ open and every $\\Phi$ a homeomorphism and sc-diffeomorphism onto $\\theta$. The tame boundary is $B : bX \\to X$."
+   },
+   "lean": {
+    "statement": "(1); every $U(x, V, \\theta)$ open and every $\\Phi$ an open embedding; $T_{bX}$ the only topology with these properties; $B$ continuous with image $\\partial X$ and fibres of $d_X(x)$ points; the tame boundary as a continuous map.",
+    "decls": [
+     "Chapter2/TameBoundaryTopology · TameBoundary.eq_of_isOpen_uSet",
+     "Chapter2/TameBoundaryTopology · TameBoundary.theorem_2_7_13_topology",
+     "Chapter2/TameBoundaryTopology · MPolyfold.theorem_2_7_13_2021",
+     "Chapter2/TameBoundaryTopology · MPolyfold.tameBoundary"
+    ]
+   },
+   "chips": [
+    "topological part",
+    "(2)–(4): reported separately"
+   ],
+   "diff": [
+    "Parts (2)–(4) beyond the fibre count and the sc-half of the characterization, for centred representatives, are in `Chapter2/TameBoundaryStructure.lean`, reported separately; for non-centred representatives the sc-statements are gap G.78."
+   ]
+  },
+  {
+   "id": "V2.90",
+   "title": "The tame quadrant as a witness for §2.7.4",
+   "verdict": "extra",
+   "book": {
+    "label": "no counterpart in the text (§2.7.4, new in the 2021 edition)",
+    "page": 78,
+    "statement": "Not stated."
+   },
+   "lean": {
+    "statement": "$[0, \\infty)^n \\oplus W$ is a tame M-polyfold; its corner has exactly $n$ preimages under $B$, so $bX \\ne \\emptyset$ for $n \\ge 1$; $Y = X$ has tame induced structure and is a tame sub-M-polyfold.",
+    "decls": [
+     "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold",
+     "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold_isTame",
+     "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold_encard_preimage",
+     "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold_tameBoundarySpace_nonempty",
+     "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold_univ"
+    ]
+   },
+   "chips": [
+    "satisfiability"
+   ],
+   "diff": []
   }
  ],
  "notFormalized": [
@@ -2009,6 +2740,41 @@
    "page": 56,
    "book": "Lemma 2.7.3 (preprint 2.56) (Michael): a regular Hausdorff space is paracompact iff every open cover has a closed locally finite refinement. Proposition 2.7.4 (preprint 2.57): a regular space with a locally finite cover by closed paracompact subspaces is paracompact.",
    "instead": "**Not formalized, because not needed.** The proofs of Theorem 2.3.10 (preprint 2.16) and Proposition 2.3.15(3) (preprint 2.19) avoid them (V2.17, V2.20, V2.62). The text applies Proposition 2.7.4 (preprint 2.57) to $X_m$ and $TX$ without checking that they are regular."
+  },
+  {
+   "g": 76,
+   "title": "Remark 2.1.6: the modified local completeness is strictly weaker",
+   "label": "§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)",
+   "page": 23,
+   "book": "Replacing $\\mathrm{cl}_X(V(x))$ by the closure of $V(x)$ in $W(x)$ (and $\\mathrm{cl}_X(V(x)) \\subseteq W(x)$ by $V(x) \\subseteq W(x)$) in Definition 2.1.5 gives a weaker notion.",
+   "instead": "**Not formalized: that the notion is strictly weaker.** The implication is proved (V2.68); no space that is locally complete in the modified sense but not in the sense of Definition 2.1.5 is constructed.",
+   "decls": [
+    "Chapter2/LocalTopology · IsLocallyCompleteRel",
+    "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel"
+   ]
+  },
+  {
+   "g": 77,
+   "title": "Definition 2.5.19: chart independence, \"a tame sub-M-polyfold is tame\", the examples",
+   "label": "§2.5, condition (3) of Definition 2.5.19 and the text after it, p. 63 (new in the 2021 edition)",
+   "page": 63,
+   "book": "Condition (3) of Definition 2.5.19 is stated on $T_yX$; the text remarks that a tame sub-M-polyfold is tame and gives examples in $[0, \\infty)^2 \\times \\mathbb R$: $\\{(x, y, 0)\\}$ is a tame sub-M-polyfold, the diagonal ray $\\{(x, x, 0)\\}$ is not, although its induced structure is tame.",
+   "instead": "**Not formalized.** Condition (3) is stated in some chart around $y$ (V2.78), since $T_yX$ has no linear structure here (gap G.7); its independence of the chart, the remark that a tame sub-M-polyfold is tame (Definition 2.5.18), and the two examples are not formalized.",
+   "decls": [
+    "Chapter2/TameBoundary · MPolyfold.TameSubData",
+    "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold"
+   ]
+  },
+  {
+   "g": 78,
+   "title": "Proposition 2.7.12 and the characterization after Theorem 2.7.13 for non-centred representatives",
+   "label": "§2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition)",
+   "page": 83,
+   "book": "For every pair of admissible triples the transition map $\\Phi_{(x', V', \\theta')} \\circ \\Phi_{(x, V, \\theta)}^{-1}$ is an sc-diffeomorphism; every $\\Phi_{(x, V, \\theta)}$ is a homeomorphism and an sc-diffeomorphism onto $\\theta$.",
+   "instead": "**Not formalized for representatives $(x, V, \\theta)$ whose $V$ is not centred at $x$.** There $\\Phi_{(x, V, \\theta)}$ is an open embedding into $\\theta$ (V2.87), not in general onto $\\theta$ (V2.85), and the sc-smoothness of the transition maps is not formalized. Every class has a centred representative (`BSpace.exists_centred_rep`), for which the sc-statements are proved in `Chapter2/TameBoundaryStructure.lean`.",
+   "decls": [
+    "Chapter2/TameBoundaryTopology · TameBoundary.isOpenEmbedding_phi"
+   ]
   }
  ]
 }

@@ -1664,3 +1664,224 @@ exposition were corrected on the way: the neighbourhood $U^*$ of Proposition 2.5
 not decrease the norm), the shrinking in the proof of Theorem 2.5.17 (preprint 2.45), and the inverse of $\pi_2$ in Proposition 2.5.20 (preprint 2.46). The machine-checked statements are
 listed in `Exposition/Verification.md` (V2.1–V2.64), compared with the text in
 `Exposition/polyfold-beside-lean.html`, and their proofs retold in `Exposition/ProofByProof.md` (Part II).
+
+## 9. The Springer 2021 edition (pp. 22–36, 62–63, 72, 78–87)
+
+The 2021 edition adds to this chapter three things:
+- a theory of local completeness and local contractibility of retracts and M-polyfolds (§§2.1–2.3, pp. 22–36);
+- tame sub-M-polyfolds (pp. 62–63);
+- an appendix, §2.7.4 (pp. 78–87), constructing from a tame M-polyfold $X$ its *tame boundary* $B : bX \to X$.
+
+It also adds a hypothesis to Proposition 2.1.13 (preprint 2.6). We take them in order. All items are new in the 2021 edition
+unless a preprint number is given.
+
+### 9.1 Proposition 2.1.13 (preprint 2.6), 2021 statement (p. 27)
+
+Part (3) now carries the hypothesis "$f\circ r$ sc-smooth", without which $T(f\circ r)$ is not defined. The proof in §1 used it,
+so the 2021 statement is the conjunction of the three parts proved there.
+
+*Checked by machine:* `Polyfold.proposition_2_1_13_2021`.
+
+### 9.2 Local completeness (pp. 22–25)
+
+**Definition 2.1.5.** A space $X$ is *locally complete* if every $x$ has open sets $V\ni x$ and $W$ with
+$\mathrm{cl}_X(V)\subseteq W$, such that $W$ carries a metric defining its topology for which $\mathrm{cl}_X(V)$ is complete.
+
+The text asks $X$ to be Hausdorff; **this follows**. Given a neighbourhood $N$ of $x$, a small metric ball around $x$ in $W$
+lets one shrink $V$ and $W$ into $N$. Then $\mathrm{cl}_X(V)\subseteq N$ is a closed neighbourhood of $x$ inside $N$, so $X$ is
+regular. Points are closed in the metrizable $W$; for $y\ne x$, either $y\in W$ and $W$ separates, or $W$ itself misses
+$y$. So $X$ is $T_1$, and regular plus $T_1$ is Hausdorff. Here the *global* condition $\mathrm{cl}_X(V)\subseteq W$ does the
+work.
+
+**Remark 2.1.6.** The closure of $V$ in $W$ is then $\mathrm{cl}_X(V)$. The remark proposes the weaker condition with
+$V\subseteq W$ and $\mathrm{cl}_W(V)$ complete. Local completeness implies it. That it is strictly weaker is not proved here
+(gap G.76).
+
+**Proposition 2.1.4.** Let $O = r(U)$ be a retract, with the metric of $E_0$. For small $\varepsilon$ the set
+$O\cap\bar B_\varepsilon(x)$ is closed in $E_0$. Indeed, choose $\varepsilon$ with $\bar B_\varepsilon(x)\cap C\subseteq U$; a limit
+$v$ of points $v_k = r(v_k)$ of it lies in $U$, and $v = \lim r(v_k) = r(v)$. So it is complete. Take for $V$ and $W$ the open
+$\varepsilon/2$- and $\varepsilon$-balls of $O$, inside any given neighbourhood. The text's set $V'$ with $r(V')\subseteq V'$ is
+not needed.
+
+**Corollary 2.1.7.** A retract is locally complete, with $W$ as small as we like: restrict the metric of $E_0$ to $W$.
+
+**Proposition 2.1.8.** Local completeness passes along an embedding $j : Y\to X$ whose image is locally closed, $U\cap Z$
+with $U$ open and $Z$ closed. Pull back $V$ and $W\subseteq U$: the trace of $j(Y)$ on $W$ is closed in $W$, so the metric of
+$W$ pulls back with the completeness of the closure. This one statement gives three cases:
+- locally closed subspaces, (1);
+- homeomorphic spaces, (2);
+- open subspaces, (3).
+
+For the open-cover statement, let $y\in Y_i$ with $U\ni y$ open and $\mathrm{cl}_Y(U)\subseteq Y_i$. Intersecting the $V$ of
+$Y_i$ with $U$ keeps the closure in $Y_i$, so $Y$ is locally complete. No Hausdorff hypothesis is used.
+
+**Lemma 2.1.9 and Proposition 2.1.10.** A locally complete space is first countable: neighbourhoods of $x$ in $X$ are those of
+$x$ in the open, metrizable $W$. It is completely regular. For $x\notin A$ closed, shrink $W$ to miss $A$ and take a continuous
+$g : W\to[0,1]$ with $g(x) = 0$ and $g = 1$ off $V$. Extended by $1$ off $\mathrm{cl}_X(V)$, it is continuous, the two open
+sets $W$ and $X\setminus\mathrm{cl}_X(V)$ covering $X$. The text argues with sequences; the open cover avoids them.
+
+*Checked by machine:*
+- the definitions: `Polyfold.AdmitsCompleteMetricOn`, `Polyfold.IsLocallyComplete`, `Polyfold.IsLocallyCompleteRel`;
+- the separation properties: `Polyfold.IsLocallyComplete.regularSpace`, `Polyfold.IsLocallyComplete.t1Space`,
+  `Polyfold.IsLocallyComplete.t2Space`, `Polyfold.IsLocallyComplete.completelyRegularSpace`;
+- the numbered items: `Polyfold.remark_2_1_6_2021`, `Polyfold.proposition_2_1_4_2021`, `Polyfold.corollary_2_1_7_2021`,
+  `Polyfold.IsLocallyComplete.of_isEmbedding`, `Polyfold.proposition_2_1_8_1_2021` to `Polyfold.proposition_2_1_8_4_2021`,
+  `Polyfold.lemma_2_1_9_2021`, `Polyfold.proposition_2_1_10_2021`.
+
+### 9.3 Local path-connectedness and contractibility (pp. 30–33)
+
+**Lemma 2.2.1.** If $U$ is relatively open in $C$ and connected, then every level $U_k$ is path-connected, including
+$k = \infty$. The text does not say which topology $U_\infty$ carries. We give it the topology of all the norms: $U_\infty$ is
+the space of compatible sequences $(v_m)$, $v_m\in E_m$, with $v_0\in U$.
+
+The proof is a clopen argument. Fix a point $a$ of $U_\infty$ and call $z\in U$ good if near $z$ every point of $U_\infty$ is
+joined to $a$. Three facts make the set of good points open and closed in $U$:
+- inside a convex $B_\varepsilon(z)\cap C\subseteq U$, segments join points on every level at once;
+- smooth points are dense in every level;
+- $U$ is connected.
+
+The finite levels follow by projecting. The text's proof replaces a path by a polygon through smooth points, using its
+compactness; the clopen argument needs neither.
+
+**Lemma 2.2.2, Theorem 2.2.4.** For $x\in O$ and $V = V'\cap U$, the set $W = V\cap r^{-1}(V)$ has these properties:
+- it is relatively open and contains $x$;
+- $r(W)\subseteq W$;
+- $r(W) = O\cap V = W\cap O$.
+
+Retracts and M-polyfolds are locally path-connected (Theorem 2.2.4, Proposition 2.3.7). This was proved earlier for
+Chapter 7: points $o$, $p$ of $O$ near each other are joined by $\tau\mapsto r(o+\tau(p-o))$.
+
+**Definition 2.2.5 and Proposition 2.2.6.** A space is *almost locally contractible* if every open $V\ni z$ contains an open
+$W\ni z$ that contracts to $z$ inside $V$, fixing $z$. A retract is almost locally contractible. For $V\ni z$ open, choose $\varepsilon$ with
+$B_\varepsilon(z)\cap C\subseteq U$ and $r(B_\varepsilon(z)\cap C)\subseteq V$. Then $\Phi(t,y) = r((1-t)y+tz)$ on
+$W = B_\varepsilon(z)\cap O$ contracts $W$ to $z$ inside $V$, fixing $z$.
+
+*Checked by machine:* `Polyfold.ScBanach.lvlSetInfty`, `Polyfold.lemma_2_2_1_2021`, `Polyfold.lemma_2_2_1_infty_2021`,
+`Polyfold.lemma_2_2_2_2021`, `Polyfold.definition_2_2_3_2021`, `Polyfold.theorem_2_2_4_2021`,
+`Polyfold.IsAlmostLocallyContractible`, `Polyfold.proposition_2_2_6_2021`.
+
+### 9.4 Paracompactness, and Propositions 2.3.6–2.3.7 (pp. 35–36, 72)
+
+**The footnote to Definition 2.3.4 (preprint 2.13).** The footnote says that paracompactness does not include the Hausdorff
+property; it asks for locally finite open refinements of open covers. That is Mathlib's notion, so "Hausdorff paracompact" in
+§2.1 already meant this, and the footnote changes nothing.
+
+*Appendix 2.7.2* (p. 72; 2017 p. 51) states the convention with a locally finite open *subcovering*. Read literally, this
+does not hold as we read it for $\mathbb R$. The cover by the intervals $(-n-1, n+1)$ has no locally finite subcover: a
+subcover is infinite, and all its members contain $0$. We read "subcovering" as "refinement", as in the footnote (possible
+misprint).
+
+**Lemma 2.3.5 and Lemma 2.7.2.** In a regular space, closed neighbourhoods form a basis (Lemma 2.7.2). A Hausdorff
+paracompact space is regular, which gives Lemma 2.3.5: every point of an M-polyfold has arbitrarily small open $V$ with
+$\mathrm{cl}(V)$ in a given neighbourhood.
+
+**Proposition 2.3.6 and Proposition 2.3.7.** A chart domain is homeomorphic to a retract, hence locally complete. The chart
+domains form an open cover satisfying the condition of Proposition 2.1.8 by Lemma 2.3.5, so every M-polyfold is locally
+complete (Proposition 2.3.6) and locally path-connected (Proposition 2.3.7).
+
+*Checked by machine:* `Polyfold.isParacompactStar_iff`, `Polyfold.definition_2_3_4_2021`,
+`Polyfold.not_isParacompactBySubcover_real`, `Polyfold.lemma_2_7_2_2021`, `Polyfold.lemma_2_3_5_2021`,
+`Polyfold.proposition_2_3_6_2021`, `Polyfold.proposition_2_3_7_2021`.
+
+### 9.5 Tame sub-M-polyfolds (Definitions 2.5.18, 2.5.19, pp. 62–63)
+
+**Definition 2.5.18.** The structure induced on a sub-M-polyfold $Y$ is *tame* if the M-polyfold $Y$ is tame.
+
+Definition 2.5.19: a sub-M-polyfold $Y$ of a tame $X$ is *tame* if it has local retractions $r$ with $r(V) = Y\cap V$ that
+satisfy two conditions:
+- they preserve the degeneracy index, $d_X(r(x)) = d_X(x)$;
+- at smooth points $y$ of $Y$ the tangent space $T_yY$ has an sc-complement in $T_yX$ inside the reduced tangent space
+  $T^R_yX$.
+
+Without a linear structure on $T_yX$ (gap G.7), the second condition is stated in a chart, where it is Chapter 4's
+general-position condition. $Y = X$ is a tame sub-M-polyfold of a tame $X$, with complement $0$. The chart independence of the
+condition, the statement that a tame sub-M-polyfold is tame, and the two examples of the text in $[0,\infty)^2\times\mathbb R$
+are not formalized (gap G.77).
+
+*Checked by machine:* `Polyfold.MPolyfold.HasTameInducedStructure`, `Polyfold.MPolyfold.HasReducedComplementAt`,
+`Polyfold.MPolyfold.TameSubData`, `Polyfold.MPolyfold.IsTameSubMPolyfold`,
+`Polyfold.MPolyfold.isTameSubMPolyfold_univ`.
+
+### 9.6 The tame boundary $bX$ (Appendix §2.7.4, pp. 78–87)
+
+The appendix gives the boundary of a tame $X$ a space $bX$ of "points with a chosen local face" and a map $B : bX\to X$
+whose fibre over $x$ has $d_X(x)$ points.
+
+**Faces of open sets and the corner axioms.** For an open $V$ and $p\in V$ with $d(p) = 1$, the face of $V$ through $p$ is
+the closure in $V$ of the component of $V\cap\{d = 1\}$ through $p$. The appendix uses of $X$ only two properties of $d$:
+- $d$ is upper semicontinuous;
+- near each point $y$ the set $\{d = 1\}$ is covered by $d(y)$ connected *local pieces* accumulating at $y$, and no connected
+  subset of $\{d = 1\}$ meets two of them.
+
+In a tame chart the pieces are the images of the coordinate strata $\{I(z) = \{i\}\}$ of §4.3. Every statement of the
+appendix about faces, $L_X$, $bX$ and its topology is proved from these axioms alone. So the proofs serve as well for the
+object spaces of tame ep-groupoids (2021 §7.6.5).
+
+**Proposition 2.7.5.** Call an open $V$ *face-structured* if each $y\in V$ lies on exactly $d(y)$ faces of $V$. Every point
+$x$ has such neighbourhoods, inside which $d\le d(x)$. Distinct local pieces lie on distinct faces, by the separation axiom.
+
+**Definition 2.7.6 and Proposition 2.7.7.** $N_X$ is the set of nonempty face-structured $V$ with $d|V$ bounded, and $N_{X,x}$
+the set of those containing $x$ with $d\le d(x)$ on them. Open subsets and finite intersections of face-structured sets are
+face-structured, and this gives the properties of $N_X$ and $N_{X,x}$.
+
+**Definition 2.7.8 and Definition 2.7.9.** There is a morphism $(x,V)\to(y,W)$ iff the following hold:
+- $V\subseteq W$;
+- $x$ lies on $d(x)$ faces of $W$;
+- each of these faces contains $y$.
+
+The functor sends $(x,V)$ to the set $F_X(x,V)$ of faces of $V$ through $x$, and a face $\theta$ to the face of $W$
+containing it. $F_X$ of a morphism is injective, (2.43), and bijective when the point does not change.
+
+**Definition 2.7.10.** The triples $(x,V,\theta)$, modulo common refinement, form $bX$, and $B[x,V,\theta] = x$. The image
+of $B$ is $\partial X$, and $B^{-1}(x)$ has exactly $d(x)$ points.
+
+**Definition 2.7.11 and (2.44).** The text calls $\Phi_{(x,V,\theta)} : U(x,V,\theta)\to\theta$, the restriction of $B$,
+a canonical bijection. It is injective. Its image is $\theta\cap V^x$, where $V^x$ is the set of $y\in V$ all of whose faces
+in $V$ contain $x$. If $V$ is *centred* at $x$ (every face of $V$ contains $x$), $V^x = V$ and $\Phi$ is a bijection. The sets
+$V^x$ are centred and lie in $N_{X,x}$, so centred neighbourhoods are cofinal, which is the text's "take $V$ sufficiently
+small" (p. 85).
+
+For a non-centred $V$, the bijection does not hold as we read it. In $[0,\infty)^3$ take $x = (0,0,1)$ and the slab
+$V = \{p_0<\tfrac12,\ \tfrac12<p_1+p_2<\tfrac32\}$. The face $\theta$ of $V$ through the segment $\{(0,t,1-t)\}$ contains
+$(0,1,0)$. But $(0,1,0)$ also lies on the face of $V$ inside $\{p_2 = 0\}$, which misses $x$. So $(0,1,0)\in\theta$ is not in
+the image of $\Phi_{(x,V,\theta)}$.
+
+**Lemma 2.7.15.** We read $\mathcal U$ as open if every class in $\mathcal U$ has a representative and a set $O$, containing
+the class and inside $\mathcal U\cap U(x,V,\theta)$, whose image is open in $\theta$. (Without "containing the class", every
+set would be open.) Equivalently, every class in $\mathcal U$ has a representative with $U(x,V,\theta)\subseteq\mathcal U$.
+In this form the axioms of a topology need only faces: the text uses the sc-smoothness of transition maps for intersections,
+and we do not.
+
+**Proposition 2.7.12, topological part.** The sets $U(x,V,\theta)$ are open and form a basis. $B$ is continuous, and every
+$\Phi$ is an open embedding into $\theta$, a homeomorphism onto $\theta$ for centred $V$. The transition between two
+triples is the identity on points of $X$, with open domain in both faces.
+
+**Proposition 2.7.16.** $bX$ is Hausdorff and metrizable. Over a centred $W\in N_{X,x}$, $B^{-1}(W)$ is a disjoint union of
+open pieces $U(x,W,\theta)$, each metrizable through $\Phi$, so $B^{-1}(W)$ embeds into $X\times\mathbb R^{F_X(x,W)}$. The
+pull-back form of Smirnov's theorem of §2.2 then metrizes $bX$. The text instead proves paracompactness and applies
+Nagata–Smirnov.
+
+**Theorem 2.7.13 (1) and Definition 2.7.14.** $T_{bX}$ is metrizable and is the unique topology in which every $U(x,V,\theta)$ is
+open and every $\Phi$ maps open sets to open subsets of $\theta$; $B$ is continuous, onto $\partial X$, with fibres of
+$d_X(x)$ points. The tame boundary of Definition 2.7.14, as a continuous map, is $B$. The tame quadrant $[0,\infty)^n\oplus W$
+is a witness: its corner has exactly $n$ preimages.
+
+*Not in this section.* The sc-part of Proposition 2.7.12, the M-polyfold structure of $bX$, parts (2)–(4) of Theorem 2.7.13
+and the iterated boundaries are formalized in `Polyfold/Chapter2/TameBoundaryStructure.lean`, reported separately. For
+representatives whose $V$ is not centred at $x$, the sc-smoothness of the transition is not formalized; every class has a
+centred representative (gap G.78).
+
+*Checked by machine:*
+- faces and the corner axioms: `Polyfold.TameBoundary.IsCornerIndex`, `Polyfold.MPolyfold.isCornerIndex_degIndex`,
+  `Polyfold.TameBoundary.proposition_2_7_5`, `Polyfold.MPolyfold.proposition_2_7_5_2021`,
+  `Polyfold.MPolyfold.proposition_2_7_7_2021`;
+- $L_X$, $bX$ and $B$: `Polyfold.TameBoundary.IsMor.trans`, `Polyfold.TameBoundary.boundaryFunctor`,
+  `Polyfold.TameBoundary.BSpace`, `Polyfold.TameBoundary.range_bMap`, `Polyfold.TameBoundary.encard_bMap_preimage`;
+- (2.44): `Polyfold.TameBoundary.bMap_image_uSet`, `Polyfold.TameBoundary.phi_bijective_of_isCenteredAt`,
+  `Polyfold.TameBoundaryExample.phi_not_surjective_2021`;
+- the topology: `Polyfold.TameBoundary.lemma_2_7_15`, `Polyfold.TameBoundary.isOpenEmbedding_phi`,
+  `Polyfold.TameBoundary.proposition_2_7_12`, `Polyfold.TameBoundary.proposition_2_7_16`,
+  `Polyfold.TameBoundary.theorem_2_7_13_topology`, `Polyfold.MPolyfold.theorem_2_7_13_2021`, `Polyfold.MPolyfold.tameBoundary`;
+- the witness: `Polyfold.MPolyfold.quadrantPolyfold_encard_preimage`.
+
+These are V2.65–V2.90 in `Exposition/Verification.md`.

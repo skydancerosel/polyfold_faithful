@@ -949,6 +949,50 @@ the factor $\alpha(T_1) = -1$ restores $o^+$. This is the factor $\alpha(T_a)\al
 | p. 276 (preprint p. 230), Rem. 6.6.19 (preprint 6.42) | $h\mapsto\tilde h$ | the sign $(-1)^{\dim\operatorname{coker}L}$ |
 | preprint p. 232, Thm. 6.7.1 (preprint 6.43) | $\bar\omega = p_1^*\omega\wedge p_2^*dt$ | $p_1^*\omega$ (possible misprint) |
 
+## 11. The Springer 2021 edition (pp. 247, 253–255, 267–269)
+
+The 2021 edition sharpens two statements of §6.4 that the 2017 edition added (they have no preprint counterpart) and splits
+preprint Lemma 6.33 in two.
+
+**Lemma 6.4.4** *(book 2017: Lemma 6.3, p. 189).* For $T_0$ Fredholm and $P_0\in\Pi_{T_0}$ there is $\varepsilon>0$ such that every $T$ and every
+projection $P$ with $\|T-T_0\|<\varepsilon$, $\|P-P_0\|<\varepsilon$ have: $T$ Fredholm, $P\in\Pi_T$, and — new in 2021 —
+$$\operatorname{ind}(P\circ T) = \operatorname{ind}(T) = \operatorname{ind}(T_0) = \operatorname{ind}(P_0\circ T_0),$$
+the indices of $P\circ T$ and $P_0\circ T_0$ taken as maps $E\to F$ (onto $R(P)$ the index would be $\dim\ker(PT)$). The proof formalized is
+not the text's. The *intertwiner*
+$$J(P) = PP_0+(1-P)(1-P_0)$$
+is continuous in $P$, equals $1$ at $P_0$, and satisfies $J(P)P_0 = PJ(P)$; so for $P$ near $P_0$ it is invertible and $P = JP_0J^{-1}$.
+Then $R(P) = JR(P_0)$, and Lemma 6.5.1 (preprint 6.17) for $J^{-1}T$, which is near $T_0$, gives $R(PT) = JR(P_0J^{-1}T) = JR(P_0) = R(P)$. The
+index equalities come from the openness of the Fredholm operators of a given index and §3.
+
+*Checked by machine:* `Polyfold.projIntertwiner`, `Polyfold.projIntertwiner_mul`, `Polyfold.lemma_6_4_4_2021`.
+
+**Proposition 6.4.13** *(book 2017: Proposition 6.6, p. 195).* Let $T$ be Fredholm and $P,Q\in\Pi_T$ with $R(P) = R(Q) = H$ (the 2021 text
+makes the existence of such projections a hypothesis). The text's maps
+$$A_T(e) = e-x(e),\qquad B_T(f+H) = \tilde f+H,$$
+with $x(e)\in X$ solving $QTx = QTe$ and $(1-P)f = Tx+\tilde f$, $x\in X$, $\tilde f\in(1-Q)F$, are isomorphisms $\ker(PT)\to\ker(QT)$ and $F/H\to F/H$
+that make the diagram of the exact sequences $E(T,P)$ and $E(T,Q)$ of §3 commute. Here $X$ is a common complement of $\ker(PT)$
+and $\ker(QT)$, which have the same dimension because $PT$ and $QT$ have the index of $T$ and the same range $H$. Such an $X$ exists
+algebraically: if neither space contains the other, pick $a\in K_2\setminus K_1$ and $b\in K_1\setminus K_2$; then $a+b$ lies in neither, and induction
+on $\dim(K_1+K_2)-\dim K_1$ applies to $K_i+\mathbb R(a+b)$. The text takes $X$ closed. Its last sentence, that $A_T$ and $B_T$ depend
+continuously on $T$, is **not formalized** (gap G.81): $A_{T'}$ acts between the varying kernels $\ker(PT')$, $\ker(QT')$, so the
+statement needs a topology on that family and a closed $X$.
+
+*Checked by machine:* `Polyfold.exists_isCompl_isCompl_of_finrank_eq`, `Polyfold.proposition_6_4_13_2021`.
+
+**Lemma 6.6.9** *(new in the 2021 edition as a separate lemma; preprint Lemma 6.33, 2017: Lemma 6.15).* Adding sc$^+$-sections
+$\sum\mu_j\bar s_j(y,t)$ to a section with property (P) does not change the propagation of orientation. It is the statement of preprint
+Lemma 6.33, which §5 calls Lemma 6.6.8. The 2021 Lemma 6.6.8 is the first step of the earlier proof: new parameters $\mu$ that
+enter as dummy variables change nothing. Both are §5's identity of push-forwards, Lemma 6.6.8 for $\bar s_j = 0$.
+
+*Checked by machine:* `Polyfold.lemma_6_6_8_2021`, `Polyfold.lemma_6_6_9_2021`.
+
+*Other 2021 changes.* Proposition 6.4.15 (preprint 6.15) now states its hypotheses $T$ Fredholm and $T\oplus\varphi$ onto, which §3 already
+uses; Proposition 6.6.3 (preprint 6.28) assumes $X$ tame and lets the sections take values in $Y\times[0,1]$, while §5 proves it without
+tameness, on the pull-back over $\mathbb R^n\times X$; Lemma 6.6.5 (preprint 6.30) now describes the solution set near $(t,\varphi(t),0)$ in the
+points $(t,y,\lambda)$, where the earlier texts write $(t,y,0)$ (possible misprint), and its kernel family in §5 is unaffected.
+
+The findings are `Exposition/Findings.md`, "Chapter 6", items 110–115.
+
 ---
 
 **Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in `Polyfold/Chapter6/` (`DetLine.lean`,

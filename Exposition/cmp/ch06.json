@@ -1883,6 +1883,112 @@
    "diff": [
     "The spanning step is proved directly in $F$; the name $\\alpha_q$ in the last part is read as $\\alpha^P$ (possible misprint) (Findings, Chapter 6, items 6, 7)."
    ]
+  },
+  {
+   "id": "V6.65",
+   "title": "Lemma 6.4.4 (2017: 6.3): Fredholm, good left-projection and the index near $(T_0, P_0)$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§6.4, Lemma 6.4.4 (2017: 6.3), p. 247 (2017 p. 189)",
+    "page": 247,
+    "statement": "For $T_0$ Fredholm and $P_0 \\in \\Pi_{T_0}$ there is $\\varepsilon > 0$ such that $\\|T - T_0\\| < \\varepsilon$, $\\|P - P_0\\| < \\varepsilon$, $P \\circ P = P$ give: $T$ Fredholm, $P \\in \\Pi_T$, and (new in 2021) $\\mathrm{ind}(P \\circ T) = \\mathrm{ind}(T) = \\mathrm{ind}(T_0) = \\mathrm{ind}(P_0 \\circ T_0)$. The proof uses the map $\\Phi_{(P,T)}(x, h) = PTx + (I - P)h$."
+   },
+   "lean": {
+    "statement": "`lemma_6_4_4_2021`: the statement, with $E$, $F$ in `Type` and the indices of $P \\circ T$, $P_0 \\circ T_0$ as maps $E \\to F$. Proof by the intertwiner $J(P) = PP_0 + (1 - P)(1 - P_0)$ (`projIntertwiner`, `projIntertwiner_mul`: $J P_0 = P J$), a unit near $P_0$.",
+    "decls": [
+     "Chapter6/Book2021 · projIntertwiner",
+     "Chapter6/Book2021 · projIntertwiner_self",
+     "Chapter6/Book2021 · projIntertwiner_mul",
+     "Chapter6/Book2021 · continuous_projIntertwiner",
+     "Chapter6/Book2021 · lemma_6_4_4_2021",
+     "Chapter6/LocalDetBundle · lemma_6_17",
+     "Chapter6/GoodProjections · IsGoodLeftProj.fredholmIndex_comp"
+    ]
+   },
+   "chips": [
+    "$\\mathrm{ind}(P \\circ T)$ as a map $E \\to F$",
+    "proof by $J(P)$, not $\\Phi_{(P,T)}$"
+   ],
+   "diff": [
+    "$P = J P_0 J^{-1}$ gives $R(P) = J R(P_0)$ and $R(PT) = J R(P_0 J^{-1} T) = R(P)$ by Lemma 6.5.1 (preprint 6.17) for $J^{-1}T$; $E$ and $F$ are taken in the universe `Type` (Findings, Chapter 6, items 110, 111)."
+   ]
+  },
+  {
+   "id": "V6.66",
+   "title": "A common complement of two kernels of the same dimension",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.4, proof of Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)",
+    "page": 253,
+    "statement": "\"We can take a closed linear subspace $X$ of $E$\" complementing both $\\ker(PT)$ and $\\ker(QT)$, of equal dimension."
+   },
+   "lean": {
+    "statement": "`exists_isCompl_isCompl_of_finrank_eq`: two finite-dimensional subspaces of the same dimension have a common algebraic complement (induction on $\\dim(K_1 + K_2) - \\dim K_1$, adding $a + b$).",
+    "decls": [
+     "Chapter6/Book2021 · finrank_sup_span_singleton_of_notMem",
+     "Chapter6/Book2021 · isCompl_sup_span_singleton",
+     "Chapter6/Book2021 · exists_isCompl_isCompl_of_finrank_eq_aux",
+     "Chapter6/Book2021 · exists_isCompl_isCompl_of_finrank_eq"
+    ]
+   },
+   "chips": [
+    "algebraic, not shown closed"
+   ],
+   "diff": [
+    "Not in the book as a statement; the text takes $X$ closed without argument (Findings, Chapter 6, item 112)."
+   ]
+  },
+  {
+   "id": "V6.67",
+   "title": "Proposition 6.4.13 (2017: 6.6): the isomorphisms $A_T$, $B_T$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195) (proof pp. 253–255)",
+    "page": 253,
+    "statement": "For $T$ Fredholm, $H$ closed of finite codimension with $\\Pi_T \\cap \\mathcal P_H \\ne \\emptyset$ (explicit in 2021) and $P, Q \\in \\Pi_T \\cap \\mathcal P_H$, isomorphisms $A_T : \\ker(PT) \\to \\ker(QT)$, $B_T : F/H \\to F/H$ make the diagram of $E(T, P)$, $E(T, Q)$ commute; they depend continuously on $T$."
+   },
+   "lean": {
+    "statement": "`proposition_6_4_13_2021`: for $P, Q \\in \\Pi_T$ with $R(P) = R(Q) = H$, linear isomorphisms $A$, $B$ (the text's construction) with $A \\circ j_P = j_Q$, $\\Phi_Q \\circ A = B \\circ \\Phi_P$, $\\pi_Q \\circ B = \\pi_P$ (`projSeqJ`, `projSeqPhi`, `projSeqPi`).",
+    "decls": [
+     "Chapter6/Book2021 · proposition_6_4_13_2021",
+     "Chapter6/Book2021 · exists_isCompl_isCompl_of_finrank_eq",
+     "Chapter6/ProjectionSequence · projSeqJ",
+     "Chapter6/ProjectionSequence · projSeqPhi",
+     "Chapter6/ProjectionSequence · projSeqPi"
+    ]
+   },
+   "chips": [
+    "continuity in $T$ not formalized (G.81)",
+    "$X$ algebraic"
+   ],
+   "diff": [
+    "The last sentence, continuity in $T$, is gap G.81; $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, Chapter 6, items 112, 113)."
+   ]
+  },
+  {
+   "id": "V6.68",
+   "title": "Lemmas 6.6.8 and 6.6.9: dummy variables and added sections",
+   "verdict": "restated",
+   "book": {
+    "label": "§6.6, Lemma 6.6.9 (with Lemma 6.6.8 (preprint 6.33)), pp. 267–269 (preprint p. 224)",
+    "page": 224,
+    "statement": "Lemma 6.6.8: parameters $\\mu \\in \\mathbb R^l$ entering $F$ as dummy variables do not change the propagation. Lemma 6.6.9 (new as a separate lemma): adding $\\sum\\mu_j\\bar s_j(y, t)$ to $F$ with property (P) does not change it."
+   },
+   "lean": {
+    "statement": "`lemma_6_6_8_2021` (the appended sections are $0$) and `lemma_6_6_9_2021` (arbitrary $\\bar s_j$): the push-forwards along the stabilized kernels agree; both are `IsStabKernels.push_append` (V6.45).",
+    "decls": [
+     "Chapter6/Book2021 · lemma_6_6_8_2021",
+     "Chapter6/Book2021 · lemma_6_6_9_2021",
+     "Chapter6/Propagation · IsStabKernels.push_append"
+    ]
+   },
+   "chips": [
+    "dummy variables = zero sections",
+    "both from V6.45"
+   ],
+   "diff": [
+    "The 2021 text splits preprint Lemma 6.33 (2017: 6.15): its statement is Lemma 6.6.9, the first step of its proof Lemma 6.6.8; the stabilized kernels of the appended data are a hypothesis, as in V6.45 (Findings, Chapter 6, item 114)."
+   ]
   }
  ],
  "notFormalized": [
@@ -2047,6 +2153,17 @@
    "instead": "**Not formalized**: the perturbation, the orientation of $S_{f+s}$ coming from $o^f$, and the identification $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$ for an sc⁺-section $s$ that it uses. The perturbations themselves are Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) (Findings, Chapter 6, item 93).",
    "decls": [
     "Chapter5/GeneralPosition · theorem_5_18"
+   ]
+  },
+  {
+   "g": 81,
+   "title": "Proposition 6.4.13 (2017: 6.6), last sentence: continuity in $T$",
+   "label": "§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)",
+   "page": 253,
+   "book": "For $T'$ near $T$ with $P, Q \\in \\Pi_{T'}$, the constructions of $A_{T'}$ and $B_{T'}$ depend continuously on $T'$ (keeping $X$, the equation for $x(e)$ stays uniquely solvable).",
+   "instead": "**Not formalized.** It needs a closed common complement $X$ of the kernels (the formalized one is algebraic, V6.66) and a topology on the family of kernels $\\ker(PT')$, between which $A_{T'}$ acts; the algebraic part is V6.67 (Findings, Chapter 6, item 113).",
+   "decls": [
+    "Chapter6/Book2021 · proposition_6_4_13_2021"
    ]
   }
  ]

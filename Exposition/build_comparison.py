@@ -14,7 +14,10 @@ Data format (one row per result; see cmp/ch01.json):
    "chips": [short strings], "diff": [bullets]}
 and "notFormalized": [{"title", "label", "page", "book", "instead"}]; an entry proved later gets
 "formalized": [the ids of the rows that prove it] and "decls": [...], keeps its place (so the G-numbers of
-the later entries do not move) and is shown with the verdict "formalized since". The Morse project's key
+the later entries do not move) and is shown with the verdict "formalized since". An entry may fix its
+number with "g": k (an integer); it then keeps G.k wherever it stands, and the entries without "g" are
+numbered by position among themselves, so an entry with "g" can be added to an earlier part without
+moving the G-numbers of later parts. The Morse project's key
 `milnor` for the book column is still accepted and renamed on load.
 """
 import re, sys, json, html, pathlib, collections
@@ -182,7 +185,13 @@ def load():
     data = json.loads((EXDIR / 'Comparison.json').read_text())
     items = [normalize(it) for it in data['items']]
     if data.get('notFormalized'):
-        for k, g in enumerate(data['notFormalized'], 1):
+        pos = 0
+        for g in data['notFormalized']:
+            if isinstance(g.get('g'), int):
+                k = g['g']                 # a fixed number (see the module docstring)
+            else:
+                pos += 1
+                k = pos
             done = g.get('formalized') or []
             items.append({'id': f'G.{k}', 'title': g['title'], 'verdict': 'closed' if done else 'gap',
                           BOOK_KEY: {'label': g['label'], 'page': g.get('page'), 'statement': g['book']},

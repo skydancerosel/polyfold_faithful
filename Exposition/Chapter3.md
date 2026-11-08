@@ -2381,3 +2381,123 @@ the non-tameness of its base retraction is checked), and the passage from an atl
 in tame charts. The machine-checked statements are listed in
 `Exposition/Verification.md` (V3.1–V3.107), compared with the text in `Exposition/polyfold-beside-lean.html`
 and retold in `Exposition/ProofByProof.md` (Part III).
+
+## 11. The Springer 2021 edition (pp. 91, 96–100, 118, 134–138, 145–149)
+
+The 2021 edition makes three changes to this chapter:
+- it drops the tameness of the retraction from the filling, and with it from sc-Fredholm germs and sections;
+- it adds a sequential conclusion to Theorem 3.5.1 (preprint 3.40);
+- it adds an appendix on cones, with Lemmas 3.8.4–3.8.6 and Corollary 3.8.7, which are new in the 2021 edition.
+
+### 11.1 The filling without tameness (Definitions 3.1.4, 3.6.1 (preprint 3.4, 3.48), pp. 91, 134)
+
+In 2021, the strong bundle retraction $R(u,h) = (r(u),\rho(u)h)$ of a filling covers an *sc-smooth* retraction $r$ with
+$r(0) = 0$; the 2017 text and the preprint ask for a *tame* one. Conditions (1)–(3) of §1.3 are unchanged. The filling of §1.3
+never asked for tameness, so **the 2021 definition is the one formalized**, with $r(0) = 0$ added. In a chart centred at a
+point of $X$, $0\in O$ and so $r(0) = 0$. Definitions 3.1.11, 3.1.16, 3.6.3 and 3.6.4 (preprint 3.11, 3.14, 3.50, 3.51) with
+the 2021 filling are the notions of §2.2. With the 2017 filling they are the notions with tame germ data of §6.1.
+
+The 2021 notion is strictly more general. Take $E = \mathbb R\oplus\mathbb R$, $C = U = [0,\infty)\times\mathbb R$, $F = \mathbb R$,
+and $R((a,b),h) = ((0,b),0)$, so that $r(a,b) = (0,b)$, $O = \{0\}\times\mathbb R$ and $\rho\equiv0$. Then $g(a,b) = a$ fills the
+zero section:
+- (1) $g = 0$ on $O$;
+- (2) $g(y) = 0$ only on $O$;
+- (3) $Dg(0)$ maps $\ker Dr(0) = \mathbb R\oplus0$ isomorphically onto $\ker\rho(0) = \mathbb R$.
+
+But $r$ is not tame: $d_C(1,0) = 0$ while $d_C(r(1,0)) = d_C(0,0) = 1$.
+
+*Checked by machine:* `Polyfold.IsFilling2021`, `Polyfold.IsFilling2017`, `Polyfold.isFilling2021_iff`,
+`Polyfold.IsFilling2017.isFilling2021`, `Polyfold.exists_isFilling2021_not_isFilling2017` (with
+`Polyfold.CornerFilling.isFilling2021_gc`, `Polyfold.CornerFilling.not_isTame_r`);
+`Polyfold.StrongBundle.IsScFredholmGerm2021`, `Polyfold.StrongBundle.IsScFredholmSection2021`,
+`Polyfold.StrongBundle.isScFredholmGerm2021_iff`, `Polyfold.StrongBundle.isScFredholmSection2021_iff`,
+`Polyfold.StrongBundle.isScFredholmGerm2017_iff`.
+
+### 11.2 The theorems that hold as printed
+
+The proofs of §§1–3, 5 and 6.1 do not use tameness. So the following hold for the 2021 definitions as printed:
+- Proposition 3.1.5 (preprint 3.5), the filler;
+- Theorem 3.1.13 and Corollary 3.1.15 (preprint 3.12, 3.13), local compactness;
+- Theorem 3.1.18 (preprint 3.15), sc$^+$-perturbations;
+- Theorem 3.1.21 (preprint 3.18), parametrized perturbations;
+- Proposition 3.6.5 (preprint 3.52), the linearization at a zero.
+
+*Checked by machine:* `Polyfold.proposition_3_1_5_2021`, `Polyfold.theorem_3_1_13_2021`, `Polyfold.corollary_3_1_15_2021`,
+`Polyfold.theorem_3_1_18_2021`, `Polyfold.theorem_3_1_21_2021`, `Polyfold.proposition_3_6_5_2021`.
+
+### 11.3 Theorem 3.6.8 (preprint 3.54): the step on p. 138
+
+Step 1 of the proof in §6.3 (the linear part) passes from the good position of $\ker Tf(0)$ to the partial cone in $T_0O$ to the good position
+of $\ker Dg(0)$ to $C$ in $E$. It uses the sc-complement $\ker Dr(0)\subseteq E_0$ of $T_0O$, which Proposition 2.5.3
+(preprint 2.35) gives for a tame retract. The 2021 text still calls the retract tame "by assumption", but its Definition 3.6.1
+no longer assumes it.
+
+In the example of §11.1 this step does not hold as we read it. Every other hypothesis holds:
+- $\hat f(0) = 0$;
+- $Dg(0)$ is onto;
+- $T_0O = 0\oplus\mathbb R$ is the kernel of $Tf(0)$ and is in good position in $T_0O$.
+
+Yet $(1-Dr(0))(1,0) = (1,0)\notin E_0 = 0\oplus\mathbb R$, and $\ker Dg(0) = 0\oplus\mathbb R$ is not in good position to $C$ in
+$E$. The reason is Lemma 3.8.8 (preprint 3.65): $(0,1)\in\ker Dg(0)\cap C$ has first coordinate $0$, so a good complement
+would lie in $\{a = 0\}$, but a complement must contain a point with $a = 1$.
+
+The theorem itself is not refuted: the solution set $O\cong\mathbb R$ is a manifold. Here $X = \mathbb R$ has no boundary, so
+even the case $\partial X = \emptyset$ (Theorem 3.6.10 (preprint 3.56)) passes through the step. The project proves Theorem
+3.6.8 and Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10, 3.6.11 (preprint 3.19, 3.23, 3.24, 3.56, 3.57) with tame
+germ data (§6.1). For the untamed 2021 data they are open (gap G.79). Closing it would need the passage from germ data in a
+compatible chart to germ data in a tame one, which §6.1 lists as not done.
+
+*Checked by machine:* `Polyfold.theorem_3_6_8_tame_step_2021`, with `Polyfold.CornerFilling.isGoodPositionAtGerm_gc`,
+`Polyfold.CornerFilling.not_range_le_minimalSubspace`, `Polyfold.CornerFilling.not_isInGoodPosition_gc`.
+
+### 11.4 Theorem 3.5.1 (preprint 3.40), the sequential conclusion (p. 118)
+
+The 2021 statement adds: if zeros $x_k$ of $h+s$ converge to $0$ in $E_0$, then for every $m$ they eventually lie in $C_m$ and
+converge to $0$ there. This is Corollary 3.1.15 (preprint 3.13) in the local form of §3.7. A zero of $h+s$ solves
+$w = B(a,w)-\mathbf s(a,w)$, $\mathbf s$ the $W$-part of $s$, and the level-$m$ lifts $L_mx_k$ of §3.7 converge to $L_m0 = 0$.
+The first conclusion is the local Theorem 3.1.13 of §3.7. Its sets $O(m)$ are intersected with $U$, and the closure, taken in
+$E_0$, lies in $C$ because $C$ is closed.
+
+*Checked by machine:* `Polyfold.theorem_3_5_1_2021`, with `Polyfold.IsBasicGerm.solves`.
+
+### 11.5 Cones and partial quadrants (Appendix 3.8.1.3, pp. 145–149)
+
+A *closed convex cone* $K$ in a finite-dimensional space is closed, convex, invariant under $t\ge0$, and has
+$K\cap(-K) = \{0\}$. $a$ *generates an extreme ray* if $a\in K\setminus0$, and $y$, $a-y\in K$ force $y\in\mathbb R_+a$. Let $N$ be
+in good position to $C = [0,\infty)^n\oplus W$ (§7.1), $\Gamma$ the set of indices vanishing at some $0\ne a\in N\cap C$, and
+$P : N\to\mathbb R^\Gamma$ the coordinate projection.
+
+**The cone is a quadrant.** If $N\cap C$ is pointed, the normal form of Proposition 3.1.25 (preprint 3.22) has no linear part.
+So a linear isomorphism $e : N\cong\mathbb R^{\dim N}$ carries $N\cap C$ onto $[0,\infty)^{\dim N}$, and the $e^{-1}(e_j)$
+generate extreme rays. The text's route through Krein–Milman (Lemmas 3.8.1–3.8.3) is not needed.
+
+**Lemma 3.8.4.** For a good complement $N^\perp$:
+- (1) and (3): coordinates in $\Gamma$ vanish on $N^\perp$. This is Lemma 3.8.8 (preprint 3.65) and needs no cone hypothesis.
+- (2): $\Gamma$ is the union of the $\sigma_a$ over generators $a$ of extreme rays. If $a_i = 0$ and $e(a)_j>0$, then
+  $a-e(a)_je^{-1}(e_j)\in N\cap C$, so $0\le -e(a)_j\,e^{-1}(e_j)_i\le 0$, and the generator $e^{-1}(e_j)$ vanishes at $i$.
+
+**Lemma 3.8.5.** The text states: either $N\subseteq\mathbb R^{\Gamma^c}\oplus W$, and then $\dim N = 1$ and $\Gamma = \emptyset$,
+or $N\cap(\mathbb R^{\Gamma^c}\oplus W) = \{0\}$. Its proof shows the dichotomy:
+- if $\Gamma\ne\emptyset$, a point of $N$ vanishing on $\Gamma$ lies in $N\cap C$ with its negative, so it is $0$;
+- if $\Gamma = \emptyset$ and $\dim N\ge2$, two generators have all coordinates positive, so $b_0-tb_1\in N\cap C$ for small
+  $t>0$, against the quadrant form.
+
+Read as "$N\subseteq\mathbb R^{\Gamma^c}\oplus W$ implies $\dim N = 1$", the lemma does not hold as we read it for $N = 0$. In
+$E = \mathbb R$, $C = [0,\infty)$, the subspace $N = 0$ is in good position, its cone $\{0\}$ is a closed convex cone, and
+$N\subseteq\mathbb R^{\Gamma^c}\oplus W$; but $\dim N = 0$.
+
+**Lemma 3.8.6.**
+- (1): if $\ker P = 0$, then $P$ is an isomorphism carrying $N\cap C$ onto $[0,\infty)^\Gamma$. This holds without the cone
+  hypothesis.
+- (2): $(N,N\cap C)\cong(\mathbb R,[0,\infty))$. This needs $N\ne0$, by the same example; with $N\ne0$ its hypotheses are met by
+  $N = E = \mathbb R$.
+
+**Corollary 3.8.7.** If $N\cap C$ is a closed convex cone, it is a partial quadrant in $N$ (Proposition 3.1.25 (preprint
+3.22), with no cone hypothesis), indeed $(N,N\cap C)\cong(\mathbb R^{\dim N},[0,\infty)^{\dim N})$.
+
+*Checked by machine:* `Polyfold.IsClosedConvexCone`, `Polyfold.IsExtremeRayGen`, `Polyfold.exists_quadrantEquiv_of_pointed`,
+`Polyfold.lemma_3_8_4_2021`, `Polyfold.lemma_3_8_5_2021`, `Polyfold.lemma_3_8_5_not_literal_2021`, `Polyfold.lemma_3_8_6_2021`,
+`Polyfold.lemma_3_8_6_two_2021`, `Polyfold.halfLine_witness_2021`, `Polyfold.corollary_3_8_7_2021`.
+
+These are V3.108–V3.121 in `Exposition/Verification.md`. Not formalized: whether every 2021 sc-Fredholm germ is a 2017 one,
+and Theorem 3.6.8 with the theorems resting on it for untamed germ data (gap G.79).

@@ -155,7 +155,7 @@
     "even the topologies of $X$, $X^1$ differ"
    ],
    "diff": [
-    "“It is possible that $X^1 \\ne X$ as M-polyfolds although the sets agree” is proved by an example the text does not give (fourth addendum of this page; formerly gap G.31). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).",
+    "“It is possible that $X^1 \\ne X$ as M-polyfolds although the sets agree” is proved by an example the preprint and 2017 texts do not give (fourth addendum of this page; formerly gap G.31); the 2021 edition (p. 176) gives a different one, the space of its Subsection 1.4.4, which is not formalized (Findings, Chapter 4, item 159). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).",
     "“$X^1 \\ne X$” is read as “$1_0^1$ is not sc-smooth”, equivalently (by `remark_4_3_isScDiffeo`) “the identity is not an sc-diffeomorphism $X \\to X^1$”. The sc-diffeomorphism clause needs only $X = X_1$, not $X_0 = X_\\infty$. “$(X^1)_m = X_{m+1} = X_i$” misprints $X_0$; $(X^1)_m = X_{m+1}$ holds as sets, the topologies of the iterated levels being gap G.6 (Findings, Chapter 4, items 5, 125). Hence “stronger” (formerly “narrower”, for the missing example)."
    ]
   },
@@ -1580,6 +1580,240 @@
    "diff": [
     "The set need not be compact: $A = (-2\\varepsilon, 2\\varepsilon) \\times \\{2\\} \\cup \\{(\\varepsilon(1 - x), x) : 0 < x < 1\\}$; $A$ is second countable (compact closure in the metrizable $\\mathbb R^m \\times X$), and a countable subcover suffices (Findings, item 103)."
    ]
+  },
+  {
+   "id": "V4.65",
+   "title": "Theorem 4.2.11 (preprint 4.22) in the 2021 form of (1): the local faces contain $x$",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.2, Theorem 4.2.11 (1) (preprint 4.22), p. 190 (preprint p. 162)",
+    "page": 162,
+    "statement": "(2021) There are precisely $d = d_X(x)$ local faces $F_1, \\dots, F_d$ contained in $U$ and containing $x$; (2)–(4) as in the earlier texts."
+   },
+   "lean": {
+    "statement": "`MPolyfold.theorem_4_2_11_2021`: the conclusions of `theorem_4_22` (V4.50) and, for every $i < n = d_X(x)$, a face $F_i \\ni 0$ of the model retract in the $i$-th coordinate hyperplane and an open $G \\ni 0$ with $x \\in \\psi^{-1}(G \\cap F_i) \\subseteq U$.",
+    "decls": [
+     "Chapter4/Book2021 · MPolyfold.theorem_4_2_11_2021",
+     "Chapter4/LocalStructure · MPolyfold.theorem_4_22"
+    ]
+   },
+   "chips": [
+    "faces of the chart model (G.35)",
+    "germs through $x$ inside $U$"
+   ],
+   "diff": [
+    "The count of V4.50 already counts the faces through $\\psi(x)$, which is the 2021 statement; the germs that contain $x$ and lie in $U$ are read off from (4) for $\\sigma = \\{i\\}$. The identification of the faces of the chart model with faces of $U$ itself remains gap G.35 (Findings, Chapter 4, items 130, 150)."
+   ]
+  },
+  {
+   "id": "V4.66",
+   "title": "Theorem 4.3.1 (preprint 4.23) in the 2021 form: possibly empty fibres, measurable $\\Sigma$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§4.3, Theorem 4.3.1 (preprint 4.23), p. 193 (preprint p. 165)",
+    "page": 165,
+    "statement": "(2021) As in the earlier texts, with (1) asking only that $p^{-1}(\\lambda)$ be compact for $|\\lambda| \\le \\varepsilon$ (not non-empty), and with a measurable set $\\Sigma \\subseteq \\{|\\lambda| < \\varepsilon\\}$ of regular values of full measure in $B^m(\\varepsilon)$."
+   },
+   "lean": {
+    "statement": "`theorem_4_3_1_2021`: for $X$ tame, $A$ with tame induced structure and compact closure, (1) compact fibres over $|\\lambda| \\le \\varepsilon$, (2) general position everywhere: a measurable $\\Sigma \\subseteq \\{|\\lambda| < \\varepsilon\\}$ with null complement there, of stratified regular values, with $A_\\lambda$ compact, a submanifold in general position, with a corner structure, tame.",
+    "decls": [
+     "Chapter4/Book2021 · theorem_4_3_1_2021",
+     "Chapter4/Families · theorem_4_23_of_subset"
+    ]
+   },
+   "chips": [
+    "stratified regular values",
+    "$\\Sigma$ measurable (null hull removed)"
+   ],
+   "diff": [
+    "$\\Sigma$ is that of V4.64 with a measurable null hull of its exceptional set removed (`MeasureTheory.toMeasurable`). Not used, as in V4.54: the tameness of $A$ and $\\varepsilon > 0$; (1) gives the compactness of $A_\\lambda$. Hypothesis (2) is printed as before and read as general position (Findings, Chapter 4, items 101, 151)."
+   ]
+  },
+  {
+   "id": "V4.67",
+   "title": "Definition 4.4.3 in a local model: sc-smooth vector fields",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, Definition 4.4.3, p. 195",
+    "page": 195,
+    "statement": "(New in the 2021 edition.) An sc-smooth vector field on $X$ is an sc-smooth section $A$ of $p : TX \\to X^1$; its domain is $X^1$, not $X$. In a local model the principal part satisfies $A(x) = Dr(x)A(x)$ on $O_1$ (formula (4.8), p. 200)."
+   },
+   "lean": {
+    "statement": "`IsRetractVectorField E C O A`: $x \\mapsto (x, A(x))$ is sc-smooth from $(O^1, C^1, E^1)$ to $(TO, TC, TE)$. Then $(x, A(x)) \\in TO$ on $O_1$, $A \\circ r^1$ is sc-smooth, $Dr(x)A(x) = A(x)$ on $O_1$; $0$ is a vector field on every retract.",
+    "decls": [
+     "Chapter4/VectorFields · IsRetractVectorField",
+     "Chapter4/VectorFields · isRetractVectorField_zero",
+     "Chapter4/VectorFields · IsRetractVectorField.mem_retractTangent",
+     "Chapter4/VectorFields · IsRetractVectorField.isScSmooth_comp",
+     "Chapter4/VectorFields · IsRetractVectorField.scDeriv_apply"
+    ]
+   },
+   "chips": [
+    "in a local model",
+    "witness: $A = 0$"
+   ],
+   "diff": [
+    "The definition read in the model of a chart, where Appendix 4.5 works; the principal part $A : E_1 \\to E_0$ is the second component of the section (Findings, Chapter 4, item 152)."
+   ]
+  },
+  {
+   "id": "V4.68",
+   "title": "Definition 4.4.3 on an M-polyfold",
+   "verdict": "same",
+   "book": {
+    "label": "§4.4, Definition 4.4.3, p. 195",
+    "page": 195,
+    "statement": "(New in the 2021 edition.) An sc-smooth vector field on the M-polyfold $X$ is an sc-smooth section $A$ of the M-polyfold bundle $p : TX \\to X^1$."
+   },
+   "lean": {
+    "statement": "`MPolyfold.IsScVectorField`: $A : X^1 \\to TX$ sc-smooth for the M-polyfold structures of $X^1$ and $TX$, with $p(A(x)) = x$. The zero section (reading $(\\psi(x), 0)$ in every chart) is continuous and a vector field.",
+    "decls": [
+     "Chapter4/VectorFields · MPolyfold.IsScVectorField",
+     "Chapter4/VectorFields · MPolyfold.zeroVectorField",
+     "Chapter4/VectorFields · MPolyfold.tangentChartMap_zeroVectorField",
+     "Chapter4/VectorFields · MPolyfold.continuous_zeroVectorField",
+     "Chapter4/VectorFields · MPolyfold.isScVectorField_zero"
+    ]
+   },
+   "chips": [
+    "witness: the zero section"
+   ],
+   "diff": [
+    "Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are not covered by these items (V4.69, V4.72)."
+   ]
+  },
+  {
+   "id": "V4.69",
+   "title": "Lemma 4.4.4 in a local model, $i = 1$: raising the index of a vector field",
+   "verdict": "narrower",
+   "book": {
+    "label": "§4.4, Lemma 4.4.4, p. 196",
+    "page": 196,
+    "statement": "(New in the 2021 edition.) By the natural identification of $(TX)^i \\to (X^1)^i$ with $T(X^i) \\to X^{i+1}$, the index of a vector field $A$ can be raised by $i \\ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \\to X^{i+1}$."
+   },
+   "lean": {
+    "statement": "`retractTangent_shift`: $T(O^1) = (TO)^1$. `IsRetractVectorField.shift`: the level map $A_1 : E_2 \\to E_1$ of a vector field on $(O, C, E)$ is a vector field on $(O^1, C^1, E^1)$.",
+    "decls": [
+     "Chapter4/VectorFields · retractTangent_shift",
+     "Chapter4/VectorFields · IsRetractVectorField.shift"
+    ]
+   },
+   "chips": [
+    "local model, $i = 1$",
+    "M-polyfold form needs G.6"
+   ],
+   "diff": [
+    "Larger $i$ follow by iterating the local statement. On an M-polyfold the lemma needs the identification of the M-polyfolds $(TX)^i$ and $T(X^i)$ (gap G.6), which the text calls natural (Findings, Chapter 4, item 153)."
+   ]
+  },
+  {
+   "id": "V4.70",
+   "title": "The symmetry of the second derivative (§4.5.1)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§4.5.1, p. 200",
+    "page": 200,
+    "statement": "(New in the 2021 edition.) \"Using the symmetry of the second derivative\" $D^2r(x)(A(x), B(x)) = D^2r(x)(B(x), A(x))$ at $x \\in O_2$."
+   },
+   "lean": {
+    "statement": "`scSecondDeriv U f z a b` ($z \\in U_2$, $a, b \\in E_1$): the second component of $D(Tf)(z, a)(b, 0)$. `scSecondDeriv_symm`: for $f$ sc² on $U$ relatively open in a partial quadrant, $D^2f(z)(a, b) = D^2f(z)(b, a)$.",
+    "decls": [
+     "Chapter4/VectorFields · scSecondDeriv",
+     "Chapter4/VectorFields · scSecondDeriv_symm",
+     "Chapter4/VectorFields · fderivWithin_fderivWithin_eq",
+     "Chapter4/VectorFields · IsRelOpenInQuadrant.mem_closure_interior_lvlSet",
+     "Chapter4/VectorFields · scDeriv_tangentMap_inr"
+    ]
+   },
+   "chips": [
+    "$D^2r$ defined through $Tr$",
+    "density of $E_2$ in $E_1$"
+   ],
+   "diff": [
+    "$r$ is twice differentiable only on level $2$, while $A(x)$, $B(x)$ lie in $E_1$; $D^2r(x)(a, b)$ is defined through the sc²-structure. Symmetry for $a, b \\in E_2$ is Mathlib's `ContDiffWithinAt.isSymmSndFDerivWithinAt` (points of a partial quadrant lie in the closure of its interior), and extends to $E_1$ by density and continuity of $D(Tf)$ (Findings, Chapter 4, item 154)."
+   ]
+  },
+  {
+   "id": "V4.71",
+   "title": "§4.5.1: the Lie bracket in a local model is tangent to $O$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§4.5.1, pp. 200–201",
+    "page": 200,
+    "statement": "(New in the 2021 edition.) Differentiating $A(x) = Dr(x)A(x)$ in the direction $B(x)$ and $B(x) = Dr(x)B(x)$ in the direction $A(x)$ at $x \\in O_2$ and subtracting gives $Dr(x)[A, B](x) = [A, B](x)$ for $[A, B](x) = DA(x)B(x) - DB(x)A(x)$."
+   },
+   "lean": {
+    "statement": "`retractLieBracket R A B x` $= D\\tilde A(x)B_1(x) - D\\tilde B(x)A_1(x)$, $\\tilde A = A \\circ r^1$; antisymmetric. `IsRetractVectorField.diff_identity`: $D^2r(x)(A(x), b) + Dr(x)D\\tilde A(x)b = D\\tilde A(x)b$ for $b \\in T_x(O^1)$. `retractLieBracket_mem_tangent`: $Dr(x)[A, B](x) = [A, B](x)$ on $O_2$.",
+    "decls": [
+     "Chapter4/VectorFields · retractLieBracket",
+     "Chapter4/VectorFields · retractLieBracket_antisymm",
+     "Chapter4/VectorFields · IsRetractVectorField.diff_identity",
+     "Chapter4/VectorFields · retractLieBracket_mem_tangent"
+    ]
+   },
+   "chips": [
+    "$DA(x)$ = derivative of $A \\circ r^1$"
+   ],
+   "diff": [
+    "The principal part is defined only on $O^1$, so $DA(x)$ is read as the derivative of $\\tilde A = A \\circ r^1$; the computation is the text's, with the symmetry of V4.70 (Findings, Chapter 4, item 154)."
+   ]
+  },
+  {
+   "id": "V4.72",
+   "title": "Proposition 4.4.5 (preprint 4.26) in a local model: the bracket is an sc-smooth section over $O^2$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167) (proof §§4.5.1–4.5.2, pp. 200–202)",
+    "page": 167,
+    "statement": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines the Lie bracket, an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$; proved in Appendix 4.5 (the earlier texts quote it from another paper, as a vector field on $X^1$)."
+   },
+   "lean": {
+    "statement": "`proposition_4_4_5_local_2021`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \\in TO$ for $x \\in O_2$, and $x \\mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.",
+    "decls": [
+     "Chapter4/VectorFields · proposition_4_4_5_local_2021",
+     "Chapter4/VectorFields · isScSmooth_scDeriv_apply",
+     "Chapter4/VectorFields · levelMap_shift_shift_eq",
+     "Chapter4/VectorFields · levelMap_comp_shift_eq"
+    ]
+   },
+   "chips": [
+    "in a local model",
+    "M-polyfold form: G.6, Lemma 4.5.1"
+   ],
+   "diff": [
+    "On an M-polyfold the statement needs $(TX)^i \\cong T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \\to X^2$ and Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader; not covered here (gap G.38). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, item 155)."
+   ]
+  },
+  {
+   "id": "V4.73",
+   "title": "§4.5.1: the bracket at a point of $O_2$ need not lie in $E_1$",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.5.1, pp. 200–201",
+    "page": 200,
+    "statement": "(New in the 2021 edition.) $DA(x)B(x) - DB(x)A(x)$ \"belongs to the fiber $(T_xO)_1$ whenever $x \\in O_2$\" (p. 200); for $x \\in O_2$, $[A, B](x)$ \"belongs to the level 1\", which is said to prove Proposition 4.4.5 (p. 201)."
+   },
+   "lean": {
+    "statement": "`lieBracket_level_counterexample_2021`: a local model $(E, E, E)$ with the identity retraction, vector fields $A$, $B$ and $x \\in O_2$ with $[A, B](x) \\notin E_1$; `not_forall_lieBracket_mem_level_one_2021`: the universal statement fails. $E$: $|x|_m = \\sup_k(k + 1)^m|x_k|$; $(Sx)_k = (-1)^k(k + 1)x_k$, $(Tx)_k = (k + 1)x_{k+1}$, $x_k = (k + 1)^{-3}$.",
+    "decls": [
+     "Chapter4/BracketLevel · lieBracket_level_counterexample_2021",
+     "Chapter4/BracketLevel · not_forall_lieBracket_mem_level_one_2021",
+     "Chapter4/BracketLevel · BracketLevel.opS",
+     "Chapter4/BracketLevel · BracketLevel.opT",
+     "Chapter4/BracketLevel · BracketLevel.xPt",
+     "Chapter4/BracketLevel · BracketLevel.bracket_not_mem_level_one",
+     "Chapter4/BracketLevel · isRetractVectorField_scOperator",
+     "Chapter4/BracketLevel · retractLieBracket_scOperator"
+    ]
+   },
+   "chips": [
+    "“level 1” as $E_1$: does not hold",
+    "$x \\in O_{m+2} \\Rightarrow E_m$: V4.72"
+   ],
+   "diff": [
+    "Read as $[A, B](x) \\in E_1$ the two sentences do not hold as we read them: $[S, T]x = ((-1)^k(k + 1)(2k + 3)x_{k+1})_k$, whose level-$1$ coordinates have absolute value $P^3 + P^2 \\ge 1/4$, $P = (k + 1)/(k + 2)$ (here $(T_xO)_1 = E_1$).",
+    "Read as \"a tangent vector at the point $x$ of level $1$ of $X^1$\", i.e. $x \\in O_{m+2}$ gives $[A, B](x) \\in E_m$, the sentence is V4.72; Proposition 4.4.5 is not affected. A weighted $\\ell^2$ version is sketched, not formalized (Findings, Chapter 4, item 156)."
+   ]
   }
  ],
  "notFormalized": [
@@ -1588,7 +1822,7 @@
    "label": "§4.1, Remark 4.1.3 (preprint 4.3), p. 176 (preprint p. 148)",
    "page": 148,
    "book": "If $X_0 = X_\\infty$, then $X_m = X_0$ as sets for all $m$; \"however, it is possible that $X^1 \\ne X$ as sc-smooth spaces despite the fact that $(X^1)_m = X_{m+1} = X_i$ as sets\".",
-   "instead": "**Formalized since the first edition of this page** (fourth addendum; V4.6), by an example the text does not give. On the weighted sequence space $X$ of V1.13 ($|x|_m = \\sup_k(k+1)^m|x_k|$), $L(t)$ is the projection onto $\\cos\\theta\\,e_{n_k} + \\sin\\theta\\,e_{n_{k+1}}$ ($n_k = 2^k$), the angle $\\theta$ turning from $0$ to $\\pi/2$ with flat ends while $t$ runs through $[1/(k+2), 1/(k+1)]$, and $L(t) = 0$ for $t \\le 0$. The retraction $r(t, z) = (t, L(t)z)$ of $\\mathbb R \\oplus X$ is sc-smooth by a criterion for parameter families of level operators with one level of loss; its retract $O$ consists of smooth points, and the lift $O \\to E_1$ is discontinuous at $0$, so $O$ is not an sc⁺-retract (Proposition 4.1.8 (preprint 4.8)), and the M-polyfold $O$ with its single chart has $X_0 = X_\\infty$ and $1_0^1$ not sc-smooth. Why an example needs a retraction that loses a level (one with $C^1$ level maps gives none) is an argument, not formalized (Findings, Chapter 4, items 140–146).",
+   "instead": "**Formalized since the first edition of this page** (fourth addendum; V4.6), by an example the preprint and 2017 texts do not give. The 2021 edition (p. 176) adds an example: the space of its Subsection 1.4.4 (a line with a half-plane attached), made an M-polyfold with $X_\\infty = X$, for which $1_0^1$ cannot be sc-smooth, since Theorem 4.1.2 (preprint 4.2) would make $X$ a manifold of constant local dimension; that argument holds as we read it and is not formalized (Findings, Chapter 4, item 159). On the weighted sequence space $X$ of V1.13 ($|x|_m = \\sup_k(k+1)^m|x_k|$), $L(t)$ is the projection onto $\\cos\\theta\\,e_{n_k} + \\sin\\theta\\,e_{n_{k+1}}$ ($n_k = 2^k$), the angle $\\theta$ turning from $0$ to $\\pi/2$ with flat ends while $t$ runs through $[1/(k+2), 1/(k+1)]$, and $L(t) = 0$ for $t \\le 0$. The retraction $r(t, z) = (t, L(t)z)$ of $\\mathbb R \\oplus X$ is sc-smooth by a criterion for parameter families of level operators with one level of loss; its retract $O$ consists of smooth points, and the lift $O \\to E_1$ is discontinuous at $0$, so $O$ is not an sc⁺-retract (Proposition 4.1.8 (preprint 4.8)), and the M-polyfold $O$ with its single chart has $X_0 = X_\\infty$ and $1_0^1$ not sc-smooth. Why an example needs a retraction that loses a level (one with $C^1$ level maps gives none) is an argument, not formalized (Findings, Chapter 4, items 140–146).",
    "decls": [
     "Chapter4/RemarkFourThreeFamily · remark_4_3_example",
     "Chapter4/RemarkFourThreeFamily · remark_4_3_retract_example",
@@ -1655,8 +1889,12 @@
    "title": "Proposition 4.4.5 (preprint 4.26): the Lie bracket of sc-smooth vector fields",
    "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167)",
    "page": 167,
-   "book": "For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth vector field $[A, B]$ on $X^1$, a section of $T(X^1) \\to X^2$ (quoted from another paper).",
-   "instead": "**Not formalized** (no proof in the text; needs the tangent bundle of $X^1$ over $X^2$, gap G.6)."
+   "book": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$, proved in Appendix 4.5 (§§4.5.1–4.5.2, pp. 200–202). The preprint and 2017 texts state an sc-smooth vector field on $X^1$, a section of $T(X^1) \\to X^2$, quoted from another paper.",
+   "instead": "**Formalized in a local model** (V4.67–V4.72): for vector fields $A$, $B$ on a local model $(O, C, E)$, $x \\mapsto (x, [A, B](x))$ is an sc-smooth map from $O^2$ to $TO$ (`proposition_4_4_5_local_2021`). **Not formalized on an M-polyfold**: it needs the identification of $(TX)^i$ with $T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \\to X^2$ and Lemma 4.5.1 (the bracket does not depend on the chart), whose proof the text leaves to the reader; the computation of §4.5.2 is that of Lemma 4.5.1. The sentence of p. 201 that the bracket at $x \\in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157).",
+   "decls": [
+    "Chapter4/VectorFields · proposition_4_4_5_local_2021",
+    "Chapter4/VectorFields · retractLieBracket_mem_tangent"
+   ]
   },
   {
    "title": "The exterior derivative, Definition 4.4.6 (preprint 4.27) and the relative complex",
@@ -1671,6 +1909,14 @@
    "page": 168,
    "book": "For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\\omega$, $\\int_N d\\omega = \\sum_F\\int_F\\omega$.",
    "instead": "**Not formalized** (no proof in the text; integration on manifolds with corners of varying dimension is not in Mathlib). The formula writes $\\int_M$ for $\\int_N$ (Findings, item 123)."
+  },
+  {
+   "g": 80,
+   "title": "2021 §4.4 and Appendix 4.5: sc-differential forms, the exterior derivative, Stokes, the Poincaré lemma",
+   "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
+   "page": 195,
+   "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
+   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$, $i \\ge 2$, with $(TX)^i \\cong T(X^i)$ (gap G.6), Lemma 4.5.1, and integration on manifolds with corners. The vector fields of Definition 4.4.3 and the bracket of Proposition 4.4.5 are formalized in a local model (V4.67–V4.72). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158)."
   }
  ]
 }

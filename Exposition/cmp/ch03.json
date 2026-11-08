@@ -3058,6 +3058,349 @@
     "V3.79 gives the good position in the chart that Definition 3.1.11 (preprint 3.11) provides at $y$; (a) gives it in every chart carrying germ data, and (b) applies (a) at $z = 0$ in the chart of the given good position. This is how the good position of the nearby zeros (V3.94) and the good position from surjectivity (V3.100) are obtained in tame charts (Findings, Chapter 3, items 193, 194). Added after the repair of the tameness hypothesis.",
     "In the germ reading (b) needs no Fredholm input: in the chart of the given good position, centred at $y$, (a) applies at $z = 0$, which lies in every germ, and $K_0$ is the whole target, so the form with all of $K_z$ in the range suffices. The whole-chart form of (a) is `isGoodPositionAt_of_chart_dense` (Findings, Chapter 3, item 301). Updated after the switch of Definition 3.1.11 (preprint 3.11) to the text’s germ reading (phase 2)."
    ]
+  },
+  {
+   "id": "V3.108",
+   "title": "Definitions 3.1.4 and 3.6.1 (preprint 3.4 and 3.48): the 2021 filling",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.1, Definition 3.1.4 (preprint 3.4), p. 91 (preprint p. 64); §3.6, Definition 3.6.1 (preprint 3.48), p. 134 (preprint p. 109)",
+    "page": 64,
+    "statement": "For $K = R(U \\triangleleft F) \\to O$ covering the sc-smooth retraction $r$ with $r(0) = 0$, an sc-smooth section germ $(g, 0)$ fills $(f, 0)$ if (1) $f = g$ on $O$ near $0$, (2) $y$ near $0$ with $g(y) = \\rho(r(y))g(y)$ lies in $O$, (3) the linearization of $[1 - \\rho(r(y))]g(y)$ at $0$ restricted to $\\ker Dr(0)$ is an isomorphism onto $\\ker\\rho(0)$. The 2017 text asks $r$ to be tame; the 2021 text does not."
+   },
+   "lean": {
+    "statement": "The same, as a germ on an sc-germ of neighbourhoods inside $U$, with $r(0) = 0$ a condition. It is the filling of V3.7 plus $r(0) = 0$ (automatic when $0 \\in O$); the 2017 filling (tame $r$) implies it; the identity retraction gives fillings.",
+    "decls": [
+     "Chapter3/Book2021Germs · IsFilling2021",
+     "Chapter3/Book2021Germs · HasFilling2021",
+     "Chapter3/Book2021Germs · IsFilling2017",
+     "Chapter3/Book2021Germs · isFilling2021_iff",
+     "Chapter3/Book2021Germs · IsFilling2021.isFillingGerm",
+     "Chapter3/Book2021Germs · IsFillingGerm.isFilling2021",
+     "Chapter3/Book2021Germs · IsFilledVersion.isFilling2021",
+     "Chapter3/Book2021Germs · IsFilling2017.isFilling2021",
+     "Chapter3/Book2021Germs · isFilling2017_iff",
+     "Chapter3/Book2021Germs · isFilling2017_id",
+     "Chapter3/Book2021Germs · isFilling2017_rn"
+    ]
+   },
+   "chips": [
+    "no tameness, as in V3.7",
+    "2017 filling implies 2021 filling"
+   ],
+   "diff": [
+    "The 2021 change brings the text to the germ reading of V3.7, which never asked for tameness."
+   ]
+  },
+  {
+   "id": "V3.109",
+   "title": "A 2021 filling over a retraction that is not tame",
+   "verdict": "extra",
+   "book": {
+    "label": "no counterpart in the text (Definition 3.1.4, p. 91, and its 2017 form)",
+    "page": 64,
+    "statement": "Not stated."
+   },
+   "lean": {
+    "statement": "On $C = U = [0, \\infty) \\times \\mathbb R$ with $R((a, b), h) = ((0, b), 0)$: $r(a, b) = (0, b)$ is not tame, and $g(a, b) = a$ is a 2021 filling of the zero section, so not a 2017 filling.",
+    "decls": [
+     "Chapter3/Book2021Germs · CornerFilling.Rc",
+     "Chapter3/Book2021Germs · CornerFilling.gc",
+     "Chapter3/Book2021Germs · CornerFilling.isFilledVersion_gc",
+     "Chapter3/Book2021Germs · CornerFilling.isFilling2021_gc",
+     "Chapter3/Book2021Germs · CornerFilling.not_isTame_r",
+     "Chapter3/Book2021Germs · CornerFilling.not_isFilling2017_gc",
+     "Chapter3/Book2021Germs · exists_isFilling2021_not_isFilling2017"
+    ]
+   },
+   "chips": [
+    "2021 filling, not a 2017 one"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V3.110",
+   "title": "Definitions 3.1.11, 3.1.16 = 3.6.3, 3.6.4 (preprint 3.11, 3.14 = 3.50, 3.51) with the 2021 filling",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.1, Definitions 3.1.11, p. 96, and 3.1.16, p. 97 (preprint 3.11, 3.14, pp. 69–70); §3.6, Definitions 3.6.3, 3.6.4, p. 135 (preprint 3.50, 3.51, p. 110)",
+    "page": 69,
+    "statement": "$(f, x_0)$ is an sc-Fredholm germ if, in a strong bundle chart centred at the smooth $x_0$, the principal part has a filling $g$ and an sc$^+$-section $s$ with $s(0) = g(0)$ makes $g - s$ conjugate to a basic germ; an sc-Fredholm section is sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point."
+   },
+   "lean": {
+    "statement": "The same with the 2021 filling; the 2021 germ is the project's sc-Fredholm germ, the 2021 section the project's sc-Fredholm section, the 2017 germ the germ with tame germ data; graph sections are witnesses.",
+    "decls": [
+     "Chapter3/Book2021Germs · StrongBundle.IsScFredholmGerm2021",
+     "Chapter3/Book2021Germs · StrongBundle.IsScFredholmGerm2017",
+     "Chapter3/Book2021Germs · StrongBundle.IsScFredholmSection2021",
+     "Chapter3/Book2021Germs · StrongBundle.zero_mem_O_of_chart",
+     "Chapter3/Book2021Germs · StrongBundle.isScFredholmGerm2021_iff",
+     "Chapter3/Book2021Germs · StrongBundle.isScFredholmGerm2017_iff",
+     "Chapter3/Book2021Germs · StrongBundle.IsScFredholmGerm2017.isScFredholmGerm2021",
+     "Chapter3/Book2021Germs · StrongBundle.isScFredholmSection2021_iff",
+     "Chapter3/Book2021Germs · isScFredholmSection2021_graphSection",
+     "Chapter3/Book2021Germs · isScFredholmGerm2017_graphSection"
+    ]
+   },
+   "chips": [
+    "= the project's definitions",
+    "2021 implies 2017: open (G.79)"
+   ],
+   "diff": [
+    "Whether every 2021 sc-Fredholm germ has germ data in a tame chart is gap G.79 (Findings, Chapter 3, item 353)."
+   ]
+  },
+  {
+   "id": "V3.111",
+   "title": "Proposition 3.1.5 (preprint 3.5) for the 2021 filling",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.1, Proposition 3.1.5 (preprint 3.5), p. 93 (preprint p. 65)",
+    "page": 65,
+    "statement": "If $g$ fills $\\hat f$ and $\\hat f(0) = 0$: $T\\hat f(0)$ is onto iff $Dg(0)$ is, and one is Fredholm iff the other is, with the same index."
+   },
+   "lean": {
+    "statement": "The same for a 2021 filling; $Dg(0)$ maps $T_0O$ into $K_0$, so that the restriction is defined.",
+    "decls": [
+     "Chapter3/Book2021Germs · proposition_3_1_5_2021"
+    ]
+   },
+   "chips": [
+    "V3.8 for the 2021 filling"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V3.112",
+   "title": "Theorem 3.1.13 (preprint 3.12) and Corollary 3.1.15 (preprint 3.13) for the 2021 definitions",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.1, Theorem 3.1.13 and Corollary 3.1.15 (preprint 3.12, 3.13), p. 97 (preprint p. 70)",
+    "page": 70,
+    "statement": "Local compactness of the zero set of an sc-Fredholm germ on every level, and convergence on every level of zeros converging on level $0$."
+   },
+   "lean": {
+    "statement": "The same for 2021 sc-Fredholm germs.",
+    "decls": [
+     "Chapter3/Book2021Germs · theorem_3_1_13_2021",
+     "Chapter3/Book2021Germs · corollary_3_1_15_2021"
+    ]
+   },
+   "chips": [
+    "no tameness used"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V3.113",
+   "title": "Theorems 3.1.18 (preprint 3.15) and 3.1.21 (preprint 3.18) for the 2021 definitions",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.1, Theorem 3.1.18 (preprint 3.15), p. 98 (preprint p. 71), and Theorem 3.1.21 (preprint 3.18), p. 100 (preprint p. 74)",
+    "page": 71,
+    "statement": "An sc-Fredholm section plus an sc$^+$-section is sc-Fredholm; parametrized perturbations $f + \\sum_i\\lambda_is_i$ are sc-Fredholm."
+   },
+   "lean": {
+    "statement": "The same for 2021 sc-Fredholm sections.",
+    "decls": [
+     "Chapter3/Book2021Germs · theorem_3_1_18_2021",
+     "Chapter3/Book2021Germs · theorem_3_1_21_2021"
+    ]
+   },
+   "chips": [
+    "no tameness used"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V3.114",
+   "title": "Proposition 3.6.5 (preprint 3.52) for the 2021 definitions",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.6, Proposition 3.6.5 (preprint 3.52), p. 135 (preprint p. 110)",
+    "page": 110,
+    "statement": "At a zero of an sc-Fredholm germ, the linearization is sc-Fredholm of index $n - N$."
+   },
+   "lean": {
+    "statement": "For a 2021 sc-Fredholm germ, in a chart centred at the zero: $Dg(0)$ and the restriction $T_0O \\to K_0$ are Fredholm of index $n - N$.",
+    "decls": [
+     "Chapter3/Book2021Germs · proposition_3_6_5_2021"
+    ]
+   },
+   "chips": [
+    "no tameness used"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V3.115",
+   "title": "Theorem 3.6.8 (preprint 3.54): the proof step on p. 138 without a tame chart",
+   "verdict": "extra",
+   "book": {
+    "label": "§3.6, Theorem 3.6.8 (preprint 3.54), p. 136 (preprint p. 111), proof pp. 137–138",
+    "page": 111,
+    "statement": "The proof passes from good position of $\\ker T\\hat f(0)$ in $T_0O$ to good position of $\\ker Dg(0)$ in $E$ through the sc-complement $\\ker Dr(0) \\subseteq E_0$ of $T_0O$ (Proposition 2.5.3 (preprint 2.35)), the retract being tame \"by assumption\"."
+   },
+   "lean": {
+    "statement": "In the example of V3.109 the filling, $\\hat f(0) = 0$, $Dg(0)$ onto, and good position in $T_0O$ hold, but the range of $1 - Dr(0)$ is not in $E_0$ and $\\ker Dg(0) = 0 \\oplus \\mathbb R$ is not in good position to $C$.",
+    "decls": [
+     "Chapter3/Book2021Germs · CornerFilling.isGoodPositionAtGerm_gc",
+     "Chapter3/Book2021Germs · CornerFilling.not_isInGoodPosition_gc",
+     "Chapter3/Book2021Germs · CornerFilling.not_range_le_minimalSubspace",
+     "Chapter3/Book2021Germs · theorem_3_6_8_tame_step_2021"
+    ]
+   },
+   "chips": [
+    "needs a tame chart",
+    "conclusion not refuted",
+    "untamed data: G.79"
+   ],
+   "diff": [
+    "With the untamed 2021 definitions the step does not hold as we read it; the example's solution set is a manifold, so the theorem is not refuted. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103); for untamed data it is gap G.79."
+   ]
+  },
+  {
+   "id": "V3.116",
+   "title": "Theorem 3.5.1 (preprint 3.40) with the 2021 sequential conclusion",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.5, Theorem 3.5.1 (preprint 3.40), p. 118 (preprint p. 94)",
+    "page": 94,
+    "statement": "For $f = h + s$, $h$ basic, $s$ sc$^+$, $f(0) = 0 = s(0)$, $S = \\{f = 0\\}$: nested relatively open $O(m)$ with $\\mathrm{cl}(S \\cap O(m)) \\subseteq C_m$; new in 2021: $(a_k, w_k) \\in S$ converging to $0$ in $E_0$ lie in $C_m$ from some $k_0(m)$ on and converge to $0$ on level $m$."
+   },
+   "lean": {
+    "statement": "The same, the closure in $E_0$, convergence on level $m$ through lifts $y_k \\in E_m$ equal to $x_k$ for $k$ large.",
+    "decls": [
+     "Chapter3/Book2021Germs · IsBasicGerm.solves",
+     "Chapter3/Book2021Germs · theorem_3_5_1_2021"
+    ]
+   },
+   "chips": [
+    "sequential conclusion new in 2021"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V3.117",
+   "title": "Closed convex cones and extreme rays (p. 145)",
+   "verdict": "same",
+   "book": {
+    "label": "§3.8.1.3, p. 145 (new in the 2021 edition)",
+    "page": 145,
+    "statement": "A closed convex cone $P$ in a finite-dimensional $N$: closed, convex, $P \\cap (-P) = \\{0\\}$, $\\mathbb R_+P = P$; an extreme ray is $\\mathbb R_+x$, $x \\in P \\setminus \\{0\\}$, with $y, x - y \\in P$ implying $y \\in \\mathbb R_+x$."
+   },
+   "lean": {
+    "statement": "The same definitions, with witnesses; and for $N$ in good position with $N \\cap C$ pointed, $N \\cap C$ is carried onto $[0, \\infty)^{\\dim N}$ by a linear isomorphism.",
+    "decls": [
+     "Chapter3/Book2021Items · IsClosedConvexCone",
+     "Chapter3/Book2021Items · IsExtremeRayGen",
+     "Chapter3/Book2021Items · IsClosedConvexCone.eq_zero",
+     "Chapter3/Book2021Items · isClosedConvexCone_Ici",
+     "Chapter3/Book2021Items · isExtremeRayGen_one",
+     "Chapter3/Book2021Items · isExtremeRayGen_symm_single",
+     "Chapter3/Book2021Items · exists_sub_single_mem",
+     "Chapter3/Book2021Items · exists_quadrantEquiv_of_pointed"
+    ]
+   },
+   "chips": [
+    "plus the quadrant normal form"
+   ],
+   "diff": [
+    "The quadrant normal form replaces the Krein–Milman-type Lemmas 3.8.1–3.8.3 in the proofs."
+   ]
+  },
+  {
+   "id": "V3.118",
+   "title": "Lemma 3.8.4",
+   "verdict": "stronger",
+   "book": {
+    "label": "§3.8.1.3, Lemma 3.8.4, p. 147 (new in the 2021 edition)",
+    "page": 147,
+    "statement": "If $N \\cap C$ is a closed convex cone: (1) $y \\in N^\\perp$ has $y_i = 0$ for $i \\in \\sigma_a$, $a$ an extreme-ray generator; (2) $\\Gamma$ is the union of the $\\sigma_a$ over extreme-ray generators; (3) $y_i = 0$ for $y \\in N^\\perp$, $i \\in \\Gamma$."
+   },
+   "lean": {
+    "statement": "The same; (1) and (3) hold without the cone hypothesis (Lemma 3.8.8), (2) uses only that $N \\cap C$ is pointed.",
+    "decls": [
+     "Chapter3/Book2021Items · lemma_3_8_4_2021",
+     "Chapter3/GoodPosition · lemma_3_65"
+    ]
+   },
+   "chips": [
+    "(1), (3) without the cone hypothesis",
+    "no Krein–Milman"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V3.119",
+   "title": "Lemma 3.8.5",
+   "verdict": "restated",
+   "book": {
+    "label": "§3.8.1.3, Lemma 3.8.5, p. 147 (new in the 2021 edition)",
+    "page": 147,
+    "statement": "If $N \\cap C$ is a closed convex cone, either $N \\subseteq \\mathbb R^{\\Gamma^c} \\oplus W$, in which case $\\dim N = 1$ and $\\Gamma = \\emptyset$, or $N \\cap (\\mathbb R^{\\Gamma^c} \\oplus W) = \\{0\\}$."
+   },
+   "lean": {
+    "statement": "Either $N \\cap (\\mathbb R^{\\Gamma^c} \\oplus W) = \\{0\\}$, or $N \\subseteq \\mathbb R^{\\Gamma^c} \\oplus W$, $\\dim N = 1$, $\\Gamma = \\emptyset$. For $N = 0$ in $E = \\mathbb R$, $C = [0, \\infty)$: $N \\subseteq \\mathbb R^{\\Gamma^c} \\oplus W$ and $\\dim N = 0$.",
+    "decls": [
+     "Chapter3/Book2021Items · lemma_3_8_5_2021",
+     "Chapter3/Book2021Items · lemma_3_8_5_not_literal_2021"
+    ]
+   },
+   "chips": [
+    "the dichotomy the proof shows",
+    "$N = 0$: does not hold as we read it"
+   ],
+   "diff": [
+    "Read as \"$N \\subseteq \\mathbb R^{\\Gamma^c} \\oplus W$ implies $\\dim N = 1$\", the lemma does not hold as we read it for $N = 0$; the proof assumes $N \\cap (\\mathbb R^{\\Gamma^c} \\oplus W) \\ne \\{0\\}$."
+   ]
+  },
+  {
+   "id": "V3.120",
+   "title": "Lemma 3.8.6",
+   "verdict": "narrower",
+   "book": {
+    "label": "§3.8.1.3, Lemma 3.8.6, p. 148 (new in the 2021 edition)",
+    "page": 148,
+    "statement": "With $P : N \\to \\mathbb R^\\Gamma$ the projection: (1) if $N \\cap (\\mathbb R^{\\Gamma^c} \\oplus W) = \\{0\\}$, $P$ is an isomorphism carrying $N \\cap C$ onto $Q_\\Gamma$; (2) if $N \\subseteq \\mathbb R^{\\Gamma^c} \\oplus W$, $(N, N \\cap C) \\cong (\\mathbb R, \\mathbb R_+)$; under the cone hypothesis."
+   },
+   "lean": {
+    "statement": "(1) without the cone hypothesis; (2) for $N \\ne 0$; the hypotheses of (2) are satisfiable.",
+    "decls": [
+     "Chapter3/Book2021Items · lemma_3_8_6_2021",
+     "Chapter3/Book2021Items · lemma_3_8_6_two_2021",
+     "Chapter3/Book2021Items · halfLine_witness_2021"
+    ]
+   },
+   "chips": [
+    "(1) without the cone hypothesis",
+    "(2) needs $N \\ne 0$"
+   ],
+   "diff": [
+    "(2) as printed does not hold as we read it for $N = 0$ (V3.119)."
+   ]
+  },
+  {
+   "id": "V3.121",
+   "title": "Corollary 3.8.7",
+   "verdict": "stronger",
+   "book": {
+    "label": "§3.8.1.3, Corollary 3.8.7, p. 149 (new in the 2021 edition)",
+    "page": 149,
+    "statement": "If $N$ is in good position and $N \\cap C$ is a closed convex cone, $N \\cap C$ is a partial quadrant in $N$."
+   },
+   "lean": {
+    "statement": "The same, and $N \\cap C$ is carried onto $[0, \\infty)^{\\dim N}$ by a linear isomorphism $N \\cong \\mathbb R^{\\dim N}$.",
+    "decls": [
+     "Chapter3/Book2021Items · corollary_3_8_7_2021"
+    ]
+   },
+   "chips": [
+    "a quadrant of $N$"
+   ],
+   "diff": [
+    "The partial quadrant holds without the cone hypothesis (Proposition 3.1.25 (preprint 3.22), V3.21)."
+   ]
   }
  ],
  "notFormalized": [
@@ -3261,6 +3604,18 @@
     "Chapter3/GlobalIFTIndexG · theorem_3_54_ker_eq_tangent",
     "Chapter3/GlobalIFTIndexG · StrongBundle.isGoodPositionGerm_iff_isLinSurjAt",
     "Chapter3/GlobalIFTIndexG · theorem_3_19_of_surjective"
+   ]
+  },
+  {
+   "g": 79,
+   "title": "The 2021 (untamed) sc-Fredholm germs: tame fillings, and Theorem 3.6.8 for untamed data",
+   "label": "§3.1 and §3.6, Definitions 3.1.4, 3.6.1 and Theorem 3.6.8, pp. 91, 134–138; with Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10, 3.6.11",
+   "page": 91,
+   "book": "The 2021 filling asks only for an sc-smooth retraction (no tameness). Theorem 3.6.8 describes the solution set near a zero in good position; its proof (p. 138) uses that the retract is tame. Theorems 3.1.22, 3.1.26, Corollary 3.1.27 and Theorems 3.6.10, 3.6.11 rest on it.",
+   "instead": "**Open.** Whether every 2021 sc-Fredholm germ has germ data in a tame chart (Findings, Chapter 3, item 353), and Theorem 3.6.8 and the results resting on it for untamed germ data, are not formalized. The proof step on p. 138 does not go through without a tame chart (V3.115). These theorems are verified with tame germ data (V3.85, V3.94, V3.103); the 2021 corollaries whose proofs do not use tameness are V3.111–V3.114.",
+   "decls": [
+    "Chapter3/Book2021Germs · theorem_3_6_8_tame_step_2021",
+    "Chapter3/Book2021Germs · StrongBundle.IsScFredholmGerm2021"
    ]
   }
  ]

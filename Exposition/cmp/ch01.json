@@ -1178,6 +1178,56 @@
     "The sum $g_1 + g_2$ is the composite of the pairing $(g_1, g_2)$, which is $\\mathrm{sc}^k$ (one direction of the exposition's Lemma 3.G(3), proved in the Chapter 2 files), with the sc-operator $(y_1, y_2) \\mapsto y_1 + y_2$, which is sc-smooth, so the chain rule (V1.20) applies. Scalar multiples, the rest of \"linear combinations\", are not needed.",
     "The derivative of the evaluation is written through Mathlib's derivative of a continuous multilinear map in its arguments and the linearity in $A$; Mathlib has no lemma in this form."
    ]
+  },
+  {
+   "id": "V1.40",
+   "title": "Remark 1.1.2: Banachable spaces and equivalent norms",
+   "verdict": "restated",
+   "book": {
+    "label": "§1.1, Remark 1.1.2, p. 5 (new in the 2021 edition)",
+    "page": 5,
+    "statement": "\"Banach space\" means a Banachable space: a vector space with a topology induced by a complete norm. All norms inducing the given topology are equivalent, in view of the open mapping theorem; where the choice matters, a norm is fixed."
+   },
+   "lean": {
+    "statement": "For a linear equivalence $e : E_1 \\to E_2$ of real normed spaces (one vector space with two norms): (1) if $e$ and $e^{-1}$ are continuous, there is $c > 0$ with $\\|e x\\| \\le c\\|x\\|$ and $\\|x\\| \\le c\\|e x\\|$; (2) if both spaces are complete and $e$ is continuous, then $e^{-1}$ is continuous, and (1) applies.",
+    "decls": [
+     "Chapter1/Book2021 · remark_1_1_2_2021",
+     "Chapter1/Book2021 · remark_1_1_2_2021_openMapping"
+    ]
+   },
+   "chips": [
+    "two readings",
+    "same topology: no completeness needed"
+   ],
+   "diff": [
+    "A convention, recorded by its mathematical content. Equivalence of two norms inducing the same topology needs neither completeness nor the open mapping theorem (part (1)); the open mapping theorem makes two complete norms, one dominating the other, equivalent (part (2))."
+   ]
+  },
+  {
+   "id": "V1.41",
+   "title": "Proposition 1.1.11 (preprint 1.10), the 2021 statement: the index",
+   "verdict": "stronger",
+   "book": {
+    "label": "§1.1, Proposition 1.1.11 (preprint 1.10), p. 9 (preprint p. 10); proof in Appendix 1.4.1, pp. 15–16",
+    "page": 10,
+    "statement": "If $T : E \\to F$ is sc-Fredholm and $S : E \\to F$ an sc$^+$-operator, then $T + S$ is sc-Fredholm and has the same index (the index is new in the 2021 statement; the proof is the earlier one and does not argue it)."
+   },
+   "lean": {
+    "statement": "$T + S$ is sc-Fredholm, $\\operatorname{ind}(T + S) = \\operatorname{ind}(T)$, and for every $m$ the level map $(T + S)_m : E_m \\to F_m$ is Fredholm of index $\\operatorname{ind}(T)$.",
+    "decls": [
+     "Chapter1/Book2021 · proposition_1_1_11_2021",
+     "Chapter1/ScFredholm · proposition_1_10",
+     "Chapter1/FredholmIndex · proposition_1_10_index",
+     "Chapter1/FredholmIndex · proposition_1_10_index_lvl"
+    ]
+   },
+   "chips": [
+    "index on every level",
+    "conjunction of V1.9 and V1.30"
+   ],
+   "diff": [
+    "The index statement, the exposition's addition in V1.30, is now the book's; the level statement is the formalization's addition. The index rests on the invariance of the Fredholm index under compact perturbations (V1.28)."
+   ]
   }
  ],
  "notFormalized": [

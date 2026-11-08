@@ -1141,12 +1141,14 @@
     "added: $\\mathbf X^R$ Hausdorff, paracompact",
     "$\\mathbf X^R$ need not be Hausdorff",
     "charts, transitions: no hypotheses",
-    "gap G.71"
+    "gap G.71",
+    "2021: paracompact always, Hausdorff assumed"
    ],
    "diff": [
     "An M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.3.4 (2017: 2.8)). As we read it, the proof gives the quotient topology, the openness of the projection, the charts and their sc-smooth transitions, but neither Hausdorffness nor paracompactness, and $\\mathbf X^R$ need not be Hausdorff (`Examples.exists_not_t2Space_reducedMor`, on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3)); both are hypotheses of `reducedPolyfold` (gap G.71) (Findings, Chapter 7, items 56, 107, 111).",
     "The hypotheses are satisfiable: for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, $\\mathbf X \\to \\mathbf X^R$ is a homeomorphism (Findings, Chapter 7, item 60).",
-    "Four possible misprints in the proof, two of them possibly extraction artefacts: \"$\\psi' = (s|\\mathbf U(\\psi))^{-1}(s(\\psi))$\" for $(s|\\mathbf U(\\psi))^{-1}(s(\\psi'))$; \"$\\mathbf U(\\varphi) \\subset \\Psi_{\\varphi_0}(\\mathbf U([\\varphi_0]) \\cap \\mathbf U([\\psi_0]))$\" for $\\Psi_{\\varphi_0}^{-1}$; \"$T_x$ agrees with the kernel of the $G_{s(\\varphi)}$-action\" for $T_{s(\\varphi)}$; and the garbled sentence on the source and target maps (2017 p. 243) (Findings, Chapter 7, item 57)."
+    "Four possible misprints in the proof, two of them possibly extraction artefacts: \"$\\psi' = (s|\\mathbf U(\\psi))^{-1}(s(\\psi))$\" for $(s|\\mathbf U(\\psi))^{-1}(s(\\psi'))$; \"$\\mathbf U(\\varphi) \\subset \\Psi_{\\varphi_0}(\\mathbf U([\\varphi_0]) \\cap \\mathbf U([\\psi_0]))$\" for $\\Psi_{\\varphi_0}^{-1}$; \"$T_x$ agrees with the kernel of the $G_{s(\\varphi)}$-action\" for $T_{s(\\varphi)}$; and the garbled sentence on the source and target maps (2017 p. 243) (Findings, Chapter 7, item 57).",
+    "*2021 edition:* Proposition 7.2.10 (p. 313) gives the charts and transitions for the quotient topology $T_R$ without further claim, Remark 7.2.8 (p. 311) says that the M-polyfold structure fails in general, Proposition 7.2.12 (p. 317) proves $T_R$ paracompact for every ep-groupoid (`paracompactSpace_reducedMor`, an instance, V7.77), and Proposition 7.2.13 (p. 318) makes it an M-polyfold exactly when it is Hausdorff (V7.78). So of the two hypotheses only the Hausdorff one remains, and it is the 2021 text's own; the example `Examples.exists_not_t2Space_reducedMor` is of the kind of Remark 7.2.8 and Appendix 7.6.3 (V7.82) (gap G.71, closed; Findings, Chapter 7, items 125, 126, 129)."
    ]
   },
   {
@@ -1182,11 +1184,13 @@
    },
    "chips": [
     "hypotheses of V7.39: gap G.71",
-    "effective via the intrinsic $T_x$"
+    "effective via the intrinsic $T_x$",
+    "2021 Theorem 7.2.14: the same hypothesis"
    ],
    "diff": [
     "Under the two hypotheses on $\\mathbf X^R$ of V7.39, which the text does not make (gap G.71); without them $X_R$ need not be an ep-groupoid, since $\\mathbf X^R$ need not be Hausdorff (V7.39) (Findings, Chapter 7, items 56, 107, 111).",
-    "(3) via the continuous surjection $\\mathbf X \\to \\mathbf X^R$, with $t \\circ \\pi = t_X$; (4) in sheet form, with a step the text leaves implicit; effectiveness from the intrinsic form of $T_x$ (V7.37) instead of a point with $\\Phi(g)(a) \\ne a$ (Findings, Chapter 7, item 58)."
+    "(3) via the continuous surjection $\\mathbf X \\to \\mathbf X^R$, with $t \\circ \\pi = t_X$; (4) in sheet form, with a step the text leaves implicit; effectiveness from the intrinsic form of $T_x$ (V7.37) instead of a point with $\\Phi(g)(a) \\ne a$ (Findings, Chapter 7, item 58).",
+    "*2021 edition:* Theorem 7.2.14 (p. 318), which replaces Proposition 7.10, assumes that $T_R$ is Hausdorff, the hypothesis taken here, and Theorem 7.2.22 (p. 323) shows it equivalent to LUC and to $\\mathbf X^T$ closed (V7.78, V7.81); paracompactness holds for every ep-groupoid (V7.77). The effectiveness of $X_R$ is 2021 Proposition 7.2.16 (gap G.71, closed; Findings, Chapter 7, items 126, 128, 129)."
    ]
   },
   {
@@ -1903,6 +1907,951 @@
     "The theorem of Godefroy–Troyanski–Whitfield–Zizler (Part I's Theorem 5.5.16 (2017: 5.14), the preprint's Theorem 5.43) is an explicit hypothesis, as in Part I (gap G.53); it holds for finite-dimensional spaces (`godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional`) (Findings, Chapter 7, items 95, 114).",
     "\"An atlas consisting of charts whose local models have Hilbert spaces $E_0$\" is existential, one chart per point; \"every compatible chart\" would be unsatisfiable (Findings, Chapter 7, item 106). Proposition 5.5.8, Theorem 5.5.10 and Corollary 5.5.17 (2017: Proposition 5.6, Theorem 5.12 and Corollary 5.2) are the preprint's Proposition 5.35, Theorem 5.37 and Corollary 5.44."
    ]
+  },
+  {
+   "id": "V7.69",
+   "title": "The remark after Definition 7.1.7, 2021 form: continuity on morphisms",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.1, the remark after Definition 7.1.7, p. 291 (2017: after Definition 7.7, p. 228)",
+    "page": 291,
+    "statement": "Let $f : X \\to Y$ be a functor between ep-groupoids which is sc-smooth on the object M-polyfolds and continuous on the morphism spaces. Then $f$ is sc-smooth on the morphism spaces: for $\\varphi \\in \\mathbf X$ and $\\psi = f(\\varphi)$ there are open neighbourhoods $U(\\varphi)$, $U(\\psi)$, $U(s(\\varphi))$, $U(s(\\psi))$ with $f(U(s(\\varphi))) \\subseteq U(s(\\psi))$ and $f(U(\\varphi)) \\subseteq U(\\psi)$, on which $s$ is an sc-diffeomorphism, and $f(\\gamma) = (s|U(\\psi))^{-1}(f(s(\\gamma)))$ for $\\gamma \\in U(\\varphi)$. (The 2017 remark did not assume continuity on morphisms.)"
+   },
+   "lean": {
+    "statement": "`remark_7_1_7_2021`: for a functor `F` with `F.obj` sc-smooth and `F.mor` continuous, and every morphism $\\varphi$, there exist open $U(\\varphi) \\ni \\varphi$, $U(\\psi) \\ni F(\\varphi)$, $U(s(\\varphi))$, $U(s(\\psi))$ and local inverses $\\sigma_\\varphi$, $\\sigma_\\psi$ with $F(U(s(\\varphi))) \\subseteq U(s(\\psi))$, $F(U(\\varphi)) \\subseteq U(\\psi)$, $s$ an sc-diffeomorphism $U(\\varphi) \\to U(s(\\varphi))$ and $U(\\psi) \\to U(s(\\psi))$, $F(\\gamma) = \\sigma_\\psi(F(s(\\gamma)))$ on $U(\\varphi)$, and `F.mor` sc-smooth. `remark_7_1_7_2021_remarkFunctor`: the functor `Examples.remarkFunctor` of the 2017 counterexample (V7.10) is sc-smooth on objects and not continuous on morphisms.",
+    "decls": [
+     "Chapter7/Book2021Basic · EpGroupoid.remark_7_1_7_2021",
+     "Chapter7/Book2021Basic · EpGroupoid.remark_7_1_7_2021_remarkFunctor"
+    ]
+   },
+   "chips": [
+    "changed in 2021: continuity assumed",
+    "2017 counterexample is not continuous"
+   ],
+   "diff": [
+    "The 2021 remark assumes the continuity on morphisms that V7.10 found necessary; its form is proved, and the counterexample of V7.10 does not satisfy the new hypothesis (Findings, Chapter 7, items 9, 104, 117)."
+   ]
+  },
+  {
+   "id": "V7.70",
+   "title": "The data (7.3) and Proposition 7.1.14: the natural representation near $x$ in sheet form",
+   "verdict": "stronger",
+   "book": {
+    "label": "§7.1, Proposition 7.1.14, p. 296 (new in the 2021 edition), with the data (7.3)",
+    "page": 296,
+    "statement": "(7.3): an open neighbourhood $W(x)$ and, for $g \\in G_x$, open neighbourhoods $U^s(g)$, $U^t(g)$ of $g$ on which $s_g = s|U^s(g)$ and $t_g = t|U^t(g)$ are sc-diffeomorphisms onto $W(x)$. Proposition 7.1.14: let $U(x)$ be an open neighbourhood of $x$, $\\Phi : G_x \\to \\mathrm{Diff}_{sc}(U(x))$ a homomorphism and $\\Gamma$ with the properties (1)–(3) of Theorem 7.1.13, and fix data (7.3). Then there is an open $\\Phi$-invariant $V(x) \\subseteq W(x) \\cap U(x)$ with $\\Gamma(g, v) = s_g^{-1}(v)$ and $\\Phi(g)(v) = t_g \\circ s_g^{-1}(v)$ for $v \\in V(x)$, $g \\in G_x$."
+   },
+   "lean": {
+    "statement": "`IsotropySheetData x`: the data (7.3) (`W`, `srcSheet`, `tgtSheet`, `srcInv`, `tgtInv`, with $s$, $t$ sc-diffeomorphisms of the sheets onto `W`); `exists_isotropySheetData`: they exist at every object. `proposition_7_1_14_2021`: for open $U \\ni x$, $\\Phi(g)$ sc-diffeomorphisms of $U$ with inverse $\\Phi(g^{-1})$ and $\\Phi(gh) = \\Phi(g) \\circ \\Phi(h)$ on $U$, $\\Gamma(g, \\cdot)$ sc-smooth on $U$ with $\\Gamma(g, x) = g$, $s(\\Gamma(g, y)) = y$, $t(\\Gamma(g, y)) = \\Phi(g)(y)$, property (3) (unused), and data `D`: there is an open $V \\ni x$, $V \\subseteq W \\cap U$, invariant under every $\\Phi(g)$, with $\\Gamma(g, v) = s_g^{-1}(v)$, $\\Phi(g)(v) = t(s_g^{-1}(v))$ and $\\Gamma(g, v) = t_g^{-1}(\\Phi(g)(v))$ on $V$. `proposition_7_1_14_2021_of_naturalRep`: the same for every `NaturalRep`.",
+    "decls": [
+     "Chapter7/Book2021Basic · EpGroupoid.IsotropySheetData",
+     "Chapter7/Book2021Basic · EpGroupoid.exists_isotropySheetData",
+     "Chapter7/Book2021Basic · EpGroupoid.proposition_7_1_14_2021",
+     "Chapter7/Book2021Basic · EpGroupoid.proposition_7_1_14_2021_of_naturalRep"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "property (3) not used",
+    "adds (7.4) from the proof"
+   ],
+   "diff": [
+    "Property (3) of Theorem 7.1.13 is a hypothesis as printed but is not used; the identity $\\Gamma(g, v) = t_g^{-1}(\\Phi(g)(v))$ of (7.4) in the proof is part of the conclusion (Findings, Chapter 7, item 118)."
+   ]
+  },
+  {
+   "id": "V7.71",
+   "title": "Proposition 7.1.15 in the 2021 form, and 2017 (2) as printed",
+   "verdict": "same",
+   "book": {
+    "label": "§7.1, Proposition 7.1.15, p. 297 (2017: 7.5, p. 233; (2) as printed in 2021)",
+    "page": 297,
+    "statement": "For a finite set $Y$ of mutually isomorphic objects and a neighbourhood $V$ of $Y$ there is a functor $f$ assigning mutually disjoint connected open $U(y) \\subseteq V$ and sc-diffeomorphisms $f(\\psi) : U(y) \\to U(y')$; the morphisms between points of $U = \\bigcup_y U(y)$ decompose into connected components $\\mathbf U(\\psi) \\ni \\psi$, $\\psi \\in \\mathbf Y$, with (1) the natural action of $G_y$ on $U(y)$, (2) $s : \\mathbf U(\\psi) \\to U(s(\\psi))$ and $t : \\mathbf U(\\psi) \\to U(t(\\psi))$ sc-diffeomorphisms, (3) $f(\\psi) = t \\circ (s|\\mathbf U(\\psi))^{-1}$, and $t(\\psi') = f(\\psi)(s(\\psi'))$ for $\\psi' \\in \\mathbf U(\\psi)$. (2017 printed (2) as $s, t : \\mathbf U(\\psi) \\to U(y)$.)"
+   },
+   "lean": {
+    "statement": "`proposition_7_1_15_2021`: for $Y$ finite with mutually isomorphic elements and $V \\in \\mathcal N(Y)$ there is `N : NaturalRepFinite Y V` such that for every morphism $\\psi$ between points of $Y$: $\\psi \\in \\mathbf U(\\psi)$ and $\\mathbf U(\\psi)$ is the connected component of $\\psi$ in the morphisms between points of $\\bigcup_y U(y)$; $s : \\mathbf U(\\psi) \\to U(s\\psi)$ and $t : \\mathbf U(\\psi) \\to U(t\\psi)$ are sc-diffeomorphisms; $f(\\psi)(z) = t((s|\\mathbf U(\\psi))^{-1}(z))$ on $U(s\\psi)$; $t(\\psi') = f(\\psi)(s(\\psi'))$ on $\\mathbf U(\\psi)$. `src_eq_tgt_of_printed_2017`: data with $y \\in U(y)$, disjoint $U(y)$, the decomposition, and $s, t$ mapping $\\mathbf U(\\psi)$ into one $U(y)$ force $s(\\psi) = t(\\psi)$. `not_printed_2017_reflection`: for `reflectionEpGroupoid` ($\\mathbb Z/2 \\ltimes \\mathbb R$) and $Y = \\{1, -1\\}$ the hypotheses hold, a `NaturalRepFinite` exists, and no such printed-2017 data exist.",
+    "decls": [
+     "Chapter7/Book2021Basic · EpGroupoid.proposition_7_1_15_2021",
+     "Chapter7/Book2021Basic · EpGroupoid.src_eq_tgt_of_printed_2017",
+     "Chapter7/Book2021Basic · EpGroupoid.not_printed_2017_reflection"
+    ]
+   },
+   "chips": [
+    "(2) changed in 2021",
+    "2017 (2) as printed: not as we read it"
+   ],
+   "diff": [
+    "The 2021 statement is the one V7.25's `NaturalRepFinite` already had. The 2017 form of (2), with one $y$ for $s$ and $t$, does not hold as we read it: it forces $s(\\psi) = t(\\psi)$, and $\\mathbb Z/2 \\ltimes \\mathbb R$ with $Y = \\{1, -1\\}$ has no such data (Findings, Chapter 7, items 25, 119)."
+   ]
+  },
+  {
+   "id": "V7.72",
+   "title": "Lemma 7.1.16: limits in $\\mathbf U(\\psi)$",
+   "verdict": "same",
+   "book": {
+    "label": "§7.1, Lemma 7.1.16, p. 300 (new in the 2021 edition)",
+    "page": 300,
+    "statement": "In the construction of Proposition 7.1.15, let $\\psi \\in \\mathbf Y$ and $(\\psi'_k) \\subseteq \\mathbf U(\\psi)$ converge to $\\psi' \\in \\mathbf X$. If $(s(\\psi'_k))$ or $(t(\\psi'_k))$ converges to a point of $U(s(\\psi))$ or of $U(t(\\psi))$, then $\\psi' \\in \\mathbf U(\\psi)$, and $s(\\psi'_k) \\to s(\\psi') \\in U(s(\\psi))$, $t(\\psi'_k) \\to t(\\psi') \\in U(t(\\psi))$."
+   },
+   "lean": {
+    "statement": "`lemma_7_1_16_2021`: for `N : NaturalRepFinite Y V`, $\\psi$ between points of $Y$, $\\psi_k \\in \\mathbf U(\\psi)$ with $\\psi_k \\to \\psi'$, and $s(\\psi_k)$ or $t(\\psi_k)$ converging to some $z \\in U(s\\psi) \\cup U(t\\psi)$: $\\psi' \\in \\mathbf U(\\psi)$, $s(\\psi_k) \\to s(\\psi') \\in U(s\\psi)$, $t(\\psi_k) \\to t(\\psi') \\in U(t\\psi)$. `NaturalRepFinite.mem_U_of_tendsto`: a limit in $U(b)$ of points of $U(a)$ lies in $U(a)$.",
+    "decls": [
+     "Chapter7/Book2021Basic · EpGroupoid.NaturalRepFinite.mem_U_of_tendsto",
+     "Chapter7/Book2021Basic · EpGroupoid.lemma_7_1_16_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition"
+   ],
+   "diff": [
+    "Hypothesis for hypothesis (Findings, Chapter 7, item 120)."
+   ]
+  },
+  {
+   "id": "V7.73",
+   "title": "Corollary 7.1.17 (4)–(7)",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.1, Corollary 7.1.17, (4), (5), (6) and (7), p. 301 (new in the 2021 edition)",
+    "page": 301,
+    "statement": "The construction of Proposition 7.1.15 has the further properties: (4) for $x \\in Y$ and $g \\in G_x$, $f(g)(z) = t \\circ \\Gamma(g, z) = g * z$, the natural action; (5) $f(\\varphi)$ is equivariant with respect to $\\gamma_\\varphi : G_{s(\\varphi)} \\to G_{t(\\varphi)}$, $g \\mapsto \\varphi \\circ g \\circ \\varphi^{-1}$; (6) for $s(\\psi) = t(\\varphi)$ the multiplication $\\mathbf U(\\psi)\\,{}_s{\\times}_t\\,\\mathbf U(\\varphi) \\to \\mathbf X$ is an sc-diffeomorphism onto $\\mathbf U(\\psi \\circ \\varphi)$; (7) the $U(x)$ may be taken with the properness property."
+   },
+   "lean": {
+    "statement": "`corollary_7_1_17_4_2021`: for $x \\in Y$ a `NaturalRep` on $U(x)$ with $\\Gamma(g, z) = (s|\\mathbf U(g))^{-1}(z)$ and $f(g)(z) = t(\\Gamma(g, z)) = \\Phi(g)(z)$. `corollary_7_1_17_5_2021`: $f(\\varphi)(f(g)(z)) = f(\\gamma_\\varphi(g))(f(\\varphi)(z))$ (`conjIsotropy`). `corollary_7_1_17_6_2021`: the multiplication is an sc-diffeomorphism from $\\mathbf U(\\psi)\\,{}_s{\\times}_t\\,\\mathbf U(\\varphi)$, an open subset of the fibred-product sub-M-polyfold $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$, onto $\\mathbf U(\\psi \\circ \\varphi)$. `corollary_7_1_17_7_2021`: a `NaturalRepFinite` whose $U(y)$ have the properness property.",
+    "decls": [
+     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_4_2021",
+     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_5_2021",
+     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_6_2021",
+     "Chapter7/Book2021Basic · EpGroupoid.corollary_7_1_17_7_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(6) in the fibred-product sub-M-polyfold"
+   ],
+   "diff": [
+    "(1)–(3) are those of Proposition 7.1.15 (V7.71). In (6) the domain is read inside Part I's fibred-product sub-M-polyfold (Proposition 2.5.20 (2017: 2.15)) (Findings, Chapter 7, item 120)."
+   ]
+  },
+  {
+   "id": "V7.74",
+   "title": "Definition 7.2.5 and Lemma 7.2.6: $T_x$ and its conjugates",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.2, Definition 7.2.5 and Lemma 7.2.6, p. 310 (Definition 7.2.5: 2017 p. 241; Lemma 7.2.6 new in the 2021 edition)",
+    "page": 310,
+    "statement": "$T_x \\subseteq G_x$ is the normal subgroup of the elements acting trivially on some sufficiently small $W(x) \\subseteq U(x)$, maximal with this property; it does not depend on $U(x)$. Lemma 7.2.6: for $\\varphi : x \\to y$, $g \\mapsto \\varphi \\circ g \\circ \\varphi^{-1}$ is an injective homomorphism $T_x \\to G_y$ with image $T_y$."
+   },
+   "lean": {
+    "statement": "`NaturalRep.kerOn V` $= T_x^V$, the $g$ with $\\Phi(g) = \\mathrm{id}$ on $V \\cap U(x)$ (`mem_kerOn`), antitone in $V$ (`kerOn_anti`), normal for invariant $V$ (`kerOn_normal`), $\\subseteq T_x$ for open $W \\ni x$ (`kerOn_le_trivialSubgroup`). `definition_7_2_5_2021`: for every natural representation, $T_x^W \\subseteq T_x$ for all open $W \\ni x$, and there is an invariant open $V \\ni x$ in $U(x)$ with $T_x^W = T_x$ for all open $x \\in W \\subseteq V$. `lemma_7_2_6_2021`: conjugation by $\\varphi$ is injective on $T_x$ and maps it onto $T_y$; `trivialSubgroupEquiv_2021` is the isomorphism $T_x \\cong T_y$ (`trivialSubgroupEquiv_2021_apply`).",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.kerOn",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.mem_kerOn",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.kerOn_anti",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.kerOn_normal",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.kerOn_le_trivialSubgroup",
+     "Chapter7/ReducedCriterion · EpGroupoid.definition_7_2_5_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.lemma_7_2_6_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.trivialSubgroupEquiv_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.trivialSubgroupEquiv_2021_apply"
+    ]
+   },
+   "chips": [
+    "Lemma 7.2.6 new in 2021",
+    "maximality as two statements"
+   ],
+   "diff": [
+    "\"Maximal subgroup acting trivially on some small $W(x)$\" is read as: $T_x$ contains $T_x^W$ for every open $W \\ni x$ and equals it for every small $W$; the intrinsic $T_x$ is `trivialSubgroup` (V7.37) (Findings, Chapter 7, item 121)."
+   ]
+  },
+  {
+   "id": "V7.75",
+   "title": "Definition 7.2.7, Remark 7.2.8 and Lemma 7.2.9: the topology $T_R$",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.2, Remark 7.2.8, p. 311 (new in the 2021 edition), with Definition 7.2.7, p. 310 (2017: 7.12), and Lemma 7.2.9, p. 311",
+    "page": 311,
+    "statement": "Definition 7.2.7 defines $\\mathbf X^T$, the equivalence $\\varphi \\sim \\varphi'$ and $\\mathbf X^R$, with $s([\\varphi]) = s_X(\\varphi)$ and the target map printed as \"$s([\\varphi]) = t_X(\\varphi)$\". Remark 7.2.8: in general $(X, \\mathbf X^R)$ cannot be made an ep-groupoid; let $T_R$ be the finest topology on $\\mathbf X^R$ for which $\\pi : \\mathbf X \\to \\mathbf X^R$ is continuous; if $T_R$ is Hausdorff there is a natural ep-groupoid structure, and Appendix 7.6.3 gives an example where $T_R$ is not Hausdorff. Lemma 7.2.9: $\\pi$ is open, and a homeomorphism from a sheet of $s$ onto its image."
+   },
+   "lean": {
+    "statement": "`remark_7_2_8_2021`: `reducedπ` is continuous for the topology of `ReducedMor` (the quotient topology), and that topology is finer than every topology making `reducedπ` continuous. `isOpenQuotientMap_reducedπ`: $\\pi$ is an open quotient map; Lemma 7.2.9 is `isOpenMap_reducedπ` and `isOpenEmbedding_domRestrict_reducedπ` (V7.39). The target map is `reducedTgt`.",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.remark_7_2_8_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.isOpenQuotientMap_reducedπ",
+     "Chapter7/Reduced · EpGroupoid.isOpenMap_reducedπ",
+     "Chapter7/Reduced · EpGroupoid.isOpenEmbedding_domRestrict_reducedπ",
+     "Chapter7/Reduced · EpGroupoid.reducedTgt"
+    ]
+   },
+   "chips": [
+    "Remark 7.2.8 new in 2021",
+    "finest topology = quotient topology",
+    "Def. 7.2.7: possible misprint"
+   ],
+   "diff": [
+    "\"The finest topology for which $\\pi$ is continuous\" is the quotient topology. In Definition 7.2.7, \"$s([\\varphi]) = t_X(\\varphi)$\" for $t([\\varphi])$ (possible misprint) (Findings, Chapter 7, items 122, 123).",
+    "Remark 7.2.8's \"not true in general\" is what the round-trip counterexample of V7.39 shows (V7.82)."
+   ]
+  },
+  {
+   "id": "V7.76",
+   "title": "Lemma 7.2.11: neighbourhoods of a class of $\\mathbf X^R$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.2, Lemma 7.2.11, p. 315 (new in the 2021 edition)",
+    "page": 315,
+    "statement": "Let $\\varphi_1, \\dots, \\varphi_k$ be the morphisms different from $\\varphi_0$ and equivalent to it. There are open neighbourhoods $U(\\varphi_i)$, $i = 0, \\dots, k$, and $U([\\varphi_0])$ such that (1) the closures of distinct $U(\\varphi_i)$ are disjoint, (2) $U(\\varphi_i) \\to U([\\varphi_0])$, $\\varphi \\mapsto [\\varphi]$, are homeomorphisms, (3) every $\\psi$ with $[\\psi] \\in U([\\varphi_0])$ lies in some $U(\\varphi_i)$."
+   },
+   "lean": {
+    "statement": "`finite_reducedπ_preimage`: the class of $\\varphi_0$ is finite. `IsReducedEvenlyCovered φ₀` is the conclusion (1)–(3), with (2) as $\\pi(U(\\varphi)) = U([\\varphi_0])$ and $\\pi$ an open embedding on $U(\\varphi)$. **Under** `[T2Space X.ReducedMor]`: `lemma_7_2_11_2021` (finiteness and (1)–(3) at every $\\varphi_0$), via `exists_preimage_reducedπ_subset_of_t2Space` and `isReducedEvenlyCovered_of_t2Space`. Conversely `isClosed_nonEffectivePart_of_isReducedEvenlyCovered`: (1)–(3) at every unit make $\\mathbf X^T$ closed; `isReducedEvenlyCovered_iff_t2Space`: (1)–(3) hold at every morphism iff $T_R$ is Hausdorff. `JumpingRetract.reducedπ_preimage_one`, `JumpingRetract.not_isReducedEvenlyCovered`: they fail at $(1, o_0)$ in the ep-groupoid of V7.82.",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.finite_reducedπ_preimage",
+     "Chapter7/ReducedCriterion · EpGroupoid.IsReducedEvenlyCovered",
+     "Chapter7/ReducedCriterion · EpGroupoid.exists_preimage_reducedπ_subset_of_t2Space",
+     "Chapter7/ReducedCriterion · EpGroupoid.isReducedEvenlyCovered_of_t2Space",
+     "Chapter7/ReducedCriterion · EpGroupoid.isClosed_nonEffectivePart_of_isReducedEvenlyCovered",
+     "Chapter7/ReducedCriterion · EpGroupoid.isReducedEvenlyCovered_iff_t2Space",
+     "Chapter7/ReducedCriterion · EpGroupoid.lemma_7_2_11_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.reducedπ_preimage_one",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isReducedEvenlyCovered"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "added: $T_R$ Hausdorff",
+    "in general: not as we read it"
+   ],
+   "diff": [
+    "As we read it, the lemma needs $T_R$ Hausdorff: the proof of (3) uses the uniqueness of limits in $T_R$, its conclusion at every morphism is equivalent to $T_R$ Hausdorff, and it fails in the ep-groupoid of V7.82. It is proved under that hypothesis, the setting of Theorem 7.2.14 (Findings, Chapter 7, item 124)."
+   ]
+  },
+  {
+   "id": "V7.77",
+   "title": "Proposition 7.2.12: $T_R$ is paracompact",
+   "verdict": "same",
+   "book": {
+    "label": "§7.2, Proposition 7.2.12, p. 317 (new in the 2021 edition)",
+    "page": 317,
+    "statement": "For every ep-groupoid, $(\\mathbf X^R, T_R)$ is a paracompact topological space (a footnote recalls that paracompactness does not include Hausdorffness)."
+   },
+   "lean": {
+    "statement": "`paracompactSpace_reducedMor` (an instance), `proposition_7_2_12_2021`: `ParacompactSpace X.ReducedMor` for every ep-groupoid. Via `paracompactSpace_of_isOpenMap` (paracompactness descends along an open continuous surjection $p$ if every point $q$ has a compact $K$ such that every open $N \\supseteq K$ contains $p^{-1}(O)$ for an open $O \\ni q$) and `exists_isCompact_preimage_reducedπ_subset` (the compact $K = \\{\\varphi \\in s^{-1}(\\mathrm{cl}\\,V) \\mid (s, t)(\\varphi) = (s, t)(q)\\}$).",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.paracompactSpace_of_isOpenMap",
+     "Chapter7/ReducedCriterion · EpGroupoid.exists_isCompact_preimage_reducedπ_subset",
+     "Chapter7/ReducedCriterion · EpGroupoid.paracompactSpace_reducedMor",
+     "Chapter7/ReducedCriterion · EpGroupoid.proposition_7_2_12_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "proof without Lemma 7.2.11",
+    "settles gap G.71"
+   ],
+   "diff": [
+    "The text's proof refines a cover through the neighbourhoods of Lemma 7.2.11 (1)–(3), which as we read it need $T_R$ Hausdorff (V7.76); the formal proof uses the openness of $\\pi$ and the properness of $(s, t)$ instead, and holds for every ep-groupoid. This settles the paracompactness half of gap G.71 (Findings, Chapter 7, items 111, 125)."
+   ]
+  },
+  {
+   "id": "V7.78",
+   "title": "Proposition 7.2.13 and Theorem 7.2.14: the reduced ep-groupoid when $T_R$ is Hausdorff",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.2, Proposition 7.2.13, p. 318 (new in the 2021 edition), and Theorem 7.2.14, p. 318 (2017: Proposition 7.10, p. 244)",
+    "page": 318,
+    "statement": "Proposition 7.2.13: the atlas of the natural charts defines an M-polyfold structure on $(\\mathbf X^R, T_R)$ if and only if $T_R$ is Hausdorff. Theorem 7.2.14 (ep-groupoid criterion for the reduced groupoid): if the quotient topology $T_R$ on $\\mathbf X^R$ is Hausdorff, then $(X, \\mathbf X^R)$ is in a natural way an ep-groupoid."
+   },
+   "lean": {
+    "statement": "`proposition_7_2_13_2021`: there exist `T2Space`, `ParacompactSpace` and an M-polyfold structure on `X.ReducedMor` with atlas `reducedAtlas` iff `T2Space X.ReducedMor`. **Under** `[T2Space X.ReducedMor]`, `theorem_7_2_14_2021`: `reducedEpGroupoid` has the groupoid structure `reducedGroupoidStr`, the object M-polyfold `X.PObj`, the atlas `reducedAtlas` on $\\mathbf X^R$, and there is an `EpFunctor X X.reducedEpGroupoid`. `reducedPolyfold` and `reducedEpGroupoid` (`Reduced.lean`) need no further hypothesis, `ParacompactSpace X.ReducedMor` being an instance (V7.77); `isEffective_reducedEpGroupoid` is Proposition 7.2.16.",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.proposition_7_2_13_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_2_14_2021",
+     "Chapter7/Reduced · EpGroupoid.reducedPolyfold",
+     "Chapter7/Reduced · EpGroupoid.reducedEpGroupoid",
+     "Chapter7/Reduced · EpGroupoid.isEffective_reducedEpGroupoid"
+    ]
+   },
+   "chips": [
+    "7.2.13 new in 2021",
+    "7.2.14 assumes $T_R$ Hausdorff",
+    "gap G.71 closed"
+   ],
+   "diff": [
+    "An M-polyfold is Hausdorff and paracompact by definition, so Proposition 7.2.13 is read as the existence of the structure. Theorem 7.2.14 assumes exactly the hypothesis that V7.39 and V7.40 take, $T_R$ Hausdorff, and paracompactness holds always (V7.77); with Theorem 7.2.22 (V7.81) the hypothesis is characterized (gap G.71, closed) (Findings, Chapter 7, items 56, 107, 111, 126, 143)."
+   ]
+  },
+  {
+   "id": "V7.79",
+   "title": "Proposition 7.2.17: $T_R$ Hausdorff iff $\\mathbf X^T$ closed",
+   "verdict": "same",
+   "book": {
+    "label": "§7.2, Proposition 7.2.17, p. 320 (new in the 2021 edition)",
+    "page": 320,
+    "statement": "The topology $T_R$ on $\\mathbf X^R$ is Hausdorff if and only if the non-effective part $\\mathbf X^T$ is a closed subset of $\\mathbf X$."
+   },
+   "lean": {
+    "statement": "`proposition_7_2_17_2021`: `T2Space X.ReducedMor ↔ IsClosed X.nonEffectivePart`. Steps: `reducedπ_eq_iff_comp_inv` ($[\\varphi] = [\\psi]$ iff $t\\varphi = t\\psi$ and $\\psi^{-1} \\circ \\varphi \\in \\mathbf X^T$), `mem_nonEffectivePart_iff_reducedπ`, `continuous_comp_fibredProduct`, `continuousOn_comp_inv`, `isClosed_reducedπ_eq_of_isClosed` (the relation is closed if $\\mathbf X^T$ is), `isClosed_nonEffectivePart_of_t2Space`; also `isClosed_src_eq_tgt`, `closure_nonEffectivePart_subset` ($\\mathrm{cl}\\,\\mathbf X^T \\subseteq \\{s = t\\}$).",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.reducedπ_eq_iff_comp_inv",
+     "Chapter7/ReducedCriterion · EpGroupoid.mem_nonEffectivePart_iff_reducedπ",
+     "Chapter7/ReducedCriterion · EpGroupoid.continuous_comp_fibredProduct",
+     "Chapter7/ReducedCriterion · EpGroupoid.continuousOn_comp_inv",
+     "Chapter7/ReducedCriterion · EpGroupoid.isClosed_reducedπ_eq_of_isClosed",
+     "Chapter7/ReducedCriterion · EpGroupoid.isClosed_nonEffectivePart_of_t2Space",
+     "Chapter7/ReducedCriterion · EpGroupoid.proposition_7_2_17_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.isClosed_src_eq_tgt",
+     "Chapter7/ReducedCriterion · EpGroupoid.closure_nonEffectivePart_subset"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "proof via the open quotient map"
+   ],
+   "diff": [
+    "The proof uses that a quotient by an open quotient map is Hausdorff iff the relation is closed (Mathlib), without properness (Findings, Chapter 7, item 127)."
+   ]
+  },
+  {
+   "id": "V7.80",
+   "title": "Definition 7.2.18 (= 7.4.1), Remarks 7.2.19 and 7.2.20: the local unique continuation property",
+   "verdict": "stronger",
+   "book": {
+    "label": "§7.2, Definition 7.2.18, Remarks 7.2.19 and 7.2.20, p. 321 (new in the 2021 edition; Definition 7.4.1, p. 328, repeats it)",
+    "page": 321,
+    "statement": "$X$ has the local unique continuation property (LUC) if every object $x$ has an open neighbourhood $U(x)$ with the natural $G_x$-action such that, for $g \\in G_x$, $\\hat g$ is the identity on $U(x)$ as soon as it is the identity on a nonempty open subset. Remark 7.2.19: there are ep-groupoids without LUC (Appendix 7.6.3). Remark 7.2.20: $U(x)$ may be taken inside any given neighbourhood $O(x)$."
+   },
+   "lean": {
+    "statement": "`NaturalRep.HasLUC`, `IsLUC`: every $x$ has a natural representation with the property. `isLUC_iff_forall_naturalRep`: LUC iff every natural representation has it (`NaturalRep.hasLUC_of_isClosed`: every natural representation has it when $\\mathbf X^T$ is closed). `remark_7_2_20_2021`: under LUC there is one inside every open $O \\ni x$. `Examples.remark_7_2_19_2021`: some ep-groupoid is not LUC. Witnesses: `isLUC_trivial`, `isLUC_of_isEffective` ($\\mathbf X^T$ is then the closed set of units: `isClosed_range_unit`, `nonEffectivePart_eq_range_unit_of_isEffective`), `Examples.isLUC_trivialZ3` (not effective), `Examples.isLUC_reflection`.",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.HasLUC",
+     "Chapter7/ReducedCriterion · EpGroupoid.IsLUC",
+     "Chapter7/ReducedCriterion · EpGroupoid.isLUC_iff_forall_naturalRep",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.hasLUC_of_isClosed",
+     "Chapter7/ReducedCriterion · EpGroupoid.remark_7_2_20_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.remark_7_2_19_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.isLUC_trivial",
+     "Chapter7/ReducedCriterion · EpGroupoid.isLUC_of_isEffective",
+     "Chapter7/ReducedCriterion · EpGroupoid.isClosed_range_unit",
+     "Chapter7/ReducedCriterion · EpGroupoid.nonEffectivePart_eq_range_unit_of_isEffective",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.isLUC_trivialZ3",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.isLUC_reflection"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "independent of the natural representation",
+    "satisfiable, also non-effective"
+   ],
+   "diff": [
+    "The choice of $U(x)$ does not matter: under LUC every natural representation has the property (Findings, Chapter 7, items 128, 144)."
+   ]
+  },
+  {
+   "id": "V7.81",
+   "title": "Proposition 7.2.21, Theorem 7.2.22 and Proposition 7.2.23: LUC, $\\mathbf X^T$ closed, $T_R$ Hausdorff",
+   "verdict": "same",
+   "book": {
+    "label": "§7.2, Proposition 7.2.21, p. 321, Theorem 7.2.22 and Proposition 7.2.23, p. 323 (new in the 2021 edition)",
+    "page": 321,
+    "statement": "Proposition 7.2.21: $X$ has LUC iff $\\mathbf X^T$ is closed in $\\mathbf X$. Theorem 7.2.22: equivalent are (1) $T_R$ is Hausdorff, (2) $X$ has LUC, (3) $\\mathbf X^T$ is closed. Proposition 7.2.23: under LUC the reduced ep-groupoid $X_R$ is well defined."
+   },
+   "lean": {
+    "statement": "`proposition_7_2_21_2021`: `X.IsLUC ↔ IsClosed X.nonEffectivePart` (via `NaturalRep.eventually_Φ_eq_of_Γ_mem`, `NaturalRep.Γ_mem_of_eventually`, `isClosed_nonEffectivePart_of_isLUC`). `theorem_7_2_22_2021`: `List.TFAE [T2Space X.ReducedMor, X.IsLUC, IsClosed X.nonEffectivePart]`. `t2Space_reducedMor_of_isLUC`; `proposition_7_2_23_2021`: under LUC, $T_R$ is Hausdorff and `reducedEpGroupoid` has the structure of V7.78, is effective, with an ep-functor from $X$. `Examples.nonEffectivePart_trivialZ3`, `Examples.t2Space_reducedMor_trivialZ3`: for the trivial $\\mathbb Z/3$-action $\\mathbf X^T = \\mathbf X$ and $T_R$ is Hausdorff.",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.eventually_Φ_eq_of_Γ_mem",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.Γ_mem_of_eventually",
+     "Chapter7/ReducedCriterion · EpGroupoid.isClosed_nonEffectivePart_of_isLUC",
+     "Chapter7/ReducedCriterion · EpGroupoid.proposition_7_2_21_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_2_22_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.t2Space_reducedMor_of_isLUC",
+     "Chapter7/ReducedCriterion · EpGroupoid.proposition_7_2_23_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.nonEffectivePart_trivialZ3",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.t2Space_reducedMor_trivialZ3"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "characterizes the hypothesis of G.71"
+   ],
+   "diff": [
+    "Hypothesis for hypothesis. Proposition 7.2.21 by a connectedness argument: $\\Gamma(g, y) \\in \\mathbf X^T$ iff $\\Phi(g) = \\mathrm{id}$ near $y$. The trivial $\\mathbb Z/3$-action, for which item 60 had left Hausdorffness of $\\mathbf X^R$ open, has $T_R$ Hausdorff (Findings, Chapter 7, items 60, 128, 129)."
+   ]
+  },
+  {
+   "id": "V7.82",
+   "title": "Appendix 7.6.3: Zhou's example, for an analogue",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.6, Appendix 7.6.3, p. 348 (new in the 2021 edition)",
+    "page": 348,
+    "statement": "Zhou's example: $\\mathbb Z/2$ acting on the retract of Part I's Subsection 1.4.4 by $(s, f) \\mapsto (s, -f)$. The set $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$ consists of one point, so $\\mathbf X^T$ is not closed, $T_R$ is not Hausdorff, and LUC fails."
+   },
+   "lean": {
+    "statement": "For `JumpingRetract.X` ($\\mathbb Z/2$ acting by $(t, z) \\mapsto (t, \\pm z)$ on the retract of Part I's Remark 4.2.2 (2017: 4.3), `ReducedNotHausdorff.lean`, V7.39): `JumpingRetract.mem_closure_nonEffectivePart` ($(-1, o_0) \\in \\mathrm{cl}\\,\\mathbf X^T$), `JumpingRetract.not_isClosed_nonEffectivePart`, `JumpingRetract.not_t2Space_reducedMor`, `JumpingRetract.not_isLUC`; `Examples.remark_7_2_19_2021`.",
+    "decls": [
+     "Chapter7/ReducedNotHausdorff · EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.mem_closure_nonEffectivePart",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isLUC",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.remark_7_2_19_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "an analogue of Zhou's retract",
+    "gap G.83"
+   ],
+   "diff": [
+    "Our retract is not Zhou's but has the same features: the action is trivial over $t < 0$ and moves points arbitrarily close to the origin over $t > 0$. One point of $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$ is exhibited; $\\mathbf X^T$ is not computed exactly (gap G.83).",
+    "The round-trip counterexample of V7.39 (`exists_not_t2Space_reducedMor`) is thus consistent with the 2021 text: it is of the kind Remark 7.2.8 announces and Appendix 7.6.3 gives, and it fails LUC as Theorem 7.2.22 requires (Findings, Chapter 7, items 107, 129, 130)."
+   ]
+  },
+  {
+   "id": "V7.83",
+   "title": "Appendix 7.6.4: (7.24), Theorem 7.6.7 and Corollary 7.6.8 for $i = 1$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.6, Theorem 7.6.7 and Corollary 7.6.8, p. 351, with Appendix 7.6.4 and (7.24), pp. 348–350 (new in the 2021 edition)",
+    "page": 351,
+    "statement": "Under (SLUC) (every $X^i$ has LUC): $(\\mathbf X^T)^1 \\subseteq (\\mathbf X^1)^T$ (7.24); conversely, for $g$ acting trivially near $x$ in $X^1$, $\\hat g$ is the identity on the connected set $U(x) \\cap X_1$ by LUC for $X^1$, hence on $U(x)$ by density; so $(\\mathbf X^T)^1 = (\\mathbf X^1)^T$. Theorem 7.6.7: the natural set-theoretic identification between $(X^1)_R$ and $(X_R)^1$ is an sc-diffeomorphism on objects and morphisms, and similarly for $(X^i)_R$ and $(X_R)^i$, every $i$. Corollary 7.6.8: the same under (ZHOU)."
+   },
+   "lean": {
+    "statement": "`mem_nonEffectivePart_liftOne_of_levelVal`: (7.24). `HasConnectedDenseLevelOneReps`: every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$. `levelVal_mem_nonEffectivePart_of_liftOne`, `nonEffectivePart_liftOne_eq`: with $(\\mathbf X^1)^T$ closed and this hypothesis, $(\\mathbf X^1)^T = (\\mathbf X^T)^1$ (through `NaturalRep.levelOneΓ` and its lemmas). `liftOne_reducedπ_eq_iff`, `reducedLevelOneMap`. `theorem_7_6_7_2021`: under `X.liftOne.IsLUC` and `HasConnectedDenseLevelOneReps`, $[\\varphi]_1 \\mapsto [\\varphi]$ is well defined, injective and continuous $(\\mathbf X^1)^R \\to \\mathbf X^R$ with range $\\pi(\\mathbf X_1)$. `corollary_7_6_8_2021`: the same with \"(ZHOU) implies LUC for $X^1$\" as a hypothesis; `corollary_7_6_8_2021_of_isZhou`: under (ZHOU) and `SmoothRegular` (V7.86, V7.90). Witnesses: `Examples.pointEpGroupoid` with `Examples.isLUC_liftOne_point`, `Examples.hasConnectedDenseLevelOneReps_point`, `Examples.theorem_7_6_7_2021_point`, `Examples.corollary_7_6_8_2021_of_isZhou_point`.",
+    "decls": [
+     "Chapter7/ReducedCriterion · EpGroupoid.mem_nonEffectivePart_liftOne_of_levelVal",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.levelOneΓ",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.continuousOn_levelOneΓ",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.eventually_of_levelOneΓ_mem",
+     "Chapter7/ReducedCriterion · EpGroupoid.NaturalRep.levelOneΓ_mem_of_eventually",
+     "Chapter7/ReducedCriterion · EpGroupoid.levelVal_mem_nonEffectivePart_of_liftOne",
+     "Chapter7/ReducedCriterion · EpGroupoid.HasConnectedDenseLevelOneReps",
+     "Chapter7/ReducedCriterion · EpGroupoid.nonEffectivePart_liftOne_eq",
+     "Chapter7/ReducedCriterion · EpGroupoid.liftOne_reducedπ_eq_iff",
+     "Chapter7/ReducedCriterion · EpGroupoid.reducedLevelOneMap",
+     "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_6_7_2021",
+     "Chapter7/ReducedCriterion · EpGroupoid.corollary_7_6_8_2021",
+     "Chapter7/Zhou · EpGroupoid.corollary_7_6_8_2021_of_isZhou",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.pointEpGroupoid",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.isLUC_liftOne_point",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.hasConnectedDenseLevelOneReps_point",
+     "Chapter7/ReducedCriterion · EpGroupoid.Examples.theorem_7_6_7_2021_point",
+     "Chapter7/Zhou · EpGroupoid.Examples.corollary_7_6_8_2021_of_isZhou_point"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$i = 1$, as sets, continuous",
+    "added: $U(x) \\cap X_1$ connected, dense",
+    "gap G.82"
+   ],
+   "diff": [
+    "The proof uses that $U(x) \\cap X_1$ is connected in $X^1$ and dense in $U(x)$ (the density of $X_1$ in $X$, gap G.73); both are hypotheses, satisfied by the point ep-groupoid. Of (SLUC) only LUC for $X^1$ is used.",
+    "Not formalized: the sc-diffeomorphism $(X^1)_R \\cong (X_R)^1$, which needs the M-polyfold $(\\mathbf X^R)^1$, and $i \\ge 2$ (gap G.82) (Findings, Chapter 7, item 131)."
+   ]
+  },
+  {
+   "id": "V7.84",
+   "title": "Index lifts $X^i$, Proposition 7.4.2 and Remark 7.4.3",
+   "verdict": "stronger",
+   "book": {
+    "label": "§7.4, Proposition 7.4.2, p. 328, and Remark 7.4.3, p. 329 (new in the 2021 edition), with the lifts $X^i$, p. 329",
+    "page": 328,
+    "statement": "$X^i$ is obtained by raising the index $i$ times. Proposition 7.4.2: under (LUC), if $U(x)$ is a connected invariant neighbourhood with the property of Definition 7.4.1 and $W(x) \\supseteq U(x)$ a larger connected invariant one, then $W(x)$ has the property too. Remark 7.4.3: so the neighbourhoods in (LUC) can be taken arbitrarily small or large."
+   },
+   "lean": {
+    "statement": "`EP.liftOne`, `EP.lift` ($X^0 = X$, $X^{i+1} = (X^i)^1$; `EP.lift_zero`, `EP.lift_succ`, `EP.lift_succ'`: $X^{i+1} = (X^1)^i$). `proposition_7_4_2_2021`: under `X.IsLUC`, for natural representations $R$, $W$ at $x$ with $R.U \\subseteq W.U$ and $R$ LUC (both unused), $W$ is LUC. `remark_7_4_3_2021`: under LUC, every natural representation is LUC, and there is one inside every open $O \\ni x$.",
+    "decls": [
+     "Chapter7/Zhou · EP.liftOne",
+     "Chapter7/Zhou · EP.lift",
+     "Chapter7/Zhou · EP.lift_zero",
+     "Chapter7/Zhou · EP.lift_succ",
+     "Chapter7/Zhou · EP.lift_succ'",
+     "Chapter7/Zhou · EpGroupoid.proposition_7_4_2_2021",
+     "Chapter7/Zhou · EpGroupoid.remark_7_4_3_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "every natural representation"
+   ],
+   "diff": [
+    "The hypotheses on $U(x)$ are not needed: under LUC every natural representation has the property (V7.80) (Findings, Chapter 7, item 132)."
+   ]
+  },
+  {
+   "id": "V7.85",
+   "title": "Lemma 7.4.4: LUC passes down the index lifts",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Lemma 7.4.4, p. 329 (new in the 2021 edition)",
+    "page": 329,
+    "statement": "If $X^i$ has (LUC), then so has $X^k$ for every $k \\le i$. The proof, for $i = 1$, uses that $U(x) \\cap X_1$ is connected in $X^1$, shows that the set of its points near which $\\hat g = \\mathrm{id}$ in $X^1$ is open, closed and nonempty, and concludes by density of $U(x) \\cap X_1$ in $U(x)$."
+   },
+   "lean": {
+    "statement": "`HasLevelOneConnectedDenseReps`: every object has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$. `NaturalRep.eqOn_of_isClosed_liftOne`, `isLUC_of_isLUC_liftOne` ($i = 1$). `lemma_7_4_4_2021`: for `A : EP` and $i$, if `HasLevelOneConnectedDenseReps` holds for every $X^k$, $k < i$, and $X^i$ is LUC, then $X$ and every $X^k$, $k \\le i$, are LUC. Witnesses: `hasLevelOneConnectedDenseReps_of_subsingleton`, `Examples.hasLevelOneConnectedDenseReps_lift_pointEP`, `Examples.lemma_7_4_4_2021_pointEP`.",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.HasLevelOneConnectedDenseReps",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.eqOn_of_isClosed_liftOne",
+     "Chapter7/Zhou · EpGroupoid.isLUC_of_isLUC_liftOne",
+     "Chapter7/Zhou · EpGroupoid.lemma_7_4_4_2021",
+     "Chapter7/Zhou · EpGroupoid.hasLevelOneConnectedDenseReps_of_subsingleton",
+     "Chapter7/Zhou · EpGroupoid.Examples.hasLevelOneConnectedDenseReps_lift_pointEP",
+     "Chapter7/Zhou · EpGroupoid.Examples.lemma_7_4_4_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "added: $U(x) \\cap X_1$ connected, dense",
+    "gap G.85"
+   ],
+   "diff": [
+    "The connectedness of $U(x) \\cap X_1$ in $X^1$ is used without proof, and its density in $U(x)$ is that of $X_1$ in $X$ (gap G.73); both are hypotheses (gap G.85). In the proof, \"$s : W(g) \\to W(y)$\" for $W(h)$ (possible misprint) (Findings, Chapter 7, item 133)."
+   ]
+  },
+  {
+   "id": "V7.86",
+   "title": "The Part I facts used in §7.4",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, the proofs of Lemma 7.4.6, Propositions 7.4.8, 7.4.10, 7.4.22 and Lemma 7.4.15, pp. 331–340 (new in the 2021 edition)",
+    "page": 331,
+    "statement": "The proofs use, without stating them, facts about an M-polyfold $X$: $X_\\infty$ is dense in every $X_m$ (stated on p. 289); $U(x) \\cap X_\\infty$ is connected for a connected open $U(x)$; tangent vectors at a point are approximated by tangent vectors at nearby smooth points; sc-smooth maps that agree near a smooth point in $X_\\infty$ have the same tangent there; $(T_xX)_\\infty$ is dense in $T_xX$."
+   },
+   "lean": {
+    "statement": "Hypotheses on the object M-polyfold: `MPolyfold.DenseSmooth`, `MPolyfold.SmoothConnected`, `MPolyfold.DenseSmoothTangent`, `MPolyfold.TangentDeterminedSmooth` (with `TangentDeterminedSmooth.eq_self`); `MPolyfold.SmoothRegular` bundles `DenseSmooth`, `SmoothConnected`, the openness of $p : TX \\to X^1$ and `TangentDeterminedSmooth`. Consequences: `DenseSmooth.dense`, `DenseSmooth.subset_closure_inter`, `DenseSmooth.exists_smooth`, `eqOn_tangentFiber_of_mem_closure` (the approximation of tangent vectors, from the openness of $p$). Witnesses: `smoothRegular_of_subsingleton`, `smoothRegular_discrete_unit`, `denseSmoothTangent_discrete_unit`.",
+    "decls": [
+     "Chapter7/Zhou · MPolyfold.DenseSmooth",
+     "Chapter7/Zhou · MPolyfold.SmoothConnected",
+     "Chapter7/Zhou · MPolyfold.DenseSmoothTangent",
+     "Chapter7/Zhou · MPolyfold.TangentDeterminedSmooth",
+     "Chapter7/Zhou · MPolyfold.TangentDeterminedSmooth.eq_self",
+     "Chapter7/Zhou · MPolyfold.DenseSmooth.dense",
+     "Chapter7/Zhou · MPolyfold.DenseSmooth.subset_closure_inter",
+     "Chapter7/Zhou · MPolyfold.DenseSmooth.exists_smooth",
+     "Chapter7/Zhou · MPolyfold.eqOn_tangentFiber_of_mem_closure",
+     "Chapter7/Zhou · MPolyfold.SmoothRegular",
+     "Chapter7/Zhou · MPolyfold.smoothRegular_of_subsingleton",
+     "Chapter7/Zhou · MPolyfold.smoothRegular_discrete_unit",
+     "Chapter7/Zhou · MPolyfold.denseSmoothTangent_discrete_unit"
+    ]
+   },
+   "chips": [
+    "Part I facts as explicit hypotheses",
+    "satisfiable",
+    "gaps G.85, G.73, G.8"
+   ],
+   "diff": [
+    "Part I does not prove these facts for M-polyfolds; they are explicit hypotheses of the §7.4 results that use them, satisfiable (on a point) (gap G.85, with G.73 and G.8) (Findings, Chapter 7, item 134)."
+   ]
+  },
+  {
+   "id": "V7.87",
+   "title": "The tangent $Tg$ of an isotropy element",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.4, p. 331 (new in the 2021 edition), \"the linearization $Tg$\", and Proposition 8.1.16's $Tg = T\\hat g(x)$",
+    "page": 331,
+    "statement": "For a smooth object $x$ and $g \\in G_x$, the linearization $Tg : T_xX \\to T_xX$ is the tangent of the local sc-diffeomorphism $\\hat g$ at $x$."
+   },
+   "lean": {
+    "statement": "`NaturalRep.tangentMor_Γ`: Chapter 7's `tangentMor` (Definition 7.1.4, $Tt \\circ (Ts|T_\\varphi\\mathbf X)^{-1}$, without charts) of $\\Gamma(g, y)$ is $T\\Phi(g)$ on $T_yX$; `NaturalRep.tangentMor_eq_tΦ`: $Tg = T\\Phi(g)$ on $T_xX$; `NaturalRep.tΦ_eq_tΦ`: the same for all natural representations; `NaturalRep.tangentMor_isoΓ` at fixed points. `NaturalRep.isoΓ` ($\\Gamma(g, z) \\in G_z$ for a fixed point $z$, `isoΓ_val`), `NaturalRep.isoΓ_mem_trivialSubgroup_iff` (it lies in $T_z$ iff $\\Phi(g) = \\mathrm{id}$ near $z$), `NaturalRep.eventually_Φ_eq_Γ` (it acts near $z$ as $g$).",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.eventually_Φ_eq_Γ",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.isoΓ",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.isoΓ_val",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.isoΓ_mem_trivialSubgroup_iff",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.tangentMor_Γ",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.tangentMor_eq_tΦ",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.tΦ_eq_tΦ",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.tangentMor_isoΓ"
+    ]
+   },
+   "chips": [
+    "a set map on $T_xX$; no linearity used"
+   ],
+   "diff": [
+    "$Tg$ is a set map on the fibre $T_xX$; (ZHOU) only asks that it be the identity, so the linear structure of $T_xX$ (gap G.7) is not needed (Findings, Chapter 7, item 135)."
+   ]
+  },
+  {
+   "id": "V7.88",
+   "title": "Definitions 7.4.5 and 7.4.7: (ZHOU), $T_x^\\infty$ and (ZHOU')",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.4, Definition 7.4.5, p. 331 (new in the 2021 edition), with $T_x^\\infty$ and Definition 7.4.7, p. 331",
+    "page": 331,
+    "statement": "(ZHOU): for every smooth object $x$ and $g \\in G_x$, if $Tg : T_xX \\to T_xX$ is the identity then $g \\in T_x$. $T_x^\\infty \\supseteq T_x$ consists of the $g$ acting trivially near $x$ in $X_\\infty$. (ZHOU'): if $Tg$ is the identity on $(T_xX)_\\infty$ then $g \\in T_x^\\infty$."
+   },
+   "lean": {
+    "statement": "`IsZhou`: for every smooth $y$ and $g \\in G_y$, `tangentMor g` $= \\mathrm{id}$ on `tangentFiber` implies $g \\in$ `trivialSubgroup`. `trivialSetInf`, `trivialSubgroupInf` ($T_x^\\infty$; `mem_trivialSetInf_iff`, `mem_trivialSubgroupInf_iff`: testable in any natural representation), `trivialSubgroup_le_trivialSubgroupInf`. `IsZhou'`: the same with the smooth tangent vectors and $T_x^\\infty$. Witnesses: `isZhou_of_trivialSubgroup_eq_top`, `isZhou'_of_trivialSubgroup_eq_top`, `isZhou_of_subsingleton`, `isZhou'_of_subsingleton`, `isZhou_trivial`, `isZhou'_trivial`, `Examples.isZhou_trivialZ3`, `Examples.isZhou'_trivialZ3`.",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.IsZhou",
+     "Chapter7/Zhou · EpGroupoid.trivialSetInf",
+     "Chapter7/Zhou · EpGroupoid.mem_trivialSetInf_iff",
+     "Chapter7/Zhou · EpGroupoid.trivialSubgroupInf",
+     "Chapter7/Zhou · EpGroupoid.mem_trivialSubgroupInf_iff",
+     "Chapter7/Zhou · EpGroupoid.trivialSubgroup_le_trivialSubgroupInf",
+     "Chapter7/Zhou · EpGroupoid.IsZhou'",
+     "Chapter7/Zhou · EpGroupoid.isZhou_of_trivialSubgroup_eq_top",
+     "Chapter7/Zhou · EpGroupoid.isZhou'_of_trivialSubgroup_eq_top",
+     "Chapter7/Zhou · EpGroupoid.isZhou_of_subsingleton",
+     "Chapter7/Zhou · EpGroupoid.isZhou'_of_subsingleton",
+     "Chapter7/Zhou · EpGroupoid.isZhou_trivial",
+     "Chapter7/Zhou · EpGroupoid.isZhou'_trivial",
+     "Chapter7/Zhou · EpGroupoid.Examples.isZhou_trivialZ3",
+     "Chapter7/Zhou · EpGroupoid.Examples.isZhou'_trivialZ3"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$Tg$ as in V7.87",
+    "satisfiable, also with $T_x \\ne 1$"
+   ],
+   "diff": [
+    "$Tg$ is `tangentMor g` on the fibre (V7.87). Both conditions hold when every $T_x = G_x$, e.g. for the trivial $\\mathbb Z/3$-action (Findings, Chapter 7, items 135, 144)."
+   ]
+  },
+  {
+   "id": "V7.89",
+   "title": "Lemma 7.4.6 and Proposition 7.4.8: (ZHOU) iff (ZHOU')",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Lemma 7.4.6, p. 331, and Proposition 7.4.8, p. 332 (new in the 2021 edition)",
+    "page": 332,
+    "statement": "Lemma 7.4.6: under (ZHOU), if $Tg$ is the identity on $(T_xX)_\\infty$, then $g \\in T_x^\\infty$, i.e. (ZHOU) implies (ZHOU'). Proposition 7.4.8: (ZHOU) and (ZHOU') are equivalent; the proof shows that the smooth points near which $\\hat g$ acts trivially form an open and closed subset of $U(x) \\cap X_\\infty$, using sequences."
+   },
+   "lean": {
+    "statement": "`lemma_7_4_6_2021`: `IsZhou` and `DenseSmoothTangent` give `IsZhou'`. `isZhou_of_isZhou'`: `SmoothRegular` and `IsZhou'` give `IsZhou`. `proposition_7_4_8_2021`: with `SmoothRegular` and `DenseSmoothTangent`, `IsZhou ↔ IsZhou'`. Steps: `NaturalRep.mem_tangentU_of_fiber`, `NaturalRep.tΦ_eq_self_of_eqOn`, `NaturalRep.fix_and_tangent_of_mem_closure` (the closure step), `NaturalRep.eq_self_of_smooth_clopen` and `NaturalRep.eq_self_of_smooth_tangent` (unique continuation through the connected $U(x)_\\infty$), `eq_of_mem_closure_of_continuousAt`. Witness: `Examples.proposition_7_4_8_2021_point`.",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.lemma_7_4_6_2021",
+     "Chapter7/Zhou · EpGroupoid.isZhou_of_isZhou'",
+     "Chapter7/Zhou · EpGroupoid.proposition_7_4_8_2021",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.mem_tangentU_of_fiber",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.tΦ_eq_self_of_eqOn",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.fix_and_tangent_of_mem_closure",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.eq_self_of_smooth_clopen",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.eq_self_of_smooth_tangent",
+     "Chapter7/Zhou · eq_of_mem_closure_of_continuousAt",
+     "Chapter7/Zhou · EpGroupoid.Examples.proposition_7_4_8_2021_point"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "added: Part I facts (V7.86)",
+    "proof: a clopen set in $U(x)_\\infty$"
+   ],
+   "diff": [
+    "The Part I facts of V7.86 are hypotheses (gap G.85). The clopen argument in the connected $U(x)_\\infty$ replaces the sequences; \"$z_k \\to Y$\" for $z_k \\to y$ in the proof (possible misprint) (Findings, Chapter 7, item 136)."
+   ]
+  },
+  {
+   "id": "V7.90",
+   "title": "Proposition 7.4.10 and Corollary 7.4.11: (ZHOU) implies (LUC)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.4, Proposition 7.4.10, p. 333, and Corollary 7.4.11, p. 334 (new in the 2021 edition)",
+    "page": 333,
+    "statement": "Proposition 7.4.10: (ZHOU) implies (LUC); the set of smooth points near which $\\hat g$ is the identity is open and closed in the connected $U(x)_\\infty$, closedness by approximating tangent vectors. Corollary 7.4.11 (with Proposition 7.4.9): under (ZHOU) every $X^i$ has (LUC)."
+   },
+   "lean": {
+    "statement": "`proposition_7_4_10_2021`: `SmoothRegular` and `IsZhou` give `IsLUC`. `IsSmoothUC` (unique continuation through $X_\\infty$), `isSmoothUC_of_isZhou`, `isLUC_of_isSmoothUC`, `isLUC_liftOne_of_isSmoothUC`. `corollary_7_4_11_2021`: LUC for $X$ and $X^1$. `corollary_7_4_11_2021_lift`: if every $X^i$ satisfies `IsZhou` and `SmoothRegular`, every $X^i$ is LUC.",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.proposition_7_4_10_2021",
+     "Chapter7/Zhou · EpGroupoid.IsSmoothUC",
+     "Chapter7/Zhou · EpGroupoid.isSmoothUC_of_isZhou",
+     "Chapter7/Zhou · EpGroupoid.isLUC_of_isSmoothUC",
+     "Chapter7/Zhou · EpGroupoid.isLUC_liftOne_of_isSmoothUC",
+     "Chapter7/Zhou · EpGroupoid.corollary_7_4_11_2021",
+     "Chapter7/Zhou · EpGroupoid.corollary_7_4_11_2021_lift"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "Cor. 7.4.11: $X$, $X^1$; $X^i$ by hypothesis",
+    "gaps G.84, G.85"
+   ],
+   "diff": [
+    "The Part I facts of V7.86 are hypotheses (gap G.85). Corollary 7.4.11 is proved for $X$ and $X^1$; for every $X^i$ it takes (ZHOU) for every $X^i$, the conclusion of Proposition 7.4.9, as a hypothesis (gap G.84) (Findings, Chapter 7, items 136, 137)."
+   ]
+  },
+  {
+   "id": "V7.91",
+   "title": "Definition 7.4.12 and Theorem 7.4.13: (ZHOU) implies (SLUC)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.4, Definition 7.4.12 and Theorem 7.4.13, p. 334 (new in the 2021 edition)",
+    "page": 334,
+    "statement": "(SLUC), the strong local unique continuation property: every $X^i$ has (LUC). Theorem 7.4.13: (ZHOU) implies (SLUC)."
+   },
+   "lean": {
+    "statement": "`EP.IsSLUC`: `(A.lift i).X.IsLUC` for all $i$. `theorem_7_4_13_2021`: if `IsZhou` and `SmoothRegular` hold for every $X^i$, then `A.IsSLUC`. Witnesses: `Examples.pointEP`, `Examples.lift_pointEP`, `Examples.smoothRegular_lift_pointEP`, `Examples.isZhou_lift_pointEP`, `Examples.isSLUC_pointEP`, `Examples.theorem_7_4_13_2021_pointEP`.",
+    "decls": [
+     "Chapter7/Zhou · EP.IsSLUC",
+     "Chapter7/Zhou · EpGroupoid.theorem_7_4_13_2021",
+     "Chapter7/Zhou · EpGroupoid.Examples.pointEP",
+     "Chapter7/Zhou · EpGroupoid.Examples.lift_pointEP",
+     "Chapter7/Zhou · EpGroupoid.Examples.smoothRegular_lift_pointEP",
+     "Chapter7/Zhou · EpGroupoid.Examples.isZhou_lift_pointEP",
+     "Chapter7/Zhou · EpGroupoid.Examples.isSLUC_pointEP",
+     "Chapter7/Zhou · EpGroupoid.Examples.theorem_7_4_13_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(ZHOU) for every $X^i$ assumed",
+    "gap G.84"
+   ],
+   "diff": [
+    "(ZHOU) for every $X^i$, which Proposition 7.4.9 derives from (ZHOU) for $X$, is a hypothesis: Proposition 7.4.9 needs the identification of $(X^i)_\\infty$ with $X_\\infty$ and of the tangent spaces (gaps G.6, G.7), not formalized (gap G.84) (Findings, Chapter 7, item 137)."
+   ]
+  },
+  {
+   "id": "V7.92",
+   "title": "Definition 7.4.14, Lemma 7.4.15, Propositions 7.4.16–7.4.18: (VSLUC)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.4, Definition 7.4.14 and Lemma 7.4.15, p. 335, Propositions 7.4.16, 7.4.17 and 7.4.18, p. 336 (new in the 2021 edition)",
+    "page": 335,
+    "statement": "(VSLUC): for every smooth $x$ there are $U(x)$ and a $G_x$-invariant open $V(x) \\ni x$ of $X_\\infty$ such that $\\hat g = \\mathrm{id}$ on a nonempty open subset of $V(x)$ forces $\\hat g = \\mathrm{id}$ on $V(x)$. Lemma 7.4.15: (VSLUC) implies (LUC). Proposition 7.4.16: (VSLUC) for $X$ gives (VSLUC) for every $X^i$. Proposition 7.4.17: (VSLUC) implies (SLUC). Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent."
+   },
+   "lean": {
+    "statement": "`IsVSLUC`. `isSmoothUC_of_isVSLUC` (with `DenseSmooth`, `SmoothConnected`), `isVSLUC_of_isSmoothUC`. `lemma_7_4_15_2021`: `DenseSmooth`, `SmoothConnected` and `IsVSLUC` give `IsLUC`. `proposition_7_4_16_2021`: they give LUC for $X$ and $X^1$. `proposition_7_4_17_2021`: (VSLUC), `DenseSmooth`, `SmoothConnected` for every $X^i$ give `A.IsSLUC`. `isVSLUC_of_isZhou`. Witnesses: `isSmoothUC_of_subsingleton`, `isVSLUC_of_subsingleton`, `isLUC_of_subsingleton_mor`, `isVSLUC_trivial`, `isSmoothUC_trivial`.",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.IsVSLUC",
+     "Chapter7/Zhou · EpGroupoid.isSmoothUC_of_isVSLUC",
+     "Chapter7/Zhou · EpGroupoid.isVSLUC_of_isSmoothUC",
+     "Chapter7/Zhou · EpGroupoid.lemma_7_4_15_2021",
+     "Chapter7/Zhou · EpGroupoid.proposition_7_4_16_2021",
+     "Chapter7/Zhou · EpGroupoid.proposition_7_4_17_2021",
+     "Chapter7/Zhou · EpGroupoid.isVSLUC_of_isZhou",
+     "Chapter7/Zhou · EpGroupoid.isSmoothUC_of_subsingleton",
+     "Chapter7/Zhou · EpGroupoid.isVSLUC_of_subsingleton",
+     "Chapter7/Zhou · EpGroupoid.isLUC_of_subsingleton_mor",
+     "Chapter7/Zhou · EpGroupoid.isVSLUC_trivial",
+     "Chapter7/Zhou · EpGroupoid.isSmoothUC_trivial"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "7.4.16 for $X^1$; 7.4.18 not formalized",
+    "gaps G.84, G.85"
+   ],
+   "diff": [
+    "$V(x)$ is read open in $X_\\infty$, inside a natural representation and invariant. Proposition 7.4.16 is proved for $X^1$ (LUC for $X$ and $X^1$); Proposition 7.4.17 takes (VSLUC) for every $X^i$; Proposition 7.4.18, (SLUC) implies (VSLUC), is not formalized: it needs natural representations of $X^N$ in terms of those of $X$ (gap G.84). The Part I facts are hypotheses (gap G.85) (Findings, Chapter 7, items 136, 137)."
+   ]
+  },
+  {
+   "id": "V7.93",
+   "title": "Definitions 7.4.19, 7.4.21 and Lemma 7.4.20: (LR) and (LR')",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.4, Definition 7.4.19 and Lemma 7.4.20, p. 337, Definition 7.4.21, p. 338 (new in the 2021 edition)",
+    "page": 337,
+    "statement": "(LR): every $x$ has arbitrarily small $U(x)$ such that every sc-diffeomorphism $\\beta : U(x) \\to U(x)$ with $|\\beta(y)| = |y|$ is $\\hat g$ for some $g \\in G_x$. Lemma 7.4.20: an sc-diffeomorphism $\\beta$ of $U(x)$ onto an open set with $\\beta(x) = x$ and $|\\beta(y)| = |y|$ maps $U(x)$ onto $U(x)$. (LR'): (LR) for such $\\beta$; (LR) and (LR') are equivalent."
+   },
+   "lean": {
+    "statement": "`IsLR`: for every open $O \\ni x$ a natural representation $U(x) \\subseteq O$ such that every sc-diffeomorphism $\\beta$ of $U(x)$ onto $U(x)$ with $\\pi(\\beta(y)) = \\pi(y)$ equals some $\\Phi(g)$ on $U(x)$. `IsLR'`: the same for $\\beta$ onto $\\beta(U(x))$ with $\\beta(x) = x$. `NaturalRep.exists_Φ_eq_of_π_eq`, `NaturalRep.eq_self_of_π_eq`. `lemma_7_4_20_2021`: $\\beta(U(x)) = U(x)$ and $\\beta$ is an sc-diffeomorphism of $U(x)$. `isLR_iff_isLR'`.",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.IsLR",
+     "Chapter7/Zhou · EpGroupoid.IsLR'",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.exists_Φ_eq_of_π_eq",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.eq_self_of_π_eq",
+     "Chapter7/Zhou · EpGroupoid.lemma_7_4_20_2021",
+     "Chapter7/Zhou · EpGroupoid.isLR_iff_isLR'"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "\"arbitrarily small\": inside every $O \\ni x$"
+   ],
+   "diff": [
+    "Lemma 7.4.20 is proved by the finite closed cover $U(x) = \\bigcup_g \\{\\beta = \\hat g\\}$ and connectedness instead of paths (Findings, Chapter 7, item 138)."
+   ]
+  },
+  {
+   "id": "V7.94",
+   "title": "Proposition 7.4.22, Definition 7.4.23 and Theorem 7.4.24: (ZHOU) implies (LR) and (SLR)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.4, Proposition 7.4.22, p. 338, Definition 7.4.23, p. 339, Theorem 7.4.24, p. 340 (new in the 2021 edition)",
+    "page": 338,
+    "statement": "Proposition 7.4.22: (ZHOU) implies (LR). Definition 7.4.23: (SLR), every $X^i$ has (LR). Theorem 7.4.24: (ZHOU) implies (SLR)."
+   },
+   "lean": {
+    "statement": "`NaturalRep.eqOn_Φ_of_tangent`: under `IsZhou` and LUC for the representation, $\\Phi(g)$ and $\\Phi(g')$ agreeing with their tangents at a smooth point agree on $U(x)$. `NaturalRep.exists_eq_Φ_of_isZhou`, `proposition_7_4_22_2021`: `SmoothRegular` and `IsZhou` give `IsLR`. `EP.IsSLR`; `theorem_7_4_24_2021`: `IsZhou` and `SmoothRegular` for every $X^i$ give `A.IsSLR`. Witness: `Examples.isSLR_pointEP`.",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.eqOn_Φ_of_tangent",
+     "Chapter7/Zhou · EpGroupoid.NaturalRep.exists_eq_Φ_of_isZhou",
+     "Chapter7/Zhou · EpGroupoid.proposition_7_4_22_2021",
+     "Chapter7/Zhou · EP.IsSLR",
+     "Chapter7/Zhou · EpGroupoid.theorem_7_4_24_2021",
+     "Chapter7/Zhou · EpGroupoid.Examples.isSLR_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(ZHOU) for every $X^i$ assumed",
+    "proof without reduction, density"
+   ],
+   "diff": [
+    "Theorem 7.4.24 takes (ZHOU) for every $X^i$ as a hypothesis (gap G.84); the Part I facts are hypotheses (gap G.85). Proposition 7.4.22 is proved without passing to the reduced ep-groupoid and without the density of the regular points: on the open dense union of the $X_\\infty$-interiors of the sets $\\{\\beta = \\hat g\\}$, pieces whose closures meet have equal tangents at a common smooth point (Findings, Chapter 7, item 138)."
+   ]
+  },
+  {
+   "id": "V7.95",
+   "title": "The example of Appendix 7.6.3 fails (ZHOU)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.4, p. 331 (new in the 2021 edition): the example of Appendix 7.6.3 and the Zhou condition",
+    "page": 331,
+    "statement": "Subsection 7.6.3 provides an example of an ep-groupoid not satisfying the Zhou condition."
+   },
+   "lean": {
+    "statement": "`JumpingRetract.not_isZhou`: if the object M-polyfold of `JumpingRetract.X` satisfies `SmoothRegular`, then `JumpingRetract.X` does not satisfy `IsZhou` (it is not LUC, V7.82, and (ZHOU) implies LUC, V7.90).",
+    "decls": [
+     "Chapter7/Zhou · EpGroupoid.Examples.JumpingRetract.not_isZhou"
+    ]
+   },
+   "chips": [
+    "for the analogue of V7.82",
+    "given the Part I facts",
+    "gap G.83"
+   ],
+   "diff": [
+    "For our analogue of Zhou's example, and conditional on the Part I facts of V7.86 for its object M-polyfold (gap G.83) (Findings, Chapter 7, item 139)."
+   ]
+  },
+  {
+   "id": "V7.96",
+   "title": "Transport of the tame boundary along index-preserving local homeomorphisms",
+   "verdict": "extra",
+   "book": {
+    "label": "§7.6, Appendix 7.6.5.2, pp. 353–355 (new in the 2021 edition): the maps on $bX$ induced through sheets",
+    "page": 354,
+    "statement": "With a sheet $\\mathbf V$ on which $s : \\mathbf V \\to V$ is an sc-diffeomorphism, a class $[\\varphi, \\mathbf V, \\theta]$ of $b\\mathbf X$ is carried to the class $[s(\\varphi), s(\\mathbf V), s(\\theta)]$ of $bX$; in the charts $\\Phi$ the map becomes the sc-diffeomorphism $s : \\theta \\to s(\\theta)$."
+   },
+   "lean": {
+    "statement": "`TameBoundary.IsDHomeoOn d d' f W`: $f$ maps the open $W$ homeomorphically onto an open set and preserves the index; `IsDLocalHomeo`; `isDHomeoOn_id`. Its action on faces, face-structured neighbourhoods, the morphisms of $L_X$ and $F_X$ (`IsDHomeoOn.isFaceIn_image`, `IsDHomeoOn.mem_faceStructuredNbhdsAt_image`, `IsDHomeoOn.isMor_image`, `IsDHomeoOn.image_faceExt`), on triples (`BTriple.map`, `map_cls_eq`: the class does not depend on $W$); `IsLiftOf` (`IsLiftOf.unique`, `IsLiftOf.comp`, `isLiftOf_id`); `bLift f`, $[y, V, \\theta] \\mapsto [f(y), f(V), f(\\theta)]$ (`bLift_cls`), continuous, open, a local homeomorphism (`continuous_bLift`, `isOpenMap_bLift`, `isLocalHomeomorph_bLift`); `isCompact_preimage_bMap`; `exists_rep_centered`. `MPolyfold.IsScDiffeoOn.isDHomeoOn`, `MPolyfold.IsLocalScDiffeo.isDLocalHomeo`: sc-diffeomorphisms preserve the degeneracy index.",
+    "decls": [
+     "Chapter7/TameBoundaryEp · TameBoundary.IsDHomeoOn",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsDLocalHomeo",
+     "Chapter7/TameBoundaryEp · TameBoundary.isDHomeoOn_id",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsDHomeoOn.isFaceIn_image",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsDHomeoOn.mem_faceStructuredNbhdsAt_image",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsDHomeoOn.isMor_image",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsDHomeoOn.image_faceExt",
+     "Chapter7/TameBoundaryEp · TameBoundary.BTriple.map",
+     "Chapter7/TameBoundaryEp · TameBoundary.map_cls_eq",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsLiftOf",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsLiftOf.unique",
+     "Chapter7/TameBoundaryEp · TameBoundary.IsLiftOf.comp",
+     "Chapter7/TameBoundaryEp · TameBoundary.isLiftOf_id",
+     "Chapter7/TameBoundaryEp · TameBoundary.bLift",
+     "Chapter7/TameBoundaryEp · TameBoundary.bLift_cls",
+     "Chapter7/TameBoundaryEp · TameBoundary.continuous_bLift",
+     "Chapter7/TameBoundaryEp · TameBoundary.isOpenMap_bLift",
+     "Chapter7/TameBoundaryEp · TameBoundary.isLocalHomeomorph_bLift",
+     "Chapter7/TameBoundaryEp · TameBoundary.isCompact_preimage_bMap",
+     "Chapter7/TameBoundaryEp · TameBoundary.exists_rep_centered",
+     "Chapter7/TameBoundaryEp · MPolyfold.IsScDiffeoOn.isDHomeoOn",
+     "Chapter7/TameBoundaryEp · MPolyfold.IsLocalScDiffeo.isDLocalHomeo"
+    ]
+   },
+   "chips": [
+    "a tool for (7.25)–(7.29)",
+    "generic over any corner index"
+   ],
+   "diff": [
+    "The sc-diffeomorphisms of sheets that define (7.25)–(7.28) enter through their topological content, an index-preserving homeomorphism between open sets (Findings, Chapter 7, item 140)."
+   ]
+  },
+  {
+   "id": "V7.97",
+   "title": "(7.25)–(7.29): the boundary groupoid $(bX, b\\mathbf X)$",
+   "verdict": "restated",
+   "book": {
+    "label": "§7.6, Appendix 7.6.5.2, (7.25)–(7.29), pp. 354–355 (new in the 2021 edition)",
+    "page": 354,
+    "statement": "For a tame ep-groupoid $\\mathbf X$ is tame, and the tame boundary gives $B : bX \\to X$ and $B : b\\mathbf X \\to \\mathbf X$. (7.25) $s([\\varphi, \\mathbf V, \\theta]) = [x, V, s(\\theta)]$ for $\\mathbf V$ so small that $s : \\mathbf V \\to V$ is an sc-diffeomorphism onto a suitable neighbourhood $V$ of $x = s(\\varphi)$; similarly $t$. (7.26) a class is a morphism from its source to its target. (7.27) $\\iota([\\varphi, \\mathbf V, \\theta]) = [\\varphi^{-1}, \\mathbf V^{-1}, \\theta^{-1}]$. (7.28) $u([x, V, \\theta]) = [1_x, \\mathbf V, \\bar\\theta]$. (7.29) $m([\\psi, \\mathbf W, \\sigma], [\\varphi, \\mathbf V, \\theta]) = [\\psi \\circ \\varphi, \\mathbf W\\,{}_s{\\circ}_t\\,\\mathbf V, \\sigma\\,{}_s{\\circ}_t\\,\\theta]$."
+   },
+   "lean": {
+    "statement": "`isTame_PMor`; `bObj`, `bMor` (with `cornerObj`, `cornerMor`); `bSrc`, `bTgt`, `bInv`, `bUnit` are `bLift` of $s$, $t$, $\\iota$, $u$ (`isDLocalHomeo_src`, `isDLocalHomeo_tgt`, `isScDiffeoOn_inv`, `isDLocalHomeo_inv`, `isDHomeoOn_unit`, `isDLocalHomeo_unit`), with the printed formulas `bSrc_cls`, `bTgt_cls`, `bInv_cls`, `bUnit_cls`. `bComp` (`exists_bComp`, `bComp_spec`): the unique class over $\\psi \\circ \\varphi$ with source $s(b)$ (`eq_of_bMap_eq_of_bSrc_eq`); `eventuallyEq_comp_sheet`, `bComp_eq`: the printed class. `boundaryGroupoid`: the groupoid laws; `boundaryFunctor`: $B$ is a functor.",
+    "decls": [
+     "Chapter7/TameBoundaryEp · EpGroupoid.isTame_PMor",
+     "Chapter7/TameBoundaryEp · EpGroupoid.cornerObj",
+     "Chapter7/TameBoundaryEp · EpGroupoid.cornerMor",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bObj",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bMor",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isDLocalHomeo_src",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isDLocalHomeo_tgt",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isScDiffeoOn_inv",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isDLocalHomeo_inv",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isDHomeoOn_unit",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isDLocalHomeo_unit",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bSrc",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bTgt",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bInv",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bUnit",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bSrc_cls",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bTgt_cls",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bInv_cls",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bUnit_cls",
+     "Chapter7/TameBoundaryEp · EpGroupoid.eq_of_bMap_eq_of_bSrc_eq",
+     "Chapter7/TameBoundaryEp · EpGroupoid.exists_bComp",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bComp",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bComp_spec",
+     "Chapter7/TameBoundaryEp · EpGroupoid.eventuallyEq_comp_sheet",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bComp_eq",
+     "Chapter7/TameBoundaryEp · EpGroupoid.boundaryGroupoid",
+     "Chapter7/TameBoundaryEp · EpGroupoid.boundaryFunctor"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "sc-diffeomorphisms used topologically",
+    "$m$: the class over $\\psi\\circ\\varphi$"
+   ],
+   "diff": [
+    "Well defined by `map_cls_eq` (V7.96). (7.28) is read through $u$, an index-preserving homeomorphism onto the open set $u(X)$; (7.29) through the source and the image under $B$, which determine a class. Off the composable pairs $m$ takes a junk value (Findings, Chapter 7, item 140)."
+   ]
+  },
+  {
+   "id": "V7.98",
+   "title": "Theorem 7.6.9: the boundary of a tame ep-groupoid, topological part",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.6, Theorem 7.6.9, p. 355 (new in the 2021 edition), and the characterization after it",
+    "page": 355,
+    "statement": "For a tame ep-groupoid: (1) $bX$ and $b\\mathbf X$ have natural metrizable topologies; (2) natural tame M-polyfold structures; (3) both maps $B$ are sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$, and likewise on $b\\mathbf X$; (5) $(bX, b\\mathbf X)$ with $s, t, u, \\iota, m$ is a tame ep-groupoid. The topology and the M-polyfold structure are characterized by: every $U(x, V, \\theta)$ is open and every $\\Phi_{(x, V, \\theta)} : U(x, V, \\theta) \\to \\theta$ is a homeomorphism and an sc-diffeomorphism."
+   },
+   "lean": {
+    "statement": "`theorem_7_6_9_2021` (for `X.IsTame`): $bX$, $b\\mathbf X$ metrizable (`metrizableSpace_bObj`, `metrizableSpace_bMor`); every `uSet` open and every `phi` an open embedding, and these determine the topologies; both `bMap` continuous; the fibre of `bMap` over a point of index $d$ has $d$ elements, on objects and morphisms; `bSrc`, `bTgt` local homeomorphisms (`isLocalHomeomorph_bSrc`, `isLocalHomeomorph_bTgt`), `bUnit`, `bInv` continuous (`continuous_bSrc`, `continuous_bTgt`, `continuous_bInv`, `continuous_bUnit`), `bComp` continuous on the composable pairs (`continuousOn_bComp`), the properness property (`exists_isProperMap_bTgt`), and a functor with object and morphism maps the two `bMap`. Witnesses: `bSrc_trivial`, `trivial_quadrant_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, $bX$, $b\\mathbf X$ nonempty, $n$ classes over the corner).",
+    "decls": [
+     "Chapter7/TameBoundaryEp · EpGroupoid.metrizableSpace_bObj",
+     "Chapter7/TameBoundaryEp · EpGroupoid.metrizableSpace_bMor",
+     "Chapter7/TameBoundaryEp · EpGroupoid.continuous_bSrc",
+     "Chapter7/TameBoundaryEp · EpGroupoid.continuous_bTgt",
+     "Chapter7/TameBoundaryEp · EpGroupoid.continuous_bInv",
+     "Chapter7/TameBoundaryEp · EpGroupoid.continuous_bUnit",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isLocalHomeomorph_bSrc",
+     "Chapter7/TameBoundaryEp · EpGroupoid.isLocalHomeomorph_bTgt",
+     "Chapter7/TameBoundaryEp · EpGroupoid.continuousOn_bComp",
+     "Chapter7/TameBoundaryEp · EpGroupoid.exists_isProperMap_bTgt",
+     "Chapter7/TameBoundaryEp · EpGroupoid.theorem_7_6_9_2021",
+     "Chapter7/TameBoundaryEp · EpGroupoid.bSrc_trivial",
+     "Chapter7/TameBoundaryEp · EpGroupoid.trivial_quadrant_witness"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "topological part only",
+    "sc-smooth parts: reported separately",
+    "$\\Phi$ onto $\\theta$ only for centred $V$"
+   ],
+   "diff": [
+    "Not covered by this row: (2), the sc-smoothness in (3), the index $d_{bX}$ in (4) beyond the fibre count, the sc-smoothness and tameness in (5). They depend on 2021 Theorem 2.7.13 (2), the M-polyfold structure of $bX$, and are formalized separately (`Chapter7/TameBoundaryEpStructure.lean`), reported separately; no ep-groupoid structure on $(bX, b\\mathbf X)$ is built in `Chapter7/TameBoundaryEp.lean`.",
+    "\"$\\Phi$ is a homeomorphism onto $\\theta$\" holds as we read it only for $V$ centred at $x$, as for (2.44) in Chapter 2; in general $\\Phi$ is an open embedding, the form used in the characterization (Findings, Chapter 7, items 140, 141)."
+   ]
   }
  ],
  "notFormalized": [
@@ -1924,14 +2873,22 @@
    "title": "Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14): $\\mathbf X^R$ Hausdorff and paracompact",
    "label": "§7.2, Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017), pp. 313–324 (2017 pp. 242–244)",
    "page": 242,
-   "book": "Proposition 7.2.10 (2017: 7.9): the reduced morphism set $\\mathbf X^R$ has a natural M-polyfold structure. Proposition 7.10 (2017): every ep-groupoid $X$ possesses an associated reduced ep-groupoid $X_R$, and $X_R$ is effective. Since an M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.3.4 (2017: 2.8)), these assert in particular that $\\mathbf X^R$, with the quotient topology, is Hausdorff and paracompact, for every ep-groupoid $X$.",
-   "instead": "**Not formalized** for a general ep-groupoid: as we read it, the proof of Proposition 7.2.10 (2017: 7.9) gives neither property, and both are hypotheses (`[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]`) of `reducedPolyfold` and so of Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017) (V7.39, V7.40). They are discharged for effective $X$, and so for the trivial ep-groupoid of every M-polyfold, and paracompactness follows from regularity when $\\mathbf X$ is second countable. Hausdorffness fails in general: for $\\mathbb Z/2$ acting on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3), $\\mathbf X^R$ is not Hausdorff (`Examples.exists_not_t2Space_reducedMor`, formalized after the round-trip audit). Not formalized: whether $\\mathbf X^R$ is paracompact when it is Hausdorff, and whether Hausdorffness with $\\mathbf X$ second countable suffices for paracompactness (Findings, Chapter 7, items 56, 60, 107, 111).",
+   "book": "Proposition 7.2.10 (2017: 7.9): the reduced morphism set $\\mathbf X^R$ has a natural M-polyfold structure. Proposition 7.10 (2017): every ep-groupoid $X$ possesses an associated reduced ep-groupoid $X_R$, and $X_R$ is effective. Since an M-polyfold is a paracompact Hausdorff space (Part I, Definition 2.3.4 (2017: 2.8)), these assert in particular that $\\mathbf X^R$, with the quotient topology, is Hausdorff and paracompact, for every ep-groupoid $X$. The 2021 edition rewrites this: Remark 7.2.8 (p. 311) says that in general $(X, \\mathbf X^R)$ cannot be made an ep-groupoid, Proposition 7.2.12 (p. 317) proves $T_R$ paracompact for every ep-groupoid, Proposition 7.2.13 (p. 318) makes it an M-polyfold exactly when it is Hausdorff, and Theorem 7.2.14 (p. 318) builds $X_R$ under the hypothesis that $T_R$ is Hausdorff, characterized in Theorem 7.2.22 (p. 323).",
+   "instead": "**Closed by the 2021 edition**, in its 2021 form. In the 2017 form, for every ep-groupoid, the statement does not hold as we read it: for $\\mathbb Z/2$ acting on the dimension-jumping retract of Part I's Remark 4.2.2 (2017: 4.3), $\\mathbf X^R$ is not Hausdorff (`Examples.exists_not_t2Space_reducedMor`, formalized after the round-trip audit), and the hypotheses `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` of `reducedPolyfold` were the project's (V7.39, V7.40). The 2021 text is consistent with this: Remark 7.2.8 announces such examples, Appendix 7.6.3 gives Zhou's, of the same kind (V7.82). Paracompactness is now proved for every ep-groupoid (`paracompactSpace_reducedMor`, an instance, V7.77), which also settles the question, left open here, of paracompactness when $\\mathbf X^R$ is Hausdorff; the Hausdorff hypothesis is exactly that of 2021 Theorem 7.2.14 (V7.78), and Theorem 7.2.22 characterizes it by LUC and the closedness of $\\mathbf X^T$ (V7.81) (Findings, Chapter 7, items 56, 60, 107, 111, 125, 126, 129).",
    "decls": [
     "Chapter7/Reduced · EpGroupoid.reducedPolyfold",
     "Chapter7/Reduced · EpGroupoid.t2Space_reducedMor_of_isEffective",
     "Chapter7/Reduced · EpGroupoid.paracompactSpace_reducedMor_of_isEffective",
     "Chapter7/Reduced · EpGroupoid.paracompactSpace_reducedMor_of_t3",
-    "Chapter7/ReducedNotHausdorff · EpGroupoid.Examples.exists_not_t2Space_reducedMor"
+    "Chapter7/ReducedNotHausdorff · EpGroupoid.Examples.exists_not_t2Space_reducedMor",
+    "Chapter7/ReducedCriterion · EpGroupoid.paracompactSpace_reducedMor",
+    "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_2_14_2021",
+    "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_2_22_2021"
+   ],
+   "formalized": [
+    "V7.77",
+    "V7.78",
+    "V7.81"
    ]
   },
   {
@@ -1955,6 +2912,59 @@
    "decls": [
     "Chapter1/ScBanach · ScBanach.denseRange_incl",
     "Chapter1/ScBanach · ScBanach.denseRange_inclK"
+   ]
+  },
+  {
+   "g": 82,
+   "title": "Theorem 7.6.7: the sc-diffeomorphism $(X^i)_R \\cong (X_R)^i$, and $i \\ge 2$",
+   "label": "§7.6, Theorem 7.6.7 and Corollary 7.6.8, p. 351 (new in the 2021 edition)",
+   "page": 351,
+   "book": "Under (SLUC), the natural set-theoretic identification between $(X^1)_R$ and $(X_R)^1$ is an sc-diffeomorphism between the object spaces and the morphism spaces; for every $i$ there is a similar identification between $(X^i)_R$ and $(X_R)^i$. Corollary 7.6.8: the same under (ZHOU).",
+   "instead": "**Not formalized** beyond $i = 1$ as sets: under LUC for $X^1$ and the hypothesis that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$ (the density is gap G.73), $(\\mathbf X^1)^T = (\\mathbf X^T)^1$ and $[\\varphi]_1 \\mapsto [\\varphi]$ is a continuous injection $(\\mathbf X^1)^R \\to \\mathbf X^R$ onto $\\pi(\\mathbf X_1)$ (V7.83). The sc-diffeomorphism needs the M-polyfold $(\\mathbf X^R)^1$; $i \\ge 2$ needs the lifts of $X_R$ (Findings, Chapter 7, item 131).",
+   "decls": [
+    "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_6_7_2021",
+    "Chapter7/ReducedCriterion · EpGroupoid.corollary_7_6_8_2021",
+    "Chapter7/ReducedCriterion · EpGroupoid.HasConnectedDenseLevelOneReps"
+   ]
+  },
+  {
+   "g": 83,
+   "title": "Appendix 7.6.3: Zhou's retract and its exact non-effective part",
+   "label": "§7.6, Appendix 7.6.3, p. 348, and §7.4, p. 331 (new in the 2021 edition)",
+   "page": 348,
+   "book": "Zhou's example: $\\mathbb Z/2$ acting on the retract of Part I's Subsection 1.4.4 by $(s, f) \\mapsto (s, -f)$; $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$ is one point, so $T_R$ is not Hausdorff and (LUC) fails; the example does not satisfy the Zhou condition (p. 331).",
+   "instead": "**Not formalized** for Zhou's retract: the analogue `JumpingRetract.X` ($\\mathbb Z/2$ on the retract of Part I's Remark 4.2.2 (2017: 4.3)) has a point of $\\mathrm{cl}(\\mathbf X^T) \\setminus \\mathbf X^T$, $T_R$ not Hausdorff and LUC failing (V7.82); $\\mathbf X^T$ is not computed exactly, and that it fails (ZHOU) is proved given the Part I facts `SmoothRegular` for its object M-polyfold (V7.95) (Findings, Chapter 7, items 130, 139).",
+   "decls": [
+    "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart",
+    "Chapter7/ReducedCriterion · EpGroupoid.Examples.JumpingRetract.not_isLUC",
+    "Chapter7/Zhou · EpGroupoid.Examples.JumpingRetract.not_isZhou"
+   ]
+  },
+  {
+   "g": 84,
+   "title": "§7.4 for the index lifts $X^i$, $i \\ge 2$: Propositions 7.4.9 and 7.4.18",
+   "label": "§7.4, Proposition 7.4.9, p. 333, and Proposition 7.4.18, p. 336 (new in the 2021 edition)",
+   "page": 333,
+   "book": "Proposition 7.4.9: if $X$ satisfies the Zhou condition, so does every $X^i$ (the condition (ZHOU') being the same for $X$ and $X^i$). Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent. Corollary 7.4.11, Theorems 7.4.13, 7.4.24 and Proposition 7.4.16 use them for every $X^i$.",
+   "instead": "**Not formalized**: Proposition 7.4.9 needs the identification of $(X^i)_\\infty$ with $X_\\infty$ and of the tangent spaces of $X^i$ with those of $X$ (gaps G.6, G.7); Proposition 7.4.18 ((SLUC) implies (VSLUC)) needs natural representations of $X^N$ in terms of those of $X$. So Corollary 7.4.11 for all $i$, Theorems 7.4.13, 7.4.24 and Proposition 7.4.17 take the per-level hypotheses ((ZHOU), resp. (VSLUC), for every $X^i$), and Proposition 7.4.16 is proved for $X^1$ (V7.90–V7.92, V7.94) (Findings, Chapter 7, item 137).",
+   "decls": [
+    "Chapter7/Zhou · EpGroupoid.corollary_7_4_11_2021_lift",
+    "Chapter7/Zhou · EpGroupoid.theorem_7_4_13_2021",
+    "Chapter7/Zhou · EpGroupoid.proposition_7_4_17_2021",
+    "Chapter7/Zhou · EpGroupoid.theorem_7_4_24_2021"
+   ]
+  },
+  {
+   "g": 85,
+   "title": "The Part I facts used in §7.4, and the connectedness of $U(x) \\cap X_1$",
+   "label": "§7.4, Lemma 7.4.4, p. 329, and the proofs of Lemma 7.4.6 to Proposition 7.4.22, pp. 331–340 (new in the 2021 edition)",
+   "page": 329,
+   "book": "The proofs use facts about M-polyfolds: $X_\\infty$ dense in every $X_m$; $U(x) \\cap X_\\infty$ connected for connected open $U(x)$; tangent vectors approximated by tangent vectors at nearby smooth points; sc-smooth maps agreeing near a smooth point in $X_\\infty$ have the same tangent there; $(T_xX)_\\infty$ dense in $T_xX$. The proof of Lemma 7.4.4 uses that $U(x) \\cap X_1$ is connected in $X^1$ and dense in $U(x)$.",
+   "instead": "**Not formalized**; explicit, satisfiable hypotheses: `MPolyfold.SmoothRegular` (`DenseSmooth`, gap G.73; `SmoothConnected`; the openness of $p : TX \\to X^1$, gap G.8; `TangentDeterminedSmooth`), `MPolyfold.DenseSmoothTangent`, and `HasLevelOneConnectedDenseReps` / `HasConnectedDenseLevelOneReps`, each satisfied by the point ep-groupoid (V7.83, V7.85, V7.86) (Findings, Chapter 7, items 133, 134).",
+   "decls": [
+    "Chapter7/Zhou · MPolyfold.SmoothRegular",
+    "Chapter7/Zhou · MPolyfold.DenseSmoothTangent",
+    "Chapter7/Zhou · EpGroupoid.HasLevelOneConnectedDenseReps"
    ]
   }
  ]

@@ -449,6 +449,12 @@ Hausdorffness of $\mathbf X^R$ with $\mathbf X$ second countable suffices is not
 space need not be regular (Findings, items 56, 60, 111). The proof has four possible misprints, such as "$(s|\mathbf U(\psi))^{-1}(s(\psi))$" for
 $(s|\mathbf U(\psi))^{-1}(s(\psi'))$ and $T_x$ for $T_{s(\varphi)}$ (Findings, item 57).
 
+*In the 2021 edition.* The rewritten §7.2 agrees with this reading. Remark 7.2.8 says that in general $(X,\mathbf X^R)$ cannot be
+made an ep-groupoid, Theorem 7.2.14 (which replaces Proposition 7.10) assumes that the quotient topology on $\mathbf X^R$ is Hausdorff,
+Theorem 7.2.22 shows this equivalent to the local unique continuation property and to the closedness of $\mathbf X^T$, and
+Appendix 7.6.3 gives an example, due to Zhengyi Zhou, of the same kind as the one above. Paracompactness, left open above,
+holds for every ep-groupoid (Proposition 7.2.12). See §12.2 (gap G.71, closed; Findings, items 125, 126, 129, 143).
+
 **Proposition 7.10 (2017) and the reduced ep-groupoid.** With the structure maps induced on $\mathbf X^R$, $X_R = (X,\mathbf X^R)$ is an ep-groupoid, and it
 is effective. Its isotropy group at $x$ is $G_x/T_x$, the *effective isotropy group* $G_x^{\mathrm{eff}}$ of Definition 7.2.15 (2017: 7.13).
 
@@ -819,6 +825,275 @@ gap G.71).
 | pp. 346–347 (2017 pp. 255–256), proof of Thm. 7.5.7 (2017: 7.4) | Lemma 7.6.5 (2017: 7.10) with $V(x_i)$; "the sum is locally finite"; $(h_i/h)$ | $W(x_i)$ (possible misprint); the support bound; Mathlib's bump coverings |
 | p. 347 (2017 p. 256), Cor. 7.6.6 (2017: 7.3) | Part I, Prop. 5.5.8 (2017: 5.6), Thm. 5.5.10 (2017: 5.12), Cor. 5.5.17 (2017: 5.2) | Part I's Theorem 5.5.16 (2017: 5.14) as a hypothesis (G.53) |
 
+## 12. The additions of the 2021 edition (pp. 291–355)
+
+The Springer edition (2021) changes two statements of §7.1, rewrites §7.2 from Definition 7.2.5 on, adds §7.4 on the Zhou
+condition and unique continuation, and adds Appendices 7.6.3–7.6.5. This section retells them with the 2021 numbers and
+pages; they are new in the 2021 edition unless a 2017 number is given.
+
+### 12.1 §7.1: the remark after Definition 7.1.7, Propositions 7.1.14 and 7.1.15
+
+The 2021 remark after Definition 7.1.7 (p. 291) asks that the functor be sc-smooth on objects **and continuous on
+morphisms**, the hypothesis under which §1 proved it; then $f(\gamma) = (s|U(\psi))^{-1}(f(s(\gamma)))$ near $\varphi$ and $f$ is
+sc-smooth on morphisms. The functor of the counterexample of §1 is not continuous on morphisms, so the 2021 form excludes it
+(Findings, item 117). *Checked by machine (V7.69):* `Polyfold.EpGroupoid.remark_7_1_7_2021`,
+`Polyfold.EpGroupoid.remark_7_1_7_2021_remarkFunctor`.
+
+**Proposition 7.1.14 (the natural representation in sheet form).** Fix an open $W(x)$ and, for $g\in G_x$, open
+neighbourhoods $U^s(g)$, $U^t(g)$ of $g$ on which $s$ and $t$ are sc-diffeomorphisms $s_g$, $t_g$ onto $W(x)$ (the data (7.3)). For a
+representation $(U(x),\Phi,\Gamma)$ with the properties of Theorem 7.1.13 there is a $\Phi$-invariant open $V(x)\subseteq W(x)\cap U(x)$ with
+$\Gamma(g,v) = s_g^{-1}(v)$ and $\Phi(g)(v) = t(s_g^{-1}(v))$ for $v\in V(x)$.
+
+*Proof.* On the open set $N$ of the $v$ with $\Gamma(g,v)\in U^s(g)\cap U^t(g)$ for all $g$, $\Gamma(g,v) = s_g^{-1}(s(\Gamma(g,v))) = s_g^{-1}(v)$, and
+applying $t$ gives $\Phi(g)(v)$. The finite intersection $V(x) = \bigcap_g\Phi(g)^{-1}(N)$ is invariant. $\square$
+
+So the natural representation is determined near $x$ by the sheets of $s$. Property (3) of Theorem 7.1.13 is not used, and
+$\Gamma(g,v) = t_g^{-1}(\Phi(g)(v))$, the identity (7.4) of the proof, is part of the checked statement (Findings, item 118). *Checked by
+machine (V7.70):* `Polyfold.EpGroupoid.IsotropySheetData`, `Polyfold.EpGroupoid.exists_isotropySheetData`,
+`Polyfold.EpGroupoid.proposition_7_1_14_2021`, `Polyfold.EpGroupoid.proposition_7_1_14_2021_of_naturalRep`.
+
+*Proposition 7.1.15 in the 2021 form* (p. 297) prints (2) as $s:\mathbf U(\psi)\to U(s(\psi))$ and $t:\mathbf U(\psi)\to U(t(\psi))$, which is the form proved
+in §3. The 2017 form, with one $U(y)$ for both maps, forces $s(\psi) = t(\psi)$, and for the reflection of $\mathbb R$ with $Y = \{1,-1\}$ no data of
+that form exist (Findings, items 25, 119).
+
+**Lemma 7.1.16.** In the construction of Proposition 7.1.15, a limit of morphisms of $\mathbf U(\psi)$ whose sources or targets converge in
+$U(s(\psi))\cup U(t(\psi))$ lies in $\mathbf U(\psi)$.
+
+**Corollary 7.1.17.** In the same construction, (4) the action of $G_x$ is the natural one, (5) $f(\varphi)$ is equivariant along
+conjugation by $\varphi$, (6) the multiplication $\mathbf U(\psi)\,{}_s{\times}_t\,\mathbf U(\varphi)\to\mathbf U(\psi\circ\varphi)$ is an sc-diffeomorphism, and (7) the
+$U(y)$ can have the properness property.
+
+Both hold as stated, (6) read in the fibred-product sub-M-polyfold of Part I (Findings, item 120). *Checked by machine (V7.71–V7.73):*
+`Polyfold.EpGroupoid.proposition_7_1_15_2021`, `Polyfold.EpGroupoid.src_eq_tgt_of_printed_2017`,
+`Polyfold.EpGroupoid.not_printed_2017_reflection`, `Polyfold.EpGroupoid.lemma_7_1_16_2021`,
+`Polyfold.EpGroupoid.corollary_7_1_17_4_2021`, `Polyfold.EpGroupoid.corollary_7_1_17_5_2021`,
+`Polyfold.EpGroupoid.corollary_7_1_17_6_2021`, `Polyfold.EpGroupoid.corollary_7_1_17_7_2021`.
+
+### 12.2 §7.2: when is $\mathbf X^R$ Hausdorff?
+
+The 2021 text keeps the charts of Proposition 7.2.10 for the quotient topology and asks, as §5 found necessary, when that
+topology is Hausdorff. The answer is the closedness of the non-effective part $\mathbf X^T$.
+
+**Definition 7.2.5 and Lemma 7.2.6.** $T_x$ is the maximal subgroup of $G_x$ acting trivially on some small $W(x)$; conjugation by
+$\varphi : x\to y$ maps $T_x$ onto $T_y$. "Maximal" is read as in §5: $T_x$ contains the kernel on every open $W\ni x$ and equals it for
+small $W$; Lemma 7.2.6 is the conjugation of §5 (Findings, item 121). *Checked by machine (V7.74):*
+`Polyfold.EpGroupoid.NaturalRep.kerOn`, `Polyfold.EpGroupoid.definition_7_2_5_2021`, `Polyfold.EpGroupoid.lemma_7_2_6_2021`,
+`Polyfold.EpGroupoid.trivialSubgroupEquiv_2021`.
+
+**Remark 7.2.8.** $T_R$, the finest topology on $\mathbf X^R$ for which $\pi:\mathbf X\to\mathbf X^R$ is continuous, is the quotient topology of §5; in
+general $(X,\mathbf X^R)$ cannot be made an ep-groupoid, but it can when $T_R$ is Hausdorff, and Appendix 7.6.3 gives an example where
+$T_R$ is not Hausdorff. In Definition 7.2.7 the target map is printed "$s([\varphi]) = t_X(\varphi)$", for $t([\varphi])$ (possible misprint) (Findings,
+items 122, 123). *Checked by machine (V7.75):* `Polyfold.EpGroupoid.remark_7_2_8_2021`,
+`Polyfold.EpGroupoid.isOpenQuotientMap_reducedπ`.
+
+**Lemma 7.2.11.** Let $\varphi_1,\dots,\varphi_k$ be the other members of the class of $\varphi_0$. There are neighbourhoods $U(\varphi_i)$ with disjoint
+closures, each mapped homeomorphically onto one neighbourhood $U([\varphi_0])$, which contain every $\psi$ with $[\psi]\in U([\varphi_0])$.
+
+As we read it, this needs $T_R$ Hausdorff. The text's proof of the last property uses that a sequence of classes has one limit.
+And the conclusion at every morphism is *equivalent* to $T_R$ Hausdorff; in the example of §5 it fails at $(1,(0,0))$, whose class
+has one member, while the classes of $(g,(t,0))$, $t<0$, equal to those of $(1,(t,0))$, converge to it. Under the hypothesis that
+$T_R$ is Hausdorff, the setting of Theorem 7.2.14 where it is used, the lemma holds (Findings, item 124). *Checked by machine
+(V7.76):* `Polyfold.EpGroupoid.IsReducedEvenlyCovered`, `Polyfold.EpGroupoid.isReducedEvenlyCovered_iff_t2Space`,
+`Polyfold.EpGroupoid.lemma_7_2_11_2021`, `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isReducedEvenlyCovered`.
+
+**Proposition 7.2.12.** $(\mathbf X^R, T_R)$ is paracompact, for every ep-groupoid.
+
+*Proof.* Paracompactness descends along an open continuous surjection $p$ if every point $q$ downstairs has a compact $K$ upstairs
+such that every open $N\supseteq K$ contains $p^{-1}(O)$ for an open $O\ni q$; the images of a locally finite precise refinement upstairs
+then form one downstairs. For $p = \pi$ and $q = [\varphi]$, take $V$ from the properness axiom at $s(\varphi)$ and
+$K = \{\psi\in s^{-1}(\mathrm{cl}\,V)\mid s\psi = s\varphi,\ t\psi = t\varphi\}$: it is compact, contains the class of $\varphi$, and since $(s,t)$ is proper, hence closed, on
+$s^{-1}(\mathrm{cl}\,V)$, every open $N\supseteq K$ contains $\pi^{-1}(O)$ for a small $O\ni q$. $\square$
+
+The text refines through the neighbourhoods of Lemma 7.2.11; the proof above needs no Hausdorff hypothesis. This settles
+the question that §5 left open: of the two hypotheses on $\mathbf X^R$, paracompactness always holds (Findings, items 111, 125).
+*Checked by machine (V7.77):* `Polyfold.EpGroupoid.paracompactSpace_of_isOpenMap`,
+`Polyfold.EpGroupoid.exists_isCompact_preimage_reducedπ_subset`, `Polyfold.EpGroupoid.paracompactSpace_reducedMor`,
+`Polyfold.EpGroupoid.proposition_7_2_12_2021`.
+
+**Proposition 7.2.13 and Theorem 7.2.14 (2017: Proposition 7.10).** The natural charts make $(\mathbf X^R,T_R)$ an M-polyfold if and only if
+$T_R$ is Hausdorff. If $T_R$ is Hausdorff, $(X,\mathbf X^R)$ is in a natural way an ep-groupoid.
+
+This is the form §5 proved: Theorem 7.2.14 assumes exactly the hypothesis that the formalization had taken, and paracompactness
+is Proposition 7.2.12 (Findings, items 126, 143). *Checked by machine (V7.78):* `Polyfold.EpGroupoid.proposition_7_2_13_2021`,
+`Polyfold.EpGroupoid.theorem_7_2_14_2021`, `Polyfold.EpGroupoid.reducedEpGroupoid`,
+`Polyfold.EpGroupoid.isEffective_reducedEpGroupoid`.
+
+**Proposition 7.2.17.** $T_R$ is Hausdorff if and only if $\mathbf X^T$ is closed in $\mathbf X$.
+
+*Proof.* $[\varphi] = [\psi]$ if and only if $t\varphi = t\psi$ and $\psi^{-1}\circ\varphi\in\mathbf X^T$. If $\mathbf X^T$ is closed, this relation is closed in $\mathbf X\times\mathbf X$, and the
+quotient by an open quotient map with a closed relation is Hausdorff. Conversely, $\mathbf X^T = \{\varphi\mid[\varphi] = [1_{s(\varphi)}]\}$ is the set where two
+continuous maps into $\mathbf X^R$ agree. $\square$
+
+No properness is needed (Findings, item 127). *Checked by machine (V7.79):* `Polyfold.EpGroupoid.reducedπ_eq_iff_comp_inv`,
+`Polyfold.EpGroupoid.isClosed_reducedπ_eq_of_isClosed`, `Polyfold.EpGroupoid.proposition_7_2_17_2021`.
+
+**Definition 7.2.18 (the local unique continuation property, LUC).** Every $x$ has a natural representation $U(x)$ on which an
+element $\hat g$ that is the identity on a nonempty open subset is the identity on $U(x)$.
+
+Sc-smooth maps are not analytic, so this is a condition. When it holds, every natural representation has it (Remark 7.2.20
+asks only for one inside a given neighbourhood); effective ep-groupoids and the trivial $\mathbb Z/3$-action have it (Findings,
+items 128, 144). *Checked by machine (V7.80):* `Polyfold.EpGroupoid.IsLUC`, `Polyfold.EpGroupoid.isLUC_iff_forall_naturalRep`,
+`Polyfold.EpGroupoid.remark_7_2_20_2021`, `Polyfold.EpGroupoid.isLUC_of_isEffective`,
+`Polyfold.EpGroupoid.Examples.isLUC_trivialZ3`.
+
+**Proposition 7.2.21 and Theorem 7.2.22.** $T_R$ is Hausdorff, $X$ has LUC, and $\mathbf X^T$ is closed: these are equivalent.
+
+*Proof.* In a natural representation, $\Gamma(g,y)\in\mathbf X^T$ if and only if $\Phi(g) = \mathrm{id}$ near $y$. If $\mathbf X^T$ is closed, the set of such $y$ is open and
+closed in the connected $U(x)$, so it is empty or all of $U(x)$: LUC. Conversely, under LUC let $\varphi\in\mathrm{cl}\,\mathbf X^T$; then $s\varphi = t\varphi = x$
+and $g = \varphi\in G_x$; the sheet $\Gamma(g,U(x))$ is a neighbourhood of $\varphi$, so it meets $\mathbf X^T$ in some $\Gamma(g,y)$, $\Phi(g) = \mathrm{id}$ near $y$, hence
+on $U(x)$, and $\varphi\in T_x$. With Proposition 7.2.17 this is the theorem. $\square$
+
+Under LUC, $X_R$ is an ep-groupoid (Proposition 7.2.23). For the trivial $\mathbb Z/3$-action $\mathbf X^T = \mathbf X$ is closed and $T_R$ is Hausdorff,
+which §5 had left open (Findings, items 60, 128, 129). *Checked by machine (V7.81):*
+`Polyfold.EpGroupoid.proposition_7_2_21_2021`, `Polyfold.EpGroupoid.theorem_7_2_22_2021`,
+`Polyfold.EpGroupoid.proposition_7_2_23_2021`, `Polyfold.EpGroupoid.Examples.t2Space_reducedMor_trivialZ3`.
+
+> **The counterexample of §5 and the 2021 text agree.** The example of §5, $\mathbb Z/2$ acting on a retract that is a line over
+> $t\le0$ and grows a dimension over $t>0$, is of the kind Remark 7.2.8 announces. Appendix 7.6.3 gives Zhou's example of the same
+> kind, $\mathbb Z/2$ acting by $f\mapsto-f$ on the retract of Part I's Subsection 1.4.4. In both, the action is trivial on one side
+> and moves points arbitrarily close to the origin on the other, so the non-trivial element at the origin lies in the closure of
+> $\mathbf X^T$ but not in $\mathbf X^T$: $\mathbf X^T$ is not closed, LUC fails and $T_R$ is not Hausdorff, as Theorem 7.2.22 requires. The formalization
+> works with its own retract, not Zhou's, and exhibits that one point of $\mathrm{cl}(\mathbf X^T)\setminus\mathbf X^T$ without computing $\mathbf X^T$ exactly
+> (gap G.83) (Findings, items 107, 129, 130). *Checked by machine (V7.82):*
+> `Polyfold.EpGroupoid.Examples.JumpingRetract.mem_closure_nonEffectivePart`,
+> `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart`,
+> `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC`, `Polyfold.EpGroupoid.Examples.remark_7_2_19_2021`.
+
+**Theorem 7.6.7 (Appendix 7.6.4).** If every $X^i$ has LUC, the reduced groupoid commutes with raising the index: $(\mathbf X^T)^1 = (\mathbf X^1)^T$,
+and $(X^1)_R$ and $(X_R)^1$ are identified by an sc-diffeomorphism; likewise for every $i$.
+
+*Proof for $i = 1$, as sets.* A morphism of level 1 in $\mathbf X^T$ is in $(\mathbf X^1)^T$, since $s = t$ near it in $\mathbf X$ gives $s = t$ near it in $\mathbf X^1$. Conversely,
+if $\hat g$ is the identity near $x$ in $X^1$, it is the identity on $U(x)\cap X_1$ by LUC for $X^1$, and on $U(x)$ by density. So the two
+equivalence relations agree on level 1, and $[\varphi]_1\mapsto[\varphi]$ is a continuous injection onto $\pi(\mathbf X_1)$. $\square$
+
+The proof uses that $U(x)\cap X_1$ is connected in $X^1$ and dense in $U(x)$, the density of $X_1$ in $X$ (gap G.73); both are hypotheses,
+satisfied by the point. Not formalized: the sc-diffeomorphism, which needs the M-polyfold $(\mathbf X^R)^1$, and $i\ge2$ (gap G.82)
+(Findings, item 131). *Checked by machine (V7.83):* `Polyfold.EpGroupoid.mem_nonEffectivePart_liftOne_of_levelVal`,
+`Polyfold.EpGroupoid.HasConnectedDenseLevelOneReps`, `Polyfold.EpGroupoid.nonEffectivePart_liftOne_eq`,
+`Polyfold.EpGroupoid.theorem_7_6_7_2021`, `Polyfold.EpGroupoid.corollary_7_6_8_2021_of_isZhou`.
+
+### 12.3 §7.4: the Zhou condition
+
+§7.4 asks when LUC holds on every level $X^i$, which Appendix 7.6.4 needs. Its answer is a condition on tangents.
+
+**Proposition 7.4.2.** Under LUC, the property passes from a connected invariant $U(x)$ to a larger one; so $U(x)$ may be small or
+large (Remark 7.4.3). By §12.2 every natural representation has it (Findings, item 132). *Checked by machine (V7.84):*
+`Polyfold.EP.lift`, `Polyfold.EpGroupoid.proposition_7_4_2_2021`, `Polyfold.EpGroupoid.remark_7_4_3_2021`.
+
+**Lemma 7.4.4.** If $X^i$ has LUC, so has every $X^k$, $k\le i$.
+
+The proof for $i = 1$ is an open-and-closed argument in $U(x)\cap X_1$, which it takes to be connected in $X^1$ and dense in $U(x)$; both
+are hypotheses (gap G.85). "$s:W(g)\to W(y)$" is printed for $W(h)$ (possible misprint) (Findings, item 133). *Checked by machine
+(V7.85):* `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps`, `Polyfold.EpGroupoid.isLUC_of_isLUC_liftOne`,
+`Polyfold.EpGroupoid.lemma_7_4_4_2021`.
+
+The proofs of §7.4 use facts about M-polyfolds that Part I does not state: $X_\infty$ is dense in every $X_m$; $U\cap X_\infty$ is connected
+for connected open $U$; maps that agree near a smooth point have the same tangent there; tangent vectors are limits of tangent
+vectors at smooth points; $(T_xX)_\infty$ is dense in $T_xX$. They are explicit hypotheses, satisfied on a point (gap G.85) (Findings,
+item 134). *Checked by machine (V7.86):* `Polyfold.MPolyfold.DenseSmooth`, `Polyfold.MPolyfold.SmoothConnected`,
+`Polyfold.MPolyfold.TangentDeterminedSmooth`, `Polyfold.MPolyfold.SmoothRegular`, `Polyfold.MPolyfold.DenseSmoothTangent`.
+
+**Definition 7.4.5 (the Zhou condition, ZHOU).** For every smooth object $x$ and $g\in G_x$: if $Tg:T_xX\to T_xX$ is the identity, then
+$g\in T_x$.
+
+$Tg$ is the tangent at $x$ of the local sc-diffeomorphism $\hat g$; Chapter 7's tangent of a morphism, defined without charts, is $T\Phi(g)$
+on $T_xX$ for every natural representation. The condition asks only that a map be the identity, so no linear structure on $T_xX$
+(gap G.7) is needed (Findings, item 135). (ZHOU') replaces $T_xX$ by $(T_xX)_\infty$ and $T_x$ by $T_x^\infty$, the elements acting trivially near
+$x$ in $X_\infty$. Both conditions hold when every $T_x = G_x$, for instance for the trivial $\mathbb Z/3$-action (Findings, item 144). *Checked by
+machine (V7.87–V7.88):* `Polyfold.EpGroupoid.NaturalRep.tangentMor_eq_tΦ`, `Polyfold.EpGroupoid.IsZhou`,
+`Polyfold.EpGroupoid.trivialSubgroupInf`, `Polyfold.EpGroupoid.IsZhou'`, `Polyfold.EpGroupoid.Examples.isZhou_trivialZ3`.
+
+**Lemma 7.4.6 and Proposition 7.4.8.** (ZHOU) and (ZHOU') are equivalent.
+
+One direction is density of $(T_xX)_\infty$. For the other, the smooth points of $U(x)$ that $\hat g$ fixes with tangent the identity form
+an open and closed subset of the connected $U(x)_\infty$, which replaces the text's sequences. In the proof "$z_k\to Y$" is printed for
+$z_k\to y$ (possible misprint) (Findings, item 136). *Checked by machine (V7.89):* `Polyfold.EpGroupoid.lemma_7_4_6_2021`,
+`Polyfold.EpGroupoid.isZhou_of_isZhou'`, `Polyfold.EpGroupoid.proposition_7_4_8_2021`.
+
+**Proposition 7.4.9.** If $X$ satisfies (ZHOU), so does every $X^i$. It needs the identification of $(X^i)_\infty$ with $X_\infty$ and of the
+tangent spaces of $X^i$ with those of $X$ (gaps G.6, G.7), and is not formalized; the statements below about every $X^i$ take
+(ZHOU) on every level as a hypothesis (gap G.84) (Findings, item 137).
+
+**Proposition 7.4.10.** (ZHOU) implies LUC.
+
+*Proof.* Let $\hat g$ be the identity on a nonempty open subset of $U(x)$. The smooth points near which $\hat g$ is the identity form an
+open subset of $U(x)_\infty$, nonempty by density. It is closed: at a limit point $z$, $\hat g$ fixes $z$, and its tangent at $z$ is the identity,
+because tangent vectors at $z$ are limits of tangent vectors at nearby smooth points where $T\hat g$ is the identity. By (ZHOU), the
+element of $G_z$ that $\hat g$ defines acts trivially near $z$. So the set is all of the connected $U(x)_\infty$, and $\hat g = \mathrm{id}$ on $U(x)$ by
+density. $\square$
+
+The same argument gives LUC for $X^1$, and with (ZHOU) on every level, every $X^i$ has LUC (Corollary 7.4.11) (Findings, items 136,
+137).
+
+**Definition 7.4.12 (SLUC).** Every $X^i$ has LUC. By Theorem 7.4.13, (ZHOU) implies (SLUC); checked with (ZHOU) on every level as a
+hypothesis (gap G.84).
+
+**Definition 7.4.14 (VSLUC).** LUC for $X_\infty$: on invariant open sets $V(x)$ of $X_\infty$, an $\hat g$ that is the identity on a nonempty open
+subset is the identity on $V(x)$. It is equivalent to the unique continuation through $X_\infty$ of the proof above, so it implies LUC
+(Lemma 7.4.15), for $X$ and $X^1$ (Proposition 7.4.16), and on every level, given it on every level (Proposition 7.4.17).
+Proposition 7.4.18, (SLUC) implies (VSLUC), needs natural representations of $X^N$ in terms of those of $X$ and is not formalized
+(gap G.84) (Findings, items 136, 137). *Checked by machine (V7.90–V7.92):* `Polyfold.EpGroupoid.proposition_7_4_10_2021`,
+`Polyfold.EpGroupoid.IsSmoothUC`, `Polyfold.EpGroupoid.corollary_7_4_11_2021`, `Polyfold.EP.IsSLUC`,
+`Polyfold.EpGroupoid.theorem_7_4_13_2021`, `Polyfold.EpGroupoid.IsVSLUC`, `Polyfold.EpGroupoid.lemma_7_4_15_2021`,
+`Polyfold.EpGroupoid.proposition_7_4_17_2021`.
+
+**Definition 7.4.19 (the local regularity property, LR).** Inside every neighbourhood of $x$ there is a natural representation $U(x)$
+such that every sc-diffeomorphism $\beta$ of $U(x)$ that preserves orbits, $|\beta(y)| = |y|$, is some $\hat g$.
+
+By Lemma 7.4.20 an orbit-preserving
+sc-diffeomorphism of $U(x)$ onto an open set that fixes $x$ maps $U(x)$ onto itself, so (LR) and (LR') agree; the proof covers
+$U(x)$ by the finitely many closed sets $\{\beta = \hat g\}$ and uses connectedness instead of paths (Findings, item 138). *Checked by
+machine (V7.93):* `Polyfold.EpGroupoid.IsLR`, `Polyfold.EpGroupoid.lemma_7_4_20_2021`, `Polyfold.EpGroupoid.isLR_iff_isLR'`.
+
+**Proposition 7.4.22.** (ZHOU) implies (LR); with (ZHOU) on every level, every $X^i$ has (LR) (Theorem 7.4.24).
+
+The text passes to the reduced ep-groupoid and uses that regular points are dense. The checked proof does neither: the sets
+$\{\beta = \hat g\}$ cover $U(x)_\infty$, the union of their interiors is open and dense, and where the closures of two pieces meet, $\hat g$ and $\hat g'$
+have the same tangent at a smooth point, so they agree by (ZHOU) and LUC; connectedness finishes (Findings, item 138). The
+example of Appendix 7.6.3 fails (ZHOU), since it fails LUC; for the formalization's analogue this is checked, given the Part I
+facts for its retract (gap G.83) (Findings, item 139). *Checked by machine (V7.94–V7.95):*
+`Polyfold.EpGroupoid.proposition_7_4_22_2021`, `Polyfold.EP.IsSLR`, `Polyfold.EpGroupoid.theorem_7_4_24_2021`,
+`Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou`.
+
+### 12.4 Appendix 7.6.5: the boundary of a tame ep-groupoid
+
+For a tame ep-groupoid, the tame boundary $bX$ of Chapter 2 (2021 §2.7.4) is defined for the object and the morphism M-polyfolds,
+and (7.25)–(7.29) make $(bX,b\mathbf X)$ a groupoid: a class $[\varphi,\mathbf V,\theta]$ goes to $[s(\varphi),s(\mathbf V),s(\theta)]$ under the source map, and
+similarly for $t$, the inverse and the unit, through sheets on which the structure maps are sc-diffeomorphisms; the
+composition of two classes is the class of the composite on composed sheets.
+
+The construction uses only the topological content of those sc-diffeomorphisms: a homeomorphism between open sets that
+preserves the degeneracy index carries faces to faces and triples to triples, and induces a local homeomorphism of the tame
+boundaries. A class of $b\mathbf X$ is determined by its image in $\mathbf X$ and its source, which identifies the composite. (7.28) is read
+through the unit map itself, a homeomorphism onto the open set of units (Findings, item 140).
+
+**Theorem 7.6.9.** For a tame ep-groupoid, $bX$ and $b\mathbf X$ carry natural metrizable topologies and tame M-polyfold structures, the
+maps $B:bX\to X$, $B:b\mathbf X\to\mathbf X$ are sc-smooth, $d_X(B(p)) - 1 = d_{bX}(p)$, and $(bX,b\mathbf X)$ is a tame ep-groupoid.
+
+The topological part is checked: metrizability; the topology characterized by the openness of the sets $U(x,V,\theta)$ and the
+maps $\Phi$; continuity of $B$; $d$ preimages over a point of index $d$; $s$, $t$ local homeomorphisms, $u$, $\iota$ continuous, $m$ continuous
+on composable pairs, and the properness property. "$\Phi$ is a homeomorphism onto $\theta$" holds, as we read it, only for $V$ centred at
+$x$, as for (2.44) in Chapter 2; in general $\Phi$ is an open embedding (Findings, item 141). The sc-smooth parts depend on 2021
+Theorem 2.7.13 (2), the M-polyfold structure of $bX$; they are formalized separately (`Chapter7/TameBoundaryEpStructure.lean`)
+and reported separately. *Checked by machine (V7.96–V7.98):* `Polyfold.TameBoundary.bLift`,
+`Polyfold.TameBoundary.map_cls_eq`, `Polyfold.EpGroupoid.bSrc`, `Polyfold.EpGroupoid.bComp_eq`,
+`Polyfold.EpGroupoid.boundaryGroupoid`, `Polyfold.EpGroupoid.boundaryFunctor`, `Polyfold.EpGroupoid.theorem_7_6_9_2021`,
+`Polyfold.EpGroupoid.trivial_quadrant_witness`.
+
+| Where (2021 text) | HWZ say | What is actually needed |
+|---|---|---|
+| p. 296, Prop. 7.1.14 | $\Gamma$ with (1)–(3) of Thm. 7.1.13 | (3) unused; $U^s(g)$, $U^t(g)$ neighbourhoods of $g$ |
+| p. 310, Def. 7.2.7 | "$s([\varphi]) = t_X(\varphi)$" | $t([\varphi])$ (possible misprint) |
+| p. 315, Lemma 7.2.11 | for every ep-groupoid | $T_R$ Hausdorff, as we read it |
+| p. 317, Prop. 7.2.12 | refinement through Lemma 7.2.11 | openness of $\pi$, properness of $(s,t)$; no hypothesis |
+| p. 329, Lemma 7.4.4 | $U(x)\cap X_1$ connected | a hypothesis, with its density (G.73, G.85); "$W(g)$" for $W(h)$ |
+| pp. 331–340, §7.4 | facts about $X_\infty$ and tangents | explicit hypotheses (G.85) |
+| p. 332, Prop. 7.4.8 | sequences; "$z_k\to Y$" | connectedness of $U(x)_\infty$; $z_k\to y$ |
+| p. 333, Prop. 7.4.9; p. 336, Prop. 7.4.18 | every $X^i$ | not formalized; per-level hypotheses (G.84) |
+| p. 338, Prop. 7.4.22 | reduction, density of regular points | neither |
+| p. 351, Thm. 7.6.7 | an sc-diffeomorphism, every $i$ | $i = 1$ as sets (G.82) |
+| p. 355, after Thm. 7.6.9 | $\Phi$ onto $\theta$ | for centred $V$; an open embedding in general |
+
 ---
 
 **Checked by machine.** The chapter is formalized in Lean 4 against Mathlib in `Polyfold/Chapter7/` (`Groupoid.lean`,
@@ -841,4 +1116,7 @@ splicing example, checked by machine); the set $|X_\infty|$ (G.72); the density 
 computations of §10, done by hand. The machine-checked statements are listed in `Exposition/Verification.md`
 (V7.1–V7.68), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.
 The findings are `Exposition/Findings.md`, "Chapter 7", items 1–115 (numbered in blocks; the gaps in the numbering are
-unused numbers).
+unused numbers). The additions of the 2021 edition (§12) are formalized in `Book2021Basic.lean`, `ReducedCriterion.lean`, `Zhou.lean` and
+`TameBoundaryEp.lean`, verified as V7.69–V7.98, with the gaps G.82–G.85 (Theorem 7.6.7 beyond $i = 1$ as sets; Zhou's own retract;
+the lifts $X^i$, $i\ge2$, in §7.4; the Part I facts used in §7.4), and their findings are items 117–144; the sc-smooth parts of
+Theorem 7.6.9 are formalized separately, on top of 2021 Theorem 2.7.13 (2).
