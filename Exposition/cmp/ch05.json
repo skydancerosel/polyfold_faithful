@@ -5,9 +5,9 @@
    "title": "The charts $\\Phi[1]$ for every strong bundle chart",
    "verdict": "extra",
    "book": {
-    "label": "§5.1, p. 169; Lemma 5.2 (ii)",
+    "label": "§5.1, preprint p. 169; Lemma 5.1.2 (ii) (preprint 5.2)",
     "page": 169,
-    "statement": "Lemma 5.2 (ii) quantifies over \"a strong bundle isomorphism $\\Phi : Y|V \\to K$\" and reads $|h|_1$ for $\\Phi(w) = (p, h)$, $w \\in Y_{0,1}$."
+    "statement": "Lemma 5.1.2 (ii) (preprint 5.2) quantifies over \"a strong bundle isomorphism $\\Phi : Y|V \\to K$\" and reads $|h|_1$ for $\\Phi(w) = (p, h)$, $w \\in Y_{0,1}$."
    },
    "lean": {
     "statement": "For every strong bundle chart $\\Phi$ compatible with the atlas: $y \\in Y_{0,1}$ iff $\\Phi(y)_2 \\in F_1$; $\\Phi[1]$ (`oneChartOf`) is a chart of the M-polyfold $Y[1]$, compatible with the charts $\\Phi'[1]$ of the atlas.",
@@ -22,7 +22,7 @@
     "every compatible chart"
    ],
    "diff": [
-    "Chapter 2 built $\\Phi[1]$ only for the charts of the atlas; Lemma 5.2 (ii) and its \"(ii) ⇒ (i)\" need it for every compatible chart (Findings, Chapter 5, item 2)."
+    "Chapter 2 built $\\Phi[1]$ only for the charts of the atlas; Lemma 5.1.2 (ii) (preprint 5.2) and its \"(ii) ⇒ (i)\" need it for every compatible chart (Findings, Chapter 5, item 2)."
    ]
   },
   {
@@ -30,9 +30,9 @@
    "title": "The fibre $(Y_{0,1})_x$ and its chart norm $|\\cdot|_1$",
    "verdict": "extra",
    "book": {
-    "label": "§5.1, p. 169",
+    "label": "§5.1, preprint p. 169",
     "page": 169,
-    "statement": "\"The fibers $Y_x := P^{-1}(x)$ have the structure of Banach spaces\"; $|h|_1$ is the norm of the fibre component in Lemma 5.2."
+    "statement": "\"The fibers $Y_x := P^{-1}(x)$ have the structure of Banach spaces\"; $|h|_1$ is the norm of the fibre component in Lemma 5.1.2 (preprint 5.2)."
    },
    "lean": {
     "statement": "`oneFiber x`: the points of $P^{-1}(x)$ in $Y_{0,1}$, a linear subspace, with zero $0_x$ (`zeroOne`). In a chart around $x$, `liftOneFiber` is an injective linear map $(Y_{0,1})_x \\to F_1$ onto the closed slice $\\{h \\mid (\\varphi(x), h) \\in K[1]\\}$, so the fibre is complete for $|\\cdot|_1$; the norms of two charts are locally uniformly comparable.",
@@ -58,10 +58,10 @@
   },
   {
    "id": "V5.3",
-   "title": "Definition 5.1: auxiliary norms",
+   "title": "Definition 5.1.1 (preprint 5.1): auxiliary norms",
    "verdict": "restated",
    "book": {
-    "label": "§5.1, Definition 5.1, p. 169",
+    "label": "§5.1, Definition 5.1.1 (preprint 5.1), p. 205 (preprint p. 169)",
     "page": 169,
     "statement": "An auxiliary norm is a continuous $N : Y_{0,1} \\to \\mathbb R$ such that (1) its restriction to a fibre is a complete norm; (2) if $P(w_k) \\to x$ and $N(w_k) \\to 0$, then $w_k \\to 0_x$ in $Y_{0,1}$."
    },
@@ -83,10 +83,10 @@
   },
   {
    "id": "V5.4",
-   "title": "Lemma 5.2: local comparison",
+   "title": "Lemma 5.1.2 (preprint 5.2): local comparison",
    "verdict": "same",
    "book": {
-    "label": "§5.1, Lemma 5.2, p. 169 (proof pp. 169–170)",
+    "label": "§5.1, Lemma 5.1.2 (preprint 5.2), p. 205 (preprint p. 169) (proof pp. 205–206 (preprint pp. 169–170))",
     "page": 169,
     "statement": "For a continuous $N$ which fibrewise is a complete norm: $N$ is auxiliary iff every $x$ has a strong bundle isomorphism $\\Phi : Y|V \\to K$ and $0 < c < C$ with $cN(w) \\le |h|_1 \\le CN(w)$ for all $w \\in P^{-1}(V)$, $\\Phi(w) = (p, h)$."
    },
@@ -111,15 +111,15 @@
   },
   {
    "id": "V5.5",
-   "title": "Proposition 5.3: existence of auxiliary norms",
+   "title": "Proposition 5.1.3 (preprint 5.3): existence of auxiliary norms",
    "verdict": "same",
    "book": {
-    "label": "§5.1, Proposition 5.3, p. 171",
+    "label": "§5.1, Proposition 5.1.3 (preprint 5.3), p. 206 (preprint p. 171)",
     "page": 171,
     "statement": "Every strong bundle has an auxiliary norm (\"a partition of unity argument using the paracompactness of $X$, pulling back by strong bundle maps the standard norm $|\\cdot|_1$\")."
    },
    "lean": {
-    "statement": "`proposition_5_3_exists`: the glued norm $\\sum_i\\rho_i(P(w))|\\Phi_i[1](w)_2|_1$ over the atlas is continuous on $Y[1]$, a complete norm on every fibre and locally comparable with every chart norm; Lemma 5.2 concludes.",
+    "statement": "`proposition_5_3_exists`: the glued norm $\\sum_i\\rho_i(P(w))|\\Phi_i[1](w)_2|_1$ over the atlas is continuous on $Y[1]$, a complete norm on every fibre and locally comparable with every chart norm; Lemma 5.1.2 (preprint 5.2) concludes.",
     "decls": [
      "Chapter5/AuxNorm · proposition_5_3_exists",
      "Chapter5/AuxNorm · StrongBundle.gluedNorm",
@@ -137,10 +137,10 @@
   },
   {
    "id": "V5.6",
-   "title": "Proposition 5.3: comparison of auxiliary norms",
+   "title": "Proposition 5.1.3 (preprint 5.3): comparison of auxiliary norms",
    "verdict": "same",
    "book": {
-    "label": "§5.1, Proposition 5.3, p. 171",
+    "label": "§5.1, Proposition 5.1.3 (preprint 5.3), p. 206 (preprint p. 171)",
     "page": 171,
     "statement": "For auxiliary norms $N_0$, $N_1$ there is a continuous $f : X \\to (0, \\infty)$ with $f(x)N_0(h) \\le N_1(h) \\le f(x)^{-1}N_0(h)$ on $P^{-1}(x) \\subseteq Y_{0,1}$."
    },
@@ -154,15 +154,15 @@
     "local constants glued"
    ],
    "diff": [
-    "\"The local compatibility implies the existence of $f$\": local constants from Lemma 5.2 in one chart, glued by a partition of unity (convex sets of admissible constants) (Findings, Chapter 5, item 5)."
+    "\"The local compatibility implies the existence of $f$\": local constants from Lemma 5.1.2 (preprint 5.2) in one chart, glued by a partition of unity (convex sets of admissible constants) (Findings, Chapter 5, item 5)."
    ]
   },
   {
    "id": "V5.7",
-   "title": "Definition 5.4: compact solution set, weakly proper, proper",
+   "title": "Definition 5.2.1 (preprint 5.4): compact solution set, weakly proper, proper",
    "verdict": "explicit",
    "book": {
-    "label": "§5.2, Definition 5.4, p. 171",
+    "label": "§5.2, Definition 5.2.1 (preprint 5.4), p. 209 (preprint p. 171)",
     "page": 171,
     "statement": "(1) $f^{-1}(0)$ compact; (2) weakly proper: moreover for every $N$ an open $U \\supseteq f^{-1}(0)$ with $\\{f = s\\}$ compact for every sc⁺-section $s$ supported in $U$ with $N(s) \\le 1$; (3) proper: moreover $\\operatorname{cl}_{X_0}\\{x \\in U \\mid N(f(x)) \\le 1\\}$ compact, $N(f(x)) = \\infty$ off $Y_{0,1}$. \"Obviously proper implies weakly proper, which in turn implies compactness.\""
    },
@@ -185,10 +185,10 @@
   },
   {
    "id": "V5.8",
-   "title": "Theorem 5.5, the local form for basic germs",
+   "title": "Theorem 5.2.2 (preprint 5.5), the local form for basic germs",
    "verdict": "extra",
    "book": {
-    "label": "§5.4.1, proof of Theorem 5.5, pp. 189–192",
+    "label": "§5.2 (preprint §5.4.1), proof of Theorem 5.2.2 (preprint 5.5), preprint pp. 189–192",
     "page": 189,
     "statement": "In basic germ coordinates, $z = w - B(a, w)$ with $|z|_1 \\le 3c$, $|z|_0 < \\tau/2$ gives $w = \\delta(a, z)$; by the compactness of $E_1 \\to E_0$, sequences have convergent subsequences ((82)–(90))."
    },
@@ -209,10 +209,10 @@
   },
   {
    "id": "V5.9",
-   "title": "Theorem 5.5, the local step on the M-polyfold",
+   "title": "Theorem 5.2.2 (preprint 5.5), the local step on the M-polyfold",
    "verdict": "extra",
    "book": {
-    "label": "§5.4.1, proof of Theorem 5.5, pp. 189–192",
+    "label": "§5.2 (preprint §5.4.1), proof of Theorem 5.2.2 (preprint 5.5), preprint pp. 189–192",
     "page": 189,
     "statement": "\"Without loss of generality\" $f = h + t$ in local coordinates; \"it suffices to find in local coordinates an open neighbourhood $U$ of $0$\" with $\\operatorname{cl}\\{(a, w) \\in U \\mid |(h + t)(a, w)|_1 \\le c\\}$ compact."
    },
@@ -234,10 +234,10 @@
   },
   {
    "id": "V5.10",
-   "title": "Theorem 5.5: compact solution set implies proper",
+   "title": "Theorem 5.2.2 (preprint 5.5): compact solution set implies proper",
    "verdict": "stronger",
    "book": {
-    "label": "§5.2, Theorem 5.5, p. 172 (proof §5.4.1, pp. 189–192)",
+    "label": "§5.2, Theorem 5.2.2 (preprint 5.5), p. 210 (preprint p. 172) (proof §5.2 (preprint §5.4.1), preprint pp. 189–192)",
     "page": 172,
     "statement": "Over a tame $X$, an sc-Fredholm section with compact solution set is proper; for sc-Fredholm sections proper, weakly proper and compact solution set are equivalent."
    },
@@ -258,10 +258,10 @@
   },
   {
    "id": "V5.11",
-   "title": "Theorem 5.6: local compactness",
+   "title": "Theorem 5.2.3 (preprint 5.6): local compactness",
    "verdict": "same",
    "book": {
-    "label": "§5.2, Theorem 5.6, p. 172",
+    "label": "§5.2, Theorem 5.2.3 (preprint 5.6), p. 213 (preprint p. 172)",
     "page": 172,
     "statement": "For an sc-Fredholm $f$ and $f(x) = 0$ there are open $x \\in U(i + 1) \\subseteq U(i) \\subseteq X_0$ with $\\operatorname{cl}_{X_0}\\{y \\in U(i) \\mid f(y) = 0\\}$ a compact subset of $X_i$."
    },
@@ -272,18 +272,18 @@
     ]
    },
    "chips": [
-    "Theorem 3.12 at a zero"
+    "Theorem 3.1.13 (preprint 3.12) at a zero"
    ],
    "diff": [
-    "A zero is a smooth point where $(f, x)$ is an sc-Fredholm germ, so Theorem 3.12 applies."
+    "A zero is a smooth point where $(f, x)$ is an sc-Fredholm germ, so Theorem 3.1.13 (preprint 3.12) applies."
    ]
   },
   {
    "id": "V5.12",
-   "title": "Theorem 5.7: compactness in $X_\\infty$",
+   "title": "Theorem 5.2.4 (preprint 5.7): compactness in $X_\\infty$",
    "verdict": "stronger",
    "book": {
-    "label": "§5.2, Theorem 5.7, p. 172",
+    "label": "§5.2, Theorem 5.2.4 (preprint 5.7), p. 213 (preprint p. 172)",
     "page": 172,
     "statement": "Over a tame $X$, if $S = f^{-1}(0)$ is compact in $X_0$, it is a compact subset of $X_\\infty$ (\"$X_\\infty$ is a metric space\"; \"from Theorem 5.6 we conclude that $x_k \\to x$ on every level\")."
    },
@@ -301,20 +301,20 @@
     "topology of $X_\\infty$ supplied"
    ],
    "diff": [
-    "The convergence on every level is Corollary 3.13 at the limit, not Theorem 5.6; the text never defines the topology of $X_\\infty$ (Findings, Chapter 5, item 20)."
+    "The convergence on every level is Corollary 3.1.15 (preprint 3.13) at the limit, not Theorem 5.2.3 (preprint 5.6); the text never defines the topology of $X_\\infty$ (Findings, Chapter 5, item 20)."
    ]
   },
   {
    "id": "V5.13",
-   "title": "Corollary 5.8: $f^i$ sc-Fredholm on $P^i$, with compact solution set",
+   "title": "Corollary 5.2.5 (preprint 5.8): $f^i$ sc-Fredholm on $P^i$, with compact solution set",
    "verdict": "stronger",
    "book": {
-    "label": "§5.2, Corollary 5.8, p. 173",
+    "label": "§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)",
     "page": 173,
     "statement": "Over a tame $X$, if $f^{-1}(0)$ is compact, then $f^i$ is an sc-Fredholm section of $P^i : Y^i \\to X^i$ with compact solution set."
    },
    "lean": {
-    "statement": "`corollary_5_8`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.14, the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \\to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_8_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$; since `corollary_5_8` holds for every strong bundle, every fixed $i$ follows by iterating it. `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$.",
+    "statement": "`corollary_5_8`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.1.16 (preprint 3.14), the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \\to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_8_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$; since `corollary_5_8` holds for every strong bundle, every fixed $i$ follows by iterating it. `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$.",
     "decls": [
      "Chapter5/Corollary58 · corollary_5_8",
      "Chapter5/Corollary58 · corollary_5_8_two",
@@ -329,20 +329,20 @@
    ],
    "diff": [
     "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_8` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_8_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is not compared with that of $X_2$ (gap G.6). The compact solution set is also proved on every level $X_i$ directly.",
-    "Tameness of $X$ is not used; the conclusion is Definition 3.14 for $f^i$, not tame germ data, which would need the tameness of the index raises of tame charts (not proved; Findings, Chapter 5, item 145). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it, when only the compactness half was proved) (Findings, Chapter 5, items 140–146; gap G.41)."
+    "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which would need the tameness of the index raises of tame charts (not proved; Findings, Chapter 5, item 145). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it, when only the compactness half was proved) (Findings, Chapter 5, items 140–146; gap G.41)."
    ]
   },
   {
    "id": "V5.14",
-   "title": "Corollary 5.8: the shifted strong bundle $P^1$, and $f^1$ sc-Fredholm on it",
+   "title": "Corollary 5.2.5 (preprint 5.8): the shifted strong bundle $P^1$, and $f^1$ sc-Fredholm on it",
    "verdict": "stronger",
    "book": {
-    "label": "§5.2, Corollary 5.8, p. 173",
+    "label": "§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)",
     "page": 173,
     "statement": "\"It is a priori clear that $f^i$ is sc-Fredholm\", as a section of $P^i : Y^i \\to X^i$."
    },
    "lean": {
-    "statement": "`StrongBundle.shift`: the shifted strong bundle $P^1 : Y^1 \\to X^1$ (Definition 2.51): total space $Y_{1,1}$ with its level topology, $P^1 = P|_{Y_{1,1}}$, fibres $P^{-1}(x) \\cap Y_{1,1}$ (linear subspaces, with the topology of $F_1$), and the atlas of the index raises $\\Phi^1$ of the strong bundle charts, compatible charts having compatible index raises; $(Y^1)_{m,k} = Y_{m+1,k+1}$. `corollary_5_8_isScFredholmSection`: for an sc-Fredholm section $f$, $f^1 = f|_{X_1}$ is an sc-Fredholm section of $P^1$ — sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point of $X^1$ (`isScFredholmGerm_sectionShift`), with the datum $(g^1, s^1)$ in the index raise $\\Phi^1$ of the chart of a datum $(g, s)$ of $f$: the principal part of $f^1$ is the level-$1$ map of that of $f$, $g^1$ is a filling germ of it, including condition (3) of Definition 3.4 on level $1$ (`IsFillingGerm.germ_shift`, from `IsFillingGerm.mem_range_toBase_of_fillDefect`: at the centre of every datum, $v \\in \\ker Dr(0)$ and $Dk(0)v \\in F_m$ give $v \\in E_m$), $s^1$ is an sc⁺-germ on the shifted germ, and $g^1 - s^1 = (g - s)_1$ near $0$ is conjugated to a basic germ by the index raise of the conjugation (`IsConjugateToBasicGerm.shift_germ`, with `IsBasicGerm.shift`). The chart-level form `corollary_5_8_chart` is kept.",
+    "statement": "`StrongBundle.shift`: the shifted strong bundle $P^1 : Y^1 \\to X^1$ (Definition 2.6.5 (preprint 2.51)): total space $Y_{1,1}$ with its level topology, $P^1 = P|_{Y_{1,1}}$, fibres $P^{-1}(x) \\cap Y_{1,1}$ (linear subspaces, with the topology of $F_1$), and the atlas of the index raises $\\Phi^1$ of the strong bundle charts, compatible charts having compatible index raises; $(Y^1)_{m,k} = Y_{m+1,k+1}$. `corollary_5_8_isScFredholmSection`: for an sc-Fredholm section $f$, $f^1 = f|_{X_1}$ is an sc-Fredholm section of $P^1$ — sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point of $X^1$ (`isScFredholmGerm_sectionShift`), with the datum $(g^1, s^1)$ in the index raise $\\Phi^1$ of the chart of a datum $(g, s)$ of $f$: the principal part of $f^1$ is the level-$1$ map of that of $f$, $g^1$ is a filling germ of it, including condition (3) of Definition 3.1.4 (preprint 3.4) on level $1$ (`IsFillingGerm.germ_shift`, from `IsFillingGerm.mem_range_toBase_of_fillDefect`: at the centre of every datum, $v \\in \\ker Dr(0)$ and $Dk(0)v \\in F_m$ give $v \\in E_m$), $s^1$ is an sc⁺-germ on the shifted germ, and $g^1 - s^1 = (g - s)_1$ near $0$ is conjugated to a basic germ by the index raise of the conjugation (`IsConjugateToBasicGerm.shift_germ`, with `IsBasicGerm.shift`). The chart-level form `corollary_5_8_chart` is kept.",
     "decls": [
      "Chapter5/StrongBundleShift · StrongBundle.shift",
      "Chapter5/StrongBundleShift · StrongBundleChart.shift",
@@ -369,9 +369,9 @@
    ],
    "diff": [
     "$Y^i \\to X^i$ is never defined in the text (it defines $Y[i]$ for $i = 0, 1$). $Y^1$ is read as $Y_{1,1}$ with $(Y^1)_{m,k} = Y_{m+1,k+1}$, the convention of $E^1$ and of $(U \\triangleleft F)^1 = U^1 \\triangleleft F^1$; it is forced by “$f^i$ is obtained by raising the index”: an sc-smooth section maps $X_1$ into $Y_{1,1}$, in general not into $Y_{1,2}$. The fibre of $P^1$ carries the topology of $F_1$, not that of the fibre of $P$; it is a Banach space because a fibre of a strong bundle is, through a chart, a closed subspace of its fibre model (`StrongBundleChart.isBanachable_fiber`) (Findings, Chapter 5, items 140, 141).",
-    "“It is a priori clear” hides condition (3) of the filling on level $1$ ($\\ker Dr^1(0) \\to \\ker\\rho^1(0)$ a topological isomorphism), which does not follow from level $0$ alone: an sc-operator can be bijective on level $0$ and not onto on level $1$. It holds for the data of Definition 3.11: subtracting the section $z \\mapsto \\Gamma(z, -g(0))$ reduces to $g(0) = 0$ with the same fill defect (Lemma 3.17), Proposition 3.52 in sc form makes $Dg(0)$ sc-Fredholm, and its regularity gives the surjectivity on level $1$; the open mapping theorem does the rest (Findings, Chapter 5, items 22, 144). No hypothesis beyond the text’s is added.",
+    "“It is a priori clear” hides condition (3) of the filling on level $1$ ($\\ker Dr^1(0) \\to \\ker\\rho^1(0)$ a topological isomorphism), which does not follow from level $0$ alone: an sc-operator can be bijective on level $0$ and not onto on level $1$. It holds for the data of Definition 3.1.11 (preprint 3.11): subtracting the section $z \\mapsto \\Gamma(z, -g(0))$ reduces to $g(0) = 0$ with the same fill defect (Lemma 3.1.20 (preprint 3.17)), Proposition 3.6.5 (preprint 3.52) in sc form makes $Dg(0)$ sc-Fredholm, and its regularity gives the surjectivity on level $1$; the open mapping theorem does the rest (Findings, Chapter 5, items 22, 144). No hypothesis beyond the text’s is added.",
     "Tameness is not used. The tame form (germ data of $f^1$ in tame charts of $P^1$) is not stated: the tameness of the index raise of a tame chart is not proved, and no counterexample is known (Findings, Chapter 5, item 145). $i \\ge 2$ by iteration: V5.13. Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it: no $Y^1 \\to X^1$, no filler on level $1$) (Findings, Chapter 5, items 140–146; gap G.41).",
-    "In the text’s germ reading of Definition 3.11 (phase 2) $s^1$ is an sc⁺-germ on the shifted germ of $s$, and the level-$1$ conjugation uses $g - s$ only near $0$ (Findings, Chapter 3, item 333)."
+    "In the text’s germ reading of Definition 3.1.11 (preprint 3.11) (phase 2) $s^1$ is an sc⁺-germ on the shifted germ of $s$, and the level-$1$ conjugation uses $g - s$ only near $0$ (Findings, Chapter 3, item 333)."
    ]
   },
   {
@@ -379,9 +379,9 @@
    "title": "$\\mathbb R$ as an M-polyfold; sc-smooth functions",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, Definition 5.9, p. 173; §5.4.2",
+    "label": "§5.3, Definition 5.3.1 (preprint 5.9), p. 216 (preprint p. 173); §5.5 (preprint §5.4.2)",
     "page": 173,
-    "statement": "\"A sc-smooth map $f : X \\to \\mathbb R$\" (Definitions 5.9, 5.29, 5.33)."
+    "statement": "\"A sc-smooth map $f : X \\to \\mathbb R$\" (Definitions 5.3.1, 5.5.2, 5.5.6 (preprint 5.9, 5.29, 5.33))."
    },
    "lean": {
     "statement": "`realPolyfold` ($\\mathbb R$, constant structure, chart $\\mathrm{id}$). Sc-smoothness is local in charts (`isScSmoothMap_of_local`); constants and $\\sigma \\circ f$ for $C^\\infty$ $\\sigma$ are sc-smooth.",
@@ -401,20 +401,20 @@
     "presupposed by the text"
    ],
    "diff": [
-    "The M-polyfold $\\mathbb R$ is needed for \"sc-smooth function\" to mean Definition 2.14 (Findings, Chapter 5, item 40)."
+    "The M-polyfold $\\mathbb R$ is needed for \"sc-smooth function\" to mean Definition 2.3.8 (preprint 2.14) (Findings, Chapter 5, item 40)."
    ]
   },
   {
    "id": "V5.16",
-   "title": "Definitions 5.9 and 5.29: sc-smooth bump functions",
+   "title": "Definitions 5.3.1 and 5.5.2 (preprint 5.9 and 5.29): sc-smooth bump functions",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, Definition 5.9, p. 173; §5.4.2, Definition 5.29, p. 192",
+    "label": "§5.3, Definition 5.3.1 (preprint 5.9), p. 216 (preprint p. 173); §5.5 (preprint §5.4.2), Definition 5.5.2 (preprint 5.29), p. 229 (preprint p. 192)",
     "page": 173,
-    "statement": "Definition 5.9: for every $x$ and open $U(x)$ an sc-smooth $f : X \\to \\mathbb R$ with $f \\ne 0$ and $\\operatorname{supp}(f) \\subseteq U(x)$. Definition 5.29: $f$ \"not identically zero\"."
+    "statement": "Definition 5.3.1 (preprint 5.9): for every $x$ and open $U(x)$ an sc-smooth $f : X \\to \\mathbb R$ with $f \\ne 0$ and $\\operatorname{supp}(f) \\subseteq U(x)$. Definition 5.5.2 (preprint 5.29): $f$ \"not identically zero\"."
    },
    "lean": {
-    "statement": "`AdmitsBumpFunctions`: $f(x) \\ne 0$ and $\\operatorname{supp} f \\subseteq U$. `AdmitsBumpFunctionsWeak`: Definition 5.29 as written, implied by the first. `HasBumpAt`: $x$ is a bump point if every open $U \\ni x$ carries an sc-smooth $f$ with $f(x) \\ne 0$ and $\\operatorname{supp} f \\subseteq U$; the pointwise reading is “every point is a bump point”, and the weak reading follows from “the bump points are dense” (`admitsBumpFunctionsWeak_of_dense`). On an sc-Banach space the weak reading gives a bump point at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`); on M-polyfolds built on sc-Hilbert spaces the pointwise reading holds (`admitsBumpFunctions_of_hilbert`).",
+    "statement": "`AdmitsBumpFunctions`: $f(x) \\ne 0$ and $\\operatorname{supp} f \\subseteq U$. `AdmitsBumpFunctionsWeak`: Definition 5.5.2 (preprint 5.29) as written, implied by the first. `HasBumpAt`: $x$ is a bump point if every open $U \\ni x$ carries an sc-smooth $f$ with $f(x) \\ne 0$ and $\\operatorname{supp} f \\subseteq U$; the pointwise reading is “every point is a bump point”, and the weak reading follows from “the bump points are dense” (`admitsBumpFunctionsWeak_of_dense`). On an sc-Banach space the weak reading gives a bump point at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`); on M-polyfolds built on sc-Hilbert spaces the pointwise reading holds (`admitsBumpFunctions_of_hilbert`).",
     "decls": [
      "Chapter5/BumpFunctions · MPolyfold.AdmitsBumpFunctions",
      "Chapter5/BumpFunctions · MPolyfold.AdmitsBumpFunctionsWeak",
@@ -431,20 +431,20 @@
     "weak ⇒ pointwise at smooth points of $E$"
    ],
    "diff": [
-    "Proposition 5.30's proof needs $g(x) \\ne 0$; without translations a bump cannot be moved to $x$. Whether the weak reading suffices is open at non-smooth points: on an sc-Banach space the weak reading gives a bump at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`; translation by a non-smooth vector does not preserve the levels), on Hilbert models both readings hold everywhere (`admitsBumpFunctions_of_hilbert`), and the weak reading is the density of the bump points (`HasBumpAt`; one direction formalized) (Findings, Chapter 5, items 41, 160–163). Updated in the fourth addendum of this page."
+    "Proposition 5.5.3's (preprint 5.30) proof needs $g(x) \\ne 0$; without translations a bump cannot be moved to $x$. Whether the weak reading suffices is open at non-smooth points: on an sc-Banach space the weak reading gives a bump at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`; translation by a non-smooth vector does not preserve the levels), on Hilbert models both readings hold everywhere (`admitsBumpFunctions_of_hilbert`), and the weak reading is the density of the bump points (`HasBumpAt`; one direction formalized) (Findings, Chapter 5, items 41, 160–163). Updated in the fourth addendum of this page."
    ]
   },
   {
    "id": "V5.17",
-   "title": "Propositions 5.10 and 5.30",
+   "title": "Propositions 5.3.2 and 5.5.3 (preprint 5.10 and 5.30)",
    "verdict": "same",
    "book": {
-    "label": "§5.3, Proposition 5.10, p. 173; §5.4.2, Proposition 5.30, p. 193",
+    "label": "§5.3, Proposition 5.3.2 (preprint 5.10), p. 216 (preprint p. 173); §5.5 (preprint §5.4.2), Proposition 5.5.3 (preprint 5.30), p. 230 (preprint p. 193)",
     "page": 173,
     "statement": "With sc-smooth bump functions, for every $x$ and $U(x)$ an sc-smooth $f : X \\to [0, 1]$ with $f(x) = 1$, $\\operatorname{supp}(f) \\subseteq U(x)$, and $f \\equiv 1$ near $x$."
    },
    "lean": {
-    "statement": "`proposition_5_30`, `proposition_5_10`: the statement, from Definition 5.9 as read in V5.16.",
+    "statement": "`proposition_5_30`, `proposition_5_10`: the statement, from Definition 5.3.1 (preprint 5.9) as read in V5.16.",
     "decls": [
      "Chapter5/BumpFunctions · proposition_5_30",
      "Chapter5/BumpFunctions · proposition_5_10"
@@ -462,9 +462,9 @@
    "title": "The sc-calculus of sections: $f \\cdot s$ and sums",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, p. 173; proof of Lemma 5.11",
+    "label": "§5.3, preprint p. 173; proof of Lemma 5.3.3 (preprint 5.11)",
     "page": 173,
-    "statement": "$\\Gamma^+(P)$; \"the sc⁺-section $s(y) = \\beta(y)t(y)$\"; the finite combinations $\\sum\\lambda_is_i$ of Theorems 5.13 and 5.18."
+    "statement": "$\\Gamma^+(P)$; \"the sc⁺-section $s(y) = \\beta(y)t(y)$\"; the finite combinations $\\sum\\lambda_is_i$ of Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18)."
    },
    "lean": {
     "statement": "`IsScPlusSection.smul_left`: $f \\cdot s$ is sc⁺ for $f$ sc-smooth and $s$ sc⁺; `IsScPlusSection.add`, `isScPlusSection_sectionSum`; the zero section is sc⁺; sc⁺-sections take values in $Y_{0,1}$.",
@@ -492,7 +492,7 @@
    "title": "Local sc⁺-sections cut off and extended by $0$",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Lemma 5.11, p. 174",
+    "label": "§5.3, proof of Lemma 5.3.3 (preprint 5.11), preprint p. 174",
     "page": 174,
     "statement": "\"If we construct $s \\in \\Gamma^+(W|Q)$ with support in $Q'$ we can extend it by $0$ to $X$.\""
    },
@@ -512,10 +512,10 @@
   },
   {
    "id": "V5.20",
-   "title": "Lemma 5.11: existence of sc⁺-sections",
+   "title": "Lemma 5.3.3 (preprint 5.11): existence of sc⁺-sections",
    "verdict": "stronger",
    "book": {
-    "label": "§5.3, Lemma 5.11, p. 173 (proof p. 174)",
+    "label": "§5.3, Lemma 5.3.3 (preprint 5.11), p. 217 (preprint p. 173) (proof preprint p. 174)",
     "page": 173,
     "statement": "For a tame strong bundle over a tame $X$ with sc-smooth bump functions, an auxiliary norm $N$, smooth $x$, smooth $e \\in Y_x$, $\\varepsilon > 0$ and open $U \\ni x$: an $s \\in \\Gamma^+(P)$ with $s(x) = e$, $\\operatorname{supp}(s) \\subseteq U$, $N(s(x)) < N(e) + \\varepsilon$."
    },
@@ -538,7 +538,7 @@
    "title": "$\\Gamma^{+,1}_U(P)$, the allowable sections, and the metric $\\rho$",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, p. 174",
+    "label": "§5.3, preprint p. 174",
     "page": 174,
     "statement": "$\\Gamma^{+,1}_U(P)$: the $s \\in \\Gamma^+(P)$ with $\\operatorname{supp}(s) \\subseteq U$ and $N(s(x)) \\le 1$ for all $x$, a metric space for $\\rho(s, s') = \\sup_xN(s(x) - s'(x))$, not complete."
    },
@@ -562,20 +562,20 @@
    ],
    "diff": [
     "The text’s “$(\\Gamma^{+,1}_U(P), \\rho)$ is not complete” is false without a hypothesis: for $U = \\emptyset$ the space is a point, and over a point with finite-dimensional fibre it is the closed unit ball of $\\mathbb R^k$. It is read as “not complete in general” and proved by an example: the allowable sections $s_j(x) = (x, \\sqrt{x^2 + 1/(j+1)^2}/(2\\sqrt{1 + x^2}))$ form a $\\rho$-Cauchy sequence whose pointwise limit has fibre part $|x|/(2\\sqrt{1 + x^2})$, not differentiable at $0$, while the fibre part of an sc⁺-section of the trivial bundle is $C^1$. That non-completeness holds whenever $U$ contains a non-isolated point over which $Y_{0,1}$ is nonzero (the text’s setting) is expected by the same mechanism and not formalized (Findings, Chapter 5, items 150–153; gap G.42).",
-    "Only Definition 5.1 (1) is used for the metric axioms (symmetry and subadditivity of the fibre norms, $N$ vanishing only at $0_x$); the density statements of Theorems 5.13 and 5.18 are $\\rho(s, s') \\le \\varepsilon$ (`allowableDist_le_iff`; V5.30, V5.39). Hence still “restated”; before the fourth addendum of this page $\\rho$ was used pointwise only and the metric space was not formalized (Findings, Chapter 5, item 47)."
+    "Only Definition 5.1.1 (1) (preprint 5.1) is used for the metric axioms (symmetry and subadditivity of the fibre norms, $N$ vanishing only at $0_x$); the density statements of Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18) are $\\rho(s, s') \\le \\varepsilon$ (`allowableDist_le_iff`; V5.30, V5.39). Hence still “restated”; before the fourth addendum of this page $\\rho$ was used pointwise only and the metric space was not formalized (Findings, Chapter 5, item 47)."
    ]
   },
   {
    "id": "V5.22",
-   "title": "Remark 5.12",
+   "title": "Remark 5.3.4 (preprint 5.12)",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, Remark 5.12, p. 174",
+    "label": "§5.3, Remark 5.3.4 (preprint 5.12), p. 217 (preprint p. 174)",
     "page": 174,
     "statement": "If $s$ is in the completion of $\\Gamma^{+,1}_U(P)$, the solution set of $f + s = 0$ is still compact, provided $f$ has a compact solution set and $U$ is adapted to $N$."
    },
    "lean": {
-    "statement": "`remark_5_12`: if $\\operatorname{cl}\\{x \\in U \\mid N(f(x)) \\le 1\\}$ is compact and $s$ vanishes off $U$ with $N(s) \\le 1$, the zeros of $f + s$ lie in $\\{x \\in U \\mid N(f(x)) \\le 1\\}$, with compact closure. As stated (`remark_5_12_completion`): with the points of the completion represented by sections $s$ with values in $Y_{0,1}$ that are uniform $N$-limits of allowable sections (`IsInAllowableCompletion`), for $f$ continuous and $U \\supseteq f^{-1}(0)$ with $\\operatorname{cl}\\{x \\in U \\mid N(f(x)) \\le 1\\}$ compact, the solution set of $f + s$ is closed, hence compact; for $f$ sc-Fredholm with compact solution set, with the $U$ of Theorem 5.5 (`remark_5_12_of_isScFredholmSection`).",
+    "statement": "`remark_5_12`: if $\\operatorname{cl}\\{x \\in U \\mid N(f(x)) \\le 1\\}$ is compact and $s$ vanishes off $U$ with $N(s) \\le 1$, the zeros of $f + s$ lie in $\\{x \\in U \\mid N(f(x)) \\le 1\\}$, with compact closure. As stated (`remark_5_12_completion`): with the points of the completion represented by sections $s$ with values in $Y_{0,1}$ that are uniform $N$-limits of allowable sections (`IsInAllowableCompletion`), for $f$ continuous and $U \\supseteq f^{-1}(0)$ with $\\operatorname{cl}\\{x \\in U \\mid N(f(x)) \\le 1\\}$ compact, the solution set of $f + s$ is closed, hence compact; for $f$ sc-Fredholm with compact solution set, with the $U$ of Theorem 5.2.2 (preprint 5.5) (`remark_5_12_of_isScFredholmSection`).",
     "decls": [
      "Chapter5/Compactness · remark_5_12",
      "Chapter5/Compactness · StrongBundle.IsAuxNorm.auxLe_of_sectionAdd",
@@ -590,15 +590,15 @@
     "completion as uniform $N$-limits"
    ],
    "diff": [
-    "The closedness of the solution set, which the remark does not discuss, is proved for every $s$ in the completion by a chart argument: Lemma 5.2's bound turns $N(s - s') \\le \\varepsilon$ into a level-$0$ bound in a chart, and $f + s'$ is continuous for allowable $s'$ (Findings, Chapter 5, item 130; before, only the compact closure, item 27). “Adapted” is read as properness. The completion is represented by sections, uniform $N$-limits of allowable sections; the metric space $(\\Gamma^{+,1}_U(P), \\rho)$ is V5.21 (fourth addendum), and that every $\\rho$-Cauchy sequence has such a limit section is not formalized (items 131, 153). Updated in the third addendum of this page."
+    "The closedness of the solution set, which the remark does not discuss, is proved for every $s$ in the completion by a chart argument: Lemma 5.1.2's (preprint 5.2) bound turns $N(s - s') \\le \\varepsilon$ into a level-$0$ bound in a chart, and $f + s'$ is continuous for allowable $s'$ (Findings, Chapter 5, item 130; before, only the compact closure, item 27). “Adapted” is read as properness. The completion is represented by sections, uniform $N$-limits of allowable sections; the metric space $(\\Gamma^{+,1}_U(P), \\rho)$ is V5.21 (fourth addendum), and that every $\\rho$-Cauchy sequence has such a limit section is not formalized (items 131, 153). Updated in the third addendum of this page."
    ]
   },
   {
    "id": "V5.23",
-   "title": "Definition 5.15: transversal to the zero section",
+   "title": "Definition 5.3.7 (preprint 5.15): transversal to the zero section",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, Definition 5.15, p. 175",
+    "label": "§5.3, Definition 5.3.7 (preprint 5.15), p. 218 (preprint p. 175)",
     "page": 175,
     "statement": "$g$ is transversal to the zero section if at every $x$ with $g(x) = 0$ the linearization $g'(x) : T_xX \\to Y_x$ is surjective."
    },
@@ -621,7 +621,7 @@
    "title": "Spanning sc⁺-sections at a zero",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.13, p. 175",
+    "label": "§5.3, proof of Theorem 5.3.5 (preprint 5.13), p. 218 (preprint p. 175)",
     "page": 175,
     "statement": "\"For every $x \\in S_{f+s_0}$ we find finitely many allowable sc⁺-sections $s^1_x, \\dots, s^{k_x}_x$ such that the range of $(f + s_0)'(x)$ together with the sections span $Y_x$.\""
    },
@@ -636,7 +636,7 @@
     "density of smooth vectors"
    ],
    "diff": [
-    "The text does not say how: finitely many smooth vectors of the dense $\\rho(0)F_\\infty$ span a complement of the closed finite-codimensional range, and Lemma 5.11 realizes them (Findings, Chapter 5, item 66)."
+    "The text does not say how: finitely many smooth vectors of the dense $\\rho(0)F_\\infty$ span a complement of the closed finite-codimensional range, and Lemma 5.3.3 (preprint 5.11) realizes them (Findings, Chapter 5, item 66)."
    ]
   },
   {
@@ -644,12 +644,12 @@
    "title": "The parametrized section and its slices",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.13, pp. 175–176",
+    "label": "§5.3, proof of Theorem 5.3.5 (preprint 5.13), pp. 218–219 (preprint pp. 175–176)",
     "page": 175,
-    "statement": "$(\\lambda, y) \\mapsto f(y) + s_0(y) + \\sum\\lambda_jt_j(y)$ is sc-Fredholm (Theorem 3.18); \"there is a number $\\delta_0 > 0$ such that $|\\lambda| < \\delta_0$ implies $N(\\sum\\lambda_jt_j(y)) < \\varepsilon/2$\"."
+    "statement": "$(\\lambda, y) \\mapsto f(y) + s_0(y) + \\sum\\lambda_jt_j(y)$ is sc-Fredholm (Theorem 3.1.21 (preprint 3.18)); \"there is a number $\\delta_0 > 0$ such that $|\\lambda| < \\delta_0$ implies $N(\\sum\\lambda_jt_j(y)) < \\varepsilon/2$\"."
    },
    "lean": {
-    "statement": "`paramSlice`: the slice $g + \\sum\\lambda_it_i$; zeros of $F$ are zeros of slices; slices are sc-Fredholm (Theorem 3.15) and, of sc⁺-sections, sc⁺; `auxLe_paramSlice`: $N(s_0 + \\sum\\lambda_it_i) \\le 1$ for $m|\\lambda| \\le \\varepsilon$.",
+    "statement": "`paramSlice`: the slice $g + \\sum\\lambda_it_i$; zeros of $F$ are zeros of slices; slices are sc-Fredholm (Theorem 3.1.18 (preprint 3.15)) and, of sc⁺-sections, sc⁺; `auxLe_paramSlice`: $N(s_0 + \\sum\\lambda_it_i) \\le 1$ for $m|\\lambda| \\le \\varepsilon$.",
     "decls": [
      "Chapter5/Transversality · paramSlice",
      "Chapter5/Transversality · isZeroAt_paramSection_iff",
@@ -671,7 +671,7 @@
    "title": "\"Regular value ⇔ transversal\"; $F$ transversal at $(0, y)$",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.13, pp. 175–176",
+    "label": "§5.3, proof of Theorem 5.3.5 (preprint 5.13), pp. 218–219 (preprint pp. 175–176)",
     "page": 175,
     "statement": "\"The linearization at the point $(0, x)$ is surjective\"; \"taking a regular value $\\lambda_0$ for the projection $\\tilde S \\to \\mathbb R^m$ it is easily verified that $f + s_0 + s(\\lambda_0, \\cdot)$ is transversal\"."
    },
@@ -697,7 +697,7 @@
    "title": "The openness steps and the omitted compactness step",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.13, pp. 175–176",
+    "label": "§5.3, proof of Theorem 5.3.5 (preprint 5.13), pp. 218–219 (preprint pp. 175–176)",
     "page": 175,
     "statement": "\"In view of the interior case of the implicit function theorem, Theorem 3.19, there exists an open neighborhood $U(x)$\"; \"by the implicit function theorem we find an open neighborhood $U \\subset \\{|\\lambda| < \\delta_0\\} \\oplus X$ of $\\{0\\} \\times S_{f+s_0}$\"."
    },
@@ -716,8 +716,8 @@
     "tame germ data"
    ],
    "diff": [
-    "The passage to $|\\lambda| < \\delta_0$ needs the compactness of the zeros over $|\\lambda| \\le \\delta_1$ (Remark 5.12) (Findings, Chapter 5, item 63).",
-    "The §3.6 theorems are applied to $F$ on $\\mathbb R^m \\times X$ with tame germ data from Theorem 3.18 (Findings, Chapter 5, items 68, 75)."
+    "The passage to $|\\lambda| < \\delta_0$ needs the compactness of the zeros over $|\\lambda| \\le \\delta_1$ (Remark 5.3.4 (preprint 5.12)) (Findings, Chapter 5, item 63).",
+    "The §3.6 theorems are applied to $F$ on $\\mathbb R^m \\times X$ with tame germ data from Theorem 3.1.21 (preprint 3.18) (Findings, Chapter 5, items 68, 75)."
    ]
   },
   {
@@ -725,7 +725,7 @@
    "title": "The Sard step",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.13, p. 176",
+    "label": "§5.3, proof of Theorem 5.3.5 (preprint 5.13), preprint p. 176",
     "page": 176,
     "statement": "\"$\\tilde S := F^{-1}(0)$ is a smooth manifold\"; \"taking a regular value $\\lambda_0$ for the projection $\\tilde S \\to \\mathbb R^m$\"."
    },
@@ -740,15 +740,15 @@
     "$\\tilde S$ not built"
    ],
    "diff": [
-    "Sard is applied on the model of the regular tangent germ chart of Theorem 3.54 (2), stratum by stratum, so interior points need not be identified (Findings, Chapter 5, item 65)."
+    "Sard is applied on the model of the regular tangent germ chart of Theorem 3.6.8 (2) (preprint 3.54), stratum by stratum, so interior points need not be identified (Findings, Chapter 5, item 65)."
    ]
   },
   {
    "id": "V5.29",
-   "title": "Theorem 5.13, generic form",
+   "title": "Theorem 5.3.5 (preprint 5.13), generic form",
    "verdict": "explicit",
    "book": {
-    "label": "§5.3, Theorem 5.13, pp. 174–175 (proof pp. 175–176)",
+    "label": "§5.3, Theorem 5.3.5 (preprint 5.13), pp. 217–218 (preprint pp. 174–175) (proof pp. 218–219 (preprint pp. 175–176))",
     "page": 174,
     "statement": "$\\partial X = \\emptyset$, bump functions, $f$ sc-Fredholm with compact solution set, $N$ auxiliary: an open $U \\supseteq S$ with $S_{f+s}$ compact for $s \\in \\Gamma^+(P)$, $\\operatorname{supp}(s) \\subseteq U$, \"$N(f(x)) \\le 1$\", and a dense $O \\subseteq (\\Gamma^{+,1}_U(P), \\rho)$ with $f + s$ transversal for $s \\in O$, \"the germ $(f, x)$ in good position\", $S_{f+s}$ a compact manifold without boundary."
    },
@@ -765,15 +765,15 @@
    ],
    "diff": [
     "\"$N(f(x)) \\le 1$\" is $N(s(x)) \\le 1$; \"$(f, x)$ in good position\" is $(f + s, x)$ (Findings, Chapter 5, item 62).",
-    "$f$ has tame germ data (Definition 3.51), the reading of §5.3's tame strong bundle; earlier statements with every chart tame were vacuous (Findings, Chapter 5, items 74, 75)."
+    "$f$ has tame germ data (Definition 3.6.4 (preprint 3.51)), the reading of §5.3's tame strong bundle; earlier statements with every chart tame were vacuous (Findings, Chapter 5, items 74, 75)."
    ]
   },
   {
    "id": "V5.30",
-   "title": "Theorem 5.13, the text's dense form",
+   "title": "Theorem 5.3.5 (preprint 5.13), the text's dense form",
    "verdict": "explicit",
    "book": {
-    "label": "§5.3, Theorem 5.13, pp. 174–175",
+    "label": "§5.3, Theorem 5.3.5 (preprint 5.13), pp. 217–218 (preprint pp. 174–175)",
     "page": 174,
     "statement": "\"There exists a dense subset $O$ of the metric space $(\\Gamma^{+,1}_U(P), \\rho)$ such that for every $s \\in O$\" $f + s$ is transversal and $S_{f+s}$ is a compact manifold without boundary."
    },
@@ -793,10 +793,10 @@
   },
   {
    "id": "V5.31",
-   "title": "Definition 5.17: general position, in a tame chart",
+   "title": "Definition 5.3.9 (preprint 5.17): general position, in a tame chart",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, Definition 5.17, p. 177",
+    "label": "§5.3, Definition 5.3.9 (preprint 5.17), p. 220 (preprint p. 177)",
     "page": 177,
     "statement": "$(f, x)$, $f(x) = 0$, is in general position if $f'(x) : T_xX \\to Y_x$ is surjective and $\\ker f'(x)$ has an sc-complement contained in $T^R_xX$."
    },
@@ -821,12 +821,12 @@
    "title": "The bridge lemma: solution sets as smooth submanifolds",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.18, p. 179",
+    "label": "§5.3, proof of Theorem 5.3.10 (preprint 5.18), preprint p. 179",
     "page": 179,
     "statement": "\"$\\tilde S \\subset \\mathbb R^m \\oplus X$ is a smooth submanifold with boundary with corners ... Hence we can apply Theorem 4.23.\""
    },
    "lean": {
-    "statement": "Regular tangent germ data (Definition 3.25 (2)) give the sc⁺-retraction $\\tau = \\Gamma \\circ \\pi \\circ r$ (`exists_scPlusRetraction`), so `isSmoothSubmanifold_of_isRegular`; `isSmoothSubmanifold_solutionSet_inter`: the zeros in an open $W$ all in good position form a smooth finite-dimensional submanifold (Definition 4.13).",
+    "statement": "Regular tangent germ data (Definition 3.2.1 (2) (preprint 3.25)) give the sc⁺-retraction $\\tau = \\Gamma \\circ \\pi \\circ r$ (`exists_scPlusRetraction`), so `isSmoothSubmanifold_of_isRegular`; `isSmoothSubmanifold_solutionSet_inter`: the zeros in an open $W$ all in good position form a smooth finite-dimensional submanifold (Definition 4.2.1 (preprint 4.13)).",
     "decls": [
      "Chapter5/GeneralPosition · isScPlus_of_isScSmooth_const",
      "Chapter5/GeneralPosition · MPolyfold.TangentGermChart.exists_scPlusRetraction",
@@ -836,10 +836,10 @@
     ]
    },
    "chips": [
-    "Definition 4.13 verified"
+    "Definition 4.2.1 (preprint 4.13) verified"
    ],
    "diff": [
-    "The implicit function theorem gives tangent germ data, not the sc⁺-retractions of Definition 4.13 that Theorem 4.23 needs (Findings, Chapter 5, item 81)."
+    "The implicit function theorem gives tangent germ data, not the sc⁺-retractions of Definition 4.2.1 (preprint 4.13) that Theorem 4.3.1 (preprint 4.23) needs (Findings, Chapter 5, item 81)."
    ]
   },
   {
@@ -847,7 +847,7 @@
    "title": "$T_yS = \\ker f'(y)$",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proofs of Theorems 5.18, 5.25, Lemma 5.24",
+    "label": "§5.3, proofs of Theorem 5.3.10 (preprint 5.18) and Theorem 5.25 (preprint; not in the 2021 edition), Lemma 5.3.17 (preprint 5.24), preprint p. 179",
     "page": 179,
     "statement": "\"$T_zS_\\lambda$ has a sc-complement contained in $T^R_xX$\"; \"in view of $T_xS = \\ker(f'(x))$\"."
    },
@@ -869,12 +869,12 @@
   },
   {
    "id": "V5.34",
-   "title": "Definition 5.17 = Definition 4.21 for the solution set",
+   "title": "Definition 5.3.9 (preprint 5.17) = Definition 4.2.10 (preprint 4.21) for the solution set",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, Definition 5.17, p. 177; proof of Theorem 5.18",
+    "label": "§5.3, Definition 5.3.9 (preprint 5.17), p. 220 (preprint p. 177); proof of Theorem 5.3.10 (preprint 5.18)",
     "page": 177,
-    "statement": "General position of the section (Definition 5.17) and of the solution set (Definition 4.21, \"for every $x \\in S_\\lambda$ ... the tangent space has a sc-complement contained in $T^R_xX$\") are used interchangeably."
+    "statement": "General position of the section (Definition 5.3.9 (preprint 5.17)) and of the solution set (Definition 4.2.10 (preprint 4.21), \"for every $x \\in S_\\lambda$ ... the tangent space has a sc-complement contained in $T^R_xX$\") are used interchangeably."
    },
    "lean": {
     "statement": "`exists_isGeneralPositionGerm_iff`: near a zero in good position, $(f, y)$ is in general position iff $S_f \\cap V$ is in general position at $y$, chart independently. `isGoodPositionGermTame_of_isGeneralPositionAt`: $f'(y)$ onto and a submanifold $A \\subseteq S_f$ in general position at $y$ give good position.",
@@ -887,7 +887,7 @@
     "chart independence of 5.17"
    ],
    "diff": [
-    "Resolves the chart independence of Definition 5.17 left open in Findings, Chapter 5, item 71 (Findings, Chapter 5, items 82, 85)."
+    "Resolves the chart independence of Definition 5.3.9 (preprint 5.17) left open in Findings, Chapter 5, item 71 (Findings, Chapter 5, items 82, 85)."
    ]
   },
   {
@@ -895,12 +895,12 @@
    "title": "Openness of general position",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.18, pp. 178–179",
+    "label": "§5.3, proof of Theorem 5.3.10 (preprint 5.18), pp. 220–222 (preprint pp. 178–179)",
     "page": 178,
     "statement": "\"If for a section the properties (i)–(ii) hold at the specific $(0, x)$, then they will also hold at $(0, y)$ for $y \\in S_f$ close to $x$\"; \"the properties (i)–(ii) hold for all $(\\lambda, y) \\in \\tilde S$\"."
    },
    "lean": {
-    "statement": "`exists_isOpen_isGeneralPositionGerm` ($X$ tame): general position at a zero $x_0$ gives an open $W \\ni x_0$ with $S_f \\cap W$ a smooth submanifold and good and general position at all zeros of $W$. Definition 4.21 is local (`IsGeneralPositionAt.congr_nhds`).",
+    "statement": "`exists_isOpen_isGeneralPositionGerm` ($X$ tame): general position at a zero $x_0$ gives an open $W \\ni x_0$ with $S_f \\cap W$ a smooth submanifold and good and general position at all zeros of $W$. Definition 4.2.10 (preprint 4.21) is local (`IsGeneralPositionAt.congr_nhds`).",
     "decls": [
      "Chapter5/GeneralPosition · exists_isOpen_isGeneralPositionGerm",
      "Chapter5/GeneralPosition · MPolyfold.IsGeneralPositionAt.congr_nhds"
@@ -911,15 +911,15 @@
     "$X$ tame"
    ],
    "diff": [
-    "Proved through V5.34 and Theorem 4.22 (3) (Findings, Chapter 5, item 83)."
+    "Proved through V5.34 and Theorem 4.2.11 (3) (preprint 4.22) (Findings, Chapter 5, item 83)."
    ]
   },
   {
    "id": "V5.36",
-   "title": "Properties (i)–(ii) of the proof of Theorem 5.18",
+   "title": "Properties (i)–(ii) of the proof of Theorem 5.3.10 (preprint 5.18)",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, proof of Theorem 5.18, p. 178",
+    "label": "§5.3, proof of Theorem 5.3.10 (preprint 5.18), preprint p. 178",
     "page": 178,
     "statement": "(i) $F'(0, x)$ is surjective; (ii) $\\ker F'(0, x)$ is transversal to $\\mathbb R^m \\oplus T^R_xX$. \"Adding more sections, the properties (i)–(ii) will still hold\"; \"we take a linear subspace $L$ complementing $T^R_xX$ in $T_xX$ and add sections, which at $x$ span the image $f'(x)L$.\""
    },
@@ -937,15 +937,15 @@
     "$L$ spanned by smooth vectors"
    ],
    "diff": [
-    "$L$ must consist of smooth vectors for Lemma 5.11 to apply; \"(i)–(ii) ⇒ general position\" needs good position of $F$ first, then $\\ker F' = T\\tilde S$ (Findings, Chapter 5, item 84)."
+    "$L$ must consist of smooth vectors for Lemma 5.3.3 (preprint 5.11) to apply; \"(i)–(ii) ⇒ general position\" needs good position of $F$ first, then $\\ker F' = T\\tilde S$ (Findings, Chapter 5, item 84)."
    ]
   },
   {
    "id": "V5.37",
-   "title": "Theorem 5.18 from a family with (i)–(ii)",
+   "title": "Theorem 5.3.10 (preprint 5.18) from a family with (i)–(ii)",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Theorem 5.18, pp. 178–179",
+    "label": "§5.3, proof of Theorem 5.3.10 (preprint 5.18), pp. 220–222 (preprint pp. 178–179)",
     "page": 178,
     "statement": "\"Since $S_f$ is compact and since, by construction, the section is in general position at every point $(0, x)$, we can apply the implicit function theorem ... Hence we can apply Theorem 4.23.\""
    },
@@ -957,7 +957,7 @@
     ]
    },
    "chips": [
-    "Theorem 4.23, countable form"
+    "Theorem 4.3.1, countable form"
    ],
    "diff": [
     "$\\tilde S$ omits the equation $F = 0$ in the text; \"$p^{-1}(\\{|\\lambda| \\le \\varepsilon\\})$ is compact\" is the omitted step of V5.27 (Findings, Chapter 5, item 85)."
@@ -965,10 +965,10 @@
   },
   {
    "id": "V5.38",
-   "title": "Theorem 5.18: perturbation into general position",
+   "title": "Theorem 5.3.10 (preprint 5.18): perturbation into general position",
    "verdict": "explicit",
    "book": {
-    "label": "§5.3, Theorem 5.18, p. 177 (proof pp. 177–179)",
+    "label": "§5.3, Theorem 5.3.10 (preprint 5.18), p. 220 (preprint p. 177) (proof pp. 219–222 (preprint pp. 177–179))",
     "page": 177,
     "statement": "Bump functions, $f$ sc-Fredholm with compact solution set, $N$ auxiliary: an open $U \\supseteq S$ with $S_{f+s}$ compact for $s \\in \\Gamma^{+,1}_U(P)$, and a dense $O \\subseteq (\\Gamma^{+,1}_U(P), \\rho)$ such that for $s \\in O$, $(f + s, x)$ is in general position at every $x \\in S_{f+s}$; $S_{f+s}$ is a compact manifold with boundary with corners, $d_{S_{f+s}} = d_X$."
    },
@@ -984,16 +984,16 @@
     "generic = off a null set"
    ],
    "diff": [
-    "$X$ tame: the proof uses Theorems 4.22 and 4.23; §5.3 opens with a tame strong bundle (Findings, Chapter 5, item 80).",
+    "$X$ tame: the proof uses Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23); §5.3 opens with a tame strong bundle (Findings, Chapter 5, item 80).",
     "\"Replacing $f + s_0$ by $f$ and $N$ by $cN$\" is not needed; the proof keeps $s_0$ (Findings, Chapter 5, item 85)."
    ]
   },
   {
    "id": "V5.39",
-   "title": "Theorem 5.18, the text's dense form",
+   "title": "Theorem 5.3.10 (preprint 5.18), the text's dense form",
    "verdict": "explicit",
    "book": {
-    "label": "§5.3, Theorem 5.18, p. 177",
+    "label": "§5.3, Theorem 5.3.10 (preprint 5.18), p. 220 (preprint p. 177)",
     "page": 177,
     "statement": "\"There exists a dense subset $O$ of the metric space $(\\Gamma^{+,1}_U(P), \\rho)$ such that, for every $s \\in O$,\" $(f + s, x)$ is in general position at every zero."
    },
@@ -1008,15 +1008,15 @@
     "density = $\\rho(s, s') \\le \\varepsilon$"
    ],
    "diff": [
-    "As V5.30, with Theorem 5.18 in place of Theorem 5.13 (Findings, Chapter 5, item 80)."
+    "As V5.30, with Theorem 5.3.10 (preprint 5.18) in place of Theorem 5.3.5 (preprint 5.13) (Findings, Chapter 5, item 80)."
    ]
   },
   {
    "id": "V5.40",
-   "title": "Theorem 5.19: perturbation into good position, relative to $\\partial X$",
+   "title": "Theorem 5.3.12 (preprint 5.19): perturbation into good position, relative to $\\partial X$",
    "verdict": "stronger",
    "book": {
-    "label": "§5.3, Theorem 5.19, p. 180",
+    "label": "§5.3, Theorem 5.3.12 (preprint 5.19), p. 222 (preprint p. 180)",
     "page": 180,
     "statement": "Over a tame $X$ with bump functions, $f$ sc-Fredholm with compact solution set, $(f, x)$ in good position at the zeros on $\\partial X$: $U$ with $S_{f+s}$ compact for $s \\in \\Gamma^{+,1}_U(P)$, and an arbitrarily small $s \\in \\Gamma^{+,1}_U(P)$ with $s = 0$ near $\\partial X$, $f + s$ transversal, \"$(f, x)$\" in good position at every $x \\in S_{f+s}$, $S_{f+s}$ a compact manifold with boundary with corners."
    },
@@ -1040,10 +1040,10 @@
   },
   {
    "id": "V5.41",
-   "title": "Definition 5.20: generalized compact homotopy",
+   "title": "Definition 5.3.13 (preprint 5.20): generalized compact homotopy",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, Definition 5.20, pp. 180–181",
+    "label": "§5.3, Definition 5.3.13 (preprint 5.20), pp. 223 ff. (preprint pp. 180–181)",
     "page": 180,
     "statement": "A tame strong bundle $P : Y \\to X$, an sc-Fredholm $f$ with compact solution set and an sc-smooth surjective $t : X \\to [0, 1]$ with tame M-polyfolds $X_t$, $f_t = f|X_t$ sc-Fredholm sections of $Y|X_t$, and $(f|X_i, P|Y_i) = (f_i, P_i)$."
    },
@@ -1060,15 +1060,15 @@
     "ends = restrictions"
    ],
    "diff": [
-    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.54) is the strong bundle available. Remark 5.21 is not formalized (gap G.47; Findings, Chapter 5, item 100)."
+    "The text does not say what $Y|X_t$ is; the pull-back (Proposition 2.6.8 (preprint 2.54)) is the strong bundle available. Remark 5.3.14 (preprint 5.21) is not formalized (gap G.47; Findings, Chapter 5, item 100)."
    ]
   },
   {
    "id": "V5.42",
-   "title": "Lemma 5.23, and the hidden hypothesis of Theorem 5.22",
+   "title": "Lemma 5.3.16 (preprint 5.23), and the hidden hypothesis of Theorem 5.3.15 (preprint 5.22)",
    "verdict": "explicit",
    "book": {
-    "label": "§5.3, Lemma 5.23, p. 182",
+    "label": "§5.3, Lemma 5.3.16 (preprint 5.23), p. 224 (preprint p. 182)",
     "page": 182,
     "statement": "\"Since $x$ is a smooth point, we find a one-dimensional smooth linear sc-subspace $Z \\subset T_xX$ such that $T_xX = Z \\oplus \\ker(dt(x))$.\" For $\\tau \\in T^*_xS$ there is a unique sc-operator $b_\\tau : T_xS \\to Z$ with $dt(x) \\circ b_\\tau = \\tau$, and $dt(x) \\circ (b_\\tau + a) = \\tau$ for $a : T_xS \\to \\ker dt(x)$."
    },
@@ -1084,7 +1084,7 @@
     "needs $dt(x) \\ne 0$"
    ],
    "diff": [
-    "At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.22 does not assume $t$ submersive there (Findings, Chapter 5, item 101)."
+    "At a critical point of $t|S$ with $dt(x) = 0$ no such $Z$ exists; Theorem 5.3.15 (preprint 5.22) does not assume $t$ submersive there (Findings, Chapter 5, item 101)."
    ]
   },
   {
@@ -1092,7 +1092,7 @@
    "title": "The product rule at a level-$1$ point",
    "verdict": "extra",
    "book": {
-    "label": "§5.3, proof of Lemma 5.24, pp. 182–183",
+    "label": "§5.3, proof of Lemma 5.3.17 (preprint 5.24), p. 225 (preprint pp. 182–183)",
     "page": 182,
     "statement": "\"$s'(0)(\\delta k + \\delta l) = j(\\delta l)e$\" for the section built from $\\beta$ and $j$."
    },
@@ -1106,7 +1106,7 @@
     ]
    },
    "chips": [
-    "tools for Lemma 5.24"
+    "tools for Lemma 5.3.17 (preprint 5.24)"
    ],
    "diff": [
     "Calculus the text uses without statement."
@@ -1114,10 +1114,10 @@
   },
   {
    "id": "V5.44",
-   "title": "Lemma 5.24",
+   "title": "Lemma 5.3.17 (preprint 5.24)",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, Lemma 5.24, pp. 182–183",
+    "label": "§5.3, Lemma 5.3.17 (preprint 5.24), p. 225 (preprint pp. 182–183)",
     "page": 182,
     "statement": "For $\\tau \\in T^*_xS$ there is an sc⁺-section $s$ with small support around $x$, $s(x) = 0$ and $f'(x) \\circ b_\\tau + (s'(x)|T_xS) = 0$."
    },
@@ -1138,10 +1138,10 @@
   },
   {
    "id": "V5.45",
-   "title": "Theorem 5.25: perturbation into good position",
+   "title": "Theorem 5.25 (preprint; not in the 2021 edition): perturbation into good position",
    "verdict": "restated",
    "book": {
-    "label": "§5.3, Theorem 5.25, pp. 186–187 (proof pp. 187–188)",
+    "label": "§5.3, Theorem 5.25 (preprint), preprint pp. 186–187 (proof preprint pp. 187–188)",
     "page": 186,
     "statement": "Over a tame $X$ with bump functions, $f$ proper sc-Fredholm, $N$ auxiliary and \"an associated open neighborhood $U$\" with $S_{f+s}$ compact for $s \\in \\Gamma^{+,1}_U(P)$: some $s \\in \\Gamma^{+,1}_U(P)$ puts $(f + s, x)$ in good position at every $x \\in S_{f+s}$; $S_{f+s}$ is a manifold with boundary with corners."
    },
@@ -1161,12 +1161,12 @@
   },
   {
    "id": "V5.46",
-   "title": "Lemma 5.26: general position implies good position",
+   "title": "Lemma 5.26 (preprint; not in the 2021 edition): general position implies good position",
    "verdict": "stronger",
    "book": {
-    "label": "§5.3, Lemma 5.26, p. 187",
+    "label": "§5.3, Lemma 5.26 (preprint), preprint p. 187",
     "page": 187,
-    "statement": "For an sc-Fredholm section over a tame $X$: if $f$ is in general position, then $f$ is in good position (\"clearly general position implies good position\", p. 179)."
+    "statement": "For an sc-Fredholm section over a tame $X$: if $f$ is in general position, then $f$ is in good position (\"clearly general position implies good position\", p. 222 (preprint p. 179))."
    },
    "lean": {
     "statement": "`isInGoodPositionIn_of_scComplement_le_reduced`: in a tame retract a subspace with a complement inside $T^R_zO$ is in good position, interior condition included. `IsGeneralPositionGerm.isGoodPositionGerm`: general position (in a tame chart) ⇒ good position; `.isGoodPositionGermTame` in the tame chart of the germ data.",
@@ -1181,15 +1181,15 @@
     "no tameness of $X$"
    ],
    "diff": [
-    "The text omits the interior condition of Definition 3.21; the count $\\dim T_zO/T^R_zO = d_C(z)$ (Proposition 2.36) needs the chart tame (Findings, Chapter 5, items 72, 76)."
+    "The text omits the interior condition of Definition 3.1.24 (preprint 3.21); the count $\\dim T_zO/T^R_zO = d_C(z)$ (Proposition 2.5.6 (preprint 2.36)) needs the chart tame (Findings, Chapter 5, items 72, 76)."
    ]
   },
   {
    "id": "V5.47",
-   "title": "Definition 5.28: sc-smooth partitions of unity",
+   "title": "Definition 5.5.1 (preprint 5.28): sc-smooth partitions of unity",
    "verdict": "restated",
    "book": {
-    "label": "§5.4.2, Definition 5.28, p. 192",
+    "label": "§5.5 (preprint §5.4.2), Definition 5.5.1 (preprint 5.28), p. 229 (preprint p. 192)",
     "page": 192,
     "statement": "$X$ admits sc-smooth partitions of unity if for every open covering there is a subordinate sc-smooth partition of unity."
    },
@@ -1212,7 +1212,7 @@
    "title": "Sc-smooth functions: algebra, local finiteness, extension by $0$",
    "verdict": "extra",
    "book": {
-    "label": "§5.4.2, proof of Theorem 5.37, pp. 195–197",
+    "label": "§5.5 (preprint §5.4.2), proof of Theorem 5.5.10 (preprint 5.37), pp. 232–234 (preprint pp. 195–197)",
     "page": 195,
     "statement": "\"$\\hat g = \\sum\\beta_xg(x)$\", \"$\\gamma_\\lambda = \\hat g_\\lambda/\\sum\\hat g$\", and \"extended by $0$\" — used as sc-smooth."
    },
@@ -1233,7 +1233,7 @@
     "used, not stated"
    ],
    "diff": [
-    "Needed for Theorem 5.37 and not stated in the text (Findings, Chapter 5, item 112)."
+    "Needed for Theorem 5.5.10 (preprint 5.37) and not stated in the text (Findings, Chapter 5, item 112)."
    ]
   },
   {
@@ -1241,7 +1241,7 @@
    "title": "Partitions of unity give bump functions",
    "verdict": "extra",
    "book": {
-    "label": "§5.4.2, p. 192",
+    "label": "§5.5 (preprint §5.4.2), preprint p. 192",
     "page": 192,
     "statement": "\"Currently it is an open problem whether the existence of sc-smooth partitions of unity on M-polyfolds $X$ is equivalent to the existence of sc-smooth bump functions.\""
    },
@@ -1260,10 +1260,10 @@
   },
   {
    "id": "V5.50",
-   "title": "Definition 5.31: $C^k$-bump functions",
+   "title": "Definition 5.5.4 (preprint 5.31): $C^k$-bump functions",
    "verdict": "same",
    "book": {
-    "label": "§5.4.2, Definition 5.31, p. 193",
+    "label": "§5.5 (preprint §5.4.2), Definition 5.5.4 (preprint 5.31), p. 230 (preprint p. 193)",
     "page": 193,
     "statement": "A Banach space $E$ admits a $C^k$-bump function if some $C^k$ function $f : E \\to \\mathbb R$, not identically zero, has bounded support ($k \\in \\{0, 1, \\dots\\} \\cup \\{\\infty\\}$)."
    },
@@ -1281,10 +1281,10 @@
   },
   {
    "id": "V5.51",
-   "title": "Definition 5.33: the sc-smooth bump function property",
+   "title": "Definition 5.5.6 (preprint 5.33): the sc-smooth bump function property",
    "verdict": "restated",
    "book": {
-    "label": "§5.4.2, Definition 5.33, p. 194",
+    "label": "§5.5 (preprint §5.4.2), Definition 5.5.6 (preprint 5.33), p. 231 (preprint p. 194)",
     "page": 194,
     "statement": "$(O, C, E)$ has the property if for every $x \\in O$ and open $U(x) \\subseteq O$ with $\\operatorname{cl}_E(U(x)) \\subseteq O$ there is an sc-smooth $f : O \\to \\mathbb R$ with $f \\ne 0$ and $\\operatorname{supp}(f) \\subseteq U(x)$."
    },
@@ -1299,15 +1299,15 @@
     "$f \\ne 0$ read as $f(x) \\ne 0$"
    ],
    "diff": [
-    "Read as Definition 5.9 (V5.16), so that Theorem 5.34 compares the same notions (Findings, Chapter 5, items 41, 43)."
+    "Read as Definition 5.3.1 (preprint 5.9) (V5.16), so that Theorem 5.5.7 (preprint 5.34) compares the same notions (Findings, Chapter 5, items 41, 43)."
    ]
   },
   {
    "id": "V5.52",
-   "title": "Theorem 5.34",
+   "title": "Theorem 5.5.7 (preprint 5.34)",
    "verdict": "explicit",
    "book": {
-    "label": "§5.4.2, Theorem 5.34, p. 194",
+    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.7 (preprint 5.34), p. 231 (preprint p. 194)",
     "page": 194,
     "statement": "\"Clearly\": $X$ admits sc-smooth bump functions iff it admits an sc-smooth atlas whose local models have the sc-smooth bump function property."
    },
@@ -1326,10 +1326,10 @@
   },
   {
    "id": "V5.53",
-   "title": "Proposition 5.35; M-polyfolds on sc-Hilbert spaces",
+   "title": "Proposition 5.5.8 (preprint 5.35); M-polyfolds on sc-Hilbert spaces",
    "verdict": "restated",
    "book": {
-    "label": "§5.4.2, Proposition 5.35, p. 194; §5.3, p. 173",
+    "label": "§5.5 (preprint §5.4.2), Proposition 5.5.8 (preprint 5.35), p. 231 (preprint p. 194); §5.3, preprint p. 173",
     "page": 194,
     "statement": "If $E_0$ is a Hilbert space, $(O, C, E)$ has the sc-bump function property ($\\beta(\\|x\\|^2)$, scaling, translating, composing with the retraction). \"This is, for example, the case if $X$ is built on sc-Hilbert spaces.\""
    },
@@ -1350,10 +1350,10 @@
   },
   {
    "id": "V5.54",
-   "title": "Definition 5.36: the sc-smooth approximation property",
+   "title": "Definition 5.5.9 (preprint 5.36): the sc-smooth approximation property",
    "verdict": "restated",
    "book": {
-    "label": "§5.4.2, Definition 5.36, p. 195",
+    "label": "§5.5 (preprint §5.4.2), Definition 5.5.9 (preprint 5.36), p. 231 (preprint p. 195)",
     "page": 195,
     "statement": "For $V \\subseteq O$ open with $\\operatorname{cl}_C(V) \\subseteq O$, continuous $f : O \\to [0, 1]$ supported in $V$ and $\\varepsilon > 0$ there is an sc-smooth $g : O \\to [0, 1]$ supported in $V$ with $|f - g| \\le \\varepsilon$."
    },
@@ -1372,10 +1372,10 @@
   },
   {
    "id": "V5.55",
-   "title": "Theorem 5.37 \"(i) ⇒ (ii)\"",
+   "title": "Theorem 5.5.10 (preprint 5.37) \"(i) ⇒ (ii)\"",
    "verdict": "narrower",
    "book": {
-    "label": "§5.4.2, proof of Theorem 5.37, pp. 195–196",
+    "label": "§5.5 (preprint §5.4.2), proof of Theorem 5.5.10 (preprint 5.37), pp. 232–233 (preprint pp. 195–196)",
     "page": 195,
     "statement": "For an atlas of charts $\\varphi : U \\to O$, \"the sc-smooth function $f \\circ \\varphi$\" extended by $0$ is supported in $W = \\varphi^{-1}(V)$ \"satisfying $\\operatorname{cl}_X(W) \\subseteq U$\", and is approximated by $\\sum\\beta_xg(x)$."
    },
@@ -1396,10 +1396,10 @@
   },
   {
    "id": "V5.56",
-   "title": "Theorem 5.37 \"(ii) ⇒ (i)\"",
+   "title": "Theorem 5.5.10 (preprint 5.37) \"(ii) ⇒ (i)\"",
    "verdict": "restated",
    "book": {
-    "label": "§5.4.2, proof of Theorem 5.37, pp. 196–197",
+    "label": "§5.5 (preprint §5.4.2), proof of Theorem 5.5.10 (preprint 5.37), pp. 232–234 (preprint pp. 196–197)",
     "page": 196,
     "statement": "A refinement $(W_\\lambda)$ \"with the same index set\" and $\\operatorname{cl}_X(W_\\lambda) \\subseteq U_{\\tau(\\lambda)}$, $f_\\lambda = 1$ on $Q_\\lambda$, $g_\\lambda$ with $|f_\\lambda \\circ \\varphi^{-1} - g_\\lambda| < 1/2$, $\\gamma_\\lambda = \\hat g_\\lambda/\\sum\\hat g$."
    },
@@ -1422,10 +1422,10 @@
   },
   {
    "id": "V5.57",
-   "title": "Theorem 5.37",
+   "title": "Theorem 5.5.10 (preprint 5.37)",
    "verdict": "restated",
    "book": {
-    "label": "§5.4.2, Theorem 5.37, p. 195",
+    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.10 (preprint 5.37), p. 232 (preprint p. 195)",
     "page": 195,
     "statement": "(i) $X$ admits sc-smooth partitions of unity subordinate to any open cover iff (ii) $X$ admits an atlas consisting of local models having the sc-smooth approximation property."
    },
@@ -1444,10 +1444,10 @@
   },
   {
    "id": "V5.58",
-   "title": "Proposition 5.38",
+   "title": "Proposition 5.5.11 (preprint 5.38)",
    "verdict": "explicit",
    "book": {
-    "label": "§5.4.2, Proposition 5.38, p. 197",
+    "label": "§5.5 (preprint §5.4.2), Proposition 5.5.11 (preprint 5.38), p. 234 (preprint p. 197)",
     "page": 197,
     "statement": "\"An immediate consequence of Theorem 5.37\": if the sc-Banach space admits smooth partitions of unity, a local model $(O, C, E)$ has the sc-smooth approximation property."
    },
@@ -1459,23 +1459,23 @@
    },
    "chips": [
     "$C^\\infty$ partitions of unity of $E_0$",
-    "not via Theorem 5.37"
+    "not via Theorem 5.5.10 (preprint 5.37)"
    ],
    "diff": [
-    "Theorem 5.37 gives some atlas, not the given model; the argument of \"(i) ⇒ (ii)\" is repeated in $E_0$ (Findings, Chapter 5, item 113)."
+    "Theorem 5.5.10 (preprint 5.37) gives some atlas, not the given model; the argument of \"(i) ⇒ (ii)\" is repeated in $E_0$ (Findings, Chapter 5, item 113)."
    ]
   },
   {
    "id": "V5.59",
-   "title": "Definition 5.39; Theorem 5.40 as a statement",
+   "title": "Definition 5.5.12 (preprint 5.39); Theorem 5.5.13 (preprint 5.40) as a statement",
    "verdict": "restated",
    "book": {
-    "label": "§5.4.2, Definition 5.39, Theorem 5.40, p. 198",
+    "label": "§5.5 (preprint §5.4.2), Definition 5.5.12 (preprint 5.39), Theorem 5.5.13 (preprint 5.40), p. 234 (preprint p. 198)",
     "page": 198,
-    "statement": "$c_0(\\Gamma)$: $f : \\Gamma \\to \\mathbb R$ with $\\{\\gamma \\mid |f(\\gamma)| > \\varepsilon\\}$ finite for every $\\varepsilon$, norm $\\max_\\gamma|f(\\gamma)|$; coordinate-wise $C^k$ homeomorphic embeddings. Theorem 5.40 (Toruńczyk): $C^k$ partitions of unity iff such an embedding into some $c_0(\\Gamma)$."
+    "statement": "$c_0(\\Gamma)$: $f : \\Gamma \\to \\mathbb R$ with $\\{\\gamma \\mid |f(\\gamma)| > \\varepsilon\\}$ finite for every $\\varepsilon$, norm $\\max_\\gamma|f(\\gamma)|$; coordinate-wise $C^k$ homeomorphic embeddings. Theorem 5.5.13 (preprint 5.40) (Toruńczyk): $C^k$ partitions of unity iff such an embedding into some $c_0(\\Gamma)$."
    },
    "lean": {
-    "statement": "`cZero Γ` (a subspace of $\\ell^\\infty(\\Gamma)$, `mem_cZero_iff`, `norm_cZero`); `IsCoordinatewiseContDiffEmbedding`; `TorunczykStatement` records Theorem 5.40, not proved, not used.",
+    "statement": "`cZero Γ` (a subspace of $\\ell^\\infty(\\Gamma)$, `mem_cZero_iff`, `norm_cZero`); `IsCoordinatewiseContDiffEmbedding`; `TorunczykStatement` records Theorem 5.5.13 (preprint 5.40), not proved, not used.",
     "decls": [
      "Chapter5/PartitionsOfUnity · cZero",
      "Chapter5/PartitionsOfUnity · mem_cZero_iff",
@@ -1486,18 +1486,18 @@
    },
    "chips": [
     "max = sup",
-    "Theorem 5.40 not proved"
+    "Theorem 5.5.13 (preprint 5.40) not proved"
    ],
    "diff": [
-    "Theorem 5.40 is gap G.52 (Findings, Chapter 5, items 114, 117)."
+    "Theorem 5.5.13 (preprint 5.40) is gap G.52 (Findings, Chapter 5, items 114, 117)."
    ]
   },
   {
    "id": "V5.60",
-   "title": "Definition 5.41: WCG spaces",
+   "title": "Definition 5.5.14 (preprint 5.41): WCG spaces",
    "verdict": "same",
    "book": {
-    "label": "§5.4.2, Definition 5.41, p. 198",
+    "label": "§5.5 (preprint §5.4.2), Definition 5.5.14 (preprint 5.41), p. 234 (preprint p. 198)",
     "page": 198,
     "statement": "$E$ is weakly compactly generated if there is a weakly compact $K$ with $E = \\operatorname{cl}_E(\\operatorname{span}K)$."
    },
@@ -1512,15 +1512,15 @@
     "reflexive defined"
    ],
    "diff": [
-    "\"Reflexive\", used in Proposition 5.42, is not defined in the text (Findings, Chapter 5, item 114)."
+    "\"Reflexive\", used in Proposition 5.5.15 (preprint 5.42), is not defined in the text (Findings, Chapter 5, item 114)."
    ]
   },
   {
    "id": "V5.61",
-   "title": "Proposition 5.42",
+   "title": "Proposition 5.5.15 (preprint 5.42)",
    "verdict": "same",
    "book": {
-    "label": "§5.4.2, Proposition 5.42, p. 198",
+    "label": "§5.5 (preprint §5.4.2), Proposition 5.5.15 (preprint 5.42), p. 235 (preprint p. 198)",
     "page": 198,
     "statement": "(i) A reflexive $E$ is WCG; (ii) a separable $E$ is WCG."
    },
@@ -1541,15 +1541,15 @@
   },
   {
    "id": "V5.62",
-   "title": "Theorem 5.43 as a statement; Hilbert spaces",
+   "title": "Theorem 5.5.16 (preprint 5.43) as a statement; Hilbert spaces",
    "verdict": "extra",
    "book": {
-    "label": "§5.4.2, Theorem 5.43, p. 198; proof of Corollary 5.44, p. 199",
+    "label": "§5.5 (preprint §5.4.2), Theorem 5.5.16 (preprint 5.43), p. 235 (preprint p. 198); proof of Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199)",
     "page": 198,
-    "statement": "Theorem 5.43 ([12]): a WCG space with a $C^k$-bump function admits $C^k$ partitions of unity. \"A Hilbert space is reflexive and hence a WCG-space.\""
+    "statement": "Theorem 5.5.16 (preprint 5.43) ([12]): a WCG space with a $C^k$-bump function admits $C^k$ partitions of unity. \"A Hilbert space is reflexive and hence a WCG-space.\""
    },
    "lean": {
-    "statement": "`GodefroyTroyanskiWhitfieldZizlerStatement V k` records Theorem 5.43 (not proved). `hasContDiffBump_of_hilbert`: a $C^\\infty$-bump $\\tau(1 - b(v, v))$; `isReflexive_of_hilbert`: complete and $\\|v\\|^2 = b(v, v)$ ⇒ reflexive.",
+    "statement": "`GodefroyTroyanskiWhitfieldZizlerStatement V k` records Theorem 5.5.16 (preprint 5.43) (not proved). `hasContDiffBump_of_hilbert`: a $C^\\infty$-bump $\\tau(1 - b(v, v))$; `isReflexive_of_hilbert`: complete and $\\|v\\|^2 = b(v, v)$ ⇒ reflexive.",
     "decls": [
      "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
      "Chapter5/PartitionsOfUnity · hasContDiffBump_of_hilbert",
@@ -1557,43 +1557,43 @@
     ]
    },
    "chips": [
-    "Theorem 5.43 not proved"
+    "Theorem 5.5.16 (preprint 5.43) not proved"
    ],
    "diff": [
-    "Theorem 5.43 is gap G.53 (Findings, Chapter 5, items 116, 117)."
+    "Theorem 5.5.16 (preprint 5.43) is gap G.53 (Findings, Chapter 5, items 116, 117)."
    ]
   },
   {
    "id": "V5.63",
-   "title": "Corollary 5.44",
+   "title": "Corollary 5.5.17 (preprint 5.44)",
    "verdict": "narrower",
    "book": {
-    "label": "§5.4.2, Corollary 5.44, p. 199",
+    "label": "§5.5 (preprint §5.4.2), Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199)",
     "page": 199,
     "statement": "If $E_0$ is a Hilbert space, $(O, C, E)$ has the sc-smooth approximation property (\"a Hilbert space is reflexive and hence a WCG-space ... from Theorem 5.43 ... in view of Theorem 5.37\")."
    },
    "lean": {
-    "statement": "`corollary_5_44`: $\\|v\\|^2 = b(v, v)$ and Theorem 5.43 for $E_0$, $k = \\infty$, as a hypothesis ⇒ the approximation property; `admitsScPartitionsOfUnity_of_hilbert` for M-polyfolds covered by such charts.",
+    "statement": "`corollary_5_44`: $\\|v\\|^2 = b(v, v)$ and Theorem 5.5.16 (preprint 5.43) for $E_0$, $k = \\infty$, as a hypothesis ⇒ the approximation property; `admitsScPartitionsOfUnity_of_hilbert` for M-polyfolds covered by such charts.",
     "decls": [
      "Chapter5/PartitionsOfUnity · corollary_5_44",
      "Chapter5/PartitionsOfUnity · MPolyfold.admitsScPartitionsOfUnity_of_hilbert"
     ]
    },
    "chips": [
-    "Theorem 5.43 a hypothesis"
+    "Theorem 5.5.16 (preprint 5.43) a hypothesis"
    ],
    "diff": [
-    "\"In view of Theorem 5.37\" is Proposition 5.38; the bump Theorem 5.43 needs is the classical $C^\\infty$ one (Findings, Chapter 5, item 116)."
+    "\"In view of Theorem 5.37\" is Proposition 5.5.11 (preprint 5.38); the bump Theorem 5.5.16 (preprint 5.43) needs is the classical $C^\\infty$ one (Findings, Chapter 5, item 116)."
    ]
   }
  ],
  "notFormalized": [
   {
-   "title": "Corollary 5.8 beyond the chart level",
-   "label": "§5.2, Corollary 5.8, p. 173",
+   "title": "Corollary 5.2.5 (preprint 5.8) beyond the chart level",
+   "label": "§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)",
    "page": 173,
    "book": "$f^i$ is an sc-Fredholm section of $P^i : Y^i \\to X^i$ with compact solution set (\"it is a priori clear that $f^i$ is sc-Fredholm\").",
-   "instead": "**Formalized since the first edition of this page, for each fixed $i$** (fourth addendum; V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.11 (by Lemma 3.17 and Proposition 3.52 in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. Not formalized: one statement for a family $P^i$ indexed by $i$, the identification of $(X^1)^1$ with $X_2$ as topological spaces (the sets agree; gap G.6), and the tame form of the conclusion (the tameness of the index raises of tame charts) (Findings, Chapter 5, items 140–146).",
+   "instead": "**Formalized since the first edition of this page, for each fixed $i$** (fourth addendum; V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. Not formalized: one statement for a family $P^i$ indexed by $i$, the identification of $(X^1)^1$ with $X_2$ as topological spaces (the sets agree; gap G.6), and the tame form of the conclusion (the tameness of the index raises of tame charts) (Findings, Chapter 5, items 140–146).",
    "decls": [
     "Chapter5/StrongBundleShift · StrongBundle.shift",
     "Chapter5/Corollary58 · IsFillingGerm.germ_shift",
@@ -1607,10 +1607,10 @@
   },
   {
    "title": "The metric $\\rho$ on $\\Gamma^{+,1}_U(P)$",
-   "label": "§5.3, p. 174",
+   "label": "§5.3, preprint p. 174",
    "page": 174,
    "book": "$\\Gamma^{+,1}_U(P)$ \"becomes a metric space with respect to the uniform distance $\\rho(s, s') = \\sup_xN(s(x) - s'(x))$. The metric space $(\\Gamma^{+,1}_U(P), \\rho)$ is not complete.\"",
-   "instead": "**Formalized since the first edition of this page, with a correction** (fourth addendum; V5.21). $\\rho$ is a metric on $\\Gamma^{+,1}_U(P)$ for every auxiliary norm ($\\rho \\le 2$); the density statements $N(s(x) - s'(x)) \\le \\varepsilon$ of V5.30, V5.39 are $\\rho(s, s') \\le \\varepsilon$. “Not complete” is proved for the trivial bundle $\\mathbb R \\times \\mathbb R \\to \\mathbb R$ ($N(x, v) = |v|$, $U = \\mathbb R$) and is false without a hypothesis: the space is complete for $U = \\emptyset$ and over a point with finite-dimensional fibre. Not formalized: a general sufficient condition for non-completeness, and the identification of the metric completion with the sections of Remark 5.12 (V5.22) (Findings, Chapter 5, items 150–153).",
+   "instead": "**Formalized since the first edition of this page, with a correction** (fourth addendum; V5.21). $\\rho$ is a metric on $\\Gamma^{+,1}_U(P)$ for every auxiliary norm ($\\rho \\le 2$); the density statements $N(s(x) - s'(x)) \\le \\varepsilon$ of V5.30, V5.39 are $\\rho(s, s') \\le \\varepsilon$. “Not complete” is proved for the trivial bundle $\\mathbb R \\times \\mathbb R \\to \\mathbb R$ ($N(x, v) = |v|$, $U = \\mathbb R$) and is false without a hypothesis: the space is complete for $U = \\emptyset$ and over a point with finite-dimensional fibre. Not formalized: a general sufficient condition for non-completeness, and the identification of the metric completion with the sections of Remark 5.3.4 (preprint 5.12) (V5.22) (Findings, Chapter 5, items 150–153).",
    "decls": [
     "Chapter5/AllowableSectionsMetric · StrongBundle.allowableMetric",
     "Chapter5/AllowableSectionsMetric · TrivialBundle.not_completeSpace_allowableSections",
@@ -1622,53 +1622,53 @@
    ]
   },
   {
-   "title": "Remark 5.14",
-   "label": "§5.3, Remark 5.14, p. 175",
+   "title": "Remark 5.3.6 (preprint 5.14)",
+   "label": "§5.3, Remark 5.3.6 (preprint 5.14), p. 218 (preprint p. 175)",
    "page": 175,
    "book": "In [21] the fibres were separable sc-Hilbert spaces and auxiliary norms had more properties involving weak convergence; neither is needed here, \"due to an improved treatment of the compactness\".",
-   "instead": "**Not formalized** (a comment on [21]). The formalization indeed assumes neither: the fibres are arbitrary and Definition 5.1 is as stated (V5.3, V5.10)."
+   "instead": "**Not formalized** (a comment on [21]). The formalization indeed assumes neither: the fibres are arbitrary and Definition 5.1.1 (preprint 5.1) is as stated (V5.3, V5.10)."
   },
   {
-   "title": "Remark 5.16",
-   "label": "§5.3, Remark 5.16, pp. 176–177",
+   "title": "Remark 5.3.8 (preprint 5.16)",
+   "label": "§5.3, Remark 5.3.8 (preprint 5.16), pp. 219–220 (preprint pp. 176–177)",
    "page": 176,
    "book": "For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \\mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; \"the reader will be able to carry out this construction in more detail\".",
-   "instead": "**Not formalized** (a sketch, left to the reader; it needs the boundary case of Theorem 5.19 on $[0, 1] \\times X$)."
+   "instead": "**Not formalized** (a sketch, left to the reader; it needs the boundary case of Theorem 5.3.12 (preprint 5.19) on $[0, 1] \\times X$)."
   },
   {
-   "title": "A dense form of Theorem 5.19",
-   "label": "§5.3, Theorem 5.19, p. 180",
+   "title": "A dense form of Theorem 5.3.12 (preprint 5.19)",
+   "label": "§5.3, Theorem 5.3.12 (preprint 5.19), p. 222 (preprint p. 180)",
    "page": 180,
    "book": "\"There exists an arbitrarily small section $s \\in \\Gamma^{+,1}_U(P)$ satisfying $s(x) = 0$ near $\\partial X$\" with the properties of the theorem.",
-   "instead": "**Not formalized in the dense form.** The generic form gives $s_\\lambda = \\sum\\lambda_it_i$ for $\\lambda$ off a null set of a small ball, so arbitrarily small as $\\lambda \\to 0$ (V5.40); density around a given allowable $s'$, as in Theorems 5.13 and 5.18, is not stated (Findings, Chapter 5, item 89).",
+   "instead": "**Not formalized in the dense form.** The generic form gives $s_\\lambda = \\sum\\lambda_it_i$ for $\\lambda$ off a null set of a small ball, so arbitrarily small as $\\lambda \\to 0$ (V5.40); density around a given allowable $s'$, as in Theorems 5.3.5 and 5.3.10 (preprint 5.13 and 5.18), is not stated (Findings, Chapter 5, item 89).",
    "decls": [
     "Chapter5/GeneralPosition · theorem_5_19"
    ]
   },
   {
    "title": "Finding 88: the parametrized section at the boundary zeros",
-   "label": "§5.3, proof of Theorem 5.19, p. 180",
+   "label": "§5.3, proof of Theorem 5.3.12 (preprint 5.19), p. 222 (preprint p. 180)",
    "page": 180,
    "book": "\"Then we consider as before the section $(\\lambda, x) \\mapsto f(x) + \\sum\\lambda_is_i(x)$, and, for a generic value of $\\lambda$ ... the associated section $s_\\lambda$ has the desired properties.\"",
-   "instead": "**Checked on paper only.** At a zero $(0, x)$, $x \\in \\partial X$, where all $s_i$ vanish, $\\ker F'(0, x) = \\mathbb R^m \\times \\ker f'(x)$ is in good position to $\\mathbb R^m \\times C_x$ only if $\\ker f'(x) + E_x \\supseteq T_xX$, a general position condition that good position does not imply ($\\mathbb R(1, 1)$ in $[0, \\infty)^2$). So \"as before\" cannot apply Theorem 3.54 to $F$ there; the formal proof avoids these points (V5.40) (Findings, Chapter 5, item 88).",
+   "instead": "**Checked on paper only.** At a zero $(0, x)$, $x \\in \\partial X$, where all $s_i$ vanish, $\\ker F'(0, x) = \\mathbb R^m \\times \\ker f'(x)$ is in good position to $\\mathbb R^m \\times C_x$ only if $\\ker f'(x) + E_x \\supseteq T_xX$, a general position condition that good position does not imply ($\\mathbb R(1, 1)$ in $[0, \\infty)^2$). So \"as before\" cannot apply Theorem 3.6.8 (preprint 3.54) to $F$ there; the formal proof avoids these points (V5.40) (Findings, Chapter 5, item 88).",
    "decls": [
     "Chapter5/GeneralPosition · theorem_5_19",
     "Chapter3/Chapter5BridgeG · StrongBundle.IsGoodPositionGermTame.congr_nhds"
    ]
   },
   {
-   "title": "Remark 5.21",
-   "label": "§5.3, Remark 5.21, p. 181",
+   "title": "Remark 5.3.14 (preprint 5.21)",
+   "label": "§5.3, Remark 5.3.14 (preprint 5.21), p. 223 (preprint p. 181)",
    "page": 181,
    "book": "Instead of $(f|X_i, P|Y_i) = (f_i, P_i)$ one should require that the problems are isomorphic and make this part of the data.",
-   "instead": "**Not formalized.** Definition 5.20 takes the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ as the end problems (V5.41) (Findings, Chapter 5, item 100)."
+   "instead": "**Not formalized.** Definition 5.3.13 (preprint 5.20) takes the restrictions to $t^{-1}(0)$, $t^{-1}(1)$ as the end problems (V5.41) (Findings, Chapter 5, item 100)."
   },
   {
-   "title": "Theorem 5.22: Morse-type structure",
-   "label": "§5.3, Theorem 5.22, p. 181 (proof pp. 181–186)",
+   "title": "Theorem 5.3.15 (preprint 5.22): Morse-type structure",
+   "label": "§5.3, Theorem 5.3.15 (preprint 5.22), p. 223 (preprint p. 181) (proof pp. 223–228 (preprint pp. 181–186))",
    "page": 181,
    "book": "For a generalized compact homotopy with end problems in general position and $\\partial X = X_0 \\sqcup X_1$, an arbitrarily small $s_0 \\in \\Gamma^{+,1}_U(P)$ vanishing near $\\partial X$ makes $(f + s_0, x)$ in general position at every zero and $t : S_{f+s_0} \\to [0, 1]$ a function with only Morse-type critical points.",
-   "instead": "**Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\\Phi_\\lambda : S \\to S_\\lambda$ of the family (not \"the classical standard implicit function theorem\"); its proof also needs $dt(x) \\ne 0$ at the critical points of $t|S$, which the statement does not assume (V5.42). Lemmas 5.23, 5.24 are V5.42–V5.44 (Findings, Chapter 5, items 101, 103).",
+   "instead": "**Not formalized.** It needs finite-dimensional Morse theory on manifolds with boundary, the cotangent bundle of the solution set, a parametric Sard theorem and a trivialization $\\Phi_\\lambda : S \\to S_\\lambda$ of the family (not \"the classical standard implicit function theorem\"); its proof also needs $dt(x) \\ne 0$ at the critical points of $t|S$, which the statement does not assume (V5.42). Lemmas 5.3.16, 5.3.17 (preprint 5.23, 5.24) are V5.42–V5.44 (Findings, Chapter 5, items 101, 103).",
    "decls": [
     "Chapter5/Homotopy · lemma_5_23",
     "Chapter5/Homotopy · lemma_5_24",
@@ -1676,29 +1676,29 @@
    ]
   },
   {
-   "title": "Theorem 5.27: cobordism between good position perturbations",
-   "label": "§5.3, Theorem 5.27, p. 188",
+   "title": "Theorem 5.27 (preprint; not in the 2021 edition): cobordism between good position perturbations",
+   "label": "§5.3, Theorem 5.27 (preprint), preprint p. 188",
    "page": 188,
    "book": "For a proper homotopy $f_t$ and perturbations $s_0$, $s_1$ putting $f + s_i$ in good position, there is $s(x, t)$ with $s(\\cdot, i) = s_i$ such that $f + s$ is in good position at all smooth points; its solution set is a compact manifold with corners meeting $\\{i\\} \\times X$ in $S_0$, $S_1$.",
    "instead": "**Not formalized**: \"the proof is left to the reader\" (Findings, Chapter 5, item 104)."
   },
   {
-   "title": "Theorem 5.32: Bonic–Frampton",
-   "label": "§5.4.2, Theorem 5.32, p. 193",
+   "title": "Theorem 5.5.5 (preprint 5.32): Bonic–Frampton",
+   "label": "§5.5 (preprint §5.4.2), Theorem 5.5.5 (preprint 5.32), p. 230 (preprint p. 193)",
    "page": 193,
    "book": "On $L^p$, $\\|\\cdot\\|^p$ is $C^\\infty$ for $p$ an even integer, $C^{p-1}$ for $p$ odd, and $C^{[p]}$ for $p$ not an integer.",
    "instead": "**Not formalized** (cited from [9], Theorem 1; deep Banach space geometry, not used on the main line; the statement misses \"$p$\" in (1), (2)) (Findings, Chapter 5, items 117, 120)."
   },
   {
    "title": "The $L^p$ and Sobolev remark",
-   "label": "§5.4.2, pp. 193–194",
+   "label": "§5.5 (preprint §5.4.2), pp. 230–231 (preprint pp. 193–194)",
    "page": 193,
    "book": "The usual norms of $W^{k,p}(\\Omega)$ have the differentiability of $\\|\\cdot\\|_{L^p}$; $\\beta(\\|x\\|^p)$ is a bump function of $L^p$; $W^{1,4}(\\Omega)$ with $E_m = W^{1+m,4}(\\Omega)$ admits sc-smooth bump functions, while for $W^{1,3/2}(\\Omega)$ the straightforward one is only sc¹ — \"does there exist a sc-smooth bump function on $E$?\"",
-   "instead": "**Not formalized.** It needs Sobolev spaces with their sc-structures (gap G.1) and Theorem 5.32 (Findings, Chapter 5, item 118)."
+   "instead": "**Not formalized.** It needs Sobolev spaces with their sc-structures (gap G.1) and Theorem 5.5.5 (preprint 5.32) (Findings, Chapter 5, item 118)."
   },
   {
-   "title": "Theorem 5.40: Toruńczyk",
-   "label": "§5.4.2, Theorem 5.40, p. 198",
+   "title": "Theorem 5.5.13 (preprint 5.40): Toruńczyk",
+   "label": "§5.5 (preprint §5.4.2), Theorem 5.5.13 (preprint 5.40), p. 234 (preprint p. 198)",
    "page": 198,
    "book": "A Banach space $E$ admits a $C^k$-partition of unity iff there are a set $\\Gamma$ and a coordinate-wise $C^k$ homeomorphic embedding of $E$ into $c_0(\\Gamma)$.",
    "instead": "**Stated, not proved** (`TorunczykStatement`, V5.59), and not used (cited from [9], Theorem 30) (Findings, Chapter 5, item 117).",
@@ -1707,11 +1707,11 @@
    ]
   },
   {
-   "title": "Theorem 5.43: Godefroy–Troyanski–Whitfield–Zizler",
-   "label": "§5.4.2, Theorem 5.43, p. 198",
+   "title": "Theorem 5.5.16 (preprint 5.43): Godefroy–Troyanski–Whitfield–Zizler",
+   "label": "§5.5 (preprint §5.4.2), Theorem 5.5.16 (preprint 5.43), p. 235 (preprint p. 198)",
    "page": 198,
    "book": "If the WCG space $E$ admits a $C^k$-bump function, then it also admits $C^k$-partitions of unity.",
-   "instead": "**Stated, not proved** (`GodefroyTroyanskiWhitfieldZizlerStatement`, V5.62; cited from [12] and [9], Theorem 31); it is an explicit hypothesis of Corollary 5.44 (V5.63) (Findings, Chapter 5, items 116, 117).",
+   "instead": "**Stated, not proved** (`GodefroyTroyanskiWhitfieldZizlerStatement`, V5.62; cited from [12] and [9], Theorem 31); it is an explicit hypothesis of Corollary 5.5.17 (preprint 5.44) (V5.63) (Findings, Chapter 5, items 116, 117).",
    "decls": [
     "Chapter5/PartitionsOfUnity · GodefroyTroyanskiWhitfieldZizlerStatement",
     "Chapter5/PartitionsOfUnity · corollary_5_44"

@@ -1,15 +1,14 @@
-# Chapter 1. Smooth one level down: the sc-calculus (HWZ Part I, Chapter 1, preprint pp. 6–17)
+# Chapter 1. Smooth one level down: the sc-calculus (HWZ Part I, Chapter 1, pp. 5–20 (preprint pp. 6–17))
 
 *Hofer–Wysocki–Zehnder, "Polyfold and Fredholm Theory", Part I, Chapter 1 (2014 preprint, arXiv
 1407.3185, pp. 6–17), with the motivating example from their "Sc-smoothness, retractions and new
 models for smooth spaces" (2010, arXiv 1002.3381, §1.1 and §4.1), rewritten for a first-year
 graduate student who wants to know what the definitions are for. Every proof is complete. The
-proofs that the preprint delegates to the 2010 paper (Propositions 1.16–1.19) are given in full
+proofs that the preprint delegates to the 2010 paper (Propositions 1.2.1–1.2.4 (preprint 1.16–1.19)) are given in full
 and are formalized.
-Statement numbers are those of the preprint; the book (Springer 2021) renumbers (see
-`BookConcordance.md`), and places where the two may differ, once marked "check against the book",
-have been checked against the book's arXiv version, arXiv 1707.08941 (2017), not against the
-Springer edition, which was not available; each is now annotated (book 2017: …) with "unchanged",
+Statement numbers and pages are those of the book (Springer 2021), with the preprint's in parentheses (see `BookConcordance.md`); places where the preprint and the book may differ, once marked "check against the book",
+were checked against the book's arXiv version, arXiv 1707.08941 (2017), before the Springer edition was
+available; each is annotated (book 2017: …) with "unchanged",
 "corrected", or the 2017 statement number and page.*
 
 ---
@@ -45,10 +44,10 @@ Sobolev spaces with growing weights), and a map is called $\mathrm{sc}^1$ if it 
 on the point in a weak sense (§3). The shift is then differentiable at every $u\in H^1$ with
 derivative $(R_1,\vartheta_1,v)\mapsto R_1\partial_su + \vartheta_1\partial_tu + v$, and iterating
 makes it smooth: each further derivative costs one more level, and there are infinitely many
-levels. The surprise, and the reason the theory works, is the chain rule (Theorem 1.21): one would
+levels. The surprise, and the reason the theory works, is the chain rule (Theorem 1.3.1 (preprint 1.21)): one would
 expect a composition of two maps that each lose a level to lose two, but it loses only one. The
 reason is the one structural hypothesis on the scale, that the inclusions $E_{m+1}\to E_m$ are
-compact (Remark 1.22). Every proof in this chapter that is more than bookkeeping is a compactness
+compact (Remark 1.3.2 (preprint 1.22)). Every proof in this chapter that is more than bookkeeping is a compactness
 argument of the same shape: a sequence $h_n/|h_n|_1$ bounded in $E_1$ has a subsequence converging
 in $E_0$.
 
@@ -61,9 +60,9 @@ sc-smooth, and it is not $C^1$ on any level.
 
 ---
 
-## 1. Sc-Banach spaces (preprint pp. 6–7)
+## 1. Sc-Banach spaces (pp. 5–7 (preprint pp. 6–7))
 
-**Definition 1.1.** An *sc-structure* (scale structure) on a Banach space $E$ is a sequence of
+**Definition 1.1.1 (preprint 1.1).** An *sc-structure* (scale structure) on a Banach space $E$ is a sequence of
 Banach spaces $(E_m,|\cdot|_m)_{m\ge0}$ with $E = E_0\supset E_1\supset E_2\supset\cdots$ as sets,
 such that
 
@@ -80,7 +79,7 @@ examples $|\cdot|_{m+1}$ is strictly stronger. The name comes from interpolation
 where such nested scales are standard; the new point of view is to read the scale as a smooth
 structure.
 
-> **A hidden hypothesis made explicit.** Definition 1.1 speaks of one Banach space $E$ with
+> **A hidden hypothesis made explicit.** Definition 1.1.1 (preprint 1.1) speaks of one Banach space $E$ with
 > subspaces $E_m$. For the formalization the convenient object is an *indexed family* of Banach
 > spaces $E_m$ with injective compact linear maps $E_{m+1}\to E_m$; "$E_m\subset E_0$" is then the
 > composite of the inclusions. The two are equivalent (the family is the sets, the subspace
@@ -130,7 +129,7 @@ dense. $\square$ *(Checked by machine: `Polyfold.ScBanach.prod`, `Polyfold.ScBan
 A subset $A\subset E$ inherits the filtration $A_m := A\cap E_m$, and $A^k$ denotes $A_k$ with
 the filtration $(A^k)_m = A_{k+m}$; $A_\infty = A\cap E_\infty$ may be empty.
 
-**Example 1.2 (weighted Sobolev spaces on the cylinder; preprint pp. 6–7).** Fix a strictly
+**Example 1.1.3 (preprint 1.2) (weighted Sobolev spaces on the cylinder; pp. 5–7 (preprint pp. 6–7)).** Fix a strictly
 increasing sequence $0 = \delta_0 < \delta_1 < \delta_2 < \cdots$. For $m\ge0$ and $\delta\ge0$
 let $H^{m,\delta} = H^{m,\delta}(\mathbb R\times S^1)$ be the space of $u\in L^2(\mathbb R\times
 S^1)$ whose weak partial derivatives $D^\alpha u$, $|\alpha|\le m$, exist in $L^2_{\mathrm{loc}}$
@@ -195,13 +194,13 @@ proof. Finite-dimensional spaces $\mathbb R^n$ always carry their constant struc
 
 ---
 
-## 2. Sc-operators, quotients, sc-Fredholm operators (preprint pp. 7–10)
+## 2. Sc-operators, quotients, sc-Fredholm operators (pp. 6–10 (preprint pp. 7–10))
 
-**Definition 1.3.** A linear map $T:E\to F$ between sc-Banach spaces is an *sc-operator* if
+**Definition 1.1.4 (preprint 1.3).** A linear map $T:E\to F$ between sc-Banach spaces is an *sc-operator* if
 $T(E_m)\subset F_m$ and $T:E_m\to F_m$ is continuous for every $m$. An *sc-isomorphism* is a
 bijective sc-operator whose inverse is an sc-operator.
 
-**Definition 1.4.** An sc-operator $S:E\to F$ is an *$\mathrm{sc}^+$-operator* if
+**Definition 1.1.5 (preprint 1.4).** An sc-operator $S:E\to F$ is an *$\mathrm{sc}^+$-operator* if
 $S(E_m)\subset F_{m+1}$ and $S:E\to F^1$ is an sc-operator, i.e. $S:E_m\to F_{m+1}$ is continuous
 for every $m$.
 
@@ -209,7 +208,7 @@ An $\mathrm{sc}^+$-operator is *sc-compact*: $S:E_m\to F_m$ is the composite of 
 $S:E_m\to F_{m+1}$ with the compact inclusion $F_{m+1}\to F_m$, hence compact. So $T+S$ is, on
 every level, a compact perturbation of $T$.
 
-**Definition 1.5.** A subspace $F$ of an sc-Banach space $E$ is an *sc-subspace* if $F$ is closed
+**Definition 1.1.6 (preprint 1.5).** A subspace $F$ of an sc-Banach space $E$ is an *sc-subspace* if $F$ is closed
 (in $E_0$) and $(F_m := F\cap E_m)_{m\ge0}$ is an sc-structure on $F$, with the norms induced
 from $E_m$. An sc-subspace $F$ has an *sc-complement* $G$ if $G$ is an algebraic complement of
 $F$ such that $(G_m := G\cap E_m)$ is an sc-structure on $G$ and, on every level,
@@ -217,7 +216,7 @@ $E_m = F_m\oplus G_m$ is a topological direct sum. Then $E = F\oplus G$ is an *s
 
 The phrase "on every level $E_m = F_m\oplus G_m$" carries real content: if $x\in E_m$ and
 $x = f+g$ with $f\in F$, $g\in G$, nothing forces $f,g\in E_m$; the definition demands it.
-Two of the conditions in Definition 1.5 are automatic:
+Two of the conditions in Definition 1.1.6 (preprint 1.5) are automatic:
 
 **Lemma 2.A.** Let $F\subset E$ be a closed subspace. Then $F_m = F\cap E_m$ is closed in $E_m$,
 and the inclusions $F_{m+1}\to F_m$ are compact. Hence $F$ is an sc-subspace if and only if
@@ -255,7 +254,7 @@ $P(E_m) = F_m$ and $\ker P_m = G_m$ on every level (`Polyfold.ScBanach.IsScSplit
 (`Polyfold.ScOperator.levelSub_range_eq`) and $P_m^2 = P_m$ on every level
 (`Polyfold.ScOperator.idem_lvl`). Together: `Polyfold.ScBanach.isScSplitting_iff_exists_scProj`.
 
-**Proposition 1.6.** Let $E$ be an sc-Banach space. A finite-dimensional subspace $F\subset E$ is
+**Proposition 1.1.7 (preprint 1.6).** Let $E$ be an sc-Banach space. A finite-dimensional subspace $F\subset E$ is
 an sc-subspace if and only if $F\subset E_\infty$. A finite-dimensional sc-subspace has an
 sc-complement.
 
@@ -277,7 +276,7 @@ sc-splitting. $\square$
 $f_n\in E_\infty$ with $f_n\to g$ in $E_m$ and set $g_n = (1-P)f_n\in G_\infty$; then
 $g_n\to(1-P)g = g$. This is the argument inside Lemma 2.B(ii).)
 
-**Proposition 1.7 (quotients).** Let $A$ be an sc-subspace of $E$. Then $E/A$, filtered by
+**Proposition 1.1.8 (preprint 1.7) (quotients).** Let $A$ be an sc-subspace of $E$. Then $E/A$, filtered by
 $(E/A)_m := E_m/A_m$, is an sc-Banach space, where $E_m/A_m$ is identified with the subspace
 $\{x+A : x\in E_m\}$ of $E/A$.
 
@@ -328,7 +327,7 @@ in place of $M_j$. As a description of the quotient: the class of $x$ is a smoot
 and only if $x+A$ contains a smooth point of $E$ (`Polyfold.ScBanach.mk_mem_quotient_smooth_iff`),
 which is the preprint's equality.
 
-**Definition 1.8.** An sc-operator $T:E\to F$ is *sc-Fredholm* if there are sc-splittings
+**Definition 1.1.9 (preprint 1.8).** An sc-operator $T:E\to F$ is *sc-Fredholm* if there are sc-splittings
 $E = K\oplus X$ and $F = C\oplus Y$ such that (1) $K = \ker T$ is finite-dimensional; (2) $C$ is
 finite-dimensional and $Y = T(E)$; (3) $T:X\to Y$ is an sc-isomorphism. The *index* is
 $\operatorname{ind}(T) = \dim K-\dim C$.
@@ -340,14 +339,14 @@ For every $m$ the operator $T:E_m\to F_m$ is Fredholm in the classical sense, wi
 image $Y_m$, and index $\operatorname{ind}(T) = \dim K - \dim C$.
 
 *Proof.* $K$ and $C$ are finite-dimensional sc-subspaces, so they lie in $E_\infty$, $F_\infty$ by
-Proposition 1.6, and their filtrations are constant. $T:X\to Y$ is an sc-isomorphism, so
+Proposition 1.1.7 (preprint 1.6), and their filtrations are constant. $T:X\to Y$ is an sc-isomorphism, so
 $T(X_m) = Y_m$. Since $E_m = K\oplus X_m$ and $T(K) = 0$, $T(E_m) = T(X_m) = Y_m$; and
 $F_m = C\oplus Y_m$. The kernel of $T|_{E_m}$ is $K\cap E_m = K$. $Y_m$ is closed in $F_m$ (Lemma
 2.A) with the finite-dimensional complement $C$, so $T:E_m\to F_m$ is Fredholm with
 $\dim\ker = \dim K$ and $\dim(F_m/Y_m) = \dim C$. $\square$
 
 *Checked by machine*, item by item, for an sc-Fredholm splitting `s` of $T$ (the data of Definition
-1.8, `Polyfold.ScFredholmSplitting`): $K\subset E_\infty$ is
+1.1.9 (preprint 1.8), `Polyfold.ScFredholmSplitting`): $K\subset E_\infty$ is
 `Polyfold.ScFredholmSplitting.K_le_smooth`, $C\subset F_\infty$ is
 `Polyfold.ScFredholmSplitting.C_le_smooth`; $T(X_m) = Y_m$, bijectively, is part of the definition
 (condition (3) read as bijectivity on every level); $T(E_m) = Y_m$ is
@@ -360,10 +359,10 @@ of smooth points (`Polyfold.ScBanach.finrank_levelSub_of_le_smooth`); the kernel
 so does not depend on the splitting (`Polyfold.ScFredholmSplitting.index_eq`,
 `Polyfold.IsScFredholm.fredholmIndex_lvl`).
 
-(On p. 9 the preprint prints "$F = C\oplus T(E_m)$"; it should read $F_m$ *(book 2017:
+(On preprint p. 9 the preprint prints "$F = C\oplus T(E_m)$"; it should read $F_m$ *(book 2017:
 unchanged, p. 6, after Definition 1.5)*.)
 
-**Proposition 1.9 (regularizing).** If $T:E\to F$ is sc-Fredholm and $e\in E$ with $T(e)\in F_m$,
+**Proposition 1.1.10 (preprint 1.9) (regularizing).** If $T:E\to F$ is sc-Fredholm and $e\in E$ with $T(e)\in F_m$,
 then $e\in E_m$.
 
 *Proof.* $T(e)\in F_m = C\oplus T(X_m)$, so $T(e) = c + T(x)$ with $c\in C$, $x\in X_m$. Then
@@ -390,23 +389,23 @@ and with the additivity of the index under composition this gives $\operatorname
 \operatorname{ind}(u)$ (`Polyfold.fredholmIndex_add_of_norm_lt`, `Polyfold.linIndex_comp`); then
 $t\mapsto\operatorname{ind}(T+tS)$ is locally constant on $\mathbb R$, hence constant.
 
-**Proposition 1.10 (compact perturbation).** If $T:E\to F$ is sc-Fredholm and $S:E\to F$ is an
+**Proposition 1.1.11 (preprint 1.10) (compact perturbation).** If $T:E\to F$ is sc-Fredholm and $S:E\to F$ is an
 $\mathrm{sc}^+$-operator, then $T+S$ is sc-Fredholm, and $\operatorname{ind}(T+S) =
 \operatorname{ind}(T)$.
 
-*Proof* (preprint §1.4.1, pp. 14–15, with the steps it leaves out). On each level,
+*Proof* (preprint §1.4.1, pp. 14–16 (preprint pp. 14–15), with the steps it leaves out). On each level,
 $T:E_m\to F_m$ is Fredholm (Lemma 2.D) and $S:E_m\to F_m$ is compact, so $T+S:E_m\to F_m$ is
 Fredholm by (F2).
 
 *The kernel.* Let $K_m$ be the kernel of $T+S$ on $E_m$. Clearly $K_{m+1}\subset K_m$. If
-$x\in K_m$ then $Tx = -Sx\in F_{m+1}$, so $x\in E_{m+1}$ by Proposition 1.9, and $x\in K_{m+1}$.
+$x\in K_m$ then $Tx = -Sx\in F_{m+1}$, so $x\in E_{m+1}$ by Proposition 1.1.10 (preprint 1.9), and $x\in K_{m+1}$.
 Thus $K := K_0 = K_m$ for all $m$, so $K\subset E_\infty$, and $K$ is finite-dimensional. By
-Proposition 1.6 there is an sc-splitting $E = K\oplus X$.
+Proposition 1.1.7 (preprint 1.6) there is an sc-splitting $E = K\oplus X$.
 
 *The image.* Let $Y := (T+S)(E)$, closed in $F_0$ by (F1), and $Y_m := Y\cap F_m$. We claim
 $Y_m = (T+S)(E_m) = (T+S)(X_m)$. If $y\in Y_m$, write $y = (T+S)e$ with $e\in E_0$. Then
 $Te = y - Se\in F_1$ (as $y\in F_m\subset F_1$ for $m\ge1$, and $Se\in F_1$), so $e\in E_1$ by
-Proposition 1.9; then $Se\in F_2$, so $Te\in F_{\min(m,2)}$ and $e\in E_{\min(m,2)}$; after $m$
+Proposition 1.1.10 (preprint 1.9); then $Se\in F_2$, so $Te\in F_{\min(m,2)}$ and $e\in E_{\min(m,2)}$; after $m$
 steps $e\in E_m$. (The preprint says "since $T$ is regularizing, $e\in E_m$"; the bootstrap is
 needed because $S$ raises the level only by one.) Writing $e = k+x$ with $k\in K$, $x\in X$, we
 have $x = e-k\in E_m$ (as $k\in E_\infty$), so $x\in X_m$ and $y = (T+S)x$. The reverse
@@ -429,7 +428,7 @@ sc-splitting.
 *The isomorphism.* $T+S:X\to Y$ is linear, injective ($X\cap K = 0$) and onto; it is an
 sc-operator with $(T+S)(X_m) = Y_m$. Its inverse maps $Y_m$ onto $X_m$, and is continuous
 $Y_m\to X_m$ by (F3) applied to the continuous bijection $T+S:X_m\to Y_m$ between Banach spaces.
-So $T+S:X\to Y$ is an sc-isomorphism; this is condition (3) of Definition 1.8, which the preprint
+So $T+S:X\to Y$ is an sc-isomorphism; this is condition (3) of Definition 1.1.9 (preprint 1.8), which the preprint
 does not verify. Finally $\dim K-\dim C$ is the index of $T+S$ on level $0$, which equals the
 index of $T$ on level $0$ by (F2), which is $\operatorname{ind}(T)$ by Lemma 2.D. $\square$
 
@@ -443,11 +442,11 @@ every level $(T+S)_m:E_m\to F_m$ is Fredholm of index $\operatorname{ind}(T)$:
 
 ---
 
-## 3. Sc-differentiability (preprint pp. 10–13)
+## 3. Sc-differentiability (pp. 9–14 (preprint pp. 10–13))
 
 ### 3.1 Partial quadrants and the tangent
 
-**Definition 1.11.** A *partial quadrant* in an sc-Banach space $E$ is a closed convex subset
+**Definition 1.1.12 (preprint 1.11).** A *partial quadrant* in an sc-Banach space $E$ is a closed convex subset
 $C\subset E$ for which there are $n\ge0$, an sc-Banach space $W$ and an sc-isomorphism
 $T:E\to\mathbb R^n\oplus W$ with $T(C) = [0,\infty)^n\oplus W$.
 
@@ -486,13 +485,13 @@ non-empty interior (`Polyfold.IsPartialQuadrant.interior_lvlSet_nonempty`), henc
 derivatives at each of its points (`Polyfold.IsPartialQuadrant.uniqueDiffWithinAt_lvlSet`; this is
 Lemma 3.D below).
 
-**Definition 1.12.** For tuples $(U,C,E)$ and $(U',C',E')$, a map $f:U\to U'$ is *$\mathrm{sc}^0$*
+**Definition 1.1.13 (preprint 1.12).** For tuples $(U,C,E)$ and $(U',C',E')$, a map $f:U\to U'$ is *$\mathrm{sc}^0$*
 (sc-continuous) if $f(U_m)\subset U'_m$ and $f:U_m\to U'_m$ is continuous for every $m\ge0$.
 
 (The preprint writes "$f(U_m)\subset V_m$" with $V$ undefined; $V$ means $U'$.) Compositions of
 $\mathrm{sc}^0$ maps are $\mathrm{sc}^0$, and an sc-operator is an $\mathrm{sc}^0$ map.
 
-**Definition 1.13.** The *tangent* of the tuple $(U,C,E)$ is the tuple
+**Definition 1.1.14 (preprint 1.13).** The *tangent* of the tuple $(U,C,E)$ is the tuple
 $$T(U,C,E) = (TU,TC,TE),\qquad TU = U^1\oplus E,\quad TC = C^1\oplus E,\quad TE = E^1\oplus E .$$
 Concretely $TU = \{(x,h) : x\in U_1,\ h\in E_0\}$ with levels $(TU)_m = U_{m+1}\times E_m$.
 
@@ -500,7 +499,7 @@ Concretely $TU = \{(x,h) : x\in U_1,\ h\in E_0\}$ with levels $(TU)_m = U_{m+1}\
 $TC$, and $T(U^1) = (TU)^1$. So $T(U,C,E)$ is again a tuple and the construction can be iterated:
 $T^k(U,C,E) = (T^kU,T^kC,T^kE)$.
 
-*Proof.* With $T:E\to\mathbb R^n\oplus W$ as in Definition 1.11, the map $T\oplus T:E^1\oplus E\to
+*Proof.* With $T:E\to\mathbb R^n\oplus W$ as in Definition 1.1.12 (preprint 1.11), the map $T\oplus T:E^1\oplus E\to
 (\mathbb R^n\oplus W^1)\oplus(\mathbb R^n\oplus W)$ is an sc-isomorphism carrying $C^1\oplus E$ to
 $([0,\infty)^n\oplus W^1)\oplus(\mathbb R^n\oplus W)$. Reordering the summands, this is
 $[0,\infty)^n\oplus W'$ with $W' = W^1\oplus\mathbb R^n\oplus W$, an sc-Banach space by Lemma 1.B.
@@ -554,7 +553,7 @@ then induct).
 
 ### 3.3 Sc$^1$, sc$^k$, sc-smooth
 
-**Definition 1.14.** Let $(U,C,E)$ and $(U',C',E')$ be tuples, with $E' = F$. A map
+**Definition 1.1.15 (preprint 1.14).** Let $(U,C,E)$ and $(U',C',E')$ be tuples, with $E' = F$. A map
 $f:U\to U'$ is *$\mathrm{sc}^1$* if
 
 1. $f$ is $\mathrm{sc}^0$;
@@ -575,8 +574,8 @@ satisfies the hypothesis of Lemma 3.D on $E_1$ (with $m = 1$), so $L = 0$ on $E_
 E_\infty$ is dense in $E_0$ and $L$ is continuous, so $L = 0$. $\square$
 
 > **A hidden hypothesis.** The uniqueness of $Df(x)$, without which "the tangent map" in (3) has
-> no meaning, uses both the density axiom of Definition 1.1 and the fact that a partial quadrant
-> has non-empty interior (Lemma 3.A(4)). For the partial cones of Remark 1.15 below the second
+> no meaning, uses both the density axiom of Definition 1.1.1 (preprint 1.1) and the fact that a partial quadrant
+> has non-empty interior (Lemma 3.A(4)). For the partial cones of Remark 1.1.17 (preprint 1.15) below the second
 > point is exactly the condition HWZ impose there.
 
 **Lemma 3.F (what continuity of the derivative means).** Let $f$ satisfy (1) and (2). Then (3) at
@@ -599,7 +598,7 @@ near $x$ (`Polyfold.continuousOn_apply_iff_uniformOnCompact`), by the two argume
 $\mathrm{sc}^1$ map: `Polyfold.IsSc1With.deriv_uniformOnCompact`, with level $0$ of condition (3)
 in the form `Polyfold.IsSc1With.continuousOn_deriv`. The last sentence of the lemma (operator-norm
 continuity can fail) is not formalized: its counterexample is the shift map of §6, which needs the
-weighted Sobolev spaces of Example 1.2.
+weighted Sobolev spaces of Example 1.1.3 (preprint 1.2).
 
 In finite dimensions, where $E_m = E$ and $|\cdot|_1 = |\cdot|_0$ (Lemma 1.A(2)), conditions (2)
 and (3) say that $f$ is differentiable with $(x,h)\mapsto Df(x)h$ continuous, which (the unit sphere
@@ -615,7 +614,7 @@ that is, differentiable within $U$ at every point of $U$ with $x\mapsto d_Uf(x)$
 along $U$, the one-sided derivative of Definition 3.C; and $f$ is sc-smooth if and only if it is
 $C^\infty$ within $U$ (`Polyfold.isScSmooth_iff_contDiffOn_of_isRelOpenInQuadrant`,
 `Polyfold.isScSmooth_iff_contDiffOn_const`). The formal proof does not use the compact unit sphere
-but Propositions 1.16 and 1.19 for $k = 0$ below (`Polyfold.IsSc1With.contDiffOn_base`,
+but Propositions 1.2.1 and 1.2.4 (preprint 1.16 and 1.19) for $k = 0$ below (`Polyfold.IsSc1With.contDiffOn_base`,
 `Polyfold.corollary_1_20_zero`). Mathlib's "$C^1$ within $U$" is Definition 3.C, with uniqueness of
 the derivative from the non-empty interior of the quadrant.
 
@@ -624,12 +623,12 @@ $\mathrm{sc}^1$ and $Tf:TU\to TU'$ is $\mathrm{sc}^k$; then $T^{k+1}f := T(T^kf)
 T^{k+1}U'$ is $\mathrm{sc}^0$. The map is *sc-smooth* ($\mathrm{sc}^\infty$) if it is
 $\mathrm{sc}^k$ for every $k$.
 
-**Remark 1.15 (partial cones).** The preprint notes that $C$ could be replaced by a closed convex
+**Remark 1.1.17 (preprint 1.15) (partial cones).** The preprint notes that $C$ could be replaced by a closed convex
 cone $P$ ($\lambda P\subset P$ for $\lambda\ge0$) with non-empty interior; $TP = P^1\oplus E$ is
-again such a cone, and Definition 1.14 makes sense. The authors warn that each later argument
+again such a cone, and Definition 1.1.15 (preprint 1.14) makes sense. The authors warn that each later argument
 must be checked in that generality. We stay with quadrants.
 
-**Lemma 3.G (elementary properties).** Let $f:U\to U'$ be as in Definition 1.14.
+**Lemma 3.G (elementary properties).** Let $f:U\to U'$ be as in Definition 1.1.15 (preprint 1.14).
 
 1. $\mathrm{sc}^{k+1}$ implies $\mathrm{sc}^k$.
 2. $f$ is $\mathrm{sc}^1$ into $U'$ if and only if it is $\mathrm{sc}^1$ as a map into $F$ (the
@@ -643,7 +642,7 @@ must be checked in that generality. We stay with quadrants.
 
 *Proof.* (1) For $k = 1$ by definition; if $f$ is $\mathrm{sc}^{k+2}$ then $Tf$ is
 $\mathrm{sc}^{k+1}$, hence $\mathrm{sc}^k$ by induction, so $f$ is $\mathrm{sc}^{k+1}$. (2) The
-conditions of Definition 1.14 involve the norms of $F$ and the sets $U'_m$ only through
+conditions of Definition 1.1.15 (preprint 1.14) involve the norms of $F$ and the sets $U'_m$ only through
 $f(U_m)\subset U'_m$ and the subspace topology; $TU' = U'^1\oplus F$ puts no restriction on the
 second component. Induct for $\mathrm{sc}^k$. (3) For $k = 1$: (2) holds for $g$ with the operator
 $(Dg_1(x),Dg_2(x))$ if and only if it holds for each component (the norm on $F\oplus G$ is the
@@ -655,12 +654,12 @@ $\square$
 
 ### 3.4 Relation with classical differentiability
 
-The preprint states Propositions 1.16–1.19 and Corollary 1.20 and refers for the proofs to the
+The preprint states Propositions 1.2.1–1.2.4 (preprint 1.16–1.19) and Corollary 1.2.5 (preprint 1.20) and refers for the proofs to the
 2010 paper (its Propositions 2.1–2.4 and Corollary 2.5). We give the proofs. Throughout, $U$ is
 relatively open in a partial quadrant of $E$ and $F$ is an sc-Banach space; by Lemma 3.G(2)
 nothing changes if the target is a tuple $(V,D,F)$.
 
-**Proposition 1.16.** An $\mathrm{sc}^0$ map $f:U\to F$ is $\mathrm{sc}^1$ if and only if
+**Proposition 1.2.1 (preprint 1.16).** An $\mathrm{sc}^0$ map $f:U\to F$ is $\mathrm{sc}^1$ if and only if
 
 1. for every $m\ge1$ the map $f:U_m\to F_{m-1}$ is $C^1$, with derivative
    $df:U_m\to\mathcal L(E_m,F_{m-1})$ continuous;
@@ -684,9 +683,9 @@ uniqueness (Lemma 3.D) they agree. The two extensions $Df_m(x)\in\mathcal L(E_{m
 $Df_1(x)|_{E_{m-1}}$ are both continuous from $E_{m-1}$ to $F_0$ and agree on $E_m$, which is
 dense in $E_{m-1}$ (Lemma 1.A(1)); so they agree. $\square$
 
-*Proof of Proposition 1.16.* ($\Leftarrow$) Take $m = 1$ in (1) and (2): $f:U_1\to F_0$ is
+*Proof of Proposition 1.2.1 (preprint 1.16).* ($\Leftarrow$) Take $m = 1$ in (1) and (2): $f:U_1\to F_0$ is
 differentiable at $x\in U_1$ with derivative $df(x) = Df(x)|_{E_1}$, which is condition (2) of
-Definition 1.14. For condition (3) at level $m\ge0$ we need $(x,h)\mapsto Df(x)h$ continuous
+Definition 1.1.15 (preprint 1.14). For condition (3) at level $m\ge0$ we need $(x,h)\mapsto Df(x)h$ continuous
 $U_{m+1}\times E_m\to F_m$, which is (2) with $m+1$ in place of $m$, the operator being the same
 by Lemma 3.H; the first component $f:U_{m+1}\to F_{m+1}$ is continuous as $f$ is
 $\mathrm{sc}^0$. The 2010 paper calls this direction "clear"; Lemma 3.H is what makes it so.
@@ -731,26 +730,26 @@ L(E_m,F_m)$ (bounded by the linearity and continuity of $k\mapsto\Phi(x,k)$), an
 required in (2) is condition (3) at level $m$. For the last sentence: if $x\in U_\infty$ then
 $x\in U_m$ for every $m$, so $Df(x):E_{m-1}\to F_{m-1}$ is bounded for every $m\ge1$. $\square$
 
-**Proposition 1.17 (lifting the index).** If $f:U\to V$ is $\mathrm{sc}^k$, then
+**Proposition 1.2.2 (preprint 1.17) (lifting the index).** If $f:U\to V$ is $\mathrm{sc}^k$, then
 $f:U^1\to V^1$ is $\mathrm{sc}^k$, with the same tangent map restricted: $T(f|_{U^1}) = Tf|_{T(U^1)}$.
 
 *Proof.* Induction on $k$. For $k = 0$: $f:U_{1+m}\to V_{1+m}$ is continuous for all $m$. For
-$k = 1$: by Proposition 1.16 ($\Rightarrow$), $f$ satisfies (1) and (2) for all $m\ge1$. Read for
+$k = 1$: by Proposition 1.2.1 (preprint 1.16) ($\Rightarrow$), $f$ satisfies (1) and (2) for all $m\ge1$. Read for
 the spaces $E^1,F^1$ and the set $U^1$, conditions (1) and (2) for a given $m\ge1$ are the original
-conditions for $m+1$. So $f:U^1\to F^1$ is $\mathrm{sc}^1$ by Proposition 1.16 ($\Leftarrow$),
+conditions for $m+1$. So $f:U^1\to F^1$ is $\mathrm{sc}^1$ by Proposition 1.2.1 (preprint 1.16) ($\Leftarrow$),
 with the same operators $Df(x)$ (Lemma 3.H), and its image is in $V^1$ (Lemma 3.G(2)). The
 tangent map of $f|_{U^1}$ is therefore $Tf$ restricted to $T(U^1) = (TU)^1$ (Lemma 3.B). For
 $k\to k+1$: if $f$ is $\mathrm{sc}^{k+1}$, then $Tf:TU\to TV$ is $\mathrm{sc}^k$, so by the
 induction hypothesis $Tf:(TU)^1\to(TV)^1$ is $\mathrm{sc}^k$; this is $T(f|_{U^1}):T(U^1)\to
 T(V^1)$, so $f|_{U^1}$ is $\mathrm{sc}^{k+1}$. $\square$
 
-**Proposition 1.18 (lower bound).** If $f:U\to V$ is $\mathrm{sc}^k$, then for every $m\ge0$ the
+**Proposition 1.2.3 (preprint 1.18) (lower bound).** If $f:U\to V$ is $\mathrm{sc}^k$, then for every $m\ge0$ the
 map $f:U_{m+k}\to V_m$ is $C^k$; more generally $f:U_{m+l}\to V_m$ is $C^l$ for $0\le l\le k$.
 
 *Proof.* The second statement follows from the first because an $\mathrm{sc}^k$ map is
-$\mathrm{sc}^l$ (Lemma 3.G(1)). By Proposition 1.17 applied $m$ times, $f:U^m\to V^m$ is
+$\mathrm{sc}^l$ (Lemma 3.G(1)). By Proposition 1.2.2 (preprint 1.17) applied $m$ times, $f:U^m\to V^m$ is
 $\mathrm{sc}^k$, so it suffices to prove: *if $f$ is $\mathrm{sc}^k$ then $f:U_k\to F_0$ is $C^k$.*
-Induction on $k$. $k = 0$: continuity. $k = 1$: Proposition 1.16(1) with $m = 1$. Suppose the
+Induction on $k$. $k = 0$: continuity. $k = 1$: Proposition 1.2.1(1) (preprint 1.16) with $m = 1$. Suppose the
 statement holds for $k$ and let $f$ be $\mathrm{sc}^{k+1}$. Then $f$ is $\mathrm{sc}^k$, so
 $f:U_k\to F_0$ is $C^k$, and so is its restriction $f:U_{k+1}\to F_0$; write $D^kf(x)\in\mathcal
 L^k(E_{k+1};F_0)$ for its $k$-th derivative at $x\in U_{k+1}$. Also $Tf:TU\to TF$ is
@@ -781,7 +780,7 @@ D^k_x\Phi(x,h_n)\|\to0$, a contradiction.
 
 *$D^kf$ is differentiable with derivative $\Gamma$.* Let $x\in U_{k+1}$ and $\delta x\in E_{k+1}$
 small with $x+\delta x\in U_{k+1}$ (so the segment is in $U_{k+1}$, Lemma 3.A(3)). By (3.1) for
-the $C^1$ map $f:U_1\to F_0$ (Proposition 1.16, Step 1), whose derivative is $Df|_{E_1}$,
+the $C^1$ map $f:U_1\to F_0$ (Proposition 1.2.1 (preprint 1.16), Step 1), whose derivative is $Df|_{E_1}$,
 $$f(x+\delta x)-f(x) = \int_0^1Df(x+t\,\delta x)\,\delta x\,dt = \int_0^1\Phi(x+t\,\delta x,\delta x)\,dt .$$
 Both sides are $C^k$ functions of $x$ on $U_{k+1}$ (the integrand is $C^k$ in $x$ with
 $x$-derivatives $D^j_x\Phi(x+t\delta x,\delta x)$ continuous in $(t,x)$), so differentiating $k$
@@ -796,7 +795,7 @@ whose norm in $\mathcal L^k(E_{k+1};F_0)$ is at most $\sup_{t\in[0,1]}\|\Gamma(x
 is differentiable at $x$ with derivative $\delta x\mapsto\Gamma(x)(\cdot,\delta x)$, which depends
 continuously on $x$. Hence $f:U_{k+1}\to F_0$ is $C^{k+1}$. $\square$
 
-**Proposition 1.19 (upper bound).** Let $k\ge0$. If for every $m\ge0$ and $0\le l\le k$ the map
+**Proposition 1.2.4 (preprint 1.19) (upper bound).** Let $k\ge0$. If for every $m\ge0$ and $0\le l\le k$ the map
 $f:U\to F$ induces a map $f:U_{m+l}\to F_m$ of class $C^{l+1}$, then $f$ is $\mathrm{sc}^{k+1}$.
 
 The hypothesis for $l = 0$ says $f:U_m\to F_m$ is $C^1$ for every $m$; in particular $f$ is
@@ -828,7 +827,7 @@ the evaluation is continuous, and restricting to finer levels preserves continui
 
 *Proof of* ($\mathrm S_0$). By hypothesis $f:U_m\to F_m$ is $C^1$ for all $m$. For $x\in U_1$ put
 $Df(x) := df(x)$, the derivative of $f:U_0\to F_0$ at $x$, an element of $\mathcal L(E_0,F_0)$.
-Condition (2) of Definition 1.14 holds because $f:U_1\to F_0$ is the restriction of the
+Condition (2) of Definition 1.1.15 (preprint 1.14) holds because $f:U_1\to F_0$ is the restriction of the
 differentiable map $f:U_0\to F_0$, with derivative $df(x)|_{E_1}$. For condition (3) at level
 $m$: for $x\in U_{m+1}\subset U_m$ and $h\in E_m$, $Df(x)h = d_mf(x)h\in F_m$, where $d_mf(x)$ is
 the derivative of $f:U_m\to F_m$ (compatibility), and $(x,h)\mapsto d_mf(x)h$ is continuous
@@ -862,7 +861,7 @@ $f:U_{j+l}\to F_l$ is $C^{j+1}$, with the bounded multilinear evaluation map
 $\mathcal L^j(E_{j+l};F_l)\times E_{j+l}^{\,j}\to F_l$; so $\Gamma$ is $C^1$ there with the Leibniz
 derivative (3.5). Restricting to the finer domain $U_{k+2}\times E_{n_1+1}\times\cdots$ (continuous
 linear inclusions) keeps differentiability, and the $o(\cdot)$-estimate in the finer norm follows
-from the one in the coarser norm. This is condition (2) of Definition 1.14 for $\Gamma$.
+from the one in the coarser norm. This is condition (2) of Definition 1.1.15 (preprint 1.14) for $\Gamma$.
 
 Condition (3): $T\Gamma = (\Gamma,D\Gamma)$ must be $\mathrm{sc}^0$. On level $q$ the first
 component is $\Gamma$ on level $q+1$, continuous as noted. The second component is a sum of maps
@@ -916,12 +915,12 @@ is $C^{k+1}$ for every $m$, the level maps of $Tf$ are $C^k$ and the induction i
 $Df(x) = df(x)$); and a map that is $C^\infty$ on every level is sc-smooth
 (`Polyfold.IsScSmooth.of_contDiffOn_levels`).
 
-**Corollary 1.20.** Let $f:U\to\mathbb R^N$. If for some $k$ and all $0\le l\le k$ the map
+**Corollary 1.2.5 (preprint 1.20).** Let $f:U\to\mathbb R^N$. If for some $k$ and all $0\le l\le k$ the map
 $f:U_l\to\mathbb R^N$ is $C^{l+1}$, then $f$ is $\mathrm{sc}^{k+1}$. In particular, if
 $f:U_l\to\mathbb R^N$ is $C^{l+1}$ for every $l\ge0$, then $f$ is sc-smooth; and if $f:U_0\to
 \mathbb R^N$ is $C^\infty$, then $f$ is sc-smooth.
 
-*Proof.* $\mathbb R^N$ carries the constant structure, so the hypothesis of Proposition 1.19
+*Proof.* $\mathbb R^N$ carries the constant structure, so the hypothesis of Proposition 1.2.4 (preprint 1.19)
 reads: $f:U_{m+l}\to\mathbb R^N$ is $C^{l+1}$ for all $m\ge0$ and $l\le k$. For $m = 0$ this is
 assumed, and for $m\ge1$ it follows by restricting the $C^{l+1}$ map $f:U_l\to\mathbb R^N$ to
 the finer level $U_{m+l}\subset U_l$. The last claim: a $C^\infty$ map on $U_0$ restricts to a
@@ -940,25 +939,25 @@ hypothesis remain: $C^{k+1}$ on *every* $U_m$ gives $\mathrm{sc}^{k+1}$
 (`Polyfold.corollary_1_20_base`), and for $k = 0$, where the hypotheses agree,
 `Polyfold.corollary_1_20_zero`.
 
-In the other direction Proposition 1.18 gives, for an sc-smooth $f:U\to\mathbb R^N$, that
+In the other direction Proposition 1.2.3 (preprint 1.18) gives, for an sc-smooth $f:U\to\mathbb R^N$, that
 $f:U_l\to\mathbb R^N$ is $C^l$ for every $l$ (take $m = 0$, $k = l$). The two conditions differ by
 one derivative on each level; neither the preprint nor the 2010 paper claims that they coincide,
 and the loss of one order between the lower bound (1.18) and the upper bound (1.19) is the price
-of a level-wise criterion. Corollary 1.20 is the standard way to see that a map into a
+of a level-wise criterion. Corollary 1.2.5 (preprint 1.20) is the standard way to see that a map into a
 finite-dimensional space is sc-smooth; §6 uses it for bump functions.
 
 ---
 
 ## 4. The chain rule (preprint pp. 13, 15–16)
 
-**Theorem 1.21 (chain rule).** Let $U\subset C\subset E$, $V\subset D\subset F$ and
+**Theorem 1.3.1 (preprint 1.21) (chain rule).** Let $U\subset C\subset E$, $V\subset D\subset F$ and
 $W\subset Q\subset G$ be relatively open subsets of partial quadrants in sc-Banach spaces, and
 let $f:U\to V$ and $g:V\to W$ be $\mathrm{sc}^1$. Then $g\circ f:U\to W$ is $\mathrm{sc}^1$ and
 $$T(g\circ f) = Tg\circ Tf .$$
 
-**Remark 1.22.** Differentiability is only guaranteed with the loss of one level, $U_1\to F_0$, so
+**Remark 1.3.2 (preprint 1.22).** Differentiability is only guaranteed with the loss of one level, $U_1\to F_0$, so
 one might expect a composition to lose two. It does not; the compactness of $E_1\to E_0$ saves
-the day. Indeed, the proof below uses nothing about $f$ and $g$ beyond Definition 1.14 and this
+the day. Indeed, the proof below uses nothing about $f$ and $g$ beyond Definition 1.1.15 (preprint 1.14) and this
 one compactness.
 
 *Proof.* $g\circ f$ is $\mathrm{sc}^0$ as a composite of $\mathrm{sc}^0$ maps. For $x\in U_1$ we
@@ -983,7 +982,7 @@ $$g(f(x+h))-g(f(x)) = \int_0^1Dg(y_t)\,\Delta\,dt ,$$
 and subtracting $Lh = \int_0^1Dg(f(x))Df(x)h\,dt$ and inserting $\pm Dg(y_t)Df(x)h$,
 $$g(f(x+h))-g(f(x))-Lh = \underbrace{\int_0^1Dg(y_t)\big[f(x+h)-f(x)-Df(x)h\big]dt}_{(\mathrm I)}
 +\underbrace{\int_0^1\big[Dg(y_t)-Dg(f(x))\big]Df(x)h\,dt}_{(\mathrm{II})} . \tag{4.1}$$
-(The preprint quotes Proposition 1.18 to make $g:V_1\to G_0$ of class $C^1$ here; the direct
+(The preprint quotes Proposition 1.2.3 (preprint 1.18) to make $g:V_1\to G_0$ of class $C^1$ here; the direct
 argument above shows this is not needed.)
 
 *Step 3: the first integral.* Put $a(h) := [f(x+h)-f(x)-Df(x)h]/|h|_1\in F_0$; by condition (2)
@@ -1010,7 +1009,7 @@ integral has norm $<2\varepsilon'$. This contradicts (4.2) once $2\varepsilon'<\
 
 *Step 5: conclusion.* By (4.1) and Steps 3–4,
 $$\frac{|g(f(x+h))-g(f(x))-Dg(f(x))Df(x)h|_0}{|h|_1}\to0\qquad(|h|_1\to0,\ x+h\in U_1),$$
-so $g\circ f$ satisfies condition (2) of Definition 1.14 at $x$ with the operator $L$; by Lemma
+so $g\circ f$ satisfies condition (2) of Definition 1.1.15 (preprint 1.14) at $x$ with the operator $L$; by Lemma
 3.E, $D(g\circ f)(x) = Dg(f(x))\circ Df(x)$. Its tangent map is
 $$T(g\circ f)(x,h) = \big(g(f(x)),\,Dg(f(x))Df(x)h\big) = Tg\big(f(x),Df(x)h\big) = (Tg\circ Tf)(x,h),$$
 where $Tf$ maps $TU$ into $TV$ because $f(x)\in V_1$ for $x\in U_1$. As a composite of the
@@ -1035,7 +1034,7 @@ $Df(x):E\to F$ is an sc-isomorphism.
 *Proof.* $f^{-1}\circ f = \mathrm{id}_U$, whose tangent map is the identity (Lemma 3.G(4)), so by
 the theorem $Tf^{-1}\circ Tf = \mathrm{id}_{TU}$, i.e. $Df^{-1}(f(x))Df(x) = \mathrm{id}_{E_0}$;
 symmetrically $Df(x)Df^{-1}(f(x)) = \mathrm{id}_{F_0}$. If $x$ is smooth so is $f(x)$ ($f$ is
-$\mathrm{sc}^0$), and both $Df(x)$ and $Df^{-1}(f(x))$ are sc-operators by Proposition 1.16.
+$\mathrm{sc}^0$), and both $Df(x)$ and $Df^{-1}(f(x))$ are sc-operators by Proposition 1.2.1 (preprint 1.16).
 $\square$
 
 ### An interactive look at the shift map
@@ -1049,7 +1048,7 @@ $\|u(\cdot+R)-u\|_{L^2} = \sqrt{2R}$ (slope $1/2$: the difference quotient diver
 not differentiable at $u$ into $L^2$); for the tent the first-order remainder
 $\|u(\cdot+R)-u-Ru'\|_{L^2} = \sqrt2\,R^{3/2}$ (slope $3/2$: it is $o(R)$, so the shift is
 differentiable at $u$ into $L^2$ with derivative $u'$, because $u$ is one level above the target);
-for the Gaussian the remainder is $O(R^2)$ (slope $2$). This is Definition 1.14 in one picture:
+for the Gaussian the remainder is $O(R^2)$ (slope $2$). This is Definition 1.1.15 (preprint 1.14) in one picture:
 the derivative exists at points of level $1$, into level $0$. In the interactive version a slider
 moves $R$ and a second one chooses the function; the three norms are recomputed and printed. The
 numbers in the text were checked with the script that draws the figure.
@@ -1069,13 +1068,13 @@ Let $C$ be a partial quadrant in $E$ and $T:E\to\mathbb R^k\oplus W$ an sc-isomo
 $T(C) = [0,\infty)^k\oplus W$. For $x\in C$ write $T(x) = (a_1,\dots,a_k,w)$ and set
 $$d_C(x) := \#\{i\in\{1,\dots,k\} : a_i = 0\}.$$
 
-**Definition 1.23.** $d_C:C\to\mathbb N_0$ is the *degeneracy index*.
+**Definition 1.3.3 (preprint 1.23).** $d_C:C\to\mathbb N_0$ is the *degeneracy index*.
 
 Points with $d_C(x) = 0$ are interior points of $C$ (in $E_0$), those with $d_C(x) = 1$ are
 "honest" boundary points, and those with $d_C(x)\ge2$ are corner points; the index measures the
 complexity of the corner. The definition appears to depend on $T$. It does not:
 
-**Lemma 1.24.** $d_C$ does not depend on the choice of the sc-isomorphism $T$.
+**Lemma 1.3.4 (preprint 1.24).** $d_C$ does not depend on the choice of the sc-isomorphism $T$.
 
 *Proof* (preprint §1.4.3). Let $T':E\to\mathbb R^{k'}\oplus W'$ be another sc-isomorphism with
 $T'(C) = [0,\infty)^{k'}\oplus W'$, and let $S := T'\circ T^{-1}:\mathbb R^k\oplus W\to\mathbb
@@ -1106,7 +1105,7 @@ $S^{-1}(E'_y)\subset E_x$, so $S(E_x) = E'_y$, and $S$ induces an isomorphism $(
 with $T$ is $\#I(T(z))$ and the index computed with $T'$ is $\#I'(T'(z)) = \#I'(S(T(z))) =
 \#I(T(z))$. $\square$
 
-Two further properties of $d_C$ are needed for Theorem 1.25 and used throughout the theory of
+Two further properties of $d_C$ are needed for Theorem 1.3.5 (preprint 1.25) and used throughout the theory of
 M-polyfolds with boundary.
 
 **Lemma 5.A (semicontinuity and density of smooth points).** Let $C$ be a partial quadrant in $E$.
@@ -1126,7 +1125,7 @@ $I(T(x_n)) = I(T(x))$, and $x_n\to x$. For large $n$, $x_n\in U$. $\square$
 open neighbourhoods $U_0\subset U$ of $x$ and $U'_0\subset U'$ of $x'$ and an sc-smooth
 bijection $f:U_0\to U'_0$ with sc-smooth inverse and $f(x) = x'$.
 
-**Theorem 1.25 (boundary recognition).** Given tuples $(U,C,E)$ and $(U',C',E')$ and a germ of a
+**Theorem 1.3.5 (preprint 1.25) (boundary recognition).** Given tuples $(U,C,E)$ and $(U',C',E')$ and a germ of a
 local sc-diffeomorphism $f:(U,x)\to(U',x')$ with $x' = f(x)$,
 $$d_C(x) = d_{C'}(f(x)).$$
 
@@ -1143,19 +1142,19 @@ Let $x\in U$ and choose $x_n\in U_\infty$ with $x_n\to x$ and $d_C(x_n) = d_C(x)
 Then $f(x_n)\to f(x)$ in $E'_0$ and $d_{C'}(f(x_n)) = d_C(x_n) = d_C(x)$, so by Lemma 5.A(1)
 $d_{C'}(f(x))\ge d_C(x)$. Applying this to $f^{-1}$ at $f(x)$ gives $d_C(x)\ge d_{C'}(f(x))$.
 
-*Step 2: smooth points.* By Lemma 1.24 we may replace $E$, $C$ by $\mathbb R^n\oplus W$,
+*Step 2: smooth points.* By Lemma 1.3.4 (preprint 1.24) we may replace $E$, $C$ by $\mathbb R^n\oplus W$,
 $[0,\infty)^n\oplus W$ (composing $f$ with the sc-isomorphism $T$, which is sc-smooth and
-preserves the index by Lemma 1.24), and likewise for $E'$, $C'$. Let $x = (a,w)\in U_\infty$,
+preserves the index by Lemma 1.3.4 (preprint 1.24)), and likewise for $E'$, $C'$. Let $x = (a,w)\in U_\infty$,
 $I := I(x)$, $x' = f(x) = (a',w')$, $I' := I'(x')$, and
 $$\Sigma := \{(b,v)\in E : b_i = 0 \text{ for } i\in I\},\qquad \Sigma' := \{(b',v')\in E' : b'_j = 0
 \text{ for } j\in I'\},$$
 of codimensions $\#I$ and $\#I'$. Let $\lambda_j(b',v') := b'_j$, a continuous linear functional
 on $E'_0$; on $C'$, $\lambda_j\ge0$, and $\lambda_j(x') = 0$ for $j\in I'$.
 
-Take a smooth vector $u\in\Sigma_\infty = \Sigma\cap E_\infty$. As in the proof of Lemma 1.24,
+Take a smooth vector $u\in\Sigma_\infty = \Sigma\cap E_\infty$. As in the proof of Lemma 1.3.4 (preprint 1.24),
 $x+\tau u\in C$ for $|\tau|$ small, and $x+\tau u\in U$ for $|\tau|$ smaller still (relative
 openness, in $E_0$ and hence in $E_1$ since $u\in E_1$). So $f(x+\tau u)\in U'\subset C'$ and
-$\lambda_j(f(x+\tau u))\ge0$. By condition (2) of Definition 1.14 for $f$ at $x\in U_1$ with the
+$\lambda_j(f(x+\tau u))\ge0$. By condition (2) of Definition 1.1.15 (preprint 1.14) for $f$ at $x\in U_1$ with the
 increment $\tau u\in E_1$,
 $$f(x+\tau u) = f(x)+\tau Df(x)u+o(|\tau|)\quad\text{in } E'_0 .$$
 For $j\in I'$, applying $\lambda_j$: $0\le\lambda_j(f(x+\tau u)) = \tau\lambda_j(Df(x)u)+o(|\tau|)$.
@@ -1170,17 +1169,17 @@ $\mathrm{sc}^0$) gives $\#I\le\#I'$. $\square$
 
 *Checked by machine:* `Polyfold.theorem_1_25`, in `Polyfold/Chapter2/DegeneracyIndex.lean`, for a
 germ read as an $\mathrm{sc}^1$ map $f:U\to U'$ with $\mathrm{sc}^1$ inverse between relatively open
-subsets of partial quadrants. The formal proof is the argument of Chapter 2, §2.3 for the identity
+subsets of partial quadrants. The formal proof is the argument of Chapter 2, §2.4 (preprint §2.3) for the identity
 retraction, which is the proof above with points of level $1$ in place of smooth points
 (`Polyfold.theorem_1_25_lvl1`, `Polyfold.degIndexWith_le_of_germ`); Lemma 5.A appears as
 `Polyfold.eventually_degIndexWith_le` and `Polyfold.exists_tendsto_lvl1_degIndexWith`, and Lemma
-1.24 as `Polyfold.lemma_1_24`.
+1.3.4 (preprint 1.24) as `Polyfold.lemma_1_24`.
 
 HWZ remark that sc-diffeomorphisms recognize boundary points *and* corners, whereas
 homeomorphisms recognize only the boundary: the homeomorphism $[0,\infty)^2\to\mathbb
 R\times[0,\infty)$, $(r\cos\theta,r\sin\theta)\mapsto(r\cos2\theta,r\sin2\theta)$ in polar
 coordinates, flattens the corner. In Chapter 2 the degeneracy index is transported to
-M-polyfolds through charts, and Theorem 1.25 (in the retract version) is what makes it well
+M-polyfolds through charts, and Theorem 1.3.5 (preprint 1.25) (in the retract version) is what makes it well
 defined there.
 
 ---
@@ -1188,7 +1187,7 @@ defined there.
 ## 6. Application: the shift map is sc-smooth and not $C^1$
 
 We return to the opening. Let $E_m = H^{m,\delta_m}(\mathbb R\times S^1)$ be the sc-Hilbert space
-of Example 1.2 and, for $a = (R,\vartheta)\in\mathbb R^2$ (with $\vartheta$ acting through
+of Example 1.1.3 (preprint 1.2) and, for $a = (R,\vartheta)\in\mathbb R^2$ (with $\vartheta$ acting through
 $\mathbb R\to S^1 = \mathbb R/\mathbb Z$),
 $$\Phi:\mathbb R^2\oplus E\to E,\qquad \Phi(a,u) = \tau_au := u(\cdot+R,\cdot+\vartheta).$$
 The sc-structure on $\mathbb R^2\oplus E$ is $\mathbb R^2\oplus E_m$ (Lemma 1.B). This is the
@@ -1281,8 +1280,8 @@ $k\to k+1$ one shows each $A_\alpha$ is $\mathrm{sc}^1$: it is the composite of
 $(a,u,h)\mapsto(a,\ h_1\cdots h_{|\alpha|}D^\alpha u)$, $\mathbb R^2\oplus E^m\oplus\mathbb
 R^{|\alpha|}\to\mathbb R^2\oplus E^j$, which on every level is a continuous polynomial map (linear
 in $u$, since $D^\alpha:E_{m+q}\to E_{j+q}$ is bounded for $|\alpha|\le m-j$) and hence $C^\infty$
-on every level and sc-smooth by Proposition 1.19, with $\Phi:\mathbb R^2\oplus E^j\to E^j$, which
-is $\mathrm{sc}^1$ by Proposition 6.C and Proposition 1.17. The chain rule makes $A_\alpha$
+on every level and sc-smooth by Proposition 1.2.4 (preprint 1.19), with $\Phi:\mathbb R^2\oplus E^j\to E^j$, which
+is $\mathrm{sc}^1$ by Proposition 6.C and Proposition 1.2.2 (preprint 1.17). The chain rule makes $A_\alpha$
 $\mathrm{sc}^1$, so $T^k\Phi$ is $\mathrm{sc}^1$ and $\Phi$ is $\mathrm{sc}^{k+1}$. Differentiating
 $A_\alpha$ (the $u$-derivative gives $A_\alpha$ in $\delta u$, the $h$-derivatives give the same
 form with one $h_l$ replaced by $\delta h_l$, and the $a$-derivative gives
@@ -1309,7 +1308,7 @@ $\|g^{(m)}(\cdot+R)-g^{(m)}\|_{L^2}^2\ge\int_{s_0-R}^{s_0}|g^{(m)}(s+R)-g^{(m)}(
 restrict to a differentiable map on the line $R\mapsto((R,0),u)$. $\square$
 
 So the shift is sc-smooth, and on each fixed level it is not even differentiable at most points:
-Proposition 1.18 is sharp in the sense that the $C^1$ map it provides, $\mathbb R^2\oplus E_{m+1}
+Proposition 1.2.3 (preprint 1.18) is sharp in the sense that the $C^1$ map it provides, $\mathbb R^2\oplus E_{m+1}
 \to E_m$, cannot be improved to $\mathbb R^2\oplus E_m\to E_m$. The compact-open continuity of
 Lemma 3.F is also sharp here: $D\Phi(a,u)$ restricted to the $E_0$-direction is the isometry
 $\tau_a$, and $a\mapsto\tau_a$ is not continuous in the operator norm on $L^2$ (shift a
@@ -1317,18 +1316,18 @@ narrow bump by its own width: $\|\tau_au-u\|_0 = \sqrt2|u|_0$).
 
 **A second application: bump functions.** Let $E$ be an sc-Hilbert space, i.e. $E_0$ a Hilbert
 space. The function $x\mapsto|x|_0^2 = \langle x,x\rangle$ is a continuous quadratic polynomial on
-$E_0$, hence $C^\infty$ on $E_0$ and on every $E_l$; by Corollary 1.20 it is sc-smooth. If
+$E_0$, hence $C^\infty$ on $E_0$ and on every $E_l$; by Corollary 1.2.5 (preprint 1.20) it is sc-smooth. If
 $\beta:\mathbb R\to[0,1]$ is smooth with $\beta = 1$ on $(-\infty,r^2]$ and $\beta = 0$ on
 $[(2r)^2,\infty)$, then $x\mapsto\beta(|x-x_0|_0^2)$ is sc-smooth (Corollary 4.A), equals $1$ on
 the $E_0$-ball of radius $r$ about $x_0$ and vanishes outside the ball of radius $2r$. These are
 the sc-smooth bump functions that the perturbation theory of Part I needs. The preprint makes
-"$X$ admits sc-smooth bump functions" a hypothesis (its Definition 5.9), notes that it holds when
-the M-polyfold is built on sc-Hilbert spaces, and in §5.4.2 derives sc-smooth partitions of unity
-in that case from Corollary 1.20, exactly as above. The hypothesis is not empty: a Banach space
+"$X$ admits sc-smooth bump functions" a hypothesis (its Definition 5.3.1 (preprint 5.9)), notes that it holds when
+the M-polyfold is built on sc-Hilbert spaces, and in §5.5 (preprint §5.4.2) derives sc-smooth partitions of unity
+in that case from Corollary 1.2.5 (preprint 1.20), exactly as above. The hypothesis is not empty: a Banach space
 need not carry any Fréchet differentiable bump function (a separable space with one has a
 separable dual, so $\ell^1$ has none; Deville–Godefroy–Zizler, *Smoothness and Renormings in
 Banach Spaces*, 1993, Ch. I), and then no sc-structure on it has sc-smooth bump functions either,
-since by Proposition 1.18 an sc-smooth $\beta:E\to\mathbb R$ is $C^1$ on $E_1$.
+since by Proposition 1.2.3 (preprint 1.18) an sc-smooth $\beta:E\to\mathbb R$ is $C^1$ on $E_1$.
 
 ---
 
@@ -1336,43 +1335,43 @@ since by Proposition 1.18 an sc-smooth $\beta:E\to\mathbb R$ is $C^1$ on $E_1$.
 
 | Where (preprint) | HWZ say | What is actually needed |
 |---|---|---|
-| p. 6, Def. 1.1 | "a decreasing sequence of Banach spaces" | each $E_m$ has its own norm; the inclusions are continuous because compact; equivalently an indexed family with injective compact maps (Lemma 1.A) |
-| pp. 6–7, Ex. 1.2 | "one sees that $(E_m)$ defines a sc-structure" | $E_{m+1}\subset E_m$ needs $\delta_m\le\delta_{m+1}$; compactness needs the tail estimate (1.1) with $\delta_{m+1}>\delta_m$, Rellich on $(-N,N)\times S^1$ and a diagonal argument; density needs cut-offs and $C_c^\infty$ dense in $H^m$; completeness (Proposition 1.C) |
-| p. 7, Def. 1.5 | sc-subspace: closed, $(F\cap E_m)$ an sc-structure | $F_m$ closed in $E_m$ and compactness are automatic; only density of $F\cap E_\infty$ is a condition (Lemma 2.A) |
-| p. 7 | sc-complement: "on every level a topological direct sum" | includes $F_m+G_m = E_m$, not implied by $F+G = E$; equivalent to an sc-projection (Lemma 2.B) |
-| p. 8, Prop. 1.6 | "$P$ … is a sc-projection", $G_\infty$ dense | $|Px|_m\le c|x|_m$ via $\lambda_i$ continuous on $E_0$; Lemma 2.B(ii) |
-| p. 9, Prop. 1.7 | "$(E/A)_\infty$ consists of all $x+A_\infty$ with $x\in E_\infty$" | only $\supset$ is needed (trivial); equality true by a Mittag-Leffler argument (Lemma 2.C) |
-| p. 9, after Def. 1.8 | "$F = C\oplus T(E_m)$" | $F_m = C\oplus T(E_m)$; $T$ is Fredholm on every level with the same index (Lemma 2.D) |
-| pp. 14–15, Prop. 1.10 | "since $T$ is regularizing, $e\in E_m$" | a bootstrap: $Se$ gains only one level at a time |
-| p. 15, Prop. 1.10 | $T+S:X\to Y$ "sc-isomorphism" not verified | the open mapping theorem on each level; the index is preserved (F2) |
-| p. 10, Def. 1.11 | partial quadrant "closed convex" | automatic from the model; $C^k$ is a partial quadrant in $E^k$ (Lemma 3.A) |
-| p. 10, Def. 1.12 | "$f(U_m)\subset V_m$" | $V$ means $U'$ |
-| p. 10, Def. 1.13 | $TC = C^1\oplus E$ "a partial quadrant in $TE$" | after reordering the summands, with $W' = W^1\oplus\mathbb R^n\oplus W$ (Lemma 3.B) |
-| pp. 10–11, Def. 1.14 | "the tangent map $Tf$" | $Df(x)$ is unique only because $E_1$ is dense in $E_0$ and the quadrant has interior (Lemmas 3.D, 3.E) |
-| p. 11 | "sc$^1$-maps between finite dimensional spaces are the familiar $C^1$-maps" | with one-sided derivatives at boundary points of the quadrant; $C^k$ on relatively open subsets of quadrants is never defined (Definition 3.C) |
-| p. 12, Prop. 1.16 | one symbol $Df(x)$ for all $m$; "clear" direction (2010 paper) | the extensions agree across levels by density (Lemma 3.H) |
-| pp. 12–13, Props. 1.17–1.19 | proofs "can be found in [25]" | given here; 1.18 needs differentiation under the integral sign and the continuity of $\Gamma$ by compactness; 1.19 needs the inductive form ($\mathrm S_k$), formalized in `Polyfold/Chapter1/LevelsWeak.lean` without the bound $n_i\le k$ |
-| p. 13, Cor. 1.20 | $f:U_l\to\mathbb R^N$ of class $C^{l+1}$ gives sc$^{k+1}$ | the converse (Prop. 1.18) gives back only $C^l$ on $U_l$; the two conditions differ by one order |
-| p. 15, chain rule | "$f:U_1\to F$ and $g:V_1\to G$ are $C^1$ by Prop. 1.18" | not needed: the segment integral follows from Def. 1.14 directly; the segment lies in $V_1$ by convexity of $D$ and continuity of $f:U_1\to F_1$ |
-| p. 16 | "converges to 0 … uniformly in $t$" | joint continuity of $(y,k)\mapsto Dg(y)k$ on $V_1\times F_0$ at $(f(x),0)$ and at $(f(x),Df(x)k)$; the subsequence principle |
-| p. 16 | "$T(g\circ f) = Tg\circ Tf$" | uniqueness of $D(g\circ f)(x)$ (Lemma 3.E) |
-| p. 17, Lemma 1.24 | "since $S$ is an isomorphism, we obtain equality" | the symmetric inclusion for $S^{-1}$ (twice); the proof uses only linear algebra on level $0$ |
-| p. 17 | "$x+tu\in[0,\infty)\oplus W$" | $[0,\infty)^k\oplus W$, for $|t|<\min_{i\notin I(x)}a_i/|b_i|$ |
-| p. 14, Thm. 1.25 | "proof of a more general result is given in [20], Theorem 1.19" | needs $Df(x)$ invertible (chain rule), smooth points of equal index dense, $d_C$ upper semicontinuous (Lemma 5.A) |
+| p. 5 (preprint p. 6), Def. 1.1.1 (preprint 1.1) | "a decreasing sequence of Banach spaces" | each $E_m$ has its own norm; the inclusions are continuous because compact; equivalently an indexed family with injective compact maps (Lemma 1.A) |
+| pp. 6 ff. (preprint pp. 6–7), Ex. 1.1.3 (preprint 1.2) | "one sees that $(E_m)$ defines a sc-structure" | $E_{m+1}\subset E_m$ needs $\delta_m\le\delta_{m+1}$; compactness needs the tail estimate (1.1) with $\delta_{m+1}>\delta_m$, Rellich on $(-N,N)\times S^1$ and a diagonal argument; density needs cut-offs and $C_c^\infty$ dense in $H^m$; completeness (Proposition 1.C) |
+| p. 7 (preprint p. 7), Def. 1.1.6 (preprint 1.5) | sc-subspace: closed, $(F\cap E_m)$ an sc-structure | $F_m$ closed in $E_m$ and compactness are automatic; only density of $F\cap E_\infty$ is a condition (Lemma 2.A) |
+| preprint p. 7 | sc-complement: "on every level a topological direct sum" | includes $F_m+G_m = E_m$, not implied by $F+G = E$; equivalent to an sc-projection (Lemma 2.B) |
+| preprint p. 8, Prop. 1.1.7 (preprint 1.6) | "$P$ … is a sc-projection", $G_\infty$ dense | $|Px|_m\le c|x|_m$ via $\lambda_i$ continuous on $E_0$; Lemma 2.B(ii) |
+| preprint p. 9, Prop. 1.1.8 (preprint 1.7) | "$(E/A)_\infty$ consists of all $x+A_\infty$ with $x\in E_\infty$" | only $\supset$ is needed (trivial); equality true by a Mittag-Leffler argument (Lemma 2.C) |
+| preprint p. 9, after Def. 1.1.9 (preprint 1.8) | "$F = C\oplus T(E_m)$" | $F_m = C\oplus T(E_m)$; $T$ is Fredholm on every level with the same index (Lemma 2.D) |
+| pp. 14–16 (preprint pp. 14–15), Prop. 1.1.11 (preprint 1.10) | "since $T$ is regularizing, $e\in E_m$" | a bootstrap: $Se$ gains only one level at a time |
+| preprint p. 15, Prop. 1.1.11 (preprint 1.10) | $T+S:X\to Y$ "sc-isomorphism" not verified | the open mapping theorem on each level; the index is preserved (F2) |
+| p. 9 (preprint p. 10), Def. 1.1.12 (preprint 1.11) | partial quadrant "closed convex" | automatic from the model; $C^k$ is a partial quadrant in $E^k$ (Lemma 3.A) |
+| p. 9 (preprint p. 10), Def. 1.1.13 (preprint 1.12) | "$f(U_m)\subset V_m$" | $V$ means $U'$ |
+| p. 9 (preprint p. 10), Def. 1.1.14 (preprint 1.13) | $TC = C^1\oplus E$ "a partial quadrant in $TE$" | after reordering the summands, with $W' = W^1\oplus\mathbb R^n\oplus W$ (Lemma 3.B) |
+| pp. 10 ff. (preprint pp. 10–11), Def. 1.1.15 (preprint 1.14) | "the tangent map $Tf$" | $Df(x)$ is unique only because $E_1$ is dense in $E_0$ and the quadrant has interior (Lemmas 3.D, 3.E) |
+| preprint p. 11 | "sc$^1$-maps between finite dimensional spaces are the familiar $C^1$-maps" | with one-sided derivatives at boundary points of the quadrant; $C^k$ on relatively open subsets of quadrants is never defined (Definition 3.C) |
+| p. 11 (preprint p. 12), Prop. 1.2.1 (preprint 1.16) | one symbol $Df(x)$ for all $m$; "clear" direction (2010 paper) | the extensions agree across levels by density (Lemma 3.H) |
+| pp. 13 ff. (preprint pp. 12–13), Props. 1.2.2–1.2.4 (preprint 1.17–1.19) | proofs "can be found in [25]" | given here; 1.18 needs differentiation under the integral sign and the continuity of $\Gamma$ by compactness; 1.19 needs the inductive form ($\mathrm S_k$), formalized in `Polyfold/Chapter1/LevelsWeak.lean` without the bound $n_i\le k$ |
+| p. 13 (preprint p. 13), Cor. 1.2.5 (preprint 1.20) | $f:U_l\to\mathbb R^N$ of class $C^{l+1}$ gives sc$^{k+1}$ | the converse (Prop. 1.2.3 (preprint 1.18)) gives back only $C^l$ on $U_l$; the two conditions differ by one order |
+| preprint p. 15, chain rule | "$f:U_1\to F$ and $g:V_1\to G$ are $C^1$ by Prop. 1.18" | not needed: the segment integral follows from Def. 1.1.15 (preprint 1.14) directly; the segment lies in $V_1$ by convexity of $D$ and continuity of $f:U_1\to F_1$ |
+| p. 16 (preprint p. 16) | "converges to 0 … uniformly in $t$" | joint continuity of $(y,k)\mapsto Dg(y)k$ on $V_1\times F_0$ at $(f(x),0)$ and at $(f(x),Df(x)k)$; the subsequence principle |
+| p. 16 (preprint p. 16) | "$T(g\circ f) = Tg\circ Tf$" | uniqueness of $D(g\circ f)(x)$ (Lemma 3.E) |
+| preprint p. 17, Lemma 1.3.4 (preprint 1.24) | "since $S$ is an isomorphism, we obtain equality" | the symmetric inclusion for $S^{-1}$ (twice); the proof uses only linear algebra on level $0$ |
+| preprint p. 17 | "$x+tu\in[0,\infty)\oplus W$" | $[0,\infty)^k\oplus W$, for $|t|<\min_{i\notin I(x)}a_i/|b_i|$ |
+| p. 14 (preprint p. 14), Thm. 1.3.5 (preprint 1.25) | "proof of a more general result is given in [20], Theorem 1.19" | needs $Df(x)$ invertible (chain rule), smooth points of equal index dense, $d_C$ upper semicontinuous (Lemma 5.A) |
 | 2010 paper, §4.1 | shift map: "clearly not differentiable in the classical sense" | Proposition 6.E, with the explicit $\sqrt{2R}$ |
 | 2010 paper, Prop. 4.2 | identity (6.1) "holds for each $u_n$ and letting $n\to\infty$ … also for $u$" | both sides continuous linear in $u\in E_1$ |
 
 **Checked by machine.** This chapter is formalized in Lean 4 against Mathlib
-(`Polyfold/Chapter1/`, with Theorem 1.25 in `Polyfold/Chapter2/DegeneracyIndex.lean`), with
+(`Polyfold/Chapter1/`, with Theorem 1.3.5 (preprint 1.25) in `Polyfold/Chapter2/DegeneracyIndex.lean`), with
 sc-Banach spaces as indexed families of Banach spaces with injective compact inclusions and the
 density axiom, as in the blockquote of §1; the paragraphs "*Checked by machine*" after the
 statements above name the declarations. Every numbered statement of the preprint's Chapter 1 is
-proved except Example 1.2, and every lemma that this exposition adds is proved except Proposition
-1.C (with Example 1.2: Mathlib has no weighted Sobolev spaces and no Rellich–Kondrachov theorem),
+proved except Example 1.1.3 (preprint 1.2), and every lemma that this exposition adds is proved except Proposition
+1.C (with Example 1.1.3 (preprint 1.2): Mathlib has no weighted Sobolev spaces and no Rellich–Kondrachov theorem),
 the sharpness remark at the end of Lemma 3.F and the application of §6 (they need the shift map on
-those spaces), and Remark 1.15 (partial cones, not pursued here either). One statement is proved
-in a form that differs from the one above: Theorem 1.25, for $\mathrm{sc}^1$ germs, which is
-stronger than the sc-smooth germs of the text. (Proposition 1.19 and Corollary 1.20 are proved under
+those spaces), and Remark 1.1.17 (preprint 1.15) (partial cones, not pursued here either). One statement is proved
+in a form that differs from the one above: Theorem 1.3.5 (preprint 1.25), for $\mathrm{sc}^1$ germs, which is
+stronger than the sc-smooth germs of the text. (Proposition 1.2.4 (preprint 1.19) and Corollary 1.2.5 (preprint 1.20) are proved under
 the text's hypothesis, by the induction ($\mathrm S_k$); the earlier versions under the stronger
 hypothesis "$C^{k+1}$ on every level" are kept.) The machine-checked statements are listed in
 `Exposition/Verification.md` (V1.1–V1.39), compared with the text in

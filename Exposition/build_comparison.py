@@ -32,43 +32,42 @@ TITLE = 'Polyfold Theory beside Lean'
 H1 = 'Polyfold Theory <em>beside</em> Lean'
 EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapters 7 and 8 · the statements compared'
 DEK = ('Every result of the book beside the statement the machine actually checked. The left column is '
-       'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the 2014 preprint '
-       '(arXiv 1407.3185); the corresponding numbers and pages of the book’s arXiv version (1707.08941) '
-       'are in Exposition/BookConcordance.md (the Springer edition is not checked). Part II, from Chapter 7 on, '
-       'has no preprint: its numbers and pages are those of arXiv 1707.08941. The right column is the '
+       'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition '
+       '(2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the '
+       'book’s arXiv version (1707.08941, “2017”) for Part II, from Chapter 7 on, which has no preprint; the '
+       'correspondence is in Exposition/BookConcordance.md. The right column is the '
        'formal statement, with the hypotheses the text leaves to the reader written out. Click a declaration '
        'to see the Lean it names.')
 OUT_HTML = 'polyfold-beside-lean.html'
 OUT_PREVIEW = 'preview-cmp.html'
 OUT_MD = 'Comparison.md'
 FOOT = ('Left column: H. Hofer, K. Wysocki, E. Zehnder, <em>Polyfold and Fredholm Theory</em>, Part I '
-        '(Springer 2021; here the 2014 preprint arXiv 1407.3185), paraphrased, with the preprint’s page '
-        'numbers; for the numbers and pages of the book’s arXiv version (1707.08941) see '
-        'Exposition/BookConcordance.md (the Springer edition is not checked); Part II (Chapters 7 and 8) has no preprint, and '
-        'its numbers and pages are those of arXiv 1707.08941. Right column: the statements proved in Lean 4 '
+        '(Springer 2021), paraphrased, with its numbers and pages, followed in parentheses by those of the 2014 '
+        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Part II, Chapters 7 and 8, '
+        'which has no preprint); see Exposition/BookConcordance.md. Right column: the statements proved in Lean 4 '
         'against Mathlib in Polyfold/*.lean, checked by Lean’s kernel, depending only on propext, '
         'Classical.choice and Quot.sound. Every declaration named here was resolved mechanically in the '
         'source. Companion texts: Exposition/Verification.md, Exposition/ProofByProof.md.')
 CHAPTERS = [
-    ('V1', 'Chapter 1', 'HWZ Chapter 1 §§1.1–1.4, preprint pp. 6–17: sc-Banach spaces, sc-operators, '
+    ('V1', 'Chapter 1', 'HWZ Chapter 1 §§1.1–1.4, pp. 5–20 (preprint pp. 6–17): sc-Banach spaces, sc-operators, '
            'sc-Fredholm operators, sc-differentiability, the chain rule, the degeneracy index'),
-    ('V2', 'Chapter 2', 'HWZ Chapter 2 §§2.1–2.6, preprint pp. 18–60: sc-smooth retractions and retracts, M-polyfolds, '
+    ('V2', 'Chapter 2', 'HWZ Chapter 2 §§2.1, 2.3–2.7, pp. 21–88 (preprint §§2.1–2.6, pp. 18–60): sc-smooth retractions and retracts, M-polyfolds, '
            'the degeneracy index, tame M-polyfolds and their faces, fibred products, strong bundles'),
     ('V3', 'Chapter 3', 'HWZ Chapter 3: sc-Fredholm sections and the implicit function theorem'),
-    ('V4', 'Chapter 4', 'HWZ Chapter 4 §§4.1–4.4, preprint pp. 147–168: manifolds with boundary with corners — '
+    ('V4', 'Chapter 4', 'HWZ Chapter 4 §§4.1–4.4, pp. 175–204 (preprint pp. 147–168): manifolds with boundary with corners — '
            'sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard’s theorem'),
-    ('V5', 'Chapter 5', 'HWZ Chapter 5 §§5.1–5.4, preprint pp. 169–199: the Fredholm package for M-polyfolds — '
+    ('V5', 'Chapter 5', 'HWZ Chapter 5 §§5.1–5.3, 5.5, pp. 205–236 (preprint §§5.1–5.4, pp. 169–199): the Fredholm package for M-polyfolds — '
            'auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, '
            'homotopies, partitions of unity'),
-    ('V6', 'Chapter 6', 'HWZ Chapter 6 §§6.1–6.7, preprint pp. 200–237: linearizations, the determinant of Fredholm '
+    ('V6', 'Chapter 6', 'HWZ Chapter 6 §§6.2–6.8, pp. 237–286 (preprint §§6.1–6.7, pp. 200–237): linearizations, the determinant of Fredholm '
            'operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm '
-           'sections, the orientation of the solution set, the product with [0, 1]; Theorem 6.43 is not formalized'),
-    ('V7', 'Part II, Chapter 7', 'HWZ Part II, Chapter 7 §§7.1–7.5, 2017 text pp. 225–256 (Part II has no 2014 '
-           'preprint; numbers and pages are those of arXiv 1707.08941): ep-groupoids, natural representations of the '
+           'sections, the orientation of the solution set, the product with [0, 1]; Theorem 6.7.1 (preprint 6.43) is not formalized'),
+    ('V7', 'Part II, Chapter 7', 'HWZ Part II, Chapter 7 §§7.1–7.3, 7.5–7.6, pp. 287–356 (2017 §§7.1–7.5, pp. 225–256; '
+           'Part II has no 2014 preprint): ep-groupoids, natural representations of the '
            'isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of '
            'the orbit space, index lifting, paracompact orbit spaces, proper subsets, sc-smooth partitions of unity'),
-    ('V8', 'Part II, Chapter 8', 'HWZ Part II, Chapter 8 §§8.1–8.5, 2017 text pp. 257–289 (Part II has no 2014 '
-           'preprint; numbers and pages are those of arXiv 1707.08941): the tangent of an ep-groupoid and the tangent '
+    ('V8', 'Part II, Chapter 8', 'HWZ Part II, Chapter 8 §§8.1–8.3, 8.5–8.6, pp. 357–400 (2017 §§8.1–8.5, pp. 257–289; '
+           'Part II has no 2014 preprint): the tangent of an ep-groupoid and the tangent '
            'functor, sc-differential forms (not formalized), strong bundles over ep-groupoids and their sections, '
            'proper covering functors, covering functors of finite groupoids and geometric lifts, proper strong bundle '
            'coverings'),

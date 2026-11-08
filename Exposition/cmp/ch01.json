@@ -4,10 +4,10 @@
    "id": "V1.1",
    "title": "Sc-structures, sc-Banach spaces, sums and level shifts",
    "book": {
-    "label": "§1.1, Definition 1.1, p. 6",
+    "label": "§1.1, Definition 1.1.1 (preprint 1.1), p. 5 (preprint p. 6)",
     "page": 6,
     "statement": "An *sc-structure* on a Banach space $E$ is a decreasing sequence of Banach spaces $E = E_0 \\supset E_1 \\supset E_2 \\supset \\cdots$ such that (1) every inclusion $E_{m+1} \\to E_m$ is compact and (2) $E_\\infty = \\bigcap_m E_m$ is dense in every $E_m$. A Banach space with an sc-structure is an *sc-Banach space*; points of $E_\\infty$ are *smooth*, points of $E_m$ have *regularity $m$*. A finite-dimensional space has exactly one sc-structure, the constant one. A subset $A$ inherits the filtration $A_m = A \\cap E_m$, and $A^k$ is $A_k$ with the filtration $(A^k)_m = A_{k+m}$. The direct sum $E \\oplus F$ has levels $E_m \\oplus F_m$.",
-    "note": "Example 1.2, the weighted Sobolev spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$, is not formalized (G.1)."
+    "note": "Example 1.1.3 (preprint 1.2), the weighted Sobolev spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$, is not formalized (G.1)."
    },
    "lean": {
     "statement": "A *scale* is an indexed family of real Banach spaces $E_m$, $m \\in \\mathbb N$, with injective compact continuous linear inclusions $E_{m+1} \\to E_m$; the composite $E_m \\to E_0$ is written $\\iota_m$, and $E_\\infty \\subseteq E_0$ is the subspace of points that lift to every level, $E_\\infty \\cap E_m$ its preimage in $E_m$. An *sc-Banach space* is a scale in which $E_\\infty \\cap E_m$ is dense in $E_m$ for every $m$; then the image of $E_{m+k}$ is dense in $E_m$. For a finite-dimensional space $V$ the constant family $E_m = V$ with identity inclusions is an sc-Banach space, all of whose points are smooth. For sc-Banach spaces $E$, $F$ the family $E_m \\times F_m$ with the product inclusions is an sc-Banach space $E \\oplus F$, whose smooth points are the pairs of smooth points; the family $E_{m+1}$ is an sc-Banach space $E^1$, with smooth points those of $E$ seen in $E_1$, and $E^k$ is the $k$-fold iterate. For $U \\subseteq E_0$ the level set $U_m \\subseteq E_m$ is the preimage of $U$ under $\\iota_m$.",
@@ -45,7 +45,7 @@
    "id": "V1.2",
    "title": "Sc-operators and sc-isomorphisms",
    "book": {
-    "label": "§1.1, Definition 1.3, p. 7",
+    "label": "§1.1, Definition 1.1.4 (preprint 1.3), p. 6 (preprint p. 7)",
     "page": 7,
     "statement": "A linear map $T : E \\to F$ between sc-Banach spaces is an *sc-operator* if $T(E_m) \\subset F_m$ and the induced $T : E_m \\to F_m$ is continuous for every $m$. A *linear sc-isomorphism* is a bijective sc-operator whose inverse is an sc-operator."
    },
@@ -74,14 +74,14 @@
    ],
    "diff": [
     "In the family picture an sc-operator carries its level maps as data; the text's \"one linear map $T$ mapping $E_m$ into $F_m$ continuously\" is the predicate `IsScOperator` on the base map, and the two are interchangeable (`ScOperator.isScOperator`, `IsScOperator.toScOperator`).",
-    "An sc-isomorphism is given by level-wise continuous linear equivalences; that the inverse of a bijective sc-operator is continuous on each level (the open mapping theorem) is built into this definition, and proved separately (`ScIso.ofBijective`). Likewise the continuity of $T : E_m \\to F_m$ asked by Definition 1.3 is automatic for a bounded $T_0$ that maps $E_m$ into $F_m$ (`isScOperator_of_mapsTo`, the closed graph theorem; Findings, Chapter 3, item 233). Updated in the third addendum of this page."
+    "An sc-isomorphism is given by level-wise continuous linear equivalences; that the inverse of a bijective sc-operator is continuous on each level (the open mapping theorem) is built into this definition, and proved separately (`ScIso.ofBijective`). Likewise the continuity of $T : E_m \\to F_m$ asked by Definition 1.1.4 (preprint 1.3) is automatic for a bounded $T_0$ that maps $E_m$ into $F_m$ (`isScOperator_of_mapsTo`, the closed graph theorem; Findings, Chapter 3, item 233). Updated in the third addendum of this page."
    ]
   },
   {
    "id": "V1.3",
    "title": "Sc⁺-operators are sc-compact",
    "book": {
-    "label": "§1.1, Definition 1.4, p. 7",
+    "label": "§1.1, Definition 1.1.5 (preprint 1.4), p. 7 (preprint p. 7)",
     "page": 7,
     "statement": "An sc-operator $S : E \\to F$ is an *$\\mathrm{sc}^+$-operator* if $S(E_m) \\subset F_{m+1}$ and $S : E \\to F^1$ is an sc-operator. Since the inclusion $F_{m+1} \\to F_m$ is compact, an $\\mathrm{sc}^+$-operator is *sc-compact*: $S : E_m \\to F_m$ is compact for every $m$."
    },
@@ -108,7 +108,7 @@
    "id": "V1.4",
    "title": "Sc-subspaces, sc-complements, sc-splittings",
    "book": {
-    "label": "§1.1, Definition 1.5, p. 7",
+    "label": "§1.1, Definition 1.1.6 (preprint 1.5), p. 7 (preprint p. 7)",
     "page": 7,
     "statement": "A subspace $F$ of an sc-Banach space $E$ is an *sc-subspace* if $F$ is closed and $F_m = F \\cap E_m$ defines an sc-structure on $F$. An sc-subspace $F$ has an *sc-complement* if there is an algebraic complement $G$ such that $G_m = G \\cap E_m$ is an sc-structure on $G$ and $E_m = F_m \\oplus G_m$ is a topological direct sum on every level; $E = F \\oplus G$ is then an *sc-splitting*."
    },
@@ -139,7 +139,7 @@
    "id": "V1.5",
    "title": "Finite-dimensional sc-subspaces",
    "book": {
-    "label": "§1.1, Proposition 1.6, p. 7",
+    "label": "§1.1, Proposition 1.1.7 (preprint 1.6), p. 7 (preprint p. 7)",
     "page": 7,
     "statement": "A finite-dimensional subspace $F$ of an sc-Banach space $E$ is an sc-subspace if and only if $F \\subset E_\\infty$. A finite-dimensional sc-subspace always has an sc-complement."
    },
@@ -155,14 +155,14 @@
     "proof: a continuous projection onto $F$"
    ],
    "diff": [
-    "The proof follows the text: a continuous projection $p : E_0 \\to F$ (Mathlib's closed complementation of finite-dimensional subspaces, i.e. Hahn–Banach) is lifted to each level through $F_m \\cong F$, $G = \\ker p$, and the density of $G \\cap E_\\infty$ in $G_m$ comes from $g = (1 - P_m)g$ with $P_m$ the level projection, exactly as on p. 8."
+    "The proof follows the text: a continuous projection $p : E_0 \\to F$ (Mathlib's closed complementation of finite-dimensional subspaces, i.e. Hahn–Banach) is lifted to each level through $F_m \\cong F$, $G = \\ker p$, and the density of $G \\cap E_\\infty$ in $G_m$ comes from $g = (1 - P_m)g$ with $P_m$ the level projection, exactly as on preprint p. 8."
    ]
   },
   {
    "id": "V1.6",
    "title": "Quotients of sc-Banach spaces",
    "book": {
-    "label": "§1.1, Proposition 1.7, p. 8",
+    "label": "§1.1, Proposition 1.1.8 (preprint 1.7), p. 8 (preprint p. 8)",
     "page": 8,
     "statement": "If $E$ is an sc-Banach space and $A \\subset E$ an sc-subspace, then $E/A$ with the filtration $E_m/A_m$ is an sc-Banach space, where $E_m/A_m = \\{(x + A) \\cap E_m : x \\in E\\}$."
    },
@@ -183,14 +183,14 @@
    "diff": [
     "The text assumes $A$ is an sc-subspace; the proof uses only that $A$ is closed, and so does the formal statement (`ScBanach.quotient` takes `IsClosed A`).",
     "The levels $E_m/A_m$ are the abstract quotients; the text's identification of $E_m/A_m$ with a subset of $E/A$ is the injectivity of the induced inclusion, which holds because $A_m$ is the full preimage of $A$.",
-    "The text's description of $(E/A)_\\infty$ as the classes of points of $E_\\infty$ (p. 9) is proved separately, with the Mittag-Leffler argument it needs (V1.33)."
+    "The text's description of $(E/A)_\\infty$ as the classes of points of $E_\\infty$ (preprint p. 9) is proved separately, with the Mittag-Leffler argument it needs (V1.33)."
    ]
   },
   {
    "id": "V1.7",
    "title": "Sc-Fredholm operators and their index",
    "book": {
-    "label": "§1.1, Definition 1.8, p. 9",
+    "label": "§1.1, Definition 1.1.9 (preprint 1.8), p. 8 (preprint p. 9)",
     "page": 9,
     "statement": "An sc-operator $T : E \\to F$ is *sc-Fredholm* if there are sc-splittings $E = K \\oplus X$ and $F = C \\oplus Y$ with (1) $K = \\ker T$ finite-dimensional, (2) $C$ finite-dimensional and $Y = T(E)$, (3) $T : X \\to Y$ an sc-isomorphism. Then $K \\subset E_\\infty$, $T(X_m) = Y_m$, $E_m = K \\oplus X_m$ and $F = C \\oplus T(E_m)$. The index is $\\operatorname{ind}(T) = \\dim K - \\dim C$."
    },
@@ -224,7 +224,7 @@
    "id": "V1.8",
    "title": "Sc-Fredholm operators are regularizing",
    "book": {
-    "label": "§1.1, Proposition 1.9, p. 9",
+    "label": "§1.1, Proposition 1.1.10 (preprint 1.9), p. 9 (preprint p. 9)",
     "page": 9,
     "statement": "An sc-Fredholm operator $T : E \\to F$ is regularizing: if $e \\in E$ and $T(e) \\in F_m$, then $e \\in E_m$."
    },
@@ -243,7 +243,7 @@
     "converse: $T_0$ Fredholm and regularizing"
    ],
    "diff": [
-    "The hypothesis is the data of Definition 1.8 (a splitting) rather than its existence; the two are interchangeable, since the conclusion does not mention the splitting.",
+    "The hypothesis is the data of Definition 1.1.9 (preprint 1.8) (a splitting) rather than its existence; the two are interchangeable, since the conclusion does not mention the splitting.",
     "The converse, not stated in the text: together with “$T_0$ Fredholm”, being regularizing characterizes the sc-Fredholm operators (`isScFredholm_iff`). It is the construction of §1.4.1 with the two properties used there as hypotheses (V1.9), and the tool for the text's unargued “is sc-Fredholm” for operators obtained by conjugation and restriction in Chapter 3 (V3.8, V3.46, V3.96; Findings, Chapter 3, item 233). Updated in the third addendum of this page."
    ]
   },
@@ -251,7 +251,7 @@
    "id": "V1.9",
    "title": "Compact perturbation of sc-Fredholm operators",
    "book": {
-    "label": "§1.1, Proposition 1.10, p. 10 (proof §1.4.1, pp. 14–15)",
+    "label": "§1.1, Proposition 1.1.11 (preprint 1.10), p. 9 (preprint p. 10) (proof §1.4.1, pp. 14–16 (preprint pp. 14–15))",
     "page": 10,
     "statement": "Let $E$ and $F$ be sc-Banach spaces. If $T : E \\to F$ is sc-Fredholm and $S : E \\to F$ is an $\\mathrm{sc}^+$-operator, then $T + S$ is sc-Fredholm."
    },
@@ -272,7 +272,7 @@
    ],
    "diff": [
     "§1.4.1 says \"since $T$ is regularizing, $e \\in E_m$\"; the hypothesis gives only $Te = y - Se \\in F_1$, so the regularizing step must be iterated $m$ times (`ScPlus.regularizing_add`). The same bootstrap gives $K_m = K_{m+1}$.",
-    "The complement $C$ is built from a linear right inverse of $F_0 \\to F_0/Y$ with values in the smooth points rather than from a lifted basis; condition (3) of Definition 1.8, which the text does not verify, is proved as the bijectivity of $(T+S)_m : X_m \\to Y_m$.",
+    "The complement $C$ is built from a linear right inverse of $F_0 \\to F_0/Y$ with values in the smooth points rather than from a lifted basis; condition (3) of Definition 1.1.9 (preprint 1.8), which the text does not verify, is proved as the bijectivity of $(T+S)_m : X_m \\to Y_m$.",
     "The classical fact that opens §1.4.1, a compact perturbation of a Fredholm operator is Fredholm, is not in Mathlib and is proved here (V1.25). The text does not record that the index is preserved; the formalization proves it separately (V1.30).",
     "§1.4.1 uses two properties of $T + S$ only: it is Fredholm on level $0$, and it is regularizing (so its kernel lies in $E_\\infty$, it maps $E_m$ onto $Y \\cap F_m$, and its range has a complement spanned by smooth points). With these as hypotheses the construction is a criterion for sc-Fredholm operators (`isScFredholm_of_isRegularizing`), not stated in the text (Findings, Chapter 3, item 233). Updated in the third addendum of this page."
    ]
@@ -281,7 +281,7 @@
    "id": "V1.10",
    "title": "Partial quadrants and the tuples $(U, C, E)$",
    "book": {
-    "label": "§1.1, Definition 1.11, p. 10",
+    "label": "§1.1, Definition 1.1.12 (preprint 1.11), p. 9 (preprint p. 10)",
     "page": 10,
     "statement": "A *partial quadrant* in an sc-Banach space $E$ is a closed convex subset $C \\subset E$ such that there is an sc-isomorphism $T : E \\to \\mathbb R^n \\oplus W$ with $T(C) = [0,\\infty)^n \\oplus W$. One considers tuples $(U, C, E)$ with $U$ a relatively open subset of the partial quadrant $C$."
    },
@@ -314,7 +314,7 @@
    "id": "V1.11",
    "title": "Sc⁰ maps",
    "book": {
-    "label": "§1.1, Definition 1.12, p. 10",
+    "label": "§1.1, Definition 1.1.13 (preprint 1.12), p. 9 (preprint p. 10)",
     "page": 10,
     "statement": "For tuples $(U, C, E)$ and $(U', C', E')$, a map $f : U \\to U'$ is *$\\mathrm{sc}^0$* (sc-continuous) if $f(U_m) \\subset U'_m$ and the induced maps $f : U_m \\to U'_m$ are continuous for all $m \\ge 0$."
    },
@@ -346,7 +346,7 @@
    "id": "V1.12",
    "title": "The tangent of a tuple",
    "book": {
-    "label": "§1.1, Definition 1.13, p. 10",
+    "label": "§1.1, Definition 1.1.14 (preprint 1.13), p. 9 (preprint p. 10)",
     "page": 10,
     "statement": "The *tangent* of $(U, C, E)$ is the tuple $T(U, C, E) = (TU, TC, TE)$ with $TU = U^1 \\oplus E$, $TC = C^1 \\oplus E$, $TE = E^1 \\oplus E$. It is again a tuple: $TU$ is relatively open in the partial quadrant $TC$ of the sc-Banach space $TE$."
    },
@@ -373,7 +373,7 @@
    "id": "V1.13",
    "title": "Sc¹ maps and the tangent map",
    "book": {
-    "label": "§1.1, Definition 1.14, pp. 10–11",
+    "label": "§1.1, Definition 1.1.15 (preprint 1.14), pp. 10 ff. (preprint pp. 10–11)",
     "page": 10,
     "statement": "$f : U \\to U'$ is *$\\mathrm{sc}^1$* if (1) $f$ is $\\mathrm{sc}^0$; (2) for every $x \\in U_1$ there is a bounded linear $Df(x) : E_0 \\to F_0$ with $|f(x+h) - f(x) - Df(x)h|_0 / |h|_1 \\to 0$ as $|h|_1 \\to 0$, $h \\in E_1$, $x + h \\in U_1$; (3) the *tangent map* $Tf : TU \\to TU'$, $Tf(x, h) = (f(x), Df(x)h)$, is $\\mathrm{sc}^0$. In general $x \\mapsto Df(x)$ is not continuous into $\\mathcal L(E_0, F_0)$ with the operator norm, but it is with the compact-open topology; the $\\mathrm{sc}^1$ maps between finite-dimensional spaces are the $C^1$ maps.",
     "note": "The text writes $Df(x)$ as if it were unique."
@@ -415,10 +415,10 @@
    "id": "V1.14",
    "title": "Sc^k and sc-smooth maps",
    "book": {
-    "label": "§1.1, Definition 1.15, p. 11 (unnumbered in the preprint)",
+    "label": "§1.1, Definition 1.15, p. 10 (preprint p. 11; unnumbered in the preprint and in the 2021 edition)",
     "page": 11,
     "statement": "Inductively, an $\\mathrm{sc}^0$ map $f$ is $\\mathrm{sc}^2$ if it is $\\mathrm{sc}^1$ and $Tf : TU \\to TV$ is $\\mathrm{sc}^1$; then $T^2f = T(Tf)$ is $\\mathrm{sc}^0$, and $f$ is $\\mathrm{sc}^3$ if $T^2f$ is $\\mathrm{sc}^1$, and so on. $f$ is $\\mathrm{sc}^\\infty$, or *sc-smooth*, if it is $\\mathrm{sc}^k$ for all $k \\ge 0$.",
-    "note": "The preprint's numbered Remark 1.15 (partial cones) is not formalized; the inductive definition that precedes it is numbered 1.15 here, as the Lean files do."
+    "note": "The preprint's numbered Remark 1.1.17 (preprint 1.15) (partial cones) is not formalized; the inductive definition that precedes it is numbered 1.15 here, as the Lean files do."
    },
    "lean": {
     "statement": "$f$ is *$\\mathrm{sc}^k$ on $U$* by recursion on $k$: $\\mathrm{sc}^0$ means $\\mathrm{sc}^0$; $\\mathrm{sc}^{k+1}$ means $\\mathrm{sc}^1$ on $U$ with the tangent map $Tf$ (built from the chosen derivative) $\\mathrm{sc}^k$ on $TU \\subseteq TE$. $f$ is *sc-smooth* if it is $\\mathrm{sc}^k$ for every $k$. Then $\\mathrm{sc}^{k+1}$ implies $\\mathrm{sc}^k$ (and $\\mathrm{sc}^l$ for $l \\le k$); $f$ is sc-smooth iff it is $\\mathrm{sc}^1$ with sc-smooth tangent map; on an sc-domain, $\\mathrm{sc}^k$ depends only on the values on $U$.",
@@ -443,7 +443,7 @@
    "id": "V1.15",
    "title": "Sc¹ in terms of the levels",
    "book": {
-    "label": "§1.2, Proposition 1.16, p. 12",
+    "label": "§1.2, Proposition 1.2.1 (preprint 1.16), p. 11 (preprint p. 12)",
     "page": 12,
     "statement": "Let $U$ be relatively open in a partial quadrant of $E$ and $F$ an sc-Banach space. An $\\mathrm{sc}^0$ map $f : U \\to F$ is $\\mathrm{sc}^1$ if and only if (1) for every $m \\ge 1$, $f : U_m \\to F_{m-1}$ is $C^1$, so that $df : U_m \\to \\mathcal L(E_m, F_{m-1})$ is continuous; and (2) for every $m \\ge 1$ and $x \\in U_m$, $df(x)$ extends to a bounded $Df(x) : E_{m-1} \\to F_{m-1}$ with $(x, h) \\mapsto Df(x)h$ continuous on $U_m \\oplus E_{m-1}$. In particular, at a smooth point $x \\in U_\\infty$ of an $\\mathrm{sc}^1$ map, $Df(x) : E \\to F$ is an sc-operator."
    },
@@ -470,14 +470,14 @@
    "diff": [
     "The text's one symbol $Df(x)$ for the extensions on all levels becomes an explicit family $D_m(x)$; that they are restrictions of a single operator (Lemma 3.H of the exposition), which the text does not state and which the direction (⇐), called \"clear\" in the 2010 paper, needs, is proved (`IsSc1Levels.toBase_apply`).",
     "The text's (1), the $C^1$ property and the continuity of $df$ in the operator norm, is a consequence of the formal conditions rather than part of them; it is proved for both directions (`IsSc1Levels.contDiffOn`, `IsSc1Levels.continuousOn_clm`, and for an $\\mathrm{sc}^1$ map directly in V1.26).",
-    "The hypothesis \"$U$ relatively open in a partial quadrant\" is weakened to `IsScDomain` (V1.27), which is all the proof uses. The \"in particular\" is proved as stated, for the derivative family of Definition 1.14 at a smooth point of $U_1$."
+    "The hypothesis \"$U$ relatively open in a partial quadrant\" is weakened to `IsScDomain` (V1.27), which is all the proof uses. The \"in particular\" is proved as stated, for the derivative family of Definition 1.1.15 (preprint 1.14) at a smooth point of $U_1$."
    ]
   },
   {
    "id": "V1.16",
    "title": "Lifting the index: sc^k on $U^1$",
    "book": {
-    "label": "§1.2, Proposition 1.17, p. 12",
+    "label": "§1.2, Proposition 1.2.2 (preprint 1.17), p. 13 (preprint p. 12)",
     "page": 12,
     "statement": "Let $U$ and $V$ be relatively open subsets of partial quadrants in sc-Banach spaces and $f : U \\to V$ an $\\mathrm{sc}^k$ map. Then $f : U^1 \\to V^1$ is also $\\mathrm{sc}^k$."
    },
@@ -505,7 +505,7 @@
    "id": "V1.17",
    "title": "Sc^k maps are $C^k$ from $U_{m+k}$ to $F_m$",
    "book": {
-    "label": "§1.2, Proposition 1.18, p. 13",
+    "label": "§1.2, Proposition 1.2.3 (preprint 1.18), p. 13 (preprint p. 13)",
     "page": 13,
     "statement": "Let $U$ and $V$ be relatively open subsets of partial quadrants in sc-Banach spaces. If $f : U \\to V$ is $\\mathrm{sc}^k$, then for every $m \\ge 0$ the map $f : U_{m+k} \\to V_m$ is of class $C^k$; moreover $f : U_{m+l} \\to V_m$ is $C^l$ for every $0 \\le l \\le k$."
    },
@@ -526,14 +526,14 @@
    ],
    "diff": [
     "\"Of class $C^k$\" on a relatively open subset of a quadrant, which the text never defines, is Mathlib's $C^k$ within the set; on these sets derivatives are unique.",
-    "The 2010 paper proves the case $m = 0$ and lifts it with Proposition 1.17; the formal proof treats a general level directly, with a compatible level-lowering operator $\\rho : E_{m+k} \\to E_m$ as a parameter, and uses the compact-open lemma (V1.26) in place of the multilinear maps $\\Gamma(x)$ and differentiation under the integral sign."
+    "The 2010 paper proves the case $m = 0$ and lifts it with Proposition 1.2.2 (preprint 1.17); the formal proof treats a general level directly, with a compatible level-lowering operator $\\rho : E_{m+k} \\to E_m$ as a parameter, and uses the compact-open lemma (V1.26) in place of the multilinear maps $\\Gamma(x)$ and differentiation under the integral sign."
    ]
   },
   {
    "id": "V1.18",
    "title": "Sc^{k+1} from classical smoothness on the levels",
    "book": {
-    "label": "§1.2, Proposition 1.19, p. 13",
+    "label": "§1.2, Proposition 1.2.4 (preprint 1.19), p. 13 (preprint p. 13)",
     "page": 13,
     "statement": "Let $U$ be relatively open in a partial quadrant of $E$ and $F$ an sc-Banach space. Assume that for every $m \\ge 0$ and $0 \\le l \\le k$ the map $f : U \\to F$ induces a map $f : U_{m+l} \\to F_m$ of class $C^{l+1}$. Then $f$ is $\\mathrm{sc}^{k+1}$."
    },
@@ -563,7 +563,7 @@
    "id": "V1.19",
    "title": "Maps into $\\mathbb R^N$",
    "book": {
-    "label": "§1.2, Corollary 1.20, p. 13",
+    "label": "§1.2, Corollary 1.2.5 (preprint 1.20), p. 13 (preprint p. 13)",
     "page": 13,
     "statement": "Let $U$ be relatively open in a partial quadrant of an sc-Banach space and $f : U \\to \\mathbb R^N$. If for some $k$ and all $0 \\le l \\le k$ the map $f : U_l \\to \\mathbb R^N$ is $C^{l+1}$, then $f$ is $\\mathrm{sc}^{k+1}$."
    },
@@ -585,7 +585,7 @@
     "stronger-hypothesis version kept"
    ],
    "diff": [
-    "The corollary is Proposition 1.19 (V1.18) for the constant structure: $f : U_{m+l} \\to V$ is the restriction of the $C^{l+1}$ map $f : U_l \\to V$, and $f$ is $\\mathrm{sc}^0$ because each $f : U_m \\to V$ is the continuous $f : U_0 \\to V$ composed with the inclusion, so no $\\mathrm{sc}^0$ hypothesis is needed. $\\mathbb R^N$ is any finite-dimensional normed space.",
+    "The corollary is Proposition 1.2.4 (preprint 1.19) (V1.18) for the constant structure: $f : U_{m+l} \\to V$ is the restriction of the $C^{l+1}$ map $f : U_l \\to V$, and $f$ is $\\mathrm{sc}^0$ because each $f : U_m \\to V$ is the continuous $f : U_0 \\to V$ composed with the inclusion, so no $\\mathrm{sc}^0$ hypothesis is needed. $\\mathbb R^N$ is any finite-dimensional normed space.",
     "The two sc-smooth statements are the exposition's (\"$C^{l+1}$ on $U_l$ for every $l$\", and \"$C^\\infty$ on $U_0$\"), not the text's; the second gives the bump functions the theory uses. The earlier versions under the stronger hypothesis $C^{k+1}$ on every $U_m$ (`corollary_1_20`, `corollary_1_20_base`) are kept."
    ]
   },
@@ -593,10 +593,10 @@
    "id": "V1.20",
    "title": "The chain rule",
    "book": {
-    "label": "§1.3, Theorem 1.21, p. 13 (proof §1.4.2, pp. 15–16)",
+    "label": "§1.3, Theorem 1.3.1 (preprint 1.21), p. 13 (preprint p. 13) (proof §1.4.2, pp. 15–16 (preprint pp. 15–16))",
     "page": 13,
     "statement": "Let $U \\subset C \\subset E$, $V \\subset D \\subset F$ and $W \\subset Q \\subset G$ be relatively open subsets of partial quadrants in sc-Banach spaces and $f : U \\to V$, $g : V \\to W$ be $\\mathrm{sc}^1$. Then $g \\circ f : U \\to W$ is $\\mathrm{sc}^1$ and $T(g \\circ f) = Tg \\circ Tf$.",
-    "note": "Remark 1.22: differentiability is guaranteed only with the loss of one level, yet the composition loses only one; the compactness of $E_{m+1} \\to E_m$ saves the day."
+    "note": "Remark 1.3.2 (preprint 1.22): differentiability is guaranteed only with the loss of one level, yet the composition loses only one; the compactness of $E_{m+1} \\to E_m$ saves the day."
    },
    "lean": {
     "statement": "Let $U \\subseteq C \\subseteq E$ and $V \\subseteq D \\subseteq F$ be relatively open subsets of partial quadrants, $f$ $\\mathrm{sc}^1$ on $U$ with $f(U) \\subseteq V$, and $g$ $\\mathrm{sc}^1$ on $V$ (with values in any sc-Banach space $G$). Then $g \\circ f$ is $\\mathrm{sc}^1$ on $U$ and $T(g \\circ f) = Tg \\circ Tf$ on $TU$. With derivatives made explicit: if $g$ is $\\mathrm{sc}^1$ with derivatives $Dg$ and $f$ with derivatives $Df$, and $V_1$ is the intersection of an open and a convex set, then $g \\circ f$ is $\\mathrm{sc}^1$ with derivatives $x \\mapsto Dg(f_1(x)) \\circ Df(x)$; this existence part needs no hypothesis on $U$. Iterated: the composition of $\\mathrm{sc}^k$ maps between sc-domains (in particular between relatively open subsets of partial quadrants) is $\\mathrm{sc}^k$, and sc-smooth maps compose to sc-smooth maps.",
@@ -626,12 +626,12 @@
    "id": "V1.21",
    "title": "The degeneracy index of a partial quadrant",
    "book": {
-    "label": "§1.3, Definition 1.23, p. 14",
+    "label": "§1.3, Definition 1.3.3 (preprint 1.23), p. 14 (preprint p. 14)",
     "page": 14,
     "statement": "Let $C$ be a partial quadrant in $E$ and $T : E \\to \\mathbb R^k \\oplus W$ an sc-isomorphism with $T(C) = [0,\\infty)^k \\oplus W$. For $x \\in C$ with $T(x) = (a_1, \\dots, a_k, w)$ put $d_C(x) = \\#\\{i : a_i = 0\\}$. The map $d_C : C \\to \\mathbb N_0$ is the *degeneracy index*; points with $d_C = 0$ are interior, with $d_C = 1$ boundary points, with $d_C \\ge 2$ corners."
    },
    "lean": {
-    "statement": "For $p = (a, w) \\in \\mathbb R^n \\oplus W$ let $\\#(p)$ be the number of indices $i$ with $a_i = 0$, and for a presentation $T : E \\cong \\mathbb R^n \\oplus W$ of a partial quadrant let $d_T(x) = \\#(T_0 x)$. The *degeneracy index* $d_C(x)$ of $x \\in E_0$ is $d_T(x)$ for an arbitrarily chosen presentation $T$ of $C$ (and $0$ if $C$ is not a partial quadrant); by Lemma 1.24 it equals $d_T(x)$ for every presentation $T$ and every $x \\in C$. On the quadrant $[0,\\infty)^n \\oplus W$ itself, $d(p) = \\#(p)$.",
+    "statement": "For $p = (a, w) \\in \\mathbb R^n \\oplus W$ let $\\#(p)$ be the number of indices $i$ with $a_i = 0$, and for a presentation $T : E \\cong \\mathbb R^n \\oplus W$ of a partial quadrant let $d_T(x) = \\#(T_0 x)$. The *degeneracy index* $d_C(x)$ of $x \\in E_0$ is $d_T(x)$ for an arbitrarily chosen presentation $T$ of $C$ (and $0$ if $C$ is not a partial quadrant); by Lemma 1.3.4 (preprint 1.24) it equals $d_T(x)$ for every presentation $T$ and every $x \\in C$. On the quadrant $[0,\\infty)^n \\oplus W$ itself, $d(p) = \\#(p)$.",
     "decls": [
      "Chapter1/Degeneracy · quadrantDeg",
      "Chapter1/Degeneracy · degIndexWith",
@@ -653,7 +653,7 @@
    "id": "V1.22",
    "title": "The degeneracy index does not depend on the presentation",
    "book": {
-    "label": "§1.3, Lemma 1.24, p. 14 (proof §1.4.3, p. 17)",
+    "label": "§1.3, Lemma 1.3.4 (preprint 1.24), p. 14 (preprint p. 14) (proof §1.4.3, preprint p. 17)",
     "page": 14,
     "statement": "The map $d_C$ does not depend on the choice of the linear sc-isomorphism $T$."
    },
@@ -679,7 +679,7 @@
    "id": "V1.23",
    "title": "Boundary recognition",
    "book": {
-    "label": "§1.3, Theorem 1.25, p. 14",
+    "label": "§1.3, Theorem 1.3.5 (preprint 1.25), p. 14 (preprint p. 14)",
     "page": 14,
     "statement": "Given tuples $(U, C, E)$ and $(U', C', E')$ and a germ $f : (U, x) \\to (U', x')$ of a local sc-diffeomorphism with $x' = f(x)$, then $d_C(x) = d_{C'}(f(x))$. (The text cites [20], Theorem 1.19, for the proof of a more general result; sc-smooth diffeomorphisms recognize boundary points and corners, homeomorphisms only boundaries.)"
    },
@@ -698,20 +698,20 @@
    "chips": [
     "sc¹ suffices, the text has sc-smooth",
     "germ = sc¹ map with sc¹ inverse on $U$, $U'$",
-    "proved, not cited; by the §2.3 argument"
+    "proved, not cited; by the §2.4 argument"
    ],
    "diff": [
     "The text's \"germ of a local sc-diffeomorphism\" is undefined in Chapter 1; it is read as an $\\mathrm{sc}^1$ map $f : U \\to U'$ with an $\\mathrm{sc}^1$ inverse $g : U' \\to U$, where $U$ and $U'$ may be taken as small as one likes (relatively open neighbourhoods of $x$ and $f(x)$). Only $\\mathrm{sc}^1$ is needed, where the text has sc-smooth: the statement is stronger.",
-    "The text gives no proof. The formal proof is the argument of §2.3 (Lemma 2.29, Theorem 2.31, Corollary 2.32) specialized to the identity retraction: for $x \\in U_1$ and $v \\in E_x \\cap E_1$ the sign argument gives $Df(x)v \\in E'_{f(x)}$, density extends this to $E_x$, and the codimensions $\\dim(E/E_x) = d_C(x)$, $\\dim(E'/E'_{f(x)}) = d_{C'}(f(x))$ compare through the chain rule; general points are reached by approximation with level-$1$ points of the same index (smooth points are not needed) and the upper semicontinuity of the index. The file sits in Chapter 2 because it uses the retraction vocabulary."
+    "The text gives no proof. The formal proof is the argument of §2.4 (preprint §2.3) (Lemma 2.4.9 (preprint 2.29), Theorem 2.4.12 (preprint 2.31), Corollary 2.4.13 (preprint 2.32)) specialized to the identity retraction: for $x \\in U_1$ and $v \\in E_x \\cap E_1$ the sign argument gives $Df(x)v \\in E'_{f(x)}$, density extends this to $E_x$, and the codimensions $\\dim(E/E_x) = d_C(x)$, $\\dim(E'/E'_{f(x)}) = d_{C'}(f(x))$ compare through the chain rule; general points are reached by approximation with level-$1$ points of the same index (smooth points are not needed) and the upper semicontinuity of the index. The file sits in Chapter 2 because it uses the retraction vocabulary."
    ]
   },
   {
    "id": "V1.24",
    "title": "Fredholm operators between Banach spaces, and Riesz–Schauder",
    "book": {
-    "label": "§1.4.1, p. 14 (quoted as classical)",
+    "label": "§1.4.1, preprint p. 14 (quoted as classical)",
     "page": 14,
-    "statement": "The proof of Proposition 1.10 opens with \"since $S : E_m \\to F_m$ is compact for every level, the operator $T + S : E_m \\to F_m$ is Fredholm for every $m$\", and later uses that the image of a Fredholm operator is closed. The classical theory of Fredholm operators and compact perturbations is taken for granted."
+    "statement": "The proof of Proposition 1.1.11 (preprint 1.10) opens with \"since $S : E_m \\to F_m$ is compact for every level, the operator $T + S : E_m \\to F_m$ is Fredholm for every $m$\", and later uses that the image of a Fredholm operator is closed. The classical theory of Fredholm operators and compact perturbations is taken for granted."
    },
    "lean": {
     "statement": "For real Banach spaces $E$, $F$: a continuous linear map with closed range is a strict map (open mapping theorem), and one with finite-dimensional kernel, closed range and range of finite codimension is Fredholm in Mathlib's sense (the remaining conditions, strictness and complementedness of the kernel, are automatic). A finite-rank operator is compact. **Riesz–Schauder:** for a compact operator $c$ on $E$, $1 + c$ has finite-dimensional kernel, closed range and range of finite codimension, hence is Fredholm.",
@@ -738,7 +738,7 @@
    "id": "V1.25",
    "title": "Compact perturbations of Fredholm operators",
    "book": {
-    "label": "§1.4.1, p. 14 (quoted as classical)",
+    "label": "§1.4.1, preprint p. 14 (quoted as classical)",
     "page": 14,
     "statement": "\"The operator $T + S : E_m \\to F_m$ is Fredholm for every $m$\" because $S$ is compact on every level: the stability of Fredholm operators under compact perturbations, used without citation."
    },
@@ -761,9 +761,9 @@
    "id": "V1.26",
    "title": "The compact-open lemma and the level operators $Df(x) : E_m \\to F_m$",
    "book": {
-    "label": "2010 paper, Propositions 2.1–2.3 (the compactness argument)",
+    "label": "2010 paper, Propositions 2.1–2.3 (the compactness argument), p. 12",
     "page": 12,
-    "statement": "The proofs of Propositions 1.16–1.18 in the 2010 paper rest on one argument: for unit vectors $h_n$ of $E_{m+1}$ a subsequence converges in $E_m$ (compactness of the inclusion), so the continuity of $(x, h) \\mapsto Df(x)h$ on $U_{m+1} \\times E_m$ gives the continuity of $x \\mapsto Df(x)$ into $\\mathcal L(E_{m+1}, F_m)$; and on the integral identity $f(x + h) - f(x) = \\int_0^1 Df(x + \\tau h)h\\,d\\tau$."
+    "statement": "The proofs of Propositions 1.2.1–1.2.3 (preprint 1.16–1.18) in the 2010 paper rest on one argument: for unit vectors $h_n$ of $E_{m+1}$ a subsequence converges in $E_m$ (compactness of the inclusion), so the continuity of $(x, h) \\mapsto Df(x)h$ on $U_{m+1} \\times E_m$ gives the continuity of $x \\mapsto Df(x)$ into $\\mathcal L(E_{m+1}, F_m)$; and on the integral identity $f(x + h) - f(x) = \\int_0^1 Df(x + \\tau h)h\\,d\\tau$."
    },
    "lean": {
     "statement": "**Compact-open lemma.** Let $s \\subseteq X$ be the intersection of an open and a convex set with unique differentiability at each point, $\\iota : Y' \\to Y$ a compact operator and $A : X \\to \\mathcal L(Y, Z)$ with $(x, y) \\mapsto A(x)y$ of class $C^k$ on $s \\times Y$. Then $x \\mapsto A(x) \\circ \\iota$ is $C^k$ on $s$ into $\\mathcal L(Y', Z)$; for $k = 0$, continuity on $s \\times Y$ suffices and no hypothesis on $s$ is needed. **Level operators.** For an $\\mathrm{sc}^1$ map with derivatives $Df$ and $x \\in U_{m+1}$ there is a unique continuous linear $Df(x) : E_m \\to F_m$ with $\\iota_m \\circ Df(x) = Df(\\iota x) \\circ \\iota_m$ (the second component of the level-$m$ tangent map); $(x, h) \\mapsto Df(x)h$ is continuous on $U_{m+1} \\times E_m$, $x \\mapsto Df(x) \\circ \\iota$ is continuous $U_{m+1} \\to \\mathcal L(E_{m+1}, F_m)$, and on an sc-domain $f_m \\circ \\iota : U_{m+1} \\to F_m$ is differentiable within $U_{m+1}$ with derivative $Df(x) \\circ \\iota$, hence $C^1$; if $f_m : U_m \\to F_m$ is differentiable at $x$ its derivative is $Df(x)$.",
@@ -796,7 +796,7 @@
    "id": "V1.27",
    "title": "Sc-domains: what the proofs use of a tuple",
    "book": {
-    "label": "§1.1, pp. 10–11 (the tuples $(U, C, E)$)",
+    "label": "§1.1, pp. 9–11 (preprint pp. 10–11) (the tuples $(U, C, E)$)",
     "page": 10,
     "statement": "Every statement of §§1.2–1.3 is made for $U$ relatively open in a partial quadrant $C$ of $E$, and the tangent construction is said to produce again such a tuple."
    },
@@ -822,9 +822,9 @@
    "id": "V1.28",
    "title": "The Fredholm index and its invariance under compact perturbations",
    "book": {
-    "label": "§1.4.1, p. 14 (quoted as classical)",
+    "label": "§1.4.1, preprint p. 14 (quoted as classical)",
     "page": 14,
-    "statement": "Not stated. The proof of Proposition 1.10 uses that $T + S : E_m \\to F_m$ is Fredholm; that its index is that of $T$ is the classical invariance of the index under compact perturbations, which the text does not invoke."
+    "statement": "Not stated. The proof of Proposition 1.1.11 (preprint 1.10) uses that $T + S : E_m \\to F_m$ is Fredholm; that its index is that of $T$ is the classical invariance of the index under compact perturbations, which the text does not invoke."
    },
    "lean": {
     "statement": "For a linear map $u$ over a field, $\\operatorname{ind}(u) = \\dim\\ker u - \\dim(F/\\operatorname{range}u)$; if $u$, $v$ have finite-dimensional kernel and cokernel, so has $v \\circ u$ and $\\operatorname{ind}(v\\circ u) = \\operatorname{ind}(u) + \\operatorname{ind}(v)$; a bijection plus a finite-rank map, in particular $1$ plus a finite-rank map, has index $0$. For real Banach spaces, a Fredholm operator has finite-dimensional kernel and cokernel; if $v$ is a quasi-inverse of $u$ ($vu - 1$, $uv - 1$ of finite rank) and $\\|v\\|\\|s\\| < 1$, then $u + s$ has finite-dimensional kernel and cokernel and $\\operatorname{ind}(u + s) = \\operatorname{ind}(u)$; if $u$ is Fredholm and $k$ compact, $\\operatorname{ind}(u + k) = \\operatorname{ind}(u)$.",
@@ -854,7 +854,7 @@
    "id": "V1.29",
    "title": "The level operators of an sc-Fredholm operator",
    "book": {
-    "label": "§1.1, Definition 1.8, p. 9",
+    "label": "§1.1, Definition 1.1.9 (preprint 1.8), p. 8 (preprint p. 9)",
     "page": 9,
     "statement": "After the definition: $K \\subset E_\\infty$, $T(X_m) = Y_m$, $E_m = K \\oplus X_m$ and \"$F = C \\oplus T(E_m)$\" for all $m$; the index is $\\dim K - \\dim C$. That $T : E_m \\to F_m$ is Fredholm with this index on every level is not stated."
    },
@@ -881,7 +881,7 @@
    "id": "V1.30",
    "title": "Compact perturbation preserves the index",
    "book": {
-    "label": "§1.1, Proposition 1.10, p. 10 (proof §1.4.1, pp. 14–15)",
+    "label": "§1.1, Proposition 1.1.11 (preprint 1.10), p. 9 (preprint p. 10) (proof §1.4.1, pp. 14–16 (preprint pp. 14–15))",
     "page": 10,
     "statement": "If $T : E \\to F$ is sc-Fredholm and $S : E \\to F$ is an $\\mathrm{sc}^+$-operator, then $T + S$ is sc-Fredholm. (The index of $T + S$ is not mentioned.)"
    },
@@ -905,7 +905,7 @@
    "id": "V1.31",
    "title": "Finite-dimensional spaces carry only the constant structure",
    "book": {
-    "label": "§1.1, after Definition 1.1, p. 6",
+    "label": "§1.1, after Definition 1.1.1 (preprint 1.1), p. 5 (preprint p. 6)",
     "page": 6,
     "statement": "A finite-dimensional Banach space has precisely one sc-structure, the constant one $E_m = E$; on an infinite-dimensional space the constant structure is not an sc-structure, because property (1) fails."
    },
@@ -931,9 +931,9 @@
    "id": "V1.32",
    "title": "Sc-splittings are sc-projections",
    "book": {
-    "label": "§1.1, Definition 1.5 and the proof of Proposition 1.6, pp. 7–8",
+    "label": "§1.1, Definition 1.1.6 (preprint 1.5) and the proof of Proposition 1.1.7 (preprint 1.6), pp. 7–8 (preprint pp. 7–8)",
     "page": 7,
-    "statement": "An sc-splitting $E = F \\oplus G$ is a topological direct sum $E_m = F_m \\oplus G_m$ on every level. In the proof of Proposition 1.6: the map $P$ with $P \\circ P = P$, continuous on every $E_m$, \"is a sc-projection\", and $G := (1 - P)(E)$ is then an sc-complement."
+    "statement": "An sc-splitting $E = F \\oplus G$ is a topological direct sum $E_m = F_m \\oplus G_m$ on every level. In the proof of Proposition 1.1.7 (preprint 1.6): the map $P$ with $P \\circ P = P$, continuous on every $E_m$, \"is a sc-projection\", and $G := (1 - P)(E)$ is then an sc-complement."
    },
    "lean": {
     "statement": "If $E = A \\oplus B$ is an sc-splitting, the projections of $E_m$ onto $A_m$ along $B_m$ are continuous and form an sc-operator $P$ with $P_m^2 = P_m$, $P_m(E_m) = A_m$ and $\\ker P_m = B_m$ for every $m$. Conversely, if $P : E \\to E$ is an sc-operator with $P_0^2 = P_0$, then $P_m^2 = P_m$ and $P(E)_m = P_m(E_m)$ for every $m$, and $E = P(E) \\oplus \\ker P$ is an sc-splitting. So $E = A \\oplus B$ is an sc-splitting iff there is an sc-operator $P$ with $P^2 = P$, $P(E) = A$, $\\ker P = B$.",
@@ -955,14 +955,14 @@
     "$\\ker P$ for $(1 - P)(E)$"
    ],
    "diff": [
-    "The text uses the equivalence in the proof of Proposition 1.6 without stating it (the exposition's Lemma 2.B). The formal proof of Proposition 1.6 (V1.5) builds the complement directly and does not depend on this item. The complement is written $\\ker P$, the same subspace as the text's $(1 - P)(E)$."
+    "The text uses the equivalence in the proof of Proposition 1.1.7 (preprint 1.6) without stating it (the exposition's Lemma 2.B). The formal proof of Proposition 1.1.7 (preprint 1.6) (V1.5) builds the complement directly and does not depend on this item. The complement is written $\\ker P$, the same subspace as the text's $(1 - P)(E)$."
    ]
   },
   {
    "id": "V1.33",
    "title": "The smooth points of a quotient",
    "book": {
-    "label": "§1.1, Proposition 1.7, p. 9",
+    "label": "§1.1, Proposition 1.1.8 (preprint 1.7), preprint p. 9",
     "page": 9,
     "statement": "In the proof: \"$(E/A)_\\infty = \\bigcap_j (E_j/A_j)$ consists of all elements of the form $x + A_\\infty$ with $x \\in E_\\infty$.\""
    },
@@ -979,14 +979,14 @@
     "needs $A$ an sc-subspace"
    ],
    "diff": [
-    "The text asserts the equality without proof; only the inclusion \"$\\supseteq$\" is needed for Proposition 1.7 (V1.6). The converse is the exposition's Lemma 2.C: correct the choices $x_j \\in (x + A) \\cap E_j$ by smooth elements of $A$ so that the corrections form a series converging on every level (density of $A_\\infty$ in every $A_j$, completeness, and a bound for the norms of the inclusions)."
+    "The text asserts the equality without proof; only the inclusion \"$\\supseteq$\" is needed for Proposition 1.1.8 (preprint 1.7) (V1.6). The converse is the exposition's Lemma 2.C: correct the choices $x_j \\in (x + A) \\cap E_j$ by smooth elements of $A$ so that the corrections form a series converging on every level (density of $A_\\infty$ in every $A_j$, completeness, and a bound for the norms of the inclusions)."
    ]
   },
   {
    "id": "V1.34",
    "title": "Continuity of $Df$ for the compact-open topology",
    "book": {
-    "label": "§1.1, after Definition 1.14, p. 11",
+    "label": "§1.1, after Definition 1.1.15 (preprint 1.14), preprint p. 11",
     "page": 11,
     "statement": "The map $U_1 \\to \\mathcal L(E_0, F_0)$, $x \\mapsto Df(x)$, will in general not be continuous for the operator norm, but it is continuous for the compact-open topology."
    },
@@ -1005,14 +1005,14 @@
     "the negative remark: an example (V1.13)"
    ],
    "diff": [
-    "The compact-open topology on $\\mathcal L(Y, Z)$ is written out as uniform convergence on compact sets, and the remark is strengthened to an equivalence (the exposition's Lemma 3.F): it is exactly level $0$ of condition (3) of Definition 1.14. That norm continuity fails in general is proved by a sequence-space example (V1.13; formerly G.3), not by the shift map of the exposition (§6), which needs weighted Sobolev spaces (G.1). Updated in the third addendum of this page."
+    "The compact-open topology on $\\mathcal L(Y, Z)$ is written out as uniform convergence on compact sets, and the remark is strengthened to an equivalence (the exposition's Lemma 3.F): it is exactly level $0$ of condition (3) of Definition 1.1.15 (preprint 1.14). That norm continuity fails in general is proved by a sequence-space example (V1.13; formerly G.3), not by the shift map of the exposition (§6), which needs weighted Sobolev spaces (G.1). Updated in the third addendum of this page."
    ]
   },
   {
    "id": "V1.35",
    "title": "In finite dimensions sc¹ is $C^1$, also at the boundary",
    "book": {
-    "label": "§1.1, after Definition 1.14, p. 11",
+    "label": "§1.1, after Definition 1.1.15 (preprint 1.14), preprint p. 11",
     "page": 11,
     "statement": "The $\\mathrm{sc}^1$-maps between finite-dimensional Banach spaces are the familiar $C^1$-maps."
    },
@@ -1042,7 +1042,7 @@
    "id": "V1.36",
    "title": "Level shifts and tangents of tuples are tuples",
    "book": {
-    "label": "§1.1, Definitions 1.11 and 1.13, p. 10",
+    "label": "§1.1, Definitions 1.1.12 and 1.1.14 (preprint 1.11 and 1.13), p. 9 (preprint p. 10)",
     "page": 10,
     "statement": "\"$T(U, C, E)$ is a tuple consisting again of a relatively open subset $TU$ in the partial quadrant $TC$ in the sc-Banach space $TE$\"; tacitly, $C^1 = C \\cap E_1$ is a partial quadrant in $E^1$ and $U^1$ is relatively open in it."
    },
@@ -1073,7 +1073,7 @@
    "book": {
     "label": "2010 paper, Proposition 2.4, pp. 51–53 (the derivatives $d^jf(x)$)",
     "page": 13,
-    "statement": "The proof of Proposition 1.19 in the 2010 paper writes $d^jf(x)$ for the $j$-th derivative of $f$ on whichever level pair $U_{m+l} \\to F_m$ the argument needs, with one symbol for all of them: the derivatives taken with a finer domain level or a coarser target level are tacitly identified."
+    "statement": "The proof of Proposition 1.2.4 (preprint 1.19) in the 2010 paper writes $d^jf(x)$ for the $j$-th derivative of $f$ on whichever level pair $U_{m+l} \\to F_m$ the argument needs, with one symbol for all of them: the derivatives taken with a finer domain level or a coarser target level are tacitly identified."
    },
    "lean": {
     "statement": "A *derivative tower* of order $k + 1$ for $f : E_0 \\to F_0$ on $U$ consists of base-level maps $\\Phi_i(x)(h_1, \\dots, h_i)$ with $\\Phi_0 = f$ and, for $x \\in U_{m+l}$, continuous $i$-linear maps $\\Psi_{i,m,l}(x)$ on $E_{m+l}$ with values in $F_m$ ($i \\le l + 1$, $i \\le k + 1$) such that: $\\Psi_{i,m,l}(x)(h)$ seen in $F_0$ is $\\Phi_i$ at the images of $x$ and $h$ in $E_0$; $\\Psi_{i,m,l}$ is continuous on $U_{m+l}$; and for $i \\le l$, $i \\le k$ it is differentiable within $U_{m+l}$ with derivative $\\xi \\mapsto \\Psi_{i+1,m,l}(x)(\\xi, \\cdot)$. If $U$ is an sc-domain, $f$ is $\\mathrm{sc}^0$ and $f : U_{m+l} \\to F_m$ is $C^{l+1}$ within $U_{m+l}$ for all $m$ and $l \\le k$, then the iterated derivatives within the level sets form a derivative tower of order $k + 1$. Two values of a tower with the same images in $E_0$ agree.",
@@ -1094,7 +1094,7 @@
     "chain rule with the inclusions"
    ],
    "diff": [
-    "No counterpart as a statement. The tower records exactly what $(\\mathrm S_k)$ uses of the hypothesis of Proposition 1.19: $d^if(x)$ exists and is continuous on $E_{m+l}$ into $F_m$ for $i \\le l + 1$, and is differentiable with derivative $d^{i+1}f(x)$ for $i \\le l$.",
+    "No counterpart as a statement. The tower records exactly what $(\\mathrm S_k)$ uses of the hypothesis of Proposition 1.2.4 (preprint 1.19): $d^if(x)$ exists and is continuous on $E_{m+l}$ into $F_m$ for $i \\le l + 1$, and is differentiable with derivative $d^{i+1}f(x)$ for $i \\le l$.",
     "The compatibility across levels is proved from the chain rule for compositions with continuous linear maps (the inclusions), applied to Mathlib's iterated derivative within a set, which is unique on the sc-domain's level sets. For $l > k$ the hypothesis is used with order $k + 1$, by restriction from $U_{m+k}$."
    ]
   },
@@ -1107,7 +1107,7 @@
     "statement": "$(\\mathrm S_k)$: if $f : U_{m+l} \\to F_m$ is $C^{l+1}$ for all $m \\ge 0$ and $0 \\le l \\le k$, then $f$ is $\\mathrm{sc}^{k+1}$, and every component $\\pi \\circ T^{k+1}f : T^{k+1}U \\to F^l$ is a linear combination of maps $\\Gamma : U^{k+1} \\oplus E^{n_1} \\oplus \\cdots \\oplus E^{n_j} \\to F^l$, $\\Gamma(x, h_1, \\dots, h_j) = d^jf(x)(h_1, \\dots, h_j)$, with $j + l - 1 \\le n_i \\le k$. Each such $\\Gamma$ is $\\mathrm{sc}^1$ with derivative $d^{j+1}f(x)(\\delta x, h) + \\sum_i d^jf(x)(h_1, \\dots, \\delta h_i, \\dots, h_j)$, and the components of $T^{k+2}f$ are again of this form."
    },
    "lean": {
-    "statement": "*Elementary data* on an sc-Banach space $X$: an sc-operator $\\pi_0 : X \\to E^p$ (the base point), sc-operators $\\pi_a : X \\to E^{n_a}$, $a = 1, \\dots, i$ (the vectors), and a target shift $m$; the *elementary map* is $z \\mapsto d^if(\\pi_0 z)(\\pi_1 z, \\dots, \\pi_i z) : X \\to F^m$ on $\\pi_0^{-1}(U_p)$, with $d^if$ from a derivative tower of order $k + 1$ (V1.37). Under the conditions $m + i \\le p$, $m + i \\le n_a + 1$ and $i \\le k$: the elementary map is $\\mathrm{sc}^0$; it is $\\mathrm{sc}^1$, by the level criterion of Proposition 1.16 (V1.15), with derivative $(\\delta z) \\mapsto d^{i+1}f(\\pi_0 z)(\\pi_0\\delta z, \\pi z) + \\sum_a d^if(\\pi_0 z)(\\pi z \\text{ with } \\pi_a z := \\pi_a\\delta z)$; on $TX$ its tangent map is the pair of an elementary map of type $(p + 1, m + 1; n_a + 1)$ and the sum of an elementary map with $i + 1$ vectors and $i$ elementary maps with $i$ vectors, all satisfying the conditions (the one with $i + 1$ vectors provided $i + 1 \\le k$). Hence, if the domain $\\pi_0^{-1}(U_p)$ is an sc-domain and $i + s \\le k + 1$, the elementary map is $\\mathrm{sc}^s$. The shifts $E^p$ have $(E^p)_l = E_{p+l}$, with $E \\cong E^0$ and $(E^p)^1 \\cong E^{p+1}$.",
+    "statement": "*Elementary data* on an sc-Banach space $X$: an sc-operator $\\pi_0 : X \\to E^p$ (the base point), sc-operators $\\pi_a : X \\to E^{n_a}$, $a = 1, \\dots, i$ (the vectors), and a target shift $m$; the *elementary map* is $z \\mapsto d^if(\\pi_0 z)(\\pi_1 z, \\dots, \\pi_i z) : X \\to F^m$ on $\\pi_0^{-1}(U_p)$, with $d^if$ from a derivative tower of order $k + 1$ (V1.37). Under the conditions $m + i \\le p$, $m + i \\le n_a + 1$ and $i \\le k$: the elementary map is $\\mathrm{sc}^0$; it is $\\mathrm{sc}^1$, by the level criterion of Proposition 1.2.1 (preprint 1.16) (V1.15), with derivative $(\\delta z) \\mapsto d^{i+1}f(\\pi_0 z)(\\pi_0\\delta z, \\pi z) + \\sum_a d^if(\\pi_0 z)(\\pi z \\text{ with } \\pi_a z := \\pi_a\\delta z)$; on $TX$ its tangent map is the pair of an elementary map of type $(p + 1, m + 1; n_a + 1)$ and the sum of an elementary map with $i + 1$ vectors and $i$ elementary maps with $i$ vectors, all satisfying the conditions (the one with $i + 1$ vectors provided $i + 1 \\le k$). Hence, if the domain $\\pi_0^{-1}(U_p)$ is an sc-domain and $i + s \\le k + 1$, the elementary map is $\\mathrm{sc}^s$. The shifts $E^p$ have $(E^p)_l = E_{p+l}$, with $E \\cong E^0$ and $(E^p)^1 \\cong E^{p+1}$.",
     "decls": [
      "Chapter1/LevelsWeak · ElemData",
      "Chapter1/LevelsWeak · ElemData.Good",
@@ -1146,7 +1146,7 @@
     "slots are sc-operators $X \\to E^n$"
    ],
    "diff": [
-    "The 2010 paper's $(\\mathrm S_k)$ describes the components of $T^{k+1}f$; the formal induction runs instead on $s$, over all elementary maps on all sc-Banach spaces $X$ at once: an elementary map is $\\mathrm{sc}^{s+1}$ because it is $\\mathrm{sc}^1$ and its tangent map is the pair of an elementary map and a sum of elementary maps, all $\\mathrm{sc}^s$ by the induction hypothesis. Proposition 1.19 (V1.18) is the case $i = 0$, $p = m = 0$, $X = E$. The text's $\\Gamma$ is the case $X = E^{k+1} \\oplus E^{n_1} \\oplus \\cdots \\oplus E^{n_j}$ with the projections as $\\pi_0, \\pi_1, \\dots, \\pi_j$.",
+    "The 2010 paper's $(\\mathrm S_k)$ describes the components of $T^{k+1}f$; the formal induction runs instead on $s$, over all elementary maps on all sc-Banach spaces $X$ at once: an elementary map is $\\mathrm{sc}^{s+1}$ because it is $\\mathrm{sc}^1$ and its tangent map is the pair of an elementary map and a sum of elementary maps, all $\\mathrm{sc}^s$ by the induction hypothesis. Proposition 1.2.4 (preprint 1.19) (V1.18) is the case $i = 0$, $p = m = 0$, $X = E$. The text's $\\Gamma$ is the case $X = E^{k+1} \\oplus E^{n_1} \\oplus \\cdots \\oplus E^{n_j}$ with the projections as $\\pi_0, \\pi_1, \\dots, \\pi_j$.",
     "The index conditions are $m + i \\le p$ (the text's $j + l \\le k + 1$, which the text derives from its bounds), $m + i \\le n_a + 1$ (the text's $j + l - 1 \\le n_i$) and $i \\le k$; the upper bound $n_i \\le k$ of $(\\mathrm S_k)$ plays no role. That the new indices satisfy the conditions (\"one checks\" in the 2010 paper) is checked for each of the three kinds of terms.",
     "The sums in the tangent map are handled by the sum rule for $\\mathrm{sc}^k$ maps and the Leibniz rule by the derivative of the multilinear evaluation (V1.39)."
    ]
@@ -1157,7 +1157,7 @@
    "book": {
     "label": "2010 paper, Proposition 2.4, pp. 52–53 (the terms of $T^{k+1}f$ and the derivative (11))",
     "page": 13,
-    "statement": "The proof of Proposition 1.19 in the 2010 paper shows that $T^{k+1}f$ is $\\mathrm{sc}^1$ by showing that \"any of the terms\" of its components is, i.e. uses that a sum of $\\mathrm{sc}^1$ maps is $\\mathrm{sc}^1$; and it obtains the derivative (11) of $(x, h_1, \\dots, h_j) \\mapsto d^jf(x)(h_1, \\dots, h_j)$ by the product rule, without stating either."
+    "statement": "The proof of Proposition 1.2.4 (preprint 1.19) in the 2010 paper shows that $T^{k+1}f$ is $\\mathrm{sc}^1$ by showing that \"any of the terms\" of its components is, i.e. uses that a sum of $\\mathrm{sc}^1$ maps is $\\mathrm{sc}^1$; and it obtains the derivative (11) of $(x, h_1, \\dots, h_j) \\mapsto d^jf(x)(h_1, \\dots, h_j)$ by the product rule, without stating either."
    },
    "lean": {
     "statement": "On an sc-domain, the constant map $0$ is $\\mathrm{sc}^k$, the sum of two $\\mathrm{sc}^k$ maps is $\\mathrm{sc}^k$ and so is any finite sum. The evaluation $(A, h) \\mapsto A(h_1, \\dots, h_n)$ of continuous multilinear maps is differentiable at every $(A, h)$ with derivative $(B, \\eta) \\mapsto B(h) + \\sum_a A(h \\text{ with } h_a := \\eta_a)$.",
@@ -1182,25 +1182,25 @@
  ],
  "notFormalized": [
   {
-   "title": "Example 1.2: the weighted Sobolev spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$",
-   "label": "§1.1, Example 1.2, pp. 6–7",
+   "title": "Example 1.1.3 (preprint 1.2): the weighted Sobolev spaces $H^{m,\\delta_m}(\\mathbb R \\times S^1)$",
+   "label": "§1.1, Example 1.1.3 (preprint 1.2), pp. 6 ff. (preprint pp. 6–7)",
    "page": 6,
    "book": "With $0 = \\delta_0 < \\delta_1 < \\cdots$, the spaces $E_m = H^{m,\\delta_m}(\\mathbb R \\times S^1)$ of $L^2$ functions whose weak derivatives up to order $m$, weighted by $e^{\\delta_m|s|}$, are in $L^2$ form an sc-structure on $L^2(\\mathbb R \\times S^1)$, \"using Sobolev's compact embedding theorem for bounded domains and the assumption that $(\\delta_m)$ is strictly increasing\".",
    "instead": "**Not formalized.** Mathlib has no weighted Sobolev spaces and no Rellich–Kondrachov theorem; the exposition proves the example in full (Proposition 1.C). The only examples of sc-Banach spaces built here are the constant structure on a finite-dimensional space, and the sums, shifts, sc-subspaces and quotients of sc-Banach spaces (V1.1, V1.4, V1.6). This example, with the shift map of the 2010 paper, is the project's planned step H2."
   },
   {
-   "title": "Remark 1.15: partial cones in place of partial quadrants",
-   "label": "§1.1, Remark 1.15, p. 11",
+   "title": "Remark 1.1.17 (preprint 1.15): partial cones in place of partial quadrants",
+   "label": "§1.1, Remark 1.1.17 (preprint 1.15), p. 10 (preprint p. 11)",
    "page": 11,
-   "book": "Instead of a partial quadrant $C$ one may take a closed convex partial cone $P$ ($\\lambda P \\subset P$ for $\\lambda \\ge 0$) with non-empty interior; for $U$ open in $P$, $\\mathrm{sc}^1$ is defined as in Definition 1.14, with the tangent map on $TP = P^1 \\oplus E$, again a closed cone with non-empty interior. Many results should carry over, \"but one should check carefully which arguments carry over\".",
-   "instead": "**Not formalized**, as in the exposition, which stays with quadrants. The proofs of §§1.2–1.3 use of the quadrant only the sc-domain property (V1.27: open-in-convex level sets with unique derivatives), so they apply to any $U$ with that property; whether relatively open subsets of partial cones have it is not examined. (Propositions 1.19 and 1.20 under the text's hypothesis, listed here until 2026-10-25, are now proved as stated, V1.18–V1.19.)"
+   "book": "Instead of a partial quadrant $C$ one may take a closed convex partial cone $P$ ($\\lambda P \\subset P$ for $\\lambda \\ge 0$) with non-empty interior; for $U$ open in $P$, $\\mathrm{sc}^1$ is defined as in Definition 1.1.15 (preprint 1.14), with the tangent map on $TP = P^1 \\oplus E$, again a closed cone with non-empty interior. Many results should carry over, \"but one should check carefully which arguments carry over\".",
+   "instead": "**Not formalized**, as in the exposition, which stays with quadrants. The proofs of §§1.2–1.3 use of the quadrant only the sc-domain property (V1.27: open-in-convex level sets with unique derivatives), so they apply to any $U$ with that property; whether relatively open subsets of partial cones have it is not examined. (Proposition 1.2.4 and Corollary 1.2.5 (preprint Propositions 1.19 and 1.20) under the text's hypothesis, listed here until 2026-10-25, are now proved as stated, V1.18–V1.19.)"
   },
   {
-   "title": "Definition 1.14: $Df$ need not be norm continuous",
-   "label": "§1.1, after Definition 1.14, p. 11",
+   "title": "Definition 1.1.15 (preprint 1.14): $Df$ need not be norm continuous",
+   "label": "§1.1, after Definition 1.1.15 (preprint 1.14), preprint p. 11",
    "page": 11,
    "book": "\"In general, the map $U_1 \\to \\mathcal L(E_0, F_0)$, defined by $x \\mapsto Df(x)$, will not(!) be continuous, if the space of bounded linear operators is equipped with the operator norm.\"",
-   "instead": "**Formalized since the first edition of this page** (third addendum; V1.13, V1.34), by an example (the text gives none). $X$ is the sc-Banach space of sequences whose level $m$ consists of the $x$ with $(k+1)^m x_k \\to 0$, normed by $|x|_m = \\sup_k (k+1)^m|x_k|$: every level is a copy of $c_0$, the inclusion $X_{m+1} \\to X_m$ is $\\mathrm{diag}(1/(k+1))$, compact, and the finitely supported sequences are smooth points dense in every level. On $E = \\mathbb R \\oplus X$ the map $f(t, x)_k = \\cos(kt)x_k$ is $\\mathrm{sc}^1$ with $Df(t, x)(\\tau, \\xi)_k = -k\\sin(kt)x_k\\tau + \\cos(kt)\\xi_k$ (the factor $k$ is absorbed by one level). $(\\pi/(n+1), 0) \\to 0$ in $E_1$, but $\\|Df(\\pi/(n+1), 0) - Df(0, 0)\\| \\ge 2$ (test on the unit vector $e_{n+1}$); since the derivative is unique on $E_1$, no derivative family of $f$ is continuous for the operator norm. Not formalized: that $f$ is sc-smooth (it is), and the shift map of the exposition (§6), which needs Example 1.2 (G.1).",
+   "instead": "**Formalized since the first edition of this page** (third addendum; V1.13, V1.34), by an example (the text gives none). $X$ is the sc-Banach space of sequences whose level $m$ consists of the $x$ with $(k+1)^m x_k \\to 0$, normed by $|x|_m = \\sup_k (k+1)^m|x_k|$: every level is a copy of $c_0$, the inclusion $X_{m+1} \\to X_m$ is $\\mathrm{diag}(1/(k+1))$, compact, and the finitely supported sequences are smooth points dense in every level. On $E = \\mathbb R \\oplus X$ the map $f(t, x)_k = \\cos(kt)x_k$ is $\\mathrm{sc}^1$ with $Df(t, x)(\\tau, \\xi)_k = -k\\sin(kt)x_k\\tau + \\cos(kt)\\xi_k$ (the factor $k$ is absorbed by one level). $(\\pi/(n+1), 0) \\to 0$ in $E_1$, but $\\|Df(\\pi/(n+1), 0) - Df(0, 0)\\| \\ge 2$ (test on the unit vector $e_{n+1}$); since the derivative is unique on $E_1$, no derivative family of $f$ is continuous for the operator norm. Not formalized: that $f$ is sc-smooth (it is), and the shift map of the exposition (§6), which needs Example 1.1.3 (preprint 1.2) (G.1).",
    "formalized": [
     "V1.13",
     "V1.34"

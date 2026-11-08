@@ -2,10 +2,10 @@
  "items": [
   {
    "id": "V4.1",
-   "title": "Definition 4.1: corner charts and corner structures",
+   "title": "Definition 4.1.1 (preprint 4.1): corner charts and corner structures",
    "verdict": "restated",
    "book": {
-    "label": "§4.1, Definition 4.1, p. 147",
+    "label": "§4.1, Definition 4.1.1 (preprint 4.1), p. 175 (preprint p. 147)",
     "page": 147,
     "statement": "An M-polyfold $X$ has a compatible smooth manifold structure with boundary with corners if it admits an atlas of sc-smoothly compatible charts $(V, \\varphi, (U, C, \\mathbb R^n))$, $\\varphi : V \\to U$ an sc-diffeomorphism from an open $V \\subseteq X$ onto a relatively open subset $U$ of a partial quadrant $C$ in $\\mathbb R^n$ (or in a finite-dimensional vector space)."
    },
@@ -31,10 +31,10 @@
   },
   {
    "id": "V4.2",
-   "title": "Definition 4.1: the transition maps are $C^\\infty$",
+   "title": "Definition 4.1.1 (preprint 4.1): the transition maps are $C^\\infty$",
    "verdict": "same",
    "book": {
-    "label": "§4.1, after Definition 4.1, p. 147",
+    "label": "§4.1, after Definition 4.1.1 (preprint 4.1), p. 175 (preprint p. 147)",
     "page": 147,
     "statement": "The transition maps between the charts are sc-diffeomorphisms between relatively open subsets of partial quadrants in finite-dimensional spaces, and therefore classically smooth, of class $C^\\infty$; the atlas defines the structure of a smooth manifold with boundary with corners."
    },
@@ -55,7 +55,7 @@
    "title": "Finite-dimensional sc-Banach spaces have the constant structure",
    "verdict": "restated",
    "book": {
-    "label": "§1.1, after Definition 1.1, p. 6 (used in Definition 4.1)",
+    "label": "§1.1, after Definition 1.1.1 (preprint 1.1), p. 5 (preprint p. 6) (used in Definition 4.1.1 (preprint 4.1))",
     "page": 6,
     "statement": "A finite-dimensional Banach space $E$ has precisely one sc-structure, namely the constant structure $E_m = E$."
    },
@@ -72,20 +72,20 @@
     "needs the density axiom"
    ],
    "diff": [
-    "The density of $E_\\infty$ (Definition 1.1 (2)) makes the inclusions onto; compact injective inclusions alone do not ($E_0 = \\mathbb R$, $E_m = 0$ for $m \\ge 1$; Findings, item 6)."
+    "The density of $E_\\infty$ (Definition 1.1.1 (2) (preprint 1.1)) makes the inclusions onto; compact injective inclusions alone do not ($E_0 = \\mathbb R$, $E_m = 0$ for $m \\ge 1$; Findings, item 6)."
    ]
   },
   {
    "id": "V4.4",
-   "title": "Definition 4.1 with arbitrary finite-dimensional models; Chapter 3's manifolds with corners",
+   "title": "Definition 4.1.1 (preprint 4.1) with arbitrary finite-dimensional models; Chapter 3's manifolds with corners",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, Definition 4.1, p. 147 (\"or in a finite-dimensional vector space\")",
+    "label": "§4.1, Definition 4.1.1 (preprint 4.1), p. 175 (preprint p. 147) (\"or in a finite-dimensional vector space\")",
     "page": 147,
-    "statement": "Not in the text. Definition 4.1 allows a finite-dimensional vector space $E$ in place of $\\mathbb R^n$; its relation to the manifolds with corners of Theorem 3.27 is not discussed."
+    "statement": "Not in the text. Definition 4.1.1 (preprint 4.1) allows a finite-dimensional vector space $E$ in place of $\\mathbb R^n$; its relation to the manifolds with corners of Theorem 3.2.3 (preprint 3.27) is not discussed."
    },
    "lean": {
-    "statement": "A chart onto a relatively open subset of a partial quadrant in an sc-Banach space with finite-dimensional $E_0$ is, with the same map, a corner chart for the constant structure, of the same dimension. So `HasCornerStructure` is the condition of Theorem 3.27 with locally constant dimension, and the manifolds with corners of dimension $n$ are the corner structures with all charts of dimension $n$.",
+    "statement": "A chart onto a relatively open subset of a partial quadrant in an sc-Banach space with finite-dimensional $E_0$ is, with the same map, a corner chart for the constant structure, of the same dimension. So `HasCornerStructure` is the condition of Theorem 3.2.3 (preprint 3.27) with locally constant dimension, and the manifolds with corners of dimension $n$ are the corner structures with all charts of dimension $n$.",
     "decls": [
      "Chapter4/Characterization · MChart.exists_isCornerChart_of_finiteDimensional",
      "Chapter4/Characterization · IsRelOpenInQuadrant.isScDiffeoQuadrant_toConst",
@@ -95,18 +95,18 @@
     ]
    },
    "chips": [
-    "links Definition 4.1 to Theorem 3.27"
+    "links Definition 4.1.1 to Theorem 3.2.3"
    ],
    "diff": [
-    "The constant structure in Definition 4.1 is no restriction (V4.3)."
+    "The constant structure in Definition 4.1.1 (preprint 4.1) is no restriction (V4.3)."
    ]
   },
   {
    "id": "V4.5",
-   "title": "Theorem 4.2: the characterization",
+   "title": "Theorem 4.1.2 (preprint 4.2): the characterization",
    "verdict": "stronger",
    "book": {
-    "label": "§4.1, Theorem 4.2, p. 147 (proof pp. 156–157)",
+    "label": "§4.1, Theorem 4.1.2 (preprint 4.2), p. 176 (preprint p. 147) (proof pp. 183–186 (preprint pp. 156–157))",
     "page": 147,
     "statement": "For a tame M-polyfold $X$ the following are equivalent. (i) $X$ has a compatible smooth manifold structure with boundary with corners. (ii) $X_0 = X_\\infty$ and $1_0^1 : X \\to X^1$ is sc-smooth; every $x$ lies in a tame chart $(V, \\psi, (O, C, E))$ with $\\psi(x) = 0$ whose tangent space $T_0O$ is finite-dimensional and in good position to $C$."
    },
@@ -127,10 +127,10 @@
   },
   {
    "id": "V4.6",
-   "title": "Remark 4.3: $1_1^0$, $1_0^1$, and the constant structure",
+   "title": "Remark 4.1.3 (preprint 4.3): $1_1^0$, $1_0^1$, and the constant structure",
    "verdict": "stronger",
    "book": {
-    "label": "§4.1, Remark 4.3, p. 148",
+    "label": "§4.1, Remark 4.1.3 (preprint 4.3), p. 176 (preprint p. 148)",
     "page": 148,
     "statement": "If $X_0 = X_\\infty$, $1_0^1 : X \\to X^1$ has the inverse $1_1^0$, which is always sc-smooth; so if $1_0^1$ is sc-smooth it is an sc-diffeomorphism. It is possible that $X^1 \\ne X$ as M-polyfolds although the underlying sets agree. A finite-dimensional space with the constant structure has $X = X^1$."
    },
@@ -155,7 +155,7 @@
     "even the topologies of $X$, $X^1$ differ"
    ],
    "diff": [
-    "“It is possible that $X^1 \\ne X$ as M-polyfolds although the sets agree” is proved by an example the text does not give (fourth addendum of this page; formerly gap G.31). By Proposition 4.8 an example is a retract $O = O_\\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.19. In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).",
+    "“It is possible that $X^1 \\ne X$ as M-polyfolds although the sets agree” is proved by an example the text does not give (fourth addendum of this page; formerly gap G.31). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).",
     "“$X^1 \\ne X$” is read as “$1_0^1$ is not sc-smooth”, equivalently (by `remark_4_3_isScDiffeo`) “the identity is not an sc-diffeomorphism $X \\to X^1$”. The sc-diffeomorphism clause needs only $X = X_1$, not $X_0 = X_\\infty$. “$(X^1)_m = X_{m+1} = X_i$” misprints $X_0$; $(X^1)_m = X_{m+1}$ holds as sets, the topologies of the iterated levels being gap G.6 (Findings, Chapter 4, items 5, 125). Hence “stronger” (formerly “narrower”, for the missing example)."
    ]
   },
@@ -164,12 +164,12 @@
    "title": "sc⁺-maps and their calculus",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, proof of Lemma 4.7, p. 149 (\"$r$ is a sc⁺-map\")",
+    "label": "§4.1, proof of Lemma 4.1.7 (preprint 4.7), p. 177 (preprint p. 149) (\"$r$ is a sc⁺-map\")",
     "page": 149,
-    "statement": "Not in the text. Definition 4.4 defines sc⁺ for retractions and Definition 1.4 for operators; the proof of Lemma 4.7 calls a retraction \"a sc⁺-map\", and Lemma 4.5 composes sc⁺ with sc-smooth maps without comment."
+    "statement": "Not in the text. Definition 4.1.4 (preprint 4.4) defines sc⁺ for retractions and Definition 1.1.5 (preprint 1.4) for operators; the proof of Lemma 4.1.7 (preprint 4.7) calls a retraction \"a sc⁺-map\", and Lemma 4.1.5 (preprint 4.5) composes sc⁺ with sc-smooth maps without comment."
    },
    "lean": {
-    "statement": "`IsScPlus U f`: $f(U) \\subseteq F_1$ and the lift $U \\to F^1$ is sc-smooth. Then $f(U_m) \\subseteq F_{m+1}$; on an sc-domain, $f$ is sc⁺ iff it has an sc-smooth lift into $F^1$, sc⁺ implies sc-smooth, sc⁺ ∘ sc-smooth and sc-smooth ∘ sc⁺ are sc⁺ (the latter through Proposition 1.17), and sc⁺-operators are sc⁺-maps.",
+    "statement": "`IsScPlus U f`: $f(U) \\subseteq F_1$ and the lift $U \\to F^1$ is sc-smooth. Then $f(U_m) \\subseteq F_{m+1}$; on an sc-domain, $f$ is sc⁺ iff it has an sc-smooth lift into $F^1$, sc⁺ implies sc-smooth, sc⁺ ∘ sc-smooth and sc-smooth ∘ sc⁺ are sc⁺ (the latter through Proposition 1.2.2 (preprint 1.17)), and sc⁺-operators are sc⁺-maps.",
     "decls": [
      "Chapter4/ScPlus · IsScPlus",
      "Chapter4/ScPlus · IsScPlus.mem_range_succ",
@@ -192,7 +192,7 @@
    "title": "The derivative of an sc⁺-map is an sc⁺-operator",
    "verdict": "explicit",
    "book": {
-    "label": "§4.1, proof of Lemma 4.7 (ii), p. 149",
+    "label": "§4.1, proof of Lemma 4.1.7 (ii) (preprint 4.7), p. 177 (preprint p. 149)",
     "page": 149,
     "statement": "\"$Dr(o)$ is a sc⁺-operator, since $r$ is a sc⁺-map. Consequently $Dr(o)$ is a compact operator between every level,\" and the image of the projection $Dr(o)$ must be finite-dimensional."
    },
@@ -214,10 +214,10 @@
   },
   {
    "id": "V4.9",
-   "title": "Definition 4.4: sc⁺-retractions",
+   "title": "Definition 4.1.4 (preprint 4.4): sc⁺-retractions",
    "verdict": "restated",
    "book": {
-    "label": "§4.1, Definition 4.4, p. 148",
+    "label": "§4.1, Definition 4.1.4 (preprint 4.4), p. 176 (preprint p. 148)",
     "page": 148,
     "statement": "An sc-smooth retraction $r : U \\to U$ is an sc⁺-retraction if $r(U_m) \\subseteq U_{m+1}$ for all $m$ and $r : U \\to U^1$ is sc-smooth; on an open $V \\subseteq X$, if $r : V \\to V^1$ is sc-smooth."
    },
@@ -238,10 +238,10 @@
   },
   {
    "id": "V4.10",
-   "title": "Lemma 4.5",
+   "title": "Lemma 4.1.5 (preprint 4.5)",
    "verdict": "same",
    "book": {
-    "label": "§4.1, Lemma 4.5, p. 148",
+    "label": "§4.1, Lemma 4.1.5 (preprint 4.5), p. 177 (preprint p. 148)",
     "page": 148,
     "statement": "If $t : U \\to U$ is an sc⁺-retraction onto $O$, every sc-smooth retraction $s : V \\to V$ of a relatively open $V \\subseteq C$ with $s(V) = O$ is an sc⁺-retraction."
    },
@@ -258,12 +258,12 @@
   },
   {
    "id": "V4.11",
-   "title": "Definition 4.6: sc⁺-retracts",
+   "title": "Definition 4.1.6 (preprint 4.6): sc⁺-retracts",
    "verdict": "same",
    "book": {
-    "label": "§4.1, Definition 4.6 and the remark after it, pp. 148–149",
+    "label": "§4.1, Definition 4.1.6 (preprint 4.6) and the remark after it, pp. 176–178 (preprint pp. 148–149)",
     "page": 148,
-    "statement": "$(O, C, E)$ is an sc⁺-retract if there are a relatively open $U \\subseteq C$ and an sc⁺-retraction $t : U \\to U$ onto $O$; by Lemma 4.5 this is intrinsic."
+    "statement": "$(O, C, E)$ is an sc⁺-retract if there are a relatively open $U \\subseteq C$ and an sc⁺-retraction $t : U \\to U$ onto $O$; by Lemma 4.1.5 (preprint 4.5) this is intrinsic."
    },
    "lean": {
     "statement": "`IsScPlusRetract E C O`; every sc-smooth retraction onto an sc⁺-retract is sc⁺, and $O$ is an sc⁺-retract iff it is a retract all of whose retractions are sc⁺.",
@@ -278,10 +278,10 @@
   },
   {
    "id": "V4.12",
-   "title": "Lemma 4.7: sc⁺-retracts are smooth with finite-dimensional tangent spaces",
+   "title": "Lemma 4.1.7 (preprint 4.7): sc⁺-retracts are smooth with finite-dimensional tangent spaces",
    "verdict": "explicit",
    "book": {
-    "label": "§4.1, Lemma 4.7, p. 149",
+    "label": "§4.1, Lemma 4.1.7 (preprint 4.7), p. 177 (preprint p. 149)",
     "page": 149,
     "statement": "If $r$ is an sc⁺-retraction onto $O$: (i) $O = O_\\infty$; (ii) at every $o \\in O$, $T_oO = Dr(o)E$ is finite-dimensional."
    },
@@ -302,15 +302,15 @@
   },
   {
    "id": "V4.13",
-   "title": "Proposition 4.8: sc⁺-retracts",
+   "title": "Proposition 4.1.8 (preprint 4.8): sc⁺-retracts",
    "verdict": "same",
    "book": {
-    "label": "§4.1, Proposition 4.8, p. 149",
+    "label": "§4.1, Proposition 4.1.8 (preprint 4.8), p. 177 (preprint p. 149)",
     "page": 149,
     "statement": "An sc-smooth retract $(O, C, E)$ is an sc⁺-retract iff $O_0 = O_\\infty$ and $1_0^1 : O \\to O^1$ is sc-smooth."
    },
    "lean": {
-    "statement": "`IsScPlusRetract E C O` iff $O \\subseteq E_\\infty$ and the lift `liftOne` is sc-smooth from $(O, C, E)$ to $(O_1, C_1, E^1)$ (Definition 2.7).",
+    "statement": "`IsScPlusRetract E C O` iff $O \\subseteq E_\\infty$ and the lift `liftOne` is sc-smooth from $(O, C, E)$ to $(O_1, C_1, E^1)$ (Definition 2.1.14 (preprint 2.7)).",
     "decls": [
      "Chapter4/ScPlus · proposition_4_8"
     ]
@@ -322,12 +322,12 @@
   },
   {
    "id": "V4.14",
-   "title": "Proposition 4.8 for the charts of an M-polyfold",
+   "title": "Proposition 4.1.8 (preprint 4.8) for the charts of an M-polyfold",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, proof of Theorem 4.2, p. 156 (\"it follows that $O_0 = O_\\infty$ and $1_0^1 : O \\to O^1$ is sc-smooth\")",
+    "label": "§4.1, proof of Theorem 4.1.2 (preprint 4.2), preprint p. 156 (\"it follows that $O_0 = O_\\infty$ and $1_0^1 : O \\to O^1$ is sc-smooth\")",
     "page": 156,
-    "statement": "Not in the text. The proof of Theorem 4.2 passes from \"$X_0 = X_\\infty$ and $1_0^1 : X \\to X^1$ sc-smooth\" to the same property of the model of a chart."
+    "statement": "Not in the text. The proof of Theorem 4.1.2 (preprint 4.2) passes from \"$X_0 = X_\\infty$ and $1_0^1 : X \\to X^1$ sc-smooth\" to the same property of the model of a chart."
    },
    "lean": {
     "statement": "In the charts $\\varphi$ and $(V_1, \\varphi, (O_1, C_1, E^1))$, $1_0^1$ is the lift $O \\to O_1$. The model of a chart is an sc⁺-retract iff its domain is smooth and $1_0^1$ is sc-smooth on it; so \"$X_0 = X_\\infty$, $1_0^1$ sc-smooth\" holds iff every chart (equivalently, a cover by charts) is modelled on sc⁺-retracts.",
@@ -339,10 +339,10 @@
     ]
    },
    "chips": [
-    "the chart form of Proposition 4.8"
+    "the chart form of Proposition 4.1.8"
    ],
    "diff": [
-    "Used in Theorem 4.2 and Proposition 4.15 (4) (Findings, item 4)."
+    "Used in Theorem 4.1.2 (preprint 4.2) and Proposition 4.2.3 (4) (preprint 4.15) (Findings, item 4)."
    ]
   },
   {
@@ -350,9 +350,9 @@
    "title": "The partial quadrant $C_e$ and the neighbourhood $G(e)$",
    "verdict": "extra",
    "book": {
-    "label": "§2.3, Definition 2.33, p. 39 (used in §4.1)",
+    "label": "§2.4 (preprint §2.3), Definition 2.5.1 (preprint 2.33), p. 53 (preprint p. 39) (used in §4.1)",
     "page": 39,
-    "statement": "Not in the text. Definition 2.33 asserts without proof that $C_e$ is a partial quadrant; that $C_e - e = C_e$ and that $C_e$ agrees with $C$ near $e$ are not stated."
+    "statement": "Not in the text. Definition 2.5.1 (preprint 2.33) asserts without proof that $C_e$ is a partial quadrant; that $C_e - e = C_e$ and that $C_e$ agrees with $C$ near $e$ are not stated."
    },
    "lean": {
     "statement": "$G(e) = \\{v : \\lambda_i(v) > 0$ whenever $\\lambda_i(e) \\ne 0\\}$ is open and contains $e \\in C$; $C_e$ is a partial quadrant (reordered coordinates); $C_e - e = C_e$; $G(e) \\cap C = G(e) \\cap C_e$; for $v \\in G(e)$ re-centring keeps $d$, the minimal subspace $E_v$ and the cone $C_v$.",
@@ -368,7 +368,7 @@
     ]
    },
    "chips": [
-    "proves Definition 2.33’s claim"
+    "proves Definition 2.5.1’s claim"
    ],
    "diff": [
     "Findings, items 1 (b), (c), 2."
@@ -379,9 +379,9 @@
    "title": "Translations by smooth vectors and re-centred retracts",
    "verdict": "extra",
    "book": {
-    "label": "not in the text (§4.1)",
+    "label": "not in the text (§4.1), preprint p. 147",
     "page": 147,
-    "statement": "Not in the text. Charts \"with $\\psi(x) = 0$\" are used in Theorems 4.2, 4.18, 4.22 and Lemma 5.11; translating a chart requires this."
+    "statement": "Not in the text. Charts \"with $\\psi(x) = 0$\" are used in Theorems 4.1.2, 4.2.7, 4.2.11 (preprint 4.2, 4.18, 4.22) and Lemma 5.3.3 (preprint 5.11); translating a chart requires this."
    },
    "lean": {
     "statement": "Translation by $a \\in E_\\infty$ is sc-smooth; for $U \\subseteq G(e) \\cap C$ relatively open and $e$ smooth, $v \\mapsto v - e$ is an sc-diffeomorphism onto the relatively open $U - e \\subseteq C_e$; restricting $r$ to $U \\cap r^{-1}(W) \\cap W$ keeps tameness; $((O \\cap G(e)) - e, C_e, E)$ is a (tame) retract when $(O, C, E)$ is.",
@@ -408,9 +408,9 @@
    "title": "Charts centred at a smooth point",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, Theorem 4.2 (ii), p. 147; proofs of Theorems 4.18, 4.22",
+    "label": "§4.1, Theorem 4.1.2 (ii) (preprint 4.2), p. 176 (preprint p. 147); proofs of Theorems 4.2.7, 4.2.11 (preprint 4.18, 4.22)",
     "page": 147,
-    "statement": "Not in the text. Theorem 4.2 (ii) and the proofs of Theorems 4.18, 4.22 use charts with $\\psi(x) = 0$; the text never says how they are obtained from the atlas."
+    "statement": "Not in the text. Theorem 4.1.2 (ii) (preprint 4.2) and the proofs of Theorems 4.2.7, 4.2.11 (preprint 4.18, 4.22) use charts with $\\psi(x) = 0$; the text never says how they are obtained from the atlas."
    },
    "lean": {
     "statement": "`MChart.recentre`: $\\varphi_e = \\varphi - e$ on $V \\cap \\varphi^{-1}(G(e))$, modelled on $((O \\cap G(e)) - e, C_e, E)$, is a chart of $X$ with $\\varphi_e(x) = 0$ for $\\varphi(x) = e$, the same degeneracy index, and a tame model if $\\varphi$ has one. Every smooth point of a chart domain is the centre of such a chart; in a tame $X$ of a tame one.",
@@ -437,9 +437,9 @@
    "title": "Strong bundle charts centred at a smooth point",
    "verdict": "extra",
    "book": {
-    "label": "§5.1, Lemma 5.11, p. 173 (uses them)",
+    "label": "§5.1, Lemma 5.3.3 (preprint 5.11), p. 217 (preprint p. 173) (uses them)",
     "page": 173,
-    "statement": "Not in the text. Lemma 5.11 uses a strong bundle chart centred at a given point."
+    "statement": "Not in the text. Lemma 5.3.3 (preprint 5.11) uses a strong bundle chart centred at a given point."
    },
    "lean": {
     "statement": "Over $\\varphi_e$: $R_e(u, h) = (r(u + e) - e, \\Gamma(u + e, h))$, $\\Phi_e(y) = (\\Phi(y)_1 - e, \\Phi(y)_2)$; $c_e$ is compatible with every chart $c$ is compatible with (continuous projection) and is a strong bundle chart; every smooth point of the base is the centre of one.",
@@ -462,7 +462,7 @@
    "title": "The mean value estimate for an sc⁺-retraction",
    "verdict": "restated",
    "book": {
-    "label": "§4.1, proofs of Lemmas 4.11, 4.12, (76)–(77), pp. 154–155",
+    "label": "§4.1, proofs of Lemmas 4.1.12, 4.1.13 (preprint 4.11, 4.12), (76)–(77), pp. 181–183 (preprint pp. 154–155)",
     "page": 154,
     "statement": "Since $t$ is sc⁺, $u \\mapsto (1 - p)t(u)$ is $C^1$ between the $1$-levels; $\\|(1 - p)Dt(u)\\|_{\\mathcal L(E_1)} \\le 1/2$ for $|u|_1 < \\varepsilon_1$, and the differences of $t$ are written as integrals of $Dt$ along segments."
    },
@@ -486,10 +486,10 @@
   },
   {
    "id": "V4.20",
-   "title": "Proposition 4.9: an sc⁺-retract is a graph over its tangent space",
+   "title": "Proposition 4.1.9 (preprint 4.9): an sc⁺-retract is a graph over its tangent space",
    "verdict": "explicit",
    "book": {
-    "label": "§4.1, Proposition 4.9, p. 150 (proof pp. 150–156)",
+    "label": "§4.1, Proposition 4.1.9 (preprint 4.9), p. 178 (preprint p. 150) (proof pp. 178–184 (preprint pp. 150–156))",
     "page": 150,
     "statement": "Let $t : U \\to U$ be an sc⁺-retraction onto $O \\ni 0$ with $T_0O$ in good position to $C$, $Y$ a good complement, $E = T_0O \\oplus Y$, and $p = Dt(0) : E \\to T_0O$ \"the sc-projection\". There are open neighbourhoods $U$ of $0$ in $O$ and $V$ of $0$ in $T_0O \\cap C$ such that $p : U \\to V$ is an sc-diffeomorphism; $(V, T_0O \\cap C, T_0O)$ is a local model."
    },
@@ -504,19 +504,19 @@
    "chips": [
     "$Y$ closed",
     "$p$ the projection along $Y$",
-    "direct proof, not via Lemma 4.10"
+    "direct proof, not via Lemma 4.1.11"
    ],
    "diff": [
-    "$Dt(0)$ projects along its own kernel, which nothing relates to $Y$; Lemma 4.12 needs the projection along $Y$ (Findings, item 20). $Y$ closed: Definition 3.21 asks for an sc-complement, the formal good complement records only the splitting (item 21).",
-    "The text's route (Lemma 4.10, Corollary 3.47) gives the graph only as a germ over a complement of its own choice; the proof is direct, V4.21–V4.25 (item 22). Where the proposition is applied, the closed complement is chosen."
+    "$Dt(0)$ projects along its own kernel, which nothing relates to $Y$; Lemma 4.1.13 (preprint 4.12) needs the projection along $Y$ (Findings, item 20). $Y$ closed: Definition 3.1.24 (preprint 3.21) asks for an sc-complement, the formal good complement records only the splitting (item 21).",
+    "The text's route (Lemma 4.1.11 (preprint 4.10), Theorem 3.5.11 (preprint Corollary 3.47)) gives the graph only as a germ over a complement of its own choice; the proof is direct, V4.21–V4.25 (item 22). Where the proposition is applied, the closed complement is chosen."
    ]
   },
   {
    "id": "V4.21",
-   "title": "Lemma 4.11: uniqueness",
+   "title": "Lemma 4.1.12 (preprint 4.11): uniqueness",
    "verdict": "restated",
    "book": {
-    "label": "§4.1, Lemma 4.11, p. 154",
+    "label": "§4.1, Lemma 4.1.12 (preprint 4.11), p. 181 (preprint p. 154)",
     "page": 154,
     "statement": "Let $\\mathbf f(a + y) = 0$ with $|a|_0, |y|_0 < \\varepsilon$; if $\\varepsilon$ is small, $y = \\delta(a)$."
    },
@@ -533,15 +533,15 @@
     "uniqueness among points of $O$"
    ],
    "diff": [
-    "The text's statement presupposes the $\\delta$ of Corollary 3.47 (Findings, item 23)."
+    "The text's statement presupposes the $\\delta$ of Theorem 3.5.11 (preprint Corollary 3.47) (Findings, item 23)."
    ]
   },
   {
    "id": "V4.22",
-   "title": "Lemma 4.12: existence",
+   "title": "Lemma 4.1.13 (preprint 4.12): existence",
    "verdict": "restated",
    "book": {
-    "label": "§4.1, Lemma 4.12, pp. 154–155",
+    "label": "§4.1, Lemma 4.1.13 (preprint 4.12), pp. 182–183 (preprint pp. 154–155)",
     "page": 154,
     "statement": "Let $\\mathbf f(a + \\delta(a)) = 0$ and $|a|_0 < \\varepsilon$; if $\\varepsilon$ is small, $a + \\delta(a) \\in O$."
    },
@@ -561,10 +561,10 @@
   },
   {
    "id": "V4.23",
-   "title": "Proposition 4.9: $p(O \\cap W) \\subseteq C$ and the neighbourhoods",
+   "title": "Proposition 4.1.9 (preprint 4.9): $p(O \\cap W) \\subseteq C$ and the neighbourhoods",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, end of the proof of Proposition 4.9, p. 156",
+    "label": "§4.1, end of the proof of Proposition 4.1.9 (preprint 4.9), preprint p. 156",
     "page": 156,
     "statement": "Not in the text. The text sets $V = \\{a \\in T_0O \\cap C : |a|_0 < \\varepsilon\\}$ and $U = \\{a + \\delta(a) : a \\in V\\}$, \"an open set in $O$\"; that $p$ maps points of $O$ near $0$ into $C$ is not checked."
    },
@@ -587,12 +587,12 @@
   },
   {
    "id": "V4.24",
-   "title": "Proposition 4.9: continuity of $\\Gamma$ and the frame formula",
+   "title": "Proposition 4.1.9 (preprint 4.9): continuity of $\\Gamma$ and the frame formula",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, proof of Proposition 4.9, p. 156",
+    "label": "§4.1, proof of Proposition 4.1.9 (preprint 4.9), preprint p. 156",
     "page": 156,
-    "statement": "Not in the text. The text takes the regularity of $a \\mapsto a + \\delta(a)$ from Corollary 3.47, which gives it only as a germ."
+    "statement": "Not in the text. The text takes the regularity of $a \\mapsto a + \\delta(a)$ from Theorem 3.5.11 (preprint Corollary 3.47), which gives it only as a germ."
    },
    "lean": {
     "statement": "$\\Gamma$ is Lipschitz on level $1$ and continuous into every level. For $\\|Dt(u) - Dt(0)\\|$ small, $A(u) = p \\circ Dt(u)|_N$ is invertible and $T_uO \\cap Y = 0$; $\\Gamma$ is differentiable into every level with $D\\Gamma(a) = Dt(\\Gamma(a))|_N \\circ (p \\circ Dt(\\Gamma(a))|_N)^{-1}$. Abstractly: a continuous right inverse of $q$ with values in the fixed points of $s$ has derivative $B$ when $(1 - Bq)Ds(u_0) = 0$.",
@@ -616,15 +616,15 @@
   },
   {
    "id": "V4.25",
-   "title": "Proposition 4.9: the $C^k$-bootstrap and the sc-diffeomorphism",
+   "title": "Proposition 4.1.9 (preprint 4.9): the $C^k$-bootstrap and the sc-diffeomorphism",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, end of the proof of Proposition 4.9, p. 156",
+    "label": "§4.1, end of the proof of Proposition 4.1.9 (preprint 4.9), preprint p. 156",
     "page": 156,
     "statement": "Not in the text. \"The map $p$ ... is a sc-diffeomorphism ... having the sc-smooth map $a \\mapsto a + \\delta(a)$ as its inverse.\""
    },
    "lean": {
-    "statement": "$(x, w) \\mapsto Dt_{j+1}(x)w$ is $C^k$ on $U_{j+k+1} \\times E_{j+k+1}$; $\\Gamma$ is $C^k$ into every level for every $k$, hence sc-smooth on $V$ (Proposition 1.19); $(V, N \\cap C, N)$ is a local model; $p$, $\\Gamma$ are sc-smooth between the retracts.",
+    "statement": "$(x, w) \\mapsto Dt_{j+1}(x)w$ is $C^k$ on $U_{j+k+1} \\times E_{j+k+1}$; $\\Gamma$ is $C^k$ into every level for every $k$, hence sc-smooth on $V$ (Proposition 1.2.4 (preprint 1.19)); $(V, N \\cap C, N)$ is a local model; $p$, $\\Gamma$ are sc-smooth between the retracts.",
     "decls": [
      "Chapter4/ScPlusGraph · GraphData.contDiffOn_lvlDeriv_apply",
      "Chapter4/ScPlusGraph · GraphData.Nbhd.contDiffOn_Γ_lvl",
@@ -646,7 +646,7 @@
    "title": "Charts composed with an sc-diffeomorphism between retracts",
    "verdict": "extra",
    "book": {
-    "label": "§4.1, proof of Theorem 4.2, p. 157",
+    "label": "§4.1, proof of Theorem 4.1.2 (preprint 4.2), preprint p. 157",
     "page": 157,
     "statement": "Not in the text. \"Carrying out this construction around every point $x \\in X$, we obtain a smoothly compatible atlas.\""
    },
@@ -666,10 +666,10 @@
   },
   {
    "id": "V4.27",
-   "title": "Theorem 4.2, (i) ⇒ (ii)",
+   "title": "Theorem 4.1.2 (preprint 4.2), (i) ⇒ (ii)",
    "verdict": "explicit",
    "book": {
-    "label": "§4.1, proof of Theorem 4.2, p. 156",
+    "label": "§4.1, proof of Theorem 4.1.2 (preprint 4.2), preprint p. 156",
     "page": 156,
     "statement": "The identity of $U$ is a tame retraction, $U = U_\\infty$ and $1_0^1 : U \\to U^1$ is sc-smooth; so $X_0 = X_\\infty$, $1_0^1$ is sc-smooth \"and the statement (ii) follows\"."
    },
@@ -692,12 +692,12 @@
   },
   {
    "id": "V4.28",
-   "title": "Theorem 4.2, (ii) ⇒ (i)",
+   "title": "Theorem 4.1.2 (preprint 4.2), (ii) ⇒ (i)",
    "verdict": "explicit",
    "book": {
-    "label": "§4.1, proof of Theorem 4.2, pp. 156–157",
+    "label": "§4.1, proof of Theorem 4.1.2 (preprint 4.2), pp. 183–186 (preprint pp. 156–157)",
     "page": 156,
-    "statement": "By Proposition 4.8 the model of $\\psi$ is an sc⁺-retract; Proposition 4.9 gives the sc-diffeomorphism $p : O' \\to V$, and $p \\circ \\psi$ is a chart onto $(V, T_0O \\cap C, T_0O)$; these charts form a smoothly compatible atlas."
+    "statement": "By Proposition 4.1.8 (preprint 4.8) the model of $\\psi$ is an sc⁺-retract; Proposition 4.1.9 (preprint 4.9) gives the sc-diffeomorphism $p : O' \\to V$, and $p \\circ \\psi$ is a chart onto $(V, T_0O \\cap C, T_0O)$; these charts form a smoothly compatible atlas."
    },
    "lean": {
     "statement": "If all points are smooth and $1_0^1$ is sc-smooth: for a chart $\\psi$ with $\\psi(x) = 0$ and $N = T_0O$ finite-dimensional, in good position, there are a closed good complement, the projection $p$ along it, and the chart $p \\circ \\psi$ on $\\psi^{-1}(W)$, a corner chart of $X$ with $(p \\circ \\psi)(x) = 0$; such charts at every point give a corner structure.",
@@ -717,15 +717,15 @@
     "tameness of the charts unused"
    ],
    "diff": [
-    "The closed good complement is chosen by Proposition 3.22's normal form, so nothing is added (Findings, item 54); the compatibility is V4.26."
+    "The closed good complement is chosen by Proposition 3.1.25's (preprint 3.22) normal form, so nothing is added (Findings, item 54); the compatibility is V4.26."
    ]
   },
   {
    "id": "V4.29",
-   "title": "Definition 4.13: smooth finite-dimensional submanifolds",
+   "title": "Definition 4.2.1 (preprint 4.13): smooth finite-dimensional submanifolds",
    "verdict": "same",
    "book": {
-    "label": "§4.2, Definition 4.13, p. 157",
+    "label": "§4.2, Definition 4.2.1 (preprint 4.13), p. 184 (preprint p. 157)",
     "page": 157,
     "statement": "$A \\subseteq X$ is a smooth finite-dimensional submanifold if every $a \\in A$ has an open $V \\ni a$ and an sc⁺-retraction $s : V \\to V$ onto $s(V) = A \\cap V$."
    },
@@ -749,7 +749,7 @@
    "title": "The sc⁺-retraction of a submanifold in a chart",
    "verdict": "explicit",
    "book": {
-    "label": "§4.2, proof of Theorem 4.18, pp. 160–161",
+    "label": "§4.2, proof of Theorem 4.2.7 (preprint 4.18), pp. 188–190 (preprint pp. 160–161)",
     "page": 160,
     "statement": "\"Taking $V$ and $U$ small, we may assume $V = \\varphi^{-1}(O)$\"; $t = \\varphi \\circ s \\circ \\varphi^{-1} \\circ r$ is a retraction, \"a sc⁺-retraction since $s$ is a sc⁺-retraction\", onto $\\varphi(A \\cap V)$."
    },
@@ -763,7 +763,7 @@
     ]
    },
    "chips": [
-    "the set $W$ of Proposition 2.21",
+    "the set $W$ of Proposition 2.3.19",
     "sc⁺ read in charts of $X$, $X^1$"
    ],
    "diff": [
@@ -772,10 +772,10 @@
   },
   {
    "id": "V4.31",
-   "title": "Remark 4.14 in a chart",
+   "title": "Remark 4.2.2 (preprint 4.14) in a chart",
    "verdict": "restated",
    "book": {
-    "label": "§4.2, Remark 4.14, p. 157",
+    "label": "§4.2, Remark 4.2.2 (preprint 4.14), p. 184 (preprint p. 157)",
     "page": 157,
     "statement": "$s(V) \\subseteq X_\\infty$; $T_aA = Ts(a)(T_aX)$ is the image of the sc⁺-operator $Ts(a)$, hence finite-dimensional."
    },
@@ -794,10 +794,10 @@
   },
   {
    "id": "V4.32",
-   "title": "Remark 4.14: points with $d_X = 0$",
+   "title": "Remark 4.2.2 (preprint 4.14): points with $d_X = 0$",
    "verdict": "narrower",
    "book": {
-    "label": "§4.2, Remark 4.14, p. 157",
+    "label": "§4.2, Remark 4.2.2 (preprint 4.14), p. 184 (preprint p. 157)",
     "page": 157,
     "statement": "Near points $a \\in A$ with $d_X(a) = 0$, $A$ is a smooth finite-dimensional manifold in the classical sense; the same where $T_aA$ is in good position."
    },
@@ -814,15 +814,15 @@
     "local form: G.33"
    ],
    "diff": [
-    "The local form, for the open piece $A \\cap \\{d_X = 0\\}$, is not formalized (G.33); the case of good position is Theorem 4.18 (V4.41)."
+    "The local form, for the open piece $A \\cap \\{d_X = 0\\}$, is not formalized (G.33); the case of good position is Theorem 4.2.7 (preprint 4.18) (V4.41)."
    ]
   },
   {
    "id": "V4.33",
-   "title": "Proposition 4.15 (1)",
+   "title": "Proposition 4.2.3 (1) (preprint 4.15)",
    "verdict": "explicit",
    "book": {
-    "label": "§4.2, Proposition 4.15 (1), p. 158",
+    "label": "§4.2, Proposition 4.2.3 (1) (preprint 4.15), p. 186 (preprint p. 158)",
     "page": 158,
     "statement": "$A \\subseteq X_\\infty$, and $A$ inherits the M-polyfold structure of $X$; $A$ has a tangent space at every point and $d_A$ is defined."
    },
@@ -838,15 +838,15 @@
     "two statements separated"
    ],
    "diff": [
-    "\"A sc⁺-retraction $s$ has its image in $X_\\infty$\" is Lemma 4.7 (i) through the chart retraction (Findings, item 62)."
+    "\"A sc⁺-retraction $s$ has its image in $X_\\infty$\" is Lemma 4.1.7 (i) (preprint 4.7) through the chart retraction (Findings, item 62)."
    ]
   },
   {
    "id": "V4.34",
-   "title": "Proposition 4.15 (2): $A$ is locally closed",
+   "title": "Proposition 4.2.3 (2) (preprint 4.15): $A$ is locally closed",
    "verdict": "restated",
    "book": {
-    "label": "§4.2, Proposition 4.15 (2), p. 158",
+    "label": "§4.2, Proposition 4.2.3 (2) (preprint 4.15), p. 186 (preprint p. 158)",
     "page": 158,
     "statement": "$A$ is locally closed in $X$ (defined as: every $a$ has an open $V(a)$ such that $b \\in V(a)$ belongs to $A$ if $U \\cap A \\ne \\emptyset$ for all open $U \\ni b$)."
    },
@@ -865,15 +865,15 @@
   },
   {
    "id": "V4.35",
-   "title": "Proposition 4.15 (3): $\\partial A \\subseteq \\partial X$",
+   "title": "Proposition 4.2.3 (3) (preprint 4.15): $\\partial A \\subseteq \\partial X$",
    "verdict": "same",
    "book": {
-    "label": "§4.2, Proposition 4.15 (3), p. 158",
+    "label": "§4.2, Proposition 4.2.3 (3) (preprint 4.15), p. 186 (preprint p. 158)",
     "page": 158,
     "statement": "$\\partial A = \\{a \\in A : d_A(a) \\ge 1\\} \\subseteq \\partial X$."
    },
    "lean": {
-    "statement": "The boundary of the induced M-polyfold $A$ lies in $\\partial X$ (by $d_A \\le d_X$, Lemma 2.26).",
+    "statement": "The boundary of the induced M-polyfold $A$ lies in $\\partial X$ (by $d_A \\le d_X$, Lemma 2.4.6 (preprint 2.26)).",
     "decls": [
      "Chapter4/Submanifolds · MPolyfold.IsSmoothSubmanifold.proposition_4_15_3"
     ]
@@ -885,10 +885,10 @@
   },
   {
    "id": "V4.36",
-   "title": "Proposition 4.15 (4): $1_0^1 : A \\to A^1$ is sc-smooth",
+   "title": "Proposition 4.2.3 (4) (preprint 4.15): $1_0^1 : A \\to A^1$ is sc-smooth",
    "verdict": "same",
    "book": {
-    "label": "§4.2, Proposition 4.15 (4), p. 158",
+    "label": "§4.2, Proposition 4.2.3 (4) (preprint 4.15), p. 186 (preprint p. 158)",
     "page": 158,
     "statement": "$1_0^1 : A \\to A^1$ is sc-smooth."
    },
@@ -908,7 +908,7 @@
    "title": "Tangent spaces of sub-retracts",
    "verdict": "extra",
    "book": {
-    "label": "not in the text (§4.2)",
+    "label": "not in the text (§4.2), preprint p. 159",
     "page": 159,
     "statement": "Not in the text. Used implicitly whenever $T_aA$ is compared with $T_aX$ or carried from one chart to another."
    },
@@ -925,10 +925,10 @@
   },
   {
    "id": "V4.38",
-   "title": "Definition 4.16: good position, in a chart",
+   "title": "Definition 4.2.5 (preprint 4.16): good position, in a chart",
    "verdict": "restated",
    "book": {
-    "label": "§4.2, Definition 4.16, p. 159",
+    "label": "§4.2, Definition 4.2.5 (preprint 4.16), p. 188 (preprint p. 159)",
     "page": 159,
     "statement": "A smooth finite-dimensional submanifold $A$ of a tame $X$ is in good position at $a$ if $T_aA$ is in good position to the partial quadrant $C_aX$ in $T_aX$."
    },
@@ -951,12 +951,12 @@
   },
   {
    "id": "V4.39",
-   "title": "Definition 4.16 does not depend on the chart",
+   "title": "Definition 4.2.5 (preprint 4.16) does not depend on the chart",
    "verdict": "extra",
    "book": {
-    "label": "§4.2, Definition 4.16, p. 159 (implicit)",
+    "label": "§4.2, Definition 4.2.5 (preprint 4.16), p. 188 (preprint p. 159) (implicit)",
     "page": 159,
-    "statement": "Not in the text. Definition 4.16 is stated in $T_aX$; that a chart form does not depend on the chart is taken for granted."
+    "statement": "Not in the text. Definition 4.2.5 (preprint 4.16) is stated in $T_aX$; that a chart form does not depend on the chart is taken for granted."
    },
    "lean": {
     "statement": "Good position of a sub-retract is carried by germs of sc-diffeomorphisms; good position at $a$ holds for every data, chart, presentation and lift, and is equivalent to the condition for all of them.",
@@ -972,15 +972,15 @@
     "Lemma 6.B of the exposition"
    ],
    "diff": [
-    "Through Proposition 2.30 and Lemma 3.45 (Findings, item 66)."
+    "Through Proposition 2.4.10 (preprint 2.30) and Lemma 3.5.9 (preprint 3.45) (Findings, item 66)."
    ]
   },
   {
    "id": "V4.40",
-   "title": "Definition 4.17: tame submanifolds",
+   "title": "Definition 4.2.6 (preprint 4.17): tame submanifolds",
    "verdict": "same",
    "book": {
-    "label": "§4.2, Definition 4.17, p. 159",
+    "label": "§4.2, Definition 4.2.6 (preprint 4.17), p. 188 (preprint p. 159)",
     "page": 159,
     "statement": "A smooth finite-dimensional submanifold is tame if, with its induced M-polyfold structure, it is tame."
    },
@@ -995,10 +995,10 @@
   },
   {
    "id": "V4.41",
-   "title": "Theorem 4.18: submanifolds in good position are manifolds with corners",
+   "title": "Theorem 4.2.7 (preprint 4.18): submanifolds in good position are manifolds with corners",
    "verdict": "same",
    "book": {
-    "label": "§4.2, Theorem 4.18, p. 159 (proof pp. 160–161)",
+    "label": "§4.2, Theorem 4.2.7 (preprint 4.18), p. 188 (preprint p. 159) (proof pp. 188–190 (preprint pp. 160–161))",
     "page": 159,
     "statement": "Let $X$ be tame and $A \\subseteq X$ a smooth finite-dimensional submanifold in good position at every point. Then the induced structure on $A$ is equivalent to a smooth manifold with boundary with corners; in particular $A$ is tame."
    },
@@ -1011,7 +1011,7 @@
     ]
    },
    "chips": [
-    "through Theorem 4.2"
+    "through Theorem 4.1.2 (preprint 4.2)"
    ],
    "diff": [
     "The proof cites \"Proposition 4.2\", takes $p = Dt(0)$, assumes \"$V = \\varphi^{-1}(O)$\" and writes $\\varphi^{-1}(V_0) \\cap A$ for $(p \\circ \\varphi)^{-1}(V_0) \\cap A$; the formal proof supplies the centred chart, the chart retraction, the closed complement and the compatibility (Findings, item 68)."
@@ -1019,12 +1019,12 @@
   },
   {
    "id": "V4.42",
-   "title": "Lemma 4.19",
+   "title": "Lemma 4.2.8 (preprint 4.19)",
    "verdict": "explicit",
    "book": {
-    "label": "§4.2, Lemma 4.19, p. 160",
+    "label": "§4.2, Lemma 4.2.8 (preprint 4.19), p. 188 (preprint p. 160)",
     "page": 160,
-    "statement": "$N = T\\varphi(a)(T_aA)$ is in good position to $C$, and $Y \\oplus Z$ is a good complement ($Z \\subseteq C$ the sc-complement of $T_0O$ of Proposition 2.35)."
+    "statement": "$N = T\\varphi(a)(T_aA)$ is in good position to $C$, and $Y \\oplus Z$ is a good complement ($Z \\subseteq C$ the sc-complement of $T_0O$ of Proposition 2.5.3 (preprint 2.35))."
    },
    "lean": {
     "statement": "For a bounded idempotent $\\pi$ with $(1 - \\pi)E_0$ in the minimal subspace at $0$ and $N$ in good position to $C$ inside $\\pi E_0$: $N$ is in good position to $C$, and $Y \\oplus (1 - \\pi)E_0$ is a good complement for every good complement $Y$ inside $\\pi E_0$, with constant $\\varepsilon/(\\|\\pi\\| + 1)$.",
@@ -1043,15 +1043,15 @@
   },
   {
    "id": "V4.43",
-   "title": "Remark 4.20: good position is an open condition",
+   "title": "Remark 4.2.9 (preprint 4.20): good position is an open condition",
    "verdict": "explicit",
    "book": {
-    "label": "§4.2, Remark 4.20, p. 161",
+    "label": "§4.2, Remark 4.2.9 (preprint 4.20), p. 189 (preprint p. 161)",
     "page": 161,
-    "statement": "If $A$ is in good position at $a$, there is an open $V(a) \\subseteq X$ such that $A$ is in good position at every $b \\in V(a) \\cap A$ (Proposition 4.9 and Lemma 3.55: \"the tangent spaces of $A$ move only slowly\")."
+    "statement": "If $A$ is in good position at $a$, there is an open $V(a) \\subseteq X$ such that $A$ is in good position at every $b \\in V(a) \\cap A$ (Proposition 4.1.9 (preprint 4.9) and Lemma 3.6.9 (preprint 3.55): \"the tangent spaces of $A$ move only slowly\")."
    },
    "lean": {
-    "statement": "For $X$ tame: there is an open $U \\ni a$ with `IsGoodPositionAt A b` for all $b \\in U \\cap A$. Along the graph of Proposition 4.9, $T_yQ = D\\Gamma(v)N$ and $p \\circ D\\Gamma(v) = 1$.",
+    "statement": "For $X$ tame: there is an open $U \\ni a$ with `IsGoodPositionAt A b` for all $b \\in U \\cap A$. Along the graph of Proposition 4.1.9 (preprint 4.9), $T_yQ = D\\Gamma(v)N$ and $p \\circ D\\Gamma(v) = 1$.",
     "decls": [
      "Chapter4/Submanifolds · tangentSpace_eq_range_graph",
      "Chapter4/Submanifolds · MPolyfold.remark_4_20",
@@ -1063,17 +1063,17 @@
     "$X$ tame"
    ],
    "diff": [
-    "Definition 4.16 is for tame $X$; \"move only slowly\" is $D\\sigma(0) = 0$ for $\\Gamma = 1 + \\sigma$; typos \"Theorem 4.9\", \"and open\" (Findings, item 70)."
+    "Definition 4.2.5 (preprint 4.16) is for tame $X$; \"move only slowly\" is $D\\sigma(0) = 0$ for $\\Gamma = 1 + \\sigma$; typos \"Theorem 4.9\", \"and open\" (Findings, item 70)."
    ]
   },
   {
    "id": "V4.44",
-   "title": "Definition 4.21: general position, in a chart",
+   "title": "Definition 4.2.10 (preprint 4.21): general position, in a chart",
    "verdict": "restated",
    "book": {
-    "label": "§4.2, Definition 4.21, p. 161",
+    "label": "§4.2, Definition 4.2.10 (preprint 4.21), p. 190 (preprint p. 161)",
     "page": 161,
-    "statement": "$A$ is in general position at $a$ if $T_aA$ has in $T_aX$ an sc-complement contained in $T^R_aX$ (Definition 2.38)."
+    "statement": "$A$ is in general position at $a$ if $T_aA$ has in $T_aX$ an sc-complement contained in $T^R_aX$ (Definition 2.5.8 (preprint 2.38))."
    },
    "lean": {
     "statement": "`IsGeneralPositionRetractAt`: an sc-subspace $B \\subseteq T_zO \\cap E_z$ with $(T_zO)_m = (T_zQ)_m \\oplus B_m$ on every level. `IsGeneralPositionAt A a`: this for $Q = \\varphi(W \\cap A)$ in some chart, data, presentation and lift.",
@@ -1092,12 +1092,12 @@
   },
   {
    "id": "V4.45",
-   "title": "Definition 4.21 does not depend on the chart",
+   "title": "Definition 4.2.10 (preprint 4.21) does not depend on the chart",
    "verdict": "extra",
    "book": {
-    "label": "§4.2, Definition 4.21, p. 161 (implicit)",
+    "label": "§4.2, Definition 4.2.10 (preprint 4.21), p. 190 (preprint p. 161) (implicit)",
     "page": 161,
-    "statement": "Not in the text. Definition 4.21 is stated in $T_aX$; chart independence is taken for granted."
+    "statement": "Not in the text. Definition 4.2.10 (preprint 4.21) is stated in $T_aX$; chart independence is taken for granted."
    },
    "lean": {
     "statement": "General position of a sub-retract is carried by germs of sc-diffeomorphisms at smooth points; general position at $a$ holds for every data, chart, presentation and lift.",
@@ -1112,17 +1112,17 @@
     "needs the point smooth"
    ],
    "diff": [
-    "Through Proposition 2.30 (Findings, item 66)."
+    "Through Proposition 2.4.10 (preprint 2.30) (Findings, item 66)."
    ]
   },
   {
    "id": "V4.46",
-   "title": "Theorem 4.22: linear algebra at the corner of a centred chart",
+   "title": "Theorem 4.2.11 (preprint 4.22): linear algebra at the corner of a centred chart",
    "verdict": "restated",
    "book": {
-    "label": "§4.2, proof of Theorem 4.22, pp. 162–163",
+    "label": "§4.2, proof of Theorem 4.2.11 (preprint 4.22), pp. 190–191 (preprint pp. 162–163)",
     "page": 162,
-    "statement": "$E = T_0O \\oplus Z = T_0A \\oplus \\widetilde A \\oplus Z$, so $T_0A$ has an sc-complement $Y \\subseteq W$; with $T_0A = N \\oplus (T_0A \\cap W)$, $E = N \\oplus W$, $C = (T_0A \\cap C) \\oplus Y$, and $T_0A \\cap C$ is a partial quadrant (Proposition 3.22)."
+    "statement": "$E = T_0O \\oplus Z = T_0A \\oplus \\widetilde A \\oplus Z$, so $T_0A$ has an sc-complement $Y \\subseteq W$; with $T_0A = N \\oplus (T_0A \\cap W)$, $E = N \\oplus W$, $C = (T_0A \\cap C) \\oplus Y$, and $T_0A \\cap C$ is a partial quadrant (Proposition 3.1.25 (preprint 3.22))."
    },
    "lean": {
     "statement": "At the corner: $E_0^{\\min} = \\{\\lambda = 0\\} \\subseteq E_x$; adding vectors of it changes neither $C$ nor $d$. For finite-dimensional $N$ with $N + E_0^{\\min} = E_0$: $\\lambda|_N$ onto, good position with a closed good complement $Y \\subseteq E_0^{\\min}$, and $d_{N \\cap C} = d_C$ on $N \\cap C$.",
@@ -1142,15 +1142,15 @@
     "coordinates replace $N \\oplus (T_0A \\cap W)$"
    ],
    "diff": [
-    "Only $T_0A + W = E$ is used; Proposition 4.9 needs $Y$ closed (Findings, items 82, 83)."
+    "Only $T_0A + W = E$ is used; Proposition 4.1.9 (preprint 4.9) needs $Y$ closed (Findings, items 82, 83)."
    ]
   },
   {
    "id": "V4.47",
-   "title": "Theorem 4.22 (3): an sc-complement inside $T^R_yO$",
+   "title": "Theorem 4.2.11 (3) (preprint 4.22): an sc-complement inside $T^R_yO$",
    "verdict": "explicit",
    "book": {
-    "label": "§4.2, proof of Theorem 4.22 (3), p. 164",
+    "label": "§4.2, proof of Theorem 4.2.11 (3) (preprint 4.22), preprint p. 164",
     "page": 164,
     "statement": "$T_aO = T_aA + (W \\cap T_aO) = T_aA + T^R_aO$, \"implying that $T_aA$ has in $T_aO$ a sc-complement which is contained in $T^R_aO$\"."
    },
@@ -1162,7 +1162,7 @@
     ]
    },
    "chips": [
-    "$T^R_yO$ an sc-subspace (Prop. 2.36)"
+    "$T^R_yO$ an sc-subspace (Prop. 2.5.6)"
    ],
    "diff": [
     "Lemma 7.A of the exposition (Findings, item 85 (b))."
@@ -1173,9 +1173,9 @@
    "title": "General position implies good position",
    "verdict": "extra",
    "book": {
-    "label": "not in the text (§4.2)",
+    "label": "not in the text (§4.2), p. 190 (preprint p. 162)",
     "page": 162,
-    "statement": "Not in the text. Needed for \"$A \\cap F_\\sigma$ is tame\" in Theorem 4.22 (4) and for the corner structure in Theorem 4.23."
+    "statement": "Not in the text. Needed for \"$A \\cap F_\\sigma$ is tame\" in Theorem 4.2.11 (4) (preprint 4.22) and for the corner structure in Theorem 4.3.1 (preprint 4.23)."
    },
    "lean": {
     "statement": "For $r$ tame and a smooth $z \\in O_1$: general position of $Q$ at $z$ implies good position at $z$.",
@@ -1192,15 +1192,15 @@
   },
   {
    "id": "V4.49",
-   "title": "Theorem 4.22 in a tame centred chart",
+   "title": "Theorem 4.2.11 (preprint 4.22) in a tame centred chart",
    "verdict": "restated",
    "book": {
-    "label": "§4.2, proof of Theorem 4.22, pp. 162–164",
+    "label": "§4.2, proof of Theorem 4.2.11 (preprint 4.22), pp. 190–193 (preprint pp. 162–164)",
     "page": 162,
-    "statement": "In the tame chart with $x = 0$: $A$ is the graph $\\{v + \\delta(v)\\}$ over $V \\subseteq T_0A \\cap C$ (Proposition 4.9); $d_A(a) = d_{T_0A \\cap C}(p(a)) = d_C(a) = d_O(a)$; and \"by means of the particular form of the map $\\alpha$\" $T_aA + W = E$, giving (3)."
+    "statement": "In the tame chart with $x = 0$: $A$ is the graph $\\{v + \\delta(v)\\}$ over $V \\subseteq T_0A \\cap C$ (Proposition 4.1.9 (preprint 4.9)); $d_A(a) = d_{T_0A \\cap C}(p(a)) = d_C(a) = d_O(a)$; and \"by means of the particular form of the map $\\alpha$\" $T_aA + W = E$, giving (3)."
    },
    "lean": {
-    "statement": "For $r$ tame, $t$ sc⁺ onto $Q \\ni 0$, general position at $0$: $N + E_0^{\\min} = E_0$, $N$ in good position, a closed good complement $Y \\subseteq E_0^{\\min}$ with $\\ker p = Y$, the data of Proposition 4.9, $d_{N \\cap C}(v) = d_C(\\Gamma(v))$ on $V$, and general position along $Q \\cap W$.",
+    "statement": "For $r$ tame, $t$ sc⁺ onto $Q \\ni 0$, general position at $0$: $N + E_0^{\\min} = E_0$, $N$ in good position, a closed good complement $Y \\subseteq E_0^{\\min}$ with $\\ker p = Y$, the data of Proposition 4.1.9 (preprint 4.9), $d_{N \\cap C}(v) = d_C(\\Gamma(v))$ on $V$, and general position along $Q \\cap W$.",
     "decls": [
      "Chapter4/LocalStructure · sup_minimalSubspaceWith_eq_top",
      "Chapter4/LocalStructure · sup_minimalSubspaceWith_eq_top_graph",
@@ -1216,10 +1216,10 @@
   },
   {
    "id": "V4.50",
-   "title": "Theorem 4.22: local structure in general position",
+   "title": "Theorem 4.2.11 (preprint 4.22): local structure in general position",
    "verdict": "restated",
    "book": {
-    "label": "§4.2, Theorem 4.22, p. 162 (proof pp. 162–164)",
+    "label": "§4.2, Theorem 4.2.11 (preprint 4.22), p. 190 (preprint p. 162) (proof pp. 190–193 (preprint pp. 162–164))",
     "page": 162,
     "statement": "Let $A$ be a smooth submanifold of the tame $X$, in general position at $x$. There is an open $U \\ni x$ with (1) precisely $d = d_X(x)$ local faces $F_1, \\dots, F_d$ in $U$; (2) $d_X(a) = d_A(a)$ on $A \\cap U$; (3) general position on $A \\cap U$; (4) for $\\sigma \\subseteq \\{1, \\dots, d\\}$, $F_\\sigma$ is a tame M-polyfold and $A \\cap F_\\sigma$ a tame smooth submanifold of $F_\\sigma$ in general position in $F_\\sigma$."
    },
@@ -1241,10 +1241,10 @@
   },
   {
    "id": "V4.51",
-   "title": "Theorem 4.22 (4) in the chart: the sc⁺-retraction onto $A \\cap F_\\sigma$",
+   "title": "Theorem 4.2.11 (4) (preprint 4.22) in the chart: the sc⁺-retraction onto $A \\cap F_\\sigma$",
    "verdict": "extra",
    "book": {
-    "label": "§4.2, end of the proof of Theorem 4.22, p. 164",
+    "label": "§4.2, end of the proof of Theorem 4.2.11 (preprint 4.22), preprint p. 164",
     "page": 164,
     "statement": "Not in the text. \"The previous arguments, but now applied to $A \\cap F_\\sigma$ conclude the proof.\""
    },
@@ -1266,10 +1266,10 @@
   },
   {
    "id": "V4.52",
-   "title": "sc⁺-retractions in a chart; Theorem 4.22 (4) for one $\\sigma$",
+   "title": "sc⁺-retractions in a chart; Theorem 4.2.11 (4) (preprint 4.22) for one $\\sigma$",
    "verdict": "extra",
    "book": {
-    "label": "§4.2, end of the proof of Theorem 4.22, p. 164",
+    "label": "§4.2, end of the proof of Theorem 4.2.11 (preprint 4.22), preprint p. 164",
     "page": 164,
     "statement": "Not in the text. \"$A \\cap F_\\sigma$ are smooth submanifolds of $F_\\sigma$\" needs an sc⁺-retraction in the M-polyfold $F_\\sigma$."
    },
@@ -1285,7 +1285,7 @@
     "the converse of V4.30"
    ],
    "diff": [
-    "Tameness of $A \\cap F_\\sigma$ is Theorem 4.18 in $F_\\sigma$ with V4.48 (Findings, item 89 (d), (e))."
+    "Tameness of $A \\cap F_\\sigma$ is Theorem 4.2.7 (preprint 4.18) in $F_\\sigma$ with V4.48 (Findings, item 89 (d), (e))."
    ]
   },
   {
@@ -1293,7 +1293,7 @@
    "title": "The family $\\mathbb R^m \\times X$ and stratified regular points",
    "verdict": "restated",
    "book": {
-    "label": "§4.3, p. 164, and the proof of Theorem 4.23, p. 166",
+    "label": "§4.3, preprint p. 164, and the proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)",
     "page": 164,
     "statement": "$Z = \\mathbb R^m \\oplus X$ with the product charts is tame; $P(\\lambda, x) = \\lambda$; the proof uses regular values of the maps $p_\\sigma : A \\cap F_\\sigma^\\circ \\to \\mathbb R^m$."
    },
@@ -1316,10 +1316,10 @@
   },
   {
    "id": "V4.54",
-   "title": "Theorem 4.23: families and Sard's theorem",
+   "title": "Theorem 4.3.1 (preprint 4.23): families and Sard's theorem",
    "verdict": "stronger",
    "book": {
-    "label": "§4.3, Theorem 4.23, p. 165 (proof pp. 165–166)",
+    "label": "§4.3, Theorem 4.3.1 (preprint 4.23), p. 193 (preprint p. 165) (proof pp. 193–194 (preprint pp. 165–166))",
     "page": 165,
     "statement": "Let $A \\subseteq Z$ be a smooth submanifold with tame induced structure and compact closure, $p = P|_A$, $\\varepsilon > 0$ with (1) $p^{-1}(\\lambda)$ compact and non-empty for $|\\lambda| \\le \\varepsilon$, (2) \"for $z \\in A$ there exists a sc-complement $T_zA$ in $T_zZ$ contained in $T^R_zZ$\". Then there is $\\Sigma \\subseteq \\{|\\lambda| < \\varepsilon\\}$ of full measure of regular values of $p$ such that for $\\lambda \\in \\Sigma$, $A_\\lambda$ is a smooth compact manifold with boundary with corners in general position."
    },
@@ -1341,12 +1341,12 @@
   },
   {
    "id": "V4.55",
-   "title": "Remark 4.24",
+   "title": "Remark 4.3.2 (preprint 4.24)",
    "verdict": "explicit",
    "book": {
-    "label": "§4.3, Remark 4.24, p. 165",
+    "label": "§4.3, Remark 4.3.2 (preprint 4.24), p. 193 (preprint p. 165)",
     "page": 165,
-    "statement": "By Proposition 2.36 the codimension of $T^R_xX$ is $d_X(x)$; so for $\\lambda \\in \\Sigma$ a point of $A_\\lambda$ can lie in a corner only if $d_X(x) \\le \\dim A_\\lambda$; zero-dimensional $A_\\lambda$ lie in $X \\setminus \\partial X$."
+    "statement": "By Proposition 2.5.6 (preprint 2.36) the codimension of $T^R_xX$ is $d_X(x)$; so for $\\lambda \\in \\Sigma$ a point of $A_\\lambda$ can lie in a corner only if $d_X(x) \\le \\dim A_\\lambda$; zero-dimensional $A_\\lambda$ lie in $X \\setminus \\partial X$."
    },
    "lean": {
     "statement": "For tame $X$ and smooth $x$, in a tame chart $\\operatorname{codim} T^R_zO = d_X(x)$; general position at $a$ gives $d_X(a) \\le \\dim T_aA$; with $T_aA = 0$, $a \\notin \\partial X$.",
@@ -1362,7 +1362,7 @@
     "for any submanifold in general position"
    ],
    "diff": [
-    "Applies to the $A_\\lambda$ of Theorem 4.23 through V4.54 (Findings, item 87)."
+    "Applies to the $A_\\lambda$ of Theorem 4.3.1 (preprint 4.23) through V4.54 (Findings, item 87)."
    ]
   },
   {
@@ -1370,7 +1370,7 @@
    "title": "Sard's theorem (vendored from the Milnor project)",
    "verdict": "extra",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, p. 166 (\"Using Sard's theorem\")",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166) (\"Using Sard's theorem\")",
     "page": 166,
     "statement": "Not in the text. The proof applies \"Sard's theorem\" to maps $A \\cap F_\\sigma^\\circ \\to \\mathbb R^m$ of arbitrary dimensions, without statement."
    },
@@ -1395,7 +1395,7 @@
    "title": "The strata, their dimension, and Sard on the strata",
    "verdict": "restated",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, pp. 165–166",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), pp. 193–194 (preprint pp. 165–166)",
     "page": 165,
     "statement": "\"By Theorem 4.23, the intersection $A \\cap F_\\sigma^\\circ$ is a smooth manifold without boundary having dimension $\\dim(A) - \\#\\sigma$\"; Sard gives sets $\\Sigma_\\sigma$ of full measure of regular values of $p_\\sigma$, and $\\Sigma = \\bigcap_\\sigma\\Sigma_\\sigma$."
    },
@@ -1414,17 +1414,17 @@
     "the dimension count is proved"
    ],
    "diff": [
-    "The text cites \"Theorem 4.23\" for Theorem 4.22, which does not state the dimension count (Findings, items 90, 104)."
+    "The text cites \"Theorem 4.23\" for Theorem 4.2.11 (preprint 4.22), which does not state the dimension count (Findings, items 90, 104)."
    ]
   },
   {
    "id": "V4.58",
-   "title": "Theorem 3.78 in $C^\\infty$ form",
+   "title": "Theorem 3.8.22 (preprint 3.78) in $C^\\infty$ form",
    "verdict": "stronger",
    "book": {
-    "label": "§3.8, Theorem 3.78, p. 141 (used in §4.3)",
+    "label": "§3.8, Theorem 3.8.22 (preprint 3.78), p. 169 (preprint p. 141) (used in §4.3)",
     "page": 141,
-    "statement": "Theorem 3.78 (implicit function theorem in partial quadrants) for $f$ of class $C^j$, with a $C^j$ solution."
+    "statement": "Theorem 3.8.22 (preprint 3.78) (implicit function theorem in partial quadrants) for $f$ of class $C^j$, with a $C^j$ solution."
    },
    "lean": {
     "statement": "For $f$ of class $C^\\infty$, one solution $\\tau$ is $C^\\infty$, with all the other conclusions of V3.63.",
@@ -1440,7 +1440,7 @@
     "radii independent of $j$"
    ],
    "diff": [
-    "The contraction radii of Lemmas 3.79, 3.80 and the fixed point do not depend on $j$ (Findings, item 105 (c))."
+    "The contraction radii of Lemmas 3.8.23, 3.8.24 (preprint 3.79, 3.80) and the fixed point do not depend on $j$ (Findings, item 105 (c))."
    ]
   },
   {
@@ -1448,7 +1448,7 @@
    "title": "The kernel at a stratified regular point is in good position",
    "verdict": "extra",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, p. 166 (the argument of Lemma 5.26)",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166) (the argument of Lemma 5.26 (preprint; not in the 2021 edition))",
     "page": 166,
     "statement": "Not in the text. \"$A_\\lambda$ is a smooth compact manifold with boundary with corners\" needs the implicit function theorem at corner points with the kernel in good position."
    },
@@ -1461,7 +1461,7 @@
     ]
    },
    "chips": [
-    "Lemma 5.26’s argument"
+    "Lemma 5.26’s (preprint) argument"
    ],
    "diff": [
     "Findings, item 105 (b)."
@@ -1472,7 +1472,7 @@
    "title": "A retraction onto the fibre over a stratified regular point",
    "verdict": "extra",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, p. 166",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)",
     "page": 166,
     "statement": "Not in the text. The fibres over regular values are asserted to be manifolds with boundary with corners."
    },
@@ -1494,9 +1494,9 @@
    "title": "The sc⁺-retraction onto the fibre $A_\\lambda$",
    "verdict": "extra",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, p. 166",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)",
     "page": 166,
-    "statement": "Not in the text. \"$A_\\lambda \\cap U(z)$ is a smooth submanifold of $X$\" (Definition 4.13 requires an sc⁺-retraction onto it)."
+    "statement": "Not in the text. \"$A_\\lambda \\cap U(z)$ is a smooth submanifold of $X$\" (Definition 4.2.1 (preprint 4.13) requires an sc⁺-retraction onto it)."
    },
    "lean": {
     "statement": "$\\tau(e) = (\\Gamma(\\rho(p(t(c, e)))))_2$ is an sc⁺-retraction of $E$ onto $\\{e : (c, e) \\in t(U) \\cap W, p(c, e) \\in O'\\}$; its tangent space at the point over $\\Gamma(v_0)_2$ contains the second components of the vertical tangent vectors of $A$. The slice $e \\mapsto (c, e)$ is sc-smooth.",
@@ -1518,7 +1518,7 @@
    "title": "General position of the fibre $A_\\lambda$",
    "verdict": "restated",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, p. 166",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)",
     "page": 166,
     "statement": "\"$T_{z'}(A \\cap F_\\sigma^\\circ) = T_{z'}((\\{\\lambda\\} \\times A_\\lambda) \\cap F_\\sigma^\\circ) \\oplus \\xi_{z'}$ ... in view of the assumption (2) ... $T_{z'}(\\{\\lambda\\} \\times A_\\lambda)$ has a sc-complement in $T^R_{z'}X$.\""
    },
@@ -1537,12 +1537,12 @@
   },
   {
    "id": "V4.63",
-   "title": "The local step of Theorem 4.23",
+   "title": "The local step of Theorem 4.3.1 (preprint 4.23)",
    "verdict": "restated",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, pp. 165–166",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), pp. 193–194 (preprint pp. 165–166)",
     "page": 165,
-    "statement": "Near $z$, Theorem 4.22 gives $U(z)$; the regular values of the $p_\\sigma$ have full measure, and over them $A_\\lambda \\cap U(z)$ is a smooth submanifold in general position."
+    "statement": "Near $z$, Theorem 4.2.11 (preprint 4.22) gives $U(z)$; the regular values of the $p_\\sigma$ have full measure, and over them $A_\\lambda \\cap U(z)$ is a smooth submanifold in general position."
    },
    "lean": {
     "statement": "Every $z_0 \\in A$ has an open $U$ and a null $\\mathrm{CV} \\subseteq \\mathbb R^m$ such that at every $z \\in A \\cap U$ with $z_1 \\notin \\mathrm{CV}$: $z$ is stratified regular, $A_{z_1}$ is near $z_2$ the image of an sc⁺-retraction on an open set, in general and in good position at $z_2$.",
@@ -1555,15 +1555,15 @@
     "in the product chart of a centred chart"
    ],
    "diff": [
-    "The text cites \"By Theorem 4.23\" for Theorem 4.22 (Findings, item 107)."
+    "The text cites \"By Theorem 4.23\" for Theorem 4.2.11 (preprint 4.22) (Findings, item 107)."
    ]
   },
   {
    "id": "V4.64",
-   "title": "The countable cover: Theorem 4.23 for any parameter set",
+   "title": "The countable cover: Theorem 4.3.1 (preprint 4.23) for any parameter set",
    "verdict": "stronger",
    "book": {
-    "label": "§4.3, proof of Theorem 4.23, p. 165",
+    "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 193 (preprint p. 165)",
     "page": 165,
     "statement": "\"We cover the set $\\{z \\in A : |p(z)| \\le \\varepsilon\\}$ with the finitely many such neighborhoods $U(z_1), \\dots, U(z_k)$.\""
    },
@@ -1584,11 +1584,11 @@
  ],
  "notFormalized": [
   {
-   "title": "Remark 4.3: “$X^1 \\ne X$ is possible”",
-   "label": "§4.1, Remark 4.3, p. 148",
+   "title": "Remark 4.1.3 (preprint 4.3): “$X^1 \\ne X$ is possible”",
+   "label": "§4.1, Remark 4.1.3 (preprint 4.3), p. 176 (preprint p. 148)",
    "page": 148,
    "book": "If $X_0 = X_\\infty$, then $X_m = X_0$ as sets for all $m$; \"however, it is possible that $X^1 \\ne X$ as sc-smooth spaces despite the fact that $(X^1)_m = X_{m+1} = X_i$ as sets\".",
-   "instead": "**Formalized since the first edition of this page** (fourth addendum; V4.6), by an example the text does not give. On the weighted sequence space $X$ of V1.13 ($|x|_m = \\sup_k(k+1)^m|x_k|$), $L(t)$ is the projection onto $\\cos\\theta\\,e_{n_k} + \\sin\\theta\\,e_{n_{k+1}}$ ($n_k = 2^k$), the angle $\\theta$ turning from $0$ to $\\pi/2$ with flat ends while $t$ runs through $[1/(k+2), 1/(k+1)]$, and $L(t) = 0$ for $t \\le 0$. The retraction $r(t, z) = (t, L(t)z)$ of $\\mathbb R \\oplus X$ is sc-smooth by a criterion for parameter families of level operators with one level of loss; its retract $O$ consists of smooth points, and the lift $O \\to E_1$ is discontinuous at $0$, so $O$ is not an sc⁺-retract (Proposition 4.8), and the M-polyfold $O$ with its single chart has $X_0 = X_\\infty$ and $1_0^1$ not sc-smooth. Why an example needs a retraction that loses a level (one with $C^1$ level maps gives none) is an argument, not formalized (Findings, Chapter 4, items 140–146).",
+   "instead": "**Formalized since the first edition of this page** (fourth addendum; V4.6), by an example the text does not give. On the weighted sequence space $X$ of V1.13 ($|x|_m = \\sup_k(k+1)^m|x_k|$), $L(t)$ is the projection onto $\\cos\\theta\\,e_{n_k} + \\sin\\theta\\,e_{n_{k+1}}$ ($n_k = 2^k$), the angle $\\theta$ turning from $0$ to $\\pi/2$ with flat ends while $t$ runs through $[1/(k+2), 1/(k+1)]$, and $L(t) = 0$ for $t \\le 0$. The retraction $r(t, z) = (t, L(t)z)$ of $\\mathbb R \\oplus X$ is sc-smooth by a criterion for parameter families of level operators with one level of loss; its retract $O$ consists of smooth points, and the lift $O \\to E_1$ is discontinuous at $0$, so $O$ is not an sc⁺-retract (Proposition 4.1.8 (preprint 4.8)), and the M-polyfold $O$ with its single chart has $X_0 = X_\\infty$ and $1_0^1$ not sc-smooth. Why an example needs a retraction that loses a level (one with $C^1$ level maps gives none) is an argument, not formalized (Findings, Chapter 4, items 140–146).",
    "decls": [
     "Chapter4/RemarkFourThreeFamily · remark_4_3_example",
     "Chapter4/RemarkFourThreeFamily · remark_4_3_retract_example",
@@ -1601,15 +1601,15 @@
    ]
   },
   {
-   "title": "Lemma 4.10: the section $u \\mapsto (1 - p)(u - t(u))$ is sc-Fredholm",
-   "label": "§4.1, Lemma 4.10, pp. 151–153",
+   "title": "Lemma 4.1.11 (preprint 4.10): the section $u \\mapsto (1 - p)(u - t(u))$ is sc-Fredholm",
+   "label": "§4.1, Lemma 4.1.11 (preprint 4.10), pp. 179–181 (preprint pp. 151–153)",
    "page": 151,
    "book": "The section $u \\mapsto (u, \\mathbf f(u))$, $\\mathbf f(u) = (1 - p)(u - t(u))$, of the local strong bundle $U \\triangleleft Y \\to U$ is sc-Fredholm.",
-   "instead": "**Not formalized, because no longer used**: Proposition 4.9, its only use, is proved directly (V4.20–V4.25). It would need $U \\triangleleft Y$ as a strong bundle, $Y$ and $Y \\cap F$ as sc-subspaces, the sc-isomorphism $E \\cong (T_0O \\oplus B) \\oplus W$ with $B \\subseteq Y_\\infty$, and at each smooth point the re-centred strong bundle chart (V4.18), filler and conjugation. The text's proof has a sign slip in $D\\mathbf f(u)$, calls $D\\mathbf f(u)$ an sc⁺-operator, writes $L(T_0O)$ for $L(Y)$, and omits the interior points of $(T_0O \\oplus B) \\cap C$ (Findings, item 57)."
+   "instead": "**Not formalized, because no longer used**: Proposition 4.1.9 (preprint 4.9), its only use, is proved directly (V4.20–V4.25). It would need $U \\triangleleft Y$ as a strong bundle, $Y$ and $Y \\cap F$ as sc-subspaces, the sc-isomorphism $E \\cong (T_0O \\oplus B) \\oplus W$ with $B \\subseteq Y_\\infty$, and at each smooth point the re-centred strong bundle chart (V4.18), filler and conjugation. The text's proof has a sign slip in $D\\mathbf f(u)$, calls $D\\mathbf f(u)$ an sc⁺-operator, writes $L(T_0O)$ for $L(Y)$, and omits the interior points of $(T_0O \\oplus B) \\cap C$ (Findings, item 57)."
   },
   {
-   "title": "Remark 4.14: the local form near $\\{d_X = 0\\}$",
-   "label": "§4.2, Remark 4.14, p. 157",
+   "title": "Remark 4.2.2 (preprint 4.14): the local form near $\\{d_X = 0\\}$",
+   "label": "§4.2, Remark 4.2.2 (preprint 4.14), p. 184 (preprint p. 157)",
    "page": 157,
    "book": "Near points $a \\in A$ with $d_X(a) = 0$ the submanifold $A$ is a smooth finite-dimensional manifold in the classical sense.",
    "instead": "**Formalized only globally**: if $d_X = 0$ on all of $A$, $A$ has a corner structure, without tameness of $X$ (V4.32). The local statement, for the open piece $A \\cap \\{d_X = 0\\}$ of an arbitrary $A$, is not formalized (Findings, item 61).",
@@ -1618,56 +1618,56 @@
    ]
   },
   {
-   "title": "The open question after Proposition 4.15",
-   "label": "§4.2, Open Question, p. 159",
+   "title": "The open question after Proposition 4.2.3 (preprint 4.15)",
+   "label": "§4.2, Open Question, preprint p. 159",
    "page": 159,
    "book": "Is a sub-M-polyfold with $A = A_\\infty$ and $\\dim T_aA$ finite and locally constant a smooth finite-dimensional submanifold? Is the \"T\" $\\{(x, 0) : |x| < 1\\} \\cup \\{(0, y) : 0 \\le y < 1\\}$ homeomorphic to a retract $O = O_\\infty$? Impossible for sc⁺-retracts.",
    "instead": "**Not formalized** (a question, not a statement). The last sentence, for a retract without boundary, is V4.32 with $A = O$: an sc⁺-retract in $(O, E, E)$ is a manifold; that the \"T\" is not a topological manifold is not formalized (Findings, item 65)."
   },
   {
-   "title": "Theorem 4.22 (1): local faces of the chart as global local faces",
-   "label": "§4.2, Theorem 4.22 (1), p. 162",
+   "title": "Theorem 4.2.11 (1) (preprint 4.22): local faces of the chart as global local faces",
+   "label": "§4.2, Theorem 4.2.11 (1) (preprint 4.22), p. 190 (preprint p. 162)",
    "page": 162,
    "book": "There are precisely $d = d_X(x)$ local faces $F_1, \\dots, F_d$ contained in $U$.",
-   "instead": "**Formalized for the chart model only** (V4.50): $d_X(x) = n$, all coordinates vanish at the centre, and $\\psi(x)$ lies in exactly $d_X(x)$ faces of the M-polyfold $O$. The identification of these faces with (germs of) global faces of $X$ (Theorem 2.45 in the face-structured case) is not formalized (Findings, items 86, 90). The text's local faces are faces of the neighbourhood $U$ itself (closures in $U$ of the components of $U \\cap \\{d_X = 1\\}$), so (4) is affected as well; the missing step is a local face theorem for small neighbourhoods, believed true for tame $X$ (Findings, Chapter 4, item 130; third addendum).",
+   "instead": "**Formalized for the chart model only** (V4.50): $d_X(x) = n$, all coordinates vanish at the centre, and $\\psi(x)$ lies in exactly $d_X(x)$ faces of the M-polyfold $O$. The identification of these faces with (germs of) global faces of $X$ (Theorem 2.5.17 (preprint 2.45) in the face-structured case) is not formalized (Findings, items 86, 90). The text's local faces are faces of the neighbourhood $U$ itself (closures in $U$ of the components of $U \\cap \\{d_X = 1\\}$), so (4) is affected as well; the missing step is a local face theorem for small neighbourhoods, believed true for tame $X$ (Findings, Chapter 4, item 130; third addendum).",
    "decls": [
     "Chapter4/LocalStructure · MPolyfold.theorem_4_22"
    ]
   },
   {
-   "title": "Theorem 4.23: chart independence of stratified regularity",
-   "label": "§4.3, proof of Theorem 4.23, p. 166",
+   "title": "Theorem 4.3.1 (preprint 4.23): chart independence of stratified regularity",
+   "label": "§4.3, proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166)",
    "page": 166,
    "book": "Regular values of the maps $p_\\sigma : A \\cap F_\\sigma^\\circ \\to \\mathbb R^m$, intrinsic to $A$ and its strata.",
-   "instead": "**Not formalized.** Stratified regularity is defined in some product chart (V4.53); its independence of the chart is true by the transport argument of V4.39 (the transition maps of product charts are $\\mathrm{id} \\times \\tau$ up to translation) but not formalized. Theorem 4.23 is unaffected: it produces $\\Sigma$ (Findings, items 102, 108).",
+   "instead": "**Not formalized.** Stratified regularity is defined in some product chart (V4.53); its independence of the chart is true by the transport argument of V4.39 (the transition maps of product charts are $\\mathrm{id} \\times \\tau$ up to translation) but not formalized. Theorem 4.3.1 (preprint 4.23) is unaffected: it produces $\\Sigma$ (Findings, items 102, 108).",
    "decls": [
     "Chapter4/Families · IsStratRegularPoint"
    ]
   },
   {
-   "title": "Definition 4.25: sc-differential forms and the directed system",
-   "label": "§4.4, Definition 4.25, p. 167",
+   "title": "Definition 4.4.1 (preprint 4.25): sc-differential forms and the directed system",
+   "label": "§4.4, Definition 4.4.1 (preprint 4.25), p. 195 (preprint p. 167)",
    "page": 167,
    "book": "An sc-differential $k$-form is an sc-smooth $\\omega : \\oplus^kTX \\to \\mathbb R$, linear in each argument and skew-symmetric; pull-back along $X^{i+1} \\to X^i$ gives a directed system with limit $\\Omega^*_\\infty(X)$.",
    "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124)."
   },
   {
-   "title": "Proposition 4.26: the Lie bracket of sc-smooth vector fields",
-   "label": "§4.4, Proposition 4.26, p. 167",
+   "title": "Proposition 4.4.5 (preprint 4.26): the Lie bracket of sc-smooth vector fields",
+   "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167)",
    "page": 167,
    "book": "For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth vector field $[A, B]$ on $X^1$, a section of $T(X^1) \\to X^2$ (quoted from another paper).",
    "instead": "**Not formalized** (no proof in the text; needs the tangent bundle of $X^1$ over $X^2$, gap G.6)."
   },
   {
-   "title": "The exterior derivative, Definition 4.27 and the relative complex",
-   "label": "§4.4, pp. 167–168, Definition 4.27",
+   "title": "The exterior derivative, Definition 4.4.6 (preprint 4.27) and the relative complex",
+   "label": "§4.4, pp. 195–199 (preprint pp. 167–168), Definition 4.4.6 (preprint 4.27)",
    "page": 167,
    "book": "$d : \\Omega^k(X^{i+1}) \\to \\Omega^{k+1}(X^i)$ by the usual formula, $d^2 = 0$; $H^*_{sc}(X) = \\ker d/\\operatorname{im} d$; the relative complex $\\Omega^*_\\infty(X) \\oplus \\Omega^{*-1}_\\infty(\\partial X)$ with $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$.",
    "instead": "**Not formalized.** The direction of $d$ should presumably be $\\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ (the bracket lives one level up); $d \\circ d = 0$ and $dj^* = j^*d$ are asserted without proof; forms on $\\partial X$, a union of faces, are not defined (Findings, items 120–122)."
   },
   {
-   "title": "Theorem 4.28: Stokes' theorem",
-   "label": "§4.4, Theorem 4.28, p. 168",
+   "title": "Theorem 4.4.7 (preprint 4.28): Stokes' theorem",
+   "label": "§4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168)",
    "page": 168,
    "book": "For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\\omega$, $\\int_N d\\omega = \\sum_F\\int_F\\omega$.",
    "instead": "**Not formalized** (no proof in the text; integration on manifolds with corners of varying dimension is not in Mathlib). The formula writes $\\int_M$ for $\\int_N$ (Findings, item 123)."

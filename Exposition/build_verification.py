@@ -36,17 +36,17 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
     ("03", "Ch. 3", "sc-Fredholm sections and the implicit function theorem", ["Chapter3"]),
     ("04", "Ch. 4, §§4.1–4.4", "manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth "
      "finite-dimensional submanifolds, families and Sard's theorem (vendored)", ["Chapter4", "Vendor/MilnorSard"]),
-    ("05", "Ch. 5, §§5.1–5.4", "the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and "
+    ("05", "Ch. 5, §§5.1–5.3, 5.5 (preprint §§5.1–5.4)", "the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and "
      "bump functions, transversality, general and good position, homotopies, partitions of unity", ["Chapter5"]),
-    ("06", "Ch. 6, §§6.1–6.5, 6.7", "linearizations and orientations: determinant lines and exact sequences, the "
+    ("06", "Ch. 6, §§6.2–6.6, 6.8 (preprint §§6.1–6.5, 6.7)", "linearizations and orientations: determinant lines and exact sequences, the "
      "determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the "
      "propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of "
      "the solution set", ["Chapter6"]),
-    ("07", "Part II, Ch. 7, §§7.1–7.5 (2017 numbering)", "ep-groupoids: groupoids of M-polyfolds with local "
+    ("07", "Part II, Ch. 7, §§7.1–7.3, 7.5–7.6 (2017 §§7.1–7.5)", "ep-groupoids: groupoids of M-polyfolds with local "
      "sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation "
      "of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology "
      "of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets", ["Chapter7"]),
-    ("08", "Part II, Ch. 8, §§8.1–8.5 (2017 numbering)", "bundles and covering functors: the tangent ep-groupoid "
+    ("08", "Part II, Ch. 8, §§8.1–8.3, 8.5–8.6 (2017 §§8.1–8.5)", "bundles and covering functors: the tangent ep-groupoid "
      "and the tangent functor, natural transformations, the orbit space of the tangent, strong bundles over "
      "ep-groupoids and their functorial picture, strong bundle maps and section functors, proper covering "
      "functors, their local structure and geometric lifts, proper strong bundle covering functors, the counting "
@@ -57,11 +57,13 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
 *A companion to the expanded exposition of Part I, and of Chapters 7 and 8 of Part II, of H. Hofer, K. Wysocki and
-E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021; for Part I the 2014 preprint arXiv 1407.3185 is the
-text in hand, and its numbering and pages are used, marked as such; the numbers and pages of the book's arXiv
-version, 1707.08941, are in `Exposition/BookConcordance.md`. Part II has no preprint: for it the 2017 arXiv
-version is the text, and its numbers and printed pages are the only numbering used. The Springer edition is not
-checked). That exposition is
+E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021). Statement numbers and pages are those of the
+Springer edition, followed in parentheses by those of the text the formalization was first checked against:
+for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Part II, which has no preprint, the book's
+arXiv version, 1707.08941 ("2017"); a page that could not be located in the Springer text is given in the old
+numbering only, marked as such. The V- and G-numbers are the project's own, and the Lean names carry the preprint's
+(Part I) and the 2017 (Part II) numbers; `Exposition/BookConcordance.md` gives the correspondence). That
+exposition is
 written to be read; this edition is written to be checked. It records, chapter by chapter, exactly
 which statements of the text have been verified by the Lean 4 proof assistant against the Mathlib
 library, what each verified statement says when read back in ordinary language, which hypotheses the

@@ -1,14 +1,17 @@
 # Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
-I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); every statement number
-and page of Part I in `Findings.md`, the chapters and the reports is the preprint's. Part II has no
-preprint, and there the 2017 numbering is the only one (section "Part II" at the end). The published book
-(Springer 2021) is now available (text in `sources/HWZ-Book-2021.txt`; not committed, since `sources/` is
-gitignored) and is the authoritative version from Chapter 9 on; the Lean names, the V-items and the
-report citations of Chapters 1–8 keep the preprint and 2017 numbers, and the section "The Springer edition
-(2021), Chapters 1–8" below gives their 2021 numbers and pages. The book's arXiv version is **arXiv
-1707.08941v1 (27 July 2017)**, the only version on arXiv (text in `sources/HWZ-Book-2017.txt`),
+I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); the Lean names of Part I
+carry the preprint's statement numbers. Part II has no preprint, and there the Lean names carry the
+2017 numbers (section "Part II" at the end); the V- and G-numbers of the reports are the project's
+own. The published book (Springer 2021) is now available (text in `sources/HWZ-Book-2021.txt`; not
+committed, since `sources/` is gitignored) and is the authoritative version from Chapter 9 on. The report citations of Chapters 1–8
+(`Findings.md`, the chapters, `verification/`, `pbp/`, `cmp/`) give the 2021 statement numbers and pages
+first, with the preprint's (Part I) or the 2017 text's (Part II) in parentheses, as in "Theorem 3.5.6
+(preprint 3.43), p. 126 (preprint p. 102)" or "Proposition 7.1.15 (2017: 7.5)"; a page that could not
+be located in the 2021 text keeps its old number, marked "(preprint p. …)" or "(2017 p. …)". The section
+"The Springer edition (2021), Chapters 1–8" below gives the correspondence. The book's arXiv version is
+**arXiv 1707.08941v1 (27 July 2017)**, the only version on arXiv (text in `sources/HWZ-Book-2017.txt`),
 whose Part I (Chapters 1–6) corresponds to the preprint's Part I. It was used as the proxy for the book
 until the Springer text became available: **every result recorded in the sections before "The Springer
 edition" is a result about the 2017 arXiv text**, whose pages and late corrections may differ from
@@ -752,9 +755,9 @@ und ihrer Grenzgebiete 72, Springer 2021), is available as `sources/HWZ-Book-202
 and nothing of it is quoted here beyond a few words). This section gives, for every numbered item of
 the 2017 arXiv text in Chapters 1–8, its Springer counterpart, its printed page and a status; for
 Chapters 1–6 the preprint number is carried along by composing with the tables above. The 2021 edition
-is the authoritative one **from Chapter 9 on**; the Lean names, the V-items and the report citations of
-Chapters 1–8 keep the preprint (Part I) and 2017 (Part II) numbers, and the tables below give their
-2021 numbers.
+is the authoritative one **from Chapter 9 on**; the Lean names of Chapters 1–8 keep the preprint
+(Part I) and 2017 (Part II) numbers, the report citations of Chapters 1–8 give the 2021 numbers
+and pages first, with the old ones in parentheses, and the tables below give the correspondence.
 
 **Method.** The numbered items (Definition, Theorem, Lemma, Proposition, Corollary, Remark, Example) of
 the 2017 and the 2021 text were extracted with their pages and aligned chapter by chapter, in order, by
