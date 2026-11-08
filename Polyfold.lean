@@ -289,3 +289,6 @@ import Polyfold.Chapter10.StrongBundleEquivalenceExamples
 import Polyfold.Chapter10.Localization
 import Polyfold.Chapter10.LocalizationCategory
 import Polyfold.Chapter10.LocalizationProperties
+import Polyfold.Chapter10.StrongBundleLocalization
+import Polyfold.Chapter10.StrongBundleLocalizationSections
+import Polyfold.Chapter10.StrongBundleLocalizationExamples
