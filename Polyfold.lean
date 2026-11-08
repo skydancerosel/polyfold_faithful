@@ -255,3 +255,5 @@ import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
 import Polyfold.Chapter9.BoundaryPosition
+import Polyfold.Chapter9.GoodPoints
+import Polyfold.Chapter9.Tangent
