@@ -77,8 +77,8 @@ The hypotheses `IsScVectorField` are satisfiable: `MPolyfold.isScVectorField_zer
   set of `X¹`, not only at the points of `X₂` as the statement reads.  The local form is also
   applied to the transition maps of charts, which gives the independence of the chart.
 * Lemma 4.4.4 is proved for `i = 1`; every fixed `i` follows by applying it to `X¹`, `X²`, …,
-  since `A^(1)` is again an sc-smooth vector field (one statement for a family indexed by `i` is
-  not formalized, the M-polyfolds `X^i` being built by iteration).
+  since `A^(1)` is again an sc-smooth vector field; the statement for all `i` at once is
+  `lemma_4_4_4_all_2021` in `Chapter2/TangentLiftAll.lean`.
 -/
 
 open Set Filter Topology Function

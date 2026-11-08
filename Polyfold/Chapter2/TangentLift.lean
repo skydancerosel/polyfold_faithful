@@ -93,9 +93,8 @@ The diagonal example (Remark 2.4.2):
   `Φ` is defined with a chosen chart (`MPolyfold.someChart`) and then shown to be independent of
   it (`tangentChartMap_tangentLower` holds in every chart).
 * `X^i` is the iterate `(X¹)¹ ⋯` (`MPolyfold.shift`).  The case `i = 1` is proved; every fixed `i`
-  follows by iteration (`i = 2` is written out, with `levelOneEquiv` as the inductive step); one
-  statement for a family indexed by `i` is not formalized, since the types `X^i` are themselves
-  built by iteration.
+  follows by iteration (`i = 2` is written out, with `levelOneEquiv` as the inductive step); the
+  statement for all `i` at once is `proposition_2_3_17_all_2021` in `Chapter2/TangentLiftAll.lean`.
 * `(X¹)^i ≡ (X^i)¹` is an equality for `i = 1`, and for `i = 2` it is `((X¹)¹)¹ = ((X¹)¹)¹`.
   That the levels of `X¹` carry the topology of the levels of `X` is a separate statement (gap
   G.6), proved here as `shiftLevelHomeomorph`; Proposition 2.3.17 does not use it.

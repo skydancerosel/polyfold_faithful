@@ -53,8 +53,9 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
 * **Proposition 8.1.17 (1)** is proved through 2021 Proposition 7.2.21 for `TX`: `(T𝐗)^T` is
   `p⁻¹((𝐗¹)^T)`, closed by (LUC) for `X¹`.  It assumes, as Appendix 7.6.4 does,
   `HasConnectedDenseLevelOneReps` (`U(x) ∩ X₁` connected and dense; the text's `V(x)`), and that
-  `p : T𝐗 → 𝐗¹` is open (Part I, gap G.8).  (2) is proved for `(TX)⁰ = TX` only: the identification
-  `(TX)ⁱ = T(Xⁱ)` is not formalized.
+  `p : T𝐗 → 𝐗¹` is open (Part I, gap G.8).  (2) is proved here for `(TX)⁰ = TX`; for all `i` it is
+  `EP.proposition_8_1_17_two_all_2021` in `Chapter8/TangentZhouLevels.lean`, through
+  `(TX)ⁱ ≡ T(Xⁱ)` (`EP.tangentLiftEpEquiv`).
 * **Definition 8.4.2** reads "strong bundle isomorphism `B : W|U(x) → W|U(x)`" as the project's
   `StrongBundle.IsStrongBundleIsoOn` (a strong bundle map `W → W` restricting to an isomorphism of
   `W|U(x)`, as for Definition 8.10 in `EpStrongBundle.lean`), and `|B(w)| = |w|` as equality of

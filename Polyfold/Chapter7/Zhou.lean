@@ -85,13 +85,14 @@ sc-diffeomorphism of `U(x)` onto an open image with `β(x) = x` and `|β(y)| = |
   `DenseSmoothTangent` (`(T_xX)_∞` dense in `T_xX`) for Lemma 7.4.6.  Lemma 7.4.4 assumes, as its
   proof does, that `U(x) ∩ X₁` is connected in `X¹` and dense in `U(x)`
   (`HasLevelOneConnectedDenseReps`).
-* **`Xⁱ` for `i ≥ 2`.**  Proposition 7.4.9 needs the identification of `(Xⁱ)_∞` with `X_∞` and
-  of `T(Xⁱ)` with `TX` (gaps G.6, G.7); it is not formalized.  Corollary 7.4.11 is proved for
-  `X` and `X¹` (`corollary_7_4_11_2021`), through `IsSmoothUC`; for all `i`, Theorems 7.4.13 and
-  7.4.24 take (ZHOU) for every `Xⁱ` (the conclusion of Proposition 7.4.9) as a hypothesis.
-  Likewise Proposition 7.4.16 is proved for `X¹` only, and Proposition 7.4.17 takes (VSLUC) for
-  every `Xⁱ`; the direction (SLUC) ⇒ (VSLUC) of Proposition 7.4.18 is not formalized (it needs
-  natural representations of `X^N` in terms of those of `X`, G.6).
+* **`Xⁱ` for `i ≥ 2`.**  Here Corollary 7.4.11 is proved for `X` and `X¹`
+  (`corollary_7_4_11_2021`), through `IsSmoothUC`; Theorems 7.4.13 and 7.4.24 take (ZHOU) for every
+  `Xⁱ` as a hypothesis, Proposition 7.4.16 is proved for `X¹`, and Proposition 7.4.17 takes (VSLUC)
+  for every `Xⁱ`.  `Chapter7/ZhouLevels.lean` removes these hypotheses: Proposition 7.4.9
+  (`EP.proposition_7_4_9_2021`), the all-`i` forms `EP.corollary_7_4_11_all_2021`,
+  `EP.theorem_7_4_13_all_2021`, `EP.proposition_7_4_16_all_2021`, `EP.proposition_7_4_17_all_2021`,
+  `EP.theorem_7_4_24_all_2021`, and Proposition 7.4.18 in both directions
+  (`EP.proposition_7_4_18_2021`), with the Part I facts per level as explicit hypotheses.
 * (VSLUC) is read with `V(x)` open in `X_∞`, inside some natural representation `U(x)` and
   invariant under its action; (LUC)-type conclusions are stated for points of `V(x)`.
 * Proposition 7.4.2: given (LUC) for `X`, the conclusion holds for every natural representation

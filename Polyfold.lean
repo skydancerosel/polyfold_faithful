@@ -248,6 +248,9 @@ import Polyfold.Chapter2.LocalTopologyExample
 import Polyfold.Chapter6.Book2021Continuity
 import Polyfold.Chapter2.TameBoundaryNonCentred
 import Polyfold.Chapter2.TameSub
+import Polyfold.Chapter2.TangentLiftAll
+import Polyfold.Chapter7.ZhouLevels
+import Polyfold.Chapter8.TangentZhouLevels
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
