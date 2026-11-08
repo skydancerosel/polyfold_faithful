@@ -190,6 +190,15 @@ do not call the text wrong or speak of its "errors".
   PDF was not available: the *(book?)* marks are annotated against the arXiv version 1707.08941
   (*(book 2017: …)*, `Exposition/BookConcordance.md`, text in `sources/HWZ-Book-2017.txt`); the 2010
 paper's text is not in `sources/`.
+* **The 2021 Springer book is the authoritative version** (user, 2026-11-08): `Exposition/sources/Polyfold
+  and Fredholm Theory.pdf` (1008 pp., gitignored with all of `sources/`; never commit it or its text),
+  extracted to `sources/HWZ-Book-2021.txt` (`pdftotext -layout`). It numbers items in three levels
+  (Definition 9.1.2 for 2017's Definition 9.1) and has other pages (Chapter 7 p. 287, Chapter 8 p. 357,
+  Chapter 9 p. 401, Chapter 10 p. 461) and some new items (e.g. Remark 9.1.4, Propositions 9.1.11–9.1.12,
+  §7.6). From Chapter 9 on, cite the 2021 numbers and pages first, the 2017 ones in parentheses.
+  **To do:** a 2021 column in `BookConcordance.md` for Part I and Chapters 7–8, a check of the *(book?)*
+  marks and of the Chapter 7–8 statements against the 2021 text (new or changed items), without
+  renumbering V-items or Lean names.
 
 ## 3. What remains, in order (the user's instructions: after Chapter 3, build the comparison HTML,
 the proof by proof in PDF and HTML, and the sign-off HTML; then Chapter 4; update the reports as

@@ -722,3 +722,9 @@ Waves: W0 `Chapter9/Basic.lean` (Definitions 9.1–9.3, Remark 9.2 (b) example, 
 witnesses: the zero functor, a single submanifold, `ℤ/2`-symmetric pair of lines); W1 §9.2 (tangent
 and boundary of `Θ`, good points, Lemmas 9.3–9.9, Propositions 9.2–9.4, Theorem 9.1); W2 §9.3
 orientations; W3 §9.4–§9.5 after the decision P10.4; W4 reports.
+
+Source (2026-11-08): the 2021 Springer book is authoritative (`sources/HWZ-Book-2021.txt`; Chapter 9 is
+pp. 401–460 there, items numbered 9.1.1–9.6.x, e.g. Definition 9.1.2 = 2017 Definition 9.1, Lemma
+9.1.5 = 2017 Lemma 9.1, Lemma 9.1.7 = 2017 Lemma 9.2; new: Remark 9.1.4, Propositions 9.1.11–9.1.12 with
+their proof in §9.6.1, Example 9.3.5, Lemma 9.3.7, Proposition 9.3.9). The inventory above uses the 2017
+numbers; Lean names and docstrings from Chapter 9 on follow the 2021 numbering (`lemma_9_1_5`).
