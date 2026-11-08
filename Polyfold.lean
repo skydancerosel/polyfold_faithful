@@ -264,3 +264,9 @@ import Polyfold.Chapter9.TangentSlicesBasic
 import Polyfold.Chapter9.TangentSlicesRn
 import Polyfold.Chapter9.TangentSlices
 import Polyfold.Chapter9.AppendixSlices
+import Polyfold.Chapter9.OrientationTangent
+import Polyfold.Chapter9.OrientationBasic
+import Polyfold.Chapter9.OrientationExample
+import Polyfold.Chapter9.OrientationUniqueness
+import Polyfold.Chapter9.OrientationBoundary
+import Polyfold.Chapter9.Orientation
