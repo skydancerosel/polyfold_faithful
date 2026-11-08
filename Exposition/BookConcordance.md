@@ -1400,7 +1400,7 @@ Listed by section with a one-line paraphrase (the item's number and page in the 
 
 - §6.6 Local Orientation Propagation
   - Lemma 6.6.9 (p. 269): second half of 2017 Lemma 6.15: adding sc$^+$-sections $\mu_j\bar s_j$ does not change the propagation of orientation
-  - Theorem 6.6.17 (p. 275): the orientation space $O_f$ carries a unique Hausdorff topology with prescribed properties (2017: running text after Definition 6.13)
+  - Theorem 6.6.17 (p. 275): the orientation space $O_f$ carries a unique Hausdorff topology with prescribed properties (not in 2017: its Definition 6.13 defines orientations, with no topology on $O_f$)
 
 **Chapter 7** (46 items)
 

@@ -10,7 +10,8 @@ Proposition 6.7; preprint: Proposition 6.15), **Proposition 6.6.3** (p. 263; 201
 Proposition 6.12; preprint: Proposition 6.28), **Lemma 6.6.5** (p. 265; 2017: Lemma 6.13;
 preprint: Lemma 6.30) and **Lemma 6.6.8** (p. 267; 2017: Lemma 6.15, first half; preprint:
 Lemma 6.33), and the items new in 2021, **Lemma 6.6.9** (p. 269; 2017: second half of
-Lemma 6.15) and **Theorem 6.6.17** (p. 275; 2017: running text after Definition 6.13).
+Lemma 6.15) and **Theorem 6.6.17** (p. 275; not in 2017, whose Definition 6.13 has no
+topology on `O_f`).
 
 # Chapter 6 in the 2021 edition
 

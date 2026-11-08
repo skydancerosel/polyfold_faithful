@@ -3,8 +3,9 @@ import Polyfold.Chapter5.Compactness
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Chapter 6, §6.6 "Local
-Orientation Propagation": **Theorem 6.6.17**, p. 275 (new in the 2021 edition; 2017: running text
-after Definition 6.13), and the orientation space `O_f` defined just before it (pp. 274–275).
+Orientation Propagation": **Theorem 6.6.17**, p. 275 (new in the 2021 edition; the 2017 text has the
+orientations of Definition 6.13 but no topology on `O_f`), and the orientation space `O_f`
+defined just before it (pp. 274–275).
 
 # The orientation space `O_f`
 
@@ -892,8 +893,8 @@ theorem existsUnique_orientationTopology_2021 :
       isPropagationContinuous_orTopology hX hbump hf hsec⟩,
     fun _ ht => eq_orTopology_of hX hbump hf hsec ht.2.1 ht.2.2⟩
 
-/-- **2021 Theorem 6.6.17**, p. 275 (new in the 2021 edition; 2017: running text after
-Definition 6.13): there is exactly one topology on `O_f` which is Hausdorff and has properties
+/-- **2021 Theorem 6.6.17**, p. 275 (new in the 2021 edition; the 2017 text has no topology on
+`O_f`): there is exactly one topology on `O_f` which is Hausdorff and has properties
 (1), (2) and (3); under the hypothesis `HasConnectedSmoothNbhds` (used for (2) only). -/
 theorem theorem_6_6_17_2021 (hC : PX.HasConnectedSmoothNbhds) :
     ∃! t : TopologicalSpace (OrSpace f hf.toIsScFredholmSection),
