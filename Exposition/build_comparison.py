@@ -33,7 +33,7 @@ BOOK_KEY = 'book'                          # the JSON key of the left column
 LEGACY_KEYS = ('milnor',)                  # older names of that key, accepted on load
 TITLE = 'Polyfold Theory beside Lean'
 H1 = 'Polyfold Theory <em>beside</em> Lean'
-EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapters 7 and 8 · the statements compared'
+EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapters 7–9 · the statements compared'
 DEK = ('Every result of the book beside the statement the machine actually checked. The left column is '
        'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition '
        '(2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the '
@@ -46,7 +46,7 @@ OUT_PREVIEW = 'preview-cmp.html'
 OUT_MD = 'Comparison.md'
 FOOT = ('Left column: H. Hofer, K. Wysocki, E. Zehnder, <em>Polyfold and Fredholm Theory</em>, Part I '
         '(Springer 2021), paraphrased, with its numbers and pages, followed in parentheses by those of the 2014 '
-        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Part II, Chapters 7 and 8, '
+        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Part II, Chapters 7–9, '
         'which has no preprint); see Exposition/BookConcordance.md. Right column: the statements proved in Lean 4 '
         'against Mathlib in Polyfold/*.lean, checked by Lean’s kernel, depending only on propext, '
         'Classical.choice and Quot.sound. Every declaration named here was resolved mechanically in the '
@@ -74,6 +74,10 @@ CHAPTERS = [
            'functor, sc-differential forms (not formalized), strong bundles over ep-groupoids and their sections, '
            'proper covering functors, covering functors of finite groupoids and geometric lifts, proper strong bundle '
            'coverings'),
+    ('V9', 'Part II, Chapter 9', 'HWZ Part II, Chapter 9 §§9.1–9.5, pp. 401–453 (2017 Chapter 9, pp. 291–332; '
+           'Part II has no 2014 preprint): branched ep⁺-subgroupoids and local branching structures, the tangent and '
+           'the boundary, good points, orientations, the geometry of local branching structures, sets of measure '
+           'zero and the canonical σ-algebras; branched integration and Stokes’ theorems are not formalized'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

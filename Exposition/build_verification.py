@@ -51,12 +51,15 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "ep-groupoids and their functorial picture, strong bundle maps and section functors, proper covering "
      "functors, their local structure and geometric lifts, proper strong bundle covering functors, the counting "
      "of the fibres", ["Chapter8"]),
+    ("09", "Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9)", "branched ep⁺-subgroupoids: local branching structures, "
+     "the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of "
+     "measure zero and the canonical σ-algebras (integration and Stokes not formalized)", ["Chapter9"]),
 ]
 # ------------------------------------------------------------------------------------------------
 
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I, and of Chapters 7 and 8 of Part II, of H. Hofer, K. Wysocki and
+*A companion to the expanded exposition of Part I, and of Chapters 7–9 of Part II, of H. Hofer, K. Wysocki and
 E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021). Statement numbers and pages are those of the
 Springer edition, followed in parentheses by those of the text the formalization was first checked against:
 for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Part II, which has no preprint, the book's
