@@ -9257,5 +9257,24 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.tangentBranchingHyp_zero
 #print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_zero
 #print axioms Polyfold.hasIndependentTangentSums_indicator
+-- Chapter9/BoundaryPositionConverse.lean
+#print axioms Polyfold.smoothLiftL.congr_simp
+#print axioms Polyfold.smoothLiftL
+#print axioms Polyfold.toBase_smoothLiftL
+#print axioms Polyfold.ScRetraction.IsScPlus.range_scDeriv_le_smooth
+#print axioms Polyfold.ScRetraction.exists_ball_add_mem_U
+#print axioms Polyfold.ScRetraction.contDiffOn_lvl_add
+#print axioms Polyfold.ScRetraction.toBase_levelMap_add
+#print axioms Polyfold.ScRetraction.hasFDerivAt_add
+#print axioms Polyfold.ScRetraction.IsScPlus.exists_injOn_proj
+#print axioms Polyfold.ScRetraction.IsScPlus.exists_flat
+#print axioms Polyfold.MPolyfold.degIndex_eq_zero_of_isReducedTangentAt
+#print axioms Polyfold.MPolyfold.subDegIndex_eq_zero_of_isTangentReducedAt
+#print axioms Polyfold.MPolyfold.lemma_9_2_13_two_one
+#print axioms Polyfold.MPolyfold.lemma_9_2_13_iff
+#print axioms Polyfold.MPolyfold.subDegIndex_eq_zero_iff
+#print axioms Polyfold.MPolyfold.remark_9_2_14_not_isTangentReducedAt
+#print axioms Polyfold.MPolyfold.remark_9_2_14_iff
+#print axioms Polyfold.MPolyfold.remark_9_2_14_not_mem_boundary_iff
 
 end Polyfold

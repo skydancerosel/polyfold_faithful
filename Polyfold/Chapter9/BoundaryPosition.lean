@@ -101,14 +101,11 @@ paths) `T_y^R M₁ = T_y^R M₂`.
 
 ## Not formalized, and why
 
-* **Lemma 9.2.13 (2) ⇒ (1)** (for `x ∈ M ∩ ∂X`: `T_xM ⊆ T_x^R X ⇒ d_M(x) = 0`) and with it the
-  direction `x ∈ ∂M ⇒ T_xM ⊄ T_x^R X` of Remark 9.2.14.  The text's construction needs a chart of
-  `M` modelled on an open subset of a space without boundary: the inverse function theorem for
-  `Ψ = P ∘ s` on `T_xM`, the classical smoothness of `s` along the finite-dimensional `T_xM`, the
-  local injectivity of `P` on `M` near `x` (the level-`1` contraction of Lemma 4.11, which in
-  `GraphData` is tied to good position), and the compatibility of the new chart with the induced
-  atlas.  The step "has image `M` (near `0`)" rests on this local injectivity, which the text
-  does not spell out.
+* **Lemma 9.2.13 (2) ⇒ (1)** (for `x ∈ M ∩ ∂X`: `T_xM ⊆ T_x^R X ⇒ d_M(x) = 0`) and the direction
+  `x ∈ ∂M ⇒ T_xM ⊄ T_x^R X` of Remark 9.2.14 are in `Chapter9/BoundaryPositionConverse.lean`
+  (`lemma_9_2_13_iff`, `remark_9_2_14_iff`): the chart of `M` without boundary is built by the
+  inverse function theorem, and the step "has image `M` (near `0`)", which the text does not spell
+  out, by the local injectivity of `P` on `M` (`ScRetraction.IsScPlus.exists_injOn_proj`).
 * The sentence of Definition 9.3.6 "in particular, every `Mᵢ` has an equivalent structure of a
   smooth manifold with boundary with corners" (a tame finite-dimensional M-polyfold is a manifold
   with corners).

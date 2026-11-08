@@ -257,3 +257,4 @@ import Polyfold.Chapter9.Propositions
 import Polyfold.Chapter9.BoundaryPosition
 import Polyfold.Chapter9.GoodPoints
 import Polyfold.Chapter9.Tangent
+import Polyfold.Chapter9.BoundaryPositionConverse
