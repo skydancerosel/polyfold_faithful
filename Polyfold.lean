@@ -283,3 +283,6 @@ import Polyfold.Chapter10.EquivalenceExamples
 import Polyfold.Chapter10.EquivalenceZhou
 import Polyfold.Chapter10.WeakFibredProduct
 import Polyfold.Chapter10.WeakFibredProductTheorem
+import Polyfold.Chapter10.StrongBundleEquivalence
+import Polyfold.Chapter10.StrongBundleEquivalenceNat
+import Polyfold.Chapter10.StrongBundleEquivalenceExamples
