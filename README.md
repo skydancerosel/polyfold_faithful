@@ -176,6 +176,15 @@ Open the HTML pages in a browser straight from the folder; they need no server.
     Lean (`lemma_9_3_4_mixed_dim`, `lemma_9_4_4_mixed_dim`, `isNull_transfer_mixed_dim`), and each
     statement is proved for sheets of one dimension (V9.32, V9.42, V9.50; Findings, Chapter 9, items
     53, 72, 81). Is equidimensionality, as in Definition 9.3.6, meant throughout?
+12. **Theorems 10.3.19 and 10.5.7** (pp. 493 and 508; 2017: 10.7, 10.10): that generalized
+    isomorphisms (of ep-groupoids, or of strong bundles) with the local regularity property are
+    determined by their orbit maps does not hold as we read it. On `ℤ/3` acting trivially on `ℝ`,
+    which has (LR), the identity and the inversion functor `g ↦ g⁻¹` are generalized isomorphisms
+    with the same orbit map that differ; the step on p. 494 uses families `α_z` that are not natural,
+    and no natural transformation `1 ⇒ Inv` exists (`not_theorem_10_3_19`, `not_theorem_10_5_7`,
+    `Polyfold/Chapter10/LocalizationLRCounterexample.lean`; V10.65, V10.67; Findings, Chapter 10,
+    item 58). Theorem 10.3.19 holds when the target is effective (`theorem_10_3_19_of_isEffective`,
+    V10.66). Is an effectiveness hypothesis intended?
 
 ## Open questions
 

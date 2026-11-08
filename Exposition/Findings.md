@@ -9868,9 +9868,10 @@ Found while formalizing §10.1 (2026-11-08).
    p. 467; Proposition 10.1.9, p. 468; Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340))*. Remark
    10.1.8 and its example in Appendix §10.6.3 need the weighted Sobolev sc-structure and sc-retraction of the
    appendix (gap G.112). Proposition 10.1.9, new in 2021, transports a natural representation along `F` and a
-   morphism `F(x) → y`; the Chapter 7 API of natural representations has no such transport (gap G.113), and with
-   it the subcategory `EP_lreg` (gap G.111) and Proposition 10.1.10, which assumes (LR) and uses 10.1.9 (gap
-   G.114), remain open. Status: **open**.
+   morphism `F(x) → y`; the Chapter 7 API of natural representations has no such transport (gap G.113), and with it
+   the subcategory `EP_lreg` (gap G.111) and Proposition 10.1.10, which assumes (LR) and uses 10.1.9 (gap G.114),
+   remain open. Formalized since: Propositions 10.1.9 and 10.1.10 (item 16); `EP_lreg` is still not built. Status:
+   **open** (gaps G.111, G.112; G.113, G.114 closed).
 
 8. **Remark 10.1.11 in a stronger form** *(Remark 10.1.11, p. 470 (2017: Remark 10.1, p. 340))*. On `ℤ/2 ⋉ ℝ²`
    with `F = id`, `G = −id`, no family `α(z) : z → −z` with `α(0) = 1_0` is even continuous at `0`
@@ -9916,7 +9917,45 @@ Found while formalizing §10.1 (2026-11-08).
 
 15. **Proposition 10.1.19: only the reduction** *(Proposition 10.1.19, p. 477, new in the 2021 edition)*. The proof
     applies Proposition 10.1.9 to the lifts; this is a hypothesis of `EP.isSLR_iff_of_isLR_iff`, satisfied when the
-    two sides agree (`EP.isLR_iff_lift_self`). The unconditional statement is gap G.115. Status: **open**.
+    two sides agree (`EP.isLR_iff_lift_self`). The unconditional statement is gap G.115. Formalized since, with
+    Proposition 10.1.9 for the lifts (`EP.proposition_10_1_19`; item 16). Status: **closed** (gap G.115, closed).
+
+Found while closing the gaps of §§10.1 and 10.3 (2026-11-08).
+
+16. **Propositions 10.1.9, 10.1.10 and 10.1.19, formalized since; a reading on p. 469** *(Proposition 10.1.9, pp.
+    468–470, and Proposition 10.1.19, p. 477, both new in the 2021 edition; Proposition 10.1.10, p. 470 (2017:
+    Proposition 10.4, p. 340))*. Proposition 10.1.9 is proved as stated (`EpFunctor.proposition_10_1_9`). For
+    `ψ : F(x) → y` the composite `Q = ψ̂ ∘ F`, `ψ̂ = t ∘ (s|𝐔(ψ))⁻¹`, is an sc-diffeomorphism of a neighbourhood of
+    `x` onto one of `y` (`TransportChart`, `exists_transportChart`), `g ↦ ψ ∘ F(g) ∘ ψ⁻¹` is an isomorphism
+    `G_x → G_y` (`TransportChart.conj`, `bijective_conj`), and `Q(g ∗ z) = (ψ ∘ F(g) ∘ ψ⁻¹) ∗ Q(z)` ((10.2)–(10.3);
+    `TransportChart.Q_Φ`). The text takes `U(y) = Q(U(x))` "with the natural action"; that `Q(U(x))` carries a
+    natural representation of `G_y` is proved by restricting an arbitrary one at `y` (Theorem 7.1.13), invariant by
+    the equivariance (`exists_naturalRep_push`), and the converse direction restricts one at `x` to `Q⁻¹(U(y))`
+    (`exists_naturalRep_pull`); no transport of `Γ` is needed. Reading (possible misprint): on p. 469 the
+    isomorphism `σ ↦ ψ ∘ σ ∘ ψ⁻¹` is printed `G_{F(x)} → U(y)`; we read `G_{F(x)} → G_y`. Proposition 10.1.10 (1)
+    is proved with (LR) for `X` only, which is all its proof uses, and with (LR) for `Y` only through Proposition
+    10.1.9 (`proposition_10_1_10_one`, `proposition_10_1_10_one_of_isLR_right`); (2) is the equality of the orbit
+    maps of the tangent functors (`proposition_10_1_10_two`). The families `α_z` of (1) are in general not natural
+    (item 58). Proposition 10.1.19 follows from the reduction of item 15 (`EP.proposition_10_1_19`), and
+    Proposition 10.3.16 and the (LR), (SLR) parts of Theorem 10.3.21 from that of item 38
+    (`EPLoc.proposition_10_3_16`, `EPLoc.theorem_10_3_21_all`). The hypotheses hold on the point ep-groupoid
+    (`nonempty_transportChart_pointEP`, `proposition_10_1_10_hypotheses`). Status: **settled** (possible misprint;
+    gaps G.113, G.114, G.115 and G.118 closed).
+
+17. **Theorem 10.3.19 for an effective target** *(Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7, p. 355))*. The
+    strongest correct version we prove adds that `Y` is effective (`EPLoc.theorem_10_3_19_of_isEffective`). In an
+    effective ep-groupoid a continuous family `v ↦ k(v) ∈ G_v` on an open set of objects is the family of units
+    (`EpGroupoid.eqOn_unit_of_isEffective`), so over an effective target two continuous families
+    `α_z, α'_z : H(z) → H'(z)` on an open set agree when `H` is a local sc-diffeomorphism on objects
+    (`EpFunctor.eqOn_of_isEffective`). The families of Proposition 10.1.10 (1) therefore glue on the whole source
+    and are natural, since at a morphism `h` the family `z ↦ H'(σ(z))⁻¹ ∘ α(t(σ(z))) ∘ H(σ(z))`, with `σ` the local
+    inverse of `s` through `h`, is another such family: equivalences `H, H'` with `|H| = |H'|`, (LR) on the source
+    and an effective target are naturally equivalent (`naturallyEquivalent_of_isEffective`). For `e = f' ∘ f⁻¹`,
+    represented by `Y ←F A →Φ Y` with `|Φ| = |F|`, this gives `F ≃ Φ`, so `e = 1_Y` and `f = f'`. The proof needs
+    neither the weak fibred product nor the cover `A_𝒰` of the text. Without effectiveness the conclusion fails
+    (item 58; `not_naturallyEquivalent_id_inv`). The hypotheses hold on the point
+    (`theorem_10_3_19_of_isEffective_hypotheses`, `naturallyEquivalent_of_isEffective_hypotheses`). Status:
+    **settled** (gap G.120, with item 58).
 
 Found while formalizing §10.2 (2026-11-08).
 
@@ -10012,16 +10051,19 @@ Found while formalizing §10.3 (2026-11-08).
     property invariant under equivalences is invariant under generalized isomorphisms (`iff_of_isGeneralizedIso`).
     This gives Proposition 10.3.17 and Theorem 10.3.21 for (LUC), (SLUC), (ZHOU) (`proposition_10_3_17`,
     `theorem_10_3_21`), stated as equivalences; the proof of Theorem 10.3.21 is left to the reader in the text.
-    Proposition 10.3.16 and the (LR), (SLR) parts rest on Propositions 10.1.9 and 10.1.19 (gap G.118). Status:
-    **settled** for what is formalized; gap G.118 open.
+    Proposition 10.3.16 and the (LR), (SLR) parts rest on Propositions 10.1.9 and 10.1.19 (gap G.118). Formalized
+    since: Proposition 10.3.16 and all five parts of Theorem 10.3.21 (`proposition_10_3_16`, `theorem_10_3_21_all`;
+    item 16). Status: **closed** (gap G.118, closed).
 
 39. **Remark 10.3.18, Theorem 10.3.19 and Definition 10.3.20** *(pp. 492–494 (2017: Remark 10.3, Theorem 10.7, p.
     355))*. The equivalence of pairs `(X, β)` is an equivalence relation (`OrbitChart.Rel`, `OrbitChart.setoid`),
     with a witness (`rel_pairEP_pointEP`); the metrizability of `Z` plays no role in it and is not assumed. The
     claim that `f` is in general not unique is not formalized (gap G.119; the example behind Remark 10.1.8 is gap
     G.112). Theorem 10.3.19 rests on Propositions 10.1.10 and 10.3.16 (gap G.120). `EP_reg` and `EP_reg(E⁻¹)` are
-    Mathlib full subcategories, with the point as a witness (`EPreg`, `EPLocReg`, `Examples.pointReg`). Status:
-    **open** (gaps G.119, G.120).
+    Mathlib full subcategories, with the point as a witness (`EPreg`, `EPLocReg`, `Examples.pointReg`). Formalized
+    since: the non-uniqueness, by the example of Remark 10.5.5 (item 56); Theorem 10.3.19 does not hold as we read
+    it, and holds for an effective target (items 17, 58). Status: **settled** (gap G.119 closed, gap G.120
+    settled).
 
 Found while formalizing §10.4 (2026-11-08).
 
@@ -10061,7 +10103,10 @@ Found while formalizing §10.4 (2026-11-08).
 
 45. **Propositions 10.4.6 and 10.4.7** *(pp. 501–502, new in the 2021 edition)*. The strong bundle versions of
     Propositions 10.1.9 and 10.1.10; the proof of 10.4.6 is left to the reader in the text. Not formalized, with
-    their ep-groupoid versions (gap G.122). Status: **open**.
+    their ep-groupoid versions (gap G.122). The ep-groupoid versions are formalized since (item 16); the strong
+    bundle versions need the transport `H_ψ̂` as a strong bundle isomorphism at levels 0 and 1 and the inverse of a
+    strong bundle isomorphism on an open set, which the strong bundle API (composition and restriction only) does
+    not provide. Status: **open** (gap G.122).
 
 46. **Definitions 10.4.8, 10.4.10 and Remark 10.4.9: `T` as data; `μ` for `μ'`** *(pp. 502–503 (2017: Definitions
     10.11, 10.12, Remark 10.4, pp. 362–363))*. `T` carries no smoothness in Definition 10.4.8, as in the text
@@ -10163,19 +10208,24 @@ Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V
     the statement used; in Proposition 10.4.6 (p. 501), "`Φ : W → W`" is read `Φ : V → W`. Status: **open**
     (gap G.126; possible misprints).
 
-58. **Theorems 10.3.19 and 10.5.7: the local morphisms `α_z`** *(Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7,
-    p. 355); Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367))*. As we read it, the proof's step on p. 494
-    gives a family `α_z`, not a natural transformation: Proposition 10.1.10 (1) gives morphisms
-    `α_z : H(z) → H'(z)` depending sc-smoothly on `z`, and the proof uses them as a natural transformation
-    `H_U → H'_U`. The `ℤ/3` example of Remark 10.5.5 (item 56) suggests that the statement does not hold as we
-    read it: its orbits are points, so as we read Definitions 7.4.19 and 8.4.2 it has the local regularity property
-    (every `β` with `|β(y)| = |y|` is the identity), the identity morphisms form a family `α_z : z → z` for
-    `1` and `Inv`, and there is no natural transformation `1 → Inv` on any open set, since `ℤ/3` is abelian and
-    its generator is not its own inverse; yet the classes differ. A Lean check of the local regularity of the
-    example is pending. The 2017 Theorems 10.7 and 10.10 have no local regularity hypothesis, and for them the
-    example (`remark_10_5_5`) shows that they do not hold as we read them. Theorem 10.5.7 also rests on Proposition
-    10.4.7 and on the weak fibred product of strong bundles. Status: **open** (gaps G.120, G.127; the 2021
-    statements, a Lean check is pending; the 2017 statements do not hold as we read them).
+58. **Theorems 10.3.19 and 10.5.7 do not hold as we read them** *(Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7,
+    p. 355); Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367))*. Both statements are formalized as propositions
+    (`EPLoc.Theorem_10_3_19`, `SBLocalization.Theorem_10_5_7`), and their negations are proved
+    (`not_theorem_10_3_19`, `not_theorem_10_5_7`). The example is that of Remark 10.5.5 (item 56).
+    `X = ℤ/3 × ℝ ⇉ ℝ` with the trivial action has the local regularity property of Definition 7.4.19: its orbits
+    are points, so every orbit-preserving `β` is the identity, the action of `1`
+    (`EpGroupoid.Examples.isLR_trivialZ3`); the strong bundle `ℝ × ℝᵏ → ℝ` over it with the trivial `μ` has that of
+    Definition 8.4.2 (`isLR_z3EpBundle`). `[X ←1 X →Inv X]` and `[1_X]` are generalized isomorphisms with the same
+    orbit map that differ (`theorem_10_3_19_counterexample`), and so are the strong bundle classes
+    (`remark_10_5_5`). The step of the proof that we cannot follow is on p. 494: Proposition 10.1.10 (1) gives
+    families `α_z : H(z) → H'(z)` depending sc-smoothly on `z`, and the proof uses them as a natural transformation
+    `H_𝒰 → H'_𝒰`. In the example `z ↦ 1_z : z → Inv(z)` is such a family, but there is no natural transformation
+    `1 → Inv` (`not_naturallyEquivalent_id_inv`): naturality at a generator `g` of `G_z = ℤ/3` would give
+    `g = g⁻¹`. The example is not effective (`not_isEffective_trivialZ3`); with an effective target Theorem 10.3.19
+    holds (item 17). The proof of Theorem 10.5.7, "immediately from Proposition 10.4.7", meets the same step; a
+    version for effective strong bundles is not formalized. The 2017 Theorems 10.7 and 10.10, which have no local
+    regularity hypothesis, do not hold as we read them either. Status: **settled** (does not hold as we read it;
+    gaps G.120 and G.127 settled).
 
 59. **Witnesses; no hypothesis taken** *(§10.5)*. No hypothesis beyond the text is taken in §10.5. Every definition
     has a witness that is not an identity: `negDiagram`, a generalized strong bundle isomorphism between two
@@ -10215,11 +10265,12 @@ Found while formalizing Appendix §§10.6.1–10.6.2 (2026-11-08).
 Witnesses and the hypotheses taken (2026-11-08).
 
 70. **Every hypothesis is satisfiable** *(§§10.1–10.4)*. The hypotheses taken beyond the text: a nonempty object
-    set in Proposition 10.1.3 (the covering of `ℤ/2 ⋉ ℝ`, `reflectionCover`); `WeakFibredProduct.Admissible`
-    (every equivalence; the pair groupoid of `ℤ` over the point, `theorem_10_2_2_pairToPoint`; `±id` on
-    `ℤ/2 ⋉ ℝ²`, `remark_10_2_3_negFunctor`); Proposition 10.1.9 for the lifts in the reduction of Proposition
-    10.1.19 (`EP.isLR_iff_lift_self`). Every definition has a witness that is not an identity:
-    `isEquivalence_pairToPoint`, `isEquivalence_negFunctor`, `equiv_pairToPoint_id`,
+    set in Proposition 10.1.3 (the covering of `ℤ/2 ⋉ ℝ`, `reflectionCover`); `WeakFibredProduct.Admissible` (every
+    equivalence; the pair groupoid of `ℤ` over the point, `theorem_10_2_2_pairToPoint`; `±id` on `ℤ/2 ⋉ ℝ²`,
+    `remark_10_2_3_negFunctor`); Proposition 10.1.9 for the lifts in the reduction of Proposition 10.1.19
+    (`EP.isLR_iff_lift_self`), no longer needed since item 16; the effectiveness of the target in Theorem 10.3.19
+    (the point, `theorem_10_3_19_of_isEffective_hypotheses`; item 17). Every definition has a witness that is not
+    an identity: `isEquivalence_pairToPoint`, `isEquivalence_negFunctor`, `equiv_pairToPoint_id`,
     `isGeneralizedIso_pairToPoint`, `rel_pairEP_pointEP`, `Examples.pointReg`, and over `−id` the strong bundle
     equivalence, push-forward, natural equivalence and `SEP` morphism of `StrongBundleEquivalenceExamples`
     (`isStrongBundleEquivalence_pullbackProj'`, `bijOn_pushforward_example`, `strongBundleNatEquiv_example`,

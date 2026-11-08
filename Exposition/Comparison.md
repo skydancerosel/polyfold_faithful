@@ -13703,19 +13703,20 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 *What differs.*
 - The proof cites Proposition 10.1.9 where Proposition 10.1.16 is used (Findings, Chapter 10, item 14).
 
-### V10.16. Proposition 10.1.19, (SLR) under equivalences, the reduction
+### V10.16. Proposition 10.1.19, (SLR) under equivalences
 
-*narrower* · new in the 2021 edition · Prop. 10.1.9 a hypothesis (G.113) · reduction only (G.115)
+*as in the book* · new in the 2021 edition · as stated · closes G.115
 
 **HWZ (§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)).** If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does.
 
-**Proved in Lean.** If $F$ is an equivalence and every equivalence $X^i \to Y^i$ carries (LR) both ways, then `IsSLR` of $X$ iff of $Y$; the hypothesis holds for $Y = X$.
+**Proved in Lean.** `EP.proposition_10_1_19`: `IsSLR` of $X$ iff of $Y$, from the reduction (every equivalence $X^i \to Y^i$ carries (LR) both ways) and Proposition 10.1.9 for the lifts.
 
+- `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 542
 - `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
 - `Polyfold.EP.isLR_iff_lift_self` — Polyfold/Chapter10/EquivalenceZhou.lean, line 182
 
 *What differs.*
-- Proposition 10.1.9 is not formalized; the reduction, the text's proof, is (Findings, Chapter 10, item 15).
+- The text's proof: Proposition 10.1.9 (V10.62) for the lifts (Findings, Chapter 10, items 15, 16).
 
 ### V10.17. Definition 10.2.1 (2017: 10.3), the weak fibred product
 
@@ -14354,16 +14355,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V10.50. Theorem 10.3.21, invariance under generalized isomorphisms
 
-*narrower* · new in the 2021 edition · (LR), (SLR) not formalized (G.118)
+*as in the book* · new in the 2021 edition · as stated · closes G.118 with V10.64
 
 **HWZ (§10.3, Theorem 10.3.21, p. 495 (new in the 2021 edition)).** If one of $X$, $Y$ has (LR), (LUC), (SLR), (SLUC) or (ZHOU), so has the other.
 
-**Proved in Lean.** For (LUC), (SLUC) and (ZHOU), as equivalences.
+**Proved in Lean.** All five, as equivalences: (LUC), (SLUC), (ZHOU) in `theorem_10_3_21`, all with (LR) and (SLR) in `theorem_10_3_21_all`.
 
 - `Polyfold.EPLocalization.EPLoc.theorem_10_3_21` — Polyfold/Chapter10/LocalizationProperties.lean, line 100
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_21_all` — Polyfold/Chapter10/LocalizationLR.lean, line 63
 
 *What differs.*
-- The proof, left to the reader, applies Propositions 10.1.16–10.1.18 (Findings, Chapter 10, item 38).
+- The proof, left to the reader, applies Propositions 10.1.9 and 10.1.16–10.1.19 to the legs (Findings, Chapter 10, items 16, 38).
 
 ### V10.51. the diagrams of strong bundles, refinements and equivalence
 
@@ -14574,7 +14576,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 *What differs.*
 - The text gives no example; the base classes give the non-uniqueness claimed in Remark 10.3.18 (G.119) (Findings, Chapter 10, item 56).
-- The 2017 Theorems 10.7 and 10.10, without local regularity, do not hold as we read them; the example suggests the same for Theorems 10.3.19 and 10.5.7, a Lean check is pending (Findings, Chapter 10, item 58).
+- The example has the local regularity property, so Theorems 10.3.19 and 10.5.7, and the 2017 Theorems 10.7 and 10.10, do not hold as we read them (V10.65, V10.67) (Findings, Chapter 10, item 58).
 
 ### V10.61. Proposition 10.5.6, reduced to Proposition 10.4.6
 
@@ -14588,6 +14590,114 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 *What differs.*
 - The text refers to Proposition 10.4.7 for the modification; we read Proposition 10.4.6 (possible misprint) (Findings, Chapter 10, item 57).
+
+### V10.62. Proposition 10.1.9, (LR) under equivalences
+
+*hypotheses explicit* · new in the 2021 edition · $Q(U(x))$ natural: proved · p. 469, target $U(y)$: read $G_y$ · closes G.113
+
+**HWZ (§10.1, Proposition 10.1.9, pp. 468–470 (new in the 2021 edition)).** If $F : X \to Y$ is an equivalence and one of $X$, $Y$ has the local regularity property, so has the other. The proof transports $U(x)$ along $Q = \hat\psi \circ F$ for $\psi : F(x) \to y$, with $Q(g * z) = (\psi \circ F(g) \circ \psi^{-1}) * Q(z)$ ((10.1)–(10.3)).
+
+**Proved in Lean.** `EpFunctor.proposition_10_1_9`: $X$ has `IsLR` iff $Y$ has. `TransportChart` holds $Q$ and the morphisms $\psi_u : F(u) \to Q(u)$; `conj` is the isomorphism $G_x \to G_y$, `Q_Φ` the equivariance; natural representations are carried along $Q$ both ways (`exists_naturalRep_push`, `exists_naturalRep_pull`). A transport chart on the point ep-groupoid.
+
+- `Polyfold.EpFunctor.proposition_10_1_9` — Polyfold/Chapter10/EquivalenceLR.lean, line 407
+- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 192
+- `Polyfold.EpFunctor.exists_transportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 218
+- `Polyfold.EpFunctor.TransportChart.conj` — Polyfold/Chapter10/EquivalenceLR.lean, line 268
+- `Polyfold.EpFunctor.TransportChart.bijective_conj` — Polyfold/Chapter10/EquivalenceLR.lean, line 276
+- `Polyfold.EpFunctor.TransportChart.Q_Φ` — Polyfold/Chapter10/EquivalenceLR.lean, line 331
+- `Polyfold.EpFunctor.TransportChart.exists_naturalRep_push` — Polyfold/Chapter10/EquivalenceLR.lean, line 351
+- `Polyfold.EpFunctor.TransportChart.exists_naturalRep_pull` — Polyfold/Chapter10/EquivalenceLR.lean, line 370
+- `Polyfold.EpGroupoid.NaturalRep.HasLR` — Polyfold/Chapter10/EquivalenceLR.lean, line 106
+- `Polyfold.EpGroupoid.isLR_iff_hasLR` — Polyfold/Chapter10/EquivalenceLR.lean, line 130
+- `Polyfold.EpGroupoid.NaturalRep.hasLR_iff_of_equivariant` — Polyfold/Chapter10/EquivalenceLR.lean, line 148
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_Γ` — Polyfold/Chapter10/EquivalenceLR.lean, line 113
+- `Polyfold.EpGroupoid.NaturalRep.eqOn_Φ` — Polyfold/Chapter10/EquivalenceLR.lean, line 122
+- `Polyfold.EquivalenceLRExamples.nonempty_transportChart_pointEP` — Polyfold/Chapter10/EquivalenceLR.lean, line 553
+
+*What differs.*
+- The text takes $U(y) = Q(U(x))$ with the natural action; that it carries a natural representation is proved by restricting one at $y$. On p. 469 the isomorphism $\sigma \mapsto \psi \circ \sigma \circ \psi^{-1}$ is printed with target $U(y)$; we read $G_y$ (possible misprint) (Findings, Chapter 10, item 16).
+
+### V10.63. Proposition 10.1.10 (2017: 10.4), local families $\alpha_z$ and $|TF| = |TG|$
+
+*stronger* · (LR) on one side suffices · closes G.114 · the $\alpha_z$ need not be natural
+
+**HWZ (§10.1, Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340)).** If $X$ and $Y$ have (LR) and $F, G : X \to Y$ are equivalences with $|F| = |G|$: (1) every $x$ has a connected neighbourhood $U(x)$ with the natural $G_x$-action and an sc-smooth $z \mapsto \alpha_z : F(z) \to G(z)$ on it; (2) $|TF| = |TG|$.
+
+**Proved in Lean.** (1) with (LR) for $X$ (`proposition_10_1_10_one`) or for $Y$ (`proposition_10_1_10_one_of_isLR_right`), inside any open $O \ni x$; (2) `proposition_10_1_10_two`, the orbit maps of the tangent functors agree. The hypotheses hold on the point ep-groupoid.
+
+- `Polyfold.EpFunctor.proposition_10_1_10_one` — Polyfold/Chapter10/EquivalenceLR.lean, line 451
+- `Polyfold.EpFunctor.proposition_10_1_10_one_of_isLR_right` — Polyfold/Chapter10/EquivalenceLR.lean, line 518
+- `Polyfold.EpFunctor.proposition_10_1_10_two` — Polyfold/Chapter10/EquivalenceLR.lean, line 500
+- `Polyfold.EquivalenceLRExamples.proposition_10_1_10_hypotheses` — Polyfold/Chapter10/EquivalenceLR.lean, line 565
+
+*What differs.*
+- The proof uses (LR) for $X$ only; with (LR) for $Y$, Proposition 10.1.9 gives it for $X$. The families are in general not natural transformations (V10.65) (Findings, Chapter 10, item 16).
+
+### V10.64. Proposition 10.3.16, (LR) under generalized isomorphisms
+
+*as in the book* · new in the 2021 edition · as stated · closes G.118 with V10.50
+
+**HWZ (§10.3, Proposition 10.3.16, p. 492 (new in the 2021 edition)).** If $f : X \to Y$ is a generalized isomorphism and one of $X$, $Y$ has the local regularity property, so has the other.
+
+**Proved in Lean.** `EPLoc.proposition_10_3_16`: $X$ has `IsLR` iff $Y$ has, by Proposition 10.1.9 for the legs of a representing diagram (`iff_of_isGeneralizedIso`).
+
+- `Polyfold.EPLocalization.EPLoc.proposition_10_3_16` — Polyfold/Chapter10/LocalizationLR.lean, line 56
+- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
+
+*What differs.*
+- The text's proof (Findings, Chapter 10, items 16, 38).
+
+### V10.65. Theorem 10.3.19 (2017: 10.7) does not hold as we read it
+
+*restated* · does not hold as we read it · step on p. 494: $\alpha_z$ not natural · effective target: V10.66 · settles G.120
+
+**HWZ (§10.3, Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7, p. 355)).** If one of $X$, $Y$ has the local regularity property and $f, f' : X \to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$. (2017: without the local regularity hypothesis.)
+
+**Proved in Lean.** `EPLoc.Theorem_10_3_19` is the statement; `not_theorem_10_3_19` its negation. $X = \mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$, trivial action, has (LR) (`isLR_trivialZ3`); $[X \xleftarrow{1} X \xrightarrow{\mathrm{Inv}} X] \neq [1_X]$ with equal orbit maps (`theorem_10_3_19_counterexample`); no natural transformation $1 \to \mathrm{Inv}$ (`not_naturallyEquivalent_id_inv`); $X$ is not effective.
+
+- `Polyfold.EPLocalization.EPLoc.Theorem_10_3_19` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 81
+- `Polyfold.LocalizationLRCounterexample.not_theorem_10_3_19` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 194
+- `Polyfold.LocalizationLRCounterexample.theorem_10_3_19_counterexample` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 187
+- `Polyfold.EpGroupoid.Examples.isLR_trivialZ3` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 139
+- `Polyfold.LocalizationLRCounterexample.not_naturallyEquivalent_id_inv` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 155
+- `Polyfold.EpGroupoid.Examples.not_isEffective_trivialZ3` — Polyfold/Chapter7/NonVacuity.lean, line 481
+
+*What differs.*
+- As we read it, the proof's step on p. 494 uses the families $\alpha_a$ of Proposition 10.1.10 (1) as a natural transformation $H_{\mathcal U} \to H'_{\mathcal U}$; in the example no choice of them is natural, and the statement does not hold as we read it, nor does the 2017 Theorem 10.7 (Findings, Chapter 10, items 39, 58).
+
+### V10.66. Theorem 10.3.19 for an effective target
+
+*narrower* · $Y$ effective added · no weak fibred product, no cover · strongest correct version
+
+**HWZ (§10.3, Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7, p. 355), with an effective target).** If one of $X$, $Y$ has the local regularity property and $f, f' : X \to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$.
+
+**Proved in Lean.** `EPLoc.theorem_10_3_19_of_isEffective`: the same with $Y$ effective (`IsEffective`). Over an effective target continuous families of isotropy elements are units and local families $\alpha_z$ are unique, so equivalences $H, H'$ with $|H| = |H'|$ and (LR) are naturally equivalent (`naturallyEquivalent_of_isEffective`). Witness: the point ep-groupoid.
+
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_19_of_isEffective` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 88
+- `Polyfold.EpFunctor.naturallyEquivalent_of_isEffective` — Polyfold/Chapter10/EquivalenceLREffective.lean, line 118
+- `Polyfold.EpFunctor.eqOn_of_isEffective` — Polyfold/Chapter10/EquivalenceLREffective.lean, line 84
+- `Polyfold.EpGroupoid.eqOn_unit_of_isEffective` — Polyfold/Chapter10/EquivalenceLREffective.lean, line 62
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_19_of_isEffective_hypotheses` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 117
+- `Polyfold.EquivalenceLREffectiveExamples.naturallyEquivalent_of_isEffective_hypotheses` — Polyfold/Chapter10/EquivalenceLREffective.lean, line 179
+
+*What differs.*
+- For $e = f' \circ f^{-1}$, represented by $Y \xleftarrow{F} A \xrightarrow{\Phi} Y$ with $|\Phi| = |F|$, the unique families glue to $F \simeq \Phi$, so $e = 1_Y$; the text's weak fibred product and cover $A_{\mathcal U}$ are not needed (Findings, Chapter 10, item 17).
+
+### V10.67. Theorem 10.5.7 (2017: 10.10) does not hold as we read it
+
+*restated* · does not hold as we read it · example of Remark 10.5.5 · settles G.127
+
+**HWZ (§10.5, Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367)).** If both strong bundles have the local regularity property and $[D], [D'] : W \to W'$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$. (2017: without the local regularity hypothesis.)
+
+**Proved in Lean.** `SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\mathbb R \times \mathbb R^k \to \mathbb R$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$, trivial $\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\mathrm{Inv}] \neq [1_W]$ with equal orbit maps (`remark_10_5_5`).
+
+- `Polyfold.SBLocalization.Theorem_10_5_7` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 131
+- `Polyfold.LocalizationLRCounterexample.not_theorem_10_5_7` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 211
+- `Polyfold.LocalizationLRCounterexample.isLR_z3EpBundle` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 200
+- `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
+
+*What differs.*
+- The statement does not hold as we read it, nor does the 2017 Theorem 10.10; the proof ("immediately from Proposition 10.4.7") meets the step of V10.65 for strong bundles (Findings, Chapter 10, item 58).
 
 ## Not formalized
 
@@ -15791,7 +15901,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§10.1, the subcategory $\mathcal{EP}_{lreg}$, p. 461 (new in the 2021 edition)).** The full subcategory of $\mathcal{EP}$ generated by the ep-groupoids with the local regularity property (Definition 7.4.19).
 
-**Proved in Lean.** **Not formalized**: (LR) is Chapter 7's `IsLR`; the subcategory is not built, and its stability under equivalences needs Proposition 10.1.9 (G.113) (Findings, Chapter 10, item 7).
+**Proved in Lean.** **Not formalized**: (LR) is Chapter 7's `IsLR`; the subcategory is not built; its stability under equivalences is Proposition 10.1.9, formalized since (V10.62) (Findings, Chapter 10, item 7).
 
 
 ### G.112. Remark 10.1.8 and Appendix §10.6.3, a $\beta$ with $|\beta(y)| = |y|$ not given by the group
@@ -15805,34 +15915,36 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.113. Proposition 10.1.9, (LR) under equivalences
 
-*not formalized*
+*formalized since* · now V10.62
 
 **HWZ (§10.1, Proposition 10.1.9, p. 468 (new in the 2021 edition)).** If $F : X \to Y$ is an equivalence, $X$ has the local regularity property iff $Y$ has.
 
-**Proved in Lean.** **Not formalized**: it needs natural representations transported along $F$ and a morphism $F(x) \to y$, which the Chapter 7 API does not provide; it is a hypothesis of V10.16 (Findings, Chapter 10, item 7).
+**Proved in Lean.** **Formalized since the first edition of this page** (V10.62): $Q = \hat\psi \circ F$, the isomorphism $g \mapsto \psi \circ F(g) \circ \psi^{-1}$ and natural representations carried along $Q$ both ways; the printed target $U(y)$ of $\sigma \mapsto \psi \circ \sigma \circ \psi^{-1}$ is read $G_y$ (Findings, Chapter 10, items 7, 16).
 
-- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
+- `Polyfold.EpFunctor.proposition_10_1_9` — Polyfold/Chapter10/EquivalenceLR.lean, line 407
+- `Polyfold.EpFunctor.TransportChart` — Polyfold/Chapter10/EquivalenceLR.lean, line 192
 
 ### G.114. Proposition 10.1.10, natural families $\alpha_z : F(z) \to G(z)$
 
-*not formalized*
+*formalized since* · now V10.63
 
 **HWZ (§10.1, Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340)).** For equivalences $F, G : X \to Y$ with $|F| = |G|$ and $X$ with (LR): (1) local sc-smooth families $\alpha$ with $\alpha(z) : F(z) \to G(z)$; (2) $|TF| = |TG|$.
 
-**Proved in Lean.** **Not formalized**: it assumes (LR) and uses Proposition 10.1.9 (G.113); the example of Remark 10.1.11 has the family of (1) (V10.8) (Findings, Chapter 10, items 7, 8).
+**Proved in Lean.** **Formalized since the first edition of this page** (V10.63), with (LR) for one of $X$, $Y$ only; the families are in general not natural (V10.65) (Findings, Chapter 10, items 7, 16).
 
-- `Polyfold.EpGroupoid.Examples.remark_10_1_11_family` — Polyfold/Chapter10/EquivalenceExamples.lean, line 135
+- `Polyfold.EpFunctor.proposition_10_1_10_one` — Polyfold/Chapter10/EquivalenceLR.lean, line 451
+- `Polyfold.EpFunctor.proposition_10_1_10_two` — Polyfold/Chapter10/EquivalenceLR.lean, line 500
 
 ### G.115. Proposition 10.1.19 beyond the reduction to Proposition 10.1.9
 
-*not formalized*
+*formalized since* · now V10.16
 
 **HWZ (§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)).** If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does.
 
-**Proved in Lean.** **Not formalized** unconditionally: the reduction to Proposition 10.1.9 for the lifts is proved (V10.16); the hypothesis is G.113 (Findings, Chapter 10, item 15).
+**Proved in Lean.** **Formalized since the first edition of this page** (V10.16): the reduction with Proposition 10.1.9 (V10.62) for the lifts (Findings, Chapter 10, items 15, 16).
 
+- `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 542
 - `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
-- `Polyfold.EP.isLR_iff_lift_self` — Polyfold/Chapter10/EquivalenceZhou.lean, line 182
 
 ### G.116. Theorem 10.2.2: the structures induced from the triple products
 
@@ -15857,13 +15969,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.118. Proposition 10.3.16 and the (LR), (SLR) parts of Theorem 10.3.21
 
-*not formalized*
+*formalized since* · now V10.64 · now V10.50
 
 **HWZ (§10.3, Proposition 10.3.16, p. 492 (new in the 2021 edition), and Theorem 10.3.21, p. 495, the parts (LR) and (SLR)).** (LR) and (SLR) are invariant under generalized isomorphisms.
 
-**Proved in Lean.** **Not formalized**: they rest on Propositions 10.1.9 and 10.1.19 (G.113, G.115); `EPLoc.iff_of_isGeneralizedIso` reduces them to the case of equivalences, as the text does (Findings, Chapter 10, item 38).
+**Proved in Lean.** **Formalized since the first edition of this page** (V10.64, V10.50): Propositions 10.1.9 and 10.1.19 for the legs of a representing diagram, as the text does (Findings, Chapter 10, items 16, 38).
 
-- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
+- `Polyfold.EPLocalization.EPLoc.proposition_10_3_16` — Polyfold/Chapter10/LocalizationLR.lean, line 56
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_21_all` — Polyfold/Chapter10/LocalizationLR.lean, line 63
 
 ### G.119. Remark 10.3.18: generalized isomorphisms with $\beta' \circ |f| = \beta$ are not unique
 
@@ -15879,14 +15992,14 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.120. Theorem 10.3.19, generalized isomorphisms are determined by their orbit maps under (LR)
 
-*not formalized*
+*formalized since* · now V10.65 · now V10.66
 
 **HWZ (§10.3, Theorem 10.3.19, p. 493 (2017: Theorem 10.7, p. 355)).** If one of $X$, $Y$ has (LR) and $f, f' : X \to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$.
 
-**Proved in Lean.** **Not formalized**: it rests on Propositions 10.1.10 and 10.3.16 (G.114, G.118). As we read it, the proof's step on p. 494 gives a family $\alpha_z$, not a natural transformation; the $\mathbb Z/3$ example of Remark 10.5.5 (V10.60) suggests that the statement does not hold as we read it; a Lean check is pending (Findings, Chapter 10, items 39, 58).
+**Proved in Lean.** **Formalized since the first edition of this page** (V10.65, V10.66), as a statement that does not hold as we read it: on $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$ with the trivial action, which has (LR), two generalized isomorphisms with the same orbit map differ; the proof's step on p. 494 uses the families $\alpha_a$ of Proposition 10.1.10 (1) as a natural transformation, which in the example none is. With $Y$ effective the theorem holds (V10.66) (Findings, Chapter 10, items 17, 39, 58).
 
-- `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
-- `Polyfold.EPLocalization.Diagram.IsotropyRel` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 162
+- `Polyfold.LocalizationLRCounterexample.not_theorem_10_3_19` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 194
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_19_of_isEffective` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 88
 
 ### G.121. Theorem 10.4.5, the Fred part
 
@@ -15904,7 +16017,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition), and Proposition 10.4.7, pp. 501–502 (new in the 2021 edition)).** The local regularity property of strong bundles is invariant under strong bundle equivalences (proof left to the reader), and the strong bundle version of Proposition 10.1.10.
 
-**Proved in Lean.** **Not formalized**: the ep-groupoid versions are G.113 and G.114 (Findings, Chapter 10, item 45).
+**Proved in Lean.** **Not formalized**: the ep-groupoid versions are formalized since (V10.62, V10.63); the strong bundle versions need the transport $H_{\hat\psi}$ as a strong bundle isomorphism at levels $0$ and $1$ and the inverse of a strong bundle isomorphism on an open set, which the strong bundle API does not provide (Findings, Chapter 10, item 45).
 
 
 ### G.123. the transitivity of the equivalence of diagrams of strong bundles, the composition in $\mathcal{SEP}(F^{-1})$ and the strong bundle version of Theorem 10.3.10
@@ -15950,11 +16063,12 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.127. Theorem 10.5.7, generalized strong bundle isomorphisms determined by their orbit maps
 
-*not formalized*
+*formalized since* · now V10.67
 
 **HWZ (§10.5, Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367)).** If both strong bundles have the local regularity property and $[D], [D']$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$.
 
-**Proved in Lean.** **Not formalized**: it rests on Proposition 10.4.7 (G.122) and needs the weak fibred product of strong bundles to build a common refinement; the ep-groupoid analogue, Theorem 10.3.19, is G.120. As for Theorem 10.3.19, the $\mathbb Z/3$ example of Remark 10.5.5 (V10.60) suggests that the statement does not hold as we read it; a Lean check is pending (Findings, Chapter 10, item 58).
+**Proved in Lean.** **Formalized since the first edition of this page** (V10.67), as a statement that does not hold as we read it: the strong bundle of Remark 10.5.5 has the local regularity property, and $[\mathrm{Inv}] \neq [1_W]$ with the same orbit map. A version for effective strong bundles is not formalized (Findings, Chapter 10, item 58).
 
-- `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
+- `Polyfold.LocalizationLRCounterexample.not_theorem_10_5_7` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 211
+- `Polyfold.LocalizationLRCounterexample.isLR_z3EpBundle` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 200
 

@@ -20679,27 +20679,28 @@
   },
   {
    "id": "V10.16",
-   "title": "Proposition 10.1.19, (SLR) under equivalences, the reduction",
-   "verdict": "narrower",
+   "title": "Proposition 10.1.19, (SLR) under equivalences",
+   "verdict": "same",
    "book": {
     "label": "§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)",
     "page": 477,
     "statement": "If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does."
    },
    "lean": {
-    "statement": "If $F$ is an equivalence and every equivalence $X^i \\to Y^i$ carries (LR) both ways, then `IsSLR` of $X$ iff of $Y$; the hypothesis holds for $Y = X$.",
+    "statement": "`EP.proposition_10_1_19`: `IsSLR` of $X$ iff of $Y$, from the reduction (every equivalence $X^i \\to Y^i$ carries (LR) both ways) and Proposition 10.1.9 for the lifts.",
     "decls": [
+     "Chapter10/EquivalenceLR · EP.proposition_10_1_19",
      "Chapter10/EquivalenceZhou · EP.isSLR_iff_of_isLR_iff",
      "Chapter10/EquivalenceZhou · EP.isLR_iff_lift_self"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "Prop. 10.1.9 a hypothesis (G.113)",
-    "reduction only (G.115)"
+    "as stated",
+    "closes G.115"
    ],
    "diff": [
-    "Proposition 10.1.9 is not formalized; the reduction, the text's proof, is (Findings, Chapter 10, item 15)."
+    "The text's proof: Proposition 10.1.9 (V10.62) for the lifts (Findings, Chapter 10, items 15, 16)."
    ]
   },
   {
@@ -21665,24 +21666,26 @@
   {
    "id": "V10.50",
    "title": "Theorem 10.3.21, invariance under generalized isomorphisms",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§10.3, Theorem 10.3.21, p. 495 (new in the 2021 edition)",
     "page": 495,
     "statement": "If one of $X$, $Y$ has (LR), (LUC), (SLR), (SLUC) or (ZHOU), so has the other."
    },
    "lean": {
-    "statement": "For (LUC), (SLUC) and (ZHOU), as equivalences.",
+    "statement": "All five, as equivalences: (LUC), (SLUC), (ZHOU) in `theorem_10_3_21`, all with (LR) and (SLR) in `theorem_10_3_21_all`.",
     "decls": [
-     "Chapter10/LocalizationProperties · EPLocalization.EPLoc.theorem_10_3_21"
+     "Chapter10/LocalizationProperties · EPLocalization.EPLoc.theorem_10_3_21",
+     "Chapter10/LocalizationLR · EPLocalization.EPLoc.theorem_10_3_21_all"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "(LR), (SLR) not formalized (G.118)"
+    "as stated",
+    "closes G.118 with V10.64"
    ],
    "diff": [
-    "The proof, left to the reader, applies Propositions 10.1.16–10.1.18 (Findings, Chapter 10, item 38)."
+    "The proof, left to the reader, applies Propositions 10.1.9 and 10.1.16–10.1.19 to the legs (Findings, Chapter 10, items 16, 38)."
    ]
   },
   {
@@ -21993,7 +21996,7 @@
    ],
    "diff": [
     "The text gives no example; the base classes give the non-uniqueness claimed in Remark 10.3.18 (G.119) (Findings, Chapter 10, item 56).",
-    "The 2017 Theorems 10.7 and 10.10, without local regularity, do not hold as we read them; the example suggests the same for Theorems 10.3.19 and 10.5.7, a Lean check is pending (Findings, Chapter 10, item 58)."
+    "The example has the local regularity property, so Theorems 10.3.19 and 10.5.7, and the 2017 Theorems 10.7 and 10.10, do not hold as we read them (V10.65, V10.67) (Findings, Chapter 10, item 58)."
    ]
   },
   {
@@ -22018,6 +22021,182 @@
    ],
    "diff": [
     "The text refers to Proposition 10.4.7 for the modification; we read Proposition 10.4.6 (possible misprint) (Findings, Chapter 10, item 57)."
+   ]
+  },
+  {
+   "id": "V10.62",
+   "title": "Proposition 10.1.9, (LR) under equivalences",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.1, Proposition 10.1.9, pp. 468–470 (new in the 2021 edition)",
+    "page": 468,
+    "statement": "If $F : X \\to Y$ is an equivalence and one of $X$, $Y$ has the local regularity property, so has the other. The proof transports $U(x)$ along $Q = \\hat\\psi \\circ F$ for $\\psi : F(x) \\to y$, with $Q(g * z) = (\\psi \\circ F(g) \\circ \\psi^{-1}) * Q(z)$ ((10.1)–(10.3))."
+   },
+   "lean": {
+    "statement": "`EpFunctor.proposition_10_1_9`: $X$ has `IsLR` iff $Y$ has. `TransportChart` holds $Q$ and the morphisms $\\psi_u : F(u) \\to Q(u)$; `conj` is the isomorphism $G_x \\to G_y$, `Q_Φ` the equivariance; natural representations are carried along $Q$ both ways (`exists_naturalRep_push`, `exists_naturalRep_pull`). A transport chart on the point ep-groupoid.",
+    "decls": [
+     "Chapter10/EquivalenceLR · EpFunctor.proposition_10_1_9",
+     "Chapter10/EquivalenceLR · EpFunctor.TransportChart",
+     "Chapter10/EquivalenceLR · EpFunctor.exists_transportChart",
+     "Chapter10/EquivalenceLR · EpFunctor.TransportChart.conj",
+     "Chapter10/EquivalenceLR · EpFunctor.TransportChart.bijective_conj",
+     "Chapter10/EquivalenceLR · EpFunctor.TransportChart.Q_Φ",
+     "Chapter10/EquivalenceLR · EpFunctor.TransportChart.exists_naturalRep_push",
+     "Chapter10/EquivalenceLR · EpFunctor.TransportChart.exists_naturalRep_pull",
+     "Chapter10/EquivalenceLR · EpGroupoid.NaturalRep.HasLR",
+     "Chapter10/EquivalenceLR · EpGroupoid.isLR_iff_hasLR",
+     "Chapter10/EquivalenceLR · EpGroupoid.NaturalRep.hasLR_iff_of_equivariant",
+     "Chapter10/EquivalenceLR · EpGroupoid.NaturalRep.eqOn_Γ",
+     "Chapter10/EquivalenceLR · EpGroupoid.NaturalRep.eqOn_Φ",
+     "Chapter10/EquivalenceLR · EquivalenceLRExamples.nonempty_transportChart_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$Q(U(x))$ natural: proved",
+    "p. 469, target $U(y)$: read $G_y$",
+    "closes G.113"
+   ],
+   "diff": [
+    "The text takes $U(y) = Q(U(x))$ with the natural action; that it carries a natural representation is proved by restricting one at $y$. On p. 469 the isomorphism $\\sigma \\mapsto \\psi \\circ \\sigma \\circ \\psi^{-1}$ is printed with target $U(y)$; we read $G_y$ (possible misprint) (Findings, Chapter 10, item 16)."
+   ]
+  },
+  {
+   "id": "V10.63",
+   "title": "Proposition 10.1.10 (2017: 10.4), local families $\\alpha_z$ and $|TF| = |TG|$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.1, Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340)",
+    "page": 470,
+    "statement": "If $X$ and $Y$ have (LR) and $F, G : X \\to Y$ are equivalences with $|F| = |G|$: (1) every $x$ has a connected neighbourhood $U(x)$ with the natural $G_x$-action and an sc-smooth $z \\mapsto \\alpha_z : F(z) \\to G(z)$ on it; (2) $|TF| = |TG|$."
+   },
+   "lean": {
+    "statement": "(1) with (LR) for $X$ (`proposition_10_1_10_one`) or for $Y$ (`proposition_10_1_10_one_of_isLR_right`), inside any open $O \\ni x$; (2) `proposition_10_1_10_two`, the orbit maps of the tangent functors agree. The hypotheses hold on the point ep-groupoid.",
+    "decls": [
+     "Chapter10/EquivalenceLR · EpFunctor.proposition_10_1_10_one",
+     "Chapter10/EquivalenceLR · EpFunctor.proposition_10_1_10_one_of_isLR_right",
+     "Chapter10/EquivalenceLR · EpFunctor.proposition_10_1_10_two",
+     "Chapter10/EquivalenceLR · EquivalenceLRExamples.proposition_10_1_10_hypotheses"
+    ]
+   },
+   "chips": [
+    "(LR) on one side suffices",
+    "closes G.114",
+    "the $\\alpha_z$ need not be natural"
+   ],
+   "diff": [
+    "The proof uses (LR) for $X$ only; with (LR) for $Y$, Proposition 10.1.9 gives it for $X$. The families are in general not natural transformations (V10.65) (Findings, Chapter 10, item 16)."
+   ]
+  },
+  {
+   "id": "V10.64",
+   "title": "Proposition 10.3.16, (LR) under generalized isomorphisms",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Proposition 10.3.16, p. 492 (new in the 2021 edition)",
+    "page": 492,
+    "statement": "If $f : X \\to Y$ is a generalized isomorphism and one of $X$, $Y$ has the local regularity property, so has the other."
+   },
+   "lean": {
+    "statement": "`EPLoc.proposition_10_3_16`: $X$ has `IsLR` iff $Y$ has, by Proposition 10.1.9 for the legs of a representing diagram (`iff_of_isGeneralizedIso`).",
+    "decls": [
+     "Chapter10/LocalizationLR · EPLocalization.EPLoc.proposition_10_3_16",
+     "Chapter10/LocalizationProperties · EPLocalization.EPLoc.iff_of_isGeneralizedIso"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "as stated",
+    "closes G.118 with V10.50"
+   ],
+   "diff": [
+    "The text's proof (Findings, Chapter 10, items 16, 38)."
+   ]
+  },
+  {
+   "id": "V10.65",
+   "title": "Theorem 10.3.19 (2017: 10.7) does not hold as we read it",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.3, Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7, p. 355)",
+    "page": 493,
+    "statement": "If one of $X$, $Y$ has the local regularity property and $f, f' : X \\to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$. (2017: without the local regularity hypothesis.)"
+   },
+   "lean": {
+    "statement": "`EPLoc.Theorem_10_3_19` is the statement; `not_theorem_10_3_19` its negation. $X = \\mathbb Z/3 \\times \\mathbb R \\rightrightarrows \\mathbb R$, trivial action, has (LR) (`isLR_trivialZ3`); $[X \\xleftarrow{1} X \\xrightarrow{\\mathrm{Inv}} X] \\neq [1_X]$ with equal orbit maps (`theorem_10_3_19_counterexample`); no natural transformation $1 \\to \\mathrm{Inv}$ (`not_naturallyEquivalent_id_inv`); $X$ is not effective.",
+    "decls": [
+     "Chapter10/LocalizationLRCounterexample · EPLocalization.EPLoc.Theorem_10_3_19",
+     "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.not_theorem_10_3_19",
+     "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.theorem_10_3_19_counterexample",
+     "Chapter10/LocalizationLRCounterexample · EpGroupoid.Examples.isLR_trivialZ3",
+     "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.not_naturallyEquivalent_id_inv",
+     "Chapter7/NonVacuity · EpGroupoid.Examples.not_isEffective_trivialZ3"
+    ]
+   },
+   "chips": [
+    "does not hold as we read it",
+    "step on p. 494: $\\alpha_z$ not natural",
+    "effective target: V10.66",
+    "settles G.120"
+   ],
+   "diff": [
+    "As we read it, the proof's step on p. 494 uses the families $\\alpha_a$ of Proposition 10.1.10 (1) as a natural transformation $H_{\\mathcal U} \\to H'_{\\mathcal U}$; in the example no choice of them is natural, and the statement does not hold as we read it, nor does the 2017 Theorem 10.7 (Findings, Chapter 10, items 39, 58)."
+   ]
+  },
+  {
+   "id": "V10.66",
+   "title": "Theorem 10.3.19 for an effective target",
+   "verdict": "narrower",
+   "book": {
+    "label": "§10.3, Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7, p. 355), with an effective target",
+    "page": 493,
+    "statement": "If one of $X$, $Y$ has the local regularity property and $f, f' : X \\to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$."
+   },
+   "lean": {
+    "statement": "`EPLoc.theorem_10_3_19_of_isEffective`: the same with $Y$ effective (`IsEffective`). Over an effective target continuous families of isotropy elements are units and local families $\\alpha_z$ are unique, so equivalences $H, H'$ with $|H| = |H'|$ and (LR) are naturally equivalent (`naturallyEquivalent_of_isEffective`). Witness: the point ep-groupoid.",
+    "decls": [
+     "Chapter10/LocalizationLRCounterexample · EPLocalization.EPLoc.theorem_10_3_19_of_isEffective",
+     "Chapter10/EquivalenceLREffective · EpFunctor.naturallyEquivalent_of_isEffective",
+     "Chapter10/EquivalenceLREffective · EpFunctor.eqOn_of_isEffective",
+     "Chapter10/EquivalenceLREffective · EpGroupoid.eqOn_unit_of_isEffective",
+     "Chapter10/LocalizationLRCounterexample · EPLocalization.EPLoc.theorem_10_3_19_of_isEffective_hypotheses",
+     "Chapter10/EquivalenceLREffective · EquivalenceLREffectiveExamples.naturallyEquivalent_of_isEffective_hypotheses"
+    ]
+   },
+   "chips": [
+    "$Y$ effective added",
+    "no weak fibred product, no cover",
+    "strongest correct version"
+   ],
+   "diff": [
+    "For $e = f' \\circ f^{-1}$, represented by $Y \\xleftarrow{F} A \\xrightarrow{\\Phi} Y$ with $|\\Phi| = |F|$, the unique families glue to $F \\simeq \\Phi$, so $e = 1_Y$; the text's weak fibred product and cover $A_{\\mathcal U}$ are not needed (Findings, Chapter 10, item 17)."
+   ]
+  },
+  {
+   "id": "V10.67",
+   "title": "Theorem 10.5.7 (2017: 10.10) does not hold as we read it",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.5, Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367)",
+    "page": 508,
+    "statement": "If both strong bundles have the local regularity property and $[D], [D'] : W \\to W'$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$. (2017: without the local regularity hypothesis.)"
+   },
+   "lean": {
+    "statement": "`SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\\mathbb R \\times \\mathbb R^k \\to \\mathbb R$ over $\\mathbb Z/3 \\times \\mathbb R \\rightrightarrows \\mathbb R$, trivial $\\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\\mathrm{Inv}] \\neq [1_W]$ with equal orbit maps (`remark_10_5_5`).",
+    "decls": [
+     "Chapter10/LocalizationLRCounterexample · SBLocalization.Theorem_10_5_7",
+     "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.not_theorem_10_5_7",
+     "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.isLR_z3EpBundle",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.remark_10_5_5"
+    ]
+   },
+   "chips": [
+    "does not hold as we read it",
+    "example of Remark 10.5.5",
+    "settles G.127"
+   ],
+   "diff": [
+    "The statement does not hold as we read it, nor does the 2017 Theorem 10.10; the proof (\"immediately from Proposition 10.4.7\") meets the step of V10.65 for strong bundles (Findings, Chapter 10, item 58)."
    ]
   }
  ],
@@ -23289,7 +23468,7 @@
    "label": "§10.1, the subcategory $\\mathcal{EP}_{lreg}$, p. 461 (new in the 2021 edition)",
    "page": 461,
    "book": "The full subcategory of $\\mathcal{EP}$ generated by the ep-groupoids with the local regularity property (Definition 7.4.19).",
-   "instead": "**Not formalized**: (LR) is Chapter 7's `IsLR`; the subcategory is not built, and its stability under equivalences needs Proposition 10.1.9 (G.113) (Findings, Chapter 10, item 7)."
+   "instead": "**Not formalized**: (LR) is Chapter 7's `IsLR`; the subcategory is not built; its stability under equivalences is Proposition 10.1.9, formalized since (V10.62) (Findings, Chapter 10, item 7)."
   },
   {
    "g": 112,
@@ -23305,9 +23484,13 @@
    "label": "§10.1, Proposition 10.1.9, p. 468 (new in the 2021 edition)",
    "page": 468,
    "book": "If $F : X \\to Y$ is an equivalence, $X$ has the local regularity property iff $Y$ has.",
-   "instead": "**Not formalized**: it needs natural representations transported along $F$ and a morphism $F(x) \\to y$, which the Chapter 7 API does not provide; it is a hypothesis of V10.16 (Findings, Chapter 10, item 7).",
+   "instead": "**Formalized since the first edition of this page** (V10.62): $Q = \\hat\\psi \\circ F$, the isomorphism $g \\mapsto \\psi \\circ F(g) \\circ \\psi^{-1}$ and natural representations carried along $Q$ both ways; the printed target $U(y)$ of $\\sigma \\mapsto \\psi \\circ \\sigma \\circ \\psi^{-1}$ is read $G_y$ (Findings, Chapter 10, items 7, 16).",
    "decls": [
-    "Chapter10/EquivalenceZhou · EP.isSLR_iff_of_isLR_iff"
+    "Chapter10/EquivalenceLR · EpFunctor.proposition_10_1_9",
+    "Chapter10/EquivalenceLR · EpFunctor.TransportChart"
+   ],
+   "formalized": [
+    "V10.62"
    ]
   },
   {
@@ -23316,9 +23499,13 @@
    "label": "§10.1, Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340)",
    "page": 470,
    "book": "For equivalences $F, G : X \\to Y$ with $|F| = |G|$ and $X$ with (LR): (1) local sc-smooth families $\\alpha$ with $\\alpha(z) : F(z) \\to G(z)$; (2) $|TF| = |TG|$.",
-   "instead": "**Not formalized**: it assumes (LR) and uses Proposition 10.1.9 (G.113); the example of Remark 10.1.11 has the family of (1) (V10.8) (Findings, Chapter 10, items 7, 8).",
+   "instead": "**Formalized since the first edition of this page** (V10.63), with (LR) for one of $X$, $Y$ only; the families are in general not natural (V10.65) (Findings, Chapter 10, items 7, 16).",
    "decls": [
-    "Chapter10/EquivalenceExamples · EpGroupoid.Examples.remark_10_1_11_family"
+    "Chapter10/EquivalenceLR · EpFunctor.proposition_10_1_10_one",
+    "Chapter10/EquivalenceLR · EpFunctor.proposition_10_1_10_two"
+   ],
+   "formalized": [
+    "V10.63"
    ]
   },
   {
@@ -23327,10 +23514,13 @@
    "label": "§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)",
    "page": 477,
    "book": "If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does.",
-   "instead": "**Not formalized** unconditionally: the reduction to Proposition 10.1.9 for the lifts is proved (V10.16); the hypothesis is G.113 (Findings, Chapter 10, item 15).",
+   "instead": "**Formalized since the first edition of this page** (V10.16): the reduction with Proposition 10.1.9 (V10.62) for the lifts (Findings, Chapter 10, items 15, 16).",
    "decls": [
-    "Chapter10/EquivalenceZhou · EP.isSLR_iff_of_isLR_iff",
-    "Chapter10/EquivalenceZhou · EP.isLR_iff_lift_self"
+    "Chapter10/EquivalenceLR · EP.proposition_10_1_19",
+    "Chapter10/EquivalenceZhou · EP.isSLR_iff_of_isLR_iff"
+   ],
+   "formalized": [
+    "V10.16"
    ]
   },
   {
@@ -23362,9 +23552,14 @@
    "label": "§10.3, Proposition 10.3.16, p. 492 (new in the 2021 edition), and Theorem 10.3.21, p. 495, the parts (LR) and (SLR)",
    "page": 492,
    "book": "(LR) and (SLR) are invariant under generalized isomorphisms.",
-   "instead": "**Not formalized**: they rest on Propositions 10.1.9 and 10.1.19 (G.113, G.115); `EPLoc.iff_of_isGeneralizedIso` reduces them to the case of equivalences, as the text does (Findings, Chapter 10, item 38).",
+   "instead": "**Formalized since the first edition of this page** (V10.64, V10.50): Propositions 10.1.9 and 10.1.19 for the legs of a representing diagram, as the text does (Findings, Chapter 10, items 16, 38).",
    "decls": [
-    "Chapter10/LocalizationProperties · EPLocalization.EPLoc.iff_of_isGeneralizedIso"
+    "Chapter10/LocalizationLR · EPLocalization.EPLoc.proposition_10_3_16",
+    "Chapter10/LocalizationLR · EPLocalization.EPLoc.theorem_10_3_21_all"
+   ],
+   "formalized": [
+    "V10.64",
+    "V10.50"
    ]
   },
   {
@@ -23389,10 +23584,14 @@
    "label": "§10.3, Theorem 10.3.19, p. 493 (2017: Theorem 10.7, p. 355)",
    "page": 493,
    "book": "If one of $X$, $Y$ has (LR) and $f, f' : X \\to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$.",
-   "instead": "**Not formalized**: it rests on Propositions 10.1.10 and 10.3.16 (G.114, G.118). As we read it, the proof's step on p. 494 gives a family $\\alpha_z$, not a natural transformation; the $\\mathbb Z/3$ example of Remark 10.5.5 (V10.60) suggests that the statement does not hold as we read it; a Lean check is pending (Findings, Chapter 10, items 39, 58).",
+   "instead": "**Formalized since the first edition of this page** (V10.65, V10.66), as a statement that does not hold as we read it: on $\\mathbb Z/3 \\times \\mathbb R \\rightrightarrows \\mathbb R$ with the trivial action, which has (LR), two generalized isomorphisms with the same orbit map differ; the proof's step on p. 494 uses the families $\\alpha_a$ of Proposition 10.1.10 (1) as a natural transformation, which in the example none is. With $Y$ effective the theorem holds (V10.66) (Findings, Chapter 10, items 17, 39, 58).",
    "decls": [
-    "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.remark_10_5_5",
-    "Chapter10/StrongBundleLocalizationExamples · EPLocalization.Diagram.IsotropyRel"
+    "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.not_theorem_10_3_19",
+    "Chapter10/LocalizationLRCounterexample · EPLocalization.EPLoc.theorem_10_3_19_of_isEffective"
+   ],
+   "formalized": [
+    "V10.65",
+    "V10.66"
    ]
   },
   {
@@ -23412,7 +23611,7 @@
    "label": "§10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition), and Proposition 10.4.7, pp. 501–502 (new in the 2021 edition)",
    "page": 501,
    "book": "The local regularity property of strong bundles is invariant under strong bundle equivalences (proof left to the reader), and the strong bundle version of Proposition 10.1.10.",
-   "instead": "**Not formalized**: the ep-groupoid versions are G.113 and G.114 (Findings, Chapter 10, item 45)."
+   "instead": "**Not formalized**: the ep-groupoid versions are formalized since (V10.62, V10.63); the strong bundle versions need the transport $H_{\\hat\\psi}$ as a strong bundle isomorphism at levels $0$ and $1$ and the inverse of a strong bundle isomorphism on an open set, which the strong bundle API does not provide (Findings, Chapter 10, item 45)."
   },
   {
    "g": 123,
@@ -23465,9 +23664,13 @@
    "label": "§10.5, Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367)",
    "page": 508,
    "book": "If both strong bundles have the local regularity property and $[D], [D']$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$.",
-   "instead": "**Not formalized**: it rests on Proposition 10.4.7 (G.122) and needs the weak fibred product of strong bundles to build a common refinement; the ep-groupoid analogue, Theorem 10.3.19, is G.120. As for Theorem 10.3.19, the $\\mathbb Z/3$ example of Remark 10.5.5 (V10.60) suggests that the statement does not hold as we read it; a Lean check is pending (Findings, Chapter 10, item 58).",
+   "instead": "**Formalized since the first edition of this page** (V10.67), as a statement that does not hold as we read it: the strong bundle of Remark 10.5.5 has the local regularity property, and $[\\mathrm{Inv}] \\neq [1_W]$ with the same orbit map. A version for effective strong bundles is not formalized (Findings, Chapter 10, item 58).",
    "decls": [
-    "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.remark_10_5_5"
+    "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.not_theorem_10_5_7",
+    "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.isLR_z3EpBundle"
+   ],
+   "formalized": [
+    "V10.67"
    ]
   }
  ]
