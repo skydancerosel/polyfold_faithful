@@ -613,7 +613,7 @@ def graphSheetMeasureGeometry : (rnPolyfold 2).SheetMeasureGeometry graphSheets 
 abbrev graphNull : SheetNullSets graphSheets := graphSheetMeasureGeometry.toSheetNullSets
 
 open scoped Classical in
-/-- **Example 9.3.5's `Θ`** (2021 p. 424): `Θ(y) = ♯{b | y ∈ G_b}` for the two graphs
+/-- **Example 9.3.5's `Θ`** (2021 p. 425): `Θ(y) = ♯{b | y ∈ G_b}` for the two graphs
 `G⁺⁺, G⁻⁻` (`beta1`), touching at `0`. -/
 def theta935 : (Fin 2 → ℝ) → ℚ := fun y => ∑ b with y ∈ graph2 (beta1 b), (1 : ℚ)
 

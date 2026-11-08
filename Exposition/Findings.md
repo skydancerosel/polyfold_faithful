@@ -9256,3 +9256,553 @@ for every `(TX)^i` (item 124, `Chapter8/TangentZhouLevels.lean`); comparison ite
      (item 116), which the point ep-groupoid and its lifts satisfy (`Examples.proposition_8_1_17_two_all_2021_pointEP`). Not
      formalized: the compatibility of the equivalence with unit, inverse and composition, not needed for LUC, and its
      linearity on the fibres (gap G.7). Status: **settled**; gap G.88 closed for (2), open for Proposition 8.1.16 (item 115).
+
+## Chapter 9 (Branched ep⁺-subgroupoids; Lean `Polyfold/Chapter9/`)
+
+*Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so that agents
+working at the same time do not collide; the gaps in the numbering are unused numbers, not deleted items. 1–19:
+§9.1, Definition 9.1.2 to Proposition 9.1.12 (2017: Definition 9.1 to Proposition 9.2; `Chapter9/Basic.lean`,
+`Symmetric.lean`, `Propositions.lean`); 20–39: §9.2 up to Definition 9.2.12 (2017: 9.6), good points, the
+tangent section and the tangent (`GoodPoints.lean`, `Tangent.lean`, `TangentSlicesBasic.lean`,
+`TangentSlicesRn.lean`, `TangentSlices.lean`); 40–49: §9.2 from Lemma 9.2.13 (2017: 9.9), the boundary
+(`BoundaryPosition.lean`, `BoundaryPositionConverse.lean`, `Boundary.lean`); 50–69: §9.3, orientations
+(`Orientation.lean` and the `Orientation*.lean` files); 70–79: §9.4, the geometry of branching
+(`BranchingGeometryMeasure.lean`, `BranchingGeometryManifold.lean`, `BranchingGeometry.lean`); 80–89: §9.5,
+measure zero, σ-algebras and isotropy factors (`Measure.lean`, `MeasureEffective.lean`); 90–99: Appendix §9.6.1
+(`Appendix.lean`, `AppendixSlices.lean`); 100–109: witnesses and the hypotheses taken in general. Part II has no
+2014 preprint: statement numbers and pages are those of the Springer edition (2021, pp. 401–458), with the 2017
+text's in parentheses (2017 pp. 291–332); Part I results are cited by their 2021 numbers with the preprint's in
+parentheses. The comparison items are `Exposition/verification/ch09.md` (V9.1–V9.62); the gaps are G.93–G.110.
+
+Found while formalizing §9.1 (2026-11-08).
+
+1. **Definition 9.1.2: functors to ℚ, paracompactness and properness** *(Definition 9.1.2, p. 402 (2017:
+   Definition 9.1, p. 292))*. A functor `Θ : X → ℚ⁺` is a function on objects with `Θ(s φ) = Θ(t φ)`
+   (`EpGroupoid.IsFunctorial`), with values in `ℚ` and `Θ ≥ 0` a field of `IsBranchedEpSubgroupoid`; `supp`,
+   `orbitSupp`. "The topology induced on `|supp(Θ)|` is paracompact" is a `ParacompactSpace` instance on the
+   subtype, and "the inclusion `Mᵢ → U(x)` is proper" is `IsProperMap` of the inclusion of subtypes, automatic
+   for `Mᵢ` closed in `U(x)` (`isProperMap_inclusion_iff`). Witnesses: the zero functor
+   (`isBranchedEpSubgroupoid_zero`) and the indicator of a smooth point of `ℝⁿ`
+   (`rnPolyfold_isSmoothSubmanifold_singleton`, `localBranchingStructure_indicator`,
+   `isBranchedEpSubgroupoid_indicator`). The 2017 text refers in (4) to "(ii) and (iii)" for (2) and (3)
+   (possible misprint, corrected in 2021). Status: **settled**.
+
+2. **The dimension of a submanifold, in a chart; Remark 9.1.1 as a hypothesis** *(Remark 9.1.1, p. 402 (2017:
+   Remark 9.1, p. 291))*. `T_mM` is a set of tangent vectors (gap G.7), so the dimension is measured in a chart
+   (`MPolyfold.HasDimAt`): it does not depend on the chart or the presentation (`finrank_span_tangentSpace_eq`,
+   `finrank_tangentSpace_chart_change`, `HasDimAt.finrank_eq`), is unique (`HasDimAt.unique`), exists
+   (`IsSmoothSubmanifold.exists_hasDimAt`), and is invariant under restriction to open sets and
+   sc-diffeomorphisms (`hasDimAt_inter_isOpen_iff`, `hasDimAt_image_iff`). The local constancy stated in the
+   remark needs level-0 calculus of Part I that the project lacks; it is the hypothesis
+   `HasLocallyConstantDimAt`, proved on `ℝᵐ` (`hasLocallyConstantDimAt_rn`: `T_yM` is the range of the
+   idempotent `Ds(y)`, whose rank is its trace, continuous and integer valued). Without it the dimensions of the
+   sheets enter as labellings, unique when they exist, since all sheets pass through `x`
+   (`LocalBranchingStructure.dim_unique`). Status: **settled** on `ℝᵐ`; in general open (gap G.93).
+
+3. **"n-dimensional", the footnote, and "locally equidimensional"** *(Definition 9.1.2, last paragraph, p.
+   402)*. The 2021 text says the sheets "can be taken" `n`-dimensional (2017: are `n`-dimensional);
+   `IsNDimensional` asks for some local branching structure with only `n`-dimensional sheets at every point of
+   the support (`LocalBranchingStructure.IsOfDim`). The zero functor is `n`-dimensional for every `n`
+   (`isNDimensional_zero`). The footnote (new in 2021), that an `n`-dimensional `Θ ≠ 0` is not `m`-dimensional
+   for `m ≠ n`, and the notion "locally equidimensional" are not formalized (gap G.93). Witnesses on `ℝⁿ` for
+   the whole chapter: closed submanifolds as images of smooth idempotents
+   (`rnPolyfold_isSmoothSubmanifold_range`, `rnPolyfold_hasDimAt_range`), graphs (`graph2`,
+   `rnPolyfold_isSubmanifoldOfDim_graph2`), finite weighted sums and indicators
+   (`isBranchedEpSubgroupoid_sum_rn`, `isNDimensional_sum_rn`, `isBranchedEpSubgroupoid_indicator_rn`,
+   `paracompactSpace_orbitSupp_trivial_rn`). Status: **settled**; the footnote open (gap G.93).
+
+4. **Remark 9.1.3 (b): the second structure is forced, and the sign conditions are satisfiable** *(Remark 9.1.3
+   (b), p. 403 (2017: Remark 9.2 (b), p. 292))*. The sign conditions on `β₁`, `β₂` are the structure
+   `Remark913Hyp`, satisfied by `β₁(s) = e(s)`, `β₂(s) = e(−s)` with Mathlib's `expNegInvGlue` `e`
+   (`remark913Hyp_expNegInvGlue`); `Θ(p) = ♯{i | p ∈ Gᵢ}` is `thetaGraphs` (`thetaGraphs_eq`). For the graphs of
+   `0` and `γ₂` to describe the same `Θ`, `γ₂ = β₁ + β₂` is forced (`Remark913Hyp.eq_add_of_thetaGraphs_eq`),
+   positive off `0` (`Remark913Hyp.γ₂_pos`). "Not unique, even close to `x`" is read as: no sheet of one
+   structure agrees with a sheet of the other on any neighbourhood of the origin (`Remark913Hyp.structureβ`,
+   `Remark913Hyp.structureγ`, `remark_9_1_3_b`). Status: **settled**.
+
+5. **Lemma 9.1.5 without the properness property; the restriction remark read at `x`** *(Lemma 9.1.5, p. 403
+   (2017: Lemma 9.1, p. 293); the remark before Lemma 9.1.7, p. 404)*. Lemma 9.1.5 is proved from the saturation
+   of the support (`preimage_π_orbitSupp`), its local closedness in `X` (`LocalBranchingStructure.isClosed_M`,
+   `isLocallyClosed_supp`) and the openness of `π` (`lemma_9_1_5`); the text's neighbourhood with the properness
+   property is not needed. Before Lemma 9.1.7 the text restricts a structure to `Nᵢ = Mᵢ ∩ V(x₀)`, some `Nᵢ`
+   possibly empty. Definition 9.1.2 asks `x ∈ Mᵢ`, which the `Nᵢ` need not satisfy at `x₀`; the remark is
+   formalized for an open `V ∋ x`, the case the symmetrization uses (`LocalBranchingStructure.restrict`,
+   `IsSmoothSubmanifold.inter_isOpen`). This is a reading, not a misprint. Status: **settled**.
+
+6. **Lemma 9.1.7: the images `g ∗ Mᵢ` are submanifolds** *(Lemma 9.1.7, p. 405 (2017: Lemma 9.2, p. 294))*. The
+   construction `J = I × G_x`, `M_{(i,g)} = g ∗ Mᵢ`, `σ_{(i,g)} = σᵢ/♯G_x` is formalized
+   (`LocalBranchingStructure.symmetrize`, `SymmetricBranchingStructure`, `lemma_9_1_7`), and inside every
+   neighbourhood of `x` (`lemma_9_1_7'`). The text uses without saying so that `Φ(g)(Mᵢ ∩ U)` is a properly
+   embedded submanifold through `x` (`IsSmoothSubmanifold.image_of_isScDiffeoOn`). The weight computation uses
+   `IsFunctorial.apply_Φ` and `NaturalRep.mem_image_Φ_iff`, with `♯G_x` the `Nat.card` of the finite group; the
+   action on `J` is `mulActionProdLeft`. Status: **settled**.
+
+7. **Definitions 9.1.6 and 9.1.8; Remark 9.1.4, Proposition 9.1.9 and Remark 9.1.10 not formalized** *(pp.
+   403–406 (2017: Remark 9.3, Definitions 9.2, 9.3, Proposition 9.1, pp. 293–296))*. `IsClosedBranched`,
+   `IsCompactBranched`, `IsOrbifoldType`, `IsManifoldType`, with `isCompactBranched_indicator`,
+   `isManifoldType_indicator`. Not formalized: Remark 9.1.4, the metrizability of a paracompact subset of `|X|`
+   and the compactness criterion (gap G.94); Proposition 9.1.9 and Remark 9.1.10, the manifold and orbifold
+   structures on `|supp(Θ)|` (gap G.95). Status: **open** (gaps G.94, G.95).
+
+8. **Proposition 9.1.11: the uniqueness of the dimensional decomposition does not hold as we read it**
+   *(Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297))*. The statement is `Proposition_9_1_11`
+   (`IsDimDecomposition`, `IsLocallyFiniteFamily`). The local construction is verified:
+   `LocalBranchingStructure.dimPart`, `dimPartStructure`, `dimPartStructure_isOfDim`, `eq_sum_dimPart`,
+   `dimPart_eq_zero`, `dimPart_eq_of_isOfDim`, with `SymmetricBranchingStructure.dim_smul` and
+   `SymmetricBranchingStructure.dimPart_Φ` for the `G_x`-invariance. Counterexample `not_proposition_9_1_11_rn`:
+   on the trivial ep-groupoid of `ℝ²` let `L` be the `x`-axis (`axis2`) and `Θ = 1_L`; `decompA` (`Θ₀ = 1_{0}`,
+   `Θ₁ = 1_{L∖0}`) and `decompB` (`Θ₀ = 0`, `Θ₁ = 1_L`) both satisfy (1) and (2) (`decompA_isDimDecomposition`,
+   `decompB_isDimDecomposition`), since `L ∖ 0` is a `1`-dimensional submanifold properly embedded in the open
+   set `ℝ² ∖ 0`, which is all Definition 9.1.2 asks at its points. The proof of the text constructs `decompB`. A
+   possible repair: each `Θ_k` is represented near every point by a subfamily of a local branching structure of
+   `Θ`. Not formalized: the repaired uniqueness and the global gluing of the local `Θ_k` across morphisms, with
+   the paracompactness of `|supp(Θ_k)|` and the local finiteness (gap G.96). Status: **open** (gap G.96); the
+   counterexample is settled.
+
+9. **Proposition 9.1.12 (new in the 2021 edition)** *(Proposition 9.1.12, p. 408; proof in §9.6.1, pp.
+   452–457)*. `Proposition_9_1_12` with the conclusion `LocalBranchingStructure.DimPartsAgreeNear`; "an open
+   `G_x`-invariant `V(x)` with the usual properties" by shrinking to a natural representation
+   (`DimPartsAgreeNear.exists_naturalRep`); the equidimensional case is immediate
+   (`dimPartsAgreeNear_of_isOfDim`). The general case is proved in §9.6.1 (items 90–92):
+   `proposition_9_1_12_of_topMultiplicity`, `proposition_9_1_12_of_hasGraphChartAt`, and without hypothesis on
+   every ep-groupoid over `ℝᵐ` (`proposition_9_1_12_rn`). Status: **settled** over `ℝᵐ`; in general under the
+   graph representation (gap G.97).
+
+Found while formalizing §9.2 up to Definition 9.2.12 (2026-11-08).
+
+20. **`T_yM` as a set of vectors, linear in charts; the category `Gr(X)`** *(pp. 408–409 (2017 pp. 297–298))*.
+    `T_yM` is the set of tangent vectors fixed by the tangent of a retraction presenting `M`
+    (`MPolyfold.submanifoldTangent`; Part I's Remark 4.2.2 (preprint: 4.14)), independent of the retraction
+    (`mem_submanifoldTangent_iff`), local (`submanifoldTangent_inter_isOpen`), and mapped by sc-diffeomorphisms
+    (`submanifoldTangent_image`). In a chart it is a linear subspace of dimension `dim_y M` (`chartTangent`,
+    `chartTangent_eq`, `exists_submodule_chartTangent`, `finrank_chartTangent`), and chart changes act by linear
+    isomorphisms (`chartTangent_chart_change`, `exists_linearEquiv_chartTangent`); so the generators of `Gr(x)`
+    are linear subspaces in every chart (`LocalBranchingStructure.exists_submodule_of_mem_support`), which is
+    what the text's "finite-dimensional linear subspaces of `T_xX`" means. `Gr`, `grPush`, `grPush_comp`,
+    `grPush_unit`, `GrObj`, `grProj`. Status: **settled** (gap G.7 stays).
+
+21. **Theorem 9.2.1: the independence of the structure is the core; unconditional on `ℝᵐ`** *(Theorem 9.2.1, p.
+    409, proof pp. 412–418 (2017: Theorem 9.1, pp. 298–306))*. The section is `theorem_9_2_1` under
+    `HasIndependentTangentSums` (`LocalBranchingStructure.tangentSum`, `tangentValue`,
+    `LocalBranchingStructure.transport`, `grPush_tangentValue`, `tangentSection`). The independence is proved at
+    good points without hypothesis (`tangentSum_eq_of_isGoodPoint`,
+    `hasIndependentTangentSums_of_subset_goodSet`), for equidimensional structures by counting on slices
+    (`hasIndependentTangentSums_of_isOfDim`), and in general from Proposition 9.1.12
+    (`tangentSum_eq_of_dimPartsAgreeNear`, `hasIndependentTangentSums_of_dimPartsAgreeNear`) with the labellings
+    supplied by `HasLocallyConstantDimAt` (`exists_restrict_labelled`,
+    `hasIndependentTangentSums_of_hasGraphChartAt_of_hasLocallyConstantDimAt`). On every ep-groupoid over `ℝᵐ`
+    it holds for every `Θ` (`hasIndependentTangentSums_rn`). In Remark 9.1.3 (b) the two structures have the
+    same tangent sum at the bad origin (`Remark913Hyp.tangentSum_structureβ_eq_structureγ`). Status: **settled**
+    over `ℝᵐ`; in general under gaps G.93, G.97.
+
+22. **Possible misprints in §9.2** *(pp. 408–418 (2017 pp. 297–306))*. The introduction (p. 408) calls `TΘ` a
+    "branched ep-subgroupoid", Definition 9.2.12 an ep⁺-subgroupoid; "it suffices to prove the proposition"
+    (p. 410) refers to Theorem 9.2.1; Definition 9.2.6 cites "Remark 9.2.4 (c)" (p. 411), the remark having (a) and
+    (b), and the descent to `|X|` uses Lemma 9.2.5; the proof closes with "This completes the proof of Theorem
+    9.2.8" (p. 418), presumably Theorem 9.2.1; in `∑_{i∈I | y∈M_j} σᵢ T_yMᵢ` (p. 418) the index is presumably
+    `i`. Status: **settled** (possible misprints).
+
+23. **Good points: an intrinsic form, in every dimension** *(Definition 9.2.2, Lemma 9.2.3, Remark 9.2.4, Lemma
+    9.2.5, Definition 9.2.6, pp. 410–411 (2017: Definition 9.4, Lemma 9.3, Remark 9.4, Lemma 9.4, Definition
+    9.5, pp. 299–300))*. `LocalBranchingStructure.IsGoodPoint`, with the intrinsic form `isGoodPoint_iff`: `y`
+    is good iff `y ∈ supp(Θ)` and `Θ` is constant on `supp(Θ)` near `y` (`nbhdAt`, `le_of_mem_nbhdAt`,
+    `eq_iff_of_mem_nbhdAt`). Hence `lemma_9_2_3` for any two structures, at possibly different points; in its
+    proof `Q(z) = V(y) ∩ W(y)` is presumably `Q(y)` (possible misprint). `remark_9_2_4_a`, `remark_9_2_4_b`
+    (`restrictAt`), `lemma_9_2_5` through the sheet of a morphism (`Sheet.apply_hat`, `src_mem_goodSet_of_tgt`),
+    `goodSet`, `badSet`, saturated (`preimage_π_image_goodSet`, `preimage_π_image_badSet`). The text states the
+    definition for equidimensional `Θ`; no proof uses it. Status: **settled**.
+
+24. **Lemma 9.2.7: density without (2), and (2) under invariance of domain** *(Lemma 9.2.7, p. 412 (2017: Lemma
+    9.5, pp. 300–301))*. (1): openness is `lemma_9_2_7_1`; density (`lemma_9_2_7_1_dense`, `dense_goodSet`,
+    `isNowhereDense_badSet`) is proved by shrinking an open set one sheet at a time
+    (`exists_isOpen_subset_inter_eq_empty_or_subset`), with neither (2) nor a dimension hypothesis, while the
+    text derives it from (2). (2): the point found is "clearly" good only if an `n`-dimensional submanifold
+    contained near it in another one equals it there, invariance of domain, which Part I does not provide: the
+    hypothesis `HasDomainInvarianceAt` (`lemma_9_2_7_2`), proved on `ℝᵐ` by the inverse function theorem
+    (`hasDomainInvarianceAt_rn`, `lemma_9_2_7_2_rn`). (2) holds at every `x`, not only at bad points (reading).
+    In Remark 9.1.3 (b) the origin is bad and approached by good points on each graph
+    (`Remark913Hyp.zero_mem_badSet`, `Remark913Hyp.exists_seq_goodSet_structureβ`). Status: **settled** over
+    `ℝᵐ`; in general open (gap G.98).
+
+25. **Proposition 9.2.8 and Lemmas 9.2.9–9.2.11: slices instead of sequences, a graph chart as a hypothesis**
+    *(Proposition 9.2.8, p. 413, Lemmas 9.2.9–9.2.11, pp. 414–417 (2017: Proposition 9.3, Lemmas 9.6–9.8, pp.
+    302–305))*. The proof of Theorem 9.2.1 uses Proposition 9.2.8 to count the weights of a class of sheets with
+    one tangent space by values of `Θ`; what the count needs is one finite slice per class meeting each sheet of
+    the class once and missing the others (`HasTangentSlicesAt`). It is produced from the graph representation
+    (`IsGraphChartAt`, `HasGraphChartsAt`, `hasTangentSlicesAt_of_hasGraphChartsAt`): rays replace the cones of
+    Lemma 9.2.10, with secants uniformly approximated by `T_xM` (`IsGraphChartAt.approx`). Lemmas 9.2.9–9.2.11
+    need level-0 sc-calculus in partial quadrants (sc-complements, a mean value formula for sc⁺-retractions, an
+    inverse function theorem on a cone), not in Part I, so the graph representation is a hypothesis on a general
+    M-polyfold. On `ℝᵐ` it is proved at every point and in every dimension (`isGraphChartAt_rn`,
+    `hasGraphChartsAt_rn`, `hasTangentSlicesAt_rn`, via `exists_mem_graph_of_hasStrictFDerivAt` and
+    `rn_exists_retraction`). For sheets of several dimensions one chart for all of them is needed
+    (`HasGraphChartAt`, `HasGraphChartAt.hasGraphChartsAt`, `hasGraphChartAt_rn`,
+    `exists_slice_of_isGraphChartAt`, `exists_generic_slice`; item 91). Proposition 9.2.8 as printed, with the
+    splitting `I¹ ⊔ ⋯ ⊔ I^p` and the sequences, is not formalized. Status: **settled** over `ℝᵐ`; in general
+    open (gap G.97).
+
+26. **Definition 9.2.12: `TΘ` is well defined; that it is a branched ep⁺-subgroupoid needs more** *(Definition
+    9.2.12, p. 418 (2017: Definition 9.6, p. 306))*. `tangentTheta` evaluates `T_Θ(p(h))` on the tangent sets
+    containing `h` (`grEval`, `tangentSubmanifold`), so it needs no choice; the text's "the local definitions
+    fit together" is `tangentTheta_eq`, from `sum_tangent_eq_sum_tangent`; `tangentTheta_nonneg`,
+    `isFunctorial_tangentTheta`. The text says without discussion that `TΘ` is a branched ep⁺-subgroupoid; this
+    needs `TangentBranchingHyp` (`isBranchedEpSubgroupoid_tangentTheta`, `tangentBranchingStructure`).
+    Closedness of the `TMᵢ` is proved (`isClosed_tangentSubmanifold`), paracompactness follows from that of
+    `|X|` (`paracompactSpace_orbitSupp_tangentTheta`), and `TMᵢ` is a sub-M-polyfold of `TX`, the image of `Ts`
+    (`IsSmoothSubmanifold.isSubMPolyfold_tangent`, `LocalBranchingStructure.isSubMPolyfold_tangentSubmanifold`,
+    `rnPolyfold_isSubMPolyfold_tangent_graph2`); that `Ts` is an sc⁺-retraction of `TX` is not formalized, also
+    on `ℝᵐ` (`tangentBranchingHyp_of_isSmoothSubmanifold`, `isBranchedEpSubgroupoid_tangentTheta_rn`). The full
+    hypothesis has the zero functor as witness (`tangentBranchingHyp_zero`). Status: **open** (gap G.99).
+
+Found while formalizing §9.2 from Lemma 9.2.13: the boundary (2026-11-08).
+
+40. **Reduced tangent position in a chart** *(before Lemma 9.2.13, p. 419 (2017 p. 307))*. `T_xM ⊆ T^R_xX` is
+    the inclusion of the chart image of `T_xM` in the reduced tangent space `E_z` (`IsReducedTangentAt`,
+    `isReducedTangentAt_iff_subset_reduced`), equivalently in the partial quadrant or the partial cone
+    (`isReducedTangentAt_iff_subset_partialQuadrant`, `isReducedTangentAt_iff_subset_partialCone`; the 2017
+    Remark 9.5's "not contained in `C_xX`" is equivalent); it does not depend on the chart
+    (`isReducedTangentAt_chart_change`, `MPolyfold.IsTangentReducedAt`, `isTangentReducedAt_iff_forall`). `d_M`
+    is `subDegIndex`, at most `d_X` (`subDegIndex_le`). Status: **settled**.
+
+41. **Lemma 9.2.13 read at points of `∂X`; the converse proved without the complement `Y` and the map `F`**
+    *(Lemma 9.2.13, p. 419 (2017: Lemma 9.9, p. 307))*. As printed, (2) ⇒ "(1) `x ∈ ∂X` and `d_M(x) = 0`" does
+    not hold as we read it at interior points: a point of `ℝⁿ` is in reduced tangent position and not in `∂ℝⁿ`
+    (`not_lemma_9_2_13_two_one`). The lemma is read with `x ∈ M ∩ ∂X` as the standing assumption, where the text
+    uses it; this is a reading. (1) ⇒ (2): `lemma_9_2_13`, `lemma_9_2_13_chart` (Part I's theorem for the
+    induced structure), and off `∂X` too (`lemma_9_2_13_of_not_mem_boundary`). (2) ⇒ (1):
+    `lemma_9_2_13_two_one`, from `ScRetraction.IsScPlus.exists_flat` (the chart `χ = p(· − z)` on `M ∩ G`, with
+    inverse `s ∘ (z + ·) ∘ Ψ⁻¹` by Mathlib's inverse function theorem, a model without boundary) and
+    `ScRetraction.IsScPlus.exists_injOn_proj` (the step "the image is `M` near `0`", which the text does not
+    spell out: `p` is injective on `M` near `z`, by a level-1 contraction with the mean value inequality);
+    `subDegIndex_eq_zero_of_isTangentReducedAt`, `degIndex_eq_zero_of_isReducedTangentAt`. Together:
+    `lemma_9_2_13_iff` at `x ∈ ∂X`, and `subDegIndex_eq_zero_iff`, `d_M(x) = 0 ⟺ T_xM ⊆ T^R_xX`, at every `x ∈
+    M`. No fact of Part I is assumed. Not formalized: a witness at a boundary point, which needs a submanifold
+    API for quadrants. Status: **settled**.
+
+42. **Remark 9.2.14** *(Remark 9.2.14, p. 419 (2017: Remark 9.5, p. 307))*. `x ∈ ∂M ⟺ x ∈ ∂X ∧ T_xM ⊄ T^R_xX`
+    (`remark_9_2_14_iff`), from `remark_9_2_14`, `remark_9_2_14_mem_boundary` (`∂M ⊆ ∂X`),
+    `remark_9_2_14_not_isTangentReducedAt`, `remark_9_2_14_not_mem_boundary_iff` and
+    `mem_boundary_subPolyfold_iff`. Status: **settled**.
+
+43. **Proposition 9.2.15 with fewer hypotheses** *(Proposition 9.2.15, p. 420 (2017: Proposition 9.4, p. 308))*.
+    The boundary weight is the part of `T_Θ(y)` on tangent sets not in reduced position
+    (`MPolyfold.submanifoldBoundary`, `mem_submanifoldBoundary_iff`, `isReducedTangentSet_iff`, `boundaryPart`,
+    `filter_tangentValue_eq`). (1) `proposition_9_2_15_1`, under the independence of Theorem 9.2.1; (2)
+    `proposition_9_2_15_2`, without it; (3) `boundaryTheta`, `isFunctorial_boundaryTheta`, `boundaryTheta_eq`,
+    `proposition_9_2_15_3`. (1) and (2) need neither `x ∈ supp(Θ) ∩ ∂X` nor that `Θ` be branched. Status:
+    **settled**.
+
+44. **Definition 9.2.16: the characterization of `∂Θ` is not unique as we read it** *(Definition 9.2.16, p. 421
+    (2017: Definition 9.7, p. 309))*. (1) and (2) of the text are `IsBoundaryCharacterized`, satisfied by `∂Θ`
+    (`isBoundaryCharacterized_boundaryTheta`). Since (2) is asked only on `supp(F)`, the zero functor satisfies
+    (1) and (2) for every `Θ` (`isBoundaryCharacterized_zero`), and for `Θ = 1` on `[0, ∞)`, where `∂Θ(0) = 1`
+    (`boundaryTheta_halfLine_one`), both `0` and `∂Θ` do (`not_unique_isBoundaryCharacterized_halfLine`). With
+    (2) asked on `supp(Θ)` and `F = 0` off `supp(Θ)`, `F = ∂Θ` (`eq_boundaryTheta`). Status: **settled**
+    (corrected reading).
+
+45. **Possible misprints around Definition 9.2.16** *(pp. 420–421 (2017 p. 309))*. "In view of Proposition
+    9.2.13" (2017: "Proposition 9.9", the 2017 number of Lemma 9.2.13) presumably refers to Proposition 9.2.15;
+    Definition 9.2.16 writes "branched ep⁺-groupoid" for ep⁺-subgroupoid. Status: **settled** (possible
+    misprints).
+
+46. **Remark 9.2.17** *(Remark 9.2.17, p. 421 (2017: Remark 9.6, p. 310))*. `∂Θ ≤ Θ` (`boundaryTheta_le`); `∂Θ`
+    is not `Θ` restricted to `∂X`: for the indicator of the corner of `[0, ∞)`, `Θ(0) = 1` and `∂Θ(0) = 0`
+    (`boundaryTheta_halfLineCorner`), while for `Θ = 1` on `[0, ∞)`
+    (`HasCornerStructure.isSmoothSubmanifold_univ`, `isBranchedEpSubgroupoid_one`) `∂Θ(0) = 1`
+    (`boundaryTheta_one`); for the indicator of an interior point `∂Θ = 0` (`boundaryTheta_indicator_of_mem`).
+    The witnesses satisfy the independence (`hasIndependentTangentSums_indicator_of_mem`). The remark's "In
+    Section 9.5, Definition 9.3.6" (also in 2017) refers to §9.3 (possible misprint). Status: **settled**.
+
+Found while formalizing §9.3 (2026-11-08).
+
+50. **Orientations as sets of frames; `Ĝr(X)`; Remark 9.3.1** *(p. 422 (2017 p. 310); Remark 9.3.1 (2017:
+    9.7))*. An orientation of a tangent set is a set of frames whose chart images (`MPolyfold.chartVec`,
+    `chartVec_injOn`) are the positive bases of an orientation of the chart image (`MPolyfold.OrTangent`,
+    `chartFrames`, `IsChartOrientation`, `MPolyfold.IsOrientedAt`); chart changes act linearly
+    (`exists_clm_chartVec`), so this does not depend on the chart (`IsOrientedAt.isChartOrientation`,
+    `isOrientedAt_iff_forall`); every tangent set has exactly two orientations (`exists_two_orientations`),
+    pushed forward by sc-diffeomorphisms and morphisms (`OrTangent.push`, `IsOrientedAt.push_tangentMapOn`,
+    `isOrientedAt_push_tangentMor`). `GrHat`, `grHatPush`, `GrHatObj`, `grHatProj`, `grForget`,
+    `grForgetFunctor`, `grForgetFunctor_comp_grProj`, `grForget_single_add_single`. Remark 9.3.1 has no formal
+    content. Status: **settled** (gap G.7 stays).
+
+51. **Definition 9.3.2 uses the independence of Theorem 9.2.1** *(Definition 9.3.2, p. 423 (2017: Definition
+    9.8, p. 311))*. A continuous orientation of a submanifold is a locally constant choice of chart frames
+    (`MPolyfold.SubmanifoldOrientation`); `EpGroupoid.OrientedBranchingStructure`,
+    `OrientedBranchingStructure.orientedSum`, `grForget_orientedSum`, `EpGroupoid.IsOrientation`,
+    `orientedSection`. "Lifts `T_Θ`" uses `T_Θ`, hence the independence (`IsOrientation.mk'`), free on `ℝᵐ`
+    (`isOrientation_sum_trivial_rn`, `isOrientationOfDim_sum_trivial_rn`). Witnesses: `isOrientation_zero`,
+    `isOrientation_sum_rn`. Status: **settled**.
+
+52. **Remark 9.3.3** *(Remark 9.3.3, p. 423 (2017: Remark 9.8, p. 311))*. For the indicator of a point, every `q
+    ∈ (0, 1) ∩ ℚ` gives the orientation `q · (T_p{p}, +) + (1 − q) · (T_p{p}, −)`, and these are pairwise
+    distinct (`remark_9_3_3`). Status: **settled**.
+
+53. **Lemma 9.3.4 does not hold as we read it without equidimensionality; its proof needs good points serving
+    both structures** *(Lemma 9.3.4, pp. 423–424 (2017: Lemma 9.10, pp. 311–312))*. Counterexample
+    `lemma_9_3_4_mixed_dim`, `lemma_9_3_4_mixed_dim_rn`: on `ℝ²`, `Θ = 1_{ℝ×0} + 1_{(0,0)}` (`mixedTheta`,
+    `mixedTheta_isBranched`); the origin is bad (`zero_not_mem_goodSet_mixed`), and two orientations orienting
+    the line alike and the point oppositely agree at all good points. The lemma is formalized for
+    `n`-dimensional `Θ` (`IsOrientationOfDim`, `lemma_9_3_4`). The text compares the structures along good-point
+    sequences of the first structure only; as we read it, this needs Proposition 9.2.8 for both families
+    together, an argument the text does not give: the hypothesis `HasOrientedGoodPointsAt`. It follows from the
+    ball form of the graph representation (`HasGraphBallAt`; the ray form does not provide an open set of foot
+    points for the shrinking of Lemma 9.2.7) and the level-1 continuity of frames (`HasContinuousLevelOneOn`),
+    through which relative orientations are locally constant (`frameDet`, `orientation_eq_iff_frameDet`,
+    `frames_eq_iff_frameDet`, `continuousOn_chartVec_of_continuousOn`,
+    `SubmanifoldOrientation.exists_isOpen_tangent_eq_iff`): `hasOrientedGoodPointsAt_of_hasGraphBallAt`,
+    `lemma_9_3_4_of_hasGraphBallAt`. On `ℝᵐ` both hold (`hasGraphBallAt_rn`, `hasContinuousLevelOneOn_rn`,
+    `hasOrientedGoodPointsAt_rn`, `lemma_9_3_4_rn`). Status: **settled** over `ℝᵐ`; in general open (gaps G.97,
+    G.100).
+
+54. **Example 9.3.5: "otherwise different" and "four possibilities" do not hold as we read them** *(Example
+    9.3.5, p. 425 (2017: Example 9.1, p. 313))*. `betaPP`, `betaMM`, `betaPM`, `betaMP`, `example_9_3_5_count`,
+    `example935Theta`, `example935Theta_isBranched`, `graphOrientation`, `exampleT1`, `exampleT2`. Verified as
+    stated: the orientations coincide at the origin (`example_9_3_5_eq_origin`), differ for `s > 0`
+    (`example_9_3_5_ne_of_pos`), and no signs on the second structure reproduce `T̂¹` near `0`
+    (`example_9_3_5_cannot_coincide`; `example_9_3_5`, `example_9_3_5_rn`). They also coincide where `x < 0`
+    (`example_9_3_5_eq_of_neg`), and the four sign choices on the first structure give four different
+    orientations (`orientedLift1_injective`), none of them `T̂²` (`exampleT2_ne_orientedLift1`): at least five
+    orientations with weights `1`, infinitely many with fractional weights (Remark 9.3.3). The good points
+    distinguish `T̂¹` from `T̂²` (`exists_goodSet_exampleT1_ne_exampleT2`). A classification of all orientations
+    is not formalized (gap G.101). Status: **settled**; the classification open (gap G.101).
+
+55. **Definition 9.3.6: the corner structure of a tame `Mᵢ`** *(Definition 9.3.6, p. 425 (2017: Definition 9.10,
+    p. 314))*. `TameBranchingStructure`, `IsTameBranched`, with witnesses `isTameBranched_zero` and
+    `isTameBranched_indicator` (`hasTameInducedStructure_of_degIndex_eq_zero`). "In particular every `Mᵢ` has an
+    equivalent structure of a manifold with boundary with corners" is not formalized: the project has no bridge
+    from tame finite-dimensional M⁺-polyfolds to Mathlib manifolds with corners (gap G.102). Status: **open**
+    (gap G.102).
+
+56. **Lemma 9.3.7 (new in the 2021 edition) in a stronger form** *(Lemma 9.3.7, p. 426)*. `lemma_9_3_7`;
+    `d_M(y)` is the codimension of the reduced part of the chart image of `T_yM`
+    (`subDegIndex_eq_quotDim_of_hasTameInducedStructure`, Part I's Remark 2.5.9 in every chart), so equal
+    tangent spaces give equal indices without "`Y` tame" or "of the same dimension"
+    (`subDegIndex_eq_of_tangentSpace_eq`, `subDegIndex_eq_of_submanifoldTangent_eq`). "`T_0O ∩ C = T^R_0O`" (a
+    cone against a subspace) is read through the linearity of the chart image of `T_0M`. Status: **settled**.
+
+57. **Definition 9.3.8: `T_y∂M` and the outward vector are data** *(Definition 9.3.8, p. 427 (2017: Definition
+    9.9, p. 313))*. The convention orients a hyperplane (`exists_boundary_orientation`,
+    `exists_basis_orientation_iff_det_pos`, `det_cons_smul_add`); in a tangent set, `boundaryFrames` with
+    `isOrientedAt_boundaryFrames` and `boundaryFrames_eq` (unchanged by `e ↦ ce + k`), both orientations
+    occurring on a graph (`exists_boundaryFrames_graph`). That `T_y∂M = T^R_yM` and the outward half-space are
+    determined by `M` through the cones `C_yM` is not formalized (gap G.103). Status: **open** (gap G.103).
+
+58. **(9.11), Proposition 9.3.9 (new in the 2021 edition), Definition 9.3.10 and Remark 9.3.11** *(pp. 427–429
+    (2017: Definition 9.11, p. 314))*. The split by degree (`degreePart`, `degreePart_orientedSum`,
+    `HasSubDegree`, `SubmanifoldOrientation.hasSubDegree_tangent_iff`) does not depend on the structure
+    (`eq_9_11`), by Lemma 9.3.7; the boundary operation is a function `bd` of the oriented tangent set
+    (`proposition_9_3_9`); `boundaryLift` is Definition 9.3.10, whose condition `y ∈ ∂Mᵢ` is implied by
+    `d_{Mᵢ}(y) = 1`. The continuity of `o_∂M` along `∂M` and its extension to the faces (Figure 9.1) are not
+    formalized (gap G.103); Remark 9.3.11 has no formal content. Status: **open** (gap G.103).
+
+Found while formalizing §9.4 (2026-11-08).
+
+70. **Definitions 9.4.1 and 9.4.5, Lemmas 9.4.2 and 9.4.6, for Mathlib manifolds** *(pp. 429–431 (2017:
+    Definitions 9.12, 9.13, Lemmas 9.11, 9.14, pp. 315–317))*. `T^K_zM` in a chart is the span of Mathlib's
+    tangent cone of the chart image (`chartImage`, `unitDirections`, `span_unitDirections`,
+    `span_tangentConeAt_chartImage_eq_map`, `relTangent`), mapped by the derivative under chart changes
+    (`relTangent_eq_map`), the text's independence of the chart; `relTangent_eq_top_iff`, `fullSet`,
+    `essentialSet`, `essentialSet_eq`; two crossing lines in `ℝ²` (`crossLines`, `essentialSet_crossLines`,
+    `nonEssential_crossLines`). Lemma 9.4.2, "obvious from the definition", is `lemma_9_4_2`,
+    `lemma_9_4_2_open`. `IsMeasureZero`, `isMeasureZero_iUnion`, `isMeasureZero_of_forall_mem`,
+    `not_isMeasureZero_univ`. Lemma 9.4.6, "proved similarly as Lemma 2.8 in [57]", is proved by Lebesgue's
+    density theorem (`eventually_abs_le_of_tangentConeAt`, `exists_pos_measure_cone_lt`,
+    `addHaar_setOf_span_tangentConeAt_ne_top`, `isMeasureZero_setOf_relTangent_ne_top`, `lemma_9_4_6`), for
+    every `K`, not only `K(i, i')`. Status: **settled**.
+
+71. **Lemma 9.4.3 not formalized; Property (T) as a definition** *(Lemma 9.4.3, p. 430 (2017: Lemma 9.12, p.
+    316))*. `OrientedBranchingStructure.PropertyT`, with witness `propertyT_example935B1`; under (T) the sign
+    map on `K(i, i')^e` is constant (`tangent_eq_iff_of_mem_ess`). Lemma 9.4.3, that (T) holds after shrinking,
+    needs the continuity of the change-of-frame determinant of two sheets along their intersection in charts
+    (gap G.104). Status: **open** (gap G.104).
+
+72. **Lemma 9.4.4 and the note in Definition 9.4.7 need sheets of one dimension; `SheetGeometry`** *(Lemma
+    9.4.4, p. 431 (2017: Lemma 9.13, p. 317); Definition 9.4.7, p. 432 (2017: Definition 9.14, p. 318))*. Lemma
+    9.4.4 is "left to the reader". For sheets of different dimensions it does not hold as we read it: `ℝ × 0` is
+    essential at every point as a subset of `ℝ` and nowhere as a subset of `ℝ²` (`lemma_9_4_4_mixed_dim`); the
+    same example bears on the note after Definition 9.4.7. For an `n`-dimensional `Θ` the text's reduction in a
+    chart applies. The sheets of an M-polyfold carry no Mathlib manifold structure in the project, so their
+    essential points and null sets are the data `MPolyfold.SheetGeometry`, with Lemma 9.4.4 (`ess_comm`), Lemma
+    9.4.6 (`isNull_diff_ess`) and the note of Definition 9.4.7 (`submanifoldTangent_eq`) as fields; it is
+    satisfiable by graphs in `ℝ²` (`graphSheets`, `graphSheetGeometry`). Status: **settled** as read; for
+    M-polyfold sheets open (gap G.105).
+
+73. **Lemma 9.4.8: the last step read inside each sheet** *(Lemma 9.4.8, p. 432 (2017: Lemma 9.15, p. 318))*.
+    `SheetGeometry.IsLink`, `SheetGeometry.YEquiv`, `equivalence_yEquiv`, `SheetGeometry.ySetoid`,
+    `submanifoldTangent_eq_of_yEquiv`, `SheetGeometry.numClasses`; "measure zero in `M_U`" is
+    `SheetGeometry.IsNullIn`, null in every sheet through the point; `SheetGeometry.lemma_9_4_8`,
+    `SheetGeometry.MStar`, `isNullIn_diff_MStar`. The text concludes that the bad part lies in `⋃_{j,j'} K(j,
+    j')^ne`; as we read it, `K(j, j')^ne` is null only in `M_j` and `M_{j'}`, and the proof uses `K(i, j)^ne`
+    inside each sheet `Mᵢ` through `y`, for `j` not `y`-equivalent to `i`. This is a reading. Status:
+    **settled**.
+
+74. **Propositions 9.4.9 and 9.4.10: `o^a = −o^b`, Property (T) not needed for 9.4.10, and the footnote**
+    *(Propositions 9.4.9, 9.4.10, pp. 434–435 (2017: Propositions 9.5, 9.6, pp. 319–321))*.
+    `SheetGeometry.MStarPart`, `LocalBranchingStructure.tangentValue_eq_sum` (which uses the independence of
+    Theorem 9.2.1), `proposition_9_4_9`, with `o^a_J = −o^b_J` read as `o^a_J ≠ o^b_J` on the same tangent set,
+    which has exactly two orientations (`OrTangent.eq_or_eq_or_eq_of_isOrientedAt`, `exists_ne_isOrientedAt`).
+    `proposition_9_4_10` takes `M^†_U` the generic set of the union only and cuts it by the finitely many values
+    of `y ↦ (I_y, I'_y, J₊(y), J'₊(y))`, so Property (T) is not used. The two structures of Example 9.3.5
+    satisfy its hypotheses and have a point with two classes (`example935B1`, `example935B2`,
+    `example935_hypotheses_9_4_10`, `example935_MU_eq`, `example935_two_le_numClasses`). The footnote's "Lemma
+    9.5.2" refers forward to p. 437, consistently as we read it; not a misprint. Status: **settled**.
+
+Found while formalizing §9.5 (2026-11-08).
+
+80. **Definition 9.5.1: the null sets of the sheets as data** *(Definition 9.5.1, p. 437 (2017: Definition 9.15,
+    p. 322))*. Measure zero in a sheet `Mᵢ` (Definition 9.4.5) is not available for submanifolds of an
+    M-polyfold, so it is an abstract system on a class `S` of sheets, `SheetNullSets`: a σ-ideal in every sheet
+    (`SheetNullSets.isNull_iUnion_countable`, `SheetNullSets.isNull_union`), local, induced alike by two sheets
+    of `S` on their overlap (`isNull_transfer`), a nonempty sheet not null in itself; with the covering
+    criterion `SheetNullSets.isNull_of_cover`. `MPolyfold.SheetMeasureGeometry` is a §9.4 `SheetGeometry` with
+    these properties (`SheetMeasureGeometry.toSheetNullSets`,
+    `LocalBranchingStructure.hasNullPreimages_iff_isNullIn`). Definition 9.5.1 is `IsMeasureZeroSupp`, "a
+    suitable `U(x)`" being a `TameBranchingStructure` (Definition 9.3.6) with sheets in `S`
+    (`LocalBranchingStructure.HasNullPreimages`), with the variants `IsMeasureZeroSuppAny`,
+    `IsMeasureZeroSuppAll` and the standing assumption `HasTameSheetsIn` (on `ℝⁿ`:
+    `exists_tameBranchingStructure_trivial_rn`, `hasTameSheetsIn_trivial_rn`). Compactness and orientation of
+    `Θ` are not used. Not formalized: Lebesgue null sets in the sheets of a general M-polyfold (gap G.106).
+    Status: **settled** as read; in general open (gap G.106).
+
+81. **Lemma 9.5.2 across dimensions does not hold as we read it** *(Lemma 9.5.2, p. 437 (2017: Lemma 9.16, p.
+    322))*. The text cites the literature, without proof. The core is `isMeasureZeroSuppAll_of_any`: near a
+    point of `M'_j ∩ π⁻¹(A)`, `M'_j` is covered by the finitely many sheets of a structure with null preimages,
+    and the covering criterion applies; `isMeasureZeroSuppAny_of_isMeasureZeroSupp`, `lemma_9_5_2`; the sets of
+    measure zero form a σ-ideal (`isSigmaIdeal_isMeasureZeroSuppAll`, `isSigmaIdeal_isMeasureZeroSupp`), and `S
+    ≠ ∅` is not null (`not_isMeasureZeroSuppAny_orbitSupp`, `not_isMeasureZeroSupp_orbitSupp`). The proof rests
+    on the transfer property, two sheets inducing the same null sets on their overlap, which does not hold
+    across dimensions: the axis `ℝ × 0` has measure zero in the sheet `ℝ²` and not in itself
+    (`isNull_transfer_mixed_dim`). So the lemma is proved for structures with sheets in one class, as for the
+    `n`-dimensional structures of an `n`-dimensional `Θ`; for every structure of an `n`-dimensional `Θ` it would
+    need Proposition 9.1.12 in general (gap G.97). Status: **settled** for one class; in general open (gap
+    G.106).
+
+82. **The remark after Definition 9.5.3, read as a completion; `L(S)` is larger than the Borel σ-algebra**
+    *(Definition 9.5.3 and the remark after it, p. 438 (2017: Definition 9.16, p. 323))*. For a σ-ideal `𝒩` the
+    σ-algebra generated by the Borel sets and `𝒩` is `{A | A ∆ B ∈ 𝒩 for a Borel B}` (`borelNullSigma`,
+    `IsSigmaIdeal`, `borel_le_borelNullSigma`, `measurableSet_borelNullSigma_of_mem`, `symmDiff_iUnion_subset`,
+    `borelNullCompletion`, `measurableSet_borelNullSigma_iff`). `L(S)` is `lebesgueSigma` (`measureZeroSets`,
+    `isSigmaIdeal_measureZeroSets`), and the remark that it is obtained by adding the sets of measure zero is
+    read as `K ∈ L(S) ⟺ K ∆ B` null for a Borel `B` (`remark_9_5_3`,
+    `measurableSet_lebesgueSigma_of_isMeasureZeroSupp`); the form `B ∪ N` would need Borel null hulls.
+    Witnesses: for Example 9.3.5's `Θ` (`theta935`, `isBranchedEpSubgroupoid_theta935`,
+    `hasTameSheetsIn_theta935`) the touching point is a nonempty set of measure zero and `S` is not null
+    (`isMeasureZeroSupp_theta935_zero`, `not_isMeasureZeroSupp_theta935`, `lebesgueSigma_theta935`); for `Θ = 1`
+    on `ℝ²` (`planeSheets`, `planeNull`, `thetaPlane`, `hasTameSheetsIn_thetaPlane`) some member of `L(S)` is
+    not Borel, the `2^𝔠` subsets of the null axis against `𝔠` Borel sets
+    (`exists_mem_lebesgueSigma_not_borel_thetaPlane`). Status: **settled**.
+
+83. **Measure zero in `∂S` and Definition 9.5.14: the independence enters; faces not formalized** *(p. 448 and
+    Definition 9.5.14, p. 448 (2017: Definition 9.17, p. 327))*. `IsMeasureZeroBoundary`,
+    `IsMeasureZeroBoundaryAll`, `boundaryMeasureZeroSets`, `lebesgueSigmaBoundary`,
+    `orbitSupp_boundaryTheta_subset` (`∂S ⊆ S`). "A well-defined notion" is `isMeasureZeroBoundaryAll_of`, which
+    needs the independence of Theorem 9.2.1, through the local formula for `∂Θ` on every structure
+    (`exists_mem_of_sum_pos`). `(n−1)`-dimensional measure zero in the `∂Mᵢ` is a second abstract system on the
+    boundaries; its description face by face is not formalized, and no witness with `∂S ≠ ∅` is given (gap
+    G.108). Status: **open** (gap G.108).
+
+84. **Lemmas 9.5.9–9.5.11 and Proposition 9.5.13: the isotropy and set parts** *(Lemma 9.5.9, p. 442, Lemma
+    9.5.11, p. 445 (2017: Lemmas 9.18, 9.19, p. 326); Lemma 9.5.10, p. 444, and Proposition 9.5.13, p. 446, new
+    in the 2021 edition)*. The measure identities need forms and integrals and are not stated (gap G.107); what
+    their proofs rest on is formalized. Lemma 9.5.9: `NaturalRep.card_quotient_stabilizer_mul_card_isotropy`
+    (`♯R · ♯G_y = ♯G_x`, `R` being `Quotient.out` on `G_x ⧸ H`, `NaturalRep.mem_stabilizer_iff_Φ`),
+    `NaturalRep.exists_slice` (the neighbourhood `V`), `NaturalRep.π_Φ`, `NaturalRep.mapsTo_Φ_MU`,
+    `NaturalRep.MU_inter_preimage_eq_iUnion`, `NaturalRep.MU_inter_preimage_eq_iUnion_quotient`,
+    `NaturalRep.pairwise_disjoint_image_Φ_out`; the restriction `M̃_j = V ∩ M_j` is `restrictAt`, which keeps
+    the sheets through `y`. Lemma 9.5.10: `card_effIsotropy_mul_card_trivialSubgroup`,
+    `NaturalRep.kerΦ_eq_trivialSubgroup` (`T_x = ker Φ` under `NaturalRep.HasLUC`, Definition 7.2.18),
+    `NaturalRep.kerΦ_le_stabilizer`, `NaturalRep.stabilizerEquivIsotropy_mem_trivialSubgroup_iff`,
+    `NaturalRep.card_trivialSubgroup_eq` (`T_y ≅ T_x`), (9.23)
+    `NaturalRep.card_quotient_stabilizer_mul_card_effIsotropy`. Lemma 9.5.11: `card_isotropy_eq_of_mor`,
+    `card_effIsotropy_eq_of_mor`, `IsFunctorial.eq_of_π_eq`, `image_π_MU_eq` (`φ̂` any map of `U` onto `U'` with
+    `|φ̂(z)| = |z|`), `NaturalRep.Φ_hyps`. Proposition 9.5.13: `card_effIsotropy_eq_of_isEffective`,
+    `isFunctorial_reduced_iff`, `LocalBranchingStructure.toReduced`, `card_effIsotropy_eq_reduced`, the morphism
+    space of `X_R` being Hausdorff and paracompact by instances (Hausdorff under LUC). The combinatorics of
+    Lemma 9.5.7 is `proposition_9_4_10`. Status: **settled** for these parts; the measure identities open (gap
+    G.107).
+
+85. **Not formalized in §9.5: forms, integrals, measures and Stokes' theorem** *(pp. 438–452 (2017 pp.
+    323–331))*. Theorems 9.5.4 (2017: 9.2) and 9.5.5 (new in 2021), Definition 9.5.6, (9.21)–(9.22), the measure
+    identities of Lemma 9.5.7, Lemmas 9.5.9–9.5.11 and Proposition 9.5.13, and Remark 9.5.8 (gap G.107);
+    Theorems 9.5.15 (2017: 9.3) and 9.5.16 (new in 2021), the canonical boundary measures (gap G.109); Theorems
+    9.5.17 (2017: 9.4) and 9.5.18 (new in 2021), Stokes' theorem, and Remark 9.5.20 (gap G.110). All need the
+    sc-differential forms of §8.2 and Part I (gaps G.74, G.80). Remark 9.5.12 (history and open questions) and
+    Remark 9.5.19 (on the partition-of-unity hypothesis) have no formal content. Status: **open** (gaps G.107,
+    G.109, G.110).
+
+Found while formalizing Appendix §9.6.1 (2026-11-08).
+
+90. **"Measure zero" in §9.6.1 replaced by topology** *(Lemmas 9.6.1, 9.6.2, pp. 453–454, new in the 2021
+    edition)*. The text removes sets of smaller dimension "of measure zero" and moves a point slightly; the
+    formalization uses a covering lemma, with no Lebesgue measure and no Baire category:
+    `HasDimAt.le_of_inter_subset`, `exists_mem_forall_notMem` (by induction on the family),
+    `LocalBranchingStructure.IsGeneric`, `exists_isGeneric`. `lemma_9_6_1`, `LocalBranchingStructure.topDim`,
+    `localTopDim` (`dim_Θ`, p. 454), `localTopDim_eq`, `localTopDim_eq_bot`; `lemma_9_6_2`,
+    `LocalBranchingStructure.topUnion`, `mem_topUnion_iff_of_mem`. Status: **settled**.
+
+91. **Lemma 9.6.4 and the formula on p. 457: two steps the text does not give, supplied** *(Lemma 9.6.4, p. 455,
+    Proposition 9.6.5, pp. 456–457, new in the 2021 edition)*. `IsTopGoodPoint`, `IsTopBadPoint` (Definition
+    9.6.3), and at points top-good for both structures the top parts agree without hypothesis
+    (`dimPart_topDim_eq_of_isTopGoodPoint`). Lemma 9.6.4 argues "similarly as good points"; as we read it this
+    needs that the top weight of the second structure at `y` equals `σ`, an argument the text does not give. In
+    `Appendix.lean` it is the hypothesis `MPolyfold.TopMultiplicity` (`lemma_9_6_4`, `isTopBadPoint_iff`,
+    `dimPart_topDim_eq_of_topMultiplicity`, `LocalBranchingStructure.subOn`,
+    `dimPartsAgreeNear_of_topMultiplicity`, `proposition_9_1_12_of_topMultiplicity`), with witnesses
+    `topMultiplicity_zero`, `topMultiplicity_rn_of_le` (`rnPolyfold_mem_nhds_of_hasDimAt`),
+    `proposition_9_1_12_rn_zero`, `proposition_9_1_12_rn_one`. `AppendixSlices.lean` proves it from one graph
+    chart for all dimensions, grouping the sheets of both structures by tangent space and taking a generic slice
+    per class that avoids the lower-dimensional sheets: `MPolyfold.TopMultiplicityAt`,
+    `topMultiplicityAt_of_hasGraphChartAt`, `topMultiplicity_of_hasGraphChartAt`, `topMultiplicity_rn` (all `m`,
+    `k`), `lemma_9_6_4_of_hasGraphChartAt`. On p. 457 the text asserts that the right-hand side does not depend
+    on the structure while `Ξ`, `I^e` and `x^e` come from the first one; this is proved with one slice for the
+    sheets of both structures (`sum_class_eq_of_hasGraphChartAt`, `dimPart_topDim_eq_of_hasGraphChartAt`).
+    Proposition 9.6.5 in slice form: `IsTopSlice`, `proposition_9_6_5`, `sum_class_eq_sum_of_isTopSlice`,
+    `dimPart_topDim_eq_sum_slices`; Proposition 9.1.12: `dimPartsAgreeNear_of_hasGraphChartAt`,
+    `proposition_9_1_12_of_hasGraphChartAt`, `proposition_9_1_12_rn`. Readings: the top-good sequences are
+    replaced by top slices in every neighbourhood; a per-dimension graph representation is not enough, the
+    lower-dimensional sheets having to be avoided in the chart in which the top sheets are graphs. Status:
+    **settled** over `ℝᵐ`; in general under the graph representation (gap G.97).
+
+92. **Possible misprints in §9.6.1** *(pp. 455–457)*. In Proposition 9.6.5 (1), "`I_k = I¹ ⊔ ⋯ ⊔ I^p`" reads as
+    `Ξ = I¹ ⊔ ⋯ ⊔ I^p`; the points `x^k_e` on p. 457 are not introduced, presumably the `x^e_j`; "This completes
+    the proof of Proposition 9.6.5" (p. 457) refers to Proposition 9.1.12, Proposition 9.6.5 being stated
+    without proof; in the proof of Lemma 9.6.4 the top-good point is called `z` and then `y`. Status:
+    **settled** (possible misprints).
+
+93. **Witnesses with sheets of several dimensions** *(Proposition 9.1.12, p. 408)*. `Θ = 1 + δ₀` on `ℝ¹` has
+    sheets of dimensions `0` and `1` (`exists_mixed_rn_one`); on `ℝ²` two labelled structures of one `Θ` with
+    sheets of dimensions `1` and `0` have different sheets and agreeing dimensional parts
+    (`Remark913Hyp.exists_mixed_rn_two`); `mixedTheta` (item 53). So Proposition 9.1.12 is not vacuous beyond
+    the equidimensional case. Status: **settled**.
+
+Witnesses and the hypotheses taken in general (2026-11-08).
+
+100. **The hypotheses taken on a general M-polyfold, each with a witness** *(§§9.1–9.6.1)*. The independence of
+     Theorem 9.2.1, `HasIndependentTangentSums` (`hasIndependentTangentSums_rn`,
+     `hasIndependentTangentSums_indicator_of_mem`); tangent slices, `HasTangentSlicesAt`
+     (`hasTangentSlicesAt_rn`); the graph representation, `IsGraphChartAt`, `HasGraphChartsAt`,
+     `HasGraphChartAt`, `HasGraphBallAt` (`isGraphChartAt_rn`, `hasGraphChartsAt_rn`, `hasGraphChartAt_rn`,
+     `hasGraphBallAt_rn`); the local constancy of the dimension, `HasLocallyConstantDimAt`
+     (`hasLocallyConstantDimAt_rn`); invariance of domain, `HasDomainInvarianceAt` (`hasDomainInvarianceAt_rn`);
+     `TopMultiplicity`, `TopMultiplicityAt` (`topMultiplicity_zero`, `topMultiplicity_rn_of_le`,
+     `topMultiplicity_rn`); `HasOrientedGoodPointsAt` (`hasOrientedGoodPointsAt_rn`); `HasContinuousLevelOneOn`
+     (`hasContinuousLevelOneOn_rn`); `TangentBranchingHyp` (`tangentBranchingHyp_zero`; its field that the `TMᵢ`
+     are smooth submanifolds stays open also on `ℝᵐ`, gap G.99); `SheetGeometry` (`graphSheetGeometry`);
+     `SheetNullSets`, `SheetMeasureGeometry` (`graphSheetMeasureGeometry`, `planeNull`); `HasTameSheetsIn`
+     (`hasTameSheetsIn_trivial_rn`); Property (T) (`propertyT_example935B1`); `Remark913Hyp`
+     (`remark913Hyp_expNegInvGlue`); LUC in Lemma 9.5.10 (`NaturalRep.HasLUC`, which holds for effective
+     ep-groupoids, `isLUC_of_isEffective`). Status: **settled** (every hypothesis satisfiable).
+
+101. **Unconditional over `ℝᵐ`, and what remains there** *(§§9.1–9.6.1)*. For every ep-groupoid whose object
+     M-polyfold is `ℝᵐ`, with any morphisms: Proposition 9.1.12 (`proposition_9_1_12_rn`), the independence and
+     hence Theorem 9.2.1 (`hasIndependentTangentSums_rn`), Lemma 9.2.7 (2) (`lemma_9_2_7_2_rn`), Lemma 9.3.4 for
+     `n`-dimensional `Θ` (`lemma_9_3_4_rn`), Lemma 9.6.4 and Proposition 9.6.5 (`topMultiplicity_rn`). What
+     remains on `ℝᵐ` is the smoothness of the `TMᵢ` in Definition 9.2.12
+     (`isBranchedEpSubgroupoid_tangentTheta_rn`; gap G.99) and the paracompactness of `|X|`. Status:
+     **settled**; gap G.99 open.
+
+102. **Witnesses not yet constructed** *(Lemma 9.2.13, Definitions 9.2.12, 9.3.8, 9.5.14)*. No witness of Lemma
+     9.2.13 at a boundary point (it needs a submanifold API for quadrants); `TangentBranchingHyp` only for the
+     zero functor; Definition 9.3.8 only on a graph (`exists_boundaryFrames_graph`), with `T_y∂M` and `e` as
+     data; no `L(∂S)` with `∂S ≠ ∅`. Status: **open** (gaps G.99, G.103, G.108).

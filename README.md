@@ -6,7 +6,7 @@ orientations),
 formalized against Mathlib with the same faithful layer as our formalizations of Milnor's
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, is
-under way: Chapters 7 and 8 are formalized and Chapter 9 has begun. The authoritative text is the
+under way: Chapters 7–9 are formalized and Chapter 10 has begun. The authoritative text is the
 Springer edition (Progress in Mathematics 50, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names keep the
@@ -28,7 +28,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 649 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 711 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -60,14 +60,20 @@ GitHub displays it directly.
   ep-groupoid (Theorem 7.6.9), Proposition 2.3.17 for all `i`, the global Lie bracket (§4.4–4.5),
   the topology of the orientation space (Theorem 6.6.17), the rewritten §7.2 and the Zhou condition
   (§7.4, §8.1).
-* **Chapter 9 (branched ep⁺-subgroupoids) has begun**: §9.1 (Definition 9.1.2, Lemmas 9.1.5,
-  9.1.7, dimension, Propositions 9.1.11, 9.1.12).
-* About 175,100 lines of Lean in 273 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (8,308 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* **Part II, Chapter 9, is formalized**, §§9.1–9.5 (branched ep⁺-subgroupoids, local branching
+  structures, the tangent and the boundary, good points, orientations, the geometry of local
+  branching structures, sets of measure zero and the canonical σ-algebras), with the parts that need
+  level-0 sc-calculus in general M-polyfolds taken as explicit hypotheses, each shown satisfiable and
+  discharged on `ℝᵐ`. Branched integration, the boundary measures and Stokes' theorems (Theorems
+  9.5.4, 9.5.5, 9.5.15–9.5.18) are not formalized; they need the sc-differential forms of §8.2.
+* **Chapter 10 (equivalences and localization) has begun**: §10.1 (Definition 10.1.1, Proposition
+  10.1.3, Theorem 10.1.7, Propositions 10.1.13–10.1.18).
+* About 193,500 lines of Lean in 301 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (9,368 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–8 is compared with its formal version** (649 items, each with
+* **Every numbered item of Chapters 1–9 is compared with its formal version** (711 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.92).
+  list of what is not formalized and why (G.1–G.110).
 * **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -157,8 +163,14 @@ Open the HTML pages in a browser straight from the folder; they need no server.
 10. **Proposition 9.1.11** (pp. 407–408; 2017: 9.2): the uniqueness of the dimensional decomposition
     `(Θ_k)` does not hold as we read it: on the trivial ep-groupoid of `ℝ²`, the indicator of a line
     has two decompositions satisfying (1) and (2) (`not_proposition_9_1_11_rn`,
-    `Polyfold/Chapter9/Propositions.lean`; not yet in the Findings). A possible repair is that each
-    `supp(Θ_k)` be closed in `supp(Θ)`, which is what the proof constructs.
+    `Polyfold/Chapter9/Propositions.lean`; V9.9; Findings, Chapter 9, item 8). A possible repair is
+    that each `supp(Θ_k)` be closed in `supp(Θ)`, which is what the proof constructs.
+11. **Sheets of different dimensions in §§9.3–9.5**: Lemma 9.3.4 (p. 423), Lemma 9.4.4 with the note
+    in Definition 9.4.7 (pp. 431–432), and Lemma 9.5.2 (p. 437) do not hold as we read them when the
+    local branching structure has sheets of different dimensions; each counterexample is checked in
+    Lean (`lemma_9_3_4_mixed_dim`, `lemma_9_4_4_mixed_dim`, `isNull_transfer_mixed_dim`), and each
+    statement is proved for sheets of one dimension (V9.32, V9.42, V9.50; Findings, Chapter 9, items
+    53, 72, 81). Is equidimensionality, as in Definition 9.3.6, meant throughout?
 
 ## Open questions
 

@@ -7,7 +7,7 @@ import Polyfold.Chapter5.Transversality
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9: from §9.2 "The Tangent and Boundary of `Θ`" **Lemma 9.2.13** and
 **Remark 9.2.14** (p. 419; 2017: Lemma 9.9 and Remark 9.5, p. 307), and from §9.3 "Orientations"
-**Definition 9.3.6** (pp. 425–426; 2017: Definition 9.10, p. 308) and **Lemma 9.3.7** (p. 426,
+**Definition 9.3.6** (pp. 425–426; 2017: Definition 9.10, p. 314) and **Lemma 9.3.7** (p. 426,
 new in the 2021 edition).  Numbers and pages are the 2021 text's, the 2017 ones in parentheses.
 
 # The position of a submanifold relative to the boundary; tame branched ep⁺-subgroupoids

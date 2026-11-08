@@ -6,7 +6,7 @@ import Polyfold.Chapter6.OrientationSpace
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.3 "Orientations", on `ℝᵐ` and under graph hypotheses: **Lemma 9.3.4**
 (2021 pp. 423–424; 2017: Lemma 9.10), the oriented form of **Proposition 9.2.8** (2021 p. 413;
-2017: Proposition 9.1) used in its proof, and the witnesses of **Definition 9.3.2** (2021 p. 423;
+2017: Proposition 9.3) used in its proof, and the witnesses of **Definition 9.3.2** (2021 p. 423;
 2017: Definition 9.8), **Remark 9.3.3** (2021 p. 423; 2017: Remark 9.8) and **Example 9.3.5**
 (2021 p. 425; 2017: Example 9.1) with **Theorem 9.2.1**'s independence (2021 p. 409; 2017:
 Theorem 9.1) discharged.  Numbers and pages are the 2021 text's, the 2017 ones in parentheses.

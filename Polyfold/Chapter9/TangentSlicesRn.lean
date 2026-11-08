@@ -3,7 +3,7 @@ import Polyfold.Chapter9.TangentSlicesBasic
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.2: **Lemmas 9.2.9–9.2.11** (pp. 414–417; 2017: Lemmas 9.6–9.8) and
-**Proposition 9.2.8** (p. 413; 2017: Proposition 9.1) for the M-polyfold `ℝᵐ`, and the
+**Proposition 9.2.8** (p. 413; 2017: Proposition 9.3) for the M-polyfold `ℝᵐ`, and the
 resulting cases of **Theorem 9.2.1** (p. 409; 2017: Theorem 9.1, p. 298).
 
 # The graph representation in `ℝᵐ`

@@ -4,7 +4,7 @@ import Polyfold.Chapter9.Tangent
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 9, §9.2: the chart description of the tangent spaces `T_xMᵢ` used by
 **Theorem 9.2.1** (p. 409; 2017: Theorem 9.1, p. 298) and the tangent slices of its proof,
-**Proposition 9.2.8** (p. 413; 2017: Proposition 9.1) with **Lemmas 9.2.9–9.2.11** (pp. 414–417;
+**Proposition 9.2.8** (p. 413; 2017: Proposition 9.3) with **Lemmas 9.2.9–9.2.11** (pp. 414–417;
 2017: Lemmas 9.6–9.8).  Numbers and pages are the 2021 text's.
 
 # Tangent spaces in charts and tangent slices

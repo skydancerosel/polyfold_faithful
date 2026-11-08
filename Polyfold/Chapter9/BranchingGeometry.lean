@@ -260,7 +260,7 @@ theorem one_le_numClasses [Finite ι] {y : X} (hy : y ∈ ⋃ i, M i) : 1 ≤ G.
   have : Nonempty (Quotient (G.ySetoid M y)) := ⟨Quotient.mk _ ⟨i, hi⟩⟩
   exact Nat.card_pos
 
-/-- **Lemma 9.4.8, 2021 p. 432 (2017: Lemma 9.12)**: `{y ∈ M_U | ♯(I_y / ∼_y) ≥ 2}` has measure
+/-- **Lemma 9.4.8, 2021 p. 432 (2017: Lemma 9.15)**: `{y ∈ M_U | ♯(I_y / ∼_y) ≥ 2}` has measure
 zero (in every `Mᵢ`).  As we read it, the text's last step, "`⋃_{j, j' ∈ I} K(j, j')^{ne}` has
 measure zero", needs care: `K(j, j')^{ne}` has measure zero in `Mⱼ`, not in an arbitrary `Mᵢ`;
 the proof here uses, inside `Mᵢ`, only the sets `K(i, j)^{ne}` (if `♯P_y ≥ 2`, some `j ∈ I_y` is
@@ -380,7 +380,7 @@ open MPolyfold OrientedBranchingStructure
 variable {Θ : Obj → ℚ} {x : Obj}
 
 open scoped Classical in
-/-- **Proposition 9.4.9, 2021 p. 434 (2017: Proposition 9.6)**: for an oriented local branching
+/-- **Proposition 9.4.9, 2021 p. 434 (2017: Proposition 9.5)**: for an oriented local branching
 structure with Property (T) whose sheets carry a `SheetGeometry`, `M_U^* = {y ∈ M_U | ♯P_y = 1}`
 differs from `M_U` by a set of measure zero and is the disjoint union of the `M_U^J`,
 `J ⊆ I`; on `M_U^J`, for a partition `J = A_J ⊔ B_J` not depending on `y` (it is fixed by
@@ -488,7 +488,7 @@ theorem tangent_eq_iff_of_mem_ess {S : Set (Set Obj)} (G : X.PObj.SheetGeometry 
     (G.submanifoldTangent_eq _ (hS i) _ (hS i') y hy)
 
 open scoped Classical in
-/-- **Proposition 9.4.10, 2021 p. 435 (2017: Proposition 9.7)**: two oriented local branching
+/-- **Proposition 9.4.10, 2021 p. 435 (2017: Proposition 9.6)**: two oriented local branching
 structures `(Mᵢ, oᵢ)_{i ∈ I}, (σᵢ)` and `(M'ᵢ', o'ᵢ')_{i' ∈ I'}, (σ'ᵢ')` on the same `U(x)` with
 (a) `∑_{y ∈ Mᵢ} σᵢ = ∑_{y ∈ M'ᵢ'} σ'ᵢ'` and (b) `∑_{y ∈ Mᵢ} σᵢ · T_y(Mᵢ, oᵢ) =
 ∑_{y ∈ M'ᵢ'} σ'ᵢ' · T_y(M'ᵢ', o'ᵢ')` on `U(x)`.  Then `M_U = ⋃ Mᵢ = ⋃ M'ᵢ'`, and there are
