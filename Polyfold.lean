@@ -221,6 +221,7 @@ import Polyfold.Chapter8.EpStrongBundle
 import Polyfold.Chapter8.NonVacuity
 import Polyfold.Chapter8.NonVacuityBundle
 import Polyfold.Chapter2.LocalTopology
+import Polyfold.Chapter7.ReducedCriterion
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
