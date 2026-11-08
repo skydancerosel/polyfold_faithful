@@ -59,9 +59,9 @@ On an M-polyfold:
 
 ## What is not formalized
 
-* Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold: they need the identification of the
-  M-polyfolds `(TX)^i` and `T(X^i)` (gap G.6), the pullback bundle `TX|X² → X²`, and Lemma 4.5.1
-  (independence of the chart), whose proof the text leaves to the reader.
+* Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are not in this file: they are proved in
+  `Polyfold/Chapter4/VectorFieldsGlobal.lean` (`lemma_4_4_4_2021`, `proposition_4_4_5_2021`,
+  `lemma_4_5_1_2021`), using 2021 Proposition 2.3.17 (`Polyfold/Chapter2/TangentLift.lean`).
 * Definitions 4.4.1–4.4.2 (sc-differential forms, the Whitney sum `⊕ₖ TX`, the direct limit
   `Ω∞*`), the exterior derivative and `d ∘ d = 0`, Definition 4.4.6, Theorem 4.4.7 (Stokes),
   Lemma 4.4.8 and Lemma 4.5.2 (Poincaré lemma).

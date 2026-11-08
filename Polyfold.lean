@@ -240,6 +240,8 @@ import Polyfold.Chapter7.TameBoundaryEp
 import Polyfold.Chapter7.Zhou
 import Polyfold.Chapter8.TangentZhou
 import Polyfold.Chapter2.TameBoundaryStructure
+import Polyfold.Chapter2.TangentLift
+import Polyfold.Chapter4.VectorFieldsGlobal
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
