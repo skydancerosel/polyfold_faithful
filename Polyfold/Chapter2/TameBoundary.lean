@@ -86,7 +86,9 @@ a bijection by (2.44).
   but its image is `θ ∩ V^x`, where `V^x = {y ∈ V | every face of V through y contains x}`
   (`bMap_image_uSet`).  A point `y ∈ θ` lying on a face of `V` that misses `x` admits no morphism
   `(y, V') → (x, V)`; this happens e.g. in `[0,∞)³` for `x = (0,0,1)` and `V` a thin convex
-  neighbourhood of the segment from `x` to `(0,1,0)`.  The map is a bijection onto `θ` when every
+  neighbourhood of the segment from `x` to `(0,1,0)` (proved in
+  `Polyfold/Chapter2/TameBoundaryExample.lean`, `phi_not_surjective_2021`).  The map is a
+  bijection onto `θ` when every
   face of `V` contains `x` (`IsCenteredAt`, `phi_bijective_of_isCenteredAt`), and `V^x` is such a
   neighbourhood in `N_{X,x}` (`isCenteredAt_reach`, `reach_mem_faceStructuredNbhdsAt`), which is
   what the text's "taking `V` sufficiently small" provides.

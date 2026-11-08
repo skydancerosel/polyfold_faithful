@@ -76,7 +76,8 @@ On an M-polyfold:
   `ContDiffWithinAt.isSymmSndFDerivWithinAt` for `a, b ∈ E₂` (points of a partial quadrant lie in
   the closure of its interior), extended by density of `E₂` in `E₁` and continuity of `D(Tr)`.
 * "If `x ∈ O₂`, then `[A, B](x)` belongs to the level 1" (p. 201): read as `[A, B](x) ∈ E₁` it
-  does not hold as we read it.  Sketch (not formalized): on `E_m = ℓ²` with weights `4^{mk}`, the
+  does not hold as we read it: proved in `Polyfold/Chapter4/BracketLevel.lean` on the weighted
+  `c₀` space `ScOneExample.X`.  The first sketch, on `E_m = ℓ²` with weights `4^{mk}`, the
   sc-operators `S = diag(2^k)` and `(Tx)_k = 2^k x_{k+1}` from `E¹` to `E` are vector fields on
   `O = E`, `[S, T]x = −(4^k x_{k+1})_k`, and `x_j = 4^{-j}/j` lies in `E₂` with `[S, T]x ∉ E₁`.
   We read the sentence as: `[A, B](x)` is a tangent vector at the point `x` of level `1` of `X¹`,
