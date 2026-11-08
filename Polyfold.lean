@@ -274,3 +274,5 @@ import Polyfold.Chapter9.OrientationRn
 import Polyfold.Chapter9.BranchingGeometryMeasure
 import Polyfold.Chapter9.BranchingGeometryManifold
 import Polyfold.Chapter9.BranchingGeometry
+import Polyfold.Chapter9.Measure
+import Polyfold.Chapter9.MeasureEffective
