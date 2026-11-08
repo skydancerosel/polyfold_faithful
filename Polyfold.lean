@@ -263,3 +263,4 @@ import Polyfold.Chapter9.Boundary
 import Polyfold.Chapter9.TangentSlicesBasic
 import Polyfold.Chapter9.TangentSlicesRn
 import Polyfold.Chapter9.TangentSlices
+import Polyfold.Chapter9.AppendixSlices
