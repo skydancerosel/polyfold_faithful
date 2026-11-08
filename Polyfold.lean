@@ -292,3 +292,7 @@ import Polyfold.Chapter10.LocalizationProperties
 import Polyfold.Chapter10.StrongBundleLocalization
 import Polyfold.Chapter10.StrongBundleLocalizationSections
 import Polyfold.Chapter10.StrongBundleLocalizationExamples
+import Polyfold.Chapter10.EquivalenceLR
+import Polyfold.Chapter10.EquivalenceLREffective
+import Polyfold.Chapter10.LocalizationLR
+import Polyfold.Chapter10.LocalizationLRCounterexample
