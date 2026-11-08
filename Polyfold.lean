@@ -276,3 +276,8 @@ import Polyfold.Chapter9.BranchingGeometryManifold
 import Polyfold.Chapter9.BranchingGeometry
 import Polyfold.Chapter9.Measure
 import Polyfold.Chapter9.MeasureEffective
+import Polyfold.Chapter10.Equivalence
+import Polyfold.Chapter10.EquivalenceRefinement
+import Polyfold.Chapter10.EquivalenceReduced
+import Polyfold.Chapter10.EquivalenceExamples
+import Polyfold.Chapter10.EquivalenceZhou
