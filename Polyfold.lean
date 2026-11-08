@@ -254,3 +254,4 @@ import Polyfold.Chapter8.TangentZhouLevels
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
+import Polyfold.Chapter9.BoundaryPosition

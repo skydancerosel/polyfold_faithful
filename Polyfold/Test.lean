@@ -8914,7 +8914,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.proposition_8_1_17_two_all_2021
 #print axioms Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP
 
-/-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), §9.1 (2021 numbering) -/
+/-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), 2021 numbering -/
 -- Chapter9/Basic.lean
 #print axioms Polyfold.EpGroupoid.IsFunctorial
 #print axioms Polyfold.EpGroupoid.supp
@@ -9079,5 +9079,43 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.decompA_isDimDecomposition
 #print axioms Polyfold.EpGroupoid.decompB_isDimDecomposition
 #print axioms Polyfold.EpGroupoid.not_proposition_9_1_11_rn
+-- Chapter9/BoundaryPosition.lean
+#print axioms Polyfold.IsReducedTangentAt
+#print axioms Polyfold.isReducedTangentAt_iff_subset_reduced
+#print axioms Polyfold.isReducedTangentAt_iff_subset_partialQuadrant
+#print axioms Polyfold.isReducedTangentAt_iff_subset_partialCone
+#print axioms Polyfold.IsReducedTangentAt.congr
+#print axioms Polyfold.IsReducedTangentAt.transport
+#print axioms Polyfold.ScRetraction.IsDiffeoGerm.quotDim_eq
+#print axioms Polyfold.le_of_quotDim_eq_zero
+#print axioms Polyfold.MPolyfold.quotDim_eq_of_isChart
+#print axioms Polyfold.MPolyfold.degIndex_eq_quotDim_of_isTame
+#print axioms Polyfold.MPolyfold.subDegIndex
+#print axioms Polyfold.MPolyfold.subDegIndex_le
+#print axioms Polyfold.MPolyfold.SubmanifoldData.IsReducedChart
+#print axioms Polyfold.MPolyfold.IsTangentReducedAt
+#print axioms Polyfold.MPolyfold.isReducedTangentAt_chart_change
+#print axioms Polyfold.MPolyfold.IsTangentReducedAt.isReducedChart
+#print axioms Polyfold.MPolyfold.isTangentReducedAt_iff_forall
+#print axioms Polyfold.MPolyfold.lemma_9_2_13_chart
+#print axioms Polyfold.MPolyfold.lemma_9_2_13
+#print axioms Polyfold.MPolyfold.lemma_9_2_13_of_not_mem_boundary
+#print axioms Polyfold.MPolyfold.not_lemma_9_2_13_two_one
+#print axioms Polyfold.MPolyfold.mem_boundary_subPolyfold_iff
+#print axioms Polyfold.MPolyfold.remark_9_2_14
+#print axioms Polyfold.MPolyfold.remark_9_2_14_mem_boundary
+#print axioms Polyfold.MPolyfold.hasTameInducedStructure_of_degIndex_eq_zero
+#print axioms Polyfold.MPolyfold.subDegIndex_eq_quotDim_of_hasTameInducedStructure
+#print axioms Polyfold.MPolyfold.subDegIndex_eq_of_tangentSpace_eq
+#print axioms Polyfold.MPolyfold.lemma_9_3_7
+#print axioms Polyfold.EpGroupoid.TameBranchingStructure
+#print axioms Polyfold.EpGroupoid.TameBranchingStructure.toLocalBranchingStructure
+#print axioms Polyfold.EpGroupoid.TameBranchingStructure.rep
+#print axioms Polyfold.EpGroupoid.TameBranchingStructure.U_eq
+#print axioms Polyfold.EpGroupoid.TameBranchingStructure.hasPropernessProperty
+#print axioms Polyfold.EpGroupoid.TameBranchingStructure.hasTameInducedStructure
+#print axioms Polyfold.EpGroupoid.IsTameBranched
+#print axioms Polyfold.EpGroupoid.isTameBranched_zero
+#print axioms Polyfold.EpGroupoid.isTameBranched_indicator
 
 end Polyfold
