@@ -680,3 +680,45 @@ Theorem 8.5 (5): the right arrow `t` and the corner `U(t(F(ψ₀)))`, as printed
 "`G_y`-invariant" for `G_x`, and `F(z') = s(F(φ))` for `t(F(φ))`; Proposition 8.3's proof
 "`F : X → Y`" for `Y → X`; Theorem 8.6's `A(ψ, z) = (f(z), F(z))` for `(f(ψ), F(z))` and `τ(t)` for
 `τ(y)`; Lemma 8.10's proof "the third claim of Lemma 8.10" for Lemma 8.9.
+
+### II.10 Chapter 9 plan (2026-11-08)
+
+**Chapter 9, Branched Ep⁺-Subgroupoids, pp. 291–331** (text lines 13868–15800 of
+`Exposition/sources/HWZ-Book-2017.txt`). Sections: §9.1 Basic Definitions (p. 291), §9.2 The Tangent
+and Boundary of Θ (p. 297), §9.3 Orientations (p. 310), §9.4 Geometry of Local Branching Structures
+(p. 315), §9.5 Integration and Stokes (p. 322), §9.6 Appendix (questions, pp. 330–331).
+
+Inventory (text line numbers; pages to be checked against the page heads):
+§9.1: Remark 9.1 (13883), Definition 9.1 (13903), Remark 9.2 (13922), Lemma 9.1 (13946), Definition 9.2
+(13966), Lemma 9.2 (14011), Definition 9.3 (14022), Proposition 9.1 (14032), Remark 9.3 (14042).
+§9.2: Proposition 9.2 (14136), Theorem 9.1 (14208), Definition 9.4 (14231), Lemma 9.3 (14241),
+Remark 9.4 (14276), Lemma 9.4 (14284), Definition 9.5 (14290), Lemma 9.5 (14308), Proposition 9.3
+(14386), Lemmas 9.6–9.8 (14401, 14436, 14467), Definition 9.6 (14615), Lemma 9.9 (14656), Remark 9.5
+(14661), Proposition 9.4 (14711), Definition 9.7 (14757), Remarks 9.6–9.7 (14768, 14780).
+§9.3: Definition 9.8 (14841), Remark 9.8 (14859), Lemma 9.10 (14877), Definitions 9.9–9.11 (14989,
+15001, 15026), Remark 9.9 (15053).
+§9.4: Definition 9.12 (15067), Lemmas 9.11–9.14 (15088, 15101, 15144, 15176), Definitions 9.13–9.14
+(15169, 15220), Lemma 9.15 (15226), Propositions 9.5–9.6 (15287, 15378).
+§9.5: Definitions 9.15–9.17 (15442, 15456, 15733), Lemma 9.16 (15449), Theorem 9.2 (15467), Lemmas
+9.17–9.19 (15494, 15639, 15658), Remarks 9.10–9.12 (15628, 15705, 15771), Theorems 9.3–9.4 (15743,
+15774).
+In all about 64 items (17 Def, 19 Lemma, 6 Prop, 4 Thm, 12 Rem, plus §9.6's questions).
+
+Decisions (proposed; P10.x):
+* P10.1 `Θ : Obj → ℚ` with values `≥ 0` (`ℚ⁺ = ℚ_{≥0}`), "functor" = `Θ (s φ) = Θ (t φ)` for every
+  morphism; support `{x | 0 < Θ x} ⊆ X_∞` (`MPolyfold.smoothSet`).
+* P10.2 Submanifolds are Part I's smooth finite-dimensional submanifolds
+  (`MPolyfold.IsSmoothSubmanifold`, Definition 4.4 [4.13]); "the inclusion `M_i → U(x)` is proper"
+  as `IsProperMap (Subtype.val : M_i → U(x))`; a local branching structure is a structure with a
+  `Fintype` index set, the sets, the weights `σ_i > 0` in `ℚ`, and the sum formula on `U(x)`.
+* P10.3 Dimension: `n`-dimensional via the dimension of the tangent spaces of the `M_i` if Part I
+  provides it; otherwise recorded as a gap.
+* P10.4 Proposition 9.1 (natural manifold/orbifold structures on `|supp Θ|`), the M⁺-polyfold
+  notions of §9.1, and everything that needs forms, measures or Stokes (§9.4–§9.5, Definition 9.8's
+  orientations through forms) depend on gaps G.37–G.40/G.74; decide (as Chapter 6's D1) before
+  wave W2 whether to build Lebesgue measure on finite-dimensional submanifolds or to gap §9.5.
+
+Waves: W0 `Chapter9/Basic.lean` (Definitions 9.1–9.3, Remark 9.2 (b) example, Lemmas 9.1–9.2,
+witnesses: the zero functor, a single submanifold, `ℤ/2`-symmetric pair of lines); W1 §9.2 (tangent
+and boundary of `Θ`, good points, Lemmas 9.3–9.9, Propositions 9.2–9.4, Theorem 9.1); W2 §9.3
+orientations; W3 §9.4–§9.5 after the decision P10.4; W4 reports.
