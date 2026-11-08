@@ -8614,6 +8614,27 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.vectorFieldLevelOne
 #print axioms Polyfold.MPolyfold.raiseIndex
 #print axioms Polyfold.lemma_4_4_4_2021
+-- Chapter7/TameBoundaryEpStructure.lean
+#print axioms Polyfold.MPolyfold.isScSmoothOn_of_bMap
+#print axioms Polyfold.MPolyfold.isScSmoothMap_bLift
+#print axioms Polyfold.MPolyfold.isLiftOf_bLift_sheet
+#print axioms Polyfold.MPolyfold.isLocalScDiffeo_bLift
+#print axioms Polyfold.EpGroupoid.paracompactSpace_bObj
+#print axioms Polyfold.EpGroupoid.paracompactSpace_bMor
+#print axioms Polyfold.EpGroupoid.bPObj
+#print axioms Polyfold.EpGroupoid.bPMor
+#print axioms Polyfold.EpGroupoid.isLocalScDiffeo_bSrc
+#print axioms Polyfold.EpGroupoid.isLocalScDiffeo_bTgt
+#print axioms Polyfold.EpGroupoid.isScSmoothMap_bUnit
+#print axioms Polyfold.EpGroupoid.isScSmoothMap_bInv
+#print axioms Polyfold.EpGroupoid.isScSmoothCompSheet_bComp
+#print axioms Polyfold.EpGroupoid.isScSmoothComp_bComp
+#print axioms Polyfold.EpGroupoid.boundaryEpGroupoid
+#print axioms Polyfold.EpGroupoid.isTame_boundaryEpGroupoid
+#print axioms Polyfold.EpGroupoid.boundaryEpFunctor
+#print axioms Polyfold.EpGroupoid.phiTot_bSrc
+#print axioms Polyfold.EpGroupoid.theorem_7_6_9_full_2021
+#print axioms Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness
 
 /-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), §9.1 (2021 numbering) -/
 -- Chapter9/Basic.lean

@@ -87,11 +87,11 @@ the sc-diffeomorphism `s : θ → s(θ)`.
   taken centred where needed (`exists_rep_centered`).
 * "Tame ep-groupoid" is `EpGroupoid.IsTame` (2021 Definition 7.1.6: the object M-polyfold is
   tame).  The properness property is that of 2021 Definition 7.1.3 (3).
-* **Not formalized**, because 2021 Theorem 2.7.13 (2) (the M-polyfold structure of `bX`) is not
-  formalized in Chapter 2: Theorem 7.6.9 (2); the sc-smoothness in (3); `d_{bX}` in (4) beyond
-  the fibre count; in (5) the M-polyfold structures, the sc-smoothness of `s, t, u, ι, m`, and
-  the tameness of `(bX, b𝐗)`.  Hence no `EpGroupoid` structure on `(bX, b𝐗)` is constructed; the
-  sc-diffeomorphism claims inside (7.29) are used only up to homeomorphism.
+* The rest of Theorem 7.6.9, which needs the M-polyfold structure of `bX` (2021 Theorem 2.7.13 (2),
+  in `Chapter2/TameBoundaryStructure.lean`), is in `Chapter7/TameBoundaryEpStructure.lean`: part (2),
+  the sc-smoothness in (3) and (5), `d_{bX}` in (4), the tame ep-groupoid
+  `EpGroupoid.boundaryEpGroupoid` and the ep-functor `EpGroupoid.boundaryEpFunctor`; the full
+  statement is `EpGroupoid.theorem_7_6_9_full_2021`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -1174,7 +1174,7 @@ topologies (every `U` open, every `Φ` an open embedding, and uniqueness); (3) c
 two maps `B`; (4) in counting form; (5) the groupoid `(bX, b𝐗)` of (7.25)–(7.29) with its
 topological ep-groupoid properties (`s, t` local homeomorphisms, `u, ι, m` continuous, the
 properness property) and `B` a functor.  Parts (2), the sc-smoothness in (3) and (5), and `d_{bX}`
-in (4) need 2021 Theorem 2.7.13 (2), which is not formalized. -/
+in (4) are in `theorem_7_6_9_full_2021` (`Chapter7/TameBoundaryEpStructure.lean`). -/
 theorem theorem_7_6_9_2021 (hX : X.IsTame) :
     -- (1), and the characterization of the topologies in the paragraph after the theorem
     TopologicalSpace.MetrizableSpace (X.bObj hX) ∧ TopologicalSpace.MetrizableSpace (X.bMor hX) ∧
