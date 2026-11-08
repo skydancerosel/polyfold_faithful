@@ -286,3 +286,6 @@ import Polyfold.Chapter10.WeakFibredProductTheorem
 import Polyfold.Chapter10.StrongBundleEquivalence
 import Polyfold.Chapter10.StrongBundleEquivalenceNat
 import Polyfold.Chapter10.StrongBundleEquivalenceExamples
+import Polyfold.Chapter10.Localization
+import Polyfold.Chapter10.LocalizationCategory
+import Polyfold.Chapter10.LocalizationProperties
