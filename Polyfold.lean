@@ -260,3 +260,6 @@ import Polyfold.Chapter9.Tangent
 import Polyfold.Chapter9.BoundaryPositionConverse
 import Polyfold.Chapter9.Appendix
 import Polyfold.Chapter9.Boundary
+import Polyfold.Chapter9.TangentSlicesBasic
+import Polyfold.Chapter9.TangentSlicesRn
+import Polyfold.Chapter9.TangentSlices

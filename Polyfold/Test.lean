@@ -9398,5 +9398,64 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.halfLineCorner_mem_submanifoldBoundary
 #print axioms Polyfold.boundaryTheta_halfLine_one
 #print axioms Polyfold.not_unique_isBoundaryCharacterized_halfLine
+-- Chapter9/TangentSlicesBasic.lean
+#print axioms Polyfold.MPolyfold.SubmanifoldData.tmap_tmap
+#print axioms Polyfold.MPolyfold.SubmanifoldData.tmap_mem_submanifoldTangent
+#print axioms Polyfold.MPolyfold.SubmanifoldData.tangentChartMap_tmap
+#print axioms Polyfold.MPolyfold.chartTangent
+#print axioms Polyfold.MPolyfold.injOn_tangentChartMap_snd
+#print axioms Polyfold.MPolyfold.submanifoldTangent_subset_fiber
+#print axioms Polyfold.MPolyfold.chartTangent_eq
+#print axioms Polyfold.MPolyfold.exists_submodule_chartTangent
+#print axioms Polyfold.MPolyfold.chartTangent_eq_iff
+#print axioms Polyfold.MPolyfold.chartTangent_subset_iff
+#print axioms Polyfold.MPolyfold.finrank_chartTangent
+#print axioms Polyfold.MPolyfold.submanifoldTangent_subset_of_subset
+#print axioms Polyfold.MPolyfold.exists_clm_tangentChartMap_snd
+#print axioms Polyfold.MPolyfold.chartTangent_chart_change
+#print axioms Polyfold.MPolyfold.exists_linearEquiv_chartTangent
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.exists_submodule_of_mem_support
+#print axioms Polyfold.eq_zero_of_proj_eq_zero
+#print axioms Polyfold.exists_mem_ball_forall_not_mem
+#print axioms Polyfold.eventually_mul_lt
+#print axioms Polyfold.MPolyfold.IsGraphChartAt
+#print axioms Polyfold.MPolyfold.IsGraphChartAt.exists_ball
+#print axioms Polyfold.MPolyfold.IsGraphChartAt.approx
+#print axioms Polyfold.MPolyfold.IsGraphChartAt.graph
+#print axioms Polyfold.MPolyfold.HasGraphChartsAt
+#print axioms Polyfold.MPolyfold.exists_pos_forall_mem_of_mem_nhds
+#print axioms Polyfold.MPolyfold.hasTangentSlicesAt_of_hasGraphChartsAt
+-- Chapter9/TangentSlicesRn.lean
+#print axioms Polyfold.exists_mem_graph_of_hasStrictFDerivAt
+#print axioms Polyfold.MPolyfold.rnChart_zero_apply'
+#print axioms Polyfold.MPolyfold.rnChart_zero_image
+#print axioms Polyfold.MPolyfold.rn_exists_retraction
+#print axioms Polyfold.MPolyfold.isGraphChartAt_rn
+#print axioms Polyfold.MPolyfold.hasGraphChartsAt_rn
+#print axioms Polyfold.MPolyfold.hasTangentSlicesAt_rn
+#print axioms Polyfold.EpGroupoid.hasIndependentTangentSums_of_isOfDim_of_hasGraphChartsAt
+#print axioms Polyfold.EpGroupoid.hasIndependentTangentSums_of_proposition_9_1_12_of_hasGraphChartsAt
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.tangentSum_eq_of_isOfDim_rn
+#print axioms Polyfold.EpGroupoid.hasIndependentTangentSums_of_isOfDim_rn
+#print axioms Polyfold.EpGroupoid.hasIndependentTangentSums_of_proposition_9_1_12_rn
+#print axioms Polyfold.EpGroupoid.Remark913Hyp.structureβ_isOfDim
+#print axioms Polyfold.EpGroupoid.Remark913Hyp.structureγ_isOfDim
+#print axioms Polyfold.EpGroupoid.Remark913Hyp.tangentSum_structureβ_eq_structureγ
+-- Chapter9/TangentSlices.lean
+#print axioms Polyfold.MPolyfold.HasDomainInvarianceAt
+#print axioms Polyfold.MPolyfold.rn_retraction_deriv
+#print axioms Polyfold.MPolyfold.hasDomainInvarianceAt_rn
+#print axioms Polyfold.exists_isOpen_subset_inter_eq_empty_or_subset
+#print axioms Polyfold.EpGroupoid.dense_goodSet
+#print axioms Polyfold.EpGroupoid.isNowhereDense_badSet
+#print axioms Polyfold.EpGroupoid.lemma_9_2_7_1_dense
+#print axioms Polyfold.EpGroupoid.lemma_9_2_7_2
+#print axioms Polyfold.EpGroupoid.lemma_9_2_7_2_rn
+#print axioms Polyfold.EpGroupoid.isClosed_tangentSubmanifold
+#print axioms Polyfold.EpGroupoid.paracompactSpace_orbitSupp_tangentTheta
+#print axioms Polyfold.EpGroupoid.tangentBranchingHyp_of_isSmoothSubmanifold
+#print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_of_isSmoothSubmanifold
+#print axioms Polyfold.EpGroupoid.Remark913Hyp.zero_mem_badSet
+#print axioms Polyfold.EpGroupoid.Remark913Hyp.exists_seq_goodSet_structureβ
 
 end Polyfold
