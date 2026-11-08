@@ -296,3 +296,5 @@ import Polyfold.Chapter10.EquivalenceLR
 import Polyfold.Chapter10.EquivalenceLREffective
 import Polyfold.Chapter10.LocalizationLR
 import Polyfold.Chapter10.LocalizationLRCounterexample
+import Polyfold.Chapter11.BranchedEquivalence
+import Polyfold.Chapter11.BranchedEquivalenceLocalization
