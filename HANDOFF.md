@@ -364,7 +364,8 @@ each chapter lands)
     `PLAN.md` §II.10 (inventory, decisions P10.1–P10.4, waves W0–W4). Wave W0 (`Chapter9/Basic.lean`:
     Definitions 9.1–9.3, witnesses, Lemmas 9.1–9.2) begun at 93% of the weekly budget; whatever
     compiles is committed, the rest is listed here. **Next: finish W0, then decide P10.4 (forms,
-    measures, Stokes) before §9.4–§9.5.**
+    measures, Stokes) before §9.4–§9.5.** After Chapter 9, the user's order (2026-11-08): Chapter 10
+    (Equivalences and Localization, p. 333) if budget remains.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
