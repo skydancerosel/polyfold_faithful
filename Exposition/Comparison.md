@@ -13411,6 +13411,960 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - Hidden hypotheses: the graph representation on a general M-polyfold.
 - Slices replace the subsets $I^e$ and the sequences of top-good points; the independence of the right-hand side from the structure, which the text does not show, is proved with one slice for the sheets of both structures. In (1) "$I_k = I^1 \sqcup \cdots \sqcup I^p$" reads as $\Xi = I^1 \sqcup \cdots \sqcup I^p$, the points $x^k_e$ are not introduced, and "This completes the proof of Proposition 9.6.5" refers to Proposition 9.1.12 (possible misprints) (gap G.97) (Findings, Chapter 9, items 91, 92).
 
+## Part II, Chapter 10
+
+*HWZ Part II, Chapter 10 §§10.1–10.6, pp. 461–520 (2017 Chapter 10, pp. 333–374; Part II has no 2014 preprint): equivalences of ep-groupoids and natural equivalences, the weak fibred product, localization at the system of equivalences and generalized maps, strong bundle equivalences, localization in the strong bundle case*
+
+### V10.1. Definition 10.1.1 (2017: 10.1), equivalences and the class $E$
+
+*as in the book* · as stated · witness: pair groupoid of ℤ → point
+
+**HWZ (§10.1, Definition 10.1.1, p. 461 (2017: Definition 10.1, p. 333)).** An equivalence $F : X \to Y$ of ep-groupoids is an sc-smooth functor which is faithful and full, induces a homeomorphism $|F| : |X| \to |Y|$, and is a local sc-diffeomorphism on objects; $E$ is the class of equivalences.
+
+**Proved in Lean.** A structure on an sc-smooth functor with four fields: full, faithful, $|F|$ a homeomorphism, $F$ a local sc-diffeomorphism on objects. The class `EP.equivalences` contains the identities and is closed under composition; an equivalence is essentially surjective, and the functor from the pair groupoid of $\mathbb Z$ to the point is an equivalence.
+
+- `Polyfold.EpFunctor.IsEquivalence` — Polyfold/Chapter10/Equivalence.lean, line 264
+- `Polyfold.EP.equivalences` — Polyfold/Chapter10/Equivalence.lean, line 366
+- `Polyfold.GroupoidFunctor.full_iff` — Polyfold/Chapter10/Equivalence.lean, line 176
+- `Polyfold.GroupoidFunctor.faithful_iff` — Polyfold/Chapter10/Equivalence.lean, line 188
+- `Polyfold.GroupoidFunctor.essSurj_iff` — Polyfold/Chapter10/Equivalence.lean, line 200
+- `Polyfold.EpFunctor.IsEquivalence.essSurj` — Polyfold/Chapter10/Equivalence.lean, line 312
+- `Polyfold.EpFunctor.IsEquivalence.exists_iso` — Polyfold/Chapter10/Equivalence.lean, line 320
+- `Polyfold.EpFunctor.IsEquivalence.exists_mor_eq` — Polyfold/Chapter10/Equivalence.lean, line 324
+- `Polyfold.EpFunctor.IsEquivalence.mor_injective` — Polyfold/Chapter10/Equivalence.lean, line 329
+- `Polyfold.EpFunctor.IsEquivalence.id` — Polyfold/Chapter10/Equivalence.lean, line 344
+- `Polyfold.EpGroupoid.Examples.pairToPoint` — Polyfold/Chapter10/Equivalence.lean, line 584
+- `Polyfold.EpGroupoid.Examples.isEquivalence_pairToPoint` — Polyfold/Chapter10/Equivalence.lean, line 595
+
+*What differs.*
+- Full and faithful are stated on the sets of morphisms $x \to x'$, as in the text, and shown equal to Mathlib's notions for the underlying functor (Findings, Chapter 10, item 1).
+
+### V10.2. Lemma 10.1.2 (2017: 10.1) and the remarks around it
+
+*stronger* · with the converse · not invertible: a witness
+
+**HWZ (§10.1, Lemma 10.1.2, p. 462 (2017: Lemma 10.1, p. 334)).** An sc-smooth functor which is a local sc-diffeomorphism on objects and an equivalence of categories is an equivalence; equivalences need not be invertible as functors.
+
+**Proved in Lean.** An sc-smooth functor is an equivalence if and only if it is an equivalence of categories and a local sc-diffeomorphism on objects. $|F|$ is injective for $F$ full, surjective iff $F$ is essentially surjective, continuous, and open when $F$ is open on objects; composites of equivalences are equivalences; the equivalence from the pair groupoid of $\mathbb Z$ to the point has no left inverse on objects.
+
+- `Polyfold.EpFunctor.lemma_10_1_2` — Polyfold/Chapter10/Equivalence.lean, line 298
+- `Polyfold.EpFunctor.isEquivalence_iff` — Polyfold/Chapter10/Equivalence.lean, line 337
+- `Polyfold.EpFunctor.IsEquivalence.isEquivalence_toFunctor` — Polyfold/Chapter10/Equivalence.lean, line 316
+- `Polyfold.EpFunctor.IsEquivalence.comp` — Polyfold/Chapter10/Equivalence.lean, line 353
+- `Polyfold.GroupoidFunctor.injective_orbitMap_of_full` — Polyfold/Chapter10/Equivalence.lean, line 216
+- `Polyfold.GroupoidFunctor.surjective_orbitMap_iff` — Polyfold/Chapter10/Equivalence.lean, line 226
+- `Polyfold.GroupoidFunctor.bijective_orbitMap_of_isEquivalence` — Polyfold/Chapter10/Equivalence.lean, line 240
+- `Polyfold.EpFunctor.continuous_orbitMap` — Polyfold/Chapter10/Equivalence.lean, line 274
+- `Polyfold.EpFunctor.isOpenMap_orbitMap` — Polyfold/Chapter10/Equivalence.lean, line 280
+- `Polyfold.EpGroupoid.Examples.not_exists_leftInverse_pairToPoint` — Polyfold/Chapter10/Equivalence.lean, line 604
+
+*What differs.*
+- The lemma is proved with its converse; the orbit map is shown bijective, continuous and open. "Not invertible" is witnessed by an equivalence with no left inverse on objects.
+
+### V10.3. Proposition 10.1.3 (2017: 10.1), the refinement $X_{\mathcal U}$
+
+*hypotheses explicit* · nonempty object set · indexed covering · $(U, \varphi, v)$: possible misprint
+
+**HWZ (§10.1, Proposition 10.1.3, p. 462 (2017: Proposition 10.1, p. 334)).** For an open covering $\mathcal U$ of the object M-polyfold of $X$, the ep-groupoid $X_{\mathcal U}$ of pairs $(U, x)$ and triples $(U, \varphi, V)$, with the structure induced from $X$ and $\mathbf X$, and the functor $(U, x) \mapsto x$, $(U, \varphi, V) \mapsto \varphi$ is an equivalence.
+
+**Proved in Lean.** For a covering of $X$ by open sets $U_i$ indexed by a type $\iota$ and a nonempty object set, $X_{\mathcal U}$ (objects an open subset of $\iota \times X$, morphisms an open subset of $(\iota \times \iota) \times \mathbf X$, discrete $\iota$) is an ep-groupoid and the projection $F : X_{\mathcal U} \to X$ is an equivalence; for $\mathbb Z/2 \ltimes \mathbb R$ and a two-set covering it is not injective on objects.
+
+- `Polyfold.EpGroupoid.OpenCover` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 159
+- `Polyfold.EpGroupoid.OpenCover.univ` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 174
+- `Polyfold.EpGroupoid.OpenCover.objSet` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 184
+- `Polyfold.EpGroupoid.OpenCover.morSet` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 188
+- `Polyfold.EpGroupoid.OpenCover.groupoidStr` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 269
+- `Polyfold.EpGroupoid.OpenCover.objPolyfold` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 329
+- `Polyfold.EpGroupoid.OpenCover.morPolyfold` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 333
+- `Polyfold.EpGroupoid.OpenCover.isLocalScDiffeo_src` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 376
+- `Polyfold.EpGroupoid.OpenCover.isLocalScDiffeo_tgt` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 380
+- `Polyfold.EpGroupoid.OpenCover.exists_isProperMap` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 414
+- `Polyfold.EpGroupoid.OpenCover.isScSmoothCompSheet` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 475
+- `Polyfold.EpGroupoid.OpenCover.epGroupoid` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 521
+- `Polyfold.EpGroupoid.OpenCover.functor` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 533
+- `Polyfold.EpGroupoid.OpenCover.proposition_10_1_3` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 547
+- `Polyfold.EpGroupoid.Examples.reflectionCover` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 567
+- `Polyfold.EpGroupoid.Examples.isEquivalence_reflectionCover` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 581
+- `Polyfold.EpGroupoid.Examples.not_injective_reflectionCover_obj` — Polyfold/Chapter10/EquivalenceRefinement.lean, line 586
+
+*What differs.*
+- The covering is indexed by a type; the object set is assumed nonempty for the open-subset M-polyfold structure of Part I (trivial otherwise); the properness is proved with ultrafilters; the printed $(U, \varphi, v)$ is read $(U, \varphi, V)$ (Findings, Chapter 10, item 2).
+
+### V10.4. Definition 10.1.4 (2017: 10.2), natural equivalence
+
+*as in the book* · as stated · Definition 8.1.13 reused
+
+**HWZ (§10.1, Definition 10.1.4, p. 463 (2017: Definition 10.2, p. 335)).** A natural transformation $\tau : F \to G$ of sc-smooth functors is an sc-smooth $\tau : X \to \mathbf Y$ with $\tau(x) : F(x) \to G(x)$ and $\tau(x') \circ F(\varphi) = G(\varphi) \circ \tau(x)$; $F \simeq G$ is an equivalence relation compatible with composition.
+
+**Proved in Lean.** Chapter 8's `EpNatTrans` and `NaturallyEquivalent`: $\simeq$ is an equivalence relation, compatible with composition on the left and on the right; a natural transformation is a natural isomorphism of the underlying functors.
+
+- `Polyfold.definition_10_1_4` — Polyfold/Chapter10/Equivalence.lean, line 411
+- `Polyfold.EpNatTrans` — Polyfold/Chapter8/Basic.lean, line 127
+- `Polyfold.EpFunctor.NaturallyEquivalent` — Polyfold/Chapter8/Basic.lean, line 137
+- `Polyfold.EpFunctor.naturallyEquivalent_equivalence` — Polyfold/Chapter8/NatTrans.lean, line 161
+- `Polyfold.EpFunctor.NaturallyEquivalent.comp_left` — Polyfold/Chapter8/NatTrans.lean, line 219
+- `Polyfold.EpFunctor.NaturallyEquivalent.comp_right` — Polyfold/Chapter8/NatTrans.lean, line 225
+- `Polyfold.EpNatTrans.toNatIso` — Polyfold/Chapter10/Equivalence.lean, line 428
+
+*What differs.*
+- The definition is Chapter 8's (Definition 8.1.13) (Findings, Chapter 10, item 3).
+
+### V10.5. Proposition 10.1.5 (2017: 10.2), natural equivalence preserves equivalences
+
+*as in the book* · as stated · proved (quoted in the text)
+
+**HWZ (§10.1, Proposition 10.1.5, p. 464 (2017: Proposition 10.2, p. 336)).** If $F \simeq G$ and one of them is an equivalence, so is the other (quoted from the literature without proof).
+
+**Proved in Lean.** If $F \simeq G$, then $F$ is an equivalence if and only if $G$ is.
+
+- `Polyfold.EpFunctor.proposition_10_1_5` — Polyfold/Chapter10/Equivalence.lean, line 463
+- `Polyfold.EpFunctor.IsEquivalence.of_natTrans` — Polyfold/Chapter10/Equivalence.lean, line 455
+- `Polyfold.EpNatTrans.continuous_app` — Polyfold/Chapter10/Equivalence.lean, line 436
+- `Polyfold.EpNatTrans.isLocalScDiffeo_app` — Polyfold/Chapter10/Equivalence.lean, line 440
+- `Polyfold.EpNatTrans.isLocalScDiffeo_obj` — Polyfold/Chapter10/Equivalence.lean, line 446
+
+*What differs.*
+- The text quotes the result without proof; it is proved: $\tau$ is a local sc-diffeomorphism since $s \circ \tau = F$, so $t \circ \tau = G$ is one on objects (Findings, Chapter 10, item 4).
+
+### V10.6. Proposition 10.1.6 (2017: 10.3), two out of three
+
+*as in the book* · transport to every $y$ added · $|\Phi| : |X| \to |Y|$: possible misprint
+
+**HWZ (§10.1, Proposition 10.1.6, p. 464 (2017: Proposition 10.3, p. 336)).** If $F : X \to Y$ and $\Phi \circ F$ are equivalences and $\Phi$ is sc-smooth, then $\Phi$ is an equivalence.
+
+**Proved in Lean.** If $F$ and $\Phi \circ F$ are equivalences and $\Phi$ is an sc-smooth functor, $\Phi$ is an equivalence; the local sc-diffeomorphism property at $s(\varphi)$ passes to $t(\varphi)$.
+
+- `Polyfold.EpFunctor.proposition_10_1_6` — Polyfold/Chapter10/Equivalence.lean, line 474
+- `Polyfold.MPolyfold.IsLocalScDiffeoAt` — Polyfold/Chapter10/Equivalence.lean, line 107
+- `Polyfold.MPolyfold.IsLocalScDiffeoAt.comp` — Polyfold/Chapter10/Equivalence.lean, line 121
+- `Polyfold.MPolyfold.IsLocalScDiffeoAt.congr` — Polyfold/Chapter10/Equivalence.lean, line 135
+- `Polyfold.MPolyfold.IsLocalScDiffeoAt.of_comp_left` — Polyfold/Chapter10/Equivalence.lean, line 145
+- `Polyfold.MPolyfold.IsLocalScDiffeoAt.of_comp_right` — Polyfold/Chapter10/Equivalence.lean, line 156
+- `Polyfold.EpFunctor.isLocalScDiffeoAt_mor` — Polyfold/Chapter10/Equivalence.lean, line 380
+- `Polyfold.EpFunctor.isLocalScDiffeo_mor` — Polyfold/Chapter10/Equivalence.lean, line 389
+- `Polyfold.EpFunctor.isLocalScDiffeoAt_obj_tgt` — Polyfold/Chapter10/Equivalence.lean, line 394
+
+*What differs.*
+- The text's object argument covers the points $F(x)$; the transport along $F(x) \to y$ is added. The printed $|\Phi| : |X| \to |Y|$ is read $|Y| \to |Z|$ (Findings, Chapter 10, item 5).
+
+### V10.7. Theorem 10.1.7 (2017: 10.1), the tangent of an equivalence
+
+*as in the book* · as stated · full and faithful proved
+
+**HWZ (§10.1, Theorem 10.1.7, p. 465 (2017: Theorem 10.1, p. 337)).** If $F$ is an equivalence, so is $TF : TX \to TY$ (full and faithful left to the reader).
+
+**Proved in Lean.** If $F$ is an equivalence, Chapter 8's tangent functor $TF$ is an equivalence.
+
+- `Polyfold.EpFunctor.theorem_10_1_7` — Polyfold/Chapter10/Equivalence.lean, line 492
+- `Polyfold.EpFunctor.tangent` — Polyfold/Chapter8/TangentEp.lean, line 717
+
+*What differs.*
+- Fullness and faithfulness, left to the reader, are proved (Findings, Chapter 10, item 6).
+
+### V10.8. Remark 10.1.11 (2017: 10.1), $\alpha_x$ cannot be prescribed
+
+*stronger* · not even continuous at $0$ · Prop. 10.1.10 (1) in the example
+
+**HWZ (§10.1, Remark 10.1.11, p. 470 (2017: Remark 10.1, p. 340)).** On $\mathbb Z/2 \ltimes \mathbb R^2$ with $F = \mathrm{id}$ and $G = -\mathrm{id}$, the morphisms $\alpha_z : z \to -z$ cannot be chosen in an sc-smooth local family with $\alpha_0 = 1_0$.
+
+**Proved in Lean.** For $F = \mathrm{id}$, $G = -\mathrm{id}$ (equivalences with $|F| = |G|$), $\alpha_z = (-1, z)$ is sc-smooth, but no family with $\alpha_0 = 1_0$ is continuous at $0$, and none is sc-smooth near $0$.
+
+- `Polyfold.EpGroupoid.Examples.pointReflectionEpGroupoid` — Polyfold/Chapter10/EquivalenceExamples.lean, line 88
+- `Polyfold.EpGroupoid.Examples.negFunctor` — Polyfold/Chapter10/EquivalenceExamples.lean, line 92
+- `Polyfold.EpGroupoid.Examples.isEquivalence_negFunctor` — Polyfold/Chapter10/EquivalenceExamples.lean, line 105
+- `Polyfold.EpGroupoid.Examples.orbitMap_id_eq_negFunctor` — Polyfold/Chapter10/EquivalenceExamples.lean, line 123
+- `Polyfold.EpGroupoid.Examples.remark_10_1_11_family` — Polyfold/Chapter10/EquivalenceExamples.lean, line 135
+- `Polyfold.EpGroupoid.Examples.remark_10_1_11` — Polyfold/Chapter10/EquivalenceExamples.lean, line 148
+- `Polyfold.EpGroupoid.Examples.remark_10_1_11_scSmooth` — Polyfold/Chapter10/EquivalenceExamples.lean, line 169
+
+*What differs.*
+- "Not sc-smooth" is proved as "not continuous at $0$"; the sc-smooth family $(-1, z)$ shows Proposition 10.1.10 (1) in the example (Findings, Chapter 10, item 8).
+
+### V10.9. Remark 10.1.12, isotropy groups under equivalences
+
+*as in the book* · new in the 2021 edition · $G_x \to Y_y$: possible misprint
+
+**HWZ (§10.1, Remark 10.1.12, p. 472 (new in the 2021 edition)).** For an equivalence $F$ and $\psi : F(x) \to y$, $g \mapsto \psi \circ F(g) \circ \psi^{-1}$ is an isomorphism $G_x \to G_y$ mapping $T_x$ onto $T_y$.
+
+**Proved in Lean.** For a local sc-diffeomorphism on objects, $F(g) \in T_{F(x)}$ iff $g \in T_x$; for an equivalence $G_x \to G_{F(x)}$ is bijective and there is $e : G_x \simeq G_y$ with $e(g) = \psi \circ F(g) \circ \psi^{-1}$ and $e(T_x) = T_y$.
+
+- `Polyfold.EpFunctor.isotropyHom` — Polyfold/Chapter10/EquivalenceReduced.lean, line 124
+- `Polyfold.EpFunctor.isotropyHom_mem_trivialSet_iff` — Polyfold/Chapter10/EquivalenceReduced.lean, line 135
+- `Polyfold.EpFunctor.IsEquivalence.bijective_isotropyHom` — Polyfold/Chapter10/EquivalenceReduced.lean, line 150
+- `Polyfold.EpFunctor.IsEquivalence.remark_10_1_12` — Polyfold/Chapter10/EquivalenceReduced.lean, line 159
+
+*What differs.*
+- The printed $G_x \to Y_y$ is read $G_x \to G_y$ (Findings, Chapter 10, item 9).
+
+### V10.10. Proposition 10.1.13, the reduced morphism spaces
+
+*as in the book* · new in the 2021 edition · (1) for local sc-diffeomorphisms · closures instead of sequences
+
+**HWZ (§10.1, Proposition 10.1.13, p. 472 (new in the 2021 edition)).** For an equivalence $F$, $F_R : \mathbf X^R \to \mathbf Y^R$ is well defined, continuous and open, and $\mathbf X^R$ is Hausdorff iff $\mathbf Y^R$ is.
+
+**Proved in Lean.** $F_R$ is well defined, continuous and open for every functor which is a local sc-diffeomorphism on objects; for an equivalence $\mathbf X^T$ is closed iff $\mathbf Y^T$ is, and $T2(\mathbf X^R) \iff T2(\mathbf Y^R)$.
+
+- `Polyfold.EpFunctor.mor_mem_nonEffectivePart` — Polyfold/Chapter10/EquivalenceReduced.lean, line 88
+- `Polyfold.EpFunctor.mem_nonEffectivePart_of_mor` — Polyfold/Chapter10/EquivalenceReduced.lean, line 100
+- `Polyfold.EpFunctor.nonEffectivePart_eq` — Polyfold/Chapter10/EquivalenceReduced.lean, line 116
+- `Polyfold.EpGroupoid.continuousAt_comp` — Polyfold/Chapter10/EquivalenceReduced.lean, line 174
+- `Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff` — Polyfold/Chapter10/EquivalenceReduced.lean, line 196
+- `Polyfold.EpFunctor.reducedMap` — Polyfold/Chapter10/EquivalenceReduced.lean, line 297
+- `Polyfold.EpFunctor.continuous_reducedMap` — Polyfold/Chapter10/EquivalenceReduced.lean, line 308
+- `Polyfold.EpFunctor.isOpenMap_reducedMap` — Polyfold/Chapter10/EquivalenceReduced.lean, line 311
+- `Polyfold.EpFunctor.proposition_10_1_13` — Polyfold/Chapter10/EquivalenceReduced.lean, line 328
+- `Polyfold.EpGroupoid.theorem_7_2_22_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 565
+
+*What differs.*
+- Part (2) goes through Theorem 7.2.22, cited correctly in the text; the closedness of $\mathbf X^T$ is transported with closures (Findings, Chapter 10, item 10).
+
+### V10.11. Proposition 10.1.14 (2017: 10.5), the reduced functor
+
+*as in the book* · as stated · one Hausdorff hypothesis suffices
+
+**HWZ (§10.1, Proposition 10.1.14, p. 473 (2017: Proposition 10.5, p. 341)).** If $F$ is an equivalence and $\mathbf X^R$, $\mathbf Y^R$ are Hausdorff, $F_R : X_R \to Y_R$ is a well-defined sc-smooth functor and an equivalence.
+
+**Proved in Lean.** Under the two Hausdorff hypotheses, `EpFunctor.reduced` (equal to $F$ on objects, $[\varphi] \mapsto [F(\varphi)]$) is an equivalence of the reduced ep-groupoids.
+
+- `Polyfold.EpFunctor.reducedGroupoidFunctor` — Polyfold/Chapter10/EquivalenceReduced.lean, line 339
+- `Polyfold.EpFunctor.reduced` — Polyfold/Chapter10/EquivalenceReduced.lean, line 356
+- `Polyfold.EpFunctor.reducedπ_eq_of_mor` — Polyfold/Chapter10/EquivalenceReduced.lean, line 361
+- `Polyfold.EpFunctor.proposition_10_1_14` — Polyfold/Chapter10/EquivalenceReduced.lean, line 374
+
+*What differs.*
+- Both hypotheses are kept; by Proposition 10.1.13 (2) one implies the other (Findings, Chapter 10, item 11).
+
+### V10.12. Example 10.1.15 (2017: 10.1), no reduced map
+
+*stronger* · no map at all · no Hausdorff hypothesis
+
+**HWZ (§10.1, Example 10.1.15, p. 474 (2017: Example 10.1, p. 341)).** For $\mathbb Z/4$ acting on $\mathbb R$ and on $\mathbb R^2$ and the functor to the origin, $\Phi$ does not induce a map $\mathbf X^R \to \mathbf Y^R$.
+
+**Proved in Lean.** For $X = \mathbb Z/4 \ltimes \mathbb R$, $Y = \mathbb Z/4 \ltimes \mathbb R^2$ and $\Phi$ to the origin, $[(1, x)] = [(3, x)]$ in $\mathbf X^R$ and $[(1, 0)] \ne [(3, 0)]$ in $\mathbf Y^R$, so no map $f$ has $f([\varphi]) = [\Phi(\varphi)]$.
+
+- `Polyfold.EpGroupoid.Examples.example1015X` — Polyfold/Chapter10/EquivalenceExamples.lean, line 244
+- `Polyfold.EpGroupoid.Examples.example1015Y` — Polyfold/Chapter10/EquivalenceExamples.lean, line 248
+- `Polyfold.EpGroupoid.Examples.example1015Functor` — Polyfold/Chapter10/EquivalenceExamples.lean, line 256
+- `Polyfold.EpGroupoid.Examples.example1015X_two_mem_nonEffectivePart` — Polyfold/Chapter10/EquivalenceExamples.lean, line 273
+- `Polyfold.EpGroupoid.Examples.example1015Y_two_not_mem_nonEffectivePart` — Polyfold/Chapter10/EquivalenceExamples.lean, line 284
+- `Polyfold.EpGroupoid.Examples.example1015X_reducedπ_one_eq_three` — Polyfold/Chapter10/EquivalenceExamples.lean, line 296
+- `Polyfold.EpGroupoid.Examples.example1015Y_reducedπ_one_ne_three` — Polyfold/Chapter10/EquivalenceExamples.lean, line 308
+- `Polyfold.EpGroupoid.Examples.example_10_1_15` — Polyfold/Chapter10/EquivalenceExamples.lean, line 321
+
+*What differs.*
+- The non-existence holds for maps of sets (Findings, Chapter 10, item 12).
+
+### V10.13. Proposition 10.1.16, (LUC) under equivalences
+
+*as in the book* · new in the 2021 edition · through Theorem 7.2.22
+
+**HWZ (§10.1, Proposition 10.1.16, p. 474 (new in the 2021 edition)).** If $F : X \to Y$ is an equivalence, $X$ has (LUC) iff $Y$ has.
+
+**Proved in Lean.** For an equivalence, `IsLUC` of $X$ is equivalent to `IsLUC` of $Y$.
+
+- `Polyfold.EpFunctor.proposition_10_1_16` — Polyfold/Chapter10/EquivalenceReduced.lean, line 286
+- `Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff` — Polyfold/Chapter10/EquivalenceReduced.lean, line 196
+- `Polyfold.EpGroupoid.proposition_7_2_21_2021` — Polyfold/Chapter7/ReducedCriterion.lean, line 549
+
+*What differs.*
+- (LUC) is the closedness of $\mathbf X^T$ (Proposition 7.2.21), which passes along equivalences (Findings, Chapter 10, item 10).
+
+### V10.14. Proposition 10.1.17, the Zhou condition under equivalences
+
+*as in the book* · new in the 2021 edition · route via tangent naturality · $U(F(y))$, $x \in U(x)$: possible misprints
+
+**HWZ (§10.1, Proposition 10.1.17, p. 475 (new in the 2021 edition)).** If $F$ is an equivalence, $X$ satisfies (ZHOU) iff $Y$ does.
+
+**Proved in Lean.** For an equivalence, `IsZhou` of $X$ is equivalent to `IsZhou` of $Y$.
+
+- `Polyfold.EpGroupoid.mem_smoothSet_src_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 59
+- `Polyfold.EpGroupoid.mem_smoothSet_tgt_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 64
+- `Polyfold.EpFunctor.tangentMor_mor` — Polyfold/Chapter10/EquivalenceZhou.lean, line 71
+- `Polyfold.EpFunctor.IsEquivalence.isZhou_of_isZhou` — Polyfold/Chapter10/EquivalenceZhou.lean, line 87
+- `Polyfold.EpFunctor.IsEquivalence.isZhou_of_isZhou_right` — Polyfold/Chapter10/EquivalenceZhou.lean, line 137
+- `Polyfold.EpFunctor.proposition_10_1_17` — Polyfold/Chapter10/EquivalenceZhou.lean, line 159
+
+*What differs.*
+- The proof uses the naturality of $TF$ and its bijectivity on tangent fibres; the printed $U(F(y))$ and "$x \in U(x)$" are read $U(F(x))$ and $a \in U(x)$ (Findings, Chapter 10, item 13).
+
+### V10.15. Proposition 10.1.18, (SLUC) under equivalences
+
+*as in the book* · new in the 2021 edition · "Proposition 10.1.9": possible misprint
+
+**HWZ (§10.1, Proposition 10.1.18, p. 476 (new in the 2021 edition)).** If $F$ is an equivalence, $X$ satisfies (SLUC) iff $Y$ does.
+
+**Proved in Lean.** The level-1 restriction of an equivalence is an equivalence, so all $F^i : X^i \to Y^i$ are, and `IsSLUC` of $X$ is equivalent to `IsSLUC` of $Y$.
+
+- `Polyfold.EpFunctor.liftOne` — Polyfold/Chapter10/EquivalenceReduced.lean, line 398
+- `Polyfold.EpFunctor.IsEquivalence.liftOne` — Polyfold/Chapter10/EquivalenceReduced.lean, line 420
+- `Polyfold.EP.exists_isEquivalence_lift` — Polyfold/Chapter10/EquivalenceReduced.lean, line 459
+- `Polyfold.EP.proposition_10_1_18` — Polyfold/Chapter10/EquivalenceReduced.lean, line 470
+
+*What differs.*
+- The proof cites Proposition 10.1.9 where Proposition 10.1.16 is used (Findings, Chapter 10, item 14).
+
+### V10.16. Proposition 10.1.19, (SLR) under equivalences, the reduction
+
+*narrower* · new in the 2021 edition · Prop. 10.1.9 a hypothesis (G.113) · reduction only (G.115)
+
+**HWZ (§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)).** If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does.
+
+**Proved in Lean.** If $F$ is an equivalence and every equivalence $X^i \to Y^i$ carries (LR) both ways, then `IsSLR` of $X$ iff of $Y$; the hypothesis holds for $Y = X$.
+
+- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
+- `Polyfold.EP.isLR_iff_lift_self` — Polyfold/Chapter10/EquivalenceZhou.lean, line 182
+
+*What differs.*
+- Proposition 10.1.9 is not formalized; the reduction, the text's proof, is (Findings, Chapter 10, item 15).
+
+### V10.17. Definition 10.2.1 (2017: 10.3), the weak fibred product
+
+*restated* · iterated fibred products · total multiplication · $\iota(h, \psi, k)$: possible misprint
+
+**HWZ (§10.2, Definition 10.2.1, p. 477 (2017: Definition 10.3, p. 342)).** For $F : X \to Y$, $G : Z \to Y$, $X \times_Y Z$ has objects $(x, \phi, z)$ with $\phi : F(x) \to G(z)$ and morphisms $(h, \phi, k)$, with source, target, units, inverses $\iota$ and composition as listed.
+
+**Proved in Lean.** Objects and morphisms are elements of iterated fibred products; $t(h, \phi, k) = (t(h), G(k) \circ \phi \circ F(h)^{-1}, t(k))$; units, inverses and composition as in the text; a groupoid.
+
+- `Polyfold.WeakFibredProduct.objRight` — Polyfold/Chapter10/WeakFibredProduct.lean, line 237
+- `Polyfold.WeakFibredProduct.objSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 241
+- `Polyfold.WeakFibredProduct.Obj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 244
+- `Polyfold.WeakFibredProduct.morRight` — Polyfold/Chapter10/WeakFibredProduct.lean, line 247
+- `Polyfold.WeakFibredProduct.morSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 250
+- `Polyfold.WeakFibredProduct.Mor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 254
+- `Polyfold.WeakFibredProduct.conj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 334
+- `Polyfold.WeakFibredProduct.conj_comp_mor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 357
+- `Polyfold.WeakFibredProduct.conj_recover` — Polyfold/Chapter10/WeakFibredProduct.lean, line 364
+- `Polyfold.WeakFibredProduct.src` — Polyfold/Chapter10/WeakFibredProduct.lean, line 424
+- `Polyfold.WeakFibredProduct.tgt` — Polyfold/Chapter10/WeakFibredProduct.lean, line 427
+- `Polyfold.WeakFibredProduct.unit` — Polyfold/Chapter10/WeakFibredProduct.lean, line 432
+- `Polyfold.WeakFibredProduct.inv` — Polyfold/Chapter10/WeakFibredProduct.lean, line 437
+- `Polyfold.WeakFibredProduct.comp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 471
+- `Polyfold.WeakFibredProduct.src_eq_tgt_iff` — Polyfold/Chapter10/WeakFibredProduct.lean, line 457
+- `Polyfold.WeakFibredProduct.groupoid` — Polyfold/Chapter10/WeakFibredProduct.lean, line 557
+
+*What differs.*
+- The multiplication is total, its value off composable pairs unused; the printed $\psi$ in $\iota(h, \psi, k)$ is read $\phi$ (Findings, Chapter 10, item 20).
+
+### V10.18. Theorem 10.2.2 (2017: 10.2), $X \times_Y Z$ is an ep-groupoid
+
+*stronger* · $F$ local sc-diffeo on objects suffices · iterated structures (G.116) · properness read with closure
+
+**HWZ (§10.2, Theorem 10.2.2, p. 477 (2017: Theorem 10.2, p. 343), first claim, proof pp. 478–481).** If $F$ is an equivalence and $G$ sc-smooth, $X \times_Y Z$ is an ep-groupoid with the sub-M-polyfold structures from $X \times \mathbf Y \times Z$ and $\mathbf X \times \mathbf Y \times \mathbf Z$.
+
+**Proved in Lean.** If $F$ or $G$ is a local sc-diffeomorphism on objects (`Admissible`), the iterated sub-M-polyfold structures make $X \times_Y Z$ an ep-groupoid; the projections to $Z$ (or $X$) are local sc-diffeomorphisms; properness holds for any $F$, $G$.
+
+- `Polyfold.WeakFibredProduct.Admissible` — Polyfold/Chapter10/WeakFibredProduct.lean, line 725
+- `Polyfold.WeakFibredProduct.Admissible.of_isEquivalence_left` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 131
+- `Polyfold.WeakFibredProduct.Admissible.of_isEquivalence_right` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 135
+- `Polyfold.WeakFibredProduct.PA` — Polyfold/Chapter10/WeakFibredProduct.lean, line 736
+- `Polyfold.WeakFibredProduct.PB` — Polyfold/Chapter10/WeakFibredProduct.lean, line 748
+- `Polyfold.WeakFibredProduct.PObj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 841
+- `Polyfold.WeakFibredProduct.PMor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 848
+- `Polyfold.WeakFibredProduct.isSubMPolyfold_objSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 818
+- `Polyfold.WeakFibredProduct.isSubMPolyfold_morSet` — Polyfold/Chapter10/WeakFibredProduct.lean, line 828
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_z` — Polyfold/Chapter10/WeakFibredProduct.lean, line 939
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_k` — Polyfold/Chapter10/WeakFibredProduct.lean, line 946
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_x` — Polyfold/Chapter10/WeakFibredProduct.lean, line 954
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_h` — Polyfold/Chapter10/WeakFibredProduct.lean, line 961
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_src` — Polyfold/Chapter10/WeakFibredProduct.lean, line 970
+- `Polyfold.WeakFibredProduct.isLocalScDiffeo_tgt` — Polyfold/Chapter10/WeakFibredProduct.lean, line 978
+- `Polyfold.WeakFibredProduct.isScSmoothMap_unit` — Polyfold/Chapter10/WeakFibredProduct.lean, line 929
+- `Polyfold.WeakFibredProduct.isScSmoothMap_inv` — Polyfold/Chapter10/WeakFibredProduct.lean, line 933
+- `Polyfold.WeakFibredProduct.isScSmoothComp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 987
+- `Polyfold.WeakFibredProduct.exists_isProperMap` — Polyfold/Chapter10/WeakFibredProduct.lean, line 636
+- `Polyfold.WeakFibredProduct.epGroupoid` — Polyfold/Chapter10/WeakFibredProduct.lean, line 1017
+- `Polyfold.MPolyfold.IsLocalScDiffeo.of_comm` — Polyfold/Chapter10/WeakFibredProduct.lean, line 133
+- `Polyfold.MPolyfold.isLocalScDiffeo_snd_fibredProduct` — Polyfold/Chapter10/WeakFibredProduct.lean, line 157
+- `Polyfold.MPolyfold.isLocalScDiffeo_fst_fibredProduct` — Polyfold/Chapter10/WeakFibredProduct.lean, line 170
+- `Polyfold.EpGroupoid.isScSmoothOn_comp_of` — Polyfold/Chapter10/WeakFibredProduct.lean, line 192
+- `Polyfold.EpGroupoid.tendsto_comp` — Polyfold/Chapter10/WeakFibredProduct.lean, line 211
+
+*What differs.*
+- The structures are Part I's iterated fibred products; their agreement with the triple-product structures is not formalized (G.116); properness is read with $\mathrm{cl}(U)$ (Findings, Chapter 10, items 21, 22).
+
+### V10.19. Theorem 10.2.2 (2017: 10.2), $F$ an equivalence
+
+*as in the book* · as stated · fullness composite: possible misprint
+
+**HWZ (§10.2, Theorem 10.2.2, pp. 477–478 (2017: Theorem 10.2, p. 343), proof pp. 481–482).** If $F$ is an equivalence, $\pi_Z$ is an equivalence, $F \circ \pi_X \simeq G \circ \pi_Z$, $d_{X \times_Y Z} = d_Z \circ \pi_Z$, and tameness and a paracompact orbit space pass from $Z$.
+
+**Proved in Lean.** For $F$ an equivalence: $\pi_Z$ is an equivalence, $\sigma(x, \phi, z) = \phi$ is a natural transformation, the degeneracy index is $d_Z(z)$, and `IsTame`, `HasParacompactOrbitSpace` pass from $Z$.
+
+- `Polyfold.WeakFibredProduct.projLeft` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 143
+- `Polyfold.WeakFibredProduct.projRight` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 156
+- `Polyfold.WeakFibredProduct.natTrans` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 181
+- `Polyfold.WeakFibredProduct.natTrans_app` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 189
+- `Polyfold.WeakFibredProduct.naturallyEquivalent` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 193
+- `Polyfold.WeakFibredProduct.isEquivalence_projRight` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 203
+- `Polyfold.WeakFibredProduct.degIndex_eq_z` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 297
+- `Polyfold.WeakFibredProduct.theorem_10_2_2` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 313
+- `Polyfold.EpFunctor.IsEquivalence.degIndex_obj` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 99
+- `Polyfold.EpFunctor.IsEquivalence.isTame_of_isTame` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 105
+- `Polyfold.EpFunctor.IsEquivalence.hasParacompactOrbitSpace` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 110
+- `Polyfold.WeakFibredProduct.Examples.theorem_10_2_2_pairToPoint` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 373
+
+*What differs.*
+- In the fullness step the printed composite is read $\phi'^{-1} \circ G(k) \circ \phi$ (Findings, Chapter 10, item 23).
+
+### V10.20. Theorem 10.2.2 (2017: 10.2), $G$ an equivalence, and both
+
+*stronger* · natural equivalence added · tame, paracompact added
+
+**HWZ (§10.2, Theorem 10.2.2, p. 478 (2017: Theorem 10.2, p. 343), the last two claims).** If $G$ is an equivalence, $\pi_X$ is one and $d = d_X \circ \pi_X$; if both are, $d_X(x) = d(x, \phi, z) = d_Z(z)$.
+
+**Proved in Lean.** For $G$ an equivalence: $\pi_X$ is an equivalence, $F \circ \pi_X \simeq G \circ \pi_Z$, $d = d_X(x)$, tameness and paracompactness pass from $X$; for both, $d_X(x) = d(x, \phi, z) = d_Z(z)$.
+
+- `Polyfold.WeakFibredProduct.isEquivalence_projLeft` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 253
+- `Polyfold.WeakFibredProduct.degIndex_eq_x` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 302
+- `Polyfold.WeakFibredProduct.theorem_10_2_2_right` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 329
+- `Polyfold.WeakFibredProduct.theorem_10_2_2_both` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 344
+
+*What differs.*
+- The natural equivalence and the transfer of tameness and paracompactness are added for $G$ an equivalence (Findings, Chapter 10, item 24).
+
+### V10.21. Remark 10.2.3 (2017: 10.2), two equivalences
+
+*as in the book* · as stated · "smaller models": no formal content
+
+**HWZ (§10.2, Remark 10.2.3, pp. 482–483 (2017: Remark 10.2, p. 347)).** For two equivalences both projections are equivalences, with a natural transformation $\tau$ between $F \circ \pi_X$ and $G \circ \pi_Z$; remarks on smaller models.
+
+**Proved in Lean.** For equivalences $F$, $G$ both projections are equivalences and $\tau = \phi$ is natural; witness: $\mathrm{id}$ and $-\mathrm{id}$ on $\mathbb Z/2 \ltimes \mathbb R^2$.
+
+- `Polyfold.WeakFibredProduct.remark_10_2_3` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 353
+- `Polyfold.WeakFibredProduct.Examples.remark_10_2_3_negFunctor` — Polyfold/Chapter10/WeakFibredProductTheorem.lean, line 381
+
+*What differs.*
+- The closing sentences on smaller models have no formal content (Findings, Chapter 10, item 25).
+
+### V10.22. Definition 10.4.1 (2017: 10.10), strong bundle equivalences
+
+*restated* · level $[1]$: homeomorphism of $|W[1]|$ · rest of $[1]$ from (2) · witness over $-\mathrm{id}$
+
+**HWZ (§10.4, Definition 10.4.1, p. 496 (2017: Definition 10.10, p. 357)).** A strong bundle equivalence is a strong bundle functor $\Phi$ covering an equivalence $\phi$ such that (1) $\Phi : W[i] \to W'[i]$, $i = 0, 1$, are equivalences and (2) $\Phi$ is locally a strong bundle isomorphism on objects and morphisms.
+
+**Proved in Lean.** A structure with six fields: strong bundle functor, $\phi$ and $\Phi$ at $[0]$ equivalences, $|\Phi|$ on $|W[1]|$ a homeomorphism, local strong bundle isomorphisms on objects and on morphisms; identities, composites and isomorphisms are examples.
+
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 393
+- `Polyfold.EpStrongBundle.OneOrbitSpace` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 345
+- `Polyfold.EpStrongBundle.oneOrbitMap` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 350
+- `Polyfold.EpStrongBundle.IsStrongBundleFunctor.comp` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 331
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.covers` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 413
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.fiberEquiv` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 417
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eq_of_obj_eq` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 425
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isLocalScDiffeo_obj` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 439
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isLocalScDiffeo_one` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 431
+- `Polyfold.EpStrongBundle.isStrongBundleEquivalence_id` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 450
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.comp` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 461
+- `Polyfold.EpStrongBundle.isStrongBundleEquivalence_of_inverse` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 156
+- `Polyfold.StrongBundleEquivalenceExamples.isStrongBundleEquivalence_pullbackProj'` — Polyfold/Chapter10/StrongBundleEquivalenceExamples.lean, line 131
+- `Polyfold.StrongBundleEquivalenceExamples.trivialNeg_obj_ne_id` — Polyfold/Chapter10/StrongBundleEquivalenceExamples.lean, line 145
+
+*What differs.*
+- $W[1]$ is not an ep-groupoid in the project; (1) at $[1]$ is read as the homeomorphism of $|W[1]|$ (Findings, Chapter 10, item 40).
+
+### V10.23. the pull-back and the push-forward, (10.15)–(10.17) and (10.22)
+
+*restated* · defined on all maps · choice fixed once · (10.22) proved
+
+**HWZ (§10.4, the pull-back and the push-forward of section functors, pp. 496–498 (2017 pp. 357–360)).** $\Phi^*f' = \Phi_x^{-1} \circ f' \circ \phi$ and $\Phi_*f(x') = \mu'(\sigma, \Phi(f(x)))$ for $\sigma : \phi(x) \to x'$, independent of the choices by (10.22); both are section functors and mutually inverse.
+
+**Proved in Lean.** The pull-back and push-forward are defined on all maps (zero off the fibre), the push-forward with a fixed choice; (10.22) holds for section functors; both are section functors and mutually inverse; $|\Phi| = |\Psi|$ iff (10.15).
+
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 501
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.obj_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 514
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullback_eq` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 521
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isFunctorialSection_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 527
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.preObj` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 540
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.preMor` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 543
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pushforward` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 555
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pushforward_eq` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 579
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isFunctorialSection_pushforward` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 613
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullback_pushforward` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 631
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pushforward_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 642
+- `Polyfold.EpStrongBundle.μ_injective_snd` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 485
+- `Polyfold.EpStrongBundle.exists_μ_eq_of_orbitMap_eq` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 663
+- `Polyfold.EpStrongBundle.orbitMap_eq_of_forall_exists` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 975
+
+*What differs.*
+- The choice of $x$ and $\sigma$ is made once; (10.22) shows independence (Findings, Chapter 10, item 41).
+
+### V10.24. Proposition 10.4.2 (2017: 10.7), pull-backs along $|\Phi| = |\Psi|$
+
+*stronger* · no sc-smoothness · "$f' : W' \to X'$": possible misprint
+
+**HWZ (§10.4, Proposition 10.4.2, p. 497 (2017: Proposition 10.7, p. 358)).** If $|\Phi| = |\Psi|$, then $\Phi^*f' = \Psi^*f'$ for every sc-smooth section functor $f'$.
+
+**Proved in Lean.** If $|\Phi| = |\Psi|$, then $\Phi^*f' = \Psi^*f'$ for every section functor $f'$.
+
+- `Polyfold.EpStrongBundle.proposition_10_4_2` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 733
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullback_eq_of_orbitMap_eq` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 676
+
+*What differs.*
+- The printed $f' : W' \to X'$ is read $f' : X' \to W'$ (Findings, Chapter 10, item 42).
+
+### V10.25. Proposition 10.4.3 (2017: 10.8), push-forwards along $|\Phi| = |\Psi|$
+
+*stronger* · no sc-smoothness
+
+**HWZ (§10.4, Proposition 10.4.3, p. 499 (2017: Proposition 10.8, p. 360)).** If $|\Phi| = |\Psi|$, then $\Phi_*f = \Psi_*f$ for every sc-smooth section functor $f$.
+
+**Proved in Lean.** If $|\Phi| = |\Psi|$, then $\Phi_*f = \Psi_*f$ for every section functor $f$.
+
+- `Polyfold.EpStrongBundle.proposition_10_4_3` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 742
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pushforward_eq_of_orbitMap_eq` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 699
+
+*What differs.*
+- sc-smoothness is not used (Findings, Chapter 10, item 43).
+
+### V10.26. Proposition 10.4.4 (2017: 10.9), functoriality
+
+*stronger* · all sections / section functors
+
+**HWZ (§10.4, Proposition 10.4.4, p. 499 (2017: Proposition 10.9, p. 360)).** $(\Psi \circ \Phi)^* = \Phi^* \circ \Psi^*$ and $(\Psi \circ \Phi)_* = \Psi_* \circ \Phi_*$.
+
+**Proved in Lean.** The pull-back identity for all sections, the push-forward identity for all section functors.
+
+- `Polyfold.EpStrongBundle.proposition_10_4_4` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 755
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.comp` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 461
+
+*What differs.*
+- sc-smoothness is not used (Findings, Chapter 10, item 43).
+
+### V10.27. Theorem 10.4.5 (2017: 10.8), without the Fred part
+
+*narrower* · Fred part not formalized (G.121) · sc-smoothness of $\Phi_*f$ proved · $\Gamma$ for $\Gamma^+$: possible misprint
+
+**HWZ (§10.4, Theorem 10.4.5, pp. 500–501 (2017: Theorem 10.8, p. 362)).** $\Phi_* : \Gamma(P, \mu) \to \Gamma(P', \mu')$ is a bijection with inverse $\Phi^*$, depending only on $|\Phi|$, and restricting to $\Gamma^+$ and to the sc-Fredholm section functors.
+
+**Proved in Lean.** Mutually inverse bijections of the sc-smooth section functors, equal for $|\Phi| = |\Psi|$, mapping $\mathrm{sc}^+$-section functors to $\mathrm{sc}^+$-section functors; a witness over $-\mathrm{id}$.
+
+- `Polyfold.EpStrongBundle.theorem_10_4_5` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 994
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.eqOn_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 792
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 803
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScPlusSection_pullback` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 818
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.exists_pushforward_local` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 859
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pushforward` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 877
+- `Polyfold.EpStrongBundle.IsStrongBundleEquivalence.isScPlusSection_pushforward` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 912
+- `Polyfold.StrongBundle.isScSmoothOn_to_pullback_one` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 265
+- `Polyfold.MPolyfold.isScSmoothOn_of_forall_charts` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 227
+- `Polyfold.StrongBundle.IsStrongBundleIsoOn.restrict` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 150
+- `Polyfold.StrongBundle.IsStrongBundleIsoOn.comp` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 180
+- `Polyfold.StrongBundle.IsStrongBundleIsoOn.exists_comp` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 194
+- `Polyfold.StrongBundleEquivalenceExamples.bijOn_pushforward_example` — Polyfold/Chapter10/StrongBundleEquivalenceExamples.lean, line 158
+
+*What differs.*
+- The sc-Fredholm part is not formalized (G.121); the second display is read with $\Gamma^+$ (Findings, Chapter 10, item 44).
+
+### V10.28. Definition 10.4.8 (2017: 10.11), natural equivalence of strong bundle functors
+
+*restated* · $T$ as data, $\tau$ sc-smooth
+
+**HWZ (§10.4, Definition 10.4.8, p. 502 (2017: Definition 10.11, p. 362)).** A natural transformation between strong bundle functors $\Phi, \Psi$ covering $\phi, \psi$ is a natural $T(w) : \Phi(w) \to \Psi(w)$ over a natural transformation $\tau : \phi \to \psi$.
+
+**Proved in Lean.** `StrongBundleNatTrans`: $T$ as data with naturality, an `EpNatTrans` $\tau$ with $\tau(P(w)) = P'(T(w))$; `StrongBundleNatEquiv` is its existence; reflexive.
+
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 203
+- `Polyfold.EpStrongBundle.StrongBundleNatEquiv` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 218
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.refl` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 315
+- `Polyfold.StrongBundleEquivalenceExamples.strongBundleNatEquiv_example` — Polyfold/Chapter10/StrongBundleEquivalenceExamples.lean, line 164
+
+*What differs.*
+- $T$ carries no smoothness, as in the text (Findings, Chapter 10, item 46).
+
+### V10.29. Remark 10.4.9 (2017: 10.4) and (10.23)
+
+*hypotheses explicit* · $\Psi$ a strong bundle functor · $\mu$ for $\mu'$ in (10.23)
+
+**HWZ (§10.4, Remark 10.4.9, pp. 502–503 (2017: Remark 10.4, p. 363)).** $T(w) = (\tau(P(w)), \Phi(w))$ and $\Psi(w) = \mu'(\tau(P(w)), \Phi(w))$, so $T$ and $\Psi$ are determined by $\Phi$ and $\tau$, and $T$ is a strong bundle map.
+
+**Proved in Lean.** The two formulas of (10.23), the uniqueness of $T$ and of $\Psi$ on objects, of $\Psi$ among strong bundle functors, and $T$ a strong bundle map for $\Phi$ a strong bundle functor.
+
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.T_val` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 228
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.T_eq` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 234
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.obj_eq` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 237
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.unique` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 241
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.unique_functor` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 250
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.isStrongBundleMap_T` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 261
+
+*What differs.*
+- The second line of (10.23) is read with $\mu'$ (Findings, Chapter 10, item 46).
+
+### V10.30. Definition 10.4.10 (2017: 10.12) and its equivalence with Definition 10.4.8
+
+*hypotheses explicit* · strong bundle functors assumed
+
+**HWZ (§10.4, Definition 10.4.10, p. 503 (2017: Definition 10.12, p. 363)).** A natural transformation is a strong bundle map $T : W \to \mathbf X' {}_s\!\times_{P'} W'$ covering $\tau$ with (10.23); the two definitions are equivalent.
+
+**Proved in Lean.** `IsStrongBundleNatTransMap`; the two definitions agree for strong bundle functors $\Phi$, $\Psi$; $\Phi \simeq \Psi$ implies $|\Phi| = |\Psi|$.
+
+- `Polyfold.EpStrongBundle.IsStrongBundleNatTransMap` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 334
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.isStrongBundleNatTransMap` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 342
+- `Polyfold.EpStrongBundle.IsStrongBundleNatTransMap.toNatTrans` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 350
+- `Polyfold.EpStrongBundle.StrongBundleNatTrans.orbitMap_eq` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 303
+- `Polyfold.EpStrongBundle.StrongBundleNatEquiv.orbitMap_eq` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 309
+
+*What differs.*
+- The direction 10.4.10 ⇒ 10.4.8 uses that $\Phi$, $\Psi$ are strong bundle functors (Findings, Chapter 10, item 46).
+
+### V10.31. Definition 10.4.11 (2017: 10.13), the category $\mathcal{SEP}$
+
+*restated* · morphisms carry $\phi$ and $\Phi$
+
+**HWZ (§10.4, Definition 10.4.11, p. 503 (2017: Definition 10.13, p. 364)).** $\mathcal{SEP}$ has the strong bundles over ep-groupoids as objects and the strong bundle functors as morphisms; $F$ is the class of strong bundle equivalences.
+
+**Proved in Lean.** `SEP` is a large category; `SEP.equivalences` is multiplicative; the forgetful functor to $\mathcal{EP}$ maps it into $E$; a witness over $-\mathrm{id}$.
+
+- `Polyfold.SEP` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 385
+- `Polyfold.SEP.Hom` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 421
+- `Polyfold.SEP.equivalences` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 444
+- `Polyfold.SEP.toEP` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 452
+- `Polyfold.SEP.toEP_map_mem_equivalences` — Polyfold/Chapter10/StrongBundleEquivalenceNat.lean, line 458
+- `Polyfold.StrongBundleEquivalenceExamples.negSEPHom` — Polyfold/Chapter10/StrongBundleEquivalenceExamples.lean, line 180
+- `Polyfold.StrongBundleEquivalenceExamples.negSEPHom_mem_equivalences` — Polyfold/Chapter10/StrongBundleEquivalenceExamples.lean, line 185
+
+*What differs.*
+- $\Phi$ determines $\phi$ only on the image of $P$, so a morphism is the pair (Findings, Chapter 10, item 47).
+
+### V10.32. the properties (E1)–(E3) of the class $E$
+
+*as in the book* · as stated
+
+**HWZ (§10.3, the properties (E1)–(E3) of $E$, p. 483 (2017 p. 347)).** (E1) isomorphisms of $\mathcal{EP}$ are equivalences; (E2) composites of equivalences are equivalences; (E3) a functor naturally equivalent to an equivalence is one.
+
+**Proved in Lean.** Every isomorphism of the category `EP` is an equivalence; (E2) and (E3) are `EpFunctor.IsEquivalence.comp` and Proposition 10.1.5.
+
+- `Polyfold.EPLocalization.isEquivalence_of_isIso` — Polyfold/Chapter10/LocalizationCategory.lean, line 465
+- `Polyfold.EpFunctor.IsEquivalence.comp` — Polyfold/Chapter10/Equivalence.lean, line 353
+- `Polyfold.EpFunctor.proposition_10_1_5` — Polyfold/Chapter10/Equivalence.lean, line 463
+
+*What differs.*
+- (E2), (E3) are proved in §10.1 (Findings, Chapter 10, item 30).
+
+### V10.33. Definition 10.3.1 (2017: 10.4), diagrams and refinements
+
+*restated* · diagrams one universe up · both examples proved
+
+**HWZ (§10.3, Definition 10.3.1, p. 484 (2017: Definition 10.4, p. 348)).** A diagram $X \xleftarrow{F} A \xrightarrow{\Phi} Y$ has $F$ an equivalence; $d'$ refines $d$ if an equivalence $H : A' \to A$ has $F \circ H \simeq F'$, $\Phi \circ H \simeq \Phi'$; two examples.
+
+**Proved in Lean.** `Diagram X Y` bundles an object $A$ of `EP`, an equivalence $F$ and an sc-smooth $\Phi$; `IsRefinement` as in the text, reflexive, with the two examples.
+
+- `Polyfold.EPLocalization.Diagram` — Polyfold/Chapter10/Localization.lean, line 178
+- `Polyfold.EPLocalization.Diagram.IsRefinement` — Polyfold/Chapter10/Localization.lean, line 194
+- `Polyfold.EPLocalization.Diagram.IsRefinement.refl` — Polyfold/Chapter10/Localization.lean, line 217
+- `Polyfold.EPLocalization.Diagram.precomp` — Polyfold/Chapter10/Localization.lean, line 200
+- `Polyfold.EPLocalization.Diagram.isRefinement_precomp` — Polyfold/Chapter10/Localization.lean, line 206
+- `Polyfold.EPLocalization.Diagram.isRefinement_of_naturallyEquivalent` — Polyfold/Chapter10/Localization.lean, line 212
+
+*What differs.*
+- The middle ep-groupoid is an object of `EP`, so diagrams form a type in the universe of the objects of `EP` (Findings, Chapter 10, item 30).
+
+### V10.34. Lemma 10.3.2 (2017: 10.3), refinements compose
+
+*as in the book* · as stated
+
+**HWZ (§10.3, Lemma 10.3.2, p. 484 (2017: Lemma 10.3, p. 348)).** A refinement of a refinement of $d$ is a refinement of $d$.
+
+**Proved in Lean.** Transitivity of `IsRefinement`.
+
+- `Polyfold.EPLocalization.Diagram.lemma_10_3_2` — Polyfold/Chapter10/Localization.lean, line 222
+- `Polyfold.EPLocalization.Diagram.IsRefinement.trans` — Polyfold/Chapter10/Localization.lean, line 228
+
+*What differs.*
+- None (Findings, Chapter 10, item 31).
+
+### V10.35. Definition 10.3.3 (2017: 10.5), common refinements
+
+*as in the book* · as stated
+
+**HWZ (§10.3, Definition 10.3.3, p. 485 (2017: Definition 10.5, p. 349)).** A common refinement of $(d, d')$ refines both.
+
+**Proved in Lean.** `IsCommonRefinement`: a refinement of both.
+
+- `Polyfold.EPLocalization.Diagram.IsCommonRefinement` — Polyfold/Chapter10/Localization.lean, line 234
+
+*What differs.*
+- None (Findings, Chapter 10, item 31).
+
+### V10.36. Lemma 10.3.4 (2017: 10.4), transitivity
+
+*as in the book* · as stated · through (10.11)
+
+**HWZ (§10.3, Lemma 10.3.4, p. 485 (2017: Lemma 10.4, p. 349)).** If $(d, d')$ and $(d', d'')$ have common refinements, so has $(d, d'')$, by the diagram (10.11) over $W \times_{A'} W'$.
+
+**Proved in Lean.** The same, with (10.11) the weak fibred product of $H'$ and $K$; a refinement is equivalent to the refined diagram.
+
+- `Polyfold.EPLocalization.Diagram.lemma_10_3_4` — Polyfold/Chapter10/Localization.lean, line 254
+- `Polyfold.EPLocalization.Diagram.Equiv.trans` — Polyfold/Chapter10/Localization.lean, line 273
+- `Polyfold.EPLocalization.Diagram.IsRefinement.equiv` — Polyfold/Chapter10/Localization.lean, line 247
+
+*What differs.*
+- None (Findings, Chapter 10, item 31).
+
+### V10.37. Definition 10.3.5 (2017: 10.6), equivalence of diagrams
+
+*restated* · a setoid on diagrams · witness: ℤ-pair over the point
+
+**HWZ (§10.3, Definition 10.3.5, p. 486 (2017: Definition 10.6, p. 350)).** Two diagrams are equivalent if they have a common refinement; $[d]$ is the class.
+
+**Proved in Lean.** `Equiv` is an equivalence relation, a setoid on the diagrams $X \to Y$; witness: two copies of $\mathbb Z$-pair $\to$ pt equivalent to $1_{\mathrm{pt}}$.
+
+- `Polyfold.EPLocalization.Diagram.Equiv` — Polyfold/Chapter10/Localization.lean, line 238
+- `Polyfold.EPLocalization.Diagram.Equiv.refl` — Polyfold/Chapter10/Localization.lean, line 240
+- `Polyfold.EPLocalization.Diagram.Equiv.symm` — Polyfold/Chapter10/Localization.lean, line 242
+- `Polyfold.EPLocalization.Diagram.setoid` — Polyfold/Chapter10/Localization.lean, line 278
+- `Polyfold.EPLocalization.Diagram.equiv_iff` — Polyfold/Chapter10/Localization.lean, line 282
+- `Polyfold.EPLocalization.Examples.equiv_pairToPoint_id` — Polyfold/Chapter10/LocalizationCategory.lean, line 520
+
+*What differs.*
+- The quotient lives in the universe of the objects of `EP` (Findings, Chapter 10, item 31).
+
+### V10.38. Lemma 10.3.6 (2017: 10.5), the orbit map of a diagram
+
+*as in the book* · as stated
+
+**HWZ (§10.3, Lemma 10.3.6, p. 488 (2017: Lemma 10.5, p. 351)).** If $H : d' \to d$ is a refinement, then $|d| = |d'|$, for $|d| = |\Phi| \circ |F|^{-1}$.
+
+**Proved in Lean.** $|d|$ is continuous; refinements and equivalent diagrams have the same orbit map; naturally equivalent functors have the same orbit map.
+
+- `Polyfold.EPLocalization.Diagram.orbitMap` — Polyfold/Chapter10/Localization.lean, line 671
+- `Polyfold.EPLocalization.Diagram.continuous_orbitMap` — Polyfold/Chapter10/Localization.lean, line 675
+- `Polyfold.EPLocalization.Diagram.orbitMap_orbitMap_F` — Polyfold/Chapter10/Localization.lean, line 679
+- `Polyfold.EPLocalization.Diagram.lemma_10_3_6` — Polyfold/Chapter10/Localization.lean, line 691
+- `Polyfold.EPLocalization.Diagram.Equiv.orbitMap_eq` — Polyfold/Chapter10/Localization.lean, line 701
+- `Polyfold.EpFunctor.NaturallyEquivalent.orbitMap_eq` — Polyfold/Chapter10/Localization.lean, line 143
+- `Polyfold.EpFunctor.orbitMap_comp` — Polyfold/Chapter10/Localization.lean, line 151
+
+*What differs.*
+- None (Findings, Chapter 10, item 32).
+
+### V10.39. Definition 10.3.7 (2017: 10.7), the map $|[d]|$
+
+*as in the book* · as stated
+
+**HWZ (§10.3, Definition 10.3.7, p. 488 (2017: Definition 10.7, p. 351)).** $|[d]| = |\Phi| \circ |F|^{-1}$ for any representative; a homeomorphism if $\Phi$ is an equivalence.
+
+**Proved in Lean.** `orbitMapQ` on the quotient, and the homeomorphism for $\Phi$ an equivalence.
+
+- `Polyfold.EPLocalization.Diagram.orbitMapQ` — Polyfold/Chapter10/Localization.lean, line 707
+- `Polyfold.EPLocalization.Diagram.orbitMapQ_mk` — Polyfold/Chapter10/Localization.lean, line 711
+- `Polyfold.EPLocalization.Diagram.isHomeomorph_orbitMap` — Polyfold/Chapter10/Localization.lean, line 714
+
+*What differs.*
+- None (Findings, Chapter 10, item 32).
+
+### V10.40. Theorem 10.3.8 (2017: 10.3), composition of classes, Appendix §10.6.1
+
+*restated* · order: `d.comp e` is $[e] \circ [d]$ · $L$ by two out of three · possible misprints in the proof
+
+**HWZ (§10.3, Theorem 10.3.8, p. 488 (2017: Theorem 10.3, p. 352), proof in Appendix §10.6.1, pp. 509–515).** The class of $X \leftarrow A \times_Y B \to Z$ depends only on $[d]$, $[d']$; the composition is associative with units $[1_X]$.
+
+**Proved in Lean.** The same, with `d.comp e` the text's $[e] \circ [d]$; $L$ an equivalence; associativity through a reassociation functor.
+
+- `Polyfold.EPLocalization.Diagram.theorem_10_3_8` — Polyfold/Chapter10/Localization.lean, line 641
+- `Polyfold.EPLocalization.Diagram.id` — Polyfold/Chapter10/Localization.lean, line 577
+- `Polyfold.EPLocalization.Diagram.comp` — Polyfold/Chapter10/Localization.lean, line 587
+- `Polyfold.EPLocalization.Diagram.admissible` — Polyfold/Chapter10/Localization.lean, line 581
+- `Polyfold.EPLocalization.wfp` — Polyfold/Chapter10/Localization.lean, line 172
+- `Polyfold.EPLocalization.wfpMap` — Polyfold/Chapter10/Localization.lean, line 360
+- `Polyfold.EPLocalization.projLeft_comp_wfpMap` — Polyfold/Chapter10/Localization.lean, line 408
+- `Polyfold.EPLocalization.projRight_comp_wfpMap` — Polyfold/Chapter10/Localization.lean, line 411
+- `Polyfold.EPLocalization.isEquivalence_wfpMap` — Polyfold/Chapter10/Localization.lean, line 417
+- `Polyfold.EPLocalization.assocFunctor` — Polyfold/Chapter10/Localization.lean, line 451
+- `Polyfold.EPLocalization.isEquivalence_assocFunctor` — Polyfold/Chapter10/Localization.lean, line 506
+- `Polyfold.EPLocalization.Diagram.IsRefinement.comp` — Polyfold/Chapter10/Localization.lean, line 595
+- `Polyfold.EPLocalization.Diagram.Equiv.comp` — Polyfold/Chapter10/Localization.lean, line 607
+- `Polyfold.EPLocalization.Diagram.isRefinement_assoc` — Polyfold/Chapter10/Localization.lean, line 615
+- `Polyfold.EPLocalization.Diagram.equiv_assoc` — Polyfold/Chapter10/Localization.lean, line 620
+- `Polyfold.EPLocalization.Diagram.isRefinement_id_comp` — Polyfold/Chapter10/Localization.lean, line 626
+- `Polyfold.EPLocalization.Diagram.isRefinement_comp_id` — Polyfold/Chapter10/Localization.lean, line 633
+- `Polyfold.EpFunctor.IsEquivalence.of_comp_left` — Polyfold/Chapter10/Localization.lean, line 131
+
+*What differs.*
+- "The same space" is the reassociation functor; $\tau_A$, $(\Phi \circ \pi_B) \circ L$, $[1_X] \circ [d]$, $\tau(a, \phi, a)$ in the proof are read $\tau_{B'}$, $(\Psi \circ \pi_B) \circ L$, $[d] \circ [1_X]$, $\tau(x, \phi, a)$ (Findings, Chapter 10, items 33, 60).
+
+### V10.41. Definition 10.3.9 (2017: 10.8), generalized maps and isomorphisms
+
+*as in the book* · as stated
+
+**HWZ (§10.3, Definition 10.3.9, p. 489 (2017: Definition 10.8, p. 352)).** A generalized map is a class $[d]$; it is a generalized isomorphism if it has a two-sided inverse $[d]^{-1}$.
+
+**Proved in Lean.** `IsGeneralizedIso`, equivalent to Mathlib's `IsIso` in $\mathcal{EP}(E^{-1})$.
+
+- `Polyfold.EPLocalization.EPLoc.homMk` — Polyfold/Chapter10/LocalizationCategory.lean, line 295
+- `Polyfold.EPLocalization.EPLoc.IsGeneralizedIso` — Polyfold/Chapter10/LocalizationCategory.lean, line 313
+- `Polyfold.EPLocalization.EPLoc.isGeneralizedIso_iff_isIso` — Polyfold/Chapter10/LocalizationCategory.lean, line 317
+
+*What differs.*
+- None (Findings, Chapter 10, item 34).
+
+### V10.42. Theorem 10.3.10 (2017: 10.4), generalized isomorphisms, Appendix §10.6.2
+
+*as in the book* · (C2): another argument · possible misprints in (C1), (C2)
+
+**HWZ (§10.3, Theorem 10.3.10, p. 489 (2017: Theorem 10.4, p. 353), proof in Appendix §10.6.2, pp. 515–519).** $[X \xleftarrow{F} A \xrightarrow{\Phi} Y]$ is a generalized isomorphism iff $\Phi$ is an equivalence, and the inverse is $[Y \xleftarrow{\Phi} A \xrightarrow{F} X]$.
+
+**Proved in Lean.** The same, (2) as: every inverse equals the reversed class.
+
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_10` — Polyfold/Chapter10/LocalizationCategory.lean, line 324
+- `Polyfold.EPLocalization.Diagram.symm` — Polyfold/Chapter10/LocalizationCategory.lean, line 252
+- `Polyfold.EPLocalization.diagFunctor` — Polyfold/Chapter10/Localization.lean, line 532
+- `Polyfold.EPLocalization.isEquivalence_diagFunctor` — Polyfold/Chapter10/Localization.lean, line 563
+- `Polyfold.EPLocalization.Diagram.isRefinement_comp_symm` — Polyfold/Chapter10/Localization.lean, line 655
+- `Polyfold.EPLocalization.Diagram.isRefinement_id` — Polyfold/Chapter10/Localization.lean, line 663
+- `Polyfold.EPLocalization.Diagram.equiv_comp_symm` — Polyfold/Chapter10/LocalizationCategory.lean, line 256
+- `Polyfold.EPLocalization.Diagram.equiv_symm_comp` — Polyfold/Chapter10/LocalizationCategory.lean, line 262
+- `Polyfold.EPLocalization.Diagram.isEquivalence_Φ_of_equiv_id` — Polyfold/Chapter10/LocalizationCategory.lean, line 148
+- `Polyfold.EPLocalization.isEquivalence_toFunctor_of_comp` — Polyfold/Chapter10/LocalizationCategory.lean, line 164
+- `Polyfold.EPLocalization.isLocalScDiffeo_obj_of_comp` — Polyfold/Chapter10/LocalizationCategory.lean, line 196
+- `Polyfold.EPLocalization.Diagram.isEquivalence_Φ_of_equiv` — Polyfold/Chapter10/LocalizationCategory.lean, line 242
+- `Polyfold.EPLocalization.EPLoc.isIso_homMk_iff` — Polyfold/Chapter10/LocalizationCategory.lean, line 339
+- `Polyfold.EPLocalization.EPLoc.isIso_homMk` — Polyfold/Chapter10/LocalizationCategory.lean, line 342
+- `Polyfold.EPLocalization.EPLoc.inv_homMk` — Polyfold/Chapter10/LocalizationCategory.lean, line 346
+- `Polyfold.MPolyfold.isLocalScDiffeoAt_of_injOn` — Polyfold/Chapter10/LocalizationCategory.lean, line 108
+- `Polyfold.MPolyfold.IsLocalScDiffeoAt.exists_injOn` — Polyfold/Chapter10/LocalizationCategory.lean, line 128
+
+*What differs.*
+- The step "$\Gamma'$ is a local sc-diffeomorphism" of (C2) does not hold as we read it without the other half of (C2); local injectivity and a local right inverse are used instead (Findings, Chapter 10, items 34, 61).
+
+### V10.43. Proposition 10.3.11 (2017: 10.6), $|g \circ f| = |g| \circ |f|$
+
+*as in the book* · as stated
+
+**HWZ (§10.3, Proposition 10.3.11, p. 490 (2017: Proposition 10.6, p. 353)).** For generalized maps $f : X \to Y$, $g : Y \to Z$, $|g \circ f| = |g| \circ |f|$.
+
+**Proved in Lean.** The same, with $|f|$ continuous and $|1_X| = \mathrm{id}$.
+
+- `Polyfold.EPLocalization.EPLoc.orbitMap` — Polyfold/Chapter10/LocalizationCategory.lean, line 355
+- `Polyfold.EPLocalization.EPLoc.orbitMap_homMk` — Polyfold/Chapter10/LocalizationCategory.lean, line 358
+- `Polyfold.EPLocalization.EPLoc.continuous_orbitMap` — Polyfold/Chapter10/LocalizationCategory.lean, line 360
+- `Polyfold.EPLocalization.EPLoc.orbitMap_id` — Polyfold/Chapter10/LocalizationCategory.lean, line 364
+- `Polyfold.EPLocalization.Diagram.orbitMap_comp` — Polyfold/Chapter10/Localization.lean, line 727
+- `Polyfold.EPLocalization.EPLoc.proposition_10_3_11` — Polyfold/Chapter10/LocalizationCategory.lean, line 368
+
+*What differs.*
+- None (Findings, Chapter 10, item 35).
+
+### V10.44. Definition 10.3.12 (2017: 10.9), the category $\mathcal{EP}(E^{-1})$
+
+*restated* · objects a copy of `EP` · Mathlib order of composition
+
+**HWZ (§10.3, Definition 10.3.12, p. 490 (2017: Definition 10.9, p. 354)).** $\mathcal{EP}(E^{-1})$ has the ep-groupoids as objects and the generalized maps as morphisms.
+
+**Proved in Lean.** `EPLoc`, a one-field structure around `EP`, with a `Category` instance whose morphisms are the quotients of diagrams.
+
+- `Polyfold.EPLocalization.EPLoc` — Polyfold/Chapter10/LocalizationCategory.lean, line 274
+- `Polyfold.EPLocalization.EPLoc.toEP_of` — Polyfold/Chapter10/LocalizationCategory.lean, line 282
+- `Polyfold.EPLocalization.EPLoc.of_toEP` — Polyfold/Chapter10/LocalizationCategory.lean, line 284
+- `Polyfold.EPLocalization.EPLoc.homMk_comp` — Polyfold/Chapter10/LocalizationCategory.lean, line 297
+- `Polyfold.EPLocalization.EPLoc.id_eq` — Polyfold/Chapter10/LocalizationCategory.lean, line 300
+- `Polyfold.EPLocalization.EPLoc.homMk_eq_homMk_iff` — Polyfold/Chapter10/LocalizationCategory.lean, line 302
+- `Polyfold.EPLocalization.EPLoc.homMk_surjective` — Polyfold/Chapter10/LocalizationCategory.lean, line 305
+
+*What differs.*
+- A large category like `EP` (Findings, Chapter 10, item 35).
+
+### V10.45. Theorem 10.3.14 (2017: 10.5), the localization functor
+
+*as in the book* · as stated · refinement direction read · universal property not proved (G.117)
+
+**HWZ (§10.3, Theorem 10.3.14, p. 491 (2017: Theorem 10.5, p. 354)).** A functor $i : \mathcal{EP} \to \mathcal{EP}(E^{-1})$, identity on objects, $i(\Phi) = [X \xleftarrow{1} X \xrightarrow{\Phi} Y]$, with $i(F)$ invertible for $F \in E$.
+
+**Proved in Lean.** The same, with the inverse; $i$ inverts $E$ (`MorphismProperty.IsInvertedBy`); a witness not an isomorphism of `EP`.
+
+- `Polyfold.EPLocalization.Diagram.ofFunctor` — Polyfold/Chapter10/LocalizationCategory.lean, line 396
+- `Polyfold.EPLocalization.Diagram.isRefinement_ofFunctor_comp` — Polyfold/Chapter10/LocalizationCategory.lean, line 401
+- `Polyfold.EPLocalization.EPLoc.localizationFunctor` — Polyfold/Chapter10/LocalizationCategory.lean, line 409
+- `Polyfold.EPLocalization.EPLoc.localizationFunctor_obj` — Polyfold/Chapter10/LocalizationCategory.lean, line 415
+- `Polyfold.EPLocalization.EPLoc.localizationFunctor_map` — Polyfold/Chapter10/LocalizationCategory.lean, line 417
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_14` — Polyfold/Chapter10/LocalizationCategory.lean, line 423
+- `Polyfold.EPLocalization.EPLoc.isInvertedBy_localizationFunctor` — Polyfold/Chapter10/LocalizationCategory.lean, line 439
+- `Polyfold.EPLocalization.EPLoc.inv_localizationFunctor_map` — Polyfold/Chapter10/LocalizationCategory.lean, line 444
+- `Polyfold.EPLocalization.EPLoc.homMk_eq` — Polyfold/Chapter10/LocalizationCategory.lean, line 450
+- `Polyfold.EPLocalization.Examples.pairToPointEP` — Polyfold/Chapter10/LocalizationCategory.lean, line 501
+- `Polyfold.EPLocalization.Examples.not_isIso_pairToPointEP` — Polyfold/Chapter10/LocalizationCategory.lean, line 507
+- `Polyfold.EPLocalization.Examples.isGeneralizedIso_pairToPoint` — Polyfold/Chapter10/LocalizationCategory.lean, line 514
+- `Polyfold.EPLocalization.Examples.inv_localizationFunctor_map_pairToPoint` — Polyfold/Chapter10/LocalizationCategory.lean, line 526
+
+*What differs.*
+- With Definition 10.3.1, (10.13) refines $d_{\Psi \circ \Phi}$, not the reverse (Findings, Chapter 10, item 36).
+
+### V10.46. Theorem 10.3.15 (2017: 10.6), the orbit space functor
+
+*as in the book* · as stated · TOP is `TopCat`
+
+**HWZ (§10.3, Theorem 10.3.15, p. 492 (2017: Theorem 10.6, p. 355)).** A functor $|\cdot| : \mathcal{EP}(E^{-1}) \to \mathrm{TOP}$, $X \mapsto |X|$, $[d] \mapsto |\Phi| \circ |F|^{-1}$.
+
+**Proved in Lean.** `orbitFunctor : EPLoc ⥤ TopCat` with these values.
+
+- `Polyfold.EPLocalization.EPLoc.orbitFunctor` — Polyfold/Chapter10/LocalizationCategory.lean, line 374
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_15` — Polyfold/Chapter10/LocalizationCategory.lean, line 387
+
+*What differs.*
+- None (Findings, Chapter 10, item 35).
+
+### V10.47. Proposition 10.3.17, (LUC) under generalized isomorphisms
+
+*as in the book* · new in the 2021 edition · as an iff
+
+**HWZ (§10.3, Proposition 10.3.17, p. 492 (new in the 2021 edition)).** If $f : X \to Y$ is a generalized isomorphism and one of $X$, $Y$ has (LUC), so has the other.
+
+**Proved in Lean.** An equivalence of the two (LUC) properties, through a representative with both legs equivalences.
+
+- `Polyfold.EPLocalization.EPLoc.exists_diagram_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 77
+- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
+- `Polyfold.EPLocalization.EPLoc.proposition_10_3_17` — Polyfold/Chapter10/LocalizationProperties.lean, line 93
+
+*What differs.*
+- None (Findings, Chapter 10, item 38).
+
+### V10.48. Remark 10.3.18 (2017: 10.3), equivalence of pairs $(X, \beta)$
+
+*narrower* · non-uniqueness not formalized (G.119) · metrizability not used
+
+**HWZ (§10.3, Remark 10.3.18, pp. 492–493 (2017: Remark 10.3, p. 355)).** For metrizable $Z$, pairs $(X, \beta)$ with $\beta : |X| \to Z$ a homeomorphism, equivalent through generalized isomorphisms $f$ with $\beta' \circ |f| = \beta$; $f$ is in general not unique.
+
+**Proved in Lean.** `OrbitChart.Rel` is an equivalence relation; a witness with the pair groupoid of $\mathbb Z$.
+
+- `Polyfold.EPLocalization.OrbitChart` — Polyfold/Chapter10/LocalizationProperties.lean, line 133
+- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 145
+- `Polyfold.EPLocalization.OrbitChart.Rel.refl` — Polyfold/Chapter10/LocalizationProperties.lean, line 148
+- `Polyfold.EPLocalization.OrbitChart.Rel.symm` — Polyfold/Chapter10/LocalizationProperties.lean, line 151
+- `Polyfold.EPLocalization.OrbitChart.Rel.trans` — Polyfold/Chapter10/LocalizationProperties.lean, line 157
+- `Polyfold.EPLocalization.OrbitChart.setoid` — Polyfold/Chapter10/LocalizationProperties.lean, line 166
+- `Polyfold.EPLocalization.OrbitChart.rel_pairEP_pointEP` — Polyfold/Chapter10/LocalizationProperties.lean, line 172
+
+*What differs.*
+- None beyond the gap (Findings, Chapter 10, item 39).
+
+### V10.49. Definition 10.3.20, $\mathcal{EP}_{reg}$ and $\mathcal{EP}_{reg}(E^{-1})$
+
+*as in the book* · new in the 2021 edition · witness: the point
+
+**HWZ (§10.3, Definition 10.3.20, p. 494 (new in the 2021 edition)).** The full subcategories of $\mathcal{EP}$ and $\mathcal{EP}(E^{-1})$ on the ep-groupoids with (LR).
+
+**Proved in Lean.** `EPreg`, `EPLocReg` as Mathlib full subcategories; the point is an object of both.
+
+- `Polyfold.EPLocalization.EPreg` — Polyfold/Chapter10/LocalizationProperties.lean, line 113
+- `Polyfold.EPLocalization.EPLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 117
+- `Polyfold.EPLocalization.Examples.pointReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 122
+- `Polyfold.EPLocalization.Examples.pointLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 126
+
+*What differs.*
+- None (Findings, Chapter 10, item 39).
+
+### V10.50. Theorem 10.3.21, invariance under generalized isomorphisms
+
+*narrower* · new in the 2021 edition · (LR), (SLR) not formalized (G.118)
+
+**HWZ (§10.3, Theorem 10.3.21, p. 495 (new in the 2021 edition)).** If one of $X$, $Y$ has (LR), (LUC), (SLR), (SLUC) or (ZHOU), so has the other.
+
+**Proved in Lean.** For (LUC), (SLUC) and (ZHOU), as equivalences.
+
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_21` — Polyfold/Chapter10/LocalizationProperties.lean, line 100
+
+*What differs.*
+- The proof, left to the reader, applies Propositions 10.1.16–10.1.18 (Findings, Chapter 10, item 38).
+
 ## Not formalized
 
 *What the book states and the formalization does not prove, and what it does instead; an entry proved since the first edition of this page keeps its number and is marked “formalized since”*
@@ -14605,5 +15559,123 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **HWZ (§9.5, Theorem 9.5.17, p. 449 (2017: Theorem 9.4, p. 328), Theorem 9.5.18, p. 450 (new in the 2021 edition), and Remark 9.5.20, p. 451).** For $X$ with sc-smooth partitions of unity and $\Theta$ tame, oriented, compact, $n$-dimensional, $\mu^{\partial\hat\Theta}_\omega(\partial S) = \mu^{\hat\Theta}_{d\omega}(S)$ for every $(n-1)$-form $\omega$ (Theorem 9.5.18: the effective version under LUC); Remark 9.5.20, on a translation groupoid with a $\mathbb Z_3$-action, shows that the effective isotropy group of a boundary point depends on whether it is taken in $X$ or in $\partial X$, which enters the normalization in Stokes' formula.
 
 **Proved in Lean.** **Not formalized**: it needs the exterior derivative on ep-groupoids (gaps G.74, G.80) and the measures of G.107 and G.109 (Findings, Chapter 9, item 85).
+
+
+### G.111. the full subcategory $\mathcal{EP}_{lreg}$
+
+*not formalized*
+
+**HWZ (§10.1, the subcategory $\mathcal{EP}_{lreg}$, p. 461 (new in the 2021 edition)).** The full subcategory of $\mathcal{EP}$ generated by the ep-groupoids with the local regularity property (Definition 7.4.19).
+
+**Proved in Lean.** **Not formalized**: (LR) is Chapter 7's `IsLR`; the subcategory is not built, and its stability under equivalences needs Proposition 10.1.9 (G.113) (Findings, Chapter 10, item 7).
+
+
+### G.112. Remark 10.1.8 and Appendix §10.6.3, a $\beta$ with $|\beta(y)| = |y|$ not given by the group
+
+*not formalized*
+
+**HWZ (§10.1, Remark 10.1.8, p. 467 (new in the 2021 edition), with Appendix §10.6.3, p. 519).** An example, due to Zhou, of a translation groupoid and an sc-smooth map $\beta$ with $|\beta(y)| = |y|$ which is not locally of the form $y \mapsto g * y$; it is built in the appendix on a weighted Sobolev sc-retract.
+
+**Proved in Lean.** **Not formalized**: it needs the weighted Sobolev sc-structure and the sc-retraction of the appendix (Findings, Chapter 10, item 7).
+
+
+### G.113. Proposition 10.1.9, (LR) under equivalences
+
+*not formalized*
+
+**HWZ (§10.1, Proposition 10.1.9, p. 468 (new in the 2021 edition)).** If $F : X \to Y$ is an equivalence, $X$ has the local regularity property iff $Y$ has.
+
+**Proved in Lean.** **Not formalized**: it needs natural representations transported along $F$ and a morphism $F(x) \to y$, which the Chapter 7 API does not provide; it is a hypothesis of V10.16 (Findings, Chapter 10, item 7).
+
+- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
+
+### G.114. Proposition 10.1.10, natural families $\alpha_z : F(z) \to G(z)$
+
+*not formalized*
+
+**HWZ (§10.1, Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340)).** For equivalences $F, G : X \to Y$ with $|F| = |G|$ and $X$ with (LR): (1) local sc-smooth families $\alpha$ with $\alpha(z) : F(z) \to G(z)$; (2) $|TF| = |TG|$.
+
+**Proved in Lean.** **Not formalized**: it assumes (LR) and uses Proposition 10.1.9 (G.113); the example of Remark 10.1.11 has the family of (1) (V10.8) (Findings, Chapter 10, items 7, 8).
+
+- `Polyfold.EpGroupoid.Examples.remark_10_1_11_family` — Polyfold/Chapter10/EquivalenceExamples.lean, line 135
+
+### G.115. Proposition 10.1.19 beyond the reduction to Proposition 10.1.9
+
+*not formalized*
+
+**HWZ (§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)).** If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does.
+
+**Proved in Lean.** **Not formalized** unconditionally: the reduction to Proposition 10.1.9 for the lifts is proved (V10.16); the hypothesis is G.113 (Findings, Chapter 10, item 15).
+
+- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
+- `Polyfold.EP.isLR_iff_lift_self` — Polyfold/Chapter10/EquivalenceZhou.lean, line 182
+
+### G.116. Theorem 10.2.2: the structures induced from the triple products
+
+*not formalized*
+
+**HWZ (§10.2, Theorem 10.2.2, pp. 478–481 (2017: Theorem 10.2, pp. 343–346), the M-polyfold structures).** The object and morphism sets of $X \times_Y Z$ are sub-M-polyfolds of $X \times \mathbf Y \times Z$ and $\mathbf X \times \mathbf Y \times \mathbf Z$.
+
+**Proved in Lean.** **Not formalized**: the structures are the iterated sub-M-polyfold structures of Part I's fibred products (V10.18); their agreement with structures induced from the triple products is not proved, and nothing uses it (Findings, Chapter 10, item 21).
+
+- `Polyfold.WeakFibredProduct.PObj` — Polyfold/Chapter10/WeakFibredProduct.lean, line 841
+- `Polyfold.WeakFibredProduct.PMor` — Polyfold/Chapter10/WeakFibredProduct.lean, line 848
+
+### G.117. the universal property of the localization
+
+*not formalized*
+
+**HWZ (§10.3, the universal property of $i : \mathcal{EP} \to \mathcal{EP}(E^{-1})$, p. 483).** The localization at $E$ inverts the equivalences, universally among functors that do.
+
+**Proved in Lean.** **Not formalized**: only the inversion is proved (V10.45); the universal property would need that a functor inverting $E$ identifies naturally equivalent sc-smooth functors, through a cylinder ep-groupoid not available here (Findings, Chapter 10, item 36).
+
+- `Polyfold.EPLocalization.EPLoc.isInvertedBy_localizationFunctor` — Polyfold/Chapter10/LocalizationCategory.lean, line 439
+
+### G.118. Proposition 10.3.16 and the (LR), (SLR) parts of Theorem 10.3.21
+
+*not formalized*
+
+**HWZ (§10.3, Proposition 10.3.16, p. 492 (new in the 2021 edition), and Theorem 10.3.21, p. 495, the parts (LR) and (SLR)).** (LR) and (SLR) are invariant under generalized isomorphisms.
+
+**Proved in Lean.** **Not formalized**: they rest on Propositions 10.1.9 and 10.1.19 (G.113, G.115); `EPLoc.iff_of_isGeneralizedIso` reduces them to the case of equivalences, as the text does (Findings, Chapter 10, item 38).
+
+- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
+
+### G.119. Remark 10.3.18: generalized isomorphisms with $\beta' \circ |f| = \beta$ are not unique
+
+*not formalized*
+
+**HWZ (§10.3, Remark 10.3.18, pp. 492–493 (2017: Remark 10.3, p. 355), the non-uniqueness of $f$).** A generalized isomorphism $f$ with $\beta' \circ |f| = \beta$ is in general not unique.
+
+**Proved in Lean.** **Not formalized**: no pair of distinct generalized isomorphisms with the same orbit map is constructed (the example behind Remark 10.1.8 is G.112) (Findings, Chapter 10, item 39).
+
+- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 145
+
+### G.120. Theorem 10.3.19, generalized isomorphisms are determined by their orbit maps under (LR)
+
+*not formalized*
+
+**HWZ (§10.3, Theorem 10.3.19, p. 493 (2017: Theorem 10.7, p. 355)).** If one of $X$, $Y$ has (LR) and $f, f' : X \to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$.
+
+**Proved in Lean.** **Not formalized**: it rests on Propositions 10.1.10 and 10.3.16 (G.114, G.118) (Findings, Chapter 10, item 39).
+
+
+### G.121. Theorem 10.4.5, the Fred part
+
+*not formalized*
+
+**HWZ (§10.4, Theorem 10.4.5, p. 501 (2017: Theorem 10.8, p. 362), the sc-Fredholm section functors).** $\Phi_*$ and $\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors.
+
+**Proved in Lean.** **Not formalized**: it needs the invariance of sc-Fredholm sections under local strong bundle isomorphisms, of which Part I has chart-level germ statements only; the rest of the theorem is V10.27 (Findings, Chapter 10, item 44).
+
+- `Polyfold.EpStrongBundle.theorem_10_4_5` — Polyfold/Chapter10/StrongBundleEquivalence.lean, line 994
+
+### G.122. Propositions 10.4.6 and 10.4.7, (LR) and natural families for strong bundles
+
+*not formalized*
+
+**HWZ (§10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition), and Proposition 10.4.7, pp. 501–502 (new in the 2021 edition)).** The local regularity property of strong bundles is invariant under strong bundle equivalences (proof left to the reader), and the strong bundle version of Proposition 10.1.10.
+
+**Proved in Lean.** **Not formalized**: the ep-groupoid versions are G.113 and G.114 (Findings, Chapter 10, item 45).
 
 

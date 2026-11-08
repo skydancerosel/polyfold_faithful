@@ -9806,3 +9806,313 @@ Witnesses and the hypotheses taken in general (2026-11-08).
      9.2.13 at a boundary point (it needs a submanifold API for quadrants); `TangentBranchingHyp` only for the
      zero functor; Definition 9.3.8 only on a graph (`exists_boundaryFrames_graph`), with `T_y∂M` and `e` as
      data; no `L(∂S)` with `∂S ≠ ∅`. Status: **open** (gaps G.99, G.103, G.108).
+
+## Chapter 10 (Equivalences and localization; Lean `Polyfold/Chapter10/`)
+
+*Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so that agents
+working at the same time do not collide; the gaps in the numbering are unused numbers, not deleted items. 1–19:
+§10.1, equivalences and what they preserve (`Chapter10/Equivalence.lean`, `EquivalenceRefinement.lean`,
+`EquivalenceReduced.lean`, `EquivalenceExamples.lean`, `EquivalenceZhou.lean`); 20–29: §10.2, the weak fibred
+product (`WeakFibredProduct.lean`, `WeakFibredProductTheorem.lean`); 30–39: §10.3, localization at the equivalences
+(`Localization.lean`, `LocalizationCategory.lean`, `LocalizationProperties.lean`); 40–49: §10.4, strong bundle
+equivalences (`StrongBundleEquivalence.lean`, `StrongBundleEquivalenceNat.lean`,
+`StrongBundleEquivalenceExamples.lean`); 50–59: reserved for §10.5; 60–69: Appendix §§10.6.1–10.6.2, the proofs of
+Theorems 10.3.8 and 10.3.10; 70–79: witnesses and the hypotheses taken. Statement numbers and pages are those of
+the Springer edition (2021, pp. 461–520), with the 2017 text's in parentheses (2017 pp. 333–374). The comparison
+items are `Exposition/verification/ch10.md` (V10.1–V10.50); the gaps are G.111–G.122.
+
+Found while formalizing §10.1 (2026-11-08).
+
+1. **Definition 10.1.1 and Lemma 10.1.2: equivalences as a structure** *(Definition 10.1.1, p. 461 (2017:
+   Definition 10.1, p. 333); Lemma 10.1.2, p. 462 (2017: Lemma 10.1, p. 334))*. `EpFunctor.IsEquivalence` has the
+   four conditions as fields, full and faithful on the sets of morphisms `x → x'`; they agree with Mathlib's
+   `Functor.Full`, `Functor.Faithful` of the underlying functor (`GroupoidFunctor.full_iff`, `faithful_iff`). Lemma
+   10.1.2 is proved with its converse (`isEquivalence_iff`), the bijectivity of `|F|` coming from fullness and
+   essential surjectivity (`bijective_orbitMap_of_isEquivalence`) and its openness from Proposition 7.1.8
+   (`isOpenMap_orbitMap`). "Not invertible as a functor": the equivalence from the pair groupoid of `ℤ` to the
+   point has no left inverse on objects (`not_exists_leftInverse_pairToPoint`). Status: **settled**.
+
+2. **Proposition 10.1.3: the refinement `X_𝒰`** *(Proposition 10.1.3, p. 462 (2017: Proposition 10.1, p. 334))*.
+   The covering is indexed by a type `ι` (`EpGroupoid.OpenCover`), objects and morphisms are open subsets of
+   `ι × X` and `(ι × ι) × 𝐗` with `ι` discrete, and the open-subset M-polyfold structure of Part I needs a
+   nonempty set: the object set is assumed nonempty (`[Nonempty Obj]`), the statement being trivial otherwise.
+   Properness is proved with ultrafilters, with `V(x)` an open set whose closure lies in `U_i` and in a
+   neighbourhood with the properness property of `X` (`exists_isProperMap`). The formula for the functor prints the
+   morphism as `(U, φ, v)`; we read `(U, φ, V)` (possible misprint). Witness: the covering `{x > -1}`,
+   `{x < 1}` of `ℤ/2 ⋉ ℝ`, whose functor is an equivalence not injective on objects
+   (`isEquivalence_reflectionCover`, `not_injective_reflectionCover_obj`). Status: **settled**.
+
+3. **Definition 10.1.4 is Definition 8.1.13** *(Definition 10.1.4, p. 463 (2017: Definition 10.2, p. 335))*.
+   Natural transformations and `NaturallyEquivalent` are Chapter 8's; the claims after the definition (equivalence
+   relation, compatibility with composition) are `naturallyEquivalent_equivalence`,
+   `NaturallyEquivalent.comp_left`, `comp_right`, collected in `definition_10_1_4`. Status: **settled**.
+
+4. **Proposition 10.1.5, quoted without proof, is proved** *(Proposition 10.1.5, p. 464 (2017: Proposition 10.2, p.
+   336))*. `τ` is a local sc-diffeomorphism because `s ∘ τ = F` (`EpNatTrans.isLocalScDiffeo_app`), so
+   `G = t ∘ τ` is one on objects, and the underlying functors are naturally isomorphic (`EpNatTrans.toNatIso`);
+   Lemma 10.1.2 concludes (`proposition_10_1_5`). Status: **settled**.
+
+5. **Proposition 10.1.6: the object step covers only the image of `F`** *(Proposition 10.1.6, p. 464 (2017:
+   Proposition 10.3, p. 336))*. The text's argument shows that `Φ` is a local sc-diffeomorphism at the points
+   `F(x)`. A point `y` of `Y` is reached by a morphism `F(x) → y`, and the property is transported along it: a
+   functor that is a local sc-diffeomorphism on objects at `s(σ)` is one at `t(σ)` (`isLocalScDiffeoAt_obj_tgt`).
+   The proof also writes `|Φ| : |X| → |Y|` for `|Φ| : |Y| → |Z|` (possible misprint). Status: **settled**
+   (a step supplied).
+
+6. **Theorem 10.1.7: fullness and faithfulness of `TF`** *(Theorem 10.1.7, p. 465 (2017: Theorem 10.1, p. 337))*.
+   Left to the reader in the text, they are proved from the facts that a tangent morphism is determined by its base
+   morphism and its source vector (`tangent_ext`) and that `TF` is injective on, and onto, tangent fibres
+   (`IsLocalScDiffeo.injOn_tangentFiber`, `tangentFiber_subset_image`) (`theorem_10_1_7`). Status: **settled**.
+
+7. **Not formalized in §10.1: `EP_lreg`, Remark 10.1.8, Propositions 10.1.9 and 10.1.10** *(p. 461; Remark 10.1.8,
+   p. 467; Proposition 10.1.9, p. 468; Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340))*. Remark
+   10.1.8 and its example in Appendix §10.6.3 need the weighted Sobolev sc-structure and sc-retraction of the
+   appendix (gap G.112). Proposition 10.1.9, new in 2021, transports a natural representation along `F` and a
+   morphism `F(x) → y`; the Chapter 7 API of natural representations has no such transport (gap G.113), and with
+   it the subcategory `EP_lreg` (gap G.111) and Proposition 10.1.10, which assumes (LR) and uses 10.1.9 (gap
+   G.114), remain open. Status: **open**.
+
+8. **Remark 10.1.11 in a stronger form** *(Remark 10.1.11, p. 470 (2017: Remark 10.1, p. 340))*. On `ℤ/2 ⋉ ℝ²`
+   with `F = id`, `G = −id`, no family `α(z) : z → −z` with `α(0) = 1_0` is even continuous at `0`
+   (`remark_10_1_11`), hence none is sc-smooth (`remark_10_1_11_scSmooth`); the family `α(z) = (−1, z)` is
+   sc-smooth (`remark_10_1_11_family`), so the conclusion of Proposition 10.1.10 (1) holds in the example. Status:
+   **settled**.
+
+9. **Remark 10.1.12: `G_x → Y_y`** *(Remark 10.1.12, p. 472, new in the 2021 edition)*. The isomorphism of
+   isotropy groups is printed with target `Y_y`; we read `G_y` (possible misprint). Proved: `g ∈ T_x` iff
+   `F(g) ∈ T_{F(x)}` for a local sc-diffeomorphism on objects (`isotropyHom_mem_trivialSet_iff`), bijectivity for
+   an equivalence, and the conjugation by `ψ : F(x) → y` (`remark_10_1_12`). Status: **settled** (possible
+   misprint).
+
+10. **Propositions 10.1.13 and 10.1.16: Theorem 7.2.22 and closures** *(Proposition 10.1.13, p. 472; Proposition
+    10.1.16, p. 474; both new in the 2021 edition)*. Both proofs cite Theorem 7.2.22; the citation is to the
+    theorem on p. 323 (the reduced morphism space is Hausdorff iff (LUC) iff `𝐗^T` is closed;
+    `EpGroupoid.theorem_7_2_22_2021`) and holds as cited. The closedness of `𝐗^T` passes from `X` to `Y` by
+    conjugating with a local inverse of `t` at a morphism `F(x) → y`, with closures instead of the text's
+    sequences (`IsEquivalence.isClosed_nonEffectivePart_iff`). Part (1) of Proposition 10.1.13 holds for every
+    functor that is a local sc-diffeomorphism on objects (`continuous_reducedMap`, `isOpenMap_reducedMap`). Status:
+    **settled**.
+
+11. **Proposition 10.1.14: one Hausdorff hypothesis suffices** *(Proposition 10.1.14, p. 473 (2017: Proposition
+    10.5, p. 341))*. Both hypotheses `T2Space X.ReducedMor`, `T2Space Y.ReducedMor` are kept, as in the text
+    (`proposition_10_1_14`); by Proposition 10.1.13 (2) either implies the other. Status: **settled**.
+
+12. **Example 10.1.15 in a stronger form** *(Example 10.1.15, p. 474 (2017: Example 10.1, p. 341))*. No map of sets
+    `f : 𝐗^R → 𝐘^R` satisfies `f([φ]) = [Φ(φ)]` (`example_10_1_15`); no topology and no Hausdorff hypothesis
+    enter. Status: **settled**.
+
+13. **Proposition 10.1.17: another route, and readings in (b)** *(Proposition 10.1.17, p. 475, new in the 2021
+    edition)*. The proof uses the naturality `T(F(φ)) ∘ TF = TF ∘ Tφ` (`tangentMor_mor`), the composition
+    rule for `T` and the bijectivity of `TF` on tangent fibres, instead of natural representations
+    (`isZhou_of_isZhou`, `isZhou_of_isZhou_right`). In (b) the text writes `U(F(y))` and "`x ∈ U(x)`", read
+    `U(F(x))` and `a ∈ U(x)`, and at the start calls the functor `Φ` where it is `F` (possible misprints). The
+    `G'_y` of the text are the isotropy groups of `Y` (in the plain-text extraction the primes appear as `0`).
+    Status: **settled** (possible misprints).
+
+14. **Proposition 10.1.18: "Proposition 10.1.9"** *(Proposition 10.1.18, p. 476, new in the 2021 edition)*. The
+    proof cites Proposition 10.1.9 for the step "(LUC) along `F^i`", which is Proposition 10.1.16 (possible
+    misprint). The lifts `F^i` are built by iterating the level-1 restriction (`EpFunctor.liftOne`,
+    `IsEquivalence.liftOne`, `EP.exists_isEquivalence_lift`). Status: **settled** (possible misprint).
+
+15. **Proposition 10.1.19: only the reduction** *(Proposition 10.1.19, p. 477, new in the 2021 edition)*. The proof
+    applies Proposition 10.1.9 to the lifts; this is a hypothesis of `EP.isSLR_iff_of_isLR_iff`, satisfied when the
+    two sides agree (`EP.isLR_iff_lift_self`). The unconditional statement is gap G.115. Status: **open**.
+
+Found while formalizing §10.2 (2026-11-08).
+
+20. **Definition 10.2.1: iterated fibred products, a total multiplication, `ι(h, ψ, k)`** *(Definition 10.2.1, p.
+    477 (2017: Definition 10.3, p. 342))*. Objects are elements of `X ₓ×ₛ (𝐘 ₜ×_G Z)` and morphisms of the
+    analogous set over `𝐗`, `𝐘`, `𝐙` (`WeakFibredProduct.Obj`, `Mor`); the multiplication is total, its value off
+    composable pairs (the first argument) unused (`WeakFibredProduct.comp`). The inverse is printed
+    `ι(h, ψ, k) = (h⁻¹, G(k) ∘ φ ∘ F(h)⁻¹, k⁻¹)`; we read `ψ = φ` (possible misprint). Status:
+    **settled** (possible misprint).
+
+21. **Theorem 10.2.2: the M-polyfold structures, and the admissibility** *(Theorem 10.2.2, pp. 477–481 (2017:
+    Theorem 10.2, pp. 343–346))*. The text calls the sets sub-M-polyfolds of `X × 𝐘 × Z` and `𝐗 × 𝐘 × 𝐙`.
+    The formal structures are the iterated sub-M-polyfold structures of Part I's fibred products with a local
+    sc-diffeomorphism (Proposition 2.5.20; `PObj`, `PMor`); their agreement with structures induced directly from
+    the triple products is not proved and not needed (gap G.116). The construction uses of `F` only that it is a
+    local sc-diffeomorphism on objects, or the same of `G` (`WeakFibredProduct.Admissible`), which every
+    equivalence supplies (`Admissible.of_isEquivalence_left`, `of_isEquivalence_right`). Status: **settled**; gap
+    G.116 open.
+
+22. **Theorem 10.2.2: properness, read with the closure** *(Theorem 10.2.2, proof, p. 481 (2017 p. 346))*. The text
+    shows "`t : s⁻¹(U) → X` proper"; Definition 7.1.3 (3) asks it on `s⁻¹(cl U)`, which is what is proved
+    (`exists_isProperMap`), for any `F` and `G`, with the text's sequential argument. Status: **settled** (a
+    reading).
+
+23. **Theorem 10.2.2: the fullness composite** *(Theorem 10.2.2, proof, p. 482 (2017 p. 346))*. In the fullness of
+    `π_Z` the text writes `φ' ∘ G(k) ∘ φ⁻¹`, which does not compose; we read
+    `φ'⁻¹ ∘ G(k) ∘ φ : F(x) → F(x')` (possible misprint). Essential surjectivity is taken from that of `F`
+    (`isEquivalence_projRight`). Status: **settled** (possible misprint).
+
+24. **Theorem 10.2.2: the case of `G` an equivalence, and of both** *(Theorem 10.2.2, p. 478 (2017: Theorem 10.2,
+    p. 343))*. For `G` an equivalence the text states that `π_X` is an equivalence and the degeneracy index; the
+    natural equivalence `F ∘ π_X ≃ G ∘ π_Z` and the transfer of tameness and of a paracompact orbit space
+    from `X` are added (`theorem_10_2_2_right`); for both, `d_X(x) = d(x, φ, z) = d_Z(z)`
+    (`theorem_10_2_2_both`). An equivalence preserves the degeneracy index (`IsEquivalence.degIndex_obj`). Status:
+    **settled**.
+
+25. **Remark 10.2.3: two equivalences, and "smaller models"** *(Remark 10.2.3, pp. 482–483 (2017: Remark 10.2, p.
+    347))*. Both projections are equivalences and `τ(x, φ, z) = φ` is natural (`remark_10_2_3`), with the
+    witness `id`, `−id` on `ℤ/2 ⋉ ℝ²` (`remark_10_2_3_negFunctor`). The closing sentences on smaller models have
+    no formal content. Status: **settled**.
+
+Found while formalizing §10.3 (2026-11-08).
+
+30. **Diagrams one universe up; the order of composition; (E1)** *(§10.3, pp. 483–484 (2017 pp. 347–348))*. A
+    diagram `X ←F A →Φ Y` (`EPLocalization.Diagram`) contains its middle ep-groupoid as an object of `EP.{u}`,
+    so it is a structure in `Type (u+1)` and its classes form a type of that universe, that of the objects of
+    `EP`; no class-sized collection occurs. `d.comp e` is the text's `[e] ∘ [d]`, in Mathlib's order. (E1),
+    every isomorphism of `EP` is an equivalence, is `isEquivalence_of_isIso`; (E2), (E3) are `IsEquivalence.comp`
+    and `proposition_10_1_5`. Status: **settled**.
+
+31. **Definitions 10.3.1, 10.3.3, 10.3.5 and Lemmas 10.3.2, 10.3.4 as stated** *(pp. 484–486 (2017: Definitions
+    10.4–10.6, Lemmas 10.3, 10.4, pp. 348–350))*. Both examples after Definition 10.3.1 are proved
+    (`isRefinement_precomp`, `isRefinement_of_naturallyEquivalent`); Lemma 10.3.4 uses the weak fibred product
+    (10.11) of `H'` and `K` (`lemma_10_3_4`). Witness for Definition 10.3.5: two copies of the equivalence from the
+    pair groupoid of `ℤ` to the point form a diagram equivalent to `1_pt` (`equiv_pairToPoint_id`). Status:
+    **settled**.
+
+32. **Lemma 10.3.6 and Definition 10.3.7 as stated** *(p. 488 (2017: Lemma 10.5, Definition 10.7, p. 351))*.
+    `|d| = |Φ| ∘ |F|⁻¹` with `|F|⁻¹` the inverse of the homeomorphism of Definition 10.1.1 (2); naturally
+    equivalent functors induce the same orbit map (`NaturallyEquivalent.orbitMap_eq`) and
+    `|F ∘ H| = |F| ∘ |H|` (`EpFunctor.orbitMap_comp`). Status: **settled**.
+
+33. **Theorem 10.3.8 as stated** *(Theorem 10.3.8, p. 488 (2017: Theorem 10.3, p. 352))*. Well-definedness,
+    associativity and units (`Diagram.theorem_10_3_8`); the weak fibred product of `Φ` and `G` is admissible
+    because `G` is an equivalence (`Diagram.admissible`). The proof is item 60. Status: **settled**.
+
+34. **Definition 10.3.9 and Theorem 10.3.10 as stated** *(Definition 10.3.9, Theorem 10.3.10, p. 489 (2017:
+    Definition 10.8, p. 352, Theorem 10.4, p. 353))*. Generalized isomorphisms are the isomorphisms of `EP(E⁻¹)`
+    (`isGeneralizedIso_iff_isIso`). Part (2) of Theorem 10.3.10 is stated as "every inverse of `[a]` equals
+    `[Y ←Φ A →F X]`" (`theorem_10_3_10`, `inv_homMk`). The proof is item 61. Status: **settled**.
+
+35. **Proposition 10.3.11, Definition 10.3.12 and Theorem 10.3.15 as stated** *(pp. 490–492 (2017: Proposition
+    10.6, Definition 10.9, Theorem 10.6, pp. 353–355))*. `EPLoc` is a one-field structure around `EP`, a large
+    category with `Category.{u+1}`; `TOP` is `TopCat` (`orbitFunctor`, `theorem_10_3_15`); the metrizability of
+    orbit spaces mentioned near Theorem 10.3.15 is not part of the statement. Status: **settled**.
+
+36. **Theorem 10.3.14: the direction of a refinement; the universal property** *(Theorem 10.3.14, p. 491 (2017:
+    Theorem 10.5, p. 354); p. 483)*. The proof calls `d_{Ψ∘Φ}` a refinement of (10.13) by
+    `π_X : X ×_Y Y → X`. With Definition 10.3.1 as stated, the refining equivalence goes out of the
+    refinement, so it is (10.13) that refines `d_{Ψ∘Φ}`; that is what is proved (`isRefinement_ofFunctor_comp`),
+    and the equality of classes is unchanged. The functor `i` inverts `E` in Mathlib's sense
+    (`isInvertedBy_localizationFunctor`); the universal property of the localization, mentioned on p. 483 and not a
+    numbered statement, is not formalized: it would need that a functor inverting `E` identifies naturally
+    equivalent sc-smooth functors, through a cylinder ep-groupoid the project does not have (gap G.117). Witness:
+    the equivalence from the pair groupoid of `ℤ` to the point is not an isomorphism of `EP` but its image is
+    invertible (`isGeneralizedIso_pairToPoint`). Status: **settled** (a reading); gap G.117 open.
+
+37. **Remark 10.3.13: no formal content** *(Remark 10.3.13, p. 491, new in the 2021 edition)*. The view of `X` as
+    an atlas on `|X|` is interpretive. Status: **settled**.
+
+38. **Propositions 10.3.16, 10.3.17 and Theorem 10.3.21** *(pp. 492–495, new in the 2021 edition)*. A generalized
+    isomorphism has a representative with both legs equivalences (`exists_diagram_of_isGeneralizedIso`), so a
+    property invariant under equivalences is invariant under generalized isomorphisms (`iff_of_isGeneralizedIso`).
+    This gives Proposition 10.3.17 and Theorem 10.3.21 for (LUC), (SLUC), (ZHOU) (`proposition_10_3_17`,
+    `theorem_10_3_21`), stated as equivalences; the proof of Theorem 10.3.21 is left to the reader in the text.
+    Proposition 10.3.16 and the (LR), (SLR) parts rest on Propositions 10.1.9 and 10.1.19 (gap G.118). Status:
+    **settled** for what is formalized; gap G.118 open.
+
+39. **Remark 10.3.18, Theorem 10.3.19 and Definition 10.3.20** *(pp. 492–494 (2017: Remark 10.3, Theorem 10.7, p.
+    355))*. The equivalence of pairs `(X, β)` is an equivalence relation (`OrbitChart.Rel`, `OrbitChart.setoid`),
+    with a witness (`rel_pairEP_pointEP`); the metrizability of `Z` plays no role in it and is not assumed. The
+    claim that `f` is in general not unique is not formalized (gap G.119; the example behind Remark 10.1.8 is gap
+    G.112). Theorem 10.3.19 rests on Propositions 10.1.10 and 10.3.16 (gap G.120). `EP_reg` and `EP_reg(E⁻¹)` are
+    Mathlib full subcategories, with the point as a witness (`EPreg`, `EPLocReg`, `Examples.pointReg`). Status:
+    **open** (gaps G.119, G.120).
+
+Found while formalizing §10.4 (2026-11-08).
+
+40. **Definition 10.4.1: level `[1]`** *(Definition 10.4.1, p. 496 (2017: Definition 10.10, p. 357))*. `W[1]` is
+    not built as an ep-groupoid in the project. Condition (1) at level `[1]` is read as
+    "`|Φ| : |W[1]| → |W'[1]|` is a homeomorphism", `|W[1]|` the quotient of `W_{0,1}` with its level-1 topology
+    by the orbit relation (`OneOrbitSpace`, `oneOrbitMap`); fullness and faithfulness at `[1]` are those at `[0]`
+    restricted, and the local sc-diffeomorphism property at `[1]` follows from (2)
+    (`IsStrongBundleEquivalence.isLocalScDiffeo_one`). Witness: the projection `(−id)*(ℝⁿ × ℝᵏ) → ℝⁿ × ℝᵏ`
+    over `−id` (`isStrongBundleEquivalence_pullbackProj'`, not over the identity: `trivialNeg_obj_ne_id`). Status:
+    **settled** (a reading).
+
+41. **Pull-back and push-forward: total definitions, (10.22) and the sc-smoothness** *(pp. 496–498 (2017 pp.
+    357–360))*. `Φ^*` and `Φ_*` are defined on all maps, by the zero of the fibre where the value is not in the
+    right fibre (never for sections), and the push-forward with one choice of `x` and `σ : φ(x) → x'`
+    (`pullback`, `pushforward`). (10.22), the independence of the choice for section functors, is proved by
+    fullness of `φ` (`pushforward_eq`). The sc-smoothness of the push-forward, "easily verified" in the text, is
+    proved through the local formula `Φ_*f = μ' ∘ (τ, Φ ∘ f ∘ g₁ ∘ s' ∘ τ)`
+    (`exists_pushforward_local`, `isScSmoothSection_pushforward`). Status: **settled**.
+
+42. **Proposition 10.4.2: "`f' : W' → X'`"; no sc-smoothness** *(Proposition 10.4.2, p. 497 (2017: Proposition
+    10.7, p. 358))*. The section functor is printed `f' : W' → X'`; we read `f' : X' → W'` (possible
+    misprint). The statement holds for all section functors, sc-smooth or not (`proposition_10_4_2`). Status:
+    **settled** (possible misprint).
+
+43. **Propositions 10.4.3 and 10.4.4 without sc-smoothness** *(Propositions 10.4.3, 10.4.4, p. 499 (2017:
+    Propositions 10.8, 10.9, p. 360))*. Both hold for all section functors; the pull-back identity of 10.4.4 for
+    all sections (`proposition_10_4_3`, `proposition_10_4_4`). Status: **settled**.
+
+44. **Theorem 10.4.5: the `Γ⁺` display; the Fred part** *(Theorem 10.4.5, pp. 500–501 (2017: Theorem 10.8, p.
+    362))*. The second display, about `Γ⁺`, has `Φ^* : Γ(P', μ') → Γ(P, μ)`; we read `Γ⁺` (possible
+    misprint). Proved: mutually inverse bijections of sc-smooth section functors, equality for `|Φ| = |Ψ|`, and
+    the preservation of sc⁺-section functors (`theorem_10_4_5`). The preservation of sc-Fredholm section functors
+    needs the invariance of `StrongBundle.IsScFredholmSection` under local strong bundle isomorphisms, of which
+    Part I has only chart-level germ statements (gap G.121). Status: **settled** (possible misprint); gap G.121
+    open.
+
+45. **Propositions 10.4.6 and 10.4.7** *(pp. 501–502, new in the 2021 edition)*. The strong bundle versions of
+    Propositions 10.1.9 and 10.1.10; the proof of 10.4.6 is left to the reader in the text. Not formalized, with
+    their ep-groupoid versions (gap G.122). Status: **open**.
+
+46. **Definitions 10.4.8, 10.4.10 and Remark 10.4.9: `T` as data; `μ` for `μ'`** *(pp. 502–503 (2017: Definitions
+    10.11, 10.12, Remark 10.4, pp. 362–363))*. `T` carries no smoothness in Definition 10.4.8, as in the text
+    (`StrongBundleNatTrans`). The second line of (10.23) is printed with `μ`; we read `μ'` (possible misprint;
+    `StrongBundleNatTrans.obj_eq`). The determination of `Ψ` as a functor by `Φ` and `τ`, and the direction
+    Definition 10.4.10 ⇒ Definition 10.4.8, need `Ψ` (and `Φ`) to be strong bundle functors (`unique_functor`,
+    `IsStrongBundleNatTransMap.toNatTrans`). Naturally equivalent strong bundle functors induce the same orbit map
+    (`StrongBundleNatEquiv.orbitMap_eq`). Status: **settled** (possible misprint).
+
+47. **Definition 10.4.11: morphisms of `SEP` are pairs** *(Definition 10.4.11, p. 503 (2017: Definition 10.13, p.
+    364))*. A morphism carries both `φ` and `Φ` (`SEP.Hom`), since `Φ` determines `φ` only on the image of `P`; the
+    strong bundle equivalences form a multiplicative class mapped into `E` (`SEP.equivalences`,
+    `SEP.toEP_map_mem_equivalences`). Status: **settled**.
+
+Found while formalizing Appendix §§10.6.1–10.6.2 (2026-11-08).
+
+60. **The proof of Theorem 10.3.8** *(Appendix §10.6.1, pp. 509–515)*. The functor
+    `L(a', φ, b') = (H(a'), τ_{B'}(b') ∘ φ ∘ τ_{A'}(a')⁻¹, K(b'))` of (10.28), (10.30) (`wfpMap`) is
+    shown to be an equivalence by two out of three, from `π_A ∘ L = H ∘ π_{A'}` (`isEquivalence_wfpMap`,
+    `IsEquivalence.of_comp_left`), where the text checks directly that `L` is full, faithful and a local
+    sc-diffeomorphism; its sc-smoothness, asserted in the text, is proved entrywise. The two iterated weak fibred
+    products of the associativity, "the same space" in the text, are different types; the reassociation functor is
+    an equivalence and a refinement with identity natural transformations (`assocFunctor`, `isRefinement_assoc`).
+    Readings (possible misprints): in the naturality of `τ_{B'}` the letter `τ_A` appears (p. 511);
+    "`(Φ ∘ π_B) ∘ L ≃ Ψ' ∘ π_{B'}`" (pp. 513, 514) is read with `Ψ ∘ π_B`; the unit law is announced as
+    `[1_X] ∘ [d] = [d]` for `d : X → Y` (p. 515), in the text's order `[d] ∘ [1_X] = [d]`;
+    `τ(a, φ, a)` is read `τ(x, φ, a)` and "`ψ = φ`" as `ψ = ϕ` (p. 515). Status: **settled** (possible
+    misprints).
+
+61. **The proof of Theorem 10.3.10: (C1) and (C2)** *(Appendix §10.6.2, pp. 515–519)*. (C1): faithfulness is
+    checked on morphisms `(h, φ, k)` with `k = 1_b`; in the injectivity argument `A ×_X B` is read
+    `A ×_Y B` and `mor_Y(Ψ(a), Ψ(a'))` as `mor_X(Ψ(b), Ψ(b'))`, and in the essential surjectivity "between
+    `Φ(a)` and `x`" as "and `y`" (possible misprints) (`isEquivalence_toFunctor_of_comp`). (C2): the map
+    `Γ(b') = (b', (s|U)⁻¹(b'), …)` is read with `(s|U)⁻¹(Ψ(b'))` (possible misprint). The text then uses that
+    `Γ'(b') = (F|W)⁻¹ ∘ t ∘ (s|U)⁻¹(Ψ(b'))` is a local sc-diffeomorphism; as we read it, this needs `Ψ` to be
+    a local sc-diffeomorphism, which is the other half of (C2), so the step does not hold as we read it. The formal
+    proof argues differently: a local inverse `κ` of the equivalence `Φ ∘ π_{A'}` at `(b, φ, a)` gives the
+    local sc-smooth right inverse `π_{A'} ∘ κ` of `Φ` through `a`, and `Φ` is injective near `a` by a local
+    section of `π_A : A ×_Y B → A` and the local injectivity of `Ψ ∘ π_B`, `s` and `G`
+    (`isLocalScDiffeo_obj_of_comp`, `MPolyfold.isLocalScDiffeoAt_of_injOn`). Status: **settled** (does not hold as
+    we read it; another argument).
+
+Witnesses and the hypotheses taken (2026-11-08).
+
+70. **Every hypothesis is satisfiable** *(§§10.1–10.4)*. The hypotheses taken beyond the text: a nonempty object
+    set in Proposition 10.1.3 (the covering of `ℤ/2 ⋉ ℝ`, `reflectionCover`); `WeakFibredProduct.Admissible`
+    (every equivalence; the pair groupoid of `ℤ` over the point, `theorem_10_2_2_pairToPoint`; `±id` on
+    `ℤ/2 ⋉ ℝ²`, `remark_10_2_3_negFunctor`); Proposition 10.1.9 for the lifts in the reduction of Proposition
+    10.1.19 (`EP.isLR_iff_lift_self`). Every definition has a witness that is not an identity:
+    `isEquivalence_pairToPoint`, `isEquivalence_negFunctor`, `equiv_pairToPoint_id`,
+    `isGeneralizedIso_pairToPoint`, `rel_pairEP_pointEP`, `Examples.pointReg`, and over `−id` the strong bundle
+    equivalence, push-forward, natural equivalence and `SEP` morphism of `StrongBundleEquivalenceExamples`
+    (`isStrongBundleEquivalence_pullbackProj'`, `bijOn_pushforward_example`, `strongBundleNatEquiv_example`,
+    `negSEPHom_mem_equivalences`). Status: **settled** (every hypothesis satisfiable).

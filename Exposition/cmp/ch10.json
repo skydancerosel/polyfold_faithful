@@ -1,0 +1,1577 @@
+{
+ "items": [
+  {
+   "id": "V10.1",
+   "title": "Definition 10.1.1 (2017: 10.1), equivalences and the class $E$",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Definition 10.1.1, p. 461 (2017: Definition 10.1, p. 333)",
+    "page": 461,
+    "statement": "An equivalence $F : X \\to Y$ of ep-groupoids is an sc-smooth functor which is faithful and full, induces a homeomorphism $|F| : |X| \\to |Y|$, and is a local sc-diffeomorphism on objects; $E$ is the class of equivalences."
+   },
+   "lean": {
+    "statement": "A structure on an sc-smooth functor with four fields: full, faithful, $|F|$ a homeomorphism, $F$ a local sc-diffeomorphism on objects. The class `EP.equivalences` contains the identities and is closed under composition; an equivalence is essentially surjective, and the functor from the pair groupoid of $\\mathbb Z$ to the point is an equivalence.",
+    "decls": [
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence",
+     "Chapter10/Equivalence · EP.equivalences",
+     "Chapter10/Equivalence · GroupoidFunctor.full_iff",
+     "Chapter10/Equivalence · GroupoidFunctor.faithful_iff",
+     "Chapter10/Equivalence · GroupoidFunctor.essSurj_iff",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.essSurj",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.exists_iso",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.exists_mor_eq",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.mor_injective",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.id",
+     "Chapter10/Equivalence · EpGroupoid.Examples.pairToPoint",
+     "Chapter10/Equivalence · EpGroupoid.Examples.isEquivalence_pairToPoint"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "witness: pair groupoid of ℤ → point"
+   ],
+   "diff": [
+    "Full and faithful are stated on the sets of morphisms $x \\to x'$, as in the text, and shown equal to Mathlib's notions for the underlying functor (Findings, Chapter 10, item 1)."
+   ]
+  },
+  {
+   "id": "V10.2",
+   "title": "Lemma 10.1.2 (2017: 10.1) and the remarks around it",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.1, Lemma 10.1.2, p. 462 (2017: Lemma 10.1, p. 334)",
+    "page": 462,
+    "statement": "An sc-smooth functor which is a local sc-diffeomorphism on objects and an equivalence of categories is an equivalence; equivalences need not be invertible as functors."
+   },
+   "lean": {
+    "statement": "An sc-smooth functor is an equivalence if and only if it is an equivalence of categories and a local sc-diffeomorphism on objects. $|F|$ is injective for $F$ full, surjective iff $F$ is essentially surjective, continuous, and open when $F$ is open on objects; composites of equivalences are equivalences; the equivalence from the pair groupoid of $\\mathbb Z$ to the point has no left inverse on objects.",
+    "decls": [
+     "Chapter10/Equivalence · EpFunctor.lemma_10_1_2",
+     "Chapter10/Equivalence · EpFunctor.isEquivalence_iff",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.isEquivalence_toFunctor",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.comp",
+     "Chapter10/Equivalence · GroupoidFunctor.injective_orbitMap_of_full",
+     "Chapter10/Equivalence · GroupoidFunctor.surjective_orbitMap_iff",
+     "Chapter10/Equivalence · GroupoidFunctor.bijective_orbitMap_of_isEquivalence",
+     "Chapter10/Equivalence · EpFunctor.continuous_orbitMap",
+     "Chapter10/Equivalence · EpFunctor.isOpenMap_orbitMap",
+     "Chapter10/Equivalence · EpGroupoid.Examples.not_exists_leftInverse_pairToPoint"
+    ]
+   },
+   "chips": [
+    "with the converse",
+    "not invertible: a witness"
+   ],
+   "diff": [
+    "The lemma is proved with its converse; the orbit map is shown bijective, continuous and open. \"Not invertible\" is witnessed by an equivalence with no left inverse on objects."
+   ]
+  },
+  {
+   "id": "V10.3",
+   "title": "Proposition 10.1.3 (2017: 10.1), the refinement $X_{\\mathcal U}$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.1, Proposition 10.1.3, p. 462 (2017: Proposition 10.1, p. 334)",
+    "page": 462,
+    "statement": "For an open covering $\\mathcal U$ of the object M-polyfold of $X$, the ep-groupoid $X_{\\mathcal U}$ of pairs $(U, x)$ and triples $(U, \\varphi, V)$, with the structure induced from $X$ and $\\mathbf X$, and the functor $(U, x) \\mapsto x$, $(U, \\varphi, V) \\mapsto \\varphi$ is an equivalence."
+   },
+   "lean": {
+    "statement": "For a covering of $X$ by open sets $U_i$ indexed by a type $\\iota$ and a nonempty object set, $X_{\\mathcal U}$ (objects an open subset of $\\iota \\times X$, morphisms an open subset of $(\\iota \\times \\iota) \\times \\mathbf X$, discrete $\\iota$) is an ep-groupoid and the projection $F : X_{\\mathcal U} \\to X$ is an equivalence; for $\\mathbb Z/2 \\ltimes \\mathbb R$ and a two-set covering it is not injective on objects.",
+    "decls": [
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.univ",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.objSet",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.morSet",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.groupoidStr",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.objPolyfold",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.morPolyfold",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.isLocalScDiffeo_src",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.isLocalScDiffeo_tgt",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.exists_isProperMap",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.isScSmoothCompSheet",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.epGroupoid",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.functor",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.OpenCover.proposition_10_1_3",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.Examples.reflectionCover",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.Examples.isEquivalence_reflectionCover",
+     "Chapter10/EquivalenceRefinement · EpGroupoid.Examples.not_injective_reflectionCover_obj"
+    ]
+   },
+   "chips": [
+    "nonempty object set",
+    "indexed covering",
+    "$(U, \\varphi, v)$: possible misprint"
+   ],
+   "diff": [
+    "The covering is indexed by a type; the object set is assumed nonempty for the open-subset M-polyfold structure of Part I (trivial otherwise); the properness is proved with ultrafilters; the printed $(U, \\varphi, v)$ is read $(U, \\varphi, V)$ (Findings, Chapter 10, item 2)."
+   ]
+  },
+  {
+   "id": "V10.4",
+   "title": "Definition 10.1.4 (2017: 10.2), natural equivalence",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Definition 10.1.4, p. 463 (2017: Definition 10.2, p. 335)",
+    "page": 463,
+    "statement": "A natural transformation $\\tau : F \\to G$ of sc-smooth functors is an sc-smooth $\\tau : X \\to \\mathbf Y$ with $\\tau(x) : F(x) \\to G(x)$ and $\\tau(x') \\circ F(\\varphi) = G(\\varphi) \\circ \\tau(x)$; $F \\simeq G$ is an equivalence relation compatible with composition."
+   },
+   "lean": {
+    "statement": "Chapter 8's `EpNatTrans` and `NaturallyEquivalent`: $\\simeq$ is an equivalence relation, compatible with composition on the left and on the right; a natural transformation is a natural isomorphism of the underlying functors.",
+    "decls": [
+     "Chapter10/Equivalence · definition_10_1_4",
+     "Chapter8/Basic · EpNatTrans",
+     "Chapter8/Basic · EpFunctor.NaturallyEquivalent",
+     "Chapter8/NatTrans · EpFunctor.naturallyEquivalent_equivalence",
+     "Chapter8/NatTrans · EpFunctor.NaturallyEquivalent.comp_left",
+     "Chapter8/NatTrans · EpFunctor.NaturallyEquivalent.comp_right",
+     "Chapter10/Equivalence · EpNatTrans.toNatIso"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "Definition 8.1.13 reused"
+   ],
+   "diff": [
+    "The definition is Chapter 8's (Definition 8.1.13) (Findings, Chapter 10, item 3)."
+   ]
+  },
+  {
+   "id": "V10.5",
+   "title": "Proposition 10.1.5 (2017: 10.2), natural equivalence preserves equivalences",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Proposition 10.1.5, p. 464 (2017: Proposition 10.2, p. 336)",
+    "page": 464,
+    "statement": "If $F \\simeq G$ and one of them is an equivalence, so is the other (quoted from the literature without proof)."
+   },
+   "lean": {
+    "statement": "If $F \\simeq G$, then $F$ is an equivalence if and only if $G$ is.",
+    "decls": [
+     "Chapter10/Equivalence · EpFunctor.proposition_10_1_5",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.of_natTrans",
+     "Chapter10/Equivalence · EpNatTrans.continuous_app",
+     "Chapter10/Equivalence · EpNatTrans.isLocalScDiffeo_app",
+     "Chapter10/Equivalence · EpNatTrans.isLocalScDiffeo_obj"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "proved (quoted in the text)"
+   ],
+   "diff": [
+    "The text quotes the result without proof; it is proved: $\\tau$ is a local sc-diffeomorphism since $s \\circ \\tau = F$, so $t \\circ \\tau = G$ is one on objects (Findings, Chapter 10, item 4)."
+   ]
+  },
+  {
+   "id": "V10.6",
+   "title": "Proposition 10.1.6 (2017: 10.3), two out of three",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Proposition 10.1.6, p. 464 (2017: Proposition 10.3, p. 336)",
+    "page": 464,
+    "statement": "If $F : X \\to Y$ and $\\Phi \\circ F$ are equivalences and $\\Phi$ is sc-smooth, then $\\Phi$ is an equivalence."
+   },
+   "lean": {
+    "statement": "If $F$ and $\\Phi \\circ F$ are equivalences and $\\Phi$ is an sc-smooth functor, $\\Phi$ is an equivalence; the local sc-diffeomorphism property at $s(\\varphi)$ passes to $t(\\varphi)$.",
+    "decls": [
+     "Chapter10/Equivalence · EpFunctor.proposition_10_1_6",
+     "Chapter10/Equivalence · MPolyfold.IsLocalScDiffeoAt",
+     "Chapter10/Equivalence · MPolyfold.IsLocalScDiffeoAt.comp",
+     "Chapter10/Equivalence · MPolyfold.IsLocalScDiffeoAt.congr",
+     "Chapter10/Equivalence · MPolyfold.IsLocalScDiffeoAt.of_comp_left",
+     "Chapter10/Equivalence · MPolyfold.IsLocalScDiffeoAt.of_comp_right",
+     "Chapter10/Equivalence · EpFunctor.isLocalScDiffeoAt_mor",
+     "Chapter10/Equivalence · EpFunctor.isLocalScDiffeo_mor",
+     "Chapter10/Equivalence · EpFunctor.isLocalScDiffeoAt_obj_tgt"
+    ]
+   },
+   "chips": [
+    "transport to every $y$ added",
+    "$|\\Phi| : |X| \\to |Y|$: possible misprint"
+   ],
+   "diff": [
+    "The text's object argument covers the points $F(x)$; the transport along $F(x) \\to y$ is added. The printed $|\\Phi| : |X| \\to |Y|$ is read $|Y| \\to |Z|$ (Findings, Chapter 10, item 5)."
+   ]
+  },
+  {
+   "id": "V10.7",
+   "title": "Theorem 10.1.7 (2017: 10.1), the tangent of an equivalence",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Theorem 10.1.7, p. 465 (2017: Theorem 10.1, p. 337)",
+    "page": 465,
+    "statement": "If $F$ is an equivalence, so is $TF : TX \\to TY$ (full and faithful left to the reader)."
+   },
+   "lean": {
+    "statement": "If $F$ is an equivalence, Chapter 8's tangent functor $TF$ is an equivalence.",
+    "decls": [
+     "Chapter10/Equivalence · EpFunctor.theorem_10_1_7",
+     "Chapter8/TangentEp · EpFunctor.tangent"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "full and faithful proved"
+   ],
+   "diff": [
+    "Fullness and faithfulness, left to the reader, are proved (Findings, Chapter 10, item 6)."
+   ]
+  },
+  {
+   "id": "V10.8",
+   "title": "Remark 10.1.11 (2017: 10.1), $\\alpha_x$ cannot be prescribed",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.1, Remark 10.1.11, p. 470 (2017: Remark 10.1, p. 340)",
+    "page": 470,
+    "statement": "On $\\mathbb Z/2 \\ltimes \\mathbb R^2$ with $F = \\mathrm{id}$ and $G = -\\mathrm{id}$, the morphisms $\\alpha_z : z \\to -z$ cannot be chosen in an sc-smooth local family with $\\alpha_0 = 1_0$."
+   },
+   "lean": {
+    "statement": "For $F = \\mathrm{id}$, $G = -\\mathrm{id}$ (equivalences with $|F| = |G|$), $\\alpha_z = (-1, z)$ is sc-smooth, but no family with $\\alpha_0 = 1_0$ is continuous at $0$, and none is sc-smooth near $0$.",
+    "decls": [
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.pointReflectionEpGroupoid",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.negFunctor",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.isEquivalence_negFunctor",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.orbitMap_id_eq_negFunctor",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.remark_10_1_11_family",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.remark_10_1_11",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.remark_10_1_11_scSmooth"
+    ]
+   },
+   "chips": [
+    "not even continuous at $0$",
+    "Prop. 10.1.10 (1) in the example"
+   ],
+   "diff": [
+    "\"Not sc-smooth\" is proved as \"not continuous at $0$\"; the sc-smooth family $(-1, z)$ shows Proposition 10.1.10 (1) in the example (Findings, Chapter 10, item 8)."
+   ]
+  },
+  {
+   "id": "V10.9",
+   "title": "Remark 10.1.12, isotropy groups under equivalences",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Remark 10.1.12, p. 472 (new in the 2021 edition)",
+    "page": 472,
+    "statement": "For an equivalence $F$ and $\\psi : F(x) \\to y$, $g \\mapsto \\psi \\circ F(g) \\circ \\psi^{-1}$ is an isomorphism $G_x \\to G_y$ mapping $T_x$ onto $T_y$."
+   },
+   "lean": {
+    "statement": "For a local sc-diffeomorphism on objects, $F(g) \\in T_{F(x)}$ iff $g \\in T_x$; for an equivalence $G_x \\to G_{F(x)}$ is bijective and there is $e : G_x \\simeq G_y$ with $e(g) = \\psi \\circ F(g) \\circ \\psi^{-1}$ and $e(T_x) = T_y$.",
+    "decls": [
+     "Chapter10/EquivalenceReduced · EpFunctor.isotropyHom",
+     "Chapter10/EquivalenceReduced · EpFunctor.isotropyHom_mem_trivialSet_iff",
+     "Chapter10/EquivalenceReduced · EpFunctor.IsEquivalence.bijective_isotropyHom",
+     "Chapter10/EquivalenceReduced · EpFunctor.IsEquivalence.remark_10_1_12"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$G_x \\to Y_y$: possible misprint"
+   ],
+   "diff": [
+    "The printed $G_x \\to Y_y$ is read $G_x \\to G_y$ (Findings, Chapter 10, item 9)."
+   ]
+  },
+  {
+   "id": "V10.10",
+   "title": "Proposition 10.1.13, the reduced morphism spaces",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Proposition 10.1.13, p. 472 (new in the 2021 edition)",
+    "page": 472,
+    "statement": "For an equivalence $F$, $F_R : \\mathbf X^R \\to \\mathbf Y^R$ is well defined, continuous and open, and $\\mathbf X^R$ is Hausdorff iff $\\mathbf Y^R$ is."
+   },
+   "lean": {
+    "statement": "$F_R$ is well defined, continuous and open for every functor which is a local sc-diffeomorphism on objects; for an equivalence $\\mathbf X^T$ is closed iff $\\mathbf Y^T$ is, and $T2(\\mathbf X^R) \\iff T2(\\mathbf Y^R)$.",
+    "decls": [
+     "Chapter10/EquivalenceReduced · EpFunctor.mor_mem_nonEffectivePart",
+     "Chapter10/EquivalenceReduced · EpFunctor.mem_nonEffectivePart_of_mor",
+     "Chapter10/EquivalenceReduced · EpFunctor.nonEffectivePart_eq",
+     "Chapter10/EquivalenceReduced · EpGroupoid.continuousAt_comp",
+     "Chapter10/EquivalenceReduced · EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff",
+     "Chapter10/EquivalenceReduced · EpFunctor.reducedMap",
+     "Chapter10/EquivalenceReduced · EpFunctor.continuous_reducedMap",
+     "Chapter10/EquivalenceReduced · EpFunctor.isOpenMap_reducedMap",
+     "Chapter10/EquivalenceReduced · EpFunctor.proposition_10_1_13",
+     "Chapter7/ReducedCriterion · EpGroupoid.theorem_7_2_22_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(1) for local sc-diffeomorphisms",
+    "closures instead of sequences"
+   ],
+   "diff": [
+    "Part (2) goes through Theorem 7.2.22, cited correctly in the text; the closedness of $\\mathbf X^T$ is transported with closures (Findings, Chapter 10, item 10)."
+   ]
+  },
+  {
+   "id": "V10.11",
+   "title": "Proposition 10.1.14 (2017: 10.5), the reduced functor",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Proposition 10.1.14, p. 473 (2017: Proposition 10.5, p. 341)",
+    "page": 473,
+    "statement": "If $F$ is an equivalence and $\\mathbf X^R$, $\\mathbf Y^R$ are Hausdorff, $F_R : X_R \\to Y_R$ is a well-defined sc-smooth functor and an equivalence."
+   },
+   "lean": {
+    "statement": "Under the two Hausdorff hypotheses, `EpFunctor.reduced` (equal to $F$ on objects, $[\\varphi] \\mapsto [F(\\varphi)]$) is an equivalence of the reduced ep-groupoids.",
+    "decls": [
+     "Chapter10/EquivalenceReduced · EpFunctor.reducedGroupoidFunctor",
+     "Chapter10/EquivalenceReduced · EpFunctor.reduced",
+     "Chapter10/EquivalenceReduced · EpFunctor.reducedπ_eq_of_mor",
+     "Chapter10/EquivalenceReduced · EpFunctor.proposition_10_1_14"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "one Hausdorff hypothesis suffices"
+   ],
+   "diff": [
+    "Both hypotheses are kept; by Proposition 10.1.13 (2) one implies the other (Findings, Chapter 10, item 11)."
+   ]
+  },
+  {
+   "id": "V10.12",
+   "title": "Example 10.1.15 (2017: 10.1), no reduced map",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.1, Example 10.1.15, p. 474 (2017: Example 10.1, p. 341)",
+    "page": 474,
+    "statement": "For $\\mathbb Z/4$ acting on $\\mathbb R$ and on $\\mathbb R^2$ and the functor to the origin, $\\Phi$ does not induce a map $\\mathbf X^R \\to \\mathbf Y^R$."
+   },
+   "lean": {
+    "statement": "For $X = \\mathbb Z/4 \\ltimes \\mathbb R$, $Y = \\mathbb Z/4 \\ltimes \\mathbb R^2$ and $\\Phi$ to the origin, $[(1, x)] = [(3, x)]$ in $\\mathbf X^R$ and $[(1, 0)] \\ne [(3, 0)]$ in $\\mathbf Y^R$, so no map $f$ has $f([\\varphi]) = [\\Phi(\\varphi)]$.",
+    "decls": [
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example1015X",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example1015Y",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example1015Functor",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example1015X_two_mem_nonEffectivePart",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example1015Y_two_not_mem_nonEffectivePart",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example1015X_reducedπ_one_eq_three",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example1015Y_reducedπ_one_ne_three",
+     "Chapter10/EquivalenceExamples · EpGroupoid.Examples.example_10_1_15"
+    ]
+   },
+   "chips": [
+    "no map at all",
+    "no Hausdorff hypothesis"
+   ],
+   "diff": [
+    "The non-existence holds for maps of sets (Findings, Chapter 10, item 12)."
+   ]
+  },
+  {
+   "id": "V10.13",
+   "title": "Proposition 10.1.16, (LUC) under equivalences",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Proposition 10.1.16, p. 474 (new in the 2021 edition)",
+    "page": 474,
+    "statement": "If $F : X \\to Y$ is an equivalence, $X$ has (LUC) iff $Y$ has."
+   },
+   "lean": {
+    "statement": "For an equivalence, `IsLUC` of $X$ is equivalent to `IsLUC` of $Y$.",
+    "decls": [
+     "Chapter10/EquivalenceReduced · EpFunctor.proposition_10_1_16",
+     "Chapter10/EquivalenceReduced · EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff",
+     "Chapter7/ReducedCriterion · EpGroupoid.proposition_7_2_21_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "through Theorem 7.2.22"
+   ],
+   "diff": [
+    "(LUC) is the closedness of $\\mathbf X^T$ (Proposition 7.2.21), which passes along equivalences (Findings, Chapter 10, item 10)."
+   ]
+  },
+  {
+   "id": "V10.14",
+   "title": "Proposition 10.1.17, the Zhou condition under equivalences",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Proposition 10.1.17, p. 475 (new in the 2021 edition)",
+    "page": 475,
+    "statement": "If $F$ is an equivalence, $X$ satisfies (ZHOU) iff $Y$ does."
+   },
+   "lean": {
+    "statement": "For an equivalence, `IsZhou` of $X$ is equivalent to `IsZhou` of $Y$.",
+    "decls": [
+     "Chapter10/EquivalenceZhou · EpGroupoid.mem_smoothSet_src_iff",
+     "Chapter10/EquivalenceZhou · EpGroupoid.mem_smoothSet_tgt_iff",
+     "Chapter10/EquivalenceZhou · EpFunctor.tangentMor_mor",
+     "Chapter10/EquivalenceZhou · EpFunctor.IsEquivalence.isZhou_of_isZhou",
+     "Chapter10/EquivalenceZhou · EpFunctor.IsEquivalence.isZhou_of_isZhou_right",
+     "Chapter10/EquivalenceZhou · EpFunctor.proposition_10_1_17"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "route via tangent naturality",
+    "$U(F(y))$, $x \\in U(x)$: possible misprints"
+   ],
+   "diff": [
+    "The proof uses the naturality of $TF$ and its bijectivity on tangent fibres; the printed $U(F(y))$ and \"$x \\in U(x)$\" are read $U(F(x))$ and $a \\in U(x)$ (Findings, Chapter 10, item 13)."
+   ]
+  },
+  {
+   "id": "V10.15",
+   "title": "Proposition 10.1.18, (SLUC) under equivalences",
+   "verdict": "same",
+   "book": {
+    "label": "§10.1, Proposition 10.1.18, p. 476 (new in the 2021 edition)",
+    "page": 476,
+    "statement": "If $F$ is an equivalence, $X$ satisfies (SLUC) iff $Y$ does."
+   },
+   "lean": {
+    "statement": "The level-1 restriction of an equivalence is an equivalence, so all $F^i : X^i \\to Y^i$ are, and `IsSLUC` of $X$ is equivalent to `IsSLUC` of $Y$.",
+    "decls": [
+     "Chapter10/EquivalenceReduced · EpFunctor.liftOne",
+     "Chapter10/EquivalenceReduced · EpFunctor.IsEquivalence.liftOne",
+     "Chapter10/EquivalenceReduced · EP.exists_isEquivalence_lift",
+     "Chapter10/EquivalenceReduced · EP.proposition_10_1_18"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "\"Proposition 10.1.9\": possible misprint"
+   ],
+   "diff": [
+    "The proof cites Proposition 10.1.9 where Proposition 10.1.16 is used (Findings, Chapter 10, item 14)."
+   ]
+  },
+  {
+   "id": "V10.16",
+   "title": "Proposition 10.1.19, (SLR) under equivalences, the reduction",
+   "verdict": "narrower",
+   "book": {
+    "label": "§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)",
+    "page": 477,
+    "statement": "If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does."
+   },
+   "lean": {
+    "statement": "If $F$ is an equivalence and every equivalence $X^i \\to Y^i$ carries (LR) both ways, then `IsSLR` of $X$ iff of $Y$; the hypothesis holds for $Y = X$.",
+    "decls": [
+     "Chapter10/EquivalenceZhou · EP.isSLR_iff_of_isLR_iff",
+     "Chapter10/EquivalenceZhou · EP.isLR_iff_lift_self"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "Prop. 10.1.9 a hypothesis (G.113)",
+    "reduction only (G.115)"
+   ],
+   "diff": [
+    "Proposition 10.1.9 is not formalized; the reduction, the text's proof, is (Findings, Chapter 10, item 15)."
+   ]
+  },
+  {
+   "id": "V10.17",
+   "title": "Definition 10.2.1 (2017: 10.3), the weak fibred product",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.2, Definition 10.2.1, p. 477 (2017: Definition 10.3, p. 342)",
+    "page": 477,
+    "statement": "For $F : X \\to Y$, $G : Z \\to Y$, $X \\times_Y Z$ has objects $(x, \\phi, z)$ with $\\phi : F(x) \\to G(z)$ and morphisms $(h, \\phi, k)$, with source, target, units, inverses $\\iota$ and composition as listed."
+   },
+   "lean": {
+    "statement": "Objects and morphisms are elements of iterated fibred products; $t(h, \\phi, k) = (t(h), G(k) \\circ \\phi \\circ F(h)^{-1}, t(k))$; units, inverses and composition as in the text; a groupoid.",
+    "decls": [
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.objRight",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.objSet",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.Obj",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.morRight",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.morSet",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.Mor",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.conj",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.conj_comp_mor",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.conj_recover",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.src",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.tgt",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.unit",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.inv",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.comp",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.src_eq_tgt_iff",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.groupoid"
+    ]
+   },
+   "chips": [
+    "iterated fibred products",
+    "total multiplication",
+    "$\\iota(h, \\psi, k)$: possible misprint"
+   ],
+   "diff": [
+    "The multiplication is total, its value off composable pairs unused; the printed $\\psi$ in $\\iota(h, \\psi, k)$ is read $\\phi$ (Findings, Chapter 10, item 20)."
+   ]
+  },
+  {
+   "id": "V10.18",
+   "title": "Theorem 10.2.2 (2017: 10.2), $X \\times_Y Z$ is an ep-groupoid",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.2, Theorem 10.2.2, p. 477 (2017: Theorem 10.2, p. 343), first claim, proof pp. 478–481",
+    "page": 477,
+    "statement": "If $F$ is an equivalence and $G$ sc-smooth, $X \\times_Y Z$ is an ep-groupoid with the sub-M-polyfold structures from $X \\times \\mathbf Y \\times Z$ and $\\mathbf X \\times \\mathbf Y \\times \\mathbf Z$."
+   },
+   "lean": {
+    "statement": "If $F$ or $G$ is a local sc-diffeomorphism on objects (`Admissible`), the iterated sub-M-polyfold structures make $X \\times_Y Z$ an ep-groupoid; the projections to $Z$ (or $X$) are local sc-diffeomorphisms; properness holds for any $F$, $G$.",
+    "decls": [
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.Admissible",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.Admissible.of_isEquivalence_left",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.Admissible.of_isEquivalence_right",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.PA",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.PB",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.PObj",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.PMor",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isSubMPolyfold_objSet",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isSubMPolyfold_morSet",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isLocalScDiffeo_z",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isLocalScDiffeo_k",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isLocalScDiffeo_x",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isLocalScDiffeo_h",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isLocalScDiffeo_src",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isLocalScDiffeo_tgt",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isScSmoothMap_unit",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isScSmoothMap_inv",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.isScSmoothComp",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.exists_isProperMap",
+     "Chapter10/WeakFibredProduct · WeakFibredProduct.epGroupoid",
+     "Chapter10/WeakFibredProduct · MPolyfold.IsLocalScDiffeo.of_comm",
+     "Chapter10/WeakFibredProduct · MPolyfold.isLocalScDiffeo_snd_fibredProduct",
+     "Chapter10/WeakFibredProduct · MPolyfold.isLocalScDiffeo_fst_fibredProduct",
+     "Chapter10/WeakFibredProduct · EpGroupoid.isScSmoothOn_comp_of",
+     "Chapter10/WeakFibredProduct · EpGroupoid.tendsto_comp"
+    ]
+   },
+   "chips": [
+    "$F$ local sc-diffeo on objects suffices",
+    "iterated structures (G.116)",
+    "properness read with closure"
+   ],
+   "diff": [
+    "The structures are Part I's iterated fibred products; their agreement with the triple-product structures is not formalized (G.116); properness is read with $\\mathrm{cl}(U)$ (Findings, Chapter 10, items 21, 22)."
+   ]
+  },
+  {
+   "id": "V10.19",
+   "title": "Theorem 10.2.2 (2017: 10.2), $F$ an equivalence",
+   "verdict": "same",
+   "book": {
+    "label": "§10.2, Theorem 10.2.2, pp. 477–478 (2017: Theorem 10.2, p. 343), proof pp. 481–482",
+    "page": 478,
+    "statement": "If $F$ is an equivalence, $\\pi_Z$ is an equivalence, $F \\circ \\pi_X \\simeq G \\circ \\pi_Z$, $d_{X \\times_Y Z} = d_Z \\circ \\pi_Z$, and tameness and a paracompact orbit space pass from $Z$."
+   },
+   "lean": {
+    "statement": "For $F$ an equivalence: $\\pi_Z$ is an equivalence, $\\sigma(x, \\phi, z) = \\phi$ is a natural transformation, the degeneracy index is $d_Z(z)$, and `IsTame`, `HasParacompactOrbitSpace` pass from $Z$.",
+    "decls": [
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.projLeft",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.projRight",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.natTrans",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.natTrans_app",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.naturallyEquivalent",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.isEquivalence_projRight",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.degIndex_eq_z",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.theorem_10_2_2",
+     "Chapter10/WeakFibredProductTheorem · EpFunctor.IsEquivalence.degIndex_obj",
+     "Chapter10/WeakFibredProductTheorem · EpFunctor.IsEquivalence.isTame_of_isTame",
+     "Chapter10/WeakFibredProductTheorem · EpFunctor.IsEquivalence.hasParacompactOrbitSpace",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.Examples.theorem_10_2_2_pairToPoint"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "fullness composite: possible misprint"
+   ],
+   "diff": [
+    "In the fullness step the printed composite is read $\\phi'^{-1} \\circ G(k) \\circ \\phi$ (Findings, Chapter 10, item 23)."
+   ]
+  },
+  {
+   "id": "V10.20",
+   "title": "Theorem 10.2.2 (2017: 10.2), $G$ an equivalence, and both",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.2, Theorem 10.2.2, p. 478 (2017: Theorem 10.2, p. 343), the last two claims",
+    "page": 478,
+    "statement": "If $G$ is an equivalence, $\\pi_X$ is one and $d = d_X \\circ \\pi_X$; if both are, $d_X(x) = d(x, \\phi, z) = d_Z(z)$."
+   },
+   "lean": {
+    "statement": "For $G$ an equivalence: $\\pi_X$ is an equivalence, $F \\circ \\pi_X \\simeq G \\circ \\pi_Z$, $d = d_X(x)$, tameness and paracompactness pass from $X$; for both, $d_X(x) = d(x, \\phi, z) = d_Z(z)$.",
+    "decls": [
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.isEquivalence_projLeft",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.degIndex_eq_x",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.theorem_10_2_2_right",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.theorem_10_2_2_both"
+    ]
+   },
+   "chips": [
+    "natural equivalence added",
+    "tame, paracompact added"
+   ],
+   "diff": [
+    "The natural equivalence and the transfer of tameness and paracompactness are added for $G$ an equivalence (Findings, Chapter 10, item 24)."
+   ]
+  },
+  {
+   "id": "V10.21",
+   "title": "Remark 10.2.3 (2017: 10.2), two equivalences",
+   "verdict": "same",
+   "book": {
+    "label": "§10.2, Remark 10.2.3, pp. 482–483 (2017: Remark 10.2, p. 347)",
+    "page": 482,
+    "statement": "For two equivalences both projections are equivalences, with a natural transformation $\\tau$ between $F \\circ \\pi_X$ and $G \\circ \\pi_Z$; remarks on smaller models."
+   },
+   "lean": {
+    "statement": "For equivalences $F$, $G$ both projections are equivalences and $\\tau = \\phi$ is natural; witness: $\\mathrm{id}$ and $-\\mathrm{id}$ on $\\mathbb Z/2 \\ltimes \\mathbb R^2$.",
+    "decls": [
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.remark_10_2_3",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.Examples.remark_10_2_3_negFunctor"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "\"smaller models\": no formal content"
+   ],
+   "diff": [
+    "The closing sentences on smaller models have no formal content (Findings, Chapter 10, item 25)."
+   ]
+  },
+  {
+   "id": "V10.22",
+   "title": "Definition 10.4.1 (2017: 10.10), strong bundle equivalences",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.4, Definition 10.4.1, p. 496 (2017: Definition 10.10, p. 357)",
+    "page": 496,
+    "statement": "A strong bundle equivalence is a strong bundle functor $\\Phi$ covering an equivalence $\\phi$ such that (1) $\\Phi : W[i] \\to W'[i]$, $i = 0, 1$, are equivalences and (2) $\\Phi$ is locally a strong bundle isomorphism on objects and morphisms."
+   },
+   "lean": {
+    "statement": "A structure with six fields: strong bundle functor, $\\phi$ and $\\Phi$ at $[0]$ equivalences, $|\\Phi|$ on $|W[1]|$ a homeomorphism, local strong bundle isomorphisms on objects and on morphisms; identities, composites and isomorphisms are examples.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.OneOrbitSpace",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.oneOrbitMap",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleFunctor.comp",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.covers",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.fiberEquiv",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.eq_of_obj_eq",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isLocalScDiffeo_obj",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isLocalScDiffeo_one",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.isStrongBundleEquivalence_id",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.comp",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.isStrongBundleEquivalence_of_inverse",
+     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.isStrongBundleEquivalence_pullbackProj'",
+     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.trivialNeg_obj_ne_id"
+    ]
+   },
+   "chips": [
+    "level $[1]$: homeomorphism of $|W[1]|$",
+    "rest of $[1]$ from (2)",
+    "witness over $-\\mathrm{id}$"
+   ],
+   "diff": [
+    "$W[1]$ is not an ep-groupoid in the project; (1) at $[1]$ is read as the homeomorphism of $|W[1]|$ (Findings, Chapter 10, item 40)."
+   ]
+  },
+  {
+   "id": "V10.23",
+   "title": "the pull-back and the push-forward, (10.15)–(10.17) and (10.22)",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.4, the pull-back and the push-forward of section functors, pp. 496–498 (2017 pp. 357–360)",
+    "page": 496,
+    "statement": "$\\Phi^*f' = \\Phi_x^{-1} \\circ f' \\circ \\phi$ and $\\Phi_*f(x') = \\mu'(\\sigma, \\Phi(f(x)))$ for $\\sigma : \\phi(x) \\to x'$, independent of the choices by (10.22); both are section functors and mutually inverse."
+   },
+   "lean": {
+    "statement": "The pull-back and push-forward are defined on all maps (zero off the fibre), the push-forward with a fixed choice; (10.22) holds for section functors; both are section functors and mutually inverse; $|\\Phi| = |\\Psi|$ iff (10.15).",
+    "decls": [
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pullback",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.obj_pullback",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pullback_eq",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isFunctorialSection_pullback",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.preObj",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.preMor",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pushforward",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pushforward_eq",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isFunctorialSection_pushforward",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pullback_pushforward",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pushforward_pullback",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.μ_injective_snd",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.exists_μ_eq_of_orbitMap_eq",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.orbitMap_eq_of_forall_exists"
+    ]
+   },
+   "chips": [
+    "defined on all maps",
+    "choice fixed once",
+    "(10.22) proved"
+   ],
+   "diff": [
+    "The choice of $x$ and $\\sigma$ is made once; (10.22) shows independence (Findings, Chapter 10, item 41)."
+   ]
+  },
+  {
+   "id": "V10.24",
+   "title": "Proposition 10.4.2 (2017: 10.7), pull-backs along $|\\Phi| = |\\Psi|$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.4, Proposition 10.4.2, p. 497 (2017: Proposition 10.7, p. 358)",
+    "page": 497,
+    "statement": "If $|\\Phi| = |\\Psi|$, then $\\Phi^*f' = \\Psi^*f'$ for every sc-smooth section functor $f'$."
+   },
+   "lean": {
+    "statement": "If $|\\Phi| = |\\Psi|$, then $\\Phi^*f' = \\Psi^*f'$ for every section functor $f'$.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.proposition_10_4_2",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pullback_eq_of_orbitMap_eq"
+    ]
+   },
+   "chips": [
+    "no sc-smoothness",
+    "\"$f' : W' \\to X'$\": possible misprint"
+   ],
+   "diff": [
+    "The printed $f' : W' \\to X'$ is read $f' : X' \\to W'$ (Findings, Chapter 10, item 42)."
+   ]
+  },
+  {
+   "id": "V10.25",
+   "title": "Proposition 10.4.3 (2017: 10.8), push-forwards along $|\\Phi| = |\\Psi|$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.4, Proposition 10.4.3, p. 499 (2017: Proposition 10.8, p. 360)",
+    "page": 499,
+    "statement": "If $|\\Phi| = |\\Psi|$, then $\\Phi_*f = \\Psi_*f$ for every sc-smooth section functor $f$."
+   },
+   "lean": {
+    "statement": "If $|\\Phi| = |\\Psi|$, then $\\Phi_*f = \\Psi_*f$ for every section functor $f$.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.proposition_10_4_3",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.pushforward_eq_of_orbitMap_eq"
+    ]
+   },
+   "chips": [
+    "no sc-smoothness"
+   ],
+   "diff": [
+    "sc-smoothness is not used (Findings, Chapter 10, item 43)."
+   ]
+  },
+  {
+   "id": "V10.26",
+   "title": "Proposition 10.4.4 (2017: 10.9), functoriality",
+   "verdict": "stronger",
+   "book": {
+    "label": "§10.4, Proposition 10.4.4, p. 499 (2017: Proposition 10.9, p. 360)",
+    "page": 499,
+    "statement": "$(\\Psi \\circ \\Phi)^* = \\Phi^* \\circ \\Psi^*$ and $(\\Psi \\circ \\Phi)_* = \\Psi_* \\circ \\Phi_*$."
+   },
+   "lean": {
+    "statement": "The pull-back identity for all sections, the push-forward identity for all section functors.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.proposition_10_4_4",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.comp"
+    ]
+   },
+   "chips": [
+    "all sections / section functors"
+   ],
+   "diff": [
+    "sc-smoothness is not used (Findings, Chapter 10, item 43)."
+   ]
+  },
+  {
+   "id": "V10.27",
+   "title": "Theorem 10.4.5 (2017: 10.8), without the Fred part",
+   "verdict": "narrower",
+   "book": {
+    "label": "§10.4, Theorem 10.4.5, pp. 500–501 (2017: Theorem 10.8, p. 362)",
+    "page": 500,
+    "statement": "$\\Phi_* : \\Gamma(P, \\mu) \\to \\Gamma(P', \\mu')$ is a bijection with inverse $\\Phi^*$, depending only on $|\\Phi|$, and restricting to $\\Gamma^+$ and to the sc-Fredholm section functors."
+   },
+   "lean": {
+    "statement": "Mutually inverse bijections of the sc-smooth section functors, equal for $|\\Phi| = |\\Psi|$, mapping $\\mathrm{sc}^+$-section functors to $\\mathrm{sc}^+$-section functors; a witness over $-\\mathrm{id}$.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.theorem_10_4_5",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.eqOn_pullback",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pullback",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScPlusSection_pullback",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.exists_pushforward_local",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pushforward",
+     "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScPlusSection_pushforward",
+     "Chapter10/StrongBundleEquivalence · StrongBundle.isScSmoothOn_to_pullback_one",
+     "Chapter10/StrongBundleEquivalence · MPolyfold.isScSmoothOn_of_forall_charts",
+     "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.restrict",
+     "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.comp",
+     "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.exists_comp",
+     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.bijOn_pushforward_example"
+    ]
+   },
+   "chips": [
+    "Fred part not formalized (G.121)",
+    "sc-smoothness of $\\Phi_*f$ proved",
+    "$\\Gamma$ for $\\Gamma^+$: possible misprint"
+   ],
+   "diff": [
+    "The sc-Fredholm part is not formalized (G.121); the second display is read with $\\Gamma^+$ (Findings, Chapter 10, item 44)."
+   ]
+  },
+  {
+   "id": "V10.28",
+   "title": "Definition 10.4.8 (2017: 10.11), natural equivalence of strong bundle functors",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.4, Definition 10.4.8, p. 502 (2017: Definition 10.11, p. 362)",
+    "page": 502,
+    "statement": "A natural transformation between strong bundle functors $\\Phi, \\Psi$ covering $\\phi, \\psi$ is a natural $T(w) : \\Phi(w) \\to \\Psi(w)$ over a natural transformation $\\tau : \\phi \\to \\psi$."
+   },
+   "lean": {
+    "statement": "`StrongBundleNatTrans`: $T$ as data with naturality, an `EpNatTrans` $\\tau$ with $\\tau(P(w)) = P'(T(w))$; `StrongBundleNatEquiv` is its existence; reflexive.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatEquiv",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.refl",
+     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.strongBundleNatEquiv_example"
+    ]
+   },
+   "chips": [
+    "$T$ as data, $\\tau$ sc-smooth"
+   ],
+   "diff": [
+    "$T$ carries no smoothness, as in the text (Findings, Chapter 10, item 46)."
+   ]
+  },
+  {
+   "id": "V10.29",
+   "title": "Remark 10.4.9 (2017: 10.4) and (10.23)",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.4, Remark 10.4.9, pp. 502–503 (2017: Remark 10.4, p. 363)",
+    "page": 502,
+    "statement": "$T(w) = (\\tau(P(w)), \\Phi(w))$ and $\\Psi(w) = \\mu'(\\tau(P(w)), \\Phi(w))$, so $T$ and $\\Psi$ are determined by $\\Phi$ and $\\tau$, and $T$ is a strong bundle map."
+   },
+   "lean": {
+    "statement": "The two formulas of (10.23), the uniqueness of $T$ and of $\\Psi$ on objects, of $\\Psi$ among strong bundle functors, and $T$ a strong bundle map for $\\Phi$ a strong bundle functor.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.T_val",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.T_eq",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.obj_eq",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.unique",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.unique_functor",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.isStrongBundleMap_T"
+    ]
+   },
+   "chips": [
+    "$\\Psi$ a strong bundle functor",
+    "$\\mu$ for $\\mu'$ in (10.23)"
+   ],
+   "diff": [
+    "The second line of (10.23) is read with $\\mu'$ (Findings, Chapter 10, item 46)."
+   ]
+  },
+  {
+   "id": "V10.30",
+   "title": "Definition 10.4.10 (2017: 10.12) and its equivalence with Definition 10.4.8",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.4, Definition 10.4.10, p. 503 (2017: Definition 10.12, p. 363)",
+    "page": 503,
+    "statement": "A natural transformation is a strong bundle map $T : W \\to \\mathbf X' {}_s\\!\\times_{P'} W'$ covering $\\tau$ with (10.23); the two definitions are equivalent."
+   },
+   "lean": {
+    "statement": "`IsStrongBundleNatTransMap`; the two definitions agree for strong bundle functors $\\Phi$, $\\Psi$; $\\Phi \\simeq \\Psi$ implies $|\\Phi| = |\\Psi|$.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.IsStrongBundleNatTransMap",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.isStrongBundleNatTransMap",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.IsStrongBundleNatTransMap.toNatTrans",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatTrans.orbitMap_eq",
+     "Chapter10/StrongBundleEquivalenceNat · EpStrongBundle.StrongBundleNatEquiv.orbitMap_eq"
+    ]
+   },
+   "chips": [
+    "strong bundle functors assumed"
+   ],
+   "diff": [
+    "The direction 10.4.10 ⇒ 10.4.8 uses that $\\Phi$, $\\Psi$ are strong bundle functors (Findings, Chapter 10, item 46)."
+   ]
+  },
+  {
+   "id": "V10.31",
+   "title": "Definition 10.4.11 (2017: 10.13), the category $\\mathcal{SEP}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.4, Definition 10.4.11, p. 503 (2017: Definition 10.13, p. 364)",
+    "page": 503,
+    "statement": "$\\mathcal{SEP}$ has the strong bundles over ep-groupoids as objects and the strong bundle functors as morphisms; $F$ is the class of strong bundle equivalences."
+   },
+   "lean": {
+    "statement": "`SEP` is a large category; `SEP.equivalences` is multiplicative; the forgetful functor to $\\mathcal{EP}$ maps it into $E$; a witness over $-\\mathrm{id}$.",
+    "decls": [
+     "Chapter10/StrongBundleEquivalenceNat · SEP",
+     "Chapter10/StrongBundleEquivalenceNat · SEP.Hom",
+     "Chapter10/StrongBundleEquivalenceNat · SEP.equivalences",
+     "Chapter10/StrongBundleEquivalenceNat · SEP.toEP",
+     "Chapter10/StrongBundleEquivalenceNat · SEP.toEP_map_mem_equivalences",
+     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.negSEPHom",
+     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.negSEPHom_mem_equivalences"
+    ]
+   },
+   "chips": [
+    "morphisms carry $\\phi$ and $\\Phi$"
+   ],
+   "diff": [
+    "$\\Phi$ determines $\\phi$ only on the image of $P$, so a morphism is the pair (Findings, Chapter 10, item 47)."
+   ]
+  },
+  {
+   "id": "V10.32",
+   "title": "the properties (E1)–(E3) of the class $E$",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, the properties (E1)–(E3) of $E$, p. 483 (2017 p. 347)",
+    "page": 483,
+    "statement": "(E1) isomorphisms of $\\mathcal{EP}$ are equivalences; (E2) composites of equivalences are equivalences; (E3) a functor naturally equivalent to an equivalence is one."
+   },
+   "lean": {
+    "statement": "Every isomorphism of the category `EP` is an equivalence; (E2) and (E3) are `EpFunctor.IsEquivalence.comp` and Proposition 10.1.5.",
+    "decls": [
+     "Chapter10/LocalizationCategory · EPLocalization.isEquivalence_of_isIso",
+     "Chapter10/Equivalence · EpFunctor.IsEquivalence.comp",
+     "Chapter10/Equivalence · EpFunctor.proposition_10_1_5"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "(E2), (E3) are proved in §10.1 (Findings, Chapter 10, item 30)."
+   ]
+  },
+  {
+   "id": "V10.33",
+   "title": "Definition 10.3.1 (2017: 10.4), diagrams and refinements",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.3, Definition 10.3.1, p. 484 (2017: Definition 10.4, p. 348)",
+    "page": 484,
+    "statement": "A diagram $X \\xleftarrow{F} A \\xrightarrow{\\Phi} Y$ has $F$ an equivalence; $d'$ refines $d$ if an equivalence $H : A' \\to A$ has $F \\circ H \\simeq F'$, $\\Phi \\circ H \\simeq \\Phi'$; two examples."
+   },
+   "lean": {
+    "statement": "`Diagram X Y` bundles an object $A$ of `EP`, an equivalence $F$ and an sc-smooth $\\Phi$; `IsRefinement` as in the text, reflexive, with the two examples.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram",
+     "Chapter10/Localization · EPLocalization.Diagram.IsRefinement",
+     "Chapter10/Localization · EPLocalization.Diagram.IsRefinement.refl",
+     "Chapter10/Localization · EPLocalization.Diagram.precomp",
+     "Chapter10/Localization · EPLocalization.Diagram.isRefinement_precomp",
+     "Chapter10/Localization · EPLocalization.Diagram.isRefinement_of_naturallyEquivalent"
+    ]
+   },
+   "chips": [
+    "diagrams one universe up",
+    "both examples proved"
+   ],
+   "diff": [
+    "The middle ep-groupoid is an object of `EP`, so diagrams form a type in the universe of the objects of `EP` (Findings, Chapter 10, item 30)."
+   ]
+  },
+  {
+   "id": "V10.34",
+   "title": "Lemma 10.3.2 (2017: 10.3), refinements compose",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Lemma 10.3.2, p. 484 (2017: Lemma 10.3, p. 348)",
+    "page": 484,
+    "statement": "A refinement of a refinement of $d$ is a refinement of $d$."
+   },
+   "lean": {
+    "statement": "Transitivity of `IsRefinement`.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram.lemma_10_3_2",
+     "Chapter10/Localization · EPLocalization.Diagram.IsRefinement.trans"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 31)."
+   ]
+  },
+  {
+   "id": "V10.35",
+   "title": "Definition 10.3.3 (2017: 10.5), common refinements",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Definition 10.3.3, p. 485 (2017: Definition 10.5, p. 349)",
+    "page": 485,
+    "statement": "A common refinement of $(d, d')$ refines both."
+   },
+   "lean": {
+    "statement": "`IsCommonRefinement`: a refinement of both.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram.IsCommonRefinement"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 31)."
+   ]
+  },
+  {
+   "id": "V10.36",
+   "title": "Lemma 10.3.4 (2017: 10.4), transitivity",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Lemma 10.3.4, p. 485 (2017: Lemma 10.4, p. 349)",
+    "page": 485,
+    "statement": "If $(d, d')$ and $(d', d'')$ have common refinements, so has $(d, d'')$, by the diagram (10.11) over $W \\times_{A'} W'$."
+   },
+   "lean": {
+    "statement": "The same, with (10.11) the weak fibred product of $H'$ and $K$; a refinement is equivalent to the refined diagram.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram.lemma_10_3_4",
+     "Chapter10/Localization · EPLocalization.Diagram.Equiv.trans",
+     "Chapter10/Localization · EPLocalization.Diagram.IsRefinement.equiv"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "through (10.11)"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 31)."
+   ]
+  },
+  {
+   "id": "V10.37",
+   "title": "Definition 10.3.5 (2017: 10.6), equivalence of diagrams",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.3, Definition 10.3.5, p. 486 (2017: Definition 10.6, p. 350)",
+    "page": 486,
+    "statement": "Two diagrams are equivalent if they have a common refinement; $[d]$ is the class."
+   },
+   "lean": {
+    "statement": "`Equiv` is an equivalence relation, a setoid on the diagrams $X \\to Y$; witness: two copies of $\\mathbb Z$-pair $\\to$ pt equivalent to $1_{\\mathrm{pt}}$.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram.Equiv",
+     "Chapter10/Localization · EPLocalization.Diagram.Equiv.refl",
+     "Chapter10/Localization · EPLocalization.Diagram.Equiv.symm",
+     "Chapter10/Localization · EPLocalization.Diagram.setoid",
+     "Chapter10/Localization · EPLocalization.Diagram.equiv_iff",
+     "Chapter10/LocalizationCategory · EPLocalization.Examples.equiv_pairToPoint_id"
+    ]
+   },
+   "chips": [
+    "a setoid on diagrams",
+    "witness: ℤ-pair over the point"
+   ],
+   "diff": [
+    "The quotient lives in the universe of the objects of `EP` (Findings, Chapter 10, item 31)."
+   ]
+  },
+  {
+   "id": "V10.38",
+   "title": "Lemma 10.3.6 (2017: 10.5), the orbit map of a diagram",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Lemma 10.3.6, p. 488 (2017: Lemma 10.5, p. 351)",
+    "page": 488,
+    "statement": "If $H : d' \\to d$ is a refinement, then $|d| = |d'|$, for $|d| = |\\Phi| \\circ |F|^{-1}$."
+   },
+   "lean": {
+    "statement": "$|d|$ is continuous; refinements and equivalent diagrams have the same orbit map; naturally equivalent functors have the same orbit map.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram.orbitMap",
+     "Chapter10/Localization · EPLocalization.Diagram.continuous_orbitMap",
+     "Chapter10/Localization · EPLocalization.Diagram.orbitMap_orbitMap_F",
+     "Chapter10/Localization · EPLocalization.Diagram.lemma_10_3_6",
+     "Chapter10/Localization · EPLocalization.Diagram.Equiv.orbitMap_eq",
+     "Chapter10/Localization · EpFunctor.NaturallyEquivalent.orbitMap_eq",
+     "Chapter10/Localization · EpFunctor.orbitMap_comp"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 32)."
+   ]
+  },
+  {
+   "id": "V10.39",
+   "title": "Definition 10.3.7 (2017: 10.7), the map $|[d]|$",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Definition 10.3.7, p. 488 (2017: Definition 10.7, p. 351)",
+    "page": 488,
+    "statement": "$|[d]| = |\\Phi| \\circ |F|^{-1}$ for any representative; a homeomorphism if $\\Phi$ is an equivalence."
+   },
+   "lean": {
+    "statement": "`orbitMapQ` on the quotient, and the homeomorphism for $\\Phi$ an equivalence.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram.orbitMapQ",
+     "Chapter10/Localization · EPLocalization.Diagram.orbitMapQ_mk",
+     "Chapter10/Localization · EPLocalization.Diagram.isHomeomorph_orbitMap"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 32)."
+   ]
+  },
+  {
+   "id": "V10.40",
+   "title": "Theorem 10.3.8 (2017: 10.3), composition of classes, Appendix §10.6.1",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.3, Theorem 10.3.8, p. 488 (2017: Theorem 10.3, p. 352), proof in Appendix §10.6.1, pp. 509–515",
+    "page": 488,
+    "statement": "The class of $X \\leftarrow A \\times_Y B \\to Z$ depends only on $[d]$, $[d']$; the composition is associative with units $[1_X]$."
+   },
+   "lean": {
+    "statement": "The same, with `d.comp e` the text's $[e] \\circ [d]$; $L$ an equivalence; associativity through a reassociation functor.",
+    "decls": [
+     "Chapter10/Localization · EPLocalization.Diagram.theorem_10_3_8",
+     "Chapter10/Localization · EPLocalization.Diagram.id",
+     "Chapter10/Localization · EPLocalization.Diagram.comp",
+     "Chapter10/Localization · EPLocalization.Diagram.admissible",
+     "Chapter10/Localization · EPLocalization.wfp",
+     "Chapter10/Localization · EPLocalization.wfpMap",
+     "Chapter10/Localization · EPLocalization.projLeft_comp_wfpMap",
+     "Chapter10/Localization · EPLocalization.projRight_comp_wfpMap",
+     "Chapter10/Localization · EPLocalization.isEquivalence_wfpMap",
+     "Chapter10/Localization · EPLocalization.assocFunctor",
+     "Chapter10/Localization · EPLocalization.isEquivalence_assocFunctor",
+     "Chapter10/Localization · EPLocalization.Diagram.IsRefinement.comp",
+     "Chapter10/Localization · EPLocalization.Diagram.Equiv.comp",
+     "Chapter10/Localization · EPLocalization.Diagram.isRefinement_assoc",
+     "Chapter10/Localization · EPLocalization.Diagram.equiv_assoc",
+     "Chapter10/Localization · EPLocalization.Diagram.isRefinement_id_comp",
+     "Chapter10/Localization · EPLocalization.Diagram.isRefinement_comp_id",
+     "Chapter10/Localization · EpFunctor.IsEquivalence.of_comp_left"
+    ]
+   },
+   "chips": [
+    "order: `d.comp e` is $[e] \\circ [d]$",
+    "$L$ by two out of three",
+    "possible misprints in the proof"
+   ],
+   "diff": [
+    "\"The same space\" is the reassociation functor; $\\tau_A$, $(\\Phi \\circ \\pi_B) \\circ L$, $[1_X] \\circ [d]$, $\\tau(a, \\phi, a)$ in the proof are read $\\tau_{B'}$, $(\\Psi \\circ \\pi_B) \\circ L$, $[d] \\circ [1_X]$, $\\tau(x, \\phi, a)$ (Findings, Chapter 10, items 33, 60)."
+   ]
+  },
+  {
+   "id": "V10.41",
+   "title": "Definition 10.3.9 (2017: 10.8), generalized maps and isomorphisms",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Definition 10.3.9, p. 489 (2017: Definition 10.8, p. 352)",
+    "page": 489,
+    "statement": "A generalized map is a class $[d]$; it is a generalized isomorphism if it has a two-sided inverse $[d]^{-1}$."
+   },
+   "lean": {
+    "statement": "`IsGeneralizedIso`, equivalent to Mathlib's `IsIso` in $\\mathcal{EP}(E^{-1})$.",
+    "decls": [
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.homMk",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.IsGeneralizedIso",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.isGeneralizedIso_iff_isIso"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 34)."
+   ]
+  },
+  {
+   "id": "V10.42",
+   "title": "Theorem 10.3.10 (2017: 10.4), generalized isomorphisms, Appendix §10.6.2",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Theorem 10.3.10, p. 489 (2017: Theorem 10.4, p. 353), proof in Appendix §10.6.2, pp. 515–519",
+    "page": 489,
+    "statement": "$[X \\xleftarrow{F} A \\xrightarrow{\\Phi} Y]$ is a generalized isomorphism iff $\\Phi$ is an equivalence, and the inverse is $[Y \\xleftarrow{\\Phi} A \\xrightarrow{F} X]$."
+   },
+   "lean": {
+    "statement": "The same, (2) as: every inverse equals the reversed class.",
+    "decls": [
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.theorem_10_3_10",
+     "Chapter10/LocalizationCategory · EPLocalization.Diagram.symm",
+     "Chapter10/Localization · EPLocalization.diagFunctor",
+     "Chapter10/Localization · EPLocalization.isEquivalence_diagFunctor",
+     "Chapter10/Localization · EPLocalization.Diagram.isRefinement_comp_symm",
+     "Chapter10/Localization · EPLocalization.Diagram.isRefinement_id",
+     "Chapter10/LocalizationCategory · EPLocalization.Diagram.equiv_comp_symm",
+     "Chapter10/LocalizationCategory · EPLocalization.Diagram.equiv_symm_comp",
+     "Chapter10/LocalizationCategory · EPLocalization.Diagram.isEquivalence_Φ_of_equiv_id",
+     "Chapter10/LocalizationCategory · EPLocalization.isEquivalence_toFunctor_of_comp",
+     "Chapter10/LocalizationCategory · EPLocalization.isLocalScDiffeo_obj_of_comp",
+     "Chapter10/LocalizationCategory · EPLocalization.Diagram.isEquivalence_Φ_of_equiv",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.isIso_homMk_iff",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.isIso_homMk",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.inv_homMk",
+     "Chapter10/LocalizationCategory · MPolyfold.isLocalScDiffeoAt_of_injOn",
+     "Chapter10/LocalizationCategory · MPolyfold.IsLocalScDiffeoAt.exists_injOn"
+    ]
+   },
+   "chips": [
+    "(C2): another argument",
+    "possible misprints in (C1), (C2)"
+   ],
+   "diff": [
+    "The step \"$\\Gamma'$ is a local sc-diffeomorphism\" of (C2) does not hold as we read it without the other half of (C2); local injectivity and a local right inverse are used instead (Findings, Chapter 10, items 34, 61)."
+   ]
+  },
+  {
+   "id": "V10.43",
+   "title": "Proposition 10.3.11 (2017: 10.6), $|g \\circ f| = |g| \\circ |f|$",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Proposition 10.3.11, p. 490 (2017: Proposition 10.6, p. 353)",
+    "page": 490,
+    "statement": "For generalized maps $f : X \\to Y$, $g : Y \\to Z$, $|g \\circ f| = |g| \\circ |f|$."
+   },
+   "lean": {
+    "statement": "The same, with $|f|$ continuous and $|1_X| = \\mathrm{id}$.",
+    "decls": [
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.orbitMap",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.orbitMap_homMk",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.continuous_orbitMap",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.orbitMap_id",
+     "Chapter10/Localization · EPLocalization.Diagram.orbitMap_comp",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.proposition_10_3_11"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 35)."
+   ]
+  },
+  {
+   "id": "V10.44",
+   "title": "Definition 10.3.12 (2017: 10.9), the category $\\mathcal{EP}(E^{-1})$",
+   "verdict": "restated",
+   "book": {
+    "label": "§10.3, Definition 10.3.12, p. 490 (2017: Definition 10.9, p. 354)",
+    "page": 490,
+    "statement": "$\\mathcal{EP}(E^{-1})$ has the ep-groupoids as objects and the generalized maps as morphisms."
+   },
+   "lean": {
+    "statement": "`EPLoc`, a one-field structure around `EP`, with a `Category` instance whose morphisms are the quotients of diagrams.",
+    "decls": [
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.toEP_of",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.of_toEP",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.homMk_comp",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.id_eq",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.homMk_eq_homMk_iff",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.homMk_surjective"
+    ]
+   },
+   "chips": [
+    "objects a copy of `EP`",
+    "Mathlib order of composition"
+   ],
+   "diff": [
+    "A large category like `EP` (Findings, Chapter 10, item 35)."
+   ]
+  },
+  {
+   "id": "V10.45",
+   "title": "Theorem 10.3.14 (2017: 10.5), the localization functor",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Theorem 10.3.14, p. 491 (2017: Theorem 10.5, p. 354)",
+    "page": 491,
+    "statement": "A functor $i : \\mathcal{EP} \\to \\mathcal{EP}(E^{-1})$, identity on objects, $i(\\Phi) = [X \\xleftarrow{1} X \\xrightarrow{\\Phi} Y]$, with $i(F)$ invertible for $F \\in E$."
+   },
+   "lean": {
+    "statement": "The same, with the inverse; $i$ inverts $E$ (`MorphismProperty.IsInvertedBy`); a witness not an isomorphism of `EP`.",
+    "decls": [
+     "Chapter10/LocalizationCategory · EPLocalization.Diagram.ofFunctor",
+     "Chapter10/LocalizationCategory · EPLocalization.Diagram.isRefinement_ofFunctor_comp",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.localizationFunctor",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.localizationFunctor_obj",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.localizationFunctor_map",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.theorem_10_3_14",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.isInvertedBy_localizationFunctor",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.inv_localizationFunctor_map",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.homMk_eq",
+     "Chapter10/LocalizationCategory · EPLocalization.Examples.pairToPointEP",
+     "Chapter10/LocalizationCategory · EPLocalization.Examples.not_isIso_pairToPointEP",
+     "Chapter10/LocalizationCategory · EPLocalization.Examples.isGeneralizedIso_pairToPoint",
+     "Chapter10/LocalizationCategory · EPLocalization.Examples.inv_localizationFunctor_map_pairToPoint"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "refinement direction read",
+    "universal property not proved (G.117)"
+   ],
+   "diff": [
+    "With Definition 10.3.1, (10.13) refines $d_{\\Psi \\circ \\Phi}$, not the reverse (Findings, Chapter 10, item 36)."
+   ]
+  },
+  {
+   "id": "V10.46",
+   "title": "Theorem 10.3.15 (2017: 10.6), the orbit space functor",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Theorem 10.3.15, p. 492 (2017: Theorem 10.6, p. 355)",
+    "page": 492,
+    "statement": "A functor $|\\cdot| : \\mathcal{EP}(E^{-1}) \\to \\mathrm{TOP}$, $X \\mapsto |X|$, $[d] \\mapsto |\\Phi| \\circ |F|^{-1}$."
+   },
+   "lean": {
+    "statement": "`orbitFunctor : EPLoc ⥤ TopCat` with these values.",
+    "decls": [
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.orbitFunctor",
+     "Chapter10/LocalizationCategory · EPLocalization.EPLoc.theorem_10_3_15"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "TOP is `TopCat`"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 35)."
+   ]
+  },
+  {
+   "id": "V10.47",
+   "title": "Proposition 10.3.17, (LUC) under generalized isomorphisms",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Proposition 10.3.17, p. 492 (new in the 2021 edition)",
+    "page": 492,
+    "statement": "If $f : X \\to Y$ is a generalized isomorphism and one of $X$, $Y$ has (LUC), so has the other."
+   },
+   "lean": {
+    "statement": "An equivalence of the two (LUC) properties, through a representative with both legs equivalences.",
+    "decls": [
+     "Chapter10/LocalizationProperties · EPLocalization.EPLoc.exists_diagram_of_isGeneralizedIso",
+     "Chapter10/LocalizationProperties · EPLocalization.EPLoc.iff_of_isGeneralizedIso",
+     "Chapter10/LocalizationProperties · EPLocalization.EPLoc.proposition_10_3_17"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "as an iff"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 38)."
+   ]
+  },
+  {
+   "id": "V10.48",
+   "title": "Remark 10.3.18 (2017: 10.3), equivalence of pairs $(X, \\beta)$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§10.3, Remark 10.3.18, pp. 492–493 (2017: Remark 10.3, p. 355)",
+    "page": 492,
+    "statement": "For metrizable $Z$, pairs $(X, \\beta)$ with $\\beta : |X| \\to Z$ a homeomorphism, equivalent through generalized isomorphisms $f$ with $\\beta' \\circ |f| = \\beta$; $f$ is in general not unique."
+   },
+   "lean": {
+    "statement": "`OrbitChart.Rel` is an equivalence relation; a witness with the pair groupoid of $\\mathbb Z$.",
+    "decls": [
+     "Chapter10/LocalizationProperties · EPLocalization.OrbitChart",
+     "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.Rel",
+     "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.Rel.refl",
+     "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.Rel.symm",
+     "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.Rel.trans",
+     "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.setoid",
+     "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.rel_pairEP_pointEP"
+    ]
+   },
+   "chips": [
+    "non-uniqueness not formalized (G.119)",
+    "metrizability not used"
+   ],
+   "diff": [
+    "None beyond the gap (Findings, Chapter 10, item 39)."
+   ]
+  },
+  {
+   "id": "V10.49",
+   "title": "Definition 10.3.20, $\\mathcal{EP}_{reg}$ and $\\mathcal{EP}_{reg}(E^{-1})$",
+   "verdict": "same",
+   "book": {
+    "label": "§10.3, Definition 10.3.20, p. 494 (new in the 2021 edition)",
+    "page": 494,
+    "statement": "The full subcategories of $\\mathcal{EP}$ and $\\mathcal{EP}(E^{-1})$ on the ep-groupoids with (LR)."
+   },
+   "lean": {
+    "statement": "`EPreg`, `EPLocReg` as Mathlib full subcategories; the point is an object of both.",
+    "decls": [
+     "Chapter10/LocalizationProperties · EPLocalization.EPreg",
+     "Chapter10/LocalizationProperties · EPLocalization.EPLocReg",
+     "Chapter10/LocalizationProperties · EPLocalization.Examples.pointReg",
+     "Chapter10/LocalizationProperties · EPLocalization.Examples.pointLocReg"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "witness: the point"
+   ],
+   "diff": [
+    "None (Findings, Chapter 10, item 39)."
+   ]
+  },
+  {
+   "id": "V10.50",
+   "title": "Theorem 10.3.21, invariance under generalized isomorphisms",
+   "verdict": "narrower",
+   "book": {
+    "label": "§10.3, Theorem 10.3.21, p. 495 (new in the 2021 edition)",
+    "page": 495,
+    "statement": "If one of $X$, $Y$ has (LR), (LUC), (SLR), (SLUC) or (ZHOU), so has the other."
+   },
+   "lean": {
+    "statement": "For (LUC), (SLUC) and (ZHOU), as equivalences.",
+    "decls": [
+     "Chapter10/LocalizationProperties · EPLocalization.EPLoc.theorem_10_3_21"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(LR), (SLR) not formalized (G.118)"
+   ],
+   "diff": [
+    "The proof, left to the reader, applies Propositions 10.1.16–10.1.18 (Findings, Chapter 10, item 38)."
+   ]
+  }
+ ],
+ "notFormalized": [
+  {
+   "g": 111,
+   "title": "the full subcategory $\\mathcal{EP}_{lreg}$",
+   "label": "§10.1, the subcategory $\\mathcal{EP}_{lreg}$, p. 461 (new in the 2021 edition)",
+   "page": 461,
+   "book": "The full subcategory of $\\mathcal{EP}$ generated by the ep-groupoids with the local regularity property (Definition 7.4.19).",
+   "instead": "**Not formalized**: (LR) is Chapter 7's `IsLR`; the subcategory is not built, and its stability under equivalences needs Proposition 10.1.9 (G.113) (Findings, Chapter 10, item 7)."
+  },
+  {
+   "g": 112,
+   "title": "Remark 10.1.8 and Appendix §10.6.3, a $\\beta$ with $|\\beta(y)| = |y|$ not given by the group",
+   "label": "§10.1, Remark 10.1.8, p. 467 (new in the 2021 edition), with Appendix §10.6.3, p. 519",
+   "page": 467,
+   "book": "An example, due to Zhou, of a translation groupoid and an sc-smooth map $\\beta$ with $|\\beta(y)| = |y|$ which is not locally of the form $y \\mapsto g * y$; it is built in the appendix on a weighted Sobolev sc-retract.",
+   "instead": "**Not formalized**: it needs the weighted Sobolev sc-structure and the sc-retraction of the appendix (Findings, Chapter 10, item 7)."
+  },
+  {
+   "g": 113,
+   "title": "Proposition 10.1.9, (LR) under equivalences",
+   "label": "§10.1, Proposition 10.1.9, p. 468 (new in the 2021 edition)",
+   "page": 468,
+   "book": "If $F : X \\to Y$ is an equivalence, $X$ has the local regularity property iff $Y$ has.",
+   "instead": "**Not formalized**: it needs natural representations transported along $F$ and a morphism $F(x) \\to y$, which the Chapter 7 API does not provide; it is a hypothesis of V10.16 (Findings, Chapter 10, item 7).",
+   "decls": [
+    "Chapter10/EquivalenceZhou · EP.isSLR_iff_of_isLR_iff"
+   ]
+  },
+  {
+   "g": 114,
+   "title": "Proposition 10.1.10, natural families $\\alpha_z : F(z) \\to G(z)$",
+   "label": "§10.1, Proposition 10.1.10, p. 470 (2017: Proposition 10.4, p. 340)",
+   "page": 470,
+   "book": "For equivalences $F, G : X \\to Y$ with $|F| = |G|$ and $X$ with (LR): (1) local sc-smooth families $\\alpha$ with $\\alpha(z) : F(z) \\to G(z)$; (2) $|TF| = |TG|$.",
+   "instead": "**Not formalized**: it assumes (LR) and uses Proposition 10.1.9 (G.113); the example of Remark 10.1.11 has the family of (1) (V10.8) (Findings, Chapter 10, items 7, 8).",
+   "decls": [
+    "Chapter10/EquivalenceExamples · EpGroupoid.Examples.remark_10_1_11_family"
+   ]
+  },
+  {
+   "g": 115,
+   "title": "Proposition 10.1.19 beyond the reduction to Proposition 10.1.9",
+   "label": "§10.1, Proposition 10.1.19, p. 477 (new in the 2021 edition)",
+   "page": 477,
+   "book": "If $F$ is an equivalence, $X$ satisfies (SLR) iff $Y$ does.",
+   "instead": "**Not formalized** unconditionally: the reduction to Proposition 10.1.9 for the lifts is proved (V10.16); the hypothesis is G.113 (Findings, Chapter 10, item 15).",
+   "decls": [
+    "Chapter10/EquivalenceZhou · EP.isSLR_iff_of_isLR_iff",
+    "Chapter10/EquivalenceZhou · EP.isLR_iff_lift_self"
+   ]
+  },
+  {
+   "g": 116,
+   "title": "Theorem 10.2.2: the structures induced from the triple products",
+   "label": "§10.2, Theorem 10.2.2, pp. 478–481 (2017: Theorem 10.2, pp. 343–346), the M-polyfold structures",
+   "page": 478,
+   "book": "The object and morphism sets of $X \\times_Y Z$ are sub-M-polyfolds of $X \\times \\mathbf Y \\times Z$ and $\\mathbf X \\times \\mathbf Y \\times \\mathbf Z$.",
+   "instead": "**Not formalized**: the structures are the iterated sub-M-polyfold structures of Part I's fibred products (V10.18); their agreement with structures induced from the triple products is not proved, and nothing uses it (Findings, Chapter 10, item 21).",
+   "decls": [
+    "Chapter10/WeakFibredProduct · WeakFibredProduct.PObj",
+    "Chapter10/WeakFibredProduct · WeakFibredProduct.PMor"
+   ]
+  },
+  {
+   "g": 117,
+   "title": "the universal property of the localization",
+   "label": "§10.3, the universal property of $i : \\mathcal{EP} \\to \\mathcal{EP}(E^{-1})$, p. 483",
+   "page": 483,
+   "book": "The localization at $E$ inverts the equivalences, universally among functors that do.",
+   "instead": "**Not formalized**: only the inversion is proved (V10.45); the universal property would need that a functor inverting $E$ identifies naturally equivalent sc-smooth functors, through a cylinder ep-groupoid not available here (Findings, Chapter 10, item 36).",
+   "decls": [
+    "Chapter10/LocalizationCategory · EPLocalization.EPLoc.isInvertedBy_localizationFunctor"
+   ]
+  },
+  {
+   "g": 118,
+   "title": "Proposition 10.3.16 and the (LR), (SLR) parts of Theorem 10.3.21",
+   "label": "§10.3, Proposition 10.3.16, p. 492 (new in the 2021 edition), and Theorem 10.3.21, p. 495, the parts (LR) and (SLR)",
+   "page": 492,
+   "book": "(LR) and (SLR) are invariant under generalized isomorphisms.",
+   "instead": "**Not formalized**: they rest on Propositions 10.1.9 and 10.1.19 (G.113, G.115); `EPLoc.iff_of_isGeneralizedIso` reduces them to the case of equivalences, as the text does (Findings, Chapter 10, item 38).",
+   "decls": [
+    "Chapter10/LocalizationProperties · EPLocalization.EPLoc.iff_of_isGeneralizedIso"
+   ]
+  },
+  {
+   "g": 119,
+   "title": "Remark 10.3.18: generalized isomorphisms with $\\beta' \\circ |f| = \\beta$ are not unique",
+   "label": "§10.3, Remark 10.3.18, pp. 492–493 (2017: Remark 10.3, p. 355), the non-uniqueness of $f$",
+   "page": 493,
+   "book": "A generalized isomorphism $f$ with $\\beta' \\circ |f| = \\beta$ is in general not unique.",
+   "instead": "**Not formalized**: no pair of distinct generalized isomorphisms with the same orbit map is constructed (the example behind Remark 10.1.8 is G.112) (Findings, Chapter 10, item 39).",
+   "decls": [
+    "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.Rel"
+   ]
+  },
+  {
+   "g": 120,
+   "title": "Theorem 10.3.19, generalized isomorphisms are determined by their orbit maps under (LR)",
+   "label": "§10.3, Theorem 10.3.19, p. 493 (2017: Theorem 10.7, p. 355)",
+   "page": 493,
+   "book": "If one of $X$, $Y$ has (LR) and $f, f' : X \\to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$.",
+   "instead": "**Not formalized**: it rests on Propositions 10.1.10 and 10.3.16 (G.114, G.118) (Findings, Chapter 10, item 39)."
+  },
+  {
+   "g": 121,
+   "title": "Theorem 10.4.5, the Fred part",
+   "label": "§10.4, Theorem 10.4.5, p. 501 (2017: Theorem 10.8, p. 362), the sc-Fredholm section functors",
+   "page": 501,
+   "book": "$\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors.",
+   "instead": "**Not formalized**: it needs the invariance of sc-Fredholm sections under local strong bundle isomorphisms, of which Part I has chart-level germ statements only; the rest of the theorem is V10.27 (Findings, Chapter 10, item 44).",
+   "decls": [
+    "Chapter10/StrongBundleEquivalence · EpStrongBundle.theorem_10_4_5"
+   ]
+  },
+  {
+   "g": 122,
+   "title": "Propositions 10.4.6 and 10.4.7, (LR) and natural families for strong bundles",
+   "label": "§10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition), and Proposition 10.4.7, pp. 501–502 (new in the 2021 edition)",
+   "page": 501,
+   "book": "The local regularity property of strong bundles is invariant under strong bundle equivalences (proof left to the reader), and the strong bundle version of Proposition 10.1.10.",
+   "instead": "**Not formalized**: the ep-groupoid versions are G.113 and G.114 (Findings, Chapter 10, item 45)."
+  }
+ ]
+}

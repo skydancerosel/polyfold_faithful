@@ -2,7 +2,7 @@ import Polyfold.Chapter10.StrongBundleEquivalence
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
-Part II, Chapter 10, §10.4 "Strong Bundles and Equivalences" (pp. 502–503; 2017: pp. 362–363):
+Part II, Chapter 10, §10.4 "Strong Bundles and Equivalences" (pp. 502–503; 2017: pp. 362–364):
 **Definition 10.4.8, Remark 10.4.9, Definitions 10.4.10, 10.4.11** (2017: Definition 10.11,
 Remark 10.4, Definitions 10.12, 10.13).  Numbers and pages are the 2021 text's, the 2017 ones in
 parentheses.  Definition 10.4.1 and the results 10.4.2–10.4.5 are in

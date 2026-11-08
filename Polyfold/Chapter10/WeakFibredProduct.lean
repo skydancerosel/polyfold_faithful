@@ -153,7 +153,7 @@ variable {X : Type u} {Y : Type v} {Z : Type w} [TopologicalSpace X] [T2Space X]
   (hA : (P.prod Q).IsSubMPolyfold (MPolyfold.fibredProduct f g))
 
 /-- For a local sc-diffeomorphism `f`, the projection `X ₓ×_g Y → Y` is a local
-sc-diffeomorphism (the proof of Proposition 2.46). -/
+sc-diffeomorphism (the proof of Proposition 2.5.20; preprint 2.46). -/
 theorem MPolyfold.isLocalScDiffeo_snd_fibredProduct (hf : P.IsLocalScDiffeo S f)
     (hg : Q.IsScSmoothMap S g) :
     (MPolyfold.subPolyfold hA).IsLocalScDiffeo Q fun a : MPolyfold.fibredProduct f g => a.1.2 :=

@@ -275,7 +275,7 @@ theorem continuous_orbitMap (F : EpFunctor X Y) : Continuous F.orbitMap :=
   X.proposition_7_1_isOpenQuotientMap.isQuotientMap.continuous_iff.2
     (Y.continuous_π.comp F.continuous_obj')
 
-/-- If `F` is open on objects, `|F|` is open (`π` is open, Proposition 7.1.? of the text,
+/-- If `F` is open on objects, `|F|` is open (`π` is open, Proposition 7.1.8 of the text,
 `proposition_7_1`). -/
 theorem isOpenMap_orbitMap (F : EpFunctor X Y) (h : IsOpenMap F.obj) :
     IsOpenMap F.orbitMap := by

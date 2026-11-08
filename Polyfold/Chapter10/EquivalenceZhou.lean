@@ -33,8 +33,8 @@ lifts `Fⁱ` and Proposition 10.1.9 ((LR) along equivalences).
 
 * (ZHOU) is the existing `EpGroupoid.IsZhou`, with `Tg` Chapter 7's `tangentMor`; the proof
   uses `Tψ⁻¹ ∘ Tk ∘ Tψ = T(ψ⁻¹ ∘ k ∘ ψ)` (`tangentMor_comp`) and the bijectivity of `TF` on the
-  tangent fibres instead of natural representations.  The text writes `G⁰_y` and `U(F(y))` for
-  `G_y` and `U(F(x))` (possible misprints).
+  tangent fibres instead of natural representations.  In (b) of the proof the text writes `U(F(y))`
+  for `U(F(x))` (possible misprint).
 -/
 
 set_option maxSynthPendingDepth 3

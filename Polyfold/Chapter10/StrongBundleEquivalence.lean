@@ -4,7 +4,7 @@ import Polyfold.Chapter8.NonVacuityBundle
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 10, "Equivalences and Localization", §10.4 "Strong Bundles and Equivalences"
-(pp. 495–503; 2017: pp. 357–363): **Definition 10.4.1, Propositions 10.4.2, 10.4.3, 10.4.4,
+(pp. 495–503; 2017: pp. 357–364): **Definition 10.4.1, Propositions 10.4.2, 10.4.3, 10.4.4,
 Theorem 10.4.5** (2017: Definition 10.10, Propositions 10.7, 10.8, 10.9, Theorem 10.8).  Numbers
 and pages are the 2021 text's, the 2017 ones in parentheses.  Remark 10.4.9 and Definitions
 10.4.8, 10.4.10, 10.4.11 are in `StrongBundleEquivalenceNat.lean`, the concrete witnesses in
