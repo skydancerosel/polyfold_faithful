@@ -226,6 +226,12 @@ import Polyfold.Chapter2.TameBoundary
 import Polyfold.Chapter2.TameBoundaryTopology
 import Polyfold.Chapter5.Book2021
 import Polyfold.Chapter6.Book2021
+import Polyfold.Chapter3.Book2021Germs
+import Polyfold.Chapter3.Book2021Items
+import Polyfold.Chapter1.Book2021
+import Polyfold.Chapter2.Book2021
+import Polyfold.Chapter4.Book2021
+import Polyfold.Chapter4.VectorFields
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
