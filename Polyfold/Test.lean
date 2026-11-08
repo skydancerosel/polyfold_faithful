@@ -7495,4 +7495,46 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TrivialBundle.graphSection_mem_sectionFunctors_epBundle
 #print axioms Polyfold.TrivialBundle.graphSection_mem_fredholmSectionFunctors_epBundle
 
+/-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), wave W0: basic definitions -/
+
+-- Chapter9/Basic.lean
+#print axioms Polyfold.EpGroupoid.IsFunctorial
+#print axioms Polyfold.EpGroupoid.supp
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.U
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isOpen_U
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.mem_U
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.ι
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.fintype
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.M
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.subset_U
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isSmoothSubmanifold
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.mem_M
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isProperMap
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.σ
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.σ_pos
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.eq_sum
+#print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid
+#print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.nonneg
+#print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.isFunctorial
+#print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.support_subset
+#print axioms Polyfold.EpGroupoid.IsBranchedEpSubgroupoid.localBranching
+#print axioms Polyfold.EpGroupoid.orbitSupp
+#print axioms Polyfold.EpGroupoid.IsClosedBranched
+#print axioms Polyfold.EpGroupoid.IsCompactBranched
+#print axioms Polyfold.EpGroupoid.IsOrbifoldType
+#print axioms Polyfold.EpGroupoid.IsManifoldType
+#print axioms Polyfold.EpGroupoid.preimage_π_orbitSupp
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.mem_supp_iff
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isClosed_preimage_val_supp
+#print axioms Polyfold.EpGroupoid.isLocallyClosed_supp
+#print axioms Polyfold.EpGroupoid.lemma_9_1
+#print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_zero
+#print axioms Polyfold.rnPolyfold_isSmoothSubmanifold_singleton
+#print axioms Polyfold.EpGroupoid.localBranchingStructure_indicator
+#print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_indicator
+#print axioms Polyfold.EpGroupoid.supp_indicator_singleton
+#print axioms Polyfold.EpGroupoid.isCompactBranched_indicator
+#print axioms Polyfold.EpGroupoid.isManifoldType_indicator
+
 end Polyfold

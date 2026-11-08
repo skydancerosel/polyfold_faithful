@@ -361,9 +361,12 @@ each chapter lands)
     `TangentTame.lean`; `FullOb`, `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`,
     `IsFullyFaithfulOpenEmbedding` could move to `Chapter8/Basic.lean`).
 13. **Part II, Chapter 9** (Branched Ep⁺-Subgroupoids, pp. 291–331) — started 2026-11-08: plan in
-    `PLAN.md` §II.10 (inventory, decisions P10.1–P10.4, waves W0–W4). Wave W0 (`Chapter9/Basic.lean`:
-    Definitions 9.1–9.3, witnesses, Lemmas 9.1–9.2) begun at 93% of the weekly budget; whatever
-    compiles is committed, the rest is listed here. **Next: finish W0, then decide P10.4 (forms,
+    `PLAN.md` §II.10 (inventory, decisions P10.1–P10.4, waves W0–W4). Wave W0 done 2026-11-08 (`Chapter9/Basic.lean`,
+    325 lines, 38 `#print axioms` lines, 6,799 in all): Definition 9.1 (`IsBranchedEpSubgroupoid`,
+    `LocalBranchingStructure`), Definitions 9.2–9.3, Lemma 9.1 (`lemma_9_1`, by a shorter route than
+    the text), witnesses (`Θ = 0`, the indicator of a point of `ℝⁿ`). Not yet: dimension (`n`-dimensional,
+    locally equidimensional; Part I has no rank for tangent spaces, G.7), Lemma 9.2 and the restriction
+    remark (in progress: `Chapter9/Symmetric.lean`), Remark 9.2 (b), Proposition 9.1. **Next: finish W0, then decide P10.4 (forms,
     measures, Stokes) before §9.4–§9.5.** After Chapter 9, the user's order (2026-11-08): Chapter 10
     (Equivalences and Localization, p. 333) if budget remains.
 
