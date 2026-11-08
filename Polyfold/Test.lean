@@ -9731,5 +9731,46 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.boundaryLift
 #print axioms Polyfold.EpGroupoid.proposition_9_3_9
 -- Chapter9/Orientation.lean
+-- Chapter9/OrientationRn.lean
+#print axioms Polyfold.EpGroupoid.isOrientation_sum_trivial_rn
+#print axioms Polyfold.EpGroupoid.isOrientation_sum_trivial_rn'
+#print axioms Polyfold.EpGroupoid.isOrientationOfDim_sum_trivial_rn
+#print axioms Polyfold.EpGroupoid.orientedSection_comp_grForgetFunctor_obj_rn
+#print axioms Polyfold.orientedLift1_isOrientation_rn
+#print axioms Polyfold.orientedLift2_isOrientation_rn
+#print axioms Polyfold.orientedLift1_isOrientationOfDim_rn
+#print axioms Polyfold.orientedLift2_isOrientationOfDim_rn
+#print axioms Polyfold.example_9_3_5_rn
+#print axioms Polyfold.lemma_9_3_4_mixed_dim_rn
+#print axioms Polyfold.MPolyfold.chartVec_eq_tangentChartMap_snd
+#print axioms Polyfold.MPolyfold.chartVec_image_eq_chartTangent
+#print axioms Polyfold.MPolyfold.injOn_chartVec_iff
+#print axioms Polyfold.frameDet
+#print axioms Polyfold.frameDet_eq
+#print axioms Polyfold.ContinuousOn.frameDet
+#print axioms Polyfold.orientation_eq_iff_det_pos_iff
+#print axioms Polyfold.orientation_eq_iff_frameDet
+#print axioms Polyfold.MPolyfold.frames_eq_iff_frameDet
+#print axioms Polyfold.MPolyfold.continuousOn_chartVec_of_continuousOn
+#print axioms Polyfold.MPolyfold.frameDet_ne_zero_of_basis
+#print axioms Polyfold.MPolyfold.HasContinuousLevelOneOn
+#print axioms Polyfold.MPolyfold.exists_isOpen_sign_eq
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.tangent_eq_iff
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.exists_isOpen_tangent_eq_iff
+#print axioms Polyfold.hasContinuousLevelOneOn_rn
+#print axioms Polyfold.norm_le_two_mul_of_approx
+#print axioms Polyfold.MPolyfold.IsGraphBallAt
+#print axioms Polyfold.MPolyfold.IsGraphBallAt.approx
+#print axioms Polyfold.MPolyfold.IsGraphBallAt.ball
+#print axioms Polyfold.MPolyfold.HasGraphBallAt
+#print axioms Polyfold.MPolyfold.IsGraphBallAt.isGraphChartAt
+#print axioms Polyfold.MPolyfold.HasGraphBallAt.hasGraphChartsAt
+#print axioms Polyfold.isGraphBallAt_rn
+#print axioms Polyfold.hasGraphBallAt_rn
+#print axioms Polyfold.MPolyfold.hasOrientedGoodPointsAt_of_hasGraphBallAt
+#print axioms Polyfold.hasOrientedGoodPointsAt_rn
+#print axioms Polyfold.EpGroupoid.lemma_9_3_4_of_hasGraphBallAt
+#print axioms Polyfold.EpGroupoid.lemma_9_3_4_rn
+#print axioms Polyfold.exists_goodSet_exampleT1_ne_exampleT2
 
 end Polyfold

@@ -270,3 +270,4 @@ import Polyfold.Chapter9.OrientationExample
 import Polyfold.Chapter9.OrientationUniqueness
 import Polyfold.Chapter9.OrientationBoundary
 import Polyfold.Chapter9.Orientation
+import Polyfold.Chapter9.OrientationRn
