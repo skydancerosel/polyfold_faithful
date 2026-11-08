@@ -46,12 +46,17 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
      "sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation "
      "of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology "
      "of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets", ["Chapter7"]),
+    ("08", "Part II, Ch. 8, §§8.1–8.5 (2017 numbering)", "bundles and covering functors: the tangent ep-groupoid "
+     "and the tangent functor, natural transformations, the orbit space of the tangent, strong bundles over "
+     "ep-groupoids and their functorial picture, strong bundle maps and section functors, proper covering "
+     "functors, their local structure and geometric lifts, proper strong bundle covering functors, the counting "
+     "of the fibres", ["Chapter8"]),
 ]
 # ------------------------------------------------------------------------------------------------
 
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I, and of Chapter 7 of Part II, of H. Hofer, K. Wysocki and
+*A companion to the expanded exposition of Part I, and of Chapters 7 and 8 of Part II, of H. Hofer, K. Wysocki and
 E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021; for Part I the 2014 preprint arXiv 1407.3185 is the
 text in hand, and its numbering and pages are used, marked as such; the numbers and pages of the book's arXiv
 version, 1707.08941, are in `Exposition/BookConcordance.md`. Part II has no preprint: for it the 2017 arXiv

@@ -188,7 +188,7 @@
    },
    "chips": [
     "$|X_\\infty|$ not stated: gap G.72",
-    "density of $X_\\infty$ not formalized: gap G.73"
+    "density of $X_\\infty$: gap G.73"
    ],
    "diff": [
     "The set $|X_\\infty|$ and the identity $|X_\\infty| = \\bigcap_k |X_k|$ are not stated (gap G.72); they are immediate, as $ml$ is constant on classes. The density of $X_\\infty$ in every $X_k$, which the text states without proof, is not formalized; Part I proves it only for sc-Banach spaces, not for M-polyfolds (gap G.73) (Findings, Chapter 7, items 112, 116).",
@@ -1139,7 +1139,7 @@
    },
    "chips": [
     "added: $\\mathbf X^R$ Hausdorff, paracompact",
-    "$\\mathbf X^R$ not Hausdorff in general: counterexample",
+    "$\\mathbf X^R$ need not be Hausdorff",
     "charts, transitions: no hypotheses",
     "gap G.71"
    ],
@@ -1911,10 +1911,13 @@
    "label": "§7.1, Definition 7.4 and the paragraph before it, p. 227",
    "page": 227,
    "book": "For a smooth morphism $\\varphi$, i.e. $\\varphi \\in \\mathbf X_\\infty$, there is an associated sc-isomorphism $T\\varphi : T_{s(\\varphi)}X \\to T_{t(\\varphi)}X$ defined by $T\\varphi := T\\hat\\varphi(x)$; $T\\varphi$ can be defined for $\\varphi$ on level at least $1$ and gives a bounded linear isomorphism on level $0$, and only for smooth $\\varphi$ is $T\\varphi$ an sc-operator. Definition 7.4 associates with a smooth morphism $\\varphi$ the local sc-diffeomorphism $\\hat\\varphi$ and its tangent $T\\varphi$.",
-   "instead": "**Not formalized** beyond the definition: `tangentMor` defines $T\\varphi$ (V7.5), but that it is well defined, equal to $T\\hat\\varphi(s(\\varphi))$, bijective, a bounded linear isomorphism on level $0$ for $\\varphi \\in \\mathbf X_1$ and an sc-operator for smooth $\\varphi$ is not formalized; the linearity needs the linear structure of the tangent spaces, which the project does not have (gap G.7). Not used in Chapter 7; deferred to Chapter 8 (Findings, Chapter 7, items 5, 110).",
+   "instead": "**Not formalized** beyond the definition: `tangentMor` defines $T\\varphi$ (V7.5), but that it is well defined, equal to $T\\hat\\varphi(s(\\varphi))$, bijective, a bounded linear isomorphism on level $0$ for $\\varphi \\in \\mathbf X_1$ and an sc-operator for smooth $\\varphi$ is not formalized; the linearity needs the linear structure of the tangent spaces, which the project does not have (gap G.7). Not used in Chapter 7; deferred to Chapter 8 (Findings, Chapter 7, items 5, 110). Since 2026-11-07 (Chapter 8): well defined, $T\\varphi(Ts(h)) = Tt(h)$ for every $h \\in T_\\varphi\\mathbf X$ (`tangentMor_tSrc`), and functorial, $T(\\psi \\circ \\varphi) = T\\psi \\circ T\\varphi$ for $\\varphi \\in \\mathbf X_1$ (`tangentMor_comp`), with the description of $T\\mathbf X$ by the pairs $(T\\varphi, a)$ of Remark 8.1 (`remark_8_1`); the bijectivity and linearity of $T\\varphi$, $T\\varphi = T\\hat\\varphi(s(\\varphi))$ and the sc-operator property remain not formalized (V8.12; Findings, Chapter 8, item 112).",
    "decls": [
     "Chapter7/EpGroupoid · EpGroupoid.tangentMor",
-    "Chapter7/EpGroupoid · EpGroupoid.hat"
+    "Chapter7/EpGroupoid · EpGroupoid.hat",
+    "Chapter8/TangentEp · EpGroupoid.tangentMor_tSrc",
+    "Chapter8/TangentEp · EpGroupoid.tangentMor_comp",
+    "Chapter8/TangentEp · EpGroupoid.remark_8_1"
    ]
   },
   {

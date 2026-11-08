@@ -2,7 +2,7 @@ import Polyfold.Chapter8.TangentEp
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8, §8.1: **Lemma 8.8** (p. 263) and the tameness clauses of **Theorem 8.1** (p. 259) and
+Chapter 8, §8.1: **Lemma 8.8** (p. 263) and the tameness clauses of **Theorem 8.1** (p. 258) and
 **Theorem 8.3** (p. 266).  There is no 2014 preprint of Part II; numbers and pages are the 2017
 text's.  Part I items carry their 2017 numbers, with the preprint number of the Lean name in
 brackets: Definition 2.3 [2.5] (the tangent `(TO, TC, TE)` of a retract, `LocalModel.tangent`,

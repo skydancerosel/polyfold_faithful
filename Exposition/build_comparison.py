@@ -30,7 +30,7 @@ BOOK_KEY = 'book'                          # the JSON key of the left column
 LEGACY_KEYS = ('milnor',)                  # older names of that key, accepted on load
 TITLE = 'Polyfold Theory beside Lean'
 H1 = 'Polyfold Theory <em>beside</em> Lean'
-EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapter 7 · the statements compared'
+EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapters 7 and 8 · the statements compared'
 DEK = ('Every result of the book beside the statement the machine actually checked. The left column is '
        'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the 2014 preprint '
        '(arXiv 1407.3185); the corresponding numbers and pages of the book’s arXiv version (1707.08941) '
@@ -44,7 +44,7 @@ OUT_MD = 'Comparison.md'
 FOOT = ('Left column: H. Hofer, K. Wysocki, E. Zehnder, <em>Polyfold and Fredholm Theory</em>, Part I '
         '(Springer 2021; here the 2014 preprint arXiv 1407.3185), paraphrased, with the preprint’s page '
         'numbers; for the numbers and pages of the book’s arXiv version (1707.08941) see '
-        'Exposition/BookConcordance.md (the Springer edition is not checked); Part II (Chapter 7) has no preprint, and '
+        'Exposition/BookConcordance.md (the Springer edition is not checked); Part II (Chapters 7 and 8) has no preprint, and '
         'its numbers and pages are those of arXiv 1707.08941. Right column: the statements proved in Lean 4 '
         'against Mathlib in Polyfold/*.lean, checked by Lean’s kernel, depending only on propext, '
         'Classical.choice and Quot.sound. Every declaration named here was resolved mechanically in the '
@@ -67,6 +67,11 @@ CHAPTERS = [
            'preprint; numbers and pages are those of arXiv 1707.08941): ep-groupoids, natural representations of the '
            'isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of '
            'the orbit space, index lifting, paracompact orbit spaces, proper subsets, sc-smooth partitions of unity'),
+    ('V8', 'Part II, Chapter 8', 'HWZ Part II, Chapter 8 §§8.1–8.5, 2017 text pp. 257–289 (Part II has no 2014 '
+           'preprint; numbers and pages are those of arXiv 1707.08941): the tangent of an ep-groupoid and the tangent '
+           'functor, sc-differential forms (not formalized), strong bundles over ep-groupoids and their sections, '
+           'proper covering functors, covering functors of finite groupoids and geometric lifts, proper strong bundle '
+           'coverings'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

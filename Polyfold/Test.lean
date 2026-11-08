@@ -7463,6 +7463,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.CoveringExamples.reflectionHom
 #print axioms Polyfold.CoveringExamples.reflectionLift
 #print axioms Polyfold.CoveringExamples.isProperCovering_reflectionLift
+#print axioms Polyfold.CoveringExamples.reflectionψ₀
+#print axioms Polyfold.CoveringExamples.reflectionψ₀_mem_morOn
+#print axioms Polyfold.CoveringExamples.theorem_8_5_five_as_printed
+#print axioms Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous
 
 -- Chapter8/NonVacuityBundle.lean
 #print axioms Polyfold.pullbackMap

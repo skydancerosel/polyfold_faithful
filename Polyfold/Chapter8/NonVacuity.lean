@@ -1,10 +1,12 @@
 import Polyfold.Chapter8.GeometricLift
+import Polyfold.Chapter8.NonVacuityBundle
 import Polyfold.Chapter7.NonVacuity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8: **witnesses** for the hypotheses of §8.6 (Definitions 8.8–8.9, Proposition 8.3,
-pp. 275–281).  There is no 2014 preprint of Part II; numbers and pages are the 2017 text's.
+Chapter 8: **witnesses** for the hypotheses of §8.4 (Definitions 8.8–8.9, Proposition 8.3,
+pp. 275–281) and a counterexample to Theorem 8.5 (5) as printed (p. 277).  There is no 2014
+preprint of Part II; numbers and pages are the 2017 text's.
 
 # Non-vacuity: covering functors and geometric lifts
 
@@ -26,6 +28,13 @@ proper covering functor (Definition 8.8).
   `L_C(⋆) = ℝ` and `ℤ/2 = ℤˣ` acting by reflection, `L_D = L_C`, `τ = 1`.
 * `isProperCovering_reflectionLift`: Proposition 8.3 applied to it, a proper covering functor
   (Definition 8.8) onto the translation groupoid `ℤ/2 ⋉ ℝ`.
+
+* **Theorem 8.5 (5) as printed** (p. 277, right arrow `t`): `theorem_8_5_five_as_printed`, for
+  the identity functor of `ℤ/2 ⋉ ℝ` (`reflectionEpGroupoid`, a proper covering functor by
+  `EpFunctor.isProperCovering_id`) and every chart of Theorem 8.5 at `x = 0`, the sheet `𝐔(ψ₀)` of
+  `ψ₀ = (−1, 0)` contains `ψ = (−1, y)` with `F(s(ψ)) = y ≠ −y = t(F(ψ))`; such charts exist
+  (`theorem_8_5_five_as_printed_nonvacuous`).  So (5) with `t` does not hold as we read it; the
+  formalized (5) has `s` on both arrows (`ProperCoveringChart.comm_src`), a possible misprint.
 
 ## Elsewhere
 
@@ -114,5 +123,57 @@ theorem isProperCovering_reflectionLift :
   proposition_8_3 (isCoveringFunctor_id ℤˣ) reflectionLift
 
 end Reflection
+
+/-! ### Theorem 8.5 (5) as printed -/
+
+section Theorem85
+
+/-- The morphism `ψ₀ = (−1, 0) : 0 → 0` of `ℤ/2 ⋉ ℝ`. -/
+def reflectionψ₀ : ℤˣ × (Fin 1 → ℝ) := (-1, 0)
+
+theorem reflectionψ₀_mem_morOn :
+    reflectionψ₀ ∈
+      reflectionEpGroupoid.morOn ((EpFunctor.id reflectionEpGroupoid).obj ⁻¹' {0}) := by
+  refine ⟨?_, ?_⟩
+  · rfl
+  · change ((-1 : ℤˣ) • (0 : Fin 1 → ℝ)) = 0
+    exact smul_zero _
+
+/-- **Theorem 8.5 (5) as printed (right arrow `t`) does not hold as we read it**: for the
+identity functor of `ℤ/2 ⋉ ℝ` (a proper covering functor) and every chart of Theorem 8.5 at
+`x = 0`, the sheet `𝐔(ψ₀)` of `ψ₀ = (−1, 0)` contains a `ψ` with `F(s(ψ)) ≠ t(F(ψ))`. -/
+theorem theorem_8_5_five_as_printed
+    (C : (EpFunctor.id reflectionEpGroupoid).ProperCoveringChart 0) :
+    ∃ ψ ∈ C.sheet reflectionψ₀,
+      (EpFunctor.id reflectionEpGroupoid).obj (reflectionEpGroupoid.src ψ) ≠
+        reflectionEpGroupoid.tgt ((EpFunctor.id reflectionEpGroupoid).mor ψ) := by
+  have hm := reflectionψ₀_mem_morOn
+  have ho : IsOpen ((fun y : Fin 1 → ℝ => ((-1 : ℤˣ), y)) ⁻¹' C.sheet reflectionψ₀) :=
+    (C.isOpen_sheet _ hm).preimage (continuous_const.prodMk continuous_id)
+  have h0 : (0 : Fin 1 → ℝ) ∈ (fun y : Fin 1 → ℝ => ((-1 : ℤˣ), y)) ⁻¹' C.sheet reflectionψ₀ :=
+    C.mem_sheet _ hm
+  obtain ⟨ε, hε, hball⟩ := Metric.isOpen_iff.mp ho 0 h0
+  set y : Fin 1 → ℝ := fun _ => ε / 2 with hy
+  have hyb : y ∈ Metric.ball (0 : Fin 1 → ℝ) ε := by
+    rw [Metric.mem_ball, dist_zero_right, pi_norm_const, Real.norm_eq_abs,
+      abs_of_pos (half_pos hε)]
+    exact half_lt_self hε
+  refine ⟨((-1 : ℤˣ), y), hball hyb, ?_⟩
+  change y ≠ (-1 : ℤˣ) • y
+  rw [units_smul_rn_neg_one]
+  intro h
+  have h1 := congrFun h 0
+  simp only [hy, Pi.neg_apply] at h1
+  linarith
+
+/-- The charts of `theorem_8_5_five_as_printed` exist (Theorem 8.5 applied to the proper
+covering functor `𝟭`), so the statement is not vacuous. -/
+theorem theorem_8_5_five_as_printed_nonvacuous :
+    Nonempty ((EpFunctor.id reflectionEpGroupoid).ProperCoveringChart 0) :=
+  let ⟨C, _⟩ := EpFunctor.theorem_8_5
+    (EpFunctor.isProperCovering_id (X := reflectionEpGroupoid)) 0 isOpen_univ (mem_univ _)
+  ⟨C⟩
+
+end Theorem85
 
 end Polyfold.CoveringExamples

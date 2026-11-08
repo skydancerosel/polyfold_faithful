@@ -79,8 +79,9 @@ do not call the text wrong or speak of its "errors".
   `cmp/ch01–ch06.json`, `pbp/part01–part06.md`; outputs
   `polyfold-beside-lean.html`, `Verification.md/.pdf`, `ProofByProof.md/.pdf`,
   `polyfold-proof-by-proof.html`, `polyfold-signoff.html`). V-items V1.1–V1.39, V2.1–V2.64,
-  V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64, and V7.1–V7.68 for Part II's Chapter 7 (below);
-  **469 sign-off items** (401 for Part I, 68 for Chapter 7); gaps G.1–G.73 (G.70–G.73 for Chapter 7);
+  V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64, and V7.1–V7.68, V8.1–V8.43 for Part II's Chapters 7 and 8 (below);
+  **512 sign-off items** (401 for Part I, 68 for Chapter 7, 43 for Chapter 8); gaps G.1–G.75 (G.70–G.73
+  for Chapter 7, G.74–G.75 for Chapter 8);
   3,741 trace tags (3,127 distinct declarations; 2026-11-02, Chapters 1–5). The user started
   hand-checking on 2026-10-26 from copies in `Exposition/review-2026-10-26/` (untracked); the
   sign-off page keeps ticks in browser
@@ -172,14 +173,18 @@ do not call the text wrong or speak of its "errors".
   8.8, Theorem 8.5, Remark 8.2, Lemmas 8.9–8.11, Propositions 8.2, 8.4, `ProperCovering*.lean`),
   covering functors and geometric lifts (Definition 8.9, Proposition 8.3, Theorem 8.6,
   `GeometricLift.lean`), witnesses (`NonVacuity.lean`, `NonVacuityBundle.lean`). Not formalized:
-  Definitions 8.2–8.3 (sc-forms, sc-de Rham; with G.37–G.40). **Next: the Chapter 8 reports**
-  (V8.*, `verification/ch08.md`, Findings "## Chapter 8", exposition, concordance); reading choices
-  and possible misprints are in the module docstrings.
-* **Lean counts** (2026-11-08): 6,757 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
-  1,204 for Chapter 6, 989 for Chapter 7, 826 for Chapter 8), all on `propext, Classical.choice,
-  Quot.sound`; no `sorry`, no `axiom`; 239 Lean files and 151,225 lines under `Polyfold/` (`wc -l`,
+  Definitions 8.2–8.3 (sc-forms, sc-de Rham; G.74) and Lemma 8.1 as printed (G.75). Reports done
+  2026-11-08: V8.1–V8.43 (`verification/ch08.md`), Findings "## Chapter 8" (items 1–114, numbered in
+  blocks), `Exposition/Chapter8.md`, `cmp/ch08.json`, `pbp/part08.md`, the Chapter 8 table of
+  `BookConcordance.md`; G.70 now partly formalized (`tangentMor_tSrc`, `tangentMor_comp`). Theorem
+  8.5 (5) as printed does not hold as we read it (counterexample
+  `CoveringExamples.theorem_8_5_five_as_printed`; Findings Ch. 8 item 54). Not done: the round-trip
+  audit of Chapter 8.
+* **Lean counts** (2026-11-08): 6,761 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
+  1,204 for Chapter 6, 989 for Chapter 7, 830 for Chapter 8), all on `propext, Classical.choice,
+  Quot.sound`; no `sorry`, no `axiom`; 239 Lean files and 151,290 lines under `Polyfold/` (`wc -l`,
   without `WIP_` files), of which 36 files and 20,793 lines in `Chapter6/`, 21 files and 12,046
-  lines in `Chapter7/` and 14 files and 9,806 lines in `Chapter8/`.
+  lines in `Chapter7/` and 14 files and 9,867 lines in `Chapter8/`.
 * **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–7/` that agents could
   not delete (some duplicate declarations and would not compile; delete them). The book's Springer
   PDF was not available: the *(book?)* marks are annotated against the arXiv version 1707.08941
@@ -349,7 +354,12 @@ each chapter lands)
 11. **Part II, Chapter 7** — Lean done 2026-11-07 (waves W0–W4 of the Part II plan in `PLAN.md`; state
     in §2). Wave W5 done: the reports and the round-trip audit (2026-11-07). Left for Chapter 7: the
     gaps G.70–G.73 (G.70 with Chapter 8; G.71 now only paracompactness, since `𝐗^R` need not be
-    Hausdorff). **Next: Chapter 8.**
+    Hausdorff).
+12. **Part II, Chapter 8** — Lean and reports done 2026-11-08 (`PLAN.md` §II.9; state in §2). Left:
+    the round-trip audit of Chapter 8, the gaps G.74–G.75, and small refactors (Lemma 7.4's quotient
+    metric and two `Lift.lean` helpers are repeated privately in `TangentOrbit.lean`,
+    `TangentTame.lean`; `FullOb`, `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`,
+    `IsFullyFaithfulOpenEmbedding` could move to `Chapter8/Basic.lean`). **Next: Chapter 9.**
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

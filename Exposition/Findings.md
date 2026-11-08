@@ -7734,3 +7734,622 @@ Not formalized (2026-11-07).
      density, and `A_to_B_of_density` (`RoundTrip/Items/V7_6.lean`) shows it is the only
      difference. Before the audit, item 112 and V7.6 said the density was Part I's; that was
      an oversight of this report, corrected here.
+
+## Chapter 8 (Bundles and covering functors; Lean `Polyfold/Chapter8/`)
+
+*Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so
+that agents working at the same time do not collide; the gaps in the numbering are unused numbers,
+not deleted items. 1–19: §8.1 up to Proposition 8.1, the tangent ep-groupoid, the tangent functor
+and natural transformations (Theorems 8.1–8.3, Lemmas 8.1–8.8, Remark 8.1, Definition 8.1,
+Proposition 8.1; `Chapter8/Basic.lean`, `TangentLocal.lean`, `TangentEp.lean`, `TangentTame.lean`,
+`NatTrans.lean`); 20–29: Theorem 8.4, the orbit space of the tangent (`TangentOrbit.lean`); 30–49:
+§8.3, strong bundles over ep-groupoids (Definitions 8.4–8.7; `StrongBundleMap.lean`,
+`EpStrongBundle.lean`); 50–69: §8.4 up to Theorem 8.6, proper covering functors and geometric lifts
+(Definitions 8.8, 8.9, Proposition 8.2, Theorem 8.5, Remark 8.2, Proposition 8.3, Theorem 8.6;
+`ProperCovering.lean`, `ProperCoveringLocal.lean`, `SigmaPolyfold.lean`, `GeometricLift.lean`);
+70–79: Definition 8.10 and Appendix 8.5 (Lemmas 8.9–8.11, Proposition 8.4, §8.5.2;
+`ProperCovering.lean`, `EpStrongBundle.lean`); 100–109: witnesses and the check of the hypotheses
+(`NonVacuity.lean`, `NonVacuityBundle.lean` and the witnesses of the other files); 110–119: not
+formalized, and the gaps of Part I and Chapter 7 taken up here. Part II has no 2014 preprint:
+statement numbers and pages are the 2017 text's (pp. 257–289); Part I results are cited by their
+2017 numbers. The comparison items are `Exposition/verification/ch08.md` (V8.1–V8.43).
+
+Found while formalizing §8.1 up to Proposition 8.1 (2026-11-07).
+
+1. **The tangent data; the composition (8.5) is defined by choice** *((8.1)–(8.9), pp. 257–258)*.
+   The objects and morphisms of `T(X, 𝐗)` are Part I's tangent M-polyfolds `TX`, `T𝐗`
+   (`MPolyfold.TangentSpace`); `s_T = Ts`, `t_T = Tt`, `u_T = Tu`, `ι_T = Tι` are `tSrc`, `tTgt`,
+   `tUnit`, `tInv`, and `p` is `tBase`. The composition is total, with the junk value `h` off
+   composable pairs, as Chapter 7's `GroupoidStr.comp`; on a composable pair, `Ts(k) = Tt(h)`, it is
+   chosen as a vector over `p(k) ∘ p(h)` with `Ts(k ∘ h) = Ts(h)` (`tComp`, `tComp_spec`,
+   `tBase_tComp`, `tSrc_tComp`). The choice is unique: `s` being a local sc-diffeomorphism, `Ts` is
+   injective on every fibre `T_φ𝐗` and maps it onto `T_{s(φ)}X` (`tangent_ext`, `exists_tSrc_eq`),
+   which is what the text's `Ts(ψ ∘ φ)⁻¹` in (8.5) uses; `tComp_eq` is (8.5) in this form. The units
+   are `Tu`, and (8.8), `u_T(a) = (1_x, Ts(1_x)⁻¹a)`, is `tUnit_eq`. (8.5) writes `T_{φ∘ψ}𝐗` for
+   `T_{ψ∘φ}𝐗` (possible misprint).
+
+2. **Universes** *(Theorems 8.1, 8.3, 8.6; the functorial picture, p. 271)*. Part I's `TangentSpace`
+   of `X : Type u` lives in `Type (max u 1)`; so do `TX`, `T𝐗` and `|TX|`, and the tangent functor
+   of Theorem 8.3 is `EP.{max u 1} ⥤ EP.{max u 1}` (`tangentFunctor`, `theorem_8_3`). An
+   `EpGroupoid` has its objects and morphisms in one universe, so from the functorial picture on,
+   the total space `W` of a strong bundle lives in the universe of the objects and morphisms of `X`
+   (item 33). Definition 8.9 takes `D` and `G` in `Type` and `Diff_sc` with the M-polyfolds of one
+   universe, so Theorem 8.6 is stated for ep-groupoids whose objects and morphisms are in `Type`
+   (item 60). These restrictions come from the formalization, not from the text.
+
+3. **Tangents of maps defined on open sets** *(used in (8.5), (8.8) and in the proofs of Lemmas 8.1,
+   8.2, 8.4, 8.6, 8.7, pp. 258–263)*. The proofs differentiate maps defined only on open sets, such
+   as `(s|U(ψ))⁻¹` and the map `α` of Lemma 8.2, while Part I defines `Tf` only for globally
+   sc-smooth `f`. `TU` for an open `U` is read as `p⁻¹(U)` (`tangentPreimage`,
+   `isOpen_tangentPreimage`), which is the tangent of the open sub-M-polyfold `U`
+   (`isScDiffeoOn_tangentMap_subtypeVal`, for `U ≠ ∅`). The tangent of a map sc-smooth on `U` is
+   built from the charts, as Part I builds `Tf` (`tangentMapOn`), with the chain rule
+   (`tangentMapOn_comp`), agreement with Part I's tangent for globally sc-smooth maps
+   (`tangentMapOn_eq_tangentMap`) and sc-smoothness (`tangentMapOn_isScSmoothOn`). The tangent of an
+   sc-diffeomorphism between open sets is one (`IsScDiffeoOn.tangentMap`), and the tangent of a
+   local sc-diffeomorphism is a local sc-diffeomorphism, bijective on the fibres and surjective if
+   the map is (`IsLocalScDiffeo.tangentMap`, `IsLocalScDiffeo.bijOn_tangentFiber`,
+   `IsLocalScDiffeo.surjective_tangentMap`); this is Lemma 8.6's "by construction". Off `p⁻¹(U)` the
+   tangent takes a junk value in `TY`, which is nonempty because a nonempty M-polyfold has points on
+   level `1` (`MPolyfold.exists_mem_levelSet_one`, `nonempty_tangentSpace`); the text needs none of
+   this. Not in the text (V8.2).
+
+4. **Fibre injectivity in place of differentiating identities** *(Lemmas 8.3–8.5, Theorem 8.2,
+   Proposition 8.1, pp. 260–268)*. Two vectors of `T𝐗` with the same base point and the same image
+   under `Ts` are equal (`tangent_ext`). Associativity (Lemma 8.3), the unit and inverse laws
+   (Lemmas 8.4, 8.5), the compatibility of `TΦ` with the composition (Theorem 8.2) and the
+   naturality of `Tτ` (Proposition 8.1) are proved this way: the base points are computed in `𝐗` and
+   the values of `Ts` by Part I's chain rule for `s ∘ u = id`, `s ∘ ι = t`, `s ∘ 𝚽 = Φ ∘ s` and `s ∘
+   τ = Φ`, instead of differentiating the identities as the text does. The only differentiation that
+   remains is `t_T(Ψ ∘ Φ) = t_T(Ψ)` in Lemma 8.2 (item 6). The statements are the text's.
+
+5. **Lemma 8.1 in the form its proof uses** *(Lemma 8.1, p. 259)*. The statement identifies `T(𝐗 ₛ×ₜ
+   𝐗)` with `T𝐗 _{Ts}×_{Tt} T𝐗` and the composition of `T𝐗` with `Tm` on it. This identification of
+   the tangent of the fibred product with the fibred product of the tangents is not formalized (gap
+   G.75, item 111). `lemma_8_1` is the form of the proof: for a sheet `s : W → V` with inverse `σ`,
+   the text's `F(φ') = (s|U(ψ))⁻¹(t(φ'))` is `σ(t(φ'))`, `g(φ') = m(σ(t φ'), φ')` is sc-smooth on
+   `t⁻¹(V)` (Chapter 7's sheet form, `isScSmoothCompSheet`), `k = Tσ(Tt(h))`
+   (`tangentMapOn_srcInv_tSrc`) and `k ∘ h = Tg(h)` (`tComp_eq_tangentMapOn`). The proof writes
+   `s|U(φ ∘ ψ)` for `s|U(ψ ∘ φ)` (possible misprint).
+
+6. **Lemmas 8.2 and 8.4: the proofs** *(pp. 259–261)*. In Lemma 8.2 the target is computed as in the
+   text: `k ∘ h = Tg(h)` on a sheet (item 5), and `t ∘ g = t ∘ σ ∘ t` on `t⁻¹(V)` (the text's `α ∘ s
+   = t ∘ (s|U(ψ))⁻¹ ∘ t`), so `Tt(k ∘ h) = T(t ∘ σ ∘ t)(h) = Tt(k)` (`tTgt_tangentMapOn`,
+   `lemma_8_2`). In Lemma 8.4, `Tt(1_q) = q` is the chain rule for `t ∘ u = id`, rather than the
+   text's `t ∘ (s|U(1_x))⁻¹ = id` near `x` (`tTgt_tUnit`, `lemma_8_4`). Possible misprints in the
+   proof of Lemma 8.2: "`= =`", "`: U(ψ ∘ φ) → U(x)`" without the map `s`, and "`T t)φ)(h)`" with an
+   unbalanced parenthesis.
+
+7. **Lemmas 8.6 and 8.7** *(pp. 262–263)*. Lemma 8.6: `s_T`, `t_T` are local sc-diffeomorphisms "by
+   construction" (item 3), surjective since `s`, `t` are (`isLocalScDiffeo_tSrc`, `surjective_tSrc`
+   and the same for `t`); condition (4) is proved in Chapter 7's sheet form
+   (`isScSmoothCompSheet_tangent`: near a point, `Ψ ↦ σ_T(t_T Ψ) ∘ Ψ` is `Tg` for a sheet of `s`)
+   and from it on the fibred product (`isScSmoothComp_tangent`, through `isScSmoothComp_iff_sheet`),
+   not through "`m_{T𝐗}` is precisely `Tm`" (item 111). Lemma 8.7 (`lemma_8_7`): `V' = p⁻¹(V)` for
+   `V` as in Definition 7.3 (3) for `X`; the step "`φ_k → φ` in `𝐗¹`" is not needed, since
+   convergence in `𝐗` puts `φ_k` in a sheet `U(φ)` of `t`, on `p⁻¹(U(φ))` the inverse of `Tt` is
+   continuous, and so `(φ_k, h_k)` converges; properness is checked by the sequential criterion
+   (`TX`, `T𝐗` are metrizable). The proof writes `t(φ_k, h_k) = Ts(φ_k)(h_k)` for `Tt(φ_k)(h_k)`
+   (possible misprint).
+
+8. **Lemma 8.8: `Tr` is a tame retraction** *(Lemma 8.8, p. 263)*. The proof asserts without
+   argument that `Tr` is a tame retraction for a tame retraction `r`; Part I does not state it. It
+   is proved from Part I's Definition 2.17 (`ScRetraction.IsTame.tangentRetraction`,
+   `IsTameRetract.tangent`, `MPolyfold.IsTame.tangent`, `lemma_8_8`). For the presentation
+   `ScIso.tangentPres` of `TC = C¹ ⊕ E`, whose `ℝⁿ`-coordinates at `(a, b)` are those of `a`:
+   condition (1) is condition (1) for `r` at `a`, since `d_{TC}(a, b) = d_C(a)`
+   (`degIndex_tangentSet`) and `Tr(a, b) = (r(a), Dr(a)b)`; for condition (2) at a smooth point `(a,
+   b)`, with `A` the sc-complement of `T_aO` given by the tameness of `r`, the complement is `A' =
+   (A ∩ E₁) ⊕ A`. The proof uses three facts about `L = D(Tr)(a, b)`: `L` is a projection (`Tr ∘ Tr
+   = Tr`), its first row is `(Dr(a), 0)` (`ScRetraction.scDeriv_tangentRetraction_fst`), and `L(0,
+   l) = (0, Dr(a)l)` (`ScRetraction.scDeriv_tangentRetraction_inr`); the second derivative of `r`,
+   which enters `L`, is not needed. Tameness for every presentation follows from the one
+   presentation by Part I's Lemma 1.1 (`ScRetraction.IsTameWith.isTame`). The text's "tame chart" is
+   read as a chart modelled on a tame retract (`MPolyfold.IsTame.exists_chart`).
+
+9. **Theorem 8.1** *(Theorem 8.1, p. 258; proof pp. 263–264)*. `theorem_8_1` records that
+   `tangentEpGroupoid` has the M-polyfolds `TX`, `T𝐗` and the text's structure maps, with the base
+   point and the source of a composite; the conditions of Definition 7.3 are Lemmas 8.2–8.7 (items
+   4–7), and the tameness sentence is `theorem_8_1_tame` (Lemma 8.8, item 8). `(X, 𝐗)¹` is Chapter
+   7's `liftOne`, and the projection `(p, 𝐩)` is the sc-smooth functor `tangentProjFunctor`; its
+   compatibility with the composition ("This is obvious") is `tBase_tComp`.
+
+10. **Remark 8.1: `Tφ` labelled by `φ`; linearity not formalized** *(Remark 8.1, pp. 264–265)*. `Tφ`
+    is Chapter 7's `tangentMor` (Definition 7.4, `Tt ∘ (Ts|T_φ𝐗)⁻¹`); it is well defined, `Tφ(Ts(h))
+    = Tt(h)` (`tangentMor_tSrc`), and functorial, `T(ψ ∘ φ) = Tψ ∘ Tφ` (`tangentMor_comp`). In `G(φ,
+    h) = (Tφ, Ts(h))` the first entry is read as `Tφ` labelled by `φ`: as a bare map `G` need not be
+    injective, since distinct morphisms can have the same `Tφ` (for `ℤ/3` acting trivially on `ℝ`,
+    Chapter 7, item 102, the three morphisms at a point all have `Tφ = id`; not formalized). With
+    the label, `G` (`remarkG`) is a bijection onto the pairs `(φ, a)`, `φ ∈ 𝐗₁`, `a ∈ T_{s(φ)}X`,
+    compatible with the compositions (`remark_8_1`). Not formalized: that `Tφ` is a linear
+    isomorphism and is the tangent of `φ̂ = t ∘ (s|U(φ))⁻¹` at `x` (item 112), the M-polyfold
+    structure transported along `G`, and the triples `(a, Tφ, b)` (item 113). Possible misprints:
+    "`Tφ : T_xX → T_yY`" for `T_yX`, twice on p. 264 (and once in Definition 8.2, item 110), and
+    "the linearization of `t ∘ (s|U(φ))⁻¹` at `φ`" (p. 265) for "at `x`", the point where this map
+    is defined and where p. 264 takes its tangent.
+
+11. **Theorems 8.2 and 8.3** *(pp. 265–266)*. `EpFunctor.tangent` is `(TΦ, T𝚽)`; its compatibility
+    with sources, targets and the composition is proved by fibre injectivity (item 4), and the
+    units, which the proof does not check, are proved as well (`theorem_8_2`). Theorem 8.3 is
+    `EP.tangent` and the functor `tangentFunctor` (item 2), whose functor laws are Part I's chain
+    rule (`MPolyfold.tangentMap_comp`, `MPolyfold.tangentMap_id`); its tameness sentence is
+    `theorem_8_3_tame`.
+
+12. **Definition 8.1 and "`≃` is an equivalence relation"** *(Definition 8.1, p. 266; p. 267)*.
+    `EpNatTrans` (an sc-smooth `τ : X → 𝐘` with `τ(x) : F(x) → G(x)` and the naturality square) and
+    `EpFunctor.NaturallyEquivalent` are the text's. The claim that `≃` is an equivalence relation,
+    stated without proof, is `naturallyEquivalent_equivalence` (`EpNatTrans.refl`,
+    `EpNatTrans.symm`, `EpNatTrans.trans`). The one point that is not groupoid algebra is the
+    sc-smoothness of `x ↦ τ'(x) ∘ τ(x)`, from Chapter 7's sheet form of Definition 7.3 (4)
+    (`EpNatTrans.isScSmoothMap_comp_app`): near `x₀`, `τ'(x) = σ(t τ(x))` for a sheet of `s` with
+    inverse `σ`, so `τ'(x) ∘ τ(x) = m(σ(t ψ), ψ)` at `ψ = τ(x)`. The inverse `x ↦ τ(x)⁻¹` is
+    sc-smooth since `ι` is. Not in the text: whiskering (`EpNatTrans.whiskerLeft`,
+    `EpNatTrans.whiskerRight`, `NaturallyEquivalent.comp_left`, `NaturallyEquivalent.comp_right`).
+
+13. **Proposition 8.1** *(pp. 267–268)*. `EpNatTrans.tangent`, `proposition_8_1`: `Tτ` is sc-smooth
+    `TX → T𝐘`, `Tτ(a)` is a morphism `TΦ(a) → TΨ(a)` by the chain rule for `s ∘ τ = Φ`, `t ∘ τ = Ψ`,
+    and the naturality follows from fibre injectivity (item 4) instead of differentiating the
+    naturality square. Possible misprints in the proof: "`Tτ(x₀(h))`" for `Tτ(x₀)(h)` (p. 267), and
+    the lower arrow of the last diagram labelled `Tτ(x₀)h` for `Tτ(x₀')h'` (p. 268; possibly an
+    artefact of the text extraction).
+
+Found while formalizing Theorem 8.4 (2026-11-07).
+
+20. **Theorem 8.4 by metrizability; the conclusion is stronger** *(Theorem 8.4 and its proof, p.
+    268)*. The text covers `|X¹|` by the sets `|U(x_z)¹|`, takes a subordinate locally finite closed
+    refinement (Part I's Lemma 2.7), shows that the preimages `Ã_z ⊆ |TX|` are closed and
+    paracompact, and concludes with the regularity of `|TX|` and Part I's Proposition 2.17. The
+    proof here follows that of Proposition 7.12 (Chapter 7, item 83): `|X¹|` is metrizable, every
+    point of it has the open neighbourhood `|U(x)₁|`, whose preimage under `|p| : |TX| → |X¹|`
+    (`tangentOrbitProj`, `continuous_tangentOrbitProj`) is `|TU(x)|`
+    (`NaturalRep.image_tangentU_eq_preimage`) and is metrizable
+    (`NaturalRep.metrizableSpace_image_tangentU`); Part I's `metrizableSpace_of_pullback` (Smirnov's
+    theorem) then makes `|TX|` metrizable (`metrizableSpace_tangent_orbitSpace`), hence paracompact
+    (`theorem_8_4`). The step shared with the text is the metrizability of `|TU(x_z)|`; neither the
+    regularity of `|TX|` nor Proposition 2.17 is used.
+
+21. **`TU(x)`, the action of `G_x`, and the open embedding** *(proof of Theorem 8.4, p. 268)*.
+    `TU(x)` is read as `p⁻¹(U(x)) ⊆ TX` (`NaturalRep.tangentU`), and the bundle action of `G_x` as
+    `g ↦ TΦ(g)`, the tangent maps of the natural action (`NaturalRep.tΦ`,
+    `NaturalRep.isScDiffeoOn_tΦ`, `NaturalRep.tangentMulAction`), with `TΓ` (`NaturalRep.tΓ`). The
+    sc-isomorphism of `TU(x)` with a local bundle model `TO → O¹` is not used: `TU(x)` is metrizable
+    as a subspace of `TX` (Part I's Proposition 2.5 (3)), and `G_x\TU(x)` by the metric `ρ̂` of
+    Lemma 7.4, repeated privately in `TangentOrbit.lean` for a finite group acting by homeomorphisms
+    on a metrizable space, since Chapter 7's versions are private. The linearity of the action on
+    the fibres is not formalized (gap G.7). That `G_x\TU(x) → |TX|` is an open embedding onto
+    `|TU(x)|` is left implicit in the text and is proved (`NaturalRep.tangent_π_eq_iff`,
+    `NaturalRep.isOpenEmbedding_tangentOrbitQuotientMap`,
+    `NaturalRep.range_tangentOrbitQuotientMap`): a morphism `k : v → w` of `TX` between vectors over
+    `U(x)` lies over `p(k) = Γ(g, s(p k))` (Theorem 7.1 (3)), and `k = TΓ(g)(v)` by fibre
+    injectivity (item 4). `|TU(x)| = |p|⁻¹(|U(x)₁|)` uses the surjectivity of `Ts` on the fibres
+    (`exists_tSrc_eq`). The statement writes "parcompact" for "paracompact" (possible misprint).
+
+Found while formalizing §8.3 (2026-11-07).
+
+30. **Strong bundle maps between strong bundles over M-polyfolds are a reading** *(used in
+    Definitions 8.4–8.6, 8.10, pp. 270–285; Part I's Definitions 2.22, 2.25)*. Part I defines strong
+    bundle maps only between local models (Definition 2.22) and treats the transition maps of a
+    strong bundle atlas in Definition 2.25. The global notion used throughout §8.3 is
+    `StrongBundle.IsStrongBundleMap B B' f Φ`: `P' ∘ Φ = f ∘ P`; `Φ` linear on the fibres
+    (`fiberRestrict`); `Φ : Y[0] → Y'[0]` sc-smooth; `Φ(Y_{0,1}) ⊆ Y'_{0,1}` with `Y[1] → Y'[1]`
+    sc-smooth. In the charts the last two conditions say that the local representatives `K[i] →
+    K'[i]` are sc-smooth, as Definition 2.25 asks of transition maps. The preservation of the double
+    filtration, part of Definition 2.22, is not assumed but follows
+    (`IsStrongBundleMap.mapsTo_doubleLevel`), and so do the boundedness of the fibre maps
+    (`IsStrongBundleMap.fiberMap`) and the sc-smoothness of the base map, `f = P' ∘ Φ ∘ 0`
+    (`IsStrongBundleMap.isScSmoothMap_base`). A strong bundle isomorphism is a pair of inverse
+    strong bundle maps (`StrongBundle.IsStrongBundleIso`). Strong bundle maps defined over open
+    subsets of the base are not formalized (item 113).
+
+31. **The pull-back along `s`** *(p. 270; Part I's Proposition 2.16)*. `𝐗 ₛ×_P W` is Part I's
+    pull-back `pullbackSpace P X.src` with its strong bundle structure (`StrongBundle.pullback`);
+    its paracompactness, which Part I's definition of a strong bundle requires, is an instance
+    argument, supplied by `StrongBundle.paracompactSpace_pullback`. Added here: the atlas of the
+    pull-back (`StrongBundle.pullback_atlas`), its universal property on `[0]`
+    (`StrongBundle.isScSmoothOn_to_pullback_iff`, `StrongBundle.isScSmoothMap_pullbackPair`) and on
+    `[1]` (`StrongBundle.pullbackProj'One`, `StrongBundle.isScSmoothMap_to_pullback_one`), and the
+    fact that over a sheet of the local sc-diffeomorphism `s` the projection to `W` is an
+    sc-diffeomorphism (`StrongBundle.isScDiffeoOn_pullbackProj'`,
+    `StrongBundle.isLocalScDiffeo_pullbackProj'`); its inverse `w ↦ (σ(P w), w)` takes a junk value
+    off `P⁻¹(V)`.
+
+32. **Definition 8.4 and the fibre maps `μ(ψ, ·)`** *(Definition 8.4 and p. 271)*. `EpStrongBundle X
+    B`: a structure map `μ` on Part I's pull-back, a strong bundle map covering `t` in the sense of
+    item 30 (which contains `P ∘ μ = t ∘ π₁` and the fibrewise linearity), a surjective local
+    sc-diffeomorphism of the `[0]`-M-polyfolds, with (2) and (3); the conditions `s(ψ) = P(w)` are
+    carried by the points of the pull-back. The surjectivity in (1) follows from (2), `μ(1_x, w) =
+    w`, and is kept as in the text. The claim after the definition that `μ(ψ, ·) : W_x → W_y` is a
+    linear isomorphism is proved in the stronger form of a topological linear isomorphism with
+    inverse `μ(ψ⁻¹, ·)` (`EpStrongBundle.fiberMorEquiv`, `μ_inv_μ`, `μ_μ_inv`); `μ` is continuous
+    (`continuous_μ`).
+
+33. **The functorial picture: "we can define the ep-groupoid"** *(pp. 271–272)*. Asserted without
+    proof; Definition 7.3 is proved for `(W, 𝐖)`, `𝐖 = 𝐗 ₛ×_P W` (`EpStrongBundle.toEpGroupoid`):
+    (1) `s_𝐖` is the pull-back projection along the local sc-diffeomorphism `s` (item 31), and `t_𝐖
+    = μ` is one by Definition 8.4 (1); (2) the units and inverses are sc-smooth by the universal
+    property of the pull-back; (3) holds with `V = P⁻¹(V(P w))`, by sequences, from the properness
+    of `X`, the continuity of `μ` and `w = μ(ψ⁻¹, μ(ψ, w))` (`exists_isProperMap_tgt`); (4) is
+    proved in the sheet form, through a sheet of `s` and condition (4) for `X`
+    (`isScSmoothCompSheet_toGroupoidStr`). The groupoid laws use Definition 8.4 (2), (3); the
+    composition is total, with the junk value `(γ, w)` off composable pairs (`morComp`). `s_𝐖`,
+    `t_𝐖` are strong bundle maps covering `s`, `t` (`isStrongBundleMap_src`,
+    `isStrongBundleMap_tgt`), `(P, π₁)` is an sc-smooth functor (`projFunctor`), and `|P|` is
+    continuous and surjective (`continuous_orbitMap_projFunctor`,
+    `surjective_orbitMap_projFunctor`). From here on `W` lives in the universe of the objects and
+    morphisms of `X` (item 2).
+
+34. **Definitions 8.5, 8.6 and "these are identical notions"** *(pp. 273–274)*. Definition 8.5 is
+    `EpStrongBundle.IsMap`. In Definition 8.6, "linear on the fibers", "covers `ϕ`" and "induces
+    strong bundle maps `W → W'` and `𝐖 → 𝐖'`" are read together as two conditions
+    `IsStrongBundleMap` (`IsStrongBundleFunctor`): on objects, for `P`, `P'`, covering `ϕ` on
+    objects, which contains `P' ∘ Φ = ϕ ∘ P`; and on morphisms, for the pull-backs `𝐖 → 𝐗`, `𝐖' →
+    𝐗'`, covering `ϕ` on morphisms. The text's claim that the two notions are identical, and that
+    the functor is recovered from the strong bundle map, is proved: `isMap_iff_strongBundleFunctor`,
+    with the unique functor `Φ(γ, w) = (ϕ(γ), Φ(w))` (`IsMap.liftFunctor`,
+    `IsStrongBundleFunctor.eq_liftFunctor`). The `[1]`-smoothness of the lifted morphism map needs
+    the universal property of the pull-back on level `[1]` (item 31) and the fibrewise linearity of
+    maps of pull-backs (`isLinearMap_fiberRestrict_pullbackMap`).
+
+35. **Definition 8.7: "the vector space `Γ(P, μ)`"** *(Definition 8.7, pp. 274–275)*. The section
+    functors are `IsScSmoothSectionFunctor`, `IsScPlusSectionFunctor`, `IsScFredholmSectionFunctor`,
+    with the sets `sectionFunctors`, `plusSectionFunctors`, `fredholmSectionFunctors`; (3) uses Part
+    I's Definition 3.8 in its germ reading. "Vector space" and "subspace" are read as closure under
+    Part I's fibrewise zero section, sums and constant multiples (`fiberZero_mem_sectionFunctors`,
+    `sectionAdd_mem_sectionFunctors`, `sectionSmul_mem_sectionFunctors`, and the same for `Γ⁺`, with
+    `plusSectionFunctors_subset`); no `Module` structure is built. The sum of two sc-smooth sections
+    and the constant multiples of one, which Part I does not state, are proved in the charts
+    (`StrongBundle.IsScSmoothSection.sectionAdd_of_isScSmoothSection`,
+    `StrongBundle.IsScSmoothSection.sectionSmul_const`).
+
+Found while formalizing §8.4 up to Theorem 8.6 (2026-11-07).
+
+50. **Definition 8.8** *(p. 275)*. `EpFunctor.IsProperCovering`: (1) `F` is surjective and a local
+    sc-diffeomorphism on objects; (2) every fibre `F⁻¹(x)` is finite, and an open `U(x) ∋ x` has
+    `F⁻¹(U(x))` the union of mutually disjoint `U(y) ∋ y`, `y ∈ F⁻¹(x)`, with `F : U(y) → U(x)`
+    sc-diffeomorphisms whose inverses `σ(y)` are part of the data; (3) `L_F = (F, s) : 𝐘 → 𝐗 ₛ×_F Y`
+    (`fibredMap`) is an sc-diffeomorphism onto Part I's fibred-product sub-M-polyfold of `𝐗 × Y`
+    (`MPolyfold.isSubMPolyfold_fibredProduct`, Part I's Proposition 2.15), as in Definition 7.3 (4).
+
+51. **The degeneracy remark after Definition 8.8 needs tameness** *(pp. 275–276)*. The text computes
+    `d_{𝐗 ₛ×_F Y}(F(φ), s(φ)) = ½ d_{𝐗 × Y}(F(φ), s(φ))` through `d_{𝐗 × Y} = d_𝐗 + d_Y`. The first
+    equality, `d_𝐘(φ) = d_{𝐗 ₛ×_F Y}(L_F(φ))` (`IsProperCovering.degIndex_fibredMap`), and
+    `d_𝐗(F(φ)) = d_𝐘(φ)` (`IsProperCovering.degIndex_mor`) hold in general, by Part I's Proposition
+    2.7 (`proposition_2_24`). The product formula is available in Part I's formalization for tame
+    factors (`MPolyfold.isTame_prod`) and in general only as `d_{X × Y} ≤ d_X + d_Y`
+    (`MPolyfold.degIndex_prod_le`; section "From the Lean proofs of Chapter 2, §2.4–§2.5 and Theorem
+    2.16" above, items 15, 16), and Part I's Proposition 2.15 states its formula `d = ½ d_{X × Y}`
+    for tame `X`, `Y`. So `d_{𝐗 × Y}(F(φ), s(φ)) = 2 d_𝐘(φ)` and `d_{𝐗 ₛ×_F Y} = ½ d_{𝐗 × Y}` along
+    the image of `L_F` are stated for tame `X` and `Y` (`IsProperCovering.degIndex_prod_fibredMap`;
+    `𝐗` is then tame, `s` being a local sc-diffeomorphism), and in general as `≤`
+    (`IsProperCovering.degIndex_prod_fibredMap_le`). As we read it, the remark needs `X` and `Y`
+    tame, which the text does not state; whether the equality holds without tameness is not settled
+    here.
+
+52. **Proposition 8.2** *(pp. 276–277)*. `IsProperCovering.proposition_8_2`. Condition (2), "follows
+    easily", is proved by shrinking `U(x)` of `F` to a `U₀` with `(F|U(y))⁻¹(U₀) ⊆ U'(y)` for the
+    evenly covered neighbourhoods `U'(y)` of `H`, `y ∈ F⁻¹(x)`, a finite intersection
+    (`IsProperCovering.evenlyCovered_comp`). Condition (3) goes through the text's `K̃`, `L̃`
+    (`IsProperCovering.isScDiffeo_fibredMap_comp`); their sc-smoothness, as maps between
+    sub-M-polyfolds of products, uses Part I's Proposition 2.6 (2) (a map into a sub-M-polyfold is
+    sc-smooth as soon as it is sc-smooth into the ambient M-polyfold), proved again privately in
+    `ProperCovering.lean`, as in Chapter 7's `SubGroupoid.lean`. "fo" for "for" in the proof (p.
+    276; possible misprint).
+
+53. **Theorem 8.5: the chart and "sufficiently small"** *(Theorem 8.5, p. 277)*. The data of the
+    theorem form a `ProperCoveringChart`: a natural representation `R : X.NaturalRep x` (Chapter 7's
+    structure: `U(x)` open and connected, with the natural `G_x`-action), sets `U(y)` for `y ∈
+    F⁻¹(x)` and `𝐔(ψ₀)` for the morphisms `ψ₀` between points of `F⁻¹(x)` (`Y.morOn (F⁻¹(x))`), and
+    (0)–(5) as fields. "Disjoint union of connected open neighbourhoods" means: each set open,
+    connected and containing its centre, the sets pairwise disjoint, with the given union; that they
+    are then the connected components is `ProperCoveringChart.connectedComponentIn_U`,
+    `ProperCoveringChart.connectedComponentIn_sheet`. `𝐔(φ)` for `φ ∈ 𝐔(x)` is read as the connected
+    component of `𝐔(x)` containing `φ`; by Remark 8.2 (a) `F(ψ₀) ∈ 𝐔(x)`, and (1) is Chapter 7's
+    description of `𝐔(x)` by the sheets `Γ(g, U(x))`. "`s : 𝐔(ψ₀) → U(y)` is an sc-diffeomorphism"
+    is Part I's `IsScDiffeoOn`, with an inverse. "Sufficiently small" is proved in two forms: charts
+    with `U(x)` inside every open `V ∋ x` (`theorem_8_5`), and one open `W ∋ x` that works for every
+    natural representation on a connected `U(x) ⊆ W` (`theorem_8_5_of_naturalRep`); the proof uses
+    only `U(x) ⊆ U'(x)` for `U'(x)` as in Definition 8.8 (2).
+
+54. **Theorem 8.5 (5) does not hold as printed, as we read it** *(Theorem 8.5 (5), p. 277)*. As
+    printed, the left vertical arrow of the square is `s : 𝐔(ψ₀) → U(s(ψ₀))`, the bottom arrow `F`,
+    the right vertical arrow `t` and its lower right corner `U(t(F(ψ₀)))`. With `t` the square says
+    `F(s(ψ)) = t(F(ψ))` for `ψ ∈ 𝐔(ψ₀)`. A functor gives `F(s(ψ)) = s(F(ψ))`, and `F(ψ) = Γ(g, F(s
+    ψ))` with `g = F(ψ₀)` has `t(F(ψ)) = Φ(g)(F(s ψ))`, which differs from `F(s ψ)` wherever `Φ(g)`
+    does not fix `F(s ψ)`. Example (checked in Lean, `CoveringExamples.theorem_8_5_five_as_printed`,
+    for every chart of Theorem 8.5 at `0`; charts exist by
+    `theorem_8_5_five_as_printed_nonvacuous`): the identity functor of `ℤ/2 ⋉ ℝ`, `ℤ/2` acting by `z
+    ↦ ±z`, is a proper covering functor (`EpFunctor.isProperCovering_id`); at `x = 0`, with
+    `ψ₀ = (−1, 0)` and `ψ = (−1, z) ∈ 𝐔(ψ₀)`, `F(s(ψ)) = z` and `t(F(ψ)) = −z`. The square is
+    formalized with `s` on both vertical arrows (`ProperCoveringChart.comm_src`; the corner
+    `U(s(F(ψ₀))) = U(x)` is the same set, since `s(F(ψ₀)) = t(F(ψ₀)) = x`), together with the
+    companion square with `t` on both (`ProperCoveringChart.comm_tgt`: `F(t(ψ)) = t(F(ψ))` over `F :
+    U(t ψ₀) → U(x)`). The right arrow `t` is therefore a possible misprint for `s`. "Of
+    sc-diffeomorphisms": the left arrows are (3), the top arrow (4), the bottom arrows (0), and the
+    right arrows `s, t : 𝐔(F(ψ₀)) → U(x)` are `ProperCoveringChart.isScDiffeoOn_src_sheetF`,
+    `ProperCoveringChart.isScDiffeoOn_tgt_sheetF`.
+
+55. **Theorem 8.5: the route of the proof, and possible misprints** *(proof, pp. 278–279)*. The text
+    decomposes the morphisms of `𝐘` near `F⁻¹(x)` by sheets and natural representations of the
+    groups `G_y` in `Y`, and does not invoke Definition 8.8 (3). Here (3) does that work: `L_F` is a
+    bijection with continuous inverse; for `ψ₀ : y → y'` with `g = F(ψ₀)`, `τ(z) = L_F⁻¹(Γ(g, F(z)),
+    z)` on `U(y) = U'(y) ∩ F⁻¹(U(x))`, and `𝐔(ψ₀) = τ(U(y))` (`ProperCoveringLocal.Data`,
+    `ProperCoveringLocal.exists_data`, `Data.toChart`). `τ` is a continuous section of `s`, hence
+    sc-smooth (`ProperCoveringLocal.isScSmoothOn_of_section`); `t ∘ τ` maps `U(y)` into `U(y')`
+    because `U(y)` is connected and `F⁻¹(U(x))` is the disjoint union of the open `U(y'')`
+    (`Data.tgt_τ_mem`, the counterpart of the text's claim that `ψ̂` maps `U(y)` onto `U(y')`); and
+    `F = Γ(g, ·) ∘ F ∘ s` on `𝐔(ψ₀)` is the text's formula for (4). The finiteness of `F⁻¹(x)` and
+    Definition 8.8 (1) are not needed. Possible misprints in the proof (p. 278): "there exists `g ∈
+    G_y` for which `F(φ) = Γ(g, F(z))`" for `g ∈ G_x`, `Γ` being the natural representation of
+    `G_x`; "`U(x)` is a `G_y`-invariant subset" for `G_x`-invariant; "`F(z') = s(F(φ))`" for
+    `t(F(φ))`, with `φ : z → z'`; "admitting admitting". In the statement, (2) has "morphismsm" (p.
+    277).
+
+56. **Remark 8.2** *(pp. 277–278)*. (a) is `remark_8_2_a`: a morphism between points of `F⁻¹(x)` is
+    mapped into `G_x` (`isotropyMor`). (b), "everything is determined by `U(x)`", is read as: two
+    charts with the same `U(x)` have the same `Φ` and `Γ` on `U(x)` (on a connected `U(x)`, `Γ(g,
+    ·)` is the continuous section of `s` through `g`, Chapter 7's `NaturalRep.Γ_eqOn`), the same
+    `U(y)` and the same `𝐔(ψ₀)` (`remark_8_2_b`). Its remarks on the naturality of Theorem 7.1's
+    construction and on the main point of the proof have no further formal content.
+
+57. **Definition 8.9 and the discussion after it** *(pp. 279–281)*. `Diff_sc` is `MPolyfoldCat`
+    (bundled M-polyfolds of one universe) with the sc-diffeomorphisms `ScDiffeo` (Part I's
+    `IsScDiffeoOn` on `univ`, with an inverse). The category `C` with one object is `SingleObj G`
+    for a group `G`, its automorphism group, and `D` a Mathlib `Groupoid`, both in `Type`; then `C
+    ₛ×_f D = G × D` (`coveringMap`, `IsCoveringFunctor`, `GeometricLift`). The finiteness of
+    Definition 8.9 ("finitely many objects and morphisms") is not part of `IsCoveringFunctor` and
+    `GeometricLift`; it is carried as the instance arguments `[Fintype D] [∀ a b, Fintype (a ⟶ b)]
+    [Fintype G]` of the results that use it (Proposition 8.3, Theorem 8.6). `D = ∅` is allowed, as
+    in the text (`isCoveringFunctor_of_isEmpty`; item 59). In the discussion after the definition,
+    `U(x) = L_C(⋆)` is `GeometricLift.Ux`, `τ(y)` is `GeometricLift.τy`, `φ_{yy'}(ψ) = L_D(ψ)` is
+    `GeometricLift.φ`, with `φ_{yy''}(ψ ∘ γ) = φ_{y'y''}(ψ) ∘ φ_{yy'}(γ)` (`GeometricLift.φ_comp`,
+    `GeometricLift.φ_id`, `GeometricLift.φ_inv_φ`); the actions of `G_y` on `U(y)` and of `G_x` on
+    `U(x)` (`GeometricLift.smul_def`, `GeometricLift.smul_def'`, `GeometricLift.isScSmoothMap_smul`)
+    and the equivariance `τ(y)(h ∗ z) = f(h) ∗ τ(y)(z)` (`GeometricLift.τ_equivariant`) are proved.
+    Functoriality is stated with Mathlib's `γ ≫ ψ` for the text's `ψ ∘ γ`; `G_y` is Mathlib's monoid
+    `End y`, with `h * k = k ≫ h`, the text's `h ∘ k`; the action of `G_x = G` on `U(x)` is a left
+    action through the composition of `SingleObj G`.
+
+58. **Disjoint unions of M-polyfolds** *(p. 281, proof of Proposition 8.3)*. "`Y = ⊔ U(y)` possesses
+    a natural M-polyfold structure" is not described in the text; it is read as the structure whose
+    charts are those of the summands, transported along `Sigma.mk i` (`MChart.pushforward`,
+    `MPolyfold.sigmaChart`, `MPolyfold.sigma`). Charts of different summands have disjoint domains,
+    and Part I's compatibility of charts then asks for the sc-smoothness of maps between empty
+    retracts, which holds (`MChart.compatible_of_disjoint`), so no condition is added. The index
+    type is arbitrary; paracompactness is proved summand by summand, without metrizability
+    (`paracompactSpace_sigma`). The transported chart is extended by `0` off its image, so no
+    summand needs to be nonempty. Sc-smoothness, local sc-diffeomorphisms, the degeneracy index and
+    tameness are summand-wise (`MPolyfold.isScSmoothMap_sigma_iff`,
+    `MPolyfold.isLocalScDiffeo_sigma_iff`, `MPolyfold.degIndex_sigma`,
+    `MPolyfold.isTame_sigma_iff`); products distribute over the union
+    (`MPolyfold.isScDiffeoOn_sigmaProdDistrib`), and `G × X ≅ ⊔_G X` for discrete `G`
+    (`isScDiffeoOn_prod_discrete_sigma`).
+
+59. **Proposition 8.3: `D` nonempty, and the other readings** *(Proposition 8.3, pp. 281–283)*.
+    Definition 8.9 allows `D = ∅`: the map `ψ ↦ (f(ψ), s(ψ))` is then a bijection of empty sets
+    (`isCoveringFunctor_of_isEmpty`). Then `Y = ∅` while `U(x)` is arbitrary, and `F` is surjective
+    on objects (Definition 8.8 (1)) only if `U(x) = ∅` (`geometricLiftFunctor_surjective_iff`). The
+    text does not say so; `proposition_8_3` assumes `[Nonempty D]`, used for the surjectivity only.
+    The hypothesis holds in Theorem 8.6, where `D` is on `F⁻¹(x)` (`EpFunctor.nonempty_fiberCat`).
+    Further readings: the finiteness of Definition 8.9 enters as instance arguments (finitely many
+    morphisms make `t : 𝐘 → Y` proper, finitely many objects make the fibres finite, a finite `G`
+    makes `G ⋉ U(x)` an ep-groupoid); `X = G_x ⋉ U(x)` is Chapter 7's action ep-groupoid
+    (`EpGroupoid.Examples.actionEpGroupoid`), `G` with a discrete topology (an instance argument,
+    satisfiable by `⊥`) and lifted by `ULift` to the universe of `U(x)`, since the translation
+    groupoid takes its group and its space in one universe; `mor(y, y') × U(y)` is modelled as `⊔_{ψ
+    : y → y'} U(y)` (item 58); the composition of `Y` is total, `(ψ, z') ∘ (γ, z) = (ψ ∘ γ, z)`,
+    with a junk value off composable pairs. The "one verifies" is carried out: the composition is
+    sc-smooth in the sheet form, the summand index of `σ(t ψ)` being locally constant
+    (`GeometricLift.isScSmoothCompSheet_y`), and properness holds with `V = Y`, `t` being proper
+    (`GeometricLift.isProperMap_yTgt`); Definition 8.8 (2) holds with `U(x)` the whole object space
+    of `X`. The text deduces that (8.16) is an sc-diffeomorphism from "bijection and local
+    sc-diffeomorphism"; the sc-smoothness of the inverse is proved directly
+    (`GeometricLift.fibredInv`, `GeometricLift.isScSmoothMap_fibredInv`). The proof's "the map `F :
+    X → Y`" is read as `F : Y → X` (possible misprint).
+
+60. **Theorem 8.6: readings and possible misprints** *(Theorem 8.6 and its proof, pp. 283–285)*. The
+    theorem is stated for ep-groupoids whose objects and morphisms are in `Type`, since Definition
+    8.9 is (item 2). `C`, the full subcategory on `x`, is `SingleObj G_x`; `D` is the full
+    subcategory on `F⁻¹(x)` (`GroupoidStr.FullOb`, `EpFunctor.FiberCat`), its finiteness, from
+    Definition 8.8, entering as local instances (`EpFunctor.fintypeFiberCat`) and `D ≠ ∅` coming
+    from the surjectivity of `F`. "A sufficiently small `U(x)` as in Theorem 8.5" is any chart of
+    Theorem 8.5 (a `ProperCoveringChart`); charts exist inside every open `V ∋ x` (part (b) of
+    `theorem_8_6`), and part (c) holds for every chart. "A geometric lift `A : K → L`" is read as a
+    geometric lift together with the proper covering functor `A` that Proposition 8.3 associates
+    with it (`ProperCoveringChart.geometricLift`). The morphisms of `D` are the morphisms `ψ₀`
+    themselves, so "`ψ : y → y'` where `ψ ∈ 𝐔(ψ₀)`" is read as `ψ = ψ₀`: `L_D(ψ₀) = t ∘ (s|𝐔(ψ₀))⁻¹`
+    and `Ψ(ψ₀, z) = (s|𝐔(ψ₀))⁻¹(z)`. Both "one verifies" are carried out through `F`: on the sheets
+    `F(σ_ψ(z)) = Γ(f(ψ), F(z))` (Theorem 8.5 (1), (4)), so `τ(y') ∘ L_D(ψ) = Φ(f(ψ)) ∘ τ(y)`, and
+    the functoriality of `L_D` follows from that of `Φ` and the injectivity of `F` on each `U(y)`;
+    that `Ψ` preserves compositions and units uses the unique lifting of Definition 8.8 (3). "Fully
+    faithful open embedding" is `EpFunctor.IsFullyFaithfulOpenEmbedding`: full and faithful on the
+    underlying groupoids, and an injective local sc-diffeomorphism on objects and on morphisms; "the
+    image is the full subcategory on `U(x)`" is `range Φ.obj = U(x)` and `range Φ.mor = {φ | s(φ),
+    t(φ) ∈ U(x)}` (`ProperCoveringChart.range_Φ_obj`, `ProperCoveringChart.range_Φ_mor`), and
+    likewise for `Ψ` and `F⁻¹(U(x))`. Possible misprints: "there exists exists" (p. 283); "`τ(t) :
+    L_D(y) → L_C ∘ f(y)`" for `τ(y)` (p. 284); "`A(ψ, z) = (f(z), F(z))`" for `(f(ψ), F(z))` (p.
+    284), as in Proposition 8.3's `F(ψ, z) = (f(ψ), τ(y)(z))`.
+
+Found while formalizing Definition 8.10 and Appendix 8.5 (2026-11-07).
+
+70. **Definition 8.10** *(p. 285)*. `EpStrongBundle.IsProperStrongBundleCovering EW EV F A`. `A` is
+    taken in the functorial picture, as a strong bundle functor covering `F` (Definition 8.6;
+    equivalently its object map is a strong bundle map of Definition 8.5, item 34). "A local strong
+    bundle isomorphism" is: every `y` has open `U ∋ y` and `U'` with `A : W|U → V|U'` a strong
+    bundle isomorphism covering `F : U → U'`; "`A : W|U(y) → V|U(x)` is a strong bundle isomorphism"
+    is `StrongBundle.IsStrongBundleIsoOn` (`F : U(y) → U(x)` an sc-diffeomorphism and `A : P⁻¹(U(y))
+    → Q⁻¹(U(x))` an sc-diffeomorphism on `[0]` and on `[1]`; the inverse is then linear on the
+    fibres, `IsStrongBundleIsoOn.fiberEquiv`). The finiteness of `F⁻¹(x)` in (2) is that of
+    Definition 8.8 (2) and is not repeated. In (3) the text does not say which strong bundle
+    structure `𝐕 ₛ×_A W → 𝐗 ₛ×_F Y` carries; it is read as the pull-back of `P : W → Y` along `pr₂ :
+    𝐗 ₛ×_F Y → Y` (`EpFunctor.fibredSnd`), on Part I's fibred-product sub-M-polyfold. Its points
+    `((φ, y), w)` with `P(w) = y` correspond to the text's `((φ, v), w)` with `v = A(w)`
+    (`EpStrongBundle.fibredBundleEquiv`); under this correspondence the map of (3) is
+    `EpStrongBundle.fibredLift` and the projection is the text's `((φ, v), w) ↦ (φ, P(w))`
+    (`pullbackProj_fibredBundleEquiv`). "Strong bundle isomorphism" is
+    `StrongBundle.IsStrongBundleIso`. The closing sentence, "all structural statements about proper
+    covering functors between ep-groupoids lift to the strong bundle situation", is not formalized
+    beyond §8.5.2 (items 75, 113).
+
+71. **§8.5.1: cardinalities, and the classes indexed by their images in `|Y|`** *(pp. 285–286)*.
+    `mor(F⁻¹(x))` is `Y.morOn (F⁻¹(x))`, and `#` is the cardinality of finite sets (`Set.ncard`,
+    `Nat.card`): the fibres are finite (Definition 8.8 (2)), the isotropy groups are (Proposition
+    7.4), hence so is `mor(F⁻¹(x))` (`IsProperCovering.finite_morOn_fiber`). The bijection
+    `mor(F⁻¹(x)) → G_x × F⁻¹(x)` comes from Definition 8.8 (3)
+    (`IsProperCovering.bijective_fibredMap`, `IsProperCovering.existsUnique_lift`,
+    `IsProperCovering.morOnFiberEquiv`). The isomorphism classes `Θ_1, …, Θ_q` of `F⁻¹(x)` are
+    indexed by their images in `|Y|`: `Θ_c = F⁻¹(x) ∩ π⁻¹(c)` (`fiberClass`, `fiberIndex`,
+    `fiberClasses`); the statements about `Θ_c` hold for every `c`, with `Θ_c = ∅` for `c ∉
+    π(F⁻¹(x))`. With this indexing, the correspondence `Θ_j ↔ Θ'_j` of Lemma 8.10 is "the same
+    index" (item 73).
+
+72. **Lemma 8.9** *(pp. 286–287)*. The set `{ψ ∈ mor(F⁻¹(x)) | s(ψ), t(ψ) ∈ Θ_j}` is `mor(Θ_j)`
+    (`morOn_fiberClass_eq`); restricting the bijection of item 71 to (8.17) uses that `t(ψ) ∈ Θ_j`
+    is automatic for `s(ψ) ∈ Θ_j` and `t(ψ) ∈ F⁻¹(x)` (`IsProperCovering.morOnClassEquiv`). The
+    third claim divides by `#Θ_j ≥ 1` (`IsProperCovering.lemma_8_9`). (8.17) writes "`ψ → (Fψ),
+    s(ψ))`", with an unbalanced parenthesis, for `ψ ↦ (F(ψ), s(ψ))` (possible misprint).
+
+73. **Lemmas 8.10 and 8.11** *(p. 287)*. For isomorphic `x, x'` the index sets agree
+    (`IsProperCovering.fiberIndex_eq`), by the lifting of a morphism `x → x'` to morphisms out of
+    `F⁻¹(x)` (Definition 8.8 (3), `IsProperCovering.exists_isomorphic_of_isomorphic`);
+    `IsProperCovering.lemma_8_10` states the correspondence by index,
+    `IsProperCovering.lemma_8_10_equiv` as a bijection between the sets of classes. Lemma 8.11
+    divides by `#G_{y₀} ≥ 1` (`IsProperCovering.lemma_8_11`,
+    `IsProperCovering.ncard_fiber_eq_of_isomorphic`). Possible misprints: after Lemma 8.10, "Using
+    the third claim of Lemma 8.10, we infer that `#Θ_j = #G_x / #G_{y₀}`": Lemma 8.10 has no third
+    claim, and the third claim of Lemma 8.9, `#G_x = #G_{y₀} · #Θ_j`, is meant; in Lemma 8.11,
+    `#F⁻¹(x) = ∑_{i=1}^q #Θ_j = ∑_{i=1}^q #Θ'_j` sums over `i` with summands indexed by `j`.
+
+74. **Proposition 8.4** *(p. 288)*. Only the local constancy of `x ↦ #F⁻¹(x)` is used
+    (`IsProperCovering.eventually_ncard_fiber_eq`, `IsProperCovering.isLocallyConstant_ncard_fiber`:
+    by Definition 8.8 (2), `y ↦ (F|U(y))⁻¹(x')` is a bijection `F⁻¹(x) → F⁻¹(x')` for `x' ∈ U(x)`),
+    not the text's "the structure of isomorphism classes stays the same". The function descends to
+    `|X|` by Lemma 8.11 (`IsProperCovering.fiberCardOrbit`), is locally constant there in the
+    quotient topology (`IsProperCovering.isLocallyConstant_fiberCardOrbit`), hence constant on
+    connected components (`IsProperCovering.proposition_8_4`). The text's `ℕ = {1, 2, …}` is Lean's
+    `ℕ`, as the trivial ep-groupoid of the discrete M-polyfold (`EpGroupoid.trivial`,
+    `discretePolyfold`); the values are `≥ 1` (`IsProperCovering.one_le_ncard_fiber`). The functor
+    sends a morphism `φ` to the identity of `#F⁻¹(s φ) = #F⁻¹(t φ)`
+    (`IsProperCovering.fiberCardFunctor`).
+
+75. **§8.5.2** *(pp. 288–289)*. `A(φ, w) = (F(φ), A_{s(φ)}(w))` is
+    `IsProperStrongBundleCovering.mor_val`, and the `A_y` are topological linear isomorphisms by
+    Definition 8.10 (1) (`IsProperStrongBundleCovering.fiberEquiv`). The natural transformation `μ_Y
+    → μ_X ∘ F` of functors into `Ban` is stated as its naturality identity `μ_X(F(φ)) ∘ A_{s(φ)} =
+    A_{t(φ)} ∘ μ_Y(φ)` (`EpStrongBundle.section_8_5_2`), the fibres `Q⁻¹(F(s φ))` and `Q⁻¹(s(F φ))`
+    being identified through their values in `V`; the category `Ban` is not formalized. Only the
+    strong bundle functor part of Definition 8.10 enters the identity
+    (`IsStrongBundleFunctor.μ_comm`).
+
+Found while checking that the hypotheses can hold (`NonVacuity.lean`, `NonVacuityBundle.lean` and
+the witnesses of the other files, 2026-11-07; not in the text).
+
+100. **Covering functors** (`CoveringExamples.isCoveringFunctor_id`,
+     `CoveringExamples.not_isCoveringFunctor_one`). The identity of `SingleObj G` is a covering
+     functor for every group `G`; for nontrivial `G` the functor sending every morphism to `1` is
+     not, so Definition 8.9 is not vacuous in either direction. The empty groupoid gives a covering
+     functor (`isCoveringFunctor_of_isEmpty`; item 59).
+
+101. **A geometric lift, and Proposition 8.3 applied** (`CoveringExamples.reflectionLift`,
+     `CoveringExamples.isProperCovering_reflectionLift`). `ℤ/2 = ℤˣ` acting on `ℝ`
+     (`CoveringExamples.rCat`) by `y ↦ ±y` (`CoveringExamples.reflectionDiffeo`,
+     `CoveringExamples.reflectionHom`) is a geometric lift of the identity of `SingleObj ℤˣ`, with
+     `L_D = L_C` and `τ = 1`; Proposition 8.3 makes it a proper covering functor onto the
+     translation groupoid `ℤ/2 ⋉ ℝ`, with non-trivial isotropy at `0`. Its fibres `F⁻¹(x)` have one
+     point.
+
+102. **Identities and trivial strong bundles** (`NonVacuityBundle.lean`). The identity functor of
+     every ep-groupoid is a proper covering functor (`EpFunctor.isProperCovering_id`, with
+     `EpFunctor.isScDiffeoOn_fibredMap_id`). Every strong bundle over an M-polyfold is a strong
+     bundle over the trivial ep-groupoid of the M-polyfold, with `μ(z, w) = w`
+     (`EpStrongBundle.trivial`, Definition 8.4); the identity is a strong bundle map and a strong
+     bundle functor (`EpStrongBundle.isMap_id`, `EpStrongBundle.isStrongBundleFunctor_id`,
+     Definitions 8.5, 8.6), and the identity of every strong bundle over an ep-groupoid is a proper
+     strong bundle covering functor (`EpStrongBundle.isProperStrongBundleCovering_id`, with
+     `EpStrongBundle.isStrongBundleIso_fibredLift_id` for (3), on the reading of item 70). Over the
+     trivial ep-groupoid every section is functorial (`EpStrongBundle.isFunctorialSection_trivial`),
+     so `Γ`, `Γ⁺`, `Fred` are Part I's sc-smooth, sc⁺- and sc-Fredholm sections
+     (`EpStrongBundle.mem_sectionFunctors_trivial`,
+     `EpStrongBundle.mem_plusSectionFunctors_trivial`,
+     `EpStrongBundle.mem_fredholmSectionFunctors_trivial`). The witnesses use that maps of
+     pull-backs `(z, y) ↦ (g(z), Φ(y))` are strong bundle maps
+     (`StrongBundle.isStrongBundleMap_pullbackMap`).
+
+103. **A strong bundle over an ep-groupoid in `Type`** (`TrivialBundle.epBundle`). Part I's trivial
+     strong bundle `ℝⁿ × ℝᵏ → ℝⁿ` over the trivial ep-groupoid of `ℝⁿ`: its functorial picture is an
+     ep-groupoid (`TrivialBundle.epBundleEpGroupoid`), its identity is a proper strong bundle
+     covering functor (`TrivialBundle.epBundle_isProperStrongBundleCovering`,
+     `TrivialBundle.epBundle_isMap_id`), `0 ∈ Γ⁺`
+     (`TrivialBundle.fiberZero_mem_plusSectionFunctors_epBundle`), and for a `C^∞` map `φ : ℝⁿ → ℝᵏ`
+     the graph section `x ↦ (x, φ(x))` lies in `Γ` and in `Fred`
+     (`TrivialBundle.graphSection_mem_sectionFunctors_epBundle`,
+     `TrivialBundle.graphSection_mem_fredholmSectionFunctors_epBundle`, from Part I's results on
+     graph sections, germ reading).
+
+104. **Tangent witnesses** (`TangentTame.lean`, `TangentOrbit.lean`). The tangent of the trivial
+     ep-groupoid of `ℝⁿ` is tame (`EpGroupoid.isTame_tangentEpGroupoid_trivial_rn`, Lemma 8.8), and
+     the tangent of the trivial ep-groupoid of any M-polyfold has a paracompact orbit space
+     (`EpGroupoid.hasParacompactOrbitSpace_tangent_trivial`, Theorem 8.4).
+
+105. **Hypotheses check: every hypothesis is satisfiable; what the witnesses do not exercise**
+     *(2026-11-07)*. (1) Tameness (Theorems 8.1, 8.3, Lemma 8.8, the degeneracy remark) is
+     existential, a tame atlas, as in Chapter 7 (Chapter 7, item 106); witnesses
+     `EpGroupoid.isTame_trivial_rn`, `EpGroupoid.isTame_tangentEpGroupoid_trivial_rn`; the tame `X`,
+     `Y` of `IsProperCovering.degIndex_prod_fibredMap` are satisfiable by the identity of the
+     trivial ep-groupoid of `ℝⁿ` (not stated as a lemma). (2) `HasParacompactOrbitSpace` (Theorem
+     8.4): `EpGroupoid.hasParacompactOrbitSpace_trivial`, item 104. (3) "A sufficiently small `U(x)`
+     with the natural `G_x`-action" (Theorems 8.5, 8.6) is a `ProperCoveringChart` datum; charts
+     exist inside every open `V ∋ x` (`theorem_8_5`), so part (c) of `theorem_8_6`, which quantifies
+     over all charts at `x`, is not vacuous; no hypothesis "for every `U(x)`" is made elsewhere. (4)
+     Proper covering functors (Definition 8.8; Propositions 8.2, 8.4, Theorems 8.5, 8.6, Lemmas
+     8.9–8.11): items 101, 102. (5) A covering functor with a geometric lift and `D` nonempty
+     (Proposition 8.3): item 101. (6) Strong bundles over ep-groupoids, section functors and proper
+     strong bundle covering functors (Definitions 8.4–8.7, 8.10, §8.5.2): items 102, 103. No
+     hypothesis of the form "for all compatible charts" is made in Chapter 8. Not exercised: every
+     proper covering functor constructed has one-point fibres `F⁻¹(x)` (identities, and the functor
+     of item 101, whose `D` has one object), so the even coverings of Definitions 8.8 (2), 8.10 (2)
+     are met with one sheet and the counting of Appendix 8.5 only with `q = 1`, `#Θ_1 = 1`; no
+     proper strong bundle covering functor other than identities is constructed; `Γ⁺` is witnessed
+     by the zero section only.
+
+Not formalized (2026-11-07).
+
+110. **Definitions 8.2, 8.3: sc-differential forms on ep-groupoids and the sc-de Rham complex**
+     *(§8.2, pp. 268–270)*. Not formalized. They need the Whitney sums `⊕^k TX` as M-polyfolds, the
+     linear structure of `T_xX` (gap G.7), linear maps `Tφ` (gap G.70, item 112), the M-polyfolds
+     `X^i` for `i ≥ 2` (gap G.6) and the sc-differential forms, the Lie bracket and the exterior
+     derivative of Part I's §4.4, which are not formalized either (gaps G.37–G.39); Stokes's theorem
+     (gap G.40) is not used in §8.2. New gap G.74. Like Part I's §4.4 in `ch04.md`, the two
+     definitions have no V-item. Possible misprints: Definition 8.2 writes "`Tφ : T_xX → T_yY`" for
+     `T_yX` (p. 269), as in Remark 8.1 (item 10); in the argument that `dω` is compatible with
+     morphisms (p. 269), "`x = s(φ) ∈ U(x₀) ∩ X₁` and `y = t(φ₀)`" has `t(φ₀)` for `t(φ)`, the
+     target of the morphism `φ` whose tangent `Tφ : T_xX → T_yX` follows.
+
+111. **Lemma 8.1 as printed** *(Lemma 8.1, p. 259; the proof of Lemma 8.6, p. 262)*. The
+     identification `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗` and `m_{T𝐗} = Tm` on it are not formalized (new
+     gap G.75). The sheet form (item 5) is what the proofs of Lemmas 8.1, 8.2 and 8.6 use, and
+     condition (4) of Definition 7.3 for `T𝐗` is proved without the identification (item 7), so
+     nothing in the chapter depends on the gap.
+
+112. **Gap G.70 in part: `Tφ` well defined and functorial** *(Remark 8.1, pp. 264–265; Chapter 7,
+     Definition 7.4)*. Chapter 7 left all properties of `tangentMor` unformalized (Chapter 7, item
+     110; gap G.70). Now formalized: `Tφ` is well defined, `Tφ(Ts(h)) = Tt(h)` for every `h ∈ T_φ𝐗`
+     (`tangentMor_tSrc`), and functorial, `T(ψ ∘ φ) = Tψ ∘ Tφ` for `φ ∈ 𝐗₁` (`tangentMor_comp`), and
+     the pairs `(Tφ, a)` of Remark 8.1 describe `T𝐗` (item 10). Still not formalized: that `Tφ` is
+     bijective and linear (the linearity needs gap G.7), that `Tφ = Tφ̂(s(φ))`, a bounded linear
+     isomorphism on level `0` and an sc-operator for smooth `φ`. A dated sentence is added to G.70.
+
+113. **Not formalized, without a gap** *(pp. 264–289)*. Remark 8.1: the M-polyfold structure
+     transported along `G`, and the description by triples `(a, Tφ, b)`. The proof of Theorem 8.4:
+     the sc-isomorphism of `TU(x_z)` with a local bundle model `TO → O¹` and the linearity of the
+     bundle action of `G_{x_z}` (not needed by the proof here, item 21; the linearity needs gap
+     G.7). Remark 8.2 (b): the remarks on the naturality of Theorem 7.1's construction (item 56).
+     Strong bundle maps over open subsets of the base (item 30). The closing sentence of Definition
+     8.10 (item 70), the phrase "the structure of isomorphism classes stays the same" before
+     Proposition 8.4 (item 74), and the category `Ban` of §8.5.2 (item 75). None of these is used
+     elsewhere in the chapter, so none is given a gap.
+
+114. **Gaps of Part I and Chapter 7 taken up in Chapter 8.** G.70 (Chapter 7, `Tφ` as an
+     sc-isomorphism): in part (item 112). G.7 (the linear structure of `T_xX`) remains open; it now
+     also stands behind the linearity claims of Remark 8.1 and of the action in the proof of Theorem
+     8.4, and behind Definitions 8.2, 8.3. G.6 and G.37–G.39 are needed for Definitions 8.2, 8.3
+     (gap G.74) and remain open. No other gap of Part I or Chapter 7 is used in the chapter.

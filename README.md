@@ -27,7 +27,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 469 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 512 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -53,16 +53,15 @@ GitHub displays it directly.
   ep-groupoid) under the hypothesis that the reduced morphism space is Hausdorff and paracompact,
   a hypothesis that cannot be dropped (`𝐗^R` need not be Hausdorff, checked in Lean), and the
   tangent `Tφ` of a morphism as a definition only (gaps G.70, G.71).
-* **Chapter 8 (bundles and covering functors) is formalized in Lean** (2026-11-08; reports still to
-  come): the tangent ep-groupoid and the tangent functor (Theorems 8.1–8.4), strong bundles over
+* **Chapter 8 (bundles and covering functors) is formalized** (2026-11-08, Lean and reports): the tangent ep-groupoid and the tangent functor (Theorems 8.1–8.4), strong bundles over
   ep-groupoids (Definitions 8.4–8.7, 8.10), proper covering functors (Theorems 8.5, 8.6,
   Propositions 8.2–8.4); the sc-differential forms of §8.2 (Definitions 8.2, 8.3) are not.
-* About 151,200 lines of Lean in 239 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (6,757 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* About 151,300 lines of Lean in 239 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (6,761 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of the text is compared with its formal version** (469 items, each with a
+* **Every numbered item of the text is compared with its formal version** (512 items, each with a
   verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap list
-  of what is not formalized and why (G.1–G.73).
+  of what is not formalized and why (G.1–G.75).
 * **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -149,7 +148,9 @@ no proof in the text), the Banach-space theorems 5.32, 5.40, 5.43 (cited, used a
 splicings). In Chapter 7: the tangent `Tφ` of a morphism as an sc-isomorphism (deferred to Chapter
 8; G.70), the paracompactness of `𝐗^R` when it is Hausdorff (G.71; Hausdorffness itself fails in
 general, `Polyfold/Chapter7/ReducedNotHausdorff.lean`), the set `|X_∞|` of the filtration of the
-orbit space (G.72), and the density of `X_∞` in `X_k` (G.73).
+orbit space (G.72), and the density of `X_∞` in `X_k` (G.73). In Chapter 8: the sc-differential
+forms on ep-groupoids and the sc-de Rham complex (Definitions 8.2, 8.3; G.74), and Lemma 8.1 as
+printed, the identification of the tangent of the fibred product (G.75).
 
 ## License
 

@@ -1,4 +1,4 @@
-# Book concordance: the 2014 preprint and the book's arXiv version (Chapters 1–6; Part II, Chapter 7)
+# Book concordance: the 2014 preprint and the book's arXiv version (Chapters 1–6; Part II, Chapters 7–8)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); every statement number
@@ -542,16 +542,17 @@ does not certify that the statement is verbatim.
 | Lemma 6.5 | 191 | new ($Q = P + Q(I - P)$ for $P, Q \in \mathcal P_H$) |
 | Proposition 6.6 | 195 | new (isomorphisms between $E(T,P)$ and $E(T,Q)$ for $P, Q \in \Pi_T \cap \mathcal P_H$, continuous in $T$) |
 
-## Part II: the 2017 numbering is the only numbering (Chapter 7)
+## Part II: the 2017 numbering is the only numbering (Chapters 7–8)
 
 Part II, *Ep-Groupoids* (Chapters 7–11), has no 2014 preprint: the preprint arXiv 1407.3185 is
 Part I alone. For Part II the book's arXiv version 1707.08941 is the text, and **its statement
 numbers and printed pages are the only numbering of Part II** used in the project: in
-`Findings.md` ("## Chapter 7"), `Chapter7.md`, the reports (`verification/ch07.md`, V7.1–V7.68)
-and the Lean docstrings. There is nothing to concord, so this section has no preprint column; it
-lists the numbered items and sections of Chapter 7 with their pages, their V-items and the Lean
-files of `Polyfold/Chapter7/` that formalize them, so that a reader holding the book can find each
-of them. Part I results cited in Part II carry their 2017 numbers, with the preprint number of the
+`Findings.md` ("## Chapter 7", "## Chapter 8"), `Chapter7.md`, `Chapter8.md`, the reports
+(`verification/ch07.md`, V7.1–V7.68; `verification/ch08.md`, V8.1–V8.43) and the Lean docstrings.
+There is nothing to concord, so this section has no preprint column; it lists the numbered items
+and sections of Chapters 7 and 8 with their pages, their V-items and the Lean files of
+`Polyfold/Chapter7/` and `Polyfold/Chapter8/` that formalize them, so that a reader holding the
+book can find each of them. Part I results cited in Part II carry their 2017 numbers, with the preprint number of the
 Lean name in brackets where it matters (for example Theorem 2.2 [2.16], `Polyfold.theorem_2_16`).
 
 Pages are printed pages, read off the running heads of `sources/HWZ-Book-2017.txt` (even pages
@@ -560,8 +561,9 @@ as for Chapter 6; Chapter 7 is lines 10704–12250 of that text (Part II opens a
 Each kind of statement has its own counter (Definition 7.3 and Proposition 7.3 are different
 statements). Chapter 7 has 52 numbered items: 17 definitions, 14 propositions, 10 lemmas, 6
 theorems, 3 corollaries and 2 remarks. "p." is the page of the statement's heading (for a section,
-of its title). The Lean files are in `Polyfold/Chapter7/`; the first one named holds the statement,
-the others the notions or witnesses it uses. The verdicts are in the comparison, not here.
+of its title). The Lean files are in `Polyfold/Chapter7/` (for Chapter 8, in `Polyfold/Chapter8/`);
+the first one named holds the statement, the others the notions or witnesses it uses. The verdicts
+are in the comparison, not here.
 
 ### Chapter 7 (arXiv 1707.08941 pp. 225–256)
 
@@ -657,6 +659,86 @@ Chapter 7, items 100–107) have no V-item of their own. Gaps opened in Chapter 
 paracompact; Hausdorffness fails in general, `ReducedNotHausdorff.lean`), G.72 (p. 228, $\lvert
 X_\infty\rvert = \bigcap_k \lvert X_k\rvert$), G.73 (p. 227, $X_\infty$ dense in every $X_k$). `verification/ch07.md` contains no
 *(book?)* mark: there is no other numbering to check against.
+
+### Chapter 8 (arXiv 1707.08941 pp. 257–289)
+
+Chapter 8, *Bundles and Covering Functors*, is lines 12251–13855 of `sources/HWZ-Book-2017.txt`
+(Chapter 9 opens at line 13856, p. 291; p. 290 is blank). The running heads are "258 8 Bundles and
+Covering Functors" on even pages and "8.1 The Tangent of an Ep-Groupoid 259" on odd pages; p. 257,
+the first page of the chapter, has no head. Chapter 8 has 33 numbered items: 10 definitions, 11
+lemmas, 6 theorems, 4 propositions and 2 remarks; it has no corollaries or examples. Its sections are
+§§8.1–8.5, with §8.5.1 and §8.5.2 in the appendix (there is no §8.6). Definitions 8.2 and 8.3 are not
+formalized and have no V-item.
+
+| arXiv 1707.08941 | p. | V-item | Lean file | Note |
+|---|---|---|---|---|
+| §8.1 The Tangent of an Ep-Groupoid | 257 | — | — | the tangent data (8.1)–(8.9) (pp. 257–258): V8.1, `Basic.lean` |
+| Theorem 8.1 | 258 | V8.3 | `TangentEp.lean`, `TangentTame.lean` | the tangent ep-groupoid; proved on pp. 263–264 from Lemmas 8.1–8.8 |
+| Lemma 8.1 | 259 | V8.4 | `TangentEp.lean`, `TangentLocal.lean` | in the sheet form of its proof; as printed not formalized (gap G.75) |
+| Lemma 8.2 | 259 | V8.5 | `TangentEp.lean` | proof p. 260 |
+| Lemma 8.3 | 260 | V8.6 | `TangentEp.lean` | associativity; proof p. 261 |
+| Lemma 8.4 | 261 | V8.7 | `TangentEp.lean` | units |
+| Lemma 8.5 | 261 | V8.8 | `TangentEp.lean` | inverses; proof ends on p. 262 |
+| Lemma 8.6 | 262 | V8.9 | `TangentEp.lean`, `TangentLocal.lean` | "$m_{T\mathbf X}$ is precisely $Tm$" not formalized (gap G.75) |
+| Lemma 8.7 | 262 | V8.10 | `TangentEp.lean` | properness; proof ends on p. 263 |
+| Lemma 8.8 | 263 | V8.11 | `TangentTame.lean` | "$Tr$ is a tame retraction" proved from the definitions |
+| Remark 8.1 | 264 | V8.12 | `TangentEp.lean` | pp. 264–265; the linearity of $T\varphi$ not formalized (gaps G.7, G.70) |
+| Theorem 8.2 | 265 | V8.13 | `TangentEp.lean` | proof ends on p. 266 |
+| Theorem 8.3 | 266 | V8.14 | `TangentEp.lean` | the functor $T$, formalized as `EP.{max u 1} ⥤ EP.{max u 1}` |
+| Definition 8.1 | 266 | V8.15 | `Basic.lean`, `NatTrans.lean` | pp. 266–267; $\simeq$ an equivalence relation (p. 267): V8.16 |
+| Proposition 8.1 | 267 | V8.17 | `TangentEp.lean` | proof ends on p. 268 |
+| Theorem 8.4 | 268 | V8.18 | `TangentOrbit.lean` | proved by metrizability; $\lvert TX\rvert$ is metrizable |
+| §8.2 Sc-Differential Forms on Ep-Groupoids | 268 | — | — |  |
+| Definition 8.2 | 268 | — | — | sc-differential forms (pp. 268–269); not formalized (gap G.74) |
+| Definition 8.3 | 270 | — | — | the sc-de Rham complex; not formalized (gap G.74) |
+| §8.3 Strong Bundles over Ep-Groupoids | 270 | — | — | strong bundle maps and the pull-back along $s$ (p. 270): V8.19, `StrongBundleMap.lean` |
+| Definition 8.4 | 271 | V8.20 | `EpStrongBundle.lean`, `StrongBundleMap.lean` | with global strong bundle maps (a reading); $\mu(\psi,\cdot)$ (p. 271): V8.21; the functorial picture (pp. 271–272): V8.22 |
+| Definition 8.5 | 273 | V8.23 | `EpStrongBundle.lean`, `StrongBundleMap.lean` |  |
+| Definition 8.6 | 274 | V8.24 | `EpStrongBundle.lean` | "these are identical notions" (pp. 273–274): V8.25 |
+| Definition 8.7 | 274 | V8.26 | `EpStrongBundle.lean` | section functors (pp. 274–275) |
+| §8.4 Proper Covering Functors | 275 | — | — |  |
+| Definition 8.8 | 275 | V8.27 | `Basic.lean`, `ProperCovering.lean` | the degeneracy remark after it (pp. 275–276): V8.28 |
+| Proposition 8.2 | 276 | V8.29 | `ProperCovering.lean` | proof ends on p. 277 |
+| Theorem 8.5 | 277 | V8.30 | `ProperCoveringLocal.lean`, `NonVacuity.lean` | Proper Covering I; (5) with $s$ on both vertical arrows, as printed it does not hold as we read it; proof pp. 278–279 |
+| Remark 8.2 | 277 | V8.31 | `ProperCoveringLocal.lean` | pp. 277–278, between Theorem 8.5 and its proof |
+| Definition 8.9 | 279 | V8.32 | `Basic.lean` | $\mathrm{Diff}_{sc}$ (p. 279); pp. 279–280; the discussion after it (pp. 280–281): V8.33, `GeometricLift.lean` |
+| Proposition 8.3 | 281 | V8.35 | `GeometricLift.lean`, `SigmaPolyfold.lean` | for nonempty $D$; disjoint unions (p. 281): V8.34; proof ends on p. 282 |
+| Theorem 8.6 | 283 | V8.36 | `GeometricLift.lean`, `ProperCoveringLocal.lean` | Proper Covering II; for ep-groupoids in `Type`; proof ends on p. 284 |
+| Definition 8.10 | 285 | V8.37 | `EpStrongBundle.lean` | the recap before it (pp. 284–285); (3) read as a pull-back along $\mathrm{pr}_2$ |
+| §8.5 Appendix | 286 | — | — |  |
+| §8.5.1 Local Structure of Proper Coverings | 286 | — | — | the preliminaries before Lemma 8.9 (p. 286): V8.38, `ProperCovering.lean` |
+| Lemma 8.9 | 286 | V8.39 | `ProperCovering.lean` | proof ends on p. 287 |
+| Lemma 8.10 | 287 | V8.40 | `ProperCovering.lean` | classes indexed by their images in $\lvert Y\rvert$ |
+| Lemma 8.11 | 287 | V8.41 | `ProperCovering.lean` |  |
+| Proposition 8.4 | 288 | V8.42 | `ProperCovering.lean` | $\mathbb N$ as the trivial ep-groupoid of a discrete M-polyfold |
+| §8.5.2 The Structure of Strong Bundle Coverings | 288 | — | — | pp. 288–289: V8.43, `EpStrongBundle.lean` |
+
+**Unnumbered claims of Chapter 8 with a V-item of their own.**
+
+| Claim | pp. | V-item | Lean file |
+|---|---|---|---|
+| the tangent data (8.1)–(8.9): structure maps and the composition (8.5) | 257–258 | V8.1 | `Basic.lean`, `TangentEp.lean` |
+| tangents of maps defined on open sets and of local sc-diffeomorphisms (used, not stated) | 258–263 | V8.2 | `TangentLocal.lean` |
+| $\simeq$ is an equivalence relation | 267 | V8.16 | `NatTrans.lean` |
+| strong bundle maps between strong bundles over M-polyfolds; the pull-back along $s$ (used, not defined) | 270 | V8.19 | `StrongBundleMap.lean` |
+| $\mu(\psi,\cdot) : W_x \to W_y$ a linear isomorphism | 271 | V8.21 | `EpStrongBundle.lean` |
+| the functorial picture: the ep-groupoid $(W,\mathbf W)$ and the functor $(P,\pi_1)$ | 271–272 | V8.22 | `EpStrongBundle.lean` |
+| Definitions 8.5 and 8.6: "these are identical notions" | 273–274 | V8.25 | `EpStrongBundle.lean` |
+| the degeneracy remark after Definition 8.8 | 275–276 | V8.28 | `ProperCovering.lean` |
+| the discussion after Definition 8.9 ($\tau(y)$, $\varphi_{yy'}$, the actions, equivariance) | 280–281 | V8.33 | `GeometricLift.lean` |
+| disjoint unions of M-polyfolds (used, not described) | 281 | V8.34 | `SigmaPolyfold.lean` |
+| §8.5.1 before Lemma 8.9: $\#\mathrm{mor}(F^{-1}(x)) = \#G_x\cdot\#F^{-1}(x)$, the classes $\Theta_j$ | 286 | V8.38 | `ProperCovering.lean` |
+| §8.5.2: $y \mapsto A_y$ a natural transformation $\mu_Y \to \mu_X \circ F$ | 288–289 | V8.43 | `EpStrongBundle.lean` |
+
+$\mathrm{Diff}_{sc}$ (p. 279) is part of V8.32. The witnesses that show the hypotheses can hold
+(`NonVacuity.lean`, `NonVacuityBundle.lean` and the witnesses in the other files; `Findings.md`,
+Chapter 8, items 100–105) have no V-item of their own; the counterexample to Theorem 8.5 (5) as
+printed, `Polyfold.CoveringExamples.theorem_8_5_five_as_printed` in `NonVacuity.lean`, belongs to
+V8.30. Gaps opened in Chapter 8: G.74 (Definitions 8.2 and 8.3, pp. 268–270, sc-differential forms
+on ep-groupoids and the sc-de Rham complex) and G.75 (Lemma 8.1 as printed, p. 259, the
+identification $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ with
+$m_{T\mathbf X} = Tm$); G.70 (Definition 7.4, $T\varphi$) is now formalized in part, by Remark 8.1.
+`verification/ch08.md` contains no *(book?)* mark: there is no other numbering to check against.
 
 ## Marks in the report sources
 
