@@ -359,7 +359,12 @@ each chapter lands)
     the round-trip audit of Chapter 8, the gaps G.74–G.75, and small refactors (Lemma 7.4's quotient
     metric and two `Lift.lean` helpers are repeated privately in `TangentOrbit.lean`,
     `TangentTame.lean`; `FullOb`, `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`,
-    `IsFullyFaithfulOpenEmbedding` could move to `Chapter8/Basic.lean`). **Next: Chapter 9.**
+    `IsFullyFaithfulOpenEmbedding` could move to `Chapter8/Basic.lean`).
+13. **Part II, Chapter 9** (Branched Ep⁺-Subgroupoids, pp. 291–331) — started 2026-11-08: plan in
+    `PLAN.md` §II.10 (inventory, decisions P10.1–P10.4, waves W0–W4). Wave W0 (`Chapter9/Basic.lean`:
+    Definitions 9.1–9.3, witnesses, Lemmas 9.1–9.2) begun at 93% of the weekly budget; whatever
+    compiles is committed, the rest is listed here. **Next: finish W0, then decide P10.4 (forms,
+    measures, Stokes) before §9.4–§9.5.**
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
