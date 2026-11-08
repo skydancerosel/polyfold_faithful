@@ -5,12 +5,13 @@ strong bundles, sc-Fredholm sections, the implicit function theorems, the Fredho
 orientations),
 formalized against Mathlib with the same faithful layer as our formalizations of Milnor's
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
-([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, has
-begun: its Chapter 7 (ep-groupoids, their orbit spaces and invariant partitions of unity) is
-formalized. For Part I the text used is the 2014 preprint, arXiv 1407.3185; a concordance gives the
-numbers of the book's 2017 arXiv version (1707.08941). Part II has no preprint: for it the 2017 arXiv
-version is the text, and its numbers and pages are the only ones used. The 2021 Springer edition
-was not available to us.
+([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, is
+under way: Chapters 7 and 8 are formalized and Chapter 9 has begun. The authoritative text is the
+Springer edition (Progress in Mathematics 50, 2021): the reports cite its three-level numbers and
+pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
+1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names keep the
+numbers they were given first; items added or changed in 2021 have names ending in `_2021`, and
+`Exposition/BookConcordance.md` maps the three numberings.
 
 The Lean code, the exposition and the reports were written by AI agents (Claude models) under the
 direction of the project lead. Lean checks the proofs; whether the definitions and statements mean
@@ -27,7 +28,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 512 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 649 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -47,21 +48,26 @@ GitHub displays it directly.
 
 ## Status (8 November 2026)
 
-* **Part I, Chapters 1–6, is formalized**, Chapter 6 except Theorem 6.43 (the invariant `Ψ_(f,o)`)
-  and the admissible sections of §6.6.
-* **Part II has begun: Chapter 7 is formalized**, Propositions 7.9 and 7.10 (the reduced
-  ep-groupoid) under the hypothesis that the reduced morphism space is Hausdorff and paracompact,
-  a hypothesis that cannot be dropped (`𝐗^R` need not be Hausdorff, checked in Lean), and the
-  tangent `Tφ` of a morphism as a definition only (gaps G.70, G.71).
-* **Chapter 8 (bundles and covering functors) is formalized** (2026-11-08, Lean and reports): the tangent ep-groupoid and the tangent functor (Theorems 8.1–8.4), strong bundles over
-  ep-groupoids (Definitions 8.4–8.7, 8.10), proper covering functors (Theorems 8.5, 8.6,
-  Propositions 8.2–8.4); the sc-differential forms of §8.2 (Definitions 8.2, 8.3) are not.
-* About 151,300 lines of Lean in 239 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (6,761 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* **Part I, Chapters 1–6, is formalized**, Chapter 6 except Theorem 6.7.1 (preprint 6.43; the
+  invariant `Ψ_(f,o)`) and the admissible sections of §6.7.
+* **Part II, Chapters 7 and 8, is formalized** (ep-groupoids, orbit spaces, invariant partitions of
+  unity; the tangent ep-groupoid and functor, strong bundles over ep-groupoids, proper covering
+  functors). In the 2021 text the reduced ep-groupoid exists when `T_R` is Hausdorff (Theorem
+  7.2.14), and `T_R` is always paracompact (proved); that `𝐗^R` need not be Hausdorff is checked in
+  Lean. The sc-differential forms of §8.2 are not formalized.
+* **The additions and changes of the 2021 edition in Chapters 1–8 are formalized**, among them
+  locally complete spaces (§2.1), the tame boundary `bX` (§2.7, Theorem 2.7.13) and the boundary
+  ep-groupoid (Theorem 7.6.9), Proposition 2.3.17 for all `i`, the global Lie bracket (§4.4–4.5),
+  the topology of the orientation space (Theorem 6.6.17), the rewritten §7.2 and the Zhou condition
+  (§7.4, §8.1).
+* **Chapter 9 (branched ep⁺-subgroupoids) has begun**: §9.1 (Definition 9.1.2, Lemmas 9.1.5,
+  9.1.7, dimension, Propositions 9.1.11, 9.1.12).
+* About 175,100 lines of Lean in 273 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (8,308 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of the text is compared with its formal version** (512 items, each with a
-  verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap list
-  of what is not formalized and why (G.1–G.75).
+* **Every numbered item of Chapters 1–8 is compared with its formal version** (649 items, each with
+  a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
+  list of what is not formalized and why (G.1–G.92).
 * **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -78,7 +84,7 @@ GitHub displays it directly.
 | `Exposition/Verification.pdf` | The verified edition: each item as a short paragraph ending in the sentence to confirm. |
 | `Exposition/Findings.md` | Every gap, hidden hypothesis, counterexample, reading chosen and possible misprint, numbered, with what was done about it. |
 | `Exposition/ProofByProof.pdf` (or `polyfold-proof-by-proof.html`) | Each formal proof retold step by step, with a tag on every step naming the Lean declaration that checks it. |
-| `Exposition/Chapter1.md` … `Chapter7.md` | The expanded exposition, with complete proofs, for a first-year graduate student. |
+| `Exposition/Chapter1.md` … `Chapter8.md` | The expanded exposition, with complete proofs, for a first-year graduate student. |
 | `RoundTrip/REPORT.md` | The round-trip audit: results, disagreements for human review, statements of the text that do not hold in the formal reading. |
 
 Open the HTML pages in a browser straight from the folder; they need no server.
@@ -93,64 +99,96 @@ Open the HTML pages in a browser straight from the folder; they need no server.
    stronger (items 220–222, 260–334).
 2. **The readings the formalization had to choose**: sc-smooth germs on neighbourhoods that may
    shrink with the level; "strong bundle chart" as any chart compatible with the atlas; "tame" as
-   tame charts for the germ data; "a bump function with `f ≠ 0`" as `f(x) ≠ 0`; Definition 6.1
-   with locally defined sections. Each is recorded in the Findings with its reason.
+   tame charts for the germ data; "a bump function with `f ≠ 0`" as `f(x) ≠ 0`; Definition 6.2.1
+   (preprint 6.1), p. 239, with locally defined sections. Each is recorded in the Findings with its reason.
 3. **The new arguments** supplied where we could not complete a proof step from the text alone,
    before anyone cites them:
-   surjectivity of `f'(y)` at the zeros near a zero in good position (V3.82, V3.93, V3.94; the same
-   step is in the 2017 version); the passage from the tangent germ property to a sub-M-polyfold for
+   surjectivity of `f'(y)` at the zeros near a zero in good position (V3.82, V3.93, V3.94; the proof of
+   Theorem 3.6.8 (preprint 3.54), p. 139, still takes this step as in 2014 and 2017); the passage from the tangent germ property to a sub-M-polyfold for
    solution sets (V3.73, V3.85); the implicit function theorems in the germ reading; filler
-   condition (3) on level 1 in Corollary 5.8 (V5.14); Proposition 6.2 by the stabilization device
-   (V3.98).
+   condition (3) on level 1 in Corollary 5.2.5 (preprint 5.8), p. 213 (V5.14); Proposition 6.2.2
+   (preprint 6.2), p. 240, by the stabilization device (V3.98).
 4. **The claims about the text**, against the Springer edition. Eight statements or proof steps
-   do not hold as we formalized them, each with a counterexample checked in Lean: Theorem 3.27's
-   proof (V3.73), Remark 2.28 (V2.33), Theorem 4.23's proof (V4.64), Theorem 5.37 (V5.55),
-   Definition 1.8 (V1.7), Lemma 5.23 (V5.42), Theorem 5.34's "Clearly" (Findings, Chapter 5,
-   item 43) and §5.3's "not complete" (V5.21). Each counterexample is to our reading of the text,
-   and a misreading on our side would remove it; telling which is the reviewer's task. Also:
-   hypotheses a proof seems to use without stating them, such as `X` tame in Theorem 5.18, and
-   possible misprints. The 2017 arXiv version reads the same at all eight points; of the unstated
-   hypotheses, it adds the tameness in Theorem 5.18 (`Exposition/BookConcordance.md`).
-5. **The remark after Definition 7.7** (Part II, pp. 228–229 of the 2017 text): that a functor
-   between ep-groupoids which is sc-smooth on objects is sc-smooth on morphisms does not hold as we
-   read it. The counterexample, checked in Lean, is on `ℤ/3` acting trivially on `ℝ`: the identity on
-   objects, `(g, y) ↦ (g, y)` for `y ≤ 0` and `(g², y)` for `y > 0` on morphisms. The remark holds for
-   functors continuous on morphisms, which is what its argument uses (V7.10; Findings, Chapter 7,
-   items 9, 104). Is continuity meant to be part of the definition?
-6. **Propositions 7.9 and 7.10** (pp. 242–244): the proof gives the charts of the reduced morphism
-   space `𝐗^R` and their sc-smooth transitions, but, as we read it, not that `𝐗^R` is Hausdorff and
-   paracompact, which an M-polyfold must be; a splicing example (on paper, not in Lean) suggests that
-   it need not be Hausdorff. Both properties are hypotheses of the formal statements, discharged for
-   effective ep-groupoids (V7.39, V7.40; gap G.71; Findings, Chapter 7, items 56, 60, 111). Which
-   additional hypothesis, if any, do the authors intend?
+   do not hold as we formalized them, each with a counterexample checked in Lean: the proof of
+   Theorem 3.2.3 (preprint 3.27), p. 107 (V3.73), Remark 2.4.8 (preprint 2.28), p. 47 (V2.33),
+   the proof of Theorem 4.3.1 (preprint 4.23), p. 193 (V4.64), Theorem 5.5.10 (preprint 5.37), p. 232
+   (V5.55), Definition 1.1.9 (preprint 1.8), p. 8 (V1.7), Lemma 5.3.16 (preprint 5.23), p. 224 (V5.42),
+   the "Clearly" in Theorem 5.5.7 (preprint 5.34), p. 231 (Findings, Chapter 5, item 43) and the "not
+   complete" in §5.3, p. 217 (V5.21). Each counterexample is to our reading of the text, and a
+   misreading on our side would remove it; telling which is the reviewer's task. How the 2021 edition
+   reads at the eight points: the same at six (Theorem 3.2.3, Theorem 4.3.1, Theorem 5.5.10,
+   Definition 1.1.9, Theorem 5.5.7, §5.3), although Theorem 4.3.1 is restated in its conclusion (1);
+   changed at Remark 2.4.8, which now gives an example (the intersection of a 3-plane
+   with `[0,∞)⁴`) that, as we read it, is not an sc-smooth retract, so the claim still has no valid
+   example; fixed at Lemma 5.3.16, since Definition 5.3.13 (3) now asks `dt` onto at every smooth
+   point, which supplies the hypothesis the proof of Theorem 5.3.15 (preprint 5.22) needed
+   (`Exposition/BookConcordance.md`, `Findings.md`, marks "book 2021"). Also: hypotheses a proof seems
+   to use without stating them, and possible misprints; the tameness of `X` in Theorem 5.3.10
+   (preprint 5.18), p. 220, was added in the 2017 version and is kept in 2021.
+5. **The remark after Definition 7.1.7** (2017: 7.7), Part II, p. 291 (2017 pp. 228–229): that a
+   functor between ep-groupoids which is sc-smooth on objects is sc-smooth on morphisms does not hold
+   as we read it in the 2017 form. The counterexample, checked in Lean, is on `ℤ/3` acting trivially
+   on `ℝ`: the identity on objects, `(g, y) ↦ (g, y)` for `y ≤ 0` and `(g², y)` for `y > 0` on
+   morphisms. The 2021 edition keeps the remark and now also asks for continuity on level 0 of
+   morphisms, which is what its argument uses and what is formalized
+   (`isScSmoothMap_mor_of_continuous`); the counterexample no longer contradicts the text (V7.10;
+   Findings, Chapter 7, items 9, 104). To confirm: that this is the intended definition.
+6. **Proposition 7.2.10 (2017: 7.9), p. 313, and the reduced morphism space `𝐗^R`**: the 2021
+   edition rewrote this. Proposition 7.2.10 now concludes only that `X^R` with the natural topology
+   `T_R` has charts with sc-smooth transitions, Remark 7.2.8 says that it need not be an M-polyfold,
+   and the reduced ep-groupoid exists when `T_R` is Hausdorff (Theorem 7.2.14, p. 318, an explicit
+   hypothesis; 2017: Proposition 7.10). The formalization takes this hypothesis, proves that `T_R` is
+   always paracompact (Proposition 7.2.12, p. 317), and checks in Lean that `𝐗^R` need not be Hausdorff
+   (gap G.71, closed by the 2021 text; V7.39, V7.40; Findings, Chapter 7, items 129, 143). The question
+   we had for the authors is answered by the 2021 text.
+7. **Formula (2.44) and Proposition 2.7.12** (§2.7.4, pp. 82–84): "`Φ_(x,V,θ)` maps `U(x, V, θ)`
+   bijectively onto `θ`" does not hold as we read it for every `V` in `N_{X,x}`, but only for `V`
+   centred at `x`, where `Φ` is a bijection onto `θ`; for non-centred representatives its image is
+   `θ ∩ V^x`, and the formalization proves Proposition 2.7.12 for every representative (V2.85, V2.104;
+   Findings, Chapter 2, items 68, 73). Is "sufficiently small" (p. 85) meant to give centred `V`?
+8. **The sentence on brackets, p. 201 (§4.5.1)**: "`[A, B](x)` belongs to level 1" for `x` in `O₂`
+   does not hold as we read it; the counterexample, checked in Lean, uses two sc-operators on a
+   weighted sequence space (V4.73; Findings, Chapter 4, item 156). Lemma 4.5.1 itself is formalized
+   (V4.74, V4.77).
+9. **Lemma 7.2.11** (p. 315, new in 2021): its part (3) does not hold as we read it for every
+   ep-groupoid, because the proof uses the uniqueness of limits in `T_R`; it holds when `T_R` is
+   Hausdorff, which is the setting of Theorem 7.2.14 where it is used (V7.76; Findings, Chapter 7,
+   item 124).
+10. **Proposition 9.1.11** (pp. 407–408; 2017: 9.2): the uniqueness of the dimensional decomposition
+    `(Θ_k)` does not hold as we read it: on the trivial ep-groupoid of `ℝ²`, the indicator of a line
+    has two decompositions satisfying (1) and (2) (`not_proposition_9_1_11_rn`,
+    `Polyfold/Chapter9/Propositions.lean`; not yet in the Findings). A possible repair is that each
+    `supp(Θ_k)` be closed in `supp(Θ)`, which is what the proof constructs.
 
 ## Open questions
 
 None of these is a hypothesis of a theorem of the project; each is stated precisely in the Findings.
 
-* Whether the text's germ reading and the stricter whole-chart reading of Definition 3.11 agree for
+* Whether the text's germ reading and the stricter whole-chart reading of Definition 3.1.11 (preprint 3.11), p. 96, agree for
   sections sc-smooth on `X` (Chapter 3, item 264).
 * Whether germ data can always be moved to a compatible tame chart when the atlas is tame (item 199;
   re-centring a chart of the atlas provably cannot do it, items 350–353).
-* Whether a weak bump function (Definition 5.29) gives one non-zero at a given non-smooth point
+* Whether a weak bump function (Definition 5.5.2 (preprint 5.29), p. 229) gives one non-zero at a given non-smooth point
   (Chapter 5, item 163; at smooth points of sc-Banach spaces it does).
 * The local constancy of the index along the zero set for germ data that are not tame (item 243).
-* The tameness of the shifted charts in Corollary 5.8 and a single family `P^i` for all `i`.
-* The text's own open question after Proposition 4.15.
-* The text's own open question on p. 249 of Part II: whether every ep-groupoid has a paracompact
-  orbit space (Chapter 7, item 113).
+* The tameness of the shifted charts in Corollary 5.2.5 (preprint 5.8), p. 213, and a single family `P^i` for all `i`.
+* The text's own open question after Proposition 4.2.3 (preprint 4.15), Question 4.2.4, p. 187.
+* The text's own open question on p. 340 of Part II (2017: p. 249), at the start of §7.5: whether
+  property (5) of a paracompact orbit space follows from properties (1)–(4) (Chapter 7, item 113).
 
-Not formalized (by decision, see the gap list in the comparison): Theorems 5.22 and 5.27 (5.27 has
-no proof in the text), the Banach-space theorems 5.32, 5.40, 5.43 (cited, used as hypotheses),
-§4.4 (sc-differential forms), Lemma 4.10, the dense form of Theorem 5.19, Theorem 6.43 (it needs
-§4.4, integration and Stokes' theorem; G.54) with the admissible sections of §6.6, used only there
+Not formalized (by decision, see the gap list in the comparison): Theorems 5.3.15 (preprint 5.22),
+p. 223, and 5.27 (preprint; in neither the 2017 nor the 2021 text), the Banach-space theorems 5.5.5,
+5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43; cited, used as hypotheses), the sc-differential forms of
+§4.4, p. 195 (the Lie bracket is formalized), Lemma 4.1.11 (preprint 4.10), the dense form of
+Theorem 5.3.12 (preprint 5.19), Theorem 6.7.1 (preprint 6.43), p. 277 (it needs the forms, integration
+and Stokes' theorem; G.54) with the admissible sections of §6.7 (preprint §6.6), used only there
 (G.55), and the infinite-dimensional examples of the applications (weighted Sobolev scales,
 splicings). In Chapter 7: the tangent `Tφ` of a morphism as an sc-isomorphism (deferred to Chapter
-8; G.70), the paracompactness of `𝐗^R` when it is Hausdorff (G.71; Hausdorffness itself fails in
-general, `Polyfold/Chapter7/ReducedNotHausdorff.lean`), the set `|X_∞|` of the filtration of the
-orbit space (G.72), and the density of `X_∞` in `X_k` (G.73). In Chapter 8: the sc-differential
-forms on ep-groupoids and the sc-de Rham complex (Definitions 8.2, 8.3; G.74), and Lemma 8.1 as
-printed, the identification of the tangent of the fibred product (G.75).
+8; G.70), the set `|X_∞|` of the filtration of the orbit space (G.72), and the density of `X_∞` in
+`X_k` (G.73). (The paracompactness and Hausdorffness of `𝐗^R`, gap G.71, are settled; see item 6
+above.) In Chapter 8: the sc-differential forms on ep-groupoids and the sc-de Rham complex
+(Definitions 8.2.1, 8.2.2, pp. 372–373; 2017: 8.2, 8.3; G.74), and Lemma 8.1.2 (2017: 8.1), p. 359,
+as printed, the identification of the tangent of the fibred product (G.75).
 
 ## License
 

@@ -391,15 +391,25 @@ each chapter lands)
 14. **The Springer 2021 edition, Chapters 1–8** (user, 2026-11-08: "let us update the whole thing to
     match the book"; chosen: reports cite 2021 numbers and pages first, old ones in parentheses;
     the changed and new 2021 items are formalized; Lean names and V-/G-numbers are kept, new ones
-    appended; Chapters 1–8 before Chapter 9 continues). Done: the 2021 section of
-    `Exposition/BookConcordance.md` and 121 `(book 2021: …)` marks in `Findings.md` (8bbb726);
-    new Lean files with names ending in `_2021`, registered in `Polyfold.lean` and in the `Test.lean`
-    block "Axioms: Chapters 1–8, additions and changes of the Springer 2021 edition" (generator
-    `Polyfold/WIP_N_list2021.lean`, gitignored): `Chapter2/LocalTopology.lean`,
-    `Chapter2/TameBoundary.lean`, `Chapter2/TameBoundaryTopology.lean`, `Chapter7/ReducedCriterion.lean`,
-    `Chapter5/Book2021.lean`, `Chapter6/Book2021.lean`. In progress or next: Chapter 3, Chapters 1/2/4,
-    §7.1 and Chapter 8, §7.4 (Zhou condition), §7.6.5; the switch of the report citations to 2021
-    numbers; then V-items, comparison rows and G-items for the 2021 additions; then Chapter 9 again.
+    appended; Chapters 1–8 before Chapter 9 continues). **Done (2026-11-08)**: the 2021 section of
+    `Exposition/BookConcordance.md`, 121 `(book 2021: …)` marks in `Findings.md`, all report
+    citations switched to 2021-first (9b4be2d); new Lean files with names ending in `_2021`,
+    registered in `Polyfold.lean` and in the `Test.lean` block "Axioms: Chapters 1–8, additions and
+    changes of the Springer 2021 edition" (generator `Polyfold/WIP_N_list2021.lean`, gitignored; add a
+    module to its imports and `phaseCMods`, run it, then replace the block): Chapter1/Book2021;
+    Chapter2/LocalTopology(+Example), Book2021, TameBoundary(+Topology, Example, Structure,
+    NonCentred), TameSub, TangentLift(+All); Chapter3/Book2021Germs, Book2021Items; Chapter4/Book2021,
+    VectorFields(+Global), BracketLevel; Chapter5/Book2021; Chapter6/Book2021(+Continuity),
+    OrientationSpace; Chapter7/ReducedCriterion, Book2021Basic, Zhou(+Levels), TameBoundaryEp(+Structure);
+    Chapter8/Book2021, TangentZhou(+Levels). Reports for all of them (9281a4d, bfaf619): 649 sign-off
+    items, 741 comparison rows, new gaps G.76–G.92 (pinned by a `"g"` field in `notFormalized`, read
+    by `build_comparison.py`), closed: G.6, G.38, G.48, G.71 (by the 2021 text), G.76, G.77, G.78,
+    G.81, G.84, G.88 (8.1.17 (2) only). 8,308 `#print axioms` lines in all. Findings per Lean file
+    and the G-table are in the notes folder (`2021-report-items.md`, `gtable-2021.md`). Open 2021 gaps:
+    G.79 (untamed germs), G.80/G.87 (forms, Stokes), G.82, G.83, G.85 (Part I facts as hypotheses),
+    G.86, G.89, G.90–G.92.
+    Chapter 9 resumed 2026-11-08 with wave W1 (§9.2: `Chapter9/Tangent.lean`,
+    `Chapter9/BoundaryPosition.lean`).
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
