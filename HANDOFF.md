@@ -384,6 +384,22 @@ each chapter lands)
     Propositions 9.1.9, 9.1.11, 9.1.12. **Next: finish W0, then decide P10.4 (forms,
     measures, Stokes) before §9.4–§9.5.** After Chapter 9, the user's order (2026-11-08): Chapter 10
     (Equivalences and Localization, p. 333) if budget remains.
+    Update (2026-11-08, later): `Chapter9/Propositions.lean` (3a6e377): chart-independent dimension
+    (`HasDimAt`), Proposition 9.1.11 as printed with a counterexample to its uniqueness as we read it
+    (`not_proposition_9_1_11_rn`), Proposition 9.1.12 in the equidimensional case, Remark 9.1.3 (b).
+    Chapter 9 is paused for item 14.
+14. **The Springer 2021 edition, Chapters 1–8** (user, 2026-11-08: "let us update the whole thing to
+    match the book"; chosen: reports cite 2021 numbers and pages first, old ones in parentheses;
+    the changed and new 2021 items are formalized; Lean names and V-/G-numbers are kept, new ones
+    appended; Chapters 1–8 before Chapter 9 continues). Done: the 2021 section of
+    `Exposition/BookConcordance.md` and 121 `(book 2021: …)` marks in `Findings.md` (8bbb726);
+    new Lean files with names ending in `_2021`, registered in `Polyfold.lean` and in the `Test.lean`
+    block "Axioms: Chapters 1–8, additions and changes of the Springer 2021 edition" (generator
+    `Polyfold/WIP_N_list2021.lean`, gitignored): `Chapter2/LocalTopology.lean`,
+    `Chapter2/TameBoundary.lean`, `Chapter2/TameBoundaryTopology.lean`, `Chapter7/ReducedCriterion.lean`,
+    `Chapter5/Book2021.lean`, `Chapter6/Book2021.lean`. In progress or next: Chapter 3, Chapters 1/2/4,
+    §7.1 and Chapter 8, §7.4 (Zhou condition), §7.6.5; the switch of the report citations to 2021
+    numbers; then V-items, comparison rows and G-items for the 2021 additions; then Chapter 9 again.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

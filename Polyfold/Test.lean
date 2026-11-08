@@ -7836,6 +7836,60 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.theorem_2_7_13_2021
 #print axioms Polyfold.MPolyfold.tameBoundary
 #print axioms Polyfold.MPolyfold.tameBoundary_apply
+-- Chapter5/Book2021.lean
+#print axioms Polyfold.StrongBundle.IsWeaklyProperOnU
+#print axioms Polyfold.StrongBundle.IsWeaklyProperLtInfty
+#print axioms Polyfold.StrongBundle.IsProperLtInfty
+#print axioms Polyfold.StrongBundle.IsAuxNorm.auxLe_fiberZero
+#print axioms Polyfold.StrongBundle.AuxLe.mono
+#print axioms Polyfold.StrongBundle.isZeroAt_of_not_mem_of_support_subset
+#print axioms Polyfold.StrongBundle.isWeaklyProperOnU_iff
+#print axioms Polyfold.StrongBundle.IsProperLtInfty.isProper
+#print axioms Polyfold.StrongBundle.IsWeaklyProperLtInfty.isWeaklyProperOnU
+#print axioms Polyfold.StrongBundle.IsProper.isWeaklyProperOnU
+#print axioms Polyfold.StrongBundle.IsProperLtInfty.isWeaklyProperLtInfty
+#print axioms Polyfold.StrongBundle.IsWeaklyProperOnU.isCompact_solutionSet
+#print axioms Polyfold.theorem_5_2_2_2021
+#print axioms Polyfold.theorem_5_2_2_2021_tfae
+#print axioms Polyfold.isSubMPolyfold_solutionSet_of_manifold
+#print axioms Polyfold.theorem_5_3_5_2021
+#print axioms Polyfold.MPolyfold.HasSurjDerivAt
+#print axioms Polyfold.StrongBundle.IsCompactFredholmRestriction
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isTame
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isScFredholm
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isCompact
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isScSmooth_t
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.mem_Icc
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.ends
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.surjDeriv
+#print axioms Polyfold.StrongBundle.IsGenCompactHomotopy.isSubmersiveGenCompactHomotopy
+#print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isCompact_solutionSet_restrict
+#print axioms Polyfold.lemma_5_3_16_2021
+#print axioms Polyfold.isScSmoothRetractMap_of_domain_empty
+#print axioms Polyfold.StrongBundle.isCompactFredholmRestriction_of_eq_empty
+#print axioms Polyfold.GenCompactHomotopyWitness.arctanTime
+#print axioms Polyfold.GenCompactHomotopyWitness.contDiff_arctanTime
+#print axioms Polyfold.GenCompactHomotopyWitness.arctanTime_mem_Ioo
+#print axioms Polyfold.GenCompactHomotopyWitness.hasFDerivAt_arctanTime
+#print axioms Polyfold.GenCompactHomotopyWitness.hasSurjDerivAt_arctanTime
+#print axioms Polyfold.GenCompactHomotopyWitness.solutionSet_graphSection_id
+#print axioms Polyfold.GenCompactHomotopyWitness.arctanTime_preimage_eq_empty
+#print axioms Polyfold.GenCompactHomotopyWitness.isSubmersiveGenCompactHomotopy_witness
+#print axioms Polyfold.GenCompactHomotopyWitness.not_isGenCompactHomotopy_witness
+-- Chapter6/Book2021.lean
+#print axioms Polyfold.projIntertwiner
+#print axioms Polyfold.projIntertwiner_self
+#print axioms Polyfold.projIntertwiner_mul
+#print axioms Polyfold.continuous_projIntertwiner
+#print axioms Polyfold.lemma_6_4_4_2021
+#print axioms Polyfold.finrank_sup_span_singleton_of_notMem
+#print axioms Polyfold.isCompl_sup_span_singleton
+#print axioms Polyfold.exists_isCompl_isCompl_of_finrank_eq_aux
+#print axioms Polyfold.exists_isCompl_isCompl_of_finrank_eq
+#print axioms Polyfold.proposition_6_4_13_2021
+#print axioms Polyfold.lemma_6_6_8_2021
+#print axioms Polyfold.lemma_6_6_9_2021
 
 /-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), §9.1 (2021 numbering) -/
 -- Chapter9/Basic.lean
