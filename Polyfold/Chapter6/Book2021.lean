@@ -55,9 +55,9 @@ not change the propagation of orientation; (Lemma 6.6.9, p. 269, new) adding sc�
 * Lemma 6.6.5 (the solution set near `(t, φ(t), 0)` for points `(t, y, λ)`; 2017: `(t, y, 0)`,
   possible misprint): the manifold statement is gap G.62; the family of kernels used later is
   `exists_subspaceFamily_linKer` (`KernelFamily.lean`), which is not affected by the change.
-* Proposition 6.4.13: the last sentence (`A_T`, `B_T` depend continuously on `T` near `T`) is not
-  formalized; it needs a closed common complement `X` (here `X` is algebraic) and the topology of
-  the kernel bundle of Remark 6.4.5.
+* Proposition 6.4.13: the last sentence (`A_T`, `B_T` depend continuously on `T` near `T`) is
+  `proposition_6_4_13_continuity_2021` in `Chapter6/Book2021Continuity.lean`, with a closed common
+  complement `X` (here `X` is algebraic).
 * Theorem 6.6.17 (the Hausdorff topology on `O_f`; the text leaves the proof to the reader) is in
   `Chapter6/OrientationSpace.lean` (`theorem_6_6_17_2021`, `existsUnique_orientationTopology_2021`),
   built from the glued local propagations `orPush`/`orLocalTransport`.

@@ -8686,6 +8686,45 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.eq_orTopology_of
 #print axioms Polyfold.existsUnique_orientationTopology_2021
 #print axioms Polyfold.theorem_6_6_17_2021
+-- Chapter2/LocalTopologyExample.lean
+#print axioms Polyfold.isLocallyCompleteRel_of_forall_isCompletelyMetrizable
+#print axioms Polyfold.isCompletelyMetrizableSpace_of_isEmbedding_compl_range
+#print axioms Polyfold.kSeq
+#print axioms Polyfold.kSeq_pos
+#print axioms Polyfold.kTop
+#print axioms Polyfold.RealKTop
+#print axioms Polyfold.instTopologicalSpaceRealKTop
+#print axioms Polyfold.RealKTop.toReal
+#print axioms Polyfold.RealKTop.ofReal
+#print axioms Polyfold.RealKTop.toReal_ofReal
+#print axioms Polyfold.RealKTop.ofReal_toReal
+#print axioms Polyfold.RealKTop.continuous_toReal
+#print axioms Polyfold.RealKTop.instT2Space
+#print axioms Polyfold.RealKTop.isOpen_compl_range
+#print axioms Polyfold.RealKTop.mem_nhds
+#print axioms Polyfold.RealKTop.not_regularSpace
+#print axioms Polyfold.RealKTop.not_isLocallyComplete
+#print axioms Polyfold.RealKTop.isEmbedding_subtype
+#print axioms Polyfold.RealKTop.range_subtype
+#print axioms Polyfold.RealKTop.isLocallyCompleteRel
+#print axioms Polyfold.remark_2_1_6_strict_2021
+-- Chapter6/Book2021Continuity.lean
+#print axioms Polyfold.isCompl_sup_inf_of_isCompl
+#print axioms Polyfold.exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq
+#print axioms Polyfold.diagram_of_solveOp
+#print axioms Polyfold.projCod
+#print axioms Polyfold.solveOp
+#print axioms Polyfold.kerTransition
+#print axioms Polyfold.cokerTransition
+#print axioms Polyfold.solveOp_mem
+#print axioms Polyfold.kerTransition_apply
+#print axioms Polyfold.cokerTransition_apply
+#print axioms Polyfold.apply_solveOp_of_projRestrict_eq
+#print axioms Polyfold.disjoint_ker_comp_of_projRestrict_eq
+#print axioms Polyfold.isTopCompl_ker_comp_of_projRestrict_eq
+#print axioms Polyfold.continuousAt_solveOp
+#print axioms Polyfold.proposition_6_4_13_continuity_2021
+#print axioms Polyfold.proposition_6_4_13_continuity_2021_hyps
 
 /-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), §9.1 (2021 numbering) -/
 -- Chapter9/Basic.lean

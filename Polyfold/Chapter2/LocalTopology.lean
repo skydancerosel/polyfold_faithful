@@ -109,8 +109,8 @@ open subcovering; (Lemma 2.7.2) in a regular Hausdorff space every open `U(x)` c
 * **Proposition 2.1.4** is stated for the subtype `O ⊆ E₀` with its subspace metric, which is
   `d_O`; the proof uses `O ∩ B̄_ε(x)` instead of the text's `V'`.  Corollary 2.1.7 restricts `d_O`
   to `W(x)`.
-* **Remark 2.1.6**: "weaker" is formalized as the implication; whether it is strictly weaker is
-  not formalized.
+* **Remark 2.1.6**: "weaker" is formalized as the implication; that it is strictly weaker is
+  `remark_2_1_6_strict_2021` in `Chapter2/LocalTopologyExample.lean` (ℝ with the K-topology).
 * **Proposition 2.1.8 (1)**: "locally closed" is Mathlib's `IsLocallyClosed` (open ∩ closed),
   equivalent to the text's use ("`U ∩ A` closed in `U` for an open `U ∋ a`",
   `isLocallyClosed_tfae`).  The proof goes through the general `IsLocallyComplete.of_isEmbedding`,
