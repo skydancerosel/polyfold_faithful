@@ -6,7 +6,7 @@ orientations),
 formalized against Mathlib with the same faithful layer as our formalizations of Milnor's
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, is
-under way: Chapters 7–9 are formalized and Chapter 10 has begun. The authoritative text is the
+under way: Chapters 7–10 are formalized. The authoritative text is the
 Springer edition (Progress in Mathematics 50, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names keep the
@@ -28,7 +28,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 711 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 772 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -66,14 +66,19 @@ GitHub displays it directly.
   level-0 sc-calculus in general M-polyfolds taken as explicit hypotheses, each shown satisfiable and
   discharged on `ℝᵐ`. Branched integration, the boundary measures and Stokes' theorems (Theorems
   9.5.4, 9.5.5, 9.5.15–9.5.18) are not formalized; they need the sc-differential forms of §8.2.
-* **Chapter 10 (equivalences and localization) has begun**: §10.1 (Definition 10.1.1, Proposition
-  10.1.3, Theorem 10.1.7, Propositions 10.1.13–10.1.18).
-* About 193,500 lines of Lean in 301 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (9,368 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* **Part II, Chapter 10, is formalized**, §§10.1–10.5 with the Appendix proofs 10.6.1–10.6.2
+  (equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the
+  equivalences, the category of generalized maps and the orbit-space functor, strong bundle
+  equivalences, push-forward and pull-back of sections along generalized strong bundle
+  isomorphisms). Not yet formalized: local regularity under equivalences (Propositions
+  10.1.9–10.1.10 and what rests on them), the Fredholm parts of Theorems 10.4.5 and 10.5.4, and
+  composition in the strong bundle localization; work on the first and the last is under way.
+* About 200,200 lines of Lean in 312 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (9,955 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–9 is compared with its formal version** (711 items, each with
+* **Every numbered item of Chapters 1–10 is compared with its formal version** (772 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.110).
+  list of what is not formalized and why (G.1–G.127).
 * **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2

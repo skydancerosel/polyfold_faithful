@@ -14319,7 +14319,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V10.48. Remark 10.3.18 (2017: 10.3), equivalence of pairs $(X, \beta)$
 
-*narrower* · non-uniqueness not formalized (G.119) · metrizability not used
+*narrower* · non-uniqueness: V10.60 (G.119 closed) · metrizability not used
 
 **HWZ (§10.3, Remark 10.3.18, pp. 492–493 (2017: Remark 10.3, p. 355)).** For metrizable $Z$, pairs $(X, \beta)$ with $\beta : |X| \to Z$ a homeomorphism, equivalent through generalized isomorphisms $f$ with $\beta' \circ |f| = \beta$; $f$ is in general not unique.
 
@@ -14364,6 +14364,230 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 *What differs.*
 - The proof, left to the reader, applies Propositions 10.1.16–10.1.18 (Findings, Chapter 10, item 38).
+
+### V10.51. the diagrams of strong bundles, refinements and equivalence
+
+*restated* · classes for the generated relation · transitivity open (G.123)
+
+**HWZ (§10.5, the diagrams of strong bundles, p. 504 (2017 p. 364)).** Diagrams $W \xleftarrow{\Phi} W'' \xrightarrow{\Psi} W'$ with $\Phi$ a strong bundle equivalence and $\Psi$ a strong bundle functor; refinements and equivalence (having a common refinement) as for ep-groupoids; the class $[D]$ is a generalized strong bundle map.
+
+**Proved in Lean.** `SDiagram A A'` bundles a middle object of `SEP`, a strong bundle equivalence and a morphism of `SEP`; a refinement is a strong bundle equivalence $H$ with naturally equivalent composites (Definition 10.4.8), reflexive and transitive; `Equiv` is reflexive and symmetric; `GenSBMap` is the quotient by the generated equivalence relation. A refinement of $1_{W'}$ over $-\mathrm{id}$.
+
+- `Polyfold.SBLocalization.SDiagram` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 246
+- `Polyfold.SBLocalization.SDiagram.IsRefinement` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 267
+- `Polyfold.SBLocalization.SDiagram.precomp` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 272
+- `Polyfold.SBLocalization.SDiagram.isRefinement_precomp` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 277
+- `Polyfold.SBLocalization.SDiagram.isRefinement_of_natEquiv` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 283
+- `Polyfold.SBLocalization.SDiagram.IsRefinement.refl` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 288
+- `Polyfold.SBLocalization.SDiagram.IsRefinement.trans` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 293
+- `Polyfold.SBLocalization.SDiagram.IsCommonRefinement` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 301
+- `Polyfold.SBLocalization.SDiagram.Equiv` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 305
+- `Polyfold.SBLocalization.SDiagram.Equiv.refl` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 307
+- `Polyfold.SBLocalization.SDiagram.Equiv.symm` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 309
+- `Polyfold.SBLocalization.SDiagram.IsRefinement.equiv` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 313
+- `Polyfold.SEP.NatEquiv` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 188
+- `Polyfold.SEP.NatEquiv.comp_left` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 203
+- `Polyfold.SBLocalization.GenSBMap` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 468
+- `Polyfold.SBLocalization.SDiagram.cls` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 473
+- `Polyfold.SBLocalization.SDiagram.cls_eq_cls_of_equiv` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 475
+- `Polyfold.StrongBundleLocalizationExamples.foldDiagram` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 315
+- `Polyfold.StrongBundleLocalizationExamples.isRefinement_foldDiagram` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 320
+- `Polyfold.StrongBundleLocalizationExamples.cls_foldDiagram` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 326
+
+*What differs.*
+- The transitivity of having a common refinement needs the weak fibred product of strong bundles, not constructed; every invariant used is proved invariant under `Equiv` (Findings, Chapter 10, item 50).
+
+### V10.52. $[D]$ covers $[d]$; the map $|[D]|$
+
+*as in the book* · as stated · also on the total spaces
+
+**HWZ (§10.5, $[d]$ and $|[D]|$, p. 504 (2017 pp. 364–365)).** A diagram $D$ covers a diagram $d$ of the underlying ep-groupoids, so $[D]$ covers $[d] : X \to X'$; $|[D]| = |\Psi| \circ |\Phi|^{-1} : |W| \to |W'|$ does not depend on the representative.
+
+**Proved in Lean.** `SDiagram.base` and `GenSBMap.base`, with the total-space version, well defined on classes; `GenSBMap.orbitMap` is continuous and independent of the representative.
+
+- `Polyfold.SBLocalization.SDiagram.base` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 320
+- `Polyfold.SBLocalization.SDiagram.total` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 324
+- `Polyfold.SBLocalization.SDiagram.IsRefinement.base` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 328
+- `Polyfold.SBLocalization.SDiagram.Equiv.base` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 339
+- `Polyfold.SBLocalization.SDiagram.Equiv.total` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 343
+- `Polyfold.SBLocalization.GenSBMap.base` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 498
+- `Polyfold.SBLocalization.GenSBMap.total` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 505
+- `Polyfold.SBLocalization.SDiagram.orbitMap` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 350
+- `Polyfold.SBLocalization.SDiagram.continuous_orbitMap` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 353
+- `Polyfold.SBLocalization.SDiagram.Equiv.orbitMap_eq` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 361
+- `Polyfold.SBLocalization.GenSBMap.orbitMap` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 513
+- `Polyfold.SBLocalization.GenSBMap.orbitMap_eq_total` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 518
+- `Polyfold.SBLocalization.GenSBMap.continuous_orbitMap` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 521
+- `Polyfold.SEP.baseEP` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 215
+- `Polyfold.SEP.totalEP` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 220
+
+*What differs.*
+- None (Findings, Chapter 10, item 51).
+
+### V10.53. the square $|\mathscr D|$ of the symbolic diagram (10.24)
+
+*as in the book* · as stated · $|X| \to |X|$: possible misprint
+
+**HWZ (§10.5, the diagrams (10.24) and $|\mathscr D|$, pp. 504–505 (2017: Remark 10.5, p. 365)).** The symbolic diagram (10.24) becomes, on orbit spaces, the commutative square $|P'| \circ |[D]| = |[d]| \circ |P|$.
+
+**Proved in Lean.** The square, for diagrams and for classes.
+
+- `Polyfold.SBLocalization.SDiagram.orbitMap_square` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 370
+- `Polyfold.SBLocalization.GenSBMap.orbitMap_square` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 526
+- `Polyfold.SBLocalization.SDiagram.orbitMap_orbitMap_Φ` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 365
+
+*What differs.*
+- The bottom arrow is printed $|X| \to |X|$, as in (10.24) and after Remark 10.5.3, in both editions; we read $X'$. (10.24) with generalized vertical maps, left to the reader, is G.124 (Findings, Chapter 10, item 51).
+
+### V10.54. the homomorphism $\gamma : G_x \to G'_{x'}$
+
+*stronger* · any diagram; bijective for ψ an equivalence · q, Q not formalized (G.124)
+
+**HWZ (§10.5, the homomorphism $\gamma$, p. 505 (2017 p. 365)).** For $|[d]|(|x|) = |x'|$ there are $x''$, $a : \phi(x'') \to x$ and $b : \psi(x'') \to x'$, and $\gamma(g) = b \circ \psi(\phi^{-1}(a^{-1} \circ g \circ a)) \circ b^{-1}$ is a group homomorphism; a germ $q$ with $q(g * z) = \gamma(g) * q(z)$ and its lift $Q$ (10.25).
+
+**Proved in Lean.** The data exist; $\gamma$ is the composite of the four group homomorphisms, with its values; it is bijective when $\psi$ is an equivalence. Stated for every diagram of ep-groupoids.
+
+- `Polyfold.EPLocalization.Diagram.isotropyHom` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 404
+- `Polyfold.EPLocalization.Diagram.isotropyHom_spec` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 415
+- `Polyfold.EPLocalization.Diagram.bijective_isotropyHom` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 433
+- `Polyfold.EPLocalization.Diagram.exists_isotropyData` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 443
+
+*What differs.*
+- The 2021 first step $a^{-1} \circ g \circ a$ is used (2017: $a \circ g \circ a^{-1}$) (Findings, Chapter 10, item 52).
+
+### V10.55. Definition 10.5.1 (2017: 10.14), $\mathcal{SEP}(F^{-1})$
+
+*narrower* · a quiver: no composition (G.123)
+
+**HWZ (§10.5, Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366)).** The category $\mathcal{SEP}(F^{-1})$ has the strong bundles over ep-groupoids as objects and the generalized strong bundle maps as morphisms.
+
+**Proved in Lean.** `SEPLoc` with a `Quiver` instance, the identities $[1_W]$ and the prefunctor $\Psi \mapsto [W \xleftarrow{1} W \xrightarrow{\Psi} W']$ from $\mathcal{SEP}$.
+
+- `Polyfold.SBLocalization.SEPLoc` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 565
+- `Polyfold.SBLocalization.SEPLoc.idHom` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 579
+- `Polyfold.SBLocalization.SEPLoc.localizationPrefunctor` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 583
+- `Polyfold.SBLocalization.SEPLoc.localizationPrefunctor_map_id` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 587
+- `Polyfold.SBLocalization.SDiagram.id` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 482
+- `Polyfold.SBLocalization.SDiagram.ofHom` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 485
+
+*What differs.*
+- The composition needs the weak fibred product of strong bundles (Findings, Chapter 10, item 53).
+
+### V10.56. Definition 10.5.2 (2017: 10.15), generalized strong bundle isomorphisms
+
+*as in the book* · as stated · witness over −id
+
+**HWZ (§10.5, Definition 10.5.2, p. 506 (2017: Definition 10.15, p. 366)).** A generalized strong bundle isomorphism is a class $[W \xleftarrow{\Phi} W'' \xrightarrow{\Psi} W']$ of diagrams in which both $\Phi$ and $\Psi$ are strong bundle equivalences.
+
+**Proved in Lean.** `IsGeneralizedIso`: some representative has $\Psi$ a strong bundle equivalence; reversed representatives and $[1, \Psi]$ for an equivalence $\Psi$ are examples, and so is a class over $-\mathrm{id}$.
+
+- `Polyfold.SBLocalization.GenSBMap.IsGeneralizedIso` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 535
+- `Polyfold.SBLocalization.SDiagram.symm` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 489
+- `Polyfold.SBLocalization.GenSBMap.isGeneralizedIso_symm` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 551
+- `Polyfold.SBLocalization.GenSBMap.isGeneralizedIso_ofHom` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 557
+- `Polyfold.StrongBundleLocalizationExamples.negDiagram` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 303
+- `Polyfold.StrongBundleLocalizationExamples.isGeneralizedIso_negDiagram` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 305
+
+*What differs.*
+- None (Findings, Chapter 10, items 53, 59).
+
+### V10.57. Remark 10.5.3, the comparison with Theorem 10.3.10
+
+*restated* · new in the 2021 edition · strong bundle 10.3.10 open (G.123)
+
+**HWZ (§10.5, Remark 10.5.3, p. 506 (new in the 2021 edition)).** Theorem 10.3.10 characterizes generalized isomorphisms by diagrams with both legs equivalences; in the strong bundle case a similar result can be proved, and it is built into Definition 10.5.2.
+
+**Proved in Lean.** A generalized strong bundle isomorphism covers a generalized isomorphism of the bases, induces one of the total spaces, and $|[D]|$ is a homeomorphism.
+
+- `Polyfold.SBLocalization.GenSBMap.remark_10_5_3` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 542
+
+*What differs.*
+- The strong bundle version of Theorem 10.3.10 needs the composition in $\mathcal{SEP}(F^{-1})$ (Findings, Chapter 10, item 53).
+
+### V10.58. the push-forward along a diagram and its independence of the representative
+
+*stronger* · the text's step as printed · any two diagrams with the same |D|
+
+**HWZ (§10.5, the push-forward $[D]_*f = \Psi_*\Phi^*f$, p. 507 (2017 p. 367)).** For a representative with both legs strong bundle equivalences, $[D]_*f = \Psi_*\Phi^*f$ and $[D]^*g = \Phi_*\Psi^*g$; for a refinement by $H$, $\Psi_*\Phi^*f = \Psi_*H_*H^*\Phi^*f = (\Psi \circ H)_*(\Phi \circ H)^*f = \Psi'_*\Phi'^*f$ (Propositions 10.4.2–10.4.4), so $[D]_*$ is well defined.
+
+**Proved in Lean.** The text's computation for a refinement, as printed; and through the orbit spaces: a section functor is determined by its orbits and $|(D_*f)(x')| = |[D]|(|f(x)|)$, so any two such diagrams with the same $|D|$ have the same push-forward and pull-back.
+
+- `Polyfold.SBLocalization.SDiagram.pushforward` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 160
+- `Polyfold.SBLocalization.SDiagram.pullback` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 166
+- `Polyfold.SBLocalization.SDiagram.pushforward_eq_of_isRefinement` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 313
+- `Polyfold.EpStrongBundle.π_μ` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 104
+- `Polyfold.EpStrongBundle.π_eq_π_of_isFunctorialSection` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 110
+- `Polyfold.EpStrongBundle.eq_of_forall_π_eq` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 123
+- `Polyfold.SBLocalization.SDiagram.π_pushforward` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 229
+- `Polyfold.SBLocalization.SDiagram.base_orbitMap_eq_of_orbitMap_eq` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 256
+- `Polyfold.SBLocalization.SDiagram.pushforward_eq_of_orbitMap_eq` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 267
+- `Polyfold.SBLocalization.SDiagram.pullback_eq_of_orbitMap_eq` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 304
+
+*What differs.*
+- Independence holds for any two diagrams with the same map of orbit spaces, not only along refinements (Findings, Chapter 10, item 54).
+
+### V10.59. Theorem 10.5.4 (2017: 10.9), without the Fred part
+
+*narrower* · Fred part not formalized (G.125) · isomorphism read as bijection
+
+**HWZ (§10.5, Theorem 10.5.4, pp. 507–508 (2017: Theorem 10.9, p. 367)).** For a generalized strong bundle isomorphism $[D]$, $[D]_* : \Gamma(P, \mu) \to \Gamma(P', \mu')$ is a well-defined isomorphism whose inverse, given by the inverse diagram, is $[D]^*$; the same for $\Gamma^+$ and $\mathrm{Fred}$; $|[D]| = |[D']|$ implies $[D]_* = [D']_*$ and $[D]^* = [D']^*$.
+
+**Proved in Lean.** Well defined for every representative with both legs strong bundle equivalences; mutually inverse bijections of $\Gamma$ and of $\Gamma^+$; the reversed diagram gives $[D]^*$; equal orbit maps give equal push-forwards and pull-backs. Witnesses over $-\mathrm{id}$.
+
+- `Polyfold.SBLocalization.GenSBMap.rep` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 351
+- `Polyfold.SBLocalization.GenSBMap.pushforward` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 363
+- `Polyfold.SBLocalization.GenSBMap.pullback` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 368
+- `Polyfold.SBLocalization.GenSBMap.pushforward_eq` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 373
+- `Polyfold.SBLocalization.GenSBMap.pullback_eq` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 379
+- `Polyfold.SBLocalization.GenSBMap.theorem_10_5_4` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 395
+- `Polyfold.SBLocalization.SDiagram.invOn_pullback_pushforward` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 195
+- `Polyfold.SBLocalization.SDiagram.bijOn_pushforward` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 205
+- `Polyfold.SBLocalization.SDiagram.bijOn_pushforward_plus` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 209
+- `Polyfold.StrongBundleLocalizationExamples.bijOn_pushforward_negDiagram` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 309
+- `Polyfold.StrongBundleLocalizationExamples.pushforward_foldDiagram` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 334
+
+*What differs.*
+- As for Theorem 10.4.5: the sc-Fredholm part is open, and linearity is not stated, $\Gamma$ having no vector space structure in the project (Findings, Chapter 10, item 55).
+
+### V10.60. Remark 10.5.5, $|[D]| = |[D']|$ without $[D] = [D']$
+
+*as in the book* · new in the 2021 edition · example: ℤ/3 and the inversion · closes G.119
+
+**HWZ (§10.5, Remark 10.5.5, p. 508 (new in the 2021 edition)).** For $[D], [D'] : P \to P'$ with $|\mathscr D| = |\mathscr D'|$ it is in general not true that $[D] = [D']$, but $[D]_* = [D']_*$ and $[D]^* = [D']^*$.
+
+**Proved in Lean.** Over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$: $[1_W] \neq [\mathrm{Inv}]$ with equal orbit maps, separated by the relation of the homomorphisms $\gamma$, an invariant of the classes; their base classes differ too; $[\mathrm{Inv}]_* = [1_W]_*$.
+
+- `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
+- `Polyfold.StrongBundleLocalizationExamples.pushforward_inv_eq_pushforward_id` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 476
+- `Polyfold.StrongBundleLocalizationExamples.z3EpBundle` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 357
+- `Polyfold.StrongBundleLocalizationExamples.z3InvHom` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 396
+- `Polyfold.StrongBundleLocalizationExamples.z3InvHom_mem_equivalences` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 400
+- `Polyfold.StrongBundleLocalizationExamples.orbitMap_ofHom_z3InvHom` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 408
+- `Polyfold.StrongBundleLocalizationExamples.base_orbitMap_ofHom_z3InvHom` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 417
+- `Polyfold.EPLocalization.Diagram.IsotropyRel` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 162
+- `Polyfold.EPLocalization.Diagram.isotropyRel_isotropyHom` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 170
+- `Polyfold.EPLocalization.Diagram.IsRefinement.isotropyRel_iff` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 185
+- `Polyfold.EPLocalization.Diagram.Equiv.isotropyRel_iff` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 251
+- `Polyfold.StrongBundleLocalizationExamples.isotropyRel_id` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 428
+- `Polyfold.StrongBundleLocalizationExamples.not_isotropyRel_inv` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 440
+- `Polyfold.SBLocalization.GenSBMap.remark_10_5_3` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 542
+
+*What differs.*
+- The text gives no example; the base classes give the non-uniqueness claimed in Remark 10.3.18 (G.119) (Findings, Chapter 10, item 56).
+- The 2017 Theorems 10.7 and 10.10, without local regularity, do not hold as we read them; the example suggests the same for Theorems 10.3.19 and 10.5.7, a Lean check is pending (Findings, Chapter 10, item 58).
+
+### V10.61. Proposition 10.5.6, reduced to Proposition 10.4.6
+
+*narrower* · new in the 2021 edition · only the reduction (G.126) · Proposition 10.4.7: read 10.4.6
+
+**HWZ (§10.5, Proposition 10.5.6, p. 508 (new in the 2021 edition)).** If $[D] : (P, \mu) \to (P', \mu')$ is a generalized strong bundle isomorphism and one of the strong bundles has the local regularity property, so has the other.
+
+**Proved in Lean.** A property of strong bundles invariant under strong bundle equivalences is invariant under generalized strong bundle isomorphisms.
+
+- `Polyfold.SBLocalization.GenSBMap.iff_of_isGeneralizedIso` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 434
+
+*What differs.*
+- The text refers to Proposition 10.4.7 for the modification; we read Proposition 10.4.6 (possible misprint) (Findings, Chapter 10, item 57).
 
 ## Not formalized
 
@@ -15643,13 +15867,15 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.119. Remark 10.3.18: generalized isomorphisms with $\beta' \circ |f| = \beta$ are not unique
 
-*not formalized*
+*formalized since* · now V10.60
 
 **HWZ (§10.3, Remark 10.3.18, pp. 492–493 (2017: Remark 10.3, p. 355), the non-uniqueness of $f$).** A generalized isomorphism $f$ with $\beta' \circ |f| = \beta$ is in general not unique.
 
-**Proved in Lean.** **Not formalized**: no pair of distinct generalized isomorphisms with the same orbit map is constructed (the example behind Remark 10.1.8 is G.112) (Findings, Chapter 10, item 39).
+**Proved in Lean.** **Formalized since the first edition of this page** (V10.60), by the example of Remark 10.5.5: the base classes of $[1_W]$ and $[W \xleftarrow{1} W \xrightarrow{\mathrm{Inv}} W]$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$ are two distinct generalized isomorphisms with the same orbit map, so with $\beta' = \beta \circ |f|^{-1}$ both satisfy $\beta' \circ |f| = \beta$; the relation itself is V10.48 (Findings, Chapter 10, items 39, 56).
 
 - `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 145
+- `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
+- `Polyfold.StrongBundleLocalizationExamples.base_orbitMap_ofHom_z3InvHom` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 417
 
 ### G.120. Theorem 10.3.19, generalized isomorphisms are determined by their orbit maps under (LR)
 
@@ -15657,8 +15883,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§10.3, Theorem 10.3.19, p. 493 (2017: Theorem 10.7, p. 355)).** If one of $X$, $Y$ has (LR) and $f, f' : X \to Y$ are generalized isomorphisms with $|f| = |f'|$, then $f = f'$.
 
-**Proved in Lean.** **Not formalized**: it rests on Propositions 10.1.10 and 10.3.16 (G.114, G.118) (Findings, Chapter 10, item 39).
+**Proved in Lean.** **Not formalized**: it rests on Propositions 10.1.10 and 10.3.16 (G.114, G.118). As we read it, the proof's step on p. 494 gives a family $\alpha_z$, not a natural transformation; the $\mathbb Z/3$ example of Remark 10.5.5 (V10.60) suggests that the statement does not hold as we read it; a Lean check is pending (Findings, Chapter 10, items 39, 58).
 
+- `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
+- `Polyfold.EPLocalization.Diagram.IsotropyRel` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 162
 
 ### G.121. Theorem 10.4.5, the Fred part
 
@@ -15678,4 +15906,55 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** **Not formalized**: the ep-groupoid versions are G.113 and G.114 (Findings, Chapter 10, item 45).
 
+
+### G.123. the transitivity of the equivalence of diagrams of strong bundles, the composition in $\mathcal{SEP}(F^{-1})$ and the strong bundle version of Theorem 10.3.10
+
+*not formalized*
+
+**HWZ (§10.5, p. 504 (2017 p. 364), Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366), and Remark 10.5.3, p. 506 (new in the 2021 edition)).** Equivalence of diagrams of strong bundles is an equivalence relation, generalized strong bundle maps compose to a category $\mathcal{SEP}(F^{-1})$, and a generalized strong bundle map is invertible iff it is represented with both legs strong bundle equivalences.
+
+**Proved in Lean.** **Not formalized**: all three need the weak fibred product of strong bundles over ep-groupoids, which the text does not construct; the classes are taken for the generated equivalence relation and $\mathcal{SEP}(F^{-1})$ is a quiver (V10.51, V10.55, V10.57) (Findings, Chapter 10, items 50, 53).
+
+- `Polyfold.SBLocalization.SDiagram.Equiv` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 305
+- `Polyfold.SBLocalization.SEPLoc` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 565
+
+### G.124. (10.24) with generalized vertical maps, and the local expressions $q$, $Q$ of (10.25)
+
+*not formalized*
+
+**HWZ (§10.5, the symbolic diagram (10.24) and the diagram (10.25), pp. 505–506 (2017 pp. 365–366)).** With generalized maps as vertical arrows the diagram (10.24) commutes (left to the reader); an equivariant sc-smooth germ $q : O(X, x) \to O(X', x')$ with $q(g * z) = \gamma(g) * q(z)$, and its strong bundle lift $Q$.
+
+**Proved in Lean.** **Not formalized**: the text uses no property of them, and $q$, $Q$ depend on the representative; the homomorphism $\gamma$ is formalized (V10.54) (Findings, Chapter 10, items 51, 52).
+
+- `Polyfold.EPLocalization.Diagram.isotropyHom` — Polyfold/Chapter10/StrongBundleLocalization.lean, line 404
+
+### G.125. Theorem 10.5.4, the Fred part
+
+*not formalized*
+
+**HWZ (§10.5, Theorem 10.5.4, p. 508 (2017: Theorem 10.9, p. 367), the sc-Fredholm section functors).** $[D]_*$ maps $\mathrm{Fred}(P, \mu)$ onto $\mathrm{Fred}(P', \mu')$.
+
+**Proved in Lean.** **Not formalized**: it rests on the Fred part of Theorem 10.4.5 (G.121); the rest of the theorem is V10.59 (Findings, Chapter 10, item 55).
+
+- `Polyfold.SBLocalization.GenSBMap.theorem_10_5_4` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 395
+
+### G.126. Proposition 10.5.6 beyond the reduction to Proposition 10.4.6
+
+*not formalized*
+
+**HWZ (§10.5, Proposition 10.5.6, p. 508 (new in the 2021 edition)).** The local regularity property passes along generalized strong bundle isomorphisms.
+
+**Proved in Lean.** **Not formalized** unconditionally: the reduction to strong bundle equivalences is proved (V10.61); Proposition 10.4.6 is G.122 (Findings, Chapter 10, item 57).
+
+- `Polyfold.SBLocalization.GenSBMap.iff_of_isGeneralizedIso` — Polyfold/Chapter10/StrongBundleLocalizationSections.lean, line 434
+
+### G.127. Theorem 10.5.7, generalized strong bundle isomorphisms determined by their orbit maps
+
+*not formalized*
+
+**HWZ (§10.5, Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367)).** If both strong bundles have the local regularity property and $[D], [D']$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$.
+
+**Proved in Lean.** **Not formalized**: it rests on Proposition 10.4.7 (G.122) and needs the weak fibred product of strong bundles to build a common refinement; the ep-groupoid analogue, Theorem 10.3.19, is G.120. As for Theorem 10.3.19, the $\mathbb Z/3$ example of Remark 10.5.5 (V10.60) suggests that the statement does not hold as we read it; a Lean check is pending (Findings, Chapter 10, item 58).
+
+- `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
 

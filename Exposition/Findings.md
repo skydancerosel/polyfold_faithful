@@ -10076,6 +10076,114 @@ Found while formalizing §10.4 (2026-11-08).
     strong bundle equivalences form a multiplicative class mapped into `E` (`SEP.equivalences`,
     `SEP.toEP_map_mem_equivalences`). Status: **settled**.
 
+Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V10.61; its gaps are G.123–G.127.
+
+50. **Diagrams of strong bundles, refinements and classes** *(§10.5, p. 504 (2017 p. 364))*. A diagram
+    `W ←Φ W'' →Ψ W'` of strong bundles over ep-groupoids, with `Φ` a strong bundle equivalence, is a structure
+    (`SDiagram`). Refinements are by strong bundle equivalences `H` with natural equivalences of strong bundle
+    functors (`IsRefinement`, `precomp`, `isRefinement_of_natEquiv`), and refining is reflexive and transitive
+    (`IsRefinement.refl`, `IsRefinement.trans`). The text defines the classes "following our earlier construction".
+    The transitivity of having a common refinement, the strong bundle version of Lemma 10.3.4, needs a weak fibred
+    product of strong bundles over ep-groupoids, which neither the text nor the project constructs. The classes are
+    therefore taken in `Quot SDiagram.Equiv`, for the generated equivalence relation (`GenSBMap`,
+    `cls_eq_cls_of_equiv`). They are the text's classes as soon as the relation is transitive, and every map
+    defined on them below is well defined for the generated relation. Status: **open** (gap G.123).
+
+51. **`[d]`, `|[D]|` and the square `|D|`** *(§10.5, pp. 504–505 (2017: Remark 10.5, pp. 364–365))*. A diagram of
+    strong bundles gives a diagram of the base ep-groupoids and one of the total spaces (`SDiagram.base`,
+    `SDiagram.total`), compatible with refinement and equivalence (`IsRefinement.base`, `Equiv.base`,
+    `Equiv.total`), hence the classes `[d]` and the total class (`GenSBMap.base`, `GenSBMap.total`). `|[D]|` is the
+    orbit map of the total diagram (`orbitMap_eq_total`, `continuous_orbitMap`), and
+    `|P'| ∘ |[D]| = |[d]| ∘ |P|` (`SDiagram.orbitMap_square`, `GenSBMap.orbitMap_square`). Reading (possible
+    misprint): the bottom arrow `[d]` of (10.24) (p. 504) and `|[d]|` of the square `|D|` (p. 505) are printed
+    `X → X` and `|X| → |X|`, as is the bottom arrow of the diagram after Remark 10.5.3 (p. 506), in both
+    editions; we read `X'`. The symbolic diagram (10.24) has no formal content, and its version with generalized
+    vertical maps, left to the reader, is not formalized. Status: **settled** (possible misprint; the diagram with
+    generalized vertical maps is gap G.124).
+
+52. **The homomorphism `γ : G_x → G'_{x'}`** *(§10.5, p. 505 (2017 p. 365))*. Formalized for every diagram
+    `X ←φ X'' →ψ X'` of ep-groupoids (`Diagram.isotropyHom`, `isotropyHom_spec`): for `x, x'` with
+    `|[d]|(|x|) = |x'|` there are `x''`, `a : φ(x'') → x` and `b : ψ(x'') → x'` (`exists_isotropyData`),
+    and `γ(g) = b ∘ ψ(k) ∘ b⁻¹` for the `k` with `φ(k) = a⁻¹ ∘ g ∘ a`. It is a group homomorphism, and
+    a group isomorphism when `ψ` is an equivalence (`bijective_isotropyHom`; added). The 2021 text has the first
+    step `g ↦ a⁻¹ ∘ g ∘ a`, the 2017 text `a ∘ g ∘ a⁻¹`; the 2021 form is used. The equivariant germ `q`
+    and its lift `Q` of (10.25) are not formalized: they depend on the representative, and the text uses no
+    property of them. Status: **open** (gap G.124).
+
+53. **Definitions 10.5.1, 10.5.2 and Remark 10.5.3** *(p. 506 (2017: Definitions 10.14, 10.15, p. 366); Remark
+    10.5.3 new in the 2021 edition)*. The objects of `SEP(F⁻¹)` are the strong bundles over ep-groupoids and its
+    morphisms the generalized strong bundle maps (`SEPLoc`), with identities and the prefunctor from `SEP`
+    (`SEPLoc.idHom`, `localizationPrefunctor`, `localizationPrefunctor_map_id`). The composition is not
+    constructed, since it needs the weak fibred product of strong bundles, so `SEPLoc` is a quiver, not a category.
+    Definition 10.5.2 is formalized as stated (`GenSBMap.IsGeneralizedIso`; `isGeneralizedIso_ofHom`,
+    `isGeneralizedIso_symm`). The strong bundle version of Theorem 10.3.10, which Remark 10.5.3 says can be proved
+    and builds into Definition 10.5.2, needs that composition and is not formalized; what is proved is its
+    consequence for the base and the total spaces, through Theorem 10.3.10: `[d]` and the total class are
+    generalized isomorphisms, and `|[D]|` is a homeomorphism (`remark_10_5_3`). Status: **open** (gap G.123).
+
+54. **The push-forward along a diagram does not depend on the representative** *(§10.5, p. 507 (2017 p. 367))*. For
+    a diagram with both legs strong bundle equivalences, `D_*f = Ψ_*Φ^*f` and `D^*g = Φ_*Ψ^*g`
+    (`SDiagram.pushforward`, `SDiagram.pullback`). The text's step, along a refinement through Propositions
+    10.4.2–10.4.4, is proved as printed (`pushforward_eq_of_isRefinement`). Since the classes are those of the
+    generated relation, the independence is proved through orbit spaces instead: a section functor `g` is
+    determined by the orbits `|g(x')|` (`π_eq_π_of_isFunctorialSection`, `eq_of_forall_π_eq`), and
+    `|(D_*f)(x')| = |[D]|(|f(x)|)` when `|[d]|(|x|) = |x'|` (`π_pushforward`), so two diagrams with the same
+    `|D|` have the same push-forward and the same pull-back (`pushforward_eq_of_orbitMap_eq`,
+    `pullback_eq_of_orbitMap_eq`). This is stronger than the text's step. Status: **settled**.
+
+55. **Theorem 10.5.4 without the Fred part** *(Theorem 10.5.4, pp. 507–508 (2017: Theorem 10.9, p. 367))*. For a
+    generalized strong bundle isomorphism `[D]`, with a representative chosen once (`GenSBMap.rep`), `[D]_*` and
+    `[D]^*` agree with those of every representative with both legs strong bundle equivalences (`pushforward_eq`,
+    `pullback_eq`). They are mutually inverse bijections of `Γ` and of `Γ⁺`, and `[D]^*` is the push-forward along
+    the inverse diagram; `|[D]| = |[D']|` gives `[D]_* = [D']_*` and `[D]^* = [D']^*` (`theorem_10_5_4`,
+    `invOn_pullback_pushforward`, `bijOn_pushforward`, `bijOn_pushforward_plus`). "Isomorphism" of the vector
+    spaces `Γ` is read as mutually inverse bijections: `Γ(P, μ)` has no vector space structure in the project, so
+    the linearity is not stated. The preservation of sc-Fredholm section functors is not formalized, as for Theorem
+    10.4.5 (G.121). Status: **open** (gap G.125).
+
+56. **Remark 10.5.5: an example** *(Remark 10.5.5, p. 508, new in the 2021 edition)*. The text gives no example.
+    The positive half, `|[D]| = |[D']|` giving `[D]_* = [D']_*`, is the last assertion of Theorem 10.5.4
+    (`pushforward_inv_eq_pushforward_id` for the example below). For the negative half, `W = ℝ × ℝᵏ → ℝ` over
+    `ℤ/3 × ℝ ⇉ ℝ` (trivial action, `μ((g, x), w) = w`; `z3EpBundle`) with the strong bundle equivalence
+    `Inv` covering `(g, x) ↦ (g⁻¹, x)` (`z3InvHom`, `z3InvHom_mem_equivalences`) gives `|[Inv]| = |[1_W]|`
+    and `[Inv] ≠ [1_W]` (`remark_10_5_5`, `orbitMap_ofHom_z3InvHom`). The classes are separated by a new
+    invariant, `Diagram.IsotropyRel`, the union of the graphs of the homomorphisms `γ` over all choices
+    (`isotropyRel_isotropyHom`), unchanged under refinement and equivalence (`IsRefinement.isotropyRel_iff`,
+    `Equiv.isotropyRel_iff`): for `[1]` the generator of `G_0` is related to itself, for `[Inv]` only to its
+    inverse (`isotropyRel_id`, `not_isotropyRel_inv`). Already the base classes differ, with the same orbit map
+    (`base_orbitMap_ofHom_z3InvHom`); by Remark 10.5.3 they are two distinct generalized isomorphisms, the
+    non-uniqueness claimed in Remark 10.3.18 (item 39). `[Inv] ≠ [1]` is proved for the generated relation, so it
+    holds for the text's classes too. Status: **settled** (gap G.119 closed).
+
+57. **Proposition 10.5.6: only the reduction** *(Proposition 10.5.6, p. 508, new in the 2021 edition)*. A property
+    of strong bundles that is invariant under strong bundle equivalences is invariant under generalized strong
+    bundle isomorphisms (`GenSBMap.iff_of_isGeneralizedIso`), which is the text's argument. For the local
+    regularity property this needs Proposition 10.4.6, which is not formalized (G.122). Readings (possible
+    misprints): "see Proposition 10.4.7 for the appropriate modification" (p. 508) is read as Proposition 10.4.6,
+    the statement used; in Proposition 10.4.6 (p. 501), "`Φ : W → W`" is read `Φ : V → W`. Status: **open**
+    (gap G.126; possible misprints).
+
+58. **Theorems 10.3.19 and 10.5.7: the local morphisms `α_z`** *(Theorem 10.3.19, pp. 493–494 (2017: Theorem 10.7,
+    p. 355); Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367))*. As we read it, the proof's step on p. 494
+    gives a family `α_z`, not a natural transformation: Proposition 10.1.10 (1) gives morphisms
+    `α_z : H(z) → H'(z)` depending sc-smoothly on `z`, and the proof uses them as a natural transformation
+    `H_U → H'_U`. The `ℤ/3` example of Remark 10.5.5 (item 56) suggests that the statement does not hold as we
+    read it: its orbits are points, so as we read Definitions 7.4.19 and 8.4.2 it has the local regularity property
+    (every `β` with `|β(y)| = |y|` is the identity), the identity morphisms form a family `α_z : z → z` for
+    `1` and `Inv`, and there is no natural transformation `1 → Inv` on any open set, since `ℤ/3` is abelian and
+    its generator is not its own inverse; yet the classes differ. A Lean check of the local regularity of the
+    example is pending. The 2017 Theorems 10.7 and 10.10 have no local regularity hypothesis, and for them the
+    example (`remark_10_5_5`) shows that they do not hold as we read them. Theorem 10.5.7 also rests on Proposition
+    10.4.7 and on the weak fibred product of strong bundles. Status: **open** (gaps G.120, G.127; the 2021
+    statements, a Lean check is pending; the 2017 statements do not hold as we read them).
+
+59. **Witnesses; no hypothesis taken** *(§10.5)*. No hypothesis beyond the text is taken in §10.5. Every definition
+    has a witness that is not an identity: `negDiagram`, a generalized strong bundle isomorphism between two
+    different strong bundles over `−id` (`isGeneralizedIso_negDiagram`), with Theorem 10.5.4 for it
+    (`bijOn_pushforward_negDiagram`); `foldDiagram`, which refines the identity (`isRefinement_foldDiagram`,
+    `cls_foldDiagram`) and has the identity as push-forward (`pushforward_foldDiagram`); and the `ℤ/3` example of
+    item 56 (`z3InvHom_mem_equivalences`, `remark_10_5_5`). Status: **settled** (every hypothesis satisfiable).
+
 Found while formalizing Appendix §§10.6.1–10.6.2 (2026-11-08).
 
 60. **The proof of Theorem 10.3.8** *(Appendix §10.6.1, pp. 509–515)*. The functor
