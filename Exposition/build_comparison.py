@@ -33,7 +33,7 @@ BOOK_KEY = 'book'                          # the JSON key of the left column
 LEGACY_KEYS = ('milnor',)                  # older names of that key, accepted on load
 TITLE = 'Polyfold Theory beside Lean'
 H1 = 'Polyfold Theory <em>beside</em> Lean'
-EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapters 7–10 · the statements compared'
+EYEBROW = 'Hofer–Wysocki–Zehnder · Polyfold and Fredholm Theory, Part I and Part II, Chapters 7–11 · the statements compared'
 DEK = ('Every result of the book beside the statement the machine actually checked. The left column is '
        'Hofer, Wysocki and Zehnder, in their own terms, with the numbering and pages of the Springer edition '
        '(2021), followed in parentheses by those of the 2014 preprint (arXiv 1407.3185) for Part I and of the '
@@ -46,7 +46,7 @@ OUT_PREVIEW = 'preview-cmp.html'
 OUT_MD = 'Comparison.md'
 FOOT = ('Left column: H. Hofer, K. Wysocki, E. Zehnder, <em>Polyfold and Fredholm Theory</em>, Part I '
         '(Springer 2021), paraphrased, with its numbers and pages, followed in parentheses by those of the 2014 '
-        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Part II, Chapters 7–10, '
+        'preprint arXiv 1407.3185 (Part I) or of the book’s arXiv version 1707.08941 (Part II, Chapters 7–11, '
         'which has no preprint); see Exposition/BookConcordance.md. Right column: the statements proved in Lean 4 '
         'against Mathlib in Polyfold/*.lean, checked by Lean’s kernel, depending only on propext, '
         'Classical.choice and Quot.sound. Every declaration named here was resolved mechanically in the '
@@ -82,6 +82,10 @@ CHAPTERS = [
             'Part II has no 2014 preprint): equivalences of ep-groupoids and natural equivalences, the weak fibred '
             'product, localization at the system of equivalences and generalized maps, strong bundle equivalences, '
             'localization in the strong bundle case'),
+    ('V11', 'Part II, Chapter 11', 'HWZ Part II, Chapter 11 §§11.1–11.6, pp. 521–566 (2017 Chapter 11, pp. 375–416; '
+            'Part II has no 2014 preprint): the tangent functor and faces up to equivalence, branched '
+            'ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and '
+            'equivalences; sc-differential forms (§11.2) and integration (§11.4) are not formalized'),
     ('G', 'Not formalized', 'What the book states and the formalization does not prove, and what it does instead; '
           'an entry proved since the first edition of this page keeps its number and is marked “formalized since”'),
 ]

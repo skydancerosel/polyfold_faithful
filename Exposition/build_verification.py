@@ -57,12 +57,15 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
     ("10", "Part II, Ch. 10, §§10.1–10.6 (2017 Chapter 10)", "equivalences and localization: equivalences of "
      "ep-groupoids, natural equivalences, the weak fibred product, localization at the equivalences and generalized "
      "maps, strong bundle equivalences, localization in the strong bundle case", ["Chapter10"]),
+    ("11", "Part II, Ch. 11, §§11.1–11.6 (2017 Chapter 11)", "geometry up to equivalences: the tangent functor and "
+     "faces up to equivalence, branched ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to "
+     "equivalence, coverings and equivalences (sc-differential forms and integration not formalized)", ["Chapter11"]),
 ]
 # ------------------------------------------------------------------------------------------------
 
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I, and of Chapters 7–10 of Part II, of H. Hofer, K. Wysocki and
+*A companion to the expanded exposition of Part I, and of Chapters 7–11 of Part II, of H. Hofer, K. Wysocki and
 E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021). Statement numbers and pages are those of the
 Springer edition, followed in parentheses by those of the text the formalization was first checked against:
 for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Part II, which has no preprint, the book's

@@ -18,7 +18,7 @@ HERE = pathlib.Path(__file__).resolve().parent
 PBP = HERE / 'pbp'
 OUT = HERE / 'ProofByProof.md'
 TITLE = '# Polyfold Theory, proof by proof'
-DEK = ('*The formal proof of Hofer–Wysocki–Zehnder\'s* Polyfold and Fredholm Theory, *Part I and Part II, Chapters 7–10, retold '
+DEK = ('*The formal proof of Hofer–Wysocki–Zehnder\'s* Polyfold and Fredholm Theory, *Part I and Part II, Chapters 7–11, retold '
        'as mathematics: every definition as the formalization makes it, every proof step by step as '
        'the Lean proof goes, and on every step of substance a trace tag naming the declaration that '
        'proves it.*')
