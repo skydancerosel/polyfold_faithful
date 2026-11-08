@@ -298,3 +298,6 @@ import Polyfold.Chapter10.LocalizationLR
 import Polyfold.Chapter10.LocalizationLRCounterexample
 import Polyfold.Chapter11.BranchedEquivalence
 import Polyfold.Chapter11.BranchedEquivalenceLocalization
+import Polyfold.Chapter11.EpEquivalenceGeometry
+import Polyfold.Chapter11.EpEquivalenceGeometryFaces
+import Polyfold.Chapter11.StrongBundleUpToEquivalence
