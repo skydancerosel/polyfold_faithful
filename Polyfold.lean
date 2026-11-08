@@ -237,6 +237,8 @@ import Polyfold.Chapter8.Book2021
 import Polyfold.Chapter4.BracketLevel
 import Polyfold.Chapter2.TameBoundaryExample
 import Polyfold.Chapter7.TameBoundaryEp
+import Polyfold.Chapter7.Zhou
+import Polyfold.Chapter8.TangentZhou
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
