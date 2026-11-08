@@ -54,12 +54,15 @@ CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), L
     ("09", "Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9)", "branched ep⁺-subgroupoids: local branching structures, "
      "the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of "
      "measure zero and the canonical σ-algebras (integration and Stokes not formalized)", ["Chapter9"]),
+    ("10", "Part II, Ch. 10, §§10.1–10.6 (2017 Chapter 10)", "equivalences and localization: equivalences of "
+     "ep-groupoids, natural equivalences, the weak fibred product, localization at the equivalences and generalized "
+     "maps, strong bundle equivalences, localization in the strong bundle case", ["Chapter10"]),
 ]
 # ------------------------------------------------------------------------------------------------
 
 INTRO = r"""# Polyfold Theory, verified: the machine-checked edition
 
-*A companion to the expanded exposition of Part I, and of Chapters 7–9 of Part II, of H. Hofer, K. Wysocki and
+*A companion to the expanded exposition of Part I, and of Chapters 7–10 of Part II, of H. Hofer, K. Wysocki and
 E. Zehnder's* Polyfold and Fredholm Theory *(Springer 2021). Statement numbers and pages are those of the
 Springer edition, followed in parentheses by those of the text the formalization was first checked against:
 for Part I the 2014 preprint, arXiv 1407.3185 ("preprint"), for Part II, which has no preprint, the book's
