@@ -222,6 +222,8 @@ import Polyfold.Chapter8.NonVacuity
 import Polyfold.Chapter8.NonVacuityBundle
 import Polyfold.Chapter2.LocalTopology
 import Polyfold.Chapter7.ReducedCriterion
+import Polyfold.Chapter2.TameBoundary
+import Polyfold.Chapter2.TameBoundaryTopology
 import Polyfold.Chapter9.Basic
 import Polyfold.Chapter9.Symmetric
 import Polyfold.Chapter9.Propositions
