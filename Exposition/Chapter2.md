@@ -194,7 +194,7 @@ on $U$, with $f\circ r:U\to U'$ sc-smooth (its values lie in $O'\subset U'$) and
 
 HWZ summarize: sc-smooth retracts with sc-smooth maps form a category $\mathcal R$, and $T$ is a functor $\mathcal R\to\mathcal R$ ($T(\mathrm{id}_O) = \mathrm{id}_{TO}$ since $\mathrm{id}\circ r = r$ and $Tr|_{TO} = \mathrm{id}$; functoriality is Theorem 2.1.15 (preprint 2.8)). It has more structure than that: $TO\to O^1$ is a bundle whose fibres are Banach spaces, and the tangent maps are fibrewise linear. The preprint formalizes this with a second category.
 
-*(Checked by machine: $T(\mathrm{id}) = \mathrm{id}$, `Polyfold.retractTangentMap_id`, and $Tf$ is sc-smooth between the tangents, `Polyfold.IsScSmoothRetractMap.tangent`. The categories $\mathcal R$ and $\mathcal{BR}$ are not formalized.)*
+*(Checked by machine: $T(\mathrm{id}) = \mathrm{id}$, `Polyfold.retractTangentMap_id`, and $Tf$ is sc-smooth between the tangents, `Polyfold.IsScSmoothRetractMap.tangent`. The categories $\mathcal R$ and $\mathcal{BR}$ are not formalized; bundle retractions and bundle maps are, §9.8.)*
 
 **Definition 2.1.16 (preprint 2.9).** Let $(U,C,E)$ be a tuple and $F$ an sc-Banach space; $p:U\oplus F\to U$ is the trivial sc-bundle. An sc-smooth map $R:U\oplus F\to U\oplus F$ of the form $R(u,v) = (r(u),\rho(u,v))$ with $\rho(u,v)$ linear in $v$ and $R\circ R = R$ is an *sc-smooth bundle retraction* covering $r$; $B = R(U\oplus F)$ is the associated *sc-smooth bundle retract*, with the induced projection $p:B\to O = r(U)$. Given two such, $p:B\to O$ and $p':B'\to O'$, an sc-smooth map $\Phi:B\to B'$ of the form $\Phi(u,v) = (a(u),\phi(u,v))$, $\phi$ linear in $v$, with $p'\circ\Phi = a\circ p$, is an *sc-smooth bundle map*.
 
@@ -208,7 +208,7 @@ sc-smooth $f:O\to O'$ the tangent map $Tf$ is an sc-smooth bundle map $TO\to TO'
 
 So the tangent functor may be read as $T:\mathcal R\to\mathcal{BR}$, into the category of sc-smooth bundle retracts, with $TE\to E^1$, $TC\to C^1$ and $TO\to O^1$ as the three bundles. A third class, the *strong* bundle retractions with their double filtration, is the subject of §5.
 
-*Checked by machine:* the retraction part of Lemma 1.B ($Tr$ is an sc-smooth retraction, $Tf$ is sc-smooth), as above. Definition 2.1.16 (preprint 2.9) and the bundle structure (linearity in the fibre as part of a category of bundle retracts) are not formalized.
+*Checked by machine:* the retraction part of Lemma 1.B ($Tr$ is an sc-smooth retraction, $Tf$ is sc-smooth), as above. Definition 2.1.16 (preprint 2.9) and the bundle structure (linearity in the fibre as part of a category of bundle retracts) are not formalized. Formalized since, apart from the category: bundle retractions and bundle maps, with $Tr$ and $Tf$ as instances (§9.8, `Polyfold.ScRetraction.IsBundleRetractionOver`, `Polyfold.IsBundleMapOn`).
 
 ---
 
@@ -321,7 +321,7 @@ maps are sc-smooth by Proposition 1.2.2 (preprint 1.17) again. So $X_m$ is a spa
 $$X = X_0\supset X_1\supset X_2\supset\cdots\supset X_\infty .$$
 Points of $X_\infty$ are the *smooth points*. The preprint does not say which topology $X_\infty$ carries; we take the one with basis the sets $\varphi^{-1}(W)$, $W$ open in $O_\infty$ for the Fréchet topology of $E_\infty$ (the initial topology of the inclusions $E_\infty\to E_m$, $m\ge0$); equivalently, the initial topology of the inclusions $X_\infty\to X_m$. This is what the metric at the end of the proof of Theorem 2.3.10 (preprint 2.16) describes.
 
-*Checked by machine* for $m = 1$: the charts $(V_1,\varphi,(O_1,C_1,E^1))$ (`Polyfold.MPolyfold.levelChart`) are pairwise compatible (`Polyfold.MPolyfold.levelChart_compatible`, by Proposition 1.2.2 (preprint 1.17) for retracts, `Polyfold.IsScSmoothRetractMap.shift`) and make $X_1$ an M-polyfold $X^1$ (`Polyfold.MPolyfold.shift`). For $m\ge2$ the M-polyfold $X_m$ is not formalized. The topology of $X_\infty$ is the initial topology of the inclusions $X_\infty\to X_m$ (`Polyfold.MPolyfold.smoothLevel_topology_eq`).
+*Checked by machine* for $m = 1$: the charts $(V_1,\varphi,(O_1,C_1,E^1))$ (`Polyfold.MPolyfold.levelChart`) are pairwise compatible (`Polyfold.MPolyfold.levelChart_compatible`, by Proposition 1.2.2 (preprint 1.17) for retracts, `Polyfold.IsScSmoothRetractMap.shift`) and make $X_1$ an M-polyfold $X^1$ (`Polyfold.MPolyfold.shift`). For $m\ge2$ the M-polyfold $X_m$ is not formalized as such; it is the iterate $(X^1)^1\cdots$, whose levels carry the topology and charts of those of $X$ (§9.8, `Polyfold.MPolyfold.shiftLevelHomeomorph`; gap G.6, closed). The topology of $X_\infty$ is the initial topology of the inclusions $X_\infty\to X_m$ (`Polyfold.MPolyfold.smoothLevel_topology_eq`).
 
 **Lemma 2.3.9 (preprint 2.15).** The inclusion $X_{m+1}\to X_m$ is continuous.
 
@@ -521,7 +521,7 @@ are restrictions of linear maps), where the index of the origin is $1$. So $d_O(
 $= 1$ (Corollary 2.4.13 (preprint 2.32) and Proposition 2.4.4 (preprint 2.24) below). Theorem 2.4.12 (preprint 2.31) in §3.3 says how far a chart index can
 exceed an intrinsic quantity.
 
-*(Checked by machine: `Polyfold.MPolyfold.degIndex`, over all charts of the structure, with the minimum attained, `Polyfold.MPolyfold.exists_isChart_degIndex_eq`. The diagonal example is not formalized.)*
+*(Checked by machine: `Polyfold.MPolyfold.degIndex`, over all charts of the structure, with the minimum attained, `Polyfold.MPolyfold.exists_isChart_degIndex_eq`. The two-dimensional diagonal is not formalized; the three-dimensional one of the 2021 Remark 2.4.2 is, §9.9, `Polyfold.remark_2_4_2_2021`.)*
 
 **Lemma 2.4.3 (preprint 2.23).** Every $x\in X$ has an open neighbourhood $U(x)$ with $d_X(y)\le d_X(x)$ for all
 $y\in U(x)$.
@@ -1641,7 +1641,7 @@ paracompact (Stone, closed subsets). By Proposition 2.7.4 (preprint 2.57), $TX$ 
 
 **Checked by machine.** This chapter is formalized in Lean 4 against Mathlib (`Polyfold/Chapter2/`); the
 paragraphs "*Checked by machine*" after the statements above name the declarations. Formalized: every
-definition of the preprint's Chapter 2 except Definition 2.1.16 (preprint 2.9) (bundle retractions) and Definition 2.5.8 (preprint 2.38)
+definition of the preprint's Chapter 2 except Definition 2.1.16 (preprint 2.9) (bundle retractions; formalized since, §9.8) and Definition 2.5.8 (preprint 2.38)
 (given only in a chart); Propositions 2.1.11, 2.1.13, 2.3.1, 2.3.15 (preprint 2.4, 2.6, 2.10, 2.19; without the openness of $p$), 2.3.19 (preprint 2.21; (3) and
 (4) in a chart), 2.4.4, 2.4.10, 2.5.3, 2.5.6, 2.5.14, 2.5.15, 2.5.16, 2.5.20, 2.6.8 (preprint 2.24, 2.30, 2.35, 2.36, 2.42, 2.43, 2.44, 2.46, 2.54); Lemmas
 2.3.9, 2.4.3, 2.4.6, 2.5.12 (preprint 2.15, 2.23, 2.26, 2.40); Theorems 2.1.15, 2.3.10, 2.4.12 (preprint 2.8, 2.16, 2.31; the inequality), 2.5.17, 2.7.1 (preprint 2.45, 2.55; Smirnov's theorem, proved);
@@ -1658,7 +1658,7 @@ regularity of $X_m$ nor Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (prepr
 sign arguments are), Lemma 3.A as stated, Remark 2.4.8's (preprint 2.28) negative claim; the second statement of Theorem 2.4.12 (preprint 2.31)
 in general (for tame retracts its conclusion is Proposition 2.5.6 (preprint 2.36)) and the partial quadrant $C_xX$ in $T_xX$
 after Definition 2.5.8 (preprint 2.38); the openness of $p:TX\to X_1$; the linear and sc-structures of $T_xX$; $X_m$ as an
-M-polyfold for $m\ge2$; strong bundle isomorphisms and the category $\mathcal{SBR}$; the application of §6
+M-polyfold for $m\ge2$ (formalized since, §9.8); strong bundle isomorphisms and the category $\mathcal{SBR}$; the application of §6
 (Lemma 6.A). Three arguments of this
 exposition were corrected on the way: the neighbourhood $U^*$ of Proposition 2.5.15 (preprint 2.43) (the projection $P_1$ need
 not decrease the norm), the shrinking in the proof of Theorem 2.5.17 (preprint 2.45), and the inverse of $\pi_2$ in Proposition 2.5.20 (preprint 2.46). The machine-checked statements are
@@ -1672,8 +1672,10 @@ The 2021 edition adds to this chapter three things:
 - tame sub-M-polyfolds (pp. 62–63);
 - an appendix, §2.7.4 (pp. 78–87), constructing from a tame M-polyfold $X$ its *tame boundary* $B : bX \to X$.
 
-It also adds a hypothesis to Proposition 2.1.13 (preprint 2.6). We take them in order. All items are new in the 2021 edition
-unless a preprint number is given.
+It also adds a hypothesis to Proposition 2.1.13 (preprint 2.6). We take them in order (§§9.1–9.6). §§9.7–9.11 add what was
+formalized later: the strictness in Remark 2.1.6, the bundle notions of Definition 2.1.16 with Theorem 2.3.16 and
+Proposition 2.3.17 (pp. 29, 37–42), Remark 2.4.2 (pp. 44–45), the rest of the tame sub-M-polyfolds (p. 63) and the
+M-polyfold structure of $bX$ (pp. 83–84). All items are new in the 2021 edition unless a preprint number is given.
 
 ### 9.1 Proposition 2.1.13 (preprint 2.6), 2021 statement (p. 27)
 
@@ -1694,8 +1696,8 @@ $y$. So $X$ is $T_1$, and regular plus $T_1$ is Hausdorff. Here the *global* con
 work.
 
 **Remark 2.1.6.** The closure of $V$ in $W$ is then $\mathrm{cl}_X(V)$. The remark proposes the weaker condition with
-$V\subseteq W$ and $\mathrm{cl}_W(V)$ complete. Local completeness implies it. That it is strictly weaker is not proved here
-(gap G.76).
+$V\subseteq W$ and $\mathrm{cl}_W(V)$ complete. Local completeness implies it. That it is strictly weaker is §9.7
+(gap G.76, closed).
 
 **Proposition 2.1.4.** Let $O = r(U)$ be a retract, with the metric of $E_0$. For small $\varepsilon$ the set
 $O\cap\bar B_\varepsilon(x)$ is closed in $E_0$. Indeed, choose $\varepsilon$ with $\bar B_\varepsilon(x)\cap C\subseteq U$; a limit
@@ -1796,7 +1798,7 @@ satisfy two conditions:
 Without a linear structure on $T_yX$ (gap G.7), the second condition is stated in a chart, where it is Chapter 4's
 general-position condition. $Y = X$ is a tame sub-M-polyfold of a tame $X$, with complement $0$. The chart independence of the
 condition, the statement that a tame sub-M-polyfold is tame, and the two examples of the text in $[0,\infty)^2\times\mathbb R$
-are not formalized (gap G.77).
+are §9.10 (gap G.77, closed).
 
 *Checked by machine:* `Polyfold.MPolyfold.HasTameInducedStructure`, `Polyfold.MPolyfold.HasReducedComplementAt`,
 `Polyfold.MPolyfold.TameSubData`, `Polyfold.MPolyfold.IsTameSubMPolyfold`,
@@ -1867,9 +1869,7 @@ $d_X(x)$ points. The tame boundary of Definition 2.7.14, as a continuous map, is
 is a witness: its corner has exactly $n$ preimages.
 
 *Not in this section.* The sc-part of Proposition 2.7.12, the M-polyfold structure of $bX$, parts (2)–(4) of Theorem 2.7.13
-and the iterated boundaries are formalized in `Polyfold/Chapter2/TameBoundaryStructure.lean`, reported separately. For
-representatives whose $V$ is not centred at $x$, the sc-smoothness of the transition is not formalized; every class has a
-centred representative (gap G.78).
+and the iterated boundaries are §9.11, for every representative (gap G.78, closed).
 
 *Checked by machine:*
 - faces and the corner axioms: `Polyfold.TameBoundary.IsCornerIndex`, `Polyfold.MPolyfold.isCornerIndex_degIndex`,
@@ -1884,4 +1884,140 @@ centred representative (gap G.78).
   `Polyfold.TameBoundary.theorem_2_7_13_topology`, `Polyfold.MPolyfold.theorem_2_7_13_2021`, `Polyfold.MPolyfold.tameBoundary`;
 - the witness: `Polyfold.MPolyfold.quadrantPolyfold_encard_preimage`.
 
-These are V2.65–V2.90 in `Exposition/Verification.md`.
+### 9.7 Remark 2.1.6 is strictly weaker (p. 23)
+
+§9.2 proved that local completeness implies the modified notion. The converse fails, already for a classical space. Let
+$K = \{1/(n+1) : n\in\mathbb N\}$ and give $\mathbb R$ the *K-topology*, generated by the usual open sets and $\mathbb R\setminus K$.
+
+- It is finer than the usual topology, hence Hausdorff.
+- It satisfies the modified notion. The open sets $\mathbb R\setminus K$ and $\mathbb R\setminus\{0\}$ cover it and carry the
+  usual subspace topology. Each is the complement of a sequence $(a_n)$ in $\mathbb R$, which is completely metrizable:
+  $y\mapsto(y,((y-a_n)^{-1})_n)$ embeds it as a closed subset of $\mathbb R\times\mathbb R^{\mathbb N}$. A point with an
+  open, completely metrizable neighbourhood $W$ satisfies the modified condition with $V = W$.
+- It is not regular. Every closed neighbourhood of $0$ contains irrational points arbitrarily close to some $1/(n+1)$, hence
+  meets the closed set $K$. A locally complete space is regular (§9.2), so this one is not locally complete.
+
+So the remark holds as we read it, and "weaker" is strict. The example also shows what the global condition
+$\mathrm{cl}_X(V)\subseteq W$ is for: it makes a locally complete space regular.
+
+*Checked by machine:* `Polyfold.remark_2_1_6_strict_2021`, with `Polyfold.RealKTop`,
+`Polyfold.RealKTop.isLocallyCompleteRel`, `Polyfold.RealKTop.not_regularSpace`, `Polyfold.RealKTop.not_isLocallyComplete`,
+`Polyfold.isLocallyCompleteRel_of_forall_isCompletelyMetrizable` and
+`Polyfold.isCompletelyMetrizableSpace_of_isEmbedding_compl_range` (Mathlib has no "$G_\delta$ subsets of complete metric
+spaces are completely metrizable", so the embedding is explicit). Gap G.76 is closed.
+
+### 9.8 Bundle retractions, the levels of $X^1$, and $T(X^i)\equiv(TX)^i$ (Definition 2.1.16, Theorem 2.3.16, Proposition 2.3.17, pp. 29, 37–42)
+
+**Definition 2.1.16 (preprint 2.9), formalized.** A bundle retraction covering $r$ is a retraction $R$ of $E\oplus F$ with
+domain $U\oplus F$ and $R(u,v) = (r(u),\rho(u)v)$, $\rho(u)$ continuous and linear. A bundle map covering $a$ has the form
+$\Phi(u,v) = (a(u),\phi(u)v)$; then $p'\circ\Phi = a\circ p$, which is how we read the printed "$p'\circ\Phi = p$" (possible
+misprint). $Tr(u,h) = (r(u),Dr(u)h)$ is a bundle retraction covering $r^1$, and $Tf$ a bundle map covering $f^1$. The
+categories $\mathcal R$ and $\mathcal{BR}$ only name these objects and maps and are not formalized.
+
+**The levels of $X^1$.** §2.2 made $X_1$ an M-polyfold $X^1$; its levels are $(X^1)_m = X_{m+1}$ as sets. The identity is
+a homeomorphism between them, for every $m$. In a chart, the level-$m$ lift of the level chart $\varphi^1$ is the
+level-$(m+1)$ lift of $\varphi$, because $(E^1)_m = E_{m+1}$, and level lifts in two charts differ by the level map of the
+transition map. So each iterate $(X^1)^1\cdots$ is $X_m$ with its topology and the charts $(V_m,\varphi,(O_m,C_m,E_m))$,
+as the text says after Definition 2.3.8 (gap G.6, closed).
+
+**Theorem 2.3.16.** In a local model $T(O^1) = (TO)^1$, and $T(f^1)$ is the level-$1$ map of $Tf$. For an M-polyfold, the
+models $TO\to O^1$ of $TX$ are bundle retracts, $p : TX\to X^1$ is in each tangent chart the projection onto the level chart
+$\varphi^1$, and the transition maps of the tangent charts are bundle maps covering the level-$1$ transition maps of $X$.
+That is the text's "sc-smooth M-polyfold bundle", read through models and transition maps, since $T_xX$ has no linear
+structure of its own here (gap G.7).
+
+**Proposition 2.3.17.** A tangent vector of $X^1$ at $x\in X_2$, read in the level chart $\varphi^1$, is $(\varphi^1(x),h')$
+with $h'\in E_1$; the tuple $(x,\varphi,h')$ defines a point of $TX$, independent of the chart, since
+$T(\psi\circ\varphi^{-1})$ on $(TO)^1$ is the tangent map of $(\psi\circ\varphi^{-1})^1$. This inclusion
+$T(X^1)\to TX$ lands on level $1$ and gives a bijection $\Phi : T(X^1)\to(TX)^1$. In the charts $T(\varphi^1)$ and
+$(T\varphi)^1$ it is the identity of $T(O^1) = (TO)^1$, so $\Phi$ is an sc-diffeomorphism, linear on the fibres in charts,
+and it covers the identity of $(X^1)^1$. For larger $i$, an sc-diffeomorphism raises to one between the lifts, and
+$\Phi_{i+1} = (\Phi_i)^1\circ\Phi$ defines $\Phi_i : T(X^i)\to(TX)^i$ for every $i$, together with $J_i : (X^1)^i\to(X^i)^1$,
+the identity on points. They are sc-diffeomorphisms, $J_i\circ p^i\circ\Phi_i = p$, and $\Phi_i$ commutes with the
+inclusions of the two towers $\cdots\subseteq T(X^1)\subseteq TX$ and $\cdots\subseteq(TX)^1\subseteq TX$, which determines it.
+Since $\iota\circ T(f^1) = Tf\circ\iota$ for sc-smooth $f$, $\Phi_i$ is natural in $X$. To have $X^i$ as a function of $i$,
+the M-polyfold is bundled with its space.
+
+*Checked by machine:* `Polyfold.ScRetraction.IsBundleRetractionOver`, `Polyfold.IsBundleMapOn`,
+`Polyfold.ScRetraction.tangentRetraction_isBundleRetractionOver`, `Polyfold.IsScSmoothRetractMap.retractTangentMap_isBundleMapOn`
+(Definition 2.1.16, gap G.5, apart from the categories); `Polyfold.MPolyfold.shiftLevelHomeomorph`,
+`Polyfold.MPolyfold.shift_level_eq` (gap G.6, closed); `Polyfold.theorem_2_3_16_2021`; `Polyfold.proposition_2_3_17_2021`
+($i = 1$), `Polyfold.proposition_2_3_17_two_2021` ($i = 2$), `Polyfold.proposition_2_3_17_all_2021` (every $i$), with
+`Polyfold.MPolyfold.tangentShiftEquiv`, `Polyfold.MPolyfold.levelOneEquiv_isScDiffeoOn`,
+`Polyfold.BundledMPolyfold.tangentLiftEquiv`, `Polyfold.BundledMPolyfold.tangentLiftEquiv_natural`.
+
+### 9.9 Remark 2.4.2: the diagonal half-line (pp. 44–45)
+
+**Remark 2.4.2.** In $C = [0,\infty)^3\oplus W$ ($W = 0$ is the text's case) the average of the three coordinates is an sc-smooth retraction
+onto $\Delta\oplus W$, $\Delta = \{(s,s,s) : s\ge0\}$; the text names no retraction, and this is the orthogonal projection
+onto the diagonal. $(s,w)\mapsto((s,s,s),w)$ is an sc-diffeomorphism from the half-line $[0,\infty)\oplus W$. At the corner
+$d_C = 3$, while $d_\Delta = 1$ by Proposition 2.4.4 (preprint 2.24) applied to this sc-diffeomorphism; away from it both
+are $0$. The defining chart realizes $d_C$; one chart on all of $\Delta\oplus W$ with model $[0,\infty)\oplus W$ realizes
+$d_\Delta$, which is the "more economical" atlas of the remark. §3.1's two-dimensional diagonal is the same phenomenon.
+
+*Checked by machine:* `Polyfold.remark_2_4_2_2021`, with `Polyfold.diagonalRetraction`, `Polyfold.diagonalEmbed_isScDiffeoOn`,
+`Polyfold.degIndex_diagonal_quadrant`, `Polyfold.diagonalPolyfold_degIndex`, `Polyfold.diagonalHalfLineChart_spec`.
+
+### 9.10 Tame sub-M-polyfolds, continued (p. 63)
+
+**Definition 2.5.19 (3) does not depend on the chart.** §9.5 asks for the complement in one chart around each smooth point. A point
+is smooth iff its chart image is. The condition in a chart is Chapter 4's general-position condition for the retraction of
+the model and the chart image of $Y$, so Chapter 4's chart change moves it to every chart, every presentation of the
+partial quadrant, and the chart image of any other retraction onto $Y$.
+
+**A tame sub-M-polyfold is tame.** Sc-splittings compose: from $E = M\oplus B$ and $M = N\oplus A$ on every level,
+$E = N\oplus(A\oplus B)$. In a chart with a tame model, retraction $t$, the chart image of $Y$ is the retract of
+$(\varphi r\varphi^{-1})\circ t$. It is tame: the index condition is (2) of Definition 2.5.19, and the complement inside
+$E_x$ is $A\oplus B$, with $A$ from (3) in this chart and $B$ the complement given by the tameness of $t$. So the sub-charts
+on tame charts of $X$ have tame models, which is the text's "not difficult to see".
+
+**The examples.** The fixed set of an idempotent sc-operator $L$ of $\mathbb R^n\oplus W$ preserving the quadrant is a
+sub-M-polyfold, and a tame one if $L$ keeps the $\mathbb R^n$-component. $A = \{(x,y,0)\}$ is the case $L(a,w) = (a,0)$. For
+$B = \{(x,x,0)\}$, a sub-M-polyfold, no retraction near the corner preserves the index: $d_X(t,0,0) = 1$ for small $t>0$,
+while on $B$ the index is $2$ at the corner and $0$ elsewhere. So $B$ is not tame as a sub-M-polyfold, while
+$t\mapsto(t,t,0)$ is an sc-diffeomorphism from the half-line onto $B$, whose induced structure is therefore tame. Both claims
+of the text hold, for every $W$ in place of $\mathbb R$.
+
+*Checked by machine:* `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart_2021`,
+`Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure_2021`, `Polyfold.TameSubExample.isTameSubMPolyfold_fixSet`,
+`Polyfold.TameSubExample.not_isTameSubMPolyfold_setB_2021`, `Polyfold.TameSubExample.hasTameInducedStructure_setB_2021`,
+`Polyfold.TameSubExample.examples_A_B_2021`. Gap G.77 is closed; condition (3) is still stated in charts (gap G.7).
+
+### 9.11 The tame M-polyfold $bX$ (Theorem 2.7.13 (2)–(4), Proposition 2.7.12, Definition 2.7.14, pp. 83–84)
+
+**Charts.** Take a triple $(x,V,\theta)$ with $V$ centred at $x$, a tame chart $\varphi$ of $X$ near a point of $\theta$ in
+which $\theta$ is the zero set of one coordinate (the local faces of Theorem 2.5.17 (preprint 2.45)), and the face
+projection $\pi$ of Proposition 2.5.15 (preprint 2.43). The chart of $bX$ is $p\mapsto\pi(\varphi(B(p)))$ on the part of
+$U(x,V,\theta)$ over the chart domain, with values in a tame retract of $[0,\infty)^k\oplus W$ on which $d_X = d+1$. Two such
+charts differ by $\pi'\circ(\varphi'\circ\varphi^{-1})\circ\iota$, $\iota$ the face inclusion, which is sc-smooth. Every class
+has a centred representative, so the charts cover $bX$.
+
+**Theorem 2.7.13 (2)–(4).** With the metrizable, hence paracompact, topology $T_{bX}$ these charts make $bX$ a tame
+M-polyfold (2); in them $B$ is the face inclusion, so $B$ is sc-smooth (3), and $d_X(B(p)) = d_{bX}(p)+1$ (4).
+
+**The characterization and Proposition 2.7.12.** A face $\theta$ is a sub-M-polyfold of $X$, which we read as "the structure
+induced from $V$". For centred $V$, $\Phi_{(x,V,\theta)}$ is an sc-diffeomorphism onto $\theta$, and every M-polyfold
+structure on $bX$ with this property is equivalent to ours. For an arbitrary representative, $\Phi$ is sc-smooth, and its
+inverse is sc-smooth on the image $\theta\cap V^x$. Near each point it is the inverse for a centred refinement, composed with
+the inclusion of an open piece of $\theta$ into a smaller face, sc-smooth because it maps into a sub-M-polyfold. So $\Phi$ is
+an sc-diffeomorphism onto the open set $\theta\cap V^x$. Proposition 2.7.12 then holds as printed for every pair of
+representatives. In the characterization, "onto $\theta$" does not hold as we read it for every representative: for the
+slab of §9.6, $\Phi$ misses $(0,1,0)\in\theta$. The strongest version that holds has the image $\theta\cap V^x$, which is
+$\theta$ for centred $V$.
+
+**Definition 2.7.14 and (2.45)–(2.47).** The tame boundary is $B : bX\to X$, sc-smooth with image $\partial X$. Iterating
+on a tame M-polyfold bundled with its space, $b^kX = b(b^{k-1}X)$ and $B^k = B_X\circ B_{bX}\circ\cdots\circ B_{b^{k-1}X}$
+are sc-smooth, $d_X(B^k(p)) = d_{b^kX}(p)+k$, and $B^k$ has image $\{d_X\ge k\}$. For the quadrant $[0,\infty)^n\oplus W$,
+$n\ge1$, chart data exist, and over the corner $d_{bX} = n-1$.
+
+*Checked by machine:* `Polyfold.MPolyfold.BChartData`, `Polyfold.MPolyfold.tameBoundaryPolyfold`,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_isTame`, `Polyfold.MPolyfold.tameBoundaryMap_isScSmooth`,
+`Polyfold.MPolyfold.degIndex_tameBoundaryMap_sub_one`, `Polyfold.MPolyfold.phi_isScDiffeoOn`,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_unique`, `Polyfold.MPolyfold.theorem_2_7_13_structure_2021`;
+`Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred_2021`, `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred_2021`,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps_2021`, `Polyfold.MPolyfold.not_surjOn_phiTot_2021` (gap G.78,
+closed); `Polyfold.MPolyfold.definition_2_7_14_2021`, `Polyfold.MPolyfold.TameMPolyfoldBundle.iterMap_isScSmooth`,
+`Polyfold.MPolyfold.TameMPolyfoldBundle.degIndex_iterMap`, `Polyfold.MPolyfold.TameMPolyfoldBundle.range_iterMap`,
+`Polyfold.MPolyfold.quadrantPolyfold_degIndex_tameBoundary`.
+
+These are V2.65–V2.107 in `Exposition/Verification.md`.

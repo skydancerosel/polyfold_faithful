@@ -2567,11 +2567,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "Cor. 7.4.11: $X$, $X^1$; $X^i$ by hypothesis",
-    "gaps G.84, G.85"
+    "Cor. 7.4.11: $X$, $X^1$; all $X^i$: V7.102",
+    "gaps G.84 (closed), G.85"
    ],
    "diff": [
-    "The Part I facts of V7.86 are hypotheses (gap G.85). Corollary 7.4.11 is proved for $X$ and $X^1$; for every $X^i$ it takes (ZHOU) for every $X^i$, the conclusion of Proposition 7.4.9, as a hypothesis (gap G.84) (Findings, Chapter 7, items 136, 137)."
+    "The Part I facts of V7.86 are hypotheses (gap G.85). Corollary 7.4.11 is proved for $X$ and $X^1$; the form for every $X^i$ here takes (ZHOU) for every $X^i$, the conclusion of Proposition 7.4.9, as a hypothesis; with (ZHOU) for $X$ only it is V7.102 (gap G.84, closed) (Findings, Chapter 7, items 136, 137, 148)."
    ]
   },
   {
@@ -2598,11 +2598,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "(ZHOU) for every $X^i$ assumed",
-    "gap G.84"
+    "(ZHOU) for all $X^i$; for $X$: V7.102",
+    "gap G.84 (closed)"
    ],
    "diff": [
-    "(ZHOU) for every $X^i$, which Proposition 7.4.9 derives from (ZHOU) for $X$, is a hypothesis: Proposition 7.4.9 needs the identification of $(X^i)_\\infty$ with $X_\\infty$ and of the tangent spaces (gaps G.6, G.7), not formalized (gap G.84) (Findings, Chapter 7, item 137)."
+    "(ZHOU) for every $X^i$, which Proposition 7.4.9 derives from (ZHOU) for $X$, is a hypothesis of this form. Proposition 7.4.9 and Theorem 7.4.13 with (ZHOU) for $X$ only are V7.102, through $(X^1)_\\infty \\cong X_\\infty$ and Part I's Proposition 2.3.17 (gap G.84, closed) (Findings, Chapter 7, items 137, 148)."
    ]
   },
   {
@@ -2633,11 +2633,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "7.4.16 for $X^1$; 7.4.18 not formalized",
-    "gaps G.84, G.85"
+    "7.4.16 for $X^1$; rest: V7.103, V7.104",
+    "gaps G.84 (closed), G.85"
    ],
    "diff": [
-    "$V(x)$ is read open in $X_\\infty$, inside a natural representation and invariant. Proposition 7.4.16 is proved for $X^1$ (LUC for $X$ and $X^1$); Proposition 7.4.17 takes (VSLUC) for every $X^i$; Proposition 7.4.18, (SLUC) implies (VSLUC), is not formalized: it needs natural representations of $X^N$ in terms of those of $X$ (gap G.84). The Part I facts are hypotheses (gap G.85) (Findings, Chapter 7, items 136, 137)."
+    "$V(x)$ is read open in $X_\\infty$, inside a natural representation and invariant. Here Proposition 7.4.16 is proved for $X^1$ (LUC for $X$ and $X^1$) and Proposition 7.4.17 takes (VSLUC) for every $X^i$; for every $X^i$ with (VSLUC) for $X$ only they are V7.103, and Proposition 7.4.18 in both directions is V7.104 (gap G.84, closed). The Part I facts are hypotheses (gap G.85) (Findings, Chapter 7, items 136, 137, 149, 150)."
    ]
   },
   {
@@ -2690,11 +2690,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "(ZHOU) for every $X^i$ assumed",
+    "(ZHOU) for all $X^i$; for $X$: V7.102",
     "proof without reduction, density"
    ],
    "diff": [
-    "Theorem 7.4.24 takes (ZHOU) for every $X^i$ as a hypothesis (gap G.84); the Part I facts are hypotheses (gap G.85). Proposition 7.4.22 is proved without passing to the reduced ep-groupoid and without the density of the regular points: on the open dense union of the $X_\\infty$-interiors of the sets $\\{\\beta = \\hat g\\}$, pieces whose closures meet have equal tangents at a common smooth point (Findings, Chapter 7, item 138)."
+    "Theorem 7.4.24 takes (ZHOU) for every $X^i$ as a hypothesis here; with (ZHOU) for $X$ only it is V7.102 (gap G.84, closed); the Part I facts are hypotheses (gap G.85). Proposition 7.4.22 is proved without passing to the reduced ep-groupoid and without the density of the regular points: on the open dense union of the $X_\\infty$-interiors of the sets $\\{\\beta = \\hat g\\}$, pieces whose closures meet have equal tangents at a common smooth point (Findings, Chapter 7, item 138)."
    ]
   },
   {
@@ -2845,12 +2845,210 @@
    "chips": [
     "new in the 2021 edition",
     "topological part only",
-    "sc-smooth parts: reported separately",
+    "sc-smooth parts: V7.99–V7.101",
     "$\\Phi$ onto $\\theta$ only for centred $V$"
    ],
    "diff": [
-    "Not covered by this row: (2), the sc-smoothness in (3), the index $d_{bX}$ in (4) beyond the fibre count, the sc-smoothness and tameness in (5). They depend on 2021 Theorem 2.7.13 (2), the M-polyfold structure of $bX$, and are formalized separately (`Chapter7/TameBoundaryEpStructure.lean`), reported separately; no ep-groupoid structure on $(bX, b\\mathbf X)$ is built in `Chapter7/TameBoundaryEp.lean`.",
+    "Not covered by this row: (2), the sc-smoothness in (3), the index $d_{bX}$ in (4) beyond the fibre count, the sc-smoothness and tameness in (5). They depend on 2021 Theorem 2.7.13 (2), the M-polyfold structure of $bX$, and are V7.99–V7.101 (`Chapter7/TameBoundaryEpStructure.lean`, which builds the ep-groupoid structure on $(bX, b\\mathbf X)$); `Chapter7/TameBoundaryEp.lean` gives the topology and the groupoid.",
     "\"$\\Phi$ is a homeomorphism onto $\\theta$\" holds as we read it only for $V$ centred at $x$, as for (2.44) in Chapter 2; in general $\\Phi$ is an open embedding, the form used in the characterization (Findings, Chapter 7, items 140, 141)."
+   ]
+  },
+  {
+   "id": "V7.99",
+   "title": "Sc-smooth maps of tame boundaries: lifts of sc-smooth maps and of local sc-diffeomorphisms",
+   "verdict": "extra",
+   "book": {
+    "label": "§7.6, Appendix 7.6.5.2, proof sketch of Theorem 7.6.9, p. 355 (new in the 2021 edition)",
+    "page": 355,
+    "statement": "In the charts $\\Phi_{(\\varphi, \\mathbf V, \\theta)}$ and $\\Phi_{(x, V, \\theta)}$ the map $s : U(\\varphi, \\mathbf V, \\theta) \\to U(x, V, \\theta)$ becomes $s : \\theta \\to s(\\theta)$, an sc-diffeomorphism; this gives the smoothness of $s$, and similarly of the other structure maps."
+   },
+   "lean": {
+    "statement": "`MPolyfold.isScSmoothOn_of_bMap`: for $f$ sc-smooth on $U$ and $g : bA \\to bB$ continuous on an open $O \\subseteq B^{-1}(U)$ with $B \\circ g = f \\circ B$ on $O$, $g$ is sc-smooth on $O$ for `tameBoundaryPolyfold` (in the charts $\\pi \\circ \\varphi \\circ B$ it is $\\pi' \\circ (\\varphi' \\circ f \\circ \\varphi^{-1}) \\circ \\iota$). `isScSmoothMap_bLift`: the lift `bLift` of an sc-smooth index-preserving local homeomorphism is sc-smooth. `isLiftOf_bLift_sheet`, `isLocalScDiffeo_bLift`: the lift of a local sc-diffeomorphism is a local sc-diffeomorphism, over a sheet $f : W \\to V$ mapping $B^{-1}(W)$ onto $B^{-1}(V)$.",
+    "decls": [
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isScSmoothOn_of_bMap",
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isScSmoothMap_bLift",
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isLiftOf_bLift_sheet",
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isLocalScDiffeo_bLift"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "a tool of the formalization",
+    "replaces $s : \\theta \\to s(\\theta)$"
+   ],
+   "diff": [
+    "The sketch's sc-diffeomorphism $s : \\theta \\to s(\\theta)$ of faces is replaced by the computation in the charts of `tameBoundaryPolyfold`, which needs only that $f$ is sc-smooth (Findings, Chapter 7, item 146)."
+   ]
+  },
+  {
+   "id": "V7.100",
+   "title": "Theorem 7.6.9 (2), (3), (5): the boundary ep-groupoid $(bX, b\\mathbf X)$, and $B$ an ep-functor",
+   "verdict": "stronger",
+   "book": {
+    "label": "§7.6, Theorem 7.6.9 (2), (3), (5), p. 355 (new in the 2021 edition)",
+    "page": 355,
+    "statement": "For a tame ep-groupoid, $bX$ and $b\\mathbf X$ carry natural tame M-polyfold structures, both maps $B$ are sc-smooth, and $(bX, b\\mathbf X)$ with $s, t, u, \\iota, m$ of (7.25)–(7.29) is a tame ep-groupoid; the verification is left to the reader, with a sketch through a commutative diagram."
+   },
+   "lean": {
+    "statement": "`bPObj`, `bPMor`: `tameBoundaryPolyfold` of the object and the morphism M-polyfold (paracompact: `paracompactSpace_bObj`, `paracompactSpace_bMor`). `isLocalScDiffeo_bSrc`, `isLocalScDiffeo_bTgt`, `isScSmoothMap_bUnit`, `isScSmoothMap_bInv`; `isScSmoothCompSheet_bComp` (sheet form) and `isScSmoothComp_bComp` ($m$ sc-smooth on $b\\mathbf X\\,{}_s{\\times}_t\\,b\\mathbf X$). `boundaryEpGroupoid`: the `EpGroupoid` $(bX, b\\mathbf X)$; `isTame_boundaryEpGroupoid`; `boundaryEpFunctor`: $B$ is an `EpFunctor`. `phiTot_bSrc`: $\\Phi_{(x, s(\\mathbf V), s(\\theta))} \\circ s = s \\circ \\Phi_{(\\varphi, \\mathbf V, \\theta)}$, the diagram of the sketch.",
+    "decls": [
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.paracompactSpace_bObj",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.paracompactSpace_bMor",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.bPObj",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.bPMor",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isLocalScDiffeo_bSrc",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isLocalScDiffeo_bTgt",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothMap_bUnit",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothMap_bInv",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothCompSheet_bComp",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothComp_bComp",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.boundaryEpGroupoid",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isTame_boundaryEpGroupoid",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.boundaryEpFunctor",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.phiTot_bSrc"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$B$ an ep-functor",
+    "$m$ in sheet form"
+   ],
+   "diff": [
+    "The text asks $B$ to be sc-smooth; it is also a functor (V7.97), hence an ep-functor, a morphism of $\\mathcal{EP}$ (Definition 7.1.7 (2017: 7.7)).",
+    "Condition (4) of Definition 7.1.3 (2017: 7.3) is proved in the sheet form of V7.3: near $b$, $b' \\mapsto m(\\sigma(t b'), b')$ covers $\\gamma \\mapsto m(\\sigma_1(t\\gamma), \\gamma)$ for a sheet $\\sigma_1$ of $s$ on $\\mathbf X$, and V7.99 applies (Findings, Chapter 7, items 145, 146)."
+   ]
+  },
+  {
+   "id": "V7.101",
+   "title": "Theorem 7.6.9 in full",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.6, Theorem 7.6.9, p. 355 (new in the 2021 edition), and the characterization after it",
+    "page": 355,
+    "statement": "For a tame ep-groupoid: (1) $bX$ and $b\\mathbf X$ have natural metrizable topologies; (2) natural tame M-polyfold structures; (3) both maps $B$ are sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$, and likewise on $b\\mathbf X$; (5) $(bX, b\\mathbf X)$ with $s, t, u, \\iota, m$ is a tame ep-groupoid. The topology and the structure are characterized as in Theorem 2.7.13."
+   },
+   "lean": {
+    "statement": "`theorem_7_6_9_full_2021` (for `X.IsTame`): (1) metrizable $bX$, $b\\mathbf X$; (2) `bPObj`, `bPMor` tame, and for every triple with $V$ centred at $x$, `uSet` open and `phiTot` an sc-diffeomorphism onto `facePolyfold` with inverse `phiHomeomorph.symm`, and every M-polyfold structure with this property has an atlas equivalent to `bPObj`, resp. `bPMor`; (3) both `tameBoundaryMap` sc-smooth; (4) $d_X(B p) - 1 = d_{bX}(p)$, $d_{\\mathbf X}(B a) - 1 = d_{b\\mathbf X}(a)$; (5) `boundaryEpGroupoid` tame, with the groupoid `boundaryGroupoid` and the structures `bPObj`, `bPMor`, local sc-diffeomorphisms `bSrc`, `bTgt`, sc-smooth `bUnit`, `bInv`, `IsScSmoothComp`; an `EpFunctor` with object and morphism maps the two `tameBoundaryMap`. Witness: `trivial_quadrant_boundaryEp_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, nonempty $bX$, $b\\mathbf X$, $d_{bX} = n - 1$ over the corner).",
+    "decls": [
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.theorem_7_6_9_full_2021",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.trivial_quadrant_boundaryEp_witness",
+     "Chapter2/TameBoundaryStructure · MPolyfold.theorem_2_7_13_structure_2021",
+     "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryPolyfold_unique",
+     "Chapter2/TameBoundaryStructure · MPolyfold.degIndex_tameBoundaryMap"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "characterization for centred $V$",
+    "(4) as printed, $\\mathbb N$-subtraction"
+   ],
+   "diff": [
+    "The characterization and its uniqueness are for representatives whose $V$ is centred at $x$ (V7.98); Part I has them since for every representative, with image $\\theta \\cap V^x$ (V2.104; gap G.78, closed), the boundary ep-groupoid not; \"natural\" in (2) is read through them. The hypotheses of the two uniqueness statements are satisfied by `bPObj`, `bPMor` themselves.",
+    "(4) is stated as printed, with natural-number subtraction ($B$ takes values in $\\partial X$, where $d_X \\ge 1$); the additive form is `MPolyfold.degIndex_tameBoundaryMap` (Findings, Chapter 7, items 145, 147)."
+   ]
+  },
+  {
+   "id": "V7.102",
+   "title": "Proposition 7.4.9, and Corollary 7.4.11, Theorems 7.4.13, 7.4.24 for every $X^i$: (ZHOU) passes to every $X^i$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Proposition 7.4.9, p. 333, Corollary 7.4.11 and Theorem 7.4.13, p. 334, Theorem 7.4.24, p. 340 (new in the 2021 edition)",
+    "page": 333,
+    "statement": "Proposition 7.4.9: if $X$ satisfies the Zhou condition, so does every $X^i$, (ZHOU') being the same for $X$ and $X^i$. Corollary 7.4.11: under (ZHOU) every $X^i$ has (LUC). Theorem 7.4.13: (ZHOU) implies (SLUC). Theorem 7.4.24: (ZHOU) implies (SLR)."
+   },
+   "lean": {
+    "statement": "`MPolyfold.continuous_levelDown`, `shiftSmoothHomeomorph`: $(X^1)_\\infty \\cong X_\\infty$. `EpGroupoid.isotropyLevelVal`, `levelVal_Φ_liftOne`, `tangentLower_tangentMor_liftOne`: a natural representation of $X^1$ inside $U(x) \\cap X_1$ acts as that of $X$, with the tangent action of $\\mathbf X$. `isZhou'_liftOne`, `EP.isZhou'_lift`: (ZHOU') for $X$ gives (ZHOU') for every $X^i$. `EP.proposition_7_4_9_2021`: `IsZhou` for $X$, `DenseSmoothTangent` for $X$ and `SmoothRegular` for every $X^i$ give `IsZhou` for every $X^i$; `EP.corollary_7_4_11_all_2021`, `EP.theorem_7_4_13_all_2021`, `EP.theorem_7_4_24_all_2021` under the same hypotheses. Witnesses for the point ep-groupoid.",
+    "decls": [
+     "Chapter7/ZhouLevels · MPolyfold.continuous_levelDown",
+     "Chapter7/ZhouLevels · MPolyfold.shiftSmoothHomeomorph",
+     "Chapter7/ZhouLevels · EpGroupoid.isotropyLevelVal",
+     "Chapter7/ZhouLevels · EpGroupoid.levelVal_Φ_liftOne",
+     "Chapter7/ZhouLevels · EpGroupoid.tangentLower_tangentMor_liftOne",
+     "Chapter7/ZhouLevels · EpGroupoid.isZhou'_liftOne",
+     "Chapter7/ZhouLevels · EP.isZhou'_lift",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_9_2021",
+     "Chapter7/ZhouLevels · EP.corollary_7_4_11_all_2021",
+     "Chapter7/ZhouLevels · EP.theorem_7_4_13_all_2021",
+     "Chapter7/ZhouLevels · EP.theorem_7_4_24_all_2021",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.proposition_7_4_9_2021_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.theorem_7_4_13_all_2021_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.theorem_7_4_24_all_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(ZHOU') from $X$ to $X^i$",
+    "gap G.84 closed; G.85"
+   ],
+   "diff": [
+    "\"(ZHOU') is the same for $X$ and $X^i$\" is proved in the direction the proof uses, from $X$ to $X^i$, through $(X^1)_\\infty \\cong X_\\infty$, Part I's Proposition 2.3.17 for $i = 1$ and the comparison of natural representations. The Part I facts are hypotheses on every level, and $(T_xX)_\\infty$ dense in $T_xX$ for $X$ (gap G.85) (Findings, Chapter 7, item 148)."
+   ]
+  },
+  {
+   "id": "V7.103",
+   "title": "Propositions 7.4.16 and 7.4.17 for every $X^i$: (VSLUC) passes to every $X^i$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Propositions 7.4.16 and 7.4.17, p. 336 (new in the 2021 edition)",
+    "page": 336,
+    "statement": "Proposition 7.4.16: if $X$ has (VSLUC), so does every $X^i$, using $X_\\infty = X^i_\\infty$, and in particular every $X^i$ has (LUC). Proposition 7.4.17: (VSLUC) implies (SLUC)."
+   },
+   "lean": {
+    "statement": "`MPolyfold.DenseSmooth.shift`, `EP.denseSmooth_lift`: the density of $X_\\infty$ passes to every $X^i$. `EpGroupoid.isVSLUC_liftOne`, `EP.isVSLUC_lift`: (VSLUC) for $X$ gives (VSLUC) for every $X^i$. `EP.proposition_7_4_16_all_2021`: with `DenseSmooth` for $X$ and `SmoothConnected` for every $X^i$, every $X^i$ has (VSLUC) and LUC; `EP.proposition_7_4_17_all_2021`: then `A.IsSLUC`. Witnesses: `Examples.isVSLUC_pointEP`, `Examples.proposition_7_4_17_all_2021_pointEP`.",
+    "decls": [
+     "Chapter7/ZhouLevels · MPolyfold.DenseSmooth.shift",
+     "Chapter7/ZhouLevels · EP.denseSmooth_lift",
+     "Chapter7/ZhouLevels · EpGroupoid.isVSLUC_liftOne",
+     "Chapter7/ZhouLevels · EP.isVSLUC_lift",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_16_all_2021",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_17_all_2021",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.isVSLUC_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.proposition_7_4_17_all_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(VSLUC) for $X$ only",
+    "gaps G.73, G.85"
+   ],
+   "diff": [
+    "$X_\\infty = X^i_\\infty$ is the homeomorphism of V7.102; \"in particular (LUC)\" is Lemma 7.4.15 (V7.92) on every $X^i$, which needs the density of $X_\\infty$ (gap G.73) and `SmoothConnected` for every $X^i$ (gap G.85) (Findings, Chapter 7, item 149)."
+   ]
+  },
+  {
+   "id": "V7.104",
+   "title": "Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Proposition 7.4.18, p. 336 (new in the 2021 edition)",
+    "page": 336,
+    "statement": "(VSLUC) and (SLUC) are equivalent. The proof of (SLUC) ⇒ (VSLUC) takes $V(x) = U(x) \\cap X_\\infty$ and uses that an open subset of it contains $W' \\cap X_\\infty$ for an open $W'$ of some $X_N$, with $U(x) \\cap X_N$ connected by construction."
+   },
+   "lean": {
+    "statement": "`MPolyfold.levelDownTo`, `exists_level_nhds_smooth`: the sets $O \\cap X_\\infty$, $O$ open in some $X_{N+1}$, form a neighbourhood basis of $X_\\infty$. `EpGroupoid.isotropyLevelMk`, `NaturalRep.liftOneΦ`, `NaturalRep.liftOneRep`: a natural representation with $U(x) \\cap X_1$ connected restricts to one of $X^1$. `NaturalRep.LevelConnected`: every $U(x) \\cap X_m$ connected in $X_m$; `levelConnected_liftOneRep`. `EP.eqOn_of_level_smooth`, `EP.isVSLUC_of_isSLUC`: with `DenseSmooth` and level-connected representations at every smooth point, (SLUC) gives (VSLUC). `EP.proposition_7_4_18_2021`: with `SmoothConnected` for every $X^i$ as well, `IsVSLUC` ⇔ `IsSLUC`. Witnesses for the point ep-groupoid.",
+    "decls": [
+     "Chapter7/ZhouLevels · MPolyfold.levelDownTo",
+     "Chapter7/ZhouLevels · MPolyfold.exists_level_nhds_smooth",
+     "Chapter7/ZhouLevels · EpGroupoid.isotropyLevelMk",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.liftOneΦ",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.liftOneRep",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.eqOn_of_liftOneRep",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.LevelConnected",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.levelConnected_liftOneRep",
+     "Chapter7/ZhouLevels · EP.eqOn_of_level_smooth",
+     "Chapter7/ZhouLevels · EP.isVSLUC_of_isSLUC",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_18_2021",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.levelConnected_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.proposition_7_4_18_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "both directions",
+    "\"by construction\" as a hypothesis (G.85)"
+   ],
+   "diff": [
+    "The natural representations with every $U(x) \\cap X_m$ connected, which the proof takes by construction, are a hypothesis (`NaturalRep.LevelConnected`, gap G.85), as is the density of $X_\\infty$ (gap G.73). LUC for $X^N$ is applied to the restriction of $U(x)$ to $X^N$, built one level at a time (Findings, Chapter 7, item 150)."
    ]
   }
  ],
@@ -2946,12 +3144,21 @@
    "label": "§7.4, Proposition 7.4.9, p. 333, and Proposition 7.4.18, p. 336 (new in the 2021 edition)",
    "page": 333,
    "book": "Proposition 7.4.9: if $X$ satisfies the Zhou condition, so does every $X^i$ (the condition (ZHOU') being the same for $X$ and $X^i$). Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent. Corollary 7.4.11, Theorems 7.4.13, 7.4.24 and Proposition 7.4.16 use them for every $X^i$.",
-   "instead": "**Not formalized**: Proposition 7.4.9 needs the identification of $(X^i)_\\infty$ with $X_\\infty$ and of the tangent spaces of $X^i$ with those of $X$ (gaps G.6, G.7); Proposition 7.4.18 ((SLUC) implies (VSLUC)) needs natural representations of $X^N$ in terms of those of $X$. So Corollary 7.4.11 for all $i$, Theorems 7.4.13, 7.4.24 and Proposition 7.4.17 take the per-level hypotheses ((ZHOU), resp. (VSLUC), for every $X^i$), and Proposition 7.4.16 is proved for $X^1$ (V7.90–V7.92, V7.94) (Findings, Chapter 7, item 137).",
+   "instead": "**Formalized since the first edition of this page** (Springer 2021 additions; V7.102–V7.104). The inclusions $X_{m+1} \\to X_m$ are continuous and $(X^1)_\\infty \\to X_\\infty$ is a homeomorphism; with Part I's Proposition 2.3.17 for $i = 1$ and the comparison of the natural representations of $X$ and $X^1$, (ZHOU') passes from $X$ to $X^1$, hence to every $X^i$, and Proposition 7.4.9 follows, with Corollary 7.4.11, Theorems 7.4.13 and 7.4.24 for (ZHOU) on $X$ only (V7.102). (VSLUC) and the density of $X_\\infty$ pass from $X$ to every $X^i$, giving Propositions 7.4.16 and 7.4.17 (V7.103). Proposition 7.4.18 is proved in both directions, (SLUC) ⇒ (VSLUC) under natural representations with every $U(x) \\cap X_m$ connected, which the text takes by construction (V7.104). Not formalized: (ZHOU') from $X^i$ back to $X$, which the proof does not use; the Part I facts stay hypotheses on every level (gap G.85) (Findings, Chapter 7, items 137, 148–150).",
    "decls": [
-    "Chapter7/Zhou · EpGroupoid.corollary_7_4_11_2021_lift",
-    "Chapter7/Zhou · EpGroupoid.theorem_7_4_13_2021",
-    "Chapter7/Zhou · EpGroupoid.proposition_7_4_17_2021",
-    "Chapter7/Zhou · EpGroupoid.theorem_7_4_24_2021"
+    "Chapter7/ZhouLevels · EP.isZhou'_lift",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_9_2021",
+    "Chapter7/ZhouLevels · EP.corollary_7_4_11_all_2021",
+    "Chapter7/ZhouLevels · EP.theorem_7_4_13_all_2021",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_16_all_2021",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_17_all_2021",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_18_2021",
+    "Chapter7/ZhouLevels · EP.theorem_7_4_24_all_2021"
+   ],
+   "formalized": [
+    "V7.102",
+    "V7.103",
+    "V7.104"
    ]
   },
   {
@@ -2960,11 +3167,13 @@
    "label": "§7.4, Lemma 7.4.4, p. 329, and the proofs of Lemma 7.4.6 to Proposition 7.4.22, pp. 331–340 (new in the 2021 edition)",
    "page": 329,
    "book": "The proofs use facts about M-polyfolds: $X_\\infty$ dense in every $X_m$; $U(x) \\cap X_\\infty$ connected for connected open $U(x)$; tangent vectors approximated by tangent vectors at nearby smooth points; sc-smooth maps agreeing near a smooth point in $X_\\infty$ have the same tangent there; $(T_xX)_\\infty$ dense in $T_xX$. The proof of Lemma 7.4.4 uses that $U(x) \\cap X_1$ is connected in $X^1$ and dense in $U(x)$.",
-   "instead": "**Not formalized**; explicit, satisfiable hypotheses: `MPolyfold.SmoothRegular` (`DenseSmooth`, gap G.73; `SmoothConnected`; the openness of $p : TX \\to X^1$, gap G.8; `TangentDeterminedSmooth`), `MPolyfold.DenseSmoothTangent`, and `HasLevelOneConnectedDenseReps` / `HasConnectedDenseLevelOneReps`, each satisfied by the point ep-groupoid (V7.83, V7.85, V7.86) (Findings, Chapter 7, items 133, 134).",
+   "instead": "**Not formalized**; explicit, satisfiable hypotheses: `MPolyfold.SmoothRegular` (`DenseSmooth`, gap G.73; `SmoothConnected`; the openness of $p : TX \\to X^1$, gap G.8; `TangentDeterminedSmooth`), `MPolyfold.DenseSmoothTangent`, and `HasLevelOneConnectedDenseReps` / `HasConnectedDenseLevelOneReps`, each satisfied by the point ep-groupoid (V7.83, V7.85, V7.86) (Findings, Chapter 7, items 133, 134). Since the second batch of 2021 additions the results for every $X^i$ take these facts on every level: `SmoothRegular` for every $X^i$ (V7.102), `SmoothConnected` for every $X^i$ (V7.103, V7.104); `DenseSmooth` passes from $X$ to every $X^i$ by proof (`EP.denseSmooth_lift`). Proposition 7.4.18 also takes natural representations with every $U(x) \\cap X_m$ connected, `NaturalRep.LevelConnected`, the text's \"by construction\" (V7.104) (Findings, Chapter 7, items 148–150).",
    "decls": [
     "Chapter7/Zhou · MPolyfold.SmoothRegular",
     "Chapter7/Zhou · MPolyfold.DenseSmoothTangent",
-    "Chapter7/Zhou · EpGroupoid.HasLevelOneConnectedDenseReps"
+    "Chapter7/Zhou · EpGroupoid.HasLevelOneConnectedDenseReps",
+    "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.LevelConnected",
+    "Chapter7/ZhouLevels · EP.denseSmooth_lift"
    ]
   }
  ]

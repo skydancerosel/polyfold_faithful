@@ -1010,9 +1010,15 @@ an open and closed subset of the connected $U(x)_\infty$, which replaces the tex
 $z_k\to y$ (possible misprint) (Findings, item 136). *Checked by machine (V7.89):* `Polyfold.EpGroupoid.lemma_7_4_6_2021`,
 `Polyfold.EpGroupoid.isZhou_of_isZhou'`, `Polyfold.EpGroupoid.proposition_7_4_8_2021`.
 
-**Proposition 7.4.9.** If $X$ satisfies (ZHOU), so does every $X^i$. It needs the identification of $(X^i)_\infty$ with $X_\infty$ and of the
-tangent spaces of $X^i$ with those of $X$ (gaps G.6, G.7), and is not formalized; the statements below about every $X^i$ take
-(ZHOU) on every level as a hypothesis (gap G.84) (Findings, item 137).
+**Proposition 7.4.9.** If $X$ satisfies (ZHOU), so does every $X^i$.
+
+The text says that (ZHOU') is the same for $X$ and $X^i$, since $X_\infty = X^i_\infty$. The checked proof goes from $X$ to $X^1$, the
+direction it uses. The identity $(X^1)_\infty\to X_\infty$ is a homeomorphism, the inclusions of the levels being continuous. A natural
+representation of $X^1$ at $x$ inside $U(x)\cap X_1$ acts by the natural action of $X$, and by Part I's Proposition 2.3.17 the tangent
+action of $\mathbf X^1$ is that of $\mathbf X$. So (ZHOU') passes from $X$ to $X^1$, and by induction to every $X^i$. Lemma 7.4.6 on $X$ and
+Proposition 7.4.8 on $X^i$ give (ZHOU) on $X^i$, with the Part I facts on every level (gap G.85; gap G.84, closed) (Findings, items
+137, 148). *Checked by machine (V7.102):* `Polyfold.MPolyfold.shiftSmoothHomeomorph`, `Polyfold.EpGroupoid.levelVal_Φ_liftOne`,
+`Polyfold.EpGroupoid.tangentLower_tangentMor_liftOne`, `Polyfold.EP.isZhou'_lift`, `Polyfold.EP.proposition_7_4_9_2021`.
 
 **Proposition 7.4.10.** (ZHOU) implies LUC.
 
@@ -1022,17 +1028,26 @@ because tangent vectors at $z$ are limits of tangent vectors at nearby smooth po
 element of $G_z$ that $\hat g$ defines acts trivially near $z$. So the set is all of the connected $U(x)_\infty$, and $\hat g = \mathrm{id}$ on $U(x)$ by
 density. $\square$
 
-The same argument gives LUC for $X^1$, and with (ZHOU) on every level, every $X^i$ has LUC (Corollary 7.4.11) (Findings, items 136,
-137).
+The same argument gives LUC for $X^1$, and with Proposition 7.4.9, every $X^i$ has LUC (Corollary 7.4.11) (Findings, items 136,
+137, 148).
 
-**Definition 7.4.12 (SLUC).** Every $X^i$ has LUC. By Theorem 7.4.13, (ZHOU) implies (SLUC); checked with (ZHOU) on every level as a
-hypothesis (gap G.84).
+**Definition 7.4.12 (SLUC).** Every $X^i$ has LUC. By Theorem 7.4.13, (ZHOU) implies (SLUC); checked with (ZHOU) for $X$ only,
+through Proposition 7.4.9.
 
 **Definition 7.4.14 (VSLUC).** LUC for $X_\infty$: on invariant open sets $V(x)$ of $X_\infty$, an $\hat g$ that is the identity on a nonempty open
 subset is the identity on $V(x)$. It is equivalent to the unique continuation through $X_\infty$ of the proof above, so it implies LUC
-(Lemma 7.4.15), for $X$ and $X^1$ (Proposition 7.4.16), and on every level, given it on every level (Proposition 7.4.17).
-Proposition 7.4.18, (SLUC) implies (VSLUC), needs natural representations of $X^N$ in terms of those of $X$ and is not formalized
-(gap G.84) (Findings, items 136, 137). *Checked by machine (V7.90–V7.92):* `Polyfold.EpGroupoid.proposition_7_4_10_2021`,
+(Lemma 7.4.15). (VSLUC) for $X$ gives (VSLUC) for every $X^i$, with $V(x)$ cut down to a natural representation of $X^i$, and the
+density of $X_\infty$ passes to every $X^i$; so every $X^i$ has LUC (Proposition 7.4.16), and (VSLUC) implies (SLUC) (Proposition
+7.4.17) (Findings, items 136, 137, 149).
+
+Proposition 7.4.18, (SLUC) implies (VSLUC), takes $V(x) = U(x)\cap X_\infty$. An open subset of $V(x)$ contains $W'\cap X_\infty$ for a
+nonempty open $W'$ of some $X_N$, so $\hat g = \mathrm{id}$ on $W'$, and LUC for $X^N$ on $U(x)\cap X_N$ gives $\hat g = \mathrm{id}$ on $U(x)$. For
+this the text takes $U(x)\cap X_N$ connected "by construction"; the checked proof takes natural representations with every
+$U(x)\cap X_m$ connected as a hypothesis (gap G.85), and restricts them one level at a time to natural representations of $X^N$
+(Findings, item 150). *Checked by machine (V7.103–V7.104):* `Polyfold.EP.isVSLUC_lift`, `Polyfold.EP.denseSmooth_lift`,
+`Polyfold.EP.proposition_7_4_16_all_2021`, `Polyfold.EP.proposition_7_4_17_all_2021`,
+`Polyfold.EpGroupoid.NaturalRep.liftOneRep`, `Polyfold.EpGroupoid.NaturalRep.LevelConnected`,
+`Polyfold.EP.isVSLUC_of_isSLUC`, `Polyfold.EP.proposition_7_4_18_2021`. *Checked by machine (V7.90–V7.92):* `Polyfold.EpGroupoid.proposition_7_4_10_2021`,
 `Polyfold.EpGroupoid.IsSmoothUC`, `Polyfold.EpGroupoid.corollary_7_4_11_2021`, `Polyfold.EP.IsSLUC`,
 `Polyfold.EpGroupoid.theorem_7_4_13_2021`, `Polyfold.EpGroupoid.IsVSLUC`, `Polyfold.EpGroupoid.lemma_7_4_15_2021`,
 `Polyfold.EpGroupoid.proposition_7_4_17_2021`.
@@ -1045,7 +1060,7 @@ sc-diffeomorphism of $U(x)$ onto an open set that fixes $x$ maps $U(x)$ onto its
 $U(x)$ by the finitely many closed sets $\{\beta = \hat g\}$ and uses connectedness instead of paths (Findings, item 138). *Checked by
 machine (V7.93):* `Polyfold.EpGroupoid.IsLR`, `Polyfold.EpGroupoid.lemma_7_4_20_2021`, `Polyfold.EpGroupoid.isLR_iff_isLR'`.
 
-**Proposition 7.4.22.** (ZHOU) implies (LR); with (ZHOU) on every level, every $X^i$ has (LR) (Theorem 7.4.24).
+**Proposition 7.4.22.** (ZHOU) implies (LR); with Proposition 7.4.9, every $X^i$ has (LR) (Theorem 7.4.24).
 
 The text passes to the reduced ep-groupoid and uses that regular points are dense. The checked proof does neither: the sets
 $\{\beta = \hat g\}$ cover $U(x)_\infty$, the union of their interiors is open and dense, and where the closures of two pieces meet, $\hat g$ and $\hat g'$
@@ -1053,7 +1068,8 @@ have the same tangent at a smooth point, so they agree by (ZHOU) and LUC; connec
 example of Appendix 7.6.3 fails (ZHOU), since it fails LUC; for the formalization's analogue this is checked, given the Part I
 facts for its retract (gap G.83) (Findings, item 139). *Checked by machine (V7.94–V7.95):*
 `Polyfold.EpGroupoid.proposition_7_4_22_2021`, `Polyfold.EP.IsSLR`, `Polyfold.EpGroupoid.theorem_7_4_24_2021`,
-`Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou`.
+`Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou`; with (ZHOU) for $X$ only (V7.102):
+`Polyfold.EP.corollary_7_4_11_all_2021`, `Polyfold.EP.theorem_7_4_13_all_2021`, `Polyfold.EP.theorem_7_4_24_all_2021`.
 
 ### 12.4 Appendix 7.6.5: the boundary of a tame ep-groupoid
 
@@ -1074,11 +1090,27 @@ The topological part is checked: metrizability; the topology characterized by th
 maps $\Phi$; continuity of $B$; $d$ preimages over a point of index $d$; $s$, $t$ local homeomorphisms, $u$, $\iota$ continuous, $m$ continuous
 on composable pairs, and the properness property. "$\Phi$ is a homeomorphism onto $\theta$" holds, as we read it, only for $V$ centred at
 $x$, as for (2.44) in Chapter 2; in general $\Phi$ is an open embedding (Findings, item 141). The sc-smooth parts depend on 2021
-Theorem 2.7.13 (2), the M-polyfold structure of $bX$; they are formalized separately (`Chapter7/TameBoundaryEpStructure.lean`)
-and reported separately. *Checked by machine (V7.96–V7.98):* `Polyfold.TameBoundary.bLift`,
-`Polyfold.TameBoundary.map_cls_eq`, `Polyfold.EpGroupoid.bSrc`, `Polyfold.EpGroupoid.bComp_eq`,
+Theorem 2.7.13 (2), the M-polyfold structure of $bX$; they are checked too, below. *Checked by machine (V7.96–V7.98):*
+`Polyfold.TameBoundary.bLift`, `Polyfold.TameBoundary.map_cls_eq`, `Polyfold.EpGroupoid.bSrc`, `Polyfold.EpGroupoid.bComp_eq`,
 `Polyfold.EpGroupoid.boundaryGroupoid`, `Polyfold.EpGroupoid.boundaryFunctor`, `Polyfold.EpGroupoid.theorem_7_6_9_2021`,
 `Polyfold.EpGroupoid.trivial_quadrant_witness`.
+
+*The sc-smooth parts.* Part I's Theorem 2.7.13 (2) gives the tame boundary $bA$ of a tame M-polyfold $A$ a tame M-polyfold
+structure, with charts $p\mapsto\pi(\varphi(B p))$: a tame chart $\varphi$ at $B p$ followed by the projection $\pi$ onto the face that
+the triple picks out. In these charts a map $g:bA\to bB$ that is continuous and covers an sc-smooth $f:A\to B$, that is
+$B\circ g = f\circ B$, reads $\pi'\circ(\varphi'\circ f\circ\varphi^{-1})\circ\iota$, with $\iota$ the inclusion of the face; so $g$ is sc-smooth.
+This replaces the sketch's sc-diffeomorphism $s:\theta\to s(\theta)$ of faces, and it needs only that $f$ is sc-smooth. The structure
+maps (7.25)–(7.28) cover $s$, $t$, $u$, $\iota$: the lifts of $s$ and $t$ are local sc-diffeomorphisms, those of $u$ and $\iota$ are sc-smooth.
+For $m$ the sheet form of condition (4) of Definition 7.1.3 is used: near $b$, $b'\mapsto m(\sigma(tb'),b')$ covers
+$\gamma\mapsto m(\sigma_1(t\gamma),\gamma)$ for a sheet $\sigma_1$ of $s$ on $\mathbf X$. Hence $(bX,b\mathbf X)$ is a tame ep-groupoid, the boundary
+ep-groupoid, and $B$, a functor sc-smooth on objects and morphisms, is an ep-functor, a morphism of $\mathcal{EP}$ — slightly more
+than the text asks. With Theorem 2.7.13 (2)–(4) for the object and the morphism M-polyfold this is Theorem 7.6.9 in full. As in
+Chapter 2, "natural" is read through the characterization by the charts $\Phi$ and its uniqueness, for representatives whose $V$ is
+centred at $x$ (Chapter 2 has it since for every representative, with image $\theta\cap V^x$, gap G.78 closed; here not); (4) is stated as printed, with the subtraction of natural numbers, $B$ taking values in $\partial X$, where $d_X\ge1$
+(Findings, items 145–147). *Checked by machine (V7.99–V7.101):* `Polyfold.MPolyfold.isScSmoothOn_of_bMap`,
+`Polyfold.MPolyfold.isLocalScDiffeo_bLift`, `Polyfold.EpGroupoid.isScSmoothComp_bComp`,
+`Polyfold.EpGroupoid.boundaryEpGroupoid`, `Polyfold.EpGroupoid.boundaryEpFunctor`, `Polyfold.EpGroupoid.phiTot_bSrc`,
+`Polyfold.EpGroupoid.theorem_7_6_9_full_2021`, `Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness`.
 
 | Where (2021 text) | HWZ say | What is actually needed |
 |---|---|---|
@@ -1089,7 +1121,8 @@ and reported separately. *Checked by machine (V7.96–V7.98):* `Polyfold.TameBou
 | p. 329, Lemma 7.4.4 | $U(x)\cap X_1$ connected | a hypothesis, with its density (G.73, G.85); "$W(g)$" for $W(h)$ |
 | pp. 331–340, §7.4 | facts about $X_\infty$ and tangents | explicit hypotheses (G.85) |
 | p. 332, Prop. 7.4.8 | sequences; "$z_k\to Y$" | connectedness of $U(x)_\infty$; $z_k\to y$ |
-| p. 333, Prop. 7.4.9; p. 336, Prop. 7.4.18 | every $X^i$ | not formalized; per-level hypotheses (G.84) |
+| p. 333, Prop. 7.4.9 | (ZHOU') the same for $X$ and $X^i$ | from $X$ to $X^i$, the direction used |
+| p. 336, Prop. 7.4.18 | $U(x)\cap X_N$ connected "by construction" | a hypothesis on every level (G.85) |
 | p. 338, Prop. 7.4.22 | reduction, density of regular points | neither |
 | p. 351, Thm. 7.6.7 | an sc-diffeomorphism, every $i$ | $i = 1$ as sets (G.82) |
 | p. 355, after Thm. 7.6.9 | $\Phi$ onto $\theta$ | for centred $V$; an open embedding in general |
@@ -1117,6 +1150,7 @@ computations of §10, done by hand. The machine-checked statements are listed in
 (V7.1–V7.68), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.
 The findings are `Exposition/Findings.md`, "Chapter 7", items 1–115 (numbered in blocks; the gaps in the numbering are
 unused numbers). The additions of the 2021 edition (§12) are formalized in `Book2021Basic.lean`, `ReducedCriterion.lean`, `Zhou.lean` and
-`TameBoundaryEp.lean`, verified as V7.69–V7.98, with the gaps G.82–G.85 (Theorem 7.6.7 beyond $i = 1$ as sets; Zhou's own retract;
-the lifts $X^i$, $i\ge2$, in §7.4; the Part I facts used in §7.4), and their findings are items 117–144; the sc-smooth parts of
-Theorem 7.6.9 are formalized separately, on top of 2021 Theorem 2.7.13 (2).
+`TameBoundaryEp.lean`, with the sc-smooth parts of Theorem 7.6.9 in `TameBoundaryEpStructure.lean`, on top of 2021 Theorem
+2.7.13 (2), and §7.4 on every lift $X^i$ in `ZhouLevels.lean`, verified as V7.69–V7.104, with the gaps G.82, G.83, G.85
+(Theorem 7.6.7 beyond $i = 1$ as sets; Zhou's own retract; the Part I facts used in §7.4) and G.84 (the lifts $X^i$, $i\ge2$,
+in §7.4), closed, and their findings are items 117–150.

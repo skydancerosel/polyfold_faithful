@@ -1447,12 +1447,12 @@
    },
    "verdict": "restated",
    "chips": [
-    "bundle structure not formalized",
+    "bundle structure: V2.92",
     "locality of $Tf$ proved"
    ],
    "diff": [
     "The functor is stated as the two facts that make it one: $T$ sends retracts to retracts and sc-smooth maps to sc-smooth maps; functoriality is Theorem 2.1.15 (preprint 2.8).",
-    "The bundle structure of $TO \\to O^1$ (Definition 2.1.16's (preprint 2.9) category $\\mathcal{BR}$) is not formalized (G.5); the fibrewise linearity of $Tf$ is the linearity of the derivative.",
+    "The bundle structure of $TO \\to O^1$ is V2.92 ($Tr$ a bundle retraction covering $r^1$, $Tf$ a bundle map; G.5, formalized since); Definition 2.1.16's (preprint 2.9) category $\\mathcal{BR}$ is not formalized; the fibrewise linearity of $Tf$ is the linearity of the derivative.",
     "The locality of $Tf$ under restriction to open subsets, used silently in Definitions 2.3.12–2.3.14 (preprint 2.17–2.18), is proved here."
    ]
   },
@@ -1682,10 +1682,11 @@
    },
    "verdict": "narrower",
    "chips": [
-    "$m = 1$ only"
+    "$m = 1$ here",
+    "every $m$: V2.93"
    ],
    "diff": [
-    "Only $X_1$ is made an M-polyfold; $X_m$ for $m \\ge 2$ is reached as the iterate $(X^1)^1 \\cdots$. Its points are those of $X_m$: $(X^1)_m = X_{m+1}$ as sets (`MPolyfold.mem_shift_levelSet_iff`, fourth addendum of this page); that its topology and charts are those of $X_m$ (V2.14) is not formalized (G.6).",
+    "Only $X_1$ is made an M-polyfold; $X_m$ for $m \\ge 2$ is reached as the iterate $(X^1)^1 \\cdots$. Its points are those of $X_m$: $(X^1)_m = X_{m+1}$ as sets (`MPolyfold.mem_shift_levelSet_iff`, fourth addendum of this page); its topology and charts are those of $X_m$ (V2.14) by V2.93 (G.6, closed).",
     "The text's \\\"by Proposition 1.17\\\" is `IsScSmoothRetractMap.shift`, Proposition 1.2.2 (preprint 1.17) for retracts.",
     "`MPolyfold.shift` takes $X_1$ paracompact as an instance argument, which Theorem 2.3.10 (preprint 2.16) now supplies (`MPolyfold.paracompactSpace_level`)."
    ]
@@ -1840,10 +1841,11 @@
    },
    "verdict": "narrower",
    "chips": [
-    "bundle structure not formalized"
+    "fibrewise linearity not formalized",
+    "bundle form: V2.94"
    ],
    "diff": [
-    "\\\"Sc-smooth M-polyfold bundle\\\" is read as: $p$ is sc-smooth; the fibrewise linear structure is not formalized (G.7).",
+    "\\\"Sc-smooth M-polyfold bundle\\\" is read as: $p$ is sc-smooth, and through the bundle models and transition maps in V2.94; the fibrewise linear structure is not formalized (G.7).",
     "`tangentPolyfold` and `tangentProj_isScSmooth` take the paracompactness of $TX$ and $X_1$ as instance arguments, supplied by V2.17 and V2.20."
    ]
   },
@@ -3239,10 +3241,10 @@
     ]
    },
    "chips": [
-    "strictly weaker: not formalized (G.76)"
+    "strictly weaker: V2.91 (G.76 closed)"
    ],
    "diff": [
-    "\"Weaker\" is proved as the implication; that the modified notion is strictly weaker is gap G.76."
+    "\"Weaker\" is proved here as the implication; that the modified notion is strictly weaker is V2.91, an example (gap G.76, closed)."
    ]
   },
   {
@@ -3500,10 +3502,10 @@
    },
    "chips": [
     "(3) in a chart",
-    "chart independence: G.77"
+    "chart independence: V2.99 (G.77 closed)"
    ],
    "diff": [
-    "$T_yX$ has no linear structure here (gap G.7), so (3) is stated in a chart. Its independence of the chart, the remark that a tame sub-M-polyfold is tame, and the examples in $[0, \\infty)^2 \\times \\mathbb R$ are gap G.77."
+    "$T_yX$ has no linear structure here (gap G.7), so (3) is stated in a chart. Its independence of the chart is V2.99, the remark that a tame sub-M-polyfold is tame V2.100, and the examples in $[0, \\infty)^2 \\times \\mathbb R$ V2.101 (gap G.77, closed)."
    ]
   },
   {
@@ -3783,10 +3785,10 @@
    },
    "chips": [
     "topological part",
-    "non-centred $V$: G.78"
+    "sc-part: V2.103, V2.104"
    ],
    "diff": [
-    "The sc-diffeomorphism statement is not part of this row: for centred representatives it is proved with the M-polyfold structure of $bX$ (`Chapter2/TameBoundaryStructure.lean`, reported separately); for representatives whose $V$ is not centred at $x$ it is gap G.78."
+    "The sc-diffeomorphism statement is not part of this row: for centred representatives it is proved with the M-polyfold structure of $bX$ (V2.103), and for every representative in V2.104 (gap G.78, closed)."
    ]
   },
   {
@@ -3835,10 +3837,10 @@
    },
    "chips": [
     "topological part",
-    "(2)–(4): reported separately"
+    "(2)–(4): V2.102–V2.106"
    ],
    "diff": [
-    "Parts (2)–(4) beyond the fibre count and the sc-half of the characterization, for centred representatives, are in `Chapter2/TameBoundaryStructure.lean`, reported separately; for non-centred representatives the sc-statements are gap G.78."
+    "Parts (2)–(4) beyond the fibre count are V2.102 and V2.106; the sc-half of the characterization is V2.103 for centred representatives and V2.104 for every representative, with image $\\theta \\cap V^x$ (V2.105) (gap G.78, closed)."
    ]
   },
   {
@@ -3858,6 +3860,528 @@
      "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold_encard_preimage",
      "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold_tameBoundarySpace_nonempty",
      "Chapter2/TameBoundary · MPolyfold.quadrantPolyfold_univ"
+    ]
+   },
+   "chips": [
+    "satisfiability"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V2.91",
+   "title": "Remark 2.1.6: the modified definition is strictly weaker",
+   "verdict": "extra",
+   "book": {
+    "label": "§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)",
+    "page": 23,
+    "statement": "The modified definition (closure of $V(x)$ in $W(x)$, $V(x) \\subseteq W(x)$) gives a weaker notion than Definition 2.1.5."
+   },
+   "lean": {
+    "statement": "$\\mathbb R$ with the K-topology ($K = \\{1/(n+1)\\}$) is Hausdorff, satisfies the modified definition and is not regular, hence not locally complete. A space whose points have open completely metrizable neighbourhoods satisfies the modified definition; the complement of a sequence in $\\mathbb R$ is completely metrizable.",
+    "decls": [
+     "Chapter2/LocalTopologyExample · remark_2_1_6_strict_2021",
+     "Chapter2/LocalTopologyExample · isLocallyCompleteRel_of_forall_isCompletelyMetrizable",
+     "Chapter2/LocalTopologyExample · isCompletelyMetrizableSpace_of_isEmbedding_compl_range",
+     "Chapter2/LocalTopologyExample · kSeq",
+     "Chapter2/LocalTopologyExample · kTop",
+     "Chapter2/LocalTopologyExample · RealKTop",
+     "Chapter2/LocalTopologyExample · RealKTop.not_regularSpace",
+     "Chapter2/LocalTopologyExample · RealKTop.not_isLocallyComplete",
+     "Chapter2/LocalTopologyExample · RealKTop.isLocallyCompleteRel"
+    ]
+   },
+   "chips": [
+    "example",
+    "G.76 closed"
+   ],
+   "diff": [
+    "The text gives no example; with V2.68 the remark holds as we read it, and \\\"weaker\\\" is strict (gap G.76, closed).",
+    "The complete metrizability of $\\mathbb R \\setminus \\{a_n\\}$ is proved by a closed embedding into $\\mathbb R \\times \\mathbb R^{\\mathbb N}$, since Mathlib lacks \\\"$G_\\delta$ subsets of complete metric spaces are completely metrizable\\\"."
+   ]
+  },
+  {
+   "id": "V2.92",
+   "title": "Definition 2.1.16: bundle retractions and bundle maps",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.1, Definition 2.1.16 (preprint 2.9), p. 29 (preprint p. 22)",
+    "page": 22,
+    "statement": "An sc-smooth $R(u, v) = (r(u), \\rho(u, v))$ on $U \\oplus F$, $\\rho$ linear in $v$, $R \\circ R = R$, is a bundle retraction covering $r$; $\\Phi(u, v) = (a(u), \\phi(u, v))$, $\\phi$ linear in $v$, with \\\"$p' \\circ \\Phi = p$\\\", is a bundle map; $Tr$ is a bundle retraction and $Tf$ a bundle map; the categories $\\mathcal R$, $\\mathcal{BR}$ and their functors."
+   },
+   "lean": {
+    "statement": "$R$ is a bundle retraction over $r$ if its domain is $U \\oplus F$ and $R(u, v) = (r(u), \\rho(u)v)$ there with $\\rho(u)$ continuous linear; $\\Phi$ is a bundle map on $B$ covering $a$ if $\\Phi(u, v) = (a(u), \\phi(u)v)$ on $B$, so $p' \\circ \\Phi = a \\circ p$. $Tr$ is a bundle retraction covering $r^1$; $Tf$ is a bundle map on $TO$ covering $f^1$.",
+    "decls": [
+     "Chapter2/TangentLift · ScRetraction.IsBundleRetractionOver",
+     "Chapter2/TangentLift · ScRetraction.tangentRetraction_isBundleRetractionOver",
+     "Chapter2/TangentLift · IsBundleMapOn",
+     "Chapter2/TangentLift · IsBundleMapOn.fst_eq",
+     "Chapter2/TangentLift · IsScSmoothRetractMap.retractTangentMap_isBundleMapOn"
+    ]
+   },
+   "chips": [
+    "shape of the maps",
+    "categories not formalized",
+    "G.5"
+   ],
+   "diff": [
+    "The definition fixes the shape; sc-smoothness and $R \\circ R = R$ come from the retraction and map structures (V2.1, V2.6). \\\"$p' \\circ \\Phi = p$\\\" is read as $p' \\circ \\Phi = a \\circ p$ (possible misprint).",
+    "The categories $\\mathcal R$, $\\mathcal{BR}$ and the forgetful functors are not formalized; they name these objects and maps (gap G.5, formalized since apart from them)."
+   ]
+  },
+  {
+   "id": "V2.93",
+   "title": "The levels of $X^1$ are those of $X$: $(X^1)_m \\cong X_{m+1}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.3 (preprint §2.2), the paragraph after Definition 2.3.8 (preprint 2.14), p. 37 (preprint p. 25)",
+    "page": 25,
+    "statement": "For every $m$, the charts $(V_m, \\varphi, (O_m, C_m, E_m))$ form an atlas on $X_m$; with it $X_m$ is an M-polyfold $X^m$."
+   },
+   "lean": {
+    "statement": "For every $m$, the identity of points is a homeomorphism $(X^1)_m \\cong X_{m+1}$; the level-$m$ lift of the level chart $\\varphi^1$ is the level-$(m+1)$ lift of $\\varphi$, and level lifts in two charts differ by the level map of the transition map. So each iterate $(X^1)^1 \\cdots$ is $X_m$ with its topology and charts.",
+    "decls": [
+     "Chapter2/TangentLift · MPolyfold.levelLift_transition",
+     "Chapter2/TangentLift · MPolyfold.levelLift_levelChart",
+     "Chapter2/TangentLift · MPolyfold.shiftLevelMap",
+     "Chapter2/TangentLift · MPolyfold.shiftLevelInv",
+     "Chapter2/TangentLift · MPolyfold.continuous_shiftLevelMap",
+     "Chapter2/TangentLift · MPolyfold.continuous_shiftLevelInv",
+     "Chapter2/TangentLift · MPolyfold.shiftLevelHomeomorph",
+     "Chapter2/TangentLift · MPolyfold.shift_level_eq"
+    ]
+   },
+   "chips": [
+    "every $m$",
+    "G.6 closed"
+   ],
+   "diff": [
+    "$X^m$ is the iterate, identified with $X_m$ for each fixed $m$ by composing these homeomorphisms; this closes gap G.6 (V2.16)."
+   ]
+  },
+  {
+   "id": "V2.94",
+   "title": "Theorem 2.3.16: $p : TX \\to X^1$ as an sc-smooth bundle",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.3, Theorem 2.3.16, p. 40 (preprint: after Proposition 2.3.15 (preprint 2.19), p. 27)",
+    "page": 27,
+    "statement": "A construction associating to an M-polyfold $X$ the sc-smooth M-polyfold bundle $p : TX \\to X^1$, locally built on the bundle retractions $TO \\to O^1$ with sc-smooth bundle maps as transition maps."
+   },
+   "lean": {
+    "statement": "In a local model $T(f^1)$ is the level-$1$ map of $Tf$ and $T(O^1) = (TO)^1$. For an M-polyfold: the tangent charts $T\\varphi$ are charts of $TX$; $p$ is sc-smooth and in a tangent chart the first projection onto $\\varphi^1$; each model $TO$ is a bundle retract with $Tr$ covering $r^1$; transition maps of tangent charts are bundle maps covering the level-$1$ transition maps of $X$.",
+    "decls": [
+     "Chapter2/TangentLift · theorem_2_3_16_2021",
+     "Chapter2/TangentLift · tangentMap_levelMap_one",
+     "Chapter2/TangentLift · toBase_tangentMap_levelMap_one",
+     "Chapter2/TangentLift · retractTangent_shift_of_isScRetract",
+     "Chapter2/TangentLift · toBase_retractTangentMap_shift"
+    ]
+   },
+   "chips": [
+    "bundle form",
+    "fibres not linear (G.7)"
+   ],
+   "diff": [
+    "\\\"Sc-smooth M-polyfold bundle\\\" is read through the models and transition maps, with $TX$ the M-polyfold of V2.21; the fibres $T_xX$ carry no linear structure of their own (G.7).",
+    "The paracompactness of $TX$ and $X_1$ enters as instance arguments, supplied by V2.17 and V2.20."
+   ]
+  },
+  {
+   "id": "V2.95",
+   "title": "Proposition 2.3.17 for $i = 1$: $T(X^1) \\equiv (TX)^1$",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.3, Proposition 2.3.17, p. 42 (new in the 2021 edition)",
+    "page": 42,
+    "statement": "$(TX)^i$ and $T(X^i)$ are naturally identified, also as bundles $(TX)^i \\to (X^1)^i$ and $T(X^i) \\to (X^i)^1$, covering $(X^1)^i \\equiv (X^i)^1$."
+   },
+   "lean": {
+    "statement": "For $i = 1$: the chart-independent inclusion $T(X^1) \\to TX$ gives a bijection $\\Phi : T(X^1) \\to (TX)^1$ that is an sc-diffeomorphism and a homeomorphism, with $p^1 \\circ \\Phi = p_{X^1}$ and $p^1$ sc-smooth; in every chart $T\\psi(\\Phi(\\alpha))$ is the inclusion of $T(\\psi^1)(\\alpha)$, and in the charts $T(\\varphi^1)$, $(T\\varphi)^1$ $\\Phi$ is the identity of $T(O^1) = (TO)^1$.",
+    "decls": [
+     "Chapter2/TangentLift · MPolyfold.someChart",
+     "Chapter2/TangentLift · MPolyfold.TangentPre.lower",
+     "Chapter2/TangentLift · MPolyfold.TangentPre.transport_lower",
+     "Chapter2/TangentLift · MPolyfold.tangentLower",
+     "Chapter2/TangentLift · MPolyfold.tangentShiftMap",
+     "Chapter2/TangentLift · MPolyfold.tangentShiftEquiv",
+     "Chapter2/TangentLift · MPolyfold.tangentShiftHomeomorph",
+     "Chapter2/TangentLift · MPolyfold.tangentProjShift",
+     "Chapter2/TangentLift · MPolyfold.tangentShiftEquiv_isScDiffeoOn",
+     "Chapter2/TangentLift · MPolyfold.tangentChartMap_tangentLower",
+     "Chapter2/TangentLift · MPolyfold.levelChart_tangentShiftMap",
+     "Chapter2/TangentLift · proposition_2_3_17_2021"
+    ]
+   },
+   "chips": [
+    "$i = 1$",
+    "identity in charts"
+   ],
+   "diff": [
+    "\\\"Naturally identified, also as bundles\\\" is read as: an sc-diffeomorphism commuting with the projections, independent of the chart and the identity (so linear on fibres) in charts.",
+    "Every $i$ is V2.97."
+   ]
+  },
+  {
+   "id": "V2.96",
+   "title": "Proposition 2.3.17 for $i = 2$; raising the index of an sc-diffeomorphism",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.3, Proposition 2.3.17, p. 42 (new in the 2021 edition)",
+    "page": 42,
+    "statement": "$(TX)^2$ and $T(X^2)$ are naturally identified as bundles, covering $(X^1)^2 \\equiv (X^2)^1$."
+   },
+   "lean": {
+    "statement": "A bijection of M-polyfolds sc-smooth in both directions induces an sc-diffeomorphism of the index lifts. $\\Phi_2 = (\\Phi^{-1})^1$-raise composed with $\\Phi$ for $X^1$ is an sc-diffeomorphism $T(X^2) \\to (TX)^2$ with $p^2 \\circ \\Phi_2 = p_{X^2}$.",
+    "decls": [
+     "Chapter2/TangentLift · MPolyfold.levelOneEquiv",
+     "Chapter2/TangentLift · MPolyfold.levelOneEquiv_isScDiffeoOn",
+     "Chapter2/TangentLift · MPolyfold.tangentShiftEquivTwo",
+     "Chapter2/TangentLift · MPolyfold.tangentProjShiftTwo",
+     "Chapter2/TangentLift · proposition_2_3_17_two_2021"
+    ]
+   },
+   "chips": [
+    "$i = 2$"
+   ],
+   "diff": [
+    "$i = 2$ here; every $i$ is V2.97."
+   ]
+  },
+  {
+   "id": "V2.97",
+   "title": "Proposition 2.3.17 for every $i$",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.3, Proposition 2.3.17, p. 42, with the two towers of p. 41 (new in the 2021 edition)",
+    "page": 42,
+    "statement": "For every $i$, $(TX)^i$ and $T(X^i)$ are naturally identified, also as bundles $(TX)^i \\to (X^1)^i$ and $T(X^i) \\to (X^i)^1$, covering $(X^1)^i \\equiv (X^i)^1$, compatibly with the towers $\\cdots \\subseteq T(X^2) \\subseteq T(X^1) \\subseteq TX$ and $\\cdots \\subseteq (TX)^2 \\subseteq (TX)^1 \\subseteq TX$."
+   },
+   "lean": {
+    "statement": "For an M-polyfold bundled with its space, for every $i$: $\\Phi_i : T(X^i) \\to (TX)^i$ ($\\Phi_0 = \\mathrm{id}$, $\\Phi_{i+1} = (\\Phi_i)^1 \\circ \\Phi$) and $J_i : (X^1)^i \\to (X^i)^1$ are sc-diffeomorphisms; the projections are sc-smooth; $J_i \\circ p^i \\circ \\Phi_i = p$; $\\Phi_i$ commutes with the inclusions into $TX$ and with those of the two towers; $J_i$ is the identity on points; $\\Phi_i$ is unique with this; $\\Phi_1$ is the $\\Phi$ of V2.95, and $\\Phi_i$ is natural in sc-smooth maps $f : X \\to Y$.",
+    "decls": [
+     "Chapter2/TangentLiftAll · MPolyfold.ScEquiv",
+     "Chapter2/TangentLiftAll · MPolyfold.ScEquiv.shift",
+     "Chapter2/TangentLiftAll · MPolyfold.ScMap",
+     "Chapter2/TangentLiftAll · MPolyfold.tangentShiftScEquiv",
+     "Chapter2/TangentLiftAll · MPolyfold.tangentProjScMap",
+     "Chapter2/TangentLiftAll · MPolyfold.tangentLower_tangentMap",
+     "Chapter2/TangentLiftAll · BundledMPolyfold",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.nonempty",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lift",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangent",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.shiftLiftEquiv",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentProjLift",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.incl",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentIncl",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv_one",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv_unique",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv_natural",
+     "Chapter2/TangentLiftAll · proposition_2_3_17_all_2021"
+    ]
+   },
+   "chips": [
+    "every $i$",
+    "natural in $X$",
+    "fibres not linear (G.7)"
+   ],
+   "diff": [
+    "\\\"Natural identification\\\" is read as the seven properties and the naturality; linearity on the fibres is not stated, since $T_xX$ has no linear structure (G.7); $\\Phi_i$ is a composite of index raises of maps that are the identity in charts (V2.95)."
+   ]
+  },
+  {
+   "id": "V2.98",
+   "title": "Remark 2.4.2: the diagonal half-line in $[0, \\infty)^3$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.4, Remark 2.4.2, pp. 44–45 (new in the 2021 edition)",
+    "page": 44,
+    "statement": "$\\Delta = \\{(s, s, s)\\} \\subseteq C = [0, \\infty)^3$ is a smooth retract; $s \\mapsto (s, s, s)$ is a diffeomorphism from $[0, \\infty)$; $d_C(s, s, s)$ is $3$ at $s = 0$ and $0$ otherwise, $d_\\Delta$ is $1$ and $0$; a smooth atlas with models relatively open in $[0, \\infty)$ exists."
+   },
+   "lean": {
+    "statement": "In $[0, \\infty)^3 \\oplus W$, averaging the coordinates is an sc-smooth retraction onto $\\Delta \\oplus W$. $(s, w) \\mapsto ((s, s, s), w)$ is an sc-diffeomorphism from $[0, \\infty) \\oplus W$; $d_C$ is $3$ at the corner and $0$ elsewhere, $d_\\Delta$ is $1$ and $0$; the identity chart realizes $d_C$, and one chart on all of $\\Delta \\oplus W$ with model $[0, \\infty) \\oplus W$ realizes $d_\\Delta$.",
+    "decls": [
+     "Chapter2/TangentLift · ScOperator.ofConst",
+     "Chapter2/TangentLift · diagonalAverage",
+     "Chapter2/TangentLift · diagonalRetraction",
+     "Chapter2/TangentLift · mem_diagonalRetraction_retract_iff",
+     "Chapter2/TangentLift · diagonalModel",
+     "Chapter2/TangentLift · diagonalPolyfold",
+     "Chapter2/TangentLift · diagonalEmbed",
+     "Chapter2/TangentLift · diagonalProject",
+     "Chapter2/TangentLift · diagonalEmbed_isScDiffeoOn",
+     "Chapter2/TangentLift · degIndex_diagonal_quadrant",
+     "Chapter2/TangentLift · diagonalPolyfold_degIndex",
+     "Chapter2/TangentLift · diagonalHalfLineChart",
+     "Chapter2/TangentLift · diagonalHalfLineChart_spec",
+     "Chapter2/TangentLift · remark_2_4_2_2021"
+    ]
+   },
+   "chips": [
+    "any $W$",
+    "retraction supplied"
+   ],
+   "diff": [
+    "Any sc-Banach space $W$; $W = 0$ is the text's case, \\\"classically smooth\\\" being read as sc-smooth for the constant sc-structure.",
+    "The text does not give the retraction; here it is the orthogonal projection onto the diagonal. $d_\\Delta$ by Proposition 2.4.4 (preprint 2.24) (V2.28)."
+   ]
+  },
+  {
+   "id": "V2.99",
+   "title": "Definition 2.5.19 (3) does not depend on the chart",
+   "verdict": "restated",
+   "book": {
+    "label": "§2.5, Definition 2.5.19 (3), p. 63 (new in the 2021 edition)",
+    "page": 63,
+    "statement": "At every smooth $y \\in Y \\cap V$, the tangent space $T_yY$ has an sc-complement in $T_yX$ contained in the reduced tangent space $T^R_yX$."
+   },
+   "lean": {
+    "statement": "A point is smooth iff its chart image is a smooth point of the model. If (3) holds in one chart around each smooth point, it holds in every chart, for every presentation of the partial quadrant, every level-$1$ representative and the chart image of any sub-M-polyfold retraction onto $Y$ near $y$.",
+    "decls": [
+     "Chapter2/TameSub · MPolyfold.mem_smoothSet_iff_of_isChart",
+     "Chapter2/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart_2021",
+     "Chapter2/TameSub · MPolyfold.TameSubData.complement_forall_charts_2021"
+    ]
+   },
+   "chips": [
+    "(3) in charts (G.7)",
+    "chart independence",
+    "G.77 closed"
+   ],
+   "diff": [
+    "(3) remains a statement in charts, since $T_yX$ has no linear structure here (G.7); the chart, the presentation and the retraction do not matter (gap G.77, closed).",
+    "Proved by Chapter 4's chart change for the general-position condition (`MPolyfold.isGeneralPositionRetractAt_chart_change`, V4.45), which is (3) word for word."
+   ]
+  },
+  {
+   "id": "V2.100",
+   "title": "A tame sub-M-polyfold has a tame induced structure",
+   "verdict": "same",
+   "book": {
+    "label": "§2.5, the text after Definition 2.5.19, p. 63 (new in the 2021 edition)",
+    "page": 63,
+    "statement": "It is not difficult to see that a tame sub-M-polyfold of a tame M-polyfold is tame (Definition 2.5.18)."
+   },
+   "lean": {
+    "statement": "Sc-splittings compose: $E = M \\oplus B$ and $M_m = N_m \\oplus A_m$ give $E = N \\oplus (A \\oplus B)$. For tame sub-M-polyfold data and a tame chart, the chart image of $Y$ is a tame retract (of $(\\varphi r \\varphi^{-1}) \\circ t$); so a tame sub-M-polyfold of a tame $X$ has a tame induced structure.",
+    "decls": [
+     "Chapter2/TameSub · ScBanach.levelSub_sup_of_le_of_isScSplitting",
+     "Chapter2/TameSub · ScBanach.isScSplitting_sup_of_complementIn",
+     "Chapter2/TameSub · MPolyfold.TameSubData.isTameRetract_image",
+     "Chapter2/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure_2021"
+    ]
+   },
+   "chips": [
+    "proof supplied"
+   ],
+   "diff": [
+    "The text gives no proof. The complement of the tangent space of the chart image is $A \\oplus B$, $A$ from (3) in that chart (V2.99), $B$ from the tameness of the model."
+   ]
+  },
+  {
+   "id": "V2.101",
+   "title": "The examples $A$ and $B$ after Definition 2.5.19",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.5, the text after Definition 2.5.19, p. 63 (new in the 2021 edition)",
+    "page": 63,
+    "statement": "In $[0, \\infty)^2 \\times \\mathbb R$: $A = \\{(x, y, 0)\\}$ is a tame sub-M-polyfold; $B = \\{(x, x, 0)\\}$ is not a tame sub-M-polyfold, although its induced M-polyfold structure is tame."
+   },
+   "lean": {
+    "statement": "In $[0, \\infty)^n \\oplus W$ the fixed set of an idempotent sc-operator preserving the quadrant is a sub-M-polyfold, tame if the $\\mathbb R^n$-component is kept. For $n = 2$: $A$ is a tame sub-M-polyfold with tame induced structure; $B$ is a sub-M-polyfold, no retraction onto $B$ with (1) and (2) exists near the corner, so it is not a tame sub-M-polyfold; $t \\mapsto (t, t, 0)$ is an sc-diffeomorphism from $[0, \\infty)$ onto $B$, whose induced structure is tame.",
+    "decls": [
+     "Chapter2/TameSub · TameSubExample.fixSet",
+     "Chapter2/TameSub · TameSubExample.isSubMPolyfold_fixSet",
+     "Chapter2/TameSub · TameSubExample.isTameSubMPolyfold_fixSet",
+     "Chapter2/TameSub · TameSubExample.setA",
+     "Chapter2/TameSub · TameSubExample.setB",
+     "Chapter2/TameSub · TameSubExample.isTameSubMPolyfold_setA_2021",
+     "Chapter2/TameSub · TameSubExample.hasTameInducedStructure_setA_2021",
+     "Chapter2/TameSub · TameSubExample.isSubMPolyfold_setB",
+     "Chapter2/TameSub · TameSubExample.not_mem_tameSubData_setB_2021",
+     "Chapter2/TameSub · TameSubExample.not_isTameSubMPolyfold_setB_2021",
+     "Chapter2/TameSub · TameSubExample.halfLineToB_isScDiffeoOn_2021",
+     "Chapter2/TameSub · TameSubExample.hasTameInducedStructure_setB_2021",
+     "Chapter2/TameSub · TameSubExample.examples_A_B_2021"
+    ]
+   },
+   "chips": [
+    "any $W$",
+    "both claims hold"
+   ],
+   "diff": [
+    "Any sc-Banach space $W$ in place of $\\mathbb R$; $W = \\mathbb R$ is `TameSubExample.examples_A_B_2021`.",
+    "For $B$: near $(t, 0, 0)$ the index $d_X$ is $1$, while on $B$ it takes only the values $0$ and $2$, so (1) and (2) fail; (3) is not needed."
+   ]
+  },
+  {
+   "id": "V2.102",
+   "title": "Theorem 2.7.13 (2)–(4): the tame M-polyfold $bX$",
+   "verdict": "same",
+   "book": {
+    "label": "§2.7.4, Theorem 2.7.13 (2)–(4), pp. 83–84 (new in the 2021 edition)",
+    "page": 83,
+    "statement": "(2) $bX$ has a natural tame M-polyfold structure; (3) $B : bX \\to X$ is sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$."
+   },
+   "lean": {
+    "statement": "Chart data: a centred triple, a chart $\\varphi$, an open $V_1$, an sc-isomorphism of the model space with $\\mathbb R^{k+1} \\oplus W$ and a coordinate vanishing on $\\varphi(\\theta \\cap V_1)$, whose face projection is a tame retract with $d_X = d \\circ \\pi\\varphi + 1$. The charts $p \\mapsto \\pi(\\varphi(B(p)))$ are compatible (transition $\\pi' \\circ (\\varphi' \\circ \\varphi^{-1}) \\circ \\iota$) and cover $bX$; with $T_{bX}$ they make $bX$ a tame M-polyfold; $B$ is sc-smooth; $d_X(B(p)) = d_{bX}(p) + 1$.",
+    "decls": [
+     "Chapter2/TameBoundaryStructure · MPolyfold.exists_tame_chart_subset",
+     "Chapter2/TameBoundaryStructure · MPolyfold.exists_localFace_of_faceIn",
+     "Chapter2/TameBoundaryStructure · MPolyfold.BChartData",
+     "Chapter2/TameBoundaryStructure · MPolyfold.BChartData.chart",
+     "Chapter2/TameBoundaryStructure · MPolyfold.BChartData.chart_transition_isScSmooth",
+     "Chapter2/TameBoundaryStructure · MPolyfold.BChartData.chart_compatible",
+     "Chapter2/TameBoundaryStructure · MPolyfold.exists_bChartData",
+     "Chapter2/TameBoundaryStructure · MPolyfold.paracompactSpace_tameBoundarySpace",
+     "Chapter2/TameBoundaryStructure · MPolyfold.bAtlas",
+     "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryPolyfold",
+     "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryPolyfold_isTame",
+     "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryMap_isScSmooth",
+     "Chapter2/TameBoundaryStructure · MPolyfold.degIndex_tameBoundaryMap",
+     "Chapter2/TameBoundaryStructure · MPolyfold.degIndex_tameBoundaryMap_sub_one"
+    ]
+   },
+   "chips": [
+    "as printed"
+   ],
+   "diff": [
+    "The charts are the face charts $\\pi \\circ \\varphi$ of $\\theta$ composed with $\\Phi$; local faces in a tame chart are found as in Theorem 2.5.17 (preprint 2.45). Paracompactness of $T_{bX}$ from V2.88."
+   ]
+  },
+  {
+   "id": "V2.103",
+   "title": "Proposition 2.7.12 and the characterization after Theorem 2.7.13, centred representatives",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition)",
+    "page": 83,
+    "statement": "The structure of $bX$ is uniquely characterized by: for every class and every representative, $U(x, V, \\theta)$ is open and $\\Phi_{(x, V, \\theta)}$ is a homeomorphism and an sc-diffeomorphism onto $\\theta$ with the structure induced from $V$; transition maps are sc-diffeomorphisms."
+   },
+   "lean": {
+    "statement": "Every class has a centred representative; a face $\\theta$ of a face-structured open $V$ is a sub-M-polyfold. For $V$ centred at $x$, $\\Phi$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto $\\theta$; every structure on $bX$ with this property is equivalent to that of V2.102, which has it; for two centred triples the transition map is an sc-diffeomorphism between open subsets, the identity on points.",
+    "decls": [
+     "Chapter2/TameBoundaryStructure · TameBoundary.BSpace.exists_centred_rep",
+     "Chapter2/TameBoundaryStructure · MPolyfold.isSubMPolyfold_of_isFaceIn",
+     "Chapter2/TameBoundaryStructure · MPolyfold.facePolyfold",
+     "Chapter2/TameBoundaryStructure · MPolyfold.phiTot",
+     "Chapter2/TameBoundaryStructure · MPolyfold.phi_isScDiffeoOn",
+     "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryPolyfold_unique",
+     "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryPolyfold_satisfies",
+     "Chapter2/TameBoundaryStructure · MPolyfold.proposition_2_7_12_scDiffeo_2021",
+     "Chapter2/TameBoundaryStructure · MPolyfold.theorem_2_7_13_structure_2021"
+    ]
+   },
+   "chips": [
+    "centred $V$",
+    "every representative: V2.104"
+   ],
+   "diff": [
+    "Centred representatives here; every representative is V2.104. \\\"The structure induced from $V$\\\" is read as the sub-M-polyfold structure of $\\theta$, \\\"uniquely characterized\\\" as: every structure with the property has an equivalent atlas."
+   ]
+  },
+  {
+   "id": "V2.104",
+   "title": "Proposition 2.7.12 and the characterization, every representative",
+   "verdict": "narrower",
+   "book": {
+    "label": "§2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition)",
+    "page": 83,
+    "statement": "For every pair of representatives the images of $U \\cap U'$ are open and the transition map is an sc-diffeomorphism; every $\\Phi_{(x, V, \\theta)}$ is a homeomorphism and an sc-diffeomorphism onto $\\theta$."
+   },
+   "lean": {
+    "statement": "Every triple has an equivalent centred refinement with smaller $U$. For every representative, $\\Phi$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto the open subset $\\theta \\cap V^x$ of $\\theta$ ($= \\theta$ for centred $V$); a structure with this property for every representative is equivalent to that of V2.102, which has it; for every pair the images of $U \\cap U'$ are open and the transition map is an sc-diffeomorphism, the identity on points.",
+    "decls": [
+     "Chapter2/TameBoundaryNonCentred · TameBoundary.BTriple.exists_centred_subset",
+     "Chapter2/TameBoundaryNonCentred · TameBoundary.phiInv",
+     "Chapter2/TameBoundaryNonCentred · TameBoundary.phiInv_spec",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.reachSet",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.isOpen_reachSet",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.reachSet_eq_univ_of_isCenteredAt",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.phiTot_isScSmoothOn",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.phiInv_isScSmoothOn",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.phi_isScDiffeoOn_nonCentred_2021",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.tameBoundaryPolyfold_unique_allReps_2021",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.tameBoundaryPolyfold_satisfies_allReps_2021",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.proposition_2_7_12_scDiffeo_nonCentred_2021"
+    ]
+   },
+   "chips": [
+    "Prop. 2.7.12 as printed",
+    "image $\\theta \\cap V^x$",
+    "G.78 closed"
+   ],
+   "diff": [
+    "Proposition 2.7.12 holds as printed for every representative. In the characterization the image of $\\Phi$ is $\\theta \\cap V^x$; \\\"onto $\\theta$\\\" does not hold as we read it for every representative (V2.105) (gap G.78, closed).",
+    "$\\Phi^{-1}$ is, near each point, $\\Phi_{s'}^{-1}$ for a centred refinement $s'$; the sub-M-polyfold calculus replaces the text's open sc-embeddings of faces."
+   ]
+  },
+  {
+   "id": "V2.105",
+   "title": "\\\"$\\Phi$ onto $\\theta$\\\" for every representative: the slab triple",
+   "verdict": "extra",
+   "book": {
+    "label": "§2.7.4, the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition)",
+    "page": 84,
+    "statement": "For any representative, $\\Phi_{(x, V, \\theta)}$ is an sc-diffeomorphism onto $\\theta$."
+   },
+   "lean": {
+    "statement": "For the slab triple of V2.85 in $[0, \\infty)^3 \\oplus W$, $\\Phi_{(x, V, \\theta)}$ does not map $U(x, V, \\theta)$ onto $\\theta$.",
+    "decls": [
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.not_surjOn_phiTot_2021"
+    ]
+   },
+   "chips": [
+    "does not hold as we read it",
+    "repair: V2.104"
+   ],
+   "diff": [
+    "Read for every representative, the characterization does not hold as we read it; the strongest version that holds, onto $\\theta \\cap V^x$, is V2.104, which for centred $V$ is the printed statement (V2.103)."
+   ]
+  },
+  {
+   "id": "V2.106",
+   "title": "Definition 2.7.14 and the iterated boundaries (2.45)–(2.47)",
+   "verdict": "stronger",
+   "book": {
+    "label": "§2.7.4, Definition 2.7.14 and (2.45)–(2.47), p. 84 (new in the 2021 edition)",
+    "page": 84,
+    "statement": "The tame boundary of $X$ is $B : bX \\to X$; iterating, $b^kX = b(b^{k-1}X)$ and $B^k = B \\circ \\cdots \\circ B : b^kX \\to X$, with image $\\{d_X \\ge k\\}$."
+   },
+   "lean": {
+    "statement": "For a tame M-polyfold bundled with its space, $b^kX$ is a tame M-polyfold for every $k$, $B^0 = \\mathrm{id}$, $B^{k+1} = B_X \\circ B^k_{bX}$; $B^k$ is sc-smooth, $d_X(B^k(p)) = d_{b^kX}(p) + k$, and the image of $B^k$ is $\\{d_X \\ge k\\}$.",
+    "decls": [
+     "Chapter2/TameBoundaryStructure · MPolyfold.TameMPolyfoldBundle",
+     "Chapter2/TameBoundaryStructure · MPolyfold.TameMPolyfoldBundle.b",
+     "Chapter2/TameBoundaryStructure · MPolyfold.TameMPolyfoldBundle.iter",
+     "Chapter2/TameBoundaryStructure · MPolyfold.TameMPolyfoldBundle.iterMap",
+     "Chapter2/TameBoundaryStructure · MPolyfold.TameMPolyfoldBundle.iterMap_isScSmooth",
+     "Chapter2/TameBoundaryStructure · MPolyfold.TameMPolyfoldBundle.degIndex_iterMap",
+     "Chapter2/TameBoundaryStructure · MPolyfold.TameMPolyfoldBundle.range_iterMap",
+     "Chapter2/TameBoundaryStructure · MPolyfold.definition_2_7_14_2021"
+    ]
+   },
+   "chips": [
+    "index formula added"
+   ],
+   "diff": [
+    "The index formula is Theorem 2.7.13 (4) iterated; the bundling makes $b$ a map that can be iterated."
+   ]
+  },
+  {
+   "id": "V2.107",
+   "title": "Witnesses for Theorem 2.7.13 (2)–(4)",
+   "verdict": "extra",
+   "book": {
+    "label": "no counterpart in the text (§2.7.4, new in the 2021 edition)",
+    "page": 83,
+    "statement": "Not stated."
+   },
+   "lean": {
+    "statement": "For the tame quadrant $[0, \\infty)^n \\oplus W$, $n \\ge 1$, chart data of $bX$ exist, and the $n$ points of $bX$ over the corner have $d_{bX} = n - 1$.",
+    "decls": [
+     "Chapter2/TameBoundaryStructure · MPolyfold.quadrantPolyfold_bChartData_nonempty",
+     "Chapter2/TameBoundaryStructure · MPolyfold.quadrantPolyfold_degIndex_tameBoundary"
     ]
    },
    "chips": [
@@ -7423,7 +7947,7 @@
    ],
    "diff": [
     "“It is possible that $X^1 \\ne X$ as M-polyfolds although the sets agree” is proved by an example the preprint and 2017 texts do not give (fourth addendum of this page; formerly gap G.31); the 2021 edition (p. 176) gives a different one, the space of its Subsection 1.4.4, which is not formalized (Findings, Chapter 4, item 159). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).",
-    "“$X^1 \\ne X$” is read as “$1_0^1$ is not sc-smooth”, equivalently (by `remark_4_3_isScDiffeo`) “the identity is not an sc-diffeomorphism $X \\to X^1$”. The sc-diffeomorphism clause needs only $X = X_1$, not $X_0 = X_\\infty$. “$(X^1)_m = X_{m+1} = X_i$” misprints $X_0$; $(X^1)_m = X_{m+1}$ holds as sets, the topologies of the iterated levels being gap G.6 (Findings, Chapter 4, items 5, 125). Hence “stronger” (formerly “narrower”, for the missing example)."
+    "“$X^1 \\ne X$” is read as “$1_0^1$ is not sc-smooth”, equivalently (by `remark_4_3_isScDiffeo`) “the identity is not an sc-diffeomorphism $X \\to X^1$”. The sc-diffeomorphism clause needs only $X = X_1$, not $X_0 = X_\\infty$. “$(X^1)_m = X_{m+1} = X_i$” misprints $X_0$; $(X^1)_m = X_{m+1}$ holds as sets and with the topologies of the iterated levels (`MPolyfold.shiftLevelHomeomorph`, V2.93; gap G.6, closed) (Findings, Chapter 4, items 5, 125). Hence “stronger” (formerly “narrower”, for the missing example)."
    ]
   },
   {
@@ -8946,7 +9470,7 @@
     "witness: the zero section"
    ],
    "diff": [
-    "Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are not covered by these items (V4.69, V4.72)."
+    "Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are V4.78 and V4.76, with Lemma 4.5.1 in V4.74, V4.75 and V4.77."
    ]
   },
   {
@@ -8967,10 +9491,10 @@
    },
    "chips": [
     "local model, $i = 1$",
-    "M-polyfold form needs G.6"
+    "M-polyfold form: V4.78"
    ],
    "diff": [
-    "Larger $i$ follow by iterating the local statement. On an M-polyfold the lemma needs the identification of the M-polyfolds $(TX)^i$ and $T(X^i)$ (gap G.6), which the text calls natural (Findings, Chapter 4, item 153)."
+    "Larger $i$ follow by iterating the local statement. The lemma on an M-polyfold, with the identification of $(TX)^1$ and $T(X^1)$ that the text calls natural (Proposition 2.3.17, gap G.6, closed), is V4.78, and for every $i$ V4.79 (Findings, Chapter 4, items 153, 160)."
    ]
   },
   {
@@ -9045,10 +9569,10 @@
    },
    "chips": [
     "in a local model",
-    "M-polyfold form: G.6, Lemma 4.5.1"
+    "M-polyfold form: V4.76"
    ],
    "diff": [
-    "On an M-polyfold the statement needs $(TX)^i \\cong T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \\to X^2$ and Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader; not covered here (gap G.38). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, item 155)."
+    "The statement on an M-polyfold is V4.76, with Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, in V4.74, V4.75 and V4.77 (gap G.38, closed); the pull-back bundle $TX|X^2 \\to X^2$ is not built (gap G.92). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, item 155)."
    ]
   },
   {
@@ -9080,6 +9604,187 @@
    "diff": [
     "Read as $[A, B](x) \\in E_1$ the two sentences do not hold as we read them: $[S, T]x = ((-1)^k(k + 1)(2k + 3)x_{k+1})_k$, whose level-$1$ coordinates have absolute value $P^3 + P^2 \\ge 1/4$, $P = (k + 1)/(k + 2)$ (here $(T_xO)_1 = E_1$).",
     "Read as \"a tangent vector at the point $x$ of level $1$ of $X^1$\", i.e. $x \\in O_{m+2}$ gives $[A, B](x) \\in E_m$, the sentence is V4.72; Proposition 4.4.5 is not affected. A weighted $\\ell^2$ version is sketched, not formalized (Findings, Chapter 4, item 156)."
+   ]
+  },
+  {
+   "id": "V4.74",
+   "title": "Lemma 4.5.1 in a local model: the computation of §4.5.2",
+   "verdict": "restated",
+   "book": {
+    "label": "Appendix 4.5, Lemma 4.5.1, p. 201, and §4.5.2, pp. 201–202",
+    "page": 201,
+    "statement": "(New in the 2021 edition; the proof of the lemma is left to the reader.) If $\\varphi$ relates the vector fields, $D\\varphi \\cdot A = A \\circ \\varphi$ and $D\\varphi \\cdot B = B \\circ \\varphi$, it relates their brackets; §4.5.2 differentiates the relations at $x \\in O_2$ and uses the symmetry of the second derivative."
+   },
+   "lean": {
+    "statement": "`retractLieBracket_natural`: for $f$ sc-smooth between the retracts $O$, $O'$ and vector fields with $Df(x)A(x) = A'(f(x))$, $Df(x)B(x) = B'(f(x))$ on $O_1$ ($Df = D(f \\circ r)$), $Df(x)[A, B](x) = [A', B'](f(x))$ on $O_2$; the steps `IsRetractVectorField.diff_related` (the relation differentiated) and `IsRetractVectorField.related_shift` (the relation on level $1$). `retractLieBracket_restrict`: the bracket on $(O \\cap W)_2$ for the restricted retraction is the same. `retractLieBracket_natural_inter`: the same naturality for $f$ defined on an open part $O \\cap W$, in the form $Tf(x, [A, B](x)) = (f(x), [A', B'](f(x)))$.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.diff_related",
+     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.related_shift",
+     "Chapter4/VectorFieldsGlobal · retractLieBracket_natural",
+     "Chapter4/VectorFieldsGlobal · levelMap_levelMap_comp_eq",
+     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.restrict",
+     "Chapter4/VectorFieldsGlobal · retractLieBracket_restrict",
+     "Chapter4/VectorFieldsGlobal · retractLieBracket_natural_inter"
+    ]
+   },
+   "chips": [
+    "any sc-smooth $f$ between local models",
+    "relations on $O_1$"
+   ],
+   "diff": [
+    "The computation of §4.5.2, for an sc-smooth map between two local models with a pair of vector fields on each, $D^2g$ read as in V4.70; the relations are assumed on $O_1$, since they are differentiated at points of $O_2$. The form on an open part $O \\cap W$ is the shape of a transition map (V4.75). §4.5.2 ends by calling the result \"Proposition 4.5.1\", a possible misprint for Lemma 4.5.1 (Findings, Chapter 4, items 157, 162)."
+   ]
+  },
+  {
+   "id": "V4.75",
+   "title": "Principal parts in a chart; the bracket does not depend on the chart",
+   "verdict": "same",
+   "book": {
+    "label": "Appendix 4.5, p. 201",
+    "page": 201,
+    "statement": "(New in the 2021 edition.) Lemma 4.5.1 shows that the definition of $[A, B]$ in local coordinates does not depend on the choice of the coordinates."
+   },
+   "lean": {
+    "statement": "`tangentChartMap_change`: $T\\psi = T(\\psi \\circ \\varphi^{-1}) \\circ T\\varphi$. `principalPart`: $T\\varphi(A(y)) = (\\varphi(y), A_\\varphi(\\varphi(y)))$ (`tangentChartMap_eq_principalPart`); `IsScVectorField.isRetractVectorField_principalPart`: $A_\\varphi$ is a vector field on the model, with the retraction `chartRetraction`; `principalPart_related`: the principal parts in two charts are related by the transition map on level $1$. `chartLieBracket_spec`: Proposition 4.4.5 for $[A_\\varphi, B_\\varphi]$; `chartLieBracket_change`: the brackets in two charts are related by $T(\\psi\\varphi^{-1})$ on level $2$ of the overlap.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_change",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.chartRetraction",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.chartRetraction_retract",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.principalPart",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_eq_principalPart",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.isRetractVectorField_principalPart",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.principalPart_related",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.chartLieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_spec",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_change"
+    ]
+   },
+   "chips": [
+    "via V4.74 on $O \\cap W$"
+   ],
+   "diff": [
+    "The overlap of two charts is an open part $O \\cap W$ of the model; V4.74 there gives the independence of the chart (Findings, Chapter 4, item 161)."
+   ]
+  },
+  {
+   "id": "V4.76",
+   "title": "Proposition 4.4.5 (preprint 4.26) on an M-polyfold: the bracket $[A, B] : X^2 \\to TX$",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167) (proof §§4.5.1–4.5.2, pp. 200–202)",
+    "page": 167,
+    "statement": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula in local coordinates defines the Lie bracket, an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$, the pull-back of $TX \\to X^1$ by the inclusion $X^2 \\to X^1$ (the earlier texts quote it from another paper, as a vector field on $X^1$)."
+   },
+   "lean": {
+    "statement": "`MPolyfold.lieBracket hA hB : X^2 \\to TX`, the class of $[A_\\varphi, B_\\varphi](\\varphi(x))$ in a chosen chart. `tangentChartMap_lieBracket`: in every chart $\\psi$ around $x$, $T\\psi([A, B](x)) = (\\psi(x), [A_\\psi, B_\\psi](\\psi(x)))$. `proposition_4_4_5_2021`: $[A, B]$ is sc-smooth from $X^2$ to $TX$, and $p([A, B](x)) = x$.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.levelLift_levelChart_spec",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.lieBracketPre",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.lieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentProj_lieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket_eq",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.continuous_lieBracket",
+     "Chapter4/VectorFieldsGlobal · proposition_4_4_5_2021"
+    ]
+   },
+   "chips": [
+    "section of $TX|X^2$ read as a map to $TX$",
+    "gap G.38 closed",
+    "pull-back bundle: G.92"
+   ],
+   "diff": [
+    "\"An sc-smooth section of $TX|X^2 \\to X^2$\" is read as an sc-smooth map $X^2 \\to TX$ covering the inclusion $X^2 \\to X^1$; the pull-back bundle itself is not built (gap G.92). In the chart $(\\psi^1)^1$ of $X^2$ and the tangent chart $T\\psi$ the bracket reads $z \\mapsto (z, [A_\\psi, B_\\psi](z))$, sc-smooth by V4.72; it depends neither on the chart nor on the retraction (V4.75). This closes gap G.38 (Findings, Chapter 4, item 161).",
+    "The earlier statement, a vector field on $X^1$ (a section of $T(X^1) \\to X^2$), would through $\\Phi$ (V4.78) put $[A, B](x)$ in $E_1$ for $x \\in X_2$, which the example of V4.73 excludes; as we read it, it does not hold, and the 2021 statement does (Findings, Chapter 4, item 161)."
+   ]
+  },
+  {
+   "id": "V4.77",
+   "title": "Lemma 4.5.1 on M-polyfolds: sc-smooth maps relate brackets",
+   "verdict": "restated",
+   "book": {
+    "label": "Appendix 4.5, Lemma 4.5.1, p. 201",
+    "page": 201,
+    "statement": "(New in the 2021 edition; the proof is left to the reader.) For a local sc-diffeomorphism $\\varphi : X \\to X$ and sc-smooth vector fields with $T\\varphi(A(x)) = A(\\varphi(x))$ and $T\\varphi(B(x)) = B(\\varphi(x))$ at points of $X_2$, $T\\varphi([A, B](x)) = [A, B](\\varphi(x))$ for $x \\in X_2$."
+   },
+   "lean": {
+    "statement": "`lemma_4_5_1_2021`: for an sc-smooth $f : X \\to Y$ of M-polyfolds and sc-smooth vector fields $A$, $B$ on $X$, $A'$, $B'$ on $Y$ with $Tf(A(x)) = A'(f_1(x))$ and $Tf(B(x)) = B'(f_1(x))$ for all $x \\in X^1$ (`liftLevelOneMap`), $Tf([A, B](x)) = [A', B'](f_2(x))$ for all $x \\in X^2$ (`levelTwoMap`).",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.liftLevelOneMap",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.levelTwoMap",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.levelMap_coord_levelLift",
+     "Chapter4/VectorFieldsGlobal · lemma_4_5_1_2021"
+    ]
+   },
+   "chips": [
+    "any sc-smooth $f : X \\to Y$",
+    "relations on $X^1$",
+    "open subsets: G.92"
+   ],
+   "diff": [
+    "More general in the map: any sc-smooth $f$ between two M-polyfolds, with a pair of vector fields on each side. The relations are assumed on all of $X^1$, not only at the points of $X_2$, since the computation of §4.5.2 differentiates them. A local sc-diffeomorphism between open subsets of $X$ is covered only through such an $f$; open subsets of an M-polyfold as M-polyfolds are not built (gap G.92) (Findings, Chapter 4, item 162)."
+   ]
+  },
+  {
+   "id": "V4.78",
+   "title": "Lemma 4.4.4 on an M-polyfold, $i = 1$: $A^{(1)} = \\Phi^{-1} \\circ A_1$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§4.4, Lemma 4.4.4, p. 196",
+    "page": 196,
+    "statement": "(New in the 2021 edition.) By the natural identification of $(TX)^i \\to (X^1)^i$ with $T(X^i) \\to X^{i+1}$, the index of a vector field $A$ can be raised by $i \\ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \\to X^{i+1}$."
+   },
+   "lean": {
+    "statement": "`raiseIndex hA` $= \\Phi^{-1} \\circ A_1 : X^2 \\to T(X^1)$, $A_1$ the level-$1$ map (`vectorFieldLevelOne`) and $\\Phi : T(X^1) \\simeq (TX)^1$ the sc-diffeomorphism of Proposition 2.3.17 (`tangentShiftEquiv`, `proposition_2_3_17_2021`). `lemma_4_4_4_2021`: $A^{(1)}$ is an sc-smooth vector field on $X^1$, and $\\Phi(A^{(1)}(x)) = A(x)$ in $(TX)^1$.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.vectorFieldLevelOne",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.raiseIndex",
+     "Chapter4/VectorFieldsGlobal · lemma_4_4_4_2021",
+     "Chapter2/TangentLift · MPolyfold.tangentShiftEquiv",
+     "Chapter2/TangentLift · proposition_2_3_17_2021"
+    ]
+   },
+   "chips": [
+    "$i = 1$",
+    "every $i$: V4.79",
+    "G.6 closed"
+   ],
+   "diff": [
+    "For $i = 1$; every $i$ is V4.79, by iterating this case. The identification that the text calls natural is Proposition 2.3.17 (`proposition_2_3_17_2021`, `proposition_2_3_17_two_2021`, and for every $i$ `proposition_2_3_17_all_2021`; gap G.6, closed) (Findings, Chapter 4, items 160, 164)."
+   ]
+  },
+  {
+   "id": "V4.79",
+   "title": "Lemma 4.4.4 on an M-polyfold, every $i$: $A^{(i)}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, Lemma 4.4.4, p. 196",
+    "page": 196,
+    "statement": "(New in the 2021 edition.) By the natural identification of $(TX)^i \\to (X^1)^i$ with $T(X^i) \\to X^{i+1}$, the index of a vector field $A$ can be raised by $i \\ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \\to X^{i+1}$ (the diagram before the lemma)."
+   },
+   "lean": {
+    "statement": "`BundledMPolyfold.raiseIndexAll`: $A^{(0)} = A$, $A^{(i+1)} = (A^{(i)})^{(1)}$ (`raiseIndex` on $X^i$). `lemma_4_4_4_all_2021`: for every $i$, $A^{(i)}$ is an sc-smooth vector field on $X^i$ (`BundledMPolyfold.lift`); its image under $T(X^i) \\to TX$ at $x \\in X^{i+1}$ is $A(x)$ (`tangentIncl_raiseIndexAll`); $\\Phi_i \\circ A^{(i)} \\circ J_i$ is the $i$-th index raise of $A$ (`tangentLiftEquiv_raiseIndexAll`, with $\\Phi_i$, $J_i$ of `proposition_2_3_17_all_2021`); and $A^{(i+1)} = (A^{(i)})^{(1)}$. Witness: `lemma_4_4_4_all_2021_zero`.",
+    "decls": [
+     "Chapter2/TangentLiftAll · BundledMPolyfold",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lift",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentIncl_raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.vectorFieldScMap",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv_raiseIndexAll",
+     "Chapter2/TangentLiftAll · lemma_4_4_4_all_2021",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lemma_4_4_4_all_2021_zero",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.shiftLiftEquiv",
+     "Chapter2/TangentLiftAll · proposition_2_3_17_all_2021"
+    ]
+   },
+   "chips": [
+    "every $i$",
+    "bundled lifts $X^i$",
+    "witness: the zero field"
+   ],
+   "diff": [
+    "The lifts $X^i$ are bundled with their spaces so that they form one family indexed by $i$. \"The natural identification\" is $\\Phi_i : T(X^i) \\to (TX)^i$ and $J_i : (X^1)^i \\to (X^i)^1$ of Proposition 2.3.17 for every $i$; \"$A^{(i)}$ is $A$\" is read through the inclusions into $TX$ and through the diagram printed before the lemma (Findings, Chapter 4, item 164)."
    ]
   },
   {
@@ -9410,7 +10115,7 @@
     "tameness not used"
    ],
    "diff": [
-    "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_8` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_8_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is not compared with that of $X_2$ (gap G.6). The compact solution set is also proved on every level $X_i$ directly.",
+    "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_8` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_8_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; gap G.6, closed). The compact solution set is also proved on every level $X_i$ directly.",
     "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which would need the tameness of the index raises of tame charts (not proved; Findings, Chapter 5, item 145). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it, when only the compactness half was proved) (Findings, Chapter 5, items 140–146; gap G.41)."
    ]
   },
@@ -12785,10 +13490,10 @@
     ]
    },
    "chips": [
-    "algebraic, not shown closed"
+    "algebraic; closed: V6.69"
    ],
    "diff": [
-    "Not in the book as a statement; the text takes $X$ closed without argument (Findings, Chapter 6, item 112)."
+    "Not in the book as a statement; the text takes $X$ closed without argument. A closed common complement is V6.69 (Findings, Chapter 6, items 112, 116)."
    ]
   },
   {
@@ -12811,11 +13516,11 @@
     ]
    },
    "chips": [
-    "continuity in $T$ not formalized (G.81)",
+    "continuity in $T$: V6.70 (G.81 closed)",
     "$X$ algebraic"
    ],
    "diff": [
-    "The last sentence, continuity in $T$, is gap G.81; $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, Chapter 6, items 112, 113)."
+    "The last sentence, continuity in $T$, is not part of this row: it is V6.70, with a closed $X$ (V6.69) (gap G.81, closed). $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, Chapter 6, items 112, 113, 117)."
    ]
   },
   {
@@ -12841,6 +13546,225 @@
    ],
    "diff": [
     "The 2021 text splits preprint Lemma 6.33 (2017: 6.15): its statement is Lemma 6.6.9, the first step of its proof Lemma 6.6.8; the stabilized kernels of the appended data are a hypothesis, as in V6.45 (Findings, Chapter 6, item 114)."
+   ]
+  },
+  {
+   "id": "V6.69",
+   "title": "A common closed complement of two kernels of the same dimension",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.4, proof of Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)",
+    "page": 253,
+    "statement": "\"We can take a closed linear subspace $X$ of $E$\" which is a topological complement of both $\\ker(QT)$ and $\\ker(PT)$, so that $E = X \\oplus \\ker(QT) = X \\oplus \\ker(PT)$."
+   },
+   "lean": {
+    "statement": "`exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq`: two finite-dimensional subspaces $K_1$, $K_2$ of the same dimension of a real normed space have a common closed complement $X$ with $E = K_1 \\oplus X = K_2 \\oplus X$ topologically; $X = Z + X_0 \\cap (K_1 + K_2)$ for the algebraic common complement $X_0$ (V6.66) and a closed complement $Z$ of $K_1 + K_2$ (`isCompl_sup_inf_of_isCompl`).",
+    "decls": [
+     "Chapter6/Book2021Continuity · isCompl_sup_inf_of_isCompl",
+     "Chapter6/Book2021Continuity · exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq",
+     "Chapter6/Book2021 · exists_isCompl_isCompl_of_finrank_eq"
+    ]
+   },
+   "chips": [
+    "the text's $X$, closed",
+    "no argument in the text"
+   ],
+   "diff": [
+    "Not in the book as a statement; the text takes $X$ closed without argument. The algebraic complement of V6.66 is cut down to $K_1 + K_2$ and enlarged by a closed complement of that finite-dimensional space (Findings, Chapter 6, items 112, 116)."
+   ]
+  },
+  {
+   "id": "V6.70",
+   "title": "Proposition 6.4.13 (2017: 6.6), last sentence: $A_T$, $B_T$ depend continuously on $T$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195), argument pp. 253, 255",
+    "page": 253,
+    "statement": "Varying $T$ to a $T'$ near $T$ so that $P, Q \\in \\Pi_{T'}$, the constructions of $A_{T'}$ and $B_{T'}$ depend continuously on $T'$. Argument (pp. 253, 255): with $X$ fixed, (6.15) $QT'x = QT'e$ has a unique solution $x(e) \\in X$, depending continuously on $T'$."
+   },
+   "lean": {
+    "statement": "`proposition_6_4_13_continuity_2021`: for $T$ Fredholm and $P, Q \\in \\Pi_T$ with $R(P) = R(Q) = H$ there are a closed $X$ and $\\varepsilon > 0$ such that $S \\mapsto A_S = 1 - \\xi_S \\circ S$ (`kerTransition`, on $E$) and $S \\mapsto B_S = (1 - P) - S\\xi_S(1 - P)$ (`cokerTransition`, lifted to $F$), $\\xi_S = (QS|_X)^{-1} \\circ Q$ (`solveOp`), are continuous on $\\|S - T\\| < \\varepsilon$ in the operator norm and jointly with the vector; for every such $S$: $P, Q \\in \\Pi_S$, $\\ker(PS) \\oplus X = \\ker(QS) \\oplus X = E$ topologically, (6.15)–(6.16) and (6.18)–(6.19) hold, and $A_S$, $B_S$ give isomorphisms $\\ker(PS) \\to \\ker(QS)$, $F/R(P) \\to F/R(Q)$ filling the diagram of $E(S, P)$, $E(S, Q)$ (`diagram_of_solveOp`). Satisfiable: `proposition_6_4_13_continuity_2021_hyps` ($T = 1$ on $\\mathbb R$).",
+    "decls": [
+     "Chapter6/Book2021Continuity · projCod",
+     "Chapter6/Book2021Continuity · solveOp",
+     "Chapter6/Book2021Continuity · kerTransition",
+     "Chapter6/Book2021Continuity · cokerTransition",
+     "Chapter6/Book2021Continuity · solveOp_mem",
+     "Chapter6/Book2021Continuity · kerTransition_apply",
+     "Chapter6/Book2021Continuity · cokerTransition_apply",
+     "Chapter6/Book2021Continuity · apply_solveOp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · disjoint_ker_comp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · isTopCompl_ker_comp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · diagram_of_solveOp",
+     "Chapter6/Book2021Continuity · continuousAt_solveOp",
+     "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021",
+     "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021_hyps",
+     "Chapter6/LocalDetBundle · lemma_6_17",
+     "Chapter6/LocalDetBundle · projRestrict"
+    ]
+   },
+   "chips": [
+    "continuity of the extensions to $E$, $F$",
+    "also on the kernel bundle",
+    "G.81 closed"
+   ],
+   "diff": [
+    "\"Depend continuously\" is read as the continuity of $A_S$ extended to $E$ and of $B_S$ lifted to $F$, which determine the maps between the varying kernels $\\ker(PS)$, $\\ker(QS)$ and on $F/H$; the joint continuity is continuity on the kernel bundle $\\bigcup_S \\{S\\} \\times \\ker(PS)$ of Remark 6.4.5 with its subspace topology. $P, Q \\in \\Pi_S$ near $T$ is a conclusion (Lemma 6.5.1 (preprint 6.17)), not a hypothesis (Findings, Chapter 6, items 113, 117)."
+   ]
+  },
+  {
+   "id": "V6.71",
+   "title": "The orientation space $O_f$ and the properties (1)–(3) of Theorem 6.6.17",
+   "verdict": "explicit",
+   "book": {
+    "label": "§6.6, pp. 274–275, before and in Theorem 6.6.17 (new in the 2021 edition)",
+    "page": 274,
+    "statement": "With $X_\\infty$ in its natural metrizable topology, $O_f$ consists of the $(x, o)$, $x \\in X_\\infty$, $o$ an orientation of $\\mathrm{DET}(f, x)$, two over each $x$, and $\\pi_f(x, o) = x$. (1) $\\pi_f$ is a local homeomorphism; (2) every $x \\in X_\\infty$ has an open $U$ in $X$ with precisely two continuous sections of $O_f|(U \\cap X_\\infty)$; (3) for an sc-smooth path $\\varphi : [0, 1] \\to X$, a continuous section $(\\varphi(t), o_t)$ of $\\varphi^*O_f$ has $o_t$ the local propagation of $o_{t_0}$ for $t$ near $t_0$."
+   },
+   "lean": {
+    "statement": "`OrSpace` (a sigma type over $X_\\infty$, the topology of Theorem 2.3.10), `orProj`, `OrPullback` (the subspace $\\{(t, p) : \\varphi(t) = \\pi_f(p)\\}$ of $[0, 1] \\times O_f$), `IsContSectionOver` (continuous $\\sigma : U_\\infty \\to O_f$, $\\pi_f \\circ \\sigma = \\mathrm{id}$), `HasTwoContSections` (2), `IsPropagationContinuous` (3: for $t$ near $t_0$ the push-forward `orPush` along the segment `segPath` of $\\varphi$ in a set with the local propagation property maps $o_{t_0}$ to $o_t$), `IsOrientationTopology` (Hausdorff, (1), (2), (3)).",
+    "decls": [
+     "Chapter6/OrientationSpace · OrSpace",
+     "Chapter6/OrientationSpace · orProj",
+     "Chapter6/OrientationSpace · segPath",
+     "Chapter6/OrientationSpace · isScSmoothMap_segPath",
+     "Chapter6/OrientationSpace · OrPullback",
+     "Chapter6/OrientationSpace · IsContSectionOver",
+     "Chapter6/OrientationSpace · IsPropagationContinuous",
+     "Chapter6/OrientationSpace · HasTwoContSections",
+     "Chapter6/OrientationSpace · IsOrientationTopology",
+     "Chapter6/SectionOrientation · Orx",
+     "Chapter6/OrientationFunctor · orPush",
+     "Chapter6/OrientationFunctor · orPush_compat"
+    ]
+   },
+   "chips": [
+    "$X_\\infty$: topology of Theorem 2.3.10",
+    "local propagation = `orPush` on segments",
+    "paths on $\\mathbb R$ (D2)"
+   ],
+   "diff": [
+    "\"The local propagation of $o_{t_0}$\" is read as the push-forward along the segment of $\\varphi$ from $t_0$ to $t$ in an open set with the local propagation property in some chart, independent of that set (`orPush_compat`); paths are sc-smooth maps $\\mathbb R \\to X$ restricted to $[0, 1]$ (decision D2); $\\mathrm{Or}^f_x$ is read in the chosen chart (V6.55). The set $O_f$ appears in the preprint (p. 219) and the 2017 text (p. 205) without a topology (Findings, Chapter 6, item 118)."
+   ]
+  },
+  {
+   "id": "V6.72",
+   "title": "Sc-smooth paths in $X_\\infty$",
+   "verdict": "extra",
+   "book": {
+    "label": "no counterpart in the text (needed for Theorem 6.6.17, p. 275)",
+    "page": 275,
+    "statement": "Not stated."
+   },
+   "lean": {
+    "statement": "`continuous_smoothMk_comp`: an sc-smooth $\\Gamma : \\mathbb R^n \\to X$ is continuous into $X_\\infty$. `eventually_exists_scPath_smoothLevel`: for a neighbourhood $N$ of $x$ in $X_\\infty$, every $y \\in X_\\infty$ near $x$ is joined to $x$ by an sc-smooth path with all its points in $N$ (`chartSegPath`, the retracted segment in a chart). `exists_nhds_scPath_of_isOpen`: for an open $W \\ni x$, the smooth points of a smaller open $V \\ni x$ are joined by sc-smooth paths in $W$.",
+    "decls": [
+     "Chapter6/OrientationSpace · rnChart_toBase",
+     "Chapter6/OrientationSpace · continuousOn_levelLift_comp",
+     "Chapter6/OrientationSpace · continuous_smoothMk_comp",
+     "Chapter6/OrientationSpace · chartSegPath",
+     "Chapter6/OrientationSpace · isScSmoothMap_chartSegPath",
+     "Chapter6/OrientationSpace · eventually_exists_scPath_smoothLevel",
+     "Chapter6/OrientationSpace · exists_nhds_scPath_of_isOpen"
+    ]
+   },
+   "chips": [
+    "tools for uniqueness"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V6.73",
+   "title": "Theorem 6.6.17: the topology of $O_f$, property (1), Hausdorff",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition)",
+    "page": 275,
+    "statement": "There exists a Hausdorff topology on $O_f$ with (1): $\\pi_f : O_f \\to X_\\infty$ is a local homeomorphism. \"In view of Proposition 6.6.3 and Theorem 6.6.11\" the easy proof is left to the reader."
+   },
+   "lean": {
+    "statement": "For local transport data $L$ (V6.56): `IsContOrOn` (a family $y \\mapsto o_y$ over an open $U$ carried along by the transport along every sc-smooth path in $U$); `orTopology L`: $W$ open iff $\\{y \\in U_\\infty : (y, o_y) \\in W\\}$ is open in $X_\\infty$ for every continuous orientation over an open $U$. For every $L$: the sets $\\{(y, o_y)\\}$ are open (`isOpen_orBasic`), $\\pi_f$ is a local homeomorphism (`orChartHomeo`, `isLocalHomeomorph_orProj`), and the topology is Hausdorff (`t2Space_orTopology`).",
+    "decls": [
+     "Chapter6/OrientationSpace · IsContOrOn",
+     "Chapter6/OrientationSpace · orSec",
+     "Chapter6/OrientationSpace · orBasic",
+     "Chapter6/OrientationSpace · orTopology",
+     "Chapter6/OrientationSpace · IsContOrOn.eventually_iff",
+     "Chapter6/OrientationSpace · isOpen_orBasic",
+     "Chapter6/OrientationSpace · continuousOn_orSec",
+     "Chapter6/OrientationSpace · continuous_orProj",
+     "Chapter6/OrientationSpace · eq_orSec_of_mem_orBasic",
+     "Chapter6/OrientationSpace · orSec_mem_orBasic",
+     "Chapter6/OrientationSpace · exists_isContOrOn",
+     "Chapter6/OrientationSpace · orChartHomeo",
+     "Chapter6/OrientationSpace · isLocalHomeomorph_orProj",
+     "Chapter6/OrientationSpace · t2Space_orTopology"
+    ]
+   },
+   "chips": [
+    "construction left to the reader",
+    "any transport data"
+   ],
+   "diff": [
+    "The text gives no construction; the topology is defined by the continuous orientations, which are the open sheets of $\\pi_f$ (Findings, Chapter 6, item 118)."
+   ]
+  },
+  {
+   "id": "V6.74",
+   "title": "Theorem 6.6.17 (2): two continuous sections, under connected smooth neighbourhoods",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.6, Theorem 6.6.17 (2), p. 275 (new in the 2021 edition)",
+    "page": 275,
+    "statement": "For every $x \\in X_\\infty$ there exists an open neighbourhood $U = U(x)$ in $X$ such that $O_f|(U \\cap X_\\infty)$ has precisely two continuous sections."
+   },
+   "lean": {
+    "statement": "`hasTwoContSections_orTopology`: if every $\\mathrm{Or}^f_y$ has two elements and $X$ has connected smooth neighbourhoods (`MPolyfold.HasConnectedSmoothNbhds`: inside every open $W \\ni x$ an open $U \\ni x$ with $U \\cap X_\\infty$ preconnected in $X_\\infty$), then for every $L$ the topology `orTopology L` has (2), the sections being $y \\mapsto (y, \\pm o_y)$. Witnesses of the hypothesis: $\\mathbb R^n$, any M-polyfold on a subsingleton.",
+    "decls": [
+     "Chapter6/OrientationSpace · MPolyfold.HasConnectedSmoothNbhds",
+     "Chapter6/OrientationSpace · MPolyfold.hasConnectedSmoothNbhds_of_subsingleton",
+     "Chapter6/OrientationSpace · rnPolyfold_hasConnectedSmoothNbhds",
+     "Chapter6/OrientationSpace · eq_orSec_or_eq_orSec",
+     "Chapter6/OrientationSpace · hasTwoContSections_orTopology"
+    ]
+   },
+   "chips": [
+    "needs $U \\cap X_\\infty$ connected (G.90)",
+    "witness: $\\mathbb R^n$"
+   ],
+   "diff": [
+    "A continuous section over $U \\cap X_\\infty$ is locally one of the two continuous orientations, so (2) needs a $U$ with connected smooth part. That small such $U$ exist is a hypothesis; Part I does not state it, it holds for $\\mathbb R^n$ and is open in general (gap G.90). The proofs of §7.4 use that $U \\cap X_\\infty$ is connected for connected open $U$ (`MPolyfold.SmoothConnected`, gap G.85), which, as we read it, gives the hypothesis, M-polyfolds being locally path connected (Proposition 2.3.7). The paths of `exists_nhds_scPath` join the smooth points of a small $V$ inside a larger $U$ only (Findings, Chapter 6, item 120)."
+   ]
+  },
+  {
+   "id": "V6.75",
+   "title": "Theorem 6.6.17: the unique Hausdorff topology on $O_f$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition)",
+    "page": 275,
+    "statement": "Let $P : Y \\to X$ be a strong bundle over the tame M-polyfold $X$ and $f$ an sc-Fredholm section. Then there exists a uniquely defined Hausdorff topology on $O_f$ characterized by (1), (2), (3). The easy proof is left to the reader."
+   },
+   "lean": {
+    "statement": "Under the hypotheses of `theorem_6_37` ($X$ tame with bump functions, $f$ with tame germ data, sc⁺-sections through the smooth fibre points, the paracompactness instances): `isPropagationContinuous_orTopology` (3) for the topology of the transport data of $\\Gamma_f$; `eq_orTopology_of`: every topology with (1) and (3) is that one; `existsUnique_orientationTopology_2021`: exactly one Hausdorff topology with (1) and (3); `theorem_6_6_17_2021` (with `HasConnectedSmoothNbhds`): exactly one topology with `IsOrientationTopology`, i.e. Hausdorff with (1)–(3).",
+    "decls": [
+     "Chapter6/OrientationSpace · isPropagationContinuous_orTopology",
+     "Chapter6/OrientationSpace · eventually_eq_orSec_of_continuousOn",
+     "Chapter6/OrientationSpace · eq_orTopology_of",
+     "Chapter6/OrientationSpace · existsUnique_orientationTopology_2021",
+     "Chapter6/OrientationSpace · theorem_6_6_17_2021",
+     "Chapter6/OrientationFunctor · orLocalTransport",
+     "Chapter6/OrientationFunctor · theorem_6_37"
+    ]
+   },
+   "chips": [
+    "(2) under connected smooth nbhds (G.90)",
+    "uniqueness from (1), (3) alone",
+    "remarks after it: G.91"
+   ],
+   "diff": [
+    "Existence with (2) needs `HasConnectedSmoothNbhds` (gap G.90); without (2) the theorem holds with no extra hypothesis. The uniqueness is stronger than stated: neither Hausdorffness nor (2) is used. The hypotheses are those under which $\\Gamma_f$ is built (V6.57): bump functions, tame germ data, sc⁺-sections through the smooth fibre points (Findings, Chapter 6, items 119, 120).",
+    "The remarks after the theorem — the orientation bundle, orientability iff a global continuous section, the continuous $\\mathbb Z_2$-action and $\\det_f$ — are gap G.91 (Findings, Chapter 6, item 121)."
    ]
   },
   {
@@ -15410,11 +16334,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "Cor. 7.4.11: $X$, $X^1$; $X^i$ by hypothesis",
-    "gaps G.84, G.85"
+    "Cor. 7.4.11: $X$, $X^1$; all $X^i$: V7.102",
+    "gaps G.84 (closed), G.85"
    ],
    "diff": [
-    "The Part I facts of V7.86 are hypotheses (gap G.85). Corollary 7.4.11 is proved for $X$ and $X^1$; for every $X^i$ it takes (ZHOU) for every $X^i$, the conclusion of Proposition 7.4.9, as a hypothesis (gap G.84) (Findings, Chapter 7, items 136, 137)."
+    "The Part I facts of V7.86 are hypotheses (gap G.85). Corollary 7.4.11 is proved for $X$ and $X^1$; the form for every $X^i$ here takes (ZHOU) for every $X^i$, the conclusion of Proposition 7.4.9, as a hypothesis; with (ZHOU) for $X$ only it is V7.102 (gap G.84, closed) (Findings, Chapter 7, items 136, 137, 148)."
    ]
   },
   {
@@ -15441,11 +16365,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "(ZHOU) for every $X^i$ assumed",
-    "gap G.84"
+    "(ZHOU) for all $X^i$; for $X$: V7.102",
+    "gap G.84 (closed)"
    ],
    "diff": [
-    "(ZHOU) for every $X^i$, which Proposition 7.4.9 derives from (ZHOU) for $X$, is a hypothesis: Proposition 7.4.9 needs the identification of $(X^i)_\\infty$ with $X_\\infty$ and of the tangent spaces (gaps G.6, G.7), not formalized (gap G.84) (Findings, Chapter 7, item 137)."
+    "(ZHOU) for every $X^i$, which Proposition 7.4.9 derives from (ZHOU) for $X$, is a hypothesis of this form. Proposition 7.4.9 and Theorem 7.4.13 with (ZHOU) for $X$ only are V7.102, through $(X^1)_\\infty \\cong X_\\infty$ and Part I's Proposition 2.3.17 (gap G.84, closed) (Findings, Chapter 7, items 137, 148)."
    ]
   },
   {
@@ -15476,11 +16400,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "7.4.16 for $X^1$; 7.4.18 not formalized",
-    "gaps G.84, G.85"
+    "7.4.16 for $X^1$; rest: V7.103, V7.104",
+    "gaps G.84 (closed), G.85"
    ],
    "diff": [
-    "$V(x)$ is read open in $X_\\infty$, inside a natural representation and invariant. Proposition 7.4.16 is proved for $X^1$ (LUC for $X$ and $X^1$); Proposition 7.4.17 takes (VSLUC) for every $X^i$; Proposition 7.4.18, (SLUC) implies (VSLUC), is not formalized: it needs natural representations of $X^N$ in terms of those of $X$ (gap G.84). The Part I facts are hypotheses (gap G.85) (Findings, Chapter 7, items 136, 137)."
+    "$V(x)$ is read open in $X_\\infty$, inside a natural representation and invariant. Here Proposition 7.4.16 is proved for $X^1$ (LUC for $X$ and $X^1$) and Proposition 7.4.17 takes (VSLUC) for every $X^i$; for every $X^i$ with (VSLUC) for $X$ only they are V7.103, and Proposition 7.4.18 in both directions is V7.104 (gap G.84, closed). The Part I facts are hypotheses (gap G.85) (Findings, Chapter 7, items 136, 137, 149, 150)."
    ]
   },
   {
@@ -15533,11 +16457,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "(ZHOU) for every $X^i$ assumed",
+    "(ZHOU) for all $X^i$; for $X$: V7.102",
     "proof without reduction, density"
    ],
    "diff": [
-    "Theorem 7.4.24 takes (ZHOU) for every $X^i$ as a hypothesis (gap G.84); the Part I facts are hypotheses (gap G.85). Proposition 7.4.22 is proved without passing to the reduced ep-groupoid and without the density of the regular points: on the open dense union of the $X_\\infty$-interiors of the sets $\\{\\beta = \\hat g\\}$, pieces whose closures meet have equal tangents at a common smooth point (Findings, Chapter 7, item 138)."
+    "Theorem 7.4.24 takes (ZHOU) for every $X^i$ as a hypothesis here; with (ZHOU) for $X$ only it is V7.102 (gap G.84, closed); the Part I facts are hypotheses (gap G.85). Proposition 7.4.22 is proved without passing to the reduced ep-groupoid and without the density of the regular points: on the open dense union of the $X_\\infty$-interiors of the sets $\\{\\beta = \\hat g\\}$, pieces whose closures meet have equal tangents at a common smooth point (Findings, Chapter 7, item 138)."
    ]
   },
   {
@@ -15688,12 +16612,210 @@
    "chips": [
     "new in the 2021 edition",
     "topological part only",
-    "sc-smooth parts: reported separately",
+    "sc-smooth parts: V7.99–V7.101",
     "$\\Phi$ onto $\\theta$ only for centred $V$"
    ],
    "diff": [
-    "Not covered by this row: (2), the sc-smoothness in (3), the index $d_{bX}$ in (4) beyond the fibre count, the sc-smoothness and tameness in (5). They depend on 2021 Theorem 2.7.13 (2), the M-polyfold structure of $bX$, and are formalized separately (`Chapter7/TameBoundaryEpStructure.lean`), reported separately; no ep-groupoid structure on $(bX, b\\mathbf X)$ is built in `Chapter7/TameBoundaryEp.lean`.",
+    "Not covered by this row: (2), the sc-smoothness in (3), the index $d_{bX}$ in (4) beyond the fibre count, the sc-smoothness and tameness in (5). They depend on 2021 Theorem 2.7.13 (2), the M-polyfold structure of $bX$, and are V7.99–V7.101 (`Chapter7/TameBoundaryEpStructure.lean`, which builds the ep-groupoid structure on $(bX, b\\mathbf X)$); `Chapter7/TameBoundaryEp.lean` gives the topology and the groupoid.",
     "\"$\\Phi$ is a homeomorphism onto $\\theta$\" holds as we read it only for $V$ centred at $x$, as for (2.44) in Chapter 2; in general $\\Phi$ is an open embedding, the form used in the characterization (Findings, Chapter 7, items 140, 141)."
+   ]
+  },
+  {
+   "id": "V7.99",
+   "title": "Sc-smooth maps of tame boundaries: lifts of sc-smooth maps and of local sc-diffeomorphisms",
+   "verdict": "extra",
+   "book": {
+    "label": "§7.6, Appendix 7.6.5.2, proof sketch of Theorem 7.6.9, p. 355 (new in the 2021 edition)",
+    "page": 355,
+    "statement": "In the charts $\\Phi_{(\\varphi, \\mathbf V, \\theta)}$ and $\\Phi_{(x, V, \\theta)}$ the map $s : U(\\varphi, \\mathbf V, \\theta) \\to U(x, V, \\theta)$ becomes $s : \\theta \\to s(\\theta)$, an sc-diffeomorphism; this gives the smoothness of $s$, and similarly of the other structure maps."
+   },
+   "lean": {
+    "statement": "`MPolyfold.isScSmoothOn_of_bMap`: for $f$ sc-smooth on $U$ and $g : bA \\to bB$ continuous on an open $O \\subseteq B^{-1}(U)$ with $B \\circ g = f \\circ B$ on $O$, $g$ is sc-smooth on $O$ for `tameBoundaryPolyfold` (in the charts $\\pi \\circ \\varphi \\circ B$ it is $\\pi' \\circ (\\varphi' \\circ f \\circ \\varphi^{-1}) \\circ \\iota$). `isScSmoothMap_bLift`: the lift `bLift` of an sc-smooth index-preserving local homeomorphism is sc-smooth. `isLiftOf_bLift_sheet`, `isLocalScDiffeo_bLift`: the lift of a local sc-diffeomorphism is a local sc-diffeomorphism, over a sheet $f : W \\to V$ mapping $B^{-1}(W)$ onto $B^{-1}(V)$.",
+    "decls": [
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isScSmoothOn_of_bMap",
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isScSmoothMap_bLift",
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isLiftOf_bLift_sheet",
+     "Chapter7/TameBoundaryEpStructure · MPolyfold.isLocalScDiffeo_bLift"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "a tool of the formalization",
+    "replaces $s : \\theta \\to s(\\theta)$"
+   ],
+   "diff": [
+    "The sketch's sc-diffeomorphism $s : \\theta \\to s(\\theta)$ of faces is replaced by the computation in the charts of `tameBoundaryPolyfold`, which needs only that $f$ is sc-smooth (Findings, Chapter 7, item 146)."
+   ]
+  },
+  {
+   "id": "V7.100",
+   "title": "Theorem 7.6.9 (2), (3), (5): the boundary ep-groupoid $(bX, b\\mathbf X)$, and $B$ an ep-functor",
+   "verdict": "stronger",
+   "book": {
+    "label": "§7.6, Theorem 7.6.9 (2), (3), (5), p. 355 (new in the 2021 edition)",
+    "page": 355,
+    "statement": "For a tame ep-groupoid, $bX$ and $b\\mathbf X$ carry natural tame M-polyfold structures, both maps $B$ are sc-smooth, and $(bX, b\\mathbf X)$ with $s, t, u, \\iota, m$ of (7.25)–(7.29) is a tame ep-groupoid; the verification is left to the reader, with a sketch through a commutative diagram."
+   },
+   "lean": {
+    "statement": "`bPObj`, `bPMor`: `tameBoundaryPolyfold` of the object and the morphism M-polyfold (paracompact: `paracompactSpace_bObj`, `paracompactSpace_bMor`). `isLocalScDiffeo_bSrc`, `isLocalScDiffeo_bTgt`, `isScSmoothMap_bUnit`, `isScSmoothMap_bInv`; `isScSmoothCompSheet_bComp` (sheet form) and `isScSmoothComp_bComp` ($m$ sc-smooth on $b\\mathbf X\\,{}_s{\\times}_t\\,b\\mathbf X$). `boundaryEpGroupoid`: the `EpGroupoid` $(bX, b\\mathbf X)$; `isTame_boundaryEpGroupoid`; `boundaryEpFunctor`: $B$ is an `EpFunctor`. `phiTot_bSrc`: $\\Phi_{(x, s(\\mathbf V), s(\\theta))} \\circ s = s \\circ \\Phi_{(\\varphi, \\mathbf V, \\theta)}$, the diagram of the sketch.",
+    "decls": [
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.paracompactSpace_bObj",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.paracompactSpace_bMor",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.bPObj",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.bPMor",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isLocalScDiffeo_bSrc",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isLocalScDiffeo_bTgt",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothMap_bUnit",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothMap_bInv",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothCompSheet_bComp",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isScSmoothComp_bComp",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.boundaryEpGroupoid",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.isTame_boundaryEpGroupoid",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.boundaryEpFunctor",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.phiTot_bSrc"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$B$ an ep-functor",
+    "$m$ in sheet form"
+   ],
+   "diff": [
+    "The text asks $B$ to be sc-smooth; it is also a functor (V7.97), hence an ep-functor, a morphism of $\\mathcal{EP}$ (Definition 7.1.7 (2017: 7.7)).",
+    "Condition (4) of Definition 7.1.3 (2017: 7.3) is proved in the sheet form of V7.3: near $b$, $b' \\mapsto m(\\sigma(t b'), b')$ covers $\\gamma \\mapsto m(\\sigma_1(t\\gamma), \\gamma)$ for a sheet $\\sigma_1$ of $s$ on $\\mathbf X$, and V7.99 applies (Findings, Chapter 7, items 145, 146)."
+   ]
+  },
+  {
+   "id": "V7.101",
+   "title": "Theorem 7.6.9 in full",
+   "verdict": "narrower",
+   "book": {
+    "label": "§7.6, Theorem 7.6.9, p. 355 (new in the 2021 edition), and the characterization after it",
+    "page": 355,
+    "statement": "For a tame ep-groupoid: (1) $bX$ and $b\\mathbf X$ have natural metrizable topologies; (2) natural tame M-polyfold structures; (3) both maps $B$ are sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$, and likewise on $b\\mathbf X$; (5) $(bX, b\\mathbf X)$ with $s, t, u, \\iota, m$ is a tame ep-groupoid. The topology and the structure are characterized as in Theorem 2.7.13."
+   },
+   "lean": {
+    "statement": "`theorem_7_6_9_full_2021` (for `X.IsTame`): (1) metrizable $bX$, $b\\mathbf X$; (2) `bPObj`, `bPMor` tame, and for every triple with $V$ centred at $x$, `uSet` open and `phiTot` an sc-diffeomorphism onto `facePolyfold` with inverse `phiHomeomorph.symm`, and every M-polyfold structure with this property has an atlas equivalent to `bPObj`, resp. `bPMor`; (3) both `tameBoundaryMap` sc-smooth; (4) $d_X(B p) - 1 = d_{bX}(p)$, $d_{\\mathbf X}(B a) - 1 = d_{b\\mathbf X}(a)$; (5) `boundaryEpGroupoid` tame, with the groupoid `boundaryGroupoid` and the structures `bPObj`, `bPMor`, local sc-diffeomorphisms `bSrc`, `bTgt`, sc-smooth `bUnit`, `bInv`, `IsScSmoothComp`; an `EpFunctor` with object and morphism maps the two `tameBoundaryMap`. Witness: `trivial_quadrant_boundaryEp_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, nonempty $bX$, $b\\mathbf X$, $d_{bX} = n - 1$ over the corner).",
+    "decls": [
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.theorem_7_6_9_full_2021",
+     "Chapter7/TameBoundaryEpStructure · EpGroupoid.trivial_quadrant_boundaryEp_witness",
+     "Chapter2/TameBoundaryStructure · MPolyfold.theorem_2_7_13_structure_2021",
+     "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryPolyfold_unique",
+     "Chapter2/TameBoundaryStructure · MPolyfold.degIndex_tameBoundaryMap"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "characterization for centred $V$",
+    "(4) as printed, $\\mathbb N$-subtraction"
+   ],
+   "diff": [
+    "The characterization and its uniqueness are for representatives whose $V$ is centred at $x$ (V7.98); Part I has them since for every representative, with image $\\theta \\cap V^x$ (V2.104; gap G.78, closed), the boundary ep-groupoid not; \"natural\" in (2) is read through them. The hypotheses of the two uniqueness statements are satisfied by `bPObj`, `bPMor` themselves.",
+    "(4) is stated as printed, with natural-number subtraction ($B$ takes values in $\\partial X$, where $d_X \\ge 1$); the additive form is `MPolyfold.degIndex_tameBoundaryMap` (Findings, Chapter 7, items 145, 147)."
+   ]
+  },
+  {
+   "id": "V7.102",
+   "title": "Proposition 7.4.9, and Corollary 7.4.11, Theorems 7.4.13, 7.4.24 for every $X^i$: (ZHOU) passes to every $X^i$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Proposition 7.4.9, p. 333, Corollary 7.4.11 and Theorem 7.4.13, p. 334, Theorem 7.4.24, p. 340 (new in the 2021 edition)",
+    "page": 333,
+    "statement": "Proposition 7.4.9: if $X$ satisfies the Zhou condition, so does every $X^i$, (ZHOU') being the same for $X$ and $X^i$. Corollary 7.4.11: under (ZHOU) every $X^i$ has (LUC). Theorem 7.4.13: (ZHOU) implies (SLUC). Theorem 7.4.24: (ZHOU) implies (SLR)."
+   },
+   "lean": {
+    "statement": "`MPolyfold.continuous_levelDown`, `shiftSmoothHomeomorph`: $(X^1)_\\infty \\cong X_\\infty$. `EpGroupoid.isotropyLevelVal`, `levelVal_Φ_liftOne`, `tangentLower_tangentMor_liftOne`: a natural representation of $X^1$ inside $U(x) \\cap X_1$ acts as that of $X$, with the tangent action of $\\mathbf X$. `isZhou'_liftOne`, `EP.isZhou'_lift`: (ZHOU') for $X$ gives (ZHOU') for every $X^i$. `EP.proposition_7_4_9_2021`: `IsZhou` for $X$, `DenseSmoothTangent` for $X$ and `SmoothRegular` for every $X^i$ give `IsZhou` for every $X^i$; `EP.corollary_7_4_11_all_2021`, `EP.theorem_7_4_13_all_2021`, `EP.theorem_7_4_24_all_2021` under the same hypotheses. Witnesses for the point ep-groupoid.",
+    "decls": [
+     "Chapter7/ZhouLevels · MPolyfold.continuous_levelDown",
+     "Chapter7/ZhouLevels · MPolyfold.shiftSmoothHomeomorph",
+     "Chapter7/ZhouLevels · EpGroupoid.isotropyLevelVal",
+     "Chapter7/ZhouLevels · EpGroupoid.levelVal_Φ_liftOne",
+     "Chapter7/ZhouLevels · EpGroupoid.tangentLower_tangentMor_liftOne",
+     "Chapter7/ZhouLevels · EpGroupoid.isZhou'_liftOne",
+     "Chapter7/ZhouLevels · EP.isZhou'_lift",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_9_2021",
+     "Chapter7/ZhouLevels · EP.corollary_7_4_11_all_2021",
+     "Chapter7/ZhouLevels · EP.theorem_7_4_13_all_2021",
+     "Chapter7/ZhouLevels · EP.theorem_7_4_24_all_2021",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.proposition_7_4_9_2021_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.theorem_7_4_13_all_2021_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.theorem_7_4_24_all_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(ZHOU') from $X$ to $X^i$",
+    "gap G.84 closed; G.85"
+   ],
+   "diff": [
+    "\"(ZHOU') is the same for $X$ and $X^i$\" is proved in the direction the proof uses, from $X$ to $X^i$, through $(X^1)_\\infty \\cong X_\\infty$, Part I's Proposition 2.3.17 for $i = 1$ and the comparison of natural representations. The Part I facts are hypotheses on every level, and $(T_xX)_\\infty$ dense in $T_xX$ for $X$ (gap G.85) (Findings, Chapter 7, item 148)."
+   ]
+  },
+  {
+   "id": "V7.103",
+   "title": "Propositions 7.4.16 and 7.4.17 for every $X^i$: (VSLUC) passes to every $X^i$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Propositions 7.4.16 and 7.4.17, p. 336 (new in the 2021 edition)",
+    "page": 336,
+    "statement": "Proposition 7.4.16: if $X$ has (VSLUC), so does every $X^i$, using $X_\\infty = X^i_\\infty$, and in particular every $X^i$ has (LUC). Proposition 7.4.17: (VSLUC) implies (SLUC)."
+   },
+   "lean": {
+    "statement": "`MPolyfold.DenseSmooth.shift`, `EP.denseSmooth_lift`: the density of $X_\\infty$ passes to every $X^i$. `EpGroupoid.isVSLUC_liftOne`, `EP.isVSLUC_lift`: (VSLUC) for $X$ gives (VSLUC) for every $X^i$. `EP.proposition_7_4_16_all_2021`: with `DenseSmooth` for $X$ and `SmoothConnected` for every $X^i$, every $X^i$ has (VSLUC) and LUC; `EP.proposition_7_4_17_all_2021`: then `A.IsSLUC`. Witnesses: `Examples.isVSLUC_pointEP`, `Examples.proposition_7_4_17_all_2021_pointEP`.",
+    "decls": [
+     "Chapter7/ZhouLevels · MPolyfold.DenseSmooth.shift",
+     "Chapter7/ZhouLevels · EP.denseSmooth_lift",
+     "Chapter7/ZhouLevels · EpGroupoid.isVSLUC_liftOne",
+     "Chapter7/ZhouLevels · EP.isVSLUC_lift",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_16_all_2021",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_17_all_2021",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.isVSLUC_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.proposition_7_4_17_all_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "(VSLUC) for $X$ only",
+    "gaps G.73, G.85"
+   ],
+   "diff": [
+    "$X_\\infty = X^i_\\infty$ is the homeomorphism of V7.102; \"in particular (LUC)\" is Lemma 7.4.15 (V7.92) on every $X^i$, which needs the density of $X_\\infty$ (gap G.73) and `SmoothConnected` for every $X^i$ (gap G.85) (Findings, Chapter 7, item 149)."
+   ]
+  },
+  {
+   "id": "V7.104",
+   "title": "Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent",
+   "verdict": "explicit",
+   "book": {
+    "label": "§7.4, Proposition 7.4.18, p. 336 (new in the 2021 edition)",
+    "page": 336,
+    "statement": "(VSLUC) and (SLUC) are equivalent. The proof of (SLUC) ⇒ (VSLUC) takes $V(x) = U(x) \\cap X_\\infty$ and uses that an open subset of it contains $W' \\cap X_\\infty$ for an open $W'$ of some $X_N$, with $U(x) \\cap X_N$ connected by construction."
+   },
+   "lean": {
+    "statement": "`MPolyfold.levelDownTo`, `exists_level_nhds_smooth`: the sets $O \\cap X_\\infty$, $O$ open in some $X_{N+1}$, form a neighbourhood basis of $X_\\infty$. `EpGroupoid.isotropyLevelMk`, `NaturalRep.liftOneΦ`, `NaturalRep.liftOneRep`: a natural representation with $U(x) \\cap X_1$ connected restricts to one of $X^1$. `NaturalRep.LevelConnected`: every $U(x) \\cap X_m$ connected in $X_m$; `levelConnected_liftOneRep`. `EP.eqOn_of_level_smooth`, `EP.isVSLUC_of_isSLUC`: with `DenseSmooth` and level-connected representations at every smooth point, (SLUC) gives (VSLUC). `EP.proposition_7_4_18_2021`: with `SmoothConnected` for every $X^i$ as well, `IsVSLUC` ⇔ `IsSLUC`. Witnesses for the point ep-groupoid.",
+    "decls": [
+     "Chapter7/ZhouLevels · MPolyfold.levelDownTo",
+     "Chapter7/ZhouLevels · MPolyfold.exists_level_nhds_smooth",
+     "Chapter7/ZhouLevels · EpGroupoid.isotropyLevelMk",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.liftOneΦ",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.liftOneRep",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.eqOn_of_liftOneRep",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.LevelConnected",
+     "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.levelConnected_liftOneRep",
+     "Chapter7/ZhouLevels · EP.eqOn_of_level_smooth",
+     "Chapter7/ZhouLevels · EP.isVSLUC_of_isSLUC",
+     "Chapter7/ZhouLevels · EP.proposition_7_4_18_2021",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.levelConnected_pointEP",
+     "Chapter7/ZhouLevels · EpGroupoid.Examples.proposition_7_4_18_2021_pointEP"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "both directions",
+    "\"by construction\" as a hypothesis (G.85)"
+   ],
+   "diff": [
+    "The natural representations with every $U(x) \\cap X_m$ connected, which the proof takes by construction, are a hypothesis (`NaturalRep.LevelConnected`, gap G.85), as is the density of $X_\\infty$ (gap G.73). LUC for $X^N$ is applied to the restriction of $U(x)$ to $X^N$, built one level at a time (Findings, Chapter 7, item 150)."
    ]
   },
   {
@@ -17014,10 +18136,10 @@
    "chips": [
     "new in the 2021 edition",
     "added: `TangentZhouReflect`",
-    "gap G.88"
+    "gap G.88 (this step open)"
    ],
    "diff": [
-    "The step from $T(g, h) = \\mathrm{id}$ to $Tg = \\mathrm{id}$, by differentiating (8.16) and $T\\tau$ onto, needs the second tangent bundle $T(TX)$, not formalized; it is the hypothesis `TangentZhouReflect`, satisfiable (gap G.88). Tangents of isotropy elements are set maps, as in Chapter 7 (V7.87) (Findings, Chapter 8, item 115)."
+    "The step from $T(g, h) = \\mathrm{id}$ to $Tg = \\mathrm{id}$, by differentiating (8.16) and $T\\tau$ onto, needs the second tangent bundle $T(TX)$, not formalized; it is the hypothesis `TangentZhouReflect`, satisfiable (gap G.88, open for this step; its Proposition 8.1.17 (2) part is closed, V8.52). Tangents of isotropy elements are set maps, as in Chapter 7 (V7.87) (Findings, Chapter 8, item 115)."
    ]
   },
   {
@@ -17041,12 +18163,12 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "(2) only for $(TX)^0$",
+    "(2) for $(TX)^0$; all $(TX)^i$: V8.52",
     "added: $U(x) \\cap X_1$; $p$ open",
-    "gap G.88"
+    "gap G.88 (closed for (2))"
    ],
    "diff": [
-    "The connectedness and density of $U(x) \\cap X_1$ (as for Appendix 7.6.4, V7.83; the density is gap G.73) and the openness of $p$ (gap G.8) are hypotheses. (1) goes through Proposition 7.2.21 for $TX$. (2) is proved for $(TX)^0 = TX$ only, since $(TX)^i = T(X^i)$ is not formalized (gap G.88) (Findings, Chapter 8, item 116)."
+    "The connectedness and density of $U(x) \\cap X_1$ (as for Appendix 7.6.4, V7.83; the density is gap G.73) and the openness of $p$ (gap G.8) are hypotheses. (1) goes through Proposition 7.2.21 for $TX$. (2) is proved here for $(TX)^0 = TX$; for every $(TX)^i$, through $T(X^i) \\cong (TX)^i$ as ep-groupoids, it is V8.52 (gap G.88, closed for Proposition 8.1.17 (2)) (Findings, Chapter 8, items 116, 124)."
    ]
   },
   {
@@ -17217,6 +18339,44 @@
    "diff": [
     "\"Strong bundle isomorphism over the ep-groupoid $Y$\" is read as a strong bundle isomorphism $W \\to F^*V$ with (8.23); that $\\mu_{F^*V}$ makes $F^*V$ a strong bundle over the ep-groupoid $Y$ is not proved, only its formula is used (gap G.89) (Findings, Chapter 8, item 122)."
    ]
+  },
+  {
+   "id": "V8.52",
+   "title": "Proposition 8.1.17 (2) for every $(TX)^i$: (SLUC) for $TX$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§8.1, Proposition 8.1.17 (2), p. 371 (new in the 2021 edition)",
+    "page": 371,
+    "statement": "If $X$ has (SLUC), so has $TX$. The proof: by (1) every $T(X^i)$ has (LUC), and naturally $(TX)^i = T(X^i)$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.EpEquiv`: sc-diffeomorphisms of the object and the morphism M-polyfolds commuting with $s$ and $t$; `refl`, `trans`, `shift` (to the index raises), `nonEffectivePart_eq`, `EpEquiv.isLUC` (by Proposition 7.2.21). `tangentShiftEpEquiv`: $T(X^1) \\cong (TX)^1$, from Part I's Proposition 2.3.17 for $i = 1$; `EP.tangentEP`, `EP.tangentLiftEpEquiv`: $T(X^i) \\cong (TX)^i$ for every $i$. `EP.isLUC_tangent_lift`: under (SLUC), with `HasConnectedDenseLevelOneReps` and $p$ open for every $X^i$, every $T(X^i)$ has LUC; `EP.proposition_8_1_17_two_all_2021`: `A.tangentEP.IsSLUC`. Witness: `Examples.proposition_8_1_17_two_all_2021_pointEP`.",
+    "decls": [
+     "Chapter8/TangentZhouLevels · MPolyfold.ScEquiv.toHomeomorph",
+     "Chapter8/TangentZhouLevels · EP.tangentEP",
+     "Chapter8/TangentZhouLevels · EpGroupoid.EpEquiv",
+     "Chapter8/TangentZhouLevels · EpGroupoid.EpEquiv.shift",
+     "Chapter8/TangentZhouLevels · EpGroupoid.EpEquiv.nonEffectivePart_eq",
+     "Chapter8/TangentZhouLevels · EpGroupoid.EpEquiv.isLUC",
+     "Chapter8/TangentZhouLevels · EpGroupoid.tangentShiftEpEquiv",
+     "Chapter8/TangentZhouLevels · EP.tangentLiftEpEquiv",
+     "Chapter8/TangentZhouLevels · EP.isLUC_tangent_lift",
+     "Chapter8/TangentZhouLevels · EP.proposition_8_1_17_two_all_2021",
+     "Chapter8/TangentZhouLevels · EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton",
+     "Chapter8/TangentZhouLevels · EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
+     "Chapter2/TangentLiftAll · proposition_2_3_17_all_2021"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "$(TX)^i = T(X^i)$ through $s$, $t$",
+    "hypotheses of (1) on every level",
+    "gap G.88 closed for (2)"
+   ],
+   "diff": [
+    "\"Naturally $(TX)^i = T(X^i)$\" is used through an equivalence commuting with source and target; its compatibility with unit, inverse and composition is not formalized, since LUC does not need it. The hypotheses of (1), the connectedness and density of $U(x) \\cap X_1$ (gap G.73) and the openness of $p$ (gap G.8), are taken on every $X^i$ (Findings, Chapter 8, item 124)."
+   ]
   }
  ],
  "notFormalized": [
@@ -17262,18 +18422,33 @@
    "label": "§2.1, Definition 2.1.16 (preprint 2.9), p. 29 (preprint p. 22)",
    "page": 22,
    "book": "A trivial sc-bundle $U \\oplus F \\to U$; an sc-smooth $R(u, v) = (r(u), \\rho(u, v))$, $\\rho$ linear in $v$, $R \\circ R = R$, is an sc-smooth bundle retraction with bundle retract $B = R(U \\oplus F) \\to O$; bundle maps $\\Phi(u, v) = (a(u), \\phi(u, v))$ with \\\"$p' \\circ \\Phi = p$\\\" (read $a \\circ p$); the category $\\mathcal{BR}$ and the functor $T : \\mathcal R \\to \\mathcal{BR}$.",
-   "instead": "**Not formalized as a definition.** The tangent retraction $Tr$ (V2.8) and the strong bundle retractions of §2.6 (preprint §2.5) (V2.54) are the instances the theory uses; both are formalized as sc-smooth retractions of the stated form, with linearity in the fibre where it is needed. The categories $\\mathcal R$, $\\mathcal{BR}$, $\\mathcal{SBR}$ and their functors are not formalized."
+   "instead": "**Formalized since the first edition of this page, apart from the categories** (V2.92). Bundle retractions and bundle maps are defined by their shape, $R(u, v) = (r(u), \\rho(u)v)$ on $U \\oplus F$ and $\\Phi(u, v) = (a(u), \\phi(u)v)$ with $\\rho(u)$, $\\phi(u)$ continuous linear, so $p' \\circ \\Phi = a \\circ p$; $Tr$ is a bundle retraction covering $r^1$ and $Tf$ a bundle map covering $f^1$, and the transition maps of $TX$ are bundle maps (V2.94). Before, the tangent retraction $Tr$ (V2.8) and the strong bundle retractions of §2.6 (preprint §2.5) (V2.54) were the instances the theory used. The categories $\\mathcal R$, $\\mathcal{BR}$, $\\mathcal{SBR}$ and their functors are still not formalized (Findings, Chapter 2, item 76).",
+   "decls": [
+    "Chapter2/TangentLift · ScRetraction.IsBundleRetractionOver",
+    "Chapter2/TangentLift · ScRetraction.tangentRetraction_isBundleRetractionOver",
+    "Chapter2/TangentLift · IsBundleMapOn",
+    "Chapter2/TangentLift · IsScSmoothRetractMap.retractTangentMap_isBundleMapOn"
+   ],
+   "formalized": [
+    "V2.92",
+    "V2.94"
+   ]
   },
   {
    "title": "$X_m$ as an M-polyfold for $m \\ge 2$",
    "label": "§2.3 (preprint §2.2), after Definition 2.3.8 (preprint 2.14), preprint p. 25",
    "page": 25,
    "book": "For every $m$, the charts $(V_m, \\varphi, (O_m, C_m, E_m))$ form an atlas on $X_m$.",
-   "instead": "**Proved for $m = 1$** (V2.16). For $m \\ge 2$ the structure is the iterate $(X^1)^1 \\cdots$, whose underlying space is the level of a level. Since the fourth addendum its points are known to be those of $X_m$: $(X^1)_m = X_{m+1}$ and $(X^1)_\\infty = X_\\infty$ as sets, and an sc-smooth map $X \\to Z$ induces an sc-smooth map $X^1 \\to Z^1$; that the topology of $(X^1)_m$ is that of $X_{m+1}$ (V2.14), and so that the iterate is $X_m$ with its charts, is not formalized (Findings, Chapter 5, items 142, 146). Theorem 2.3.10 (preprint 2.16) is proved for every $X_m$ directly (V2.17).",
+   "instead": "**Formalized since the first edition of this page** (V2.93). For $m \\ge 2$ the structure is the iterate $(X^1)^1 \\cdots$. For every $m$ the identity of points is a homeomorphism $(X^1)_m \\cong X_{m+1}$, and the level-$m$ lift of the level chart $\\varphi^1$ is the level-$(m+1)$ lift of $\\varphi$ (`MPolyfold.shiftLevelHomeomorph`, `MPolyfold.shift_level_eq`), so each iterate is $X_m$ with its topology and the charts $(V_m, \\varphi, (O_m, C_m, E_m))$. Since the fourth addendum the points were known to agree, $(X^1)_m = X_{m+1}$ as sets (Findings, Chapter 5, items 142, 146). Theorem 2.3.10 (preprint 2.16) is proved for every $X_m$ directly (V2.17); Proposition 2.3.17, $T(X^i) \\equiv (TX)^i$, for every $i$ is V2.97 (Findings, Chapter 2, item 77).",
    "decls": [
     "Chapter5/StrongBundleShift · MPolyfold.mem_shift_levelSet_iff",
     "Chapter5/StrongBundleShift · MPolyfold.mem_shift_smoothSet_iff",
-    "Chapter5/StrongBundleShift · MPolyfold.IsScSmoothMap.levelOne"
+    "Chapter5/StrongBundleShift · MPolyfold.IsScSmoothMap.levelOne",
+    "Chapter2/TangentLift · MPolyfold.shiftLevelHomeomorph",
+    "Chapter2/TangentLift · MPolyfold.shift_level_eq"
+   ],
+   "formalized": [
+    "V2.93"
    ]
   },
   {
@@ -17359,10 +18534,15 @@
    "label": "§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)",
    "page": 23,
    "book": "Replacing $\\mathrm{cl}_X(V(x))$ by the closure of $V(x)$ in $W(x)$ (and $\\mathrm{cl}_X(V(x)) \\subseteq W(x)$ by $V(x) \\subseteq W(x)$) in Definition 2.1.5 gives a weaker notion.",
-   "instead": "**Not formalized: that the notion is strictly weaker.** The implication is proved (V2.68); no space that is locally complete in the modified sense but not in the sense of Definition 2.1.5 is constructed.",
+   "instead": "**Formalized since the first edition of this page** (V2.91). The implication is V2.68. $\\mathbb R$ with the K-topology ($K = \\{1/(n+1)\\}$) is Hausdorff and locally complete in the modified sense, but not regular, hence not locally complete in the sense of Definition 2.1.5 (`remark_2_1_6_strict_2021`); so the notion is strictly weaker, and the remark holds as we read it (Findings, Chapter 2, items 61, 75).",
    "decls": [
     "Chapter2/LocalTopology · IsLocallyCompleteRel",
-    "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel"
+    "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel",
+    "Chapter2/LocalTopologyExample · remark_2_1_6_strict_2021",
+    "Chapter2/LocalTopologyExample · RealKTop.not_isLocallyComplete"
+   ],
+   "formalized": [
+    "V2.91"
    ]
   },
   {
@@ -17371,10 +18551,18 @@
    "label": "§2.5, condition (3) of Definition 2.5.19 and the text after it, p. 63 (new in the 2021 edition)",
    "page": 63,
    "book": "Condition (3) of Definition 2.5.19 is stated on $T_yX$; the text remarks that a tame sub-M-polyfold is tame and gives examples in $[0, \\infty)^2 \\times \\mathbb R$: $\\{(x, y, 0)\\}$ is a tame sub-M-polyfold, the diagonal ray $\\{(x, x, 0)\\}$ is not, although its induced structure is tame.",
-   "instead": "**Not formalized.** Condition (3) is stated in some chart around $y$ (V2.78), since $T_yX$ has no linear structure here (gap G.7); its independence of the chart, the remark that a tame sub-M-polyfold is tame (Definition 2.5.18), and the two examples are not formalized.",
+   "instead": "**Formalized since the first edition of this page** (V2.99, V2.100, V2.101). Condition (3) is still stated in a chart (V2.78), since $T_yX$ has no linear structure here (gap G.7); it holds in every chart, presentation and for every sub-M-polyfold retraction once it holds in one (`TameSubData.hasReducedComplementAt_of_isChart_2021`); a tame sub-M-polyfold of a tame M-polyfold has a tame induced structure (`IsTameSubMPolyfold.hasTameInducedStructure_2021`); and both examples hold as stated, for any $W$ in place of $\\mathbb R$ (`TameSubExample.examples_A_B_2021`) (Findings, Chapter 2, items 72, 81, 82).",
    "decls": [
     "Chapter2/TameBoundary · MPolyfold.TameSubData",
-    "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold"
+    "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold",
+    "Chapter2/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart_2021",
+    "Chapter2/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure_2021",
+    "Chapter2/TameSub · TameSubExample.examples_A_B_2021"
+   ],
+   "formalized": [
+    "V2.99",
+    "V2.100",
+    "V2.101"
    ]
   },
   {
@@ -17383,9 +18571,17 @@
    "label": "§2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition)",
    "page": 83,
    "book": "For every pair of admissible triples the transition map $\\Phi_{(x', V', \\theta')} \\circ \\Phi_{(x, V, \\theta)}^{-1}$ is an sc-diffeomorphism; every $\\Phi_{(x, V, \\theta)}$ is a homeomorphism and an sc-diffeomorphism onto $\\theta$.",
-   "instead": "**Not formalized for representatives $(x, V, \\theta)$ whose $V$ is not centred at $x$.** There $\\Phi_{(x, V, \\theta)}$ is an open embedding into $\\theta$ (V2.87), not in general onto $\\theta$ (V2.85), and the sc-smoothness of the transition maps is not formalized. Every class has a centred representative (`BSpace.exists_centred_rep`), for which the sc-statements are proved in `Chapter2/TameBoundaryStructure.lean`.",
+   "instead": "**Formalized since the first edition of this page** (V2.104, V2.105). For every representative $\\Phi_{(x, V, \\theta)}$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto the open subset $\\theta \\cap V^x$ of $\\theta$, which is $\\theta$ for $V$ centred at $x$ (`phi_isScDiffeoOn_nonCentred_2021`); Proposition 2.7.12 holds as printed for every pair of representatives (`proposition_2_7_12_scDiffeo_nonCentred_2021`); and the structure of $bX$ is characterized with this image (`tameBoundaryPolyfold_unique_allReps_2021`). \"Onto $\\theta$\" does not hold as we read it for every representative: for the slab triple of V2.85 $\\Phi$ is not onto $\\theta$ (`not_surjOn_phiTot_2021`) (Findings, Chapter 2, items 73, 83, 84).",
    "decls": [
-    "Chapter2/TameBoundaryTopology · TameBoundary.isOpenEmbedding_phi"
+    "Chapter2/TameBoundaryTopology · TameBoundary.isOpenEmbedding_phi",
+    "Chapter2/TameBoundaryNonCentred · MPolyfold.phi_isScDiffeoOn_nonCentred_2021",
+    "Chapter2/TameBoundaryNonCentred · MPolyfold.proposition_2_7_12_scDiffeo_nonCentred_2021",
+    "Chapter2/TameBoundaryNonCentred · MPolyfold.tameBoundaryPolyfold_unique_allReps_2021",
+    "Chapter2/TameBoundaryNonCentred · MPolyfold.not_surjOn_phiTot_2021"
+   ],
+   "formalized": [
+    "V2.104",
+    "V2.105"
    ]
   },
   {
@@ -17668,17 +18864,27 @@
    "label": "§4.4, Definition 4.4.1 (preprint 4.25), p. 195 (preprint p. 167)",
    "page": 167,
    "book": "An sc-differential $k$-form is an sc-smooth $\\omega : \\oplus^kTX \\to \\mathbb R$, linear in each argument and skew-symmetric; pull-back along $X^{i+1} \\to X^i$ gives a directed system with limit $\\Omega^*_\\infty(X)$.",
-   "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124)."
+   "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ with $(TX)^i \\cong T(X^i)$ (gap G.6, closed by Proposition 2.3.17 for every $i$). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124)."
   },
   {
    "title": "Proposition 4.4.5 (preprint 4.26): the Lie bracket of sc-smooth vector fields",
    "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167)",
    "page": 167,
    "book": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$, proved in Appendix 4.5 (§§4.5.1–4.5.2, pp. 200–202). The preprint and 2017 texts state an sc-smooth vector field on $X^1$, a section of $T(X^1) \\to X^2$, quoted from another paper.",
-   "instead": "**Formalized in a local model** (V4.67–V4.72): for vector fields $A$, $B$ on a local model $(O, C, E)$, $x \\mapsto (x, [A, B](x))$ is an sc-smooth map from $O^2$ to $TO$ (`proposition_4_4_5_local_2021`). **Not formalized on an M-polyfold**: it needs the identification of $(TX)^i$ with $T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \\to X^2$ and Lemma 4.5.1 (the bracket does not depend on the chart), whose proof the text leaves to the reader; the computation of §4.5.2 is that of Lemma 4.5.1. The sentence of p. 201 that the bracket at $x \\in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157).",
+   "instead": "**Formalized since the first edition of this page** (Springer 2021 additions; V4.74–V4.77), on an M-polyfold: $[A, B] : X^2 \\to TX$, the bracket of the principal parts in any chart, is sc-smooth and covers the inclusion $X^2 \\to X^1$ (`proposition_4_4_5_2021`, V4.76), independently of the chart (V4.75), by Lemma 4.5.1, whose proof the text leaves to the reader and which is proved by the computation of §4.5.2 in a local model (V4.74) and on M-polyfolds for every sc-smooth map (V4.77); the local model is V4.67–V4.72 (gap G.38, closed). \"Section of $TX|X^2 \\to X^2$\" is read as a map $X^2 \\to TX$ over the inclusion; the pull-back bundle itself and Lemma 4.5.1 for local sc-diffeomorphisms between open subsets are gap G.92. The sentence of p. 201 that the bracket at $x \\in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157, 161, 162).",
    "decls": [
+    "Chapter4/VectorFieldsGlobal · proposition_4_4_5_2021",
+    "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
+    "Chapter4/VectorFieldsGlobal · lemma_4_5_1_2021",
+    "Chapter4/VectorFieldsGlobal · retractLieBracket_natural",
     "Chapter4/VectorFields · proposition_4_4_5_local_2021",
     "Chapter4/VectorFields · retractLieBracket_mem_tangent"
+   ],
+   "formalized": [
+    "V4.74",
+    "V4.75",
+    "V4.76",
+    "V4.77"
    ]
   },
   {
@@ -17701,14 +18907,26 @@
    "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
    "page": 195,
    "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
-   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$, $i \\ge 2$, with $(TX)^i \\cong T(X^i)$ (gap G.6), Lemma 4.5.1, and integration on manifolds with corners. The vector fields of Definition 4.4.3 and the bracket of Proposition 4.4.5 are formalized in a local model (V4.67–V4.72). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158)."
+   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$ with $(TX)^i \\cong T(X^i)$ for all $i$ (gap G.6, closed), and integration on manifolds with corners. The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized, in a local model (V4.67–V4.72, V4.74) and on an M-polyfold (V4.68, V4.75–V4.79). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158)."
+  },
+  {
+   "g": 92,
+   "title": "Lemma 4.5.1 for local sc-diffeomorphisms between open subsets; the pull-back bundle $TX|X^2 \\to X^2$",
+   "label": "§4.4, Proposition 4.4.5, p. 196, and Appendix 4.5, Lemma 4.5.1, p. 201 (2021)",
+   "page": 201,
+   "book": "(New in the 2021 edition.) Lemma 4.5.1: a local sc-diffeomorphism $\\varphi : X \\to X$ that relates two vector fields relates their brackets. Proposition 4.4.5: the bracket is an sc-smooth section of the pull-back $TX|X^2 \\to X^2$ of $TX \\to X^1$ by the inclusion $X^2 \\to X^1$.",
+   "instead": "**Formalized for every sc-smooth map $f : X \\to Y$ of M-polyfolds** (V4.77), with the relations on $X^1$, and with the bracket an sc-smooth map $X^2 \\to TX$ over the inclusion (V4.76). **Not formalized:** a local sc-diffeomorphism between open subsets of $X$, which would need open subsets of an M-polyfold as M-polyfolds (it is covered only when it is the restriction of such an $f$), and the pull-back bundle $TX|X^2 \\to X^2$ as a bundle object (Findings, Chapter 4, item 163).",
+   "decls": [
+    "Chapter4/VectorFieldsGlobal · lemma_4_5_1_2021",
+    "Chapter4/VectorFieldsGlobal · proposition_4_4_5_2021"
+   ]
   },
   {
    "title": "Corollary 5.2.5 (preprint 5.8) beyond the chart level",
    "label": "§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)",
    "page": 173,
    "book": "$f^i$ is an sc-Fredholm section of $P^i : Y^i \\to X^i$ with compact solution set (\"it is a priori clear that $f^i$ is sc-Fredholm\").",
-   "instead": "**Formalized since the first edition of this page, for each fixed $i$** (fourth addendum; V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. Not formalized: one statement for a family $P^i$ indexed by $i$, the identification of $(X^1)^1$ with $X_2$ as topological spaces (the sets agree; gap G.6), and the tame form of the conclusion (the tameness of the index raises of tame charts) (Findings, Chapter 5, items 140–146).",
+   "instead": "**Formalized since the first edition of this page, for each fixed $i$** (fourth addendum; V5.13, V5.14). The shifted strong bundle $P^1 : Y^1 \\to X^1$ is built (total space $Y_{1,1}$, the index raises of the strong bundle charts as atlas), and $f^1$ is an sc-Fredholm section of it with compact solution set, with condition (3) of the filling on level $1$ proved for the data of Definition 3.1.11 (preprint 3.11) (by Lemma 3.1.20 (preprint 3.17) and Proposition 3.6.5 (preprint 3.52) in sc form; it does not follow from level $0$ alone); $f^2$ on $P^2 = (P^1)^1$ by iteration, and so every fixed $i$. Not formalized: one statement for a family $P^i$ indexed by $i$ and the tame form of the conclusion (the tameness of the index raises of tame charts) (Findings, Chapter 5, items 140–146). The identification of $(X^1)^1$ with $X_2$ as topological spaces is V2.93 (gap G.6, closed).",
    "decls": [
     "Chapter5/StrongBundleShift · StrongBundle.shift",
     "Chapter5/Corollary58 · IsFillingGerm.germ_shift",
@@ -18002,9 +19220,41 @@
    "label": "§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)",
    "page": 253,
    "book": "For $T'$ near $T$ with $P, Q \\in \\Pi_{T'}$, the constructions of $A_{T'}$ and $B_{T'}$ depend continuously on $T'$ (keeping $X$, the equation for $x(e)$ stays uniquely solvable).",
-   "instead": "**Not formalized.** It needs a closed common complement $X$ of the kernels (the formalized one is algebraic, V6.66) and a topology on the family of kernels $\\ker(PT')$, between which $A_{T'}$ acts; the algebraic part is V6.67 (Findings, Chapter 6, item 113).",
+   "instead": "**Formalized since the first edition of this page** (V6.69, V6.70). A closed common complement $X$ of the kernels exists (`exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq`), and with it $A_S$ (extended to $E$) and $B_S$ (lifted to $F$) depend continuously on $S$ near $T$ in the operator norm, also jointly with the vector, i.e. on the kernel bundle of Remark 6.4.5; for every such $S$ they are the text's isomorphisms filling the diagram (`proposition_6_4_13_continuity_2021`). The algebraic part is V6.67 (Findings, Chapter 6, items 113, 117).",
    "decls": [
-    "Chapter6/Book2021 · proposition_6_4_13_2021"
+    "Chapter6/Book2021 · proposition_6_4_13_2021",
+    "Chapter6/Book2021Continuity · exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq",
+    "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021"
+   ],
+   "formalized": [
+    "V6.69",
+    "V6.70"
+   ]
+  },
+  {
+   "g": 90,
+   "title": "Theorem 6.6.17 (2) without connected smooth neighbourhoods",
+   "label": "§6.6, Theorem 6.6.17 (2), p. 275 (new in the 2021 edition)",
+   "page": 275,
+   "book": "For every $x \\in X_\\infty$ there is an open $U = U(x)$ in $X$ such that $O_f|(U \\cap X_\\infty)$ has precisely two continuous sections.",
+   "instead": "**Proved only under `MPolyfold.HasConnectedSmoothNbhds`** (V6.74, V6.75): every smooth point has arbitrarily small open neighbourhoods $U$ in $X$ with $U \\cap X_\\infty$ connected in $X_\\infty$. Every continuous section over $U \\cap X_\\infty$ is locally one of the two continuous orientations, so (2) needs such a $U$; Part I does not state the fact, and the paths of `exists_nhds_scPath` join the smooth points of a small $V$ only inside a larger $U$. It holds for $\\mathbb R^n$ (`rnPolyfold_hasConnectedSmoothNbhds`) and is open in general. The proofs of §7.4 use that $U \\cap X_\\infty$ is connected for connected open $U$ (`MPolyfold.SmoothConnected`, gap G.85), which, as we read it, gives the hypothesis, M-polyfolds being locally path connected (Proposition 2.3.7). Existence and uniqueness of the Hausdorff topology with (1) and (3) need no such hypothesis (`existsUnique_orientationTopology_2021`) (Findings, Chapter 6, item 120).",
+   "decls": [
+    "Chapter6/OrientationSpace · MPolyfold.HasConnectedSmoothNbhds",
+    "Chapter6/OrientationSpace · hasTwoContSections_orTopology",
+    "Chapter6/OrientationSpace · theorem_6_6_17_2021",
+    "Chapter6/OrientationSpace · existsUnique_orientationTopology_2021"
+   ]
+  },
+  {
+   "g": 91,
+   "title": "The remarks after Theorem 6.6.17: the orientation bundle, orientability, $\\mathbb Z_2$ and $\\det_f$",
+   "label": "§6.6, after Theorem 6.6.17, p. 275 (new in the 2021 edition)",
+   "page": 275,
+   "book": "$\\pi_f : O_f \\to X_\\infty$ with the topology of Theorem 6.6.17 is the orientation bundle of $f$; $f$ is orientable iff $\\pi_f$ has a global continuous section; $\\mathbb Z_2$ acts continuously on $O_f$ by $(x, o_x) \\mapsto (x, -o_x)$; $\\det_f = \\mathbb R \\otimes_{\\mathbb Z_2} O_f \\to X_\\infty$ is the determinant bundle of $f$.",
+   "instead": "**Not formalized.** The topology itself is V6.73–V6.75; the comparison of global continuous sections of $\\pi_f$ with the orientations of Definitions 6.6.14–6.6.16 (V6.58–V6.60), the $\\mathbb Z_2$-action and the line bundle $\\det_f$ are not formalized (Findings, Chapter 6, item 121).",
+   "decls": [
+    "Chapter6/OrientationSpace · orTopology",
+    "Chapter6/OrientationSpace · theorem_6_6_17_2021"
    ]
   },
   {
@@ -18098,12 +19348,21 @@
    "label": "§7.4, Proposition 7.4.9, p. 333, and Proposition 7.4.18, p. 336 (new in the 2021 edition)",
    "page": 333,
    "book": "Proposition 7.4.9: if $X$ satisfies the Zhou condition, so does every $X^i$ (the condition (ZHOU') being the same for $X$ and $X^i$). Proposition 7.4.18: (VSLUC) and (SLUC) are equivalent. Corollary 7.4.11, Theorems 7.4.13, 7.4.24 and Proposition 7.4.16 use them for every $X^i$.",
-   "instead": "**Not formalized**: Proposition 7.4.9 needs the identification of $(X^i)_\\infty$ with $X_\\infty$ and of the tangent spaces of $X^i$ with those of $X$ (gaps G.6, G.7); Proposition 7.4.18 ((SLUC) implies (VSLUC)) needs natural representations of $X^N$ in terms of those of $X$. So Corollary 7.4.11 for all $i$, Theorems 7.4.13, 7.4.24 and Proposition 7.4.17 take the per-level hypotheses ((ZHOU), resp. (VSLUC), for every $X^i$), and Proposition 7.4.16 is proved for $X^1$ (V7.90–V7.92, V7.94) (Findings, Chapter 7, item 137).",
+   "instead": "**Formalized since the first edition of this page** (Springer 2021 additions; V7.102–V7.104). The inclusions $X_{m+1} \\to X_m$ are continuous and $(X^1)_\\infty \\to X_\\infty$ is a homeomorphism; with Part I's Proposition 2.3.17 for $i = 1$ and the comparison of the natural representations of $X$ and $X^1$, (ZHOU') passes from $X$ to $X^1$, hence to every $X^i$, and Proposition 7.4.9 follows, with Corollary 7.4.11, Theorems 7.4.13 and 7.4.24 for (ZHOU) on $X$ only (V7.102). (VSLUC) and the density of $X_\\infty$ pass from $X$ to every $X^i$, giving Propositions 7.4.16 and 7.4.17 (V7.103). Proposition 7.4.18 is proved in both directions, (SLUC) ⇒ (VSLUC) under natural representations with every $U(x) \\cap X_m$ connected, which the text takes by construction (V7.104). Not formalized: (ZHOU') from $X^i$ back to $X$, which the proof does not use; the Part I facts stay hypotheses on every level (gap G.85) (Findings, Chapter 7, items 137, 148–150).",
    "decls": [
-    "Chapter7/Zhou · EpGroupoid.corollary_7_4_11_2021_lift",
-    "Chapter7/Zhou · EpGroupoid.theorem_7_4_13_2021",
-    "Chapter7/Zhou · EpGroupoid.proposition_7_4_17_2021",
-    "Chapter7/Zhou · EpGroupoid.theorem_7_4_24_2021"
+    "Chapter7/ZhouLevels · EP.isZhou'_lift",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_9_2021",
+    "Chapter7/ZhouLevels · EP.corollary_7_4_11_all_2021",
+    "Chapter7/ZhouLevels · EP.theorem_7_4_13_all_2021",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_16_all_2021",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_17_all_2021",
+    "Chapter7/ZhouLevels · EP.proposition_7_4_18_2021",
+    "Chapter7/ZhouLevels · EP.theorem_7_4_24_all_2021"
+   ],
+   "formalized": [
+    "V7.102",
+    "V7.103",
+    "V7.104"
    ]
   },
   {
@@ -18112,11 +19371,13 @@
    "label": "§7.4, Lemma 7.4.4, p. 329, and the proofs of Lemma 7.4.6 to Proposition 7.4.22, pp. 331–340 (new in the 2021 edition)",
    "page": 329,
    "book": "The proofs use facts about M-polyfolds: $X_\\infty$ dense in every $X_m$; $U(x) \\cap X_\\infty$ connected for connected open $U(x)$; tangent vectors approximated by tangent vectors at nearby smooth points; sc-smooth maps agreeing near a smooth point in $X_\\infty$ have the same tangent there; $(T_xX)_\\infty$ dense in $T_xX$. The proof of Lemma 7.4.4 uses that $U(x) \\cap X_1$ is connected in $X^1$ and dense in $U(x)$.",
-   "instead": "**Not formalized**; explicit, satisfiable hypotheses: `MPolyfold.SmoothRegular` (`DenseSmooth`, gap G.73; `SmoothConnected`; the openness of $p : TX \\to X^1$, gap G.8; `TangentDeterminedSmooth`), `MPolyfold.DenseSmoothTangent`, and `HasLevelOneConnectedDenseReps` / `HasConnectedDenseLevelOneReps`, each satisfied by the point ep-groupoid (V7.83, V7.85, V7.86) (Findings, Chapter 7, items 133, 134).",
+   "instead": "**Not formalized**; explicit, satisfiable hypotheses: `MPolyfold.SmoothRegular` (`DenseSmooth`, gap G.73; `SmoothConnected`; the openness of $p : TX \\to X^1$, gap G.8; `TangentDeterminedSmooth`), `MPolyfold.DenseSmoothTangent`, and `HasLevelOneConnectedDenseReps` / `HasConnectedDenseLevelOneReps`, each satisfied by the point ep-groupoid (V7.83, V7.85, V7.86) (Findings, Chapter 7, items 133, 134). Since the second batch of 2021 additions the results for every $X^i$ take these facts on every level: `SmoothRegular` for every $X^i$ (V7.102), `SmoothConnected` for every $X^i$ (V7.103, V7.104); `DenseSmooth` passes from $X$ to every $X^i$ by proof (`EP.denseSmooth_lift`). Proposition 7.4.18 also takes natural representations with every $U(x) \\cap X_m$ connected, `NaturalRep.LevelConnected`, the text's \"by construction\" (V7.104) (Findings, Chapter 7, items 148–150).",
    "decls": [
     "Chapter7/Zhou · MPolyfold.SmoothRegular",
     "Chapter7/Zhou · MPolyfold.DenseSmoothTangent",
-    "Chapter7/Zhou · EpGroupoid.HasLevelOneConnectedDenseReps"
+    "Chapter7/Zhou · EpGroupoid.HasLevelOneConnectedDenseReps",
+    "Chapter7/ZhouLevels · EpGroupoid.NaturalRep.LevelConnected",
+    "Chapter7/ZhouLevels · EP.denseSmooth_lift"
    ]
   },
   {
@@ -18124,7 +19385,7 @@
    "label": "§8.2, Definitions 8.2.1 and 8.2.2 (2017: 8.2 and 8.3), pp. 372–375 (2017 pp. 268–270)",
    "page": 268,
    "book": "Definition 8.2.1 (2017: 8.2): an sc-differential $k$-form on the ep-groupoid $(X, \\mathbf X)$ is an sc-smooth map $\\omega : \\oplus^k TX \\to \\mathbb R$ on the Whitney sum of the tangent of the object M-polyfold, linear in each argument and skew-symmetric, with $(T\\varphi)^*\\omega_y = \\omega_x$ for every morphism $\\varphi : x \\to y$ in $\\mathbf X_1$; $\\Omega^k_{ep}(X)$ is the vector space of these forms. A form on $X^i$ is a form on $X^{i+1}$, and $\\Omega^*_{ep,\\infty}(X)$ is the direct limit of the directed system $\\Omega^*_{ep}(X^i) \\to \\Omega^*_{ep}(X^k)$, $i \\le k$. The exterior derivative is $d[\\omega] := [d\\omega]$, with $d\\omega$ compatible with morphisms and $d \\circ d = 0$. Definition 8.2.2 (2017: 8.3): $(\\Omega^*_{ep,\\infty}(X), d)$ is the sc-de Rham complex of the ep-groupoid $X$.",
-   "instead": "**Not formalized.** It needs the Whitney sums $\\oplus^k TX$ as M-polyfolds, the linear structure of $T_xX$ (gap G.7), linear maps $T\\varphi$ (gap G.70), the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6) and the sc-differential forms, the Lie bracket and the exterior derivative of Part I's §4.4 (gaps G.37–G.39), none of which is formalized. Nothing else in Chapter 8 depends on it. Definition 8.2.1 (2017: 8.2) writes $T_yY$ for $T_yX$ (possible misprint) (Findings, Chapter 8, item 110)."
+   "instead": "**Not formalized.** It needs the Whitney sums $\\oplus^k TX$ as M-polyfolds, the linear structure of $T_xX$ (gap G.7), linear maps $T\\varphi$ (gap G.70), the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6, closed since: V2.93, V2.97) and the sc-differential forms, the Lie bracket and the exterior derivative of Part I's §4.4 (gaps G.37–G.39), which are not formalized; the Lie bracket on an M-polyfold is formalized since (V4.76, gap G.38 closed). Nothing else in Chapter 8 depends on it. Definition 8.2.1 (2017: 8.2) writes $T_yY$ for $T_yX$ (possible misprint) (Findings, Chapter 8, item 110)."
   },
   {
    "title": "Lemma 8.1.2 (2017: 8.1): $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ and $m_{T\\mathbf X} = Tm$",
@@ -18159,15 +19420,17 @@
   },
   {
    "g": 88,
-   "title": "Proposition 8.1.16 without `TangentZhouReflect`, and Proposition 8.1.17 (2) for $(TX)^i$, $i \\ge 1$",
-   "label": "§8.1, Proposition 8.1.16, p. 369, and Proposition 8.1.17 (2), p. 371 (new in the 2021 edition)",
+   "title": "Proposition 8.1.16 without `TangentZhouReflect`",
+   "label": "§8.1, Proposition 8.1.16, p. 369 (new in the 2021 edition)",
    "page": 369,
-   "book": "Proposition 8.1.16: (ZHOU) for $X$ gives (ZHOU) for $TX$, by differentiating (8.16) and using that $T\\tau$ is onto. Proposition 8.1.17 (2): (SLUC) for $X$ gives (SLUC) for $TX$, i.e. LUC for every $(TX)^i$.",
-   "instead": "**Not formalized** in full: the step $T(g, h) = \\mathrm{id} \\Rightarrow Tg = \\mathrm{id}$ needs the second tangent bundle $T(TX)$ and $T\\tau$, and is the hypothesis `TangentZhouReflect` (V8.44); (2) needs $(TX)^i = T(X^i)$ and is proved for $(TX)^0$ (V8.45) (Findings, Chapter 8, items 115, 116).",
+   "book": "Proposition 8.1.16: (ZHOU) for $X$ gives (ZHOU) for $TX$, by differentiating (8.16) and using that $T\\tau$ is onto.",
+   "instead": "**Not formalized** for Proposition 8.1.16: the step $T(g, h) = \\mathrm{id} \\Rightarrow Tg = \\mathrm{id}$ needs the second tangent bundle $T(TX)$ and $T\\tau$, and is the hypothesis `TangentZhouReflect` (V8.44). The entry's second part, Proposition 8.1.17 (2) for every $(TX)^i$ (p. 371), which needed $(TX)^i = T(X^i)$ and was proved for $(TX)^0$ (V8.45), is **formalized since the first edition of this page** (Springer 2021 additions; V8.52): Part I's Proposition 2.3.17 gives $T(X^i) \\cong (TX)^i$ as ep-groupoids (sc-diffeomorphisms of objects and morphisms commuting with source and target), which transports LUC by Proposition 7.2.21 (Findings, Chapter 8, items 115, 116, 124).",
    "decls": [
     "Chapter8/TangentZhou · EpGroupoid.TangentZhouReflect",
     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16_2021",
-    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_two"
+    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_two",
+    "Chapter8/TangentZhouLevels · EP.tangentLiftEpEquiv",
+    "Chapter8/TangentZhouLevels · EP.proposition_8_1_17_two_all_2021"
    ]
   },
   {

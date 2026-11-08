@@ -376,9 +376,9 @@ $d\circ d = 0$.
 **Definition 8.2.2 (2017: 8.3).** $(\Omega^*_{ep,\infty}(X),d)$ is the sc-de Rham complex of $X$.
 
 *Not formalized* (gap G.74). The two definitions need the Whitney sums $\oplus^kTX$ as M-polyfolds, the linear structure of
-the fibres $T_xX$ (gap G.7), linear tangent maps $T\varphi$ (gap G.70), the levels $X^i$ for $i\ge2$ (gap G.6), and the
-sc-differential forms, the Lie bracket and the exterior derivative of Part I's §4.4, none of which is formalized either
-(gaps G.37–G.39). Nothing else in the chapter uses them. Possible misprints: Definition 8.2.1 (2017: 8.2) writes "$T\varphi:T_xX\to T_yY$" for
+the fibres $T_xX$ (gap G.7), linear tangent maps $T\varphi$ (gap G.70), the levels $X^i$ for $i\ge2$ (gap G.6, closed since),
+and the sc-differential forms, the Lie bracket and the exterior derivative of Part I's §4.4, none of which is formalized either
+(gaps G.37–G.39; the Lie bracket on an M-polyfold is formalized since, gap G.38 closed). Nothing else in the chapter uses them. Possible misprints: Definition 8.2.1 (2017: 8.2) writes "$T\varphi:T_xX\to T_yY$" for
 $T_yX$ (2017 p. 269), as Remark 8.1.10 (2017: 8.1) does; and in the argument that $d\omega$ is compatible with morphisms (2017 p. 269), "$x = s(\varphi)\in U(x_0)\cap X_1$
 and $y = t(\varphi_0)$" has $t(\varphi_0)$ for $t(\varphi)$, the target of the morphism whose tangent follows (Findings, items 110, 114).
 
@@ -1018,9 +1018,13 @@ Theorem 7.6.7, $(\mathbf X^1)^T = (\mathbf X^T)^1$, and the last step of Proposi
 $(\mathbf X^1)^T$, closed, and $TX$ has LUC by Proposition 7.2.21. $\square$
 
 The hypotheses are those of Theorem 7.6.7 — $U(x)\cap X_1$ connected in $X^1$ and dense in $U(x)$ (the density is gap G.73) — and the
-openness of $p:T\mathbf X\to\mathbf X^1$ (gap G.8). (2) is checked for $(TX)^0 = TX$; for $i\ge1$ it needs $(TX)^i = T(X^i)$ (gap G.88) (Findings,
-item 116). *Checked by machine (V8.45):* `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq`,
-`Polyfold.EpGroupoid.proposition_8_1_17_2021_one`, `Polyfold.EpGroupoid.proposition_8_1_17_2021_two`.
+openness of $p:T\mathbf X\to\mathbf X^1$ (gap G.8). (2) is checked for every $i$, with these hypotheses on every $X^i$: (1) gives LUC
+for $T(X^i)$, and Part I's Proposition 2.3.17 gives $T(X^i)\cong(TX)^i$ as ep-groupoids, by sc-diffeomorphisms of objects and
+morphisms commuting with source and target, which carry LUC by Proposition 7.2.21. Their compatibility with unit, inverse and
+composition, not needed for LUC, is not checked (gap G.88, closed for (2)) (Findings, items 116, 124). *Checked by machine (V8.45,
+V8.52):* `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq`, `Polyfold.EpGroupoid.proposition_8_1_17_2021_one`,
+`Polyfold.EpGroupoid.proposition_8_1_17_2021_two`, `Polyfold.EpGroupoid.EpEquiv.isLUC`, `Polyfold.EP.tangentLiftEpEquiv`,
+`Polyfold.EP.proposition_8_1_17_two_all_2021`.
 
 **Proposition 8.2.3 (Poincaré lemma).** Every object has saturated open neighbourhoods $V\subseteq U$ such that every closed sc-form on $U$
 in the sense of §5 has a primitive on $V$; the proof averages a primitive of Part I's Lemma 4.4.8 over $G_x$. Not formalized, with
@@ -1082,7 +1086,7 @@ That $\mu_{F^*V}$ makes $F^*V$ a strong bundle over the ep-groupoid $Y$ is not p
 | Where (2021 text) | HWZ say | What is actually needed |
 |---|---|---|
 | p. 369, Prop. 8.1.16 | differentiate (8.16), $T\tau$ onto | $T(TX)$: a hypothesis (G.88) |
-| p. 371, Prop. 8.1.17 | (SLUC) for $TX$ | $U(x)\cap X_1$ connected and dense, $p$ open; $(TX)^i = T(X^i)$ for $i\ge1$ (G.88) |
+| p. 371, Prop. 8.1.17 | (SLUC) for $TX$ | $U(x)\cap X_1$ connected and dense, $p$ open, on every $X^i$; $(TX)^i = T(X^i)$ through $s$, $t$ |
 | p. 380, Prop. 8.4.1 | three equivalent conditions | (2) ⇒ (1), by metrizability; the rest not formalized (G.86) |
 | p. 382, Def. 8.4.2 | "strong bundle isomorphism $B$" | a strong bundle map that is an isomorphism over $U(x)$ |
 | p. 394, Def. 8.5.9 (0) | new condition | contained in the reading of 2017 Def. 8.10 |
@@ -1113,7 +1117,7 @@ before Proposition 8.6.4 (2017: 8.4) and the category $\mathrm{Ban}$ of §8.6.2 
 covering functors have one-point fibres. The machine-checked statements are listed in `Exposition/Verification.md`
 (V8.1–V8.43), compared with the text in `Exposition/polyfold-beside-lean.html` and retold in `Exposition/ProofByProof.md`.
 The findings are `Exposition/Findings.md`, "Chapter 8", items
-1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the gaps in the numbering are unused numbers). The additions of the 2021 edition (§13) are formalized in `Book2021.lean` and `TangentZhou.lean`, verified as V8.44–V8.51, with
+1–13, 20–21, 30–35, 50–60, 70–75, 100–105 and 110–114 (numbered in blocks; the gaps in the numbering are unused numbers). The additions of the 2021 edition (§13) are formalized in `Book2021.lean`, `TangentZhou.lean` and `TangentZhouLevels.lean`, verified as V8.44–V8.52, with
 the gaps G.86–G.89 (Proposition 8.4.1 (1) ⇒ (2), (3) and Proposition 8.4.3; Proposition 8.2.3; Proposition 8.1.16 without
-`TangentZhouReflect` and Proposition 8.1.17 (2) for $i\ge1$; $F^*V$ as a strong bundle over $Y$ in Lemma 8.5.10), and their findings are
-items 115–123.
+`TangentZhouReflect`, Proposition 8.1.17 (2) for $i\ge1$ being closed; $F^*V$ as a strong bundle over $Y$ in Lemma 8.5.10), and their findings are
+items 115–124.

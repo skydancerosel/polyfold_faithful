@@ -949,10 +949,10 @@ the factor $\alpha(T_1) = -1$ restores $o^+$. This is the factor $\alpha(T_a)\al
 | p. 276 (preprint p. 230), Rem. 6.6.19 (preprint 6.42) | $h\mapsto\tilde h$ | the sign $(-1)^{\dim\operatorname{coker}L}$ |
 | preprint p. 232, Thm. 6.7.1 (preprint 6.43) | $\bar\omega = p_1^*\omega\wedge p_2^*dt$ | $p_1^*\omega$ (possible misprint) |
 
-## 11. The Springer 2021 edition (pp. 247, 253–255, 267–269)
+## 11. The Springer 2021 edition (pp. 247, 253–255, 267–269, 274–275)
 
-The 2021 edition sharpens two statements of §6.4 that the 2017 edition added (they have no preprint counterpart) and splits
-preprint Lemma 6.33 in two.
+The 2021 edition sharpens two statements of §6.4 that the 2017 edition added (they have no preprint counterpart), splits
+preprint Lemma 6.33 in two, and adds a topology on the orientation space $O_f$ (Theorem 6.6.17).
 
 **Lemma 6.4.4** *(book 2017: Lemma 6.3, p. 189).* For $T_0$ Fredholm and $P_0\in\Pi_{T_0}$ there is $\varepsilon>0$ such that every $T$ and every
 projection $P$ with $\|T-T_0\|<\varepsilon$, $\|P-P_0\|<\varepsilon$ have: $T$ Fredholm, $P\in\Pi_T$, and — new in 2021 —
@@ -973,11 +973,25 @@ with $x(e)\in X$ solving $QTx = QTe$ and $(1-P)f = Tx+\tilde f$, $x\in X$, $\til
 that make the diagram of the exact sequences $E(T,P)$ and $E(T,Q)$ of §3 commute. Here $X$ is a common complement of $\ker(PT)$
 and $\ker(QT)$, which have the same dimension because $PT$ and $QT$ have the index of $T$ and the same range $H$. Such an $X$ exists
 algebraically: if neither space contains the other, pick $a\in K_2\setminus K_1$ and $b\in K_1\setminus K_2$; then $a+b$ lies in neither, and induction
-on $\dim(K_1+K_2)-\dim K_1$ applies to $K_i+\mathbb R(a+b)$. The text takes $X$ closed. Its last sentence, that $A_T$ and $B_T$ depend
-continuously on $T$, is **not formalized** (gap G.81): $A_{T'}$ acts between the varying kernels $\ker(PT')$, $\ker(QT')$, so the
-statement needs a topology on that family and a closed $X$.
+on $\dim(K_1+K_2)-\dim K_1$ applies to $K_i+\mathbb R(a+b)$. The text takes $X$ closed; with a closed $X$ its last sentence, that $A_T$ and $B_T$
+depend continuously on $T$, is formalized too (next paragraph; gap G.81, closed).
 
 *Checked by machine:* `Polyfold.exists_isCompl_isCompl_of_finrank_eq`, `Polyfold.proposition_6_4_13_2021`.
+
+**Proposition 6.4.13, the last sentence.** A closed common complement exists: with the algebraic $X_0$ above and a closed
+complement $Z$ of the finite-dimensional $K_1+K_2$,
+$$X = Z+X_0\cap(K_1+K_2)$$
+is closed and complements $K_1$ and $K_2$ topologically. Fix it for $\ker(PT)$, $\ker(QT)$. For $S$ near $T$, $QS|_X : X\to R(Q)$ stays an
+isomorphism (Lemma 6.5.1 (preprint 6.17)), and the text's solution $x(e)$ of (6.15) becomes the operator
+$$\xi_S = (QS|_X)^{-1}\circ Q,\qquad A_S = 1-\xi_S\circ S,\qquad B_S = (1-P)-S\,\xi_S(1-P),$$
+the second on all of $E$, the third lifting $B_S$ to $F$. Inversion being continuous at isomorphisms, $\xi_S$, $A_S$ and $B_S$ are continuous in
+$S$ in the operator norm, and jointly with the vector; for every such $S$, $P,Q\in\Pi_S$, $X$ complements $\ker(PS)$ and $\ker(QS)$
+topologically, and $A_S$, $B_S$ induce the text's isomorphisms $\ker(PS)\to\ker(QS)$ and $F/H\to F/H$ filling the diagram. We read "depend
+continuously" as this continuity of the extensions to $E$ and $F$; the joint continuity is continuity on the kernel bundle
+$\bigcup_S\{S\}\times\ker(PS)$ of Remark 6.4.5 (Findings, items 116, 117).
+
+*Checked by machine:* `Polyfold.exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq`, `Polyfold.solveOp`, `Polyfold.kerTransition`,
+`Polyfold.cokerTransition`, `Polyfold.continuousAt_solveOp`, `Polyfold.diagram_of_solveOp`, `Polyfold.proposition_6_4_13_continuity_2021`.
 
 **Lemma 6.6.9** *(new in the 2021 edition as a separate lemma; preprint Lemma 6.33, 2017: Lemma 6.15).* Adding sc$^+$-sections
 $\sum\mu_j\bar s_j(y,t)$ to a section with property (P) does not change the propagation of orientation. It is the statement of preprint
@@ -986,12 +1000,41 @@ enter as dummy variables change nothing. Both are §5's identity of push-forward
 
 *Checked by machine:* `Polyfold.lemma_6_6_8_2021`, `Polyfold.lemma_6_6_9_2021`.
 
+**Theorem 6.6.17** *(new in the 2021 edition, p. 275).* The orientation space
+$$O_f = \{(x,o) : x\in X_\infty,\ o \text{ an orientation of } \mathrm{DET}(f,x)\},\qquad \pi_f(x,o) = x,$$
+two points over each $x$, appears in the earlier texts as a set; the 2021 text gives it a topology. With $X_\infty$ in the topology of
+Theorem 2.3.10, the theorem asks for the unique Hausdorff topology with (1) $\pi_f$ a local homeomorphism, (2) every $x\in X_\infty$ having an
+open $U$ in $X$ over whose smooth part there are exactly two continuous sections, and (3) a continuous section $t\mapsto(\varphi(t),o_t)$ along an
+sc-smooth path having $o_t$ equal, for $t$ near $t_0$, to the local propagation of $o_{t_0}$. The proof is left to the reader.
+
+The formalization reads Or$^f_x$ in the chosen chart (§6), paths as sc-smooth maps $\mathbb R\to X$ on $[0,1]$, and "the local propagation" as
+the push-forward along the segment of $\varphi$ from $t_0$ to $t$ inside a set with the local propagation property. It calls a family
+$y\mapsto o_y$ over an open $U$ a *continuous orientation* if the transport of $\Gamma_f$ carries it along every sc-smooth path in $U$, and
+declares $W\subseteq O_f$ open when $\{y\in U_\infty : (y,o_y)\in W\}$ is open for every continuous orientation. The sheets $\{(y,o_y)\}$ are then
+open, $\pi_f$ maps each homeomorphically onto $U_\infty$, two sheets through the two points over $x$ are disjoint near $x$, and (1), (3)
+and Hausdorffness follow. Uniqueness is stronger than stated: any topology with (1) and (3) is this one, since a continuous local
+section agreeing with a sheet at a point agrees with it along every short sc-smooth path from that point (an sc-smooth map
+$\mathbb R^n\to X$ is continuous into $X_\infty$, and nearby smooth points are joined by such paths staying close in $X_\infty$).
+
+Property (2) needs more. A continuous section over $U_\infty$ is locally one of the two sheets, so it is $y\mapsto(y,\pm o_y)$ when $U_\infty$ is
+connected. The formalization assumes that every smooth point has arbitrarily small open neighbourhoods $U$ with $U_\infty$
+connected in $X_\infty$, which holds for $\mathbb R^n$; Part I does not state it (gap G.90). §7.4 uses that $U_\infty$ is connected
+for connected open $U$ (gap G.85), which, as we read it, gives the hypothesis, $X$ being locally path connected (Proposition 2.3.7). Existence and uniqueness of a Hausdorff topology with (1) and (3) need no
+extra hypothesis. The hypotheses on $X$ and $f$ are those under which $\Gamma_f$ is built (§6). The remarks after the theorem — $\pi_f$ as the
+orientation bundle, orientability as a global continuous section, the $\mathbb Z_2$-action and $\det_f$ — are not formalized (gap G.91)
+(Findings, items 118–121).
+
+*Checked by machine:* `Polyfold.OrSpace`, `Polyfold.IsOrientationTopology`, `Polyfold.orTopology`, `Polyfold.isLocalHomeomorph_orProj`,
+`Polyfold.t2Space_orTopology`, `Polyfold.isPropagationContinuous_orTopology`, `Polyfold.eq_orTopology_of`,
+`Polyfold.hasTwoContSections_orTopology`, `Polyfold.MPolyfold.HasConnectedSmoothNbhds`,
+`Polyfold.existsUnique_orientationTopology_2021`, `Polyfold.theorem_6_6_17_2021`.
+
 *Other 2021 changes.* Proposition 6.4.15 (preprint 6.15) now states its hypotheses $T$ Fredholm and $T\oplus\varphi$ onto, which §3 already
 uses; Proposition 6.6.3 (preprint 6.28) assumes $X$ tame and lets the sections take values in $Y\times[0,1]$, while §5 proves it without
 tameness, on the pull-back over $\mathbb R^n\times X$; Lemma 6.6.5 (preprint 6.30) now describes the solution set near $(t,\varphi(t),0)$ in the
 points $(t,y,\lambda)$, where the earlier texts write $(t,y,0)$ (possible misprint), and its kernel family in §5 is unaffected.
 
-The findings are `Exposition/Findings.md`, "Chapter 6", items 110–115.
+The findings are `Exposition/Findings.md`, "Chapter 6", items 110–121.
 
 ---
 

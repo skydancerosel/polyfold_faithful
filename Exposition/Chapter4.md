@@ -573,8 +573,8 @@ edition.)*
 
 ## 9. sc-differential forms and de Rham cohomology (pp. 195–199 (preprint pp. 167–168); not formalized)
 
-**None of this section is formalized.** It needs the Whitney sum $\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7), the
-M-polyfolds $X^i$ for $i\ge2$ (gap G.6), and integration on manifolds with corners of varying dimension, which Mathlib lacks;
+**None of this section is formalized**, except Proposition 4.4.5 (preprint 4.26) in its 2021 form (§13). It needs the Whitney sum $\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7), the
+M-polyfolds $X^i$ for $i\ge2$ with $(TX)^i\cong T(X^i)$ (gap G.6, now closed, §13), and integration on manifolds with corners of varying dimension, which Mathlib lacks;
 and Theorem 4.4.7 (preprint 4.28) has no proof in the text.
 
 **Definition 4.4.1 (preprint 4.25).** An *sc-differential $k$-form* is an sc-smooth $\omega:\oplus^kTX\to\mathbb R$, linear in each argument and
@@ -658,7 +658,7 @@ $20\,^\circ$C), at which the direct sound front changes topology in the corner.
 | p. 175 (preprint p. 147), Def. 4.1.1 (preprint 4.1) | charts "with the constant sc-structure" | varying dimension; only one sc-structure on a finite-dimensional space, by density (Lemma 12.A) |
 | p. 176 (preprint p. 147), Thm. 4.1.2 (preprint 4.2) | "for a tame M-polyfold" | tameness unused; (i) makes $X$ tame |
 | preprint pp. 147, 159, 162 | charts with $\psi(x) = 0$ | re-centring at a smooth point, model in $C_{\varphi(x)}$ on $G(\varphi(x))$ (§3) |
-| p. 176 (preprint p. 148), Rem. 4.1.3 (preprint 4.3) | "$X^1\ne X$ is possible"; "$= X_i$" | no example; $X_0$; levels of $X^1$ (G.6) |
+| p. 176 (preprint p. 148), Rem. 4.1.3 (preprint 4.3) | "$X^1\ne X$ is possible"; "$= X_i$" | no example; $X_0$; levels of $X^1$ (G.6, closed) |
 | p. 177 (preprint p. 148), Lemma 4.1.5 (preprint 4.5) | "$s(V) = 0$" | $s(V) = O$ |
 | p. 177 (preprint p. 149), Lemma 4.1.7 (preprint 4.7) | "$Dr(o)$ is a sc$^+$-operator ... finite-dimensional" | sc$^+$-maps, the lift's derivative; Riesz for compact projections |
 | p. 177 (preprint p. 149), Prop. 4.1.8 (preprint 4.8) | retract form; "the lemma is proved" | the chart form; "proposition" |
@@ -679,7 +679,7 @@ $20\,^\circ$C), at which the direct sound front changes topology in the corner.
 | p. 193 (preprint p. 165), proof | "finitely many such neighborhoods" | countable subcover, $A$ second countable |
 | p. 194 (preprint p. 166), proof | "By Theorem 4.23 ... dimension $\dim A-\#\sigma$" | Thm. 4.2.11 (preprint 4.22); the count is not in 4.22 |
 | p. 194 (preprint p. 166), proof | "$A_\lambda$ is a smooth compact manifold" | sc$^+$-retraction onto $A_\lambda$; IFT at corners (Lemma 5.26's (preprint; not in the 2021 edition) argument); Thm. 3.8.22 (preprint 3.78) in $C^\infty$ form |
-| preprint p. 167, §4.4 | forms on $\oplus^kTX$, $X^i$, $\partial X$ | these as M-polyfolds (G.6, G.7); forms on $\partial X$ defined |
+| preprint p. 167, §4.4 | forms on $\oplus^kTX$, $X^i$, $\partial X$ | these as M-polyfolds (G.6 closed: $X^i$ is; G.7); forms on $\partial X$ defined |
 | preprint p. 167, $d$ | "$d:\Omega^k(X^{i+1})\to\Omega^{k+1}(X^i)$"; $d^2 = 0$ | presumably $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$; unproved |
 | p. 199 (preprint p. 168), Thm. 4.4.7 (preprint 4.28) | "$\int_Md\omega$", no proof | $\int_N$; integration on manifolds with corners |
 
@@ -740,7 +740,8 @@ in every chart, is one.
 "by the natural identification" of $(TX)^i$ with $T(X^i)$. In a local model, for $i = 1$, the identification is
 $T(O^1) = (TO)^1$ — both are the points $(x,h)\in E_2\oplus E_1$ with $Dr(x)h = h$, because the derivative of $r^1$ is the
 level-$1$ restriction of $Dr$ — and the level map $A_1:E_2\to E_1$ is a vector field on $O^1$. On an M-polyfold the identification
-of $(TX)^i$ and $T(X^i)$ as M-polyfolds is gap G.6.
+of $T(X^1)$ and $(TX)^1$, and of $T(X^i)$ and $(TX)^i$ for every $i$, is Part I's Proposition 2.3.17 (gap G.6, closed), and the
+lemma is proved below.
 
 *The second derivative.* For an sc$^2$ map $f$, $z\in U_2$ and $a,b\in E_1$, let $D^2f(z)(a,b)$ be the second component of
 $D(Tf)(z,a)(b,0)$, the derivative of $z\mapsto Df(z)a$ in the direction $b$. It is needed because $A(x)$, $B(x)$ lie only in $E_1$,
@@ -772,9 +773,42 @@ and for $x_k = (k+1)^{-3}\in E_2$ the level-$1$ coordinates $(k+1)[S,T](x)_k$ ha
 $P = \tfrac{k+1}{k+2}$, so $[S,T]x\notin E_1$. What holds is the shifted statement $x\in O_{m+2}\Rightarrow[A,B](x)\in E_m$: $[A,B](x)$ is
 a tangent vector at the point $x$ of level $1$ of $X^1$, which is what the proposition says.
 
-*Not formalized.* Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold (they need $(TX)^i\cong T(X^i)$, gap G.6, the pull-back
-$TX|X^2\to X^2$, and Lemma 4.5.1, the independence of the chart, whose proof the text leaves to the reader — the computation of
-§4.5.2, which ends with "The proof of Proposition 4.5.1 is complete", a possible misprint for Lemma 4.5.1, is that proof).
+**Lemma 4.5.1 and the independence of the chart.** If an sc-smooth map relates two pairs of vector fields, it relates their
+brackets. In a local model, for $f$ sc-smooth between the retracts $O$, $O'$, $g = f\circ r$, and $Dg(x)A(x) = A'(f(x))$,
+$Dg(x)B(x) = B'(f(x))$ on $O_1$: differentiating the first relation at $x\in O_2$ in the direction $B(x)$ gives
+$$D^2g(x)(A(x),B(x))+Dg(x)D\tilde A(x)B(x) = D\tilde A'(f(x))\,Dg(x)B(x) = D\tilde A'(f(x))B'(f(x)),$$
+the second relation used on level $1$; the same with $A$, $B$ exchanged, subtracted, with the symmetry of $D^2g$, gives
+$Dg(x)[A,B](x) = [A',B'](f(x))$. This is the computation of §4.5.2 (which ends with "The proof of Proposition 4.5.1 is complete", a
+possible misprint for Lemma 4.5.1); the text states the lemma with the relations at points of $X_2$, but the computation
+differentiates them, so they are needed on an open set of level $1$. The same holds for $f$ defined only on an open part $O\cap W$,
+the shape of a transition map of charts. Hence the *principal parts* $A_\varphi$ of a vector field in charts, given by
+$T\varphi(A(y)) = (\varphi(y),A_\varphi(\varphi(y)))$, are vector fields on the models, related by the transition maps, and so are the
+brackets $[A_\varphi,B_\varphi]$: the definition of $[A,B]$ does not depend on the chart, as p. 201 says.
+
+**Proposition 4.4.5 on an M-polyfold.** At $x\in X^2$ let $[A,B](x)\in T_xX$ be the vector represented by
+$[A_\varphi,B_\varphi](\varphi(x))$ in a chart $\varphi$ around $x$; in every chart $\psi$ it reads $(\psi(x),[A_\psi,B_\psi](\psi(x)))$. In the
+charts $(\psi^1)^1$ of $X^2$ and $T\psi$ of $TX$ the map $[A,B]$ is the local section $z\mapsto(z,[A_\psi,B_\psi](z))$, so $[A,B]$ is an
+sc-smooth map $X^2\to TX$ over the inclusion $X^2\to X^1$ — our reading of "an sc-smooth section of $TX|X^2\to X^2$"; the pull-back
+bundle itself is not built. The earlier statement, a vector field on $X^1$, would put $[A,B](x)$ in $E_1$ for $x\in X_2$, which the
+example above excludes; the 2021 statement is the one that holds as we read it.
+
+**Lemma 4.5.1 on M-polyfolds, and Lemma 4.4.4.** For an sc-smooth $f:X\to Y$ with level maps $f_1$, $f_2$ and
+$Tf\circ A = A'\circ f_1$, $Tf\circ B = B'\circ f_1$ on $X^1$, also $Tf\circ[A,B] = [A',B']\circ f_2$ on $X^2$: in charts this is the local
+form for $\psi\circ f\circ\varphi^{-1}$. It is more general in the map than the text's local sc-diffeomorphism $X\to X$; one between
+open subsets of $X$ is covered only through such an $f$, since open subsets are not built as M-polyfolds. Finally, with
+$\Phi:T(X^1)\to(TX)^1$ the sc-diffeomorphism of Proposition 2.3.17, $A^{(1)} = \Phi^{-1}\circ A_1$ is an sc-smooth vector field on $X^1$ with
+$\Phi(A^{(1)}(x)) = A(x)$: Lemma 4.4.4 for $i = 1$. Iterating, $A^{(i+1)} = (A^{(i)})^{(1)}$ is an sc-smooth vector field on $X^i$
+for every $i$, its value at $x$ is $A(x)$ under the inclusion $T(X^i)\to TX$, and through the identifications
+$\Phi_i:T(X^i)\to(TX)^i$ of Proposition 2.3.17 it is the $i$-th index raise of $A$: Lemma 4.4.4 as stated.
+
+*Checked by machine:* `Polyfold.retractLieBracket_natural`, `Polyfold.retractLieBracket_natural_inter` (Lemma 4.5.1 in a local
+model); `Polyfold.MPolyfold.principalPart`, `Polyfold.MPolyfold.IsScVectorField.chartLieBracket_change` (independence of the chart);
+`Polyfold.MPolyfold.lieBracket`, `Polyfold.MPolyfold.tangentChartMap_lieBracket`, `Polyfold.proposition_4_4_5_2021` (Proposition
+4.4.5); `Polyfold.lemma_4_5_1_2021` (Lemma 4.5.1); `Polyfold.MPolyfold.raiseIndex`, `Polyfold.lemma_4_4_4_2021` (Lemma 4.4.4,
+$i = 1$); `Polyfold.BundledMPolyfold.raiseIndexAll`, `Polyfold.lemma_4_4_4_all_2021` (Lemma 4.4.4, every $i$). The findings are `Exposition/Findings.md`, "Chapter 4", items 160–164.
+
+*Not formalized.* The pull-back bundle $TX|X^2\to X^2$ as a bundle, Lemma 4.5.1 for a local sc-diffeomorphism between open
+subsets of $X$ (gap G.92).
 Definitions 4.4.1–4.4.2, the exterior derivative $d:\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ — now running in the direction §9
 proposes — and $d^2 = 0$, Definition 4.4.6, Theorem 4.4.7 (now with $\int_N$) and the Poincaré Lemmas 4.4.8 and 4.5.2 (gap G.80). In
 the formula for $d\omega$ (p. 197) the sign $(-1)^{\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\ell+j}$ and $j$.
@@ -810,5 +844,5 @@ notion, without which the theorem is false, and the finite cover is countable. P
 Theorem 4.2.11 (4) (preprint 4.22), the sc$^+$-retraction onto $A_\lambda$ and its general position, Theorem 3.8.22 (preprint 3.78) in $C^\infty$ form. One step of the text
 is false (Lemma 4.2.8 (preprint 4.19)) and is repaired. Not formalized: Lemma 4.1.11 (preprint 4.10) (no longer used), the open question, the local form of Remark
 4.2.2 (preprint 4.14), local constancy of dimension, chart independence of stratified regularity, the identification of local and global faces,
-all of §4.4 (§9), and the application (§10), whose numbers were checked by a script. The findings behind this chapter are
+all of §4.4 (§9) except, in its 2021 form, Definition 4.4.3, Lemmas 4.4.4 and 4.5.1 and Proposition 4.4.5 (§13), and the application (§10), whose numbers were checked by a script. The findings behind this chapter are
 `Exposition/Findings.md`, "Chapter 4", items 1–108.

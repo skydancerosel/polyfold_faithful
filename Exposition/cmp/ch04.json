@@ -156,7 +156,7 @@
    ],
    "diff": [
     "“It is possible that $X^1 \\ne X$ as M-polyfolds although the sets agree” is proved by an example the preprint and 2017 texts do not give (fourth addendum of this page; formerly gap G.31); the 2021 edition (p. 176) gives a different one, the space of its Subsection 1.4.4, which is not formalized (Findings, Chapter 4, item 159). By Proposition 4.1.8 (preprint 4.8) an example is a retract $O = O_\\infty$ that is not an sc⁺-retract; it cannot come from a retraction whose level maps are $C^1$ (an argument, not formalized), so its retraction loses a level in its first derivative, as the splicings of HWZ do, and its sc-smoothness rests on a criterion with loss proved for it, not on Proposition 1.2.4 (preprint 1.19). In the example $X$ and $X^1$ even have different topologies on the same set (Findings, Chapter 4, items 140–146).",
-    "“$X^1 \\ne X$” is read as “$1_0^1$ is not sc-smooth”, equivalently (by `remark_4_3_isScDiffeo`) “the identity is not an sc-diffeomorphism $X \\to X^1$”. The sc-diffeomorphism clause needs only $X = X_1$, not $X_0 = X_\\infty$. “$(X^1)_m = X_{m+1} = X_i$” misprints $X_0$; $(X^1)_m = X_{m+1}$ holds as sets, the topologies of the iterated levels being gap G.6 (Findings, Chapter 4, items 5, 125). Hence “stronger” (formerly “narrower”, for the missing example)."
+    "“$X^1 \\ne X$” is read as “$1_0^1$ is not sc-smooth”, equivalently (by `remark_4_3_isScDiffeo`) “the identity is not an sc-diffeomorphism $X \\to X^1$”. The sc-diffeomorphism clause needs only $X = X_1$, not $X_0 = X_\\infty$. “$(X^1)_m = X_{m+1} = X_i$” misprints $X_0$; $(X^1)_m = X_{m+1}$ holds as sets and with the topologies of the iterated levels (`MPolyfold.shiftLevelHomeomorph`, V2.93; gap G.6, closed) (Findings, Chapter 4, items 5, 125). Hence “stronger” (formerly “narrower”, for the missing example)."
    ]
   },
   {
@@ -1679,7 +1679,7 @@
     "witness: the zero section"
    ],
    "diff": [
-    "Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are not covered by these items (V4.69, V4.72)."
+    "Only the definition and its satisfiability; Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are V4.78 and V4.76, with Lemma 4.5.1 in V4.74, V4.75 and V4.77."
    ]
   },
   {
@@ -1700,10 +1700,10 @@
    },
    "chips": [
     "local model, $i = 1$",
-    "M-polyfold form needs G.6"
+    "M-polyfold form: V4.78"
    ],
    "diff": [
-    "Larger $i$ follow by iterating the local statement. On an M-polyfold the lemma needs the identification of the M-polyfolds $(TX)^i$ and $T(X^i)$ (gap G.6), which the text calls natural (Findings, Chapter 4, item 153)."
+    "Larger $i$ follow by iterating the local statement. The lemma on an M-polyfold, with the identification of $(TX)^1$ and $T(X^1)$ that the text calls natural (Proposition 2.3.17, gap G.6, closed), is V4.78, and for every $i$ V4.79 (Findings, Chapter 4, items 153, 160)."
    ]
   },
   {
@@ -1778,10 +1778,10 @@
    },
    "chips": [
     "in a local model",
-    "M-polyfold form: G.6, Lemma 4.5.1"
+    "M-polyfold form: V4.76"
    ],
    "diff": [
-    "On an M-polyfold the statement needs $(TX)^i \\cong T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \\to X^2$ and Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader; not covered here (gap G.38). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, item 155)."
+    "The statement on an M-polyfold is V4.76, with Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, in V4.74, V4.75 and V4.77 (gap G.38, closed); the pull-back bundle $TX|X^2 \\to X^2$ is not built (gap G.92). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, item 155)."
    ]
   },
   {
@@ -1813,6 +1813,187 @@
    "diff": [
     "Read as $[A, B](x) \\in E_1$ the two sentences do not hold as we read them: $[S, T]x = ((-1)^k(k + 1)(2k + 3)x_{k+1})_k$, whose level-$1$ coordinates have absolute value $P^3 + P^2 \\ge 1/4$, $P = (k + 1)/(k + 2)$ (here $(T_xO)_1 = E_1$).",
     "Read as \"a tangent vector at the point $x$ of level $1$ of $X^1$\", i.e. $x \\in O_{m+2}$ gives $[A, B](x) \\in E_m$, the sentence is V4.72; Proposition 4.4.5 is not affected. A weighted $\\ell^2$ version is sketched, not formalized (Findings, Chapter 4, item 156)."
+   ]
+  },
+  {
+   "id": "V4.74",
+   "title": "Lemma 4.5.1 in a local model: the computation of §4.5.2",
+   "verdict": "restated",
+   "book": {
+    "label": "Appendix 4.5, Lemma 4.5.1, p. 201, and §4.5.2, pp. 201–202",
+    "page": 201,
+    "statement": "(New in the 2021 edition; the proof of the lemma is left to the reader.) If $\\varphi$ relates the vector fields, $D\\varphi \\cdot A = A \\circ \\varphi$ and $D\\varphi \\cdot B = B \\circ \\varphi$, it relates their brackets; §4.5.2 differentiates the relations at $x \\in O_2$ and uses the symmetry of the second derivative."
+   },
+   "lean": {
+    "statement": "`retractLieBracket_natural`: for $f$ sc-smooth between the retracts $O$, $O'$ and vector fields with $Df(x)A(x) = A'(f(x))$, $Df(x)B(x) = B'(f(x))$ on $O_1$ ($Df = D(f \\circ r)$), $Df(x)[A, B](x) = [A', B'](f(x))$ on $O_2$; the steps `IsRetractVectorField.diff_related` (the relation differentiated) and `IsRetractVectorField.related_shift` (the relation on level $1$). `retractLieBracket_restrict`: the bracket on $(O \\cap W)_2$ for the restricted retraction is the same. `retractLieBracket_natural_inter`: the same naturality for $f$ defined on an open part $O \\cap W$, in the form $Tf(x, [A, B](x)) = (f(x), [A', B'](f(x)))$.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.diff_related",
+     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.related_shift",
+     "Chapter4/VectorFieldsGlobal · retractLieBracket_natural",
+     "Chapter4/VectorFieldsGlobal · levelMap_levelMap_comp_eq",
+     "Chapter4/VectorFieldsGlobal · IsRetractVectorField.restrict",
+     "Chapter4/VectorFieldsGlobal · retractLieBracket_restrict",
+     "Chapter4/VectorFieldsGlobal · retractLieBracket_natural_inter"
+    ]
+   },
+   "chips": [
+    "any sc-smooth $f$ between local models",
+    "relations on $O_1$"
+   ],
+   "diff": [
+    "The computation of §4.5.2, for an sc-smooth map between two local models with a pair of vector fields on each, $D^2g$ read as in V4.70; the relations are assumed on $O_1$, since they are differentiated at points of $O_2$. The form on an open part $O \\cap W$ is the shape of a transition map (V4.75). §4.5.2 ends by calling the result \"Proposition 4.5.1\", a possible misprint for Lemma 4.5.1 (Findings, Chapter 4, items 157, 162)."
+   ]
+  },
+  {
+   "id": "V4.75",
+   "title": "Principal parts in a chart; the bracket does not depend on the chart",
+   "verdict": "same",
+   "book": {
+    "label": "Appendix 4.5, p. 201",
+    "page": 201,
+    "statement": "(New in the 2021 edition.) Lemma 4.5.1 shows that the definition of $[A, B]$ in local coordinates does not depend on the choice of the coordinates."
+   },
+   "lean": {
+    "statement": "`tangentChartMap_change`: $T\\psi = T(\\psi \\circ \\varphi^{-1}) \\circ T\\varphi$. `principalPart`: $T\\varphi(A(y)) = (\\varphi(y), A_\\varphi(\\varphi(y)))$ (`tangentChartMap_eq_principalPart`); `IsScVectorField.isRetractVectorField_principalPart`: $A_\\varphi$ is a vector field on the model, with the retraction `chartRetraction`; `principalPart_related`: the principal parts in two charts are related by the transition map on level $1$. `chartLieBracket_spec`: Proposition 4.4.5 for $[A_\\varphi, B_\\varphi]$; `chartLieBracket_change`: the brackets in two charts are related by $T(\\psi\\varphi^{-1})$ on level $2$ of the overlap.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_change",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.chartRetraction",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.chartRetraction_retract",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.principalPart",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_eq_principalPart",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.isRetractVectorField_principalPart",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.principalPart_related",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.chartLieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_spec",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.IsScVectorField.chartLieBracket_change"
+    ]
+   },
+   "chips": [
+    "via V4.74 on $O \\cap W$"
+   ],
+   "diff": [
+    "The overlap of two charts is an open part $O \\cap W$ of the model; V4.74 there gives the independence of the chart (Findings, Chapter 4, item 161)."
+   ]
+  },
+  {
+   "id": "V4.76",
+   "title": "Proposition 4.4.5 (preprint 4.26) on an M-polyfold: the bracket $[A, B] : X^2 \\to TX$",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167) (proof §§4.5.1–4.5.2, pp. 200–202)",
+    "page": 167,
+    "statement": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula in local coordinates defines the Lie bracket, an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$, the pull-back of $TX \\to X^1$ by the inclusion $X^2 \\to X^1$ (the earlier texts quote it from another paper, as a vector field on $X^1$)."
+   },
+   "lean": {
+    "statement": "`MPolyfold.lieBracket hA hB : X^2 \\to TX`, the class of $[A_\\varphi, B_\\varphi](\\varphi(x))$ in a chosen chart. `tangentChartMap_lieBracket`: in every chart $\\psi$ around $x$, $T\\psi([A, B](x)) = (\\psi(x), [A_\\psi, B_\\psi](\\psi(x)))$. `proposition_4_4_5_2021`: $[A, B]$ is sc-smooth from $X^2$ to $TX$, and $p([A, B](x)) = x$.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.levelLift_levelChart_spec",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.lieBracketPre",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.lieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentProj_lieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket_eq",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.continuous_lieBracket",
+     "Chapter4/VectorFieldsGlobal · proposition_4_4_5_2021"
+    ]
+   },
+   "chips": [
+    "section of $TX|X^2$ read as a map to $TX$",
+    "gap G.38 closed",
+    "pull-back bundle: G.92"
+   ],
+   "diff": [
+    "\"An sc-smooth section of $TX|X^2 \\to X^2$\" is read as an sc-smooth map $X^2 \\to TX$ covering the inclusion $X^2 \\to X^1$; the pull-back bundle itself is not built (gap G.92). In the chart $(\\psi^1)^1$ of $X^2$ and the tangent chart $T\\psi$ the bracket reads $z \\mapsto (z, [A_\\psi, B_\\psi](z))$, sc-smooth by V4.72; it depends neither on the chart nor on the retraction (V4.75). This closes gap G.38 (Findings, Chapter 4, item 161).",
+    "The earlier statement, a vector field on $X^1$ (a section of $T(X^1) \\to X^2$), would through $\\Phi$ (V4.78) put $[A, B](x)$ in $E_1$ for $x \\in X_2$, which the example of V4.73 excludes; as we read it, it does not hold, and the 2021 statement does (Findings, Chapter 4, item 161)."
+   ]
+  },
+  {
+   "id": "V4.77",
+   "title": "Lemma 4.5.1 on M-polyfolds: sc-smooth maps relate brackets",
+   "verdict": "restated",
+   "book": {
+    "label": "Appendix 4.5, Lemma 4.5.1, p. 201",
+    "page": 201,
+    "statement": "(New in the 2021 edition; the proof is left to the reader.) For a local sc-diffeomorphism $\\varphi : X \\to X$ and sc-smooth vector fields with $T\\varphi(A(x)) = A(\\varphi(x))$ and $T\\varphi(B(x)) = B(\\varphi(x))$ at points of $X_2$, $T\\varphi([A, B](x)) = [A, B](\\varphi(x))$ for $x \\in X_2$."
+   },
+   "lean": {
+    "statement": "`lemma_4_5_1_2021`: for an sc-smooth $f : X \\to Y$ of M-polyfolds and sc-smooth vector fields $A$, $B$ on $X$, $A'$, $B'$ on $Y$ with $Tf(A(x)) = A'(f_1(x))$ and $Tf(B(x)) = B'(f_1(x))$ for all $x \\in X^1$ (`liftLevelOneMap`), $Tf([A, B](x)) = [A', B'](f_2(x))$ for all $x \\in X^2$ (`levelTwoMap`).",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.liftLevelOneMap",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.levelTwoMap",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.levelMap_coord_levelLift",
+     "Chapter4/VectorFieldsGlobal · lemma_4_5_1_2021"
+    ]
+   },
+   "chips": [
+    "any sc-smooth $f : X \\to Y$",
+    "relations on $X^1$",
+    "open subsets: G.92"
+   ],
+   "diff": [
+    "More general in the map: any sc-smooth $f$ between two M-polyfolds, with a pair of vector fields on each side. The relations are assumed on all of $X^1$, not only at the points of $X_2$, since the computation of §4.5.2 differentiates them. A local sc-diffeomorphism between open subsets of $X$ is covered only through such an $f$; open subsets of an M-polyfold as M-polyfolds are not built (gap G.92) (Findings, Chapter 4, item 162)."
+   ]
+  },
+  {
+   "id": "V4.78",
+   "title": "Lemma 4.4.4 on an M-polyfold, $i = 1$: $A^{(1)} = \\Phi^{-1} \\circ A_1$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§4.4, Lemma 4.4.4, p. 196",
+    "page": 196,
+    "statement": "(New in the 2021 edition.) By the natural identification of $(TX)^i \\to (X^1)^i$ with $T(X^i) \\to X^{i+1}$, the index of a vector field $A$ can be raised by $i \\ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \\to X^{i+1}$."
+   },
+   "lean": {
+    "statement": "`raiseIndex hA` $= \\Phi^{-1} \\circ A_1 : X^2 \\to T(X^1)$, $A_1$ the level-$1$ map (`vectorFieldLevelOne`) and $\\Phi : T(X^1) \\simeq (TX)^1$ the sc-diffeomorphism of Proposition 2.3.17 (`tangentShiftEquiv`, `proposition_2_3_17_2021`). `lemma_4_4_4_2021`: $A^{(1)}$ is an sc-smooth vector field on $X^1$, and $\\Phi(A^{(1)}(x)) = A(x)$ in $(TX)^1$.",
+    "decls": [
+     "Chapter4/VectorFieldsGlobal · MPolyfold.vectorFieldLevelOne",
+     "Chapter4/VectorFieldsGlobal · MPolyfold.raiseIndex",
+     "Chapter4/VectorFieldsGlobal · lemma_4_4_4_2021",
+     "Chapter2/TangentLift · MPolyfold.tangentShiftEquiv",
+     "Chapter2/TangentLift · proposition_2_3_17_2021"
+    ]
+   },
+   "chips": [
+    "$i = 1$",
+    "every $i$: V4.79",
+    "G.6 closed"
+   ],
+   "diff": [
+    "For $i = 1$; every $i$ is V4.79, by iterating this case. The identification that the text calls natural is Proposition 2.3.17 (`proposition_2_3_17_2021`, `proposition_2_3_17_two_2021`, and for every $i$ `proposition_2_3_17_all_2021`; gap G.6, closed) (Findings, Chapter 4, items 160, 164)."
+   ]
+  },
+  {
+   "id": "V4.79",
+   "title": "Lemma 4.4.4 on an M-polyfold, every $i$: $A^{(i)}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, Lemma 4.4.4, p. 196",
+    "page": 196,
+    "statement": "(New in the 2021 edition.) By the natural identification of $(TX)^i \\to (X^1)^i$ with $T(X^i) \\to X^{i+1}$, the index of a vector field $A$ can be raised by $i \\ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \\to X^{i+1}$ (the diagram before the lemma)."
+   },
+   "lean": {
+    "statement": "`BundledMPolyfold.raiseIndexAll`: $A^{(0)} = A$, $A^{(i+1)} = (A^{(i)})^{(1)}$ (`raiseIndex` on $X^i$). `lemma_4_4_4_all_2021`: for every $i$, $A^{(i)}$ is an sc-smooth vector field on $X^i$ (`BundledMPolyfold.lift`); its image under $T(X^i) \\to TX$ at $x \\in X^{i+1}$ is $A(x)$ (`tangentIncl_raiseIndexAll`); $\\Phi_i \\circ A^{(i)} \\circ J_i$ is the $i$-th index raise of $A$ (`tangentLiftEquiv_raiseIndexAll`, with $\\Phi_i$, $J_i$ of `proposition_2_3_17_all_2021`); and $A^{(i+1)} = (A^{(i)})^{(1)}$. Witness: `lemma_4_4_4_all_2021_zero`.",
+    "decls": [
+     "Chapter2/TangentLiftAll · BundledMPolyfold",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lift",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentIncl_raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.vectorFieldScMap",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv_raiseIndexAll",
+     "Chapter2/TangentLiftAll · lemma_4_4_4_all_2021",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lemma_4_4_4_all_2021_zero",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.shiftLiftEquiv",
+     "Chapter2/TangentLiftAll · proposition_2_3_17_all_2021"
+    ]
+   },
+   "chips": [
+    "every $i$",
+    "bundled lifts $X^i$",
+    "witness: the zero field"
+   ],
+   "diff": [
+    "The lifts $X^i$ are bundled with their spaces so that they form one family indexed by $i$. \"The natural identification\" is $\\Phi_i : T(X^i) \\to (TX)^i$ and $J_i : (X^1)^i \\to (X^i)^1$ of Proposition 2.3.17 for every $i$; \"$A^{(i)}$ is $A$\" is read through the inclusions into $TX$ and through the diagram printed before the lemma (Findings, Chapter 4, item 164)."
    ]
   }
  ],
@@ -1883,17 +2064,27 @@
    "label": "§4.4, Definition 4.4.1 (preprint 4.25), p. 195 (preprint p. 167)",
    "page": 167,
    "book": "An sc-differential $k$-form is an sc-smooth $\\omega : \\oplus^kTX \\to \\mathbb R$, linear in each argument and skew-symmetric; pull-back along $X^{i+1} \\to X^i$ gives a directed system with limit $\\Omega^*_\\infty(X)$.",
-   "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124)."
+   "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ with $(TX)^i \\cong T(X^i)$ (gap G.6, closed by Proposition 2.3.17 for every $i$). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124)."
   },
   {
    "title": "Proposition 4.4.5 (preprint 4.26): the Lie bracket of sc-smooth vector fields",
    "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167)",
    "page": 167,
    "book": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$, proved in Appendix 4.5 (§§4.5.1–4.5.2, pp. 200–202). The preprint and 2017 texts state an sc-smooth vector field on $X^1$, a section of $T(X^1) \\to X^2$, quoted from another paper.",
-   "instead": "**Formalized in a local model** (V4.67–V4.72): for vector fields $A$, $B$ on a local model $(O, C, E)$, $x \\mapsto (x, [A, B](x))$ is an sc-smooth map from $O^2$ to $TO$ (`proposition_4_4_5_local_2021`). **Not formalized on an M-polyfold**: it needs the identification of $(TX)^i$ with $T(X^i)$ (gap G.6), the pull-back bundle $TX|X^2 \\to X^2$ and Lemma 4.5.1 (the bracket does not depend on the chart), whose proof the text leaves to the reader; the computation of §4.5.2 is that of Lemma 4.5.1. The sentence of p. 201 that the bracket at $x \\in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157).",
+   "instead": "**Formalized since the first edition of this page** (Springer 2021 additions; V4.74–V4.77), on an M-polyfold: $[A, B] : X^2 \\to TX$, the bracket of the principal parts in any chart, is sc-smooth and covers the inclusion $X^2 \\to X^1$ (`proposition_4_4_5_2021`, V4.76), independently of the chart (V4.75), by Lemma 4.5.1, whose proof the text leaves to the reader and which is proved by the computation of §4.5.2 in a local model (V4.74) and on M-polyfolds for every sc-smooth map (V4.77); the local model is V4.67–V4.72 (gap G.38, closed). \"Section of $TX|X^2 \\to X^2$\" is read as a map $X^2 \\to TX$ over the inclusion; the pull-back bundle itself and Lemma 4.5.1 for local sc-diffeomorphisms between open subsets are gap G.92. The sentence of p. 201 that the bracket at $x \\in O_2$ lies on level $1$ does not hold as we read it (V4.73) (Findings, Chapter 4, items 155–157, 161, 162).",
    "decls": [
+    "Chapter4/VectorFieldsGlobal · proposition_4_4_5_2021",
+    "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
+    "Chapter4/VectorFieldsGlobal · lemma_4_5_1_2021",
+    "Chapter4/VectorFieldsGlobal · retractLieBracket_natural",
     "Chapter4/VectorFields · proposition_4_4_5_local_2021",
     "Chapter4/VectorFields · retractLieBracket_mem_tangent"
+   ],
+   "formalized": [
+    "V4.74",
+    "V4.75",
+    "V4.76",
+    "V4.77"
    ]
   },
   {
@@ -1916,7 +2107,19 @@
    "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
    "page": 195,
    "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
-   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$, $i \\ge 2$, with $(TX)^i \\cong T(X^i)$ (gap G.6), Lemma 4.5.1, and integration on manifolds with corners. The vector fields of Definition 4.4.3 and the bracket of Proposition 4.4.5 are formalized in a local model (V4.67–V4.72). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158)."
+   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$ with $(TX)^i \\cong T(X^i)$ for all $i$ (gap G.6, closed), and integration on manifolds with corners. The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized, in a local model (V4.67–V4.72, V4.74) and on an M-polyfold (V4.68, V4.75–V4.79). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158)."
+  },
+  {
+   "g": 92,
+   "title": "Lemma 4.5.1 for local sc-diffeomorphisms between open subsets; the pull-back bundle $TX|X^2 \\to X^2$",
+   "label": "§4.4, Proposition 4.4.5, p. 196, and Appendix 4.5, Lemma 4.5.1, p. 201 (2021)",
+   "page": 201,
+   "book": "(New in the 2021 edition.) Lemma 4.5.1: a local sc-diffeomorphism $\\varphi : X \\to X$ that relates two vector fields relates their brackets. Proposition 4.4.5: the bracket is an sc-smooth section of the pull-back $TX|X^2 \\to X^2$ of $TX \\to X^1$ by the inclusion $X^2 \\to X^1$.",
+   "instead": "**Formalized for every sc-smooth map $f : X \\to Y$ of M-polyfolds** (V4.77), with the relations on $X^1$, and with the bracket an sc-smooth map $X^2 \\to TX$ over the inclusion (V4.76). **Not formalized:** a local sc-diffeomorphism between open subsets of $X$, which would need open subsets of an M-polyfold as M-polyfolds (it is covered only when it is the restriction of such an $f$), and the pull-back bundle $TX|X^2 \\to X^2$ as a bundle object (Findings, Chapter 4, item 163).",
+   "decls": [
+    "Chapter4/VectorFieldsGlobal · lemma_4_5_1_2021",
+    "Chapter4/VectorFieldsGlobal · proposition_4_4_5_2021"
+   ]
   }
  ]
 }

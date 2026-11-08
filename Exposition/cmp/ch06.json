@@ -1932,10 +1932,10 @@
     ]
    },
    "chips": [
-    "algebraic, not shown closed"
+    "algebraic; closed: V6.69"
    ],
    "diff": [
-    "Not in the book as a statement; the text takes $X$ closed without argument (Findings, Chapter 6, item 112)."
+    "Not in the book as a statement; the text takes $X$ closed without argument. A closed common complement is V6.69 (Findings, Chapter 6, items 112, 116)."
    ]
   },
   {
@@ -1958,11 +1958,11 @@
     ]
    },
    "chips": [
-    "continuity in $T$ not formalized (G.81)",
+    "continuity in $T$: V6.70 (G.81 closed)",
     "$X$ algebraic"
    ],
    "diff": [
-    "The last sentence, continuity in $T$, is gap G.81; $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, Chapter 6, items 112, 113)."
+    "The last sentence, continuity in $T$, is not part of this row: it is V6.70, with a closed $X$ (V6.69) (gap G.81, closed). $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, Chapter 6, items 112, 113, 117)."
    ]
   },
   {
@@ -1988,6 +1988,225 @@
    ],
    "diff": [
     "The 2021 text splits preprint Lemma 6.33 (2017: 6.15): its statement is Lemma 6.6.9, the first step of its proof Lemma 6.6.8; the stabilized kernels of the appended data are a hypothesis, as in V6.45 (Findings, Chapter 6, item 114)."
+   ]
+  },
+  {
+   "id": "V6.69",
+   "title": "A common closed complement of two kernels of the same dimension",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.4, proof of Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)",
+    "page": 253,
+    "statement": "\"We can take a closed linear subspace $X$ of $E$\" which is a topological complement of both $\\ker(QT)$ and $\\ker(PT)$, so that $E = X \\oplus \\ker(QT) = X \\oplus \\ker(PT)$."
+   },
+   "lean": {
+    "statement": "`exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq`: two finite-dimensional subspaces $K_1$, $K_2$ of the same dimension of a real normed space have a common closed complement $X$ with $E = K_1 \\oplus X = K_2 \\oplus X$ topologically; $X = Z + X_0 \\cap (K_1 + K_2)$ for the algebraic common complement $X_0$ (V6.66) and a closed complement $Z$ of $K_1 + K_2$ (`isCompl_sup_inf_of_isCompl`).",
+    "decls": [
+     "Chapter6/Book2021Continuity · isCompl_sup_inf_of_isCompl",
+     "Chapter6/Book2021Continuity · exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq",
+     "Chapter6/Book2021 · exists_isCompl_isCompl_of_finrank_eq"
+    ]
+   },
+   "chips": [
+    "the text's $X$, closed",
+    "no argument in the text"
+   ],
+   "diff": [
+    "Not in the book as a statement; the text takes $X$ closed without argument. The algebraic complement of V6.66 is cut down to $K_1 + K_2$ and enlarged by a closed complement of that finite-dimensional space (Findings, Chapter 6, items 112, 116)."
+   ]
+  },
+  {
+   "id": "V6.70",
+   "title": "Proposition 6.4.13 (2017: 6.6), last sentence: $A_T$, $B_T$ depend continuously on $T$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195), argument pp. 253, 255",
+    "page": 253,
+    "statement": "Varying $T$ to a $T'$ near $T$ so that $P, Q \\in \\Pi_{T'}$, the constructions of $A_{T'}$ and $B_{T'}$ depend continuously on $T'$. Argument (pp. 253, 255): with $X$ fixed, (6.15) $QT'x = QT'e$ has a unique solution $x(e) \\in X$, depending continuously on $T'$."
+   },
+   "lean": {
+    "statement": "`proposition_6_4_13_continuity_2021`: for $T$ Fredholm and $P, Q \\in \\Pi_T$ with $R(P) = R(Q) = H$ there are a closed $X$ and $\\varepsilon > 0$ such that $S \\mapsto A_S = 1 - \\xi_S \\circ S$ (`kerTransition`, on $E$) and $S \\mapsto B_S = (1 - P) - S\\xi_S(1 - P)$ (`cokerTransition`, lifted to $F$), $\\xi_S = (QS|_X)^{-1} \\circ Q$ (`solveOp`), are continuous on $\\|S - T\\| < \\varepsilon$ in the operator norm and jointly with the vector; for every such $S$: $P, Q \\in \\Pi_S$, $\\ker(PS) \\oplus X = \\ker(QS) \\oplus X = E$ topologically, (6.15)–(6.16) and (6.18)–(6.19) hold, and $A_S$, $B_S$ give isomorphisms $\\ker(PS) \\to \\ker(QS)$, $F/R(P) \\to F/R(Q)$ filling the diagram of $E(S, P)$, $E(S, Q)$ (`diagram_of_solveOp`). Satisfiable: `proposition_6_4_13_continuity_2021_hyps` ($T = 1$ on $\\mathbb R$).",
+    "decls": [
+     "Chapter6/Book2021Continuity · projCod",
+     "Chapter6/Book2021Continuity · solveOp",
+     "Chapter6/Book2021Continuity · kerTransition",
+     "Chapter6/Book2021Continuity · cokerTransition",
+     "Chapter6/Book2021Continuity · solveOp_mem",
+     "Chapter6/Book2021Continuity · kerTransition_apply",
+     "Chapter6/Book2021Continuity · cokerTransition_apply",
+     "Chapter6/Book2021Continuity · apply_solveOp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · disjoint_ker_comp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · isTopCompl_ker_comp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · diagram_of_solveOp",
+     "Chapter6/Book2021Continuity · continuousAt_solveOp",
+     "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021",
+     "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021_hyps",
+     "Chapter6/LocalDetBundle · lemma_6_17",
+     "Chapter6/LocalDetBundle · projRestrict"
+    ]
+   },
+   "chips": [
+    "continuity of the extensions to $E$, $F$",
+    "also on the kernel bundle",
+    "G.81 closed"
+   ],
+   "diff": [
+    "\"Depend continuously\" is read as the continuity of $A_S$ extended to $E$ and of $B_S$ lifted to $F$, which determine the maps between the varying kernels $\\ker(PS)$, $\\ker(QS)$ and on $F/H$; the joint continuity is continuity on the kernel bundle $\\bigcup_S \\{S\\} \\times \\ker(PS)$ of Remark 6.4.5 with its subspace topology. $P, Q \\in \\Pi_S$ near $T$ is a conclusion (Lemma 6.5.1 (preprint 6.17)), not a hypothesis (Findings, Chapter 6, items 113, 117)."
+   ]
+  },
+  {
+   "id": "V6.71",
+   "title": "The orientation space $O_f$ and the properties (1)–(3) of Theorem 6.6.17",
+   "verdict": "explicit",
+   "book": {
+    "label": "§6.6, pp. 274–275, before and in Theorem 6.6.17 (new in the 2021 edition)",
+    "page": 274,
+    "statement": "With $X_\\infty$ in its natural metrizable topology, $O_f$ consists of the $(x, o)$, $x \\in X_\\infty$, $o$ an orientation of $\\mathrm{DET}(f, x)$, two over each $x$, and $\\pi_f(x, o) = x$. (1) $\\pi_f$ is a local homeomorphism; (2) every $x \\in X_\\infty$ has an open $U$ in $X$ with precisely two continuous sections of $O_f|(U \\cap X_\\infty)$; (3) for an sc-smooth path $\\varphi : [0, 1] \\to X$, a continuous section $(\\varphi(t), o_t)$ of $\\varphi^*O_f$ has $o_t$ the local propagation of $o_{t_0}$ for $t$ near $t_0$."
+   },
+   "lean": {
+    "statement": "`OrSpace` (a sigma type over $X_\\infty$, the topology of Theorem 2.3.10), `orProj`, `OrPullback` (the subspace $\\{(t, p) : \\varphi(t) = \\pi_f(p)\\}$ of $[0, 1] \\times O_f$), `IsContSectionOver` (continuous $\\sigma : U_\\infty \\to O_f$, $\\pi_f \\circ \\sigma = \\mathrm{id}$), `HasTwoContSections` (2), `IsPropagationContinuous` (3: for $t$ near $t_0$ the push-forward `orPush` along the segment `segPath` of $\\varphi$ in a set with the local propagation property maps $o_{t_0}$ to $o_t$), `IsOrientationTopology` (Hausdorff, (1), (2), (3)).",
+    "decls": [
+     "Chapter6/OrientationSpace · OrSpace",
+     "Chapter6/OrientationSpace · orProj",
+     "Chapter6/OrientationSpace · segPath",
+     "Chapter6/OrientationSpace · isScSmoothMap_segPath",
+     "Chapter6/OrientationSpace · OrPullback",
+     "Chapter6/OrientationSpace · IsContSectionOver",
+     "Chapter6/OrientationSpace · IsPropagationContinuous",
+     "Chapter6/OrientationSpace · HasTwoContSections",
+     "Chapter6/OrientationSpace · IsOrientationTopology",
+     "Chapter6/SectionOrientation · Orx",
+     "Chapter6/OrientationFunctor · orPush",
+     "Chapter6/OrientationFunctor · orPush_compat"
+    ]
+   },
+   "chips": [
+    "$X_\\infty$: topology of Theorem 2.3.10",
+    "local propagation = `orPush` on segments",
+    "paths on $\\mathbb R$ (D2)"
+   ],
+   "diff": [
+    "\"The local propagation of $o_{t_0}$\" is read as the push-forward along the segment of $\\varphi$ from $t_0$ to $t$ in an open set with the local propagation property in some chart, independent of that set (`orPush_compat`); paths are sc-smooth maps $\\mathbb R \\to X$ restricted to $[0, 1]$ (decision D2); $\\mathrm{Or}^f_x$ is read in the chosen chart (V6.55). The set $O_f$ appears in the preprint (p. 219) and the 2017 text (p. 205) without a topology (Findings, Chapter 6, item 118)."
+   ]
+  },
+  {
+   "id": "V6.72",
+   "title": "Sc-smooth paths in $X_\\infty$",
+   "verdict": "extra",
+   "book": {
+    "label": "no counterpart in the text (needed for Theorem 6.6.17, p. 275)",
+    "page": 275,
+    "statement": "Not stated."
+   },
+   "lean": {
+    "statement": "`continuous_smoothMk_comp`: an sc-smooth $\\Gamma : \\mathbb R^n \\to X$ is continuous into $X_\\infty$. `eventually_exists_scPath_smoothLevel`: for a neighbourhood $N$ of $x$ in $X_\\infty$, every $y \\in X_\\infty$ near $x$ is joined to $x$ by an sc-smooth path with all its points in $N$ (`chartSegPath`, the retracted segment in a chart). `exists_nhds_scPath_of_isOpen`: for an open $W \\ni x$, the smooth points of a smaller open $V \\ni x$ are joined by sc-smooth paths in $W$.",
+    "decls": [
+     "Chapter6/OrientationSpace · rnChart_toBase",
+     "Chapter6/OrientationSpace · continuousOn_levelLift_comp",
+     "Chapter6/OrientationSpace · continuous_smoothMk_comp",
+     "Chapter6/OrientationSpace · chartSegPath",
+     "Chapter6/OrientationSpace · isScSmoothMap_chartSegPath",
+     "Chapter6/OrientationSpace · eventually_exists_scPath_smoothLevel",
+     "Chapter6/OrientationSpace · exists_nhds_scPath_of_isOpen"
+    ]
+   },
+   "chips": [
+    "tools for uniqueness"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V6.73",
+   "title": "Theorem 6.6.17: the topology of $O_f$, property (1), Hausdorff",
+   "verdict": "extra",
+   "book": {
+    "label": "§6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition)",
+    "page": 275,
+    "statement": "There exists a Hausdorff topology on $O_f$ with (1): $\\pi_f : O_f \\to X_\\infty$ is a local homeomorphism. \"In view of Proposition 6.6.3 and Theorem 6.6.11\" the easy proof is left to the reader."
+   },
+   "lean": {
+    "statement": "For local transport data $L$ (V6.56): `IsContOrOn` (a family $y \\mapsto o_y$ over an open $U$ carried along by the transport along every sc-smooth path in $U$); `orTopology L`: $W$ open iff $\\{y \\in U_\\infty : (y, o_y) \\in W\\}$ is open in $X_\\infty$ for every continuous orientation over an open $U$. For every $L$: the sets $\\{(y, o_y)\\}$ are open (`isOpen_orBasic`), $\\pi_f$ is a local homeomorphism (`orChartHomeo`, `isLocalHomeomorph_orProj`), and the topology is Hausdorff (`t2Space_orTopology`).",
+    "decls": [
+     "Chapter6/OrientationSpace · IsContOrOn",
+     "Chapter6/OrientationSpace · orSec",
+     "Chapter6/OrientationSpace · orBasic",
+     "Chapter6/OrientationSpace · orTopology",
+     "Chapter6/OrientationSpace · IsContOrOn.eventually_iff",
+     "Chapter6/OrientationSpace · isOpen_orBasic",
+     "Chapter6/OrientationSpace · continuousOn_orSec",
+     "Chapter6/OrientationSpace · continuous_orProj",
+     "Chapter6/OrientationSpace · eq_orSec_of_mem_orBasic",
+     "Chapter6/OrientationSpace · orSec_mem_orBasic",
+     "Chapter6/OrientationSpace · exists_isContOrOn",
+     "Chapter6/OrientationSpace · orChartHomeo",
+     "Chapter6/OrientationSpace · isLocalHomeomorph_orProj",
+     "Chapter6/OrientationSpace · t2Space_orTopology"
+    ]
+   },
+   "chips": [
+    "construction left to the reader",
+    "any transport data"
+   ],
+   "diff": [
+    "The text gives no construction; the topology is defined by the continuous orientations, which are the open sheets of $\\pi_f$ (Findings, Chapter 6, item 118)."
+   ]
+  },
+  {
+   "id": "V6.74",
+   "title": "Theorem 6.6.17 (2): two continuous sections, under connected smooth neighbourhoods",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.6, Theorem 6.6.17 (2), p. 275 (new in the 2021 edition)",
+    "page": 275,
+    "statement": "For every $x \\in X_\\infty$ there exists an open neighbourhood $U = U(x)$ in $X$ such that $O_f|(U \\cap X_\\infty)$ has precisely two continuous sections."
+   },
+   "lean": {
+    "statement": "`hasTwoContSections_orTopology`: if every $\\mathrm{Or}^f_y$ has two elements and $X$ has connected smooth neighbourhoods (`MPolyfold.HasConnectedSmoothNbhds`: inside every open $W \\ni x$ an open $U \\ni x$ with $U \\cap X_\\infty$ preconnected in $X_\\infty$), then for every $L$ the topology `orTopology L` has (2), the sections being $y \\mapsto (y, \\pm o_y)$. Witnesses of the hypothesis: $\\mathbb R^n$, any M-polyfold on a subsingleton.",
+    "decls": [
+     "Chapter6/OrientationSpace · MPolyfold.HasConnectedSmoothNbhds",
+     "Chapter6/OrientationSpace · MPolyfold.hasConnectedSmoothNbhds_of_subsingleton",
+     "Chapter6/OrientationSpace · rnPolyfold_hasConnectedSmoothNbhds",
+     "Chapter6/OrientationSpace · eq_orSec_or_eq_orSec",
+     "Chapter6/OrientationSpace · hasTwoContSections_orTopology"
+    ]
+   },
+   "chips": [
+    "needs $U \\cap X_\\infty$ connected (G.90)",
+    "witness: $\\mathbb R^n$"
+   ],
+   "diff": [
+    "A continuous section over $U \\cap X_\\infty$ is locally one of the two continuous orientations, so (2) needs a $U$ with connected smooth part. That small such $U$ exist is a hypothesis; Part I does not state it, it holds for $\\mathbb R^n$ and is open in general (gap G.90). The proofs of §7.4 use that $U \\cap X_\\infty$ is connected for connected open $U$ (`MPolyfold.SmoothConnected`, gap G.85), which, as we read it, gives the hypothesis, M-polyfolds being locally path connected (Proposition 2.3.7). The paths of `exists_nhds_scPath` join the smooth points of a small $V$ inside a larger $U$ only (Findings, Chapter 6, item 120)."
+   ]
+  },
+  {
+   "id": "V6.75",
+   "title": "Theorem 6.6.17: the unique Hausdorff topology on $O_f$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition)",
+    "page": 275,
+    "statement": "Let $P : Y \\to X$ be a strong bundle over the tame M-polyfold $X$ and $f$ an sc-Fredholm section. Then there exists a uniquely defined Hausdorff topology on $O_f$ characterized by (1), (2), (3). The easy proof is left to the reader."
+   },
+   "lean": {
+    "statement": "Under the hypotheses of `theorem_6_37` ($X$ tame with bump functions, $f$ with tame germ data, sc⁺-sections through the smooth fibre points, the paracompactness instances): `isPropagationContinuous_orTopology` (3) for the topology of the transport data of $\\Gamma_f$; `eq_orTopology_of`: every topology with (1) and (3) is that one; `existsUnique_orientationTopology_2021`: exactly one Hausdorff topology with (1) and (3); `theorem_6_6_17_2021` (with `HasConnectedSmoothNbhds`): exactly one topology with `IsOrientationTopology`, i.e. Hausdorff with (1)–(3).",
+    "decls": [
+     "Chapter6/OrientationSpace · isPropagationContinuous_orTopology",
+     "Chapter6/OrientationSpace · eventually_eq_orSec_of_continuousOn",
+     "Chapter6/OrientationSpace · eq_orTopology_of",
+     "Chapter6/OrientationSpace · existsUnique_orientationTopology_2021",
+     "Chapter6/OrientationSpace · theorem_6_6_17_2021",
+     "Chapter6/OrientationFunctor · orLocalTransport",
+     "Chapter6/OrientationFunctor · theorem_6_37"
+    ]
+   },
+   "chips": [
+    "(2) under connected smooth nbhds (G.90)",
+    "uniqueness from (1), (3) alone",
+    "remarks after it: G.91"
+   ],
+   "diff": [
+    "Existence with (2) needs `HasConnectedSmoothNbhds` (gap G.90); without (2) the theorem holds with no extra hypothesis. The uniqueness is stronger than stated: neither Hausdorffness nor (2) is used. The hypotheses are those under which $\\Gamma_f$ is built (V6.57): bump functions, tame germ data, sc⁺-sections through the smooth fibre points (Findings, Chapter 6, items 119, 120).",
+    "The remarks after the theorem — the orientation bundle, orientability iff a global continuous section, the continuous $\\mathbb Z_2$-action and $\\det_f$ — are gap G.91 (Findings, Chapter 6, item 121)."
    ]
   }
  ],
@@ -2161,9 +2380,41 @@
    "label": "§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195)",
    "page": 253,
    "book": "For $T'$ near $T$ with $P, Q \\in \\Pi_{T'}$, the constructions of $A_{T'}$ and $B_{T'}$ depend continuously on $T'$ (keeping $X$, the equation for $x(e)$ stays uniquely solvable).",
-   "instead": "**Not formalized.** It needs a closed common complement $X$ of the kernels (the formalized one is algebraic, V6.66) and a topology on the family of kernels $\\ker(PT')$, between which $A_{T'}$ acts; the algebraic part is V6.67 (Findings, Chapter 6, item 113).",
+   "instead": "**Formalized since the first edition of this page** (V6.69, V6.70). A closed common complement $X$ of the kernels exists (`exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq`), and with it $A_S$ (extended to $E$) and $B_S$ (lifted to $F$) depend continuously on $S$ near $T$ in the operator norm, also jointly with the vector, i.e. on the kernel bundle of Remark 6.4.5; for every such $S$ they are the text's isomorphisms filling the diagram (`proposition_6_4_13_continuity_2021`). The algebraic part is V6.67 (Findings, Chapter 6, items 113, 117).",
    "decls": [
-    "Chapter6/Book2021 · proposition_6_4_13_2021"
+    "Chapter6/Book2021 · proposition_6_4_13_2021",
+    "Chapter6/Book2021Continuity · exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq",
+    "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021"
+   ],
+   "formalized": [
+    "V6.69",
+    "V6.70"
+   ]
+  },
+  {
+   "g": 90,
+   "title": "Theorem 6.6.17 (2) without connected smooth neighbourhoods",
+   "label": "§6.6, Theorem 6.6.17 (2), p. 275 (new in the 2021 edition)",
+   "page": 275,
+   "book": "For every $x \\in X_\\infty$ there is an open $U = U(x)$ in $X$ such that $O_f|(U \\cap X_\\infty)$ has precisely two continuous sections.",
+   "instead": "**Proved only under `MPolyfold.HasConnectedSmoothNbhds`** (V6.74, V6.75): every smooth point has arbitrarily small open neighbourhoods $U$ in $X$ with $U \\cap X_\\infty$ connected in $X_\\infty$. Every continuous section over $U \\cap X_\\infty$ is locally one of the two continuous orientations, so (2) needs such a $U$; Part I does not state the fact, and the paths of `exists_nhds_scPath` join the smooth points of a small $V$ only inside a larger $U$. It holds for $\\mathbb R^n$ (`rnPolyfold_hasConnectedSmoothNbhds`) and is open in general. The proofs of §7.4 use that $U \\cap X_\\infty$ is connected for connected open $U$ (`MPolyfold.SmoothConnected`, gap G.85), which, as we read it, gives the hypothesis, M-polyfolds being locally path connected (Proposition 2.3.7). Existence and uniqueness of the Hausdorff topology with (1) and (3) need no such hypothesis (`existsUnique_orientationTopology_2021`) (Findings, Chapter 6, item 120).",
+   "decls": [
+    "Chapter6/OrientationSpace · MPolyfold.HasConnectedSmoothNbhds",
+    "Chapter6/OrientationSpace · hasTwoContSections_orTopology",
+    "Chapter6/OrientationSpace · theorem_6_6_17_2021",
+    "Chapter6/OrientationSpace · existsUnique_orientationTopology_2021"
+   ]
+  },
+  {
+   "g": 91,
+   "title": "The remarks after Theorem 6.6.17: the orientation bundle, orientability, $\\mathbb Z_2$ and $\\det_f$",
+   "label": "§6.6, after Theorem 6.6.17, p. 275 (new in the 2021 edition)",
+   "page": 275,
+   "book": "$\\pi_f : O_f \\to X_\\infty$ with the topology of Theorem 6.6.17 is the orientation bundle of $f$; $f$ is orientable iff $\\pi_f$ has a global continuous section; $\\mathbb Z_2$ acts continuously on $O_f$ by $(x, o_x) \\mapsto (x, -o_x)$; $\\det_f = \\mathbb R \\otimes_{\\mathbb Z_2} O_f \\to X_\\infty$ is the determinant bundle of $f$.",
+   "instead": "**Not formalized.** The topology itself is V6.73–V6.75; the comparison of global continuous sections of $\\pi_f$ with the orientations of Definitions 6.6.14–6.6.16 (V6.58–V6.60), the $\\mathbb Z_2$-action and the line bundle $\\det_f$ are not formalized (Findings, Chapter 6, item 121).",
+   "decls": [
+    "Chapter6/OrientationSpace · orTopology",
+    "Chapter6/OrientationSpace · theorem_6_6_17_2021"
    ]
   }
  ]

@@ -143,7 +143,8 @@ compact solution set.
 
 *What is proved:* compactness on every level (Theorem 5.2.4 (preprint 5.7)) and, for $i = 1$, the chart-level content: the shift $h^1$ of a basic
 germ is a basic germ, $(g-s)^1$ is conjugated to $h^1$ by the index raise $\Psi^1$, and $s^1$ is sc$^+$. *Not formalized:* the bundle
-$P^1:Y^1\to X^1$ (the text defines $Y[i]$ only for $i\le1$; the natural $Y^1 = Y_{1,1}$ over $X_1$ is not built) and $i\ge2$ (gap G.6).
+$P^1:Y^1\to X^1$ (the text defines $Y[i]$ only for $i\le1$; the natural $Y^1 = Y_{1,1}$ over $X_1$ is not built) and $i\ge2$ (gap G.6;
+the levels of the iterated base are those of $X$ since, Chapter 2, §9.8, gap G.6 closed).
 
 > **"It is a priori clear that $f^i$ is sc-Fredholm" is not clear.** The filler of $f^1$ needs Definition 3.1.4 (3) (preprint 3.4) on level $1$:
 > $L = (1-\rho(0))Dg(0)$ must map $\ker Dr(0)\cap E_1$ onto $\ker\rho(0)\cap F_1$. Level $0$ does not give it: on $E_m = \{\sum_ke^{2mk}x_k^2<\infty\}$ the shift
