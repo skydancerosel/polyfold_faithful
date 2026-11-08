@@ -281,3 +281,5 @@ import Polyfold.Chapter10.EquivalenceRefinement
 import Polyfold.Chapter10.EquivalenceReduced
 import Polyfold.Chapter10.EquivalenceExamples
 import Polyfold.Chapter10.EquivalenceZhou
+import Polyfold.Chapter10.WeakFibredProduct
+import Polyfold.Chapter10.WeakFibredProductTheorem
