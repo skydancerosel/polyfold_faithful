@@ -8635,6 +8635,57 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.phiTot_bSrc
 #print axioms Polyfold.EpGroupoid.theorem_7_6_9_full_2021
 #print axioms Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness
+-- Chapter6/OrientationSpace.lean
+#print axioms Polyfold.rnChart_toBase
+#print axioms Polyfold.continuousOn_levelLift_comp
+#print axioms Polyfold.continuous_smoothMk_comp
+#print axioms Polyfold.chartSegPath
+#print axioms Polyfold.isScSmoothMap_chartSegPath
+#print axioms Polyfold.eventually_exists_scPath_smoothLevel
+#print axioms Polyfold.OrSpace
+#print axioms Polyfold.orProj
+#print axioms Polyfold.segPath
+#print axioms Polyfold.isScSmoothMap_segPath
+#print axioms Polyfold.segPath_zero
+#print axioms Polyfold.segPath_one
+#print axioms Polyfold.OrPullback
+#print axioms Polyfold.IsContSectionOver
+#print axioms Polyfold.IsPropagationContinuous
+#print axioms Polyfold.HasTwoContSections
+#print axioms Polyfold.IsOrientationTopology
+#print axioms Polyfold.IsOrientationTopology.t2Space
+#print axioms Polyfold.IsOrientationTopology.isLocalHomeomorph
+#print axioms Polyfold.IsOrientationTopology.twoSections
+#print axioms Polyfold.IsOrientationTopology.propagation
+#print axioms Polyfold.IsContOrOn
+#print axioms Polyfold.orSec
+#print axioms Polyfold.orBasic
+#print axioms Polyfold.orTopology
+#print axioms Polyfold.exists_nhds_scPath_of_isOpen
+#print axioms Polyfold.IsContOrOn.eventually_iff
+#print axioms Polyfold.isOpen_orBasic
+#print axioms Polyfold.continuousOn_orSec
+#print axioms Polyfold.continuous_orProj
+#print axioms Polyfold.eq_orSec_of_mem_orBasic
+#print axioms Polyfold.orSec_mem_orBasic
+#print axioms Polyfold.exists_isContOrOn
+#print axioms Polyfold.orChartHomeo
+#print axioms Polyfold.isLocalHomeomorph_orProj
+#print axioms Polyfold.t2Space_orTopology
+#print axioms Polyfold.eq_orSec_or_eq_orSec
+#print axioms Polyfold.MPolyfold.HasConnectedSmoothNbhds
+#print axioms Polyfold.MPolyfold.hasConnectedSmoothNbhds_of_subsingleton
+#print axioms Polyfold.rnPolyfold_hasConnectedSmoothNbhds
+#print axioms Polyfold.hasTwoContSections_orTopology
+#print axioms Polyfold.MPolyfold.smoothMk_eq
+#print axioms Polyfold.continuous_pt1
+#print axioms Polyfold.eventually_segPath_mem
+#print axioms Polyfold.eq_orSec_iff
+#print axioms Polyfold.isPropagationContinuous_orTopology
+#print axioms Polyfold.eventually_eq_orSec_of_continuousOn
+#print axioms Polyfold.eq_orTopology_of
+#print axioms Polyfold.existsUnique_orientationTopology_2021
+#print axioms Polyfold.theorem_6_6_17_2021
 
 /-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), §9.1 (2021 numbering) -/
 -- Chapter9/Basic.lean

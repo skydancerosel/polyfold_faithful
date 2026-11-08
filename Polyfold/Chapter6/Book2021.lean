@@ -58,8 +58,9 @@ not change the propagation of orientation; (Lemma 6.6.9, p. 269, new) adding scâ
 * Proposition 6.4.13: the last sentence (`A_T`, `B_T` depend continuously on `T` near `T`) is not
   formalized; it needs a closed common complement `X` (here `X` is algebraic) and the topology of
   the kernel bundle of Remark 6.4.5.
-* Theorem 6.6.17 (the Hausdorff topology on `O_f`; the text leaves the proof to the reader) is not
-  formalized: it needs the local propagations of Theorem 6.6.11 glued across charts.
+* Theorem 6.6.17 (the Hausdorff topology on `O_f`; the text leaves the proof to the reader) is in
+  `Chapter6/OrientationSpace.lean` (`theorem_6_6_17_2021`, `existsUnique_orientationTopology_2021`),
+  built from the glued local propagations `orPush`/`orLocalTransport`.
 * Proposition 6.2.2 (2017: Proposition 6.1; preprint: Proposition 6.2) is unchanged in 2021 and is
   the existing `proposition_6_2` (`Chapter3/IndexAlongPathsDevice.lean`).
 
