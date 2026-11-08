@@ -1,14 +1,18 @@
-# Book concordance: the 2014 preprint and the book's arXiv version (Chapters 1–6; Part II, Chapters 7–8)
+# Book concordance: the 2014 preprint, the book's arXiv version and the Springer edition (Chapters 1–6; Part II, Chapters 7–8)
 
 The exposition and the formalization follow Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory
 I*, in the 2014 preprint (arXiv 1407.3185, `sources/HWZ-PartI-2014.txt`); every statement number
 and page of Part I in `Findings.md`, the chapters and the reports is the preprint's. Part II has no
 preprint, and there the 2017 numbering is the only one (section "Part II" at the end). The published book
-(Springer 2021) is not available here. What is available is the book's arXiv version, **arXiv
+(Springer 2021) is now available (text in `sources/HWZ-Book-2021.txt`; not committed, since `sources/` is
+gitignored) and is the authoritative version from Chapter 9 on; the Lean names, the V-items and the
+report citations of Chapters 1–8 keep the preprint and 2017 numbers, and the section "The Springer edition
+(2021), Chapters 1–8" below gives their 2021 numbers and pages. The book's arXiv version is **arXiv
 1707.08941v1 (27 July 2017)**, the only version on arXiv (text in `sources/HWZ-Book-2017.txt`),
-whose Part I (Chapters 1–6) corresponds to the preprint's Part I. It is
-used below as the best available proxy for the book: **every result recorded here is a result about
-the 2017 arXiv text, not about the Springer edition**, whose pages and late corrections may differ.
+whose Part I (Chapters 1–6) corresponds to the preprint's Part I. It was used as the proxy for the book
+until the Springer text became available: **every result recorded in the sections before "The Springer
+edition" is a result about the 2017 arXiv text**, whose pages and late corrections may differ from
+the Springer edition's; the 2021 section records the differences.
 Pages of the 2017 text are its printed page numbers (Part I starts on p. 3).
 
 **Method.** The numbered items (Definition, Lemma, Proposition, Theorem, Corollary, Remark, Example)
@@ -739,6 +743,774 @@ on ep-groupoids and the sc-de Rham complex) and G.75 (Lemma 8.1 as printed, p. 2
 identification $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ with
 $m_{T\mathbf X} = Tm$); G.70 (Definition 7.4, $T\varphi$) is now formalized in part, by Remark 8.1.
 `verification/ch08.md` contains no *(book?)* mark: there is no other numbering to check against.
+
+## The Springer edition (2021), Chapters 1–8
+
+The published book, Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Ergebnisse der Mathematik
+und ihrer Grenzgebiete 72, Springer 2021), is available as `sources/HWZ-Book-2021.txt` (a `pdftotext
+-layout` text of the Springer PDF; `sources/` is gitignored, so the book text is not in the repository
+and nothing of it is quoted here beyond a few words). This section gives, for every numbered item of
+the 2017 arXiv text in Chapters 1–8, its Springer counterpart, its printed page and a status; for
+Chapters 1–6 the preprint number is carried along by composing with the tables above. The 2021 edition
+is the authoritative one **from Chapter 9 on**; the Lean names, the V-items and the report citations of
+Chapters 1–8 keep the preprint (Part I) and 2017 (Part II) numbers, and the tables below give their
+2021 numbers.
+
+**Method.** The numbered items (Definition, Theorem, Lemma, Proposition, Corollary, Remark, Example) of
+the 2017 and the 2021 text were extracted with their pages and aligned chapter by chapter, in order, by
+the text of the statement. Every pair whose statement text agreed to less than 90 %, every item
+without a partner, and a spot sample of the remaining pairs were then read in both texts; after
+normalizing editorial changes ("a sc-" to "an sc-", hyphenation, citation numbers, cross-reference
+numbers, renamed bound variables) the statements were compared word by word. Items restated in an
+appendix before their proof (2017 Lemmas 3.22 and 3.23) and items whose heading carries a title
+("Theorem 5.8 (Morse-type structure)") needed a manual pairing. Pages are printed pages, read off the
+running heads and the table of contents; the chapters occupy pp. 5–20 (Ch. 1), 21–88, 89–174, 175–204,
+205–236, 237–286, 287–356, 357–400 (Ch. 8). "p." is the page of the item's heading in the 2021 text.
+Status: `same` = the statement is unchanged up to editorial wording (a remark in brackets records an
+editorial side remark such as a moved sentence); `changed: …` = the mathematical content of the
+statement differs (a hypothesis or conclusion added or dropped, a corrected index, a split); `absent` =
+no counterpart as a numbered item, with the place where the content went. The comparison is of
+statements, not of proofs; a `same` does not certify that the proof is unchanged. Numbered items of
+other kinds (the 2017 Question 4.1 is Question 4.2.4 in 2021, p. 187) are not counted.
+
+### Structural differences
+
+- **Three-level numbering.** Every statement is numbered *chapter.section.item* with one counter per
+  section, shared by all kinds of statements (Definition 2.3.4, Lemma 2.3.5, Proposition 2.3.6, …).
+  The collisions of the 2017 numbers across kinds (Definition 3.13 and Theorem 3.13) are gone.
+  Displayed equations are still numbered by chapter, e.g. (2.9), (6.31); the 2017 equation numbers
+  therefore also shift.
+- **Chapter pagination.** The first page of Chapter 1 is p. 5 (Chapters 1–8: 5–20, 21–88, 89–174,
+  175–204, 205–236, 237–286, 287–356, 357–400).
+- **New sections.** §2.2 (basic properties of sc-smooth retracts), §6.1 (an overview), §7.4
+  (regularity assumptions and the Zhou condition), §8.4 (topological and regularity properties of
+  strong bundles). New or new-numbered appendices: 1.4.4, 2.7.4, 3.8.2, 4.5 (with 4.5.1–4.5.3), 7.6.3–7.6.5.
+  Because of the new sections the 2017 section numbers 2.2–2.6, 6.1–6.7, 7.4–7.5 and 8.4–8.5 move up
+  by one in 2021.
+- **New and rewritten content** (details in the lists below): locally complete spaces, local
+  path-connectedness (§2.1, §2.2), the tame boundary $b X$ (§2.7.4), the proof of the sc$^1$ regularity of the
+  solution germ, Theorem 3.3.3 (§3.8.2; quoted from [37] in 2017), vector fields, the Lie bracket and the Poincaré lemma (§4.4,
+  §4.5), $\mathrm{proper}_{<\infty}$ (§5.2), the reduced ep-groupoid and the local unique continuation
+  property (§7.2, rewritten), LUC, the Zhou condition and local regularity (§7.4), the tangent and
+  Zhou's condition (Props. 8.1.16–8.1.17), the Poincaré lemma on ep-groupoids (Prop. 8.2.3),
+  auxiliary norms on bundles over ep-groupoids and §8.4.
+- **Conventions fixed by footnotes.** Paracompactness does not include the Hausdorff property
+  (footnote to Definition 2.3.4, repeated in later chapters); "Banach space" means Banachable space
+  (Remark 1.1.2).
+- **Editorial.** "a sc-" becomes "an sc-" throughout; the bibliography is renumbered (2017 [36], [37],
+  [42] are [54], [55], [60] in 2021); typos of the 2017 text are mostly corrected silently (the
+  possible misprints that touch a statement are recorded below).
+- **Section titles.** Chapter and section titles, 2017 against 2021 (pages are the printed pages of
+  each text):
+
+| Ch. | arXiv 1707.08941 | p. | Springer 2021 | p. |
+|---|---|---|---|---|
+| 1 | 1 Sc-Calculus | 3 | 1 Sc-Calculus | 5 |
+| 1 | 1.1 Sc-Structures and Differentiability | 3 | 1.1 (same title) | 5 |
+| 1 | 1.2 Properties of Sc-Differentiability | 9 | 1.2 (same title) | 11 |
+| 1 | 1.3 The Chain Rule and Boundary Recognition | 10 | 1.3 (same title) | 13 |
+| 1 | 1.4 Appendix: 1.4.1 sc-Fredholm stability, 1.4.2 chain rule, 1.4.3 Proof Lemma 1.1 | 11, 11, 12, 13 | 1.4 Appendix: 1.4.1, 1.4.2, 1.4.3 Proof Lemma 1.3.4 | 15, 15, 15, 17 |
+| 1 | — |  | 1.4.4 A Useful Example (new) | 17 |
+| 2 | 2 Retracts | 15 | 2 Retracts | 21 |
+| 2 | 2.1 Retractions and Retracts | 15 | 2.1 (same title) | 21 |
+| 2 | — |  | 2.2 Some Basic Properties of Sc-Smooth Retracts (new) | 30 |
+| 2 | 2.2 M-Polyfolds and Sub-M-Polyfolds | 20 | 2.3 (same title) | 33 |
+| 2 | 2.3 Degeneracy Index and Boundary Geometry | 27 | 2.4 The Degeneracy Index and Boundary Geometry | 44 |
+| 2 | 2.4 Tame M-polyfolds | 34 | 2.5 (same title) | 52 |
+| 2 | 2.5 Strong Bundles | 44 | 2.6 (same title) | 65 |
+| 2 | 2.6 Appendix: 2.6.1 Proof of Proposition 2.1, 2.6.2 Proof of Theorem 2.2, 2.6.3 Proof of Proposition 2.5 | 49, 49, 51, 53 | 2.7 Appendix: 2.7.1 Proof of Proposition 2.1.2, 2.7.2 Proof of Theorem 2.3.10, 2.7.3 Proof of Proposition 2.3.15 | 69, 69, 71, 76 |
+| 2 | — |  | 2.7.4 Formalism Associated to a Boundary with Corners (new) | 78 |
+| 3 | 3 Basic Sc-Fredholm Theory | 57 | 3 Basic Sc-Fredholm Theory | 89 |
+| 3 | 3.1 Sc-Fredholm Sections | 57 | 3.1 (same title) | 89 |
+| 3 | 3.2 Subsets with Tangent Structure | 71 | 3.2 (same title) | 104 |
+| 3 | 3.3 Contraction Germs | 76 | 3.3 (same title) | 109 |
+| 3 | 3.4 Stability of Basic Germs | 80 | 3.4 (same title) | 113 |
+| 3 | 3.5 Geometry of Basic Germs | 84 | 3.5 The Geometry of Basic Germs | 117 |
+| 3 | 3.6 Implicit Function Theorems | 97 | 3.6 (same title) | 134 |
+| 3 | 3.7 Conjugation to a Basic Germ | 103 | 3.7 (same title) | 140 |
+| 3 | 3.8 Appendix: 3.8.1 Proof of Proposition 3.3, 3.8.2 Proof of Lemma 3.9, 3.8.3 Proof of Lemma 3.10, 3.8.4 Diffeomorphisms Between Partial Quadrants, 3.8.5 An Implicit Function Theorem in Partial Quadrants | 107, 107, 114, 117, 119, 125 | 3.8 Appendix: 3.8.1 Proof of Proposition 3.1.25, 3.8.2 Proof of Theorem 3.3.3 (new), 3.8.3 Proof of Lemma 3.5.10, 3.8.4 Proof of Lemma 3.6.9, 3.8.5 Diffeomorphisms Between Partial Quadrants, 3.8.6 An Implicit Function Theorem in Partial Quadrants | 144, 144, 155, 158, 161, 163, 169 |
+| 4 | 4 Manifolds and Strong Retracts | 131 | 4 Manifolds and Strong Retracts | 175 |
+| 4 | 4.1 Characterization | 131 | 4.1 (same title) | 175 |
+| 4 | 4.2 Smooth Finite Dimensional Submanifolds | 139 | 4.2 Smooth Finite-Dimensional Submanifolds | 184 |
+| 4 | 4.3 Families and an Application of Sard's Theorem | 147 | 4.3 (same title) | 193 |
+| 4 | 4.4 Sc-Differential Forms | 149 | 4.4 (same title) | 195 |
+| 4 | — |  | 4.5 Appendix (new): 4.5.1 Definition of the Lie Bracket, 4.5.2 Proof of Proposition 4.4.5, 4.5.3 Proof of the Poincar\'e Lemma | 199, 200, 201, 202 |
+| 5 | 5 Fredholm Package for M-Polyfolds | 151 | 5 The Fredholm Package for M-Polyfolds | 205 |
+| 5 | 5.1 Auxiliary Norms | 151 | 5.1 (same title) | 205 |
+| 5 | 5.2 Compactness Results | 155 | 5.2 (same title) | 208 |
+| 5 | 5.3 Perturbation Theory and Transversality | 161 | 5.3 (same title) | 216 |
+| 5 | 5.4 Remark on Extensions of Sc+-Sections | 172 | 5.4 (same title) | 228 |
+| 5 | 5.5 Notes on Partitions of Unity and Bump Functions | 173 | 5.5 (same title) | 229 |
+| 6 | 6 Orientations | 181 | 6 Orientations | 237 |
+| 6 | — |  | 6.1 An Overview (new) | 237 |
+| 6 | 6.1 Linearizations of Sc-Fredholm Sections | 181 | 6.2 (same title) | 239 |
+| 6 | 6.2 Linear Algebra and Conventions | 184 | 6.3 (same title) | 241 |
+| 6 | 6.3 The Determinant of a Fredholm Operator | 189 | 6.4 (same title) | 246 |
+| 6 | 6.4 Classical Local Determinant Bundles | 200 | 6.5 (same title) | 258 |
+| 6 | 6.5 Local Orientation Propagation | 204 | 6.6 (same title) | 262 |
+| 6 | 6.6 Invariants | 215 | 6.7 (same title) | 276 |
+| 6 | 6.7 Appendix: 6.7.1 Proof of Lemma 6.1, 6.7.2 Proof of Proposition 6.5 | 218, 218, 219 | 6.8 Appendix: 6.8.1 Proof of Lemma 6.3.3, 6.8.2 Proof of Proposition 6.4.11 | 279, 279, 281 |
+| 7 | 7 Ep-Groupoids | 225 | 7 Ep-Groupoids | 287 |
+| 7 | 7.1 Ep-Groupoids and Basic Properties | 225 | 7.1 (same title) | 287 |
+| 7 | 7.2 Effective and Reduced Ep-Groupoids | 239 | 7.2 (same title) | 307 |
+| 7 | 7.3 Topological Properties of Ep-Groupoids | 244 | 7.3 (same title) | 323 |
+| 7 | — |  | 7.4 Regularity Assumptions and the Zhou Condition (new) | 328 |
+| 7 | 7.4 Paracompact Orbit Spaces | 249 | 7.5 (same title) | 340 |
+| 7 | 7.5 Appendix: 7.5.1 The Natural Representation, 7.5.2 Sc-Smooth Partitions of Unity | 253, 253, 254 | 7.6 Appendix: 7.6.1 The Natural Representation, 7.6.2 Sc-Smooth Partitions of Unity | 344, 344, 346 |
+| 7 | — |  | 7.6.3 On the metrizability of $T_R$ (new), 7.6.4 Reduced Ep-Groupoids and Raising the Index (new), 7.6.5 Boundary Structure of Tame Ep-Groupoids (new) | 348, 348, 351 |
+| 8 | 8 Bundles and Covering Functors | 257 | 8 Bundles and Covering Functors | 357 |
+| 8 | 8.1 The Tangent of an Ep-Groupoid | 257 | 8.1 (same title) | 357 |
+| 8 | 8.2 Sc-Differential Forms on Ep-Groupoids | 268 | 8.2 (same title) | 372 |
+| 8 | 8.3 Strong Bundles over Ep-Groupoids | 270 | 8.3 (same title) | 374 |
+| 8 | — |  | 8.4 Topological and Regularity Properties of Strong Bundles (new) | 379 |
+| 8 | 8.4 Proper Covering Functors | 275 | 8.5 (same title) | 383 |
+| 8 | 8.5 Appendix: 8.5.1 Local Structure of Proper Coverings, 8.5.2 The Structure of Strong Bundle Coverings | 286, 286, 288 | 8.6 Appendix: 8.6.1, 8.6.2 (same titles) | 396, 396, 399 |
+
+### Concordance tables, Chapters 1–8
+
+Rows follow the 2017 order; the preprint column is the number in the table of the same chapter above, "—" for 2017 items without a preprint number. Preprint items absent from the 2017 text are also absent in 2021 (Theorem 3.35, Theorem 5.25, Lemma 5.26, Theorem 5.27, Lemma 6.10); they are listed at their place. A 2017 item that appears twice in 2021 (Lemmas 3.9/3.22 as Lemma 3.5.10, Lemmas 3.10/3.23 as Lemma 3.6.9) is a restatement.
+
+#### Chapter 1 (2021 pp. 5–20)
+
+| Preprint 2014 | arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|---|
+| Definition 1.1 | Definition 1.1 | Definition 1.1.1 | 5 | same |
+| Example 1.2 | Example 1.1 | Example 1.1.3 | 6 | same |
+| Definition 1.3 | Definition 1.2 | Definition 1.1.4 | 6 | same |
+| Definition 1.4 | Definition 1.3 | Definition 1.1.5 | 7 | same |
+| Definition 1.5 | Definition 1.4 | Definition 1.1.6 | 7 | same |
+| Proposition 1.6 | Proposition 1.1 | Proposition 1.1.7 | 7 | same |
+| Proposition 1.7 | Proposition 1.2 | Proposition 1.1.8 | 8 | same |
+| Definition 1.8 | Definition 1.5 | Definition 1.1.9 | 8 | same |
+| Proposition 1.9 | Proposition 1.3 | Proposition 1.1.10 | 9 | same |
+| Proposition 1.10 | Proposition 1.4 | Proposition 1.1.11 | 9 | changed: adds the conclusion that $T+S$ has the same index |
+| Definition 1.11 | Definition 1.6 | Definition 1.1.12 | 9 | same |
+| Definition 1.12 | Definition 1.7 | Definition 1.1.13 | 9 | same |
+| Definition 1.13 | Definition 1.8 | Definition 1.1.14 | 9 | same |
+| Definition 1.14 | Definition 1.9 | Definition 1.1.15 | 10 | same |
+| — | Remark 1.1 | Remark 1.1.16 | 10 | same |
+| Remark 1.15 | Remark 1.2 | Remark 1.1.17 | 10 | same |
+| — | Remark 1.3 | Remark 1.1.18 | 11 | same |
+| Proposition 1.16 | Proposition 1.5 | Proposition 1.2.1 | 11 | same (the "in particular" sentence moved after the proof) |
+| Proposition 1.17 | Proposition 1.6 | Proposition 1.2.2 | 13 | same |
+| Proposition 1.18 | Proposition 1.7 | Proposition 1.2.3 | 13 | same |
+| Proposition 1.19 | Proposition 1.8 | Proposition 1.2.4 | 13 | same |
+| Corollary 1.20 | Corollary 1.1 | Corollary 1.2.5 | 13 | same |
+| Theorem 1.21 | Theorem 1.1 | Theorem 1.3.1 | 13 | same |
+| Remark 1.22 | Remark 1.4 | Remark 1.3.2 | 14 | same |
+| Definition 1.23 | Definition 1.10 | Definition 1.3.3 | 14 | same |
+| Lemma 1.24 | Lemma 1.1 | Lemma 1.3.4 | 14 | same |
+| Theorem 1.25 | Theorem 1.2 | Theorem 1.3.5 | 14 | same |
+
+#### Chapter 2 (2021 pp. 21–88)
+
+| Preprint 2014 | arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|---|
+| Definition 2.1 | Definition 2.1 | Definition 2.1.1 | 21 | same |
+| Proposition 2.2 | Proposition 2.1 | Proposition 2.1.2 | 22 | same |
+| Definition 2.3 | Definition 2.2 | Definition 2.1.3 | 22 | same |
+| Proposition 2.4 | Proposition 2.2 | Proposition 2.1.11 | 26 | same |
+| Definition 2.5 | Definition 2.3 | Definition 2.1.12 | 26 | same |
+| Proposition 2.6 | Proposition 2.3 | Proposition 2.1.13 | 27 | changed: (3) now holds only under the hypothesis that $f\circ r$ is sc-smooth |
+| Definition 2.7 | Definition 2.4 | Definition 2.1.14 | 27 | same |
+| Theorem 2.8 | Theorem 2.1 | Theorem 2.1.15 | 28 | same |
+| Definition 2.9 | Definition 2.5 | Definition 2.1.16 | 29 | same |
+| — | Remark 2.1 | Remark 2.1.18 | 30 | same |
+| Proposition 2.10 | Proposition 2.4 | Proposition 2.3.1 | 33 | same |
+| Definition 2.11 | Definition 2.6 | Definition 2.3.2 | 34 | same (footnotes added: a chart around $x$ is also a chart around every $x'\in V$) |
+| Definition 2.12 | Definition 2.7 | Definition 2.3.3 | 35 | same |
+| Definition 2.13 | Definition 2.8 | Definition 2.3.4 | 35 | changed: footnote mark on "paracompact": by convention paracompactness does not include Hausdorffness (stated separately); adds a pointer to Theorem 2.3.10 (metrizability) |
+| Definition 2.14 | Definition 2.9 | Definition 2.3.8 | 37 | same |
+| Lemma 2.15 | Lemma 2.1 | Lemma 2.3.9 | 37 | same |
+| Theorem 2.16 | Theorem 2.2 | Theorem 2.3.10 | 37 | same |
+| Definition 2.17 | Definition 2.10 | Definition 2.3.12 | 38 | same |
+| Definition 2.18 | Definition 2.11 | Definition 2.3.14 | 39 | same |
+| Proposition 2.19 | Proposition 2.5 | Proposition 2.3.15 | 39 | same |
+| Definition 2.20 | Definition 2.12 | Definition 2.3.18 | 42 | same |
+| Proposition 2.21 | Proposition 2.6 | Proposition 2.3.19 | 42 | same |
+| Definition 2.22 | Definition 2.13 | Definition 2.4.1 | 44 | same |
+| Lemma 2.23 | Lemma 2.2 | Lemma 2.4.3 | 45 | same |
+| Proposition 2.24 | Proposition 2.7 | Proposition 2.4.4 | 45 | same |
+| Definition 2.25 | Definition 2.14 | Definition 2.4.5 | 45 | same |
+| Lemma 2.26 | Lemma 2.3 | Lemma 2.4.6 | 45 | same |
+| Definition 2.27 | Definition 2.15 | Definition 2.4.7 | 47 | same |
+| Remark 2.28 | Remark 2.2 | Remark 2.4.8 | 47 | same |
+| Lemma 2.29 | Lemma 2.4 | Lemma 2.4.9 | 48 | same |
+| Proposition 2.30 | Proposition 2.8 | Proposition 2.4.10 | 49 | same |
+| — | Remark 2.3 | Remark 2.4.11 | 49 | same |
+| Theorem 2.31 | Theorem 2.3 | Theorem 2.4.12 | 50 | same |
+| Corollary 2.32 | Corollary 2.1 | Corollary 2.4.13 | 51 | same |
+| Definition 2.33 | Definition 2.16 | Definition 2.5.1 | 53 | same |
+| Definition 2.34 | Definition 2.17 | Definition 2.5.2 | 53 | same |
+| Proposition 2.35 | Proposition 2.9 | Proposition 2.5.3 | 54 | same |
+| — | Definition 2.18 | Definition 2.5.4 | 55 | same |
+| — | Lemma 2.5 | Lemma 2.5.5 | 55 | same |
+| Proposition 2.36 | Proposition 2.10 | Proposition 2.5.6 | 56 | same |
+| Definition 2.37 | Definition 2.19 | Definition 2.5.7 | 57 | same |
+| Definition 2.38 | Definition 2.20 | Definition 2.5.8 | 57 | same |
+| — | Remark 2.4 | Remark 2.5.9 | 57 | same |
+| Definition 2.39 | Definition 2.21 | Definition 2.5.10 | 57 | same |
+| — | Proposition 2.11 | Proposition 2.5.11 | 58 | same |
+| Lemma 2.40 | Lemma 2.6 | Lemma 2.5.12 | 59 | same |
+| Corollary 2.41 | Corollary 2.2 | Corollary 2.5.13 | 59 | same |
+| Proposition 2.42 | Proposition 2.12 | Proposition 2.5.14 | 60 | same |
+| Proposition 2.43 | Proposition 2.13 | Proposition 2.5.15 | 61 | same |
+| Proposition 2.44 | Proposition 2.14 | Proposition 2.5.16 | 62 | same |
+| Theorem 2.45 | Theorem 2.4 | Theorem 2.5.17 | 62 | same |
+| Proposition 2.46 | Proposition 2.15 | Proposition 2.5.20 | 63 | same |
+| Definition 2.47 | Definition 2.22 | Definition 2.6.1 | 65 | same |
+| Definition 2.48 | Definition 2.23 | Definition 2.6.2 | 66 | same |
+| Definition 2.49 | Definition 2.24 | Definition 2.6.3 | 66 | same |
+| Definition 2.50 | Definition 2.25 | Definition 2.6.4 | 67 | same |
+| Definition 2.51 | Definition 2.26 | Definition 2.6.5 | 68 | same |
+| Definition 2.52 | Definition 2.27 | Definition 2.6.6 | 68 | same |
+| Definition 2.53 | Definition 2.28 | Definition 2.6.7 | 69 | same |
+| Proposition 2.54 | Proposition 2.16 | Proposition 2.6.8 | 69 | same |
+| Theorem 2.55 | Theorem 2.5 | Theorem 2.7.1 | 72 | same |
+| Lemma 2.56 | Lemma 2.7 | Lemma 2.7.3 | 72 | same |
+| Proposition 2.57 | Proposition 2.17 | Proposition 2.7.4 | 74 | same |
+
+#### Chapter 3 (2021 pp. 89–174)
+
+| Preprint 2014 | arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|---|
+| Definition 3.1 | Definition 3.1 | Definition 3.1.1 | 89 | same |
+| Definition 3.2 | Definition 3.2 | Definition 3.1.2 | 90 | same |
+| Definition 3.3 | Definition 3.3 | Definition 3.1.3 | 91 | same |
+| Definition 3.4 | Definition 3.4 | Definition 3.1.4 | 91 | changed: the retraction $r$ is no longer required to be tame (2017: "covering the tame retraction") |
+| Proposition 3.5 | Proposition 3.1 | Proposition 3.1.5 | 93 | same |
+| Definition 3.6 | Definition 3.5 | Definition 3.1.6 | 93 | same |
+| Definition 3.7 | Definition 3.6 | Definition 3.1.7 | 94 | same |
+| Remark 3.8 | Remark 3.1 | Remark 3.1.8 | 94 | same |
+| Lemma 3.9 | Lemma 3.1 | Lemma 3.1.9 | 94 | same |
+| Proposition 3.10 | Proposition 3.2 | Proposition 3.1.10 | 95 | same |
+| Definition 3.11 | Definition 3.7 | Definition 3.1.11 | 96 | same ("the pushed-forward section has a principal part which is a basic germ") |
+| — | Remark 3.2 | Remark 3.1.12 | 96 | same |
+| Theorem 3.12 | Theorem 3.1 | Theorem 3.1.13 | 97 | same |
+| — | Remark 3.3 | Remark 3.1.14 | 97 | same |
+| Corollary 3.13 | Corollary 3.1 | Corollary 3.1.15 | 97 | same |
+| Definition 3.14 | Definition 3.8 | Definition 3.1.16 | 97 | same |
+| — | Remark 3.4 | Remark 3.1.17 | 98 | same |
+| Theorem 3.15 | Theorem 3.2 | Theorem 3.1.18 | 98 | same (adds the sentence "in other words, there is a natural map $\mathrm{Fred}(P)\times\Gamma^+(P)\to\mathrm{Fred}(P)$") |
+| Lemma 3.16 | Lemma 3.2 | Lemma 3.1.19 | 99 | same |
+| Lemma 3.17 | Lemma 3.3 | Lemma 3.1.20 | 99 | same |
+| Theorem 3.18 | Theorem 3.3 | Theorem 3.1.21 | 100 | same |
+| Theorem 3.19 | Theorem 3.4 | Theorem 3.1.22 | 100 | same |
+| Remark 3.20 | Remark 3.5 | Remark 3.1.23 | 101 | same |
+| Definition 3.21 | Definition 3.9 | Definition 3.1.24 | 102 | same |
+| Proposition 3.22 | Proposition 3.3 | Proposition 3.1.25 | 103 | same |
+| Theorem 3.23 | Theorem 3.5 | Theorem 3.1.26 | 103 | same ((1) reworded: $S(f,U)$ is a sub-M-polyfold whose induced structure is tame) |
+| Corollary 3.24 | Corollary 3.2 | Corollary 3.1.27 | 104 | same |
+| Definition 3.25 | Definition 3.10 | Definition 3.2.1 | 104 | same |
+| Proposition 3.26 | Proposition 3.4 | Proposition 3.2.2 | 105 | same |
+| Theorem 3.27 | Theorem 3.6 | Theorem 3.2.3 | 106 | same |
+| Definition 3.28 | Definition 3.11 | Definition 3.3.1 | 109 | same |
+| Theorem 3.29 | Theorem 3.7 | Theorem 3.3.2 | 110 | same |
+| Theorem 3.30 | Theorem 3.8 | Theorem 3.3.3 | 110 | same (a proof (a modification of the original proof in [55]) is now given in Appendix 3.8.2; 2017 quotes the result from [37], Theorem 2.3) |
+| Lemma 3.31 | Lemma 3.4 | Lemma 3.3.4 | 111 | same |
+| Lemma 3.32 | Lemma 3.5 | Lemma 3.3.5 | 111 | same |
+| Theorem 3.33 | Theorem 3.9 | Theorem 3.3.6 | 112 | same |
+| Corollary 3.34 | Corollary 3.3 | Corollary 3.3.7 | 113 | same |
+| Theorem 3.35 | absent | absent | — | absent in 2017 and in 2021 (see the 2017 table above) |
+| Remark 3.36 | Remark 3.6 | Remark 3.3.8 | 113 | same |
+| Definition 3.37 | Definition 3.12 | Definition 3.4.1 | 114 | same |
+| Theorem 3.38 | Theorem 3.10 | Theorem 3.4.2 | 114 | same |
+| Corollary 3.39 | Corollary 3.4 | Corollary 3.4.3 | 116 | same |
+| Theorem 3.40 | Theorem 3.11 | Theorem 3.5.1 | 118 | changed: adds a conclusion: a sequence of solutions converging to $(0,0)$ on level 0 lies in $C_m$ for $k\ge k_0(m)$ and converges there on level $m$ |
+| — | Remark 3.7 | Remark 3.5.2 | 118 | same |
+| Corollary 3.41 | Corollary 3.5 | Corollary 3.5.3 | 122 | same |
+| Lemma 3.42 | Lemma 3.6 | Lemma 3.5.5 | 126 | same |
+| Theorem 3.43 | Theorem 3.12 | Theorem 3.5.6 | 126 | same |
+| Lemma 3.44 | Lemma 3.7 | Lemma 3.5.8 | 127 | same |
+| Lemma 3.45 | Lemma 3.8 | Lemma 3.5.9 | 128 | same |
+| Lemma 3.46 | Lemma 3.9 | Lemma 3.5.10 | 129 | same |
+| Corollary 3.47 | Corollary 3.6 | Theorem 3.5.11 | 131 | same (now a Theorem ("Local Germ-Solvability II"); the setting $E=\mathbb R^n\oplus W$, $C=[0,\infty)^k\oplus\mathbb R^{n-k}\oplus W$ is stated) |
+| Definition 3.48 | Definition 3.13 | Definition 3.6.1 | 134 | changed: the retraction $r$ is only required to be sc-smooth (2017: "tame retraction") |
+| Remark 3.49 | Remark 3.8 | Remark 3.6.2 | 135 | same |
+| Definition 3.50 | Definition 3.14 | Definition 3.6.3 | 135 | same |
+| Definition 3.51 | Definition 3.15 | Definition 3.6.4 | 135 | same |
+| Proposition 3.52 | Proposition 3.5 | Proposition 3.6.5 | 135 | same |
+| Definition 3.53 | Definition 3.16 | Definition 3.6.6 | 136 | same |
+| — | Remark 3.9 | Remark 3.6.7 | 136 | same |
+| Theorem 3.54 | Theorem 3.13 | Theorem 3.6.8 | 136 | same |
+| Lemma 3.55 | Lemma 3.10 | Lemma 3.6.9 | 139 | same |
+| Theorem 3.56 | Theorem 3.14 | Theorem 3.6.10 | 140 | same |
+| Theorem 3.57 | Theorem 3.15 | Theorem 3.6.11 | 140 | same |
+| Theorem 3.58 | Theorem 3.16 | Theorem 3.7.1 | 140 | same |
+| Lemma 3.59 | Lemma 3.11 | Lemma 3.7.2 | 141 | same |
+| Lemma 3.60 | Lemma 3.12 | Lemma 3.7.3 | 142 | same |
+| Lemma 3.61 | Lemma 3.13 | Lemma 3.7.4 | 142 | same |
+| Lemma 3.62 | Lemma 3.14 | Lemma 3.8.1 | 145 | same |
+| Lemma 3.63 | Lemma 3.15 | Lemma 3.8.2 | 145 | same |
+| Lemma 3.64 | Lemma 3.16 | Lemma 3.8.3 | 146 | same |
+| Lemma 3.65 | Lemma 3.17 | Lemma 3.8.8 | 150 | same |
+| Lemma 3.66 | Lemma 3.18 | Lemma 3.8.9 | 150 | same |
+| Lemma 3.67 | Lemma 3.19 | Lemma 3.8.10 | 151 | same |
+| Lemma 3.68 | Lemma 3.20 | Lemma 3.8.11 | 151 | same |
+| Proposition 3.69 | Proposition 3.6 | Proposition 3.8.12 | 153 | same |
+| Lemma 3.70 | Lemma 3.21 | Lemma 3.8.13 | 154 | same |
+| — | Lemma 3.22 | Lemma 3.5.10 | 158 | same (restatement of Lemma 3.9 in Appendix 3.8.3, p. 158) |
+| — | Lemma 3.23 | Lemma 3.6.9 | 161 | same (restatement of Lemma 3.10 in Appendix 3.8.4, p. 161) |
+| Definition 3.71 | Definition 3.17 | Definition 3.8.14 | 164 | same |
+| Theorem 3.72 | Theorem 3.17 | Theorem 3.8.15 | 165 | same |
+| Proposition 3.73 | Proposition 3.7 | Proposition 3.8.17 | 165 | same |
+| Lemma 3.74 | Lemma 3.24 | Lemma 3.8.18 | 165 | same |
+| Corollary 3.75 | Corollary 3.7 | Corollary 3.8.19 | 167 | same |
+| Lemma 3.76 | Lemma 3.25 | Lemma 3.8.20 | 167 | same |
+| Lemma 3.77 | Lemma 3.26 | Lemma 3.8.21 | 168 | same |
+| Theorem 3.78 | Theorem 3.18 | Theorem 3.8.22 | 169 | same |
+| Lemma 3.79 | Lemma 3.27 | Lemma 3.8.23 | 170 | same |
+| Lemma 3.80 | Lemma 3.28 | Lemma 3.8.24 | 170 | same |
+| Lemma 3.81 | Lemma 3.29 | Lemma 3.8.25 | 171 | same |
+| Lemma 3.82 | Lemma 3.30 | Lemma 3.8.26 | 172 | same |
+
+#### Chapter 4 (2021 pp. 175–204)
+
+| Preprint 2014 | arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|---|
+| Definition 4.1 | Definition 4.1 | Definition 4.1.1 | 175 | same (reworded: a classically smooth atlas whose charts are sc-diffeomorphisms for the induced M-polyfold structure) |
+| Theorem 4.2 | Theorem 4.1 | Theorem 4.1.2 | 176 | same |
+| Remark 4.3 | Remark 4.1 | Remark 4.1.3 | 176 | same |
+| Definition 4.4 | Definition 4.2 | Definition 4.1.4 | 176 | same |
+| Lemma 4.5 | Lemma 4.1 | Lemma 4.1.5 | 177 | same |
+| Definition 4.6 | Definition 4.3 | Definition 4.1.6 | 177 | same |
+| Lemma 4.7 | Lemma 4.2 | Lemma 4.1.7 | 177 | same |
+| Proposition 4.8 | Proposition 4.1 | Proposition 4.1.8 | 177 | same |
+| Proposition 4.9 | Proposition 4.2 | Proposition 4.1.9 | 178 | same |
+| — | Remark 4.2 | Remark 4.1.10 | 178 | same |
+| Lemma 4.10 | Lemma 4.3 | Lemma 4.1.11 | 179 | same |
+| Lemma 4.11 | Lemma 4.4 | Lemma 4.1.12 | 181 | same |
+| Lemma 4.12 | Lemma 4.5 | Lemma 4.1.13 | 182 | same |
+| Definition 4.13 | Definition 4.4 | Definition 4.2.1 | 184 | same |
+| Remark 4.14 | Remark 4.3 | Remark 4.2.2 | 184 | same |
+| Proposition 4.15 | Proposition 4.3 | Proposition 4.2.3 | 186 | same |
+| Definition 4.16 | Definition 4.5 | Definition 4.2.5 | 188 | same |
+| Definition 4.17 | Definition 4.6 | Definition 4.2.6 | 188 | same |
+| Theorem 4.18 | Theorem 4.2 | Theorem 4.2.7 | 188 | same |
+| Lemma 4.19 | Lemma 4.6 | Lemma 4.2.8 | 188 | same |
+| Remark 4.20 | Remark 4.4 | Remark 4.2.9 | 189 | same |
+| Definition 4.21 | Definition 4.7 | Definition 4.2.10 | 190 | same |
+| Theorem 4.22 | Theorem 4.3 | Theorem 4.2.11 | 190 | changed: in (1) the local faces $F_1,\dots,F_d$ are required to contain $x$ |
+| — | Definition 4.8 | Definition 4.2.12 | 192 | same |
+| — | Proposition 4.4 | Proposition 4.2.13 | 192 | same |
+| Theorem 4.23 | Theorem 4.4 | Theorem 4.3.1 | 193 | changed: in (1) non-emptiness of $p^{-1}(\lambda)$ dropped; $\Sigma$ is a "measurable set of full measure" (2017: "a set of full measure") |
+| Remark 4.24 | Remark 4.5 | Remark 4.3.2 | 193 | same |
+| Definition 4.25 | Definition 4.9 | Definition 4.4.1 | 195 | same (the direct limit $\Omega^k_\infty$ and the graded space $\Omega^*_\infty$ moved to Definitions 4.4.1-4.4.2) |
+| Proposition 4.26 | Proposition 4.5 | Proposition 4.4.5 | 196 | changed: the levels of $d$ are stated as $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ (2017: $\Omega^k(X^{i+1})\to\Omega^{k+1}(X^i)$, a possible misprint); $[A,B]$ is a section of $TX$ restricted to $X^2$, over $X^2$; the formula for $d$ is spelled out; proof in Appendix 4.5 |
+| Definition 4.27 | Definition 4.10 | Definition 4.4.6 | 198 | same |
+| Theorem 4.28 | Theorem 4.5 | Theorem 4.4.7 | 199 | same (the sentences "$N$ is not assumed face structured" and on $f^*$ dropped; the Poincar\'e lemma is stated as Lemma 4.4.8) |
+
+#### Chapter 5 (2021 pp. 205–236)
+
+| Preprint 2014 | arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|---|
+| Definition 5.1 | Definition 5.1 | Definition 5.1.1 | 205 | same |
+| Lemma 5.2 | Lemma 5.1 | Lemma 5.1.2 | 205 | same |
+| Proposition 5.3 | Proposition 5.1 | Proposition 5.1.3 | 206 | same |
+| — | Definition 5.2 | Definition 5.1.4 | 207 | same |
+| — | Lemma 5.2 | Lemma 5.1.5 | 207 | same |
+| — | Definition 5.3 | Definition 5.1.6 | 207 | same |
+| — | Definition 5.4 | Definition 5.1.7 | 208 | same |
+| — | Proposition 5.2 | Proposition 5.1.8 | 208 | same |
+| Definition 5.4 | Definition 5.5 | Definition 5.2.1 | 209 | changed: adds (4) weakly proper$_{<\infty}$ and (5) proper$_{<\infty}$; in (2) the bound $N(s)\le1$ is required on $U$ only |
+| Theorem 5.5 | Theorem 5.1 | Theorem 5.2.2 | 210 | changed: conclusion strengthened: a compact solution set implies proper$_{<\infty}$, so that all five properties are equivalent |
+| Theorem 5.6 | Theorem 5.2 | Theorem 5.2.3 | 213 | same |
+| Theorem 5.7 | Theorem 5.3 | Theorem 5.2.4 | 213 | same |
+| Corollary 5.8 | Corollary 5.1 | Corollary 5.2.5 | 213 | same |
+| — | Definition 5.6 | Definition 5.2.6 | 214 | same |
+| — | Proposition 5.3 | Proposition 5.2.7 | 214 | same |
+| — | Theorem 5.4 | Theorem 5.2.8 | 215 | same |
+| — | Remark 5.1 | Remark 5.2.9 | 215 | same |
+| — | Remark 5.2 | Remark 5.2.10 | 216 | same |
+| Definition 5.9 | Definition 5.7 | Definition 5.3.1 | 216 | same |
+| Proposition 5.10 | Proposition 5.4 | Proposition 5.3.2 | 216 | same |
+| Lemma 5.11 | Lemma 5.3 | Lemma 5.3.3 | 217 | same |
+| Remark 5.12 | Remark 5.3 | Remark 5.3.4 | 217 | same |
+| Theorem 5.13 | Theorem 5.5 | Theorem 5.3.5 | 217 | changed: the solution set $S_{f+s}$ is a compact sub-M-polyfold (compactness added to the conclusion) |
+| Remark 5.14 | Remark 5.4 | Remark 5.3.6 | 218 | same |
+| Definition 5.15 | Definition 5.8 | Definition 5.3.7 | 218 | same |
+| Remark 5.16 | Remark 5.5 | Remark 5.3.8 | 219 | same |
+| Definition 5.17 | Definition 5.9 | Definition 5.3.9 | 220 | same |
+| Theorem 5.18 | Theorem 5.6 | Theorem 5.3.10 | 220 | same |
+| — | Remark 5.6 | Remark 5.3.11 | 222 | same |
+| Theorem 5.19 | Theorem 5.7 | Theorem 5.3.12 | 222 | same |
+| Definition 5.20 | Definition 5.10 | Definition 5.3.13 | 223 | changed: $t$ is an sc-smooth map with $t^{-1}(i)=X_i$ and $dt$ surjective at smooth points; the requirements that $t$ be surjective and every $X_t$ a tame M-polyfold with $f$ restricted to $X_t$ sc-Fredholm are dropped |
+| Remark 5.21 | Remark 5.7 | Remark 5.3.14 | 223 | same |
+| Theorem 5.22 | Theorem 5.8 | Theorem 5.3.15 | 223 | same |
+| Lemma 5.23 | Lemma 5.4 | Lemma 5.3.16 | 224 | same |
+| Lemma 5.24 | Lemma 5.5 | Lemma 5.3.17 | 225 | same |
+| Theorem 5.25 | absent | absent | — | absent in 2017 and in 2021 (see the 2017 table above) |
+| Lemma 5.26 | absent | absent | — | absent in 2017 and in 2021 (see the 2017 table above) |
+| Theorem 5.27 | absent | absent | — | absent in 2017 and in 2021 (see the 2017 table above) |
+| — | Definition 5.11 | Definition 5.4.1 | 228 | same |
+| — | Theorem 5.9 | Theorem 5.4.2 | 228 | same |
+| Definition 5.28 | Definition 5.12 | Definition 5.5.1 | 229 | same |
+| Definition 5.29 | Definition 5.13 | Definition 5.5.2 | 229 | same |
+| Proposition 5.30 | Proposition 5.5 | Proposition 5.5.3 | 230 | same |
+| Definition 5.31 | Definition 5.14 | Definition 5.5.4 | 230 | same |
+| Theorem 5.32 | Theorem 5.10 | Theorem 5.5.5 | 230 | same |
+| Definition 5.33 | Definition 5.15 | Definition 5.5.6 | 231 | same |
+| Theorem 5.34 | Theorem 5.11 | Theorem 5.5.7 | 231 | same |
+| Proposition 5.35 | Proposition 5.6 | Proposition 5.5.8 | 231 | same |
+| Definition 5.36 | Definition 5.16 | Definition 5.5.9 | 231 | same |
+| Theorem 5.37 | Theorem 5.12 | Theorem 5.5.10 | 232 | same |
+| Proposition 5.38 | Proposition 5.7 | Proposition 5.5.11 | 234 | same |
+| Definition 5.39 | Definition 5.17 | Definition 5.5.12 | 234 | same |
+| Theorem 5.40 | Theorem 5.13 | Theorem 5.5.13 | 234 | same |
+| Definition 5.41 | Definition 5.18 | Definition 5.5.14 | 234 | same |
+| Proposition 5.42 | Proposition 5.8 | Proposition 5.5.15 | 235 | same |
+| Theorem 5.43 | Theorem 5.14 | Theorem 5.5.16 | 235 | same |
+| Corollary 5.44 | Corollary 5.2 | Corollary 5.5.17 | 235 | same |
+
+#### Chapter 6 (2021 pp. 237–286)
+
+| Preprint 2014 | arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|---|
+| Definition 6.1 | Definition 6.1 | Definition 6.2.1 | 239 | same |
+| Proposition 6.2 | Proposition 6.1 | Proposition 6.2.2 | 240 | same |
+| — | Remark 6.1 | Remark 6.2.3 | 240 | same |
+| Definition 6.3 | Definition 6.2 | Definition 6.3.1 | 242 | same |
+| Proposition 6.4 | Proposition 6.2 | Proposition 6.3.2 | 243 | same |
+| Lemma 6.5 | Lemma 6.1 | Lemma 6.3.3 | 244 | same |
+| — | Lemma 6.2 | Lemma 6.3.4 | 245 | same |
+| Proposition 6.6 | Proposition 6.3 | Proposition 6.3.5 | 246 | same |
+| Definition 6.7 | Definition 6.3 | Definition 6.4.1 | 246 | same |
+| Definition 6.8 | Definition 6.4 | Definition 6.4.2 | 246 | same |
+| Definition 6.9 | Definition 6.5 | Definition 6.4.3 | 247 | same |
+| Lemma 6.10 | absent | absent | — | absent in 2017 and in 2021 (see the 2017 table above) |
+| — | Lemma 6.3 | Lemma 6.4.4 | 247 | changed: adds $\mathrm{ind}(P\circ T)=\mathrm{ind}(T)=\mathrm{ind}(T_0)=\mathrm{ind}(P_0\circ T_0)$ to the conclusion |
+| — | Remark 6.2 | Remark 6.4.5 | 247 | same |
+| — | Remark 6.3 | Remark 6.4.6 | 248 | same |
+| — | Lemma 6.4 | Lemma 6.4.7 | 248 | same |
+| — | Definition 6.6 | Definition 6.4.8 | 248 | same |
+| — | Lemma 6.5 | Lemma 6.4.9 | 249 | same |
+| Lemma 6.11 | Proposition 6.4 | Proposition 6.4.10 | 249 | same |
+| Proposition 6.12 | Proposition 6.5 | Proposition 6.4.11 | 251 | same |
+| Corollary 6.13 | Corollary 6.1 | Corollary 6.4.12 | 251 | same |
+| — | Proposition 6.6 | Proposition 6.4.13 | 253 | changed: the closed subspace $H\subset F$ of finite codimension with $\Pi_T\cap\mathcal P_H\ne\emptyset$ is now an explicit hypothesis |
+| Lemma 6.14 | Lemma 6.6 | Lemma 6.4.14 | 256 | same |
+| Proposition 6.15 | Proposition 6.7 | Proposition 6.4.15 | 257 | changed: hypotheses made explicit ($T$ Fredholm, $\varphi$ with $T_\varphi$ surjective); the basis is taken as $\bar c_i\in\mathbb R^n$ with $\varphi(\bar c_i)+R(T)$ a basis of $F/R(T)$ |
+| Definition 6.16 | Definition 6.7 | Definition 6.4.16 | 258 | same |
+| Lemma 6.17 | Lemma 6.7 | Lemma 6.5.1 | 258 | same |
+| Lemma 6.18 | Lemma 6.8 | Lemma 6.5.2 | 259 | same |
+| Lemma 6.19 | Lemma 6.9 | Lemma 6.5.3 | 259 | same |
+| Proposition 6.20 | Proposition 6.8 | Proposition 6.5.4 | 260 | same |
+| Lemma 6.21 | Lemma 6.10 | Lemma 6.5.5 | 260 | same |
+| Definition 6.22 | Definition 6.8 | Definition 6.5.6 | 261 | same |
+| Proposition 6.23 | Proposition 6.9 | Proposition 6.5.7 | 261 | same |
+| Proposition 6.24 | Proposition 6.10 | Proposition 6.5.8 | 261 | same |
+| Lemma 6.25 | Lemma 6.11 | Lemma 6.5.9 | 262 | same |
+| Proposition 6.26 | Proposition 6.11 | Proposition 6.6.1 | 263 | same |
+| Definition 6.27 | Definition 6.9 | Definition 6.6.2 | 263 | same |
+| Proposition 6.28 | Proposition 6.12 | Proposition 6.6.3 | 263 | changed: the tameness of $X$ is stated; the sc$^+$-sections $s$, $q$ take values in $Y\times[0,1]$ |
+| Lemma 6.29 | Lemma 6.12 | Lemma 6.6.4 | 265 | same |
+| Lemma 6.30 | Lemma 6.13 | Lemma 6.6.5 | 265 | changed: the solution set is taken near $(t,\varphi(t),0)$ for points $(t,y,\lambda)$ (2017: $(t,y,0)$, a possible misprint) |
+| Lemma 6.31 | Lemma 6.14 | Lemma 6.6.6 | 266 | same |
+| Proposition 6.32 | Proposition 6.13 | Proposition 6.6.7 | 267 | same |
+| Lemma 6.33 | Lemma 6.15 | Lemma 6.6.8 | 267 | changed: split in two: Lemma 6.6.8 (the extra parameters $\mu$ enter as dummy variables) and the new Lemma 6.6.9 (the extra sc$^+$-sections $\mu_j\bar s_j$) |
+| Lemma 6.34 | Lemma 6.16 | Lemma 6.6.10 | 271 | same |
+| Theorem 6.35 | Theorem 6.1 | Theorem 6.6.11 | 272 | same |
+| Definition 6.36 | Definition 6.10 | Definition 6.6.12 | 273 | same |
+| Theorem 6.37 | Theorem 6.2 | Theorem 6.6.13 | 273 | same |
+| Definition 6.38 | Definition 6.11 | Definition 6.6.14 | 274 | same |
+| Definition 6.39 | Definition 6.12 | Definition 6.6.15 | 274 | same |
+| Definition 6.40 | Definition 6.13 | Definition 6.6.16 | 274 | same |
+| Theorem 6.41 | Theorem 6.3 | Theorem 6.6.18 | 275 | same |
+| Remark 6.42 | Remark 6.4 | Remark 6.6.19 | 276 | same |
+| Theorem 6.43 | Theorem 6.4 | Theorem 6.7.1 | 277 | same |
+
+#### Chapter 7 (2021 pp. 287–356)
+
+| arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|
+| Definition 7.1 | Definition 7.1.1 | 287 | same |
+| Definition 7.2 | Definition 7.1.2 | 288 | same |
+| Definition 7.3 | Definition 7.1.3 | 288 | same |
+| Definition 7.4 | Definition 7.1.4 | 289 | same ($m_\ell$ renamed $m_I$ ("maximal index")) |
+| Definition 7.5 | Definition 7.1.5 | 290 | same |
+| Definition 7.6 | Definition 7.1.6 | 290 | same |
+| Definition 7.7 | Definition 7.1.7 | 290 | changed: the definition is unchanged, but the remark that sc-smoothness on objects suffices now also asks for continuity (level 0) on morphisms |
+| Proposition 7.1 | Proposition 7.1.8 | 291 | same |
+| Proposition 7.2 | Proposition 7.1.9 | 291 | same |
+| Proposition 7.3 | Proposition 7.1.10 | 292 | same |
+| Lemma 7.1 | Lemma 7.1.11 | 292 | same |
+| Proposition 7.4 | Proposition 7.1.12 | 293 | same |
+| Theorem 7.1 | Theorem 7.1.13 | 293 | same |
+| Proposition 7.5 | Proposition 7.1.15 | 297 | changed: (2) corrected to $s:U(\psi)\to U(s(\psi))$, $t:U(\psi)\to U(t(\psi))$ (2017: both to $U(y)$); adds $\psi\in U(\psi)$ and $t(\psi')=f(\psi)(s(\psi'))$ |
+| Definition 7.8 | Definition 7.1.18 | 304 | same |
+| Proposition 7.6 | Proposition 7.1.19 | 304 | same |
+| Definition 7.9 | Definition 7.1.20 | 305 | same |
+| Definition 7.10 | Definition 7.1.21 | 305 | same |
+| Proposition 7.7 | Proposition 7.1.22 | 307 | same |
+| Definition 7.11 | Definition 7.2.1 | 307 | same |
+| Lemma 7.2 | Lemma 7.2.2 | 307 | same |
+| Lemma 7.3 | Lemma 7.2.3 | 308 | same |
+| Proposition 7.8 | Proposition 7.2.4 | 309 | same |
+| Definition 7.12 | Definition 7.2.7 | 310 | same (adds the groupoid structure on $(X,\mathbf X^R)$) |
+| Proposition 7.9 | Proposition 7.2.10 | 313 | changed: weaker conclusion: $X^R$ with the natural topology $T_R$ admits natural charts with sc-smooth transition maps; $(X^R,T_R)$ is paracompact (Prop. 7.2.12) and an M-polyfold exactly when $T_R$ is Hausdorff (Prop. 7.2.13); Remark 7.2.8 says this need not hold in general |
+| Proposition 7.10 | absent | — | absent: no counterpart as stated, the content is rewritten: the reduced ep-groupoid $\mathbf X_R$ exists when $T_R$ is Hausdorff (Theorem 7.2.14, p. 318), it is effective (Proposition 7.2.16, p. 319), and $T_R$ is Hausdorff iff (LUC) iff $\mathbf X^T$ is closed (Theorem 7.2.22, p. 323) |
+| Definition 7.13 | Definition 7.2.15 | 319 | same |
+| Theorem 7.2 | Theorem 7.3.1 | 324 | same |
+| Lemma 7.4 | Lemma 7.3.2 | 324 | same |
+| Lemma 7.5 | Lemma 7.3.3 | 324 | same |
+| Lemma 7.6 | Lemma 7.3.4 | 325 | same |
+| Lemma 7.7 | Lemma 7.3.5 | 325 | same |
+| Corollary 7.1 | Corollary 7.3.6 | 326 | same |
+| Definition 7.14 | Definition 7.3.7 | 326 | same |
+| Corollary 7.2 | Corollary 7.3.8 | 326 | same |
+| Proposition 7.11 | Proposition 7.3.9 | 327 | same |
+| Definition 7.15 | Definition 7.5.1 | 340 | same |
+| Remark 7.1 | Remark 7.5.2 | 340 | same |
+| Proposition 7.12 | Proposition 7.5.3 | 340 | same |
+| Theorem 7.3 | Theorem 7.5.4 | 341 | same |
+| Definition 7.16 | Definition 7.5.5 | 342 | same |
+| Remark 7.2 | Remark 7.5.6 | 342 | same |
+| Theorem 7.4 | Theorem 7.5.7 | 342 | same |
+| Definition 7.17 | Definition 7.5.8 | 342 | same |
+| Proposition 7.13 | Proposition 7.5.9 | 342 | same |
+| Proposition 7.14 | Proposition 7.5.10 | 343 | same |
+| Theorem 7.5 | Theorem 7.6.1 | 344 | same |
+| Lemma 7.8 | Lemma 7.6.2 | 345 | same |
+| Lemma 7.9 | Lemma 7.6.3 | 345 | same |
+| Theorem 7.6 | Theorem 7.6.4 | 346 | same |
+| Lemma 7.10 | Lemma 7.6.5 | 346 | same |
+| Corollary 7.3 | Corollary 7.6.6 | 347 | same |
+
+#### Chapter 8 (2021 pp. 357–400)
+
+| arXiv 2017 | Springer 2021 | p. | Status |
+|---|---|---|---|
+| Theorem 8.1 | Theorem 8.1.1 | 359 | same (the description of $T(\mathbf X\,{}_s{\times}_t\mathbf X)$ rewritten) |
+| Lemma 8.1 | Lemma 8.1.2 | 359 | same |
+| Lemma 8.2 | Lemma 8.1.3 | 360 | same |
+| Lemma 8.3 | Lemma 8.1.4 | 361 | same |
+| Lemma 8.4 | Lemma 8.1.5 | 361 | same |
+| Lemma 8.5 | Lemma 8.1.6 | 362 | same |
+| Lemma 8.6 | Lemma 8.1.7 | 362 | same |
+| Lemma 8.7 | Lemma 8.1.8 | 363 | same |
+| Lemma 8.8 | Lemma 8.1.9 | 364 | same |
+| Remark 8.1 | Remark 8.1.10 | 364 | same |
+| Theorem 8.2 | Theorem 8.1.11 | 365 | same |
+| Theorem 8.3 | Theorem 8.1.12 | 366 | same |
+| Definition 8.1 | Definition 8.1.13 | 367 | same |
+| Proposition 8.1 | Proposition 8.1.14 | 367 | same |
+| Theorem 8.4 | Theorem 8.1.15 | 368 | same |
+| Definition 8.2 | Definition 8.2.1 | 372 | same |
+| Definition 8.3 | Definition 8.2.2 | 373 | same |
+| Definition 8.4 | Definition 8.3.1 | 375 | same |
+| Definition 8.5 | Definition 8.3.2 | 377 | same |
+| Definition 8.6 | Definition 8.3.3 | 378 | same |
+| Definition 8.7 | Definition 8.3.4 | 379 | same |
+| Definition 8.8 | Definition 8.5.1 | 383 | same |
+| Proposition 8.2 | Proposition 8.5.2 | 384 | same |
+| Theorem 8.5 | Theorem 8.5.3 | 385 | same (statement, including (5), unchanged) |
+| Remark 8.2 | Remark 8.5.4 | 386 | same |
+| Definition 8.9 | Definition 8.5.5 | 388 | same |
+| Proposition 8.3 | Proposition 8.5.7 | 390 | same |
+| Theorem 8.6 | Theorem 8.5.8 | 392 | same (in the proof $A(\psi,z)=(f(\psi),F(z))$ (2017: $(f(z),F(z))$, a possible misprint)) |
+| Definition 8.10 | Definition 8.5.9 | 394 | changed: adds (0): $\tau(F(\psi),A(w))=A(\mu(\psi,w))$, the compatibility of $A$ with the strong bundle data |
+| Lemma 8.9 | Lemma 8.6.1 | 397 | same |
+| Lemma 8.10 | Lemma 8.6.2 | 398 | same |
+| Lemma 8.11 | Lemma 8.6.3 | 398 | same |
+| Proposition 8.4 | Proposition 8.6.4 | 399 | same |
+
+### Items of the 2021 text without a 2017 counterpart
+
+Listed by section with a one-line paraphrase (the item's number and page in the 2021 text); "2017: running text" means the content is in the 2017 text but not as a numbered item.
+
+**Chapter 1** (1 items)
+
+- §1.1
+  - Remark 1.1.2 (p. 5): Banach space means Banachable space; all complete norms are equivalent
+
+**Chapter 2** (37 items)
+
+- §2.1 Retractions and Retracts
+  - Proposition 2.1.4 (p. 22): every point of an sc-smooth retract has neighbourhoods $V\subset W$ with $\mathrm{cl}(V)\subset W$ and the level-0 metric complete on $\mathrm{cl}(V)$ (running text in 2017)
+  - Definition 2.1.5 (p. 23): locally complete Hausdorff space
+  - Remark 2.1.6 (p. 23): the "global" aspect of local completeness
+  - Corollary 2.1.7 (p. 23): an sc-smooth retract (level 0) is locally complete
+  - Proposition 2.1.8 (p. 24): permanence of local completeness (locally closed subspaces, homeomorphic images, open subsets, locally finite closed covers)
+  - Lemma 2.1.9 (p. 25): a locally complete Hausdorff space has countable neighbourhood bases
+  - Proposition 2.1.10 (p. 25): a locally complete Hausdorff space is completely regular
+  - Remark 2.1.17 (p. 30): the tangent of a retract and of a morphism; tangent bundle of a retract
+- §2.2 Some Basic Properties of Sc-Smooth Retracts (new section)
+  - Lemma 2.2.1 (p. 30): for connected relatively open $U\subset C$ every level $U_k$ is path-connected
+  - Lemma 2.2.2 (p. 31): neighbourhoods $W(x)=V(x)\cap r^{-1}(V(x))$ of $x\in O$ inside $C$ and their intersection with $O$
+  - Definition 2.2.3 (p. 32): locally path-connected topological space
+  - Theorem 2.2.4 (p. 32): an sc-smooth retract is locally path-connected
+  - Definition 2.2.5 (p. 33): almost locally contractible space
+  - Proposition 2.2.6 (p. 33): an sc-smooth retract is almost locally contractible
+- §2.3 M-Polyfolds and Sub-M-Polyfolds
+  - Lemma 2.3.5 (p. 35): every point of an M-polyfold has arbitrarily small neighbourhoods $V$ with $\mathrm{cl}(V)\subset W$
+  - Proposition 2.3.6 (p. 36): every M-polyfold is locally complete (local completeness, wording of the 2017 text before Theorem 2.2)
+  - Proposition 2.3.7 (p. 36): every M-polyfold is locally path-connected
+  - Remark 2.3.11 (p. 38): $TX\to X^1$ is called the tangent but is a bundle over $X^1$, not over $X$ (2017: running text)
+  - Remark 2.3.13 (p. 38): identification of $T_xO$ with $\{x\}\times Dr(x)E$ (2017: running text)
+  - Theorem 2.3.16 (p. 40): the tangent bundle $TX\to X^1$ of an M-polyfold is a well-defined M-polyfold bundle (2017: running text after Proposition 2.5)
+  - Proposition 2.3.17 (p. 42): $(TX)^i$ is naturally identified with $T(X^i)$, also as bundles
+- §2.4 The Degeneracy Index
+  - Remark 2.4.2 (p. 44): the degeneracy index measures the corner complexity; the example of the diagonal in $[0,\infty)^3$
+- §2.5 Tame M-polyfolds
+  - Definition 2.5.18 (p. 62): a sub-M-polyfold has a tame induced structure if it has an equivalent atlas with tame models only
+  - Definition 2.5.19 (p. 63): sub-M-polyfold $Y$ of a tame $X$ with retractions $r$ satisfying $r(V)=Y\cap V$ and $d_X\circ r=d_X$ (a tame sub-M-polyfold)
+- §2.7 Appendix (2.7.2 and 2.7.4 Formalism Associated to a Boundary with Corners: the tame boundary $bX$)
+  - Lemma 2.7.2 (p. 72): regular Hausdorff space: neighbourhoods $V(x)$ with $\mathrm{cl}(V(x))\subset U(x)$ (the T3 reformulation used for Theorem 2.7.1)
+  - Proposition 2.7.5 (p. 78): refines 2017 Proposition 2.12: a neighbourhood $V$ with $d_X(y)\le d_X(x)$ and $y$ in exactly $d_X(y)$ faces of $V$, and a smaller $U(x)$ such that every face of $V$ meeting $U(x)$ contains $x$ (the last claim goes beyond what 2.5.14 states)
+  - Definition 2.7.6 (p. 79): face-structured open subsets; collections $\mathcal N_X^{\mathrm{all}}\supset\mathcal N_X$
+  - Proposition 2.7.7 (p. 80): $\mathcal N_{X,x}\neq\emptyset$, $\mathcal N_X$ is an open covering closed under non-empty open subsets and intersections
+  - Definition 2.7.8 (p. 80): local boundary structure category $L_X$
+  - Definition 2.7.9 (p. 81): boundary structure functor $F_X:L_X\to\mathrm{SET}$
+  - Definition 2.7.10 (p. 81): admissible boundary triples $(x,V,\theta)$ and their equivalence; the set $bX$
+  - Definition 2.7.11 (p. 82): the sets $U(x,V,\theta)\subset bX$ and the bijections to the faces $\theta$
+  - Proposition 2.7.12 (p. 83): the transition maps between these bijections are homeomorphisms/sc-smooth (charts on $bX$)
+  - Theorem 2.7.13 (p. 83): $bX$ has a natural metrizable topology and a natural tame M-polyfold structure; $B:bX\to X$ is sc-smooth
+  - Definition 2.7.14 (p. 84): the tame boundary $B:bX\to X$ of a tame M-polyfold
+  - Lemma 2.7.15 (p. 85): the sets $U(x,V,\theta)$ generate a topology $T_{bX}$ on $bX$
+  - Proposition 2.7.16 (p. 85): $T_{bX}$ is metrizable
+
+**Chapter 3** (7 items)
+
+- §3.5 The Geometry of Basic Germs
+  - Remark 3.5.4 (p. 123): recollection preceding the proof of Corollary 3.5.3
+  - Remark 3.5.7 (p. 127): role of Theorem 3.5.6: after a coordinate change the solution set is a graph; Theorem 3.5.11 gives the graph for $f$ itself
+- §3.8.1 Proof of Proposition 3.1.25 (cones and partial quadrants)
+  - Lemma 3.8.4 (p. 147): for $N\subset E$ in good position and $N\cap C$ a closed convex cone: components of $y\in N^\perp$ vanish on indices of extreme-ray generators; $\Gamma$ is the union of the supports
+  - Lemma 3.8.5 (p. 147): dichotomy: $N\subset\{0\}_\Gamma\oplus\mathbb R^{\Gamma^c}\oplus W$ (then $\dim N=1$) or $N\cap(\ldots)=\{0\}$
+  - Lemma 3.8.6 (p. 148): the map $P:N\to\mathbb R^\Gamma$ is an isomorphism carrying $N\cap C$ onto the quadrant $Q_\Gamma$ (and the second case)
+  - Corollary 3.8.7 (p. 149): $N$ in good position and $N\cap C$ a closed convex cone imply $N\cap C$ is a partial quadrant in $N$
+- §3.8.5
+  - Remark 3.8.16 (p. 165): Theorem 3.8.15 holds with $C^j$, $j\ge1$, after adjusting Proposition 3.8.17
+
+**Chapter 4** (6 items)
+
+- §4.4 Sc-Differential Forms
+  - Definition 4.4.2 (p. 195): $\Omega^*_\infty(X)$, sc-differential forms on $X_\infty$ (2017: part of Definition 4.9)
+  - Definition 4.4.3 (p. 195): sc-smooth vector fields are sections of $TX\to X^1$, defined on $X^1$
+  - Lemma 4.4.4 (p. 196): raising the index of a vector field $A$ to $A^{(i)}$ on $X^i$
+  - Lemma 4.4.8 (p. 199): Poincar\'e lemma for sc-differential forms on M-polyfolds (2017: "formulated and proved in [39]")
+- §4.5 Appendix (new): 4.5.1 Definition of the Lie Bracket, 4.5.2 Proof of Proposition 4.4.5, 4.5.3 Proof of the Poincar\'e Lemma
+  - Lemma 4.5.1 (p. 201): the Lie bracket is natural under local sc-diffeomorphisms
+  - Lemma 4.5.2 (p. 202): sc-Poincar\'e lemma on a convex neighbourhood of $0$ in $[0,\infty)^n\oplus W$
+
+**Chapter 6** (2 items)
+
+- §6.6 Local Orientation Propagation
+  - Lemma 6.6.9 (p. 269): second half of 2017 Lemma 6.15: adding sc$^+$-sections $\mu_j\bar s_j$ does not change the propagation of orientation
+  - Theorem 6.6.17 (p. 275): the orientation space $O_f$ carries a unique Hausdorff topology with prescribed properties (2017: running text after Definition 6.13)
+
+**Chapter 7** (46 items)
+
+- §7.1 Ep-Groupoids and Basic Properties
+  - Proposition 7.1.14 (p. 296): in the proof of the natural representation: $\Gamma(g,v)=s_g^{-1}(v)$, $\Phi(g)=t_g\circ s_g^{-1}$ on a $\Phi$-invariant neighbourhood
+  - Lemma 7.1.16 (p. 300): a sequence in $\mathbf U(\psi)$ whose source or target converges in $U(s(\psi))$ or $U(t(\psi))$ has its limit in $\mathbf U(\psi)$
+  - Corollary 7.1.17 (p. 301): properties (4)-(6) of the construction in Proposition 7.1.15 (equivariance of $f$ for isotropy and morphisms)
+- §7.2 Effective and Reduced Ep-Groupoids (rewritten)
+  - Definition 7.2.5 (p. 310): the normal subgroup $T_x\subset G_x$ of elements acting trivially near $x$
+  - Lemma 7.2.6 (p. 310): $a:T_x\to G_y$, $g\mapsto\varphi g\varphi^{-1}$, is an isomorphism onto $T_y$
+  - Remark 7.2.8 (p. 311): $\mathbf X^R$ is in general not an M-polyfold; it is when $T_R$ is Hausdorff
+  - Lemma 7.2.9 (p. 311): $\pi:\mathbf X\to\mathbf X^R$ is open; local homeomorphisms $\mathbf U(\varphi_0)\to\mathbf U([\varphi_0])$
+  - Lemma 7.2.11 (p. 315): disjoint neighbourhoods $\mathbf U(\varphi_i)$ of the equivalent morphisms with common image $\mathbf U([\varphi_0])$
+  - Proposition 7.2.12 (p. 317): $(\mathbf X^R,T_R)$ is paracompact
+  - Proposition 7.2.13 (p. 318): the natural charts define an M-polyfold structure on $(\mathbf X^R,T_R)$ iff $T_R$ is Hausdorff
+  - Theorem 7.2.14 (p. 318): ep-groupoid criterion: if $T_R$ is Hausdorff then $(X,\mathbf X^R)$ is an ep-groupoid (replaces 2017 Proposition 7.10)
+  - Proposition 7.2.16 (p. 319): the reduced ep-groupoid $\mathbf X_R$ (with $T_R$ Hausdorff) is effective
+  - Proposition 7.2.17 (p. 320): $T_R$ Hausdorff iff $\mathbf X^T$ is closed in $\mathbf X$
+  - Definition 7.2.18 (p. 321): local unique continuation property (LUC)
+  - Remark 7.2.19 (p. 321): not every ep-groupoid has (LUC); example of Zhengyi Zhou in Appendix 7.6.3
+  - Remark 7.2.20 (p. 321): the neighbourhood $U(x)$ in (LUC) can be chosen arbitrarily small
+  - Proposition 7.2.21 (p. 321): (LUC) iff $\mathbf X^T$ is closed
+  - Theorem 7.2.22 (p. 323): $T_R$ Hausdorff iff (LUC) iff $\mathbf X^T$ closed
+  - Proposition 7.2.23 (p. 323): under (LUC) (or the two equivalent properties) the reduced ep-groupoid $\mathbf X_R$ is well defined
+- §7.4 Regularity Assumptions and the Zhou Condition (new section)
+  - Definition 7.4.1 (p. 328): (LUC) again (as Definition 7.2.18)
+  - Proposition 7.4.2 (p. 328): (LUC) passes to larger connected invariant neighbourhoods
+  - Remark 7.4.3 (p. 329): under (LUC) every connected $G_x$-invariant neighbourhood $U(x)$, small or large, has the continuation property
+  - Lemma 7.4.4 (p. 329): (LUC) for $\mathbf X^i$ implies (LUC) for $\mathbf X^k$, $k\le i$
+  - Definition 7.4.5 (p. 331): Zhou condition (ZHOU): $Tg=\mathrm{id}$ on $T_xX$ implies $g\in T_x$, for smooth $x$
+  - Lemma 7.4.6 (p. 331): (ZHOU) with $Tg=\mathrm{id}$ on $(T_xX)_\infty$ gives $g\in T_x^\infty$
+  - Definition 7.4.7 (p. 331): alternative Zhou condition (ZHOU')
+  - Proposition 7.4.8 (p. 332): (ZHOU) and (ZHOU') are equivalent
+  - Proposition 7.4.9 (p. 333): (ZHOU) for $\mathbf X$ implies (ZHOU) for every $\mathbf X^i$
+  - Proposition 7.4.10 (p. 333): (ZHOU) implies (LUC)
+  - Corollary 7.4.11 (p. 334): (ZHOU) implies (LUC) for every $\mathbf X^i$
+  - Definition 7.4.12 (p. 334): strong local unique continuation property (SLUC): all $\mathbf X^i$ have (LUC)
+  - Theorem 7.4.13 (p. 334): (ZHOU) implies (SLUC)
+  - Definition 7.4.14 (p. 335): very strong (LUC), (VSLUC), on $X_\infty$
+  - Lemma 7.4.15 (p. 335): (VSLUC) implies (LUC)
+  - Proposition 7.4.16 (p. 336): (VSLUC) passes to every $\mathbf X^i$
+  - Proposition 7.4.17 (p. 336): (VSLUC) implies (SLUC)
+  - Proposition 7.4.18 (p. 336): (VSLUC) and (SLUC) are equivalent
+  - Definition 7.4.19 (p. 337): local regularity property (LR): $|\beta(y)|=|y|$ forces $\beta$ to be given by some $g\in G_x$
+  - Lemma 7.4.20 (p. 337): a locally defined sc-diffeomorphism $\beta$ with $\beta(x)=x$, $|\beta(y)|=|y|$ maps $U(x)$ onto itself
+  - Definition 7.4.21 (p. 338): local regularity property (LR') for maps $\beta:U(x)\to X$
+  - Proposition 7.4.22 (p. 338): (ZHOU) implies (LR)
+  - Definition 7.4.23 (p. 339): strong local regularity (SLR): all $\mathbf X^i$ have (LR)
+  - Theorem 7.4.24 (p. 340): (ZHOU) implies (SLR)
+- §7.6 Appendix (7.6.3 On the metrizability of $T_R$, 7.6.4 Reduced Ep-Groupoids and Raising the Index, 7.6.5 Boundary Structure of Tame Ep-Groupoids)
+  - Theorem 7.6.7 (p. 351): under (SLUC), $(\mathbf X^i)_R$ and $(\mathbf X_R)^i$ are identified by an sc-diffeomorphism
+  - Corollary 7.6.8 (p. 351): under (ZHOU), $(\mathbf X_R)^i$ and $(\mathbf X^i)_R$ are identified
+  - Theorem 7.6.9 (p. 355): a tame ep-groupoid has natural metrizable topologies on $b\mathbf X$ and the boundary structure of the tame ep-groupoid (ep-groupoid version of Theorem 2.7.13)
+
+**Chapter 8** (9 items)
+
+- §8.1 The Tangent of an Ep-Groupoid
+  - Proposition 8.1.16 (p. 369): (ZHOU) for $\mathbf X$ implies (ZHOU) for the tangent ep-groupoid $T\mathbf X$
+  - Proposition 8.1.17 (p. 371): (LUC) of $\mathbf X^1$ implies (LUC) of $T\mathbf X$; (SLUC) of $\mathbf X$ implies (SLUC) of $T\mathbf X$
+- §8.2 Sc-Differential Forms on Ep-Groupoids
+  - Proposition 8.2.3 (p. 373): Poincar\'e lemma for sc-differential forms on ep-groupoids (2017: promised for later)
+- §8.3 Strong Bundles over Ep-Groupoids
+  - Definition 8.3.5 (p. 379): auxiliary norm on a strong bundle over an ep-groupoid ($W_{0,1}$ and norms on the fibres)
+- §8.4 Topological and Regularity Properties of Strong Bundles (new section)
+  - Proposition 8.4.1 (p. 380): for a strong bundle over an ep-groupoid, paracompactness of $|X|$, $|W[0]|$, $|W[1]|$ are equivalent
+  - Definition 8.4.2 (p. 382): local regularity property for strong bundles over ep-groupoids
+  - Proposition 8.4.3 (p. 382): effective $\mathbf X$ with local regularity gives the local regularity property of the strong bundle
+- §8.5 Proper Covering Functors
+  - Example 8.5.6 (p. 388): a covering functor $f:D\to C$ with $C=\{x\}$, $G_x=\mathbb Z/2$ (two objects $a,b$)
+- §8.5, proof of Theorem 8.5.8
+  - Lemma 8.5.10 (p. 395): $B$ is a strong bundle isomorphism over $\mathbf Y$ covering the identity of $\mathbf Y$ (in §8.5, proof of Theorem 8.5.8)
+
+**Chapter 5** has no 2021-only item; the two items that look new at first sight, Theorem 5.3.15 and Theorem 5.5.5, are 2017 Theorems 5.8 and 5.10 (the headings carry a title).
+
+### Summary
+
+| Ch. | 2017 items | same | changed | absent | 2021-only | 2021 items |
+|---|---|---|---|---|---|---|
+| 1 | 27 | 26 | 1 | 0 | 1 | 28 |
+| 2 | 63 | 61 | 2 | 0 | 37 | 100 |
+| 3 | 88 | 85 | 3 | 0 | 7 | 93 |
+| 4 | 31 | 28 | 3 | 0 | 6 | 37 |
+| 5 | 54 | 50 | 4 | 0 | 0 | 54 |
+| 6 | 51 | 45 | 6 | 0 | 2 | 53 |
+| 7 | 52 | 48 | 3 | 1 | 46 | 97 |
+| 8 | 33 | 32 | 1 | 0 | 9 | 42 |
+| 1–8 | 399 | 375 | 23 | 1 | 108 | 504 |
+
+The 2021 item counts are the numbered items found in the text of the chapter (Question 4.2.4 not counted); an
+item restated in an appendix is counted once. The 2014 items absent from the 2017 text (5 in Chapters 3, 5 and 6) are absent in
+2021 as well.
+
+### What a reader of the 2017 statements should know
+
+The statements changed in 2021 that touch what the Lean files formalize (2017/preprint numbers, as
+in the rest of the project):
+
+- **Proposition 1.4** (preprint 1.10): the sum $T+S$ of an sc-Fredholm operator and an sc$^+$-operator is sc-Fredholm *with the same index* (Proposition 1.1.11).
+- **Proposition 2.3** (preprint 2.6): part (3) is now conditional on $f\circ r$ being sc-smooth (Proposition 2.1.13).
+- **Definition 2.8** (preprint 2.13, M-polyfold): the footnote fixes that paracompactness does not include Hausdorff, so "Hausdorff paracompact" is two requirements (Definition 2.3.4).
+- **Theorem 3.11** (preprint 3.40, Local Regularity and Compactness): the sequential form (solutions converging on level 0 converge on level $m$) is part of the statement (Theorem 3.5.1).
+- **Definitions 3.4 and 3.13** (preprint 3.4 and 3.48, the filling): the retraction is no longer required to be tame (Definition 3.1.4), resp. need only be sc-smooth (Definition 3.6.1).
+- **Theorem 4.3** (preprint 4.22): the faces $F_1,\dots,F_d$ contain $x$ (Theorem 4.2.11).
+- **Theorem 4.4** (preprint 4.23, Sard for families): non-emptiness of the fibres is dropped, $\Sigma$ is a measurable set of full measure (Theorem 4.3.1).
+- **Proposition 4.5** (preprint 4.26): the levels of $d$ are $\Omega^k(X^i)\to\Omega^{k+1}(X^{i+1})$ in 2021 (a possible misprint in 2017).
+- **Definition 5.5 and Theorem 5.1** (preprint 5.4, 5.5): two further compactness notions, proper$_{<\infty}$ and weakly proper$_{<\infty}$, and the equivalence of all five for sc-Fredholm sections (Definition 5.2.1, Theorem 5.2.2).
+- **Theorem 5.5** (preprint 5.13): the solution set is a *compact* sub-M-polyfold (Theorem 5.3.5).
+- **Definition 5.10** (preprint 5.20, generalized compact homotopy): the data are weaker (Definition 5.3.13).
+- **Lemma 6.3, Propositions 6.6, 6.7 (preprint 6.15), 6.12 (6.28), Lemmas 6.13 (6.30), 6.15 (6.33)**: index equalities, an explicit $H$, explicit hypotheses, tameness and $Y\times[0,1]$-valued sections, a corrected solution-set condition, and the split of Lemma 6.15 into Lemmas 6.6.8 and 6.6.9.
+- **Definition 7.7 and Proposition 7.5**: the remark that sc-smoothness on objects suffices needs continuity on morphisms (level 0), and part (2) of the finite-set proposition has its target corrected (Definitions 7.1.7, Proposition 7.1.15).
+- **Propositions 7.9 and 7.10** (gaps G.71 and the Hausdorff hypothesis on $\mathbf X^R$): in 2021 $\mathbf X^R$ is an M-polyfold, and $(X,\mathbf X^R)$ an ep-groupoid, exactly when the natural topology $T_R$ is Hausdorff (Propositions 7.2.13, Theorem 7.2.14); $T_R$ is Hausdorff iff (LUC) iff $\mathbf X^T$ is closed (Theorem 7.2.22), and Remark 7.2.8 and Appendix 7.6.3 say that this fails in general. This is the hypothesis taken in `Reduced.lean`.
+- **Definition 8.10**: condition (0), compatibility of $A$ with the strong bundle data, is stated (Definition 8.5.9).
+- **Unchanged**: Theorem 8.5 (including part (5) as printed, V8.30), Theorem 7.1, the definitions 7.1–7.6 and 7.8–7.11, and all of Chapter 8 apart from Definition 8.10.
 
 ## Marks in the report sources
 
