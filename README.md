@@ -45,7 +45,7 @@ To read rather than sign: `Exposition/Verification.pdf` has the same items as a 
 (open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
 GitHub displays it directly.
 
-## Status (7 November 2026)
+## Status (8 November 2026)
 
 * **Part I, Chapters 1–6, is formalized**, Chapter 6 except Theorem 6.43 (the invariant `Ψ_(f,o)`)
   and the admissible sections of §6.6.
@@ -53,8 +53,12 @@ GitHub displays it directly.
   ep-groupoid) under the hypothesis that the reduced morphism space is Hausdorff and paracompact,
   a hypothesis that cannot be dropped (`𝐗^R` need not be Hausdorff, checked in Lean), and the
   tangent `Tφ` of a morphism as a definition only (gaps G.70, G.71).
-* About 140,600 lines of Lean in 225 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (5,931 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* **Chapter 8 (bundles and covering functors) is formalized in Lean** (2026-11-08; reports still to
+  come): the tangent ep-groupoid and the tangent functor (Theorems 8.1–8.4), strong bundles over
+  ep-groupoids (Definitions 8.4–8.7, 8.10), proper covering functors (Theorems 8.5, 8.6,
+  Propositions 8.2–8.4); the sc-differential forms of §8.2 (Definitions 8.2, 8.3) are not.
+* About 151,200 lines of Lean in 239 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (6,757 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
 * **Every numbered item of the text is compared with its formal version** (469 items, each with a
   verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap list

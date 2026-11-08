@@ -206,3 +206,17 @@ import Polyfold.Chapter7.Lift
 import Polyfold.Chapter7.PartitionsOfUnity
 import Polyfold.Chapter7.NonVacuity
 import Polyfold.Chapter7.ReducedNotHausdorff
+import Polyfold.Chapter8.Basic
+import Polyfold.Chapter8.SigmaPolyfold
+import Polyfold.Chapter8.TangentLocal
+import Polyfold.Chapter8.StrongBundleMap
+import Polyfold.Chapter8.NatTrans
+import Polyfold.Chapter8.ProperCovering
+import Polyfold.Chapter8.ProperCoveringLocal
+import Polyfold.Chapter8.GeometricLift
+import Polyfold.Chapter8.TangentEp
+import Polyfold.Chapter8.TangentTame
+import Polyfold.Chapter8.TangentOrbit
+import Polyfold.Chapter8.EpStrongBundle
+import Polyfold.Chapter8.NonVacuity
+import Polyfold.Chapter8.NonVacuityBundle

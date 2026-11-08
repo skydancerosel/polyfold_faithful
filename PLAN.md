@@ -20,7 +20,7 @@ sc-Fredholm sections as its headline. Everything later (ep-groupoids, polyfolds,
 SFT) rests on it. It is also settled: the book corrects the 2007–2009 papers, and the Gromov–Witten
 memoir uses it as stated.
 
-Status as of 2026-11-07 (see `HANDOFF.md`): **Part I, Chapters 1–6, done** (Lean, exposition, reports: V1–V6, 401 sign-off items, gaps G.1–G.69), Chapter 6 (§6 below) except Theorem 6.43 (G.54) and §6.6 (G.55). The round-trip audit is done for Chapters 1–5 (2026-11-01) and for the 60 non-extra Chapter 6 items (2026-11-07, §6.7 step 6). **Part II has begun: Chapter 7 is formalized** (waves W0–W4 of the Part II plan below; V7.1–V7.68, 68 sign-off items, gaps G.70–G.73), Propositions 7.9 and 7.10 under the hypothesis that `𝐗^R` is Hausdorff and paracompact (G.71); its reports (wave W5) and its round-trip audit are done (2026-11-07); the audit proved that `𝐗^R` need not be Hausdorff (`RoundTrip/Items/V7_40.lean`, moved the same day into `Polyfold/Chapter7/ReducedNotHausdorff.lean`). In all: 469 sign-off items, gaps G.1–G.73, 5,931 `#print axioms` lines in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`. **Next: Chapter 8.** As of 2026-10-26, end of the first local session: **Part I, Chapters 1–5, done** (Lean, exposition, reports: V1–V5, 337 sign-off items, gaps G.1–G.53). The sc-Fredholm implicit function theorem (Theorems 3.19, 3.23, 3.54, 3.56, 3.57, Corollary 3.24) is proved with the text's hypotheses; two gaps of the text's proofs are closed by new arguments (surjectivity at the nearby zeros, also missing in the book's arXiv version; Theorem 3.27 for solution sets), and a vacuous tameness hypothesis of an earlier formalization was found and repaired. Chapter 4 (Prop 4.9 by a direct proof, Theorems 4.2, 4.18, 4.22, 4.23 with Sard vendored from the Milnor project) and Chapter 5 (Theorems 5.5–5.7, 5.13, 5.18, 5.19, 5.25, the appendix) done except what HANDOFF §2 lists. 2,708 theorems were then checked in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`, and the round-trip audit came next.
+Status as of 2026-11-07 (see `HANDOFF.md`): **Part I, Chapters 1–6, done** (Lean, exposition, reports: V1–V6, 401 sign-off items, gaps G.1–G.69), Chapter 6 (§6 below) except Theorem 6.43 (G.54) and §6.6 (G.55). The round-trip audit is done for Chapters 1–5 (2026-11-01) and for the 60 non-extra Chapter 6 items (2026-11-07, §6.7 step 6). **Part II has begun: Chapter 7 is formalized** (waves W0–W4 of the Part II plan below; V7.1–V7.68, 68 sign-off items, gaps G.70–G.73), Propositions 7.9 and 7.10 under the hypothesis that `𝐗^R` is Hausdorff and paracompact (G.71); its reports (wave W5) and its round-trip audit are done (2026-11-07); the audit proved that `𝐗^R` need not be Hausdorff (`RoundTrip/Items/V7_40.lean`, moved the same day into `Polyfold/Chapter7/ReducedNotHausdorff.lean`). In all: 469 sign-off items, gaps G.1–G.73, 5,931 `#print axioms` lines in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`. **Chapter 8 is formalized in Lean** (2026-11-08, §II.9 below; 14 files in `Polyfold/Chapter8/`, 6,757 `#print axioms` lines in all), Definitions 8.2–8.3 excepted; **next: its reports.** As of 2026-10-26, end of the first local session: **Part I, Chapters 1–5, done** (Lean, exposition, reports: V1–V5, 337 sign-off items, gaps G.1–G.53). The sc-Fredholm implicit function theorem (Theorems 3.19, 3.23, 3.54, 3.56, 3.57, Corollary 3.24) is proved with the text's hypotheses; two gaps of the text's proofs are closed by new arguments (surjectivity at the nearby zeros, also missing in the book's arXiv version; Theorem 3.27 for solution sets), and a vacuous tameness hypothesis of an earlier formalization was found and repaired. Chapter 4 (Prop 4.9 by a direct proof, Theorems 4.2, 4.18, 4.22, 4.23 with Sard vendored from the Milnor project) and Chapter 5 (Theorems 5.5–5.7, 5.13, 5.18, 5.19, 5.25, the appendix) done except what HANDOFF §2 lists. 2,708 theorems were then checked in `Polyfold/Test.lean`, all on the three standard axioms, no `sorry`, and the round-trip audit came next.
 
 ## 1. Headline theorems (Part I)
 
@@ -596,3 +596,87 @@ Chapter 7: about 12,700 Lean lines (W0 900, W1 2,200, W2 2,600, W3 3,200, W4 3,0
 Chapter 2 is 15,200, Chapter 6 20,800), in about 18 agent sessions (W1 5, W2 3–4, W3 4–5, W4 4, W5 1–2)
 plus 1 lead session for W0 and 2 for the reports and audit. Chapters 8–11, without the blocked
 sections, roughly 25,000–35,000 lines; to be planned after Chapter 7's definitions have settled.
+
+### II.9 Chapter 8 plan (2026-11-07)
+
+**Text.** `sources/HWZ-Book-2017.txt` lines 12251–13855, pp. 257–290, 33 numbered items (Thm 8.1–8.6,
+Lemma 8.1–8.11, Prop 8.1–8.4, Def 8.1–8.10, Rem 8.1–8.2), counted by hand.
+
+| Item | p. | Content | Wave / file (`Polyfold/Chapter8/`) |
+|---|---|---|---|
+| Thm 8.1 | 258 | `T(X, 𝐗) = (TX, T𝐗)` is an ep-groupoid; tame if `X` is; `(p, p) : TX → X¹` an sc-smooth functor | W2 `TangentEp` (tame part: W3) |
+| Lemma 8.1 | 259 | `(ψ, k) ∘ (φ, h) = Tm(k, h) = (ψ∘φ, Ts(ψ∘φ)⁻¹ Ts(φ) h)` | W2 `TangentEp` (sheet form, P3 below) |
+| Lemmas 8.2–8.5 | 259–261 | source/target of a composite, associativity, units, inverses | W2 `TangentEp` |
+| Lemma 8.6 | 262 | `s_T, t_T` surjective local sc-diffeos, structure maps sc-smooth | W2 `TangentEp`, from W1 `TangentLocal` |
+| Lemma 8.7 | 262 | properness of `TX` | W2 `TangentEp` |
+| Lemma 8.8 | 263 | `X` tame ⇒ `TX` tame (`Tr` tame) | W3 `TangentTame` |
+| Rem 8.1 | 264 | the description by `(Tφ, a)`; `t_T ∘ (s_T|T_xX)⁻¹ = Tφ` | W2 `TangentEp` (linearity: P6) |
+| Thm 8.2 | 265 | `TΦ` of an sc-smooth functor is an sc-smooth functor | W2 `TangentEp` |
+| Thm 8.3 | 266 | `T : EP → EP` a functor preserving tameness | W2 `TangentEp` (P1 universes) |
+| Def 8.1 | 266 | natural transformation / natural equivalence of sc-smooth functors; `≃` an equivalence relation (p. 267) | W0 lead, W2 |
+| Prop 8.1 | 267 | `Tτ : TΦ → TΨ` is a natural transformation | W2 `TangentEp` |
+| Thm 8.4 | 268 | `\|X\|` paracompact ⇒ `\|TX\|` paracompact | W3 `TangentOrbit` |
+| Defs 8.2–8.3 | 268–270 | sc-forms on ep-groupoids, sc-de Rham complex | not formalized: sc-forms on M-polyfolds are not (G.37–G.40); new gap |
+| Def 8.4 | 271 | strong bundle `(P, µ)` over an ep-groupoid | W0 lead `EpStrongBundle` |
+| (text) | 271–272 | the functorial picture: `(W, 𝐗 ₛ×_P W)` an ep-groupoid, `(P, π₁)` an sc-smooth functor | W2 `EpStrongBundle` |
+| Defs 8.5–8.7 | 273–275 | strong bundle maps / functors (equivalent), section functors, `Γ, Γ⁺, Fred` | W0 lead, W2 `EpStrongBundle` |
+| Def 8.8 | 275 | proper covering functor | W0 lead `ProperCovering` |
+| (text) | 275–276 | `d_{𝐗 ₛ×_F Y} = ½ d_{𝐗 × Y}` along the image of `𝐘` | W2 `ProperCovering` (optional) |
+| Prop 8.2 | 276 | composites of proper covering functors | W2 `ProperCovering` |
+| Thm 8.5, Rem 8.2 | 277 | Proper Covering I: local structure near `x`, `F⁻¹(x)` | W2 `ProperCoveringLocal` (uses Ch. 7 `NaturalRep`) |
+| Def 8.9 | 279 | covering functor of finite groupoids, geometric lift into `Diff_sc` | W0 lead `GeometricLift` |
+| Prop 8.3 | 281 | a geometric lift gives a proper covering functor | W3 `GeometricLift` (needs W1 `Sigma`) |
+| Thm 8.6 | 283 | Proper Covering II: local model as a geometric lift | W3 `GeometricLift` |
+| Def 8.10 | 285 | proper strong bundle covering functor | W0 lead, W3 |
+| Lemmas 8.9–8.11 | 286–287 | counting in `F⁻¹(x)`: `#G_x = #G_{y₀} · #Θ_j`, `#Θ_j = #Θ'_j` | W1 `ProperCoveringCount` |
+| Prop 8.4 | 288 | `#F⁻¹(x)` constant on components of `\|X\|`; `X → ℕ` an sc-smooth functor | W1/W2 `ProperCoveringCount` |
+| (text) | 288–289 | `µ_X(Fφ) ∘ A_{sφ} = A_{tφ} ∘ µ_Y(φ)` | W3 |
+
+**Decisions (recommendations).**
+
+* **P1. Universes.** Part I's `TangentSpace` of `X : Type u` lives in `Type (max u 1)`, so `TX` is an
+  `EpGroupoid` in `Type (max u 1)`; Theorem 8.3 is a functor `EP.{max u 1} ⥤ EP.{max u 1}`
+  (`max (max u 1) 1 = max u 1`). An artifact of the formalization, recorded with the item.
+* **P2. Tangents of local maps** (W1 `TangentLocal`): the tangent of an open restriction
+  `T(U) ≅ p⁻¹(U) ⊆ TX` (an open embedding, sc-diffeomorphic onto its image, compatible with
+  `tangentMap`), hence the tangent of a map sc-smooth on an open set, of an `IsScDiffeoOn`, and
+  `IsLocalScDiffeo f ⇒ IsLocalScDiffeo (tangentMap f)` with `Tf` bijective on each fibre. The text
+  uses all of this silently ("`Ts : TU(φ) → TU(x)` is a sc-diffeomorphism").
+* **P3. The composition of `T𝐗`** is (8.6), `k ∘ h := (Ts|T_{p k ∘ p h}𝐗)⁻¹(Ts h)`, by choice as
+  Chapter 7's `tangentMor`; condition (4) is proved in the sheet form (`IsScSmoothCompSheet`): on a
+  sheet, `(Ψ, Φ') ↦ Ψ∘Φ'` is the tangent of the sc-smooth `φ' ↦ m(σ(t φ'), φ')`, so the
+  identification `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 ×ₜ T𝐗` is not needed (Lemma 8.1 as a formula on composable pairs).
+* **P4. Global strong bundle maps** (W1 `StrongBundleMap`): Part I defines strong bundle maps only
+  between local models (Def 2.22 [2.47]). Between strong bundles `B, B'` over M-polyfolds, covering
+  `f`: `P' ∘ Φ = f ∘ P`, linear on the fibres, sc-smooth `Y[0] → Y'[0]`, maps `Y[1]` into `Y'[1]`
+  and is sc-smooth `Y[1] → Y'[1]` (Part I's `toMPolyfold0`, `toMPolyfold1`); the double filtration
+  follows (fibre linearity and levels). A reading, recorded.
+* **P5. Def 8.4** on Part I's pull-back strong bundle `pullbackProj P src` over `𝐗` (Prop 2.54,
+  `pullbackAtlas`): `µ : 𝐗 ₛ×_P W → W` a P4 strong bundle map covering `t`, a surjective local
+  sc-diffeomorphism of the `[0]` M-polyfolds, (2), (3). The ep-groupoid of the functorial picture
+  takes `𝐗 ₛ×_P W` with that M-polyfold structure.
+* **P6. Linearity of `T_xX`.** Part I has no vector-space structure on the fibres `T_xX` (only
+  in tangent charts). Linearity claims (Remark 8.1, G.70's "linear isomorphism") are proved in
+  tangent charts if cheap, otherwise recorded with G.70.
+* **P7. Def 8.9**: `D` a finite Mathlib `Groupoid` (`[Fintype D]`, finite hom-sets), `C` one object
+  with isotropy a finite group `G` (`SingleObj G`); `Diff_sc` a category of bundled M-polyfolds
+  (one universe) and sc-diffeomorphisms; `L_D, L_C` functors and `τ : L_D ⟶ f ⋙ L_C`.
+* **P8. Disjoint unions** (W1 `SigmaPolyfold`): `Σ i, X i` of finitely many M-polyfolds, needed by
+  Prop 8.3's `Y = ⊔ U(y)`, `𝐘 = ⊔ mor(y, y') × U(y)`.
+* **P9. Bookkeeping.** Sign-off items V8.1, … in book order; gaps from G.74; `Findings.md` new
+  "## Chapter 8" (numbering in blocks as Chapter 7: 1–99 items, 100–109 witnesses, 110– not formalized).
+
+**Order of work.** W0 (lead): the definitions (Def 8.1, 8.4–8.10, the data of `TX`). W1 (parallel,
+independent): `TangentLocal`, `SigmaPolyfold`, `StrongBundleMap`, `ProperCoveringCount` (Def 8.8 from
+W0). W2: `TangentEp`, `EpStrongBundle`, `ProperCovering` (Prop 8.2), `ProperCoveringLocal`. W3:
+`GeometricLift`, `TangentTame`, `TangentOrbit`, Def 8.10. W4: witnesses, then the reports. Estimate:
+6,000–9,000 Lean lines.
+
+**Found while reading** (to be checked, then recorded in `Findings.md`, "## Chapter 8"; possible
+misprints unless said otherwise): (8.5) `T_{φ∘ψ}𝐗` for `T_{ψ∘φ}𝐗`; Lemma 8.2's proof ": U(ψ∘φ) → U(x)"
+without `s`; Lemma 8.7's proof `Ts(φ_k)(h_k)` for `Tt(φ_k)(h_k)`; Remark 8.1 `T_yY` for `T_yX`;
+Theorem 8.5 (5): the right arrow `t` and the corner `U(t(F(ψ₀)))`, as printed the square
+`F ∘ s = t ∘ F` does not hold as we read it (with `s` it commutes); Theorem 8.5's proof `g ∈ G_y`,
+"`G_y`-invariant" for `G_x`, and `F(z') = s(F(φ))` for `t(F(φ))`; Proposition 8.3's proof
+"`F : X → Y`" for `Y → X`; Theorem 8.6's `A(ψ, z) = (f(z), F(z))` for `(f(ψ), F(z))` and `τ(t)` for
+`τ(y)`; Lemma 8.10's proof "the third claim of Lemma 8.10" for Lemma 8.9.

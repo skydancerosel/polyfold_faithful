@@ -164,11 +164,22 @@ do not call the text wrong or speak of its "errors".
   settles the Hausdorff half of G.71 negatively; moved into `Polyfold/Chapter7/ReducedNotHausdorff.lean`
   the same day (Findings, Chapter 7, item 107). The audit also found that the density of `X_∞` in
   `X_k` (p. 227) is not in Part I for M-polyfolds (G.73, Findings item 116).
-* **Lean counts** (2026-11-07): 5,931 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
-  1,204 for Chapter 6, 989 for Chapter 7), all on `propext, Classical.choice, Quot.sound`; no
-  `sorry`, no `axiom`; 225 Lean files and 140,563 lines under `Polyfold/` (`wc -l`, without `WIP_`
-  files), of which 36 files and 20,793 lines in `Chapter6/` and 21 files and 12,046 lines in
-  `Chapter7/`.
+* **Part II, Chapter 8, Lean** (2026-11-08; plan in `PLAN.md` §II.9): formalized in
+  `Polyfold/Chapter8/` (14 files): the tangent ep-groupoid `TX` (Theorems 8.1–8.3, Lemmas 8.1–8.8,
+  Remark 8.1, Proposition 8.1, `TangentEp.lean`, `TangentTame.lean`), `|TX|` paracompact
+  (Theorem 8.4, by metrizability, `TangentOrbit.lean`), strong bundles over ep-groupoids
+  (Definitions 8.4–8.7, 8.10, §8.5.2, `EpStrongBundle.lean`), proper covering functors (Definition
+  8.8, Theorem 8.5, Remark 8.2, Lemmas 8.9–8.11, Propositions 8.2, 8.4, `ProperCovering*.lean`),
+  covering functors and geometric lifts (Definition 8.9, Proposition 8.3, Theorem 8.6,
+  `GeometricLift.lean`), witnesses (`NonVacuity.lean`, `NonVacuityBundle.lean`). Not formalized:
+  Definitions 8.2–8.3 (sc-forms, sc-de Rham; with G.37–G.40). **Next: the Chapter 8 reports**
+  (V8.*, `verification/ch08.md`, Findings "## Chapter 8", exposition, concordance); reading choices
+  and possible misprints are in the module docstrings.
+* **Lean counts** (2026-11-08): 6,757 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
+  1,204 for Chapter 6, 989 for Chapter 7, 826 for Chapter 8), all on `propext, Classical.choice,
+  Quot.sound`; no `sorry`, no `axiom`; 239 Lean files and 151,225 lines under `Polyfold/` (`wc -l`,
+  without `WIP_` files), of which 36 files and 20,793 lines in `Chapter6/`, 21 files and 12,046
+  lines in `Chapter7/` and 14 files and 9,806 lines in `Chapter8/`.
 * **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–7/` that agents could
   not delete (some duplicate declarations and would not compile; delete them). The book's Springer
   PDF was not available: the *(book?)* marks are annotated against the arXiv version 1707.08941
