@@ -7,7 +7,7 @@ Part II, Chapter 10, §10.5 "Localization in the Strong Bundle Case" (pp. 504–
 pp. 364–368): **Definition 10.5.1** (2021 p. 506; 2017: Definition 10.14, p. 366), the category
 `SEP(F⁻¹)`, and **Remark 10.5.3** (2021 p. 506, new in the 2021 edition), the strong bundle
 version of Theorem 10.3.10.  The text introduces refinements and their classes "following our
-earlier construction" (p. 505) and calls the classes the morphisms of a category; the
+earlier construction" (p. 504) and calls the classes the morphisms of a category; the
 composition, the transitivity of the equivalence and the category laws are not spelled out.  We
 give them following §10.3 and Appendix 10.6.1, with the weak fibred product of strong bundles
 of `StrongBundleWeakFibredProduct.lean`.

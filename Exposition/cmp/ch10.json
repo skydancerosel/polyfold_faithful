@@ -1455,14 +1455,14 @@
   {
    "id": "V10.51",
    "title": "the diagrams of strong bundles, refinements and equivalence",
-   "verdict": "restated",
+   "verdict": "same",
    "book": {
     "label": "§10.5, the diagrams of strong bundles, p. 504 (2017 p. 364)",
     "page": 504,
     "statement": "Diagrams $W \\xleftarrow{\\Phi} W'' \\xrightarrow{\\Psi} W'$ with $\\Phi$ a strong bundle equivalence and $\\Psi$ a strong bundle functor; refinements and equivalence (having a common refinement) as for ep-groupoids; the class $[D]$ is a generalized strong bundle map."
    },
    "lean": {
-    "statement": "`SDiagram A A'` bundles a middle object of `SEP`, a strong bundle equivalence and a morphism of `SEP`; a refinement is a strong bundle equivalence $H$ with naturally equivalent composites (Definition 10.4.8), reflexive and transitive; `Equiv` is reflexive and symmetric; `GenSBMap` is the quotient by the generated equivalence relation. A refinement of $1_{W'}$ over $-\\mathrm{id}$.",
+    "statement": "`SDiagram A A'` bundles a middle object of `SEP`, a strong bundle equivalence and a morphism of `SEP`; a refinement is a strong bundle equivalence $H$ with naturally equivalent composites (Definition 10.4.8), reflexive and transitive; `Equiv` is an equivalence relation (V10.69); `GenSBMap` is the quotient by the generated equivalence relation, and `cls_eq_cls_iff`: $[D] = [D']$ iff $D$ and $D'$ have a common refinement. A refinement of $1_{W'}$ over $-\\mathrm{id}$.",
     "decls": [
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.IsRefinement",
@@ -1481,17 +1481,19 @@
      "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.cls",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.cls_eq_cls_of_equiv",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.cls_eq_cls_iff",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.foldDiagram",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.isRefinement_foldDiagram",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.cls_foldDiagram"
     ]
    },
    "chips": [
-    "classes for the generated relation",
-    "transitivity open (G.123)"
+    "as stated",
+    "transitivity: V10.69",
+    "G.123 closed since"
    ],
    "diff": [
-    "The transitivity of having a common refinement needs the weak fibred product of strong bundles, not constructed; every invariant used is proved invariant under `Equiv` (Findings, Chapter 10, item 50)."
+    "None: the generated relation is having a common refinement, by the transitivity of V10.69, formalized since (Findings, Chapter 10, items 18, 50)."
    ]
   },
   {
@@ -1585,28 +1587,39 @@
   {
    "id": "V10.55",
    "title": "Definition 10.5.1 (2017: 10.14), $\\mathcal{SEP}(F^{-1})$",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§10.5, Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366)",
     "page": 506,
     "statement": "The category $\\mathcal{SEP}(F^{-1})$ has the strong bundles over ep-groupoids as objects and the generalized strong bundle maps as morphisms."
    },
    "lean": {
-    "statement": "`SEPLoc` with a `Quiver` instance, the identities $[1_W]$ and the prefunctor $\\Psi \\mapsto [W \\xleftarrow{1} W \\xrightarrow{\\Psi} W']$ from $\\mathcal{SEP}$.",
+    "statement": "`SEPLoc.category`: a category with the composition `GenSBMap.comp` (V10.70) and the identities $[1_W]$; `homMk_eq_homMk_iff`, `homMk_surjective`; the functor `localizationFunctor`, $\\Psi \\mapsto [W \\xleftarrow{1} W \\xrightarrow{\\Psi} W']$, from $\\mathcal{SEP}$, which inverts the strong bundle equivalences.",
     "decls": [
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc",
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc.idHom",
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc.localizationPrefunctor",
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc.localizationPrefunctor_map_id",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.id",
-     "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.ofHom"
+     "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.ofHom",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.category",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.id_eq",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk_eq_homMk_iff",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk_surjective",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.localizationFunctor",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.localizationFunctor_toPrefunctor",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isInvertedBy_localizationFunctor"
     ]
    },
    "chips": [
-    "a quiver: no composition (G.123)"
+    "a category",
+    "localization functor",
+    "G.123 closed since"
    ],
    "diff": [
-    "The composition needs the weak fibred product of strong bundles (Findings, Chapter 10, item 53)."
+    "The composition, which the text does not spell out, is that of V10.70; before it, $\\mathcal{SEP}(F^{-1})$ was formalized as a quiver (Findings, Chapter 10, items 18, 53)."
    ]
   },
   {
@@ -1647,17 +1660,19 @@
     "statement": "Theorem 10.3.10 characterizes generalized isomorphisms by diagrams with both legs equivalences; in the strong bundle case a similar result can be proved, and it is built into Definition 10.5.2."
    },
    "lean": {
-    "statement": "A generalized strong bundle isomorphism covers a generalized isomorphism of the bases, induces one of the total spaces, and $|[D]|$ is a homeomorphism.",
+    "statement": "A generalized strong bundle isomorphism covers a generalized isomorphism of the bases, induces one of the total spaces, $|[D]|$ is a homeomorphism, and it is an isomorphism of $\\mathcal{SEP}(F^{-1})$ (`SEPLoc.isIso_of_isGeneralizedIso`, V10.71).",
     "decls": [
-     "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap.remark_10_5_3"
+     "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap.remark_10_5_3",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isIso_of_isGeneralizedIso"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "strong bundle 10.3.10 open (G.123)"
+    "read: gen. isos are isos (V10.71)",
+    "converse: base half only (G.123)"
    ],
    "diff": [
-    "The strong bundle version of Theorem 10.3.10 needs the composition in $\\mathcal{SEP}(F^{-1})$ (Findings, Chapter 10, item 53)."
+    "\"Built into the previous definition\" is read as: generalized strong bundle isomorphisms are isomorphisms of $\\mathcal{SEP}(F^{-1})$, proved in V10.71; the converse half of the similar result is proved for the base functor only (Findings, Chapter 10, items 19, 53)."
    ]
   },
   {
@@ -1962,6 +1977,137 @@
    "diff": [
     "The statement does not hold as we read it, nor does the 2017 Theorem 10.10; the proof (\"immediately from Proposition 10.4.7\") meets the step of V10.65 for strong bundles (Findings, Chapter 10, item 58)."
    ]
+  },
+  {
+   "id": "V10.68",
+   "title": "Theorem 10.2.2 (2017: 10.2) for strong bundles, the weak fibred product $W \\times_{W'} W''$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.5, the strong bundle case, p. 504 (2017 p. 364), of Theorem 10.2.2, p. 477 (2017: Theorem 10.2, p. 343)",
+    "page": 504,
+    "statement": "Refinements and the equivalence of diagrams of strong bundles are introduced \"following our earlier construction\" of generalized maps, which rests on the weak fibred product of Theorem 10.2.2; the strong bundle version is not stated."
+   },
+   "lean": {
+    "statement": "`SBWeakFibredProduct.wfpSEP` is the pull-back $\\pi_Z^*W''$ over $X \\times_{X'} X''$, with $\\Pi_Z$ and $\\Pi_X((x, \\varphi, z), w'') = \\Phi_x^{-1}(\\mu'(\\varphi^{-1}, \\Psi(w'')))$; `theorem_10_2_2`: $\\Pi_Z$ is a strong bundle equivalence and $\\Phi \\circ \\Pi_X \\simeq \\Psi \\circ \\Pi_Z$; `theorem_10_2_2_right`: $\\Pi_X$ is one when $\\Psi$ is. Witness over $-\\mathrm{id}$.",
+    "decls": [
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.wfpSEP",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.projX",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.projZ",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.theorem_10_2_2",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.theorem_10_2_2_right",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.nonempty_wfpSEP",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.pullbackAlong",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.isStrongBundleEquivalence_pullbackProjFunctor",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.transportFunctor",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.invLiftFunctor",
+     "Chapter10/StrongBundleWeakFibredProduct · SEP.pullbackAlong",
+     "Chapter10/StrongBundleWeakFibredProduct · SEP.coneHom",
+     "Chapter10/StrongBundleWeakFibredProduct · SEP.natEquiv_cone",
+     "Chapter10/StrongBundleWeakFibredProduct · StrongBundleWeakFibredProductExamples.theorem_10_2_2_negSEPHom"
+    ]
+   },
+   "chips": [
+    "left to the reader in the text",
+    "a pull-back along $\\pi_Z$",
+    "closes G.123 with V10.69–V10.71"
+   ],
+   "diff": [
+    "The text gives no construction; the pull-back of $W''$ along $\\pi_Z$ makes $\\Pi_Z$ a strong bundle equivalence by construction. The claims on degeneracy indices, tameness and orbit spaces concern the bases (V10.18–V10.20) (Findings, Chapter 10, item 18)."
+   ]
+  },
+  {
+   "id": "V10.69",
+   "title": "Lemma 10.3.4 (2017: 10.4) for strong bundles, transitivity",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.5, the strong bundle case, p. 504 (2017 p. 364), of Lemma 10.3.4, p. 485 (2017: Lemma 10.4, p. 349)",
+    "page": 504,
+    "statement": "Two diagrams of strong bundles are equivalent if they possess a common refinement, and the equivalence classes are the generalized strong bundle maps; that this is an equivalence relation is Lemma 10.3.4 in the ep-groupoid case."
+   },
+   "lean": {
+    "statement": "`SDiagram.lemma_10_3_4`: with $w$ refining $D$, $D'$ by $H$, $H'$ and $w'$ refining $D'$, $D''$ by $K$, $K'$, the diagram on the weak fibred product of $H'$ and $K$ refines $D$ by $H \\circ \\Pi_X$ and $D''$ by $K' \\circ \\Pi_Z$; `Equiv.trans`, `equivalence_equiv`; `cls_eq_cls_iff`: $[D] = [D']$ iff a common refinement exists.",
+    "decls": [
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.lemma_10_3_4",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.Equiv.trans",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equivalence_equiv",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.cls_eq_cls_iff"
+    ]
+   },
+   "chips": [
+    "left to the reader in the text",
+    "classes as in the text"
+   ],
+   "diff": [
+    "The proof of Lemma 10.3.4, with V10.68 for the weak fibred product; the classes of V10.51 are the text's (Findings, Chapter 10, items 18, 50)."
+   ]
+  },
+  {
+   "id": "V10.70",
+   "title": "Theorem 10.3.8 (2017: 10.3) for strong bundles, the composition",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.5, the composition behind Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366); Theorem 10.3.8, p. 488 (2017: Theorem 10.3, p. 352), Appendix §10.6.1",
+    "page": 506,
+    "statement": "Definition 10.5.1 calls the generalized strong bundle maps the morphisms of a category; the composition, its independence of the representatives and the category laws are not spelled out."
+   },
+   "lean": {
+    "statement": "`SDiagram.comp`: the middle is the pull-back of $W''$ over the weak fibred product of $\\psi$ and $\\phi'$, with the legs $\\Phi \\circ \\Pi_{W''}$ and $\\Psi' \\circ \\Pi_{V''}$; `IsRefinement.comp`, `Equiv.comp`, `equiv_assoc`, `equiv_comp_id`, `equiv_id_comp`, `equiv_ofHom_comp`; `GenSBMap.comp`. Witness: $F \\circ F = 1$ for `foldDiagram`, with a nonempty middle.",
+    "decls": [
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.compMid",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.compLeft",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.compRight",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.IsRefinement.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.Equiv.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.isRefinement_assoc",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_assoc",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_comp_id",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_id_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_ofHom_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.GenSBMap.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.GenSBMap.cls_comp_cls",
+     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.homMk_foldDiagram_comp",
+     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.nonempty_comp_foldDiagram"
+    ]
+   },
+   "chips": [
+    "left to the reader in the text",
+    "squares commute strictly"
+   ],
+   "diff": [
+    "Following §10.3 and Appendix §10.6.1, with V10.68; on the pull-back the squares of the proofs commute strictly, by the fibrewise injectivity of strong bundle equivalences (Findings, Chapter 10, item 18)."
+   ]
+  },
+  {
+   "id": "V10.71",
+   "title": "Theorem 10.3.10 (2017: 10.4) for strong bundles, one direction",
+   "verdict": "narrower",
+   "book": {
+    "label": "§10.5, Remark 10.5.3, p. 506 (new in the 2021 edition), the strong bundle case of Theorem 10.3.10, p. 489 (2017: Theorem 10.4, p. 353)",
+    "page": 506,
+    "statement": "In the strong bundle case a result similar to Theorem 10.3.10 can be proved: a generalized strong bundle map is an isomorphism iff it is represented by a diagram whose two legs are strong bundle equivalences; it is built into Definition 10.5.2."
+   },
+   "lean": {
+    "statement": "`SEPLoc.theorem_10_3_10`: if $\\Psi$ is a strong bundle equivalence, $[D]$ is an isomorphism of $\\mathcal{SEP}(F^{-1})$ and every inverse is $[W' \\xleftarrow{\\Psi} W'' \\xrightarrow{\\Phi} W]$; `isIso_of_isGeneralizedIso`, `inv_homMk`; `baseFunctor` to $\\mathcal{EP}(E^{-1})$ and `isEquivalence_base_of_isIso`: for an isomorphism $[D]$, $\\psi$ is an equivalence. Witness over $-\\mathrm{id}$.",
+    "decls": [
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.theorem_10_3_10",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isIso_of_isGeneralizedIso",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.inv_homMk",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_comp_symm",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_symm_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.baseFunctor",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isEquivalence_base_of_isIso",
+     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.isIso_homMk_negDiagram"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "gen. isos are isos",
+    "converse: base half only (G.123)"
+   ],
+   "diff": [
+    "The converse for the strong bundle functor $\\Psi$ itself would need strong bundle versions of the claims (C1), (C2) of Appendix §10.6.2 and is not formalized (Findings, Chapter 10, item 19)."
+   ]
   }
  ],
  "notFormalized": [
@@ -2122,10 +2268,18 @@
    "label": "§10.5, p. 504 (2017 p. 364), Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366), and Remark 10.5.3, p. 506 (new in the 2021 edition)",
    "page": 504,
    "book": "Equivalence of diagrams of strong bundles is an equivalence relation, generalized strong bundle maps compose to a category $\\mathcal{SEP}(F^{-1})$, and a generalized strong bundle map is invertible iff it is represented with both legs strong bundle equivalences.",
-   "instead": "**Not formalized**: all three need the weak fibred product of strong bundles over ep-groupoids, which the text does not construct; the classes are taken for the generated equivalence relation and $\\mathcal{SEP}(F^{-1})$ is a quiver (V10.51, V10.55, V10.57) (Findings, Chapter 10, items 50, 53).",
+   "instead": "**Formalized since the first edition of this page** (V10.68–V10.71), except the converse half of the strong bundle Theorem 10.3.10. The weak fibred product of strong bundles is the pull-back of $W''$ along $\\pi_Z$ (V10.68), the equivalence of diagrams is transitive (V10.69), and the composition makes $\\mathcal{SEP}(F^{-1})$ a category (V10.70, V10.55); a diagram with both legs strong bundle equivalences represents an isomorphism (V10.71). Still open: that an isomorphism of $\\mathcal{SEP}(F^{-1})$ is represented with both legs strong bundle equivalences, proved for the base functor only; for the strong bundle functor it would need strong bundle versions of the claims (C1), (C2) of Appendix §10.6.2 (Findings, Chapter 10, items 18, 19, 50, 53).",
    "decls": [
-    "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.Equiv",
-    "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc"
+    "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.theorem_10_2_2",
+    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.lemma_10_3_4",
+    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.category",
+    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.theorem_10_3_10"
+   ],
+   "formalized": [
+    "V10.68",
+    "V10.69",
+    "V10.70",
+    "V10.71"
    ]
   },
   {

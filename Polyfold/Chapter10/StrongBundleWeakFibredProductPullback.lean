@@ -4,7 +4,7 @@ import Polyfold.Chapter10.StrongBundleLocalization
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 10, §10.5 "Localization in the Strong Bundle Case" (pp. 504–508; 2017:
 pp. 364–368): the tools for the weak fibred product of strong bundles over ep-groupoids, which
-the text uses without spelling out (2021 p. 505: the composition of generalized strong bundle
+the text uses without spelling out (2021 p. 504: the composition of generalized strong bundle
 maps is defined "following our earlier construction", i.e. that of Theorems 10.2.2 and 10.3.8).
 The weak fibred product itself and the strong bundle version of Theorem 10.2.2 are in
 `StrongBundleWeakFibredProduct.lean`; the category `SEP(F⁻¹)` of Definition 10.5.1 is in

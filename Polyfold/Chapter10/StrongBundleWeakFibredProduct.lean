@@ -6,7 +6,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 a
 Part II, Chapter 10, §10.5 "Localization in the Strong Bundle Case" (pp. 504–508; 2017:
 pp. 364–368): the weak fibred product of strong bundles over ep-groupoids and the strong bundle
 version of **Theorem 10.2.2** (2021 p. 477; 2017: Theorem 10.2, p. 343), which the text uses
-without stating it (2021 p. 505: refinements and equivalence of strong bundle diagrams are
+without stating it (2021 p. 504: refinements and equivalence of strong bundle diagrams are
 introduced "following our earlier construction", and Definition 10.5.1 calls the resulting
 classes the morphisms of a category).  The tools (pull-backs along functors, transport along
 natural transformations, fibrewise inverse lifts) are in
@@ -287,7 +287,7 @@ theorem projX_ϕ : Hom.ϕ (projX hΦ Ψ) = projLeft (Hom.ϕ Φ) (Hom.ϕ Ψ) (adm
 theorem projZ_ϕ : Hom.ϕ (projZ hΦ Ψ) = projRight (Hom.ϕ Φ) (Hom.ϕ Ψ) (admissible hΦ Ψ) := rfl
 
 /-- **The strong bundle version of 2021 Theorem 10.2.2, p. 477 (2017: Theorem 10.2, p. 343)**
-(used in §10.5, 2021 p. 505): for a strong bundle equivalence `Φ : W → W'` covering `ϕ` and a
+(used in §10.5, 2021 p. 504): for a strong bundle equivalence `Φ : W → W'` covering `ϕ` and a
 strong bundle functor `Ψ : W'' → W'` covering `ψ`, the strong bundle `W ×_{W'} W''` over
 `X ×_{X'} X''` has projections `ΠX` covering `πX` and `ΠZ` covering `πZ`; `ΠZ` is a strong bundle
 equivalence, and `Φ ∘ ΠX ≃ Ψ ∘ ΠZ` as strong bundle functors (Definition 10.4.8). -/

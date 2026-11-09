@@ -9819,7 +9819,7 @@ equivalences (`StrongBundleEquivalence.lean`, `StrongBundleEquivalenceNat.lean`,
 `StrongBundleEquivalenceExamples.lean`); 50–59: reserved for §10.5; 60–69: Appendix §§10.6.1–10.6.2, the proofs of
 Theorems 10.3.8 and 10.3.10; 70–79: witnesses and the hypotheses taken. Statement numbers and pages are those of
 the Springer edition (2021, pp. 461–520), with the 2017 text's in parentheses (2017 pp. 333–374). The comparison
-items are `Exposition/verification/ch10.md` (V10.1–V10.50); the gaps are G.111–G.122.
+items are `Exposition/verification/ch10.md` (V10.1–V10.71); the gaps are G.111–G.127.
 
 Found while formalizing §10.1 (2026-11-08).
 
@@ -9920,7 +9920,7 @@ Found while formalizing §10.1 (2026-11-08).
     two sides agree (`EP.isLR_iff_lift_self`). The unconditional statement is gap G.115. Formalized since, with
     Proposition 10.1.9 for the lifts (`EP.proposition_10_1_19`; item 16). Status: **closed** (gap G.115, closed).
 
-Found while closing the gaps of §§10.1 and 10.3 (2026-11-08).
+Found while closing the gaps of §§10.1, 10.3 and 10.5 (2026-11-08).
 
 16. **Propositions 10.1.9, 10.1.10 and 10.1.19, formalized since; a reading on p. 469** *(Proposition 10.1.9, pp.
     468–470, and Proposition 10.1.19, p. 477, both new in the 2021 edition; Proposition 10.1.10, p. 470 (2017:
@@ -9956,6 +9956,40 @@ Found while closing the gaps of §§10.1 and 10.3 (2026-11-08).
     (item 58; `not_naturallyEquivalent_id_inv`). The hypotheses hold on the point
     (`theorem_10_3_19_of_isEffective_hypotheses`, `naturallyEquivalent_of_isEffective_hypotheses`). Status:
     **settled** (gap G.120, with item 58).
+
+18. **The weak fibred product of strong bundles and the category `SEP(F⁻¹)`, formalized since** *(§10.5, p. 504
+    (2017 p. 364), and Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366); Theorem 10.2.2, p. 477, Lemma
+    10.3.4, p. 485, Theorem 10.3.8, p. 488 (2017: Theorem 10.2, Lemma 10.4, Theorem 10.3))*. Reading: the text
+    introduces refinements and classes of diagrams of strong bundles "following our earlier construction" (p. 504)
+    and calls the classes the morphisms of a category (Definition 10.5.1), but it gives no weak fibred product of
+    strong bundles and no composition. We take the weak fibred product of a strong bundle equivalence `Φ : W → W'`
+    and a strong bundle functor `Ψ : W'' → W'` to be the pull-back `π_Z*W''` over the weak fibred product
+    `X ×_{X'} X''` of the bases (`SBWeakFibredProduct.wfpSEP`, built with `EpStrongBundle.pullbackAlong`), with
+    `Π_Z` the projection and `Π_X((x, φ, z), w'') = Φ_x⁻¹(μ'(φ⁻¹, Ψ(w'')))`, a fibrewise inverse lift
+    (`EpStrongBundle.invLiftFunctor`, `SEP.coneHom`). The strong bundle Theorem 10.2.2 holds: `Π_Z` is a strong
+    bundle equivalence, `Φ ∘ Π_X ≃ Ψ ∘ Π_Z`, and `Π_X` is one when `Ψ` is (`theorem_10_2_2`,
+    `theorem_10_2_2_right`); its claims on degeneracy indices, tameness and orbit spaces concern the bases (items
+    21–24). With it the strong bundle Lemma 10.3.4 (`SDiagram.lemma_10_3_4`, `cls_eq_cls_iff`) and Theorem 10.3.8
+    (`SDiagram.comp`, `IsRefinement.comp`, `Equiv.comp`, `equiv_assoc`, `equiv_comp_id`, `equiv_id_comp`) are
+    proved as in §10.3 and Appendix §10.6.1; on the pull-back the squares in these proofs commute strictly, by the
+    fibrewise injectivity of strong bundle equivalences. `SEP(F⁻¹)` is a category (`SEPLoc.category`) with a
+    localization functor `SEP ⥤ SEP(F⁻¹)` which inverts the strong bundle equivalences (`localizationFunctor`,
+    `isInvertedBy_localizationFunctor`). Witnesses over `−id`: `theorem_10_2_2_negSEPHom`, and `F ∘ F = 1` for
+    `foldDiagram` (`homMk_foldDiagram_comp`, `nonempty_comp_foldDiagram`). Status: **settled** (a reading; gap
+    G.123 closed, except the half of item 19).
+
+19. **Remark 10.5.3 read as "generalized strong bundle isomorphisms are isomorphisms"** *(Remark 10.5.3, p. 506,
+    new in the 2021 edition; Theorem 10.3.10, p. 489 (2017: Theorem 10.4, p. 353))*. The remark says that a result
+    similar to Theorem 10.3.10 can be proved in the strong bundle case and that it is built into Definition 10.5.2.
+    We read this as: a generalized strong bundle isomorphism is an isomorphism of `SEP(F⁻¹)`. That is proved: if
+    `Ψ` is a strong bundle equivalence, `[W ←Φ W'' →Ψ W']` is an isomorphism and every inverse of it is
+    `[W' ←Ψ W'' →Φ W]` (`SEPLoc.theorem_10_3_10`, `isIso_of_isGeneralizedIso`, `inv_homMk`, with `equiv_comp_symm`,
+    `equiv_symm_comp`). Of the converse, that every isomorphism of `SEP(F⁻¹)` is represented with both legs strong
+    bundle equivalences, only the base half is proved: `[D] ↦ [d]` is a functor `SEP(F⁻¹) ⥤ EP(E⁻¹)`
+    (`SEPLoc.baseFunctor`), so for an isomorphism `[D]` the functor `ψ` covered by `Ψ` is an equivalence, by
+    Theorem 10.3.10 (`isEquivalence_base_of_isIso`). For `Ψ` itself the converse would need strong bundle versions
+    of the claims (C1), (C2) of Appendix §10.6.2 (item 61). Witness: the class over `−id`
+    (`isIso_homMk_negDiagram`). Status: **open** (a reading; the converse half of gap G.123).
 
 Found while formalizing §10.2 (2026-11-08).
 
@@ -10132,7 +10166,10 @@ Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V
     product of strong bundles over ep-groupoids, which neither the text nor the project constructs. The classes are
     therefore taken in `Quot SDiagram.Equiv`, for the generated equivalence relation (`GenSBMap`,
     `cls_eq_cls_of_equiv`). They are the text's classes as soon as the relation is transitive, and every map
-    defined on them below is well defined for the generated relation. Status: **open** (gap G.123).
+    defined on them below is well defined for the generated relation. Formalized since: the transitivity, with the
+    weak fibred product of strong bundles, so that the generated relation is having a common refinement
+    (`SDiagram.lemma_10_3_4`, `cls_eq_cls_iff`; item 18). Status: **closed** (gap G.123 closed, except the half of
+    item 19).
 
 51. **`[d]`, `|[D]|` and the square `|D|`** *(§10.5, pp. 504–505 (2017: Remark 10.5, pp. 364–365))*. A diagram of
     strong bundles gives a diagram of the base ep-groupoids and one of the total spaces (`SDiagram.base`,
@@ -10164,7 +10201,10 @@ Found while formalizing §10.5 (2026-11-08). Its comparison items are V10.51–V
     `isGeneralizedIso_symm`). The strong bundle version of Theorem 10.3.10, which Remark 10.5.3 says can be proved
     and builds into Definition 10.5.2, needs that composition and is not formalized; what is proved is its
     consequence for the base and the total spaces, through Theorem 10.3.10: `[d]` and the total class are
-    generalized isomorphisms, and `|[D]|` is a homeomorphism (`remark_10_5_3`). Status: **open** (gap G.123).
+    generalized isomorphisms, and `|[D]|` is a homeomorphism (`remark_10_5_3`). Formalized since: the composition,
+    so that `SEPLoc` is a category (`SEPLoc.category`; item 18), and Remark 10.5.3 in the reading of item 19
+    (`SEPLoc.isIso_of_isGeneralizedIso`). Status: **closed** (gap G.123 closed, except the converse half of item
+    19).
 
 54. **The push-forward along a diagram does not depend on the representative** *(§10.5, p. 507 (2017 p. 367))*. For
     a diagram with both legs strong bundle equivalences, `D_*f = Ψ_*Φ^*f` and `D^*g = Φ_*Ψ^*g`
