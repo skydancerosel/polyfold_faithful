@@ -1909,10 +1909,16 @@
    "label": "§9.1, Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297)",
    "page": 407,
    "book": "The local $\\Theta_k$ glue to branched ep⁺-subgroupoids with $\\Theta = \\sum_k \\Theta_k$, locally finite, and the family is unique.",
-   "instead": "**Not formalized**: the gluing of the local $\\Theta_k$ across morphisms, the paracompactness of $|\\mathrm{supp}(\\Theta_k)|$ and the local finiteness; the uniqueness does not hold as we read it (`not_proposition_9_1_11_rn`) and would need an extra condition. The local construction is verified (V9.9) (Findings, Chapter 9, item 8).",
+   "instead": "**Formalized since the first edition of this page** (V9.9). The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact), forming the unique local dimensional decomposition, locally finite under a bound on the dimensions. Read with \"uniquely\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid whose object M-polyfold is $\\mathbb R^m$ (`proposition_9_1_11_local_rn`), and in general under Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1, gap G.93) (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106).",
    "decls": [
     "Chapter9/Propositions · EpGroupoid.Proposition_9_1_11",
-    "Chapter9/Propositions · EpGroupoid.not_proposition_9_1_11_rn"
+    "Chapter9/Propositions · EpGroupoid.not_proposition_9_1_11_rn",
+    "Chapter9/DimDecompositionExists · EpGroupoid.dimComponent",
+    "Chapter9/DimDecompositionExists · EpGroupoid.proposition_9_1_11_local_rn",
+    "Chapter9/DimDecompositionExists · EpGroupoid.proposition_9_1_11_local_of"
+   ],
+   "formalized": [
+    "V9.9"
    ]
   },
   {

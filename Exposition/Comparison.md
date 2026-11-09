@@ -16753,14 +16753,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### G.96. Proposition 9.1.11: the global decomposition and a repaired uniqueness
 
-*not formalized*
+*formalized since* · now V9.9
 
 **HWZ (§9.1, Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297)).** The local $\Theta_k$ glue to branched ep⁺-subgroupoids with $\Theta = \sum_k \Theta_k$, locally finite, and the family is unique.
 
-**Proved in Lean.** **Not formalized**: the gluing of the local $\Theta_k$ across morphisms, the paracompactness of $|\mathrm{supp}(\Theta_k)|$ and the local finiteness; the uniqueness does not hold as we read it (`not_proposition_9_1_11_rn`) and would need an extra condition. The local construction is verified (V9.9) (Findings, Chapter 9, item 8).
+**Proved in Lean.** **Formalized since the first edition of this page** (V9.9). The local $\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\mathrm{supp}(\Theta_k)|$ paracompact), forming the unique local dimensional decomposition, locally finite under a bound on the dimensions. Read with "uniquely" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid whose object M-polyfold is $\mathbb R^m$ (`proposition_9_1_11_local_rn`), and in general under Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1, gap G.93) (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106).
 
 - `Polyfold.EpGroupoid.Proposition_9_1_11` — Polyfold/Chapter9/Propositions.lean, line 787
 - `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1332
+- `Polyfold.EpGroupoid.dimComponent` — Polyfold/Chapter9/DimDecompositionExists.lean, line 166
+- `Polyfold.EpGroupoid.proposition_9_1_11_local_rn` — Polyfold/Chapter9/DimDecompositionExists.lean, line 474
+- `Polyfold.EpGroupoid.proposition_9_1_11_local_of` — Polyfold/Chapter9/DimDecompositionExists.lean, line 434
 
 ### G.97. The graph representation of Lemmas 9.2.9–9.2.11 on a general M-polyfold, and Proposition 9.2.8 as printed
 
