@@ -52,7 +52,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | Thm 3.1.26 | `theorem_3_1_26_2021def` (Chapter3/MainTheorems2021.lean) | V3.95 |
 | Cor 3.1.27 | `corollary_3_1_27_2021def` (Chapter3/MainTheorems2021.lean) | V3.70 |
 | Thm 3.2.3 | `theorem_3_2_3_2021def` (Chapter3/TangentGermProjecting.lean) | V3.24 |
-| Thm 3.6.8 | `theorem_3_6_8_2021def` (Chapter3/MainTheorems2021.lean) | V3.94 |
+| Thm 3.6.8 | `theorem_3_6_8_book` (Chapter3/BookFormIFT2021.lean) | V3.48 |
 | Thm 3.6.10 | `theorem_3_6_10_2021def` (Chapter3/MainTheorems2021.lean) | V3.86 |
 | Thm 3.6.11 | `theorem_3_6_11_2021def` (Chapter3/MainTheorems2021.lean) | V3.87 |
 | Thm 4.1.2 | `MPolyfold.theorem_4_1_2` (Chapter4/Characterization.lean) | V4.5 |
@@ -426,8 +426,8 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 
 | Book | Lean declaration | Comparison row |
 |---|---|---|
-| Thm 2.7.13 | `MPolyfold.theorem_2_7_13` (Chapter2/TameBoundaryTopology.lean) | V2.89 |
-| Thm 7.6.9 | `EpGroupoid.theorem_7_6_9_full` (Chapter7/TameBoundaryEpStructure.lean) | V7.101 |
+| Thm 2.7.13 | `MPolyfold.theorem_2_7_13_book` (Chapter2/BookFormTameBoundary2021.lean) | V2.89, V2.103 |
+| Thm 7.6.9 | `EpGroupoid.theorem_7_6_9_book` (Chapter7/BookFormTameBoundaryEp2021.lean) | V7.98 |
 
 ### Definition rows (13), in dependency order
 
@@ -438,11 +438,11 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 | V2.81 | §2.7.4, Definition 2.7.6, p. 79, and Proposition 2.7.7, p. 80 (new in the 2021 edition) | `TameBoundary.IsFaceStructuredOpen`, `TameBoundary.faceStructuredNbhds`, `TameBoundary.faceStructuredNbhdsAt`, `TameBoundary.faceStructuredOpens` |
 | V2.82 | §2.7.4, Definition 2.7.8, p. 80, and Definition 2.7.9, p. 81 (new in the 2021 edition) | `TameBoundary.IsMor`, `TameBoundary.LObj` |
 | V2.83 | §2.7.4, Definition 2.7.10, p. 81 (new in the 2021 edition) | `MPolyfold.TameBoundarySpace`, `MPolyfold.tameBoundaryMap`, `TameBoundary.BRel`, `TameBoundary.BSpace` and 3 more |
-| V2.84 | §2.7.4, Definition 2.7.11 and (2.44), p. 82 (new in the 2021 edition) | `TameBoundary.IsCenteredAt`, `TameBoundary.phi`, `TameBoundary.uSet` |
+| V2.84 | §2.7.4, Definition 2.7.11 and (2.44), p. 82 (new in the 2021 edition) | `TameBoundary.IsCenteredAt`, `TameBoundary.phi`, `TameBoundary.reach`, `TameBoundary.uSet` |
 | V2.86 | §2.7.4.3, Lemma 2.7.15, p. 85, with the description of $T_{bX}$ before it (new in the 2021 edition) | `TameBoundary.IsBOpen`, `TameBoundary.bTopology` |
 | V2.87 | §2.7.4, Proposition 2.7.12, p. 83 (new in the 2021 edition) | `TameBoundary.phiHomeomorph` |
 | V2.102 | §2.7.4, Theorem 2.7.13 (2)–(4), pp. 83–84 (new in the 2021 edition) | `MPolyfold.BChartData`, `MPolyfold.BChartData.chart`, `MPolyfold.bAtlas`, `MPolyfold.tameBoundaryPolyfold` |
-| V2.103 | §2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition) | `MPolyfold.facePolyfold`, `MPolyfold.phiTot` |
+| V2.104 | §2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition) | `MPolyfold.reachSet`, `TameBoundary.phiInv` |
 | V7.96 | §7.6, Appendix 7.6.5.2, pp. 353–355 (new in the 2021 edition): the maps on $bX$ induced through sheets | `TameBoundary.BTriple.map`, `TameBoundary.IsDHomeoOn`, `TameBoundary.IsDLocalHomeo`, `TameBoundary.IsLiftOf` and 1 more |
 | V7.97 | §7.6, Appendix 7.6.5.2, (7.25)–(7.29), pp. 354–355 (new in the 2021 edition) | `EpGroupoid.bComp`, `EpGroupoid.bInv`, `EpGroupoid.bMor`, `EpGroupoid.bObj` and 6 more |
 | V7.100 | §7.6, Theorem 7.6.9 (2), (3), (5), p. 355 (new in the 2021 edition) | `EpGroupoid.bPMor`, `EpGroupoid.bPObj`, `EpGroupoid.boundaryEpGroupoid` |

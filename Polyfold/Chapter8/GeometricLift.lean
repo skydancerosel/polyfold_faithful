@@ -109,6 +109,8 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
   and `F` is surjective on objects (Definition 8.5.1 (2017: 8.8) (1)) only if `U(x) = ∅`
   (`geometricLiftFunctor_surjective_iff`).  The text does not say so; `proposition_8_5_7` assumes
   `[Nonempty D]`, used for the surjectivity only.  It holds in Theorem 8.5.8 (2017: 8.6), where `D = F⁻¹(x)`.
+  For `D = ∅` and `U(x) = ℝ` the proposition does not hold as we read it
+  (`CoveringExamples.not_proposition_8_5_7_empty`, `GeometricLiftEmpty2021.lean`).
 * **`F : Y → X`.**  The proof's "the map `F : X → Y` is a surjective local sc-diffeomorphism
   between the object sets" is read as `F : Y → X` (possible misprint).  Definition 8.5.1 (2017: 8.8) (2) holds
   with `U(x)` the whole object space of `X` and, for `w ∈ U(x)`, the summands `U(y)` around the

@@ -32,7 +32,7 @@ def mains : List (String × String) := [
   ("core|Thm 3.1.26", "theorem_3_1_26_2021def"),
   ("core|Cor 3.1.27", "corollary_3_1_27_2021def"),
   ("core|Thm 3.2.3", "theorem_3_2_3_2021def"),
-  ("core|Thm 3.6.8", "theorem_3_6_8_2021def"),
+  ("core|Thm 3.6.8", "theorem_3_6_8_book"),
   ("core|Thm 3.6.10", "theorem_3_6_10_2021def"),
   ("core|Thm 3.6.11", "theorem_3_6_11_2021def"),
   ("core|Thm 4.1.2", "MPolyfold.theorem_4_1_2"),
@@ -88,8 +88,8 @@ def mains : List (String × String) := [
   ("partII|Thm 11.3.9", "EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation"),
   ("partII|Thm 11.3.9", "EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation"),
   ("partII|Thm 11.6.6", "ProperCoveringHom.theorem_11_6_6"),
-  ("tame|Thm 2.7.13", "MPolyfold.theorem_2_7_13"),
-  ("tame|Thm 7.6.9", "EpGroupoid.theorem_7_6_9_full")]
+  ("tame|Thm 2.7.13", "MPolyfold.theorem_2_7_13_book"),
+  ("tame|Thm 7.6.9", "EpGroupoid.theorem_7_6_9_book")]
 
 def isDigits (s : String) : Bool := !s.isEmpty && s.all Char.isDigit
 

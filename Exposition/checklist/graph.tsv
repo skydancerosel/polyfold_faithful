@@ -290,6 +290,7 @@ Polyfold.EpStrongBundle.IsStrongBundleEquivalence	structure	Polyfold.Chapter10.S
 Polyfold.GroupoidStr.Isotropy	structure	Polyfold.Chapter7.Groupoid	Polyfold.GroupoidStr
 Polyfold.StrongBundle.IsLinOfIndex	def	Polyfold.Chapter3.IndexLocallyConstant	Polyfold.MChart.source Polyfold.linAt Polyfold.ScScale.toBase Polyfold.scDeriv Polyfold.StrongBundleChart.principal Polyfold.StrongBundle Polyfold.MPolyfold Polyfold.MChart Polyfold.ScScale Polyfold.ScBanach Polyfold.fredholmIndex Polyfold.StrongRetr.r Polyfold.rangeS Polyfold.StrongRetr.ρCLM Polyfold.StrongBundleChart Polyfold.LocalModel Polyfold.StrongBundle.IsChart
 Polyfold.IsFillingGerm	structure	Polyfold.Chapter3.GermFilling	Polyfold.fillDefect Polyfold.scDeriv Polyfold.IsStrongBundleRetraction Polyfold.ScScale Polyfold.ScBanach Polyfold.ScNbhdGerm Polyfold.StrongRetr.r Polyfold.StrongRetr.ρ Polyfold.IsScSmoothGerm Polyfold.StrongRetr.ρCLM Polyfold.IsRelOpenInQuadrant Polyfold.IsSc1GermWith
+Polyfold.TameBoundary.reach	def	Polyfold.Chapter2.TameBoundary	Polyfold.TameBoundary.facesThrough
 Polyfold.ScScale	structure	Polyfold.Chapter1.ScBanach	
 Polyfold.MPolyfold.tameBoundaryMap	def	Polyfold.Chapter2.TameBoundary	Polyfold.MPolyfold.degIndex Polyfold.MPolyfold.TameBoundarySpace Polyfold.MPolyfold Polyfold.TameBoundary.bMap Polyfold.MPolyfold.IsTame
 Polyfold.TameBoundary.LObj	structure	Polyfold.Chapter2.TameBoundary	Polyfold.TameBoundary.faceStructuredNbhdsAt Polyfold.TameBoundary.IsCornerIndex
@@ -433,8 +434,9 @@ Polyfold.StrongBundle.toMPolyfold0	def	Polyfold.Chapter2.StrongBundle	Polyfold.S
 Polyfold.ScIso.symm	def	Polyfold.Chapter1.ScBanach	Polyfold.ScIso Polyfold.ScScale Polyfold.ScBanach
 Polyfold.projSeqPi	def	Polyfold.Chapter6.ProjectionSequence	Polyfold.projSeqJ
 Polyfold.fillDefect	def	Polyfold.Chapter3.GermFilling	Polyfold.ScScale Polyfold.ScBanach Polyfold.StrongRetr.r Polyfold.StrongRetr.ρ
-Polyfold.SBLocalization.SDiagram	structure	Polyfold.Chapter10.StrongBundleLocalization	Polyfold.SEP.equivalences Polyfold.SEP Polyfold.SEP.instLargeCategory
+Polyfold.TameBoundary.phiInv	def	Polyfold.Chapter2.TameBoundaryNonCentred	Polyfold.TameBoundary.IsCornerIndex Polyfold.TameBoundary.bMap Polyfold.TameBoundary.BTriple Polyfold.TameBoundary.BSpace Polyfold.TameBoundary.uSet Polyfold.TameBoundary.BTriple.cls
 Polyfold.HasTwoContSections	def	Polyfold.Chapter6.OrientationSpace	Polyfold.MPolyfold.SmoothLevel Polyfold.StrongBundle Polyfold.MPolyfold.smoothVal Polyfold.MPolyfold Polyfold.StrongBundle.IsScFredholmSection Polyfold.OrSpace Polyfold.IsContSectionOver
+Polyfold.SBLocalization.SDiagram	structure	Polyfold.Chapter10.StrongBundleLocalization	Polyfold.SEP.equivalences Polyfold.SEP Polyfold.SEP.instLargeCategory
 Polyfold.MPolyfold.tangentAtlas	def	Polyfold.Chapter2.TangentBundle	Polyfold.MChart.source Polyfold.MPolyfold.IsChart Polyfold.MPolyfold.tangentChart Polyfold.MPolyfold Polyfold.MChart Polyfold.MPolyfold.TangentSpace Polyfold.MAtlas Polyfold.MPolyfold.instTopologicalSpaceTangentSpace Polyfold.MChart.Compatible
 Polyfold.FourTermExact	structure	Polyfold.Chapter6.ExactSequence	
 Polyfold.MPolyfold.TangentGermChart	structure	Polyfold.Chapter3.TangentGerm	Polyfold.MChart.source Polyfold.MPolyfold.IsChart Polyfold.IsInGoodPosition Polyfold.MPolyfold Polyfold.MChart Polyfold.ScScale Polyfold.ScBanach Polyfold.IsTameRetract Polyfold.IsGoodComplement Polyfold.LocalModel Polyfold.ScScale.smooth Polyfold.IsScInftyGermAt
@@ -532,6 +534,7 @@ Polyfold.unitIntervalPolyfold	def	Polyfold.Chapter3.UnitIntervalPolyfold	Polyfol
 Polyfold.IsScSmoothComp	def	Polyfold.Chapter7.EpGroupoid	Polyfold.MPolyfold.subPolyfold Polyfold.MPolyfold.IsLocalScDiffeo Polyfold.MPolyfold.prod Polyfold.MPolyfold Polyfold.MPolyfold.IsScSmoothMap Polyfold.MPolyfold.fibredProduct Polyfold.MPolyfold.IsSubMPolyfold
 Polyfold.TameBoundary.BTriple.map	def	Polyfold.Chapter7.TameBoundaryEp	Polyfold.TameBoundary.faceStructuredNbhdsAt Polyfold.TameBoundary.IsCornerIndex Polyfold.TameBoundary.LObj Polyfold.TameBoundary.IsDHomeoOn Polyfold.TameBoundary.IsFaceIn Polyfold.TameBoundary.BTriple
 Polyfold.emptyWedge	def	Polyfold.Chapter6.Continuation	Polyfold.wedge Polyfold.maxPow
+Polyfold.MPolyfold.reachSet	def	Polyfold.Chapter2.TameBoundaryNonCentred	Polyfold.MPolyfold.degIndex Polyfold.TameBoundary.LObj Polyfold.MPolyfold Polyfold.MPolyfold.IsTame Polyfold.TameBoundary.BTriple Polyfold.TameBoundary.reach
 Polyfold.SubspaceFamily.instTopologicalSpaceTotalSpaceRealDet	instance	Polyfold.Chapter6.SubspaceBundle	Polyfold.SubspaceFamily.det Polyfold.SubspaceFamily.instTopologicalSpaceDet Polyfold.SubspaceFamily.instAddCommMonoidDet Polyfold.SubspaceFamily Polyfold.SubspaceFamily.instModuleRealDet Polyfold.SubspaceFamily.prebundle
 Polyfold.PullbackChartData	structure	Polyfold.Chapter2.StrongBundlePullback	Polyfold.IsScSmoothRetractMap Polyfold.MChart.source Polyfold.MPolyfold.IsChart Polyfold.ScRetraction.retract Polyfold.MPolyfold Polyfold.MChart.symm Polyfold.MChart Polyfold.ScScale Polyfold.ScRetraction Polyfold.ScBanach Polyfold.StrongBundleChart Polyfold.LocalModel
 Polyfold.IsSc0	structure	Polyfold.Chapter1.ScSmooth	Polyfold.ScScale.toBase Polyfold.levelMap Polyfold.ScScale Polyfold.ScBanach Polyfold.ScBanach.lvlSet
@@ -754,8 +757,8 @@ Polyfold.EPLocalization.Diagram	structure	Polyfold.Chapter10.Localization	Polyfo
 Polyfold.EpGroupoid.IsOrbifoldType	def	Polyfold.Chapter9.Basic	
 Polyfold.WeakFibredProduct.Admissible	def	Polyfold.Chapter10.WeakFibredProduct	Polyfold.MPolyfold.IsLocalScDiffeo Polyfold.GroupoidFunctor Polyfold.EpGroupoid Polyfold.EpFunctor
 Polyfold.scDerivGerm	def	Polyfold.Chapter3.Germ	Polyfold.ScScale Polyfold.ScBanach Polyfold.ScNbhdGerm Polyfold.IsSc1Germ Polyfold.IsSc1GermWith
-Polyfold.MPolyfold.SubmanifoldData.tmap	def	Polyfold.Chapter9.Tangent	Polyfold.MPolyfold.IsScSmoothOn Polyfold.MPolyfold Polyfold.MPolyfold.TangentSpace Polyfold.MPolyfold.SubmanifoldData Polyfold.MPolyfold.tangentMapOn
 Polyfold.IsOrientationTopology	structure	Polyfold.Chapter6.OrientationSpace	Polyfold.MPolyfold.SmoothLevel Polyfold.pullbackSpace Polyfold.IsPropagationContinuous Polyfold.MPolyfold.instTopologicalSpaceSmoothLevel Polyfold.StrongBundle Polyfold.orProj Polyfold.MPolyfold Polyfold.StrongBundle.IsScFredholmSection Polyfold.OrSpace Polyfold.HasTwoContSections
+Polyfold.MPolyfold.SubmanifoldData.tmap	def	Polyfold.Chapter9.Tangent	Polyfold.MPolyfold.IsScSmoothOn Polyfold.MPolyfold Polyfold.MPolyfold.TangentSpace Polyfold.MPolyfold.SubmanifoldData Polyfold.MPolyfold.tangentMapOn
 Polyfold.EpGroupoid.cornerObj	abbrev	Polyfold.Chapter7.TameBoundaryEp	Polyfold.MPolyfold.degIndex Polyfold.TameBoundary.IsCornerIndex Polyfold.EpGroupoid Polyfold.EpGroupoid.IsTame
 Polyfold.paramSection	def	Polyfold.Chapter3.ParamPerturbation	Polyfold.IsSection Polyfold.pullbackSpace Polyfold.fiberComb
 Polyfold.pullbackFiberEquiv	def	Polyfold.Chapter2.StrongBundlePullback	Polyfold.pullbackSpace Polyfold.pullbackProj

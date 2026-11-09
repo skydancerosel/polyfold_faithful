@@ -44,9 +44,11 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
 ## What the text leaves implicit, and the choices made
 
 * **Proposition 8.1.16.**  The step "`T(g, h) = id` ⇒ `Tg = id`" differentiates (8.16) and uses
-  that `Tτ_X : T_b(TX) → T_xX` is onto; the second tangent bundle `T(TX)`, `Tτ_X` and its
-  surjectivity are not formalized, so this step is the hypothesis `TangentZhouReflect`
-  (satisfiable: `tangentZhouReflect_trivial`).  The rest is proved: `x = p(b)` is smooth
+  that `Tτ_X : T_b(TX) → T_xX` is onto; here this step is the hypothesis `TangentZhouReflect`
+  (satisfiable: `tangentZhouReflect_trivial`).  Since 2026-11-09 it holds for every ep-groupoid
+  (`tangentZhouReflect`, `TangentZhouReflect2021.lean`, through the vertical vectors of `T(TX)`
+  of `TangentVertical2021.lean`), and Proposition 8.1.16 holds with no further hypothesis
+  (`proposition_8_1_16_2021`).  The rest is proved here: `x = p(b)` is smooth
   (`levelVal_tangentProj_mem_smoothSet`), the base `g` of `(g, h)` lies in `G_x`, (ZHOU) gives
   `g ∈ T_x`, and `s = t` near `g` gives `Ts = Tt` near `(g, h)`.  As in Chapter 7's
   `IsZhou`, `T(g, h)` is the set map `tangentMor` of `TX`; no linear structure is used.
@@ -60,8 +62,9 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
   `StrongBundle.IsStrongBundleIsoOn` (a strong bundle map `W → W` restricting to an isomorphism of
   `W|U(x)`, as for Definition 8.5.9 (2017: 8.10) in `EpStrongBundle.lean`), and `|B(w)| = |w|` as equality of
   orbits in the groupoid `(W, 𝐖)`.
-* **Proposition 8.4.3 is not formalized**: its density argument needs the openness of the bundle
-  projection `P : W → X` (not in the project) and the density of the regular points of `U(x)`.
+* **Proposition 8.4.3** is not proved in this file: it is `EpStrongBundle.proposition_8_4_3`
+  (`BundleLocalRegularity2021.lean`, 2026-11-09), with the openness of the bundle projection
+  `P : W → X` and the density of the regular points of `U(x)`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -110,7 +113,8 @@ theorem mem_nonEffectivePart_tangent {v : X.PMor.TangentSpace}
 /-- The step "`T(g, h) = id` ⇒ `Tg = id`" of the proof of 2021 Proposition 8.1.16 (differentiating
 (8.16), with `Tτ_X` onto), as a hypothesis: for a smooth `b ∈ TX` and `(g, h) ∈ G_b`, if the
 tangent of `(g, h)` in the ep-groupoid `TX` is the identity on `T_b(TX)`, then the tangent of its
-base `g` is the identity on `T_{p(b)}X`.  Satisfiable: `tangentZhouReflect_trivial`. -/
+base `g` is the identity on `T_{p(b)}X`.  Satisfiable: `tangentZhouReflect_trivial`; it holds for
+every ep-groupoid (`tangentZhouReflect`, `TangentZhouReflect2021.lean`). -/
 def TangentZhouReflect : Prop :=
   ∀ (y : X.tangentEpGroupoid.PObj.SmoothLevel)
     (k : X.tangentEpGroupoid.Isotropy (X.tangentEpGroupoid.PObj.smoothVal y)),
@@ -120,7 +124,8 @@ def TangentZhouReflect : Prop :=
       X.tangentMor (X.tBase k.val) v = v
 
 /-- **2021 Proposition 8.1.16, p. 369 (new in the 2021 edition)**: if `X` satisfies (ZHOU), so does
-the tangent ep-groupoid `TX`, given `TangentZhouReflect`. -/
+the tangent ep-groupoid `TX`, given `TangentZhouReflect`.  Without that hypothesis (it always
+holds): `proposition_8_1_16_2021` (`TangentZhouReflect2021.lean`). -/
 theorem proposition_8_1_16 (hZ : X.IsZhou) (hr : X.TangentZhouReflect) :
     X.tangentEpGroupoid.IsZhou := by
   intro y k hk
@@ -236,7 +241,8 @@ def natLift (E : EpStrongBundle X B) {x : Obj} (R : X.NaturalRep x) (g : X.Isotr
 strong bundle over an ep-groupoid.  Inside every open `O ∋ x` there is a natural
 representation `U(x)` such that every strong bundle isomorphism `Φ` of `W|U(x)` (covering some
 `β`) with `|Φ(w)| = |w|` is `w ↦ g ∗ w` for some `g ∈ G_x`.  Satisfiable:
-`EpStrongBundle.isLR_trivial`. -/
+`EpStrongBundle.isLR_trivial`; by Proposition 8.4.3 it holds over every effective `X` with (LR)
+(`EpStrongBundle.proposition_8_4_3`, `BundleLocalRegularity2021.lean`). -/
 def IsLR (E : EpStrongBundle X B) : Prop :=
   ∀ (x : Obj) (O : Set Obj), IsOpen O → x ∈ O → ∃ R : X.NaturalRep x, R.U ⊆ O ∧
     ∀ (β : Obj → Obj) (Φ : W → W) (hΦ : B.IsStrongBundleMap B β Φ),

@@ -42,7 +42,7 @@
     "statement": "The dimension of $T_mM$ is locally constant in $m \\in M$, the local dimension of $M$. $\\Theta$ is $n$-dimensional if at every point of its support the manifolds of a local branching structure can be taken $n$-dimensional (2017: are $n$-dimensional); by a footnote (new in 2021) an $n$-dimensional $\\Theta$ is not $m$-dimensional for $m \\ne n$; $\\Theta$ is locally equidimensional if small structures have sheets of one dimension."
    },
    "lean": {
-    "statement": "A submanifold has dimension $k$ at $a$ if the tangent space of its sub-retract at the chart image of $a$ has dimension $k$; the value does not depend on the data and the chart, is unique, exists at every point, and is invariant under restriction to open sets and under sc-diffeomorphisms. It is locally constant on every M-polyfold (`MPolyfold.hasLocallyConstantDimAt`): in a chart it is the rank of $Dt$ for the chart sc⁺-retraction $t$ of the submanifold (`hasDimAt_finrank`), locally constant along the retract (`ScRetraction.eventually_finrank_eq`); so a labelled local branching structure exists at every point of $\\mathrm{supp}(\\Theta)$ (`hasLabelledBranchingAt_general`). $\\Theta$ is $n$-dimensional if at every point of its support some local branching structure has only $n$-dimensional $M_i$; the zero functor is $n$-dimensional for every $n$. The dimensions of the $M_i$ of one structure through $x$ are determined. The hypothesis `HasLocallyConstantDimAt` and its proof on $\\mathbb R^m$ are kept.",
+    "statement": "A submanifold has dimension $k$ at $a$ if the tangent space of its sub-retract at the chart image of $a$ has dimension $k$; the value does not depend on the data and the chart, is unique, exists at every point, and is invariant under restriction to open sets and under sc-diffeomorphisms. It is locally constant on every M-polyfold (`MPolyfold.hasLocallyConstantDimAt`): in a chart it is the rank of $Dt$ for the chart sc⁺-retraction $t$ of the submanifold (`hasDimAt_finrank`), locally constant along the retract (`ScRetraction.eventually_finrank_eq`); so a labelled local branching structure exists at every point of $\\mathrm{supp}(\\Theta)$ (`hasLabelledBranchingAt_general`). $\\Theta$ is $n$-dimensional if at every point of its support some local branching structure has only $n$-dimensional $M_i$; the zero functor is $n$-dimensional for every $n$. The dimensions of the $M_i$ of one structure through $x$ are determined, and at a point of $\\mathrm{supp}(\\Theta)$ the sheets of any two structures have the same tangent spaces and dimensions (`exists_submanifoldTangent_eq`, `isOfDim_unique`); hence the footnote: an $n$-dimensional $\\Theta$ with nonempty support is not $m$-dimensional for $m \\ne n$ (`definition_9_1_2_footnote`, `_of_ne_zero`; for $\\Theta = 0$ it does not hold as we read it, `definition_9_1_2_footnote_zero`). $\\Theta$ is locally equidimensional if at every point of its support some local branching structure has sheets of one dimension; for branched $\\Theta$ equivalently every local branching structure, restricted near the point, has sheets of that dimension (`IsLocallyEquidimensional`, `isLocallyEquidimensional_iff`), and the dimension is locally constant on the support (`exists_isOpen_isNDimensionalAt`). The hypothesis `HasLocallyConstantDimAt` and its proof on $\\mathbb R^m$ are kept.",
     "decls": [
      "Chapter9/GeneralLevelZero · MPolyfold.hasLocallyConstantDimAt",
      "Chapter9/GeneralLevelZero · MPolyfold.hasDimAt_finrank",
@@ -61,16 +61,25 @@
      "Chapter9/Propositions · EpGroupoid.IsNDimensional",
      "Chapter9/Propositions · EpGroupoid.isNDimensional_zero",
      "Chapter9/AppendixSlices · MPolyfold.HasLocallyConstantDimAt",
-     "Chapter9/AppendixSlices · MPolyfold.hasLocallyConstantDimAt_rn"
+     "Chapter9/AppendixSlices · MPolyfold.hasLocallyConstantDimAt_rn",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.LocalBranchingStructure.exists_submanifoldTangent_eq",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.LocalBranchingStructure.isOfDim_unique",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.definition_9_1_2_footnote",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.definition_9_1_2_footnote_of_ne_zero",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.definition_9_1_2_footnote_zero",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.IsLocallyEquidimensional",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.isLocallyEquidimensional_iff",
+     "Chapter9/LocallyEquidimensional2021 · EpGroupoid.IsLocallyEquidimensional.exists_isOpen_isNDimensionalAt"
     ]
    },
    "chips": [
     "dimension measured in a chart",
     "local constancy: every M-polyfold",
-    "footnote not formalized (G.93)"
+    "footnote: $\\Theta \\ne 0$",
+    "G.93 closed"
    ],
    "diff": [
-    "Updated (2026-11-09): the local constancy of $a \\mapsto \\dim T_aA$, first the hypothesis `HasLocallyConstantDimAt` proved on $\\mathbb R^m$, holds on every M-polyfold (`hasLocallyConstantDimAt`; gap G.93 closed in part), so the dimension labellings of the $M_i$ need no longer be taken as hypotheses. The dimension is measured in a chart, since $T_aA$ carries no linear structure (gap G.7). The footnote ($n$-dimensional $\\Theta \\ne 0$ is not $m$-dimensional, $m \\ne n$) and \\\"locally equidimensional\\\" are not formalized (gap G.93) (Findings, Chapter 9, items 2, 3, 107). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
+    "Updated (2026-11-09): the local constancy of $a \\mapsto \\dim T_aA$ holds on every M-polyfold (`hasLocallyConstantDimAt`), so the dimension labellings of the $M_i$ need no longer be taken as hypotheses; the footnote and \"locally equidimensional\" are formalized (`Chapter9/LocallyEquidimensional2021.lean`; gap G.93 closed). The footnote needs $\\Theta \\ne 0$: the zero functor is $n$-dimensional for every $n$, so for it the footnote does not hold as we read it (`definition_9_1_2_footnote_zero`). The dimension is measured in a chart, as in all of Chapter 9 (Findings, Chapter 9, items 2, 3, 107, 112). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -1160,14 +1169,14 @@
   {
    "id": "V9.36",
    "title": "Definition 9.3.8 (2017: 9.9), the boundary orientation of an oriented $M$",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§9.3, Definition 9.3.8, p. 427 (2017: Definition 9.9, p. 313)",
     "page": 427,
     "statement": "For an oriented $n$-dimensional $(M, o)$ and $y \\in \\partial M$ with $d_M(y) = 1$, a basis $(a_1, \\ldots, a_{n-1})$ of $T_y\\partial M$ is positive iff $(e, a_1, \\ldots, a_{n-1})$ is positive for $o_y$, $e$ an outward pointing vector; this orients $\\partial M$ near $y$."
    },
    "lean": {
-    "statement": "`MPolyfold.boundaryOp`: the boundary operation built from the ambient structure, $T_y(M, o) \\mapsto (T^R_yM, o_\\partial)$ with the frames $a$ of $T^R_yM$ such that $(e, a)$ is positive for every outward $e$; $T^R_yX$ and the partial cone $C_yX$ are read in a presented chart and are chart independent (`PresentedChart.exists_clm`). For an oriented $(M, o)$ of dimension $n$ and $y$ with $d_M(y) = 1$ (reduced codimension $1$ of $T_yM$): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`); outward vectors exist and are the vectors of $T_yM$ not in $C_yM$ (`IsBoundaryAdmissible.exists_outward`, `isOutward_iff_not_mem_partialCone`); and $\\mathrm{boundaryOp}(T_y(M, o))$ is an orientation of $T_y\\partial M$, given by Definition 9.3.8's frames for every outward $e$ (`SubmanifoldOrientation.boundaryOp_tangent`, `boundaryOp_eq`, `isOrientedAt_boundaryOp`). The pointwise construction first recorded: for a hyperplane $K$ of $T_yM$ and $e \\notin K$, the frames $(a_1, \\ldots, a_{n-1})$ of $K$ with $(e, a_1, \\ldots, a_{n-1})$ positive orient $K$, unchanged under $e \\mapsto ce + k$, $c > 0$, $k \\in K$, and both orientations occur (`boundaryFrames`). The situation occurs at the corner of $[0, \\infty)$ (`exists_isBoundaryAdmissible_halfLine`).",
+    "statement": "`MPolyfold.boundaryOp`: the boundary operation built from the ambient structure, $T_y(M, o) \\mapsto (T^R_yM, o_\\partial)$ with the frames $a$ of $T^R_yM$ such that $(e, a)$ is positive for every outward $e$; $T^R_yX$ and the partial cone $C_yX$ are read in a presented chart and are chart independent (`PresentedChart.exists_clm`). For an oriented $(M, o)$ of dimension $n$ and $y$ with $d_M(y) = 1$ (reduced codimension $1$ of $T_yM$): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`); outward vectors exist and are the vectors of $T_yM$ not in $C_yM$ (`IsBoundaryAdmissible.exists_outward`, `isOutward_iff_not_mem_partialCone`); and $\\mathrm{boundaryOp}(T_y(M, o))$ is an orientation of $T_y\\partial M$, given by Definition 9.3.8's frames for every outward $e$ (`SubmanifoldOrientation.boundaryOp_tangent`, `boundaryOp_eq`, `isOrientedAt_boundaryOp`). The pointwise construction first recorded: for a hyperplane $K$ of $T_yM$ and $e \\notin K$, the frames $(a_1, \\ldots, a_{n-1})$ of $K$ with $(e, a_1, \\ldots, a_{n-1})$ positive orient $K$, unchanged under $e \\mapsto ce + k$, $c > 0$, $k \\in K$, and both orientations occur (`boundaryFrames`). The situation occurs at the corner of $[0, \\infty)$ (`exists_isBoundaryAdmissible_halfLine`). The continuity: for every oriented smooth submanifold $(A, o)$ of dimension $m + 1$ the operation is an orientation along the stratum $\\partial_1A$ of points where $T_yA$ has reduced codimension $1$, $\\{d_A = 1\\}$ for tame $A$ (`boundaryStratum`, `boundaryStratum_eq_of_tame`): near every point of $\\partial_1A$ there is a frame field, positive at every point of $\\partial_1A$ for Definition 9.3.8's orientation, with continuous chart vectors (`SubmanifoldOrientation.exists_continuous_boundaryFrames`, `boundaryOrientation`, `boundaryOrientation_tame`); on any submanifold inside $\\partial_1A$ with tangent spaces $T^R_yA$ it is a `SubmanifoldOrientation` (`OrientationAlong.toSubmanifoldOrientation`).",
     "decls": [
      "Chapter9/BoundaryOperation · MPolyfold.boundaryOp",
      "Chapter9/BoundaryOperation · MPolyfold.boundaryOp_eq",
@@ -1185,16 +1194,24 @@
      "Chapter9/OrientationBoundary · MPolyfold.boundaryFrames",
      "Chapter9/OrientationBoundary · MPolyfold.isOrientedAt_boundaryFrames",
      "Chapter9/OrientationBoundary · MPolyfold.boundaryFrames_eq",
-     "Chapter9/OrientationBoundary · exists_boundaryFrames_graph"
+     "Chapter9/OrientationBoundary · exists_boundaryFrames_graph",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.boundaryStratum",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.boundaryStratum_eq_of_tame",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.OrientationAlong",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.OrientationAlong.toSubmanifoldOrientation",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.SubmanifoldOrientation.exists_continuous_boundaryFrames",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.SubmanifoldOrientation.boundaryOrientation",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.SubmanifoldOrientation.boundaryOrientation_tame",
+     "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.SubmanifoldOrientation.boundaryOp_tangent_eq_boundaryOrientation"
     ]
    },
    "chips": [
     "$T_y\\partial M = T^R_yM$, outward: from $M$",
     "independent of the outward $e$",
-    "continuity along $\\partial M$ (G.103)"
+    "continuous along $\\partial_1M$, no tameness"
    ],
    "diff": [
-    "Updated (2026-11-09): $T_y\\partial M$ and the outward direction, first data $K$, $e$, are determined by $M$: $T_y\\partial M = T^R_yM$, and \\\"outward\\\" is read as \\\"in $T_yM$, not in $C_yM$\\\"; since $T_yX$ has no linear structure (gap G.7) both are read in a presented chart and shown chart independent (`Chapter9/BoundaryOperation.lean`; gap G.103 closed in part). That $o_{\\partial M}$ orients $\\partial M$ near $y$, i.e. its continuity along $\\partial M$, is not formalized (V9.38, gap G.103) (Findings, Chapter 9, items 57, 108). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
+    "Updated (2026-11-09): $T_y\\partial M$ and the outward direction, first data $K$, $e$, are determined by $M$: $T_y\\partial M = T^R_yM$, and \"outward\" is read as \"in $T_yM$, not in $C_yM$\", both read in a presented chart and chart independent (`Chapter9/BoundaryOperation.lean`). The continuity of $o_{\\partial M}$ is proved, without tameness, along the reduced-codimension-$1$ stratum (`Chapter9/BoundaryOrientationContinuity2021.lean`; gap G.103 in part). $\\partial_1M$ is not built as a submanifold: $T_y\\partial M$ is read as $T^R_yM$ (gap G.103) (Findings, Chapter 9, items 57, 108, 110). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -1233,30 +1250,32 @@
   {
    "id": "V9.38",
    "title": "Definition 9.3.10 (2017: 9.11), the oriented boundary $\\hat T_{\\partial\\Theta}$",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§9.3, Definition 9.3.10, p. 428 (2017: Definition 9.11, p. 314)",
     "page": 428,
     "statement": "For an oriented tame $\\Theta$, $\\hat T_{\\partial\\Theta}(y) = 0$ off $\\mathrm{supp}(\\Theta)$ and $\\hat T_{\\partial\\Theta}(y) = \\sum_{y \\in \\partial M_i, d_{M_i}(y) = 1} \\sigma_i\\, T_y(\\partial M_i, o_{\\partial M_i})$ on $U(x)$ (9.12)."
    },
    "lean": {
-    "statement": "$\\hat T_{\\partial\\Theta}(y) = 0$ off $\\mathrm{supp}(\\Theta)$ and $\\sum_{d_{M_i}(y) = 1} \\sigma_i\\, T_y(\\partial M_i, o_{\\partial M_i})$ on a structure (9.12) (`boundaryLift`), with the boundary operation of Definition 9.3.8 built from the $M_i$ (`boundaryLift X.PObj.boundaryOp`, V9.36). The intrinsic `boundaryOrientation`, filtering by reduced codimension $1$, is a function of $\\hat T_\\Theta(y)$ and agrees with it for oriented tame $\\hat\\Theta$ (`IsTameOrientation`, Definition 9.3.10's hypothesis; `boundaryLift_boundaryOp_eq_boundaryOrientation`). Witnesses: `isTameOrientation_zero`, `isTameOrientation_of_degIndex_eq_zero`.",
+    "statement": "$\\hat T_{\\partial\\Theta}(y) = 0$ off $\\mathrm{supp}(\\Theta)$ and $\\sum_{d_{M_i}(y) = 1} \\sigma_i\\, T_y(\\partial M_i, o_{\\partial M_i})$ on a structure (9.12) (`boundaryLift`), with the boundary operation of Definition 9.3.8 built from the $M_i$ (`boundaryLift X.PObj.boundaryOp`, V9.36). The intrinsic `boundaryOrientation`, filtering by reduced codimension $1$, is a function of $\\hat T_\\Theta(y)$ and agrees with it for oriented tame $\\hat\\Theta$ (`IsTameOrientation`, Definition 9.3.10's hypothesis; `boundaryLift_boundaryOp_eq_boundaryOrientation`). Witnesses: `isTameOrientation_zero`, `isTameOrientation_of_degIndex_eq_zero`. `OrientedBranchingStructure.exists_boundaryOrientation`: every sheet $M_i$ of dimension $m + 1$ of an oriented branching structure carries $o_{\\partial M_i}$ as an orientation along its stratum, equal to `boundaryOp` of $T_y(M_i, o_i)$ pointwise.",
     "decls": [
      "Chapter9/BoundaryOperation · EpGroupoid.boundaryOrientation",
      "Chapter9/BoundaryOperation · EpGroupoid.boundaryLift_boundaryOp_eq_boundaryOrientation",
      "Chapter9/BoundaryOperation · EpGroupoid.IsTameOrientation",
      "Chapter9/BoundaryOperation · EpGroupoid.isTameOrientation_zero",
      "Chapter9/BoundaryOperation · EpGroupoid.isTameOrientation_of_degIndex_eq_zero",
-     "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift"
+     "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift",
+     "Chapter9/BoundaryOrientationContinuity2021 · EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation"
     ]
    },
    "chips": [
-    "continuity of $o_{\\partial M}$ open (G.103)",
-    "boundary operation from $M$"
+    "continuous along $\\{d_{M_i} = 1\\}$",
+    "boundary operation from $M$",
+    "Figure 9.1: G.103"
    ],
    "diff": [
-    "Updated (2026-11-09): (9.12) is formed with the boundary operation built from the submanifolds, and the intrinsic $\\hat T_{\\partial\\Theta}$ needs no choice of structure (`boundaryOrientation`); gap G.103 is closed except for the continuity (Findings, Chapter 9, item 108).",
-    "The continuity of $o_{\\partial M}$ along $\\partial M$, which needs the stratum $\\{d_M = 1\\}$ as a smooth submanifold with $T_y\\partial M = T^R_yM$, and its extension to the faces (Figure 9.1) are not formalized (gap G.103); Remark 9.3.11 has no formal content (Findings, Chapter 9, items 58, 108)."
+    "Updated (2026-11-09): (9.12) is formed with the boundary operation built from the submanifolds, and the intrinsic $\\hat T_{\\partial\\Theta}$ needs no choice of structure (`boundaryOrientation`) (Findings, Chapter 9, item 108).",
+    "The sheet orientations $o_{\\partial M_i}$ in (9.12) are continuous along the strata $\\{d_{M_i} = 1\\}$ (`OrientedBranchingStructure.exists_boundaryOrientation`, V9.36); the extension to the closed faces (Figure 9.1) is not formalized and Remark 9.3.11 has no formal content (gap G.103) (Findings, Chapter 9, items 58, 108, 110)."
    ]
   },
   {
@@ -1269,7 +1288,7 @@
     "statement": "For $K \\subseteq M$, $M$ a smooth manifold with boundary and corners, $T^K_zM$ is the linear hull of the unit vectors $e = \\lim \\varphi(z_k)/|\\varphi(z_k)|$, $z_k \\to z$ in $K \\setminus \\{z\\}$, in a chart centred at $z$, independent of the chart; $z \\in K$ is essential if it is a limit of $z_k \\in K$ with $T^K_{z_k}M = T_{z_k}M$."
    },
    "lean": {
-    "statement": "For a subset $K$ of a finite-dimensional manifold with corners, $T^K_zM$ is the span of the limits of unit directions $\\varphi(z_k)/|\\varphi(z_k)|$, $z_k \\to z$ in $K \\setminus \\{z\\}$, in a chart centred at $z$, independent of the chart; $z \\in K$ is essential if it is a limit of $z_k \\in K$ with $T^K_{z_k}M = T_{z_k}M$. For two crossing lines in $\\mathbb R^2$ the essential set is $\\{0\\}$.",
+    "statement": "For a subset $K$ of a finite-dimensional manifold with corners, $T^K_zM$ is the span of the limits of unit directions $\\varphi(z_k)/|\\varphi(z_k)|$, $z_k \\to z$ in $K \\setminus \\{z\\}$, in a chart centred at $z$, independent of the chart; $z \\in K$ is essential if it is a limit of $z_k \\in K$ with $T^K_{z_k}M = T_{z_k}M$. For two crossing lines in $\\mathbb R^2$ the essential set is $\\{0\\}$. For submanifolds of an M-polyfold, read in M-polyfold charts: `chartRelTangent`, `chartEssentialSet` (`Chapter9/SheetEssentialChart2021.lean`, V9.42).",
     "decls": [
      "Chapter9/BranchingGeometryManifold · chartImage",
      "Chapter9/BranchingGeometryManifold · relTangent",
@@ -1280,7 +1299,9 @@
      "Chapter9/BranchingGeometryManifold · essentialSet_eq",
      "Chapter9/BranchingGeometryManifold · crossLines",
      "Chapter9/BranchingGeometryManifold · essentialSet_crossLines",
-     "Chapter9/BranchingGeometryManifold · nonEssential_crossLines"
+     "Chapter9/BranchingGeometryManifold · nonEssential_crossLines",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.chartRelTangent",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.chartEssentialSet"
     ]
    },
    "chips": [
@@ -1321,19 +1342,23 @@
     "statement": "(T): if $y_0 \\in M_i \\cap M_{i'}$, $T_{y_0}M_i = T_{y_0}M_{i'}$ and $o_{i,y_0} = \\varepsilon\\, o_{i',y_0}$, then $T_y(M_i, o_i) = T_y(M_{i'}, \\varepsilon o_{i'})$ for all $y \\in M_i \\cap M_{i'}$ with $T_yM_i = T_yM_{i'}$. Lemma 9.4.3: (T) holds after restricting to a smaller $U'(x)$."
    },
    "lean": {
-    "statement": "An oriented local branching structure has Property (T) on $V$ if, whenever two sheets have the same tangent space at a point of $V$ and their orientations there are related by $\\varepsilon$, they are related by $\\varepsilon$ at every point of $V$ where their tangent spaces agree; the first structure of Example 9.3.5 has it.",
+    "statement": "An oriented local branching structure has Property (T) on $V$ if, whenever two sheets have the same tangent space at a point of $V$ and their orientations there are related by $\\varepsilon$, they are related by $\\varepsilon$ at every point of $V$ where their tangent spaces agree; the first structure of Example 9.3.5 has it. Lemma 9.4.3: every oriented branching structure has (T) after restriction to a smaller open $U'(x)$ (`lemma_9_4_3`, `lemma_9_4_3_propertyT`).",
     "decls": [
      "Chapter9/BranchingGeometry · EpGroupoid.OrientedBranchingStructure.PropertyT",
      "Chapter9/BranchingGeometry · MPolyfold.OrTangent.eq_or_eq_or_eq_of_isOrientedAt",
      "Chapter9/BranchingGeometry · MPolyfold.exists_ne_isOrientedAt",
-     "Chapter9/BranchingGeometry · propertyT_example935B1"
+     "Chapter9/BranchingGeometry · propertyT_example935B1",
+     "Chapter9/PropertyTShrinking2021 · EpGroupoid.OrientedBranchingStructure.lemma_9_4_3",
+     "Chapter9/PropertyTShrinking2021 · EpGroupoid.OrientedBranchingStructure.lemma_9_4_3_propertyT",
+     "Chapter9/PropertyTShrinking2021 · EpGroupoid.OrientedBranchingStructure.restrict"
     ]
    },
    "chips": [
-    "Lemma 9.4.3 not formalized (G.104)"
+    "Lemma 9.4.3 proved",
+    "G.104 closed"
    ],
    "diff": [
-    "Lemma 9.4.3, that (T) holds after shrinking $U(x)$, is not formalized (gap G.104) (Findings, Chapter 9, item 71)."
+    "Lemma 9.4.3 is proved as stated (`Chapter9/PropertyTShrinking2021.lean`; gap G.104 closed) (Findings, Chapter 9, items 71, 111)."
    ]
   },
   {
@@ -1346,22 +1371,28 @@
     "statement": "If $z \\in K(i, i') = M_i \\cap M_{i'}$ is essential for $K(i, i') \\subseteq M_i$, it is essential for $K(i, i') \\subseteq M_{i'}$; so $K(i, i')^e$, $K(i, i')^{ne}$ do not depend on the reference sheet (proof left to the reader)."
    },
    "lean": {
-    "statement": "For sheets of one dimension the essential points of $K(i, i') = M_i \\cap M_{i'}$ do not depend on the reference sheet; this is the field `ess_comm` of a sheet geometry, which exists for smooth graphs in $\\mathbb R^2$. For sheets of different dimensions the lemma does not hold as we read it: $\\mathbb R \\times 0$ is essential in itself as a subset of $\\mathbb R$ and has no essential point as a subset of $\\mathbb R^2$.",
+    "statement": "For sheets of one dimension the essential points of $K(i, i') = M_i \\cap M_{i'}$ do not depend on the reference sheet. For $n$-dimensional submanifolds of an M-polyfold, with Definition 9.4.1 read in M-polyfold charts as in the book's proof ($T^K_zM$ the span of the tangent cone of $\\psi(K)$ at $\\psi(z)$, `chartRelTangent`), $K = M \\cap M'$ has the same essential points in $M$ and in $M'$ (`lemma_9_4_4_chart`), since $T^K_zM \\subseteq T_zM$ in every chart (`chartRelTangent_le`); every point of $M$ is essential for $M \\subseteq M$ (`chartEssentialSet_self`), and at essential points $T_zM = T_zM'$ (`submanifoldTangent_eq_of_mem_chartEssentialSet`, the note in Definition 9.4.7). For abstract sheet classes it is the field `ess_comm` of a sheet geometry, which exists for smooth graphs in $\\mathbb R^2$. For sheets of different dimensions the lemma does not hold as we read it: $\\mathbb R \\times 0$ is essential in itself as a subset of $\\mathbb R$ and has no essential point as a subset of $\\mathbb R^2$.",
     "decls": [
      "Chapter9/BranchingGeometry · MPolyfold.SheetGeometry",
      "Chapter9/BranchingGeometry · graphSheets",
      "Chapter9/BranchingGeometry · graphSheetGeometry",
-     "Chapter9/BranchingGeometry · lemma_9_4_4_mixed_dim"
+     "Chapter9/BranchingGeometry · lemma_9_4_4_mixed_dim",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.lemma_9_4_4_chart",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.chartRelTangent",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.chartRelTangent_le",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.chartEssentialSet",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.chartEssentialSet_self",
+     "Chapter9/SheetEssentialChart2021 · MPolyfold.submanifoldTangent_eq_of_mem_chartEssentialSet"
     ]
    },
    "chips": [
     "sheets of one dimension",
     "mixed dimensions: not as we read it",
-    "M-polyfold sheets: a field (G.105)"
+    "M-polyfold sheets: chart reading (G.105)"
    ],
    "diff": [
     "Hidden hypotheses: sheets of one dimension.",
-    "For M-polyfold sheets, which carry no Mathlib manifold structure, Lemmas 9.4.4 and 9.4.6 are the fields of `SheetGeometry` (gap G.105); the note in Definition 9.4.7 ($i \\sim_y i'$ implies $T_yM_i = T_yM_{i'}$) is its field `submanifoldTangent_eq` (Findings, Chapter 9, item 72). (2026-11-09) Lemma 9.4.6 now holds for the sheets of a tame branching structure of dimension $n$ (V9.44); Lemma 9.4.4 for M-polyfold sheets is still the field `ess_comm`, which needs the change of charts between the induced structures of two sheets (gap G.105, open in part)."
+    "For M-polyfold sheets, which carry no Mathlib manifold structure, Lemmas 9.4.4 and 9.4.6 are the fields of `SheetGeometry` (gap G.105); the note in Definition 9.4.7 ($i \\sim_y i'$ implies $T_yM_i = T_yM_{i'}$) is its field `submanifoldTangent_eq` (Findings, Chapter 9, item 72). (2026-11-09) Lemma 9.4.6 now holds for the sheets of a tame branching structure of dimension $n$ (V9.44), and Lemma 9.4.4 holds for $n$-dimensional M-polyfold sheets in the reading through M-polyfold charts (`Chapter9/SheetEssentialChart2021.lean`); its identification with the corner-chart reading of the bridge, and so a `SheetGeometry` of M-polyfold sheets, is not formalized (gap G.105, open in part; Findings, Chapter 9, item 113)."
    ]
   },
   {
@@ -1966,12 +1997,19 @@
    "label": "§9.1, Remark 9.1.1, p. 402 (2017: Remark 9.1, p. 291), and Definition 9.1.2, last paragraph and footnote, p. 402",
    "page": 402,
    "book": "The dimension of $T_mM$ is locally constant in $m \\in M$; an $n$-dimensional $\\Theta$ is not $m$-dimensional for $m \\ne n$; locally equidimensional $\\Theta$.",
-   "instead": "**Formalized in part** (V9.2): since 2026-11-09 the dimension of $T_mM$ is locally constant on every M-polyfold (`MPolyfold.hasLocallyConstantDimAt`), so the hypothesis `HasLocallyConstantDimAt`, first proved on $\\mathbb R^m$ only (`hasLocallyConstantDimAt_rn`), and the dimension labellings of the $M_i$ are no longer needed (`hasLabelledBranchingAt_general`). **Not formalized**: the footnote ($n$-dimensional $\\Theta \\ne 0$ is not $m$-dimensional for $m \\ne n$) and \\\"locally equidimensional\\\" (Findings, Chapter 9, items 2, 3, 107).",
+   "instead": "**Formalized** (2026-11-09): the local constancy of the dimension (`MPolyfold.hasLocallyConstantDimAt`), the footnote for $\\Theta$ with nonempty support (`definition_9_1_2_footnote`; for $\\Theta = 0$ it does not hold as we read it, `definition_9_1_2_footnote_zero`), from the independence of the tangent sums, and \"locally equidimensional\" in both readings (`IsLocallyEquidimensional`, `isLocallyEquidimensional_iff`, `Chapter9/LocallyEquidimensional2021.lean`) (Findings, Chapter 9, items 2, 3, 107, 112).",
    "decls": [
     "Chapter9/AppendixSlices · MPolyfold.HasLocallyConstantDimAt",
     "Chapter9/AppendixSlices · MPolyfold.hasLocallyConstantDimAt_rn",
     "Chapter9/GeneralLevelZero · MPolyfold.hasLocallyConstantDimAt",
-    "Chapter9/GeneralCorollaries · EpGroupoid.hasLabelledBranchingAt_general"
+    "Chapter9/GeneralCorollaries · EpGroupoid.hasLabelledBranchingAt_general",
+    "Chapter9/LocallyEquidimensional2021 · EpGroupoid.definition_9_1_2_footnote",
+    "Chapter9/LocallyEquidimensional2021 · EpGroupoid.definition_9_1_2_footnote_zero",
+    "Chapter9/LocallyEquidimensional2021 · EpGroupoid.IsLocallyEquidimensional",
+    "Chapter9/LocallyEquidimensional2021 · EpGroupoid.isLocallyEquidimensional_iff"
+   ],
+   "formalized": [
+    "V9.2"
    ]
   },
   {
@@ -2127,7 +2165,7 @@
    "label": "§9.3, Definition 9.3.8, p. 427 (2017: Definition 9.9, p. 313), and Definition 9.3.10, p. 428 (2017: Definition 9.11, p. 314)",
    "page": 427,
    "book": "For tame $M$ with $d_M(y) = 1$, $T_y\\partial M$ and the outward half-space are given by the cones $C_yM$; the boundary orientation is continuous along $\\partial M$ and extends to the closed faces (Figure 9.1); Remark 9.3.11 on the non-tame case.",
-   "instead": "**Formalized in part** (V9.36–V9.38): since 2026-11-09 the boundary operation is built from the submanifold (`boundaryOp`): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`), the outward vectors are those of $T_yM$ not in $C_yM$ (`isOutward_iff_not_mem_partialCone`), Definition 9.3.8 does not depend on the outward vector (`boundaryOp_eq`), $d_M(y)$ is the reduced codimension of $T_yM$ for tame $M$ (`subDegIndex_eq_quotDim_span`), and (9.12) and Proposition 9.3.9 hold with this operation (`proposition_9_3_9_boundaryOp`, `boundaryOrientation`); the cones are read in a presented chart, chart independent (`PresentedChart.exists_clm`). **Not formalized**: the continuity of $o_{\\partial M}$ along $\\partial M$, which needs the stratum $\\{d_M = 1\\}$ as a smooth submanifold, the extension to the closed faces (Figure 9.1) and Remark 9.3.11 (Findings, Chapter 9, items 57, 58, 108).",
+   "instead": "**Formalized in part** (V9.36–V9.38): since 2026-11-09 the boundary operation is built from the submanifold (`boundaryOp`): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`), the outward vectors are those of $T_yM$ not in $C_yM$ (`isOutward_iff_not_mem_partialCone`), Definition 9.3.8 does not depend on the outward vector (`boundaryOp_eq`), $d_M(y)$ is the reduced codimension of $T_yM$ for tame $M$ (`subDegIndex_eq_quotDim_span`), and (9.12) and Proposition 9.3.9 hold with this operation (`proposition_9_3_9_boundaryOp`, `boundaryOrientation`); the cones are read in a presented chart, chart independent (`PresentedChart.exists_clm`). Since 2026-11-09 also the continuity of $o_{\\partial M}$: it is an orientation along the stratum of reduced codimension $1$ ($\\{d_M = 1\\}$ for tame $M$), with continuous positive frame fields, for every oriented submanifold, tame or not (`SubmanifoldOrientation.exists_continuous_boundaryFrames`, `boundaryOrientation`, `Chapter9/BoundaryOrientationContinuity2021.lean`). **Not formalized**: the stratum $\\{d_M = 1\\}$ as an open dense smooth submanifold of $\\partial M$ (its tangent space is read as $T^R_yM$), the extension to the closed faces (Figure 9.1) and Remark 9.3.11 (Findings, Chapter 9, items 57, 58, 108, 110).",
    "decls": [
     "Chapter9/OrientationBoundary · MPolyfold.boundaryFrames",
     "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift",
@@ -2136,7 +2174,10 @@
     "Chapter9/BoundaryOperation · MPolyfold.isOutward_iff_not_mem_partialCone",
     "Chapter9/BoundaryOperation · MPolyfold.boundaryOp_eq",
     "Chapter9/BoundaryOperation · EpGroupoid.boundaryOrientation",
-    "Chapter9/BoundaryOperation · EpGroupoid.proposition_9_3_9_boundaryOp"
+    "Chapter9/BoundaryOperation · EpGroupoid.proposition_9_3_9_boundaryOp",
+    "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.SubmanifoldOrientation.exists_continuous_boundaryFrames",
+    "Chapter9/BoundaryOrientationContinuity2021 · MPolyfold.SubmanifoldOrientation.boundaryOrientation",
+    "Chapter9/BoundaryOrientationContinuity2021 · EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation"
    ]
   },
   {
@@ -2145,9 +2186,16 @@
    "label": "§9.4, Lemma 9.4.3, p. 430 (2017: Lemma 9.12, p. 316)",
    "page": 430,
    "book": "Every oriented branching structure at a smooth $x$ has Property (T) on a smaller $U'(x)$; the proof uses the continuity of $z \\mapsto T_{r_i(z)}M_i$ in charts and a contradiction argument along sequences.",
-   "instead": "**Not formalized**: it needs the continuity of the change-of-frame determinant of two sheets in charts at points where their tangent spaces agree; Property (T) is a definition, and Proposition 9.4.10 is proved without it (V9.41, V9.48) (Findings, Chapter 9, item 71).",
+   "instead": "**Formalized** (2026-11-09): every oriented branching structure has Property (T) after restriction to a smaller open $U'(x)$ (`OrientedBranchingStructure.lemma_9_4_3`, `lemma_9_4_3_propertyT`, `Chapter9/PropertyTShrinking2021.lean`), with no further hypothesis. Per pair of sheets: different dimensions never have equal tangent spaces (`HasDimAt.eq_of_submanifoldTangent_eq`), a $0$-dimensional point is isolated (`HasDimAt.exists_isOpen_eq_of_mem`), the relative orientation is locally constant where tangent spaces agree (`exists_isOpen_tangent_eq_iff`), and tangent spaces that differ at $x$ differ nearby (`exists_isOpen_submanifoldTangent_ne`); the book's argument along sequences in direct form (Findings, Chapter 9, items 71, 111).",
    "decls": [
-    "Chapter9/BranchingGeometry · EpGroupoid.OrientedBranchingStructure.PropertyT"
+    "Chapter9/BranchingGeometry · EpGroupoid.OrientedBranchingStructure.PropertyT",
+    "Chapter9/PropertyTShrinking2021 · EpGroupoid.OrientedBranchingStructure.lemma_9_4_3",
+    "Chapter9/PropertyTShrinking2021 · EpGroupoid.OrientedBranchingStructure.lemma_9_4_3_propertyT",
+    "Chapter9/PropertyTShrinking2021 · MPolyfold.SubmanifoldOrientation.exists_isOpen_pairT",
+    "Chapter9/PropertyTShrinking2021 · MPolyfold.exists_isOpen_submanifoldTangent_ne"
+   ],
+   "formalized": [
+    "V9.41"
    ]
   },
   {
@@ -2156,12 +2204,15 @@
    "label": "§9.4, Lemma 9.4.4, p. 431 (2017: Lemma 9.13, p. 317), and Lemma 9.4.6, p. 431 (2017: Lemma 9.14)",
    "page": 431,
    "book": "Essential points of $K(i, i')$ do not depend on the reference sheet; the non-essential points have measure zero; for submanifolds of an M-polyfold, in M-polyfold charts.",
-   "instead": "**Formalized in part since the first edition of this page** (V9.44): Lemma 9.4.6 holds for the sheets of a tame branching structure of dimension $n$, read as Mathlib manifolds with corners (`TameBranchingStructure.lemma_9_4_6`), and for a tame $n$-dimensional sheet in good position in a tame M-polyfold (`lemma_9_4_6_sheet`, `Chapter9/MathlibManifoldBridge.lean`). **Not formalized**: Lemma 9.4.4 for M-polyfold sheets, which needs the change of charts between the induced structures of two sheets; for general M-polyfold sheets Lemmas 9.4.4 and 9.4.6 remain the fields `ess_comm` and `isNull_diff_ess` of `SheetGeometry`, satisfiable for smooth graphs in $\\mathbb R^2$, and `SheetGeometry` is not yet built from the bridge. Lemma 9.4.6 is proved for Mathlib manifolds (V9.42, V9.44) (Findings, Chapter 9, items 72, 109).",
+   "instead": "**Formalized in part since the first edition of this page** (V9.44): Lemma 9.4.6 holds for the sheets of a tame branching structure of dimension $n$, read as Mathlib manifolds with corners (`TameBranchingStructure.lemma_9_4_6`), and for a tame $n$-dimensional sheet in good position in a tame M-polyfold (`lemma_9_4_6_sheet`, `Chapter9/MathlibManifoldBridge.lean`). Since 2026-11-09 Lemma 9.4.4 holds for $n$-dimensional submanifolds of an M-polyfold with Definition 9.4.1 read in M-polyfold charts, as in the book's proof (`lemma_9_4_4_chart`), with `ess_self` and the note of Definition 9.4.7 (`chartEssentialSet_self`, `submanifoldTangent_eq_of_mem_chartEssentialSet`, `Chapter9/SheetEssentialChart2021.lean`). **Not formalized**: Lemma 9.4.6 in this reading (a null-set notion on M-polyfold sheets, which needs the sheet's image under a tangent projection to have positive measure) and the comparison with the corner-chart reading of the bridge (the change of charts between the induced structure of a sheet and the M-polyfold charts); so `SheetGeometry` for M-polyfold sheets is not yet built, and Lemmas 9.4.4, 9.4.6 remain its fields `ess_comm`, `isNull_diff_ess` there, satisfiable for smooth graphs in $\\mathbb R^2$. Lemma 9.4.6 is proved for Mathlib manifolds (V9.42, V9.44) (Findings, Chapter 9, items 72, 109, 113).",
    "decls": [
     "Chapter9/BranchingGeometry · MPolyfold.SheetGeometry",
     "Chapter9/BranchingGeometry · graphSheetGeometry",
     "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.lemma_9_4_6",
-    "Chapter9/MathlibManifoldBridge · MPolyfold.lemma_9_4_6_sheet"
+    "Chapter9/MathlibManifoldBridge · MPolyfold.lemma_9_4_6_sheet",
+    "Chapter9/SheetEssentialChart2021 · MPolyfold.lemma_9_4_4_chart",
+    "Chapter9/SheetEssentialChart2021 · MPolyfold.chartEssentialSet_self",
+    "Chapter9/SheetEssentialChart2021 · MPolyfold.submanifoldTangent_eq_of_mem_chartEssentialSet"
    ]
   },
   {

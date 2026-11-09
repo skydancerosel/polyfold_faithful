@@ -867,15 +867,25 @@
   {
    "id": "V11.30",
    "title": "Proposition 11.5.1 (2017: 11.6), auxiliary norms along generalized strong bundle isomorphisms",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§11.5, Proposition 11.5.1, p. 547 (2017: Proposition 11.6, p. 399)",
     "page": 547,
     "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]^*N'$ and $[D]_*N$ of auxiliary norms are auxiliary norms, defined through choices of $e''$ with $\\Phi(e'') \\to e$; they are mutually inverse and depend only on $|[D]|$."
    },
    "lean": {
-    "statement": "`pullNorm`, `pushNorm` through a representative of $|D|(|e|)$ in $|W'[1]|$, independent of it and equal to the text's formula; continuous, satisfying condition (3) of Definition 8.3.5, mutually inverse for invariant functions, determined by $|[D]|$; $|D|$ on $|W[1]|$ is continuous and determined by $|D|$ on $|W|$.",
+    "statement": "`GenSBMap.proposition_11_5_1_book`: $[D]^*N'$ and $[D]_*N$ are auxiliary norms (continuity and conditions (1)–(3) of Definition 8.3.5). They are mutually inverse, computed by every representative with both legs strong bundle equivalences ($[D]^*N'(e) = N'(\\Psi(e''))$ for $\\Phi(e'') \\cong e$), and equal for $|[D]| = |[D']|$. Conditions (1) and (2) are `SDiagram.isCompleteFiberNorm_pullNorm` and `SDiagram.tendsto_zeroOne_pullNorm` (`Chapter11/AuxiliaryNormTransport2021.lean`): they go through the level-1 fibre maps of $\\mu$ and of a strong bundle equivalence, as linear isomorphisms (`oneFiberMor`, `oneFiberObj`), and through the level-1 local inverse at the zero section (`tendsto_zeroOne_of_tendsto_obj`). The earlier form `proposition_11_5_1` is kept: `pullNorm`, `pushNorm` through a representative of $|D|(|e|)$ in $|W'[1]|$, independent of it and equal to the text's formula; continuous, satisfying condition (3) of Definition 8.3.5, mutually inverse for invariant functions, determined by $|[D]|$; $|D|$ on $|W[1]|$ is continuous and determined by $|D|$ on $|W|$.",
     "decls": [
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.GenSBMap.proposition_11_5_1_book",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isAuxNorm_pullNorm",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isAuxNorm_pushNorm",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.tendsto_zeroOne_pullNorm",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.oneFiberMor",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.oneFiberObj",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.tendsto_zeroOne_of_tendsto_obj",
+     "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.tendsto_zeroOne_μ_obj",
+     "Chapter11/AuxiliaryNormTransport2021 · StrongBundle.IsCompleteFiberNorm.of_linearEquiv",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_1",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pullNorm",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pushNorm",
@@ -907,24 +917,24 @@
     ]
    },
    "chips": [
-    "conditions (1), (2) of Def. 8.3.5: G.132",
-    "choices replaced by $|W'[1]|$"
+    "choices replaced by $|W'[1]|$",
+    "G.132 closed"
    ],
    "diff": [
-    "Conditions (1) and (2) of Definition 8.3.5 are not shown (G.132). The text's sentence on [D] = [D'] under local regularity is Theorem 10.5.7, which does not hold as we read it (Chapter 10, V10.67); nothing here uses it (Findings, Chapter 11, item 60)."
+    "The text's choices of $e''$ and $\\Phi(e'') \\to e$ are replaced by a representative of $|D|(|e|)$ in $|W'[1]|$, which agrees with the text's formula (`pullNorm_eq_Ψ`). The text's sentence on $[D] = [D']$ under local regularity is Theorem 10.5.7 (V10.67), which does not hold as we read it; nothing here uses it (gap G.132 closed) (Findings, Chapter 11, items 60, 81)."
    ]
   },
   {
    "id": "V11.31",
    "title": "Multisection functors along a strong bundle equivalence; Lemma 11.5.2 (2017: 11.7)",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§11.5, Lemma 11.5.2, p. 548 (2017: Lemma 11.7, p. 400), and the multisection functors, pp. 547–548",
     "page": 548,
     "statement": "For a strong bundle equivalence $\\Phi$ and an sc⁺-multisection $\\Lambda$, $\\Phi_*\\Lambda(w') = \\Lambda(w)$ for $\\Phi(w) \\cong w'$ is a well-defined sc⁺-multisection."
    },
    "lean": {
-    "statement": "`IsWFunctor`: maps on $W$ constant along morphisms; `pullMult`, `pushMult`; $\\Phi_*\\Lambda$ does not depend on the choice and is a functor (`lemma_11_5_2`); $\\Phi^*\\Phi_* = 1$ and $\\Phi_*\\Phi^* = 1$.",
+    "statement": "`IsWFunctor`: maps on $W$ constant along morphisms; `pullMult`, `pushMult`; $\\Phi_*\\Lambda$ does not depend on the choice and is a functor (`lemma_11_5_2`); $\\Phi^*\\Phi_* = 1$ and $\\Phi_*\\Phi^* = 1$. With Definition 13.2.1 (`IsScPlusMultisection`, `Chapter11/MultisectionLocalStructure2021.lean`), `lemma_11_5_2_book`: $\\Phi_*\\Lambda$ of an sc⁺-multisection is an sc⁺-multisection. Its local sections are the text's $\\mu'(\\sigma', \\Phi(s_i(x)))$, extended by a local inverse of $t'$ (`exists_isLocalRepOn_pushMult`). The same holds for $\\Phi^*$ (`isScPlusMultisection_pullMult`).",
     "decls": [
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.IsWFunctor",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.isWFunctor_const",
@@ -936,29 +946,41 @@
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pushMult_eq",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.lemma_11_5_2",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pullMult_pushMult",
-     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pushMult_pullMult"
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pushMult_pullMult",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.lemma_11_5_2_book",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.exists_isLocalRepOn_pushMult",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.exists_isLocalRepOn_pullMult",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.isScPlusMultisection_pullMult",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsScPlusMultisection",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.HasLocalSectionStructure",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsLocalRepOn",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsScPlusSectionOn",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.isScPlusMultisection_zeroMultisection"
     ]
    },
    "chips": [
-    "functors only",
-    "local section structures: G.133"
+    "G.133 closed",
+    "$\\mathbb Q^+$ read as $\\mathbb Q_{\\ge 0}$"
    ],
    "diff": [
-    "Only the functor $\\Lambda$ underlying an sc⁺-multisection is treated; its local section structures (2021 Definition 13.2.1) are not formalized (G.133) (Findings, Chapter 11, item 61)."
+    "Definition 13.2.1 is formalized here. The local sections are sc⁺-sections on an open set, in the form of `isScPlusSection_iff`. A local representation on any open neighbourhood is shrunk to the domain of a natural representation (Theorem 7.1.13). It is satisfiable (`isScPlusMultisection_zeroMultisection`) (gap G.133 closed) (Findings, Chapter 11, items 61, 82)."
    ]
   },
   {
    "id": "V11.32",
    "title": "Proposition 11.5.3 (2017: 11.7), multisection functors along generalized strong bundle isomorphisms",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§11.5, Proposition 11.5.3, p. 548 (2017: Proposition 11.7, p. 401)",
     "page": 548,
     "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]_*$ and $[D]^*$ of sc⁺-multisections are well defined and mutually inverse; for generalized strong bundle maps with $|[D]| = |[D']|$ they agree."
    },
    "lean": {
-    "statement": "$[D]_* = \\Psi_*\\Phi^*$ and $[D]^* = \\Phi_*\\Psi^*$ on functors $W \\to \\mathbb Q_{\\ge 0}$, independent of the representative, mutually inverse, and equal for $[D]$, $[D']$ with the same orbit map.",
+    "statement": "`GenSBMap.proposition_11_5_3_book`: for a generalized strong bundle isomorphism $[D]$, $[D]_* = \\Psi_*\\Phi^*$ and $[D]^* = \\Phi_*\\Psi^*$ map sc⁺-multisections (Definition 13.2.1) to sc⁺-multisections. They are independent of the representative, mutually inverse, and equal for $[D]$, $[D']$ with the same orbit map. On the underlying functors this is `GenSBMap.proposition_11_5_3`: $[D]_* = \\Psi_*\\Phi^*$ and $[D]^* = \\Phi_*\\Psi^*$ on functors $W \\to \\mathbb Q_{\\ge 0}$, independent of the representative, mutually inverse, and equal for $[D]$, $[D']$ with the same orbit map.",
     "decls": [
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.GenSBMap.proposition_11_5_3_book",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.SDiagram.isScPlusMultisection_pushMult",
+     "Chapter11/MultisectionLocalStructure2021 · SBLocalization.SDiagram.isScPlusMultisection_pullMult",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_3",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pushMult",
      "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pullMult",
@@ -975,11 +997,11 @@
     ]
    },
    "chips": [
-    "functors only (G.133)",
+    "G.133 closed",
     "“maps” read as isomorphisms"
    ],
    "diff": [
-    "For the functors underlying sc⁺-multisections (G.133); the last clause is read for generalized strong bundle isomorphisms, for which $[D]_*$ is defined (Findings, Chapter 11, item 61)."
+    "The last clause is read for generalized strong bundle isomorphisms, for which $[D]_*$ is defined (gap G.133 closed) (Findings, Chapter 11, items 61, 82)."
    ]
   },
   {
@@ -1306,7 +1328,7 @@
    "label": "§11.1, Proposition 11.1.6, pp. 524–525 (2017: Proposition 11.2, p. 378)",
    "page": 524,
    "book": "For tame face structured $X$: the object and morphism sets of a face are sub-M-polyfolds with tame induced structures and the face is a tame face structured ep-groupoid; two faces meet in a face of each; a generalized isomorphism induces generalized isomorphisms $[d]_F : F \\to [d]_*F$ (11.1).",
-   "instead": "**Not formalized**: it needs the restriction of an ep-groupoid to a closed saturated sub-M-polyfold and the faces $X_\\theta$ as unions of faces of the object M-polyfold. The bijection $[d]_*$ and the homeomorphisms $\\theta \\to [d]_*\\theta$ are V11.6; whether the intersection clause holds in the generality stated is left open (Findings, Chapter 11, item 6, 8).",
+   "instead": "**Not formalized**: it needs the restriction of an ep-groupoid to a closed saturated sub-M-polyfold and the faces $X_\\theta$ as unions of faces of the object M-polyfold. The bijection $[d]_*$ and the homeomorphisms $\\theta \\to [d]_*\\theta$ are V11.6; whether the intersection clause holds in the generality stated is left open (Findings, Chapter 11, items 6, 8). What is missing, in order: that an ep face structured $X$ has a face structured object M-polyfold, whose faces through $x$ map onto the faces of $|X|$ through $|x|$; that $X_\\theta$ is a closed saturated sub-M-polyfold (a locally finite union of object faces, locally a single face); then `subEpGroupoid` (Proposition 7.1.22) gives the ep-groupoid, and $[d]_F$ needs the restriction of equivalences to sub-ep-groupoids (2026-11-09).",
    "decls": [
     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_6"
    ]
@@ -1353,9 +1375,15 @@
    "label": "§11.5, Proposition 11.5.1, p. 547 (2017: Proposition 11.6, p. 399)",
    "page": 547,
    "book": "$[D]^*N'$ and $[D]_*N$ of auxiliary norms are auxiliary norms.",
-   "instead": "**Not formalized** for conditions (1) and (2): they need the level-1 fibre maps of $\\mu$ and of a strong bundle equivalence as linear bijections and the level-1 local homeomorphism property near the zero section. Well-definedness, continuity, condition (3), the inverse laws and the dependence on $|[D]|$ only are V11.30 (Findings, Chapter 11, item 60).",
+   "instead": "**Formalized** (2026-11-09) in `Chapter11/AuxiliaryNormTransport2021.lean`. Condition (1) transfers the complete fibre norm along the linear isomorphism $\\Psi_x \\circ \\Phi_x^{-1} \\circ \\mu(\\sigma^{-1}, \\cdot)$ of $W_{0,1}$-fibres. Condition (2) lifts $h_k$ through a local inverse of $t$ and of $\\varphi$, applies (2) for $N'$, and returns through the level-1 local inverse of $\\Phi$ and the continuity of $\\mu[1]$. The push-forward is the pull-back along the reversed diagram. `GenSBMap.proposition_11_5_1_book` states Proposition 11.5.1 in full, with no added hypothesis (V11.30) (Findings, Chapter 11, items 60, 81).",
    "decls": [
-    "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_1"
+    "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_1",
+    "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.GenSBMap.proposition_11_5_1_book",
+    "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm",
+    "Chapter11/AuxiliaryNormTransport2021 · SBLocalization.SDiagram.tendsto_zeroOne_pullNorm"
+   ],
+   "formalized": [
+    "V11.30"
    ]
   },
   {
@@ -1364,9 +1392,16 @@
    "label": "§11.5, Lemma 11.5.2 and Proposition 11.5.3, pp. 547–549 (2017: Lemma 11.7, Proposition 11.7, pp. 400–401)",
    "page": 548,
    "book": "Push-forwards and pull-backs of sc⁺-multisections are sc⁺-multisections: their local section structures are carried along.",
-   "instead": "**Not formalized**: the local section structures (2021 Definition 13.2.1) are not in the project; their transport needs a strong bundle form of Proposition 10.1.9's transport. The underlying functors are V11.31, V11.32 (Findings, Chapter 11, item 61).",
+   "instead": "**Formalized** (2026-11-09) in `Chapter11/MultisectionLocalStructure2021.lean`. That file adds Definition 13.2.1 (`IsScPlusMultisection`, satisfiable by the multisection of the zero section). The local section structures go along a strong bundle equivalence both ways, by the text's construction with a local inverse of the target map. `lemma_11_5_2_book` and `GenSBMap.proposition_11_5_3_book` state Lemma 11.5.2 and Proposition 11.5.3 for sc⁺-multisections, with no added hypothesis (V11.31, V11.32). No strong bundle transport of natural representations was needed: Theorem 7.1.13 gives a natural representation inside the transported neighbourhood (Findings, Chapter 11, items 61, 82).",
    "decls": [
-    "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_3"
+    "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_3",
+    "Chapter11/MultisectionLocalStructure2021 · SBLocalization.lemma_11_5_2_book",
+    "Chapter11/MultisectionLocalStructure2021 · SBLocalization.GenSBMap.proposition_11_5_3_book",
+    "Chapter11/MultisectionLocalStructure2021 · SBLocalization.IsScPlusMultisection"
+   ],
+   "formalized": [
+    "V11.31",
+    "V11.32"
    ]
   },
   {

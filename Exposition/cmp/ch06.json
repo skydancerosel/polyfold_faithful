@@ -564,15 +564,22 @@
   {
    "id": "V6.22",
    "title": "Lemma 6.5.3 (preprint 6.19) in the case used, and Proposition 6.5.4 (preprint 6.20): $\\mathrm{DET}(T, P, \\varepsilon)$",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§6.5 (preprint §6.4), Lemma 6.5.3 (preprint 6.19) and Proposition 6.5.4 (preprint 6.20), p. 260 (preprint p. 216)",
     "page": 216,
     "statement": "Lemma 6.5.3 (preprint 6.19), a standard lemma: for finite-dimensional topological vector bundles $E$, $F$, the bundles $\\lambda(E)$, $\\lambda^*(F)$, $E \\oplus F$ and $E \\otimes F$ are topological vector bundles in a natural way. Proposition 6.5.4 (preprint 6.20), deduced from it: $\\mathrm{DET}(T, P, \\varepsilon) = \\bigcup_{\\|S - T\\| < \\varepsilon}\\{S\\} \\times \\det(PS)$ has in a natural way the structure of a topological line bundle."
    },
    "lean": {
-    "statement": "Over the ball of a local determinant chart, `LocalDetChart.frame` $\\omega(S) = (k_1(S) \\wedge \\dots \\wedge k_n(S)) \\otimes (e_1 \\wedge \\dots \\wedge e_l)^*$, with $k_i(S) = k_i + y(k_i, S)$ (`kerFrame`) and a constant basis $e$ of $F/R(P) = F/R(PS)$, is nowhere zero (`LocalDetChart.frame_ne_zero`). `proposition_6_5_4`: the frames of two charts with the same $P$ differ by a continuous nowhere-zero factor.",
+    "statement": "`lemma_6_5_3`: $\\lambda(E)$, $\\lambda^*(F)$, $E \\oplus F$ and $E \\otimes F$ are Mathlib topological vector bundles for Mathlib vector bundles $E$, $F$ with finite-dimensional fibres; their trivializations are induced by those of $E$ and $F$ (`Chapter6/DetVectorBundles2021.lean`). Over the ball of a local determinant chart, `LocalDetChart.frame` $\\omega(S) = (k_1(S) \\wedge \\dots \\wedge k_n(S)) \\otimes (e_1 \\wedge \\dots \\wedge e_l)^*$, with $k_i(S) = k_i + y(k_i, S)$ (`kerFrame`) and a constant basis $e$ of $F/R(P) = F/R(PS)$, is nowhere zero (`LocalDetChart.frame_ne_zero`). `proposition_6_5_4`: the frames of two charts with the same $P$ differ by a continuous nowhere-zero factor.",
     "decls": [
+     "Chapter6/DetVectorBundles2021 · DetBundle.lemma_6_5_3",
+     "Chapter6/DetVectorBundles2021 · DetBundle.lamPrebundle",
+     "Chapter6/DetVectorBundles2021 · DetBundle.lamDualPrebundle",
+     "Chapter6/DetVectorBundles2021 · DetBundle.tenPrebundle",
+     "Chapter6/DetVectorBundles2021 · DetBundle.lemma_6_5_3_prod",
+     "Chapter6/DetVectorBundles2021 · DetBundle.coord_wedgeAt_eq_det",
+     "Chapter6/DetVectorBundles2021 · DetBundle.tenMap_tenInv_eq",
      "Chapter6/LocalDetBundle · LocalDetChart.kerFrame",
      "Chapter6/LocalDetBundle · LocalDetChart.frame",
      "Chapter6/LocalDetBundle · LocalDetChart.frame_ne_zero",
@@ -580,11 +587,12 @@
     ]
    },
    "chips": [
-    "Lemma 6.5.3 for trivial bundles only",
-    "explicit frames"
+    "Lemma 6.5.3 in general",
+    "explicit frames",
+    "G.59 closed"
    ],
    "diff": [
-    "Lemma 6.5.3 (preprint 6.19) is not formalized in general (Mathlib has no exterior powers or tensor products of vector bundles; gap G.59). The bundles it is applied to are trivial, and Proposition 6.5.4 (preprint 6.20) is proved with the explicit frames; \"in a natural way\" is read as the relation between the frames of two charts (Findings, Chapter 6, item 22)."
+    "Lemma 6.5.3 (preprint 6.19) is formalized in general (gap G.59 closed); the model fibre of $E \\otimes F$ is $F_1^n$ ($n = \\dim F_0$), since Mathlib puts no norm on $F_0 \\otimes F_1$, which does not change the bundle. Proposition 6.5.4 (preprint 6.20) is still proved with the explicit frames of the local determinant charts rather than deduced from it: \"the structure of a topological line bundle\" on $\\mathrm{DET}(T, P, \\varepsilon)$ is read as the relation between the frames of two charts, which are continuous and nowhere zero (Findings, Chapter 6, items 22, 125)."
    ]
   },
   {
@@ -874,21 +882,26 @@
     "statement": "The solution set $S$ of $F = 0$ near $(t, \\varphi(t), 0)$ is a smooth manifold with boundary with corners containing $\\{(t, \\varphi(t), 0)\\}$; by (P) the projection $\\pi : S \\to [0, 1]$ is a submersion, and its fibres $S_t$ are manifolds with boundary with corners. $L_t = T_{(\\varphi(t),0)}S_t = \\ker F_t'(\\varphi(t), 0)$, and $L$ is a smooth vector bundle over $[0, 1]$."
    },
    "lean": {
-    "statement": "For an sc-Fredholm section with tame germ data and a continuous family $y_q$ of zeros in good position, read in one chart at continuously varying level-$1$ points, the kernels of the linearizations form a continuous family of subspaces of the model space (`exists_subspaceFamily_linKer`, from local frames, `exists_local_frame_linKer`), of dimension the index (`StrongBundle.IsSurjLinOfIndex.finrank_linKer`). The derivative of an sc-smooth family of zeros $\\mathbb R^n \\to X$, read in a chart, lies in the kernel of the linearization (`hasFDerivAt_scDeriv_rn`, `fderiv_mem_linKer`).",
+    "statement": "For an sc-Fredholm section with tame germ data and a continuous family $y_q$ of zeros in good position, read in one chart at continuously varying level-$1$ points, the kernels of the linearizations form a continuous family of subspaces of the model space (`exists_subspaceFamily_linKer`, from local frames, `exists_local_frame_linKer`), of dimension the index (`StrongBundle.IsSurjLinOfIndex.finrank_linKer`). The derivative of an sc-smooth family of zeros $\\mathbb R^n \\to X$, read in a chart, lies in the kernel of the linearization (`hasFDerivAt_scDeriv_rn`, `fderiv_mem_linKer`). `lemma_6_6_5_isManifold`, `lemma_6_6_5_isSubmanifoldOfDim`: near $(0, (q, \\Phi(q)))$, $q$ near $[0, 1]^n$, the solution set of $F$ is a Mathlib manifold with boundary and corners and a submanifold of dimension the index. `lemma_6_6_5_submersion`: at these points the tangent space is $\\ker F'$ (in the product chart) and $d\\pi$ maps it onto $\\mathbb R^n$ (`exists_mem_linKer_sliceProj_eq`).",
     "decls": [
      "Chapter6/KernelFamily · StrongBundle.IsSurjLinOfIndex.finrank_linKer",
      "Chapter6/KernelFamily · exists_local_frame_linKer",
      "Chapter6/KernelFamily · exists_subspaceFamily_linKer",
      "Chapter6/KernelFamily · hasFDerivAt_scDeriv_rn",
-     "Chapter6/KernelFamily · fderiv_mem_linKer"
+     "Chapter6/KernelFamily · fderiv_mem_linKer",
+     "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_isManifold",
+     "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_isSubmanifoldOfDim",
+     "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_submersion",
+     "Chapter6/SolutionManifoldFamily2021 · exists_mem_linKer_sliceProj_eq"
     ]
    },
    "chips": [
     "a continuous family of kernels",
-    "manifold statements: G.62 (in part)"
+    "manifold near the family: proved",
+    "$\\pi$ off the family, $S_t$: G.62"
    ],
    "diff": [
-    "The bundle $L$ is a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction. The solution set as a manifold with boundary with corners near $(t, \\varphi(t), 0)$, the map $\\pi$ and the smooth structure of $L$ are not formalized; the continuation of orientations does not need them (gap G.62; Findings, Chapter 6, item 48). (2026-11-09: near a zero in good position the solution set is a Mathlib manifold with boundary and corners of dimension the index, `theorem_3_1_26_isManifold`, `theorem_3_6_8_isSubmanifoldOfDim`; the map $\\pi$ and the bundle $L$ are still not formalized, gap G.62 open in part.)"
+    "The bundle $L$ is a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction. The solution set as a manifold with boundary with corners near $(t, \\varphi(t), 0)$, the map $\\pi$ and the smooth structure of $L$ are not formalized; the continuation of orientations does not need them (gap G.62; Findings, Chapter 6, item 48). (2026-11-09: the solution set near the family as a manifold, and $\\pi$ as a submersion at the points of the family, are formalized (`Chapter6/SolutionManifoldFamily2021.lean`); $\\pi$ off the family, the fibres $S_t$ (property (P) for slices, G.63) and the smooth structure of $L$ are not (gap G.62, in part; Findings, Chapter 6, item 126).)"
    ]
   },
   {
@@ -1119,14 +1132,15 @@
     "statement": "`exists_isStabKernels`: for an sc-smooth $\\Phi : \\mathbb R^n \\to X$ with $\\Phi([0, 1]^n)$ in the domain of a chart, an sc⁺-section $S$ with $f + S = 0$ along $\\Phi$ near $[0, 1]^n$ and sc⁺-sections $s_1, \\dots, s_k$ as in V6.33, the stabilized kernels of the slices form a continuous family over $[0, 1]^n$ (`IsStabKernels`), the points read through continuous lifts into the chart (`exists_continuousOn_lift_chart`).",
     "decls": [
      "Chapter6/StabKernelsExist · exists_continuousOn_lift_chart",
-     "Chapter6/StabKernelsExist · exists_isStabKernels"
+     "Chapter6/StabKernelsExist · exists_isStabKernels",
+     "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_submersion"
     ]
    },
    "chips": [
     "manifold statements: G.62 (in part)"
    ],
    "diff": [
-    "As V6.34 (gap G.62): the family is the tangent spaces of the solution set (V6.34) cut by $\\{dt = 0\\}$ (V6.36) and identified with $\\ker(T_q \\oplus \\varphi_q)$ (V6.37) (Findings, Chapter 6, item 48)."
+    "As V6.34 (gap G.62; the tangent spaces at the family points are $\\ker F'$ and project onto $\\mathbb R^n$, `lemma_6_6_5_submersion`): the family is the tangent spaces of the solution set (V6.34) cut by $\\{dt = 0\\}$ (V6.36) and identified with $\\ker(T_q \\oplus \\varphi_q)$ (V6.37) (Findings, Chapter 6, items 48, 126)."
    ]
   },
   {
@@ -1308,14 +1322,14 @@
   {
    "id": "V6.49",
    "title": "Sc-smooth paths in a chart and their concatenation",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§6.6 (preprint §6.5), the paths after Theorem 6.6.11 (preprint 6.35), p. 272 (preprint p. 227), and the concatenation, preprint p. 228",
     "page": 227,
     "statement": "For $y \\in U$ one takes an sc-smooth path $\\varphi : [0, 1] \\to U$ from $x$ to $y$. The composition of paths is $\\varphi(\\beta(s))$ for $s \\in [0, 1/2]$ and $\\psi(\\beta(s))$ for $s \\in [1/2, 1]$, for a smooth $\\beta$ with $\\beta([0, 1/2]) = [0, 1]$, $\\beta([1/2, 1]) = [1, 2]$, constant near $1/2$. On preprint p. 201 the text recalls that an M-polyfold is locally path connected and that smooth points of one path component are joined by an sc⁺-smooth path."
    },
    "lean": {
-    "statement": "`exists_nhds_scPath`: for an open $U$ in the domain of a chart and $x \\in U$ there is an open $V \\ni x$ in $U$ whose smooth points are pairwise joined by sc-smooth paths in $U$. `concatPath`: $\\gamma_1(\\kappa(3s))$ for $s \\le 1/2$ and $\\gamma_2(\\kappa(3s - 2))$ for $s > 1/2$, $\\kappa$ the smooth transition function, is sc-smooth (`isScSmoothMap_concatPath`), with the right end points and halves (`concatPath_zero`, `concatPath_one`, `concatPath_half₁`, `concatPath_half₂`); reparametrizing by a $C^\\infty$ map keeps sc-smoothness (`isScSmoothMap_reparam`); push-forwards compose along concatenations (`HasLocalPropagation.eq_trans`).",
+    "statement": "`exists_nhds_scPath`: for an open $U$ in the domain of a chart and $x \\in U$ there is an open $V \\ni x$ in $U$ whose smooth points are pairwise joined by sc-smooth paths in $U$. `concatPath`: $\\gamma_1(\\kappa(3s))$ for $s \\le 1/2$ and $\\gamma_2(\\kappa(3s - 2))$ for $s > 1/2$, $\\kappa$ the smooth transition function, is sc-smooth (`isScSmoothMap_concatPath`), with the right end points and halves (`concatPath_zero`, `concatPath_one`, `concatPath_half₁`, `concatPath_half₂`); reparametrizing by a $C^\\infty$ map keeps sc-smoothness (`isScSmoothMap_reparam`); push-forwards compose along concatenations (`HasLocalPropagation.eq_trans`). Beyond a chart: `scJoinedIn_of_isConnected` joins any two smooth points of a connected open $U$ by an sc-smooth path in $U$. `paths_before_proposition_6_2_2` gives the facts recalled before Proposition 6.2.2 (2021 p. 240; preprint p. 201): local path connectedness, and sc⁺-smooth paths $\\varphi : [0, 1] \\to X$ between smooth points of a component (`IsScSmoothMap.exists_scPlus_lift`).",
     "decls": [
      "Chapter6/ScPaths · MPolyfold.isScSmoothMap_of_eventuallyEq",
      "Chapter6/ScPaths · pt1_apply",
@@ -1330,15 +1344,19 @@
      "Chapter6/ScPaths · concatPath_half₁",
      "Chapter6/ScPaths · concatPath_half₂",
      "Chapter6/ScPaths · isScSmoothMap_reparam",
-     "Chapter6/ContinuousOrientation · HasLocalPropagation.eq_trans"
+     "Chapter6/ContinuousOrientation · HasLocalPropagation.eq_trans",
+     "Chapter6/SmoothPathComponents2021 · MPolyfold.paths_before_proposition_6_2_2",
+     "Chapter6/SmoothPathComponents2021 · MPolyfold.scJoinedIn_of_isConnected",
+     "Chapter6/SmoothPathComponents2021 · MPolyfold.IsScSmoothMap.exists_scPlus_lift",
+     "Chapter6/SmoothPathComponents2021 · MPolyfold.exists_scPlusPath_of_mem_connectedComponent"
     ]
    },
    "chips": [
-    "paths joined only inside a chart",
-    "preprint p. 201 facts: gap G.56"
+    "paths on $\\mathbb R$ (D2)",
+    "G.56 closed"
    ],
    "diff": [
-    "Paths are joined only locally, inside a chart; the global facts recalled on preprint p. 201 (local path connectedness, sc⁺-smooth paths within a path component) are not formalized (gap G.56; Findings, Chapter 6, item 42)."
+    "Paths are sc-smooth maps on $\\mathbb R$, restricted to $[0, 1]$ (decision D2), and they are concatenated with the smooth transition function $\\kappa$ instead of the text's $\\beta$. On $[0, 1]$ the same paths exist (`exists_scPlusPath_of_mem_connectedComponent`). The global facts recalled before Proposition 6.2.2 are formalized (gap G.56 closed; Findings, Chapter 6, items 42, 124)."
    ]
   },
   {
@@ -1688,14 +1706,15 @@
     "decls": [
      "Chapter6/OrientationFunctor · scPathSetoid",
      "Chapter6/OrientationFunctor · IsOrientableSection",
-     "Chapter6/OrientationFunctor · isOrientableSection_iff_exists"
+     "Chapter6/OrientationFunctor · isOrientableSection_iff_exists",
+     "Chapter6/SmoothPathComponents2021 · MPolyfold.mem_pathComponent_iff_exists_scPath"
     ]
    },
    "chips": [
     "path component via sc-smooth paths"
    ],
    "diff": [
-    "\"Smooth points in the same path component\" is read as smooth points joined by an sc-smooth path; for points not so joined there is nothing to check (gap G.56; Findings, Chapter 6, items 42, 73)."
+    "\"Smooth points in the same path component\" is read as smooth points joined by an sc-smooth path; for points not so joined there is nothing to check (gap G.56; Findings, Chapter 6, items 42, 73). (2026-11-09) The reading is justified: for smooth points, \"same connected component\", \"same path component\" and \"joined by an sc-smooth path\" are equivalent (`mem_pathComponent_iff_exists_scPath`; gap G.56 closed; Findings, Chapter 6, item 124)."
    ]
   },
   {
@@ -2302,9 +2321,17 @@
    "label": "§6.2 (preprint §6.1), before Proposition 6.2.2 (preprint 6.2), p. 240 (preprint p. 201)",
    "page": 201,
    "book": "An M-polyfold is locally path connected, and any two smooth points in the same path component can be joined by an sc⁺-smooth path $\\varphi : [0, 1] \\to X$.",
-   "instead": "**Not formalized** beyond a chart: inside the domain of a chart, nearby smooth points are joined by sc-smooth paths (`exists_nhds_scPath`, V6.49), and \"in the same path component\" (Definitions 6.6.2, 6.6.14 (preprint 6.27, 6.38)) is read as \"joined by an sc-smooth path\" (V6.58) (Findings, Chapter 6, item 42).",
+   "instead": "**Formalized** (2026-11-09; `Chapter6/SmoothPathComponents2021.lean`). `paths_before_proposition_6_2_2`: an M-polyfold is locally path connected (`MPolyfold.locallyPathConnectedSpace`), and any two smooth points in the same connected component are joined by an sc-smooth path $\\varphi : [0, 1] \\to X$ in that component, which lifts to an sc-smooth path $[0, 1] \\to X^1$ (`IsScSmoothMap.exists_scPlus_lift`; $[0, 1]$ is modelled on sc⁺-retracts). For smooth points, \"same connected component\", \"same path component\" and \"joined by an sc-smooth path\" are equivalent (`mem_connectedComponent_iff_exists_scPath`, `mem_pathComponent_iff_exists_scPath`). This justifies the reading of Definitions 6.6.2 and 6.6.14 (V6.58) (Findings, Chapter 6, items 42, 124).",
    "decls": [
-    "Chapter6/ScPaths · exists_nhds_scPath"
+    "Chapter6/ScPaths · exists_nhds_scPath",
+    "Chapter6/SmoothPathComponents2021 · MPolyfold.paths_before_proposition_6_2_2",
+    "Chapter6/SmoothPathComponents2021 · MPolyfold.IsScSmoothMap.exists_scPlus_lift",
+    "Chapter6/SmoothPathComponents2021 · MPolyfold.scJoinedIn_of_isConnected",
+    "Chapter6/SmoothPathComponents2021 · MPolyfold.mem_pathComponent_iff_exists_scPath"
+   ],
+   "formalized": [
+    "V6.49",
+    "V6.58"
    ]
   },
   {
@@ -2333,10 +2360,19 @@
    "label": "§6.5 (preprint §6.4), Lemma 6.5.3 (preprint 6.19), p. 259 (preprint p. 216)",
    "page": 216,
    "book": "For finite-dimensional topological vector bundles $E$, $F$ over $X$, the bundles $\\lambda(E)$, $\\lambda^*(F)$, $E \\oplus F$ and $E \\otimes F$ have the structure of topological vector bundles in a natural way (a standard lemma, cited from [29]).",
-   "instead": "**Not formalized** in general: Mathlib has no exterior powers or tensor products of vector bundles. The lemma is applied only to trivial bundles, and Proposition 6.5.4 (preprint 6.20) is proved with explicit frames (V6.22) (Findings, Chapter 6, item 22).",
+   "instead": "**Formalized** (2026-11-09; `Chapter6/DetVectorBundles2021.lean`, `lemma_6_5_3`). For Mathlib topological vector bundles $E$, $F$ with finite-dimensional fibres over a topological space, the fibrewise bundles $\\lambda(E) = \\Lambda^{\\max}E_b$ and $\\lambda^*(E)$ (`lamPrebundle`, `lamDualPrebundle`), $E \\otimes F$ (`tenPrebundle`, model fibre $F_1^n$) and $E \\oplus F$ (Mathlib's $E \\times^b F$) are Mathlib topological vector bundles. \"In a natural way\" is read as: the trivializations are induced by those of $E$ and $F$. The coordinate changes of $\\lambda(E)$ are the determinants of those of $E$ (`coord_wedgeAt_eq_det`), and those of $E \\otimes F$ are the tensor products (`tenMap_tenInv_eq`) (Findings, Chapter 6, items 22, 125).",
    "decls": [
     "Chapter6/LocalDetBundle · LocalDetChart.frame",
-    "Chapter6/LocalDetBundle · proposition_6_5_4"
+    "Chapter6/LocalDetBundle · proposition_6_5_4",
+    "Chapter6/DetVectorBundles2021 · DetBundle.lemma_6_5_3",
+    "Chapter6/DetVectorBundles2021 · DetBundle.lamPrebundle",
+    "Chapter6/DetVectorBundles2021 · DetBundle.lamDualPrebundle",
+    "Chapter6/DetVectorBundles2021 · DetBundle.tenPrebundle",
+    "Chapter6/DetVectorBundles2021 · DetBundle.coord_wedgeAt_eq_det",
+    "Chapter6/DetVectorBundles2021 · DetBundle.tenMap_tenInv_eq"
+   ],
+   "formalized": [
+    "V6.22"
    ]
   },
   {
@@ -2365,12 +2401,15 @@
    "label": "§6.6 (preprint §6.5), Lemma 6.6.5 (preprint 6.30), p. 265 (preprint p. 222)",
    "page": 222,
    "book": "The solution set of $F = 0$ near $(t, \\varphi(t), 0)$ is a smooth manifold with boundary with corners, $\\pi : S \\to [0, 1]$ is a submersion, its fibres $S_t$ are manifolds with boundary with corners, and $L$ is a smooth vector bundle over $[0, 1]$.",
-   "instead": "**Formalized in part since the first edition of this page.** The solution set near a zero in good position is a smooth submanifold of dimension the Fredholm index (`theorem_3_6_8_isSubmanifoldOfDim`) and, with the charted space of its induced corner structure, a Mathlib manifold with boundary and corners (`theorem_3_1_26_isManifold`, `Chapter9/MathlibSolutionSets.lean`), which applies to $F$ near $(t, \\varphi(t), 0)$. **Not formalized**: that $\\pi : S \\to [0, 1]$ is a submersion with fibres $S_t$ manifolds with boundary with corners, and $L$ as a smooth vector bundle over $[0, 1]$. The kernels are formalized as a continuous family of subspaces of the model space (V6.34, V6.42), which is all the continuation of orientations needs (Findings, Chapter 6, item 48).",
+   "instead": "**Formalized in part.** For $F = f + S + \\sum\\lambda_is_i$ near the family $(0, (q, \\Phi(q)))$, $q$ near $[0, 1]^n$ (decision D2), in the setting of Lemma 6.6.4: the solution set is a Mathlib manifold with boundary and corners (`lemma_6_6_5_isManifold`, from `theorem_3_1_26_isManifold`), a submanifold of dimension the index (`lemma_6_6_5_isSubmanifoldOfDim`), and $\\pi$ is a submersion at the points of the family (`lemma_6_6_5_submersion`): the tangent space $\\ker F'$ is mapped onto $\\mathbb R^n$ by $d\\pi$ (`Chapter6/SolutionManifoldFamily2021.lean`, 2026-11-09). **Not formalized**: $\\pi$ as a submersion off the family, which would need a curve of zeros through every point of $S$, the fibres $S_t$ (they need property (P) for the slices, G.63), and $L$ as a smooth vector bundle. The kernels form a continuous family (V6.34, V6.42), which is all the continuation of orientations needs (Findings, Chapter 6, items 48, 126).",
    "decls": [
     "Chapter6/KernelFamily · exists_subspaceFamily_linKer",
     "Chapter6/StabKernelsExist · exists_isStabKernels",
     "Chapter9/MathlibSolutionSets · theorem_3_1_26_isManifold",
-    "Chapter9/MathlibSolutionSets · theorem_3_6_8_isSubmanifoldOfDim"
+    "Chapter9/MathlibSolutionSets · theorem_3_6_8_isSubmanifoldOfDim",
+    "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_isManifold",
+    "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_isSubmanifoldOfDim",
+    "Chapter6/SolutionManifoldFamily2021 · lemma_6_6_5_submersion"
    ]
   },
   {
@@ -2403,7 +2442,7 @@
    "label": "§6.6 (preprint §6.5), pp. 263–276 (preprint pp. 220–230)",
    "page": 220,
    "book": "Paths, homotopies and families are sc-smooth maps on $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$, and $X \\times [0, 1]$, $[0, 1] \\times X \\times \\mathbb R^k$ are M-polyfolds with boundary (Proposition 6.6.3 (preprint 6.28), Lemmas 6.6.4–6.6.10 (preprint 6.29–6.34), Theorem 6.6.11 (preprint 6.35), Remark 6.6.19 (preprint 6.42)).",
-   "instead": "**Formalized in part since the first edition of this page.** $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`), $X \\times [0, 1]$ is tame for tame $X$ with $d_{X \\times [0,1]}(x, t) = d_X(x) + d_{[0,1]}(t)$ (`isTame_prod_unitInterval`), and $[0, 1]^2$ is `unitSquarePolyfold`. Every sc-smooth path on $[0, 1]$ is the reparametrization by $\\sin^2$ of an sc-smooth path on $\\mathbb R$ (`exists_rn_reparam`, `unitPath`), and with it Proposition 6.2.2 (preprint 6.2) (V3.98), Theorem 6.6.11 (preprint 6.35) (V6.48), $\\Gamma_f$ of Theorem 6.6.13 (preprint 6.37) with its invariance under sc-smooth homotopies $[0, 1]^2 \\to X$ (V6.57) and Theorem 6.6.17 with (3) for paths on $[0, 1]$ (V6.71, V6.75) are stated for paths on $[0, 1]$. **Still read on $\\mathbb R$** (decision D2): the path category with the text's concatenation (V6.52), Proposition 6.6.3 (1′), (3) and the families on $[0, 1]^n$ (V6.32), and Remark 6.6.19 over $X \\times [0, 1]$ (V6.62) (Findings, Chapter 6, items 71, 102, 122).",
+   "instead": "**Formalized in part since the first edition of this page.** $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`), $X \\times [0, 1]$ is tame for tame $X$ with $d_{X \\times [0,1]}(x, t) = d_X(x) + d_{[0,1]}(t)$ (`isTame_prod_unitInterval`), and $[0, 1]^2$ is `unitSquarePolyfold`. Every sc-smooth path on $[0, 1]$ is the reparametrization by $\\sin^2$ of an sc-smooth path on $\\mathbb R$ (`exists_rn_reparam`, `unitPath`), and with it Proposition 6.2.2 (preprint 6.2) (V3.98), Theorem 6.6.11 (preprint 6.35) (V6.48), $\\Gamma_f$ of Theorem 6.6.13 (preprint 6.37) with its invariance under sc-smooth homotopies $[0, 1]^2 \\to X$ (V6.57) and Theorem 6.6.17 with (3) for paths on $[0, 1]$ (V6.71, V6.75) are stated for paths on $[0, 1]$, and so are the paths between smooth points of a component (`paths_before_proposition_6_2_2`, G.56). **Still read on $\\mathbb R$** (decision D2): the path category with the text's concatenation (V6.52), Proposition 6.6.3 (1′), (3) and the families on $[0, 1]^n$ (V6.32), and Remark 6.6.19 over $X \\times [0, 1]$ (V6.62) (Findings, Chapter 6, items 71, 102, 122, 124).",
    "decls": [
     "Chapter3/UnitIntervalPolyfold · unitIntervalPolyfold",
     "Chapter6/PathsInterval · isTame_prod_unitInterval",

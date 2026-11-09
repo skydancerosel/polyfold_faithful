@@ -70,8 +70,9 @@ isomorphism over `Y` covering the identity of `Y`; hence `A = Ā ∘ B` with `Ā
 * Proposition 8.4.1: only `W[0]` is formalized, since `W[1]` (the bundle `W_{0,1} → X` with the
   sc-structure shifted by one) is not built as an ep-groupoid in the project.  Our proof of
   (2) ⇒ (1) goes through metrizability (Theorem 7.3.1 and Smirnov's theorem) instead of "closed
-  subsets of paracompact spaces are paracompact".  (1) ⇒ (2) needs `G_x`-equivariant bundle
-  charts for `W` with invariant metrics on `K` and `O`; it is not formalized here.
+  subsets of paracompact spaces are paracompact".  (1) ⇒ (2) is not proved here: it is
+  `proposition_8_4_1_one_imp_two` (`BundleOrbitParacompact2021.lean`, 2026-11-09), through the
+  lift of the natural action to `W|U(x)` and the continuity of `μ`, with no invariant metrics.
 * Definition 8.5.5: covering functors of the project (`IsCoveringFunctor`, Definition 8.5.5 (2017: 8.9) of 2017)
   are the 2021 ones.  Example 8.5.6 takes `C = ℤˣ` as a one-object category, `ε = −1`.
 * Definition 8.5.9 is stated for the **object map** `A : W → V`, condition (0) being the field
@@ -86,7 +87,9 @@ isomorphism over `Y` covering the identity of `Y`; hence `A = Ā ∘ B` with `Ā
   `BV.pullback`; the instance `ParacompactSpace (F*V)` is a hypothesis of that construction and
   always holds (`StrongBundle.paracompactSpace_pullback`).  That `μ_{F*V}` makes `F*V` an
   `EpStrongBundle` over `Y` (sc-smoothness, local sc-diffeomorphism, unit and composition laws) is
-  not proved here; the lemma uses only its formula.  The inverse `B⁻¹` is sc-smooth because near
+  not proved here, and the lemma uses only its formula; it is `pullbackBundle2021`, with `B`, `B⁻¹`
+  maps over the ep-groupoid `Y` (`lemma_8_5_10_full`, `PullbackStrongBundle2021.lean`,
+  2026-11-09).  The inverse `B⁻¹` is sc-smooth because near
   every point it is `(y, v) ↦ Ψ(v)` for the inverse `Ψ` of a local strong bundle isomorphism given
   by Definition 8.5.9 (1).
 -/

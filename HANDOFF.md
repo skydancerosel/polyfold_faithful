@@ -471,6 +471,40 @@ each chapter lands)
     statement or a row's declarations change). Still open: G.45, G.66, G.79 for charts centred at
     boundary points, V3.89, Lemma 9.4.4 for M-polyfold sheets (G.105), the continuity in G.103, and
     `d_{C_xX}(0) = d_X(x)` in G.13.
+17. **Narrower rows and gaps, second wave** (2026-11-09). New Lean in 22 files (`*2021.lean` in
+    Chapters 2–4 and 6–11; imported in `Polyfold.lean`, axioms in `Test.lean`): 17 narrower rows
+    lifted (V2.68, V2.78, V2.87, V3.48, V3.80, V3.84, V4.72, V6.22, V6.49, V8.44, V8.51, V9.36,
+    V9.38, V10.59, V11.30–V11.32), 8 gaps closed (G.56, G.59, G.88, G.89, G.93, G.104, G.132,
+    G.133), and G.62, G.86, G.103, G.105, G.122 narrowed; now 47 rows are narrower and 61 of the
+    135 gaps closed. Rule for the verdict (2026-11-09): it compares with the text as printed, so a
+    row whose printed claim does not hold as we read it stays "narrower" even when its book form
+    proves the strongest version that holds (V2.89, V2.103, V7.98: "onto θ" only for centred `V`;
+    V9.2: the footnote for `Θ ≠ 0`), as V2.104, V8.35, V9.9, V10.66 already were. Book forms (`_book`) state Remark 2.1.6, Definition
+    2.5.19, Proposition 2.7.12, Theorems 2.7.13, 3.6.8, 3.1.22, Proposition 4.4.5 and Theorem 7.6.9
+    in one theorem each; the reviewer checklist now uses them for 2.7.13, 3.6.8 and 7.6.9. Two
+    degenerate cases have Lean counterexamples: Proposition 8.5.7 for `D = ∅`
+    (`not_proposition_8_5_7_empty`) and the footnote to Definition 9.1.2 for `Θ = 0`
+    (`definition_9_1_2_footnote_zero`). Findings: Chapter 2 items 88–89, Chapter 3 383–385, Chapter
+    4 166, Chapter 6 124–126, Chapter 7 155, Chapter 8 126–130, Chapter 9 110–113, Chapter 10 73–74,
+    Chapter 11 81–82. Still open, and why: G.61 (sc-smooth contractibility, research-level); G.66
+    (Remark 6.6.19 beyond a point); G.62 in part (`π` off the family; the fibres `S_t` need property
+    (P) for the slices, G.63; `L` as a smooth bundle); G.86 (3) (`W[1]` is not an ep-groupoid: the
+    level-one bundles and `μ` as a local sc-diffeomorphism at level one, well over 500 lines); G.103
+    in part (the stratum `{d_M = 1}` as a submanifold, Figure 9.1, Remark 9.3.11); G.105 (Lemma
+    9.4.6 in the chart reading needs a null-set notion on M-polyfold sheets, and the chart reading
+    is not yet compared with the bridge's); G.122 and G.126 (Proposition 10.4.6: with `IsLR` the
+    text's transport is only local; with `IsLRLocal` it needs a strong bundle transport chart, about
+    500–700 lines; the bundle identity of Proposition 10.4.7 is a short addition to
+    `LocalizationLRBundleBase.lean`); G.128 (faces of `|X|` as ep-groupoids; the missing steps are
+    listed in the gap); V10.71 (the converse in Remark 10.5.3 needs strong bundle (C1), (C2), about
+    300 lines); V3.68 (`ker f'(y) = T_yS` in `T_yX` needs an intrinsic linearization); V3.89 (the
+    reduction from a general sc-splitting to the coordinates of the proof, routine but long); V8.28
+    (equality without tameness is open: Part I's product formula is for tame M-polyfolds); V5.55 (an
+    open question, Findings, Chapter 5, item 111); G.33 (Remark 4.2.2 in the 2021 wording needs the
+    local structure of finite-dimensional retracts with corners); G.82, G.83 (Theorem 7.6.7 for `i ≥
+    2` and Zhou's retract). G.45, G.79 (charts centred at boundary points) and G.13 stay as in item
+    16. The orientation wave (G.67, V6.61) and the forms waves (G.37, G.39, G.40, G.80) are
+    integrated separately.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

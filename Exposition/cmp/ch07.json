@@ -2896,8 +2896,9 @@
     "statement": "For a tame ep-groupoid: (1) $bX$ and $b\\mathbf X$ have natural metrizable topologies; (2) natural tame M-polyfold structures; (3) both maps $B$ are sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$, and likewise on $b\\mathbf X$; (5) $(bX, b\\mathbf X)$ with $s, t, u, \\iota, m$ is a tame ep-groupoid. The topology and the M-polyfold structure are characterized by: every $U(x, V, \\theta)$ is open and every $\\Phi_{(x, V, \\theta)} : U(x, V, \\theta) \\to \\theta$ is a homeomorphism and an sc-diffeomorphism."
    },
    "lean": {
-    "statement": "`theorem_7_6_9` (for `X.IsTame`): $bX$, $b\\mathbf X$ metrizable (`metrizableSpace_bObj`, `metrizableSpace_bMor`); every `uSet` open and every `phi` an open embedding, and these determine the topologies; both `bMap` continuous; the fibre of `bMap` over a point of index $d$ has $d$ elements, on objects and morphisms; `bSrc`, `bTgt` local homeomorphisms (`isLocalHomeomorph_bSrc`, `isLocalHomeomorph_bTgt`), `bUnit`, `bInv` continuous (`continuous_bSrc`, `continuous_bTgt`, `continuous_bInv`, `continuous_bUnit`), `bComp` continuous on the composable pairs (`continuousOn_bComp`), the properness property (`exists_isProperMap_bTgt`), and a functor with object and morphism maps the two `bMap`. Witnesses: `bSrc_trivial`, `trivial_quadrant_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, $bX$, $b\\mathbf X$ nonempty, $n$ classes over the corner).",
+    "statement": "`theorem_7_6_9_book`, for a tame ep-groupoid: (1) $bX$, $b\\mathbf X$ are metrizable, and their topologies are the only ones for which every $U$ is open and every $\\Phi$ is open into $\\theta$; (2) `bPObj`, `bPMor` are tame, for every representative $\\Phi$ is an open embedding and an sc-diffeomorphism onto $\\theta \\cap V^x$ (`reachSet`, open), onto $\\theta$ for centred $V$, and the structures are unique up to equivalence; (3) both maps $B$ are sc-smooth; (4) the index formulas hold; (5) `boundaryEpGroupoid` is a tame ep-groupoid with its structure maps; and $B$ is an ep-functor. It is assembled from `theorem_7_6_9` and `theorem_7_6_9_allReps` (V7.99–V7.101). The topological half, `theorem_7_6_9` (for `X.IsTame`): $bX$, $b\\mathbf X$ metrizable (`metrizableSpace_bObj`, `metrizableSpace_bMor`); every `uSet` open and every `phi` an open embedding, and these determine the topologies; both `bMap` continuous; the fibre of `bMap` over a point of index $d$ has $d$ elements, on objects and morphisms; `bSrc`, `bTgt` local homeomorphisms (`isLocalHomeomorph_bSrc`, `isLocalHomeomorph_bTgt`), `bUnit`, `bInv` continuous (`continuous_bSrc`, `continuous_bTgt`, `continuous_bInv`, `continuous_bUnit`), `bComp` continuous on the composable pairs (`continuousOn_bComp`), the properness property (`exists_isProperMap_bTgt`), and a functor with object and morphism maps the two `bMap`. Witnesses: `bSrc_trivial`, `trivial_quadrant_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, $bX$, $b\\mathbf X$ nonempty, $n$ classes over the corner).",
     "decls": [
+     "Chapter7/BookFormTameBoundaryEp2021 · EpGroupoid.theorem_7_6_9_book",
      "Chapter7/TameBoundaryEp · EpGroupoid.metrizableSpace_bObj",
      "Chapter7/TameBoundaryEp · EpGroupoid.metrizableSpace_bMor",
      "Chapter7/TameBoundaryEp · EpGroupoid.continuous_bSrc",
@@ -2915,13 +2916,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "topological part only",
-    "sc-smooth parts: V7.99–V7.101",
+    "(1)–(5) and the characterization",
     "$\\Phi$ onto $\\theta$ only for centred $V$"
    ],
    "diff": [
-    "Not covered by this row: (2), the sc-smoothness in (3), the index $d_{bX}$ in (4) beyond the fibre count, the sc-smoothness and tameness in (5). They depend on 2021 Theorem 2.7.13 (2), the M-polyfold structure of $bX$, and are V7.99–V7.101 (`Chapter7/TameBoundaryEpStructure.lean`, which builds the ep-groupoid structure on $(bX, b\\mathbf X)$); `Chapter7/TameBoundaryEp.lean` gives the topology and the groupoid.",
-    "\"$\\Phi$ is a homeomorphism onto $\\theta$\" holds as we read it only for $V$ centred at $x$, as for (2.44) in Chapter 2; in general $\\Phi$ is an open embedding, the form used in the characterization (Findings, Chapter 7, items 140, 141)."
+    "As in Part I (V2.105), \"$\\Phi$ is a homeomorphism onto $\\theta$\" holds as we read it only for $V$ centred at $x$; the book form states the image $\\theta \\cap V^x$, $\\theta$ for centred $V$. Uniqueness is read as in V2.89: of the topologies, and of the structures up to equivalence of atlases. The sc-smooth parts are proved in `Chapter7/TameBoundaryEpStructure.lean` and `TameBoundaryFull.lean` (V7.99–V7.101) (Findings, Chapter 7, items 140, 141, 155)."
    ]
   },
   {

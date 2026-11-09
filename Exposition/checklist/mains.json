@@ -75,7 +75,7 @@
     ],
     [
      "Thm 3.6.8",
-     "Polyfold.theorem_3_6_8_2021def"
+     "Polyfold.theorem_3_6_8_book"
     ],
     [
      "Thm 3.6.10",
@@ -317,11 +317,11 @@
    "mains": [
     [
      "Thm 2.7.13",
-     "Polyfold.MPolyfold.theorem_2_7_13"
+     "Polyfold.MPolyfold.theorem_2_7_13_book"
     ],
     [
      "Thm 7.6.9",
-     "Polyfold.EpGroupoid.theorem_7_6_9_full"
+     "Polyfold.EpGroupoid.theorem_7_6_9_book"
     ]
    ]
   }

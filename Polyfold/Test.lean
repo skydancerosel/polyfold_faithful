@@ -12980,4 +12980,397 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.theorem_5_3_10_book_2021def
 #print axioms Polyfold.theorem_5_3_12_book_2021def
 
+-- Chapter 2: results of 2026-11-09 (BookFormLocalCompleteness2021.lean)
+#print axioms Polyfold.remark_2_1_6_book
+
+-- Chapter 2: results of 2026-11-09 (BookFormTameBoundary2021.lean)
+#print axioms Polyfold.MPolyfold.proposition_2_7_12_book
+#print axioms Polyfold.MPolyfold.theorem_2_7_13_book
+
+-- Chapter 2: results of 2026-11-09 (BookFormTameSub2021.lean)
+#print axioms Polyfold.MPolyfold.subTangentRange
+#print axioms Polyfold.MPolyfold.levelVal_mem_source_of_subChart
+#print axioms Polyfold.MPolyfold.subChart_image_fdom
+#print axioms Polyfold.MPolyfold.eqOn_subChart_symm
+#print axioms Polyfold.MPolyfold.fiberCoord_subInclusionCLM
+#print axioms Polyfold.MPolyfold.coe_map_range_subInclusionCLM
+#print axioms Polyfold.MPolyfold.isCompl_comap_of_injective
+#print axioms Polyfold.MPolyfold.range_fiberCoord
+#print axioms Polyfold.MPolyfold.injective_fiberCoord
+#print axioms Polyfold.MPolyfold.HasReducedScComplement
+#print axioms Polyfold.MPolyfold.hasReducedScComplement_iff
+#print axioms Polyfold.MPolyfold.exists_level_one_of_mem_smoothSet
+#print axioms Polyfold.MPolyfold.TameSubData2021
+#print axioms Polyfold.MPolyfold.TameSubData2021.toSubData
+#print axioms Polyfold.MPolyfold.TameSubData2021.degIndex_apply
+#print axioms Polyfold.MPolyfold.TameSubData2021.complement
+#print axioms Polyfold.MPolyfold.TameSubData.toTameSubData2021
+#print axioms Polyfold.MPolyfold.TameSubData2021.toTameSubData
+#print axioms Polyfold.MPolyfold.IsTameSubMPolyfold2021
+#print axioms Polyfold.MPolyfold.isTameSubMPolyfold2021_iff
+#print axioms Polyfold.MPolyfold.definition_2_5_19_book
+
+-- Chapter 3: results of 2026-11-09 (BookFormIFT2021.lean)
+#print axioms Polyfold.theorem_3_6_8_book
+#print axioms Polyfold.theorem_3_6_8_tangentGermProperty
+#print axioms Polyfold.theorem_3_1_22_book
+
+-- Chapter 4: results of 2026-11-09 (BookFormLieBracket2021.lean)
+#print axioms Polyfold.MPolyfold.proposition_4_4_5_book
+
+-- Chapter 6: results of 2026-11-09 (SmoothPathComponents2021.lean)
+#print axioms Polyfold.MPolyfold.ScJoinedIn
+#print axioms Polyfold.MPolyfold.ScJoinedIn.refl
+#print axioms Polyfold.MPolyfold.ScJoinedIn.symm
+#print axioms Polyfold.MPolyfold.ScJoinedIn.trans
+#print axioms Polyfold.MPolyfold.ScJoinedIn.mono
+#print axioms Polyfold.MPolyfold.ScJoinedIn.mem_smoothSet_left
+#print axioms Polyfold.MPolyfold.ScJoinedIn.mem_smoothSet_right
+#print axioms Polyfold.MPolyfold.ScJoinedIn.mem_left
+#print axioms Polyfold.MPolyfold.ScJoinedIn.mem_right
+#print axioms Polyfold.MPolyfold.ScJoinedIn.joinedIn
+#print axioms Polyfold.MPolyfold.ScJoinedIn.exists_unitInterval
+#print axioms Polyfold.MPolyfold.scJoinedIn_of_unitInterval
+#print axioms Polyfold.MPolyfold.exists_nhds_scJoinedIn
+#print axioms Polyfold.MPolyfold.scJoinedIn_of_isConnected
+#print axioms Polyfold.unitIntervalPolyfold_isScSmoothMap_toLevelOne
+#print axioms Polyfold.MPolyfold.IsScSmoothMap.exists_scPlus_lift
+#print axioms Polyfold.MPolyfold.exists_scPlusPath_of_mem_connectedComponent
+#print axioms Polyfold.MPolyfold.paths_before_proposition_6_2_2
+#print axioms Polyfold.MPolyfold.mem_pathComponent_of_isScSmoothMap
+#print axioms Polyfold.MPolyfold.mem_connectedComponent_iff_exists_scPath
+#print axioms Polyfold.MPolyfold.mem_pathComponent_iff_exists_scPath
+#print axioms Polyfold.proposition_6_2_2_connectedComponent_2021def
+
+-- Chapter 6: results of 2026-11-09 (SolutionManifoldFamily2021.lean)
+#print axioms Polyfold.exists_mem_linKer_sliceProj_eq
+#print axioms Polyfold.isScFredholmSectionTame_stab
+#print axioms Polyfold.lemma_6_6_5_isManifold
+#print axioms Polyfold.lemma_6_6_5_isSubmanifoldOfDim
+#print axioms Polyfold.lemma_6_6_5_submersion
+
+-- Chapter 6: results of 2026-11-09 (DetVectorBundles2021.lean)
+#print axioms Polyfold.DetBundle.Lam
+#print axioms Polyfold.DetBundle.LamDual
+#print axioms Polyfold.DetBundle.Ten
+#print axioms Polyfold.DetBundle.instAddCommGroupLam
+#print axioms Polyfold.DetBundle.instModuleRealLam
+#print axioms Polyfold.DetBundle.instTopologicalSpaceLam
+#print axioms Polyfold.DetBundle.instIsModuleTopologyRealLam
+#print axioms Polyfold.DetBundle.instAddCommGroupLamDual
+#print axioms Polyfold.DetBundle.instModuleRealLamDual
+#print axioms Polyfold.DetBundle.instTopologicalSpaceLamDual
+#print axioms Polyfold.DetBundle.instIsModuleTopologyRealLamDual
+#print axioms Polyfold.DetBundle.instAddCommGroupTen
+#print axioms Polyfold.DetBundle.instModuleRealTen
+#print axioms Polyfold.DetBundle.instTopologicalSpaceTen
+#print axioms Polyfold.DetBundle.instIsModuleTopologyRealTen
+#print axioms Polyfold.DetBundle.fiberEquiv
+#print axioms Polyfold.DetBundle.finrank_fiber
+#print axioms Polyfold.DetBundle.finrank_lam
+#print axioms Polyfold.DetBundle.finrank_lamDual
+#print axioms Polyfold.DetBundle.frame
+#print axioms Polyfold.DetBundle.basisAt
+#print axioms Polyfold.DetBundle.coe_basisAt
+#print axioms Polyfold.DetBundle.wedgeAt
+#print axioms Polyfold.DetBundle.wedgeAt_ne_zero
+#print axioms Polyfold.DetBundle.coord
+#print axioms Polyfold.DetBundle.coord_wedgeAt
+#print axioms Polyfold.DetBundle.coord_smul_wedgeAt
+#print axioms Polyfold.DetBundle.wedgeAt_eq_det_smul
+#print axioms Polyfold.DetBundle.coord_wedgeAt_eq_det
+#print axioms Polyfold.DetBundle.continuousOn_det_coordChange
+#print axioms Polyfold.DetBundle.det_coordChange_ne_zero
+#print axioms Polyfold.DetBundle.lamPretriv
+#print axioms Polyfold.DetBundle.lamAtlas
+#print axioms Polyfold.DetBundle.lamPretriv_mem_lamAtlas
+#print axioms Polyfold.DetBundle.isInducing_coord
+#print axioms Polyfold.DetBundle.lamPrebundle
+#print axioms Polyfold.DetBundle.instTopologicalSpaceTotalSpaceRealLam
+#print axioms Polyfold.DetBundle.instFiberBundleRealLam
+#print axioms Polyfold.DetBundle.instVectorBundleRealLam
+#print axioms Polyfold.DetBundle.continuousOn_wedgeAt
+#print axioms Polyfold.DetBundle.dualWedgeAt
+#print axioms Polyfold.DetBundle.evalWedge
+#print axioms Polyfold.DetBundle.evalWedge_dualWedgeAt
+#print axioms Polyfold.DetBundle.evalWedge_dualWedgeAt'
+#print axioms Polyfold.DetBundle.evalWedge_smul_dualWedgeAt
+#print axioms Polyfold.DetBundle.lamDualPretriv
+#print axioms Polyfold.DetBundle.lamDualAtlas
+#print axioms Polyfold.DetBundle.lamDualPretriv_mem_lamDualAtlas
+#print axioms Polyfold.DetBundle.isInducing_evalWedge
+#print axioms Polyfold.DetBundle.lamDualPrebundle
+#print axioms Polyfold.DetBundle.instTopologicalSpaceTotalSpaceRealLamDual
+#print axioms Polyfold.DetBundle.instFiberBundleRealLamDual
+#print axioms Polyfold.DetBundle.instVectorBundleRealLamDual
+#print axioms Polyfold.DetBundle.continuousOn_dualWedgeAt
+#print axioms Polyfold.DetBundle.lemma_6_5_3_prod
+#print axioms Polyfold.DetBundle.tenBilin
+#print axioms Polyfold.DetBundle.tenMap
+#print axioms Polyfold.DetBundle.tenMap_tmul
+#print axioms Polyfold.DetBundle.tenInv
+#print axioms Polyfold.DetBundle.tenInv_apply
+#print axioms Polyfold.DetBundle.tenInv_tenMap
+#print axioms Polyfold.DetBundle.tenMap_tenInv
+#print axioms Polyfold.DetBundle.tenMapT
+#print axioms Polyfold.DetBundle.tenInvT
+#print axioms Polyfold.DetBundle.isInducing_tenMapT
+#print axioms Polyfold.DetBundle.tenPretriv
+#print axioms Polyfold.DetBundle.tenAtlas
+#print axioms Polyfold.DetBundle.tenPretriv_mem_tenAtlas
+#print axioms Polyfold.DetBundle.tenCoordChange
+#print axioms Polyfold.DetBundle.tenCoordChange_apply
+#print axioms Polyfold.DetBundle.continuousOn_tenCoordChange
+#print axioms Polyfold.DetBundle.tenMap_tenInv_eq
+#print axioms Polyfold.DetBundle.tenPrebundle
+#print axioms Polyfold.DetBundle.instTopologicalSpaceTotalSpaceForallFinFinrankRealTen
+#print axioms Polyfold.DetBundle.instFiberBundleForallFinFinrankRealTen
+#print axioms Polyfold.DetBundle.instVectorBundleRealForallFinFinrankTen
+#print axioms Polyfold.DetBundle.lemma_6_5_3
+
+-- Chapter 7: results of 2026-11-09 (BookFormTameBoundaryEp2021.lean)
+#print axioms Polyfold.EpGroupoid.theorem_7_6_9_book
+
+-- Chapter 8: results of 2026-11-09 (TangentVertical2021.lean)
+#print axioms Polyfold.ScBanach.denseRange_toBase_one
+#print axioms Polyfold.IsSc1.scDeriv_tangentMap_vert
+#print axioms Polyfold.ScRetraction.isSc1_tangentMap
+#print axioms Polyfold.ScRetraction.mem_tangent_tangentRetraction_vert
+#print axioms Polyfold.IsScSmoothRetractMap.tangentMap_comp_retraction
+#print axioms Polyfold.retractTangentMap_tangent_vert
+#print axioms Polyfold.MPolyfold.image_tangentChart_preimage
+#print axioms Polyfold.MPolyfold.vertRep
+#print axioms Polyfold.MPolyfold.toBase_vertRep_fst
+#print axioms Polyfold.MPolyfold.vertRep_snd_eq
+#print axioms Polyfold.MPolyfold.vertRep_mem_image
+#print axioms Polyfold.MPolyfold.vertRep_mem
+#print axioms Polyfold.MPolyfold.vertChart
+#print axioms Polyfold.MPolyfold.isChart_vertChart
+#print axioms Polyfold.MPolyfold.mem_vertChart
+#print axioms Polyfold.MPolyfold.vert
+#print axioms Polyfold.MPolyfold.vert_congr
+#print axioms Polyfold.MPolyfold.levelVal_tangentProj_vert
+#print axioms Polyfold.MPolyfold.tangentProj_vert
+#print axioms Polyfold.MPolyfold.tangentChartMap_vert
+#print axioms Polyfold.MPolyfold.vert_injective
+#print axioms Polyfold.MPolyfold.fdom_tangentChart
+#print axioms Polyfold.MPolyfold.tangentMap_tangentMap_vert
+
+-- Chapter 8: results of 2026-11-09 (TangentZhouReflect2021.lean)
+#print axioms Polyfold.EpGroupoid.tangentZhouReflect
+#print axioms Polyfold.EpGroupoid.proposition_8_1_16_2021
+
+-- Chapter 8: results of 2026-11-09 (PullbackStrongBundle2021.lean)
+#print axioms Polyfold.EpStrongBundle.pullbackBundle2021
+#print axioms Polyfold.EpStrongBundle.pullbackBundle2021_μ
+#print axioms Polyfold.EpStrongBundle.pullbackBundle2021_isStrongBundle
+#print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleB
+#print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isMap_bundleBInv
+#print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_full
+
+-- Chapter 8: results of 2026-11-09 (BundleOrbitParacompact2021.lean)
+#print axioms Polyfold.metrizableSpace_orbitRel_quotient_finite
+#print axioms Polyfold.EpStrongBundle.μ_congr_fst
+#print axioms Polyfold.EpStrongBundle.preimage_orbitMap_projFunctor_image
+#print axioms Polyfold.EpStrongBundle.P_natLift
+#print axioms Polyfold.EpStrongBundle.natLift_mem
+#print axioms Polyfold.EpStrongBundle.natLift_one
+#print axioms Polyfold.EpStrongBundle.natLift_mul
+#print axioms Polyfold.EpStrongBundle.bundleU
+#print axioms Polyfold.EpStrongBundle.isOpen_bundleU
+#print axioms Polyfold.EpStrongBundle.bundleMulAction
+#print axioms Polyfold.EpStrongBundle.bundleSmul_val
+#print axioms Polyfold.EpStrongBundle.continuous_bundleSmul
+#print axioms Polyfold.EpStrongBundle.π_eq_π_iff_exists_smul
+#print axioms Polyfold.EpStrongBundle.bundleOrbitQuotientMap
+#print axioms Polyfold.EpStrongBundle.isOpenEmbedding_bundleOrbitQuotientMap
+#print axioms Polyfold.EpStrongBundle.range_bundleOrbitQuotientMap
+#print axioms Polyfold.EpStrongBundle.metrizableSpace_preimage_orbitMap_projFunctor
+#print axioms Polyfold.EpStrongBundle.metrizableSpace_orbitSpace
+#print axioms Polyfold.EpStrongBundle.proposition_8_4_1_one_imp_two
+#print axioms Polyfold.EpStrongBundle.proposition_8_4_1_one_iff_two
+
+-- Chapter 8: results of 2026-11-09 (BundleLocalRegularity2021.lean)
+#print axioms Polyfold.EpGroupoid.eq_of_isRegular_src
+#print axioms Polyfold.EpStrongBundle.exists_mor_of_π_eq
+#print axioms Polyfold.EpStrongBundle.proposition_8_4_3
+
+-- Chapter 8: results of 2026-11-09 (GeometricLiftEmpty2021.lean)
+#print axioms Polyfold.CoveringExamples.EmptyD
+#print axioms Polyfold.CoveringExamples.instIsEmptyEmptyD
+#print axioms Polyfold.CoveringExamples.instFintypeEmptyD
+#print axioms Polyfold.CoveringExamples.instFintypeHomEmptyD
+#print axioms Polyfold.CoveringExamples.emptyCover
+#print axioms Polyfold.CoveringExamples.isCoveringFunctor_emptyCover
+#print axioms Polyfold.CoveringExamples.emptyLift
+#print axioms Polyfold.CoveringExamples.not_proposition_8_5_7_empty
+
+-- Chapter 9: results of 2026-11-09 (BoundaryOrientationContinuity2021.lean)
+#print axioms Polyfold.ScRetraction.scDeriv_mem_partialQuadrantAtWith
+#print axioms Polyfold.ScRetraction.scDeriv_mem_minimalSubspaceWith
+#print axioms Polyfold.linearIndependent_of_frameDet_ne_zero
+#print axioms Polyfold.frameDet_eq_zero_of_mem
+#print axioms Polyfold.MPolyfold.IsOrientedAt.exists_mem_frames
+#print axioms Polyfold.MPolyfold.mem_frames_of_frameDet
+#print axioms Polyfold.MPolyfold.eventually_coord_eq_zero_imp
+#print axioms Polyfold.MPolyfold.boundaryStratum
+#print axioms Polyfold.MPolyfold.mem_boundaryStratum_iff_subDegIndex
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.hasReducedCodim_iff_mem_boundaryStratum
+#print axioms Polyfold.MPolyfold.OrientationAlong
+#print axioms Polyfold.MPolyfold.OrientationAlong.frames
+#print axioms Polyfold.MPolyfold.OrientationAlong.isOrientedAt
+#print axioms Polyfold.MPolyfold.OrientationAlong.continuous
+#print axioms Polyfold.MPolyfold.OrientationAlong.toSubmanifoldOrientation
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.boundaryFramesAt
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOp_tangent_eq
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.exists_continuous_boundaryFrames
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOrientation
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOp_tangent_eq_boundaryOrientation
+#print axioms Polyfold.MPolyfold.boundaryStratum_eq_of_tame
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.boundaryOrientation_tame
+#print axioms Polyfold.EpGroupoid.OrientedBranchingStructure.exists_boundaryOrientation
+
+-- Chapter 9: results of 2026-11-09 (PropertyTShrinking2021.lean)
+#print axioms Polyfold.MPolyfold.HasDimAt.eq_of_submanifoldTangent_eq
+#print axioms Polyfold.MPolyfold.HasDimAt.exists_isOpen_eq_of_mem
+#print axioms Polyfold.MPolyfold.exists_chartTangent_field
+#print axioms Polyfold.MPolyfold.coe_basis_linearIndependent_mem
+#print axioms Polyfold.MPolyfold.exists_frameDet_ne_zero
+#print axioms Polyfold.MPolyfold.exists_isOpen_submanifoldTangent_ne
+#print axioms Polyfold.MPolyfold.SubmanifoldOrientation.exists_isOpen_pairT
+#print axioms Polyfold.EpGroupoid.OrientedBranchingStructure.restrict
+#print axioms Polyfold.EpGroupoid.OrientedBranchingStructure.restrict_M
+#print axioms Polyfold.EpGroupoid.OrientedBranchingStructure.propertyT_restrict_iff
+#print axioms Polyfold.EpGroupoid.OrientedBranchingStructure.lemma_9_4_3_propertyT
+#print axioms Polyfold.EpGroupoid.OrientedBranchingStructure.lemma_9_4_3
+
+-- Chapter 9: results of 2026-11-09 (LocallyEquidimensional2021.lean)
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.nonempty_ι_of_mem_supp
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.exists_submanifoldTangent_eq
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.hasDimAt_of_isOfDim
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isOfDim_unique
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.IsOfDim.restrictAt
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.IsOfDim.restrict
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.exists_restrict_isOfDim
+#print axioms Polyfold.EpGroupoid.definition_9_1_2_footnote
+#print axioms Polyfold.EpGroupoid.definition_9_1_2_footnote_of_ne_zero
+#print axioms Polyfold.EpGroupoid.definition_9_1_2_footnote_zero
+#print axioms Polyfold.EpGroupoid.IsLocallyEquidimensional
+#print axioms Polyfold.EpGroupoid.IsNDimensional.isLocallyEquidimensional
+#print axioms Polyfold.EpGroupoid.IsLocallyEquidimensional.exists_restrict_isOfDim
+#print axioms Polyfold.EpGroupoid.isLocallyEquidimensional_iff
+#print axioms Polyfold.EpGroupoid.IsLocallyEquidimensional.exists_isOpen_isNDimensionalAt
+
+-- Chapter 9: results of 2026-11-09 (SheetEssentialChart2021.lean)
+#print axioms Polyfold.ScRetraction.range_scDeriv_subset_span_tangentConeAt
+#print axioms Polyfold.MPolyfold.eventually_mem_retract
+#print axioms Polyfold.MPolyfold.eq_of_forall_norm_sub_le
+#print axioms Polyfold.MPolyfold.tangentConeAt_subset_chartTangent
+#print axioms Polyfold.MPolyfold.chartRelTangent
+#print axioms Polyfold.MPolyfold.chartRelTangent_le
+#print axioms Polyfold.MPolyfold.IsRelTangentFull
+#print axioms Polyfold.MPolyfold.chartEssentialSet
+#print axioms Polyfold.MPolyfold.chartEssentialSet_subset
+#print axioms Polyfold.MPolyfold.chartTangent_subset_chartRelTangent
+#print axioms Polyfold.MPolyfold.isRelTangentFull_self
+#print axioms Polyfold.MPolyfold.chartEssentialSet_self
+#print axioms Polyfold.MPolyfold.chartTangent_eq_of_chartRelTangent_eq
+#print axioms Polyfold.MPolyfold.isRelTangentFull_iff
+#print axioms Polyfold.MPolyfold.lemma_9_4_4_chart
+#print axioms Polyfold.MPolyfold.submanifoldTangent_eq_of_isRelTangentFull
+#print axioms Polyfold.MPolyfold.submanifoldTangent_eq_of_mem_chartEssentialSet
+
+-- Chapter 10: results of 2026-11-09 (SectionFunctorLinear2021.lean)
+#print axioms Polyfold.fiber_add_val_congr
+#print axioms Polyfold.fiber_smul_val_congr
+#print axioms Polyfold.piToSection
+#print axioms Polyfold.isSection_piToSection
+#print axioms Polyfold.piToSection_injective
+#print axioms Polyfold.piToSection_zero
+#print axioms Polyfold.piToSection_add
+#print axioms Polyfold.piToSection_smul
+#print axioms Polyfold.sectionToPi
+#print axioms Polyfold.piToSection_sectionToPi
+#print axioms Polyfold.sectionSubmodule
+#print axioms Polyfold.EpStrongBundle.sectionSpace
+#print axioms Polyfold.EpStrongBundle.plusSectionSpace
+#print axioms Polyfold.EpStrongBundle.mem_sectionSpace_iff
+#print axioms Polyfold.EpStrongBundle.mem_plusSectionSpace_iff
+#print axioms Polyfold.EpStrongBundle.plusSectionSpace_le
+#print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionAdd
+#print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionSmul
+#print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.obj_sectionAdd_eq
+#print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.obj_sectionSmul_eq
+#print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionAdd
+#print axioms Polyfold.EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionSmul
+#print axioms Polyfold.SBLocalization.SDiagram.isSection_pushforward
+#print axioms Polyfold.SBLocalization.SDiagram.isSection_pullback
+#print axioms Polyfold.SBLocalization.SDiagram.pushforward_sectionAdd
+#print axioms Polyfold.SBLocalization.SDiagram.pushforward_sectionSmul
+#print axioms Polyfold.SBLocalization.SDiagram.pullback_sectionAdd
+#print axioms Polyfold.SBLocalization.SDiagram.pullback_sectionSmul
+#print axioms Polyfold.SBLocalization.GenSBMap.isSection_pushforward
+#print axioms Polyfold.SBLocalization.GenSBMap.isSection_pullback
+#print axioms Polyfold.SBLocalization.GenSBMap.pushforwardPi
+#print axioms Polyfold.SBLocalization.GenSBMap.pullbackPi
+#print axioms Polyfold.SBLocalization.GenSBMap.piToSection_pushforwardPi
+#print axioms Polyfold.SBLocalization.GenSBMap.piToSection_pullbackPi
+#print axioms Polyfold.SBLocalization.GenSBMap.linearEquivOfInvOn
+#print axioms Polyfold.SBLocalization.GenSBMap.pushforwardEquiv
+#print axioms Polyfold.SBLocalization.GenSBMap.plusPushforwardEquiv
+#print axioms Polyfold.SBLocalization.GenSBMap.pushforwardEquiv_apply
+#print axioms Polyfold.SBLocalization.GenSBMap.pushforwardEquiv_symm_apply
+#print axioms Polyfold.SBLocalization.GenSBMap.plusPushforwardEquiv_apply
+#print axioms Polyfold.SBLocalization.GenSBMap.pushforward_sectionAdd
+#print axioms Polyfold.SBLocalization.GenSBMap.pushforward_sectionSmul
+#print axioms Polyfold.SBLocalization.GenSBMap.pullback_sectionAdd
+#print axioms Polyfold.SBLocalization.GenSBMap.pullback_sectionSmul
+
+-- Chapter 11: results of 2026-11-09 (AuxiliaryNormTransport2021.lean)
+#print axioms Polyfold.StrongBundle.IsStrongBundleMap.map_fiberZero
+#print axioms Polyfold.StrongBundle.IsStrongBundleMap.oneRestrict_zeroOne
+#print axioms Polyfold.StrongBundle.IsCompleteFiberNorm.of_linearEquiv
+#print axioms Polyfold.StrongBundle.oneFiberEquivOf
+#print axioms Polyfold.StrongBundle.oneFiberEquivOf_val
+#print axioms Polyfold.StrongBundle.oneFiberCast
+#print axioms Polyfold.StrongBundle.oneFiberCast_val
+#print axioms Polyfold.StrongBundle.toOne_zero
+#print axioms Polyfold.SBLocalization.μ_mem_oneSet
+#print axioms Polyfold.SBLocalization.oneFiberMor
+#print axioms Polyfold.SBLocalization.oneFiberMor_symm_val
+#print axioms Polyfold.SBLocalization.mem_oneSet_of_obj_mem
+#print axioms Polyfold.SBLocalization.oneFiberObj
+#print axioms Polyfold.SBLocalization.oneFiberObj_val
+#print axioms Polyfold.SBLocalization.obj_oneFiberObj_symm_val
+#print axioms Polyfold.SBLocalization.μ_fiberZero
+#print axioms Polyfold.SBLocalization.tendsto_zeroOne_of_tendsto_obj
+#print axioms Polyfold.SBLocalization.tendsto_zeroOne_μ_obj
+#print axioms Polyfold.SBLocalization.SDiagram.isCompleteFiberNorm_pullNorm
+#print axioms Polyfold.SBLocalization.SDiagram.tendsto_zeroOne_pullNorm
+#print axioms Polyfold.SBLocalization.SDiagram.isAuxNorm_pullNorm
+#print axioms Polyfold.SBLocalization.SDiagram.isAuxNorm_pushNorm
+#print axioms Polyfold.SBLocalization.GenSBMap.isAuxNorm_pullNorm
+#print axioms Polyfold.SBLocalization.GenSBMap.isAuxNorm_pushNorm
+#print axioms Polyfold.SBLocalization.GenSBMap.proposition_11_5_1_book
+
+-- Chapter 11: results of 2026-11-09 (MultisectionLocalStructure2021.lean)
+#print axioms Polyfold.SBLocalization.IsScPlusSectionOn
+#print axioms Polyfold.SBLocalization.IsLocalRepOn
+#print axioms Polyfold.SBLocalization.HasLocalSectionStructure
+#print axioms Polyfold.SBLocalization.IsScPlusMultisection
+#print axioms Polyfold.SBLocalization.IsScPlusSectionOn.mono
+#print axioms Polyfold.SBLocalization.IsLocalRepOn.mono
+#print axioms Polyfold.SBLocalization.hasLocalSectionStructure_of_isLocalRepOn
+#print axioms Polyfold.SBLocalization.IsScPlusSectionOn.of_isScPlusSection
+#print axioms Polyfold.SBLocalization.zeroMultisection
+#print axioms Polyfold.SBLocalization.isWFunctor_zeroMultisection
+#print axioms Polyfold.SBLocalization.isScPlusMultisection_zeroMultisection
+#print axioms Polyfold.SBLocalization.exists_isLocalRepOn_pullMult
+#print axioms Polyfold.SBLocalization.isScPlusMultisection_pullMult
+#print axioms Polyfold.SBLocalization.exists_isLocalRepOn_pushMult
+#print axioms Polyfold.SBLocalization.lemma_11_5_2_book
+#print axioms Polyfold.SBLocalization.SDiagram.isScPlusMultisection_pushMult
+#print axioms Polyfold.SBLocalization.SDiagram.isScPlusMultisection_pullMult
+#print axioms Polyfold.SBLocalization.GenSBMap.proposition_11_5_3_book
+
 end Polyfold

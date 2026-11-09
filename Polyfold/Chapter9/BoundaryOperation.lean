@@ -77,11 +77,10 @@ positive for `o_y`, `e` outward pointing; the resulting `o_{∂M}` fits continuo
 
 ## Not formalized, and why
 
-* That `o_{∂M}` "fits continuously together": this would be a `SubmanifoldOrientation` of the
-  stratum `∂₁M = {d_M = 1}`, whose continuity clause needs `∂₁M` as a smooth submanifold with
-  `T_y∂₁M = T^R_yM`, and a continuous outward field along it.  The stratum is not formalized as a
-  submanifold, so the operation is defined and studied pointwise only.  The extension to the
-  closed faces (Figure 9.1) and Remark 9.3.11 are not formalized either.
+* The stratum `∂₁M = {d_M = 1}` as a smooth submanifold (`T_y∂₁M` is read as `T^R_yM`); in this
+  file the operation is defined and studied pointwise.  The continuity of `o_{∂M}` along the
+  stratum is in `Chapter9/BoundaryOrientationContinuity2021.lean` (2026-11-09).  The extension to
+  the closed faces (Figure 9.1) and Remark 9.3.11 are not formalized.
 -/
 
 set_option maxSynthPendingDepth 3

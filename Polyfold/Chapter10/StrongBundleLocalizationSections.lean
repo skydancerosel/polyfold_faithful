@@ -58,16 +58,17 @@ regularity property, `|[D]| = |[D']|` implies `[D] = [D']` (from Proposition 10.
   the text's step (equal push-forwards for any two diagrams with `|D| = |D'|`), and makes the
   last assertion of Theorem 10.5.4 and of Remark 10.5.5 immediate.  The text's own step for a
   refinement is `pushforward_eq_of_isRefinement`.
-* "Isomorphism" of the vector spaces `Γ` is read as mutually inverse bijections; `Γ(P, μ)` has
-  no `Module` structure in the repository (Chapter 8 proves only closure under the operations),
-  and the linearity of `[D]_*` is not formalized, as for Theorem 10.4.5.
+* "Isomorphism" of the vector spaces `Γ` is read here as mutually inverse bijections, since
+  `Γ(P, μ)` is a set of maps `X → W` (Chapter 8 proves closure under the operations).  Since
+  2026-11-09 the linear isomorphism is `GenSBMap.pushforwardEquiv`, with `Γ(P, μ)` realised as a
+  submodule of `Π_x W_x` (`EpStrongBundle.sectionSpace`, `SectionFunctorLinear2021.lean`).
 * `[D]_*` is defined with a representative chosen once (`GenSBMap.rep`), and
   `theorem_10_5_4` shows it equals `Ψ_* Φ* f` for every representative.
 
 ## Not formalized
 
-* The `Fred` part of Theorem 10.5.4: Theorem 10.4.5 has no `Fred` part in the repository (see
-  `StrongBundleEquivalence.lean`).
+* The `Fred` part of Theorem 10.5.4 is not in this file: it is `theorem_10_5_4_fred`
+  (`FredholmEquivalence.lean`, with `theorem_10_4_5_fred` for Theorem 10.4.5).
 * **Proposition 10.5.6**: it rests on Proposition 10.4.6 (the local regularity property under
   strong bundle equivalences), not formalized in §10.4; `iff_of_isGeneralizedIso` reduces it to
   that proposition, as the text does.
@@ -391,7 +392,8 @@ bundle isomorphism `[D] : (P, μ) → (P', μ')`,
 * the same holds for sc⁺-section functors `Γ⁺(P, μ) → Γ⁺(P', μ')`;
 * if `[D']` is another generalized strong bundle isomorphism with `|[D]| = |[D']|`, then
   `[D]_* = [D']_*` and `[D]* = [D']*`.
-The part on `Fred` is not formalized (Theorem 10.4.5 has no `Fred` part in the repository). -/
+The part on `Fred` is `theorem_10_5_4_fred` (`FredholmEquivalence.lean`); the linear isomorphism
+is `GenSBMap.pushforwardEquiv` (`SectionFunctorLinear2021.lean`). -/
 theorem theorem_10_5_4 {f : GenSBMap A A'} (hf : f.IsGeneralizedIso) :
     (∀ (D : SDiagram A A') (hΨ : SEP.equivalences D.Ψ), D.cls = f →
       EqOn (pushforward hf) (D.pushforward hΨ) A.E.sectionFunctors ∧

@@ -2040,25 +2040,28 @@
   {
    "id": "V2.68",
    "title": "Remark 2.1.6: the modified definition is weaker",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)",
     "page": 23,
     "statement": "The condition $\\mathrm{cl}_X(V(x)) \\subseteq W(x)$ is global; replacing $\\mathrm{cl}_X(V(x))$ by the closure $\\mathrm{cl}_{W(x)}(V(x))$ gives a weaker notion, since $\\mathrm{cl}_X(V) \\subseteq W$ implies $\\mathrm{cl}_W(V) = \\mathrm{cl}_X(V)$."
    },
    "lean": {
-    "statement": "If $\\mathrm{cl}_X(V) \\subseteq W$ then $\\mathrm{cl}_W(V) = \\mathrm{cl}_X(V)$; local completeness implies the modified notion ($V \\subseteq W$, $\\mathrm{cl}_W(V)$ complete).",
+    "statement": "`remark_2_1_6_book`: if $\\mathrm{cl}_X(V) \\subseteq W$ then $\\mathrm{cl}_W(V) = \\mathrm{cl}_X(V)$. Local completeness implies the modified notion ($V \\subseteq W$, $\\mathrm{cl}_W(V)$ complete). Some Hausdorff space ($\\mathbb R$ with the K-topology, V2.91) satisfies the modified notion without being locally complete, so the modified notion is strictly weaker.",
     "decls": [
+     "Chapter2/BookFormLocalCompleteness2021 · remark_2_1_6_book",
      "Chapter2/LocalTopology · remark_2_1_6",
      "Chapter2/LocalTopology · IsLocallyCompleteRel",
-     "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel"
+     "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel",
+     "Chapter2/LocalTopologyExample · remark_2_1_6_strict"
     ]
    },
    "chips": [
-    "strictly weaker: V2.91 (G.76 closed)"
+    "“weaker” proved, and strict",
+    "G.76 closed"
    ],
    "diff": [
-    "\"Weaker\" is proved here as the implication; that the modified notion is strictly weaker is V2.91, an example (gap G.76, closed)."
+    "The text does not say whether \"weaker\" is meant strictly; both the implication and the strictness are proved, in one statement (`Chapter2/BookFormLocalCompleteness2021.lean`); the example is V2.91 (gap G.76, closed) (Findings, Chapter 2, items 61, 75, 89)."
    ]
   },
   {
@@ -2295,15 +2298,24 @@
   {
    "id": "V2.78",
    "title": "Definitions 2.5.18 and 2.5.19: tame sub-M-polyfolds",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§2.5, Definition 2.5.18, p. 62, and Definition 2.5.19, p. 63 (new in the 2021 edition)",
     "page": 62,
     "statement": "The structure induced on a sub-M-polyfold $Y$ is tame if it has an equivalent atlas with tame local models. For a tame $X$, $Y$ is a tame sub-M-polyfold if every $y \\in Y$ has an open $V$ and an sc-smooth retraction $r : V \\to V$ with (1) $r(V) = Y \\cap V$, (2) $d_X \\circ r = d_X$ on $V$, (3) at smooth $y \\in Y \\cap V$ an sc-subspace $A \\subseteq T^R_yX$ with $T_yX = T_yY \\oplus A$."
    },
    "lean": {
-    "statement": "The same, with (3) stated in some chart around $y$: the tangent space of the chart image of $Y$ has an sc-complement in $T_zO$ inside $T_zO \\cap E_z$. A tame sub-M-polyfold is a sub-M-polyfold; $Y = X$ is one, with tame induced structure.",
+    "statement": "`definition_2_5_19_book`: for a sub-M-polyfold $Y$, condition (3) is stated in $T_yX$. $T_yY$ is the image of $Ti : T_yY \\to T_yX$ (`subTangentRange`), $T^R_yX$ is the reduced tangent space of Definition 2.5.8, and $T_yX = Ti(T_yY) \\oplus A$ is an algebraic splitting with $A \\subseteq T^R_yX$, $A$ an sc-subspace with a levelwise splitting in a chart (`HasReducedScComplement`, `TameSubData2021`, `IsTameSubMPolyfold2021`). It is equivalent to the chart form `IsTameSubMPolyfold` (`isTameSubMPolyfold2021_iff`, `hasReducedScComplement_iff`), through `coe_map_range_subInclusionCLM`: $T\\varphi(y)$ maps $Ti(T_yY)$ onto the tangent space of $\\varphi(W \\cap Y)$, and through `fiberCoord_subInclusionCLM`, $T\\varphi(y) \\circ Ti = T\\sigma(y)$ for the sub-chart $\\sigma$. It implies the tame induced structure of Definition 2.5.18, and $Y = X$ satisfies it. The chart form, first stated: (3) in some chart around $y$, the tangent space of the chart image of $Y$ having an sc-complement in $T_zO$ inside $T_zO \\cap E_z$; a tame sub-M-polyfold is a sub-M-polyfold; $Y = X$ is one, with tame induced structure.",
     "decls": [
+     "Chapter2/BookFormTameSub2021 · MPolyfold.definition_2_5_19_book",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.isTameSubMPolyfold2021_iff",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.IsTameSubMPolyfold2021",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.TameSubData2021",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.HasReducedScComplement",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.hasReducedScComplement_iff",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.subTangentRange",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.coe_map_range_subInclusionCLM",
+     "Chapter2/BookFormTameSub2021 · MPolyfold.fiberCoord_subInclusionCLM",
      "Chapter2/TameBoundary · MPolyfold.HasTameInducedStructure",
      "Chapter2/TameBoundary · MPolyfold.HasReducedComplementAt",
      "Chapter2/TameBoundary · MPolyfold.hasReducedComplementAt_self",
@@ -2315,11 +2327,12 @@
     ]
    },
    "chips": [
-    "(3) in a chart",
-    "chart independence: V2.99 (G.77 closed)"
+    "(3) in $T_yX$",
+    "equivalent to the chart form (V2.99)",
+    "G.77 closed"
    ],
    "diff": [
-    "$T_yX$ has no linear structure here (gap G.7), so (3) is stated in a chart. Its independence of the chart is V2.99, the remark that a tame sub-M-polyfold is tame V2.100, and the examples in $[0, \\infty)^2 \\times \\mathbb R$ V2.101 (gap G.77, closed). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
+    "The sc-structure of $T_yX$ at a smooth point is carried by a chart, as in Definition 2.3.14 (V2.19), and is the same through every chart; so \"$A$ is an sc-subspace and the sum is sc\" is read in the chart that also defines $T^R_yX$, which does not depend on the chart (`reducedTangentFiber_eq`). The chart form first stated is chart independent (V2.99), a tame sub-M-polyfold is tame (V2.100), and the examples in $[0, \\infty)^2 \\times \\mathbb R$ are V2.101 (gap G.77, closed). Updated (2026-11-09): (3) is restated in $T_yX$ with the linear structure of Definition 2.3.14 (gap G.7 closed, V2.19) (Findings, Chapter 2, items 72, 87, 88)."
    ]
   },
   {
@@ -2577,15 +2590,17 @@
   {
    "id": "V2.87",
    "title": "Proposition 2.7.12: transition maps of $bX$ (topological part)",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§2.7.4, Proposition 2.7.12, p. 83 (new in the 2021 edition)",
     "page": 83,
     "statement": "The images $\\Phi_{(x, V, \\theta)}(U \\cap U')$ and $\\Phi_{(x', V', \\theta')}(U \\cap U')$ are open in $\\theta$ and $\\theta'$, and the transition map is an sc-diffeomorphism."
    },
    "lean": {
-    "statement": "The images are open in $\\theta$ and $\\theta'$ and the transition map is the identity on points of $X$; the $U(x, V, \\theta)$ form a basis, $B$ is continuous, every $\\Phi$ is an open embedding into $\\theta$, a homeomorphism onto $\\theta$ for $V$ centred at $x$.",
+    "statement": "`proposition_2_7_12_book`: for every pair of representatives $(x, V, \\theta)$, $(x', V', \\theta')$, centred or not, the images $\\Phi(U \\cap U')$, $\\Phi'(U \\cap U')$ are open in $\\theta$, $\\theta'$, and the transition map $\\Phi' \\circ \\Phi^{-1}$ between them is an sc-diffeomorphism of the faces, with their sub-M-polyfold structures (`facePolyfold`), and the identity on points of $X$. The topological steps remain this row's lemmas: the $U(x, V, \\theta)$ form a basis, $B$ is continuous, every $\\Phi$ is an open embedding into $\\theta$, a homeomorphism onto $\\theta$ for $V$ centred at $x$.",
     "decls": [
+     "Chapter2/BookFormTameBoundary2021 · MPolyfold.proposition_2_7_12_book",
+     "Chapter2/TameBoundaryNonCentred · MPolyfold.proposition_2_7_12_scDiffeo_nonCentred",
      "Chapter2/TameBoundaryTopology · TameBoundary.isOpen_uSet",
      "Chapter2/TameBoundaryTopology · TameBoundary.isTopologicalBasis_uSet",
      "Chapter2/TameBoundaryTopology · TameBoundary.continuous_bMap",
@@ -2598,11 +2613,11 @@
     ]
    },
    "chips": [
-    "topological part",
-    "sc-part: V2.103, V2.104"
+    "as printed, every representative",
+    "G.78 closed"
    ],
    "diff": [
-    "The sc-diffeomorphism statement is not part of this row: for centred representatives it is proved with the M-polyfold structure of $bX$ (V2.103), and for every representative in V2.104 (gap G.78, closed)."
+    "\"The structure induced from $V$\" is read as the sub-M-polyfold structure of the face $\\theta$ (`facePolyfold`). The book form is an alias of `proposition_2_7_12_scDiffeo_nonCentred` (V2.104), which already had the statement (gap G.78, closed) (Findings, Chapter 2, items 84, 89)."
    ]
   },
   {
@@ -2641,8 +2656,9 @@
     "statement": "For a tame $X$: (1) $bX$ has a natural metrizable topology; (2) a natural tame M-polyfold structure; (3) $B$ is sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$; characterized by: every $U(x, V, \\theta)$ open and every $\\Phi$ a homeomorphism and sc-diffeomorphism onto $\\theta$. The tame boundary is $B : bX \\to X$."
    },
    "lean": {
-    "statement": "(1); every $U(x, V, \\theta)$ open and every $\\Phi$ an open embedding; $T_{bX}$ the only topology with these properties; $B$ continuous with image $\\partial X$ and fibres of $d_X(x)$ points; the tame boundary as a continuous map.",
+    "statement": "`theorem_2_7_13_book`, for a tame $X$: (1) $bX$ is metrizable; (2) `tameBoundaryPolyfold` is tame; (3) $B$ is sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$. For every representative, $U(x, V, \\theta)$ is open and $\\Phi$ is an open embedding and an sc-diffeomorphism onto $\\theta \\cap V^x$, a bijection onto $\\theta$ for centred $V$. $T_{bX}$ and the structure are the only ones with these properties, the structure up to equivalence of atlases, and $B$ has image $\\partial X$ (Definition 2.7.14). The topological statements first recorded: (1); every $U(x, V, \\theta)$ open and every $\\Phi$ an open embedding; $T_{bX}$ the only topology with these properties; $B$ continuous with image $\\partial X$ and fibres of $d_X(x)$ points; the tame boundary as a continuous map.",
     "decls": [
+     "Chapter2/BookFormTameBoundary2021 · MPolyfold.theorem_2_7_13_book",
      "Chapter2/TameBoundaryTopology · TameBoundary.eq_of_isOpen_uSet",
      "Chapter2/TameBoundaryTopology · TameBoundary.theorem_2_7_13_topology",
      "Chapter2/TameBoundaryTopology · MPolyfold.theorem_2_7_13",
@@ -2650,11 +2666,12 @@
     ]
    },
    "chips": [
-    "topological part",
-    "(2)–(4): V2.102–V2.106"
+    "(1)–(4) and the characterization",
+    "“onto $\\theta$” for centred $V$ (V2.105)",
+    "G.78 closed"
    ],
    "diff": [
-    "Parts (2)–(4) beyond the fibre count are V2.102 and V2.106; the sc-half of the characterization is V2.103 for centred representatives and V2.104 for every representative, with image $\\theta \\cap V^x$ (V2.105) (gap G.78, closed)."
+    "\"Onto $\\theta$\" for non-centred $V$ does not hold as we read it (V2.105); the book form states the image $\\theta \\cap V^x$, which is $\\theta$ for centred $V$. Uniqueness is read as uniqueness of the topology and equivalence of atlases. The parts come from V2.102–V2.106 (gap G.78, closed) (Findings, Chapter 2, items 83, 84, 89)."
    ]
   },
   {
@@ -2986,7 +3003,7 @@
     "G.77 closed"
    ],
    "diff": [
-    "(3) remains a statement in charts, since $T_yX$ has no linear structure here (G.7); the chart, the presentation and the retraction do not matter (gap G.77, closed). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)",
+    "(3) remains a statement in charts, since $T_yX$ has no linear structure here (G.7); the chart, the presentation and the retraction do not matter (gap G.77, closed). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); it is restated with it in V2.78, `definition_2_5_19_book`.)",
     "Proved by Chapter 4's chart change for the general-position condition (`MPolyfold.isGeneralPositionRetractAt_chart_change`, V4.45), which is (3) word for word."
    ]
   },
@@ -3096,8 +3113,10 @@
     "statement": "The structure of $bX$ is uniquely characterized by: for every class and every representative, $U(x, V, \\theta)$ is open and $\\Phi_{(x, V, \\theta)}$ is a homeomorphism and an sc-diffeomorphism onto $\\theta$ with the structure induced from $V$; transition maps are sc-diffeomorphisms."
    },
    "lean": {
-    "statement": "Every class has a centred representative; a face $\\theta$ of a face-structured open $V$ is a sub-M-polyfold. For $V$ centred at $x$, $\\Phi$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto $\\theta$; every structure on $bX$ with this property is equivalent to that of V2.102, which has it; for two centred triples the transition map is an sc-diffeomorphism between open subsets, the identity on points.",
+    "statement": "`theorem_2_7_13_book`, the characterization: for every representative, $U(x, V, \\theta)$ is open and $\\Phi$ is an open embedding and an sc-diffeomorphism onto $\\theta \\cap V^x$; for $V$ centred at $x$, $\\Phi$ is a bijection onto $\\theta = \\theta \\cap V^x$. Every structure with this property is equivalent to `tameBoundaryPolyfold`. `proposition_2_7_12_book`: the transition maps are sc-diffeomorphisms. The centred forms remain as steps: every class has a centred representative; a face $\\theta$ of a face-structured open $V$ is a sub-M-polyfold; for $V$ centred at $x$, $\\Phi$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto $\\theta$ (`phi_isScDiffeoOn`); every structure with this property is equivalent to that of V2.102 (`tameBoundaryPolyfold_unique`); for two centred triples the transition map is an sc-diffeomorphism between open subsets, the identity on points.",
     "decls": [
+     "Chapter2/BookFormTameBoundary2021 · MPolyfold.theorem_2_7_13_book",
+     "Chapter2/BookFormTameBoundary2021 · MPolyfold.proposition_2_7_12_book",
      "Chapter2/TameBoundaryStructure · TameBoundary.BSpace.exists_centred_rep",
      "Chapter2/TameBoundaryStructure · MPolyfold.isSubMPolyfold_of_isFaceIn",
      "Chapter2/TameBoundaryStructure · MPolyfold.facePolyfold",
@@ -3110,11 +3129,11 @@
     ]
    },
    "chips": [
-    "centred $V$",
-    "every representative: V2.104"
+    "every representative",
+    "image $\\theta \\cap V^x$ (V2.105)"
    ],
    "diff": [
-    "Centred representatives here; every representative is V2.104. \\\"The structure induced from $V$\\\" is read as the sub-M-polyfold structure of $\\theta$, \\\"uniquely characterized\\\" as: every structure with the property has an equivalent atlas."
+    "\"Onto $\\theta$\" holds as we read it only for centred $V$ (V2.105); in general the image is the open set $\\theta \\cap V^x$. \"The structure induced from $V$\" is read as the sub-M-polyfold structure of $\\theta$, \"uniquely characterized\" as: every structure with the property has an equivalent atlas (Findings, Chapter 2, items 84, 89)."
    ]
   },
   {
@@ -3150,7 +3169,8 @@
    ],
    "diff": [
     "Proposition 2.7.12 holds as printed for every representative. In the characterization the image of $\\Phi$ is $\\theta \\cap V^x$; \\\"onto $\\theta$\\\" does not hold as we read it for every representative (V2.105) (gap G.78, closed).",
-    "$\\Phi^{-1}$ is, near each point, $\\Phi_{s'}^{-1}$ for a centred refinement $s'$; the sub-M-polyfold calculus replaces the text's open sc-embeddings of faces."
+    "$\\Phi^{-1}$ is, near each point, $\\Phi_{s'}^{-1}$ for a centred refinement $s'$; the sub-M-polyfold calculus replaces the text's open sc-embeddings of faces.",
+    "(2026-11-09) The book forms built on this row are `proposition_2_7_12_book` and `theorem_2_7_13_book` (V2.87, V2.89, V2.103); this row is their step (Findings, Chapter 2, item 89)."
    ]
   },
   {
@@ -3393,15 +3413,17 @@
    "label": "§2.1, Remark 2.1.6, p. 23 (new in the 2021 edition)",
    "page": 23,
    "book": "Replacing $\\mathrm{cl}_X(V(x))$ by the closure of $V(x)$ in $W(x)$ (and $\\mathrm{cl}_X(V(x)) \\subseteq W(x)$ by $V(x) \\subseteq W(x)$) in Definition 2.1.5 gives a weaker notion.",
-   "instead": "**Formalized since the first edition of this page** (V2.91). The implication is V2.68. $\\mathbb R$ with the K-topology ($K = \\{1/(n+1)\\}$) is Hausdorff and locally complete in the modified sense, but not regular, hence not locally complete in the sense of Definition 2.1.5 (`remark_2_1_6_strict`); so the notion is strictly weaker, and the remark holds as we read it (Findings, Chapter 2, items 61, 75).",
+   "instead": "**Formalized since the first edition of this page** (V2.91). The implication is V2.68. $\\mathbb R$ with the K-topology ($K = \\{1/(n+1)\\}$) is Hausdorff and locally complete in the modified sense, but not regular, hence not locally complete in the sense of Definition 2.1.5 (`remark_2_1_6_strict`); so the notion is strictly weaker, and the remark holds as we read it (Findings, Chapter 2, items 61, 75). (2026-11-09) The implication and the strictness in one statement: `remark_2_1_6_book` (V2.68; Findings, Chapter 2, item 89).",
    "decls": [
     "Chapter2/LocalTopology · IsLocallyCompleteRel",
     "Chapter2/LocalTopology · IsLocallyComplete.isLocallyCompleteRel",
     "Chapter2/LocalTopologyExample · remark_2_1_6_strict",
-    "Chapter2/LocalTopologyExample · RealKTop.not_isLocallyComplete"
+    "Chapter2/LocalTopologyExample · RealKTop.not_isLocallyComplete",
+    "Chapter2/BookFormLocalCompleteness2021 · remark_2_1_6_book"
    ],
    "formalized": [
-    "V2.91"
+    "V2.91",
+    "V2.68"
    ]
   },
   {
@@ -3410,18 +3432,20 @@
    "label": "§2.5, condition (3) of Definition 2.5.19 and the text after it, p. 63 (new in the 2021 edition)",
    "page": 63,
    "book": "Condition (3) of Definition 2.5.19 is stated on $T_yX$; the text remarks that a tame sub-M-polyfold is tame and gives examples in $[0, \\infty)^2 \\times \\mathbb R$: $\\{(x, y, 0)\\}$ is a tame sub-M-polyfold, the diagonal ray $\\{(x, x, 0)\\}$ is not, although its induced structure is tame.",
-   "instead": "**Formalized since the first edition of this page** (V2.99, V2.100, V2.101). Condition (3) is still stated in a chart (V2.78), since $T_yX$ has no linear structure here (gap G.7); it holds in every chart, presentation and for every sub-M-polyfold retraction once it holds in one (`TameSubData.hasReducedComplementAt_of_isChart`); a tame sub-M-polyfold of a tame M-polyfold has a tame induced structure (`IsTameSubMPolyfold.hasTameInducedStructure`); and both examples hold as stated, for any $W$ in place of $\\mathbb R$ (`TameSubExample.examples_A_B`) (Findings, Chapter 2, items 72, 81, 82). (2026-11-09: the linear structure of $T_yX$ and $T^R_yX$ in it are formalized, gaps G.7 closed and G.13 in part; (3) is not yet restated in $T_yX$.)",
+   "instead": "**Formalized since the first edition of this page** (V2.99, V2.100, V2.101). Condition (3) is still stated in a chart (V2.78), since $T_yX$ has no linear structure here (gap G.7); it holds in every chart, presentation and for every sub-M-polyfold retraction once it holds in one (`TameSubData.hasReducedComplementAt_of_isChart`); a tame sub-M-polyfold of a tame M-polyfold has a tame induced structure (`IsTameSubMPolyfold.hasTameInducedStructure`); and both examples hold as stated, for any $W$ in place of $\\mathbb R$ (`TameSubExample.examples_A_B`) (Findings, Chapter 2, items 72, 81, 82). (2026-11-09: the linear structure of $T_yX$ and $T^R_yX$ in it are formalized, gaps G.7 closed and G.13 in part; (3) is restated in $T_yX$ since, equivalent to the chart form: `definition_2_5_19_book`, V2.78; Findings, Chapter 2, item 88.)",
    "decls": [
     "Chapter2/TameBoundary · MPolyfold.TameSubData",
     "Chapter2/TameBoundary · MPolyfold.IsTameSubMPolyfold",
     "Chapter2/TameSub · MPolyfold.TameSubData.hasReducedComplementAt_of_isChart",
     "Chapter2/TameSub · MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure",
-    "Chapter2/TameSub · TameSubExample.examples_A_B"
+    "Chapter2/TameSub · TameSubExample.examples_A_B",
+    "Chapter2/BookFormTameSub2021 · MPolyfold.definition_2_5_19_book"
    ],
    "formalized": [
     "V2.99",
     "V2.100",
-    "V2.101"
+    "V2.101",
+    "V2.78"
    ]
   },
   {
@@ -3430,17 +3454,22 @@
    "label": "§2.7.4, Proposition 2.7.12, p. 83, and the characterization after Theorem 2.7.13, p. 84 (new in the 2021 edition)",
    "page": 83,
    "book": "For every pair of admissible triples the transition map $\\Phi_{(x', V', \\theta')} \\circ \\Phi_{(x, V, \\theta)}^{-1}$ is an sc-diffeomorphism; every $\\Phi_{(x, V, \\theta)}$ is a homeomorphism and an sc-diffeomorphism onto $\\theta$.",
-   "instead": "**Formalized since the first edition of this page** (V2.104, V2.105). For every representative $\\Phi_{(x, V, \\theta)}$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto the open subset $\\theta \\cap V^x$ of $\\theta$, which is $\\theta$ for $V$ centred at $x$ (`phi_isScDiffeoOn_nonCentred`); Proposition 2.7.12 holds as printed for every pair of representatives (`proposition_2_7_12_scDiffeo_nonCentred`); and the structure of $bX$ is characterized with this image (`tameBoundaryPolyfold_unique_allReps`). \"Onto $\\theta$\" does not hold as we read it for every representative: for the slab triple of V2.85 $\\Phi$ is not onto $\\theta$ (`not_surjOn_phiTot`) (Findings, Chapter 2, items 73, 83, 84).",
+   "instead": "**Formalized since the first edition of this page** (V2.104, V2.105). For every representative $\\Phi_{(x, V, \\theta)}$ is an sc-diffeomorphism of $U(x, V, \\theta)$ onto the open subset $\\theta \\cap V^x$ of $\\theta$, which is $\\theta$ for $V$ centred at $x$ (`phi_isScDiffeoOn_nonCentred`); Proposition 2.7.12 holds as printed for every pair of representatives (`proposition_2_7_12_scDiffeo_nonCentred`); and the structure of $bX$ is characterized with this image (`tameBoundaryPolyfold_unique_allReps`). \"Onto $\\theta$\" does not hold as we read it for every representative: for the slab triple of V2.85 $\\Phi$ is not onto $\\theta$ (`not_surjOn_phiTot`) (Findings, Chapter 2, items 73, 83, 84). (2026-11-09) In the book's form: `proposition_2_7_12_book`, `theorem_2_7_13_book` (V2.87, V2.89, V2.103; Findings, Chapter 2, item 89).",
    "decls": [
     "Chapter2/TameBoundaryTopology · TameBoundary.isOpenEmbedding_phi",
     "Chapter2/TameBoundaryNonCentred · MPolyfold.phi_isScDiffeoOn_nonCentred",
     "Chapter2/TameBoundaryNonCentred · MPolyfold.proposition_2_7_12_scDiffeo_nonCentred",
     "Chapter2/TameBoundaryNonCentred · MPolyfold.tameBoundaryPolyfold_unique_allReps",
-    "Chapter2/TameBoundaryNonCentred · MPolyfold.not_surjOn_phiTot"
+    "Chapter2/TameBoundaryNonCentred · MPolyfold.not_surjOn_phiTot",
+    "Chapter2/BookFormTameBoundary2021 · MPolyfold.proposition_2_7_12_book",
+    "Chapter2/BookFormTameBoundary2021 · MPolyfold.theorem_2_7_13_book"
    ],
    "formalized": [
     "V2.104",
-    "V2.105"
+    "V2.105",
+    "V2.87",
+    "V2.89",
+    "V2.103"
    ]
   }
  ]

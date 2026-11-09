@@ -72,11 +72,14 @@ GitHub displays it directly.
   structures, the tangent and the boundary, good points, orientations, the geometry of local
   branching structures, sets of measure zero and the canonical σ-algebras). The level-0 facts it
   needs are proved for every M-polyfold (local constancy of the dimension, domain invariance,
-  continuity on level 1, graph charts; G.93 in part, G.97, G.98, G.100), and Proposition 9.1.11
+  continuity on level 1, graph charts; G.93, G.97, G.98, G.100), and Proposition 9.1.11
   (existence and uniqueness of the local dimensional decomposition, in the reading of its proof)
-  and Proposition 9.1.12 hold for every ep-groupoid. Not yet proved in general: Lemma 9.4.4 for
-  sheets in an M-polyfold (a hypothesis, shown satisfiable; G.105) and the continuity of the
-  boundary orientation of Definition 9.3.10 (G.103). Branched integration, the boundary measures and Stokes' theorems (Theorems
+  and Proposition 9.1.12 hold for every ep-groupoid. The footnote to Definition 9.1.2 holds for `Θ`
+  with nonempty support (for `Θ = 0` it does not hold as we read it), Lemma 9.4.3 holds as stated
+  (G.104), and the boundary orientation of Definition 9.3.8 is continuous along the stratum of
+  reduced codimension 1, without tameness (G.103 in part). Not yet proved in general: Lemma 9.4.4
+  for sheets in an M-polyfold beyond the reading in M-polyfold charts, and Lemma 9.4.6 for them
+  (G.105). Branched integration, the boundary measures and Stokes' theorems (Theorems
   9.5.4, 9.5.5, 9.5.15–9.5.18) are not formalized; they need the sc-differential forms of §8.2.
 * **Part II, Chapter 10, is formalized**, §§10.1–10.5 with the Appendix proofs 10.6.1–10.6.2
   (equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the
@@ -85,25 +88,29 @@ GitHub displays it directly.
   isomorphisms, the weak fibred product of strong bundles and the category `SEP(F⁻¹)`). Local
   regularity under equivalences (Propositions 10.1.9, 10.1.10, 10.1.19, 10.3.16) is proved.
   Theorems 10.3.19 and 10.5.7 do not hold as we read them (counterexamples in Lean); both hold
-  when the target is effective. Not formalized: Propositions 10.4.6–10.4.7 (local
-  regularity for strong bundles), the Fredholm parts of Theorems 10.4.5 and 10.5.4, the iterated
-  products of Theorem 10.2.2, and the universal property of the localization.
+  when the target is effective. The Fredholm parts of Theorems 10.4.5 and 10.5.4 are proved, and
+  `[D]_*` is a linear isomorphism of the section spaces. Not formalized: Proposition 10.4.6 and the
+  bundle half of Proposition 10.4.7 (local regularity for strong bundles; 10.4.7 is proved on the
+  bases), the iterated products of Theorem 10.2.2, and the universal property of the
+  localization.
 * **Part II, Chapter 11, is formalized** except §11.2 (sc-differential forms under equivalences)
   and §11.4 (integration), which need the forms of §8.2: the tangent functor on `EP(E⁻¹)`, the
   degeneracy index and the faces under generalized isomorphisms (§11.1), branched
   ep⁺-subgroupoids, their tangent sections and orientations pushed forward and pulled back
   (§11.3; Theorem 11.3.9 for the generalized isomorphism itself, with the intrinsic boundary
   orientation and no added hypothesis, G.130), strong bundles up to equivalence (§11.5), and
-  equivalences of proper coverings with Theorem 11.6.6 and Proposition 11.6.8 (§11.6). Not
-  formalized besides: the structures of Proposition 11.1.6, parts of Proposition 11.5.1 and the
-  local section structures of §11.5, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128–G.135).
-* About 234,000 lines of Lean in 384 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (12,047 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+  equivalences of proper coverings with Theorem 11.6.6 and Proposition 11.6.8 (§11.6), with
+  Proposition 11.5.1 in full and the local section structures of sc⁺-multisections (Definition
+  13.2.1) in Lemma 11.5.2 and Proposition 11.5.3 (G.132, G.133). Not formalized besides: the
+  structures of Proposition 11.1.6, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128, G.134,
+  G.135).
+* About 241,000 lines of Lean in 406 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (12,396 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
 * **Every numbered item of Chapters 1–11 is compared with its formal version** (824 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.135). 64 items are narrower than the text, each
-  with its reason; 53 of the 135 gaps are closed and 82 remain.
+  list of what is not formalized and why (G.1–G.135). 47 items are narrower than the text, each
+  with its reason; 61 of the 135 gaps are closed and 74 remain.
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2

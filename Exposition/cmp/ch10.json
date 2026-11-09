@@ -792,7 +792,7 @@
     "statement": "$\\Phi_* : \\Gamma(P, \\mu) \\to \\Gamma(P', \\mu')$ is a bijection with inverse $\\Phi^*$, depending only on $|\\Phi|$, and restricting to $\\Gamma^+$ and to the sc-Fredholm section functors."
    },
    "lean": {
-    "statement": "`theorem_10_4_5`: mutually inverse bijections $\\Phi_*$, $\\Phi^*$ of the sc-smooth section functors, equal for $|\\Phi| = |\\Psi|$, mapping $\\mathrm{sc}^+$-section functors to $\\mathrm{sc}^+$-section functors; a witness over $-\\mathrm{id}$. `theorem_10_4_5_fred`: $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections $\\mathrm{Fred}(P, \\mu) \\leftrightarrow \\mathrm{Fred}(P', \\mu')$; the same for tame germ data (`isScFredholmSectionTame_pullback`, `_pushforward`). The proof: Definition 3.1.18 is local and invariant under local strong bundle isomorphisms (`StrongBundle.LocalIso`, `LocalIso.isScFredholmGerm`, through the transported chart `transportChart`; `isScFredholmSection_of_forall`), and near every point the pull-back is such an isomorphism (`exists_localIso_mor`).",
+    "statement": "`theorem_10_4_5`: mutually inverse bijections $\\Phi_*$, $\\Phi^*$ of the sc-smooth section functors, equal for $|\\Phi| = |\\Psi|$, mapping $\\mathrm{sc}^+$-section functors to $\\mathrm{sc}^+$-section functors; a witness over $-\\mathrm{id}$. `theorem_10_4_5_fred`: $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections $\\mathrm{Fred}(P, \\mu) \\leftrightarrow \\mathrm{Fred}(P', \\mu')$; the same for tame germ data (`isScFredholmSectionTame_pullback`, `_pushforward`). The proof: Definition 3.1.18 is local and invariant under local strong bundle isomorphisms (`StrongBundle.LocalIso`, `LocalIso.isScFredholmGerm`, through the transported chart `transportChart`; `isScFredholmSection_of_forall`), and near every point the pull-back is such an isomorphism (`exists_localIso_mor`). $\\Phi_*$ and $\\Phi^*$ preserve fibrewise sums and scalar multiples, for all sections (`IsStrongBundleEquivalence.pushforward_sectionAdd`, `…_sectionSmul`, `pullback_sectionAdd`, `…_sectionSmul`, `Chapter10/SectionFunctorLinear2021.lean`).",
     "decls": [
      "Chapter10/FredholmEquivalence · EpStrongBundle.theorem_10_4_5_fred",
      "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pullback",
@@ -818,7 +818,11 @@
      "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.restrict",
      "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.comp",
      "Chapter10/StrongBundleEquivalence · StrongBundle.IsStrongBundleIsoOn.exists_comp",
-     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.bijOn_pushforward_example"
+     "Chapter10/StrongBundleEquivalenceExamples · StrongBundleEquivalenceExamples.bijOn_pushforward_example",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionAdd",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionSmul",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionAdd",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionSmul"
     ]
    },
    "chips": [
@@ -1738,14 +1742,14 @@
   {
    "id": "V10.59",
    "title": "Theorem 10.5.4 (2017: 10.9): push-forward along a generalized strong bundle isomorphism",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§10.5, Theorem 10.5.4, pp. 507–508 (2017: Theorem 10.9, p. 367)",
     "page": 507,
     "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]_* : \\Gamma(P, \\mu) \\to \\Gamma(P', \\mu')$ is a well-defined isomorphism whose inverse, given by the inverse diagram, is $[D]^*$; the same for $\\Gamma^+$ and $\\mathrm{Fred}$; $|[D]| = |[D']|$ implies $[D]_* = [D']_*$ and $[D]^* = [D']^*$."
    },
    "lean": {
-    "statement": "Well defined for every representative with both legs strong bundle equivalences; mutually inverse bijections of $\\Gamma$ and of $\\Gamma^+$; the reversed diagram gives $[D]^*$; equal orbit maps give equal push-forwards and pull-backs. Witnesses over $-\\mathrm{id}$. `theorem_10_5_4_fred`: $[D]_*$ maps $\\mathrm{Fred}(P, \\mu)$ bijectively onto $\\mathrm{Fred}(P', \\mu')$, $[D]^*$ maps $\\mathrm{Fred}(P', \\mu')$ into $\\mathrm{Fred}(P, \\mu)$, and on $\\mathrm{Fred}$ the push-forward along the inverse diagram is $[D]^*$.",
+    "statement": "Well defined for every representative with both legs strong bundle equivalences; mutually inverse bijections of $\\Gamma$ and of $\\Gamma^+$; the reversed diagram gives $[D]^*$; equal orbit maps give equal push-forwards and pull-backs. Witnesses over $-\\mathrm{id}$. `theorem_10_5_4_fred`: $[D]_*$ maps $\\mathrm{Fred}(P, \\mu)$ bijectively onto $\\mathrm{Fred}(P', \\mu')$, $[D]^*$ maps $\\mathrm{Fred}(P', \\mu')$ into $\\mathrm{Fred}(P, \\mu)$, and on $\\mathrm{Fred}$ the push-forward along the inverse diagram is $[D]^*$. `GenSBMap.pushforwardEquiv`: $[D]_*$ is a linear isomorphism $\\Gamma(P, \\mu) \\cong \\Gamma(P', \\mu')$ with inverse $[D]^*$, and the same for $\\Gamma^+$ (`plusPushforwardEquiv`). $\\Gamma$ is realised as a submodule of $\\Pi_x W_x$ (`EpStrongBundle.sectionSpace`). The linearity holds pointwise for all sections (`GenSBMap.pushforward_sectionAdd`, `…_sectionSmul`, and the same for $\\Phi_*$ and $\\Phi^*$, `Chapter10/SectionFunctorLinear2021.lean`).",
     "decls": [
      "Chapter10/FredholmEquivalence · SBLocalization.GenSBMap.theorem_10_5_4_fred",
      "Chapter10/FredholmEquivalence · SBLocalization.SDiagram.bijOn_pushforward_fred",
@@ -1761,16 +1765,28 @@
      "Chapter10/StrongBundleLocalizationSections · SBLocalization.SDiagram.bijOn_pushforward",
      "Chapter10/StrongBundleLocalizationSections · SBLocalization.SDiagram.bijOn_pushforward_plus",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.bijOn_pushforward_negDiagram",
-     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.pushforward_foldDiagram"
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.pushforward_foldDiagram",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforwardEquiv",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.plusPushforwardEquiv",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforwardEquiv_apply",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforwardEquiv_symm_apply",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforward_sectionAdd",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pushforward_sectionSmul",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pullback_sectionAdd",
+     "Chapter10/SectionFunctorLinear2021 · SBLocalization.GenSBMap.pullback_sectionSmul",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.sectionSpace",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.plusSectionSpace",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pushforward_sectionAdd",
+     "Chapter10/SectionFunctorLinear2021 · EpStrongBundle.IsStrongBundleEquivalence.pullback_sectionAdd"
     ]
    },
    "chips": [
     "Fred part: proved (G.125)",
-    "isomorphism read as bijection"
+    "linear isomorphism proved",
+    "$\\Gamma$ as a submodule of $\\Pi_x W_x$"
    ],
    "diff": [
-    "Updated (2026-11-09): **the Fred part is proved** (`theorem_10_5_4_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.125 closed), from that of Theorem 10.4.5 (V10.27). Still “narrower”: the text calls $[D]_*$ an isomorphism of the vector spaces $\\Gamma(P, \\mu)$, $\\Gamma(P', \\mu')$; linearity is not stated (Findings, Chapter 10, item 55).",
-    "As for Theorem 10.4.5; linearity is not stated, $\\Gamma$ having no vector space structure in the project (Findings, Chapter 10, item 55)."
+    "Updated (2026-11-09): **the isomorphism is proved as a linear isomorphism** (`pushforwardEquiv`). $\\Gamma(P, \\mu)$, a set of maps $X \\to W$ in the project, is also realised as a submodule of $\\Pi_x W_x$, which carries the vector space structure of Definition 8.3.4. On $\\mathrm{Fred}$, which is not a vector space, the statement is a bijection (`theorem_10_5_4_fred`; gap G.125 closed) (Findings, Chapter 10, items 55, 73)."
    ]
   },
   {
@@ -2317,7 +2333,11 @@
    "label": "§10.4, Proposition 10.4.6, p. 501 (new in the 2021 edition), and Proposition 10.4.7, pp. 501–502 (new in the 2021 edition)",
    "page": 501,
    "book": "The local regularity property of strong bundles is invariant under strong bundle equivalences (proof left to the reader), and the strong bundle version of Proposition 10.1.10.",
-   "instead": "**Not formalized**: the ep-groupoid versions are formalized since (V10.62, V10.63); the strong bundle versions need the transport $H_{\\hat\\psi}$ as a strong bundle isomorphism at levels $0$ and $1$ and the inverse of a strong bundle isomorphism on an open set, which the strong bundle API does not provide (Findings, Chapter 10, item 45)."
+   "instead": "**In part.** Proposition 10.4.7 is formalized on the bases, with the local reading `IsLRLocal` of Definition 8.4.2 for the target (`SEP.exists_family_of_isLRLocal`); the identity $\\mu'(\\alpha_z, \\Phi(v)) = \\Psi(v)$ on the bundles is not stated, although it follows from the last step of that proof. Proposition 10.4.6 is not formalized. With `IsLR` (strong bundle maps of all of $W$) the text's transport $H^{-1}\\Theta H$ is only a local map, and the project has no extension of local strong bundle isomorphisms. With `IsLRLocal` it needs a strong bundle transport chart and the composition and inversion of local strong bundle isomorphisms. The ep-groupoid versions are formalized (V10.62, V10.63) (Findings, Chapter 10, items 45, 72, 74).",
+   "decls": [
+    "Chapter10/LocalizationLRBundleBase · SEP.exists_family_of_isLRLocal",
+    "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal"
+   ]
   },
   {
    "g": 123,

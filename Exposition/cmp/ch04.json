@@ -1790,15 +1790,16 @@
   {
    "id": "V4.72",
    "title": "Proposition 4.4.5 (preprint 4.26) in a local model: the bracket is an sc-smooth section over $O^2$",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§4.4, Proposition 4.4.5 (preprint 4.26), p. 196 (preprint p. 167) (proof §§4.5.1–4.5.2, pp. 200–202)",
     "page": 167,
     "statement": "(2021) For sc-smooth vector fields $A$, $B$ on $X$ the usual formula defines the Lie bracket, an sc-smooth section $[A, B]$ of $TX|X^2 \\to X^2$; proved in Appendix 4.5 (the earlier texts quote it from another paper, as a vector field on $X^1$)."
    },
    "lean": {
-    "statement": "`proposition_4_4_5_local`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \\in TO$ for $x \\in O_2$, and $x \\mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.",
+    "statement": "`proposition_4_4_5_book`: for sc-smooth vector fields $A$, $B$, the map $[A, B] : X^2 \\to TX$ (`lieBracket`) is given in every chart $\\psi$ by $T\\psi([A, B](x)) = (\\psi(x), [A_\\psi, B_\\psi](\\psi(x)))$, the usual formula (Lemma 4.5.1); it is sc-smooth and covers the inclusion $X^2 \\to X^1$. The local computation, `proposition_4_4_5_local`: for vector fields $A$, $B$ on $(O, C, E)$, $(x, [A, B](x)) \\in TO$ for $x \\in O_2$, and $x \\mapsto (x, [A, B](x))$ is sc-smooth from $(O^2, C^2, E^2)$ to $(TO, TC, TE)$.",
     "decls": [
+     "Chapter4/BookFormLieBracket2021 · MPolyfold.proposition_4_4_5_book",
      "Chapter4/VectorFields · proposition_4_4_5_local",
      "Chapter4/VectorFields · isScSmooth_scDeriv_apply",
      "Chapter4/VectorFields · levelMap_shift_shift_eq",
@@ -1806,11 +1807,12 @@
     ]
    },
    "chips": [
-    "in a local model",
-    "M-polyfold form: V4.76"
+    "the usual formula in every chart",
+    "a map $X^2 \\to TX$, as V4.76",
+    "pull-back bundle: G.92"
    ],
    "diff": [
-    "The statement on an M-polyfold is V4.76, with Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, in V4.74, V4.75 and V4.77 (gap G.38, closed); the pull-back bundle $TX|X^2 \\to X^2$ is not built (gap G.92). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, item 155)."
+    "\"An sc-smooth section of $TX|X^2 \\to X^2$\" is read as an sc-smooth map $X^2 \\to TX$ covering the inclusion, as in V4.76, with which this row is merged; the pull-back bundle is not built (gap G.92). Lemma 4.5.1 (independence of the chart), whose proof the text leaves to the reader, is V4.74, V4.75 and V4.77 (gap G.38, closed). The sc-smoothness, one sentence in the text (p. 201), is proved by writing the second component as the tangent map of $A \\circ r^1$ composed with an sc-smooth pair (Findings, Chapter 4, items 155, 166)."
    ]
   },
   {
@@ -1923,7 +1925,8 @@
      "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket",
      "Chapter4/VectorFieldsGlobal · MPolyfold.tangentChartMap_lieBracket_eq",
      "Chapter4/VectorFieldsGlobal · MPolyfold.continuous_lieBracket",
-     "Chapter4/VectorFieldsGlobal · proposition_4_4_5"
+     "Chapter4/VectorFieldsGlobal · proposition_4_4_5",
+     "Chapter4/BookFormLieBracket2021 · MPolyfold.proposition_4_4_5_book"
     ]
    },
    "chips": [
@@ -1932,7 +1935,7 @@
     "pull-back bundle: G.92"
    ],
    "diff": [
-    "\"An sc-smooth section of $TX|X^2 \\to X^2$\" is read as an sc-smooth map $X^2 \\to TX$ covering the inclusion $X^2 \\to X^1$; the pull-back bundle itself is not built (gap G.92). In the chart $(\\psi^1)^1$ of $X^2$ and the tangent chart $T\\psi$ the bracket reads $z \\mapsto (z, [A_\\psi, B_\\psi](z))$, sc-smooth by V4.72; it depends neither on the chart nor on the retraction (V4.75). This closes gap G.38 (Findings, Chapter 4, item 161).",
+    "\"An sc-smooth section of $TX|X^2 \\to X^2$\" is read as an sc-smooth map $X^2 \\to TX$ covering the inclusion $X^2 \\to X^1$; the pull-back bundle itself is not built (gap G.92). In the chart $(\\psi^1)^1$ of $X^2$ and the tangent chart $T\\psi$ the bracket reads $z \\mapsto (z, [A_\\psi, B_\\psi](z))$, sc-smooth by V4.72; it depends neither on the chart nor on the retraction (V4.75). This closes gap G.38 (Findings, Chapter 4, item 161). (2026-11-09) The book form, with the formula in every chart, is V4.72 (`proposition_4_4_5_book`; Findings, Chapter 4, item 166).",
     "The earlier statement, a vector field on $X^1$ (a section of $T(X^1) \\to X^2$), would through $\\Phi$ (V4.78) put $[A, B](x)$ in $E_1$ for $x \\in X_2$, which the example of V4.73 excludes; as we read it, it does not hold, and the 2021 statement does (Findings, Chapter 4, item 161)."
    ]
   },

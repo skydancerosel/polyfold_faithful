@@ -79,8 +79,10 @@ matching orientation classes (1)–(5).
   the text) and live on the same `U(x)`; `M_U^†` is `M_U''^*` of the union `B ⊔ B'` (the text
   intersects it with `M_U^*` and `M_U'^*`, not needed for (1)–(5)); Property (T) is not used, the
   pieces being cut out by the finitely many values of `y ↦ (I_y, I'_y, J₊(y), J'₊(y))`.
-* Not formalized: Lemma 9.4.3 (it needs the convergence of the oriented frames `T_{y_k}(Mᵢ, oᵢ)` in
-  a chart, i.e. continuity of the determinant of the change of frames along `Mᵢ ∩ Mᵢ'`).
+* Lemma 9.4.3 is not in this file: it is `OrientedBranchingStructure.lemma_9_4_3`
+  (`Chapter9/PropertyTShrinking2021.lean`, 2026-11-09); Lemma 9.4.4 for M-polyfold sheets, in the
+  reading through M-polyfold charts, is `lemma_9_4_4_chart`
+  (`Chapter9/SheetEssentialChart2021.lean`).
 -/
 
 set_option maxSynthPendingDepth 3
