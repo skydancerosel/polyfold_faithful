@@ -10315,3 +10315,331 @@ Witnesses and the hypotheses taken (2026-11-08).
     equivalence, push-forward, natural equivalence and `SEP` morphism of `StrongBundleEquivalenceExamples`
     (`isStrongBundleEquivalence_pullbackProj'`, `bijOn_pushforward_example`, `strongBundleNatEquiv_example`,
     `negSEPHom_mem_equivalences`). Status: **settled** (every hypothesis satisfiable).
+
+## Chapter 11 (Geometry up to equivalences; Lean `Polyfold/Chapter11/`)
+
+*Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so that agents
+working at the same time do not collide; the gaps in the numbering are unused numbers, not deleted items. 1–19:
+§11.1, the tangent functor and faces (`Chapter11/EpEquivalenceGeometry.lean`, `EpEquivalenceGeometryFaces.lean`);
+20–29: §11.2, sc-differential forms (not formalized); 30–39: §11.3 up to Theorem 11.3.3, branched ep⁺-subgroupoids
+(`BranchedEquivalence.lean`, `BranchedEquivalenceLocalization.lean`); 40–49: the rest of §11.3, Lemma 11.3.4 to
+Theorem 11.3.9 (`BranchedEquivalenceTangentSection.lean`, `BranchedEquivalenceTangent.lean`,
+`BranchedEquivalenceTangentOrientation.lean`); 50–59: §11.4, integration (not formalized); 60–69: §11.5, auxiliary
+norms and multisections (`StrongBundleUpToEquivalence.lean`); 70–79: §11.6, proper coverings up to equivalence
+(`CoveringEquivalence.lean`, `CoveringEquivalenceTheorem.lean`, `CoveringEquivalenceDiagram.lean`); 80–89:
+witnesses and the hypotheses taken. Statement numbers and pages are those of the Springer edition (2021, pp.
+521–566), with the 2017 text's in parentheses (2017 pp. 375–416). The comparison items are
+`Exposition/verification/ch11.md` (V11.1–V11.42); the gaps are G.128–G.135.
+
+Found while formalizing §11.1 (2026-11-08).
+
+1. **Theorem 11.1.1: the tangent functor on `EP(E⁻¹)`, composition supplied** *(Theorem 11.1.1, pp. 521–522 (2017:
+   Theorem 11.1, p. 375))*. The text proves that `T` respects refinements and leaves "the remaining argument" to
+   the reader. Identities: `T` of the identity diagram refines the identity of `TX` (`isRefinement_tangent_id`).
+   Composition: for functors `P : C → A`, `Q : C → B` and a natural transformation `Φ ∘ P → G ∘ Q`,
+   `wfpLift` is the functor `C → A ×_Y B`, `c ↦ (P(c), τ(c), Q(c))`; for `C = T(A ×_Y B)` it is an
+   equivalence `T(A ×_Y B) → TA ×_{TY} TB` by two out of three, and `T(e ∘ d)` refines `Te ∘ Td`
+   (`isRefinement_tangent_comp`). `T` maps generalized isomorphisms to generalized isomorphisms
+   (`isGeneralizedIso_tangent`) and commutes with the localization functor
+   (`tangentFunctor_map_localizationFunctor`). `T` is defined on `EP.{max u 1}`, the universe of Chapter 8's
+   tangent functor. Status: **settled**.
+
+2. **Proposition 11.1.2: the degeneracy index under generalized isomorphisms** *(Proposition 11.1.2, pp. 522–523
+   (2017: Proposition 11.1, p. 376))*. Proved as stated, through a representative with both legs equivalences and
+   `IsEquivalence.degIndexOrbit_orbitMap` (`proposition_11_1_2`, `EPLoc.degIndexOrbit_orbitMap`). The proof refers
+   to "Proposition 10.3.10" for that representative; we read Theorem 10.3.10 (possible misprint). Status:
+   **settled** (possible misprint).
+
+3. **Definition 11.1.3: faces recorded by their object sets** *(Definition 11.1.3, p. 523 (2017: Definition 11.1,
+   p. 377))*. `IsOrbitFace θ` (a face of `|X|`), `faceObj θ = π⁻¹(θ)` (saturated, `isSaturated_faceObj`),
+   `faceMor θ` (the morphisms with source in it, `faceMor_eq`), `IsEpFace`, `IsEpFaceStructured`,
+   `IsWeaklyFaceStructured`. The faces of `|X|` are Chapter 2's faces for the index `d_{|X|}` on the open set `|X|`
+   (`isOrbitFace_iff_isFaceIn`, `orbitFacesThrough_eq`, `isEpFaceStructured_iff`), so that every statement about
+   faces becomes one about homeomorphisms of orbit spaces preserving an index. The number of faces through a point
+   is counted in `ℕ∞`. The ep-groupoid structure of a face is part of Proposition 11.1.6 (item 6). Status:
+   **settled**.
+
+4. **Example 11.1.4: the quadrant with the swap, for any `W`** *(Example 11.1.4, p. 523 (2017: Example 11.1, p.
+   377))*. Proved for `C = [0, ∞)² ⊕ W` with any sc-Banach space `W` (`example_11_1_4`): with only identities
+   `C` is face structured (`isFaceStructured_quadrant`); `ℤ/2 ⋉ C` with the swap (`swapEpGroupoid`) is weakly
+   face structured and not face structured. The reason, not given in the text: `{d_{|X|} = 1}` is the image of
+   one connected stratum (`setOf_degIndexOrbit_eq_one_swap`), so `|X|` has exactly one face
+   (`isOrbitFace_swap_iff`), and the corner, of index 2, lies in one face (`not_isEpFaceStructured_swap`). Status:
+   **settled** (stronger).
+
+5. **Remark 11.1.5: the quoted result is proved** *(Remark 11.1.5, p. 524 (2017: Remark 11.1, p. 378))*. The remark
+   quotes [56, Proposition 3.15]; its content for faces of open sets is proved: a homeomorphism preserving the
+   index maps faces onto faces and preserves face-structuredness (`TameBoundary.isFaceIn_univ_image`,
+   `exists_isFaceIn_univ_preimage`, `isFaceStructuredOpen_univ_iff`). For equivalences: the bijection of faces with
+   `Φ_*(X_θ) = saturation(Φ(X_θ))`, `Φ^*(Y_θ') = Φ⁻¹(Y_θ')` (`IsEquivalence.bijOn_faces`,
+   `saturation_image_faceObj`, `preimage_faceObj`); for generalized isomorphisms `faceMap`, `faceComap`, equal to
+   `Ψ_* ∘ Φ^*` and `Φ_* ∘ Ψ^*` on a representative (`faceMap_homMk`, `faceComap_homMk`) (`remark_11_1_5`). The
+   first paragraph, on ordered face structures, has no formal content. Status: **settled**; the ordered face
+   structures have no formal content.
+
+6. **Proposition 11.1.6: only the bijection of faces is formalized** *(Proposition 11.1.6, pp. 524–525 (2017:
+   Proposition 11.2, p. 378))*. Proved, for every generalized isomorphism and with no face structure assumed:
+   `[d]_*` is a bijection of the faces of `|X|` onto those of `|Y|` with inverse `[d]^*`,
+   `[d]_*(X_θ) = Y_{|[d]|(θ)}`, and `|[d]|` restricts to homeomorphisms `θ → [d]_*θ` (`proposition_11_1_6`).
+   Not formalized: the object and morphism sets of a face as sub-M-polyfolds with tame induced structures and the
+   face as a tame face structured ep-groupoid (they need the restriction of an ep-groupoid to a closed saturated
+   sub-M-polyfold, and `X_θ` as a union of faces of the object M-polyfold), the clause on the intersection of two
+   faces, and the generalized isomorphisms `[d]_F` of (11.1). Open question: whether the intersection clause holds
+   in the generality stated was not settled by the formalization; nothing is claimed either way. Status: **open**
+   (gap G.128).
+
+7. **Remark 11.1.7: tameness transfers forward along equivalences** *(Remark 11.1.7, p. 525 (2017: Remark 11.2, p.
+   379))*. Chapter 10 had tameness from `Y` to `X` (`IsEquivalence.isTame_of_isTame`). The converse, needed here,
+   goes through `X ×_Y Y` for `F` and `1_Y`: `π_X` is an equivalence, so `X ×_Y Y` is tame, and `π_Y` is a
+   surjective local sc-diffeomorphism on objects (`isTame_of_isTame_left`, `isTame_iff`). With item 5, "tame and
+   face structured" is invariant under generalized isomorphisms (`remark_11_1_7`). Status: **settled**.
+
+8. **Proposition 11.1.8: the maps on faces read as restrictions of `|f|`** *(Proposition 11.1.8, p. 526 (2017:
+   Proposition 11.3, p. 380))*. `f_* = g_*`, `f^* = g^*` on faces and `|f| = |g|` on every face
+   (`proposition_11_1_8`). The text's maps `|F| → |f_*F|` come from the generalized isomorphisms of (11.1), which
+   are not constructed (item 6); they are read as the restrictions of `|f|`. Status: **settled** in this reading;
+   gap G.128 for the generalized isomorphisms.
+
+Found while reading §11.2 (2026-11-08).
+
+20. **§11.2 is not formalized** *(Theorem 11.2.1 to Proposition 11.2.9, pp. 526–535 (2017: Theorem 11.2 to
+    Proposition 11.5, pp. 380–389))*. The push-forward and pull-back of sc-differential forms along equivalences
+    and generalized maps, their compatibility with `d`, and their dependence on the orbit map only under the local
+    regularity property need sc-differential forms on ep-groupoids, which are not in the project (gaps G.74, G.80).
+    The same pattern for functors `Θ` is items 30–32. Status: **open** (gap G.129).
+
+Found while formalizing §11.3 up to Theorem 11.3.3 (2026-11-08).
+
+30. **Definition 11.3.1: total push-forwards; the target of `F_*`** *(Definition 11.3.1, p. 535 (2017: Definition
+    11.4, p. 389))*. `pullbackTheta` and `pushforwardTheta` are defined for every sc-smooth functor and every map
+    on objects; `F_*Θ(y)` uses one chosen `x` and morphism `F(x) → y`, and is `0` if there is none
+    (`pushforwardTheta_of_not_exists`). The push-forward is typed `X′ → ℚ⁺` in both editions; we read `Y → ℚ⁺`
+    (possible misprint). Status: **settled** (possible misprint).
+
+31. **Lemma 11.3.2 needs less than equivalences** *(Lemma 11.3.2, p. 536 (2017: Lemma 11.5, p. 389))*. (1) holds
+    for full `F` (`pushforwardTheta_eq`, `isFunctorial_pushforwardTheta`, `pullbackTheta_pushforwardTheta`); (2)
+    for essentially surjective `F` (`pushforwardTheta_pullbackTheta`); (3) for naturally equivalent full functors
+    in the case of push-forwards and for any naturally equivalent functors in the case of pull-backs
+    (`pushforwardTheta_eq_of_naturallyEquivalent`, `pullbackTheta_eq_of_naturallyEquivalent`). Added:
+    `pullbackTheta_comp`, `pushforwardTheta_comp`, `pushforwardTheta_id`. Status: **settled** (stronger).
+
+32. **Push-forward and pull-back along generalized maps** *(§11.3, pp. 536–537 (2017 pp. 389–390))*. On diagrams
+    `d_* = Φ_*F^*`, `d^* = F_*Φ^*` (`Diagram.pushTheta`, `Diagram.pullTheta`), invariant under refinements
+    (`pullTheta_eq_of_isRefinement`, and `pushTheta_eq_of_isRefinement` when `Φ` is an equivalence); on classes
+    through a chosen representative (`EPLoc.rep`, `EPLoc.pushTheta`, `EPLoc.pullTheta`). `f^*` is well defined and
+    contravariantly functorial for all generalized maps, not only generalized isomorphisms (`pullTheta_comp`). The
+    composition rules, "easily verified" in the text, go through base change in the weak fibred product
+    (`WeakFibredProduct.pushforwardTheta_projRight_pullbackTheta`, `pushforwardTheta_projLeft_pullbackTheta`),
+    giving `pushTheta_comp`, `pushTheta_inv`, `pullTheta_pushTheta`, `pushTheta_pullTheta`. Theorem 10.3.19, which
+    does not hold as we read it (Chapter 10, item 17), is not used. Status: **settled** (stronger).
+
+33. **Theorem 11.3.3, the step for an equivalence: paracompactness, restricted sheets, one possible misprint**
+    *(Theorem 11.3.3, proof, pp. 537–538 (2017: Theorem 11.3, pp. 390–391))*. 2021 Definition 9.1.2 (1) asks that
+    `|supp(Θ)|` be paracompact; the proof does not mention it, and it is proved from `orbitSupp_pushforwardTheta`,
+    `orbitSupp_pullbackTheta` and `|F|` a homeomorphism. A local branching structure is moved by an
+    sc-diffeomorphism between open subsets of two object spaces (`LocalBranchingStructure.mapDiffeo`), the sheets
+    first restricted to its domain, here that of Chapter 10's `TransportChart`; dimensions are invariant across
+    M-polyfolds (`MPolyfold.hasDimAt_image_iff_of_isScDiffeoOn`, `IsSubmanifoldOfDim.image_isScDiffeoOn`). Manifold
+    type is shown for two morphisms `y → y′` directly. In the manifold-type step
+    `ψ ∘ φ′ ∘ ψ⁻¹ : F(x) → F(x)` (for `ψ : F(x) → y`, `φ′ : y → y`) is read `ψ⁻¹ ∘ φ′ ∘ ψ`
+    (possible misprint). Status: **settled** (possible misprint).
+
+34. **Theorem 11.3.3 (6): every dimensional decomposition** *(Theorem 11.3.3, p. 537 (2017: Theorem 11.3, p.
+    390))*. (6) speaks of "the dimensional decomposition", relying on the uniqueness part of Proposition 9.1.11,
+    which does not hold as we read it (Chapter 9, `not_proposition_9_1_11_rn`). It is read as "every dimensional
+    decomposition `Θ = Σ_k Θ_k` is mapped to one", which is what the proof gives (`theorem_11_3_3_six`,
+    `isDimDecomposition_pushforwardTheta`); `n`-dimensionality is added (`isNDimensional_pushTheta`,
+    `isNDimensional_pullTheta`). All six parts are proved (`theorem_11_3_3_one` … `theorem_11_3_3_six`), with `X`
+    and `Y` in one universe. Status: **settled** in this reading.
+
+35. **Witnesses for §11.3** *(not in the book)*. `Θ₀ = 1_{0}` on `ℤ/2 ⋉ ℝ` is a branched ep⁺-subgroupoid
+    (`isBranchedEpSubgroupoid_reflectionTheta`); its pull-back along `reflectionCover`, an equivalence not
+    injective on objects, is one, equal to `1` at two objects (`pullbackTheta_reflectionCover_two_points`), and
+    `F_*F^*Θ₀ = Θ₀`; for the generalized isomorphism `[ℤ/2 ⋉ ℝ ← X_𝒰 → X_𝒰]`, `f_*Θ₀ = F^*Θ₀`
+    (`pushTheta_reflectionCoverDiagram`). Status: **settled**.
+
+Found while formalizing the rest of §11.3, Lemma 11.3.4 to Theorem 11.3.9 (2026-11-08).
+
+40. **Lemma 11.3.4: section functors of `Ĝr`, (11.8) and (11.9)** *(Lemma 11.3.4, p. 539, with (11.8), p. 538, and
+    (11.9), p. 539 (2017: Lemma 11.6, p. 392))*. `Γ(π̂)` is the set of section functors of `π̂ : Ĝr(X) → X_∞`,
+    with no continuity required (`IsGrHatSection`, `GrHatSections`): `h(x)` is a finite formal sum of oriented
+    tangent sets at `x ∈ X_∞`, natural along morphisms, recorded on all objects and `0` off `X_∞`; every
+    orientation of Chapter 9 is one (`IsOrientation.isGrHatSection`). Along an equivalence, `F_*h` of (11.8) moves
+    `h(x)` by `Tψ ∘ TF(x)` for a chosen `ψ : F(x) → y`, the formal sums by the image of carriers and frames
+    (`OrTangent.map`, `pushSection`), and the value does not depend on the choice (`pushSection_eq`), as the text
+    says; `F^*h′` of (11.9) uses the inverse of `TF` on `T_xX` (`fibreInv`, `pullSection`). Proved: `F_*` and `F^*`
+    preserve section functors, are mutually inverse, are unchanged under natural equivalence, compose, and satisfy
+    base change in the weak fibred product (`pushSection_projRight_pullSection`); on diagrams and classes they are
+    well defined (`Diagram.pushSection`, `EPLoc.pushSection`, `pushSection_homMk`, `pushSection_inv`), with the
+    composition laws for generalized isomorphisms, as in the text (`lemma_11_3_4`). Status: **settled**.
+
+41. **Theorem 11.3.5: Chapter 9 across two M-polyfolds; the independence of the tangent sums carried along**
+    *(Theorem 11.3.5, p. 539, proof pp. 539–540 (2017: Theorem 11.4, p. 393))*. Chapter 9 moves submanifolds,
+    tangent sets and orientations by sc-diffeomorphisms of one M-polyfold; the proof moves an oriented branching
+    structure at `x` by `ψ̂ ∘ F`, between open subsets of two. This is supplied: oriented tangent sets
+    (`IsOrientedAt.map_tangentMapOn`), orientations of submanifolds with their frames moved by the tangent map
+    (`SubmanifoldOrientation.mapDiffeo`), oriented branching structures (`OrientedBranchingStructure.mapDiffeo`,
+    `orientedSum_mapDiffeo`), and `Tψ ∘ TF = TQ` on `T_uX` for a transport chart `Q = ψ̂ ∘ F`
+    (`TransportChart.tangentMor_ψ_tangent_obj`). The theorem then follows as in the text, for equivalences
+    (`isOrientation_pushSection`, `isOrientation_pullSection`) and for generalized isomorphisms
+    (`theorem_11_3_5_push`, `theorem_11_3_5_pull`). Chapter 9's orientations assume the independence of the tangent
+    sums of Theorem 9.2.1 (`HasIndependentTangentSums`), a hypothesis there, which holds on `ℝⁿ`
+    (`hasIndependentTangentSums_rn`); it is assumed for `Θ` and proved for `F_*Θ`, `F^*Θ′`, `f_*Θ` and `f^*Θ′`
+    (`hasIndependentTangentSums_pushforwardTheta`, `hasIndependentTangentSums_pullbackTheta`,
+    `hasIndependentTangentSums_pushTheta`, `hasIndependentTangentSums_pullTheta`). Status: **settled** (hypothesis
+    made explicit).
+
+42. **Definition 11.3.6 and (11.10): the independence as a field** *(Definition 11.3.6 and (11.10), p. 541 (2017:
+    Definition 11.5, p. 394))*. `OrientedBranched` records `Θ`, `T̂_Θ` and the independence of the tangent sums;
+    `push` and `pull` along generalized isomorphisms give oriented branched ep⁺-subgroupoids by Theorems 11.3.3 and
+    11.3.5, and (11.10) is `push_comp`, `pull_comp`, from Lemma 11.3.4 and item 32. Of the two inverse laws of
+    (11.10), `f^*f_*Θ̂ = Θ̂` is proved when `T̂_Θ` vanishes off `X_∞` (`pull_push`), and `f_*f^*Θ̂′ = Θ̂′` for
+    its two components (`EPLoc.pushTheta_pullTheta`, `EPLoc.pushSection_pullSection`). Status: **settled**.
+
+43. **Theorem 11.3.7: the proof left to the reader** *(Theorem 11.3.7, p. 541 (2017: Theorem 11.5, p. 395))*.
+    Proved for generalized isomorphisms and branched ep⁺-subgroupoids with independent tangent sums
+    (`theorem_11_3_7_push`, `theorem_11_3_7_pull`). The steps: `T_{f(a)}f(A) = Tf(T_aA)` for an sc-diffeomorphism
+    `f` between open subsets of two M-polyfolds (`submanifoldTangent_image_of_isScDiffeoOn`); the tangent sums of a
+    moved local branching structure are moved by the tangent map (`LocalBranchingStructure.tangentSum_mapDiffeo`);
+    for an equivalence, `T(F_*Θ)(y)` is `TΘ(x)` moved by `Tψ ∘ TF(x)` for every `ψ : F(x) → y`
+    (`tangentValue_pushforwardTheta`), so `(TF)_*TΘ = T(F_*Θ)` with `(TF)_*` the push-forward of Definition
+    11.3.1 along the equivalence `TF` (`tangentTheta_pushforwardTheta`), and dually for `F^*`; and `Tf` is `[Td]`
+    for the chosen representative `d` (`tangentFunctor_map_eq`, Theorem 11.1.1). Status: **settled** (hypothesis
+    made explicit, as in item 41).
+
+44. **Theorem 11.3.8: the boundary read through `∂M`** *(Theorem 11.3.8, pp. 541–542 (2017: Theorem 11.6, p.
+    395))*. The sketch of the proof says that `d_M` is preserved; this is read as the invariance of the boundary
+    `∂M` of a submanifold (Definition 9.2.16, through Remark 9.2.14) under sc-diffeomorphisms between open subsets
+    of two M-polyfolds (`mem_submanifoldBoundary_image_iff_of_isScDiffeoOn`, with the reduced tangent condition,
+    `isTangentReducedAt_image_iff_of_isScDiffeoOn`). Then `∂Θ` is moved pointwise by every chart `ψ̂ ∘ F`
+    (`boundaryTheta_apply_of_isScDiffeoOn`), and (11.11) follows for equivalences
+    (`boundaryTheta_pushforwardTheta`, `boundaryTheta_pullbackTheta`) and for generalized isomorphisms
+    (`theorem_11_3_8_push`, `theorem_11_3_8_pull`), for branched ep⁺-subgroupoids with independent tangent sums.
+    Status: **settled** in this reading.
+
+45. **Theorem 11.3.9 for a representative, under a boundary-transfer hypothesis** *(Theorem 11.3.9, p. 542 (2017:
+    Theorem 11.7, p. 395))*. Chapter 9's boundary orientation `T̂_{∂Θ}` is the boundary lift of `T̂_Θ` by a
+    boundary operation `bd` on oriented tangent sets, which Chapter 9 takes as data, since the partial cones of
+    submanifolds are not formalized. A linear map `T_xX → T_yY` transfers `bd` to `bd′` if it preserves degree
+    `1` and commutes with them there (`IsBoundaryTransfer`, pointwise, for the given map and operations); the
+    identity transfers every boundary operation to itself (`isBoundaryTransfer_id`). For a representative
+    `X ← A → Y` with `Φ` an equivalence and boundary operations on `X`, `A`, `Y` transferred by `TF(a)⁻¹` and
+    by `Tψ ∘ TΦ(a)`: `d_*(∂Θ) = ∂(d_*Θ)` and `d_*T̂_{∂Θ} = T̂_{∂(d_*Θ)}`, and likewise for `d^*`
+    (`pushSection_boundaryLift`, `pullSection_boundaryLift`, `theorem_11_3_9_push`, `theorem_11_3_9_pull`). Not
+    formalized: that the boundary operations of Definition 9.3.8 satisfy the hypothesis along equivalences, which
+    needs sc-diffeomorphisms between different M-polyfolds to preserve the tame induced structures, `d_M` and
+    outward vectors; hence a form of the theorem independent of the representative. Status: **open** (gap G.130).
+
+46. **Witnesses for the rest of §11.3** *(not in the book)*. The orientation `T̂¹` of Example 9.3.5 on `ℝ²` is a
+    section functor (`exampleT1_mem_grHatSections`), fixed by the push-forward and the pull-back along the identity
+    (`pushSection_id_exampleT1`); `(Θ, T̂¹)` on the trivial ep-groupoid of `ℝ²` (`rn2EP`) is an oriented branched
+    ep⁺-subgroupoid in the sense of Definition 11.3.6 (`example935Oriented`), pushed forward along the identity
+    generalized isomorphism (`isGeneralizedIso_id_rn2EP`, `example935Oriented_push`); the boundary-transfer
+    hypothesis holds there for the identity boundary operation (`isBoundaryTransfer_id_rn2`). Status: **settled**.
+
+Found while reading §11.4 (2026-11-08).
+
+50. **§11.4 is not formalized** *(Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017:
+    Theorems 11.8, 11.9 and Remark 11.3, pp. 396–399); Theorems 11.4.2 and 11.4.5 new in the 2021 edition)*. The
+    transformation of the canonical measures and boundary measures under generalized isomorphisms needs
+    sc-differential forms (G.74, G.80), branched integration and the boundary measures (G.107–G.109), and the
+    orientations of §11.3 (items 40–45). Status: **open** (gap G.131).
+
+Found while formalizing §11.5 (2026-11-08).
+
+60. **Proposition 11.5.1 without conditions (1) and (2) of Definition 8.3.5** *(Proposition 11.5.1, p. 547 (2017:
+    Proposition 11.6, p. 399))*. `pullNorm`, `pushNorm` are defined through a representative of `|D|(|e|)` in
+    `|W′[1]|` (`SDiagram.oneOrbitMap`, continuous and determined by `|D|` on `|W|` because `|W[1]| → |W|` is
+    injective, `oneToOrbit_injective`); for invariant functions they agree with the text's formula `N′(Ψ(e″))`
+    (`pullNorm_eq_Ψ`). Proved: independence of the choices, continuity, condition (3), the inverse laws and the
+    dependence on `|[D]|` only (`proposition_11_5_1`). Not formalized: conditions (1) and (2) for `[D]^*N′` and
+    `[D]_*N`, which need the level-1 fibre maps of `μ` and of a strong bundle equivalence as linear bijections and
+    the level-1 local homeomorphism property near the zero section. The sentence before the proposition derives
+    `[D] = [D′]` under the local regularity property; that is Theorem 10.5.7, which does not hold as we read it
+    (Chapter 10, item 58); nothing in §11.5 uses it. Status: **open** (gap G.132).
+
+61. **Lemma 11.5.2 and Proposition 11.5.3 for the functors underlying sc⁺-multisections** *(Lemma 11.5.2, p. 548
+    (2017: Lemma 11.7, p. 400); Proposition 11.5.3, p. 548 (2017: Proposition 11.7, p. 401))*. A multisection
+    functor is a map on the total object space constant along morphisms (`IsWFunctor`, witness `isWFunctor_const`);
+    `pushMult` along a strong bundle equivalence is independent of the choice and a functor (`lemma_11_5_2`), and
+    along generalized strong bundle isomorphisms `[D]_* = Ψ_*Φ^*`, `[D]^* = Φ_*Ψ^*` are well defined, mutually
+    inverse and depend only on `|[D]|` (`proposition_11_5_3`). The text's "generalized strong bundle maps" with
+    `|[D]| = |[D′]|` is read as generalized strong bundle isomorphisms, for which the push-forward is defined.
+    Not formalized: the local section structures of 2021 Definition 13.2.1 (not in the project) and their
+    transport, which needs a strong bundle form of the transport of Proposition 10.1.9. Status: **open** (gap
+    G.133).
+
+Found while formalizing §11.6 (2026-11-08).
+
+70. **Lemma 11.6.1** *(Lemma 11.6.1, p. 549, new in the 2021 edition)*. Proved as stated (`lemma_11_6_1`), with the
+    unique lift `IsProperCovering.lift` of `(φ, y)`, its target over `t(φ)` (`obj_tgt_lift`), and uniqueness of
+    lifts with prescribed target (`existsUnique_lift_tgt`). The local sc-diffeomorphism half is also Chapter 10's
+    `EpFunctor.isLocalScDiffeo_mor`. Status: **settled**.
+
+71. **Lemmas 11.6.2 and 11.6.3: "naturally identified" as an isomorphism; the display of `α(ψ₂ ∘ ψ₁)`** *(the
+    action (11.15), p. 550; Lemma 11.6.2, p. 551 (2017: Lemma 11.8, p. 402); Lemma 11.6.3, pp. 551–552 (2017: Lemma
+    11.9, p. 403))*. The action of `G_x` on `Y_x` is a `MulAction` (`instMulActionFiber`); "naturally identified"
+    is read as the functor `Y(x) → G_x ⋉ Y_x` that is the identity on objects and `α` on morphisms, bijective
+    on objects, full and faithful (`toTranslation`, `lemma_11_6_2`); `B_φ` and `φ̃` likewise (`transportFiber`,
+    `transportFiber_smul`, `translationMap`, `lemma_11_6_3`). In the computation of `α(ψ₂ ∘ ψ₁)` on p. 550 the
+    second factor is printed `(F(ψ₂), s(ψ₁))`; we read `(F(ψ₁), s(ψ₁))` (possible misprint). Status: **settled**
+    (possible misprint).
+
+72. **Definition 11.6.4 (2): the fibre condition is redundant** *(Definition 11.6.4, p. 553 (2017: Definition 11.6,
+    p. 404))*. If `F`, `F′` are proper covering functors and `Ψ`, `Φ` are equivalences, `Ψ` maps each `F⁻¹(x)`
+    bijectively onto `F′⁻¹(Φ(x))`: injectivity from the fullness of `Ψ`, the faithfulness of `Φ` and unique lifting
+    along `F`; surjectivity from the essential surjectivity of `Ψ`, the fullness of `Φ` and unique lifting along
+    `F′` (`isFiberBijective_of_isEquivalence`, `isEquivalence_iff`). The text's remark after the definition treats
+    the fibre bijection as singling out a subclass of the functors of (1); within (2) it is automatic. Witness:
+    `pairToPointCovering`, an equivalence with no inverse functor (`isEquivalence_pairToPointCovering`). Status:
+    **settled**; the hypothesis is redundant.
+
+73. **Definition 11.6.5: (11.20) objectwise** *(Definition 11.6.5, p. 554 (2017: Definition 11.7, p. 405))*.
+    `ProperCoveringHom.NatTrans` with `τ_X(F(y)) = F′(τ_Y(y))` and the square after the definition
+    (`naturality_F`); `NaturallyEquivalent` is an equivalence relation compatible with composition
+    (`naturallyEquivalent_equivalence`, `NaturallyEquivalent.comp_left`, `comp_right`). Status: **settled**.
+
+74. **Theorem 11.6.6: all claims; step (C) by properness; the heading of step (A)** *(Theorem 11.6.6, p. 555, proof
+    pp. 556–561 (2017: Theorem 11.10, p. 405))*. All claims are proved (`theorem_11_6_6`), (1) under the weaker
+    hypotheses that `Ψ`, `Φ` are local sc-diffeomorphisms on objects and `Ψ` maps fibres onto fibres
+    (`isProperCovering_hFunctor_of`). Step (C) is proved without sequences: `H` is a proper map on objects
+    (`isProperMap_hObj`), and a proper local sc-diffeomorphism with finite fibre is evenly covered
+    (`MPolyfold.IsLocalScDiffeo.evenlyCovered_of_isProperMap`). In step (D) the fibre bijection comes from item 72;
+    the tameness of `Y″`, "trivial" in the text, is `IsLocalScDiffeo.isTame`. The heading of step (A) says that
+    `F × F′ × F″` maps `X ×_{X′} X″` onto `Y ×_{Y′} Y″`; we read `Y ×_{Y′} Y″` onto `X ×_{X′} X″`
+    (possible misprint). Witness: `theorem_11_6_6_pairToPoint`. Status: **settled** (possible misprint).
+
+75. **The category `PC`, Definition 11.6.7 and Proposition 11.6.8: the last step of the chain** *(Definition
+    11.6.7, p. 561 (2017: Definition 11.8, p. 410); Proposition 11.6.8, p. 562 (2017: Proposition 11.8, p. 411))*.
+    `PC` is a category with composition associative on the nose (`ProperCoveringHom.comp_assoc`) and the
+    multiplicative class `PC.equivalences`; all proper coverings are taken in one universe, so that the weak fibred
+    product `PC.fibred` stays in `PC`. In the proof of Proposition 11.6.8 the displayed chain for the `ε`'s ends at
+    `ε′ ∘ K ∘ π_{B″}`; the last step to `ε″ ∘ K′ ∘ π_{B″}` uses the assumption `ε′ ∘ K ≃ ε″ ∘ K′` and
+    is added (`proposition_11_6_8`); with it, having a common refinement is an equivalence relation
+    (`hasCommonRefinement_equivalence`). Witnesses: `PC.Examples.diagram`, `diagram'`,
+    `hasCommonRefinement_diagram_diagram`. Status: **settled**.
+
+76. **The localization `PC(E⁻¹)` and Remark 11.6.9** *(pp. 561–563 (2017 pp. 410–412); Remark 11.6.9, pp. 563–566
+    (2017: Remark 11.4, pp. 412–413))*. The category `PC(E⁻¹)` of classes of diagrams and the functor
+    `I : PC → PC(E⁻¹)`, whose well-defined composition the text leaves to the reader, are not formalized
+    (G.134). Remark 11.6.9 recalls Definition 8.5.9, which is Chapter 8's
+    `EpStrongBundle.IsProperStrongBundleCovering2021`, and sketches the category of proper strong bundle coverings
+    with its localization, the details left to the reader; not formalized (G.135). Status: **open** (gaps G.134,
+    G.135).
+
+Witnesses and the hypotheses taken (2026-11-08).
+
+80. **Every hypothesis is satisfiable** *(§§11.1, 11.3, 11.5, 11.6)*. Two hypotheses are taken, both in the rest of
+    §11.3: Chapter 9's independence of the tangent sums of Theorem 9.2.1, assumed for the branched ep⁺-subgroupoid
+    being moved and proved for its images (item 41; on `ℝⁿ`, `hasIndependentTangentSums_rn`), and the
+    boundary-transfer hypothesis of Theorem 11.3.9 (item 45; `isBoundaryTransfer_id`, `isBoundaryTransfer_id_rn2`).
+    The statements of §11.3 and the category `PC` take their ep-groupoids in one universe, and `T` on `EP(E⁻¹)`
+    lives on `EP.{max u 1}`. Every definition has a witness: the quadrant with and without the swap
+    (`example_11_1_4`); `Θ₀ = 1_{0}` on `ℤ/2 ⋉ ℝ` along an equivalence not injective on objects and along a
+    generalized isomorphism (item 35); Example 9.3.5's `(Θ, T̂¹)` on `ℝ²` for section functors and oriented
+    branched ep⁺-subgroupoids (item 46); the constant functions for invariant functions on `W_{0,1}` and functors
+    on `W` (`isOneInvariant_const`, `isWFunctor_const`); the pair groupoid of `ℤ` over the point for functors,
+    equivalences and natural equivalences of proper coverings, Theorem 11.6.6 with a nonempty fibred product, and
+    diagrams with a common refinement (`isEquivalence_pairToPointCovering`,
+    `naturallyEquivalent_pairToPointCovering`, `theorem_11_6_6_pairToPoint`, `nonempty_fiber_id`,
+    `hasCommonRefinement_diagram`). Status: **settled** (every hypothesis satisfiable).

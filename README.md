@@ -6,7 +6,8 @@ orientations),
 formalized against Mathlib with the same faithful layer as our formalizations of Milnor's
 *Topology from the Differentiable Viewpoint* and *Morse Theory*
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, is
-under way: Chapters 7–10 are formalized. The authoritative text is the
+under way: Chapters 7–11 are formalized (Chapter 11 without its §§11.2 and 11.4 on forms and
+integration). The authoritative text is the
 Springer edition (Progress in Mathematics 50, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names keep the
@@ -28,7 +29,7 @@ pace.
 2. **Open the sign-off page.** In the unzipped folder, double-click
    `Exposition/polyfold-signoff.html`. It opens in your browser. Stay online: the formulas are
    typeset from the internet.
-3. **Check each item.** Each of the 772 items has a one-sentence summary and a label saying how the
+3. **Check each item.** Each of the 824 items has a one-sentence summary and a label saying how the
    formal statement compares with the book's (as in the book, hypotheses explicit, stronger,
    narrower, restated, …). Click **the full statement, HWZ beside Lean** to see the book's
    statement, with its page, beside what Lean proves, with every hypothesis it uses. If the formal
@@ -70,15 +71,27 @@ GitHub displays it directly.
   (equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the
   equivalences, the category of generalized maps and the orbit-space functor, strong bundle
   equivalences, push-forward and pull-back of sections along generalized strong bundle
-  isomorphisms). Not yet formalized: local regularity under equivalences (Propositions
-  10.1.9–10.1.10 and what rests on them), the Fredholm parts of Theorems 10.4.5 and 10.5.4, and
-  composition in the strong bundle localization; work on the first and the last is under way.
-* About 200,200 lines of Lean in 312 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (9,955 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+  isomorphisms, the weak fibred product of strong bundles and the category `SEP(F⁻¹)`). Local
+  regularity under equivalences (Propositions 10.1.9, 10.1.10, 10.1.19, 10.3.16) is proved.
+  Theorems 10.3.19 and 10.5.7 do not hold as we read them (counterexamples in Lean); Theorem
+  10.3.19 holds when the target is effective. Not formalized: Propositions 10.4.6–10.4.7 (local
+  regularity for strong bundles), the Fredholm parts of Theorems 10.4.5 and 10.5.4, the iterated
+  products of Theorem 10.2.2, and the universal property of the localization.
+* **Part II, Chapter 11, is formalized** except §11.2 (sc-differential forms under equivalences)
+  and §11.4 (integration), which need the forms of §8.2: the tangent functor on `EP(E⁻¹)`, the
+  degeneracy index and the faces under generalized isomorphisms (§11.1), branched
+  ep⁺-subgroupoids, their tangent sections and orientations pushed forward and pulled back
+  (§11.3; Theorem 11.3.9 for a representative, under an explicit hypothesis on the boundary
+  operations, satisfied by the identity), strong bundles up to equivalence (§11.5), and
+  equivalences of proper coverings with Theorem 11.6.6 and Proposition 11.6.8 (§11.6). Not
+  formalized besides: the structures of Proposition 11.1.6, parts of Proposition 11.5.1 and the
+  local section structures of §11.5, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128–G.135).
+* About 211,000 lines of Lean in 330 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (10,746 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–10 is compared with its formal version** (772 items, each with
+* **Every numbered item of Chapters 1–11 is compared with its formal version** (824 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.127).
+  list of what is not formalized and why (G.1–G.135).
 * **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -95,7 +108,7 @@ GitHub displays it directly.
 | `Exposition/Verification.pdf` | The verified edition: each item as a short paragraph ending in the sentence to confirm. |
 | `Exposition/Findings.md` | Every gap, hidden hypothesis, counterexample, reading chosen and possible misprint, numbered, with what was done about it. |
 | `Exposition/ProofByProof.pdf` (or `polyfold-proof-by-proof.html`) | Each formal proof retold step by step, with a tag on every step naming the Lean declaration that checks it. |
-| `Exposition/Chapter1.md` … `Chapter8.md` | The expanded exposition, with complete proofs, for a first-year graduate student. |
+| `Exposition/Chapter1.md` … `Chapter11.md` | The expanded exposition, with complete proofs, for a first-year graduate student. |
 | `RoundTrip/REPORT.md` | The round-trip audit: results, disagreements for human review, statements of the text that do not hold in the formal reading. |
 
 Open the HTML pages in a browser straight from the folder; they need no server.

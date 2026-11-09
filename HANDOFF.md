@@ -72,7 +72,7 @@ brief, this README, `RoundTrip/REPORT.md`), a counterexample refutes *our readin
 not the statement. Say "does not hold as we read it", "we could not see why", "possible misprint";
 do not call the text wrong or speak of its "errors".
 
-## 2. State (2026-10-26, end of the first local session; Chapters 6 and 7 added 2026-11-07)
+## 2. State (2026-10-26, end of the first local session; Chapters 6–7 added 2026-11-07, Chapters 8–11 and the 2021 edition 2026-11-08)
 
 * **Chapters 1–6 of Part I are complete** (Chapter 6 except Theorem 6.43 and §6.6, see below): Lean,
   exposition (`Exposition/Chapter1.md` – `Chapter6.md`) and reports (`verification/ch01–ch06.md`,
@@ -81,7 +81,8 @@ do not call the text wrong or speak of its "errors".
   `polyfold-proof-by-proof.html`, `polyfold-signoff.html`). V-items V1.1–V1.39, V2.1–V2.64,
   V3.1–V3.107, V4.1–V4.64, V5.1–V5.63, V6.1–V6.64, and V7.1–V7.68, V8.1–V8.43 for Part II's Chapters 7 and 8 (below);
   **512 sign-off items** (401 for Part I, 68 for Chapter 7, 43 for Chapter 8); gaps G.1–G.75 (G.70–G.73
-  for Chapter 7, G.74–G.75 for Chapter 8);
+  for Chapter 7, G.74–G.75 for Chapter 8). **Since 2026-11-08** (2021 edition and Chapters 9–11, below):
+  **824 sign-off items**, 959 comparison rows, gaps G.1–G.135, V9.1–V9.62, V10.1–V10.71, V11.1–V11.42;
   3,741 trace tags (3,127 distinct declarations; 2026-11-02, Chapters 1–5). The user started
   hand-checking on 2026-10-26 from copies in `Exposition/review-2026-10-26/` (untracked); the
   sign-off page keeps ticks in browser
@@ -180,16 +181,51 @@ do not call the text wrong or speak of its "errors".
   8.5 (5) as printed does not hold as we read it (counterexample
   `CoveringExamples.theorem_8_5_five_as_printed`; Findings Ch. 8 item 54). Not done: the round-trip
   audit of Chapter 8.
-* **Lean counts** (2026-11-08): 6,761 `#print axioms` lines in `Test.lean` (3,738 for Chapters 1–5,
-  1,204 for Chapter 6, 989 for Chapter 7, 830 for Chapter 8), all on `propext, Classical.choice,
-  Quot.sound`; no `sorry`, no `axiom`; 239 Lean files and 151,290 lines under `Polyfold/` (`wc -l`,
-  without `WIP_` files), of which 36 files and 20,793 lines in `Chapter6/`, 21 files and 12,046
-  lines in `Chapter7/` and 14 files and 9,867 lines in `Chapter8/`.
-* **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter3–7/` that agents could
-  not delete (some duplicate declarations and would not compile; delete them). The book's Springer
-  PDF was not available: the *(book?)* marks are annotated against the arXiv version 1707.08941
-  (*(book 2017: …)*, `Exposition/BookConcordance.md`, text in `sources/HWZ-Book-2017.txt`); the 2010
-paper's text is not in `sources/`.
+* **Part II, Chapter 9** (2026-11-08; 2021 numbering, names without suffix, e.g. `lemma_9_1_7`):
+  `Polyfold/Chapter9/` (25 files, 16,925 lines), §§9.1–9.5 and §9.6.1: branched ep⁺-subgroupoids and
+  local branching structures, dimension, the tangent and the boundary, good points, orientations,
+  the geometry of local branching structures, sets of measure zero and the canonical σ-algebras.
+  The parts that need level-0 sc-calculus in general M-polyfolds are explicit hypotheses, each shown
+  satisfiable and discharged on `ℝᵐ`. Proposition 9.1.11's uniqueness does not hold as we read it
+  (`not_proposition_9_1_11_rn`). Not formalized: branched integration, the boundary measures and
+  Stokes (Theorems 9.5.4, 9.5.5, 9.5.15–9.5.18; they need §8.2's forms). Reports: V9.1–V9.62,
+  Findings "## Chapter 9", `Exposition/Chapter9.md`, gaps G.93–G.110.
+* **Part II, Chapter 10** (2026-11-08): `Polyfold/Chapter10/` (23 files, 11,770 lines), §§10.1–10.5
+  with the Appendix proofs 10.6.1–10.6.2: equivalences, natural equivalences, the weak fibred
+  product, the localization `EP(E⁻¹)` and its orbit-space functor, strong bundle equivalences,
+  push-forward and pull-back of sections, the strong bundle weak fibred product and the category
+  `SEP(F⁻¹)`. Propositions 10.1.9, 10.1.10, 10.1.19, 10.3.16 and Theorem 10.3.21 are proved.
+  Theorems 10.3.19 and 10.5.7 do not hold as we read them (`not_theorem_10_3_19`,
+  `not_theorem_10_5_7`, on the trivial `ℤ/3` action, `LocalizationLRCounterexample.lean`); Theorem
+  10.3.19 holds for an effective target (`theorem_10_3_19_of_isEffective`). Reports: V10.1–V10.71,
+  Findings "## Chapter 10", `Exposition/Chapter10.md`, gaps G.111–G.127 (open: G.111, G.112, G.116,
+  G.117, G.121, G.122, G.124–G.126).
+* **Part II, Chapter 11** (2026-11-08): `Polyfold/Chapter11/` (11 files, 6,508 lines), §§11.1, 11.3,
+  11.5, 11.6: the tangent functor on `EP(E⁻¹)`, the degeneracy index and the face bijection under
+  generalized isomorphisms (`EpEquivalenceGeometry*`); branched ep⁺-subgroupoids pushed forward and
+  pulled back, Γ(π̂), orientations, Theorems 11.3.3–11.3.9 (`BranchedEquivalence*`; Theorem 11.3.9 for
+  a representative under `MPolyfold.IsBoundaryTransfer`, satisfiable by `isBoundaryTransfer_id`);
+  strong bundles up to equivalence (`StrongBundleUpToEquivalence`); equivalences of proper coverings,
+  Theorem 11.6.6, Proposition 11.6.8 (`CoveringEquivalence*`). Not formalized: §11.2 (forms) and §11.4
+  (integration), which need G.74/G.80; the structures of Proposition 11.1.6; Proposition 11.5.1 (1),
+  (2); the local section structures; `PC(E⁻¹)`; Remark 11.6.9. Nothing in Chapter 11 fails to hold as
+  we read it; five possible misprints (checked against the 2021 text). Reports: V11.1–V11.42,
+  Findings "## Chapter 11", `Exposition/Chapter11.md`, gaps G.128–G.135.
+* **Lean counts** (2026-11-08, end of Chapter 11): 10,746 `#print axioms` lines in `Test.lean`
+  (4,942 for Chapters 1–6, 989 for Chapter 7, 830 for Chapter 8, 1,386 for the 2021 additions to
+  Chapters 1–8, 1,053 for Chapter 9, 1,014 for Chapter 10, 532 for Chapter 11), all on `propext,
+  Classical.choice, Quot.sound`; no `sorry`, no `axiom`; 329 Lean files and 210,713 lines under
+  `Polyfold/` (tracked files, `wc -l`), of which 25 files and 16,925 lines in `Chapter9/`, 23 files
+  and 11,770 lines in `Chapter10/`, 11 files and 6,508 lines in `Chapter11/`.
+* **Leftovers**: gitignored `WIP_*.lean` scratch files in `Polyfold/Chapter2–11/` (agents may not
+  delete; some duplicate declarations and would not compile). All of them, with `Exposition/pages/`,
+  are archived in `~/repo-history-backups/polyfold-scratch-2026-11-08-*.tar.gz`; delete them. The
+  per-chapter `Test.lean` generators are `WIP_N_list*.lean` (e.g. `Chapter11/WIP_N_list16.lean`):
+  keep them while a chapter still changes (add a module to its imports and `phaseCMods`, run it with
+  `lake env lean -DmaxSynthPendingDepth=3`, replace the block). The *(book 2017: …)* marks were
+  annotated against the arXiv version 1707.08941 before the Springer PDF arrived (next item;
+  `Exposition/BookConcordance.md`, text in `sources/HWZ-Book-2017.txt`); the 2010 paper's text is
+  not in `sources/`.
 * **The 2021 Springer book is the authoritative version** (user, 2026-11-08): `Exposition/sources/Polyfold
   and Fredholm Theory.pdf` (1008 pp., gitignored with all of `sources/`; never commit it or its text),
   extracted to `sources/HWZ-Book-2021.txt` (`pdftotext -layout`). It numbers items in three levels
@@ -410,6 +446,14 @@ each chapter lands)
     G.86, G.89, G.90–G.92.
     Chapter 9 resumed 2026-11-08 with wave W1 (§9.2: `Chapter9/Tangent.lean`,
     `Chapter9/BoundaryPosition.lean`).
+15. ~~**Part II, Chapters 9–11**~~ — done 2026-11-08 (state in §2): Lean, reports, Findings, the
+    exposition `Chapter9.md`–`Chapter11.md`, gaps G.93–G.135. Part II of the book ends with Chapter
+    11; Part III, *Fredholm Theory in Ep-Groupoids*, begins with Chapter 12, *Sc-Fredholm Sections*
+    (2021 p. 569). Left for Part II: the round-trip audit of Chapters 8–11; the open gaps (Chapter 10:
+    Propositions 10.4.6–10.4.7, the Fredholm parts of Theorems 10.4.5 and 10.5.4, the iterated
+    products of Theorem 10.2.2, the universal property of the localization; Chapter 11: §§11.2,
+    11.4, G.128, G.130, G.132–G.135); the docstrings of Chapters 9–11 were checked for numbering
+    against the 2021 and 2017 texts by the report agents (slips fixed 2026-11-08).
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the
@@ -417,11 +461,15 @@ Polyfold project to leave memory for `lake build`.
 
 ## 4. First message for the next session (local, on the Mac)
 
-> Read `HANDOFF.md` (§1 setup on this Mac, §2 state, §3 items 8–9) and `PLAN.md`.
-> Work in `~/polyfold_faithful` on `main` (build from the repository root, with
-> the git shim of §1 on the PATH for every lake call). Run the round-trip audit of Part I (HANDOFF
-> §3 item 9), modelled on `Morse/RoundTrip/` in `~/math_faithful`: read back every V-item's Lean statement into
-> mathematics without looking at the text, compare with the preprint, and record mismatches. Keep
-> the four checks of §1 green; no `sorry`; `#print axioms` for every theorem; never renumber V-items;
-> check every hypothesis that quantifies over all charts for satisfiability (Chapter 3 Finding 190).
-> Use Opus agents (the Fable limit was reached on 2026-10-26), at most two Lean agents at a time.
+> Read `HANDOFF.md` (§1 setup on this Mac, §2 state, §3 item 15) and `PLAN.md`. Work in
+> `~/polyfold_faithful` on `main` (build from the repository root, with the git shim of §1 on the
+> PATH for every lake call). Parts I and II (Chapters 1–11) of HWZ, *Polyfold and Fredholm Theory*
+> (Springer 2021, the authoritative text, in `Exposition/sources/`, gitignored), are formalized and
+> reported. Ask the user which comes next: the round-trip audit of Chapters 8–11 (modelled on
+> `RoundTrip/`), Part III from Chapter 12 (cite 2021 numbers first; Lean names with the 2021 numbers
+> and no suffix; G-items from G.136; a new `Test.lean` block per chapter), or the open gaps of §3
+> item 15. Keep the four checks of §1 green; no `sorry`; `#print axioms` for every theorem; never
+> renumber V-items, G-items or Findings items; check every hypothesis that quantifies over all charts
+> for satisfiability (Chapter 3 Finding 190); never call HWZ wrong or speak of "errors" ("does not
+> hold as we read it", "possible misprint"), and machine-check every "does not hold" before it goes
+> into the Findings. At most two Lean agents at a time.

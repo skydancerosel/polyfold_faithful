@@ -5,7 +5,7 @@ import Polyfold.Chapter9.OrientationRn
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.3 "Branched Ep⁺-Subgroupoids and Equivalences" (pp. 538–539; 2017:
 pp. 392–393): the push-forward (11.8) and pull-back (11.9) of section functors of `Gr̂` and
-**Lemma 11.3.4** (2017: Lemma 11.4).  Numbers and pages are the 2021 text's.
+**Lemma 11.3.4** (2017: Lemma 11.6).  Numbers and pages are the 2021 text's.
 
 # Section functors of `Gr̂` along equivalences
 

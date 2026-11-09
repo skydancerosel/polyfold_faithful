@@ -21691,14 +21691,14 @@
   {
    "id": "V10.51",
    "title": "the diagrams of strong bundles, refinements and equivalence",
-   "verdict": "restated",
+   "verdict": "same",
    "book": {
     "label": "§10.5, the diagrams of strong bundles, p. 504 (2017 p. 364)",
     "page": 504,
     "statement": "Diagrams $W \\xleftarrow{\\Phi} W'' \\xrightarrow{\\Psi} W'$ with $\\Phi$ a strong bundle equivalence and $\\Psi$ a strong bundle functor; refinements and equivalence (having a common refinement) as for ep-groupoids; the class $[D]$ is a generalized strong bundle map."
    },
    "lean": {
-    "statement": "`SDiagram A A'` bundles a middle object of `SEP`, a strong bundle equivalence and a morphism of `SEP`; a refinement is a strong bundle equivalence $H$ with naturally equivalent composites (Definition 10.4.8), reflexive and transitive; `Equiv` is reflexive and symmetric; `GenSBMap` is the quotient by the generated equivalence relation. A refinement of $1_{W'}$ over $-\\mathrm{id}$.",
+    "statement": "`SDiagram A A'` bundles a middle object of `SEP`, a strong bundle equivalence and a morphism of `SEP`; a refinement is a strong bundle equivalence $H$ with naturally equivalent composites (Definition 10.4.8), reflexive and transitive; `Equiv` is an equivalence relation (V10.69); `GenSBMap` is the quotient by the generated equivalence relation, and `cls_eq_cls_iff`: $[D] = [D']$ iff $D$ and $D'$ have a common refinement. A refinement of $1_{W'}$ over $-\\mathrm{id}$.",
     "decls": [
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.IsRefinement",
@@ -21717,17 +21717,19 @@
      "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.cls",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.cls_eq_cls_of_equiv",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.cls_eq_cls_iff",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.foldDiagram",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.isRefinement_foldDiagram",
      "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.cls_foldDiagram"
     ]
    },
    "chips": [
-    "classes for the generated relation",
-    "transitivity open (G.123)"
+    "as stated",
+    "transitivity: V10.69",
+    "G.123 closed since"
    ],
    "diff": [
-    "The transitivity of having a common refinement needs the weak fibred product of strong bundles, not constructed; every invariant used is proved invariant under `Equiv` (Findings, Chapter 10, item 50)."
+    "None: the generated relation is having a common refinement, by the transitivity of V10.69, formalized since (Findings, Chapter 10, items 18, 50)."
    ]
   },
   {
@@ -21821,28 +21823,39 @@
   {
    "id": "V10.55",
    "title": "Definition 10.5.1 (2017: 10.14), $\\mathcal{SEP}(F^{-1})$",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§10.5, Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366)",
     "page": 506,
     "statement": "The category $\\mathcal{SEP}(F^{-1})$ has the strong bundles over ep-groupoids as objects and the generalized strong bundle maps as morphisms."
    },
    "lean": {
-    "statement": "`SEPLoc` with a `Quiver` instance, the identities $[1_W]$ and the prefunctor $\\Psi \\mapsto [W \\xleftarrow{1} W \\xrightarrow{\\Psi} W']$ from $\\mathcal{SEP}$.",
+    "statement": "`SEPLoc.category`: a category with the composition `GenSBMap.comp` (V10.70) and the identities $[1_W]$; `homMk_eq_homMk_iff`, `homMk_surjective`; the functor `localizationFunctor`, $\\Psi \\mapsto [W \\xleftarrow{1} W \\xrightarrow{\\Psi} W']$, from $\\mathcal{SEP}$, which inverts the strong bundle equivalences.",
     "decls": [
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc",
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc.idHom",
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc.localizationPrefunctor",
      "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc.localizationPrefunctor_map_id",
      "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.id",
-     "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.ofHom"
+     "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.ofHom",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.category",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.id_eq",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk_eq_homMk_iff",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.homMk_surjective",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.localizationFunctor",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.localizationFunctor_toPrefunctor",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isInvertedBy_localizationFunctor"
     ]
    },
    "chips": [
-    "a quiver: no composition (G.123)"
+    "a category",
+    "localization functor",
+    "G.123 closed since"
    ],
    "diff": [
-    "The composition needs the weak fibred product of strong bundles (Findings, Chapter 10, item 53)."
+    "The composition, which the text does not spell out, is that of V10.70; before it, $\\mathcal{SEP}(F^{-1})$ was formalized as a quiver (Findings, Chapter 10, items 18, 53)."
    ]
   },
   {
@@ -21883,17 +21896,19 @@
     "statement": "Theorem 10.3.10 characterizes generalized isomorphisms by diagrams with both legs equivalences; in the strong bundle case a similar result can be proved, and it is built into Definition 10.5.2."
    },
    "lean": {
-    "statement": "A generalized strong bundle isomorphism covers a generalized isomorphism of the bases, induces one of the total spaces, and $|[D]|$ is a homeomorphism.",
+    "statement": "A generalized strong bundle isomorphism covers a generalized isomorphism of the bases, induces one of the total spaces, $|[D]|$ is a homeomorphism, and it is an isomorphism of $\\mathcal{SEP}(F^{-1})$ (`SEPLoc.isIso_of_isGeneralizedIso`, V10.71).",
     "decls": [
-     "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap.remark_10_5_3"
+     "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap.remark_10_5_3",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isIso_of_isGeneralizedIso"
     ]
    },
    "chips": [
     "new in the 2021 edition",
-    "strong bundle 10.3.10 open (G.123)"
+    "read: gen. isos are isos (V10.71)",
+    "converse: base half only (G.123)"
    ],
    "diff": [
-    "The strong bundle version of Theorem 10.3.10 needs the composition in $\\mathcal{SEP}(F^{-1})$ (Findings, Chapter 10, item 53)."
+    "\"Built into the previous definition\" is read as: generalized strong bundle isomorphisms are isomorphisms of $\\mathcal{SEP}(F^{-1})$, proved in V10.71; the converse half of the similar result is proved for the base functor only (Findings, Chapter 10, items 19, 53)."
    ]
   },
   {
@@ -22198,6 +22213,1422 @@
    "diff": [
     "The statement does not hold as we read it, nor does the 2017 Theorem 10.10; the proof (\"immediately from Proposition 10.4.7\") meets the step of V10.65 for strong bundles (Findings, Chapter 10, item 58)."
    ]
+  },
+  {
+   "id": "V10.68",
+   "title": "Theorem 10.2.2 (2017: 10.2) for strong bundles, the weak fibred product $W \\times_{W'} W''$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.5, the strong bundle case, p. 504 (2017 p. 364), of Theorem 10.2.2, p. 477 (2017: Theorem 10.2, p. 343)",
+    "page": 504,
+    "statement": "Refinements and the equivalence of diagrams of strong bundles are introduced \"following our earlier construction\" of generalized maps, which rests on the weak fibred product of Theorem 10.2.2; the strong bundle version is not stated."
+   },
+   "lean": {
+    "statement": "`SBWeakFibredProduct.wfpSEP` is the pull-back $\\pi_Z^*W''$ over $X \\times_{X'} X''$, with $\\Pi_Z$ and $\\Pi_X((x, \\varphi, z), w'') = \\Phi_x^{-1}(\\mu'(\\varphi^{-1}, \\Psi(w'')))$; `theorem_10_2_2`: $\\Pi_Z$ is a strong bundle equivalence and $\\Phi \\circ \\Pi_X \\simeq \\Psi \\circ \\Pi_Z$; `theorem_10_2_2_right`: $\\Pi_X$ is one when $\\Psi$ is. Witness over $-\\mathrm{id}$.",
+    "decls": [
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.wfpSEP",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.projX",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.projZ",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.theorem_10_2_2",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.theorem_10_2_2_right",
+     "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.nonempty_wfpSEP",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.pullbackAlong",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.isStrongBundleEquivalence_pullbackProjFunctor",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.transportFunctor",
+     "Chapter10/StrongBundleWeakFibredProductPullback · EpStrongBundle.invLiftFunctor",
+     "Chapter10/StrongBundleWeakFibredProduct · SEP.pullbackAlong",
+     "Chapter10/StrongBundleWeakFibredProduct · SEP.coneHom",
+     "Chapter10/StrongBundleWeakFibredProduct · SEP.natEquiv_cone",
+     "Chapter10/StrongBundleWeakFibredProduct · StrongBundleWeakFibredProductExamples.theorem_10_2_2_negSEPHom"
+    ]
+   },
+   "chips": [
+    "left to the reader in the text",
+    "a pull-back along $\\pi_Z$",
+    "closes G.123 with V10.69–V10.71"
+   ],
+   "diff": [
+    "The text gives no construction; the pull-back of $W''$ along $\\pi_Z$ makes $\\Pi_Z$ a strong bundle equivalence by construction. The claims on degeneracy indices, tameness and orbit spaces concern the bases (V10.18–V10.20) (Findings, Chapter 10, item 18)."
+   ]
+  },
+  {
+   "id": "V10.69",
+   "title": "Lemma 10.3.4 (2017: 10.4) for strong bundles, transitivity",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.5, the strong bundle case, p. 504 (2017 p. 364), of Lemma 10.3.4, p. 485 (2017: Lemma 10.4, p. 349)",
+    "page": 504,
+    "statement": "Two diagrams of strong bundles are equivalent if they possess a common refinement, and the equivalence classes are the generalized strong bundle maps; that this is an equivalence relation is Lemma 10.3.4 in the ep-groupoid case."
+   },
+   "lean": {
+    "statement": "`SDiagram.lemma_10_3_4`: with $w$ refining $D$, $D'$ by $H$, $H'$ and $w'$ refining $D'$, $D''$ by $K$, $K'$, the diagram on the weak fibred product of $H'$ and $K$ refines $D$ by $H \\circ \\Pi_X$ and $D''$ by $K' \\circ \\Pi_Z$; `Equiv.trans`, `equivalence_equiv`; `cls_eq_cls_iff`: $[D] = [D']$ iff a common refinement exists.",
+    "decls": [
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.lemma_10_3_4",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.Equiv.trans",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equivalence_equiv",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.cls_eq_cls_iff"
+    ]
+   },
+   "chips": [
+    "left to the reader in the text",
+    "classes as in the text"
+   ],
+   "diff": [
+    "The proof of Lemma 10.3.4, with V10.68 for the weak fibred product; the classes of V10.51 are the text's (Findings, Chapter 10, items 18, 50)."
+   ]
+  },
+  {
+   "id": "V10.70",
+   "title": "Theorem 10.3.8 (2017: 10.3) for strong bundles, the composition",
+   "verdict": "explicit",
+   "book": {
+    "label": "§10.5, the composition behind Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366); Theorem 10.3.8, p. 488 (2017: Theorem 10.3, p. 352), Appendix §10.6.1",
+    "page": 506,
+    "statement": "Definition 10.5.1 calls the generalized strong bundle maps the morphisms of a category; the composition, its independence of the representatives and the category laws are not spelled out."
+   },
+   "lean": {
+    "statement": "`SDiagram.comp`: the middle is the pull-back of $W''$ over the weak fibred product of $\\psi$ and $\\phi'$, with the legs $\\Phi \\circ \\Pi_{W''}$ and $\\Psi' \\circ \\Pi_{V''}$; `IsRefinement.comp`, `Equiv.comp`, `equiv_assoc`, `equiv_comp_id`, `equiv_id_comp`, `equiv_ofHom_comp`; `GenSBMap.comp`. Witness: $F \\circ F = 1$ for `foldDiagram`, with a nonempty middle.",
+    "decls": [
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.compMid",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.compLeft",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.compRight",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.IsRefinement.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.Equiv.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.isRefinement_assoc",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_assoc",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_comp_id",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_id_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_ofHom_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.GenSBMap.comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.GenSBMap.cls_comp_cls",
+     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.homMk_foldDiagram_comp",
+     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.nonempty_comp_foldDiagram"
+    ]
+   },
+   "chips": [
+    "left to the reader in the text",
+    "squares commute strictly"
+   ],
+   "diff": [
+    "Following §10.3 and Appendix §10.6.1, with V10.68; on the pull-back the squares of the proofs commute strictly, by the fibrewise injectivity of strong bundle equivalences (Findings, Chapter 10, item 18)."
+   ]
+  },
+  {
+   "id": "V10.71",
+   "title": "Theorem 10.3.10 (2017: 10.4) for strong bundles, one direction",
+   "verdict": "narrower",
+   "book": {
+    "label": "§10.5, Remark 10.5.3, p. 506 (new in the 2021 edition), the strong bundle case of Theorem 10.3.10, p. 489 (2017: Theorem 10.4, p. 353)",
+    "page": 506,
+    "statement": "In the strong bundle case a result similar to Theorem 10.3.10 can be proved: a generalized strong bundle map is an isomorphism iff it is represented by a diagram whose two legs are strong bundle equivalences; it is built into Definition 10.5.2."
+   },
+   "lean": {
+    "statement": "`SEPLoc.theorem_10_3_10`: if $\\Psi$ is a strong bundle equivalence, $[D]$ is an isomorphism of $\\mathcal{SEP}(F^{-1})$ and every inverse is $[W' \\xleftarrow{\\Psi} W'' \\xrightarrow{\\Phi} W]$; `isIso_of_isGeneralizedIso`, `inv_homMk`; `baseFunctor` to $\\mathcal{EP}(E^{-1})$ and `isEquivalence_base_of_isIso`: for an isomorphism $[D]$, $\\psi$ is an equivalence. Witness over $-\\mathrm{id}$.",
+    "decls": [
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.theorem_10_3_10",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isIso_of_isGeneralizedIso",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.inv_homMk",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_comp_symm",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.equiv_symm_comp",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.baseFunctor",
+     "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.isEquivalence_base_of_isIso",
+     "Chapter10/StrongBundleLocalizationCategory · StrongBundleLocalizationCategoryExamples.isIso_homMk_negDiagram"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "gen. isos are isos",
+    "converse: base half only (G.123)"
+   ],
+   "diff": [
+    "The converse for the strong bundle functor $\\Psi$ itself would need strong bundle versions of the claims (C1), (C2) of Appendix §10.6.2 and is not formalized (Findings, Chapter 10, item 19)."
+   ]
+  },
+  {
+   "id": "V11.1",
+   "title": "Theorem 11.1.1 (2017: 11.1), the tangent functor on $\\mathcal{EP}(E^{-1})$",
+   "verdict": "same",
+   "book": {
+    "label": "§11.1, Theorem 11.1.1, p. 521 (2017: Theorem 11.1, p. 375)",
+    "page": 521,
+    "statement": "The tangent functor $T : \\mathcal{EP} \\to \\mathcal{EP}$ induces a functor $T : \\mathcal{EP}(E^{-1}) \\to \\mathcal{EP}(E^{-1})$ by $[X \\xleftarrow{F} A \\xrightarrow{\\Phi} Y] \\mapsto [TX \\xleftarrow{TF} TA \\xrightarrow{T\\Phi} TY]$, compatible with $i : \\mathcal{EP} \\to \\mathcal{EP}(E^{-1})$."
+   },
+   "lean": {
+    "statement": "A refinement $H$ of diagrams gives the refinement $TH$ of the tangent diagrams, so `tangentFunctor` is well defined on classes; it preserves identities and composition, $T(i(\\Phi)) = i(T\\Phi)$, and it maps generalized isomorphisms to generalized isomorphisms. The comparison functor `wfpLift` $C \\to X \\times_Y Z$ of a pair of functors and a natural transformation gives $T(A \\times_Y B) \\to TA \\times_{TY} TB$, an equivalence by two out of three.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.theorem_11_1_1",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.tangentFunctor",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.tangentFunctor_obj",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.tangentFunctor_map_homMk",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.tangentFunctor_map_localizationFunctor",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.isGeneralizedIso_tangent",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.Diagram.tangent",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.Diagram.IsRefinement.tangent",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.Diagram.Equiv.tangent",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.Diagram.isRefinement_tangent_id",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.Diagram.isRefinement_tangent_comp",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.wfpLift",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.projLeft_comp_wfpLift",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.projRight_comp_wfpLift",
+     "Chapter11/EpEquivalenceGeometry · EpFunctor.tangent_comp",
+     "Chapter11/EpEquivalenceGeometry · EpFunctor.tangent_id"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "composition supplied",
+    "universe of Chapter 8’s $T$"
+   ],
+   "diff": [
+    "The text checks refinements and leaves the rest to the reader; that $T$ preserves composition goes through the comparison $T(A \\times_Y B) \\to TA \\times_{TY} TB$ (Findings, Chapter 11, item 1)."
+   ]
+  },
+  {
+   "id": "V11.2",
+   "title": "Proposition 11.1.2 (2017: 11.1), the degeneracy index under generalized isomorphisms",
+   "verdict": "same",
+   "book": {
+    "label": "§11.1, Proposition 11.1.2, p. 522 (2017: Proposition 11.1, p. 376)",
+    "page": 522,
+    "statement": "If $f : X \\to Y$ is a generalized isomorphism and $|f|(|x|) = |y|$, then $d_X(x_0) = d_Y(y_0)$ for all representatives $x_0$ of $|x|$ and $y_0$ of $|y|$."
+   },
+   "lean": {
+    "statement": "For every generalized isomorphism $f$ and objects with $|f|(|x_0|) = |y_0|$, $d_X(x_0) = d_Y(y_0)$, and $d_{|X|}(|x|) = d_{|Y|}(|f|(|x|))$; first for diagrams with both legs equivalences, then for classes.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.proposition_11_1_2",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.EPLoc.degIndexOrbit_orbitMap",
+     "Chapter11/EpEquivalenceGeometry · EPLocalization.Diagram.degIndexOrbit_orbitMap",
+     "Chapter11/EpEquivalenceGeometryFaces · EpFunctor.IsEquivalence.degIndexOrbit_orbitMap",
+     "Chapter7/EpGroupoid · EpGroupoid.degIndexOrbit"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "“Proposition 10.3.10”: read Theorem"
+   ],
+   "diff": [
+    "The proof cites Proposition 10.3.10; we read Theorem 10.3.10 (possible misprint) (Findings, Chapter 11, item 2)."
+   ]
+  },
+  {
+   "id": "V11.3",
+   "title": "Definition 11.1.3 (2017: 11.1), faces in the ep-groupoid sense",
+   "verdict": "restated",
+   "book": {
+    "label": "§11.1, Definition 11.1.3, p. 523 (2017: Definition 11.1, p. 377)",
+    "page": 523,
+    "statement": "A face of $|X|$ is the closure of a connected component of $\\{d_{|X|} = 1\\}$; a face of $X$ is the full subcategory $X_\\theta$ over a face $\\theta$; $X$ is face structured if it is tame and every $z$ lies in exactly $d_{|X|}(z)$ faces of $|X|$, weakly face structured if the object M-polyfold is face structured."
+   },
+   "lean": {
+    "statement": "`IsOrbitFace`, `faceObj` $= \\pi^{-1}(\\theta)$ (saturated), `faceMor`, `IsEpFace`; `IsEpFaceStructured` counts the faces through $z$ in $\\mathbb N \\cup \\{\\infty\\}$; `IsWeaklyFaceStructured` uses Chapter 2's face structure of the object M-polyfold. The faces of $|X|$ are Chapter 2's faces for $d_{|X|}$.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.IsOrbitFace",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.faceObj",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.faceMor",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.IsEpFace",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.orbitFacesThrough",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.IsEpFaceStructured",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.IsWeaklyFaceStructured",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.faceMor_eq",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.isSaturated_faceObj",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.isOrbitFace_iff_isFaceIn",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.orbitFacesThrough_eq",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.isEpFaceStructured_iff"
+    ]
+   },
+   "chips": [
+    "face recorded by its object set",
+    "structure of a face: G.128"
+   ],
+   "diff": [
+    "A face of $X$ is recorded by its object set and the morphisms with source in it; its sub-M-polyfold and ep-groupoid structure is part of Proposition 11.1.6 and not formalized (G.128) (Findings, Chapter 11, item 3)."
+   ]
+  },
+  {
+   "id": "V11.4",
+   "title": "Example 11.1.4 (2017: 11.1), the quadrant with and without the swap",
+   "verdict": "stronger",
+   "book": {
+    "label": "§11.1, Example 11.1.4, p. 523 (2017: Example 11.1, p. 377)",
+    "page": 523,
+    "statement": "$[0, \\infty)^2$ with only identities is face structured; with $\\mathbb Z/2$ exchanging the coordinates it is weakly face structured and not face structured."
+   },
+   "lean": {
+    "statement": "For $C = [0, \\infty)^2 \\oplus W$, $W$ any sc-Banach space: the trivial ep-groupoid is face structured; `swapEpGroupoid` is weakly face structured and not face structured, since $\\{d_{|X|} = 1\\}$ is connected and $|0|$, with $d_{|X|}(|0|) = 2$, lies in exactly one face.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.Examples.example_11_1_4",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.Examples.swapEpGroupoid",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.Examples.isFaceStructured_quadrant",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.Examples.isHomeomorph_π_trivial",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.Examples.setOf_degIndexOrbit_eq_one_swap",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.Examples.isOrbitFace_swap_iff",
+     "Chapter11/EpEquivalenceGeometryFaces · EpGroupoid.Examples.not_isEpFaceStructured_swap"
+    ]
+   },
+   "chips": [
+    "any $W$, not only $W = 0$",
+    "reason for “not face structured” proved"
+   ],
+   "diff": [
+    "The text has $W = 0$ and gives no reason for the failure; both are supplied (Findings, Chapter 11, item 4)."
+   ]
+  },
+  {
+   "id": "V11.5",
+   "title": "Remark 11.1.5 (2017: 11.1), bijections of faces under equivalences and generalized isomorphisms",
+   "verdict": "same",
+   "book": {
+    "label": "§11.1, Remark 11.1.5, p. 524 (2017: Remark 11.1, p. 378)",
+    "page": 524,
+    "statement": "An equivalence $\\Phi$ induces a bijection $\\theta \\mapsto |\\Phi|(\\theta)$ between faces, with $\\Phi_*(X_\\theta) = \\mathrm{saturation}(\\Phi(X_\\theta))$ and $\\Phi^*(Y_{\\theta'}) = \\Phi^{-1}(Y_{\\theta'})$; for a generalized isomorphism $[d]_* = \\Psi_* \\circ \\Phi^*$, $[d]^* = \\Phi_* \\circ \\Psi^*$. The text quotes [56, Proposition 3.15]."
+   },
+   "lean": {
+    "statement": "For an equivalence the bijection of faces with the two formulas; for a generalized isomorphism `faceMap`, `faceComap`, their values on a representative and their bijectivity; `TameBoundary.isFaceIn_univ_image` and its companions: a homeomorphism preserving the index maps faces to faces and preserves face-structuredness.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.remark_11_1_5",
+     "Chapter11/EpEquivalenceGeometryFaces · EpFunctor.saturation_image_faceObj",
+     "Chapter11/EpEquivalenceGeometryFaces · EpFunctor.preimage_faceObj",
+     "Chapter11/EpEquivalenceGeometryFaces · EpFunctor.IsEquivalence.bijOn_faces",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceMap",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceComap",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceMap_homMk",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceComap_homMk",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.bijOn_faceMap",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.isHomeomorph_orbitMap",
+     "Chapter11/EpEquivalenceGeometryFaces · TameBoundary.isDHomeoOn_univ",
+     "Chapter11/EpEquivalenceGeometryFaces · TameBoundary.isFaceIn_univ_image",
+     "Chapter11/EpEquivalenceGeometryFaces · TameBoundary.exists_isFaceIn_univ_preimage",
+     "Chapter11/EpEquivalenceGeometryFaces · TameBoundary.isFaceStructuredOpen_univ_iff"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "quoted [56, Prop. 3.15] proved",
+    "ordered face structures: no content"
+   ],
+   "diff": [
+    "The quoted result is proved; the ordered face structures of the first paragraph have no formal content (Findings, Chapter 11, item 5)."
+   ]
+  },
+  {
+   "id": "V11.6",
+   "title": "Proposition 11.1.6 (2017: 11.2), the part on $[d]_*$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§11.1, Proposition 11.1.6, pp. 524–525 (2017: Proposition 11.2, p. 378)",
+    "page": 524,
+    "statement": "For tame face structured $X$, $Y$ and a generalized isomorphism $[d]$: faces are tame face structured ep-groupoids, two faces meet in a face of each, $[d]$ induces a bijection $[d]_*$ of faces and generalized isomorphisms $[d]_F : F \\to [d]_*F$."
+   },
+   "lean": {
+    "statement": "For every generalized isomorphism: `faceMap` is a bijection of the faces of $|X|$ onto those of $|Y|$ with inverse `faceComap`, $[d]_*(X_\\theta) = Y_{|[d]|(\\theta)}$, and $|[d]|$ restricts to homeomorphisms $\\theta \\to [d]_*\\theta$.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_6",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.isOrbitFace_faceMap",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.isOrbitFace_faceComap",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceComap_faceMap",
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.faceMap_faceComap"
+    ]
+   },
+   "chips": [
+    "no face structure assumed",
+    "faces as ep-groupoids: G.128",
+    "intersection clause, $[d]_F$: G.128"
+   ],
+   "diff": [
+    "The sub-M-polyfold, tame and ep-groupoid structure of a face, the intersection clause and the generalized isomorphisms $[d]_F$ of (11.1) are not formalized (G.128); whether the intersection clause holds in the generality stated is left open (Findings, Chapter 11, item 6)."
+   ]
+  },
+  {
+   "id": "V11.7",
+   "title": "Remark 11.1.7 (2017: 11.2), tameness and face structure are invariant",
+   "verdict": "same",
+   "book": {
+    "label": "§11.1, Remark 11.1.7, p. 525 (2017: Remark 11.2, p. 379)",
+    "page": 525,
+    "statement": "If $f : X \\to Y$ is a generalized isomorphism, $X$ is tame face structured if and only if $Y$ is."
+   },
+   "lean": {
+    "statement": "For a generalized isomorphism, tame and face structured transfers both ways; for an equivalence $F : X \\to Y$, $X$ is tame iff $Y$ is (`isTame_iff`), the new direction through the weak fibred product $X \\times_Y Y$.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.remark_11_1_7",
+     "Chapter11/EpEquivalenceGeometryFaces · EpFunctor.IsEquivalence.isTame_of_isTame_left",
+     "Chapter11/EpEquivalenceGeometryFaces · EpFunctor.IsEquivalence.isTame_iff",
+     "Chapter10/WeakFibredProductTheorem · EpFunctor.IsEquivalence.isTame_of_isTame"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "tameness forward along $F$ supplied"
+   ],
+   "diff": [
+    "Chapter 10 had tameness from $Y$ to $X$; the converse direction is proved here (Findings, Chapter 11, item 7)."
+   ]
+  },
+  {
+   "id": "V11.8",
+   "title": "Proposition 11.1.8 (2017: 11.3), maps of faces depend only on $|f|$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§11.1, Proposition 11.1.8, p. 526 (2017: Proposition 11.3, p. 380)",
+    "page": 526,
+    "statement": "If $f, g : X \\to Y$ are generalized isomorphisms of tame face structured ep-groupoids with $|f| = |g|$, then $f_* = g_*$ and the induced maps $|F| \\to |f_*F|$ agree."
+   },
+   "lean": {
+    "statement": "$f_* = g_*$ and $f^* = g^*$ on faces, and $|f|$ and $|g|$ agree on every face $\\theta$, mapping it into $g_*\\theta$.",
+    "decls": [
+     "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_8"
+    ]
+   },
+   "chips": [
+    "maps on faces: restrictions of $|f|$",
+    "$[d]_F$ not built (G.128)"
+   ],
+   "diff": [
+    "The maps induced by the generalized isomorphisms of (11.1) are read as restrictions of $|f|$; those generalized isomorphisms are not constructed (G.128) (Findings, Chapter 11, item 8)."
+   ]
+  },
+  {
+   "id": "V11.9",
+   "title": "Theorem 11.2.1 (2017: 11.2), sc-differential forms under generalized maps",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.2, Theorem 11.2.1, p. 526 (2017: Theorem 11.2, p. 380)",
+    "page": 526,
+    "statement": "$d \\circ d = 0$ on $\\Omega^*_{ep,\\infty}$; generalized maps have pull-backs commuting with $d$, generalized isomorphisms push-forwards inverse to them; under the local regularity property they depend only on the orbit maps."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.129): sc-differential forms on ep-groupoids are not in the project (G.74, G.80) (Findings, Chapter 11, item 20).",
+    "decls": []
+   },
+   "chips": [
+    "G.129"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.10",
+   "title": "Lemma 11.2.2 and Definition 11.2.3 (2017: Lemma 11.1, Definition 11.2), forms along an equivalence",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.2, Lemma 11.2.2, p. 527 (2017: Lemma 11.1, p. 380), and Definition 11.2.3, p. 528 (2017: Definition 11.2, p. 382)",
+    "page": 527,
+    "statement": "For an equivalence $F$ and a form $\\omega$ on $X$, $(F_*\\omega)_y(h_1, \\ldots, h_k) = \\omega_x(l_1, \\ldots, l_k)$ with $h_j = T\\psi(TF(x)l_j)$ is well defined and sc-smooth."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.129); the analogous construction for functors $\\Theta$ is V11.14, V11.15 (Findings, Chapter 11, item 20).",
+    "decls": []
+   },
+   "chips": [
+    "G.129"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.11",
+   "title": "Lemmas 11.2.4–11.2.6 (2017: Lemmas 11.2–11.4), composition, natural equivalence, refinement",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.2, Lemmas 11.2.4–11.2.6, pp. 528–532 (2017: Lemmas 11.2–11.4, pp. 382–386)",
+    "page": 528,
+    "statement": "Push-forwards and pull-backs of forms along equivalences compose and are inverse; naturally equivalent functors have the same ones; refinements do not change $G^* \\circ F_*$ and $G_* \\circ F^*$."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.129) (Findings, Chapter 11, item 20).",
+    "decls": []
+   },
+   "chips": [
+    "G.129"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.12",
+   "title": "Definition 11.2.7 (2017: 11.3), forms along generalized maps",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.2, Definition 11.2.7, p. 532 (2017: Definition 11.3, p. 386)",
+    "page": 532,
+    "statement": "$[d]^*\\omega' = F_* \\circ G^*\\omega'$ for $[d] = [X \\xleftarrow{F} A \\xrightarrow{G} Y]$, and $[d]_*\\omega = G_* \\circ F^*\\omega$ for a generalized isomorphism."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.129); the analogue for functors $\\Theta$ is V11.16 (Findings, Chapter 11, item 20).",
+    "decls": []
+   },
+   "chips": [
+    "G.129"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.13",
+   "title": "Propositions 11.2.8 and 11.2.9 (2017: 11.4, 11.5), forms under maps with the same orbit map",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.2, Propositions 11.2.8 and 11.2.9, pp. 532–535 (2017: Propositions 11.4, 11.5, pp. 386–389)",
+    "page": 532,
+    "statement": "Under the local regularity property, equivalences or generalized isomorphisms with the same orbit map have the same push-forwards and pull-backs of forms."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.129); the local families of Proposition 10.1.10 used in the proof are Chapter 10's V10.63 (Findings, Chapter 11, item 20).",
+    "decls": []
+   },
+   "chips": [
+    "G.129"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.14",
+   "title": "Definition 11.3.1 (2017: 11.4), pull-back and push-forward of functors $\\Theta$",
+   "verdict": "restated",
+   "book": {
+    "label": "§11.3, Definition 11.3.1, p. 535 (2017: Definition 11.4, p. 389)",
+    "page": 535,
+    "statement": "For an equivalence $F : X \\to Y$ and functors $\\Theta : X \\to \\mathbb Q^+$, $\\Theta' : Y \\to \\mathbb Q^+$: $F^*\\Theta' = \\Theta' \\circ F$ and $(F_*\\Theta)(y) = \\Theta(x)$ for $x$ with a morphism $F(x) \\to y$."
+   },
+   "lean": {
+    "statement": "`pullbackTheta`, `pushforwardTheta` for every sc-smooth functor and every map on objects: the push-forward uses a choice and is $0$ where no $F(x) \\cong y$ exists; it preserves nonnegativity.",
+    "decls": [
+     "Chapter11/BranchedEquivalence · EpFunctor.pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.pullbackTheta_apply",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_of_not_exists",
+     "Chapter11/BranchedEquivalence · EpFunctor.exists_isomorphic_of_pushforwardTheta_ne_zero",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_nonneg"
+    ]
+   },
+   "chips": [
+    "total, by a choice",
+    "“$X' \\to \\mathbb Q^+$”: read $Y$ for $X'$"
+   ],
+   "diff": [
+    "The push-forward is printed as a map $X' \\to \\mathbb Q^+$, in both editions; we read $Y \\to \\mathbb Q^+$ (possible misprint) (Findings, Chapter 11, item 30)."
+   ]
+  },
+  {
+   "id": "V11.15",
+   "title": "Lemma 11.3.2 (2017: 11.5), with weaker hypotheses",
+   "verdict": "stronger",
+   "book": {
+    "label": "§11.3, Lemma 11.3.2, p. 536 (2017: Lemma 11.5, p. 389)",
+    "page": 536,
+    "statement": "For an equivalence $F$: $F_*\\Theta$ is well defined and a functor, $F^*F_*\\Theta = \\Theta$; $F_*F^*\\Theta' = \\Theta'$; naturally equivalent equivalences have the same push-forwards and pull-backs."
+   },
+   "lean": {
+    "statement": "Well-definedness and $F^*F_*\\Theta = \\Theta$ for full $F$; $F_*F^*\\Theta' = \\Theta'$ for essentially surjective $F$; equal push-forwards for naturally equivalent full functors, equal pull-backs for any naturally equivalent functors; $(G \\circ F)^* = F^* \\circ G^*$, $(G \\circ F)_* = G_* \\circ F_*$, $1_* = 1$.",
+    "decls": [
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_eq",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_obj",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_eq_of_isomorphic",
+     "Chapter11/BranchedEquivalence · EpFunctor.isFunctorial_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isFunctorial_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.pullbackTheta_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_eq_of_naturallyEquivalent",
+     "Chapter11/BranchedEquivalence · EpFunctor.pullbackTheta_eq_of_naturallyEquivalent",
+     "Chapter11/BranchedEquivalence · EpFunctor.pullbackTheta_comp",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_comp",
+     "Chapter11/BranchedEquivalence · EpFunctor.pushforwardTheta_id",
+     "Chapter11/BranchedEquivalence · EpGroupoid.IsFunctorial.eq_of_isomorphic",
+     "Chapter11/BranchedEquivalence · EpFunctor.isomorphic_obj",
+     "Chapter11/BranchedEquivalence · EpFunctor.isomorphic_of_full"
+    ]
+   },
+   "chips": [
+    "fullness suffices",
+    "composition rules added"
+   ],
+   "diff": [
+    "The text assumes equivalences; each part needs less (Findings, Chapter 11, item 31)."
+   ]
+  },
+  {
+   "id": "V11.16",
+   "title": "Push-forward and pull-back along generalized maps, pp. 536–537",
+   "verdict": "stronger",
+   "book": {
+    "label": "§11.3, pp. 536–537 (2017 pp. 389–390), after Lemma 11.3.2",
+    "page": 536,
+    "statement": "For a generalized isomorphism $f = [X \\xleftarrow{F} A \\xrightarrow{\\Phi} Y]$, $f_*\\Theta = \\Phi_*F^*\\Theta$ and $f^*\\Theta' = F_*\\Phi^*\\Theta'$, independent of the representative; $(g \\circ f)_* = g_* \\circ f_*$ and the like are “easily verified”."
+   },
+   "lean": {
+    "statement": "On diagrams, invariance under refinements and equivalence of diagrams; on classes `pullTheta` for every generalized map and `pushTheta` for generalized isomorphisms, both preserving functors, with $(f ≫ g)^* = f^* \\circ g^*$, $(f ≫ g)_* = g_* \\circ f_*$, $(f^{-1})_* = f^*$ and the inverse laws; base change of $\\Theta$ in the weak fibred product.",
+    "decls": [
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.Diagram.pushTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.Diagram.pullTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.Diagram.IsRefinement.isEquivalence_Φ_iff",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.Diagram.pushTheta_eq_of_isRefinement",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.Diagram.pullTheta_eq_of_isRefinement",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.Diagram.pushTheta_eq_of_equiv",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.Diagram.pullTheta_eq_of_equiv",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.rep",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.homMk_rep",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.equiv_rep_homMk",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.isEquivalence_rep_Φ",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pushTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pullTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pushTheta_homMk",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pullTheta_homMk",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.isFunctorial_pushTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.isFunctorial_pullTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pushTheta_comp",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pullTheta_comp",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pushTheta_inv",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pullTheta_pushTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pushTheta_pullTheta",
+     "Chapter11/BranchedEquivalenceLocalization · WeakFibredProduct.pushforwardTheta_projRight_pullbackTheta",
+     "Chapter11/BranchedEquivalenceLocalization · WeakFibredProduct.pushforwardTheta_projLeft_pullbackTheta"
+    ]
+   },
+   "chips": [
+    "$f^*$ for every generalized map",
+    "Theorem 10.3.19 not used"
+   ],
+   "diff": [
+    "The composition rules go through the base change in the weak fibred product representing the composite; Theorem 10.3.19, which does not hold as we read it (Chapter 10, V10.65), is not used (Findings, Chapter 11, item 32)."
+   ]
+  },
+  {
+   "id": "V11.17",
+   "title": "Theorem 11.3.3 (2017: 11.3), the proof for an equivalence",
+   "verdict": "explicit",
+   "book": {
+    "label": "§11.3, Theorem 11.3.3, proof, pp. 537–538 (2017: Theorem 11.3, pp. 390–391)",
+    "page": 537,
+    "statement": "For an equivalence $F$, the local branching structures of $\\Theta$ at $x$ are carried by $\\hat\\psi \\circ F$ to ones of $F_*\\Theta$ at $y$; the properties of Theorem 11.3.3 follow from $|F|$ being a homeomorphism."
+   },
+   "lean": {
+    "statement": "For an equivalence: $F^*$ and $F_*$ of branched ep⁺-subgroupoids are branched ep⁺-subgroupoids, with the formulas for $|\\mathrm{supp}|$, and preserve closedness, compactness, orbifold- and manifold-type, $n$-dimensionality and dimensional decompositions; `mapDiffeo` moves a local branching structure by an sc-diffeomorphism, keeping dimensions.",
+    "decls": [
+     "Chapter11/BranchedEquivalence · EpFunctor.isBranchedEpSubgroupoid_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isBranchedEpSubgroupoid_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.exists_localBranchingStructure_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.exists_mem_supp_of_mem_supp_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpGroupoid.LocalBranchingStructure.mapDiffeo",
+     "Chapter11/BranchedEquivalence · EpGroupoid.LocalBranchingStructure.mapU",
+     "Chapter11/BranchedEquivalence · EpGroupoid.LocalBranchingStructure.mem_image_iff_of_mem_mapU",
+     "Chapter11/BranchedEquivalence · EpGroupoid.LocalBranchingStructure.isOfDim_mapDiffeo",
+     "Chapter11/BranchedEquivalence · EpFunctor.orbitSupp_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.orbitSupp_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isClosedBranched_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isClosedBranched_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isCompactBranched_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isCompactBranched_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isOrbifoldType_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isOrbifoldType_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isManifoldType_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isManifoldType_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isNDimensional_pullbackTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isNDimensional_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.exists_pushforwardTheta_eq_apply",
+     "Chapter11/BranchedEquivalence · EpFunctor.isDimDecomposition_pushforwardTheta",
+     "Chapter11/BranchedEquivalence · EpFunctor.isDimDecomposition_pullbackTheta",
+     "Chapter11/BranchedEquivalence · MPolyfold.HasDimAt.of_image",
+     "Chapter11/BranchedEquivalence · MPolyfold.hasDimAt_image_iff_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalence · MPolyfold.IsSubmanifoldOfDim.image_isScDiffeoOn",
+     "Chapter10/EquivalenceLR · EpFunctor.TransportChart"
+    ]
+   },
+   "chips": [
+    "paracompactness of $|\\mathrm{supp}|$ proved",
+    "sheets restricted",
+    "p. 538: read $\\psi^{-1}\\varphi'\\psi$"
+   ],
+   "diff": [
+    "The paracompactness required by 2021 Definition 9.1.2 (1) is proved, though the proof does not mention it; in the manifold-type step $\\psi \\circ \\varphi' \\circ \\psi^{-1}$ is read $\\psi^{-1} \\circ \\varphi' \\circ \\psi$ (possible misprint) (Findings, Chapter 11, item 33)."
+   ]
+  },
+  {
+   "id": "V11.18",
+   "title": "Theorem 11.3.3 (2017: 11.3), branched ep⁺-subgroupoids under generalized isomorphisms",
+   "verdict": "restated",
+   "book": {
+    "label": "§11.3, Theorem 11.3.3, p. 537 (2017: Theorem 11.3, p. 390)",
+    "page": 537,
+    "statement": "For a generalized isomorphism $f$: (1), (2) $f_*$ and $f^*$ map branched ep⁺-subgroupoids to branched ep⁺-subgroupoids; they preserve (3) closedness, (4) compactness, (5) orbifold- and manifold-type, (6) the dimensional decomposition."
+   },
+   "lean": {
+    "statement": "The six parts for every generalized isomorphism, with $|\\mathrm{supp}(f_*\\Theta)| = |f|(|\\mathrm{supp}(\\Theta)|)$ and $n$-dimensionality; (6): every dimensional decomposition $\\Theta = \\sum_k \\Theta_k$ is mapped to one of $f_*\\Theta$, and likewise for $f^*$.",
+    "decls": [
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.theorem_11_3_3_one",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.theorem_11_3_3_two",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.theorem_11_3_3_three",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.theorem_11_3_3_four",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.theorem_11_3_3_five",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.theorem_11_3_3_six",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.isNDimensional_pushTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.isNDimensional_pullTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.orbitSupp_pushTheta",
+     "Chapter9/Propositions · EpGroupoid.not_proposition_9_1_11_rn"
+    ]
+   },
+   "chips": [
+    "(6): every decomposition",
+    "one universe"
+   ],
+   "diff": [
+    "“The dimensional decomposition” refers to the uniqueness part of Proposition 9.1.11, which does not hold as we read it (Chapter 9, `not_proposition_9_1_11_rn`); (6) is read for every decomposition (Findings, Chapter 11, item 34)."
+   ]
+  },
+  {
+   "id": "V11.19",
+   "title": "Witnesses for §11.3: $1_{\\{0\\}}$ on $\\mathbb Z/2 \\ltimes \\mathbb R$",
+   "verdict": "extra",
+   "book": {
+    "label": "§11.3, Definition 11.3.1 and Theorem 11.3.3 (not in the book)",
+    "page": 535,
+    "statement": "Not in the book: the text gives no example of a push-forward or pull-back."
+   },
+   "lean": {
+    "statement": "$\\Theta_0 = 1_{\\{0\\}}$ on $\\mathbb Z/2 \\ltimes \\mathbb R$ is a branched ep⁺-subgroupoid; its pull-back to the refinement of the covering $\\{x > -1\\}$, $\\{x < 1\\}$ is one, equal to $1$ at two objects, with $F_*F^*\\Theta_0 = \\Theta_0$; the generalized isomorphism of that refinement pushes $\\Theta_0$ forward to it.",
+    "decls": [
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.reflectionTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.localBranchingStructure_reflectionTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.isBranchedEpSubgroupoid_reflectionTheta",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.isBranchedEpSubgroupoid_pullbackTheta_reflectionCover",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.pullbackTheta_reflectionCover_two_points",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.pushforwardTheta_pullbackTheta_reflectionCover",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.reflectionEP",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.reflectionCoverEP",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.reflectionCoverDiagram",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.isGeneralizedIso_reflectionCoverDiagram",
+     "Chapter11/BranchedEquivalenceLocalization · EpGroupoid.Examples.pushTheta_reflectionCoverDiagram"
+    ]
+   },
+   "chips": [
+    "witness: $\\mathbb Z/2 \\ltimes \\mathbb R$",
+    "functor not injective on objects"
+   ],
+   "diff": [
+    "Witnesses that the hypotheses of Theorem 11.3.3 can hold non-trivially (Findings, Chapter 11, item 35)."
+   ]
+  },
+  {
+   "id": "V11.20",
+   "title": "Lemma 11.3.4 (2017: 11.6) with (11.8) and (11.9), section functors of $\\widehat{Gr}$",
+   "verdict": "restated",
+   "book": {
+    "label": "§11.3, Lemma 11.3.4, p. 539 (2017: Lemma 11.6, p. 392), with (11.8), p. 538, and (11.9), p. 539",
+    "page": 539,
+    "statement": "For an equivalence $F$, $(F_*h)(y) = T\\psi \\circ TF(x)\\, h(x)$ for $\\psi : F(x) \\to y$ (11.8) and $TF(x)(F^*h')(x) = h'(F(x))$ (11.9); for a generalized isomorphism $f = [X \\xleftarrow{F} A \\xrightarrow{G} Y]$, $f_* = G_*F^*$ and $f^* = F_*G^*$ are well-defined maps between the sets $\\Gamma(\\hat\\pi)$ of section functors, with $(f^{-1})_* = f^*$, $(g \\circ f)_* = g_* \\circ f_*$, $(g \\circ f)^* = f^* \\circ g^*$."
+   },
+   "lean": {
+    "statement": "Section functors `IsGrHatSection`, the set `GrHatSections` (functions vanishing off $X_\\infty$); `pushSection`, independent of the choice (`pushSection_eq`), and `pullSection` through the fibrewise inverse `fibreInv` of $TF$; for equivalences: section functors to section functors, inverse laws, invariance under natural equivalence, composition, base change in the weak fibred product; on diagrams and on classes, with the laws of Lemma 11.3.4 (`lemma_11_3_4`).",
+    "decls": [
+     "Chapter11/BranchedEquivalenceTangentSection · EpGroupoid.IsGrHatSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EpGroupoid.GrHatSections",
+     "Chapter11/BranchedEquivalenceTangentSection · EpGroupoid.IsOrientation.isGrHatSection",
+     "Chapter11/BranchedEquivalenceTangentSection · MPolyfold.fibreInv",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pushSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pullSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pushSection_eq",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.isGrHatSection_pushSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.isGrHatSection_pullSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pullSection_pushSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pushSection_pullSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pushSection_eq_of_natTrans",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pullSection_eq_of_natTrans",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pushSection_comp",
+     "Chapter11/BranchedEquivalenceTangentSection · EpFunctor.pullSection_comp",
+     "Chapter11/BranchedEquivalenceTangentSection · WeakFibredProduct.pushSection_projRight_pullSection",
+     "Chapter11/BranchedEquivalenceTangentSection · WeakFibredProduct.pushSection_projLeft_pullSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.Diagram.pushSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.Diagram.pullSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.Diagram.pushSection_eq_of_equiv",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.Diagram.pullSection_eq_of_equiv",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pushSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pullSection",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pushSection_homMk",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pullSection_homMk",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pushSection_comp",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pullSection_comp",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pushSection_inv",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.lemma_11_3_4"
+    ]
+   },
+   "chips": [
+    "sections vanish off $X_\\infty$",
+    "choice-independence proved"
+   ],
+   "diff": [
+    "Sections are functions on all objects, $0$ off $X_\\infty$; the formal sums are moved by the image of carriers and frames (Findings, Chapter 11, item 40)."
+   ]
+  },
+  {
+   "id": "V11.21",
+   "title": "Theorem 11.3.5 (2017: 11.4), orientations under generalized isomorphisms",
+   "verdict": "explicit",
+   "book": {
+    "label": "§11.3, Theorem 11.3.5, p. 539 (2017: Theorem 11.4, p. 393)",
+    "page": 539,
+    "statement": "For a generalized isomorphism $f$, $f_*\\hat T_\\Theta$ orients $f_*\\Theta$ and $f^*\\hat T_{\\Theta'}$ orients $f^*\\Theta'$; the proof moves an oriented local branching structure by $\\hat\\psi \\circ F$ with the same weights."
+   },
+   "lean": {
+    "statement": "For equivalences (`isOrientation_pushSection`, `isOrientation_pullSection`) and for generalized isomorphisms (`theorem_11_3_5_push`, `theorem_11_3_5_pull`), assuming Chapter 9's independence of the tangent sums for $\\Theta$; orientations of submanifolds and oriented branching structures moved by sc-diffeomorphisms between two M-polyfolds; $T\\psi \\circ TF = T(\\hat\\psi \\circ F)$.",
+    "decls": [
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.TransportChart.tangentMor_ψ_tangent_obj",
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.OrTangent.map",
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.IsOrientedAt.map_tangentMapOn",
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.SubmanifoldOrientation.mapDiffeo",
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.SubmanifoldOrientation.mapDiffeo_tangent",
+     "Chapter11/BranchedEquivalenceTangent · EpGroupoid.OrientedBranchingStructure.mapDiffeo",
+     "Chapter11/BranchedEquivalenceTangent · EpGroupoid.OrientedBranchingStructure.orientedSum_mapDiffeo",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.isOrientation_pushSection",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.isOrientation_pullSection",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_5_push",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_5_pull"
+    ]
+   },
+   "chips": [
+    "Theorem 9.2.1’s independence assumed",
+    "carried to $f_*\\Theta$, $f^*\\Theta'$"
+   ],
+   "diff": [
+    "Chapter 9 takes the independence of the tangent sums of Theorem 9.2.1 as a hypothesis; it is assumed for $\\Theta$ only and proved for $f_*\\Theta$ and $f^*\\Theta'$ (Findings, Chapter 11, item 41)."
+   ]
+  },
+  {
+   "id": "V11.22",
+   "title": "Definition 11.3.6 (2017: 11.5) and (11.10), oriented branched ep⁺-subgroupoids",
+   "verdict": "restated",
+   "book": {
+    "label": "§11.3, Definition 11.3.6, p. 541 (2017: Definition 11.5, p. 394), and (11.10)",
+    "page": 541,
+    "statement": "$f_*\\hat\\Theta = (f_*\\Theta, f_*\\hat T_\\Theta)$ and $f^*\\hat\\Theta' = (f^*\\Theta', f^*\\hat T_{\\Theta'})$; $(g \\circ f)_* = g_* \\circ f_*$, $(g \\circ f)^* = f^* \\circ g^*$, $f^*f_*\\hat\\Theta = \\hat\\Theta$ and $f_*f^*\\hat\\Theta' = \\hat\\Theta'$ (11.10)."
+   },
+   "lean": {
+    "statement": "`OrientedBranched` (with the independence of the tangent sums as a field), `push`, `pull`, `push_comp`, `pull_comp`; $f^*f_*\\hat\\Theta = \\hat\\Theta$ for $\\hat T_\\Theta$ zero off $X_\\infty$ (`pull_push`), and $f_*f^* = 1$ on each component (`pushTheta_pullTheta`, `pushSection_pullSection`).",
+    "decls": [
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.OrientedBranched",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.OrientedBranched.push",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.OrientedBranched.pull",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.OrientedBranched.push_comp",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.OrientedBranched.pull_comp",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.OrientedBranched.pull_push",
+     "Chapter11/BranchedEquivalenceLocalization · EPLocalization.EPLoc.pushTheta_pullTheta",
+     "Chapter11/BranchedEquivalenceTangentSection · EPLocalization.EPLoc.pushSection_pullSection"
+    ]
+   },
+   "chips": [
+    "independence as a field",
+    "$f_*f^* = 1$ componentwise"
+   ],
+   "diff": [
+    "The text's definition, with Chapter 9's hypothesis recorded in the structure (Findings, Chapter 11, item 42)."
+   ]
+  },
+  {
+   "id": "V11.23",
+   "title": "Theorem 11.3.7 (2017: 11.5), tangents under generalized isomorphisms",
+   "verdict": "explicit",
+   "book": {
+    "label": "§11.3, Theorem 11.3.7, p. 541 (2017: Theorem 11.5, p. 395)",
+    "page": 541,
+    "statement": "$(Tf)_*T\\Theta = T(f_*\\Theta)$ and $(Tf)^*T\\Theta' = T(f^*\\Theta')$ for $Tf = [TX \\leftarrow TA \\to TY]$; the proof is left to the reader."
+   },
+   "lean": {
+    "statement": "For equivalences (`tangentTheta_pushforwardTheta`, `tangentTheta_pullbackTheta`) and generalized isomorphisms (`theorem_11_3_7_push`, `theorem_11_3_7_pull`, with $Tf$ of Theorem 11.1.1); the independence of the tangent sums carried along; tangent spaces of submanifolds under sc-diffeomorphisms between two M-polyfolds.",
+    "decls": [
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.submanifoldTangent_image_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.chartVec_tangentMapOn_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalenceTangent · EpGroupoid.LocalBranchingStructure.tangentSum_mapDiffeo",
+     "Chapter11/BranchedEquivalenceTangent · EpGroupoid.LocalBranchingStructure.tangentSum_eq_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalenceTangent · EpGroupoid.tangentTheta_tangentMapOn",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.hasIndependentTangentSums_pushforwardTheta",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.hasIndependentTangentSums_pullbackTheta",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.tangentValue_pushforwardTheta",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.tangentValue_pullbackTheta",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.tangentTheta_pushforwardTheta",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.tangentTheta_pullbackTheta",
+     "Chapter11/BranchedEquivalenceTangent · EPLocalization.EPLoc.hasIndependentTangentSums_pushTheta",
+     "Chapter11/BranchedEquivalenceTangent · EPLocalization.EPLoc.hasIndependentTangentSums_pullTheta",
+     "Chapter11/BranchedEquivalenceTangent · EPLocalization.EPLoc.tangentFunctor_map_eq",
+     "Chapter11/BranchedEquivalenceTangent · EPLocalization.EPLoc.theorem_11_3_7_push",
+     "Chapter11/BranchedEquivalenceTangent · EPLocalization.EPLoc.theorem_11_3_7_pull"
+    ]
+   },
+   "chips": [
+    "proof left to the reader: done",
+    "independence carried along"
+   ],
+   "diff": [
+    "$(Tf)_*$ is read as the push-forward of Definition 11.3.1 along the tangent generalized isomorphism (Findings, Chapter 11, item 43)."
+   ]
+  },
+  {
+   "id": "V11.24",
+   "title": "Theorem 11.3.8 (2017: 11.6), boundaries under generalized isomorphisms",
+   "verdict": "explicit",
+   "book": {
+    "label": "§11.3, Theorem 11.3.8, pp. 541–542 (2017: Theorem 11.6, p. 395)",
+    "page": 541,
+    "statement": "$f_*(\\partial\\Theta) = \\partial(f_*\\Theta)$ and $f^*(\\partial\\Theta') = \\partial(f^*\\Theta')$ (11.11); in the sketch of the proof $d_M(x)$ \"is being preserved\"."
+   },
+   "lean": {
+    "statement": "For equivalences (`boundaryTheta_pushforwardTheta`, `boundaryTheta_pullbackTheta`) and generalized isomorphisms (`theorem_11_3_8_push`, `theorem_11_3_8_pull`); $f(a) \\in \\partial f(A)$ iff $a \\in \\partial A$ for sc-diffeomorphisms between two M-polyfolds.",
+    "decls": [
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.IsTangentReducedAt.image_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.isTangentReducedAt_image_iff_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalenceTangent · MPolyfold.mem_submanifoldBoundary_image_iff_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalenceTangent · EpGroupoid.boundaryTheta_apply_of_isScDiffeoOn",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.boundaryTheta_pushforwardTheta",
+     "Chapter11/BranchedEquivalenceTangent · EpFunctor.boundaryTheta_pullbackTheta",
+     "Chapter11/BranchedEquivalenceTangent · EPLocalization.EPLoc.theorem_11_3_8_push",
+     "Chapter11/BranchedEquivalenceTangent · EPLocalization.EPLoc.theorem_11_3_8_pull"
+    ]
+   },
+   "chips": [
+    "“$d_M$ preserved”: through $\\partial M$",
+    "proof left to the reader: done"
+   ],
+   "diff": [
+    "The preservation of $d_M(x)$ is read as the invariance of $\\partial M$ of Definition 9.2.16 (Findings, Chapter 11, item 44)."
+   ]
+  },
+  {
+   "id": "V11.25",
+   "title": "Theorem 11.3.9 (2017: 11.7), oriented boundaries, for a representative",
+   "verdict": "narrower",
+   "book": {
+    "label": "§11.3, Theorem 11.3.9, p. 542 (2017: Theorem 11.7, p. 395)",
+    "page": 542,
+    "statement": "For oriented tame branched ep⁺-subgroupoids, $\\partial(f_*\\hat\\Theta) = f_*(\\partial\\hat\\Theta)$ and $\\partial(f^*\\hat\\Theta') = f^*(\\partial\\hat\\Theta')$; the proof is left to the reader."
+   },
+   "lean": {
+    "statement": "For a diagram $X \\leftarrow A \\to Y$ with right leg an equivalence and boundary operations on $X$, $A$, $Y$ that the transfer maps carry into each other (`IsBoundaryTransfer`, which holds along the identity): $d_*(\\partial\\Theta) = \\partial(d_*\\Theta)$ and $d_*\\hat T_{\\partial\\Theta} = \\hat T_{\\partial(d_*\\Theta)}$, and likewise for $d^*$ (`theorem_11_3_9_push`, `theorem_11_3_9_pull`).",
+    "decls": [
+     "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.IsBoundaryTransfer",
+     "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.isBoundaryTransfer_id",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.pushSection_boundaryLift",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.pullSection_boundaryLift",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_push",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_pull"
+    ]
+   },
+   "chips": [
+    "for a representative",
+    "boundary transfer assumed (G.130)"
+   ],
+   "diff": [
+    "Chapter 9 takes the boundary operation as data; that the boundary operations of Definition 9.3.8 satisfy the hypothesis along equivalences is not formalized (G.130) (Findings, Chapter 11, item 45)."
+   ]
+  },
+  {
+   "id": "V11.26",
+   "title": "Witnesses for Lemma 11.3.4 to Theorem 11.3.9: Example 9.3.5",
+   "verdict": "extra",
+   "book": {
+    "label": "§11.3, Lemma 11.3.4 to Theorem 11.3.9 (not in the book)",
+    "page": 539,
+    "statement": "Not in the book: the text gives no example of a section functor or an oriented branched ep⁺-subgroupoid moved along a generalized isomorphism."
+   },
+   "lean": {
+    "statement": "The orientation $\\hat T^1$ of Example 9.3.5 on $\\mathbb R^2$ lies in $\\Gamma(\\hat\\pi)$ and is fixed by the identity's push-forward and pull-back; $(\\Theta, \\hat T^1)$ is an `OrientedBranched`, pushed forward along the identity generalized isomorphism; `IsBoundaryTransfer` holds along the identity on $\\mathbb R^2$.",
+    "decls": [
+     "Chapter11/BranchedEquivalenceTangentSection · EpGroupoid.Examples.exampleT1_mem_grHatSections",
+     "Chapter11/BranchedEquivalenceTangentSection · EpGroupoid.Examples.pushSection_id_exampleT1",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpGroupoid.Examples.rn2EP",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpGroupoid.Examples.example935Oriented",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpGroupoid.Examples.isGeneralizedIso_id_rn2EP",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpGroupoid.Examples.example935Oriented_push",
+     "Chapter11/BranchedEquivalenceTangentOrientation · EpGroupoid.Examples.isBoundaryTransfer_id_rn2"
+    ]
+   },
+   "chips": [
+    "witness: Example 9.3.5"
+   ],
+   "diff": [
+    "Witnesses that the hypotheses of V11.20–V11.25 can hold (Findings, Chapter 11, item 46)."
+   ]
+  },
+  {
+   "id": "V11.27",
+   "title": "Theorems 11.4.1 and 11.4.2 (2017: Theorem 11.8), canonical measures",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.4, Theorem 11.4.1, p. 543 (2017: Theorem 11.8, p. 396), and Theorem 11.4.2, p. 544 (new in the 2021 edition)",
+    "page": 543,
+    "statement": "For a generalized isomorphism $f$, $|f|_*\\mu^{\\hat\\Theta}_\\omega = \\mu^{f_*\\hat\\Theta}_{f_*\\omega}$ and $\\mu^{f^*\\hat\\Theta'}_{f^*\\omega'} = |f|^*\\mu^{\\hat\\Theta'}_{\\omega'}$; Theorem 11.4.2 for the effective measures."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.131): it needs forms and branched integration (G.74, G.80, G.107) and the orientations of §11.3 (Findings, Chapter 11, item 50).",
+    "decls": []
+   },
+   "chips": [
+    "G.131"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.28",
+   "title": "Remark 11.4.3 (2017: 11.3), integrals on equivalent polyfold structures",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.4, Remark 11.4.3, p. 544 (2017: Remark 11.3, p. 396)",
+    "page": 544,
+    "statement": "Pairs $(X, \\beta)$, $(X', \\beta')$ related by a generalized isomorphism $f$ with $\\beta' \\circ |f| = \\beta$ give the same integrals of corresponding forms."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.131); the relation on pairs is Chapter 10's V10.48 (Findings, Chapter 11, item 50).",
+    "decls": []
+   },
+   "chips": [
+    "G.131"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.29",
+   "title": "Theorems 11.4.4 and 11.4.5 (2017: Theorem 11.9), boundary measures",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.4, Theorem 11.4.4, p. 545 (2017: Theorem 11.9, p. 397), and Theorem 11.4.5, p. 546 (new in the 2021 edition)",
+    "page": 545,
+    "statement": "The canonical boundary measures, and in Theorem 11.4.5 the effective ones, transform by $|f|$ as in Theorem 11.4.1."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.131): it needs the boundary measures of §9.5 (G.108, G.109) (Findings, Chapter 11, item 50).",
+    "decls": []
+   },
+   "chips": [
+    "G.131"
+   ],
+   "diff": []
+  },
+  {
+   "id": "V11.30",
+   "title": "Proposition 11.5.1 (2017: 11.6), auxiliary norms along generalized strong bundle isomorphisms",
+   "verdict": "narrower",
+   "book": {
+    "label": "§11.5, Proposition 11.5.1, p. 547 (2017: Proposition 11.6, p. 399)",
+    "page": 547,
+    "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]^*N'$ and $[D]_*N$ of auxiliary norms are auxiliary norms, defined through choices of $e''$ with $\\Phi(e'') \\to e$; they are mutually inverse and depend only on $|[D]|$."
+   },
+   "lean": {
+    "statement": "`pullNorm`, `pushNorm` through a representative of $|D|(|e|)$ in $|W'[1]|$, independent of it and equal to the text's formula; continuous, satisfying condition (3) of Definition 8.3.5, mutually inverse for invariant functions, determined by $|[D]|$; $|D|$ on $|W[1]|$ is continuous and determined by $|D|$ on $|W|$.",
+    "decls": [
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_1",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pullNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pushNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pushNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullNorm_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullNorm_eq_Ψ",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.isOneInvariant_pullNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullNorm_eq_lift",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.continuous_pullNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pushNorm_pullNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullNorm_pushNorm",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullNorm_eq_of_orbitMap_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pushNorm_eq_of_orbitMap_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.oneOrbitMap",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.continuous_oneOrbitMap",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.oneOrbitMap_oneMap",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.oneToOrbit_oneOrbitMap",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.oneOrbitMap_eq_of_orbitMap_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.oneToOrbit",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.oneToOrbit_injective",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.oneMap",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.continuous_oneMap",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.oneToOrbit_oneMap",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.IsOneInvariant",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.isOneInvariant_const",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.isOneInvariant_iff",
+     "Chapter11/StrongBundleUpToEquivalence · EpStrongBundle.IsAuxNorm.isOneInvariant"
+    ]
+   },
+   "chips": [
+    "conditions (1), (2) of Def. 8.3.5: G.132",
+    "choices replaced by $|W'[1]|$"
+   ],
+   "diff": [
+    "Conditions (1) and (2) of Definition 8.3.5 are not shown (G.132). The text's sentence on [D] = [D'] under local regularity is Theorem 10.5.7, which does not hold as we read it (Chapter 10, V10.67); nothing here uses it (Findings, Chapter 11, item 60)."
+   ]
+  },
+  {
+   "id": "V11.31",
+   "title": "Multisection functors along a strong bundle equivalence; Lemma 11.5.2 (2017: 11.7)",
+   "verdict": "narrower",
+   "book": {
+    "label": "§11.5, Lemma 11.5.2, p. 548 (2017: Lemma 11.7, p. 400), and the multisection functors, pp. 547–548",
+    "page": 548,
+    "statement": "For a strong bundle equivalence $\\Phi$ and an sc⁺-multisection $\\Lambda$, $\\Phi_*\\Lambda(w') = \\Lambda(w)$ for $\\Phi(w) \\cong w'$ is a well-defined sc⁺-multisection."
+   },
+   "lean": {
+    "statement": "`IsWFunctor`: maps on $W$ constant along morphisms; `pullMult`, `pushMult`; $\\Phi_*\\Lambda$ does not depend on the choice and is a functor (`lemma_11_5_2`); $\\Phi^*\\Phi_* = 1$ and $\\Phi_*\\Phi^* = 1$.",
+    "decls": [
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.IsWFunctor",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.isWFunctor_const",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.IsWFunctor.eq_of_π_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pullMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.IsWFunctor.pullMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pushMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.π_obj_choose",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pushMult_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.lemma_11_5_2",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pullMult_pushMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.pushMult_pullMult"
+    ]
+   },
+   "chips": [
+    "functors only",
+    "local section structures: G.133"
+   ],
+   "diff": [
+    "Only the functor $\\Lambda$ underlying an sc⁺-multisection is treated; its local section structures (2021 Definition 13.2.1) are not formalized (G.133) (Findings, Chapter 11, item 61)."
+   ]
+  },
+  {
+   "id": "V11.32",
+   "title": "Proposition 11.5.3 (2017: 11.7), multisection functors along generalized strong bundle isomorphisms",
+   "verdict": "narrower",
+   "book": {
+    "label": "§11.5, Proposition 11.5.3, p. 548 (2017: Proposition 11.7, p. 401)",
+    "page": 548,
+    "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]_*$ and $[D]^*$ of sc⁺-multisections are well defined and mutually inverse; for generalized strong bundle maps with $|[D]| = |[D']|$ they agree."
+   },
+   "lean": {
+    "statement": "$[D]_* = \\Psi_*\\Phi^*$ and $[D]^* = \\Phi_*\\Psi^*$ on functors $W \\to \\mathbb Q_{\\ge 0}$, independent of the representative, mutually inverse, and equal for $[D]$, $[D']$ with the same orbit map.",
+    "decls": [
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_3",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pushMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.pullMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pushMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pushMult_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullMult_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.isWFunctor_pushMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.isWFunctor_pullMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullMult_pushMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pushMult_pullMult",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pushMult_eq_of_orbitMap_eq",
+     "Chapter11/StrongBundleUpToEquivalence · SBLocalization.SDiagram.pullMult_eq_of_orbitMap_eq"
+    ]
+   },
+   "chips": [
+    "functors only (G.133)",
+    "“maps” read as isomorphisms"
+   ],
+   "diff": [
+    "For the functors underlying sc⁺-multisections (G.133); the last clause is read for generalized strong bundle isomorphisms, for which $[D]_*$ is defined (Findings, Chapter 11, item 61)."
+   ]
+  },
+  {
+   "id": "V11.33",
+   "title": "Lemma 11.6.1, proper covering functors on morphisms",
+   "verdict": "same",
+   "book": {
+    "label": "§11.6, Lemma 11.6.1, p. 549 (new in the 2021 edition)",
+    "page": 549,
+    "statement": "A proper covering functor $F : Y \\to X$ is a surjective local sc-diffeomorphism on morphisms."
+   },
+   "lean": {
+    "statement": "The lemma, with the inverse of $\\alpha(\\psi) = (F(\\psi), s(\\psi))$ as the unique lift `lift` of $(\\varphi, y)$, its target over $t(\\varphi)$, and uniqueness of lifts with prescribed target.",
+    "decls": [
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.lemma_11_6_1",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.lift",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.mor_lift",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.src_lift",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.eq_lift",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.obj_tgt_lift",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.existsUnique_lift_tgt"
+    ]
+   },
+   "chips": [
+    "new in the 2021 edition",
+    "as stated"
+   ],
+   "diff": [
+    "The text's proof (Findings, Chapter 11, item 70)."
+   ]
+  },
+  {
+   "id": "V11.34",
+   "title": "Lemma 11.6.2 (2017: 11.8), the fibre $Y(x)$ as a translation groupoid",
+   "verdict": "restated",
+   "book": {
+    "label": "§11.6, Lemma 11.6.2, p. 551 (2017: Lemma 11.8, p. 402), and the action (11.15), p. 550",
+    "page": 551,
+    "statement": "$G_x$ acts on $Y_x = F^{-1}(x)$ by $g * y = t(\\alpha^{-1}(g, y))$, and the full subcategory $Y(x)$ is naturally identified with $G_x \\ltimes Y_x$."
+   },
+   "lean": {
+    "statement": "The action as a `MulAction`; the functor $Y(x) \\to G_x \\ltimes Y_x$, identity on objects and $\\alpha$ on morphisms, is bijective on objects, full and faithful.",
+    "decls": [
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.lemma_11_6_2",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.Fiber",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.Fiber.val",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.Fiber.mk",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.fiberSMul",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.fiberSMul_val_of",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.instMulActionFiber",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.smul_val_of",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.FiberFull",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.Translation",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.toTranslation",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.bijective_toTranslation_obj",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.full_toTranslation",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.faithful_toTranslation"
+    ]
+   },
+   "chips": [
+    "“naturally identified”: isomorphism",
+    "p. 550: $F(\\psi_2)$ read $F(\\psi_1)$"
+   ],
+   "diff": [
+    "In the computation of $\\alpha(\\psi_2 \\circ \\psi_1)$ the second factor is printed $(F(\\psi_2), s(\\psi_1))$; we read $(F(\\psi_1), s(\\psi_1))$ (possible misprint) (Findings, Chapter 11, item 71)."
+   ]
+  },
+  {
+   "id": "V11.35",
+   "title": "Lemma 11.6.3 (2017: 11.9), transport of fibres along a morphism",
+   "verdict": "same",
+   "book": {
+    "label": "§11.6, Lemma 11.6.3, pp. 551–552 (2017: Lemma 11.9, p. 403)",
+    "page": 551,
+    "statement": "A morphism $\\varphi : x \\to x'$ gives an equivariant bijection $B_\\varphi : Y_x \\to Y_{x'}$ ((11.16)) and an isomorphism $\\tilde\\varphi : G_x \\ltimes Y_x \\to G_{x'} \\ltimes Y_{x'}$."
+   },
+   "lean": {
+    "statement": "`transportFiber` with inverse along $\\varphi^{-1}$ and equivariance along conjugation; `translationMap` bijective on objects, full and faithful.",
+    "decls": [
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.lemma_11_6_3",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.transportFiber",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.transportFiber_val_of",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.transportFiber_inv_transportFiber",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.bijective_transportFiber",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.transportFiber_smul",
+     "Chapter11/CoveringEquivalence · EpFunctor.IsProperCovering.translationMap",
+     "Chapter7/Basic · EpGroupoid.conjIsotropy"
+    ]
+   },
+   "chips": [
+    "as stated"
+   ],
+   "diff": [
+    "The text's proof (Findings, Chapter 11, item 71)."
+   ]
+  },
+  {
+   "id": "V11.36",
+   "title": "Definition 11.6.4 (2017: 11.6), functors and equivalences of proper coverings",
+   "verdict": "stronger",
+   "book": {
+    "label": "§11.6, Definition 11.6.4, p. 553 (2017: Definition 11.6, p. 404)",
+    "page": 553,
+    "statement": "(1) A functor $(\\Psi, \\Phi) : F \\to F'$ with $\\Phi \\circ F = F' \\circ \\Psi$; (2) an equivalence if $\\Psi$, $\\Phi$ are equivalences and $\\Psi$ maps each fibre $Y_x$ bijectively onto $Y'_{\\Phi(x)}$."
+   },
+   "lean": {
+    "statement": "`ProperCoveringHom` with identities and composition; `IsEquivalence` with the fibre condition; for proper coverings the fibre condition follows from the other two (`isEquivalence_iff`). Witness: the pair groupoid of $\\mathbb Z$ to the point, between identity coverings.",
+    "decls": [
+     "Chapter11/CoveringEquivalence · ProperCoveringHom",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.ext",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.mapsTo_fiber",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.id",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.comp",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.IsFiberBijective",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.IsEquivalence",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.IsEquivalence.id",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.IsEquivalence.comp",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.isFiberBijective_of_isEquivalence",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.isEquivalence_iff",
+     "Chapter11/CoveringEquivalence · CoveringEquivalence.Examples.pairToPointCovering",
+     "Chapter11/CoveringEquivalence · CoveringEquivalence.Examples.isEquivalence_pairToPointCovering"
+    ]
+   },
+   "chips": [
+    "fibre condition redundant",
+    "witness: $\\mathbb Z$-pair → point"
+   ],
+   "diff": [
+    "The redundancy of the fibre condition for proper coverings is added (Findings, Chapter 11, item 72)."
+   ]
+  },
+  {
+   "id": "V11.37",
+   "title": "Definition 11.6.5 (2017: 11.7), natural transformations of functors of proper coverings",
+   "verdict": "same",
+   "book": {
+    "label": "§11.6, Definition 11.6.5, p. 554 (2017: Definition 11.7, p. 405), and the diagram on p. 555",
+    "page": 554,
+    "statement": "A natural transformation $(\\zeta, \\xi) \\to (\\zeta', \\xi')$ is a pair $\\tau_Y$, $\\tau_X$ with $\\tau_X \\circ F = F' \\circ \\tau_Y$ ((11.20))."
+   },
+   "lean": {
+    "statement": "`NatTrans` with (11.20) objectwise and the naturality square of the text; identity, inverse, composite and whiskerings; natural equivalence is an equivalence relation compatible with composition.",
+    "decls": [
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NatTrans",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NaturallyEquivalent",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NatTrans.naturality_F",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NatTrans.refl",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NatTrans.symm",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NatTrans.trans",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NatTrans.whiskerLeft",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NatTrans.whiskerRight",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.naturallyEquivalent_equivalence",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NaturallyEquivalent.comp_left",
+     "Chapter11/CoveringEquivalence · ProperCoveringHom.NaturallyEquivalent.comp_right",
+     "Chapter11/CoveringEquivalence · CoveringEquivalence.Examples.naturallyEquivalent_pairToPointCovering"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "(11.20) objectwise"
+   ],
+   "diff": [
+    "The text's definition (Findings, Chapter 11, item 73)."
+   ]
+  },
+  {
+   "id": "V11.38",
+   "title": "Theorem 11.6.6 (2017: 11.10) (1), steps (A)–(C)",
+   "verdict": "stronger",
+   "book": {
+    "label": "§11.6, Theorem 11.6.6 (1), p. 555 (2017: Theorem 11.10, p. 405), and its proof, pp. 556–560",
+    "page": 555,
+    "statement": "For an equivalence $(\\Psi, \\Phi) : F \\to F'$ and a functor $(\\zeta, \\xi) : F'' \\to F'$, the functor $H$ of (11.18), (11.19) between the weak fibred products is a proper covering functor; steps (A)–(C)."
+   },
+   "lean": {
+    "statement": "`hFunctor` and, when $\\Psi$, $\\Phi$ are local sc-diffeomorphisms on objects and $\\Psi$ maps fibres onto fibres, its surjectivity and local sc-diffeomorphism property on objects (A), the sc-diffeomorphism $\\alpha$ (B), finite fibres and properness (C).",
+    "decls": [
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.hFunctor",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.hObj",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.hMor",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.mor_conj",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.hMor_src",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.hMor_tgt",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.surjective_hObj",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.isLocalScDiffeo_hObj",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.isScDiffeo_fibredMap_hFunctor",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.finite_fiber_hObj",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.isProperMap_hObj",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.isProperCovering_hFunctor_of",
+     "Chapter11/CoveringEquivalenceTheorem · MPolyfold.IsScDiffeoOn.restrictTarget",
+     "Chapter11/CoveringEquivalenceTheorem · MPolyfold.IsLocalScDiffeo.evenlyCovered_of_isProperMap",
+     "Chapter11/CoveringEquivalenceTheorem · EpFunctor.IsProperCovering.isProperMap"
+    ]
+   },
+   "chips": [
+    "weaker hypotheses",
+    "(C) through properness",
+    "(A) heading: products reversed"
+   ],
+   "diff": [
+    "The heading of step (A) has the two weak fibred products in the reverse order; we read $Y \\times_{Y'} Y''$ onto $X \\times_{X'} X''$ (possible misprint) (Findings, Chapter 11, item 74)."
+   ]
+  },
+  {
+   "id": "V11.39",
+   "title": "Theorem 11.6.6 (2017: 11.10), the weak fibred product of proper coverings",
+   "verdict": "same",
+   "book": {
+    "label": "§11.6, Theorem 11.6.6, p. 555 (2017: Theorem 11.10, p. 405), with steps (D)–(F), pp. 560–561",
+    "page": 555,
+    "statement": "(1) $H$ is a proper covering; (2) $(\\pi_{Y''}, \\pi_{X''})$ is an equivalence; (3) the two composites to $F'$ are naturally equivalent; tameness of $X''$ passes to the products; if $(\\zeta, \\xi)$ is an equivalence, so is $(\\pi_Y, \\pi_X)$."
+   },
+   "lean": {
+    "statement": "All claims, with `projLeftHom`, `projRightHom`, `natTransProj`; witness with nonempty fibred product.",
+    "decls": [
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.theorem_11_6_6",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.projLeftHom",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.projRightHom",
+     "Chapter11/CoveringEquivalenceTheorem · ProperCoveringHom.natTransProj",
+     "Chapter11/CoveringEquivalenceTheorem · CoveringEquivalence.Examples.theorem_11_6_6_pairToPoint",
+     "Chapter11/CoveringEquivalence · CoveringEquivalence.Examples.nonempty_fiber_id",
+     "Chapter10/WeakFibredProductTheorem · WeakFibredProduct.isEquivalence_projRight",
+     "Chapter7/LocalDiffeo · MPolyfold.IsLocalScDiffeo.isTame"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "witness: $\\mathbb Z$-pair → point"
+   ],
+   "diff": [
+    "In (D) the fibre bijection comes from V11.36 (Findings, Chapter 11, item 74)."
+   ]
+  },
+  {
+   "id": "V11.40",
+   "title": "The category $\\mathcal{PC}$ and Definition 11.6.7 (2017: 11.8)",
+   "verdict": "same",
+   "book": {
+    "label": "§11.6, Definition 11.6.7, p. 561 (2017: Definition 11.8, p. 410), and the category $\\mathcal{PC}$, p. 561",
+    "page": 561,
+    "statement": "Proper coverings and their functors form a category $\\mathcal{PC}$ with the class $E_{\\mathcal{PC}}$; a diagram is $F \\xleftarrow{\\Gamma} A \\xrightarrow{\\varepsilon} F'$ with $\\Gamma \\in E_{\\mathcal{PC}}$, and two diagrams have a common refinement if there are equivalences $H$, $H'$ with $\\Gamma \\circ H \\simeq \\Gamma' \\circ H'$, $\\varepsilon \\circ H \\simeq \\varepsilon' \\circ H'$."
+   },
+   "lean": {
+    "statement": "`PC` with composition associative on the nose and `PC.equivalences`; the weak fibred product in $\\mathcal{PC}$; `Diagram`, `CommonRefinement`, `HasCommonRefinement`; witness diagrams from the pair to the point.",
+    "decls": [
+     "Chapter11/CoveringEquivalenceDiagram · PC",
+     "Chapter11/CoveringEquivalenceDiagram · PC.equivalences",
+     "Chapter11/CoveringEquivalenceDiagram · ProperCoveringHom.comp_assoc",
+     "Chapter11/CoveringEquivalenceDiagram · PC.fibred",
+     "Chapter11/CoveringEquivalenceDiagram · PC.fibredFst",
+     "Chapter11/CoveringEquivalenceDiagram · PC.fibredSnd",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Diagram",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Diagram.CommonRefinement",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Diagram.HasCommonRefinement",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.pair",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.point",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.equivalences_pairToPoint",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.diagram",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.fibredPair",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.isEquivalence_fibredFst",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.diagram'"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "one universe"
+   ],
+   "diff": [
+    "The text's definitions (Findings, Chapter 11, item 75)."
+   ]
+  },
+  {
+   "id": "V11.41",
+   "title": "Proposition 11.6.8 (2017: 11.8), common refinements are transitive",
+   "verdict": "same",
+   "book": {
+    "label": "§11.6, Proposition 11.6.8, p. 562 (2017: Proposition 11.8, p. 411)",
+    "page": 562,
+    "statement": "If $d, d'$ and $d', d''$ have common refinements, so have $d, d''$."
+   },
+   "lean": {
+    "statement": "The proposition and the resulting equivalence relation; the two witness diagrams have a common refinement.",
+    "decls": [
+     "Chapter11/CoveringEquivalenceDiagram · PC.proposition_11_6_8",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Diagram.hasCommonRefinement_equivalence",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.hasCommonRefinement_diagram",
+     "Chapter11/CoveringEquivalenceDiagram · PC.Examples.hasCommonRefinement_diagram_diagram"
+    ]
+   },
+   "chips": [
+    "as stated",
+    "last step of the ε chain added"
+   ],
+   "diff": [
+    "The displayed chain for the $\\varepsilon$'s stops at $\\varepsilon' \\circ K \\circ \\pi_{B''}$; the last step uses the assumption $\\varepsilon' \\circ K \\simeq \\varepsilon'' \\circ K'$ (Findings, Chapter 11, item 75)."
+   ]
+  },
+  {
+   "id": "V11.42",
+   "title": "Remark 11.6.9 (2017: 11.4), proper strong bundle coverings",
+   "verdict": "gap",
+   "book": {
+    "label": "§11.6, Remark 11.6.9, pp. 563–566 (2017: Remark 11.4, pp. 412–413)",
+    "page": 563,
+    "statement": "Strong bundles and strong bundle maps as functors; proper strong bundle coverings (Definition 8.5.9); a category of them with equivalences and its localization, the details left to the reader."
+   },
+   "lean": {
+    "statement": "**Not formalized** (gap G.135), except Definition 8.5.9, Chapter 8's `IsProperStrongBundleCovering2021` (Findings, Chapter 11, item 76).",
+    "decls": [
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021"
+    ]
+   },
+   "chips": [
+    "G.135",
+    "Definition 8.5.9 in Chapter 8"
+   ],
+   "diff": []
   }
  ],
  "notFormalized": [
@@ -23619,10 +25050,18 @@
    "label": "§10.5, p. 504 (2017 p. 364), Definition 10.5.1, p. 506 (2017: Definition 10.14, p. 366), and Remark 10.5.3, p. 506 (new in the 2021 edition)",
    "page": 504,
    "book": "Equivalence of diagrams of strong bundles is an equivalence relation, generalized strong bundle maps compose to a category $\\mathcal{SEP}(F^{-1})$, and a generalized strong bundle map is invertible iff it is represented with both legs strong bundle equivalences.",
-   "instead": "**Not formalized**: all three need the weak fibred product of strong bundles over ep-groupoids, which the text does not construct; the classes are taken for the generated equivalence relation and $\\mathcal{SEP}(F^{-1})$ is a quiver (V10.51, V10.55, V10.57) (Findings, Chapter 10, items 50, 53).",
+   "instead": "**Formalized since the first edition of this page** (V10.68–V10.71), except the converse half of the strong bundle Theorem 10.3.10. The weak fibred product of strong bundles is the pull-back of $W''$ along $\\pi_Z$ (V10.68), the equivalence of diagrams is transitive (V10.69), and the composition makes $\\mathcal{SEP}(F^{-1})$ a category (V10.70, V10.55); a diagram with both legs strong bundle equivalences represents an isomorphism (V10.71). Still open: that an isomorphism of $\\mathcal{SEP}(F^{-1})$ is represented with both legs strong bundle equivalences, proved for the base functor only; for the strong bundle functor it would need strong bundle versions of the claims (C1), (C2) of Appendix §10.6.2 (Findings, Chapter 10, items 18, 19, 50, 53).",
    "decls": [
-    "Chapter10/StrongBundleLocalization · SBLocalization.SDiagram.Equiv",
-    "Chapter10/StrongBundleLocalization · SBLocalization.SEPLoc"
+    "Chapter10/StrongBundleWeakFibredProduct · SBWeakFibredProduct.theorem_10_2_2",
+    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SDiagram.lemma_10_3_4",
+    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.category",
+    "Chapter10/StrongBundleLocalizationCategory · SBLocalization.SEPLoc.theorem_10_3_10"
+   ],
+   "formalized": [
+    "V10.68",
+    "V10.69",
+    "V10.70",
+    "V10.71"
    ]
   },
   {
@@ -23671,6 +25110,89 @@
    ],
    "formalized": [
     "V10.67"
+   ]
+  },
+  {
+   "g": 128,
+   "title": "Proposition 11.1.6, faces as ep-groupoids, the intersection clause and $[d]_F$",
+   "label": "§11.1, Proposition 11.1.6, pp. 524–525 (2017: Proposition 11.2, p. 378)",
+   "page": 524,
+   "book": "For tame face structured $X$: the object and morphism sets of a face are sub-M-polyfolds with tame induced structures and the face is a tame face structured ep-groupoid; two faces meet in a face of each; a generalized isomorphism induces generalized isomorphisms $[d]_F : F \\to [d]_*F$ (11.1).",
+   "instead": "**Not formalized**: it needs the restriction of an ep-groupoid to a closed saturated sub-M-polyfold and the faces $X_\\theta$ as unions of faces of the object M-polyfold. The bijection $[d]_*$ and the homeomorphisms $\\theta \\to [d]_*\\theta$ are V11.6; whether the intersection clause holds in the generality stated is left open (Findings, Chapter 11, item 6, 8).",
+   "decls": [
+    "Chapter11/EpEquivalenceGeometryFaces · EPLocalization.EPLoc.proposition_11_1_6"
+   ]
+  },
+  {
+   "g": 129,
+   "title": "§11.2, sc-differential forms up to equivalence",
+   "label": "§11.2, Theorem 11.2.1 to Proposition 11.2.9, pp. 526–535 (2017: Theorem 11.2 to Proposition 11.5, pp. 380–389)",
+   "page": 526,
+   "book": "The pull-back of sc-differential forms along generalized maps and the push-forward along generalized isomorphisms, commuting with $d$, independent of choices and, under the local regularity property, determined by the orbit maps.",
+   "instead": "**Not formalized**: sc-differential forms on ep-groupoids are not in the project (G.74, G.80) (V11.9–V11.13; Findings, Chapter 11, item 20)."
+  },
+  {
+   "g": 130,
+   "title": "Theorem 11.3.9, the boundary operations of Definition 9.3.8 along equivalences",
+   "label": "§11.3, Theorem 11.3.9, p. 542 (2017: Theorem 11.7, p. 395)",
+   "page": 542,
+   "book": "The boundary orientation $\\hat T_{\\partial\\Theta}$ of Definition 9.3.10 is carried by generalized isomorphisms: $\\partial(f_*\\hat\\Theta) = f_*(\\partial\\hat\\Theta)$, independently of the representative.",
+   "instead": "**Not formalized**: that the boundary operations of Definition 9.3.8 satisfy `IsBoundaryTransfer` along equivalences, which needs sc-diffeomorphisms between different M-polyfolds to preserve tame induced structures, $d_M$ and outward vectors; Chapter 9 takes the boundary operation as data (the partial cones of submanifolds are not formalized). Theorem 11.3.9 is proved for a representative under that hypothesis (V11.25; Findings, Chapter 11, item 45).",
+   "decls": [
+    "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.IsBoundaryTransfer",
+    "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_push"
+   ]
+  },
+  {
+   "g": 131,
+   "title": "§11.4, integration up to equivalence",
+   "label": "§11.4, Theorems 11.4.1, 11.4.2, 11.4.4, 11.4.5 and Remark 11.4.3, pp. 542–546 (2017: Theorems 11.8, 11.9, Remark 11.3, pp. 396–399)",
+   "page": 542,
+   "book": "Generalized isomorphisms transform the canonical measures and the canonical boundary measures (and their effective versions) of oriented compact branched ep⁺-subgroupoids by $|f|$.",
+   "instead": "**Not formalized**: it needs forms (G.74, G.80), branched integration (G.107) and the boundary measures (G.108, G.109), and the orientations of §11.3 (V11.27–V11.29; Findings, Chapter 11, item 50)."
+  },
+  {
+   "g": 132,
+   "title": "Proposition 11.5.1, conditions (1) and (2) of Definition 8.3.5",
+   "label": "§11.5, Proposition 11.5.1, p. 547 (2017: Proposition 11.6, p. 399)",
+   "page": 547,
+   "book": "$[D]^*N'$ and $[D]_*N$ of auxiliary norms are auxiliary norms.",
+   "instead": "**Not formalized** for conditions (1) and (2): they need the level-1 fibre maps of $\\mu$ and of a strong bundle equivalence as linear bijections and the level-1 local homeomorphism property near the zero section. Well-definedness, continuity, condition (3), the inverse laws and the dependence on $|[D]|$ only are V11.30 (Findings, Chapter 11, item 60).",
+   "decls": [
+    "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_1"
+   ]
+  },
+  {
+   "g": 133,
+   "title": "Lemma 11.5.2 and Proposition 11.5.3, the local section structures of sc⁺-multisections",
+   "label": "§11.5, Lemma 11.5.2 and Proposition 11.5.3, pp. 547–549 (2017: Lemma 11.7, Proposition 11.7, pp. 400–401)",
+   "page": 548,
+   "book": "Push-forwards and pull-backs of sc⁺-multisections are sc⁺-multisections: their local section structures are carried along.",
+   "instead": "**Not formalized**: the local section structures (2021 Definition 13.2.1) are not in the project; their transport needs a strong bundle form of Proposition 10.1.9's transport. The underlying functors are V11.31, V11.32 (Findings, Chapter 11, item 61).",
+   "decls": [
+    "Chapter11/StrongBundleUpToEquivalence · SBLocalization.GenSBMap.proposition_11_5_3"
+   ]
+  },
+  {
+   "g": 134,
+   "title": "the localization $\\mathcal{PC}(E^{-1})$ and $I : \\mathcal{PC} \\to \\mathcal{PC}(E^{-1})$",
+   "label": "§11.6, after Proposition 11.6.8, pp. 561–563 (2017 pp. 410–412)",
+   "page": 562,
+   "book": "Classes of diagrams under common refinement form the morphisms of a category $\\mathcal{PC}(E^{-1})$, with composition through weak fibred products, and $I : \\mathcal{PC} \\to \\mathcal{PC}(E^{-1})$ maps equivalences to isomorphisms; the well-definedness of the composition is left to the reader.",
+   "instead": "**Not formalized**: the equivalence relation on diagrams is V11.41; the category and $I$ are not built (Findings, Chapter 11, item 76).",
+   "decls": [
+    "Chapter11/CoveringEquivalenceDiagram · PC.Diagram.hasCommonRefinement_equivalence"
+   ]
+  },
+  {
+   "g": 135,
+   "title": "Remark 11.6.9, the category of proper strong bundle coverings",
+   "label": "§11.6, Remark 11.6.9, pp. 563–566 (2017: Remark 11.4, pp. 412–413)",
+   "page": 563,
+   "book": "Proper strong bundle coverings, their functors and equivalences, the analogue of Theorem 11.6.6 and the localization, the details left to the reader.",
+   "instead": "**Not formalized**; Definition 8.5.9 is Chapter 8's `IsProperStrongBundleCovering2021` (V11.42; Findings, Chapter 11, item 76).",
+   "decls": [
+    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021"
    ]
   }
  ]

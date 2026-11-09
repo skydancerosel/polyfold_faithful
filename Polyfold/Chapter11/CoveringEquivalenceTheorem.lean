@@ -3,7 +3,7 @@ import Polyfold.Chapter11.CoveringEquivalence
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.6 "Coverings and Equivalences" (pp. 553–561; 2017: pp. 405–410):
-**Theorem 11.6.6** (2017: Theorem 11.10) with its proof, steps (A)–(E).
+**Theorem 11.6.6** (2017: Theorem 11.10) with its proof, steps (A)–(F).
 
 # The weak fibred product of proper coverings
 
@@ -24,7 +24,7 @@ equivalent.  If `X''` is tame, so are `P` and `Q`; if `(ζ, ξ)` is an equivalen
 finite and evenly covered, by an argument with sequences and the properness of the ep-groupoid
 `Y'`; (D) `π_{Y''}` maps the fibres `P(q)` bijectively onto `Y''(π_{X''}(q))`, and with Theorem
 10.2.2 `(π_{Y''}, π_{X''})` is an equivalence; (E) `(y, ψ', y'') ↦ ψ'` and `(x, φ', x'') ↦ φ'` give
-the natural equivalence (3); tameness follows as in Theorem 10.2.2.
+the natural equivalence (3); (F) tameness follows as in Theorem 10.2.2.
 
 ## What is formalized
 

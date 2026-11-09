@@ -5,7 +5,7 @@ import Polyfold.Chapter9.OrientationBoundary
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.3 "Branched Ep⁺-Subgroupoids and Equivalences" (pp. 539–542; 2017:
 pp. 393–396): **Theorem 11.3.5**, **Definition 11.3.6**, (11.10) and **Theorem 11.3.9** (2017:
-Theorem 11.5, Definition 11.6, (11.10), Theorem 11.8).  Numbers and pages are the 2021 text's.
+Theorem 11.4, Definition 11.5, (11.10), Theorem 11.7).  Numbers and pages are the 2021 text's.
 
 # Orientations along generalized isomorphisms
 
@@ -71,8 +71,8 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P :
 
 variable (P Q) in
 /-- **The boundary operations `bd` at `x` and `bd'` at `y` correspond under `f : T_xX → T_yY`**
-(the content of "`d_M(x)` is being preserved", 2021 p. 541, for the boundary operations of
-Definition 9.3.10): `f` preserves the degree `1` of oriented tangent spaces and
+(the content of "`d_M(x)` is being preserved", 2021 p. 542, for the boundary operations of
+Definition 9.3.8 as used in Definition 9.3.10): `f` preserves the degree `1` of oriented tangent spaces and
 `bd'(f_* L) = f_*(bd L)` in degree `1`. -/
 def IsBoundaryTransfer (x : X) (y : Y) (f : P.TangentSpace → Q.TangentSpace)
     (bd : OrTangent P → OrTangent P) (bd' : OrTangent Q → OrTangent Q) : Prop :=
@@ -385,7 +385,7 @@ namespace EPLoc
 
 variable {X Y : EP.{u}}
 
-/-- **Theorem 11.3.9, push-forward, for a representative** (2021 p. 541), under the
+/-- **Theorem 11.3.9, push-forward, for a representative** (2021 p. 542), under the
 boundary-transfer hypotheses: for `d : X ←F A →Φ Y` with `Φ` an equivalence and a boundary
 operation `bdA` on `A` such that `TF(a)⁻¹` carries `bd` to `bdA` and `Tψ ∘ TΦ(a)` carries `bdA`
 to `bd'`, `d_*(∂Θ) = ∂(d_*Θ)` and `d_* T̂_{∂Θ} = T̂_{∂(d_*Θ)}`. -/
@@ -412,7 +412,7 @@ theorem theorem_11_3_9_push (d : Diagram X Y) (hΦ : d.Φ.IsEquivalence) {Θ : X
       pushSection_boundaryLift (isGrHatSection_pullSection hF.isLocalScDiffeo_obj
         hT.isGrHatSection) hΦ.isLocalScDiffeo_obj hbdΦ]
 
-/-- **Theorem 11.3.9, pull-back, for a representative** (2021 p. 541), under the
+/-- **Theorem 11.3.9, pull-back, for a representative** (2021 p. 542), under the
 boundary-transfer hypotheses: `d^*(∂Θ') = ∂(d^*Θ')` and `d^* T̂_{∂Θ'} = T̂_{∂(d^*Θ')}`. -/
 theorem theorem_11_3_9_pull (d : Diagram X Y) (hΦ : d.Φ.IsEquivalence) {Θ' : Y.Obj → ℚ}
     {T' : Y.Obj → Y.X.PObj.OrTangent →₀ ℚ} (hΘ' : Y.X.IsBranchedEpSubgroupoid Θ')

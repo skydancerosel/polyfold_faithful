@@ -6,8 +6,8 @@ import Polyfold.Chapter11.EpEquivalenceGeometry
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part II, Chapter 11, §11.3 "Branched Ep⁺-Subgroupoids and Equivalences" (pp. 538–542; 2017:
-pp. 391–396): **Theorem 11.3.7** (tangent) and **Theorem 11.3.8** (boundary) (2017: Theorems 11.6,
-11.7), together with the invariance of Chapter 9's tangent, orientation and boundary notions under
+pp. 391–396): **Theorem 11.3.7** (tangent) and **Theorem 11.3.8** (boundary) (2017: Theorems 11.5,
+11.6), together with the invariance of Chapter 9's tangent, orientation and boundary notions under
 sc-diffeomorphisms between *different* M-polyfolds used by them and by Theorem 11.3.5.  Numbers and
 pages are the 2021 text's, the 2017 ones in parentheses.  Lemma 11.3.4 is in
 `BranchedEquivalenceTangentSection.lean`, Theorem 11.3.5, Definition 11.3.6 and Theorem 11.3.9 in
@@ -713,7 +713,7 @@ theorem tangentValue_pullbackTheta (hF : F.IsEquivalence) {Θ' : Obj' → ℚ}
   · have hy : x ∉ supp (F.pullbackTheta Θ') := hx
     rw [X.tangentValue_eq_zero hy, Y.tangentValue_eq_zero hx, Finsupp.mapDomain_zero]
 
-/-- **2021 Theorem 11.3.7 for an equivalence, push-forward** (p. 541 (2017: Theorem 11.6)):
+/-- **2021 Theorem 11.3.7 for an equivalence, push-forward** (p. 541 (2017: Theorem 11.5)):
 `(TF)_* TΘ = T(F_*Θ)` for the tangent `TF : TX → TY` (an equivalence, Theorem 10.1.7), `TΘ` of
 Definition 9.2.12. -/
 theorem tangentTheta_pushforwardTheta (hF : F.IsEquivalence) {Θ : Obj → ℚ}
@@ -748,7 +748,7 @@ theorem tangentTheta_pullbackTheta (hF : F.IsEquivalence) {Θ' : Obj' → ℚ}
   exact congrArg _ (hd.tangent.left_inv a hxU)
 
 /-- **2021 Theorem 11.3.8 for an equivalence, (11.11) push-forward** (p. 541 (2017: Theorem
-11.7)): `F_*(∂Θ) = ∂(F_*Θ)` for the boundary `∂Θ` of Definition 9.2.16. -/
+11.6)): `F_*(∂Θ) = ∂(F_*Θ)` for the boundary `∂Θ` of Definition 9.2.16. -/
 theorem boundaryTheta_pushforwardTheta (hF : F.IsEquivalence) {Θ : Obj → ℚ}
     (hΘ : X.IsBranchedEpSubgroupoid Θ) (hind : X.HasIndependentTangentSums Θ) :
     F.pushforwardTheta (X.boundaryTheta Θ) = Y.boundaryTheta (F.pushforwardTheta Θ) := by
@@ -803,7 +803,7 @@ theorem hasIndependentTangentSums_pullTheta {f : of X ⟶ of Y} (hf : IsGenerali
     ((rep f).Φ.isFunctorial_pullbackTheta hΘ')
     (hasIndependentTangentSums_pullbackTheta (isEquivalence_rep_Φ hf) hind')
 
-/-- **2021 Theorem 11.3.8, (11.11) first line** (p. 541 (2017: Theorem 11.7)): for a generalized
+/-- **2021 Theorem 11.3.8, (11.11) first line** (p. 541 (2017: Theorem 11.6)): for a generalized
 isomorphism `f : X → Y` and a branched ep⁺-subgroupoid `Θ` (with Theorem 9.2.1's independence),
 `f_*(∂Θ) = ∂(f_*Θ)`. -/
 theorem theorem_11_3_8_push {f : of X ⟶ of Y} (hf : IsGeneralizedIso f) {Θ : X.Obj → ℚ}
@@ -837,7 +837,7 @@ theorem tangentFunctor_map_eq (f : of X ⟶ of Y) :
   conv_lhs => rw [← homMk_rep f]
   rfl
 
-/-- **2021 Theorem 11.3.7, first identity** (p. 541 (2017: Theorem 11.6)): for a generalized
+/-- **2021 Theorem 11.3.7, first identity** (p. 541 (2017: Theorem 11.5)): for a generalized
 isomorphism `f : X → Y` with tangent `Tf = [TX ←TF TA →TΦ TY]` (Theorem 11.1.1,
 `EPLoc.tangentFunctor`) and a branched ep⁺-subgroupoid `Θ` (with Theorem 9.2.1's independence),
 `(Tf)_* TΘ = T(f_*Θ)`. -/

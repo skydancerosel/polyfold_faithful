@@ -67,7 +67,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [TopologicalSpace Mor''] [T2Space Mor''] [ParacompactSpace Mor'']
   {X : EpGroupoid Obj Mor} {Y : EpGroupoid Obj' Mor'} {Z : EpGroupoid Obj'' Mor''}
 
-/-- `T(G ∘ F) = TG ∘ TF` (Theorem 8.1.3's functoriality, for functors between unbundled
+/-- `T(G ∘ F) = TG ∘ TF` (the functoriality of Theorem 8.1.12 (2017: Theorem 8.3), for functors between unbundled
 ep-groupoids). -/
 theorem tangent_comp (G : EpFunctor Y Z) (F : EpFunctor X Y) :
     (G.comp F).tangent = G.tangent.comp F.tangent :=
@@ -269,7 +269,7 @@ def tangentFunctor : EPLoc.{max u 1} ⥤ EPLoc.{max u 1} where
     tangentFunctor.map (homMk d) = homMk d.tangent :=
   rfl
 
-/-- `T` on `EP(E⁻¹)` extends `T` on `EP` (Theorem 8.1.3): `T(i(Φ)) = i(TΦ)`. -/
+/-- `T` on `EP(E⁻¹)` extends `T` on `EP` (Theorem 8.1.12 (2017: Theorem 8.3)): `T(i(Φ)) = i(TΦ)`. -/
 theorem tangentFunctor_map_localizationFunctor {X Y : EP.{max u 1}} (Φ : X ⟶ Y) :
     tangentFunctor.map (localizationFunctor.map Φ) =
       localizationFunctor.map (Polyfold.tangentFunctor.map Φ) := by
