@@ -17,16 +17,23 @@
      "Chapter4/Characterization · MPolyfold.hasCornerStructure_iff",
      "Chapter4/Characterization · MPolyfold.HasCornerStructure.isTame",
      "Chapter4/Characterization · MChart.IsCornerChart.isTameRetract",
-     "Chapter4/Characterization · MChart.IsCornerChart.isScPlusRetract"
+     "Chapter4/Characterization · MChart.IsCornerChart.isScPlusRetract",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.HasCornerStructureOfDim",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.cornerChartedSpace",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_cornerChartedSpace",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.interiorChartedSpace",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_interiorChartedSpace"
     ]
    },
    "chips": [
     "compatibility = equivalence of atlases",
-    "dimension may vary"
+    "dimension may vary",
+    "Mathlib manifold (fixed dimension)"
    ],
    "diff": [
     "\"Sc-smoothly compatible\" and \"$\\varphi$ an sc-diffeomorphism\" are read as compatibility with the atlas of $X$, as for tameness (Findings, Chapter 4, item 50).",
-    "The classical manifold structure is represented by the corner atlas; local constancy of the dimension is neither stated nor formalized."
+    "The classical manifold structure is represented by the corner atlas; local constancy of the dimension is neither stated nor formalized.",
+    "(2026-11-09) With the dimension fixed (`HasCornerStructureOfDim P n`), a corner structure gives a Mathlib `ChartedSpace (EuclideanQuadrant n)` with `IsManifold (modelWithCornersEuclideanQuadrant n) ∞`, and `IsManifold (𝓡 n) ∞` without boundary (`cornerChartedSpace`, `isManifold_cornerChartedSpace`, `isManifold_interiorChartedSpace`); the partial quadrants of the charts are translated into the full quadrant, since a Mathlib manifold has one model (`Chapter9/MathlibManifoldBridge.lean`; gap G.102)."
    ]
   },
   {
@@ -786,10 +793,10 @@
     ]
    },
    "chips": [
-    "$T_aX$ read in a chart (G.7)"
+    "$T_aX$ read in a chart"
    ],
    "diff": [
-    "The sc⁺-operator is $Dt(z)$ for the chart retraction of V4.30, not $Ts(a)$ (Findings, item 61)."
+    "The sc⁺-operator is $Dt(z)$ for the chart retraction of V4.30, not $Ts(a)$ (Findings, item 61). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -802,19 +809,25 @@
     "statement": "Near points $a \\in A$ with $d_X(a) = 0$, $A$ is a smooth finite-dimensional manifold in the classical sense; the same where $T_aA$ is in good position."
    },
    "lean": {
-    "statement": "Every subspace is in good position to the whole space; $C_e = E$ where $d_C(e) = 0$; at $a \\in A$ with $d_X(a) = 0$, $A$ is in good position; if $d_X = 0$ on all of $A$, $A$ has a corner structure (no tameness of $X$).",
+    "statement": "`remark_4_2_2_interior`: for a smooth finite-dimensional submanifold $A$, the open piece $A \\cap \\{d_X = 0\\}$ is a smooth finite-dimensional submanifold whose induced structure has a corner structure (Definition 4.1.1 (preprint 4.1)); `remark_4_2_2_near`: every $a$ with $d_X(a) = 0$ has an open $U \\ni a$ with $A \\cap U$ such a submanifold. No tameness of $X$. Also: every subspace is in good position to the whole space; $C_e = E$ where $d_C(e) = 0$; at $a \\in A$ with $d_X(a) = 0$, $A$ is in good position; if $d_X = 0$ on all of $A$, $A$ has a corner structure, and with a dimension $n$ it is `IsManifold (𝓡 n) ∞` in Mathlib's language (`IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero`).",
     "decls": [
+     "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_interior",
+     "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_near",
      "Chapter4/Submanifolds · isInGoodPosition_univ",
      "Chapter4/Submanifolds · partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero",
      "Chapter4/Submanifolds · MPolyfold.isGoodPositionAt_of_degIndex_eq_zero",
-     "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero"
+     "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero"
     ]
    },
    "chips": [
-    "local form: G.33"
+    "$d_X = 0$: local form proved",
+    "2021 $d_A$ wording: G.33"
    ],
    "diff": [
-    "The local form, for the open piece $A \\cap \\{d_X = 0\\}$, is not formalized (G.33); the case of good position is Theorem 4.2.7 (preprint 4.18) (V4.41)."
+    "Updated (2026-11-09): the local form near the points with $d_X(a) = 0$, the preprint's wording, is proved (`Chapter4/RemarkLocalForm.lean`). The 2021 Remark 4.2.2 (p. 184) speaks of the points with $d_A(a) = 0$, more points since $d_A \\le d_X$, and adds that near $d_A(a) = 1$ the set $A$ is a manifold with boundary; neither is formalized (gap G.33, open in part), hence still “narrower” (Findings, Chapter 4, item 165).",
+    "The case of good position is Theorem 4.2.7 (preprint 4.18) (V4.41)."
    ]
   },
   {
@@ -942,11 +955,11 @@
     ]
    },
    "chips": [
-    "in a chart (G.7)",
+    "in a chart",
     "tameness not needed"
    ],
    "diff": [
-    "Findings, item 66."
+    "Findings, item 66. (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -1007,14 +1020,18 @@
     "decls": [
      "Chapter4/Submanifolds · MPolyfold.theorem_4_18",
      "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_centred_isInGoodPosition",
-     "Chapter4/Submanifolds · MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame"
+     "Chapter4/Submanifolds · MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.theorem_4_2_7_isManifold",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.IsSubmanifoldOfDim.hasCornerStructureOfDim_of_tame"
     ]
    },
    "chips": [
-    "through Theorem 4.1.2 (preprint 4.2)"
+    "through Theorem 4.1.2 (preprint 4.2)",
+    "Mathlib manifold"
    ],
    "diff": [
-    "The proof cites \"Proposition 4.2\", takes $p = Dt(0)$, assumes \"$V = \\varphi^{-1}(O)$\" and writes $\\varphi^{-1}(V_0) \\cap A$ for $(p \\circ \\varphi)^{-1}(V_0) \\cap A$; the formal proof supplies the centred chart, the chart retraction, the closed complement and the compatibility (Findings, item 68)."
+    "The proof cites \"Proposition 4.2\", takes $p = Dt(0)$, assumes \"$V = \\varphi^{-1}(O)$\" and writes $\\varphi^{-1}(V_0) \\cap A$ for $(p \\circ \\varphi)^{-1}(V_0) \\cap A$; the formal proof supplies the centred chart, the chart retraction, the closed complement and the compatibility (Findings, item 68).",
+    "(2026-11-09) In Mathlib's language: for $A$ of dimension $n$, the induced structure with the charted space of its corner charts is `IsManifold (modelWithCornersEuclideanQuadrant n) ∞` (`theorem_4_2_7_isManifold`, `Chapter9/MathlibManifoldBridge.lean`; gap G.102)."
    ]
   },
   {
@@ -1084,10 +1101,10 @@
     ]
    },
    "chips": [
-    "in a chart (G.7)"
+    "in a chart"
    ],
    "diff": [
-    "The sc-structure of $T_zO$ is the one induced from $E$ at the smooth point (Findings, item 71)."
+    "The sc-structure of $T_zO$ is the one induced from $E$ at the smooth point (Findings, item 71). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -1685,24 +1702,36 @@
   {
    "id": "V4.69",
    "title": "Lemma 4.4.4 in a local model, $i = 1$: raising the index of a vector field",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§4.4, Lemma 4.4.4, p. 196",
     "page": 196,
     "statement": "(New in the 2021 edition.) By the natural identification of $(TX)^i \\to (X^1)^i$ with $T(X^i) \\to X^{i+1}$, the index of a vector field $A$ can be raised by $i \\ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \\to X^{i+1}$."
    },
    "lean": {
-    "statement": "`retractTangent_shift`: $T(O^1) = (TO)^1$. `IsRetractVectorField.shift`: the level map $A_1 : E_2 \\to E_1$ of a vector field on $(O, C, E)$ is a vector field on $(O^1, C^1, E^1)$.",
+    "statement": "For every $i$, $A^{(i)}$ ($A^{(0)} = A$, $A^{(i+1)} = (A^{(i)})^{(1)}$) is an sc-smooth vector field on $X^i$, whose image under $T(X^i) \\to TX$ at $x \\in X^{i+1}$ is $A(x)$, and $\\Phi_i \\circ A^{(i)} \\circ J_i$ is the $i$-th index raise of $A$ (`lemma_4_4_4_all_2021`, V4.79). The local step first recorded here: `retractTangent_shift`, $T(O^1) = (TO)^1$, and `IsRetractVectorField.shift`, the level map $A_1 : E_2 \\to E_1$ of a vector field on $(O, C, E)$ is a vector field on $(O^1, C^1, E^1)$.",
     "decls": [
+     "Chapter2/TangentLiftAll · BundledMPolyfold",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lift",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentIncl_raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.vectorFieldScMap",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv_raiseIndexAll",
+     "Chapter2/TangentLiftAll · lemma_4_4_4_all_2021",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lemma_4_4_4_all_2021_zero",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.shiftLiftEquiv",
+     "Chapter2/TangentLiftAll · proposition_2_3_17_all_2021",
      "Chapter4/VectorFields · retractTangent_shift",
      "Chapter4/VectorFields · IsRetractVectorField.shift"
     ]
    },
    "chips": [
-    "local model, $i = 1$",
-    "M-polyfold form: V4.78"
+    "in full: V4.79",
+    "bundled lifts $X^i$"
    ],
    "diff": [
+    "Proved in full in V4.79; the narrower form first recorded here is kept (`IsRetractVectorField.shift`, local model, $i = 1$).",
     "Larger $i$ follow by iterating the local statement. The lemma on an M-polyfold, with the identification of $(TX)^1$ and $T(X^1)$ that the text calls natural (Proposition 2.3.17, gap G.6, closed), is V4.78, and for every $i$ V4.79 (Findings, Chapter 4, items 153, 160)."
    ]
   },
@@ -1937,15 +1966,26 @@
   {
    "id": "V4.78",
    "title": "Lemma 4.4.4 on an M-polyfold, $i = 1$: $A^{(1)} = \\Phi^{-1} \\circ A_1$",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§4.4, Lemma 4.4.4, p. 196",
     "page": 196,
     "statement": "(New in the 2021 edition.) By the natural identification of $(TX)^i \\to (X^1)^i$ with $T(X^i) \\to X^{i+1}$, the index of a vector field $A$ can be raised by $i \\ge 0$: $A^{(i)}$ is an sc-smooth vector field of $X^i$, a section of $T(X^i) \\to X^{i+1}$."
    },
    "lean": {
-    "statement": "`raiseIndex hA` $= \\Phi^{-1} \\circ A_1 : X^2 \\to T(X^1)$, $A_1$ the level-$1$ map (`vectorFieldLevelOne`) and $\\Phi : T(X^1) \\simeq (TX)^1$ the sc-diffeomorphism of Proposition 2.3.17 (`tangentShiftEquiv`, `proposition_2_3_17_2021`). `lemma_4_4_4_2021`: $A^{(1)}$ is an sc-smooth vector field on $X^1$, and $\\Phi(A^{(1)}(x)) = A(x)$ in $(TX)^1$.",
+    "statement": "For every $i$, $A^{(i)}$ ($A^{(0)} = A$, $A^{(i+1)} = (A^{(i)})^{(1)}$) is an sc-smooth vector field on $X^i$, whose image under $T(X^i) \\to TX$ at $x \\in X^{i+1}$ is $A(x)$, and $\\Phi_i \\circ A^{(i)} \\circ J_i$ is the $i$-th index raise of $A$ (`lemma_4_4_4_all_2021`, V4.79). The case first recorded here: `raiseIndex hA` $= \\Phi^{-1} \\circ A_1 : X^2 \\to T(X^1)$, with $\\Phi : T(X^1) \\simeq (TX)^1$ of Proposition 2.3.17; `lemma_4_4_4_2021`: $A^{(1)}$ is an sc-smooth vector field on $X^1$, and $\\Phi(A^{(1)}(x)) = A(x)$ in $(TX)^1$.",
     "decls": [
+     "Chapter2/TangentLiftAll · BundledMPolyfold",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lift",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentIncl_raiseIndexAll",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.vectorFieldScMap",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv_raiseIndexAll",
+     "Chapter2/TangentLiftAll · lemma_4_4_4_all_2021",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.lemma_4_4_4_all_2021_zero",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
+     "Chapter2/TangentLiftAll · BundledMPolyfold.shiftLiftEquiv",
+     "Chapter2/TangentLiftAll · proposition_2_3_17_all_2021",
      "Chapter4/VectorFieldsGlobal · MPolyfold.vectorFieldLevelOne",
      "Chapter4/VectorFieldsGlobal · MPolyfold.raiseIndex",
      "Chapter4/VectorFieldsGlobal · lemma_4_4_4_2021",
@@ -1954,11 +1994,11 @@
     ]
    },
    "chips": [
-    "$i = 1$",
-    "every $i$: V4.79",
+    "in full: V4.79",
     "G.6 closed"
    ],
    "diff": [
+    "Proved in full in V4.79; the narrower form first recorded here is kept (`lemma_4_4_4_2021`, $i = 1$).",
     "For $i = 1$; every $i$ is V4.79, by iterating this case. The identification that the text calls natural is Proposition 2.3.17 (`proposition_2_3_17_2021`, `proposition_2_3_17_two_2021`, and for every $i$ `proposition_2_3_17_all_2021`; gap G.6, closed) (Findings, Chapter 4, items 160, 164)."
    ]
   },
@@ -2027,9 +2067,11 @@
    "label": "§4.2, Remark 4.2.2 (preprint 4.14), p. 184 (preprint p. 157)",
    "page": 157,
    "book": "Near points $a \\in A$ with $d_X(a) = 0$ the submanifold $A$ is a smooth finite-dimensional manifold in the classical sense.",
-   "instead": "**Formalized only globally**: if $d_X = 0$ on all of $A$, $A$ has a corner structure, without tameness of $X$ (V4.32). The local statement, for the open piece $A \\cap \\{d_X = 0\\}$ of an arbitrary $A$, is not formalized (Findings, item 61).",
+   "instead": "**Formalized in part since the first edition of this page** (V4.32). Near the points with $d_X(a) = 0$, the preprint's wording, $A$ is a smooth finite-dimensional submanifold with a corner structure on an open neighbourhood, without tameness of $X$ (`remark_4_2_2_interior`, `remark_4_2_2_near`); globally if $d_X = 0$ on all of $A$ (`hasCornerStructure_of_degIndex_eq_zero`). **Not formalized**: the 2021 wording, near the points $a \\in A$ with $d_A(a) = 0$ (more points, since $d_A \\le d_X$), and the 2021 sentence that near $d_A(a) = 1$ the set $A$ is a smooth manifold with boundary (Findings, Chapter 4, items 61, 165).",
    "decls": [
-    "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero"
+    "Chapter4/Submanifolds · MPolyfold.hasCornerStructure_of_degIndex_eq_zero",
+    "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_interior",
+    "Chapter4/RemarkLocalForm · MPolyfold.remark_4_2_2_near"
    ]
   },
   {
@@ -2064,7 +2106,7 @@
    "label": "§4.4, Definition 4.4.1 (preprint 4.25), p. 195 (preprint p. 167)",
    "page": 167,
    "book": "An sc-differential $k$-form is an sc-smooth $\\omega : \\oplus^kTX \\to \\mathbb R$, linear in each argument and skew-symmetric; pull-back along $X^{i+1} \\to X^i$ gives a directed system with limit $\\Omega^*_\\infty(X)$.",
-   "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ with $(TX)^i \\cong T(X^i)$ (gap G.6, closed by Proposition 2.3.17 for every $i$). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124)."
+   "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ with $(TX)^i \\cong T(X^i)$ (gap G.6, closed by Proposition 2.3.17 for every $i$). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124). (2026-11-09) The linear structure of $T_xX$ is now formalized (gap G.7 closed, V2.19); the other ingredients remain."
   },
   {
    "title": "Proposition 4.4.5 (preprint 4.26): the Lie bracket of sc-smooth vector fields",
@@ -2107,7 +2149,7 @@
    "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
    "page": 195,
    "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
-   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$ with $(TX)^i \\cong T(X^i)$ for all $i$ (gap G.6, closed), and integration on manifolds with corners. The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized, in a local model (V4.67–V4.72, V4.74) and on an M-polyfold (V4.68, V4.75–V4.79). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158)."
+   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$ with $(TX)^i \\cong T(X^i)$ for all $i$ (gap G.6, closed), and integration on manifolds with corners. The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized, in a local model (V4.67–V4.72, V4.74) and on an M-polyfold (V4.68, V4.75–V4.79). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158). (2026-11-09) The linear structure of $T_xX$ is now formalized (gap G.7 closed, V2.19); the other ingredients remain."
   },
   {
    "g": 92,

@@ -25,18 +25,20 @@
      "Chapter6/LinSet · ChartPoint.exists_index_linSet",
      "Chapter6/LinSet · ChartPoint.fredholmIndex_of_mem_linSet",
      "Chapter6/LinSet · ChartPoint.convex_linSet",
-     "Chapter3/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough"
+     "Chapter3/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough",
+     "Chapter6/LinSetFredholm · ChartPoint.exists_isScFredholm_of_mem_linSet",
+     "Chapter6/LinSetFredholm · ChartPoint.definition_6_2_1_linSet_isScFredholm"
     ]
    },
    "chips": [
     "made at a chart point",
     "global sc⁺-sections",
-    "Fredholm on level $0$ only"
+    "sc-Fredholm on every level"
    ],
    "diff": [
-    "$T_xX$ and $Y_x$ carry no linear structure in the project (gaps G.6, G.7, G.13), so $\\mathrm{Lin}(f, x)$ is made at a chart point; chart points are compared in V6.53–V6.55. The text's $f - s$ with $s(x) = f(x)$ is $f + s$ with $(f + s)(x) = 0$ (Findings, Chapter 6, item 40).",
+    "$T_xX$ and $Y_x$ carry no linear structure in the project (gaps G.6, G.7, G.13), so $\\mathrm{Lin}(f, x)$ is made at a chart point; chart points are compared in V6.53–V6.55. The text's $f - s$ with $s(x) = f(x)$ is $f + s$ with $(f + s)(x) = 0$ (Findings, Chapter 6, item 40). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)",
     "The text constructs a local section through $f(x)$ in a chart; the project uses global ones, which exist under the standing bump functions (the text assumes sc-smooth partitions of unity from §6.3 (preprint §6.2) on, and these give bump functions, V5.49) (Findings, Chapter 6, items 40, 43).",
-    "\"Sc-Fredholm\" is proved on level $0$, which is what the determinant lines use, and not on every level (gap G.64).",
+    "Updated (2026-11-09): every member of $\\mathrm{Lin}(f, x)$ is level $0$ of an sc-Fredholm operator $T_zO \\to K_z$, every level of index the same $i$ (`definition_6_2_1_linSet_isScFredholm`, `Chapter6/LinSetFredholm.lean`; gap G.64 closed); the determinant lines use level $0$.",
     "The paragraph before the definition compares $(f - s)'(x)$ with itself where $(f - t)'(x)$ is meant (possible misprint) (Findings, Chapter 6, item 41)."
    ]
   },
@@ -883,10 +885,10 @@
    },
    "chips": [
     "a continuous family of kernels",
-    "manifold statements: gap G.62"
+    "manifold statements: G.62 (in part)"
    ],
    "diff": [
-    "The bundle $L$ is a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction. The solution set as a manifold with boundary with corners near $(t, \\varphi(t), 0)$, the map $\\pi$ and the smooth structure of $L$ are not formalized; the continuation of orientations does not need them (gap G.62; Findings, Chapter 6, item 48)."
+    "The bundle $L$ is a continuous family of subspaces: near a zero in good position the kernel is the tangent space of the solution set (Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction. The solution set as a manifold with boundary with corners near $(t, \\varphi(t), 0)$, the map $\\pi$ and the smooth structure of $L$ are not formalized; the continuation of orientations does not need them (gap G.62; Findings, Chapter 6, item 48). (2026-11-09: near a zero in good position the solution set is a Mathlib manifold with boundary and corners of dimension the index, `theorem_3_1_26_isManifold`, `theorem_3_6_8_isSubmanifoldOfDim`; the map $\\pi$ and the bundle $L$ are still not formalized, gap G.62 open in part.)"
    ]
   },
   {
@@ -1121,7 +1123,7 @@
     ]
    },
    "chips": [
-    "manifold statements: gap G.62"
+    "manifold statements: G.62 (in part)"
    ],
    "diff": [
     "As V6.34 (gap G.62): the family is the tangent spaces of the solution set (V6.34) cut by $\\{dt = 0\\}$ (V6.36) and identified with $\\ker(T_q \\oplus \\varphi_q)$ (V6.37) (Findings, Chapter 6, item 48)."
@@ -1284,17 +1286,23 @@
     "decls": [
      "Chapter6/PropagationWellDefined · push_eq_of_homotopy",
      "Chapter6/PropagationWellDefined · HasLocalPropagation",
-     "Chapter6/PropagationWellDefined · theorem_6_35"
+     "Chapter6/PropagationWellDefined · theorem_6_35",
+     "Chapter6/PathsInterval · theorem_6_6_11_interval",
+     "Chapter6/PathsInterval · HasLocalPropagationI",
+     "Chapter6/PathsInterval · HasLocalPropagation.isPushI_iff",
+     "Chapter6/PathsInterval · isTame_prod_unitInterval"
     ]
    },
    "chips": [
     "the section $f$ supplied",
     "contractibility: gap G.61",
-    "(1′) and a reparametrization"
+    "(1′) and a reparametrization",
+    "paths on $[0, 1]$: `_interval`"
    ],
    "diff": [
     "The statement does not introduce the section $f$ (possible omission); it is read for an sc-Fredholm section with tame germ data, under the standing hypotheses (Findings, Chapter 6, item 53).",
-    "$U$ is not shown to be sc-smoothly contractible (gap G.61); what the proof uses is (1′) of V6.32. Since the homotopy of (1′) meets its edge conditions only on $[0, 1]$, while a push-forward datum needs $f + S = 0$ near $[0, 1]$, the proof passes through the reparametrized paths $\\gamma_i \\circ \\kappa$, with three homotopies whose edges are exact (Findings, Chapter 6, item 53)."
+    "$U$ is not shown to be sc-smoothly contractible (gap G.61); what the proof uses is (1′) of V6.32. Since the homotopy of (1′) meets its edge conditions only on $[0, 1]$, while a push-forward datum needs $f + S = 0$ near $[0, 1]$, the proof passes through the reparametrized paths $\\gamma_i \\circ \\kappa$, with three homotopies whose edges are exact (Findings, Chapter 6, item 53).",
+    "(2026-11-09) For paths $\\varphi : [0, 1] \\to U$ on the M-polyfold $[0, 1]$: `theorem_6_6_11_interval`, the push-forward along $\\varphi$ read along $\\varphi \\circ \\sin^2(\\pi r/2)$ on $\\mathbb R$, independent of the reparametrization (`HasLocalPropagation.isPushI_iff`); $X \\times [0, 1]$ is a tame M-polyfold with the expected boundary (`isTame_prod_unitInterval`) (`Chapter6/PathsInterval.lean`; gap G.65 in part)."
    ]
   },
   {
@@ -1498,7 +1506,7 @@
     "chart-free objects compared in charts"
    ],
    "diff": [
-    "The text treats $T_xX$, $Y_x$, $\\mathrm{Lin}(f, x)$ and $\\mathrm{Or}^f_x$ as chart-free; here $T_xX$ has no linear structure (gaps G.6, G.7, G.13), and the identification between charts is made explicit (Findings, Chapter 6, item 70)."
+    "The text treats $T_xX$, $Y_x$, $\\mathrm{Lin}(f, x)$ and $\\mathrm{Or}^f_x$ as chart-free; here $T_xX$ has no linear structure (gaps G.6, G.7, G.13), and the identification between charts is made explicit (Findings, Chapter 6, item 70). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -1624,8 +1632,12 @@
     "statement": "For a strong bundle over a tame $X$ and an sc-Fredholm $f$ there is a uniquely determined functor $\\Gamma_f : PX \\to \\mathcal O_f$, $x \\mapsto \\mathrm{Or}^f_x$, $[\\varphi] \\mapsto \\Gamma_f([\\varphi]) : \\mathrm{Or}^f_x \\to \\mathrm{Or}^f_y$, with property (∗): for every sc-smoothly contractible open $U(x)$ on which $f$ has the local propagation property, $\\varphi_* = \\Gamma_f([\\varphi])$ for every sc-smooth path $\\varphi$ in $U$."
    },
    "lean": {
-    "statement": "`theorem_6_37` ($X$ tame, bump functions, $f$ with tame germ data, $P$ with sc⁺-sections through the smooth fibre points): there is exactly one family of bijections $\\Gamma_f([\\varphi]) : \\mathrm{Or}^f_x \\to \\mathrm{Or}^f_y$ on the morphisms of $PX$ that takes identities to identities and compositions to composites and has (∗) (`IsStarProperty`, `IsStarPropertyOn`): for every chart $c$, every open $U$ with the local propagation property in $c$ (`IsPropagationNbhd`) and every sc-smooth path $\\varphi$ in $U$, $\\Gamma_f([\\varphi])$ is every push-forward along $\\varphi$ in $c$ (`orPush`), read through $\\mathrm{Or}^f$ of the chosen charts. `orFunctor`: the functor $PX \\to$ Type, $x \\mapsto \\mathrm{Or}^f_x$ (`orFunctorMap`, `orFunctorMap_id`, `orFunctorMap_comp`); the uniqueness needs (∗) only on a family of such open sets covering $X_\\infty$ (`orFunctorMap_unique_of_cover`).",
+    "statement": "`theorem_6_6_13` ($X$ tame, bump functions, $f$ with tame germ data): there is exactly one family of bijections $\\Gamma_f([\\varphi]) : \\mathrm{Or}^f_x \\to \\mathrm{Or}^f_y$ on the morphisms of $PX$ that takes identities to identities and compositions to composites and has (∗) (`IsStarProperty`, `IsStarPropertyOn`): for every chart $c$, every open $U$ with the local propagation property in $c$ (`IsPropagationNbhd`) and every sc-smooth path $\\varphi$ in $U$, $\\Gamma_f([\\varphi])$ is every push-forward along $\\varphi$ in $c$ (`orPush`), read through $\\mathrm{Or}^f$ of the chosen charts. The sc⁺-sections through the smooth fibre points come from the bump functions (`AdmitsBumpFunctions.hasScPlusSectionsThrough`) and the paracompactness of $\\mathbb R^n \\times X$ and of the pull-back spaces is proved (`paracompactSpace_rn_prod`, `paracompactSpace_rn_pullback`); the form first proved, with these as hypotheses, is `theorem_6_37`. `orFunctor`: the functor $PX \\to$ Type, $x \\mapsto \\mathrm{Or}^f_x$ (`orFunctorMap`, `orFunctorMap_id`, `orFunctorMap_comp`); the uniqueness needs (∗) only on a family of such open sets covering $X_\\infty$ (`orFunctorMap_unique_of_cover`). For paths $\\varphi : [0, 1] \\to X$: `orTransportI`, invariant under sc-smooth homotopies $[0, 1]^2 \\to X$ with fixed end points (`orTransportI_eq_of_homotopy`), with (∗) (`orTransportI_star`).",
     "decls": [
+     "Chapter6/OrientationMainClean · theorem_6_6_13",
+     "Chapter6/OrientationMainClean · paracompactSpace_rn_prod",
+     "Chapter6/OrientationMainClean · paracompactSpace_rn_pullback",
+     "Chapter3/IndexLocallyConstantLocal · MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough",
      "Chapter6/OrientationFunctor · IsPropagationNbhd",
      "Chapter6/OrientationFunctor · orPush",
      "Chapter6/OrientationFunctor · orPush_eq",
@@ -1645,7 +1657,11 @@
      "Chapter6/OrientationFunctor · orFunctorMap_isStarProperty",
      "Chapter6/OrientationFunctor · orFunctorMap_unique_of_cover",
      "Chapter6/OrientationFunctor · orFunctorMap_unique",
-     "Chapter6/OrientationFunctor · theorem_6_37"
+     "Chapter6/OrientationFunctor · theorem_6_37",
+     "Chapter6/PathsInterval · orTransportI",
+     "Chapter6/PathsInterval · orTransportI_eq_of_homotopy",
+     "Chapter6/PathsInterval · orTransportI_star",
+     "Chapter6/PathsInterval · orTransportI_restrict"
     ]
    },
    "chips": [
@@ -1655,7 +1671,7 @@
    ],
    "diff": [
     "(∗) is asked for every open set with the local propagation property, not only for sc-smoothly contractible ones (gap G.61); $\\mathcal O_f$ is read as types and bijections; \"uniquely determined\" is read for the maps on morphisms, since on objects there is no choice (Findings, Chapter 6, item 72).",
-    "The hypotheses are the standing ones of Theorem 6.6.11 (preprint 6.35) and sc⁺-sections through every smooth fibre point, so that every $\\mathrm{Or}^f_x$ has two elements; bump functions give them (Findings, Chapter 6, item 72)."
+    "Updated (2026-11-09): the hypotheses are the standing ones of Theorem 6.6.11 (preprint 6.35), $X$ tame with bump functions and $f$ with tame germ data (`theorem_6_6_13`, `Chapter6/OrientationMainClean.lean`): sc⁺-sections through every smooth fibre point, so that every $\\mathrm{Or}^f_x$ has two elements, follow from the bump functions, and the paracompactness instances are proved. The form with them is kept (`theorem_6_37`). On $[0, 1]$-paths and $[0, 1]^2$-homotopies: `orTransportI` (`Chapter6/PathsInterval.lean`; gap G.65 in part) (Findings, Chapter 6, items 72, 122)."
    ]
   },
   {
@@ -1744,8 +1760,17 @@
     "statement": "Over a tame $X$, for a proper sc-Fredholm section $f$ with $(f, x)$ in general position to $\\partial X$ at every zero and an orientation $o^f$ of $f$, the solution set $S = f^{-1}(0)$ is a smooth compact manifold with boundary with corners with a natural orientation. Proof: $T_xS = \\ker f'(x)$ is oriented by $o^f_x$ since $f'(x)$ is onto, and the local prolongation of this orientation on $S$ is the Fredholm one. For $f$ not generic, a small perturbation $s$ supported near the zero set orients $S_{f+s}$."
    },
    "lean": {
-    "statement": "`theorem_6_41_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.3.9 (preprint 5.17)) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.3.10 (preprint 5.18); Lemma 4.2.8 (preprint 4.19) for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \\ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \\in \\mathrm{Or}^f_x$ gives a ray of $\\det f'(x) \\cong \\lambda(\\ker f'(x)) = \\lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_41`: moreover, for an orientation $o$ of $f$ (Definition 6.6.16 (preprint 6.40)) and every sc-smooth path $\\gamma$ of zeros in an orientable neighbourhood $V \\subseteq U$, the kernels $\\ker f'(\\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).",
+    "statement": "`theorem_6_6_18` ($X$ tame, $f$ with tame germ data, proper, in general position at every zero, $o$ an orientation of $f$ in the sense of Definition 6.6.16 (preprint 6.40), `SectionOrientation`): $S$ is a compact manifold with boundary with corners in general position (`SolutionSetInGeneralPosition`) with the natural orientation given by $o$ (`IsNaturalSolutionOrientation`): at every zero $o_x$ orients $T_xS = \\ker f'(x)$, the orientations read in two charts correspond under the tangent map of the transition (`tangentOrAt_toChartOr`), and along every sc-smooth path of zeros in an orientable neighbourhood they form an orientation of the kernel line bundle. In Mathlib's language $S$ is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_6_6_18_isManifold`). The perturbation paragraph: an orientation of $f$ is one of $f + s$ (`isSectionOrientation_sectionAdd`, with $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$), so $S_{f+s}$ is oriented by it (`theorem_6_6_18_sectionAdd`), for the dense set of perturbations of Theorem 5.3.10 (preprint 5.18) (`theorem_6_6_18_perturbation`). The forms first recorded: `theorem_6_41_solutionSet` ($X$ tame, $f$ with tame germ data, `StrongBundle.IsProper`, general position (Definition 5.3.9 (preprint 5.17)) at every zero): $S$ is compact, a smooth submanifold in general position with the induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.3.10 (preprint 5.18); Lemma 4.2.8 (preprint 4.19) for good position, `MPolyfold.IsGeneralPositionAt.isGoodPositionAt`), and $T_xS = \\ker f'(x)$ in a chart (`tangentSpace_solutionSet_eq_linKer`). At a zero, $f'(x)$ (`ChartPoint.linZero`) lies in $\\mathrm{Lin}(f, x)$ and is onto (`ChartPoint.linZero_mem_linSet`, `ChartPoint.linZero_surjective`, `ChartPoint.map_ker_linZero`), so $o_x \\in \\mathrm{Or}^f_x$ gives a ray of $\\det f'(x) \\cong \\lambda(\\ker f'(x)) = \\lambda(T_xS)$, the tangent orientation (`ChartPoint.tangentOr`, `tangentOrAt`). `theorem_6_41`: moreover, for an orientation $o$ of $f$ (Definition 6.6.16 (preprint 6.40)) and every sc-smooth path $\\gamma$ of zeros in an orientable neighbourhood $V \\subseteq U$, the kernels $\\ker f'(\\gamma_q)$ form a continuous family of subspaces (`tangentFamily`, `exists_tangentFamily`), and the tangent orientations of $o$ form an orientation of its line bundle (`isLineOrientation_tangentOr`, `isLineOrientation_tangentOr_of_isSectionOrientation`). The Fredholm side is the push-forward for the datum $S = 0$, $k = 0$ (`isStabKernels_zero`, `stabSign_of_surjective`, `stabRayEquiv_zero`), which along a path of zeros is the continuation between tangent orientations (`IsStabKernels.orRay_eq_tangentOr`, `ChartPoint.stabRayEquiv_eq_tangentOr`, `cont_tangentOr`).",
     "decls": [
+     "Chapter6/OrientationMainClean · theorem_6_6_18",
+     "Chapter6/OrientationMainClean · IsNaturalSolutionOrientation",
+     "Chapter6/OrientationMainClean · SectionOrientation",
+     "Chapter6/PerturbedOrientation · isNaturalSolutionOrientation",
+     "Chapter6/SolutionOrientationCharts · tangentOrAt_toChartOr",
+     "Chapter9/MathlibSolutionSets · theorem_6_6_18_isManifold",
+     "Chapter6/PerturbedOrientation · theorem_6_6_18_perturbation",
+     "Chapter6/PerturbedOrientation · theorem_6_6_18_sectionAdd",
+     "Chapter6/PerturbedOrientation · isSectionOrientation_sectionAdd",
      "Chapter6/SolutionOrientation · theorem_6_41_solutionSet",
      "Chapter6/SolutionOrientation · MPolyfold.IsGeneralPositionAt.isGoodPositionAt",
      "Chapter6/SolutionOrientation · tangentSpace_solutionSet_eq_linKer",
@@ -1772,13 +1797,15 @@
    },
    "chips": [
     "orientation along paths of zeros",
-    "on $S$ as a manifold: gap G.67",
-    "two charts: gap G.68",
-    "perturbation paragraph: gap G.69"
+    "orientation of $S$ as manifold: G.67",
+    "two charts: G.68 closed",
+    "perturbation: G.69 closed",
+    "Mathlib manifold"
    ],
    "diff": [
+    "Updated (2026-11-09): the theorem in the book's shape (`theorem_6_6_18`, `Chapter6/OrientationMainClean.lean`), with the chart independence of the tangent orientations in the statement (gap G.68 closed), the perturbation paragraph (`Chapter6/PerturbedOrientation.lean`; gap G.69 closed) and $S$ as a Mathlib manifold with corners (`theorem_6_6_18_isManifold`; gap G.67 in part). Still “narrower”: the orientation of $S$ as a manifold, of its tangent bundle in the charts of the induced structure or as a Mathlib manifold, is not formalized (gap G.67). The forms first recorded are kept (`theorem_6_41_solutionSet`, `theorem_6_41`) (Findings, Chapter 6, items 92, 93, 123).",
     "\"A natural orientation\" is read as the tangent orientations with their continuity along the sc-smooth paths of zeros in a chart, and \"the local prolongation of the orientation on $S$ is the Fredholm one\" as the identity of continuation and push-forward along such paths; intermediate points are reached by the paths $s \\mapsto \\gamma(t\\kappa(s))$, which stay in $\\gamma([0, t])$ (Findings, Chapter 6, item 91).",
-    "Not formalized: an orientation of $S$ as an abstract manifold, of its tangent bundle in the charts of the induced structure (gap G.67), the compatibility of the tangent orientations read in two charts at one zero (gap G.68), and the perturbation paragraph after the theorem, with $S_{f+s}$ and $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$ (gap G.69) (Findings, Chapter 6, items 92, 93).",
+    "Not formalized: an orientation of $S$ as an abstract manifold, of its tangent bundle in the charts of the induced structure, or of the Mathlib manifold $S$ (gap G.67) (Findings, Chapter 6, item 92).",
     "Tame germ data is the standing hypothesis of Chapter 5; the orientation $o$ exists iff $f$ is orientable (V6.60). \"Proper\" is the text's hypothesis; the proof uses only the compactness of $S$, which for sc-Fredholm sections is equivalent to it (V5.10), so nothing of the hypothesis is lost (Findings, Chapter 6, item 90)."
    ]
   },
@@ -1789,11 +1816,19 @@
    "book": {
     "label": "§6.6 (preprint §6.5), Remark 6.6.19 (preprint 6.42), p. 276 (preprint p. 230)",
     "page": 230,
-    "statement": "For an oriented $(f, o)$ and an sc⁺-section $s$ of $Y \\to X \\times [0, 1]$, $\\hat f(x, t) = f(x) + s(x, t)$ has a natural orientation from $o$ and the standard orientation of $[0, 1]$: for $L = (f - t)'(x)$ oriented by $h = (a_1 \\wedge \\dots \\wedge a_n) \\otimes (b_1 \\wedge \\dots \\wedge b_l)^*$, the operator $\\tilde L(a, b) = La$ on $T_{(x,t)}(X \\times [0, 1])$ is oriented by $\\tilde h = (a_1 \\wedge \\dots \\wedge a_n \\wedge e) \\otimes (b_1 \\wedge \\dots \\wedge b_l)^*$, $e$ the standard orientation of $[0, 1]$, and $\\tilde L$ lies in the linearization space of $\\hat f$ at $(x, t)$."
+    "statement": "For an oriented $(f, o)$ and an sc⁺-section $s$ of $Y \\to X \\times [0, 1]$, $\\hat f(x, t) = f(x) + s(x, t)$ has a natural orientation from $o$ and the standard orientation of $[0, 1]$: for $L = (f - t)'(x)$ oriented by $h = (a_1 \\wedge \\dots \\wedge a_n) \\otimes (b_1 \\wedge \\dots \\wedge b_l)^*$, the operator $\\tilde L(a, b) = La$ on $T_{(x,t)}(X \\times [0, 1])$ is oriented by $\\tilde h = (e \\wedge a_1 \\wedge \\dots \\wedge a_n) \\otimes (b_1 \\wedge \\dots \\wedge b_l)^*$ (2021; the preprint puts $e$ last), $e$ the standard orientation of $[0, 1]$, and $\\tilde L$ lies in the linearization space of $\\hat f$ at $(x, t)$."
    },
    "lean": {
-    "statement": "`extOp`: for Fredholm $L$, $\\tilde L = L \\oplus 0 : E \\times \\mathbb R \\to F$ is Fredholm (`isFredholm_extOp`) with $\\ker\\tilde L = \\ker L \\times \\mathbb R$ and $\\operatorname{coker}\\tilde L = \\operatorname{coker}L$ (`finrank_ker_extOp`, `extE`, `range_extOp`, `extCoker`). `extDet`: $h \\mapsto \\tilde h$, $(a_1 \\wedge \\dots \\wedge a_n) \\otimes d^* \\mapsto ((a_1, 0) \\wedge \\dots \\wedge (a_n, 0) \\wedge e) \\otimes d^*$ with $e = (0, 1)$, an isomorphism $\\det(L) \\cong \\det(\\tilde L)$ (`extDet_wedge_tmul`); in local determinant charts its coordinate is $(-1)^{\\dim F/R(P) + \\dim\\operatorname{coker}L}$ times a continuous nowhere-zero function (`coord_extDet`). `extDetN` $= (-1)^{\\dim\\operatorname{coker}L}$ `extDet` pulls continuous orientations back along $L \\mapsto \\tilde L$ (`coord_extDetN`, `isLineOrientation_extPull`, `LineOrientation.extPull`) and agrees with `extDet` for $L$ onto (`extDetN_eq_of_surjective`); `extConjOp`, `extConjDet`, `existsUnique_extConjOr`: the same after the swap of the factors. In charts: for $\\hat f = \\tilde f + S$, $\\tilde f(t, y) = f(y)$, $S$ an sc⁺-section of $\\pi^*P \\to \\mathbb R \\times X$, and the product chart point (`ChartPoint.prodPt`, `ChartPoint.prodT`, `ChartPoint.prodK`), $\\hat L(\\sigma, v) = Lv$ (`ChartPoint.prodLin`) lies in $\\mathrm{Lin}(\\hat f, (t, x))$ for every $L \\in \\mathrm{Lin}(f, x)$ (`ChartPoint.prodLin_mem_linSet`, through the $t$-constant lift `constLift`); an orientation $o$ of $\\mathrm{DET}(f, x)$ gives exactly one orientation $\\hat o$ of $\\mathrm{DET}(\\hat f, (t, x))$ with $\\hat o(\\hat L)$ the image of $o(L)$ for **every** $L$ (`ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr`, `ChartPoint.prodOr_apply`), and $o \\mapsto \\hat o$ is injective (`ChartPoint.prodOr_injective`).",
+    "statement": "`extDetFirst`: the 2021 map $h \\mapsto \\tilde h$, $(a_1 \\wedge \\dots \\wedge a_n) \\otimes d^* \\mapsto (e \\wedge (a_1, 0) \\wedge \\dots \\wedge (a_n, 0)) \\otimes d^*$ (`extDetFirst_wedge_tmul`), is $(-1)^{\\mathrm{ind}\\,L}$ times the sign-normalized `extDetN` (`extDetFirst_eq_indSign_smul_extDetN`); the index being locally constant (`eventually_indSign_eq`), it pulls continuous orientations back (`isLineOrientation_extPullFirst`). `ChartPoint.existsUnique_prodOrFirst`: an orientation $o$ of $\\mathrm{DET}(f, x)$ gives exactly one orientation $\\hat o$ of $\\mathrm{DET}(\\hat f, (t, x))$ with $\\hat o(\\hat L) = e \\wedge o(L)$ for every $L \\in \\mathrm{Lin}(f, x)$; on $\\mathrm{Lin}(f, x)$ the 2021 map is the map of the first form times one constant sign $(-1)^{\\mathrm{ind}(f, x)}$ (`exists_extConjDetFirst_eq_sign_smul`). The form first recorded, with $e$ last and the sign $(-1)^{\\dim\\operatorname{coker}L}$: `extOp`: for Fredholm $L$, $\\tilde L = L \\oplus 0 : E \\times \\mathbb R \\to F$ is Fredholm (`isFredholm_extOp`) with $\\ker\\tilde L = \\ker L \\times \\mathbb R$ and $\\operatorname{coker}\\tilde L = \\operatorname{coker}L$ (`finrank_ker_extOp`, `extE`, `range_extOp`, `extCoker`). `extDet`: $h \\mapsto \\tilde h$, $(a_1 \\wedge \\dots \\wedge a_n) \\otimes d^* \\mapsto ((a_1, 0) \\wedge \\dots \\wedge (a_n, 0) \\wedge e) \\otimes d^*$ with $e = (0, 1)$, an isomorphism $\\det(L) \\cong \\det(\\tilde L)$ (`extDet_wedge_tmul`); in local determinant charts its coordinate is $(-1)^{\\dim F/R(P) + \\dim\\operatorname{coker}L}$ times a continuous nowhere-zero function (`coord_extDet`). `extDetN` $= (-1)^{\\dim\\operatorname{coker}L}$ `extDet` pulls continuous orientations back along $L \\mapsto \\tilde L$ (`coord_extDetN`, `isLineOrientation_extPull`, `LineOrientation.extPull`) and agrees with `extDet` for $L$ onto (`extDetN_eq_of_surjective`); `extConjOp`, `extConjDet`, `existsUnique_extConjOr`: the same after the swap of the factors. In charts: for $\\hat f = \\tilde f + S$, $\\tilde f(t, y) = f(y)$, $S$ an sc⁺-section of $\\pi^*P \\to \\mathbb R \\times X$, and the product chart point (`ChartPoint.prodPt`, `ChartPoint.prodT`, `ChartPoint.prodK`), $\\hat L(\\sigma, v) = Lv$ (`ChartPoint.prodLin`) lies in $\\mathrm{Lin}(\\hat f, (t, x))$ for every $L \\in \\mathrm{Lin}(f, x)$ (`ChartPoint.prodLin_mem_linSet`, through the $t$-constant lift `constLift`); an orientation $o$ of $\\mathrm{DET}(f, x)$ gives exactly one orientation $\\hat o$ of $\\mathrm{DET}(\\hat f, (t, x))$ with $\\hat o(\\hat L)$ the image of $o(L)$ for **every** $L$ (`ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr`, `ChartPoint.prodOr_apply`), and $o \\mapsto \\hat o$ is injective (`ChartPoint.prodOr_injective`).",
     "decls": [
+     "Chapter6/OrientationConvention2021 · ChartPoint.existsUnique_prodOrFirst",
+     "Chapter6/OrientationConvention2021 · ChartPoint.prodOrFirst",
+     "Chapter6/OrientationConvention2021 · extDetFirst",
+     "Chapter6/OrientationConvention2021 · extDetFirst_wedge_tmul",
+     "Chapter6/OrientationConvention2021 · extDetFirst_eq_indSign_smul_extDetN",
+     "Chapter6/OrientationConvention2021 · eventually_indSign_eq",
+     "Chapter6/OrientationConvention2021 · isLineOrientation_extPullFirst",
+     "Chapter6/OrientationConvention2021 · ChartPoint.exists_extConjDetFirst_eq_sign_smul",
      "Chapter6/ProductOrientation · extOp",
      "Chapter6/ProductOrientation · isFredholm_extOp",
      "Chapter6/ProductOrientation · finrank_ker_extOp",
@@ -1828,11 +1863,11 @@
    },
    "chips": [
     "at a point",
-    "sign $(-1)^{\\dim\\operatorname{coker}L}$",
+    "2021 map $e \\wedge h$, as printed",
     "$X \\times [0, 1]$ as $\\mathbb R \\times X$"
    ],
    "diff": [
-    "As we read it, the literal $h \\mapsto \\tilde h$ is not continuous in $L$ where the parity of $\\dim\\operatorname{coker}L$ changes, so the orientation of $\\mathrm{DET}(\\hat f, (x, t))$ it defines could depend on the choice of $L$; the sign $(-1)^{\\dim\\operatorname{coker}L}$ (the sign of V6.40) is used, which agrees with the text's map when $L$ is onto (Findings, Chapter 6, item 95).",
+    "Updated (2026-11-09): **the 2021 convention is used as printed** (`Chapter6/OrientationConvention2021.lean`): with $e$ first, $h \\mapsto e \\wedge h$ differs from the continuous sign-normalized map by $(-1)^{\\mathrm{ind}\\,L}$, which is locally constant, so it is continuous in $L$ and no sign is changed. The preprint (Remark 6.42) puts $e$ last; that map, as we read it, is not continuous in $L$ where the parity of $\\dim\\operatorname{coker}L$ changes, and the first form used the sign $(-1)^{\\dim\\operatorname{coker}L}$ (the sign of V6.40), which is kept (`extDetN`, `existsUnique_prodOr`) (Findings, Chapter 6, items 95, 122).",
     "$X \\times [0, 1]$ is read as $\\mathbb R \\times X$ (decision D2), with the parameter first, so $\\tilde L(a, b) = La$ is conjugated by the swap of the factors. Only an orientation of $\\mathrm{DET}(f, x)$ at the one point and $\\mathrm{Lin}(f, x) \\ne \\emptyset$ (bump functions, V6.1) are used, not an orientation of $f$ (Findings, Chapter 6, item 96).",
     "That $(t, y) \\mapsto \\hat o$ is an orientation of $\\hat f$ in the sense of Definition 6.6.16 (preprint 6.40), built from an orientation of $f$, is not formalized (gap G.66; Findings, Chapter 6, item 97)."
    ]
@@ -1941,15 +1976,31 @@
   {
    "id": "V6.67",
    "title": "Proposition 6.4.13 (2017: 6.6): the isomorphisms $A_T$, $B_T$",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§6.4, Proposition 6.4.13 (2017: 6.6), p. 253 (2017 p. 195) (proof pp. 253–255)",
     "page": 253,
     "statement": "For $T$ Fredholm, $H$ closed of finite codimension with $\\Pi_T \\cap \\mathcal P_H \\ne \\emptyset$ (explicit in 2021) and $P, Q \\in \\Pi_T \\cap \\mathcal P_H$, isomorphisms $A_T : \\ker(PT) \\to \\ker(QT)$, $B_T : F/H \\to F/H$ make the diagram of $E(T, P)$, $E(T, Q)$ commute; they depend continuously on $T$."
    },
    "lean": {
-    "statement": "`proposition_6_4_13_2021`: for $P, Q \\in \\Pi_T$ with $R(P) = R(Q) = H$, linear isomorphisms $A$, $B$ (the text's construction) with $A \\circ j_P = j_Q$, $\\Phi_Q \\circ A = B \\circ \\Phi_P$, $\\pi_Q \\circ B = \\pi_P$ (`projSeqJ`, `projSeqPhi`, `projSeqPi`).",
+    "statement": "For $T$ Fredholm and $P, Q \\in \\Pi_T$ with $R(P) = R(Q) = H$ there are a closed $X$ and $\\varepsilon > 0$ such that for every $S$ with $\\|S - T\\| < \\varepsilon$, $A_S = 1 - \\xi_S \\circ S$ and $B_S = (1 - P) - S\\xi_S(1 - P)$ give isomorphisms $\\ker(PS) \\to \\ker(QS)$, $F/R(P) \\to F/R(Q)$ filling the diagram of $E(S, P)$, $E(S, Q)$, continuous in $S$ (`proposition_6_4_13_continuity_2021`, `diagram_of_solveOp`, V6.70). The form first recorded here: `proposition_6_4_13_2021`, at $T$, with an algebraic complement $X$: linear isomorphisms $A$, $B$ with $A \\circ j_P = j_Q$, $\\Phi_Q \\circ A = B \\circ \\Phi_P$, $\\pi_Q \\circ B = \\pi_P$.",
     "decls": [
+     "Chapter6/Book2021Continuity · projCod",
+     "Chapter6/Book2021Continuity · solveOp",
+     "Chapter6/Book2021Continuity · kerTransition",
+     "Chapter6/Book2021Continuity · cokerTransition",
+     "Chapter6/Book2021Continuity · solveOp_mem",
+     "Chapter6/Book2021Continuity · kerTransition_apply",
+     "Chapter6/Book2021Continuity · cokerTransition_apply",
+     "Chapter6/Book2021Continuity · apply_solveOp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · disjoint_ker_comp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · isTopCompl_ker_comp_of_projRestrict_eq",
+     "Chapter6/Book2021Continuity · diagram_of_solveOp",
+     "Chapter6/Book2021Continuity · continuousAt_solveOp",
+     "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021",
+     "Chapter6/Book2021Continuity · proposition_6_4_13_continuity_2021_hyps",
+     "Chapter6/LocalDetBundle · lemma_6_17",
+     "Chapter6/LocalDetBundle · projRestrict",
      "Chapter6/Book2021 · proposition_6_4_13_2021",
      "Chapter6/Book2021 · exists_isCompl_isCompl_of_finrank_eq",
      "Chapter6/ProjectionSequence · projSeqJ",
@@ -1958,10 +2009,10 @@
     ]
    },
    "chips": [
-    "continuity in $T$: V6.70 (G.81 closed)",
-    "$X$ algebraic"
+    "in full: V6.70 (G.81 closed)"
    ],
    "diff": [
+    "Proved in full in V6.70; the narrower form first recorded here is kept (`proposition_6_4_13_2021`, at $T$, $X$ algebraic).",
     "The last sentence, continuity in $T$, is not part of this row: it is V6.70, with a closed $X$ (V6.69) (gap G.81, closed). $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, Chapter 6, items 112, 113, 117)."
    ]
   },
@@ -2077,16 +2128,20 @@
      "Chapter6/OrientationSpace · IsOrientationTopology",
      "Chapter6/SectionOrientation · Orx",
      "Chapter6/OrientationFunctor · orPush",
-     "Chapter6/OrientationFunctor · orPush_compat"
+     "Chapter6/OrientationFunctor · orPush_compat",
+     "Chapter6/PathsInterval · IsPropagationContinuousI",
+     "Chapter6/PathsInterval · OrPullbackI",
+     "Chapter6/PathsInterval · IsPropagationContinuousI.toReal"
     ]
    },
    "chips": [
     "$X_\\infty$: topology of Theorem 2.3.10",
     "local propagation = `orPush` on segments",
-    "paths on $\\mathbb R$ (D2)"
+    "paths on $\\mathbb R$; on $[0, 1]$: V6.75"
    ],
    "diff": [
-    "\"The local propagation of $o_{t_0}$\" is read as the push-forward along the segment of $\\varphi$ from $t_0$ to $t$ in an open set with the local propagation property in some chart, independent of that set (`orPush_compat`); paths are sc-smooth maps $\\mathbb R \\to X$ restricted to $[0, 1]$ (decision D2); $\\mathrm{Or}^f_x$ is read in the chosen chart (V6.55). The set $O_f$ appears in the preprint (p. 219) and the 2017 text (p. 205) without a topology (Findings, Chapter 6, item 118)."
+    "\"The local propagation of $o_{t_0}$\" is read as the push-forward along the segment of $\\varphi$ from $t_0$ to $t$ in an open set with the local propagation property in some chart, independent of that set (`orPush_compat`); paths are sc-smooth maps $\\mathbb R \\to X$ restricted to $[0, 1]$ (decision D2); $\\mathrm{Or}^f_x$ is read in the chosen chart (V6.55). The set $O_f$ appears in the preprint (p. 219) and the 2017 text (p. 205) without a topology (Findings, Chapter 6, item 118).",
+    "(2026-11-09) (3) for paths $\\varphi : [0, 1] \\to X$ is `IsPropagationContinuousI`, which implies the form on $\\mathbb R$ (`IsPropagationContinuousI.toReal`); Theorem 6.6.17 with it is `theorem_6_6_17_interval` (V6.75; gap G.65 in part)."
    ]
   },
   {
@@ -2153,16 +2208,19 @@
   },
   {
    "id": "V6.74",
-   "title": "Theorem 6.6.17 (2): two continuous sections, under connected smooth neighbourhoods",
-   "verdict": "narrower",
+   "title": "Theorem 6.6.17 (2): two continuous sections",
+   "verdict": "restated",
    "book": {
     "label": "§6.6, Theorem 6.6.17 (2), p. 275 (new in the 2021 edition)",
     "page": 275,
     "statement": "For every $x \\in X_\\infty$ there exists an open neighbourhood $U = U(x)$ in $X$ such that $O_f|(U \\cap X_\\infty)$ has precisely two continuous sections."
    },
    "lean": {
-    "statement": "`hasTwoContSections_orTopology`: if every $\\mathrm{Or}^f_y$ has two elements and $X$ has connected smooth neighbourhoods (`MPolyfold.HasConnectedSmoothNbhds`: inside every open $W \\ni x$ an open $U \\ni x$ with $U \\cap X_\\infty$ preconnected in $X_\\infty$), then for every $L$ the topology `orTopology L` has (2), the sections being $y \\mapsto (y, \\pm o_y)$. Witnesses of the hypothesis: $\\mathbb R^n$, any M-polyfold on a subsingleton.",
+    "statement": "Under the standing hypotheses ($X$ tame with bump functions, $f$ with tame germ data), (2) holds for the topology of $O_f$ (`theorem_6_6_17`). `hasTwoContSections_orTopology`: if every $\\mathrm{Or}^f_y$ has two elements and $X$ has connected smooth neighbourhoods (`MPolyfold.HasConnectedSmoothNbhds`: inside every open $W \\ni x$ an open $U \\ni x$ with $U \\cap X_\\infty$ preconnected in $X_\\infty$), then for every $L$ the topology `orTopology L` has (2), the sections being $y \\mapsto (y, \\pm o_y)$. `MPolyfold.hasConnectedSmoothNbhds`: every M-polyfold has connected smooth neighbourhoods (the component of $x$ in $W$, with $U \\cap X_\\infty$ path connected, `isPathConnected_smoothVal_preimage`); every $\\mathrm{Or}^f_y$ has two elements under the standing hypotheses (`exists_two_orx`, sc⁺-sections from the bump functions). Earlier witnesses: $\\mathbb R^n$, any M-polyfold on a subsingleton.",
     "decls": [
+     "Chapter6/OrientationMainClean · theorem_6_6_17",
+     "Chapter6/OrientationMainClean · MPolyfold.hasConnectedSmoothNbhds",
+     "Chapter2/SmoothPaths · MPolyfold.isPathConnected_smoothVal_preimage",
      "Chapter6/OrientationSpace · MPolyfold.HasConnectedSmoothNbhds",
      "Chapter6/OrientationSpace · MPolyfold.hasConnectedSmoothNbhds_of_subsingleton",
      "Chapter6/OrientationSpace · rnPolyfold_hasConnectedSmoothNbhds",
@@ -2171,41 +2229,48 @@
     ]
    },
    "chips": [
-    "needs $U \\cap X_\\infty$ connected (G.90)",
-    "witness: $\\mathbb R^n$"
+    "connected smooth nbhds: proved (G.90)",
+    "standing hypotheses (V6.57)"
    ],
    "diff": [
-    "A continuous section over $U \\cap X_\\infty$ is locally one of the two continuous orientations, so (2) needs a $U$ with connected smooth part. That small such $U$ exist is a hypothesis; Part I does not state it, it holds for $\\mathbb R^n$ and is open in general (gap G.90). The proofs of §7.4 use that $U \\cap X_\\infty$ is connected for connected open $U$ (`MPolyfold.SmoothConnected`, gap G.85), which, as we read it, gives the hypothesis, M-polyfolds being locally path connected (Proposition 2.3.7). The paths of `exists_nhds_scPath` join the smooth points of a small $V$ inside a larger $U$ only (Findings, Chapter 6, item 120)."
+    "Updated (2026-11-09): connected smooth neighbourhoods exist for every M-polyfold (`MPolyfold.hasConnectedSmoothNbhds`; gap G.90 closed), and the two elements of every $\\mathrm{Or}^f_y$ come from the bump functions, so (2) holds under the standing hypotheses (`theorem_6_6_17`); the form with both as hypotheses is kept (`hasTwoContSections_orTopology`) (Findings, Chapter 6, items 120, 122).",
+    "A continuous section over $U \\cap X_\\infty$ is locally one of the two continuous orientations, so (2) needs a $U$ with connected smooth part. Part I does not state that small such $U$ exist; it is proved here through $U \\cap X_\\infty$ path connected for a connected open $U$, M-polyfolds being locally path connected (Proposition 2.3.7). The paths of `exists_nhds_scPath` join the smooth points of a small $V$ inside a larger $U$ only (Findings, Chapter 6, item 120)."
    ]
   },
   {
    "id": "V6.75",
    "title": "Theorem 6.6.17: the unique Hausdorff topology on $O_f$",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§6.6, Theorem 6.6.17, p. 275 (new in the 2021 edition)",
     "page": 275,
     "statement": "Let $P : Y \\to X$ be a strong bundle over the tame M-polyfold $X$ and $f$ an sc-Fredholm section. Then there exists a uniquely defined Hausdorff topology on $O_f$ characterized by (1), (2), (3). The easy proof is left to the reader."
    },
    "lean": {
-    "statement": "Under the hypotheses of `theorem_6_37` ($X$ tame with bump functions, $f$ with tame germ data, sc⁺-sections through the smooth fibre points, the paracompactness instances): `isPropagationContinuous_orTopology` (3) for the topology of the transport data of $\\Gamma_f$; `eq_orTopology_of`: every topology with (1) and (3) is that one; `existsUnique_orientationTopology_2021`: exactly one Hausdorff topology with (1) and (3); `theorem_6_6_17_2021` (with `HasConnectedSmoothNbhds`): exactly one topology with `IsOrientationTopology`, i.e. Hausdorff with (1)–(3).",
+    "statement": "`theorem_6_6_17` ($X$ tame with bump functions, $f$ with tame germ data): there is exactly one topology on $O_f$ that is Hausdorff and has (1)–(3) (`IsOrientationTopology`). `isPropagationContinuous_orTopology`: (3) for the topology of the transport data of $\\Gamma_f$; `eq_orTopology_of`: every topology with (1) and (3) is that one; `existsUnique_orientationTopology_2021`: exactly one Hausdorff topology with (1) and (3). With (3) for paths $\\varphi : [0, 1] \\to X$: `theorem_6_6_17_interval`, by `IsPropagationContinuousI.toReal`. The form first recorded: `theorem_6_6_17_2021`, with sc⁺-sections through the smooth fibre points, the paracompactness instances and `HasConnectedSmoothNbhds` as hypotheses.",
     "decls": [
+     "Chapter6/OrientationMainClean · theorem_6_6_17",
+     "Chapter6/PathsInterval · theorem_6_6_17_interval",
+     "Chapter6/PathsInterval · existsUnique_orientationTopology_interval",
+     "Chapter6/PathsInterval · IsPropagationContinuousI.toReal",
+     "Chapter6/OrientationSpace · theorem_6_6_17_2021",
+     "Chapter6/OrientationMainClean · MPolyfold.hasConnectedSmoothNbhds",
      "Chapter6/OrientationSpace · isPropagationContinuous_orTopology",
      "Chapter6/OrientationSpace · eventually_eq_orSec_of_continuousOn",
      "Chapter6/OrientationSpace · eq_orTopology_of",
      "Chapter6/OrientationSpace · existsUnique_orientationTopology_2021",
-     "Chapter6/OrientationSpace · theorem_6_6_17_2021",
      "Chapter6/OrientationFunctor · orLocalTransport",
      "Chapter6/OrientationFunctor · theorem_6_37"
     ]
    },
    "chips": [
-    "(2) under connected smooth nbhds (G.90)",
+    "the text's hypotheses only",
     "uniqueness from (1), (3) alone",
+    "(3) also for paths on $[0, 1]$",
     "remarks after it: G.91"
    ],
    "diff": [
-    "Existence with (2) needs `HasConnectedSmoothNbhds` (gap G.90); without (2) the theorem holds with no extra hypothesis. The uniqueness is stronger than stated: neither Hausdorffness nor (2) is used. The hypotheses are those under which $\\Gamma_f$ is built (V6.57): bump functions, tame germ data, sc⁺-sections through the smooth fibre points (Findings, Chapter 6, items 119, 120).",
+    "Updated (2026-11-09): **stated with the text's hypotheses only**, $X$ tame with bump functions and $f$ sc-Fredholm with tame germ data, the reading of “tame strong bundle” of V3.103 (`theorem_6_6_17`, `Chapter6/OrientationMainClean.lean`): `HasConnectedSmoothNbhds` is no longer a hypothesis, since it holds for every M-polyfold (`MPolyfold.hasConnectedSmoothNbhds`, in the same file; gap G.90), the sc⁺-sections through the smooth fibre points come from the bump functions, and the paracompactness instances are proved; the form with them is kept (`theorem_6_6_17_2021`). Property (3) is also stated for paths on $[0, 1]$ (`theorem_6_6_17_interval`; gap G.65 in part). The uniqueness is stronger than stated: neither Hausdorffness nor (2) is used (Findings, Chapter 6, items 119, 120, 122).",
     "The remarks after the theorem — the orientation bundle, orientability iff a global continuous section, the continuous $\\mathbb Z_2$-action and $\\det_f$ — are gap G.91 (Findings, Chapter 6, item 121)."
    ]
   }
@@ -2227,7 +2292,7 @@
    "label": "§6.7 (preprint §6.6), p. 276 (preprint p. 230)",
    "page": 230,
    "book": "For a proper oriented $(f, o)$ over a tame $X$ with bump functions and an auxiliary norm $N$, Theorem 5.3.10 (preprint 5.18) gives an open $U \\supseteq S$ such that every sc⁺-section supported in $U$ with $N(s(x)) \\le 1$ has a compact $S_{f+s}$; the distinguished ones, with $(f + s, x)$ in general position at every zero, have oriented solution sets and are called admissible for $(N, U)$.",
-   "instead": "**Not formalized** as a notion; it is used only in Theorem 6.7.1 (preprint 6.43) (gap G.54). The facts recalled are formalized: Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the tangent orientations of the solution set (V6.61); the orientation of $S_{f+s}$ for a perturbed $f$ is gap G.69 (Findings, Chapter 6, item 101).",
+   "instead": "**Not formalized** as a notion; it is used only in Theorem 6.7.1 (preprint 6.43) (gap G.54). The facts recalled are formalized: Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the tangent orientations of the solution set (V6.61); the orientation of $S_{f+s}$ for a perturbed $f$ is gap G.69 (Findings, Chapter 6, item 101). (2026-11-09) Gap G.69 is closed: an orientation of $f$ is one of $f + s$, so it orients $S_{f+s}$ for the perturbations of Theorem 5.3.10 (`theorem_6_6_18_perturbation`, V6.61).",
    "decls": [
     "Chapter5/GeneralPosition · theorem_5_18_dense"
    ]
@@ -2300,10 +2365,12 @@
    "label": "§6.6 (preprint §6.5), Lemma 6.6.5 (preprint 6.30), p. 265 (preprint p. 222)",
    "page": 222,
    "book": "The solution set of $F = 0$ near $(t, \\varphi(t), 0)$ is a smooth manifold with boundary with corners, $\\pi : S \\to [0, 1]$ is a submersion, its fibres $S_t$ are manifolds with boundary with corners, and $L$ is a smooth vector bundle over $[0, 1]$.",
-   "instead": "**Not formalized.** The kernels are formalized as a continuous family of subspaces of the model space (V6.34, V6.42), which is all the continuation of orientations needs (Findings, Chapter 6, item 48).",
+   "instead": "**Formalized in part since the first edition of this page.** The solution set near a zero in good position is a smooth submanifold of dimension the Fredholm index (`theorem_3_6_8_isSubmanifoldOfDim`) and, with the charted space of its induced corner structure, a Mathlib manifold with boundary and corners (`theorem_3_1_26_isManifold`, `Chapter9/MathlibSolutionSets.lean`), which applies to $F$ near $(t, \\varphi(t), 0)$. **Not formalized**: that $\\pi : S \\to [0, 1]$ is a submersion with fibres $S_t$ manifolds with boundary with corners, and $L$ as a smooth vector bundle over $[0, 1]$. The kernels are formalized as a continuous family of subspaces of the model space (V6.34, V6.42), which is all the continuation of orientations needs (Findings, Chapter 6, item 48).",
    "decls": [
     "Chapter6/KernelFamily · exists_subspaceFamily_linKer",
-    "Chapter6/StabKernelsExist · exists_isStabKernels"
+    "Chapter6/StabKernelsExist · exists_isStabKernels",
+    "Chapter9/MathlibSolutionSets · theorem_3_1_26_isManifold",
+    "Chapter9/MathlibSolutionSets · theorem_3_6_8_isSubmanifoldOfDim"
    ]
   },
   {
@@ -2321,9 +2388,14 @@
    "label": "§6.2 (preprint §6.1), Definition 6.2.1 (preprint 6.1), p. 239 (preprint p. 201)",
    "page": 201,
    "book": "The operators in $\\mathrm{Lin}(f, x)$ are sc-Fredholm operators $T_xX \\to Y_x$, all with the same Fredholm index.",
-   "instead": "**Not formalized** on every level: at a chart point the members are shown Fredholm on level $0$, with the index $\\mathrm{ind}(f, x)$ of V3.98, which is what the determinant lines use (V6.1) (Findings, Chapter 6, item 40).",
+   "instead": "**Formalized since the first edition of this page** (V6.1). At a chart point every member of $\\mathrm{Lin}(f, x)$ is level $0$ of an sc-Fredholm operator $T_zO \\to K_z$, with every level Fredholm of one index $i$ for all members (`exists_isScFredholm_of_mem_linSet`, `definition_6_2_1_linSet_isScFredholm`); $i$ is $\\mathrm{ind}(f, x)$ of V3.98. $T_xX$ is read through the chart point, as in V6.1 (Findings, Chapter 6, item 40).",
    "decls": [
-    "Chapter6/LinSet · ChartPoint.exists_index_linSet"
+    "Chapter6/LinSet · ChartPoint.exists_index_linSet",
+    "Chapter6/LinSetFredholm · ChartPoint.exists_isScFredholm_of_mem_linSet",
+    "Chapter6/LinSetFredholm · ChartPoint.definition_6_2_1_linSet_isScFredholm"
+   ],
+   "formalized": [
+    "V6.1"
    ]
   },
   {
@@ -2331,7 +2403,17 @@
    "label": "§6.6 (preprint §6.5), pp. 263–276 (preprint pp. 220–230)",
    "page": 220,
    "book": "Paths, homotopies and families are sc-smooth maps on $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$, and $X \\times [0, 1]$, $[0, 1] \\times X \\times \\mathbb R^k$ are M-polyfolds with boundary (Proposition 6.6.3 (preprint 6.28), Lemmas 6.6.4–6.6.10 (preprint 6.29–6.34), Theorem 6.6.11 (preprint 6.35), Remark 6.6.19 (preprint 6.42)).",
-   "instead": "**Not formalized** as stated: they are read on $\\mathbb R$, $\\mathbb R^2$, $\\mathbb R^n$ and $\\mathbb R^n \\times X$, of which only $[0, 1]$, $[0, 1]^2$, $[0, 1]^n$ matters (decision D2), as for Proposition 6.2.2 (preprint 6.2) in Chapter 3 (V3.98); a path that does not extend sc-smoothly to $\\mathbb R$ is not covered (Findings, Chapter 6, items 71, 102)."
+   "instead": "**Formalized in part since the first edition of this page.** $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`), $X \\times [0, 1]$ is tame for tame $X$ with $d_{X \\times [0,1]}(x, t) = d_X(x) + d_{[0,1]}(t)$ (`isTame_prod_unitInterval`), and $[0, 1]^2$ is `unitSquarePolyfold`. Every sc-smooth path on $[0, 1]$ is the reparametrization by $\\sin^2$ of an sc-smooth path on $\\mathbb R$ (`exists_rn_reparam`, `unitPath`), and with it Proposition 6.2.2 (preprint 6.2) (V3.98), Theorem 6.6.11 (preprint 6.35) (V6.48), $\\Gamma_f$ of Theorem 6.6.13 (preprint 6.37) with its invariance under sc-smooth homotopies $[0, 1]^2 \\to X$ (V6.57) and Theorem 6.6.17 with (3) for paths on $[0, 1]$ (V6.71, V6.75) are stated for paths on $[0, 1]$. **Still read on $\\mathbb R$** (decision D2): the path category with the text's concatenation (V6.52), Proposition 6.6.3 (1′), (3) and the families on $[0, 1]^n$ (V6.32), and Remark 6.6.19 over $X \\times [0, 1]$ (V6.62) (Findings, Chapter 6, items 71, 102, 122).",
+   "decls": [
+    "Chapter3/UnitIntervalPolyfold · unitIntervalPolyfold",
+    "Chapter6/PathsInterval · isTame_prod_unitInterval",
+    "Chapter6/PathsInterval · unitSquarePolyfold",
+    "Chapter3/UnitIntervalPolyfold · MPolyfold.IsScSmoothMap.exists_rn_reparam",
+    "Chapter6/PathsInterval · theorem_6_6_11_interval",
+    "Chapter6/PathsInterval · orTransportI_eq_of_homotopy",
+    "Chapter6/PathsInterval · theorem_6_6_17_interval",
+    "Chapter3/IndexAlongPathsInterval · proposition_6_2_2_interval"
+   ]
   },
   {
    "title": "Remark 6.6.19 (preprint 6.42) beyond a point",
@@ -2348,9 +2430,10 @@
    "label": "§6.6 (preprint §6.5), Theorem 6.6.18 (preprint 6.41), p. 275 (preprint p. 229)",
    "page": 229,
    "book": "The solution set $S$ is a smooth compact manifold with boundary with corners possessing a natural orientation.",
-   "instead": "**Not formalized** as an orientation of the abstract finite-dimensional manifold $S$ (of its tangent bundle in the charts of the induced structure). What is formalized is the tangent orientation at each zero and its continuity along the sc-smooth paths of zeros in a chart (V6.61) (Findings, Chapter 6, item 92).",
+   "instead": "**Formalized in part since the first edition of this page.** $S$ is a smooth compact manifold with boundary and corners of dimension the index in Mathlib's language, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` with the charted space of its induced corner structure (`theorem_6_6_18_isManifold`, `Chapter9/MathlibSolutionSets.lean`). **Not formalized**: an orientation of $S$ as a manifold, of its tangent bundle in the charts of the induced structure or of the Mathlib manifold. What is formalized is the tangent orientation at each zero, chart independent, and its continuity along the sc-smooth paths of zeros in a chart (V6.61) (Findings, Chapter 6, items 92, 123).",
    "decls": [
-    "Chapter6/SolutionOrientation · theorem_6_41"
+    "Chapter6/SolutionOrientation · theorem_6_41",
+    "Chapter9/MathlibSolutionSets · theorem_6_6_18_isManifold"
    ]
   },
   {
@@ -2358,10 +2441,16 @@
    "label": "§6.6 (preprint §6.5), Theorem 6.6.18 (preprint 6.41), p. 275 (preprint p. 229)",
    "page": 229,
    "book": "$T_xS = \\ker f'(x)$ is oriented by $o^f_x$, an object the text treats as independent of the chart.",
-   "instead": "**Not formalized**: the compatibility of the tangent orientations read in two charts at the same zero. $\\mathrm{Or}^f_x$ itself is identified between charts (V6.53–V6.55) (Findings, Chapter 6, item 92).",
+   "instead": "**Formalized since the first edition of this page** (V6.61). For an orientation $o \\in \\mathrm{Or}^f_x$ at a zero $x$ with $f'(x)$ onto and two charts at $x$, the orientation of $T_xS = \\ker f'(x)$ read in the second chart is the image of the one read in the first under the tangent map of the transition (`tangentOrAt_toChartOr`, `Chapter6/SolutionOrientationCharts.lean`); it is part of the statement of `theorem_6_6_18` (`IsNaturalSolutionOrientation`) (Findings, Chapter 6, items 92, 123).",
    "decls": [
     "Chapter6/SolutionOrientation · ChartPoint.tangentOr",
-    "Chapter6/ChartTransfer · ChartPoint.orTransfer"
+    "Chapter6/ChartTransfer · ChartPoint.orTransfer",
+    "Chapter6/SolutionOrientationCharts · tangentOrAt_toChartOr",
+    "Chapter6/SolutionOrientationCharts · ChartPoint.tangentKerEquiv",
+    "Chapter6/OrientationMainClean · IsNaturalSolutionOrientation"
+   ],
+   "formalized": [
+    "V6.61"
    ]
   },
   {
@@ -2369,9 +2458,17 @@
    "label": "§6.6 (preprint §6.5), after Theorem 6.6.18 (preprint 6.41), pp. 275–276 (preprint pp. 229–230)",
    "page": 229,
    "book": "If $f$ is not generic, a small perturbation $s$ supported near the zero set gives $S_{f+s}$ a natural orientation coming from $o^f$, since $\\det((f + s)'(x))$ is oriented from $\\mathrm{DET}(f, x)$ for $x \\in S_{f+s}$.",
-   "instead": "**Not formalized**: the perturbation, the orientation of $S_{f+s}$ coming from $o^f$, and the identification $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$ for an sc⁺-section $s$ that it uses. The perturbations themselves are Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) (Findings, Chapter 6, item 93).",
+   "instead": "**Formalized since the first edition of this page** (V6.61). $\\mathrm{Lin}(f + s, x) = \\mathrm{Lin}(f, x)$ for an sc⁺-section $s$ (`ChartPoint.linSet_eq_of_sectionAdd`), and an orientation of $f$ is an orientation of $f + s$ in the sense of Definition 6.6.16 (preprint 6.40) (`isSectionOrientation_sectionAdd`, `SectionOrientation.sectionAdd`). So for $f + s$ proper and in general position $S_{f+s}$ has the natural orientation coming from $o^f$ (`theorem_6_6_18_sectionAdd`), and for the dense set of perturbations of Theorem 5.3.10 (preprint 5.18), in its pointwise reading (V5.38), $S_{f+s}$ is a compact manifold with boundary with corners oriented by $o^f$ (`theorem_6_6_18_perturbation`, `Chapter6/PerturbedOrientation.lean`) (Findings, Chapter 6, items 93, 123).",
    "decls": [
-    "Chapter5/GeneralPosition · theorem_5_18"
+    "Chapter5/GeneralPosition · theorem_5_18",
+    "Chapter6/PerturbedOrientation · ChartPoint.linSet_eq_of_sectionAdd",
+    "Chapter6/PerturbedOrientation · isSectionOrientation_sectionAdd",
+    "Chapter6/PerturbedOrientation · SectionOrientation.sectionAdd",
+    "Chapter6/PerturbedOrientation · theorem_6_6_18_sectionAdd",
+    "Chapter6/PerturbedOrientation · theorem_6_6_18_perturbation"
+   ],
+   "formalized": [
+    "V6.61"
    ]
   },
   {
@@ -2397,12 +2494,19 @@
    "label": "§6.6, Theorem 6.6.17 (2), p. 275 (new in the 2021 edition)",
    "page": 275,
    "book": "For every $x \\in X_\\infty$ there is an open $U = U(x)$ in $X$ such that $O_f|(U \\cap X_\\infty)$ has precisely two continuous sections.",
-   "instead": "**Proved only under `MPolyfold.HasConnectedSmoothNbhds`** (V6.74, V6.75): every smooth point has arbitrarily small open neighbourhoods $U$ in $X$ with $U \\cap X_\\infty$ connected in $X_\\infty$. Every continuous section over $U \\cap X_\\infty$ is locally one of the two continuous orientations, so (2) needs such a $U$; Part I does not state the fact, and the paths of `exists_nhds_scPath` join the smooth points of a small $V$ only inside a larger $U$. It holds for $\\mathbb R^n$ (`rnPolyfold_hasConnectedSmoothNbhds`) and is open in general. The proofs of §7.4 use that $U \\cap X_\\infty$ is connected for connected open $U$ (`MPolyfold.SmoothConnected`, gap G.85), which, as we read it, gives the hypothesis, M-polyfolds being locally path connected (Proposition 2.3.7). Existence and uniqueness of the Hausdorff topology with (1) and (3) need no such hypothesis (`existsUnique_orientationTopology_2021`) (Findings, Chapter 6, item 120).",
+   "instead": "**Formalized since the first edition of this page** (V6.74, V6.75). Every M-polyfold has connected smooth neighbourhoods (`MPolyfold.hasConnectedSmoothNbhds`): inside an open $W \\ni x$ the connected component $U$ of $x$ is open (Proposition 2.3.7), and $U \\cap X_\\infty$ is path connected in $X_\\infty$ (`isPathConnected_smoothVal_preimage`), since nearby smooth points are joined by paths in $X_\\infty$ (`exists_nhds_joinedIn_smooth`). So (2) holds for the topology of $O_f$ without `HasConnectedSmoothNbhds` (`theorem_6_6_17_2021 PX.hasConnectedSmoothNbhds`), under the hypotheses under which $\\Gamma_f$ is built (V6.57) (Findings, Chapter 6, item 120).",
    "decls": [
     "Chapter6/OrientationSpace · MPolyfold.HasConnectedSmoothNbhds",
     "Chapter6/OrientationSpace · hasTwoContSections_orTopology",
     "Chapter6/OrientationSpace · theorem_6_6_17_2021",
-    "Chapter6/OrientationSpace · existsUnique_orientationTopology_2021"
+    "Chapter6/OrientationSpace · existsUnique_orientationTopology_2021",
+    "Chapter6/OrientationMainClean · MPolyfold.hasConnectedSmoothNbhds",
+    "Chapter2/SmoothPaths · MPolyfold.isPathConnected_smoothVal_preimage",
+    "Chapter2/SmoothPaths · MPolyfold.exists_nhds_joinedIn_smooth"
+   ],
+   "formalized": [
+    "V6.74",
+    "V6.75"
    ]
   },
   {

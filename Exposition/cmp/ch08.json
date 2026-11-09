@@ -324,23 +324,30 @@
     "statement": "There are equivalent ways to turn $T\\mathbf X$ into an ep-groupoid. A morphism $\\varphi : x \\to y$ with $x \\in X_1$ has a well-defined associated linear isomorphism $T\\varphi : T_xX \\to T_yY$, the tangent map of $t \\circ (s|\\mathbf U(\\varphi))^{-1}$ at $x$; $(T\\varphi, h)$ is a morphism from $h$ to $T\\varphi(h)$, and $(T\\psi, h) \\circ (T\\varphi, l) = (T\\psi \\circ T\\varphi, l) = (T(\\psi \\circ \\varphi), l)$ for $h = T\\varphi(l)$. The map $G : (\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is compatible with the functorial structures, and $G : T\\mathbf X \\to \\{(T\\varphi, a) \\mid \\varphi \\in \\mathbf X_1, a \\in T_{s(\\varphi)}X\\}$ is a bijection; the right-hand side can be given an M-polyfold structure making $G$ an sc-diffeomorphism, and the pairs $(T\\varphi, a)$ can be identified with the triples $(a, T\\varphi, b)$, $b = T\\varphi(a)$. Finally, $Tt(\\varphi) \\circ Ts(\\varphi)^{-1} : T_xX \\to T_yX$ is the linearization of $t \\circ (s|\\mathbf U(\\varphi))^{-1}$ at $\\varphi$, hence equal to $T\\varphi$, and $t_{T\\mathbf X} \\circ (s_{T\\mathbf X}|T_xX)^{-1} = T\\varphi : T_xX \\to T_yX$ is a linear isomorphism."
    },
    "lean": {
-    "statement": "$T\\varphi$ is Chapter 7's `tangentMor` (V7.5) and $G$ is `remarkG`, $G(v) = (\\mathbf p(v), Ts(v))$. `remark_8_1`: $T\\varphi(Ts(v)) = Tt(v)$ for every $v$ over $\\varphi$, i.e. $t_T \\circ (s_T|T_\\varphi\\mathbf X)^{-1} = T\\varphi$ (`tangentMor_tSrc`); $T(\\psi \\circ \\varphi) = T\\psi \\circ T\\varphi$ on $T_{s(\\varphi)}X$ for $\\varphi \\in \\mathbf X_1$ (`tangentMor_comp`); $G$ is injective, with range the pairs $(\\varphi, a)$ with $\\varphi \\in \\mathbf X_1$ and $a \\in T_{s(\\varphi)}X$; $Ts(k) = Tt(h)$ iff $Ts(k) = T\\mathbf p(h)(Ts(h))$; and $G(k \\circ h) = (\\mathbf p(k) \\circ \\mathbf p(h), Ts(h))$ with $T(\\mathbf p(k) \\circ \\mathbf p(h)) = T\\mathbf p(k) \\circ T\\mathbf p(h)$, so that $G$ is compatible with the compositions.",
+    "statement": "$T\\varphi$ is Chapter 7's `tangentMor` (V7.5) and $G$ is `remarkG`, $G(v) = (\\mathbf p(v), Ts(v))$. `remark_8_1`: $T\\varphi(Ts(v)) = Tt(v)$ for every $v$ over $\\varphi$, i.e. $t_T \\circ (s_T|T_\\varphi\\mathbf X)^{-1} = T\\varphi$ (`tangentMor_tSrc`); $T(\\psi \\circ \\varphi) = T\\psi \\circ T\\varphi$ on $T_{s(\\varphi)}X$ for $\\varphi \\in \\mathbf X_1$ (`tangentMor_comp`); $G$ is injective, with range the pairs $(\\varphi, a)$ with $\\varphi \\in \\mathbf X_1$ and $a \\in T_{s(\\varphi)}X$; $Ts(k) = Tt(h)$ iff $Ts(k) = T\\mathbf p(h)(Ts(h))$; and $G(k \\circ h) = (\\mathbf p(k) \\circ \\mathbf p(h), Ts(h))$ with $T(\\mathbf p(k) \\circ \\mathbf p(h)) = T\\mathbf p(k) \\circ T\\mathbf p(h)$, so that $G$ is compatible with the compositions. For $\\varphi \\in \\mathbf X_1$, $T\\varphi = T\\hat\\varphi(s(\\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), a bijection $T_{s(\\varphi)}X \\to T_{t(\\varphi)}X$ (`bijOn_tangentMor`), a bounded linear isomorphism in charts (`tangentMor_chart_iso`). `remark_8_1_10_not_injective_2021`: on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action, where $T\\varphi = \\mathrm{id}$ for every $\\varphi$ (`tangentMor_trivialZ3`), the map $v \\mapsto (T\\mathbf p(v), Ts(v))$ with the bare $T\\varphi$ is not injective. With the linear structure of Definition 2.3.14, $T\\varphi$ is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear_2021`, V7.5).",
     "decls": [
      "Chapter7/EpGroupoid · EpGroupoid.tangentMor",
      "Chapter8/TangentEp · EpGroupoid.tangentMor_tSrc",
      "Chapter8/TangentEp · EpGroupoid.tangentMor_comp",
      "Chapter8/TangentEp · EpGroupoid.remarkG",
-     "Chapter8/TangentEp · EpGroupoid.remark_8_1"
+     "Chapter8/TangentEp · EpGroupoid.remark_8_1",
+     "Chapter8/TangentEpNotInjective · EpGroupoid.Examples.tangentMor_trivialZ3",
+     "Chapter8/TangentEpNotInjective · EpGroupoid.Examples.remark_8_1_10_not_injective_2021",
+     "Chapter9/Tangent · EpGroupoid.tangentMor_eq_tangentMapOn_hat",
+     "Chapter7/TangentMorphism · EpGroupoid.bijOn_tangentMor",
+     "Chapter7/TangentMorphism · EpGroupoid.tangentMor_chart_iso",
+     "Chapter7/TangentMorphismLinear · EpGroupoid.tangentMorCLE",
+     "Chapter7/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear_2021"
     ]
    },
    "chips": [
     "$G(\\varphi, h) = (\\varphi, Ts(h))$",
-    "linearity of $T\\varphi$: gaps G.7, G.70",
-    "G.70 closed in part"
+    "bare-map reading: not injective",
+    "linearity of $T\\varphi$: proved"
    ],
    "diff": [
-    "**Narrower.** The first entry of $G$ is read as $T\\varphi$ labelled by $\\varphi$, i.e. as $\\varphi$ itself: as a bare map, $(\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ need not be injective (Findings, Chapter 8, item 10).",
-    "Not formalized: that $T\\varphi$ and $t_T \\circ (s_T|T_xX)^{-1}$ are linear isomorphisms, and that $T\\varphi = T\\hat\\varphi(x)$ (gaps G.7, G.70); the M-polyfold structure transported along $G$ and the triples $(a, T\\varphi, b)$, which have no gap since nothing depends on them. The well-definedness and functoriality of $T\\varphi$ close gap G.70 in part (Findings, Chapter 8, items 112, 113).",
+    "**Narrower.** The first entry of $G$ is read as $T\\varphi$ labelled by $\\varphi$, i.e. as $\\varphi$ itself: as a bare map, $(\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is not injective, as we read it, on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action (`remark_8_1_10_not_injective_2021`) (Findings, Chapter 8, item 10).",
+    "Updated (2026-11-09): $T\\varphi$, which is $t_T \\circ (s_T|T_xX)^{-1}$, is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ in the linear structure of Definition 2.3.14 (`tangentMorCLE`, `definition_7_1_4_linear_2021`; gaps G.7 and G.70 closed, V2.19, V7.5); the bijections, $T\\varphi = T\\hat\\varphi(x)$ and the bounded linear isomorphisms in charts are kept (`bijOn_tangentMor`, `tangentMor_eq_tangentMapOn_hat`, `tangentMor_chart_iso`). Not formalized: the M-polyfold structure transported along $G$ and the triples $(a, T\\varphi, b)$, which have no gap since nothing depends on them (Findings, Chapter 8, items 112, 113).",
     "The remark writes \"$T\\varphi : T_xX \\to T_yY$\" for $T_yX$, and calls $T\\varphi$ the linearization \"at $x$\" and later \"at $\\varphi$\" (possible misprints)."
    ]
   },
@@ -507,7 +514,7 @@
    ],
    "diff": [
     "**Stronger**: $|TX|$ is metrizable. The proof differs from the text's: Smirnov's theorem pulled back along $|p| : |TX| \\to |X^1|$, as for Proposition 7.5.3 (2017: 7.12) (V7.54); the closed paracompact $\\tilde A_z$, the regularity of $|TX|$ and Part I's Proposition 2.7.4 (2017: 2.17; preprint 2.57) are not used (Findings, Chapter 8, item 20).",
-    "The open embedding $G_x\\backslash TU(x) \\to |TX|$, left implicit, is proved. The local bundle model $TO \\to O^1$ is not used, and the linearity of the action of $G_x$ on $TU(x)$ is not formalized (gap G.7) (Findings, Chapter 8, items 21, 104).",
+    "The open embedding $G_x\\backslash TU(x) \\to |TX|$, left implicit, is proved. The local bundle model $TO \\to O^1$ is not used, and the linearity of the action of $G_x$ on $TU(x)$ is not formalized (gap G.7) (Findings, Chapter 8, items 21, 104). (2026-11-09: gap G.7 is closed (V2.19), and every $T\\varphi$, $\\varphi \\in \\mathbf X_1$, is a linear isomorphism of the tangent spaces (`tangentMorCLE`, V7.5); the linearity of the action on $TU(x)$ is not restated with it.)",
     "\"parcompact\" in the statement (possible misprint)."
    ]
   },
@@ -931,7 +938,7 @@
     ]
    },
    "chips": [
-    "$C$ = `SingleObj G`; $D$, $G$ in one universe",
+    "$C$ = `SingleObj G`; $D$, $G$ one universe",
     "finiteness where it is used",
     "$D = \\emptyset$ allowed"
    ],
@@ -1328,15 +1335,20 @@
   {
    "id": "V8.45",
    "title": "Proposition 8.1.17: LUC and SLUC for $TX$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§8.1, Proposition 8.1.17, p. 371 (new in the 2021 edition)",
     "page": 371,
     "statement": "(1) If $X^1$ has the local unique continuation property, so has $TX$, and $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$. (2) If $X$ has (SLUC), so has $TX$."
    },
    "lean": {
-    "statement": "Under the hypotheses that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$, and that $p : T\\mathbf X \\to \\mathbf X^1$ is open: `nonEffectivePart_tangent_eq` and `proposition_8_1_17_2021_one`: if $X^1$ is LUC, $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_2021_two`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_2021_one_point`.",
+    "statement": "`nonEffectivePart_tangent_eq_of_isLUC` and `proposition_8_1_17_2021_one_of_isLUC`: if $X^1$ is LUC, $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_2021_two_of_isSLUC`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$, and `EP.proposition_8_1_17_two_all_2021_of_isSLUC` (V8.52) gives (SLUC) for $TX$; no added hypothesis. The forms first proved, under the hypotheses that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$ and that $p : T\\mathbf X \\to \\mathbf X^1$ is open, are kept: `nonEffectivePart_tangent_eq`, `proposition_8_1_17_2021_one`, `proposition_8_1_17_2021_two`; with the openness of $p$ only, `proposition_8_1_17_2021_one_of_isOpenMap`. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_2021_one_point`.",
     "decls": [
+     "Chapter7/SmoothRegularAssembly · EpGroupoid.nonEffectivePart_tangent_eq_of_isLUC",
+     "Chapter7/SmoothRegularAssembly · EpGroupoid.proposition_8_1_17_2021_one_of_isLUC",
+     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_2021_two_of_isSLUC",
+     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_2021_of_isSLUC",
+     "Chapter7/SmoothConnectedReps · EpGroupoid.proposition_8_1_17_2021_one_of_isOpenMap",
      "Chapter8/TangentZhou · EpGroupoid.nonEffectivePart_tangent_eq",
      "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_one",
      "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_two",
@@ -1346,12 +1358,12 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "(2) for $(TX)^0$; all $(TX)^i$: V8.52",
-    "added: $U(x) \\cap X_1$; $p$ open",
+    "no added hypothesis (G.8, G.85 closed)",
     "gap G.88 (closed for (2))"
    ],
    "diff": [
-    "The connectedness and density of $U(x) \\cap X_1$ (as for Appendix 7.6.4, V7.83; the density is gap G.73) and the openness of $p$ (gap G.8) are hypotheses. (1) goes through Proposition 7.2.21 for $TX$. (2) is proved here for $(TX)^0 = TX$; for every $(TX)^i$, through $T(X^i) \\cong (TX)^i$ as ep-groupoids, it is V8.52 (gap G.88, closed for Proposition 8.1.17 (2)) (Findings, Chapter 8, items 116, 124)."
+    "Updated (2026-11-09): both hypotheses are theorems, the connectedness and density of $U(x) \\cap X_1$ (gaps G.85, G.73 closed) and the openness of $p$ (gap G.8 closed), so (1) and (2) hold with no added hypothesis (`proposition_8_1_17_2021_one_of_isLUC`, `EP.proposition_8_1_17_two_all_2021_of_isSLUC`); the forms with the hypotheses are kept (`proposition_8_1_17_2021_one`, `proposition_8_1_17_2021_two`) (Findings, Chapter 8, item 116).",
+    "(1) goes through Proposition 7.2.21 for $TX$. (2) is proved for $(TX)^0 = TX$ here and for every $(TX)^i$, through $T(X^i) \\cong (TX)^i$ as ep-groupoids, in V8.52 (gap G.88, closed for Proposition 8.1.17 (2)) (Findings, Chapter 8, items 116, 124)."
    ]
   },
   {
@@ -1526,15 +1538,17 @@
   {
    "id": "V8.52",
    "title": "Proposition 8.1.17 (2) for every $(TX)^i$: (SLUC) for $TX$",
-   "verdict": "explicit",
+   "verdict": "same",
    "book": {
     "label": "§8.1, Proposition 8.1.17 (2), p. 371 (new in the 2021 edition)",
     "page": 371,
     "statement": "If $X$ has (SLUC), so has $TX$. The proof: by (1) every $T(X^i)$ has (LUC), and naturally $(TX)^i = T(X^i)$."
    },
    "lean": {
-    "statement": "`EpGroupoid.EpEquiv`: sc-diffeomorphisms of the object and the morphism M-polyfolds commuting with $s$ and $t$; `refl`, `trans`, `shift` (to the index raises), `nonEffectivePart_eq`, `EpEquiv.isLUC` (by Proposition 7.2.21). `tangentShiftEpEquiv`: $T(X^1) \\cong (TX)^1$, from Part I's Proposition 2.3.17 for $i = 1$; `EP.tangentEP`, `EP.tangentLiftEpEquiv`: $T(X^i) \\cong (TX)^i$ for every $i$. `EP.isLUC_tangent_lift`: under (SLUC), with `HasConnectedDenseLevelOneReps` and $p$ open for every $X^i$, every $T(X^i)$ has LUC; `EP.proposition_8_1_17_two_all_2021`: `A.tangentEP.IsSLUC`. Witness: `Examples.proposition_8_1_17_two_all_2021_pointEP`.",
+    "statement": "`EpGroupoid.EpEquiv`: sc-diffeomorphisms of the object and the morphism M-polyfolds commuting with $s$ and $t$; `refl`, `trans`, `shift` (to the index raises), `nonEffectivePart_eq`, `EpEquiv.isLUC` (by Proposition 7.2.21). `tangentShiftEpEquiv`: $T(X^1) \\cong (TX)^1$, from Part I's Proposition 2.3.17 for $i = 1$; `EP.tangentEP`, `EP.tangentLiftEpEquiv`: $T(X^i) \\cong (TX)^i$ for every $i$. `EP.isLUC_tangent_lift_of_isSLUC`: under (SLUC) every $T(X^i)$ has LUC; `EP.proposition_8_1_17_two_all_2021_of_isSLUC`: `A.tangentEP.IsSLUC`; no other hypothesis. The forms first proved, with `HasConnectedDenseLevelOneReps` and $p$ open for every $X^i$, are kept: `EP.isLUC_tangent_lift`, `EP.proposition_8_1_17_two_all_2021`. Witness: `Examples.proposition_8_1_17_two_all_2021_pointEP`.",
     "decls": [
+     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_2021_of_isSLUC",
+     "Chapter7/SmoothRegularAssembly · EP.isLUC_tangent_lift_of_isSLUC",
      "Chapter8/TangentZhouLevels · MPolyfold.ScEquiv.toHomeomorph",
      "Chapter8/TangentZhouLevels · EP.tangentEP",
      "Chapter8/TangentZhouLevels · EpGroupoid.EpEquiv",
@@ -1554,11 +1568,12 @@
    "chips": [
     "new in the 2021 edition",
     "$(TX)^i = T(X^i)$ through $s$, $t$",
-    "hypotheses of (1) on every level",
+    "(SLUC) the only hypothesis",
     "gap G.88 closed for (2)"
    ],
    "diff": [
-    "\"Naturally $(TX)^i = T(X^i)$\" is used through an equivalence commuting with source and target; its compatibility with unit, inverse and composition is not formalized, since LUC does not need it. The hypotheses of (1), the connectedness and density of $U(x) \\cap X_1$ (gap G.73) and the openness of $p$ (gap G.8), are taken on every $X^i$ (Findings, Chapter 8, item 124)."
+    "Updated (2026-11-09): the hypotheses of (1) on every level are theorems (gaps G.85, G.73 and G.8 closed), so (SLUC) for $X$ is the only hypothesis (`EP.proposition_8_1_17_two_all_2021_of_isSLUC`); the form with them is kept (`EP.proposition_8_1_17_two_all_2021`) (Findings, Chapter 8, item 124).",
+    "\\\"Naturally $(TX)^i = T(X^i)$\\\" is used through an equivalence commuting with source and target; its compatibility with unit, inverse and composition is not formalized, since LUC does not need it (Findings, Chapter 8, item 124)."
    ]
   }
  ],
@@ -1568,7 +1583,7 @@
    "label": "§8.2, Definitions 8.2.1 and 8.2.2 (2017: 8.2 and 8.3), pp. 372–375 (2017 pp. 268–270)",
    "page": 268,
    "book": "Definition 8.2.1 (2017: 8.2): an sc-differential $k$-form on the ep-groupoid $(X, \\mathbf X)$ is an sc-smooth map $\\omega : \\oplus^k TX \\to \\mathbb R$ on the Whitney sum of the tangent of the object M-polyfold, linear in each argument and skew-symmetric, with $(T\\varphi)^*\\omega_y = \\omega_x$ for every morphism $\\varphi : x \\to y$ in $\\mathbf X_1$; $\\Omega^k_{ep}(X)$ is the vector space of these forms. A form on $X^i$ is a form on $X^{i+1}$, and $\\Omega^*_{ep,\\infty}(X)$ is the direct limit of the directed system $\\Omega^*_{ep}(X^i) \\to \\Omega^*_{ep}(X^k)$, $i \\le k$. The exterior derivative is $d[\\omega] := [d\\omega]$, with $d\\omega$ compatible with morphisms and $d \\circ d = 0$. Definition 8.2.2 (2017: 8.3): $(\\Omega^*_{ep,\\infty}(X), d)$ is the sc-de Rham complex of the ep-groupoid $X$.",
-   "instead": "**Not formalized.** It needs the Whitney sums $\\oplus^k TX$ as M-polyfolds, the linear structure of $T_xX$ (gap G.7), linear maps $T\\varphi$ (gap G.70), the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6, closed since: V2.93, V2.97) and the sc-differential forms, the Lie bracket and the exterior derivative of Part I's §4.4 (gaps G.37–G.39), which are not formalized; the Lie bracket on an M-polyfold is formalized since (V4.76, gap G.38 closed). Nothing else in Chapter 8 depends on it. Definition 8.2.1 (2017: 8.2) writes $T_yY$ for $T_yX$ (possible misprint) (Findings, Chapter 8, item 110)."
+   "instead": "**Not formalized.** It needs the Whitney sums $\\oplus^k TX$ as M-polyfolds, the linear structure of $T_xX$ (gap G.7), linear maps $T\\varphi$ (gap G.70), the M-polyfolds $X^i$ for $i \\ge 2$ (gap G.6, closed since: V2.93, V2.97) and the sc-differential forms, the Lie bracket and the exterior derivative of Part I's §4.4 (gaps G.37–G.39), which are not formalized; the Lie bracket on an M-polyfold is formalized since (V4.76, gap G.38 closed). Nothing else in Chapter 8 depends on it. Definition 8.2.1 (2017: 8.2) writes $T_yY$ for $T_yX$ (possible misprint) (Findings, Chapter 8, item 110). (2026-11-09) The linear structure of $T_xX$ (gap G.7) and the linear isomorphisms $T\\varphi$ (gap G.70) are now formalized (V2.19, V7.5); the other ingredients remain."
   },
   {
    "title": "Lemma 8.1.2 (2017: 8.1): $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X) = T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$ and $m_{T\\mathbf X} = Tm$",
@@ -1599,7 +1614,7 @@
    "label": "§8.2, Proposition 8.2.3, p. 373 (new in the 2021 edition)",
    "page": 373,
    "book": "Poincaré lemma: every object $x$ has saturated open neighbourhoods $V \\subseteq U$ such that for every closed $[\\omega] \\in \\Omega^k_{ep,\\infty}(U)$, $k \\ge 1$, there is $[\\sigma] \\in \\Omega^{k-1}_{ep,\\infty}(V)$ with $d[\\sigma] = [\\omega]$ on $V$; the proof averages a primitive from Lemma 4.4.8 over $G_x$.",
-   "instead": "**Not formalized**, with the forms of §8.2 (gap G.74), which need the Whitney sums $\\oplus^k TX$, the linear structure of $T_xX$ (gap G.7) and the forms of Part I's §4.4 (gaps G.37–G.40) (Findings, Chapter 8, item 123)."
+   "instead": "**Not formalized**, with the forms of §8.2 (gap G.74), which need the Whitney sums $\\oplus^k TX$, the linear structure of $T_xX$ (gap G.7) and the forms of Part I's §4.4 (gaps G.37–G.40) (Findings, Chapter 8, item 123). (2026-11-09) The linear structure of $T_xX$ is now formalized (gap G.7 closed, V2.19); the other ingredients remain."
   },
   {
    "g": 88,

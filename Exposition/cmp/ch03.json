@@ -627,8 +627,13 @@
     "statement": "$M \\subseteq X$ (tame) has the $n$-dimensional tangent germ property if $M \\subseteq X_\\infty$ and every $x \\in M$ has a chart $\\varphi : (U, x) \\to (O, 0)$ onto a tame retract $(O, C, E)$, an $n$-dimensional smooth $N \\subseteq E$ in good position to $C$ with good complement $Y$, $E = N \\oplus Y$, a relatively open $V \\ni 0$ in $N \\cap C$ and a continuous $\\delta : V \\to Y$ with (i) $\\varphi(M \\cap U) = \\{v + \\delta(v)\\}$, (ii) $\\delta : \\mathcal O(N \\cap C, 0) \\to (Y, 0)$ an sc$^\\infty$-germ, $\\delta(0) = 0$, $D\\delta(0) = 0$."
    },
    "lean": {
-    "statement": "`MPolyfold.TangentGermChart M x n`: the data of (2), with $Y$ **closed**, and (ii) read as `IsScInftyGermAt`: for every $m$ and $k$ a relatively open $V_{m,k} \\ni 0$ in $N \\cap C$ with $\\delta(V_{m,k}) \\subseteq E_m$ and $\\delta : V_{m,k} \\to E_m$ of class $C^k$. `MPolyfold.HasTangentGermProperty M n`: $M \\subseteq X_\\infty$ and the data at every point. Both other readings of \\\"sc$^\\infty$-germ\\\" (one fixed germ; sc-smooth on $V$) imply this one.",
+    "statement": "`MPolyfold.TangentGermChart2021 M x n`: the data of (b) as written, with $N$ in good position in the sense of Definition 3.1.24 (preprint 3.21), the good complement $Y$ an sc-complement, $\\delta$ defined on $V$, and (ii) read as `IsScInftyGermAt`: for every $m$ and $k$ a relatively open $V_{m,k} \\ni 0$ in $N \\cap C$ with $\\delta(V_{m,k}) \\subseteq E_m$ and $\\delta : V_{m,k} \\to E_m$ of class $C^k$. `HasTangentGermProperty2021 M n`: $M \\subseteq X_\\infty$ and such data at every point. It is the project's `HasTangentGermProperty` (`hasTangentGermProperty2021_iff`), whose datum `TangentGermChart` has $Y$ closed and $\\delta$ on all of $E$: an sc-complement is closed and makes $N$ smooth, and $\\delta$ is extended by $0$ off $V$. Both other readings of \\\"sc$^\\infty$-germ\\\" (one fixed germ; sc-smooth on $V$) imply this one.",
     "decls": [
+     "Chapter3/GoodComplementClosed · MPolyfold.TangentGermChart2021",
+     "Chapter3/GoodComplementClosed · MPolyfold.HasTangentGermProperty2021",
+     "Chapter3/GoodComplementClosed · MPolyfold.hasTangentGermProperty2021_iff",
+     "Chapter3/GoodComplementClosed · MPolyfold.TangentGermChart2021.toTangentGermChart",
+     "Chapter3/GoodComplementClosed · MPolyfold.TangentGermChart.toTangentGermChart2021",
      "Chapter3/TangentGerm · MPolyfold.TangentGermChart",
      "Chapter3/TangentGerm · MPolyfold.HasTangentGermProperty",
      "Chapter3/TangentGerm · IsScInftyGermAt",
@@ -637,13 +642,13 @@
      "Chapter3/TangentGerm · MPolyfold.TangentGermChart.π"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "added: $Y$ closed",
+    "$Y$ closed: implied (sc-complement)",
     "sc$^\\infty$ with $k$-dependent sets"
    ],
    "diff": [
-    "**Added hypothesis: the good complement $Y$ is closed**, needed for the projection $\\pi : E \\to N$ along $Y$ to be continuous (Findings, Chapter 3, item 81); the text's sc-complement is closed.",
+    "Updated (2026-11-09): “$Y$ closed” is not an added hypothesis: the book's good complement is an sc-complement (Definition 3.1.24 (preprint 3.21)), hence closed, and Definition 3.2.1 as written is the project's notion (`hasTangentGermProperty2021_iff`, `Chapter3/GoodComplementClosed.lean`). The project's datum with $Y$ closed is kept (`TangentGermChart`).",
     "\\\"sc$^\\infty$-germ\\\" is read with $k$-dependent neighbourhoods, the reading in which Theorem 3.5.6 (1) (preprint 3.43) is proved (V3.38) and the weakest of the three (Findings, Chapter 3, item 80); Corollary 3.3.7 (preprint 3.34) now also holds on one germ (V3.31, third addendum)."
    ]
   },
@@ -681,8 +686,14 @@
     "statement": "If $X$ is a tame M-polyfold and $M \\subseteq X$ has the $n$-dimensional tangent germ property, then (1) $M$ is a sub-M-polyfold whose induced structure is tame and sc-smoothly equivalent to a smooth manifold with boundary with corners; (2) with the data of Definition 3.2.1 (preprint 3.25), $y \\mapsto \\pi \\circ \\varphi(y)$ is a smooth chart of $M$ around $x$."
    },
    "lean": {
-    "statement": "Let $M \\ne \\emptyset$ have at every point data of Definition 3.2.1 (preprint 3.25) satisfying `IsRegular`: (a) $\\delta$ is sc-smooth on $V$ (set sense), (b) $\\pi(O) \\subseteq C$. Then $M$ is a sub-M-polyfold (retraction $s = \\varphi^{-1} \\circ t \\circ \\varphi$, $t(v + w) = v + \\delta(v)$); its induced structure is tame and has an equivalent atlas of $n$-dimensional corner charts; every $y \\mapsto \\pi\\varphi(y)$ is a chart of the induced structure, modelled on $(V, N \\cap C, N)$; and $d_M(y) = d_{N \\cap C}(\\pi\\varphi(y))$.",
+    "statement": "`theorem_3_2_3_2021`: if $M \\ne \\emptyset$ has the $n$-dimensional tangent germ property (`HasTangentGermProperty`; with Definition 3.2.1 as written, `theorem_3_2_3_2021def`), then $M$ is a sub-M-polyfold whose induced structure is tame and has an equivalent atlas of $n$-dimensional corner charts, and at every $x \\in M$ the maps $y \\mapsto \\pi\\varphi(y)$ of regular data (`IsRegular`: (a) $\\delta$ sc-smooth on $V$, (b) $\\pi(O) \\subseteq C$) are charts of the induced structure containing $x$. Regular data exist at every point (`HasTangentGermProperty.exists_isRegular`): a datum is re-graphed over a good complement whose projection maps $C$ into $N \\cap C$ (`exists_projecting`) and shrunk. In Mathlib's language, $M$ with the charted space of its induced corner structure is `IsManifold (modelWithCornersEuclideanQuadrant n) ∞` (`theorem_3_2_3_isManifold_2021`). The form first recorded: `theorem_3_27`, with regular data at every point as a hypothesis; there also every $\\pi\\varphi$ is a chart modelled on $(V, N \\cap C, N)$ and $d_M(y) = d_{N \\cap C}(\\pi\\varphi(y))$.",
     "decls": [
+     "Chapter3/TangentGermProjecting · theorem_3_2_3_2021",
+     "Chapter3/TangentGermProjecting · theorem_3_2_3_2021def",
+     "Chapter9/MathlibSolutionSets · theorem_3_2_3_isManifold_2021",
+     "Chapter9/MathlibSolutionSets · theorem_3_2_3_isManifold_2021def",
+     "Chapter3/TangentGermProjecting · MPolyfold.HasTangentGermProperty.exists_isRegular",
+     "Chapter3/TangentGermProjecting · MPolyfold.TangentGermChart.exists_projecting",
      "Chapter3/TangentGerm · theorem_3_27",
      "Chapter3/TangentGerm · theorem_3_27_isSubMPolyfold",
      "Chapter3/TangentGerm · MPolyfold.TangentGermChart.IsRegular",
@@ -692,19 +703,26 @@
      "Chapter3/TangentGerm · MPolyfold.theorem_3_27_isManifoldWithCorners",
      "Chapter3/TangentGerm · MPolyfold.IsManifoldWithCorners",
      "Chapter3/TangentGerm · MPolyfold.theorem_3_27_degIndex",
-     "Chapter3/TangentGerm · isScSmooth_subtype_val"
+     "Chapter3/TangentGerm · isScSmooth_subtype_val",
+     "Chapter3/RecentreCounterexample2021 · Recentre2021.not_theorem_3_2_3_germNearEveryPoint_2021",
+     "Chapter3/RecentreCounterexample2021 · Recentre2021.CE.hasTangentGermPropertyLit_M",
+     "Chapter3/RecentreCounterexample2021 · Recentre2021.CE.not_germNear",
+     "Chapter3/Counterexamples2021 · Counterexamples2021.theorem_3_2_3_sigma_not_relOpen_2021",
+     "Chapter3/Counterexamples2021 · Counterexamples2021.isScGoodComplement_cube_2021"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "added: $\\delta$ sc-smooth on $V$",
-    "added: $\\pi(O) \\subseteq C$",
-    "two counterexamples"
+    "no added hypothesis",
+    "(2) for regular data, at every point",
+    "proof steps: two Lean counterexamples",
+    "Mathlib manifold"
    ],
    "diff": [
-    "**Two added hypotheses (`IsRegular`), each with a counterexample to the text's step.** (a) \\\"$\\delta$ is an sc$^\\infty$-germ near every $v_0 \\in V$\\\" needs $\\delta$ differentiable at $v_0$: a smooth curve in $\\mathbb R^2$ with a vertical tangent at $(2, 4)$, written over the $x$-axis, satisfies Definition 3.2.1 (preprint 3.25) at $0$ with $\\delta$ not differentiable at $2$, and the chart $\\pi\\varphi$ is then not smoothly compatible (Findings, Chapter 3, item 82). (b) \\\"$\\Sigma = \\{v + y \\in C\\}$ is relatively open in $C$\\\" is false for $C = [0, \\infty)^3$, $N = \\mathbb R(1, 1, 1)$, $Y = \\{x + y - z = 0\\}$ (item 83).",
+    "Updated (2026-11-09): **the two added hypotheses are removed** (`theorem_3_2_3_2021`, `Chapter3/TangentGermProjecting.lean`): every datum can be replaced at its point by regular data, (b) by re-graphing over a projecting good complement and (a) then by shrinking (V3.74). (2) is stated for regular data, which exist at every point; for an arbitrary datum the proof's step that $\\delta$ is an sc$^\\infty$-germ near every $v_0 \\in V$ does not hold as we read it (next entry). The form with `IsRegular` as a hypothesis is kept (`theorem_3_27`). The Mathlib form is in `Chapter9/MathlibSolutionSets.lean` (Findings, Chapter 3, item 380).",
+    "**Two steps of the text's proof, each with a Lean counterexample** (they were the reason for the hypotheses `IsRegular` of `theorem_3_27`). (a) \\\"$\\delta$ is an sc$^\\infty$-germ near every $v_0 \\in V$\\\" needs $\\delta$ differentiable at $v_0$; as we read it, the step does not hold: the curve $\\{(t^3, t)\\}$ in $\\mathbb R^2$ has the $1$-dimensional tangent germ property, and a datum at $(1, 1)$ with $Y$ tangent to the curve at $(0, 0)$ has $\\delta$ smooth near $0$ but not differentiable at a point of $V$ (`not_theorem_3_2_3_germNearEveryPoint_2021`; on paper, a curve with a vertical tangent at $(2, 4)$, Findings, Chapter 3, item 82). (b) \\\"$\\Sigma = \\{v + y \\in C\\}$ is relatively open in $C$\\\" does not hold as we read it for $C = [0, \\infty)^3$, $N = \\mathbb R(1, 1, 1)$, $Y = \\{x + y - z = 0\\}$, a good sc-complement (`theorem_3_2_3_sigma_not_relOpen_2021`, `isScGoodComplement_cube_2021`) (item 83). Both counterexamples were added on 2026-11-09.",
     "Tameness of $X$ is not used (only that the chart models are tame retracts). \\\"Manifold with boundary with corners\\\" (Chapter 4) is `IsManifoldWithCorners`: an equivalent atlas of charts on relatively open subsets of $n$-dimensional partial quadrants. The relation $d_{N \\cap C}(v) = d_X(y)$ via Lemma 3.8.13 (preprint 3.70) is proved in the model $\\mathbb R^n \\oplus W$ only (item 84).",
-    "For the solution set of an sc-Fredholm section both conditions are theorems: (a) by re-centring (V3.73, V3.74), (b) by the choice of the good complement (V3.75, V3.77); read off the statement of V3.74, (a) follows from (b) after shrinking the data for any set with the tangent germ property. With a dimension that may vary from point to point: V3.72."
+    "Both conditions are theorems for every set with the tangent germ property (V3.74); for the solution set of an sc-Fredholm section they were first obtained by re-centring (V3.73) and by the choice of the good complement (V3.75, V3.77). With a dimension that may vary from point to point: V3.72."
    ]
   },
   {
@@ -1287,7 +1305,7 @@
     "index $n - N$ for every conjugation"
    ],
    "diff": [
-    "Proved in sc form, in charts: $T_0O$, $K_0$ (and $T_zO$, $K_z$ in any chart) with the induced sc-structures stand for $T_xX$, $Y_x$, which carry no linear structure here (G.7). Two steps the text leaves out: that $D(g - s)(0) = \\Gamma(0)^{-1}Dh(0)D\\psi(0)$, the conjugate of the basic germ's linearization, is sc-Fredholm (the criterion of V1.8: $\\Gamma(0)$ preserves the levels and $Dh(0)$ is regularizing), and the sc-structures of $T_0O$, $K_0$ (Definition 2.6.1 (preprint 2.47) at the smooth point $0$, the closed graph theorem). No tameness is assumed. In other charts the levels are transported by the chart change at smooth points (Findings, Chapter 3, items 235, 239). Formerly level $0$ only (G.22, Findings item 48); updated in the third addendum of this page.",
+    "Proved in sc form, in charts: $T_0O$, $K_0$ (and $T_zO$, $K_z$ in any chart) with the induced sc-structures stand for $T_xX$, $Y_x$, which carry no linear structure here (G.7). Two steps the text leaves out: that $D(g - s)(0) = \\Gamma(0)^{-1}Dh(0)D\\psi(0)$, the conjugate of the basic germ's linearization, is sc-Fredholm (the criterion of V1.8: $\\Gamma(0)$ preserves the levels and $Dh(0)$ is regularizing), and the sc-structures of $T_0O$, $K_0$ (Definition 2.6.1 (preprint 2.47) at the smooth point $0$, the closed graph theorem). No tameness is assumed. In other charts the levels are transported by the chart change at smooth points (Findings, Chapter 3, items 235, 239). Formerly level $0$ only (G.22, Findings item 48); updated in the third addendum of this page. (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)",
     "The first formal statement (`proposition_3_52`, kept for the theorems that use it) gives the index as “$n - N$ for some $n, N \\in \\mathbb N$”, which every integer satisfies. `proposition_3_52_index` names the conjugation data and identifies $n$, $N$ with the dimensions of the conjugating basic germ, for every conjugation (Findings, Chapter 3, item 120). Updated after the first edition of this page.",
     "In every other strong bundle chart around $x_0$ the linearization is Fredholm of the same index, and onto at a zero in good position (V3.96). Updated in the second addendum of this page.",
     "**Germs.** The hypothesis is the text’s since the switch to the germ reading (phase 2): an sc-Fredholm germ whose filling and sc$^+$-section are germs whose levels may shrink with $m$ (V3.13); $Dg(0)$ is the value at $0$ of a derivative family of the filling germ, the same for every family on every germ. The forms for germ data on the whole chart are the `_wholeChart` declarations of the same names (Findings, Chapter 3, items 220–221, 289, 310, 331). Hence “restated” (formerly “narrower”, for that hypothesis): what remains is the reading in charts."
@@ -1361,7 +1379,7 @@
    ],
    "diff": [
     "This row is the graph description (3) of the proof. Conclusions (1) and (2) of the theorem are formalized since the first edition of this page: V3.82 (under an added hypothesis) and V3.85; the choice of $Y$ with the projection property is V3.77.",
-    "Tameness enters through $(1 - Dr(0))E \\subseteq E_0$ (Proposition 2.5.3 (preprint 2.35)), for the base retraction of the chart at $x_0$; the text's $C' = T\\psi(0)C$ is proved by the sign argument; the $\\mathbb R^N$-component of $t$ is absorbed into $h$; $D(h + t)(0)$ is identified with $D(\\Psi_*g)(0)$ by uniqueness on level $1$; the unspecified $V$ is made explicit (items 50, 85, 86). The closedness of $Y$, the smoothness of $K$ and the lifts of $\\sigma$ are recorded for Definition 3.2.1 (preprint 3.25) (items 93, 94).",
+    "Tameness enters through $(1 - Dr(0))E \\subseteq E_0$ (Proposition 2.5.3 (preprint 2.35)), for the base retraction of the chart at $x_0$; the text's $C' = T\\psi(0)C$ is proved by the sign argument; the $\\mathbb R^N$-component of $t$ is absorbed into $h$; $D(h + t)(0)$ is identified with $D(\\Psi_*g)(0)$ by uniqueness on level $1$; the unspecified $V$ is made explicit (items 50, 85, 86). The closedness of $Y$, the smoothness of $K$ and the lifts of $\\sigma$ are recorded for Definition 3.2.1 (preprint 3.25) (items 93, 94). (2026-11-09: the closedness of $Y$ is not an added hypothesis, the book's good complement being an sc-complement, `hasTangentGermProperty2021_iff`, `lemma_3_6_9_2021`.)",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192)."
    ]
   },
@@ -1374,22 +1392,23 @@
     "statement": "$C \\subseteq E$ a partial quadrant, $N$ a finite-dimensional smooth subspace in good position with good complement $Y$, $V \\subseteq N \\cap C$ relatively open, $\\tau : V \\to Y_1$ of class $C^1$ with $\\tau(0) = 0$, $D\\tau(0) = 0$. Then for $v$ in a relatively open $V' \\ni 0$: (1) $v + \\tau(v) \\in C_1$; (2) $Y$ is a topological complement of $N_v = \\{n + D\\tau(v)n\\}$; (3) there is $\\gamma_v > 0$ with $n \\in C_x \\iff n + y \\in C_x$ for $n \\in N_v$, $y \\in Y$, $|y|_0 \\le \\gamma_v|n|_0$, $x = v + \\tau(v)$."
    },
    "lean": {
-    "statement": "In the model $E = \\mathbb R^n \\oplus W$, $C = [0, \\infty)^n \\oplus W$ (in coordinates for any $C$ cut out by functionals): for $N$ in good position with **closed** good complement $Y$ and $\\tau : N \\to E$ with values in $Y$, $C^1$ on $N \\cap C$, $\\tau(0) = 0$, $D\\tau(0) = 0$: there is $\\rho > 0$ such that for $v \\in N \\cap C$, $|v| < \\rho$: $v + \\tau(v) \\in C$ and $Y$ is a good complement of $N_v$ with respect to $C_{v + \\tau(v)}$ (so $E_0 = N_v \\oplus Y$, both closed), with a constant independent of $v$.",
+    "statement": "`lemma_3_6_9_2021` (`lemma_3_55_relOpen`, V3.80, with the book's good complement): for a partial quadrant $C = T^{-1}([0, \\infty)^n \\oplus W)$, a finite-dimensional $N$ in good position (Definition 3.1.24 (preprint 3.21)) with good sc-complement $Y$, $V$ relatively open in $N \\cap C$ with $0 \\in V$, and $\\sigma$ with values in $Y$, $C^1$ on $V$, $\\sigma(0) = 0$, $D\\sigma(0) = 0$: there is $\\rho > 0$ such that for $v \\in V$ with $|v| < \\rho$ and $z = v + \\sigma(v)$, $z \\in C$, $Y$ is a good complement of $N_v = \\{n + D\\sigma(v)n\\}$ with respect to $C_z$, and $N_v$ is in good position to $C_z$; the constant does not depend on $v$. The form first recorded here: `lemma_3_55`, in the model $\\mathbb R^n \\oplus W$, for $\\tau$ on all of $N \\cap C$ and a closed good complement.",
     "decls": [
+     "Chapter3/GoodComplementClosed · lemma_3_6_9_2021",
+     "Chapter3/GlobalIFTFull · lemma_3_55_relOpen",
      "Chapter3/GoodPositionOpen · lemma_3_55",
      "Chapter3/GoodPositionOpen · lemma_3_55_core",
      "Chapter3/GoodPositionOpen · fderivWithin_mem_of_mapsTo",
      "Chapter3/GoodPositionOpen · graphSpace"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "added: $Y$ closed",
-    "$\\tau$ on all of $N \\cap C$ (here)",
+    "in full: V3.80",
     "uniform $\\gamma$"
    ],
    "diff": [
-    "**Added hypothesis: $Y$ closed**, needed for \\\"$D\\tau(v)n \\in Y$\\\" (the text's topological complement is closed) (Findings, Chapter 3, item 49).",
+    "Proved in full in V3.80 (`lemma_3_55_relOpen`: $\\sigma$ on a relatively open $V$, any presentation of $C$), with the book's good complement in `lemma_3_6_9_2021` (2026-11-09: “$Y$ closed” is implied by the sc-complement, `Chapter3/GoodComplementClosed.lean`); the narrower form first recorded here is kept (`lemma_3_55`).",
     "$\\tau$ is a map on all of $N \\cap C$ (the text: on a neighbourhood $V$). The form used in Theorem 3.6.8 (preprint 3.54) — $\\sigma$ on a relatively open $V \\subseteq N \\cap C$, any presentation of $C$, and the good position of $N_v$ — is `lemma_3_55_relOpen` (V3.80): $\\sigma$ is extended to the cone by a bump. The sc-level of the values plays no role ((1) is $v + \\tau(v) \\in C$). The constant $\\gamma_v$ can be chosen uniformly; the case $v \\notin N \\cap W$ needs no normal form."
    ]
   },
@@ -1402,17 +1421,23 @@
     "statement": "If $P : Y \\to X$ is a tame strong bundle over an M-polyfold with $\\partial X = \\emptyset$ and $f$ an sc-Fredholm section with surjective linearization at every point of $S = \\{f = 0\\}$, then $S$ is a sub-M-polyfold whose induced structure is equivalent to a smooth manifold without boundary."
    },
    "lean": {
-    "statement": "If $X$ is without boundary and $S = \\{f = 0\\} \\ne \\emptyset$ has at every point the regular data of Definition 3.2.1 (preprint 3.25) (V3.22, `IsRegular`), then $S$ is a sub-M-polyfold whose induced structure is that of an $n$-dimensional manifold with corners and is without boundary.",
+    "statement": "Let $d_X \\equiv 0$, $f$ an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$, and $S \\ne \\emptyset$. Then $S$ is a sub-M-polyfold whose induced structure is equivalent to a manifold with boundary with corners of locally constant dimension and has degeneracy index $0$ everywhere (`theorem_3_56`, V3.86; with the text's sc-complement, `theorem_3_56_sc`). The step first recorded here: if $X$ is without boundary and $S \\ne \\emptyset$ has at every point the regular data of Definition 3.2.1 (preprint 3.25), then $S$ is a sub-M-polyfold whose induced structure is that of an $n$-dimensional manifold without boundary.",
     "decls": [
+     "Chapter3/GlobalIFTTheoremsG · theorem_3_56",
+     "Chapter3/GlobalIFTTheoremsG · theorem_3_57",
+     "Chapter2/SubMPolyfold · lemma_2_26",
+     "Chapter3/GoodPositionScG · theorem_3_56_sc",
      "Chapter3/GlobalIFT · theorem_3_56_of_tangentGerm",
      "Chapter3/GlobalIFT · solutionSet"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "assumes the tangent germ property of $S$"
+    "in full: V3.86",
+    "repaired: tame charts (V3.103)"
    ],
    "diff": [
+    "Proved in full in V3.86; the narrower form first recorded here is kept (`theorem_3_56_of_tangentGerm`, from the tangent germ property).",
     "Formalized here is the second step of the text's proof: from the tangent germ property of $S$ to the manifold structure (Theorem 3.2.3 (preprint 3.27), with $d_S = 0$ by Lemma 2.4.6 (preprint 2.26)). The theorem with the text's hypotheses, through Theorem 3.6.8 (preprint 3.54) at every zero, is V3.86."
    ]
   },
@@ -1425,16 +1450,23 @@
     "statement": "If $P : Y \\to X$ is a tame strong bundle and $f$ an sc-Fredholm section such that at every $x \\in S = \\{f = 0\\}$ the linearization is surjective with kernel in good position to $C_xX$, then $S$ is a sub-M-polyfold whose induced structure is equivalent to a smooth manifold with boundary with corners."
    },
    "lean": {
-    "statement": "If $S = \\{f = 0\\} \\ne \\emptyset$ has at every point the regular data of Definition 3.2.1 (preprint 3.25), then $S$ is a sub-M-polyfold whose induced structure is tame and that of an $n$-dimensional manifold with boundary with corners.",
+    "statement": "Let $f$ be an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$. If $S \\ne \\emptyset$, $S$ is a sub-M-polyfold, its induced structure is tame and equivalent to a manifold with boundary with corners of locally constant dimension, and $S$ is the disjoint union of open and closed parts $S_n$ of dimension $n$ (`theorem_3_57`, `theorem_3_57_dim`, V3.87; with the text's sc-complement, `theorem_3_57_sc`). The step first recorded here: from regular data of Definition 3.2.1 (preprint 3.25) at every point of $S$.",
     "decls": [
+     "Chapter3/GlobalIFTTheoremsG · theorem_3_57",
+     "Chapter3/GlobalIFTTheoremsG · theorem_3_57_dim",
+     "Chapter3/GlobalIFTTheorems · solutionSetDim",
+     "Chapter3/GlobalIFTTheorems · theorem_3_27_loc",
+     "Chapter3/GoodPositionScG · theorem_3_57_sc",
      "Chapter3/GlobalIFT · theorem_3_57_of_tangentGerm"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "stronger",
    "chips": [
-    "assumes the tangent germ property of $S$"
+    "in full: V3.87",
+    "repaired: tame charts (V3.103)"
    ],
    "diff": [
+    "Proved in full in V3.87; the narrower form first recorded here is kept (`theorem_3_57_of_tangentGerm`, from the tangent germ property).",
     "As V3.50: the step from the tangent germ property. The theorem with the text's hypotheses is V3.87."
    ]
   },
@@ -1881,9 +1913,14 @@
     "statement": "Let $f$ be an sc-Fredholm section of a tame strong bundle, $f(x) = 0$, $f'(x)$ surjective with kernel in good position to $C_xX$. Then there is an open $U \\ni x$ such that $S(f, U)$ consists of smooth points and is a tame sub-M-polyfold of $X$, with a uniquely determined structure of a smooth manifold with boundary with corners, the induced one of Proposition 2.3.19 (preprint 2.21)."
    },
    "lean": {
-    "statement": "Let $f$ be an sc-Fredholm section, $f(x) = 0$, $(f, x)$ in good position in a tame chart (V3.103), and let every zero in an open $V_{x_0} \\ni x$ be in good position in a tame chart. Then there are an open $U$, $x \\in U \\subseteq V_{x_0}$, and $d \\in \\mathbb N$ such that every zero in $U$ is a smooth point and $S(f, U)$ is a sub-M-polyfold whose induced structure (Proposition 2.3.19 (preprint 2.21)) is tame and equivalent to that of a $d$-dimensional manifold with boundary with corners. `theorem_3_23`: the same for tame germ data under `IsGoodPositionGermFilled` at $x$ (V3.82) instead of the nearby good position, and then every zero in $U$ is in good position in a tame chart.",
+    "statement": "For an sc-Fredholm section with tame germ data (V3.103), $f(x) = 0$, $(f, x)$ in good position in a tame chart: an open $U \\ni x$ and $d$ such that every zero in $U$ is in good position in a tame chart and a smooth point, and $S(f, U)$ is a sub-M-polyfold with tame induced structure equivalent to a $d$-dimensional manifold with boundary with corners (`theorem_3_23'`, V3.95), $d$ being the Fredholm index at every zero in $U$ (`theorem_3_23_index`, V3.97). The forms first recorded here: with the nearby zeros in good position as a hypothesis (`theorem_3_23_of_nearby`), or under `IsGoodPositionGermFilled` at $x$ (`theorem_3_23`).",
     "decls": [
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_23'",
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_19'",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_23_of_nearby",
+     "Chapter2/SubMPolyfold · lemma_2_26",
+     "Chapter3/GoodPositionScG · theorem_3_23_sc",
+     "Chapter3/GlobalIFTIndexG · theorem_3_23_index",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_23",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_54_two",
      "Chapter3/TangentGerm · theorem_3_27",
@@ -1891,16 +1928,15 @@
      "Chapter3/TangentGerm · MPolyfold.IsManifoldWithCorners"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "explicit",
    "chips": [
-    "nearby good position assumed",
-    "or: filler (3) at nearby zeros",
-    "text's hypotheses: V3.95",
+    "in full: V3.95, V3.97",
     "repaired: tame charts (V3.103)"
    ],
    "diff": [
+    "Proved in full in V3.95, V3.97; the narrower form first recorded here is kept (`theorem_3_23_of_nearby`, `theorem_3_23`).",
     "Hypotheses of these two forms: the good position of the zeros near $x$ (which is Theorem 3.6.8 (1) (preprint 3.54), now a theorem, V3.94), or the filler condition at the nearby zeros (V3.82, a consequence of good position, V3.102). The form with the text's hypotheses is V3.95, with the dimension as the Fredholm index V3.97 (Findings, Chapter 3, items 153, 155, 170, 180).",
-    "Tameness of the bundle is read as Definitions 3.6.3, 3.6.4, 3.6.6 (preprint 3.50, 3.51, 3.53) read it: germ data and good position in tame charts (V3.103). The dimension $d$ is existentially quantified; the identification $d = \\dim\\ker f'(x)$ is in the proof. “Uniquely determined” is the equivalence of the atlas of the charts $\\pi\\varphi$ with the induced one, not stated separately. Added after the first edition of this page; updated in the second addendum of this page.",
+    "Tameness of the bundle is read as germ data and good position in tame charts (V3.103), as Definitions 3.6.3, 3.6.4, 3.6.6 of the preprint (3.50, 3.51, 3.53) and the 2017 text read it; the 2021 Definition 3.6.3 asks no tameness, and the 2021 text does not define “tame strong bundle”, so for the 2021 text this is our reading (gap G.79). The dimension $d$ is existentially quantified; the identification $d = \\dim\\ker f'(x)$ is in the proof. “Uniquely determined” is the equivalence of the atlas of the charts $\\pi\\varphi$ with the induced one, not stated separately. Added after the first edition of this page; updated in the second addendum of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192)."
    ]
   },
@@ -1916,6 +1952,7 @@
     "statement": "Let $f$ be an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$, and $S = \\{f = 0\\} \\ne \\emptyset$. Then $S$ is a sub-M-polyfold of $X$ whose induced structure is tame and equivalent to a manifold with boundary with corners of locally constant dimension (`IsManifoldWithCornersLoc`, V3.72). The same with good position in the text's sense (sc-complement, V3.47) at every zero, which for an sc-Fredholm section with tame germ data is the same hypothesis (`corollary_3_24_sc`).",
     "decls": [
      "Chapter3/GlobalIFTTheoremsG · corollary_3_24",
+     "Chapter3/MainTheorems2021 · corollary_3_1_27_2021def",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_57",
      "Chapter3/GlobalIFTTheorems · MPolyfold.IsManifoldWithCornersLoc",
      "Chapter3/GoodPositionScG · corollary_3_24_sc",
@@ -1929,9 +1966,10 @@
     "$S \\ne \\emptyset$"
    ],
    "diff": [
-    "**No hypothesis is added** (Findings, Chapter 3, items 156, 157): the global hypothesis, good position at every zero, supplies at every point the nearby good position that the local theorems need. “Tame strong bundle” is read as Definitions 3.6.3, 3.6.6 (preprint 3.50, 3.53) read it, good position in a tame chart (V3.103); $S \\ne \\emptyset$ is needed by the formal charts (for $S = \\emptyset$ the statement is empty). The text names no dimension; the formal one is locally constant (V3.87). Added after the first edition of this page.",
+    "**No hypothesis is added** (Findings, Chapter 3, items 156, 157): the global hypothesis, good position at every zero, supplies at every point the nearby good position that the local theorems need. “Tame strong bundle” is read as good position in a tame chart (V3.103), as Definitions 3.6.3, 3.6.6 of the preprint (3.50, 3.53) and the 2017 text read it, the 2021 text not defining the phrase (gap G.79); $S \\ne \\emptyset$ is needed by the formal charts (for $S = \\emptyset$ the statement is empty). The text names no dimension; the formal one is locally constant (V3.87). Added after the first edition of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
-    "Corollary 3.1.27 (preprint 3.24) with the text's notion of good position is `corollary_3_24_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213). Updated in the third addendum of this page."
+    "Corollary 3.1.27 (preprint 3.24) with the text's notion of good position is `corollary_3_24_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213). Updated in the third addendum of this page.",
+    "(2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `corollary_3_1_27_2021def` (`Chapter3/MainTheorems2021.lean`)."
    ]
   },
   {
@@ -1974,8 +2012,9 @@
     "statement": "Theorem 3.2.3 (preprint 3.27) for a fixed dimension $n$: a subset with the $n$-dimensional tangent germ property is a sub-M-polyfold whose induced structure is tame and equivalent to an $n$-dimensional manifold with boundary with corners, with the charts $\\pi \\circ \\varphi$."
    },
    "lean": {
-    "statement": "If $M \\ne \\emptyset$ has at every point regular data of Definition 3.2.1 (preprint 3.25) (`IsRegular`, V3.24) of some dimension, which may depend on the point, then $M$ is a sub-M-polyfold, its induced structure is tame, and the charts $\\pi\\varphi$ of all these data form an equivalent atlas of charts on relatively open subsets of partial quadrants of finite-dimensional spaces (`IsManifoldWithCornersLoc`); each of them is a chart of the induced structure containing its point.",
+    "statement": "`theorem_3_2_3_loc_2021`: if $M \\ne \\emptyset$ and every point of $M$ has data of Definition 3.2.1 (preprint 3.25) of some dimension, which may depend on the point, then $M$ is a sub-M-polyfold, its induced structure is tame and is that of a manifold with boundary with corners of locally constant dimension (`IsManifoldWithCornersLoc`: an equivalent atlas of charts on relatively open subsets of partial quadrants of finite-dimensional spaces). The form first recorded: `theorem_3_27_loc`, with regular data (`IsRegular`, V3.24) at every point as a hypothesis; there the charts $\\pi\\varphi$ of all these data form an equivalent atlas, each of them a chart of the induced structure containing its point.",
     "decls": [
+     "Chapter3/TangentGermProjecting · theorem_3_2_3_loc_2021",
      "Chapter3/GlobalIFTTheorems · theorem_3_27_loc",
      "Chapter3/GlobalIFTTheorems · MPolyfold.IsManifoldWithCornersLoc",
      "Chapter3/GlobalIFTTheorems · MPolyfold.theorem_3_27_loc_isSubMPolyfold",
@@ -1984,13 +2023,14 @@
      "Chapter3/GlobalIFTTheorems · MPolyfold.theorem_3_27_loc_atlas_equiv"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "stronger",
    "chips": [
-    "added: `IsRegular` (as V3.24)",
+    "no added hypothesis",
     "dimension may vary"
    ],
    "diff": [
-    "The regularity conditions of V3.24 are hypotheses, as there. The dimension may vary from point to point (the solution set of Theorem 3.6.11 (preprint 3.57) has locally constant, not constant, dimension; Findings, Chapter 3, item 152); the proof is that of V3.24. Added after the first edition of this page."
+    "Updated (2026-11-09): the regularity conditions are no longer hypotheses (`theorem_3_2_3_loc_2021`, through `exists_isRegular`, V3.74); the form with `IsRegular` is kept (`theorem_3_27_loc`). Stronger than the text, since the dimension may vary from point to point.",
+    "The dimension may vary from point to point (the solution set of Theorem 3.6.11 (preprint 3.57) has locally constant, not constant, dimension; Findings, Chapter 3, item 152); the proof is that of V3.24. Added after the first edition of this page."
    ]
   },
   {
@@ -2008,46 +2048,55 @@
      "Chapter3/SolutionGermRecentre · finrank_le_of_interior_image_nonempty",
      "Chapter3/SolutionGermRecentre · exists_contDiffOn_inverse",
      "Chapter3/SolutionGermRecentre · InvDataW.contDiffOn_inv",
-     "Chapter3/GlobalIFTNearbyGraph · scDeriv_apply_toBase_deriv_eq_of_fixed"
+     "Chapter3/GlobalIFTNearbyGraph · scDeriv_apply_toBase_deriv_eq_of_fixed",
+     "Chapter3/RecentreCounterexample2021 · Recentre2021.not_theorem_3_2_3_recentreStep_2021",
+     "Chapter3/RecentreCounterexample2021 · Recentre2021.CE.germData_bad"
     ]
    },
    "verdict": "narrower",
    "chips": [
     "$\\sigma_1$ $C^1$ on $V_1$ assumed",
+    "step as stated: Lean counterexample",
     "onto by Sard, not by symmetry",
     "no Theorem 3.8.15 (preprint 3.72)"
    ],
    "diff": [
-    "The text's step needs $\\delta$ differentiable at $v_0$, which fails for general sets (V3.24, first counterexample); here $\\sigma_1$ is $C^1$ on $V_1$, which V3.74 arranges by shrinking (Findings, Chapter 3, items 82, 150).",
+    "The text's step needs $\\delta$ differentiable at $v_0$, which fails for general sets (V3.24, first counterexample); here $\\sigma_1$ is $C^1$ on $V_1$, which V3.74 arranges by shrinking. The re-centring step as stated, for every pair of data, does not hold as we read it (`not_theorem_3_2_3_recentreStep_2021`: the curve $\\{(t^3, t)\\}$ in $\\mathbb R^2$, the datum `CE.germData_bad` at $(1, 1)$; added 2026-11-09) (Findings, Chapter 3, items 82, 150).",
     "The linearization of $\\beta = \\pi_1 \\circ \\chi_1\\chi_2^{-1} \\circ (1 + \\sigma_2)$ at $0$ is injective by the chain rule for the transition and its inverse on level $1$ and the tangency of the graph to the retract; its surjectivity comes from the dimension count by Sard's lemma in fixed dimension, since the symmetric argument would need $\\sigma_1$ differentiable into level $1$ at $v_0$ (item 159). The inverse $\\beta^{-1}$ is $C^k$ by Lemma 3.8.21 (preprint 3.77) with weak hypotheses (V3.90), not by Theorem 3.8.15 (preprint 3.72), which would need $d_C(x) = d_C(\\beta(x))$. Added after the first edition of this page."
    ]
   },
   {
    "id": "V3.74",
-   "title": "Condition (a) of the regularity conditions by re-centring",
+   "title": "The regularity conditions from the data, by re-graphing and shrinking",
    "book": {
     "label": "§3.2, proof of Theorem 3.2.3 (preprint 3.27), preprint p. 84; §3.6, proof of Theorem 3.6.8 (preprint 3.54), preprint p. 115",
     "page": 84,
     "statement": "The proof of Theorem 3.2.3 (preprint 3.27) shows that $\\delta$ is an sc$^\\infty$-germ near every point of $V$ (so that the charts $\\pi\\varphi$ are compatible); the proof of Theorem 3.6.8 (preprint 3.54) constructs the data at every zero “proceeding as above”."
    },
    "lean": {
-    "statement": "Let $D$ be data of Definition 3.2.1 (preprint 3.25) of dimension $n$ for $M$ at $x$ with $\\pi(O) \\subseteq C$ (condition (b)), and let every point of $M$ in an open $U \\ni x$ have data of Definition 3.2.1 (preprint 3.25) of some dimension. Then $M$ has at $x$ regular data (`IsRegular`) of dimension $n$ with chart domain in $U$, and every datum of Definition 3.2.1 (preprint 3.25) at a point of $M$ in that domain has dimension $n$. (The proof shrinks $D$ — same $N$, $Y$, $\\delta$ — and applies V3.73 at every point.)",
+    "statement": "`exists_isRegular`: let $D$ be data of Definition 3.2.1 (preprint 3.25) of dimension $n$ for $M$ at $x$, and let every point of $M$ in an open $U \\ni x$ have data of some dimension. Then $M$ has at $x$ regular data (`IsRegular`) of dimension $n$ with chart domain in $U$, and every datum at a point of $M$ in that domain has dimension $n$. The proof re-graphs $D$ over a good complement $Y'$ whose projection maps $C$ into $N \\cap C$, on a smaller chart domain (`exists_projecting`, `regraph`: same chart and $N$, $\\delta' = (1 - \\pi') \\circ (1 + \\delta) \\circ g^{-1}$), which gives (b), and then shrinks it, which gives (a) by re-centring (V3.73). The form first recorded, with (b) as a hypothesis and $N$, $Y$, $\\delta$ kept: `exists_isRegular_of_locally`.",
     "decls": [
+     "Chapter3/TangentGermProjecting · MPolyfold.TangentGermChart.exists_isRegular",
+     "Chapter3/TangentGermProjecting · MPolyfold.TangentGermChart.exists_projecting",
+     "Chapter3/TangentGermProjecting · MPolyfold.TangentGermChart.regraph",
+     "Chapter3/TangentGermProjecting · MPolyfold.HasTangentGermProperty.exists_isRegular",
      "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.exists_isRegular_of_locally",
      "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.shrink",
      "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.exists_shrinkData",
      "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.shrink_isRegular",
-     "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.exists_lift"
+     "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.exists_lift",
+     "Chapter3/RecentreCounterexample2021 · Recentre2021.not_theorem_3_2_3_germNearEveryPoint_2021"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "condition (b) assumed",
-    "(a) follows from (b)",
+    "(b) by re-graphing, (a) by shrinking",
+    "for a fixed datum: Lean counterexample",
     "dimension locally constant"
    ],
    "diff": [
-    "Condition (b), $\\pi(O) \\subseteq C$, is a hypothesis. Read off the statement (not a separate Lean theorem): every point of a set with the tangent germ property has data, so for such a set data satisfying (b) can be shrunk to regular data; condition (a) of V3.24 is then not an independent hypothesis. For the solution set (b) holds by the choice of the good complement (V3.75, V3.77; Findings, Chapter 3, items 151, 152). Added after the first edition of this page."
+    "Updated (2026-11-09): condition (b) is no longer a hypothesis: any datum can be re-graphed over a projecting good complement (`exists_projecting`, `Chapter3/TangentGermProjecting.lean`), so regular data exist at every point of a set with the tangent germ property (`HasTangentGermProperty.exists_isRegular`); the form with (b) is kept (`exists_isRegular_of_locally`). The claim of the proofs of Theorems 3.2.3 and 3.6.8 (preprint 3.27 and 3.54) that $\\delta$ is an sc$^\\infty$-germ near every point of $V$, for the given datum, does not hold as we read it (`not_theorem_3_2_3_germNearEveryPoint_2021`, V3.24); regular data are obtained by changing the datum (Findings, Chapter 3, items 82, 380).",
+    "The good complement is changed for (b) and the chart domain for (a). For the solution set (b) also holds by the choice of the good complement (V3.75, V3.77; Findings, Chapter 3, items 151, 152). Added after the first edition of this page."
    ]
   },
   {
@@ -2169,7 +2218,7 @@
     "transition smooth on $[0]$ only"
    ],
    "diff": [
-    "The text does not prove the chart independence of $f'(x)$ or of good position; this is its chart form at zeros (what gap G.13 of Chapter 2 leaves open). Only the fibre derivative of the transition survives at a zero, so away from zeros the linearization is not chart independent. Of Definition 2.6.4 (preprint 2.50) only the sc-smoothness of the transition on $[0]$ is used; level-$1$ points suffice; no tameness (Findings, Chapter 3, items 110–116). Added after the first edition of this page.",
+    "The text does not prove the chart independence of $f'(x)$ or of good position; this is its chart form at zeros (what gap G.13 of Chapter 2 leaves open). Only the fibre derivative of the transition survives at a zero, so away from zeros the linearization is not chart independent. Of Definition 2.6.4 (preprint 2.50) only the sc-smoothness of the transition on $[0]$ is used; level-$1$ points suffice; no tameness (Findings, Chapter 3, items 110–116). Added after the first edition of this page. (2026-11-09) Gap G.13 is closed in part: $T^R_xX$ and $C_xX$ are defined in $T_xX$, independent of the chart (`reducedTangentFiber_eq`, `partialConeFiber_eq`); this statement is not restated with them.",
     "For filling germs (the germ reading of Definition 3.1.11 (preprint 3.11)) $Dg(z)$ is meaningful only for $z$ in the germ; the consumers use it at the centre and at the level-$1$ lifts of nearby zeros, which lie in the germ (Findings, Chapter 3, items 278, 284). Updated after the switch of Definition 3.1.11 (preprint 3.11) to the text’s germ reading (phase 2)."
    ]
   },
@@ -2209,10 +2258,11 @@
     "statement": "For every zero $y \\in V$, with $\\psi\\varphi(y) = v + \\sigma(v)$, the kernel of $f'(y)$ is in good position and $f'(y)$ is surjective; this follows from Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55)."
    },
    "lean": {
-    "statement": "In the data of V3.48 (a section, $(f, x_0)$ in good position in a tame chart) there are a presentation $T$ of $C'$ and an open $V_{x,1} \\ni x_0$ such that for every zero $y \\in V_{x,1}$ with $\\psi\\varphi(y) = v + \\sigma(v)$: $v + \\sigma(v)$ lies on level $1$ and $D(h + t)$ there is surjective Fredholm of index $n - N$; $v + \\sigma(v) \\in C'$; and $Y$ is a good complement of $N_v = \\{k + D\\sigma(v)k\\}$ with respect to $C'_{v + \\sigma(v)}$, with $N_v$ in good position. Lemma 3.6.9 (preprint 3.55) for $\\sigma$ on a relatively open $V \\subseteq N \\cap C$, any presentation of $C$, closed $Y$.",
+    "statement": "In the data of V3.48 (a section, $(f, x_0)$ in good position in a tame chart) there are a presentation $T$ of $C'$ and an open $V_{x,1} \\ni x_0$ such that for every zero $y \\in V_{x,1}$ with $\\psi\\varphi(y) = v + \\sigma(v)$: $v + \\sigma(v)$ lies on level $1$ and $D(h + t)$ there is surjective Fredholm of index $n - N$; $v + \\sigma(v) \\in C'$; and $Y$ is a good complement of $N_v = \\{k + D\\sigma(v)k\\}$ with respect to $C'_{v + \\sigma(v)}$, with $N_v$ in good position. Lemma 3.6.9 (preprint 3.55) for $\\sigma$ on a relatively open $V \\subseteq N \\cap C$, any presentation of $C$, closed $Y$; with the book's good complement, an sc-complement, which is closed: `lemma_3_6_9_2021`.",
     "decls": [
      "Chapter3/GlobalIFTFullG · theorem_3_54_nearby",
      "Chapter3/GlobalIFTFull · lemma_3_55_relOpen",
+     "Chapter3/GoodComplementClosed · lemma_3_6_9_2021",
      "Chapter3/GlobalIFTFull · StabilityData.exists_surjective_Dfs'_graph",
      "Chapter3/GlobalIFTFull · coordCLMWith"
     ]
@@ -2221,11 +2271,10 @@
    "chips": [
     "in the chart at $x_0$",
     "about $N_v$, not $\\ker f'(y)$",
-    "$Y$ closed (as V3.49)",
     "repaired: tame charts (V3.103)"
    ],
    "diff": [
-    "A step of the proof: in the chart at $x_0$ and for the tangent space $N_v$ of the graph; its identification with the kernel at $y$ is V3.81, the passage to Definition 3.6.6 (preprint 3.53) at $y$ is V3.79, V3.82. Lemma 3.6.9 (preprint 3.55) is applied to $\\sigma$ on a relatively open $V'$, extended to the cone by a bump; that $N_v \\cap C_z$ has interior in $N_v$, which Lemma 3.6.9 (preprint 3.55) does not state, holds once $\\|D\\sigma(v)\\|$ is small (Findings, Chapter 3, items 91, 92). Added after the first edition of this page.",
+    "A step of the proof: in the chart at $x_0$ and for the tangent space $N_v$ of the graph; its identification with the kernel at $y$ is V3.81, the passage to Definition 3.6.6 (preprint 3.53) at $y$ is V3.79, V3.82. Lemma 3.6.9 (preprint 3.55) is applied to $\\sigma$ on a relatively open $V'$, extended to the cone by a bump; that $N_v \\cap C_z$ has interior in $N_v$, which Lemma 3.6.9 (preprint 3.55) does not state, holds once $\\|D\\sigma(v)\\|$ is small (Findings, Chapter 3, items 91, 92). Added after the first edition of this page. (2026-11-09: the closedness of $Y$ is implied by the book's good complement, `lemma_3_6_9_2021`; Lemma 3.6.9's row V3.49 is folded here.)",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192)."
    ]
   },
@@ -2238,8 +2287,16 @@
     "statement": "At every zero $y$ near $x$, $\\ker f'(y)$ is in good position to the partial cone $C_yX$ (from Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55))."
    },
    "lean": {
-    "statement": "For a section $f$ of a strong bundle, $f(x_0) = 0$ and $(f, x_0)$ in good position in a tame chart (V3.103): in a tame chart centred at $x_0$ (filling germ $g$ with a derivative family $Dg$, conjugation covering $\\psi$, the germ $h + t$ with kernel $K$, graph $\\sigma$) there is an open $V_{x,2} \\ni x_0$ such that at every zero $y \\in V_{x,2}$, $z_0 = \\varphi(y)$, whose level-$1$ lift lies in the germ of $g$: $N_v = \\ker D(h + t)$ at $v + \\sigma(v) = \\psi(z_0)$; $\\ker Dg(z_0) = D\\psi^{-1}(N_v)$; $Dg(z_0)$ is onto; $\\ker Dg(z_0) \\subseteq T_{z_0}O$; and $\\ker Dg(z_0)$ is in good position to $C_{z_0}$ inside $T_{z_0}O$.",
+    "statement": "For an sc-Fredholm section with tame germ data (V3.103), $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart: an open $V_x \\ni x_0$ such that $(f, y)$ is in good position in a tame chart at every zero $y \\in V_x$, kernel and surjectivity (`theorem_3_54_one'`, V3.94). The kernel half first recorded here: in a tame chart centred at $x_0$, at every zero $y$ near $x_0$, $\\ker Dg(z_0) = D\\psi^{-1}(N_v)$ is contained in $T_{z_0}O$ and in good position to $C_{z_0}$ inside $T_{z_0}O$, and $Dg(z_0)$ is onto (`theorem_3_54_nearby_kernel`).",
     "decls": [
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54_one'",
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54'",
+     "Chapter3/GlobalIFTNearbySurjG · StrongBundle.isGoodPositionGermTame_of_chart_dense",
+     "Chapter3/GlobalIFTTheoremsG · theorem_3_54_two",
+     "Chapter3/TameGermsAddG · StrongBundle.IsGoodPositionGerm.toTame",
+     "Chapter3/GoodPositionScG · theorem_3_54_one_sc_of_tame",
+     "Chapter3/GoodPositionScG · theorem_3_54_one_sc",
+     "Chapter3/GoodPositionScG · theorem_3_54_sc",
      "Chapter3/GlobalIFTNearbySurjG · theorem_3_54_nearby_kernel",
      "Chapter3/GlobalIFTNearbyKernelG · theorem_3_54_chart_kernel",
      "Chapter3/GlobalIFTNearbyGraph · StabilityData.graphSpace_eq_ker_Dfs'",
@@ -2250,17 +2307,17 @@
      "Chapter3/GlobalIFTNearbyGraphG · IsStrongBundleIso.ker_deriv_eq_map_germ"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "no added hypothesis",
-    "the kernel half of (1)",
-    "in the chart at $x_0$",
+    "in full: V3.94",
     "repaired: tame charts (V3.103)"
    ],
    "diff": [
+    "Proved in full in V3.94; the narrower form first recorded here is kept (`theorem_3_54_nearby_kernel`, the kernel half in the chart at $x_0$).",
     "The kernel half of (1), in the chart at $x_0$, with the text's hypotheses. Two steps the text does not mention: $N_v \\subseteq \\ker D(h + t)$ needs the $C^1$-lift of $\\sigma$ into level $1$ (Theorem 3.5.11 (1) (preprint Corollary 3.47)), equality follows from a dimension count; and $\\ker Dg(z_0) \\subseteq T_{z_0}O$ comes from the tangency of the solution set to $O$, not from the filler, whose condition (3) holds at $0$ only (Findings, Chapter 3, items 101–104). The surjectivity half is V3.93. Added after the first edition of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
-    "In the germ reading the level-$1$ lift of $z_0$ lies in the germ of the filling because the basic germ is taken on the points that $\\psi^{-1}$ maps into the germs of $g$ and $s$ (Findings, Chapter 3, items 276–278, 295). Updated after the switch of Definition 3.1.11 (preprint 3.11) to the text’s germ reading (phase 2)."
+    "In the germ reading the level-$1$ lift of $z_0$ lies in the germ of the filling because the basic germ is taken on the points that $\\psi^{-1}$ maps into the germs of $g$ and $s$ (Findings, Chapter 3, items 276–278, 295). Updated after the switch of Definition 3.1.11 (preprint 3.11) to the text’s germ reading (phase 2).",
+    "(2026-11-09) “Tame strong bundle” is read as germ data in a tame chart (V3.103). That is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, without “tame”, and the 2021 text does not define “tame strong bundle”, only a tame strong bundle retraction (p. 65), so for the 2021 text this is our reading of the phrase (gap G.79)."
    ]
   },
   {
@@ -2272,25 +2329,35 @@
     "statement": "At every zero $y$ near $x$, the sc-Fredholm germ $(f, y)$ is in good position: $f'(y)$ is surjective and its kernel is in good position (from Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55))."
    },
    "lean": {
-    "statement": "Let $f$ be an sc-Fredholm section with tame germ data (V3.103), $f(x_0) = 0$, and $(f, x_0)$ in good position in a tame chart **with a filler $g$ that satisfies condition (3) of Definition 3.1.4 (preprint 3.4) at its zeros near $0$** (`IsGoodPositionGermFilled`: at every level-$1$ zero $z_1$ of $g$ in $O \\cap N$ lying in the germ of $g$, for its derivative family $Dg$, $Dr(z_1)b = 0$ and $\\rho(z_1)Dg(z_1)b = Dg(z_1)b$ imply $b = 0$). Then there is an open $V_x \\ni x_0$ such that $(f, y)$ is in good position in a tame chart at every zero $y \\in V_x$. Step: at a zero $z$ with $Dg(z)$ onto and condition (3) at $z$, $\\rho(z)F \\subseteq Dg(z)(T_zO)$.",
+    "statement": "For an sc-Fredholm section with tame germ data (V3.103), $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart: an open $V_x \\ni x_0$ such that $(f, y)$ is in good position in a tame chart at every zero $y \\in V_x$ (`theorem_3_54_one'`, V3.94). The form first recorded here takes a filler satisfying condition (3) of Definition 3.1.4 (preprint 3.4) at its zeros near $0$ (`IsGoodPositionGermFilled`), which follows from good position (V3.102).",
     "decls": [
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54_one'",
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54'",
+     "Chapter3/GlobalIFTNearbySurjG · StrongBundle.isGoodPositionGermTame_of_chart_dense",
+     "Chapter3/GlobalIFTTheoremsG · theorem_3_54_two",
+     "Chapter3/TameGermsAddG · StrongBundle.IsGoodPositionGerm.toTame",
+     "Chapter3/GoodPositionScG · theorem_3_54_one_sc_of_tame",
+     "Chapter3/GoodPositionScG · theorem_3_54_one_sc",
+     "Chapter3/GoodPositionScG · theorem_3_54_sc",
      "Chapter3/GlobalIFTNearbySurjG · theorem_3_54_one",
      "Chapter3/GlobalIFTNearbySurjG · StrongBundle.IsGoodPositionGermFilled",
      "Chapter3/GlobalIFTNearbySurjG · StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm",
      "Chapter3/GlobalIFTNearbySurjG · exists_range_deriv_eq_ρ_of_normal_injective_germ"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "filler (3) nearby: now a theorem",
+    "in full: V3.94",
     "text's argument incomplete",
     "gap also in the 2017 text",
     "repaired: tame charts (V3.103)"
    ],
    "diff": [
+    "Proved in full in V3.94; the narrower form first recorded here is kept (`theorem_3_54_one`, under `IsGoodPositionGermFilled`).",
     "**The hypothesis of this form.** Definition 3.1.4 (preprint 3.4) imposes condition (3) at $0$ only, and the text's argument does not give the surjectivity of $f'(y)$: in the block form of $Dg(z_0)$ with respect to $T_{z_0}O \\oplus \\ker Dr(z_0)$ and $K_{z_0} \\oplus \\ker\\rho(z_0)$, $Tf(z_0)$ is onto iff the block $(1 - \\rho(z_0))Dg(z_0)|_{\\ker Dr(z_0)}$ is injective, i.e. iff the index is locally constant along the solution set; both directions are formalized (V3.102). The same step is in the book's arXiv version (Theorem 3.13 there). The condition at the nearby zeros, added when this form was proved, holds whenever $(f, x_0)$ is in good position (V3.102): the surjectivity is true with Definition 3.1.4 (preprint 3.4) as stated, by an implicit function theorem at the nearby zero (V3.93), and Theorem 3.6.8 (1) (preprint 3.54) with the text's hypotheses is V3.94 (Findings, Chapter 3, items 100, 157, 174, 180–189).",
     "The kernel half needs no added hypothesis (V3.81); the passage to the chart centred at $y$ is V3.79. Added after the first edition of this page; updated in the second addendum of this page.",
-    "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192)."
+    "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
+    "(2026-11-09) “Tame strong bundle” is read as germ data in a tame chart (V3.103). That is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, without “tame”, and the 2021 text does not define “tame strong bundle”, only a tame strong bundle retraction (p. 65), so for the 2021 text this is our reading of the phrase (gap G.79)."
    ]
   },
   {
@@ -2360,24 +2427,32 @@
     "statement": "Let $f$ be an sc-Fredholm section of a tame strong bundle, $f(x) = 0$, $(f, x)$ in good position. There is an open $V \\ni x$ such that $S = \\{y \\in V \\mid f(y) = 0\\}$ satisfies: (1) $(f, y)$ is in good position at every $y \\in S$; (2) $S$ is a sub-M-polyfold whose induced structure is equivalent to a smooth manifold with boundary with corners."
    },
    "lean": {
-    "statement": "For a section $f$ of a strong bundle, $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart (V3.103), and every zero in an open $V_{x_0} \\ni x_0$ in good position in a tame chart: there are $d$ and regular data (`IsRegular`) of dimension $d$ for $S = \\{f = 0\\}$ at $x_0$ with chart domain in $V_{x_0}$, and every datum of Definition 3.2.1 (preprint 3.25) for $S$ at a point of $S$ in that domain has dimension $d$. `theorem_3_54`: for an sc-Fredholm section with tame germ data under `IsGoodPositionGermFilled` (V3.82), an open $V_x \\ni x_0$ in which every zero is in good position in a tame chart, and the above with $V_{x_0} = V_x$.",
+    "statement": "For an sc-Fredholm section with tame germ data (V3.103), $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart: an open $V_x \\ni x_0$ such that $(f, y)$ is in good position in a tame chart at every zero $y \\in V_x$ (`theorem_3_54_one'`), and $d$ with regular data of Definition 3.2.1 (preprint 3.25) of dimension $d$ for $S$ at $x_0$ with chart domain in $V_x$, every datum at a point of $S$ in that domain having dimension $d$ (`theorem_3_54'`) (V3.94). The forms first recorded here: (2) from (1) with the nearby good position as a hypothesis (`theorem_3_54_two`), and (1)–(2) under `IsGoodPositionGermFilled` (`theorem_3_54`).",
     "decls": [
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54_one'",
+     "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54'",
+     "Chapter3/GlobalIFTNearbySurjG · StrongBundle.isGoodPositionGermTame_of_chart_dense",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_54_two",
+     "Chapter3/TameGermsAddG · StrongBundle.IsGoodPositionGerm.toTame",
+     "Chapter3/GoodPositionScG · theorem_3_54_one_sc_of_tame",
+     "Chapter3/GoodPositionScG · theorem_3_54_one_sc",
+     "Chapter3/GoodPositionScG · theorem_3_54_sc",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_54",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_54_tangentGermChart_solutionSet",
      "Chapter3/SolutionGermRecentre · MPolyfold.TangentGermChart.exists_isRegular_of_locally"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "(2) from (1)",
-    "(1): text's hypotheses in V3.94",
+    "in full: V3.94",
     "`IsRegular` proved, not assumed",
     "repaired: tame charts (V3.103)"
    ],
    "diff": [
+    "Proved in full in V3.94; the narrower form first recorded here is kept (`theorem_3_54_two`, `theorem_3_54`).",
     "(2) is proved from (1), with the nearby good position as a hypothesis; `theorem_3_54` proves (1) under the filler condition of V3.82, which follows from good position (V3.102); Theorem 3.6.8 (preprint 3.54) with the text's hypotheses is V3.94, with the index V3.98. The manifold structure follows by Theorem 3.2.3 (preprint 3.27) (V3.69). The regularity conditions of Theorem 3.2.3 (preprint 3.27), hypotheses for general sets (V3.24), are theorems for the solution set (V3.74, V3.77); the dimension is locally constant (Findings, Chapter 3, items 151–153). Added after the first edition of this page.",
-    "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192)."
+    "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
+    "(2026-11-09) “Tame strong bundle” is read as germ data in a tame chart (V3.103). That is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, without “tame”, and the 2021 text does not define “tame strong bundle”, only a tame strong bundle retraction (p. 65), so for the 2021 text this is our reading of the phrase (gap G.79)."
    ]
   },
   {
@@ -2392,6 +2467,8 @@
     "statement": "Let $d_X \\equiv 0$, $f$ an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$, and $S \\ne \\emptyset$. Then $S$ is a sub-M-polyfold whose induced structure is equivalent to a manifold with boundary with corners of locally constant dimension and has degeneracy index $0$ everywhere. The same with good position in the text's sense (sc-complement, V3.47) at every zero, which for an sc-Fredholm section with tame germ data is the same hypothesis (`theorem_3_56_sc`).",
     "decls": [
      "Chapter3/GlobalIFTTheoremsG · theorem_3_56",
+     "Chapter3/MainTheorems2021 · theorem_3_6_10_2021def",
+     "Chapter9/MathlibSolutionSets · theorem_3_6_10_isManifold",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_57",
      "Chapter2/SubMPolyfold · lemma_2_26",
      "Chapter3/GoodPositionScG · theorem_3_56_sc"
@@ -2401,12 +2478,14 @@
    "chips": [
     "the text's hypotheses",
     "surjective = good position: V3.100",
-    "repaired: tame charts (V3.103)"
+    "repaired: tame charts (V3.103)",
+    "Mathlib manifold"
    ],
    "diff": [
     "The hypothesis “$f'(x)$ surjective” is read as good position, which by the text's Definition 3.6.6 (preprint 3.53) is surjectivity at points with $d_X(x) = 0$; in the chart form the kernel condition is stated for the chart's partial quadrant, and that it is void at $d_X = 0$ is V3.100; the form with “$f'(x)$ surjective” and the tameness of the induced structure is V3.101 (Findings, Chapter 3, items 154 (a), 156, 173). No other hypothesis is added. The statement keeps the manifold structure and $d_S \\equiv 0$; the tameness of the induced structure is in V3.87. Added after the first edition of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
-    "Theorem 3.6.10 (preprint 3.56) with the text's notion of good position is `theorem_3_56_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213). Updated in the third addendum of this page."
+    "Theorem 3.6.10 (preprint 3.56) with the text's notion of good position is `theorem_3_56_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213). Updated in the third addendum of this page.",
+    "(2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_10_2021def` (`Chapter3/MainTheorems2021.lean`). (2026-11-09) In Mathlib's language: if $f'(y)$ is onto of index $d$ at every zero, $S$ with the charted space of its induced structure is `IsManifold (𝓡 d) ∞` (`theorem_3_6_10_isManifold`)."
    ]
   },
   {
@@ -2421,6 +2500,7 @@
     "statement": "Let $f$ be an sc-Fredholm section with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$. If $S \\ne \\emptyset$, $S$ is a sub-M-polyfold, its induced structure is tame and equivalent to a manifold with boundary with corners of locally constant dimension, and at every $x \\in S$ there are regular data of Definition 3.2.1 (preprint 3.25) of a dimension $d(x)$ shared by every datum at the points of $S$ in their chart domain. Moreover $S$ is the disjoint union of the parts $S_n$ of dimension $n$, each open and closed in $S$, and each nonempty $S_n$ is a sub-M-polyfold with tame induced structure equivalent to an $n$-dimensional manifold with boundary with corners. The same with good position in the text's sense (sc-complement, V3.47) at every zero, which for an sc-Fredholm section with tame germ data is the same hypothesis (`theorem_3_57_sc`).",
     "decls": [
      "Chapter3/GlobalIFTTheoremsG · theorem_3_57",
+     "Chapter3/MainTheorems2021 · theorem_3_6_11_2021def",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_57_dim",
      "Chapter3/GlobalIFTTheorems · solutionSetDim",
      "Chapter3/GlobalIFTTheorems · theorem_3_27_loc",
@@ -2437,7 +2517,8 @@
    "diff": [
     "**No hypothesis is added**: good position at every zero supplies the nearby good position at every point, so the gap of Theorem 3.6.8 (1) (preprint 3.54) does not enter. Two steps of the text's proof are replaced: the regularity of the solution germ away from the centre (re-centring, V3.73, V3.74) and the relative openness of $\\Sigma$ (choice of the complement, V3.75, V3.77). “Tame strong bundle” is read as good position in tame charts (V3.103); $S \\ne \\emptyset$ for the formal charts. The text names no dimension; the formal statement adds its local constancy and the parts $S_n$ (Findings, Chapter 3, items 152, 156, 157). The dimension is the Fredholm index at the zeros near each point (V3.97). Added after the first edition of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
-    "Theorem 3.6.11 (preprint 3.57) with the text's notion of good position is `theorem_3_57_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213). Updated in the third addendum of this page."
+    "Theorem 3.6.11 (preprint 3.57) with the text's notion of good position is `theorem_3_57_sc`; for an sc-Fredholm section with tame germ data that hypothesis is equivalent to the project's (`forall_isGoodPositionGermSc_iff`; Findings, Chapter 3, item 213). Updated in the third addendum of this page.",
+    "(2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_11_2021def` (`Chapter3/MainTheorems2021.lean`)."
    ]
   },
   {
@@ -2637,6 +2718,9 @@
     "decls": [
      "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54_one'",
      "Chapter3/GlobalIFTNearbyOntoG · theorem_3_54'",
+     "Chapter3/MainTheorems2021 · theorem_3_6_8_2021def",
+     "Chapter9/MathlibSolutionSets · theorem_3_6_8_isSubmanifoldOfDim",
+     "Chapter9/MathlibSolutionSets · theorem_3_1_26_isManifold",
      "Chapter3/GlobalIFTNearbySurjG · StrongBundle.isGoodPositionGermTame_of_chart_dense",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_54_two",
      "Chapter3/TameGermsAddG · StrongBundle.IsGoodPositionGerm.toTame",
@@ -2651,12 +2735,14 @@
     "(2) as regular data",
     "proof of (1): V3.93",
     "repaired: tame charts (V3.103)",
-    "conclusion with the sc-complement"
+    "conclusion with the sc-complement",
+    "Mathlib manifold"
    ],
    "diff": [
     "**No hypothesis is added.** (2) is stated as regular tangent germ data with locally constant dimension, from which Theorem 3.2.3 (preprint 3.27) gives the manifold structure of the local solution set (V3.95). The surjectivity in (1) is V3.93, carried to the chart centred at $y$ through V3.79 and read in the tame chart of the germ data at $y$ (V3.107); the kernel half is V3.81; for $\\dim K = 0$ the only zero near $x_0$ is $x_0$. The text's statement is true, its proof incomplete; the same holds for the book's arXiv version (Findings, Chapter 3, items 157, 180, 189). Added in the second addendum of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
-    "The project's good position asks only for an algebraic good complement (V3.20), which as a conclusion is less than the text's; the sc form of (1) follows at each zero by the upgrade of V3.47, with no hypothesis added (Findings, Chapter 3, items 210, 213). The case distinction $d_X(x) \\ge 1$ of Definition 3.6.6 (2) (preprint 3.53) is not made, which makes hypothesis and conclusion stronger (item 214). Updated in the third addendum of this page."
+    "The project's good position asks only for an algebraic good complement (V3.20), which as a conclusion is less than the text's; the sc form of (1) follows at each zero by the upgrade of V3.47, with no hypothesis added (Findings, Chapter 3, items 210, 213). The case distinction $d_X(x) \\ge 1$ of Definition 3.6.6 (2) (preprint 3.53) is not made, which makes hypothesis and conclusion stronger (item 214). Updated in the third addendum of this page.",
+    "(2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_6_8_2021def` (`Chapter3/MainTheorems2021.lean`). (2026-11-09) In Mathlib's language: near $x_0$ the solution set is a submanifold of dimension the index (`theorem_3_6_8_isSubmanifoldOfDim`, V3.97), and with the charted space of its induced corner structure a smooth manifold with boundary and corners, `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_3_1_26_isManifold`, `Chapter9/MathlibSolutionSets.lean`)."
    ]
   },
   {
@@ -2672,6 +2758,11 @@
     "decls": [
      "Chapter3/GlobalIFTNearbyOntoG · theorem_3_23'",
      "Chapter3/GlobalIFTNearbyOntoG · theorem_3_19'",
+     "Chapter3/MainTheorems2021 · theorem_3_1_26_2021def",
+     "Chapter3/MainTheorems2021 · theorem_3_1_22_2021def",
+     "Chapter3/MainTheorems2021 · theorem_3_1_22_linearization_2021def",
+     "Chapter9/MathlibSolutionSets · theorem_3_1_26_isManifold",
+     "Chapter9/MathlibSolutionSets · theorem_3_6_10_isManifold",
      "Chapter3/GlobalIFTTheoremsG · theorem_3_23_of_nearby",
      "Chapter2/SubMPolyfold · lemma_2_26",
      "Chapter3/GoodPositionScG · theorem_3_23_sc"
@@ -2681,12 +2772,14 @@
    "chips": [
     "the text's hypotheses",
     "index: V3.97; kernel: V3.99",
-    "repaired: tame charts (V3.103)"
+    "repaired: tame charts (V3.103)",
+    "Mathlib manifold"
    ],
    "diff": [
-    "No hypothesis is added; “tame strong bundle” is read as Definitions 3.6.3, 3.6.4, 3.6.6 (preprint 3.50, 3.51, 3.53) read it, germ data and good position in tame charts (V3.103). For Theorem 3.1.22 (preprint 3.19) “$f'(x_0)$ surjective” is read as good position, the same at $d_X = 0$ (V3.100, V3.101). The dimension as the Fredholm index is V3.97, $\\ker f'(y) = T_yS$ in the chart V3.99; “uniquely determined” is the equivalence of atlases. Added in the second addendum of this page.",
+    "No hypothesis is added; “tame strong bundle” is read as germ data and good position in tame charts (V3.103), as Definitions 3.6.3, 3.6.4, 3.6.6 of the preprint (3.50, 3.51, 3.53) and the 2017 text read it; the 2021 text does not define the phrase (gap G.79). For Theorem 3.1.22 (preprint 3.19) “$f'(x_0)$ surjective” is read as good position, the same at $d_X = 0$ (V3.100, V3.101). The dimension as the Fredholm index is V3.97, $\\ker f'(y) = T_yS$ in the chart V3.99; “uniquely determined” is the equivalence of atlases. Added in the second addendum of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
-    "The form of Theorem 3.1.26 (preprint 3.23) with the text's good complement in hypothesis and conclusion is `theorem_3_23_sc` (Findings, Chapter 3, item 213). Updated in the third addendum of this page."
+    "The form of Theorem 3.1.26 (preprint 3.23) with the text's good complement in hypothesis and conclusion is `theorem_3_23_sc` (Findings, Chapter 3, item 213). Updated in the third addendum of this page.",
+    "(2026-11-09) With the 2021 definitions, germ data in a tame chart read as in V3.103: `theorem_3_1_26_2021def`, `theorem_3_1_22_2021def`, `theorem_3_1_22_linearization_2021def` (`Chapter3/MainTheorems2021.lean`). (2026-11-09) In Mathlib's language: $S(f, U)$ is `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` (`theorem_3_1_26_isManifold`), and without boundary `IsManifold (𝓡 d) ∞` (`theorem_3_6_10_isManifold`)."
    ]
   },
   {
@@ -2718,7 +2811,7 @@
     "every chart, at every zero"
    ],
    "diff": [
-    "Proved in sc form, in every chart: the level-$0$ conjugation between the linearizations in two charts (V3.78) is realised by bounded operators on the ambient spaces that preserve the levels at smooth points (derivatives of the sc-smooth transition maps, and the fibre part of the strong bundle transition, sc$^0$ on $Y[0]$), so the regularity of the linearization in the chart of the germ (V3.46) passes to every chart; then the criterion of V1.8. Tameness is not used. $T_xX$ itself carries no linear structure here (G.7), so the operator is read in charts. The passage to every chart is the chart independence at zeros, which the text does not state (Findings, Chapter 3, items 170, 236, 239). Added in the second addendum of this page with the level-$0$ Fredholm property only (G.22); updated in the third addendum.",
+    "Proved in sc form, in every chart: the level-$0$ conjugation between the linearizations in two charts (V3.78) is realised by bounded operators on the ambient spaces that preserve the levels at smooth points (derivatives of the sc-smooth transition maps, and the fibre part of the strong bundle transition, sc$^0$ on $Y[0]$), so the regularity of the linearization in the chart of the germ (V3.46) passes to every chart; then the criterion of V1.8. Tameness is not used. $T_xX$ itself carries no linear structure here (G.7), so the operator is read in charts. The passage to every chart is the chart independence at zeros, which the text does not state (Findings, Chapter 3, items 170, 236, 239). Added in the second addendum of this page with the level-$0$ Fredholm property only (G.22); updated in the third addendum. (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)",
     "**Germs.** The hypothesis is the text’s since the switch to the germ reading (phase 2): the germ data of the sc-Fredholm section are germs whose levels may shrink with $m$ (V3.13, V3.16), and Proposition 3.6.5 (preprint 3.52) enters at the centre of the chart of the germ datum, where $\\mathrm{Lin}(0) = Dg(0)$ on $T_0O$ for the filling germ (Findings, Chapter 3, items 284, 310, 314, 330). `theorem_3_19_linearization_sc` gives the conclusions in the chart at $x_0$, and `linAt_isScFredholm_of_isSurjLinOfIndex` with `IsGoodPositionGerm.exists_isSurjLinOfIndex` in every chart. Hence “stronger” (formerly “narrower”, for the hypothesis): the index on every level, and the surjectivity on every level at a zero in good position, in every chart, go beyond the text’s statement."
    ]
   },
@@ -2736,6 +2829,9 @@
      "Chapter3/GlobalIFTIndexG · theorem_3_54_tangentGermChart_index",
      "Chapter3/GlobalIFTIndexG · theorem_3_54_tangentGermChart_solutionSet_index",
      "Chapter3/GlobalIFTIndexG · theorem_3_54_two_index",
+     "Chapter9/MathlibSolutionSets · theorem_3_6_8_isSubmanifoldOfDim",
+     "Chapter9/MathlibSolutionSets · StrongBundle.hasDimAt_solutionSet_inter",
+     "Chapter9/MathlibSolutionSets · StrongBundle.isSubmanifoldOfDim_solutionSet",
      "Chapter3/GlobalIFTIndexG · theorem_3_23_index",
      "Chapter3/GlobalIFTIndexG · theorem_3_19_index",
      "Chapter3/GlobalIFTIndexG · theorem_3_57_index",
@@ -2748,12 +2844,14 @@
    "chips": [
     "at every zero, in every chart",
     "also Theorems 3.1.26, 3.6.11",
-    "repaired: tame charts (V3.103)"
+    "repaired: tame charts (V3.103)",
+    "also as `IsSubmanifoldOfDim`"
    ],
    "diff": [
     "$d = \\dim\\ker D(h + t)(0) = n - N$ for the conjugation from which the chart of the tangent germ data is built, and $n - N$ is the index of $f'(x_0)$ for the same conjugation (Proposition 3.6.5 (preprint 3.52)); the proofs of Theorem 3.6.8 (preprint 3.54) had to expose that conjugation (`_conj` forms). The index is stated at every zero near the point and in every chart; the text states no dimension in Theorems 3.1.26 and 3.6.11 (preprint 3.23 and 3.57) (Findings, Chapter 3, item 170). Added in the second addendum of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
-    "That $d$ is the index on every level of $f'(y)$ as an sc-Fredholm operator, in every chart, is V3.96 (Findings, Chapter 3, item 239). Updated in the third addendum of this page."
+    "That $d$ is the index on every level of $f'(y)$ as an sc-Fredholm operator, in every chart, is V3.96 (Findings, Chapter 3, item 239). Updated in the third addendum of this page.",
+    "(2026-11-09) The dimension as a submanifold (Definition 4.2.1, Remark 9.1.1): near a zero in good position the solution set is a smooth submanifold with $\\dim T_y(S \\cap V) = d$ at a zero where $f'(y)$ is onto of index $d$ (`hasDimAt_solutionSet_inter`), an $n$-dimensional submanifold with $n$ the index near $x_0$ (`theorem_3_6_8_isSubmanifoldOfDim`), and globally when every zero is in good position with index $d$ (`isSubmanifoldOfDim_solutionSet`) (`Chapter9/MathlibSolutionSets.lean`)."
    ]
   },
   {
@@ -2765,8 +2863,16 @@
     "statement": "Definition 6.2.1 (preprint 6.1): at a smooth point $x$, $\\mathrm{ind}(f, x)$ is the Fredholm index of $(f - s)'(x)$ for a local sc$^+$-section $s$ with $s(x) = f(x)$; it does not depend on $s$. Proposition 6.2.2 (preprint 6.2): over a tame M-polyfold, if $x_0$, $x_1$ are smooth points connected by an sc-smooth path $\\varphi : [0, 1] \\to X$, then $\\mathrm{ind}(f, x_0) = \\mathrm{ind}(f, x_1)$. In Chapter 3 the statement along the solution set is implicit in Theorem 3.6.8 (1) (preprint 3.54)."
    },
    "lean": {
-    "statement": "For an sc-Fredholm section with tame germ data (V3.103), $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart: an open $V_x \\ni x_0$ and $d$ with `IsSurjLinOfIndex f y d` at every zero $y \\in V_x$, so $\\mathrm{ind}\\,f'(y) = \\dim\\ker f'(y) = \\mathrm{ind}\\,f'(x_0)$. With Theorem 3.6.8 (preprint 3.54): every zero in $V_x$ in good position in a tame chart, and regular data of dimension $d$ at $x_0$ with chart domain $V_x$. In sc form: at every zero $y \\in V_x$, in **every** strong bundle chart around $y$, $\\mathrm{Lin}(z) : T_zO \\to K_z$ is sc-Fredholm, onto on every level and of index $d$ on every level; at any zero of an sc-Fredholm section, in every chart, $\\mathrm{Lin}(z)$ is sc-Fredholm with the same index on every level (`StrongBundle.linAt_isScFredholm`). **Without good position, with the text’s hypotheses**: if $f$ is an sc-Fredholm section with tame germ data and $f(x_0) = 0$, there are an open $V \\ni x_0$ and $i \\in \\mathbb Z$ such that at every zero $y \\in V$, in every strong bundle chart around $y$, $f'(y)$ is Fredholm of index $i$ (`IsLinOfIndex`; `index_locally_constant_tame`), and in sc form $\\mathrm{Lin}(z)$ is sc-Fredholm of index $i$ on every level (`theorem_3_54_index_locally_constant_general_tame`); neither good position, nor surjectivity at $x_0$, nor bump functions are assumed (the first forms, for $X$ admitting sc-smooth bump functions (Definition 5.3.1 (preprint 5.9)): `index_locally_constant_of_admitsBumpFunctions`, `theorem_3_54_index_locally_constant_general`). **Definition 6.2.1 (preprint 6.1)** (`StrongBundle.IsIndexAtLocal f x i`, with the text’s locally defined section): there are an open $V \\ni x$ and an sc$^+$-section $s$ of the restriction $P|V$ (`StrongBundle.restrictOpen`) with $(f|_V + s)(x) = 0$ and $(f|_V + s)'(x)$ Fredholm of index $i$ in every strong bundle chart of $P|V$; for an sc-Fredholm section the index is unique (`IsIndexAtLocal.unique`), at a zero it is the index of $f'(x)$, and it exists at every smooth point (`exists_isIndexAtLocal`). The reading with an sc$^+$-section on all of $X$ (`StrongBundle.IsIndexAt`; unique, `IsIndexAt.unique`; existing at every smooth point if $X$ admits bump functions, `exists_isIndexAt`) implies it, and is the same notion when $X$ admits sc-smooth bump functions (`isIndexAtLocal_iff_isIndexAt`). **Proposition 6.2.2 (preprint 6.2)** (`proposition_6_2_local`): if $f$ is an sc-Fredholm section with tame germ data, then for every sc-smooth path $\\varphi : \\mathbb R \\to X$ there is $i$ with $\\mathrm{ind}(f, \\varphi(t)) = i$ for all $t$, and any two values of the index at $\\varphi(0)$ and $\\varphi(1)$ agree (`proposition_6_2_local'`); if $X$ admits sc-smooth bump functions, the same holds for the global reading (`proposition_6_2`).",
+    "statement": "For an sc-Fredholm section with tame germ data (V3.103), $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart: an open $V_x \\ni x_0$ and $d$ with `IsSurjLinOfIndex f y d` at every zero $y \\in V_x$, so $\\mathrm{ind}\\,f'(y) = \\dim\\ker f'(y) = \\mathrm{ind}\\,f'(x_0)$. With Theorem 3.6.8 (preprint 3.54): every zero in $V_x$ in good position in a tame chart, and regular data of dimension $d$ at $x_0$ with chart domain $V_x$. In sc form: at every zero $y \\in V_x$, in **every** strong bundle chart around $y$, $\\mathrm{Lin}(z) : T_zO \\to K_z$ is sc-Fredholm, onto on every level and of index $d$ on every level; at any zero of an sc-Fredholm section, in every chart, $\\mathrm{Lin}(z)$ is sc-Fredholm with the same index on every level (`StrongBundle.linAt_isScFredholm`). **Without good position, with the text’s hypotheses**: if $f$ is an sc-Fredholm section with tame germ data and $f(x_0) = 0$, there are an open $V \\ni x_0$ and $i \\in \\mathbb Z$ such that at every zero $y \\in V$, in every strong bundle chart around $y$, $f'(y)$ is Fredholm of index $i$ (`IsLinOfIndex`; `index_locally_constant_tame`), and in sc form $\\mathrm{Lin}(z)$ is sc-Fredholm of index $i$ on every level (`theorem_3_54_index_locally_constant_general_tame`); neither good position, nor surjectivity at $x_0$, nor bump functions are assumed (the first forms, for $X$ admitting sc-smooth bump functions (Definition 5.3.1 (preprint 5.9)): `index_locally_constant_of_admitsBumpFunctions`, `theorem_3_54_index_locally_constant_general`). **Definition 6.2.1 (preprint 6.1)** (`StrongBundle.IsIndexAtLocal f x i`, with the text’s locally defined section): there are an open $V \\ni x$ and an sc$^+$-section $s$ of the restriction $P|V$ (`StrongBundle.restrictOpen`) with $(f|_V + s)(x) = 0$ and $(f|_V + s)'(x)$ Fredholm of index $i$ in every strong bundle chart of $P|V$; for an sc-Fredholm section the index is unique (`IsIndexAtLocal.unique`), at a zero it is the index of $f'(x)$, and it exists at every smooth point (`exists_isIndexAtLocal`). The reading with an sc$^+$-section on all of $X$ (`StrongBundle.IsIndexAt`; unique, `IsIndexAt.unique`; existing at every smooth point if $X$ admits bump functions, `exists_isIndexAt`) implies it, and is the same notion when $X$ admits sc-smooth bump functions (`isIndexAtLocal_iff_isIndexAt`). **Proposition 6.2.2 (preprint 6.2)** (`proposition_6_2_local`): if $f$ is an sc-Fredholm section with tame germ data, then for every sc-smooth path $\\varphi : \\mathbb R \\to X$ there is $i$ with $\\mathrm{ind}(f, \\varphi(t)) = i$ for all $t$, and any two values of the index at $\\varphi(0)$ and $\\varphi(1)$ agree (`proposition_6_2_local'`); if $X$ admits sc-smooth bump functions, the same holds for the global reading (`proposition_6_2`). **On $[0, 1]$** (`proposition_6_2_2_interval`): $[0, 1]$ is a tame M-polyfold with boundary (`unitIntervalPolyfold`, two charts onto $[0, 1) \\subseteq [0, \\infty)$, degeneracy index $1$ at $0$ and $1$), and for an sc-Fredholm section with tame germ data and an sc-smooth path $\\varphi : [0, 1] \\to X$, $\\mathrm{ind}(f, \\varphi(t))$ (local sections, Definition 6.2.1 (preprint 6.1)) is one integer for all $t$; in the text's form, $\\mathrm{ind}(f, \\varphi(0)) = \\mathrm{ind}(f, \\varphi(1))$ (`proposition_6_2_2_interval'`); with the 2021 definitions, `proposition_6_2_2_interval_2021def`. The proof reparametrizes: $\\varphi \\circ \\sin^2 : \\mathbb R \\to X$ is sc-smooth (`exists_rn_reparam`), and the statement on $\\mathbb R$ applies; paths on $\\mathbb R$ are the special case `proposition_6_2_2_interval_of_rn`.",
     "decls": [
+     "Chapter3/IndexAlongPathsInterval · proposition_6_2_2_interval",
+     "Chapter3/IndexAlongPathsInterval · proposition_6_2_2_interval'",
+     "Chapter3/IndexAlongPathsInterval2021 · proposition_6_2_2_interval_2021def",
+     "Chapter3/UnitIntervalPolyfold · unitIntervalPolyfold",
+     "Chapter3/UnitIntervalPolyfold · unitIntervalPolyfold_isTame",
+     "Chapter3/UnitIntervalPolyfold · MPolyfold.IsScSmoothMap.exists_rn_reparam",
+     "Chapter3/IndexAlongPathsInterval · proposition_6_2_2_interval_of_rn",
+     "Chapter3/MainTheorems2021 · proposition_6_2_2_2021def",
      "Chapter3/GlobalIFTIndexG · theorem_3_54_index_locally_constant",
      "Chapter3/GlobalIFTIndexG · theorem_3_54_index",
      "Chapter3/GlobalIFTIndexG · isSurjLinOfIndex_of_forall_dim",
@@ -2793,17 +2899,18 @@
      "Chapter3/IndexAlongPathsLocal · proposition_6_2_local'"
     ]
    },
-   "verdict": "narrower",
+   "verdict": "restated",
    "chips": [
-    "paths on $\\mathbb R$",
+    "paths on $[0, 1]$ (via $\\sin^2$)",
     "Definition 6.2.1 local section",
     "Def. 6.2.1 well defined, no Prop. 1.1.11",
     "repaired: tame charts (V3.103)",
     "sc-index, every level, every chart"
    ],
    "diff": [
+    "Updated (2026-11-09): **paths on $[0, 1]$**: the project now has the M-polyfold $[0, 1]$ (`Chapter3/UnitIntervalPolyfold.lean`), and Proposition 6.2.2 (preprint 6.2) holds for sc-smooth paths $\\varphi : [0, 1] \\to X$ (`proposition_6_2_2_interval`, `Chapter3/IndexAlongPathsInterval.lean`), by the reparametrization $\\varphi \\circ \\sin^2$ on $\\mathbb R$. The form on $\\mathbb R$ is kept (`proposition_6_2`, `proposition_6_2_local`). Tameness of $X$ is not used. The hypotheses on $f$ are the text's in the project's reading of tameness (V3.103); the part of gap G.65 concerning Proposition 6.2.2 is closed (Findings, Chapter 3, item 381).",
     "**Proposition 6.2.2 (preprint 6.2) is proved with the text’s hypotheses** (fifth addendum of this page; in the fourth, with bump functions), by the text’s device run on the restriction $P|V$ of $P$ to the domain $V$ of a strong bundle chart around $\\varphi(t_0)$ (`StrongBundle.restrictOpen`), for each $t_0$: an sc$^+$-section $S$ of the pull-back to $\\mathbb R \\times V$ with $\\tilde f + S = 0$ along the graph of the path near $t_0$ (the text’s $s(t, x) = R(x, f(\\varphi(t)))$ in the chart, with no cut-off, since the chart covers $V$), the local constancy of the index of $\\tilde f + S$ along its zero set (stabilizing sections $R(\\cdot, e_i)$ in the product chart, again without cut-off, and the implicit function theorem), the index count $\\mathrm{ind}(\\tilde f + S)'(t, x) = \\mathrm{ind}(f, x) + 1$ through the slice $S(t, \\cdot)$ (`isIndexAt_of_pullback_isLinOfIndex`), and the connectedness of $\\mathbb R$ (`proposition_6_2_local`). No bump functions are assumed (“we do not need a sc-smooth partition of unity”, preprint p. 202); tame germ data are the project’s reading of the text’s tameness (V3.103), as in V3.94, where they are no narrowing. With bump functions the proposition holds for the global reading of Definition 6.2.1 (preprint 6.1) as well (`proposition_6_2`, the form of the fourth addendum, whose section along the path is cut off by a bump; `exists_isScPlusSection_pullback_of_path`) (Findings, Chapter 3, items 340–349, 360–367).",
-    "**Why still “narrower”.** The path is $\\varphi : \\mathbb R \\to X$, not $[0, 1] \\to X$: $\\mathbb R \\times X$ is the product of Theorem 3.1.21 (preprint 3.18) and has no boundary, and the text’s tame M-polyfold $[0, 1] \\times X$ is not used. A path on $[0, 1]$ that extends sc-smoothly to $\\mathbb R$ is covered; a path sc-smooth on $[0, 1]$ only, in the sense of M-polyfolds with boundary, is not, and the project has no M-polyfold $[0, 1]$. This is the one narrowing left: the bump functions are gone, Definition 6.2.1 (preprint 6.1) has the text’s local sections, and the hypotheses on $f$ are the text’s in the project’s reading of tameness.",
+    "**Formerly “narrower”.** The path was $\\varphi : \\mathbb R \\to X$, not $[0, 1] \\to X$, since $\\mathbb R \\times X$ is the product of Theorem 3.1.21 (preprint 3.18) and the project had no M-polyfold $[0, 1]$; a path on $[0, 1]$ that extends sc-smoothly to $\\mathbb R$ was covered. Since 2026-11-09 every path sc-smooth on $[0, 1]$ in the sense of M-polyfolds with boundary is covered; the text's tame M-polyfold $[0, 1] \\times X$ is still not used, the reparametrized path on $\\mathbb R$ replacing it.",
     "Definition 6.2.1 (preprint 6.1) has no row of its own. It is `IsIndexAtLocal`: the text’s locally defined sc$^+$-section is a section of the restriction $P|V$ to an open $V \\ni x$ — the restriction of a strong bundle to an open set, which the text uses without comment, is constructed (`StrongBundle.restrictOpen`, whose atlas consists of the charts of $P$ inside $V$) — and the text’s $f - s$, $s(x) = f(x)$, is written $f + s$, $(f + s)(x) = 0$. It is well defined, two local sections being compared on the intersection of their domains (`IsIndexAtLocal.unique`), and it exists at every smooth point without bump functions, through the section $-R(\\cdot, f(x))$ on a chart domain (`exists_isIndexAtLocal`). The global reading `IsIndexAt` of the fourth addendum implies it, and when $X$ admits bump functions the two agree, the local section being cut off (`isIndexAtLocal_iff_isIndexAt`). The independence of $s$ is proved from the germ data and Theorem 3.1.18 (preprint 3.15), without the text’s appeal to Proposition 1.1.11 (preprint 1.10), for which the project has no lemma that the linearization of an sc$^+$-section is compact (Findings, Chapter 3, items 340, 364, 367).",
     "Along the solution set the formal proof combines the good position of the nearby zeros (V3.94), the local constancy of the dimension (V3.85) and dimension = index at each zero (V3.97); the text’s proof of Proposition 6.2.2 (preprint 6.2) uses the step of V3.82 for an extended section, which along solution sets is repaired by V3.93 (Findings, Chapter 3, items 171, 188). Added in the second addendum of this page.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192).",
@@ -2829,11 +2936,11 @@
    "verdict": "restated",
    "chips": [
     "in the chart $\\psi\\varphi$",
-    "$T_yS \\subseteq T_yX$: G.13",
+    "$T_yS \\subseteq T_yX$: not restated",
     "repaired: tame charts (V3.103)"
    ],
    "diff": [
-    "In the chart of the tangent germ data, where $N_v$ is the tangent space of the solution set; $T_yS$ as a subspace of $T_yX$ needs the linear structure of $T_yX$ (Definition 2.5.8 (preprint 2.38), Chapter 2 gap G.13) and is not formalized. The surjectivity of $f'(y)$ is V3.94 (Findings, Chapter 3, item 172). Added in the second addendum of this page.",
+    "In the chart of the tangent germ data, where $N_v$ is the tangent space of the solution set; $T_yS$ as a subspace of $T_yX$ needs the linear structure of $T_yX$ (Definition 2.5.8 (preprint 2.38), Chapter 2 gap G.13) and is not formalized. The surjectivity of $f'(y)$ is V3.94 (Findings, Chapter 3, item 172). Added in the second addendum of this page. (2026-11-09) $T_yX$ now carries its linear structure and $T_aA$ is a closed subspace of $T_aX$ for every sub-M-polyfold $A$ (gap G.7 closed, V2.19, V2.25); the kernel statement is not restated with it.",
     "Updated after the repair of the tameness hypothesis: first proved with “the base retraction of every strong bundle chart compatible with the atlas is tame” (`htame`), which no strong bundle over a nonempty base satisfies (V3.104), so that form was vacuous; now with the hypotheses of V3.103 (Findings, Chapter 3, items 190–192)."
    ]
   },
@@ -2943,19 +3050,27 @@
      "Chapter3/TameGerms · StrongBundle.isTameChart_of_eqOn_id",
      "Chapter3/TameGerms · ScRetraction.IsTame.congr",
      "Chapter3/TameGermData · IsFillingGerm.nonempty_kerEquiv",
-     "Chapter3/TameGermData · TrivialBundle.tame_atlas_no_germData_in_atlas_chart"
+     "Chapter3/TameGermData · TrivialBundle.tame_atlas_no_germData_in_atlas_chart",
+     "Chapter3/MainTheorems2021 · StrongBundle.IsScFredholmGermTame2021",
+     "Chapter3/MainTheorems2021 · StrongBundle.isScFredholmGermTame2021_iff",
+     "Chapter3/MainTheorems2021 · StrongBundle.isScFredholmGermTame2021_iff_2017",
+     "Chapter3/MainTheorems2021 · StrongBundle.IsScFredholmSectionTame2021",
+     "Chapter3/TameGermTransfer · StrongBundle.isScFredholmGermTame_of_chart_interior",
+     "Chapter3/TameGermTransfer · StrongBundle.isScFredholmSectionTame_of_interior"
     ]
    },
    "verdict": "explicit",
    "chips": [
     "the hypotheses of §3.6",
     "tame chart of the germ data",
+    "2021: reading of “tame strong bundle”",
     "satisfiable",
     "filler chart-bound"
    ],
    "diff": [
+    "Updated (2026-11-09): **which text the tame reading follows.** The reading in a tame chart is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text, “where $K \\to O$ is a tame strong local bundle”. The 2021 Definition 3.6.3 (p. 135) says “strong local bundle”, without “tame”, while Theorem 3.6.8 and the later theorems say “tame strong bundle”, a phrase the 2021 text does not define (it defines a tame strong bundle retraction, p. 65); for the 2021 text the tame-chart reading is our reading of that phrase. With the 2021 filling it is `IsScFredholmGermTame2021`, the 2017 germ (`isScFredholmGermTame2021_iff_2017`). Germ data in a chart centred at a point of the interior of $C$ are tame germ data after shrinking the chart (`isScFredholmGermTame_of_chart_interior`), so there the theorems hold for the plain 2021 notion; charts with $d_C(\\varphi(x_0)) \\ge 1$ are open (gap G.79; Findings, Chapter 3, item 382).",
     "These are the hypotheses of the implicit function theorems of §3.6 (V3.48, V3.68–V3.70, V3.80–V3.82, V3.84–V3.87, V3.94–V3.102). They were first proved with “tame strong bundle” read as: the base retraction of **every** strong bundle chart compatible with the atlas is tame. No strong bundle over a nonempty base satisfies that (V3.104), so those first statements were vacuous; the proofs used the tameness only for particular charts, and the repair changed the statements, not the arguments (Findings, Chapter 3, items 190–192, 198).",
-    "Whether germ data in some chart (V3.13) can be moved to some compatible tame chart when the atlas consists of tame charts (Definition 3.1.11 (preprint 3.11) $\\Rightarrow$ Definition 3.6.3 (preprint 3.50)) is open. It cannot be done by re-centring a chart of the tame atlas: whether a filling exists in a chart depends on the chart ($\\ker Dr(0) \\cong \\ker\\rho(0)$ is necessary, `IsFillingGerm.nonempty_kerEquiv`), and the trivial bundle with the one-chart tame atlas of `evenBundleChart` has sc-Fredholm sections with tame germ data in compatible charts but none in the atlas chart (`tame_atlas_no_germData_in_atlas_chart`). The text builds the tame chart into Definition 3.6.3 (preprint 3.50), and so do the theorems (Findings, Chapter 3, items 199, 350–353). Updated in the fourth addendum of this page.",
+    "Whether germ data in some chart (V3.13) can be moved to some compatible tame chart when the atlas consists of tame charts (Definition 3.1.11 (preprint 3.11) $\\Rightarrow$ Definition 3.6.3 (preprint 3.50)) is open. It cannot be done by re-centring a chart of the tame atlas: whether a filling exists in a chart depends on the chart ($\\ker Dr(0) \\cong \\ker\\rho(0)$ is necessary, `IsFillingGerm.nonempty_kerEquiv`), and the trivial bundle with the one-chart tame atlas of `evenBundleChart` has sc-Fredholm sections with tame germ data in compatible charts but none in the atlas chart (`tame_atlas_no_germData_in_atlas_chart`). The preprint and the 2017 text build the tame chart into Definition 3.6.3 (preprint 3.50); the 2021 text asks it of the bundle in the theorems (“tame strong bundle”), see the first entry (Findings, Chapter 3, items 199, 350–353). Updated in the fourth addendum of this page.",
     "**Germs.** Since the switch to the text’s germ reading (phase 2) the three notions carry the germ data of the text (V3.13, V3.45); the earlier whole-chart forms are `IsScFredholmGermTameWholeChart`, `IsGoodPositionGermTameWholeChart`, `IsScFredholmSectionTameWholeChart`, and the non-vacuity witnesses satisfy both readings (Findings, Chapter 3, items 220–221, 304, 330). For Definition 3.6.6 (preprint 3.53) the comparison is that of V3.47. Hence “hypotheses explicit” again (“restated” in the third addendum)."
    ]
   },
@@ -3139,15 +3254,20 @@
      "Chapter3/Book2021Germs · StrongBundle.IsScFredholmGerm2017.isScFredholmGerm2021",
      "Chapter3/Book2021Germs · StrongBundle.isScFredholmSection2021_iff",
      "Chapter3/Book2021Germs · isScFredholmSection2021_graphSection",
-     "Chapter3/Book2021Germs · isScFredholmGerm2017_graphSection"
+     "Chapter3/Book2021Germs · isScFredholmGerm2017_graphSection",
+     "Chapter3/TameGermTransfer · StrongBundle.IsScFredholmGermInterior",
+     "Chapter3/TameGermTransfer · StrongBundle.IsScFredholmGermInterior.isScFredholmGermTame",
+     "Chapter3/TameGermTransfer · StrongBundle.IsScFredholmGermInterior.isScFredholmGerm2017",
+     "Chapter3/TameGermTransfer · StrongBundle.isScFredholmSectionTame_of_interior",
+     "Chapter3/TameGermTransfer · TrivialBundle.isScFredholmGermInterior_graphSection"
     ]
    },
    "chips": [
     "= the project's definitions",
-    "2021 implies 2017: open (G.79)"
+    "2021 ⇒ 2017: interior charts; else G.79"
    ],
    "diff": [
-    "Whether every 2021 sc-Fredholm germ has germ data in a tame chart is gap G.79 (Findings, Chapter 3, item 353)."
+    "Whether every 2021 sc-Fredholm germ has germ data in a tame chart is gap G.79 (Findings, Chapter 3, item 353). (2026-11-09) In part: 2021 germ data in a chart centred at a point of the interior of $C$, i.e. with $d_C(\\varphi(x_0)) = 0$, give tame germ data and the 2017 germ (`IsScFredholmGermInterior.isScFredholmGermTame`, `IsScFredholmGermInterior.isScFredholmGerm2017`), and a 2021 sc-Fredholm section with such data at every smooth point has tame germ data (`isScFredholmSectionTame_of_interior`); the case $d_C(\\varphi(x_0)) \\ge 1$ is open. The tame reading is the preprint and 2017 wording of Definition 3.6.3 (V3.103)."
    ]
   },
   {
@@ -3247,7 +3367,8 @@
      "Chapter3/Book2021Germs · CornerFilling.isGoodPositionAtGerm_gc",
      "Chapter3/Book2021Germs · CornerFilling.not_isInGoodPosition_gc",
      "Chapter3/Book2021Germs · CornerFilling.not_range_le_minimalSubspace",
-     "Chapter3/Book2021Germs · theorem_3_6_8_tame_step_2021"
+     "Chapter3/Book2021Germs · theorem_3_6_8_tame_step_2021",
+     "Chapter3/TameGermTransfer · StrongBundle.isScFredholmGermTame_of_chart_interior"
     ]
    },
    "chips": [
@@ -3256,7 +3377,7 @@
     "untamed data: G.79"
    ],
    "diff": [
-    "With the untamed 2021 definitions the step does not hold as we read it; the example's solution set is a manifold, so the theorem is not refuted. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103); for untamed data it is gap G.79."
+    "With the untamed 2021 definitions the step does not hold as we read it; the example's solution set is a manifold, so the theorem is not refuted. Theorem 3.6.8 is verified with tame germ data (V3.85, V3.94, V3.103); for untamed data it is gap G.79. (2026-11-09) In part: germ data in a chart centred at a point of the interior of its partial quadrant give tame germ data (`isScFredholmGermTame_of_chart_interior`, V3.110); open for charts with $d_C(\\varphi(x_0)) \\ge 1$ (gap G.79)."
    ]
   },
   {
@@ -3369,15 +3490,17 @@
     "decls": [
      "Chapter3/Book2021Items · lemma_3_8_6_2021",
      "Chapter3/Book2021Items · lemma_3_8_6_two_2021",
-     "Chapter3/Book2021Items · halfLine_witness_2021"
+     "Chapter3/Book2021Items · halfLine_witness_2021",
+     "Chapter3/Counterexamples2021 · Counterexamples2021.not_lemma_3_8_6_two_2021"
     ]
    },
    "chips": [
     "(1) without the cone hypothesis",
-    "(2) needs $N \\ne 0$"
+    "(2) needs $N \\ne 0$",
+    "(2) at $N = 0$: Lean counterexample"
    ],
    "diff": [
-    "(2) as printed does not hold as we read it for $N = 0$ (V3.119)."
+    "(2) as printed does not hold as we read it for $N = 0$ (V3.119); the negation of (2) as printed, for every $E$, presentation and $N$, is `not_lemma_3_8_6_two_2021`, witnessed by $N = 0$ in $E = \\mathbb R$, $C = [0, \\infty)$ (added 2026-11-09)."
    ]
   },
   {
@@ -3506,7 +3629,7 @@
    "label": "§3.6, Proposition 3.6.5 (preprint 3.52), p. 135 (preprint p. 110)",
    "page": 110,
    "book": "$Tf(x) : T_xX \\to Y_x$ is an sc-Fredholm operator.",
-   "instead": "**Formalized since the first edition of this page** (third addendum; V3.46, V3.96), in charts. In the chart of Definition 3.1.11 (preprint 3.11) centred at the zero, $T_0O = Dr(0)E$ and $K_0 = \\rho(0)F$ are sc-subspaces and $Tf(x_0) = Dg(0)|_{T_0O} : T_0O \\to K_0$ is sc-Fredholm, of index $n - N$ on every level for every conjugating basic germ; in **every** strong bundle chart around a zero $y$, at the point $z$ over $y$, $\\mathrm{Lin}(z) : T_zO \\to K_z$ is sc-Fredholm, the levels being transported between charts at smooth points. No tameness is used. $T_xX$ and $Y_x$ themselves carry no linear structure here (G.7), so “an sc-Fredholm operator on $T_xX$” is read in charts.",
+   "instead": "**Formalized since the first edition of this page** (third addendum; V3.46, V3.96), in charts. In the chart of Definition 3.1.11 (preprint 3.11) centred at the zero, $T_0O = Dr(0)E$ and $K_0 = \\rho(0)F$ are sc-subspaces and $Tf(x_0) = Dg(0)|_{T_0O} : T_0O \\to K_0$ is sc-Fredholm, of index $n - N$ on every level for every conjugating basic germ; in **every** strong bundle chart around a zero $y$, at the point $z$ over $y$, $\\mathrm{Lin}(z) : T_zO \\to K_z$ is sc-Fredholm, the levels being transported between charts at smooth points. No tameness is used. $T_xX$ and $Y_x$ themselves carry no linear structure here (G.7), so “an sc-Fredholm operator on $T_xX$” is read in charts. (2026-11-09) $T_xX$ now carries the linear structure of Definition 2.3.14 (gap G.7 closed, V2.19); the operator is still read in charts.",
    "formalized": [
     "V3.46",
     "V3.96"
@@ -3590,7 +3713,7 @@
    "label": "§3.1, Theorem 3.1.22 (preprint 3.19), p. 100 (preprint p. 74)",
    "page": 74,
    "book": "The solution set near $x_0$ is a manifold whose dimension agrees with the Fredholm index of $f'(x_0)$; at its points $\\ker f'(y) = T_yS(f, U)$; and for $d_X(x) = 0$ good position is the surjectivity of $f'(x)$.",
-   "instead": "**Formalized since the first edition of this page** (second addendum). The dimension: the dimension $d$ of the solution set near a zero in good position is $\\dim\\ker f'(y) = \\mathrm{ind}\\,f'(y)$ at every zero $y$ near it, in every chart (V3.97, with V3.96), also in Theorems 3.1.26, 3.6.11 (preprint 3.23, 3.57), and the index is locally constant along the solution set (V3.98). The kernel: $D\\psi$ maps $\\ker f'(y)$, read in the chart at $x_0$, onto the tangent space of the solution graph (V3.99); $T_yS$ as a subspace of $T_yX$ is not formalized (Chapter 2 gap G.13). Good position in a tame chart at $d_X(y) = 0$ is surjectivity, for tame germ data (V3.100), so Theorems 3.1.22 and 3.6.10 (preprint 3.19 and 3.56) hold with “$f'(x)$ surjective” (V3.101).",
+   "instead": "**Formalized since the first edition of this page** (second addendum). The dimension: the dimension $d$ of the solution set near a zero in good position is $\\dim\\ker f'(y) = \\mathrm{ind}\\,f'(y)$ at every zero $y$ near it, in every chart (V3.97, with V3.96), also in Theorems 3.1.26, 3.6.11 (preprint 3.23, 3.57), and the index is locally constant along the solution set (V3.98). The kernel: $D\\psi$ maps $\\ker f'(y)$, read in the chart at $x_0$, onto the tangent space of the solution graph (V3.99); $T_yS$ as a subspace of $T_yX$ is not formalized (Chapter 2 gap G.13). Good position in a tame chart at $d_X(y) = 0$ is surjectivity, for tame germ data (V3.100), so Theorems 3.1.22 and 3.6.10 (preprint 3.19 and 3.56) hold with “$f'(x)$ surjective” (V3.101). (2026-11-09) $T_yX$ now carries its linear structure and $T_aA$ is a closed subspace of $T_aX$ for every sub-M-polyfold $A$ (gap G.7 closed, V2.19, V2.25); $T_yS \\subseteq T_yX$ is not restated with it.",
    "formalized": [
     "V3.97",
     "V3.98",
@@ -3612,10 +3735,14 @@
    "label": "§3.1 and §3.6, Definitions 3.1.4, 3.6.1 and Theorem 3.6.8, pp. 91, 134–138; with Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10, 3.6.11",
    "page": 91,
    "book": "The 2021 filling asks only for an sc-smooth retraction (no tameness). Theorem 3.6.8 describes the solution set near a zero in good position; its proof (p. 138) uses that the retract is tame. Theorems 3.1.22, 3.1.26, Corollary 3.1.27 and Theorems 3.6.10, 3.6.11 rest on it.",
-   "instead": "**Open.** Whether every 2021 sc-Fredholm germ has germ data in a tame chart (Findings, Chapter 3, item 353), and Theorem 3.6.8 and the results resting on it for untamed germ data, are not formalized. The proof step on p. 138 does not go through without a tame chart (V3.115). These theorems are verified with tame germ data (V3.85, V3.94, V3.103); the 2021 corollaries whose proofs do not use tameness are V3.111–V3.114.",
+   "instead": "**Open.** Whether every 2021 sc-Fredholm germ has germ data in a tame chart (Findings, Chapter 3, item 353), and Theorem 3.6.8 and the results resting on it for untamed germ data, are not formalized. The proof step on p. 138 does not go through without a tame chart (V3.115). These theorems are verified with tame germ data (V3.85, V3.94, V3.103); the 2021 corollaries whose proofs do not use tameness are V3.111–V3.114. (2026-11-09) **In part.** Germ data in a compatible chart centred at a point of the interior of its partial quadrant, $d_C(\\varphi(x_0)) = 0$, give tame germ data: the chart shrunk into the interior is tame and carries the restricted data (`isScFredholmGermTame_of_chart_interior`, `IsScFredholmGermInterior`); so a 2021 sc-Fredholm section with such germ data at every smooth point has tame germ data (`isScFredholmSectionTame_of_interior`), and Theorem 3.6.8 and the results resting on it hold for it; the hypothesis is satisfiable (`isScFredholmGermInterior_graphSection`). **Open**: germ data in a chart with $d_C(\\varphi(x_0)) \\ge 1$, which includes every point of $\\partial X$ and corner charts at interior points of $X$ (`CornerFilling.zero_not_mem_interior`). **The reading.** Germ data in a tame chart is the wording of Definition 3.6.3 in the preprint (3.50) and in the 2017 text (“a tame strong local bundle”); the 2021 Definition 3.6.3 says “strong local bundle”, and the 2021 theorems' “tame strong bundle” is not defined in the 2021 text, which defines a tame strong bundle retraction (p. 65). For the 2021 text the tame reading is therefore our reading of that phrase (V3.103; Findings, Chapter 3, item 382).",
    "decls": [
     "Chapter3/Book2021Germs · theorem_3_6_8_tame_step_2021",
-    "Chapter3/Book2021Germs · StrongBundle.IsScFredholmGerm2021"
+    "Chapter3/Book2021Germs · StrongBundle.IsScFredholmGerm2021",
+    "Chapter3/TameGermTransfer · StrongBundle.isScFredholmGermTame_of_chart_interior",
+    "Chapter3/TameGermTransfer · StrongBundle.IsScFredholmGermInterior",
+    "Chapter3/TameGermTransfer · StrongBundle.isScFredholmSectionTame_of_interior",
+    "Chapter3/TameGermTransfer · CornerFilling.zero_not_mem_interior"
    ]
   }
  ]

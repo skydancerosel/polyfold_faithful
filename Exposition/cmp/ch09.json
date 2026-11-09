@@ -42,8 +42,12 @@
     "statement": "The dimension of $T_mM$ is locally constant in $m \\in M$, the local dimension of $M$. $\\Theta$ is $n$-dimensional if at every point of its support the manifolds of a local branching structure can be taken $n$-dimensional (2017: are $n$-dimensional); by a footnote (new in 2021) an $n$-dimensional $\\Theta$ is not $m$-dimensional for $m \\ne n$; $\\Theta$ is locally equidimensional if small structures have sheets of one dimension."
    },
    "lean": {
-    "statement": "A submanifold has dimension $k$ at $a$ if the tangent space of its sub-retract at the chart image of $a$ has dimension $k$; the value does not depend on the data and the chart, is unique, exists at every point, and is invariant under restriction to open sets and under sc-diffeomorphisms. $\\Theta$ is $n$-dimensional if at every point of its support some local branching structure has only $n$-dimensional $M_i$; the zero functor is $n$-dimensional for every $n$. The dimensions of the $M_i$ of one structure through $x$ are determined.",
+    "statement": "A submanifold has dimension $k$ at $a$ if the tangent space of its sub-retract at the chart image of $a$ has dimension $k$; the value does not depend on the data and the chart, is unique, exists at every point, and is invariant under restriction to open sets and under sc-diffeomorphisms. It is locally constant on every M-polyfold (`MPolyfold.hasLocallyConstantDimAt`): in a chart it is the rank of $Dt$ for the chart sc⁺-retraction $t$ of the submanifold (`hasDimAt_finrank`), locally constant along the retract (`ScRetraction.eventually_finrank_eq`); so a labelled local branching structure exists at every point of $\\mathrm{supp}(\\Theta)$ (`hasLabelledBranchingAt_general`). $\\Theta$ is $n$-dimensional if at every point of its support some local branching structure has only $n$-dimensional $M_i$; the zero functor is $n$-dimensional for every $n$. The dimensions of the $M_i$ of one structure through $x$ are determined. The hypothesis `HasLocallyConstantDimAt` and its proof on $\\mathbb R^m$ are kept.",
     "decls": [
+     "Chapter9/GeneralLevelZero · MPolyfold.hasLocallyConstantDimAt",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasDimAt_finrank",
+     "Chapter9/GeneralLevelZero · ScRetraction.eventually_finrank_eq",
+     "Chapter9/GeneralCorollaries · EpGroupoid.hasLabelledBranchingAt_general",
      "Chapter9/Propositions · MPolyfold.HasDimAt",
      "Chapter9/Propositions · MPolyfold.finrank_tangentSpace_chart_change",
      "Chapter9/Propositions · MPolyfold.HasDimAt.finrank_eq",
@@ -61,12 +65,12 @@
     ]
    },
    "chips": [
-    "dimension measured in a chart (G.7)",
-    "local constancy: hypothesis, ℝᵐ proved",
+    "dimension measured in a chart",
+    "local constancy: every M-polyfold",
     "footnote not formalized (G.93)"
    ],
    "diff": [
-    "The dimension is measured in a chart, since $T_aA$ carries no linear structure (gap G.7). The local constancy of $a \\mapsto \\dim T_aA$ is not proved in general; it is the hypothesis `HasLocallyConstantDimAt` where it is needed, proved on $\\mathbb R^m$ from the trace of $Ds(y)$, and elsewhere the dimensions of the $M_i$ enter as labellings $\\mathrm{dim} : I \\to \\mathbb N$. The footnote ($n$-dimensional $\\Theta \\ne 0$ is not $m$-dimensional, $m \\ne n$) and \"locally equidimensional\" are not formalized (gap G.93) (Findings, Chapter 9, items 2, 3)."
+    "Updated (2026-11-09): the local constancy of $a \\mapsto \\dim T_aA$, first the hypothesis `HasLocallyConstantDimAt` proved on $\\mathbb R^m$, holds on every M-polyfold (`hasLocallyConstantDimAt`; gap G.93 closed in part), so the dimension labellings of the $M_i$ need no longer be taken as hypotheses. The dimension is measured in a chart, since $T_aA$ carries no linear structure (gap G.7). The footnote ($n$-dimensional $\\Theta \\ne 0$ is not $m$-dimensional, $m \\ne n$) and \\\"locally equidimensional\\\" are not formalized (gap G.93) (Findings, Chapter 9, items 2, 3, 107). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -247,8 +251,14 @@
     "statement": "A branched ep⁺-subgroupoid $\\Theta$ determines a unique sequence $\\Theta_0, \\Theta_1, \\ldots$ of branched ep⁺-subgroupoids characterized by (1) $\\Theta_k$ is $k$-dimensional and (2) $\\Theta = \\Theta_0 + \\Theta_1 + \\cdots$, the sum locally finite. Proof: at $x \\in \\mathrm{supp}(\\Theta)$ take a symmetric structure, split $I = I_0 \\sqcup \\cdots \\sqcup I_n$ by the dimension of the $M_i$ and put $\\Theta_k(y) = \\sum_{i \\in I_k, y \\in M_i} \\sigma_i$; independence of the structure is Proposition 9.1.12."
    },
    "lean": {
-    "statement": "For a local branching structure with dimension labelling, $\\Theta_k(y) = \\sum_{\\dim M_i = k,\\, y \\in M_i} \\sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\\dim M_i = k}$, $\\Theta = \\sum_k \\Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\\Theta_k$ is $G_x$-invariant. The statement of the proposition, \"a unique family $(\\Theta_k)$ of branched ep⁺-subgroupoids, $\\Theta_k$ $k$-dimensional, with $\\Theta = \\sum_k \\Theta_k$ pointwise, and every such family locally finite\", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\\mathbb R^2$ it does not hold as we read it: for the indicator $\\Theta$ of the $x$-axis $L$, both $\\Theta_0 = 1_{\\{0\\}}$, $\\Theta_1 = 1_{L \\setminus \\{0\\}}$ and $\\Theta_0 = 0$, $\\Theta_1 = 1_L$ are such families. Uniqueness among local decompositions, those given near every point of $\\mathrm{supp}(\\Theta)$ by the dimensional parts of a local branching structure (the form the proof builds): two such decompositions are equal, given Proposition 9.1.12, hence over $\\mathbb R^m$ with no hypothesis and under the graph representation in general; in the example, $\\Theta_1 = 1_L$ is local and the other decomposition is not. Existence: `dimComponent`, the dimensional part of any labelled local branching structure, is a local dimensional decomposition, the unique one, and locally finite under a dimension bound; `Proposition_9_1_11_local` (Proposition 9.1.11 with \"uniquely\" among local decompositions, plus local finiteness) holds for every ep-groupoid with object M-polyfold $\\mathbb R^m$ (`proposition_9_1_11_local_rn`) and in general under Proposition 9.1.12, the local constancy of dimension and a dimension bound (`proposition_9_1_11_local_of`).",
+    "statement": "For a local branching structure with dimension labelling, $\\Theta_k(y) = \\sum_{\\dim M_i = k,\\, y \\in M_i} \\sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\\dim M_i = k}$, $\\Theta = \\sum_k \\Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\\Theta_k$ is $G_x$-invariant. The statement of the proposition, \\\"a unique family $(\\Theta_k)$ of branched ep⁺-subgroupoids, $\\Theta_k$ $k$-dimensional, with $\\Theta = \\sum_k \\Theta_k$ pointwise, and every such family locally finite\\\", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\\mathbb R^2$ it does not hold as we read it: for the indicator $\\Theta$ of the $x$-axis $L$, both $\\Theta_0 = 1_{\\{0\\}}$, $\\Theta_1 = 1_{L \\setminus \\{0\\}}$ and $\\Theta_0 = 0$, $\\Theta_1 = 1_L$ are such families. Uniqueness among local decompositions, those given near every point of $\\mathrm{supp}(\\Theta)$ by the dimensional parts of a local branching structure (the form the proof builds), for every ep-groupoid: `dimComponent`, the dimensional part of any labelled local branching structure, is a dimensional decomposition (`isDimDecomposition_dimComponent_general`), the only local one (`existsUnique_localDimDecomposition_general`, `proposition_9_1_11_unique`), and locally finite at the points of $\\mathrm{supp}(\\Theta)$ (`dimComponent_locallyFinite_of_mem_general`); `Proposition_9_1_11_local` (with local finiteness everywhere) holds under a bound on the dimensions of the submanifolds (`proposition_9_1_11_local_of_le`) and over $\\mathbb R^m$ with no hypothesis (`proposition_9_1_11_local_rn`). In the example, $\\Theta_1 = 1_L$ is local and the other decomposition is not. The forms first proved, under Proposition 9.1.12 and the local constancy of dimension, are kept (`proposition_9_1_11_local_of`, `proposition_9_1_11_unique_of_hasGraphChartAt`).",
     "decls": [
+     "Chapter9/GeneralCorollaries · EpGroupoid.existsUnique_localDimDecomposition_general",
+     "Chapter9/GeneralCorollaries · EpGroupoid.proposition_9_1_11_unique",
+     "Chapter9/GeneralCorollaries · EpGroupoid.isDimDecomposition_dimComponent_general",
+     "Chapter9/GeneralCorollaries · EpGroupoid.dimComponent_locallyFinite_of_mem_general",
+     "Chapter9/GeneralCorollaries · EpGroupoid.proposition_9_1_11_local_of_le",
+     "Chapter9/GeneralCorollaries · EpGroupoid.hasLabelledBranchingAt_general",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.dimPart",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.dimPartStructure",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.dimPartStructure_isOfDim",
@@ -286,25 +296,30 @@
    "chips": [
     "uniqueness: does not hold as we read it",
     "counterexample: $1_L$ on ℝ²",
-    "proved over ℝᵐ for local decompositions (G.96 closed there)"
+    "local decompositions: every ep-groupoid",
+    "finiteness off $\\mathrm{supp}$: a bound"
    ],
    "diff": [
-    "Hidden hypotheses: the dimension labellings of V9.2.",
-    "The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \"uniquely\" among local decompositions and with local finiteness (`Proposition_9_1_11_local`), the proposition holds for every ep-groupoid whose object M-polyfold is $\\mathbb R^m$, with no further hypothesis (`proposition_9_1_11_local_rn`; gap G.96 closed there), and in general under Proposition 9.1.12, the local constancy of dimension and, for local finiteness, a bound on the dimensions (`proposition_9_1_11_local_of`) (Findings, Chapter 9, items 8, 105, 106)."
+    "Updated (2026-11-09): Proposition 9.1.12 and the local constancy of dimension, first hypotheses, hold for every ep-groupoid (V9.10, V9.2), and the dimension labellings exist at every point of $\\mathrm{supp}(\\Theta)$ (`hasLabelledBranchingAt_general`); so the local decomposition exists and is unique for every branched ep⁺-subgroupoid, locally finite at the points of $\\mathrm{supp}(\\Theta)$; local finiteness off $\\mathrm{supp}(\\Theta)$ is proved under a bound on the dimensions (Findings, Chapter 9, items 105, 106, 107).",
+    "The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \\\"uniquely\\\" among local decompositions and with local finiteness (`Proposition_9_1_11_local`), the proposition holds for every ep-groupoid whose object M-polyfold is $\\mathbb R^m$, with no further hypothesis (`proposition_9_1_11_local_rn`; gap G.96 closed), and for every ep-groupoid whose submanifolds have bounded dimensions (`proposition_9_1_11_local_of_le`) (Findings, Chapter 9, items 8, 105, 106)."
    ]
   },
   {
    "id": "V9.10",
    "title": "Proposition 9.1.12, the decomposition does not depend on the structure",
-   "verdict": "explicit",
+   "verdict": "same",
    "book": {
     "label": "§9.1, Proposition 9.1.12, p. 408 (new in the 2021 edition), proof in §9.6.1, pp. 452–457",
     "page": 408,
     "statement": "For two local branching structures of $\\Theta$ on $U(x)$ there is an open $G_x$-invariant $V(x) \\subseteq U(x)$ (with the usual properties) on which the two dimensional decompositions $\\Theta_k$ agree."
    },
    "lean": {
-    "statement": "For two local branching structures of $\\Theta$ at $x$ with dimension labellings there is an open $V \\ni x$ in both domains on which their dimensional decompositions agree, and $V$ can be taken to be the domain of a natural representation of $G_x$. This holds for equidimensional structures without hypothesis, for every M-polyfold with `TopMultiplicity` in every dimension or with `HasGraphChartAt` at every point, and, without hypothesis, for every ep-groupoid whose object M-polyfold is $\\mathbb R^m$. Structures with sheets of different dimensions exist on $\\mathbb R^1$ and $\\mathbb R^2$.",
+    "statement": "For two local branching structures of $\\Theta$ at $x$ whose sheets have constant dimensions there is an open $V \\ni x$ in both domains on which their dimensional decompositions agree, and $V$ can be taken to be the domain of a natural representation of $G_x$: for every ep-groupoid (`proposition_9_1_12`, `LocalBranchingStructure.dimPartsAgreeNear`), from `TopMultiplicity`, which holds for every M-polyfold in every dimension (`MPolyfold.topMultiplicity`). The forms first proved are kept: for equidimensional structures without hypothesis, under `TopMultiplicity` or `HasGraphChartAt`, and over $\\mathbb R^m$. Structures with sheets of different dimensions exist on $\\mathbb R^1$ and $\\mathbb R^2$.",
     "decls": [
+     "Chapter9/GeneralCorollaries · EpGroupoid.proposition_9_1_12",
+     "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.dimPartsAgreeNear",
+     "Chapter9/GeneralCorollaries · MPolyfold.topMultiplicity",
+     "Chapter9/GeneralCorollaries · MPolyfold.topMultiplicityAt",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.DimPartsAgreeNear",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.DimPartsAgreeNear.exists_naturalRep",
      "Chapter9/Propositions · EpGroupoid.Proposition_9_1_12",
@@ -322,12 +337,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "on ℝᵐ: no hypothesis",
-    "general: `HasGraphChartAt` (G.97)"
+    "every ep-groupoid (G.97 closed)"
    ],
    "diff": [
-    "Hidden hypotheses: the graph representation `HasGraphChartAt` (Lemmas 9.2.9–9.2.11) on a general M-polyfold.",
-    "\"open, $G_x$-invariant, with the usual properties\" is any open $V$ in both domains, shrunk to a natural representation by `exists_naturalRep`; the hypothesis is discharged on $\\mathbb R^m$ (gap G.97 in general) (Findings, Chapter 9, items 9, 90–93)."
+    "Updated (2026-11-09): the graph representation, first the hidden hypothesis `HasGraphChartAt` on a general M-polyfold, is proved with one admissible cone per tangent space, which is all the slice arguments use (gap G.97 closed); so `TopMultiplicity` holds for every M-polyfold and Proposition 9.1.12 for every ep-groupoid (`proposition_9_1_12`). The forms with the hypotheses are kept (`proposition_9_1_12_of_topMultiplicity`, `proposition_9_1_12_of_hasGraphChartAt`, `proposition_9_1_12_rn`) (Findings, Chapter 9, item 107).",
+    "\\\"open, $G_x$-invariant, with the usual properties\\\" is any open $V$ in both domains, shrunk to a natural representation by `exists_naturalRep` (Findings, Chapter 9, items 9, 90–93)."
    ]
   },
   {
@@ -356,10 +370,10 @@
     ]
    },
    "chips": [
-    "generators are tangent sets (G.7)"
+    "generators are tangent sets"
    ],
    "diff": [
-    "The generators are subsets of $T_xX$ rather than linear subspaces, since $T_xX$ carries no linear structure (gap G.7); in a chart the tangent spaces of submanifolds are linear subspaces (V9.12) (Findings, Chapter 9, item 20)."
+    "The generators are subsets of $T_xX$ rather than linear subspaces, since $T_xX$ carries no linear structure (gap G.7); in a chart the tangent spaces of submanifolds are linear subspaces (V9.12) (Findings, Chapter 9, item 20). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -393,7 +407,7 @@
     "chart change linear"
    ],
    "diff": [
-    "Sets instead of subspaces (gap G.7) (Findings, Chapter 9, item 20)."
+    "Sets instead of subspaces (gap G.7) (Findings, Chapter 9, item 20). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -431,15 +445,18 @@
   {
    "id": "V9.14",
    "title": "Theorem 9.2.1 (2017: 9.1), the independence of the local branching structure",
-   "verdict": "explicit",
+   "verdict": "same",
    "book": {
     "label": "§9.2, Theorem 9.2.1, p. 409 (2017: Theorem 9.1, p. 298), the independence of the structure, proof pp. 412–418 (2017 pp. 301–306)",
     "page": 409,
     "statement": "The difficult part of (1) is that $\\sum_i \\sigma_i T_xM_i$ does not depend on the local branching structure; the text reduces to the equidimensional case, treats good points directly and bad points by Proposition 9.2.8."
    },
    "lean": {
-    "statement": "The sums are independent at good points without hypothesis; for equidimensional structures under the slice hypothesis `HasTangentSlicesAt`, which follows from `HasGraphChartsAt`; in general under `HasGraphChartAt` and `HasLocallyConstantDimAt` on the support; and for every $\\Theta$ on an ep-groupoid whose object M-polyfold is $\\mathbb R^m$, without hypothesis. In the example of Remark 9.1.3 (b) the two structures have the same tangent sum at the bad point $0$.",
+    "statement": "`hasIndependentTangentSums`: for every ep-groupoid and every $\\Theta$, $\\sum_i \\sigma_i T_xM_i$ does not depend on the local branching structure, from Proposition 9.1.12 (V9.10), the local constancy of the dimension (`MPolyfold.hasLocallyConstantDimAt`) and the tangent slices at every point (`MPolyfold.hasTangentSlicesAt`). The forms first proved are kept: at good points without hypothesis; for equidimensional structures under the slice hypothesis `HasTangentSlicesAt`, from `HasGraphChartsAt`; in general under `HasGraphChartAt` and `HasLocallyConstantDimAt` on the support; and over $\\mathbb R^m$ without hypothesis. In the example of Remark 9.1.3 (b) the two structures have the same tangent sum at the bad point $0$.",
     "decls": [
+     "Chapter9/GeneralCorollaries · EpGroupoid.hasIndependentTangentSums",
+     "Chapter9/GeneralCorollaries · MPolyfold.hasTangentSlicesAt",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasLocallyConstantDimAt",
      "Chapter9/Tangent · EpGroupoid.LocalBranchingStructure.tangentSum_eq_of_isGoodPoint",
      "Chapter9/Tangent · EpGroupoid.hasIndependentTangentSums_of_subset_goodSet",
      "Chapter9/Tangent · EpGroupoid.hasIndependentTangentSums_of_isOfDim",
@@ -452,13 +469,12 @@
     ]
    },
    "chips": [
-    "on ℝᵐ: every $\\Theta$, no hypothesis",
-    "good points: no hypothesis",
-    "general: graph charts, dim locally const."
+    "every $\\Theta$, every ep-groupoid",
+    "good points: no hypothesis"
    ],
    "diff": [
-    "Hidden hypotheses: the graph representation and the local constancy of the dimension on a general M-polyfold.",
-    "The text reduces to the equidimensional case by Proposition 9.1.11; the formalization does the same through Proposition 9.1.12 (V9.10) with dimension labellings (gaps G.93, G.97) (Findings, Chapter 9, items 21, 25, 100)."
+    "Updated (2026-11-09): the graph representation and the local constancy of the dimension, first hidden hypotheses on a general M-polyfold, are theorems (gap G.97 closed, gap G.93 closed in part), so the independence holds for every $\\Theta$ (`hasIndependentTangentSums`); the forms with the hypotheses are kept (`hasIndependentTangentSums_of_hasGraphChartAt_of_hasLocallyConstantDimAt`, `hasIndependentTangentSums_rn`) (Findings, Chapter 9, item 107).",
+    "The text reduces to the equidimensional case by Proposition 9.1.11; the formalization does the same through Proposition 9.1.12 (V9.10) with dimension labellings (Findings, Chapter 9, items 21, 25, 100)."
    ]
   },
   {
@@ -613,15 +629,18 @@
   {
    "id": "V9.21",
    "title": "Lemma 9.2.7 (2) (2017: 9.5 (2)), good points accumulate on every sheet",
-   "verdict": "explicit",
+   "verdict": "stronger",
    "book": {
     "label": "§9.2, Lemma 9.2.7 (2), p. 412 (2017: Lemma 9.5 (2), p. 301)",
     "page": 412,
     "statement": "For a bad point $x$ and a local branching structure on $U(x)$, every $M_i$ contains a sequence of good points converging to $x$."
    },
    "lean": {
-    "statement": "For an $n$-dimensional local branching structure at $x$ and every $i$ there is a sequence of good points in $M_i$ converging to $x$, under invariance of domain for $n$-dimensional submanifolds on $U(x)$, which holds on $\\mathbb R^m$; on $\\mathbb R^m$ the statement has no hypothesis. In Remark 9.1.3 (b) the origin is bad and is approached by good points of the graph of $\\beta_1$.",
+    "statement": "`lemma_9_2_7_2_general`: for every ep-groupoid, an $n$-dimensional local branching structure at $x$ and every $i$, there is a sequence of good points in $M_i$ converging to $x$. The invariance of domain for $n$-dimensional submanifolds it uses holds on every M-polyfold (`MPolyfold.hasDomainInvarianceAt`: two chart sc⁺-retractions with the same tangent space at a point have the same retract near it, `ScRetraction.eq_of_range_eq`). The forms first proved are kept: `lemma_9_2_7_2` under `HasDomainInvarianceAt`, and `lemma_9_2_7_2_rn` on $\\mathbb R^m$. In Remark 9.1.3 (b) the origin is bad and is approached by good points of the graph of $\\beta_1$.",
     "decls": [
+     "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.lemma_9_2_7_2_general",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasDomainInvarianceAt",
+     "Chapter9/GeneralLevelZero · ScRetraction.eq_of_range_eq",
      "Chapter9/TangentSlices · MPolyfold.HasDomainInvarianceAt",
      "Chapter9/TangentSlices · MPolyfold.hasDomainInvarianceAt_rn",
      "Chapter9/TangentSlices · EpGroupoid.lemma_9_2_7_2",
@@ -632,26 +651,37 @@
    },
    "chips": [
     "at every $x$, not only bad points",
-    "on ℝᵐ: no hypothesis",
-    "general: invariance of domain (G.98)"
+    "no hypothesis (G.98 closed)"
    ],
    "diff": [
-    "Hidden hypotheses: invariance of domain (`HasDomainInvarianceAt`) on a general M-polyfold.",
-    "The statement holds at every $x$, not only at bad points (gap G.98) (Findings, Chapter 9, item 24)."
+    "Updated (2026-11-09): invariance of domain, first the hidden hypothesis `HasDomainInvarianceAt` on a general M-polyfold, is a theorem (gap G.98 closed), so the lemma holds for every ep-groupoid (`lemma_9_2_7_2_general`); the form with the hypothesis is kept (`lemma_9_2_7_2`) (Findings, Chapter 9, item 107).",
+    "The statement holds at every $x$, not only at bad points (Findings, Chapter 9, item 24)."
    ]
   },
   {
    "id": "V9.22",
    "title": "Proposition 9.2.8 and Lemmas 9.2.9–9.2.11 (2017: Proposition 9.3, Lemmas 9.6–9.8), the graph representation and tangent slices",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§9.2, Proposition 9.2.8, p. 413 (2017: Proposition 9.3, p. 302), and Lemmas 9.2.9–9.2.11, pp. 414–417 (2017: Lemmas 9.6–9.8, pp. 302–305)",
     "page": 413,
     "statement": "At a bad point $x$, for a class $\\Xi$ of indices with one tangent space $T_xM_i$ there are $i_1, \\ldots, i_p \\in \\Xi$, a partition $\\Xi = I^1 \\sqcup \\cdots \\sqcup I^p$ and sequences of good points $x^e_k \\to x$ with $x^e_k \\in M_i$ iff $i \\in I^e$. Lemmas 9.2.9–9.2.11: $L \\cap C$ has interior in $L = T_0M_{i_1}$; the $M_i$, $i \\in \\Xi$, are graphs over a cone around $h_0$; the map $a \\mapsto a + B_i(a)$ is injective with invertible derivative and its image contains a cone."
    },
    "lean": {
-    "statement": "If near $x$ every $n$-dimensional submanifold through $x$ is, in one chart, a graph over a ray (or ball) in its tangent space (`IsGraphChartAt`, `HasGraphChartAt` for all dimensions at once, `HasGraphBallAt`), then for every class $\\Xi$ of sheets with one tangent space $L$ at $x$ and every neighbourhood $W$ of $x$ there is a finite slice of points in $W$ meeting each $M_i$, $i \\in \\Xi$, once and missing the other $M_i$, so that $\\sum_{i \\in \\Xi} \\sigma_i = \\sum_{y \\in F} \\Theta(y)$ (`HasTangentSlicesAt`), and the slice can be chosen generic. On $\\mathbb R^m$ the graph representation holds at every point and in every dimension, by the inverse function theorem.",
+    "statement": "Lemma 9.2.9: for an sc⁺-retraction $r$ and a point $x_0$ of its retract with tangent space $T$, a cone $x_0 + s\\bar B_T(h_1, \\rho)$ lies in $C$ (`ScRetraction.exists_cone`). Lemmas 9.2.10, 9.2.11: near $x_0$ the retract is a graph over a cone in $T$ (`exists_graph_unif`, `exists_graph`), and over a ball of $T$ at interior points (`exists_graph_ball`), the inversion by the inverse function theorem on $T$; all estimates on level $1$ for $1_0^1 \\circ r$, brought down to level $0$. In an M-polyfold every finite-dimensional submanifold through $x$ is, in one chart, a graph over the admissible cone of its tangent space (`isGraphChartAt_goodDirections`; `HasClassGraphChartAt`, one cone per tangent space, holds at every point, `hasClassGraphChartAt`). Proposition 9.2.8 in slice form: for every class $\\Xi$ of sheets with one tangent space $L$ at $x$ and every neighbourhood $W$ of $x$ there is a finite slice of points in $W$ meeting each $M_i$, $i \\in \\Xi$, once and missing the other $M_i$, so that $\\sum_{i \\in \\Xi} \\sigma_i = \\sum_{y \\in F} \\Theta(y)$, and the slice can be chosen generic (`exists_slice_of_classGraphChart`, `exists_generic_slice_general`; `HasTangentSlicesAt` at every point, `hasTangentSlicesAt`). The forms first proved, with the graph representation as a hypothesis (`IsGraphChartAt`, `HasGraphChartAt` for all dimensions at once, `HasGraphChartsAt`, `HasGraphBallAt`), proved on $\\mathbb R^m$ by the inverse function theorem, are kept; `HasGraphChartAt` and `HasGraphBallAt` hold at interior points (`hasGraphChartAt_of_mem_interior`, `hasGraphBallAt_of_mem_interior`).",
     "decls": [
+     "Chapter9/GeneralLevelZero · ScRetraction.exists_cone",
+     "Chapter9/GeneralLevelZero · ScRetraction.exists_graph_unif",
+     "Chapter9/GeneralLevelZero · ScRetraction.exists_graph",
+     "Chapter9/GeneralLevelZero · ScRetraction.exists_graph_ball",
+     "Chapter9/GeneralLevelZero · MPolyfold.isGraphChartAt_goodDirections",
+     "Chapter9/GeneralLevelZero · MPolyfold.HasClassGraphChartAt",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasClassGraphChartAt",
+     "Chapter9/GeneralCorollaries · MPolyfold.exists_slice_of_classGraphChart",
+     "Chapter9/GeneralCorollaries · MPolyfold.exists_generic_slice_general",
+     "Chapter9/GeneralCorollaries · MPolyfold.hasTangentSlicesAt",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasGraphChartAt_of_mem_interior",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasGraphBallAt_of_mem_interior",
      "Chapter9/Tangent · MPolyfold.HasTangentSlicesAt",
      "Chapter9/TangentSlicesBasic · MPolyfold.IsGraphChartAt",
      "Chapter9/TangentSlicesBasic · MPolyfold.HasGraphChartsAt",
@@ -672,12 +702,12 @@
    },
    "chips": [
     "slice form",
-    "graph charts: hypothesis, ℝᵐ proved",
-    "rays and balls for cones"
+    "Lemmas 9.2.9–9.2.11: every M-polyfold",
+    "one cone per tangent space"
    ],
    "diff": [
-    "Hidden hypotheses: the graph representation on a general M-polyfold.",
-    "Proposition 9.2.8 is formalized in slice form, not with the text's subsets $I^e$ and sequences of good points; rays and balls replace the cones around $h_0$; Lemmas 9.2.9–9.2.11 are the hypotheses, proved on $\\mathbb R^m$ (gap G.97) (Findings, Chapter 9, item 25)."
+    "Updated (2026-11-09): Lemmas 9.2.9–9.2.11, first hypotheses proved on $\\mathbb R^m$, are proved on every M-polyfold (`Chapter9/GeneralLevelZero.lean`), with one admissible cone per tangent space: the project's earlier hypothesis `HasGraphChartAt`, one cone for all submanifolds through $x$, was stronger than the slice arguments need (gap G.97 closed) (Findings, Chapter 9, item 107).",
+    "Proposition 9.2.8 is formalized in slice form, not with the text's subsets $I^e$ and sequences of good points (Findings, Chapter 9, item 25)."
    ]
   },
   {
@@ -690,8 +720,12 @@
     "statement": "There is a well-defined branched ep⁺-subgroupoid $T\\Theta : TX \\to \\mathbb Q^+$, $T\\Theta(h) = 0$ for $h \\in T_xX$ with $\\Theta(x) = 0$ and $T\\Theta(h) = \\sum_{h \\in TM_i} \\sigma_i$ over $U(x)$; by the previous discussion it does not depend on the structure, and the local definitions fit together."
    },
    "lean": {
-    "statement": "Under the independence of V9.13, $T\\Theta(h) = \\sum_{h \\in TM_i} \\sigma_i$ for $h$ over $U(x)$, and $0$ over the complement of the support, is well defined, nonnegative and a functor on the tangent ep-groupoid; it is a branched ep⁺-subgroupoid of $TX$ if the $TM_i$ are smooth submanifolds of $TX$ (closedness and the paracompactness of $|\\mathrm{supp}(T\\Theta)|$ for paracompact $|X|$ are proved), and on $\\mathbb R^m$ the $TM_i$ are sub-M-polyfolds of $TX$, retracts of $Ts$.",
+    "statement": "`isBranchedEpSubgroupoid_tangentTheta_general`: for a branched ep⁺-subgroupoid $\\Theta$ of an ep-groupoid with paracompact orbit space $|X|$, $T\\Theta$ is a branched ep⁺-subgroupoid of $TX$. For a smooth finite-dimensional submanifold $A$, $TA$ is a smooth finite-dimensional submanifold of $TX$, near each point the image of the sc⁺-retraction $Ts$ (`IsSmoothSubmanifold.isSmoothSubmanifold_tangent`), so the $TM_i$ of every local branching structure are smooth in $TX$ (`LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold`) and the hypothesis `TangentBranchingHyp` holds whenever $|X|$ is paracompact (`tangentBranchingHyp`). Under the independence of V9.13, $T\\Theta(h) = \\sum_{h \\in TM_i} \\sigma_i$ for $h$ over $U(x)$, and $0$ over the complement of the support, is well defined, nonnegative and a functor on the tangent ep-groupoid; it is a branched ep⁺-subgroupoid of $TX$ if the $TM_i$ are smooth submanifolds of $TX$ (closedness and the paracompactness of $|\\mathrm{supp}(T\\Theta)|$ for paracompact $|X|$ are proved), and on $\\mathbb R^m$ the $TM_i$ are sub-M-polyfolds of $TX$, retracts of $Ts$.",
     "decls": [
+     "Chapter9/TangentSubmanifoldSmooth · EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general",
+     "Chapter9/TangentSubmanifoldSmooth · EpGroupoid.tangentBranchingHyp",
+     "Chapter9/TangentSubmanifoldSmooth · MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent",
+     "Chapter9/TangentSubmanifoldSmooth · EpGroupoid.LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold",
      "Chapter9/Tangent · EpGroupoid.tangentSubmanifold",
      "Chapter9/Tangent · EpGroupoid.tangentTheta",
      "Chapter9/Tangent · EpGroupoid.tangentTheta_eq",
@@ -711,12 +745,14 @@
     ]
    },
    "chips": [
-    "$TM_i$ smooth in $TX$: hypothesis (G.99)",
+    "$TM_i$ smooth in $TX$: proved (G.99)",
+    "$|X|$ paracompact, as in Prop. 9.1.9",
     "closedness, paracompactness proved"
    ],
    "diff": [
-    "Hidden hypotheses: that the $TM_i$ are smooth submanifolds of $TX$ (the tangent of the sc⁺-retraction is sc⁺ on $TX$), and the paracompactness of $|X|$, neither discussed in the text.",
-    "$h \\in TM_i$ is read as $h \\in T_{p(h)}M_i$; only the zero functor is a witness of the full hypothesis (gap G.99) (Findings, Chapter 9, item 26)."
+    "Updated (2026-11-09): the $TM_i$ are smooth submanifolds of $TX$ (`IsSmoothSubmanifold.isSmoothSubmanifold_tangent`, `Chapter9/TangentSubmanifoldSmooth.lean`; gap G.99 closed), so $T\\Theta$ is a branched ep⁺-subgroupoid whenever $|X|$ is paracompact (`isBranchedEpSubgroupoid_tangentTheta_general`); the forms with the smoothness as a hypothesis are kept (`TangentBranchingHyp`, `isBranchedEpSubgroupoid_tangentTheta`). Still “explicit”: the paracompactness of $|X|$, which the text assumes in Proposition 9.1.9 (p. 405) but not in Definition 9.2.12 (Findings, Chapter 9, items 26, 109).",
+    "Hidden hypothesis: the paracompactness of $|X|$ (it gives that of $|\\mathrm{supp}(T\\Theta)|$), not discussed in Definition 9.2.12.",
+    "$h \\in TM_i$ is read as $h \\in T_{p(h)}M_i$ (Findings, Chapter 9, item 26)."
    ]
   },
   {
@@ -908,11 +944,11 @@
     ]
    },
    "chips": [
-    "frames, not vector spaces (G.7)",
+    "frames, not vector spaces",
     "Remark 9.3.1: no formal content"
    ],
    "diff": [
-    "Frames instead of orientations of vector spaces (gap G.7) (Findings, Chapter 9, item 50)."
+    "Frames instead of orientations of vector spaces (gap G.7) (Findings, Chapter 9, item 50). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
@@ -939,7 +975,8 @@
      "Chapter9/OrientationBasic · EpGroupoid.orientedSection_comp_grForgetFunctor_obj",
      "Chapter9/OrientationBasic · EpGroupoid.isOrientation_zero",
      "Chapter9/OrientationBasic · EpGroupoid.isOrientation_sum_rn",
-     "Chapter9/OrientationRn · EpGroupoid.isOrientation_sum_trivial_rn"
+     "Chapter9/OrientationRn · EpGroupoid.isOrientation_sum_trivial_rn",
+     "Chapter9/GeneralCorollaries · EpGroupoid.hasIndependentTangentSums"
     ]
    },
    "chips": [
@@ -947,7 +984,7 @@
     "lift via $T_\\Theta$"
    ],
    "diff": [
-    "Hidden hypotheses: the lift condition uses $T_\\Theta$, hence the independence of Theorem 9.2.1, discharged on $\\mathbb R^m$.",
+    "The lift condition uses $T_\\Theta$, hence the independence of Theorem 9.2.1, first discharged on $\\mathbb R^m$ and since 2026-11-09 for every ep-groupoid (`hasIndependentTangentSums`, V9.14).",
     "The continuity of $o_i$ is the local constancy of the chart frames (Findings, Chapter 9, item 51)."
    ]
   },
@@ -983,8 +1020,16 @@
     "statement": "Two orientations $\\hat T^1_\\Theta$, $\\hat T^2_\\Theta$ of a branched ep⁺-subgroupoid $\\Theta$ which agree at good points are the same."
    },
    "lean": {
-    "statement": "Two orientations of an $n$-dimensional $\\Theta$ that agree at the good points agree at every smooth point, under `HasOrientedGoodPointsAt` on the support, which follows from the ball graph representation `HasGraphBallAt` and the level-1 continuity `HasContinuousLevelOneOn`; on $\\mathbb R^m$ without hypothesis. Without equidimensionality the lemma does not hold as we read it: for $\\Theta = 1_{\\mathbb R \\times 0} + 1_{(0,0)}$ on $\\mathbb R^2$ two orientations agree at all good points and differ at the origin.",
+    "statement": "`lemma_9_3_4_general`: for a branched ep⁺-subgroupoid $\\Theta$, two $n$-dimensional orientations that agree at the good points agree at every smooth point, with no hypothesis on the boundary. The good-point input `HasOrientedGoodPointsAt` (Proposition 9.2.8 for oriented families) holds at every point of every M-polyfold, in every dimension (`hasOrientedGoodPointsAt`): the direction off the other tangent spaces is taken near an admissible direction of the partial quadrant (`exists_small_cone`), and the sheets tangent to it are graphs over a small ball around it, uniformly in the direction (`exists_graph_unif_chart`, Lemmas 9.2.10, 9.2.11). The forms first recorded are kept: under `HasGraphBallAt` on the support (`lemma_9_3_4_of_hasGraphBallAt'`, `lemma_9_3_4_of_hasGraphBallAt`), for support of degeneracy index $0$ (`lemma_9_3_4_of_degIndex_eq_zero`), on $\\mathbb R^m$ (`lemma_9_3_4_rn`). Without equidimensionality the lemma does not hold as we read it: for $\\Theta = 1_{\\mathbb R \\times 0} + 1_{(0,0)}$ on $\\mathbb R^2$ two orientations agree at all good points and differ at the origin (`lemma_9_3_4_mixed_dim`).",
     "decls": [
+     "Chapter9/GeneralBoundaryPoints · EpGroupoid.lemma_9_3_4_general",
+     "Chapter9/GeneralBoundaryPoints · MPolyfold.hasOrientedGoodPointsAt",
+     "Chapter9/GeneralBoundaryPoints · MPolyfold.exists_graph_unif_chart",
+     "Chapter9/GeneralBoundaryPoints · MPolyfold.exists_small_cone",
+     "Chapter9/GeneralCorollaries · EpGroupoid.lemma_9_3_4_of_degIndex_eq_zero",
+     "Chapter9/GeneralCorollaries · EpGroupoid.lemma_9_3_4_of_hasGraphBallAt'",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasContinuousLevelOneOn",
+     "Chapter9/GeneralLevelZero · MPolyfold.hasGraphBallAt_of_mem_interior",
      "Chapter9/OrientationUniqueness · EpGroupoid.IsOrientationOfDim",
      "Chapter9/OrientationUniqueness · MPolyfold.HasOrientedGoodPointsAt",
      "Chapter9/OrientationUniqueness · EpGroupoid.lemma_9_3_4",
@@ -1005,11 +1050,13 @@
    "chips": [
     "$n$-dimensional $\\Theta$",
     "mixed dimensions: does not hold as read",
-    "on ℝᵐ: no hypothesis"
+    "boundary points: no hypothesis"
    ],
    "diff": [
-    "Hidden hypotheses: $n$-dimensional $\\Theta$; on a general M-polyfold the graph representation and the continuity of frame fields on level 1.",
-    "The proof compares the two structures on one family of slices, applying Proposition 9.2.8 to both families together, and compares frames of different sheets by level-1 continuity; the text takes the good-point sequences from the first structure only, a step that needs an argument it does not give (gaps G.97, G.100) (Findings, Chapter 9, item 53)."
+    "Updated (2026-11-09): **no hypothesis on the boundary** (`lemma_9_3_4_general`, `Chapter9/GeneralBoundaryPoints.lean`): the good-point input holds at every point, boundary points included (`hasOrientedGoodPointsAt`), so the ball form of the graph representation, the project's earlier hypothesis, is not needed; the forms with it are kept (`lemma_9_3_4_of_hasGraphBallAt'`, `lemma_9_3_4_of_degIndex_eq_zero`). Still “narrower”: $\\Theta$ is $n$-dimensional, and for mixed dimensions the lemma does not hold as we read it (`lemma_9_3_4_mixed_dim`) (Findings, Chapter 9, items 53, 107, 109).",
+    "Earlier on 2026-11-09: the level-1 continuity of frame fields became a theorem on every M-polyfold (gap G.100 closed) and the ball graph representation holds at interior points, so the lemma held with no hypothesis for $\\Theta$ supported at points of degeneracy index $0$ (`lemma_9_3_4_of_degIndex_eq_zero`) (Findings, Chapter 9, items 53, 107).",
+    "Hidden hypothesis: $n$-dimensional $\\Theta$.",
+    "The proof compares the two structures on one family of slices, applying Proposition 9.2.8 to both families together, and compares frames of different sheets by level-1 continuity; the text takes the good-point sequences from the first structure only, a step that needs an argument it does not give (gaps G.97, G.100, closed) (Findings, Chapter 9, item 53)."
    ]
   },
   {
@@ -1064,20 +1111,24 @@
     "statement": "$\\Theta$ is tame if every $x \\in \\mathrm{supp}(\\Theta)$ has an open $U(x)$ with the natural $G_x$-action and the properness property and a local branching structure on it whose $M_i$ have equivalent tame structures; in particular every $M_i$ is then a manifold with boundary with corners."
    },
    "lean": {
-    "statement": "$\\Theta$ is tame if at every point of its support there is a local branching structure on a domain with the natural $G_x$-action and the properness property all of whose $M_i$ have a tame induced structure; the zero functor and the indicator of a point of $\\mathbb R^n$ are tame.",
+    "statement": "$\\Theta$ is tame if at every point of its support there is a local branching structure on a domain with the natural $G_x$-action and the properness property all of whose $M_i$ have a tame induced structure; the zero functor and the indicator of a point of $\\mathbb R^n$ are tame. In particular, for a tame local branching structure whose sheets have dimension $n$, every $M_i$ with the charted space of its induced corner structure is a smooth manifold with boundary with corners in Mathlib's sense, `IsManifold (modelWithCornersEuclideanQuadrant n) ∞` (`TameBranchingStructure.isManifold`).",
     "decls": [
      "Chapter9/BoundaryPosition · EpGroupoid.TameBranchingStructure",
      "Chapter9/BoundaryPosition · EpGroupoid.IsTameBranched",
      "Chapter9/BoundaryPosition · EpGroupoid.isTameBranched_zero",
      "Chapter9/BoundaryPosition · EpGroupoid.isTameBranched_indicator",
-     "Chapter9/BoundaryPosition · MPolyfold.hasTameInducedStructure_of_degIndex_eq_zero"
+     "Chapter9/BoundaryPosition · MPolyfold.hasTameInducedStructure_of_degIndex_eq_zero",
+     "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.isManifold",
+     "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.cornerChartedSpace",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_cornerChartedSpace"
     ]
    },
    "chips": [
-    "corner structure not formalized (G.102)"
+    "corners: Mathlib manifold (G.102)"
    ],
    "diff": [
-    "\"an equivalent tame structure\" is Part I's tame induced structure (Definition 2.5.18); the consequence \"in particular every $M_i$ is a manifold with boundary with corners\" is not formalized (gap G.102) (Findings, Chapter 9, item 55)."
+    "“An equivalent tame structure” is Part I's tame induced structure (Definition 2.5.18). Updated (2026-11-09): the consequence “in particular every $M_i$ is a manifold with boundary with corners” is formalized for sheets of one dimension $n$ in Mathlib's language (`TameBranchingStructure.isManifold`, `Chapter9/MathlibManifoldBridge.lean`; gap G.102 closed) (Findings, Chapter 9, items 55, 109)."
    ]
   },
   {
@@ -1116,8 +1167,18 @@
     "statement": "For an oriented $n$-dimensional $(M, o)$ and $y \\in \\partial M$ with $d_M(y) = 1$, a basis $(a_1, \\ldots, a_{n-1})$ of $T_y\\partial M$ is positive iff $(e, a_1, \\ldots, a_{n-1})$ is positive for $o_y$, $e$ an outward pointing vector; this orients $\\partial M$ near $y$."
    },
    "lean": {
-    "statement": "For an oriented $(M, o)$, a hyperplane $K$ of $T_yM$ and $e \\notin K$, the frames $(a_1, \\ldots, a_{n-1})$ of $K$ with $(e, a_1, \\ldots, a_{n-1})$ positive orient $K$, and the orientation is unchanged under $e \\mapsto ce + k$, $c > 0$, $k \\in K$; both orientations occur.",
+    "statement": "`MPolyfold.boundaryOp`: the boundary operation built from the ambient structure, $T_y(M, o) \\mapsto (T^R_yM, o_\\partial)$ with the frames $a$ of $T^R_yM$ such that $(e, a)$ is positive for every outward $e$; $T^R_yX$ and the partial cone $C_yX$ are read in a presented chart and are chart independent (`PresentedChart.exists_clm`). For an oriented $(M, o)$ of dimension $n$ and $y$ with $d_M(y) = 1$ (reduced codimension $1$ of $T_yM$): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`); outward vectors exist and are the vectors of $T_yM$ not in $C_yM$ (`IsBoundaryAdmissible.exists_outward`, `isOutward_iff_not_mem_partialCone`); and $\\mathrm{boundaryOp}(T_y(M, o))$ is an orientation of $T_y\\partial M$, given by Definition 9.3.8's frames for every outward $e$ (`SubmanifoldOrientation.boundaryOp_tangent`, `boundaryOp_eq`, `isOrientedAt_boundaryOp`). The pointwise construction first recorded: for a hyperplane $K$ of $T_yM$ and $e \\notin K$, the frames $(a_1, \\ldots, a_{n-1})$ of $K$ with $(e, a_1, \\ldots, a_{n-1})$ positive orient $K$, unchanged under $e \\mapsto ce + k$, $c > 0$, $k \\in K$, and both orientations occur (`boundaryFrames`). The situation occurs at the corner of $[0, \\infty)$ (`exists_isBoundaryAdmissible_halfLine`).",
     "decls": [
+     "Chapter9/BoundaryOperation · MPolyfold.boundaryOp",
+     "Chapter9/BoundaryOperation · MPolyfold.boundaryOp_eq",
+     "Chapter9/BoundaryOperation · MPolyfold.isOrientedAt_boundaryOp",
+     "Chapter9/BoundaryOperation · MPolyfold.SubmanifoldOrientation.boundaryOp_tangent",
+     "Chapter9/BoundaryOperation · MPolyfold.chartVec_image_boundaryCarrier",
+     "Chapter9/BoundaryOperation · MPolyfold.isOutward_iff_not_mem_partialCone",
+     "Chapter9/BoundaryOperation · MPolyfold.isBoundaryAdmissible_of_submanifold",
+     "Chapter9/BoundaryOperation · MPolyfold.IsBoundaryAdmissible.exists_outward",
+     "Chapter9/BoundaryOperation · MPolyfold.PresentedChart.exists_clm",
+     "Chapter9/BoundaryOperation · MPolyfold.exists_isBoundaryAdmissible_halfLine",
      "Chapter9/OrientationBoundary · exists_basis_orientation_iff_det_pos",
      "Chapter9/OrientationBoundary · exists_boundary_orientation",
      "Chapter9/OrientationBoundary · det_cons_smul_add",
@@ -1128,25 +1189,31 @@
     ]
    },
    "chips": [
-    "$T_y\\partial M$, outward $e$ as data",
-    "independent of $e$ up to $ce + k$"
+    "$T_y\\partial M = T^R_yM$, outward: from $M$",
+    "independent of the outward $e$",
+    "continuity along $\\partial M$ (G.103)"
    ],
    "diff": [
-    "$T_y\\partial M$ and the outward vector enter as data $K$, $e$; that $T_y\\partial M = T^R_yM$ and the outward half-space are determined by $M$ (through the cones $C_yM$) is not formalized (gap G.103) (Findings, Chapter 9, item 57)."
+    "Updated (2026-11-09): $T_y\\partial M$ and the outward direction, first data $K$, $e$, are determined by $M$: $T_y\\partial M = T^R_yM$, and \\\"outward\\\" is read as \\\"in $T_yM$, not in $C_yM$\\\"; since $T_yX$ has no linear structure (gap G.7) both are read in a presented chart and shown chart independent (`Chapter9/BoundaryOperation.lean`; gap G.103 closed in part). That $o_{\\partial M}$ orients $\\partial M$ near $y$, i.e. its continuity along $\\partial M$, is not formalized (V9.38, gap G.103) (Findings, Chapter 9, items 57, 108). (2026-11-09: $T_xX$ now carries the linear structure of Definition 2.3.14, Banach through every chart and sc at smooth points, gap G.7 closed (V2.19); this statement is not restated with it.)"
    ]
   },
   {
    "id": "V9.37",
    "title": "(9.11) and Proposition 9.3.9, the boundary orientation does not depend on the structure",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§9.3, Proposition 9.3.9, p. 428 (new in the 2021 edition), with (9.11), p. 427",
     "page": 428,
     "statement": "For two oriented local branching structures the parts of $\\hat T_\\Theta(y)$ of each degree $\\ell = d_{M_i}(y)$ agree (9.11), since tangent spaces of different degree never coincide (Lemma 9.3.7); the definition of $\\hat T_{\\partial\\Theta}$ does not depend on the structure."
    },
    "lean": {
-    "statement": "For two oriented local branching structures with tame $M_i$ and the same oriented sum at $y$, the parts of degree $\\ell = d_{M_i}(y)$ agree for every $\\ell$ (9.11); hence (9.12) gives the same value for every structure, and vanishes at smooth points off $\\mathrm{supp}(\\Theta)$.",
+    "statement": "For two oriented local branching structures with tame $M_i$ and the same oriented sum at $y$, the parts of degree $\\ell = d_{M_i}(y)$ agree for every $\\ell$ (9.11) (`eq_9_11`); hence (9.12) gives the same value for every structure, and vanishes at smooth points off $\\mathrm{supp}(\\Theta)$ (`proposition_9_3_9`), with the boundary operation of Definition 9.3.8 built from the $M_i$ (`proposition_9_3_9_boundaryOp`, no data hypothesis). For tame $M$, $d_M(y)$ is the reduced codimension of $T_yM$ (`subDegIndex_eq_quotDim_span`, `hasSubDegree_iff`), so the intrinsic $\\hat T_{\\partial\\Theta}$, filtering by reduced codimension $1$ (`boundaryOrientation`), is (9.12) for every oriented structure representing $\\hat T_\\Theta$ (`proposition_9_3_9_boundaryOrientation`).",
     "decls": [
+     "Chapter9/BoundaryOperation · EpGroupoid.proposition_9_3_9_boundaryOp",
+     "Chapter9/BoundaryOperation · EpGroupoid.proposition_9_3_9_boundaryOrientation",
+     "Chapter9/BoundaryOperation · MPolyfold.subDegIndex_eq_quotDim_span",
+     "Chapter9/BoundaryOperation · MPolyfold.hasSubDegree_iff",
+     "Chapter9/BoundaryOperation · EpGroupoid.degreePart_eq_reducedCodimPart",
      "Chapter9/OrientationBoundary · MPolyfold.HasSubDegree",
      "Chapter9/OrientationBoundary · MPolyfold.SubmanifoldOrientation.hasSubDegree_tangent_iff",
      "Chapter9/OrientationBoundary · EpGroupoid.degreePart",
@@ -1157,10 +1224,10 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "boundary operation as data"
+    "boundary operation from $M$"
    ],
    "diff": [
-    "The boundary operation $T_y(M, o) \\mapsto T_y(\\partial M, o_{\\partial M})$ is a function `bd` of the oriented tangent space, which is what \"the discussion preceding it\" provides, given G.103 (Findings, Chapter 9, item 58)."
+    "Updated (2026-11-09): the boundary operation $T_y(M, o) \\mapsto T_y(\\partial M, o_{\\partial M})$, first a function `bd` of the oriented tangent space taken as data, is built from the submanifolds (`boundaryOp`, V9.36), so Proposition 9.3.9 holds with no data hypothesis (`proposition_9_3_9_boundaryOp`); the form with `bd` is kept (`proposition_9_3_9`) (Findings, Chapter 9, items 58, 108)."
    ]
   },
   {
@@ -1173,16 +1240,23 @@
     "statement": "For an oriented tame $\\Theta$, $\\hat T_{\\partial\\Theta}(y) = 0$ off $\\mathrm{supp}(\\Theta)$ and $\\hat T_{\\partial\\Theta}(y) = \\sum_{y \\in \\partial M_i, d_{M_i}(y) = 1} \\sigma_i\\, T_y(\\partial M_i, o_{\\partial M_i})$ on $U(x)$ (9.12)."
    },
    "lean": {
-    "statement": "$\\hat T_{\\partial\\Theta}(y) = 0$ off $\\mathrm{supp}(\\Theta)$ and $\\sum_{d_{M_i}(y) = 1} \\sigma_i\\, T_y(\\partial M_i, o_{\\partial M_i})$ on a structure (9.12).",
+    "statement": "$\\hat T_{\\partial\\Theta}(y) = 0$ off $\\mathrm{supp}(\\Theta)$ and $\\sum_{d_{M_i}(y) = 1} \\sigma_i\\, T_y(\\partial M_i, o_{\\partial M_i})$ on a structure (9.12) (`boundaryLift`), with the boundary operation of Definition 9.3.8 built from the $M_i$ (`boundaryLift X.PObj.boundaryOp`, V9.36). The intrinsic `boundaryOrientation`, filtering by reduced codimension $1$, is a function of $\\hat T_\\Theta(y)$ and agrees with it for oriented tame $\\hat\\Theta$ (`IsTameOrientation`, Definition 9.3.10's hypothesis; `boundaryLift_boundaryOp_eq_boundaryOrientation`). Witnesses: `isTameOrientation_zero`, `isTameOrientation_of_degIndex_eq_zero`.",
     "decls": [
+     "Chapter9/BoundaryOperation · EpGroupoid.boundaryOrientation",
+     "Chapter9/BoundaryOperation · EpGroupoid.boundaryLift_boundaryOp_eq_boundaryOrientation",
+     "Chapter9/BoundaryOperation · EpGroupoid.IsTameOrientation",
+     "Chapter9/BoundaryOperation · EpGroupoid.isTameOrientation_zero",
+     "Chapter9/BoundaryOperation · EpGroupoid.isTameOrientation_of_degIndex_eq_zero",
      "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift"
     ]
    },
    "chips": [
-    "continuity of $o_{\\partial M}$ open (G.103)"
+    "continuity of $o_{\\partial M}$ open (G.103)",
+    "boundary operation from $M$"
    ],
    "diff": [
-    "With `bd` as in V9.37; the continuity of $o_{\\partial M}$ along $\\partial M$ and its extension to the faces (Figure 9.1) are not formalized (gap G.103); Remark 9.3.11 has no formal content (Findings, Chapter 9, item 58)."
+    "Updated (2026-11-09): (9.12) is formed with the boundary operation built from the submanifolds, and the intrinsic $\\hat T_{\\partial\\Theta}$ needs no choice of structure (`boundaryOrientation`); gap G.103 is closed except for the continuity (Findings, Chapter 9, item 108).",
+    "The continuity of $o_{\\partial M}$ along $\\partial M$, which needs the stratum $\\{d_M = 1\\}$ as a smooth submanifold with $T_y\\partial M = T^R_yM$, and its extension to the faces (Figure 9.1) are not formalized (gap G.103); Remark 9.3.11 has no formal content (Findings, Chapter 9, items 58, 108)."
    ]
   },
   {
@@ -1287,7 +1361,7 @@
    ],
    "diff": [
     "Hidden hypotheses: sheets of one dimension.",
-    "For M-polyfold sheets, which carry no Mathlib manifold structure, Lemmas 9.4.4 and 9.4.6 are the fields of `SheetGeometry` (gap G.105); the note in Definition 9.4.7 ($i \\sim_y i'$ implies $T_yM_i = T_yM_{i'}$) is its field `submanifoldTangent_eq` (Findings, Chapter 9, item 72)."
+    "For M-polyfold sheets, which carry no Mathlib manifold structure, Lemmas 9.4.4 and 9.4.6 are the fields of `SheetGeometry` (gap G.105); the note in Definition 9.4.7 ($i \\sim_y i'$ implies $T_yM_i = T_yM_{i'}$) is its field `submanifoldTangent_eq` (Findings, Chapter 9, item 72). (2026-11-09) Lemma 9.4.6 now holds for the sheets of a tame branching structure of dimension $n$ (V9.44); Lemma 9.4.4 for M-polyfold sheets is still the field `ess_comm`, which needs the change of charts between the induced structures of two sheets (gap G.105, open in part)."
    ]
   },
   {
@@ -1332,15 +1406,18 @@
      "Chapter9/BranchingGeometryMeasure · exists_pos_measure_cone_lt",
      "Chapter9/BranchingGeometryMeasure · addHaar_setOf_span_tangentConeAt_ne_top",
      "Chapter9/BranchingGeometryManifold · isMeasureZero_setOf_relTangent_ne_top",
-     "Chapter9/BranchingGeometryManifold · lemma_9_4_6"
+     "Chapter9/BranchingGeometryManifold · lemma_9_4_6",
+     "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.lemma_9_4_6",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.lemma_9_4_6_sheet",
+     "Chapter9/MathlibManifoldBridge · MPolyfold.lemma_9_4_6_cornerChartedSpace"
     ]
    },
    "chips": [
     "any $K$",
-    "M-polyfold sheets: a field (G.105)"
+    "tame sheets: proved; G.105 in part"
    ],
    "diff": [
-    "Any $K$, not only $K(i, i')$; for M-polyfold sheets it is the field `isNull_diff_ess` of `SheetGeometry` (gap G.105) (Findings, Chapter 9, items 70, 72)."
+    "Any $K$, not only $K(i, i')$; for M-polyfold sheets it is the field `isNull_diff_ess` of `SheetGeometry` (gap G.105) (Findings, Chapter 9, items 70, 72). (2026-11-09) For the sheets of a tame branching structure of dimension $n$, read as Mathlib manifolds with corners, and for a tame $n$-dimensional sheet in good position in a tame M-polyfold, $K \\setminus K^e$ is a null set in the sense of Definition 9.4.5 (`TameBranchingStructure.lemma_9_4_6`, `lemma_9_4_6_sheet`, `Chapter9/MathlibManifoldBridge.lean`; gaps G.105, G.106 in part) (Findings, Chapter 9, item 109)."
    ]
   },
   {
@@ -1480,7 +1557,7 @@
     "compactness, orientation unused"
    ],
    "diff": [
-    "\"measure zero in $M_i$\" is the abstract system `SheetNullSets`, satisfiable by Lebesgue null sets of graphs in $\\mathbb R^2$ and of open subsets of $\\mathbb R^2$ (V9.53); \"a suitable $U(x)$\" is a tame structure; compactness and orientation of $\\Theta$ are not used (gap G.106) (Findings, Chapter 9, item 80)."
+    "\"measure zero in $M_i$\" is the abstract system `SheetNullSets`, satisfiable by Lebesgue null sets of graphs in $\\mathbb R^2$ and of open subsets of $\\mathbb R^2$ (V9.53); \"a suitable $U(x)$\" is a tame structure; compactness and orientation of $\\Theta$ are not used (gap G.106) (Findings, Chapter 9, item 80). (2026-11-09) In the sheets of a tame branching structure of dimension $n$, read as Mathlib manifolds with corners, the null sets of Definition 9.4.5 are now Mathlib's (V9.44; gap G.106 in part); the lemma is not restated with them."
    ]
   },
   {
@@ -1502,7 +1579,8 @@
      "Chapter9/Measure · EpGroupoid.isSigmaIdeal_isMeasureZeroSuppAll",
      "Chapter9/Measure · EpGroupoid.not_isMeasureZeroSuppAny_orbitSupp",
      "Chapter9/Measure · EpGroupoid.not_isMeasureZeroSupp_orbitSupp",
-     "Chapter9/Measure · isNull_transfer_mixed_dim"
+     "Chapter9/Measure · isNull_transfer_mixed_dim",
+     "Chapter9/GeneralCorollaries · EpGroupoid.proposition_9_1_12"
     ]
    },
    "chips": [
@@ -1512,7 +1590,7 @@
    ],
    "diff": [
     "Hidden hypotheses: the sheets of all structures compared lie in one class $\\mathcal S$ on which two sheets induce the same null sets on their overlap.",
-    "This transfer property holds for sheets of one dimension and does not hold across dimensions (`Polyfold.isNull_transfer_mixed_dim`), so the lemma is proved for structures with sheets in one class, as for the $n$-dimensional structures of an $n$-dimensional $\\Theta$; for every structure of an $n$-dimensional $\\Theta$ it would need Proposition 9.1.12 in general (gaps G.97, G.106) (Findings, Chapter 9, item 81)."
+    "This transfer property holds for sheets of one dimension and does not hold across dimensions (`Polyfold.isNull_transfer_mixed_dim`), so the lemma is proved for structures with sheets in one class, as for the $n$-dimensional structures of an $n$-dimensional $\\Theta$. For every structure of an $n$-dimensional $\\Theta$ it would need Proposition 9.1.12, which holds for every ep-groupoid since 2026-11-09 (`proposition_9_1_12`, V9.10); the lemma is not restated with it (gap G.106) (Findings, Chapter 9, item 81). (2026-11-09) In the sheets of a tame branching structure of dimension $n$, read as Mathlib manifolds with corners, the null sets of Definition 9.4.5 are now Mathlib's (V9.44; gap G.106 in part); the lemma is not restated with them."
    ]
   },
   {
@@ -1813,15 +1891,19 @@
   {
    "id": "V9.61",
    "title": "Lemma 9.6.4, top-goodness does not depend on the structure",
-   "verdict": "explicit",
+   "verdict": "same",
    "book": {
     "label": "§9.6, Lemma 9.6.4, p. 455 (new in the 2021 edition)",
     "page": 455,
     "statement": "Being top-good does not depend on the local branching structure; the proof moves the point slightly and argues similarly as for good points."
    },
    "lean": {
-    "statement": "A point in both domains is top-good for one structure iff for the other, under `TopMultiplicity` (the top weight of a second structure at a point equals the sum of the weights of its sheets there), which holds for $k = 0$, for $k \\ge n$ on $\\mathbb R^n$, and wherever `HasGraphChartAt` holds, so on $\\mathbb R^m$ in all dimensions.",
+    "statement": "`lemma_9_6_4_general`: for every ep-groupoid, a point in both domains of two labelled local branching structures is top-good for one iff for the other (`isTopBadPoint_iff_general`), since `TopMultiplicity` (the top weight of a second structure at a point equals the sum of the weights of its sheets there) holds for every M-polyfold and every $k$ (`MPolyfold.topMultiplicity`). The forms first proved are kept: under `TopMultiplicity`, which was proved for $k = 0$, for $k \\ge n$ on $\\mathbb R^n$, and wherever `HasGraphChartAt` holds, so on $\\mathbb R^m$ in all dimensions.",
     "decls": [
+     "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.lemma_9_6_4_general",
+     "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.isTopBadPoint_iff_general",
+     "Chapter9/GeneralCorollaries · MPolyfold.topMultiplicity",
+     "Chapter9/GeneralCorollaries · MPolyfold.topMultiplicityAt",
      "Chapter9/Appendix · MPolyfold.TopMultiplicity",
      "Chapter9/Appendix · MPolyfold.topMultiplicity_zero",
      "Chapter9/Appendix · topMultiplicity_rn_of_le",
@@ -1836,25 +1918,28 @@
    "chips": [
     "new in the 2021 edition",
     "\"similarly\": a missing step supplied",
-    "on ℝᵐ: no hypothesis"
+    "every ep-groupoid (G.97 closed)"
    ],
    "diff": [
-    "Hidden hypotheses: the graph representation on a general M-polyfold.",
-    "The step \"similarly as good points\" needs that the top weight of the second structure at $y$ is $\\sigma$, an argument the text does not give; it is `TopMultiplicityAt`, proved from `HasGraphChartAt` by grouping the sheets of both families by tangent space (gap G.97) (Findings, Chapter 9, item 91)."
+    "Updated (2026-11-09): `TopMultiplicity`, first a hypothesis resting on the graph representation, holds for every M-polyfold (gap G.97 closed), so Lemma 9.6.4 holds for every ep-groupoid (`lemma_9_6_4_general`); the forms with the hypothesis are kept (`lemma_9_6_4`, `lemma_9_6_4_of_hasGraphChartAt`) (Findings, Chapter 9, item 107).",
+    "The step \\\"similarly as good points\\\" needs that the top weight of the second structure at $y$ is $\\sigma$, an argument the text does not give; it is `TopMultiplicityAt`, proved by grouping the sheets of both families by tangent space, first from `HasGraphChartAt`, now with one cone per tangent space at every point (`topMultiplicityAt`) (Findings, Chapter 9, item 91)."
    ]
   },
   {
    "id": "V9.62",
    "title": "Proposition 9.6.5 and the formula on p. 457",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§9.6, Proposition 9.6.5, p. 456 (new in the 2021 edition), and the formula on p. 457",
     "page": 456,
     "statement": "At a top-bad $x$, for a class $\\Xi$ of top-dimensional indices with one tangent space there are $i_1, \\ldots, i_p$, a partition (printed $I_k = I^1 \\sqcup \\cdots \\sqcup I^p$) and sequences of top-good points with $x^e_j \\in M_i$ iff $i \\in I^e$; then $\\Theta_k(x) = \\sum_\\Xi \\sum_e \\Theta_k(x^k_e)$ (p. 457)."
    },
    "lean": {
-    "statement": "Under `HasGraphChartAt` at $x$, for every class of top-dimensional sheets with one tangent space at $x$ and every neighbourhood $W$ of $x$ there is a finite top slice in $W$; the top-dimensional part is $\\Theta_k(x) = \\sum_{\\text{classes}} \\sum_{y \\in \\text{slice}} \\Theta(y)$, and the class sums agree for any two structures.",
+    "statement": "`proposition_9_6_5_general`: for every ep-groupoid, every class of top-dimensional sheets with one tangent space at $x$ and every neighbourhood $W$ of $x$ there is a finite top slice in $W$; the top-dimensional part is $\\Theta_k(x) = \\sum_{\\text{classes}} \\sum_{y \\in \\text{slice}} \\Theta(y)$ (`dimPart_topDim_eq`), and the class sums agree for any two structures (`sum_class_eq`). The forms first proved, under `HasGraphChartAt` at $x$, are kept (`proposition_9_6_5`, `sum_class_eq_of_hasGraphChartAt`, `dimPart_topDim_eq_of_hasGraphChartAt`).",
     "decls": [
+     "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.proposition_9_6_5_general",
+     "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.sum_class_eq",
+     "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.dimPart_topDim_eq",
      "Chapter9/AppendixSlices · EpGroupoid.LocalBranchingStructure.IsTopSlice",
      "Chapter9/AppendixSlices · EpGroupoid.LocalBranchingStructure.proposition_9_6_5",
      "Chapter9/AppendixSlices · EpGroupoid.LocalBranchingStructure.sum_class_eq_sum_of_isTopSlice",
@@ -1869,8 +1954,8 @@
     "possible misprints: $I_k$, $x^k_e$"
    ],
    "diff": [
-    "Hidden hypotheses: the graph representation on a general M-polyfold.",
-    "Slices replace the subsets $I^e$ and the sequences of top-good points; the independence of the right-hand side from the structure, which the text does not show, is proved with one slice for the sheets of both structures. In (1) \"$I_k = I^1 \\sqcup \\cdots \\sqcup I^p$\" reads as $\\Xi = I^1 \\sqcup \\cdots \\sqcup I^p$, the points $x^k_e$ are not introduced, and \"This completes the proof of Proposition 9.6.5\" refers to Proposition 9.1.12 (possible misprints) (gap G.97) (Findings, Chapter 9, items 91, 92)."
+    "Updated (2026-11-09): the hypothesis `HasGraphChartAt` is replaced by the graph representation with one cone per tangent space, which holds at every point (gap G.97 closed), so Proposition 9.6.5 and the formula of p. 457 hold for every ep-groupoid in slice form (`proposition_9_6_5_general`, `dimPart_topDim_eq`); the forms with the hypothesis are kept (Findings, Chapter 9, items 91, 107).",
+    "Slices replace the subsets $I^e$ and the sequences of top-good points; the independence of the right-hand side from the structure, which the text does not show, is proved with one slice for the sheets of both structures. In (1) \\\"$I_k = I^1 \\sqcup \\cdots \\sqcup I^p$\\\" reads as $\\Xi = I^1 \\sqcup \\cdots \\sqcup I^p$, the points $x^k_e$ are not introduced, and \\\"This completes the proof of Proposition 9.6.5\\\" refers to Proposition 9.1.12 (possible misprints) (Findings, Chapter 9, items 91, 92)."
    ]
   }
  ],
@@ -1881,10 +1966,12 @@
    "label": "§9.1, Remark 9.1.1, p. 402 (2017: Remark 9.1, p. 291), and Definition 9.1.2, last paragraph and footnote, p. 402",
    "page": 402,
    "book": "The dimension of $T_mM$ is locally constant in $m \\in M$; an $n$-dimensional $\\Theta$ is not $m$-dimensional for $m \\ne n$; locally equidimensional $\\Theta$.",
-   "instead": "**Not formalized** on a general M-polyfold: the local constancy is the hypothesis `HasLocallyConstantDimAt`, proved on $\\mathbb R^m$ (`hasLocallyConstantDimAt_rn`); elsewhere the dimensions of the $M_i$ are labellings taken as hypotheses (V9.2). The footnote and \"locally equidimensional\" are not formalized (Findings, Chapter 9, items 2, 3).",
+   "instead": "**Formalized in part** (V9.2): since 2026-11-09 the dimension of $T_mM$ is locally constant on every M-polyfold (`MPolyfold.hasLocallyConstantDimAt`), so the hypothesis `HasLocallyConstantDimAt`, first proved on $\\mathbb R^m$ only (`hasLocallyConstantDimAt_rn`), and the dimension labellings of the $M_i$ are no longer needed (`hasLabelledBranchingAt_general`). **Not formalized**: the footnote ($n$-dimensional $\\Theta \\ne 0$ is not $m$-dimensional for $m \\ne n$) and \\\"locally equidimensional\\\" (Findings, Chapter 9, items 2, 3, 107).",
    "decls": [
     "Chapter9/AppendixSlices · MPolyfold.HasLocallyConstantDimAt",
-    "Chapter9/AppendixSlices · MPolyfold.hasLocallyConstantDimAt_rn"
+    "Chapter9/AppendixSlices · MPolyfold.hasLocallyConstantDimAt_rn",
+    "Chapter9/GeneralLevelZero · MPolyfold.hasLocallyConstantDimAt",
+    "Chapter9/GeneralCorollaries · EpGroupoid.hasLabelledBranchingAt_general"
    ]
   },
   {
@@ -1909,13 +1996,16 @@
    "label": "§9.1, Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297)",
    "page": 407,
    "book": "The local $\\Theta_k$ glue to branched ep⁺-subgroupoids with $\\Theta = \\sum_k \\Theta_k$, locally finite, and the family is unique.",
-   "instead": "**Formalized since the first edition of this page** (V9.9). The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact), forming the unique local dimensional decomposition, locally finite under a bound on the dimensions. Read with \"uniquely\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid whose object M-polyfold is $\\mathbb R^m$ (`proposition_9_1_11_local_rn`), and in general under Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1, gap G.93) (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106).",
+   "instead": "**Formalized since the first edition of this page** (V9.9). The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \\\"uniquely\\\" among local decompositions, Proposition 9.1.11 holds for every ep-groupoid: the local dimensional decomposition exists and is unique (`existsUnique_localDimDecomposition_general`) and is locally finite at the points of $\\mathrm{supp}(\\Theta)$ (`dimComponent_locallyFinite_of_mem_general`); local finiteness everywhere is proved under a bound on the dimensions (`proposition_9_1_11_local_of_le`), and over $\\mathbb R^m$ with no hypothesis (`proposition_9_1_11_local_rn`). The forms first proved, under Proposition 9.1.12 and the local constancy of dimension (Remark 9.1.1), both now theorems (V9.10, gap G.93 in part), are kept (`proposition_9_1_11_local_of`). The uniqueness among all decompositions does not hold as we read it (`not_proposition_9_1_11_rn`) (Findings, Chapter 9, items 8, 105, 106, 107).",
    "decls": [
     "Chapter9/Propositions · EpGroupoid.Proposition_9_1_11",
     "Chapter9/Propositions · EpGroupoid.not_proposition_9_1_11_rn",
     "Chapter9/DimDecompositionExists · EpGroupoid.dimComponent",
     "Chapter9/DimDecompositionExists · EpGroupoid.proposition_9_1_11_local_rn",
-    "Chapter9/DimDecompositionExists · EpGroupoid.proposition_9_1_11_local_of"
+    "Chapter9/DimDecompositionExists · EpGroupoid.proposition_9_1_11_local_of",
+    "Chapter9/GeneralCorollaries · EpGroupoid.existsUnique_localDimDecomposition_general",
+    "Chapter9/GeneralCorollaries · EpGroupoid.dimComponent_locallyFinite_of_mem_general",
+    "Chapter9/GeneralCorollaries · EpGroupoid.proposition_9_1_11_local_of_le"
    ],
    "formalized": [
     "V9.9"
@@ -1927,12 +2017,24 @@
    "label": "§9.2, Proposition 9.2.8, p. 413 (2017: Proposition 9.3, p. 302), and Lemmas 9.2.9–9.2.11, pp. 414–417 (2017: Lemmas 9.6–9.8); used in Proposition 9.1.12, p. 408",
    "page": 413,
    "book": "Near a bad point the sheets of one tangent class are graphs over a cone in their common tangent space (sc-complements, the mean value formula for sc⁺-retractions, an inverse function argument in a partial quadrant), giving the partition and the sequences of good points of Proposition 9.2.8.",
-   "instead": "**Not formalized** on a general M-polyfold: Part I has no level-0 sc-calculus in partial quadrants. The graph representation is the hypothesis `HasGraphChartAt` (also `HasGraphChartsAt`, `HasGraphBallAt`), proved on $\\mathbb R^m$; Proposition 9.2.8 is formalized in slice form (V9.22). On a general M-polyfold Proposition 9.1.12 (V9.10), the independence in Theorem 9.2.1 (V9.14), Lemma 9.3.4 (V9.32), Lemma 9.6.4 (V9.61) and Proposition 9.6.5 (V9.62) rest on it (Findings, Chapter 9, items 25, 100).",
+   "instead": "**Formalized since the first edition of this page** (V9.22). Lemmas 9.2.9–9.2.11 hold on every M-polyfold: the level-$1$ lift $1_0^1 \\circ r$ of an sc⁺-retraction is $C^1$, which gives the cone (`ScRetraction.exists_cone`) and the graph over a cone, or over a ball at interior points (`exists_graph_unif`, `exists_graph_ball`). In an M-polyfold every finite-dimensional submanifold through $x$ is a graph over the admissible cone of its tangent space (`isGraphChartAt_goodDirections`), so the graph representation with one cone per tangent space holds at every point (`hasClassGraphChartAt`); the project's earlier hypothesis `HasGraphChartAt`, one cone for all submanifolds through $x$, was stronger than the slice arguments need, and it and `HasGraphBallAt` hold at interior points. Proposition 9.2.8 is formalized in slice form (V9.22). Proposition 9.1.12 (V9.10), the independence in Theorem 9.2.1 (V9.14), Lemma 9.6.4 (V9.61) and Proposition 9.6.5 (V9.62) hold for every ep-groupoid; Lemma 9.3.4 holds at interior points (V9.32) (Findings, Chapter 9, items 25, 100, 107).",
    "decls": [
     "Chapter9/AppendixSlices · MPolyfold.HasGraphChartAt",
     "Chapter9/AppendixSlices · MPolyfold.hasGraphChartAt_rn",
     "Chapter9/TangentSlicesBasic · MPolyfold.HasGraphChartsAt",
-    "Chapter9/OrientationRn · MPolyfold.HasGraphBallAt"
+    "Chapter9/OrientationRn · MPolyfold.HasGraphBallAt",
+    "Chapter9/GeneralLevelZero · ScRetraction.exists_cone",
+    "Chapter9/GeneralLevelZero · ScRetraction.exists_graph_unif",
+    "Chapter9/GeneralLevelZero · MPolyfold.isGraphChartAt_goodDirections",
+    "Chapter9/GeneralLevelZero · MPolyfold.hasClassGraphChartAt",
+    "Chapter9/GeneralCorollaries · MPolyfold.hasTangentSlicesAt"
+   ],
+   "formalized": [
+    "V9.22",
+    "V9.10",
+    "V9.14",
+    "V9.61",
+    "V9.62"
    ]
   },
   {
@@ -1941,10 +2043,16 @@
    "label": "§9.2, Lemma 9.2.7 (2), p. 412 (2017: Lemma 9.5 (2), p. 301)",
    "page": 412,
    "book": "Every sheet through a bad point contains good points converging to it; the proof shrinks neighbourhoods inside sheets of one dimension.",
-   "instead": "**Not formalized** on a general M-polyfold: invariance of domain for equal-dimensional submanifolds is the hypothesis `HasDomainInvarianceAt`, proved on $\\mathbb R^m$ (V9.21) (Findings, Chapter 9, item 24).",
+   "instead": "**Formalized since the first edition of this page** (V9.21). Invariance of domain for equal-dimensional submanifolds holds on every M-polyfold (`MPolyfold.hasDomainInvarianceAt`): both are retracts of chart sc⁺-retractions with the same tangent space at the point, and such retracts agree near it (`ScRetraction.eq_of_range_eq`). So Lemma 9.2.7 (2) holds for every ep-groupoid (`lemma_9_2_7_2_general`); the hypothesis `HasDomainInvarianceAt` and its proof on $\\mathbb R^m$ are kept (Findings, Chapter 9, items 24, 107).",
    "decls": [
     "Chapter9/TangentSlices · MPolyfold.HasDomainInvarianceAt",
-    "Chapter9/TangentSlices · MPolyfold.hasDomainInvarianceAt_rn"
+    "Chapter9/TangentSlices · MPolyfold.hasDomainInvarianceAt_rn",
+    "Chapter9/GeneralLevelZero · ScRetraction.eq_of_range_eq",
+    "Chapter9/GeneralLevelZero · MPolyfold.hasDomainInvarianceAt",
+    "Chapter9/GeneralCorollaries · EpGroupoid.LocalBranchingStructure.lemma_9_2_7_2_general"
+   ],
+   "formalized": [
+    "V9.21"
    ]
   },
   {
@@ -1953,10 +2061,18 @@
    "label": "§9.2, Definition 9.2.12, p. 418 (2017: Definition 9.6, p. 306)",
    "page": 418,
    "book": "$T\\Theta$ is a branched ep⁺-subgroupoid of $TX$ with local branching structures $(TM_i)$, $(\\sigma_i)$.",
-   "instead": "**Not formalized**: that the tangent of the sc⁺-retraction presenting $M_i$ is sc⁺ on $TX$, so that $TM_i$ is a smooth submanifold of $TX$; it is the field `isSmoothSubmanifold` of `TangentBranchingHyp`, also on $\\mathbb R^m$, where $TM_i$ is proved a sub-M-polyfold of $TX$ (V9.23) (Findings, Chapter 9, item 26).",
+   "instead": "**Formalized since the first edition of this page** (V9.23). The tangent of the sc⁺-retraction presenting a smooth finite-dimensional submanifold $A$ is an sc⁺-retraction of $TX$ near each point of $TA$ (`SubmanifoldData.isScPlusRetractionOn_tmap`), so $TA$ is a smooth submanifold of $TX$ (`IsSmoothSubmanifold.isSmoothSubmanifold_tangent`), and the field `isSmoothSubmanifold` of `TangentBranchingHyp` holds for every local branching structure (`LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold`). With $|X|$ paracompact, $T\\Theta$ is a branched ep⁺-subgroupoid of $TX$ (`tangentBranchingHyp`, `isBranchedEpSubgroupoid_tangentTheta_general`, `Chapter9/TangentSubmanifoldSmooth.lean`). Earlier it was the field `isSmoothSubmanifold` of `TangentBranchingHyp`, proved on $\\mathbb R^m$, where $TM_i$ is a sub-M-polyfold of $TX$ (Findings, Chapter 9, items 26, 109).",
    "decls": [
     "Chapter9/Tangent · EpGroupoid.TangentBranchingHyp",
-    "Chapter9/AppendixSlices · EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_rn"
+    "Chapter9/AppendixSlices · EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_rn",
+    "Chapter9/TangentSubmanifoldSmooth · MPolyfold.SubmanifoldData.isScPlusRetractionOn_tmap",
+    "Chapter9/TangentSubmanifoldSmooth · MPolyfold.IsSmoothSubmanifold.isSmoothSubmanifold_tangent",
+    "Chapter9/TangentSubmanifoldSmooth · EpGroupoid.LocalBranchingStructure.isSmoothSubmanifold_tangentSubmanifold",
+    "Chapter9/TangentSubmanifoldSmooth · EpGroupoid.tangentBranchingHyp",
+    "Chapter9/TangentSubmanifoldSmooth · EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_general"
+   ],
+   "formalized": [
+    "V9.23"
    ]
   },
   {
@@ -1965,10 +2081,18 @@
    "label": "§9.3, Lemma 9.3.4, p. 423 (2017: Lemma 9.10, p. 311)",
    "page": 423,
    "book": "The proof compares orientations of different sheets along sequences of good points converging to a bad point.",
-   "instead": "**Not formalized** on a general M-polyfold: the comparison needs the continuity of chart frames on level 1, the hypothesis `HasContinuousLevelOneOn`, proved on $\\mathbb R^m$ (V9.32) (Findings, Chapter 9, item 53).",
+   "instead": "**Formalized since the first edition of this page** (V9.32). The level-$1$ coordinates are continuous along every smooth finite-dimensional submanifold of every M-polyfold (`MPolyfold.hasContinuousLevelOneOn`): on the submanifold the level-$1$ lift of the chart is $(1_0^1 \\circ t) \\circ \\varphi$ for the chart sc⁺-retraction $t$ (`levelLift_eq_plusLift`), continuous since $t$ is sc⁺. So Lemma 9.3.4 needs only the ball graph representation on $\\mathrm{supp}(\\Theta)$ (`lemma_9_3_4_of_hasGraphBallAt'`), which holds at interior points (`lemma_9_3_4_of_degIndex_eq_zero`); the hypothesis `HasContinuousLevelOneOn` and its proof on $\\mathbb R^m$ are kept (Findings, Chapter 9, items 53, 107). (2026-11-09) Not even that: the good-point input holds at every point (`hasOrientedGoodPointsAt`), so Lemma 9.3.4 holds for $n$-dimensional $\\Theta$ with no hypothesis on the boundary (`lemma_9_3_4_general`, V9.32; Findings, Chapter 9, item 109).",
    "decls": [
     "Chapter9/OrientationRn · MPolyfold.HasContinuousLevelOneOn",
-    "Chapter9/OrientationRn · hasContinuousLevelOneOn_rn"
+    "Chapter9/OrientationRn · hasContinuousLevelOneOn_rn",
+    "Chapter9/GeneralLevelZero · MPolyfold.levelLift_eq_plusLift",
+    "Chapter9/GeneralLevelZero · MPolyfold.hasContinuousLevelOneOn",
+    "Chapter9/GeneralCorollaries · EpGroupoid.lemma_9_3_4_of_hasGraphBallAt'",
+    "Chapter9/GeneralBoundaryPoints · MPolyfold.hasOrientedGoodPointsAt",
+    "Chapter9/GeneralBoundaryPoints · EpGroupoid.lemma_9_3_4_general"
+   ],
+   "formalized": [
+    "V9.32"
    ]
   },
   {
@@ -1985,7 +2109,17 @@
    "label": "§9.3, Definition 9.3.6, p. 425 (2017: Definition 9.10, p. 314)",
    "page": 425,
    "book": "In particular every $M_i$ of a tame $\\Theta$ has an equivalent structure of a smooth manifold with boundary with corners.",
-   "instead": "**Not formalized**: the project has no bridge from tame finite-dimensional M⁺-polyfolds to Mathlib manifolds with corners; the definition itself is formalized (V9.34) (Findings, Chapter 9, item 55)."
+   "instead": "**Formalized since the first edition of this page** (V9.34). For a tame local branching structure whose sheets have dimension $n$, each sheet $M_i$, with the subspace topology and the charted space of its induced corner structure, satisfies `IsManifold (modelWithCornersEuclideanQuadrant n) ∞` (`TameBranchingStructure.isManifold`). The partial quadrants of the corner charts are moved into the full quadrant $[0, \\infty)^n$, since a Mathlib manifold has one model (`HasCornerStructureOfDim`, `cornerChartedSpace`, `isManifold_cornerChartedSpace`, `Chapter9/MathlibManifoldBridge.lean`). The same bridge gives Theorem 4.2.7 (V4.41) and the solution sets of Chapters 3, 5 and 6 as Mathlib manifolds (V3.24, V3.94, V5.38, V6.61) (Findings, Chapter 9, items 55, 109).",
+   "decls": [
+    "Chapter9/MathlibManifoldBridge · MPolyfold.HasCornerStructureOfDim",
+    "Chapter9/MathlibManifoldBridge · MPolyfold.cornerChartedSpace",
+    "Chapter9/MathlibManifoldBridge · MPolyfold.isManifold_cornerChartedSpace",
+    "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.hasCornerStructureOfDim",
+    "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.isManifold"
+   ],
+   "formalized": [
+    "V9.34"
+   ]
   },
   {
    "g": 103,
@@ -1993,10 +2127,16 @@
    "label": "§9.3, Definition 9.3.8, p. 427 (2017: Definition 9.9, p. 313), and Definition 9.3.10, p. 428 (2017: Definition 9.11, p. 314)",
    "page": 427,
    "book": "For tame $M$ with $d_M(y) = 1$, $T_y\\partial M$ and the outward half-space are given by the cones $C_yM$; the boundary orientation is continuous along $\\partial M$ and extends to the closed faces (Figure 9.1); Remark 9.3.11 on the non-tame case.",
-   "instead": "**Not formalized**: $T_y\\partial M$ and the outward vector are data $K$, $e$ in `boundaryFrames`, and the boundary operation is a function `bd` in (9.12) (V9.36–V9.38); the partial cones of submanifolds are not formalized (Findings, Chapter 9, items 57, 58).",
+   "instead": "**Formalized in part** (V9.36–V9.38): since 2026-11-09 the boundary operation is built from the submanifold (`boundaryOp`): $T_y\\partial M = T^R_yM$ (`chartVec_image_boundaryCarrier`), the outward vectors are those of $T_yM$ not in $C_yM$ (`isOutward_iff_not_mem_partialCone`), Definition 9.3.8 does not depend on the outward vector (`boundaryOp_eq`), $d_M(y)$ is the reduced codimension of $T_yM$ for tame $M$ (`subDegIndex_eq_quotDim_span`), and (9.12) and Proposition 9.3.9 hold with this operation (`proposition_9_3_9_boundaryOp`, `boundaryOrientation`); the cones are read in a presented chart, chart independent (`PresentedChart.exists_clm`). **Not formalized**: the continuity of $o_{\\partial M}$ along $\\partial M$, which needs the stratum $\\{d_M = 1\\}$ as a smooth submanifold, the extension to the closed faces (Figure 9.1) and Remark 9.3.11 (Findings, Chapter 9, items 57, 58, 108).",
    "decls": [
     "Chapter9/OrientationBoundary · MPolyfold.boundaryFrames",
-    "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift"
+    "Chapter9/OrientationBoundary · EpGroupoid.boundaryLift",
+    "Chapter9/BoundaryOperation · MPolyfold.boundaryOp",
+    "Chapter9/BoundaryOperation · MPolyfold.chartVec_image_boundaryCarrier",
+    "Chapter9/BoundaryOperation · MPolyfold.isOutward_iff_not_mem_partialCone",
+    "Chapter9/BoundaryOperation · MPolyfold.boundaryOp_eq",
+    "Chapter9/BoundaryOperation · EpGroupoid.boundaryOrientation",
+    "Chapter9/BoundaryOperation · EpGroupoid.proposition_9_3_9_boundaryOp"
    ]
   },
   {
@@ -2016,10 +2156,12 @@
    "label": "§9.4, Lemma 9.4.4, p. 431 (2017: Lemma 9.13, p. 317), and Lemma 9.4.6, p. 431 (2017: Lemma 9.14)",
    "page": 431,
    "book": "Essential points of $K(i, i')$ do not depend on the reference sheet; the non-essential points have measure zero; for submanifolds of an M-polyfold, in M-polyfold charts.",
-   "instead": "**Not formalized** for M-polyfold sheets, which carry no Mathlib manifold structure in the project: they are the fields `ess_comm` and `isNull_diff_ess` of `SheetGeometry`, satisfiable for smooth graphs in $\\mathbb R^2$; Lemma 9.4.6 is proved for Mathlib manifolds (V9.42, V9.44) (Findings, Chapter 9, item 72).",
+   "instead": "**Formalized in part since the first edition of this page** (V9.44): Lemma 9.4.6 holds for the sheets of a tame branching structure of dimension $n$, read as Mathlib manifolds with corners (`TameBranchingStructure.lemma_9_4_6`), and for a tame $n$-dimensional sheet in good position in a tame M-polyfold (`lemma_9_4_6_sheet`, `Chapter9/MathlibManifoldBridge.lean`). **Not formalized**: Lemma 9.4.4 for M-polyfold sheets, which needs the change of charts between the induced structures of two sheets; for general M-polyfold sheets Lemmas 9.4.4 and 9.4.6 remain the fields `ess_comm` and `isNull_diff_ess` of `SheetGeometry`, satisfiable for smooth graphs in $\\mathbb R^2$, and `SheetGeometry` is not yet built from the bridge. Lemma 9.4.6 is proved for Mathlib manifolds (V9.42, V9.44) (Findings, Chapter 9, items 72, 109).",
    "decls": [
     "Chapter9/BranchingGeometry · MPolyfold.SheetGeometry",
-    "Chapter9/BranchingGeometry · graphSheetGeometry"
+    "Chapter9/BranchingGeometry · graphSheetGeometry",
+    "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.lemma_9_4_6",
+    "Chapter9/MathlibManifoldBridge · MPolyfold.lemma_9_4_6_sheet"
    ]
   },
   {
@@ -2028,11 +2170,13 @@
    "label": "§9.5, Definition 9.5.1 and Lemma 9.5.2, p. 437 (2017: Definition 9.15 and Lemma 9.16, p. 322)",
    "page": 437,
    "book": "Measure zero in $S$ through measure zero (Definition 9.4.5) of the preimages in the sheets $M_i$ of a choice of local branching structures; independence of the choice, cited from the literature.",
-   "instead": "**Not formalized** for the Lebesgue null sets of submanifolds of a general M-polyfold, which carry no Mathlib manifold structure in the project: the null sets are the abstract system `SheetNullSets` (the fields of `SheetMeasureGeometry`), satisfiable on $\\mathbb R^2$ (cf. G.105); Lemma 9.5.2 is proved for structures with sheets of one class, and for every structure of an $n$-dimensional $\\Theta$ it would need Proposition 9.1.12 in general (G.97) (V9.49, V9.50) (Findings, Chapter 9, items 80, 81).",
+   "instead": "**Formalized in part since the first edition of this page** (V9.44): in the sheets of a tame branching structure of dimension $n$, read as Mathlib manifolds with corners, the null sets of Definition 9.4.5 are Mathlib's (`IsMeasureZero (modelWithCornersEuclideanQuadrant n)`), and the non-essential points form one (`TameBranchingStructure.lemma_9_4_6`, `Chapter9/MathlibManifoldBridge.lean`). **Not formalized**: Definition 9.5.1 and Lemma 9.5.2 with these null sets, and the Lebesgue null sets of the submanifolds of a general M-polyfold: they are the abstract system `SheetNullSets` (the fields of `SheetMeasureGeometry`), satisfiable on $\\mathbb R^2$ (cf. G.105). Lemma 9.5.2 is proved for structures with sheets of one class. For every structure of an $n$-dimensional $\\Theta$ it would need Proposition 9.1.12, which holds for every ep-groupoid since 2026-11-09 (`proposition_9_1_12`, V9.10) but is not yet applied here (V9.49, V9.50) (Findings, Chapter 9, items 80, 81, 109).",
    "decls": [
     "Chapter9/Measure · SheetNullSets",
     "Chapter9/Measure · MPolyfold.SheetMeasureGeometry",
-    "Chapter9/Measure · isNull_transfer_mixed_dim"
+    "Chapter9/Measure · isNull_transfer_mixed_dim",
+    "Chapter9/GeneralCorollaries · EpGroupoid.proposition_9_1_12",
+    "Chapter9/MathlibManifoldBridge · EpGroupoid.TameBranchingStructure.lemma_9_4_6"
    ]
   },
   {

@@ -784,16 +784,28 @@
   },
   {
    "id": "V10.27",
-   "title": "Theorem 10.4.5 (2017: 10.8), without the Fred part",
-   "verdict": "narrower",
+   "title": "Theorem 10.4.5 (2017: 10.8): push-forward and pull-back of section functors",
+   "verdict": "restated",
    "book": {
     "label": "§10.4, Theorem 10.4.5, pp. 500–501 (2017: Theorem 10.8, p. 362)",
     "page": 500,
     "statement": "$\\Phi_* : \\Gamma(P, \\mu) \\to \\Gamma(P', \\mu')$ is a bijection with inverse $\\Phi^*$, depending only on $|\\Phi|$, and restricting to $\\Gamma^+$ and to the sc-Fredholm section functors."
    },
    "lean": {
-    "statement": "Mutually inverse bijections of the sc-smooth section functors, equal for $|\\Phi| = |\\Psi|$, mapping $\\mathrm{sc}^+$-section functors to $\\mathrm{sc}^+$-section functors; a witness over $-\\mathrm{id}$.",
+    "statement": "`theorem_10_4_5`: mutually inverse bijections $\\Phi_*$, $\\Phi^*$ of the sc-smooth section functors, equal for $|\\Phi| = |\\Psi|$, mapping $\\mathrm{sc}^+$-section functors to $\\mathrm{sc}^+$-section functors; a witness over $-\\mathrm{id}$. `theorem_10_4_5_fred`: $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections $\\mathrm{Fred}(P, \\mu) \\leftrightarrow \\mathrm{Fred}(P', \\mu')$; the same for tame germ data (`isScFredholmSectionTame_pullback`, `_pushforward`). The proof: Definition 3.1.18 is local and invariant under local strong bundle isomorphisms (`StrongBundle.LocalIso`, `LocalIso.isScFredholmGerm`, through the transported chart `transportChart`; `isScFredholmSection_of_forall`), and near every point the pull-back is such an isomorphism (`exists_localIso_mor`).",
     "decls": [
+     "Chapter10/FredholmEquivalence · EpStrongBundle.theorem_10_4_5_fred",
+     "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pullback",
+     "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pushforward",
+     "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSectionTame_pullback",
+     "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSectionTame_pushforward",
+     "Chapter10/FredholmEquivalence · EpStrongBundle.exists_localIso_mor",
+     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso",
+     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.transportChart",
+     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isChart_transportChart",
+     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGerm",
+     "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGermTame",
+     "Chapter3/FredholmPullbackIso · StrongBundle.isScFredholmSection_of_forall",
      "Chapter10/StrongBundleEquivalence · EpStrongBundle.theorem_10_4_5",
      "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.eqOn_pullback",
      "Chapter10/StrongBundleEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScSmoothSection_pullback",
@@ -810,12 +822,13 @@
     ]
    },
    "chips": [
-    "Fred part not formalized (G.121)",
+    "Fred part: proved (G.121)",
     "sc-smoothness of $\\Phi_*f$ proved",
     "$\\Gamma$ for $\\Gamma^+$: possible misprint"
    ],
    "diff": [
-    "The sc-Fredholm part is not formalized (G.121); the second display is read with $\\Gamma^+$ (Findings, Chapter 10, item 44)."
+    "Updated (2026-11-09): **the Fred part is proved** (`theorem_10_4_5_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.121 closed), through the invariance of sc-Fredholm sections under local strong bundle isomorphisms (`Chapter3/FredholmPullbackIso.lean`). The form without it is kept (`theorem_10_4_5`) (Findings, Chapter 10, item 44).",
+    "The second display is read with $\\Gamma^+$ (Findings, Chapter 10, item 44)."
    ]
   },
   {
@@ -1375,15 +1388,29 @@
   {
    "id": "V10.48",
    "title": "Remark 10.3.18 (2017: 10.3), equivalence of pairs $(X, \\beta)$",
-   "verdict": "narrower",
+   "verdict": "same",
    "book": {
     "label": "§10.3, Remark 10.3.18, pp. 492–493 (2017: Remark 10.3, p. 355)",
     "page": 492,
     "statement": "For metrizable $Z$, pairs $(X, \\beta)$ with $\\beta : |X| \\to Z$ a homeomorphism, equivalent through generalized isomorphisms $f$ with $\\beta' \\circ |f| = \\beta$; $f$ is in general not unique."
    },
    "lean": {
-    "statement": "`OrbitChart.Rel` is an equivalence relation; a witness with the pair groupoid of $\\mathbb Z$.",
+    "statement": "`OrbitChart.Rel` is an equivalence relation on the pairs $(X, \\beta)$ (`refl`, `symm`, `trans`, `setoid`); a witness with the pair groupoid of $\\mathbb Z$. The generalized isomorphism $f$ is in general not unique: over $\\mathbb Z/3 \\times \\mathbb R \\rightrightarrows \\mathbb R$ the base classes of $[1_W]$ and $[\\mathrm{Inv}]$ differ, with equal orbit maps (`base_orbitMap_ofHom_z3InvHom`, `remark_10_5_5`, V10.60).",
     "decls": [
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.remark_10_5_5",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.pushforward_inv_eq_pushforward_id",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.z3EpBundle",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.z3InvHom",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.z3InvHom_mem_equivalences",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.orbitMap_ofHom_z3InvHom",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.base_orbitMap_ofHom_z3InvHom",
+     "Chapter10/StrongBundleLocalizationExamples · EPLocalization.Diagram.IsotropyRel",
+     "Chapter10/StrongBundleLocalizationExamples · EPLocalization.Diagram.isotropyRel_isotropyHom",
+     "Chapter10/StrongBundleLocalizationExamples · EPLocalization.Diagram.IsRefinement.isotropyRel_iff",
+     "Chapter10/StrongBundleLocalizationExamples · EPLocalization.Diagram.Equiv.isotropyRel_iff",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.isotropyRel_id",
+     "Chapter10/StrongBundleLocalizationExamples · StrongBundleLocalizationExamples.not_isotropyRel_inv",
+     "Chapter10/StrongBundleLocalization · SBLocalization.GenSBMap.remark_10_5_3",
      "Chapter10/LocalizationProperties · EPLocalization.OrbitChart",
      "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.Rel",
      "Chapter10/LocalizationProperties · EPLocalization.OrbitChart.Rel.refl",
@@ -1394,10 +1421,11 @@
     ]
    },
    "chips": [
-    "non-uniqueness: V10.60 (G.119 closed)",
+    "in full with V10.60 (G.119 closed)",
     "metrizability not used"
    ],
    "diff": [
+    "Proved in full in V10.60; the narrower form first recorded here is kept (`OrbitChart.Rel`, the equivalence relation).",
     "None beyond the gap (Findings, Chapter 10, item 39)."
    ]
   },
@@ -1709,7 +1737,7 @@
   },
   {
    "id": "V10.59",
-   "title": "Theorem 10.5.4 (2017: 10.9), without the Fred part",
+   "title": "Theorem 10.5.4 (2017: 10.9): push-forward along a generalized strong bundle isomorphism",
    "verdict": "narrower",
    "book": {
     "label": "§10.5, Theorem 10.5.4, pp. 507–508 (2017: Theorem 10.9, p. 367)",
@@ -1717,8 +1745,12 @@
     "statement": "For a generalized strong bundle isomorphism $[D]$, $[D]_* : \\Gamma(P, \\mu) \\to \\Gamma(P', \\mu')$ is a well-defined isomorphism whose inverse, given by the inverse diagram, is $[D]^*$; the same for $\\Gamma^+$ and $\\mathrm{Fred}$; $|[D]| = |[D']|$ implies $[D]_* = [D']_*$ and $[D]^* = [D']^*$."
    },
    "lean": {
-    "statement": "Well defined for every representative with both legs strong bundle equivalences; mutually inverse bijections of $\\Gamma$ and of $\\Gamma^+$; the reversed diagram gives $[D]^*$; equal orbit maps give equal push-forwards and pull-backs. Witnesses over $-\\mathrm{id}$.",
+    "statement": "Well defined for every representative with both legs strong bundle equivalences; mutually inverse bijections of $\\Gamma$ and of $\\Gamma^+$; the reversed diagram gives $[D]^*$; equal orbit maps give equal push-forwards and pull-backs. Witnesses over $-\\mathrm{id}$. `theorem_10_5_4_fred`: $[D]_*$ maps $\\mathrm{Fred}(P, \\mu)$ bijectively onto $\\mathrm{Fred}(P', \\mu')$, $[D]^*$ maps $\\mathrm{Fred}(P', \\mu')$ into $\\mathrm{Fred}(P, \\mu)$, and on $\\mathrm{Fred}$ the push-forward along the inverse diagram is $[D]^*$.",
     "decls": [
+     "Chapter10/FredholmEquivalence · SBLocalization.GenSBMap.theorem_10_5_4_fred",
+     "Chapter10/FredholmEquivalence · SBLocalization.SDiagram.bijOn_pushforward_fred",
+     "Chapter10/FredholmEquivalence · SBLocalization.SDiagram.mapsTo_pushforward_fred",
+     "Chapter10/FredholmEquivalence · SBLocalization.SDiagram.mapsTo_pullback_fred",
      "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.rep",
      "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.pushforward",
      "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.pullback",
@@ -1733,11 +1765,12 @@
     ]
    },
    "chips": [
-    "Fred part not formalized (G.125)",
+    "Fred part: proved (G.125)",
     "isomorphism read as bijection"
    ],
    "diff": [
-    "As for Theorem 10.4.5: the sc-Fredholm part is open, and linearity is not stated, $\\Gamma$ having no vector space structure in the project (Findings, Chapter 10, item 55)."
+    "Updated (2026-11-09): **the Fred part is proved** (`theorem_10_5_4_fred`, `Chapter10/FredholmEquivalence.lean`; gap G.125 closed), from that of Theorem 10.4.5 (V10.27). Still “narrower”: the text calls $[D]_*$ an isomorphism of the vector spaces $\\Gamma(P, \\mu)$, $\\Gamma(P', \\mu')$; linearity is not stated (Findings, Chapter 10, item 55).",
+    "As for Theorem 10.4.5; linearity is not stated, $\\Gamma$ having no vector space structure in the project (Findings, Chapter 10, item 55)."
    ]
   },
   {
@@ -2263,9 +2296,19 @@
    "label": "§10.4, Theorem 10.4.5, p. 501 (2017: Theorem 10.8, p. 362), the sc-Fredholm section functors",
    "page": 501,
    "book": "$\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors.",
-   "instead": "**Not formalized**: it needs the invariance of sc-Fredholm sections under local strong bundle isomorphisms, of which Part I has chart-level germ statements only; the rest of the theorem is V10.27 (Findings, Chapter 10, item 44).",
+   "instead": "**Formalized since the first edition of this page** (V10.27). $\\Phi_*$ and $\\Phi^*$ map sc-Fredholm section functors to sc-Fredholm section functors and restrict to mutually inverse bijections of $\\mathrm{Fred}$ (`theorem_10_4_5_fred`). The invariance it needed is proved: a local strong bundle isomorphism (`StrongBundle.LocalIso`) carries sc-Fredholm germs to sc-Fredholm germs, read in the transported chart (`LocalIso.isScFredholmGerm`, `transportChart`, `isChart_transportChart`), so Definition 3.1.18 is local (`isScFredholmSection_of_forall`, `Chapter3/FredholmPullbackIso.lean`), and the action of a morphism is such an isomorphism (`exists_localIso_mor`, `Chapter10/FredholmEquivalence.lean`) (Findings, Chapter 10, item 44).",
    "decls": [
-    "Chapter10/StrongBundleEquivalence · EpStrongBundle.theorem_10_4_5"
+    "Chapter10/StrongBundleEquivalence · EpStrongBundle.theorem_10_4_5",
+    "Chapter10/FredholmEquivalence · EpStrongBundle.theorem_10_4_5_fred",
+    "Chapter10/FredholmEquivalence · EpStrongBundle.exists_localIso_mor",
+    "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pullback",
+    "Chapter10/FredholmEquivalence · EpStrongBundle.IsStrongBundleEquivalence.isScFredholmSection_pushforward",
+    "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso",
+    "Chapter3/FredholmPullbackIso · StrongBundle.LocalIso.isScFredholmGerm",
+    "Chapter3/FredholmPullbackIso · StrongBundle.isScFredholmSection_of_forall"
+   ],
+   "formalized": [
+    "V10.27"
    ]
   },
   {
@@ -2313,9 +2356,14 @@
    "label": "§10.5, Theorem 10.5.4, p. 508 (2017: Theorem 10.9, p. 367), the sc-Fredholm section functors",
    "page": 508,
    "book": "$[D]_*$ maps $\\mathrm{Fred}(P, \\mu)$ onto $\\mathrm{Fred}(P', \\mu')$.",
-   "instead": "**Not formalized**: it rests on the Fred part of Theorem 10.4.5 (G.121); the rest of the theorem is V10.59 (Findings, Chapter 10, item 55).",
+   "instead": "**Formalized since the first edition of this page** (V10.59). $[D]_*$ maps $\\mathrm{Fred}(P, \\mu)$ bijectively onto $\\mathrm{Fred}(P', \\mu')$ with inverse $[D]^*$ (`theorem_10_5_4_fred`, `SDiagram.bijOn_pushforward_fred`, `Chapter10/FredholmEquivalence.lean`), from the Fred part of Theorem 10.4.5 (G.121, V10.27) (Findings, Chapter 10, item 55).",
    "decls": [
-    "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.theorem_10_5_4"
+    "Chapter10/StrongBundleLocalizationSections · SBLocalization.GenSBMap.theorem_10_5_4",
+    "Chapter10/FredholmEquivalence · SBLocalization.GenSBMap.theorem_10_5_4_fred",
+    "Chapter10/FredholmEquivalence · SBLocalization.SDiagram.bijOn_pushforward_fred"
+   ],
+   "formalized": [
+    "V10.59"
    ]
   },
   {

@@ -743,16 +743,28 @@
   },
   {
    "id": "V11.25",
-   "title": "Theorem 11.3.9 (2017: 11.7), oriented boundaries, for a representative",
-   "verdict": "narrower",
+   "title": "Theorem 11.3.9 (2017: 11.7), oriented boundaries",
+   "verdict": "restated",
    "book": {
     "label": "§11.3, Theorem 11.3.9, p. 542 (2017: Theorem 11.7, p. 395)",
     "page": 542,
     "statement": "For oriented tame branched ep⁺-subgroupoids, $\\partial(f_*\\hat\\Theta) = f_*(\\partial\\hat\\Theta)$ and $\\partial(f^*\\hat\\Theta') = f^*(\\partial\\hat\\Theta')$; the proof is left to the reader."
    },
    "lean": {
-    "statement": "For a diagram $X \\leftarrow A \\to Y$ with right leg an equivalence and boundary operations on $X$, $A$, $Y$ that the transfer maps carry into each other (`IsBoundaryTransfer`, which holds along the identity): $d_*(\\partial\\Theta) = \\partial(d_*\\Theta)$ and $d_*\\hat T_{\\partial\\Theta} = \\hat T_{\\partial(d_*\\Theta)}$, and likewise for $d^*$ (`theorem_11_3_9_push`, `theorem_11_3_9_pull`).",
+    "statement": "For a generalized isomorphism $f$ itself: $f_*(\\partial\\Theta) = \\partial(f_*\\Theta)$ and $f_*\\hat T_{\\partial\\Theta} = \\hat T_{\\partial(f_*\\Theta)}$, and likewise for $f^*$, with $\\hat T_{\\partial\\Theta}$ the intrinsic `boundaryOrientation` of Definition 9.3.10 (V9.38), for every section $\\hat T_\\Theta$ of $\\widehat{\\mathrm{Gr}}$ and no boundary-transfer hypothesis (`EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`; the independence of tangent sums they take holds for every $\\Theta$, `hasIndependentTangentSums`, V9.14); also for a representative diagram (`Diagram.pushSection_boundaryOrientation`, `Diagram.pullSection_boundaryOrientation`). sc-diffeomorphisms and equivalences move the boundary operation (`boundaryOp_map_tangentMapOn`, `EpFunctor.isReducedBoundaryTransfer_tangentMor`). With Chapter 9's `boundaryLift boundaryOp`: for oriented tame $\\hat\\Theta$ with $f_*\\hat\\Theta$ tame (`EPLoc.theorem_11_3_9_push_boundaryOp`, `EPLoc.theorem_11_3_9_pull_boundaryOp`; witness on Example 9.3.5). The form first proved, for a representative with boundary operations that the transfer maps carry into each other (`IsBoundaryTransfer`, which holds along the identity), is kept (`theorem_11_3_9_push`, `theorem_11_3_9_pull`); `IsReducedBoundaryTransfer.isBoundaryTransfer` gives that hypothesis for `boundaryOp` when $f$ carries tangent sets of tame submanifolds to such (`CarriesTameTangents`, witness `carriesTameTangents_id`).",
     "decls": [
+     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation",
+     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation",
+     "Chapter11/BoundaryOrientationEquiv · EPLocalization.Diagram.pushSection_boundaryOrientation",
+     "Chapter11/BoundaryOrientationEquiv · EPLocalization.Diagram.pullSection_boundaryOrientation",
+     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOp",
+     "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOp",
+     "Chapter11/BoundaryOrientationEquiv · MPolyfold.boundaryOp_map_tangentMapOn",
+     "Chapter11/BoundaryOrientationEquiv · EpFunctor.isReducedBoundaryTransfer_tangentMor",
+     "Chapter11/BoundaryOrientationEquiv · MPolyfold.IsReducedBoundaryTransfer.isBoundaryTransfer",
+     "Chapter11/BoundaryOrientationEquiv · MPolyfold.CarriesTameTangents",
+     "Chapter11/BoundaryOrientationEquiv · MPolyfold.carriesTameTangents_id",
+     "Chapter11/BoundaryOrientationEquiv · EpGroupoid.Examples.theorem_11_3_9_push_boundaryOp_example935",
      "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.IsBoundaryTransfer",
      "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.isBoundaryTransfer_id",
      "Chapter11/BranchedEquivalenceTangentOrientation · EpFunctor.pushSection_boundaryLift",
@@ -762,11 +774,12 @@
     ]
    },
    "chips": [
-    "for a representative",
-    "boundary transfer assumed (G.130)"
+    "componentwise",
+    "intrinsic boundary orientation: no hyp.",
+    "`boundaryOp`: $f_*\\hat\\Theta$ tame assumed"
    ],
    "diff": [
-    "Chapter 9 takes the boundary operation as data; that the boundary operations of Definition 9.3.8 satisfy the hypothesis along equivalences is not formalized (G.130) (Findings, Chapter 11, item 45)."
+    "Updated (2026-11-09): with the boundary operation built from the submanifolds (V9.36), Theorem 11.3.9 holds for the generalized isomorphism itself and the intrinsic boundary orientation with no transfer hypothesis (`Chapter11/BoundaryOrientationEquiv.lean`; gap G.130 closed). $\\partial\\hat\\Theta = (\\partial\\Theta, \\hat T_{\\partial\\Theta})$ as an oriented branched ep⁺-subgroupoid is not formalized, so the theorem is stated componentwise. For `boundaryLift boundaryOp` the tameness of $f_*\\hat\\Theta$ is a hypothesis, since that sc-diffeomorphisms carry tame submanifolds to tame ones is not formalized (Findings, Chapter 11, item 45)."
    ]
   },
   {
@@ -1312,10 +1325,18 @@
    "label": "§11.3, Theorem 11.3.9, p. 542 (2017: Theorem 11.7, p. 395)",
    "page": 542,
    "book": "The boundary orientation $\\hat T_{\\partial\\Theta}$ of Definition 9.3.10 is carried by generalized isomorphisms: $\\partial(f_*\\hat\\Theta) = f_*(\\partial\\hat\\Theta)$, independently of the representative.",
-   "instead": "**Not formalized**: that the boundary operations of Definition 9.3.8 satisfy `IsBoundaryTransfer` along equivalences, which needs sc-diffeomorphisms between different M-polyfolds to preserve tame induced structures, $d_M$ and outward vectors; Chapter 9 takes the boundary operation as data (the partial cones of submanifolds are not formalized). Theorem 11.3.9 is proved for a representative under that hypothesis (V11.25; Findings, Chapter 11, item 45).",
+   "instead": "**Formalized since the first edition of this page** (V11.25), for the intrinsic boundary orientation. sc-diffeomorphisms preserve $T^R_xX$, $C_xX$, the reduced codimension and the boundary operation of Definition 9.3.8 (`boundaryOp_map_tangentMapOn`), and so do equivalences and the fibre inverses (`EpFunctor.isReducedBoundaryTransfer_tangentMor`, `EpFunctor.isReducedBoundaryTransfer_fibreInv`); \\\"$d_M(x)$ is preserved\\\" is read for the reduced codimension of $T_xM$, which for tame $M$ is $d_M(x)$. So Theorem 11.3.9 holds for the generalized isomorphism itself, with $\\hat T_{\\partial\\Theta}$ = `boundaryOrientation` (Definition 9.3.10, V9.38), with no transfer hypothesis (`EPLoc.theorem_11_3_9_push_boundaryOrientation`, `EPLoc.theorem_11_3_9_pull_boundaryOrientation`). For Chapter 9's `boundaryLift boundaryOp` it takes the tameness of $f_*\\hat\\Theta$ (`EPLoc.theorem_11_3_9_push_boundaryOp`), and `IsBoundaryTransfer` for `boundaryOp` takes `CarriesTameTangents`, since the restriction of sc-diffeomorphisms to tame sub-M-polyfolds is not formalized (Findings, Chapter 11, item 45).",
    "decls": [
     "Chapter11/BranchedEquivalenceTangentOrientation · MPolyfold.IsBoundaryTransfer",
-    "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_push"
+    "Chapter11/BranchedEquivalenceTangentOrientation · EPLocalization.EPLoc.theorem_11_3_9_push",
+    "Chapter11/BoundaryOrientationEquiv · MPolyfold.boundaryOp_map_tangentMapOn",
+    "Chapter11/BoundaryOrientationEquiv · EpFunctor.isReducedBoundaryTransfer_tangentMor",
+    "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation",
+    "Chapter11/BoundaryOrientationEquiv · EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation",
+    "Chapter11/BoundaryOrientationEquiv · MPolyfold.CarriesTameTangents"
+   ],
+   "formalized": [
+    "V11.25"
    ]
   },
   {
