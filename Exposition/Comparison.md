@@ -12335,7 +12335,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§9.1, Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297)).** A branched ep⁺-subgroupoid $\Theta$ determines a unique sequence $\Theta_0, \Theta_1, \ldots$ of branched ep⁺-subgroupoids characterized by (1) $\Theta_k$ is $k$-dimensional and (2) $\Theta = \Theta_0 + \Theta_1 + \cdots$, the sum locally finite. Proof: at $x \in \mathrm{supp}(\Theta)$ take a symmetric structure, split $I = I_0 \sqcup \cdots \sqcup I_n$ by the dimension of the $M_i$ and put $\Theta_k(y) = \sum_{i \in I_k, y \in M_i} \sigma_i$; independence of the structure is Proposition 9.1.12.
 
-**Proved in Lean.** For a local branching structure with dimension labelling, $\Theta_k(y) = \sum_{\dim M_i = k,\, y \in M_i} \sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\dim M_i = k}$, $\Theta = \sum_k \Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\Theta_k$ is $G_x$-invariant. The statement of the proposition, "a unique family $(\Theta_k)$ of branched ep⁺-subgroupoids, $\Theta_k$ $k$-dimensional, with $\Theta = \sum_k \Theta_k$ pointwise, and every such family locally finite", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\mathbb R^2$ it does not hold as we read it: for the indicator $\Theta$ of the $x$-axis $L$, both $\Theta_0 = 1_{\{0\}}$, $\Theta_1 = 1_{L \setminus \{0\}}$ and $\Theta_0 = 0$, $\Theta_1 = 1_L$ are such families.
+**Proved in Lean.** For a local branching structure with dimension labelling, $\Theta_k(y) = \sum_{\dim M_i = k,\, y \in M_i} \sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\dim M_i = k}$, $\Theta = \sum_k \Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\Theta_k$ is $G_x$-invariant. The statement of the proposition, "a unique family $(\Theta_k)$ of branched ep⁺-subgroupoids, $\Theta_k$ $k$-dimensional, with $\Theta = \sum_k \Theta_k$ pointwise, and every such family locally finite", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\mathbb R^2$ it does not hold as we read it: for the indicator $\Theta$ of the $x$-axis $L$, both $\Theta_0 = 1_{\{0\}}$, $\Theta_1 = 1_{L \setminus \{0\}}$ and $\Theta_0 = 0$, $\Theta_1 = 1_L$ are such families. Uniqueness among local decompositions, those given near every point of $\mathrm{supp}(\Theta)$ by the dimensional parts of a local branching structure (the form the proof builds): two such decompositions are equal, given Proposition 9.1.12, hence over $\mathbb R^m$ with no hypothesis and under the graph representation in general; in the example, $\Theta_1 = 1_L$ is local and the other decomposition is not.
 
 - `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart` — Polyfold/Chapter9/Propositions.lean, line 647
 - `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartStructure` — Polyfold/Chapter9/Propositions.lean, line 652
@@ -12354,10 +12354,16 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.decompA_isDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 1267
 - `Polyfold.EpGroupoid.decompB_isDimDecomposition` — Polyfold/Chapter9/Propositions.lean, line 1304
 - `Polyfold.EpGroupoid.not_proposition_9_1_11_rn` — Polyfold/Chapter9/Propositions.lean, line 1332
+- `Polyfold.EpGroupoid.IsLocalDimDecomposition` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 50
+- `Polyfold.EpGroupoid.isDimDecomposition_unique` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 72
+- `Polyfold.EpGroupoid.proposition_9_1_11_unique_rn` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 103
+- `Polyfold.EpGroupoid.proposition_9_1_11_unique_of_hasGraphChartAt` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 88
+- `Polyfold.EpGroupoid.decompB_isLocalDimDecomposition` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 112
+- `Polyfold.EpGroupoid.decompA_not_isLocalDimDecomposition` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 131
 
 *What differs.*
 - Hidden hypotheses: the dimension labellings of V9.2.
-- Only the local construction is verified; the gluing of the local $\Theta_k$ into functors on $X$ (compatibility across morphisms, paracompactness of $|\mathrm{supp}(\Theta_k)|$, local finiteness) and a uniqueness statement under an extra condition (for instance that each $\Theta_k$ be represented near every point by a subfamily of a local branching structure of $\Theta$) are not formalized (gap G.96) (Findings, Chapter 9, item 8).
+- Only the local construction is verified; the gluing of the local $\Theta_k$ into functors on $X$ (compatibility across morphisms, paracompactness of $|\mathrm{supp}(\Theta_k)|$, local finiteness) is not formalized (gap G.96) (Findings, Chapter 9, item 8). Uniqueness holds among local decompositions (Findings, Chapter 9, item 105).
 
 ### V9.10. Proposition 9.1.12, the decomposition does not depend on the structure
 
@@ -14700,15 +14706,21 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **HWZ (§10.5, Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367)).** If both strong bundles have the local regularity property and $[D], [D'] : W \to W'$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$. (2017: without the local regularity hypothesis.)
 
-**Proved in Lean.** `SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\mathbb R \times \mathbb R^k \to \mathbb R$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$, trivial $\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\mathrm{Inv}] \neq [1_W]$ with equal orbit maps (`remark_10_5_5`).
+**Proved in Lean.** `SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\mathbb R \times \mathbb R^k \to \mathbb R$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$, trivial $\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\mathrm{Inv}] \neq [1_W]$ with equal orbit maps (`remark_10_5_5`). For an effective target it holds: `SBLocalization.theorem_10_5_7_of_isEffective`, with the base of the target effective and (LR) of the base of the source or the target, as in Theorem 10.3.19; then strong bundle equivalences with the same orbit map are naturally equivalent (`SEP.natEquiv_of_isEffective`). Witness: $\mathbb R^n \times \mathbb R^k \to \mathbb R^n$ over the trivial ep-groupoid.
 
 - `Polyfold.SBLocalization.Theorem_10_5_7` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 131
 - `Polyfold.LocalizationLRCounterexample.not_theorem_10_5_7` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 211
 - `Polyfold.LocalizationLRCounterexample.isLR_z3EpBundle` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 200
 - `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
+- `Polyfold.SBLocalization.theorem_10_5_7_of_isEffective` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 242
+- `Polyfold.SEP.natEquiv_of_isEffective` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 161
+- `Polyfold.SEP.orbitMap_base_eq` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 142
+- `Polyfold.StrongBundle.isOpenMap_proj` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 73
+- `Polyfold.LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 297
 
 *What differs.*
 - The statement does not hold as we read it, nor does the 2017 Theorem 10.10; the proof ("immediately from Proposition 10.4.7") meets the step of V10.65 for strong bundles (Findings, Chapter 10, item 58).
+- For an effective target the theorem holds with (LR) of a base, the hypothesis of Theorem 10.3.19; the strong bundle (LR) of Definition 8.4.2, as formalized, is kept but not used (Findings, Chapter 10, item 71).
 
 ### V10.68. Theorem 10.2.2 (2017: 10.2) for strong bundles, the weak fibred product $W \times_{W'} W''$
 

@@ -9503,6 +9503,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isSubMPolyfold_tangentSubmanifold
 #print axioms Polyfold.rnPolyfold_isSubMPolyfold_tangent_graph2
 #print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_tangentTheta_rn
+-- Chapter9/DimDecompositionUnique.lean
+#print axioms Polyfold.EpGroupoid.IsLocalDimDecomposition
+#print axioms Polyfold.EpGroupoid.IsDimDecomposition.eq_zero_of_not_mem_supp
+#print axioms Polyfold.EpGroupoid.isDimDecomposition_unique
+#print axioms Polyfold.EpGroupoid.proposition_9_1_11_unique_of_hasGraphChartAt
+#print axioms Polyfold.EpGroupoid.proposition_9_1_11_unique_rn
+#print axioms Polyfold.EpGroupoid.decompB_isLocalDimDecomposition
+#print axioms Polyfold.EpGroupoid.decompA_not_isLocalDimDecomposition
 -- Chapter9/OrientationTangent.lean
 #print axioms Polyfold.MPolyfold.transportChart.congr_simp
 #print axioms Polyfold.MPolyfold.chartVec
@@ -10844,6 +10852,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.LocalizationLRCounterexample.not_theorem_10_3_19
 #print axioms Polyfold.LocalizationLRCounterexample.isLR_z3EpBundle
 #print axioms Polyfold.LocalizationLRCounterexample.not_theorem_10_5_7
+-- Chapter10/LocalizationLREffectiveBundle.lean
+#print axioms Polyfold.StrongBundle.isOpenMap_proj
+#print axioms Polyfold.SEP.orbitMap_base_eq
+#print axioms Polyfold.SEP.natEquiv_of_isEffective
+#print axioms Polyfold.SBLocalization.theorem_10_5_7_of_isEffective
+#print axioms Polyfold.LocalizationLREffectiveBundleExamples.isLR_trivial
+#print axioms Polyfold.LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses
 -- Chapter10/StrongBundleWeakFibredProductPullback.lean
 #print axioms Polyfold.StrongBundle.oneRestrict.congr_simp
 #print axioms Polyfold.StrongBundle.IsStrongBundleMap.congr_base

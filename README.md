@@ -183,8 +183,10 @@ Open the HTML pages in a browser straight from the folder; they need no server.
 10. **Proposition 9.1.11** (pp. 407–408; 2017: 9.2): the uniqueness of the dimensional decomposition
     `(Θ_k)` does not hold as we read it: on the trivial ep-groupoid of `ℝ²`, the indicator of a line
     has two decompositions satisfying (1) and (2) (`not_proposition_9_1_11_rn`,
-    `Polyfold/Chapter9/Propositions.lean`; V9.9; Findings, Chapter 9, item 8). A possible repair is
-    that each `supp(Θ_k)` be closed in `supp(Θ)`, which is what the proof constructs.
+    `Polyfold/Chapter9/Propositions.lean`; V9.9; Findings, Chapter 9, item 8). Uniqueness holds among
+    the decompositions the proof constructs, those given near each point by the dimensional parts of a
+    local branching structure (`proposition_9_1_11_unique_rn`, `isDimDecomposition_unique`,
+    `Polyfold/Chapter9/DimDecompositionUnique.lean`; Findings, Chapter 9, item 105).
 11. **Sheets of different dimensions in §§9.3–9.5**: Lemma 9.3.4 (p. 423), Lemma 9.4.4 with the note
     in Definition 9.4.7 (pp. 431–432), and Lemma 9.5.2 (p. 437) do not hold as we read them when the
     local branching structure has sheets of different dimensions; each counterexample is checked in
@@ -198,8 +200,10 @@ Open the HTML pages in a browser straight from the folder; they need no server.
     with the same orbit map that differ; the step on p. 494 uses families `α_z` that are not natural,
     and no natural transformation `1 ⇒ Inv` exists (`not_theorem_10_3_19`, `not_theorem_10_5_7`,
     `Polyfold/Chapter10/LocalizationLRCounterexample.lean`; V10.65, V10.67; Findings, Chapter 10,
-    item 58). Theorem 10.3.19 holds when the target is effective (`theorem_10_3_19_of_isEffective`,
-    V10.66). Is an effectiveness hypothesis intended?
+    item 58). Both hold when the target is effective: Theorem 10.3.19 (`theorem_10_3_19_of_isEffective`,
+    V10.66), and Theorem 10.5.7 with (LR) of a base, as in Theorem 10.3.19
+    (`theorem_10_5_7_of_isEffective`, `Polyfold/Chapter10/LocalizationLREffectiveBundle.lean`; Findings,
+    Chapter 10, item 71). Is an effectiveness hypothesis intended?
 
 ## Open questions
 

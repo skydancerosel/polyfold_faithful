@@ -9827,6 +9827,23 @@ Follow-ups of the round-trip audit (`RoundTrip/`, 2026-11-08).
      (`RoundTrip/Items/V9_62.lean`, `not_B`). This supports reading the partition as one of `Ξ` (item 92).
      Status: **settled**.
 
+Follow-up for the notes to the authors (2026-11-09).
+
+105. **Proposition 9.1.11: uniqueness for the decomposition the proof constructs** *(Proposition 9.1.11,
+     pp. 407–408 (2017: Proposition 9.2, p. 297); item 8)*. A dimensional decomposition `(Θ_k)` is *local*
+     (`EpGroupoid.IsLocalDimDecomposition`, `Polyfold/Chapter9/DimDecompositionUnique.lean`) when near every
+     point `x` of `supp(Θ)` some local branching structure `B` of `Θ` at `x`, with a labelling of its
+     submanifolds by their dimensions, has `Θ_k = B.dimPart dim k` for every `k`; this is the form the proof
+     of the text builds. Given Proposition 9.1.12, two local dimensional decompositions are equal
+     (`isDimDecomposition_unique`; off `supp(Θ)` all `Θ_k` vanish,
+     `IsDimDecomposition.eq_zero_of_not_mem_supp`), hence with no hypothesis over `ℝᵐ`
+     (`proposition_9_1_11_unique_rn`) and under the graph representation in general
+     (`proposition_9_1_11_unique_of_hasGraphChartAt`). In the counterexample of item 8, `Θ_1 = 1_L` is local
+     (`decompB_isLocalDimDecomposition`, so the condition can be met) and `Θ_0 = 1_{0}`, `Θ_1 = 1_{L∖0}` is
+     not (`decompA_not_isLocalDimDecomposition`). The uniqueness of Proposition 9.1.11 thus holds when
+     "uniquely" is read among local decompositions. The global gluing of the local `Θ_k` stays gap G.96.
+     Status: **settled** (uniqueness, in this reading).
+
 ## Chapter 10 (Equivalences and localization; Lean `Polyfold/Chapter10/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so that agents
@@ -10335,6 +10352,24 @@ Witnesses and the hypotheses taken (2026-11-08).
     equivalence, push-forward, natural equivalence and `SEP` morphism of `StrongBundleEquivalenceExamples`
     (`isStrongBundleEquivalence_pullbackProj'`, `bijOn_pushforward_example`, `strongBundleNatEquiv_example`,
     `negSEPHom_mem_equivalences`). Status: **settled** (every hypothesis satisfiable).
+
+Follow-up for the notes to the authors (2026-11-09).
+
+71. **Theorem 10.5.7 for an effective target** *(Theorem 10.5.7, p. 508 (2017: Theorem 10.10); item 58)*.
+    `SBLocalization.theorem_10_5_7_of_isEffective` (`Polyfold/Chapter10/LocalizationLREffectiveBundle.lean`):
+    generalized strong bundle isomorphisms `[D], [D']` with `|[D]| = |[D']|` are equal when the base of the
+    target is effective and the base of the source or of the target has (LR) (Definition 7.4.19), the
+    hypothesis of Theorem 10.3.19. The hypotheses of the text (Definition 8.4.2 for both bundles) are kept but
+    not used: as formalized (`EpStrongBundle.IsLR`) they speak of strong bundle maps defined on all of `W` and
+    do not give (LR) of the base. The proof refines `D` and `D'` by the weak fibred product of `Φ` and `Φ'`
+    (Theorem 10.2.2); the key step `SEP.natEquiv_of_isEffective` gives `F ≃ G` (Definition 10.4.8) for strong
+    bundle equivalences with `|F| = |G|`: the base transformation `τ` is that of
+    `EpFunctor.naturallyEquivalent_of_isEffective`, and `G(w) = μ'(τ(P(w)), F(w))` holds over the regular
+    points of the base, which are dense, hence everywhere (`P` is open, `StrongBundle.isOpenMap_proj`;
+    `|Φ| = |Ψ|` gives `|ϕ| = |ψ|`, `SEP.orbitMap_base_eq`). Witness:
+    `LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses` (`ℝⁿ × ℝᵏ → ℝⁿ` over the
+    trivial ep-groupoid). Whether the theorem holds for an effective target without (LR) of a base is not
+    decided. Status: **settled** (effective target, base (LR)).
 
 ## Chapter 11 (Geometry up to equivalences; Lean `Polyfold/Chapter11/`)
 

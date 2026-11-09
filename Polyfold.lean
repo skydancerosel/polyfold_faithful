@@ -264,6 +264,7 @@ import Polyfold.Chapter9.TangentSlicesBasic
 import Polyfold.Chapter9.TangentSlicesRn
 import Polyfold.Chapter9.TangentSlices
 import Polyfold.Chapter9.AppendixSlices
+import Polyfold.Chapter9.DimDecompositionUnique
 import Polyfold.Chapter9.OrientationTangent
 import Polyfold.Chapter9.OrientationBasic
 import Polyfold.Chapter9.OrientationExample
@@ -296,6 +297,7 @@ import Polyfold.Chapter10.EquivalenceLR
 import Polyfold.Chapter10.EquivalenceLREffective
 import Polyfold.Chapter10.LocalizationLR
 import Polyfold.Chapter10.LocalizationLRCounterexample
+import Polyfold.Chapter10.LocalizationLREffectiveBundle
 import Polyfold.Chapter10.StrongBundleWeakFibredProductPullback
 import Polyfold.Chapter10.StrongBundleWeakFibredProduct
 import Polyfold.Chapter10.StrongBundleLocalizationCategory
