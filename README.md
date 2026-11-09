@@ -8,7 +8,7 @@ formalized against Mathlib with the same faithful layer as our formalizations of
 ([`math_faithful`](https://github.com/skydancerosel/math_faithful)). Part II, *Ep-Groupoids*, is
 under way: Chapters 7–11 are formalized (Chapter 11 without its §§11.2 and 11.4 on forms and
 integration). The authoritative text is the
-Springer edition (Progress in Mathematics 50, 2021): the reports cite its three-level numbers and
+Springer edition (Ergebnisse der Mathematik und ihrer Grenzgebiete 72, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
 1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names keep the
 numbers they were given first; items added or changed in 2021 have names ending in `_2021`, and
