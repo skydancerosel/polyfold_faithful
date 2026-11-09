@@ -12894,4 +12894,86 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.isTameOrientation_example935_push
 #print axioms Polyfold.EpGroupoid.Examples.theorem_11_3_9_push_boundaryOp_example935
 
+-- Chapter 3: results of 2026-11-09 (TameGermTransfer.lean)
+#print axioms Polyfold.fst_ne_zero_of_mem_interior
+#print axioms Polyfold.degIndexWith_eq_zero_of_mem_interior
+#print axioms Polyfold.degIndex_eq_zero_of_mem_interior
+#print axioms Polyfold.minimalSubspaceWith_eq_top_of_mem_interior
+#print axioms Polyfold.mem_interior_of_degIndexWith_eq_zero
+#print axioms Polyfold.mem_interior_iff_degIndex_eq_zero
+#print axioms Polyfold.StrongBundleChart.shrinkSource
+#print axioms Polyfold.StrongBundleChart.shrinkSource_subset
+#print axioms Polyfold.StrongBundleChart.isOpen_shrinkSource
+#print axioms Polyfold.StrongBundleChart.image_shrinkSource
+#print axioms Polyfold.StrongBundleChart.isStrongBundleRetraction_inter
+#print axioms Polyfold.StrongBundleChart.retract_inter
+#print axioms Polyfold.StrongBundleChart.shrink
+#print axioms Polyfold.StrongBundleChart.shrink_U
+#print axioms Polyfold.StrongBundleChart.shrink_R
+#print axioms Polyfold.StrongBundleChart.shrink_F
+#print axioms Polyfold.StrongBundleChart.shrink_φ_source
+#print axioms Polyfold.StrongBundleChart.shrink_φ_apply
+#print axioms Polyfold.StrongBundleChart.shrink_apply
+#print axioms Polyfold.StrongBundleChart.shrink_principal
+#print axioms Polyfold.StrongBundleChart.Compatible.shrink_left
+#print axioms Polyfold.StrongBundleChart.isTame_shrink_of_subset_interior
+#print axioms Polyfold.StrongBundle.IsChart.shrink
+#print axioms Polyfold.StrongBundle.isScFredholmGermTame_of_chart_interior
+#print axioms Polyfold.StrongBundle.IsScFredholmGermInterior
+#print axioms Polyfold.StrongBundle.mem_interior_iff_chartDegIndex_eq_zero
+#print axioms Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGerm2021
+#print axioms Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGermTame
+#print axioms Polyfold.StrongBundle.IsScFredholmGermInterior.isScFredholmGerm2017
+#print axioms Polyfold.StrongBundle.IsScFredholmGermInterior.degIndex_eq_zero
+#print axioms Polyfold.StrongBundle.isScFredholmSectionTame_of_interior
+#print axioms Polyfold.StrongBundle.IsScFredholmGermTame.exists_chart_chartDegIndex_eq
+#print axioms Polyfold.TrivialBundle.isScFredholmGermInterior_graphSection
+#print axioms Polyfold.CornerFilling.zero_not_mem_interior
+
+-- Chapter 6: results of 2026-11-09 (PerturbedOrientation.lean)
+#print axioms Polyfold.ChartPoint.orCongr.congr_simp
+#print axioms Polyfold.LineOrientation.congrDetOn_symm
+#print axioms Polyfold.LineOrientation.conj_congrDetOn
+#print axioms Polyfold.sectionAdd_sectionAdd_neg
+#print axioms Polyfold.ChartPoint.linSet_eq_of_sectionAdd
+#print axioms Polyfold.ChartPoint.stabT_congr
+#print axioms Polyfold.ChartPoint.orCongr
+#print axioms Polyfold.ChartPoint.orCongr_apply
+#print axioms Polyfold.ChartPoint.orCongr_symm
+#print axioms Polyfold.ChartPoint.orSectionAdd_eq_orCongr
+#print axioms Polyfold.ChartPoint.orEquivRay_orCongr
+#print axioms Polyfold.ChartPoint.stabRay_orCongr_aux
+#print axioms Polyfold.ChartPoint.orTransfer_orSectionAdd
+#print axioms Polyfold.IsStabKernels.sectionTransfer
+#print axioms Polyfold.IsStabKernels.orRay_sectionTransfer
+#print axioms Polyfold.IsStabKernels.push_sectionTransfer
+#print axioms Polyfold.toChartOr_orSectionAdd
+#print axioms Polyfold.IsPush.sectionTransfer
+#print axioms Polyfold.IsPush.of_sectionAdd
+#print axioms Polyfold.IsPush.sectionAdd
+#print axioms Polyfold.HasLocalPropagation.of_sectionAdd
+#print axioms Polyfold.IsOrientableNbhd.of_sectionAdd
+#print axioms Polyfold.isSectionOrientation_sectionAdd
+#print axioms Polyfold.SectionOrientation.sectionAdd
+#print axioms Polyfold.isNaturalSolutionOrientation
+#print axioms Polyfold.theorem_6_6_18_sectionAdd
+#print axioms Polyfold.theorem_6_6_18_perturbation
+
+-- Chapter 9: results of 2026-11-09 (MathlibSolutionSets.lean)
+#print axioms Polyfold.StrongBundle.isSurjLinOfIndex_of_isLinSurjAt
+#print axioms Polyfold.StrongBundle.hasDimAt_solutionSet_inter
+#print axioms Polyfold.theorem_3_6_8_isSubmanifoldOfDim
+#print axioms Polyfold.StrongBundle.isSubmanifoldOfDim_solutionSet
+#print axioms Polyfold.StrongBundle.SolutionSetInGeneralPosition.isGoodPositionAt
+#print axioms Polyfold.StrongBundle.SolutionSetInGeneralPosition.isSubmanifoldOfDim
+#print axioms Polyfold.StrongBundle.isSubmanifoldOfDim_solutionSet_of_isTransversal
+#print axioms Polyfold.StrongBundle.SolutionSetInGeneralPosition.isManifold
+#print axioms Polyfold.theorem_6_6_18_isManifold
+#print axioms Polyfold.theorem_5_3_10_isManifold
+#print axioms Polyfold.theorem_3_6_10_isManifold
+#print axioms Polyfold.theorem_3_1_26_isManifold
+#print axioms Polyfold.theorem_3_2_3_isManifold_2021
+#print axioms Polyfold.theorem_3_2_3_isManifold_2021def
+#print axioms Polyfold.MPolyfold.IsSubmanifoldOfDim.eq_of_hasCornerStructureOfDim
+
 end Polyfold

@@ -361,3 +361,6 @@ import Polyfold.Chapter9.BoundaryOperation
 import Polyfold.Chapter9.MathlibManifoldBridge
 import Polyfold.Chapter10.FredholmEquivalence
 import Polyfold.Chapter11.BoundaryOrientationEquiv
+import Polyfold.Chapter3.TameGermTransfer
+import Polyfold.Chapter6.PerturbedOrientation
+import Polyfold.Chapter9.MathlibSolutionSets
