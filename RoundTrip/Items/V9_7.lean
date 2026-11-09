@@ -291,7 +291,7 @@ theorem B_to_A : B → A := by
       ∀ {V : Set Obj}, IsOpen V → x ∈ V → ∃ S : X.SymmetricBranchingStructure Θ x, S.U ⊆ V := by
     intro Obj Mor _ _ _ _ _ _ X Θ hΘ x hx V hV hxV
     obtain ⟨L⟩ := hΘ.localBranching x hx
-    obtain ⟨R, hR⟩ := theorem_7_1 X x (L.isOpen_U.inter hV) ⟨L.mem_U, hxV⟩
+    obtain ⟨R, hR⟩ := theorem_7_1_13 X x (L.isOpen_U.inter hV) ⟨L.mem_U, hxV⟩
     have : Finite (Gx X x) :=
       Finite.of_equiv (X.Isotropy x) ⟨toG, ofG, fun _ => rfl, fun _ => rfl⟩
     let _ : Fintype (Gx X x) := Fintype.ofFinite _

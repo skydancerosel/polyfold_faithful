@@ -10,11 +10,11 @@ open Polyfold Module
 def A : Prop :=
   type_of% @Polyfold.stabIota_bijective.{0, 0} ∧ type_of% @Polyfold.stab_card_eq.{0, 0} ∧
     type_of% @Polyfold.isCompl_range_stabPi_span.{0, 0} ∧
-    type_of% @Polyfold.proposition_6_15.{0, 0}
+    type_of% @Polyfold.proposition_6_4_15.{0, 0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.stabIota_bijective.{0, 0}, @Polyfold.stab_card_eq.{0, 0},
-    @Polyfold.isCompl_range_stabPi_span.{0, 0}, @Polyfold.proposition_6_15.{0, 0}⟩
+    @Polyfold.isCompl_range_stabPi_span.{0, 0}, @Polyfold.proposition_6_4_15.{0, 0}⟩
 
 /-- `det_{std}(c)` is the determinant of the matrix with columns `c_j`. -/
 theorem basisFun_det_eq {n : ℕ} (c : Fin n → Fin n → ℝ) :
@@ -86,9 +86,9 @@ theorem A_to_B : A → B := by
   that `T_φ` is onto; B always assumes both.
 * `stabIota_bijective` (`ι_φ` is an isomorphism) is not stated in B; on Banach spaces it would follow
   from B's formula (a nonzero map of lines), as would `stab_card_eq` (B's `m + l = n`) and
-  `proposition_6_15`, but the generality gap above remains. -/
+  `proposition_6_4_15`, but the generality gap above remains. -/
 
 #rt_check RoundTrip.V6_18.A_to_B [Polyfold.stabIota_bijective, Polyfold.stab_card_eq,
-  Polyfold.isCompl_range_stabPi_span, Polyfold.proposition_6_15]
+  Polyfold.isCompl_range_stabPi_span, Polyfold.proposition_6_4_15]
 
 end RoundTrip.V6_18

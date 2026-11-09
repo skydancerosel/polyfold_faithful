@@ -4,10 +4,10 @@ import RoundTrip.Blind.V1_22
 
 /-! Round trip for V1_22 (Lemma 1.24: `d_C` does not depend on the presentation `T`).
 
-`A` is the conjunction of the types of `Polyfold.quadrantDeg_eq_of_equiv`, `Polyfold.lemma_1_24`
-and `Polyfold.lemma_1_24_dim`.  None has universe parameters (`ScBanach` lives in `Type`).
+`A` is the conjunction of the types of `Polyfold.quadrantDeg_eq_of_equiv`, `Polyfold.lemma_1_3_4`
+and `Polyfold.lemma_1_3_4_dim`.  None has universe parameters (`ScBanach` lives in `Type`).
 
-`B → A`: `lemma_1_24` is `B`; `lemma_1_24_dim` follows from `B` at `x = T⁻¹ 0`; and the core
+`B → A`: `lemma_1_3_4` is `B`; `lemma_1_3_4_dim` follows from `B` at `x = T⁻¹ 0`; and the core
 `quadrantDeg_eq_of_equiv` (for a level-0 linear equivalence `S` that need not be an
 sc-isomorphism) is reduced to `B` by noting that `S` maps `0 × W₀` onto `0 × W'₀`, so it induces a
 linear equivalence `e : ℝⁿ ≃ ℝⁿ'` on the half-line coordinates with `(S p).1 = e p.1`; `B` is then
@@ -18,11 +18,11 @@ open Polyfold
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.quadrantDeg_eq_of_equiv) ∧ (type_of% @Polyfold.lemma_1_24) ∧
-    (type_of% @Polyfold.lemma_1_24_dim)
+  (type_of% @Polyfold.quadrantDeg_eq_of_equiv) ∧ (type_of% @Polyfold.lemma_1_3_4) ∧
+    (type_of% @Polyfold.lemma_1_3_4_dim)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.quadrantDeg_eq_of_equiv, @Polyfold.lemma_1_24, @Polyfold.lemma_1_24_dim⟩
+  ⟨@Polyfold.quadrantDeg_eq_of_equiv, @Polyfold.lemma_1_3_4, @Polyfold.lemma_1_3_4_dim⟩
 
 theorem A_to_B : A → B := by
   intro hA E C n n' W W' T T' hT hT' x hx
@@ -125,11 +125,11 @@ theorem B_to_A : B → A := by
     rw [hT0, hT'0, quadrantDeg_zero, quadrantDeg_zero] at h
     exact h
 
-#rt_check RoundTrip.V1_22.A_to_B [Polyfold.quadrantDeg_eq_of_equiv, Polyfold.lemma_1_24,
-  Polyfold.lemma_1_24_dim]
-#rt_check RoundTrip.V1_22.B_to_A [Polyfold.quadrantDeg_eq_of_equiv, Polyfold.lemma_1_24,
-  Polyfold.lemma_1_24_dim]
-#rt_overlap RoundTrip.V1_22.B_to_A [Polyfold.quadrantDeg_eq_of_equiv, Polyfold.lemma_1_24,
-  Polyfold.lemma_1_24_dim]
+#rt_check RoundTrip.V1_22.A_to_B [Polyfold.quadrantDeg_eq_of_equiv, Polyfold.lemma_1_3_4,
+  Polyfold.lemma_1_3_4_dim]
+#rt_check RoundTrip.V1_22.B_to_A [Polyfold.quadrantDeg_eq_of_equiv, Polyfold.lemma_1_3_4,
+  Polyfold.lemma_1_3_4_dim]
+#rt_overlap RoundTrip.V1_22.B_to_A [Polyfold.quadrantDeg_eq_of_equiv, Polyfold.lemma_1_3_4,
+  Polyfold.lemma_1_3_4_dim]
 
 end RoundTrip.V1_22

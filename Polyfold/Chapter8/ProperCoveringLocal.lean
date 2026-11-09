@@ -5,8 +5,8 @@ set_option maxSynthPendingDepth 3
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8, §8.4: **Theorem 8.5 (Proper Covering I)** with its proof and **Remark 8.2**,
-pp. 277–279.  Proper covering functors (Definition 8.8, p. 275) are
+Chapter 8, §8.4: **Theorem 8.5.3 (2017: 8.5) (Proper Covering I)** with its proof and **Remark 8.5.4 (2017: 8.2)**,
+pp. 277–279.  Proper covering functors (Definition 8.5.1 (2017: 8.8), p. 383 (2017 p. 275)) are
 `EpFunctor.IsProperCovering` (`Polyfold/Chapter8/Basic.lean`).  There is no 2014 preprint of
 Part II; numbers and pages are the 2017 text's.
 
@@ -14,9 +14,9 @@ Part II; numbers and pages are the 2017 text's.
 
 ## The text, paraphrased
 
-(Theorem 8.5, p. 277) Let `F : Y → X` be a proper covering functor and `x ∈ X`.  For a connected
+(Theorem 8.5.3 (2017: 8.5), p. 385 (2017 p. 277)) Let `F : Y → X` be a proper covering functor and `x ∈ X`.  For a connected
 and sufficiently small open neighbourhood `U(x)` admitting the natural `G_x`-action (the data
-`(Φ, Γ)` of Theorem 7.1): (0) `F⁻¹(U(x))` is a disjoint union of connected open neighbourhoods
+`(Φ, Γ)` of Theorem 7.1.13 (2017: 7.1)): (0) `F⁻¹(U(x))` is a disjoint union of connected open neighbourhoods
 `U(y)`, `y ∈ F⁻¹(x)`, with every `F : U(y) → U(x)` an sc-diffeomorphism; (1) `Γ(G_x, U(x)) =
 {φ ∈ 𝐗 | s(φ), t(φ) ∈ U(x)} =: 𝐔(x)` is the union of the connected components `𝐔(g)`, `g ∈ G_x`,
 and `s, t : 𝐔(g) → U(x)` are sc-diffeomorphisms; (2) for `y, y' ∈ F⁻¹(x)` the set
@@ -27,15 +27,15 @@ sc-diffeomorphism, and (5) the square with top arrow `F : 𝐔(ψ₀) → 𝐔(F
 right arrow `t`, bottom arrow `F : U(s(ψ₀)) → U(t(F(ψ₀)))` is a commutative diagram of
 sc-diffeomorphisms.
 
-(Remark 8.2, p. 277) (a) Since `F` is a functor, for `φ : y → y'` with `y, y' ∈ F⁻¹(x)` the
-morphism `F(φ) : F(y) → F(y')` belongs to `G_x`.  (b) In Theorem 8.5 everything is determined
+(Remark 8.5.4 (2017: 8.2), p. 386 (2017 p. 277)) (a) Since `F` is a functor, for `φ : y → y'` with `y, y' ∈ F⁻¹(x)` the
+morphism `F(φ) : F(y) → F(y')` belongs to `G_x`.  (b) In Theorem 8.5.3 (2017: 8.5) everything is determined
 by the choice of a small connected open `U(x)` admitting the natural `G_x`-action; the
-construction of `(Φ, Γ)` is natural (Theorem 7.1); the main point of the proof is the interplay
+construction of `(Φ, Γ)` is natural (Theorem 7.1.13 (2017: 7.1)); the main point of the proof is the interplay
 of `F` with `s` and `t` given by functoriality.
 
 (Proof, pp. 278–279) `A = F⁻¹(x)` is finite, and for a connected open `U'(x)` the preimage
 `F⁻¹(U'(x))` is the disjoint union of connected open `U'(y)` with `F : U'(y) → U'(x)`
-sc-diffeomorphisms (Definition 8.8); one may assume `U'(x)` admits the natural `G_x`-action.
+sc-diffeomorphisms (Definition 8.5.1 (2017: 8.8)); one may assume `U'(x)` admits the natural `G_x`-action.
 Around `y ∈ A` take connected open `V(y) ⊆ U'(y)` admitting the natural `G_y`-action and for
 `ψ : y → y'` connected open `V(ψ)` with `s : V(ψ) → V(y)`, `t : V(ψ) → V(y')`
 sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the morphisms between points of
@@ -48,18 +48,18 @@ sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the m
 
 ## What is formalized
 
-* **Remark 8.2 (a)**: `EpFunctor.remark_8_2_a` (`F(φ) ∈ mor(x, x)`) and the element
+* **Remark 8.5.4 (2017: 8.2) (a)**: `EpFunctor.remark_8_5_4_a` (`F(φ) ∈ mor(x, x)`) and the element
   `EpFunctor.isotropyMor : G_x` it defines.
 * `EpFunctor.ProperCoveringChart F x`: a natural representation `R` of `G_x` (`R.U = U(x)`,
   `R.Φ`, `R.Γ`), the sets `U(y)` and `𝐔(ψ₀)`, and the properties (0)–(5) as fields.
-* **Theorem 8.5**: `EpFunctor.theorem_8_5` (a chart with `U(x)` inside any given open `V ∋ x`) and
-  `EpFunctor.theorem_8_5_of_naturalRep` (the "for every sufficiently small" form: there is an open
+* **Theorem 8.5.3 (2017: 8.5)**: `EpFunctor.theorem_8_5_3` (a chart with `U(x)` inside any given open `V ∋ x`) and
+  `EpFunctor.theorem_8_5_3_of_naturalRep` (the "for every sufficiently small" form: there is an open
   `W ∋ x` such that every natural representation of `G_x` on some `U(x) ⊆ W` is the `R` of a
   chart).
-* **Remark 8.2 (b)**, as far as it has formal content: `ProperCoveringChart.connectedComponentIn_U`
+* **Remark 8.5.4 (2017: 8.2) (b)**, as far as it has formal content: `ProperCoveringChart.connectedComponentIn_U`
   (`U(y)` is the connected component of `F⁻¹(U(x))` at `y`),
   `ProperCoveringChart.connectedComponentIn_sheet` (`𝐔(ψ₀)` is the connected component of
-  `𝐔(s ψ₀, t ψ₀)` at `ψ₀`), and `EpFunctor.remark_8_2_b`: two charts with the same `U(x)` have the
+  `𝐔(s ψ₀, t ψ₀)` at `ψ₀`), and `EpFunctor.remark_8_5_4_b`: two charts with the same `U(x)` have the
   same `Φ` and `Γ` on `U(x)`, the same `U(y)` and the same `𝐔(ψ₀)`.
 * The construction (namespace `EpFunctor.ProperCoveringLocal`): `Data` (the input from Definition
   8.8 and a natural representation), the sections `Data.τ`, the sets `Data.U`, `Data.sheet`, and
@@ -69,9 +69,9 @@ sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the m
 
 ## What the text leaves implicit, and the choices made
 
-* **"Sufficiently small"**.  `theorem_8_5` reads it as "inside any given open `V ∋ x`".  The proof
-  uses only `U(x) ⊆ U'(x)` for the `U'(x)` of Definition 8.8 (2), so the stronger reading also
-  holds: `theorem_8_5_of_naturalRep` gives one open `W ∋ x` that works for every natural
+* **"Sufficiently small"**.  `theorem_8_5_3` reads it as "inside any given open `V ∋ x`".  The proof
+  uses only `U(x) ⊆ U'(x)` for the `U'(x)` of Definition 8.5.1 (2017: 8.8) (2), so the stronger reading also
+  holds: `theorem_8_5_3_of_naturalRep` gives one open `W ∋ x` that works for every natural
   representation on a connected `U(x) ⊆ W`.  "Connected, admitting the natural `G_x`-action" is
   `R : X.NaturalRep x` (Chapter 7's structure, whose `U` is open and connected).
 * **"Disjoint union of connected open neighbourhoods"** means: each set is open, connected and
@@ -81,7 +81,7 @@ sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the m
   morphisms, with no condition off the index sets.  That these sets are then the connected
   components is `connectedComponentIn_U`, `connectedComponentIn_sheet`.
 * **`𝐔(g)` and `𝐔(F(ψ₀))`**.  For `φ ∈ 𝐔(x)` the set `𝐔(φ)` is read as the connected component
-  `connectedComponentIn (X.morOn U(x)) φ` of `𝐔(x)` containing `φ`; by Remark 8.2 (a)
+  `connectedComponentIn (X.morOn U(x)) φ` of `𝐔(x)` containing `φ`; by Remark 8.5.4 (2017: 8.2) (a)
   `F(ψ₀) ∈ 𝐔(x)`, and (1) identifies `𝐔(g)` with the sheet `Γ(g, U(x))`.  Part (1) involves
   only `(U(x), Φ, Γ)`; it is Chapter 7's `NaturalRep.bijOn_Γ`, `iUnion_image_Γ`,
   `pairwise_disjoint_image_Γ`, `connectedComponentIn_morOn`, `isScDiffeoOn_src_image`,
@@ -104,7 +104,7 @@ sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the m
   s(F(φ))`" — for `φ : z → z'`, `F(z') = t(F(φ))` is meant.
 * **The route of the proof.**  The text decomposes the morphisms of `𝐘` near `F⁻¹(x)` by sheets
   `V(ψ)` and natural representations of the `G_y` in `Y` (a construction in the manner of
-  Proposition 7.5), and Definition 8.8 (3) is not invoked.  Here condition (3) of Definition 8.8
+  Proposition 7.1.15 (2017: 7.5)), and Definition 8.5.1 (2017: 8.8) (3) is not invoked.  Here condition (3) of Definition 8.5.1 (2017: 8.8)
   does that work: `L = (F, s) : 𝐘 → 𝐗 ₛ×_F Y` is a bijection with continuous inverse, and for
   `ψ₀ : y → y'` with `g = F(ψ₀)` we put `τ(z) = L⁻¹(Γ(g, F(z)), z)` and `𝐔(ψ₀) = τ(U(y))`, where
   `U(y) = U'(y) ∩ F⁻¹(U(x))`.  `τ` is a continuous section of `s`, hence sc-smooth
@@ -112,10 +112,10 @@ sc-diffeomorphisms; `ψ̂ = t ∘ (s|V(ψ))⁻¹ : V(y) → V(y')` (8.15); the m
   `U(y)` is connected and `F⁻¹(U(x))` is the disjoint union of the open `U(y'')`
   (`Data.tgt_τ_mem`, the counterpart of the text's claim that `ψ̂` maps `U(y)` onto `U(y')`); and
   `F = Γ(g, ·) ∘ F ∘ s` on `𝐔(ψ₀)` (`Data.isScDiffeoOn_mor_sheet`) is the text's formula for (4).
-  The finiteness of `F⁻¹(x)` and condition (1) of Definition 8.8 are not needed.
-* **Remark 8.2 (b)** is read as: given `U(x)`, the data `Φ`, `Γ` on `U(x)` (on a connected `U(x)`,
+  The finiteness of `F⁻¹(x)` and condition (1) of Definition 8.5.1 (2017: 8.8) are not needed.
+* **Remark 8.5.4 (2017: 8.2) (b)** is read as: given `U(x)`, the data `Φ`, `Γ` on `U(x)` (on a connected `U(x)`,
   `Γ(g, ·)` is the continuous section of `s` through `g`, `NaturalRep.Γ_eqOn`), the `U(y)` and the
-  `𝐔(ψ₀)` are determined (`remark_8_2_b`).  Its remarks on the naturality of Theorem 7.1's
+  `𝐔(ψ₀)` are determined (`remark_8_5_4_b`).  Its remarks on the naturality of Theorem 7.1.13 (2017: 7.1)'s
   construction and on the main point of the proof have no further formal content.
 -/
 
@@ -221,31 +221,31 @@ variable {ObjY MorY : Type u} [TopologicalSpace ObjY] [T2Space ObjY] [Paracompac
   [TopologicalSpace MorX] [T2Space MorX] [ParacompactSpace MorX]
   {Y : EpGroupoid ObjY MorY} {X : EpGroupoid ObjX MorX}
 
-/-! ### Remark 8.2 (a) -/
+/-! ### Remark 8.5.4 (2017: 8.2) (a) -/
 
-/-- **Remark 8.2 (a)**: since `F` is a functor, a morphism `φ : y → y'` between points `y, y'` of
+/-- **Remark 8.5.4 (2017: 8.2) (a)**: since `F` is a functor, a morphism `φ : y → y'` between points `y, y'` of
 `F⁻¹(x)` is mapped to a morphism `F(φ) : x → x`, an element of the isotropy group `G_x`. -/
-theorem remark_8_2_a (F : EpFunctor Y X) {x : ObjX} {φ : MorY}
+theorem remark_8_5_4_a (F : EpFunctor Y X) {x : ObjX} {φ : MorY}
     (hφ : φ ∈ Y.morOn (F.obj ⁻¹' {x})) : F.mor φ ∈ X.mor x x :=
   ⟨(F.src_mor φ).trans hφ.1, (F.tgt_mor φ).trans hφ.2⟩
 
-/-- The element `F(φ) ∈ G_x` of Remark 8.2 (a). -/
+/-- The element `F(φ) ∈ G_x` of Remark 8.5.4 (2017: 8.2) (a). -/
 def isotropyMor (F : EpFunctor Y X) {x : ObjX} {φ : MorY} (hφ : φ ∈ Y.morOn (F.obj ⁻¹' {x})) :
     X.Isotropy x :=
-  ⟨F.mor φ, (F.remark_8_2_a hφ).1, (F.remark_8_2_a hφ).2⟩
+  ⟨F.mor φ, (F.remark_8_5_4_a hφ).1, (F.remark_8_5_4_a hφ).2⟩
 
 @[simp]
 theorem isotropyMor_val (F : EpFunctor Y X) {x : ObjX} {φ : MorY}
     (hφ : φ ∈ Y.morOn (F.obj ⁻¹' {x})) : (F.isotropyMor hφ).val = F.mor φ := rfl
 
-/-! ### The statement of Theorem 8.5 -/
+/-! ### The statement of Theorem 8.5.3 (2017: 8.5) -/
 
-/-- **The conclusion of Theorem 8.5** for `F : Y → X` at `x ∈ X`: a natural representation
-`R = (U(x), Φ, Γ)` of `G_x` (Theorem 7.1; `U(x)` open and connected), open sets `U(y)` for
+/-- **The conclusion of Theorem 8.5.3 (2017: 8.5)** for `F : Y → X` at `x ∈ X`: a natural representation
+`R = (U(x), Φ, Γ)` of `G_x` (Theorem 7.1.13 (2017: 7.1); `U(x)` open and connected), open sets `U(y)` for
 `y ∈ F⁻¹(x)` and `𝐔(ψ₀)` for the morphisms `ψ₀` between points of `F⁻¹(x)`, with (0)–(5).  For a
 morphism `φ ∈ 𝐔(x) = X.morOn U(x)`, `𝐔(φ)` is the connected component
 `connectedComponentIn (X.morOn U(x)) φ` of `𝐔(x)` at `φ`; it is `𝐔(g)` for `φ = g ∈ G_x` and
-`𝐔(F(ψ₀))` for `φ = F(ψ₀)` (Remark 8.2 (a)). -/
+`𝐔(F(ψ₀))` for `φ = F(ψ₀)` (Remark 8.5.4 (2017: 8.2) (a)). -/
 structure ProperCoveringChart (F : EpFunctor Y X) (x : ObjX) where
   /-- The natural representation `(Φ, Γ)` of `G_x` on the connected open `U(x) = R.U`. -/
   R : X.NaturalRep x
@@ -321,9 +321,9 @@ structure ProperCoveringChart (F : EpFunctor Y X) (x : ObjX) where
 namespace ProperCoveringLocal
 
 /-- **The input of the construction**: a natural representation `R` of `G_x` on `U(x) ⊆ U₀`,
-where `U₀ = U'(x)` and `V₀(y) = U'(y)`, `y ∈ F⁻¹(x)`, are as in Definition 8.8 (2) with local
+where `U₀ = U'(x)` and `V₀(y) = U'(y)`, `y ∈ F⁻¹(x)`, are as in Definition 8.5.1 (2017: 8.8) (2) with local
 inverses `σ y : U₀ → V₀(y)` of `F`, and the inverse `Linv` of `L : φ ↦ (F(φ), s(φ))`, continuous
-(Definition 8.8 (3)). -/
+(Definition 8.5.1 (2017: 8.8) (3)). -/
 structure Data (F : EpFunctor Y X) (x : ObjX) where
   /-- The natural representation on `U(x)`. -/
   R : X.NaturalRep x
@@ -349,7 +349,7 @@ theorem continuous_obj (F : EpFunctor Y X) : Continuous F.obj :=
   continuousOn_univ.1 F.isScSmoothMap_obj.continuousOn
 
 /-- **A proper covering functor provides the input** for every natural representation `R` of
-`G_x` on `U(x) ⊆ U'(x)`, `U'(x)` the open set of Definition 8.8 (2). -/
+`G_x` on `U(x) ⊆ U'(x)`, `U'(x)` the open set of Definition 8.5.1 (2017: 8.8) (2). -/
 theorem exists_data {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) :
     ∃ W : Set ObjX, IsOpen W ∧ x ∈ W ∧
       ∀ R : X.NaturalRep x, R.U ⊆ W → ∃ D : Data F x, D.R = R := by
@@ -490,9 +490,9 @@ theorem isScSmoothOn_τ (ψ₀ : MorY) : Y.PObj.IsScSmoothOn Y.PMor (D.τ ψ₀)
   isScSmoothOn_of_section Y (D.R.isOpen_U.preimage (continuous_obj F)) (continuousOn_τ ψ₀)
     fun _ hz => src_τ ψ₀ hz
 
-/-- For `ψ₀` between points of `F⁻¹(x)`, `g(ψ₀) = F(ψ₀)` (Remark 8.2 (a)). -/
+/-- For `ψ₀` between points of `F⁻¹(x)`, `g(ψ₀) = F(ψ₀)` (Remark 8.5.4 (2017: 8.2) (a)). -/
 theorem val_g {ψ₀ : MorY} (hψ₀ : ψ₀ ∈ Y.morOn (F.obj ⁻¹' {x})) : (D.g ψ₀).val = F.mor ψ₀ := by
-  have hm := F.remark_8_2_a hψ₀
+  have hm := F.remark_8_5_4_a hψ₀
   have hφ : F.mor ψ₀ ∈ X.morOn D.R.U :=
     ⟨by rw [hm.1]; exact D.R.mem_U, by rw [hm.2]; exact D.R.mem_U⟩
   have h := D.R.Γ_index hφ
@@ -693,13 +693,13 @@ end Data
 
 end ProperCoveringLocal
 
-/-! ### Theorem 8.5 -/
+/-! ### Theorem 8.5.3 (2017: 8.5) -/
 
-/-- **Theorem 8.5 (Proper Covering I)**, "for every sufficiently small `U(x)`": for a proper
+/-- **Theorem 8.5.3 (2017: 8.5) (Proper Covering I)**, "for every sufficiently small `U(x)`": for a proper
 covering functor `F : Y → X` and `x ∈ X` there is an open `W ∋ x` such that every natural
 representation `(Φ, Γ)` of `G_x` on a connected open `U(x) ⊆ W` carries sets `U(y)`, `𝐔(ψ₀)` with
 the properties (0)–(5) (`ProperCoveringChart`). -/
-theorem theorem_8_5_of_naturalRep {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) :
+theorem theorem_8_5_3_of_naturalRep {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) :
     ∃ W : Set ObjX, IsOpen W ∧ x ∈ W ∧
       ∀ R : X.NaturalRep x, R.U ⊆ W → ∃ C : F.ProperCoveringChart x, C.R = R := by
   obtain ⟨W, hWo, hxW, hW⟩ := ProperCoveringLocal.exists_data hF x
@@ -707,18 +707,18 @@ theorem theorem_8_5_of_naturalRep {F : EpFunctor Y X} (hF : F.IsProperCovering) 
   obtain ⟨D, rfl⟩ := hW R hR
   exact ⟨D.toChart, rfl⟩
 
-/-- **Theorem 8.5 (Proper Covering I)**: for a proper covering functor `F : Y → X`, `x ∈ X` and
+/-- **Theorem 8.5.3 (2017: 8.5) (Proper Covering I)**: for a proper covering functor `F : Y → X`, `x ∈ X` and
 an open `V ∋ x` there are a natural representation `(Φ, Γ)` of `G_x` on a connected open
 `U(x) ⊆ V` and sets `U(y)`, `y ∈ F⁻¹(x)`, and `𝐔(ψ₀)`, `ψ₀` a morphism between points of
 `F⁻¹(x)`, with the properties (0)–(5) (the fields of `ProperCoveringChart`). -/
-theorem theorem_8_5 {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) {V : Set ObjX}
+theorem theorem_8_5_3 {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) {V : Set ObjX}
     (hV : IsOpen V) (hx : x ∈ V) : ∃ C : F.ProperCoveringChart x, C.R.U ⊆ V := by
-  obtain ⟨W, hWo, hxW, hW⟩ := theorem_8_5_of_naturalRep hF x
-  obtain ⟨R, hR⟩ := X.theorem_7_1 x (hV.inter hWo) ⟨hx, hxW⟩
+  obtain ⟨W, hWo, hxW, hW⟩ := theorem_8_5_3_of_naturalRep hF x
+  obtain ⟨R, hR⟩ := X.theorem_7_1_13 x (hV.inter hWo) ⟨hx, hxW⟩
   obtain ⟨C, rfl⟩ := hW R fun z hz => (hR hz).2
   exact ⟨C, fun z hz => (hR hz).1⟩
 
-/-! ### Remark 8.2 (b): the chart is determined by `U(x)` -/
+/-! ### Remark 8.5.4 (2017: 8.2) (b): the chart is determined by `U(x)` -/
 
 namespace ProperCoveringChart
 
@@ -744,10 +744,10 @@ theorem connectedComponentIn_sheet {ψ₀ : MorY} (hψ₀ : ψ₀ ∈ Y.morOn (F
 
 end ProperCoveringChart
 
-/-- **Remark 8.2 (b)**: everything in Theorem 8.5 is determined by `U(x)`.  Two charts with the
+/-- **Remark 8.5.4 (2017: 8.2) (b)**: everything in Theorem 8.5.3 (2017: 8.5) is determined by `U(x)`.  Two charts with the
 same `U(x)` have the same `Φ` and `Γ` on `U(x)` (`Γ(g, ·)` is the continuous section of `s`
 through `g`, `NaturalRep.Γ_eqOn`), the same `U(y)` and the same `𝐔(ψ₀)`. -/
-theorem remark_8_2_b {F : EpFunctor Y X} {x : ObjX} (C C' : F.ProperCoveringChart x)
+theorem remark_8_5_4_b {F : EpFunctor Y X} {x : ObjX} (C C' : F.ProperCoveringChart x)
     (h : C.R.U = C'.R.U) :
     (∀ g, EqOn (C.R.Φ g) (C'.R.Φ g) C.R.U) ∧ (∀ g, EqOn (C.R.Γ g) (C'.R.Γ g) C.R.U) ∧
       (∀ y ∈ F.obj ⁻¹' {x}, C.U y = C'.U y) ∧

@@ -2,20 +2,20 @@ import Polyfold.Chapter3.GoodPosition
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Appendix 3.8.1,
-Lemma 3.70: the degeneracy index along the graph of a `C^1`-map over `N ∩ C` with vanishing
+Lemma 3.8.13 (preprint 3.70): the degeneracy index along the graph of a `C^1`-map over `N ∩ C` with vanishing
 derivative at `0`.
 
 # The degeneracy index on the graph of `τ`
 
 ## The text, paraphrased
 
-(Lemma 3.70) Let `N ⊆ E = ℝⁿ ⊕ W` be in good position to `C = [0,∞)ⁿ ⊕ W` with good complement
+(Lemma 3.8.13 (preprint 3.70)) Let `N ⊆ E = ℝⁿ ⊕ W` be in good position to `C = [0,∞)ⁿ ⊕ W` with good complement
 `Y`, and `τ : N ∩ C → Y₁` a `C^1`-map with `τ(0) = 0`, `Dτ(0) = 0`.  Then
 `d_{N ∩ C}(v) = d_C(v + τ(v))` for all `v ∈ N ∩ C ∖ N ∩ W` close to `0`.  *Proof.*  `|τ(v)| ≤ γ|v|`
 near `0`, so `v + τ(v) ∈ C`.  If `dim N = 1`, `N = ℝ·e` with all coordinates of `e` positive, and
 `v_j + τ_j(v) > 0` follows from `τ(v) = o(|v|)`.  If `dim N ≥ 2`, in the basis
 `e^j = (a^j, b^j, w^j)` of the complement `Ñ` of `N ∩ W` (with `a^j` the standard basis of `ℝᵐ`
-and `b^j_i > 0`), `τ_j(v) = 0` for `j ≤ m` (Lemma 3.65), and for `j > m` the function
+and `b^j_i > 0`), `τ_j(v) = 0` for `j ≤ m` (Lemma 3.8.8 (preprint 3.65)), and for `j > m` the function
 `g_j(v') = (T⁻¹v' + τ(T⁻¹v'))_j ≥ 0` on `C' = [0,∞)ᵐ ⊕ ℝᵏ⁻ᵐ` has `∂_i g_j = b_{ij} + Dτ_j(v)e_i > 0`
 near `0` for a direction `e_i` with `v'_i > 0`, so `g_j(v') = 0` would force `g_j < 0` just before
 `v'` along `e_i`.
@@ -23,13 +23,13 @@ near `0` for a direction `e_i` with `v'_i > 0`, so `g_j(v') = 0` would force `g_
 ## What is formalized
 
 * `Polyfold.exists_rayDecomp`: the **ray decomposition** of `N ∩ C` read off the normal form of
-  Proposition 3.22 (`Polyfold.QuadrantNormalForm`): finitely many nonzero `u_i ∈ N ∩ C` such that
+  Proposition 3.1.25 (preprint 3.22) (`Polyfold.QuadrantNormalForm`): finitely many nonzero `u_i ∈ N ∩ C` such that
   every `v ∈ N ∩ C ∖ N ∩ W` has `v − s u_i ∈ N ∩ C` for some `i` and `s > 0` with `s|u_i| ≤ c|v|`
   (the text's basis `e^j` of `Ñ`; it covers `dim N = 1` as well).
 * `Polyfold.exists_lipschitz_small` (`Dτ(0) = 0` makes `τ` `η`-Lipschitz near `0` for every
-  `η > 0`), `Polyfold.lemma_3_70_core` (**Lemma 3.70 in coordinates**: `v + τ(v) ∈ C`, and for
-  `v ∉ N ∩ W` the vanishing coordinates of `v + τ(v)` are those of `v`), `Polyfold.lemma_3_70`
-  (**Lemma 3.70** in the model `ℝⁿ ⊕ W`, with Proposition 3.69 (1) for `d_{N ∩ C}(v) = d_C(v)`).
+  `η > 0`), `Polyfold.lemma_3_8_13_core` (**Lemma 3.8.13 (preprint 3.70) in coordinates**: `v + τ(v) ∈ C`, and for
+  `v ∉ N ∩ W` the vanishing coordinates of `v + τ(v)` are those of `v`), `Polyfold.lemma_3_8_13`
+  (**Lemma 3.8.13 (preprint 3.70)** in the model `ℝⁿ ⊕ W`, with Proposition 3.8.12 (preprint 3.69) (1) for `d_{N ∩ C}(v) = d_C(v)`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
@@ -130,7 +130,7 @@ theorem exists_rayDecomp [FiniteDimensional ℝ N] (hNF : QuadrantNormalForm ℓ
 
 end Core
 
-/-! ### Lemma 3.70 -/
+/-! ### Lemma 3.8.13 (preprint 3.70) -/
 
 section Graph
 
@@ -167,11 +167,11 @@ lemma exists_lipschitz_small (hint : (interior (quadCone (ℓlin ℓ) N)).Nonemp
   rw [dist_zero_right] at this
   exact this.le
 
-/-- **Lemma 3.70, in coordinates.**  `N` in good position (complement `P`, constant `ε`),
+/-- **Lemma 3.8.13 (preprint 3.70), in coordinates.**  `N` in good position (complement `P`, constant `ε`),
 `τ : N → V` with values in `P`, of class `C^1` on `N ∩ C` with `τ(0) = 0`, `Dτ(0) = 0`.  Then for
 `v ∈ N ∩ C` near `0`: `v + τ(v) ∈ C`, and if `v ∉ N ∩ W` the vanishing coordinates of `v + τ(v)` are those of
 `v` (so `d_{N ∩ C}(v) = d_C(v + τ(v))`). -/
-theorem lemma_3_70_core (P : Submodule ℝ V) (hNP : IsCompl N P) {ε : ℝ} (hε : 0 < ε)
+theorem lemma_3_8_13_core (P : Submodule ℝ V) (hNP : IsCompl N P) {ε : ℝ} (hε : 0 < ε)
     (hgood : ∀ x ∈ N, ∀ p ∈ P, ‖p‖ ≤ ε * ‖x‖ →
       ((∀ i, 0 ≤ ℓ i x) ↔ ∀ i, 0 ≤ ℓ i (x + p)))
     (hℓ : ∀ (s : Finset (Fin n)) (k : Fin n → ℝ), ∃ v : V, ∀ i ∈ s, ℓ i v = k i)
@@ -222,8 +222,8 @@ theorem lemma_3_70_core (P : Submodule ℝ V) (hNP : IsCompl N P) {ε : ℝ} (h�
   · calc ‖v‖ < ρ / (1 + c) := hvρ
       _ ≤ ρ := by rw [div_le_iff₀ (by positivity)]; nlinarith
   by_cases hi : i ∈ vanIdx (ℓlin ℓ) N
-  · -- `ℓ_i(τ v) = 0` by Lemma 3.65
-    have := lemma_3_65 (ℓlin ℓ) N P hε hgood (hτP v) hi
+  · -- `ℓ_i(τ v) = 0` by Lemma 3.8.8 (preprint 3.65)
+    have := lemma_3_8_8 (ℓlin ℓ) N P hε hgood (hτP v) hi
     change ℓ i (τ v) = 0 at this
     rw [map_add, this, add_zero]
   · -- both sides positive
@@ -268,7 +268,7 @@ theorem lemma_3_70_core (P : Submodule ℝ V) (hNP : IsCompl N P) {ε : ℝ} (h�
 
 end Graph
 
-/-! ### Lemma 3.70 in the model `ℝⁿ ⊕ W` -/
+/-! ### Lemma 3.8.13 (preprint 3.70) in the model `ℝⁿ ⊕ W` -/
 
 section Model
 
@@ -285,11 +285,11 @@ lemma quadCone_coordCLM (N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).pr
     quadCone (ℓlin (coordCLM (W := W))) N = (Subtype.val ⁻¹' quadrant n W 0 : Set N) := by
   ext v; exact Iff.rfl
 
-/-- **Lemma 3.70**: `N` in good position to `C = [0,∞)ⁿ ⊕ W` with good complement `Y`, and
+/-- **Lemma 3.8.13 (preprint 3.70)**: `N` in good position to `C = [0,∞)ⁿ ⊕ W` with good complement `Y`, and
 `τ : N ∩ C → Y` of class `C^1` with `τ(0) = 0`, `Dτ(0) = 0`.  Then for `v ∈ N ∩ C` close to `0`,
 `v + τ(v) ∈ C`, and `d_{N ∩ C}(v) = d_C(v + τ(v))` if `v ∉ N ∩ W`.  (The text's `τ : N ∩ C → Y₁`:
 the level plays no role in the degeneracy index.) -/
-theorem lemma_3_70 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
+theorem lemma_3_8_13 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
     [FiniteDimensional ℝ N] (hN : IsInGoodPosition _ (quadrant n W 0) N)
     {Y : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
     (hY : IsGoodComplement _ (quadrant n W 0) N Y)
@@ -310,7 +310,7 @@ theorem lemma_3_70 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W)
   rw [← hDeq] at hτ hDτ0
   have hint : (interior (quadCone (ℓlin (coordCLM (W := W))) N)).Nonempty := by
     rw [hDeq]; exact hN.interior_nonempty
-  obtain ⟨ρ, hρ, hmain⟩ := lemma_3_70_core (coordCLM (W := W)) N Y hY.isCompl hε hgood hℓ hint τ
+  obtain ⟨ρ, hρ, hmain⟩ := lemma_3_8_13_core (coordCLM (W := W)) N Y hY.isCompl hε hgood hℓ hint τ
     hτY hτ hτ0 hDτ0
   refine ⟨ρ, hρ, fun v hv hvρ => ?_⟩
   have hvD : v ∈ quadCone (ℓlin (coordCLM (W := W))) N := by rw [hDeq]; exact hv
@@ -320,7 +320,7 @@ theorem lemma_3_70 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W)
   have hvW : v ∉ nullSpace (ℓlin (coordCLM (W := W))) N := fun h => by
     rw [mem_nullSpace] at h
     exact hv1 (funext fun i => h i)
-  rw [(proposition_3_69 hN hv).1 hv1, degIndex_quadrant hv, degIndex_quadrant hmem]
+  rw [(proposition_3_8_12 hN hv).1 hv1, degIndex_quadrant hv, degIndex_quadrant hmem]
   change (Finset.univ.filter fun i => (v : (Fin n → ℝ) × W 0).1 i = 0).card =
     (Finset.univ.filter fun i => ((v : (Fin n → ℝ) × W 0) + τ v).1 i = 0).card
   congr 1

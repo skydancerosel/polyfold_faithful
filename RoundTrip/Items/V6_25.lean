@@ -180,7 +180,7 @@ def kerFrame₀ : KerFrame c.P (U₀ c).1 where
   σ S i := c.kerMap S.1 (Module.finBasis ℝ c.K i)
   cont := continuous_pi fun i =>
     ((c.continuousOn_kerMap_apply _).mono fun S hS => lt_of_mem_ball c hS).restrict
-  mem S i := (c.lemma_6_18).2.1 S.1 (lt_of_mem_ball c S.2) _ (Module.finBasis ℝ c.K i).2
+  mem S i := (c.lemma_6_5_2).2.1 S.1 (lt_of_mem_ball c S.2) _ (Module.finBasis ℝ c.K i).2
   li S := (c.kerFrame_linearIndependent S.1 (lt_of_mem_ball c S.2)).map'
     (LinearMap.ker ((c.P ∘L S.1 : E →L[ℝ] F) : E →ₗ[ℝ] F)).subtype (Submodule.ker_subtype _)
   card S := (c.kerEquiv S.1 (lt_of_mem_ball c S.2)).finrank_eq
@@ -390,7 +390,7 @@ theorem B_to_A : B → A := fun _ => trivial
 #rt_check RoundTrip.V6_25.A_to_B []
 #rt_check RoundTrip.V6_25.B_to_A []
 #rt_overlap RoundTrip.V6_25.B_to_A []
-#rt_check RoundTrip.V6_25.B_holds [Polyfold.proposition_6_23, Polyfold.proposition_6_24]
+#rt_check RoundTrip.V6_25.B_holds [Polyfold.proposition_6_5_7, Polyfold.proposition_6_5_8]
 
 end
 

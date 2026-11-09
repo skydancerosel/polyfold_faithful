@@ -6,9 +6,9 @@ namespace RoundTrip.V5_20
 open Polyfold
 
 /-- The project's statement (Lemma 5.11), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.lemma_5_11.{0, 0}
+def A : Prop := type_of% @Polyfold.lemma_5_3_3.{0, 0}
 
-theorem A_holds : A := @Polyfold.lemma_5_11.{0, 0}
+theorem A_holds : A := @Polyfold.lemma_5_3_3.{0, 0}
 
 #check A
 
@@ -63,6 +63,6 @@ literal norm bound is at the given `x` only, where it is vacuous (`s(x) = e`), w
 `β(x) = 1` supported where `N(s) < N(e) + ε`, using A's strong bumps), the first is a genuine
 generality difference. -/
 
-#rt_check RoundTrip.V5_20.A_to_BIntendedStrong [Polyfold.lemma_5_11]
+#rt_check RoundTrip.V5_20.A_to_BIntendedStrong [Polyfold.lemma_5_3_3]
 
 end RoundTrip.V5_20

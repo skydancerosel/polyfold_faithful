@@ -2,14 +2,14 @@ import Polyfold.Chapter1.ScSmooth
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.3,
-Theorem 1.21 (the chain rule), with the proof of Appendix §1.4.2, and its consequences for sc^k and
+Theorem 1.3.1 (preprint 1.21) (the chain rule), with the proof of Appendix §1.4.2, and its consequences for sc^k and
 sc-smooth maps.
 
-# Theorem 1.21: the sc-chain rule
+# Theorem 1.3.1 (preprint 1.21): the sc-chain rule
 
 ## The text, paraphrased
 
-(Theorem 1.21) Let `U ⊂ C ⊂ E`, `V ⊂ D ⊂ F`, `W ⊂ Q ⊂ G` be relatively open subsets of partial
+(Theorem 1.3.1 (preprint 1.21)) Let `U ⊂ C ⊂ E`, `V ⊂ D ⊂ F`, `W ⊂ Q ⊂ G` be relatively open subsets of partial
 quadrants in sc-Banach spaces and `f : U → V`, `g : V → W` sc¹.  Then `g ∘ f : U → W` is sc¹ and
 `T(g ∘ f) = Tg ∘ Tf`.  (§1.4.2) *Proof*: fix `x ∈ U₁` and `h ∈ E₁` small with `x + h ∈ U₁`.  Then
 `g(f(x+h)) − g(f(x)) − Dg(f(x))Df(x)h` is the sum of two integrals over the segment
@@ -24,9 +24,9 @@ Hence `D(g ∘ f)(x) = Dg(f(x)) ∘ Df(x)`, `T(g ∘ f)` is sc⁰ and `T(g ∘ f
 * `Polyfold.IsSc1With.comp`: if `g` is sc¹ on `V` with derivatives `Dg`, `f` is sc¹ on `U` with
   derivatives `Df`, `f(U) ⊆ V`, and `V₁` is open-in-convex, then `g ∘ f` is sc¹ on `U` with
   derivatives `x ↦ Dg(f(x)) ∘ Df(x)`.
-* `Polyfold.theorem_1_21` (**Theorem 1.21**): for `U`, `V` relatively open in partial quadrants
+* `Polyfold.theorem_1_3_1` (**Theorem 1.3.1 (preprint 1.21)**): for `U`, `V` relatively open in partial quadrants
   (`IsRelOpenInQuadrant`), `g ∘ f` is sc¹ and `T(g ∘ f) = Tg ∘ Tf` on `TU`.
-  `Polyfold.theorem_1_21'` is the same for `IsScDomain` hypotheses (the form that iterates).
+  `Polyfold.theorem_1_3_1'` is the same for `IsScDomain` hypotheses (the form that iterates).
 * `Polyfold.IsSck.comp`, `Polyfold.IsScSmooth.comp`: the composition of sc^k (sc-smooth) maps
   is sc^k (sc-smooth), by induction on `k` with `IsScDomain.tangentSet`.
 * `Polyfold.IsSck.congr`: sc^k depends only on the values on `U`.
@@ -250,7 +250,7 @@ lemma tangentMapWith_comp (hg : IsSc0 F G V g) (hf : IsSc0 E F U f) (hfV : MapsT
     (levelMap g 1 (levelMap f 1 p.1), Dg (levelMap f 1 p.1) (Df p.1 p.2))
   rw [hg.levelMap_comp hf hfV hp]
 
-/-- **The chain rule for sc¹ maps with given derivatives** (Theorem 1.21, existence part): if `g`
+/-- **The chain rule for sc¹ maps with given derivatives** (Theorem 1.3.1 (preprint 1.21), existence part): if `g`
 is sc¹ on `V` with derivatives `Dg`, `f` is sc¹ on `U` with derivatives `Df`, `f(U) ⊆ V`, and `V₁`
 is open-in-convex, then `g ∘ f` is sc¹ on `U` with derivatives `Dg(f(x)) ∘ Df(x)`. -/
 theorem comp (hV : ∃ O C : Set (F 1), IsOpen O ∧ Convex ℝ C ∧ F.lvlSet V 1 = O ∩ C)
@@ -264,9 +264,9 @@ theorem comp (hV : ∃ O C : Set (F 1), IsOpen O ∧ Convex ℝ C ∧ F.lvlSet V
 
 end IsSc1With
 
-/-- **Theorem 1.21 (Chain Rule)**, for domains with the level-wise regularity `IsScDomain`: if
+/-- **Theorem 1.3.1 (preprint 1.21) (Chain Rule)**, for domains with the level-wise regularity `IsScDomain`: if
 `f : U → V` and `g : V → G` are sc¹, then `g ∘ f` is sc¹ and `T(g ∘ f) = Tg ∘ Tf` on `TU`. -/
-theorem theorem_1_21' (hU : IsScDomain E U) (hV : IsScDomain F V) (hf : IsSc1 U f) (hg : IsSc1 V g)
+theorem theorem_1_3_1' (hU : IsScDomain E U) (hV : IsScDomain F V) (hf : IsSc1 U f) (hg : IsSc1 V g)
     (hfV : MapsTo f U V) :
     IsSc1 U (g ∘ f) ∧ EqOn (tangentMap U (g ∘ f)) (tangentMap V g ∘ tangentMap U f)
       (E.tangentSet U) := by
@@ -275,14 +275,14 @@ theorem theorem_1_21' (hU : IsScDomain E U) (hV : IsScDomain F V) (hf : IsSc1 U 
   exact (IsSc1.tangentMap_eqOn hcomp (hU.uniqueDiffWithinAt 1)).trans
     (IsSc1With.tangentMapWith_comp hg.isSc0 hf.isSc0 hfV)
 
-/-- **Theorem 1.21 (Chain Rule)**: let `U ⊂ C ⊂ E` and `V ⊂ D ⊂ F` be relatively open subsets of
+/-- **Theorem 1.3.1 (preprint 1.21) (Chain Rule)**: let `U ⊂ C ⊂ E` and `V ⊂ D ⊂ F` be relatively open subsets of
 partial quadrants in sc-Banach spaces, and `f : U → V`, `g : V → G` sc¹.  Then `g ∘ f : U → G` is
 sc¹ and `T(g ∘ f) = Tg ∘ Tf` on `TU`. -/
-theorem theorem_1_21 {C : Set (E 0)} {D : Set (F 0)} (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_1_3_1 {C : Set (E 0)} {D : Set (F 0)} (hU : IsRelOpenInQuadrant E C U)
     (hV : IsRelOpenInQuadrant F D V) (hf : IsSc1 U f) (hg : IsSc1 V g) (hfV : MapsTo f U V) :
     IsSc1 U (g ∘ f) ∧ EqOn (tangentMap U (g ∘ f)) (tangentMap V g ∘ tangentMap U f)
       (E.tangentSet U) :=
-  theorem_1_21' hU.isScDomain hV.isScDomain hf hg hfV
+  theorem_1_3_1' hU.isScDomain hV.isScDomain hf hg hfV
 
 /-- The tangent maps of two sc¹ maps agreeing on `U` agree on `TU` (on a domain with unique
 differentiability). -/
@@ -301,14 +301,14 @@ theorem IsSck.congr : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)} {f f' : E 0
   | k + 1, _, _, _, _, _, hU, hff', h =>
     ⟨h.1.congr hff', IsSck.congr (k := k) hU.tangentSet (h.1.tangentMap_congr hU hff') h.2⟩
 
-/-- **The chain rule for sc^k maps** (Theorem 1.21 iterated): the composition of sc^k maps between
+/-- **The chain rule for sc^k maps** (Theorem 1.3.1 (preprint 1.21) iterated): the composition of sc^k maps between
 relatively open subsets of partial quadrants (or `IsScDomain`s) is sc^k. -/
 theorem IsSck.comp : ∀ {k : ℕ} {E F G : ScBanach} {U : Set (E 0)} {V : Set (F 0)} {f : E 0 → F 0}
     {g : F 0 → G 0}, IsScDomain E U → IsScDomain F V → IsSck k F G V g → IsSck k E F U f →
     MapsTo f U V → IsSck k E G U (g ∘ f)
   | 0, _, _, _, _, _, _, _, _, _, hg, hf, hfV => IsSc0.comp hg hf hfV
   | k + 1, _, _, _, _, _, _, _, hU, hV, hg, hf, hfV => by
-    obtain ⟨h1, h2⟩ := theorem_1_21' hU hV hf.1 hg.1 hfV
+    obtain ⟨h1, h2⟩ := theorem_1_3_1' hU hV hf.1 hg.1 hfV
     refine ⟨h1, ?_⟩
     have := IsSck.comp (k := k) hU.tangentSet hV.tangentSet hg.2 hf.2 (hf.1.tangentMap_mapsTo hfV)
     exact IsSck.congr hU.tangentSet h2.symm this

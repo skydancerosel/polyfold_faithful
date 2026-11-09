@@ -4,7 +4,7 @@ set_option maxSynthPendingDepth 3
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8: the claim after **Definition 8.1** (p. 267) that natural equivalence of sc-smooth
+Chapter 8: the claim after **Definition 8.1.13 (2017: 8.1)** (p. 267) that natural equivalence of sc-smooth
 functors is an equivalence relation.  There is no 2014 preprint of Part II; numbers and pages are
 the 2017 text's.  The definitions (`EpNatTrans`, `EpFunctor.NaturallyEquivalent`) are in
 `Polyfold/Chapter8/Basic.lean`.
@@ -13,7 +13,7 @@ the 2017 text's.  The definitions (`EpNatTrans`, `EpFunctor.NaturallyEquivalent`
 
 ## The text, paraphrased
 
-(Definition 8.1, pp. 266–267) Two sc-smooth functors `F, G : X → Y` are naturally equivalent,
+(Definition 8.1.13 (2017: 8.1), pp. 266–267) Two sc-smooth functors `F, G : X → Y` are naturally equivalent,
 `F ≃ G`, if there is an sc-smooth map `τ : X → 𝐘` with `τ(x) : F(x) → G(x)` and
 `τ(x') ∘ F(h) = G(h) ∘ τ(x)` for every morphism `h : x → x'`; `τ : F → G` is a natural
 transformation.  (p. 267) "The relation `F ≃ G` between sc-smooth functors `F, G : X → Y` of
@@ -33,12 +33,12 @@ ep-groupoids is an equivalence relation."  The text gives no proof.
 ## What the text leaves implicit, and the choices made
 
 * **Sc-smoothness of `x ↦ τ'(x) ∘ τ(x)`** is the only point that is not pure groupoid algebra.  The
-  composition `m` is sc-smooth on the fibred product `𝐘 ₛ×ₜ 𝐘` (Definition 7.3 (4)); we use
+  composition `m` is sc-smooth on the fibred product `𝐘 ₛ×ₜ 𝐘` (Definition 7.1.3 (2017: 7.3) (4)); we use
   Chapter 7's equivalent sheet form (`EpGroupoid.isScSmoothCompSheet`): near `x₀` take a sheet
   `W ∋ τ'(x₀)` of `s` with inverse `σ`; for `x ∈ τ'⁻¹(W)`, `τ'(x) = σ(s τ'(x)) = σ(G x) =
   σ(t τ(x))`, so `τ'(x) ∘ τ(x) = m(σ(t ψ), ψ)` at `ψ = τ(x)`, an sc-smooth map composed with the
   sc-smooth `τ`.  Sc-smoothness is local (`MPolyfold.IsScSmoothOn.of_locally`).
-* The inverse `x ↦ τ(x)⁻¹` is sc-smooth since `ι` is (Definition 7.3 (2)); its naturality is the
+* The inverse `x ↦ τ(x)⁻¹` is sc-smooth since `ι` is (Definition 7.1.3 (2017: 7.3) (2)); its naturality is the
   inverse of the naturality square of `h⁻¹`.
 -/
 
@@ -97,7 +97,7 @@ def symm (τ : EpNatTrans F G) : EpNatTrans G F where
 @[simp]
 theorem symm_app (τ : EpNatTrans F G) (x : Obj) : τ.symm.app x = Y.inv (τ.app x) := rfl
 
-/-- **`x ↦ τ'(x) ∘ τ(x)` is sc-smooth**, by condition (4) of Definition 7.3 in the sheet form. -/
+/-- **`x ↦ τ'(x) ∘ τ(x)` is sc-smooth**, by condition (4) of Definition 7.1.3 (2017: 7.3) in the sheet form. -/
 theorem isScSmoothMap_comp_app (τ : EpNatTrans F G) (τ' : EpNatTrans G H) :
     X.PObj.IsScSmoothMap Y.PMor fun x => Y.comp (τ'.app x) (τ.app x) := by
   have hc' : Continuous τ'.app := continuousOn_univ.1 τ'.isScSmoothMap_app.continuousOn
@@ -156,7 +156,7 @@ theorem NaturallyEquivalent.trans {F G H : EpFunctor X Y} (h : F.NaturallyEquiva
   let ⟨τ'⟩ := h'
   ⟨τ.trans τ'⟩
 
-/-- **The claim after Definition 8.1** (p. 267): the relation `F ≃ G` between sc-smooth functors
+/-- **The claim after Definition 8.1.13 (2017: 8.1)** (p. 267): the relation `F ≃ G` between sc-smooth functors
 `F, G : X → Y` is an equivalence relation. -/
 theorem naturallyEquivalent_equivalence :
     Equivalence (EpFunctor.NaturallyEquivalent (X := X) (Y := Y)) :=

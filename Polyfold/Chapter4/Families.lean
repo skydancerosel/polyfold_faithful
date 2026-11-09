@@ -3,7 +3,7 @@ import Polyfold.Chapter3.ParamPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §4.3,
-Theorem 4.23 *(book 2017: Theorem 4.4; see `BookConcordance.md`, not checked against the 2017
+Theorem 4.3.1 (preprint 4.23) *(book 2017: Theorem 4.4; see `BookConcordance.md`, not checked against the 2017
 text)*.
 
 # Families and an application of Sard's theorem
@@ -11,13 +11,13 @@ text)*.
 ## The text, paraphrased
 
 For a tame M-polyfold `X`, `Z = ℝᵐ ⊕ X` is a tame M-polyfold (product charts), `P(λ, x) = λ`.
-(Theorem 4.23) Let `A ⊆ Z` be a smooth submanifold whose induced M-polyfold structure is tame,
+(Theorem 4.3.1 (preprint 4.23)) Let `A ⊆ Z` be a smooth submanifold whose induced M-polyfold structure is tame,
 with compact closure, `p = P|_A`, and `ε > 0` such that (1) for `|λ| ≤ ε` the set `p⁻¹(λ)` is
 compact and non-empty, (2) `A` is in general position (misprinted: "there exists a sc-complement
 `T_zA` in `T_zZ` which is contained in `T_z^R Z`").  Then there is a set `Σ ⊆ {|λ| < ε}` of full
 measure of regular values of `p` such that for `λ ∈ Σ`, `A_λ = {x | (λ, x) ∈ A}` is a smooth
 compact manifold with boundary with corners whose tangent space `T_xA_λ` has in `T_xX` an
-sc-complement contained in `T_x^R X`.  *Proof*: at `z ∈ A`, Theorem 4.22 ("By Theorem 4.23", a
+sc-complement contained in `T_x^R X`.  *Proof*: at `z ∈ A`, Theorem 4.2.11 (preprint 4.22) ("By Theorem 4.23", a
 slip) gives `U(z)` with `d = d_X(z)` local faces; `A ∩ F_σ` is a submanifold of dimension
 `dim A − #σ`; cover `{|p| ≤ ε}` by finitely many `U(z_i)`; in each, Sard's theorem gives full
 measure sets `Σ_σ` of regular values of `p_σ : A ∩ F_σ° → ℝᵐ`, `Σ = ⋂_σ Σ_σ`; for `λ ∈ Σ`,
@@ -27,19 +27,19 @@ measure sets `Σ_σ` of regular values of `p_σ : A ∩ F_σ° → ℝᵐ`, `Σ 
 
 ## What is formalized
 
-* `theorem_4_23`: the statement, on the M-polyfold `ℝᵐ × X = (rnPolyfold m).prod PX` (tame by
+* `theorem_4_3_1_preprint`: the statement, on the M-polyfold `ℝᵐ × X = (rnPolyfold m).prod PX` (tame by
   `prod_rn_isTame`), with `|λ|² = Σ λ_i²`, hypothesis (2) read as general position at every point
-  (Definition 4.21), and the conclusions: `Σ ⊆ {|λ| < ε}` with `{|λ| < ε} ∖ Σ` Lebesgue-null,
+  (Definition 4.2.10 (preprint 4.21)), and the conclusions: `Σ ⊆ {|λ| < ε}` with `{|λ| < ε} ∖ Σ` Lebesgue-null,
   every `λ ∈ Σ` a **stratified regular value** (`IsStratRegularValue`), `A_λ` **compact**, a
-  **smooth finite-dimensional submanifold** of `X` (Definition 4.13) **in general position** at
+  **smooth finite-dimensional submanifold** of `X` (Definition 4.2.1 (preprint 4.13)) **in general position** at
   each point, and with its induced structure **a manifold with boundary with corners**
-  (Definition 4.1, `HasCornerStructure`) and tame.  `theorem_4_23_of_subset` is the same for an
+  (Definition 4.1.1 (preprint 4.1), `HasCornerStructure`) and tame.  `theorem_4_3_1_of_subset` is the same for an
   arbitrary parameter set `S` in place of the ball.
 * `IsStratRegularPoint`, `IsStratRegularValue`: the text's "regular value of the `p_σ`" at a point
   of the open stratum through it — in a product chart, the projection to `ℝᵐ` maps
   `T_zA ∩ E_z` (the tangent space of the stratum) onto `ℝᵐ`.
 * `exists_local_family`, the local step: in the product chart `(r ↦ r − λ₀) × φ` centred at `z₀`
-  (`φ` a re-centred tame chart of `X`), Theorem 4.22 in the chart (`theorem_4_22_chart`) gives the
+  (`φ` a re-centred tame chart of `X`), Theorem 4.2.11 (preprint 4.22) in the chart (`theorem_4_2_11_chart`) gives the
   graph map `Γ` over `V ⊆ T₀A ∩ C`; `f = P ∘ χ⁻¹ ∘ Γ` is `C^∞`, its stratified critical values form
   a null set (`measure_image_stratCritSet`, Sard on the strata), and over every other value the
   fibre has the properties of the theorem near the point.
@@ -55,15 +55,15 @@ measure sets `Σ_σ` of regular values of `p_σ : A ∩ F_σ° → ℝᵐ`, `Σ 
 
 * **"Regular value" must be read in the stratified sense** of the proof (regular for every
   `p_σ`); with `Dp(z) : T_zA → ℝᵐ` onto only, the theorem is false (Findings).  It is stated in a
-  chart, for some chart (as Definitions 4.16, 4.21); its chart independence is not formalized.
+  chart, for some chart (as Definitions 4.2.5, 4.2.10 (preprint 4.16, 4.21)); its chart independence is not formalized.
 * **The covering step is repaired**: `{z ∈ A | |p(z)| ≤ ε}` need not be compact (Findings), so
   no finite subcover is available; `A` is second countable (its closure is compact in the
-  metrizable `ℝᵐ × X`, Theorem 2.16), and a countable subcover suffices for the measure statement.
-* "`A_λ` is a smooth submanifold" needs an **sc⁺-retraction onto `A_λ`** (Definition 4.13), which
+  metrizable `ℝᵐ × X`, Theorem 2.3.10 (preprint 2.16)), and a countable subcover suffices for the measure statement.
+* "`A_λ` is a smooth submanifold" needs an **sc⁺-retraction onto `A_λ`** (Definition 4.2.1 (preprint 4.13)), which
   the text does not construct (`exists_slice_retraction`), and "manifold with corners" needs the
   implicit function theorem at corner points with the kernel in good position (Lemma 5.26's
-  argument, `exists_goodComplement_stratSub`, and Theorem 3.78 in `C^∞` form); the corner
-  structure of `A_λ` is then Theorem 4.18, good position following from general position.
+  argument, `exists_goodComplement_stratSub`, and Theorem 3.8.22 (preprint 3.78) in `C^∞` form); the corner
+  structure of `A_λ` is then Theorem 4.2.7 (preprint 4.18), good position following from general position.
 * Hypothesis (1) is used only for the compactness of `A_λ`; its non-emptiness, `ε > 0` and the
   tameness of the induced structure of `A` are not used.
 * No hypothesis is added.  `[ParacompactSpace A]` is the instance argument of the induced
@@ -156,7 +156,7 @@ variable {m : ℕ} {EX : ScBanach} {CX : Set (EX 0)}
 smooth submanifold of `X`", which needs an sc⁺-retraction the text does not construct).  In the
 model `ℝᵐ ⊕ E` with the partial quadrant `ℝᵐ × C`, let `t` be an sc⁺-retraction (the chart model
 of `A`), described near a point as the graph `Γ : V → t(U) ∩ W` over a relatively open `V` in the
-partial quadrant `N ∩ (ℝᵐ × C)` with inverse `p` (Proposition 4.9), and let `ρ` be a `C^∞`
+partial quadrant `N ∩ (ℝᵐ × C)` with inverse `p` (Proposition 4.1.9 (preprint 4.9)), and let `ρ` be a `C^∞`
 retraction of `O' ∩ (ℝᵐ × C) ⊆ V` (in `N`) onto the points `v` with `(Γ v)₁ = c` (the fibre of
 `P ∘ Γ` over `c`, `exists_fibre_retraction`).  Then `τ(e) = (Γ(ρ(p(t(c, e)))))₂` is an
 **sc⁺-retraction** of `E` (partial quadrant `C`) onto `{e | (c, e) ∈ t(U) ∩ W, p(c, e) ∈ O'}`.
@@ -331,7 +331,7 @@ theorem exists_slice_retraction (hCX : IsPartialQuadrant EX CX)
         change v₀ = ρ (p (t (Γ v₀)))
         rw [t.apply_eq_self_of_mem_retract hΓv₀.1, hpΓ _ hv₀V, hρv₀])
     -- the tangent space of `t(U)` at `z` is `DΓ(v₀)N`, and `p ∘ DΓ(v₀) = 1`
-    have hQW := proposition_2_10_1 t.isScRetract hW
+    have hQW := proposition_2_3_1_one t.isScRetract hW
     obtain ⟨-, hTz, hpD⟩ := tangentSpace_eq_range_graph hQW hV hpmap hΓmap hΓp hpΓ hv₀V hz
     rw [tangentSpace_inter_isOpen t.isScRetract hW (by rw [hz]; exact hΓv₀)] at hTz
     set DΓ := scDeriv (E := ScBanach.const N) V Γ v₀ with hDΓ
@@ -442,16 +442,16 @@ theorem isGeneralPositionRetractAt_slice (hTX : CX = TX 0 ⁻¹' quadrant nX WX 
   have hM : (MX : Set (EX 0)) = tangentSpace EX CX RX.retract y :=
     (tangentSpace_eq_coe_submodule RX hyR).symm
   set Nτ : Submodule ℝ (EX 0) := LinearMap.range (scDeriv τ.U τ y : EX 0 →ₗ[ℝ] EX 0) with hNτdef
-  have : FiniteDimensional ℝ Nτ := lemma_4_7_ii hτ hyτ
+  have : FiniteDimensional ℝ Nτ := lemma_4_1_7_ii hτ hyτ
   have hNτ : (Nτ : Set (EX 0)) = tangentSpace EX CX τ.retract y :=
     (tangentSpace_eq_coe_submodule τ hyτ).symm
   have hNτs : Nτ ≤ EX.smooth :=
-    (EX.proposition_1_6_iff Nτ).1 (τ.isScSplitting_range_scDeriv hyτ hys).1
+    (EX.proposition_1_1_7_iff Nτ).1 (τ.isScSplitting_range_scDeriv hyτ hys).1
   have hNM : Nτ ≤ MX := fun v hv => by
     have hv' : v ∈ tangentSpace EX CX τ.retract y := by rw [← hNτ]; exact hv
     have := tangentSpace_subset_of_subset RX τ.isScRetract hτR hyτ hv'
     rw [← hM] at this; exact this
-  obtain ⟨-, hTRsc, -⟩ := proposition_2_36_partialCone hTX hRX hyR hys
+  obtain ⟨-, hTRsc, -⟩ := proposition_2_5_6_partialCone hTX hRX hyR hys
   -- `T_zO_Z = ℝᵐ × T_yO`
   have hzRZ : z ∈ ((rnSc m).prod EX).lvlSet RZ.retract 1 := htR hzt
   have hzU : z ∈ ((rnSc m).prod EX).lvlSet (univ ×ˢ RX.U) 1 := RZ.lvlSet_retract_subset 1 hzRZ
@@ -543,12 +543,12 @@ lemma rnPres_eq :
 variable (PX) in
 /-- **Stratified regular point of the projection `p = P|_A : A → ℝᵐ`** (the text's "regular value
 of `p_σ`" at a point of the open stratum `A ∩ F_σ°`, `σ` the set of local faces through the
-point): in a product chart `(r ↦ r − a) × φ` of `ℝᵐ × X`, with the data `d` of Definition 4.13 of
+point): in a product chart `(r ↦ r − a) × φ` of `ℝᵐ × X`, with the data `d` of Definition 4.2.1 (preprint 4.13) of
 `A`, a presentation `T` of the partial quadrant of `φ` and the level-`1` point `y` over the image
 of `z`, the projection to `ℝᵐ` (the derivative of `P` in the chart) maps `T_zA ∩ E_z` onto `ℝᵐ`;
 `T_zA ∩ E_z` is the tangent space of the stratum through `z` (`E_z = ℝᵐ × (E_X)_{φ(z₂)}`, the
 vectors whose coordinates vanish where those of `φ(z₂)` do).  Stated for some choice of data,
-chart, presentation and lift, as Definitions 4.16 and 4.21. -/
+chart, presentation and lift, as Definitions 4.2.5 and 4.2.10 (preprint 4.16 and 4.21). -/
 def IsStratRegularPoint (A : Set ((Fin m → ℝ) × X)) (z : (Fin m → ℝ) × X) : Prop :=
   z ∈ A ∧ ∃ (d : ((rnPolyfold m).prod PX).SubmanifoldData A) (a : Fin m → ℝ) (φ : MChart X)
     (n : ℕ) (Wq : ScBanach) (T : ScIso φ.model.E ((ScBanach.const (Fin n → ℝ)).prod Wq))
@@ -560,28 +560,28 @@ def IsStratRegularPoint (A : Set ((Fin m → ℝ) × X)) (z : (Fin m → ℝ) ×
       v.2 ∈ minimalSubspaceWith T (φ.model.E.toBase 1 y.2) ∧ v.1 = μ
 
 variable (PX) in
-/-- **Regular value** of `p = P|_A`, in the stratified sense of the proof of Theorem 4.23: every
+/-- **Regular value** of `p = P|_A`, in the stratified sense of the proof of Theorem 4.3.1 (preprint 4.23): every
 point of `A` over `λ` is a stratified regular point. -/
 def IsStratRegularValue (A : Set ((Fin m → ℝ) × X)) (lam : Fin m → ℝ) : Prop :=
   ∀ z ∈ A, z.1 = lam → IsStratRegularPoint PX A z
 
 variable (PX) in
-/-- The conclusions of Theorem 4.23 at one point `z = (λ, x)` of `A`: `z` is a stratified regular
-point, `A_λ` is near `x` the image of an sc⁺-retraction (Definition 4.13), and `A_λ` is in
-general position (Definition 4.21) and in good position (Definition 4.16) at `x`. -/
+/-- The conclusions of Theorem 4.3.1 (preprint 4.23) at one point `z = (λ, x)` of `A`: `z` is a stratified regular
+point, `A_λ` is near `x` the image of an sc⁺-retraction (Definition 4.2.1 (preprint 4.13)), and `A_λ` is in
+general position (Definition 4.2.10 (preprint 4.21)) and in good position (Definition 4.2.5 (preprint 4.16)) at `x`. -/
 def FibreLocal (A : Set ((Fin m → ℝ) × X)) (z : (Fin m → ℝ) × X) : Prop :=
   IsStratRegularPoint PX A z ∧
     (∃ V : Set X, IsOpen V ∧ z.2 ∈ V ∧ ∃ s : X → X, PX.IsScPlusRetractionOn s V ∧
       s '' V = fibreSet A z.1 ∩ V) ∧
     PX.IsGeneralPositionAt (fibreSet A z.1) z.2 ∧ PX.IsGoodPositionAt (fibreSet A z.1) z.2
 
-/-- **The local step of the proof of Theorem 4.23** (in the chart of Theorem 4.22 at `z₀`): for
+/-- **The local step of the proof of Theorem 4.3.1 (preprint 4.23)** (in the chart of Theorem 4.22 at `z₀`): for
 `X` tame and `A ⊆ ℝᵐ × X` a smooth finite-dimensional submanifold in general position at every
 point, every `z₀ ∈ A` has an open neighbourhood `U` and a **null set `CV ⊆ ℝᵐ`** (Lebesgue measure)
-such that at every `z ∈ A ∩ U` with `z₁ ∉ CV` the conclusions of Theorem 4.23 hold
+such that at every `z ∈ A ∩ U` with `z₁ ∉ CV` the conclusions of Theorem 4.3.1 (preprint 4.23) hold
 (`FibreLocal`).  *Proof*: the product chart `(r ↦ r − λ₀) × φ`, `φ` a tame chart of `X` centred at
-`x₀` (re-centring), is a tame chart of `ℝᵐ × X` centred at `z₀`; in it Theorem 4.22
-(`theorem_4_22_chart`) describes `A` as the graph `Γ(V)` over a relatively open `V` of the partial
+`x₀` (re-centring), is a tame chart of `ℝᵐ × X` centred at `z₀`; in it Theorem 4.2.11 (preprint 4.22)
+(`theorem_4_2_11_chart`) describes `A` as the graph `Γ(V)` over a relatively open `V` of the partial
 quadrant `N ∩ C` of `N = T₀A` (`C = {ℓ ≥ 0}` for the coordinates `ℓ` of the chart, onto `ℝⁿ`).
 `f = P ∘ χ⁻¹ ∘ Γ` is `C^∞` on `V`, and `CV = f(stratCritSet)` is null by Sard's theorem on the
 strata (`measure_image_stratCritSet`).  At `z ∈ A ∩ U` with `z₁ ∉ CV`, `v₀ = p(χ z)` is
@@ -620,7 +620,7 @@ theorem exists_local_family (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     prod_eq_prodPresentation (rnPres m) TX rnPres_eq hTX
   have hRZT : RZ.IsTameWith TZ := ScRetraction.IsTameWith.prod rnPres_eq hTX
     (ScRetraction.id_isTame (rn_relOpen_univ m) 0 _ (rnPres m) rnPres_eq) hRXT
-  -- the chart retraction `t` of `A` in `χ` and Theorem 4.22 in the chart
+  -- the chart retraction `t` of `A` in `χ` and Theorem 4.2.11 (preprint 4.22) in the chart
   set d := hA.data hz₀ with hd
   have hz₀d : z₀ ∈ d.V := hA.mem_data_V hz₀
   have hz₀W : z₀ ∈ d.toSubData.shrink χ := d.toSubData.mem_shrink χ hz₀ hz₀d hz₀χ
@@ -640,7 +640,7 @@ theorem exists_local_family (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
   set N : Submodule ℝ (((rnSc m).prod φ.model.E) 0) :=
     LinearMap.range (scDeriv t.U t 0 :
       ((rnSc m).prod φ.model.E) 0 →ₗ[ℝ] ((rnSc m).prod φ.model.E) 0) with hNdef
-  have : FiniteDimensional ℝ N := lemma_4_7_ii htp h01
+  have : FiniteDimensional ℝ N := lemma_4_1_7_ii htp h01
   have hN : (N : Set (((rnSc m).prod φ.model.E) 0)) =
       tangentSpace ((rnSc m).prod φ.model.E) (univ ×ˢ φ.model.C) t.retract 0 :=
     (tangentSpace_eq_coe_submodule t h01).symm
@@ -652,7 +652,7 @@ theorem exists_local_family (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     rw [← hRZ, ← ht] at h2
     exact h2
   obtain ⟨hsup, -, Y, p, W, V, Γ, hYE, -, -, hpN, -, hker, hW, h0W, hV, -, hΓs, hpΓ, -, -, hΓp, -,
-    hpmap, hΓmap, -, hgen⟩ := theorem_4_22_chart TZ hTZ hRZT h0O t htp htR h0 hN hgp0
+    hpmap, hΓmap, -, hgen⟩ := theorem_4_2_11_chart TZ hTZ hRZT h0O t htp htR h0 hN hgp0
   -- the finite-dimensional data: coordinates `ℓ`, the relatively open `V`, `f = P ∘ χ⁻¹ ∘ Γ`
   set ℓ := coordsOn TZ N with hℓdef
   have hℓ : Surjective ℓ := coordsOn_surjective TZ hsup
@@ -709,7 +709,7 @@ theorem exists_local_family (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     rw [hV'] at hfd; exact hfd.fderivWithin hUDV
   -- the tangent space of `t(U)` along the graph
   have hQW : IsScRetract ((rnSc m).prod φ.model.E) (univ ×ˢ φ.model.C) (t.retract ∩ W) :=
-    proposition_2_10_1 t.isScRetract hW
+    proposition_2_3_1_one t.isScRetract hW
   -- the fibre in `N`: `f v = f v₀` iff `(Γ v)₁ = (Γ v₀)₁`
   have hfeq : ∀ v, f v = f v₀ ↔ (Γ v).1 = (Γ v₀).1 := fun v => by
     change (Γ v).1 + z₀.1 = (Γ v₀).1 + z₀.1 ↔ _
@@ -786,7 +786,7 @@ theorem exists_local_family (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
       refine (hτret (φ x')).2 ⟨⟨hct, ?_⟩, ?_⟩
       · rwa [t.apply_eq_self_of_mem_retract hct] at hU2
       · rwa [t.apply_eq_self_of_mem_retract hct] at hU3
-  -- the data of Definition 4.13 for `A_{z₁}` at `z₂`
+  -- the data of Definition 4.2.1 (preprint 4.13) for `A_{z₁}` at `z₂`
   let d' : PX.SubmanifoldData (fibreSet A z.1) :=
     ⟨VX, φ.symm ∘ τ ∘ φ, hVXo, hs, himg.trans hfib⟩
   have hshrink : φ '' (d'.toSubData.shrink φ ∩ fibreSet A z.1) = τ.retract := by
@@ -805,7 +805,7 @@ theorem exists_local_family (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
         rw [mem_preimage, φ.apply_symm_apply (hτO he)]; exact he⟩,
         φ.apply_symm_apply (hτO he)⟩
   -- the level-`1` points over `φ(z₂)` and `χ(z)`
-  obtain ⟨yX, hyX, hyXs⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_7_i hτp hxτ)
+  obtain ⟨yX, hyX, hyXs⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_1_7_i hτp hxτ)
   set yZ : ((rnSc m).prod φ.model.E) 1 := ((Γ v₀).1, yX) with hyZdef
   have hyZ : ((rnSc m).prod φ.model.E).toBase 1 yZ = Γ v₀ := by
     rw [ScBanach.prod_toBase, ScBanach.const_toBase, hyX]
@@ -877,15 +877,15 @@ theorem exists_local_family (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     exact hgpX.isGoodPositionRetractAt TX hRXT hyXR hyXs
 
 
-/-- **Theorem 4.23, for an arbitrary set of parameters**: for `X` tame and `A ⊆ ℝᵐ × X` a smooth
+/-- **Theorem 4.3.1 (preprint 4.23), for an arbitrary set of parameters**: for `X` tame and `A ⊆ ℝᵐ × X` a smooth
 finite-dimensional submanifold with compact closure, in general position at every point, and any
 `S ⊆ ℝᵐ`, there is `Σ ⊆ S` with `S ∖ Σ` a Lebesgue null set such that every `λ ∈ Σ` is a
 (stratified) regular value of `p = P|_A` and the conclusions of the theorem hold at every point of
 `A_λ` (`FibreLocal`).  *Proof*: `exists_local_family` at every point of `A`; `A` is second
-countable (`cl(A)` is compact in the metrizable `ℝᵐ × X`, Theorem 2.16), so countably many of the
+countable (`cl(A)` is compact in the metrizable `ℝᵐ × X`, Theorem 2.3.10 (preprint 2.16)), so countably many of the
 neighbourhoods `U(z_i)` cover `A` — the text's finite cover of `{|p| ≤ ε}` does not exist in
 general (Findings) — and `Σ = S ∖ ⋃_i CV(z_i)`. -/
-theorem theorem_4_23_of_subset (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
+theorem theorem_4_3_1_of_subset (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     (hA : ((rnPolyfold m).prod PX).IsSmoothSubmanifold A) (hcl : IsCompact (closure A))
     (h2 : ∀ z ∈ A, ((rnPolyfold m).prod PX).IsGeneralPositionAt A z) (S : Set (Fin m → ℝ)) :
     ∃ Sig ⊆ S, volume (S \ Sig) = 0 ∧ ∀ lam ∈ Sig, IsStratRegularValue PX A lam ∧
@@ -922,22 +922,22 @@ theorem theorem_4_23_of_subset (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
       exact hlam.2 (mem_iUnion₂.2 ⟨z, hzT, hc⟩)
     exact ⟨fun w hw hwl => (key w hw hwl).1, fun x hx => key (lam, x) hx rfl⟩
 
-/-- **Theorem 4.23 (families and Sard's theorem).**  Let `X` be a tame M-polyfold and
+/-- **Theorem 4.3.1 (preprint 4.23) (families and Sard's theorem).**  Let `X` be a tame M-polyfold and
 `A ⊆ ℝᵐ × X` a smooth finite-dimensional submanifold of the tame M-polyfold `ℝᵐ × X` (Definition
 4.13), whose induced M-polyfold structure is tame and whose closure is compact.  Let `ε > 0` with
 (1) for `|λ| ≤ ε` the fibre `p⁻¹(λ) = A ∩ P⁻¹(λ)` of `p = P|_A` is compact and non-empty, and
-(2) `A` is in general position at every point (Definition 4.21; the text's hypothesis (2) is
+(2) `A` is in general position at every point (Definition 4.2.10 (preprint 4.21); the text's hypothesis (2) is
 misprinted).  Then there is a set `Σ ⊆ {|λ| < ε}` of full Lebesgue measure in `{|λ| < ε}`
 (`|λ|² = Σ λ_i²`) consisting of **regular values** of `p` (stratified: `IsStratRegularValue`),
 such that for `λ ∈ Σ` the fibre `A_λ = {x | (λ, x) ∈ A}` is **compact**, a **smooth
 finite-dimensional submanifold** of `X`, in **general position** at each of its points, and with
-its induced structure **a manifold with boundary with corners** (Definition 4.1,
+its induced structure **a manifold with boundary with corners** (Definition 4.1.1 (preprint 4.1),
 `HasCornerStructure`) and tame.
-*Proof*: `theorem_4_23_of_subset` for the open ball; compactness from (1) (`A_λ` is the image of
-`p⁻¹(λ)` under the projection to `X`); the corner structure is Theorem 4.18 for `A_λ`, good
+*Proof*: `theorem_4_3_1_of_subset` for the open ball; compactness from (1) (`A_λ` is the image of
+`p⁻¹(λ)` under the projection to `X`); the corner structure is Theorem 4.2.7 (preprint 4.18) for `A_λ`, good
 position following from general position.  The hypotheses "the induced structure on `A` is tame"
 and "`p⁻¹(λ)` non-empty" are not used (Findings). -/
-theorem theorem_4_23 (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
+theorem theorem_4_3_1_preprint (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     (hA : ((rnPolyfold m).prod PX).IsSmoothSubmanifold A) [ParacompactSpace A]
     (_hAt : ((rnPolyfold m).prod PX).IsTameSubmanifold A) (hcl : IsCompact (closure A))
     {ε : ℝ} (_hε : 0 < ε)
@@ -953,7 +953,7 @@ theorem theorem_4_23 (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
           (MPolyfold.subPolyfold hF.isSubMPolyfold).HasCornerStructure ∧
             PX.IsTameSubmanifold (fibreSet A lam) := by
   obtain ⟨Sig, hSig, hnull, hprop⟩ :=
-    theorem_4_23_of_subset hX hA hcl h2 {lam : Fin m → ℝ | ∑ i, lam i ^ 2 < ε ^ 2}
+    theorem_4_3_1_of_subset hX hA hcl h2 {lam : Fin m → ℝ | ∑ i, lam i ^ 2 < ε ^ 2}
   refine ⟨Sig, hSig, hnull, fun lam hlam => ?_⟩
   obtain ⟨hreg, hloc⟩ := hprop lam hlam
   have hlamε : ∑ i, lam i ^ 2 ≤ ε ^ 2 := (hSig hlam).le
@@ -977,7 +977,7 @@ theorem theorem_4_23 (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     fun x hx => (hloc x hx).2.2.1
   have hgoodF : ∀ x ∈ fibreSet A lam, PX.IsGoodPositionAt (fibreSet A lam) x :=
     fun x hx => (hloc x hx).2.2.2
-  obtain ⟨hcs, htameF⟩ := MPolyfold.theorem_4_18 hX hF hgoodF
+  obtain ⟨hcs, htameF⟩ := MPolyfold.theorem_4_2_7 hX hF hgoodF
   exact ⟨hreg, hcpt, hF, hgpF, hcs, htameF⟩
 
 end Family

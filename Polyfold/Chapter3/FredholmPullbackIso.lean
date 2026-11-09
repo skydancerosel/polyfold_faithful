@@ -7,7 +7,7 @@ import Polyfold.Chapter2.TangentMap
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021; 2017 arXiv 1707.08941),
 Part I, §3.1 and §3.6, Definitions 3.1.16, 3.1.18, 3.6.4 and 3.6.5, pp. 86–88 and 115–116
-(2014 preprint: Definitions 3.11, 3.14, 3.50, 3.51), **the invariance of sc-Fredholm germs and
+(2014 preprint: Definitions 3.1.11, 3.1.16, 3.6.3, 3.6.4 (preprint 3.11, 3.14, 3.50, 3.51)), **the invariance of sc-Fredholm germs and
 sections under local strong bundle isomorphisms**, the step the proof of Part II's Theorem 10.4.5
 (p. 500; 2017: Theorem 10.8) calls "clear": `Φ_*` and `Φ^*` map sc-Fredholm section functors to
 sc-Fredholm section functors.  This file is the Part I half of gap G.121 (and, through it, of

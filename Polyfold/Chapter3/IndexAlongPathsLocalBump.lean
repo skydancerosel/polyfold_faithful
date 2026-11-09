@@ -2,32 +2,32 @@ import Polyfold.Chapter3.IndexAlongPathsLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.1,
-**Definition 6.1**: with sc-smooth bump functions, the reading with a locally defined
+**Definition 6.2.1 (preprint 6.1)**: with sc-smooth bump functions, the reading with a locally defined
 sc⁺-section (`IsIndexAtLocal`, `IndexAlongPathsLocal.lean`) agrees with the reading with a
 global one (`IsIndexAt`, `IndexAlongPaths.lean`).  Round-trip item V3.98 (a); Findings, Chapter 3,
 items 364 and 367.
 
-# Definition 6.1: local and global sections agree under bump functions
+# Definition 6.2.1 (preprint 6.1): local and global sections agree under bump functions
 
 ## What is formalized
 
 * `Polyfold.StrongBundle.cutoffSection_mem_oneSet_of_isChart`,
   `StrongBundle.isScPlusSection_cutoffSection_of_isChart`: the cut-off of a local sc⁺-section
-  (`cutoffSection`, Lemma 5.11) in a strong bundle chart of `P` which need not belong to the
+  (`cutoffSection`, Lemma 5.3.3 (preprint 5.11)) in a strong bundle chart of `P` which need not belong to the
   atlas (`IsChart`; through the chart `oneChartOf` of `Y[1]`).
 * `Polyfold.StrongBundle.IsIndexAtLocal.isIndexAt` (**with bump functions, a local section of
-  Definition 6.1 gives a global one**): the local section `s` on `V` is restricted to
+  Definition 6.2.1 (preprint 6.1) gives a global one**): the local section `s` on `V` is restricted to
   `W = dom φ ∩ V` for a chart `φ` around `x`, read as `τ : O → F¹` in that chart, cut off by a bump
   `β` supported in `W` and equal to `1` near `x`; `f + β τ` vanishes at `x` and its linearization
   at `x` has the index of `(f|W + s)'(x)`, since the two sections agree where `β = 1`
   (`linAt_congr` in the chart restricted to that set, and the germ datum of `f + β τ` at `x`).
-* `Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt` (**the two readings of Definition 6.1
+* `Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt` (**the two readings of Definition 6.2.1 (preprint 6.1)
   agree under bump functions**).
 
 ## What the text leaves implicit, and the choices made
 
 * The text's "local sc⁺-section" and the global sections of Chapter 5 are never compared; the
-  comparison needs the bump functions of Definition 5.9 (the cut-off) and is only valid with them.
+  comparison needs the bump functions of Definition 5.3.1 (preprint 5.9) (the cut-off) and is only valid with them.
 -/
 
 open Set Filter Topology Function Module ContinuousLinearMap
@@ -124,7 +124,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 set_option maxHeartbeats 800000 in
-/-- **With bump functions, a local sc⁺-section of Definition 6.1 gives a global one**: for
+/-- **With bump functions, a local sc⁺-section of Definition 6.2.1 (preprint 6.1) gives a global one**: for
 `ind(f, x) = i` with a local section `s` on `V`, the section `s` restricted to `W = dom φ ∩ V`
 (`φ` a chart around `x`), read in the chart as `τ`, and cut off by a bump `β` supported in `W`
 with `β = 1` near `x`, is a global sc⁺-section `f + βτ` of `P` vanishing at `x` whose
@@ -175,7 +175,7 @@ theorem StrongBundle.IsIndexAtLocal.isIndexAt (hbump : PX.AdmitsBumpFunctions)
       c'.φ.apply_symm_apply hz]
   have hτm := hτ.mapsTo
   -- the bump
-  obtain ⟨β, hβ, -, hβx, hβs, hβ1⟩ := proposition_5_30 hbump hW hxW
+  obtain ⟨β, hβ, -, hβx, hβs, hβ1⟩ := proposition_5_5_3 hbump hW hxW
   set sX := StrongBundle.cutoffSection c' β τ with hsXdef
   have hsX : B.IsScPlusSection sX :=
     StrongBundle.isScPlusSection_cutoffSection_of_isChart hc' hβ hβs hτ
@@ -203,8 +203,8 @@ theorem StrongBundle.IsIndexAtLocal.isIndexAt (hbump : PX.AdmitsBumpFunctions)
     exact h0
   refine ⟨sX, hsX, hzero, ?_⟩
   -- the index, through the germ datum of `f + sX` at `x`
-  have hF := theorem_3_15 hf hsX
-  have hFW := theorem_3_15 hfW hs
+  have hF := theorem_3_1_18_preprint hf hsX
+  have hFW := theorem_3_1_18_preprint hfW hs
   have hxs : x ∈ PX.smoothSet := hF.mem_smoothSet_of_isZeroAt hzero
   obtain ⟨-, c₁, hc₁, hxc₁, hφ₁, h0₁, g₁, s₁, hfill₁, hs₁, hs0₁, hconj₁⟩ := hF.germ x hxs
   obtain ⟨dc⟩ := isConjugateToBasicGerm_iff_nonempty.1 hconj₁
@@ -278,7 +278,7 @@ theorem StrongBundle.IsIndexAtLocal.isIndexAt (hbump : PX.AdmitsBumpFunctions)
   have h2 := hL cW'' hcW''c hxW'' z hz hzU L fun v => hcongr v
   exact h2.2.symm.trans h1.2
 
-/-- **The two readings of Definition 6.1 agree under bump functions**: `ind(f, x) = i` with a
+/-- **The two readings of Definition 6.2.1 (preprint 6.1) agree under bump functions**: `ind(f, x) = i` with a
 locally defined sc⁺-section iff with a global one. -/
 theorem StrongBundle.isIndexAtLocal_iff_isIndexAt (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSection f) {x : X} {i : ℤ} :

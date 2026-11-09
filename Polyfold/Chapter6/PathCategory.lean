@@ -2,7 +2,7 @@ import Polyfold.Chapter6.ScHomotopy
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 228:
-the category `PX` of sc-smooth homotopy classes of paths, before **Theorem 6.37**
+the category `PX` of sc-smooth homotopy classes of paths, before **Theorem 6.6.13 (preprint 6.37)**
 *(book 2017: before Theorem 6.2; see `BookConcordance.md`)*.
 
 # The path category `PX`

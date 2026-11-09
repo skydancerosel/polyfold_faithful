@@ -3,7 +3,7 @@ import Polyfold.Chapter6.ChartTransfer
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 222–228: the local propagation `o ↦ φ_* o` and **Theorem 6.37** (the functor `Γ_f`, whose
+pp. 222–228: the local propagation `o ↦ φ_* o` and **Theorem 6.6.13 (preprint 6.37)** (the functor `Γ_f`, whose
 objects `Or_x^f` do not refer to a chart) *(book 2017: Theorem 6.2; see `BookConcordance.md`)*.
 
 # The local push-forward does not depend on the chart
@@ -12,7 +12,7 @@ objects `Or_x^f` do not refer to a chart) *(book 2017: Theorem 6.2; see `BookCon
 
 Along an sc-smooth path `φ` the push-forward `o₁ = φ_* o₀` is made from the kernels
 `L_t = ker F_t'(φ(t), 0)`, the isomorphisms `Φ_{E_t}` of the exact sequences (96) and the
-continuation of orientations of `λ(L_t)`.  In the proof of Theorem 6.37 an orientation of
+continuation of orientations of `λ(L_t)`.  In the proof of Theorem 6.6.13 (preprint 6.37) an orientation of
 `DET(f, φ(t))` is carried along a finite covering of `[0, 1]` by orientable neighbourhoods; the
 objects `Or_x^f` are the same for all of them.
 
@@ -22,7 +22,7 @@ objects `Or_x^f` are the same for all of them.
   and `φ' = Γ φ`: `stabSign_conj` (`α(T') = α(T)`), `coprod_conj`, `ker_coprod_conj`
   (`ker(T' ⊕ φ') = (A × 1) ker(T ⊕ φ)`), `surjective_coprod_conj`, and **the naturality of the
   stabilization isomorphism** `stabRayEquiv_conjDet` (with `conj_stab_key`, from
-  Proposition 6.15 at both operators): `Φ_{E'} ∘ conjDet(A, Γ) = λ(M) ∘ Φ_E` on rays, for
+  Proposition 6.4.15 (preprint 6.15) at both operators): `Φ_{E'} ∘ conjDet(A, Γ) = λ(M) ∘ Φ_E` on rays, for
   identifications of the kernels compatible with `A × 1` and `M`; the regroupings
   `ray_trans_conj_aux`, `equiv_conj_push_aux`.
 * `SubspaceFamily.cont_map`: **continuation is natural** under a jointly continuous family of
@@ -114,7 +114,7 @@ theorem surjective_coprod_conj (h : ∀ v, T' (A v) = Γ (T v)) (hφφ : ∀ μ,
 /-- **The naturality of the stabilization isomorphism, as linear maps**: for identifications
 `ι : ker(T ⊕ φ) ≅ L`, `ι' : ker(T' ⊕ φ') ≅ L'` and `M : L ≅ L'` with `ι' (A × 1) = M ι`,
 `λ(ι') ∘ (det(T' ⊕ φ') ≅ λ) ∘ ι_{φ'} ∘ conjDet(A, Γ) = λ(M) ∘ λ(ι) ∘ (det(T ⊕ φ) ≅ λ) ∘ ι_φ`
-(Proposition 6.15 at `T` and at `T'`, with the data `a`, `c̄`, `b̄` and `A a`, `c̄`, `(A × 1) b̄`;
+(Proposition 6.4.15 (preprint 6.15) at `T` and at `T'`, with the data `a`, `c̄`, `b̄` and `A a`, `c̄`, `(A × 1) b̄`;
 the determinant in (94) is the same). -/
 theorem conj_stab_key (h : ∀ v, T' (A v) = Γ (T v)) (hφφ : ∀ μ, φ' μ = Γ (φ μ))
     (hT : T.IsFredholm) (hT' : T'.IsFredholm)
@@ -163,8 +163,8 @@ theorem conj_stab_key (h : ∀ v, T' (A v) = Γ (T v)) (hφφ : ∀ μ, φ' μ =
   have hb' : LinearIndependent ℝ (Fin.append (stabJ T' φ' ∘ ⇑a') (N ∘ bbar)) := by
     rw [hJ, ← comp_append]; exact hb.map' N.toLinearMap N.ker
   have hkl' := hkl.trans N.finrank_eq
-  have h615 := proposition_6_15 hT hφ a cbar hd rfl bbar hb hkl hn
-  have h615' := proposition_6_15 hT' hφ' a' cbar hd' hm' (N ∘ bbar) hb' hkl' hn
+  have h615 := proposition_6_4_15 hT hφ a cbar hd rfl bbar hb hkl hn
+  have h615' := proposition_6_4_15 hT' hφ' a' cbar hd' hm' (N ∘ bbar) hb' hkl' hn
   have e1 : conjDet A Γ h (wedge a (by rw [Module.finrank_eq_card_basis a, Fintype.card_fin]) ⊗ₜ
       dualVec (wedge (stabClass T φ ∘ cbar) rfl)) =
       wedge a' (by rw [Module.finrank_eq_card_basis a', Fintype.card_fin]) ⊗ₜ

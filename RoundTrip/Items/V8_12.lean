@@ -6,7 +6,7 @@ import RoundTrip.Blind.V8_12
 
 `A` is the conjunction of the types of the three listed theorems, universe instantiated at `0`
 (`B` lives in `Type`): `tangentMor_tSrc` (`Tφ(Ts h) = Tt h`), `tangentMor_comp`
-(`T(ψ ∘ φ) = Tψ ∘ Tφ` on `T_{s φ}X`) and `remark_8_1` (these two, `G = remarkG` injective with
+(`T(ψ ∘ φ) = Tψ ∘ Tφ` on `T_{s φ}X`) and `remark_8_1_10` (these two, `G = remarkG` injective with
 range `{(φ, a) | φ ∈ 𝐗₁, p(a) = s φ}` — `Tφ` *labelled by `φ`* —, composability via `Tφ`, and
 `G` compatible with the composition).  `tangentMor` (Chapter 7's `Tφ`) and `remarkG` are
 definitions (vocabulary).
@@ -31,11 +31,11 @@ open Polyfold
 def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.tangentMor_tSrc.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tangentMor_comp.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.remark_8_1.{0})
+  (type_of% @Polyfold.EpGroupoid.remark_8_1_10.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.tangentMor_tSrc.{0}, @Polyfold.EpGroupoid.tangentMor_comp.{0},
-    @Polyfold.EpGroupoid.remark_8_1.{0}⟩
+    @Polyfold.EpGroupoid.remark_8_1_10.{0}⟩
 
 section
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -324,16 +324,16 @@ theorem BCore_to_A : BCore → A := by
     rw [X.tBase_tComp hkh, X.tSrc_tComp hkh]
 
 #rt_check RoundTrip.V8_12.not_B [Polyfold.EpGroupoid.tangentMor_tSrc,
-  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1]
+  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1_10]
 #rt_check RoundTrip.V8_12.B_to_A [Polyfold.EpGroupoid.tangentMor_tSrc,
-  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1]
+  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1_10]
 #rt_check RoundTrip.V8_12.A_to_BCore [Polyfold.EpGroupoid.tangentMor_tSrc,
-  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1]
+  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1_10]
 #rt_check RoundTrip.V8_12.BCore_to_A [Polyfold.EpGroupoid.tangentMor_tSrc,
-  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1]
+  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1_10]
 #rt_overlap RoundTrip.V8_12.B_to_A [Polyfold.EpGroupoid.tangentMor_tSrc,
-  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1]
+  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1_10]
 #rt_overlap RoundTrip.V8_12.BCore_to_A [Polyfold.EpGroupoid.tangentMor_tSrc,
-  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1]
+  Polyfold.EpGroupoid.tangentMor_comp, Polyfold.EpGroupoid.remark_8_1_10]
 
 end RoundTrip.V8_12

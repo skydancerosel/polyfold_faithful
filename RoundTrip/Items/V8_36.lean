@@ -9,10 +9,10 @@ The item lists the definitions `FullOb`, `FiberCat`, `fiberIsotropy`, `restrictF
 `ProperCoveringChart.geometricLift`, `.Φ`, `.Ψ` (vocabulary) and ten theorems.  `A` is the
 conjunction of the types of `covering_restrict`, `nonempty_fiberCat`,
 `ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ`, `…_Ψ`, `range_Φ_obj`, `range_Φ_mor`,
-`range_Ψ_obj`, `range_Ψ_mor`, `comp_Ψ` and `theorem_8_6` (all in `Type`, no universe parameters).
+`range_Ψ_obj`, `range_Ψ_mor`, `comp_Ψ` and `theorem_8_5_8`, universes instantiated at `0` (`B` lives in `Type`).
 
 * `A ⇒ B`: (a) is `covering_restrict`.  For (b), `V` is the `W` of the non-item
-  `theorem_8_5_of_naturalRep`: B's data `(U, Φr, Γr)` (`IsNatAction`, connected) is a project
+  `theorem_8_5_3_of_naturalRep`: B's data `(U, Φr, Γr)` (`IsNatAction`, connected) is a project
   `NaturalRep` (`natRep`; the inverse of `Φr g` is `Φr g⁻¹`), hence the `R` of a chart `C` of
   Theorem 8.5.  The lift is `C.geometricLift`, `K = geometricLiftSource`, `Ψ = C.Ψ hF`.  B's
   `L = G_x ⋉ U(x)` has morphisms `G_x × U(x)`, the project's `ULift G_x × U(x)`, so `Lg`, `A`
@@ -22,11 +22,11 @@ conjunction of the types of `covering_restrict`, `nonempty_fiberCat`,
   the project's arguments (non-item lemmas of Chapter 7).  B's "sc-diffeomorphism onto the image"
   follows from "injective local sc-diffeomorphism" (`isScDiffeoOn_range`).  `L_D(y) = U(y)` and
   the sheets are the non-item `connectedComponentIn_U`, `connectedComponentIn_sheet`.
-* `B ⇒ A`: `covering_restrict` and `theorem_8_6` (a) are B's first conjunct.  The other
+* `B ⇒ A`: `covering_restrict` and `theorem_8_5_8` (a) are B's first conjunct.  The other
   theorems are about the project's concrete chart witnesses `C.Φ`, `C.Ψ hF` (for every chart, and
   with `(geometricLiftFunctor L).IsProperCovering`), which B (an existential over small `U`) does
   not mention: they are re-proved outright by the project's arguments (non-item lemmas), and
-  `theorem_8_6` (b) is the non-item `theorem_8_5`.
+  `theorem_8_5_8` (b) is the non-item `theorem_8_5_3`.
 -/
 
 namespace RoundTrip.V8_36
@@ -35,26 +35,26 @@ open scoped Polyfold.EpGroupoid.NaturalRep Polyfold.GeometricLift
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.EpFunctor.covering_restrict) ∧
-  (type_of% @Polyfold.EpFunctor.nonempty_fiberCat) ∧
-  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ) ∧
-  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ) ∧
-  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj) ∧
-  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor) ∧
-  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj) ∧
-  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor) ∧
-  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ) ∧
-  (type_of% @Polyfold.EpFunctor.theorem_8_6)
+  (type_of% @Polyfold.EpFunctor.covering_restrict.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.nonempty_fiberCat.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ.{0}) ∧
+  (type_of% @Polyfold.EpFunctor.theorem_8_5_8.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpFunctor.covering_restrict, @Polyfold.EpFunctor.nonempty_fiberCat,
-    @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ,
-    @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ,
-    @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj,
-    @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor,
-    @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj,
-    @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor,
-    @Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ, @Polyfold.EpFunctor.theorem_8_6⟩
+  ⟨@Polyfold.EpFunctor.covering_restrict.{0}, @Polyfold.EpFunctor.nonempty_fiberCat.{0},
+    @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ.{0},
+    @Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ.{0},
+    @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj.{0},
+    @Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor.{0},
+    @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj.{0},
+    @Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor.{0},
+    @Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ.{0}, @Polyfold.EpFunctor.theorem_8_5_8.{0}⟩
 
 /-! ### General glue -/
 
@@ -348,7 +348,7 @@ theorem A_to_B : A → B := by
   obtain ⟨hcov, hne, -, hffΨ, -, -, hrΨo, hrΨm, hcomp, -⟩ := hA
   intro ObjY MorY ObjX MorX _ _ _ _ _ _ _ _ _ _ _ _ Y X F hF x
   refine ⟨hcov x hF, ?_⟩
-  obtain ⟨W, hWo, hxW, hW⟩ := EpFunctor.theorem_8_5_of_naturalRep hF x
+  obtain ⟨W, hWo, hxW, hW⟩ := EpFunctor.theorem_8_5_3_of_naturalRep hF x
   refine ⟨W, hWo, hxW, fun U Φr Γr hN hUc hUW => ?_⟩
   obtain ⟨C, hC⟩ := hW (natRep hN hUc) hUW
   have hUeq : C.R.U = U := congrArg EpGroupoid.NaturalRep.U hC
@@ -462,12 +462,12 @@ theorem B_to_A : B → A := by
       (hB ObjY MorY ObjX MorX Y X F hF x).1
   refine ⟨@hcov, @nonempty', @ffΦ', @ffΨ', @rΦo', @rΦm', @rΨo', @rΨm', @compΨ', ?_⟩
   intro ObjY MorY _ _ _ _ _ _ ObjX MorX _ _ _ _ _ _ Y X F hF x
-  refine ⟨hcov x hF, fun V hV hx => EpFunctor.theorem_8_5 hF x hV hx, fun C => ?_⟩
+  refine ⟨hcov x hF, fun V hV hx => EpFunctor.theorem_8_5_3 hF x hV hx, fun C => ?_⟩
   let _ := EpFunctor.fintypeFiberCat x hF
   let _ := EpFunctor.fintypeFiberCatHom x hF
   let _ : Fintype (X.Isotropy x) := Fintype.ofFinite _
   have := nonempty' x hF
-  exact ⟨C.geometricLift, C.Φ, C.Ψ hF, proposition_8_3 (hcov x hF) _, ffΦ' C, ffΨ' C hF,
+  exact ⟨C.geometricLift, C.Φ, C.Ψ hF, proposition_8_5_7 (hcov x hF) _, ffΦ' C, ffΨ' C hF,
     rΦo' C, rΦm' C, rΨo' C hF, rΨm' C hF, compΨ' C hF⟩
 
 #rt_check RoundTrip.V8_36.A_to_B [Polyfold.EpFunctor.covering_restrict,
@@ -478,7 +478,7 @@ theorem B_to_A : B → A := by
   Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor,
   Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj,
   Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor,
-  Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ, Polyfold.EpFunctor.theorem_8_6]
+  Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ, Polyfold.EpFunctor.theorem_8_5_8]
 #rt_check RoundTrip.V8_36.B_to_A [Polyfold.EpFunctor.covering_restrict,
   Polyfold.EpFunctor.nonempty_fiberCat,
   Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ,
@@ -487,7 +487,7 @@ theorem B_to_A : B → A := by
   Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor,
   Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj,
   Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor,
-  Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ, Polyfold.EpFunctor.theorem_8_6]
+  Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ, Polyfold.EpFunctor.theorem_8_5_8]
 #rt_overlap RoundTrip.V8_36.B_to_A [Polyfold.EpFunctor.covering_restrict,
   Polyfold.EpFunctor.nonempty_fiberCat,
   Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ,
@@ -496,6 +496,6 @@ theorem B_to_A : B → A := by
   Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor,
   Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj,
   Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor,
-  Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ, Polyfold.EpFunctor.theorem_8_6]
+  Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ, Polyfold.EpFunctor.theorem_8_5_8]
 
 end RoundTrip.V8_36

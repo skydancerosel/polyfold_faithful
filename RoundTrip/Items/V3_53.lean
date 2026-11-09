@@ -9,11 +9,11 @@ noncomputable section
 namespace RoundTrip.V3_53
 open Polyfold
 
-/-- The project's statement: `lemma_3_60` (abstract form, for a family of sc-operators on a compact
+/-- The project's statement: `lemma_3_7_3` (abstract form, for a family of sc-operators on a compact
 parameter set).  No universe parameters. -/
-def A : Prop := type_of% @Polyfold.lemma_3_60
+def A : Prop := type_of% @Polyfold.lemma_3_7_3
 
-theorem A_holds : A := @Polyfold.lemma_3_60
+theorem A_holds : A := @Polyfold.lemma_3_7_3
 
 /-! ### Glue: the concrete family `L(b) = P_Y ∘ Df(b)|_X` as sc-operators `X → Y`
 (as in `RoundTrip.V3_52`, now on every level) -/
@@ -181,9 +181,9 @@ lemma famL_compactness (hf : IsSc1 U f) (hBs : Bs ≤ E.smooth) (hXsc : E.IsScSu
 end Family
 
 /-- A ⇒ B: Lemma 3.60 in the setting of Theorem 3.58.  The neighbourhood `O` and its injectivity
-property come from the project's `lemma_3_59` (allowed: it is not this item's theorem) applied to
+property come from the project's `lemma_3_7_2` (allowed: it is not this item's theorem) applied to
 the family `L(b) = P_Y ∘ Df(b)|_X`; for `Õ` with compact closure in `O`, the hypothesis
-`lemma_3_60` is applied on `K = cl(Õ)` (compact in `B`), level by level: continuity from the sc¹
+`lemma_3_7_3` is applied on `K = cl(Õ)` (compact in `B`), level by level: continuity from the sc¹
 property, injectivity on level `m` from level `0`, `FamilyCompactness` from `CompactnessProp`;
 `P_Y(Df(b)h)` is the `y` of B by uniqueness of the decomposition `F_m = Y_m ⊕ A_m`. -/
 theorem A_to_B : A → B := by
@@ -192,8 +192,8 @@ theorem A_to_B : A → B := by
   have := hBfin
   have := hAfin
   set Y := imgY E F U f X with hYdef
-  have hBs : Bs ≤ E.smooth := (E.proposition_1_6_iff Bs).1 hsplit.1
-  have hAs : Ac ≤ F.smooth := (F.proposition_1_6_iff Ac).1 hAY.1
+  have hBs : Bs ≤ E.smooth := (E.proposition_1_1_7_iff Bs).1 hsplit.1
+  have hAs : Ac ≤ F.smooth := (F.proposition_1_1_7_iff Ac).1 hAY.1
   have hXsc : E.IsScSubspace X := hsplit.2.1
   have hYA : F.IsScSplitting Y Ac := hAY.symm
   choose ℓ hℓ using fun k => exists_lift E Bs hBs k
@@ -234,7 +234,7 @@ theorem A_to_B : A → B := by
     simp only [ScBanach.levelSub_zero] at hBX
     exact Subtype.ext ((Submodule.disjoint_def.1 hBX.disjoint) _ hhB h.2)
   -- Lemma 3.59 (a project lemma, not this item's) gives the neighbourhood `O`
-  obtain ⟨r', hr', hinjO⟩ := Polyfold.lemma_3_59 h0O L (hcont 0 O subset_rfl) hinj
+  obtain ⟨r', hr', hinjO⟩ := Polyfold.lemma_3_7_2 h0O L (hcont 0 O subset_rfl) hinj
     (hfc 0 O subset_rfl)
   obtain ⟨OU, hOUo, hUeq⟩ := hU.relOpen
   set OB : Set (E.lvl 0) := (OU ∩ Metric.ball 0 (min r r')) ∩ ((Bs : Set (E.lvl 0)) ∩ C)
@@ -299,8 +299,8 @@ theorem A_to_B : A → B := by
     rw [hLy] at this
     exact this
 
-#rt_check RoundTrip.V3_53.A_to_B [Polyfold.lemma_3_60]
-#rt_overlap RoundTrip.V3_53.A_to_B [Polyfold.lemma_3_60]
+#rt_check RoundTrip.V3_53.A_to_B [Polyfold.lemma_3_7_3]
+#rt_overlap RoundTrip.V3_53.A_to_B [Polyfold.lemma_3_7_3]
 
 end RoundTrip.V3_53
 

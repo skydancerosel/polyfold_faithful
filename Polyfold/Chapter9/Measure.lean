@@ -563,7 +563,7 @@ theorem exists_tameBranchingStructure_trivial_rn {Θ : (Fin n → ℝ) → ℚ} 
     (B : (trivial (rnPolyfold n)).LocalBranchingStructure Θ x) :
     ∃ T : (trivial (rnPolyfold n)).TameBranchingStructure Θ x, T.U ⊆ B.U ∧
       ∀ i, ∃ i₀, T.M i = B.M i₀ ∩ T.U := by
-  obtain ⟨R, hR⟩ := theorem_7_1 (trivial (rnPolyfold n)) x B.isOpen_U B.mem_U
+  obtain ⟨R, hR⟩ := theorem_7_1_13 (trivial (rnPolyfold n)) x B.isOpen_U B.mem_U
   let B' := B.restrict R.isOpen_U R.mem_U hR
   exact ⟨{ toLocalBranchingStructure := B'
            rep := R

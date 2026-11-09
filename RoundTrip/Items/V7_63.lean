@@ -5,7 +5,7 @@ import RoundTrip.Blind.V7_63
 /-!
 Round trip for V7_63 (Lemma 7.8: morphisms between nearby points lie in the `N_g`).
 
-`A` is the type of `Polyfold.EpGroupoid.lemma_7_8` at universe `0`: for ANY open sets
+`A` is the type of `Polyfold.EpGroupoid.lemma_7_6_2` at universe `0`: for ANY open sets
 `N_g ∋ g` (`g ∈ G_x`) and any neighbourhood `U₀` of `x` there is an open `U₁ ⊆ U₀` of `x` such
 that every morphism with source and target in `U₁` lies in some `N_g`.  `B` states the same
 conclusion only for the choices of the proof of Theorem 7.5: open `U₀ ∋ x₀`, open `N^s_g, N^t_g ∋ g`
@@ -24,9 +24,9 @@ namespace RoundTrip.V7_63
 open Polyfold Set Topology
 
 /-- The project's Lemma 7.8, universes at `0`. -/
-def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_8.{0}
+def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_6_2.{0}
 
-theorem A_holds : A := @Polyfold.EpGroupoid.lemma_7_8.{0}
+theorem A_holds : A := @Polyfold.EpGroupoid.lemma_7_6_2.{0}
 
 theorem A_to_B : A → B := by
   intro hA Obj Mor _ _ _ _ _ _ X x₀ U₀ Ns Nt hC
@@ -80,9 +80,9 @@ theorem B_to_A : B → A := by
   obtain ⟨g, hgs, -⟩ := hU₁ h hs ht
   exact ⟨g, (hAsW g hgs.1).2⟩
 
-#rt_check RoundTrip.V7_63.A_to_B [Polyfold.EpGroupoid.lemma_7_8]
-#rt_check RoundTrip.V7_63.B_to_A [Polyfold.EpGroupoid.lemma_7_8]
-#rt_overlap RoundTrip.V7_63.B_to_A [Polyfold.EpGroupoid.lemma_7_8]
-#rt_overlap RoundTrip.V7_63.A_to_B [Polyfold.EpGroupoid.lemma_7_8]
+#rt_check RoundTrip.V7_63.A_to_B [Polyfold.EpGroupoid.lemma_7_6_2]
+#rt_check RoundTrip.V7_63.B_to_A [Polyfold.EpGroupoid.lemma_7_6_2]
+#rt_overlap RoundTrip.V7_63.B_to_A [Polyfold.EpGroupoid.lemma_7_6_2]
+#rt_overlap RoundTrip.V7_63.A_to_B [Polyfold.EpGroupoid.lemma_7_6_2]
 
 end RoundTrip.V7_63

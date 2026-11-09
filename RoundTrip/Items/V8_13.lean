@@ -4,9 +4,9 @@ import RoundTrip.Blind.V8_13
 
 /-! Round trip for V8_13 (Theorem 8.1.11 (2017: 8.2): the tangent of an sc-smooth functor).
 
-`A` is the type of `EpFunctor.theorem_8_2`, universes instantiated at `0, 0` (`B` lives in
+`A` is the type of `EpFunctor.theorem_8_1_11`, universes instantiated at `0, 0` (`B` lives in
 `Type`); the listed `EpFunctor.tangent` is a definition (vocabulary): the `EpFunctor`
-`(TΦ, T𝚽) : T(X, 𝐗) → T(Y, 𝐘)` with `obj`, `mor` Part I's tangent maps.  `theorem_8_2` says
+`(TΦ, T𝚽) : T(X, 𝐗) → T(Y, 𝐘)` with `obj`, `mor` Part I's tangent maps.  `theorem_8_1_11` says
 `Φ.tangent.obj = TΦ`, `Φ.tangent.mor = T𝚽` (by `rfl`), both sc-smooth, and `T𝚽` compatible with
 `s_T`, `t_T`, the composition (8.5) and the units `u_T = Tu`.
 
@@ -19,9 +19,9 @@ namespace RoundTrip.V8_13
 open Polyfold
 
 /-- The project's statement (universes at `0`). -/
-def A : Prop := type_of% @Polyfold.EpFunctor.theorem_8_2.{0, 0}
+def A : Prop := type_of% @Polyfold.EpFunctor.theorem_8_1_11.{0, 0}
 
-theorem A_holds : A := @Polyfold.EpFunctor.theorem_8_2.{0, 0}
+theorem A_holds : A := @Polyfold.EpFunctor.theorem_8_1_11.{0, 0}
 
 section
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -55,8 +55,8 @@ theorem B_to_A : B → A := by
   exact ⟨rfl, rfl, hso, hsm, hs, ht, hc, fun a =>
     (hu a (X.tUnit a) (isTUnitB_tUnit X a)).2 _ (isTUnitB_tUnit Y _)⟩
 
-#rt_check RoundTrip.V8_13.A_to_B [Polyfold.EpFunctor.theorem_8_2]
-#rt_check RoundTrip.V8_13.B_to_A [Polyfold.EpFunctor.theorem_8_2]
-#rt_overlap RoundTrip.V8_13.B_to_A [Polyfold.EpFunctor.theorem_8_2]
+#rt_check RoundTrip.V8_13.A_to_B [Polyfold.EpFunctor.theorem_8_1_11]
+#rt_check RoundTrip.V8_13.B_to_A [Polyfold.EpFunctor.theorem_8_1_11]
+#rt_overlap RoundTrip.V8_13.B_to_A [Polyfold.EpFunctor.theorem_8_1_11]
 
 end RoundTrip.V8_13

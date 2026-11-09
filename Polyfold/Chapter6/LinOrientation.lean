@@ -3,23 +3,23 @@ import Polyfold.Chapter6.LinSet
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 219:
-the determinant bundle `DET(f, x)` over `Lin(f, x)` and **Definition 6.27** (the set `Or_x^f` of
+the determinant bundle `DET(f, x)` over `Lin(f, x)` and **Definition 6.6.2 (preprint 6.27)** (the set `Or_x^f` of
 its two orientations) *(book 2017: Definition 6.9; see `BookConcordance.md`)*.
 
 # Orientations of the linearizations at a point
 
 ## The text, paraphrased
 
-`Lin(f, x)` is a convex subset of the Fredholm operators, so by Proposition 6.26 the restriction
-`DET(f, x)` of `DET(T_xX, Y_x)` to `Lin(f, x)` has exactly two orientations.  (Definition 6.27)
+`Lin(f, x)` is a convex subset of the Fredholm operators, so by Proposition 6.6.1 (preprint 6.26) the restriction
+`DET(f, x)` of `DET(T_xX, Y_x)` to `Lin(f, x)` has exactly two orientations.  (Definition 6.6.2 (preprint 6.27))
 `Or_x^f` is the two-element set of orientations of `DET(f, x)`, `Or_x^f = {o_x, −o_x}`; the
 category `𝒪_f` has these sets as objects and the bijections as morphisms.
 
 ## What is formalized
 
 * `ChartPoint.isFredholm_of_mem_linSet`; `ChartPoint.detLin p f hf` (`DET(f, x)`, the pull-back of
-  `DET(T_zO, K_z)` to `Lin(f, x)`); `ChartPoint.Or p f hf` (**Definition 6.27**, the orientations).
-* `ChartPoint.exists_two_or`: `Or_x^f` has exactly two elements (Proposition 6.26).
+  `DET(T_zO, K_z)` to `Lin(f, x)`); `ChartPoint.Or p f hf` (**Definition 6.6.2 (preprint 6.27)**, the orientations).
+* `ChartPoint.exists_two_or`: `Or_x^f` has exactly two elements (Proposition 6.6.1 (preprint 6.26)).
 * `ChartPoint.orEquivRay`: for `L ∈ Lin(f, x)`, `o ↦ o(L)` is a bijection of `Or_x^f` with the two
   orientations of the line `det(L)`.
 
@@ -59,15 +59,15 @@ abbrev detLin (hf : B.IsScFredholmSection f) : p.linSet f → Type _ :=
   DetOn (p.linSet f) (p.isFredholm_of_mem_linSet hf)
 
 variable (f) in
-/-- **Definition 6.27**: `Or_x^f`, the orientations of `DET(f, x)`. -/
+/-- **Definition 6.6.2 (preprint 6.27)**: `Or_x^f`, the orientations of `DET(f, x)`. -/
 abbrev Or (hf : B.IsScFredholmSection f) : Type _ := LineOrientation (p.detLin f hf)
 
-/-- **`Or_x^f` has exactly two elements** at a smooth point (Proposition 6.26: `Lin(f, x)` is
+/-- **`Or_x^f` has exactly two elements** at a smooth point (Proposition 6.6.1 (preprint 6.26): `Lin(f, x)` is
 nonempty and convex). -/
 theorem exists_two_or (hf : B.IsScFredholmSection f) (hx : x ∈ PX.smoothSet)
     (hsec : B.HasScPlusSectionsThrough) :
     ∃ o₁ o₂ : p.Or f hf, o₁ ≠ o₂ ∧ ∀ o, o = o₁ ∨ o = o₂ :=
-  (proposition_6_26 (p.convex_linSet hf) (p.linSet_nonempty hf hx hsec)
+  (proposition_6_6_1 (p.convex_linSet hf) (p.linSet_nonempty hf hx hsec)
     (p.isFredholm_of_mem_linSet hf)).2
 
 /-- **An orientation of `DET(f, x)` is its value at one linearization**: for `L ∈ Lin(f, x)`,

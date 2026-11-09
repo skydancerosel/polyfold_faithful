@@ -6,7 +6,7 @@ import RoundTrip.Blind.V7_62
 Round trip for V7_62 (Theorem 7.5, the natural representation, with the form of its proof).
 
 `A` is the conjunction of the types of the three theorems listed for the item, universes at `0`:
-`theorem_7_5` (`∃ R : X.NaturalRep x, R.U ⊆ V`), `NatRepConstruction.exists_sheets` (the choices
+`theorem_7_6_1` (`∃ R : X.NaturalRep x, R.U ⊆ V`), `NatRepConstruction.exists_sheets` (the choices
 of the proof exist) and `NatRepConstruction.exists_naturalRep_sheets` (sheets `D` and a natural
 representation `R` with `R.U ⊆ V`, `R.U ⊆ s(N_g)`, `R.Φ = t_g ∘ s_g⁻¹`, `R.Γ = s_g⁻¹`).  The
 definitions `Sheets`, `Sheets.mkRep`, `restrict` are vocabulary.  `B` asks for an open `U ⊆ V`
@@ -21,7 +21,7 @@ with the natural action (`U` not required connected) and pairwise disjoint sheet
   `Φ := t_g ∘ s_g⁻¹`, `Γ := s_g⁻¹` is built field by field from `B`'s clauses (homomorphism,
   `Φ(1) = id` from injectivity, smoothness of `Φ(g)`, `Γ(g, ·)` by `congr`), without the
   project's `Sheets.mkRep` (which re-derives the homomorphism property from connectedness).
-  `exists_sheets` is the case `V = univ`, `theorem_7_5` forgets the sheets.
+  `exists_sheets` is the case `V = univ`, `theorem_7_6_1` forgets the sheets.
 -/
 
 namespace RoundTrip.V7_62
@@ -29,12 +29,12 @@ open Polyfold Set
 
 /-- The project's Theorem 7.5 and the form of its proof, universes at `0`. -/
 def A : Prop :=
-  (type_of% @Polyfold.EpGroupoid.theorem_7_5.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.theorem_7_6_1.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NatRepConstruction.exists_sheets.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.theorem_7_5.{0},
+  ⟨@Polyfold.EpGroupoid.theorem_7_6_1.{0},
    @Polyfold.EpGroupoid.NatRepConstruction.exists_sheets.{0},
    @Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets.{0}⟩
 
@@ -148,16 +148,16 @@ theorem B_to_A : B → A := by
   · intro Obj Mor _ _ _ _ _ _ X x V hV hx
     exact exists_naturalRep_sheets_of_B hB X x hV hx
 
-#rt_check RoundTrip.V7_62.A_to_B [Polyfold.EpGroupoid.theorem_7_5,
+#rt_check RoundTrip.V7_62.A_to_B [Polyfold.EpGroupoid.theorem_7_6_1,
   Polyfold.EpGroupoid.NatRepConstruction.exists_sheets,
   Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets]
-#rt_check RoundTrip.V7_62.B_to_A [Polyfold.EpGroupoid.theorem_7_5,
+#rt_check RoundTrip.V7_62.B_to_A [Polyfold.EpGroupoid.theorem_7_6_1,
   Polyfold.EpGroupoid.NatRepConstruction.exists_sheets,
   Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets]
-#rt_overlap RoundTrip.V7_62.B_to_A [Polyfold.EpGroupoid.theorem_7_5,
+#rt_overlap RoundTrip.V7_62.B_to_A [Polyfold.EpGroupoid.theorem_7_6_1,
   Polyfold.EpGroupoid.NatRepConstruction.exists_sheets,
   Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets]
-#rt_overlap RoundTrip.V7_62.A_to_B [Polyfold.EpGroupoid.theorem_7_5,
+#rt_overlap RoundTrip.V7_62.A_to_B [Polyfold.EpGroupoid.theorem_7_6_1,
   Polyfold.EpGroupoid.NatRepConstruction.exists_sheets,
   Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets]
 

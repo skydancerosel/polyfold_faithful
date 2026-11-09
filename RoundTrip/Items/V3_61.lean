@@ -4,13 +4,13 @@ import RoundTrip.Blind.V3_61
 
 /-! Round trip for V3_61 (Corollary 3.75: `f : U → V` is a homeomorphism).
 
-`A` is the type of `Polyfold.corollary_3_75` (no universe parameters: `V : Type`).
+`A` is the type of `Polyfold.corollary_3_8_19` (no universe parameters: `V : Type`).
 
 `A → B`: `B`'s hypotheses (`Hyp373`) give the project's `InvData C U f 1` (C^∞ ⇒ C¹; the
 `d_C`-equality is used only through `d_C = 0 ⟺ interior`, `degIndex_eq_zero_iff`).  `A` gives
 continuity of `f` and of `g = invFunOn f U` and the two inverse identities, from which the
 homeomorphism `U ≃ₜ f(U)` is assembled.  `A` does **not** contain the relative openness of
-`f(U)` (it is in `proposition_3_73` / `InvData.image_relOpen`, Lemma 3.74); that clause of `B` is
+`f(U)` (it is in `proposition_3_8_17` / `InvData.image_relOpen`, Lemma 3.74); that clause of `B` is
 supplied by the separate project theorem `InvData.image_relOpen`.
 
 `B → A` is not proved: `A` holds for `C^j` maps (`j ≥ 1`) preserving only interior points, without
@@ -27,9 +27,9 @@ namespace RoundTrip.V3_61
 open Polyfold
 
 /-- The project's statement (no universe parameters; `V : Type`). -/
-def A : Prop := type_of% @Polyfold.corollary_3_75
+def A : Prop := type_of% @Polyfold.corollary_3_8_19
 
-theorem A_holds : A := @Polyfold.corollary_3_75
+theorem A_holds : A := @Polyfold.corollary_3_8_19
 
 /-- `B`'s hypotheses give the project's `InvData` with `j = 1`. -/
 lemma invData_of_hyp {Rn : Type} [NormedAddCommGroup Rn] [NormedSpace ℝ Rn]
@@ -59,8 +59,8 @@ theorem A_to_B : A → B := by
   refine ⟨h.image_relOpen, homeoOf hfc hgc (fun y hy => Function.invFunOn_mem hy) hgf hfg,
     fun x => rfl⟩
 
-#rt_check RoundTrip.V3_61.A_to_B [Polyfold.corollary_3_75]
-#rt_overlap RoundTrip.V3_61.A_to_B [Polyfold.corollary_3_75]
+#rt_check RoundTrip.V3_61.A_to_B [Polyfold.corollary_3_8_19]
+#rt_overlap RoundTrip.V3_61.A_to_B [Polyfold.corollary_3_8_19]
 
 /-! ### `B → A` on `B`'s hypothesis set (diagnostic)
 
@@ -96,7 +96,7 @@ theorem B_to_A_smooth : B → ARestricted := by
   rw [this]
   exact continuous_subtype_val.comp e.symm.continuous
 
-#rt_check RoundTrip.V3_61.B_to_A_smooth [Polyfold.corollary_3_75]
+#rt_check RoundTrip.V3_61.B_to_A_smooth [Polyfold.corollary_3_8_19]
 
 end RoundTrip.V3_61
 

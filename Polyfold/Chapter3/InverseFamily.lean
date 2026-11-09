@@ -1,9 +1,9 @@
 import Polyfold.Chapter3.LocalSolvability
 
 /-!
-# The inverse of a family of sc-isomorphisms (Lemma 3.61)
+# The inverse of a family of sc-isomorphisms (Lemma 3.7.4 (preprint 3.61))
 
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7, **Lemma 3.61** (quoted from
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7, **Lemma 3.7.4 (preprint 3.61)** (quoted from
 [25, Proposition 4.8] without proof): let `V` be a relatively open subset of a partial quadrant in
 a finite-dimensional space `G`, `E`, `F` sc-Banach spaces and `v ↦ L(v)` a family of linear
 operators such that (i) every `L(v) : E → F` is an sc-isomorphism, (ii) `(v, h) ↦ L(v)h` is
@@ -21,7 +21,7 @@ in the partial quadrant `C̃ ⊆ G`, and `V ⊕ E` is the product germ `Gv.prodF
 * `Polyfold.famInv_isSc0Germ`: `Λ(v, k) = L(v)⁻¹k` is an sc⁰-germ.
 * `Polyfold.famInv_isSc1GermWith`: `Λ` is an sc¹-germ with derivative
   `DΛ(v, k)(δv, δk) = L(v)⁻¹(δk − D₁Φ(v, L(v)⁻¹k)δv)`, `Φ(v, h) = L(v)h`.
-* `Polyfold.lemma_3_61`: `Λ` is sc-smooth.
+* `Polyfold.lemma_3_7_4`: `Λ` is sc-smooth.
 -/
 
 open Set Filter Topology Function Asymptotics Metric
@@ -94,7 +94,7 @@ lemma levelMap_famInv (m : ℕ) (p : (ScBanach.paramProd G₀ F) m) :
 
 variable {L}
 
-/-- **Lemma 3.61, the sc⁰ part**: `Λ(v, k) = L(v)⁻¹k` is an sc⁰-germ on `V ⊕ F`.  Proof: on level
+/-- **Lemma 3.7.4 (preprint 3.61), the sc⁰ part**: `Λ(v, k) = L(v)⁻¹k` is an sc⁰-germ on `V ⊕ F`.  Proof: on level
 `m`, `|L(v)⁻¹k − L(v₀)⁻¹k₀|_m ≤ c_m⁻¹(|k − k₀|_m + |L(v₀)h₀ − L(v)h₀|_m)` with
 `h₀ = L(v₀)⁻¹k₀`, and `v ↦ L(v)h₀` is continuous by (ii). -/
 theorem famInv_isSc0Germ {Gv : ScNbhdGerm (ScBanach.const G₀) Cg}
@@ -208,7 +208,7 @@ lemma famInvDeriv_apply (DΦ : (ScBanach.paramProd G₀ E) 1 → (ScBanach.param
     ContinuousLinearMap.coe_snd', ContinuousLinearMap.coe_fst', ContinuousLinearMap.inl_apply,
     ContinuousLinearEquiv.coe_coe]
 
-/-- **Lemma 3.61, differentiability of `Λ`**: at a point `p = (v, k)` of level `1`, `Λ` (as a map
+/-- **Lemma 3.7.4 (preprint 3.61), differentiability of `Λ`**: at a point `p = (v, k)` of level `1`, `Λ` (as a map
 `(V ⊕ F)₁ → E₀`) is differentiable within `(V ⊕ F)₁` with derivative `DΛ(p)`.  Proof: with
 `h = L(v)⁻¹k`, `w = DΛ(p)(δv, δk)` and the remainder `r = Φ(v', h) − Φ(v, h) − D₁Φ(v, h)δv` of
 `Φ` along `(δv, 0)`,
@@ -459,7 +459,7 @@ theorem famInv_tangent_isSc0 (hc : ∀ m, ∃ c > 0, ∀ v ∈ Gv.U 0, ∀ h : E
 
 end Tangent
 
-/-- **Lemma 3.61, the sc¹ part**: `Λ(v, k) = L(v)⁻¹k` is an sc¹-germ on `V ⊕ F` with the
+/-- **Lemma 3.7.4 (preprint 3.61), the sc¹ part**: `Λ(v, k) = L(v)⁻¹k` is an sc¹-germ on `V ⊕ F` with the
 derivative family `DΛ(v, k)(δv, δk) = L(v)⁻¹(δk − D₁Φ(v, L(v)⁻¹k)δv)`. -/
 theorem famInv_isSc1GermWith {Gv : ScNbhdGerm (ScBanach.const G₀) Cg}
     {DΦ : (ScBanach.paramProd G₀ E) 1 → (ScBanach.paramProd G₀ E) 0 →L[ℝ] F 0}
@@ -471,7 +471,7 @@ theorem famInv_isSc1GermWith {Gv : ScNbhdGerm (ScBanach.const G₀) Cg}
   hasFDerivWithinAt _ hp := famInv_hasFDerivWithinAt hΦ1 hc hp
   tangent_isSc0 := famInv_tangent_isSc0 hΦ1 hc
 
-/-! ### Lemma 3.61: `Λ` is sc-smooth -/
+/-! ### Lemma 3.7.4 (preprint 3.61): `Λ` is sc-smooth -/
 
 section Induction
 
@@ -510,7 +510,7 @@ def ScBanach.subOp (Y : ScBanach) : ScOperator (Y.prod Y) Y where
 variable (hC : IsPartialQuadrant (ScBanach.const G₀) Cg)
 include hC
 
-/-- **Lemma 3.61 by induction on `k`**: if `Φ(v, h) = L(v)h` is an sc^k-germ on `V ⊕ E`, then
+/-- **Lemma 3.7.4 (preprint 3.61) by induction on `k`**: if `Φ(v, h) = L(v)h` is an sc^k-germ on `V ⊕ E`, then
 `Λ(v, k) = L(v)⁻¹k` is an sc^k-germ on `V ⊕ F`.  The induction step: `Λ` is sc¹ with derivative
 `DΛ`, and its tangent map `TΛ((v, k), (δv, δk)) = (Λ(v, k), L(v)⁻¹(δk − D₁Φ(v, Λ(v, k))δv))` is
 the pair of `Λ¹ ∘ pr₁` and `Λ ∘ Θ`, `Θ((v, k), (δv, δk)) = (v, δk − (TΦ((v, Λ(v, k)), (δv, 0)))₂)`,
@@ -635,13 +635,13 @@ theorem famInv_isSckGerm {Gv : ScNbhdGerm (ScBanach.const G₀) Cg}
         pq.1) (pq.2.1, 0)) = _
     rw [hξ₁val pq hpq, levelMap_famInv]
 
-/-- **Lemma 3.61** ([25, Proposition 4.8]): let `V` be a germ of relatively open neighbourhoods of
+/-- **Lemma 3.7.4 (preprint 3.61)** ([25, Proposition 4.8]): let `V` be a germ of relatively open neighbourhoods of
 `0` in a partial quadrant `C̃` of the finite-dimensional space `G`, and `v ↦ L(v)` a family of
 sc-isomorphisms `E → F` such that (ii) `(v, h) ↦ L(v)h` is sc-smooth on `V ⊕ E` and (iii) for
 every `m` there is `c_m > 0` with `|L(v)h|_m ≥ c_m |h|_m` for `v ∈ V`, `h ∈ E_m`.  Then
 `(v, k) ↦ L(v)⁻¹k` is sc-smooth on `V ⊕ F`.  (The operators `v ↦ L(v)` need not depend
 continuously on `v` in the operator norm.) -/
-theorem lemma_3_61 {Gv : ScNbhdGerm (ScBanach.const G₀) Cg}
+theorem lemma_3_7_4 {Gv : ScNbhdGerm (ScBanach.const G₀) Cg}
     (hΦ : IsScSmoothGerm (E := ScBanach.paramProd G₀ E) (F := F) (Gv.prodFull E) (famMap L))
     (hc : ∀ m, ∃ c > 0, ∀ v ∈ Gv.U 0, ∀ h : E m, c * ‖h‖ ≤ ‖L v m h‖) :
     IsScSmoothGerm (E := ScBanach.paramProd G₀ F) (F := E) (Gv.prodFull F) (famInv L) :=

@@ -6,29 +6,29 @@ import Polyfold.Chapter7.LocalDiffeo
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 7: **Theorem 7.1** (the natural representation of `G_x`, p. 231) and its restatement
-**Theorem 7.5** with its proof in Appendix 7.5.1 (pp. 253–254), including **Lemma 7.8**
-(pp. 253–254) and **Lemma 7.9** (p. 254).  There is no 2014 preprint of Part II; numbers and pages
+Chapter 7: **Theorem 7.1.13 (2017: 7.1)** (the natural representation of `G_x`, p. 231) and its restatement
+**Theorem 7.6.1 (2017: 7.5)** with its proof in Appendix 7.5.1 (pp. 253–254), including **Lemma 7.6.2 (2017: 7.8)**
+(pp. 253–254) and **Lemma 7.6.3 (2017: 7.9)** (p. 345 (2017 p. 254)).  There is no 2014 preprint of Part II; numbers and pages
 are the 2017 text's.
 
 # The natural representation of the isotropy group
 
 ## The text, paraphrased
 
-(Theorem 7.1 = Theorem 7.5) Let `x₀` be an object and `V ∋ x₀` open.  There are an open
+(Theorem 7.1.13 (2017: 7.1) = Theorem 7.6.1 (2017: 7.5)) Let `x₀` be an object and `V ∋ x₀` open.  There are an open
 `U ⊆ V` of `x₀`, a group homomorphism `Φ : G_{x₀} → Diff_sc(U)`, `Φ(g) = t_g ∘ s_g⁻¹`, and an
 sc-smooth `Γ : G_{x₀} × U → 𝐗` with `Γ(g, x₀) = g`, `s Γ(g, y) = y`, `t Γ(g, y) = Φ(g)(y)`, and
 every `h : y → z` between points of `U` is `Γ(g, y)` for a unique `g`.  (Proof, p. 253) For
 every `g ∈ G_{x₀}` choose contractible open `N^t_g`, `N^s_g` on which `t` and `s` are
 sc-diffeomorphisms onto some open `U₀ ∋ x₀`; since `G_{x₀}` is finite, `N^t_g ∪ N^s_g` may be
-taken disjoint; `N_g := N^t_g ∩ N^s_g`, `s_g := s|N_g`, `t_g := t|N_g`.  (Lemma 7.8) There is an
+taken disjoint; `N_g := N^t_g ∩ N^s_g`, `s_g := s|N_g`, `t_g := t|N_g`.  (Lemma 7.6.2 (2017: 7.8)) There is an
 open `U₁ ⊆ U₀` of `x₀` such that every morphism `h` with `s(h), t(h) ∈ U₁` belongs to some
 `N_g`: otherwise there are `h_k ∉ ⋃ N_g` with `s(h_k), t(h_k) → x₀`; by properness
 `h_{k_l} → h`, necessarily `h ∈ G_{x₀}`, so `h ∈ N_g` for some `g`, a contradiction.
-(Lemma 7.9) There is an open `U₂ ⊆ U₁` of `x₀` such that `U := ⋃_g t_g s_g⁻¹(U₂)` is contained
+(Lemma 7.6.3 (2017: 7.9)) There is an open `U₂ ⊆ U₁` of `x₀` such that `U := ⋃_g t_g s_g⁻¹(U₂)` is contained
 in `U₁` and invariant under all `t_g s_g⁻¹`: choose `U₂` so small that `U` and `t_g s_g⁻¹(U)`
 lie in `U₁`; for `x = t_h s_h⁻¹(u) ∈ U`, `u ∈ U₂`, the point `v := t_g s_g⁻¹ t_h s_h⁻¹(u) ∈ U₁`
-is the target of a morphism `u → v`, which by Lemma 7.8 is `s_{g'}⁻¹(u)` for some `g'`, so
+is the target of a morphism `u → v`, which by Lemma 7.6.2 (2017: 7.8) is `s_{g'}⁻¹(u)` for some `g'`, so
 `v = t_{g'} s_{g'}⁻¹(u) ∈ U`.  Then `Φ(g) := t_g ∘ s_g⁻¹ : U → U`; "since the neighborhoods
 `N_g` … are disjoint and since the structure maps are continuous" `Φ` is a homomorphism;
 `Γ(g, y) := s_g⁻¹(y)`.
@@ -38,18 +38,18 @@ is the target of a morphism `u → v`, which by Lemma 7.8 is `s_{g'}⁻¹(u)` fo
 * **The choices of the proof**: `NatRepConstruction.Sheets X x` (open `N_g ∋ g`, pairwise
   disjoint, `s : N_g → s(N_g)` an sc-diffeomorphism with inverse `s_g⁻¹ = σ g`, `t` an
   sc-diffeomorphism on `N_g`), `NatRepConstruction.exists_sheets`; `G_x` is finite
-  (`NatRepConstruction.finite_isotropy`, from Definition 7.3 (1), (3)); `Sheets.hat`
+  (`NatRepConstruction.finite_isotropy`, from Definition 7.1.3 (2017: 7.3) (1), (3)); `Sheets.hat`
   (`t_g ∘ s_g⁻¹`) and `Sheets.unionHat` (`⋃_g t_g s_g⁻¹(U₂)`).
-* **Lemma 7.8**: `lemma_7_8`, for any open neighbourhoods `N_g ∋ g` and any neighbourhood `U₀`.
-* **Lemma 7.9**: `lemma_7_9` (with `U₂` connected), and `Sheets.isOpen_unionHat`,
+* **Lemma 7.6.2 (2017: 7.8)**: `lemma_7_6_2`, for any open neighbourhoods `N_g ∋ g` and any neighbourhood `U₀`.
+* **Lemma 7.6.3 (2017: 7.9)**: `lemma_7_6_3` (with `U₂` connected), and `Sheets.isOpen_unionHat`,
   `Sheets.isConnected_unionHat`, `Sheets.mem_unionHat`: `U` is an open connected neighbourhood.
 * The homomorphism: `Sheets.eqOn_σ_one` (`s_1⁻¹ = u` on a connected `U`), `Sheets.hat_one`,
   `Sheets.eqOn_σ_mul` (`s_{gh}⁻¹(y) = s_g⁻¹(Φ(h) y) ∘ s_h⁻¹(y)`), `Sheets.hat_mul`,
   `Sheets.isScDiffeoOn_hat`; the natural representation `Sheets.mkRep` on every open connected
-  invariant `U ⊆ ⋂_g s(N_g)` satisfying the conclusion of Lemma 7.8.
-* **Theorem 7.5**, in the form of its proof: `NatRepConstruction.exists_naturalRep_sheets`
-  (`Φ(g) = t_g ∘ s_g⁻¹`, `Γ(g, ·) = s_g⁻¹`).  **Theorem 7.1**: `theorem_7_1`; **Theorem 7.5**:
-  `theorem_7_5` (a restatement).
+  invariant `U ⊆ ⋂_g s(N_g)` satisfying the conclusion of Lemma 7.6.2 (2017: 7.8).
+* **Theorem 7.6.1 (2017: 7.5)**, in the form of its proof: `NatRepConstruction.exists_naturalRep_sheets`
+  (`Φ(g) = t_g ∘ s_g⁻¹`, `Γ(g, ·) = s_g⁻¹`).  **Theorem 7.1.13 (2017: 7.1)**: `theorem_7_1_13`; **Theorem 7.6.1 (2017: 7.5)**:
+  `theorem_7_6_1` (a restatement).
 * Smaller neighbourhoods: `NatRepConstruction.restrict` and `exists_naturalRep_restrict` (a
   natural representation restricts, with the same `Φ`, `Γ`, to every smaller open connected
   invariant neighbourhood of `x`), and `exists_naturalRep_shrink` (into every open `V ∋ x`).
@@ -68,7 +68,7 @@ is the target of a morphism `u → v`, which by Lemma 7.8 is `s_{g'}⁻¹(u)` fo
   connected component is needed.  The comparison uses `eqOn_sections_of_isPreconnected`.  The
   "contractible" `N^t_g`, `N^s_g` are not needed (as in `LocConnected.lean`).
 * **The structure maps are continuous**: the continuity of `m` used here comes from
-  Definition 7.3 (4), in its sheet form `isScSmoothCompSheet`; that of `u` from (2).
+  Definition 7.1.3 (2017: 7.3) (4), in its sheet form `isScSmoothCompSheet`; that of `u` from (2).
 * **The disjointness of the `N_g`** (by Hausdorff separation of the finite set `G_{x₀} ⊆ 𝐗`) is
   used only for the uniqueness in (3): `Γ(g', y) = h` puts `h` into `N_{g'}`.
 * **`U ⊆ V`**: the proof does not mention `V`; we take `U₀ := V ∩ ⋂_g s(N_g)`.  The text has
@@ -76,16 +76,16 @@ is the target of a morphism `u → v`, which by Lemma 7.8 is `s_{g'}⁻¹(u)` fo
   its (open) image.  That `t_g` is one too (`Sheets.isScDiffeoOn_tgt`, the text's `N^t_g`) is
   recorded but not used: `t_g s_g⁻¹(U₂)` is open because `t` is an open map and
   `s_g⁻¹(U₂) = N_g ∩ s⁻¹(U₂)`.  The text calls `U` an open neighbourhood without comment.
-* **Finiteness of `G_{x₀}`** (Proposition 7.4) is taken from `Discrete.lean`
+* **Finiteness of `G_{x₀}`** (Proposition 7.1.12 (2017: 7.4)) is taken from `Discrete.lean`
   (`MPolyfold.finite_isotropy_of_isLocalScDiffeo`).
-* **Lemma 7.8.**  The sequence `h_k` is chosen along a countable neighbourhood basis of `x₀`
-  (`X` is metrizable, Theorem 2.2 [2.16]).  "By the properness assumption" is Definition 7.3 (3)
+* **Lemma 7.6.2 (2017: 7.8).**  The sequence `h_k` is chosen along a countable neighbourhood basis of `x₀`
+  (`X` is metrizable, Theorem 2.3.10 (2017: 2.2) [2.16]).  "By the properness assumption" is Definition 7.1.3 (2017: 7.3) (3)
   at `x₀`: it applies to the `h_k` with `s(h_k) ∈ cl V(x₀)`, i.e. to all large `k`.  "Necessarily
   `h ∈ G_{x₀}`": `t(h) = x₀` comes with properness, `s(h) = x₀` from the continuity of `s` and
   the uniqueness of limits.  The lemma holds for any open `N_g ∋ g`; the sheet property is not
   used.  The text's "the properness assumption of ep-polyfolds" is read as that of ep-groupoids
   (possible misprint).
-* **Lemma 7.9.**  "`U₂` so small that `U` and `t_g s_g⁻¹(U)` are contained in `U₁`" is possible
+* **Lemma 7.6.3 (2017: 7.9).**  "`U₂` so small that `U` and `t_g s_g⁻¹(U)` are contained in `U₁`" is possible
   because each `t_g s_g⁻¹` is continuous at its fixed point `x₀` and `G_{x₀}` is finite; we ask
   `t_h s_h⁻¹(U₂) ⊆ U₁` and `t_g s_g⁻¹ t_h s_h⁻¹(U₂) ⊆ U₁`.  The morphism `u → v` is
   `s_g⁻¹(x) ∘ s_h⁻¹(u)`, composable because `x ∈ U₁ ⊆ s(N_g)`; "it has necessarily the form
@@ -111,12 +111,12 @@ universe u
 variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] (X : EpGroupoid Obj Mor)
 
-/-! ### Lemma 7.8 -/
+/-! ### Lemma 7.6.2 (2017: 7.8) -/
 
-/-- **Lemma 7.8**: for open neighbourhoods `N_g ∋ g` (`g ∈ G_x`; the sheets of the proof of
-Theorem 7.5) and a neighbourhood `U₀` of `x`, there is an open `U₁ ⊆ U₀` of `x` such that every
+/-- **Lemma 7.6.2 (2017: 7.8)**: for open neighbourhoods `N_g ∋ g` (`g ∈ G_x`; the sheets of the proof of
+Theorem 7.6.1 (2017: 7.5)) and a neighbourhood `U₀` of `x`, there is an open `U₁ ⊆ U₀` of `x` such that every
 morphism `h` with `s(h), t(h) ∈ U₁` belongs to `N_g` for some `g ∈ G_x`. -/
-theorem lemma_7_8 {x : Obj} {N : X.Isotropy x → Set Mor} (hN : ∀ g, IsOpen (N g))
+theorem lemma_7_6_2 {x : Obj} {N : X.Isotropy x → Set Mor} (hN : ∀ g, IsOpen (N g))
     (hgN : ∀ g, g.val ∈ N g) {U₀ : Set Obj} (hU₀ : U₀ ∈ 𝓝 x) :
     ∃ U₁, IsOpen U₁ ∧ x ∈ U₁ ∧ U₁ ⊆ U₀ ∧
       ∀ h : Mor, X.src h ∈ U₁ → X.tgt h ∈ U₁ → ∃ g, h ∈ N g := by
@@ -134,7 +134,7 @@ theorem lemma_7_8 {x : Obj} {N : X.Isotropy x → Set Mor} (hN : ∀ g, IsOpen (
   choose h hs ht hN' using fun n => H (u n) (hu.mem n)
   have hs' : Tendsto (X.src ∘ h) atTop (𝓝 x) := hu.tendsto hs
   have ht' : Tendsto (X.tgt ∘ h) atTop (𝓝 x) := hu.tendsto ht
-  -- the properness of Definition 7.3 (3) at `x` gives `h_{k_l} → φ₀`
+  -- the properness of Definition 7.1.3 (2017: 7.3) (3) at `x` gives `h_{k_l} → φ₀`
   obtain ⟨V, hVo, hxV, hV⟩ := X.exists_isProperMap x
   have hev : ∀ᶠ n in atTop, X.src (h n) ∈ closure V :=
     (hs'.eventually (hVo.mem_nhds hxV)).mono fun n hn => subset_closure hn
@@ -149,9 +149,9 @@ theorem lemma_7_8 {x : Obj} {N : X.Isotropy x → Set Mor} (hN : ∀ g, IsOpen (
 
 namespace NatRepConstruction
 
-/-! ### The choices of the proof of Theorem 7.5 -/
+/-! ### The choices of the proof of Theorem 7.6.1 (2017: 7.5) -/
 
-/-- `G_x` is finite (Proposition 7.4, from Definition 7.3 (1) and (3)). -/
+/-- `G_x` is finite (Proposition 7.1.12 (2017: 7.4), from Definition 7.1.3 (2017: 7.3) (1) and (3)). -/
 theorem finite_isotropy (x : Obj) : Finite (X.Isotropy x) := by
   have hfin := MPolyfold.finite_isotropy_of_isLocalScDiffeo X.isLocalScDiffeo_tgt
     (X.exists_isProperMap x)
@@ -160,7 +160,7 @@ theorem finite_isotropy (x : Obj) : Finite (X.Isotropy x) := by
     (⟨g.val, g.src_val, g.tgt_val⟩ : {φ | X.src φ = x ∧ X.tgt φ = x}))
     fun g h hgh => GroupoidStr.Isotropy.ext (congrArg Subtype.val hgh)
 
-/-- **The choices of the proof of Theorem 7.5** (p. 253): for every `g ∈ G_x` an open
+/-- **The choices of the proof of Theorem 7.6.1 (2017: 7.5)** (p. 344 (2017 p. 253)): for every `g ∈ G_x` an open
 neighbourhood `N_g` of `g`, pairwise disjoint, on which `s` is an sc-diffeomorphism onto the open
 set `S g = s(N_g)`, with inverse `σ g = s_g⁻¹`, and on which `t` is an sc-diffeomorphism as
 well (`N_g = N^t_g ∩ N^s_g`). -/
@@ -177,7 +177,7 @@ structure Sheets (x : Obj) where
   isScDiffeoOn_tgt : ∀ g, ∃ (τ : Obj → Mor) (T : Set Obj),
     X.PMor.IsScDiffeoOn X.PObj X.tgt τ (N g) T
 
-/-- The choices of the proof of Theorem 7.5 can be made: disjoint open neighbourhoods of the
+/-- The choices of the proof of Theorem 7.6.1 (2017: 7.5) can be made: disjoint open neighbourhoods of the
 finitely many `g ∈ G_x` (Hausdorff), shrunk to sheets of `t` and of `s`. -/
 theorem exists_sheets (x : Obj) : Nonempty (Sheets X x) := by
   have := finite_isotropy X x
@@ -200,10 +200,10 @@ namespace Sheets
 
 variable {X} {x : Obj} (D : Sheets X x)
 
-/-- `t_g ∘ s_g⁻¹`, the map `Φ(g)` of Theorem 7.5. -/
+/-- `t_g ∘ s_g⁻¹`, the map `Φ(g)` of Theorem 7.6.1 (2017: 7.5). -/
 def hat (g : X.Isotropy x) : Obj → Obj := fun y => X.tgt (D.σ g y)
 
-/-- `U = ⋃_g t_g s_g⁻¹(U₂)` (Lemma 7.9). -/
+/-- `U = ⋃_g t_g s_g⁻¹(U₂)` (Lemma 7.6.3 (2017: 7.9)). -/
 def unionHat (U₂ : Set Obj) : Set Obj := ⋃ g, D.hat g '' U₂
 
 theorem hat_apply (g : X.Isotropy x) (y : Obj) : D.hat g y = X.tgt (D.σ g y) := rfl
@@ -313,7 +313,7 @@ variable (hinv : ∀ g, MapsTo (D.hat g) U U)
 include hinv
 
 /-- `s_{gh}⁻¹(y) = s_g⁻¹(Φ(h) y) ∘ s_h⁻¹(y)` on a connected invariant `U`: both sides are
-continuous sections of `s` (the continuity of `m`, Definition 7.3 (4)) through `g ∘ h`. -/
+continuous sections of `s` (the continuity of `m`, Definition 7.1.3 (2017: 7.3) (4)) through `g ∘ h`. -/
 theorem eqOn_σ_mul (g h : X.Isotropy x) :
     EqOn (D.σ (g * h)) (fun y => X.comp (D.σ g (D.hat h y)) (D.σ h y)) U := by
   have hF :=
@@ -350,7 +350,7 @@ theorem isScDiffeoOn_hat (hUo : IsOpen U) (g : X.Isotropy x) :
 end Connected
 
 /-- **The natural representation built from the sheets** on an open connected `U ∋ x` inside
-every `s(N_g)`, invariant under every `t_g s_g⁻¹` and with the property of Lemma 7.8:
+every `s(N_g)`, invariant under every `t_g s_g⁻¹` and with the property of Lemma 7.6.2 (2017: 7.8):
 `Φ(g) = t_g ∘ s_g⁻¹`, `Γ(g, y) = s_g⁻¹(y)`. -/
 def mkRep (U : Set Obj) (hUo : IsOpen U) (hUc : IsConnected U) (hxU : x ∈ U)
     (hUS : ∀ g, U ⊆ D.S g) (hinv : ∀ g, MapsTo (D.hat g) U U)
@@ -377,12 +377,12 @@ end Sheets
 
 end NatRepConstruction
 
-/-! ### Lemma 7.9 -/
+/-! ### Lemma 7.6.3 (2017: 7.9) -/
 
-/-- **Lemma 7.9**: if `U₁ ⊆ ⋂_g s(N_g)` is an open neighbourhood of `x` as in Lemma 7.8, there is
+/-- **Lemma 7.6.3 (2017: 7.9)**: if `U₁ ⊆ ⋂_g s(N_g)` is an open neighbourhood of `x` as in Lemma 7.6.2 (2017: 7.8), there is
 an open neighbourhood `U₂ ⊆ U₁` of `x`, which may be taken connected, such that
 `U = ⋃_g t_g s_g⁻¹(U₂)` is contained in `U₁` and invariant under all the maps `t_g ∘ s_g⁻¹`. -/
-theorem lemma_7_9 {x : Obj} (D : NatRepConstruction.Sheets X x) {U₁ : Set Obj}
+theorem lemma_7_6_3 {x : Obj} (D : NatRepConstruction.Sheets X x) {U₁ : Set Obj}
     (hU₁ : IsOpen U₁) (hxU₁ : x ∈ U₁) (hU₁S : ∀ g, U₁ ⊆ D.S g)
     (h78 : ∀ h : Mor, X.src h ∈ U₁ → X.tgt h ∈ U₁ → ∃ g, h ∈ D.N g) :
     ∃ U₂, IsOpen U₂ ∧ IsConnected U₂ ∧ x ∈ U₂ ∧ U₂ ⊆ U₁ ∧ D.unionHat U₂ ⊆ U₁ ∧
@@ -415,18 +415,18 @@ theorem lemma_7_9 {x : Obj} (D : NatRepConstruction.Sheets X x) {U₁ : Set Obj}
       rw [X.src_comp _ _ hc, D.src_σ h huS]
     have htk : X.tgt (X.comp (D.σ g (D.hat h u)) (D.σ h u)) = D.hat g (D.hat h u) :=
       X.tgt_comp _ _ hc
-    -- by Lemma 7.8 the morphism lies in some `N_{g'}`, so it is `s_{g'}⁻¹(u)`
+    -- by Lemma 7.6.2 (2017: 7.8) the morphism lies in some `N_{g'}`, so it is `s_{g'}⁻¹(u)`
     obtain ⟨g', hg'⟩ := h78 _ (by rw [hsk]; exact hU₂U₁ hu) (by rw [htk]; exact hvU₁)
     have hσ := D.σ_src g' hg'
     rw [hsk] at hσ
     refine D.mem_unionHat_iff.2 ⟨g', u, hu, ?_⟩
     rw [D.hat_apply, hσ, htk]
 
-/-! ### Theorems 7.1 and 7.5 -/
+/-! ### Theorems 7.1.13 and 7.6.1 (2017: 7.1 and 7.5) -/
 
 namespace NatRepConstruction
 
-/-- **Theorem 7.5, in the form of its proof** (pp. 253–254): for an open `V ∋ x` there are
+/-- **Theorem 7.6.1 (2017: 7.5), in the form of its proof** (pp. 253–254): for an open `V ∋ x` there are
 sheets `N_g` and a natural representation on `U ⊆ V ∩ ⋂_g s(N_g)` with `Φ(g) = t_g ∘ s_g⁻¹`
 and `Γ(g, ·) = s_g⁻¹`. -/
 theorem exists_naturalRep_sheets (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) :
@@ -434,12 +434,12 @@ theorem exists_naturalRep_sheets (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x
       R.Φ = D.hat ∧ R.Γ = D.σ := by
   have := finite_isotropy X x
   obtain ⟨D⟩ := exists_sheets X x
-  -- `U₀ = V ∩ ⋂_g s(N_g)`, `U₁` by Lemma 7.8, `U₂` by Lemma 7.9
+  -- `U₀ = V ∩ ⋂_g s(N_g)`, `U₁` by Lemma 7.6.2 (2017: 7.8), `U₂` by Lemma 7.6.3 (2017: 7.9)
   have hU₀ : V ∩ ⋂ g, D.S g ∈ 𝓝 x :=
     inter_mem (hV.mem_nhds hx) (iInter_mem.2 fun g => (D.isOpen_S g).mem_nhds (D.mem_S g))
-  obtain ⟨U₁, hU₁o, hxU₁, hU₁U₀, h78⟩ := X.lemma_7_8 D.isOpen_N D.mem_N hU₀
+  obtain ⟨U₁, hU₁o, hxU₁, hU₁U₀, h78⟩ := X.lemma_7_6_2 D.isOpen_N D.mem_N hU₀
   have hU₁S : ∀ g, U₁ ⊆ D.S g := fun g y hy => mem_iInter.1 (hU₁U₀ hy).2 g
-  obtain ⟨U₂, hU₂o, hU₂c, hxU₂, hU₂U₁, hUU₁, hinv⟩ := X.lemma_7_9 D hU₁o hxU₁ hU₁S h78
+  obtain ⟨U₂, hU₂o, hU₂c, hxU₂, hU₂U₁, hUU₁, hinv⟩ := X.lemma_7_6_3 D hU₁o hxU₁ hU₁S h78
   have hU₂S : ∀ g, U₂ ⊆ D.S g := fun g => hU₂U₁.trans (hU₁S g)
   have hUS : ∀ g, D.unionHat U₂ ⊆ D.S g := fun g => hUU₁.trans (hU₁S g)
   refine ⟨D, D.mkRep _ (D.isOpen_unionHat hU₂o hU₂S) (D.isConnected_unionHat hU₂c hxU₂ hU₂S)
@@ -473,20 +473,20 @@ def restrict {x : Obj} (R : X.NaturalRep x) (U' : Set Obj) (hU'o : IsOpen U')
 
 end NatRepConstruction
 
-/-- **Theorem 7.1 (natural representation of `G_x`)**: for every open neighbourhood `V` of `x`
+/-- **Theorem 7.1.13 (2017: 7.1) (natural representation of `G_x`)**: for every open neighbourhood `V` of `x`
 there is a natural representation `(Φ, Γ)` of `G_x` on an open connected neighbourhood
 `U ⊆ V` of `x`. -/
-theorem theorem_7_1 (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) :
+theorem theorem_7_1_13 (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) :
     ∃ R : X.NaturalRep x, R.U ⊆ V := by
   obtain ⟨-, R, hRV, -⟩ := NatRepConstruction.exists_naturalRep_sheets X x hV hx
   exact ⟨R, hRV⟩
 
-/-- **Theorem 7.5** (p. 253) is a restatement of Theorem 7.1, given in Appendix 7.5.1 with its
+/-- **Theorem 7.6.1 (2017: 7.5)** (p. 344 (2017 p. 253)) is a restatement of Theorem 7.1.13 (2017: 7.1), given in Appendix 7.5.1 with its
 proof; the form `Φ(g) = t_g ∘ s_g⁻¹` of the proof is
 `NatRepConstruction.exists_naturalRep_sheets`. -/
-theorem theorem_7_5 (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) :
+theorem theorem_7_6_1 (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) :
     ∃ R : X.NaturalRep x, R.U ⊆ V :=
-  theorem_7_1 X x hV hx
+  theorem_7_1_13 X x hV hx
 
 /-! ### Smaller neighbourhoods -/
 

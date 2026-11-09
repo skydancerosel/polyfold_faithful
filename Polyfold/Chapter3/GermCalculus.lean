@@ -6,19 +6,19 @@ import Polyfold.Chapter1.LevelsWeak
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definitions 3.1–3.2, 3.4, 3.6, 3.11 and Lemma 3.17: **the calculus of sc-smooth germs** that the
-germ reading of Definition 3.11 needs (phase 2; Findings, Chapter 3, items 270–274).
+Definitions 3.1.1–3.1.2, 3.1.4, 3.1.6, 3.1.11 (preprint 3.1–3.2, 3.4, 3.6, 3.11) and Lemma 3.1.20 (preprint 3.17): **the calculus of sc-smooth germs** that the
+germ reading of Definition 3.1.11 (preprint 3.11) needs (phase 2; Findings, Chapter 3, items 270–274).
 
-# The germ calculus for Definition 3.11
+# The germ calculus for Definition 3.1.11 (preprint 3.11)
 
 ## The text, paraphrased
 
-The text treats the filling `g` of Definition 3.6, the local sc⁺-section `s` of Definition 3.11
-and the push-forward `Ψ_*(g)` as sc-smooth *germs* (Definition 3.2) on sc-germs of
-neighbourhoods `O(C, 0)` (Definition 3.1) whose levels `U_m` may shrink with `m`, and it forms
-sums (`g + s`, Lemma 3.17), differences (`g − s`), the map `[1 − ρ(r(y))]g(y)` of Definition
+The text treats the filling `g` of Definition 3.1.6 (preprint 3.6), the local sc⁺-section `s` of Definition 3.1.11 (preprint 3.11)
+and the push-forward `Ψ_*(g)` as sc-smooth *germs* (Definition 3.1.2 (preprint 3.2)) on sc-germs of
+neighbourhoods `O(C, 0)` (Definition 3.1.1 (preprint 3.1)) whose levels `U_m` may shrink with `m`, and it forms
+sums (`g + s`, Lemma 3.1.20 (preprint 3.17)), differences (`g − s`), the map `[1 − ρ(r(y))]g(y)` of Definition
 3.4 (3), compositions with the whole-chart maps `R`, `r`, `Ψ`, `ψ⁻¹` and products with `ℝⁿ`
-(Theorem 3.18) without comment: "the usual calculus" of sc-smooth maps.
+(Theorem 3.1.21 (preprint 3.18)) without comment: "the usual calculus" of sc-smooth maps.
 
 ## What is formalized
 
@@ -38,12 +38,12 @@ sums (`g + s`, Lemma 3.17), differences (`g − s`), the map `[1 − ρ(r(y))]g(
   `IsSc1GermWith.pair_id`.  (b) *Inner whole-chart map* `ψ` with `ψ(0) = 0`:
   `IsSckGerm.comp_preimage`, `IsScSmoothGerm.comp_preimage`, `IsSc1GermWith.comp_preimage`
   (derivative `Dg(ψ(x)) ∘ Dψ(x)`), on the germ `ofSet V ∩ ψ⁻¹(G)` (`ScNbhdGerm.preimage`).
-* **The fill defect of a germ** (Definition 3.4 (3)): `fillDefect_isScSmoothGerm` (`[1 − ρ(r(·))]g`
+* **The fill defect of a germ** (Definition 3.1.4 (preprint 3.4) (3)): `fillDefect_isScSmoothGerm` (`[1 − ρ(r(·))]g`
   is an sc-smooth germ on `G` when `g` is and `G₀ ⊆ U`), `fillDefect_isSc1GermWith` with the
   explicit derivative family `fillDefectDeriv`, `fillDefectDeriv_zero` (its value at `0` when
   `g(0) = 0` and `0 ∈ O`), `fillDefect_deriv_zero_eq` (every derivative family of the sc¹-germ
   `[1 − ρ(r(·))]g` has this value at `0`).
-* **Lemma 3.17 for germs**: `IsFillingGerm.add_section` (a filling germ `g` of `f̂` and a
+* **Lemma 3.1.20 (preprint 3.17) for germs**: `IsFillingGerm.add_section` (a filling germ `g` of `f̂` and a
   whole-chart sc-smooth section `ŝ` of `K → O` give the filling germ `g + ŝ ∘ r` of `f̂ + ŝ`),
   `IsFillingGerm.add_section_germ` (the same for `ŝ` an sc-smooth germ on a germ `G_s ⊆ U`, the
   filling living on `G ∩ r⁻¹(G_s)`).
@@ -64,12 +64,12 @@ sums (`g + s`, Lemma 3.17), differences (`g − s`), the map `[1 − ρ(r(y))]g(
   `(u, k(u))`, which is not `0` unless `g(0) = 0` and `0 ∈ O`.  Rather than re-centring, the
   chain rule is re-proved with the outer map on a set `V` (its level sets `V_m`) and the inner
   map a germ; the proof is that of `IsSc1GermWith.hasFDerivWithinAt_comp` verbatim.
-* **Which derivative family.**  Definition 3.2 does not say that `Df(x)` is unique; it is, on
+* **Which derivative family.**  Definition 3.1.2 (preprint 3.2) does not say that `Df(x)` is unique; it is, on
   `U₁`, for a quadrant-like `C` (`IsSc1GermWith.eq_of_uniqueDiffWithinAt`).  The lemmas below
   give explicit families built from the given ones by the chain rule and the sum rule; any other
   family agrees with them on `U₁` (`IsSc1GermWith.congr_deriv` in the other direction).
-* **The sc⁺-section in Lemma 3.17** is sc-smooth into `F¹`; only its sc-smoothness into `F` is
-  used for the three filler conditions, as in `lemma_3_17`.  The germ version keeps the text's
+* **The sc⁺-section in Lemma 3.1.20 (preprint 3.17)** is sc-smooth into `F¹`; only its sc-smoothness into `F` is
+  used for the three filler conditions, as in `lemma_3_1_20`.  The germ version keeps the text's
   hypothesis that `ŝ` is a section of `K → O` (`(x, ŝ(x)) ∈ K` on `O`), on `O ∩ (G_s)₀` in the
   germ-section version.
 -/
@@ -566,7 +566,7 @@ theorem IsSc1GermWith.comp_preimage {Dg : E 1 → E 0 →L[ℝ] F 0} (hC : IsQua
 
 end CompInner
 
-/-! ### The fill defect of a germ (Definition 3.4 (3)) -/
+/-! ### The fill defect of a germ (Definition 3.1.4 (preprint 3.4) (3)) -/
 
 section FillDefect
 
@@ -661,7 +661,7 @@ theorem fillDefect_deriv_zero_eq (hU : IsRelOpenInQuadrant E C U)
 
 end FillDefect
 
-/-! ### Lemma 3.17 for germs -/
+/-! ### Lemma 3.1.20 (preprint 3.17) for germs -/
 
 section Lemma317
 
@@ -669,8 +669,8 @@ open StrongRetr
 
 variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
-/-- **Lemma 3.17 in the germ reading**: if the germ `g` fills `f̂` (Definition 3.6, germ reading)
-and `ŝ` is a section of `K → O` sc-smooth on `U` (as in Theorem 3.15, where `ŝ` is the principal
+/-- **Lemma 3.1.20 (preprint 3.17) in the germ reading**: if the germ `g` fills `f̂` (Definition 3.1.6 (preprint 3.6), germ reading)
+and `ŝ` is a section of `K → O` sc-smooth on `U` (as in Theorem 3.1.18 (preprint 3.15), where `ŝ` is the principal
 part of an sc⁺-section of the bundle), then `g + ŝ ∘ r` is a filling germ of `f̂ + ŝ`, on the
 same germ `G` and with the same derivative family `Dk` of the fill defect: `(1)`, `(2)` by Lemma
 3.16, and `[1 − ρ(r(y))](g(y) + ŝ(r(y))) = [1 − ρ(r(y))]g(y)` on `U`. -/
@@ -679,7 +679,7 @@ theorem IsFillingGerm.add_section (hU : IsRelOpenInQuadrant E C U)
     (hfg : IsFillingGerm hU hR h0 fb g) {s : E 0 → F 0} (hs : IsScSmooth U s)
     (hsK : ∀ x ∈ r R '' U, (x, s x) ∈ R '' (U ×ˢ univ)) :
     IsFillingGerm hU hR h0 (fun x => fb x + s x) (fun y => g y + s (r R y)) := by
-  obtain ⟨h1, h2⟩ := lemma_3_16 hR hsK
+  obtain ⟨h1, h2⟩ := lemma_3_1_19 hR hsK
   have heq : EqOn (fillDefect R g) (fillDefect R fun y => g y + s (r R y)) U := by
     intro y hy
     simp only [fillDefect]
@@ -699,7 +699,7 @@ theorem IsFillingGerm.add_section (hU : IsRelOpenInQuadrant E C U)
         fun u hu => r_mem hR hu).isScSmoothGerm_of_subset hQ hU.relOpen h0 hGU
     exact ⟨G, hGU, hg.add hQ hsr, Dk, hDk.congr fun _ hy => heq (hGU hy), Φ, hΦ⟩
 
-/-- **Lemma 3.17 in the germ reading, with `ŝ` itself a germ**: if `g` fills `f̂` and `ŝ` is an
+/-- **Lemma 3.1.20 (preprint 3.17) in the germ reading, with `ŝ` itself a germ**: if `g` fills `f̂` and `ŝ` is an
 sc-smooth germ on a germ `G_s`, a section of `K → O` on `O ∩ (G_s)₀`, then `g + ŝ ∘ r` is a
 filling germ of `f̂ + ŝ`, on the germ `G ∩ r⁻¹(G_s)` (`r⁻¹(G_s)` is formed inside `ofSet U`, so
 no inclusion `(G_s)₀ ⊆ U` is needed). -/
@@ -814,7 +814,7 @@ variable {ψ' : E' 0 → E 0}
 /-- **The push-forward of a germ by a strong bundle map covering `ψ = ψ'⁻¹`**: for `k` an
 sc-smooth germ on `G` with `G₀ ⊆ U` and `ψ' : U' → U` sc-smooth on a relatively open `U' ∋ 0`
 with `ψ'(0) = 0`, the map `x ↦ (Ψ(ψ'(x), k(ψ'(x))))₂` is an sc-smooth germ on the germ
-`ofSet U' ∩ ψ'⁻¹(G)` (the text's `Ψ_*(k) = Ψ ∘ (u, k(u)) ∘ ψ⁻¹`, Definition 3.11). -/
+`ofSet U' ∩ ψ'⁻¹(G)` (the text's `Ψ_*(k) = Ψ ∘ (u, k(u)) ∘ ψ⁻¹`, Definition 3.1.11 (preprint 3.11)). -/
 theorem IsStrongBundleMap.pushforward_isScSmoothGerm (hU : IsRelOpenInQuadrant E C U)
     (hU' : IsRelOpenInQuadrant E' C' U') (h0U' : (0 : E' 0) ∈ U') (hΨ : IsStrongBundleMap U U' Ψ)
     (hG : G₁.U 0 ⊆ U) (hψ' : IsScSmooth U' ψ') (hψ'0 : ψ' 0 = 0) (hψ'C : MapsTo ψ' U' C)

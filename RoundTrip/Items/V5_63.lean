@@ -4,13 +4,13 @@ import RoundTrip.Blind.V5_63
 
 /-!
 Round trip for V5_63 (Corollary 5.44).  `A` is the conjunction of the types of
-`Polyfold.corollary_5_44` (no universe parameter) and
+`Polyfold.corollary_5_5_17` (no universe parameter) and
 `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (universe instantiated at `0`).
 
 * "Hilbert": the project asks `∃ b, ∀ v, ‖v‖² = b v v` (a continuous bilinear `b`, not assumed
   symmetric); B asks for a *symmetric* `b` with `b x x = ‖x‖²`.  These agree: symmetrize
   `b' = (b + bᵀ)/2` (`hilbert_iff`).
-* The genuine difference: `corollary_5_44` has the cited Theorem 5.43
+* The genuine difference: `corollary_5_5_17` has the cited Theorem 5.43
   (`GodefroyTroyanskiWhitfieldZizlerStatement (M.E 0) ⊤`) as an **explicit hypothesis**, B has
   none.  So `B → A` is immediate (B's conclusion, extra hypothesis dropped; the M-polyfold
   conjunct then follows from Theorem 5.37 "(ii) ⇒ (i)", `admitsScPartitionsOfUnity_of_approx`), but
@@ -24,11 +24,11 @@ open Polyfold
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.corollary_5_44) ∧
+  (type_of% @Polyfold.corollary_5_5_17) ∧
   (type_of% @Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.corollary_5_44, @Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert.{0}⟩
+  ⟨@Polyfold.corollary_5_5_17, @Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert.{0}⟩
 
 /-- The two readings of "the norm comes from an inner product" agree. -/
 theorem hilbert_iff (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V] :
@@ -59,11 +59,11 @@ theorem A_to_BCited : A → BCited := by
   intro hA h543 M hM
   exact hA.1 M ((hilbert_iff _).2 hM) (h543 _ ⊤)
 
-#rt_check RoundTrip.V5_63.B_to_A [Polyfold.corollary_5_44,
+#rt_check RoundTrip.V5_63.B_to_A [Polyfold.corollary_5_5_17,
   Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert]
-#rt_check RoundTrip.V5_63.A_to_BCited [Polyfold.corollary_5_44,
+#rt_check RoundTrip.V5_63.A_to_BCited [Polyfold.corollary_5_5_17,
   Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert]
-#rt_overlap RoundTrip.V5_63.B_to_A [Polyfold.corollary_5_44,
+#rt_overlap RoundTrip.V5_63.B_to_A [Polyfold.corollary_5_5_17,
   Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert]
 
 end RoundTrip.V5_63

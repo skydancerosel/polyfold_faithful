@@ -5,7 +5,7 @@ import RoundTrip.Blind.V7_44
 /-!
 Round trip for V7_44 (Lemma 7.5: countable neighbourhood bases of `|X|`).
 
-`A` is the type of `Polyfold.EpGroupoid.lemma_7_5` at universe `0`: for every ep-groupoid
+`A` is the type of `Polyfold.EpGroupoid.lemma_7_3_3` at universe `0`: for every ep-groupoid
 `X : EpGroupoid Obj Mor` (`Obj Mor : Type`) and `z : X.OrbitSpace` there are `V : ℕ → Set |X|`,
 all open and containing `z`, with `(𝓝 z).HasAntitoneBasis V`.  `B`: open `V k`, `z ∈ V (k+1) ⊆
 V k`, and `(𝓝 z).HasBasis (fun _ ↦ True) V`.  Mathlib's `HasAntitoneBasis` is `HasBasis (fun _ ↦
@@ -17,9 +17,9 @@ namespace RoundTrip.V7_44
 open Polyfold
 
 /-- The project's Lemma 7.5, universes at `0`. -/
-def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_5.{0}
+def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_3_3.{0}
 
-theorem A_holds : A := @EpGroupoid.lemma_7_5
+theorem A_holds : A := @EpGroupoid.lemma_7_3_3
 
 theorem A_to_B : A → B := by
   intro hA Obj Mor _ _ _ _ _ _ X z
@@ -35,8 +35,8 @@ theorem B_to_A : B → A := by
   | zero => exact (hVs 0).2 (hVs 0).1
   | succ k => exact (hVs k).1
 
-#rt_check RoundTrip.V7_44.A_to_B [Polyfold.EpGroupoid.lemma_7_5]
-#rt_check RoundTrip.V7_44.B_to_A [Polyfold.EpGroupoid.lemma_7_5]
-#rt_overlap RoundTrip.V7_44.B_to_A [Polyfold.EpGroupoid.lemma_7_5]
+#rt_check RoundTrip.V7_44.A_to_B [Polyfold.EpGroupoid.lemma_7_3_3]
+#rt_check RoundTrip.V7_44.B_to_A [Polyfold.EpGroupoid.lemma_7_3_3]
+#rt_overlap RoundTrip.V7_44.B_to_A [Polyfold.EpGroupoid.lemma_7_3_3]
 
 end RoundTrip.V7_44

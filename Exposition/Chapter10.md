@@ -173,7 +173,7 @@ morphisms near $\sigma^{-1} \circ \psi \circ \sigma$ at points $F(x')$, which co
 The text uses sequences; closures do the same job. The first part needs only that $F$ is a local sc-diffeomorphism on objects
 (Findings, item 10). *Checked by machine (V10.10):* `Polyfold.EpFunctor.proposition_10_1_13`,
 `Polyfold.EpFunctor.nonEffectivePart_eq`, `Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff`,
-`Polyfold.EpGroupoid.theorem_7_2_22_2021`.
+`Polyfold.EpGroupoid.theorem_7_2_22`.
 
 **Proposition 10.1.14 (2017: 10.5) (the reduced functor).** If $F$ is an equivalence and $\mathbf X^R$, $\mathbf Y^R$ are
 Hausdorff, $F_R$, equal to $F$ on objects, is an sc-smooth functor of the reduced ep-groupoids and an equivalence.
@@ -195,7 +195,7 @@ local unique continuation property if and only if $Y$ has.
 *Proof.* (LUC) is the closedness of $\mathbf X^T$ (Proposition 7.2.21, part of Theorem 7.2.22), which passes along
 equivalences (Proposition 10.1.13). $\square$ The text cites Theorem 7.2.22 here and in Proposition 10.1.13; the citation is
 to the theorem on p. 323 (Findings, item 10). *Checked by machine (V10.13):* `Polyfold.EpFunctor.proposition_10_1_16`,
-`Polyfold.EpGroupoid.proposition_7_2_21_2021`.
+`Polyfold.EpGroupoid.proposition_7_2_21`.
 
 **Proposition 10.1.17 (new in the 2021 edition) ((ZHOU) under equivalences).** If $F$ is an equivalence, $X$ satisfies the
 Zhou condition if and only if $Y$ does.

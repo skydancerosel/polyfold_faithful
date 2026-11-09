@@ -3,15 +3,15 @@ import Polyfold.Chapter3.SolutionLinearization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.3,
-Corollary 3.34 ("in particular, `δ` is sc-smooth at the smooth point `0`") and Theorem 3.35
-("if `f` is sc-smooth, so is its solution germ"), on **one** germ of neighbourhoods; Lemma 3.31
-("`f⁽¹⁾` is an sc⁰-contraction germ") in the sense of Definition 3.28.
+Corollary 3.3.7 (preprint 3.34) ("in particular, `δ` is sc-smooth at the smooth point `0`") and Theorem 3.35
+("if `f` is sc-smooth, so is its solution germ"), on **one** germ of neighbourhoods; Lemma 3.3.4 (preprint 3.31)
+("`f⁽¹⁾` is an sc⁰-contraction germ") in the sense of Definition 3.3.1 (preprint 3.28).
 
 # The solution germ is an sc-smooth germ: one germ for all `k`
 
 ## The text, paraphrased
 
-(Corollary 3.34) If the sc⁰-contraction germ `f(a, w) = w − B(a, w)` is sc-smooth, then for all
+(Corollary 3.3.7 (preprint 3.34)) If the sc⁰-contraction germ `f(a, w) = w − B(a, w)` is sc-smooth, then for all
 `m, k` there is a relatively open `V_{m,k} ∋ 0` in `C̃` with `δ(V_{m,k}) ⊆ W_m` and
 `δ : V_{m,k} → W_m` of class `C^k`; in particular, `δ` is sc-smooth at the smooth point `0`.
 (Theorem 3.35) For a finite-dimensional partial quadrant `C̃`, if the sc⁰-contraction germ `f` is
@@ -30,37 +30,37 @@ of class sc^k, so is its solution germ; if `f` is sc-smooth, so is its solution 
   `t : ℕ → ℕ`; `ContractionGerm.diagShift s m = Σ_{j ≤ m} s_j`;
   `ContractionGerm.isScSmoothGerm_germDiag`: if `δ` is sc^k on `germ s_k` for every `k`, it is
   sc-smooth on the diagonal germ `germDiag (diagShift s)`.
-* **Corollary 3.34, "`δ` is sc-smooth"** (`corollary_3_34_isScSmoothGerm`) and **Theorem 3.35,
-  second sentence** (`theorem_3_35_isScSmoothGerm`, `C̃` a partial quadrant): for an sc-smooth
+* **Corollary 3.3.7 (preprint 3.34), "`δ` is sc-smooth"** (`corollary_3_3_7_isScSmoothGerm`) and **Theorem 3.35,
+  second sentence** (`theorem_3_35_isScSmoothGerm_preprint`, `C̃` a partial quadrant): for an sc-smooth
   working-form contraction germ, the solution germ `δ = sol` is an sc-smooth germ
   (`IsScSmoothGerm`, sc^k for every `k`) on **one** germ `germDiag t`, and is a solution germ there.
-* **Theorem 3.35 in the text's form** (`theorem_3_35_of_isSc0ContractionGerm`): for an
-  sc⁰-contraction germ of Definition 3.28 and **any** representative `(V, δ)` of its solution germ
+* **Theorem 3.35 in the text's form** (`theorem_3_35_of_isSc0ContractionGerm_preprint`): for an
+  sc⁰-contraction germ of Definition 3.3.1 (preprint 3.28) and **any** representative `(V, δ)` of its solution germ
   (an sc⁰-germ with `δ(0) = 0` and `f(a, δ(a)) = 0` on `V₀`): if `f` is sc^k, `δ` is sc^k on a
   smaller germ `V' ⊆ V`; if `f` is sc-smooth, `δ` is sc-smooth on one smaller germ `V' ⊆ V`.
   Supporting lemmas: `isSckGerm_contractionMap_iff` (`f = w − B` is sc^k iff `B` is) and
   `IsSc0ContractionGerm.exists_eq_sol` (a representative agrees with the constructed `sol` near
   `0`, by uniqueness of the fixed point in `O₀`).
 
-* **Lemma 3.31, "`f⁽¹⁾` is an sc⁰-contraction germ", in the sense of Definition 3.28**
-  (`ContractionGerm.isSc0ContractionGerm_next`): if the working form satisfies Definition 3.28
+* **Lemma 3.3.4 (preprint 3.31), "`f⁽¹⁾` is an sc⁰-contraction germ", in the sense of Definition 3.3.1 (preprint 3.28)**
+  (`ContractionGerm.isSc0ContractionGerm_next`): if the working form satisfies Definition 3.3.1 (preprint 3.28)
   (e.g. `h.toContractionGerm`), so does `f⁽¹⁾` on its germ `nextG s`; the project's
-  `ContractionGerm.next` only records a `1/2`-contraction.  It rests on Lemma 3.9 on level `m`
+  `ContractionGerm.next` only records a `1/2`-contraction.  It rests on Lemma 3.1.9 (preprint 3.9) on level `m`
   with an arbitrary `ε` (`IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le`,
   `SolutionLinearization.lean`, which is why this file imports that one).
 
 These are round-trip items V3.31 and V3.32 (`RoundTrip/Items/V3_31.lean`, `V3_32.lean`), where the
 locality lemma and the diagonal germ were first proved, and V3.28 (`RoundTrip/Items/V3_28.lean`,
-the Definition 3.28 estimate for `f⁽¹⁾` inside its `A_to_B`); moved here and simplified (for the
-working form, the diagonal germ is `N(m + t_m) ∩ C̃` itself, and the Definition 3.28 estimate is
+the Definition 3.3.1 (preprint 3.28) estimate for `f⁽¹⁾` inside its `A_to_B`); moved here and simplified (for the
+working form, the diagonal germ is `N(m + t_m) ∩ C̃` itself, and the Definition 3.3.1 (preprint 3.28) estimate is
 stated for `next s`, any `s`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **One germ for all `k`.**  The proof of Theorem 3.33 shifts the germ at every induction step:
-  `δ` is sc^k on `germ s_k = (N(m + s_k) ∩ C̃)_m` with `s_k = 2^k − 1` (`theorem_3_33`,
-  `theorem_3_33_smooth`, `corollary_3_34`, `theorem_3_35_smooth` keep this `k`-dependent form).
-  With a germ as a fixed sequence of sets (Definition 3.1 here), "sc-smooth" (Definition 3.2,
+* **One germ for all `k`.**  The proof of Theorem 3.3.6 (preprint 3.33) shifts the germ at every induction step:
+  `δ` is sc^k on `germ s_k = (N(m + s_k) ∩ C̃)_m` with `s_k = 2^k − 1` (`theorem_3_3_6`,
+  `theorem_3_3_6_smooth`, `corollary_3_3_7`, `theorem_3_35_smooth_preprint` keep this `k`-dependent form).
+  With a germ as a fixed sequence of sets (Definition 3.1.1 (preprint 3.1) here), "sc-smooth" (Definition 3.1.2 (preprint 3.2),
   `IsScSmoothGerm`) asks for sc^k for every `k` on the *same* sequence.  Since sc^j only involves
   the levels `≥ j` (`isSckGerm_of_levels`), the diagonal `t_m = Σ_{j ≤ m} s_j` works: on level
   `m + j` the diagonal germ lies in `germ s_j`.  With `s_k = 2^k − 1` the diagonal shift is
@@ -72,14 +72,14 @@ stated for `next s`, any `s`).
   take it on `B`.  They are equivalent (`isSckGerm_contractionMap_iff`: `f = pr₂ − B`, a difference
   with an sc-operator).
 * **Any representative.**  The text's "its solution germ" is a germ:
-  `theorem_3_35_of_isSc0ContractionGerm` takes an arbitrary representative `(V, δ)`; it agrees
+  `theorem_3_35_of_isSc0ContractionGerm_preprint` takes an arbitrary representative `(V, δ)`; it agrees
   with the constructed `sol` on `V₀ ∩ N₀ ∩ {δ ∈ O₀}` (`IsSc0ContractionGerm.exists_eq_sol`), which
   is where `V'` is cut down to.  The condition `(a, δ(a)) ∈ U₀` of a solution germ is not needed
   for this.
-* **Lemma 3.31 and Definition 3.28.**  The text asserts that `f⁽¹⁾` is an sc⁰-contraction germ,
-  i.e. Definition 3.28 for `B⁽¹⁾(v, b, u, w) = (B(v, u), DB(v, δ(v))(b, w))`: an `ε`-contraction
+* **Lemma 3.3.4 (preprint 3.31) and Definition 3.3.1 (preprint 3.28).**  The text asserts that `f⁽¹⁾` is an sc⁰-contraction germ,
+  i.e. Definition 3.3.1 (preprint 3.28) for `B⁽¹⁾(v, b, u, w) = (B(v, u), DB(v, δ(v))(b, w))`: an `ε`-contraction
   for every `ε` near `0` on every level.  Its second component needs the smallness
-  `|D₂B(a, w)|_m ≤ ε` near `0` on level `m` (Lemma 3.9, which the text states on all levels), and
+  `|D₂B(a, w)|_m ≤ ε` near `0` on level `m` (Lemma 3.1.9 (preprint 3.9), which the text states on all levels), and
   `δ_{m+1}(v)` small for `v` small (continuity of `δ_m` at `0`).
 -/
 
@@ -200,33 +200,33 @@ theorem isScSmoothGerm_germDiag {s : ℕ → ℕ} (hs : ∀ k, IsSckGerm k (𝒞
       ⟨𝒞.N_anti_le (by have := le_diagShift s (show j ≤ m + j by omega); omega) ha.1, ha.2⟩,
       hs j⟩
 
-/-- **Corollary 3.34, "in particular, `δ` is sc-smooth at the smooth point `0`"**, on one germ
+/-- **Corollary 3.3.7 (preprint 3.34), "in particular, `δ` is sc-smooth at the smooth point `0`"**, on one germ
 (round-trip item V3.31): if the working-form sc⁰-contraction germ is sc-smooth, its solution germ
 `δ = sol` is an sc-smooth germ (`IsScSmoothGerm`: sc^k for **every** `k` on the **same** germ) on
 the diagonal germ `V_m = N(m + t_m) ∩ C̃` for some nondecreasing `t`, and is a solution germ there.
-This strengthens `theorem_3_33_smooth` and `corollary_3_34`, where the germ depends on `k`. -/
-theorem _root_.Polyfold.corollary_3_34_isScSmoothGerm (hB : IsScSmoothGerm 𝒞.G 𝒞.B) :
+This strengthens `theorem_3_3_6_smooth` and `corollary_3_3_7`, where the germ depends on `k`. -/
+theorem _root_.Polyfold.corollary_3_3_7_isScSmoothGerm (hB : IsScSmoothGerm 𝒞.G 𝒞.B) :
     ∃ (t : ℕ → ℕ) (ht : ∀ m, t m ≤ t (m + 1)),
       𝒞.IsSolutionGerm (𝒞.germDiag hC t ht) 𝒞.sol ∧
         IsScSmoothGerm (𝒞.germDiag hC t ht) 𝒞.sol := by
-  choose s hs using fun k => theorem_3_33_smooth 𝒞 hC hB k
+  choose s hs using fun k => theorem_3_3_6_smooth 𝒞 hC hB k
   exact ⟨diagShift s, diagShift_succ s, 𝒞.isSolutionGerm_germDiag hC _ _,
     𝒞.isScSmoothGerm_germDiag hC fun k => (hs k).2⟩
 
 /-- **Theorem 3.35, second sentence, on one germ** (round-trip item V3.32): for `C̃` a
 finite-dimensional partial quadrant, if the working-form sc⁰-contraction germ is sc-smooth, so is
 its solution germ — sc^k for every `k` on one germ `V_m = N(m + t_m) ∩ C̃`.  Strengthens
-`theorem_3_35_smooth` (a `k`-dependent germ). -/
-theorem _root_.Polyfold.theorem_3_35_isScSmoothGerm (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+`theorem_3_35_smooth_preprint` (a `k`-dependent germ). -/
+theorem _root_.Polyfold.theorem_3_35_isScSmoothGerm_preprint (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (hB : IsScSmoothGerm 𝒞.G 𝒞.B) :
     ∃ (t : ℕ → ℕ) (ht : ∀ m, t m ≤ t (m + 1)),
       𝒞.IsSolutionGerm (𝒞.germDiag hC.isQuadrantLike t ht) 𝒞.sol ∧
         IsScSmoothGerm (𝒞.germDiag hC.isQuadrantLike t ht) 𝒞.sol :=
-  corollary_3_34_isScSmoothGerm 𝒞 hC.isQuadrantLike hB
+  corollary_3_3_7_isScSmoothGerm 𝒞 hC.isQuadrantLike hB
 
 end ContractionGerm
 
-/-! ### Theorem 3.35 for Definition 3.28 and any representative of the solution germ -/
+/-! ### Theorem 3.35 for Definition 3.3.1 (preprint 3.28) and any representative of the solution germ -/
 
 section TextForm
 
@@ -260,7 +260,7 @@ variable {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 
   (h : IsSc0ContractionGerm Ct G B)
 
 include h in
-/-- **Any representative of the solution germ is `sol` near `0`** (uniqueness in Theorem 3.29):
+/-- **Any representative of the solution germ is `sol` near `0`** (uniqueness in Theorem 3.3.2 (preprint 3.29)):
 if `δ` is an sc⁰-germ on `V` with `δ(0) = 0` and `f(a, δ(a)) = 0` on `V₀`, then `δ = sol` (the
 solution of the working form `h.toContractionGerm`) on `V₀ ∩ N₀ ∩ u` for an open `u ∋ 0` (namely
 `u` with `u ∩ V₀ = δ⁻¹(O₀) ∩ V₀`). -/
@@ -294,13 +294,13 @@ lemma exists_eq_sol {V : ScNbhdGerm (ScBanach.const P) Ct} {δ : P → W 0} (hδ
 end IsSc0ContractionGerm
 
 /-- **Theorem 3.35 (and Corollary 3.34's "in particular") in the text's form** (round-trip items
-V3.31, V3.32): let `f(a, w) = w − B(a, w)` be an sc⁰-contraction germ (Definition 3.28) on a
+V3.31, V3.32): let `f(a, w) = w − B(a, w)` be an sc⁰-contraction germ (Definition 3.3.1 (preprint 3.28)) on a
 quadrant-like `C̃` (e.g. a finite-dimensional partial quadrant), and let `(V, δ)` be **any**
 representative of its solution germ: an sc⁰-germ with `δ(0) = 0` and `f(a, δ(a)) = 0` on `V₀`.
 (1) If `f` is of class sc^k, then `δ` is an sc^k-germ on some germ `V' ⊆ V`.
 (2) If `f` is sc-smooth, then `δ` is an sc-smooth germ on **one** germ `V' ⊆ V` (sc^k for every
 `k` on the same `V'`; the diagonal germ of `ContractionGerm.isScSmoothGerm_germDiag`). -/
-theorem theorem_3_35_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.const P) Ct)
+theorem theorem_3_35_of_isSc0ContractionGerm_preprint (hC : IsQuadrantLike (ScBanach.const P) Ct)
     {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 → W 0}
     (h : IsSc0ContractionGerm Ct G B) {V : ScNbhdGerm (ScBanach.const P) Ct} {δ : P → W 0}
     (hδ0 : IsSc0Germ V δ) (hδzero : δ 0 = 0)
@@ -320,12 +320,12 @@ theorem theorem_3_35_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.cons
       (V.inter (H.inter (ScNbhdGerm.ofOpen hC hu hu0))).U m ⊆ H.U m := fun _ _ _ ha => ha.2.1
   refine ⟨fun k hk => ?_, fun hf => ?_⟩
   · have hB : IsSckGerm k 𝒞.G 𝒞.B := (isSckGerm_contractionMap_iff hCG).1 hk
-    obtain ⟨s, -, hs⟩ := theorem_3_33 𝒞 hC hB
+    obtain ⟨s, -, hs⟩ := theorem_3_3_6 𝒞 hC hB
     refine ⟨V.inter ((𝒞.germ hC s).inter (ScNbhdGerm.ofOpen hC hu hu0)), fun m a ha => ha.1, ?_⟩
     exact IsSckGerm.congr hC (key _ fun a ha => 𝒞.N_anti_le (by omega) ha.1)
       (IsSckGerm.mono hC (hsub _) hs)
   · have hB : IsScSmoothGerm 𝒞.G 𝒞.B := fun k => (isSckGerm_contractionMap_iff hCG).1 (hf k)
-    obtain ⟨t, ht, -, hsm⟩ := corollary_3_34_isScSmoothGerm 𝒞 hC hB
+    obtain ⟨t, ht, -, hsm⟩ := corollary_3_3_7_isScSmoothGerm 𝒞 hC hB
     refine ⟨V.inter ((𝒞.germDiag hC t ht).inter (ScNbhdGerm.ofOpen hC hu hu0)),
       fun m a ha => ha.1, fun k => ?_⟩
     exact IsSckGerm.congr hC (key _ fun a ha => 𝒞.N_anti_le (by omega) ha.1)
@@ -333,7 +333,7 @@ theorem theorem_3_35_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.cons
 
 end TextForm
 
-/-! ### Lemma 3.31: `f⁽¹⁾` is an sc⁰-contraction germ in the sense of Definition 3.28 -/
+/-! ### Lemma 3.3.4 (preprint 3.31): `f⁽¹⁾` is an sc⁰-contraction germ in the sense of Definition 3.3.1 (preprint 3.28) -/
 
 section NextContraction
 
@@ -346,12 +346,12 @@ variable (𝒞 : ContractionGerm P Ct W) (hC : IsQuadrantLike (ScBanach.const P)
   {D : (ScBanach.paramProd P W) 1 → (ScBanach.paramProd P W) 0 →L[ℝ] W 0}
   (hB : IsSc1GermWith 𝒞.G 𝒞.B D)
 
-/-- **Lemma 3.31, "`f⁽¹⁾` is an sc⁰-contraction germ"** in the sense of **Definition 3.28**
-(round-trip item V3.28): if the working-form germ `f = w − B(a, w)` satisfies Definition 3.28
+/-- **Lemma 3.3.4 (preprint 3.31), "`f⁽¹⁾` is an sc⁰-contraction germ"** in the sense of **Definition 3.3.1 (preprint 3.28)**
+(round-trip item V3.28): if the working-form germ `f = w − B(a, w)` satisfies Definition 3.3.1 (preprint 3.28)
 (`ε`-contraction for every `ε > 0` on every level, e.g. `𝒞 = h.toContractionGerm`), then so does
 `f⁽¹⁾(v, b, u, w) = (u − B(v, u), w − DB(v, δ(v))(b, w))` on its germ `nextG s`, for every `s`.
 The project's `ContractionGerm.next` only records a `1/2`-contraction on explicit regions.  Proof:
-on level `m` the first component is Definition 3.28 for `B` on level `m + 1`; the second is
+on level `m` the first component is Definition 3.3.1 (preprint 3.28) for `B` on level `m + 1`; the second is
 `|D₂B(v, δ_{m+1}(v))ζ|_m ≤ ε|ζ|_m` (`exists_norm_levelDeriv_snd_le`), using the continuity of
 `δ_m` at `0`. -/
 theorem isSc0ContractionGerm_next (h : IsSc0ContractionGerm Ct 𝒞.G 𝒞.B) (s : ℕ) :

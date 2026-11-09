@@ -12,7 +12,7 @@ representation `R` on `W(x) = R.U ⊆ W` and an invariant open `V(x) ∋ x`, `cl
 (property (4) follows from (1)), `isScSmoothMap_orbitExtension` (the extension of an invariant
 sc-smooth `f` supported in `W(x)` with proper support is sc-smooth), the invariant sc-smooth
 Urysohn lemma `exists_isScSmoothMap_orbit_urysohn`, Part I's `admitsScPartitionsOfUnity_of_approx`
-(Theorem 5.12 [5.37] "(ii) ⇒ (i)" for M-polyfolds) and `theorem_7_4`.
+(Theorem 5.12 [5.37] "(ii) ⇒ (i)" for M-polyfolds) and `theorem_7_5_7`.
 
 `B` is the conjunction of the proof's intermediate claims: existence of the `V(x)` with (1)–(4),
 and, **for every choice** of `V(x), W(x)` with B's natural action `IsNatActionB` (Theorem 7.1's
@@ -26,7 +26,7 @@ with `(h_i / Σ h_j)` an sc-smooth partition of unity of `X` subordinate to the 
   data on possibly disconnected `W(x)`, for which A's `NaturalRep`-based lemmas
   (`orbitExtension`, `isScSmoothMap_orbitExtension`) and Lemma 7.10 do not apply, and it asks for
   the text's normalisation `h_i / Σ h_j` with the given refinement and `β`, whereas A's
-  `theorem_7_4` goes through a bump covering of `|X|` and the invariant Urysohn lemma.  B is true
+  `theorem_7_5_7` goes through a bump covering of `|X|` and the invariant Urysohn lemma.  B is true
   as we read it; proving it means re-doing the construction (Lemma 7.10 for `IsNatActionB`, the
   extension and its sc-smoothness, local finiteness, the quotient).
 * `B → A` is not attempted: `admitsScPartitionsOfUnity_of_approx` (a Part I theorem about
@@ -45,7 +45,7 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.isScSmoothMap_orbitExtension.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.exists_isScSmoothMap_orbit_urysohn.{0}) ∧
   (type_of% @Polyfold.admitsScPartitionsOfUnity_of_approx.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.theorem_7_4.{0})
+  (type_of% @Polyfold.EpGroupoid.theorem_7_5_7.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.exists_invariant_nhds_of_isOpen.{0},
@@ -54,7 +54,7 @@ theorem A_holds : A :=
     @Polyfold.EpGroupoid.isScSmoothMap_orbitExtension.{0},
     @Polyfold.EpGroupoid.exists_isScSmoothMap_orbit_urysohn.{0},
     @Polyfold.admitsScPartitionsOfUnity_of_approx.{0},
-    @Polyfold.EpGroupoid.theorem_7_4.{0}⟩
+    @Polyfold.EpGroupoid.theorem_7_5_7.{0}⟩
 
 /-- The first two claims of B: `(|U_λ|)` is an open cover of `|X|`, and every `x` has a `V(x)`
 with (1)–(4). -/
@@ -71,7 +71,7 @@ def B_first_claims : Prop :=
 /-- **`A → B` for the first two claims of B.** -/
 theorem A_to_B_first_claims : A → B_first_claims := by
   rintro ⟨hex, -, hsat, -⟩ Obj Mor _ _ _ _ _ _ X _ _ Λ U hUo _ hcov
-  refine ⟨⟨fun l => X.proposition_7_1 _ (hUo l), eq_univ_of_forall fun q => ?_⟩, fun x => ?_⟩
+  refine ⟨⟨fun l => X.proposition_7_1_8 _ (hUo l), eq_univ_of_forall fun q => ?_⟩, fun x => ?_⟩
   · obtain ⟨y, rfl⟩ := X.surjective_π q
     obtain ⟨l, hl⟩ := mem_iUnion.1 (hcov.symm ▸ mem_univ y : y ∈ ⋃ l, U l)
     exact mem_iUnion.2 ⟨l, mem_image_of_mem _ hl⟩
@@ -89,13 +89,13 @@ theorem A_to_B_first_claims : A → B_first_claims := by
   Polyfold.EpGroupoid.isScSmoothMap_orbitExtension,
   Polyfold.EpGroupoid.exists_isScSmoothMap_orbit_urysohn,
   Polyfold.admitsScPartitionsOfUnity_of_approx,
-  Polyfold.EpGroupoid.theorem_7_4]
+  Polyfold.EpGroupoid.theorem_7_5_7]
 #rt_overlap RoundTrip.V7_67.A_to_B_first_claims [Polyfold.EpGroupoid.exists_invariant_nhds_of_isOpen,
   Polyfold.EpGroupoid.mem_of_π_mem_image_of_invariant,
   Polyfold.EpGroupoid.saturation_diff_inter_eq_empty,
   Polyfold.EpGroupoid.isScSmoothMap_orbitExtension,
   Polyfold.EpGroupoid.exists_isScSmoothMap_orbit_urysohn,
   Polyfold.admitsScPartitionsOfUnity_of_approx,
-  Polyfold.EpGroupoid.theorem_7_4]
+  Polyfold.EpGroupoid.theorem_7_5_7]
 
 end RoundTrip.V7_67

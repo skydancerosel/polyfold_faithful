@@ -319,7 +319,7 @@ $\operatorname{diag}(A,D)$ is, which, $D$ being an isomorphism, holds if and onl
 (Fredholm). The kernels and cokernels of $\operatorname{diag}(A,D)$ are those of $A$, and composing with an
 isomorphism does not change the index. $\square$
 
-*Checked by machine:* `Polyfold.IsFillerOf.proposition_3_5` (for a filler $g$, sc-smooth with $g(0) = 0$; $Tf(0) = Dg(0)|_{Dr(0)E}$), through the linear algebra `Polyfold.proposition_3_5` for idempotents $p$, $q$ and $L$ with $(1-q)Lp = 0$ and $(1-q)L:\ker p\to\ker q$ a topological isomorphism. Instead of the factorization above, the proof exhibits $\ker A\cong\ker L$ and $\operatorname{coker}A\cong\operatorname{coker}L$ (`Polyfold.fillerRestrict_kerEquiv`, `Polyfold.fillerRestrict_cokerEquiv`), so the index equality needs no finiteness assumption. The derivative identities are `Polyfold.StrongRetr.scDeriv_fiber_zero`, `Polyfold.IsFillerOf.deriv_comp_r_eq_zero` and `Polyfold.IsFillerOf.scDeriv_section_comp_r`.
+*Checked by machine:* `Polyfold.IsFillerOf.proposition_3_1_5` (for a filler $g$, sc-smooth with $g(0) = 0$; $Tf(0) = Dg(0)|_{Dr(0)E}$), through the linear algebra `Polyfold.proposition_3_1_5_preprint` for idempotents $p$, $q$ and $L$ with $(1-q)Lp = 0$ and $(1-q)L:\ker p\to\ker q$ a topological isomorphism. Instead of the factorization above, the proof exhibits $\ker A\cong\ker L$ and $\operatorname{coker}A\cong\operatorname{coker}L$ (`Polyfold.fillerRestrict_kerEquiv`, `Polyfold.fillerRestrict_cokerEquiv`), so the index equality needs no finiteness assumption. The derivative identities are `Polyfold.StrongRetr.scDeriv_fiber_zero`, `Polyfold.IsFillerOf.deriv_comp_r_eq_zero` and `Polyfold.IsFillerOf.scDeriv_section_comp_r`.
 
 **Definition 3.1.6 (preprint 3.6) (Filled version).** Let $f$ be an sc-smooth section of the tame strong bundle $P:Y\to
 X$ and $x_0$ a smooth point. The germ $(f,x_0)$ *has a filling* if there is a strong bundle chart
@@ -346,7 +346,7 @@ s$ is sc-smooth on the retract $O$ exactly when $\mathbf s\circ r$ is sc-smooth)
 $r(u) = u$. (2) $s(r(u)) = (r(u),\mathbf s(r(u)))\in K$ because $s$ is a section of $K$, and $R$ fixes the
 points of $K$ (Lemma 1.C); so $R(r(u),\mathbf s(r(u))) = (r(u),\mathbf s(r(u)))$. $\square$
 
-*Checked by machine:* `Polyfold.lemma_3_16`: (1) as $\mathbf s(r(x)) = \mathbf s(x)$ on $O$, (2) as
+*Checked by machine:* `Polyfold.lemma_3_1_19`: (1) as $\mathbf s(r(x)) = \mathbf s(x)$ on $O$, (2) as
 $\rho(r(u))\mathbf s(r(u)) = \mathbf s(r(u))$ and $R(r(u),\mathbf s(r(u))) = (r(u),\mathbf s(r(u)))$, from the
 hypothesis that $s$ takes values in $K$ (the text's "using that $s(u) = R(s(u))$"). The sc$^+$
 regularity of $\tilde s$ is not part of this statement; it is proved where it is used, in Theorem 3.1.18 (preprint 3.15)
@@ -363,7 +363,7 @@ $$[1-\rho(r(y))](g(y)+\tilde{\mathbf s}(y)) = [1-\rho(r(y))]g(y)\qquad(y\in U),$
 so the two maps of condition (3) coincide on $U$ and have the same linearization at $0$ (derivatives on
 $U_1$ are unique). $\square$
 
-*Checked by machine:* `Polyfold.lemma_3_17`, conditions (1)–(3) of `Polyfold.IsFillerOf` for
+*Checked by machine:* `Polyfold.lemma_3_1_20`, conditions (1)–(3) of `Polyfold.IsFillerOf` for
 $(\mathbf f+\mathbf s,\ g+\mathbf s\circ r)$, by this proof; the sc$^1$ requirement of (3) is transported along
 the equality of the two maps on $U$. As in Lemma 3.1.19 (preprint 3.16), the sc-smoothness of $g+\tilde{\mathbf s}$ (the
 text: "follow immediately") is supplied in the proof of Theorem 3.1.18 (preprint 3.15).
@@ -434,7 +434,7 @@ $Df(a,w)$ on level $m$ is a compact perturbation of $(\delta a,\delta w)\mapsto(
 by Lemma 3.1.9 (preprint 3.9) with $\varepsilon<1$ the operator $1-D_2B(a,w)$ is invertible on $W_m$ (Neumann series) for
 $(a,w)\in E_{m+1}$ small in $E_m$. $\square$
 
-*Checked by machine:* the first statement, `Polyfold.proposition_3_10` (for $s$ sc$^1$ into $(\mathbb R^N\oplus W)^1$ and $f$ sc$^1$; the sc$^+$-operator $Df(0)-T_0$ built level by level, `Polyfold.proposition_3_10_scPlus`). The second statement is checked on level $0$ only, for points of $U_1$ small on level $1$ (`Polyfold.StabilityData.exists_isFredholm_Dfs'`, §5); levels $m\ge1$ are not.
+*Checked by machine:* the first statement, `Polyfold.proposition_3_1_10` (for $s$ sc$^1$ into $(\mathbb R^N\oplus W)^1$ and $f$ sc$^1$; the sc$^+$-operator $Df(0)-T_0$ built level by level, `Polyfold.proposition_3_1_10_scPlus`). The second statement is checked on level $0$ only, for points of $U_1$ small on level $1$ (`Polyfold.StabilityData.exists_isFredholm_Dfs'`, §5); levels $m\ge1$ are not.
 
 ### 2.2 Sc-Fredholm germs and sections
 
@@ -461,7 +461,7 @@ Proposition 3.1.10 (preprint 3.10) (it is conjugate to the derivative of a basic
 the fibre map of $\Psi$), so $Dg(0)$ is sc-Fredholm by Proposition 1.1.11 (preprint 1.10) ($Ds(0)$ is sc$^+$), and by
 Proposition 3.1.5 (preprint 3.5) the linearization $Tf(x_0)$ is Fredholm with $\operatorname{ind}Tf(x_0) = n-N$.
 
-*Checked by machine, on level $0$ in the chart:* `Polyfold.proposition_3_52_local` ($Dg(0)$ and $Tf(x_0)$ Fredholm with equal index; through `Polyfold.IsConjugateToBasicGerm.scDeriv_isFredholm` and Proposition 3.1.5 (preprint 3.5)). The formal statement records the index only as "$n-N$ for some natural numbers"; that it is the $n-N$ of the conjugating basic germ is used inside the proof (`Polyfold.proposition_3_10_basic_level_zero`) but not stated.
+*Checked by machine, on level $0$ in the chart:* `Polyfold.proposition_3_6_5_local` ($Dg(0)$ and $Tf(x_0)$ Fredholm with equal index; through `Polyfold.IsConjugateToBasicGerm.scDeriv_isFredholm` and Proposition 3.1.5 (preprint 3.5)). The formal statement records the index only as "$n-N$ for some natural numbers"; that it is the $n-N$ of the conjugating basic germ is used inside the proof (`Polyfold.proposition_3_1_10_basic_level_zero`) but not stated.
 
 **Theorem 3.1.13 (preprint 3.12) (Local compactness for sc-Fredholm germs).** Let $f$ be an sc-smooth section of the tame
 strong bundle $P:Y\to X$ and $x_0$ a smooth point such that $(f,x_0)$ is an sc-Fredholm germ with
@@ -474,7 +474,7 @@ The $O(i)$ are open on level $0$; the solutions in them are nevertheless confine
 level $i$. HWZ call this "an immediate consequence of Theorem 3.40"; it is not quite, and the proof is
 given in §3.7 after Theorem 3.5.1 (preprint 3.40).
 
-*Checked by machine:* `Polyfold.theorem_3_12`: for a section $f$ with $(f,x_0)$ an sc-Fredholm germ and
+*Checked by machine:* `Polyfold.theorem_3_1_13_preprint`: for a section $f$ with $(f,x_0)$ an sc-Fredholm germ and
 $f(x_0) = 0$, nested open $O(i)\ni x_0$ such that $\mathrm{cl}_X\{x\in O(i)\mid f(x) = 0\}$ is the image of a
 compact subset of $X_i$ (with its level topology) under the inclusion $X_i\to X$. Of the hypothesis "$f$ an
 sc-smooth section of the tame strong bundle" only $P\circ f = \mathrm{id}$ is used; the regularity enters
@@ -487,8 +487,8 @@ As stated, the corollary concerns an arbitrary limit $x$ while the hypothesis is
 $x_0$. It holds for $x = x_0$, and for any limit $x$ when $f$ is an sc-Fredholm section (Definition 3.1.16 (preprint 3.14)),
 which provides the germ property at $x$. Proof in §3.7.
 
-*Checked by machine:* `Polyfold.corollary_3_13` (the limit is the base point $x_0$) and
-`Polyfold.corollary_3_13_section` (for an sc-Fredholm section and an arbitrary limit $x$, which is then
+*Checked by machine:* `Polyfold.corollary_3_1_15_preprint` (the limit is the base point $x_0$) and
+`Polyfold.corollary_3_1_15_section` (for an sc-Fredholm section and an arbitrary limit $x$, which is then
 itself a zero and a smooth point). The convergence in $X_m$ is stated for lifts $y_k\in X_m$ of the $x_k$
 ($k$ large) converging to the lift of $x$.
 
@@ -538,15 +538,15 @@ The clauses proved in Steps 1 and 2 are silent in the text ("then $f+s$ is an sc
 regularizing"). The identity in Step 3 holds on $U$, which is why the Lean states the conjugation
 condition "for $u\in U$ near $0$" and transports it along equality on $U$.
 
-*Checked by machine:* `Polyfold.theorem_3_15`, with Step 1
+*Checked by machine:* `Polyfold.theorem_3_1_18_preprint`, with Step 1
 `Polyfold.StrongBundle.IsScSmoothSection.sectionAdd` (via
 `Polyfold.StrongBundle.IsScSmoothSection.add_isScSmoothRetractMap`), Step 2
 `Polyfold.StrongBundle.regularizing_sectionAdd` (via `Polyfold.StrongBundle.IsScPlusSection.snd_mem_range`),
-Step 3 `Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd` (via `Polyfold.lemma_3_17`,
+Step 3 `Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd` (via `Polyfold.lemma_3_1_20`,
 `Polyfold.IsFillerOf.congr_left`, `Polyfold.IsConjugateToBasicGerm.congr`). The bundle is not assumed tame.
 Step 3 keeps the chart, so germ data in a tame chart (Definition 3.6.3 (preprint 3.50), §6.1) stay in that chart: for an
 sc-Fredholm section with germ data in tame charts, $f+s$ has germ data in the same tame charts
-(`Polyfold.theorem_3_15_tame`, with `Polyfold.StrongBundle.IsScFredholmGermTame.sectionAdd`).
+(`Polyfold.theorem_3_1_18_tame`, with `Polyfold.StrongBundle.IsScFredholmGermTame.sectionAdd`).
 
 **Theorem 3.1.21 (preprint 3.18) (Parameterized perturbations).** Let $P:Y\to X$ be a tame strong bundle and $f$ an
 sc-Fredholm section. If $s_1,\dots,s_n\in\Gamma^+(P)$, then $(r,x)\mapsto f(x)+\sum_ir_is_i(x)$ is an
@@ -558,13 +558,13 @@ the conjugation is the product of $\Psi$ with the identity of $\mathbb R^n$, whi
 basic germ), and $\tilde s(r,x) = ((r,x),\sum r_is_i(x))$ is an sc$^+$-section of $\pi^*P$; apply Theorem
 3.1.18 (preprint 3.15). $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_18` (with `Polyfold.theorem_3_18'`, which also supplies the
+*Checked by machine:* `Polyfold.theorem_3_1_21_preprint` (with `Polyfold.theorem_3_1_21'`, which also supplies the
 paracompactness of $\mathbb R^n\times X$ and $\pi^*Y$); the step "$\tilde f$ is sc-Fredholm" is
 `Polyfold.StrongBundle.IsScFredholmSection.param`, through translation charts of $\mathbb R^n\times X$ centred at
 $(r_0,x)$, the product chart, and the $\mathbb R^n$-extension of the conjugation
 (`Polyfold.IsConjugateToBasicGerm.paramExtend`). No hypothesis is added; tameness is not used, as in
 Theorem 3.1.18 (preprint 3.15), and $\mathbb R^n\times X$ is tame when $X$ is (`Polyfold.prod_rn_isTame`). For germ data in
-tame charts (Definition 3.6.4 (preprint 3.51), §6.1): `Polyfold.theorem_3_18_tame`. The product chart
+tame charts (Definition 3.6.4 (preprint 3.51), §6.1): `Polyfold.theorem_3_1_21_tame`. The product chart
 $(r\mapsto r-r_0)\times\varphi$ has the base retraction $1\times r$ on $\mathbb R^n\times U$, which is tame
 when $r$ is, the factor $\mathbb R^n$ carrying no boundary coordinate
 (`Polyfold.PullbackChartData.ofProd_isTame`); so $F$ has germ data in tame charts whenever $f$ has, which
@@ -676,12 +676,12 @@ of $w = B(a,w)$, $a\in V_0$, equals $\delta(a)$. $\square$
 The text's statement leaves the uniqueness region implicit; Remark 3.3.8 (preprint 3.36) makes it explicit ($|w|_0\le\tau_0$).
 (Also, preprint p. 85 writes "$\delta_1:V_1\to W_1$ satisfying $\delta(0) = 0$" for $\delta_1(0) = 0$ *(book 2017: unchanged, p. 77)*.)
 
-*Checked by machine:* `Polyfold.theorem_3_29` (the solution germ property
+*Checked by machine:* `Polyfold.theorem_3_3_2` (the solution germ property
 `Polyfold.ContractionGerm.IsSolutionGerm` on the germ $V_m = N(m)\cap\widetilde C$, and uniqueness in $O(0)$),
 with `Polyfold.ContractionGerm.fixLvl`, `Polyfold.ContractionGerm.incl_fixLvl`,
 `Polyfold.ContractionGerm.continuousOn_fixLvl`, `Polyfold.ContractionGerm.sol`,
 `Polyfold.ContractionGerm.eq_sol`; from Definition 3.3.1 (preprint 3.28) directly,
-`Polyfold.theorem_3_29_of_isSc0ContractionGerm`.
+`Polyfold.theorem_3_3_2_of_isSc0ContractionGerm`.
 
 For $s\ge0$ write
 $$\mathrm{germ}(s) := \big(N(m+s)\cap\widetilde C\big)_{m\ge0},$$
@@ -737,7 +737,7 @@ $|\zeta(a)-\zeta(a')|_m\le2|L_m(a)(h,0)-L_m(a')(h,0)|_m+2|(T_m(a)-T_m(a'))\zeta(
 $\mathrm{germ}(1)$ at level $1$ equal to $N(2)\cap\widetilde C$, this is exactly Definition 3.1.2 (preprint 3.2) for $\delta$ on
 $\mathrm{germ}(1)$, with derivative $A_0(a)$. $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_30` (solution germ and sc$^1$-germ on $\mathrm{germ}(1)$), with
+*Checked by machine:* `Polyfold.theorem_3_3_3` (solution germ and sc$^1$-germ on $\mathrm{germ}(1)$), with
 `Polyfold.ContractionGerm.isSc1GermWith_sol` (derivative family `Polyfold.ContractionGerm.solDeriv`),
 the operators `Polyfold.ContractionGerm.Lop`, `Polyfold.ContractionGerm.Top`,
 `Polyfold.ContractionGerm.Aop`, the estimate `Polyfold.ContractionGerm.norm_Top_le`, the key identity
@@ -813,7 +813,7 @@ every $b$: the regions of Step 1 are what makes "from the uniqueness we conclude
 Note also that $D\delta(v)$ needs the level-$1$ operators at $(v,\delta(v))$, i.e. $v\in N(2)$: the parameter
 region of $f^{(1)}$ is $N(2+s)\times P$.
 
-*Checked by machine:* `Polyfold.ContractionGerm.lemma_3_31` (if $B$ is sc$^{k+1}$ and $\delta$ is sc$^j$ on
+*Checked by machine:* `Polyfold.ContractionGerm.lemma_3_3_4` (if $B$ is sc$^{k+1}$ and $\delta$ is sc$^j$ on
 $\mathrm{germ}(s)$, then $f^{(1)}$ is a contraction germ of class sc$^{\min(k,j)}$ whose solution germ is
 $T\delta$ on $(N(2+s)\cap\widetilde C)\times P$), with the germ `Polyfold.ContractionGerm.nextG`, the map
 `Polyfold.ContractionGerm.nextB` (formula (38) as $(\mathrm{pr}_1\circ TB\circ\sigma,\mathrm{pr}_2\circ
@@ -876,7 +876,7 @@ germs $f^{(j)}$ ever being constructed.
 *Checked by machine:* `Polyfold.ContractionGerm.sol_isSckGerm` (Claim ($\mathrm S_j$), stated with "for some
 $s$"), its step `Polyfold.ContractionGerm.isSckGerm_succ_of_next` (if $T\delta$ is sc$^j$ on
 $\mathrm{germ}^{(1)}(s')$ then $\delta$ is sc$^{j+1}$ on $\mathrm{germ}(s+s'+1)$, the transport through
-`Polyfold.constTangentOp'`), and `Polyfold.theorem_3_33`: *there is $s$* such that $\delta$ is a solution germ
+`Polyfold.constTangentOp'`), and `Polyfold.theorem_3_3_6`: *there is $s$* such that $\delta$ is a solution germ
 and an sc$^k$-germ on $\mathrm{germ}(s)$. The value $s_k = 2^k-1$ is read off the Lean proof (the step
 produces $s+s'+1$ from the values $s$, $s'$ of the previous stage, both equal to $s_j$ because the proof
 does the same thing for every contraction germ); it is not itself a Lean statement. Lemma 3.3.5 (preprint 3.32) as stated
@@ -899,8 +899,8 @@ $W_m$ by a $C^k$ map. $\square$
 (The text cites "Proposition 1.17 and 1.18 and Proposition 3.40"; the last is Theorem 3.5.1 (preprint 3.40), and it is not
 needed *(book 2017: unchanged, renumbered: "Proposition 1.6 and 1.7 and Proposition 3.11" for Theorem 3.11, p. 79)*.)
 
-*Checked by machine:* `Polyfold.corollary_3_34`, with $V_{m,k} = N(m+k+s)\cap\widetilde C$, by this proof
-(`Polyfold.theorem_3_33_smooth`, `Polyfold.IsSckGerm.contDiffOn_levels`).
+*Checked by machine:* `Polyfold.corollary_3_3_7`, with $V_{m,k} = N(m+k+s)\cap\widetilde C$, by this proof
+(`Polyfold.theorem_3_3_6_smooth`, `Polyfold.IsSckGerm.contDiffOn_levels`).
 
 **Theorem 3.35 (preprint).** Let $\widetilde C$ be a finite-dimensional partial quadrant in $\mathbb R^n$. If $f:\mathcal
 O(\widetilde C\oplus W,0)\to(W,0)$ is an sc$^0$-contraction germ of class sc$^k$, then its solution germ $\delta$
@@ -909,7 +909,7 @@ is of class sc$^k$. In particular, if $f$ is sc-smooth so is $\delta$.
 *Proof.* The proofs above use of $\widetilde C$ only that it is convex, contains $0$, and has nonempty
 interior (for the uniqueness of derivatives); partial quadrants have these properties. $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_35` and, for the last sentence, `Polyfold.theorem_3_35_smooth`:
+*Checked by machine:* `Polyfold.theorem_3_35_preprint` and, for the last sentence, `Polyfold.theorem_3_35_smooth_preprint`:
 for every $k$ there is $s$ with $\delta$ sc$^k$ on $\mathrm{germ}(s)$.
 
 **What Theorem 3.35's (preprint) last sentence means.** Definition 3.1.2 (preprint 3.2) calls $\delta$ sc-smooth on a germ $(V_m)$ if it is
@@ -925,7 +925,7 @@ for every $k$. Therefore:
   which $\delta$ was constructed.
 * Theorem 3.35's (preprint) last sentence, and the last sentence of Corollary 3.3.7 (preprint 3.34) ("$\delta$ is sc-smooth at the smooth
   point $0$"), hold in the sense of Corollary 3.3.7 (preprint 3.34): *for every $k$*, sc$^k$ on a germ depending on $k$
-  (`Polyfold.theorem_3_35_smooth`). They are not proved — by the text or by the formalization — in the
+  (`Polyfold.theorem_3_35_smooth_preprint`). They are not proved — by the text or by the formalization — in the
   sense of `Polyfold.IsScSmoothGerm` on one fixed germ.
 * HWZ's germs are "up to shrinking" ("the size of the sets $U_m$ does not matter", Definition 3.1.1 (preprint 3.1)), and in
   that reading the two senses coincide. The formalization, which must fix the sets, shows that the
@@ -949,7 +949,7 @@ $\tau_i = r'_i/2$, the radius of $K(i)$ (Theorem 3.3.2 (preprint 3.29): $\delta_
 Corollary 3.3.7 (preprint 3.34) with $m = k = i$, which needs $\varepsilon_i$ below the radius of $N(2i+2^i-1)$.
 
 *Not checked by machine:* Remark 3.3.8 (preprint 3.36) is not formalized in its quantitative form; its content is
-`Polyfold.theorem_3_29` (with `Polyfold.ContractionGerm.fixLvl_mem_K`) and `Polyfold.corollary_3_34`.
+`Polyfold.theorem_3_3_2` (with `Polyfold.ContractionGerm.fixLvl_mem_K`) and `Polyfold.corollary_3_3_7`.
 
 ### An interactive look at a contraction germ
 
@@ -1060,13 +1060,13 @@ $\iota_i(\iota^{i+1}_iL_{i+1}x)$, so $\mathrm{cl}(S\cap O(i)) = \iota_i(K_i)$. $
 The $O(i)$ are the balls of radius $\tau_{i+1}$ (up to the monotone adjustment), one level ahead of the
 text's $O(m)$ (radius $\tau_m$): compactness in $E_i$ comes from boundedness in $E_{i+1}$.
 
-*Checked by machine:* `Polyfold.theorem_3_40_compactness` (the statement "as proved") and
-`Polyfold.theorem_3_40_regularity` (the text's statement), with Step 1
+*Checked by machine:* `Polyfold.theorem_3_5_1_compactness` (the statement "as proved") and
+`Polyfold.theorem_3_5_1_regularity` (the text's statement), with Step 1
 `Polyfold.IsSc0ContractionGerm.exists_lift` and Step 2
 `Polyfold.IsSc0ContractionGerm.isCompact_lift_image`; the compactness of $\iota_{m+1}$ is
 `Polyfold.ScBanach.toBase_succ_isCompactOperator`. For a basic germ plus an sc$^+$-germ (the solution set of
-$h+s$, whose $\mathbb R^N$-component only shrinks $S$): `Polyfold.theorem_3_12_local`, and for any subset of
-that solution set `Polyfold.theorem_3_12_local_subset`.
+$h+s$, whose $\mathbb R^N$-component only shrinks $S$): `Polyfold.theorem_3_1_13_local`, and for any subset of
+that solution set `Polyfold.theorem_3_1_13_local_subset`.
 
 **Corollary 3.1.15 (preprint 3.13) in local form.** If $x_k$ are solutions of (3.2) in $U_0$ with $x_k\to0$ in $E_0$, then for
 every $m$ the $x_k$ lie in $E_m$ for $k$ large and converge to $0$ there.
@@ -1074,7 +1074,7 @@ every $m$ the $x_k$ lie in $E_m$ for $k$ large and converge to $0$ there.
 *Proof.* For $k$ large, $x_k\in\mathrm{Sol}(\tau_m)$, and $L_mx_k\to L_m0 = 0$ in $E_m$ by the continuity of $L_m$
 for the level-$0$ topology. $\square$
 
-*Checked by machine:* `Polyfold.corollary_3_13_local`.
+*Checked by machine:* `Polyfold.corollary_3_1_15_local`.
 
 **Proof of Theorem 3.1.13 (preprint 3.12).** Let $\Phi$ be the chart of Definition 3.1.11 (preprint 3.11), centred at $x_0$, with filled version
 $g$, sc$^+$-section $s$ ($s(0) = g(0)$) and conjugation $\Psi$ covering $\psi$, $h$ the basic germ with
@@ -1100,7 +1100,7 @@ $(\Psi(u,g(u)-s(u)))_2 = h(\psi(u))$ near $0$.
 
 Setting $O(i) := \varphi^{-1}(\psi^{-1}(O'(i)\cap\text{ball}))$ gives the theorem. $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_12`, through `Polyfold.theorem_3_12_local_subset`,
+*Checked by machine:* `Polyfold.theorem_3_1_13_preprint`, through `Polyfold.theorem_3_1_13_local_subset`,
 `Polyfold.IsStrongBundleIso.snd_eq_zero_iff` (item 2), `Polyfold.IsStrongBundleMap.base_isScSmooth` and
 `Polyfold.IsStrongBundleMap.toBase_shiftFiber_snd` (item 3), `Polyfold.eq_of_mem_closure_of_continuousOn`
 (item 5: a limit of zeros in the domain of continuity is a zero), and
@@ -1116,7 +1116,7 @@ $(f,x)$ is an sc-Fredholm germ and the first part applies at $x$. $\square$
 The space $X_m$ is not known to be first countable here (its metrizability, Theorem 2.3.10 (preprint 2.16), is not used), so
 the convergence is proved with cluster points in the compact set $K_m$ rather than with subsequences.
 
-*Checked by machine:* `Polyfold.corollary_3_13`, `Polyfold.corollary_3_13_section` (with
+*Checked by machine:* `Polyfold.corollary_3_1_15_preprint`, `Polyfold.corollary_3_1_15_section` (with
 `Polyfold.StrongBundle.IsScSmoothSection.isZeroAt_of_tendsto`,
 `Polyfold.StrongBundle.IsScFredholmSection.mem_smoothSet_of_isZeroAt`), and
 `Polyfold.tendsto_of_isCompact_of_tendsto_map` (Lemma 10.C).
@@ -1133,7 +1133,7 @@ The preprint states its implicit function theorems on pp. 100–105 (preprint pp
 
 The text's proof is given at the end of §2.2: $(r,x)\mapsto f(x)$ is sc-Fredholm on $\pi^*P$, and Theorem 3.1.18 (preprint 3.15) adds the sc$^+$-section $\sum_ir_is_i$.
 
-*Checked by machine:* `Polyfold.theorem_3_18`, by the text's route (the pull-back of $f$ is sc-Fredholm, `Polyfold.StrongBundle.IsScFredholmSection.param`, then Theorem 3.1.18 (preprint 3.15)); its linearization at $(0,x)$, $(\delta r,\xi)\mapsto f'(x)\xi+\sum_i\delta r_is_i(x)$, is `Polyfold.linAt_paramSection_zero`. No added hypothesis. With germ data in tame charts, as the theorems of §6 need: `Polyfold.theorem_3_18_tame` (§2.2).
+*Checked by machine:* `Polyfold.theorem_3_1_21_preprint`, by the text's route (the pull-back of $f$ is sc-Fredholm, `Polyfold.StrongBundle.IsScFredholmSection.param`, then Theorem 3.1.18 (preprint 3.15)); its linearization at $(0,x)$, $(\delta r,\xi)\mapsto f'(x)\xi+\sum_i\delta r_is_i(x)$, is `Polyfold.linAt_paramSection_zero`. No added hypothesis. With germ data in tame charts, as the theorems of §6 need: `Polyfold.theorem_3_1_21_tame` (§2.2).
 
 Its use (p. 101 (preprint p. 75)): if $f'(x_0)$ is not onto, add sc$^+$-sections $s_i$ whose values at $x_0$ span a complement of the range; the zero set $\tilde S$ of $f+\sum_ir_is_i$ near $(0,x_0)$ is then a manifold (Theorems 3.1.21, 3.6.8 (preprint 3.18, 3.54)), and the zeros of $f$ are those of $(r,y)\mapsto r$ on $\tilde S$. This finite-dimensional reduction uses the local Theorem 3.6.8 (preprint 3.54), including the step that the text leaves incomplete and §6.3 (Step 5) proves. The formula for the linearization holds at $(0,x)$ in the chart form; at a point $(r_0,x)$ with $r_0\ne0$ its first term is the linearization of $f+\sum_ir_{0,i}s_i$, not $f'(x)$ (`Polyfold.linAt_paramSection`).
 
@@ -1141,7 +1141,7 @@ Its use (p. 101 (preprint p. 75)): if $f'(x_0)$ is not onto, add sc$^+$-sections
 
 *Proof, given Theorem 3.6.8 (1) (preprint 3.54).* The first claim is Proposition 3.6.5 (preprint 3.52) (§6.1). Let $f'(x_0)$ be onto. As $d_X(x_0) = 0$, condition (2) of Definition 3.6.6 (preprint 3.53) is void and $(f,x_0)$ is in good position; $X$ is tame, as the text notes (a chart realizing $d_X(x) = 0$ can be shrunk to one whose quadrant is the whole space). Theorem 3.6.8 (1) (preprint 3.54) gives an open $V_0\ni x_0$ in which every zero is in good position (the step for which the text's argument is incomplete and §6.3, Step 5, gives a new one), and Theorem 3.1.26 (preprint 3.23) below gives $U\subset V_0$ with $S(f,U)$ a manifold with corners of dimension $d = \dim\ker f'(x_0) = \operatorname{ind}f'(x_0)$, without boundary since $d_S\le d_X = 0$ (Lemma 2.4.6 (preprint 2.26)). For $y\in S(f,U)$, $f'(y)$ is onto, and in the chart at $x_0$ its kernel is the tangent space of the graph of $\sigma$ (§6.3, Step 3 (a), (b)): $\ker f'(y) = T_yS(f,U)$, read in that chart. $\square$
 
-*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_19'` for $d_X\equiv0$ (`Polyfold.MPolyfold.IsWithoutBoundary`), an sc-Fredholm section with germ data in a tame chart at every smooth point (Definition 3.6.4 (preprint 3.51), `Polyfold.StrongBundle.IsScFredholmSectionTame`) and a zero in good position in a tame chart (Definition 3.6.6 (preprint 3.53) in the chart of Definition 3.6.3 (preprint 3.50), `Polyfold.StrongBundle.IsGoodPositionGermTame`; §6.1), concluding good position in tame charts at the zeros in $U$; `Polyfold.theorem_3_19_of_surjective` with the text's hypothesis "$f'(x_0)$ surjective" (`Polyfold.StrongBundle.IsLinSurjAt`): at a zero with $d_X = 0$ the tame chart of the germ data has $d_C = d_X = 0$ there, the partial cone is the whole tangent space, and good position is surjectivity (`Polyfold.StrongBundle.isGoodPositionGerm_iff_isLinSurjAt`). **Dimension = Fredholm index**: `Polyfold.theorem_3_19_index`, with $S(f,U)$ a tame $d$-dimensional manifold without boundary and, at every zero $y\in U$, $f'(y)$ onto with $\operatorname{ind}f'(y) = \dim\ker f'(y) = d$ in every chart (`Polyfold.StrongBundle.IsSurjLinOfIndex`). **$\ker f'(y) = T_yS$ in charts**: `Polyfold.theorem_3_54_ker_eq_tangent` — in the chart $\psi\circ\varphi$ of §6.3, the derivative $D\psi$ maps $\ker f'(y)$ onto the tangent space of the graph of $\sigma$ at the point over $y$; $T_yS$ as a subspace of $T_yX$ is not formalized ($T_yX$ is gap G.13). The first clause: `Polyfold.theorem_3_19_linearization_index` (Fredholm on level $0$ in the chart, index $\dim\ker f'(x_0) = n-N$ for every conjugation). The earlier form `Polyfold.theorem_3_19` assumes filler condition (3) at the nearby zeros (`Polyfold.StrongBundle.IsGoodPositionGermFilled`, in a tame chart); that condition follows from good position (`Polyfold.isGoodPositionGermFilled_of_isGoodPositionGerm`, §6.3, Step 5).
+*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_1_22'` for $d_X\equiv0$ (`Polyfold.MPolyfold.IsWithoutBoundary`), an sc-Fredholm section with germ data in a tame chart at every smooth point (Definition 3.6.4 (preprint 3.51), `Polyfold.StrongBundle.IsScFredholmSectionTame`) and a zero in good position in a tame chart (Definition 3.6.6 (preprint 3.53) in the chart of Definition 3.6.3 (preprint 3.50), `Polyfold.StrongBundle.IsGoodPositionGermTame`; §6.1), concluding good position in tame charts at the zeros in $U$; `Polyfold.theorem_3_1_22_of_surjective` with the text's hypothesis "$f'(x_0)$ surjective" (`Polyfold.StrongBundle.IsLinSurjAt`): at a zero with $d_X = 0$ the tame chart of the germ data has $d_C = d_X = 0$ there, the partial cone is the whole tangent space, and good position is surjectivity (`Polyfold.StrongBundle.isGoodPositionGerm_iff_isLinSurjAt`). **Dimension = Fredholm index**: `Polyfold.theorem_3_1_22_index`, with $S(f,U)$ a tame $d$-dimensional manifold without boundary and, at every zero $y\in U$, $f'(y)$ onto with $\operatorname{ind}f'(y) = \dim\ker f'(y) = d$ in every chart (`Polyfold.StrongBundle.IsSurjLinOfIndex`). **$\ker f'(y) = T_yS$ in charts**: `Polyfold.theorem_3_6_8_ker_eq_tangent` — in the chart $\psi\circ\varphi$ of §6.3, the derivative $D\psi$ maps $\ker f'(y)$ onto the tangent space of the graph of $\sigma$ at the point over $y$; $T_yS$ as a subspace of $T_yX$ is not formalized ($T_yX$ is gap G.13). The first clause: `Polyfold.theorem_3_1_22_linearization_index` (Fredholm on level $0$ in the chart, index $\dim\ker f'(x_0) = n-N$ for every conjugation). The earlier form `Polyfold.theorem_3_1_22` assumes filler condition (3) at the nearby zeros (`Polyfold.StrongBundle.IsGoodPositionGermFilled`, in a tame chart); that condition follows from good position (`Polyfold.isGoodPositionGermFilled_of_isGoodPositionGerm`, §6.3, Step 5).
 
 **Remark 3.1.23 (preprint 3.20).** In [21] the filled version $g$ itself, minus $g(0)$, is conjugated to a basic germ; then $f+s$ need not be sc-Fredholm for an sc$^+$-section $s$, only $(f+s)^1$ is, by a "nontrivial theorem" of [21]. Definition 3.1.11 (preprint 3.11) subtracts an sc$^+$-section instead, which makes Theorem 3.1.18 (preprint 3.15) true and moves the difficulty into the implicit function theorem (the index raise of Theorem 3.4.2 (preprint 3.38)). *Not checked by machine:* a comparison with [21].
 
@@ -1153,13 +1153,13 @@ The text's sketch (preprint p. 76), a graph over $\ker g'(0)$ in a filling at $0
 
 (The text's sketch on preprint p. 78 projects onto $T_0O$ along $(1-Dt(0))E$; the charts here are those of Theorem 3.2.3 (2) (preprint 3.27).)
 
-*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_23'` (through Theorem 3.6.8 (1) (preprint 3.54), `Polyfold.theorem_3_54_one'`, and `Polyfold.theorem_3_23_of_nearby`, which assumes that every zero in an open $V_0\ni x$ is in good position), and `Polyfold.theorem_3_23_index`, which adds that $d$ is the Fredholm index: at every zero $y\in U$, $f'(y)$ is onto with $\operatorname{ind}f'(y) = \dim\ker f'(y) = d$ in every chart. (The earlier `Polyfold.theorem_3_23` assumes `Polyfold.StrongBundle.IsGoodPositionGermFilled`, which follows from good position.) $S(f,U)$ consists of smooth points (`Polyfold.StrongBundle.IsScFredholmSection.mem_smoothSet_of_isZeroAt`), is a sub-M-polyfold (`Polyfold.MPolyfold.IsSubMPolyfold`), and the induced structure (`Polyfold.MPolyfold.subPolyfold`) is tame and a $d$-dimensional manifold with corners (`Polyfold.MPolyfold.IsManifoldWithCorners`). "Tame strong bundle" is read as Definitions 3.6.3, 3.6.4 and 3.6.6 (preprint 3.50, 3.51 and 3.53) read it (§6.1): `Polyfold.theorem_3_23'` and `Polyfold.theorem_3_23_index` assume germ data in a tame chart at every smooth point (`Polyfold.StrongBundle.IsScFredholmSectionTame`) and $(f,x)$ in good position in a tame chart (`Polyfold.StrongBundle.IsGoodPositionGermTame`), and conclude good position in tame charts at the zeros in $U$; `Polyfold.theorem_3_23_of_nearby` assumes an sc-Fredholm section and good position in tame charts at $x$ and at the zeros in $V_0$. Uniqueness is not stated separately.
+*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_1_26'` (through Theorem 3.6.8 (1) (preprint 3.54), `Polyfold.theorem_3_6_8_one'`, and `Polyfold.theorem_3_1_26_of_nearby`, which assumes that every zero in an open $V_0\ni x$ is in good position), and `Polyfold.theorem_3_1_26_index`, which adds that $d$ is the Fredholm index: at every zero $y\in U$, $f'(y)$ is onto with $\operatorname{ind}f'(y) = \dim\ker f'(y) = d$ in every chart. (The earlier `Polyfold.theorem_3_1_26` assumes `Polyfold.StrongBundle.IsGoodPositionGermFilled`, which follows from good position.) $S(f,U)$ consists of smooth points (`Polyfold.StrongBundle.IsScFredholmSection.mem_smoothSet_of_isZeroAt`), is a sub-M-polyfold (`Polyfold.MPolyfold.IsSubMPolyfold`), and the induced structure (`Polyfold.MPolyfold.subPolyfold`) is tame and a $d$-dimensional manifold with corners (`Polyfold.MPolyfold.IsManifoldWithCorners`). "Tame strong bundle" is read as Definitions 3.6.3, 3.6.4 and 3.6.6 (preprint 3.50, 3.51 and 3.53) read it (§6.1): `Polyfold.theorem_3_1_26'` and `Polyfold.theorem_3_1_26_index` assume germ data in a tame chart at every smooth point (`Polyfold.StrongBundle.IsScFredholmSectionTame`) and $(f,x)$ in good position in a tame chart (`Polyfold.StrongBundle.IsGoodPositionGermTame`), and conclude good position in tame charts at the zeros in $U$; `Polyfold.theorem_3_1_26_of_nearby` assumes an sc-Fredholm section and good position in tame charts at $x$ and at the zeros in $V_0$. Uniqueness is not stated separately.
 
 **Corollary 3.1.27 (preprint 3.24).** Let $P:Y\to X$ be a strong bundle over a tame M-polyfold and $f$ an sc-Fredholm section such that at every zero $x$, $f'(x)$ is surjective and $\ker f'(x)$ is in good position to $C_xX$ (an empty condition if $d_X(x) = 0$). Then $M = f^{-1}(0)$ is a sub-M-polyfold of $X$ whose induced structure is tame and admits an sc-smoothly equivalent structure of a smooth manifold with boundary with corners.
 
 *Proof.* This is Theorem 3.6.11 (preprint 3.57) (§6.4): good position at every zero supplies the nearby good position that the proof of Theorem 3.1.26 (preprint 3.23) needs. $\square$
 
-*Checked by machine, with the text's hypotheses:* `Polyfold.corollary_3_24` (= `Polyfold.theorem_3_57`), for an sc-Fredholm section in good position in a tame chart at every zero (`Polyfold.StrongBundle.IsGoodPositionGermTame`, §6.1) and $M\ne\emptyset$, with a manifold with corners of locally constant dimension (`Polyfold.MPolyfold.IsManifoldWithCornersLoc`; §6.4).
+*Checked by machine, with the text's hypotheses:* `Polyfold.corollary_3_1_27` (= `Polyfold.theorem_3_6_11`), for an sc-Fredholm section in good position in a tame chart at every zero (`Polyfold.StrongBundle.IsGoodPositionGermTame`, §6.1) and $M\ne\emptyset$, with a manifold with corners of locally constant dimension (`Polyfold.MPolyfold.IsManifoldWithCornersLoc`; §6.4).
 
 ### 4.2 The tangent germ property
 
@@ -1173,7 +1173,7 @@ We write $\pi:E\to N$ for the projection along $Y$ and $\Gamma(v) = v+\delta(v)$
 
 *Proof.* Data $\varphi$, $N$, $Y$, $V$, $\delta$ for $M$ at $x$ give the data $\varphi\circ\psi^{-1}$ (a chart, Proposition 2.4.4 (preprint 2.24)), $N$, $Y$, $V$, $\delta$ for $M'$ at $\psi(x)$, since $\varphi\circ\psi^{-1}(M'\cap\psi(U)) = \varphi(M\cap U)$; and $M'\subset X'_\infty$, sc-smooth maps preserving levels. Use $\psi^{-1}$ for the converse. $\square$ (The text's first step, that $X' = \psi(X)$ is tame, is not needed: only the model $(O,C,E)$ must be tame.)
 
-*Checked by machine:* `Polyfold.proposition_3_26`, `Polyfold.proposition_3_26_image`, through `Polyfold.MPolyfold.TangentGermChart.transport`.
+*Checked by machine:* `Polyfold.proposition_3_2_2`, `Polyfold.proposition_3_2_2_image`, through `Polyfold.MPolyfold.TangentGermChart.transport`.
 
 **Theorem 3.2.3 (preprint 3.27).** If $X$ is a tame M-polyfold and $M\subset X$ has the $n$-dimensional tangent germ property, then (1) $M$ is a sub-M-polyfold of $X$ whose induced structure is tame and sc-smoothly equivalent to a smooth manifold with boundary with corners; (2) with the data of Definition 3.2.1 (preprint 3.25), $M\cap U\to V$, $y\mapsto\pi\circ\varphi(y)$, is a smooth chart of $M$ around $x$.
 
@@ -1191,7 +1191,7 @@ The formalized proof uses two properties of the data, which the text's proof ass
 
 Tameness of $X$ is not used, only that of the models; the retraction onto $\Sigma\cap O$, for which the text invokes tameness, exists for any retract.
 
-*Checked by machine, under the regularity conditions* (`Polyfold.MPolyfold.TangentGermChart.IsRegular`): `Polyfold.theorem_3_27`, `Polyfold.theorem_3_27_isSubMPolyfold` (Steps 1–3: `Polyfold.MPolyfold.TangentGermChart.Sig_eq`, `Polyfold.MPolyfold.TangentGermChart.t_isScSmoothRetractMap`, `Polyfold.isScSmooth_subtype_val`), `Polyfold.MPolyfold.TangentGermChart.chart`, `Polyfold.MPolyfold.theorem_3_27_isChart`, `Polyfold.MPolyfold.theorem_3_27_isTame`, `Polyfold.MPolyfold.theorem_3_27_isManifoldWithCorners`, `Polyfold.MPolyfold.theorem_3_27_degIndex` ($d_M(y) = d_{N\cap C}(\pi\varphi(y))$); with a dimension that varies from point to point, `Polyfold.theorem_3_27_loc`.
+*Checked by machine, under the regularity conditions* (`Polyfold.MPolyfold.TangentGermChart.IsRegular`): `Polyfold.theorem_3_2_3_of_isRegular`, `Polyfold.theorem_3_2_3_isSubMPolyfold` (Steps 1–3: `Polyfold.MPolyfold.TangentGermChart.Sig_eq`, `Polyfold.MPolyfold.TangentGermChart.t_isScSmoothRetractMap`, `Polyfold.isScSmooth_subtype_val`), `Polyfold.MPolyfold.TangentGermChart.chart`, `Polyfold.MPolyfold.theorem_3_2_3_isChart`, `Polyfold.MPolyfold.theorem_3_2_3_isTame`, `Polyfold.MPolyfold.theorem_3_2_3_isManifoldWithCorners`, `Polyfold.MPolyfold.theorem_3_2_3_degIndex` ($d_M(y) = d_{N\cap C}(\pi\varphi(y))$); with a dimension that varies from point to point, `Polyfold.theorem_3_2_3_loc_of_isRegular`.
 
 > **Two steps of the text's proof are false as stated.** (a) To show that $\delta$ is sc$^\infty$ near every $v_0\in V$, the text re-centres at $\varphi^{-1}(\Gamma(v_0))$, with data $\psi$, $N'$, $\tau$ there, and asserts that $h\mapsto\pi\circ T(\varphi\circ\psi^{-1})(0)h$ is an isomorphism $N'\to N$. That needs $\delta$ differentiable at $v_0$, known only near $0$. Example: $X = \mathbb R^2$, $M$ the graph of a function $g$, smooth except at $2$, with $g(s) = s^2$ near $0$ and $g(s) = 4+(s-2)^{1/3}$ near $2$. Near $(2,4)$, $M$ is the graph of $w\mapsto w^3$ over the vertical line, so $M$ is a smooth curve with the $1$-dimensional tangent germ property. At $0$ the data $\varphi = \mathrm{id}$, $N$ horizontal, $Y$ vertical, $V = \mathbb R$, $\delta = g$ satisfy Definition 3.2.1 (2) (preprint 3.25), but the text's map at $v_0 = 2$ is $w\mapsto2+w^3$, with derivative $0$ at $0$, and $y\mapsto\pi\varphi(y)$ is not a chart on all of $M\cap U$ (its transition to the chart at $(2,4)$ has a non-smooth inverse); (2) holds after shrinking $U$.
 >
@@ -1262,7 +1262,7 @@ So $(\Phi_*(f+s))^1$ is a basic germ.
 
 *Step 6: zeros and index.* $\Psi$ is a linear bijection, so $\Phi_*(f+s)(y) = 0$ iff $(f+s)(\psi^{-1}y) = 0$; and $n'-N' = n+\dim C-N-\dim Z = n-N$. $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_38`, with a *linear* coordinate change (`Polyfold.StabilityData.split`, `Polyfold.StabilityData.fiber`) built from the sc-Fredholm splitting $W = C\oplus X = R\oplus Z$ of $1+D_2s(0)$ (`Polyfold.StabilityData`, which exists by Proposition 1.1.11 (preprint 1.10), `Polyfold.StabilityData.exists_of_scPlus`); the push-forward `Polyfold.StabilityData.pushMap` on the index-raised spaces is a basic germ with contraction map $L^{-1}P_2(B-S)$; zeros correspond (`Polyfold.StabilityData.pushMap_eq_zero_iff`) and $\dim C = \dim Z$ (`Polyfold.StabilityData.finrank_Cs_eq_finrank_Zs`). Only the $W$-component of $s$ enters; the text's $\tau:Z\to C$ is not applied. Steps 4–5: `Polyfold.StabilityData.pushMap_isScSmoothGerm`, `Polyfold.StabilityData.pushB_isSc0ContractionGerm`.
+*Checked by machine:* `Polyfold.theorem_3_4_2`, with a *linear* coordinate change (`Polyfold.StabilityData.split`, `Polyfold.StabilityData.fiber`) built from the sc-Fredholm splitting $W = C\oplus X = R\oplus Z$ of $1+D_2s(0)$ (`Polyfold.StabilityData`, which exists by Proposition 1.1.11 (preprint 1.10), `Polyfold.StabilityData.exists_of_scPlus`); the push-forward `Polyfold.StabilityData.pushMap` on the index-raised spaces is a basic germ with contraction map $L^{-1}P_2(B-S)$; zeros correspond (`Polyfold.StabilityData.pushMap_eq_zero_iff`) and $\dim C = \dim Z$ (`Polyfold.StabilityData.finrank_Cs_eq_finrank_Zs`). Only the $W$-component of $s$ enters; the text's $\tau:Z\to C$ is not applied. Steps 4–5: `Polyfold.StabilityData.pushMap_isScSmoothGerm`, `Polyfold.StabilityData.pushB_isSc0ContractionGerm`.
 
 > **What the proof leaves implicit.** (a) The text's sc-diffeomorphism is the linear $\psi$ (its fibre map also uses an isomorphism $\tau:Z\to C$, not needed); §5.3 exploits the linearity. (b) "The levels are raised by $1$" is a change of sc-structure: the new germ lives on the spaces with levels $X_{m+1}$, around $0$ in $\psi(U_{m+1})$, and is sc-smooth there by Proposition 1.2.2 (preprint 1.17) for germs. (c) "$S$ is … an arbitrary small contraction on every level $m\ge1$" is Lemma 5.A, which needs the operator-norm continuity of the level derivative of $s$, not only $D_2S(0) = 0$. (d) Of $f$ only $B$ enters, of $s$ only its $W$-component, and "$\operatorname{ind}(1+A) = 0$ because $A$ is level wise compact" is Proposition 1.1.11 (preprint 1.10) for the identity.
 
@@ -1272,13 +1272,13 @@ $\Psi$ such that $((\Psi\circ\Phi)_*(g+s))^1$ is a basic germ.
 
 *Proof (the text's, with what it leaves implicit).* Let $\Phi$ cover the sc-diffeomorphism $\varphi:(U,0)\to(V,0)$, with $h := \Phi_*g$ basic. Then $t := \Phi_*s$ is an sc$^+$-germ with $t(0) = 0$, because $\Phi$ is sc-smooth on $(U\triangleleft F)[1]$ (Definition 2.6.1 (preprint 2.47); cf. item 3 of the proof of Theorem 3.1.13 (preprint 3.12)), and $\Phi_*(g+s) = h+t$ since $\Phi$ is fibrewise linear. Theorem 3.4.2 (preprint 3.38) for $h$ and $t$ gives the linear $\Psi$ with $(\Psi_*(h+t))^1$ basic, and the text takes $\Gamma := \Psi\circ\Phi$. Two points are implicit. First, $(\Gamma_*(g+s))^1 = \Psi^1_*\big(\Phi^1_*(g+s)^1\big)$ needs $\Phi^1$, the map $\Phi$ on the raised bundles, to be a strong bundle isomorphism covering $\varphi^1$: the raised bundle and its $[1]$-version have the double levels of $U\triangleleft F$ and $(U\triangleleft F)[1]$ shifted by one, and sc-smooth maps stay sc-smooth on shifted structures (Proposition 1.2.2 (preprint 1.17)). Second, $\Gamma$ must be a coordinate change of the *original* bundle ("compatible with the original sc-structure", as the text remarks): it is, because the $\Psi$ of Theorem 3.4.2 (preprint 3.38) consists of sc-isomorphisms of the unshifted spaces whose raised versions are their level shifts. $\square$
 
-*Checked by machine:* `Polyfold.corollary_3_39` (explicit form) and `Polyfold.corollary_3_39_isConjugate`: for $g$ sc-smooth and conjugated to a basic germ and $s$ an sc$^+$-germ with $s(0) = 0$, the index-raised germ $(g+s)^1$ is conjugated to a basic germ on the shifted structures, by the composite $\Gamma = \Lambda\circ\Phi^1$ of the index raise of $\Phi$ (`Polyfold.IsStrongBundleIso.shift`) and the linear coordinate change of Theorem 3.4.2 (preprint 3.38) (`Polyfold.StabilityData.linIso_isStrongBundleIso`); $\Gamma$ is the text's $(\Psi\circ\Phi)^1$ (`Polyfold.ConjugationData.compIso_eq_strongShift`), and the $\mathbb R^N$-part of $\Phi_*s$ is absorbed into the basic germ as in Theorem 3.6.8 (preprint 3.54). In Theorem 3.6.8 (preprint 3.54) itself the push-forward $\Psi_*(g) = h+t$ is used directly.
+*Checked by machine:* `Polyfold.corollary_3_4_3` (explicit form) and `Polyfold.corollary_3_4_3_isConjugate`: for $g$ sc-smooth and conjugated to a basic germ and $s$ an sc$^+$-germ with $s(0) = 0$, the index-raised germ $(g+s)^1$ is conjugated to a basic germ on the shifted structures, by the composite $\Gamma = \Lambda\circ\Phi^1$ of the index raise of $\Phi$ (`Polyfold.IsStrongBundleIso.shift`) and the linear coordinate change of Theorem 3.4.2 (preprint 3.38) (`Polyfold.StabilityData.linIso_isStrongBundleIso`); $\Gamma$ is the text's $(\Psi\circ\Phi)^1$ (`Polyfold.ConjugationData.compIso_eq_strongShift`), and the $\mathbb R^N$-part of $\Phi_*s$ is absorbed into the basic germ as in Theorem 3.6.8 (preprint 3.54). In Theorem 3.6.8 (preprint 3.54) itself the push-forward $\Psi_*(g) = h+t$ is used directly.
 
 ### 5.2 Geometry of basic germs: Corollary 3.5.3 (preprint 3.41) (pp. 117–125 (preprint pp. 94–100))
 
 **Theorem 3.5.1 (preprint 3.40) (Local regularity and compactness).** Stated and proved in §3.7.
 
-*Checked by machine:* `Polyfold.theorem_3_40_regularity`, `Polyfold.theorem_3_40_compactness` (§3.7).
+*Checked by machine:* `Polyfold.theorem_3_5_1_regularity`, `Polyfold.theorem_3_5_1_compactness` (§3.7).
 
 **Corollary 3.5.3 (preprint 3.41).** Let $U$ be a relatively open neighbourhood of $0$ in $C = [0,\infty)^n\oplus W$,
 $F = \mathbb R^N\oplus W$, and $f:U\to F$ sc-smooth with $f(0) = 0$, $f = h+s$, $h\in\mathfrak C_{\mathrm{basic}}$, $s$ an
@@ -1314,7 +1314,7 @@ Along a subsequence $\alpha_k\to\alpha$, $D_1B(x_k)\alpha_k\to D_1B(0)\alpha$ (j
 
 So $Df(x)$ is onto, of index $n-N$, at *every* $x\in U_1$ small on level $1$; $f(x) = 0$ only serves to reach level $1$.
 
-*Checked by machine:* `Polyfold.StabilityData.corollary_3_41` (for the data of Theorem 3.4.2 (preprint 3.38), the $\mathbb R^N$-component of $s$ absorbed into $h$): zeros $x$ with $|x|_0$ small are on level $1$ and $D(h+s)(x)$ is a surjective Fredholm operator of index $n-N$; the Fredholm property holds at every point of $U_1$ small on level $1$ (`Polyfold.StabilityData.exists_isFredholm_Dfs'`), by stability under small and compact perturbations (`Polyfold.isFredholm_add_of_norm_lt`), and surjectivity from $\dim\ker\le\mathrm{ind}$ (`Polyfold.HasFiniteIndex.surjective_of_finrank_ker_le`). Step 4: `Polyfold.StabilityData.exists_ker_Dfs'_inf_eq_bot`.
+*Checked by machine:* `Polyfold.StabilityData.corollary_3_5_3` (for the data of Theorem 3.4.2 (preprint 3.38), the $\mathbb R^N$-component of $s$ absorbed into $h$): zeros $x$ with $|x|_0$ small are on level $1$ and $D(h+s)(x)$ is a surjective Fredholm operator of index $n-N$; the Fredholm property holds at every point of $U_1$ small on level $1$ (`Polyfold.StabilityData.exists_isFredholm_Dfs'`), by stability under small and compact perturbations (`Polyfold.isFredholm_add_of_norm_lt`), and surjectivity from $\dim\ker\le\mathrm{ind}$ (`Polyfold.HasFiniteIndex.surjective_of_finrank_ker_le`). Step 4: `Polyfold.StabilityData.exists_ker_Dfs'_inf_eq_bot`.
 
 > **The text's proof** restricts $Df(a,w)$ to $N$ and shows $Df(a,w)|_N$ injective of index $0$. Besides the level in Lemma 5.B, two steps change. "$(a_k,w_k)$ is bounded on level $2$ … we may assume $(a_k,w_k)\to(0,0)$ on level $1$" becomes the continuity at $0$ of the lift $L_1$ of Theorem 3.5.1 (preprint 3.40). The Neumann series $\zeta_k = \sum_l(D_2B(a_k,w_k))^lz_k$ and its tail estimate become $|\zeta_k-z_k|_0\to0$.
 
@@ -1328,7 +1328,7 @@ $|a'|_0\le\varepsilon'_0$, $|w'|_0\le\tau'_0$ has $w' = \delta(a')$, and $|\delt
 
 *Proof.* Theorem 3.5.6 (preprint 3.43) uses the form: *for every $\varepsilon>0$ there is $r>0$ such that a zero $x'$ of $g$ with $|x'|_0<r$ has $W'$-component $\iota w_1$, $w_1\in W'_1$, $|w_1|_1<\varepsilon$.* Indeed $\psi^{-1}(x')$ is a zero of $f$, small on level $0$, hence (Step 1 of Corollary 3.5.3 (preprint 3.41)) small on level $1$, and $\psi$ is bounded on level $1$. The text's form follows: once $|w_1|_1$ is below the radius of $O(0)$, $w_1 = \delta(a')$ by uniqueness. $\square$
 
-*Checked by machine:* `Polyfold.StabilityData.lemma_3_42`, in the form Theorem 3.5.6 (preprint 3.43) uses: zeros of $g$ near $0$ have their $X$-component on level $1$ and small there.
+*Checked by machine:* `Polyfold.StabilityData.lemma_3_5_5`, in the form Theorem 3.5.6 (preprint 3.43) uses: zeros of $g$ near $0$ have their $X$-component on level $1$ and small there.
 
 **Theorem 3.5.6 (preprint 3.43) (Local germ-solvability I).** Let $f:U\to F$ be an sc-smooth germ with $f(0) = 0$, $f = h+s$,
 $h$ a basic germ and $s$ an sc$^+$-section with $s(0) = 0$, such that $Df(0)$ is surjective and $K = \ker
@@ -1366,7 +1366,7 @@ Appendix 3.8.3 (preprint 3.8.2).)
 
 *Proof.* §10.5: with $Y'$ a good complement of $K'$, take $Z\subset\mathrm{pr}_{\mathbb R^{n'}}(Y')$ complementary to $\widetilde K$ and a linear right inverse of $\mathrm{pr}_{\mathbb R^{n'}}|_{Y'}$; the text's intermediate complement $Y_0$ of $Y'\cap W'$ in $Y'$ is not needed. $\square$
 
-*Checked by machine:* `Polyfold.lemma_3_46`, `Polyfold.lemma_3_46_isInGoodPosition` (without the text's intermediate complement $Y_0$).
+*Checked by machine:* `Polyfold.lemma_3_5_10`, `Polyfold.lemma_3_5_10_isInGoodPosition` (without the text's intermediate complement $Y_0$).
 
 *Step 3: Theorem 3.8.22 (preprint 3.78) for $H$.* By Lemmas 3.5.8 and 3.5.10 (preprint 3.44 and 3.46), Theorem 3.8.22 (preprint 3.78) applies to $H$ on $V_1$. It gives a relatively open $V'\ni0$ in $\widetilde K\cap\widetilde C'$ and a $C^1$-map $\sigma:V'\to Z$ with $\sigma(0) = 0$, $D\sigma(0) = 0$, $k+\sigma(k)\in V_1$, $H(k+\sigma(k)) = 0$, and constants $\varepsilon_\sigma,\sigma_0>0$ such that $k\in V'$, $|k|\le\varepsilon_\sigma$, $z\in Z$, $|z|\le\sigma_0$, $k+z\in V_1$, $H(k+z) = 0$ imply $z = \sigma(k)$.
 
@@ -1386,7 +1386,7 @@ So $k\in V'$, $|k|\le\varepsilon_\sigma$, $|z|\le\sigma_0$ for $|x|_0$ small, he
 
 *Step 6: clause (1).* Fix $k\ge1$. $H$ is $C^k$ on $V^{(k)}\cap V_1$, and Theorem 3.8.22 (preprint 3.78) with $j = k$ gives a $C^k$ solution $\sigma_k$; near $0$, $\sigma_k = \sigma$ by the uniqueness clause for $\sigma_k$, which applies to $\sigma(v)$ for $v$ small since $\sigma$ is continuous with $\sigma(0) = 0$. In $\tau(y)$, $\delta$ lifts to a $C^k$-map into $W'_{2k}$ on $V^{(k)}$, and $D\delta(0)$ is $\iota$ of the derivative of the lift. So $\tau$ lifts to a $C^k$-map $\tau_k:V_k\to E'_k$ on a relatively open $V_k\ni0$: "$\tau$ is sc-smooth" level-wise, with $V_k$ depending on $k$ (§3.6). $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_43_sc_smooth` (and, without (1), `Polyfold.theorem_3_43`), for an sc-smooth germ $g$ whose index-raised germ is basic (`Polyfold.ShiftedBasicData`), with the regularity of Lemma 3.5.5 (preprint 3.42) as an explicit hypothesis: a good complement $Y = Z\oplus W$, $V$ relatively open in $K'\cap C'$, $\tau$ of class $C^1$ with values on level $1$, $\tau(0) = 0$, $D\tau(0) = 0$, and the zero set near $0$ equal to the graph; (1), "$\tau$ is an sc-smooth germ", in the level-wise sense: for every $k\ge1$ a $C^k$ lift $\tau_k:V_k\to E_k$ of $\tau$ on a neighbourhood $V_k$ of $0$ depending on $k$ (`Polyfold.ShiftedBasicData.Sol.exists_contDiffOn_level`; the solutions of Theorem 3.8.22 (preprint 3.78) for different $k$ are identified by its uniqueness clause, which the text does not discuss). A gap of the text's proof of (3) — the $\widetilde K$-component of a solution lies in $\widetilde C$ — is filled by `Polyfold.exists_proj_mem_of_eq_zero`. Step 5: `Polyfold.ShiftedBasicData.Sol.exists_eq_add_τ`; $Y'$ closed: `Polyfold.theorem_3_43_closed`.
+*Checked by machine:* `Polyfold.theorem_3_5_6_sc_smooth` (and, without (1), `Polyfold.theorem_3_5_6`), for an sc-smooth germ $g$ whose index-raised germ is basic (`Polyfold.ShiftedBasicData`), with the regularity of Lemma 3.5.5 (preprint 3.42) as an explicit hypothesis: a good complement $Y = Z\oplus W$, $V$ relatively open in $K'\cap C'$, $\tau$ of class $C^1$ with values on level $1$, $\tau(0) = 0$, $D\tau(0) = 0$, and the zero set near $0$ equal to the graph; (1), "$\tau$ is an sc-smooth germ", in the level-wise sense: for every $k\ge1$ a $C^k$ lift $\tau_k:V_k\to E_k$ of $\tau$ on a neighbourhood $V_k$ of $0$ depending on $k$ (`Polyfold.ShiftedBasicData.Sol.exists_contDiffOn_level`; the solutions of Theorem 3.8.22 (preprint 3.78) for different $k$ are identified by its uniqueness clause, which the text does not discuss). A gap of the text's proof of (3) — the $\widetilde K$-component of a solution lies in $\widetilde C$ — is filled by `Polyfold.exists_proj_mem_of_eq_zero`. Step 5: `Polyfold.ShiftedBasicData.Sol.exists_eq_add_τ`; $Y'$ closed: `Polyfold.theorem_3_5_6_closed`.
 
 **Theorem 3.5.11 (preprint Corollary 3.47).** Under the hypotheses of Theorem 3.5.6 (preprint 3.43) there are a good complement $Y$ of $K$ in $E$ and a
 $C^1$-map $\sigma:V\to Y_1$ on a relatively open neighbourhood $V$ of $0$ in $K\cap C$ such that (1)
@@ -1395,7 +1395,7 @@ $\sigma:\mathcal O(K\cap C,0)\to(Y,0)$ is an sc-smooth germ; (2) $\sigma(0) = 0$
 
 *Proof.* (i) $Dg(0) = \Psi\circ Df(0)\circ\psi^{-1}$ (chain rule for linear maps), so $Dg(0)$ is onto and $K' = \psi(K)$. (ii) $K$ is finite-dimensional ($Df(0)$ is Fredholm) and $\psi(\widetilde C\oplus W) = C'$, so $K'$ is in good position to $C'$ by Lemma 3.5.9 (preprint 3.45) in its linear form. (iii) The regularity hypothesis of Theorem 3.5.6 (preprint 3.43) is Lemma 3.5.5 (preprint 3.42). (iv) Theorem 3.5.6 (preprint 3.43) gives $Y'$, $V'$, $\tau$; put $Y := \psi^{-1}(Y')$ (a closed good complement of $K$, Lemma 3.5.9 (preprint 3.45) for $\psi^{-1}$), $V := \psi^{-1}(V')$ (relatively open in $K\cap C$, as $\psi|_K$ is a linear homeomorphism onto $K'$ carrying $K\cap C$ onto $K'\cap C'$) and $\sigma := \psi^{-1}\circ\tau\circ\psi|_K$. Then $\sigma$ is $C^1$, $\sigma(0) = 0$, $D\sigma(0) = 0$, $\sigma(V)\subset\psi^{-1}(Y'_1)\subset Y_1$, the zero set of $f$ near $0$ is $\psi^{-1}$ of that of $g$, i.e. $\{v+\sigma(v):v\in V\}$, and $\psi^{-1}\circ\tau_k\circ\psi$ are level-$k$ lifts of $\sigma$. $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_47_sc_smooth` (and, without (1), `Polyfold.theorem_3_47`) ($\sigma$ of class $C^1$ with values on level $1$, $\sigma(0) = 0$, $D\sigma(0) = 0$, the zero set near $0$ the graph of $\sigma$, and (1) level-wise as in Theorem 3.5.6 (preprint 3.43)), transported back by the linear $\psi$ of Theorem 3.4.2 (preprint 3.38), so Lemma 3.8.13 (preprint 3.70) and Theorem 3.8.15 (preprint 3.72) are not needed. (i): `Polyfold.StabilityData.scDerivGerm_pushMap₀`; $Y$ closed: `Polyfold.theorem_3_47_closed`.
+*Checked by machine:* `Polyfold.theorem_3_5_11_sc_smooth` (and, without (1), `Polyfold.theorem_3_5_11`) ($\sigma$ of class $C^1$ with values on level $1$, $\sigma(0) = 0$, $D\sigma(0) = 0$, the zero set near $0$ the graph of $\sigma$, and (1) level-wise as in Theorem 3.5.6 (preprint 3.43)), transported back by the linear $\psi$ of Theorem 3.4.2 (preprint 3.38), so Lemma 3.8.13 (preprint 3.70) and Theorem 3.8.15 (preprint 3.72) are not needed. (i): `Polyfold.StabilityData.scDerivGerm_pushMap₀`; $Y$ closed: `Polyfold.theorem_3_5_11_closed`.
 
 > **Why the text needs Lemma 3.8.13 (preprint 3.70) and Theorem 3.8.15 (preprint 3.72), and the formalization does not.** For a general sc-diffeomorphism $\varphi$, $\varphi^{-1}\{y+\tau(y)\}$ is not visibly a graph over $K\cap C$; the text projects it by $v\mapsto\pi\circ\varphi^{-1}(v+\tau(v))$, shows that this preserves the degeneracy index (Lemma 3.8.13 (preprint 3.70)) and inverts it by Theorem 3.8.15 (preprint 3.72). For the linear $\psi$ the projected map is $\psi^{-1}|_{K'}$. Theorem 3.6.8 (preprint 3.54) (§6), with a general conjugation, describes the zero set in the coordinates of the conjugation and never transports it back.
 
@@ -1409,7 +1409,7 @@ This section proves Theorem 3.6.8 (preprint 3.54) and the global Theorems 3.6.10
 
 **Definition 3.6.1 (preprint 3.48)** restates the filling of Definition 3.1.4 (preprint 3.4). **Remark 3.6.2 (preprint 3.49)**: after shrinking $O$, (1) holds on all of $O$ and (2) on all of $U$ (both hold on $O\cap W$, $U\cap W$ for one open $W\ni0$). **Definitions 3.6.3, 3.6.4 (preprint 3.50, 3.51)** restate Definitions 3.1.11 and 3.1.16 (preprint 3.11 and 3.14) for a tame strong bundle, the latter without the clause "$f$ is sc-smooth", which is part of the standing hypothesis. Definition 3.6.3 (preprint 3.50) asks, as Definition 3.1.6 (preprint 3.6) does, that the chart of the germ data have a tame local strong bundle ("where $K\to O$ is a tame strong local bundle"): its base retraction $r$ is tame (Definition 2.5.2 (preprint 2.34); a strong bundle retraction is tame when its $r$ is, preprint p. 49), and the proof of Proposition 3.6.5 (preprint 3.52) starts from "a tame strong bundle chart". This is the tameness the theorems of this section use: that of the chart of the germ data at a point, and of the chart in which good position (Definition 3.6.6 (preprint 3.53)) is read, not that of every chart compatible with the atlas.
 
-*Checked by machine:* `Polyfold.IsFillerOf`, `Polyfold.IsFillerOf.remark_3_49`, `Polyfold.StrongBundle.IsScFredholmGerm`, `Polyfold.StrongBundle.IsScFredholmSection` (without tameness, which §§1–2 do not need); in a tame chart, as §§6.3–6.4 use them: `Polyfold.StrongBundle.IsTameChart` (a chart compatible with the atlas whose base retraction is tame), `Polyfold.StrongBundle.IsScFredholmGermTame` (Definition 3.6.3 (preprint 3.50): the data of Definition 3.1.11 (preprint 3.11) in a tame chart) and `Polyfold.StrongBundle.IsScFredholmSectionTame` (Definition 3.6.4 (preprint 3.51): an sc-Fredholm section with such germ data at every smooth point). Compatible charts whose base retraction is the identity of $U$ are tame (`Polyfold.StrongBundle.isTameChart_of_eqOn_id`), so these hypotheses can be met.
+*Checked by machine:* `Polyfold.IsFillerOf`, `Polyfold.IsFillerOf.remark_3_6_2`, `Polyfold.StrongBundle.IsScFredholmGerm`, `Polyfold.StrongBundle.IsScFredholmSection` (without tameness, which §§1–2 do not need); in a tame chart, as §§6.3–6.4 use them: `Polyfold.StrongBundle.IsTameChart` (a chart compatible with the atlas whose base retraction is tame), `Polyfold.StrongBundle.IsScFredholmGermTame` (Definition 3.6.3 (preprint 3.50): the data of Definition 3.1.11 (preprint 3.11) in a tame chart) and `Polyfold.StrongBundle.IsScFredholmSectionTame` (Definition 3.6.4 (preprint 3.51): an sc-Fredholm section with such germ data at every smooth point). Compatible charts whose base retraction is the identity of $U$ are tame (`Polyfold.StrongBundle.isTameChart_of_eqOn_id`), so these hypotheses can be met.
 
 > **A bug in the earlier formalization, and its repair.** The theorems of §§6.3–6.4 (and Theorems 3.1.22, 3.1.26 (preprint 3.19, 3.23), Corollary 3.1.27 (preprint 3.24) of §4.1) were first formalized with "tame strong bundle" read as: the base retraction of *every* strong bundle chart compatible with the atlas is tame. No strong bundle over a nonempty base satisfies this. Compatibility (Definition 2.6.4 (preprint 2.50)) constrains the transition maps between the retracts $K$, not the retraction whose image $K$ is. Given a chart with model $(O,C,E)$ and base retraction $r$ on $U$, the chart $(1,\varphi)$ onto $\{1\}\times O$, with quadrant $[0,\infty)\times C$ in $\mathbb R\oplus E$ and base retraction $r'(a,u) = (1,r(u))$ on $[0,\infty)\times U$, has the same transition maps up to affine maps, hence is compatible with every chart the first one is; but at $u\in O$, $d(0,u) = 1+d_C(u)\ne d_C(u) = d(r'(0,u))$, against Definition 2.5.2 (1) (preprint 2.34). **So the earlier statements had an unsatisfiable hypothesis and were vacuously true: they checked nothing.** This exposition documents what was checked, so the record is kept here. The proofs used the tameness only for particular charts (the chart of the germ data at $x_0$, the chart $\psi\circ\varphi$ built from it, and the chart in which $f'(y)$ is onto), so the repair changed the statements, not the arguments: the theorems now assume germ data and good position in tame charts, as Definitions 3.6.3, 3.6.4 and 3.6.6 (preprint 3.50, 3.51 and 3.53) do, and conclude good position in tame charts; the names of the theorems are unchanged. Machine-checked is the half of the argument above that concerns retractions (`Polyfold.ScRetraction.halfLineConst_prod_not_isTame`: the product of the constant retraction onto $(1,0)$ of $[0,\infty)\oplus W$ with any retraction of a nonempty $U$ is not tame); the compatibility of the chart $(1,\varphi)$ is not. Nor is it formalized that in a strong bundle with an atlas of tame charts every sc-Fredholm germ has germ data in a tame chart; the text builds the tame chart into Definition 3.6.3 (preprint 3.50), and so do the theorems.
 
@@ -1417,7 +1417,7 @@ This section proves Theorem 3.6.8 (preprint 3.54) and the global Theorems 3.6.10
 
 *Proof.* Take the chart of Definition 3.1.11 (preprint 3.11) centred at $x$, the filled version $g$, the sc$^+$-section $s$ with $s(0) = g(0)$, and the strong bundle isomorphism $\Psi$, with fibre maps $\Gamma(u)$, covering $\psi$, with $\Gamma(u)(g-s)(u) = h(\psi(u))$ near $0$, $h$ basic. $f(x) = 0$ gives $g(0) = 0$ (filler (1)) and $(g-s)(0) = 0$, so differentiating at $0$ the term where the derivative falls on $\Gamma$ vanishes: $\Gamma(0)D(g-s)(0) = Dh(0)D\psi(0)$. As $\Gamma(0)$, $D\psi(0)$ are isomorphisms and $Dh(0)$ is Fredholm of index $n-N$ (Proposition 3.1.10 (preprint 3.10)), so is $D(g-s)(0)$; $Dg(0) = D(g-s)(0)+\iota Ds(0)$ differs from it by a compact operator; and $Tf(x) = Dg(0)|_{T_0O}$ has the index of $Dg(0)$ (Proposition 3.1.5 (preprint 3.5)). $\square$
 
-*Checked by machine, in the chart, on level $0$:* `Polyfold.proposition_3_52_index` (chart form `Polyfold.proposition_3_52_local_index`): index $\dim d.P_n-\dim d.Q$ for **every** conjugation $d$ (`Polyfold.ConjugationData`; `Polyfold.ConjugationData.index_eq`). The older `Polyfold.proposition_3_52` says "$n-N$ for some natural numbers", which every integer is. In every other strong bundle chart around $x$ the linearization (Step 4 of §6.3) is Fredholm of the same index: `Polyfold.StrongBundle.linAt_index_of_conjugationData`. The sc-structure of $Tf(x)$ is not set up. No hypothesis is added.
+*Checked by machine, in the chart, on level $0$:* `Polyfold.proposition_3_6_5_index` (chart form `Polyfold.proposition_3_6_5_local_index`): index $\dim d.P_n-\dim d.Q$ for **every** conjugation $d$ (`Polyfold.ConjugationData`; `Polyfold.ConjugationData.index_eq`). The older `Polyfold.proposition_3_6_5_preprint` says "$n-N$ for some natural numbers", which every integer is. In every other strong bundle chart around $x$ the linearization (Step 4 of §6.3) is Fredholm of the same index: `Polyfold.StrongBundle.linAt_index_of_conjugationData`. The sc-structure of $Tf(x)$ is not set up. No hypothesis is added.
 
 ### 6.2 Good position of an sc-Fredholm germ
 
@@ -1435,21 +1435,21 @@ This section proves Theorem 3.6.8 (preprint 3.54) and the global Theorems 3.6.10
 
 **Status.** (1) and (2) hold with the text's hypotheses. (2) is proved from (1), i.e. from the good position of the zeros near $x$ (Steps 6, 7). Of (1), the kernel half follows from the text's argument once the steps it leaves out are supplied (Step 3); the surjectivity of $f'(y)$ does not follow from the text's argument, and is proved by an implicit function theorem at the nearby zero (Step 5). Moreover the dimension of $S$ is the Fredholm index $\operatorname{ind}f'(y) = \dim\ker f'(y)$ at every $y\in S$, the index is locally constant along $S$, and $\ker f'(y)$ is the tangent space of $S$ in the chart of the proof.
 
-*Checked by machine:* `Polyfold.theorem_3_54'` ((1) and (2)), `Polyfold.theorem_3_54_one'` ((1)), `Polyfold.theorem_3_54_two` ((2) given nearby good position), `Polyfold.theorem_3_54_nearby_kernel` (the kernel half), `Polyfold.theorem_3_54_chart_onto` (the surjectivity, in the chart at $x$); with the index: `Polyfold.theorem_3_54_index` ((1), (2), and $\operatorname{ind}f'(y) = \dim\ker f'(y) = d$ at every zero $y$ near $x$, $d$ the dimension of $S$), `Polyfold.theorem_3_54_two_index`, `Polyfold.theorem_3_54_index_locally_constant`; $\ker f'(y) = T_yS$ in the chart: `Polyfold.theorem_3_54_ker_eq_tangent`. The earlier `Polyfold.theorem_3_54_one` and `Polyfold.theorem_3_54` assume filler condition (3) at the zeros near $0$ (`Polyfold.StrongBundle.IsGoodPositionGermFilled`, in a tame chart), which is now a theorem (Step 5). "Tame strong bundle" is read as in §6.1: $(f,x)$ is in good position in a tame chart (`Polyfold.StrongBundle.IsGoodPositionGermTame`), and for (1), which concludes something at the other zeros, $f$ has germ data in a tame chart at every smooth point (`Polyfold.StrongBundle.IsScFredholmSectionTame`); the conclusions of (1) are good position in tame charts, and the charts the proof produces are tame (`Polyfold.StrongBundle.IsTameChart`). The forms that describe the solution set near $x$ (Steps 2, 3 and 6) need only a section, not an sc-Fredholm one.
+*Checked by machine:* `Polyfold.theorem_3_6_8'` ((1) and (2)), `Polyfold.theorem_3_6_8_one'` ((1)), `Polyfold.theorem_3_6_8_two` ((2) given nearby good position), `Polyfold.theorem_3_6_8_nearby_kernel` (the kernel half), `Polyfold.theorem_3_6_8_chart_onto` (the surjectivity, in the chart at $x$); with the index: `Polyfold.theorem_3_6_8_index` ((1), (2), and $\operatorname{ind}f'(y) = \dim\ker f'(y) = d$ at every zero $y$ near $x$, $d$ the dimension of $S$), `Polyfold.theorem_3_6_8_two_index`, `Polyfold.theorem_3_6_8_index_locally_constant`; $\ker f'(y) = T_yS$ in the chart: `Polyfold.theorem_3_6_8_ker_eq_tangent`. The earlier `Polyfold.theorem_3_6_8_one` and `Polyfold.theorem_3_6_8` assume filler condition (3) at the zeros near $0$ (`Polyfold.StrongBundle.IsGoodPositionGermFilled`, in a tame chart), which is now a theorem (Step 5). "Tame strong bundle" is read as in §6.1: $(f,x)$ is in good position in a tame chart (`Polyfold.StrongBundle.IsGoodPositionGermTame`), and for (1), which concludes something at the other zeros, $f$ has germ data in a tame chart at every smooth point (`Polyfold.StrongBundle.IsScFredholmSectionTame`); the conclusions of (1) are good position in tame charts, and the charts the proof produces are tame (`Polyfold.StrongBundle.IsTameChart`). The forms that describe the solution set near $x$ (Steps 2, 3 and 6) need only a section, not an sc-Fredholm one.
 
 **Lemma 3.6.9 (preprint 3.55).** Let $C\subset E$ be a partial quadrant, $N\subset E$ a finite-dimensional smooth subspace in good position to $C$ with good complement $Y$, $V\subset N\cap C$ a relatively open neighbourhood of $0$ and $\tau:V\to Y_1$ of class $C^1$ with $\tau(0) = 0$, $D\tau(0) = 0$. Then there is a relatively open $V'\subset V$ containing $0$ such that for $v\in V'$, with $x = v+\tau(v)$: (1) $x\in C_1$; (2) $N_v = \{n+D\tau(v)n\mid n\in N\}$ has $Y$ as a topological complement; (3) there is $\gamma_v>0$ such that for $n\in N_v$, $y\in Y$ with $|y|_0\le\gamma_v|n|_0$, $n\in C_x$ if and only if $n+y\in C_x$. (Proof in §10.7.)
 
-*Checked by machine, with $Y$ closed:* `Polyfold.lemma_3_55` (`Polyfold.lemma_3_55_core` in coordinates, `Polyfold.lemma_3_55_relOpen` for $\tau$ on $V$), with **the added hypothesis that $Y$ is closed**, needed for $D\tau(v)n\in Y$; $\gamma$ does not depend on $v$.
+*Checked by machine, with $Y$ closed:* `Polyfold.lemma_3_6_9_preprint` (`Polyfold.lemma_3_6_9_core` in coordinates, `Polyfold.lemma_3_6_9_relOpen` for $\tau$ on $V$), with **the added hypothesis that $Y$ is closed**, needed for $D\tau(v)n\in Y$; $\gamma$ does not depend on $v$.
 
 *Proof of Theorem 3.6.8 (preprint 3.54).* Let $\varphi$ be the chart of Definition 3.1.11 (preprint 3.11) centred at $x_0 := x$, $\mathbf f$ the principal part, $g$ the filled version on $U\subset C$, $s$ the sc$^+$-section, $s(0) = g(0) = 0$, and $\Psi$ the conjugating strong bundle isomorphism, covering $\psi:U\to U'\subset C'\subset E' = \mathbb R^n\oplus W$, with $\Psi_*(g-s) = h$ basic. Then $\Psi_*(g) = h+t$ near $0$ with $t = \Psi_*(s)$ sc$^+$; the $\mathbb R^N$-component of $t$ is absorbed into $h$.
 
-*Step 1: the linear part.* $Dg(0)$ is onto (Proposition 3.1.5 (preprint 3.5)) and $\ker Dg(0) = \ker Tf(x_0)\oplus0$ (filler (3)). If $Z$ is a good complement of $\ker Tf(x_0)$ inside $T_0O$, then $Z\oplus\ker Dr(0)$ is one in $E$, with constant $\varepsilon/(\|Dr(0)\|+1)$: $E = T_0O\oplus\ker Dr(0)$ is topological, and $\ker Dr(0) = (1-Dr(0))E$ lies in the joint kernel of the boundary coordinates of $C$, the minimal subspace of Definition 2.5.1 (preprint 2.33) at $0$ (Proposition 2.5.3 (preprint 2.35) for the tame base retraction of the chart at $x_0$, the only use of tameness), so it changes no coordinate of $C$. By the chain rule $D(\Psi_*g)(0) = \Gamma(0)Dg(0)D\psi(0)^{-1}$, so $D(h+t)(0)$ is onto and Fredholm, and its kernel $N'$ is in good position to $C'$ (Lemma 3.5.9 (preprint 3.45); $D\psi(0)C = C'$ by the one-sided sign argument of Lemma 2.4.9 (preprint 2.29), the text's "$C' = T\psi(0)C$"). *Checked by machine:* `Polyfold.theorem_3_54_linear`, `Polyfold.theorem_3_54_linear_of_isTameWith`, `Polyfold.theorem_3_54_pushforward`, `Polyfold.scDeriv_mem_iff_of_inverse`.
+*Step 1: the linear part.* $Dg(0)$ is onto (Proposition 3.1.5 (preprint 3.5)) and $\ker Dg(0) = \ker Tf(x_0)\oplus0$ (filler (3)). If $Z$ is a good complement of $\ker Tf(x_0)$ inside $T_0O$, then $Z\oplus\ker Dr(0)$ is one in $E$, with constant $\varepsilon/(\|Dr(0)\|+1)$: $E = T_0O\oplus\ker Dr(0)$ is topological, and $\ker Dr(0) = (1-Dr(0))E$ lies in the joint kernel of the boundary coordinates of $C$, the minimal subspace of Definition 2.5.1 (preprint 2.33) at $0$ (Proposition 2.5.3 (preprint 2.35) for the tame base retraction of the chart at $x_0$, the only use of tameness), so it changes no coordinate of $C$. By the chain rule $D(\Psi_*g)(0) = \Gamma(0)Dg(0)D\psi(0)^{-1}$, so $D(h+t)(0)$ is onto and Fredholm, and its kernel $N'$ is in good position to $C'$ (Lemma 3.5.9 (preprint 3.45); $D\psi(0)C = C'$ by the one-sided sign argument of Lemma 2.4.9 (preprint 2.29), the text's "$C' = T\psi(0)C$"). *Checked by machine:* `Polyfold.theorem_3_6_8_linear`, `Polyfold.theorem_3_6_8_linear_of_isTameWith`, `Polyfold.theorem_3_6_8_pushforward`, `Polyfold.scDeriv_mem_iff_of_inverse`.
 
 *Step 2: the graph.* Theorem 3.5.11 (preprint Corollary 3.47) for $h+t$, with the good complement $Y'$ of Step 7, gives a relatively open $V'\ni0$ in $N'\cap C'$ and $\sigma:V'\to Y'_1$ of class $C^1$, $\sigma(0) = 0$, $D\sigma(0) = 0$, with $C^k$-lifts into $E'_k$ near $0$ for every $k$, whose graph is the zero set of $h+t$ near $0$. Choose $V$ (the text does not say how) so small that the filler identities and $\Psi_*(g) = h+t$ hold on $\varphi(V)$ and every zero of $h+t$ in $\psi\varphi(V)$ is a graph point, and shrink $V'$ accordingly. Then
 $$\psi\circ\varphi(\{y\in V\mid f(y) = 0\}) = \psi(\{u\in O\mid g(u) = 0\}) = \{u'\mid(h+t)(u') = 0\} = \{v+\sigma(v)\mid v\in V'\}.$$
-The chart $\psi\circ\varphi$ onto the tame retract $\psi(O)$ (tameness is carried by sc-diffeomorphisms), the smooth subspace $N'$, $Y'$, $V'$ and $\sigma$ are data of Definition 3.2.1 (2) (preprint 3.25) for $S$ at $x_0$, of dimension $d = \dim N'$. *Checked by machine:* `Polyfold.theorem_3_54_graph_proj`, `Polyfold.theorem_3_54_chart_graph`, `Polyfold.theorem_3_54_tangentGermChart_proj` (with `Polyfold.MChart.compDiffeo`, `Polyfold.IsScDiffeoQuadrant.isTameRetract_image`, `Polyfold.StabilityData.ker_Dfs_le_smooth`, `Polyfold.isScInftyGermAt_of_lifts`).
+The chart $\psi\circ\varphi$ onto the tame retract $\psi(O)$ (tameness is carried by sc-diffeomorphisms), the smooth subspace $N'$, $Y'$, $V'$ and $\sigma$ are data of Definition 3.2.1 (2) (preprint 3.25) for $S$ at $x_0$, of dimension $d = \dim N'$. *Checked by machine:* `Polyfold.theorem_3_6_8_graph_proj`, `Polyfold.theorem_3_6_8_chart_graph`, `Polyfold.theorem_3_6_8_tangentGermChart_proj` (with `Polyfold.MChart.compDiffeo`, `Polyfold.IsScDiffeoQuadrant.isTameRetract_image`, `Polyfold.StabilityData.ker_Dfs_le_smooth`, `Polyfold.isScInftyGermAt_of_lifts`).
 
-*Step 3: the kernel at the nearby zeros.* Let $y\in V$ be a zero near $x_0$, $z_0 = \varphi(y)$, $z = \psi(z_0) = v+\sigma(v)$; these are smooth points. (i) $D(h+t)(z)$ is onto and Fredholm of index $\dim N'$ (Corollary 3.5.3 (preprint 3.41), valid at all points small on level $1$). (a) $N_v := \{n+D\sigma(v)n\mid n\in N'\} = \ker D(h+t)(z)$: differentiating $(h+t)(w+\sigma(w)) = 0$ at $v$ gives $\subset$, through the lift of $\sigma$ to level $1$, since $h+t$ is differentiable from level $1$ to level $0$ only; and both sides have dimension $\dim N'$. (b) At the zero $z_0$ of $g$, $D(\Psi_*g)(z) = \Gamma(z_0)Dg(z_0)D\psi^{-1}(z)$, the derivative of $u\mapsto\Gamma(u)g(u)$ at a zero being $\Gamma(z_0)Dg(z_0)$; so $Dg(z_0)$ is onto and $\ker Dg(z_0) = D\psi^{-1}(z)N_v$. (c) $\ker Dg(z_0)\subset T_{z_0}O$. At $0$ this is filler condition (3), which is not available at $z_0$; instead, the graph points are $\psi$ of zeros of $g$, which lie in $O$ (filler (2)), so $r' = \psi\circ r\circ\psi^{-1}$ fixes the graph, $Dr'(z) = 1$ on $N_v$, and $Dr(z_0) = 1$ on $\ker Dg(z_0)$ by (b), as $Dr'(z) = D\psi(z_0)Dr(z_0)D\psi^{-1}(z)$. (d) $\ker Dg(z_0)$ is in good position to $C_{z_0}$ inside $T_{z_0}O$: Lemma 3.6.9 (preprint 3.55) (for $\sigma$ extended to the cone by $v\mapsto\sigma(b(v)v)$, $b$ a bump function) gives $N_v$ in good position to $C'_z$, with $N_v\cap C'_z$ of nonempty interior because $n\mapsto n+D\sigma(v)n$ maps the interior of $N'\cap C'$ into $C'$ once $\|D\sigma(v)\|$ is small; $D\psi^{-1}(z)$ maps $C'_z$ onto $C_{z_0}$ (one-sided sign argument), so Lemma 3.5.9 (preprint 3.45) applies; and a good complement $P$ gives $P\cap T_{z_0}O$ inside $T_{z_0}O$. The text derives this "from Corollary 3.41 and Lemma 3.55"; (a)–(c) are what it leaves out. *Checked by machine:* `Polyfold.theorem_3_54_chart_kernel`, `Polyfold.theorem_3_54_nearby_kernel`, with (a) `Polyfold.StabilityData.graphSpace_eq_ker_Dfs'`, (b) `Polyfold.IsStrongBundleIso.scDeriv_pushforward_at`, (c) `Polyfold.scDeriv_apply_toBase_deriv_eq_of_fixed`; no hypothesis added.
+*Step 3: the kernel at the nearby zeros.* Let $y\in V$ be a zero near $x_0$, $z_0 = \varphi(y)$, $z = \psi(z_0) = v+\sigma(v)$; these are smooth points. (i) $D(h+t)(z)$ is onto and Fredholm of index $\dim N'$ (Corollary 3.5.3 (preprint 3.41), valid at all points small on level $1$). (a) $N_v := \{n+D\sigma(v)n\mid n\in N'\} = \ker D(h+t)(z)$: differentiating $(h+t)(w+\sigma(w)) = 0$ at $v$ gives $\subset$, through the lift of $\sigma$ to level $1$, since $h+t$ is differentiable from level $1$ to level $0$ only; and both sides have dimension $\dim N'$. (b) At the zero $z_0$ of $g$, $D(\Psi_*g)(z) = \Gamma(z_0)Dg(z_0)D\psi^{-1}(z)$, the derivative of $u\mapsto\Gamma(u)g(u)$ at a zero being $\Gamma(z_0)Dg(z_0)$; so $Dg(z_0)$ is onto and $\ker Dg(z_0) = D\psi^{-1}(z)N_v$. (c) $\ker Dg(z_0)\subset T_{z_0}O$. At $0$ this is filler condition (3), which is not available at $z_0$; instead, the graph points are $\psi$ of zeros of $g$, which lie in $O$ (filler (2)), so $r' = \psi\circ r\circ\psi^{-1}$ fixes the graph, $Dr'(z) = 1$ on $N_v$, and $Dr(z_0) = 1$ on $\ker Dg(z_0)$ by (b), as $Dr'(z) = D\psi(z_0)Dr(z_0)D\psi^{-1}(z)$. (d) $\ker Dg(z_0)$ is in good position to $C_{z_0}$ inside $T_{z_0}O$: Lemma 3.6.9 (preprint 3.55) (for $\sigma$ extended to the cone by $v\mapsto\sigma(b(v)v)$, $b$ a bump function) gives $N_v$ in good position to $C'_z$, with $N_v\cap C'_z$ of nonempty interior because $n\mapsto n+D\sigma(v)n$ maps the interior of $N'\cap C'$ into $C'$ once $\|D\sigma(v)\|$ is small; $D\psi^{-1}(z)$ maps $C'_z$ onto $C_{z_0}$ (one-sided sign argument), so Lemma 3.5.9 (preprint 3.45) applies; and a good complement $P$ gives $P\cap T_{z_0}O$ inside $T_{z_0}O$. The text derives this "from Corollary 3.41 and Lemma 3.55"; (a)–(c) are what it leaves out. *Checked by machine:* `Polyfold.theorem_3_6_8_chart_kernel`, `Polyfold.theorem_3_6_8_nearby_kernel`, with (a) `Polyfold.StabilityData.graphSpace_eq_ker_Dfs'`, (b) `Polyfold.IsStrongBundleIso.scDeriv_pushforward_at`, (c) `Polyfold.scDeriv_apply_toBase_deriv_eq_of_fixed`; no hypothesis added.
 
 *Step 4: chart independence.* In any strong bundle chart with retraction $(r,\rho)$, at a zero $y$ with $z = \varphi(y)$, put
 $$\mathrm{Lin}(z) := D(\mathbf f\circ r)(z)|_{T_zO}:T_zO = Dr(z)E\ \to\ K_z := \rho(z)F .$$
@@ -1519,7 +1519,7 @@ So $u'(\mu) := \big(a(\mu),\delta_\lambda(\mu,a(\mu))\big)$, $0\le\mu<\mu_0$, is
 
 *Consequence: the index is locally constant along the solution set.* At a zero $y$ near $x_0$, $C$ is now an isomorphism, so in the matrix of the blockquote $\operatorname{ind}f'(y) = \operatorname{ind}A = \operatorname{ind}Dg(z_0)-\operatorname{ind}C = \dim N'-0 = \operatorname{ind}f'(x_0)$. This is the special case of Proposition 6.2.2 (preprint 6.2) (index stability, preprint p. 201) along a solution set; the text's proof of Proposition 6.2.2 (preprint 6.2) takes the step of the blockquote for an extended section, and along solution sets it is repaired here. If the tangent spaces $T_zO$ and the fibres $K_z$ are finite-dimensional along $S$, then $\dim T_zO-\dim K_z = d$ is constant there: a retract whose dimension jumps by one where the rank of the bundle jumps by two carries no sc-Fredholm section whose solution set passes through the jump with positive dimension. The formal statement goes through dimensions: the zeros near $x_0$ are in good position, the dimension of $S$ is locally constant (Step 6), and at a zero in good position it equals $\dim\ker f'(y) = \operatorname{ind}f'(y)$ in every chart (Step 2 gives $\dim N' = n-N$, which is the index of $f'(x_0)$ for the same conjugation by Proposition 3.6.5 (preprint 3.52), carried to every chart by Step 4).
 
-*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_54_chart_onto` ((6.1) in the chart at $x_0$, for $d\ge1$) and `Polyfold.theorem_3_54_one'` ((1); the case $d = 0$ separately; Step 4 through `Polyfold.StrongBundle.isGoodPositionGerm_of_chart_dense` and `Polyfold.StrongBundle.IsGoodPositionGerm.toTame`). (a) `Polyfold.StabilityData.toShiftedBasicData`, `Polyfold.StabilityData.scDerivGerm_pushMap₀_at`; Lemma 1 `Polyfold.StrongRetr.mem_O_of_perturbed_zero`; (c) `Polyfold.xiMap`, `Polyfold.xiMap_isScSmooth`, `Polyfold.exists_xi_bounds`, `Polyfold.exists_xi_radii_bounds`; (d) `Polyfold.ShiftedBasicData.exists_radii`, `Polyfold.ShiftedBasicData.perturbContraction`, `Polyfold.ShiftedBasicData.perturbContraction_isSc1GermWith`, `Polyfold.ShiftedBasicData.perturbContraction_sol_zero`; (e) `Polyfold.ShiftedBasicData.hasFDerivWithinAt_curveMap`, `Polyfold.ShiftedBasicData.surjective_DH_and_ker_eq`; Lemma 2 `Polyfold.exists_inward_of_isInGoodPosition`, `Polyfold.inward_add_smul`; Lemma 3 `Polyfold.exists_curve_of_inward`, and the curve `Polyfold.ShiftedBasicData.exists_perturbed_curve`; (h) `Polyfold.hasDerivWithinAt_smul_right_of_continuousWithinAt`. The index: `Polyfold.theorem_3_54_index_locally_constant`. The converse of the matrix argument, "$f'(y)$ onto implies $C$ injective" (`Polyfold.normal_injective_of_exists_range_scDeriv_eq_ρ`; both directions: `Polyfold.exists_range_scDeriv_eq_ρ_iff_normal_injective`), gives `Polyfold.isGoodPositionGermFilled_of_isGoodPositionGerm`: the hypothesis under which (1) was first formalized, filler condition (3) at the zeros near $0$ (`Polyfold.theorem_3_54_one`, with `Polyfold.exists_range_scDeriv_eq_ρ_of_normal_injective`), holds whenever $(f,x_0)$ is in good position. Of the perturbation argument of the blockquote only the linear algebra is formalized (`Polyfold.mem_lineality_of_goodComplement_prod`, `Polyfold.sup_lineality_eq_top_of_goodComplement_prod`, `Polyfold.isInGoodPosition_extendedKernel`).
+*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_6_8_chart_onto` ((6.1) in the chart at $x_0$, for $d\ge1$) and `Polyfold.theorem_3_6_8_one'` ((1); the case $d = 0$ separately; Step 4 through `Polyfold.StrongBundle.isGoodPositionGerm_of_chart_dense` and `Polyfold.StrongBundle.IsGoodPositionGerm.toTame`). (a) `Polyfold.StabilityData.toShiftedBasicData`, `Polyfold.StabilityData.scDerivGerm_pushMap₀_at`; Lemma 1 `Polyfold.StrongRetr.mem_O_of_perturbed_zero`; (c) `Polyfold.xiMap`, `Polyfold.xiMap_isScSmooth`, `Polyfold.exists_xi_bounds`, `Polyfold.exists_xi_radii_bounds`; (d) `Polyfold.ShiftedBasicData.exists_radii`, `Polyfold.ShiftedBasicData.perturbContraction`, `Polyfold.ShiftedBasicData.perturbContraction_isSc1GermWith`, `Polyfold.ShiftedBasicData.perturbContraction_sol_zero`; (e) `Polyfold.ShiftedBasicData.hasFDerivWithinAt_curveMap`, `Polyfold.ShiftedBasicData.surjective_DH_and_ker_eq`; Lemma 2 `Polyfold.exists_inward_of_isInGoodPosition`, `Polyfold.inward_add_smul`; Lemma 3 `Polyfold.exists_curve_of_inward`, and the curve `Polyfold.ShiftedBasicData.exists_perturbed_curve`; (h) `Polyfold.hasDerivWithinAt_smul_right_of_continuousWithinAt`. The index: `Polyfold.theorem_3_6_8_index_locally_constant`. The converse of the matrix argument, "$f'(y)$ onto implies $C$ injective" (`Polyfold.normal_injective_of_exists_range_scDeriv_eq_ρ`; both directions: `Polyfold.exists_range_scDeriv_eq_ρ_iff_normal_injective`), gives `Polyfold.isGoodPositionGermFilled_of_isGoodPositionGerm`: the hypothesis under which (1) was first formalized, filler condition (3) at the zeros near $0$ (`Polyfold.theorem_3_6_8_one`, with `Polyfold.exists_range_scDeriv_eq_ρ_of_normal_injective`), holds whenever $(f,x_0)$ is in good position. Of the perturbation argument of the blockquote only the linear algebra is formalized (`Polyfold.mem_lineality_of_goodComplement_prod`, `Polyfold.sup_lineality_eq_top_of_goodComplement_prod`, `Polyfold.isInGoodPosition_extendedKernel`).
 
 *Step 6: re-centring, and the regularity of $\sigma$.* Assume every zero in an open $V_0\ni x_0$ is in good position (in a tame chart, §6.1). Steps 1, 2 and 7 at such a zero $y$, in that chart, give data $D_y$ of Definition 3.2.1 (2) (preprint 3.25) for $S$ at $y$ (on the $V$ of Step 2; an open subset of a tame retract is a tame retract). At $x_0$, $\sigma$ is $C^1$ on $V'$ but sc-smooth only as a germ at $0$; Theorem 3.2.3 (preprint 3.27) needs condition (a) of §4.2. Apply the following lemma at every $v_0$ near $0$, with $\chi_1 = \psi\circ\varphi$, $\sigma_1 = \sigma$, $y = \chi_1^{-1}(v_0+\sigma(v_0))\in V_0$ and $\chi_2$ the chart of $D_y$.
 
@@ -1527,13 +1527,13 @@ So $u'(\mu) := \big(a(\mu),\delta_\lambda(\mu,a(\mu))\big)$, $0\le\mu<\mu_0$, is
 
 The proof (§10.7) writes the change of graph as $\beta = \pi_1\circ T\circ(1+\sigma_2)$, $T = \chi_1\circ\chi_2^{-1}$, with $T\circ(1+\sigma_2) = (1+\sigma_1)\circ\beta$. The chain rule at $0$, possible because $\sigma_1$ is $C^1$ at $v_0$, and the tangency of the graph of $\sigma_2$ to the retract make $D\beta(0)$ injective; Sard's lemma in fixed dimension gives $\dim K_1\le\dim K_2$; so $D\beta(0)$ is invertible, $\beta^{-1}$ is $C^k$, and $\sigma_1 = ((1-\pi_1)\circ T\circ(1+\sigma_2))\circ\beta^{-1}$.
 
-The neighbourhood depends on $(m,k)$, which does no harm: sc-smoothness on a relatively open set is a local property of the level maps. So the data at $x_0$, shrunk, are regular (with Step 7), **the dimension of the solution set is locally constant**, and Theorem 3.2.3 (preprint 3.27) gives (2) for $S\cap V$, $V$ the shrunk chart domain. The text's linearization at $v_0$ needs $\sigma$ differentiable at $v_0$, true here but not for general sets (§4.2); the reverse linearization would need $\sigma_1$ of class $C^1$ into level $1$ at $v_0$, known only near $0$, and the dimension count replaces it. *Checked by machine:* `Polyfold.recentre_contDiffOn_levels`, `Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally` (with `Polyfold.MPolyfold.TangentGermChart.shrink`), `Polyfold.ScRetraction.restrict_isTame`, `Polyfold.MChart.isTameRetract_image`, `Polyfold.theorem_3_54_tangentGermChart_solutionSet`, `Polyfold.theorem_3_54_two`.
+The neighbourhood depends on $(m,k)$, which does no harm: sc-smoothness on a relatively open set is a local property of the level maps. So the data at $x_0$, shrunk, are regular (with Step 7), **the dimension of the solution set is locally constant**, and Theorem 3.2.3 (preprint 3.27) gives (2) for $S\cap V$, $V$ the shrunk chart domain. The text's linearization at $v_0$ needs $\sigma$ differentiable at $v_0$, true here but not for general sets (§4.2); the reverse linearization would need $\sigma_1$ of class $C^1$ into level $1$ at $v_0$, known only near $0$, and the dimension count replaces it. *Checked by machine:* `Polyfold.recentre_contDiffOn_levels`, `Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally` (with `Polyfold.MPolyfold.TangentGermChart.shrink`), `Polyfold.ScRetraction.restrict_isTame`, `Polyfold.MChart.isTameRetract_image`, `Polyfold.theorem_3_6_8_tangentGermChart_solutionSet`, `Polyfold.theorem_3_6_8_two`.
 
 *Step 7: the choice of the good complement.* Condition (b) of §4.2, $\pi(\psi(O))\subset C'$, fails for some good complements; but for $S$ the complement is produced by the proof of Theorem 3.5.11 (preprint Corollary 3.47) and can be chosen.
 
 **Lemma 6.A.** A finite-dimensional $N$ in good position to a partial quadrant $C$ has a closed good complement $Y$ whose projection $\pi$ onto $N$ maps $C$ into $N\cap C$. (Proof in §10.7.)
 
-In Theorem 3.5.6 (preprint 3.43), Theorem 3.8.22 (preprint 3.78) accepts any good complement $Z$ of $\widetilde K = \ker DH(0)$, and for every such $Z$, $Z\oplus W'$ is a good complement of $K' = \{(\alpha,D\delta(0)\alpha)\mid\alpha\in\widetilde K\}$ (part (iii) of the proof of Lemma 3.5.10 (preprint 3.46), §10.5). Take $Z$ from Lemma 6.A: the projection along $Z\oplus W'$ onto $K'$ is $(a,w)\mapsto(\pi_Za,D\delta(0)\pi_Za)$, and $C' = \widetilde C'\oplus W'$ constrains only $a$, so it maps $C'$ into $K'\cap C'$. The linear coordinate change of Theorem 3.4.2 (preprint 3.38) carries complement and property to Theorem 3.5.11 (preprint Corollary 3.47), and $\pi(\psi(O))\subset\pi(C')\subset C'$. *Checked by machine:* `Polyfold.ProjectsInto`, `Polyfold.exists_goodComplement_projectsInto`, `Polyfold.IsGoodComplement.prod_top_graph`, `Polyfold.ProjectsInto.prod_top_graph`, `Polyfold.theorem_3_43_proj`, `Polyfold.theorem_3_47_proj`, `Polyfold.MPolyfold.TangentGermChart.isRegular_of_projectsInto`.
+In Theorem 3.5.6 (preprint 3.43), Theorem 3.8.22 (preprint 3.78) accepts any good complement $Z$ of $\widetilde K = \ker DH(0)$, and for every such $Z$, $Z\oplus W'$ is a good complement of $K' = \{(\alpha,D\delta(0)\alpha)\mid\alpha\in\widetilde K\}$ (part (iii) of the proof of Lemma 3.5.10 (preprint 3.46), §10.5). Take $Z$ from Lemma 6.A: the projection along $Z\oplus W'$ onto $K'$ is $(a,w)\mapsto(\pi_Za,D\delta(0)\pi_Za)$, and $C' = \widetilde C'\oplus W'$ constrains only $a$, so it maps $C'$ into $K'\cap C'$. The linear coordinate change of Theorem 3.4.2 (preprint 3.38) carries complement and property to Theorem 3.5.11 (preprint Corollary 3.47), and $\pi(\psi(O))\subset\pi(C')\subset C'$. *Checked by machine:* `Polyfold.ProjectsInto`, `Polyfold.exists_goodComplement_projectsInto`, `Polyfold.IsGoodComplement.prod_top_graph`, `Polyfold.ProjectsInto.prod_top_graph`, `Polyfold.theorem_3_5_6_proj`, `Polyfold.theorem_3_5_11_proj`, `Polyfold.MPolyfold.TangentGermChart.isRegular_of_projectsInto`.
 
 *Assembly.* Steps 1–5 give (1) on an open $V\ni x_0$; given (1), Steps 6–7 and Theorem 3.2.3 (preprint 3.27) give (2), with the dimension of $S$ equal to the Fredholm index and locally constant along $S$ (Steps 2, 5, 6). $\square$
 
@@ -1547,7 +1547,7 @@ In Theorem 3.5.6 (preprint 3.43), Theorem 3.8.22 (preprint 3.78) accepts any goo
 
 *Proof of Theorem 3.6.10 (preprint 3.56).* $\partial X = \emptyset$ means $d_X\equiv0$, so good position is surjectivity and Theorem 3.6.11 (preprint 3.57) applies; by Lemma 2.4.6 (preprint 2.26), $d_S\le d_X = 0$. $\square$
 
-*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_57`, `Polyfold.theorem_3_56` (with `Polyfold.lemma_2_26`), `Polyfold.theorem_3_57_dim` (the parts `Polyfold.solutionSetDim`), through `Polyfold.theorem_3_54_two` at every zero and `Polyfold.theorem_3_27_loc` (`Polyfold.MPolyfold.IsManifoldWithCornersLoc`), for $S\ne\emptyset$ (the chart inverses of Theorem 3.2.3 (preprint 3.27) need a base point). They assume an sc-Fredholm section in good position in a tame chart at every zero (`Polyfold.StrongBundle.IsGoodPositionGermTame`, the reading of "tame strong bundle" of §6.1). **No hypothesis is added**, and Step 5 is not needed: the global hypothesis already gives good position at the zeros near every point. With the text's hypothesis "$f'(x)$ surjective at every zero" for Theorem 3.6.10 (preprint 3.56) (`Polyfold.StrongBundle.IsLinSurjAt`; good position is surjectivity where $d_X = 0$, §6.2), for an sc-Fredholm section with germ data in tame charts (`Polyfold.StrongBundle.IsScFredholmSectionTame`): `Polyfold.theorem_3_56_of_surjective`, which also states the tameness of the induced structure and the regular data (as `Polyfold.theorem_3_56_tame`). With the dimension: `Polyfold.theorem_3_57_index` — the regular data at every zero have a dimension $d$, constant near that zero along $S$, and equal to $\operatorname{ind}f'(y) = \dim\ker f'(y)$ at every zero $y$ of their chart domain.
+*Checked by machine, with the text's hypotheses:* `Polyfold.theorem_3_6_11`, `Polyfold.theorem_3_6_10` (with `Polyfold.lemma_2_4_6`), `Polyfold.theorem_3_6_11_dim` (the parts `Polyfold.solutionSetDim`), through `Polyfold.theorem_3_6_8_two` at every zero and `Polyfold.theorem_3_2_3_loc_of_isRegular` (`Polyfold.MPolyfold.IsManifoldWithCornersLoc`), for $S\ne\emptyset$ (the chart inverses of Theorem 3.2.3 (preprint 3.27) need a base point). They assume an sc-Fredholm section in good position in a tame chart at every zero (`Polyfold.StrongBundle.IsGoodPositionGermTame`, the reading of "tame strong bundle" of §6.1). **No hypothesis is added**, and Step 5 is not needed: the global hypothesis already gives good position at the zeros near every point. With the text's hypothesis "$f'(x)$ surjective at every zero" for Theorem 3.6.10 (preprint 3.56) (`Polyfold.StrongBundle.IsLinSurjAt`; good position is surjectivity where $d_X = 0$, §6.2), for an sc-Fredholm section with germ data in tame charts (`Polyfold.StrongBundle.IsScFredholmSectionTame`): `Polyfold.theorem_3_6_10_of_surjective`, which also states the tameness of the induced structure and the regular data (as `Polyfold.theorem_3_6_10_tame`). With the dimension: `Polyfold.theorem_3_6_11_index` — the regular data at every zero have a dimension $d$, constant near that zero along $S$, and equal to $\operatorname{ind}f'(y) = \dim\ker f'(y)$ at every zero $y$ of their chart domain.
 
 ---
 
@@ -1611,7 +1611,7 @@ $P\subset\mathbb R^{\Sigma^c}\oplus W$.
 we may assume $|p|_0\le\varepsilon|a|_0$. Since $a\in C$, $a+p\in C$, so $\ell_i(p) = \ell_i(a+p)\ge0$. The same for $-p$
 gives $\ell_i(p) = 0$. $\square$
 
-*Checked by machine:* `Polyfold.lemma_3_65`, for any functionals cutting out $C$.
+*Checked by machine:* `Polyfold.lemma_3_8_8`, for any functionals cutting out $C$.
 
 **Lemma 7.A.** (1) $Q_\Sigma:N\to\mathbb R^\Sigma$ is surjective. (2) If $y$ is an interior point of $Q$ in $N$ and
 $\ell_i(y) = 0$, then $\ell_i = 0$ on $N$.
@@ -1669,7 +1669,7 @@ The case $Q = N$ (all coordinates vanish on $N$, e.g. $N\subset W$) is not singl
 distinction, whose Lemma 3.8.11 (preprint 3.68) treats only $\widetilde N\cap(\mathbb R^{\Sigma^c}\oplus W) = \{0\}$ and
 $\widetilde N\subset\mathbb R^{\Sigma^c}\oplus W$ for a complement $\widetilde N$ of $N\cap W$ in $N$.
 
-*Checked by machine:* `Polyfold.proposition_3_22` (as `IsPartialQuadrant (ScBanach.const N)` of $N\cap C$),
+*Checked by machine:* `Polyfold.proposition_3_1_25` (as `IsPartialQuadrant (ScBanach.const N)` of $N\cap C$),
 through `Polyfold.exists_quadrantNormalForm` (Theorem 7.B, `Polyfold.QuadrantNormalForm`), with
 `Polyfold.sigmaCoord_surjective` (Lemma 7.A (1)), `Polyfold.mem_quadCone_of_vanIdx` ((7.2)), and the three
 cases `Polyfold.quadrantNormalForm_of_eq_univ`, `Polyfold.quadrantNormalForm_of_vanIdx_empty`,
@@ -1704,7 +1704,7 @@ $\mathbb R^k$-component of $e(x)$ is $0$, so $d_{N\cap C}(x) = k = \dim N-\dim(N
 The text's proof uses an explicit basis $e^j = (a^j,b^j,w^j)$ of a complement $\widetilde N$ with $b^j_i>0$ and
 distinguishes $\dim N = 1$ and $\dim N>1$; the normal form does both at once.
 
-*Checked by machine:* `Polyfold.proposition_3_69`, in the model $\mathbb R^n\oplus W$, with (2) stated additively
+*Checked by machine:* `Polyfold.proposition_3_8_12`, in the model $\mathbb R^n\oplus W$, with (2) stated additively
 ($d_{N\cap C}(x)+\dim(N\cap W) = \dim N$, $N\cap W$ the kernel of $N\to\mathbb R^n$).
 
 **Lemma 3.8.13 (preprint 3.70).** Let $N$ be a smooth finite-dimensional subspace of $E = \mathbb R^n\oplus W$ in good position to
@@ -1746,8 +1746,8 @@ computation above is the integrated form of the second argument, and the ray dec
 cases. "Close to $0$" is made precise: $|v|<\rho/(1+c)$, because the smallness of $\tau$ is needed along the whole
 segment $[w,v]$.
 
-*Checked by machine:* `Polyfold.lemma_3_70` (in the model $\mathbb R^n\oplus W$: for $v\in N\cap C$ near $0$,
-$v+\tau(v)\in C$, and $d_{N\cap C}(v) = d_C(v+\tau(v))$ if $v\notin N\cap W$), through `Polyfold.lemma_3_70_core`
+*Checked by machine:* `Polyfold.lemma_3_8_13` (in the model $\mathbb R^n\oplus W$: for $v\in N\cap C$ near $0$,
+$v+\tau(v)\in C$, and $d_{N\cap C}(v) = d_C(v+\tau(v))$ if $v\notin N\cap W$), through `Polyfold.lemma_3_8_13_core`
 (coordinates), `Polyfold.exists_rayDecomp` (Lemma 7.C), `Polyfold.exists_lipschitz_small`,
 `Polyfold.exists_pos_le_of_forall_pos`.
 
@@ -1779,7 +1779,7 @@ then for every $m$ there is $c_m>0$ with $|P_Y\circ Df(b)h|_m\ge c_m|h|_m$ for $
 finite-dimensional space $G$, and $v\mapsto L(v)$ a family of sc-isomorphisms $E\to F$ such that $(v,h)\mapsto L(v)h$
 is sc-smooth and $|L(v)h|_m\ge c_m|h|_m$ for all $v\in V$, $h\in E_m$. Then $(v,k)\mapsto L(v)^{-1}k$ is sc-smooth.
 
-*Checked by machine:* Lemma 3.7.4 (preprint 3.61), for germs ($V$ a germ around $0$, $V\oplus E$ the product germ): `Polyfold.lemma_3_61`, with the derivative $D\Lambda(v,k)(\delta v,\delta k) = L(v)^{-1}(\delta k-D_1\Phi(v,L(v)^{-1}k)\delta v)$ (`Polyfold.famInv_isSc1GermWith`); the differentiability uses the compactness of $F_1\to F_0$ in place of an operator-norm continuity of $v\mapsto L(v)$, which is not assumed. Lemmas 3.7.2 and 3.7.3 (preprint 3.59 and 3.60) in an abstract form, for a family $b\mapsto L(b)$ of sc-operators with jointly continuous level maps and the compactness property that condition (2) gives for $L = P_Y\circ Df|_X$: `Polyfold.lemma_3_59`, `Polyfold.lemma_3_60` (with `Polyfold.FamilyCompactness`); the derivation of the compactness property from condition (2) is `Polyfold.familyCompactness_derivFamOp`. Theorem 3.7.1 (preprint 3.58) itself is formalized in the coordinates of its proof, `Polyfold.theorem_3_58` (Finding 74; condition (1) at the points $(b,0)$, (2) as bijectivity plus `Polyfold.CompactnessCondition`, (3) as `Polyfold.DerivCondition`); §8.2 verifies the hypotheses for an example.
+*Checked by machine:* Lemma 3.7.4 (preprint 3.61), for germs ($V$ a germ around $0$, $V\oplus E$ the product germ): `Polyfold.lemma_3_7_4`, with the derivative $D\Lambda(v,k)(\delta v,\delta k) = L(v)^{-1}(\delta k-D_1\Phi(v,L(v)^{-1}k)\delta v)$ (`Polyfold.famInv_isSc1GermWith`); the differentiability uses the compactness of $F_1\to F_0$ in place of an operator-norm continuity of $v\mapsto L(v)$, which is not assumed. Lemmas 3.7.2 and 3.7.3 (preprint 3.59 and 3.60) in an abstract form, for a family $b\mapsto L(b)$ of sc-operators with jointly continuous level maps and the compactness property that condition (2) gives for $L = P_Y\circ Df|_X$: `Polyfold.lemma_3_7_2`, `Polyfold.lemma_3_7_3` (with `Polyfold.FamilyCompactness`); the derivation of the compactness property from condition (2) is `Polyfold.familyCompactness_derivFamOp`. Theorem 3.7.1 (preprint 3.58) itself is formalized in the coordinates of its proof, `Polyfold.theorem_3_7_1` (Finding 74; condition (1) at the points $(b,0)$, (2) as bijectivity plus `Polyfold.CompactnessCondition`, (3) as `Polyfold.DerivCondition`); §8.2 verifies the hypotheses for an example.
 
 ### 7.3 The inverse function theorem in partial quadrants
 
@@ -1871,7 +1871,7 @@ relatively open subsets $U$ and $V$ of $C$.
 
 *Proof.* $f$ is continuous and bijective onto $V$, and its inverse is $2$-Lipschitz by (70). $\square$
 
-*Checked by machine:* `Polyfold.corollary_3_75`.
+*Checked by machine:* `Polyfold.corollary_3_8_19`.
 
 **Lemma 3.8.20 (preprint 3.76).** Under the hypotheses of Proposition 3.8.17 (preprint 3.73), the iterated tangent maps $T^kf:T^kU\to T^kV$ are
 smooth homeomorphisms.
@@ -1904,7 +1904,7 @@ $\square$
 The text instead shows that $T^kf$ satisfies the hypotheses of Lemma 3.8.21 (preprint 3.77) for every $k$ (Lemma 3.8.20 (preprint 3.76)); the
 bootstrap avoids the iterated tangent maps.
 
-*Checked by machine:* `Polyfold.proposition_3_73` ($V$ relatively open, $f$ injective, inverse of class $C^j$),
+*Checked by machine:* `Polyfold.proposition_3_8_17` ($V$ relatively open, $f$ injective, inverse of class $C^j$),
 with `Polyfold.InvData.contDiffOn_inverse_deriv` and `Polyfold.InvData.contDiffOn_inv` (the bootstrap).
 
 *Proof of Theorem 3.8.15 (preprint 3.72).* By Lemma 7.D, $Df(0)$ is onto (since $Df(0)C = C$ and $C$ has interior points), hence an
@@ -1915,7 +1915,7 @@ Proposition 3.8.17 (preprint 3.73), $\tilde f:U'\to\tilde f(U')$ is a diffeomorp
 and so is $f = Df(0)\circ\tilde f$ onto $V' := Df(0)(\tilde f(U'))$, which is relatively open in $C$ because $Df(0)$ is a
 linear homeomorphism with $Df(0)C = C$. $\square$
 
-*Checked by machine:* `Polyfold.theorem_3_72`, for a finite-dimensional $V$ in place of $\mathbb R^n$ and $f$ of class
+*Checked by machine:* `Polyfold.theorem_3_8_15`, for a finite-dimensional $V$ in place of $\mathbb R^n$ and $f$ of class
 $C^j$, $j\ge1$ (the smooth case is the case of all $j$).
 
 ### 7.4 The implicit function theorem in partial quadrants
@@ -1986,7 +1986,7 @@ $K\cap C$ nonempty interior in $K$, so that $D\tau(0)$ is meaningful). Typos in 
 "$D_1B(k_0,\tau(k_0))$", "$D_2B(k,\tau(k_0))$" for $D_1B(k,\tau(k))$, $D_2B(k,\tau(k))$, and "$\tau\mapsto D\tau(k)$" for $k\mapsto
 D\tau(k)$; in Lemma 3.8.24 (preprint 3.80) the maximum is over $B((1+\varepsilon)a)\cap C$ *(book 2017: all unchanged, Lemma 3.30, p. 128, and Lemma 3.28, p. 126)*.
 
-*Checked by machine:* `Polyfold.theorem_3_78` (for a finite-dimensional space in place of $\mathbb R^n$ and $f$ into
+*Checked by machine:* `Polyfold.theorem_3_8_22` (for a finite-dimensional space in place of $\mathbb R^n$ and $f$ into
 any normed space), through `Polyfold.ContractionData.exists_solution` (normalized form, for convex $C$),
 `Polyfold.ContractionData` and `Polyfold.Radii` (the constants of Lemmas 3.8.23–3.8.24 (preprint 3.79–3.80),
 `Polyfold.ContractionData.exists_radii`), `Polyfold.Radii.mapsTo_ball`, `Polyfold.Radii.τ`,
@@ -2024,7 +2024,7 @@ The level maps of $g$ are $C^\infty$ (polynomials in bounded multilinear maps, $
 $$g = \bar h+\bar s,\qquad\bar h(a,b,c,w) = \big(c,\ a-\lambda b-b^2-w_1,\ (1-a)w+w_1w\big),\qquad\bar s(a,b,c,w) = \big(0,0,-\beta(a)\big).$$
 *The sc$^+$-section* of Definition 3.1.11 (preprint 3.11) is $\bar s$: its level maps $U_m\to F_{m+1}$ are $C^\infty$, and $\bar s(0) = 0 = g(0)$.
 
-*The conjugation.* We verify the hypotheses of Theorem 3.7.1 (preprint 3.58) for $\bar h$, in the coordinates of its Lean form `Polyfold.theorem_3_58`: parameters $(a,b,c)\in\widetilde C = [0,\infty)\times\mathbb R^2$, $X = W$, finite target $\mathbb R^2$, $Y = W$.
+*The conjugation.* We verify the hypotheses of Theorem 3.7.1 (preprint 3.58) for $\bar h$, in the coordinates of its Lean form `Polyfold.theorem_3_7_1`: parameters $(a,b,c)\in\widetilde C = [0,\infty)\times\mathbb R^2$, $X = W$, finite target $\mathbb R^2$, $Y = W$.
 
 1. At a smooth point $x = (a,b,c,w)\in U$, $D\bar h(x)(\alpha,\eta,\gamma,\zeta) = \big(\gamma,\ \alpha-(\lambda+2b)\eta-\zeta_1,\ (1-a+w_1)\zeta+\zeta_1w-\alpha w\big)$. The terms with $\zeta_1$ and $\alpha w$ have finite rank and smooth values, hence are sc$^+$; the rest, $(\gamma,\alpha-(\lambda+2b)\eta,(1-a+w_1)\zeta)$ with $1-a+w_1>\tfrac14$, is onto with a one-dimensional kernel. By Proposition 1.1.11 (preprint 1.10), $D\bar h(x)$ is sc-Fredholm of index $1$ at every smooth point.
 2. The $W$-component of $D\bar h(0)(0,\zeta)$ is $\zeta$: bijective. Compactness: if $(a_j,b_j,c_j)$ converges, $(\eta_j)$ is bounded in $W_m$ and $D\bar h(a_j,b_j,c_j,0)(0,\eta_j) = (0,-\eta_{j,1},(1-a_j)\eta_j) = y_j+z_j$ with $y_j\to0$ in $F_m$ and $(z_j)$ bounded in $F_{m+1}$, then the $W$-components of $z_j$ converge in $W_m$ along a subsequence ($W_{m+1}\to W_m$ is compact), and so does $\eta_j$.
@@ -2072,7 +2072,7 @@ The toy of §0 is the opposite case: without the factor $e^{-k^2}$, $\delta(a)\i
 
 *The role of the boundary.* For $\lambda = 0$, $Dg(0)$ is still onto, but $K = \mathbb R(0,1,0,0)$ lies in the face $\{a = 0\}$. Then $K\cap C = K$ has interior, but no complement is good (Lemma 3.8.8 (preprint 3.65) forces it into $\{a = 0\}$, which contains $K$). The zero set is $\{a = b^2+\delta_1(a)\}$ (numerically $a = b^2$ to six digits for $|b|\le0.2$): a smooth curve, parametrized by $b$, that touches $\partial X$ at its interior point $b = 0$, where $d_X = 1$. It is a manifold without boundary on which the degeneracy index jumps, not a manifold with boundary in the sense of Theorem 3.1.26 (preprint 3.23). Nor is it stable: under the constant sc$^+$-perturbation $f-(0,\mu,0)$ (Theorem 3.1.18 (preprint 3.15)) the zero set has two boundary points ($b = \pm0.1$) for $\mu = -0.01$ and none for $\mu = +0.01$, while for $\lambda = 1$ it has exactly one: $b = 0.009902$, $0$, $-0.010102$ for $\mu = -0.01$, $0$, $0.01$. Good position is transversality to the boundary: it makes the boundary point of the solution curve, the broken configuration, persist under perturbation, which is what makes counts of boundary points, and the invariants built from them, well defined.
 
-*Not checked by machine:* the example is not formalized. The theorems it instantiates are (`Polyfold.theorem_3_58`, `Polyfold.theorem_3_43_sc_smooth`, `Polyfold.theorem_3_47_sc_smooth`), but their hypotheses for this example were verified by hand above, not in Lean, and the numbers by a numerical script.
+*Not checked by machine:* the example is not formalized. The theorems it instantiates are (`Polyfold.theorem_3_7_1`, `Polyfold.theorem_3_5_6_sc_smooth`, `Polyfold.theorem_3_5_11_sc_smooth`), but their hypotheses for this example were verified by hand above, not in Lean, and the numbers by a numerical script.
 
 ---
 
@@ -2304,7 +2304,7 @@ Throughout, $C = \{z\in E_0\mid\ell_i(z)\ge0,\ i = 1,\dots,k\}$ for continuous f
 $$|Ln+p|\le\tfrac{\varepsilon_0}4|n|+\tfrac{\varepsilon_0}4\big(1+\tfrac{\varepsilon_0}4\big)|n|\le\varepsilon|n|,$$
 so $h+p\in C\iff n\in C$; and $|Ln|\le\varepsilon|n|$ gives $h\in C\iff n\in C$. *If $v\notin N\cap W$*: by the proof of Lemma 3.8.13 (preprint 3.70), $\ell_j(x)>0$ for $j\notin\Sigma$ and $\ell_j(x) = \ell_j(v)$ for $j\in\Sigma$. So an index $i$ with $\ell_i(x) = 0$ lies in $\Sigma$, and $\ell_i$ vanishes on $Y$ (Lemma 3.8.8 (preprint 3.65)): $\ell_i(h+p) = \ell_i(h)$, and $h+p\in C_x\iff h\in C_x$ for every $p\in Y$. $\square$
 
-The text chooses $\gamma_v$ after $v$ and distinguishes $\dim N = 1$ and $\dim N>1$ in a normal form; neither is needed. (Lean: `Polyfold.lemma_3_55_core`, with `Polyfold.fderivWithin_mem_of_mapsTo` for (2).)
+The text chooses $\gamma_v$ after $v$ and distinguishes $\dim N = 1$ and $\dim N>1$ in a normal form; neither is needed. (Lean: `Polyfold.lemma_3_6_9_core`, with `Polyfold.fderivWithin_mem_of_mapsTo` for (2).)
 
 *Lemma 6.A.* Choose a set $S$ of indices with (i) $Q_S = (\ell_i)_{i\in S}:N\to\mathbb R^S$ onto, (ii) $N\cap C = \{n\in N\mid\ell_i(n)\ge0,\ i\in S\}$, (iii) $\ell_i>0$ on $N\cap C\setminus\{0\}$ for $i\notin S$. If $\Sigma\ne\emptyset$, $S = \Sigma$ works: (i) is Lemma 7.A (1), (ii) is (7.2), (iii) is (7.1). If $N\cap C = N$, then $N = 0$ or $C = E$ (Lemma 7.A (1) forces $\Sigma = \emptyset$), and the lemma is trivial. In the remaining case $\Sigma = \emptyset$, $N\cap C\ne N$, $N = \mathbb Ry$ and $N\cap C = [0,\infty)y$ with all $\ell_i(y)>0$ (case B of Theorem 7.B), and $S = \{j_0\}$ works for any $j_0$; here $S = \Sigma = \emptyset$ would not do, since then the construction below gives an arbitrary projection (for $C = [0,\infty)^2$, $N = \mathbb R(1,1)$, the projection along $(1,2)$ maps $(0,1)$ to $-(1,1)$). Let $p_N$ be a continuous projection onto $N$ (Hahn–Banach) and $g$ a linear right inverse of $Q_S$, and put
 $$\pi(z) = p_N(z)+g\big(\ell_S(z-p_N(z))\big),\qquad\ell_S = (\ell_i)_{i\in S}.$$
@@ -2422,8 +2422,8 @@ The proofs of §§1–3, 5 and 6.1 do not use tameness. So the following hold fo
 - Theorem 3.1.21 (preprint 3.18), parametrized perturbations;
 - Proposition 3.6.5 (preprint 3.52), the linearization at a zero.
 
-*Checked by machine:* `Polyfold.proposition_3_1_5_2021`, `Polyfold.theorem_3_1_13_2021`, `Polyfold.corollary_3_1_15_2021`,
-`Polyfold.theorem_3_1_18_2021`, `Polyfold.theorem_3_1_21_2021`, `Polyfold.proposition_3_6_5_2021`.
+*Checked by machine:* `Polyfold.proposition_3_1_5`, `Polyfold.theorem_3_1_13`, `Polyfold.corollary_3_1_15`,
+`Polyfold.theorem_3_1_18`, `Polyfold.theorem_3_1_21`, `Polyfold.proposition_3_6_5`.
 
 ### 11.3 Theorem 3.6.8 (preprint 3.54): the step on p. 138
 
@@ -2447,7 +2447,7 @@ even the case $\partial X = \emptyset$ (Theorem 3.6.10 (preprint 3.56)) passes t
 germ data (§6.1). For the untamed 2021 data they are open (gap G.79). Closing it would need the passage from germ data in a
 compatible chart to germ data in a tame one, which §6.1 lists as not done.
 
-*Checked by machine:* `Polyfold.theorem_3_6_8_tame_step_2021`, with `Polyfold.CornerFilling.isGoodPositionAtGerm_gc`,
+*Checked by machine:* `Polyfold.theorem_3_6_8_tame_step`, with `Polyfold.CornerFilling.isGoodPositionAtGerm_gc`,
 `Polyfold.CornerFilling.not_range_le_minimalSubspace`, `Polyfold.CornerFilling.not_isInGoodPosition_gc`.
 
 ### 11.4 Theorem 3.5.1 (preprint 3.40), the sequential conclusion (p. 118)
@@ -2458,7 +2458,7 @@ $w = B(a,w)-\mathbf s(a,w)$, $\mathbf s$ the $W$-part of $s$, and the level-$m$ 
 The first conclusion is the local Theorem 3.1.13 of §3.7. Its sets $O(m)$ are intersected with $U$, and the closure, taken in
 $E_0$, lies in $C$ because $C$ is closed.
 
-*Checked by machine:* `Polyfold.theorem_3_5_1_2021`, with `Polyfold.IsBasicGerm.solves`.
+*Checked by machine:* `Polyfold.theorem_3_5_1`, with `Polyfold.IsBasicGerm.solves`.
 
 ### 11.5 Cones and partial quadrants (Appendix 3.8.1.3, pp. 145–149)
 
@@ -2496,8 +2496,8 @@ $N\subseteq\mathbb R^{\Gamma^c}\oplus W$; but $\dim N = 0$.
 3.22), with no cone hypothesis), indeed $(N,N\cap C)\cong(\mathbb R^{\dim N},[0,\infty)^{\dim N})$.
 
 *Checked by machine:* `Polyfold.IsClosedConvexCone`, `Polyfold.IsExtremeRayGen`, `Polyfold.exists_quadrantEquiv_of_pointed`,
-`Polyfold.lemma_3_8_4_2021`, `Polyfold.lemma_3_8_5_2021`, `Polyfold.lemma_3_8_5_not_literal_2021`, `Polyfold.lemma_3_8_6_2021`,
-`Polyfold.lemma_3_8_6_two_2021`, `Polyfold.halfLine_witness_2021`, `Polyfold.corollary_3_8_7_2021`.
+`Polyfold.lemma_3_8_4`, `Polyfold.lemma_3_8_5`, `Polyfold.lemma_3_8_5_not_literal`, `Polyfold.lemma_3_8_6`,
+`Polyfold.lemma_3_8_6_two`, `Polyfold.halfLine_witness`, `Polyfold.corollary_3_8_7`.
 
 These are V3.108–V3.121 in `Exposition/Verification.md`. Not formalized: whether every 2021 sc-Fredholm germ is a 2017 one,
 and Theorem 3.6.8 with the theorems resting on it for untamed germ data (gap G.79).

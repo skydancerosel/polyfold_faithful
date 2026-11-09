@@ -1,15 +1,15 @@
 import Polyfold.Chapter3.BasicGermCriterionProof
 
 /-!
-# The basic germ criterion (Theorem 3.58): the family `L(b)` from conditions (1) and (2)
+# The basic germ criterion (Theorem 3.7.1 (preprint 3.58)): the family `L(b)` from conditions (1) and (2)
 
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7, **Theorem 3.58** (basic germ
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7, **Theorem 3.7.1 (preprint 3.58)** (basic germ
 criterion), first half of the proof: from the sc-Fredholm property (1) of the linearizations
 `Df(b, 0)` with constant index and the compactness property (2), the operators
 `L(b) = P ∘ Df(b, 0)|X : X → Y` are sc-isomorphisms for `b` near `0` with uniform lower bounds
-`|L(b)h|_m ≥ c_m|h|_m` (Lemmas 3.59, 3.60 and the index argument "`P ∘ Df(b)|X` is an injective
+`|L(b)h|_m ≥ c_m|h|_m` (Lemmas 3.7.2, 3.7.3 (preprint 3.59, 3.60) and the index argument "`P ∘ Df(b)|X` is an injective
 sc-Fredholm operator of index `0`, hence an sc-isomorphism").  Together with
-`theorem_3_58_of_family` (`BasicGermCriterionProof.lean`) this gives **`Polyfold.theorem_3_58`**.
+`theorem_3_7_1_of_family` (`BasicGermCriterionProof.lean`) this gives **`Polyfold.theorem_3_7_1`**.
 
 ## Main results
 
@@ -23,7 +23,7 @@ sc-Fredholm operator of index `0`, hence an sc-isomorphism").  Together with
   `L(b)`), `Polyfold.CompactnessCondition` (condition (2)),
   `Polyfold.familyCompactness_derivFamOp` (the compactness property `FamilyCompactness` of the
   family from (2), Finding 73).
-* `Polyfold.theorem_3_58`: **Theorem 3.58** in the coordinates `E = ℝⁿ ⊕ X`, `F = ℝᴺ ⊕ Y`.
+* `Polyfold.theorem_3_7_1`: **Theorem 3.7.1 (preprint 3.58)** in the coordinates `E = ℝⁿ ⊕ X`, `F = ℝᴺ ⊕ Y`.
 
 ## Remarks on the text
 
@@ -35,13 +35,13 @@ sc-Fredholm operator of index `0`, hence an sc-isomorphism").  Together with
   and `ind Df(0) = dim ℝⁿ − dim ℝᴺ` because `L(0)` is bijective (condition (2), `B ⊇ ker Df(0)`
   and `Y = Df(0)X`).  The sc-Fredholm property of `P` and the composition rule for sc-Fredholm
   operators are not needed.
-* In Lemma 3.59 the text takes `z_j = Df(b_j)h_j ∈ A` "bounded on every level since `A` is a smooth
+* In Lemma 3.7.2 (preprint 3.59) the text takes `z_j = Df(b_j)h_j ∈ A` "bounded on every level since `A` is a smooth
   subspace"; the boundedness of the `A`-component uses a uniform bound on `Df(b_j, 0)(0, ·)` for `j`
   large, from the joint continuity of `(b, h) ↦ Df(b, 0)(0, h)` (`exists_bound_of_continuousOn_clm`),
-  and condition (2) is applied to the tail of the sequences.  In Lemma 3.60 the text writes
+  and condition (2) is applied to the tail of the sequences.  In Lemma 3.7.3 (preprint 3.60) the text writes
   `Df(b_j)h_j = P ∘ Df(b_j)h_j`, omitting the bounded `A`-component.
 * The smallness of `b` in condition (2) is read as uniform in the level `m` (`∃ r > 0, ∀ m, …`), as
-  the order of the quantifiers in the text suggests; Lemma 3.60 needs the compactness property on
+  the order of the quantifiers in the text suggests; Lemma 3.7.3 (preprint 3.60) needs the compactness property on
   every level on one fixed neighbourhood.
 -/
 
@@ -244,7 +244,7 @@ lemma param_mem_smoothLvl (b : P) : ((b, 0) : P × X 1) ∈ (𝔼).smoothLvl 1 :
     map_zero]⟩
 
 /-- **The linearization `Df(b, 0) : E → F` at the smooth point `(b, 0)` as an sc-operator** (the
-remark after Proposition 1.16, `IsSc1With.scOperator_deriv`). -/
+remark after Proposition 1.2.1 (preprint 1.16), `IsSc1With.scOperator_deriv`). -/
 def derivParamOp (hf : IsScSmooth U f) (b : P) (hb : ((b, 0) : 𝔼 0) ∈ U) : ScOperator 𝔼 𝔽 :=
   (hf.isSc1.isSc1With_scDeriv.scOperator_deriv (mem_lvlSet_param hb 1) (param_mem_smoothLvl b)).toScOperator
 
@@ -261,7 +261,7 @@ lemma derivParamOp_lvl (hf : IsScSmooth U f) (b : P) (hb : ((b, 0) : 𝔼 0) ∈
     ScBanach.paramProd_shift_toBase, map_zero]
 
 open scoped Classical in
-/-- **The family `L(b) = P ∘ Df(b, 0)|X : X → Y`** of the proof of Theorem 3.58, as sc-operators
+/-- **The family `L(b) = P ∘ Df(b, 0)|X : X → Y`** of the proof of Theorem 3.7.1 (preprint 3.58), as sc-operators
 (the zero operator where `(b, 0) ∉ U`). -/
 def derivFamOp (hf : IsScSmooth U f) (b : P) : ScOperator X Y :=
   if hb : ((b, 0) : 𝔼 0) ∈ U then
@@ -276,7 +276,7 @@ lemma derivFamOp_apply (hf : IsScSmooth U f) {b : P} (hb : ((b, 0) : 𝔼 0) ∈
   rw [derivParamOp_lvl]
 
 /-- The level-`m` operators `Df(b, 0)(0, ·) : X_m → F_m` depend jointly continuously on `(b, h)`
-(Proposition 1.16 (2)). -/
+(Proposition 1.2.1 (preprint 1.16) (2)). -/
 lemma continuousOn_levelDeriv_param (hf : IsScSmooth U f) {O : Set P}
     (hOU : ∀ b ∈ O, ((b, 0) : 𝔼 0) ∈ U) (m : ℕ) :
     ContinuousOn (fun p : P × X m =>
@@ -301,7 +301,7 @@ lemma continuousOn_derivFamOp (hf : IsScSmooth U f) {O : Set P}
     rw [Function.comp_apply, derivFamOp_apply hf (hOU p.1 hp.1)]
 
 variable (Ct) in
-/-- **Condition (2) of Theorem 3.58, the compactness property**, in coordinates: there is `r > 0`
+/-- **Condition (2) of Theorem 3.7.1 (preprint 3.58), the compactness property**, in coordinates: there is `r > 0`
 such that for every level `m`, if `b_j → b` in `C̃ ∩ {(b, 0) ∈ U}` with `|b| < r`, `(η_j) ⊆ X_m` is
 bounded and `Df(b_j, 0)(0, η_j) = y_j + z_j` with `y_j → 0` in `F_m` and `(z_j)` bounded in
 `F_{m+1}`, then `(η_j)` has a convergent subsequence in `X_m`.  (The text: "for `b ∈ B ∩ U`
@@ -391,7 +391,7 @@ lemma FamilyCompactness.mono {Bf : Type} [NormedAddCommGroup Bf] [NormedSpace �
     (h : FamilyCompactness O L m) (hKO : K ⊆ O) : FamilyCompactness K L m :=
   fun b b₀ η hb hb₀ => h b b₀ η (fun j => hKO (hb j)) (hKO hb₀)
 
-/-- **Theorem 3.58 (Basic Germ Criterion)**, in the coordinates of the text's proof
+/-- **Theorem 3.7.1 (preprint 3.58) (Basic Germ Criterion)**, in the coordinates of the text's proof
 (`E = ℝⁿ ⊕ X`, `C = C̃ ⊕ X`, `F = ℝᴺ ⊕ Y`): let `U` be a relatively open neighbourhood of `0` in the
 partial quadrant `C̃ ⊕ X` and `f : U → ℝᴺ ⊕ Y` sc-smooth such that
 
@@ -409,12 +409,12 @@ on `O(U ∩ (Vo ⊕ X), 0)` with contraction map `H(b, x) = x − L(b)⁻¹P h(b
 `Φ((b, x), (c, y)) = ((b, x), (c, L(b)⁻¹y))` is a strong bundle isomorphism covering the identity,
 and `f − s`, `s = f(0)` the constant sc⁺-section, is conjugated near `0` to a basic germ.
 
-Proof: Lemma 3.59 (`lemma_3_59`) gives the injectivity of `L(b)` near `0`, Lemma 3.60
-(`lemma_3_60`) the uniform lower bounds on a compact neighbourhood `K`, the index argument
+Proof: Lemma 3.7.2 (preprint 3.59) (`lemma_3_7_2`) gives the injectivity of `L(b)` near `0`, Lemma 3.7.3 (preprint 3.60)
+(`lemma_3_7_3`) the uniform lower bounds on a compact neighbourhood `K`, the index argument
 (`surjective_of_fredholmIndex_block`: `ind Df(b, 0) = ind Df(0) = n − N` on every level, so
 `ind L(b) = 0` and the injective `L(b)` is surjective) the sc-isomorphisms, and
-`theorem_3_58_of_family` concludes with condition (3). -/
-theorem theorem_3_58 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+`theorem_3_7_1_of_family` concludes with condition (3). -/
+theorem theorem_3_7_1 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (hU : IsRelOpenInQuadrant 𝔼 (Ct ×ˢ univ) U) (h0 : (0 : 𝔼 0) ∈ U) (hf : IsScSmooth U f)
     (h1 : ∀ b ∈ Ct, ∀ hb : ((b, 0) : 𝔼 0) ∈ U,
       IsScFredholm (derivParamOp hf b hb) ∧ scIndex (derivParamOp hf b hb) = scIndex (derivParamOp hf 0 h0))
@@ -444,7 +444,7 @@ theorem theorem_3_58 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     exact this
   have hbU : ∀ b ∈ Vopen' ∩ Ct, ((b, 0) : 𝔼 0) ∈ U := fun b hb => by
     rw [hUeq]; exact ⟨hb.1, hb.2, mem_univ _⟩
-  -- the neighbourhood `O` of Lemma 3.59
+  -- the neighbourhood `O` of Lemma 3.7.2 (preprint 3.59)
   set O : Set P := (Vopen' ∩ ball 0 r₂) ∩ Ct with hO
   have hOU : ∀ b ∈ O, b ∈ Ct ∧ ((b, 0) : 𝔼 0) ∈ U := fun b hb => ⟨hb.2, hbU b ⟨hb.1.1, hb.2⟩⟩
   have hOr : ∀ b ∈ O, ‖b‖ < r₂ := fun b hb => mem_ball_zero_iff.1 hb.1.2
@@ -453,7 +453,7 @@ theorem theorem_3_58 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     familyCompactness_derivFamOp hf hOU hOr m (h2 m)
   have hcont : ∀ m, ContinuousOn (fun p : P × X m => derivFamOp hf p.1 m p.2) (O ×ˢ univ) :=
     fun m => continuousOn_derivFamOp hf (fun b hb => (hOU b hb).2) m
-  -- Lemma 3.59
+  -- Lemma 3.7.2 (preprint 3.59)
   have hinj0 : Injective (derivFamOp hf 0 0) := by
     have e : ∀ h : X 0, derivFamOp hf 0 0 h = (scDeriv (E := 𝔼) (F := 𝔽) U f 0 ((0 : P), h)).2 :=
       fun h => by rw [derivFamOp_apply hf h0 0 h, levelDeriv_zero]; rfl
@@ -461,8 +461,8 @@ theorem theorem_3_58 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     apply h2bij.1
     simp only
     rw [← e, ← e, hxy]
-  obtain ⟨r₁, hr₁, hinj⟩ := lemma_3_59 h0O (derivFamOp hf) (hcont 0) hinj0 (hcpt 0)
-  -- the compact neighbourhood `K` of Lemma 3.60
+  obtain ⟨r₁, hr₁, hinj⟩ := lemma_3_7_2 h0O (derivFamOp hf) (hcont 0) hinj0 (hcpt 0)
+  -- the compact neighbourhood `K` of Lemma 3.7.3 (preprint 3.60)
   have hnhds : Vopen' ∩ ball 0 r₂ ∩ ball 0 r₁ ∈ 𝓝 (0 : P) :=
     ((hVopen'o.inter isOpen_ball).inter isOpen_ball).mem_nhds
       ⟨⟨hV0', mem_ball_self hr₂⟩, mem_ball_self hr₁⟩
@@ -474,9 +474,9 @@ theorem theorem_3_58 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
   have h0K : (0 : P) ∈ K := ⟨mem_closedBall_self hr₁'.le, hCt0⟩
   have hinjK : ∀ b ∈ K, ∀ m, Injective (derivFamOp hf b m) := fun b hb m =>
     (derivFamOp hf b).injective_lvl (hinj b (hKO hb) (hKr₁ b hb)) m
-  -- Lemma 3.60
+  -- Lemma 3.7.3 (preprint 3.60)
   have hc : ∀ m, ∃ c > 0, ∀ b ∈ K, ∀ h : X m, c * ‖h‖ ≤ ‖derivFamOp hf b m h‖ := fun m =>
-    lemma_3_60 hKc (derivFamOp hf) m ((hcont m).mono (prod_mono hKO subset_rfl))
+    lemma_3_7_3 hKc (derivFamOp hf) m ((hcont m).mono (prod_mono hKO subset_rfl))
       (fun b hb => hinjK b hb m) ((hcpt m).mono hKO)
   -- the index: `ind Df(0) = n − N` from the bijectivity of `L(0)` on level `0`
   have hLblock : ∀ b (hb : ((b, 0) : 𝔼 0) ∈ U) m (x : X m),
@@ -520,7 +520,7 @@ theorem theorem_3_58 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
       L b 0 h = (scDeriv (E := 𝔼) (F := 𝔽) U f ((b, 0) : P × X 1) ((0 : P), h)).2 := fun b hb h => by
     rw [hLapply b (hVoK b hb), derivFamOp_apply hf (hOU b (hKO (hVoK b hb))).2, levelDeriv_zero]
   refine ⟨ball 0 r₁', isOpen_ball, mem_ball_self hr₁', L, hL', ?_⟩
-  exact theorem_3_58_of_family hC hU h0 hf isOpen_ball (mem_ball_self hr₁')
+  exact theorem_3_7_1_of_family hC hU h0 hf isOpen_ball (mem_ball_self hr₁')
     (fun b hb => (hOU b (hKO (hVoK b hb))).2) hL'
     (fun m => by
       obtain ⟨c, hc0, hcm⟩ := hc m

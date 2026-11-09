@@ -5,17 +5,17 @@ import RoundTrip.Blind.V2_9
 /-! Round trip for V2_9 (Proposition 2.10: open subsets of retracts, and images of sc-smooth
 idempotents on them, are retracts).
 
-`A` is the conjunction of the types of `Polyfold.proposition_2_10_1`,
-`Polyfold.proposition_2_10_2`, `Polyfold.ScRetraction.restrict_retract`,
+`A` is the conjunction of the types of `Polyfold.proposition_2_3_1_one`,
+`Polyfold.proposition_2_3_1_two`, `Polyfold.ScRetraction.restrict_retract`,
 `Polyfold.IsScSmoothRetractMap.restrict` and `Polyfold.IsScSmoothRetractMap.of_locally` (no
 universe parameters: `ScBanach` lives in `Type`).  `ScRetraction.restrict` and
 `LocalModel.restrict` are definitions (vocabulary).
 
-`A → B`: (1) is `proposition_2_10_1`.  (2): `V = O ∩ W` is a retract by (1), and B's existential
+`A → B`: (1) is `proposition_2_3_1_one`.  (2): `V = O ∩ W` is a retract by (1), and B's existential
 hypothesis on `s` is the project's `IsScSmoothRetractMap E C V E C V s` by
-`isScSmoothRetractMap_iff_exists` (item V2_6, not banned here); then `proposition_2_10_2`.
+`isScSmoothRetractMap_iff_exists` (item V2_6, not banned here); then `proposition_2_3_1_two`.
 
-`B → A`: `proposition_2_10_1` is B (1) with `O' = O ∩ W`; `proposition_2_10_2` is B (2) with
+`B → A`: `proposition_2_3_1_one` is B (1) with `O' = O ∩ W`; `proposition_2_3_1_two` is B (2) with
 `O := V`, `W := univ` (B's hypothesis "for some retraction" follows from the project's "for every
 retraction").  The other three conjuncts (`restrict_retract`: `r(U ∩ r⁻¹W) = r(U) ∩ W`;
 `IsScSmoothRetractMap.restrict`: restriction of an sc-smooth map to `O ∩ W`; and
@@ -28,14 +28,14 @@ open Polyfold Set
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_10_1) ∧
-    (type_of% @Polyfold.proposition_2_10_2) ∧
+  (type_of% @Polyfold.proposition_2_3_1_one) ∧
+    (type_of% @Polyfold.proposition_2_3_1_two) ∧
     (type_of% @Polyfold.ScRetraction.restrict_retract) ∧
     (type_of% @Polyfold.IsScSmoothRetractMap.restrict) ∧
     (type_of% @Polyfold.IsScSmoothRetractMap.of_locally)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_10_1, @Polyfold.proposition_2_10_2,
+  ⟨@Polyfold.proposition_2_3_1_one, @Polyfold.proposition_2_3_1_two,
     @Polyfold.ScRetraction.restrict_retract, @Polyfold.IsScSmoothRetractMap.restrict,
     @Polyfold.IsScSmoothRetractMap.of_locally⟩
 
@@ -107,13 +107,13 @@ theorem B_to_A : B → A := by
     exact (hB E C V ⟨R, hR⟩).2 V ⟨univ, isOpen_univ, (inter_univ V).symm⟩ s
       ⟨hs.mapsTo, R, hR, hs.comp_isScSmooth R hR⟩ hss
 
-#rt_check RoundTrip.V2_9.A_to_B [Polyfold.proposition_2_10_1, Polyfold.proposition_2_10_2,
+#rt_check RoundTrip.V2_9.A_to_B [Polyfold.proposition_2_3_1_one, Polyfold.proposition_2_3_1_two,
   Polyfold.ScRetraction.restrict_retract, Polyfold.IsScSmoothRetractMap.restrict,
   Polyfold.IsScSmoothRetractMap.of_locally]
-#rt_check RoundTrip.V2_9.B_to_A [Polyfold.proposition_2_10_1, Polyfold.proposition_2_10_2,
+#rt_check RoundTrip.V2_9.B_to_A [Polyfold.proposition_2_3_1_one, Polyfold.proposition_2_3_1_two,
   Polyfold.ScRetraction.restrict_retract, Polyfold.IsScSmoothRetractMap.restrict,
   Polyfold.IsScSmoothRetractMap.of_locally]
-#rt_overlap RoundTrip.V2_9.B_to_A [Polyfold.proposition_2_10_1, Polyfold.proposition_2_10_2,
+#rt_overlap RoundTrip.V2_9.B_to_A [Polyfold.proposition_2_3_1_one, Polyfold.proposition_2_3_1_two,
   Polyfold.ScRetraction.restrict_retract, Polyfold.IsScSmoothRetractMap.restrict,
   Polyfold.IsScSmoothRetractMap.of_locally]
 

@@ -9,7 +9,7 @@ import RoundTrip.Blind.V7_32
 all in `Polyfold.EpGroupoid`: the conditions of Definition 7.3 for the full subcategory with the
 structures `subObjPolyfold hA`, `subMorPolyfold hA` (`isLocalScDiffeo_fullSub_src`, `_tgt`,
 `isScSmoothMap_fullSub_unit`, `_inv`, `exists_isProperMap_fullSub`, `isScSmoothComp_fullSub`),
-the equations `subEpGroupoid_src_val`, `subEpGroupoid_comp_val`, `proposition_7_7`, and the
+the equations `subEpGroupoid_src_val`, `subEpGroupoid_comp_val`, `proposition_7_1_22`, and the
 inclusion functor's `subEpFunctor_full`, `subEpFunctor_faithful`.  `subEpGroupoid`,
 `subEpFunctor` are definitions (vocabulary).
 
@@ -28,7 +28,7 @@ topological, same subspace topologies) and condition (4) (through its sheet form
 `isScSmoothComp_iff_sheet`, using that `Y.comp` is `X.comp` on composable pairs) pass from `Y` to
 `subObjPolyfold`, `subMorPolyfold`.  So the uniqueness of the induced structure is all that A adds
 to B on this part.  The remaining conjuncts (`A_rest`) are proved outright: they are `rfl`-level
-facts about the definition `subEpGroupoid` (`src_val`, `comp_val`, `proposition_7_7`), which B
+facts about the definition `subEpGroupoid` (`src_val`, `comp_val`, `proposition_7_1_22`), which B
 cannot name, and the fullness/faithfulness of the inclusion functor `subEpFunctor`, which the text
 does not state.
 
@@ -57,7 +57,7 @@ def A : Prop :=
     (type_of% @Polyfold.EpGroupoid.isScSmoothComp_fullSub.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.subEpGroupoid_src_val.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.subEpGroupoid_comp_val.{0}) ∧
-    (type_of% @Polyfold.EpGroupoid.proposition_7_7.{0}) ∧
+    (type_of% @Polyfold.EpGroupoid.proposition_7_1_22.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.subEpFunctor_full.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.subEpFunctor_faithful.{0})
 
@@ -70,7 +70,7 @@ theorem A_holds : A :=
     @Polyfold.EpGroupoid.isScSmoothComp_fullSub.{0},
     @Polyfold.EpGroupoid.subEpGroupoid_src_val.{0},
     @Polyfold.EpGroupoid.subEpGroupoid_comp_val.{0},
-    @Polyfold.EpGroupoid.proposition_7_7.{0},
+    @Polyfold.EpGroupoid.proposition_7_1_22.{0},
     @Polyfold.EpGroupoid.subEpFunctor_full.{0},
     @Polyfold.EpGroupoid.subEpFunctor_faithful.{0}⟩
 
@@ -96,7 +96,7 @@ def A_core : Prop :=
 def A_rest : Prop :=
   (type_of% @Polyfold.EpGroupoid.subEpGroupoid_src_val.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.subEpGroupoid_comp_val.{0}) ∧
-    (type_of% @Polyfold.EpGroupoid.proposition_7_7.{0}) ∧
+    (type_of% @Polyfold.EpGroupoid.proposition_7_1_22.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.subEpFunctor_full.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.subEpFunctor_faithful.{0})
 
@@ -323,20 +323,20 @@ elab "#rt_check_except_defs " t:ident " [" ds:ident,* "]" " [" bs:ident,* "]" : 
   Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_tgt, Polyfold.EpGroupoid.isScSmoothMap_fullSub_unit,
   Polyfold.EpGroupoid.isScSmoothMap_fullSub_inv, Polyfold.EpGroupoid.exists_isProperMap_fullSub,
   Polyfold.EpGroupoid.isScSmoothComp_fullSub, Polyfold.EpGroupoid.subEpGroupoid_src_val,
-  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_7,
+  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_1_22,
   Polyfold.EpGroupoid.subEpFunctor_full, Polyfold.EpGroupoid.subEpFunctor_faithful]
 #rt_check RoundTrip.V7_32.B_to_A_core [Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_src,
   Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_tgt, Polyfold.EpGroupoid.isScSmoothMap_fullSub_unit,
   Polyfold.EpGroupoid.isScSmoothMap_fullSub_inv, Polyfold.EpGroupoid.exists_isProperMap_fullSub,
   Polyfold.EpGroupoid.isScSmoothComp_fullSub, Polyfold.EpGroupoid.subEpGroupoid_src_val,
-  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_7,
+  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_1_22,
   Polyfold.EpGroupoid.subEpFunctor_full, Polyfold.EpGroupoid.subEpFunctor_faithful]
 #rt_check_except_defs RoundTrip.V7_32.A_rest_holds [Polyfold.EpGroupoid.subEpGroupoid,
   Polyfold.EpGroupoid.subEpFunctor] [Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_src,
   Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_tgt, Polyfold.EpGroupoid.isScSmoothMap_fullSub_unit,
   Polyfold.EpGroupoid.isScSmoothMap_fullSub_inv, Polyfold.EpGroupoid.exists_isProperMap_fullSub,
   Polyfold.EpGroupoid.isScSmoothComp_fullSub, Polyfold.EpGroupoid.subEpGroupoid_src_val,
-  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_7,
+  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_1_22,
   Polyfold.EpGroupoid.subEpFunctor_full, Polyfold.EpGroupoid.subEpFunctor_faithful]
 -- `A_to_B` (and every term mentioning `A`) fails by the harness: A's statement contains the
 -- banned theorems (proof arguments of `IsScSmoothComp`, fields of `subEpGroupoid`).
@@ -352,13 +352,13 @@ elab "#rt_check_except_defs " t:ident " [" ds:ident,* "]" " [" bs:ident,* "]" : 
   Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_tgt, Polyfold.EpGroupoid.isScSmoothMap_fullSub_unit,
   Polyfold.EpGroupoid.isScSmoothMap_fullSub_inv, Polyfold.EpGroupoid.exists_isProperMap_fullSub,
   Polyfold.EpGroupoid.isScSmoothComp_fullSub, Polyfold.EpGroupoid.subEpGroupoid_src_val,
-  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_7,
+  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_1_22,
   Polyfold.EpGroupoid.subEpFunctor_full, Polyfold.EpGroupoid.subEpFunctor_faithful]
 #rt_overlap RoundTrip.V7_32.B_to_A_core [Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_src,
   Polyfold.EpGroupoid.isLocalScDiffeo_fullSub_tgt, Polyfold.EpGroupoid.isScSmoothMap_fullSub_unit,
   Polyfold.EpGroupoid.isScSmoothMap_fullSub_inv, Polyfold.EpGroupoid.exists_isProperMap_fullSub,
   Polyfold.EpGroupoid.isScSmoothComp_fullSub, Polyfold.EpGroupoid.subEpGroupoid_src_val,
-  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_7,
+  Polyfold.EpGroupoid.subEpGroupoid_comp_val, Polyfold.EpGroupoid.proposition_7_1_22,
   Polyfold.EpGroupoid.subEpFunctor_full, Polyfold.EpGroupoid.subEpFunctor_faithful]
 
 end RoundTrip.V7_32

@@ -8,8 +8,8 @@ objects).
 `A` is the conjunction of the types of the four listed theorems, universes at `0`:
 `IsProperCovering.exists_isomorphic_of_isomorphic` (every `y ∈ F⁻¹(x)` is isomorphic to some
 `y' ∈ F⁻¹(x')`), `IsProperCovering.fiberIndex_eq` (`π(F⁻¹(x)) = π(F⁻¹(x'))` in `|Y|`),
-`IsProperCovering.lemma_8_10` (same index set, unique index for isomorphic `y, y'`) and
-`IsProperCovering.lemma_8_10_equiv` (a bijection between the sets of classes, corresponding
+`IsProperCovering.lemma_8_6_2` (same index set, unique index for isomorphic `y, y'`) and
+`IsProperCovering.lemma_8_6_2_equiv` (a bijection between the sets of classes, corresponding
 classes isomorphic).
 
 * `A ⇒ B`: B's paragraph-before-the-lemma claim is transitivity of `≅`.  For the lemma, given an
@@ -23,7 +23,7 @@ classes isomorphic).
   `q`); it never says that a point of `F⁻¹(x)` has an isomorphic partner in `F⁻¹(x')`.  If no
   such pairs existed, every enumeration `Θ'` of the `q` classes of `F⁻¹(x')` would satisfy B's
   conclusion, so B's conclusion does not imply A's `exists_isomorphic_of_isomorphic`,
-  `fiberIndex_eq` or `lemma_8_10_equiv` (all of which assert that totality); `A` is stronger.
+  `fiberIndex_eq` or `lemma_8_6_2_equiv` (all of which assert that totality); `A` is stronger.
 -/
 
 namespace RoundTrip.V8_40
@@ -33,14 +33,14 @@ open Polyfold Set Function
 def A : Prop :=
   (type_of% @Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic.{0, 0}) ∧
   (type_of% @Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq.{0, 0}) ∧
-  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_10.{0, 0}) ∧
-  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv.{0, 0})
+  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2.{0, 0}) ∧
+  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv.{0, 0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic.{0, 0},
     @Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq.{0, 0},
-    @Polyfold.EpFunctor.IsProperCovering.lemma_8_10.{0, 0},
-    @Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv.{0, 0}⟩
+    @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2.{0, 0},
+    @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv.{0, 0}⟩
 
 theorem A_to_B : A → B := by
   intro hA ObjY MorY ObjX MorX _ _ _ _ _ _ _ _ _ _ _ _ Y X F hF x x' hxx'
@@ -134,15 +134,15 @@ theorem B_to_A : B → A := by
 
 #rt_check RoundTrip.V8_40.A_to_B [Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic,
   Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_10,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv]
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2,
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv]
 #rt_check RoundTrip.V8_40.B_to_A [Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic,
   Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_10,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv]
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2,
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv]
 #rt_overlap RoundTrip.V8_40.B_to_A [Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic,
   Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_10,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv]
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2,
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv]
 
 end RoundTrip.V8_40

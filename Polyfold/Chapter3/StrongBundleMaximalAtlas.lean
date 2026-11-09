@@ -3,16 +3,16 @@ import Polyfold.Chapter3.StrongBundleSections
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.5,
-Definitions 2.50–2.51: the strong bundle charts of a strong bundle (the maximal atlas of its
+Definitions 2.6.4–2.6.5 (preprint 2.50–2.51): the strong bundle charts of a strong bundle (the maximal atlas of its
 equivalence class), and their restrictions.
 
 # The maximal strong bundle atlas
 
 ## The text, paraphrased
 
-(Definition 2.51) A strong bundle is `P : Y → X` with an equivalence class of strong bundle
-atlases; the later sections speak of "a strong bundle chart of `P`" (Definitions 3.3, 3.6, 3.11,
-Lemma 5.2, ...), i.e. a chart of some atlas of the class.
+(Definition 2.6.5 (preprint 2.51)) A strong bundle is `P : Y → X` with an equivalence class of strong bundle
+atlases; the later sections speak of "a strong bundle chart of `P`" (Definitions 3.1.3, 3.1.6, 3.1.11 (preprint 3.3, 3.6, 3.11),
+Lemma 5.1.2 (preprint 5.2), ...), i.e. a chart of some atlas of the class.
 
 ## What is formalized
 
@@ -51,7 +51,7 @@ variable {B : StrongBundle PX P}
 
 /-- **Two strong bundle charts of `P` are compatible** (both are compatible with the charts of the
 atlas, which cover `Y`; `StrongBundleChart.compatible_of_locally`).  The analogue of
-`MPolyfold.IsChart.compatible`; implicit in Definition 2.51 (round-trip item V2.58). -/
+`MPolyfold.IsChart.compatible`; implicit in Definition 2.6.5 (preprint 2.51) (round-trip item V2.58). -/
 theorem IsChart.compatible {c c' : StrongBundleChart PX P} (hc : B.IsChart c)
     (hc' : B.IsChart c') : c.Compatible c' :=
   StrongBundleChart.compatible_of_locally c c' B.atlas.charts hc (fun χ hχ => (hc' χ hχ).symm)
@@ -74,12 +74,12 @@ def maximalAtlas : StrongBundleAtlas PX P where
     exact ⟨c, B.isChart_of_mem hc, hy⟩
 
 variable (B) in
-/-- The maximal atlas belongs to the equivalence class of the atlas of `B` (Definition 2.51). -/
+/-- The maximal atlas belongs to the equivalence class of the atlas of `B` (Definition 2.6.5 (preprint 2.51)). -/
 theorem maximalAtlas_equiv : B.maximalAtlas.Equiv B.atlas :=
   (StrongBundleAtlas.equiv_iff _ _).2 fun _ hc c' hc' => hc c' hc'
 
 /-- **The strong bundle charts of `P` are the charts of the atlases of the equivalence class**
-(Definition 2.51's "equivalence class of strong bundle atlases", read through its maximal atlas;
+(Definition 2.6.5 (preprint 2.51)'s "equivalence class of strong bundle atlases", read through its maximal atlas;
 round-trip item V2.58). -/
 theorem isChart_iff_exists_equiv (c : StrongBundleChart PX P) :
     B.IsChart c ↔ ∃ A : StrongBundleAtlas PX P, A.Equiv B.atlas ∧ c ∈ A.charts := by
@@ -90,7 +90,7 @@ theorem isChart_iff_exists_equiv (c : StrongBundleChart PX P) :
     exact (StrongBundleAtlas.equiv_iff A B.atlas).1 hA c hcA c' hc'
 
 /-- **The strong bundle charts of `P` depend only on the equivalence class of the atlas** (the
-analogue of `MPolyfold.isChart_congr`; Definition 2.51, round-trip item V2.58). -/
+analogue of `MPolyfold.isChart_congr`; Definition 2.6.5 (preprint 2.51), round-trip item V2.58). -/
 theorem isChart_congr {B B' : StrongBundle PX P} (h : B.atlas.Equiv B'.atlas)
     (c : StrongBundleChart PX P) : B.IsChart c ↔ B'.IsChart c := by
   rw [isChart_iff_exists_equiv, isChart_iff_exists_equiv]

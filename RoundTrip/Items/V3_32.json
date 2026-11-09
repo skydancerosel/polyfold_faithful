@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A now contains Theorem 3.35 in the text's form (theorem_3_35_of_isSc0ContractionGerm: Definition 3.28 contraction germ on any quadrant-like C~ in a finite-dimensional P, any representative (V, delta) of the solution germ; f sc^k gives delta sc^k on a smaller germ, f sc-smooth gives delta sc-smooth on ONE smaller germ), besides the working-form theorem_3_35/_smooth/_isScSmoothGerm and isSckGerm_contractionMap_iff. A => B is now a direct specialisation (A_to_B_text: P = ℝⁿ, C~ a partial quadrant). The audit's proof through the working form (theorem_3_35, theorem_3_35_smooth, agreement of delta with sol, and the diagonal germ with the locality lemma proved in the item file) is kept, repaired for the new A (A_to_B); the locality lemma and the diagonal germ have since moved into the project, confirming the blind author's remark that the 'one germ' and 'k-dependent germ' readings agree. B => A fails for genuine generality: A's working-form theorems are about the 1/2-contraction ContractionGerm (weaker than Definition 3.28) and the specific sol on explicit germs, the text-form theorem is for any finite-dimensional P and quadrant-like C~, and isSckGerm_contractionMap_iff is not in B.",
+ "why": "A now contains Theorem 3.35 in the text's form (theorem_3_35_of_isSc0ContractionGerm_preprint: Definition 3.28 contraction germ on any quadrant-like C~ in a finite-dimensional P, any representative (V, delta) of the solution germ; f sc^k gives delta sc^k on a smaller germ, f sc-smooth gives delta sc-smooth on ONE smaller germ), besides the working-form theorem_3_35_preprint/_smooth/_isScSmoothGerm and isSckGerm_contractionMap_iff. A => B is now a direct specialisation (A_to_B_text: P = ℝⁿ, C~ a partial quadrant). The audit's proof through the working form (theorem_3_35_preprint, theorem_3_35_smooth_preprint, agreement of delta with sol, and the diagonal germ with the locality lemma proved in the item file) is kept, repaired for the new A (A_to_B); the locality lemma and the diagonal germ have since moved into the project, confirming the blind author's remark that the 'one germ' and 'k-dependent germ' readings agree. B => A fails for genuine generality: A's working-form theorems are about the 1/2-contraction ContractionGerm (weaker than Definition 3.28) and the specific sol on explicit germs, the text-form theorem is for any finite-dimensional P and quadrant-like C~, and isSckGerm_contractionMap_iff is not in B.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved)",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "A gained theorem_3_35_isScSmoothGerm, theorem_3_35_of_isSc0ContractionGerm (the text's form) and isSckGerm_contractionMap_iff (the audit's glue moved into the project); A ⇒ B is now a direct specialisation (A_to_B_text), the old proof repaired. Result unchanged: A_stronger."
+  "note": "A gained theorem_3_35_isScSmoothGerm_preprint, theorem_3_35_of_isSc0ContractionGerm_preprint (the text's form) and isSckGerm_contractionMap_iff (the audit's glue moved into the project); A ⇒ B is now a direct specialisation (A_to_B_text), the old proof repaired. Result unchanged: A_stronger."
  }
 }

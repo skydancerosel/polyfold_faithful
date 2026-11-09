@@ -4,7 +4,7 @@ import Polyfold.Chapter5.GeneralPosition
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6 and §6
-(Theorem 3.54 and the proof of Proposition 6.2, p. 201): **the Fredholm index of the linearization
+(Theorem 3.6.8 (preprint 3.54) and the proof of Proposition 6.2.2 (preprint 6.2), p. 240 (preprint p. 201)): **the Fredholm index of the linearization
 is locally constant along the zero set of an sc-Fredholm section**, without good position or
 surjectivity at the base point (round-trip item V3.98 (b)).  Findings, Chapter 3, items 240–244.
 
@@ -12,8 +12,8 @@ surjectivity at the base point (round-trip item V3.98 (b)).  Findings, Chapter 3
 
 ## The text, paraphrased
 
-(Theorem 3.54, proof, and Proposition 6.2) Along the solution set of an sc-Fredholm section the
-Fredholm index of `f'(y) : T_yX → Y_y` is locally constant; the text's device for Proposition 6.2
+(Theorem 3.6.8 (preprint 3.54), proof, and Proposition 6.2.2 (preprint 6.2)) Along the solution set of an sc-Fredholm section the
+Fredholm index of `f'(y) : T_yX → Y_y` is locally constant; the text's device for Proposition 6.2.2 (preprint 6.2)
 adds finitely many sc⁺-sections with parameters `λ`, applies the implicit function theorem to the
 extended section `F(λ, y) = f(y) + Σ λᵢ sᵢ(y)`, and reads off the index from the tangent spaces
 of its solution manifold.  (Round-trip item V3.98 (b)) Every zero `x₀` of an sc-Fredholm section
@@ -30,40 +30,40 @@ being the sc-Fredholm index of `f'(y)` in every strong bundle chart around `y`.
 * `Polyfold.linIndex_snd`, `Polyfold.fredholmIndex_eq_of_param` (linear algebra): for
   `M(a, u) = L u + E a` on `ℝᵏ × T` with `L` and `M` Fredholm, `ind M = ind L + k`.
 * `Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex_wholeChart`: if the parametrized section
-  `F(λ, y) = f(y) + Σ λᵢ sᵢ(y)` of Theorem 3.18 has index `d` at `(0, y)`, then `f` has index
+  `F(λ, y) = f(y) + Σ λᵢ sᵢ(y)` of Theorem 3.1.21 (preprint 3.18) has index `d` at `(0, y)`, then `f` has index
   `d − k` at the zero `y` — the linearization of `F` at `(0, y)` in the product chart is
   `(δa, δu) ↦ Lin_f(0) δu + Σ δaᵢ ŝᵢ(0)` (`linAt_paramSection_zero_wholeChart`).
 * **The index is locally constant along the zero set** (round-trip item V3.98 (b), with the
   hypotheses of Chapter 5): `Polyfold.index_locally_constant_of_admitsBumpFunctions_wholeChart` (level `0`,
   `IsLinOfIndex` at every zero near `x₀` with one index `i`) and
-  `Polyfold.theorem_3_54_index_locally_constant_general_wholeChart` (the sc form: at every zero `y` near
+  `Polyfold.theorem_3_6_8_index_locally_constant_general_wholeChart` (the sc form: at every zero `y` near
   `x₀`, in every strong bundle chart around `y`, `Lin(z) : T_zO → K_z` is sc-Fredholm of index `i`
-  on every level).  Hypotheses: `X` admits sc-smooth bump functions (Definition 5.9) and `f` is an
-  sc-Fredholm section with tame germ data (Definition 3.51); no good position, no surjectivity.
-  The auxiliary norm the construction uses exists by Proposition 5.3 (`proposition_5_3_exists`).
+  on every level).  Hypotheses: `X` admits sc-smooth bump functions (Definition 5.3.1 (preprint 5.9)) and `f` is an
+  sc-Fredholm section with tame germ data (Definition 3.6.4 (preprint 3.51)); no good position, no surjectivity.
+  The auxiliary norm the construction uses exists by Proposition 5.1.3 (preprint 5.3) (`proposition_5_1_3_exists`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **The proof is the text's device for Proposition 6.2, with the ingredients of Chapter 5.**
+* **The proof is the text's device for Proposition 6.2.2 (preprint 6.2), with the ingredients of Chapter 5.**
   At the zero `x₀`, finitely many sc⁺-sections `s₁, …, s_k` put the parametrized section `F` into
   general position at `(0, x₀)` (`exists_sections_isParamGP`,
-  `isGeneralPositionGerm_paramSection_of_isParamGP`: the spanning sections of Lemma 5.11 for the
+  `isGeneralPositionGerm_paramSection_of_isParamGP`: the spanning sections of Lemma 5.3.3 (preprint 5.11) for the
   surjectivity, and the tilting sections for the kernel condition at the corner — the two points
-  of Findings items 105 (a) and 107 which the text's proof of Proposition 6.2 does not address);
-  general position gives good position in a tame chart (Lemma 5.26), so Theorem 3.54 (1) and the
-  dimension count (`theorem_3_54_index_locally_constant_wholeChart`) make the index of `F` constant along
+  of Findings items 105 (a) and 107 which the text's proof of Proposition 6.2.2 (preprint 6.2) does not address);
+  general position gives good position in a tame chart (Lemma 5.26), so Theorem 3.6.8 (preprint 3.54) (1) and the
+  dimension count (`theorem_3_6_8_index_locally_constant_wholeChart`) make the index of `F` constant along
   its solution set near `(0, x₀)`; at `(0, y)` with `f(y) = 0` the index of `F` is `k + ind f'(y)`.
 * **The neighbourhood does not depend on the sections**: the `Λ₀`-dependence of Findings item
   106 concerns the surjectivity of `f'(y)` (which needs all smooth vectors in the range); for the
   index one family of sections at `x₀` suffices.  Tameness enters through the kernel condition of
   good position at the corner (`IsScFredholmSectionTameWholeChart`, `IsTameChart` with a presentation of the
-  partial quadrant); bump functions through Lemma 5.11.
+  partial quadrant); bump functions through Lemma 5.3.3 (preprint 5.11).
 * **Without bump functions the question is open** (see the Findings): in the chart at `x₀` with
   the filler `g`, at a zero `z` near `0`, `Dg(z)` is Fredholm of index `n − N` (push-forward and
-  Proposition 3.10 at `ψ(z)`), `Lin(z)` is Fredholm (the germ at `y`), and the upper triangular
+  Proposition 3.1.10 (preprint 3.10) at `ψ(z)`), `Lin(z)` is Fredholm (the germ at `y`), and the upper triangular
   matrix `Dg(z) = [[Lin(z), B], [0, C(z)]]` gives `ind Dg(z) = ind Lin(z) + ind C(z)` with
   `C(z) = (1 − ρ(z))Dg(z)|_{ker Dr(z)} : ker Dr(z) → ker ρ(z)` Fredholm; the claim is
-  `ind C(z) = 0`, which condition (3) of Definition 3.4 gives at `z = 0` only, and `z ↦ C(z)` is
+  `ind C(z) = 0`, which condition (3) of Definition 3.1.4 (preprint 3.4) gives at `z = 0` only, and `z ↦ C(z)` is
   not norm continuous.
 -/
 
@@ -161,7 +161,7 @@ theorem StrongBundle.IsSurjLinOfIndex.isLinOfIndex {y : X} {d : ℕ}
     (h : B.IsSurjLinOfIndex f y d) : B.IsLinOfIndex f y d := fun c hc hyV z hz hzU L hL =>
   ⟨(h c hc hyV z hz hzU L hL).2.1, (h c hc hyV z hz hzU L hL).2.2.1⟩
 
-/-- **The index of `f'(y)` is `dim Pn − dim Q` for every germ datum at `y`** (Proposition 3.52
+/-- **The index of `f'(y)` is `dim Pn − dim Q` for every germ datum at `y`** (Proposition 3.6.5 (preprint 3.52)
 with the index, carried to every chart by `linAt_index_of_conjugationData_wholeChart`). -/
 theorem StrongBundle.isLinOfIndex_of_conjugationData_wholeChart (hf : B.IsScSmoothSection f) {y : X}
     (hy0 : IsZeroAt P f y) {c : StrongBundleChart PX P} (hc : B.IsChart c)
@@ -179,9 +179,9 @@ theorem StrongBundle.isLinOfIndex_of_conjugationData_wholeChart (hf : B.IsScSmoo
 set_option maxHeartbeats 400000 in
 -- the product chart `(r ↦ r) × φ₁` and its tangent space are unfolded through `PullbackChartData`
 /-- **The index of `f` at a zero from the index of the parametrized section** (the step of the
-proof of Proposition 6.2 "the index of `F'(0, y)` is `k + ind f'(y)`"): let `f` be an sc-Fredholm
+proof of Proposition 6.2.2 (preprint 6.2) "the index of `F'(0, y)` is `k + ind f'(y)`"): let `f` be an sc-Fredholm
 section, `s₁, …, s_k` sc⁺-sections, `y` a zero of `f`, and suppose the parametrized section
-`F(λ, y) = f(y) + Σ λᵢ sᵢ(y)` of Theorem 3.18 is Fredholm of index `d` at its zero `(0, y)`
+`F(λ, y) = f(y) + Σ λᵢ sᵢ(y)` of Theorem 3.1.21 (preprint 3.18) is Fredholm of index `d` at its zero `(0, y)`
 (`IsLinOfIndex`, in every chart of `π*P`).  Then `f'(y)` is Fredholm of index `d − k` in every
 chart.  Proof: in the product chart over the chart `c₁` of the germ datum at `y`,
 `Lin_F(0)(δa, δu) = Lin_f(0) δu + Σ δaᵢ ŝᵢ(0)` on `T₀(ℝᵏ × O₁) = ℝᵏ × T₀O₁` with values in
@@ -199,7 +199,7 @@ theorem StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex_wholeChart {k : �
   classical
   set F := paramSection f hf.isScSmooth.1 s (fun i => (hs i).1) with hFdef
   have hFF : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold k) PX)).IsScFredholmSectionWholeChart F :=
-    theorem_3_18_wholeChart hf hs
+    theorem_3_1_21_wholeChart hf hs
   have hFs : IsSection (pullbackProj P Prod.snd) F := hFF.isScSmooth.1
   have hz0 : IsZeroAt (pullbackProj P Prod.snd) F (0, y) := by
     rw [hFdef, isZeroAt_paramSection_iff]
@@ -328,33 +328,33 @@ theorem StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex_wholeChart {k : �
 /-! ### The index is locally constant along the zero set -/
 
 /-- **The Fredholm index of the linearization is locally constant along the zero set** (round-trip
-item V3.98 (b); Theorem 3.54 and the proof of Proposition 6.2 along the solution set, without good
-position or surjectivity at `x₀`): let `X` admit sc-smooth bump functions (Definition 5.9) and `f`
-be an sc-Fredholm section with tame germ data (Definition 3.51), `f(x₀) = 0`.  Then there are an
+item V3.98 (b); Theorem 3.6.8 (preprint 3.54) and the proof of Proposition 6.2.2 (preprint 6.2) along the solution set, without good
+position or surjectivity at `x₀`): let `X` admit sc-smooth bump functions (Definition 5.3.1 (preprint 5.9)) and `f`
+be an sc-Fredholm section with tame germ data (Definition 3.6.4 (preprint 3.51)), `f(x₀) = 0`.  Then there are an
 open `V ∋ x₀` and `i ∈ ℤ` such that at every zero `y ∈ V` (in particular at `x₀`) `f'(y)` is
 Fredholm of index `i` in every strong bundle chart (`IsLinOfIndex`).  Proof: the text's device for
-Proposition 6.2 — finitely many sc⁺-sections put the parametrized section `F` of Theorem 3.18 into
+Proposition 6.2.2 (preprint 6.2) — finitely many sc⁺-sections put the parametrized section `F` of Theorem 3.1.21 (preprint 3.18) into
 general position at `(0, x₀)` (`exists_sections_isParamGP`,
 `isGeneralPositionGerm_paramSection_of_isParamGP`, Lemma 5.26), the index of `F` is constant along
-its solution set near `(0, x₀)` (`theorem_3_54_index_locally_constant_wholeChart`), and at `(0, y)` it is
+its solution set near `(0, x₀)` (`theorem_3_6_8_index_locally_constant_wholeChart`), and at `(0, y)` it is
 `k + ind f'(y)` (`isLinOfIndex_of_paramSection_isLinOfIndex_wholeChart`). -/
 theorem index_locally_constant_of_admitsBumpFunctions_wholeChart (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X} (hx₀ : IsZeroAt P f x₀) :
     ∃ (V : Set X) (i : ℤ), IsOpen V ∧ x₀ ∈ V ∧ ∀ y ∈ V, IsZeroAt P f y → B.IsLinOfIndex f y i := by
   classical
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := B)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := B)
   have hfF := hf.toIsScFredholmSectionWholeChart
   have hxs : x₀ ∈ PX.smoothSet := hfF.mem_smoothSet_of_isZeroAt hx₀
   obtain ⟨-, c, hc, hxV, hφ0, -⟩ := hf.germTame x₀ hxs
   obtain ⟨n, Wq, T, hT⟩ := c.φ.model.isPartialQuadrant
-  -- the Chapter 5 lemmas take the germ reading of Definition 3.51 (phase 2); the whole-chart
+  -- the Chapter 5 lemmas take the germ reading of Definition 3.6.4 (preprint 3.51) (phase 2); the whole-chart
   -- reading implies it
   obtain ⟨k, s, hsp, -, -, hgp⟩ := exists_sections_isParamGP hbump hN hf.isScFredholmSectionTame
     hx₀ hc hxV hφ0 T hT isOpen_univ (mem_univ _)
   have := MPolyfold.paracompactSpace_prod (rnPolyfold k) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin k → ℝ) × X → X))
     ((rnPolyfold k).prod PX) B
-  have hFt := theorem_3_18_tame_wholeChart hf hsp
+  have hFt := theorem_3_1_21_tame_wholeChart hf hsp
   set F := paramSection f hf.isScSmooth.1 s (fun i => (hsp i).1) with hFdef
   have hz0 : ∀ y, IsZeroAt P f y → IsZeroAt (pullbackProj P Prod.snd) F (0, y) := fun y hy => by
     rw [hFdef, isZeroAt_paramSection_iff]
@@ -364,14 +364,14 @@ theorem index_locally_constant_of_admitsBumpFunctions_wholeChart (hbump : PX.Adm
     hc hxV hφ0 T hT hgp
   have hgood := hgen.isGoodPositionGermTame hFt.isScFredholmSectionTame (hz0 x₀ hx₀)
   obtain ⟨Vx, d, hVo, hxVx, hall⟩ :=
-    theorem_3_54_index_locally_constant hFt.isScFredholmSectionTame hgood (hz0 x₀ hx₀)
+    theorem_3_6_8_index_locally_constant hFt.isScFredholmSectionTame hgood (hz0 x₀ hx₀)
   refine ⟨Prod.mk (0 : Fin k → ℝ) ⁻¹' Vx, (d : ℤ) - k,
     hVo.preimage (continuous_const.prodMk continuous_id), hxVx, fun y hy hy0 => ?_⟩
   exact StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex_wholeChart hfF hsp hy0
     (hall (0, y) hy (hz0 y hy0)).isLinOfIndex
 
 /-- **The index is locally constant along the zero set, sc form** (round-trip item V3.98 (b):
-the sc-Fredholm index of `f'(y)` in every chart; `theorem_3_54_index_locally_constant_sc_wholeChart` without
+the sc-Fredholm index of `f'(y)` in every chart; `theorem_3_6_8_index_locally_constant_sc_wholeChart` without
 the good position at `x₀`): with the hypotheses of `index_locally_constant_of_admitsBumpFunctions_wholeChart`,
 there are an open `V ∋ x₀` and `i ∈ ℤ` such that at every zero `y ∈ V`, in **every** strong bundle
 chart `c` of `P` around `y`, at the level-`1` point `z` over `φ(y)`, the linearization
@@ -379,7 +379,7 @@ chart `c` of `P` around `y`, at the level-`1` point `z` over `φ(y)`, the linear
 Fredholm of index `i` on every level.  (`linAt_isScFredholm_wholeChart` gives the sc-Fredholm property and
 the equality of the indices on all levels; the level-`0` index is `i` by
 `index_locally_constant_of_admitsBumpFunctions_wholeChart`.) -/
-theorem theorem_3_54_index_locally_constant_general_wholeChart (hbump : PX.AdmitsBumpFunctions)
+theorem theorem_3_6_8_index_locally_constant_general_wholeChart (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X} (hx₀ : IsZeroAt P f x₀) :
     ∃ (V : Set X) (i : ℤ), IsOpen V ∧ x₀ ∈ V ∧
       ∀ y ∈ V, IsZeroAt P f y → ∀ (c : StrongBundleChart PX P) (_ : B.IsChart c)

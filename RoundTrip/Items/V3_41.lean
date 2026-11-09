@@ -5,8 +5,8 @@ import RoundTrip.Blind.V3_41
 /-!
 Round trip for V3_41 (Lemma 3.46: good position of `ker DH(0)`).
 
-`A` is the conjunction of the types of `Polyfold.lemma_3_46` and
-`Polyfold.lemma_3_46_isInGoodPosition` (no universe parameters): the linear-algebra core, for any
+`A` is the conjunction of the types of `Polyfold.lemma_3_5_10` and
+`Polyfold.lemma_3_5_10_isInGoodPosition` (no universe parameters): the linear-algebra core, for any
 finite-dimensional `P`, sc-Banach `W`, `L : P → W₀`, `K̃ ⊆ P`: if the graph
 `K' = {(α, Lα) | α ∈ K̃}` has an (algebraic) good complement `Y'` w.r.t. `C̃ × W`, then `K̃` has a
 good complement `Z` w.r.t. `C̃` with `Z ⊕ W` a good complement of `K'`; and good position of `K'`
@@ -29,9 +29,9 @@ namespace RoundTrip.V3_41
 open Polyfold Set Module
 
 /-- The project's statement: Lemma 3.46. -/
-def A : Prop := type_of% @Polyfold.lemma_3_46 ∧ type_of% @Polyfold.lemma_3_46_isInGoodPosition
+def A : Prop := type_of% @Polyfold.lemma_3_5_10 ∧ type_of% @Polyfold.lemma_3_5_10_isInGoodPosition
 
-theorem A_holds : A := ⟨@Polyfold.lemma_3_46, @Polyfold.lemma_3_46_isInGoodPosition⟩
+theorem A_holds : A := ⟨@Polyfold.lemma_3_5_10, @Polyfold.lemma_3_5_10_isInGoodPosition⟩
 
 /-! ### A closed complement of a smooth finite-dimensional subspace is an sc-complement (V3_20) -/
 
@@ -131,7 +131,7 @@ theorem B_of_A_given (hA : A) {n' N' : ℕ} {W' : ScBanach} {Ct' : Set (Fin n' �
   subst hker
   obtain ⟨Z, hZ, hZY⟩ := hA.1 hgcY
   have hKpos := hA.2 ⟨hint, Y', hgcY⟩
-  have hsm := ((ScBanach.paramProd (Fin n' → ℝ) W').proposition_1_6_iff _).1 hsplitY.1
+  have hsm := ((ScBanach.paramProd (Fin n' → ℝ) W').proposition_1_1_7_iff _).1 hsplitY.1
   have hZc : IsClosed ((Z.prod (⊤ : Submodule ℝ (W'.lvl 0)) : Submodule ℝ _) :
       Set ((ScBanach.paramProd (Fin n' → ℝ) W').lvl 0)) := by
     have : ((Z.prod (⊤ : Submodule ℝ (W'.lvl 0)) : Submodule ℝ _) :
@@ -142,6 +142,6 @@ theorem B_of_A_given (hA : A) {n' N' : ℕ} {W' : ScBanach} {Ct' : Set (Fin n' �
   exact ⟨⟨hKpos.interior_nonempty, Z, goodComplementSc_const hZ⟩, Z, goodComplementSc_const hZ,
     isScSplitting_of_isClosed hsm hZY.isCompl hZc, hZY.exists_eps⟩
 
-#rt_check RoundTrip.V3_41.B_of_A_given [Polyfold.lemma_3_46, Polyfold.lemma_3_46_isInGoodPosition]
+#rt_check RoundTrip.V3_41.B_of_A_given [Polyfold.lemma_3_5_10, Polyfold.lemma_3_5_10_isInGoodPosition]
 
 end RoundTrip.V3_41

@@ -2,9 +2,9 @@ import Polyfold.Chapter3.BasicGermCriterion
 import Polyfold.Chapter3.FredholmGermLinearization
 
 /-!
-# The basic germ criterion (Theorem 3.58), given the family of sc-isomorphisms
+# The basic germ criterion (Theorem 3.7.1 (preprint 3.58)), given the family of sc-isomorphisms
 
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7, **Theorem 3.58** (basic germ
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7, **Theorem 3.7.1 (preprint 3.58)** (basic germ
 criterion): let `U` be a relatively open neighbourhood of `0` in the partial quadrant `C` of the
 sc-Banach space `E` and `f : U → F` sc-smooth with (1) `Df(x)` sc-Fredholm of constant index at
 smooth points, (2) an sc-splitting `E = B ⊕ X`, `B` finite-dimensional containing `ker Df(0)`,
@@ -12,12 +12,12 @@ smooth points, (2) an sc-splitting `E = B ⊕ X`, `B` finite-dimensional contain
 `|[D₂f(b, 0) − D₂f(b, x)]h|_m ≤ ε|h|_m` for `b` small and `x ∈ X_{m+1}` small on level `m`.  Then
 `f − f(0)` is conjugated near `0` to a basic germ.
 
-The text's proof first produces, from (1) and (2) (Lemmas 3.59, 3.60 and the index argument), the
+The text's proof first produces, from (1) and (2) (Lemmas 3.7.2, 3.7.3 (preprint 3.59, 3.60) and the index argument), the
 family `b ↦ L(b) = P ∘ Df(b)|X : X → Y` of sc-isomorphisms with uniform lower bounds
 `|L(b)h|_m ≥ c_m|h|_m` on a neighbourhood of `0`, and then proves the theorem from this family
 and (3).  This file formalizes the second half, **in the coordinates of the text's proof**
 (`B = ℝⁿ`, `E = ℝⁿ ⊕ X`, `C = C̃ ⊕ X`, `A = ℝᴺ`, `F = ℝᴺ ⊕ Y` with `Y = Df(0)X`):
-`Polyfold.theorem_3_58_of_family`.  The first half (the family from (1), (2)) is in
+`Polyfold.theorem_3_7_1_of_family`.  The first half (the family from (1), (2)) is in
 `BasicGermCriterionIndex.lean`.
 
 ## Main results
@@ -25,7 +25,7 @@ and (3).  This file formalizes the second half, **in the coordinates of the text
 * `Polyfold.norm_sub_sub_le_of_hasFDerivWithinAt_segment`: the mean value inequality along a segment
   with the derivative bound in a weaker norm (the text's integral
   `∫₀¹ D₂f(b, tx + (1 − t)x')(x − x') dt` in `F_m`).
-* `Polyfold.DerivCondition`: condition (3) of Theorem 3.58 in coordinates.
+* `Polyfold.DerivCondition`: condition (3) of Theorem 3.7.1 (preprint 3.58) in coordinates.
 * `Polyfold.contrMap358_contraction`: the contraction estimate
   `|H(b, x) − H(b, x')|_m ≤ ε|x − x'|_m` for `H(b, x) = x − L(b)⁻¹P h(b, x)`, first for
   `x, x' ∈ X_{m+1}` and then by density for `x, x' ∈ X_m`.
@@ -33,23 +33,23 @@ and (3).  This file formalizes the second half, **in the coordinates of the text
   special germ `ofSet U` is an sc^k (sc-smooth) map on `U` (the converse of `IsSck.isSckGerm`).
 * `Polyfold.fiberIsoMap_isStrongBundleIso`: the fibre map
   `Φ((b, x), (c, y)) = ((b, x), (c, L(b)⁻¹y))` is a strong bundle isomorphism
-  `U' ◁ (ℝᴺ ⊕ Y) → U' ◁ (ℝᴺ ⊕ X)` covering the identity (sc-smoothness from Lemma 3.61,
+  `U' ◁ (ℝᴺ ⊕ Y) → U' ◁ (ℝᴺ ⊕ X)` covering the identity (sc-smoothness from Lemma 3.7.4 (preprint 3.61),
   `famInv_isScSmooth_of`; the shifted structure through the shifted family `shiftFam`).
-* `Polyfold.theorem_3_58_of_family`: the push-forward `k = Φ_*(f − f(0))` is a basic germ with
+* `Polyfold.theorem_3_7_1_of_family`: the push-forward `k = Φ_*(f − f(0))` is a basic germ with
   contraction map `H`, and `f − f(0)` is conjugated near `0` to a basic germ
   (`IsConjugateToBasicGerm`).
 
 ## Remarks on the text
 
 * Condition (3) is stated with `x ∈ X_{m+1}` but the smallness `|x|_m < r` and the estimate in the
-  level-`m` norm of `h`; the mean value inequality for `h(b, ·) : X_{m+1} → F_m` (Proposition 1.16)
+  level-`m` norm of `h`; the mean value inequality for `h(b, ·) : X_{m+1} → F_m` (Proposition 1.2.1 (preprint 1.16))
   therefore has to be taken along the segment with the derivative bound in the norm of
   `X_m`, not of `X_{m+1}` (Finding 73); here the one-dimensional mean value inequality for
   `t ↦ h(b, x' + t(x − x')) − L(b)(x' + t(x − x'))` on `[0, 1]`.
 * The text's "the map `(b, x) ↦ H(b, x)` is sc-smooth, therefore by the density of `X_{m+1}` in
   `X_m`" is the continuity of `H_m` on `U'_m` (`IsSc0`) and a sequence argument.
 * The strong bundle map `Φ` is sc-smooth on `U' ◁ (ℝᴺ ⊕ Y)` and on `(U' ◁ (ℝᴺ ⊕ Y))[1]` (Definition
-  2.47); the second is Lemma 3.61 for the shifted family `L(b) : X¹ → Y¹` ("if we raise the index
+  2.47); the second is Lemma 3.7.4 (preprint 3.61) for the shifted family `L(b) : X¹ → Y¹` ("if we raise the index
   by one, then the map ... is also sc-smooth by Proposition 1.17").
 * `U` is replaced by `U' = U ∩ (Vo ⊕ X)` so that `(b, x) ∈ U'` implies `b ∈ O = Vo ∩ C̃`
   ("replacing, if necessary, the relatively open neighbourhood `U ⊂ C` of `0` by a smaller one").
@@ -63,7 +63,7 @@ namespace Polyfold
 
 /-! ### A mean value inequality along a segment, with the derivative bound in a weaker norm -/
 
-/-- **The mean value inequality of the proof of Theorem 3.58** (the text's
+/-- **The mean value inequality of the proof of Theorem 3.7.1 (preprint 3.58)** (the text's
 `h(b, x) − h(b, x') = ∫₀¹ D₂f(b, tx + (1 − t)x')(x − x') dt`): let `g : E₁ → F` be differentiable
 on the convex set `S` with derivative `D(z) ∘ ι`, where `ι : E₁ → E₀` is continuous linear (the
 inclusion `E_{m+1} → E_m`) and `D(z) : E₀ → F`, and suppose `‖(D(z) − T)v‖ ≤ ε‖v‖` for `z ∈ S` and
@@ -105,7 +105,7 @@ theorem norm_sub_sub_le_of_hasFDerivWithinAt_segment {E₁ E₀ F : Type*} [Norm
   rw [map_sub, map_sub]
   abel
 
-/-! ### The setting of Theorem 3.58 in coordinates -/
+/-! ### The setting of Theorem 3.7.1 (preprint 3.58) in coordinates -/
 
 section Setting
 
@@ -116,7 +116,7 @@ local notation "𝔼" => ScBanach.paramProd P X
 local notation "𝔽" => ScBanach.paramProd Q Y
 
 variable (Ct) in
-/-- **Condition (3) of Theorem 3.58**, in the coordinates `E = ℝⁿ ⊕ X`: for every level `m` and
+/-- **Condition (3) of Theorem 3.7.1 (preprint 3.58)**, in the coordinates `E = ℝⁿ ⊕ X`: for every level `m` and
 `ε > 0` there is `r > 0` such that `|[D₂f(b, 0) − D₂f(b, x)]h|_m ≤ ε|h|_m` for all `h ∈ X_m`, all
 `b ∈ C̃` with `|b| < r` and all `x ∈ X_{m+1}` with `|x|_m < r` (both `(b, 0)` and `(b, x)` in `U`).
 Here `D₂f(b, x)h = Df(b, x)(0, h)` on level `m` is the level operator `levelDeriv`. -/
@@ -132,14 +132,14 @@ def DerivCondition (U : Set (𝔼 0)) (f : 𝔼 0 → 𝔽 0) : Prop :=
 variable {U : Set ((ScBanach.paramProd P X) 0)}
   {f : (ScBanach.paramProd P X) 0 → (ScBanach.paramProd Q Y) 0} {L : P → ScIso X Y} {O : Set P}
 
-/-- The germ `h = f − f(0)` of the proof of Theorem 3.58. -/
+/-- The germ `h = f − f(0)` of the proof of Theorem 3.7.1 (preprint 3.58). -/
 def shiftedGerm (f : 𝔼 0 → 𝔽 0) : 𝔼 0 → 𝔽 0 := fun x => f x - f 0
 
 /-- The push-forward germ `k = Φ_*(h)`, `k(b, x) = ((1 − P)h(b, x), L(b)⁻¹ P h(b, x))`. -/
 def pushGerm358 (L : P → ScIso X Y) (f : 𝔼 0 → 𝔽 0) : 𝔼 0 → (ScBanach.paramProd Q X) 0 :=
   fun x => ((f x - f 0).1, (L x.1 0).symm (f x - f 0).2)
 
-/-- The contraction map `H(b, x) = x − L(b)⁻¹ P h(b, x)` of the proof of Theorem 3.58. -/
+/-- The contraction map `H(b, x) = x − L(b)⁻¹ P h(b, x)` of the proof of Theorem 3.7.1 (preprint 3.58). -/
 def contrMap358 (L : P → ScIso X Y) (f : 𝔼 0 → 𝔽 0) : 𝔼 0 → X 0 :=
   fun x => x.2 - (L x.1 0).symm (f x - f 0).2
 
@@ -197,7 +197,7 @@ lemma mem_lvlSet_of_small {V : Set (𝔼 0)} (hUV : U = V ∩ (Ct ×ˢ univ)) {�
   rw [mem_ball_zero_iff, Prod.norm_def]
   exact max_lt har hz
 
-/-- **The contraction estimate of the proof of Theorem 3.58**: for every level `m` and `ε > 0`,
+/-- **The contraction estimate of the proof of Theorem 3.7.1 (preprint 3.58)**: for every level `m` and `ε > 0`,
 `|H(b, x) − H(b, x')|_m ≤ ε|x − x'|_m` for `b ∈ C̃` small and `x, x' ∈ X_m` small, where
 `H(b, x) = x − L(b)⁻¹P h(b, x)`.  Proof: for `x, x' ∈ X_{m+1}`,
 `H(b, x) − H(b, x') = L(b)⁻¹[L(b)(x − x') − P(h(b, x) − h(b, x'))]` and the bracket is bounded by
@@ -437,7 +437,7 @@ lemma IsScDomain.paramProd_shift (hO : IsScDomain (ScBanach.paramProd P Y) (O ×
     have := hO.uniqueDiffWithinAt (m + 1) x (by rwa [ScBanach.paramProd_lvlSet] at hx ⊢)
     rwa [ScBanach.paramProd_lvlSet] at this ⊢⟩
 
-/-- The level shift of the sc-smoothness of `(b, y) ↦ M(b)y` (Proposition 1.17). -/
+/-- The level shift of the sc-smoothness of `(b, y) ↦ M(b)y` (Proposition 1.2.2 (preprint 1.17)). -/
 lemma famMap_shiftFam_isScSmooth (hO : IsScDomain (ScBanach.paramProd P Y) (O ×ˢ univ))
     {M : P → ScIso Y X}
     (hM : IsScSmooth (E := ScBanach.paramProd P Y) (F := X) (O ×ˢ univ) (famMap M)) :
@@ -526,10 +526,10 @@ theorem fiberIsoMap_isStrongBundleMap (hC : IsPartialQuadrant (ScBanach.const P)
     exact h1.congr (hU'.prod_univ (ScBanach.paramProd Q Y).shift).isScDomain
       fun p _ => (shiftFiber_fiberIsoMap M p).symm
 
-/-- **The strong bundle isomorphism `Φ` of the proof of Theorem 3.58**:
+/-- **The strong bundle isomorphism `Φ` of the proof of Theorem 3.7.1 (preprint 3.58)**:
 `Φ((b, x), (c, y)) = ((b, x), (c, L(b)⁻¹y))` with inverse `((b, x), (c, x')) ↦ ((b, x), (c, L(b)x'))`,
 on `U' ◁ (Q ⊕ Y) → U' ◁ (Q ⊕ X)`, for a family of sc-isomorphisms `L(b) : X → Y` such that
-`(b, h) ↦ L(b)h` and `(b, y) ↦ L(b)⁻¹y` are sc-smooth on `O ⊕ X`, `O ⊕ Y` (Lemma 3.61). -/
+`(b, h) ↦ L(b)h` and `(b, y) ↦ L(b)⁻¹y` are sc-smooth on `O ⊕ X`, `O ⊕ Y` (Lemma 3.7.4 (preprint 3.61)). -/
 theorem fiberIsoMap_isStrongBundleIso (hC : IsPartialQuadrant (ScBanach.const P) Ct) {Vo : Set P}
     (hVo : IsOpen Vo) (hU' : IsRelOpenInQuadrant (ScBanach.paramProd P Z) (Ct ×ˢ univ) U')
     (hU'O : ∀ u ∈ U', u.1 ∈ Vo ∩ Ct) {L : P → ScIso X Y}
@@ -588,7 +588,7 @@ theorem famMap_isScSmooth_of_deriv (hC : IsPartialQuadrant (ScBanach.const P) Ct
     ((p.1, 0) : P × X 1) ((0 : P), p.2)).2 = L p.1 0 p.2
   exact (hL p.1 hp.1 p.2).symm
 
-/-- **Lemma 3.61 in set form**: `(b, y) ↦ L(b)⁻¹y` is sc-smooth on `(Vo ∩ C̃) ⊕ Y` when
+/-- **Lemma 3.7.4 (preprint 3.61) in set form**: `(b, y) ↦ L(b)⁻¹y` is sc-smooth on `(Vo ∩ C̃) ⊕ Y` when
 `(b, h) ↦ L(b)h` is sc-smooth on `(Vo ∩ C̃) ⊕ X` and the `L(b)` satisfy the uniform lower bounds
 (iii) there. -/
 theorem famInv_isScSmooth_of (hC : IsPartialQuadrant (ScBanach.const P) Ct) {Vo : Set P}
@@ -613,7 +613,7 @@ theorem famInv_isScSmooth_of (hC : IsPartialQuadrant (ScBanach.const P) Ct) {Vo 
       ScNbhdGerm.prodFull_U, hGvU]) ((hL.isScSmoothGerm hCX hUX.relOpen h0X) k)
   have hc' : ∀ m, ∃ c > 0, ∀ v ∈ Gv.U 0, ∀ h : X m, c * ‖h‖ ≤ ‖L v m h‖ := by
     rw [hGvU]; exact hc
-  have h1 := lemma_3_61 hC hG hc'
+  have h1 := lemma_3_7_4 hC hG hc'
   have h2 : IsScSmoothGerm (ScNbhdGerm.ofSet hUY.relOpen h0Y) (famInv L) := fun k =>
     IsSckGerm.of_U_eq hCY (fun m => by rw [ScNbhdGerm.ofSet_U, ScBanach.paramProd_lvlSet,
       ScNbhdGerm.prodFull_U, hGvU]) (h1 k)
@@ -621,7 +621,7 @@ theorem famInv_isScSmooth_of (hC : IsPartialQuadrant (ScBanach.const P) Ct) {Vo 
 
 end FiberIso
 
-/-! ### Theorem 3.58 from the family of sc-isomorphisms -/
+/-! ### Theorem 3.7.1 (preprint 3.58) from the family of sc-isomorphisms -/
 
 section Main
 
@@ -634,19 +634,19 @@ local notation "𝔽" => ScBanach.paramProd Q Y
 variable {U : Set ((ScBanach.paramProd P X) 0)}
   {f : (ScBanach.paramProd P X) 0 → (ScBanach.paramProd Q Y) 0} {L : P → ScIso X Y}
 
-/-- **Theorem 3.58 (basic germ criterion), given the family of sc-isomorphisms**: let `U` be a
+/-- **Theorem 3.7.1 (preprint 3.58) (basic germ criterion), given the family of sc-isomorphisms**: let `U` be a
 relatively open neighbourhood of `0` in the partial quadrant `C̃ ⊕ X` of `E = ℝⁿ ⊕ X` and
 `f : U → F = ℝᴺ ⊕ Y` sc-smooth (the coordinates of the text's proof, `B = ℝⁿ`, `A = ℝᴺ`).  Suppose
 that for `b` in a relatively open neighbourhood `O = Vo ∩ C̃` of `0` in `C̃` the operators
 `L(b) = P ∘ D₂f(b, 0)|X : X → Y` are sc-isomorphisms with the uniform lower bounds
-`|L(b)h|_m ≥ c_m|h|_m` (the conclusions of Lemmas 3.59, 3.60 and of the index argument of the
-text), and that condition (3) of Theorem 3.58 holds.  Then, with `U' = U ∩ (Vo ⊕ X)`:
+`|L(b)h|_m ≥ c_m|h|_m` (the conclusions of Lemmas 3.7.2, 3.7.3 (preprint 3.59, 3.60) and of the index argument of the
+text), and that condition (3) of Theorem 3.7.1 (preprint 3.58) holds.  Then, with `U' = U ∩ (Vo ⊕ X)`:
 the push-forward `k = Φ_*(f − f(0))`, `k(b, x) = ((1 − P)h(b, x), L(b)⁻¹P h(b, x))`, is a basic
 germ on `O(U', 0)` with contraction map `H(b, x) = x − L(b)⁻¹P h(b, x)`; the fibre map
 `Φ((b, x), (c, y)) = ((b, x), (c, L(b)⁻¹y))` is a strong bundle isomorphism
 `U' ◁ (ℝᴺ ⊕ Y) → U' ◁ (ℝᴺ ⊕ X)` covering the identity; hence `f − s`, `s = f(0)` the constant
 sc⁺-section, is conjugated near `0` to a basic germ. -/
-theorem theorem_3_58_of_family (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+theorem theorem_3_7_1_of_family (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (hU : IsRelOpenInQuadrant 𝔼 (Ct ×ˢ univ) U) (h0 : (0 : 𝔼 0) ∈ U) (hf : IsScSmooth U f)
     {Vo : Set P} (hVo : IsOpen Vo) (hVo0 : (0 : P) ∈ Vo)
     (hOU : ∀ b ∈ Vo ∩ Ct, ((b, 0) : 𝔼 0) ∈ U)
@@ -666,7 +666,7 @@ theorem theorem_3_58_of_family (hC : IsPartialQuadrant (ScBanach.const P) Ct)
   have hU'O : ∀ u ∈ U ∩ Vo ×ˢ univ, u.1 ∈ Vo ∩ Ct := fun u hu => ⟨hu.2.1, (hUC hu.1).1⟩
   have hCq : IsQuadrantLike 𝔼 (Ct ×ˢ univ) := (hC.prod_univ X).isQuadrantLike
   have hU'd := hU'.isScDomain
-  -- the family and its inverse are sc-smooth (Lemma 3.61)
+  -- the family and its inverse are sc-smooth (Lemma 3.7.4 (preprint 3.61))
   have hLsm := famMap_isScSmooth_of_deriv hC hU hf hVo hOU hL
   have hLinv := famInv_isScSmooth_of hC hVo hVo0 hLsm hc
   have hΦ := fiberIsoMap_isStrongBundleIso (Q := Q) (Z := X) hC hVo hU' hU'O hLsm hLinv

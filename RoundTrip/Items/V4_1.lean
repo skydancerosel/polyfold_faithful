@@ -22,7 +22,7 @@ Glue:
   A ⇒ B) and, in B ⇒ A, via B itself and `MPolyfold.IsChart.compatible`.
 * A's chart-level conjuncts `IsCornerChart.isTameRetract` / `isScPlusRetract` are facts about the
   project's corner-chart vocabulary on which B is silent; in B ⇒ A they are proved outright
-  (identity retraction is tame, `ScRetraction.id_isTame`; `remark_4_3_const`).
+  (identity retraction is tame, `ScRetraction.id_isTame`; `remark_4_1_3_const`).
 -/
 
 namespace RoundTrip.V4_1
@@ -103,7 +103,7 @@ theorem B_to_A : B → A := by
   · -- chart level, outright: Remark 4.3 for the constant structure
     obtain ⟨V, _, _, _, C, U, hU, hχ⟩ := h
     rw [hχ]
-    exact (remark_4_3_const V).2.2 C U hU.isScRetract
+    exact (remark_4_1_3_const V).2.2 C U hU.isScRetract
 
 #rt_check RoundTrip.V4_1.A_to_B [Polyfold.MPolyfold.hasCornerStructure_iff, Polyfold.MPolyfold.HasCornerStructure.isTame, Polyfold.MChart.IsCornerChart.isTameRetract, Polyfold.MChart.IsCornerChart.isScPlusRetract]
 #rt_check RoundTrip.V4_1.B_to_A [Polyfold.MPolyfold.hasCornerStructure_iff, Polyfold.MPolyfold.HasCornerStructure.isTame, Polyfold.MChart.IsCornerChart.isTameRetract, Polyfold.MChart.IsCornerChart.isScPlusRetract]

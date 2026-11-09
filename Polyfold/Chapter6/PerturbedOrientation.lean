@@ -159,7 +159,7 @@ theorem orCongr_symm {g g' : X → Y} (hg : B.IsScFredholmSection g)
 /-- `orSectionAdd` is `orCongr`. -/
 theorem orSectionAdd_eq_orCongr {f s : X → Y} (hf : B.IsScFredholmSection f)
     (hs : B.IsScPlusSection s) (h : p.linSet f = p.linSet (sectionAdd P f s)) :
-    p.orSectionAdd hf hs = p.orCongr hf (theorem_3_15 hf hs) h :=
+    p.orSectionAdd hf hs = p.orCongr hf (theorem_3_1_18_preprint hf hs) h :=
   rfl
 
 /-- `orEquivRay` of `orCongr o` is `orEquivRay` of `o`. -/
@@ -202,7 +202,7 @@ variable {f s : X → Y}
 /-- **`Or^f = Or^{f+s}` commutes with the change of chart point** (`orTransfer`). -/
 theorem orTransfer_orSectionAdd (p' : ChartPoint B x) (hf : B.IsScFredholmSection f)
     (hs : B.IsScPlusSection s) (hx : x ∈ PX.smoothSet) (o : p.Or f hf) :
-    p.orTransfer p' (theorem_3_15 hf hs) hx (p.orSectionAdd hf hs o) =
+    p.orTransfer p' (theorem_3_1_18_preprint hf hs) hx (p.orSectionAdd hf hs o) =
       p'.orSectionAdd hf hs (p.orTransfer p' hf hx o) :=
   LineOrientation.conj_congrDetOn _ _ _ _ _ _ _ _ _ _ o
 
@@ -276,7 +276,7 @@ variable {f s : X → Y}
 theorem toChartOr_orSectionAdd (hf : B.IsScFredholmSection f) (hs : B.IsScPlusSection s) {y : X}
     (hy : y ∈ PX.smoothSet) (o : Orx f hf y hy) (c : StrongBundleChart PX P) (hc : B.IsChart c)
     (hyc : y ∈ c.φ.source) :
-    toChartOr (theorem_3_15 hf hs) hy c hc hyc
+    toChartOr (theorem_3_1_18_preprint hf hs) hy c hc hyc
         ((chartPtOf (orChart B y) (isChart_orChart y) (mem_orChart y) hy).orSectionAdd hf hs o) =
       (chartPtOf c hc hyc hy).orSectionAdd hf hs (toChartOr hf hy c hc hyc o) :=
   ChartPoint.orTransfer_orSectionAdd _ _ hf hs hy o
@@ -355,14 +355,14 @@ theorem IsPush.of_sectionAdd (hf : B.IsScFredholmSection f) (hs : B.IsScPlusSect
     {hγ : ∀ q ∈ Icc (0 : Fin 1 → ℝ) 1, γ q ∈ c.φ.source} {x₀ x₁ : X}
     {h₀ : γ (pt1 0) = x₀} {h₁ : γ (pt1 1) = x₁} {hx₀ : x₀ ∈ c.φ.source}
     {hx₁ : x₁ ∈ c.φ.source} {hs₀ : x₀ ∈ PX.smoothSet} {hs₁ : x₁ ∈ PX.smoothSet}
-    {e : (chartPtOf c hc hx₀ hs₀).Or (sectionAdd P f s) (theorem_3_15 hf hs) ≃
-      (chartPtOf c hc hx₁ hs₁).Or (sectionAdd P f s) (theorem_3_15 hf hs)}
-    (he : IsPush (sectionAdd P f s) (theorem_3_15 hf hs) c hc γ hγ h₀ h₁ hx₀ hx₁ hs₀ hs₁ e) :
+    {e : (chartPtOf c hc hx₀ hs₀).Or (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) ≃
+      (chartPtOf c hc hx₁ hs₁).Or (sectionAdd P f s) (theorem_3_1_18_preprint hf hs)}
+    (he : IsPush (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) c hc γ hγ h₀ h₁ hx₀ hx₁ hs₀ hs₁ e) :
     IsPush f hf c hc γ hγ h₀ h₁ hx₀ hx₁ hs₀ hs₁
       (((chartPtOf c hc hx₀ hs₀).orSectionAdd hf hs).trans
         (e.trans ((chartPtOf c hc hx₁ hs₁).orSectionAdd hf hs).symm)) := by
-  have key := IsPush.sectionTransfer (theorem_3_15 hf hs) hf hs rfl he
-  rwa [ChartPoint.orCongr_symm, ← (chartPtOf c hc hx₁ hs₁).orCongr_symm hf (theorem_3_15 hf hs)
+  have key := IsPush.sectionTransfer (theorem_3_1_18_preprint hf hs) hf hs rfl he
+  rwa [ChartPoint.orCongr_symm, ← (chartPtOf c hc hx₁ hs₁).orCongr_symm hf (theorem_3_1_18_preprint hf hs)
     ((chartPtOf c hc hx₁ hs₁).linSet_sectionAdd hf.isScSmooth.1 hs).symm] at key
 
 /-- **A push-forward of `f` is a push-forward of `f + s`** under `Or^f = Or^{f+s}`
@@ -374,10 +374,10 @@ theorem IsPush.sectionAdd (hf : B.IsScFredholmSection f) (hs : B.IsScPlusSection
     {hx₁ : x₁ ∈ c.φ.source} {hs₀ : x₀ ∈ PX.smoothSet} {hs₁ : x₁ ∈ PX.smoothSet}
     {e : (chartPtOf c hc hx₀ hs₀).Or f hf ≃ (chartPtOf c hc hx₁ hs₁).Or f hf}
     (he : IsPush f hf c hc γ hγ h₀ h₁ hx₀ hx₁ hs₀ hs₁ e) :
-    IsPush (sectionAdd P f s) (theorem_3_15 hf hs) c hc γ hγ h₀ h₁ hx₀ hx₁ hs₀ hs₁
+    IsPush (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) c hc γ hγ h₀ h₁ hx₀ hx₁ hs₀ hs₁
       (((chartPtOf c hc hx₀ hs₀).orSectionAdd hf hs).symm.trans
         (e.trans ((chartPtOf c hc hx₁ hs₁).orSectionAdd hf hs))) :=
-  IsPush.sectionTransfer hf (theorem_3_15 hf hs)
+  IsPush.sectionTransfer hf (theorem_3_1_18_preprint hf hs)
     (hs.smul_left (isScSmoothMap_real_const (-1)))
     (sectionAdd_sectionAdd_neg hf.isScSmooth.1 hs.1) he
 
@@ -385,7 +385,7 @@ theorem IsPush.sectionAdd (hf : B.IsScFredholmSection f) (hs : B.IsScPlusSection
 the same set (`IsPush.of_sectionAdd`, `IsPush.sectionAdd`). -/
 theorem HasLocalPropagation.of_sectionAdd (hf : B.IsScFredholmSection f)
     (hs : B.IsScPlusSection s) {c : StrongBundleChart PX P} {hc : B.IsChart c} {U : Set X}
-    (hU : HasLocalPropagation (sectionAdd P f s) (theorem_3_15 hf hs) c hc U) :
+    (hU : HasLocalPropagation (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) c hc U) :
     HasLocalPropagation f hf c hc U where
   subset := hU.subset
   exists_isPush γ hγs hγ _ _ h₀ h₁ hx₀ hx₁ hs₀ hs₁ := by
@@ -401,7 +401,7 @@ theorem HasLocalPropagation.of_sectionAdd (hf : B.IsScFredholmSection f)
 /-- **Orientable neighbourhoods of `f + s` are orientable neighbourhoods of `f`.** -/
 theorem IsOrientableNbhd.of_sectionAdd (hf : B.IsScFredholmSection f)
     (hs : B.IsScPlusSection s) {c : StrongBundleChart PX P} {hc : B.IsChart c} {U V : Set X}
-    {x : X} (hN : IsOrientableNbhd (sectionAdd P f s) (theorem_3_15 hf hs) c hc U V x) :
+    {x : X} (hN : IsOrientableNbhd (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) c hc U V x) :
     IsOrientableNbhd f hf c hc U V x :=
   ⟨hN.hasLocalPropagation.of_sectionAdd hf hs, hN.isOpen_U, hN.isOpen_V, hN.subset, hN.mem,
     hN.path⟩
@@ -413,7 +413,7 @@ push-forwards of `f + s` are push-forwards of `f`, `IsPush.of_sectionAdd`). -/
 theorem isSectionOrientation_sectionAdd (hf : B.IsScFredholmSection f)
     (hs : B.IsScPlusSection s) {o : ∀ y (hy : y ∈ PX.smoothSet), Orx f hf y hy}
     (ho : IsSectionOrientation f hf o) :
-    IsSectionOrientation (sectionAdd P f s) (theorem_3_15 hf hs) fun y hy =>
+    IsSectionOrientation (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) fun y hy =>
       (chartPtOf (orChart B y) (isChart_orChart y) (mem_orChart y) hy).orSectionAdd hf hs
         (o y hy) := by
   intro x hx c hc U V hN γ hγs hγ y₁ y₂ hy₁ hy₂ hs₁ hs₂ h₀ h₁ e he
@@ -439,7 +439,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 paragraph): `y ↦ o_y ∈ Or_y^f = Or_y^{f+s}` (`isSectionOrientation_sectionAdd`). -/
 def SectionOrientation.sectionAdd {hf : B.IsScFredholmSection f}
     (o : SectionOrientation f hf) (hs : B.IsScPlusSection s) :
-    SectionOrientation (sectionAdd P f s) (theorem_3_15 hf hs) :=
+    SectionOrientation (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) :=
   ⟨fun y hy => (chartPtOf (orChart B y) (isChart_orChart y) (mem_orChart y) hy).orSectionAdd hf hs
     (o.1 y hy), by
     have := paracompactSpace_rn_prod PX
@@ -472,15 +472,15 @@ theorem theorem_6_6_18_sectionAdd (hX : PX.IsTame) (hf : B.IsScFredholmSectionTa
     (hgp : ∀ x, IsZeroAt P (sectionAdd P f s) x → B.IsGeneralPositionGerm (sectionAdd P f s) x)
     (o : SectionOrientation f hf.toIsScFredholmSection) :
     B.SolutionSetInGeneralPosition (sectionAdd P f s) ∧
-      IsNaturalSolutionOrientation (sectionAdd P f s) (theorem_3_15_tame hf hs) hgp
+      IsNaturalSolutionOrientation (sectionAdd P f s) (theorem_3_1_18_tame hf hs) hgp
         (o.sectionAdd hs) :=
-  theorem_6_6_18 hX (theorem_3_15_tame hf hs) hP hgp (o.sectionAdd hs)
+  theorem_6_6_18 hX (theorem_3_1_18_tame hf hs) hP hgp (o.sectionAdd hs)
 
 /-- **Theorem 5.3.10 with the inherited orientation** (§6.7, p. 276; gap G.69): for an oriented
 tame `f` with compact solution set over a tame M-polyfold with bump functions and an auxiliary
 norm `N`, there is an open `U ⊇ S_f` such that `S_{f+s}` is compact for every
 `s ∈ Γ^{+,1}_U(P)`, and a dense subset `O ⊆ Γ^{+,1}_U(P)` (in the pointwise reading of
-`theorem_5_3_10_2021`) such that for every `s ∈ O`, `S_{f+s}` is a compact manifold with boundary
+`theorem_5_3_10`) such that for every `s ∈ O`, `S_{f+s}` is a compact manifold with boundary
 with corners in general position, with the natural orientation given by the orientation
 `o.sectionAdd hs` of `f + s` inherited from `o`. -/
 theorem theorem_6_6_18_perturbation (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
@@ -495,9 +495,9 @@ theorem theorem_6_6_18_perturbation (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunct
           ∃ hgp : ∀ x, IsZeroAt P (sectionAdd P f s) x →
               B.IsGeneralPositionGerm (sectionAdd P f s) x,
             B.SolutionSetInGeneralPosition (sectionAdd P f s) ∧
-              IsNaturalSolutionOrientation (sectionAdd P f s) (theorem_3_15_tame hf hs) hgp
+              IsNaturalSolutionOrientation (sectionAdd P f s) (theorem_3_1_18_tame hf hs) hgp
                 (o.sectionAdd hs) := by
-  obtain ⟨U, hUo, hSU, hcpt, hdense⟩ := theorem_5_18_dense hX hbump hf hS hN
+  obtain ⟨U, hUo, hSU, hcpt, hdense⟩ := theorem_5_3_10_dense hX hbump hf hS hN
   refine ⟨U, hUo, hSU, hcpt,
     {s | s ∈ B.allowableSections N U ∧ B.SolutionSetInGeneralPosition (sectionAdd P f s)},
     fun s hs => hs.1, fun s' hs' hs'alw ε hε => ?_, fun s hs hsO =>

@@ -7,7 +7,7 @@ import RoundTrip.Blind.V2_20
 `A` is the conjunction of the types of the listed theorems
 `Polyfold.MPolyfold.continuous_tangentProj`, `.continuous_levelVal_tangentProj`,
 `.isOpen_tangentChartSet`, `.metrizableSpace_tangentSpace`, `.paracompactSpace_tangentSpace` and
-`Polyfold.proposition_2_19_3`, all at universe `0` (B lives in `Type`).
+`Polyfold.proposition_2_3_15_three`, all at universe `0` (B lives in `Type`).
 
 B's topology `τB P = generateFrom 𝓑` is the project's instance on `P.TangentSpace`
 (`τB_eq`, from `tangentChartMap_mk_self`: the project's `Tφ` agrees with B's `TφB` on `TV`).
@@ -32,14 +32,14 @@ def A : Prop :=
     (type_of% @Polyfold.MPolyfold.isOpen_tangentChartSet.{0}) ∧
     (type_of% @Polyfold.MPolyfold.metrizableSpace_tangentSpace.{0}) ∧
     (type_of% @Polyfold.MPolyfold.paracompactSpace_tangentSpace.{0}) ∧
-    (type_of% @Polyfold.proposition_2_19_3.{0})
+    (type_of% @Polyfold.proposition_2_3_15_three.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.MPolyfold.continuous_tangentProj.{0},
     @Polyfold.MPolyfold.continuous_levelVal_tangentProj.{0},
     @Polyfold.MPolyfold.isOpen_tangentChartSet.{0},
     @Polyfold.MPolyfold.metrizableSpace_tangentSpace.{0},
-    @Polyfold.MPolyfold.paracompactSpace_tangentSpace.{0}, @Polyfold.proposition_2_19_3.{0}⟩
+    @Polyfold.MPolyfold.paracompactSpace_tangentSpace.{0}, @Polyfold.proposition_2_3_15_three.{0}⟩
 
 section Glue
 
@@ -213,10 +213,10 @@ theorem B_to_A : B → A := by
 #rt_check RoundTrip.V2_20.B_to_A [Polyfold.MPolyfold.continuous_tangentProj,
   Polyfold.MPolyfold.continuous_levelVal_tangentProj, Polyfold.MPolyfold.isOpen_tangentChartSet,
   Polyfold.MPolyfold.metrizableSpace_tangentSpace, Polyfold.MPolyfold.paracompactSpace_tangentSpace,
-  Polyfold.proposition_2_19_3]
+  Polyfold.proposition_2_3_15_three]
 #rt_overlap RoundTrip.V2_20.B_to_A [Polyfold.MPolyfold.continuous_tangentProj,
   Polyfold.MPolyfold.continuous_levelVal_tangentProj, Polyfold.MPolyfold.isOpen_tangentChartSet,
   Polyfold.MPolyfold.metrizableSpace_tangentSpace, Polyfold.MPolyfold.paracompactSpace_tangentSpace,
-  Polyfold.proposition_2_19_3]
+  Polyfold.proposition_2_3_15_three]
 
 end RoundTrip.V2_20

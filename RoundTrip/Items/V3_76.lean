@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_76
 
 /-!
 Round trip for V3_76 (Corollary 3.39).  `A` is the conjunction of the types of
-`Polyfold.corollary_3_39`, `Polyfold.corollary_3_39_isConjugate`,
+`Polyfold.corollary_3_4_3`, `Polyfold.corollary_3_4_3_isConjugate`,
 `Polyfold.ConjugationData.compIso_eq_strongShift`, `Polyfold.IsStrongBundleIso.shift`,
 `Polyfold.IsStrongBundleIso.comp`, `Polyfold.IsStrongBundleIso.pushforward_comp`,
 `Polyfold.StabilityData.linIso_isStrongBundleIso` and
@@ -13,7 +13,7 @@ Round trip for V3_76 (Corollary 3.39).  `A` is the conjunction of the types of
 Neither direction is proved.
 
 * `A → B` fails at the hypotheses (a genuine difference of reading, closing it is new
-  mathematics, not glue).  A's `corollary_3_39` / `corollary_3_39_isConjugate` assume that `g` and
+  mathematics, not glue).  A's `corollary_3_4_3` / `corollary_3_4_3_isConjugate` assume that `g` and
   `s` are sc-smooth **on the relatively open set `U`** (`IsScSmooth U g`, `IsScSmooth U s`, set
   sense: one neighbourhood for all levels and orders).  B assumes only germ regularity: `s` is an
   sc-smooth germ on `G` (`IsScSmoothGerm G s`, Definition 3.2, neighbourhoods `G.U m` shrinking
@@ -42,7 +42,7 @@ open Polyfold
 
 /-- The project's statement: the listed theorems (no universe parameters). -/
 def A : Prop :=
-  type_of% @Polyfold.corollary_3_39 ∧ type_of% @Polyfold.corollary_3_39_isConjugate ∧
+  type_of% @Polyfold.corollary_3_4_3 ∧ type_of% @Polyfold.corollary_3_4_3_isConjugate ∧
     type_of% @Polyfold.ConjugationData.compIso_eq_strongShift ∧
     type_of% @Polyfold.IsStrongBundleIso.shift ∧ type_of% @Polyfold.IsStrongBundleIso.comp ∧
     type_of% @Polyfold.IsStrongBundleIso.pushforward_comp ∧
@@ -50,7 +50,7 @@ def A : Prop :=
     type_of% @Polyfold.ScOperator.isStrongBundleIso_prodMap
 
 theorem A_holds : A :=
-  ⟨@Polyfold.corollary_3_39, @Polyfold.corollary_3_39_isConjugate,
+  ⟨@Polyfold.corollary_3_4_3, @Polyfold.corollary_3_4_3_isConjugate,
     @Polyfold.ConjugationData.compIso_eq_strongShift, @Polyfold.IsStrongBundleIso.shift,
     @Polyfold.IsStrongBundleIso.comp, @Polyfold.IsStrongBundleIso.pushforward_comp,
     @Polyfold.StabilityData.linIso_isStrongBundleIso, @Polyfold.ScOperator.isStrongBundleIso_prodMap⟩

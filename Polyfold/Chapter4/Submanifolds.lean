@@ -4,32 +4,32 @@ import Polyfold.Chapter2.Metrizable
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §4.2,
-Definition 4.13, Remark 4.14, Proposition 4.15, Definitions 4.16, 4.17, Theorem 4.18, Lemma 4.19,
-Remark 4.20, Definition 4.21 *(book 2017: Definition 4.4, Remark 4.3, Proposition 4.3, Definitions
+Definition 4.2.1 (preprint 4.13), Remark 4.2.2 (preprint 4.14), Proposition 4.2.3 (preprint 4.15), Definitions 4.2.5, 4.2.6 (preprint 4.16, 4.17), Theorem 4.2.7 (preprint 4.18), Lemma 4.2.8 (preprint 4.19),
+Remark 4.2.9 (preprint 4.20), Definition 4.2.10 (preprint 4.21) *(book 2017: Definition 4.4, Remark 4.3, Proposition 4.3, Definitions
 4.5, 4.6, Theorem 4.2, Lemma 4.6, Remark 4.4, Definition 4.7; see `BookConcordance.md`)*.
 
 # Smooth finite-dimensional submanifolds
 
 ## The text, paraphrased
 
-(Definition 4.13) `A ⊆ X` is a smooth finite-dimensional submanifold if every `a ∈ A` has an open
-neighbourhood `V ⊆ X` and an sc⁺-retraction `s : V → V` with `s(V) = A ∩ V`.  (Remark 4.14) `s(V)`
+(Definition 4.2.1 (preprint 4.13)) `A ⊆ X` is a smooth finite-dimensional submanifold if every `a ∈ A` has an open
+neighbourhood `V ⊆ X` and an sc⁺-retraction `s : V → V` with `s(V) = A ∩ V`.  (Remark 4.2.2 (preprint 4.14)) `s(V)`
 consists of smooth points, `T_aA = Ts(a)(T_aX)` is the image of the sc⁺-operator `Ts(a)`, hence
 finite-dimensional; near points with `d_X(a) = 0`, and where `T_aA` is in good position to
-`C_aX`, `A` is a manifold in the classical sense.  (Proposition 4.15) (1) `A ⊆ X_∞` and `A` inherits
-the M-polyfold structure of `X` (Proposition 2.21); (2) `A` is locally closed; (3)
+`C_aX`, `A` is a manifold in the classical sense.  (Proposition 4.2.3 (preprint 4.15)) (1) `A ⊆ X_∞` and `A` inherits
+the M-polyfold structure of `X` (Proposition 2.3.19 (preprint 2.21)); (2) `A` is locally closed; (3)
 `∂A = {d_A ≥ 1} ⊆ ∂X`; (4) `1₀¹ : A → A¹` is sc-smooth.  (Open question) Is a sub-M-polyfold with
 `A = A_∞` and `dim T_aA` finite and locally constant a smooth finite-dimensional submanifold?
-(Definition 4.16) For tame `X`, `A` is in good position at `a` if `T_aA` is in good position to the
-partial quadrant `C_aX` in `T_aX`.  (Definition 4.17) `A` is tame if its induced M-polyfold
-structure is tame.  (Theorem 4.18) If `X` is tame and `A` is in good position at every point, the
+(Definition 4.2.5 (preprint 4.16)) For tame `X`, `A` is in good position at `a` if `T_aA` is in good position to the
+partial quadrant `C_aX` in `T_aX`.  (Definition 4.2.6 (preprint 4.17)) `A` is tame if its induced M-polyfold
+structure is tame.  (Theorem 4.2.7 (preprint 4.18)) If `X` is tame and `A` is in good position at every point, the
 induced structure on `A` is that of a smooth manifold with boundary with corners, and `A` is tame.
 *Proof*: in a tame chart `ϕ` centred at `a` with `T₀O = N ⊕ Y ⊕ Z` (`Z ⊆ C` the sc-complement of
-Proposition 2.35), (Lemma 4.19) `N = Tϕ(a)(T_aA)` is in good position to `C` with good complement
+Proposition 2.5.3 (preprint 2.35)), (Lemma 4.2.8 (preprint 4.19)) `N = Tϕ(a)(T_aA)` is in good position to `C` with good complement
 `Y ⊕ Z`; `t = ϕ ∘ s ∘ ϕ⁻¹ ∘ r` is an sc⁺-retraction onto `ϕ(A ∩ V)` with `Dt(0)E = N`, and
-Proposition 4.9 gives the sc-diffeomorphism `p : V₁ → V₀ ⊆ N ∩ C`; the charts `p ∘ ϕ` form the
-manifold structure ("Proposition 4.2", i.e. Theorem 4.2).  (Remark 4.20) Good position is an open
-condition along `A` (Proposition 4.9 and Lemma 3.55).  (Definition 4.21) `A` is in general position
+Proposition 4.1.9 (preprint 4.9) gives the sc-diffeomorphism `p : V₁ → V₀ ⊆ N ∩ C`; the charts `p ∘ ϕ` form the
+manifold structure ("Proposition 4.2", i.e. Theorem 4.1.2 (preprint 4.2)).  (Remark 4.2.9 (preprint 4.20)) Good position is an open
+condition along `A` (Proposition 4.1.9 (preprint 4.9) and Lemma 3.6.9 (preprint 3.55)).  (Definition 4.2.10 (preprint 4.21)) `A` is in general position
 at `a` if `T_aA` has in `T_aX` an sc-complement contained in `T_a^R X`.
 
 ## What is formalized
@@ -37,79 +37,79 @@ at `a` if `T_aA` has in `T_aX` an sc-complement contained in `T_a^R X`.
 * **Tangent spaces of sub-retracts** (chart level): `tangentSpace_inter_isOpen` (the tangent space
   of a retract is a germ), `tangentSpace_subset_of_subset` (`T_zQ ⊆ T_zO` for `Q ⊆ O`),
   `scDeriv_mem_tangentSpace_of_subset` (`D(F ∘ r)(z)` maps `T_zQ` into `T_{F(z)}Q'`).
-* **Definition 4.16 in a chart**: `IsGoodPositionRetractAt` (`T_zQ` in good position to `C_z`
+* **Definition 4.2.5 (preprint 4.16) in a chart**: `IsGoodPositionRetractAt` (`T_zQ` in good position to `C_z`
   inside `T_zO`, `IsInGoodPositionIn`), carried by germs of sc-diffeomorphisms
-  (`IsGoodPositionRetractAt.transport`, through `proposition_2_30_cone` and
-  `IsInGoodPositionIn.transport`).  **Definition 4.21 in a chart**: `IsGeneralPositionRetractAt`
+  (`IsGoodPositionRetractAt.transport`, through `proposition_2_4_10_cone` and
+  `IsInGoodPositionIn.transport`).  **Definition 4.2.10 (preprint 4.21) in a chart**: `IsGeneralPositionRetractAt`
   (an sc-subspace `B ⊆ T_zO ∩ E_z` with `(T_zO)_m = (T_zQ)_m ⊕ B_m` on every level), carried by
   germs of sc-diffeomorphisms at smooth points (`IsGeneralPositionRetractAt.transport`, through
-  `proposition_2_30_reduced`).  The chart change for both (`chart_change_of_transport`,
+  `proposition_2_4_10_reduced`).  The chart change for both (`chart_change_of_transport`,
   `isGoodPositionRetractAt_chart_change`, `isGeneralPositionRetractAt_chart_change`).
 * `isInGoodPosition_univ`, `partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero`;
   `hasFDerivWithinAt_scDeriv_const`,
-  `tangentSpace_eq_range_graph` (the tangent spaces along the graph of Proposition 4.9).
-* **Lemma 4.19**: `lemma_4_19` (with the explicit good complement `Y ⊕ (1 − π)E`,
+  `tangentSpace_eq_range_graph` (the tangent spaces along the graph of Proposition 4.1.9 (preprint 4.9)).
+* **Lemma 4.2.8 (preprint 4.19)**: `lemma_4_2_8` (with the explicit good complement `Y ⊕ (1 − π)E`,
   `isGoodComplement_sup_range`).
-* **Definition 4.13**: `MPolyfold.SubmanifoldData`, `MPolyfold.IsSmoothSubmanifold`,
+* **Definition 4.2.1 (preprint 4.13)**: `MPolyfold.SubmanifoldData`, `MPolyfold.IsSmoothSubmanifold`,
   `isSmoothSubmanifold_iff`, `SubmanifoldData.toSubData`, `IsSmoothSubmanifold.isSubMPolyfold`;
   in a chart: `SubmanifoldData.isScSmoothRetractMap_lift` (the sc⁺ property of `s` read in the
   charts of `X` and `X¹`), `SubmanifoldData.exists_chartRetraction` (**the sc⁺-retraction
-  `t = φ ∘ s ∘ φ⁻¹ ∘ r`** of the proof of Theorem 4.18), `SubmanifoldData.isScPlusRetract_image`,
+  `t = φ ∘ s ∘ φ⁻¹ ∘ r`** of the proof of Theorem 4.2.7 (preprint 4.18)), `SubmanifoldData.isScPlusRetract_image`,
   `SubmanifoldData.apply_mem_smooth`.
-* **Remark 4.14**: `SubmanifoldData.remark_4_14` (in a chart: `T_aA = Ts(a)T_aX`, `T_aA ⊆ T_aX`,
+* **Remark 4.2.2 (preprint 4.14)**: `SubmanifoldData.remark_4_2_2` (in a chart: `T_aA = Ts(a)T_aX`, `T_aA ⊆ T_aX`,
   finite-dimensional), `isGoodPositionAt_of_degIndex_eq_zero`,
   `hasCornerStructure_of_degIndex_eq_zero`.
-* **Proposition 4.15**: `IsSmoothSubmanifold.proposition_4_15_1` (and `subset_smoothSet`,
-  `mem_levelSet_subPolyfold_iff`), `proposition_4_15_2` (Mathlib's `IsLocallyClosed`),
-  `proposition_4_15_3`, `proposition_4_15_4`.
-* **Definition 4.16**: `SubmanifoldData.IsGoodPositionChart`, `MPolyfold.IsGoodPositionAt`, with
+* **Proposition 4.2.3 (preprint 4.15)**: `IsSmoothSubmanifold.proposition_4_2_3_one` (and `subset_smoothSet`,
+  `mem_levelSet_subPolyfold_iff`), `proposition_4_2_3_two` (Mathlib's `IsLocallyClosed`),
+  `proposition_4_2_3_three`, `proposition_4_2_3_four`.
+* **Definition 4.2.5 (preprint 4.16)**: `SubmanifoldData.IsGoodPositionChart`, `MPolyfold.IsGoodPositionAt`, with
   chart independence `IsGoodPositionAt.isGoodPositionChart`, `isGoodPositionAt_iff_forall`, and the
   explicit chart form `SubmanifoldData.isGoodPositionChart_iff` (`Dt(z)E` in good position to `C_z`
-  inside `Dr(z)E`).  **Definition 4.21**: `SubmanifoldData.IsGeneralPositionChart`,
+  inside `Dr(z)E`).  **Definition 4.2.10 (preprint 4.21)**: `SubmanifoldData.IsGeneralPositionChart`,
   `MPolyfold.IsGeneralPositionAt`, `IsGeneralPositionAt.isGeneralPositionChart`,
-  `isGeneralPositionAt_iff_forall`.  **Definition 4.17**: `MPolyfold.IsTameSubmanifold`.
-* **Theorem 4.18**: `MPolyfold.theorem_4_18`, through
+  `isGeneralPositionAt_iff_forall`.  **Definition 4.2.6 (preprint 4.17)**: `MPolyfold.IsTameSubmanifold`.
+* **Theorem 4.2.7 (preprint 4.18)**: `MPolyfold.theorem_4_2_7`, through
   `hasCornerStructure_of_centred_isInGoodPosition`
-  (Theorem 4.2 (ii) ⇒ (i) for the induced structure) and `IsGoodPositionAt.isInGoodPosition_of_tame`
-  (Lemma 4.19 in a tame centred chart).
-* **Remark 4.20**: `MPolyfold.remark_4_20`.
+  (Theorem 4.1.2 (preprint 4.2) (ii) ⇒ (i) for the induced structure) and `IsGoodPositionAt.isInGoodPosition_of_tame`
+  (Lemma 4.2.8 (preprint 4.19) in a tame centred chart).
+* **Remark 4.2.9 (preprint 4.20)**: `MPolyfold.remark_4_2_9`.
 
 ## What the text leaves implicit, and the choices made
 
-* `T_xX` carries no linear structure here (gap G.7), so Definitions 4.16 and 4.21 are stated in a
-  chart, as Definition 3.53 is (`LinearizationCharts.lean`), and their independence of the chart, of
-  the data of Definition 4.13 and of the presentation of the partial quadrant is proved; the text
+* `T_xX` carries no linear structure here (gap G.7), so Definitions 4.2.5 and 4.2.10 (preprint 4.16 and 4.21) are stated in a
+  chart, as Definition 3.6.6 (preprint 3.53) is (`LinearizationCharts.lean`), and their independence of the chart, of
+  the data of Definition 4.2.1 (preprint 4.13) and of the presentation of the partial quadrant is proved; the text
   asserts it implicitly.  The chart form of `T_aA` is the tangent space of the retract `φ(W ∩ A)` of
-  the induced chart of `A` (Proposition 2.21), equal to `Dt(z)E` for the sc⁺-retraction
+  the induced chart of `A` (Proposition 2.3.19 (preprint 2.21)), equal to `Dt(z)E` for the sc⁺-retraction
   `t = φ ∘ s ∘ φ⁻¹ ∘ r`; "good position to the partial cone `C_aX` in `T_aX`" is good position
   to `C_z` inside `T_zO` (`IsInGoodPositionIn`).  Neither the definitions nor their chart
-  independence need tameness; tameness of `X` enters Theorem 4.18 and Remark 4.20 only through
-  Lemma 4.19.
-* **Proposition 4.15 (2)**: the text's definition of "locally closed" (lines 6463–6466) is garbled
+  independence need tameness; tameness of `X` enters Theorem 4.2.7 (preprint 4.18) and Remark 4.2.9 (preprint 4.20) only through
+  Lemma 4.2.8 (preprint 4.19).
+* **Proposition 4.2.3 (preprint 4.15) (2)**: the text's definition of "locally closed" (lines 6463–6466) is garbled
   ("`b` belongs to `A` if `U ∩ A ≠ ∅` for all open neighbourhoods `U` of `b`" uses `U` twice);
   Mathlib's `IsLocallyClosed` is used, through its characterization "every `a ∈ A` has an open `U`
   with `U ∩ cl(A) ⊆ A`".  The text's sequence `a_k → b` is replaced by a filter (no metrizability
   is needed).
-* **Proposition 4.15 (1), (4)**: "`A ⊆ X_∞`" and "`1₀¹ : A → A¹` is sc-smooth" are proved in the
+* **Proposition 4.2.3 (preprint 4.15) (1), (4)**: "`A ⊆ X_∞`" and "`1₀¹ : A → A¹` is sc-smooth" are proved in the
   charts of `A` induced by charts of `X`: their models `φ(W ∩ A)` are sc⁺-retracts, the sc⁺
   property of `t = φ ∘ s ∘ φ⁻¹ ∘ r` coming from the condition "`1₀¹ ∘ s : V → X¹` sc-smooth" of
-  Definition 4.4 read in the level charts of `X¹`; Proposition 4.8 then applies in each chart
+  Definition 4.1.4 (preprint 4.4) read in the level charts of `X¹`; Proposition 4.1.8 (preprint 4.8) then applies in each chart
   (`isScSmoothMap_toLevelOne_of_cover`).  The text's "the postulated sc⁺-retraction is the
   identity on the retract `A`" skips this.
-* **Theorem 4.18** follows the text's route through Theorem 4.2 ("Proposition 4.2" in the proof):
+* **Theorem 4.2.7 (preprint 4.18)** follows the text's route through Theorem 4.1.2 (preprint 4.2) ("Proposition 4.2" in the proof):
   the chart of `X` centred at `a` is the re-centred tame chart (`IsTame.exists_centredChart`), the
-  projection of Proposition 4.9 is taken along a closed good complement (Findings Chapter 4, items
+  projection of Proposition 4.1.9 (preprint 4.9) is taken along a closed good complement (Findings Chapter 4, items
   20–21, 54), and the compatibility of the charts `p ∘ ϕ`, not argued in the text, is that of
-  Theorem 4.2 (`hasCornerStructure_of_centred`, Finding 55).  No hypothesis is added; the
+  Theorem 4.1.2 (preprint 4.2) (`hasCornerStructure_of_centred`, Finding 55).  No hypothesis is added; the
   paracompactness of `A` is an instance argument `[ParacompactSpace A]` (proved for every subset by
   `MPolyfold.paracompactSpace_subtype`), as for `subPolyfold`.
-* **Remark 4.20** is stated in the text without "tame"; it is proved for tame `X` (Definition 4.16
-  is for tame `X`, and Lemma 4.19 is used).  "The tangent spaces of `A` move only slowly" is the
-  `C¹` property of the graph map `σ = (1 − π) ∘ Γ` of Proposition 4.9 with `Dσ(0) = 0`, and Lemma
+* **Remark 4.2.9 (preprint 4.20)** is stated in the text without "tame"; it is proved for tame `X` (Definition 4.2.5 (preprint 4.16)
+  is for tame `X`, and Lemma 4.2.8 (preprint 4.19) is used).  "The tangent spaces of `A` move only slowly" is the
+  `C¹` property of the graph map `σ = (1 − π) ∘ Γ` of Proposition 4.1.9 (preprint 4.9) with `Dσ(0) = 0`, and Lemma
   3.55 needs a closed good complement, chosen by the normal form (`exists_proj_goodComplement`).
-* **Definition 4.21** uses the sc-structure induced on `T_zO` (an sc-subspace of `E` at a smooth
+* **Definition 4.2.10 (preprint 4.21)** uses the sc-structure induced on `T_zO` (an sc-subspace of `E` at a smooth
   point); the transport of the sc-complement needs the smoothness of the point, which holds on `A`.
-* The **open question** after Proposition 4.15 (lines ≈ 6497–6510) is not formalized.
+* The **open question** after Proposition 4.2.3 (preprint 4.15) (lines ≈ 6497–6510) is not formalized.
 -/
 
 open Set Filter Topology Function Module
@@ -125,7 +125,7 @@ section SubRetract
 variable {E E' : ScBanach} {C Q : Set (E 0)} {C' : Set (E' 0)}
 
 /-- **The tangent space of a retract is a germ**: for an open `K`, the tangent space of the retract
-`Q ∩ K` (Proposition 2.10 (1)) at a point of `K` is that of `Q`. -/
+`Q ∩ K` (Proposition 2.3.1 (preprint 2.10) (1)) at a point of `K` is that of `Q`. -/
 theorem tangentSpace_inter_isOpen (hQ : IsScRetract E C Q) {K : Set (E 0)} (hK : IsOpen K)
     {z : E 1} (hz : E.toBase 1 z ∈ Q ∩ K) :
     tangentSpace E C (Q ∩ K) z = tangentSpace E C Q z := by
@@ -159,7 +159,7 @@ theorem tangentSpace_subset_of_subset (R : ScRetraction E C) (hQ : IsScRetract E
     R.apply_eq_self_of_mem_retract (hQR (S.apply_mem_retract hy))
   have h2 : scDeriv S.U (R ∘ S) z = scDeriv S.U S z :=
     scDeriv_eq_of_eqOn_relOpen S.relOpen
-      (theorem_1_21 S.relOpen R.relOpen S.isSc1 R.isSc1 hmaps).1 S.isSc1 subset_rfl subset_rfl
+      (theorem_1_3_1 S.relOpen R.relOpen S.isSc1 R.isSc1 hmaps).1 S.isSc1 subset_rfl subset_rfl
       hRS hzU
   rw [h2] at h1
   exact ⟨scDeriv S.U S z w, h1⟩
@@ -167,7 +167,7 @@ theorem tangentSpace_subset_of_subset (R : ScRetraction E C) (hQ : IsScRetract E
 /-- **The derivative of a map between retracts maps tangent spaces of sub-retracts**: let
 `F ∘ r` be sc-smooth for a retraction `r` onto `O`, and let `Q ⊆ O`, `Q'` be retracts with
 `F(Q) ⊆ Q'`.  Then at `z ∈ Q₁` the derivative `D(F ∘ r)(z)` maps `T_zQ` into `T_{F(z)}Q'`
-(Proposition 2.6 (3) for `F|_Q`, whose tangent map at `z` is `D(F ∘ r)(z)` on `T_zQ`). -/
+(Proposition 2.1.13 (preprint 2.6) (3) for `F|_Q`, whose tangent map at `z` is `D(F ∘ r)(z)` on `T_zQ`). -/
 theorem scDeriv_mem_tangentSpace_of_subset (R : ScRetraction E C) {F : E 0 → E' 0}
     (hF : IsScSmooth R.U (F ∘ R)) (hQ : IsScRetract E C Q) {Q' : Set (E' 0)}
     (hQ' : IsScRetract E' C' Q') (hQR : Q ⊆ R.retract) (hFQ : MapsTo F Q Q') {z : E 1}
@@ -181,7 +181,7 @@ theorem scDeriv_mem_tangentSpace_of_subset (R : ScRetraction E C) {F : E 0 → E
     simp only [Function.comp_apply, R.apply_eq_self_of_mem_retract (hQR (S.apply_mem_retract hy))]
   have hFSsm : IsScSmooth S.U (F ∘ S) :=
     (IsScSmooth.comp S.isScDomain R.isScDomain hF S.isScSmooth hmaps).congr S.isScDomain hFS
-  have hT := proposition_2_6_3 S S' hFSsm hFQ
+  have hT := proposition_2_1_13_three S S' hFSsm hFQ
   have hvS : ((z, v) : E.tangent 0) ∈ S.tangent := by
     have : ((z, v) : E.tangent 0) ∈ retractTangent E C S.retract := hv
     rwa [retractTangent_eq] at this
@@ -199,7 +199,7 @@ theorem scDeriv_mem_tangentSpace_of_subset (R : ScRetraction E C) {F : E 0 → E
     rw [h1]
     exact congrArg (fun L : E 0 →L[ℝ] E' 0 => L v)
       (scDeriv_eq_of_eqOn_relOpen S.relOpen
-        (theorem_1_21 S.relOpen R.relOpen S.isSc1 hF.isSc1 hmaps).1 hFSsm.isSc1 subset_rfl
+        (theorem_1_3_1 S.relOpen R.relOpen S.isSc1 hF.isSc1 hmaps).1 hFSsm.isSc1 subset_rfl
         subset_rfl hFS hzU).symm
   change ((levelMap (F ∘ R) 1 z, scDeriv R.U (F ∘ R) z v) : E'.tangent 0) ∈
     retractTangent E' C' S'.retract
@@ -208,17 +208,17 @@ theorem scDeriv_mem_tangentSpace_of_subset (R : ScRetraction E C) {F : E 0 → E
 
 end SubRetract
 
-/-! ### Good position of a sub-retract (Definition 4.16 in a chart) -/
+/-! ### Good position of a sub-retract (Definition 4.2.5 (preprint 4.16) in a chart) -/
 
 section GoodPositionRetract
 
 variable {E E' : ScBanach} {C : Set (E 0)} {C' : Set (E' 0)} {n n' : ℕ} {Wq Wq' : ScBanach}
 
-/-- **Definition 4.16 in a chart**: for retracts `Q ⊆ O` (`Q` the image of the submanifold in the
+/-- **Definition 4.2.5 (preprint 4.16) in a chart**: for retracts `Q ⊆ O` (`Q` the image of the submanifold in the
 chart, `O` the model of the chart), a presentation `T` of `C` and a level-`1` point `z` of `Q`, the
 tangent space `T_zQ` is **in good position to the partial cone `C_zO = T_zO ∩ C_z` inside `T_zO`**
-(`IsInGoodPositionIn`, the form of Definition 3.21 inside a subspace used for Definition 3.53).
-The tangent spaces are those of Definition 2.17; `N` and `M` are the corresponding subspaces. -/
+(`IsInGoodPositionIn`, the form of Definition 3.1.24 (preprint 3.21) inside a subspace used for Definition 3.6.6 (preprint 3.53)).
+The tangent spaces are those of Definition 2.3.12 (preprint 2.17); `N` and `M` are the corresponding subspaces. -/
 def IsGoodPositionRetractAt (E : ScBanach) (C O Q : Set (E 0))
     (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod Wq)) (z : E 1) : Prop :=
   ∃ N M : Submodule ℝ (E 0), (N : Set (E 0)) = tangentSpace E C Q z ∧
@@ -235,15 +235,15 @@ theorem IsGoodPositionRetractAt.congr {O Q O₂ Q₂ : Set (E 0)}
   exact ⟨N, M, hN.trans hQ, hM.trans hO, hg⟩
 
 /-- **Good position of a sub-retract is carried by a germ of sc-diffeomorphisms** (the chart
-independence of Definition 4.16): let `F : O → O'` be a germ of sc-diffeomorphisms between the
+independence of Definition 4.2.5 (preprint 4.16)): let `F : O → O'` be a germ of sc-diffeomorphisms between the
 retracts `O = r(U)`, `O' = r'(U')` with inverse `G` (`F ∘ r`, `G ∘ r'` sc-smooth), and `Q ⊆ O`,
 `Q' ⊆ O'` sub-retracts with `F(Q) ⊆ Q'`, `G(Q') ⊆ Q`.  If `T_zQ` is in good position to `C_zO`
 inside `T_zO`, then `T_{F(z)}Q'` is in good position to `C'_{F(z)}O'` inside `T_{F(z)}O'`.
 *Proof.* `A = D(F ∘ r)(z)` restricts to an isomorphism `T_zO ≅ T_{F(z)}O'` (inverse
-`D(G ∘ r')(F(z))`) carrying `C_zO` onto `C'_{F(z)}O'` (Proposition 2.30, `proposition_2_30_cone`)
+`D(G ∘ r')(F(z))`) carrying `C_zO` onto `C'_{F(z)}O'` (Proposition 2.4.10 (preprint 2.30), `proposition_2_4_10_cone`)
 and `T_zQ` onto `T_{F(z)}Q'` (`scDeriv_mem_tangentSpace_of_subset` in both directions); good
 position inside a subspace is transported by such isomorphisms (`IsInGoodPositionIn.transport`,
-Lemma 3.45). -/
+Lemma 3.5.9 (preprint 3.45)). -/
 theorem IsGoodPositionRetractAt.transport {R : ScRetraction E C} {R' : ScRetraction E' C'}
     {F : E 0 → E' 0} {G : E' 0 → E 0} (h : R.IsDiffeoGerm R' F G)
     (hFs : IsScSmooth R.U (F ∘ R)) (hGs : IsScSmooth R'.U (G ∘ R'))
@@ -285,8 +285,8 @@ theorem IsGoodPositionRetractAt.transport {R : ScRetraction E C} {R' : ScRetract
     rw [h.deriv_deriv_inv hx]
     exact congrArg (fun L : E' 0 →L[ℝ] E' 0 => L u) (R'.scDeriv_comp_self hy')
   set A := restrictEquiv _ _ _ _ hTA hTA' hinv1 hinv2 with hAdef
-  -- the partial cones correspond (Proposition 2.30)
-  have hcone := proposition_2_30_cone h hx T hT T' hT'
+  -- the partial cones correspond (Proposition 2.4.10 (preprint 2.30))
+  have hcone := proposition_2_4_10_cone h hx T hT T' hT'
   simp only [partialConeWith] at hcone
   have hAC : ∀ x : ↥(rangeS (scDeriv R.U R z)),
       (x : E 0) ∈ partialQuadrantAtWith T (E.toBase 1 z) ↔
@@ -336,11 +336,11 @@ theorem IsGoodPositionRetractAt.transport {R : ScRetraction E C} {R' : ScRetract
     rw [hAdef, restrictEquiv_apply]
     exact hinv2 w hwM
 
-/-- **Definition 4.21 in a chart**: for retracts `Q ⊆ O`, a presentation `T` of `C` and a level-`1`
+/-- **Definition 4.2.10 (preprint 4.21) in a chart**: for retracts `Q ⊆ O`, a presentation `T` of `C` and a level-`1`
 point `z` of `Q`, **`T_zQ` has in `T_zO` an sc-complement contained in the reduced tangent space
-`T_z^R O = T_zO ∩ E_z`** (Definitions 2.27, 2.38): an sc-subspace `B ⊆ T_zO ∩ E_z` of `E` with
+`T_z^R O = T_zO ∩ E_z`** (Definitions 2.4.7, 2.5.8 (preprint 2.27, 2.38)): an sc-subspace `B ⊆ T_zO ∩ E_z` of `E` with
 `(T_zO)_m = (T_zQ)_m ⊕ B_m` on every level (the form of the sc-splitting of
-`proposition_2_21_3`). -/
+`proposition_2_3_19_three`). -/
 def IsGeneralPositionRetractAt (E : ScBanach) (C O Q : Set (E 0))
     (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod Wq)) (z : E 1) : Prop :=
   ∃ N M B : Submodule ℝ (E 0), (N : Set (E 0)) = tangentSpace E C Q z ∧
@@ -358,11 +358,11 @@ theorem IsGeneralPositionRetractAt.congr {O Q O₂ Q₂ : Set (E 0)}
   exact ⟨N, M, B, hN.trans hQ, hM.trans hO, hB⟩
 
 /-- **General position of a sub-retract is carried by a germ of sc-diffeomorphisms** (the chart
-independence of Definition 4.21), at a smooth point `z`: with `A = D(F ∘ r)(z)`, an sc-operator
+independence of Definition 4.2.10 (preprint 4.21)), at a smooth point `z`: with `A = D(F ∘ r)(z)`, an sc-operator
 since `z` is smooth, inverse to `D(G ∘ r')(F(z))` on `T_zO` and `T_{F(z)}O'`, the image `A(B)` of
 an sc-complement `B ⊆ T_z^R O` of `T_zQ` in `T_zO` is an sc-complement of `T_{F(z)}Q' = A(T_zQ)` in
-`T_{F(z)}O'`, contained in `T^R_{F(z)}O' = A(T_z^R O)` (Proposition 2.30,
-`proposition_2_30_reduced`). -/
+`T_{F(z)}O'`, contained in `T^R_{F(z)}O' = A(T_z^R O)` (Proposition 2.4.10 (preprint 2.30),
+`proposition_2_4_10_reduced`). -/
 theorem IsGeneralPositionRetractAt.transport {R : ScRetraction E C} {R' : ScRetraction E' C'}
     {F : E 0 → E' 0} {G : E' 0 → E 0} (h : R.IsDiffeoGerm R' F G)
     (hFs : IsScSmooth R.U (F ∘ R)) (hGs : IsScSmooth R'.U (G ∘ R'))
@@ -457,7 +457,7 @@ theorem IsGeneralPositionRetractAt.transport {R : ScRetraction E C} {R' : ScRetr
       rw [SetLike.mem_coe, hmapiff N hNM]
       exact ⟨hwM, by rw [← SetLike.mem_coe, hN]; exact h1⟩
   · -- `A(B) ⊆ T^R_y O'`
-    have hred := proposition_2_30_reduced h hx T hT T' hT'
+    have hred := proposition_2_4_10_reduced h hx T hT T' hT'
     have : B.map (A₀ : E 0 →ₗ[ℝ] E' 0) ≤ reducedTangentSpaceWith R' T' y :=
       (Submodule.map_mono hBM).trans hred.le
     exact this
@@ -548,7 +548,7 @@ theorem partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero {C : Set (E 0)}
 
 end GoodPositionUniv
 
-/-! ### Tangent spaces along the graph of Proposition 4.9 -/
+/-! ### Tangent spaces along the graph of Proposition 4.1.9 (preprint 4.9) -/
 
 section GraphTangent
 
@@ -573,7 +573,7 @@ theorem hasFDerivWithinAt_scDeriv_const {Γ : N → E 0}
   exact h1
 
 /-- **The tangent spaces of a retract parametrized by a finite-dimensional quadrant** (the graph
-`Γ : V → Q` of Proposition 4.9, with inverse the projection `p`): at `v ∈ V` and the level-`1`
+`Γ : V → Q` of Proposition 4.1.9 (preprint 4.9), with inverse the projection `p`): at `v ∈ V` and the level-`1`
 point `y` over `Γ(v)`, `T_yQ = DΓ(v)N` and `p ∘ DΓ(v) = 1` (the tangent maps of the
 sc-diffeomorphism `Γ : (V, N ∩ C, N) → (Q, C, E)` and of its inverse, `IsDiffeoGerm`). -/
 theorem tangentSpace_eq_range_graph (hQ : IsScRetract E C Q)
@@ -633,14 +633,14 @@ theorem tangentSpace_eq_range_graph (hQ : IsScRetract E C Q)
 
 end GraphTangent
 
-/-! ### Lemma 4.19 -/
+/-! ### Lemma 4.2.8 (preprint 4.19) -/
 
 section Lemma419
 
 variable {E : ScBanach} {C : Set (E 0)} {n : ℕ} {Wq : ScBanach}
 
-/-- The good complement of Lemma 4.19: if `π` is a bounded idempotent with
-`Z = (1 − π)E ⊆ E₀` (the minimal subspace at the corner `0`; Proposition 2.35 for a tame
+/-- The good complement of Lemma 4.2.8 (preprint 4.19): if `π` is a bounded idempotent with
+`Z = (1 − π)E ⊆ E₀` (the minimal subspace at the corner `0`; Proposition 2.5.3 (preprint 2.35) for a tame
 retraction), and `Y ⊆ πE` is a good complement of `N` inside `πE` (constant `ε`), then `Y ⊕ Z` is a
 good complement of `N` in `E`, with the constant `ε/(‖π‖ + 1)` (the text: the norm
 `|(y, z)| = |y| + |z|` on `Y ⊕ Z`).  The argument is that of
@@ -703,14 +703,14 @@ theorem isGoodComplement_sup_range (T : ScIso E ((ScBanach.const (Fin n → ℝ)
     rw [← add_assoc, hmemC (x + p) k hk]
     exact hgood x hx p hp hpn
 
-/-- **Lemma 4.19**: in a tame chart centred at `a` (`ϕ(a) = 0`, so that `C_0 = C`), with
+/-- **Lemma 4.2.8 (preprint 4.19)**: in a tame chart centred at `a` (`ϕ(a) = 0`, so that `C_0 = C`), with
 `T₀O = πE` for the projection `π = Dr(0)` and `Z = (1 − π)E` the sc-complement of `T₀O` contained in
-`E₀ ⊆ C` (Proposition 2.35), if `N = Tϕ(a)(T_aA)` is in good position to `C₀ = T₀O ∩ C` inside
+`E₀ ⊆ C` (Proposition 2.5.3 (preprint 2.35)), if `N = Tϕ(a)(T_aA)` is in good position to `C₀ = T₀O ∩ C` inside
 `T₀O`, then **`N` is in good position to `C` in `E`, and for every good complement `Y` of `N` in
 `T₀O` the sum `Y ⊕ Z` is a good complement of `N` in `E`**.  (The good position statement is
 `IsInGoodPositionIn.isInGoodPosition` of `GoodPositionGerm.lean`, the transport lemma of
-Theorem 3.54; the explicit complement is `isGoodComplement_sup_range`.) -/
-theorem lemma_4_19 (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod Wq))
+Theorem 3.6.8 (preprint 3.54); the explicit complement is `isGoodComplement_sup_range`.) -/
+theorem lemma_4_2_8 (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod Wq))
     (hC : C = T 0 ⁻¹' quadrant n Wq 0) (π : E 0 →L[ℝ] E 0) (hπ : ∀ x, π (π x) = π x)
     (hK : LinearMap.range (ContinuousLinearMap.id ℝ (E 0) - π : E 0 →ₗ[ℝ] E 0) ≤
       minimalSubspaceWith T 0)
@@ -725,7 +725,7 @@ theorem lemma_4_19 (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod Wq))
 
 end Lemma419
 
-/-! ### Definition 4.13: smooth finite-dimensional submanifolds -/
+/-! ### Definition 4.2.1 (preprint 4.13): smooth finite-dimensional submanifolds -/
 
 namespace MPolyfold
 
@@ -733,8 +733,8 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- The data of Definition 4.13 at a point: an open `V ⊆ X` and an **sc⁺-retraction** `s : V → V`
-(Definition 4.4 on an open subset, `IsScPlusRetractionOn`) with `s(V) = A ∩ V`. -/
+/-- The data of Definition 4.2.1 (preprint 4.13) at a point: an open `V ⊆ X` and an **sc⁺-retraction** `s : V → V`
+(Definition 4.1.4 (preprint 4.4) on an open subset, `IsScPlusRetractionOn`) with `s(V) = A ∩ V`. -/
 structure SubmanifoldData (A : Set X) where
   /-- The open set `V`. -/
   V : Set X
@@ -744,16 +744,16 @@ structure SubmanifoldData (A : Set X) where
   isScPlusRetractionOn : P.IsScPlusRetractionOn s V
   image : s '' V = A ∩ V
 
-/-- **Definition 4.13**: `A ⊆ X` is a **smooth finite-dimensional submanifold** of the M-polyfold
+/-- **Definition 4.2.1 (preprint 4.13)**: `A ⊆ X` is a **smooth finite-dimensional submanifold** of the M-polyfold
 `X` if every `a ∈ A` has an open neighbourhood `V ⊆ X` and an sc⁺-retraction `s : V → V`
-(Definition 4.4: `s` sc-smooth, `s ∘ s = s` on `V`, `s(V) ⊆ X₁` and `1₀¹ ∘ s : V → X¹` sc-smooth)
+(Definition 4.1.4 (preprint 4.4): `s` sc-smooth, `s ∘ s = s` on `V`, `s(V) ⊆ X₁` and `1₀¹ ∘ s : V → X¹` sc-smooth)
 with `s(V) = A ∩ V`. -/
 def IsSmoothSubmanifold (A : Set X) : Prop :=
   ∀ a ∈ A, ∃ V : Set X, IsOpen V ∧ a ∈ V ∧ ∃ s : X → X, P.IsScPlusRetractionOn s V ∧ s '' V = A ∩ V
 
 variable {P}
 
-/-- Definition 4.13 with the data as a structure. -/
+/-- Definition 4.2.1 (preprint 4.13) with the data as a structure. -/
 theorem isSmoothSubmanifold_iff {A : Set X} :
     P.IsSmoothSubmanifold A ↔ ∀ a ∈ A, ∃ d : P.SubmanifoldData A, a ∈ d.V := by
   constructor
@@ -768,7 +768,7 @@ namespace SubmanifoldData
 
 variable {A : Set X} (d : P.SubmanifoldData A)
 
-/-- An sc⁺-retraction is in particular an sc-smooth retraction: the data of Definition 2.20. -/
+/-- An sc⁺-retraction is in particular an sc-smooth retraction: the data of Definition 2.3.18 (preprint 2.20). -/
 def toSubData : P.SubData A where
   V := d.V
   r := d.s
@@ -793,9 +793,9 @@ variable {φ : MChart X} (hφ : P.IsChart φ)
 include hφ
 
 /-- **The sc⁺-property of `s` in a chart**: for a chart `φ` of `X` and the open set
-`W = V ∩ dom φ ∩ s⁻¹(V ∩ dom φ)` of the proof of Proposition 2.21, the lift
+`W = V ∩ dom φ ∩ s⁻¹(V ∩ dom φ)` of the proof of Proposition 2.3.19 (preprint 2.21), the lift
 `1₀¹ ∘ (φ ∘ s ∘ φ⁻¹) : φ(W) → E¹` is sc-smooth from `(φ(W), C, E)` to `(O₁, C₁, E¹)` (the
-condition "`s : V → V¹` sc-smooth" of Definition 4.4, read in the charts `φ` of `X` and
+condition "`s : V → V¹` sc-smooth" of Definition 4.1.4 (preprint 4.4), read in the charts `φ` of `X` and
 `(V₁, φ, (O₁, C₁, E¹))` of `X¹`). -/
 theorem isScSmoothRetractMap_lift (x₀ : P.Level 1) :
     IsScSmoothRetractMap φ.model.E φ.model.C (φ '' d.toSubData.shrink φ) φ.model.E.shift
@@ -815,7 +815,7 @@ theorem isScSmoothRetractMap_lift (x₀ : P.Level 1) :
   simp only [Function.comp_apply, φ.symm_apply_apply (d.toSubData.shrink_subset_source φ hx)]
   exact levelChart_toLevelOne hφ x₀ x₀ (d.isScPlusRetractionOn.mem_levelSet x hx.1.1)
 
-/-- **The chart retraction `t = φ ∘ s ∘ φ⁻¹ ∘ r` of the proof of Theorem 4.18 is an
+/-- **The chart retraction `t = φ ∘ s ∘ φ⁻¹ ∘ r` of the proof of Theorem 4.2.7 (preprint 4.18) is an
 sc⁺-retraction**: for a chart `φ : V' → O` of `X` and an sc-smooth retraction `r` onto `O`, with
 `W` as in `isScSmoothRetractMap_lift` and `φ(W) = O ∩ G` (`G` open), the retraction
 `t = (φ ∘ s ∘ φ⁻¹) ∘ r` on `U ∩ r⁻¹(G)` (`ScRetraction.compRetraction` of the restricted `r`) is an
@@ -849,7 +849,7 @@ theorem exists_chartRetraction (x₀ : P.Level 1) (R : ScRetraction φ.model.E �
     exact (P.mem_levelSet_iff hφ (d.toSubData.shrink_subset_source φ
       (d.toSubData.mapsTo_shrink φ hx))).1 hsx
 
-/-- **The model of the chart of `A` induced by `φ` is an sc⁺-retract** (Definition 4.6): the
+/-- **The model of the chart of `A` induced by `φ` is an sc⁺-retract** (Definition 4.1.6 (preprint 4.6)): the
 retract `φ(W ∩ A)` of the sub-M-polyfold chart (`subChart`) is the image of the sc⁺-retraction
 `t = φ ∘ s ∘ φ⁻¹ ∘ r`. -/
 theorem isScPlusRetract_image (x₀ : P.Level 1) :
@@ -859,22 +859,22 @@ theorem isScPlusRetract_image (x₀ : P.Level 1) :
   exact ⟨t, ht, htp⟩
 
 /-- The image `φ(a)` of a point `a ∈ A ∩ V ∩ dom φ` is a smooth point (it lies in the retract of
-the sc⁺-retraction `t`, Lemma 4.7 (i)). -/
+the sc⁺-retraction `t`, Lemma 4.1.7 (preprint 4.7) (i)). -/
 theorem apply_mem_smooth {a : X} (ha : a ∈ A) (haV : a ∈ d.V) (haφ : a ∈ φ.source) :
     φ a ∈ φ.model.E.smooth := by
   obtain ⟨R, hR⟩ := φ.model.isScRetract
   obtain ⟨t, ht, htp, -⟩ := d.exists_chartRetraction hφ (P.levelMk 1 a (d.mem_levelSet_one ha haV))
     R hR
-  exact lemma_4_7_i htp (ht ▸ ⟨a, ⟨d.toSubData.mem_shrink φ ha haV haφ, ha⟩, rfl⟩)
+  exact lemma_4_1_7_i htp (ht ▸ ⟨a, ⟨d.toSubData.mem_shrink φ ha haV haφ, ha⟩, rfl⟩)
 
-/-- **Remark 4.14, in a chart**: at `a ∈ A ∩ V ∩ dom φ`, with `z` the level-`1` point over `φ(a)`
+/-- **Remark 4.2.2 (preprint 4.14), in a chart**: at `a ∈ A ∩ V ∩ dom φ`, with `z` the level-`1` point over `φ(a)`
 and `W` the open set of the sub-M-polyfold chart: (i) `z` is smooth; (ii) **`T_aA = Ts(a)T_aX`**:
 the tangent map of `ρ = φ ∘ s ∘ φ⁻¹ : φ(W) → φ(W)` at `z` maps `T_zO` (the chart form of `T_aX`)
-onto the tangent space `T_z(φ(W ∩ A))` of the chart model of `A` (Proposition 2.21 (4) for `ρ`, and
+onto the tangent space `T_z(φ(W ∩ A))` of the chart model of `A` (Proposition 2.3.19 (preprint 2.21) (4) for `ρ`, and
 `T_z(φ(W)) = T_zO`); (iii) `T_aA ⊆ T_aX`; (iv) **`T_aA` is finite-dimensional**: it is the range of
-`Dt(z)` for the sc⁺-retraction `t = ρ ∘ r` (Lemma 4.7 (ii): `Dt(z)` is an sc⁺-operator, hence
+`Dt(z)` for the sc⁺-retraction `t = ρ ∘ r` (Lemma 4.1.7 (preprint 4.7) (ii): `Dt(z)` is an sc⁺-operator, hence
 compact, and a projection). -/
-theorem remark_4_14 {a : X} (ha : a ∈ A) (haV : a ∈ d.V) (haφ : a ∈ φ.source)
+theorem remark_4_2_2 {a : X} (ha : a ∈ A) (haV : a ∈ d.V) (haφ : a ∈ φ.source)
     {z : φ.model.E 1} (hz : φ.model.E.toBase 1 z = φ a) :
     z ∈ φ.model.E.smoothLvl 1 ∧
       (fun h => (retractTangentMap φ.model.E φ.model.C (φ '' d.toSubData.shrink φ)
@@ -900,7 +900,7 @@ theorem remark_4_14 {a : X} (ha : a ∈ A) (haV : a ∈ d.V) (haφ : a ∈ φ.so
     rw [hRw]; exact fun x hx => d.toSubData.rho_idem φ hx
   have hzQ : z ∈ φ.model.E.lvlSet ((φ ∘ d.toSubData.r ∘ φ.symm) '' (R.restrict hG).retract) 1 := by
     rw [ScBanach.mem_lvlSet, hRw, d.toSubData.rho_image, hz]; exact ⟨a, ⟨haW, ha⟩, rfl⟩
-  have h214 := (proposition_2_21_4 (R.restrict hG) hρ hρρ hzQ).2
+  have h214 := (proposition_2_3_19_four (R.restrict hG) hρ hρρ hzQ).2
   rw [hRw, d.toSubData.rho_image] at h214
   have hzW : φ.model.E.toBase 1 z ∈ φ.model.O ∩ G := by rw [← hWG, hz]; exact ⟨a, haW, rfl⟩
   have hTW : tangentSpace φ.model.E φ.model.C (φ '' d.toSubData.shrink φ) z =
@@ -911,32 +911,32 @@ theorem remark_4_14 {a : X} (ha : a ∈ A) (haV : a ∈ d.V) (haφ : a ∈ φ.so
   have hzt : φ.model.E.toBase 1 z ∈ t.retract := by rw [ht, hz]; exact ⟨a, ⟨haW, ha⟩, rfl⟩
   have hzA : z ∈ φ.model.E.lvlSet (φ '' (d.toSubData.shrink φ ∩ A)) 1 := by
     rw [ScBanach.mem_lvlSet, hz]; exact ⟨a, ⟨haW, ha⟩, rfl⟩
-  refine ⟨lemma_4_7_i htp hzt, ?_, ?_, ?_⟩
+  refine ⟨lemma_4_1_7_i htp hzt, ?_, ?_, ?_⟩
   · rw [← hTW]; exact h214
   · have := tangentSpace_subset_of_subset R (d.toSubData.isScRetract_image φ hφ)
       (hR ▸ φ.image_subset_model fun _ hx => d.toSubData.shrink_subset_source φ hx.1) hzA
     rwa [hR] at this
-  · refine ⟨_, ?_, lemma_4_7_ii htp hzt⟩
+  · refine ⟨_, ?_, lemma_4_1_7_ii htp hzt⟩
     rw [← ht]
     exact (tangentSpace_eq_coe_submodule t hzt).symm
 
 end SubmanifoldData
 
-/-! ### Proposition 4.15 -/
+/-! ### Proposition 4.2.3 (preprint 4.15) -/
 
 namespace IsSmoothSubmanifold
 
 variable {A : Set X} (hA : P.IsSmoothSubmanifold A)
 include hA
 
-/-- The data of Definition 4.13 at a point of `A`. -/
+/-- The data of Definition 4.2.1 (preprint 4.13) at a point of `A`. -/
 def data {a : X} (ha : a ∈ A) : P.SubmanifoldData A :=
   ((isSmoothSubmanifold_iff.1 hA) a ha).choose
 
 lemma mem_data_V {a : X} (ha : a ∈ A) : a ∈ (hA.data ha).V :=
   ((isSmoothSubmanifold_iff.1 hA) a ha).choose_spec
 
-/-- A smooth finite-dimensional submanifold is a sub-M-polyfold (Definition 2.20): an
+/-- A smooth finite-dimensional submanifold is a sub-M-polyfold (Definition 2.3.18 (preprint 2.20)): an
 sc⁺-retraction is an sc-smooth retraction. -/
 theorem isSubMPolyfold : P.IsSubMPolyfold A := fun _ ha =>
   ⟨(hA.data ha).V, (hA.data ha).isOpen, hA.mem_data_V ha, (hA.data ha).s,
@@ -947,9 +947,9 @@ theorem isSubMPolyfold : P.IsSubMPolyfold A := fun _ ha =>
 lemma mem_levelSet_one {a : X} (ha : a ∈ A) : a ∈ P.levelSet 1 :=
   (hA.data ha).mem_levelSet_one ha (hA.mem_data_V ha)
 
-/-- **Proposition 4.15 (1)**, first half: **`A ⊆ X_∞`**.  *Proof* (the text's): in a chart `φ`
+/-- **Proposition 4.2.3 (preprint 4.15) (1)**, first half: **`A ⊆ X_∞`**.  *Proof* (the text's): in a chart `φ`
 around `a`, `φ(a)` lies in the retract of the sc⁺-retraction `t = φ ∘ s ∘ φ⁻¹ ∘ r`, which consists
-of smooth points (Lemma 4.7 (i)). -/
+of smooth points (Lemma 4.1.7 (preprint 4.7) (i)). -/
 theorem subset_smoothSet : A ⊆ P.smoothSet := by
   intro a ha
   set d := hA.data ha
@@ -959,7 +959,7 @@ theorem subset_smoothSet : A ⊆ P.smoothSet := by
     d.exists_chartRetraction hφ (P.levelMk 1 a (hA.mem_levelSet_one ha)) R hR
   have hmem : φ a ∈ t.retract :=
     ht ▸ ⟨a, ⟨d.toSubData.mem_shrink φ ha (hA.mem_data_V ha) haφ, ha⟩, rfl⟩
-  exact (mem_smoothSet_iff hφ haφ).2 (lemma_4_7_i htp hmem)
+  exact (mem_smoothSet_iff hφ haφ).2 (lemma_4_1_7_i htp hmem)
 
 /-- The level sets of the induced M-polyfold structure are the traces of those of `X`. -/
 theorem mem_levelSet_subPolyfold_iff [ParacompactSpace A] (a : A) (m : ℕ) :
@@ -972,13 +972,13 @@ theorem mem_levelSet_subPolyfold_iff [ParacompactSpace A] (a : A) (m : ℕ) :
     (subPolyfold_isChart hA.isSubMPolyfold d hφ a) hsrc, P.mem_levelSet_iff hφ haφ]
   rfl
 
-/-- **Proposition 4.15 (4)**: **`1₀¹ : A → A¹` is sc-smooth** for the induced M-polyfold structure,
+/-- **Proposition 4.2.3 (preprint 4.15) (4)**: **`1₀¹ : A → A¹` is sc-smooth** for the induced M-polyfold structure,
 and every point of `A` is smooth for it (`A = A_∞`).  *Proof*: every point of `A` lies in a chart of
 the induced structure (`subChart`) whose model `φ(W ∩ A)` is an sc⁺-retract
-(`SubmanifoldData.isScPlusRetract_image`), and Proposition 4.8 applies in each such chart
+(`SubmanifoldData.isScPlusRetract_image`), and Proposition 4.1.8 (preprint 4.8) applies in each such chart
 (`isScSmoothMap_toLevelOne_of_cover`).  The text: "the postulated sc⁺-retraction is the identity on
 the retract `A`". -/
-theorem proposition_4_15_4 [ParacompactSpace A] (x₀ : (subPolyfold hA.isSubMPolyfold).Level 1) :
+theorem proposition_4_2_3_four [ParacompactSpace A] (x₀ : (subPolyfold hA.isSubMPolyfold).Level 1) :
     (∀ a, a ∈ (subPolyfold hA.isSubMPolyfold).smoothSet) ∧
       (subPolyfold hA.isSubMPolyfold).IsScSmoothMap (subPolyfold hA.isSubMPolyfold).shift
         ((subPolyfold hA.isSubMPolyfold).toLevelOne x₀) :=
@@ -989,22 +989,22 @@ theorem proposition_4_15_4 [ParacompactSpace A] (x₀ : (subPolyfold hA.isSubMPo
       d.toSubData.mem_shrink φ a.2 (hA.mem_data_V a.2) haφ,
       d.isScPlusRetract_image hφ (P.levelMk 1 a.1 (hA.mem_levelSet_one a.2))⟩
 
-/-- **Proposition 4.15 (1)**: `A ⊆ X_∞`, and `A` with the M-polyfold structure induced from `X`
-(Proposition 2.21, `subPolyfold`) has all its points smooth; in particular `A` has a tangent space
-at every point (Remark 4.14) and the degeneracy index `d_A` is defined on `A`. -/
-theorem proposition_4_15_1 [ParacompactSpace A] :
+/-- **Proposition 4.2.3 (preprint 4.15) (1)**: `A ⊆ X_∞`, and `A` with the M-polyfold structure induced from `X`
+(Proposition 2.3.19 (preprint 2.21), `subPolyfold`) has all its points smooth; in particular `A` has a tangent space
+at every point (Remark 4.2.2 (preprint 4.14)) and the degeneracy index `d_A` is defined on `A`. -/
+theorem proposition_4_2_3_one [ParacompactSpace A] :
     A ⊆ P.smoothSet ∧ ∀ a, a ∈ (subPolyfold hA.isSubMPolyfold).smoothSet := by
   refine ⟨hA.subset_smoothSet, fun a => ?_⟩
   have h1 : a ∈ (subPolyfold hA.isSubMPolyfold).levelSet 1 :=
     (hA.mem_levelSet_subPolyfold_iff a 1).2 (hA.mem_levelSet_one a.2)
-  exact (hA.proposition_4_15_4 ((subPolyfold hA.isSubMPolyfold).levelMk 1 a h1)).1 a
+  exact (hA.proposition_4_2_3_four ((subPolyfold hA.isSubMPolyfold).levelMk 1 a h1)).1 a
 
-/-- **Proposition 4.15 (2)**: **`A` is locally closed in `X`** (Mathlib's `IsLocallyClosed`: the
+/-- **Proposition 4.2.3 (preprint 4.15) (2)**: **`A` is locally closed in `X`** (Mathlib's `IsLocallyClosed`: the
 intersection of an open and a closed set; the text's definition at preprint lines 6463–6466 is
 garbled, see the Findings).  *Proof* (the text's, with a filter in place of the sequence): every
-`a ∈ A` has the open neighbourhood `V` of Definition 4.13, and a point `b ∈ V` in the closure of `A`
+`a ∈ A` has the open neighbourhood `V` of Definition 4.2.1 (preprint 4.13), and a point `b ∈ V` in the closure of `A`
 satisfies `s(b) = lim s(a_k) = lim a_k = b`, so `b ∈ s(V) ⊆ A`. -/
-theorem proposition_4_15_2 : IsLocallyClosed A := by
+theorem proposition_4_2_3_two : IsLocallyClosed A := by
   refine ((isLocallyClosed_tfae A).out 0 3).2 fun a ha => ?_
   set d := hA.data ha
   refine ⟨d.V, hA.mem_data_V ha, d.isOpen, fun b hb => ?_⟩
@@ -1024,17 +1024,17 @@ theorem proposition_4_15_2 : IsLocallyClosed A := by
   rw [d.image] at this
   exact this.1
 
-/-- **Proposition 4.15 (3)**: **`∂A = {a ∈ A | d_A(a) ≥ 1} ⊆ ∂X`**, by `d_A(a) ≤ d_X(a)`
-(Lemma 2.26 for the sub-M-polyfold `A`; the text's argument in the case `d_X(a) = 0` is the proof
+/-- **Proposition 4.2.3 (preprint 4.15) (3)**: **`∂A = {a ∈ A | d_A(a) ≥ 1} ⊆ ∂X`**, by `d_A(a) ≤ d_X(a)`
+(Lemma 2.4.6 (preprint 2.26) for the sub-M-polyfold `A`; the text's argument in the case `d_X(a) = 0` is the proof
 of that lemma). -/
-theorem proposition_4_15_3 [ParacompactSpace A] :
+theorem proposition_4_2_3_three [ParacompactSpace A] :
     Subtype.val '' (subPolyfold hA.isSubMPolyfold).boundary ⊆ P.boundary := by
   rintro _ ⟨a, ha, rfl⟩
-  exact le_trans ha (lemma_2_26 hA.isSubMPolyfold a)
+  exact le_trans ha (lemma_2_4_6 hA.isSubMPolyfold a)
 
 end IsSmoothSubmanifold
 
-/-! ### Definition 4.16: good position, and its chart independence -/
+/-! ### Definition 4.2.5 (preprint 4.16): good position, and its chart independence -/
 
 omit [T2Space X] [ParacompactSpace X] in
 /-- `φ(H ∩ A) = φ(G ∩ A) ∩ K` when `H ⊆ G ⊆ dom φ` and `φ(H) = O ∩ K`. -/
@@ -1052,7 +1052,7 @@ lemma _root_.Polyfold.MChart.image_inter_eq_inter (ψ : MChart X) {G₀ H B : Se
     have : y = x := ψ.toPartialEquiv.injOn (hG₀ (hHG hyH)) (hG₀ hxG) hyx
     exact ⟨x, ⟨this ▸ hyH, hxB⟩, rfl⟩
 
-/-- **The chart change for a property of sub-retracts** (Definitions 4.16 and 4.21): let `Φ` be a
+/-- **The chart change for a property of sub-retracts** (Definitions 4.2.5 and 4.2.10 (preprint 4.16 and 4.21)): let `Φ` be a
 property of `(E, C, O, Q, T, z)` (retracts `Q ⊆ O`, a presentation `T` of `C`, a level-`1` point
 `z`) which depends only on the tangent spaces `T_zQ`, `T_zO` (`hcongr`) and is carried by germs of
 sc-diffeomorphisms at smooth points (`htrans`).  Let `φ`, `φ'` be charts of `X`, `G ⊆ dom φ`,
@@ -1130,9 +1130,9 @@ theorem chart_change_of_transport
   have hQ'H : φ' '' ((G ∩ G') ∩ A) = φ' '' (G' ∩ A) ∩ K' :=
     φ'.image_inter_eq_inter hGφ' inter_subset_right hK'eq
   have hQHr : IsScRetract φ.model.E φ.model.C (φ '' ((G ∩ G') ∩ A)) := by
-    rw [hQH]; exact proposition_2_10_1 hQ hK
+    rw [hQH]; exact proposition_2_3_1_one hQ hK
   have hQ'Hr : IsScRetract φ'.model.E φ'.model.C (φ' '' ((G ∩ G') ∩ A)) := by
-    rw [hQ'H]; exact proposition_2_10_1 hQ' hK'
+    rw [hQ'H]; exact proposition_2_3_1_one hQ' hK'
   have hQHsub : φ '' ((G ∩ G') ∩ A) ⊆ Rw.retract := by
     rw [hRw]; exact image_mono fun x hx => ⟨hHφ hx.1, hHφ' hx.1⟩
   have hQ'Hsub : φ' '' ((G ∩ G') ∩ A) ⊆ Rw'.retract := by
@@ -1172,7 +1172,7 @@ theorem chart_change_of_transport
   · rw [hQ'H, tangentSpace_inter_isOpen hQ' hK' hz'Q]
   · rw [R'.restrict_retract hWo', tangentSpace_inter_isOpen R'.isScRetract hWo' hz'O, hR']
 
-/-- **The chart change for Definition 4.16** (`chart_change_of_transport` for
+/-- **The chart change for Definition 4.2.5 (preprint 4.16)** (`chart_change_of_transport` for
 `IsGoodPositionRetractAt`, with `IsGoodPositionRetractAt.transport`). -/
 theorem isGoodPositionRetractAt_chart_change {φ φ' : MChart X} (hφ : P.IsChart φ)
     (hφ' : P.IsChart φ') {A G G' : Set X} (hG : IsOpen G) (hG' : IsOpen G')
@@ -1194,7 +1194,7 @@ theorem isGoodPositionRetractAt_chart_change {φ φ' : MChart X} (hφ : P.IsChar
       hgp.transport h hF hG hQ hQ' hQR hQ'R hFQ hGQ hz T hT T' hT')
     hφ hφ' hG hG' hGφ hGφ' hQ hQ' haA haG haG' hz hz' hzs T hT T' hT' h
 
-/-- **The chart change for Definition 4.21** (`chart_change_of_transport` for
+/-- **The chart change for Definition 4.2.10 (preprint 4.21)** (`chart_change_of_transport` for
 `IsGeneralPositionRetractAt`, with `IsGeneralPositionRetractAt.transport`). -/
 theorem isGeneralPositionRetractAt_chart_change {φ φ' : MChart X} (hφ : P.IsChart φ)
     (hφ' : P.IsChart φ') {A G G' : Set X} (hG : IsOpen G) (hG' : IsOpen G')
@@ -1222,9 +1222,9 @@ namespace SubmanifoldData
 
 variable {P} {A : Set X}
 
-/-- **Definition 4.16 in a chart**: for the data `d` of Definition 4.13, a chart `φ` of `X`, a
+/-- **Definition 4.2.5 (preprint 4.16) in a chart**: for the data `d` of Definition 4.2.1 (preprint 4.13), a chart `φ` of `X`, a
 presentation `T` of the partial quadrant `C` and a level-`1` point `z` (over `φ(a)`), the tangent
-space `T_zA = T_z(φ(W ∩ A))` (Remark 4.14) is in good position to the partial cone
+space `T_zA = T_z(φ(W ∩ A))` (Remark 4.2.2 (preprint 4.14)) is in good position to the partial cone
 `C_zO = T_zO ∩ C_z` inside `T_zO` (the chart form of "`T_aA` is in good position to the partial
 quadrant `C_aX` in `T_aX`"). -/
 def IsGoodPositionChart (d : P.SubmanifoldData A) (φ : MChart X) {n : ℕ} {Wq : ScBanach}
@@ -1233,10 +1233,10 @@ def IsGoodPositionChart (d : P.SubmanifoldData A) (φ : MChart X) {n : ℕ} {Wq 
 
 end SubmanifoldData
 
-/-- **Definition 4.16**: the smooth finite-dimensional submanifold `A` is **in good position at
+/-- **Definition 4.2.5 (preprint 4.16)**: the smooth finite-dimensional submanifold `A` is **in good position at
 `a ∈ A`** if `T_aA` is in good position to the partial cone `C_aX` in `T_aX`.  As `T_aX` carries
 no linear structure here (gap G.7), the condition is stated in a chart (`IsGoodPositionChart`): for
-some data `d` of Definition 4.13 at `a`, some chart `φ` of `X` at `a`, some presentation `T` of the
+some data `d` of Definition 4.2.1 (preprint 4.13) at `a`, some chart `φ` of `X` at `a`, some presentation `T` of the
 partial quadrant of `φ` and the level-`1` point `z` over `φ(a)`.  It then holds for all of them
 (`IsGoodPositionAt.isGoodPositionChart`). -/
 def IsGoodPositionAt (A : Set X) (a : X) : Prop :=
@@ -1247,7 +1247,7 @@ def IsGoodPositionAt (A : Set X) (a : X) : Prop :=
 
 variable {P}
 
-/-- **Definition 4.16 is independent of the choices** (the chart, the data of Definition 4.13, the
+/-- **Definition 4.2.5 (preprint 4.16) is independent of the choices** (the chart, the data of Definition 4.2.1 (preprint 4.13), the
 presentation of the partial quadrant): if `A` is in good position at `a`, then the chart condition
 holds for every data `d'` at `a`, every chart `φ'` at `a`, every presentation `T'` and the
 level-`1` point `z'` over `φ'(a)` (`isGoodPositionRetractAt_chart_change`, with `G = W`, `G' = W'`
@@ -1268,7 +1268,7 @@ theorem IsGoodPositionAt.isGoodPositionChart {A : Set X} {a : X} (h : P.IsGoodPo
     (d'.toSubData.isScRetract_image φ' hφ') haA (d.toSubData.mem_shrink φ haA ha haφ)
     (d'.toSubData.mem_shrink φ' haA ha' haφ') hz hz' hzs T hT T' hT' hgp
 
-/-- **Definition 4.16, the chart-free form**: `A` is in good position at `a ∈ A` iff the chart
+/-- **Definition 4.2.5 (preprint 4.16), the chart-free form**: `A` is in good position at `a ∈ A` iff the chart
 condition holds for all data, charts, presentations and lifts (equivalently, by
 `IsGoodPositionAt.isGoodPositionChart`, for one of them). -/
 theorem isGoodPositionAt_iff_forall {A : Set X} (hA : P.IsSmoothSubmanifold A) {a : X}
@@ -1286,7 +1286,7 @@ theorem isGoodPositionAt_iff_forall {A : Set X} (hA : P.IsSmoothSubmanifold A) {
   exact ⟨haA, hA.data haA, φ, n, Wq, T, z, hA.mem_data_V haA, hφ, haφ, hT, hz,
     h _ φ hφ n Wq T hT z (hA.mem_data_V haA) haφ hz⟩
 
-/-- **Definition 4.16 in a chart, explicitly** (the form `range D(φ ∘ s ∘ φ⁻¹ ∘ r)(φ(a))`): for
+/-- **Definition 4.2.5 (preprint 4.16) in a chart, explicitly** (the form `range D(φ ∘ s ∘ φ⁻¹ ∘ r)(φ(a))`): for
 retractions `r` onto the model `O` of `φ` and `t` onto `φ(W ∩ A)` (e.g. the sc⁺-retraction
 `t = φ ∘ s ∘ φ⁻¹ ∘ r` of `SubmanifoldData.exists_chartRetraction`), the chart condition says that
 `Dt(z)E` is in good position to the partial quadrant `C_z` inside `Dr(z)E`. -/
@@ -1316,13 +1316,13 @@ theorem SubmanifoldData.isGoodPositionChart_iff {A : Set X} (d : P.SubmanifoldDa
   · intro hg
     exact ⟨_, _, hN, hM, hg⟩
 
-/-! ### Definition 4.21: general position, and its chart independence -/
+/-! ### Definition 4.2.10 (preprint 4.21): general position, and its chart independence -/
 
 namespace SubmanifoldData
 
 variable {A : Set X}
 
-/-- **Definition 4.21 in a chart**: for the data `d` of Definition 4.13, a chart `φ` of `X`, a
+/-- **Definition 4.2.10 (preprint 4.21) in a chart**: for the data `d` of Definition 4.2.1 (preprint 4.13), a chart `φ` of `X`, a
 presentation `T` of the partial quadrant and a level-`1` point `z` (over `φ(a)`), the tangent space
 `T_zA = T_z(φ(W ∩ A))` has in `T_zO` an sc-complement contained in `T_z^R O = T_zO ∩ E_z`
 (`IsGeneralPositionRetractAt`). -/
@@ -1333,9 +1333,9 @@ def IsGeneralPositionChart (d : P.SubmanifoldData A) (φ : MChart X) {n : ℕ} {
 end SubmanifoldData
 
 variable (P) in
-/-- **Definition 4.21**: the smooth finite-dimensional submanifold `A` is **in general position at
+/-- **Definition 4.2.10 (preprint 4.21)**: the smooth finite-dimensional submanifold `A` is **in general position at
 `a ∈ A`** if `T_aA` has in `T_aX` an sc-complement contained in the reduced tangent space `T_a^R X`
-(Definition 2.38).  As for Definition 4.16, the condition is stated in a chart
+(Definition 2.5.8 (preprint 2.38)).  As for Definition 4.2.5 (preprint 4.16), the condition is stated in a chart
 (`IsGeneralPositionChart`), for some data, chart, presentation and lift; it then holds for all of
 them (`IsGeneralPositionAt.isGeneralPositionChart`). -/
 def IsGeneralPositionAt (A : Set X) (a : X) : Prop :=
@@ -1344,9 +1344,9 @@ def IsGeneralPositionAt (A : Set X) (a : X) : Prop :=
     a ∈ d.V ∧ P.IsChart φ ∧ a ∈ φ.source ∧ φ.model.C = T 0 ⁻¹' quadrant n Wq 0 ∧
     φ.model.E.toBase 1 z = φ a ∧ d.IsGeneralPositionChart φ T z
 
-/-- **Definition 4.21 is independent of the choices** (chart, data of Definition 4.13,
+/-- **Definition 4.2.10 (preprint 4.21) is independent of the choices** (chart, data of Definition 4.2.1 (preprint 4.13),
 presentation): `isGeneralPositionRetractAt_chart_change`, through `T_zO ≅ T_{z'}O'` carrying
-`T_z^R O` onto `T_{z'}^R O'` (Proposition 2.30) and the sc-complement onto an sc-complement. -/
+`T_z^R O` onto `T_{z'}^R O'` (Proposition 2.4.10 (preprint 2.30)) and the sc-complement onto an sc-complement. -/
 theorem IsGeneralPositionAt.isGeneralPositionChart {A : Set X} {a : X}
     (h : P.IsGeneralPositionAt A a) (d' : P.SubmanifoldData A) {φ' : MChart X}
     (hφ' : P.IsChart φ') {n' : ℕ} {Wq' : ScBanach}
@@ -1364,7 +1364,7 @@ theorem IsGeneralPositionAt.isGeneralPositionChart {A : Set X} {a : X}
     (d'.toSubData.isScRetract_image φ' hφ') haA (d.toSubData.mem_shrink φ haA ha haφ)
     (d'.toSubData.mem_shrink φ' haA ha' haφ') hz hz' hzs T hT T' hT' hgp
 
-/-- **Definition 4.21, the chart-free form**: `A` is in general position at `a ∈ A` iff the chart
+/-- **Definition 4.2.10 (preprint 4.21), the chart-free form**: `A` is in general position at `a ∈ A` iff the chart
 condition holds for all data, charts, presentations and lifts. -/
 theorem isGeneralPositionAt_iff_forall {A : Set X} (hA : P.IsSmoothSubmanifold A) {a : X}
     (haA : a ∈ A) :
@@ -1381,22 +1381,22 @@ theorem isGeneralPositionAt_iff_forall {A : Set X} (hA : P.IsSmoothSubmanifold A
   exact ⟨haA, hA.data haA, φ, n, Wq, T, z, hA.mem_data_V haA, hφ, haφ, hT, hz,
     h _ φ hφ n Wq T hT z (hA.mem_data_V haA) haφ hz⟩
 
-/-! ### Definition 4.17 and Theorem 4.18 -/
+/-! ### Definition 4.2.6 (preprint 4.17) and Theorem 4.2.7 (preprint 4.18) -/
 
 variable (P) in
-/-- **Definition 4.17**: a smooth finite-dimensional submanifold `A ⊆ X` is **tame** if the
-M-polyfold `A`, with the structure induced from `X` (Proposition 2.21, `subPolyfold`), is tame
-(Definition 2.37).  (The induced structure depends only on `A`, by proof irrelevance.) -/
+/-- **Definition 4.2.6 (preprint 4.17)**: a smooth finite-dimensional submanifold `A ⊆ X` is **tame** if the
+M-polyfold `A`, with the structure induced from `X` (Proposition 2.3.19 (preprint 2.21), `subPolyfold`), is tame
+(Definition 2.5.7 (preprint 2.37)).  (The induced structure depends only on `A`, by proof irrelevance.) -/
 def IsTameSubmanifold (A : Set X) [ParacompactSpace A] : Prop :=
   ∃ hA : P.IsSmoothSubmanifold A, (subPolyfold hA.isSubMPolyfold).IsTame
 
-/-- **The corner charts of `A`** (the core of the proof of Theorem 4.18, through Theorem 4.2): if
+/-- **The corner charts of `A`** (the core of the proof of Theorem 4.2.7 (preprint 4.18), through Theorem 4.1.2 (preprint 4.2)): if
 every `a ∈ A` lies in a chart `ψ` of `X` centred at `a` (`ψ(a) = 0`) in which the tangent space
-`N = T₀(ψ(W ∩ A))` of the chart model of `A` (for the data of Definition 4.13 at `a`) is in good
+`N = T₀(ψ(W ∩ A))` of the chart model of `A` (for the data of Definition 4.2.1 (preprint 4.13) at `a`) is in good
 position to the partial quadrant `C` of `ψ` in `E`, then the induced M-polyfold structure on `A`
-has a corner structure (Definition 4.1).  *Proof*: Proposition 4.15 (4) (`A = A_∞`, `1₀¹ : A → A¹`
-sc-smooth), the induced chart `subChart` of `A` centred at `a`, `N` finite-dimensional by Lemma 4.7
-for the sc⁺ chart retraction, and Theorem 4.2 (ii) ⇒ (i) (`hasCornerStructure_of_centred`). -/
+has a corner structure (Definition 4.1.1 (preprint 4.1)).  *Proof*: Proposition 4.2.3 (preprint 4.15) (4) (`A = A_∞`, `1₀¹ : A → A¹`
+sc-smooth), the induced chart `subChart` of `A` centred at `a`, `N` finite-dimensional by Lemma 4.1.7 (preprint 4.7)
+for the sc⁺ chart retraction, and Theorem 4.1.2 (preprint 4.2) (ii) ⇒ (i) (`hasCornerStructure_of_centred`). -/
 theorem hasCornerStructure_of_centred_isInGoodPosition {A : Set X}
     (hA : P.IsSmoothSubmanifold A) [ParacompactSpace A]
     (h : ∀ a (ha : a ∈ A), ∃ ψ : MChart X, P.IsChart ψ ∧ a ∈ ψ.source ∧ ψ a = 0 ∧
@@ -1409,7 +1409,7 @@ theorem hasCornerStructure_of_centred_isInGoodPosition {A : Set X}
     have h1 : a₀ ∈ (subPolyfold hA.isSubMPolyfold).levelSet 1 :=
       (hA.mem_levelSet_subPolyfold_iff a₀ 1).2 (hA.mem_levelSet_one a₀.2)
     set x₀ := (subPolyfold hA.isSubMPolyfold).levelMk 1 a₀ h1
-    obtain ⟨hsm, hmap⟩ := hA.proposition_4_15_4 x₀
+    obtain ⟨hsm, hmap⟩ := hA.proposition_4_2_3_four x₀
     refine hasCornerStructure_of_centred x₀ hsm hmap fun a => ?_
     obtain ⟨ψ, hψ, haψ, hψ0, hgood⟩ := h a a.2
     set d := hA.data a.2
@@ -1427,17 +1427,17 @@ theorem hasCornerStructure_of_centred_isInGoodPosition {A : Set X}
         Submodule ℝ (ψ.model.E 0)) : Set (ψ.model.E 0)) =
         tangentSpace ψ.model.E ψ.model.C (ψ '' (d.toSubData.shrink ψ ∩ A)) 0 := by
       rw [← ht]; exact (tangentSpace_eq_coe_submodule t h0t).symm
-    exact ⟨_, hN, lemma_4_7_ii htp h0t, hgood _ hN⟩
+    exact ⟨_, hN, lemma_4_1_7_ii htp h0t, hgood _ hN⟩
   · rw [hasCornerStructure_iff]
     intro x
     exact (hne ⟨x⟩).elim
 
-/-- **Good position read in a tame centred chart** (the step of the proof of Theorem 4.18 before
-Theorem 4.2): if `A` is in good position at `a` and `ψ` is a chart of `X` with `ψ(a) = 0` modelled
+/-- **Good position read in a tame centred chart** (the step of the proof of Theorem 4.2.7 (preprint 4.18) before
+Theorem 4.1.2 (preprint 4.2)): if `A` is in good position at `a` and `ψ` is a chart of `X` with `ψ(a) = 0` modelled
 on a tame retract, then `N = T₀(ψ(W ∩ A))` is in good position to the partial quadrant `C` in `E`:
-the chart condition in `ψ` (chart independence of Definition 4.16) gives good position to
-`C_0 = C` inside `T₀O = Dr(0)E`, and Lemma 4.19 with `π = Dr(0)` (`(1 − Dr(0))E ⊆ E₀` by
-Proposition 2.35 for the tame retraction `r`) gives good position in `E`. -/
+the chart condition in `ψ` (chart independence of Definition 4.2.5 (preprint 4.16)) gives good position to
+`C_0 = C` inside `T₀O = Dr(0)E`, and Lemma 4.2.8 (preprint 4.19) with `π = Dr(0)` (`(1 − Dr(0))E ⊆ E₀` by
+Proposition 2.5.3 (preprint 2.35) for the tame retraction `r`) gives good position in `E`. -/
 theorem IsGoodPositionAt.isInGoodPosition_of_tame {A : Set X} {a : X}
     (h : P.IsGoodPositionAt A a) (d : P.SubmanifoldData A) (had : a ∈ d.V) {ψ : MChart X}
     (hψ : P.IsChart ψ) (haψ : a ∈ ψ.source) (hψ0 : ψ a = 0)
@@ -1456,7 +1456,7 @@ theorem IsGoodPositionAt.isInGoodPosition_of_tame {A : Set X} {a : X}
   have hs0 : (0 : ψ.model.E 1) ∈ ψ.model.E.smoothLvl 1 := by
     change ψ.model.E.toBase 1 0 ∈ (ψ.model.E.smooth : Set (ψ.model.E 0))
     rw [map_zero]; exact ψ.model.E.smooth.zero_mem
-  have hK := (proposition_2_35 hT (hRt n Wq T hT) h01 hs0).1
+  have hK := (proposition_2_5_3 hT (hRt n Wq T hT) h01 hs0).1
   have hMeq : M = rangeS (scDeriv R.U R 0) := by
     refine SetLike.coe_injective (hM.trans ?_)
     rw [← hR]
@@ -1465,24 +1465,24 @@ theorem IsGoodPositionAt.isInGoodPosition_of_tame {A : Set X} {a : X}
   rw [map_zero] at hK
   have hπ : ∀ v, scDeriv R.U R 0 (scDeriv R.U R 0 v) = scDeriv R.U R 0 v := fun v =>
     congrArg (fun L : ψ.model.E 0 →L[ℝ] ψ.model.E 0 => L v) (R.scDeriv_comp_self h01)
-  exact (lemma_4_19 T hT (scDeriv R.U R 0) hπ hK hgood).1
+  exact (lemma_4_2_8 T hT (scDeriv R.U R 0) hπ hK hgood).1
 
-/-- **Theorem 4.18**: let `X` be a tame M-polyfold and `A ⊆ X` a smooth finite-dimensional
-submanifold in good position at every point (Definition 4.16).  Then the induced M-polyfold
+/-- **Theorem 4.2.7 (preprint 4.18)**: let `X` be a tame M-polyfold and `A ⊆ X` a smooth finite-dimensional
+submanifold in good position at every point (Definition 4.2.5 (preprint 4.16)).  Then the induced M-polyfold
 structure on `A` is equivalent to the structure of a smooth manifold with boundary with corners
-(Definition 4.1, `HasCornerStructure`), and `A` is tame (Definition 4.17).
-*Proof* (the text's, through Theorem 4.2): every point of `A` is smooth and `1₀¹ : A → A¹` is
-sc-smooth (Proposition 4.15 (4)).  At `a ∈ A` take a tame chart `ψ` of `X` centred at `a`
+(Definition 4.1.1 (preprint 4.1), `HasCornerStructure`), and `A` is tame (Definition 4.2.6 (preprint 4.17)).
+*Proof* (the text's, through Theorem 4.1.2 (preprint 4.2)): every point of `A` is smooth and `1₀¹ : A → A¹` is
+sc-smooth (Proposition 4.2.3 (preprint 4.15) (4)).  At `a ∈ A` take a tame chart `ψ` of `X` centred at `a`
 (`MPolyfold.IsTame.exists_centredChart`, the re-centring that the text takes for granted); the
 induced chart of `A` (`subChart`) is centred at `a`, modelled on the retract `ψ(W ∩ A)` of the
 sc⁺-retraction `t = ψ ∘ s ∘ ψ⁻¹ ∘ r`, whose tangent space `N = T₀(ψ(W ∩ A)) = Dt(0)E` is
-finite-dimensional (Lemma 4.7) and, by the good position hypothesis read in the chart `ψ`
-(chart independence of Definition 4.16), in good position to `C` inside `T₀O`; by Lemma 4.19
+finite-dimensional (Lemma 4.1.7 (preprint 4.7)) and, by the good position hypothesis read in the chart `ψ`
+(chart independence of Definition 4.2.5 (preprint 4.16)), in good position to `C` inside `T₀O`; by Lemma 4.2.8 (preprint 4.19)
 (with `π = Dr(0)` for the tame retraction `r`, Proposition 2.35) `N` is in good position to `C`
-in `E`.  Theorem 4.2, (ii) ⇒ (i) (`hasCornerStructure_of_centred`, which applies Propositions 4.8
+in `E`.  Theorem 4.1.2 (preprint 4.2), (ii) ⇒ (i) (`hasCornerStructure_of_centred`, which applies Propositions 4.1.8 (preprint 4.8)
 and 4.9) gives the corner structure (`hasCornerStructure_of_centred_isInGoodPosition`), and a
 manifold with corners is tame. -/
-theorem theorem_4_18 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
+theorem theorem_4_2_7 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
     [ParacompactSpace A] (hgp : ∀ a ∈ A, P.IsGoodPositionAt A a) :
     (subPolyfold hA.isSubMPolyfold).HasCornerStructure ∧ P.IsTameSubmanifold A := by
   have hcs : (subPolyfold hA.isSubMPolyfold).HasCornerStructure := by
@@ -1492,7 +1492,7 @@ theorem theorem_4_18 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
       (hgp a ha).isInGoodPosition_of_tame (hA.data ha) (hA.mem_data_V ha) hψ haψ hψ0 htame hN⟩
   exact ⟨hcs, hA, hcs.isTame⟩
 
-/-- **Remark 4.14, last sentences: at points with `d_X(a) = 0` the good position is automatic**:
+/-- **Remark 4.2.2 (preprint 4.14), last sentences: at points with `d_X(a) = 0` the good position is automatic**:
 if `d_X(a) = 0` then `C_aX = T_aX`, and every subspace of `T_aX` is in good position to it (any
 algebraic complement is a good complement).  In the chart realizing `d_X(a) = 0` the partial
 quadrant `C_{φ(a)}` is the whole space. -/
@@ -1508,7 +1508,7 @@ theorem isGoodPositionAt_of_degIndex_eq_zero {A : Set X} (hA : P.IsSmoothSubmani
     rw [hz]
     exact partialQuadrantAtWith_eq_univ_of_degIndex_eq_zero T hT (φ.apply_mem_C haφ)
       (hd.symm.trans h0)
-  obtain ⟨-, -, hsub, N, hN, -⟩ := d.remark_4_14 hφ ha (hA.mem_data_V ha) haφ hz
+  obtain ⟨-, -, hsub, N, hN, -⟩ := d.remark_4_2_2 hφ ha (hA.mem_data_V ha) haφ hz
   obtain ⟨R, hR⟩ := φ.model.isScRetract
   have hz1 : z ∈ φ.model.E.lvlSet R.retract 1 := by
     rw [ScBanach.mem_lvlSet, hR, hz]; exact φ.mapsTo_model a haφ
@@ -1522,9 +1522,9 @@ theorem isGoodPositionAt_of_degIndex_eq_zero {A : Set X} (hA : P.IsSmoothSubmani
   rw [← hM] at hv'
   exact hv'
 
-/-- **Remark 4.14: near `d_X = 0` a submanifold is a manifold in the classical sense** (no
+/-- **Remark 4.2.2 (preprint 4.14): near `d_X = 0` a submanifold is a manifold in the classical sense** (no
 tameness needed): if `d_X(a) = 0` for every `a ∈ A` then the induced structure on `A` has a corner
-structure (Definition 4.1).  *Proof*: in the chart re-centred at `a` from a chart realizing
+structure (Definition 4.1.1 (preprint 4.1)).  *Proof*: in the chart re-centred at `a` from a chart realizing
 `d_X(a) = 0`, the partial quadrant `C_{φ(a)}` is the whole space, and every subspace is in good
 position to the whole space (`hasCornerStructure_of_centred_isInGoodPosition`). -/
 theorem hasCornerStructure_of_degIndex_eq_zero {A : Set X} (hA : P.IsSmoothSubmanifold A)
@@ -1541,23 +1541,23 @@ theorem hasCornerStructure_of_degIndex_eq_zero {A : Set X} (hA : P.IsSmoothSubma
     (φ.apply_mem_C haφ) (hd.symm.trans (h0 a ha))]
   exact isInGoodPosition_univ N
 
-/-! ### Remark 4.20: good position is an open condition -/
+/-! ### Remark 4.2.9 (preprint 4.20): good position is an open condition -/
 
-/-- **Remark 4.20**: in a tame M-polyfold, if the smooth finite-dimensional submanifold `A` is in
+/-- **Remark 4.2.9 (preprint 4.20)**: in a tame M-polyfold, if the smooth finite-dimensional submanifold `A` is in
 good position at `a`, there is an open neighbourhood `U ⊆ X` of `a` such that `A` is in good
 position at every `b ∈ U ∩ A`.  *Proof* (the text's: "Proposition 4.9 defines a chart from the sole
 knowledge that we are in good position at `0`; since the tangent spaces of `A` move only slowly,
 Lemma 3.55 implies that we are in good position at the nearby points as well"): in a tame chart `ψ`
 centred at `a`, `N = T₀(ψ(W ∩ A))` is in good position to `C` in `E`
 (`IsGoodPositionAt.isInGoodPosition_of_tame`); with the closed good complement `Y = ker π` of the
-normal form (`exists_proj_goodComplement`), Proposition 4.9 for the sc⁺-retraction `t` describes
+normal form (`exists_proj_goodComplement`), Proposition 4.1.9 (preprint 4.9) for the sc⁺-retraction `t` describes
 `ψ(W ∩ A)` near `0` as the graph `Γ(v) = v + σ(v)`, `σ = (1 − π) ∘ Γ : V → Y`, `σ` of class `C¹`
 with `σ(0) = 0`, `Dσ(0) = 0`; the tangent space at `Γ(v)` is `DΓ(v)N = {n + Dσ(v)n}`
-(`tangentSpace_eq_range_graph`), which by Lemma 3.55 (`lemma_3_55_relOpen`) is in good position to
+(`tangentSpace_eq_range_graph`), which by Lemma 3.6.9 (preprint 3.55) (`lemma_3_6_9_relOpen`) is in good position to
 `C_{Γ(v)}` in `E` for `|v|` small, hence to the partial cone inside `T_{Γ(v)}O`
-(`IsInGoodPosition.isInGoodPositionIn_of_le`); that is Definition 4.16 at `b = ψ⁻¹(Γ(v))` in the
+(`IsInGoodPosition.isInGoodPositionIn_of_le`); that is Definition 4.2.5 (preprint 4.16) at `b = ψ⁻¹(Γ(v))` in the
 chart `ψ`.  The neighbourhood is `U = {b ∈ W | ψ(b) ∈ W₁, |π(ψ(b))| < ρ}`. -/
-theorem remark_4_20 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A) {a : X}
+theorem remark_4_2_9 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A) {a : X}
     (h : P.IsGoodPositionAt A a) :
     ∃ U : Set X, IsOpen U ∧ a ∈ U ∧ ∀ b ∈ U ∩ A, P.IsGoodPositionAt A b := by
   classical
@@ -1577,7 +1577,7 @@ theorem remark_4_20 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A) {
     have := h0t; rwa [ScBanach.mem_lvlSet, map_zero] at this
   set N : Submodule ℝ (ψ.model.E 0) :=
     LinearMap.range (scDeriv t.U t 0 : ψ.model.E 0 →ₗ[ℝ] ψ.model.E 0) with hNdef
-  have : FiniteDimensional ℝ N := lemma_4_7_ii htp h0t
+  have : FiniteDimensional ℝ N := lemma_4_1_7_ii htp h0t
   have hN : (N : Set (ψ.model.E 0)) = tangentSpace ψ.model.E ψ.model.C t.retract 0 :=
     (tangentSpace_eq_coe_submodule t h0t).symm
   have hgood : IsInGoodPosition ψ.model.E ψ.model.C N :=
@@ -1586,9 +1586,9 @@ theorem remark_4_20 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A) {
   have hπY : ∀ y ∈ LinearMap.ker (π : ψ.model.E 0 →ₗ[ℝ] N), π y = 0 :=
     fun y hy => LinearMap.mem_ker.1 hy
   obtain ⟨W₁, V, Γ, hW₁, h0W₁, hV, h0V, hΓs, hpΓ, -, hΓV, hΓp, hΓ0, hpmap, hΓmap⟩ :=
-    proposition_4_9 t htp h0Q hN hgood hY π.isClosed_ker π hπN hπY
+    proposition_4_1_9 t htp h0Q hN hgood hY π.isClosed_ker π hπN hπY
   have hQ' : IsScRetract ψ.model.E ψ.model.C (t.retract ∩ W₁) :=
-    proposition_2_10_1 t.isScRetract hW₁
+    proposition_2_3_1_one t.isScRetract hW₁
   -- the graph map `σ = (1 − π) ∘ Γ : N → Y`
   set σ : N → ψ.model.E 0 := fun v => Γ v - ((π (Γ v) : N) : ψ.model.E 0) with hσdef
   have hσY : ∀ v, σ v ∈ LinearMap.ker (π : ψ.model.E 0 →ₗ[ℝ] N) := fun v => by
@@ -1628,7 +1628,7 @@ theorem remark_4_20 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A) {
       Submodule.coe_subtypeL, Submodule.coe_subtype, zero_apply]
     rw [this, sub_self]
   have hσ0 : σ 0 = 0 := by simp only [hσdef, hΓ0, map_zero, ZeroMemClass.coe_zero, sub_self]
-  obtain ⟨ρ, hρ, hρgood⟩ := lemma_3_55_relOpen T hT hgood hY π.isClosed_ker hV.relOpen h0V σ
+  obtain ⟨ρ, hρ, hρgood⟩ := lemma_3_6_9_relOpen T hT hgood hY π.isClosed_ker hV.relOpen h0V σ
     hσY hσC hσ0 hDσ0
   -- the neighbourhood `U`
   refine ⟨d.toSubData.shrink ψ ∩ ψ ⁻¹' (W₁ ∩ {u | ‖π u‖ < ρ}), ?_, ⟨haW, ?_⟩, ?_⟩
@@ -1671,7 +1671,7 @@ theorem remark_4_20 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A) {
         simp only [sub_apply, ContinuousLinearMap.coe_comp,
           Function.comp_apply, Submodule.coe_subtypeL, Submodule.coe_subtype, hpD m]
         abel
-    obtain ⟨-, -, hsub, -⟩ := d.remark_4_14 hψ hbA hbV hbψ hy
+    obtain ⟨-, -, hsub, -⟩ := d.remark_4_2_2 hψ hbA hbV hbψ hy
     have hy1 : y ∈ ψ.model.E.lvlSet R.retract 1 := by
       rw [ScBanach.mem_lvlSet, hR, hy]; exact ψ.mapsTo_model b hbψ
     have hM : ((rangeS (scDeriv R.U R y) : Submodule ℝ (ψ.model.E 0)) : Set (ψ.model.E 0)) =

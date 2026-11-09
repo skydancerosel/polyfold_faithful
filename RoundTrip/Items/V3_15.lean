@@ -4,18 +4,18 @@ import RoundTrip.Blind.V3_15
 
 /-! Round trip for V3_15 (Corollary 3.13: convergence on every level).
 
-`A` is the conjunction of the types of the listed theorems `corollary_3_13`,
-`corollary_3_13_section`, `tendsto_of_isCompact_of_tendsto_map` (universe parameters
-instantiated at `0`, since B lives in `Type`) and `corollary_3_13_local` (no universe
+`A` is the conjunction of the types of the listed theorems `corollary_3_1_15_preprint`,
+`corollary_3_1_15_section`, `tendsto_of_isCompact_of_tendsto_map` (universe parameters
+instantiated at `0`, since B lives in `Type`) and `corollary_3_1_15_local` (no universe
 parameters).
 
-Refresh 2026-11-02 (HEAD after the germ reading, phase 2): `corollary_3_13` and
-`corollary_3_13_section` now state the germ reading of Definition 3.11 (`IsScFredholmGerm`: the
+Refresh 2026-11-02 (HEAD after the germ reading, phase 2): `corollary_3_1_15_preprint` and
+`corollary_3_1_15_section` now state the germ reading of Definition 3.11 (`IsScFredholmGerm`: the
 filling `IsFillingGerm` and the sc⁺-section `IsScPlusGerm` are germs whose levels may shrink).  The
 audit's obstacle (the project needed them on the chart's whole `U`) is gone, and `A → B` is now
 proved.
 
-* `A → B` (proved): `A_to_B_projGerm` (A's `corollary_3_13` gives B verbatim with the project's
+* `A → B` (proved): `A_to_B_projGerm` (A's `corollary_3_1_15_preprint` gives B verbatim with the project's
   germ notion; `Level m` is `levelSet m` with `levelTopology m`, "eventually" is `∃ K, ∀ k ≥ K`)
   composed with `germB_to_germ`: **B's `IsScFredholmGermB` implies the project's
   `IsScFredholmGerm`**.  The remaining differences between the two germ notions are glue:
@@ -33,7 +33,7 @@ proved.
     (`isPartialQuadrant_quadC`), `h` = B's push-forward `Ψ ∘ (·, k) ∘ ψ⁻¹`, equal to
     `(Ψ(u, k(u)))₂` at `ψ(u)` because `ψ' ∘ ψ = id`.
   B's tame chart, tame bundle and sc-smooth `f` are not used.
-* `B → A` is not proved: genuine difference of scope.  A's `corollary_3_13` needs neither a tame
+* `B → A` is not proved: genuine difference of scope.  A's `corollary_3_1_15_preprint` needs neither a tame
   bundle, nor a tame chart, nor an sc-smooth section; A also contains the topological lemma
   `tendsto_of_isCompact_of_tendsto_map`, the `IsScFredholmSection` version, and the local statement
   for sc⁰-contraction germs on a general closed partial quadrant `C̃ ⊆ P`, none of which B addresses.
@@ -44,14 +44,14 @@ open Polyfold Set Filter Topology
 
 /-- The project's statement, universes instantiated at `0`. -/
 def A : Prop :=
-  (type_of% @Polyfold.corollary_3_13.{0, 0}) ∧
-  (type_of% @Polyfold.corollary_3_13_section.{0, 0}) ∧
+  (type_of% @Polyfold.corollary_3_1_15_preprint.{0, 0}) ∧
+  (type_of% @Polyfold.corollary_3_1_15_section.{0, 0}) ∧
   (type_of% @Polyfold.tendsto_of_isCompact_of_tendsto_map.{0, 0}) ∧
-  (type_of% @Polyfold.corollary_3_13_local)
+  (type_of% @Polyfold.corollary_3_1_15_local)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.corollary_3_13.{0, 0}, @Polyfold.corollary_3_13_section.{0, 0},
-    @Polyfold.tendsto_of_isCompact_of_tendsto_map.{0, 0}, @Polyfold.corollary_3_13_local⟩
+  ⟨@Polyfold.corollary_3_1_15_preprint.{0, 0}, @Polyfold.corollary_3_1_15_section.{0, 0},
+    @Polyfold.tendsto_of_isCompact_of_tendsto_map.{0, 0}, @Polyfold.corollary_3_1_15_local⟩
 
 /-- B with the project's sc-Fredholm germ (`Bd.IsScFredholmGerm`) in place of the text's
 `IsScFredholmGermB`. -/
@@ -356,16 +356,16 @@ theorem germB_to_germ {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSp
     rw [hb]
 
 /-- **`A → B`**: B's sc-Fredholm germ is one in the project's germ reading (`germB_to_germ`), and
-A's `corollary_3_13` then gives B's conclusion (`A_to_B_projGerm`). -/
+A's `corollary_3_1_15_preprint` then gives B's conclusion (`A_to_B_projGerm`). -/
 theorem A_to_B : A → B := by
   intro hA X _ _ _ PX Y _ _ _ P _ _ Bd f x₀ hT hf hgerm hx₀
   exact A_to_B_projGerm hA PX P Bd f x₀ hT hf (germB_to_germ hgerm) hx₀
 
-#rt_check RoundTrip.V3_15.A_to_B [Polyfold.corollary_3_13, Polyfold.corollary_3_13_section,
-  Polyfold.tendsto_of_isCompact_of_tendsto_map, Polyfold.corollary_3_13_local]
-#rt_check RoundTrip.V3_15.A_to_B_projGerm [Polyfold.corollary_3_13, Polyfold.corollary_3_13_section,
-  Polyfold.tendsto_of_isCompact_of_tendsto_map, Polyfold.corollary_3_13_local]
-#rt_overlap RoundTrip.V3_15.A_to_B [Polyfold.corollary_3_13, Polyfold.corollary_3_13_section,
-  Polyfold.tendsto_of_isCompact_of_tendsto_map, Polyfold.corollary_3_13_local]
+#rt_check RoundTrip.V3_15.A_to_B [Polyfold.corollary_3_1_15_preprint, Polyfold.corollary_3_1_15_section,
+  Polyfold.tendsto_of_isCompact_of_tendsto_map, Polyfold.corollary_3_1_15_local]
+#rt_check RoundTrip.V3_15.A_to_B_projGerm [Polyfold.corollary_3_1_15_preprint, Polyfold.corollary_3_1_15_section,
+  Polyfold.tendsto_of_isCompact_of_tendsto_map, Polyfold.corollary_3_1_15_local]
+#rt_overlap RoundTrip.V3_15.A_to_B [Polyfold.corollary_3_1_15_preprint, Polyfold.corollary_3_1_15_section,
+  Polyfold.tendsto_of_isCompact_of_tendsto_map, Polyfold.corollary_3_1_15_local]
 
 end RoundTrip.V3_15

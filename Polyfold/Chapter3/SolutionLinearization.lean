@@ -3,15 +3,15 @@ import Polyfold.Chapter3.FredholmGermLinearization
 import Polyfold.Chapter1.FredholmPerturbation
 
 /-!
-# The linearization at nearby solutions (Corollary 3.41)
+# The linearization at nearby solutions (Corollary 3.5.3 (preprint 3.41))
 
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.5, **Corollary 3.41**: for
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.5, **Corollary 3.5.3 (preprint 3.41)**: for
 `f = h + s : U → ℝᴺ ⊕ W` with `h` a basic germ and `s` an sc⁺-germ, `s(0) = 0`, and `Df(0)`
 surjective, the zeros `x` of `f` close to `0` on level `0` lie on level `1`, and `Df(x) : E₀ → F₀`
 is a surjective Fredholm operator of index `n − N`.
 
 The proof follows the text: `Df(x) − Df(0)` is the sum of an operator of norm `≤ ε` (the fibre
-derivative `D₂B(x)`, Lemma 3.9 on level `0` for `x` small on level `1`) and a compact operator
+derivative `D₂B(x)`, Lemma 3.1.9 (preprint 3.9) on level `0` for `x` small on level `1`) and a compact operator
 (the finite-rank parts through `ℝⁿ` and `ℝᴺ`, and `ι ∘ Ds(x)` through the compact inclusion
 `W₁ → W₀`), so `Df(x)` is Fredholm of index `n − N` by the stability of the index; the kernel of
 `Df(x)` meets a closed complement `N` of `ker Df(0)` trivially for solutions `x` near `0`, by the
@@ -24,22 +24,22 @@ compactness argument of the text (sequences, the boundedness of `Ds(x)h` in `W�
   small norm is Fredholm (with the same index, `Polyfold.fredholmIndex_add_of_norm_lt`).
 * `Polyfold.HasFiniteIndex.surjective_of_finrank_ker_le`: an operator of finite index with
   `dim ker ≤ ind` is surjective.
-* `Polyfold.IsSc0ContractionGerm.exists_norm_deriv_snd_le` (**Lemma 3.9 on level `0`**, with an
+* `Polyfold.IsSc0ContractionGerm.exists_norm_deriv_snd_le` (**Lemma 3.1.9 (preprint 3.9) on level `0`**, with an
   arbitrary `ε`): `|D₂B(x)ζ|₀ ≤ ε|ζ|₀` for `x ∈ U₁` small on level `1` (the form used for
-  Corollary 3.41).
-* `Polyfold.IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le` (**Lemma 3.9 as stated**: on
+  Corollary 3.5.3 (preprint 3.41)).
+* `Polyfold.IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le` (**Lemma 3.1.9 (preprint 3.9) as stated**: on
   level `m`, `|D₂B(x)ζ|_m ≤ ε|ζ|_m` for `x ∈ U_{m+1}` small on level `m`) and
   `IsSc0ContractionGerm.exists_norm_deriv_snd_le_base` (level `0`, `x ∈ U₁` small on level `0`,
   without the quadrant hypothesis); round-trip item V3.11.
-* `Polyfold.StabilityData.corollary_3_41` (**Corollary 3.41**).
+* `Polyfold.StabilityData.corollary_3_5_3` (**Corollary 3.5.3 (preprint 3.41)**).
 
-## Remark on Lemma 3.9
+## Remark on Lemma 3.1.9 (preprint 3.9)
 
 Smallness of `x` on level `m + 1` is not needed for the level-`m` estimate (an earlier version of
 this file said that it was, for `m = 0`).  The difference quotients are taken along
 `t ↦ x + t(0, ζ')` with `ζ' ∈ W_{m+1}`; this curve stays in `U_{m+1}` for small `t ≥ 0` because
 `U_{m+1}` is relatively open in `C̃ ⊕ W_{m+1}`, however large `x` is on level `m + 1`.  The
-contraction estimate of Definition 3.28 is applied on level `m`, at the points
+contraction estimate of Definition 3.3.1 (preprint 3.28) is applied on level `m`, at the points
 `(a, ιw + tιζ')`, which are small on level `m` when `x` is.
 -/
 
@@ -163,20 +163,20 @@ theorem HasFiniteIndex.surjective_of_finrank_ker_le {E F : Type} [AddCommGroup E
   have : (Submodule.Quotient.mk y : F ⧸ LinearMap.range u) = 0 := Subsingleton.elim _ _
   exact (Submodule.Quotient.mk_eq_zero _).1 this
 
-/-! ### Lemma 3.9 on level `0` with an arbitrary constant -/
+/-! ### Lemma 3.1.9 (preprint 3.9) on level `0` with an arbitrary constant -/
 
 variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensional ℝ P]
   {W : ScBanach} {Ct : Set P}
 
-/-- **Lemma 3.9 on level `0`** ("`‖D₂B(a, w)‖ ≤ ε` for every `ε > 0` if `(a, w)` is sufficiently
+/-- **Lemma 3.1.9 (preprint 3.9) on level `0`** ("`‖D₂B(a, w)‖ ≤ ε` for every `ε > 0` if `(a, w)` is sufficiently
 small"): for every `ε > 0` there is `r > 0` such that `|D₂B(x)ζ|₀ ≤ ε|ζ|₀` for all `x ∈ U₁` with
 `|x|₁ < r` and all `ζ ∈ W₀`.  Proof: for `ζ ∈ W₁` the difference quotient of `t ↦ B(a, w + tζ)`
-is bounded by `ε|ζ|₀` through the contraction estimate of Definition 3.28 on level `0`, and
+is bounded by `ε|ζ|₀` through the contraction estimate of Definition 3.3.1 (preprint 3.28) on level `0`, and
 `B : U₁ → W₀` is differentiable at `x` within `U₁`; then density of `W₁` in `W₀`.  The curve
 `t ↦ x + t(0, ζ)` has to stay in `U₁`, where `B` is differentiable, but smallness on level `1` is
 not needed for that (`U₁` is relatively open): the same estimate holds for `x ∈ U₁` small on level
 `0` (`exists_norm_deriv_snd_le_base`), and on every level `m` (`exists_norm_levelDeriv_snd_le`).
-This level-`1` form is the one used for Corollary 3.41. -/
+This level-`1` form is the one used for Corollary 3.5.3 (preprint 3.41). -/
 theorem IsSc0ContractionGerm.exists_norm_deriv_snd_le
     {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 → W 0}
     (hB : IsSc0ContractionGerm Ct G B)
@@ -285,9 +285,9 @@ theorem IsSc0ContractionGerm.exists_norm_deriv_snd_le
     (hasDerivWithinAt_iff_tendsto_slope.1 hφd).norm
   exact le_of_tendsto hlim (eventually_nhdsWithin_of_forall hslope)
 
-/-! ### Lemma 3.9 with smallness on the level of the estimate -/
+/-! ### Lemma 3.1.9 (preprint 3.9) with smallness on the level of the estimate -/
 
-/-- **Lemma 3.9 on level `0`, with smallness on level `0`** (round-trip item V3.11): for every
+/-- **Lemma 3.1.9 (preprint 3.9) on level `0`, with smallness on level `0`** (round-trip item V3.11): for every
 `ε > 0` there is `r > 0` such that `|D₂B(x)ζ|₀ ≤ ε|ζ|₀` for all `x ∈ U₁` with `|ιx|₀ < r` and all
 `ζ ∈ W₀`.  The proof of `exists_norm_deriv_snd_le` with `r` the radius of the level-`0`
 contraction estimate: the curve `t ↦ x + t(0, ζ')`, `ζ' ∈ W₁`, stays in `U₁` for small `t ≥ 0`
@@ -398,14 +398,14 @@ theorem IsSc0ContractionGerm.exists_norm_deriv_snd_le_base
     (hasDerivWithinAt_iff_tendsto_slope.1 hφd).norm
   exact le_of_tendsto hlim (eventually_nhdsWithin_of_forall hslope)
 
-/-- **Lemma 3.9 on level `m`** (the text's statement, round-trip item V3.11): for every `ε > 0`
+/-- **Lemma 3.1.9 (preprint 3.9) on level `m`** (the text's statement, round-trip item V3.11): for every `ε > 0`
 and `m` there is `r > 0` such that `|D₂B(x)ζ|_m ≤ ε|ζ|_m` for all `x ∈ U_{m+1}` with `|ιx|_m < r`
 (small on level `m`) and all `ζ ∈ W_m`; here `D₂B(x)ζ` is the level-`m` operator of `DB(x)`
 (`levelDeriv`) applied to `(0, ζ)`.  Proof: for `ζ' ∈ W_{m+1}` the curve `t ↦ x + t(0, ζ')` stays
 in `U_{m+1}` for small `t ≥ 0` (`U_{m+1}` is relatively open); `B : U_{m+1} → W_m` is
-differentiable within `U_{m+1}` (Proposition 1.16, `IsSc1GermWith.hasFDerivWithinAt_level`), and
+differentiable within `U_{m+1}` (Proposition 1.2.1 (preprint 1.16), `IsSc1GermWith.hasFDerivWithinAt_level`), and
 the difference quotients of `t ↦ B_m(a, ιw + tιζ')` are bounded by `ε|ιζ'|_m` through the
-contraction estimate of Definition 3.28 on level `m`; then density of `W_{m+1}` in `W_m`.  The
+contraction estimate of Definition 3.3.1 (preprint 3.28) on level `m`; then density of `W_{m+1}` in `W_m`.  The
 working-form estimate `ContractionGerm.norm_levelDeriv_snd_le` has the constant `1/2` and needs
 `w` in the contraction regions. -/
 theorem IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le
@@ -475,7 +475,7 @@ theorem IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le
   have hγd : HasDerivWithinAt γ ((0 : P), ζ') (Ico 0 η) 0 := by
     simpa [hγ] using ((hasDerivAt_id (0 : ℝ)).smul_const (((0 : P), ζ') : E (m + 1))).const_add
       ((a, w) : E (m + 1)) |>.hasDerivWithinAt
-  -- the derivative of `φ = B_m ∘ ι ∘ γ` at `0` (Proposition 1.16)
+  -- the derivative of `φ = B_m ∘ ι ∘ γ` at `0` (Proposition 1.2.1 (preprint 1.16))
   set φ : ℝ → W m := fun t => levelMap B m (E.incl m (γ t)) with hφ
   have hφd : HasDerivWithinAt φ (L (W.incl m ζ')) (Ico 0 η) 0 := by
     have h0 : γ 0 = ((a, w) : E (m + 1)) := by simp [hγ]
@@ -590,7 +590,7 @@ theorem Dfs'_eq {x : (ScBanach.paramProd P W) 1} (hx : x ∈ 𝒮.G.U 1) :
   exact ContinuousLinearMap.ext_of_comp_toBase_one key
 
 /-- The `W`-component of `Df(x)` for `x ∈ U₁`: `pr_W Df(x) = pr_W − DB(x)` (from
-`pr_W ∘ f = pr_W − B` on `U₀`, Definition 3.7). -/
+`pr_W ∘ f = pr_W − B` on `U₀`, Definition 3.1.7 (preprint 3.7)). -/
 theorem snd_Df_eq {x : (ScBanach.paramProd P W) 1} (hx : x ∈ 𝒮.G.U 1) :
     (ContinuousLinearMap.snd ℝ Q (W 0)).comp (Df 𝒮.G f x) =
       ContinuousLinearMap.snd ℝ P (W 0) - DB 𝒮.G B x := by
@@ -615,7 +615,7 @@ theorem snd_Df_eq {x : (ScBanach.paramProd P W) 1} (hx : x ∈ 𝒮.G.U 1) :
     rw [ContinuousLinearMap.comp_assoc, heq, ContinuousLinearMap.sub_comp]
   exact ContinuousLinearMap.ext_of_comp_toBase_one key
 
-/-- `D₂B(0) = 0` (Lemma 3.9 at `0`). -/
+/-- `D₂B(0) = 0` (Lemma 3.1.9 (preprint 3.9) at `0`). -/
 theorem DB_zero_snd (ζ : W 0) : DB 𝒮.G B 0 ((0 : P), ζ) = 0 :=
   hf.contraction.deriv_zero_snd
     ((isSc1GermWith_DB hC.isQuadrantLike hf).hasFDerivWithinAt 0 (𝒮.G.zero_mem 1)) ζ
@@ -649,7 +649,7 @@ lemma Dfs'_eq_add (f : P × W 0 → Q × W 0) (B : P × W 0 → W 0) (x : (ScBan
   simp only [Kop, Dfs'_zero]; abel
 
 omit hC hf in
-/-- `‖S(x)‖ ≤ ε` for `x ∈ U₁` small on level `1` (Lemma 3.9). -/
+/-- `‖S(x)‖ ≤ ε` for `x ∈ U₁` small on level `1` (Lemma 3.1.9 (preprint 3.9)). -/
 theorem exists_norm_Sop_le (hC : IsQuadrantLike (ScBanach.const P) Ct)
     (hf : IsBasicGerm Ct 𝒮.G f B) {ε : ℝ} (hε : 0 < ε) :
     ∃ r > 0, ∀ x ∈ 𝒮.G.U 1, ‖x‖ < r → ‖𝒮.Sop (Q := Q) B x‖ ≤ ε := by
@@ -722,10 +722,10 @@ theorem Kop_isCompactOperator {x : (ScBanach.paramProd P W) 1} (hx : x ∈ 𝒮.
 
 /-! ### `D(f + s)(x)` is Fredholm of index `n − N` for `x ∈ U₁` small -/
 
-/-- `D(f + s)(0)` is Fredholm: `Df(0)` is (Proposition 3.10) and `ι ∘ Ds(0)` is compact. -/
+/-- `D(f + s)(0)` is Fredholm: `Df(0)` is (Proposition 3.1.10 (preprint 3.10)) and `ι ∘ Ds(0)` is compact. -/
 theorem isFredholm_Dfs : IsFredholm (𝒮.Dfs f) ∧
     fredholmIndex (𝒮.Dfs f) = Module.finrank ℝ P - Module.finrank ℝ Q := by
-  obtain ⟨hF0, hI0⟩ := proposition_3_10_basic_level_zero hC hf
+  obtain ⟨hF0, hI0⟩ := proposition_3_1_10_basic_level_zero hC hf
   have hDfs0 : 𝒮.Dfs f = Df 𝒮.G f 0 +
       (ContinuousLinearMap.inr ℝ Q (W 0)).comp ((W.toBase 1).comp (𝒮.Ds 0)) :=
     𝒮.Dfs'_eq hC hf (𝒮.G.zero_mem 1)
@@ -737,7 +737,7 @@ theorem isFredholm_Dfs : IsFredholm (𝒮.Dfs f) ∧
   exact ⟨isFredholm_add_isCompactOperator hF0 hcpt,
     by rw [fredholmIndex_add_isCompactOperator hF0 hcpt, hI0]⟩
 
-/-- **Corollary 3.41, the Fredholm part**: `D(f + s)(x) : E₀ → F₀` is a Fredholm operator of index
+/-- **Corollary 3.5.3 (preprint 3.41), the Fredholm part**: `D(f + s)(x) : E₀ → F₀` is a Fredholm operator of index
 `n − N` for every `x ∈ U₁` sufficiently small on level `1` (not only for solutions). -/
 theorem exists_isFredholm_Dfs' : ∃ r > 0, ∀ x ∈ 𝒮.G.U 1, ‖x‖ < r →
     IsFredholm (𝒮.Dfs' f x) ∧
@@ -823,14 +823,14 @@ include hC hf
 
 /-! ### The kernel of `D(f + s)(x)` meets a complement of `ker D(f + s)(0)` trivially -/
 
-/-- **The compactness argument of Corollary 3.41**: if `N` is a closed complement of
+/-- **The compactness argument of Corollary 3.5.3 (preprint 3.41)**: if `N` is a closed complement of
 `ker D(f + s)(0)`, then `ker D(f + s)(x) ∩ N = {0}` for all `x ∈ U₁` sufficiently small on level
 `1`.  Proof by contradiction with sequences `x_k → 0` in `E₁` and unit vectors
 `(α_k, ζ_k) ∈ N ∩ ker D(f + s)(x_k)`: the `W`-component of the equation reads
 `ζ_k = D₁B(x_k)α_k + D₂B(x_k)ζ_k − ι Ds(x_k)(α_k, ζ_k)`; `α_k` has a convergent subsequence,
 `Ds(x_k)(α_k, ζ_k)` is bounded in `W₁` so `ι Ds(x_k)(α_k, ζ_k)` has a convergent subsequence
 in `W₀`, `D₁B(x_k)α_k → D₁B(0)α` by the continuity of the tangent map, and
-`‖D₂B(x_k)‖ → 0` (Lemma 3.9); so `(α_k, ζ_k) → (α, z₀) ∈ N`, `|(α, z₀)| = 1` and
+`‖D₂B(x_k)‖ → 0` (Lemma 3.1.9 (preprint 3.9)); so `(α_k, ζ_k) → (α, z₀) ∈ N`, `|(α, z₀)| = 1` and
 `D(f + s)(0)(α, z₀) = 0`, a contradiction. -/
 theorem exists_ker_Dfs'_inf_eq_bot {N : Submodule ℝ (P × W 0)} (hNc : IsClosed (N : Set (P × W 0)))
     (hN : Disjoint (LinearMap.ker (𝒮.Dfs f : P × W 0 →ₗ[ℝ] Q × W 0)) N) :
@@ -841,7 +841,7 @@ theorem exists_ker_Dfs'_inf_eq_bot {N : Submodule ℝ (P × W 0)} (hNc : IsClose
   have hDfs := 𝒮.isSc1GermWith_Dfs' hCq hf.isScSmooth
   -- the uniform bound for `Ds(x)`
   obtain ⟨ρ, hρ, c, hc⟩ := hDs.exists_norm_deriv_le
-  -- the radii of Lemma 3.9 for `ε = 1/(k+1)`
+  -- the radii of Lemma 3.1.9 (preprint 3.9) for `ε = 1/(k+1)`
   have hL39 : ∀ k : ℕ, ∃ r > 0, ∀ x ∈ 𝒮.G.U 1, ‖x‖ < r →
       ∀ ζ : W 0, ‖DB 𝒮.G B x ((0 : P), ζ)‖ ≤ 1 / ((k : ℝ) + 1) * ‖ζ‖ := fun k =>
     hf.contraction.exists_norm_deriv_snd_le hDB (by positivity)
@@ -937,14 +937,14 @@ theorem exists_ker_Dfs'_inf_eq_bot {N : Submodule ℝ (P × W 0)} (hNc : IsClose
   rw [this, norm_zero] at hlimn
   exact zero_ne_one hlimn
 
-/-! ### Corollary 3.41 -/
+/-! ### Corollary 3.5.3 (preprint 3.41) -/
 
-/-- **Corollary 3.41**: let `f = h + s : U → ℝᴺ ⊕ W` with `h` a basic germ and `s` an sc⁺-germ,
-`s(0) = 0` (the data `𝒮` of Theorem 3.38 with `f := h`), and assume `D(h + s)(0)` is surjective.
+/-- **Corollary 3.5.3 (preprint 3.41)**: let `f = h + s : U → ℝᴺ ⊕ W` with `h` a basic germ and `s` an sc⁺-germ,
+`s(0) = 0` (the data `𝒮` of Theorem 3.4.2 (preprint 3.38) with `f := h`), and assume `D(h + s)(0)` is surjective.
 Then there is `r > 0` such that every zero `x` of `h + s` in `U` with `|x|₀ < r` (1) lies on
 level `1`, `x = ι(x₁)` with `x₁ ∈ U₁`, and (2) `D(h + s)(x₁) : E₀ → F₀` is a surjective Fredholm
 operator of index `n − N`. -/
-theorem corollary_3_41 (hsurj : Surjective (𝒮.Dfs f)) :
+theorem corollary_3_5_3 (hsurj : Surjective (𝒮.Dfs f)) :
     ∃ r > 0, ∀ x ∈ 𝒮.G.U 0, ‖x‖ < r → 𝒮.fsum f x = 0 →
       ∃ x₁ : (ScBanach.paramProd P W) 1, (ScBanach.paramProd P W).toBase 1 x₁ = x ∧
         x₁ ∈ 𝒮.G.U 1 ∧ IsFredholm (𝒮.Dfs' f x₁) ∧
@@ -970,7 +970,7 @@ theorem corollary_3_41 (hsurj : Surjective (𝒮.Dfs f)) :
   -- the level-`1` radii
   obtain ⟨r₁, hr₁, hFred⟩ := 𝒮.exists_isFredholm_Dfs' hC hf
   obtain ⟨r₂, hr₂, hker⟩ := 𝒮.exists_ker_Dfs'_inf_eq_bot hC hf hNc hN.disjoint
-  -- the lifts of Theorem 3.40 (continuous at `0`)
+  -- the lifts of Theorem 3.5.1 (preprint 3.40) (continuous at `0`)
   obtain ⟨τ, hτ, -, L, hL, hLc⟩ := hf.contraction.exists_lift hC.isClosed (𝒮.isScSmooth 0)
     𝒮.s_zero 1
   have h0sol : (0 : (ScBanach.paramProd P W) 0) ∈ solSet Ct B 𝒮.s τ :=

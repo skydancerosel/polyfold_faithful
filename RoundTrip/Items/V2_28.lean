@@ -4,13 +4,13 @@ import RoundTrip.Blind.V2_28
 
 /-! Round trip for V2_28 (Proposition 2.24: `d_X` is invariant under sc-diffeomorphism germs).
 
-`A` is the conjunction of the types of the listed theorems `Polyfold.proposition_2_24`,
+`A` is the conjunction of the types of the listed theorems `Polyfold.proposition_2_4_4`,
 `Polyfold.MPolyfold.transportChart_isChart` and `Polyfold.MPolyfold.degIndex_le_of_isScDiffeoOn`,
 all instantiated at universes `0, 0` (B lives in `Type`).  `IsScDiffeoOn` and `transportChart` are
 definitions (vocabulary); B uses the project's `IsScDiffeoOn` itself (the blind author checked it
 is the text's "germ of sc-diffeomorphisms `f : (U, x) → (V, f(x))`" with `x ∈ U`).
 
-* `proposition_2_24` is B verbatim (same binders, `x ∈ U`, `P.IsScDiffeoOn Q f g U V`).
+* `proposition_2_4_4` is B verbatim (same binders, `x ∈ U`, `P.IsScDiffeoOn Q f g U V`).
 * `degIndex_le_of_isScDiffeoOn` (one inequality) follows from B.
 * `transportChart_isChart` (the chart `ψ ∘ f` of `X` built from a chart `ψ` of `Y` is a chart of the
   structure) is the main step of the proof, not of the statement; B does not imply it (B speaks
@@ -23,12 +23,12 @@ open Polyfold Set MPolyfold
 
 /-- The project's statement (universes `0, 0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_24.{0, 0}) ∧
+  (type_of% @Polyfold.proposition_2_4_4.{0, 0}) ∧
     (type_of% @Polyfold.MPolyfold.transportChart_isChart.{0, 0}) ∧
     (type_of% @Polyfold.MPolyfold.degIndex_le_of_isScDiffeoOn.{0, 0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_24.{0, 0}, @Polyfold.MPolyfold.transportChart_isChart.{0, 0},
+  ⟨@Polyfold.proposition_2_4_4.{0, 0}, @Polyfold.MPolyfold.transportChart_isChart.{0, 0},
     @Polyfold.MPolyfold.degIndex_le_of_isScDiffeoOn.{0, 0}⟩
 
 section Glue
@@ -79,12 +79,12 @@ theorem transportChart_isChart' (h : P.IsScDiffeoOn Q f g U V) {ψ : MChart Y} (
 
 end Glue
 
-/-- `A → B`: B is `proposition_2_24`. -/
+/-- `A → B`: B is `proposition_2_4_4`. -/
 theorem A_to_B : A → B := by
   rintro ⟨h224, -, -⟩ X _ _ _ P Y _ _ _ Q f g U V x hx h
   exact h224 h hx
 
-/-- `B → A`: `proposition_2_24` and its half are B; `transportChart_isChart` is re-proved. -/
+/-- `B → A`: `proposition_2_4_4` and its half are B; `transportChart_isChart` is re-proved. -/
 theorem B_to_A : B → A := by
   intro hB
   refine ⟨?_, ?_, ?_⟩
@@ -95,11 +95,11 @@ theorem B_to_A : B → A := by
   · intro X _ _ _ P Y _ _ _ Q f g U V h x hx
     exact (hB X P Y Q f g U V x hx h).le
 
-#rt_check RoundTrip.V2_28.A_to_B [Polyfold.proposition_2_24,
+#rt_check RoundTrip.V2_28.A_to_B [Polyfold.proposition_2_4_4,
   Polyfold.MPolyfold.transportChart_isChart, Polyfold.MPolyfold.degIndex_le_of_isScDiffeoOn]
-#rt_check RoundTrip.V2_28.B_to_A [Polyfold.proposition_2_24,
+#rt_check RoundTrip.V2_28.B_to_A [Polyfold.proposition_2_4_4,
   Polyfold.MPolyfold.transportChart_isChart, Polyfold.MPolyfold.degIndex_le_of_isScDiffeoOn]
-#rt_overlap RoundTrip.V2_28.B_to_A [Polyfold.proposition_2_24,
+#rt_overlap RoundTrip.V2_28.B_to_A [Polyfold.proposition_2_4_4,
   Polyfold.MPolyfold.transportChart_isChart, Polyfold.MPolyfold.degIndex_le_of_isScDiffeoOn]
 
 end RoundTrip.V2_28

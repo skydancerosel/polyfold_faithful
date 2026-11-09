@@ -144,7 +144,7 @@ theorem A_to_B_intended : A → B_intended := by
 
 /-- The trivial Fredholm data `E = 0 ⊕ E`, `E = 0 ⊕ E` of the identity. -/
 theorem idData (E : ScBanach) : IsFredholmData (ScOperator.id E) ⊥ ⊤ ⊥ ⊤ := by
-  have hbot : E.IsScSubspace ⊥ := (E.proposition_1_6_iff ⊥).2 bot_le
+  have hbot : E.IsScSubspace ⊥ := (E.proposition_1_1_7_iff ⊥).2 bot_le
   have htop : E.IsScSubspace ⊤ := by
     refine ⟨by simp, fun m x _ => ?_⟩
     have : (E.levelSub ⊤ m : Set (E.lvl m)) ∩ E.smoothLvl m = E.smoothLvl m := by

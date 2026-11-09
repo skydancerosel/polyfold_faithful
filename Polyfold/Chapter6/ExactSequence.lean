@@ -7,7 +7,7 @@ import Mathlib.LinearAlgebra.Dimension.Constructions
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.2,
 pp. 205–207, and Appendix 6.7.1, pp. 234–235: the isomorphism `Φ_E` of a four-term exact
-sequence, **Lemma 6.5** (it does not depend on the choices) and **Proposition 6.6** (the
+sequence, **Lemma 6.3.3 (preprint 6.5)** (it does not depend on the choices) and **Proposition 6.3.5 (preprint 6.6)** (the
 isomorphism `Ψ_E`) *(book 2017: Lemma 6.1, Proposition 6.3; see `BookConcordance.md`)*.
 
 # The isomorphism of a four-term exact sequence
@@ -24,9 +24,9 @@ isomorphisms.  With `n = dim A`, `m = dim B`, `l = dim D`, a basis `a₁, …, a
      (α(a₁) ∧ … ∧ α(aₙ) ∧ b'₁ ∧ … ∧ b'_{m−n}) ⊗ (c₁ ∧ … ∧ c_l ∧ c'₁ ∧ … ∧ c'_{m−n})*`,
 
 with the two conventions that the `b'` are listed after the `α(a)` and the `c'` after the `c`.
-(Lemma 6.5) With these conventions `Φ_E` does not depend on the choices (proof in §6.7.1).
+(Lemma 6.3.3 (preprint 6.5)) With these conventions `Φ_E` does not depend on the choices (proof in §6.7.1).
 `Ψ_E : λ(C) ⊗ λ(A) ⊗ λ*(D) → λ(B)` maps `c ⊗ a ⊗ d*` to `ῑ(c ⊗ Φ_E(a ⊗ d*))`, where
-`ῑ : λ(C) ⊗ λ(B) ⊗ λ*(C) → λ(B)` is `v ⊗ b ⊗ v* ↦ b`.  (Proposition 6.6) With the notation of
+`ῑ : λ(C) ⊗ λ(B) ⊗ λ*(C) → λ(B)` is `v ⊗ b ⊗ v* ↦ b`.  (Proposition 6.3.5 (preprint 6.6)) With the notation of
 (91), `Ψ_E((c₁ ∧ … ∧ c_l ∧ c'₁ ∧ … ∧ c'_{m−n}) ⊗ a ⊗ d*) = α(a₁) ∧ … ∧ α(aₙ) ∧ b'₁ ∧ … ∧ b'_{m−n}`.
 
 ## What is formalized
@@ -37,10 +37,10 @@ with the two conventions that the `b'` are listed after the `α(a)` and the `c'`
   `b'` and the `γ`-preimages `c ∈ V` of the `d`), and `Choice.value`, the right-hand side of (91).
 * `Polyfold.FourTermExact.phi` (`Φ_E`): defined by (91) for one choice (the canonical one,
   `canonicalChoice`) on the line `λ(A) ⊗ λ*(D)`.
-* **Lemma 6.5** (`lemma_6_5`): formula (91) holds **for every choice**.  `phi_ne_zero`,
+* **Lemma 6.3.3 (preprint 6.5)** (`lemma_6_3_3`): formula (91) holds **for every choice**.  `phi_ne_zero`,
   `phiEquiv`: `Φ_E` is an isomorphism of lines.
 * `Polyfold.contractDual` (`ῑ`, `v ⊗ b ⊗ φ ↦ φ(v) b`, so `v ⊗ b ⊗ v* ↦ b`),
-  `Polyfold.FourTermExact.psi` (`Ψ_E`) and **Proposition 6.6** (`proposition_6_6`).
+  `Polyfold.FourTermExact.psi` (`Ψ_E`) and **Proposition 6.3.5 (preprint 6.6)** (`proposition_6_3_5`).
 
 ## Reading
 
@@ -277,7 +277,7 @@ theorem c_eq_section (i : Fin χ.l) :
     exact (χ.γ_c i).symm
   simp [this]
 
-/-- **The heart of Lemma 6.5** (Appendix 6.7.1): for two choices `χ`, `χ'` there is `r ≠ 0`
+/-- **The heart of Lemma 6.3.3 (preprint 6.5)** (Appendix 6.7.1): for two choices `χ`, `χ'` there is `r ≠ 0`
 with `source χ' = r • source χ` and `value χ' = r • value χ`; here `r = det τ / det ε` for the
 changes of bases `τ` of `A` and `ε` of `D`, and the change of complements and of `b'` multiplies
 both wedges of the value by the same `det σ`. -/
@@ -405,12 +405,12 @@ linear map of the line `λ(A) ⊗ λ*(D)` sending the source vector of that choi
 def phi : maxPow A ⊗[ℝ] maxPowDual D →ₗ[ℝ] maxPow B ⊗[ℝ] maxPowDual C :=
   LinearMap.smulRight (dualVec S.canonicalChoice.source) S.canonicalChoice.value
 
-/-- **Lemma 6.5**: with the two conventions of (91), **the definition of `Φ_E` does not depend on
+/-- **Lemma 6.3.3 (preprint 6.5)**: with the two conventions of (91), **the definition of `Φ_E` does not depend on
 the choices**: for every choice of complements `Z`, `V` and of bases `a`, `d`, `b'` (and `c ∈ V`
 with `γ(c) = d`),
 `Φ_E((a₁ ∧ … ∧ aₙ) ⊗ (d₁ ∧ … ∧ d_l)*) =
   (α(a₁) ∧ … ∧ α(aₙ) ∧ b'₁ ∧ … ∧ b'_{m−n}) ⊗ (c₁ ∧ … ∧ c_l ∧ β(b'₁) ∧ … ∧ β(b'_{m−n}))*`. -/
-theorem lemma_6_5 (χ : S.Choice) : S.phi χ.source = χ.value := by
+theorem lemma_6_3_3 (χ : S.Choice) : S.phi χ.source = χ.value := by
   obtain ⟨r, -, hs, hv⟩ := S.canonicalChoice.exists_smul_source_value χ
   rw [phi, LinearMap.smulRight_apply, hs, hv, map_smul,
     dualVec_self FourTermExact.finrank_source S.canonicalChoice.source_ne_zero, smul_eq_mul,
@@ -419,7 +419,7 @@ theorem lemma_6_5 (χ : S.Choice) : S.phi χ.source = χ.value := by
 /-- `Φ_E` is not zero. -/
 theorem phi_ne_zero : S.phi ≠ 0 := by
   intro h
-  have := S.lemma_6_5 S.canonicalChoice
+  have := S.lemma_6_3_3 S.canonicalChoice
   rw [h, LinearMap.zero_apply] at this
   exact S.canonicalChoice.value_ne_zero this.symm
 
@@ -546,7 +546,7 @@ completing `α(a)` to a basis of `B`, and `γ ∘ c = d`. -/
 theorem phi_wedge_tmul (hC : l + j = finrank ℝ C) :
     S.phi (wedge a hn ⊗ₜ dualVec (wedge d hl)) =
       wedge (Fin.append (S.α ∘ a) b) hj ⊗ₜ dualVec (wedge (Fin.append c (S.β ∘ b)) hC) := by
-  rw [← Choice.ofFamilies_source ha hn hd hl hb hj hc, lemma_6_5, Choice.value,
+  rw [← Choice.ofFamilies_source ha hn hd hl hb hj hc, lemma_6_3_3, Choice.value,
     Choice.ofFamilies_wedgeB, Choice.ofFamilies_wedgeC _ _ _ _ _ _ _ hC]
 
 include ha hn hd hl hb hj hc in
@@ -560,7 +560,7 @@ end OfFamilies
 
 end FourTermExact
 
-/-! ### Proposition 6.6: `Ψ_E` -/
+/-! ### Proposition 6.3.5 (preprint 6.6): `Ψ_E` -/
 
 variable (B C) in
 /-- `ῑ : λ(C) ⊗ λ(B) ⊗ λ*(C) → λ(B)`, `v ⊗ b ⊗ φ ↦ φ(v) b`; in particular `v ⊗ b ⊗ v* ↦ b`. -/
@@ -585,11 +585,11 @@ variable (S : FourTermExact A B C D) [FiniteDimensional ℝ A] [FiniteDimensiona
 def psi : maxPow C ⊗[ℝ] (maxPow A ⊗[ℝ] maxPowDual D) →ₗ[ℝ] maxPow B :=
   contractDual B C ∘ₗ LinearMap.lTensor _ S.phi
 
-/-- **Proposition 6.6**: in the notation of (91),
+/-- **Proposition 6.3.5 (preprint 6.6)**: in the notation of (91),
 `Ψ_E((c₁ ∧ … ∧ c_l ∧ c'₁ ∧ … ∧ c'_{m−n}) ⊗ a ⊗ d*) = α(a₁) ∧ … ∧ α(aₙ) ∧ b'₁ ∧ … ∧ b'_{m−n}`,
 for every choice. -/
-theorem proposition_6_6 (χ : S.Choice) : S.psi (χ.wedgeC ⊗ₜ χ.source) = χ.wedgeB := by
-  rw [psi, LinearMap.comp_apply, LinearMap.lTensor_tmul, S.lemma_6_5 χ, Choice.value,
+theorem proposition_6_3_5 (χ : S.Choice) : S.psi (χ.wedgeC ⊗ₜ χ.source) = χ.wedgeB := by
+  rw [psi, LinearMap.comp_apply, LinearMap.lTensor_tmul, S.lemma_6_3_3 χ, Choice.value,
     contractDual_tmul_dualVec χ.wedgeC_ne_zero]
 
 end FourTermExact

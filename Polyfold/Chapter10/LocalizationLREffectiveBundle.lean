@@ -177,7 +177,7 @@ theorem natEquiv_of_isEffective {F G : C ⟶ A} (hF : SEP.equivalences F)
     have hcl : IsClosed {w | (Hom.Φ G).obj w = A.E.μ ⟨_, hmem w⟩} :=
       isClosed_eq hsG.isStrongBundleMap_obj.continuous hc1
     have hdense : Dense (C.P ⁻¹' ((Hom.ϕ F).obj ⁻¹' A.X.regularSet)) :=
-      ((A.X.proposition_7_8 hA).2.preimage
+      ((A.X.proposition_7_2_4 hA).2.preimage
         hF.isEquivalence_base.isLocalScDiffeo_obj.isOpenMap).preimage C.B.isOpenMap_proj
     have hsub : C.P ⁻¹' ((Hom.ϕ F).obj ⁻¹' A.X.regularSet) ⊆
         {w | (Hom.Φ G).obj w = A.E.μ ⟨_, hmem w⟩} := by
@@ -284,7 +284,7 @@ orbit-preserving `β` is the identity, the action of `1`. -/
 theorem isLR_trivial {Z : Type} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z]
     (PZ : MPolyfold Z) : (EpGroupoid.trivial PZ).IsLR := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β β' _ hπ => ⟨1, fun y hy => ?_⟩⟩
   obtain ⟨φ, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ y hy)
   rw [R.Φ_one y hy]

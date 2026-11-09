@@ -32,7 +32,7 @@ strict, among Hausdorff spaces (Definition 2.1.5 assumes `X` Hausdorff):
   `RealKTop.not_regularSpace`: the point `0` and the closed set `K` are not separated (every
   closed neighbourhood of `0` meets `K`, through irrational points near `1/(n+1)`), so
   `RealKTop.not_isLocallyComplete` by `IsLocallyComplete.regularSpace`.
-* `remark_2_1_6_strict_2021` (**Remark 2.1.6**, strictness): a Hausdorff space satisfying the
+* `remark_2_1_6_strict` (**Remark 2.1.6**, strictness): a Hausdorff space satisfying the
   modified definition but not Definition 2.1.5.
 
 ## Comments
@@ -253,7 +253,7 @@ end RealKTop
 /-- **Remark 2.1.6 (2021), strictness**: the modified definition (closure of `V(x)` in `W(x)`) is
 strictly weaker than Definition 2.1.5: the Hausdorff space `ℝ_K` satisfies it but is not locally
 complete.  (The implication is `IsLocallyComplete.isLocallyCompleteRel`.) -/
-theorem remark_2_1_6_strict_2021 :
+theorem remark_2_1_6_strict :
     ∃ (X : Type) (_ : TopologicalSpace X), T2Space X ∧ IsLocallyCompleteRel X ∧
       ¬ IsLocallyComplete X :=
   ⟨RealKTop, inferInstance, inferInstance, RealKTop.isLocallyCompleteRel,

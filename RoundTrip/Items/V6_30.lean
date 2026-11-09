@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_30
 
 /-! Round trip for V6_30 (Proposition 6.26, `DET` over a convex set of Fredholm operators).
 
-A = `proposition_6_26` (universes at `0`): for a **nonempty** convex set `C` of Fredholm operators
+A = `proposition_6_6_1` (universes at `0`): for a **nonempty** convex set `C` of Fredholm operators
 `E → F`, `DetOn C` is a vector bundle with fibre `ℝ` and has exactly two orientations.
 B = for every chart point `p` of a smooth `x` and every sc-Fredholm `f`: `Lin(f, x)` is convex and
 contractible, `DET(f, x)` is a vector bundle and has `Nat.card = 2` orientations — with no
@@ -26,9 +26,9 @@ namespace RoundTrip.V6_30
 open Polyfold
 
 /-- The project's statement, universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.proposition_6_26.{0, 0}
+def A : Prop := type_of% @Polyfold.proposition_6_6_1.{0, 0}
 
-theorem A_holds : A := @Polyfold.proposition_6_26.{0, 0}
+theorem A_holds : A := @Polyfold.proposition_6_6_1.{0, 0}
 
 /-- Every `Lin(f, x)` at a smooth point, read in every chart point, is nonempty. -/
 def NonemptyLin : Prop :=
@@ -94,7 +94,7 @@ theorem A_to_Bsec : A → Bsec := by
 `A_imp_B_iff_nonemptyLin` it is exactly this nonemptiness that is missing.
 `B_to_A` is not proved: B speaks only about the sets `Lin(f, x)`. -/
 
-#rt_check RoundTrip.V6_30.A_to_Bsec [Polyfold.proposition_6_26]
-#rt_check RoundTrip.V6_30.B_imp_nonemptyLin [Polyfold.proposition_6_26]
+#rt_check RoundTrip.V6_30.A_to_Bsec [Polyfold.proposition_6_6_1]
+#rt_check RoundTrip.V6_30.B_imp_nonemptyLin [Polyfold.proposition_6_6_1]
 
 end RoundTrip.V6_30

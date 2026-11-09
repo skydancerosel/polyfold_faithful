@@ -27,8 +27,8 @@ tangent space `T^R_xX ⊆ T_xX` and the partial cone `C_xX ⊆ T_xX` are the pre
   (`reducedTangentSpaceWith`, `partialConeWith`, for any retraction onto an open piece of `O`
   around `φ(x)`).
 * **`MPolyfold.reducedTangentFiber_eq`, `MPolyfold.partialConeFiber_eq`**: they do not depend on
-  the chart or the presentation (Proposition 2.4.10, `proposition_2_30_reduced`,
-  `proposition_2_30_cone`, applied to the transition germ on the overlap retracts, with the
+  the chart or the presentation (Proposition 2.4.10, `proposition_2_4_10_reduced`,
+  `proposition_2_4_10_cone`, applied to the transition germ on the overlap retracts, with the
   locality of `T_{φ(x)}O` and the identification of the transition derivative with the fibre
   transition `transitionCLM` of Definition 2.3.14).  This holds for every `x ∈ X₁`, not only
   smooth `x`.
@@ -45,7 +45,7 @@ tangent space `T^R_xX ⊆ T_xX` and the partial cone `C_xX ⊆ T_xX` are the pre
   presentation `T` of `C` enters as in Definition 2.4.7 (`reducedTangentSpaceWith`), and the
   independence statement covers it.
 * Not formalized: `C_xX` as a partial quadrant in `T_xX` and `d_{C_xX}(0_x) = d_X(x)` (the chart
-  form is `proposition_2_36_partialCone`, `PartialCone.lean`).
+  form is `proposition_2_5_6_partialCone`, `PartialCone.lean`).
 -/
 
 open Set Function Topology
@@ -214,7 +214,7 @@ theorem reducedTangentFiber_eq :
     reducedTangentFiber hφ hx T = reducedTangentFiber hψ hx' T' := by
   obtain ⟨R, R', hR, hR', hgerm, haR, hb, hkey⟩ :=
     exists_isDiffeoGerm_transition hφ hx hψ hx'
-  have hmap := proposition_2_30_reduced hgerm haR T hT T' hT'
+  have hmap := proposition_2_4_10_reduced hgerm haR T hT T' hT'
   ext α
   rw [mem_reducedTangentFiber_iff hφ hx T inter_subset_left
       (φ.isOpen_source.inter ψ.isOpen_source) ⟨hx, hx'⟩ R hR,
@@ -243,7 +243,7 @@ theorem partialConeFiber_eq :
     partialConeFiber hφ hx T = partialConeFiber hψ hx' T' := by
   obtain ⟨R, R', hR, hR', hgerm, haR, hb, hkey⟩ :=
     exists_isDiffeoGerm_transition hφ hx hψ hx'
-  have hmap := proposition_2_30_cone hgerm haR T hT T' hT'
+  have hmap := proposition_2_4_10_cone hgerm haR T hT T' hT'
   ext α
   rw [mem_partialConeFiber_iff hφ hx T inter_subset_left
       (φ.isOpen_source.inter ψ.isOpen_source) ⟨hx, hx'⟩ R hR,

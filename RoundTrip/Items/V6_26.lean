@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_26
 
 /-! Round trip for V6_26 (Proposition 6.23: `𝓑` is a basis for a topology on `DET(E, F)`).
 
-`A = type_of% proposition_6_23` (universes at `0`): `𝓑 = detBasis E F` is a topological basis of
+`A = type_of% proposition_6_5_7` (universes at `0`): `𝓑 = detBasis E F` is a topological basis of
 the project's topology `𝒯` of `DET(E, F)` (the total-space topology of Mathlib's
 `VectorPrebundle` `detPrebundle` built from all the charts `γ_(T,P,ε)`).  B: B's `𝓑` (`detB`,
 written from the text) is a basis of the topology it generates.
@@ -26,10 +26,10 @@ open Polyfold Bundle Module
 
 noncomputable section
 
-/-- The project's statement: `proposition_6_23`, universes at `0`. -/
-def A : Prop := type_of% @Polyfold.proposition_6_23.{0, 0}
+/-- The project's statement: `proposition_6_5_7`, universes at `0`. -/
+def A : Prop := type_of% @Polyfold.proposition_6_5_7.{0, 0}
 
-theorem A_holds : A := @Polyfold.proposition_6_23.{0, 0}
+theorem A_holds : A := @Polyfold.proposition_6_5_7.{0, 0}
 
 section Glue
 
@@ -179,7 +179,7 @@ def kerFrame₀ : KerFrame c.P (U₀ c).1 where
   σ S i := c.kerMap S.1 (Module.finBasis ℝ c.K i)
   cont := continuous_pi fun i =>
     ((c.continuousOn_kerMap_apply _).mono fun S hS => lt_of_mem_ball c hS).restrict
-  mem S i := (c.lemma_6_18).2.1 S.1 (lt_of_mem_ball c S.2) _ (Module.finBasis ℝ c.K i).2
+  mem S i := (c.lemma_6_5_2).2.1 S.1 (lt_of_mem_ball c S.2) _ (Module.finBasis ℝ c.K i).2
   li S := (c.kerFrame_linearIndependent S.1 (lt_of_mem_ball c S.2)).map'
     (LinearMap.ker ((c.P ∘L S.1 : E →L[ℝ] F) : E →ₗ[ℝ] F)).subtype (Submodule.ker_subtype _)
   card S := (c.kerEquiv S.1 (lt_of_mem_ball c S.2)).finrank_eq
@@ -410,10 +410,10 @@ theorem B_to_A : B → A := by
     exact e.toOpenPartialHomeomorph.isOpen_image_of_subset_source (hO.inter e.open_source)
       Set.inter_subset_right
 
-#rt_check RoundTrip.V6_26.A_to_B [Polyfold.proposition_6_23]
-#rt_check RoundTrip.V6_26.B_to_A [Polyfold.proposition_6_23]
-#rt_overlap RoundTrip.V6_26.B_to_A [Polyfold.proposition_6_23]
-#rt_overlap RoundTrip.V6_26.A_to_B [Polyfold.proposition_6_23]
+#rt_check RoundTrip.V6_26.A_to_B [Polyfold.proposition_6_5_7]
+#rt_check RoundTrip.V6_26.B_to_A [Polyfold.proposition_6_5_7]
+#rt_overlap RoundTrip.V6_26.B_to_A [Polyfold.proposition_6_5_7]
+#rt_overlap RoundTrip.V6_26.A_to_B [Polyfold.proposition_6_5_7]
 
 end
 

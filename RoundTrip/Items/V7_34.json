@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A is lemma_7_2 (IsOpen X.regularSet) and NaturalRep.subset_regularSet (for every natural representation R at a regular x, R.U ⊆ X_reg), universes at 0. B's X_reg = {x | ∀ g : G_x, g.val = 1_x} is the project's regularSet = {x | ∀ g, g = 1} by Isotropy.ext, so lemma_7_2 and B are the same statement. subset_regularSet (the text's proof step) is not in B; it is re-proved outright in B → A from the NaturalRep fields (existsUnique_Γ) and NaturalRep.Γ_one, which needs U connected.",
+ "why": "A is lemma_7_2_2 (IsOpen X.regularSet) and NaturalRep.subset_regularSet (for every natural representation R at a regular x, R.U ⊆ X_reg), universes at 0. B's X_reg = {x | ∀ g : G_x, g.val = 1_x} is the project's regularSet = {x | ∀ g, g = 1} by Isotropy.ext, so lemma_7_2_2 and B are the same statement. subset_regularSet (the text's proof step) is not in B; it is re-proved outright in B → A from the NaturalRep fields (existsUnique_Γ) and NaturalRep.Γ_one, which needs U connected.",
  "B_issue": null,
  "overlap": "B_to_A: 23 shared project theorems: NaturalRep field accessors, Γ_one and what it rests on (eqOn_sections_of_isPreconnected, isLocalScDiffeo_src, continuousOn_Γ, continuous_unit), Isotropy.ext/val_one; no Chapter 7 construction lemma.",
  "uses_hypothesis": {

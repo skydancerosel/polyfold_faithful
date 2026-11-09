@@ -2,16 +2,16 @@ import Polyfold.Chapter3.GlobalIFTNearbySurj
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1), the surjectivity of `f'(y)` at the nearby zeros: the elementary lemmas.**
+**Theorem 3.6.8 (preprint 3.54) (1), the surjectivity of `f'(y)` at the nearby zeros: the elementary lemmas.**
 
 # The finite-dimensional lemmas of the surjectivity argument
 
 ## The text, paraphrased
 
-(Proof of Theorem 3.54, (4)) "For every `y ∈ V` satisfying `f(y) = 0` ... `f'(y)` is surjective.
+(Proof of Theorem 3.6.8 (preprint 3.54), (4)) "For every `y ∈ V` satisfying `f(y) = 0` ... `f'(y)` is surjective.
 Property (4) follows from Corollary 3.41 and from Lemma 3.55."  The text's argument has a gap
-(Finding 100: Corollary 3.41 gives the surjectivity of the *filled* derivative `Dg(z₀)`, and
-passing to the intrinsic linearization needs condition (3) of Definition 3.4 at `z₀`).  The repair
+(Finding 100: Corollary 3.5.3 (preprint 3.41) gives the surjectivity of the *filled* derivative `Dg(z₀)`, and
+passing to the intrinsic linearization needs condition (3) of Definition 3.1.4 (preprint 3.4) at `z₀`).  The repair
 (Findings 180–189) solves, for a fixed zero `z₀` and a fixed smooth `λ`, the perturbed equation
 `g(u) + μ ρ(r(u)) λ = 0` along a one-sided `C¹`-curve `u(μ)` through `z₀`; the curve lies in the
 retract `O` by condition (2) of the filler, so its velocity `ξ` is tangent to `O` and
@@ -22,7 +22,7 @@ retract `O` by condition (2) of the filler, so its velocity `ξ` is tangent to `
 The elementary parts of that argument, with no sc-structure involved:
 
 * `Polyfold.exists_inward_of_isInGoodPosition` (**an interior direction from good position**): a
-  nonzero finite-dimensional subspace `N` in good position (Definition 3.21) to the partial
+  nonzero finite-dimensional subspace `N` in good position (Definition 3.1.24 (preprint 3.21)) to the partial
   quadrant `C_z` at a point `z ∈ C` contains a vector `v` with `z + t(v + ζ) ∈ C` for all small
   `t ≥ 0` and all small `ζ`.
 * `Polyfold.inward_add_smul`: such inward directions form a cone stable under the addition of
@@ -37,7 +37,7 @@ The elementary parts of that argument, with no sc-structure involved:
   derivative `k(0)` at `0` for `k` continuous at `0`.
 * `Polyfold.StrongRetr.mem_O_of_perturbed_zero` (**zeros of the perturbed filler lie in `O`**):
   `g(u) + μ ρ(r(u)) λ = 0` gives `ρ(r(u)) g(u) = g(u)`, so `u ∈ O` by condition (2) of
-  Definition 3.4.
+  Definition 3.1.4 (preprint 3.4).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
@@ -604,7 +604,7 @@ namespace StrongRetr
 
 variable {E F : ScBanach} {U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
-/-- **Zeros of `g + μ ρ(r(·)) λ` lie in `O`** (condition (2) of Definition 3.4): if
+/-- **Zeros of `g + μ ρ(r(·)) λ` lie in `O`** (condition (2) of Definition 3.1.4 (preprint 3.4)): if
 `g(u) + μ ρ(r(u)) λ = 0` then `ρ(r(u)) g(u) = −μ ρ(r(u))² λ = −μ ρ(r(u)) λ = g(u)`, so `u ∈ O`
 whenever condition (2) holds at `u`. -/
 theorem mem_O_of_perturbed_zero (hR : IsStrongBundleRetraction U R) {g : E 0 → F 0} {u : E 0}

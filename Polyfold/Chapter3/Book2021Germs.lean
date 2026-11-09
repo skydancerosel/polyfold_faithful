@@ -57,13 +57,13 @@ if `(a_k, w_k) ∈ S` converges to `0` in `E₀`, then for every `m` there is `k
   `IsScFredholmSection`; `isScFredholmGerm2017_iff`: the 2017 germ is `IsScFredholmGermTame`.
   Satisfiability: `isScFredholmSection2021_graphSection`, `isScFredholmGerm2017_graphSection`.
 * **The 2021 theorems whose proofs do not use tameness**, restated for the 2021 definitions:
-  `proposition_3_1_5_2021` (Proposition 3.1.5), `theorem_3_1_13_2021` (Theorem 3.1.13),
-  `corollary_3_1_15_2021` (Corollary 3.1.15), `theorem_3_1_18_2021` (Theorem 3.1.18),
-  `theorem_3_1_21_2021` (Theorem 3.1.21), `proposition_3_6_5_2021` (Proposition 3.6.5).
+  `proposition_3_1_5` (Proposition 3.1.5), `theorem_3_1_13` (Theorem 3.1.13),
+  `corollary_3_1_15` (Corollary 3.1.15), `theorem_3_1_18` (Theorem 3.1.18),
+  `theorem_3_1_21` (Theorem 3.1.21), `proposition_3_6_5` (Proposition 3.6.5).
 * **Where the proofs of the 2021 implicit function theorems use tameness**:
-  `theorem_3_6_8_tame_step_2021` (see below).
-* `Polyfold.theorem_3_5_1_2021` (**Theorem 3.5.1**, both conclusions), from
-  `theorem_3_12_local` and `corollary_3_13_local`.
+  `theorem_3_6_8_tame_step` (see below).
+* `Polyfold.theorem_3_5_1` (**Theorem 3.5.1**, both conclusions), from
+  `theorem_3_1_13_local` and `corollary_3_1_15_local`.
 
 ## What the text leaves implicit, and the choices made
 
@@ -75,17 +75,17 @@ if `(a_k, w_k) ∈ S` converges to `0` in `E₀`, then for every `m` there is `k
   and 3.6.11) does use it: its proof (p. 138) passes from good position of `ker Tf̃(0)` to the
   partial cone `C₀O = T₀O ∩ C` in `T₀O` to good position of `ker Dg(0)` to `C` in `E` through the
   sc-complement `ker Dr(0) ⊆ E₀` of `T₀O` given by Proposition 2.5.3 for a tame retract, the
-  hypothesis `hK : (1 − Dr(0))E ⊆ E₀` of `theorem_3_54_linear`.  **The step does not go through
+  hypothesis `hK : (1 − Dr(0))E ⊆ E₀` of `theorem_3_6_8_linear`.  **The step does not go through
   without it**: in the corner example the filling, `f̂(0) = 0`, `Dg(0)` onto, and good position of
   `ker Tf̃(0)` in `T₀O` (`IsGoodPositionAtGerm`) all hold, `hK` fails, and `ker Dg(0) = 0 ⊕ ℝ` is
-  not in good position to `C` in `E` (`theorem_3_6_8_tame_step_2021`).  Since `X = ℝ` there has no
+  not in good position to `C` in `E` (`theorem_3_6_8_tame_step`).  Since `X = ℝ` there has no
   boundary, tameness of the chart enters even the proof of Theorem 3.6.10 (`∂X = ∅`).  The
   conclusions of these theorems are not refuted by the example (its solution set `O ≅ ℝ` is a
   manifold): whether they hold for untamed germ data is open (Findings, Chapter 3, item 353, the
   passage from germ data in some compatible chart to germ data in a tame one).
 * **`r(0) = 0`** is a field of `IsFilling2021`; the text "assumes" it.  In the project's charts it
   follows from `c.φ x₀ = 0` and `0 ∈ O = r(U)`.
-* **Theorem 3.5.1.**  As in `theorem_3_12_local`, the basic germ `h` and the sc⁺-germ `s` live on
+* **Theorem 3.5.1.**  As in `theorem_3_1_13_local`, the basic germ `h` and the sc⁺-germ `s` live on
   one germ of neighbourhoods `G`, `U = G₀`, and of `s` only its level-wise continuity into `F¹`
   (an sc⁰-germ into `F¹`) is used.  The sets `O(m)` are `O'(m) ∩ G₀` with `O'(m)` open in `E₀`,
   so relatively open in `C` and inside `U`; the closure is taken in `E₀` and lies in `C` because
@@ -372,7 +372,7 @@ theorem isGoodPositionAtGerm_gc :
 
 /-- **`ker Dg(0) = 0 ⊕ ℝ` is not in good position to `C = [0, ∞) × ℝ` in `E`**: a complement `P`
 contains some `p` with first coordinate `1` (write `(1, 0) = n + p`), while every good complement
-lies in `{a = 0}` (preprint Lemma 3.65 = 2021 Lemma 3.8.8, `lemma_3_65`: the index of the first
+lies in `{a = 0}` (preprint Lemma 3.65 = 2021 Lemma 3.8.8, `lemma_3_8_8`: the index of the first
 coordinate is in `Σ`, as `(0, 1) ∈ N ∩ C`). -/
 theorem not_isInGoodPosition_gc :
     ¬ IsInGoodPosition Ec Hc (LinearMap.ker (scDeriv Hc gc (0 : Ec 1) : Ec 0 →ₗ[ℝ] Fc 0)) := by
@@ -395,14 +395,14 @@ theorem not_isInGoodPosition_gc :
     intro h
     have := congrArg (fun q : LinearMap.ker (Lg : Ec 0 →ₗ[ℝ] Fc 0) => (q : Ec 0).2 0) h
     simp at this
-  have := lemma_3_65 (coordFun ((ScIso.refl Ec) 0)) (LinearMap.ker (Lg : Ec 0 →ₗ[ℝ] Fc 0)) P hε
+  have := lemma_3_8_8 (coordFun ((ScIso.refl Ec) 0)) (LinearMap.ker (Lg : Ec 0 →ₗ[ℝ] Fc 0)) P hε
     (fun x hx p hp hle => hgood x hx p hp hle) hz h0
   rw [coordFun_apply] at this
   change z.1 0 = 0 at this
   rw [hz1] at this
   exact one_ne_zero this
 
-/-- **The tameness hypothesis `hK : (1 − Dr(0))E ⊆ E₀` of `theorem_3_54_linear` fails**:
+/-- **The tameness hypothesis `hK : (1 − Dr(0))E ⊆ E₀` of `theorem_3_6_8_linear` fails**:
 `(1 − Dr(0))(1, 0) = (1, 0) ∉ E₀ = 0 ⊕ ℝ`. -/
 theorem not_range_le_minimalSubspace :
     ¬ LinearMap.range (ContinuousLinearMap.id ℝ (Ec 0) - scDeriv Hc (r Rc) (0 : Ec 1) :
@@ -432,12 +432,12 @@ open CornerFilling in
 preprint: Theorem 3.54; and with it Theorems 3.1.22, 3.1.26, Corollary 3.1.27, Theorems 3.6.10 and
 3.6.11).  The step "`ker Tf̃(0)` in good position to `C₀O` in `T₀O` ⟹ `ker Dg(0)` in good position
 to `C` in `E`" uses the sc-complement `ker Dr(0) ⊆ E₀` of `T₀O` which Proposition 2.5.3 gives for a
-tame retract — in the project, the hypothesis `hK` of `theorem_3_54_linear`.  With a 2021 filling
+tame retract — in the project, the hypothesis `hK` of `theorem_3_6_8_linear`.  With a 2021 filling
 over a non-tame retraction it fails: in the corner example every other hypothesis of
-`theorem_3_54_linear` holds (`0 ∈ O`, `f̂(0) = 0`, `f̂` a section of `K`, `g` sc¹ on `U` with
+`theorem_3_6_8_linear` holds (`0 ∈ O`, `f̂(0) = 0`, `f̂` a section of `K`, `g` sc¹ on `U` with
 `Dg(0)`, good position of the germ in the chart), `Dg(0)` is onto, but `r` is not tame, `hK`
 fails, and `ker Dg(0)` is not in good position to `C`. -/
-theorem theorem_3_6_8_tame_step_2021 :
+theorem theorem_3_6_8_tame_step :
     IsFilling2021 relOpen_Hc isStrongBundleRetraction_Rc zero_mem_Hc 0 gc ∧
     ¬ (isStrongBundleRetraction_Rc.baseRetraction relOpen_Hc).IsTame ∧
     (0 : Ec 0) ∈ r Rc '' Hc ∧ (0 : Ec 0 → Fc 0) 0 = 0 ∧
@@ -554,32 +554,32 @@ end StrongBundle
 open StrongBundle
 
 /-- **2021 Theorem 3.1.13, p. 97 (local compactness for sc-Fredholm germs)** (2017: Theorem 3.1;
-preprint: Theorem 3.12), for the 2021 definitions: `theorem_3_12`. -/
-theorem theorem_3_1_13_2021 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm2021 f x₀)
+preprint: Theorem 3.12), for the 2021 definitions: `theorem_3_1_13_preprint`. -/
+theorem theorem_3_1_13 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm2021 f x₀)
     (hx₀ : IsZeroAt P f x₀) :
     ∃ O : ℕ → Set X, (∀ i, IsOpen (O i)) ∧ (∀ i, x₀ ∈ O i) ∧ (∀ i, O (i + 1) ⊆ O i) ∧
       ∀ i, ∃ K : Set (PX.Level i), IsCompact K ∧
         PX.levelVal i '' K = closure {x ∈ O i | IsZeroAt P f x} :=
-  theorem_3_12 hf (isScFredholmGerm2021_iff.1 hg) hx₀
+  theorem_3_1_13_preprint hf (isScFredholmGerm2021_iff.1 hg) hx₀
 
 /-- **2021 Corollary 3.1.15, p. 97** (2017: Corollary 3.1; preprint: Corollary 3.13), for the 2021
-definitions: `corollary_3_13`. -/
-theorem corollary_3_1_15_2021 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm2021 f x₀)
+definitions: `corollary_3_1_15_preprint`. -/
+theorem corollary_3_1_15 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm2021 f x₀)
     (hx₀ : IsZeroAt P f x₀) {x : ℕ → X} (hx : ∀ n, IsZeroAt P f (x n))
     (hlim : Tendsto x atTop (𝓝 x₀)) (m : ℕ) :
     ∃ y₀ : PX.Level m, PX.levelVal m y₀ = x₀ ∧ ∃ y : ℕ → PX.Level m,
       (∀ᶠ n in atTop, PX.levelVal m (y n) = x n) ∧ Tendsto y atTop (𝓝 y₀) :=
-  corollary_3_13 hf (isScFredholmGerm2021_iff.1 hg) hx₀ hx hlim m
+  corollary_3_1_15_preprint hf (isScFredholmGerm2021_iff.1 hg) hx₀ hx hlim m
 
 /-- **2021 Theorem 3.1.18, p. 98 (stability under sc⁺-perturbations)** (2017: Theorem 3.2;
-preprint: Theorem 3.15), for the 2021 definitions: `theorem_3_15`. -/
-theorem theorem_3_1_18_2021 {s : X → Y} (hf : B.IsScFredholmSection2021 f)
+preprint: Theorem 3.15), for the 2021 definitions: `theorem_3_1_18_preprint`. -/
+theorem theorem_3_1_18 {s : X → Y} (hf : B.IsScFredholmSection2021 f)
     (hs : B.IsScPlusSection s) : B.IsScFredholmSection2021 (sectionAdd P f s) :=
-  isScFredholmSection2021_iff.2 (theorem_3_15 (isScFredholmSection2021_iff.1 hf) hs)
+  isScFredholmSection2021_iff.2 (theorem_3_1_18_preprint (isScFredholmSection2021_iff.1 hf) hs)
 
 /-- **2021 Theorem 3.1.21, p. 100 (parametrized perturbations)** (2017: Theorem 3.3; preprint:
-Theorem 3.18), for the 2021 definitions: `theorem_3_18'`. -/
-theorem theorem_3_1_21_2021 {n : ℕ} (hf : B.IsScFredholmSection2021 f) {s : Fin n → X → Y}
+Theorem 3.18), for the 2021 definitions: `theorem_3_1_21'`. -/
+theorem theorem_3_1_21 {n : ℕ} (hf : B.IsScFredholmSection2021 f) {s : Fin n → X → Y}
     (hs : ∀ i, B.IsScPlusSection (s i)) :
     haveI := MPolyfold.paracompactSpace_prod (rnPolyfold n) PX
     haveI := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin n → ℝ) × X → X))
@@ -589,11 +589,11 @@ theorem theorem_3_1_21_2021 {n : ℕ} (hf : B.IsScFredholmSection2021 f) {s : Fi
   have := MPolyfold.paracompactSpace_prod (rnPolyfold n) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin n → ℝ) × X → X))
     ((rnPolyfold n).prod PX) B
-  exact isScFredholmSection2021_iff.2 (theorem_3_18 (isScFredholmSection2021_iff.1 hf) hs)
+  exact isScFredholmSection2021_iff.2 (theorem_3_1_21_preprint (isScFredholmSection2021_iff.1 hf) hs)
 
 /-- **2021 Proposition 3.6.5, p. 135 (`Tf(x)` is sc-Fredholm at a zero)** (2017: Proposition 3.5;
-preprint: Proposition 3.52), for the 2021 definitions: `proposition_3_52`. -/
-theorem proposition_3_6_5_2021 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm2021 f x₀)
+preprint: Proposition 3.52), for the 2021 definitions: `proposition_3_6_5_preprint`. -/
+theorem proposition_3_6_5 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm2021 f x₀)
     (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (h0 : (0 : c.φ.model.E 0) ∈ c.U) (g : c.φ.model.E 0 → c.F 0)
@@ -607,7 +607,7 @@ theorem proposition_3_6_5_2021 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredh
         (fillerRestrict (scDeriv c.U (r c.R) 0) (ρCLM c.isRetraction h0) (Dg 0) h1) ∧
       fredholmIndex (fillerRestrict (scDeriv c.U (r c.R) 0) (ρCLM c.isRetraction h0) (Dg 0) h1) =
         n - N :=
-  proposition_3_52 hf (isScFredholmGerm2021_iff.1 hg) hx₀
+  proposition_3_6_5_preprint hf (isScFredholmGerm2021_iff.1 hg) hx₀
 
 /-! ### Satisfiability of the bundle-level definitions -/
 
@@ -638,8 +638,8 @@ variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0} {G�
 /-- **2021 Proposition 3.1.5, p. 93 (the filler)** (2017: Proposition 3.1; preprint: Proposition
 3.5), for the 2021 filling: if `g` fills the section `f̂` of `K → O` and `f̂(0) = 0`, then (1)
 `Tf̂(0) : T₀O → K₀` is onto iff `Dg(0)` is, (2) one is Fredholm iff the other is, with equal
-indices (`IsFillingGerm.proposition_3_5`; `0 ∈ O` from `r(0) = 0`, `g(0) = 0` from (1)). -/
-theorem proposition_3_1_5_2021 (hU : IsRelOpenInQuadrant E C U)
+indices (`IsFillingGerm.proposition_3_1_5`; `0 ∈ O` from `r(0) = 0`, `g(0) = 0` from (1)). -/
+theorem proposition_3_1_5 (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) {fb g : E 0 → F 0}
     (hfg : IsFilling2021 hU hR h0 fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ)) (hG : G₁.U 0 ⊆ U)
@@ -654,7 +654,7 @@ theorem proposition_3_1_5_2021 (hU : IsRelOpenInQuadrant E C U)
           fredholmIndex (Dg 0) := by
   have h0O : (0 : E 0) ∈ r R '' U := ⟨0, h0, hfg.r_zero⟩
   have hg0 : g 0 = 0 := by rw [← hfg.eq_on.self_of_nhds h0O, hfb0]
-  exact hfg.isFillingGerm.proposition_3_5 hU hR h0 hg0 h0O hfK hG hg
+  exact hfg.isFillingGerm.proposition_3_1_5 hU hR h0 hg0 h0O hfK hG hg
 
 end Filler
 
@@ -688,7 +688,7 @@ with `s(0) = 0`; let `S = {x ∈ U | h(x) + s(x) = 0}`.  Then:
   with `cl(S ∩ O(m)) ⊆ C_m` (the closure lies in `C` and in the image of `E_m`);
 * **(new in 2021)** if `x_k ∈ S` and `x_k → 0` in `E₀`, then for every `m` there are `y_k ∈ E_m`
   with `ι_m(y_k) = x_k` for `k` large (so `x_k ∈ C_m`) and `y_k → 0` in `E_m`. -/
-theorem theorem_3_5_1_2021 (hh : IsBasicGerm Ct G h B) (hCt : IsClosed Ct)
+theorem theorem_3_5_1 (hh : IsBasicGerm Ct G h B) (hCt : IsClosed Ct)
     (hs : IsScSmoothGerm (E := ScBanach.paramProd P W) (F := (ScBanach.paramProd Q W).shift) G s)
     (hs0 : s 0 = 0) :
     (∃ O : ℕ → Set ((ScBanach.paramProd P W) 0),
@@ -707,8 +707,8 @@ theorem theorem_3_5_1_2021 (hh : IsBasicGerm Ct G h B) (hCt : IsClosed Ct)
     (ScBanach.sndOp (ScBanach.const Q) W.shift).isSc0Germ _ |>.comp hs' (G.mapsToGerm_full _)
   have hsW0 : (s 0).2 = 0 := by rw [hs0]; rfl
   refine ⟨?_, fun x hx hlim m =>
-    corollary_3_13_local hh.contraction hCt hsW hsW0 (fun k => hh.solves (hx k)) hlim m⟩
-  obtain ⟨O, hO, h0, hnest, hK⟩ := theorem_3_12_local hh hCt hs' hs0
+    corollary_3_1_15_local hh.contraction hCt hsW hsW0 (fun k => hh.solves (hx k)) hlim m⟩
+  obtain ⟨O, hO, h0, hnest, hK⟩ := theorem_3_1_13_local hh hCt hs' hs0
   have hCcl : IsClosed (Ct ×ˢ (univ : Set (W 0))) := hCt.prod isClosed_univ
   refine ⟨fun m => O m ∩ G.U 0, fun m => ⟨O m, hO m, rfl⟩, fun m => ⟨h0 m, G.zero_mem 0⟩,
     fun m => inter_subset_inter_left _ (hnest m), fun m x hx => ⟨?_, ?_⟩⟩

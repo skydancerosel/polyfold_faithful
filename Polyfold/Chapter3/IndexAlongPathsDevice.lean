@@ -2,11 +2,11 @@ import Polyfold.Chapter3.IndexAlongPaths
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.1,
-**Proposition 6.2** (stability of `ind(f, x)` along sc-smooth paths, pp. 201–203), closed: the
+**Proposition 6.2.2 (preprint 6.2)** (stability of `ind(f, x)` along sc-smooth paths, pp. 201–203), closed: the
 two steps (E) and (S) left open in `IndexAlongPaths.lean` (round-trip item V3.98 (a); Findings,
 Chapter 3, items 345–349).
 
-# Proposition 6.2: the text's device, closed
+# Proposition 6.2.2 (preprint 6.2): the text's device, closed
 
 ## The text, paraphrased
 
@@ -25,11 +25,11 @@ defined sc⁺-section `s(t, x)` of the pull-back to `[0, 1] × X` with `s(t, φ(
   slice is that of `S` composed with `u ↦ (0, u)`).
 * **The slice relation (S).**  `Polyfold.StrongBundle.linAt_ofProd_slice`: in the product chart
   at `(t, x)`, `Lin_G(0)(0, δu) = Lin_{G(t,·)}(0) δu` (the chain rule with the sc-operator
-  `u ↦ (0, u)`, Theorem 1.21); `Polyfold.StrongBundle.isLinOfIndex_pullbackSlice_of_isLinOfIndex`:
+  `u ↦ (0, u)`, Theorem 1.3.1 (preprint 1.21)); `Polyfold.StrongBundle.isLinOfIndex_pullbackSlice_of_isLinOfIndex`:
   **if `G'(t, x)` is Fredholm of index `i` then `G(t, ·)'(x)` is Fredholm of index `i − n`**
   (`Lin_G(0)(δa, δu) = Lin_{G(t,·)}(0) δu + Lin_G(0)(δa, 0)` and `fredholmIndex_eq_of_param`);
   `Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex` is the hypothesis (S) of
-  `proposition_6_2_of_sections_of_slice`.
+  `proposition_6_2_2_of_sections_of_slice`.
 * **The section along the path (E).**  `Polyfold.isScSmoothMap_rn_of_contDiff` (`C^∞` self-maps
   of `ℝⁿ` are sc-smooth), `Polyfold.exists_contDiff_eq_id_near_mapsTo` (a smooth reparametrization
   equal to the identity near `t₀` with values in a given ball), and
@@ -39,17 +39,17 @@ defined sc⁺-section `s(t, x)` of the pull-back to `[0, 1] × X` with `s(t, φ(
   `S(t, x) = −β(x) R(x, Φ(f(φ(t)))₂)` in a strong bundle chart around `φ(t₀)`
   (`cutoffSection` in the product chart, `isScPlusSection_cutoffSection`).  The curve
   `t ↦ Φ(f(φ(t)))₂` is sc-smooth into `F¹` because sc-smooth maps are sc-smooth on the shifted
-  spaces (Proposition 1.17, `IsScSmooth.shift`) and the shift of the constant structure `ℝⁿ` is
+  spaces (Proposition 1.2.2 (preprint 1.17), `IsScSmooth.shift`) and the shift of the constant structure `ℝⁿ` is
   `ℝⁿ`; the `[1]`-sc-smoothness of the bundle retraction is `IsStrongBundleMap.isScSmooth_one`.
-* **`Polyfold.proposition_6_2`** (Proposition 6.2): for `X` admitting sc-smooth bump functions,
+* **`Polyfold.proposition_6_2_2`** (Proposition 6.2.2 (preprint 6.2)): for `X` admitting sc-smooth bump functions,
   `f` an sc-Fredholm section with tame germ data and `φ : ℝ → X` sc-smooth, `ind(f, φ(t))`
-  (Definition 6.1) is one integer for all `t`.
+  (Definition 6.2.1 (preprint 6.1)) is one integer for all `t`.
 
 ## What the text leaves implicit, and the choices made
 
 * **The path.**  The text's path is `φ : [0, 1] → X`, sc-smooth, and `[0, 1] × X` is used as a
   tame M-polyfold with boundary.  Here the path is an sc-smooth map `ℝ → X` (`Fin 1 → ℝ`, the
-  M-polyfold `rnPolyfold 1`), so that `ℝ × X` is the product of Theorem 3.18 and no boundary
+  M-polyfold `rnPolyfold 1`), so that `ℝ × X` is the product of Theorem 3.1.21 (preprint 3.18) and no boundary
   enters; the parameter space is preconnected.  A path on `[0, 1]` which extends sc-smoothly to
   `ℝ` is covered.  The sc-smoothness of the path is used only in (E), through the sc-smoothness of
   `t ↦ f(φ(t))`; smooth points are automatic (`rnPolyfold_levelSet`).
@@ -58,10 +58,10 @@ defined sc⁺-section `s(t, x)` of the pull-back to `[0, 1] × X` with `s(t, φ(
   here the path is precomposed with a smooth `σ : ℝⁿ → ℝⁿ` equal to the identity near `t₀` with
   values in `φ⁻¹(dom φ_c)` (`exists_contDiff_eq_id_near_mapsTo`), which makes the section global
   on `ℝⁿ × X` and leaves the statement near `t₀` unchanged.
-* **Hypotheses.**  Proposition 6.2 is proved with the hypotheses of item 240 (tame germ data, bump
+* **Hypotheses.**  Proposition 6.2.2 (preprint 6.2) is proved with the hypotheses of item 240 (tame germ data, bump
   functions); the text assumes a tame M-polyfold and no bump functions (Findings, Chapter 3, item
   343).  The construction of `S` needs bump functions only to cut the chart-local section off
-  (`proposition_5_30` at `φ(t₀)`); the index step (S) needs none.
+  (`proposition_5_5_3` at `φ(t₀)`); the index step (S) needs none.
 -/
 
 open Set Filter Topology Function Module ContinuousLinearMap
@@ -213,7 +213,7 @@ lemma PullbackChartData.r_ofProd (c : StrongBundleChart PX P) (t : Fin n → ℝ
 /-- **The linearization of `G` on the slice direction, in the product chart**: for an sc-smooth
 section `G` of `π*P`, a strong bundle chart `c` with `0 ∈ U` and the product chart
 `pc = (r ↦ r − t) × φ`, `Lin_G(0)(0, δu) = Lin_{G(t,·)}(0) δu` for `(0, δu) ∈ T₀(ℝⁿ × O)`.  Proof:
-the chain rule (Theorem 1.21, `scDeriv_comp_apply'`) for `H ∘ ι` with `H = Ĝ ∘ (1 × r)`,
+the chain rule (Theorem 1.3.1 (preprint 1.21), `scDeriv_comp_apply'`) for `H ∘ ι` with `H = Ĝ ∘ (1 × r)`,
 `ι(u) = (0, u)` an sc-operator (`ScOperator.scDeriv_eq`), and `H ∘ ι = Ĝ(t, ·) ∘ r`. -/
 theorem StrongBundle.linAt_ofProd_slice {G : (Fin n → ℝ) × X → pullbackSpace P Prod.snd}
     (hG : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScSmoothSection G)
@@ -414,9 +414,9 @@ theorem StrongBundle.isLinOfIndex_pullbackSlice_of_isLinOfIndex
   rw [← hL₁ind]
   omega
 
-/-- **The hypothesis (S) of `proposition_6_2_of_sections_of_slice`**: for an sc-Fredholm section
+/-- **The hypothesis (S) of `proposition_6_2_2_of_sections_of_slice`**: for an sc-Fredholm section
 `f`, an sc⁺-section `S` of `π*P` (`π : ℝ × X → X`) and a zero `(t, x)` of `f̃ + S` at which
-`(f̃ + S)'(t, x)` has index `i`, `ind(f, x) = i − 1` (Definition 6.1, through the slice
+`(f̃ + S)'(t, x)` has index `i`, `ind(f, x) = i − 1` (Definition 6.2.1 (preprint 6.1), through the slice
 `s = S(t, ·)`: `f + s` vanishes at `x` and `(f + s)'(x)` has index `i − 1`). -/
 theorem StrongBundle.isIndexAt_of_pullback_isLinOfIndex [ParacompactSpace ((Fin 1 → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin 1 → ℝ) × X → X))]
@@ -429,14 +429,14 @@ theorem StrongBundle.isIndexAt_of_pullback_isLinOfIndex [ParacompactSpace ((Fin 
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S) (t, x) i) :
     B.IsIndexAt f x (i - 1) := by
   have hfs : IsSection P f := hf.isScSmooth.1
-  have hG := theorem_3_15 hf.param hS
+  have hG := theorem_3_1_18_preprint hf.param hS
   have hGs : IsSection (pullbackProj P Prod.snd)
       (sectionAdd (pullbackProj P Prod.snd) (paramLift (n := 1) f hfs) S) := hG.isScSmooth.1
   have hslice := pullbackSlice_sectionAdd_paramLift hfs hS.1 t
   have hz' : IsZeroAt P (sectionAdd P f (Polyfold.pullbackSlice S t)) x := by
     rw [← hslice]; exact (isZeroAt_pullback_iff_pullbackSlice hGs t x).1 hz
   have hg : B.IsScFredholmSection (sectionAdd P f (Polyfold.pullbackSlice S t)) :=
-    theorem_3_15 hf (hS.pullbackSlice t)
+    theorem_3_1_18_preprint hf (hS.pullbackSlice t)
   refine ⟨Polyfold.pullbackSlice S t, hS.pullbackSlice t, hz', ?_⟩
   have := StrongBundle.isLinOfIndex_pullbackSlice_of_isLinOfIndex hG (hslice ▸ hg) (hslice ▸ hz') hi
   rw [hslice] at this
@@ -499,7 +499,7 @@ sc⁺-section `S` of the pull-back `π*P` (`π : ℝⁿ × X → X`) with `f̃ +
 `t ↦ (t, φ(t))` near `t₀` (`f̃ = f ∘ π`).  Construction: a strong bundle chart `c` around
 `φ(t₀)`; a smooth reparametrization `ψ = φ ∘ σ` with values in `dom φ_c` and `σ = id` near `t₀`;
 the curve `ê₁(a) = Φ(f(ψ(a)))₂` lifted to `F¹`, sc-smooth from the constant structure `ℝⁿ`
-(Proposition 1.17, `IsScSmooth.shift`); the local section `τ(a, u) = −R[1](u, ê₁(a + t₀))₂` of
+(Proposition 1.2.2 (preprint 1.17), `IsScSmooth.shift`); the local section `τ(a, u) = −R[1](u, ê₁(a + t₀))₂` of
 `K[1]` in the product chart (the `[1]`-sc-smoothness of the bundle retraction); and the cut-off
 `S = cutoffSection pc β τ` with a bump `β(t, x) = β₂(x)` equal to `1` near `φ(t₀)`
 (`isScPlusSection_cutoffSection`).  At `(t, φ(t))`, `Φ(S(t, φ(t)))₂ = −R(φ_c(φ(t)), ê(t))₂ =
@@ -612,7 +612,7 @@ theorem exists_isScPlusSection_pullback_of_path (hbump : PX.AdmitsBumpFunctions)
         ((hsf.snd hU).neg hU).congr hU fun _ _ => rfl
       exact (R.isScSmooth.scPair hU hτR).congr hU fun _ _ => rfl
   -- the bump `β(t, x) = β₂(x)`
-  obtain ⟨β₂, hβ₂, -, -, hβ₂s, hβ₂1⟩ := proposition_5_30 hbump c.φ.isOpen_source hxc
+  obtain ⟨β₂, hβ₂, -, -, hβ₂s, hβ₂1⟩ := proposition_5_5_3 hbump c.φ.isOpen_source hxc
   set β : (Fin n → ℝ) × X → ℝ := fun p => β₂ p.2 with hβdef
   have hβ : ((rnPolyfold n).prod PX).IsScSmoothMap realPolyfold β :=
     hβ₂.comp (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)
@@ -666,7 +666,7 @@ theorem exists_isScPlusSection_pullback_of_path (hbump : PX.AdmitsBumpFunctions)
 
 end Device
 
-/-! ### Proposition 6.2 -/
+/-! ### Proposition 6.2.2 (preprint 6.2) -/
 
 section Prop62
 
@@ -674,34 +674,34 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {P : Y → X}
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
 
-/-- **Proposition 6.2 (stability of the index along sc-smooth paths)**: let `X` admit sc-smooth
-bump functions, `f` be an sc-Fredholm section of `P : Y → X` with tame germ data (Definition 3.51)
-and `φ : ℝ → X` an sc-smooth path.  Then `ind(f, φ(t))` (Definition 6.1) is one integer for all
+/-- **Proposition 6.2.2 (preprint 6.2) (stability of the index along sc-smooth paths)**: let `X` admit sc-smooth
+bump functions, `f` be an sc-Fredholm section of `P : Y → X` with tame germ data (Definition 3.6.4 (preprint 3.51))
+and `φ : ℝ → X` an sc-smooth path.  Then `ind(f, φ(t))` (Definition 6.2.1 (preprint 6.1)) is one integer for all
 `t`; in particular `ind(f, φ(0)) = ind(f, φ(1))`.  The text's proof, formalized: the sc⁺-section
 `S` along the path (`exists_isScPlusSection_pullback_of_path`), the local constancy of the index
-of `f̃ + S` along its zero set on `ℝ × X` (Theorem 3.18, Theorem 3.15, item 240), the index
+of `f̃ + S` along its zero set on `ℝ × X` (Theorem 3.1.21 (preprint 3.18), Theorem 3.1.18 (preprint 3.15), item 240), the index
 count of the slice (`isIndexAt_of_pullback_isLinOfIndex`) and the preconnectedness of `ℝ`
-(`proposition_6_2_of_sections_of_slice`). -/
-theorem proposition_6_2 [ParacompactSpace ((Fin 1 → ℝ) × X)]
+(`proposition_6_2_2_of_sections_of_slice`). -/
+theorem proposition_6_2_2 [ParacompactSpace ((Fin 1 → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin 1 → ℝ) × X → X))]
     (hbump : PX.AdmitsBumpFunctions) {f : X → Y} (hf : B.IsScFredholmSectionTame f)
     {φ : (Fin 1 → ℝ) → X} (hφ : (rnPolyfold 1).IsScSmoothMap PX φ) :
     ∃ i : ℤ, ∀ t, B.IsIndexAt f (φ t) i :=
-  proposition_6_2_of_sections_of_slice hbump hf (continuousOn_univ.1 hφ.continuousOn)
+  proposition_6_2_2_of_sections_of_slice hbump hf (continuousOn_univ.1 hφ.continuousOn)
     (fun t₀ => exists_isScPlusSection_pullback_of_path hbump hf.isScSmooth hφ t₀)
     (fun _ hS _ _ hz hi =>
       StrongBundle.isIndexAt_of_pullback_isLinOfIndex hf.toIsScFredholmSection hS hz hi)
 
-/-- **Proposition 6.2 with no instance arguments** (the paracompactness of `ℝ × X` and of `π*Y`
-is supplied by Theorem 2.16, as in `theorem_3_18'`). -/
-theorem proposition_6_2' (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
+/-- **Proposition 6.2.2 (preprint 6.2) with no instance arguments** (the paracompactness of `ℝ × X` and of `π*Y`
+is supplied by Theorem 2.3.10 (preprint 2.16), as in `theorem_3_1_21'`). -/
+theorem proposition_6_2_2' (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) {φ : (Fin 1 → ℝ) → X}
     (hφ : (rnPolyfold 1).IsScSmoothMap PX φ) :
     ∃ i : ℤ, ∀ t, B.IsIndexAt f (φ t) i := by
   have := MPolyfold.paracompactSpace_prod (rnPolyfold 1) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin 1 → ℝ) × X → X))
     ((rnPolyfold 1).prod PX) B
-  exact proposition_6_2 hbump hf hφ
+  exact proposition_6_2_2 hbump hf hφ
 
 end Prop62
 

@@ -2,60 +2,60 @@ import Polyfold.Chapter3.GermIFT
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definition 3.7 (basic germs), Theorem 3.12 (local compactness for sc-Fredholm germs) and
-Corollary 3.13 **in their local form**, which is Theorem 3.40 of §3.5 (local regularity and
+Definition 3.1.7 (preprint 3.7) (basic germs), Theorem 3.1.13 (preprint 3.12) (local compactness for sc-Fredholm germs) and
+Corollary 3.1.15 (preprint 3.13) **in their local form**, which is Theorem 3.5.1 (preprint 3.40) of §3.5 (local regularity and
 compactness) together with the compactness argument the text calls "an immediate consequence".
 
 # Local regularity and compactness of the solution set
 
 ## The text, paraphrased
 
-(Definition 3.7) A basic germ is an sc-smooth germ `f : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` with `f(0) = 0` whose
+(Definition 3.1.7 (preprint 3.7)) A basic germ is an sc-smooth germ `f : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` with `f(0) = 0` whose
 `W`-component is `P ∘ f(a, w) = w − B(a, w)` with `B(0, 0) = 0` and
 `|B(a, w) − B(a, w')|_m ≤ ε|w − w'|_m` for `(a, w), (a, w')` close enough to `(0, 0)` on level `m`.
-(Theorem 3.40) Let `f = h + s` on a relatively open `U ∋ 0` of `C`, `h` a basic germ, `s` an
+(Theorem 3.5.1 (preprint 3.40)) Let `f = h + s` on a relatively open `U ∋ 0` of `C`, `h` a basic germ, `s` an
 sc⁺-germ with `s(0) = 0`, `S = {f = 0}`.  Then there are relatively open neighbourhoods
 `U ⊃ O(0) ⊃ O(1) ⊃ …` of `0` on level `0` with `cl_{C₀}(S ∩ O(m)) ⊆ C_m` for every `m`.
-(Theorem 3.12) For an sc-Fredholm germ `(f, x₀)` with `f(x₀) = 0` there are nested open
+(Theorem 3.1.13 (preprint 3.12)) For an sc-Fredholm germ `(f, x₀)` with `f(x₀) = 0` there are nested open
 neighbourhoods `O(i)` of `x₀` in `X₀` such that `cl_{X₀}({x ∈ O(i) | f(x) = 0})` is a compact
-subset of `X_i`; "an immediate consequence of Theorem 3.40".  (Corollary 3.13) If `f(x_k) = 0`
+subset of `X_i`; "an immediate consequence of Theorem 3.40".  (Corollary 3.1.15 (preprint 3.13)) If `f(x_k) = 0`
 and `x_k → x` in `X₀`, then `x_k ∈ X_m` for `k` large and `x_k → x` in `X_m`, for every `m`.
 
 ## What is formalized
 
 * `Polyfold.exists_fixedPoint_continuousOn`: the **parametrized Banach fixed point theorem** the
-  text invokes in Theorems 3.29 and 3.40 (fixed point continuous in the parameter, unique in the
+  text invokes in Theorems 3.3.2 and 3.5.1 (preprint 3.29 and 3.40) (fixed point continuous in the parameter, unique in the
   contraction region).
-* `Polyfold.IsBasicGerm` (**Definition 3.7**, on a germ of neighbourhoods, for a finite-dimensional
+* `Polyfold.IsBasicGerm` (**Definition 3.1.7 (preprint 3.7)**, on a germ of neighbourhoods, for a finite-dimensional
   `Q` in place of `ℝᴺ` and any quadrant-like `C̃ ⊆ P`).
-* `Polyfold.IsSc0ContractionGerm.exists_lift` (**the induction of Theorem 3.40**): for the solutions
+* `Polyfold.IsSc0ContractionGerm.exists_lift` (**the induction of Theorem 3.5.1 (preprint 3.40)**): for the solutions
   of `w = B(a, w) − s(a, w)` with `|a|, |w|₀ ≤ τ_m`, a lift to level `m` bounded in `W_m`,
   continuous from the level-`0` topology into `E_m`.
-* `Polyfold.theorem_3_40_compactness` (**Theorem 3.40 and the local Theorem 3.12**): for any
+* `Polyfold.theorem_3_5_1_compactness` (**Theorem 3.5.1 (preprint 3.40) and the local Theorem 3.1.13 (preprint 3.12)**): for any
   `S ⊆ {w = B(a, w) − s(a, w)}` there are nested open neighbourhoods `O(i)` of `0` in `E₀` such
-  that `cl_{E₀}(S ∩ O(i)) = ι_i(K_i)` with `K_i ⊆ E_i` compact; `theorem_3_40_regularity`
-  (`S ∩ O(i) ⊆ E_i`); `theorem_3_12_local` for a basic germ plus an sc⁺-germ;
-  `corollary_3_13_local` (**Corollary 3.13** for `x_k → 0`).
+  that `cl_{E₀}(S ∩ O(i)) = ι_i(K_i)` with `K_i ⊆ E_i` compact; `theorem_3_5_1_regularity`
+  (`S ∩ O(i) ⊆ E_i`); `theorem_3_1_13_local` for a basic germ plus an sc⁺-germ;
+  `corollary_3_1_15_local` (**Corollary 3.1.15 (preprint 3.13)** for `x_k → 0`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Theorem 3.12 and Corollary 3.13 are stated for sc-Fredholm germs on tame strong bundles over
-  M-polyfolds** (Definitions 2.50, 3.4, 3.6, 3.11).  This file proves their local content, the
-  local Theorem 3.40 — the solution set of a filled version, conjugated to a basic germ after
+* **Theorem 3.1.13 (preprint 3.12) and Corollary 3.1.15 (preprint 3.13) are stated for sc-Fredholm germs on tame strong bundles over
+  M-polyfolds** (Definitions 2.6.4, 3.1.4, 3.1.6, 3.1.11 (preprint 2.50, 3.4, 3.6, 3.11)).  This file proves their local content, the
+  local Theorem 3.5.1 (preprint 3.40) — the solution set of a filled version, conjugated to a basic germ after
   subtracting an sc⁺-section, in a strong bundle chart.  The global statements are in
-  `SectionCompactness.lean` (`Polyfold.theorem_3_12_wholeChart`, `Polyfold.corollary_3_13_wholeChart`,
-  `Polyfold.corollary_3_13_section_wholeChart`, on the definitions of `StrongBundleSections.lean`): the
+  `SectionCompactness.lean` (`Polyfold.theorem_3_1_13_wholeChart`, `Polyfold.corollary_3_1_15_wholeChart`,
+  `Polyfold.corollary_3_1_15_section_wholeChart`, on the definitions of `StrongBundleSections.lean`): the
   passage from the local statement to the M-polyfold one goes through the chart, the filler and
   the fibre maps of the conjugating strong bundle isomorphism (`Ψ ∘ (g − s) ∘ ψ⁻¹ = 0 ⟺ g = s`,
-  hence the `s` of Theorem 3.40 is the push-forward of the sc⁺-section of Definition 3.11), and
+  hence the `s` of Theorem 3.5.1 (preprint 3.40) is the push-forward of the sc⁺-section of Definition 3.1.11 (preprint 3.11)), and
   the continuity of the inverse chart `O_i → X_i` for the level topology.
-* **The compactness of Theorem 3.12 is not in Theorem 3.40**, which only states regularity
+* **The compactness of Theorem 3.1.13 (preprint 3.12) is not in Theorem 3.5.1 (preprint 3.40)**, which only states regularity
   `cl(S ∩ O(m)) ⊆ C_m`.  Compactness in `E_i` of `cl(S ∩ O(i))` needs: the solutions in `O(i)`
   lie in level `i + 1` with `|w|_{i+1}` bounded (so their `W_i`-part is precompact by the
   compactness of `W_{i+1} → W_i`), the solution set is closed, and the level-`i` lift is
-  continuous for the level-`0` topology (the convergence upgrade in the proof of Theorem 3.40).
+  continuous for the level-`0` topology (the convergence upgrade in the proof of Theorem 3.5.1 (preprint 3.40)).
   The sets `O(i)` here are the balls of radius `τ_{i+1}`, one level ahead of the text's.
-* **The induction step of Theorem 3.40 ("now clear … left to the reader")** needs more than the
+* **The induction step of Theorem 3.5.1 (preprint 3.40) ("now clear … left to the reader")** needs more than the
   level-`1` step shows: the bound `|P ∘ s(a, w)|_{m+1} ≤ τ'_{m+1}/4` requires `(a, w)` small on
   level `m`, while `O(m+1)` only controls level `0`.  The smallness on level `m` of a solution
   comes from the continuity at `0` of the level-`m` lift `(a, w) ↦ (a, δ_m(a, P∘s(a, w)))` — the
@@ -71,7 +71,7 @@ and `x_k → x` in `X₀`, then `x_k ∈ X_m` for `k` large and `x_k → x` in `
   is used, and of it only: `B` sc⁰ with the contraction estimates (not sc-smooth), `s` sc⁰ into
   `W¹` (the sc⁺ property on every level) with `s(0) = 0`.  The `ℝᴺ`-component only shrinks `S`.
 * The sets `O(i)` of the text are "relatively open neighbourhoods of `0` in `C` on level `0`"
-  (Theorem 3.40) and "open neighbourhoods of `x₀` in `X₀`" (Theorem 3.12); here `O(i)` is open in
+  (Theorem 3.5.1 (preprint 3.40)) and "open neighbourhoods of `x₀` in `X₀`" (Theorem 3.1.13 (preprint 3.12)); here `O(i)` is open in
   `E₀` and `S ⊆ C₀` is arbitrary inside the solution set, which gives both.
 -/
 
@@ -83,7 +83,7 @@ namespace Polyfold
 
 /-! ### The parametrized Banach fixed point theorem -/
 
-/-- **The parametrized Banach fixed point theorem** (used in Theorems 3.29 and 3.40): if
+/-- **The parametrized Banach fixed point theorem** (used in Theorems 3.3.2 and 3.5.1 (preprint 3.29 and 3.40)): if
 `g l : K → K` is a `1/2`-contraction on the closed nonempty `K` for every parameter `l ∈ Λ'`, and
 `l ↦ g l x` is continuous on `Λ'` for every `x ∈ K`, then the fixed point `φ l ∈ K` of `g l`
 depends continuously on `l ∈ Λ'`, and is the only fixed point of `g l` in `K`. -/
@@ -130,11 +130,11 @@ theorem exists_fixedPoint_continuousOn {Λ X : Type} [TopologicalSpace Λ] [Metr
 variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensional ℝ P]
   {W : ScBanach} {Ct : Set P}
 
-/-! ### Definition 3.7: basic germs -/
+/-! ### Definition 3.1.7 (preprint 3.7): basic germs -/
 
-/-- **Definition 3.7**: `f : O(C̃ ⊕ W, 0) → Q ⊕ W` (`Q` finite-dimensional, the text's `ℝᴺ`) is a
+/-- **Definition 3.1.7 (preprint 3.7)**: `f : O(C̃ ⊕ W, 0) → Q ⊕ W` (`Q` finite-dimensional, the text's `ℝᴺ`) is a
 **basic germ** if it is an sc-smooth germ with `f(0) = 0` whose `W`-component has the form
-`P ∘ f(a, w) = w − B(a, w)` with `B` an sc⁰-contraction germ (Definition 3.28: `B(0, 0) = 0` and
+`P ∘ f(a, w) = w − B(a, w)` with `B` an sc⁰-contraction germ (Definition 3.3.1 (preprint 3.28): `B(0, 0) = 0` and
 `|B(a, w) − B(a, w')|_m ≤ ε|w − w'|_m` near `(0, 0)` on every level). -/
 structure IsBasicGerm {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensional ℝ Q]
     (Ct : Set P) (G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ))
@@ -151,7 +151,7 @@ namespace IsSc0ContractionGerm
 variable {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 → W 0}
   (h : IsSc0ContractionGerm Ct G B)
 
-/-- The level-`m` contraction radius: within the radius of Definition 3.28, and so small that the
+/-- The level-`m` contraction radius: within the radius of Definition 3.3.1 (preprint 3.28), and so small that the
 level-`0` image of the level-`m` ball lies in the level-`0` contraction ball
 (the text's `τ'_1 < τ_0/c_1`). -/
 def crad (m : ℕ) : ℝ := min (h.rad m) (h.rad 0 / (‖W.toBase m‖ + 1))
@@ -265,7 +265,7 @@ lemma gmap_continuousOn {m : ℕ} {w : W m} (hw : w ∈ h.cBall m) :
   exact h.mem_G_of_lt hp.1 ((hp.2.1.trans_le (h.cprad_le m)).trans_le (h.crad_le m))
     ((hw.trans_lt (by linarith)).trans_le (h.crad_le m))
 
-/-- **The level-`m` fixed point `δ_m(a, z)` of Theorem 3.40**: the solution of
+/-- **The level-`m` fixed point `δ_m(a, z)` of Theorem 3.5.1 (preprint 3.40)**: the solution of
 `w = B_m(a, w) − z` in `K_m`, continuous on `Σ_m`, unique in `K_m`. -/
 lemma exists_delta (m : ℕ) : ∃ δ : P × W m → W m,
     (∀ p ∈ h.Sigma m, δ p ∈ h.cBall m ∧ gmap B m p (δ p) = δ p) ∧
@@ -295,7 +295,7 @@ lemma delta_continuousOn (m : ℕ) : ContinuousOn (h.delta m) (h.Sigma m) :=
 
 end IsSc0ContractionGerm
 
-/-! ### The solution set and its level-`m` lifts (the induction of Theorem 3.40) -/
+/-! ### The solution set and its level-`m` lifts (the induction of Theorem 3.5.1 (preprint 3.40)) -/
 
 /-- The solutions of `w = B(a, w) − s(a, w)` with `a ∈ C̃`, `|a| ≤ τ`, `|w|₀ ≤ τ`. -/
 def solSet (Ct : Set P) (B : P × W 0 → W 0) (s : P × W 0 → W 1) (τ : ℝ) :
@@ -356,7 +356,7 @@ lemma isClosed_solSet (hCt : IsClosed Ct) (hs : IsSc0Germ (F := W.shift) G s) {�
   simp only [solSet, Set.mem_ofPred_eq, mem_inter_iff, mem_preimage, mem_singleton_iff, sub_eq_zero]
   tauto
 
-/-- **The induction of Theorem 3.40**: for every `m` there is `τ_m > 0` and a lift
+/-- **The induction of Theorem 3.5.1 (preprint 3.40)**: for every `m` there is `τ_m > 0` and a lift
 `L_m : E₀ → E_m` such that for every solution `x = (a, w)` with `a ∈ C̃`, `|a|, |w|₀ ≤ τ_m`:
 `ι_m(L_m x) = x`, `L_m x ∈ U_m`, `|(L_m x)_W|_m ≤ r_m/2`, and `L_m` is continuous on this
 solution set for the level-`0` topology.  Step `m → m+1`: `L_{m+1} x = (a, δ_{m+1}(a, s_m(L_m x)))`
@@ -467,7 +467,7 @@ theorem exists_lift (hCt : IsClosed Ct) (hs : IsSc0Germ (F := W.shift) G s) (hs0
 
 end IsSc0ContractionGerm
 
-/-! ### Theorem 3.40 and the local Theorem 3.12 -/
+/-! ### Theorem 3.5.1 (preprint 3.40) and the local Theorem 3.1.13 (preprint 3.12) -/
 
 variable {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 → W 0}
   {s : P × W 0 → W 1}
@@ -507,13 +507,13 @@ lemma IsSc0ContractionGerm.isCompact_lift_image (h : IsSc0ContractionGerm Ct G B
   refine h2.congr fun n => ?_
   simp only [Function.comp_apply, hxy]
 
-/-- **Theorem 3.40 (local regularity and compactness), with the compactness of Theorem 3.12**:
+/-- **Theorem 3.5.1 (preprint 3.40) (local regularity and compactness), with the compactness of Theorem 3.1.13 (preprint 3.12)**:
 let `B` be an sc⁰-contraction germ on `O(C̃ ⊕ W, 0)` (`C̃` closed), `s` an sc⁺-germ (`s : U_m → W_{m+1}`
 continuous on every level) with `s(0) = 0`, and `S` any set of solutions of `w = B(a, w) − s(a, w)`
 in `U₀`.  Then there are nested open neighbourhoods `O(i)` of `0` in `E₀` such that for every
 `i` the closure of `S ∩ O(i)` in `E₀` is `ι_i(K_i)` for a compact `K_i ⊆ E_i`; in particular
 `S ∩ O(i) ⊆ E_i`. -/
-theorem theorem_3_40_compactness (h : IsSc0ContractionGerm Ct G B) (hCt : IsClosed Ct)
+theorem theorem_3_5_1_compactness (h : IsSc0ContractionGerm Ct G B) (hCt : IsClosed Ct)
     (hs : IsSc0Germ (F := W.shift) G s) (hs0 : s 0 = 0) {S : Set ((ScBanach.paramProd P W) 0)}
     (hS : ∀ x ∈ S, x ∈ G.U 0 ∧ x.2 = B x - W.toBase 1 (s x)) :
     ∃ O : ℕ → Set ((ScBanach.paramProd P W) 0), (∀ i, IsOpen (O i)) ∧ (∀ i, (0 : P × W 0) ∈ O i) ∧
@@ -567,25 +567,25 @@ theorem theorem_3_40_compactness (h : IsSc0ContractionGerm Ct G B) (hCt : IsClos
   refine (subset_inter (fun x hx => ?_) subset_rfl).antisymm inter_subset_right
   exact ⟨x, hcl hx, himg x (hcl hx)⟩
 
-/-- **Theorem 3.40, the regularity statement**: `S ∩ O(i) ⊆ E_i` (indeed `cl(S ∩ O(i)) ⊆ E_i`). -/
-theorem theorem_3_40_regularity (h : IsSc0ContractionGerm Ct G B) (hCt : IsClosed Ct)
+/-- **Theorem 3.5.1 (preprint 3.40), the regularity statement**: `S ∩ O(i) ⊆ E_i` (indeed `cl(S ∩ O(i)) ⊆ E_i`). -/
+theorem theorem_3_5_1_regularity (h : IsSc0ContractionGerm Ct G B) (hCt : IsClosed Ct)
     (hs : IsSc0Germ (F := W.shift) G s) (hs0 : s 0 = 0) {S : Set ((ScBanach.paramProd P W) 0)}
     (hS : ∀ x ∈ S, x ∈ G.U 0 ∧ x.2 = B x - W.toBase 1 (s x)) :
     ∃ O : ℕ → Set ((ScBanach.paramProd P W) 0), (∀ i, IsOpen (O i)) ∧ (∀ i, (0 : P × W 0) ∈ O i) ∧
       (∀ i, O (i + 1) ⊆ O i) ∧
       ∀ i, ∀ x ∈ closure (S ∩ O i), x ∈ range ((ScBanach.paramProd P W).toBase i) := by
-  obtain ⟨O, hO, h0, hnest, hK⟩ := theorem_3_40_compactness h hCt hs hs0 hS
+  obtain ⟨O, hO, h0, hnest, hK⟩ := theorem_3_5_1_compactness h hCt hs hs0 hS
   refine ⟨O, hO, h0, hnest, fun i x hx => ?_⟩
   obtain ⟨K, -, hKeq⟩ := hK i
   rw [hKeq] at hx
   obtain ⟨y, -, rfl⟩ := hx
   exact ⟨y, rfl⟩
 
-/-- **Theorem 3.12 in its local form** (the solution set of a basic germ plus an sc⁺-germ, the
-local model of an sc-Fredholm germ by Definition 3.11): for a basic germ `f : O(C̃ ⊕ W, 0) → Q ⊕ W`
+/-- **Theorem 3.1.13 (preprint 3.12) in its local form** (the solution set of a basic germ plus an sc⁺-germ, the
+local model of an sc-Fredholm germ by Definition 3.1.11 (preprint 3.11)): for a basic germ `f : O(C̃ ⊕ W, 0) → Q ⊕ W`
 (`C̃` closed) and an sc⁺-germ `s` with `s(0) = 0`, there are nested open neighbourhoods `O(i)` of
 `0` such that the `E₀`-closure of `{x ∈ O(i) | f(x) + s(x) = 0}` is a compact subset of `E_i`. -/
-theorem theorem_3_12_local {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
+theorem theorem_3_1_13_local {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
     [FiniteDimensional ℝ Q] {f : P × W 0 → Q × W 0} (hf : IsBasicGerm Ct G f B) (hCt : IsClosed Ct)
     {s : P × W 0 → Q × W 1}
     (hs : IsSc0Germ (E := ScBanach.paramProd P W) (F := (ScBanach.paramProd Q W).shift) G s)
@@ -599,7 +599,7 @@ theorem theorem_3_12_local {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
   have hsW : IsSc0Germ (E := ScBanach.paramProd P W) (F := W.shift) G (fun x => (s x).2) :=
     (ScBanach.sndOp (ScBanach.const Q) W.shift).isSc0Germ _ |>.comp hs (G.mapsToGerm_full _)
   have hsW0 : (s 0).2 = 0 := by rw [hs0]; rfl
-  refine theorem_3_40_compactness hf.contraction hCt hsW hsW0 fun x hx => ⟨hx.1, ?_⟩
+  refine theorem_3_5_1_compactness hf.contraction hCt hsW hsW0 fun x hx => ⟨hx.1, ?_⟩
   have h2 := congrArg Prod.snd hx.2
   rw [ScBanach.paramProd_toBase] at h2
   change (f x).2 + W.toBase 1 (s x).2 = 0 at h2
@@ -608,17 +608,17 @@ theorem theorem_3_12_local {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
   rw [sub_add_eq_add_sub, sub_eq_zero] at this
   exact eq_sub_of_add_eq this
 
-/-- **Corollary 3.13 in its local form**: if `x_k` are solutions (of `w = B(a, w) − s(a, w)` in
+/-- **Corollary 3.1.15 (preprint 3.13) in its local form**: if `x_k` are solutions (of `w = B(a, w) − s(a, w)` in
 `U₀`) converging to `0` on level `0`, then for every `m` the `x_k` lie in `E_m` for `k` large and
 converge to `0` in `E_m`. -/
-theorem corollary_3_13_local (h : IsSc0ContractionGerm Ct G B) (hCt : IsClosed Ct)
+theorem corollary_3_1_15_local (h : IsSc0ContractionGerm Ct G B) (hCt : IsClosed Ct)
     (hs : IsSc0Germ (F := W.shift) G s) (hs0 : s 0 = 0) {x : ℕ → (ScBanach.paramProd P W) 0}
     (hx : ∀ n, x n ∈ G.U 0 ∧ (x n).2 = B (x n) - W.toBase 1 (s (x n)))
     (hlim : Tendsto x atTop (𝓝 0)) (m : ℕ) :
     ∃ y : ℕ → (ScBanach.paramProd P W) m,
       (∀ᶠ n in atTop, (ScBanach.paramProd P W).toBase m (y n) = x n) ∧ Tendsto y atTop (𝓝 0) := by
   classical
-  obtain ⟨O, hO, h0, -, hK⟩ := theorem_3_40_compactness h hCt hs hs0 (S := range x)
+  obtain ⟨O, hO, h0, -, hK⟩ := theorem_3_5_1_compactness h hCt hs hs0 (S := range x)
     (by rintro _ ⟨n, rfl⟩; exact hx n)
   obtain ⟨K, hKc, hKeq⟩ := hK m
   have hev : ∀ᶠ n in atTop, x n ∈ O m := hlim.eventually ((hO m).mem_nhds (h0 m))

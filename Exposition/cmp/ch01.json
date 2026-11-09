@@ -146,8 +146,8 @@
    "lean": {
     "statement": "Let $E$ be an sc-Banach space and $F \\subseteq E_0$ a finite-dimensional subspace. Then $F$ is an sc-subspace if and only if $F \\le E_\\infty$. If $F \\le E_\\infty$, there is a subspace $G \\subseteq E_0$ with $E = F \\oplus G$ an sc-splitting.",
     "decls": [
-     "Chapter1/ScBanach · ScBanach.proposition_1_6_iff",
-     "Chapter1/ScBanach · ScBanach.proposition_1_6"
+     "Chapter1/ScBanach · ScBanach.proposition_1_1_7_iff",
+     "Chapter1/ScBanach · ScBanach.proposition_1_1_7"
     ]
    },
    "verdict": "same",
@@ -172,7 +172,7 @@
      "Chapter1/ScBanach · ScBanach.quotientScale",
      "Chapter1/ScBanach · ScBanach.quotient",
      "Chapter1/ScBanach · ScBanach.quotientMap",
-     "Chapter1/ScBanach · ScBanach.proposition_1_7"
+     "Chapter1/ScBanach · ScBanach.proposition_1_1_8"
     ]
    },
    "verdict": "stronger",
@@ -231,7 +231,7 @@
    "lean": {
     "statement": "Let $T : E \\to F$ be an sc-operator with an sc-Fredholm splitting, $e \\in E_0$ and $m \\in \\mathbb N$. If $T_0 e \\in \\iota_m(F_m)$, then $e \\in \\iota_m(E_m)$. As a property: an sc-Fredholm operator is *regularizing* (`ScOperator.IsRegularizing`). Conversely, an sc-operator $T$ with $T_0$ Fredholm and $T$ regularizing is sc-Fredholm (V1.9); so $T$ is sc-Fredholm if and only if $T_0 : E_0 \\to F_0$ is Fredholm and $T$ is regularizing.",
     "decls": [
-     "Chapter1/ScFredholm · proposition_1_9",
+     "Chapter1/ScFredholm · proposition_1_1_10",
      "Chapter1/ScFredholmCriterion · ScOperator.IsRegularizing",
      "Chapter1/ScFredholmCriterion · IsScFredholm.isRegularizing",
      "Chapter1/ScFredholmCriterion · isScFredholm_iff"
@@ -258,7 +258,7 @@
    "lean": {
     "statement": "Let $T : E \\to F$ be an sc-Fredholm operator and $S : E \\to F$ an $\\mathrm{sc}^+$-operator. Then the sc-operator $T + S$ (with $S$ read as an sc-operator $E \\to F$) is sc-Fredholm. Along the way: $T + S$ is regularizing, and every level map $(T+S)_m$ is a Fredholm operator. The construction is also proved as a criterion: an sc-operator that is Fredholm on level $0$ and regularizing is sc-Fredholm, and every level map is then Fredholm of the level-$0$ index.",
     "decls": [
-     "Chapter1/ScFredholm · proposition_1_10",
+     "Chapter1/ScFredholm · proposition_1_1_11_preprint",
      "Chapter1/ScFredholm · ScPlus.regularizing_add",
      "Chapter1/ScFredholmCriterion · isScFredholm_of_isRegularizing",
      "Chapter1/ScFredholmCriterion · isScFredholm_of_isRegularizing_index"
@@ -456,7 +456,7 @@
      "Chapter1/Levels · IsSc1Levels.toBase_apply",
      "Chapter1/Levels · IsSc1Levels.isSc1With",
      "Chapter1/Levels · IsSc1With.isSc1Levels",
-     "Chapter1/Levels · proposition_1_16",
+     "Chapter1/Levels · proposition_1_2_1",
      "Chapter1/Properties · IsSc1With.contDiffOn_base",
      "Chapter1/Properties · IsSc1With.scOperator_deriv"
     ]
@@ -540,10 +540,10 @@
    "lean": {
     "statement": "Let $U$ be an sc-domain in $E$ and $f$ $\\mathrm{sc}^0$ on $U$. If for every $m \\ge 0$ and $0 \\le l \\le k$ the map $f_m \\circ \\iota : U_{m+l} \\to F_m$ is $C^{l+1}$ within $U_{m+l}$, then $f$ is $\\mathrm{sc}^{k+1}$ on $U$; if this holds for every $l$, then $f$ is sc-smooth. Also proved, under the stronger hypothesis that every level map $f_m : U_m \\to F_m$ is $C^{k+1}$: $f$ is $\\mathrm{sc}^{k+1}$; for $k = 0$, where the two hypotheses agree, with $Df(x)$ the derivative of $f : U_0 \\to F_0$ at $x$; and if every $f_m$ is $C^\\infty$, $f$ is sc-smooth.",
     "decls": [
-     "Chapter1/LevelsWeak · proposition_1_19_text",
+     "Chapter1/LevelsWeak · proposition_1_2_4_text",
      "Chapter1/LevelsWeak · IsScSmooth.of_contDiffOn_levels_text",
-     "Chapter1/Properties · proposition_1_19_zero",
-     "Chapter1/Levels · proposition_1_19",
+     "Chapter1/Properties · proposition_1_2_4_zero",
+     "Chapter1/Levels · proposition_1_2_4",
      "Chapter1/Levels · IsScSmooth.of_contDiffOn_levels"
     ]
    },
@@ -556,7 +556,7 @@
    "diff": [
     "\"$f$ induces a map $f : U_{m+l} \\to F_m$\" is the $\\mathrm{sc}^0$ hypothesis (the values on $U_m$ lie in $F_m$; continuity then follows from the case $l = 0$); \"of class $C^{l+1}$\" is Mathlib's $C^{l+1}$ within $U_{m+l}$, as in V1.17. The text's relatively open subset of a partial quadrant is a special case of an sc-domain (V1.27).",
     "The proof is the 2010 paper's induction $(\\mathrm S_k)$ on the elementary maps $(x, h_1, \\dots, h_j) \\mapsto d^jf(x)(h_1, \\dots, h_j)$ on mixed levels (V1.37, V1.38), with $f$ the elementary map with $j = 0$. It cannot be run on the hypothesis itself: if $f$ satisfies it with $k$, then $Tf$ in general does not satisfy it with $k - 1$, its second component $(x, h) \\mapsto Df(x)h : U_{m+l+1} \\times E_{m+l} \\to F_m$ being only $C^l$.",
-    "The earlier version under the stronger hypothesis \"$f : U_m \\to F_m$ is $C^{k+1}$ for every $m$\" (`proposition_1_19`, `IsScSmooth.of_contDiffOn_levels`) is kept: there the level maps of $Tf$ are $C^k$ and the induction needs no $(\\mathrm S_k)$. For $k = 0$ the two hypotheses agree (`proposition_1_19_zero`)."
+    "The earlier version under the stronger hypothesis \"$f : U_m \\to F_m$ is $C^{k+1}$ for every $m$\" (`proposition_1_2_4`, `IsScSmooth.of_contDiffOn_levels`) is kept: there the level maps of $Tf$ are $C^k$ and the induction needs no $(\\mathrm S_k)$. For $k = 0$ the two hypotheses agree (`proposition_1_2_4_zero`)."
    ]
   },
   {
@@ -570,12 +570,12 @@
    "lean": {
     "statement": "Let $U$ be an sc-domain in $E$, $V$ a finite-dimensional normed space with its constant sc-structure and $f : E_0 \\to V$. If for some $k$ and all $0 \\le l \\le k$ the map $f \\circ \\iota_l : U_l \\to V$ is $C^{l+1}$ within $U_l$, then $f$ is $\\mathrm{sc}^{k+1}$ on $U$. If $f \\circ \\iota_l$ is $C^{l+1}$ within $U_l$ for every $l$, then $f$ is sc-smooth; if $f$ is $C^\\infty$ within $U$, then $f$ is sc-smooth. Also proved, under the stronger hypothesis: if $f \\circ \\iota_m$ is $C^{k+1}$ within $U_m$ for every $m$, in particular if $f$ is $C^{k+1}$ within $U$, then $f$ is $\\mathrm{sc}^{k+1}$; for $k = 0$ this is the text's hypothesis.",
     "decls": [
-     "Chapter1/LevelsWeak · corollary_1_20_text",
+     "Chapter1/LevelsWeak · corollary_1_2_5_text",
      "Chapter1/LevelsWeak · IsScSmooth.of_contDiffOn_levels_finiteDimensional_text",
      "Chapter1/Levels · IsScSmooth.of_contDiffOn_finiteDimensional",
-     "Chapter1/Properties · corollary_1_20_zero",
-     "Chapter1/Levels · corollary_1_20",
-     "Chapter1/Levels · corollary_1_20_base"
+     "Chapter1/Properties · corollary_1_2_5_zero",
+     "Chapter1/Levels · corollary_1_2_5",
+     "Chapter1/Levels · corollary_1_2_5_base"
     ]
    },
    "verdict": "same",
@@ -586,7 +586,7 @@
    ],
    "diff": [
     "The corollary is Proposition 1.2.4 (preprint 1.19) (V1.18) for the constant structure: $f : U_{m+l} \\to V$ is the restriction of the $C^{l+1}$ map $f : U_l \\to V$, and $f$ is $\\mathrm{sc}^0$ because each $f : U_m \\to V$ is the continuous $f : U_0 \\to V$ composed with the inclusion, so no $\\mathrm{sc}^0$ hypothesis is needed. $\\mathbb R^N$ is any finite-dimensional normed space.",
-    "The two sc-smooth statements are the exposition's (\"$C^{l+1}$ on $U_l$ for every $l$\", and \"$C^\\infty$ on $U_0$\"), not the text's; the second gives the bump functions the theory uses. The earlier versions under the stronger hypothesis $C^{k+1}$ on every $U_m$ (`corollary_1_20`, `corollary_1_20_base`) are kept."
+    "The two sc-smooth statements are the exposition's (\"$C^{l+1}$ on $U_l$ for every $l$\", and \"$C^\\infty$ on $U_0$\"), not the text's; the second gives the bump functions the theory uses. The earlier versions under the stronger hypothesis $C^{k+1}$ on every $U_m$ (`corollary_1_2_5`, `corollary_1_2_5_base`) are kept."
    ]
   },
   {
@@ -603,8 +603,8 @@
     "decls": [
      "Chapter1/ChainRule · IsSc1With.hasFDerivWithinAt_comp",
      "Chapter1/ChainRule · IsSc1With.comp",
-     "Chapter1/ChainRule · theorem_1_21'",
-     "Chapter1/ChainRule · theorem_1_21",
+     "Chapter1/ChainRule · theorem_1_3_1'",
+     "Chapter1/ChainRule · theorem_1_3_1",
      "Chapter1/ChainRule · IsSck.comp",
      "Chapter1/ChainRule · IsSck.comp_of_isRelOpenInQuadrant",
      "Chapter1/ChainRule · IsScSmooth.comp"
@@ -661,8 +661,8 @@
     "statement": "Let $T : E \\cong \\mathbb R^n \\oplus W$ and $T' : E \\cong \\mathbb R^{n'} \\oplus W'$ be sc-isomorphisms with $C = T_0^{-1}(Q_n) = T_0'^{-1}(Q_{n'})$. Then $d_T(x) = d_{T'}(x)$ for every $x \\in C$, and $n = n'$. Core form: a continuous linear equivalence $S : \\mathbb R^n \\times W_0 \\to \\mathbb R^{n'} \\times W'_0$ carrying the quadrant onto the quadrant preserves the number of vanishing half-line coordinates at every point of the quadrant.",
     "decls": [
      "Chapter1/Degeneracy · quadrantDeg_eq_of_equiv",
-     "Chapter1/Degeneracy · lemma_1_24",
-     "Chapter1/Degeneracy · lemma_1_24_dim"
+     "Chapter1/Degeneracy · lemma_1_3_4",
+     "Chapter1/Degeneracy · lemma_1_3_4_dim"
     ]
    },
    "verdict": "same",
@@ -686,8 +686,8 @@
    "lean": {
     "statement": "Let $U \\subseteq C \\subseteq E$ and $U' \\subseteq C' \\subseteq E'$ be relatively open subsets of partial quadrants, $f : E_0 \\to E'_0$ $\\mathrm{sc}^1$ on $U$ with $f(U) \\subseteq U'$, $g : E'_0 \\to E_0$ $\\mathrm{sc}^1$ on $U'$ with $g(U') \\subseteq U$, $g \\circ f = \\mathrm{id}$ on $U$ and $f \\circ g = \\mathrm{id}$ on $U'$. Then $d_C(x) = d_{C'}(f(x))$ for every $x \\in U$. At points $x \\in U_1$ this is proved directly; a general $x \\in U$ is approximated by level-$1$ points of $U$ with the same index, and $d_{C'}$ is upper semicontinuous.",
     "decls": [
-     "Chapter2/DegeneracyIndex · theorem_1_25",
-     "Chapter2/DegeneracyIndex · theorem_1_25_lvl1",
+     "Chapter2/DegeneracyIndex · theorem_1_3_5",
+     "Chapter2/DegeneracyIndex · theorem_1_3_5_lvl1",
      "Chapter2/DegeneracyIndex · degIndexWith_le_of_germ",
      "Chapter2/DegeneracyIndex · eventually_degIndexWith_le",
      "Chapter2/DegeneracyIndex · exists_tendsto_lvl1_degIndexWith",
@@ -888,8 +888,8 @@
    "lean": {
     "statement": "Let $T : E \\to F$ be an sc-Fredholm operator and $S : E \\to F$ an $\\mathrm{sc}^+$-operator. Then $\\operatorname{ind}(T + S) = \\operatorname{ind}(T)$, with $\\operatorname{ind} = \\dim\\ker(\\cdot)_0 - \\dim\\operatorname{coker}(\\cdot)_0$; and for every $m$ the level map $(T+S)_m : E_m \\to F_m$ is Fredholm of index $\\operatorname{ind}(T)$.",
     "decls": [
-     "Chapter1/FredholmIndex · proposition_1_10_index",
-     "Chapter1/FredholmIndex · proposition_1_10_index_lvl"
+     "Chapter1/FredholmIndex · proposition_1_1_11_index",
+     "Chapter1/FredholmIndex · proposition_1_1_11_index_lvl"
     ]
    },
    "verdict": "stronger",
@@ -1191,8 +1191,8 @@
    "lean": {
     "statement": "For a linear equivalence $e : E_1 \\to E_2$ of real normed spaces (one vector space with two norms): (1) if $e$ and $e^{-1}$ are continuous, there is $c > 0$ with $\\|e x\\| \\le c\\|x\\|$ and $\\|x\\| \\le c\\|e x\\|$; (2) if both spaces are complete and $e$ is continuous, then $e^{-1}$ is continuous, and (1) applies.",
     "decls": [
-     "Chapter1/Book2021 · remark_1_1_2_2021",
-     "Chapter1/Book2021 · remark_1_1_2_2021_openMapping"
+     "Chapter1/Book2021 · remark_1_1_2",
+     "Chapter1/Book2021 · remark_1_1_2_openMapping"
     ]
    },
    "chips": [
@@ -1215,10 +1215,10 @@
    "lean": {
     "statement": "$T + S$ is sc-Fredholm, $\\operatorname{ind}(T + S) = \\operatorname{ind}(T)$, and for every $m$ the level map $(T + S)_m : E_m \\to F_m$ is Fredholm of index $\\operatorname{ind}(T)$.",
     "decls": [
-     "Chapter1/Book2021 · proposition_1_1_11_2021",
-     "Chapter1/ScFredholm · proposition_1_10",
-     "Chapter1/FredholmIndex · proposition_1_10_index",
-     "Chapter1/FredholmIndex · proposition_1_10_index_lvl"
+     "Chapter1/Book2021 · proposition_1_1_11",
+     "Chapter1/ScFredholm · proposition_1_1_11_preprint",
+     "Chapter1/FredholmIndex · proposition_1_1_11_index",
+     "Chapter1/FredholmIndex · proposition_1_1_11_index_lvl"
     ]
    },
    "chips": [

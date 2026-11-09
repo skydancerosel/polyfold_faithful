@@ -13,7 +13,7 @@ The item lists the definitions `reducedSrc`, `reducedTgt`, `reducedUnit`, `reduc
 (vocabulary) and eight theorems.  `A` is the conjunction of the types of the theorems, universes
 at `0` (`Obj Mor : Type`): the six conditions of Definition 7.3 for `(X, 𝐗^R)`
 (`isLocalScDiffeo_reducedSrc/Tgt`, `isScSmoothMap_reducedUnit/Inv`, `exists_isProperMap_reduced`,
-`isScSmoothCompSheet_reduced`), `isEffective_reducedEpGroupoid` and `proposition_7_10`.  All of
+`isScSmoothCompSheet_reduced`), `isEffective_reducedEpGroupoid` and `proposition_7_10_2017`.  All of
 them except `exists_isProperMap_reduced` take `[T2Space X.ReducedMor]
 [ParacompactSpace X.ReducedMor]` as hypotheses (the project's reading: Proposition 7.9's proof
 gives neither property of `𝐗^R`; the hypotheses are satisfiable, e.g. for every effective `X`,
@@ -25,7 +25,7 @@ an effective ep-groupoid structure with the reduced groupoid, `X.PObj` and `X.re
 * `B ⇒ A` (`B_to_A`): every conjunct of `A` is read off the ep-groupoid `Y` that `B` provides
   (its fields, after identifying its data with the reduced data; the instances are Props, so
   `X.reducedPolyfold` does not depend on which proofs of them are used).  The isotropy and
-  functor conjuncts of `proposition_7_10` are the project constructions
+  functor conjuncts of `proposition_7_10_2017` are the project constructions
   `quotientTrivialSubgroupEquiv` and `reductionFunctor`, which do not involve the banned
   theorems.
 * `A ⇒ B` is false: `A` gives nothing when `𝐗^R` is not Hausdorff or not paracompact, while `B`
@@ -88,13 +88,13 @@ def A : Prop :=
   type_of% @Polyfold.EpGroupoid.exists_isProperMap_reduced.{0} ∧
   type_of% @Polyfold.EpGroupoid.isScSmoothCompSheet_reduced.{0} ∧
   type_of% @Polyfold.EpGroupoid.isEffective_reducedEpGroupoid.{0} ∧
-  type_of% @Polyfold.EpGroupoid.proposition_7_10.{0}
+  type_of% @Polyfold.EpGroupoid.proposition_7_10_2017.{0}
 
 theorem A_holds : A :=
   ⟨@EpGroupoid.isLocalScDiffeo_reducedSrc, @EpGroupoid.isLocalScDiffeo_reducedTgt,
     @EpGroupoid.isScSmoothMap_reducedUnit, @EpGroupoid.isScSmoothMap_reducedInv,
     @EpGroupoid.exists_isProperMap_reduced, @EpGroupoid.isScSmoothCompSheet_reduced,
-    @EpGroupoid.isEffective_reducedEpGroupoid, @EpGroupoid.proposition_7_10⟩
+    @EpGroupoid.isEffective_reducedEpGroupoid, @EpGroupoid.proposition_7_10_2017⟩
 
 /-- `A ⇒ B` under the extra hypothesis that every `𝐗^R` is Hausdorff and paracompact: `Y` is
 assembled from `A`'s conjuncts (not from `reducedEpGroupoid`'s fields). -/
@@ -372,7 +372,7 @@ error: rt_check FAIL: RoundTrip.V7_40.B_to_A uses [Polyfold.EpGroupoid.isLocalSc
   Polyfold.EpGroupoid.isLocalScDiffeo_reducedTgt, Polyfold.EpGroupoid.isScSmoothMap_reducedUnit,
   Polyfold.EpGroupoid.isScSmoothMap_reducedInv, Polyfold.EpGroupoid.exists_isProperMap_reduced,
   Polyfold.EpGroupoid.isScSmoothCompSheet_reduced,
-  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10]
+  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10_2017]
 
 /--
 error: rt_check_soft FAIL: RoundTrip.V7_40.B_to_A uses [Polyfold.EpGroupoid.isLocalScDiffeo_reducedSrc,
@@ -386,36 +386,36 @@ error: rt_check_soft FAIL: RoundTrip.V7_40.B_to_A uses [Polyfold.EpGroupoid.isLo
   Polyfold.EpGroupoid.isLocalScDiffeo_reducedTgt, Polyfold.EpGroupoid.isScSmoothMap_reducedUnit,
   Polyfold.EpGroupoid.isScSmoothMap_reducedInv, Polyfold.EpGroupoid.exists_isProperMap_reduced,
   Polyfold.EpGroupoid.isScSmoothCompSheet_reduced,
-  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10]
+  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10_2017]
 
 #rt_check_except_defs RoundTrip.V7_40.B_to_A [Polyfold.EpGroupoid.isLocalScDiffeo_reducedSrc,
   Polyfold.EpGroupoid.isLocalScDiffeo_reducedTgt, Polyfold.EpGroupoid.isScSmoothMap_reducedUnit,
   Polyfold.EpGroupoid.isScSmoothMap_reducedInv, Polyfold.EpGroupoid.exists_isProperMap_reduced,
   Polyfold.EpGroupoid.isScSmoothCompSheet_reduced,
-  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10]
+  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10_2017]
 #rt_check_except_defs RoundTrip.V7_40.A_to_B_of_hyp [Polyfold.EpGroupoid.isLocalScDiffeo_reducedSrc,
   Polyfold.EpGroupoid.isLocalScDiffeo_reducedTgt, Polyfold.EpGroupoid.isScSmoothMap_reducedUnit,
   Polyfold.EpGroupoid.isScSmoothMap_reducedInv, Polyfold.EpGroupoid.exists_isProperMap_reduced,
   Polyfold.EpGroupoid.isScSmoothCompSheet_reduced,
-  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10]
+  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10_2017]
 
 #rt_overlap RoundTrip.V7_40.B_to_A [Polyfold.EpGroupoid.isLocalScDiffeo_reducedSrc,
   Polyfold.EpGroupoid.isLocalScDiffeo_reducedTgt, Polyfold.EpGroupoid.isScSmoothMap_reducedUnit,
   Polyfold.EpGroupoid.isScSmoothMap_reducedInv, Polyfold.EpGroupoid.exists_isProperMap_reduced,
   Polyfold.EpGroupoid.isScSmoothCompSheet_reduced,
-  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10]
+  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10_2017]
 
 #rt_check RoundTrip.V7_40.not_B [Polyfold.EpGroupoid.isLocalScDiffeo_reducedSrc,
   Polyfold.EpGroupoid.isLocalScDiffeo_reducedTgt, Polyfold.EpGroupoid.isScSmoothMap_reducedUnit,
   Polyfold.EpGroupoid.isScSmoothMap_reducedInv, Polyfold.EpGroupoid.exists_isProperMap_reduced,
   Polyfold.EpGroupoid.isScSmoothCompSheet_reduced,
-  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10]
+  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10_2017]
 #print axioms RoundTrip.V7_40.not_B
 
 #rt_overlap_except_defs RoundTrip.V7_40.B_to_A [Polyfold.EpGroupoid.isLocalScDiffeo_reducedSrc,
   Polyfold.EpGroupoid.isLocalScDiffeo_reducedTgt, Polyfold.EpGroupoid.isScSmoothMap_reducedUnit,
   Polyfold.EpGroupoid.isScSmoothMap_reducedInv, Polyfold.EpGroupoid.exists_isProperMap_reduced,
   Polyfold.EpGroupoid.isScSmoothCompSheet_reduced,
-  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10]
+  Polyfold.EpGroupoid.isEffective_reducedEpGroupoid, Polyfold.EpGroupoid.proposition_7_10_2017]
 
 end RoundTrip.V7_40

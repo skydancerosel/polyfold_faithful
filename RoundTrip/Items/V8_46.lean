@@ -70,7 +70,7 @@ theorem exists_isAuxNorm_trivial' {Z : Type} [TopologicalSpace Z] [T2Space Z]
     [ParacompactSpace W] {P : W → Z} [∀ x, AddCommGroup (P ⁻¹' {x})]
     [∀ x, Module ℝ (P ⁻¹' {x})] (B : StrongBundle PZ P) :
     ∃ N : B.One → ℝ, (EpStrongBundle.trivial B).IsAuxNorm N := by
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := B)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := B)
   exact ⟨N, hN, fun h k _ _ hhk => by rw [B.oneVal_injective hhk]⟩
 
 end Outright

@@ -4,7 +4,7 @@ import Polyfold.Chapter3.FillerLinearization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definitions 3.6 and 3.11: **the text's germ fillings against the project's filled versions** in a
+Definitions 3.1.6 and 3.1.11 (preprint 3.6 and 3.11): **the text's germ fillings against the project's filled versions** in a
 strong bundle chart.
 
 # Germ fillings and whole-chart filled versions
@@ -16,7 +16,7 @@ strong bundle chart.
   sc-smooth on the whole `U` (`Polyfold.fillDefect_isScSmooth`).
 * `Polyfold.IsConjugateToBasicGerm.congr_nhds`: conjugation to a basic germ depends only on the
   germ at `0`.
-* **Definition 3.11 in the germ reading** (`Polyfold.StrongBundle.IsScFredholmGerm`), implied by
+* **Definition 3.1.11 (preprint 3.11) in the germ reading** (`Polyfold.StrongBundle.IsScFredholmGerm`), implied by
   the project's `IsScFredholmGermWholeChart` (`StrongBundle.IsScFredholmGermWholeChart.isScFredholmGerm`), and equal to
   it when `g`, `s` are sc-smooth on the whole `U` (`StrongBundle.isScFredholmGerm_iff_germG_wholeChart`).
 * The trivial retraction `K = U ◁ F`: `Polyfold.isStrongBundleRetraction_id_of_relOpen`,
@@ -36,7 +36,7 @@ section GermReading
 
 variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
-/-- **Project ⇒ text**: a filled version (Definition 3.6 on the whole `U`) is a filling in the
+/-- **Project ⇒ text**: a filled version (Definition 3.1.6 (preprint 3.6) on the whole `U`) is a filling in the
 text's germ sense, on the germ `ofSet U` (round-trip item V3.43, `proj_to_B`). -/
 theorem IsFilledVersion.isFillingGerm (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) {fb g : E 0 → F 0}
@@ -109,7 +109,7 @@ theorem isStrongBundleRetraction_id_of_relOpen (hU : IsRelOpenInQuadrant E C U) 
   idem _ _ := rfl
 
 /-- **With the identity retraction (`K = U ◁ F`, `O = U`) a map sc-smooth on `U` is its own filled
-version**: conditions (1) and (2) of Definition 3.4 are trivial (`r = id`, `ρ = 1`),
+version**: conditions (1) and (2) of Definition 3.1.4 (preprint 3.4) are trivial (`r = id`, `ρ = 1`),
 `[1 − ρ(r(·))]g = 0`, and both kernels of condition (3) are `0`. -/
 theorem isFilledVersion_id (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U) {g : E 0 → F 0}
     (hg : IsScSmooth U g) :
@@ -148,7 +148,7 @@ theorem isFilledVersion_id (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ 
 
 /-- **For a trivial retraction the filled version is harmless**: if `f̂` is sc-smooth on `U` (as
 the principal part of a section sc-smooth on `X` is, in a chart with `K = U ◁ F`) and `g` is a
-filling of `f̂` in the text's germ sense, then in the data of Definition 3.11 `g` can be replaced
+filling of `f̂` in the text's germ sense, then in the data of Definition 3.1.11 (preprint 3.11) `g` can be replaced
 by the whole-chart `f̂` itself: same sc⁺-section `s`, same conjugation, because `f̂ = g` near `0`
 by condition (1).  The germ reading and the project's reading then differ only in `s`. -/
 theorem exists_wholeChart_filledVersion_of_id (hU : IsRelOpenInQuadrant E C U)
@@ -167,7 +167,7 @@ theorem exists_wholeChart_filledVersion_of_id (hU : IsRelOpenInQuadrant E C U)
 
 end GermReading
 
-/-! ### Definition 3.11 in the germ reading, for sections of strong bundles -/
+/-! ### Definition 3.1.11 (preprint 3.11) in the germ reading, for sections of strong bundles -/
 
 section FredholmSectionsGerm
 
@@ -180,7 +180,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 namespace StrongBundle
 
-/-- **Definition 3.11, the text's germ reading**: `(f, x₀)` is an sc-Fredholm germ at the smooth
+/-- **Definition 3.1.11 (preprint 3.11), the text's germ reading**: `(f, x₀)` is an sc-Fredholm germ at the smooth
 point `x₀` if in some strong bundle chart of `P` centred at `x₀` the principal part `f̂` has a
 filling `g` in the germ sense (`IsFillingGerm`: an sc-smooth germ on a germ of neighbourhoods
 whose levels may shrink), and there is a local sc⁺-section `s` in the germ sense (`IsScPlusGerm`)

@@ -5,16 +5,16 @@ import RoundTrip.Blind.V3_12
 /-! Round trip for V3_12 (Proposition 3.10: the linearization of a basic germ plus an sc⁺-germ).
 Refreshed 2026-11-02 against HEAD (new conjuncts: Proposition 3.10 on every level).
 
-`A` is the conjunction of the types of the listed theorems `proposition_3_10`,
-`proposition_3_10_scPlus`, `IsSc1GermWith.isScOperator_deriv_zero`, `ScBanach.scIndex_projWOp`,
-`proposition_3_10_basic`, `StabilityData.exists_isFredholm_Dfs'`, and (new) `proposition_3_10_level`,
-`proposition_3_10_full`, `IsBasicGerm.levelDeriv_add_eq`, `IsBasicGerm.snd_levelDeriv_add` (no
+`A` is the conjunction of the types of the listed theorems `proposition_3_1_10`,
+`proposition_3_1_10_scPlus`, `IsSc1GermWith.isScOperator_deriv_zero`, `ScBanach.scIndex_projWOp`,
+`proposition_3_1_10_basic`, `StabilityData.exists_isFredholm_Dfs'`, and (new) `proposition_3_1_10_level`,
+`proposition_3_1_10_full`, `IsBasicGerm.levelDeriv_add_eq`, `IsBasicGerm.snd_levelDeriv_add` (no
 universe parameters; all spaces in `Type`).  `ScBanach.projWOp` is a definition (vocabulary).
 
 B has two clauses: (i) `Df(0)` is sc-Fredholm of index `n − N`; (ii) for every `m`, the
 level-`m` operator of `Df(x)` is Fredholm of index `n − N` for `x ∈ U_{m+1}` small on level `m`.
 
-* `A → B` is now PROVED (`A_to_B`, through A's `proposition_3_10_full`).  Glue as before:
+* `A → B` is now PROVED (`A_to_B`, through A's `proposition_3_1_10_full`).  Glue as before:
   `CtB n k` is a partial quadrant (the linear equivalence `ℝⁿ ≅ ℝᵏ × ℝⁿ⁻ᵏ`, as in V3_63), B's
   basic germ is the project's with `B := w − P_W h` (V3_10 glue), `s` sc-smooth into `F¹` is sc¹
   into `F¹`; for (i) `scIndex` is B's `indexB` of the base map definitionally; for (ii) B's
@@ -33,22 +33,22 @@ open Polyfold Set
 
 /-- The project's statement (no universe parameters). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_3_10) ∧
-  (type_of% @Polyfold.proposition_3_10_scPlus) ∧
+  (type_of% @Polyfold.proposition_3_1_10) ∧
+  (type_of% @Polyfold.proposition_3_1_10_scPlus) ∧
   (type_of% @Polyfold.IsSc1GermWith.isScOperator_deriv_zero) ∧
   (type_of% @Polyfold.ScBanach.scIndex_projWOp) ∧
-  (type_of% @Polyfold.proposition_3_10_basic) ∧
+  (type_of% @Polyfold.proposition_3_1_10_basic) ∧
   (type_of% @Polyfold.StabilityData.exists_isFredholm_Dfs') ∧
-  (type_of% @Polyfold.proposition_3_10_level) ∧
-  (type_of% @Polyfold.proposition_3_10_full) ∧
+  (type_of% @Polyfold.proposition_3_1_10_level) ∧
+  (type_of% @Polyfold.proposition_3_1_10_full) ∧
   (type_of% @Polyfold.IsBasicGerm.levelDeriv_add_eq) ∧
   (type_of% @Polyfold.IsBasicGerm.snd_levelDeriv_add)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_3_10, @Polyfold.proposition_3_10_scPlus,
+  ⟨@Polyfold.proposition_3_1_10, @Polyfold.proposition_3_1_10_scPlus,
     @Polyfold.IsSc1GermWith.isScOperator_deriv_zero, @Polyfold.ScBanach.scIndex_projWOp,
-    @Polyfold.proposition_3_10_basic, @Polyfold.StabilityData.exists_isFredholm_Dfs',
-    @Polyfold.proposition_3_10_level, @Polyfold.proposition_3_10_full,
+    @Polyfold.proposition_3_1_10_basic, @Polyfold.StabilityData.exists_isFredholm_Dfs',
+    @Polyfold.proposition_3_1_10_level, @Polyfold.proposition_3_1_10_full,
     @Polyfold.IsBasicGerm.levelDeriv_add_eq, @Polyfold.IsBasicGerm.snd_levelDeriv_add⟩
 
 /-! ### Glue: `CtB n k` is a partial quadrant (as in V3_63) -/
@@ -154,7 +154,7 @@ def B1 : Prop :=
         ∃ T : ScOperator (EB n W) (EB N W),
           T.lvl 0 = D 0 ∧ IsScFredholm T ∧ indexB (T.lvl 0) = (n : ℤ) - N
 
-/-- **`A → B (i)`**, through A's `proposition_3_10`. -/
+/-- **`A → B (i)`**, through A's `proposition_3_1_10`. -/
 theorem A_to_B1 : A → B1 := by
   rintro ⟨hA, -⟩ n k N W hk G h s hh hs _ D hD
   obtain ⟨Ds, hDs⟩ := (hs 1).1
@@ -169,7 +169,7 @@ theorem fredB_of_isFredholm {V V' : Type} [NormedAddCommGroup V] [NormedSpace �
     IsFredholmB T :=
   ⟨h.finite_ker, h.isClosed_range, h.finite_coker⟩
 
-/-- **`A → B`**, through A's `proposition_3_10_full` (both statements of Proposition 3.10). -/
+/-- **`A → B`**, through A's `proposition_3_1_10_full` (both statements of Proposition 3.10). -/
 theorem A_to_B : A → B := by
   rintro ⟨-, -, -, -, -, -, -, hfull, -⟩ n k N W hk G h s hh hs _ D hD
   obtain ⟨Ds, hDs⟩ := (hs 1).1
@@ -188,15 +188,15 @@ theorem A_to_B : A → B := by
     · have e : indexB (levelDeriv D m x) = fredholmIndex (levelDeriv D m x) := rfl
       rw [e, hind, Module.finrank_fin_fun, Module.finrank_fin_fun]
 
-#rt_check RoundTrip.V3_12.A_to_B1 [Polyfold.proposition_3_10, Polyfold.proposition_3_10_scPlus,
+#rt_check RoundTrip.V3_12.A_to_B1 [Polyfold.proposition_3_1_10, Polyfold.proposition_3_1_10_scPlus,
   Polyfold.IsSc1GermWith.isScOperator_deriv_zero, Polyfold.ScBanach.scIndex_projWOp,
-  Polyfold.proposition_3_10_basic, Polyfold.StabilityData.exists_isFredholm_Dfs',
-  Polyfold.proposition_3_10_level, Polyfold.proposition_3_10_full,
+  Polyfold.proposition_3_1_10_basic, Polyfold.StabilityData.exists_isFredholm_Dfs',
+  Polyfold.proposition_3_1_10_level, Polyfold.proposition_3_1_10_full,
   Polyfold.IsBasicGerm.levelDeriv_add_eq, Polyfold.IsBasicGerm.snd_levelDeriv_add]
-#rt_check RoundTrip.V3_12.A_to_B [Polyfold.proposition_3_10, Polyfold.proposition_3_10_scPlus,
+#rt_check RoundTrip.V3_12.A_to_B [Polyfold.proposition_3_1_10, Polyfold.proposition_3_1_10_scPlus,
   Polyfold.IsSc1GermWith.isScOperator_deriv_zero, Polyfold.ScBanach.scIndex_projWOp,
-  Polyfold.proposition_3_10_basic, Polyfold.StabilityData.exists_isFredholm_Dfs',
-  Polyfold.proposition_3_10_level, Polyfold.proposition_3_10_full,
+  Polyfold.proposition_3_1_10_basic, Polyfold.StabilityData.exists_isFredholm_Dfs',
+  Polyfold.proposition_3_1_10_level, Polyfold.proposition_3_1_10_full,
   Polyfold.IsBasicGerm.levelDeriv_add_eq, Polyfold.IsBasicGerm.snd_levelDeriv_add]
 
 end RoundTrip.V3_12

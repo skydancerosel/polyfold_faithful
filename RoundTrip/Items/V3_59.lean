@@ -10,11 +10,11 @@ noncomputable section
 namespace RoundTrip.V3_59
 open Polyfold
 
-/-- The project's statement: `proposition_3_73` and `InvData.contDiffOn_inv` (no universe
+/-- The project's statement: `proposition_3_8_17` and `InvData.contDiffOn_inv` (no universe
 parameters; `V : Type`).  `InvData` is vocabulary. -/
-def A : Prop := type_of% @Polyfold.proposition_3_73 ∧ type_of% @Polyfold.InvData.contDiffOn_inv
+def A : Prop := type_of% @Polyfold.proposition_3_8_17 ∧ type_of% @Polyfold.InvData.contDiffOn_inv
 
-theorem A_holds : A := ⟨@Polyfold.proposition_3_73, @Polyfold.InvData.contDiffOn_inv⟩
+theorem A_holds : A := ⟨@Polyfold.proposition_3_8_17, @Polyfold.InvData.contDiffOn_inv⟩
 
 /-- B's hypotheses give the project's `InvData` for every `j ≥ 1`: hypothesis (3) is used only
 through `d_C = 0 ⟺ interior` (`degIndex_eq_zero_iff`). -/
@@ -27,7 +27,7 @@ lemma invData_of_hyp {Rn : Type} [NormedAddCommGroup Rn] [NormedSpace ℝ Rn]
     fun x hx => ?_⟩
   rw [← degIndex_eq_zero_iff hC (hUC hx), ← degIndex_eq_zero_iff hC (hmaps hx), hdeg x hx]
 
-/-- A ⇒ B, from the conjunct `proposition_3_73` applied for every `j ≥ 1`: the inverses for the
+/-- A ⇒ B, from the conjunct `proposition_3_8_17` applied for every `j ≥ 1`: the inverses for the
 different `j` agree on `f(U)` (`f` is injective on `U`), so the `j = 1` inverse is `C^j` for all
 `j`, i.e. `C^∞`. -/
 theorem A_to_B : A → B := by
@@ -42,6 +42,6 @@ theorem A_to_B : A → B := by
     obtain ⟨x, hx, rfl⟩ := hy
     rw [hgf x hx, hgf' x hx]
 
-#rt_check RoundTrip.V3_59.A_to_B [Polyfold.proposition_3_73, Polyfold.InvData.contDiffOn_inv]
+#rt_check RoundTrip.V3_59.A_to_B [Polyfold.proposition_3_8_17, Polyfold.InvData.contDiffOn_inv]
 
 end RoundTrip.V3_59

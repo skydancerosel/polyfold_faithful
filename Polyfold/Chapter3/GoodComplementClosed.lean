@@ -46,9 +46,9 @@ file shows that the hypothesis is implied by the book's notion:
   `MPolyfold.hasTangentGermProperty2021_iff`: it is the project's `HasTangentGermProperty`.  So
   the "`Y` closed" of rows V3.22 and V3.49 is not an added hypothesis: both rows read as
   *restated*.
-* `Polyfold.lemma_3_6_9_2021`: **Lemma 3.6.9** (`lemma_3_55_relOpen`, row V3.80) with the good
+* `Polyfold.lemma_3_6_9`: **Lemma 3.6.9** (`lemma_3_6_9_relOpen`, row V3.80) with the good
   complement in the book's sense, which supplies the closedness hypothesis `hYc` of
-  `lemma_3_55_relOpen`.
+  `lemma_3_6_9_relOpen`.
 
 ## What the text leaves implicit, and the choices made
 
@@ -122,7 +122,7 @@ instance : FiniteDimensional ℝ d.N := d.finiteDimensional
 /-- `N ∩ C` is a partial quadrant in `N` (Proposition 3.1.25). -/
 theorem isPartialQuadrant :
     IsPartialQuadrant (ScBanach.const d.N) (Subtype.val ⁻¹' d.φ.model.C) :=
-  proposition_3_22 d.φ.model.isPartialQuadrant d.goodPosition.toIsInGoodPosition
+  proposition_3_1_25 d.φ.model.isPartialQuadrant d.goodPosition.toIsInGoodPosition
 
 /-- The book's good complement is closed (it is an sc-complement). -/
 theorem isClosed_Y : IsClosed (d.Y : Set (d.φ.model.E 0)) := d.goodComplement.isClosed
@@ -208,7 +208,7 @@ theorem germ_of_isScSmoothGerm {φ : MChart X} {N : Submodule ℝ (φ.model.E 0)
     (G : ScNbhdGerm (ScBanach.const N) (Subtype.val ⁻¹' φ.model.C)) {δ : N → φ.model.E 0}
     (h : IsScSmoothGerm G δ) : IsScInftyGermAt (Subtype.val ⁻¹' φ.model.C) δ :=
   h.isScInftyGermAt
-    (proposition_3_22 φ.model.isPartialQuadrant hN.toIsInGoodPosition).isQuadrantLike G
+    (proposition_3_1_25 φ.model.isPartialQuadrant hN.toIsInGoodPosition).isQuadrantLike G
 
 end TangentGermChart2021
 
@@ -259,14 +259,14 @@ section Lemma369
 
 variable {E : ScBanach} {n : ℕ} {W' : ScBanach}
 
-/-- **2021 Lemma 3.6.9, p. 139** (preprint: Lemma 3.55; `lemma_3_55_relOpen`, row V3.80), with the
+/-- **2021 Lemma 3.6.9, p. 139** (preprint: Lemma 3.55; `lemma_3_6_9_relOpen`, row V3.80), with the
 good complement `Y` of `N` in the book's sense (Definition 3.1.24: an sc-complement) in place of
 the project's closed good complement: for `σ : V → Y` of class `C¹` on the relatively open
 neighbourhood `V` of `0` in `N ∩ C` with `σ(0) = 0`, `Dσ(0) = 0`, and `v ∈ V` close to `0` with
 `z = v + σ(v)`: (1) `z ∈ C`; (2), (3) `Y` is a good complement of `N_v = {n + Dσ(v)n | n ∈ N}` with
 respect to the partial quadrant `C_z`, and `N_v` is in good position to `C_z`.  The closedness
-hypothesis `hYc` of `lemma_3_55_relOpen` is supplied by `IsScGoodComplement.isClosed`. -/
-theorem lemma_3_6_9_2021 {C : Set (E 0)} (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W'))
+hypothesis `hYc` of `lemma_3_6_9_relOpen` is supplied by `IsScGoodComplement.isClosed`. -/
+theorem lemma_3_6_9 {C : Set (E 0)} (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W'))
     (hT : C = T 0 ⁻¹' quadrant n W' 0) {N : Submodule ℝ (E 0)} [FiniteDimensional ℝ N]
     (hN : IsInGoodPositionSc E C N) {Y : Submodule ℝ (E 0)} (hY : IsScGoodComplement E C N Y)
     {V : Set N} (hVrel : ∃ O : Set N, IsOpen O ∧ V = O ∩ Subtype.val ⁻¹' C) (h0V : (0 : N) ∈ V)
@@ -278,7 +278,7 @@ theorem lemma_3_6_9_2021 {C : Set (E 0)} (T : ScIso E ((ScBanach.const (Fin n �
         (graphSpace N (fderivWithin ℝ σ V v)) Y ∧
       IsInGoodPosition E (partialQuadrantAtWith T ((v : E 0) + σ v))
         (graphSpace N (fderivWithin ℝ σ V v)) :=
-  lemma_3_55_relOpen T hT hN.toIsInGoodPosition hY.toIsGoodComplement hY.isClosed hVrel h0V σ
+  lemma_3_6_9_relOpen T hT hN.toIsInGoodPosition hY.toIsGoodComplement hY.isClosed hVrel h0V σ
     hσY hσC hσ0 hDσ
 
 end Lemma369

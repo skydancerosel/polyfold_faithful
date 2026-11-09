@@ -11,15 +11,15 @@ index along the solution set, and "good position = surjectivity" when `∂X = �
 
 ## The text, paraphrased
 
-(Theorem 3.19, interior case) `d_X ≡ 0`, `f(x₀) = 0`, `f'(x₀)` surjective: (1) `f'(x₀)` is an
+(Theorem 3.1.22 (preprint 3.19), interior case) `d_X ≡ 0`, `f(x₀) = 0`, `f'(x₀)` surjective: (1) `f'(x₀)` is an
 sc-Fredholm operator; (2) there is an open neighbourhood `U` of `x₀` such that the local solution
 set `S(f, U)` is a sub-M-polyfold "which is a smooth manifold without boundary **whose dimension
 agrees with the Fredholm index of `f'(x₀)`**"; (3) at every `y ∈ S(f, U)`, `f'(y)` is surjective
-and `ker f'(y) = T_yS(f, U)`.  (Theorem 3.54, proof) "abbreviating `d = dim ker f'(x)`, the
-solution set `S ⊆ V` possesses the `d`-dimensional tangent germ property".  (Before Theorem 3.56)
+and `ker f'(y) = T_yS(f, U)`.  (Theorem 3.6.8 (preprint 3.54), proof) "abbreviating `d = dim ker f'(x)`, the
+solution set `S ⊆ V` possesses the `d`-dimensional tangent germ property".  (Before Theorem 3.6.10 (preprint 3.56))
 "If `∂X = ∅`, the condition of good position is an empty condition": `(f, x)` is in good position
-iff `f'(x)` is surjective.  (Theorem 3.56) `∂X = ∅`, `f'(x)` surjective at every zero: the
-solution set is a smooth manifold without boundary.  (Proof of Proposition 6.2) the index is
+iff `f'(x)` is surjective.  (Theorem 3.6.10 (preprint 3.56)) `∂X = ∅`, `f'(x)` surjective at every zero: the
+solution set is a smooth manifold without boundary.  (Proof of Proposition 6.2.2 (preprint 6.2)) the index is
 locally constant along the solution set.
 
 ## What is formalized
@@ -30,35 +30,35 @@ locally constant along the solution set.
   `LinearizationCharts.lean`) is surjective, Fredholm, and `ind Lin(z) = dim ker Lin(z) = d`.
   `Polyfold.StrongBundle.IsLinSurjAt B f y`: **"`f'(y)` is surjective"** (in some chart; by
   `linAt_chart_independence` then in every chart).
-* `Polyfold.StrongBundle.linAt_index_of_conjugationData_wholeChart`: in the chart of Definition 3.11 at `x₀`
+* `Polyfold.StrongBundle.linAt_index_of_conjugationData_wholeChart`: in the chart of Definition 3.1.11 (preprint 3.11) at `x₀`
   with conjugation data `dc` of `g − s` to a basic germ, the linearization in **every** chart
   around `x₀` is Fredholm of index `dim dc.Pn − dim dc.Q` (and onto when `(f, x₀)` is in good
-  position): Proposition 3.52 in the centred chart (`proposition_3_52_local_index_wholeChart`) carried by
+  position): Proposition 3.6.5 (preprint 3.52) in the centred chart (`proposition_3_6_5_local_index_wholeChart`) carried by
   the chart independence.  `StrongBundle.isSurjLinOfIndex_of_conjugationData_wholeChart`,
   `StrongBundle.IsGoodPositionGermWholeChart.exists_isSurjLinOfIndex`.
-* **Dimension = index** (Finding 170): `Polyfold.theorem_3_54_tangentGermChart_index_wholeChart`,
-  `theorem_3_54_tangentGermChart_solutionSet_index_wholeChart`, `theorem_3_54_two_index_wholeChart`: the dimension `d`
-  of the tangent germ data of the solution set at `x₀` (Definition 3.25 (2)) satisfies
+* **Dimension = index** (Finding 170): `Polyfold.theorem_3_6_8_tangentGermChart_index_wholeChart`,
+  `theorem_3_6_8_tangentGermChart_solutionSet_index_wholeChart`, `theorem_3_6_8_two_index_wholeChart`: the dimension `d`
+  of the tangent germ data of the solution set at `x₀` (Definition 3.2.1 (preprint 3.25) (2)) satisfies
   `IsSurjLinOfIndex f x₀ d`, i.e. `d = dim ker f'(x₀) = ind f'(x₀)` in every chart.  From
-  `theorem_3_54_tangentGermChart_proj_conj_wholeChart`, which exposes that `d = dim Pn − dim Q` for the
+  `theorem_3_6_8_tangentGermChart_proj_conj_wholeChart`, which exposes that `d = dim Pn − dim Q` for the
   conjugation in the chart from which the tangent germ chart is built.
 * **The index is locally constant along the solution set** (Finding 171, the text's Proposition
-  6.2 along `S`; Finding 188): `Polyfold.theorem_3_54_index_locally_constant_wholeChart` — on an open
+  6.2 along `S`; Finding 188): `Polyfold.theorem_3_6_8_index_locally_constant_wholeChart` — on an open
   `Vx ∋ x₀`, every zero `y` has `IsSurjLinOfIndex f y d` with the same `d` as `x₀`: the dimension
-  of the solution set is locally constant (`theorem_3_54_two_wholeChart`) and equals the index at every zero
-  in good position (Theorem 3.54 (1), `theorem_3_54_one'_wholeChart`).  `Polyfold.theorem_3_54_index_wholeChart`:
-  Theorem 3.54 (1), (2) with this.
-* `Polyfold.theorem_3_23_index_wholeChart`, `Polyfold.theorem_3_19_index_wholeChart`: Theorems 3.23 and 3.19 with the
-  text's hypotheses (as `theorem_3_23'_wholeChart`, `theorem_3_19'_wholeChart`), with the dimension `d` of the manifold
+  of the solution set is locally constant (`theorem_3_6_8_two_wholeChart`) and equals the index at every zero
+  in good position (Theorem 3.6.8 (preprint 3.54) (1), `theorem_3_6_8_one'_wholeChart`).  `Polyfold.theorem_3_6_8_index_wholeChart`:
+  Theorem 3.6.8 (preprint 3.54) (1), (2) with this.
+* `Polyfold.theorem_3_1_26_index_wholeChart`, `Polyfold.theorem_3_1_22_index_wholeChart`: Theorems 3.1.26 and 3.1.22 (preprint 3.23 and 3.19) with the
+  text's hypotheses (as `theorem_3_1_26'_wholeChart`, `theorem_3_1_22'_wholeChart`), with the dimension `d` of the manifold
   `S(f, U)` equal to the Fredholm index (and to `dim ker f'(y)`) at every `y ∈ S(f, U)`, and with
   the induced structure tame.
-* `Polyfold.theorem_3_19_linearization_index_wholeChart`: the first clause of Theorem 3.19 with the index:
-  in the chart of Definition 3.53, `Dg(0)` and `Tf̃(0)` are Fredholm, `Tf̃(0)` is onto, and both
+* `Polyfold.theorem_3_1_22_linearization_index_wholeChart`: the first clause of Theorem 3.1.22 (preprint 3.19) with the index:
+  in the chart of Definition 3.6.6 (preprint 3.53), `Dg(0)` and `Tf̃(0)` are Fredholm, `Tf̃(0)` is onto, and both
   have index `dim d.Pn − dim d.Q = dim ker Tf̃(0)` for every conjugation `d` of `g − s` to a
-  basic germ (`proposition_3_52_index_wholeChart` with the surjectivity of Definition 3.53).
-* `Polyfold.theorem_3_54_ker_eq_tangent_wholeChart` (**"`ker f'(y) = T_yS`" in a chart**, Finding 172): in
+  basic germ (`proposition_3_6_5_index_wholeChart` with the surjectivity of Definition 3.6.6 (preprint 3.53)).
+* `Polyfold.theorem_3_6_8_ker_eq_tangent_wholeChart` (**"`ker f'(y) = T_yS`" in a chart**, Finding 172): in
   the strong bundle chart `c` at `x₀` and the conjugating sc-diffeomorphism `ψ` of the proof of
-  Theorem 3.54, at every zero `y` near `x₀`, with `ψ(ϕ(y)) = v + σ(v)`, the derivative `Dψ(z)`
+  Theorem 3.6.8 (preprint 3.54), at every zero `y` near `x₀`, with `ψ(ϕ(y)) = v + σ(v)`, the derivative `Dψ(z)`
   maps `ker Lin(z)` (the kernel of `f'(y)` in the chart `c`) onto the tangent space
   `N_v = {n + Dσ(v)n | n ∈ K}` of the solution graph at `v`.
 * **Good position when `d_X(y) = 0`** (Finding 173):
@@ -66,49 +66,49 @@ locally constant along the solution set.
   cone containing `T`), `Polyfold.StrongBundle.isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero_wholeChart`
   and `StrongBundle.isGoodPositionGerm_of_isLinSurjAt_wholeChart`: if `d_X(y) = 0`, an sc-Fredholm germ at a
   zero `y` whose linearization is onto in a tame chart is in good position — the partial cone
-  `C_yX` is the whole tangent space, so the kernel condition of Definition 3.53 is void;
+  `C_yX` is the whole tangent space, so the kernel condition of Definition 3.6.6 (preprint 3.53) is void;
   `StrongBundle.IsGoodPositionGermWholeChart.isLinSurjAt` and
   `StrongBundle.isGoodPositionGerm_iff_isLinSurjAt_wholeChart` (good position iff surjectivity when
   `d_X(y) = 0`).
-* `Polyfold.theorem_3_19_of_surjective_wholeChart`, `Polyfold.theorem_3_56_of_surjective_wholeChart`: **Theorems 3.19 and
+* `Polyfold.theorem_3_1_22_of_surjective_wholeChart`, `Polyfold.theorem_3_6_10_of_surjective_wholeChart`: **Theorems 3.1.22 (preprint 3.19) and
   3.56 with the text's hypothesis "`f'(x)` surjective"** (`IsLinSurjAt`) instead of
-  `IsGoodPositionGermWholeChart`; `Polyfold.theorem_3_56_tame_wholeChart`, `Polyfold.theorem_3_57_index_wholeChart`: Theorems 3.56
-  and 3.57 with the tameness of the induced structure, the regular data of Definition 3.25 (2) at
+  `IsGoodPositionGermWholeChart`; `Polyfold.theorem_3_6_10_tame_wholeChart`, `Polyfold.theorem_3_6_11_index_wholeChart`: Theorems 3.6.10 (preprint 3.56)
+  and 3.57 with the tameness of the induced structure, the regular data of Definition 3.2.1 (preprint 3.25) (2) at
   every zero, and their dimension equal to the Fredholm index.
 * `Polyfold.normal_injective_of_exists_range_scDeriv_eq_ρ`,
   `Polyfold.exists_range_scDeriv_eq_ρ_iff_normal_injective` (Finding 174, the converse in
   Finding 100): at a zero `z₀` of a filler with `ker Dg(z₀) ⊆ T_{z₀}O`, the surjectivity of
   `Tf̃(z₀) : T_{z₀}O → K_{z₀}` implies that `C(z₀) = (1 − ρ(z₀))Dg(z₀)|_{ker Dr(z₀)}` is
-  injective (condition (3) of Definition 3.4 at `z₀`); with the converse
-  (`exists_range_scDeriv_eq_ρ_of_normal_injective`), the two are equivalent.  With Theorem 3.54
+  injective (condition (3) of Definition 3.1.4 (preprint 3.4) at `z₀`); with the converse
+  (`exists_range_scDeriv_eq_ρ_of_normal_injective`), the two are equivalent.  With Theorem 3.6.8 (preprint 3.54)
   (1) this gives `Polyfold.isGoodPositionGermFilled_of_isGoodPositionGerm_wholeChart`: the filler condition
-  `IsGoodPositionGermFilledWholeChart` (the added hypothesis of `theorem_3_54_one_wholeChart`) follows from good
-  position, for the filler of `theorem_3_54_nearby_kernel_wholeChart`.
+  `IsGoodPositionGermFilledWholeChart` (the added hypothesis of `theorem_3_6_8_one_wholeChart`) follows from good
+  position, for the filler of `theorem_3_6_8_nearby_kernel_wholeChart`.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **"The dimension agrees with the Fredholm index"** needs the dimension `d = dim ker D(h + t)(0)`
-  of the proof of Theorem 3.54 to be compared with the index of `f'(x₀)`.  `D(h + t)(0)` is
-  surjective and Fredholm of index `n − N` (Proposition 3.10, Corollary 3.41), so `d = n − N`;
-  and `n − N` is the index of `Tf̃(0)` for the **same** conjugation (Proposition 3.52 with
+  of the proof of Theorem 3.6.8 (preprint 3.54) to be compared with the index of `f'(x₀)`.  `D(h + t)(0)` is
+  surjective and Fredholm of index `n − N` (Proposition 3.1.10 (preprint 3.10), Corollary 3.5.3 (preprint 3.41)), so `d = n − N`;
+  and `n − N` is the index of `Tf̃(0)` for the **same** conjugation (Proposition 3.6.5 (preprint 3.52) with
   `ConjugationData`, `FredholmGermIndex.lean`).  The tangent germ chart of
-  `theorem_3_54_tangentGermChart_proj_wholeChart` is built from the chart of Definition 3.53 by destructuring
-  an existential, so its `Pn`, `Q` had to be exposed (`theorem_3_54_graph_proj_conj_wholeChart`,
-  `theorem_3_54_tangentGermChart_proj_conj_wholeChart`).  The index is then transported to every chart by
+  `theorem_3_6_8_tangentGermChart_proj_wholeChart` is built from the chart of Definition 3.6.6 (preprint 3.53) by destructuring
+  an existential, so its `Pn`, `Q` had to be exposed (`theorem_3_6_8_graph_proj_conj_wholeChart`,
+  `theorem_3_6_8_tangentGermChart_proj_conj_wholeChart`).  The index is then transported to every chart by
   `linAt_chart_independence`.  No hypothesis is added.
-* **The index in the interior case**: the text's Theorem 3.19 states `f'(x₀)` sc-Fredholm; as in
-  `proposition_3_52_wholeChart`, only the level-`0` Fredholm property and index are formalized.
-* **"`ker f'(y) = T_yS(f, U)`"**: `T_yS` as a subspace of `T_yX` (Definition 2.38) is not
+* **The index in the interior case**: the text's Theorem 3.1.22 (preprint 3.19) states `f'(x₀)` sc-Fredholm; as in
+  `proposition_3_6_5_wholeChart`, only the level-`0` Fredholm property and index are formalized.
+* **"`ker f'(y) = T_yS(f, U)`"**: `T_yS` as a subspace of `T_yX` (Definition 2.5.8 (preprint 2.38)) is not
   formalized (gap G.13); the chart form is the image of `ker f'(y)` under the derivative of the
   chart `ψ ∘ ϕ` of the tangent germ data, `Dψ(z)(ker Lin(z)) = N_v`.
-* **Good position and surjectivity when `∂X = ∅`**: Definition 3.53 is stated in the chart of
-  Definition 3.11 with the partial quadrant `C` of the chart, which need not be the whole space
-  even if `d_X(y) = 0`; in a tame chart `d_C(ϕ(y)) = d_X(y)` (Proposition 2.36,
+* **Good position and surjectivity when `∂X = ∅`**: Definition 3.6.6 (preprint 3.53) is stated in the chart of
+  Definition 3.1.11 (preprint 3.11) with the partial quadrant `C` of the chart, which need not be the whole space
+  even if `d_X(y) = 0`; in a tame chart `d_C(ϕ(y)) = d_X(y)` (Proposition 2.5.6 (preprint 2.36),
   `degIndex_eq_chartDegIndex_of_isTameRetract`), so `d_X(y) = 0` makes the partial quadrant
   `C_{ϕ(y)}` the whole space and the kernel condition automatic.  The tameness of the chart of
-  the germ data at `y` (Definition 3.50, `IsScFredholmSectionTameWholeChart`) is used for this; the
+  the germ data at `y` (Definition 3.6.3 (preprint 3.50), `IsScFredholmSectionTameWholeChart`) is used for this; the
   surjectivity, given in some chart, is carried to that chart by `IsLinSurjAt.linAt_surjective`.
-* **Tameness** (Definitions 3.50, 3.51; Findings 190–199): the germ at `x₀` is in good position
+* **Tameness** (Definitions 3.6.3, 3.6.4 (preprint 3.50, 3.51); Findings 190–199): the germ at `x₀` is in good position
   in a tame chart (`IsGoodPositionGermTameWholeChart`), the section has tame germ data where the good
   position of the nearby zeros is concluded (`IsScFredholmSectionTameWholeChart`), and the conclusions
   "`(f, y)` in good position" are in tame charts.
@@ -127,7 +127,7 @@ variable {E F : ScBanach}
 section Linear
 
 /-- A subspace `N` of a subspace `T ⊆ E₀` is in good position inside `T` to every cone `C` that
-contains `T` (Definition 3.21 inside `T`): `N ∩ C = N`, and any algebraic complement of `N` in `T`
+contains `T` (Definition 3.1.24 (preprint 3.21) inside `T`): `N ∩ C = N`, and any algebraic complement of `N` in `T`
 is a good complement (with any constant, both sides of the condition being true). -/
 theorem isInGoodPositionIn_of_subset {T N : Submodule ℝ (E 0)} {C : Set (E 0)} (hNT : N ≤ T)
     (hTC : (T : Set (E 0)) ⊆ C) : IsInGoodPositionIn E T C N := by
@@ -156,7 +156,7 @@ theorem isInGoodPositionIn_of_subset {T N : Submodule ℝ (E 0)} {C : Set (E 0)}
 
 end Linear
 
-/-! ### Condition (3) of Definition 3.4 at a nearby zero and the surjectivity of `Tf̃(z₀)` -/
+/-! ### Condition (3) of Definition 3.1.4 (preprint 3.4) at a nearby zero and the surjectivity of `Tf̃(z₀)` -/
 
 section Normal
 
@@ -193,7 +193,7 @@ theorem normal_injective_of_exists_range_scDeriv_eq_ρ (hU : IsRelOpenInQuadrant
 /-- **Finding 100's equivalence**: at a zero `z₀` of `f̂` in `O` with `Dg(z₀)` agreeing with
 `D(f̂ ∘ r)(z₀)` on `T_{z₀}O` (`g = f̂` on `O` near `z₀`), `Dg(z₀)` onto and
 `ker Dg(z₀) ⊆ T_{z₀}O`: `Tf̃(z₀)` maps onto `K_{z₀}` iff `(1 − ρ(z₀))Dg(z₀)` is injective on
-`ker Dr(z₀)` (condition (3) of Definition 3.4 at `z₀`). -/
+`ker Dr(z₀)` (condition (3) of Definition 3.1.4 (preprint 3.4) at `z₀`). -/
 theorem exists_range_scDeriv_eq_ρ_iff_normal_injective (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) {fb g : E 0 → F 0} (hfr : IsSc1 U (fb ∘ r R))
     (hg : IsSc1 U g) (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ)) {z : E 1}
@@ -247,7 +247,7 @@ def StrongBundle.IsSurjLinOfIndex (f : X → Y) (y : X) (d : ℕ) : Prop :=
           ↥(rangeS (ρCLM c.isRetraction hzU)))) = d
 
 variable (B) in
-/-- **`f'(y)` is surjective** (the text's hypothesis of Theorems 3.19 and 3.56): in some strong
+/-- **`f'(y)` is surjective** (the text's hypothesis of Theorems 3.1.22 and 3.6.10 (preprint 3.19 and 3.56)): in some strong
 bundle chart `c` of `P` around `y`, at a level-`1` point `z` over `ϕ(y)`, the linearization
 `Lin(z) : T_zO → K_z` maps onto the fibre `K_z = {k | (ϕ(y), k) ∈ K}`.  (By
 `StrongBundle.linAt_chart_independence` it is then onto in every chart.) -/
@@ -290,13 +290,13 @@ theorem StrongBundle.IsLinSurjAt.linAt_surjective (hf : B.IsScSmoothSection f) {
   obtain ⟨x, hx⟩ := (hsurj.1 hLs) ⟨k, hk'⟩
   exact ⟨x, (hL' x).symm.trans (congrArg Subtype.val hx)⟩
 
-/-- **Proposition 3.52 in every chart**: let `c` be the chart of Definition 3.11 at the zero `x₀`
+/-- **Proposition 3.6.5 (preprint 3.52) in every chart**: let `c` be the chart of Definition 3.1.11 (preprint 3.11) at the zero `x₀`
 (centred, with filled version `g` of `f̂`, sc⁺-section `s`, `s(0) = g(0)`) and `dc` conjugation
 data of `g − s` to a basic germ `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`, `C̃ ⊆ ℝⁿ`.  Then for every strong
 bundle chart `c'` around `x₀` and the level-`1` point `z'` over `ϕ'(x₀)`, the linearization
 `Lin'(z') : T_{z'}O' → K'_{z'}` is Fredholm of index `n − N = dim dc.Pn − dim dc.Q`, and it is onto
-if `(f, x₀)` is in good position in `c` (`IsGoodPositionAt`).  Proposition 3.52 in `c`
-(`proposition_3_52_local_index_wholeChart`: `Tf̃(0)` Fredholm of index `n − N`), `Tf̃(0) = Lin(0)`
+if `(f, x₀)` is in good position in `c` (`IsGoodPositionAt`).  Proposition 3.6.5 (preprint 3.52) in `c`
+(`proposition_3_6_5_local_index_wholeChart`: `Tf̃(0)` Fredholm of index `n − N`), `Tf̃(0) = Lin(0)`
 (`fillerRestrict_eq_linAt`), and the chart independence (`linAt_chart_independence`). -/
 theorem StrongBundle.linAt_index_of_conjugationData_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
     (hx₀ : IsZeroAt P f x₀) {c : StrongBundleChart PX P} (hc : B.IsChart c)
@@ -322,7 +322,7 @@ theorem StrongBundle.linAt_index_of_conjugationData_wholeChart (hf : B.IsScSmoot
   have hfK : ∀ x ∈ r c.R '' c.U, (x, c.principal f x) ∈ c.R '' (c.U ×ˢ univ) := fun x hx =>
     c.principal_mem_K hf.1 (c.r_image ▸ hx)
   obtain ⟨h1, -, -, hTF, hTind⟩ :=
-    proposition_3_52_local_index_wholeChart hU c.isRetraction h0 h0O hfill hfb0 hfK hs hs0 dc
+    proposition_3_6_5_local_index_wholeChart hU c.isRetraction h0 h0O hfill hfb0 hfK hs hs0 dc
   set F₀ := fillerRestrict (scDeriv c.U (r c.R) 0) (ρCLM c.isRetraction h0) (scDeriv c.U g 0) h1
     with hF₀
   -- the chart independence, with `z = 0` in the centred chart
@@ -357,7 +357,7 @@ theorem StrongBundle.linAt_index_of_conjugationData_wholeChart (hf : B.IsScSmoot
   exact hsurjiff.1 ((surjective_iff_of_conj hconj).1 (hgp.surjective_fillerRestrict h1))
 
 /-- **The linearization at a zero in good position is onto of index `d = n − N`, in every
-chart**: with the data of Definition 3.53 at `x₀` (`linAt_index_of_conjugationData_wholeChart`), for every
+chart**: with the data of Definition 3.6.6 (preprint 3.53) at `x₀` (`linAt_index_of_conjugationData_wholeChart`), for every
 `d : ℕ` with `d = dim dc.Pn − dim dc.Q`, `IsSurjLinOfIndex f x₀ d` (the kernel dimension equals the
 index because the operator is onto, `finrank_ker_eq_fredholmIndex_of_surjective`). -/
 theorem StrongBundle.isSurjLinOfIndex_of_conjugationData_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
@@ -379,7 +379,7 @@ theorem StrongBundle.isSurjLinOfIndex_of_conjugationData_wholeChart (hf : B.IsSc
   exact_mod_cast h
 
 /-- **At a zero in good position, `f'(x₀)` is onto with `ind f'(x₀) = dim ker f'(x₀) = d` in every
-chart**, and `d = n − N` for every conjugation to a basic germ in the chart of Definition 3.53. -/
+chart**, and `d = n − N` for every conjugation to a basic germ in the chart of Definition 3.6.6 (preprint 3.53). -/
 theorem StrongBundle.IsGoodPositionGermWholeChart.exists_isSurjLinOfIndex (hf : B.IsScSmoothSection f)
     {x₀ : X} (hg : B.IsGoodPositionGermWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ d : ℕ, B.IsSurjLinOfIndex f x₀ d ∧
@@ -416,8 +416,8 @@ theorem StrongBundle.IsGoodPositionGermWholeChart.exists_isSurjLinOfIndex (hf : 
   · rw [hk, (StrongBundle.linAt_index_of_conjugationData_wholeChart hf hx₀ hc hxV hφ0 h0 hfill hs hs0 dc hc
       hxV hz hzU L fun _ => rfl).2.1]
 
-/-- **Definition 3.53 is surjectivity of `f'(y)` plus the kernel condition**: at a zero in good
-position, `f'(y)` is onto in the chart of Definition 3.53 (`IsLinSurjAt`; `Tf̃(0) = Lin(0)`). -/
+/-- **Definition 3.6.6 (preprint 3.53) is surjectivity of `f'(y)` plus the kernel condition**: at a zero in good
+position, `f'(y)` is onto in the chart of Definition 3.6.6 (preprint 3.53) (`IsLinSurjAt`; `Tf̃(0) = Lin(0)`). -/
 theorem StrongBundle.IsGoodPositionGermWholeChart.isLinSurjAt (hf : B.IsScSmoothSection f) {y : X}
     (hg : B.IsGoodPositionGermWholeChart f y) : B.IsLinSurjAt f y := by
   obtain ⟨-, c, hc, hyV, hφ0, h0, g, s, hfill, hs, hs0, hconj, hgp⟩ := hg
@@ -433,7 +433,7 @@ theorem StrongBundle.IsGoodPositionGermWholeChart.isLinSurjAt (hf : B.IsScSmooth
     (by rw [map_zero]; exact hfill.filler.eq_on)]
   exact hxk
 
-/-- **Good position is surjectivity when `d_X(y) = 0`** (the text before Theorem 3.56: "if
+/-- **Good position is surjectivity when `d_X(y) = 0`** (the text before Theorem 3.6.10 (preprint 3.56): "if
 `∂X = ∅` the condition of good position is an empty condition").  Let `(f, y)` be an
 sc-Fredholm germ at a zero `y` with `d_X(y) = 0`, and let the linearization `Lin(z)` in a strong
 bundle chart `c` with tame base retraction, at the level-`1` point `z` over `ϕ(y)`, map onto
@@ -467,8 +467,8 @@ theorem StrongBundle.isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero_wholeC
   exact isInGoodPositionIn_of_subset (Submodule.map_subtype_le _ _) (subset_univ _)
 
 /-- **Good position from "`f'(y)` surjective" when `d_X(y) = 0`**, for an sc-Fredholm section with
-tame germ data (`IsScFredholmSectionTameWholeChart`, Definition 3.51; `IsLinSurjAt`, the text's hypothesis of
-Theorems 3.19 and 3.56): the surjectivity holds in the tame chart `c` of the germ data at `y`
+tame germ data (`IsScFredholmSectionTameWholeChart`, Definition 3.6.4 (preprint 3.51); `IsLinSurjAt`, the text's hypothesis of
+Theorems 3.1.22 and 3.6.10 (preprint 3.19 and 3.56)): the surjectivity holds in the tame chart `c` of the germ data at `y`
 (`IsLinSurjAt.linAt_surjective`, chart independence), where `d_C(ϕ(y)) = d_X(y) = 0`
 (`isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero_wholeChart`); the good position is then read in that
 tame chart (`IsGoodPositionGermWholeChart.toTame`). -/
@@ -492,14 +492,14 @@ theorem StrongBundle.isGoodPositionGerm_iff_isLinSurjAt_wholeChart (hf : B.IsScF
   ⟨fun hg => hg.isGoodPositionGerm.isLinSurjAt hf.isScSmooth,
     StrongBundle.isGoodPositionGerm_of_isLinSurjAt_wholeChart hf hy0 hd⟩
 
-/-- **Theorem 3.19, the first clause, with the index** (cf. `theorem_3_19_linearization_wholeChart`, whose
-index clause is that of `proposition_3_52_wholeChart`, "`n − N` for some natural numbers"): for an
-sc-Fredholm section and a zero `x₀` in good position, in the chart of Definition 3.53, `Dg(0)` and
+/-- **Theorem 3.1.22 (preprint 3.19), the first clause, with the index** (cf. `theorem_3_1_22_linearization_wholeChart`, whose
+index clause is that of `proposition_3_6_5_wholeChart`, "`n − N` for some natural numbers"): for an
+sc-Fredholm section and a zero `x₀` in good position, in the chart of Definition 3.6.6 (preprint 3.53), `Dg(0)` and
 `f'(x₀) = Tf̃(0) = Dg(0)|_{T₀O} : T₀O → K₀` are Fredholm, `Tf̃(0)` is onto, and for **every**
 conjugation `d` of `g − s` to a basic germ (`h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`, `C̃ ⊆ ℝⁿ`):
-`ind Dg(0) = ind Tf̃(0) = dim ker Tf̃(0) = n − N` (`proposition_3_52_local_index_wholeChart`).  The index in
+`ind Dg(0) = ind Tf̃(0) = dim ker Tf̃(0) = n − N` (`proposition_3_6_5_local_index_wholeChart`).  The index in
 every other chart is `IsGoodPositionGermWholeChart.exists_isSurjLinOfIndex`. -/
-theorem theorem_3_19_linearization_index_wholeChart (hf : B.IsScFredholmSectionWholeChart f) {x₀ : X}
+theorem theorem_3_1_22_linearization_index_wholeChart (hf : B.IsScFredholmSectionWholeChart f) {x₀ : X}
     (hx₀ : IsZeroAt P f x₀) (hg : B.IsGoodPositionGermWholeChart f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (h0 : (0 : c.φ.model.E 0) ∈ c.U) (g : c.φ.model.E 0 → c.F 0) (s : c.φ.model.E 0 → c.F 1)
@@ -531,11 +531,11 @@ theorem theorem_3_19_linearization_index_wholeChart (hf : B.IsScFredholmSectionW
     c.principal_mem_K hfs (c.r_image ▸ hx)
   obtain ⟨d₀⟩ := isConjugateToBasicGerm_iff_nonempty.1 hconj
   obtain ⟨h1, hDgF, -, hTF, -⟩ :=
-    proposition_3_52_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d₀
+    proposition_3_6_5_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d₀
   have hTs := hgp.surjective_fillerRestrict h1
   refine ⟨c, hc, hxV, hφ0, h0U, g, s, hfill, hs, hs0, ⟨d₀⟩, h1, hDgF, hTF, hTs, fun d => ?_⟩
   obtain ⟨h1', -, hDgind, -, hTind⟩ :=
-    proposition_3_52_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d
+    proposition_3_6_5_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d
   exact ⟨hDgind, hTind, by rw [finrank_ker_eq_fredholmIndex_of_surjective hTF hTs, hTind]⟩
 
 end Bundle
@@ -553,34 +553,34 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
-/-- **Theorem 3.54 (2) at the centre, with "dimension = Fredholm index"** (the text: "abbreviating
+/-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre, with "dimension = Fredholm index"** (the text: "abbreviating
 `d = dim ker f'(x)`, the solution set possesses the `d`-dimensional tangent germ property"; Theorem
-3.19: "whose dimension agrees with the Fredholm index").  The data of Definition 3.25 (2) for
-`S = {y ∈ Vx | f(y) = 0}` at `x₀` of `theorem_3_54_tangentGermChart_proj_wholeChart` have dimension `d` with
+3.19: "whose dimension agrees with the Fredholm index").  The data of Definition 3.2.1 (preprint 3.25) (2) for
+`S = {y ∈ Vx | f(y) = 0}` at `x₀` of `theorem_3_6_8_tangentGermChart_proj_wholeChart` have dimension `d` with
 `IsSurjLinOfIndex f x₀ d`: in every strong bundle chart around `x₀`, `f'(x₀)` is onto, Fredholm,
-and `ind f'(x₀) = dim ker f'(x₀) = d`.  (`theorem_3_54_tangentGermChart_proj_conj_wholeChart`: `d = n − N`
+and `ind f'(x₀) = dim ker f'(x₀) = d`.  (`theorem_3_6_8_tangentGermChart_proj_conj_wholeChart`: `d = n − N`
 for the conjugation in the chart from which `ψ ∘ ϕ` is built;
 `isSurjLinOfIndex_of_conjugationData_wholeChart`.) -/
-theorem theorem_3_54_tangentGermChart_index_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
+theorem theorem_3_6_8_tangentGermChart_index_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
       (∃ D : PX.TangentGermChart {y ∈ Vx | IsZeroAt P f y} x₀ d,
         ∀ z ∈ D.φ.model.O, (D.π z : D.φ.model.E 0) ∈ D.φ.model.C) ∧
       B.IsSurjLinOfIndex f x₀ d := by
   obtain ⟨Vx, d, hVxo, hx₀Vx, hD, c, hc, hxV, hφ0, h0, g, s, hfill, hs, hs0, hgp, dc, hd⟩ :=
-    theorem_3_54_tangentGermChart_proj_conj_wholeChart hf.1 hg hx₀
+    theorem_3_6_8_tangentGermChart_proj_conj_wholeChart hf.1 hg hx₀
   exact ⟨Vx, d, hVxo, hx₀Vx, hD,
     StrongBundle.isSurjLinOfIndex_of_conjugationData_wholeChart hf hx₀ hc.1 hxV hφ0 h0 hfill hs hs0 hgp dc hd⟩
 
-/-- **The data of Definition 3.25 (2) for the global solution set at a zero in good position,
-with the dimension the Fredholm index** (`theorem_3_54_tangentGermChart_solutionSet_wholeChart` with
+/-- **The data of Definition 3.2.1 (preprint 3.25) (2) for the global solution set at a zero in good position,
+with the dimension the Fredholm index** (`theorem_3_6_8_tangentGermChart_solutionSet_wholeChart` with
 `IsSurjLinOfIndex f x₀ d`). -/
-theorem theorem_3_54_tangentGermChart_solutionSet_index_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
+theorem theorem_3_6_8_tangentGermChart_solutionSet_index_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ d : ℕ, (∃ D : PX.TangentGermChart (solutionSet P f) x₀ d,
       ∀ z ∈ D.φ.model.O, (D.π z : D.φ.model.E 0) ∈ D.φ.model.C) ∧ B.IsSurjLinOfIndex f x₀ d := by
   obtain ⟨Vx, d, hVxo, hx₀Vx, ⟨D, hπ⟩, hind⟩ :=
-    theorem_3_54_tangentGermChart_index_wholeChart hf hg hx₀
+    theorem_3_6_8_tangentGermChart_index_wholeChart hf hg hx₀
   have hs : D.φ.source ∩ Vx ⊆ D.φ.source := inter_subset_left
   have hso : IsOpen (D.φ.source ∩ Vx) := D.φ.isOpen_source.inter hVxo
   have hxs : x₀ ∈ D.φ.source ∩ Vx := ⟨D.mem_source, hx₀Vx⟩
@@ -597,10 +597,10 @@ theorem theorem_3_54_tangentGermChart_solutionSet_index_wholeChart (hf : B.IsScS
   rw [D.shrink_π]
   exact hπ z (D.φ.image_subset_model hs hz)
 
-/-- **Theorem 3.54 (2) with "dimension = Fredholm index"**: `theorem_3_54_two_wholeChart` with in addition
-`IsSurjLinOfIndex f x₀ d` — the dimension `d` of the regular data of Definition 3.25 (2) of the
+/-- **Theorem 3.6.8 (preprint 3.54) (2) with "dimension = Fredholm index"**: `theorem_3_6_8_two_wholeChart` with in addition
+`IsSurjLinOfIndex f x₀ d` — the dimension `d` of the regular data of Definition 3.2.1 (preprint 3.25) (2) of the
 solution set at `x₀` is `dim ker f'(x₀) = ind f'(x₀)` in every chart. -/
-theorem theorem_3_54_two_index_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
+theorem theorem_3_6_8_two_index_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀)
     {Vx₀ : Set X} (hVx₀ : IsOpen Vx₀) (hx₀V : x₀ ∈ Vx₀)
     (hall : ∀ y ∈ Vx₀, IsZeroAt P f y → B.IsGoodPositionGermTameWholeChart f y) :
@@ -608,76 +608,76 @@ theorem theorem_3_54_two_index_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X
       (∀ y ∈ solutionSet P f ∩ D.φ.source,
         ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d) ∧
       B.IsSurjLinOfIndex f x₀ d := by
-  obtain ⟨d, ⟨D, hπ⟩, hind⟩ := theorem_3_54_tangentGermChart_solutionSet_index_wholeChart hf hg hx₀
+  obtain ⟨d, ⟨D, hπ⟩, hind⟩ := theorem_3_6_8_tangentGermChart_solutionSet_index_wholeChart hf hg hx₀
   have hM : ∀ y ∈ solutionSet P f ∩ Vx₀,
       ∃ n' : ℕ, Nonempty (PX.TangentGermChart (solutionSet P f) y n') := fun y hy => by
     obtain ⟨d', D', -⟩ :=
-      theorem_3_54_tangentGermChart_solutionSet_wholeChart hf.1 (hall y hy.2 hy.1) hy.1
+      theorem_3_6_8_tangentGermChart_solutionSet_wholeChart hf.1 (hall y hy.2 hy.1) hy.1
     exact ⟨d', ⟨D'⟩⟩
   obtain ⟨D', hreg, hsub, hdim⟩ := D.exists_isRegular_of_locally hπ hVx₀ hx₀V hM
   exact ⟨d, D', hreg, hsub, hdim, hind⟩
 
-/-- At a zero `y` in good position at which every datum of Definition 3.25 (2) of the solution
+/-- At a zero `y` in good position at which every datum of Definition 3.2.1 (preprint 3.25) (2) of the solution
 set has dimension `d`, `f'(y)` is onto of index `d`
-(`theorem_3_54_tangentGermChart_solutionSet_index_wholeChart` at `y` gives a datum whose dimension is the
+(`theorem_3_6_8_tangentGermChart_solutionSet_index_wholeChart` at `y` gives a datum whose dimension is the
 index). -/
 theorem isSurjLinOfIndex_of_forall_dim_wholeChart (hf : B.IsScSmoothSection f)
     {y : X} (hgy : B.IsGoodPositionGermTameWholeChart f y) (hy0 : IsZeroAt P f y) {d : ℕ}
     (hdim : ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d) :
     B.IsSurjLinOfIndex f y d := by
-  obtain ⟨dy, ⟨Dy, -⟩, hindy⟩ := theorem_3_54_tangentGermChart_solutionSet_index_wholeChart hf hgy hy0
+  obtain ⟨dy, ⟨Dy, -⟩, hindy⟩ := theorem_3_6_8_tangentGermChart_solutionSet_index_wholeChart hf hgy hy0
   rw [← hdim dy Dy]
   exact hindy
 
-/-- **The Fredholm index is locally constant along the solution set** (Proposition 6.2 of the text
+/-- **The Fredholm index is locally constant along the solution set** (Proposition 6.2.2 (preprint 6.2) of the text
 along `S`; Findings 171, 188).  For an sc-Fredholm section with tame germ data
 (`IsScFredholmSectionTameWholeChart`), `f(x₀) = 0` and `(f, x₀)` in good position in a tame chart, there
 are an open `Vx ∋ x₀` and `d` such
 that at every zero `y ∈ Vx`, `f'(y)` is onto with `ind f'(y) = dim ker f'(y) = d`
-(`IsSurjLinOfIndex`, in every chart), in particular `ind f'(y) = ind f'(x₀)`.  Proof: Theorem 3.54
-(1) (`theorem_3_54_one'_wholeChart`) puts the zeros near `x₀` in good position; the dimension of the solution
-set is locally constant (`theorem_3_54_two_wholeChart`) and equals the index at each of them
-(`theorem_3_54_tangentGermChart_solutionSet_index_wholeChart`). -/
-theorem theorem_3_54_index_locally_constant_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
+(`IsSurjLinOfIndex`, in every chart), in particular `ind f'(y) = ind f'(x₀)`.  Proof: Theorem 3.6.8 (preprint 3.54)
+(1) (`theorem_3_6_8_one'_wholeChart`) puts the zeros near `x₀` in good position; the dimension of the solution
+set is locally constant (`theorem_3_6_8_two_wholeChart`) and equals the index at each of them
+(`theorem_3_6_8_tangentGermChart_solutionSet_index_wholeChart`). -/
+theorem theorem_3_6_8_index_locally_constant_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
       ∀ y ∈ Vx, IsZeroAt P f y → B.IsSurjLinOfIndex f y d := by
-  obtain ⟨Vx₁, hVx₁o, hx₀Vx₁, hall⟩ := theorem_3_54_one'_wholeChart hf hg hx₀
+  obtain ⟨Vx₁, hVx₁o, hx₀Vx₁, hall⟩ := theorem_3_6_8_one'_wholeChart hf hg hx₀
   obtain ⟨d, D, -, hsub, hdim, -⟩ :=
-    theorem_3_54_two_index_wholeChart hf.isScSmooth hg hx₀ hVx₁o hx₀Vx₁ hall
+    theorem_3_6_8_two_index_wholeChart hf.isScSmooth hg hx₀ hVx₁o hx₀Vx₁ hall
   exact ⟨D.φ.source, d, D.φ.isOpen_source, D.mem_source, fun y hy hy0 =>
     isSurjLinOfIndex_of_forall_dim_wholeChart hf.isScSmooth (hall y (hsub hy) hy0) hy0
       (hdim y ⟨hy0, hy⟩)⟩
 
-/-- **Theorem 3.54 (1) and (2) with the text's hypotheses and the index**: for an sc-Fredholm
+/-- **Theorem 3.6.8 (preprint 3.54) (1) and (2) with the text's hypotheses and the index**: for an sc-Fredholm
 section with tame germ data (`IsScFredholmSectionTameWholeChart`), `f(x₀) = 0` and `(f, x₀)` in good
 position in a tame chart, there are an open `Vx ∋ x₀` and `d` with: (1) at every zero `y ∈ Vx`,
 `(f, y)` is in good position in a tame chart and `f'(y)` is onto with `ind f'(y) = dim ker f'(y) = d` (the index is locally
-constant); (2) the solution set has at `x₀` regular data of Definition 3.25 (2) of dimension `d`
+constant); (2) the solution set has at `x₀` regular data of Definition 3.2.1 (preprint 3.25) (2) of dimension `d`
 on the chart domain `Vx`, every datum at a point of `Vx` having dimension `d`.  (Cf.
-`theorem_3_54'_wholeChart`.) -/
-theorem theorem_3_54_index_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
+`theorem_3_6_8'_wholeChart`.) -/
+theorem theorem_3_6_8_index_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
       (∀ y ∈ Vx, IsZeroAt P f y → B.IsGoodPositionGermTameWholeChart f y ∧ B.IsSurjLinOfIndex f y d) ∧
       ∃ D : PX.TangentGermChart (solutionSet P f) x₀ d, D.IsRegular ∧ D.φ.source = Vx ∧
         ∀ y ∈ solutionSet P f ∩ D.φ.source,
           ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d := by
-  obtain ⟨Vx₁, hVx₁o, hx₀Vx₁, hall⟩ := theorem_3_54_one'_wholeChart hf hg hx₀
+  obtain ⟨Vx₁, hVx₁o, hx₀Vx₁, hall⟩ := theorem_3_6_8_one'_wholeChart hf hg hx₀
   obtain ⟨d, D, hreg, hsub, hdim, -⟩ :=
-    theorem_3_54_two_index_wholeChart hf.isScSmooth hg hx₀ hVx₁o hx₀Vx₁ hall
+    theorem_3_6_8_two_index_wholeChart hf.isScSmooth hg hx₀ hVx₁o hx₀Vx₁ hall
   exact ⟨D.φ.source, d, D.φ.isOpen_source, D.mem_source, fun y hy hy0 =>
     ⟨hall y (hsub hy) hy0, isSurjLinOfIndex_of_forall_dim_wholeChart hf.isScSmooth
       (hall y (hsub hy) hy0) hy0 (hdim y ⟨hy0, hy⟩)⟩, D, hreg, rfl, hdim⟩
 
-/-- **Theorem 3.23 with the text's hypotheses, the dimension equal to the Fredholm index**: an
+/-- **Theorem 3.1.26 (preprint 3.23) with the text's hypotheses, the dimension equal to the Fredholm index**: an
 sc-Fredholm section with tame germ data (`IsScFredholmSectionTameWholeChart`), `f(x) = 0`, `(f, x)` in good
 position in a tame chart.  Then there are an open `U ∋ x` and `d` such that every zero `y ∈ U` is
 in good position in a tame chart with `f'(y)` onto and `ind f'(y) = dim ker f'(y) = d`, `S(f, U)` consists of smooth
 points, is a sub-M-polyfold of `X`, and its induced structure is tame and that of a
-`d`-dimensional manifold with boundary with corners.  (Cf. `theorem_3_23'_wholeChart`; the proof is that of
-`theorem_3_23_of_nearby_wholeChart` with `theorem_3_54_two_index_wholeChart`.) -/
-theorem theorem_3_23_index_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x : X} (hx : IsZeroAt P f x)
+`d`-dimensional manifold with boundary with corners.  (Cf. `theorem_3_1_26'_wholeChart`; the proof is that of
+`theorem_3_1_26_of_nearby_wholeChart` with `theorem_3_6_8_two_index_wholeChart`.) -/
+theorem theorem_3_1_26_index_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x : X} (hx : IsZeroAt P f x)
     (hg : B.IsGoodPositionGermTameWholeChart f x) :
     ∃ (U : Set X) (d : ℕ), IsOpen U ∧ x ∈ U ∧
       (∀ y ∈ U, IsZeroAt P f y → B.IsGoodPositionGermTameWholeChart f y ∧ B.IsSurjLinOfIndex f y d) ∧
@@ -686,15 +686,15 @@ theorem theorem_3_23_index_wholeChart (hf : B.IsScFredholmSectionTameWholeChart 
         haveI := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
         (MPolyfold.subPolyfold hsub).IsTame ∧
           (MPolyfold.subPolyfold hsub).IsManifoldWithCorners d := by
-  obtain ⟨Vx, hVxo, hxVx, hall⟩ := theorem_3_54_one'_wholeChart hf hg hx
+  obtain ⟨Vx, hVxo, hxVx, hall⟩ := theorem_3_6_8_one'_wholeChart hf hg hx
   obtain ⟨d, D, -, hsub, hdim, -⟩ :=
-    theorem_3_54_two_index_wholeChart hf.isScSmooth hg hx hVxo hxVx hall
+    theorem_3_6_8_two_index_wholeChart hf.isScSmooth hg hx hVxo hxVx hall
   set U := D.φ.source with hU
   set S' := {y ∈ U | IsZeroAt P f y} with hS'
-  -- every point of `S(f, U)` has regular data of Definition 3.25 (2) for `S(f, U)` of dimension `d`
+  -- every point of `S(f, U)` has regular data of Definition 3.2.1 (preprint 3.25) (2) for `S(f, U)` of dimension `d`
   have hS'reg : ∀ y ∈ S', ∃ d' : PX.TangentGermChart S' y d, d'.IsRegular := by
     intro y hy
-    obtain ⟨dy, Dy, hregy, hsuby, -⟩ := theorem_3_54_two_wholeChart hf.isScSmooth.1 (hall y (hsub hy.1) hy.2)
+    obtain ⟨dy, Dy, hregy, hsuby, -⟩ := theorem_3_6_8_two_wholeChart hf.isScSmooth.1 (hall y (hsub hy.1) hy.2)
       hy.2 (D.φ.isOpen_source.inter hVxo) ⟨hy.1, hsub hy.1⟩ fun z hz hz0 => hall z hz.2 hz0
     have hdy : dy = d := hdim y ⟨hy.2, hy.1⟩ dy Dy
     subst hdy
@@ -710,13 +710,13 @@ theorem theorem_3_23_index_wholeChart (hf : B.IsScFredholmSectionTameWholeChart 
       subset_rfl himage, Dy.shrink_isRegular S' subset_rfl Dy.φ.isOpen_source Dy.mem_source
       Dy.V_relOpen Dy.zero_mem_V subset_rfl himage hregy.isScSmooth hregy.π_mem⟩
   have hne : S'.Nonempty := ⟨x, D.mem_source, hx⟩
-  obtain ⟨hsubM, htameS, hman, -⟩ := theorem_3_27 PX hne hS'reg
+  obtain ⟨hsubM, htameS, hman, -⟩ := theorem_3_2_3_of_isRegular PX hne hS'reg
   exact ⟨U, d, D.φ.isOpen_source, D.mem_source, fun y hy hy0 =>
     ⟨hall y (hsub hy) hy0, isSurjLinOfIndex_of_forall_dim_wholeChart hf.isScSmooth
       (hall y (hsub hy) hy0) hy0 (hdim y ⟨hy0, hy⟩)⟩,
     fun y _ hy => hf.mem_smoothSet_of_isZeroAt hy, hsubM, htameS, hman⟩
 
-/-- **Theorem 3.19 (implicit function theorem, interior case) with the text's hypotheses, the
+/-- **Theorem 3.1.22 (preprint 3.19) (implicit function theorem, interior case) with the text's hypotheses, the
 index and tameness**: for an M-polyfold without boundary, an sc-Fredholm section with tame germ
 data (`IsScFredholmSectionTameWholeChart`), `f(x₀) = 0` and `(f, x₀)` in good position in a tame chart, there
 are an open `U ∋ x₀` and `d` such that at every zero `y ∈ U`, `(f, y)` is in good position in a
@@ -724,9 +724,9 @@ tame chart and `f'(y)` is onto
 with `ind f'(y) = dim ker f'(y) = d` (in every chart); `S(f, U)` consists of smooth points and is
 a sub-M-polyfold whose induced structure is tame and that of a `d`-dimensional manifold without
 boundary — "whose dimension agrees with the Fredholm index of `f'(x₀)`".  "`ker f'(y) = T_yS`" is
-`theorem_3_54_ker_eq_tangent_wholeChart` (in a chart); the text's hypothesis "`f'(x₀)` surjective" is
-`theorem_3_19_of_surjective_wholeChart`.  (Cf. `theorem_3_19'_wholeChart`.) -/
-theorem theorem_3_19_index_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
+`theorem_3_6_8_ker_eq_tangent_wholeChart` (in a chart); the text's hypothesis "`f'(x₀)` surjective" is
+`theorem_3_1_22_of_surjective_wholeChart`.  (Cf. `theorem_3_1_22'_wholeChart`.) -/
+theorem theorem_3_1_22_index_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
     (hx₀ : IsZeroAt P f x₀) (hg : B.IsGoodPositionGermTameWholeChart f x₀) :
     ∃ (U : Set X) (d : ℕ), IsOpen U ∧ x₀ ∈ U ∧
       (∀ y ∈ U, IsZeroAt P f y → B.IsGoodPositionGermTameWholeChart f y ∧ B.IsSurjLinOfIndex f y d) ∧
@@ -736,17 +736,17 @@ theorem theorem_3_19_index_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFr
         (MPolyfold.subPolyfold hsub).IsTame ∧
           (MPolyfold.subPolyfold hsub).IsManifoldWithCorners d ∧
           (MPolyfold.subPolyfold hsub).IsWithoutBoundary := by
-  obtain ⟨U, d, hUo, hxU, hgood, hsm, hsub, h1, h2⟩ := theorem_3_23_index_wholeChart hf hx₀ hg
+  obtain ⟨U, d, hUo, hxU, hgood, hsm, hsub, h1, h2⟩ := theorem_3_1_26_index_wholeChart hf hx₀ hg
   have := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
   refine ⟨U, d, hUo, hxU, hgood, hsm, hsub, h1, h2, fun y => ?_⟩
-  have := lemma_2_26 hsub y
+  have := lemma_2_4_6 hsub y
   rw [hX y.1] at this
   exact Nat.le_zero.1 this
 
-/-- **Theorem 3.19 with the text's hypothesis "`f'(x₀)` surjective"** (`IsLinSurjAt`): for an
+/-- **Theorem 3.1.22 (preprint 3.19) with the text's hypothesis "`f'(x₀)` surjective"** (`IsLinSurjAt`): for an
 M-polyfold without boundary good position is surjectivity
-(`isGoodPositionGerm_of_isLinSurjAt_wholeChart`), and `theorem_3_19_index_wholeChart` applies. -/
-theorem theorem_3_19_of_surjective_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTameWholeChart f)
+(`isGoodPositionGerm_of_isLinSurjAt_wholeChart`), and `theorem_3_1_22_index_wholeChart` applies. -/
+theorem theorem_3_1_22_of_surjective_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTameWholeChart f)
     {x₀ : X} (hx₀ : IsZeroAt P f x₀) (hsurj : B.IsLinSurjAt f x₀) :
     ∃ (U : Set X) (d : ℕ), IsOpen U ∧ x₀ ∈ U ∧
       (∀ y ∈ U, IsZeroAt P f y → B.IsGoodPositionGermTameWholeChart f y ∧ B.IsSurjLinOfIndex f y d) ∧
@@ -756,13 +756,13 @@ theorem theorem_3_19_of_surjective_wholeChart (hX : PX.IsWithoutBoundary) (hf : 
         (MPolyfold.subPolyfold hsub).IsTame ∧
           (MPolyfold.subPolyfold hsub).IsManifoldWithCorners d ∧
           (MPolyfold.subPolyfold hsub).IsWithoutBoundary :=
-  theorem_3_19_index_wholeChart hX hf hx₀
+  theorem_3_1_22_index_wholeChart hX hf hx₀
     (StrongBundle.isGoodPositionGerm_of_isLinSurjAt_wholeChart hf hx₀ (hX x₀) hsurj)
 
-/-- **Theorem 3.57 with the index**: `theorem_3_57_wholeChart` with, at every zero `x`, regular data of
-Definition 3.25 (2) of a dimension `d` which is constant near `x` along the solution set and equal
+/-- **Theorem 3.6.11 (preprint 3.57) with the index**: `theorem_3_6_11_wholeChart` with, at every zero `x`, regular data of
+Definition 3.2.1 (preprint 3.25) (2) of a dimension `d` which is constant near `x` along the solution set and equal
 to `ind f'(y) = dim ker f'(y)` at every zero `y` of the chart domain. -/
-theorem theorem_3_57_index_wholeChart (hf : B.IsScFredholmSectionWholeChart f)
+theorem theorem_3_6_11_index_wholeChart (hf : B.IsScFredholmSectionWholeChart f)
     (hall : ∀ x, IsZeroAt P f x → B.IsGoodPositionGermTameWholeChart f x) (hne : (solutionSet P f).Nonempty) :
     ∃ hsub : PX.IsSubMPolyfold (solutionSet P f),
       haveI := PX.paracompactSpace_subtype (solutionSet P f)
@@ -772,20 +772,20 @@ theorem theorem_3_57_index_wholeChart (hf : B.IsScFredholmSectionWholeChart f)
           D.IsRegular ∧ (∀ y ∈ solutionSet P f ∩ D.φ.source,
             ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d) ∧
           ∀ y ∈ solutionSet P f ∩ D.φ.source, B.IsSurjLinOfIndex f y d := by
-  obtain ⟨hsub, h1, h2, -⟩ := theorem_3_57_wholeChart hf hall hne
+  obtain ⟨hsub, h1, h2, -⟩ := theorem_3_6_11_wholeChart hf hall hne
   refine ⟨hsub, h1, h2, fun x hx => ?_⟩
-  obtain ⟨d, D, hreg, -, hdim, -⟩ := theorem_3_54_two_index_wholeChart hf.isScSmooth (hall x hx) hx
+  obtain ⟨d, D, hreg, -, hdim, -⟩ := theorem_3_6_8_two_index_wholeChart hf.isScSmooth (hall x hx) hx
     isOpen_univ (mem_univ x) fun y _ hy => hall y hy
   exact ⟨d, D, hreg, hdim, fun y hy =>
     isSurjLinOfIndex_of_forall_dim_wholeChart hf.isScSmooth (hall y hy.1) hy.1 (hdim y hy)⟩
 
-/-- **Theorem 3.56 with the tameness and the regular data** (cf. `theorem_3_56_wholeChart`, which states the
+/-- **Theorem 3.6.10 (preprint 3.56) with the tameness and the regular data** (cf. `theorem_3_6_10_wholeChart`, which states the
 manifold structure and "without boundary" only): for an M-polyfold without boundary and an
 sc-Fredholm section in good position in a tame chart at every zero (`IsGoodPositionGermTameWholeChart`),
 the solution set is a sub-M-polyfold whose induced structure is tame, that of a manifold
-without boundary of locally constant dimension, with regular data of Definition 3.25 (2) at every
-zero whose dimension is the Fredholm index (`theorem_3_57_index_wholeChart`, Lemma 2.26). -/
-theorem theorem_3_56_tame_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionWholeChart f)
+without boundary of locally constant dimension, with regular data of Definition 3.2.1 (preprint 3.25) (2) at every
+zero whose dimension is the Fredholm index (`theorem_3_6_11_index_wholeChart`, Lemma 2.4.6 (preprint 2.26)). -/
+theorem theorem_3_6_10_tame_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionWholeChart f)
     (hall : ∀ x, IsZeroAt P f x → B.IsGoodPositionGermTameWholeChart f x) (hne : (solutionSet P f).Nonempty) :
     ∃ hsub : PX.IsSubMPolyfold (solutionSet P f),
       haveI := PX.paracompactSpace_subtype (solutionSet P f)
@@ -797,16 +797,16 @@ theorem theorem_3_56_tame_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFre
             ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d) ∧
           ∀ y ∈ solutionSet P f ∩ D.φ.source, B.IsSurjLinOfIndex f y d := by
   have := PX.paracompactSpace_subtype (solutionSet P f)
-  obtain ⟨hsub, h1, h2, h3⟩ := theorem_3_57_index_wholeChart hf hall hne
+  obtain ⟨hsub, h1, h2, h3⟩ := theorem_3_6_11_index_wholeChart hf hall hne
   refine ⟨hsub, h1, h2, fun y => ?_, h3⟩
-  have := lemma_2_26 hsub y
+  have := lemma_2_4_6 hsub y
   rw [hX y.1] at this
   exact Nat.le_zero.1 this
 
-/-- **Theorem 3.56 with the text's hypothesis "`f'(x)` surjective at every zero"**
+/-- **Theorem 3.6.10 (preprint 3.56) with the text's hypothesis "`f'(x)` surjective at every zero"**
 (`IsLinSurjAt`): for an M-polyfold without boundary good position is surjectivity
-(`isGoodPositionGerm_of_isLinSurjAt_wholeChart`), and `theorem_3_56_tame_wholeChart` applies. -/
-theorem theorem_3_56_of_surjective_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTameWholeChart f)
+(`isGoodPositionGerm_of_isLinSurjAt_wholeChart`), and `theorem_3_6_10_tame_wholeChart` applies. -/
+theorem theorem_3_6_10_of_surjective_wholeChart (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTameWholeChart f)
     (hall : ∀ x, IsZeroAt P f x → B.IsLinSurjAt f x) (hne : (solutionSet P f).Nonempty) :
     ∃ hsub : PX.IsSubMPolyfold (solutionSet P f),
       haveI := PX.paracompactSpace_subtype (solutionSet P f)
@@ -817,15 +817,15 @@ theorem theorem_3_56_of_surjective_wholeChart (hX : PX.IsWithoutBoundary) (hf : 
           D.IsRegular ∧ (∀ y ∈ solutionSet P f ∩ D.φ.source,
             ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d) ∧
           ∀ y ∈ solutionSet P f ∩ D.φ.source, B.IsSurjLinOfIndex f y d :=
-  theorem_3_56_tame_wholeChart hX hf.toIsScFredholmSectionWholeChart
+  theorem_3_6_10_tame_wholeChart hX hf.toIsScFredholmSectionWholeChart
     (fun x hx => StrongBundle.isGoodPositionGerm_of_isLinSurjAt_wholeChart hf hx (hX x) (hall x hx)) hne
 
 set_option maxHeartbeats 800000 in
--- destructuring the large existential conclusion of `theorem_3_54_nearby_kernel_wholeChart`
-/-- **"`ker f'(y) = T_yS`", in a chart** (Theorem 3.19 (3) and Theorem 3.54 (4); Findings 101–103,
+-- destructuring the large existential conclusion of `theorem_3_6_8_nearby_kernel_wholeChart`
+/-- **"`ker f'(y) = T_yS`", in a chart** (Theorem 3.1.22 (preprint 3.19) (3) and Theorem 3.6.8 (preprint 3.54) (4); Findings 101–103,
 172).  For a section of a strong bundle, `f(x₀) = 0` and `(f, x₀)` in good position in a tame
 chart (`IsGoodPositionGermTameWholeChart`), there are the tame strong bundle chart `c` centred at `x₀` of
-Definition 3.53, the
+Definition 3.6.6 (preprint 3.53), the
 conjugating sc-diffeomorphism `ψ : U → U' ⊆ C'` (inverse `ψ'`, `ψ(0) = 0`) of the proof of Theorem
 3.54, the finite-dimensional kernel `K = ker D(h + t)(0)`, the solution graph `σ : V' → E'` over a
 relatively open `V' ∋ 0` of `K ∩ C'` (`C¹`, `σ(0) = 0`, `Dσ(0) = 0`), an open `Vx ∋ x₀` with
@@ -834,10 +834,10 @@ that for every zero `y ∈ Vx₂`, with `ψ(ϕ(y)) = v + σ(v)`, `v ∈ V'`, and
 over `ϕ(y)`: the derivative `Dψ(z)` maps the kernel of the linearization
 `Lin(z) : T_zO → K_z` of `f` at `y` in the chart `c` onto the tangent space
 `N_v = {n + Dσ(v)n | n ∈ K}` of the solution graph at `v` — the kernel of `f'(y)` is the tangent
-space of the solution set, read in the chart `ψ ∘ ϕ`.  From `theorem_3_54_nearby_kernel_wholeChart`:
+space of the solution set, read in the chart `ψ ∘ ϕ`.  From `theorem_3_6_8_nearby_kernel_wholeChart`:
 `ker Dg(z) = Dψ'(ψ z)(ker D(h + t)(ψ z))`, `ker D(h + t)(ψ z) = N_v`, `ker Dg(z) ⊆ T_zO`, and
 `Lin(z) = Dg(z)` on `T_zO` (`linAt_eq_scDeriv`); `Dψ(z)Dψ'(ψ z) = 1`. -/
-theorem theorem_3_54_ker_eq_tangent_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
+theorem theorem_3_6_8_ker_eq_tangent_wholeChart (hf : B.IsScSmoothSection f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (E' : ScBanach) (C' U' : Set (E' 0)) (hU' : IsRelOpenInQuadrant E' C' U')
@@ -863,7 +863,7 @@ theorem theorem_3_54_ker_eq_tangent_wholeChart (hf : B.IsScSmoothSection f) {x�
     hΨ, hψ0, 𝒮, h', Bc, hh'𝒮, hsurj, hpos, Yc, V', σ, Vx, n', Wq, T, Vx₂, hfill, ht₀, ht₀0, hconj,
     hgp, hYc, hYcc, hKsm, hV'rel, h0V', hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, hVxo, hx₀Vx, hVxsub,
     hinj, hzero, himage, hT, hVx₂o, hx₀Vx₂, hVx₂Vx, hker⟩ :=
-    theorem_3_54_nearby_kernel_wholeChart hf.1 hg hx₀
+    theorem_3_6_8_nearby_kernel_wholeChart hf.1 hg hx₀
   have hKfin : FiniteDimensional ℝ (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) :=
     (𝒮.isFredholm_Dfs hCt hh'𝒮).1.finite_ker
   have hd : IsScDiffeoQuadrant c.relOpen hU' (IsStrongBundleMap.base Ψ)
@@ -920,15 +920,15 @@ theorem theorem_3_54_ker_eq_tangent_wholeChart (hf : B.IsScSmoothSection f) {x�
       exact hinv w
 
 set_option maxHeartbeats 800000 in
--- destructuring the large existential conclusion of `theorem_3_54_nearby_kernel_wholeChart`
+-- destructuring the large existential conclusion of `theorem_3_6_8_nearby_kernel_wholeChart`
 /-- **The filler condition of `IsGoodPositionGermFilledWholeChart` follows from good position** (Finding
-174): the added hypothesis of `theorem_3_54_one_wholeChart` is a consequence of the text's hypotheses.  For an
+174): the added hypothesis of `theorem_3_6_8_one_wholeChart` is a consequence of the text's hypotheses.  For an
 sc-Fredholm section with tame germ data (`IsScFredholmSectionTameWholeChart`) and a zero `x₀` in good
-position in a tame chart, the filler `g` in the chart of `theorem_3_54_nearby_kernel_wholeChart` satisfies condition (3) of Definition
+position in a tame chart, the filler `g` in the chart of `theorem_3_6_8_nearby_kernel_wholeChart` satisfies condition (3) of Definition
 3.4 at every zero of `g` in `O` near `0`: such a zero is `z₀ = ϕ(y)` for a zero `y` of `f` near
-`x₀`, which is in good position (Theorem 3.54 (1), `theorem_3_54_one'_wholeChart`), so `Lin(z₀) = Tf̃(z₀)`
+`x₀`, which is in good position (Theorem 3.6.8 (preprint 3.54) (1), `theorem_3_6_8_one'_wholeChart`), so `Lin(z₀) = Tf̃(z₀)`
 maps onto `K_{z₀}` in the chart `c` (`IsGoodPositionGermWholeChart.exists_isSurjLinOfIndex`),
-`ker Dg(z₀) ⊆ T_{z₀}O` (`theorem_3_54_nearby_kernel_wholeChart` (c)), and the converse direction of Finding
+`ker Dg(z₀) ⊆ T_{z₀}O` (`theorem_3_6_8_nearby_kernel_wholeChart` (c)), and the converse direction of Finding
 100 (`normal_injective_of_exists_range_scDeriv_eq_ρ`) gives the injectivity of
 `(1 − ρ(z₀))Dg(z₀)` on `ker Dr(z₀)`. -/
 theorem isGoodPositionGermFilled_of_isGoodPositionGerm_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
@@ -940,8 +940,8 @@ theorem isGoodPositionGermFilled_of_isGoodPositionGerm_wholeChart (hf : B.IsScFr
     hΨ, hψ0, 𝒮, h', Bc, hh'𝒮, hsurj, hpos, Yc, V', σ, Vx, n', Wq, T, Vx₂, hfill, ht₀, ht₀0, hconj,
     hgp, hYc, hYcc, hKsm, hV'rel, h0V', hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, hVxo, hx₀Vx, hVxsub,
     hinj, hzero, himage, hT, hVx₂o, hx₀Vx₂, hVx₂Vx, hker⟩ :=
-    theorem_3_54_nearby_kernel_wholeChart hfs hg hx₀
-  obtain ⟨Vx₁, hVx₁o, hx₀Vx₁, hall⟩ := theorem_3_54_one'_wholeChart hf hg hx₀
+    theorem_3_6_8_nearby_kernel_wholeChart hfs hg hx₀
+  obtain ⟨Vx₁, hVx₁o, hx₀Vx₁, hall⟩ := theorem_3_6_8_one'_wholeChart hf hg hx₀
   -- the neighbourhood `N = W₁ ∩ W₂` of `0`: `f̂ = g` on `O ∩ W₁`, `O ∩ W₂ = ϕ(Vx₂ ∩ Vx₁)`
   obtain ⟨W₁, hW₁sub, hW₁o, h0W₁⟩ := mem_nhds_iff.1 hfill.filler.eq_on
   have hsV : Vx₂ ∩ Vx₁ ⊆ c.φ.source := fun y hy => hVxsub (hVx₂Vx hy.1)

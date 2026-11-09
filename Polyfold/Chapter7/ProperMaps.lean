@@ -2,24 +2,24 @@ import Polyfold.Chapter2.Metrizable
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017), Part II, Chapter 7: the properness
-condition (3) of **Definition 7.3** (p. 227) and **Definition 7.17** (p. 251), in the forms used by
-the proofs of Proposition 7.3 (pp. 229–230), Lemma 7.1 (p. 230), Lemmas 7.6–7.7 (pp. 245–246),
-Proposition 7.11 (p. 248), Propositions 7.13–7.14 (pp. 251–252) and Lemma 7.8 (pp. 253–254).
+condition (3) of **Definition 7.1.3 (2017: 7.3)** (p. 227) and **Definition 7.5.8 (2017: 7.17)** (p. 342 (2017 p. 251)), in the forms used by
+the proofs of Proposition 7.1.10 (2017: 7.3) (pp. 229–230), Lemma 7.1.11 (2017: 7.1) (p. 292 (2017 p. 230)), Lemmas 7.3.4–7.3.5 (2017: 7.6–7.7) (pp. 245–246),
+Proposition 7.3.9 (2017: 7.11) (p. 248), Propositions 7.5.9–7.5.10 (2017: 7.13–7.14) (pp. 251–252) and Lemma 7.6.2 (2017: 7.8) (pp. 253–254).
 
 # Proper maps and the sequential criterion
 
 ## The text, paraphrased
 
-(Definition 7.3 (3)) Every object `x` has an open neighbourhood `V(x)` such that the map
-`t : s⁻¹(cl_X(V(x))) → X` is proper.  (Definition 7.17) A subset `Q ⊂ X` is proper if
+(Definition 7.1.3 (2017: 7.3) (3)) Every object `x` has an open neighbourhood `V(x)` such that the map
+`t : s⁻¹(cl_X(V(x))) → X` is proper.  (Definition 7.5.8 (2017: 7.17)) A subset `Q ⊂ X` is proper if
 `t : s⁻¹(Q) → X` is proper.  The text does not define "proper"; its proofs use two forms.
-Preimages of compact sets are compact (Proposition 7.13: "the preimage `(t|s⁻¹(Q))⁻¹(K)` of `K`
+Preimages of compact sets are compact (Proposition 7.5.9 (2017: 7.13): "the preimage `(t|s⁻¹(Q))⁻¹(K)` of `K`
 … is a compact subset of `s⁻¹(Q)`").  And, in most proofs, a sequential form: a sequence `(φ_k)`
-with `s(φ_k) ∈ Q` and `t(φ_k) → y` has a convergent subsequence `φ_k → φ` (Proposition 7.3,
-Lemma 7.1, Lemmas 7.6–7.8, Propositions 7.11 and 7.14).  (Proposition 7.13) A proper set is
-closed: for `x_n → x` in `Q`, apply properness to the units `1_{x_n}`.  (Proposition 7.14 (1)) If
+with `s(φ_k) ∈ Q` and `t(φ_k) → y` has a convergent subsequence `φ_k → φ` (Proposition 7.1.10 (2017: 7.3),
+Lemma 7.1.11 (2017: 7.1), Lemmas 7.6–7.8, Propositions 7.3.9 and 7.5.10 (2017: 7.11 and 7.14)).  (Proposition 7.5.9 (2017: 7.13)) A proper set is
+closed: for `x_n → x` in `Q`, apply properness to the units `1_{x_n}`.  (Proposition 7.5.10 (2017: 7.14) (1)) If
 `Q` is proper, then `π(Q)` is closed in `|X|`, i.e. its saturation `π⁻¹(π(Q)) = t(s⁻¹(Q))` is
-closed in `X`.  (Lemma 7.1) Properness and the local injectivity of `t` leave only finitely many
+closed in `X`.  (Lemma 7.1.11 (2017: 7.1)) Properness and the local injectivity of `t` leave only finitely many
 morphisms over a point.
 
 ## What is formalized
@@ -41,16 +41,16 @@ For maps `s t : M → X` and `Q ⊆ X`, with properness of `Q` read as
   over `Q` by itself, as in the text);
 * **closed subsets of proper sets are proper**: `isProperMap_domRestrict_of_subset`,
   `isProperMap_domRestrict_of_subset_of_isClosed`, and `isProperMap_domRestrict_closure_mono` (an
-  open `V' ⊆ V(x)` works in Definition 7.3 (3) as well as `V(x)`);
+  open `V' ⊆ V(x)` works in Definition 7.1.3 (2017: 7.3) (3) as well as `V(x)`);
 * **saturations are closed**: `isClosed_image_of_isProperMap_domRestrict` (`t(F)` is closed for a
   closed `F ⊆ s⁻¹(Q)`), `isClosed_image_preimage_of_isProperMap_domRestrict` (`t(s⁻¹(Q'))` is
-  closed for a closed `Q' ⊆ Q`; for `Q' = Q` the saturation of Proposition 7.14 (1));
-* `isClosed_of_isProperMap_domRestrict`: the argument of Proposition 7.13 (a proper set is
+  closed for a closed `Q' ⊆ Q`; for `Q' = Q` the saturation of Proposition 7.5.10 (2017: 7.14) (1));
+* `isClosed_of_isProperMap_domRestrict`: the argument of Proposition 7.5.9 (2017: 7.13) (a proper set is
   closed), for any `u : X → M` with `s ∘ u = t ∘ u = id`;
-* `finite_setOf_of_isProperMap_domRestrict`: the argument of Lemma 7.1 (finitely many `φ` with
+* `finite_setOf_of_isProperMap_domRestrict`: the argument of Lemma 7.1.11 (2017: 7.1) (finitely many `φ` with
   `s(φ) ∈ Q`, `t(φ) = y`, if `t` is locally injective).
 
-For M-polyfolds `M` and `X` (metrizable by Theorem 2.2 [2.16], `MPolyfold.metrizableSpace`):
+For M-polyfolds `M` and `X` (metrizable by Theorem 2.3.10 (2017: 2.2) [2.16], `MPolyfold.metrizableSpace`):
 `MPolyfold.isProperMap_domRestrict_iff`, `MPolyfold.isProperMap_domRestrict_iff_of_isClosed`,
 `MPolyfold.isProperMap_domRestrict_iff_isCompact_preimage`,
 `MPolyfold.exists_tendsto_subseq_of_isProperMap_domRestrict`.
@@ -60,7 +60,7 @@ For M-polyfolds `M` and `X` (metrizable by Theorem 2.2 [2.16], `MPolyfold.metriz
 * "Proper" is Mathlib's `IsProperMap` (decision P3 of the plan): continuous, and every cluster
   point of `map f 𝓕` is the image of a cluster point of `𝓕` (Bourbaki-proper).  For a
   Hausdorff, compactly generated target this is "continuous, and preimages of compact sets are
-  compact" (`isProperMap_iff_isCompact_preimage`), the form of Proposition 7.13.  Between
+  compact" (`isProperMap_iff_isCompact_preimage`), the form of Proposition 7.5.9 (2017: 7.13).  Between
   metrizable spaces both are the sequential form proved here, which is how the other proofs of
   the chapter use properness.
 * The restriction `t : s⁻¹(Q) → X` is `(s ⁻¹' Q).domRestrict t`, a map on the subtype; Mathlib's
@@ -69,7 +69,7 @@ For M-polyfolds `M` and `X` (metrizable by Theorem 2.2 [2.16], `MPolyfold.metriz
   both tacitly.  The first is automatic for closed `Q` (and a proper `Q` is closed by Proposition
   7.13), the second by continuity of `t`.
 * Everything here is about maps of topological spaces; nothing depends on the ep-groupoid
-  structure.  The units of Proposition 7.13 enter only through `s ∘ u = t ∘ u = id`.
+  structure.  The units of Proposition 7.5.9 (2017: 7.13) enter only through `s ∘ u = t ∘ u = id`.
 -/
 
 open Set Filter Topology Function TopologicalSpace
@@ -125,7 +125,7 @@ theorem isProperMap_iff_exists_tendsto_subseq [PseudoMetrizableSpace A] [T2Space
   obtain ⟨x, -, hx⟩ := exists_tendsto_subseq_of_isProperMap hf ha
   exact ⟨x, hx⟩
 
-/-- **A proper, locally injective map has finite fibres** (the argument of Lemma 7.1): the fibre
+/-- **A proper, locally injective map has finite fibres** (the argument of Lemma 7.1.11 (2017: 7.1)): the fibre
 is compact, and discrete because `f` is injective near each of its points. -/
 theorem finite_preimage_singleton_of_isProperMap (hf : IsProperMap f)
     (hinj : IsLocallyInjective f) (y : Y) : (f ⁻¹' {y}).Finite := by
@@ -148,8 +148,8 @@ section Restrict
 
 variable {M X : Type*} [TopologicalSpace M] [TopologicalSpace X] {s t : M → X} {Q Q' : Set X}
 
-/-- **The sequential form of properness of `Q`** (Proposition 7.3, Lemma 7.1, Lemmas 7.6–7.8,
-Proposition 7.14): if `t : s⁻¹(Q) → X` is proper, `s(φ_n) ∈ Q` and `t(φ_n) → y`, then a
+/-- **The sequential form of properness of `Q`** (Proposition 7.1.10 (2017: 7.3), Lemma 7.1.11 (2017: 7.1), Lemmas 7.6–7.8,
+Proposition 7.5.10 (2017: 7.14)): if `t : s⁻¹(Q) → X` is proper, `s(φ_n) ∈ Q` and `t(φ_n) → y`, then a
 subsequence of `(φ_n)` converges to some `φ₀` with `s(φ₀) ∈ Q` and `t(φ₀) = y`. -/
 theorem exists_tendsto_subseq_of_isProperMap_domRestrict [FirstCountableTopology M]
     (hQ : IsProperMap ((s ⁻¹' Q).domRestrict t)) {φ : ℕ → M} (hφ : ∀ n, s (φ n) ∈ Q) {y : X}
@@ -160,7 +160,7 @@ theorem exists_tendsto_subseq_of_isProperMap_domRestrict [FirstCountableTopology
   exact ⟨x, x.2, hx, ψ, hψ, (continuous_subtype_val.tendsto x).comp hlim⟩
 
 /-- The sequential form of properness for sequences which lie over `Q` only eventually (as in
-Lemma 7.8, where `s(h_k) → x₀ ∈ V(x₀)`). -/
+Lemma 7.6.2 (2017: 7.8), where `s(h_k) → x₀ ∈ V(x₀)`). -/
 theorem exists_tendsto_subseq_of_isProperMap_domRestrict_of_eventually
     [FirstCountableTopology M] (hQ : IsProperMap ((s ⁻¹' Q).domRestrict t)) {φ : ℕ → M}
     (hφ : ∀ᶠ n in atTop, s (φ n) ∈ Q) {y : X} (hy : Tendsto (t ∘ φ) atTop (𝓝 y)) :
@@ -225,7 +225,7 @@ theorem isProperMap_domRestrict_of_subset_of_isClosed (hs : Continuous s)
     IsProperMap ((s ⁻¹' Q').domRestrict t) :=
   isProperMap_domRestrict_of_subset hQ hQ' (hcl.preimage hs)
 
-/-- **Shrinking the neighbourhood in Definition 7.3 (3)**: if `t : s⁻¹(cl V) → X` is proper and
+/-- **Shrinking the neighbourhood in Definition 7.1.3 (2017: 7.3) (3)**: if `t : s⁻¹(cl V) → X` is proper and
 `V' ⊆ V`, then `t : s⁻¹(cl V') → X` is proper (`s` continuous). -/
 theorem isProperMap_domRestrict_closure_mono (hs : Continuous s) {V V' : Set X}
     (hV : IsProperMap ((s ⁻¹' closure V).domRestrict t)) (hV' : V' ⊆ V) :
@@ -239,7 +239,7 @@ theorem isClosed_image_of_isProperMap_domRestrict (hQ : IsProperMap ((s ⁻¹' Q
   have h := hQ.isClosedMap _ (hFc.preimage continuous_subtype_val)
   rwa [image_domRestrict, inter_eq_left.2 hF] at h
 
-/-- **Saturations are closed** (Proposition 7.14 (1), at the level of objects): if `Q` is
+/-- **Saturations are closed** (Proposition 7.5.10 (2017: 7.14) (1), at the level of objects): if `Q` is
 proper and `Q' ⊆ Q` has closed preimage `s⁻¹(Q')`, then `t(s⁻¹(Q'))` is closed.  For `Q' = Q`
 this is the closedness of the saturation `π⁻¹(π(Q)) = t(s⁻¹(Q))`. -/
 theorem isClosed_image_preimage_of_isProperMap_domRestrict
@@ -247,7 +247,7 @@ theorem isClosed_image_preimage_of_isProperMap_domRestrict
     IsClosed (t '' (s ⁻¹' Q')) :=
   isClosed_image_of_isProperMap_domRestrict hQ (preimage_mono hQ') hcl
 
-/-- **A proper set is closed** (the argument of Proposition 7.13): if `t : s⁻¹(Q) → X` is proper
+/-- **A proper set is closed** (the argument of Proposition 7.5.9 (2017: 7.13)): if `t : s⁻¹(Q) → X` is proper
 and `u : X → M` satisfies `s ∘ u = t ∘ u = id` (the units), then `Q` is closed.  For `x_n → x` in
 `Q` a subsequence of `u(x_n)` converges to some `φ₀` over `Q`, and `x = s(φ₀)`. -/
 theorem isClosed_of_isProperMap_domRestrict [FirstCountableTopology M] [T2Space X]
@@ -264,7 +264,7 @@ theorem isClosed_of_isProperMap_domRestrict [FirstCountableTopology M] [T2Space 
   rw [tendsto_nhds_unique (hax.comp hψ.tendsto_atTop) h₁]
   exact hφ₀
 
-/-- **Finitely many morphisms over a point** (the argument of Lemma 7.1): if `t : s⁻¹(Q) → X`
+/-- **Finitely many morphisms over a point** (the argument of Lemma 7.1.11 (2017: 7.1)): if `t : s⁻¹(Q) → X`
 is proper and `t` is locally injective, then for every `y` there are only finitely many `φ`
 with `s(φ) ∈ Q` and `t(φ) = y`. -/
 theorem finite_setOf_of_isProperMap_domRestrict (hQ : IsProperMap ((s ⁻¹' Q).domRestrict t))
@@ -283,7 +283,7 @@ namespace MPolyfold
 variable {M X : Type*} [TopologicalSpace M] [T2Space M] [ParacompactSpace M]
   [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {s t : M → X} {Q : Set X}
 
-/-- **Properness of `Q` for M-polyfolds, sequentially** (both spaces are metrizable, Theorem 2.2
+/-- **Properness of `Q` for M-polyfolds, sequentially** (both spaces are metrizable, Theorem 2.3.10 (2017: 2.2)
 [2.16]): `t : s⁻¹(Q) → X` is proper iff every sequence `(φ_n)` with `s(φ_n) ∈ Q` and `t(φ_n)`
 convergent has a subsequence converging to some `φ₀` with `s(φ₀) ∈ Q`. -/
 theorem isProperMap_domRestrict_iff (PM : MPolyfold M) (PX : MPolyfold X) (ht : Continuous t) :
@@ -306,7 +306,7 @@ theorem isProperMap_domRestrict_iff_of_isClosed (PM : MPolyfold M) (PX : MPolyfo
   exact Polyfold.isProperMap_domRestrict_iff_of_isClosed hs ht hQ
 
 omit [T2Space M] [ParacompactSpace M] in
-/-- **Properness of `Q` for M-polyfolds, by compact sets** (the form of Proposition 7.13):
+/-- **Properness of `Q` for M-polyfolds, by compact sets** (the form of Proposition 7.5.9 (2017: 7.13)):
 `t : s⁻¹(Q) → X` is proper iff it is continuous and preimages of compact sets are compact. -/
 theorem isProperMap_domRestrict_iff_isCompact_preimage (PX : MPolyfold X) :
     IsProperMap ((s ⁻¹' Q).domRestrict t) ↔ Continuous ((s ⁻¹' Q).domRestrict t) ∧

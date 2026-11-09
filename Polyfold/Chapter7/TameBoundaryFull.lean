@@ -19,15 +19,15 @@ Theorem 2.7.13.
 
 ## What is formalized
 
-`theorem_7_6_9_full_2021` (`TameBoundaryEpStructure.lean`) states the characterization and its
+`theorem_7_6_9_full` (`TameBoundaryEpStructure.lean`) states the characterization and its
 uniqueness for representatives `(x, V, θ)` whose `V` is centred at `x` (V7.101).  Part I has both
-for every representative (`MPolyfold.phi_isScDiffeoOn_nonCentred_2021`,
-`MPolyfold.tameBoundaryPolyfold_unique_allReps_2021`; gap G.78, closed), and the structures of
+for every representative (`MPolyfold.phi_isScDiffeoOn_nonCentred`,
+`MPolyfold.tameBoundaryPolyfold_unique_allReps`; gap G.78, closed), and the structures of
 the boundary ep-groupoid are Part I's `tameBoundaryPolyfold` of the object and the morphism
 M-polyfold (`bPObj`, `bPMor`).  So:
 
-* `EpGroupoid.theorem_7_6_9_allReps_2021`: (1)–(5) and `B` an ep-functor, as in
-  `theorem_7_6_9_full_2021`; and, for **every** representative `t = (x, V, θ)` of `bX` and of
+* `EpGroupoid.theorem_7_6_9_allReps`: (1)–(5) and `B` an ep-functor, as in
+  `theorem_7_6_9_full`; and, for **every** representative `t = (x, V, θ)` of `bX` and of
   `b𝐗`, `U(x, V, θ)` is open, the image `θ ∩ V^x` (`reachSet`) is open in `θ`, and `Φ_t`
   (`phiTot`) is an sc-diffeomorphism from `U(x, V, θ)` onto it with inverse `phiInv`; the image
   is all of `θ` when `V` is centred at `x`; and every M-polyfold structure on `bX`, resp. `b𝐗`,
@@ -42,7 +42,7 @@ M-polyfold (`bPObj`, `bPMor`).  So:
 * The hypotheses of both uniqueness statements are satisfied by `bPObj` and `bPMor` themselves
   (the characterization clauses); the tameness hypothesis is met by
   `trivial_quadrant_boundaryEp_witness`.
-* (4) is stated as printed, with natural-number subtraction, as in `theorem_7_6_9_full_2021`.
+* (4) is stated as printed, with natural-number subtraction, as in `theorem_7_6_9_full`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -70,7 +70,7 @@ characterization: for every representative `t = (x, V, θ)` of `bX` and of `b�
 `θ ∩ V^x` are open, `Φ_t` is an sc-diffeomorphism `U(x, V, θ) → θ ∩ V^x` (all of `θ` for `V`
 centred at `x`), and every M-polyfold structure with this property for every representative has
 an atlas equivalent to `bPObj`, resp. `bPMor`. -/
-theorem theorem_7_6_9_allReps_2021 (hX : X.IsTame) :
+theorem theorem_7_6_9_allReps (hX : X.IsTame) :
     -- (1)
     TopologicalSpace.MetrizableSpace (X.bObj hX) ∧ TopologicalSpace.MetrizableSpace (X.bMor hX) ∧
       -- (2), tameness
@@ -125,19 +125,19 @@ theorem theorem_7_6_9_allReps_2021 (hX : X.IsTame) :
             (X.PMor.reachSet (X.isTame_PMor hX) t)) →
         Q'.atlas.Equiv (X.bPMor hX).atlas := by
   obtain ⟨m₀, m₁, t₀, t₁, s₀, s₁, d₀, d₁, h5, e₁, e₂, e₃, hs, ht, hu, hi, hc, hF, -⟩ :=
-    theorem_7_6_9_full_2021 hX
+    theorem_7_6_9_full hX
   refine ⟨m₀, m₁, t₀, t₁, s₀, s₁, d₀, d₁, h5, e₁, e₂, e₃, hs, ht, hu, hi, hc, hF, fun t => ?_,
-    fun t => ?_, X.PObj.tameBoundaryPolyfold_unique_allReps_2021 hX,
-    X.PMor.tameBoundaryPolyfold_unique_allReps_2021 (X.isTame_PMor hX)⟩
+    fun t => ?_, X.PObj.tameBoundaryPolyfold_unique_allReps hX,
+    X.PMor.tameBoundaryPolyfold_unique_allReps (X.isTame_PMor hX)⟩
   · let _ := X.PObj.paracompactSpace_subtype t.θ
     let _ : ParacompactSpace (X.PObj.TameBoundarySpace hX) := X.paracompactSpace_bObj hX
-    have h := X.PObj.phi_isScDiffeoOn_nonCentred_2021 hX t
+    have h := X.PObj.phi_isScDiffeoOn_nonCentred hX t
     exact ⟨h.isScSmoothOn.isOpen, X.PObj.isOpen_reachSet hX t,
       X.PObj.reachSet_eq_univ_of_isCenteredAt hX, h⟩
   · let _ := X.PMor.paracompactSpace_subtype t.θ
     let _ : ParacompactSpace (X.PMor.TameBoundarySpace (X.isTame_PMor hX)) :=
       X.paracompactSpace_bMor hX
-    have h := X.PMor.phi_isScDiffeoOn_nonCentred_2021 (X.isTame_PMor hX) t
+    have h := X.PMor.phi_isScDiffeoOn_nonCentred (X.isTame_PMor hX) t
     exact ⟨h.isScSmoothOn.isOpen, X.PMor.isOpen_reachSet (X.isTame_PMor hX) t,
       X.PMor.reachSet_eq_univ_of_isCenteredAt (X.isTame_PMor hX), h⟩
 

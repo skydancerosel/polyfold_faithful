@@ -147,7 +147,7 @@ theorem A_to_B : A → B := by
   · rintro V M φ V' M' ψ ⟨hV, e, he⟩ ⟨hV', e', he'⟩
     rcases (V ∩ V').eq_empty_or_nonempty with h | ⟨x, hx⟩
     · rw [h, image_empty, ← inter_empty M.O]
-      exact proposition_2_10_1 M.isScRetract isOpen_empty
+      exact proposition_2_3_1_one M.isScRetract isOpen_empty
     · exact hret (mkChart x V M φ hV e he) (mkChart x V' M' ψ hV' e' he')
 
 /-! ### `B → A` -/
@@ -162,7 +162,7 @@ theorem retract_of_B (hB : B) (c c' : MChart X) :
   rcases (c.source ∩ c'.source).eq_empty_or_nonempty with h | ⟨x, hx⟩
   · unfold MChart.overlap
     rw [h, image_empty, ← inter_empty c.model.O]
-    exact proposition_2_10_1 c.model.isScRetract isOpen_empty
+    exact proposition_2_3_1_one c.model.isScRetract isOpen_empty
   · exact (hB X).2.2.2 _ _ _ _ _ _ ((hB X).1 c x hx.1).2 ((hB X).1 c' x hx.2).2
 
 /-- Self-compatibility (the project's argument). -/

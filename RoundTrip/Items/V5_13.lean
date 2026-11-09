@@ -9,7 +9,7 @@ against the second blind statement `RoundTrip.V5_13_r2.B` (`RoundTrip/Blind/V5_1
 Inside this namespace `B` is the FIRST blind statement `RoundTrip.V5_13.B` (kept for the `_r1`
 results at the end); the current one is always written `V5_13_r2.B`.
 
-A = `corollary_5_8` ∧ `corollary_5_8_two` ∧ `StrongBundle.solutionSet_sectionShift` ∧
+A = `corollary_5_2_5` ∧ `corollary_5_2_5_two` ∧ `StrongBundle.solutionSet_sectionShift` ∧
 `isCompact_solutionSet_level` (universes at `0`): for an sc-Fredholm `f` (germ reading) with
 compact solution set, `f¹` (and `f² = (f¹)¹`) is an sc-Fredholm section of the project's shifted
 bundle `P¹ = B.shift` (`P²`) with compact solution set; the solution set of `f¹` (sc-smooth `f`)
@@ -20,10 +20,10 @@ B (r2): over a tame `X`, for an sc-Fredholm `f` (germ reading) with compact `f�
 `f^{i+1} = (P^i).sectionShift f^i`) is an sc-Fredholm section of `P^i` and its solution set is
 compact in `X^i`.
 
-* `A ⇒ B` is proved (`A_to_B`): induction on `i`, the step being A's `corollary_5_8` applied to
+* `A ⇒ B` is proved (`A_to_B`): induction on `i`, the step being A's `corollary_5_2_5` applied to
   the bundle `P^i` (the hypothesis, not the project theorem); B's `zeroSet` is the project's
   `solutionSet` definitionally; the tameness hypothesis of B is not used.
-* `B ⇒ A` fails: B assumes `PX.IsTame`, while `corollary_5_8`, `corollary_5_8_two` and
+* `B ⇒ A` fails: B assumes `PX.IsTame`, while `corollary_5_2_5`, `corollary_5_2_5_two` and
   `isCompact_solutionSet_level` hold for every M-polyfold; for tame `X`, B gives the first two
   (`B_gives_cor58_tame`).  `solutionSet_sectionShift` is an auxiliary identity for a merely
   sc-smooth `f`, which B does not mention, and `isCompact_solutionSet_level` is stated in the
@@ -37,17 +37,17 @@ open Polyfold
 /-- The project's statement (Corollary 5.8 on the shifted bundle for `i = 1, 2`, the solution set
 of `f¹`, the compact solution set on every level), universes instantiated at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.corollary_5_8.{0, 0} ∧
-  type_of% @Polyfold.corollary_5_8_two.{0, 0} ∧
+  type_of% @Polyfold.corollary_5_2_5.{0, 0} ∧
+  type_of% @Polyfold.corollary_5_2_5_two.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.solutionSet_sectionShift.{0, 0} ∧
   type_of% @Polyfold.isCompact_solutionSet_level.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.corollary_5_8.{0, 0}, @Polyfold.corollary_5_8_two.{0, 0},
+  ⟨@Polyfold.corollary_5_2_5.{0, 0}, @Polyfold.corollary_5_2_5_two.{0, 0},
     @Polyfold.StrongBundle.solutionSet_sectionShift.{0, 0},
     @Polyfold.isCompact_solutionSet_level.{0, 0}⟩
 
-/-- One index raise, from A's `corollary_5_8` (B's `zeroSet` is the project's `solutionSet`). -/
+/-- One index raise, from A's `corollary_5_2_5` (B's `zeroSet` is the project's `solutionSet`). -/
 theorem step (hA : A) (D : V5_13_r2.Data) (h : D.Bd.IsScFredholmSection D.f)
     (hS : IsCompact D.zeroSet) :
     D.shift.Bd.IsScFredholmSection D.shift.f ∧ IsCompact D.shift.zeroSet :=
@@ -64,7 +64,7 @@ theorem A_to_B : A → V5_13_r2.B := by
   intro hA X _ _ _ PX Y _ _ _ P _ _ Bd f D _hT hf hS i
   exact iter hA D hf hS i
 
-/-- B gives A's `corollary_5_8` and `corollary_5_8_two` for TAME `X` only. -/
+/-- B gives A's `corollary_5_2_5` and `corollary_5_2_5_two` for TAME `X` only. -/
 theorem B_gives_cor58_tame (hB : V5_13_r2.B) :
     ∀ {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (PX : MPolyfold X)
       {Y : Type} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] (P : Y → X)
@@ -78,12 +78,12 @@ theorem B_gives_cor58_tame (hB : V5_13_r2.B) :
   intro X _ _ _ PX Y _ _ _ P _ _ Bd f hT hf hS
   exact ⟨hB PX P Bd f hT hf hS 1, hB PX P Bd f hT hf hS 2⟩
 
-#rt_check RoundTrip.V5_13.A_to_B [Polyfold.corollary_5_8, Polyfold.corollary_5_8_two,
+#rt_check RoundTrip.V5_13.A_to_B [Polyfold.corollary_5_2_5, Polyfold.corollary_5_2_5_two,
   Polyfold.StrongBundle.solutionSet_sectionShift, Polyfold.isCompact_solutionSet_level]
-#rt_check RoundTrip.V5_13.B_gives_cor58_tame [Polyfold.corollary_5_8,
-  Polyfold.corollary_5_8_two, Polyfold.StrongBundle.solutionSet_sectionShift,
+#rt_check RoundTrip.V5_13.B_gives_cor58_tame [Polyfold.corollary_5_2_5,
+  Polyfold.corollary_5_2_5_two, Polyfold.StrongBundle.solutionSet_sectionShift,
   Polyfold.isCompact_solutionSet_level]
-#rt_overlap RoundTrip.V5_13.B_gives_cor58_tame [Polyfold.corollary_5_8, Polyfold.corollary_5_8_two,
+#rt_overlap RoundTrip.V5_13.B_gives_cor58_tame [Polyfold.corollary_5_2_5, Polyfold.corollary_5_2_5_two,
   Polyfold.StrongBundle.solutionSet_sectionShift, Polyfold.isCompact_solutionSet_level]
 
 /-! ### Against the first blind statement `RoundTrip.V5_13.B` (`RoundTrip/Blind/V5_13.lean`) -/
@@ -110,10 +110,10 @@ theorem B_gives_A_tame_r1 (hB : B) :
   intro X _ _ _ PX Y _ _ _ P _ _ Bd f hT hf hS i
   exact (hB PX P Bd f hT hf hS i).2
 
-#rt_check RoundTrip.V5_13.A_gives_B_compact_r1 [Polyfold.corollary_5_8,
-  Polyfold.corollary_5_8_two, Polyfold.StrongBundle.solutionSet_sectionShift,
+#rt_check RoundTrip.V5_13.A_gives_B_compact_r1 [Polyfold.corollary_5_2_5,
+  Polyfold.corollary_5_2_5_two, Polyfold.StrongBundle.solutionSet_sectionShift,
   Polyfold.isCompact_solutionSet_level]
-#rt_check RoundTrip.V5_13.B_gives_A_tame_r1 [Polyfold.corollary_5_8, Polyfold.corollary_5_8_two,
+#rt_check RoundTrip.V5_13.B_gives_A_tame_r1 [Polyfold.corollary_5_2_5, Polyfold.corollary_5_2_5_two,
   Polyfold.StrongBundle.solutionSet_sectionShift, Polyfold.isCompact_solutionSet_level]
 
 end RoundTrip.V5_13

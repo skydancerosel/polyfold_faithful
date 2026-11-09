@@ -180,7 +180,7 @@ has it (an orbit-preserving map of `W` is the identity, the action of `1`). -/
 theorem EpStrongBundle.isLRLocal_trivial (B : StrongBundle PZ P) :
     (EpStrongBundle.trivial B).IsLRLocal := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β Φ _ hπ => ⟨1, fun w hw => ?_⟩⟩
   obtain ⟨q, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ w hw)
   exact h1.symm.trans h2
@@ -478,7 +478,7 @@ theorem exists_family_of_isLRLocal {F G : C ⟶ A} (hF : SEP.equivalences F)
     have hy' := hRD hy
     rw [Function.comp_apply, T.π_Q hy'.2.2, ← hπb, hgF.right_inv y hy'.1]
   -- Lemma 7.4.20: `γ` is an sc-diffeomorphism of `U(ϕ_F(x))`
-  obtain ⟨-, hγRR⟩ := A.X.lemma_7_4_20_2021 R hγR hγx hγπ
+  obtain ⟨-, hγRR⟩ := A.X.lemma_7_4_20 R hγR hγx hγπ
   have hQ : ∀ y ∈ R.U, T.Qinv y ∈ UF ∩ UG ∩ T.W ∧ T.Q (T.Qinv y) = y := fun y hy => by
     have h₁ := hγRR.mapsTo_inv hy
     have h₂ := hγRR.right_inv y hy
@@ -781,7 +781,7 @@ theorem natEquiv_of_isEffective_of_isLRLocal {F G : C ⟶ A} (hF : SEP.equivalen
     have hcl : IsClosed {w | (Hom.Φ G).obj w = A.E.μ ⟨_, hmem w⟩} :=
       isClosed_eq hsG.isStrongBundleMap_obj.continuous hc1
     have hdense : Dense (C.P ⁻¹' ((Hom.ϕ F).obj ⁻¹' A.X.regularSet)) :=
-      ((A.X.proposition_7_8 hA).2.preimage
+      ((A.X.proposition_7_2_4 hA).2.preimage
         hF.isEquivalence_base.isLocalScDiffeo_obj.isOpenMap).preimage C.B.isOpenMap_proj
     have hsub : C.P ⁻¹' ((Hom.ϕ F).obj ⁻¹' A.X.regularSet) ⊆
         {w | (Hom.Φ G).obj w = A.E.μ ⟨_, hmem w⟩} := by
@@ -917,7 +917,7 @@ theorem naturallyEquivalent_of_isEffective_of_families_hypotheses :
 property in the sense of `IsLRLocal`**: its orbits are points. -/
 theorem isLRLocal_z3EpBundle (k : ℕ) : (z3EpBundle k).IsLRLocal := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β Φ _ hπ => ⟨1, fun w hw => ?_⟩⟩
   obtain ⟨q, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ w hw)
   exact h1.symm.trans h2

@@ -3,21 +3,21 @@ import Polyfold.Chapter1.FredholmPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1,
-Definition 1.8, Propositions 1.9 and 1.10, with the proof of Appendix §1.4.1.
+Definition 1.1.9 (preprint 1.8), Propositions 1.1.10 and 1.1.11 (preprint 1.9 and 1.10), with the proof of Appendix §1.4.1.
 
 # Sc-Fredholm operators
 
 ## The text, paraphrased
 
-(Definition 1.8) An sc-operator `T : E → F` is sc-Fredholm if there are sc-splittings
+(Definition 1.1.9 (preprint 1.8)) An sc-operator `T : E → F` is sc-Fredholm if there are sc-splittings
 `E = K ⊕ X`, `F = C ⊕ Y` with (1) `K = ker T` finite-dimensional, (2) `C` finite-dimensional and
 `Y = T(E)`, (3) `T : X → Y` an sc-isomorphism.  Then `K ⊆ E_∞`, `T(X_m) = Y_m`,
-`E_m = K ⊕ X_m`, `F = C ⊕ T(E_m)`, and `ind T = dim K − dim C`.  (Proposition 1.9) `T` is
-regularizing: `T e ∈ F_m` implies `e ∈ E_m`.  (Proposition 1.10) If `T` is sc-Fredholm and `S` is
+`E_m = K ⊕ X_m`, `F = C ⊕ T(E_m)`, and `ind T = dim K − dim C`.  (Proposition 1.1.10 (preprint 1.9)) `T` is
+regularizing: `T e ∈ F_m` implies `e ∈ E_m`.  (Proposition 1.1.11 (preprint 1.10)) If `T` is sc-Fredholm and `S` is
 an sc⁺-operator then `T + S` is sc-Fredholm.  (§1.4.1) *Proof*: `T + S : E_m → F_m` is Fredholm
 on every level (compact perturbation); the kernels `K_m` of these operators all coincide
-(`x ∈ K_m` gives `T x = −S x ∈ F_{m+1}`, so `x ∈ E_{m+1}` by Proposition 1.9), so `K := K₀` is a
-finite-dimensional subspace of `E_∞` and splits `E` by Proposition 1.6.  `Y := (T+S)(E)` is closed,
+(`x ∈ K_m` gives `T x = −S x ∈ F_{m+1}`, so `x ∈ E_{m+1}` by Proposition 1.1.10 (preprint 1.9)), so `K := K₀` is a
+finite-dimensional subspace of `E_∞` and splits `E` by Proposition 1.1.7 (preprint 1.6).  `Y := (T+S)(E)` is closed,
 and `Y_∞` is dense in `Y_m` (for `y = (T+S)e ∈ Y_m`, `e ∈ E_m` by regularity, and `e_n → e` with
 `e_n ∈ E_∞` gives `(T+S)e_n → y`).  Finally the projection `p : F → F/Y` onto a finite-dimensional
 space maps the dense `F_∞` onto `F/Y`, so a basis of `F/Y` lifts to `F_∞`; its span `C` gives
@@ -25,7 +25,7 @@ space maps the dense `F_∞` onto `F/Y`, so a basis of `F/Y` lifts to `F_∞`; i
 
 ## What is formalized
 
-* `Polyfold.ScFredholmSplitting T` (the data of **Definition 1.8**): `K`, `X`, `C`, `Y` with the
+* `Polyfold.ScFredholmSplitting T` (the data of **Definition 1.1.9 (preprint 1.8)**): `K`, `X`, `C`, `Y` with the
   two sc-splittings, `K = ker T₀`, `Y = range T₀`, `K`, `C` finite-dimensional, and `T_m` a
   bijection `X_m → Y_m` for every `m`;
   `Polyfold.IsScFredholm T := Nonempty (ScFredholmSplitting T)`;
@@ -33,8 +33,8 @@ space maps the dense `F_∞` onto `F/Y`, so a basis of `F/Y` lifts to `F_∞`; i
   equals the index of every splitting (`ScFredholmSplitting.index_eq`).
 * `ScFredholmSplitting.K_le_smooth` (`K ⊆ E_∞`), `ScFredholmSplitting.isFredholm` (`T_m` is
   Fredholm on every level, the fact used at the start of §1.4.1).
-* `Polyfold.proposition_1_9` (**Proposition 1.9**, regularizing).
-* `Polyfold.proposition_1_10` (**Proposition 1.10**, compact perturbation), with the proof of
+* `Polyfold.proposition_1_1_10` (**Proposition 1.1.10 (preprint 1.9)**, regularizing).
+* `Polyfold.proposition_1_1_11_preprint` (**Proposition 1.1.11 (preprint 1.10)**, compact perturbation), with the proof of
   §1.4.1 on top of `Polyfold.isFredholm_add_isCompactOperator`.
 
 ## What the text leaves implicit, and the choices made
@@ -98,9 +98,9 @@ lemma ScBanach.range_toBase_succ_le (E : ScBanach) (m : ℕ) :
   rintro _ ⟨x, rfl⟩
   exact ⟨E.incl m x, rfl⟩
 
-/-! ### Definition 1.8 -/
+/-! ### Definition 1.1.9 (preprint 1.8) -/
 
-/-- The data of **Definition 1.8**: sc-splittings `E = K ⊕ X`, `F = C ⊕ Y` with `K = ker T`
+/-- The data of **Definition 1.1.9 (preprint 1.8)**: sc-splittings `E = K ⊕ X`, `F = C ⊕ Y` with `K = ker T`
 finite-dimensional, `C` finite-dimensional, `Y = T(E)`, and `T : X_m → Y_m` bijective for every
 `m` (an sc-isomorphism `X → Y`; the continuity of the inverses is automatic). -/
 structure ScFredholmSplitting (T : ScOperator E F) where
@@ -120,7 +120,7 @@ structure ScFredholmSplitting (T : ScOperator E F) where
   range_eq : Y = LinearMap.range (T 0 : E 0 →ₗ[ℝ] F 0)
   bijOn : ∀ m, BijOn (T m) (E.levelSub X m) (F.levelSub Y m)
 
-/-- An sc-operator is **sc-Fredholm** (Definition 1.8) if it admits an `ScFredholmSplitting`. -/
+/-- An sc-operator is **sc-Fredholm** (Definition 1.1.9 (preprint 1.8)) if it admits an `ScFredholmSplitting`. -/
 def IsScFredholm (T : ScOperator E F) : Prop := Nonempty (ScFredholmSplitting T)
 
 /-- The index `dim K − dim C` of an sc-Fredholm splitting. -/
@@ -144,10 +144,10 @@ lemma index_eq : s.index = scIndex T := by
   rw [s.ker_eq, ← s.range_eq, (Submodule.quotientEquivOfIsCompl _ _ h).finrank_eq]
 
 /-- The kernel of an sc-Fredholm operator consists of smooth points (the remark after
-Definition 1.8, by Proposition 1.6). -/
+Definition 1.1.9 (preprint 1.8), by Proposition 1.1.7 (preprint 1.6)). -/
 lemma K_le_smooth : s.K ≤ E.smooth :=
   haveI := s.finite_K
-  (E.proposition_1_6_iff s.K).1 s.splitE.1
+  (E.proposition_1_1_7_iff s.K).1 s.splitE.1
 
 lemma ker_lvl (m : ℕ) : LinearMap.ker (T m : E m →ₗ[ℝ] F m) = E.levelSub s.K m := by
   rw [T.ker_lvl, s.ker_eq]
@@ -178,10 +178,10 @@ lemma isFredholm (s : ScFredholmSplitting T) (m : ℕ) : (T m).IsFredholm := by
 
 end ScFredholmSplitting
 
-/-! ### Proposition 1.9 -/
+/-! ### Proposition 1.1.10 (preprint 1.9) -/
 
-/-- **Proposition 1.9**: an sc-Fredholm operator is regularizing: if `T e ∈ F_m` then `e ∈ E_m`. -/
-theorem proposition_1_9 {T : ScOperator E F} (s : ScFredholmSplitting T) {e : E 0} {m : ℕ}
+/-- **Proposition 1.1.10 (preprint 1.9)**: an sc-Fredholm operator is regularizing: if `T e ∈ F_m` then `e ∈ E_m`. -/
+theorem proposition_1_1_10 {T : ScOperator E F} (s : ScFredholmSplitting T) {e : E 0} {m : ℕ}
     (he : T 0 e ∈ range (F.toBase m)) : e ∈ range (E.toBase m) := by
   obtain ⟨y, hy⟩ := he
   -- `y = c_m + T_m x'` with `c_m ∈ C_m`, `x' ∈ X_m`
@@ -201,7 +201,7 @@ theorem proposition_1_9 {T : ScOperator E F} (s : ScFredholmSplitting T) {e : E 
   obtain ⟨z, hz⟩ := (ScScale.mem_smooth_iff _).1 (s.K_le_smooth hK) m
   exact ⟨z + x', by rw [map_add, hz, sub_add_cancel]⟩
 
-/-! ### Proposition 1.10 -/
+/-! ### Proposition 1.1.11 (preprint 1.10) -/
 
 /-- The bootstrap behind §1.4.1: if `T` is sc-Fredholm and `S` is sc⁺, then `T + S` is
 regularizing. -/
@@ -219,11 +219,11 @@ lemma ScPlus.regularizing_add {T : ScOperator E F} (s : ScFredholmSplitting T) (
       obtain ⟨a, ha⟩ := he
       obtain ⟨b, hb⟩ := hS
       exact ⟨a - b, by rw [this, map_sub, ha, hb]⟩
-    exact proposition_1_9 s hT
+    exact proposition_1_1_10 s hT
 
-/-- **Proposition 1.10 (Compact Perturbation)**: if `T : E → F` is sc-Fredholm and `S : E → F` is
+/-- **Proposition 1.1.11 (preprint 1.10) (Compact Perturbation)**: if `T : E → F` is sc-Fredholm and `S : E → F` is
 an sc⁺-operator, then `T + S` is sc-Fredholm. -/
-theorem proposition_1_10 {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F) :
+theorem proposition_1_1_11_preprint {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F) :
     IsScFredholm (T + S.toScOperator) := by
   obtain ⟨s⟩ := hT
   set T' := T + S.toScOperator with hT'
@@ -241,7 +241,7 @@ theorem proposition_1_10 {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus 
     intro m
     have hx0 : T' 0 x = 0 := hx
     exact ScPlus.regularizing_add s S (m := m) (e := x) (by rw [hx0]; exact ⟨0, map_zero _⟩)
-  obtain ⟨X', hX'⟩ := E.proposition_1_6 K' hK'smooth
+  obtain ⟨X', hX'⟩ := E.proposition_1_1_7 K' hK'smooth
   -- the range `Y'` is closed and its smooth points are dense on every level
   set Y' := LinearMap.range (T' 0 : E 0 →ₗ[ℝ] F 0) with hY'
   have hY'cl : IsClosed (Y' : Set (F 0)) := (hFred 0).isClosed_range
@@ -314,7 +314,7 @@ theorem proposition_1_10 {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus 
       · rw [ScBanach.mem_levelSub, hc]
         exact LinearMap.mem_range_self σ _
   have hsplitF : F.IsScSplitting C' Y' :=
-    ⟨(F.proposition_1_6_iff C').2 hC'smooth, hY'sc, fun m => (hcompl m).symm⟩
+    ⟨(F.proposition_1_1_7_iff C').2 hC'smooth, hY'sc, fun m => (hcompl m).symm⟩
   -- the bijections `X'_m → Y'_m`
   refine ⟨⟨K', X', C', Y', hX', hsplitF, rfl, hK'fin, hC'fin, rfl, fun m => ⟨?_, ?_, ?_⟩⟩⟩
   · intro x _

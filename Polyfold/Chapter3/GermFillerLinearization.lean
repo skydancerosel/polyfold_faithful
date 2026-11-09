@@ -3,7 +3,7 @@ import Polyfold.Chapter3.FillerLinearization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definition 3.4 (3) and Proposition 3.5, **for fillings in the germ sense**.
+Definition 3.1.4 (preprint 3.4) (3) and Proposition 3.1.5 (preprint 3.5), **for fillings in the germ sense**.
 
 # The linearization of a germ filling at `0`
 
@@ -13,7 +13,7 @@ The chart-form identities at `0` for the fill defect `k = [1 − ρ(r(·))]g` of
 (`IsFillingGerm`): `Dk(0) = (1 − ρ(0))Dg(0)` (`fillDefectDeriv_zero_eq`,
 `fillDefect_deriv_zero_eq_rho`), the kernel equivalence of condition (3)
 (`IsFillingGerm.exists_kerEquiv`), `Dg(0) ∘ Dr(0)`-identities (`IsFillingGerm.deriv_comp_r_eq_zero`,
-`IsFillingGerm.ρ_deriv_comp_r`) and Proposition 3.5 for germs (`IsFillingGerm.proposition_3_5`),
+`IsFillingGerm.ρ_deriv_comp_r`) and Proposition 3.1.5 (preprint 3.5) for germs (`IsFillingGerm.proposition_3_1_5`),
 the germ analogues of the whole-chart lemmas of `FillerLinearization.lean`.  Written in
 `GermCalculusParam.lean` (Findings, Chapter 3, items 270–274) and placed here, just above
 `FillerLinearization.lean`, so that §3.1–§3.6 can use them.
@@ -140,12 +140,12 @@ theorem IsFillingGerm.ρ_deriv_comp_r (hU : IsRelOpenInQuadrant E C U)
     ρCLM hR h0 (Dg 0 (scDeriv U (r R) 0 h)) = Dg 0 (scDeriv U (r R) 0 h) :=
   (sub_eq_zero.1 (hfg.deriv_comp_r_eq_zero hU hR h0 hg0 h0O hfK hG hg h)).symm
 
-/-- **Proposition 3.5 (Filler) for a filling germ**: for a filling germ `g` of `f̂` with `g(0) = 0`
+/-- **Proposition 3.1.5 (preprint 3.5) (Filler) for a filling germ**: for a filling germ `g` of `f̂` with `g(0) = 0`
 (`f̂` a section of `K → O`) and any derivative family `Dg` of `g` on a germ `G₁ ⊆ U`, the
 restriction `Tf(0) = Dg(0)|_{Dr(0)E} : Dr(0)E → ρ(0)F` (`fillerRestrict`) is surjective iff
 `Dg(0)` is, and Fredholm iff `Dg(0)` is, with the same index (the germ analogue of
-`IsFillerOf.proposition_3_5`). -/
-theorem IsFillingGerm.proposition_3_5 (hU : IsRelOpenInQuadrant E C U)
+`IsFillerOf.proposition_3_1_5`). -/
+theorem IsFillingGerm.proposition_3_1_5 (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) {fb g : E 0 → F 0}
     (hfg : IsFillingGerm hU hR h0 fb g) (hg0 : g 0 = 0) (h0O : (0 : E 0) ∈ r R '' U)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ)) (hG : G₁.U 0 ⊆ U)
@@ -158,7 +158,7 @@ theorem IsFillingGerm.proposition_3_5 (hU : IsRelOpenInQuadrant E C U)
         fredholmIndex (fillerRestrict (scDeriv U (r R) 0) (ρCLM hR h0) (Dg 0) h1) =
           fredholmIndex (Dg 0) := by
   obtain ⟨Φ, hΦ⟩ := hfg.exists_kerEquiv hU hR h0 hg0 h0O hg
-  exact ⟨hfg.ρ_deriv_comp_r hU hR h0 hg0 h0O hfK hG hg, Polyfold.proposition_3_5
+  exact ⟨hfg.ρ_deriv_comp_r hU hR h0 hg0 h0O hfK hG hg, Polyfold.proposition_3_1_5_preprint
     (scDeriv_r_idem hU hR h0O) (ρCLM_idem hR h0 h0O) _ Φ hΦ⟩
 
 end FillDefectZero

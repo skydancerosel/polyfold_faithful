@@ -4,14 +4,14 @@ import Polyfold.Vendor.MilnorSard.Sard
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §4.3,
-the finite-dimensional core of the proof of Theorem 4.23 *(book 2017: Theorem 4.4; see
+the finite-dimensional core of the proof of Theorem 4.3.1 (preprint 4.23) *(book 2017: Theorem 4.4; see
 `BookConcordance.md`, not checked against the 2017 text)*.
 
 # Sard's theorem on the strata of a partial quadrant, and fibres over regular values
 
 ## The text, paraphrased
 
-(Proof of Theorem 4.23, in the chart of Theorem 4.22.)  `A ∩ F_σ°` is a manifold without boundary
+(Proof of Theorem 4.3.1 (preprint 4.23), in the chart of Theorem 4.2.11 (preprint 4.22).)  `A ∩ F_σ°` is a manifold without boundary
 of dimension `dim A − #σ`; Sard's theorem gives a full-measure set `Σ_σ` of regular values of the
 projection `p_σ : A ∩ F_σ° → ℝᵐ`, and `Σ = ⋂_σ Σ_σ`.  For `λ ∈ Σ` the fibre is a manifold with
 boundary with corners: its tangent space at `z'` is complementary to a space `ξ_{z'}` mapped
@@ -22,11 +22,11 @@ isomorphically onto `ℝᵐ` by `Tp_σ(z')`.
 The finite-dimensional model: a finite-dimensional space `V` with linear coordinates
 `ℓ : V → ℝⁿ`, the partial quadrant `C = {ℓ ≥ 0}` (`quadC`), a relatively open `U = O ∩ C` and a
 map `f : V → F` of class `C^∞` on `U` (in the application `V = T₀A`, `ℓ` the coordinates of the
-tame chart, `U` the domain of the graph map `Γ` of Proposition 4.9 and `f = P ∘ Γ`).
+tame chart, `U` the domain of the graph map `Γ` of Proposition 4.1.9 (preprint 4.9) and `f = P ∘ Γ`).
 
 * The strata: `stratSub ℓ σ = {ℓ_i = 0, i ∈ σ}` (the tangent space of `A ∩ F_σ`), of dimension
   `dim V − #σ` when `ℓ` is onto (`finrank_stratSub`: the dimension count that the proof of
-  Theorem 4.23 uses and Theorem 4.22 does not state), and `zeroSetOf ℓ v`, the faces through `v`.
+  Theorem 4.3.1 (preprint 4.23) uses and Theorem 4.2.11 (preprint 4.22) does not state), and `zeroSetOf ℓ v`, the faces through `v`.
 * **Stratified critical points** (`stratCritSet`): `v ∈ U` at which `Df(v)` restricted to the
   stratum through `v` is not onto — the critical points of the text's `p_σ`, `σ = σ(v)`.
 * **Sard's theorem on the strata** (`measure_image_stratCritSet`): `f(stratCritSet)` is a null set
@@ -37,7 +37,7 @@ tame chart, `U` the domain of the graph map `Γ` of Proposition 4.9 and `f = P �
   a point `v₀ ∈ U` which is not stratified-critical, the kernel `K = ker Df(v₀)` is in good
   position to the partial quadrant `C_{v₀}` with a good complement `Y` inside the stratum
   subspace (`exists_goodComplement_stratSub`), and the implicit function theorem in partial
-  quadrants (Theorem 3.78, here in its `C^∞` form `theorem_3_78_smooth`) describes the fibre near
+  quadrants (Theorem 3.8.22 (preprint 3.78), here in its `C^∞` form `theorem_3_8_22_smooth`) describes the fibre near
   `v₀` as the graph of a `C^∞` map `τ : K ∩ C_{v₀} ⊇ V' → Y`.  This gives a `C^∞` retraction `ρ`
   of a relatively open neighbourhood `U'` of `v₀` in `C` onto the fibre `f⁻¹(f(v₀)) ∩ U'`, with
   `range Dρ(v₀) = ker Df(v₀)`.
@@ -50,7 +50,7 @@ tame chart, `U` the domain of the graph map `Γ` of Proposition 4.9 and `f = P �
   the union over `σ` of the critical values of the `p_σ`.
 * "`A_λ` is a smooth manifold with boundary with corners" needs the implicit function theorem at
   boundary points, with the kernel of the derivative in good position to the corner — the
-  argument of Lemma 5.26, which the text does not give here.  Theorem 3.78 is stated for one
+  argument of Lemma 5.26, which the text does not give here.  Theorem 3.8.22 (preprint 3.78) is stated for one
   finite `j` with a `j`-dependent solution; here the `C^∞` version is proved from the same
   construction (the contraction radii do not depend on `j`).
 -/
@@ -194,7 +194,7 @@ theorem measure_image_stratCritSet [FiniteDimensional ℝ V] [FiniteDimensional 
 end Strata
 
 
-/-! ### Theorem 3.78 in the `C^∞` form -/
+/-! ### Theorem 3.8.22 (preprint 3.78) in the `C^∞` form -/
 
 section SmoothIFT
 
@@ -202,9 +202,9 @@ variable {K Y : Type} [NormedAddCommGroup K] [NormedSpace ℝ K] [FiniteDimensio
   [NormedAddCommGroup Y] [NormedSpace ℝ Y] [FiniteDimensional ℝ Y] {Cp Up : Set (K × Y)}
   {B : K × Y → Y}
 
-/-- **Theorem 3.78 in the normalized form, `C^∞`**: if the data of the proof of Theorem 3.78 hold
+/-- **Theorem 3.8.22 (preprint 3.78) in the normalized form, `C^∞`**: if the data of the proof of Theorem 3.8.22 (preprint 3.78) hold
 for every `j ≥ 1` (`B` of class `C^∞`), one solution `τ` is `C^j` for every `j`.  The radii of
-Lemmas 3.79–3.80 (`ContractionData.exists_radii`) and the fixed point `τ(k)` do not depend on
+Lemmas 3.8.23–3.8.24 (preprint 3.79–3.80) (`ContractionData.exists_radii`) and the fixed point `τ(k)` do not depend on
 `j`; only the regularity statement `Radii.contDiffOn_τ` does. -/
 theorem ContractionData.exists_solution_smooth (h : ∀ j : ℕ, 1 ≤ j → ContractionData Cp Up B j) :
     ∃ (V' : Set K) (τ : K → Y) (ε σ : ℝ),
@@ -246,10 +246,10 @@ section SmoothIFT378
 variable {V F : Type} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
   [NormedAddCommGroup F] [NormedSpace ℝ F]
 
-/-- **Theorem 3.78, the `C^∞` form** (`theorem_3_78` with `f` of class `C^∞`; the solution `τ` is
-then `C^∞`, not only `C^j` for one `j`).  The proof is that of `theorem_3_78`, with
+/-- **Theorem 3.8.22 (preprint 3.78), the `C^∞` form** (`theorem_3_8_22` with `f` of class `C^∞`; the solution `τ` is
+then `C^∞`, not only `C^j` for one `j`).  The proof is that of `theorem_3_8_22`, with
 `ContractionData.exists_solution_smooth` in place of `ContractionData.exists_solution`. -/
-theorem theorem_3_78_smooth {C U : Set V} (hU : IsRelOpenInQuadrant (ScBanach.const V) C U)
+theorem theorem_3_8_22_smooth {C U : Set V} (hU : IsRelOpenInQuadrant (ScBanach.const V) C U)
     (h0 : (0 : V) ∈ U) {f : V → F} (hf : ContDiffOn ℝ ∞ f U) (hf0 : f 0 = 0)
     (hsurj : Function.Surjective (fderivWithin ℝ f U 0)) {K Y : Submodule ℝ V}
     (hK : K = LinearMap.ker (fderivWithin ℝ f U 0 : V →ₗ[ℝ] F))
@@ -399,7 +399,7 @@ section Fibre
 variable {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
   {n : ℕ} (ℓ : V →ₗ[ℝ] (Fin n → ℝ))
 
-/-- The partial quadrant `{ℓ_i ≥ 0, i ∈ σ}` (for `σ = σ(v)`, the quadrant `C_v` of Definition 2.33
+/-- The partial quadrant `{ℓ_i ≥ 0, i ∈ σ}` (for `σ = σ(v)`, the quadrant `C_v` of Definition 2.5.1 (preprint 2.33)
 at `v`). -/
 def quadAt (σ : Finset (Fin n)) : Set V := {v | ∀ i ∈ σ, 0 ≤ ℓ v i}
 
@@ -474,7 +474,7 @@ lemma uniqueDiffWithinAt_quadC (hℓ : Surjective ℓ) {O : Set V} (hO : IsOpen 
     (subset_closure hv.2)).inter (hO.mem_nhds hv.1)
 
 /-- **The kernel at a stratified regular point is in good position** (the argument of Lemma 5.26,
-which the proof of Theorem 4.23 needs and does not give): if `K + {ℓ_i = 0, i ∈ σ} = V` (for
+which the proof of Theorem 4.3.1 (preprint 4.23) needs and does not give): if `K + {ℓ_i = 0, i ∈ σ} = V` (for
 `K = ker Df(v)`, `σ = σ(v)`: `Df(v)` restricted to the stratum is onto), then `K` is in good
 position to the partial quadrant `C_σ = {ℓ_i ≥ 0, i ∈ σ}`, with a closed good complement `Y`
 inside the stratum subspace (adding a vector of `Y` changes no coordinate `ℓ_i`, `i ∈ σ`). -/
@@ -522,7 +522,7 @@ Then there are an open `O' ∋ v₀`, `O' ⊆ O`, and a `C^∞` map `ρ` on `U' 
 `ρ(U') ⊆ U' ∩ f⁻¹(f(v₀))`, `ρ = id` on `U' ∩ f⁻¹(f(v₀))` (so `ρ` is a retraction of `U'` onto the
 fibre), and `range Dρ(v₀) = ker Df(v₀)` with `Dρ(v₀) = 1` on `ker Df(v₀)`.
 *Proof*: `K = ker Df(v₀)` is in good position to `C_{v₀}` with a good complement `Y` in the
-stratum (`exists_goodComplement_stratSub`); Theorem 3.78 (`theorem_3_78_smooth`) for
+stratum (`exists_goodComplement_stratSub`); Theorem 3.8.22 (preprint 3.78) (`theorem_3_8_22_smooth`) for
 `g(w) = f(v₀ + w) − f(v₀)` on the relatively open `U₁ ∋ 0` of `C_{v₀}` (near `0`, `v₀ + C_{v₀}`
 and `C` agree) gives the fibre as the graph `{v₀ + k + τ(k)}` of a `C^∞` map `τ : V' → Y`,
 `V' ⊆ K ∩ C_{v₀}`, unique for small `k` and `y`; `ρ(v) = v₀ + q(v) + τ(q(v))`, `q(v)` the
@@ -608,7 +608,7 @@ theorem exists_fibre_retraction (hℓ : Surjective ℓ) {O : Set V} (hO : IsOpen
     rwa [ScBanach.lvlSet_const] at this
   have hDg0 : fderivWithin ℝ g U₁ 0 = L := hDg.fderivWithin hUD
   obtain ⟨V', τ, ε, σ, ⟨OK, hOK, hV'⟩, h0V', hτ, hτ0, hDτ0, hsol, hε, hσ, -, huniq⟩ :=
-    theorem_3_78_smooth hU₁rel h0U₁ hgcd hg0 (by rw [hDg0]; exact hsurj) (K := K) (Y := Y)
+    theorem_3_8_22_smooth hU₁rel h0U₁ hgcd hg0 (by rw [hDg0]; exact hsurj) (K := K) (Y := Y)
       (by rw [hDg0]) hKC hY
   -- the projection along `Y`
   obtain ⟨π, hπK, hπY, hπker⟩ := exists_proj_of_isCompl hYc hY.isCompl

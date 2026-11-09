@@ -18,9 +18,9 @@ being images of sc-projections, hence sc-subspaces.
 ## What is formalized (rows V2.25 and V7.30; completes `SubMPolyfoldTangent.lean`)
 
 `SubMPolyfoldTangent.lean` gives the topological direct sum `T_aX = Ti(T_aA) ⊕ ker T(i⁻¹ ∘ r)`
-(`proposition_2_3_19_3_linear_2021`).  Added here, for a smooth `a` and a chart `φ` around `a`:
+(`proposition_2_3_19_3_linear`).  Added here, for a smooth `a` and a chart `φ` around `a`:
 
-* **`MPolyfold.proposition_2_3_19_3_sc_2021`**: the images `K`, `N ⊆ E` of `Ti(T_aA)` and of
+* **`MPolyfold.proposition_2_3_19_3_sc`**: the images `K`, `N ⊆ E` of `Ti(T_aA)` and of
   `ker T(i⁻¹ ∘ r)` under `Tφ(a) : T_aX → T_{φ(a)}O ⊆ E` are **sc-subspaces of `E`**, and on every
   level `m` they are complementary in `T_{φ(a)}O ∩ E_m`: `K_m ⊓ N_m = 0` and
   `K_m ⊔ N_m = (T_{φ(a)}O)_m`.  In the sc-Banach structure of `T_aX` (the sc-subspace
@@ -71,7 +71,7 @@ theorem subInclusionCLM_comp_subRetractionCLM_eq :
 `a ∈ A`, in a chart `φ` around `a`, the images under `Tφ(a)` of `Ti(T_aA)` and of
 `ker T(i⁻¹ ∘ r)` are sc-subspaces `K`, `N` of `E`, complementary on every level inside
 `T_{φ(a)}O`: `T_aA` has the sc-complement `ker T(i⁻¹ ∘ r)` in `T_aX`. -/
-theorem proposition_2_3_19_3_sc_2021 (hs : P.levelVal 1 x ∈ P.smoothSet) :
+theorem proposition_2_3_19_3_sc (hs : P.levelVal 1 x ∈ P.smoothSet) :
     ∃ K N : Submodule ℝ (φ.model.E 0),
       K = (LinearMap.range (subInclusionCLM hA hax :
           (subPolyfold hA).tangentFiber a →ₗ[ℝ] P.tangentFiber x)).map (fiberCoord hφ hxφ) ∧

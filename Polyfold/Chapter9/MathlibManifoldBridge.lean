@@ -54,7 +54,7 @@ Mathlib's notions, `ChartedSpace` and `IsManifold`:
     `IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero` (`A ∩ ∂X = ∅`), and in
     Mathlib's language `theorem_4_2_7_isManifold`,
     `IsSubmanifoldOfDim.isManifold_of_degIndex_eq_zero` (`IsManifold (𝓡 n) ∞ A`, with
-    `IsSmoothSubmanifold.subPolyfold_degIndex_eq_zero` from Lemma 2.4.6 (preprint 2.26), `d_A ≤ d_X` (`lemma_2_26`));
+    `IsSmoothSubmanifold.subPolyfold_degIndex_eq_zero` from Lemma 2.4.6 (preprint 2.26), `d_A ≤ d_X` (`lemma_2_4_6`));
   - **Definition 9.3.6, last sentence: a tame `n`-dimensional submanifold is a manifold with
     boundary and corners.**  The step the text leaves implicit is that `T₀O` is in good position
     in a tame centred chart (`IsTameRetract.isInGoodPosition_zero`: `0` is a full corner, so the
@@ -592,7 +592,7 @@ variable {A : Set X}
 `n`-dimensional submanifold (Remark 9.1.1, `IsSubmanifoldOfDim`) and every `a ∈ A` lies in a
 chart `ψ` of `X` centred at `a` in which `N = T₀(ψ(W ∩ A))` is in good position to `C`, the
 induced structure on `A` has a corner structure of dimension `n`.  *Proof*: Theorem 4.1.2's chart
-(`theorem_4_2_chart`) is modelled on `N`, and `dim N = dim T_aA = n` (`HasDimAt.finrank_eq`). -/
+(`theorem_4_1_2_chart`) is modelled on `N`, and `dim N = dim T_aA = n` (`HasDimAt.finrank_eq`). -/
 theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_centred (hA : P.IsSubmanifoldOfDim A n)
     [ParacompactSpace A]
     (h : ∀ a (ha : a ∈ A), ∃ ψ : MChart X, P.IsChart ψ ∧ a ∈ ψ.source ∧ ψ a = 0 ∧
@@ -604,7 +604,7 @@ theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_centred (hA : P.IsSubmanif
   have h1 : a ∈ (subPolyfold hA.1.isSubMPolyfold).levelSet 1 :=
     (hA.1.mem_levelSet_subPolyfold_iff a 1).2 (hA.1.mem_levelSet_one a.2)
   set x₀ := (subPolyfold hA.1.isSubMPolyfold).levelMk 1 a h1
-  obtain ⟨hsm, hmap⟩ := hA.1.proposition_4_15_4 x₀
+  obtain ⟨hsm, hmap⟩ := hA.1.proposition_4_2_3_four x₀
   obtain ⟨ψ, hψ, haψ, hψ0, hgood⟩ := h a a.2
   set d := hA.1.data a.2
   have haW : a.1 ∈ d.toSubData.shrink ψ :=
@@ -621,9 +621,9 @@ theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_centred (hA : P.IsSubmanif
   have hN : (N : Set (ψ.model.E 0)) =
       tangentSpace ψ.model.E ψ.model.C (ψ '' (d.toSubData.shrink ψ ∩ A)) 0 := by
     rw [← ht]; exact (tangentSpace_eq_coe_submodule t h0t).symm
-  have hfin : FiniteDimensional ℝ N := lemma_4_7_ii htp h0t
+  have hfin : FiniteDimensional ℝ N := lemma_4_1_7_ii htp h0t
   obtain ⟨c, hc, hac, -, hcc⟩ :=
-    @theorem_4_2_chart _ _ _ _ _ x₀ hsm hmap (subChart d.toSubData hψ a) hψ' a haW hψ0 N hfin hN
+    @theorem_4_1_2_chart _ _ _ _ _ x₀ hsm hmap (subChart d.toSubData hψ a) hψ' a haW hψ0 N hfin hN
       (hgood N hN)
   refine ⟨@CornerChartData.chart _ _ _ _ hfin c, hc, hac, hcc, ?_⟩
   have hdim := (hA.2 a.1 a.2).finrank_eq d hψ (hA.1.mem_data_V a.2) haψ hz
@@ -632,7 +632,7 @@ theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_centred (hA : P.IsSubmanif
 
 /-- **Theorem 4.2.7 (preprint 4.18) with the dimension**: if `X` is tame and the `n`-dimensional
 submanifold `A` is in good position at every point (Definition 4.2.5), the induced structure on
-`A` has a corner structure of dimension `n` (the proof of `theorem_4_18`:
+`A` has a corner structure of dimension `n` (the proof of `theorem_4_2_7`:
 `IsTame.exists_centredChart` and `IsGoodPositionAt.isInGoodPosition_of_tame`). -/
 theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_tame (hP : P.IsTame)
     (hA : P.IsSubmanifoldOfDim A n) [ParacompactSpace A]
@@ -662,11 +662,11 @@ theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_degIndex_eq_zero
   exact isInGoodPosition_univ N
 
 /-- A submanifold avoiding `∂X` has `d_A ≡ 0` (Proposition 4.2.3 (3); Lemma 2.4.6 (preprint 2.26),
-`d_A(a) ≤ d_X(a)`, `lemma_2_26`). -/
+`d_A(a) ≤ d_X(a)`, `lemma_2_4_6`). -/
 theorem IsSmoothSubmanifold.subPolyfold_degIndex_eq_zero (hA : P.IsSmoothSubmanifold A)
     [ParacompactSpace A] (h0 : ∀ a ∈ A, P.degIndex a = 0) (a : A) :
     (subPolyfold hA.isSubMPolyfold).degIndex a = 0 :=
-  Nat.eq_zero_of_le_zero ((lemma_2_26 hA.isSubMPolyfold a).trans_eq (h0 a a.2))
+  Nat.eq_zero_of_le_zero ((lemma_2_4_6 hA.isSubMPolyfold a).trans_eq (h0 a a.2))
 
 /-- **Theorem 4.2.7 (preprint 4.18) in Mathlib's language** (gap G.102): a tame `X`, an
 `n`-dimensional smooth submanifold `A` in good position at every point; then `A`, with the
@@ -696,12 +696,12 @@ end Submanifold
 
 /-- **Theorem 3.2.3 (preprint 3.27) in Mathlib's language**: the solution set `M` of the implicit
 function theorem for the germs of Definition 3.2.1 (regular data `TangentGermChart` of dimension
-`n` at every point; `theorem_3_27_isManifoldWithCorners`) is a smooth manifold with boundary and
+`n` at every point; `theorem_3_2_3_isManifoldWithCorners`) is a smooth manifold with boundary and
 corners, `IsManifold (modelWithCornersEuclideanQuadrant n) ∞ M`. -/
 theorem theorem_3_2_3_isManifold (P : MPolyfold X) {M : Set X} [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) (hne : M.Nonempty) :
-    letI := (subPolyfold (theorem_3_27_isSubMPolyfold P hM)).cornerChartedSpace
-      (theorem_3_27_isManifoldWithCorners P hM hne).hasCornerStructureOfDim
+    letI := (subPolyfold (theorem_3_2_3_isSubMPolyfold P hM)).cornerChartedSpace
+      (theorem_3_2_3_isManifoldWithCorners P hM hne).hasCornerStructureOfDim
     IsManifold (modelWithCornersEuclideanQuadrant n) ∞ M :=
   isManifold_cornerChartedSpace _
 
@@ -824,7 +824,7 @@ variable {A : Set X}
 and a level-`1` point `z` over `ψ(a)`, `T_z(ψ(dom ψ))` is finite-dimensional of dimension `n`
 (the chart change from the induced chart `subChart` of a chart of `X`, where the dimension is
 `dim T_aA = n`, `HasDimAt.finrank_eq`, and the tangent space is that of the sc⁺ chart retraction,
-`lemma_4_7_ii`). -/
+`lemma_4_1_7_ii`). -/
 theorem IsSubmanifoldOfDim.tangentSpace_subPolyfold_chart (hA : P.IsSubmanifoldOfDim A n)
     [ParacompactSpace A] {ψ : MChart A} (hψ : (subPolyfold hA.1.isSubMPolyfold).IsChart ψ)
     {a : A} (haψ : a ∈ ψ.source) {z : ψ.model.E 1} (hz : ψ.model.E.toBase 1 z = ψ a) :
@@ -838,7 +838,7 @@ theorem IsSubmanifoldOfDim.tangentSpace_subPolyfold_chart (hA : P.IsSubmanifoldO
   have haψ' : a ∈ ψ'.source := d.toSubData.mem_shrink ψ₀ a.2 (hA.1.mem_data_V a.2) haψ₀
   have h1 : a ∈ Q.levelSet 1 :=
     (hA.1.mem_levelSet_subPolyfold_iff a 1).2 (hA.1.mem_levelSet_one a.2)
-  have has : a ∈ Q.smoothSet := hA.1.proposition_4_15_1.2 a
+  have has : a ∈ Q.smoothSet := hA.1.proposition_4_2_3_one.2 a
   set z' := levelLift ψ' 1 a
   have hz' : ψ'.model.E.toBase 1 z' = ψ' a := Q.toBase_levelLift hψ' haψ' h1
   have hQ : IsScRetract ψ.model.E ψ.model.C (ψ '' (ψ.source ∩ univ)) := by
@@ -861,7 +861,7 @@ theorem IsSubmanifoldOfDim.tangentSpace_subPolyfold_chart (hA : P.IsSubmanifoldO
     change FiniteDimensional ℝ (Submodule.span ℝ
       (tangentSpace ψ₀.model.E ψ₀.model.C (ψ₀ '' (d.toSubData.shrink ψ₀ ∩ A)) z₀))
     rw [← ht, tangentSpace_eq_coe_submodule t h0t, Submodule.span_eq]
-    exact lemma_4_7_ii htp h0t
+    exact lemma_4_1_7_ii htp h0t
   have hfr := finrank_tangentSpace_chart_change hψ' hψ ψ'.isOpen_source ψ.isOpen_source
     subset_rfl subset_rfl hQ' hQ (mem_univ a) haψ' haψ has hz' hz
   have hfin := finiteDimensional_tangentSpace_chart_change hψ' hψ ψ'.isOpen_source
@@ -930,7 +930,7 @@ induced structure on the `n`-dimensional submanifold `A` is tame (Definition 2.5
 `HasTameInducedStructure`), it has a corner structure of dimension `n`.  *Proof*: at `a ∈ A` take a
 tame chart `ψ` of `A` centred at `a` (`IsTame.exists_centredChart`); `N = T₀O` is
 finite-dimensional of dimension `n` (`tangentSpace_subPolyfold_chart`) and in good position to
-`C` (`IsTameRetract.isInGoodPosition_zero`); Theorem 4.1.2's chart (`theorem_4_2_chart`) is a
+`C` (`IsTameRetract.isInGoodPosition_zero`); Theorem 4.1.2's chart (`theorem_4_1_2_chart`) is a
 corner chart modelled on `N`. -/
 theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_hasTameInducedStructure
     (hA : P.IsSubmanifoldOfDim A n) [ParacompactSpace A] (htame : P.HasTameInducedStructure A) :
@@ -942,8 +942,8 @@ theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_hasTameInducedStructure
   have h1 : a ∈ Q.levelSet 1 :=
     (hA.1.mem_levelSet_subPolyfold_iff a 1).2 (hA.1.mem_levelSet_one a.2)
   set x₀ := Q.levelMk 1 a h1
-  obtain ⟨hsm, hmap⟩ := hA.1.proposition_4_15_4 x₀
-  have has : a ∈ Q.smoothSet := hA.1.proposition_4_15_1.2 a
+  obtain ⟨hsm, hmap⟩ := hA.1.proposition_4_2_3_four x₀
+  have has : a ∈ Q.smoothSet := hA.1.proposition_4_2_3_one.2 a
   obtain ⟨ψ, hψ, haψ, hψ0, hret⟩ := hQt.exists_centredChart has
   have h0O : (0 : ψ.model.E 0) ∈ ψ.model.O := hψ0 ▸ ψ.mapsTo_model a haψ
   obtain ⟨N, hN, hgood⟩ := hret.isInGoodPosition_zero h0O
@@ -951,7 +951,7 @@ theorem IsSubmanifoldOfDim.hasCornerStructureOfDim_of_hasTameInducedStructure
   obtain ⟨hfin, hdim⟩ := hA.tangentSpace_subPolyfold_chart hψ haψ hz
   rw [← hN, Submodule.span_eq] at hfin hdim
   obtain ⟨c, hc, hac, -, hcc⟩ :=
-    @theorem_4_2_chart _ _ _ _ _ x₀ hsm hmap ψ hψ a haψ hψ0 N hfin hN hgood
+    @theorem_4_1_2_chart _ _ _ _ _ x₀ hsm hmap ψ hψ a haψ hψ0 N hfin hN hgood
   exact ⟨@CornerChartData.chart _ _ _ _ hfin c, hc, hac, hcc, hdim⟩
 
 /-- **Definition 4.2.6 / Definition 9.3.6 in Mathlib's language**: a tame `n`-dimensional

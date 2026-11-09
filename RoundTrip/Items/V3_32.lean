@@ -5,23 +5,23 @@ import RoundTrip.Blind.V3_32
 /-!
 Round trip for V3_32 (Theorem 3.35).  Refreshed 2026-11-02 against HEAD (new conjuncts: Theorem
 3.35 on one germ, and in the text's form).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_35`, `Polyfold.theorem_3_35_smooth` and (new)
-`Polyfold.theorem_3_35_isScSmoothGerm`, `Polyfold.theorem_3_35_of_isSc0ContractionGerm`,
+`Polyfold.theorem_3_35_preprint`, `Polyfold.theorem_3_35_smooth_preprint` and (new)
+`Polyfold.theorem_3_35_isScSmoothGerm_preprint`, `Polyfold.theorem_3_35_of_isSc0ContractionGerm_preprint`,
 `Polyfold.isSckGerm_contractionMap_iff` (no universe parameters).
 
 `A → B` is proved twice:
-* `A_to_B_text` (new): A's `theorem_3_35_of_isSc0ContractionGerm` is Theorem 3.35 in the text's
+* `A_to_B_text` (new): A's `theorem_3_35_of_isSc0ContractionGerm_preprint` is Theorem 3.35 in the text's
   form (Definition 3.28 contraction germ, any representative `(V, δ)` of the solution germ, sc^k on
   a smaller `V' ⊆ V`, sc-smooth on one smaller `V'`), for any quadrant-like `C̃ ⊆ P`; B is its
   special case `P = ℝⁿ`, `C̃` a partial quadrant.  (The audit's glue — locality lemma, diagonal
   germ, agreement with `sol` — has moved into the project.)
 * `A_to_B` (the audit's proof, repaired for the new `A`): through the working-form conjuncts
-  `theorem_3_35` and `theorem_3_35_smooth`, B's solution germ agreeing with `sol` near `0`
+  `theorem_3_35_preprint` and `theorem_3_35_smooth_preprint`, B's solution germ agreeing with `sol` near `0`
   (`ContractionGerm.eq_sol`), and for the sc-smooth part the diagonal germ
   `V'_m = V_m ∩ N(m + t_m) ∩ {δ ∈ O 0}`, `t_m = Σ_{j ≤ m} s_j`, with the locality lemma
   `isSckGerm_of_levels` proved in this file.
 
-`B → A` is not proved: A's working-form theorems (`theorem_3_35`, `_smooth`, `_isScSmoothGerm`)
+`B → A` is not proved: A's working-form theorems (`theorem_3_35_preprint`, `_smooth`, `_isScSmoothGerm`)
 are about the `1/2`-contraction `ContractionGerm` (weaker than Definition 3.28) and the specific
 `sol` on explicit germs, A's text-form theorem is for any finite-dimensional `P` and any
 quadrant-like `C̃`, and `isSckGerm_contractionMap_iff` is not in B.
@@ -32,14 +32,14 @@ open Polyfold
 
 /-- The project's statement: Theorem 3.35 in its two forms. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_35 ∧ type_of% @Polyfold.theorem_3_35_smooth ∧
-    type_of% @Polyfold.theorem_3_35_isScSmoothGerm ∧
-    type_of% @Polyfold.theorem_3_35_of_isSc0ContractionGerm ∧
+  type_of% @Polyfold.theorem_3_35_preprint ∧ type_of% @Polyfold.theorem_3_35_smooth_preprint ∧
+    type_of% @Polyfold.theorem_3_35_isScSmoothGerm_preprint ∧
+    type_of% @Polyfold.theorem_3_35_of_isSc0ContractionGerm_preprint ∧
     type_of% @Polyfold.isSckGerm_contractionMap_iff
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_35, @Polyfold.theorem_3_35_smooth, @Polyfold.theorem_3_35_isScSmoothGerm,
-    @Polyfold.theorem_3_35_of_isSc0ContractionGerm, @Polyfold.isSckGerm_contractionMap_iff⟩
+  ⟨@Polyfold.theorem_3_35_preprint, @Polyfold.theorem_3_35_smooth_preprint, @Polyfold.theorem_3_35_isScSmoothGerm_preprint,
+    @Polyfold.theorem_3_35_of_isSc0ContractionGerm_preprint, @Polyfold.isSckGerm_contractionMap_iff⟩
 
 section Glue
 
@@ -228,7 +228,7 @@ theorem A_to_B : A → B := by
       refine IsSckGerm.congr hC (fun a ha => ?_) h1
       exact (hagree a ha.1.1 ha.1.2.1 ha.1.2.2).symm
 
-/-- **A ⇒ B** directly through A's text-form `theorem_3_35_of_isSc0ContractionGerm`. -/
+/-- **A ⇒ B** directly through A's text-form `theorem_3_35_of_isSc0ContractionGerm_preprint`. -/
 theorem A_to_B_text : A → B := by
   intro hA n W Ct G Bm hPQ h
   refine ⟨fun k hk V δ hsol => ?_, fun hf V δ hsol => ?_⟩
@@ -237,11 +237,11 @@ theorem A_to_B_text : A → B := by
   · obtain ⟨hδ0, hδzero, hδsol⟩ := hsol
     exact (hA.2.2.2.1 hPQ.isQuadrantLike h hδ0 hδzero fun a ha => (hδsol a ha).2).2 hf
 
-#rt_check RoundTrip.V3_32.A_to_B [Polyfold.theorem_3_35, Polyfold.theorem_3_35_smooth,
-  Polyfold.theorem_3_35_isScSmoothGerm, Polyfold.theorem_3_35_of_isSc0ContractionGerm,
+#rt_check RoundTrip.V3_32.A_to_B [Polyfold.theorem_3_35_preprint, Polyfold.theorem_3_35_smooth_preprint,
+  Polyfold.theorem_3_35_isScSmoothGerm_preprint, Polyfold.theorem_3_35_of_isSc0ContractionGerm_preprint,
   Polyfold.isSckGerm_contractionMap_iff]
-#rt_check RoundTrip.V3_32.A_to_B_text [Polyfold.theorem_3_35, Polyfold.theorem_3_35_smooth,
-  Polyfold.theorem_3_35_isScSmoothGerm, Polyfold.theorem_3_35_of_isSc0ContractionGerm,
+#rt_check RoundTrip.V3_32.A_to_B_text [Polyfold.theorem_3_35_preprint, Polyfold.theorem_3_35_smooth_preprint,
+  Polyfold.theorem_3_35_isScSmoothGerm_preprint, Polyfold.theorem_3_35_of_isSc0ContractionGerm_preprint,
   Polyfold.isSckGerm_contractionMap_iff]
 
 end RoundTrip.V3_32

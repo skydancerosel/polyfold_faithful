@@ -3,18 +3,18 @@ import Polyfold.Chapter3.LinearizationCharts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1)**: "at every point `y ∈ S` the sc-Fredholm germ `(f, y)` is in good position".
+**Theorem 3.6.8 (preprint 3.54) (1)**: "at every point `y ∈ S` the sc-Fredholm germ `(f, y)` is in good position".
 The kernel part in the chart at `x₀` (`GlobalIFTNearbyKernel.lean`) is combined here with the
 chart independence of `LinearizationCharts.lean`; the surjectivity of the intrinsic linearization
 `Tf̃(z₀) : T_{z₀}O → K_{z₀}` at the nearby zeros is obtained under the **added hypothesis** that
-the filler satisfies condition (3) of Definition 3.4 at the nearby zeros as well (injectivity of
+the filler satisfies condition (3) of Definition 3.1.4 (preprint 3.4) at the nearby zeros as well (injectivity of
 `(1 − ρ(z₀))Dg(z₀)` on `ker Dr(z₀)`).
 
-# Theorem 3.54 (1) at the nearby zeros
+# Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros
 
 ## The text, paraphrased
 
-(Proof of Theorem 3.54, (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that
+(Proof of Theorem 3.6.8 (preprint 3.54), (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that
 `ψ ∘ ϕ(y) = v + σ(v)`, the kernel `ker f'(y)` is in good position to the partial cone `C_yX ⊆ T_yX`, and `f'(y)` is
 surjective.  Property (4) follows from Corollary 3.41 and from Lemma 3.55."
 
@@ -22,20 +22,20 @@ surjective.  Property (4) follows from Corollary 3.41 and from Lemma 3.55."
 
 * `Polyfold.exists_range_scDeriv_eq_ρ_of_normal_injective`: **the surjectivity of `Tf̃(z₀)` from
   that of `Dg(z₀)`** when `(1 − ρ(z₀))Dg(z₀)` is injective on `ker Dr(z₀)` (condition (3) of
-  Definition 3.4 at `z₀`): the block form `Dg(z₀) = [[A, B], [0, C]]` with respect to
+  Definition 3.1.4 (preprint 3.4) at `z₀`): the block form `Dg(z₀) = [[A, B], [0, C]]` with respect to
   `E = T_{z₀}O ⊕ ker Dr(z₀)`, `F = K_{z₀} ⊕ ker ρ(z₀)` and `C` injective gives `range A = K_{z₀}`
-  (Proposition 3.5 (1) at `z₀`).
-* `Polyfold.theorem_3_54_nearby_kernel_wholeChart`: **Theorem 3.54 (1) at the nearby zeros, the kernel, in
-  the chart at `x₀`**, in the form of `theorem_3_54_graph_wholeChart` (whose conclusion is restated so that the
+  (Proposition 3.1.5 (preprint 3.5) (1) at `z₀`).
+* `Polyfold.theorem_3_6_8_nearby_kernel_wholeChart`: **Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel, in
+  the chart at `x₀`**, in the form of `theorem_3_6_8_graph_wholeChart` (whose conclusion is restated so that the
   chart `c` is shared) together with, for every zero `y` in an open `Vx₂ ∋ x₀`, with `z₀ = ϕ(y)`,
   `z = ψ(z₀) = v + σ(v)`: the level-`1` points `z₀₁`, `x₁`; `D(h + t)(x₁)` surjective Fredholm of
   index `n − N`; `N_v = ker D(h + t)(x₁)`; `D(Ψ_*g)(x₁) = D(h + t)(x₁)`;
   `ker Dg(z₀) = Dψ'(x₁)(N_v)`; `Dg(z₀)` surjective; `ker Dg(z₀) ⊆ T_{z₀}O`; `ker Dg(z₀)` in
   good position to `C_{z₀}` inside `T_{z₀}O`.
-* `Polyfold.StrongBundle.IsGoodPositionGermFilledWholeChart`: Definition 3.53 in a tame chart with a filler
+* `Polyfold.StrongBundle.IsGoodPositionGermFilledWholeChart`: Definition 3.6.6 (preprint 3.53) in a tame chart with a filler
   satisfying condition (3) at the zeros of `g` in `O` near `0` (as the fillers of the
   applications do).
-* `Polyfold.theorem_3_54_one_wholeChart`: **Theorem 3.54 (1)** under this added hypothesis: for an
+* `Polyfold.theorem_3_6_8_one_wholeChart`: **Theorem 3.6.8 (preprint 3.54) (1)** under this added hypothesis: for an
   sc-Fredholm section `f` with tame germ data (`IsScFredholmSectionTameWholeChart`), `f(x₀) = 0` and
   `(f, x₀)` in good position with such a filler, there is an open `Vx ∋ x₀` such that `(f, y)` is
   in good position in a tame chart (`IsGoodPositionGermTameWholeChart`) at every zero `y ∈ Vx` — by
@@ -44,25 +44,25 @@ surjective.  Property (4) follows from Corollary 3.41 and from Lemma 3.55."
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **The surjectivity of `f'(y)` at the nearby zeros is not a consequence of Corollary 3.41 and
-  Lemma 3.55** (Finding 91 (b)): Corollary 3.41 gives the surjectivity of the filled
+* **The surjectivity of `f'(y)` at the nearby zeros is not a consequence of Corollary 3.5.3 (preprint 3.41) and
+  Lemma 3.6.9 (preprint 3.55)** (Finding 91 (b)): Corollary 3.5.3 (preprint 3.41) gives the surjectivity of the filled
   `Dg(z₀) : E → F`; passing to `Tf̃(z₀) = Dg(z₀)|_{T_{z₀}O} : T_{z₀}O → K_{z₀}` is Proposition
-  3.5 (1) at `z₀`, which needs condition (3) of Definition 3.4 at `z₀`.  With respect to
+  3.5 (1) at `z₀`, which needs condition (3) of Definition 3.1.4 (preprint 3.4) at `z₀`.  With respect to
   `E = T_{z₀}O ⊕ ker Dr(z₀)`, `F = K_{z₀} ⊕ ker ρ(z₀)` one has `Dg(z₀) = [[A, B], [0, C]]`
   (the lower left block vanishes at a zero, `ρ(z₀)Dg(z₀)Dr(z₀) = Dg(z₀)Dr(z₀)`), `C` is onto,
   and `coker A ≅ ker C` through `b ↦ [Bb]`; so `A = Tf̃(z₀)` is onto iff `C` is injective.
-  Definition 3.4 imposes (3) at `0` only, and it does not propagate (`u ↦ Dg(u)` is strongly, not
+  Definition 3.1.4 (preprint 3.4) imposes (3) at `0` only, and it does not propagate (`u ↦ Dg(u)` is strongly, not
   norm, continuous).  Here (3) at the nearby zeros is an **added hypothesis**
   (`IsGoodPositionGermFilledWholeChart`), recorded in the Findings; the statement of the kernel part
-  (`theorem_3_54_nearby_kernel_wholeChart`) needs no added hypothesis.  (Later files remove the hypothesis:
-  Theorem 3.54 (1) with the text's hypotheses is `theorem_3_54_one'_wholeChart`, `GlobalIFTNearbyOnto.lean`,
+  (`theorem_3_6_8_nearby_kernel_wholeChart`) needs no added hypothesis.  (Later files remove the hypothesis:
+  Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses is `theorem_3_6_8_one'_wholeChart`, `GlobalIFTNearbyOnto.lean`,
   and `isGoodPositionGermFilled_of_isGoodPositionGerm_wholeChart`, `GlobalIFTIndex.lean`, shows that the
   filler condition itself follows from good position; Findings 180, 174.)
 * **Equivalently, `coker Tf̃(z₀) = 0` is the local constancy of the index** `ind(f, y) = ind(f, x₀)`
-  along the solution set (Proposition 6.2 of the text): `ind Dg(z₀) = dim K` at all nearby zeros
-  (Corollary 3.41), `ind Dg(z₀) = ind A + ind C = dim ker A`, and `ind(f, y) = ind A =
+  along the solution set (Proposition 6.2.2 (preprint 6.2) of the text): `ind Dg(z₀) = dim K` at all nearby zeros
+  (Corollary 3.5.3 (preprint 3.41)), `ind Dg(z₀) = ind A + ind C = dim ker A`, and `ind(f, y) = ind A =
   dim K − dim coker A`; the text's proof of Proposition 6.2 uses the same step ("`F'` is
-  surjective" for the intrinsic linearization, from Corollary 3.41 for the filled one).
+  surjective" for the intrinsic linearization, from Corollary 3.5.3 (preprint 3.41) for the filled one).
 -/
 
 open Set Filter Topology Function Module ContinuousLinearMap Metric
@@ -73,7 +73,7 @@ namespace Polyfold
 
 variable {E F : ScBanach}
 
-/-! ### Condition (3) of Definition 3.4 at `z₀` gives the surjectivity of `Tf̃(z₀)` -/
+/-! ### Condition (3) of Definition 3.1.4 (preprint 3.4) at `z₀` gives the surjectivity of `Tf̃(z₀)` -/
 
 section Surj
 
@@ -81,8 +81,8 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Proposition 3.5 (1) at a zero `z₀ ∈ O` of a filler**: if `Dg(z₀)` is surjective and
-`(1 − ρ(z₀))Dg(z₀)` is injective on `ker Dr(z₀)` (condition (3) of Definition 3.4 at `z₀`), then
+/-- **Proposition 3.1.5 (preprint 3.5) (1) at a zero `z₀ ∈ O` of a filler**: if `Dg(z₀)` is surjective and
+`(1 − ρ(z₀))Dg(z₀)` is injective on `ker Dr(z₀)` (condition (3) of Definition 3.1.4 (preprint 3.4) at `z₀`), then
 for every `k ∈ F`, `ρ(z₀)k = Dg(z₀)x` for some `x ∈ T_{z₀}O`: write `Dg(z₀)e = ρ(z₀)k` and
 `e = Dr(z₀)e + b`, `b ∈ ker Dr(z₀)`; then `ρ(z₀)Dg(z₀)b = Dg(z₀)b` (the values of
 `Dg(z₀)Dr(z₀) = D(f̂ ∘ r)(z₀)` lie in `K_{z₀}`), so `b = 0`. -/
@@ -116,7 +116,7 @@ theorem exists_range_scDeriv_eq_ρ_of_normal_injective (hU : IsRelOpenInQuadrant
 
 end Surj
 
-/-! ### Theorem 3.54 (1) at the nearby zeros, the kernel, for a section of a strong bundle -/
+/-! ### Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel, for a section of a strong bundle -/
 
 section Bundle
 
@@ -138,20 +138,20 @@ lemma StrongBundle.IsScSmoothSection.isSc1_principal_comp_r (hf : B.IsScSmoothSe
   exact ((h1.snd c.relOpen.isScDomain).congr c.relOpen.isScDomain fun _ _ => rfl).isSc1
 
 set_option maxHeartbeats 1600000 in
-/-- **Theorem 3.54 (1) at the nearby zeros, the kernel, in the chart at `x₀`.**  In the setting of
-`theorem_3_54_graph_wholeChart` (whose conclusion is restated, so that the chart `c`, the conjugating
+/-- **Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel, in the chart at `x₀`.**  In the setting of
+`theorem_3_6_8_graph_wholeChart` (whose conclusion is restated, so that the chart `c`, the conjugating
 sc-diffeomorphism `ψ` with inverse `ψ'`, the germ `h + t = 𝒮.fsum h'`, the good complement `Yc`
 and the solution graph `σ : V' → Yc` are the same), with the filled version `g` of `f̂ = c.principal f`
 and its sc⁺-section `t₀` exposed: there is an open neighbourhood `Vx₂ ⊆ Vx` of `x₀` such that for
 every zero `y ∈ Vx₂` of `f`, with `z₀ = ϕ(y)` and `z = ψ(z₀) = v + σ(v)`, `v ∈ V'`, there are the
 level-`1` points `z₀₁ ∈ U₁` over `z₀` and `x₁ = ψ₁(z₀₁) ∈ G₁` over `z` with:
-(i) `D(h + t)(x₁)` is a surjective Fredholm operator of index `n − N` (Corollary 3.41);
+(i) `D(h + t)(x₁)` is a surjective Fredholm operator of index `n − N` (Corollary 3.5.3 (preprint 3.41));
 (a) `N_v = {n + Dσ(v)n} = ker D(h + t)(x₁)`;
 (b) `D(Ψ_*g)(x₁) = D(h + t)(x₁)` and `ker Dg(z₀) = Dψ'(x₁)(ker D(h + t)(x₁))`, `Dg(z₀)` onto;
 (c) `ker Dg(z₀) ⊆ T_{z₀}O = Dr(z₀)E`;
 (d) `ker Dg(z₀)` is in good position to `C_{z₀}` inside `T_{z₀}O` (`IsInGoodPositionIn`).
 Moreover `f̂ = g` on `O` near `z₀` and `g(z₀) = 0`. -/
-theorem theorem_3_54_nearby_kernel_wholeChart (hf : IsSection P f) {x₀ : X}
+theorem theorem_3_6_8_nearby_kernel_wholeChart (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (h0U : (0 : c.φ.model.E 0) ∈ c.U) (g : c.φ.model.E 0 → c.F 0) (t₀ : c.φ.model.E 0 → c.F 1)
@@ -250,7 +250,7 @@ theorem theorem_3_54_nearby_kernel_wholeChart (hf : IsSection P f) {x₀ : X}
     have hs : (0 : c.φ.model.E 1) ∈ c.φ.model.E.smoothLvl 1 := by
       change c.φ.model.E.toBase 1 0 ∈ (c.φ.model.E.smooth : Set (c.φ.model.E 0))
       rw [map_zero]; exact c.φ.model.E.smooth.zero_mem
-    have h235 := (proposition_2_35 hT hRtT h01 hs).1
+    have h235 := (proposition_2_5_3 hT hRtT h01 hs).1
     rw [map_zero] at h235
     exact h235
   have hψcont : ContinuousOn ψ c.U := (hΨ.toFun.base_isScSmooth hU).isSc1.isSc0.continuousOn_base
@@ -258,10 +258,10 @@ theorem theorem_3_54_nearby_kernel_wholeChart (hf : IsSection P f) {x₀ : X}
   obtain ⟨𝒮, h', Yc, V', σ, Wo, N₁, N₂, h𝒮G, hh'𝒮, hsurj, hpos, hWo, h0Wo, hagree, hYc, hYcc,
     hV'rel, h0V', hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, hN₁o, h0N₁, hN₁, hψ'N₁, hN₂o, h0N₂, hN₂N₁,
     hN₂ψ, hgO, hzero, himage⟩ :=
-    theorem_3_54_chart_graph_wholeChart hU c.isRetraction h0U h0O' hfill hfb0 hfK ht₀ ht₀0 hCt hU' hΨ hψ0 hG
+    theorem_3_6_8_chart_graph_wholeChart hU c.isRetraction h0U h0O' hfill hfb0 hfK ht₀ ht₀0 hCt hU' hΨ hψ0 hG
       hh hev T hT hK hgp
   -- the kernel at the nearby zeros
-  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_54_chart_kernel_wholeChart hU c.isRetraction h0U h0O'
+  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_6_8_chart_kernel_wholeChart hU c.isRetraction h0U h0O'
     hfill hfb0 hCt hU' hΨ hψ0 T hT 𝒮 h' Yc V' σ Wo N₂ (h𝒮G ▸ hG) hh'𝒮 hsurj hpos hWo hagree hYc
     hYcc hV'rel h0V' hσY hσC hσ0 hDσ hsol hlift hN₂o h0N₂ hN₂ψ himage
   -- the neighbourhoods `Vx`, `Vx₂` of `x₀`
@@ -325,15 +325,15 @@ theorem theorem_3_54_nearby_kernel_wholeChart (hf : IsSection P f) {x₀ : X}
     filter_upwards [hN₁o.mem_nhds (hN₂N₁ (hN₃N₂ hyN₃))] with x hx hxO
     exact (hN₁ x hx).1 (c.r_image ▸ hxO)
 
-/-! ### Theorem 3.54 (1) under the filler condition (3) at the nearby zeros -/
+/-! ### Theorem 3.6.8 (preprint 3.54) (1) under the filler condition (3) at the nearby zeros -/
 
 variable (B) in
-/-- **Definition 3.53 with a filler satisfying condition (3) of Definition 3.4 at the nearby zeros**:
+/-- **Definition 3.6.6 (preprint 3.53) with a filler satisfying condition (3) of Definition 3.1.4 (preprint 3.4) at the nearby zeros**:
 the data of `StrongBundle.IsGoodPositionGermTameWholeChart` (a tame strong bundle chart centred at
-`x₀` (Definition 3.50), a filled version `g` of `f̂`, the sc⁺-section `s` with `g − s` conjugated to
+`x₀` (Definition 3.6.3 (preprint 3.50)), a filled version `g` of `f̂`, the sc⁺-section `s` with `g − s` conjugated to
 a basic germ, the germ in good position), together with: on a neighbourhood of `0`, at every zero
 `z₀ ∈ O` of `g` and every level-`1` point `z₁` over `z₀`, the operator `(1 − ρ(z₀))Dg(z₁)` is
-injective on `ker Dr(z₁)`. (Definition 3.4 imposes (3) at `0` only; the fillers of the applications
+injective on `ker Dr(z₁)`. (Definition 3.1.4 (preprint 3.4) imposes (3) at `0` only; the fillers of the applications
 satisfy it at every point.) This is the project's original whole-chart reading, stricter than the
 text (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is
 `IsGoodPositionGermFilled` (`GlobalIFTNearbySurjG.lean`, phase 2, items 270–330). -/
@@ -351,31 +351,31 @@ def StrongBundle.IsGoodPositionGermFilledWholeChart (f : X → Y) (x₀ : X) : P
         ∀ b : c.φ.model.E 0, scDeriv c.U (r c.R) z₁ b = 0 →
           ρ c.R (c.φ.model.E.toBase 1 z₁) (scDeriv c.U g z₁ b) = scDeriv c.U g z₁ b → b = 0
 
-/-- The strengthened good position implies Definition 3.53 in a tame chart. -/
+/-- The strengthened good position implies Definition 3.6.6 (preprint 3.53) in a tame chart. -/
 theorem StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGermTame {x₀ : X}
     (h : B.IsGoodPositionGermFilledWholeChart f x₀) : B.IsGoodPositionGermTameWholeChart f x₀ := by
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj, hgp, -⟩ := h
   exact ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj, hgp⟩
 
-/-- The strengthened good position implies Definition 3.53. -/
+/-- The strengthened good position implies Definition 3.6.6 (preprint 3.53). -/
 theorem StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGerm {x₀ : X}
     (h : B.IsGoodPositionGermFilledWholeChart f x₀) : B.IsGoodPositionGermWholeChart f x₀ :=
   h.isGoodPositionGermTame.isGoodPositionGerm
 
 set_option maxHeartbeats 1600000 in
-/-- **Theorem 3.54 (1)** ("at every point `y ∈ S` the sc-Fredholm germ `(f, y)` is in good
+/-- **Theorem 3.6.8 (preprint 3.54) (1)** ("at every point `y ∈ S` the sc-Fredholm germ `(f, y)` is in good
 position"), under the **added hypothesis** that the filler at `x₀` satisfies condition (3) of
-Definition 3.4 at the nearby zeros (`IsGoodPositionGermFilledWholeChart`).  Let `f` be an sc-Fredholm section
-of the strong bundle `P : Y → X` with tame germ data (Definition 3.51, `IsScFredholmSectionTameWholeChart`),
+Definition 3.1.4 (preprint 3.4) at the nearby zeros (`IsGoodPositionGermFilledWholeChart`).  Let `f` be an sc-Fredholm section
+of the strong bundle `P : Y → X` with tame germ data (Definition 3.6.4 (preprint 3.51), `IsScFredholmSectionTameWholeChart`),
 `f(x₀) = 0`, and `(f, x₀)` in good position in a tame chart with such a filler.  Then there is an
 open neighbourhood `Vx` of `x₀` such that `(f, y)` is in good position in a tame chart (Definition
 3.53, `IsGoodPositionGermTameWholeChart`) at every zero `y ∈ Vx`.
-Proof: in the chart `c` at `x₀`, `theorem_3_54_chart_kernel_wholeChart` gives `ker Dg(z₀) ⊆ T_{z₀}O` in good
+Proof: in the chart `c` at `x₀`, `theorem_3_6_8_chart_kernel_wholeChart` gives `ker Dg(z₀) ⊆ T_{z₀}O` in good
 position to `C_{z₀}` inside `T_{z₀}O` and `Dg(z₀)` onto; condition (3) at `z₀` turns the latter
-into the surjectivity of `Tf̃(z₀) : T_{z₀}O → K_{z₀}` (Proposition 3.5 (1) at `z₀`); the chart
+into the surjectivity of `Tf̃(z₀) : T_{z₀}O → K_{z₀}` (Proposition 3.1.5 (preprint 3.5) (1) at `z₀`); the chart
 independence `isGoodPositionGerm_of_chart_dense` transports both to the chart centred at `y`, and
 `IsGoodPositionGermWholeChart.toTame` to the tame chart of the germ data at `y`. -/
-theorem theorem_3_54_one_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
+theorem theorem_3_6_8_one_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
     (hg : B.IsGoodPositionGermFilledWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ Vx : Set X, IsOpen Vx ∧ x₀ ∈ Vx ∧
       ∀ y ∈ Vx, IsZeroAt P f y → B.IsGoodPositionGermTameWholeChart f y := by
@@ -404,15 +404,15 @@ theorem theorem_3_54_one_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f)
     have hs : (0 : c.φ.model.E 1) ∈ c.φ.model.E.smoothLvl 1 := by
       change c.φ.model.E.toBase 1 0 ∈ (c.φ.model.E.smooth : Set (c.φ.model.E 0))
       rw [map_zero]; exact c.φ.model.E.smooth.zero_mem
-    have h235 := (proposition_2_35 hT hRtT h01 hs).1
+    have h235 := (proposition_2_5_3 hT hRtT h01 hs).1
     rw [map_zero] at h235
     exact h235
   obtain ⟨𝒮, h', Yc, V', σ, Wo, N₁, N₂, h𝒮G, hh'𝒮, hsurj, hpos, hWo, h0Wo, hagree, hYc, hYcc,
     hV'rel, h0V', hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, hN₁o, h0N₁, hN₁, hψ'N₁, hN₂o, h0N₂, hN₂N₁,
     hN₂ψ, hgO, hzero, himage⟩ :=
-    theorem_3_54_chart_graph_wholeChart hU c.isRetraction h0U h0O' hfill hfb0 hfK ht₀ ht₀0 hCt hU' hΨ hψ0 hG
+    theorem_3_6_8_chart_graph_wholeChart hU c.isRetraction h0U h0O' hfill hfb0 hfK ht₀ ht₀0 hCt hU' hΨ hψ0 hG
       hh hev T hT hK hgp
-  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_54_chart_kernel_wholeChart hU c.isRetraction h0U h0O'
+  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_6_8_chart_kernel_wholeChart hU c.isRetraction h0U h0O'
     hfill hfb0 hCt hU' hΨ hψ0 T hT 𝒮 h' Yc V' σ Wo N₂ (h𝒮G ▸ hG) hh'𝒮 hsurj hpos hWo hagree hYc
     hYcc hV'rel h0V' hσY hσC hσ0 hDσ hsol hlift hN₂o h0N₂ hN₂ψ himage
   have hφ : ContinuousOn c.φ c.φ.source := c.φ.continuousOn_toFun

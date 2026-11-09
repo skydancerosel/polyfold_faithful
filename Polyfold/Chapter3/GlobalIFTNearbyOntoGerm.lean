@@ -4,7 +4,7 @@ import Polyfold.Chapter3.ParamPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1), the surjectivity of `f'(y)` at the nearby zeros: the `λ`-extended contraction
+**Theorem 3.6.8 (preprint 3.54) (1), the surjectivity of `f'(y)` at the nearby zeros: the `λ`-extended contraction
 germ.**
 
 # The perturbed contraction germ with `λ`-independent parameter regions
@@ -12,7 +12,7 @@ germ.**
 ## The text, paraphrased
 
 Nothing in the text: the argument repairs the gap of Finding 100 (see `GlobalIFTNearbyOntoLemmas.lean`).
-In the normal form of Theorem 3.38 (`ShiftedBasicData`: `g : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` sc-smooth with
+In the normal form of Theorem 3.4.2 (preprint 3.38) (`ShiftedBasicData`: `g : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` sc-smooth with
 `g¹ = (G₁, w − B(a, w))` a basic germ on the index-raised structure), an sc⁺-perturbation
 `e : O(C̃ ⊕ W, 0) → (ℝᴺ ⊕ W)¹` is added with a real parameter `μ`: the `W`-component of
 `g + μ ι e` is `w − B_μ(a, w)` with `B_μ(a, w) = B(a, w) − μ P e(a, w)`.
@@ -20,27 +20,27 @@ In the normal form of Theorem 3.38 (`ShiftedBasicData`: `g : O(C̃ ⊕ W, 0) →
 ## What is formalized
 
 * `Polyfold.perturbEW` (`P e` on level `1`) and `ShiftedBasicData.eW_isScSmoothGerm` (it is sc-smooth on the
-  index-raised germ: Proposition 1.17 for germs).
+  index-raised germ: Proposition 1.2.2 (preprint 1.17) for germs).
 * `ShiftedBasicData.Radii`: **explicit `1/4`-contraction regions** `{‖a‖ < ν_m} × {‖w‖_{m+1} < ρ_m}`
   of the contraction `B` of `g¹`, with `‖B(a, 0)‖ ≤ ρ_m/8` and radii compatible with the
-  inclusions; `exists_radii`: they exist below any prescribed radii (from Definition 3.28 with
+  inclusions; `exists_radii`: they exist below any prescribed radii (from Definition 3.3.1 (preprint 3.28) with
   `ε = 1/4` and the continuity of `B` at `0`).  **They do not depend on the perturbation.**
 * `ShiftedBasicData.perturbGerm`, `perturbB`, `perturbB_isScSmoothGerm`: the germ
   `(μ, a, w) ↦ B(a, w) − μ P e(a, w)` on `O((ℝ × C̃) ⊕ W¹, 0)`, sc-smooth (`IsScSmooth.smul`,
-  Proposition 1.19, for the factor `μ`).
+  Proposition 1.2.4 (preprint 1.19), for the factor `μ`).
 * `ShiftedBasicData.perturbContraction` (**Lemma 3 of the argument**): with the bounds
   `‖P e(a, w)‖_{m+1} ≤ c_m`, `‖P e(a, w) − P e(a, w')‖_{m+1} ≤ c_m ‖w − w'‖_{m+1}` on the regions,
   `B_μ` is a contraction germ in the working form `ContractionGerm` with the regions
   `(−μ_m, μ_m) × {‖a‖ < ν_m}`, `{‖w‖ < ρ_m}`, `{‖w‖ ≤ ρ_m/2}`, where only the `μ`-intervals
   depend on the constants `c_m`: `|μ| c_m ≤ 1/4` turns the `1/4`-contraction of `B` into a
   `1/2`-contraction of `B_μ`, and `|μ| c_m ≤ ρ_m/8` keeps the closed balls invariant.
-* `perturbContraction_isSc1GermWith`: Theorem 3.30 for it (the solution germ `δ_μ(μ, a)` is sc¹
+* `perturbContraction_isSc1GermWith`: Theorem 3.3.3 (preprint 3.30) for it (the solution germ `δ_μ(μ, a)` is sc¹
   on the re-indexed germ), and the identification `δ_μ(0, a) = w` of a fixed point `w` of
   `B(a, ·)` in the region (`perturbContraction_sol_zero`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-The point of the construction (Finding 182): Theorem 3.30 is applied **at the centre `0`** to the
+The point of the construction (Finding 182): Theorem 3.3.3 (preprint 3.30) is applied **at the centre `0`** to the
 `λ`-extended germ; the `a`-regions `N(m) = {‖a‖ < ν_m}` are those of `B` and do not depend on
 `λ`, so a nearby zero `(a₀, w₀)` of `g` with `‖a₀‖ < ν_3`, `‖w₀‖_1 < ρ_0` lies in the region of
 `C¹`-regularity of `δ_μ` for **every** `λ`.  The working form `IsSc0ContractionGerm.toContractionGerm`
@@ -103,7 +103,7 @@ variable (𝒟 : ShiftedBasicData Ct W Q)
 variable (hC : IsQuadrantLike (ScBanach.const P) Ct)
 include hC
 
-/-- The index-raised perturbation `levelMap e 1` is sc-smooth on `G₁` (Proposition 1.17 for
+/-- The index-raised perturbation `levelMap e 1` is sc-smooth on `G₁` (Proposition 1.2.2 (preprint 1.17) for
 germs, transported from `G₀¹` to `G₁` by `G₁_U`). -/
 theorem levelMap_e_isScSmoothGerm {e : P × W 0 → Q × W 1}
     (he : IsScSmoothGerm (E := ScBanach.paramProd P W) (F := (ScBanach.paramProd Q W).shift)
@@ -209,7 +209,7 @@ lemma levelB_B_zero (m : ℕ) : levelB (W := W.shift) 𝒟.B m 0 = 0 := by
   rw [map_zero, map_zero]
   exact 𝒟.basic.contraction.B_zero.symm
 
-/-- **The regions exist below any prescribed radii**: from Definition 3.28 with `ε = 1/4`
+/-- **The regions exist below any prescribed radii**: from Definition 3.3.1 (preprint 3.28) with `ε = 1/4`
 (`IsSc0ContractionGerm.contraction`) and the continuity of `B_m` at `(0, 0)`. -/
 theorem exists_radii (δ : ℕ → ℝ) (hδ : ∀ m, 0 < δ m) :
     ∃ R : 𝒟.Radii, ∀ m, R.ν m ≤ δ m ∧ R.ρ m ≤ δ m := by
@@ -332,7 +332,7 @@ lemma perturbB_zero (e : P × W 0 → Q × W 1) : 𝒟.perturbB e (0, 0) = 0 := 
 
 include hC in
 /-- **`B_μ` is sc-smooth on the perturbed germ**: `B ∘ π` and `(μ, P e ∘ π) ↦ μ · P e` with the
-sc-smooth scalar multiplication (Proposition 1.19). -/
+sc-smooth scalar multiplication (Proposition 1.2.4 (preprint 1.19)). -/
 theorem perturbB_isScSmoothGerm {e : P × W 0 → Q × W 1}
     (he : IsScSmoothGerm (E := ScBanach.paramProd P W) (F := (ScBanach.paramProd Q W).shift)
       𝒟.G₀ e) :
@@ -588,7 +588,7 @@ lemma mem_perturbContraction_N_iff (m : ℕ) (p : ℝ × P) :
   simp only [mem_univ, true_and]
   tauto
 
-/-- **Theorem 3.30 for the perturbed germ**: the solution germ `δ_e(μ, a)` is sc¹ on the
+/-- **Theorem 3.3.3 (preprint 3.30) for the perturbed germ**: the solution germ `δ_e(μ, a)` is sc¹ on the
 re-indexed germ `((−μ_{m+1}, μ_{m+1}) × {‖a‖ < ν_{m+1}}) ∩ (ℝ × C̃)`, with the derivative family
 `solDeriv`. -/
 theorem perturbContraction_isSc1GermWith :

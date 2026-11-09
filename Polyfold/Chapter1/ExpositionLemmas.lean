@@ -5,14 +5,14 @@ import Polyfold.Chapter1.ScFredholm
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1–§1.2:
 the lemmas that `Exposition/Chapter1.md` adds to the text in order to make its definitions and
 remarks precise (Lemmas 1.A(2)–(3), 2.B, 2.C, 3.F of the exposition), and the remark after
-Definition 1.14 that in finite dimensions sc¹ is `C¹`, for relatively open subsets of quadrants
+Definition 1.1.15 (preprint 1.14) that in finite dimensions sc¹ is `C¹`, for relatively open subsets of quadrants
 (with one-sided derivatives at boundary points).
 
 # Lemmas of the exposition of Chapter 1
 
 ## What is formalized
 
-* **Lemma 1.A(2)** (Definition 1.1: "a finite-dimensional Banach space has exactly one
+* **Lemma 1.A(2)** (Definition 1.1.1 (preprint 1.1): "a finite-dimensional Banach space has exactly one
   sc-structure, the constant one"): `Polyfold.ScBanach.smooth_eq_top_of_finiteDimensional`,
   `Polyfold.ScBanach.toBase_bijective_of_finiteDimensional` and
   `Polyfold.ScBanach.isoConstOfFiniteDimensional`: if `E₀` is finite-dimensional, every inclusion
@@ -27,7 +27,7 @@ Definition 1.14 that in finite dimensions sc¹ is `C¹`, for relatively open sub
   `Polyfold.ScBanach.isScSplitting_of_idem`: for an sc-operator `P` with `P² = P`,
   `E = P(E) ⊕ ker P` is an sc-splitting; `Polyfold.ScBanach.isScSplitting_iff_exists_scProj`.
 * **Lemma 2.C** (the smooth points of a quotient, the equality the text asserts in the proof of
-  Proposition 1.7): `Polyfold.ScBanach.exists_smooth_mem_coset`: if `A` is an sc-subspace and the
+  Proposition 1.1.8 (preprint 1.7)): `Polyfold.ScBanach.exists_smooth_mem_coset`: if `A` is an sc-subspace and the
   coset `x + A` meets every `E_j`, it meets `E_∞`; `Polyfold.ScBanach.mk_mem_quotient_smooth_iff`:
   the smooth points of `E/A` are exactly the classes of smooth points of `E`.
 * Lemma 3.A(2) (`C¹` is a partial quadrant in `E¹`, `U¹` relatively open in it) and Lemma 3.B
@@ -39,8 +39,8 @@ Definition 1.14 that in finite dimensions sc¹ is `C¹`, for relatively open sub
   `Polyfold.continuousOn_apply_iff_uniformOnCompact`: for `A : X → L(Y, Z)` the map
   `(x, h) ↦ A(x)h` is continuous on `s × Y` iff `x ↦ A(x)` is continuous on `s` for the topology of
   uniform convergence on compact subsets of `Y`; `Polyfold.IsSc1With.deriv_uniformOnCompact`
-  applies it to `Df` on `U₁` (level `0` of condition (3) of Definition 1.14).
-* **The finite-dimensional remark after Definition 1.14**, on sc-domains (in particular on
+  applies it to `Df` on `U₁` (level `0` of condition (3) of Definition 1.1.15 (preprint 1.14)).
+* **The finite-dimensional remark after Definition 1.1.15 (preprint 1.14)**, on sc-domains (in particular on
   relatively open subsets of partial quadrants, with boundary):
   `Polyfold.isSc1_iff_contDiffOn_const`, `Polyfold.isSc1_iff_fderivWithin_const`,
   `Polyfold.isScSmooth_iff_contDiffOn_const`,
@@ -53,7 +53,7 @@ Definition 1.14 that in finite dimensions sc¹ is `C¹`, for relatively open sub
 ## What is not formalized
 
 * Lemma 3.F's last sentence (operator-norm continuity can fail): the counterexample is the shift
-  map of the exposition's §6, which needs the weighted Sobolev spaces of Example 1.2.
+  map of the exposition's §6, which needs the weighted Sobolev spaces of Example 1.1.3 (preprint 1.2).
 -/
 
 open Set Filter Topology Function Metric Module
@@ -69,7 +69,7 @@ namespace ScScale
 /-- **Lemma 1.A(3)**: if an inclusion `E_{m+1} → E_m` of a scale is onto, then `E_m` is
 finite-dimensional (it is then an isomorphism by the open mapping theorem, so the identity of
 `E_m` is compact). Hence the constant family `E_m = E` on an infinite-dimensional Banach space is
-not an sc-structure (Definition 1.1). -/
+not an sc-structure (Definition 1.1.1 (preprint 1.1)). -/
 theorem finiteDimensional_of_surjective_incl (E : ScScale) (m : ℕ)
     (h : Surjective (E.incl m)) : FiniteDimensional ℝ (E m) := by
   set e := ContinuousLinearEquiv.ofBijective (E.incl m)
@@ -358,7 +358,7 @@ theorem exists_smooth_mem_coset {A : Submodule ℝ (E 0)} (hA : E.IsScSubspace A
     convert this using 1
     rw [ScScale.toBase_zero]; abel
 
-/-- **Lemma 2.C**, as the description of `(E/A)_∞` in the proof of Proposition 1.7: the class of
+/-- **Lemma 2.C**, as the description of `(E/A)_∞` in the proof of Proposition 1.1.8 (preprint 1.7): the class of
 `x ∈ E₀` is a smooth point of `E/A` iff `x + A` contains a smooth point of `E`. -/
 theorem mk_mem_quotient_smooth_iff {A : Submodule ℝ (E 0)} (hA : E.IsScSubspace A) (x : E 0) :
     (Submodule.Quotient.mk x : (E.quotient hA.isClosed) 0) ∈ (E.quotient hA.isClosed).smooth ↔
@@ -434,7 +434,7 @@ theorem continuousOn_apply_iff_uniformOnCompact {X Y Z : Type*} [MetricSpace X]
     simp only [sub_add_cancel, zero_add] at this
     exact this
 
-/-- **Lemma 3.F** for an sc¹ map: level `0` of condition (3) of Definition 1.14 (the continuity of
+/-- **Lemma 3.F** for an sc¹ map: level `0` of condition (3) of Definition 1.1.15 (preprint 1.14) (the continuity of
 `(x, h) ↦ Df(x)h` on `U₁ × E₀`) makes `x ↦ Df(x)` continuous on `U₁` for the topology of uniform
 convergence on compact subsets of `E₀`. -/
 theorem IsSc1With.deriv_uniformOnCompact {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0}
@@ -461,7 +461,7 @@ omit [NormedAddCommGroup W] [NormedSpace ℝ W] [FiniteDimensional ℝ W] in
 private lemma comp_toBase_const (f : V → W) (m : ℕ) : f ∘ (ScBanach.const V).toBase m = f :=
   funext fun x => congrArg f (ScBanach.const_toBase V m x)
 
-/-- **Finite dimensions: sc¹ is `C¹`** (the remark after Definition 1.14), on every sc-domain `U`
+/-- **Finite dimensions: sc¹ is `C¹`** (the remark after Definition 1.1.15 (preprint 1.14)), on every sc-domain `U`
 of `V` with its constant structure, in particular on every relatively open subset of a partial
 quadrant: `f` is sc¹ on `U` iff it is `C¹` within `U`. -/
 theorem isSc1_iff_contDiffOn_const {U : Set V} (hU : IsScDomain (ScBanach.const V) U)
@@ -471,7 +471,7 @@ theorem isSc1_iff_contDiffOn_const {U : Set V} (hU : IsScDomain (ScBanach.const 
     have := hD.contDiffOn_base
     rwa [ScBanach.lvlSet_const, comp_toBase_const] at this
   · intro hf
-    refine corollary_1_20_zero hU fun m => ?_
+    refine corollary_1_2_5_zero hU fun m => ?_
     rw [ScBanach.lvlSet_const, comp_toBase_const]
     exact hf
 

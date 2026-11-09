@@ -7,19 +7,19 @@ import RoundTrip.Blind.V8_39
 
 The item lists the definition `IsProperCovering.morOnClassEquiv` (vocabulary, the bijection (8.17))
 and two theorems.  `A` is the conjunction of the types of `morOn_fiberClass_eq` and
-`IsProperCovering.lemma_8_9`, universes at `0`.
+`IsProperCovering.lemma_8_6_1`, universes at `0`.
 
 The project indexes the classes by `c ∈ |Y|` (`fiberClass x c = F⁻¹(x) ∩ π⁻¹(c)`, empty for
 `c ∉ π(F⁻¹(x))`); B indexes them by a point `y₀ ∈ F⁻¹(x)` (`classB … y₀`).  The bridge:
 `classB … y₀ = fiberClass x (π y₀)` (`classB_eq`), and every nonempty `fiberClass x c` is
 `classB … y₀` for each of its points.
 
-* `A ⇒ B`: B's three counts are `lemma_8_9 x (π y₀)` after `morOn_fiberClass_eq` and
+* `A ⇒ B`: B's three counts are `lemma_8_6_1 x (π y₀)` after `morOn_fiberClass_eq` and
   `Nat.card G_x = #{g | s g = x = t g}`.  B's two claims from the proof are not in A's theorems
   (A has the bijection (8.17) only as the definition `morOnClassEquiv`) and are proved outright:
   the bijection (8.17) from the non-item `bijective_fibredMap`/`existsUnique_lift`, and
   `mor(y, y') ≅ mor(y₀, y₀)` by Mathlib's `Iso.homCongr` in the groupoid bridge.
-* `B ⇒ A`: `lemma_8_9 x c` from B at a point `y₀` of `fiberClass x c` (B at the other points for
+* `B ⇒ A`: `lemma_8_6_1 x c` from B at a point `y₀` of `fiberClass x c` (B at the other points for
   the `∀ y₀` part); for empty `fiberClass x c` both sides are `0`.  `morOn_fiberClass_eq` is a set
   identity, re-proved outright.
 -/
@@ -30,11 +30,11 @@ open Polyfold Set Function CategoryTheory
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
   (type_of% @Polyfold.EpFunctor.morOn_fiberClass_eq.{0, 0}) ∧
-  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_9.{0, 0})
+  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1.{0, 0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpFunctor.morOn_fiberClass_eq.{0, 0},
-    @Polyfold.EpFunctor.IsProperCovering.lemma_8_9.{0, 0}⟩
+    @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1.{0, 0}⟩
 
 /-- `#G_x` computed on the group or on the set of morphisms `x → x`. -/
 theorem nat_card_isotropy_eq_ncard {Obj Mor : Type} (G : GroupoidStr Obj Mor) (x : Obj) :
@@ -150,10 +150,10 @@ theorem B_to_A : B → A := by
       simp
 
 #rt_check RoundTrip.V8_39.A_to_B [Polyfold.EpFunctor.morOn_fiberClass_eq,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_9]
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1]
 #rt_check RoundTrip.V8_39.B_to_A [Polyfold.EpFunctor.morOn_fiberClass_eq,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_9]
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1]
 #rt_overlap RoundTrip.V8_39.B_to_A [Polyfold.EpFunctor.morOn_fiberClass_eq,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_9]
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1]
 
 end RoundTrip.V8_39

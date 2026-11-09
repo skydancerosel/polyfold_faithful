@@ -30,22 +30,22 @@ are in `Polyfold/Chapter7/Zhou.lean`.
 * `EpGroupoid.levelVal_Φ_liftOne` (a natural representation of `X¹` inside `U(x) ∩ X_1` acts by
   the action of `X`) and `EpGroupoid.tangentLower_tangentMor_liftOne` (the tangent action of `X¹`
   is that of `X` under `T(X¹) → TX`, with `MPolyfold.tangentLower_tangentMap`).
-* `EpGroupoid.isZhou'_liftOne`, `EP.isZhou'_lift` and **`EP.proposition_7_4_9_2021`**;
-  **`EP.corollary_7_4_11_all_2021`**, **`EP.theorem_7_4_13_all_2021`**,
-  **`EP.theorem_7_4_24_all_2021`**: the hypothesis "(ZHOU) for every `X^i`" of
-  `corollary_7_4_11_2021_lift`, `theorem_7_4_13_2021`, `theorem_7_4_24_2021` is removed.
-* `EpGroupoid.isVSLUC_liftOne`, `EP.isVSLUC_lift`, **`EP.proposition_7_4_16_all_2021`** and
-  **`EP.proposition_7_4_17_all_2021`**: the hypothesis "(VSLUC) for every `X^i`" of
-  `proposition_7_4_17_2021` is removed, and density is needed for `X` only.
+* `EpGroupoid.isZhou'_liftOne`, `EP.isZhou'_lift` and **`EP.proposition_7_4_9`**;
+  **`EP.corollary_7_4_11_all`**, **`EP.theorem_7_4_13_all`**,
+  **`EP.theorem_7_4_24_all`**: the hypothesis "(ZHOU) for every `X^i`" of
+  `corollary_7_4_11_lift`, `theorem_7_4_13`, `theorem_7_4_24` is removed.
+* `EpGroupoid.isVSLUC_liftOne`, `EP.isVSLUC_lift`, **`EP.proposition_7_4_16_all`** and
+  **`EP.proposition_7_4_17_all`**: the hypothesis "(VSLUC) for every `X^i`" of
+  `proposition_7_4_17` is removed, and density is needed for `X` only.
 * For Proposition 7.4.18: `MPolyfold.exists_level_nhds_smooth` (the sets `O ∩ X_∞`, `O` open in
   some `X_{N+1}`, form a neighbourhood basis of `X_∞`), `EpGroupoid.NaturalRep.liftOneRep` (**a
   natural representation of `x` restricts to one of `x` in `X¹`** when `U(x) ∩ X_1` is connected;
   `isotropyLevelMk` identifies `G_x` in `X` and in `X¹`), `EP.eqOn_of_level_smooth`,
-  `EP.isVSLUC_of_isSLUC` and **`EP.proposition_7_4_18_2021`** ((VSLUC) ⇔ (SLUC)).
+  `EP.isVSLUC_of_isSLUC` and **`EP.proposition_7_4_18`** ((VSLUC) ⇔ (SLUC)).
 * Witnesses (the point ep-groupoid `pointEP` and all its lifts):
-  `Examples.proposition_7_4_9_2021_pointEP`, `Examples.theorem_7_4_13_all_2021_pointEP`,
-  `Examples.theorem_7_4_24_all_2021_pointEP`, `Examples.proposition_7_4_17_all_2021_pointEP`,
-  `Examples.levelConnected_pointEP`, `Examples.proposition_7_4_18_2021_pointEP`.
+  `Examples.proposition_7_4_9_pointEP`, `Examples.theorem_7_4_13_all_pointEP`,
+  `Examples.theorem_7_4_24_all_pointEP`, `Examples.proposition_7_4_17_all_pointEP`,
+  `Examples.levelConnected_pointEP`, `Examples.proposition_7_4_18_pointEP`.
 
 ## What the text leaves implicit, and the choices made
 
@@ -53,7 +53,7 @@ are in `Polyfold/Chapter7/Zhou.lean`.
   (ZHOU') for `X¹`, through `(X¹)_∞ ≅ X_∞`, the smooth tangent vectors (2021 Proposition 2.3.17
   for `i = 1`) and the comparison of natural representations; then by induction.  (ZHOU') for
   `X` comes from (ZHOU), and (ZHOU) for `X^i` from (ZHOU') for `X^i`, through Lemma 7.4.6 and
-  Proposition 7.4.8 (`lemma_7_4_6_2021`,
+  Proposition 7.4.8 (`lemma_7_4_6`,
   `isZhou_of_isZhou'`), which need `DenseSmoothTangent` for `X` and the Part I facts
   `SmoothRegular` (density of `X_∞` (G.73), connectedness of `U ∩ X_∞`, openness of `p` (G.8),
   `TangentDeterminedSmooth`) **for every `X^i`**; these stay hypotheses (satisfiable:
@@ -242,8 +242,8 @@ theorem isZhou'_liftOne (hZ : X.IsZhou') : X.liftOne.IsZhou' := by
     have h := tangentLower_tangentMor_liftOne hφ (hvb.trans g.src_val.symm)
     rw [hg v ⟨hvf, hvs⟩, hlow] at h
     exact h.symm
-  obtain ⟨R, -⟩ := X.theorem_7_1 (X.PObj.smoothVal y₀) isOpen_univ (mem_univ _)
-  obtain ⟨R', hR'⟩ := X.liftOne.theorem_7_1 (X.liftOne.PObj.smoothVal y)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 (X.PObj.smoothVal y₀) isOpen_univ (mem_univ _)
+  obtain ⟨R', hR'⟩ := X.liftOne.theorem_7_1_13 (X.liftOne.PObj.smoothVal y)
     (R.isOpen_U.preimage (MPolyfold.continuous_levelVal 1)) R.mem_U
   rw [X.liftOne.mem_trivialSubgroupInf_iff R']
   have h1 := X.PObj.continuous_shiftSmoothMap.continuousAt.eventually
@@ -260,7 +260,7 @@ theorem isVSLUC_liftOne (h : X.IsVSLUC) : X.liftOne.IsVSLUC := by
   intro y
   set θ := X.PObj.shiftSmoothHomeomorph
   obtain ⟨R, V, hVo, hyV, hVU, hVinv, hVL⟩ := h (θ y)
-  obtain ⟨R', hR'⟩ := X.liftOne.theorem_7_1 (X.liftOne.PObj.smoothVal y)
+  obtain ⟨R', hR'⟩ := X.liftOne.theorem_7_1_13 (X.liftOne.PObj.smoothVal y)
     (R.isOpen_U.preimage (MPolyfold.continuous_levelVal 1)) (hVU _ hyV)
   have hΦ := levelVal_Φ_liftOne R' R hR'
   refine ⟨R', θ ⁻¹' V ∩ X.liftOne.PObj.smoothVal ⁻¹' R'.U,
@@ -294,9 +294,9 @@ theorem isZhou'_lift (A : EP.{u}) (h : A.X.IsZhou') : ∀ i, (A.lift i).X.IsZhou
 /-- **2021 Proposition 7.4.9, p. 333 (new in the 2021 edition)**: (ZHOU) for `X` gives (ZHOU) for
 every `X^i`.  Hypotheses: `DenseSmoothTangent` for `X` (Lemma 7.4.6) and the Part I facts
 `SmoothRegular` for every `X^i` (Proposition 7.4.8 for `X^i`). -/
-theorem proposition_7_4_9_2021 (A : EP.{u}) (hZ : A.X.IsZhou) (hdt : A.X.PObj.DenseSmoothTangent)
+theorem proposition_7_4_9 (A : EP.{u}) (hZ : A.X.IsZhou) (hdt : A.X.PObj.DenseSmoothTangent)
     (hreg : ∀ i, (A.lift i).X.PObj.SmoothRegular) (i : ℕ) : (A.lift i).X.IsZhou :=
-  (A.lift i).X.isZhou_of_isZhou' (hreg i) (A.isZhou'_lift (A.X.lemma_7_4_6_2021 hZ hdt) i)
+  (A.lift i).X.isZhou_of_isZhou' (hreg i) (A.isZhou'_lift (A.X.lemma_7_4_6 hZ hdt) i)
 
 /-- Density of `X_∞` in every level passes to every `X^i`. -/
 theorem denseSmooth_lift (A : EP.{u}) (h : A.X.PObj.DenseSmooth) :
@@ -311,38 +311,38 @@ theorem isVSLUC_lift (A : EP.{u}) (h : A.X.IsVSLUC) : ∀ i, (A.lift i).X.IsVSLU
 
 /-- **2021 Corollary 7.4.11, p. 334 (new in the 2021 edition)**: under (ZHOU) every `X^i` has
 (LUC); (ZHOU) is assumed for `X` only. -/
-theorem corollary_7_4_11_all_2021 (A : EP.{u}) (hZ : A.X.IsZhou)
+theorem corollary_7_4_11_all (A : EP.{u}) (hZ : A.X.IsZhou)
     (hdt : A.X.PObj.DenseSmoothTangent) (hreg : ∀ i, (A.lift i).X.PObj.SmoothRegular) (i : ℕ) :
     (A.lift i).X.IsLUC :=
-  corollary_7_4_11_2021_lift A (A.proposition_7_4_9_2021 hZ hdt hreg) hreg i
+  corollary_7_4_11_lift A (A.proposition_7_4_9 hZ hdt hreg) hreg i
 
 /-- **2021 Theorem 7.4.13, p. 334 (new in the 2021 edition)**: (ZHOU) ⇒ (SLUC); (ZHOU) is
 assumed for `X` only. -/
-theorem theorem_7_4_13_all_2021 (A : EP.{u}) (hZ : A.X.IsZhou)
+theorem theorem_7_4_13_all (A : EP.{u}) (hZ : A.X.IsZhou)
     (hdt : A.X.PObj.DenseSmoothTangent) (hreg : ∀ i, (A.lift i).X.PObj.SmoothRegular) :
     A.IsSLUC :=
-  theorem_7_4_13_2021 A (A.proposition_7_4_9_2021 hZ hdt hreg) hreg
+  theorem_7_4_13 A (A.proposition_7_4_9 hZ hdt hreg) hreg
 
 /-- **2021 Proposition 7.4.16, p. 336 (new in the 2021 edition)**: (VSLUC) for `X` gives (VSLUC)
 and (LUC) for every `X^i`. -/
-theorem proposition_7_4_16_all_2021 (A : EP.{u}) (h : A.X.IsVSLUC)
+theorem proposition_7_4_16_all (A : EP.{u}) (h : A.X.IsVSLUC)
     (hd : A.X.PObj.DenseSmooth) (hc : ∀ i, (A.lift i).X.PObj.SmoothConnected) (i : ℕ) :
     (A.lift i).X.IsVSLUC ∧ (A.lift i).X.IsLUC :=
   ⟨A.isVSLUC_lift h i,
-    (A.lift i).X.lemma_7_4_15_2021 (A.denseSmooth_lift hd i) (hc i) (A.isVSLUC_lift h i)⟩
+    (A.lift i).X.lemma_7_4_15 (A.denseSmooth_lift hd i) (hc i) (A.isVSLUC_lift h i)⟩
 
 /-- **2021 Proposition 7.4.17, p. 336 (new in the 2021 edition)**: (VSLUC) ⇒ (SLUC); (VSLUC) is
 assumed for `X` only. -/
-theorem proposition_7_4_17_all_2021 (A : EP.{u}) (h : A.X.IsVSLUC)
+theorem proposition_7_4_17_all (A : EP.{u}) (h : A.X.IsVSLUC)
     (hd : A.X.PObj.DenseSmooth) (hc : ∀ i, (A.lift i).X.PObj.SmoothConnected) : A.IsSLUC :=
-  fun i => (A.proposition_7_4_16_all_2021 h hd hc i).2
+  fun i => (A.proposition_7_4_16_all h hd hc i).2
 
 /-- **2021 Theorem 7.4.24, p. 340 (new in the 2021 edition)**: (ZHOU) ⇒ (SLR); (ZHOU) is assumed
 for `X` only. -/
-theorem theorem_7_4_24_all_2021 (A : EP.{u}) (hZ : A.X.IsZhou)
+theorem theorem_7_4_24_all (A : EP.{u}) (hZ : A.X.IsZhou)
     (hdt : A.X.PObj.DenseSmoothTangent) (hreg : ∀ i, (A.lift i).X.PObj.SmoothRegular) :
     A.IsSLR :=
-  theorem_7_4_24_2021 A (A.proposition_7_4_9_2021 hZ hdt hreg) hreg
+  theorem_7_4_24 A (A.proposition_7_4_9 hZ hdt hreg) hreg
 
 end EP
 
@@ -578,11 +578,11 @@ theorem isVSLUC_of_isSLUC (A : EP.{u}) (h : A.IsSLUC) (hd : A.X.PObj.DenseSmooth
 density of `X_∞` (G.73) for `X`, `SmoothConnected` for every `X^i` (for ⇒, Lemma 7.4.15), and one
 natural representation `U(x)` per smooth `x` with every `U(x) ∩ X_m` connected (for ⇐, the
 text's choice of `U(x)`). -/
-theorem proposition_7_4_18_2021 (A : EP.{u}) (hd : A.X.PObj.DenseSmooth)
+theorem proposition_7_4_18 (A : EP.{u}) (hd : A.X.PObj.DenseSmooth)
     (hc : ∀ i, (A.lift i).X.PObj.SmoothConnected)
     (hR : ∀ y : A.X.PObj.SmoothLevel, ∃ R : A.X.NaturalRep (A.X.PObj.smoothVal y),
       R.LevelConnected) : A.X.IsVSLUC ↔ A.IsSLUC :=
-  ⟨fun h => A.proposition_7_4_17_all_2021 h hd hc, fun h => A.isVSLUC_of_isSLUC h hd hR⟩
+  ⟨fun h => A.proposition_7_4_17_all h hd hc, fun h => A.isVSLUC_of_isSLUC h hd hR⟩
 
 end EP
 
@@ -594,40 +594,40 @@ theorem isVSLUC_pointEP : pointEP.X.IsVSLUC :=
   pointEP.X.isVSLUC_of_subsingleton fun _ =>
     ⟨fun a b => GroupoidStr.Isotropy.ext (Subsingleton.elim a.val b.val)⟩
 
-/-- **Witness**: the hypotheses of `EP.proposition_7_4_9_2021` hold for the point ep-groupoid. -/
-theorem proposition_7_4_9_2021_pointEP (i : ℕ) : (pointEP.lift i).X.IsZhou :=
-  pointEP.proposition_7_4_9_2021 (isZhou_lift_pointEP 0) MPolyfold.denseSmoothTangent_discrete_unit
+/-- **Witness**: the hypotheses of `EP.proposition_7_4_9` hold for the point ep-groupoid. -/
+theorem proposition_7_4_9_pointEP (i : ℕ) : (pointEP.lift i).X.IsZhou :=
+  pointEP.proposition_7_4_9 (isZhou_lift_pointEP 0) MPolyfold.denseSmoothTangent_discrete_unit
     smoothRegular_lift_pointEP i
 
-/-- **Witness** for `EP.theorem_7_4_13_all_2021`. -/
-theorem theorem_7_4_13_all_2021_pointEP : pointEP.IsSLUC :=
-  pointEP.theorem_7_4_13_all_2021 (isZhou_lift_pointEP 0)
+/-- **Witness** for `EP.theorem_7_4_13_all`. -/
+theorem theorem_7_4_13_all_pointEP : pointEP.IsSLUC :=
+  pointEP.theorem_7_4_13_all (isZhou_lift_pointEP 0)
     MPolyfold.denseSmoothTangent_discrete_unit smoothRegular_lift_pointEP
 
-/-- **Witness** for `EP.theorem_7_4_24_all_2021`. -/
-theorem theorem_7_4_24_all_2021_pointEP : pointEP.IsSLR :=
-  pointEP.theorem_7_4_24_all_2021 (isZhou_lift_pointEP 0)
+/-- **Witness** for `EP.theorem_7_4_24_all`. -/
+theorem theorem_7_4_24_all_pointEP : pointEP.IsSLR :=
+  pointEP.theorem_7_4_24_all (isZhou_lift_pointEP 0)
     MPolyfold.denseSmoothTangent_discrete_unit smoothRegular_lift_pointEP
 
-/-- **Witness** for `EP.proposition_7_4_16_all_2021` and `EP.proposition_7_4_17_all_2021`. -/
-theorem proposition_7_4_17_all_2021_pointEP : pointEP.IsSLUC :=
-  pointEP.proposition_7_4_17_all_2021 isVSLUC_pointEP (smoothRegular_lift_pointEP 0).denseSmooth
+/-- **Witness** for `EP.proposition_7_4_16_all` and `EP.proposition_7_4_17_all`. -/
+theorem proposition_7_4_17_all_pointEP : pointEP.IsSLUC :=
+  pointEP.proposition_7_4_17_all isVSLUC_pointEP (smoothRegular_lift_pointEP 0).denseSmooth
     fun i => (smoothRegular_lift_pointEP i).smoothConnected
 
-/-- **Witness**: the hypothesis `NaturalRep.LevelConnected` of `EP.proposition_7_4_18_2021` holds
+/-- **Witness**: the hypothesis `NaturalRep.LevelConnected` of `EP.proposition_7_4_18` holds
 for the point ep-groupoid. -/
 theorem levelConnected_pointEP (y : pointEP.X.PObj.SmoothLevel) :
     ∃ R : pointEP.X.NaturalRep (pointEP.X.PObj.smoothVal y), R.LevelConnected := by
-  obtain ⟨R, -⟩ := pointEP.X.theorem_7_1 (pointEP.X.PObj.smoothVal y) isOpen_univ (mem_univ _)
+  obtain ⟨R, -⟩ := pointEP.X.theorem_7_1_13 (pointEP.X.PObj.smoothVal y) isOpen_univ (mem_univ _)
   refine ⟨R, fun m => ?_⟩
   have : Subsingleton (pointEP.X.PObj.Level (m + 1)) :=
     ⟨fun a b => MPolyfold.level_ext (Subsingleton.elim (α := Unit) _ _)⟩
   exact Set.subsingleton_of_subsingleton.isPreconnected
 
-/-- **Witness** for `EP.proposition_7_4_18_2021` (both sides hold: `isVSLUC_pointEP`,
+/-- **Witness** for `EP.proposition_7_4_18` (both sides hold: `isVSLUC_pointEP`,
 `isSLUC_pointEP`). -/
-theorem proposition_7_4_18_2021_pointEP : pointEP.X.IsVSLUC ↔ pointEP.IsSLUC :=
-  pointEP.proposition_7_4_18_2021 (smoothRegular_lift_pointEP 0).denseSmooth
+theorem proposition_7_4_18_pointEP : pointEP.X.IsVSLUC ↔ pointEP.IsSLUC :=
+  pointEP.proposition_7_4_18 (smoothRegular_lift_pointEP 0).denseSmooth
     (fun i => (smoothRegular_lift_pointEP i).smoothConnected) levelConnected_pointEP
 
 end EpGroupoid.Examples

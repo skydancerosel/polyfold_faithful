@@ -32,38 +32,38 @@ not change the propagation of orientation; (Lemma 6.6.9, p. 269, new) adding sc�
 
 ## What is formalized
 
-* `lemma_6_4_4_2021`: Lemma 6.4.4 with all four index equalities.  The proof is not the text's
+* `lemma_6_4_4`: Lemma 6.4.4 with all four index equalities.  The proof is not the text's
   map `Φ_{(P,T)}`: the intertwiner `J(P) = P P₀ + (1 − P)(1 − P₀)` (`projIntertwiner`) is a unit
   near `P₀` with `J P₀ = P J` (`projIntertwiner_mul`), so `P = J P₀ J⁻¹`; then `R(P) = J R(P₀)`
-  has finite codimension, and `lemma_6_17` applied to `J⁻¹ T` near `T₀` gives
+  has finite codimension, and `lemma_6_5_1` applied to `J⁻¹ T` near `T₀` gives
   `R(P T) = J R(P₀ J⁻¹ T) = J R(P₀) = R(P)`.  The indices: `fredholmIndex_add_of_norm_lt` and
   `IsGoodLeftProj.fredholmIndex_comp`.
-* `proposition_6_4_13_2021`: the isomorphisms `A_T`, `B_T` and the commuting diagram of
+* `proposition_6_4_13`: the isomorphisms `A_T`, `B_T` and the commuting diagram of
   Proposition 6.4.13, by the text's construction, with a common algebraic complement `X` of
   `ker(P T)` and `ker(Q T)` (`exists_isCompl_isCompl_of_finrank_eq`: two finite-dimensional
   subspaces of the same dimension have one; `dim ker(P T) = dim ker(Q T)` from the indices).
-* `lemma_6_6_8_2021` and `lemma_6_6_9_2021`: Lemmas 6.6.8 and 6.6.9 as instances of the existing
+* `lemma_6_6_8` and `lemma_6_6_9`: Lemmas 6.6.8 and 6.6.9 as instances of the existing
   `IsStabKernels.push_append` (appending zero sections, resp. arbitrary sections `s̄ⱼ`).
 
 ## Items already covered, and items not formalized
 
 * Proposition 6.4.15 (hypotheses `T` Fredholm and `T ⊕ φ` onto made explicit; `c̄ᵢ ∈ ℝⁿ`) is the
-  existing `proposition_6_15` (`Stabilization.lean`), which already has these hypotheses.
+  existing `proposition_6_4_15` (`Stabilization.lean`), which already has these hypotheses.
 * Proposition 6.6.3 (tame `X`; the sc⁺-sections `s`, `q` valued in `Y × [0, 1]`) is covered by
-  the existing `proposition_6_28` (`OrientableNbhd.lean`), which does not assume tameness and
+  the existing `proposition_6_6_3` (`OrientableNbhd.lean`), which does not assume tameness and
   reads the sections over `[0, 1] × X` as pull-back sections; (1) (contractibility) remains gap
   G.61.
 * Lemma 6.6.5 (the solution set near `(t, φ(t), 0)` for points `(t, y, λ)`; 2017: `(t, y, 0)`,
   possible misprint): the manifold statement is gap G.62; the family of kernels used later is
   `exists_subspaceFamily_linKer` (`KernelFamily.lean`), which is not affected by the change.
 * Proposition 6.4.13: the last sentence (`A_T`, `B_T` depend continuously on `T` near `T`) is
-  `proposition_6_4_13_continuity_2021` in `Chapter6/Book2021Continuity.lean`, with a closed common
+  `proposition_6_4_13_continuity` in `Chapter6/Book2021Continuity.lean`, with a closed common
   complement `X` (here `X` is algebraic).
 * Theorem 6.6.17 (the Hausdorff topology on `O_f`; the text leaves the proof to the reader) is in
-  `Chapter6/OrientationSpace.lean` (`theorem_6_6_17_2021`, `existsUnique_orientationTopology_2021`),
+  `Chapter6/OrientationSpace.lean` (`theorem_6_6_17_hyp`, `existsUnique_orientationTopology`),
   built from the glued local propagations `orPush`/`orLocalTransport`.
 * Proposition 6.2.2 (2017: Proposition 6.1; preprint: Proposition 6.2) is unchanged in 2021 and is
-  the existing `proposition_6_2` (`Chapter3/IndexAlongPathsDevice.lean`).
+  the existing `proposition_6_2_2` (`Chapter3/IndexAlongPathsDevice.lean`).
 
 ## What the text leaves implicit, and the choices made
 
@@ -119,7 +119,7 @@ theorem continuous_projIntertwiner (P₀ : F →L[ℝ] F) : Continuous (projInte
 and `P₀ ∈ Π_{T₀}` there is `ε > 0` such that for every `T` and every projection `P` with
 `‖T − T₀‖ < ε` and `‖P − P₀‖ < ε`: `T` is Fredholm, `P ∈ Π_T`, and
 `ind(P ∘ T) = ind(T) = ind(T₀) = ind(P₀ ∘ T₀)` (the index equalities are new in 2021). -/
-theorem lemma_6_4_4_2021 {T₀ : E →L[ℝ] F} (hT₀ : T₀.IsFredholm) {P₀ : F →L[ℝ] F}
+theorem lemma_6_4_4 {T₀ : E →L[ℝ] F} (hT₀ : T₀.IsFredholm) {P₀ : F →L[ℝ] F}
     (hP₀ : IsGoodLeftProj T₀ P₀) :
     ∃ ε > 0, ∀ (T : E →L[ℝ] F) (P : F →L[ℝ] F), P ∘L P = P → ‖T - T₀‖ < ε → ‖P - P₀‖ < ε →
       T.IsFredholm ∧ IsGoodLeftProj T P ∧ fredholmIndex (P ∘L T) = fredholmIndex T ∧
@@ -153,7 +153,7 @@ theorem lemma_6_4_4_2021 {T₀ : E →L[ℝ] F} (hT₀ : T₀.IsFredholm) {P₀ 
     rw [hJ1]; exact Units.isUnit 1
   -- (c) `J(P)⁻¹ T` is close to `T₀`
   obtain ⟨Y, hY⟩ := (hP₀.isFredholm_comp hT₀).closedComplemented_ker.exists_isTopCompl
-  obtain ⟨ε₂, hε₂, h617⟩ := lemma_6_17 hP₀ hY
+  obtain ⟨ε₂, hε₂, h617⟩ := lemma_6_5_1 hP₀ hY
   have hinv0 : ContinuousAt (fun q : (F →L[ℝ] F) × (E →L[ℝ] F) =>
       Ring.inverse (projIntertwiner P₀ q.1)) (P₀, T₀) := by
     refine ContinuousAt.comp (g := Ring.inverse) ?_ hJc
@@ -318,7 +318,7 @@ given `H`), there are linear isomorphisms `A_T : ker(P T) → ker(Q T)` and `B_T
 (`projSeqJ`, `projSeqPhi`, `projSeqPi`) commute: `A_T ∘ j_P = j_Q`, `Φ_Q ∘ A_T = B_T ∘ Φ_P`,
 `π_Q ∘ B_T = π_P`.  The construction is the text's: `A_T(e) = e − x(e)` with `x(e) ∈ X` solving
 `Q T x = Q T e`, and `B_T(f + H) = f̃ + H` with `T x + f̃ = (1 − P) f`, `f̃ ∈ (1 − Q) F`. -/
-theorem proposition_6_4_13_2021 {T : E →L[ℝ] F} (hT : T.IsFredholm) {H : Submodule ℝ F}
+theorem proposition_6_4_13 {T : E →L[ℝ] F} (hT : T.IsFredholm) {H : Submodule ℝ F}
     {P Q : F →L[ℝ] F} (hP : IsGoodLeftProj T P) (hQ : IsGoodLeftProj T Q)
     (hPH : LinearMap.range (P : F →ₗ[ℝ] F) = H) (hQH : LinearMap.range (Q : F →ₗ[ℝ] F) = H) :
     ∃ (A : LinearMap.ker ((P ∘L T : E →L[ℝ] F) : E →ₗ[ℝ] F) ≃ₗ[ℝ]
@@ -484,7 +484,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 /-- **2021 Lemma 6.6.8, p. 267** (2017: Lemma 6.15, first half; preprint: Lemma 6.33): adding
 parameters `μ ∈ ℝᵈ` that enter as dummy variables, i.e. appending the zero sections
 `s̄ⱼ = 0`, does not change the push-forward of orientations along the stabilized kernels. -/
-theorem lemma_6_6_8_2021 (hΛ : IsStabKernels f c hc y hy S s Λ) {d : ℕ}
+theorem lemma_6_6_8 (hΛ : IsStabKernels f c hc y hy S s Λ) {d : ℕ}
     {Λ' : SubspaceFamily Q (c.φ.model.E 0 × (Fin (k + d) → ℝ))}
     (hΛ' : IsStabKernels f c hc y hy S (Fin.append s fun (_ : Fin d) (_ : Q) => fiberZero P) Λ')
     (hf : B.IsScFredholmSection f) (a b : Q) {x₀ x₁ : X} (ha : y a = x₀) (hb : y b = x₁)
@@ -497,7 +497,7 @@ theorem lemma_6_6_8_2021 (hΛ : IsStabKernels f c hc y hy S s Λ) {d : ℕ}
 /-- **2021 Lemma 6.6.9, p. 269** (new in the 2021 edition; 2017: Lemma 6.15, second half;
 preprint: Lemma 6.33): adding sc⁺-sections `Σ μⱼ s̄ⱼ(y, t)` to a section with property (P) does
 not change the push-forward of orientations (the existing `IsStabKernels.push_append`). -/
-theorem lemma_6_6_9_2021 (hΛ : IsStabKernels f c hc y hy S s Λ) {d : ℕ}
+theorem lemma_6_6_9 (hΛ : IsStabKernels f c hc y hy S s Λ) {d : ℕ}
     {sbar : Fin d → Q → X → Y} {Λ' : SubspaceFamily Q (c.φ.model.E 0 × (Fin (k + d) → ℝ))}
     (hΛ' : IsStabKernels f c hc y hy S (Fin.append s sbar) Λ') (hf : B.IsScFredholmSection f)
     (a b : Q) {x₀ x₁ : X} (ha : y a = x₀) (hb : y b = x₁) (hx₀ : x₀ ∈ PX.smoothSet)

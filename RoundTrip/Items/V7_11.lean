@@ -6,14 +6,14 @@ import RoundTrip.Blind.V7_11
 open).
 
 `A` is the conjunction of the types of the four listed theorems, universes instantiated at `0`
-(`B` lives in `Type`): `EpGroupoid.continuous_π`, `EpGroupoid.proposition_7_1`
-(`IsOpenMap X.π`), `EpGroupoid.proposition_7_1_isOpenQuotientMap` and
-`EpGroupoid.proposition_7_1_map_nhds` (`map π (𝓝 x) = 𝓝 (π x)`).  The project's topology on
+(`B` lives in `Type`): `EpGroupoid.continuous_π`, `EpGroupoid.proposition_7_1_8`
+(`IsOpenMap X.π`), `EpGroupoid.proposition_7_1_8_isOpenQuotientMap` and
+`EpGroupoid.proposition_7_1_8_map_nhds` (`map π (𝓝 x) = 𝓝 (π x)`).  The project's topology on
 `X.OrbitSpace = Quotient X.orbitSetoid` is Mathlib's quotient instance, which is definitionally
 `B`'s `orbitTop X = coinduced X.π` (the proofs below use this by `exact`).
 
-* `A → B`: `B` is `proposition_7_1`.
-* `B → A`: `proposition_7_1` is `B`; `isOpenQuotientMap` is surjectivity, continuity and `B`;
+* `A → B`: `B` is `proposition_7_1_8`.
+* `B → A`: `proposition_7_1_8` is `B`; `isOpenQuotientMap` is surjectivity, continuity and `B`;
   `map_nhds` follows from `IsOpenQuotientMap.map_nhds_eq`; `continuous_π` is re-proved outright
   (`continuous_quot_mk`: it is the defining property of the quotient topology, not part of
   `B`'s claim). -/
@@ -24,14 +24,14 @@ open Polyfold Topology
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.continuous_π.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_1.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_1_map_nhds.{0})
+  (type_of% @Polyfold.EpGroupoid.proposition_7_1_8.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_7_1_8_isOpenQuotientMap.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_7_1_8_map_nhds.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.continuous_π.{0}, @Polyfold.EpGroupoid.proposition_7_1.{0},
-    @Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap.{0},
-    @Polyfold.EpGroupoid.proposition_7_1_map_nhds.{0}⟩
+  ⟨@Polyfold.EpGroupoid.continuous_π.{0}, @Polyfold.EpGroupoid.proposition_7_1_8.{0},
+    @Polyfold.EpGroupoid.proposition_7_1_8_isOpenQuotientMap.{0},
+    @Polyfold.EpGroupoid.proposition_7_1_8_map_nhds.{0}⟩
 
 /-! ### `A → B` -/
 
@@ -58,13 +58,13 @@ theorem B_to_A : B → A := by
     exact (hO Obj Mor X).map_nhds_eq x
 
 #rt_check RoundTrip.V7_11.A_to_B [Polyfold.EpGroupoid.continuous_π,
-  Polyfold.EpGroupoid.proposition_7_1, Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap,
-  Polyfold.EpGroupoid.proposition_7_1_map_nhds]
+  Polyfold.EpGroupoid.proposition_7_1_8, Polyfold.EpGroupoid.proposition_7_1_8_isOpenQuotientMap,
+  Polyfold.EpGroupoid.proposition_7_1_8_map_nhds]
 #rt_check RoundTrip.V7_11.B_to_A [Polyfold.EpGroupoid.continuous_π,
-  Polyfold.EpGroupoid.proposition_7_1, Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap,
-  Polyfold.EpGroupoid.proposition_7_1_map_nhds]
+  Polyfold.EpGroupoid.proposition_7_1_8, Polyfold.EpGroupoid.proposition_7_1_8_isOpenQuotientMap,
+  Polyfold.EpGroupoid.proposition_7_1_8_map_nhds]
 #rt_overlap RoundTrip.V7_11.B_to_A [Polyfold.EpGroupoid.continuous_π,
-  Polyfold.EpGroupoid.proposition_7_1, Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap,
-  Polyfold.EpGroupoid.proposition_7_1_map_nhds]
+  Polyfold.EpGroupoid.proposition_7_1_8, Polyfold.EpGroupoid.proposition_7_1_8_isOpenQuotientMap,
+  Polyfold.EpGroupoid.proposition_7_1_8_map_nhds]
 
 end RoundTrip.V7_11

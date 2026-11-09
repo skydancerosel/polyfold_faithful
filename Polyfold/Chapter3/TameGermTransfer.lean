@@ -5,7 +5,7 @@ import Polyfold.Chapter3.RestrictOpenGerms
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Definition 3.1.11 (p. 96)
 and Definition 3.6.3 (p. 135), the sc-Fredholm germ, with Definition 2.5.2 (p. 53), tame
 retractions, and the proofs of Theorems 3.1.22 (p. 100) and 3.6.8 (pp. 136–138) *(2014 preprint:
-Definitions 3.11, 3.50, 2.34; Theorems 3.19, 3.54)*: **when do the untamed germ data of the 2021
+Definitions 3.1.11, 3.6.3, 2.5.2 (preprint 3.11, 3.50, 2.34); Theorems 3.1.22, 3.6.8 (preprint 3.19, 3.54))*: **when do the untamed germ data of the 2021
 definitions move to a tame chart?**  Gap G.79 (Findings, Chapter 3, items 199, 350–353, 373, 379).
 
 # Germ data in a chart centred at an interior point of its quadrant are tame germ data

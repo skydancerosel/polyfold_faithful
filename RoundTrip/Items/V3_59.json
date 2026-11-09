@@ -5,8 +5,8 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = proposition_3_73 ∧ InvData.contDiffOn_inv (no universe parameters; InvData is vocabulary). A ⇒ B was proved from the proposition_3_73 conjunct: B's hypotheses give InvData C U f j for every j ≥ 1 (C^∞ ⇒ C^j; hypothesis (3) d_C(x) = d_C(f(x)) gives the project's weaker 'x interior ⟺ f(x) interior' through degIndex_eq_zero_iff), and since f is injective on U the inverses produced for the different j agree on f(U), so the j = 1 inverse is C^j for all j, i.e. C^∞. B ⇒ A fails genuinely: A is the C^j statement for every finite j ≥ 1 (B only treats C^∞ maps), with hypothesis (3) weakened to preservation of interior points and no 0 ∈ U, f(0) = 0; and InvData.contDiffOn_inv (the inverse invFunOn is C^j) is a separate statement about a specific inverse.",
+ "why": "A = proposition_3_8_17 ∧ InvData.contDiffOn_inv (no universe parameters; InvData is vocabulary). A ⇒ B was proved from the proposition_3_8_17 conjunct: B's hypotheses give InvData C U f j for every j ≥ 1 (C^∞ ⇒ C^j; hypothesis (3) d_C(x) = d_C(f(x)) gives the project's weaker 'x interior ⟺ f(x) interior' through degIndex_eq_zero_iff), and since f is injective on U the inverses produced for the different j agree on f(U), so the j = 1 inverse is C^j for all j, i.e. C^∞. B ⇒ A fails genuinely: A is the C^j statement for every finite j ≥ 1 (B only treats C^∞ maps), with hypothesis (3) weakened to preservation of interior points and no 0 ∈ U, f(0) = 0; and InvData.contDiffOn_inv (the inverse invFunOn is C^j) is a separate statement about a specific inverse.",
  "B_issue": null,
- "overlap": "B_to_A not proved; no #rt_overlap run. A_to_B passes #rt_check against [proposition_3_73, InvData.contDiffOn_inv]; the glue uses degIndex_eq_zero_iff (allowed here).",
+ "overlap": "B_to_A not proved; no #rt_overlap run. A_to_B passes #rt_check against [proposition_3_8_17, InvData.contDiffOn_inv]; the glue uses degIndex_eq_zero_iff (allowed here).",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
 }

@@ -27,7 +27,7 @@ functorial, `Tf : TX → TY` is sc-smooth and covers `f`; in charts `Tf` is `T(�
   map on the fibres, in the linear structure of Definition 2.3.14
   (`tangentMapOnCLM_apply`); `MPolyfold.tangentMapCLM` is the version for a globally sc-smooth
   map (Part I's `tangentMap`).
-* `MPolyfold.theorem_2_3_16_linear_2021`: the bundle (additive, homogeneous, continuous on the
+* `MPolyfold.theorem_2_3_16_linear`: the bundle (additive, homogeneous, continuous on the
   fibres, and the chart description).
 
 ## What the text leaves implicit, and the choices made
@@ -128,7 +128,7 @@ theorem tangentMapOnCLM_eq (α : P.tangentFiber x) :
 /-- **Theorem 2.3.16 (2021 p. 40), fibrewise**: `Tf : T_xX → T_{f(x)}Y` is additive,
 homogeneous and continuous, and in charts it is a continuous linear map `L : E → E'`, an
 sc-operator at a smooth `x`. -/
-theorem theorem_2_3_16_linear_2021 :
+theorem theorem_2_3_16_linear :
     (∀ α β : P.tangentFiber x,
         tangentMapOnFiber hf hxU hxy (α + β) =
           tangentMapOnFiber hf hxU hxy α + tangentMapOnFiber hf hxU hxy β) ∧

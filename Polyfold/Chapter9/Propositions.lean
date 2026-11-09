@@ -462,7 +462,7 @@ an sc⁺-retract). -/
 theorem rnPolyfold_isScSmoothMap_toLevelOne (x₀ : (rnPolyfold n).Level 1) :
     (rnPolyfold n).IsScSmoothMap (rnPolyfold n).shift ((rnPolyfold n).toLevelOne x₀) :=
   (MPolyfold.isScSmoothMap_toLevelOne_of_cover x₀ fun r => ⟨rnChart n 0, isChart_rnChart 0,
-    mem_univ r, (remark_4_3_const (Fin n → ℝ)).2.2 univ univ (rn_relOpen_univ n).isScRetract⟩).2
+    mem_univ r, (remark_4_1_3_const (Fin n → ℝ)).2.2 univ univ (rn_relOpen_univ n).isScRetract⟩).2
 
 /-- A `C^∞` retraction `s : ℝⁿ → ℝⁿ` (`s ∘ s = s`) is an sc⁺-retraction of the M-polyfold `ℝⁿ`
 (Definition 4.4). -/
@@ -809,7 +809,7 @@ theorem DimPartsAgreeNear.exists_naturalRep {B B' : X.LocalBranchingStructure Θ
     ∃ R : X.NaturalRep x, R.U ⊆ B.U ∩ B'.U ∧
       ∀ k, ∀ y ∈ R.U, B.dimPart dim k y = B'.dimPart dim' k y := by
   obtain ⟨V, hV, hxV, hVU, hk⟩ := h
-  obtain ⟨R, hR⟩ := theorem_7_1 X x hV hxV
+  obtain ⟨R, hR⟩ := theorem_7_1_13 X x hV hxV
   exact ⟨R, hR.trans hVU, fun k y hy => hk k y (hR hy)⟩
 
 /-- **Proposition 9.1.12 in the equidimensional case**: if the submanifolds of both local
@@ -856,7 +856,7 @@ theorem paracompactSpace_orbitSupp_trivial_rn (Θ : (Fin n → ℝ) → ℚ) :
     obtain ⟨φ, h1, h2⟩ := X.π_eq_π_iff.1 h
     exact h1.symm.trans h2
   let e : (Fin n → ℝ) ≃ₜ X.OrbitSpace := Equiv.toHomeomorphOfContinuousOpen
-    (Equiv.ofBijective _ ⟨hinj, X.surjective_π⟩) X.continuous_π X.proposition_7_1
+    (Equiv.ofBijective _ ⟨hinj, X.surjective_π⟩) X.continuous_π X.proposition_7_1_8
   have h := (e.image (supp Θ)).paracompactSpace_iff.1 inferInstance
   have heq : e '' supp Θ = X.orbitSupp Θ := rfl
   rwa [heq] at h

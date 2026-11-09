@@ -43,7 +43,7 @@ homeomorphism; for (2), by the criterion "`T_R` Hausdorff iff `𝐗^T` closed", 
 ## What the text leaves implicit, and the choices made
 
 * "`T_R` Hausdorff iff `𝐗^T` closed" and "(LUC) iff `𝐗^T` closed" are the existing
-  `proposition_7_2_17_2021` and `proposition_7_2_21_2021`; the proofs of 10.1.13 and 10.1.16
+  `proposition_7_2_17` and `proposition_7_2_21`; the proofs of 10.1.13 and 10.1.16
   cite them through Theorem 7.2.22 (p. 323), which collects them.  The proof of Proposition 10.1.18 cites Proposition 10.1.9 for the step (LUC) along
   `Fⁱ`, which is Proposition 10.1.16 (possible misprint).  Remark 10.1.12 ends with `G_x → Y_y`
   for `G_x → G_y` (possible misprint).
@@ -285,7 +285,7 @@ theorem IsEquivalence.isClosed_nonEffectivePart_iff {F : EpFunctor X Y} (hF : F.
 equivalence, `X` has the local unique continuation property iff `Y` has it. -/
 theorem proposition_10_1_16 {F : EpFunctor X Y} (hF : F.IsEquivalence) :
     X.IsLUC ↔ Y.IsLUC := by
-  rw [X.proposition_7_2_21_2021, Y.proposition_7_2_21_2021]
+  rw [X.proposition_7_2_21, Y.proposition_7_2_21]
   exact hF.isClosed_nonEffectivePart_iff
 
 /-! ### Proposition 10.1.13: the reduced morphism spaces -/
@@ -330,7 +330,7 @@ theorem proposition_10_1_13 {F : EpFunctor X Y} (hF : F.IsEquivalence) :
       IsOpenMap (F.reducedMap hF.isLocalScDiffeo_obj)) ∧
       (T2Space X.ReducedMor ↔ T2Space Y.ReducedMor) := by
   refine ⟨⟨F.continuous_reducedMap _, F.isOpenMap_reducedMap _⟩, ?_⟩
-  rw [X.proposition_7_2_17_2021, Y.proposition_7_2_17_2021]
+  rw [X.proposition_7_2_17, Y.proposition_7_2_17]
   exact hF.isClosed_nonEffectivePart_iff
 
 /-! ### Proposition 10.1.14: the reduced functor -/

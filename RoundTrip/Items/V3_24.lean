@@ -4,9 +4,9 @@ import RoundTrip.Blind.V3_24
 
 /-!
 Round trip for V3_24 (Theorem 3.27).  `A` is the conjunction of the types of the listed theorems
-`Polyfold.theorem_3_27`, `Polyfold.theorem_3_27_isSubMPolyfold`,
-`Polyfold.MPolyfold.theorem_3_27_isChart`, `Polyfold.MPolyfold.theorem_3_27_isTame`,
-`Polyfold.MPolyfold.theorem_3_27_isManifoldWithCorners`, `Polyfold.MPolyfold.theorem_3_27_degIndex`
+`Polyfold.theorem_3_2_3_of_isRegular`, `Polyfold.theorem_3_2_3_isSubMPolyfold`,
+`Polyfold.MPolyfold.theorem_3_2_3_isChart`, `Polyfold.MPolyfold.theorem_3_2_3_isTame`,
+`Polyfold.MPolyfold.theorem_3_2_3_isManifoldWithCorners`, `Polyfold.MPolyfold.theorem_3_2_3_degIndex`
 and `Polyfold.isScSmooth_subtype_val`, universes instantiated at `0`.  (`TangentGermChart.IsRegular`,
 `TangentGermChart.chart` and `MPolyfold.IsManifoldWithCorners` are vocabulary.)
 
@@ -23,7 +23,7 @@ Neither direction is proved.
 * `B → A` fails: B needs `X` tame (A's theorems do not assume it; the data only carry a tame
   retract at the points of `M`), B's chart clause gives a chart of `M` on *some* neighbourhood of
   the centre `x` (A: the specific chart `d.chart` on the whole `U₀`), and A's conjuncts
-  `theorem_3_27_degIndex` and `isScSmooth_subtype_val` are not about B's content at all.
+  `theorem_3_2_3_degIndex` and `isScSmooth_subtype_val` are not about B's content at all.
 -/
 
 namespace RoundTrip.V3_24
@@ -31,18 +31,18 @@ open Polyfold
 
 /-- The project's statement: the theorems listed for Theorem 3.27, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_27.{0} ∧ type_of% @Polyfold.theorem_3_27_isSubMPolyfold.{0} ∧
-    type_of% @Polyfold.MPolyfold.theorem_3_27_isChart.{0} ∧
-    type_of% @Polyfold.MPolyfold.theorem_3_27_isTame.{0} ∧
-    type_of% @Polyfold.MPolyfold.theorem_3_27_isManifoldWithCorners.{0} ∧
-    type_of% @Polyfold.MPolyfold.theorem_3_27_degIndex.{0} ∧
+  type_of% @Polyfold.theorem_3_2_3_of_isRegular.{0} ∧ type_of% @Polyfold.theorem_3_2_3_isSubMPolyfold.{0} ∧
+    type_of% @Polyfold.MPolyfold.theorem_3_2_3_isChart.{0} ∧
+    type_of% @Polyfold.MPolyfold.theorem_3_2_3_isTame.{0} ∧
+    type_of% @Polyfold.MPolyfold.theorem_3_2_3_isManifoldWithCorners.{0} ∧
+    type_of% @Polyfold.MPolyfold.theorem_3_2_3_degIndex.{0} ∧
     type_of% @Polyfold.isScSmooth_subtype_val
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_27.{0}, @Polyfold.theorem_3_27_isSubMPolyfold.{0},
-    @Polyfold.MPolyfold.theorem_3_27_isChart.{0}, @Polyfold.MPolyfold.theorem_3_27_isTame.{0},
-    @Polyfold.MPolyfold.theorem_3_27_isManifoldWithCorners.{0},
-    @Polyfold.MPolyfold.theorem_3_27_degIndex.{0}, @Polyfold.isScSmooth_subtype_val⟩
+  ⟨@Polyfold.theorem_3_2_3_of_isRegular.{0}, @Polyfold.theorem_3_2_3_isSubMPolyfold.{0},
+    @Polyfold.MPolyfold.theorem_3_2_3_isChart.{0}, @Polyfold.MPolyfold.theorem_3_2_3_isTame.{0},
+    @Polyfold.MPolyfold.theorem_3_2_3_isManifoldWithCorners.{0},
+    @Polyfold.MPolyfold.theorem_3_2_3_degIndex.{0}, @Polyfold.isScSmooth_subtype_val⟩
 
 section Glue
 
@@ -63,12 +63,12 @@ theorem empty_case {S : Set X} (hS : ¬ S.Nonempty) :
 end Glue
 
 /-- **Diagnostic** (not a direction of the round trip): B's conclusion follows from A's first
-conjunct (`theorem_3_27`; taken alone because the types of A's other conjuncts mention
-`theorem_3_27_isSubMPolyfold`, which would trip `#rt_check`) when every
+conjunct (`theorem_3_2_3_of_isRegular`; taken alone because the types of A's other conjuncts mention
+`theorem_3_2_3_isSubMPolyfold`, which would trip `#rt_check`) when every
 tangent-germ datum at every point of `M` is regular (`IsRegular`); tameness of `X` is not used.
 So the whole gap `A → B` is the regularity hypothesis of A (and B's chart claim for non-regular
 data). -/
-theorem A_to_B_of_allRegular (h327 : type_of% @Polyfold.theorem_3_27.{0}) {X : Type} [TopologicalSpace X] [T2Space X]
+theorem A_to_B_of_allRegular (h327 : type_of% @Polyfold.theorem_3_2_3_of_isRegular.{0}) {X : Type} [TopologicalSpace X] [T2Space X]
     [ParacompactSpace X] (PX : MPolyfold X) (M : Set X) (n : ℕ)
     (hT : PX.HasTangentGermProperty M n)
     (hreg : ∀ x ∈ M, ∀ d : PX.TangentGermChart M x n, d.IsRegular) :
@@ -93,11 +93,11 @@ theorem A_to_B_of_allRegular (h327 : type_of% @Polyfold.theorem_3_27.{0}) {X : T
   · obtain ⟨hsub, hpc, h1, h2⟩ := empty_case (PX := PX) hne
     exact ⟨hsub, hpc, h1, h2, fun x hx => absurd ⟨x, hx⟩ hne⟩
 
-example (hA : A) : type_of% @Polyfold.theorem_3_27.{0} := hA.1
+example (hA : A) : type_of% @Polyfold.theorem_3_2_3_of_isRegular.{0} := hA.1
 
-#rt_check RoundTrip.V3_24.A_to_B_of_allRegular [Polyfold.theorem_3_27,
-  Polyfold.theorem_3_27_isSubMPolyfold, Polyfold.MPolyfold.theorem_3_27_isChart,
-  Polyfold.MPolyfold.theorem_3_27_isTame, Polyfold.MPolyfold.theorem_3_27_isManifoldWithCorners,
-  Polyfold.MPolyfold.theorem_3_27_degIndex, Polyfold.isScSmooth_subtype_val]
+#rt_check RoundTrip.V3_24.A_to_B_of_allRegular [Polyfold.theorem_3_2_3_of_isRegular,
+  Polyfold.theorem_3_2_3_isSubMPolyfold, Polyfold.MPolyfold.theorem_3_2_3_isChart,
+  Polyfold.MPolyfold.theorem_3_2_3_isTame, Polyfold.MPolyfold.theorem_3_2_3_isManifoldWithCorners,
+  Polyfold.MPolyfold.theorem_3_2_3_degIndex, Polyfold.isScSmooth_subtype_val]
 
 end RoundTrip.V3_24

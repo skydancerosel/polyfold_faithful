@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_70
 
 /-!
 Round trip for V3_70 (Corollary 3.24).  `A` is the conjunction of the types of
-`Polyfold.corollary_3_24` and `Polyfold.theorem_3_57`, universes instantiated at `0`.
+`Polyfold.corollary_3_1_27` and `Polyfold.theorem_3_6_11`, universes instantiated at `0`.
 
 Glue for `A → B`:
 * B's hypothesis `IsSurjGoodPosAt` (surjectivity of `D(f̂ ∘ r)(z)|_{T_zO}` onto `K_z` and good
@@ -16,9 +16,9 @@ Glue for `A → B`:
 * A assumes `S ≠ ∅`; for `S = ∅` B's conclusion holds with the empty atlas.
 * `IsManifoldWithCornersLoc` is `HasCornerStructure` (`hasCornerStructure_iff_finiteDimensional`).
 
-**Refresh 2026-11-02 (germ reading at HEAD).**  `corollary_3_24` and `theorem_3_57` now state the
-germ reading, and A gains `corollary_3_24_sc` (good position with the text's sc-complement) and
-`forall_isGoodPositionGermSc_iff`.  A ⇒ B still goes through `corollary_3_24`; the chart change
+**Refresh 2026-11-02 (germ reading at HEAD).**  `corollary_3_1_27` and `theorem_3_6_11` now state the
+germ reading, and A gains `corollary_3_1_27_sc` (good position with the text's sc-complement) and
+`forall_isGoodPositionGermSc_iff`.  A ⇒ B still goes through `corollary_3_1_27`; the chart change
 `isGoodPositionGermTame_of_B` was repaired (`isGoodPositionGerm_of_linAt_surj` on `Lin(z)`).
 B ⇒ A still fails (B's tameness hypotheses; the new conjuncts are not stated by B).
 -/
@@ -29,13 +29,13 @@ open Polyfold
 /-- The project's statement: Corollary 3.24 and Theorem 3.57 (germ reading), Corollary 3.24 with
 the sc-complement, and the equivalence of the two good-position hypotheses, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.corollary_3_24.{0, 0} ∧ type_of% @Polyfold.theorem_3_57.{0, 0} ∧
-    type_of% @Polyfold.corollary_3_24_sc.{0, 0} ∧
+  type_of% @Polyfold.corollary_3_1_27.{0, 0} ∧ type_of% @Polyfold.theorem_3_6_11.{0, 0} ∧
+    type_of% @Polyfold.corollary_3_1_27_sc.{0, 0} ∧
     type_of% @Polyfold.forall_isGoodPositionGermSc_iff.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.corollary_3_24.{0, 0}, @Polyfold.theorem_3_57.{0, 0},
-    @Polyfold.corollary_3_24_sc.{0, 0}, @Polyfold.forall_isGoodPositionGermSc_iff.{0, 0}⟩
+  ⟨@Polyfold.corollary_3_1_27.{0, 0}, @Polyfold.theorem_3_6_11.{0, 0},
+    @Polyfold.corollary_3_1_27_sc.{0, 0}, @Polyfold.forall_isGoodPositionGermSc_iff.{0, 0}⟩
 
 section Glue
 
@@ -114,7 +114,7 @@ theorem A_to_B : A → B := by
     exact ⟨hsub, inferInstance, h1, MPolyfold.hasCornerStructure_iff_finiteDimensional.2 h2⟩
   · exact empty_case hne
 
-#rt_check RoundTrip.V3_70.A_to_B [Polyfold.corollary_3_24, Polyfold.theorem_3_57,
-  Polyfold.corollary_3_24_sc, Polyfold.forall_isGoodPositionGermSc_iff]
+#rt_check RoundTrip.V3_70.A_to_B [Polyfold.corollary_3_1_27, Polyfold.theorem_3_6_11,
+  Polyfold.corollary_3_1_27_sc, Polyfold.forall_isGoodPositionGermSc_iff]
 
 end RoundTrip.V3_70

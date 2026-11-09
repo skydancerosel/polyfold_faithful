@@ -2,8 +2,8 @@ import Polyfold.Chapter3.StrongBundleSections
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-**Theorem 3.12** (local compactness for sc-Fredholm germs) and **Corollary 3.13** for sections of
-strong bundles over M-polyfolds: the passage from their local form (`theorem_3_12_local`, Theorem
+**Theorem 3.1.13 (preprint 3.12)** (local compactness for sc-Fredholm germs) and **Corollary 3.1.15 (preprint 3.13)** for sections of
+strong bundles over M-polyfolds: the passage from their local form (`theorem_3_1_13_local`, Theorem
 3.40 of §3.5, in `LocalCompactness.lean`) through a strong bundle chart, the filler and the
 conjugation to a basic germ.
 
@@ -11,29 +11,29 @@ conjugation to a basic germ.
 
 ## The text, paraphrased
 
-(Theorem 3.12) Let `f` be an sc-smooth section of the tame strong bundle `P : Y → X` and `x₀` a
+(Theorem 3.1.13 (preprint 3.12)) Let `f` be an sc-smooth section of the tame strong bundle `P : Y → X` and `x₀` a
 smooth point such that `(f, x₀)` is an sc-Fredholm germ with `f(x₀) = 0`.  Then there is a nested
 sequence `O(0) ⊃ O(1) ⊃ …` of open neighbourhoods of `x₀` in `X₀` such that for every `i` the
 `X₀`-closure of `{x ∈ O(i) | f(x) = 0}` is a compact subset of `X_i`.  "The result is an immediate
-consequence of Theorem 3.40."  (Corollary 3.13) If moreover `f(x_k) = 0` and `x_k → x` in `X₀`,
+consequence of Theorem 3.40."  (Corollary 3.1.15 (preprint 3.13)) If moreover `f(x_k) = 0` and `x_k → x` in `X₀`,
 then for every `m`, `x_k ∈ X_m` for `k` large and `x_k → x` in `X_m`.
 
 ## What is formalized
 
-* `Polyfold.theorem_3_12_wholeChart`: for a section `f` with `(f, x₀)` an sc-Fredholm germ (Definition 3.11)
+* `Polyfold.theorem_3_1_13_wholeChart`: for a section `f` with `(f, x₀)` an sc-Fredholm germ (Definition 3.1.11 (preprint 3.11))
   and `f(x₀) = 0`, nested open `O(i) ∋ x₀` such that `closure {x ∈ O(i) | f(x) = 0}` is the image
   of a compact subset of `X_i` (`PX.Level i`, with the level topology of §2.2) under the inclusion
   `X_i → X`.
-* `Polyfold.corollary_3_13_wholeChart` (the limit is the base point `x₀` of the germ) and
-  `Polyfold.corollary_3_13_section_wholeChart` (for an sc-Fredholm section, Definition 3.14, and any limit
+* `Polyfold.corollary_3_1_15_wholeChart` (the limit is the base point `x₀` of the germ) and
+  `Polyfold.corollary_3_1_15_section_wholeChart` (for an sc-Fredholm section, Definition 3.1.16 (preprint 3.14), and any limit
   `x` of zeros, which is then itself a zero and a smooth point): lifts `y_k ∈ X_m` of the `x_k`
   for `k` large converging in `X_m` to the lift of the limit.
-* The passage from the local statement: `Polyfold.theorem_3_12_local_subset` (the local theorem
+* The passage from the local statement: `Polyfold.theorem_3_1_13_local_subset` (the local theorem
   for any subset of the solution set), `Polyfold.IsStrongBundleIso.snd_eq_zero_iff` (the fibre
   maps of a strong bundle isomorphism are injective), `IsStrongBundleMap.base_isScSmooth`,
   `IsStrongBundleMap.toBase_shiftFiber_snd`; `Polyfold.MPolyfold.levelChartSymm` and
   `continuousOn_levelChartSymm` (`φ⁻¹ : O_m → X_m` is continuous for the level topology, the
-  chart of `X_m` of the paragraph after Definition 2.14 for every `m`);
+  chart of `X_m` of the paragraph after Definition 2.3.8 (preprint 2.14) for every `m`);
   `Polyfold.tendsto_of_isCompact_of_tendsto_map` (convergence in `X_m` from convergence in `X`
   inside a compact subset of `X_m`).
 
@@ -41,25 +41,25 @@ then for every `m`, `x_k ∈ X_m` for `k` large and `x_k → x` in `X_m`.
 
 * **Hypotheses actually used.**  Of "`f` an sc-smooth section of the tame strong bundle" only
   `P ∘ f = id` is used (`IsSection`); the sc-smoothness of `f` enters through the filled version
-  `g` of Definition 3.11 (which is sc-smooth), tameness not at all.  Corollary 3.13 for an
+  `g` of Definition 3.1.11 (preprint 3.11) (which is sc-smooth), tameness not at all.  Corollary 3.1.15 (preprint 3.13) for an
   arbitrary limit `x` needs the germ property at `x` (Findings, Chapter 3, item 15): this is
-  `corollary_3_13_section_wholeChart`, for an sc-Fredholm section, where the limit of zeros is a zero (the
+  `corollary_3_1_15_section_wholeChart`, for an sc-Fredholm section, where the limit of zeros is a zero (the
   principal part is continuous) and a smooth point (regularizing).
 * **"An immediate consequence of Theorem 3.40"** hides: (i) the identification of the zeros of
   `f` near `x₀` with those of the basic germ plus sc⁺-germ `h + t`, `t = Ψ_*(s)`, through
-  `φ`, the filler (conditions (1) and (2) of Definition 3.4) and the fibre maps of `Ψ`
+  `φ`, the filler (conditions (1) and (2) of Definition 3.1.4 (preprint 3.4)) and the fibre maps of `Ψ`
   (linear bijections: `g(u) = 0 ⟺ (Ψ(u, g(u)))₂ = 0`); (ii) the push-forward `t` is an sc⁺-germ
-  because `Ψ[1]` is sc-smooth (Definition 2.47) and `s(0) = g(0) = f̂(0) = 0`; (iii) the closure
+  because `Ψ[1]` is sc-smooth (Definition 2.6.1 (preprint 2.47)) and `s(0) = g(0) = f̂(0) = 0`; (iii) the closure
   of the solution set in `E₀` must stay inside the chart and inside the region where (i) holds,
-  which is arranged by intersecting the `O(i)` of Theorem 3.40 with a small ball (the closure
+  which is arranged by intersecting the `O(i)` of Theorem 3.5.1 (preprint 3.40) with a small ball (the closure
   of a subset of the solution set is compact, hence closed, so the compactness survives);
   (iv) the `E₀`-closure of the solutions is a set of solutions of `g` in `U`, hence lies in `O`
   by condition (2) of the filler; (v) `X₀`-closures of subsets of a chart domain can leave the
   domain, so the compactness in `E₀` is used first to see that the closure stays in `V`;
   (vi) the transport to `X_i` needs the inverse chart `O_i → X_i` to be continuous for the level
   topology, which is the compatibility of the charts on level `i` (sc⁰ transition maps).
-* **Corollary 3.13 in `X_m`**: `X_m` is not known to be first countable here (its metrizability
-  is Theorem 2.16, formalized in `Metrizable.lean` for `X` but not used), so the convergence of
+* **Corollary 3.1.15 (preprint 3.13) in `X_m`**: `X_m` is not known to be first countable here (its metrizability
+  is Theorem 2.3.10 (preprint 2.16), formalized in `Metrizable.lean` for `X` but not used), so the convergence of
   the lifts is proved with cluster points in the compact set, not with subsequences.
 -/
 
@@ -207,7 +207,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P :
 
 open scoped Classical in
 /-- The inverse `O_m → X_m` of the level-`m` chart, `z ↦ φ⁻¹(ι_m z)`, with the junk value `x₀`
-off `O_m` (the paragraph after Definition 2.14: "`φ : V_m → O_m` is a homeomorphism"). -/
+off `O_m` (the paragraph after Definition 2.3.8 (preprint 2.14): "`φ : V_m → O_m` is a homeomorphism"). -/
 def levelChartSymm (hφ : P.IsChart φ) (m : ℕ) (x₀ : P.Level m) (z : φ.model.E m) : P.Level m :=
   if h : φ.model.E.toBase m z ∈ φ.model.O then
     P.levelMk m (φ.symm (φ.model.E.toBase m z))
@@ -267,13 +267,13 @@ theorem continuousOn_levelChartSymm (hφ : P.IsChart φ) (m : ℕ) (x₀ : P.Lev
 
 end MPolyfold
 
-/-! ### Theorem 3.12 in its local form, for a subset of the solution set -/
+/-! ### Theorem 3.1.13 (preprint 3.12) in its local form, for a subset of the solution set -/
 
-/-- **Theorem 3.12 in its local form, for any subset `S` of the solution set** of `h + t = 0`
+/-- **Theorem 3.1.13 (preprint 3.12) in its local form, for any subset `S` of the solution set** of `h + t = 0`
 (`h` a basic germ, `t` an sc⁺-germ with `t(0) = 0`): nested open `O(i) ∋ 0` in `E₀` with
-`closure(S ∩ O(i)) = ι_i(K_i)`, `K_i ⊆ E_i` compact (Theorem 3.40 with the compactness
-argument, `theorem_3_40_compactness`). -/
-theorem theorem_3_12_local_subset {Pn : Type} [NormedAddCommGroup Pn] [NormedSpace ℝ Pn]
+`closure(S ∩ O(i)) = ι_i(K_i)`, `K_i ⊆ E_i` compact (Theorem 3.5.1 (preprint 3.40) with the compactness
+argument, `theorem_3_5_1_compactness`). -/
+theorem theorem_3_1_13_local_subset {Pn : Type} [NormedAddCommGroup Pn] [NormedSpace ℝ Pn]
     [FiniteDimensional ℝ Pn] {W : ScBanach} {Ct : Set Pn}
     {G : ScNbhdGerm (ScBanach.paramProd Pn W) (Ct ×ˢ univ)} {Q : Type} [NormedAddCommGroup Q]
     [NormedSpace ℝ Q] [FiniteDimensional ℝ Q] {f : Pn × W 0 → Q × W 0} {Bc : Pn × W 0 → W 0}
@@ -288,7 +288,7 @@ theorem theorem_3_12_local_subset {Pn : Type} [NormedAddCommGroup Pn] [NormedSpa
   have hsW : IsSc0Germ (E := ScBanach.paramProd Pn W) (F := W.shift) G (fun x => (s x).2) :=
     (ScBanach.sndOp (ScBanach.const Q) W.shift).isSc0Germ _ |>.comp hs (G.mapsToGerm_full _)
   have hsW0 : (s 0).2 = 0 := by rw [hs0]; rfl
-  refine theorem_3_40_compactness hf.contraction hCt hsW hsW0 fun x hx => ⟨(hS hx).1, ?_⟩
+  refine theorem_3_5_1_compactness hf.contraction hCt hsW hsW0 fun x hx => ⟨(hS hx).1, ?_⟩
   have h2 := congrArg Prod.snd (hS hx).2
   rw [ScBanach.paramProd_toBase] at h2
   change (f x).2 + W.toBase 1 (s x).2 = 0 at h2
@@ -297,7 +297,7 @@ theorem theorem_3_12_local_subset {Pn : Type} [NormedAddCommGroup Pn] [NormedSpa
   rw [sub_add_eq_add_sub, sub_eq_zero] at this
   exact eq_sub_of_add_eq this
 
-/-! ### Theorem 3.12 and Corollary 3.13 for sections of strong bundles -/
+/-! ### Theorem 3.1.13 (preprint 3.12) and Corollary 3.1.15 (preprint 3.13) for sections of strong bundles -/
 
 section Bundle
 
@@ -306,13 +306,13 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **Theorem 3.12 (local compactness for sc-Fredholm germs)**: let `f` be a section of the
+/-- **Theorem 3.1.13 (preprint 3.12) (local compactness for sc-Fredholm germs)**: let `f` be a section of the
 strong bundle `P : Y → X` and `x₀` a smooth point with `(f, x₀)` an sc-Fredholm germ and
 `f(x₀) = 0`.  Then there are nested open neighbourhoods `O(0) ⊃ O(1) ⊃ …` of `x₀` in `X` such
 that for every `i` the closure in `X` of `{x ∈ O(i) | f(x) = 0}` is the image of a compact subset
 of `X_i` (with the level topology) under the inclusion `X_i → X`.  Only `P ∘ f = id` is used of
 "`f` an sc-smooth section of the tame strong bundle". -/
-theorem theorem_3_12_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
+theorem theorem_3_1_13_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
     (hx₀ : IsZeroAt P f x₀) :
     ∃ O : ℕ → Set X, (∀ i, IsOpen (O i)) ∧ (∀ i, x₀ ∈ O i) ∧ (∀ i, O (i + 1) ⊆ O i) ∧
       ∀ i, ∃ K : Set (PX.Level i), IsCompact K ∧
@@ -428,7 +428,7 @@ theorem theorem_3_12_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFred
   set S : Set ((ScBanach.paramProd Pn W) 0) :=
     {u' | u' ∈ G.U 0 ∧ h u' + (ScBanach.paramProd Q W).toBase 1 (t u') = 0} ∩
       Metric.ball 0 r₀ with hSdef
-  obtain ⟨O', hO'open, h0O', hO'nest, hK⟩ := theorem_3_12_local_subset hh hCt.isClosed ht ht0
+  obtain ⟨O', hO'open, h0O', hO'nest, hK⟩ := theorem_3_1_13_local_subset hh hCt.isClosed ht ht0
     (S := S) inter_subset_left
   obtain ⟨Og, hOg, hGeq⟩ := G.relOpen 0
   have hGmem : ∀ u', u' ∈ G.U 0 ↔ u' ∈ Og ∧ u' ∈ Ct ×ˢ univ := fun u' => by
@@ -546,16 +546,16 @@ theorem theorem_3_12_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFred
     simp only [hΘdef]
     rw [PX.levelVal_levelChartSymm c.isChart i x₀' (hlevO z hz), hlev z hz]
 
-/-- **Corollary 3.13** (at the base point of the germ): let `(f, x₀)` be an sc-Fredholm germ with
+/-- **Corollary 3.1.15 (preprint 3.13)** (at the base point of the germ): let `(f, x₀)` be an sc-Fredholm germ with
 `f(x₀) = 0`.  If `f(x_k) = 0` and `x_k → x₀` in `X`, then for every `m` there are lifts
 `y_k ∈ X_m` of the `x_k` (for `k` large) converging in `X_m` to the lift of `x₀`. -/
-theorem corollary_3_13_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
+theorem corollary_3_1_15_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
     (hx₀ : IsZeroAt P f x₀) {x : ℕ → X} (hx : ∀ n, IsZeroAt P f (x n))
     (hlim : Tendsto x atTop (𝓝 x₀)) (m : ℕ) :
     ∃ y₀ : PX.Level m, PX.levelVal m y₀ = x₀ ∧ ∃ y : ℕ → PX.Level m,
       (∀ᶠ n in atTop, PX.levelVal m (y n) = x n) ∧ Tendsto y atTop (𝓝 y₀) := by
   classical
-  obtain ⟨O, hO, h0, -, hK⟩ := theorem_3_12_wholeChart hf hg hx₀
+  obtain ⟨O, hO, h0, -, hK⟩ := theorem_3_1_13_wholeChart hf hg hx₀
   obtain ⟨K, hKc, hKeq⟩ := hK m
   set y₀ : PX.Level m := PX.levelMk m x₀ (mem_iInter.1 hg.1 m) with hy₀
   have hev : ∀ᶠ n in atTop, x n ∈ O m := hlim.eventually ((hO m).mem_nhds (h0 m))
@@ -585,7 +585,7 @@ lemma fiberZero_mem_doubleLevel (B : StrongBundle PX P) {m : ℕ} {x : X} (hx : 
   · rw [c.snd_fiberZero hxV]; exact ⟨0, map_zero _⟩
 
 /-- A zero of a regularizing section is a smooth point (the first sentence of the proof of
-Theorem 3.54). -/
+Theorem 3.6.8 (preprint 3.54)). -/
 theorem IsScFredholmSectionWholeChart.mem_smoothSet_of_isZeroAt (hf : B.IsScFredholmSectionWholeChart f) {x : X}
     (hx : IsZeroAt P f x) : x ∈ PX.smoothSet := by
   refine mem_iInter.2 fun m => ?_
@@ -615,19 +615,19 @@ theorem IsScSmoothSection.isZeroAt_of_tendsto (hf : B.IsScSmoothSection f) {x : 
 
 end StrongBundle
 
-/-- **Corollary 3.13 for sc-Fredholm sections** (Definition 3.14), with an arbitrary limit: if
+/-- **Corollary 3.1.15 (preprint 3.13) for sc-Fredholm sections** (Definition 3.1.16 (preprint 3.14)), with an arbitrary limit: if
 `f(x_k) = 0` and `x_k → x` in `X`, then `x` is a zero of `f`, a smooth point, and for every `m`
 there are lifts `y_k ∈ X_m` of the `x_k` (for `k` large) converging in `X_m` to the lift of `x`
 (in particular `x_k ∈ X_m` for `k` large, "and `x_k → x` in `X_m`").  The text states this for a
-germ `(f, x₀)`, where it holds for `x = x₀` (`corollary_3_13_wholeChart`). -/
-theorem corollary_3_13_section_wholeChart (hf : B.IsScFredholmSectionWholeChart f) {x : ℕ → X}
+germ `(f, x₀)`, where it holds for `x = x₀` (`corollary_3_1_15_wholeChart`). -/
+theorem corollary_3_1_15_section_wholeChart (hf : B.IsScFredholmSectionWholeChart f) {x : ℕ → X}
     (hx : ∀ n, IsZeroAt P f (x n)) {x₀ : X} (hlim : Tendsto x atTop (𝓝 x₀)) (m : ℕ) :
     IsZeroAt P f x₀ ∧ x₀ ∈ PX.smoothSet ∧
       ∃ y₀ : PX.Level m, PX.levelVal m y₀ = x₀ ∧ ∃ y : ℕ → PX.Level m,
         (∀ᶠ n in atTop, PX.levelVal m (y n) = x n) ∧ Tendsto y atTop (𝓝 y₀) := by
   have hx₀ : IsZeroAt P f x₀ := hf.isScSmooth.isZeroAt_of_tendsto hx hlim
   have hxs : x₀ ∈ PX.smoothSet := hf.mem_smoothSet_of_isZeroAt hx₀
-  exact ⟨hx₀, hxs, corollary_3_13_wholeChart hf.isScSmooth.1 (hf.germ x₀ hxs) hx₀ hx hlim m⟩
+  exact ⟨hx₀, hxs, corollary_3_1_15_wholeChart hf.isScSmooth.1 (hf.germ x₀ hxs) hx₀ hx hlim m⟩
 
 end Bundle
 

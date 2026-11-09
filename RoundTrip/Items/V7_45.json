@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A (universes at 0) is t1Space_orbitSpace ∧ lemma_7_6: |X| = X.OrbitSpace (quotient topology) is T1 and T2 for every ep-groupoid X : EpGroupoid Obj Mor, Obj Mor : Type. B is T2Space X.OrbitSpace in the same setting. A ⇒ B is the second conjunct; B ⇒ A adds T1 from T2 (Mathlib instance). The extra T1 conjunct of A is a consequence of B, so the statements are the same.",
+ "why": "A (universes at 0) is t1Space_orbitSpace ∧ lemma_7_3_4: |X| = X.OrbitSpace (quotient topology) is T1 and T2 for every ep-groupoid X : EpGroupoid Obj Mor, Obj Mor : Type. B is T2Space X.OrbitSpace in the same setting. A ⇒ B is the second conjunct; B ⇒ A adds T1 from T2 (Mathlib instance). The extra T1 conjunct of A is a consequence of B, so the statements are the same.",
  "B_issue": null,
  "overlap": "10 shared project theorems, all GroupoidStr lemmas (src/tgt of unit, inv, comp; Isomorphic.refl/symm/trans; orbitSetoid._proof_1) reached through the definition of X.OrbitSpace in both statements; no proof lemma of Lemma 7.6 is reused.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

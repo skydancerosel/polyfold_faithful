@@ -4,12 +4,12 @@ import RoundTrip.Blind.V3_36
 
 /-!
 Round trip for V3_36 (Corollary 3.41).  `A` is the conjunction of the types of
-`Polyfold.StabilityData.corollary_3_41`, `Polyfold.StabilityData.exists_isFredholm_Dfs'`,
+`Polyfold.StabilityData.corollary_3_5_3`, `Polyfold.StabilityData.exists_isFredholm_Dfs'`,
 `Polyfold.StabilityData.exists_ker_Dfs'_inf_eq_bot`, `Polyfold.isFredholm_add_of_norm_lt`,
 `Polyfold.HasFiniteIndex.surjective_of_finrank_ker_le` and
 `Polyfold.StabilityData.Kop_isCompactOperator` (no universe parameters).
 
-Glue for `A → B` (only the conjunct `corollary_3_41` is needed):
+Glue for `A → B` (only the conjunct `corollary_3_5_3` is needed):
 * B's sc⁺-germ `s` has values in `(ℝᴺ ⊕ W)¹`; the project's `StabilityData` carries only the
   `W`-component `s₂ : → W¹`.  The `ℝᴺ`-component is absorbed into the basic germ:
   `h' = h + (s₁, 0)` is again basic (same `W`-component, same `B`), and `h + s = h' + (0, s₂)`.
@@ -26,7 +26,7 @@ open Polyfold
 
 /-- The project's statement: Corollary 3.41 and the lemmas of its proof. -/
 def A : Prop :=
-  type_of% @Polyfold.StabilityData.corollary_3_41 ∧
+  type_of% @Polyfold.StabilityData.corollary_3_5_3 ∧
   type_of% @Polyfold.StabilityData.exists_isFredholm_Dfs' ∧
   type_of% @Polyfold.StabilityData.exists_ker_Dfs'_inf_eq_bot ∧
   type_of% @Polyfold.isFredholm_add_of_norm_lt ∧
@@ -34,7 +34,7 @@ def A : Prop :=
   type_of% @Polyfold.StabilityData.Kop_isCompactOperator
 
 theorem A_holds : A :=
-  ⟨@Polyfold.StabilityData.corollary_3_41, @Polyfold.StabilityData.exists_isFredholm_Dfs',
+  ⟨@Polyfold.StabilityData.corollary_3_5_3, @Polyfold.StabilityData.exists_isFredholm_Dfs',
     @Polyfold.StabilityData.exists_ker_Dfs'_inf_eq_bot, @Polyfold.isFredholm_add_of_norm_lt,
     @Polyfold.HasFiniteIndex.surjective_of_finrank_ker_le,
     @Polyfold.StabilityData.Kop_isCompactOperator⟩
@@ -119,7 +119,7 @@ theorem A_to_B : A → B := by
     change fredholmIndex (𝒮.Dfs' h' x₁) = _
     rw [hI, Module.finrank_fin_fun, Module.finrank_fin_fun]
 
-#rt_check RoundTrip.V3_36.A_to_B [Polyfold.StabilityData.corollary_3_41,
+#rt_check RoundTrip.V3_36.A_to_B [Polyfold.StabilityData.corollary_3_5_3,
   Polyfold.StabilityData.exists_isFredholm_Dfs', Polyfold.StabilityData.exists_ker_Dfs'_inf_eq_bot,
   Polyfold.isFredholm_add_of_norm_lt, Polyfold.HasFiniteIndex.surjective_of_finrank_ker_le,
   Polyfold.StabilityData.Kop_isCompactOperator]

@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_42
 
 /-! Round trip for V3_42 (Corollary 3.47, local germ-solvability for `f + s`).
 
-`A` is the conjunction of the types of `Polyfold.theorem_3_47_sc_smooth`, `Polyfold.theorem_3_47`
+`A` is the conjunction of the types of `Polyfold.theorem_3_5_11_sc_smooth`, `Polyfold.theorem_3_5_11`
 and `Polyfold.StabilityData.scDerivGerm_pushMap₀` (no universe parameters: everything is in
 `Type`).
 
@@ -13,7 +13,7 @@ Neither direction is proved.
 `A → B` fails on the conclusion.  The setting of `B` is reachable from `A` by glue (take
 `P = Fin n → ℝ`, `Q = Fin N → ℝ`; absorb the `ℝᴺ`-component of `B`'s `s` into the basic germ, since
 `A`'s `StabilityData.s` only perturbs the `W`-component; choose the splitting of `1 + D₂s(0)` with
-`proposition_1_10`; identify `D 0` with `Dfs` by uniqueness of the derivative at the smooth point
+`proposition_1_1_11_preprint`; identify `D 0` with `Dfs` by uniqueness of the derivative at the smooth point
 `0`; `B`'s `IsInGoodPositionSc` gives `A`'s `IsInGoodPosition`, `isInGoodPosition_of_sc` below).
 But `A` only produces an *algebraic* good complement `Y` (`IsGoodComplement`: `IsCompl K Y` on
 level `0`), while `B` (Definition 3.21 of the text) requires `Y` to be an *sc-complement*
@@ -38,11 +38,11 @@ open Polyfold
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.theorem_3_47_sc_smooth) ∧ (type_of% @Polyfold.theorem_3_47) ∧
+  (type_of% @Polyfold.theorem_3_5_11_sc_smooth) ∧ (type_of% @Polyfold.theorem_3_5_11) ∧
     (type_of% @Polyfold.StabilityData.scDerivGerm_pushMap₀)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_47_sc_smooth, @Polyfold.theorem_3_47,
+  ⟨@Polyfold.theorem_3_5_11_sc_smooth, @Polyfold.theorem_3_5_11,
     @Polyfold.StabilityData.scDerivGerm_pushMap₀⟩
 
 /-- Glue (hypothesis side of `A → B`): the blind good position (sc-complement) gives the project's

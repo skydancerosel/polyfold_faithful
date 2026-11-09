@@ -3,27 +3,27 @@ import Polyfold.Chapter2.Tame
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.5,
-Definitions 2.50–2.53 and the statements around Definitions 2.47–2.54 (the local strong bundle
+Definitions 2.6.4–2.6.7 (preprint 2.50–2.53) and the statements around Definitions 2.47–2.54 (the local strong bundle
 retracts, `K[i]`, sections, the strong bundle charts and atlases, the M-polyfold `Y[0]`, the
-pull-back), with the local construction of the proof of Proposition 2.54.
+pull-back), with the local construction of the proof of Proposition 2.6.8 (preprint 2.54).
 
 # Strong bundles
 
 ## The text, paraphrased
 
-(After Definition 2.47) A strong bundle retraction has the form `R(u, h) = (r(u), Γ(u, h))` with
+(After Definition 2.6.1 (preprint 2.47)) A strong bundle retraction has the form `R(u, h) = (r(u), Γ(u, h))` with
 `r : U → U` an sc-smooth retraction; for `r(u) = u` the map `h ↦ Γ(u, h)` is a projection (an
-sc-projection at smooth points).  (After Definition 2.48)
+sc-projection at smooth points).  (After Definition 2.6.2 (preprint 2.48))
 `K_{m,k} = {(u, h) ∈ O_m ⊕ F_k | Γ(u, h) = h}`,
 `K[i]` with the filtrations `K_{m,m+i}`; the projections `p : K[i] → O` are sc-smooth.
-(Definition 2.50) A strong bundle chart for a continuous surjection `P : Y → X` (Y paracompact
+(Definition 2.6.4 (preprint 2.50)) A strong bundle chart for a continuous surjection `P : Y → X` (Y paracompact
 Hausdorff, Banachable fibres) is `(Φ, P⁻¹(V), K, U ◁ F)`: a homeomorphism `Φ : P⁻¹(V) → K` covering
 a homeomorphism `φ : V → O`, bounded linear on the fibres; two charts are compatible if
 `(Φ' ∘ Φ⁻¹)[i]` are sc-diffeomorphisms for `i = 0, 1`; strong bundle atlases and their equivalence.
-(Definition 2.51) A strong bundle is `P : Y → X` with an equivalence class of strong bundle atlases;
+(Definition 2.6.5 (preprint 2.51)) A strong bundle is `P : Y → X` with an equivalence class of strong bundle atlases;
 `Y` gets a double filtration `Y_{m,k}` and M-polyfold structures `Y[i]`, `P[i] : Y[i] → X`
-sc-smooth.  (Definition 2.52) Sections, sc-smooth sections (into `Y[0]`), sc⁺-sections (into
-`Y[1]`).  (Definition 2.53) The pull-back `f*Y = {(z, y) | P(y) = f(z)}`.  (Proposition 2.54) It
+sc-smooth.  (Definition 2.6.6 (preprint 2.52)) Sections, sc-smooth sections (into `Y[0]`), sc⁺-sections (into
+`Y[1]`).  (Definition 2.6.7 (preprint 2.53)) The pull-back `f*Y = {(z, y) | P(y) = f(z)}`.  (Proposition 2.6.8 (preprint 2.54)) It
 carries a natural strong bundle structure ("the easy proof is left to the reader").
 
 ## What is formalized
@@ -40,16 +40,16 @@ carries a natural strong bundle structure ("the easy proof is left to the reader
   sc-smooth retracts, `toScRetractionOne_retract`), `isScSmoothRetractMap_fst`,
   `isScSmoothRetractMap_fst_one` (`p : K[i] → O` sc-smooth), `isScSmoothRetractMap_shiftIncl`
   (`K[1] → K[0]` sc-smooth), and `IsScPlusSection.isScSmoothSection` (an sc⁺-section is sc-smooth).
-* `Polyfold.StrongBundleChart` (**Definition 2.50**), with `StrongBundleChart.Compatible`,
+* `Polyfold.StrongBundleChart` (**Definition 2.6.4 (preprint 2.50)**), with `StrongBundleChart.Compatible`,
   `StrongBundleChart.continuous_fiber` (boundedness on the fibres is automatic),
   `Polyfold.StrongBundleAtlas` and `StrongBundleAtlas.Equiv`; `Polyfold.StrongBundle`
-  (**Definition 2.51**), `StrongBundle.toMPolyfold0` (the M-polyfold `Y[0]`, charts
+  (**Definition 2.6.5 (preprint 2.51)**), `StrongBundle.toMPolyfold0` (the M-polyfold `Y[0]`, charts
   `StrongBundleChart.toMChart`), `StrongBundle.isScSmoothMap_proj` (`P[0] : Y[0] → X` is
   sc-smooth), `StrongBundle.doubleLevel` (`Y_{m,k}`).
 * `Polyfold.IsSection`, `StrongBundle.IsScSmoothSection`, `StrongBundle.IsScPlusSection`
-  (**Definition 2.52**); `Polyfold.pullbackSpace`, `pullbackProj`, `pullbackProj'`, `pullback_comm`
-  (**Definition 2.53**).
-* The local content of **Proposition 2.54**: `pullbackRetraction` (`R_g(w, h) = (r'(w),
+  (**Definition 2.6.6 (preprint 2.52)**); `Polyfold.pullbackSpace`, `pullbackProj`, `pullbackProj'`, `pullback_comm`
+  (**Definition 2.6.7 (preprint 2.53)**).
+* The local content of **Proposition 2.6.8 (preprint 2.54)**: `pullbackRetraction` (`R_g(w, h) = (r'(w),
   Γ(g(r'(w)), h))`), `isStrongBundleRetraction_pullback` and `pullback_image`
   (`R_g(U' ◁ F) = {(w, h) | w ∈ O', (g(w), h) ∈ K}`), `isStrongBundleRetract_pullback`.
 
@@ -63,7 +63,7 @@ carries a natural strong bundle structure ("the easy proof is left to the reader
   without this the strong bundle charts would define their own structure on `X`.
 * "Bounded linear on the fibres" is `fiber_linear`; continuity follows from `Φ` being a
   homeomorphism (`continuous_fiber`).
-* "sc-diffeomorphisms" in Definition 2.50 is read as: both `(Φ' ∘ Φ⁻¹)[i]` and `(Φ ∘ Φ'⁻¹)[i]` are
+* "sc-diffeomorphisms" in Definition 2.6.4 (preprint 2.50) is read as: both `(Φ' ∘ Φ⁻¹)[i]` and `(Φ ∘ Φ'⁻¹)[i]` are
   sc-smooth between the retracts `Φ(P⁻¹(V ∩ V'))[i]` and `Φ'(P⁻¹(V ∩ V'))[i]` (they are inverse to
   each other there).  `[1]` is formalized with `shiftFiber` and `strongShiftOne`; that
   `(Φ' ∘ Φ⁻¹)[1]` is the restriction of `Φ' ∘ Φ⁻¹` to `K[1]` (fibre components in `F₁` go to
@@ -79,8 +79,8 @@ carries a natural strong bundle structure ("the easy proof is left to the reader
 
 ## Elsewhere, and not formalized
 
-* Proposition 2.54 as a statement about strong bundles is `Polyfold.proposition_2_54` in
-  `StrongBundlePullback.lean` (it needs the metrizability of Theorem 2.16 for the paracompactness
+* Proposition 2.6.8 (preprint 2.54) as a statement about strong bundles is `Polyfold.proposition_2_6_8` in
+  `StrongBundlePullback.lean` (it needs the metrizability of Theorem 2.3.10 (preprint 2.16) for the paracompactness
   of `f*Y`); its local content is `isStrongBundleRetract_pullback` here.
 * `P[1] : Y[1] → X` sc-smooth is `StrongBundle.isScSmoothMap_proj1` in `StrongBundleOne.lean`;
   strong bundle isomorphisms, the category `SBR` and the forgetful functors are not formalized
@@ -249,7 +249,7 @@ lemma mapsTo_fst (hR : IsStrongBundleRetraction U R) {p : E 0 × F 0} (hp : p �
     (R p).1 ∈ U := (hR.mapsTo hp).1
 
 /-- The base retraction `r : U → U` of a strong bundle retraction `R(u, h) = (r(u), Γ(u, h))`
-is an sc-smooth retraction (Definition 2.47). -/
+is an sc-smooth retraction (Definition 2.6.1 (preprint 2.47)). -/
 def baseRetraction (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R) :
     ScRetraction E C where
   U := U
@@ -278,7 +278,7 @@ lemma baseRetraction_apply (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundle
     (u : E 0) : hR.baseRetraction hU u = (R (u, 0)).1 := rfl
 
 /-- **Lemma 5.A (1)**: for `u ∈ O = r(U)`, `h ↦ Γ(u, h)` is a projection: `Γ(u, Γ(u, h)) = Γ(u, h)`
-(the text's remark after Definition 2.47). -/
+(the text's remark after Definition 2.6.1 (preprint 2.47)). -/
 theorem fiber_idem (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R) {u : E 0}
     (hu : u ∈ (hR.baseRetraction hU).retract) (h : F 0) :
     (R (u, (R (u, h)).2)).2 = (R (u, h)).2 := by
@@ -438,7 +438,7 @@ theorem isScSmoothRetractMap_shiftIncl (hK : IsStrongBundleRetract C K) :
 
 end IsStrongBundleRetract
 
-/-- An **sc⁺-section is an sc-smooth section** (the remark after Definition 2.49): composing with
+/-- An **sc⁺-section is an sc-smooth section** (the remark after Definition 2.6.3 (preprint 2.49)): composing with
 `K[1] → K[0]`. -/
 theorem IsScPlusSection.isScSmoothSection {C O : Set (E 0)} {K : Set (E 0 × F 0)}
     (hK : IsStrongBundleRetract C K) {f : E 0 → E 0 × F 1}
@@ -447,14 +447,14 @@ theorem IsScPlusSection.isScSmoothSection {C O : Set (E 0)} {K : Set (E 0 × F 0
   fst_eq x hx := hf.fst_eq x hx
   isScSmooth := hK.isScSmoothRetractMap_shiftIncl.comp hf.isScSmooth hK.isScRetract_one
 
-/-! ### The pulled-back strong bundle retraction (the local content of Proposition 2.54) -/
+/-! ### The pulled-back strong bundle retraction (the local content of Proposition 2.6.8 (preprint 2.54)) -/
 
 section Pullback
 
 variable {E' : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0} {C' : Set (E' 0)}
 
 /-- The pulled-back strong bundle retraction `R_g(w, h) = (r'(w), Γ(g(r'(w)), h))` on `U' ◁ F`, for
-a retraction `r' : U' → U'` and a map `g : O' → O` (exposition, proof of Proposition 2.54). -/
+a retraction `r' : U' → U'` and a map `g : O' → O` (exposition, proof of Proposition 2.6.8 (preprint 2.54)). -/
 def pullbackRetraction (R : E 0 × F 0 → E 0 × F 0) (R' : ScRetraction E' C') (g : E' 0 → E 0) :
     E' 0 × F 0 → E' 0 × F 0 :=
   fun p => (R' p.1, (R (g (R' p.1), p.2)).2)
@@ -472,7 +472,7 @@ lemma pullback_mem_U {w : E' 0} (hw : w ∈ R'.U) : g (R' w) ∈ U :=
   (hR.baseRetraction hU).retract_subset (pullback_mem_O hU hR R' hg hw)
 
 include hg in
-/-- **Proposition 2.54**, the local construction: `R_g` is a strong bundle retraction on
+/-- **Proposition 2.6.8 (preprint 2.54)**, the local construction: `R_g` is a strong bundle retraction on
 `U' ◁ F` (it preserves the double filtration, is linear in the fibre, sc-smooth on `[0]` and
 `[1]`, and `R_g ∘ R_g = R_g` because `Γ(o, ·)` is a projection for `o ∈ O`). -/
 theorem isStrongBundleRetraction_pullback :
@@ -533,7 +533,7 @@ theorem isStrongBundleRetraction_pullback :
     rw [R'.idem _ hp.1, hR.fiber_idem hU ho]
 
 include hg in
-/-- **Proposition 2.54**, the local construction: the image of `R_g` is
+/-- **Proposition 2.6.8 (preprint 2.54)**, the local construction: the image of `R_g` is
 `K_g = {(w, h) | w ∈ O', (g(w), h) ∈ K}`, the pull-back of `K` along `g`. -/
 theorem pullback_image :
     pullbackRetraction R R' g '' (R'.U ×ˢ univ) =
@@ -564,7 +564,7 @@ theorem isStrongBundleRetract_pullback :
 
 end Pullback
 
-/-! ### Strong bundles over M-polyfolds (Definitions 2.50–2.53) -/
+/-! ### Strong bundles over M-polyfolds (Definitions 2.6.4–2.6.7 (preprint 2.50–2.53)) -/
 
 /-- A topological vector space is **Banachable** if it is linearly homeomorphic to a Banach space
 (its topology comes from a complete norm). -/
@@ -580,7 +580,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (PX 
   {Y : Type v} [TopologicalSpace Y] (P : Y → X)
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})]
 
-/-- **Definition 2.50**: a **strong bundle chart** `(Φ, P⁻¹(V), K, U ◁ F)` for `P : Y → X`: a chart
+/-- **Definition 2.6.4 (preprint 2.50)**: a **strong bundle chart** `(Φ, P⁻¹(V), K, U ◁ F)` for `P : Y → X`: a chart
 `φ : V → O` of `X`, a strong bundle retraction `R(u, h) = (r(u), Γ(u, h))` on `U ◁ F` with
 `r(U) = O` and image `K = R(U ◁ F)`, and a homeomorphism `Φ : P⁻¹(V) → K` covering `φ`
 (`p ∘ Φ = φ ∘ P`) which is linear on the fibres `P⁻¹(x) → p⁻¹(φ(x))` (bounded, since `Φ` is a
@@ -661,7 +661,7 @@ def overlap (c' : StrongBundleChart PX P) : Set (c.φ.model.E 0 × c.F 0) :=
 def transition (c' : StrongBundleChart PX P) : c.φ.model.E 0 × c.F 0 → c'.φ.model.E 0 × c'.F 0 :=
   c'.toPartialEquiv ∘ c.toPartialEquiv.symm
 
-/-- **Definition 2.50**: two strong bundle charts are **compatible** if the transition maps
+/-- **Definition 2.6.4 (preprint 2.50)**: two strong bundle charts are **compatible** if the transition maps
 `(Φ' ∘ Φ⁻¹)[i] : Φ(P⁻¹(V ∩ V'))[i] → Φ'(P⁻¹(V ∩ V'))[i]` are sc-smooth (hence, with the reverse
 transition, sc-diffeomorphisms) for `i = 0, 1`.  For `(Φ' ∘ Φ⁻¹)[1]` to be the restriction of
 `Φ' ∘ Φ⁻¹` to `K[1]`, the transition must map points with fibre component in `F₁` to points with
@@ -702,7 +702,7 @@ lemma base_K :
 
 end StrongBundleChart
 
-/-- **Definition 2.50**: a **strong bundle atlas**: pairwise compatible strong bundle charts whose
+/-- **Definition 2.6.4 (preprint 2.50)**: a **strong bundle atlas**: pairwise compatible strong bundle charts whose
 domains cover `Y`; two atlases are equivalent if their union is an atlas. -/
 structure StrongBundleAtlas where
   charts : Set (StrongBundleChart PX P)
@@ -714,7 +714,7 @@ variable {PX P} in
 def StrongBundleAtlas.Equiv (A B : StrongBundleAtlas PX P) : Prop :=
   ∃ D : StrongBundleAtlas PX P, D.charts = A.charts ∪ B.charts
 
-/-- **Definition 2.51**: a **strong bundle** over the M-polyfold `X`: a continuous surjection
+/-- **Definition 2.6.5 (preprint 2.51)**: a **strong bundle** over the M-polyfold `X`: a continuous surjection
 `P : Y → X` from a paracompact Hausdorff space, with Banachable fibres, equipped with (an
 equivalence class of, represented by) a strong bundle atlas. -/
 structure StrongBundle [T2Space Y] [ParacompactSpace Y] where
@@ -723,7 +723,7 @@ structure StrongBundle [T2Space Y] [ParacompactSpace Y] where
   banachable : ∀ x, IsBanachable (P ⁻¹' {x})
   atlas : StrongBundleAtlas PX P
 
-/-- **Definition 2.52**: a **section** of `P : Y → X` is a map `f : X → Y` with `P ∘ f = 1_X`. -/
+/-- **Definition 2.6.6 (preprint 2.52)**: a **section** of `P : Y → X` is a map `f : X → Y` with `P ∘ f = 1_X`. -/
 def IsSection (f : X → Y) : Prop := ∀ x, P (f x) = x
 
 namespace StrongBundle
@@ -740,14 +740,14 @@ def atlas0 : MAtlas Y where
     obtain ⟨c, hc, hy⟩ := B.atlas.cover y
     exact ⟨_, ⟨c, hc, rfl⟩, hy⟩
 
-/-- The M-polyfold `Y[0]` (after Definition 2.51), with the charts `Φ : P⁻¹(V) → K = K[0]`. -/
+/-- The M-polyfold `Y[0]` (after Definition 2.6.5 (preprint 2.51)), with the charts `Φ : P⁻¹(V) → K = K[0]`. -/
 def toMPolyfold0 : MPolyfold Y := ⟨B.atlas0⟩
 
 lemma isChart_toMChart {c : StrongBundleChart PX P} (hc : c ∈ B.atlas.charts) :
     B.toMPolyfold0.IsChart (c.toMChart B.continuous) :=
   B.toMPolyfold0.isChart_of_mem ⟨c, hc, rfl⟩
 
-/-- **After Definition 2.51**: the projection `P[0] : Y[0] → X` is sc-smooth; in the charts `Φ`
+/-- **After Definition 2.6.5 (preprint 2.51)**: the projection `P[0] : Y[0] → X` is sc-smooth; in the charts `Φ`
 and `φ` it is the projection `p : K → O` (Lemma 5.B). -/
 theorem isScSmoothMap_proj : B.toMPolyfold0.IsScSmoothMap PX P := by
   refine MPolyfold.IsScSmoothOn.of_exists_charts isOpen_univ B.continuous.continuousOn
@@ -769,14 +769,14 @@ theorem isScSmoothMap_proj : B.toMPolyfold0.IsScSmoothMap PX P := by
     rw [c.toPartialEquiv.right_inv hk'] at this
     exact this
 
-/-- The double filtration `Y_{m,k}` (after Definition 2.51), `0 ≤ k ≤ m + 1`: `y ∈ Y_{m,k}` if
+/-- The double filtration `Y_{m,k}` (after Definition 2.6.5 (preprint 2.51)), `0 ≤ k ≤ m + 1`: `y ∈ Y_{m,k}` if
 `Φ(y) ∈ K_{m,k} = K ∩ (E_m ⊕ F_k)` in the charts of the atlas around `y`. -/
 def doubleLevel (m k : ℕ) : Set Y :=
   {y | ∀ c ∈ B.atlas.charts, y ∈ c.toPartialEquiv.source →
     (c y).1 ∈ range (c.φ.model.E.toBase m) ∧ (c y).2 ∈ range (c.F.toBase k)}
 
-/-- **Definition 2.52**: an **sc-smooth section** is a section which is sc-smooth as a map into the
-M-polyfold `Y[0]` (Definition 2.14). -/
+/-- **Definition 2.6.6 (preprint 2.52)**: an **sc-smooth section** is a section which is sc-smooth as a map into the
+M-polyfold `Y[0]` (Definition 2.3.8 (preprint 2.14)). -/
 def IsScSmoothSection (f : X → Y) : Prop :=
   IsSection P f ∧ PX.IsScSmoothMap B.toMPolyfold0 f
 
@@ -786,7 +786,7 @@ def localRepOne (c : StrongBundleChart PX P) (f : X → Y) :
     c.φ.model.E 0 → (c.φ.model.E.prod c.F.shift) 0 :=
   fun z => ((c (f (c.φ.symm z))).1, Function.invFun (c.F.toBase 1) (c (f (c.φ.symm z))).2)
 
-/-- **Definition 2.52**: an **sc⁺-section** is a section which is sc-smooth as a map into `Y[1]`:
+/-- **Definition 2.6.6 (preprint 2.52)**: an **sc⁺-section** is a section which is sc-smooth as a map into `Y[1]`:
 in every strong bundle chart its principal part takes values in `F₁` and its representative
 `O → K[1]` (the chart `Φ[1]` of `Y[1]`) is sc-smooth. -/
 def IsScPlusSection (f : X → Y) : Prop :=
@@ -799,7 +799,7 @@ end StrongBundle
 
 end StrongBundleDefs
 
-/-- **Definition 2.53**: the **pull-back** `f*Y = {(z, y) ∈ Z × Y | P(y) = f(z)}` of `P : Y → X`
+/-- **Definition 2.6.7 (preprint 2.53)**: the **pull-back** `f*Y = {(z, y) ∈ Z × Y | P(y) = f(z)}` of `P : Y → X`
 along `f : Z → X`, with `P_f(z, y) = z` and `P'(z, y) = y`, so that `P ∘ P' = f ∘ P_f`. -/
 def pullbackSpace {X Y Z : Type*} (P : Y → X) (f : Z → X) : Set (Z × Y) :=
   {p | P p.2 = f p.1}
@@ -810,7 +810,7 @@ def pullbackProj {X Y Z : Type*} (P : Y → X) (f : Z → X) : pullbackSpace P f
 /-- The projection `P' : f*Y → Y`. -/
 def pullbackProj' {X Y Z : Type*} (P : Y → X) (f : Z → X) : pullbackSpace P f → Y := fun p => p.1.2
 
-/-- The square of Definition 2.53 commutes: `P ∘ P' = f ∘ P_f`. -/
+/-- The square of Definition 2.6.7 (preprint 2.53) commutes: `P ∘ P' = f ∘ P_f`. -/
 theorem pullback_comm {X Y Z : Type*} (P : Y → X) (f : Z → X) :
     P ∘ pullbackProj' P f = f ∘ pullbackProj P f := funext fun p => p.2
 

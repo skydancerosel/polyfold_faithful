@@ -138,7 +138,7 @@ end SBLocalization
 its orbits are points, so an orbit-preserving `β` is the identity, the action of `1`. -/
 theorem EpGroupoid.Examples.isLR_trivialZ3 : trivialZ3EpGroupoid.IsLR := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β β' _ hπ => ⟨1, fun y hy => ?_⟩⟩
   obtain ⟨φ, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ y hy)
   rw [R.Φ_one y hy]
@@ -199,7 +199,7 @@ theorem not_theorem_10_3_19 : ¬ EPLoc.Theorem_10_3_19.{0} := fun h =>
 property** (Definition 8.4.2): its orbits are points. -/
 theorem isLR_z3EpBundle (k : ℕ) : (z3EpBundle k).IsLR := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β Φ hΦ _ hπ => ⟨1, fun w hw => ?_⟩⟩
   obtain ⟨q, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ w hw)
   exact h1.symm.trans h2

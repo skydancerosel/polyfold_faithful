@@ -3,13 +3,13 @@ import Polyfold.Chapter3.NonVacuity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), §5.3, p. 174 (after
-Lemma 5.11): the allowable sections `Γ^{+,1}_U(P)` and the uniform distance `ρ`.
+Lemma 5.3.3 (preprint 5.11)): the allowable sections `Γ^{+,1}_U(P)` and the uniform distance `ρ`.
 
 # The metric space `(Γ^{+,1}_U(P), ρ)`, and when it is not complete
 
 ## The text, paraphrased
 
-For an auxiliary norm `N` (Definition 5.1) and an open `U ⊆ X`, `Γ^{+,1}_U(P)` is the set of
+For an auxiliary norm `N` (Definition 5.1.1 (preprint 5.1)) and an open `U ⊆ X`, `Γ^{+,1}_U(P)` is the set of
 sc⁺-sections `s` with `supp(s) ⊆ U` and `N(s(x)) ≤ 1` for all `x`.  It "becomes a metric space
 with respect to the uniform distance `ρ(s, s') = sup_x N(s(x) − s'(x))`.  The metric space
 `(Γ^{+,1}_U(P), ρ)` is not complete."  No proof or example is given (comparison item V5.21, gap
@@ -21,7 +21,7 @@ G.42).
   the project's pointwise distance `StrongBundle.sectionDistAt`.  For an auxiliary norm the
   supremum is finite, `ρ ≤ 2` (`allowableDist_le_two`: `N(s(x) − s'(x)) ≤ N(s(x)) + N(s'(x))`),
   and `ρ` is a metric: `allowableDist_self`, `allowableDist_comm`, `allowableDist_triangle`,
-  `eq_of_allowableDist_eq_zero` (the last from "`N` is a norm on the fibres", Definition 5.1 (1)).
+  `eq_of_allowableDist_eq_zero` (the last from "`N` is a norm on the fibres", Definition 5.1.1 (preprint 5.1) (1)).
   `StrongBundle.allowableMetric U hN` is the metric space structure on `Γ^{+,1}_U(P)`, and
   `StrongBundle.AllowableSpace U hN` is `Γ^{+,1}_U(P)` as a type carrying it.
 * **Not complete, on the trivial bundle `ℝ × ℝ → ℝ`** (`TrivialBundle.bundle 1 1`, the bundle of
@@ -45,7 +45,7 @@ G.42).
 * "Not complete" is proved for one bundle; a general sufficient condition (e.g. `U` contains a
   non-isolated point over which the fibre is nonzero) is not formalized.  The two complete cases
   show that some hypothesis of this kind is needed.
-* The text uses `ρ` only through "dense in `(Γ^{+,1}_U(P), ρ)`" (Theorems 5.13, 5.18), which the
+* The text uses `ρ` only through "dense in `(Γ^{+,1}_U(P), ρ)`" (Theorems 5.3.5, 5.3.10 (preprint 5.13, 5.18)), which the
   project states with the pointwise bound `N(s(x) − s'(x)) ≤ ε` (`sectionDistAt`); that bound is
   `ρ(s, s') ≤ ε` (`allowableDist_le_iff`).
 -/
@@ -82,7 +82,7 @@ lemma allowableVal_le_one (s : B.allowableSections N U) (x : X) :
     N (B.toOne (allowableVal s x)) ≤ 1 :=
   s.2.2.2 x (s.2.1.mem_oneSet x)
 
-/-- `N(−v) = N(v)` on the fibres (Definition 5.1 (1)). -/
+/-- `N(−v) = N(v)` on the fibres (Definition 5.1.1 (preprint 5.1) (1)). -/
 lemma IsAuxNorm.neg (hN : B.IsAuxNorm N) {x : X} (v : B.oneFiber x) :
     N (B.toOne (-v)) = N (B.toOne v) := by
   have := (hN.fiber x).smul (-1) v
@@ -275,7 +275,7 @@ lemma fst_fiber {x : Fin n → ℝ} (v : proj n k ⁻¹' {x}) :
 /-- **The fibre norm** `N(x, v) = |v|` on `Y[1]` of the trivial bundle. -/
 def fibNorm : (bundle n k).One → ℝ := fun w => ‖((bundle n k).oneVal w).2‖
 
-/-- **The fibre norm is an auxiliary norm** (Definition 5.1). -/
+/-- **The fibre norm is an auxiliary norm** (Definition 5.1.1 (preprint 5.1)). -/
 theorem isAuxNorm_fibNorm : (bundle n k).IsAuxNorm (fibNorm (n := n) (k := k)) where
   continuous := (continuous_norm.comp continuous_snd).comp (bundle n k).continuous_oneVal
   fiber x :=
@@ -368,7 +368,7 @@ theorem isScPlusSection_graphSection {φ : (Fin n → ℝ) → (Fin k → ℝ)} 
 
 /-- **Every sc⁺-section of the trivial bundle has a differentiable fibre part**: in the chart
 `Φ = id`, its representative `z ↦ (z, s(z)₂)` is sc-smooth into `ℝⁿ ⊕ (ℝᵏ)¹`, hence `C¹`
-(Proposition 1.18). -/
+(Proposition 1.2.3 (preprint 1.18)). -/
 theorem differentiable_snd_of_isScPlusSection {s : (Fin n → ℝ) → (Fin n → ℝ) × (Fin k → ℝ)}
     (hs : (bundle n k).IsScPlusSection s) : Differentiable ℝ fun x => (s x).2 := by
   obtain ⟨-, h⟩ := hs.2 (chart 0) (mem_range_self 0)

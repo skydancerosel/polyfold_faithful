@@ -1,0 +1,355 @@
+{
+ "note": "Main statements of the reviewer checklist, by tier (full Lean names). TrustedBase.lean lists the same names; keep the two in step.",
+ "tiers": [
+  {
+   "key": "core",
+   "title": "Part I core: sc-calculus, M-polyfolds, Fredholm theory, transversality",
+   "mains": [
+    [
+     "Prop 1.1.11",
+     "Polyfold.proposition_1_1_11"
+    ],
+    [
+     "Thm 1.3.1",
+     "Polyfold.theorem_1_3_1"
+    ],
+    [
+     "Thm 1.3.5",
+     "Polyfold.theorem_1_3_5"
+    ],
+    [
+     "Thm 2.1.15",
+     "Polyfold.theorem_2_1_15"
+    ],
+    [
+     "Thm 2.3.10",
+     "Polyfold.theorem_2_3_10"
+    ],
+    [
+     "Thm 2.3.16",
+     "Polyfold.theorem_2_3_16"
+    ],
+    [
+     "Thm 2.4.12",
+     "Polyfold.theorem_2_4_12"
+    ],
+    [
+     "Thm 2.5.17",
+     "Polyfold.MPolyfold.theorem_2_5_17_interior"
+    ],
+    [
+     "Thm 2.5.17",
+     "Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face"
+    ],
+    [
+     "Thm 2.5.17",
+     "Polyfold.MPolyfold.theorem_2_5_17_isTame_face"
+    ],
+    [
+     "Thm 3.1.13",
+     "Polyfold.theorem_3_1_13"
+    ],
+    [
+     "Thm 3.1.18",
+     "Polyfold.theorem_3_1_18"
+    ],
+    [
+     "Thm 3.1.21",
+     "Polyfold.theorem_3_1_21"
+    ],
+    [
+     "Thm 3.1.22",
+     "Polyfold.theorem_3_1_22_2021def"
+    ],
+    [
+     "Thm 3.1.26",
+     "Polyfold.theorem_3_1_26_2021def"
+    ],
+    [
+     "Cor 3.1.27",
+     "Polyfold.corollary_3_1_27_2021def"
+    ],
+    [
+     "Thm 3.2.3",
+     "Polyfold.theorem_3_2_3_2021def"
+    ],
+    [
+     "Thm 3.6.8",
+     "Polyfold.theorem_3_6_8_2021def"
+    ],
+    [
+     "Thm 3.6.10",
+     "Polyfold.theorem_3_6_10_2021def"
+    ],
+    [
+     "Thm 3.6.11",
+     "Polyfold.theorem_3_6_11_2021def"
+    ],
+    [
+     "Thm 4.1.2",
+     "Polyfold.MPolyfold.theorem_4_1_2"
+    ],
+    [
+     "Thm 4.2.7",
+     "Polyfold.MPolyfold.theorem_4_2_7"
+    ],
+    [
+     "Thm 4.2.11",
+     "Polyfold.MPolyfold.theorem_4_2_11"
+    ],
+    [
+     "Thm 4.3.1",
+     "Polyfold.theorem_4_3_1"
+    ],
+    [
+     "Cor 5.2.5",
+     "Polyfold.corollary_5_2_5_2021def"
+    ],
+    [
+     "Thm 5.3.5",
+     "Polyfold.theorem_5_3_5_2021def"
+    ],
+    [
+     "Thm 5.3.10",
+     "Polyfold.theorem_5_3_10_book_2021def"
+    ],
+    [
+     "Thm 5.3.12",
+     "Polyfold.theorem_5_3_12_book_2021def"
+    ],
+    [
+     "Prop 6.2.2",
+     "Polyfold.proposition_6_2_2_interval_2021def"
+    ]
+   ]
+  },
+  {
+   "key": "orientation",
+   "title": "Orientation (Chapter 6)",
+   "mains": [
+    [
+     "Thm 6.6.11",
+     "Polyfold.theorem_6_6_11"
+    ],
+    [
+     "Thm 6.6.13",
+     "Polyfold.theorem_6_6_13"
+    ],
+    [
+     "Thm 6.6.17",
+     "Polyfold.theorem_6_6_17"
+    ],
+    [
+     "Thm 6.6.18",
+     "Polyfold.theorem_6_6_18"
+    ]
+   ]
+  },
+  {
+   "key": "partII",
+   "title": "Part II: ep-groupoids, polyfolds, Fredholm theory on polyfolds",
+   "mains": [
+    [
+     "Thm 7.1.13",
+     "Polyfold.EpGroupoid.theorem_7_1_13"
+    ],
+    [
+     "Thm 7.2.14",
+     "Polyfold.EpGroupoid.theorem_7_2_14"
+    ],
+    [
+     "Thm 7.3.1",
+     "Polyfold.EpGroupoid.theorem_7_3_1"
+    ],
+    [
+     "Cor 7.3.6",
+     "Polyfold.EpGroupoid.corollary_7_3_6"
+    ],
+    [
+     "Thm 7.5.4",
+     "Polyfold.EpGroupoid.theorem_7_5_4"
+    ],
+    [
+     "Thm 7.5.7",
+     "Polyfold.EpGroupoid.theorem_7_5_7"
+    ],
+    [
+     "Thm 7.6.1",
+     "Polyfold.EpGroupoid.theorem_7_6_1"
+    ],
+    [
+     "Thm 8.1.1",
+     "Polyfold.EpGroupoid.theorem_8_1_1"
+    ],
+    [
+     "Thm 8.1.11",
+     "Polyfold.EpFunctor.theorem_8_1_11"
+    ],
+    [
+     "Thm 8.1.12",
+     "Polyfold.theorem_8_1_12"
+    ],
+    [
+     "Thm 8.1.15",
+     "Polyfold.EpGroupoid.theorem_8_1_15"
+    ],
+    [
+     "Thm 8.5.3",
+     "Polyfold.EpFunctor.theorem_8_5_3"
+    ],
+    [
+     "Thm 8.5.8",
+     "Polyfold.EpFunctor.theorem_8_5_8"
+    ],
+    [
+     "Prop 9.1.11",
+     "Polyfold.EpGroupoid.proposition_9_1_11_unique"
+    ],
+    [
+     "Thm 9.2.1",
+     "Polyfold.EpGroupoid.theorem_9_2_1"
+    ],
+    [
+     "Thm 10.1.7",
+     "Polyfold.EpFunctor.theorem_10_1_7"
+    ],
+    [
+     "Thm 10.2.2",
+     "Polyfold.WeakFibredProduct.theorem_10_2_2"
+    ],
+    [
+     "Thm 10.2.2",
+     "Polyfold.WeakFibredProduct.theorem_10_2_2_both"
+    ],
+    [
+     "Thm 10.3.8",
+     "Polyfold.EPLocalization.Diagram.theorem_10_3_8"
+    ],
+    [
+     "Thm 10.3.10",
+     "Polyfold.EPLocalization.EPLoc.theorem_10_3_10"
+    ],
+    [
+     "Thm 10.3.14",
+     "Polyfold.EPLocalization.EPLoc.theorem_10_3_14"
+    ],
+    [
+     "Thm 10.3.15",
+     "Polyfold.EPLocalization.EPLoc.theorem_10_3_15"
+    ],
+    [
+     "Thm 10.3.21",
+     "Polyfold.EPLocalization.EPLoc.theorem_10_3_21"
+    ],
+    [
+     "Thm 10.5.7",
+     "Polyfold.SBLocalization.theorem_10_5_7_of_isEffective"
+    ],
+    [
+     "Thm 11.1.1",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_1_1"
+    ],
+    [
+     "Thm 11.3.3",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_3_one"
+    ],
+    [
+     "Thm 11.3.3",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_3_two"
+    ],
+    [
+     "Thm 11.3.3",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_3_three"
+    ],
+    [
+     "Thm 11.3.3",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_3_four"
+    ],
+    [
+     "Thm 11.3.3",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_3_five"
+    ],
+    [
+     "Thm 11.3.3",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_3_six"
+    ],
+    [
+     "Thm 11.3.5",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_5_push"
+    ],
+    [
+     "Thm 11.3.5",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_5_pull"
+    ],
+    [
+     "Thm 11.3.7",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_7_push"
+    ],
+    [
+     "Thm 11.3.7",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_7_pull"
+    ],
+    [
+     "Thm 11.3.8",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_8_push"
+    ],
+    [
+     "Thm 11.3.8",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_8_pull"
+    ],
+    [
+     "Thm 11.3.9",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_9_push_boundaryOrientation"
+    ],
+    [
+     "Thm 11.3.9",
+     "Polyfold.EPLocalization.EPLoc.theorem_11_3_9_pull_boundaryOrientation"
+    ],
+    [
+     "Thm 11.6.6",
+     "Polyfold.ProperCoveringHom.theorem_11_6_6"
+    ]
+   ]
+  },
+  {
+   "key": "tame",
+   "title": "Tame boundary (Theorems 2.7.13 and 7.6.9)",
+   "mains": [
+    [
+     "Thm 2.7.13",
+     "Polyfold.MPolyfold.theorem_2_7_13"
+    ],
+    [
+     "Thm 7.6.9",
+     "Polyfold.EpGroupoid.theorem_7_6_9_full"
+    ]
+   ]
+  }
+ ],
+ "mathlib": [
+  [
+   "Thm 3.1.26",
+   "Polyfold.theorem_3_1_26_isManifold"
+  ],
+  [
+   "Thm 3.2.3",
+   "Polyfold.theorem_3_2_3_isManifold_2021def"
+  ],
+  [
+   "Thm 3.6.8",
+   "Polyfold.theorem_3_6_8_isSubmanifoldOfDim"
+  ],
+  [
+   "Thm 3.6.10",
+   "Polyfold.theorem_3_6_10_isManifold"
+  ],
+  [
+   "Thm 5.3.10",
+   "Polyfold.theorem_5_3_10_isManifold"
+  ],
+  [
+   "Thm 6.6.18",
+   "Polyfold.theorem_6_6_18_isManifold"
+  ]
+ ]
+}

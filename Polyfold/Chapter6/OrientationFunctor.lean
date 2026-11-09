@@ -5,7 +5,7 @@ import Polyfold.Chapter6.PathCategory
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 227–229: **Theorem 6.37** (the functor `Γ_f`) and **Definitions 6.38–6.40** (orientability
+pp. 227–229: **Theorem 6.6.13 (preprint 6.37)** (the functor `Γ_f`) and **Definitions 6.6.14–6.6.16 (preprint 6.38–6.40)** (orientability
 and orientations of sc-Fredholm sections) *(book 2017: Theorem 6.2, Definitions 6.11–6.13; see
 `BookConcordance.md`)*.
 
@@ -13,16 +13,16 @@ and orientations of sc-Fredholm sections) *(book 2017: Theorem 6.2, Definitions 
 
 ## The text, paraphrased
 
-(Theorem 6.37) For a strong bundle `P : Y → X` over a tame M-polyfold `X` and an sc-Fredholm
+(Theorem 6.6.13 (preprint 6.37)) For a strong bundle `P : Y → X` over a tame M-polyfold `X` and an sc-Fredholm
 section `f` there is a uniquely determined functor `Γ_f : PX → O_f`, `x ↦ Or_x^f`, taking the
 class `[φ] : x → y` to a morphism `Γ_f([φ]) : Or_x^f → Or_y^f`, with the property (∗): for a
 smooth point `x`, an sc-smoothly contractible open neighbourhood `U = U(x)` on which `f` has the
 local propagation property and an sc-smooth path `φ : [0, 1] → U`, the local propagation
-`φ_* : Or_{φ(0)}^f → Or_{φ(1)}^f` and `Γ_f([φ])` coincide.  (Definition 6.38) `f` is orientable if
+`φ_* : Or_{φ(0)}^f → Or_{φ(1)}^f` and `Γ_f([φ])` coincide.  (Definition 6.6.14 (preprint 6.38)) `f` is orientable if
 for every pair of smooth points `x`, `y` in the same path component, `Γ_f([φ])` does not depend on
-the homotopy class `[φ] : x → y`.  An equivalent version is Definition 6.39: there is a map
+the homotopy class `[φ] : x → y`.  An equivalent version is Definition 6.6.15 (preprint 6.39): there is a map
 `y ↦ o_y` such that every smooth point has an orientable neighbourhood over which `y ↦ o_y` is
-one of the two continuous orientations.  (Definition 6.40) An orientation of `f` is a map
+one of the two continuous orientations.  (Definition 6.6.16 (preprint 6.40)) An orientation of `f` is a map
 `y ↦ o_y` such that for every smooth point `x` and every orientable neighbourhood `U(x)` the
 restriction to `U(x)_∞` is one of the two continuous orientations.
 
@@ -34,23 +34,23 @@ restriction to `U(x)_∞` is one of the two continuous orientations.
   the path lies in a set with the local propagation property: `HasLocalPropagation.push_compat`
   and `toChartOr_trans`), `orPush_trans`, `orPush_compat`.
 * `orLocalTransport`: the local transport data of `f` (`LocalTransport`, with the good sets
-  `IsPropagationNbhd`, Theorem 6.35), and `orLocalTransport_transport_eq`, property (∗) for the
+  `IsPropagationNbhd`, Theorem 6.6.11 (preprint 6.35)), and `orLocalTransport_transport_eq`, property (∗) for the
   transport along a path.
-* **Theorem 6.37**: `orFunctorMap a` (the text's `Γ_f([φ])`: the transport along `φ`, well defined
+* **Theorem 6.6.13 (preprint 6.37)**: `orFunctorMap a` (the text's `Γ_f([φ])`: the transport along `φ`, well defined
   on classes by its homotopy invariance), `orFunctorMap_mk`, `orFunctorMap_id`,
   `orFunctorMap_comp`, the functor `orFunctor : PathCat PX ⥤ Type`, `x ↦ Or_x^f`;
   `IsStarProperty f hf G` (property (∗) for a family `G` of maps on the morphisms of `PX`, on all
   open sets; `IsStarPropertyOn f hf W G` on the members of a family `W`),
   `orFunctorMap_isStarProperty`, the uniqueness `orFunctorMap_unique` and
   `orFunctorMap_unique_of_cover` ((∗) asked only on a family of open sets with the local
-  propagation property covering `X_∞`), and `theorem_6_37`.
-* **Definition 6.38**: `IsOrientableSection`.  `isOrientableSection_iff_exists`: `f` is orientable
+  propagation property covering `X_∞`), and `theorem_6_6_13_hyp`.
+* **Definition 6.6.14 (preprint 6.38)**: `IsOrientableSection`.  `isOrientableSection_iff_exists`: `f` is orientable
   iff there is a map `y ↦ o_y` with `Γ_f([φ]) o_x = o_y` for all `[φ] : x → y`
   (`exists_apply_eq_of_isOrientableSection`, `isOrientableSection_of_apply_eq`);
-  `isOrientableSection'_iff_exists`: the same for Definition 6.39
+  `isOrientableSection'_iff_exists`: the same for Definition 6.6.15 (preprint 6.39)
   (`orFunctorMap_apply_eq_of_local`, `isContinuousOrientation_of_apply_eq`); **6.38 ⇔ 6.39**:
   `isOrientableSection_iff`.
-* **Definition 6.40**: `isSectionOrientation_iff` (an orientation is a map `y ↦ o_y` with
+* **Definition 6.6.16 (preprint 6.40)**: `isSectionOrientation_iff` (an orientation is a map `y ↦ o_y` with
   `Γ_f([φ]) o_x = o_y` for all `[φ]`), `exists_isSectionOrientation_iff` (`f` has an orientation
   iff it is orientable), `IsSectionOrientation.apply_eq_iff` (two orientations which agree at a
   point agree on its path component) and `IsSectionOrientation.exists_two` (on the path component
@@ -71,7 +71,7 @@ push-forward `e` along `φ` in a chart `c` is compared with them by `toChartOr`
 every chart `c`, every open `U` with the local propagation property in `c`, every sc-smooth path
 `φ` in `U` with smooth end points and every push-forward `e` along `φ` in `c` (`IsPush`); by
 `orFunctorMap_isStarProperty` this property is satisfiable.  The point `x ∈ U` plays no role.  The
-sc-smooth contractibility of `U` is not asked: Proposition 6.28 gives (1′) rather than the
+sc-smooth contractibility of `U` is not asked: Proposition 6.6.3 (preprint 6.28) gives (1′) rather than the
 contractibility of its neighbourhoods (see `OrientableNbhd.lean`), and `Γ_f` has (∗) on every open
 `U` with the local propagation property.  For the uniqueness, (∗) on fewer sets suffices:
 `orFunctorMap_unique_of_cover` asks it only on the members of a family of such open sets covering
@@ -79,7 +79,7 @@ contractibility of its neighbourhoods (see `OrientableNbhd.lean`), and `Γ_f` ha
 `O_f` is read as the category of types: `orFunctor` takes `x` to `Or_x^f` and `[φ]` to the
 bijection `Γ_f([φ])`; "uniquely determined" is read for the maps on morphisms (on objects there is
 no choice), and the uniqueness uses only the composition rule and (∗) (the identities and the
-homotopy invariance follow).  Theorem 6.37 uses the standing hypotheses of Theorem 6.35
+homotopy invariance follow).  Theorem 6.6.13 (preprint 6.37) uses the standing hypotheses of Theorem 6.6.11 (preprint 6.35)
 (tameness, bump functions, a tame sc-Fredholm section) and sc⁺-sections through every point
 (`HasScPlusSectionsThrough`, so that every `Or_x^f` has two elements).
 
@@ -276,7 +276,7 @@ variable [∀ n : ℕ, ParacompactSpace ((Fin n → ℝ) × X)]
   [∀ n : ℕ, ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))]
 
 variable (f) in
-/-- **The good sets of Theorem 6.37**: open sets with the local propagation property
+/-- **The good sets of Theorem 6.6.13 (preprint 6.37)**: open sets with the local propagation property
 (`HasLocalPropagation`) in some chart. -/
 def IsPropagationNbhd (hf : B.IsScFredholmSection f) (U : Set X) : Prop :=
   ∃ (c : StrongBundleChart PX P) (hc : B.IsChart c), IsOpen U ∧ HasLocalPropagation f hf c hc U
@@ -372,7 +372,7 @@ theorem orPush_trans {hf : B.IsScFredholmSection f} {U : Set X} (hU : IsPropagat
   exact equiv_conj_trans_aux _ _ _ _ _
 
 variable (f) in
-/-- **Property (∗) of Theorem 6.37 on a family `W` of sets**, for a family `G` of maps
+/-- **Property (∗) of Theorem 6.6.13 (preprint 6.37) on a family `W` of sets**, for a family `G` of maps
 `Or_x^f ≃ Or_y^f` on the morphisms `x ⟶ y` of `PX`: for every chart `c`, every `U` with `W U` and
 the local propagation property in `c`, every sc-smooth path `φ` in `U` between smooth points `x`,
 `y` and every push-forward `e` along `φ` in `c` (`IsPush`), `G([φ])` is `e` read in the chosen
@@ -391,7 +391,7 @@ def IsStarPropertyOn (hf : B.IsScFredholmSection f) (W : Set X → Prop)
         (toChartOr hf x.smooth c hc hx).trans (e.trans (toChartOr hf y.smooth c hc hy).symm)
 
 variable (f) in
-/-- **Property (∗) of Theorem 6.37**: `IsStarPropertyOn` for all open sets, i.e. for every open
+/-- **Property (∗) of Theorem 6.6.13 (preprint 6.37)**: `IsStarPropertyOn` for all open sets, i.e. for every open
 `U` with the local propagation property in a chart `c` and every push-forward `e` in `c` along an
 sc-smooth path in `U`, `G([φ]) = toChartOr⁻¹ ∘ e ∘ toChartOr`. -/
 abbrev IsStarProperty (hf : B.IsScFredholmSection f)
@@ -399,7 +399,7 @@ abbrev IsStarProperty (hf : B.IsScFredholmSection f)
     Prop :=
   IsStarPropertyOn f hf IsOpen G
 
-/-! ### The local transport data and the functor `Γ_f` (Theorem 6.37) -/
+/-! ### The local transport data and the functor `Γ_f` (Theorem 6.6.13 (preprint 6.37)) -/
 
 section Transport
 
@@ -412,15 +412,15 @@ variable (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) (hf : B.IsScFredholmS
 
 include hX hbump hf hsec
 
-/-- **The local transport data of `f`** (the proof of Theorem 6.37): the good sets are the open
-sets with the local propagation property in some chart (they cover `X_∞` by Theorem 6.35), the
+/-- **The local transport data of `f`** (the proof of Theorem 6.6.13 (preprint 6.37)): the good sets are the open
+sets with the local propagation property in some chart (they cover `X_∞` by Theorem 6.6.11 (preprint 6.35)), the
 push-forwards are `orPush`; any two `Or_x^f` are in bijection (two elements each). -/
 def orLocalTransport :
     LocalTransport PX (fun x hs => Orx f hf.toIsScFredholmSection x hs) where
   Good := IsPropagationNbhd f hf.toIsScFredholmSection
   isOpen hU := hU.choose_spec.choose_spec.1
   exists_good _ hx :=
-    let ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_35 hX hbump hf hx
+    let ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_6_11 hX hbump hf hx
     ⟨U, ⟨c, hc, hUo, hU⟩, hxU⟩
   nonempty _ hs₀ _ hs₁ :=
     let ⟨_, _, ha, ha'⟩ := exists_two_orx hf.toIsScFredholmSection hs₀ hsec
@@ -452,7 +452,7 @@ theorem orLocalTransport_transport_eq {c : StrongBundleChart PX P} {hc : B.IsCha
     (fun _ ht => hγU _ (pt1_mem_Icc ht)) h₀ h₁ hs₀ hs₁).trans
     (orPush_eq _ hγs (fun _ ht => hγU _ (pt1_mem_Icc ht)) h₀ h₁ hs₀ hs₁ hU hγU hx₀ hx₁ he)
 
-/-- **The functor `Γ_f` on morphisms** (Theorem 6.37): `Γ_f([φ]) : Or_x^f ≃ Or_y^f` is the
+/-- **The functor `Γ_f` on morphisms** (Theorem 6.6.13 (preprint 6.37)): `Γ_f([φ]) : Or_x^f ≃ Or_y^f` is the
 transport along `φ` (`LocalTransport.transport`), which depends only on the class `[φ]`
 (`transport_eq_of_isScHomotopyRel`). -/
 def orFunctorMap {x y : PathCat PX} (a : x ⟶ y) :
@@ -487,7 +487,7 @@ theorem orFunctorMap_comp {x y z : PathCat PX} (a : x ⟶ y) (b : y ⟶ z) :
   exact (orLocalTransport hX hbump hf hsec).transport_concatPath φ.isScSmoothMap ψ.isScSmoothMap
     φ.source φ.target ψ.source ψ.target x.smooth y.smooth z.smooth
 
-/-- **The functor `Γ_f : PX → O_f`** (Theorem 6.37) into the category of types: `x ↦ Or_x^f`,
+/-- **The functor `Γ_f : PX → O_f`** (Theorem 6.6.13 (preprint 6.37)) into the category of types: `x ↦ Or_x^f`,
 `[φ] ↦ Γ_f([φ])`. -/
 def orFunctor : PathCat PX ⥤ Type where
   obj x := Orx f hf.toIsScFredholmSection x.pt x.smooth
@@ -592,7 +592,7 @@ theorem orFunctorMap_unique_of_cover (W : Set X → Prop) (hWo : ∀ {U}, W U �
 
 /-- **Uniqueness of `Γ_f`** ("it is obvious that `Γ_f` is unique"): a family of maps on the
 morphisms of `PX` taking compositions to composites and with property (∗) is `Γ_f`
-(`orFunctorMap_unique_of_cover` for the open sets, which cover `X_∞` by Theorem 6.35). -/
+(`orFunctorMap_unique_of_cover` for the open sets, which cover `X_∞` by Theorem 6.6.11 (preprint 6.35)). -/
 theorem orFunctorMap_unique
     (G : ∀ x y : PathCat PX, (x ⟶ y) →
       (Orx f hf.toIsScFredholmSection x.pt x.smooth ≃ Orx f hf.toIsScFredholmSection y.pt y.smooth))
@@ -602,13 +602,13 @@ theorem orFunctorMap_unique
     G = fun _ _ a => orFunctorMap hX hbump hf hsec a :=
   orFunctorMap_unique_of_cover hX hbump hf hsec IsOpen id
     (fun _ hx =>
-      let ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_35 hX hbump hf hx
+      let ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_6_11 hX hbump hf hx
       ⟨U, hUo, hxU, c, hc, hU⟩) G hG_comp hG
 
-/-- **Theorem 6.37**: there is a unique family of maps `Γ_f([φ]) : Or_x^f ≃ Or_y^f` on the
+/-- **Theorem 6.6.13 (preprint 6.37)**: there is a unique family of maps `Γ_f([φ]) : Or_x^f ≃ Or_y^f` on the
 morphisms `[φ] : x ⟶ y` of `PX` which is a functor (identities to identities, compositions to
 composites) and has property (∗); it is `orFunctorMap` (packaged as `orFunctor`). -/
-theorem theorem_6_37 :
+theorem theorem_6_6_13_hyp :
     ∃! G : ∀ x y : PathCat PX, (x ⟶ y) →
         (Orx f hf.toIsScFredholmSection x.pt x.smooth ≃
           Orx f hf.toIsScFredholmSection y.pt y.smooth),
@@ -621,9 +621,9 @@ theorem theorem_6_37 :
       orFunctorMap_isStarProperty hX hbump hf hsec⟩,
     fun G ⟨_, hG_comp, hG⟩ => orFunctorMap_unique hX hbump hf hsec G hG_comp hG⟩
 
-/-! ### Orientability (Definitions 6.38 and 6.39) and orientations (Definition 6.40) -/
+/-! ### Orientability (Definitions 6.6.14 and 6.6.15 (preprint 6.38 and 6.39)) and orientations (Definition 6.6.16 (preprint 6.40)) -/
 
-/-- **Definition 6.38, orientability**: for every pair of smooth points `x`, `y` and any two
+/-- **Definition 6.6.14 (preprint 6.38), orientability**: for every pair of smooth points `x`, `y` and any two
 morphisms `[φ], [ψ] : x ⟶ y` of `PX` (classes of sc-smooth paths from `x` to `y`),
 `Γ_f([φ]) = Γ_f([ψ])`. -/
 def IsOrientableSection : Prop :=
@@ -682,7 +682,7 @@ theorem isContinuousOrientation_of_apply_eq
     hN.isOpen_U hγs hγ h₀ h₁ hs₁ hs₂ _ _ he] at h
   exact (equiv_conj_apply_eq_iff _ _ _ _ _).1 h
 
-/-- **From Definition 6.38 to a map `y ↦ o_y` carried along by `Γ_f`**: in each class of smooth
+/-- **From Definition 6.6.14 (preprint 6.38) to a map `y ↦ o_y` carried along by `Γ_f`**: in each class of smooth
 points joined by sc-smooth paths a base point `b` (`Quotient.out` for `scPathSetoid`) and an
 orientation `o_b` are chosen, and `o_y = Γ_f([φ_y]) o_b` for a path `φ_y` from `b` to `y`. -/
 theorem exists_apply_eq_of_isOrientableSection (h : IsOrientableSection hX hbump hf hsec) :
@@ -703,7 +703,7 @@ theorem exists_apply_eq_of_isOrientableSection (h : IsOrientableSection hX hbump
     rw [← Equiv.trans_apply, ← orFunctorMap_comp, h _ _ (p₁ ≫ a) p₂]
   exact key _ _ hb _ _
 
-/-- **From a map `y ↦ o_y` carried along by `Γ_f` to Definition 6.38**: `Γ_f([φ])` and
+/-- **From a map `y ↦ o_y` carried along by `Γ_f` to Definition 6.6.14 (preprint 6.38)**: `Γ_f([φ])` and
 `Γ_f([ψ])` agree at `o_x`, and a bijection onto the two-element set `Or_y^f` is determined by
 one value. -/
 theorem isOrientableSection_of_apply_eq
@@ -714,7 +714,7 @@ theorem isOrientableSection_of_apply_eq
   let ⟨_, _, _, hall⟩ := exists_two_orx hf.toIsScFredholmSection y.smooth hsec
   equiv_eq_of_apply_eq_of_two ((ho x y a).trans (ho x y b).symm) hall
 
-/-- **Definition 6.38 in terms of maps `y ↦ o_y`**: `f` is orientable iff there is a map
+/-- **Definition 6.6.14 (preprint 6.38) in terms of maps `y ↦ o_y`**: `f` is orientable iff there is a map
 `y ↦ o_y ∈ Or_y^f` on the smooth points with `Γ_f([φ]) o_x = o_y` for every `[φ] : x ⟶ y`. -/
 theorem isOrientableSection_iff_exists :
     IsOrientableSection hX hbump hf hsec ↔
@@ -724,7 +724,7 @@ theorem isOrientableSection_iff_exists :
   ⟨exists_apply_eq_of_isOrientableSection hX hbump hf hsec,
     fun ⟨o, ho⟩ => isOrientableSection_of_apply_eq hX hbump hf hsec o ho⟩
 
-/-- **Definition 6.39 in terms of maps `y ↦ o_y`**: there is a map `y ↦ o_y` which is a continuous
+/-- **Definition 6.6.15 (preprint 6.39) in terms of maps `y ↦ o_y`**: there is a map `y ↦ o_y` which is a continuous
 orientation over an orientable neighbourhood of every smooth point iff there is one with
 `Γ_f([φ]) o_x = o_y` for every `[φ] : x ⟶ y` (orientable neighbourhoods exist,
 `exists_isOrientableNbhd`). -/
@@ -738,13 +738,13 @@ theorem isOrientableSection'_iff_exists :
       let ⟨c, hc, U, V, hN⟩ := exists_isOrientableNbhd hX hbump hf hx
       ⟨c, hc, U, V, hN, isContinuousOrientation_of_apply_eq hX hbump hf hsec o ho hN⟩⟩⟩
 
-/-- **Definitions 6.38 and 6.39 are equivalent** ("an equivalent version"). -/
+/-- **Definitions 6.6.14 and 6.6.15 (preprint 6.38 and 6.39) are equivalent** ("an equivalent version"). -/
 theorem isOrientableSection_iff :
     IsOrientableSection hX hbump hf hsec ↔ IsOrientableSection' f hf.toIsScFredholmSection :=
   (isOrientableSection_iff_exists hX hbump hf hsec).trans
     (isOrientableSection'_iff_exists hX hbump hf hsec).symm
 
-/-- **Definition 6.40 in terms of `Γ_f`**: `y ↦ o_y` is an orientation of `f` iff
+/-- **Definition 6.6.16 (preprint 6.40) in terms of `Γ_f`**: `y ↦ o_y` is an orientation of `f` iff
 `Γ_f([φ]) o_x = o_y` for every morphism `[φ] : x ⟶ y` of `PX`. -/
 theorem isSectionOrientation_iff
     (o : ∀ y (hy : y ∈ PX.smoothSet), Orx f hf.toIsScFredholmSection y hy) :
@@ -756,7 +756,7 @@ theorem isSectionOrientation_iff
       ⟨c, hc, U, V, hN, h _ hx c hc U V hN⟩) a,
     fun ho _ _ _ _ _ _ hN => isContinuousOrientation_of_apply_eq hX hbump hf hsec o ho hN⟩
 
-/-- **`f` has an orientation (Definition 6.40) iff it is orientable (Definition 6.38).** -/
+/-- **`f` has an orientation (Definition 6.6.16 (preprint 6.40)) iff it is orientable (Definition 6.6.14 (preprint 6.38)).** -/
 theorem exists_isSectionOrientation_iff :
     (∃ o, IsSectionOrientation f hf.toIsScFredholmSection o) ↔
       IsOrientableSection hX hbump hf hsec :=

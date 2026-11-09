@@ -272,11 +272,11 @@ theorem continuous_obj' (F : EpFunctor X Y) : Continuous F.obj :=
 
 /-- `|F|` is continuous (the orbit spaces carry the quotient topologies). -/
 theorem continuous_orbitMap (F : EpFunctor X Y) : Continuous F.orbitMap :=
-  X.proposition_7_1_isOpenQuotientMap.isQuotientMap.continuous_iff.2
+  X.proposition_7_1_8_isOpenQuotientMap.isQuotientMap.continuous_iff.2
     (Y.continuous_π.comp F.continuous_obj')
 
 /-- If `F` is open on objects, `|F|` is open (`π` is open, Proposition 7.1.8 of the text,
-`proposition_7_1`). -/
+`proposition_7_1_8`). -/
 theorem isOpenMap_orbitMap (F : EpFunctor X Y) (h : IsOpenMap F.obj) :
     IsOpenMap F.orbitMap := by
   intro O hO
@@ -289,7 +289,7 @@ theorem isOpenMap_orbitMap (F : EpFunctor X Y) (h : IsOpenMap F.obj) :
     · rintro ⟨_, ⟨x, hx, rfl⟩, rfl⟩
       exact ⟨X.π x, hx, rfl⟩
   rw [he]
-  exact Y.proposition_7_1 _ (h _ (hO.preimage X.continuous_π))
+  exact Y.proposition_7_1_8 _ (h _ (hO.preimage X.continuous_π))
 
 /-- **2021 Lemma 10.1.2, p. 462 (2017: Lemma 10.1, p. 334)**: an sc-smooth functor which is an
 equivalence of categories (Mathlib's `Functor.IsEquivalence` of the underlying functor: full,

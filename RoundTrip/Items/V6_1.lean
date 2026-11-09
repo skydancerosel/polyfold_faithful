@@ -13,7 +13,7 @@ at `0`.
   the project's `IsScPlusOp` (`isScPlusOp_of_B`); B's sc-Fredholm `IsScFredholmOfIndex` gives the
   level-`0` Fredholm property and index (`isFredholm_of_B`).  The last conjunct,
   `AdmitsBumpFunctions.hasScPlusSectionsThrough` (Lemma 5.11 with bump functions), is not
-  addressed by B and is re-proved outright from `lemma_5_11`.
+  addressed by B and is re-proved outright from `lemma_5_3_3`.
 * `A_to_B` is not proved; see the JSON.  `B_gives_sections` records why: B's (1) and (2) together
   say that for every sc-Fredholm section `f`, smooth point `x` and chart point there is a GLOBAL
   sc⁺-section `s` with `(f + s)(x) = 0`, which A only gets from `HasScPlusSectionsThrough`
@@ -84,7 +84,7 @@ theorem isSmoothPt_of (hx : x ∈ PX.smoothSet) : IsSmoothPt PX x := fun m => Se
 theorem smooth_of_mem (hf : Bd.IsScFredholmSection f) {p : ChartPoint Bd x}
     {L : ↥p.T →L[ℝ] ↥p.K} (hL : L ∈ p.linSet f) : x ∈ PX.smoothSet := by
   obtain ⟨s, hs, hx, -⟩ := hL
-  exact (theorem_3_15 hf hs).mem_smoothSet_of_isZeroAt hx
+  exact (theorem_3_1_18_preprint hf hs).mem_smoothSet_of_isZeroAt hx
 
 theorem linSet_eq (hB : B) (hf : Bd.IsScFredholmSection f) (hx : x ∈ PX.smoothSet)
     (p : ChartPoint Bd x) : p.linSet f = LinB p f :=
@@ -115,7 +115,7 @@ theorem lin₁_apply (p : ChartPoint Bd x) (hf : Bd.IsScFredholmSection f) {s : 
 theorem lin₁_mem (p : ChartPoint Bd x) (hf : Bd.IsScFredholmSection f) {s : X → Y}
     (hs : Bd.IsScPlusSection s) (hx : IsZeroAt P (sectionAdd P f s) x) :
     lin₁ p hf hs hx ∈ p.linSet f :=
-  ⟨s, hs, hx, 0, p.isScPlusOp_zero ((theorem_3_15 hf hs).mem_smoothSet_of_isZeroAt hx),
+  ⟨s, hs, hx, 0, p.isScPlusOp_zero ((theorem_3_1_18_preprint hf hs).mem_smoothSet_of_isZeroAt hx),
     fun v => by rw [zero_apply, Submodule.coe_zero, add_zero, lin₁_apply]⟩
 
 end Glue
@@ -136,13 +136,13 @@ theorem B_gives_sections (hB : B) {X : Type} [TopologicalSpace X] [T2Space X]
   exact ⟨s, hs, hx0⟩
 
 /-- A's last conjunct (Lemma 5.11 with bump functions), which B does not address: re-proved
-outright from the non-item lemmas `proposition_5_3_exists` and `lemma_5_11`. -/
+outright from the non-item lemmas `proposition_5_1_3_exists` and `lemma_5_3_3`. -/
 theorem hasScPlusSectionsThrough_outright :
     type_of% @Polyfold.MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough.{0, 0} := by
   intro X _ _ _ PX Y _ _ _ P _ _ Bd hbump x hx e he hex
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := Bd)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := Bd)
   obtain ⟨-, s, hs, hsx, -, -⟩ :=
-    lemma_5_11 hbump hN hx he hex one_pos isOpen_univ (Set.mem_univ x)
+    lemma_5_3_3 hbump hN hx he hex one_pos isOpen_univ (Set.mem_univ x)
   exact ⟨s, hs, hsx⟩
 
 theorem B_to_A : B → A := by
@@ -152,7 +152,7 @@ theorem B_to_A : B → A := by
     intro X _ _ _ PX Y _ _ _ P _ _ Bd f s x p hf hs hx L
     constructor
     · intro hL
-      have hxs := (theorem_3_15 hf hs).mem_smoothSet_of_isZeroAt hx
+      have hxs := (theorem_3_1_18_preprint hf hs).mem_smoothSet_of_isZeroAt hx
       refine ⟨L - lin₁ p hf hs hx, sub_of_B hB hf hxs p hL (lin₁_mem p hf hs hx), fun v => ?_⟩
       rw [sub_apply, Submodule.coe_sub, lin₁_apply]
       abel
@@ -160,7 +160,7 @@ theorem B_to_A : B → A := by
       exact ⟨s, hs, hx, a, ha, hLv⟩
   · -- `exists_isScPlusOp_linAt_eq`
     intro X _ _ _ PX Y _ _ _ P _ _ Bd f x p hf s s' hs hs' hx hx'
-    have hxs := (theorem_3_15 hf hs).mem_smoothSet_of_isZeroAt hx
+    have hxs := (theorem_3_1_18_preprint hf hs).mem_smoothSet_of_isZeroAt hx
     refine ⟨lin₁ p hf hs' hx' - lin₁ p hf hs hx,
       sub_of_B hB hf hxs p (lin₁_mem p hf hs' hx') (lin₁_mem p hf hs hx), fun v => ?_⟩
     rw [sub_apply, Submodule.coe_sub, lin₁_apply, lin₁_apply]

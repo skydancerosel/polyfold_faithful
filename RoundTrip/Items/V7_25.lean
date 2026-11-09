@@ -8,18 +8,18 @@ isomorphic objects).
 `A` is the conjunction of the types of the three listed theorems, universes at `0`:
 `NatRepFinite.exists_star` (the star data of the proof: a base object `x`, a natural
 representation at `x` and sheets of morphisms `x → y` whose transports land disjointly in `V`),
-`proposition_7_5` (open `V ⊇ Y`) and `proposition_7_5_of_mem_nhdsSet` (`V ∈ 𝓝ˢ Y`).  The others
+`proposition_7_1_15_2017` (open `V ⊇ Y`) and `proposition_7_1_15_of_mem_nhdsSet` (`V ∈ 𝓝ˢ Y`).  The others
 (`NaturalRepFinite`, `transportRep`, `Star`, `emptyNaturalRepFinite`) are definitions.
 
 * The project's conclusion `Nonempty (X.NaturalRepFinite Y V)` and `B`'s `∃ U F,
   IsNatRepFinB X Y V U F` are interchangeable: `isNatRepFinB_of` and `exists_natRepFinite` (the
   comparison of V7_26: sheets = connected components, `F (ψ⁻¹)` inverts `F ψ`, the natural
   representation at `y` from `B`'s natural action plus connectedness of `U(y)`).
-* `A → B`: `proposition_7_5_of_mem_nhdsSet` and `isNatRepFinB_of`.
-* `B → A`: `proposition_7_5_of_mem_nhdsSet` and `proposition_7_5` (an open `V ⊇ Y` is in
+* `A → B`: `proposition_7_1_15_of_mem_nhdsSet` and `isNatRepFinB_of`.
+* `B → A`: `proposition_7_1_15_of_mem_nhdsSet` and `proposition_7_1_15_2017` (an open `V ⊇ Y` is in
   `𝓝ˢ Y`) from `B` and `exists_natRepFinite`.  `exists_star` is a lemma about the proof's
   construction, not a consequence of `B`; it is re-proved outright here (from Theorem 7.1,
-  `theorem_7_1`, and the sheets of Definition 7.4, as in the project). -/
+  `theorem_7_1_13`, and the sheets of Definition 7.4, as in the project). -/
 
 namespace RoundTrip.V7_25
 open Polyfold Set
@@ -27,12 +27,12 @@ open Polyfold Set
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.NatRepFinite.exists_star.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_5.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet.{0})
+  (type_of% @Polyfold.EpGroupoid.proposition_7_1_15_2017.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_7_1_15_of_mem_nhdsSet.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.NatRepFinite.exists_star.{0}, @Polyfold.EpGroupoid.proposition_7_5.{0},
-    @Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet.{0}⟩
+  ⟨@Polyfold.EpGroupoid.NatRepFinite.exists_star.{0}, @Polyfold.EpGroupoid.proposition_7_1_15_2017.{0},
+    @Polyfold.EpGroupoid.proposition_7_1_15_of_mem_nhdsSet.{0}⟩
 
 section Glue
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -214,7 +214,7 @@ theorem exists_star' {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [Para
     mem_iInter₂.2 fun y hy => ⟨(hK y hy).1, by
       rw [mem_preimage, (hK y hy).2]
       exact ⟨(hW y).1, hYV hy⟩⟩
-  obtain ⟨R, hRU⟩ := EpGroupoid.theorem_7_1 X x hU₀ hxU₀
+  obtain ⟨R, hRU⟩ := EpGroupoid.theorem_7_1_13 X x hU₀ hxU₀
   have hR : ∀ y ∈ Y, ∀ u ∈ R.U, u ∈ (K y).srcSet ∧ (K y).hat u ∈ W y ∩ V :=
     fun y hy u hu => mem_iInter₂.1 (hRU hu) y hy
   refine ⟨⟨x, R, K, fun y hy u hu => (hR y hy u hu).1, fun y hy => (hK y hy).2, ?_, ?_⟩⟩
@@ -239,10 +239,10 @@ theorem B_to_A : B → A := by
     exact ⟨N⟩
 
 #rt_check RoundTrip.V7_25.A_to_B [Polyfold.EpGroupoid.NatRepFinite.exists_star,
-  Polyfold.EpGroupoid.proposition_7_5, Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet]
+  Polyfold.EpGroupoid.proposition_7_1_15_2017, Polyfold.EpGroupoid.proposition_7_1_15_of_mem_nhdsSet]
 #rt_check RoundTrip.V7_25.B_to_A [Polyfold.EpGroupoid.NatRepFinite.exists_star,
-  Polyfold.EpGroupoid.proposition_7_5, Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet]
+  Polyfold.EpGroupoid.proposition_7_1_15_2017, Polyfold.EpGroupoid.proposition_7_1_15_of_mem_nhdsSet]
 #rt_overlap RoundTrip.V7_25.B_to_A [Polyfold.EpGroupoid.NatRepFinite.exists_star,
-  Polyfold.EpGroupoid.proposition_7_5, Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet]
+  Polyfold.EpGroupoid.proposition_7_1_15_2017, Polyfold.EpGroupoid.proposition_7_1_15_of_mem_nhdsSet]
 
 end RoundTrip.V7_25

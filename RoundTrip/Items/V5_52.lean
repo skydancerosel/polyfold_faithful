@@ -3,7 +3,7 @@ import RoundTrip.Check
 import RoundTrip.Blind.V5_52
 
 /-!
-Round trip for V5_52 (Theorem 5.34).  `A` is the type of `Polyfold.theorem_5_34`, universe
+Round trip for V5_52 (Theorem 5.34).  `A` is the type of `Polyfold.theorem_5_5_7`, universe
 instantiated at `0`.
 
 The two sides read "`f ≠ 0`" differently:
@@ -19,7 +19,7 @@ Apart from that, "an atlas" is written as a covering set of charts of the struct
 * With the strong reading on both sides the statements are equivalent: `A_to_BStrong`,
   `BStrong_to_A` (the blind file's `BStrong`).
 * B itself is a true theorem: `B_holds` re-proves it, by the project's argument with `f(x) ≠ 0`
-  replaced by `f ≠ 0` (no use of `theorem_5_34`).  So `A_to_B` is proved, but **vacuously** (it
+  replaced by `f ≠ 0` (no use of `theorem_5_5_7`).  So `A_to_B` is proved, but **vacuously** (it
   does not use `A`).
 * `B → A` is not proved.  A is about the strong notions, and B says nothing about them; deriving A
   from B would need "weak bumps ⟹ strong bumps" (on `X`, or on local models), which is not glue:
@@ -31,9 +31,9 @@ namespace RoundTrip.V5_52
 open Polyfold Set Function
 
 /-- The project's statement, universe `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_5_34.{0}
+def A : Prop := type_of% @Polyfold.theorem_5_5_7.{0}
 
-theorem A_holds : A := @Polyfold.theorem_5_34.{0}
+theorem A_holds : A := @Polyfold.theorem_5_5_7.{0}
 
 /-- A covering set of charts of the structure is the same as an atlas equivalent to `PX.atlas`. -/
 theorem exists_atlas_iff {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
@@ -175,10 +175,10 @@ theorem B_holds : B := by
 /-- Vacuous: `B` is proved outright (`B_holds`), without using `A`. -/
 theorem A_to_B : A → B := fun _ => B_holds
 
-#rt_check RoundTrip.V5_52.A_to_B [Polyfold.theorem_5_34]
-#rt_check RoundTrip.V5_52.A_to_BStrong [Polyfold.theorem_5_34]
-#rt_check RoundTrip.V5_52.BStrong_to_A [Polyfold.theorem_5_34]
-#rt_overlap RoundTrip.V5_52.BStrong_to_A [Polyfold.theorem_5_34]
-#rt_overlap RoundTrip.V5_52.A_to_B [Polyfold.theorem_5_34]
+#rt_check RoundTrip.V5_52.A_to_B [Polyfold.theorem_5_5_7]
+#rt_check RoundTrip.V5_52.A_to_BStrong [Polyfold.theorem_5_5_7]
+#rt_check RoundTrip.V5_52.BStrong_to_A [Polyfold.theorem_5_5_7]
+#rt_overlap RoundTrip.V5_52.BStrong_to_A [Polyfold.theorem_5_5_7]
+#rt_overlap RoundTrip.V5_52.A_to_B [Polyfold.theorem_5_5_7]
 
 end RoundTrip.V5_52

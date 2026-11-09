@@ -13,9 +13,9 @@ relatively open subset of a partial quadrant), the bundle is `H × ℝᵏ → H`
 `x ↦ (x, φ(x))` for a `C^∞` map `φ : ℝ × ℝᵐ → ℝᵏ`.  If at every zero `x` of `φ` in `H` the
 derivative `Dφ(x)` is onto, and at a zero on the boundary `{x₁ = 0}` the kernel `ker Dφ(x)` is
 not contained in the boundary hyperplane (`φ|∂H` is also regular there), then the section meets
-every hypothesis of Theorem 3.57, and its conclusion is the regular value theorem for manifolds
-with boundary (`theorem_3_57_halfSpace`).  The instance `φ(a, y) = y` on `[0, ∞) × ℝ`, with
-solution set the half-line `[0, ∞) × {0}`, is `theorem_3_57_halfSpace_example`.
+every hypothesis of Theorem 3.6.11 (preprint 3.57), and its conclusion is the regular value theorem for manifolds
+with boundary (`theorem_3_6_11_halfSpace`).  The instance `φ(a, y) = y` on `[0, ∞) × ℝ`, with
+solution set the half-line `[0, ∞) × {0}`, is `theorem_3_6_11_halfSpace_example`.
 
 Not in the text (Findings, Chapter 3 item 201).  The charts centred at the points of `H` are the
 re-centred charts of `Chapter4/Recentre.lean` (`StrongBundleChart.recentre`): at a boundary point
@@ -33,7 +33,7 @@ the partial quadrant stays `H`, at an interior point it becomes all of `ℝ ⊕ 
   `{v₁ = 0}` is a good complement).
 * `HalfSpaceBundle.bundle m k`, `HalfSpaceBundle.graphSection φ`, the germ data in the re-centred
   charts (`isScFredholmGermTame_graphSection_wholeChart`), good position at the regular zeros
-  (`isGoodPositionGermTame_graphSection_wholeChart`), `theorem_3_57_halfSpace` and the example.
+  (`isGoodPositionGermTame_graphSection_wholeChart`), `theorem_3_6_11_halfSpace` and the example.
 -/
 
 open Set Filter Topology Function
@@ -115,7 +115,7 @@ lemma mem_quadrant_one_iff {p : (halfSpaceSc m) 0} : p ∈ quadrant 1 (rnSc m) 0
   Fin.forall_fin_one
 
 /-- **A subspace not contained in the boundary hyperplane is in good position to the half-space**
-(Definition 3.21): `N ∩ H` has interior in `N` (it contains `v` with `v₁ > 0`), and a complement
+(Definition 3.1.24 (preprint 3.21)): `N ∩ H` has interior in `N` (it contains `v` with `v₁ > 0`), and a complement
 `P` of `N ∩ {v₁ = 0}` inside the hyperplane `{v₁ = 0}` is a complement of `N` with
 `x + p ∈ H ↔ x ∈ H` for every `p ∈ P`. -/
 theorem isInGoodPositionIn_halfSpace (N : Submodule ℝ ((halfSpaceSc m) 0))
@@ -517,7 +517,7 @@ lemma scDeriv_loc (hφ : ContDiff ℝ ∞ φ) (x₀ : H m) :
     rw [ContinuousLinearMap.comp_id] at this
     exact this
 
-/-- The partial quadrant of the chart centred at `x₀` (`C_{x₀}`, Definition 2.33): the half-space
+/-- The partial quadrant of the chart centred at `x₀` (`C_{x₀}`, Definition 2.5.1 (preprint 2.33)): the half-space
 at a boundary point, everything at an interior point. -/
 lemma C_chartAt (x₀ : H m) : (chartAt (k := k) x₀).φ.model.C =
     if (x₀ : Pm m).1 0 = 0 then H m else univ := by
@@ -573,7 +573,7 @@ theorem germData_graphSection (hφ : ContDiff ℝ ∞ φ) (x₀ : H m) :
     · change φ (0 + (x₀ : Pm m)) - φ x₀ = 0
       rw [zero_add, sub_self]
 
-/-- **Tame germ data of the graph section at every point of `H`** (Definition 3.50), in the
+/-- **Tame germ data of the graph section at every point of `H`** (Definition 3.6.3 (preprint 3.50)), in the
 re-centred chart. -/
 theorem isScFredholmGermTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) (x₀ : H m) :
     (bundle m k).IsScFredholmGermTameWholeChart (graphSection φ) x₀ := by
@@ -582,7 +582,7 @@ theorem isScFredholmGermTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ)
     mem_source_chartAt x₀, chartAt_self x₀, zero_mem_U_chartAt x₀, loc φ x₀, fun _ => φ x₀,
     hfill, hs, hs0, hconj⟩
 
-/-- **Good position at a regular zero, including the boundary** (Definition 3.53): if `Dφ(x₀)` is
+/-- **Good position at a regular zero, including the boundary** (Definition 3.6.6 (preprint 3.53)): if `Dφ(x₀)` is
 onto and, when `x₀` is on the boundary `{x₁ = 0}`, `ker Dφ(x₀)` contains a vector `v` with
 `v₁ ≠ 0`, then the graph section is in good position at `x₀` in the (tame) re-centred chart:
 `Tf̃(0) = Dφ(x₀)` is onto, and `ker Dφ(x₀)` is in good position to `C_{x₀}` (the half-space,
@@ -609,7 +609,7 @@ theorem isGoodPositionGermTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ �
     · rw [C_chartAt, if_neg h]
       exact TrivialBundle.isInGoodPositionIn_univ _
 
-/-! ### The graph section is sc-Fredholm, and Theorem 3.57 applies -/
+/-! ### The graph section is sc-Fredholm, and Theorem 3.6.11 (preprint 3.57) applies -/
 
 /-- **The graph section of a `C^∞` map is an sc-Fredholm section over the half-space**. -/
 theorem isScFredholmSection_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) :
@@ -618,7 +618,7 @@ theorem isScFredholmSection_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) 
   regularizing j x _ _ := by rw [levelSet_eq_univ]; exact mem_univ x
   germ x _ := (isScFredholmGermTame_graphSection_wholeChart hφ x).isScFredholmGerm
 
-/-- The graph section has tame germ data at every point (Definition 3.51). -/
+/-- The graph section has tame germ data at every point (Definition 3.6.4 (preprint 3.51)). -/
 theorem isScFredholmSectionTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) :
     (bundle m k).IsScFredholmSectionTameWholeChart (graphSection φ) where
   toIsScFredholmSectionWholeChart := isScFredholmSection_graphSection_wholeChart hφ
@@ -632,8 +632,8 @@ def IsRegularOnHalfSpace : Prop :=
   ∀ x : H m, φ (x : Pm m) = 0 → Surjective (fderiv ℝ φ (x : Pm m)) ∧
     ((x : Pm m).1 0 = 0 → ∃ v, fderiv ℝ φ (x : Pm m) v = 0 ∧ v.1 0 ≠ 0)
 
-/-- **The hypotheses of Theorem 3.57 hold over the half-space**, at boundary zeros included. -/
-theorem hypotheses_theorem_3_57_halfSpace_wholeChart (hφ : ContDiff ℝ ∞ φ) (hreg : IsRegularOnHalfSpace φ) :
+/-- **The hypotheses of Theorem 3.6.11 (preprint 3.57) hold over the half-space**, at boundary zeros included. -/
+theorem hypotheses_theorem_3_6_11_halfSpace_wholeChart (hφ : ContDiff ℝ ∞ φ) (hreg : IsRegularOnHalfSpace φ) :
     (bundle m k).IsScFredholmSectionWholeChart (graphSection φ) ∧
       ∀ x, IsZeroAt (proj m k) (graphSection φ) x →
         (bundle m k).IsGoodPositionGermTameWholeChart (graphSection φ) x :=
@@ -641,11 +641,11 @@ theorem hypotheses_theorem_3_57_halfSpace_wholeChart (hφ : ContDiff ℝ ∞ φ)
     isGoodPositionGermTame_graphSection_wholeChart hφ (hreg x (isZeroAt_graphSection_iff.1 hx)).1
       (hreg x (isZeroAt_graphSection_iff.1 hx)).2⟩
 
-/-- **Theorem 3.57 over the half-space (the regular value theorem for manifolds with boundary)**:
+/-- **Theorem 3.6.11 (preprint 3.57) over the half-space (the regular value theorem for manifolds with boundary)**:
 for `φ : ℝ ⊕ ℝᵐ → ℝᵏ` of class `C^∞` with `0` a regular value of `φ` on `H` and of `φ|∂H`, and
 `φ⁻¹(0) ∩ H ≠ ∅`, the solution set is a tame sub-M-polyfold of `H` with the structure of a
 manifold with corners, of locally constant dimension. -/
-theorem theorem_3_57_halfSpace (hφ : ContDiff ℝ ∞ φ) (hreg : IsRegularOnHalfSpace φ)
+theorem theorem_3_6_11_halfSpace (hφ : ContDiff ℝ ∞ φ) (hreg : IsRegularOnHalfSpace φ)
     (hne : ∃ x : H m, φ (x : Pm m) = 0) :
     ∃ hsub : (basePoly m).IsSubMPolyfold (solutionSet (proj m k) (graphSection φ)),
       haveI := (basePoly m).paracompactSpace_subtype (solutionSet (proj m k) (graphSection φ))
@@ -656,9 +656,9 @@ theorem theorem_3_57_halfSpace (hφ : ContDiff ℝ ∞ φ) (hreg : IsRegularOnHa
             D.IsRegular ∧ ∀ y ∈ solutionSet (proj m k) (graphSection φ) ∩ D.φ.source,
               ∀ (n' : ℕ) (_ : (basePoly m).TangentGermChart
                 (solutionSet (proj m k) (graphSection φ)) y n'), n' = d := by
-  obtain ⟨hf, hall⟩ := hypotheses_theorem_3_57_halfSpace_wholeChart hφ hreg
+  obtain ⟨hf, hall⟩ := hypotheses_theorem_3_6_11_halfSpace_wholeChart hφ hreg
   obtain ⟨x, hx⟩ := hne
-  exact theorem_3_57_wholeChart hf hall ⟨x, isZeroAt_graphSection_iff.2 hx⟩
+  exact theorem_3_6_11_wholeChart hf hall ⟨x, isZeroAt_graphSection_iff.2 hx⟩
 
 /-- The linear map `ℝ ⊕ ℝ → ℝ`, `(a, y) ↦ y`. -/
 def exampleMap : Pm 1 →L[ℝ] (Fin 1 → ℝ) :=
@@ -668,7 +668,7 @@ def exampleMap : Pm 1 →L[ℝ] (Fin 1 → ℝ) :=
 `([0, ∞) × ℝ) × ℝ → [0, ∞) × ℝ`, the solution set (the half-line `[0, ∞) × {0}`, with the
 boundary point `(0, 0)`) is a sub-M-polyfold of the half-plane with the structure of a manifold
 with corners. -/
-theorem theorem_3_57_halfSpace_example :
+theorem theorem_3_6_11_halfSpace_example :
     ∃ hsub : (basePoly 1).IsSubMPolyfold (solutionSet (proj 1 1) (graphSection exampleMap)),
       haveI := (basePoly 1).paracompactSpace_subtype
         (solutionSet (proj 1 1) (graphSection exampleMap))
@@ -677,7 +677,7 @@ theorem theorem_3_57_halfSpace_example :
     rw [exampleMap.fderiv]
     refine ⟨fun y => ⟨(0, fun _ => y 0), funext fun j => by fin_cases j; rfl⟩,
       fun _ => ⟨((fun _ => 1), 0), funext fun j => by fin_cases j; rfl, one_ne_zero⟩⟩
-  obtain ⟨hsub, -, h2, -⟩ := theorem_3_57_halfSpace exampleMap.contDiff hreg
+  obtain ⟨hsub, -, h2, -⟩ := theorem_3_6_11_halfSpace exampleMap.contDiff hreg
     ⟨⟨0, fun _ => le_rfl⟩, map_zero _⟩
   exact ⟨hsub, h2⟩
 

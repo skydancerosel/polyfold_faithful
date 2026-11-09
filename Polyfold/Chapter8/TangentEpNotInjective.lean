@@ -6,7 +6,7 @@ import Polyfold.Chapter8.TangentEp
 
 2021 Remark 8.1.10, pp. 364–365 (2017: Remark 8.1, pp. 264–265), describes the morphisms of the
 tangent `T𝐗` by the map `G : (φ, h) ↦ (Tφ, Ts(h))` and says that `G` is a bijection of `T𝐗` onto
-the pairs `(Tφ, a)` with `φ ∈ 𝐗₁` and `a ∈ T_{s(φ)}X`.  The project's `remark_8_1`
+the pairs `(Tφ, a)` with `φ ∈ 𝐗₁` and `a ∈ T_{s(φ)}X`.  The project's `remark_8_1_10`
 (`Chapter8/TangentEp.lean`) proves this with the first entry `Tφ` labelled by `φ` (`remarkG`).
 Read as a map whose first entry is the bare linear map `Tφ : T_{s(φ)}X → T_{t(φ)}X`, the claim
 **does not hold as we read it**: two distinct morphisms at the same point can have the same
@@ -14,7 +14,7 @@ tangent, and then `G` identifies distinct tangent vectors of `𝐗`.
 
 The witness is the translation groupoid `ℤ/3 ⋉ ℝ` of the trivial action
 (`EpGroupoid.Examples.trivialZ3EpGroupoid`, `Chapter7/NonVacuity.lean`, the ep-groupoid behind
-`remark_definition_7_7_counterexample`).  There `s = t`, so `Tφ` is the identity for every
+`remark_definition_7_1_7_counterexample`).  There `s = t`, so `Tφ` is the identity for every
 morphism `φ` (`tangentMor_trivialZ3`), while the three morphisms `(g, x)`, `g ∈ ℤ/3`, at a point
 `x` are distinct.  Lifting one tangent vector `a ∈ T_xX` along `Ts` over `(1, x)` and over
 `(g, x)`, `g ≠ 1`, gives two distinct vectors of `T𝐗` with the same image under `G`.
@@ -22,7 +22,7 @@ morphism `φ` (`tangentMor_trivialZ3`), while the three morphisms `(g, x)`, `g �
 ## What is formalized
 
 * `EpGroupoid.Examples.tangentMor_trivialZ3`: on `ℤ/3 ⋉ ℝ`, `Tφ = id` for every morphism `φ`.
-* `EpGroupoid.Examples.remark_8_1_10_not_injective_2021`: on `ℤ/3 ⋉ ℝ`, the map
+* `EpGroupoid.Examples.remark_8_1_10_not_injective`: on `ℤ/3 ⋉ ℝ`, the map
   `v ↦ (Tφ(v), Ts(v))` (with `Tφ(v) = tangentMor (tBase v)`, a function `TX → TX`) is not
   injective.  This certifies the correction of row **V8.12** (Findings, Chapter 8, item 10).
 
@@ -55,8 +55,8 @@ theorem tangentMor_trivialZ3 (φ : Multiplicative (ZMod 3) × (Fin 1 → ℝ)) :
 /-- **2021 Remark 8.1.10, pp. 364–365 (2017: Remark 8.1), with `Tφ` a bare map, does not hold as we
 read it** (row V8.12): on the translation groupoid `ℤ/3 ⋉ ℝ` of the trivial action, the map
 `G : T𝐗 → (TX → TX) × TX`, `(φ, h) ↦ (Tφ, Ts(h))`, is not injective.  With `Tφ` labelled by `φ`
-the map is a bijection onto its range (`remark_8_1`). -/
-theorem remark_8_1_10_not_injective_2021 :
+the map is a bijection onto its range (`remark_8_1_10`). -/
+theorem remark_8_1_10_not_injective :
     ¬ Injective (fun v : trivialZ3EpGroupoid.PMor.TangentSpace =>
       (trivialZ3EpGroupoid.tangentMor (trivialZ3EpGroupoid.tBase v),
         trivialZ3EpGroupoid.tSrc v)) := by

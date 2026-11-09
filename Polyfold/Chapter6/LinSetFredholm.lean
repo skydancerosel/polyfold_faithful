@@ -25,11 +25,11 @@ they are sc-Fredholm operators, all with the same Fredholm index.
 
 ## Proof
 
-For `L = (f + s)'(x) + a`: `f + s` is sc-Fredholm (Theorem 3.1.15, `theorem_3_15`) with a zero at
+For `L = (f + s)'(x) + a`: `f + s` is sc-Fredholm (Theorem 3.1.15, `theorem_3_1_18_preprint`) with a zero at
 `x`, so its linearization restricted to `T_zO → K_z` is sc-Fredholm in every chart
 (`StrongBundle.linAt_isScFredholm`, row V3.96); `a` is level `0` of an sc⁺-operator
 (`IsScPlusOp`), and an sc-Fredholm operator plus an sc⁺-operator is sc-Fredholm of the same index
-on every level (Proposition 1.1.11, `proposition_1_10`, `proposition_1_10_index_lvl`).  The
+on every level (Proposition 1.1.11, `proposition_1_1_11_preprint`, `proposition_1_1_11_index_lvl`).  The
 level-`0` operator is `L` read through `(T_zO)₀ = T_zO` and `(K_z)₀ = K_z`
 (`ScBanach.levelSubZeroEquiv`), so the indices agree (`isFredholm_iff_of_conj`).
 
@@ -70,7 +70,7 @@ theorem exists_isScFredholm_of_mem_linSet (hf : B.IsScFredholmSection f)
         ((S 0 v).1 : p.c.F 0) = (L ⟨v.1, v.2⟩ : p.c.F 0)) ∧
       IsScFredholm S ∧ ∀ m, (S m).IsFredholm ∧ fredholmIndex (S m) = fredholmIndex L := by
   obtain ⟨s, hs, hx, a, ha, hLv⟩ := hL
-  have hF := theorem_3_15 hf hs
+  have hF := theorem_3_1_18_preprint hf hs
   obtain ⟨hD, hT, hK, hTK, hDeq, hsc, -⟩ :=
     StrongBundle.linAt_isScFredholm hF hx p.isChart p.mem_source p.toBase_z p.mem_U
   obtain ⟨hT', hK', Sa, hSa⟩ := ha
@@ -83,11 +83,11 @@ theorem exists_isScFredholm_of_mem_linSet (hf : B.IsScFredholmSection f)
     rfl
   have hconj : ∀ v, L (p.c.φ.model.E.levelSubZeroEquiv p.T v) =
       p.c.F.levelSubZeroEquiv p.K (S 0 v) := fun v => Subtype.ext (h0 v).symm
-  have hS0 := proposition_1_10_index_lvl hsc Sa 0
+  have hS0 := proposition_1_1_11_index_lvl hsc Sa 0
   have hidx : fredholmIndex L = fredholmIndex (S 0) :=
     (isFredholm_iff_of_conj (L := S 0) (L' := L) hconj).2 hS0.1
-  refine ⟨hT, hK, S, h0, proposition_1_10 hsc Sa, fun m => ?_⟩
-  obtain ⟨hFm, him⟩ := proposition_1_10_index_lvl hsc Sa m
+  refine ⟨hT, hK, S, h0, proposition_1_1_11_preprint hsc Sa, fun m => ?_⟩
+  obtain ⟨hFm, him⟩ := proposition_1_1_11_index_lvl hsc Sa m
   exact ⟨hFm, by rw [him, hidx, hS0.2]⟩
 
 variable (f) in

@@ -5,13 +5,13 @@ import RoundTrip.Blind.V4_58
 /-! Round trip for V4_58 (Theorem 3.78 in the `C^∞` form used in §4.3).
 
 `A` is the conjunction of the types of `Polyfold.ContractionData.exists_solution_smooth`,
-`Polyfold.theorem_3_78_smooth`, `Polyfold.ContractionData.exists_radii`,
-`Polyfold.Radii.contDiffOn_τ` and `Polyfold.theorem_3_78` (none has universe parameters: all
+`Polyfold.theorem_3_8_22_smooth`, `Polyfold.ContractionData.exists_radii`,
+`Polyfold.Radii.contDiffOn_τ` and `Polyfold.theorem_3_8_22` (none has universe parameters: all
 spaces live in `Type`).
 
 `A → B`: B states Theorem 3.78 for every smoothness class `j ∈ ℕ ∪ {∞}`, `j ≥ 1`, in the blind
 coordinates (`ℝⁿ = Fin n → ℝ`, `C = quadC n k`, `f` into `Fin N → ℝ`).  For `j = ∞` this is an
-instance of `theorem_3_78_smooth`, for finite `j` of `theorem_3_78` (the glue of V3_63:
+instance of `theorem_3_8_22_smooth`, for finite `j` of `theorem_3_8_22` (the glue of V3_63:
 `quadC n k` is a partial quadrant via `ℝⁿ ≅ ℝᵏ × ℝⁿ⁻ᵏ`, `fderivWithin f U 0 = L` by unique
 differentiability of `U`, B's good complement is the project's, `τ` is composed with `Y ↪ ℝⁿ`).
 The clause `f (k + τ k) = 0` of `A` is dropped.
@@ -32,14 +32,14 @@ open Polyfold
 /-- The project's statement. -/
 def A : Prop :=
   (type_of% @Polyfold.ContractionData.exists_solution_smooth) ∧
-  (type_of% @Polyfold.theorem_3_78_smooth) ∧
+  (type_of% @Polyfold.theorem_3_8_22_smooth) ∧
   (type_of% @Polyfold.ContractionData.exists_radii) ∧
   (type_of% @Polyfold.Radii.contDiffOn_τ) ∧
-  (type_of% @Polyfold.theorem_3_78)
+  (type_of% @Polyfold.theorem_3_8_22)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.ContractionData.exists_solution_smooth, @Polyfold.theorem_3_78_smooth,
-    @Polyfold.ContractionData.exists_radii, @Polyfold.Radii.contDiffOn_τ, @Polyfold.theorem_3_78⟩
+  ⟨@Polyfold.ContractionData.exists_solution_smooth, @Polyfold.theorem_3_8_22_smooth,
+    @Polyfold.ContractionData.exists_radii, @Polyfold.Radii.contDiffOn_τ, @Polyfold.theorem_3_8_22⟩
 
 /-! ### Glue (from V3_63): `quadC n k` is a partial quadrant -/
 
@@ -83,7 +83,7 @@ theorem isPartialQuadrant_quadC (n k : ℕ) (hk : k ≤ n) :
 
 /-! ### `A → B` -/
 
-/-- The common glue: from the conclusion of `theorem_3_78` (or `theorem_3_78_smooth`) at the
+/-- The common glue: from the conclusion of `theorem_3_8_22` (or `theorem_3_8_22_smooth`) at the
 smoothness exponent `J`, the conclusion of B. -/
 theorem conclusion_of {n k N : ℕ} {J : WithTop ℕ∞} {U : Set (Fin n → ℝ)}
     {f : (Fin n → ℝ) → (Fin N → ℝ)} {L : (Fin n → ℝ) →L[ℝ] (Fin N → ℝ)}
@@ -149,11 +149,11 @@ theorem A_to_B : A → B := by
     exact_mod_cast this
 
 #rt_check RoundTrip.V4_58.A_to_B [Polyfold.ContractionData.exists_solution_smooth,
-  Polyfold.theorem_3_78_smooth, Polyfold.ContractionData.exists_radii,
-  Polyfold.Radii.contDiffOn_τ, Polyfold.theorem_3_78]
+  Polyfold.theorem_3_8_22_smooth, Polyfold.ContractionData.exists_radii,
+  Polyfold.Radii.contDiffOn_τ, Polyfold.theorem_3_8_22]
 #rt_overlap RoundTrip.V4_58.A_to_B [Polyfold.ContractionData.exists_solution_smooth,
-  Polyfold.theorem_3_78_smooth, Polyfold.ContractionData.exists_radii,
-  Polyfold.Radii.contDiffOn_τ, Polyfold.theorem_3_78]
+  Polyfold.theorem_3_8_22_smooth, Polyfold.ContractionData.exists_radii,
+  Polyfold.Radii.contDiffOn_τ, Polyfold.theorem_3_8_22]
 
 end RoundTrip.V4_58
 

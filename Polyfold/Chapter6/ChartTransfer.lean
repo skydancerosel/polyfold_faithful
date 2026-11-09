@@ -2,7 +2,7 @@ import Polyfold.Chapter6.LinOrientation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 227–228: the objects `Or_x^f` of the functor of **Theorem 6.37** and its proof (an
+pp. 227–228: the objects `Or_x^f` of the functor of **Theorem 6.6.13 (preprint 6.37)** and its proof (an
 orientation of `DET(f, φ(t))` is carried along a finite covering of the path by orientable
 neighbourhoods) *(book 2017: Theorem 6.2, p. 213; see `BookConcordance.md`)*.
 
@@ -12,7 +12,7 @@ neighbourhoods) *(book 2017: Theorem 6.2, p. 213; see `BookConcordance.md`)*.
 
 For a smooth point `x`, `Lin(f, x)` is a convex set of Fredholm operators `T_xX → Y_x` and
 `DET(f, x) = ⋃_{L ∈ Lin(f, x)} {L} × det(L)` is a line bundle over it (p. 219); `Or_x^f` is the
-set of its two orientations (Definition 6.27).  (Theorem 6.37) There is a unique functor `Γ_f`
+set of its two orientations (Definition 6.6.2 (preprint 6.27)).  (Theorem 6.6.13 (preprint 6.37)) There is a unique functor `Γ_f`
 from the sc-smooth homotopy classes of paths to the bijections, `[φ] ↦ Γ_f([φ]) :
 Or_{φ(0)}^f → Or_{φ(1)}^f`, agreeing with the local propagation `φ_*` in every orientable
 neighbourhood.  Proof: for `t₀ ∈ [0, 1]` choose an orientable neighbourhood `U(φ(t₀))`; an
@@ -51,7 +51,7 @@ and `Or_x^f` are the same whichever neighbourhood is used.
 `Lin(f, x)` and `Or_x^f` are made in a chart point `p` (`LinSet.lean`, `LinOrientation.lean`):
 `T_xX` is read as `T_zO = Dr(z)E` and `Y_x` as `K_z = ρ(z)F` in the chart `p.c`.  Two chart
 points at `x`, for instance from the orientable neighbourhoods of two values `t₀` in the proof of
-Theorem 6.37, give the different types `p.Or f hf` and `p'.Or f hf`; comparing orientations
+Theorem 6.6.13 (preprint 6.37), give the different types `p.Or f hf` and `p'.Or f hf`; comparing orientations
 there needs the identification `T_xX`, `Y_x` of the text, which is made explicit here by the
 transition maps at `z`.  `A` is the derivative at `z` of `τ ∘ r_W`, with `r_W` the restriction of
 `r` to `U ∩ r⁻¹(W)` for a fixed open `W` with `φ(V ∩ V') = O ∩ W`, a retraction onto the base
@@ -275,9 +275,9 @@ theorem gammaProj_conjDet {P : F →L[ℝ] F} {P' : F' →L[ℝ] F'} (hP : ∀ y
       (LinearMap.ker (S : E →ₗ[ℝ] F))) := ⟨Module.finBasis ℝ _⟩
   obtain ⟨d⟩ : Nonempty (Basis (Fin (finrank ℝ (F ⧸ LinearMap.range (S : E →ₗ[ℝ] F)))) ℝ
       (F ⧸ LinearMap.range (S : E →ₗ[ℝ] F))) := ⟨Module.finBasis ℝ _⟩
-  obtain ⟨j, b, hb, hj⟩ := exists_linearIndependent_append (projSeqJ S P) (lemma_6_11 gP).1
+  obtain ⟨j, b, hb, hj⟩ := exists_linearIndependent_append (projSeqJ S P) (proposition_6_4_10 gP).1
     a.linearIndependent rfl
-  choose c hc using fun i => (lemma_6_11 gP).2.2.2 (d i)
+  choose c hc using fun i => (proposition_6_4_10 gP).2.2.2 (d i)
   have hC : finrank ℝ (F ⧸ LinearMap.range (S : E →ₗ[ℝ] F)) + j =
       finrank ℝ (F ⧸ LinearMap.range ((P ∘L S : E →L[ℝ] F) : E →ₗ[ℝ] F)) :=
     ((projSeq gP).finrank_eq_of_families rfl rfl hj).trans (cokerCompEquiv gP).symm.finrank_eq
@@ -496,8 +496,8 @@ theorem isLineOrientation_conj
   have hl : finrank ℝ (F' ⧸ LinearMap.range (c'.P : F' →ₗ[ℝ] F')) =
       finrank ℝ (F ⧸ LinearMap.range (c.P : F →ₗ[ℝ] F)) :=
     (conjCokerEquiv Γ Γ hP).finrank_eq.symm
-  obtain ⟨e, -, he, hee⟩ := (proposition_6_24 (E := E) (F := F)).2 c
-  obtain ⟨e', -, he', hee'⟩ := (proposition_6_24 (E := E') (F := F')).2 c'
+  obtain ⟨e, -, he, hee⟩ := (proposition_6_5_8 (E := E) (F := F)).2 c
+  obtain ⟨e', -, he', hee'⟩ := (proposition_6_5_8 (E := E') (F := F')).2 c'
   have hU' : conjMap A Γ hmem ⁻¹' (U ∩ fredholmIncl hC ⁻¹' c.baseSet) ∩
       fredholmIncl hC' ⁻¹' c'.baseSet ∈ 𝓝 b₀ := by
     refine Filter.inter_mem ((continuous_conjMap A Γ hmem).continuousAt.preimage_mem_nhds
@@ -818,7 +818,7 @@ theorem baseDeriv_trans (v : p.c.φ.model.E 0) :
     rw [hyu, p.c.φ.transition_apply p'.c.φ hy, hR₂, p'.c.φ.transition_apply p''.c.φ hy',
       p.c.φ.transition_apply p''.c.φ hy]
   have hfV := hf.of_subset hV₁
-  have hgf := (theorem_1_21' R₁₃.isScDomain R₂.isScDomain hfV hg hmaps).1
+  have hgf := (theorem_1_3_1' R₁₃.isScDomain R₂.isScDomain hfV hg hmaps).1
   have h1 := scDeriv_comp_apply' R₁₃.relOpen R₂.relOpen hfV hg hmaps hzV v
   rw [p.levelMap_transition p'] at h1
   have h2 : scDeriv R₁₃.U (p.c.φ.transition p'.c.φ ∘ R₁) p.z = p.baseDeriv p' :=
@@ -841,7 +841,7 @@ theorem baseDeriv_baseDeriv {v : p.c.φ.model.E 0} (hv : v ∈ p.T) :
   obtain ⟨w, rfl⟩ := hv
   exact scDeriv_r_idem_at p.c.relOpen p.c.isRetraction p.mem_O w
 
-/-- `D(τ ∘ r)(z)` is an sc-operator at a smooth point (Proposition 1.16's remark). -/
+/-- `D(τ ∘ r)(z)` is an sc-operator at a smooth point (Proposition 1.2.1 (preprint 1.16)'s remark). -/
 theorem isScOperator_baseDeriv (hx : x ∈ PX.smoothSet) : IsScOperator (p.baseDeriv p') :=
   (p.isSc1_transition p').isSc1With_scDeriv.scOperator_deriv (p.z_mem_baseRet p')
     (p.z_mem_smoothLvl hx)
@@ -1079,9 +1079,9 @@ theorem scDeriv_principal_baseDeriv {g : X → Y} (hg : B.IsScSmoothSection g)
   have hτ1 := p.isSc1_transition p'
   have hℓ : IsSc1 (p.baseRet p').U
       ((p'.c.principal g ∘ r p'.c.R) ∘ (p.c.φ.transition p'.c.φ ∘ p.baseRet p')) :=
-    (theorem_1_21' (p.baseRet p').isScDomain p'.c.relOpen.isScDomain hτ1 hfr' hmapsτ).1
+    (theorem_1_3_1' (p.baseRet p').isScDomain p'.c.relOpen.isScDomain hτ1 hfr' hmapsτ).1
   have hΦσ : IsSc1 (p.baseRet p').U (Φ ∘ σ) :=
-    (theorem_1_21' (p.baseRet p').isScDomain RK.isScDomain hσ1 hΦ hmapsσ).1
+    (theorem_1_3_1' (p.baseRet p').isScDomain RK.isScDomain hσ1 hΦ hmapsσ).1
   have hDeq : scDeriv (p.baseRet p').U
       ((p'.c.principal g ∘ r p'.c.R) ∘ (p.c.φ.transition p'.c.φ ∘ p.baseRet p')) p.z =
         scDeriv (p.baseRet p').U (Φ ∘ σ) p.z :=

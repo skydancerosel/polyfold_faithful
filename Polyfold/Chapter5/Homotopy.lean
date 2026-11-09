@@ -2,25 +2,25 @@ import Polyfold.Chapter5.Transversality
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.3:
-**Definition 5.20** (generalized compact homotopy), **Lemmas 5.23 and 5.24** (the two lemmas of the
-proof of Theorem 5.22) *(book 2017: Definition 5.10, Lemmas 5.4 and 5.5 of the proof of Theorem 5.8;
+**Definition 5.3.13 (preprint 5.20)** (generalized compact homotopy), **Lemmas 5.3.16 and 5.3.17 (preprint 5.23 and 5.24)** (the two lemmas of the
+proof of Theorem 5.3.15 (preprint 5.22)) *(book 2017: Definition 5.10, Lemmas 5.4 and 5.5 of the proof of Theorem 5.8;
 see `BookConcordance.md`)*.
 
 # Generalized compact homotopies and the lemmas of the Morse-type theorem
 
 ## The text, paraphrased
 
-(Definition 5.20) Given two compact sc-Fredholm problems `(fᵢ, Pᵢ)`, `fᵢ` an sc-Fredholm section of
+(Definition 5.3.13 (preprint 5.20)) Given two compact sc-Fredholm problems `(fᵢ, Pᵢ)`, `fᵢ` an sc-Fredholm section of
 the tame strong bundle `Pᵢ : Yᵢ → Xᵢ` with compact solution set, a *generalized compact homotopy*
 between them is a tame strong bundle `P : Y → X` with an sc-Fredholm section `f` with compact
 solution set, and an sc-smooth surjection `t : X → [0, 1]` such that the preimages `X_t` are tame
 M-polyfolds, `f_t = f|X_t` is an sc-Fredholm section of `Y|X_t`, and `(f|Xᵢ, P|Yᵢ) = (fᵢ, Pᵢ)` for
-`i = 0, 1`.  (Remark 5.21) One should rather ask for isomorphic problems.  (Theorem 5.22) Under
+`i = 0, 1`.  (Remark 5.3.14 (preprint 5.21)) One should rather ask for isomorphic problems.  (Theorem 5.3.15 (preprint 5.22)) Under
 bump functions, `Xᵢ` without boundary, `(fᵢ, x)` in general position and `∂X = X₀ ⊔ X₁`, a small
 `s₀` vanishing near `∂X` makes `(f + s₀, x)` in general position and `t|S_{f+s₀}` Morse.  In the
 proof, at a critical point `x` of `t|S`, "we find a one-dimensional smooth sc-subspace `Z` with
-`T_xX = Z ⊕ ker dt(x)`".  (Lemma 5.23) For `τ ∈ T*_xS` there is a unique `b_τ : T_xS → Z` with
-`dt(x) ∘ b_τ = τ`; then also `dt(x) ∘ (b_τ + a) = τ` for `a : T_xS → ker dt(x)`.  (Lemma 5.24) There
+`T_xX = Z ⊕ ker dt(x)`".  (Lemma 5.3.16 (preprint 5.23)) For `τ ∈ T*_xS` there is a unique `b_τ : T_xS → Z` with
+`dt(x) ∘ b_τ = τ`; then also `dt(x) ∘ (b_τ + a) = τ` for `a : T_xS → ker dt(x)`.  (Lemma 5.3.17 (preprint 5.24)) There
 is an sc⁺-section `s` with small support, `s(x) = 0` and `f'(x) ∘ b_τ + s'(x)|T_xS = 0`.  *Proof*:
 `f'(x) ∘ b_τ` has (at most) one-dimensional image spanned by a smooth `e`; with `K` its kernel and
 `L` a complement in `T_xS`, `j : L → ℝ` an isomorphism, and `S` written as a graph, the section
@@ -29,14 +29,14 @@ multiple of `s` does the job.
 
 ## What is formalized
 
-* `StrongBundle.IsGenCompactHomotopy` (**Definition 5.20**): `X` tame, `f` an sc-Fredholm section
-  with tame germ data (Definition 3.51) and compact solution set, `t : X → ℝ` sc-smooth with
+* `StrongBundle.IsGenCompactHomotopy` (**Definition 5.3.13 (preprint 5.20)**): `X` tame, `f` an sc-Fredholm section
+  with tame germ data (Definition 3.6.4 (preprint 3.51)) and compact solution set, `t : X → ℝ` sc-smooth with
   `t(X) = [0, 1]`, and for every `τ ∈ [0, 1]` the fibre `X_τ = t⁻¹(τ)` a sub-M-polyfold with tame
   induced structure on which the restriction `f|X_τ` (`restrictSection`, the section `a ↦ (a, f(a))`
-  of the pull-back `ι*Y` along the inclusion, Proposition 2.54) is an sc-Fredholm section with tame
+  of the pull-back `ι*Y` along the inclusion, Proposition 2.6.8 (preprint 2.54)) is an sc-Fredholm section with tame
   germ data.  `IsGenCompactHomotopy.isCompact_solutionSet_restrict`: the restricted problems have
   compact solution sets (the text's "compact sc-Fredholm problems" at the ends).
-* `lemma_5_23` (**Lemma 5.23**, linear algebra): for `T = Z ⊕ ker ℓ` and `τ : S → ℝ` there is a
+* `lemma_5_3_16_preprint` (**Lemma 5.3.16 (preprint 5.23)**, linear algebra): for `T = Z ⊕ ker ℓ` and `τ : S → ℝ` there is a
   unique `b : S → Z` with `ℓ ∘ b = τ`, and `ℓ ∘ (b + a) = τ` for `a` with values in `ker ℓ`.
   `exists_isCompl_ker_of_ne_zero` (the existence of `Z`, spanned by a vector of any given algebraic
   spanning set; the dense smooth vectors are not one in infinite dimensions, and the smooth `Z` of
@@ -44,13 +44,13 @@ multiple of `s` does the job.
   5.22: a one-dimensional `Z` with `T = Z ⊕ ker ℓ` exists only if `ℓ ≠ 0`, i.e. `dt(x) ≠ 0`).
 * `scDeriv_smul_apply`: the product rule `D(a·w)(z) = Da(z)·w(z) + a(z)·Dw(z)` at a level-`1`
   point.
-* `exists_scPlusSection_linAt` (**the construction of Lemma 5.24**, in a chart): for a strong
+* `exists_scPlusSection_linAt` (**the construction of Lemma 5.3.17 (preprint 5.24)**, in a chart): for a strong
   bundle chart `c` around a smooth point `x`, a smooth point `e` of the fibre over `x`, a continuous
   linear functional `ℓ` on the model space and an open `U ∋ x`, an sc⁺-section `s` with
   `s(x) = 0`, `supp(s) ⊆ U` and `Lin_s(z)v = ℓ(v)·Φ(e)₂` for all `v ∈ T_zO`: `s = g·sₑ` with `sₑ`
-  the sc⁺-section through `e` of Lemma 5.11 and `g = β·ℓ(φ(·) − φ(x))` (`β` a bump function equal
+  the sc⁺-section through `e` of Lemma 5.3.3 (preprint 5.11) and `g = β·ℓ(φ(·) − φ(x))` (`β` a bump function equal
   to `1` near `x`), by the product rule (`IsScPlusSection.smul_left`).
-* `lemma_5_24` (**Lemma 5.24**): for an sc-Fredholm section `f`, a finite-dimensional subspace `K`
+* `lemma_5_3_17` (**Lemma 5.3.17 (preprint 5.24)**): for an sc-Fredholm section `f`, a finite-dimensional subspace `K`
   of `T_zO` (the text's `T_xS = ker f'(x)`), a linear `b : K → T_zO` (the text's `b_τ`) such that
   `Lin_f(z) ∘ b` has values in the line spanned by `Φ(e)₂` for a smooth point `e` of the fibre
   (the text's "one-dimensional image spanned by some smooth point `e`"), there is an sc⁺-section
@@ -58,23 +58,23 @@ multiple of `s` does the job.
 
 ## What the text leaves implicit, and the choices made
 
-* **Definition 5.20**: `t` is read as an sc-smooth function `X → ℝ` with image `[0, 1]`; "`X_t` is a
+* **Definition 5.3.13 (preprint 5.20)**: `t` is read as an sc-smooth function `X → ℝ` with image `[0, 1]`; "`X_t` is a
   tame M-polyfold" as "a sub-M-polyfold (Definition 2.19) whose induced structure is tame"; "`f|X_t`
-  is an sc-Fredholm section of `Y|X_t`" through the pull-back bundle of Proposition 2.54 along the
-  inclusion (sc-smooth by Proposition 2.21), with tame germ data as for the tame strong bundle `P`.
+  is an sc-Fredholm section of `Y|X_t`" through the pull-back bundle of Proposition 2.6.8 (preprint 2.54) along the
+  inclusion (sc-smooth by Proposition 2.3.19 (preprint 2.21)), with tame germ data as for the tame strong bundle `P`.
   "`(f|Xᵢ, P|Yᵢ) = (fᵢ, Pᵢ)`" identifies the end problems with the restrictions; the formalization
-  takes the restrictions as the end problems (the identification up to isomorphism of Remark 5.21
+  takes the restrictions as the end problems (the identification up to isomorphism of Remark 5.3.14 (preprint 5.21)
   is not formalized).
-* **Lemma 5.23** is linear algebra; "sc-operator" is automatic (`T_xS` is finite-dimensional and
-  `Z` smooth).  **Hidden hypothesis of Theorem 5.22**: the decomposition `T_xX = Z ⊕ ker dt(x)`
+* **Lemma 5.3.16 (preprint 5.23)** is linear algebra; "sc-operator" is automatic (`T_xS` is finite-dimensional and
+  `Z` smooth).  **Hidden hypothesis of Theorem 5.3.15 (preprint 5.22)**: the decomposition `T_xX = Z ⊕ ker dt(x)`
   with `dim Z = 1` needs `dt(x) ≠ 0` (`ne_zero_of_isCompl_ker`), i.e. `t` a submersion at the
   critical points of `t|S`; the text does not assume it.
-* **Lemma 5.24**: the graph `q ↦ q + δ(q)` of the text is not needed: the section is built from a
+* **Lemma 5.3.17 (preprint 5.24)**: the graph `q ↦ q + δ(q)` of the text is not needed: the section is built from a
   continuous linear functional `ℓ` on the whole model space extending `−λ` (Hahn–Banach on the
   finite-dimensional `K`), where `Lin_f(z)(b v) = λ(v)·e`.  The linearization `s'(x)` is read in a
   chart (`linAt`), as everywhere in Chapter 5.  The text's case distinction ("if the operator is
   zero take `s = 0`") is not needed.
-* **Theorem 5.22 (Morse-type structure) is not formalized.**  It needs finite-dimensional Morse
+* **Theorem 5.3.15 (preprint 5.22) (Morse-type structure) is not formalized.**  It needs finite-dimensional Morse
   theory on manifolds with boundary, sections of the cotangent bundle `T*S` of the solution set, a
   parametric Sard theorem, and an Ehresmann-type trivialization `Φ_λ : S → S_λ` (which the text
   attributes to "the classical implicit function theorem"), none of which is in Mathlib or the
@@ -92,18 +92,18 @@ namespace Polyfold
 
 universe u v
 
-/-! ### Lemma 5.23: linear algebra -/
+/-! ### Lemma 5.3.16 (preprint 5.23): linear algebra -/
 
 section Lemma523
 
 variable {T S : Type*} [AddCommGroup T] [Module ℝ T] [AddCommGroup S] [Module ℝ S]
 
-/-- **Lemma 5.23**: let `ℓ : T → ℝ` be linear and nonzero (the text's `dt(x)` on `T_xX`; the
+/-- **Lemma 5.3.16 (preprint 5.23)**: let `ℓ : T → ℝ` be linear and nonzero (the text's `dt(x)` on `T_xX`; the
 hidden hypothesis, `ne_zero_of_isCompl_ker`) and `Z` a complement of `ker ℓ` (`T = Z ⊕ ker ℓ`).
 For every linear `τ : S → ℝ` (`τ ∈ T*_xS`) there is a unique linear `b : S → Z` with `ℓ ∘ b = τ`
 (`b_τ`), and for every linear `b, a : S → T` with `ℓ ∘ b = τ` and `a` with values in `ker ℓ`,
 `ℓ ∘ (b + a) = τ`.  (`T_xS` is finite-dimensional and `Z` smooth, so `b` is an sc-operator.) -/
-theorem lemma_5_23 {ℓ : T →ₗ[ℝ] ℝ} (hℓ : ℓ ≠ 0) {Z : Submodule ℝ T}
+theorem lemma_5_3_16_preprint {ℓ : T →ₗ[ℝ] ℝ} (hℓ : ℓ ≠ 0) {Z : Submodule ℝ T}
     (hZ : IsCompl Z (LinearMap.ker ℓ)) (τ : S →ₗ[ℝ] ℝ) :
     (∃! b : S →ₗ[ℝ] Z, ℓ ∘ₗ Z.subtype ∘ₗ b = τ) ∧
       ∀ b a : S →ₗ[ℝ] T, ℓ ∘ₗ b = τ → (∀ v, a v ∈ LinearMap.ker ℓ) → ℓ ∘ₗ (b + a) = τ := by
@@ -143,9 +143,9 @@ theorem lemma_5_23 {ℓ : T →ₗ[ℝ] ℝ} (hℓ : ℓ ≠ 0) {Z : Submodule �
     simp only [LinearMap.comp_apply, LinearMap.add_apply, map_add, h2, add_zero]
     exact congrArg (fun F : S →ₗ[ℝ] ℝ => F v) hb
 
-/-- **The hidden hypothesis of Theorem 5.22**: a nonzero complement `Z` of `ker ℓ` (the text's
+/-- **The hidden hypothesis of Theorem 5.3.15 (preprint 5.22)**: a nonzero complement `Z` of `ker ℓ` (the text's
 one-dimensional `Z` with `T_xX = Z ⊕ ker dt(x)`) exists only if `ℓ ≠ 0`, i.e. `dt(x) ≠ 0`.  (For
-`ℓ = 0`, `ker ℓ = T` and the only complement is `0`; then `b_τ` of Lemma 5.23 exists only for
+`ℓ = 0`, `ker ℓ = T` and the only complement is `0`; then `b_τ` of Lemma 5.3.16 (preprint 5.23) exists only for
 `τ = 0`.) -/
 theorem ne_zero_of_isCompl_ker {ℓ : T →ₗ[ℝ] ℝ} {Z : Submodule ℝ T}
     (hZ : IsCompl Z (LinearMap.ker ℓ)) (hZ0 : Z ≠ ⊥) : ℓ ≠ 0 := by
@@ -191,7 +191,7 @@ theorem exists_isCompl_ker_of_ne_zero {ℓ : T →ₗ[ℝ] ℝ} (hℓ : ℓ ≠ 
 
 end Lemma523
 
-/-! ### Definition 5.20: generalized compact homotopies -/
+/-! ### Definition 5.3.13 (preprint 5.20): generalized compact homotopies -/
 
 section Def520
 
@@ -220,16 +220,16 @@ lemma isZeroAt_restrictSection_iff {A : Set X} {f : X → Y} (hf : IsSection P f
 
 variable (B : StrongBundle PX P)
 
-/-- **Definition 5.20 (generalized compact homotopy)**: the tame strong bundle `P : Y → X` (`X`
-tame, `f` with tame germ data, Definition 3.51) with the sc-Fredholm section `f` and the sc-smooth
+/-- **Definition 5.3.13 (preprint 5.20) (generalized compact homotopy)**: the tame strong bundle `P : Y → X` (`X`
+tame, `f` with tame germ data, Definition 3.6.4 (preprint 3.51)) with the sc-Fredholm section `f` and the sc-smooth
 function `t : X → ℝ` is a **generalized compact homotopy** (between the compact sc-Fredholm
 problems obtained by restricting to `X₀ = t⁻¹(0)` and `X₁ = t⁻¹(1)`) if `f` has a compact solution
 set, `t(X) = [0, 1]`, and for every `τ ∈ [0, 1]` the fibre `X_τ = t⁻¹(τ)` is a sub-M-polyfold of
 `X` whose induced structure is tame, and the restriction `f_τ = f|X_τ` (`restrictSection`) is an
 sc-Fredholm section, with tame germ data, of the pull-back `Y|X_τ = ι*Y` of `P` along the
-inclusion `ι : X_τ → X` (Proposition 2.54, `StrongBundle.pullback`; `ι` is sc-smooth by
-Proposition 2.21).  The text's `(f|Xᵢ, P|Yᵢ) = (fᵢ, Pᵢ)` identifies the given end problems with
-these restrictions (Remark 5.21: up to an isomorphism, not formalized). -/
+inclusion `ι : X_τ → X` (Proposition 2.6.8 (preprint 2.54), `StrongBundle.pullback`; `ι` is sc-smooth by
+Proposition 2.3.19 (preprint 2.21)).  The text's `(f|Xᵢ, P|Yᵢ) = (fᵢ, Pᵢ)` identifies the given end problems with
+these restrictions (Remark 5.3.14 (preprint 5.21): up to an isomorphism, not formalized). -/
 structure StrongBundle.IsGenCompactHomotopy (f : X → Y) (t : X → ℝ) : Prop where
   isTame : PX.IsTame
   isScFredholm : B.IsScFredholmSectionTame f
@@ -321,7 +321,7 @@ theorem scDeriv_clm_sub_apply {C U : Set (E 0)} (hU : IsRelOpenInQuadrant E C U)
 
 end DerivRules
 
-/-! ### Lemma 5.24 -/
+/-! ### Lemma 5.3.17 (preprint 5.24) -/
 
 section Lemma524
 
@@ -333,7 +333,7 @@ open StrongRetr
 
 open scoped Classical in
 /-- The function `g(y) = β(y)·ℓ(φ(y) − φ(x))` on `dom φ`, `0` outside (the scalar factor of the
-section of Lemma 5.24). -/
+section of Lemma 5.3.17 (preprint 5.24)). -/
 def chartLinCutoff (φ : MChart X) (β : X → ℝ) (ℓ : φ.model.E 0 →L[ℝ] ℝ) (x y : X) : ℝ :=
   if y ∈ φ.source then β y * ℓ (φ y - φ x) else 0
 
@@ -402,12 +402,12 @@ lemma principal_sectionSmul (c : StrongBundleChart PX P) {s : X → Y} (hs : IsS
   rw [sectionSmul_apply hs]
   exact (c.fiber_linear _ (c.φ.symm_mapsTo hu)).map_smul _ _
 
-/-- **The construction of Lemma 5.24, in a chart**: let `X` admit sc-smooth bump functions, `c`
+/-- **The construction of Lemma 5.3.17 (preprint 5.24), in a chart**: let `X` admit sc-smooth bump functions, `c`
 a strong bundle chart around the smooth point `x`, `z` the level-`1` point over `φ(x)`, `e` a
 smooth point of the fibre over `x`, `ℓ` a continuous linear functional on the model space `E` and
 `U ∋ x` open.  Then there is an sc⁺-section `s` with `s(x) = 0`, `supp(s) ⊆ U` and
 `Lin_s(z)v = ℓ(v)·Φ(e)₂` for every `v ∈ T_zO` (the text's `s'(0)(δk + δl) = j(δl)e`).  *Proof*:
-`s = g·sₑ` with `sₑ` the sc⁺-section of Lemma 5.11 through `e` (supported in `U ∩ dom φ`) and
+`s = g·sₑ` with `sₑ` the sc⁺-section of Lemma 5.3.3 (preprint 5.11) through `e` (supported in `U ∩ dom φ`) and
 `g = β·ℓ(φ(·) − φ(x))`, `β` a bump function with `β ≡ 1` near `x` and `supp(β) ⊆ dom φ`; `s` is
 sc⁺ by the product rule (`IsScPlusSection.smul_left`), `s(x) = g(x)·e = 0`, and in the chart
 `Lin_s(z)v = D(g ∘ φ⁻¹ ∘ r)(z)v·ŝₑ(φ(x)) + g(x)·Lin_{sₑ}(z)v = ℓ(Dr(z)v)·Φ(e)₂ = ℓ(v)·Φ(e)₂`
@@ -420,10 +420,10 @@ theorem exists_scPlusSection_linAt (hbump : PX.AdmitsBumpFunctions) {c : StrongB
     ∃ s : X → Y, B.IsScPlusSection s ∧ s x = fiberZero P x ∧ sectionSupport P s ⊆ U ∧
       ∀ v : ↥(rangeS (scDeriv c.U (r c.R) z)),
         linAt c.U c.R (c.principal s) z v = ℓ v • (c e).2 := by
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := B)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := B)
   obtain ⟨-, se, hse, hsex, hsesupp, -⟩ :=
-    lemma_5_11 hbump hN hx he hex one_pos (hU.inter c.φ.isOpen_source) ⟨hxU, hxc⟩
-  obtain ⟨β, hβ, -, -, hβs, hβ1⟩ := proposition_5_30 hbump c.φ.isOpen_source hxc
+    lemma_5_3_3 hbump hN hx he hex one_pos (hU.inter c.φ.isOpen_source) ⟨hxU, hxc⟩
+  obtain ⟨β, hβ, -, -, hβs, hβ1⟩ := proposition_5_5_3 hbump c.φ.isOpen_source hxc
   set g := chartLinCutoff c.φ β ℓ x with hgdef
   have hg : PX.IsScSmoothMap realPolyfold g := isScSmoothMap_chartLinCutoff c.isChart hβ hβs ℓ x
   have hgx : g x = 0 := by rw [hgdef, chartLinCutoff_of_mem hxc, sub_self, map_zero, mul_zero]
@@ -512,11 +512,11 @@ theorem exists_scPlusSection_linAt (hbump : PX.AdmitsBumpFunctions) {c : StrongB
     rw [c.φ.symm_apply_apply hxc, hsex]
   rw [ha0, hw0, zero_smul, add_zero]
 
-/-- **Lemma 5.24**: let `X` admit sc-smooth bump functions, `f` a section of the strong bundle
+/-- **Lemma 5.3.17 (preprint 5.24)**: let `X` admit sc-smooth bump functions, `f` a section of the strong bundle
 `P` (in the text sc-Fredholm with `f(x) = 0`), `c` a strong bundle chart around the smooth point
 `x`, `z` the level-`1` point over `φ(x)`, `K ⊆ T_zO` a finite-dimensional subspace (the text's
-`T_xS = ker f'(x)`, finite-dimensional by Proposition 3.52) and `b : K → T_zO` linear (the text's
-`b_τ` of Lemma 5.23) such that `Lin_f(z) ∘ b` takes values in the line spanned by `Φ(e)₂` for a
+`T_xS = ker f'(x)`, finite-dimensional by Proposition 3.6.5 (preprint 3.52)) and `b : K → T_zO` linear (the text's
+`b_τ` of Lemma 5.3.16 (preprint 5.23)) such that `Lin_f(z) ∘ b` takes values in the line spanned by `Φ(e)₂` for a
 smooth point `e` of the fibre over `x` (the text: "the operator has a one-dimensional image spanned
 by some smooth point `e ∈ Y_x`").  Then for every open `U ∋ x` there is an sc⁺-section `s` with
 (1) `s(x) = 0`, `supp(s) ⊆ U`, and (2) `f'(x) ∘ b + s'(x)|_K = 0`, i.e.
@@ -524,7 +524,7 @@ by some smooth point `e ∈ Y_x`").  Then for every open `U ∋ x` there is an s
 linear on `K`, extend `−λ` to a continuous linear functional `ℓ` on the model space (Hahn–Banach),
 and apply `exists_scPlusSection_linAt`.  (The text's graph `q ↦ q + δ(q)` and its case "the
 operator is zero" are not needed.) -/
-theorem lemma_5_24 (hbump : PX.AdmitsBumpFunctions) (f : X → Y) {c : StrongBundleChart PX P}
+theorem lemma_5_3_17 (hbump : PX.AdmitsBumpFunctions) (f : X → Y) {c : StrongBundleChart PX P}
     (hc : B.IsChart c) {x : X} (hxc : x ∈ c.φ.source) (hx : x ∈ PX.smoothSet)
     {z : c.φ.model.E 1} (hz : c.φ.model.E.toBase 1 z = c.φ x)
     (K : Submodule ℝ ↥(rangeS (scDeriv c.U (r c.R) z))) [FiniteDimensional ℝ K]

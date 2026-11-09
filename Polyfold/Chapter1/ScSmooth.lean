@@ -3,17 +3,17 @@ import Polyfold.Chapter1.ScBanach
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1,
 Definitions 1.11–1.15 (the preprint's Definition 1.14 and the inductive definition of `sc^k`
-that follows it; its Remark 1.15 on partial cones is not formalized).
+that follows it; its Remark 1.1.17 (preprint 1.15) on partial cones is not formalized).
 
 # Partial quadrants, sc⁰ maps, the tangent construction, sc¹, sc^k and sc-smooth maps
 
 ## The text, paraphrased
 
-(Definition 1.11) A partial quadrant in an sc-Banach space `E` is a closed convex `C ⊆ E` for which
+(Definition 1.1.12 (preprint 1.11)) A partial quadrant in an sc-Banach space `E` is a closed convex `C ⊆ E` for which
 there is an sc-isomorphism `T : E → ℝⁿ ⊕ W` with `T(C) = [0,∞)ⁿ ⊕ W`.  One considers tuples
-`(U, C, E)` with `U` relatively open in `C`.  (Definition 1.12) `f : U → U'` is sc⁰ if
-`f(U_m) ⊆ U'_m` and `f : U_m → U'_m` is continuous for all `m`.  (Definition 1.13) The tangent of
-`(U, C, E)` is `(TU, TC, TE) = (U¹ ⊕ E, C¹ ⊕ E, E¹ ⊕ E)`.  (Definition 1.14) `f : U → U'` is sc¹ if
+`(U, C, E)` with `U` relatively open in `C`.  (Definition 1.1.13 (preprint 1.12)) `f : U → U'` is sc⁰ if
+`f(U_m) ⊆ U'_m` and `f : U_m → U'_m` is continuous for all `m`.  (Definition 1.1.14 (preprint 1.13)) The tangent of
+`(U, C, E)` is `(TU, TC, TE) = (U¹ ⊕ E, C¹ ⊕ E, E¹ ⊕ E)`.  (Definition 1.1.15 (preprint 1.14)) `f : U → U'` is sc¹ if
 (1) `f` is sc⁰; (2) for every `x ∈ U₁` there is a bounded linear `Df(x) : E₀ → F₀` with
 `|f(x+h) − f(x) − Df(x)h|₀ / |h|₁ → 0` as `|h|₁ → 0`, `h ∈ E₁`, `x + h ∈ U₁`; (3) the tangent
 map `Tf : TU → TU'`, `Tf(x, h) = (f(x), Df(x)h)`, is sc⁰.  Inductively, `f` is sc^{k+1} if it is sc¹
@@ -26,11 +26,11 @@ and `Tf` is sc^k; `f` is sc-smooth if it is sc^k for all `k`.
   is `TU = U¹ ⊕ E` as a subset of `(TE)₀ = E₁ × E₀`.
 * `Polyfold.levelMap f m : E m → F m` is the map induced by `f : E₀ → F₀` on level `m` (defined
   through the injectivity of the inclusions, meaningful where `f` maps `E_m` into `F_m`).
-* `Polyfold.IsSc0 E F U f` (**Definition 1.12**), `Polyfold.IsSc1With U f D` (**Definition 1.14**
+* `Polyfold.IsSc0 E F U f` (**Definition 1.1.13 (preprint 1.12)**), `Polyfold.IsSc1With U f D` (**Definition 1.1.15 (preprint 1.14)**
   with the derivative family `D` made explicit), `Polyfold.IsSc1 U f` (`∃ D`),
   `Polyfold.scDeriv U f` (a choice of `D`), `Polyfold.tangentMap U f` (`Tf`),
-  `Polyfold.IsSck k U f`, `Polyfold.IsScSmooth U f` (**Definition 1.15** in the book's numbering).
-* `Polyfold.IsPartialQuadrant E C` (**Definition 1.11**), `Polyfold.IsRelOpenInQuadrant E C U`
+  `Polyfold.IsSck k U f`, `Polyfold.IsScSmooth U f` (**Definition 1.1.15 and p. 10 (preprint: before Remark 1.15)** in the book's numbering).
+* `Polyfold.IsPartialQuadrant E C` (**Definition 1.1.12 (preprint 1.11)**), `Polyfold.IsRelOpenInQuadrant E C U`
   (the tuple `(U, C, E)`), and `Polyfold.IsScDomain E U`, the level-wise consequences used by the
   chain rule: each `U_m` is open-in-convex, and each point of `U_m` is a point of unique
   differentiability; `IsScDomain.tangentSet` propagates this to `TU`.
@@ -42,7 +42,7 @@ and `Tf` is sc^k; `f` is sc-smooth if it is sc^k for all `k`.
 * Maps are total functions `f : E₀ → F₀`; only the values on `U` matter (`IsSc0.congr`,
   `IsSc1With.congr`).  The target `U'` plays no role in the definitions beyond `MapsTo f U U'`,
   so it is not an argument.
-* Condition (2) of Definition 1.14, a limit over `h ∈ E₁` with `x + h ∈ U₁`, is Mathlib's
+* Condition (2) of Definition 1.1.15 (preprint 1.14), a limit over `h ∈ E₁` with `x + h ∈ U₁`, is Mathlib's
   `HasFDerivWithinAt (f ∘ ι₁) (Df(x) ∘ ι₁) U₁ x`, `ι₁ : E₁ → E₀`: the differentiability of
   `f : U₁ → F₀` at `x` within `U₁`, with derivative `Df(x)|_{E₁}`.
 * The text writes `Df(x)` as if unique.  It is, when `U₁` has unique differentiability at `x` and
@@ -99,7 +99,7 @@ lemma mapsTo_toBase_lvlSet (U : Set (E 0)) (m : ℕ) : MapsTo (E.toBase m) (E.lv
 
 /-! ### The tangent `TE = E¹ ⊕ E` -/
 
-/-- The tangent `TE = E¹ ⊕ E` of an sc-Banach space (Definition 1.13), with levels
+/-- The tangent `TE = E¹ ⊕ E` of an sc-Banach space (Definition 1.1.14 (preprint 1.13)), with levels
 `(TE)_m = E_{m+1} × E_m`. -/
 abbrev tangent : ScBanach := E.shift.prod E
 
@@ -112,7 +112,7 @@ lemma tangent_toBase (m : ℕ) (p : E.tangent m) :
 lemma tangent_incl (m : ℕ) (p : E.tangent (m + 1)) :
     E.tangent.incl m p = ((E.incl (m + 1) p.1, E.incl m p.2) : E.tangent m) := rfl
 
-/-- `TU = U¹ ⊕ E ⊆ (TE)₀ = E₁ × E₀` (Definition 1.13). -/
+/-- `TU = U¹ ⊕ E ⊆ (TE)₀ = E₁ × E₀` (Definition 1.1.14 (preprint 1.13)). -/
 def tangentSet (U : Set (E 0)) : Set (E.tangent 0) := {p | p.1 ∈ E.lvlSet U 1}
 
 lemma mem_tangentSet {U : Set (E 0)} {p : E.tangent 0} : p ∈ E.tangentSet U ↔ p.1 ∈ E.lvlSet U 1 :=
@@ -138,7 +138,7 @@ lemma lvlSet_tangentSet (U : Set (E 0)) (m : ℕ) :
 
 end ScBanach
 
-/-! ### Level maps and sc⁰ maps (Definition 1.12) -/
+/-! ### Level maps and sc⁰ maps (Definition 1.1.13 (preprint 1.12)) -/
 
 variable {E F G : ScBanach}
 
@@ -159,7 +159,7 @@ lemma levelMap_eq_of_toBase_eq {f : E 0 → F 0} {m : ℕ} {x : E m} {y : F m}
     (h : F.toBase m y = f (E.toBase m x)) : levelMap f m x = y :=
   F.toBase_injective m (by rw [toBase_levelMap ⟨y, h⟩, h])
 
-/-- `f : U → F` is **sc⁰** (Definition 1.12): for every `m`, `f` maps `U_m` into `F_m` and the
+/-- `f : U → F` is **sc⁰** (Definition 1.1.13 (preprint 1.12)): for every `m`, `f` maps `U_m` into `F_m` and the
 induced map `f_m : U_m → F_m` is continuous. -/
 structure IsSc0 (E F : ScBanach) (U : Set (E 0)) (f : E 0 → F 0) : Prop where
   mem_range : ∀ m, ∀ x ∈ E.lvlSet U m, f (E.toBase m x) ∈ range (F.toBase m)
@@ -227,14 +227,14 @@ lemma ScOperator.isSc0 (T : ScOperator E F) : IsSc0 E F univ (T 0) :=
 lemma ScOperator.levelMap_eq (T : ScOperator E F) (m : ℕ) (x : E m) : levelMap (T 0) m x = T m x :=
   levelMap_eq_of_toBase_eq (T.toBase_comm m x)
 
-/-! ### The tangent map and sc¹ maps (Definitions 1.13, 1.14) -/
+/-! ### The tangent map and sc¹ maps (Definitions 1.1.14, 1.1.15 (preprint 1.13, 1.14)) -/
 
 /-- The tangent map `Tf : TU → TF`, `Tf(x, h) = (f(x), Df(x) h)`, for a given family of
 derivatives `D x = Df(x)`, `x ∈ E₁`. -/
 def tangentMapWith (f : E 0 → F 0) (D : E 1 → E 0 →L[ℝ] F 0) (p : E.tangent 0) : F.tangent 0 :=
   (levelMap f 1 p.1, D p.1 p.2)
 
-/-- `f : U → F` is **sc¹ with derivative family `D`** (Definition 1.14): `f` is sc⁰; for every
+/-- `f : U → F` is **sc¹ with derivative family `D`** (Definition 1.1.15 (preprint 1.14)): `f` is sc⁰; for every
 `x ∈ U₁`, `f : U₁ → F₀` is differentiable at `x` within `U₁` with derivative `D x ∘ ι₁`, where
 `D x : E₀ → F₀` is bounded linear (condition (2)); and the tangent map `Tf : TU → TF` is sc⁰
 (condition (3)). -/
@@ -244,7 +244,7 @@ structure IsSc1With (U : Set (E 0)) (f : E 0 → F 0) (D : E 1 → E 0 →L[ℝ]
     HasFDerivWithinAt (f ∘ E.toBase 1) ((D x).comp (E.toBase 1)) (E.lvlSet U 1) x
   tangent_isSc0 : IsSc0 E.tangent F.tangent (E.tangentSet U) (tangentMapWith f D)
 
-/-- `f : U → F` is **sc¹** (Definition 1.14): there is a family `Df(x)`, `x ∈ U₁`, as in
+/-- `f : U → F` is **sc¹** (Definition 1.1.15 (preprint 1.14)): there is a family `Df(x)`, `x ∈ U₁`, as in
 `IsSc1With`. -/
 def IsSc1 (U : Set (E 0)) (f : E 0 → F 0) : Prop := ∃ D, IsSc1With U f D
 
@@ -253,7 +253,7 @@ open scoped Classical in
 def scDeriv (U : Set (E 0)) (f : E 0 → F 0) : E 1 → E 0 →L[ℝ] F 0 :=
   if h : IsSc1 U f then h.choose else fun _ => 0
 
-/-- The tangent map `Tf : TU → TF` of `f` (Definition 1.14 (3)), with the chosen derivative. -/
+/-- The tangent map `Tf : TU → TF` of `f` (Definition 1.1.15 (preprint 1.14) (3)), with the chosen derivative. -/
 def tangentMap (U : Set (E 0)) (f : E 0 → F 0) : E.tangent 0 → F.tangent 0 :=
   tangentMapWith f (scDeriv U f)
 
@@ -284,7 +284,7 @@ lemma congr (h : IsSc1With U f D) {f' : E 0 → F 0} (hff' : EqOn f f' U) : IsSc
     rw [IsSc0.levelMap_congr hff' hp]
 
 /-- The derivative family depends only on the values of `f` on `U`, at points of unique
-differentiability: if `Df` and `Df'` both satisfy Definition 1.14 then `Df(x) = Df'(x)` for
+differentiability: if `Df` and `Df'` both satisfy Definition 1.1.15 (preprint 1.14) then `Df(x) = Df'(x)` for
 `x ∈ U₁` (using that `E₁` is dense in `E₀`). -/
 lemma eq_of_uniqueDiffWithinAt (h : IsSc1With U f D) {D' : E 1 → E 0 →L[ℝ] F 0}
     (h' : IsSc1With U f D') {x : E 1} (hx : x ∈ E.lvlSet U 1)
@@ -317,14 +317,14 @@ lemma tangentMap_mapsTo (h : IsSc1 U f) {V : Set (F 0)} (hfV : MapsTo f U V) :
   h.isSc1With_scDeriv.tangentMapWith_mapsTo hfV
 
 /-- On a domain with unique differentiability, the chosen derivative agrees on `U₁` with any
-family satisfying Definition 1.14. -/
+family satisfying Definition 1.1.15 (preprint 1.14). -/
 lemma scDeriv_eqOn {D : E 1 → E 0 →L[ℝ] F 0} (h : IsSc1With U f D)
     (hU : ∀ x ∈ E.lvlSet U 1, UniqueDiffWithinAt ℝ (E.lvlSet U 1) x) :
     EqOn (scDeriv U f) D (E.lvlSet U 1) :=
   fun x hx => h.isSc1.isSc1With_scDeriv.eq_of_uniqueDiffWithinAt h hx (hU x hx)
 
 /-- On a domain with unique differentiability, the tangent map agrees on `TU` with the tangent
-map built from any derivative family satisfying Definition 1.14. -/
+map built from any derivative family satisfying Definition 1.1.15 (preprint 1.14). -/
 lemma tangentMap_eqOn {D : E 1 → E 0 →L[ℝ] F 0} (h : IsSc1With U f D)
     (hU : ∀ x ∈ E.lvlSet U 1, UniqueDiffWithinAt ℝ (E.lvlSet U 1) x) :
     EqOn (tangentMap U f) (tangentMapWith f D) (E.tangentSet U) := by
@@ -337,15 +337,15 @@ lemma congr (h : IsSc1 U f) {f' : E 0 → F 0} (hff' : EqOn f f' U) : IsSc1 U f'
 
 end IsSc1
 
-/-! ### sc^k and sc-smooth maps (Definition 1.15) -/
+/-! ### sc^k and sc-smooth maps (Definition 1.1.15 and p. 10 (preprint: before Remark 1.15)) -/
 
-/-- `f : U → F` is **sc^k** (Definition 1.15): sc⁰ for `k = 0`; for `k + 1`, sc¹ with `Tf : TU → TF`
+/-- `f : U → F` is **sc^k** (Definition 1.1.15 and p. 10 (preprint: before Remark 1.15)): sc⁰ for `k = 0`; for `k + 1`, sc¹ with `Tf : TU → TF`
 sc^k. -/
 def IsSck : ℕ → ∀ (E F : ScBanach), Set (E 0) → (E 0 → F 0) → Prop
   | 0, E, F, U, f => IsSc0 E F U f
   | k + 1, E, F, U, f => IsSc1 U f ∧ IsSck k E.tangent F.tangent (E.tangentSet U) (tangentMap U f)
 
-/-- `f : U → F` is **sc-smooth** (sc^∞, Definition 1.15): sc^k for every `k`. -/
+/-- `f : U → F` is **sc-smooth** (sc^∞, Definition 1.1.15 and p. 10 (preprint: before Remark 1.15)): sc^k for every `k`. -/
 def IsScSmooth (U : Set (E 0)) (f : E 0 → F 0) : Prop := ∀ k, IsSck k E F U f
 
 lemma isSck_zero_iff {U : Set (E 0)} {f : E 0 → F 0} : IsSck 0 E F U f ↔ IsSc0 E F U f := Iff.rfl
@@ -388,7 +388,7 @@ lemma isScSmooth_iff {U : Set (E 0)} {f : E 0 → F 0} :
     | zero => exact h.1.isSc0
     | succ k => exact ⟨h.1, h.2 k⟩⟩
 
-/-! ### Partial quadrants (Definition 1.11) and the tuples `(U, C, E)` -/
+/-! ### Partial quadrants (Definition 1.1.12 (preprint 1.11)) and the tuples `(U, C, E)` -/
 
 /-- The quadrant `[0,∞)ⁿ ⊕ W` on level `m` of the sc-Banach space `ℝⁿ ⊕ W`. -/
 def quadrant (n : ℕ) (W : ScBanach) (m : ℕ) : Set (((ScBanach.const (Fin n → ℝ)).prod W) m) :=
@@ -422,7 +422,7 @@ lemma lvlSet_quadrant (n : ℕ) (W : ScBanach) (m : ℕ) :
   change (∀ i, 0 ≤ (ScBanach.const (Fin n → ℝ)).toBase m p.1 i) ↔ ∀ i, 0 ≤ p.1 i
   rw [ScBanach.const_toBase]
 
-/-- `C ⊆ E` is a **partial quadrant** (Definition 1.11): `C = T⁻¹([0,∞)ⁿ ⊕ W)` for an
+/-- `C ⊆ E` is a **partial quadrant** (Definition 1.1.12 (preprint 1.11)): `C = T⁻¹([0,∞)ⁿ ⊕ W)` for an
 sc-isomorphism `T : E → ℝⁿ ⊕ W`. -/
 def IsPartialQuadrant (E : ScBanach) (C : Set (E 0)) : Prop :=
   ∃ (n : ℕ) (W : ScBanach) (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)),

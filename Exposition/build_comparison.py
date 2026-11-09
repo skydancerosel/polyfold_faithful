@@ -10,7 +10,7 @@ Exposition/). Source paths are printed relative to the project folder (`Polyfold
 Data format (one row per result; see cmp/ch01.json):
   {"id": "V1.5", "title": …, "verdict": one of VERDICTS,
    "book": {"label": "§1.1, Proposition 1.6, p. 7", "page": 7, "statement": …, "note": …},
-   "lean": {"statement": …, "decls": ["Chapter1/ScBanach · ScBanach.proposition_1_6", …]},
+   "lean": {"statement": …, "decls": ["Chapter1/ScBanach · ScBanach.proposition_1_1_7", …]},
    "chips": [short strings], "diff": [bullets]}
 and "notFormalized": [{"title", "label", "page", "book", "instead"}]; an entry proved later gets
 "formalized": [the ids of the rows that prove it] and "decls": [...], keeps its place (so the G-numbers of

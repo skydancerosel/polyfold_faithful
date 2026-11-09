@@ -290,7 +290,7 @@ theorem A_to_not_B : A → ¬ B := by
   have h₀ : stabSign L₀ = -1 := stabSign_of_zero fun v => by rw [hv₀, hz]; rfl
   have h₁ : stabSign L₁ = 1 := stabSign_of_surjective fun k =>
     ⟨⟨(k.1 : V1), mem_p0_T k.1⟩, Subtype.ext (by rw [hv₁, fderiv_id]; rfl)⟩
-  obtain ⟨ω, -⟩ := (proposition_6_26 (p0.convex_linSet hf0) ⟨L₀, hL₀⟩
+  obtain ⟨ω, -⟩ := (proposition_6_6_1 (p0.convex_linSet hf0) ⟨L₀, hL₀⟩
     (p0.isFredholm_of_mem_linSet hf0)).2
   let q₀ : pullbackSpace (TrivialBundle.proj 1 1) (Prod.snd : V1 × V1 → V1) :=
     ⟨((0, 0), (0, 0)), rfl⟩
@@ -298,12 +298,12 @@ theorem A_to_not_B : A → ¬ B := by
     (B := (TrivialBundle.bundle 1 1).pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold 1) (rnPolyfold 1)))
   obtain ⟨hmem, ô, hô⟩ := hB (rnPolyfold 1) (TrivialBundle.proj 1 1) (TrivialBundle.bundle 1 1)
     (MPolyfold.isScSmoothMap_snd (rnPolyfold 1) (rnPolyfold 1)) f0 hf0
-    TrivialBundle.isSection_graphSection _ hS (theorem_3_15 hf0.param hS) 0 hx0 0
+    TrivialBundle.isSection_graphSection _ hS (theorem_3_1_18_preprint hf0.param hS) 0 hx0 0
     (Set.left_mem_Icc.2 zero_le_one) p0 q₀ ω
   have : PreconnectedSpace (p0.linSet f0) :=
     isPreconnected_iff_preconnectedSpace.1 (p0.convex_linSet hf0).isPreconnected
   exact abstract_false (p0.prodT 0 q₀) (p0.prodK 0 q₀) (p0.isFredholm_of_mem_linSet hf0)
-    ((p0.prodPt 0 q₀).isFredholm_of_mem_linSet (theorem_3_15 hf0.param hS)) hmem ω ô
+    ((p0.prodPt 0 q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf0.param hS)) hmem ω ô
     (fun L v => by simp [extConjOp]) (fun L hL hLF => hô L hL (hmem L hL) hLF)
     hL₀ hL₁ h₀ h₁ (fun hext o' => hA.2.2.2.2.2.2.2.1 hext o')
 

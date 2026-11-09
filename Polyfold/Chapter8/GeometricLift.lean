@@ -9,20 +9,20 @@ set_option maxSynthPendingDepth 3
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8: the discussion after **Definition 8.9** (pp. 280–281), **Proposition 8.3**
-(pp. 281–282) and **Theorem 8.6** (pp. 283–284): the proper covering functor of a geometric lift,
+Chapter 8: the discussion after **Definition 8.5.5 (2017: 8.9)** (pp. 280–281), **Proposition 8.5.7 (2017: 8.3)**
+(pp. 281–282) and **Theorem 8.5.8 (2017: 8.6)** (pp. 283–284): the proper covering functor of a geometric lift,
 and the local model of a proper covering functor (§8.4, pp. 279–284).  There is no 2014 preprint
 of Part II; numbers and pages are the 2017 text's.  The definitions (`IsCoveringFunctor`,
 `GeometricLift`, `EpFunctor.IsProperCovering`) are in `Polyfold/Chapter8/Basic.lean`, the
-disjoint unions of M-polyfolds in `Polyfold/Chapter8/SigmaPolyfold.lean`, Theorem 8.5 and its
+disjoint unions of M-polyfolds in `Polyfold/Chapter8/SigmaPolyfold.lean`, Theorem 8.5.3 (2017: 8.5) and its
 charts `EpFunctor.ProperCoveringChart` in `Polyfold/Chapter8/ProperCoveringLocal.lean`, the unique
-lifting of Definition 8.8 (3) in `Polyfold/Chapter8/ProperCovering.lean`.
+lifting of Definition 8.5.1 (2017: 8.8) (3) in `Polyfold/Chapter8/ProperCovering.lean`.
 
 # Geometric lifts and the local model of a proper covering functor
 
 ## The text, paraphrased
 
-(pp. 280–281) Let `f : D → C` be a covering functor (Definition 8.9), `x` the object of `C`, and
+(pp. 280–281) Let `f : D → C` be a covering functor (Definition 8.5.5 (2017: 8.9)), `x` the object of `C`, and
 `τ : L_D → L_C ∘ f` a geometric lift.  Write `U(x) = L_C(x)` and `U(y) = L_D(y)`; `τ(y) : U(y) →
 U(x)` is an sc-diffeomorphism, and so is `φ_{yy'}(ψ) = L_D(ψ) : U(y) → U(y')` for `ψ : y → y'`.
 By functoriality `φ_{yy''}(ψ ∘ γ) = φ_{y'y''}(ψ) ∘ φ_{yy'}(γ)`.  The isotropy groups act by
@@ -30,7 +30,7 @@ By functoriality `φ_{yy''}(ψ ∘ γ) = φ_{y'y''}(ψ) ∘ φ_{yy'}(γ)`.  The 
 the naturality of `τ` gives `τ(y)(h ∗ z) = f(h) ∗ τ(y)(z)`: the `τ(y)` are equivariant along
 `f : G_y → G_x`.
 
-(Proposition 8.3) A covering functor with a geometric lift gives a natural proper covering
+(Proposition 8.5.7 (2017: 8.3)) A covering functor with a geometric lift gives a natural proper covering
 functor `F : Y → X` of ep-groupoids.  Proof: `X = G_x ⋉ U(x)`, with morphisms `G_x × U(x)`,
 `s(g, z) = z`, `t(g, z) = g ∗ z`.  `Y` has the objects `⊔_{y ∈ D} U(y)` and the morphisms
 `⊔_{(y, y')} mor(y, y') × U(y)`, both with natural M-polyfold structures; `s(ψ, z) = z` and
@@ -43,15 +43,15 @@ local sc-diffeomorphism on objects.  The map (8.16) `𝐘 → 𝐗 ₛ×_F Y`,
 surjective (take the `ψ` with `f(ψ) = g`, `s(ψ) = y`) and a local sc-diffeomorphism, hence an
 sc-diffeomorphism.
 
-(Theorem 8.6, Proper Covering II) Let `F : Y → X` be a proper covering functor and `x ∈ X`; `C`
+(Theorem 8.5.8 (2017: 8.6), Proper Covering II) Let `F : Y → X` be a proper covering functor and `x ∈ X`; `C`
 is the full subcategory on `x` (morphisms `G_x`), `D` the full subcategory on the finite set
-`F⁻¹(x)`.  Then `f = F|D : D → C` is a covering functor, and for `U(x)` as in Theorem 8.5 there
+`F⁻¹(x)`.  Then `f = F|D : D → C` is a covering functor, and for `U(x)` as in Theorem 8.5.3 (2017: 8.5) there
 are a geometric lift `A : K → L` of `f` and fully faithful open embedding functors `Φ : L → X`,
 `Ψ : K → Y`, the image of `Φ` the full subcategory on `U(x)`, that of `Ψ` the full subcategory on
 `F⁻¹(U(x))`, with `F ∘ Ψ = Φ ∘ A`.  Proof: `L_C(x) = U(x)`, `L_C(g) = Φ(g)`; `L_D(y) = U(y)` and
 `L_D(ψ) = t ∘ (s|𝐔(ψ₀))⁻¹` for `ψ : y → y'` in `𝐔(ψ₀)`, `ψ₀` the distinguished morphism; `τ(y) =
 F|U(y)`; "one verifies" that this is a geometric lift.  `A : K → L` is its functor of
-Proposition 8.3, `L = G_x ⋉ U(x)`, `K = ⊔ U(y)`, `𝐊 = ⊔ mor(y, y') × U(y)`, `A|U(y) = F|U(y)`,
+Proposition 8.5.7 (2017: 8.3), `L = G_x ⋉ U(x)`, `K = ⊔ U(y)`, `𝐊 = ⊔ mor(y, y') × U(y)`, `A|U(y) = F|U(y)`,
 `A(ψ, z) = (f(ψ), F(z))`.  `Φ` is the inclusion on objects and `Φ(g, z) = Γ(g, z)`; `Ψ` is the
 inclusion on objects and `Ψ(ψ, z) = (s|𝐔(ψ₀))⁻¹(z)`.  The square commutes, and `A` is, up to `Φ`
 and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
@@ -76,13 +76,13 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
   with `geometricLiftTarget_src`, `_tgt`, `_comp`, `_unit`, `_inv`, `_PObj`, `_PMor`.
 * **`F`**: `geometricLiftFunctor L : EpFunctor (geometricLiftSource L) (geometricLiftTarget L)`,
   `geometricLiftFunctor_obj`, `_mor`.
-* **Proposition 8.3**: `proposition_8_3 [Nonempty D] (hf : IsCoveringFunctor f) L :
+* **Proposition 8.5.7 (2017: 8.3)**: `proposition_8_5_7 [Nonempty D] (hf : IsCoveringFunctor f) L :
   (geometricLiftFunctor L).IsProperCovering`, from `geometricLiftFunctor_surjective`,
   `_isLocalScDiffeo`, `_finite_fiber`, `_evenlyCovered`, and **(8.16)**
   `geometricLiftFunctor_isScDiffeo_fibredMap` (inverse `GeometricLift.fibredInv`,
   `isScSmoothMap_fibredInv`).  `geometricLiftFunctor_surjective_iff`: `F` is surjective on
   objects if and only if `D ≠ ∅` or `U(x) = ∅`.
-* **Theorem 8.6.**  Full subcategories: `GroupoidStr.FullOb G A` with the groupoid structure
+* **Theorem 8.5.8 (2017: 8.6).**  Full subcategories: `GroupoidStr.FullOb G A` with the groupoid structure
   `instGroupoidFullOb` (the morphisms of `G`), `FullOb.comp_val`, `FullOb.id_val`.  `D` is
   `EpFunctor.FiberCat F x`; `EpFunctor.fiberIsotropy` (`F(ψ) ∈ G_x`), `fiberIsotropy_id`,
   `fiberIsotropy_comp`; `f = F|D` is `EpFunctor.restrictFiber F x : D ⥤ SingleObj G_x`;
@@ -91,29 +91,29 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
   `mem_morOn_of_hom`.  Open subsets in `Diff_sc`: `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`.
   `EpFunctor.IsFullyFaithfulOpenEmbedding` (with `isOpen_range_obj`, `isOpen_range_mor`) and
   `EpFunctor.faithful_of_injective_mor`.  For a chart `C : F.ProperCoveringChart x` of
-  Theorem 8.5 (namespace `EpFunctor.ProperCoveringChart`): the inverses `σObj`, `σSrc`, `σTgt` of
+  Theorem 8.5.3 (2017: 8.5) (namespace `EpFunctor.ProperCoveringChart`): the inverses `σObj`, `σSrc`, `σTgt` of
   `F|U(y)`, `s|𝐔(ψ₀)`, `t|𝐔(ψ₀)`; `mor_σSrc` (`F(σ_ψ(z)) = Γ(f(ψ), F(z))`), `obj_tgt_σSrc`,
   `isScDiffeoOn_hat`, `hat_id`, `hat_comp`, `σSrc_comp`, `σSrc_id`; the lift `liftLD`, `liftLC`,
   `liftτ`, **`geometricLift`** (`geometricLift_τy_val`, `_φ_val`, `_LC_map_val`); **`Φ`** and
   **`Ψ hF`**, with `isFullyFaithfulOpenEmbedding_Φ`, `isFullyFaithfulOpenEmbedding_Ψ`,
   `range_Φ_obj`, `range_Φ_mor`, `range_Ψ_obj`, `range_Ψ_mor`; **`comp_Ψ`** (`F ∘ Ψ = Φ ∘ A`).
-  **`EpFunctor.theorem_8_6`**: (a) `f` is a covering functor, (b) charts exist with `U(x)` in
-  every open `V ∋ x` (Theorem 8.5), (c) for every chart there are `L`, `Φ`, `Ψ` with `A` a proper
-  covering functor (Proposition 8.3), `Φ`, `Ψ` fully faithful open embeddings with the stated
+  **`EpFunctor.theorem_8_5_8`**: (a) `f` is a covering functor, (b) charts exist with `U(x)` in
+  every open `V ∋ x` (Theorem 8.5.3 (2017: 8.5)), (c) for every chart there are `L`, `Φ`, `Ψ` with `A` a proper
+  covering functor (Proposition 8.5.7 (2017: 8.3)), `Φ`, `Ψ` fully faithful open embeddings with the stated
   images, and `F ∘ Ψ = Φ ∘ A`.
 
 ## What the text leaves implicit, and the choices made
 
-* **`D` nonempty.**  Definition 8.9 allows `D = ∅` (`isCoveringFunctor_of_isEmpty`: the map
+* **`D` nonempty.**  Definition 8.5.5 (2017: 8.9) allows `D = ∅` (`isCoveringFunctor_of_isEmpty`: the map
   `ψ ↦ (f(ψ), s(ψ))` is then a bijection of empty sets); then `Y = ∅` while `U(x)` is arbitrary,
-  and `F` is surjective on objects (Definition 8.8 (1)) only if `U(x) = ∅`
-  (`geometricLiftFunctor_surjective_iff`).  The text does not say so; `proposition_8_3` assumes
-  `[Nonempty D]`, used for the surjectivity only.  It holds in Theorem 8.6, where `D = F⁻¹(x)`.
+  and `F` is surjective on objects (Definition 8.5.1 (2017: 8.8) (1)) only if `U(x) = ∅`
+  (`geometricLiftFunctor_surjective_iff`).  The text does not say so; `proposition_8_5_7` assumes
+  `[Nonempty D]`, used for the surjectivity only.  It holds in Theorem 8.5.8 (2017: 8.6), where `D = F⁻¹(x)`.
 * **`F : Y → X`.**  The proof's "the map `F : X → Y` is a surjective local sc-diffeomorphism
-  between the object sets" is read as `F : Y → X` (possible misprint).  Definition 8.8 (2) holds
+  between the object sets" is read as `F : Y → X` (possible misprint).  Definition 8.5.1 (2017: 8.8) (2) holds
   with `U(x)` the whole object space of `X` and, for `w ∈ U(x)`, the summands `U(y)` around the
   points `(y, τ(y)⁻¹(w))` of `F⁻¹(w)`, one in each summand.
-* **Finiteness** of Definition 8.9 ("finitely many objects and morphisms") enters as the
+* **Finiteness** of Definition 8.5.5 (2017: 8.9) ("finitely many objects and morphisms") enters as the
   hypotheses `[Fintype D] [∀ a b, Fintype (a ⟶ b)] [Fintype G]` (`IsCoveringFunctor` and
   `GeometricLift` do not carry them).  Finitely many morphisms of `D` make `t : 𝐘 → Y` proper,
   finitely many objects make the fibres `F⁻¹(w)` finite, and a finite `G` makes `G ⋉ U(x)` an
@@ -131,8 +131,8 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
 * **The composition of `Y`** is total, as Chapter 7's `GroupoidStr.comp`: `(ψ, z') ∘ (γ, z) =
   (ψ ∘ γ, z)`, with `ψ ∘ γ` the composite when `t(γ) = s(ψ)` and the junk value `γ` otherwise
   (`homComp`).  "One verifies" is carried out.  Sc-smoothness, in the sheet form of
-  Definition 7.3 (4): near `(ψ₀, z₀)` the map `ψ ↦ σ(t ψ) ∘ ψ` is `(ψ₀, z) ↦ (γ₀ ∘ ψ₀, z)`, the
-  summand index `γ₀` of `σ(t ψ)` being locally constant.  Properness: Definition 7.3 (3) holds
+  Definition 7.1.3 (2017: 7.3) (4): near `(ψ₀, z₀)` the map `ψ ↦ σ(t ψ) ∘ ψ` is `(ψ₀, z) ↦ (γ₀ ∘ ψ₀, z)`, the
+  summand index `γ₀` of `σ(t ψ)` being locally constant.  Properness: Definition 7.1.3 (2017: 7.3) (3) holds
   with `V = Y`, since `t` is proper (finitely many summands, each mapped homeomorphically onto a
   summand).
 * **(8.16).**  The text deduces the sc-diffeomorphism from "bijection and local
@@ -141,28 +141,28 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
 * Functoriality is stated with Mathlib's `γ ≫ ψ` for the text's `ψ ∘ γ`; the isotropy group
   `G_y` is Mathlib's monoid `End y` (`h * k = k ≫ h`, the text's `h ∘ k`), and `f : G_y → G_x`
   is `h ↦ f.map h`.
-* **Theorem 8.6: universes.**  Definition 8.9 (`Basic.lean`) takes `D`, `G` and `Diff_sc` in one
-  universe `u`, so Theorem 8.6 holds for ep-groupoids `X`, `Y` whose object and morphism types
+* **Theorem 8.5.8 (2017: 8.6): universes.**  Definition 8.5.5 (2017: 8.9) (`Basic.lean`) takes `D`, `G` and `Diff_sc` in one
+  universe `u`, so Theorem 8.5.8 (2017: 8.6) holds for ep-groupoids `X`, `Y` whose object and morphism types
   lie in any one universe `u` (2021 Theorem 8.5.8; until 2026-11-09 it was stated for `Type`
   only).  `X` and `Y` share the universe because `L_D` and `L_C` take values in one category
   `Diff_sc`; different universes would need lifted carriers (`ULift`), which is not done.
-  Witness in every universe: `CoveringExamples.theorem_8_6_id` (`NonVacuity.lean`).
-* **`C` and `D`.**  `C`, the full subcategory on `x`, is `SingleObj G_x` (as in Definition 8.9).
+  Witness in every universe: `CoveringExamples.theorem_8_5_8_id` (`NonVacuity.lean`).
+* **`C` and `D`.**  `C`, the full subcategory on `x`, is `SingleObj G_x` (as in Definition 8.5.5 (2017: 8.9)).
   `D` is `GroupoidStr.FullOb` on `F⁻¹(x)`: objects the points of `F⁻¹(x)`, morphisms `y → y'` the
-  morphisms of `Y` (Chapter 7's bridge `GroupoidStr.Ob`).  Its finiteness, from Definition 8.8,
+  morphisms of `Y` (Chapter 7's bridge `GroupoidStr.Ob`).  Its finiteness, from Definition 8.5.1 (2017: 8.8),
   enters the statement as the local instances `fintypeFiberCat`, `fintypeFiberCatHom` and
-  `Fintype.ofFinite` (Proposition 7.4); `D ≠ ∅`, needed in Proposition 8.3, is the surjectivity
+  `Fintype.ofFinite` (Proposition 7.1.12 (2017: 7.4)); `D ≠ ∅`, needed in Proposition 8.5.7 (2017: 8.3), is the surjectivity
   of `F`.
 * **"A sufficiently small `U(x)` as in Theorem 8.5"** is a chart `C : F.ProperCoveringChart x`
-  (`U(x) = C.R.U`); part (b) of `theorem_8_6` restates `theorem_8_5` (charts with `U(x)` inside
+  (`U(x) = C.R.U`); part (b) of `theorem_8_5_8` restates `theorem_8_5_3` (charts with `U(x)` inside
   every open `V ∋ x`), and part (c) holds for every chart.
 * **`L_D` on morphisms.**  The morphisms of `D` are the distinguished morphisms `ψ₀` themselves, so
   "`ψ : y → y' ∈ 𝐔(ψ₀)`" is read as `ψ = ψ₀` and `L_D(ψ₀) = t ∘ (s|𝐔(ψ₀))⁻¹`; likewise
   `Ψ(ψ₀, z) = (s|𝐔(ψ₀))⁻¹(z)`.
 * **"One verifies"** is carried out through `F`: on the sheets `F(σ_ψ(z)) = Γ(f(ψ), F(z))`
-  (Theorem 8.5 (1), (4)), so `τ(y') ∘ L_D(ψ) = Φ(f(ψ)) ∘ τ(y)` (the naturality of `τ`), and the
+  (Theorem 8.5.3 (2017: 8.5) (1), (4)), so `τ(y') ∘ L_D(ψ) = Φ(f(ψ)) ∘ τ(y)` (the naturality of `τ`), and the
   functoriality of `L_D` follows from that of `Φ` and the injectivity of `F` on each `U(y)`.  That
-  `Ψ` preserves compositions and units uses the unique lifting of Definition 8.8 (3).
+  `Ψ` preserves compositions and units uses the unique lifting of Definition 8.5.1 (2017: 8.8) (3).
 * **"Fully faithful open embedding"** is `EpFunctor.IsFullyFaithfulOpenEmbedding`: the functor of
   the underlying groupoids (`GroupoidFunctor.toFunctor`) is full and faithful, and on objects and
   on morphisms the functor is an injective local sc-diffeomorphism (an sc-diffeomorphism onto its
@@ -170,9 +170,9 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
   `range Φ.obj = U(x)` and `range Φ.mor = {φ | s(φ), t(φ) ∈ U(x)}`; likewise for `Ψ` and
   `F⁻¹(U(x))`.  `L = G_x ⋉ U(x)` is `geometricLiftTarget`, `G_x` discrete (Chapter 7's scoped
   instance) and lifted by `ULift`.
-* **Possible misprints in Theorem 8.6**, as we read it: "there exists exists" (a repeated word);
+* **Possible misprints in Theorem 8.5.8 (2017: 8.6)**, as we read it: "there exists exists" (a repeated word);
   "`τ(t) : L_D(y) → L_C ∘ f(y)`" for `τ(y)`; "`A(ψ, z) = (f(z), F(z))`" for `(f(ψ), F(z))`, as in
-  Proposition 8.3's `F(ψ, z) = (f(ψ), τ(y)(z))`.
+  Proposition 8.5.7 (2017: 8.3)'s `F(ψ, z) = (f(ψ), τ(y)(z))`.
 -/
 
 open Set Function CategoryTheory
@@ -191,7 +191,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P :
   {Y : Type u} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
 
 /-- A map into a sub-M-polyfold `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into
-`Y` (Proposition 2.21 (2): near `f(x)`, `f = (i⁻¹ ∘ r) ∘ i ∘ f`). -/
+`Y` (Proposition 2.3.19 (preprint 2.21) (2): near `f(x)`, `f = (i⁻¹ ∘ r) ∘ i ∘ f`). -/
 private theorem isScSmoothOn_subPolyfold_of_val {A : Set Y} (hA : Q.IsSubMPolyfold A)
     [ParacompactSpace A] {f : X → A} {U : Set X}
     (hf : P.IsScSmoothOn Q (fun x => (f x : Y)) U) :
@@ -242,7 +242,7 @@ theorem lift_map (hf : IsCoveringFunctor f) {y b : D} (ψ : y ⟶ b) :
 
 end IsCoveringFunctor
 
-/-- Definition 8.9 allows `D = ∅`: every functor out of an empty groupoid is a covering
+/-- Definition 8.5.5 (2017: 8.9) allows `D = ∅`: every functor out of an empty groupoid is a covering
 functor. -/
 theorem isCoveringFunctor_of_isEmpty {D : Type u} [Groupoid.{u} D] [IsEmpty D] {G : Type u} [Group G]
     (f : D ⥤ SingleObj G) : IsCoveringFunctor f :=
@@ -571,7 +571,7 @@ section Source
 variable {D : Type u} [Groupoid.{u} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
   {G : Type u} [Group G] {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
 
-/-- **The ep-groupoid `Y`** of Proposition 8.3 (p. 281): objects `⊔_{y ∈ D} U(y)`, morphisms
+/-- **The ep-groupoid `Y`** of Proposition 8.5.7 (2017: 8.3) (p. 390 (2017 p. 281)): objects `⊔_{y ∈ D} U(y)`, morphisms
 `⊔_{(y, y')} mor(y, y') × U(y)`, `s(ψ, z) = z`, `t(ψ, z) = φ_{yy'}(ψ)(z)`,
 `(ψ, z') ∘ (γ, z) = (ψ ∘ γ, z)`, `u(z) = (1_y, z)`, `ι(ψ, z) = (ψ⁻¹, φ_{yy'}(ψ)(z))`. -/
 def geometricLiftSource : EpGroupoid L.YObj L.YMor where
@@ -628,7 +628,7 @@ section Target
 variable {D : Type u} [Groupoid.{u} D] {G : Type u} [Group G] [Fintype G] [TopologicalSpace G]
   [DiscreteTopology G] {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
 
-/-- **The translation groupoid `X = G_x ⋉ U(x)`** of Proposition 8.3 (p. 281): objects `U(x)`,
+/-- **The translation groupoid `X = G_x ⋉ U(x)`** of Proposition 8.5.7 (2017: 8.3) (p. 390 (2017 p. 281)): objects `U(x)`,
 morphisms `G_x × U(x)` (`G_x = G` discrete, lifted to the universe of `U(x)`), `s(g, z) = z`,
 `t(g, z) = g ∗ z`; Chapter 7's `actionEpGroupoid`. -/
 def geometricLiftTarget : EpGroupoid L.Ux (ULift.{u} G × L.Ux) :=
@@ -666,7 +666,7 @@ variable {D : Type u} [Groupoid.{u} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ 
   {G : Type u} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
   {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
 
-/-- **The functor `F : Y → X`** of Proposition 8.3 (p. 282): `F|U(y) = τ(y)` on objects,
+/-- **The functor `F : Y → X`** of Proposition 8.5.7 (2017: 8.3) (p. 282): `F|U(y) = τ(y)` on objects,
 `F(ψ, z) = (f(ψ), τ(y)(z))` on morphisms. -/
 def geometricLiftFunctor : EpFunctor (geometricLiftSource L) (geometricLiftTarget L) where
   obj p := L.τy p.1 p.2
@@ -701,7 +701,7 @@ def geometricLiftFunctor : EpFunctor (geometricLiftSource L) (geometricLiftTarge
 end Functor
 
 
-/-! ### Proposition 8.3 -/
+/-! ### Proposition 8.5.7 (2017: 8.3) -/
 
 section Proposition
 
@@ -715,7 +715,7 @@ theorem geometricLiftFunctor_surjective [Nonempty D] :
   fun w => ⟨⟨Classical.arbitrary D, L.τyInv _ w⟩, L.τy_τyInv _ w⟩
 
 /-- `F` is surjective on objects if and only if `D ≠ ∅` or `U(x) = ∅`: the hypothesis
-`Nonempty D` of `proposition_8_3` cannot be dropped (`isCoveringFunctor_of_isEmpty`). -/
+`Nonempty D` of `proposition_8_5_7` cannot be dropped (`isCoveringFunctor_of_isEmpty`). -/
 theorem geometricLiftFunctor_surjective_iff :
     Surjective (geometricLiftFunctor L).obj ↔ Nonempty D ∨ IsEmpty L.Ux := by
   constructor
@@ -741,7 +741,7 @@ theorem geometricLiftFunctor_finite_fiber (w : L.Ux) :
   rintro ⟨y, z⟩ (hz : L.τy y z = w)
   exact ⟨y, show (⟨y, L.τyInv y w⟩ : L.YObj) = ⟨y, z⟩ by rw [← hz, L.τyInv_τy]⟩
 
-/-- Definition 8.8 (2) for `F`: `U(w) = U(x)` and the summands `U(y)` (all of `F⁻¹(U(x)) = Y`). -/
+/-- Definition 8.5.1 (2017: 8.8) (2) for `F`: `U(w) = U(x)` and the summands `U(y)` (all of `F⁻¹(U(x)) = Y`). -/
 theorem geometricLiftFunctor_evenlyCovered (w : L.Ux) :
     ∃ (U : Set L.Ux) (V : L.YObj → Set L.YObj) (σ : L.YObj → L.Ux → L.YObj),
       IsOpen U ∧ w ∈ U ∧ ((geometricLiftFunctor L).obj ⁻¹' {w}).PairwiseDisjoint V ∧
@@ -828,12 +828,12 @@ theorem geometricLiftFunctor_isScDiffeo_fibredMap (hf : IsCoveringFunctor f) :
   · rintro ⟨⟨⟨m, w⟩, ⟨y, z⟩⟩, hp⟩ -
     exact Subtype.ext (Prod.ext (Prod.ext (ULift.ext _ _ (hf.map_lift m.down y)) hp.symm) rfl)
 
-/-- **Proposition 8.3 (geometric lift)**: a covering functor `f : D → C` with a geometric lift
-`τ : L_D → L_C ∘ f` gives a proper covering functor `F : Y → X` (Definition 8.8) from the
+/-- **Proposition 8.5.7 (2017: 8.3) (geometric lift)**: a covering functor `f : D → C` with a geometric lift
+`τ : L_D → L_C ∘ f` gives a proper covering functor `F : Y → X` (Definition 8.5.1 (2017: 8.8)) from the
 ep-groupoid `Y` (objects `⊔ U(y)`, morphisms `⊔ mor(y, y') × U(y)`) to the translation groupoid
 `X = G_x ⋉ U(x)`, `F|U(y) = τ(y)`, `F(ψ, z) = (f(ψ), τ(y)(z))`; `D` nonempty (for the
 surjectivity of `F`, `geometricLiftFunctor_surjective_iff`). -/
-theorem proposition_8_3 [Nonempty D] (hf : IsCoveringFunctor f) (L : GeometricLift.{u} f) :
+theorem proposition_8_5_7 [Nonempty D] (hf : IsCoveringFunctor f) (L : GeometricLift.{u} f) :
     (geometricLiftFunctor L).IsProperCovering where
   surjective := geometricLiftFunctor_surjective L
   isLocalScDiffeo := geometricLiftFunctor_isLocalScDiffeo L
@@ -931,7 +931,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [TopologicalSpace Mor'] [T2Space Mor'] [ParacompactSpace Mor']
   {X : EpGroupoid Obj Mor} {Y : EpGroupoid Obj' Mor'}
 
-/-- A **fully faithful open embedding functor** (Theorem 8.6): fully faithful as a functor of the
+/-- A **fully faithful open embedding functor** (Theorem 8.5.8 (2017: 8.6)): fully faithful as a functor of the
 underlying groupoids, and on objects and on morphisms an injective local sc-diffeomorphism (an
 sc-diffeomorphism onto its image, which is open). -/
 structure EpFunctor.IsFullyFaithfulOpenEmbedding (Φ : EpFunctor X Y) : Prop where
@@ -972,7 +972,7 @@ end EpFunctor
 
 end OpenEmbedding
 
-/-! ### Theorem 8.6 -/
+/-! ### Theorem 8.5.8 (2017: 8.6) -/
 
 section Theorem86
 
@@ -990,10 +990,10 @@ section Restrict
 
 variable (F : EpFunctor Y X) (x : ObjX)
 
-/-- **The full subcategory `D` of `Y` on `F⁻¹(x)`** (Theorem 8.6). -/
+/-- **The full subcategory `D` of `Y` on `F⁻¹(x)`** (Theorem 8.5.8 (2017: 8.6)). -/
 abbrev FiberCat : Type u := Y.toGroupoidStr.FullOb (F.obj ⁻¹' {x})
 
-/-- `F(ψ) ∈ G_x` for a morphism `ψ` of `D` (Remark 8.2 (a)). -/
+/-- `F(ψ) ∈ G_x` for a morphism `ψ` of `D` (Remark 8.5.4 (2017: 8.2) (a)). -/
 def fiberIsotropy {a b : F.FiberCat x} (ψ : a ⟶ b) : X.Isotropy x :=
   ⟨F.mor ψ.1, by rw [F.src_mor, show Y.src ψ.1 = a.val from ψ.2.1]; exact a.mem,
     by rw [F.tgt_mor, show Y.tgt ψ.1 = b.val from ψ.2.2]; exact b.mem⟩
@@ -1019,8 +1019,8 @@ theorem fiberIsotropy_comp {a b c : F.FiberCat x} (γ : a ⟶ b) (ψ : b ⟶ c) 
 
 variable (F x)
 
-/-- **`f = F|D : D → C`** (Theorem 8.6), `C = SingleObj G_x` the full subcategory on `x`:
-`f(ψ) = F(ψ) ∈ G_x` (Remark 8.2 (a)). -/
+/-- **`f = F|D : D → C`** (Theorem 8.5.8 (2017: 8.6)), `C = SingleObj G_x` the full subcategory on `x`:
+`f(ψ) = F(ψ) ∈ G_x` (Remark 8.5.4 (2017: 8.2) (a)). -/
 def restrictFiber : F.FiberCat x ⥤ SingleObj (X.Isotropy x) where
   obj _ := SingleObj.star _
   map ψ := F.fiberIsotropy x ψ
@@ -1034,7 +1034,7 @@ variable {F x}
 
 variable (x)
 
-/-- **Theorem 8.6, first part**: `f = F|D : D → C` is a covering functor (from Definition 8.8
+/-- **Theorem 8.5.8 (2017: 8.6), first part**: `f = F|D : D → C` is a covering functor (from Definition 8.5.1 (2017: 8.8)
 (3), the unique lifting of `φ ∈ G_x` at `y ∈ F⁻¹(x)`). -/
 theorem covering_restrict (hF : F.IsProperCovering) : IsCoveringFunctor (F.restrictFiber x) := by
   constructor
@@ -1058,7 +1058,7 @@ theorem covering_restrict (hF : F.IsProperCovering) : IsCoveringFunctor (F.restr
       rw [← F.tgt_mor, hψm, g.tgt_val]⟩
     exact ⟨⟨a, b, ⟨ψ, hψs, rfl⟩⟩, Prod.ext (GroupoidStr.Isotropy.ext hψm) rfl⟩
 
-/-- `D = F⁻¹(x)` is finite (Definition 8.8 (2)). -/
+/-- `D = F⁻¹(x)` is finite (Definition 8.5.1 (2017: 8.8) (2)). -/
 theorem finite_fiberCat (hF : F.IsProperCovering) : Finite (F.FiberCat x) := by
   have := (hF.finite_fiber x).to_subtype
   exact Finite.of_injective (fun a : F.FiberCat x => (⟨a.val, a.mem⟩ : F.obj ⁻¹' {x}))
@@ -1095,7 +1095,7 @@ theorem nonempty_fiberCat (hF : F.IsProperCovering) : Nonempty (F.FiberCat x) :=
 
 end Restrict
 
-/-! #### The geometric lift of `f = F|D` built from a chart of Theorem 8.5 -/
+/-! #### The geometric lift of `f = F|D` built from a chart of Theorem 8.5.3 (2017: 8.5) -/
 
 namespace ProperCoveringChart
 
@@ -1113,7 +1113,7 @@ theorem isOpen_U' (a : F.FiberCat x) : IsOpen (C.U a.val) := C.isOpen_U _ a.mem
 /-- The inverse `(F|U(y))⁻¹ : U(x) → U(y)`. -/
 def σObj (a : F.FiberCat x) : ObjX → ObjY := (C.isScDiffeoOn_obj a.val a.mem).choose
 
-/-- `F : U(y) → U(x)` is an sc-diffeomorphism with inverse `σObj` (Theorem 8.5 (0)). -/
+/-- `F : U(y) → U(x)` is an sc-diffeomorphism with inverse `σObj` (Theorem 8.5.3 (2017: 8.5) (0)). -/
 theorem isScDiffeoOn_σObj (a : F.FiberCat x) :
     Y.PObj.IsScDiffeoOn X.PObj F.obj (C.σObj a) (C.U a.val) C.R.U :=
   (C.isScDiffeoOn_obj a.val a.mem).choose_spec
@@ -1137,7 +1137,7 @@ theorem fiber_eq_of_mem {a a' : F.FiberCat x} {z : ObjY} (h : z ∈ C.U a.val)
 def σSrc {a b : F.FiberCat x} (ψ : a ⟶ b) : ObjY → MorY :=
   (C.isScDiffeoOn_src ψ.1 (mem_morOn_of_hom ψ)).choose
 
-/-- `s : 𝐔(ψ₀) → U(y)` is an sc-diffeomorphism with inverse `σSrc` (Theorem 8.5 (3)). -/
+/-- `s : 𝐔(ψ₀) → U(y)` is an sc-diffeomorphism with inverse `σSrc` (Theorem 8.5.3 (2017: 8.5) (3)). -/
 theorem isScDiffeoOn_σSrc {a b : F.FiberCat x} (ψ : a ⟶ b) :
     Y.PMor.IsScDiffeoOn Y.PObj Y.src (C.σSrc ψ) (C.sheet ψ.1) (C.U a.val) := by
   rw [← congrArg C.U (show Y.src ψ.1 = a.val from ψ.2.1)]
@@ -1147,7 +1147,7 @@ theorem isScDiffeoOn_σSrc {a b : F.FiberCat x} (ψ : a ⟶ b) :
 def σTgt {a b : F.FiberCat x} (ψ : a ⟶ b) : ObjY → MorY :=
   (C.isScDiffeoOn_tgt ψ.1 (mem_morOn_of_hom ψ)).choose
 
-/-- `t : 𝐔(ψ₀) → U(y')` is an sc-diffeomorphism with inverse `σTgt` (Theorem 8.5 (3)). -/
+/-- `t : 𝐔(ψ₀) → U(y')` is an sc-diffeomorphism with inverse `σTgt` (Theorem 8.5.3 (2017: 8.5) (3)). -/
 theorem isScDiffeoOn_σTgt {a b : F.FiberCat x} (ψ : a ⟶ b) :
     Y.PMor.IsScDiffeoOn Y.PObj Y.tgt (C.σTgt ψ) (C.sheet ψ.1) (C.U b.val) := by
   rw [← congrArg C.U (show Y.tgt ψ.1 = b.val from ψ.2.2)]
@@ -1159,7 +1159,7 @@ theorem src_σSrc {a b : F.FiberCat x} (ψ : a ⟶ b) {z : ObjY} (hz : z ∈ C.U
   (C.isScDiffeoOn_σSrc ψ).right_inv z hz
 
 /-- **`F(σ_ψ(z)) = Γ(f(ψ), F(z))`**: on the sheet `𝐔(ψ₀)` the functor `F` lands in the sheet
-`𝐔(f(ψ₀)) = Γ(f(ψ₀), U(x))` (Theorem 8.5 (1), (4)). -/
+`𝐔(f(ψ₀)) = Γ(f(ψ₀), U(x))` (Theorem 8.5.3 (2017: 8.5) (1), (4)). -/
 theorem mor_σSrc {a b : F.FiberCat x} (ψ : a ⟶ b) {z : ObjY} (hz : z ∈ C.U a.val) :
     F.mor (C.σSrc ψ z) = C.R.Γ (F.fiberIsotropy x ψ) (F.obj z) := by
   have hφ : C.σSrc ψ z ∈ C.sheet ψ.1 := (C.isScDiffeoOn_σSrc ψ).mapsTo_inv hz
@@ -1226,7 +1226,7 @@ abbrev liftτ : C.liftLD ⟶ F.restrictFiber x ⋙ C.liftLC where
   app a := ScDiffeo.ofOpen (C.isOpen_U' a) C.R.isOpen_U (C.isScDiffeoOn_σObj a)
   naturality _ _ ψ := ScDiffeo.ext (funext fun z => Subtype.ext (C.obj_tgt_σSrc ψ z.2))
 
-/-- **The geometric lift of `f = F|D`** (Theorem 8.6, p. 283): `L_C(x) = U(x)`,
+/-- **The geometric lift of `f = F|D`** (Theorem 8.5.8 (2017: 8.6), p. 392 (2017 p. 283)): `L_C(x) = U(x)`,
 `L_C(g) = Φ(g)`; `L_D(y) = U(y)`, `L_D(ψ₀) = t ∘ (s|𝐔(ψ₀))⁻¹`; `τ(y) = F|U(y)`. -/
 abbrev geometricLift : GeometricLift.{u} (F.restrictFiber x) := ⟨C.liftLD, C.liftLC, C.liftτ⟩
 
@@ -1269,7 +1269,7 @@ def Φ : EpFunctor (geometricLiftTarget C.geometricLift) X where
 @[simp] theorem Φ_mor (p : ULift (X.Isotropy x) × C.R.U) : C.Φ.mor p = C.R.Γ p.1.down p.2.1 :=
   rfl
 
-/-- `Φ` is injective on morphisms: `s Γ(g, z) = z` and Theorem 7.1 (3). -/
+/-- `Φ` is injective on morphisms: `s Γ(g, z) = z` and Theorem 7.1.13 (2017: 7.1) (3). -/
 theorem injective_Φ_mor : Injective C.Φ.mor := by
   rintro ⟨g, a⟩ ⟨g', a'⟩ h
   have h1 : X.src (C.R.Γ g.down (a : C.R.U).1) = X.src (C.R.Γ g'.down (a' : C.R.U).1) :=
@@ -1294,7 +1294,7 @@ theorem isLocalScDiffeo_Φ_mor :
   rfl
 
 /-- `Φ` is full: every morphism `φ` of `X` between points of `U(x)` is `Γ(g, s φ)`
-(Theorem 7.1 (3)). -/
+(Theorem 7.1.13 (2017: 7.1) (3)). -/
 theorem full_Φ : C.Φ.toFunctor.Full where
   map_surjective {a b} φ := by
     let a' : C.R.U := a
@@ -1307,7 +1307,7 @@ theorem full_Φ : C.Φ.toFunctor.Full where
     change C.R.Φ g a'.1 = b'.1
     rw [← C.R.tgt_Γ g a'.1 a'.2, hg, hb]
 
-/-- **`Φ : L → X` is a fully faithful open embedding** (Theorem 8.6). -/
+/-- **`Φ : L → X` is a fully faithful open embedding** (Theorem 8.5.8 (2017: 8.6)). -/
 theorem isFullyFaithfulOpenEmbedding_Φ : C.Φ.IsFullyFaithfulOpenEmbedding where
   full := C.full_Φ
   faithful := faithful_of_injective_mor C.injective_Φ_mor
@@ -1333,7 +1333,7 @@ theorem range_Φ_mor : range C.Φ.mor = X.morOn C.R.U := by
 end Embeddings
 
 /-- `σ_{ψ ∘ γ}(z) = σ_ψ(t σ_γ(z)) ∘ σ_γ(z)`: both lift `Γ(f(ψ) f(γ), F(z))` at `z`
-(Definition 8.8 (3)). -/
+(Definition 8.5.1 (2017: 8.8) (3)). -/
 theorem σSrc_comp (hF : F.IsProperCovering) {a b c : F.FiberCat x} (γ : a ⟶ b) (ψ : b ⟶ c)
     {z : ObjY} (hz : z ∈ C.U a.val) :
     C.σSrc (γ ≫ ψ) z = Y.comp (C.σSrc ψ (Y.tgt (C.σSrc γ z))) (C.σSrc γ z) := by
@@ -1345,7 +1345,7 @@ theorem σSrc_comp (hF : F.IsProperCovering) {a b c : F.FiberCat x} (γ : a ⟶ 
       C.obj_tgt_σSrc γ hz, C.R.Γ_mul _ _ (C.obj_mem hz), fiberIsotropy_comp]
   · rw [Y.src_comp _ _ hc, C.src_σSrc γ hz]
 
-/-- `σ_{1_y}(z) = 1_z`: both lift `1_{F(z)}` at `z` (Definition 8.8 (3)). -/
+/-- `σ_{1_y}(z) = 1_z`: both lift `1_{F(z)}` at `z` (Definition 8.5.1 (2017: 8.8) (3)). -/
 theorem σSrc_id (hF : F.IsProperCovering) (a : F.FiberCat x) {z : ObjY} (hz : z ∈ C.U a.val) :
     C.σSrc (𝟙 a) z = Y.unit z := by
   refine (hF.existsUnique_lift (φ := X.unit (F.obj z)) (y := z) (X.src_unit _)).unique
@@ -1420,7 +1420,7 @@ theorem isLocalScDiffeo_Ψ_mor :
       (C.isScDiffeoOn_σSrc ψ.2.2).symm.comp (MPolyfold.isScDiffeoOn_subtypeVal (C.isOpen_U' ψ.1))⟩
 
 /-- `Ψ` is full: a morphism `φ` of `Y` from `z ∈ U(y)` to `z' ∈ U(y')` lies in a sheet `𝐔(ψ₀)`,
-`ψ₀ : y → y'` (Theorem 8.5 (2)), and is `(s|𝐔(ψ₀))⁻¹(z)`. -/
+`ψ₀ : y → y'` (Theorem 8.5.3 (2017: 8.5) (2)), and is `(s|𝐔(ψ₀))⁻¹(z)`. -/
 theorem full_Ψ : (C.Ψ hF).toFunctor.Full where
   map_surjective {p p'} φ := by
     let q : C.geometricLift.YObj := p
@@ -1440,7 +1440,7 @@ theorem full_Ψ : (C.Ψ hF).toFunctor.Full where
     change Y.tgt (C.σSrc ψ (q.2 : C.U q.1.val).1) = (q'.2 : C.U q'.1.val).1
     rw [h1, ht]
 
-/-- **`Ψ : K → Y` is a fully faithful open embedding** (Theorem 8.6). -/
+/-- **`Ψ : K → Y` is a fully faithful open embedding** (Theorem 8.5.8 (2017: 8.6)). -/
 theorem isFullyFaithfulOpenEmbedding_Ψ : (C.Ψ hF).IsFullyFaithfulOpenEmbedding where
   full := C.full_Ψ hF
   faithful := faithful_of_injective_mor (C.injective_Ψ_mor hF)
@@ -1485,8 +1485,8 @@ theorem range_Ψ_mor : range (C.Ψ hF).mor = Y.morOn (F.obj ⁻¹' C.R.U) := by
 
 variable [Fintype (X.Isotropy x)]
 
-/-- **The square of Theorem 8.6 commutes**: `F ∘ Ψ = Φ ∘ A`, `A : K → L` the functor of
-Proposition 8.3 for the geometric lift `C.geometricLift`. -/
+/-- **The square of Theorem 8.5.8 (2017: 8.6) commutes**: `F ∘ Ψ = Φ ∘ A`, `A : K → L` the functor of
+Proposition 8.5.7 (2017: 8.3) for the geometric lift `C.geometricLift`. -/
 theorem comp_Ψ : F.comp (C.Ψ hF) = C.Φ.comp (geometricLiftFunctor C.geometricLift) :=
   EpFunctor.ext rfl (funext fun p => C.mor_σSrc p.1.2.2 (p.2 : C.U p.1.1.val).2)
 
@@ -1494,18 +1494,18 @@ end Embeddings
 
 end ProperCoveringChart
 
-/-! #### Theorem 8.6 -/
+/-! #### Theorem 8.5.8 (2017: 8.6) -/
 
-/-- **Theorem 8.6 (Proper Covering II)**: let `F : Y → X` be a proper covering functor and
+/-- **Theorem 8.5.8 (2017: 8.6) (Proper Covering II)**: let `F : Y → X` be a proper covering functor and
 `x ∈ X`; `C = SingleObj G_x` is the full subcategory on `x`, `D` the full subcategory on the
 finite set `F⁻¹(x)`.  Then (a) `f = F|D : D → C` is a covering functor; (b) there are
-neighbourhoods `U(x)` as in Theorem 8.5 inside every open `V ∋ x`; and (c) for every such `U(x)`
-(a chart `C` of Theorem 8.5) there are a geometric lift `L` of `f`, with associated proper
-covering functor `A : K → L` (Proposition 8.3), and fully faithful open embedding functors
+neighbourhoods `U(x)` as in Theorem 8.5.3 (2017: 8.5) inside every open `V ∋ x`; and (c) for every such `U(x)`
+(a chart `C` of Theorem 8.5.3 (2017: 8.5)) there are a geometric lift `L` of `f`, with associated proper
+covering functor `A : K → L` (Proposition 8.5.7 (2017: 8.3)), and fully faithful open embedding functors
 `Φ : L → X`, `Ψ : K → Y`, the image of `Φ` the full subcategory on `U(x)` and the image of `Ψ`
 the full subcategory on `F⁻¹(U(x))`, with `F ∘ Ψ = Φ ∘ A`.  The witnesses are
 `C.geometricLift`, `C.Φ`, `C.Ψ hF`. -/
-theorem theorem_8_6 {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) :
+theorem theorem_8_5_8 {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) :
     IsCoveringFunctor (F.restrictFiber x) ∧
       (∀ V : Set ObjX, IsOpen V → x ∈ V → ∃ C : F.ProperCoveringChart x, C.R.U ⊆ V) ∧
       ∀ C : F.ProperCoveringChart x,
@@ -1519,12 +1519,12 @@ theorem theorem_8_6 {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) :
           range Φ.obj = C.R.U ∧ range Φ.mor = X.morOn C.R.U ∧
           range Ψ.obj = F.obj ⁻¹' C.R.U ∧ range Ψ.mor = Y.morOn (F.obj ⁻¹' C.R.U) ∧
           F.comp Ψ = Φ.comp (geometricLiftFunctor L) := by
-  refine ⟨covering_restrict x hF, fun V hV hx => theorem_8_5 hF x hV hx, fun C => ?_⟩
+  refine ⟨covering_restrict x hF, fun V hV hx => theorem_8_5_3 hF x hV hx, fun C => ?_⟩
   let _ := fintypeFiberCat x hF
   let _ := fintypeFiberCatHom x hF
   let _ : Fintype (X.Isotropy x) := Fintype.ofFinite _
   have := nonempty_fiberCat x hF
-  exact ⟨C.geometricLift, C.Φ, C.Ψ hF, proposition_8_3 (covering_restrict x hF) _,
+  exact ⟨C.geometricLift, C.Φ, C.Ψ hF, proposition_8_5_7 (covering_restrict x hF) _,
     C.isFullyFaithfulOpenEmbedding_Φ, C.isFullyFaithfulOpenEmbedding_Ψ hF, C.range_Φ_obj,
     C.range_Φ_mor, C.range_Ψ_obj hF, C.range_Ψ_mor hF, C.comp_Ψ hF⟩
 

@@ -9,24 +9,24 @@ noncomputable section
 namespace RoundTrip.V3_49
 open Polyfold
 
-/-- The project's statement: `lemma_3_55` (the model `ℝⁿ ⊕ W`), `lemma_3_55_core` (coordinates,
+/-- The project's statement: `lemma_3_6_9_preprint` (the model `ℝⁿ ⊕ W`), `lemma_3_6_9_core` (coordinates,
 an arbitrary normed space; universe instantiated at `0`) and `fderivWithin_mem_of_mapsTo`
 (universes `0, 0`). -/
 def A : Prop :=
-  type_of% @Polyfold.lemma_3_55 ∧ type_of% @Polyfold.lemma_3_55_core.{0} ∧
+  type_of% @Polyfold.lemma_3_6_9_preprint ∧ type_of% @Polyfold.lemma_3_6_9_core.{0} ∧
     type_of% @Polyfold.fderivWithin_mem_of_mapsTo.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_3_55, @Polyfold.lemma_3_55_core.{0}, @Polyfold.fderivWithin_mem_of_mapsTo.{0, 0}⟩
+  ⟨@Polyfold.lemma_3_6_9_preprint, @Polyfold.lemma_3_6_9_core.{0}, @Polyfold.fderivWithin_mem_of_mapsTo.{0, 0}⟩
 
 /-- `{n + (ι₁ ∘ L) n}` is the blind `N_v`. -/
 lemma graphSpace_eq_Nv {E : ScBanach} (N : Submodule ℝ (E.lvl 0)) (L : N →L[ℝ] E.lvl 1) :
     graphSpace N ((E.toBase 1).comp L) = Nv N L := rfl
 
-/-- A ⇒ B, through the coordinate conjunct `lemma_3_55_core` of `A` (with the coordinate
+/-- A ⇒ B, through the coordinate conjunct `lemma_3_6_9_core` of `A` (with the coordinate
 functionals `ℓ_i = (T ·)_i` of the presentation): `τ` is extended from the relatively open `V` to
 the whole cone `N ∩ C` by a bump (`σ ∘ (b · id)`, the device of the project's
-`lemma_3_55_relOpen`, re-done here from the hypothesis), and set to `0` off the cone so that it
+`lemma_3_6_9_relOpen`, re-done here from the hypothesis), and set to `0` off the cone so that it
 takes values in `Y` everywhere. -/
 theorem A_to_B : A → B := by
   rintro ⟨-, hcore, -⟩
@@ -150,9 +150,9 @@ theorem A_to_B : A → B := by
   obtain ⟨v₁, hv₁⟩ := hv1
   exact ⟨v₁ + τ v, by rw [map_add]; exact congrArg (· + E.toBase 1 (τ v)) hv₁⟩
 
-#rt_check RoundTrip.V3_49.A_to_B [Polyfold.lemma_3_55, Polyfold.lemma_3_55_core,
+#rt_check RoundTrip.V3_49.A_to_B [Polyfold.lemma_3_6_9_preprint, Polyfold.lemma_3_6_9_core,
   Polyfold.fderivWithin_mem_of_mapsTo]
-#rt_overlap RoundTrip.V3_49.A_to_B [Polyfold.lemma_3_55, Polyfold.lemma_3_55_core,
+#rt_overlap RoundTrip.V3_49.A_to_B [Polyfold.lemma_3_6_9_preprint, Polyfold.lemma_3_6_9_core,
   Polyfold.fderivWithin_mem_of_mapsTo]
 
 end RoundTrip.V3_49

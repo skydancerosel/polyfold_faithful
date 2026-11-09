@@ -5,11 +5,11 @@ import RoundTrip.Blind.V5_30
 /-!
 Round trip for V5_30 (Theorem 5.13, the text's dense form).  Refreshed 2026-11-02: the comparison
 row now also cites `StrongBundle.allowableDist_le_iff` (the project's pointwise bound
-`N(s(x) − s'(x)) ≤ ε` is `ρ(s, s') ≤ ε`), and `theorem_5_13` now assumes the germ reading of
+`N(s(x) − s'(x)) ≤ ε` is `ρ(s, s') ≤ ε`), and `theorem_5_3_5_preprint` now assumes the germ reading of
 Definition 3.11 with tame germ data (`IsScFredholmSectionTame`, changed in place); B's
 `IsScFredholmSection` is the germ reading too.
 
-A = `theorem_5_13` ∧ `StrongBundle.allowableDist_le_iff` (universes at `0`).
+A = `theorem_5_3_5_preprint` ∧ `StrongBundle.allowableDist_le_iff` (universes at `0`).
 
 * `B ⇒ A` (proved): `B_gives_theorem_5_13` (unchanged argument, see its docstring) and
   `allowableDist_le_iff'` (`allowableDist_le_iff` re-proved outright from the bound
@@ -23,11 +23,11 @@ open Polyfold
 /-- The project's statement (Theorem 5.13, dense form, and `ρ ≤ ε` in pointwise form), universes
 instantiated at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_5_13.{0, 0} ∧
+  type_of% @Polyfold.theorem_5_3_5_preprint.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.allowableDist_le_iff.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_5_13.{0, 0}, @Polyfold.StrongBundle.allowableDist_le_iff.{0, 0}⟩
+  ⟨@Polyfold.theorem_5_3_5_preprint.{0, 0}, @Polyfold.StrongBundle.allowableDist_le_iff.{0, 0}⟩
 
 /-- The distance `N(s(x) − s'(x))` is symmetric (`N(−v) = N(v)` on each fibre). -/
 theorem sectionDistAt_symm {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
@@ -43,9 +43,9 @@ theorem sectionDistAt_symm {X : Type} [TopologicalSpace X] [T2Space X] [Paracomp
 data ⇒ germ data); B's dense set `O` gives, for every allowable `s'` and `ε > 0`, an `s ∈ O` within
 `ε`; `f + s` is transversal and `S_{f+s}` compact by B, and the manifold structure with the index
 of A (`SolutionSetIsManifold`) follows from transversality by Theorem 3.56
-(`theorem_3_56_of_surjective`, applied to `f + s`, sc-Fredholm with tame germ data by
-`theorem_3_15_tame`). -/
-theorem B_gives_theorem_5_13 : B → type_of% @Polyfold.theorem_5_13.{0, 0} := by
+(`theorem_3_6_10_of_surjective`, applied to `f + s`, sc-Fredholm with tame germ data by
+`theorem_3_1_18_tame`). -/
+theorem B_gives_theorem_5_13 : B → type_of% @Polyfold.theorem_5_3_5_preprint.{0, 0} := by
   intro hB X _ _ _ PX Y _ _ _ P _ _ Bd hX hbump f hf hS N hN
   obtain ⟨U, hUo, hSU, hcpt, O, ⟨hOsub, hdense⟩, hO⟩ :=
     hB PX P Bd f N hX hbump.weak hf.toIsScFredholmSection hS hN
@@ -55,7 +55,7 @@ theorem B_gives_theorem_5_13 : B → type_of% @Polyfold.theorem_5_13.{0, 0} := b
   refine ⟨s, hs₂, hOsub hsO, fun x => ?_, htr, hcomp, fun hne => ?_⟩
   · rw [sectionDistAt_symm hN hs₂ hs' x]
     exact (hle x).trans hδ'.le
-  · exact theorem_3_56_of_surjective hX (theorem_3_15_tame hf hs₂) htr hne
+  · exact theorem_3_6_10_of_surjective hX (theorem_3_1_18_tame hf hs₂) htr hne
 
 /-- A's second conjunct, outright (elementary: `ρ` is a supremum of the pointwise distances). -/
 theorem allowableDist_le_iff' : type_of% @Polyfold.StrongBundle.allowableDist_le_iff.{0, 0} := by
@@ -81,7 +81,7 @@ theorem B_to_A : B → A := fun hB => ⟨B_gives_theorem_5_13 hB, allowableDist_
   `IsManifoldWithCornersLoc` (charts on relatively open subsets of quadrants in finite-dimensional
   sc-spaces), tameness and the index, and only for non-empty `S_{f+s}`. -/
 
-#rt_check RoundTrip.V5_30.B_to_A [Polyfold.theorem_5_13, Polyfold.StrongBundle.allowableDist_le_iff]
-#rt_overlap RoundTrip.V5_30.B_to_A [Polyfold.theorem_5_13, Polyfold.StrongBundle.allowableDist_le_iff]
+#rt_check RoundTrip.V5_30.B_to_A [Polyfold.theorem_5_3_5_preprint, Polyfold.StrongBundle.allowableDist_le_iff]
+#rt_overlap RoundTrip.V5_30.B_to_A [Polyfold.theorem_5_3_5_preprint, Polyfold.StrongBundle.allowableDist_le_iff]
 
 end RoundTrip.V5_30

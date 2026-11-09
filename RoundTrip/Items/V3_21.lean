@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_21
 
 /-! Round trip for V3_21 (Proposition 3.22: `N ∩ C` is a partial quadrant in `N`).
 
-`A` is the conjunction of the types of `proposition_3_22`, `exists_quadrantNormalForm` (universe
+`A` is the conjunction of the types of `proposition_3_1_25`, `exists_quadrantNormalForm` (universe
 of `V` instantiated at `0`), `mem_quadCone_of_vanIdx` and `sigmaCoord_surjective` (both also
 universe-polymorphic in `V`, instantiated at `0`).  `QuadrantNormalForm` is a definition
 (vocabulary).
@@ -12,8 +12,8 @@ universe-polymorphic in `V`, instantiated at `0`).  `QuadrantNormalForm` is a de
 * `A → B` is proved: `B`'s good position (`IsInGoodPositionB`: an sc-complement when `N` is smooth,
   a closed complement otherwise) gives the project's `IsInGoodPosition` (an algebraic complement
   with the same `ε`-property; the level-`0` part of an sc-splitting is an algebraic complement),
-  and `proposition_3_22` concludes.  `B`'s extra hypothesis `E.IsScSubspace N` is not needed.
-* `B → A` is not proved, and is a genuine generality gap: `A`'s `proposition_3_22` allows any
+  and `proposition_3_1_25` concludes.  `B`'s extra hypothesis `E.IsScSubspace N` is not needed.
+* `B → A` is not proved, and is a genuine generality gap: `A`'s `proposition_3_1_25` allows any
   finite-dimensional `N` (not necessarily smooth) with a merely ALGEBRAIC good complement, which
   `B` (smooth `N`, sc-complement) does not cover; turning an algebraic good complement into an
   sc-complement with the `ε`-property is possible but is itself the normal-form argument
@@ -26,13 +26,13 @@ open Polyfold
 
 /-- The project's statement (universe of `V` at `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_3_22) ∧
+  (type_of% @Polyfold.proposition_3_1_25) ∧
     (type_of% @Polyfold.exists_quadrantNormalForm.{0}) ∧
     (type_of% @Polyfold.mem_quadCone_of_vanIdx.{0}) ∧
     (type_of% @Polyfold.sigmaCoord_surjective.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_3_22, @Polyfold.exists_quadrantNormalForm.{0},
+  ⟨@Polyfold.proposition_3_1_25, @Polyfold.exists_quadrantNormalForm.{0},
     @Polyfold.mem_quadCone_of_vanIdx.{0}, @Polyfold.sigmaCoord_surjective.{0}⟩
 
 /-- `B`'s good complement (sc-complement / closed complement with the `ε`-property) is a good
@@ -54,9 +54,9 @@ theorem A_to_B : A → B := by
   rintro ⟨h322, -⟩ E C N _ hC _ hN
   exact h322 hC (isInGoodPosition_of_B hN)
 
-#rt_check RoundTrip.V3_21.A_to_B [Polyfold.proposition_3_22, Polyfold.exists_quadrantNormalForm,
+#rt_check RoundTrip.V3_21.A_to_B [Polyfold.proposition_3_1_25, Polyfold.exists_quadrantNormalForm,
   Polyfold.mem_quadCone_of_vanIdx, Polyfold.sigmaCoord_surjective]
-#rt_overlap RoundTrip.V3_21.A_to_B [Polyfold.proposition_3_22, Polyfold.exists_quadrantNormalForm,
+#rt_overlap RoundTrip.V3_21.A_to_B [Polyfold.proposition_3_1_25, Polyfold.exists_quadrantNormalForm,
   Polyfold.mem_quadCone_of_vanIdx, Polyfold.sigmaCoord_surjective]
 
 end RoundTrip.V3_21

@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_36
 
 /-!
 Round trip for V4_36 (Proposition 4.15 (4)).  `A` is the type of
-`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4`, universe instantiated at `0`:
+`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four`, universe instantiated at `0`:
 for every junk value `x₀ : A¹`, every point of `A` is smooth for the induced structure and
 `toLevelOne x₀ : A → A¹` is sc-smooth.
 
@@ -22,9 +22,9 @@ Glue:
 namespace RoundTrip.V4_36
 open Polyfold
 
-def A : Prop := type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4.{0}
+def A : Prop := type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four.{0}
 
-theorem A_holds : A := @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4.{0}
+theorem A_holds : A := @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four.{0}
 
 section Glue
 
@@ -103,8 +103,8 @@ theorem B_to_A : B → A := by
   obtain ⟨h1, hsm⟩ := hB X P S ((smooth_iff P S).1 hS) hS.isSubMPolyfold inferInstance
   exact ⟨smooth_of_toLevelOne _ h1 x₀ (hsm x₀), hsm x₀⟩
 
-#rt_check RoundTrip.V4_36.A_to_B [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4]
-#rt_check RoundTrip.V4_36.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4]
-#rt_overlap RoundTrip.V4_36.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4]
+#rt_check RoundTrip.V4_36.A_to_B [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four]
+#rt_check RoundTrip.V4_36.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four]
+#rt_overlap RoundTrip.V4_36.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four]
 
 end RoundTrip.V4_36

@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A is EpGroupoid.lemma_7_7 at universe 0 (Mathlib RegularSpace on the quotient topology of X.OrbitSpace, for every ep-groupoid with Obj Mor : Type); B is the text's definition of regularity stated literally (nonempty closed set and an outside point have disjoint open neighbourhoods). The two notions agree in every topological space (regular_iff_text): RegularSpace is Disjoint (𝓝ˢ A) (𝓝 z), unfolded through the open bases of 𝓝ˢ A and 𝓝 z; the empty closed set is automatic since 𝓝ˢ ∅ = ⊥. Neither side has a T1 condition.",
+ "why": "A is EpGroupoid.lemma_7_3_5 at universe 0 (Mathlib RegularSpace on the quotient topology of X.OrbitSpace, for every ep-groupoid with Obj Mor : Type); B is the text's definition of regularity stated literally (nonempty closed set and an outside point have disjoint open neighbourhoods). The two notions agree in every topological space (regular_iff_text): RegularSpace is Disjoint (𝓝ˢ A) (𝓝 z), unfolded through the open bases of 𝓝ˢ A and 𝓝 z; the empty closed set is automatic since 𝓝ˢ ∅ = ⊥. Neither side has a T1 condition.",
  "B_issue": null,
  "overlap": "10 shared project theorems, all GroupoidStr groupoid-axiom lemmas (orbitSetoid._proof_1, Isomorphic.trans/symm, src/tgt of unit/comp/inv) reached through the definition of X.OrbitSpace; no Chapter 7 topology lemma is shared.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

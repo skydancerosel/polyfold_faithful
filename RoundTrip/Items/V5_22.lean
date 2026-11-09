@@ -5,12 +5,12 @@ import RoundTrip.Blind.V5_22
 /-!
 Round trip for V5_22 (Remark 5.12).  Refreshed 2026-11-02: the comparison row now cites the
 completion form (`StrongBundle.IsInAllowableCompletion`, the closedness of `S_{f+s}`,
-`remark_5_12_completion`, `remark_5_12_of_isScFredholmSection`; the closedness argument is the one
+`remark_5_3_4_completion`, `remark_5_3_4_of_isScFredholmSection`; the closedness argument is the one
 this item's first audit supplied, moved into the project).
 
-A = `remark_5_12` ∧ `IsAuxNorm.auxLe_of_sectionAdd` ∧
-`IsInAllowableCompletion.isClosed_solutionSet_sectionAdd` ∧ `remark_5_12_completion` ∧
-`remark_5_12_of_isScFredholmSection` (universes `0`; `IsInAllowableCompletion` is vocabulary, and is
+A = `remark_5_3_4` ∧ `IsAuxNorm.auxLe_of_sectionAdd` ∧
+`IsInAllowableCompletion.isClosed_solutionSet_sectionAdd` ∧ `remark_5_3_4_completion` ∧
+`remark_5_3_4_of_isScFredholmSection` (universes `0`; `IsInAllowableCompletion` is vocabulary, and is
 B's `InCompletion`: `inCompletion_of`).
 
 B: for an sc-Fredholm `f` (germ reading, as in A) with compact `S_f`, `U` adapted, and `s` in the
@@ -18,7 +18,7 @@ B: for an sc-Fredholm `f` (germ reading, as in A) with compact `S_f`, `U` adapte
 COMPACT.
 
 `A ⇒ B` is proved (as in the first audit, from A's first conjunct): the completion gives `s = 0`
-off `U` and `N(s) ≤ 1` (`vanish_off`, `auxLe_one`), `remark_5_12` gives compact closure, and the
+off `U` and `N(s) ≤ 1` (`vanish_off`, `auxLe_one`), `remark_5_3_4` gives compact closure, and the
 closedness of `S_{f+s}` is proved here (`isClosed_solSet`) by a chart argument: near a limit point
 `x`, in a strong bundle chart of the atlas, Lemma 5.2's bound `|Φ[1](w)₂|₁ ≤ A·N(w)`
 (`IsAuxNorm.exists_norm_liftOne_le`) turns the uniform `N`-approximation of `s` by sc⁺-sections
@@ -26,7 +26,7 @@ closedness of `S_{f+s}` is proved here (`isClosed_solSet`) by a chart argument: 
 
 `B ⇒ A` is not proved: A's first four conjuncts are about ARBITRARY (continuous) sections `f`,
 `s`, without the sc-Fredholm property or compactness of `S_f`.  B gives the fifth conjunct
-`remark_5_12_of_isScFredholmSection` together with Theorem 5.5 (which supplies an adapted `U`):
+`remark_5_3_4_of_isScFredholmSection` together with Theorem 5.5 (which supplies an adapted `U`):
 `B_gives_of_isScFredholmSection`.
 -/
 
@@ -36,16 +36,16 @@ open Polyfold Filter Topology
 /-- The project's statement (Remark 5.12, its fibre lemma, and the completion form), universes
 instantiated at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.remark_5_12.{0, 0} ∧
+  type_of% @Polyfold.remark_5_3_4.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.IsAuxNorm.auxLe_of_sectionAdd.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd.{0, 0} ∧
-  type_of% @Polyfold.remark_5_12_completion.{0, 0} ∧
-  type_of% @Polyfold.remark_5_12_of_isScFredholmSection.{0, 0}
+  type_of% @Polyfold.remark_5_3_4_completion.{0, 0} ∧
+  type_of% @Polyfold.remark_5_3_4_of_isScFredholmSection.{0, 0}
 
-theorem A_holds : A := ⟨@Polyfold.remark_5_12.{0, 0},
+theorem A_holds : A := ⟨@Polyfold.remark_5_3_4.{0, 0},
   @Polyfold.StrongBundle.IsAuxNorm.auxLe_of_sectionAdd.{0, 0},
   @Polyfold.StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd.{0, 0},
-  @Polyfold.remark_5_12_completion.{0, 0}, @Polyfold.remark_5_12_of_isScFredholmSection.{0, 0}⟩
+  @Polyfold.remark_5_3_4_completion.{0, 0}, @Polyfold.remark_5_3_4_of_isScFredholmSection.{0, 0}⟩
 
 section Glue
 
@@ -233,33 +233,33 @@ theorem A_to_B : A → B := by
   rw [this] at hcl
   exact hcl
 
-/-- B gives A's last conjunct, with Theorem 5.5 (`theorem_5_5`, another item's theorem) for the
+/-- B gives A's last conjunct, with Theorem 5.5 (`theorem_5_2_2_preprint`, another item's theorem) for the
 existence of an adapted `U`. -/
 theorem B_gives_of_isScFredholmSection (hB : B) :
-    type_of% @Polyfold.remark_5_12_of_isScFredholmSection.{0, 0} := by
+    type_of% @Polyfold.remark_5_3_4_of_isScFredholmSection.{0, 0} := by
   intro X _ _ _ PX Y _ _ _ P _ _ Bd f hf hS N hN
-  obtain ⟨U, hUo, hSU, hK⟩ := (theorem_5_5 hf hS).2 N hN
+  obtain ⟨U, hUo, hSU, hK⟩ := (theorem_5_2_2_preprint hf hS).2 N hN
   exact ⟨U, hUo, hSU, hK, fun s hs =>
     hB PX P Bd f N U hf hS hN ⟨hUo, hSU, hK⟩ s (inCompletion_of hs)⟩
 
-/-! `B ⇒ A` is not proved: `remark_5_12`, `auxLe_of_sectionAdd`, `isClosed_solutionSet_sectionAdd`
-and `remark_5_12_completion` are statements about ARBITRARY sections `f`, `s` (`f` only a
-continuous section, no sc-Fredholm property, no compactness of `S_f`; in `remark_5_12` `s` any
+/-! `B ⇒ A` is not proved: `remark_5_3_4`, `auxLe_of_sectionAdd`, `isClosed_solutionSet_sectionAdd`
+and `remark_5_3_4_completion` are statements about ARBITRARY sections `f`, `s` (`f` only a
+continuous section, no sc-Fredholm property, no compactness of `S_f`; in `remark_5_3_4` `s` any
 section vanishing off `U` with `N(s) ≤ 1`), and `auxLe_of_sectionAdd` is a pointwise fibre lemma;
 B only speaks of sc-Fredholm `f` with compact `S_f`.  Their content is elementary or the chart
 argument above, but it does not follow from B. -/
 
-#rt_check RoundTrip.V5_22.A_to_B [Polyfold.remark_5_12,
+#rt_check RoundTrip.V5_22.A_to_B [Polyfold.remark_5_3_4,
   Polyfold.StrongBundle.IsAuxNorm.auxLe_of_sectionAdd,
   Polyfold.StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd,
-  Polyfold.remark_5_12_completion, Polyfold.remark_5_12_of_isScFredholmSection]
-#rt_check RoundTrip.V5_22.B_gives_of_isScFredholmSection [Polyfold.remark_5_12,
+  Polyfold.remark_5_3_4_completion, Polyfold.remark_5_3_4_of_isScFredholmSection]
+#rt_check RoundTrip.V5_22.B_gives_of_isScFredholmSection [Polyfold.remark_5_3_4,
   Polyfold.StrongBundle.IsAuxNorm.auxLe_of_sectionAdd,
   Polyfold.StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd,
-  Polyfold.remark_5_12_completion, Polyfold.remark_5_12_of_isScFredholmSection]
-#rt_overlap RoundTrip.V5_22.B_gives_of_isScFredholmSection [Polyfold.remark_5_12,
+  Polyfold.remark_5_3_4_completion, Polyfold.remark_5_3_4_of_isScFredholmSection]
+#rt_overlap RoundTrip.V5_22.B_gives_of_isScFredholmSection [Polyfold.remark_5_3_4,
   Polyfold.StrongBundle.IsAuxNorm.auxLe_of_sectionAdd,
   Polyfold.StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd,
-  Polyfold.remark_5_12_completion, Polyfold.remark_5_12_of_isScFredholmSection]
+  Polyfold.remark_5_3_4_completion, Polyfold.remark_5_3_4_of_isScFredholmSection]
 
 end RoundTrip.V5_22

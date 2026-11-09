@@ -2,13 +2,13 @@ import Polyfold.Chapter1.ScSmooth
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1, the remark
-after Definition 1.14.
+after Definition 1.1.15 (preprint 1.14).
 
 # An sc¹ map whose derivative is not continuous in the operator norm
 
 ## The text, paraphrased
 
-After Definition 1.14 (sc¹ maps): "In general `x ↦ Df(x)` is not continuous into `L(E₀, F₀)`
+After Definition 1.1.15 (preprint 1.14) (sc¹ maps): "In general `x ↦ Df(x)` is not continuous into `L(E₀, F₀)`
 equipped with the operator norm, but it is continuous with the compact-open topology."  The text
 gives no example.
 
@@ -24,14 +24,14 @@ gives no example.
 * The map `f : ℝ ⊕ X → X`, `f(t, x)_k = cos(k t) x_k` (`ScOneExample.f`), on `E = ℝ ⊕ X`
   (`ScBanach.const ℝ` times `X`, `U = C = E₀`), with derivative
   `Df(t, x)(τ, ξ)_k = −k sin(k t) x_k τ + cos(k t) ξ_k` at `(t, x) ∈ E₁` (`ScOneExample.D`).
-  `ScOneExample.isSc1With`: `f` is sc¹ with this derivative (Definition 1.14: sc⁰, the
+  `ScOneExample.isSc1With`: `f` is sc¹ with this derivative (Definition 1.1.15 (preprint 1.14): sc⁰, the
   differentiability of `f : E₁ → F₀`, and `Tf` sc⁰).  Every level map is "the same formula",
   because diagonal operators commute with the weights.
 * `ScOneExample.not_continuousAt_deriv`: `x ↦ Df(x) ∈ L(E₀, F₀)` is not continuous at `0 ∈ E₁`
   for the operator norm: `‖Df(π/(n+1), 0) − Df(0, 0)‖ ≥ 2` (test with the unit vector
   `e_{n+1}`).  `ScOneExample.not_continuousOn_of_isSc1With`: the same for **every** derivative
   family of `f` (the derivative is unique on `E₁`).
-* `exists_isSc1_not_continuousOn_deriv` (**the remark after Definition 1.14**): there are
+* `exists_isSc1_not_continuousOn_deriv` (**the remark after Definition 1.1.15 (preprint 1.14)**): there are
   sc-Banach spaces `E, F`, a relatively open `U` in a partial quadrant `C ⊆ E` and an sc¹ map
   `f : U → F` such that for every derivative family `D` of `f`, `x ↦ D x` is not continuous on
   `U₁` into `L(E₀, F₀)` with the operator norm (round-trip items V1.13, V1.34).
@@ -41,7 +41,7 @@ gives no example.
 * The levels are `c₀` with weights `(k+1)^m` rather than the text's typical weighted `L²`/Sobolev
   spaces: the sup norm makes the estimates pointwise, and the inclusion `c₀ → c₀` by
   `diag(1/(k+1))` is compact.  `ℓ²` with the same weights would work the same way.
-* The mechanism is the one of the shift map of the text's Example 1.22 in miniature: the
+* The mechanism is the one behind Remark 1.1.16, in miniature: the
   `t`-derivative of `cos(k t) x_k` costs a factor `k`, absorbed by one level (`x ∈ E₁`), while
   `Df(t, 0) = diag(cos(k t))` on level `0` moves by `sup_k |cos(k t) − cos(k s)| ≥ 1` for
   `t ≠ s` arbitrarily close.  The continuity in the compact-open topology is the project's
@@ -445,7 +445,7 @@ lemma levelMap_f (m : ℕ) (p : E m) : levelMap f m p = cosOp p.1 p.2 := by
   rw [E_toBase]
   exact X_toBase_diag m _ _ p.2
 
-/-- `f` is sc⁰ (Definition 1.12): on level `m` it is `(t, y) ↦ (cos(k t) y_k)_k`. -/
+/-- `f` is sc⁰ (Definition 1.1.13 (preprint 1.12)): on level `m` it is `(t, y) ↦ (cos(k t) y_k)_k`. -/
 lemma isSc0_f : IsSc0 E X univ f where
   mem_range m p _ := ⟨cosOp p.1 p.2, by rw [E_toBase]; exact X_toBase_diag m _ _ p.2⟩
   continuousOn m := continuous_cosOp.continuousOn.congr fun p _ => levelMap_f m p
@@ -583,7 +583,7 @@ lemma toBase_tangentLevel (m : ℕ) (p : E.tangent m) :
     rw [h1, h2]
     ring
 
-/-- **`f` is sc¹** (Definition 1.14) on `U = E₀`, with the derivative family `D`. -/
+/-- **`f` is sc¹** (Definition 1.1.15 (preprint 1.14)) on `U = E₀`, with the derivative family `D`. -/
 theorem isSc1With : IsSc1With univ f D where
   isSc0 := isSc0_f
   hasFDerivWithinAt p _ := by
@@ -603,7 +603,7 @@ theorem isSc1With : IsSc1With univ f D where
       continuousOn := fun m => continuous_tangentLevel.continuousOn.congr fun p _ =>
         levelMap_eq_of_toBase_eq (toBase_tangentLevel m p) }
 
-/-- `f` is sc¹ (Definition 1.14). -/
+/-- `f` is sc¹ (Definition 1.1.15 (preprint 1.14)). -/
 theorem isSc1 : IsSc1 univ f := ⟨D, isSc1With⟩
 
 /-! ### The derivative is not continuous in the operator norm -/
@@ -680,7 +680,7 @@ theorem not_continuousOn_of_isSc1With {D' : E 1 → E 0 →L[ℝ] X 0} (h : IsSc
 
 end ScOneExample
 
-/-- **The remark after Definition 1.14** ("in general `x ↦ Df(x)` is not continuous into
+/-- **The remark after Definition 1.1.15 (preprint 1.14)** ("in general `x ↦ Df(x)` is not continuous into
 `L(E₀, F₀)` with the operator norm"; round-trip items V1.13, V1.34): there are sc-Banach spaces
 `E, F`, a relatively open subset `U` of a partial quadrant `C ⊆ E` and an sc¹ map `f : U → F` such
 that for every derivative family `D` of `f`, `x ↦ D x` is not continuous on `U₁` (with the

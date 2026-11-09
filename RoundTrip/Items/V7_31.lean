@@ -20,7 +20,7 @@ facts (1)–(4).  Everything except the tangent-space facts (3), (4) of (d) is p
 such statement), (b) by `comp_retract` with A's `morOn_eq_preimage_src` (hypothesis used),
 (c) is A's `isSubMPolyfold_morOn`, (d) (1), (2) are A's facts for `Q = subMorPolyfold hA`.  The
 tangent-space facts (3), (4) for `𝐀` are not in A: the project does not restate Part I's
-chart-level `proposition_2_21_3/4` for `T_φ𝐗`, `T_φ𝐀` (gap G.7, see `SubGroupoid.lean`); the
+chart-level `proposition_2_3_19_three/4` for `T_φ𝐗`, `T_φ𝐀` (gap G.7, see `SubGroupoid.lean`); the
 missing glue is the same as for items V2_25/V7_30 (several hundred lines of tangent-map work),
 believed true, not attempted.
 

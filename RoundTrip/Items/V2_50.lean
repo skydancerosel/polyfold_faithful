@@ -5,8 +5,8 @@ import RoundTrip.Blind.V2_50
 /-! Round trip for V2_50 (Proposition 2.44: local faces and their intersections are tame).
 
 `A` is the conjunction of the types of the theorems among the item's declarations:
-`MPolyfold.proposition_2_44`, `proposition_2_42`, `MPolyfold.proposition_2_44_corner`
-(universe `0`), `LocalModel.proposition_2_43_isTame`, `corner_retraction`, `corner_tameModel`
+`MPolyfold.proposition_2_5_16`, `proposition_2_5_14`, `MPolyfold.proposition_2_5_16_corner`
+(universe `0`), `LocalModel.proposition_2_5_15_isTame`, `corner_retraction`, `corner_tameModel`
 and `degIndexWith_eq_quadrantDeg_cornerProj_add_card`.  `cornerIncl`, `cornerProj`, `cornerKill`
 are definitions (vocabulary).
 
@@ -28,15 +28,15 @@ V2_48 glue); (ii) faces of `O` through `φ x` ↔ indices `I(φ x)` (Lemma 2.40)
 global step: `⋂_{i∈σ} F_i` is a tame sub-M-polyfold at EVERY one of its points, which needs
 `corner_retraction`/`corner_tameModel` at every point `z` of the intersection (identifying the
 faces they produce at `z` with the `F_i`) and re-running the chart construction of the proof of
-`proposition_2_44_corner` (`faceChart`, `isSubMPolyfold_of_local`, `isTame_of_forall_exists_chart`)
+`proposition_2_5_16_corner` (`faceChart`, `isSubMPolyfold_of_local`, `isTame_of_forall_exists_chart`)
 pointwise; likewise each whole face `φ⁻¹(F)` must be moved from a sub-M-polyfold of `O` to one of
 `X`; (iv) the codimension: `rank(E₀/⋂_{i∈σ} ker λ_i) = #σ` and `φ(A ∩ W) = φ(W) ∩ L` with `W` from
 `corner_retraction`.  None of (iii)–(iv) is in A.
 
 `B → A` fails genuinely: B's `V` is an unspecified neighbourhood with no chart, so it says nothing
-about the faces of a chart model `O` (`proposition_2_44`), about whole faces of a tame retract
-(`proposition_2_43_isTame`), or the constructions `corner_retraction`, `corner_tameModel`,
-`degIndexWith_eq_quadrantDeg_cornerProj_add_card`; the local corner of `proposition_2_44_corner`
+about the faces of a chart model `O` (`proposition_2_5_16`), about whole faces of a tame retract
+(`proposition_2_5_15_isTame`), or the constructions `corner_retraction`, `corner_tameModel`,
+`degIndexWith_eq_quadrantDeg_cornerProj_add_card`; the local corner of `proposition_2_5_16_corner`
 also has `d_A + #σ = d_X` at every point of `A`, B only at `x`. -/
 
 namespace RoundTrip.V2_50
@@ -44,15 +44,15 @@ open Polyfold Set
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.MPolyfold.proposition_2_44.{0}) ∧ (type_of% @Polyfold.proposition_2_42.{0}) ∧
-    (type_of% @Polyfold.LocalModel.proposition_2_43_isTame) ∧
-    (type_of% @Polyfold.MPolyfold.proposition_2_44_corner.{0}) ∧
+  (type_of% @Polyfold.MPolyfold.proposition_2_5_16.{0}) ∧ (type_of% @Polyfold.proposition_2_5_14.{0}) ∧
+    (type_of% @Polyfold.LocalModel.proposition_2_5_15_isTame) ∧
+    (type_of% @Polyfold.MPolyfold.proposition_2_5_16_corner.{0}) ∧
     (type_of% @Polyfold.corner_retraction) ∧ (type_of% @Polyfold.corner_tameModel) ∧
     (type_of% @Polyfold.degIndexWith_eq_quadrantDeg_cornerProj_add_card)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.MPolyfold.proposition_2_44.{0}, @Polyfold.proposition_2_42.{0},
-    @Polyfold.LocalModel.proposition_2_43_isTame, @Polyfold.MPolyfold.proposition_2_44_corner.{0},
+  ⟨@Polyfold.MPolyfold.proposition_2_5_16.{0}, @Polyfold.proposition_2_5_14.{0},
+    @Polyfold.LocalModel.proposition_2_5_15_isTame, @Polyfold.MPolyfold.proposition_2_5_16_corner.{0},
     @Polyfold.corner_retraction, @Polyfold.corner_tameModel,
     @Polyfold.degIndexWith_eq_quadrantDeg_cornerProj_add_card⟩
 
@@ -138,7 +138,7 @@ theorem degIndex_subPolyfold_of_isOpen {V : Set X} (hVo : IsOpen V) [Paracompact
       fun z _ => ?_, fun x hx => ?_⟩
     · exact Subtype.ext (d.retractInto_val y (show z.1 ∈ d.V from z.2))
     · exact d.retractInto_val y (show x ∈ d.V from hx)
-  exact proposition_2_24 hdiff (mem_univ y)
+  exact proposition_2_4_4 hdiff (mem_univ y)
 
 end Glue
 
@@ -170,9 +170,9 @@ theorem A_to_B_count : A → B_count := by
   rw [hfs hne (chartHomeo φ y)]
   exact congrArg (fun k : ℕ => (k : ℕ∞)) (hdO y.1 y.2)
 
-#rt_check RoundTrip.V2_50.A_to_B_count [Polyfold.MPolyfold.proposition_2_44,
-  Polyfold.proposition_2_42, Polyfold.LocalModel.proposition_2_43_isTame,
-  Polyfold.MPolyfold.proposition_2_44_corner, Polyfold.corner_retraction,
+#rt_check RoundTrip.V2_50.A_to_B_count [Polyfold.MPolyfold.proposition_2_5_16,
+  Polyfold.proposition_2_5_14, Polyfold.LocalModel.proposition_2_5_15_isTame,
+  Polyfold.MPolyfold.proposition_2_5_16_corner, Polyfold.corner_retraction,
   Polyfold.corner_tameModel, Polyfold.degIndexWith_eq_quadrantDeg_cornerProj_add_card]
 
 end RoundTrip.V2_50

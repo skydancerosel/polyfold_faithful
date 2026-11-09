@@ -5,7 +5,7 @@ import Polyfold.Chapter6.Lemma629
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 222–223: **Lemma 6.30** in the form used for the push-forward: with property (P), the
+pp. 222–223: **Lemma 6.6.5 (preprint 6.30)** in the form used for the push-forward: with property (P), the
 stabilized kernels `L_t` along the family form a continuous family *(book 2017: Lemma 6.13; see
 `BookConcordance.md`)*.
 
@@ -20,7 +20,7 @@ stabilized kernels `L_t` along the family form a continuous family *(book 2017: 
 
 ## Reading
 
-The proof: Lemma 6.30's family of tangent spaces of the solution set
+The proof: Lemma 6.6.5 (preprint 6.30)'s family of tangent spaces of the solution set
 (`exists_subspaceFamily_linKer`, from the implicit function theorem), cut by `{dt = 0}`
 (`exists_inf_ker`, onto by `fderiv_mem_linKer` along the curve of zeros), identified with
 `ker(T_q ⊕ φ_q)` in the product chart (`exists_sliceKernel`), and moved to `E₀ × ℝᵏ`
@@ -84,7 +84,7 @@ theorem exists_continuousOn_lift_chart {n : ℕ} {Φ : (Fin n → ℝ) → X}
       rw [ScBanach.lvlSet_const]; exact hq
     rw [h0.toBase_levelMap hq1, ScBanach.const_toBase]
 
-/-- **The stabilized kernels along `Φ` form a continuous family** (Lemma 6.30). -/
+/-- **The stabilized kernels along `Φ` form a continuous family** (Lemma 6.6.5 (preprint 6.30)). -/
 theorem exists_isStabKernels (hf : B.IsScFredholmSectionTame f) {n : ℕ}
     [ParacompactSpace ((Fin n → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))]
@@ -114,7 +114,7 @@ theorem exists_isStabKernels (hf : B.IsScFredholmSectionTame f) {n : ℕ}
   -- the sections `G = f̃ + S` and `F = G + Σ λᵢ sᵢ`
   have hGt : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSectionTame
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hfs.1) S) :=
-    theorem_3_15_tame hf.param hS
+    theorem_3_1_18_tame hf.param hS
   have hG : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScSmoothSection
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hfs.1) S) := hGt.isScSmooth
   have hgt : ((B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).pullback
@@ -122,7 +122,7 @@ theorem exists_isStabKernels (hf : B.IsScFredholmSectionTame f) {n : ℕ}
         ((rnPolyfold n).prod PX))).IsScFredholmSectionTame
       (paramSection (sectionAdd (pullbackProj P Prod.snd) (paramLift f hfs.1) S)
           hG.1 s fun i => (hs i).1) :=
-    theorem_3_18_tame hGt hs
+    theorem_3_1_21_tame hGt hs
   have hslice : ∀ q : Fin n → ℝ,
       pullbackSlice (sectionAdd (pullbackProj P Prod.snd) (paramLift f hfs.1) S) q =
         sectionAdd P f (pullbackSlice S q) := fun q =>
@@ -175,7 +175,7 @@ theorem exists_isStabKernels (hf : B.IsScFredholmSectionTame f) {n : ℕ}
   have hy : Continuous fun q : Icc (0 : Fin n → ℝ) 1 =>
       ((0 : Fin k → ℝ), ((q : Fin n → ℝ), Φ q)) :=
     continuous_const.prodMk (continuous_subtype_val.prodMk (hΦcont.comp continuous_subtype_val))
-  -- Lemma 6.30: the kernels `ker Lin_F(0, (q, z_q))`
+  -- Lemma 6.6.5 (preprint 6.30): the kernels `ker Lin_F(0, (q, z_q))`
   obtain ⟨Λ₀, hΛ₀⟩ := exists_subspaceFamily_linKer hgt hχc _ hy (fun q => hsrc q q.2)
     (fun q => (hF0 q q.2).self_of_nhds)
     (fun q => (hP.self_of_nhdsSet q q.2).isGoodPositionGermTame hgt (hF0 q q.2).self_of_nhds)

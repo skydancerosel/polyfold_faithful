@@ -27,12 +27,12 @@ with the good complement of 2021 Definition 3.1.24 (p. 102; preprint 3.21) as an
 
 ## What is formalized
 
-* `not_theorem_3_2_3_germNearEveryPoint_2021`: the claim "`δ` is an sc^∞-germ near every
+* `not_theorem_3_2_3_germNearEveryPoint`: the claim "`δ` is an sc^∞-germ near every
   `v₀ ∈ V`" of the proof of Theorem 3.2.3 (and of the proof of Theorem 3.6.8, preprint 3.54,
   which proceeds "as above"), for every datum of Definition 3.2.1 of a tame `X`, does not hold as
   we read it.  This certifies the literal step behind rows **V3.24** (added hypothesis (a) of
   `IsRegular`) and **V3.74** (Findings, Chapter 3, item 82).
-* `not_theorem_3_2_3_recentreStep_2021`: the re-centring step as stated in the proof (invertible
+* `not_theorem_3_2_3_recentreStep`: the re-centring step as stated in the proof (invertible
   linearization of `k`, local diffeomorphism, and `δ` regular near `v₀`, for every pair of data)
   does not hold as we read it.  This certifies row **V3.73**.
 
@@ -488,7 +488,7 @@ p. 107 (preprint Theorem 3.27, p. 84), does not hold as we read it** (rows V3.24
 tame M-polyfold `ℝ²`, the curve `M = {(t³, t)}` has the `1`-dimensional tangent germ property, and
 the data `(φ, ℝ(3, 1), ℝ(0, 1), ℝ(3, 1), δ)` at `(1, 1)` satisfy Definition 3.2.1, but `δ` is not
 an sc^∞-germ near `v₀ = −(1/3)(3, 1)`. -/
-theorem not_theorem_3_2_3_germNearEveryPoint_2021 : ¬ Theorem_3_2_3_GermNearEveryPoint := by
+theorem not_theorem_3_2_3_germNearEveryPoint : ¬ Theorem_3_2_3_GermNearEveryPoint := by
   intro h
   exact CE.not_germNear (@h CE.E2 _ _ _ (rnPolyfold 2) CE.M 1 rnPolyfold_isTame
     CE.hasTangentGermPropertyLit_M CE.a1 (rnChart 2 CE.a1) (CE.Nsp CE.ub) (CE.Nsp CE.eb) (CE.fd _)
@@ -499,7 +499,7 @@ p. 84), does not hold as we read it** (row V3.73): for the curve `M = {(t³, t)}
 datum at `(1, 1)` with vertical complement, `v₀ = −(1/3)(3, 1)` and any datum at
 `x₀ = φ⁻¹(v₀ + δ(v₀)) = (0, 0)` (one exists by the tangent germ property), `δ` is not an
 sc^∞-germ near `v₀`. -/
-theorem not_theorem_3_2_3_recentreStep_2021 : ¬ Theorem_3_2_3_RecentreStep := by
+theorem not_theorem_3_2_3_recentreStep : ¬ Theorem_3_2_3_RecentreStep := by
   intro hB
   obtain ⟨ψ, N', Y', fd', V', τ, hd'⟩ := CE.hasTangentGermPropertyLit_M.2 _ CE.x0_mem
   exact CE.not_germNear (@hB CE.E2 _ _ _ (rnPolyfold 2) CE.M 1 rnPolyfold_isTame

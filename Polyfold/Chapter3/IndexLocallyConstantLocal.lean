@@ -2,7 +2,7 @@ import Polyfold.Chapter3.RestrictOpenGerms
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
-3.54, and §6.1, the proof of Proposition 6.2 ("we do not need a sc-smooth partition of unity",
+3.54, and §6.1, the proof of Proposition 6.2.2 (preprint 6.2) ("we do not need a sc-smooth partition of unity",
 p. 202): the local constancy of the Fredholm index along the zero set of an sc-Fredholm section
 with tame germ data, **without bump functions**.  Round-trip item V3.98 (b); Findings, Chapter 3,
 items 360–369.
@@ -20,9 +20,9 @@ of unity enters, since everything happens on the domain `V` of the chart.
 ## What is formalized
 
 * `Polyfold.StrongBundle.HasScPlusSectionsThrough B`: **through every smooth point `e` of a fibre
-  over a smooth point there is an sc⁺-section** (the conclusion of Lemma 5.11 without the support
+  over a smooth point there is an sc⁺-section** (the conclusion of Lemma 5.3.3 (preprint 5.11) without the support
   and the norm bound).  Two sources: `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`
-  (Lemma 5.11) and `StrongBundle.hasScPlusSectionsThrough_of_chart` (**a strong bundle with a
+  (Lemma 5.3.3 (preprint 5.11)) and `StrongBundle.hasScPlusSectionsThrough_of_chart` (**a strong bundle with a
   chart of the atlas whose base domain is the whole base**: the section `y ↦ Φ⁻¹(φ(y), R(φ(y), ê))`
   needs no cut-off).  The restriction `P|V` to a chart domain `V` has such a chart.
 * `Polyfold.exists_spanning_sections_of_sections`, `exists_sections_isParamGP_of_sections`,
@@ -31,22 +31,22 @@ of unity enters, since everything happens on the domain `V` of the chart.
   (the proofs are those of `exists_spanning_sections_germ`, `exists_sections_isParamGP_germ`,
   `index_locally_constant_of_admitsBumpFunctions`; the rescaling of the sections by the
   auxiliary norm is dropped).
-* `Polyfold.index_locally_constant_tame` (**Theorem 3.54 / Proposition 6.2 along the zero set,
+* `Polyfold.index_locally_constant_tame` (**Theorem 3.6.8 (preprint 3.54) / Proposition 6.2.2 (preprint 6.2) along the zero set,
   with the text's hypotheses**): for an sc-Fredholm section `f` with tame germ data on any strong
   bundle and a zero `x₀`, there are an open `V ∋ x₀` and `i ∈ ℤ` with `f'(y)` Fredholm of index
   `i` in every chart at every zero `y ∈ V`.  Proof: the text's, on the restriction `P|V` to a
   chart domain (`RestrictOpen.lean`): `f|V` has tame germ data, `P|V` has sc⁺-sections through
   every smooth fibre point, `index_locally_constant_of_sections` on `P|V`, and the index is the
   same on `P` and `P|V` (`IsLinOfIndex.of_restrictOpen`).
-  `theorem_3_54_index_locally_constant_general_tame` is its sc form.
+  `theorem_3_6_8_index_locally_constant_general_tame` is its sc form.
 
 ## What the text leaves implicit, and the choices made
 
 * The three copied proofs differ from the originals only in the source of the sections through
-  the fibre points `eᵢ` (`HasScPlusSectionsThrough` in place of Lemma 5.11) and in dropping the
+  the fibre points `eᵢ` (`HasScPlusSectionsThrough` in place of Lemma 5.3.3 (preprint 5.11)) and in dropping the
   support and norm bounds of the conclusions, which the index argument does not use.
 * The text works in one chart throughout; here the chart domain `V` is made a strong bundle
-  `P|V` in its own right so that Theorem 3.18 and the implicit function theorem (Theorem 3.54) can
+  `P|V` in its own right so that Theorem 3.1.21 (preprint 3.18) and the implicit function theorem (Theorem 3.6.8 (preprint 3.54)) can
   be applied verbatim, and the index is transported back through the germ datum
   (`RestrictOpenGerms.lean`).
 -/
@@ -71,24 +71,24 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 variable (B) in
-/-- **Sc⁺-sections through the smooth fibre points** (the conclusion of Lemma 5.11 without
+/-- **Sc⁺-sections through the smooth fibre points** (the conclusion of Lemma 5.3.3 (preprint 5.11) without
 support and norm bound): for every smooth point `x` and every smooth point `e` of the fibre
 `P⁻¹(x)` there is an sc⁺-section `s` with `s(x) = e`. -/
 def StrongBundle.HasScPlusSectionsThrough : Prop :=
   ∀ x ∈ PX.smoothSet, ∀ e ∈ B.toMPolyfold0.smoothSet, P e = x →
     ∃ s : X → Y, B.IsScPlusSection s ∧ s x = e
 
-/-- With bump functions, sc⁺-sections exist through every smooth fibre point (Lemma 5.11). -/
+/-- With bump functions, sc⁺-sections exist through every smooth fibre point (Lemma 5.3.3 (preprint 5.11)). -/
 theorem MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough (hbump : PX.AdmitsBumpFunctions) :
     B.HasScPlusSectionsThrough := by
   intro x hx e he hex
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := B)
-  obtain ⟨-, s, hs, hsx, -, -⟩ := lemma_5_11 hbump hN hx he hex one_pos isOpen_univ (mem_univ x)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := B)
+  obtain ⟨-, s, hs, hsx, -, -⟩ := lemma_5_3_3 hbump hN hx he hex one_pos isOpen_univ (mem_univ x)
   exact ⟨s, hs, hsx⟩
 
 /-- **A strong bundle with a chart of the atlas over the whole base has sc⁺-sections through
 every smooth fibre point, without bump functions**: the section `y ↦ Φ⁻¹(φ(y), R(φ(y), ê))`,
-`ê = Φ(e)₂ ∈ F_∞`, is the text's `R(·, e)` (the proof of Lemma 5.11 with the cut-off `β = 1`;
+`ê = Φ(e)₂ ∈ F_∞`, is the text's `R(·, e)` (the proof of Lemma 5.3.3 (preprint 5.11) with the cut-off `β = 1`;
 `cutoffSection` with `β = 1`, `isScPlusSection_cutoffSection`). -/
 theorem StrongBundle.hasScPlusSectionsThrough_of_chart {c : StrongBundleChart PX P}
     (hc : c ∈ B.atlas.charts) (hsrc : c.φ.source = univ) : B.HasScPlusSectionsThrough := by
@@ -171,7 +171,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 /-- **Spanning sc⁺-sections at a zero, from sections through the fibre points** (the proof of
-`exists_spanning_sections_germ` with `HasScPlusSectionsThrough` in place of Lemma 5.11 and
+`exists_spanning_sections_germ` with `HasScPlusSectionsThrough` in place of Lemma 5.3.3 (preprint 5.11) and
 without the rescaling by an auxiliary norm): for an sc-Fredholm section `g` and a zero `y`,
 finitely many sc⁺-sections `s₁, …, s_k` and a chart `c` centred at `y` with
 `Lin(0)(T₀O) + span{ŝᵢ(0)} = K₀`. -/
@@ -186,7 +186,7 @@ theorem exists_spanning_sections_of_sections (hsec : B.HasScPlusSectionsThrough)
   have hgs : IsSection P g := hg.isScSmooth.1
   have hys : y ∈ PX.smoothSet := hg.mem_smoothSet_of_isZeroAt hy0
   obtain ⟨c, hc, hyV, hφ0, h0U, gf, hfill, G, -, -, Dg, hDg, h1, n, Nn, -, -, hFred, -⟩ :=
-    proposition_3_52 hgs (hg.germ y hys) hy0
+    proposition_3_6_5_preprint hgs (hg.germ y hys) hy0
   have h0O : (0 : c.φ.model.E 0) ∈ r c.R '' c.U := by
     rw [c.r_image, ← hφ0]; exact c.φ.mapsTo_model y hyV
   have hfr : IsSc1 c.U (c.principal g ∘ r c.R) := hg.isScSmooth.isSc1_principal_comp_r hc
@@ -266,9 +266,9 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 set_option maxHeartbeats 3200000 in
--- the coordinates of the tame chart and Lemma 5.11 at finitely many points
+-- the coordinates of the tame chart and Lemma 5.3.3 (preprint 5.11) at finitely many points
 /-- **Sections with (i)–(ii) at a zero, from sections through the fibre points** (the proof of
-`exists_sections_isParamGP_germ` with `HasScPlusSectionsThrough` in place of Lemma 5.11, and
+`exists_sections_isParamGP_germ` with `HasScPlusSectionsThrough` in place of Lemma 5.3.3 (preprint 5.11), and
 without support and norm bounds): for `g` with tame germ data, a zero `x` and a tame chart `c`
 centred at `x` with presentation `T`, finitely many sc⁺-sections with (i)–(ii) at `(0, x)` in `c`
 (`IsParamGP`). -/
@@ -322,7 +322,7 @@ theorem exists_sections_isParamGP_of_sections (hsec : B.HasScPlusSectionsThrough
       Fintype.card_subtype]
     rfl
   -- smooth preimages
-  obtain ⟨hMsc, -, -⟩ := proposition_2_36_partialCone hT hRT hzR hzs
+  obtain ⟨hMsc, -, -⟩ := proposition_2_5_6_partialCone hT hRT hzR hzs
   set D : Submodule ℝ (c.φ.model.E 0) := M ⊓ c.φ.model.E.smooth with hD
   set S : Submodule ℝ (I → ℝ) := D.map (coordMapL T e : c.φ.model.E 0 →ₗ[ℝ] (I → ℝ)) with hS
   have hSclosed : IsClosed (S : Set (I → ℝ)) := S.closed_of_finiteDimensional
@@ -476,7 +476,7 @@ theorem index_locally_constant_of_sections (hsec : B.HasScPlusSectionsThrough)
   have := MPolyfold.paracompactSpace_prod (rnPolyfold k) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin k → ℝ) × X → X))
     ((rnPolyfold k).prod PX) B
-  have hFt := theorem_3_18_tame hf hsp
+  have hFt := theorem_3_1_21_tame hf hsp
   set F := paramSection f hf.isScSmooth.1 s (fun i => (hsp i).1) with hFdef
   have hz0 : ∀ y, IsZeroAt P f y → IsZeroAt (pullbackProj P Prod.snd) F (0, y) := fun y hy => by
     rw [hFdef, isZeroAt_paramSection_iff]
@@ -484,16 +484,16 @@ theorem index_locally_constant_of_sections (hsec : B.HasScPlusSectionsThrough)
     rw [paramSlice_zero]; exact hy
   have hgood := isGoodPositionGermTame_paramSection_of_isParamGP hf hsp hx₀ hc hxV hφ0 T hT hgp
   obtain ⟨Vx, d, hVo, hxVx, hall⟩ :=
-    theorem_3_54_index_locally_constant hFt hgood (hz0 x₀ hx₀)
+    theorem_3_6_8_index_locally_constant hFt hgood (hz0 x₀ hx₀)
   refine ⟨Prod.mk (0 : Fin k → ℝ) ⁻¹' Vx, (d : ℤ) - k,
     hVo.preimage (continuous_const.prodMk continuous_id), hxVx, fun y hy hy0 => ?_⟩
   exact StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex hfF hsp hy0
     (hall (0, y) hy (hz0 y hy0)).isLinOfIndex
 
 
-/-- **Theorem 3.54 / Proposition 6.2 along the zero set, with the text's hypotheses** (round-trip
+/-- **Theorem 3.6.8 (preprint 3.54) / Proposition 6.2.2 (preprint 6.2) along the zero set, with the text's hypotheses** (round-trip
 item V3.98 (b); the bump functions of `index_locally_constant_of_admitsBumpFunctions` removed):
-let `f` be an sc-Fredholm section with tame germ data (Definition 3.51) of a strong bundle
+let `f` be an sc-Fredholm section with tame germ data (Definition 3.6.4 (preprint 3.51)) of a strong bundle
 `P : Y → X` and `x₀` a zero of `f`.  Then there are an open `V ∋ x₀` and `i ∈ ℤ` such that at every
 zero `y ∈ V`, `f'(y)` is Fredholm of index `i` in every strong bundle chart (`IsLinOfIndex`).
 Proof: the text's device on the restriction `P|V` to the domain `V` of a chart around `x₀`
@@ -527,10 +527,10 @@ theorem index_locally_constant_tame (hf : B.IsScFredholmSectionTame f) {x₀ : X
     (hall v hvW ((isZeroAt_restrictSection_iff' hfs v).2 hy0))
 
 /-- **The index is locally constant along the zero set, sc form, with the text's hypotheses**
-(`theorem_3_54_index_locally_constant_general` without bump functions): at every zero `y ∈ V`, in
+(`theorem_3_6_8_index_locally_constant_general` without bump functions): at every zero `y ∈ V`, in
 every strong bundle chart around `y`, `Lin(z) : T_zO → K_z` is an sc-Fredholm operator, Fredholm of
 index `i` on every level. -/
-theorem theorem_3_54_index_locally_constant_general_tame (hf : B.IsScFredholmSectionTame f)
+theorem theorem_3_6_8_index_locally_constant_general_tame (hf : B.IsScFredholmSectionTame f)
     {x₀ : X} (hx₀ : IsZeroAt P f x₀) :
     ∃ (V : Set X) (i : ℤ), IsOpen V ∧ x₀ ∈ V ∧
       ∀ y ∈ V, IsZeroAt P f y → ∀ (c : StrongBundleChart PX P) (_ : B.IsChart c)

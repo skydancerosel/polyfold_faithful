@@ -1,24 +1,24 @@
 import Polyfold.Chapter4.ScPlus
 
 /-!
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), §4.1, Remark 4.3, p. 148:
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), §4.1, Remark 4.1.3 (preprint 4.3), p. 176 (preprint p. 148):
 "it is possible that `X¹ ≠ X` as M-polyfolds although the underlying sets agree".
 
-# Remark 4.3's example: what it needs, and an sc-smoothness criterion with loss
+# Remark 4.1.3 (preprint 4.3)'s example: what it needs, and an sc-smoothness criterion with loss
 
 ## The text, paraphrased
 
-(Remark 4.3) If `X₀ = X_∞`, the identity `1₀¹ : X → X¹` has the inverse `1₁⁰ : X¹ → X`, which is
+(Remark 4.1.3 (preprint 4.3)) If `X₀ = X_∞`, the identity `1₀¹ : X → X¹` has the inverse `1₁⁰ : X¹ → X`, which is
 always sc-smooth, so if `1₀¹` is sc-smooth it is an sc-diffeomorphism.  "It is possible that
 `X¹ ≠ X` as M-polyfolds although the underlying sets agree."  No example is given (comparison item
 V4.6, gap G.31; Findings, Chapter 4, items 5, 125).
 
 ## Where an example must come from
 
-By Proposition 4.8 in charts (`MPolyfold.isScSmoothMap_toLevelOne_iff`), an example is an
+By Proposition 4.1.8 (preprint 4.8) in charts (`MPolyfold.isScSmoothMap_toLevelOne_iff`), an example is an
 sc-retract `O = r(U)` with `O = O_∞` which is not an sc⁺-retract, i.e. `r : U → E¹` is not
 sc-smooth.  It cannot come from a retraction whose level maps `r : U_m → E_m` are `C¹` (the maps
-produced by the text's Proposition 1.19 and Corollary 1.20, and their composites): for such `r`
+produced by the text's Proposition 1.2.4 (preprint 1.19) and Corollary 1.2.5 (preprint 1.20), and their composites): for such `r`
 a Baire category argument (`O ⊆ ⋃ₙ cl₀{|x|₁ ≤ n}`, compact sets) makes `T_oO` finite-dimensional,
 and then the topologies of `O` in `E₀` and `E₁` agree (Findings, Chapter 4, item 141; not
 formalized).  So `r` must lose a level in its first derivative, as the splicings of HWZ do, and
@@ -40,7 +40,7 @@ its sc-smoothness needs a criterion with loss, which the project did not have.
   `r(p, z) = (p, L(p) z)` is an sc-smooth retraction (`IsLossFamily.retraction`); if the ranges
   consist of smooth points, `O = O_∞` (`IsLossFamily.retract_subset_smooth`); if moreover the lift
   `O → E₁` is discontinuous, `O` is not an sc⁺-retract (`IsLossFamily.not_isScPlusRetract`, by
-  Proposition 4.8).  `RemarkFourThreeData V Z` collects these hypotheses and
+  Proposition 4.1.8 (preprint 4.8)).  `RemarkFourThreeData V Z` collects these hypotheses and
   `exists_retract_smooth_not_scPlus_of_data` gives the retract.
 
 ## The example
@@ -49,13 +49,13 @@ its sc-smoothness needs a criterion with loss, which the project did not have.
 weighted sequence space `X` of `ScOneNotNormContinuous.lean`, `L(t)` is the projection onto
 `cos θ e_{n_k} + sin θ e_{n_{k+1}}` (`n_k = 2^k`), the angle `θ` turning from `0` to `π/2` with flat
 ends while `t` runs through `[1/(k+2), 1/(k+1)]`, and `L(t) = 0` for `t ≤ 0`.  The resulting
-M-polyfold with `X₀ = X_∞` and `1₀¹` not sc-smooth is `remark_4_3_example` there (Findings,
+M-polyfold with `X₀ = X_∞` and `1₀¹` not sc-smooth is `remark_4_1_3_example` there (Findings,
 Chapter 4, items 142, 144–146).
 
 ## What the text leaves implicit, and the choices made
 
 * The text's "`X¹ ≠ X` as M-polyfolds" is read as "`1₀¹` is not sc-smooth" (equivalently, by
-  `remark_4_3_isScDiffeo`, the identity is not an sc-diffeomorphism `X → X¹`).
+  `remark_4_1_3_isScDiffeo`, the identity is not an sc-diffeomorphism `X → X¹`).
 * Only one level of loss is allowed in `IsLossFamily` (all `p`-derivatives exist into
   `L(Z_{m+1}, W_m)`); maps whose `j`-th derivative needs `j` levels, such as
   `(t, x) ↦ (cos(kt)x_k)_k` of `ScOneNotNormContinuous.lean`, are not covered.  The criterion is
@@ -262,7 +262,7 @@ lemma tangentMapWith_lossFamMap_eq (h : IsLossFamily L) :
 
 namespace IsLossFamily
 
-/-- `lossFamMap L` is sc¹ with derivative `famD L` (Definition 1.14). -/
+/-- `lossFamMap L` is sc¹ with derivative `famD L` (Definition 1.1.15 (preprint 1.14)). -/
 theorem isSc1With (h : IsLossFamily L) :
     IsSc1With (E := (ScBanach.const V).prod Z) univ (lossFamMap L) (famD L) where
   isSc0 := h.isSc0
@@ -315,7 +315,7 @@ theorem IsLossFamily.isScSmooth (h : IsLossFamily L) :
 
 end LossFamily
 
-/-! ### Retractions from loss families, and the reduction of Remark 4.3's example -/
+/-! ### Retractions from loss families, and the reduction of Remark 4.1.3 (preprint 4.3)'s example -/
 
 section Retract
 
@@ -335,7 +335,7 @@ theorem IsLossFamily.isScSmooth_famRetr (h : IsLossFamily L) :
     (isScDomain_univ _) h.isScSmooth
 
 /-- **The sc-smooth retraction of a loss family of projections**: if every `L(p)₀` is idempotent,
-`r(p, z) = (p, L(p) z)` is an sc-smooth retraction of `V ⊕ Z` (Definition 2.1, `U = C = V ⊕ Z`). -/
+`r(p, z) = (p, L(p) z)` is an sc-smooth retraction of `V ⊕ Z` (Definition 2.1.1 (preprint 2.1), `U = C = V ⊕ Z`). -/
 def IsLossFamily.retraction (h : IsLossFamily L) (hidem : ∀ p z, L p 0 (L p 0 z) = L p 0 z) :
     ScRetraction ((ScBanach.const V).prod Z) univ where
   U := univ
@@ -357,21 +357,21 @@ theorem IsLossFamily.retract_subset_smooth (h : IsLossFamily L)
   change q.1 ∈ (ScBanach.constScale V).smoothLvl 0
   rw [ScBanach.constScale_smoothLvl]; exact mem_univ _
 
-/-- **The reduction of Remark 4.3's example**: a loss family of projections with smooth ranges
+/-- **The reduction of Remark 4.1.3 (preprint 4.3)'s example**: a loss family of projections with smooth ranges
 whose retract `O` carries a discontinuous lift `O → E₁` (i.e. the topologies of `O ⊆ E₀` and of
-`O ⊆ E₁` differ) gives an sc-retract `O = O_∞` which is **not** an sc⁺-retract.  By Proposition 4.8
-in charts (`MPolyfold.proposition_4_8_chart`, `MPolyfold.isScSmoothMap_toLevelOne_iff`), an
+`O ⊆ E₁` differ) gives an sc-retract `O = O_∞` which is **not** an sc⁺-retract.  By Proposition 4.1.8 (preprint 4.8)
+in charts (`MPolyfold.proposition_4_1_8_chart`, `MPolyfold.isScSmoothMap_toLevelOne_iff`), an
 M-polyfold with a chart onto `O` then has `X₀ = X_∞` on that chart and `1₀¹ : X → X¹` not
-sc-smooth, so `X¹ ≠ X` as M-polyfolds (§4.1, Remark 4.3; comparison item V4.6, gap G.31). -/
+sc-smooth, so `X¹ ≠ X` as M-polyfolds (§4.1, Remark 4.1.3 (preprint 4.3); comparison item V4.6, gap G.31). -/
 theorem IsLossFamily.not_isScPlusRetract (h : IsLossFamily L)
     (hidem : ∀ p z, L p 0 (L p 0 z) = L p 0 z)
     (hdisc : ¬ ContinuousOn ((ScBanach.const V).prod Z).liftOne (h.retraction hidem).retract) :
     ¬ IsScPlusRetract ((ScBanach.const V).prod Z) univ (h.retraction hidem).retract := by
   intro hplus
-  obtain ⟨-, hlift⟩ := (proposition_4_8 (h.retraction hidem).isScRetract).1 hplus
+  obtain ⟨-, hlift⟩ := (proposition_4_1_8 (h.retraction hidem).isScRetract).1 hplus
   exact hdisc (hlift.continuousOn (h.retraction hidem).isScRetract)
 
-/-- **The data of Remark 4.3's example**, the part left open: a loss family of projections on
+/-- **The data of Remark 4.1.3 (preprint 4.3)'s example**, the part left open: a loss family of projections on
 `V ⊕ Z` with smooth ranges and a discontinuous lift of the retract into level `1`. -/
 def RemarkFourThreeData (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
     (Z : ScBanach) : Prop :=
@@ -380,8 +380,8 @@ def RemarkFourThreeData (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V] [F
     (∀ p z, L p 0 z ∈ Z.smooth) ∧
       ¬ ContinuousOn ((ScBanach.const V).prod Z).liftOne (h.retraction hidem).retract
 
-/-- **Remark 4.3's example from the data**: such data give an sc-Banach space `E`, an sc-retract
-`O ⊆ E` with `O = O_∞` which is not an sc⁺-retract (Proposition 4.8: `1₀¹ : O → O¹` is not
+/-- **Remark 4.1.3 (preprint 4.3)'s example from the data**: such data give an sc-Banach space `E`, an sc-retract
+`O ⊆ E` with `O = O_∞` which is not an sc⁺-retract (Proposition 4.1.8 (preprint 4.8): `1₀¹ : O → O¹` is not
 sc-smooth). -/
 theorem exists_retract_smooth_not_scPlus_of_data (hd : RemarkFourThreeData V Z) :
     ∃ (E : ScBanach) (O : Set (E 0)), IsScRetract E univ O ∧ O ⊆ E.smooth ∧

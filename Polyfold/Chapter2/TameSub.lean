@@ -23,13 +23,13 @@ diffeomorphic to `[0,∞)`.
 
 ## What is formalized
 
-* **Chart independence of (3)**: `MPolyfold.TameSubData.hasReducedComplementAt_of_isChart_2021`.
+* **Chart independence of (3)**: `MPolyfold.TameSubData.hasReducedComplementAt_of_isChart`.
   `TameSubData` asks for (3) in *one* chart `φ₀ ∋ y` with *one* presentation `T₀` of its partial
   quadrant; then (3) holds in *every* chart `φ ∋ y`, for every presentation `T` of `φ.model.C`,
   and for the chart image `φ(W' ∩ Y)` of *any* retraction `r'` onto `Y` near `y` (a `SubData`),
   by Chapter 4's chart change `MPolyfold.isGeneralPositionRetractAt_chart_change`;
-  `MPolyfold.TameSubData.complement_forall_charts_2021` is the case `r' = r`.
-* **A tame sub-M-polyfold is tame**: `MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure_2021`.
+  `MPolyfold.TameSubData.complement_forall_charts` is the case `r' = r`.
+* **A tame sub-M-polyfold is tame**: `MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure`.
   The key step is `MPolyfold.TameSubData.isTameRetract_image`: in a chart `φ` with a tame model
   `(O, C, E)` (tame retraction `t`), `φ(W ∩ Y)` is a tame retract, by the retraction
   `(φ r φ⁻¹) ∘ t`: (1) comes from (2) of the definition and `d_X = d_C ∘ φ`
@@ -38,12 +38,12 @@ diffeomorphic to `[0,∞)`.
   complement of `T_xO` from the tameness of `t`
   (`ScBanach.isScSplitting_sup_of_complementIn`).
 * **The examples**, in `[0,∞)² ⊕ W` for an arbitrary sc-Banach space `W` (`W = ℝ` is the text's
-  `[0,∞)² × ℝ`, `TameSubExample.examples_A_B_2021`):
-  `TameSubExample.isTameSubMPolyfold_setA_2021`, `TameSubExample.hasTameInducedStructure_setA_2021`;
-  `TameSubExample.isSubMPolyfold_setB`, `TameSubExample.not_isTameSubMPolyfold_setB_2021`
-  (from `TameSubExample.not_mem_tameSubData_setB_2021`),
-  `TameSubExample.hasTameInducedStructure_setB_2021` and
-  `TameSubExample.halfLineToB_isScDiffeoOn_2021` (`t ↦ (t, t, 0)` is an sc-diffeomorphism from the
+  `[0,∞)² × ℝ`, `TameSubExample.examples_A_B`):
+  `TameSubExample.isTameSubMPolyfold_setA`, `TameSubExample.hasTameInducedStructure_setA`;
+  `TameSubExample.isSubMPolyfold_setB`, `TameSubExample.not_isTameSubMPolyfold_setB`
+  (from `TameSubExample.not_mem_tameSubData_setB`),
+  `TameSubExample.hasTameInducedStructure_setB` and
+  `TameSubExample.halfLineToB_isScDiffeoOn` (`t ↦ (t, t, 0)` is an sc-diffeomorphism from the
   half-line onto `B` with its induced structure).  `A` is the case `L(a, w) = (a, 0)` of
   `TameSubExample.isTameSubMPolyfold_fixSet`: the fixed set of an idempotent sc-operator `L`
   which keeps the `ℝⁿ`-component is a tame sub-M-polyfold of `[0,∞)ⁿ ⊕ W`.
@@ -198,7 +198,7 @@ variable {Y : Set X}
 of a tame sub-M-polyfold near `y` (with (3) in one chart), then at a smooth `y ∈ Y ∩ V` the
 condition (3) holds in every chart `φ ∋ y`, for every presentation `T` of its partial quadrant,
 and for the chart image `φ(W' ∩ Y)` of any retraction `r'` onto `Y` near `y` (`d'`). -/
-theorem hasReducedComplementAt_of_isChart_2021 (d : P.TameSubData Y) (d' : P.SubData Y) {y : X}
+theorem hasReducedComplementAt_of_isChart (d : P.TameSubData Y) (d' : P.SubData Y) {y : X}
     (hyY : y ∈ Y) (hyV : y ∈ d.V) (hyV' : y ∈ d'.V) (hys : y ∈ P.smoothSet)
     {φ : MChart X} (hφ : P.IsChart φ) (hyφ : y ∈ φ.source) {n : ℕ} {W : ScBanach}
     (T : ScIso φ.model.E ((ScBanach.const (Fin n → ℝ)).prod W))
@@ -217,14 +217,14 @@ theorem hasReducedComplementAt_of_isChart_2021 (d : P.TameSubData Y) (d' : P.Sub
 
 /-- **2021 Definition 2.5.19 (3) in every chart**: the condition `complement` of `TameSubData`,
 asked in one chart at each smooth point, holds in every chart and for every presentation. -/
-theorem complement_forall_charts_2021 (d : P.TameSubData Y) {y : X} (hy : y ∈ Y ∩ d.V)
+theorem complement_forall_charts (d : P.TameSubData Y) {y : X} (hy : y ∈ Y ∩ d.V)
     (hys : y ∈ P.smoothSet) {φ : MChart X} (hφ : P.IsChart φ) (hyφ : y ∈ φ.source) {n : ℕ}
     {W : ScBanach} (T : ScIso φ.model.E ((ScBanach.const (Fin n → ℝ)).prod W))
     (hT : φ.model.C = T 0 ⁻¹' quadrant n W 0) (z : φ.model.E 1)
     (hz : φ.model.E.toBase 1 z = φ y) :
     HasReducedComplementAt φ.model.C φ.model.O
       (φ '' ((d.V ∩ φ.source) ∩ d.r ⁻¹' (d.V ∩ φ.source) ∩ Y)) T z :=
-  d.hasReducedComplementAt_of_isChart_2021 d.toSubData hy.1 hy.2 hy.2 hys hφ hyφ T hT z hz
+  d.hasReducedComplementAt_of_isChart d.toSubData hy.1 hy.2 hy.2 hys hφ hyφ T hT z hz
 
 /-- In every chart `φ` with a tame model, the chart image `φ(W ∩ Y)` of `Y` is a tame retract
 (the step behind "a tame sub-M-polyfold is tame", 2021 p. 63): it is the retract of
@@ -270,7 +270,7 @@ theorem isTameRetract_image (d : P.TameSubData Y) {φ : MChart X} (hφ : P.IsCha
     have hyφ := hGφ hyG
     have hys : y ∈ P.smoothSet :=
       (mem_smoothSet_iff_of_isChart hφ hyφ).2 (by rw [hyx]; exact hxs)
-    have hgp := d.hasReducedComplementAt_of_isChart_2021 d.toSubData hyY
+    have hgp := d.hasReducedComplementAt_of_isChart d.toSubData hyY
       (d.toSubData.shrink_subset_V φ hyG) (d.toSubData.shrink_subset_V φ hyG) hys hφ hyφ T hT
       x hyx.symm
     obtain ⟨N, M, A, hN, hM, hAM, hAsc, hsplit⟩ := hgp
@@ -294,7 +294,7 @@ end TameSubData
 /-- **2021, text after Definition 2.5.19, p. 63** (new in the 2021 edition): a tame
 sub-M-polyfold `Y` of a tame M-polyfold `X` is tame, i.e. the structure induced on `Y` admits an
 equivalent tame atlas (2021 Definition 2.5.18): the sub-charts built on tame charts of `X`. -/
-theorem IsTameSubMPolyfold.hasTameInducedStructure_2021 {Y : Set X} (h : P.IsTameSubMPolyfold Y) :
+theorem IsTameSubMPolyfold.hasTameInducedStructure {Y : Set X} (h : P.IsTameSubMPolyfold Y) :
     P.HasTameInducedStructure Y := by
   refine ⟨h.isSubMPolyfold, ?_⟩
   let _ := P.paracompactSpace_subtype Y
@@ -549,17 +549,17 @@ lemma setA_eq_fixSet : setA W = fixSet (projA W) := by
 
 variable (W) in
 /-- **2021, text after Definition 2.5.19, p. 63**: `A = {(x, y, 0)}` is a tame sub-M-polyfold of
-`[0,∞)² ⊕ W` (the text's `[0,∞)² × ℝ` is `W = ℝ`, `examples_A_B_2021`). -/
-theorem isTameSubMPolyfold_setA_2021 : (quadrantPolyfold 2 W).IsTameSubMPolyfold (setA W) := by
+`[0,∞)² ⊕ W` (the text's `[0,∞)² × ℝ` is `W = ℝ`, `examples_A_B`). -/
+theorem isTameSubMPolyfold_setA : (quadrantPolyfold 2 W).IsTameSubMPolyfold (setA W) := by
   rw [setA_eq_fixSet]
   exact isTameSubMPolyfold_fixSet (projA W) (fun _ => rfl) fun _ => rfl
 
 variable (W) in
 /-- **2021, text after Definition 2.5.19, p. 63**: the structure induced on `A` is tame (as `A`
-is a tame sub-M-polyfold, `IsTameSubMPolyfold.hasTameInducedStructure_2021`). -/
-theorem hasTameInducedStructure_setA_2021 :
+is a tame sub-M-polyfold, `IsTameSubMPolyfold.hasTameInducedStructure`). -/
+theorem hasTameInducedStructure_setA :
     (quadrantPolyfold 2 W).HasTameInducedStructure (setA W) :=
-  (isTameSubMPolyfold_setA_2021 W).hasTameInducedStructure_2021
+  (isTameSubMPolyfold_setA W).hasTameInducedStructure
 
 /-! #### `B = {(x, x, 0)}` -/
 
@@ -630,7 +630,7 @@ lemma zero_mem_setB : (⟨0, zero_mem_quadrant 2 W⟩ : quadrant 2 W 0) ∈ setB
 /-- **2021, text after Definition 2.5.19, p. 63, at the corner**: no retraction `r` onto `B`
 satisfying 2021 Definition 2.5.19 (1)–(2) is defined near the corner `0`.  For small `t > 0`
 the point `(t, 0, 0) ∈ V` has `d_X = 1`, while `d_X = 0` or `2` on `B`; (3) is not needed. -/
-theorem not_mem_tameSubData_setB_2021 (d : (quadrantPolyfold 2 W).TameSubData (setB W)) :
+theorem not_mem_tameSubData_setB (d : (quadrantPolyfold 2 W).TameSubData (setB W)) :
     (⟨0, zero_mem_quadrant 2 W⟩ : quadrant 2 W 0) ∉ d.V := by
   intro h0
   let γ : ℝ → quadrant 2 W 0 := fun t =>
@@ -675,10 +675,10 @@ theorem not_mem_tameSubData_setB_2021 (d : (quadrantPolyfold 2 W).TameSubData (s
 variable (W) in
 /-- **2021, text after Definition 2.5.19, p. 63**: `B = {(x, x, 0)}` is not a tame
 sub-M-polyfold of `[0,∞)² ⊕ W`. -/
-theorem not_isTameSubMPolyfold_setB_2021 :
+theorem not_isTameSubMPolyfold_setB :
     ¬ (quadrantPolyfold 2 W).IsTameSubMPolyfold (setB W) := fun h => by
   obtain ⟨d, hd⟩ := h.2 _ zero_mem_setB
-  exact not_mem_tameSubData_setB_2021 d hd
+  exact not_mem_tameSubData_setB d hd
 
 /-! #### `B ≅ [0,∞)` and the tame induced structure on `B` -/
 
@@ -732,7 +732,7 @@ def bToHalfLine (b : setB W) : quadrant 1 zeroSpace 0 :=
 variable (W) in
 /-- **2021, text after Definition 2.5.19, p. 63**: with the structure induced from
 `[0,∞)² ⊕ W`, `B` is sc-diffeomorphic to the half-line `[0,∞)` (`= [0,∞) ⊕ ℝ⁰`). -/
-theorem halfLineToB_isScDiffeoOn_2021 :
+theorem halfLineToB_isScDiffeoOn :
     letI := (quadrantPolyfold 2 W).paracompactSpace_subtype (setB W)
     (quadrantPolyfold 1 zeroSpace).IsScDiffeoOn (subPolyfold (isSubMPolyfold_setB W))
       (halfLineToB W) (bToHalfLine W) univ univ := by
@@ -754,11 +754,11 @@ variable (W) in
 /-- **2021, text after Definition 2.5.19, p. 63**: the M-polyfold structure induced on `B` is
 tame (2021 Definition 2.5.18): the chart `B → [0,∞)`, `(x, x, 0) ↦ x`, has the tame model
 `[0,∞)` (the identity retraction), although `B` is not a tame sub-M-polyfold. -/
-theorem hasTameInducedStructure_setB_2021 :
+theorem hasTameInducedStructure_setB :
     (quadrantPolyfold 2 W).HasTameInducedStructure (setB W) := by
   refine ⟨isSubMPolyfold_setB W, ?_⟩
   let _ := (quadrantPolyfold 2 W).paracompactSpace_subtype (setB W)
-  have h := (halfLineToB_isScDiffeoOn_2021 W).symm
+  have h := (halfLineToB_isScDiffeoOn W).symm
   have hU := isRelOpenInQuadrant_quadrant 1 zeroSpace
   have hne : (LocalModel.ofRelOpen hU).O.Nonempty := quadrant_nonempty 1 zeroSpace
   have hψ : (quadrantPolyfold 1 zeroSpace).IsChart ((LocalModel.ofRelOpen hU).selfChart hne) :=
@@ -781,7 +781,7 @@ theorem hasTameInducedStructure_setB_2021 :
 `X = [0,∞)² × ℝ` (`W = ℝ`), `A = {(x, y, 0)}` is a tame sub-M-polyfold, `B = {(x, x, 0)}` is a
 sub-M-polyfold which is not a tame sub-M-polyfold, the induced structure on `B` is tame, and `B`
 is sc-diffeomorphic to `[0,∞)`. -/
-theorem examples_A_B_2021 :
+theorem examples_A_B :
     (quadrantPolyfold 2 (ScBanach.const ℝ)).IsTameSubMPolyfold (setA (ScBanach.const ℝ)) ∧
       (quadrantPolyfold 2 (ScBanach.const ℝ)).IsSubMPolyfold (setB (ScBanach.const ℝ)) ∧
       ¬ (quadrantPolyfold 2 (ScBanach.const ℝ)).IsTameSubMPolyfold (setB (ScBanach.const ℝ)) ∧
@@ -792,8 +792,8 @@ theorem examples_A_B_2021 :
         (quadrantPolyfold 1 zeroSpace).IsScDiffeoOn
           (subPolyfold (isSubMPolyfold_setB (ScBanach.const ℝ)))
           (halfLineToB (ScBanach.const ℝ)) (bToHalfLine (ScBanach.const ℝ)) univ univ) :=
-  ⟨isTameSubMPolyfold_setA_2021 _, isSubMPolyfold_setB _, not_isTameSubMPolyfold_setB_2021 _,
-    hasTameInducedStructure_setB_2021 _, halfLineToB_isScDiffeoOn_2021 _⟩
+  ⟨isTameSubMPolyfold_setA _, isSubMPolyfold_setB _, not_isTameSubMPolyfold_setB _,
+    hasTameInducedStructure_setB _, halfLineToB_isScDiffeoOn _⟩
 
 end TameSubExample
 

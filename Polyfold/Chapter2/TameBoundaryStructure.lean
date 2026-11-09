@@ -44,9 +44,9 @@ points of degeneracy index at least `k`.
   sc-diffeomorphism of `U(x, V, θ)` onto `θ`, `V` centred); `tameBoundaryPolyfold_unique` (every
   M-polyfold structure on `bX` with this property is equivalent to ours), with the satisfiability
   witness `tameBoundaryPolyfold_satisfies`.
-* **Proposition 2.7.12**, sc-part: `proposition_2_7_12_scDiffeo_2021` (centred `V`, `V'`).
-* `theorem_2_7_13_structure_2021` bundles (2)–(4), the characterization and uniqueness.
-* **Definition 2.7.14**: `definition_2_7_14_2021`, `TameMPolyfoldBundle.b`.
+* **Proposition 2.7.12**, sc-part: `proposition_2_7_12_scDiffeo` (centred `V`, `V'`).
+* `theorem_2_7_13_structure` bundles (2)–(4), the characterization and uniqueness.
+* **Definition 2.7.14**: `definition_2_7_14`, `TameMPolyfoldBundle.b`.
   **(2.45)–(2.47)**: `TameMPolyfoldBundle.iter`, `iterMap`, `iterMap_isScSmooth`,
   `degIndex_iterMap` (`d_X(Bᵏ p) = d_{bᵏX}(p) + k`), `range_iterMap`.
 * Witnesses: `quadrantPolyfold_bChartData_nonempty` (chart data exist for `[0,∞)ⁿ ⊕ W`, `n ≥ 1`)
@@ -59,11 +59,11 @@ points of degeneracy index at least `k`.
   Theorem 2.5.17 (`exists_localFace_of_faceIn`, `isSubMPolyfold_of_isFaceIn`).
 * The characterization and Proposition 2.7.12 are proved for representatives with `V` centred at
   `x`: as we read it, for other representatives `Φ_{(x,V,θ)}` need not be onto `θ`
-  (`phi_not_surjective_2021`, `TameBoundaryExample.lean`); every class has a centred
+  (`phi_not_surjective`, `TameBoundaryExample.lean`); every class has a centred
   representative (`TameBoundary.BSpace.exists_centred_rep`).  For every representative, `Φ` is an
   sc-diffeomorphism onto the open part `θ ∩ V^x` of `θ`, and Proposition 2.7.12 holds as printed:
-  `Chapter2/TameBoundaryNonCentred.lean` (`phi_isScDiffeoOn_nonCentred_2021`,
-  `proposition_2_7_12_scDiffeo_nonCentred_2021`, `tameBoundaryPolyfold_unique_allReps_2021`).
+  `Chapter2/TameBoundaryNonCentred.lean` (`phi_isScDiffeoOn_nonCentred`,
+  `proposition_2_7_12_scDiffeo_nonCentred`, `tameBoundaryPolyfold_unique_allReps`).
 * "Uniquely characterized" is read as: any M-polyfold structure with the stated property has an
   equivalent atlas.
 * `bᵏX` needs a bundled tame M-polyfold (`TameMPolyfoldBundle`) so that `b` can be iterated.
@@ -476,7 +476,7 @@ end BChartData
 /-- **The charts of `bX` cover `U(x, V, θ)`** (`V` centred at `x`): every `y ∈ θ` lies in `V₁` for
 a chart datum with the triple `(x, V, θ)` (the local face of `θ` at `y` in a tame chart inside
 `V`, `exists_localFace_of_faceIn`, and the tame model of Proposition 2.5.15 (preprint 2.43),
-`proposition_2_43_tameModel`). -/
+`proposition_2_5_15_tameModel`). -/
 theorem exists_bChartData (hP : P.IsTame) (t : BTriple (P.isCornerIndex_degIndex hP))
     (ht : IsCenteredAt P.degIndex t.x t.V) {y : X} (hy : y ∈ t.θ) :
     ∃ D : P.BChartData hP, D.t = t ∧ y ∈ D.V₁ := by
@@ -486,9 +486,9 @@ theorem exists_bChartData (hP : P.IsTame) (t : BTriple (P.isCornerIndex_degIndex
     P.exists_tame_chart_subset hP t.mem.1.1.1 hyV
   obtain ⟨Floc, hFloc, B, hB, hyB, hEq⟩ := P.exists_localFace_of_faceIn (t.mem.1.1.2 y hyV)
     ⟨t.mem_faces.1, hy⟩ hφ hyφ hsrc R hRO hT hR
-  obtain ⟨i₀, -⟩ := proposition_2_43 hT hR hFloc
+  obtain ⟨i₀, -⟩ := proposition_2_5_15 hT hR hFloc
   obtain ⟨k, rfl⟩ : ∃ k, n = k + 1 := ⟨n - 1, by have := i₀.pos; omega⟩
-  obtain ⟨i, hFi, R', hR'tame, hR'ret, hdeg'⟩ := proposition_2_43_tameModel hT hR hFloc
+  obtain ⟨i, hFi, R', hR'tame, hR'ret, hdeg'⟩ := proposition_2_5_15_tameModel hT hR hFloc
   have hT' : quadrant k W 0 = (ScIso.refl ((ScBanach.const (Fin k → ℝ)).prod W)) 0 ⁻¹'
       quadrant k W 0 := by ext; rfl
   set V₁ := φ.source ∩ φ ⁻¹' B with hV₁def
@@ -528,7 +528,7 @@ theorem exists_bChartData (hP : P.IsTame) (t : BTriple (P.isCornerIndex_degIndex
 instance paracompactSpace_tameBoundarySpace (hP : P.IsTame) :
     ParacompactSpace (P.TameBoundarySpace hP) := by
   have := P.metrizableSpace
-  have := proposition_2_7_16 (P.isCornerIndex_degIndex hP)
+  have := Polyfold.TameBoundary.proposition_2_7_16 (P.isCornerIndex_degIndex hP)
   exact paracompactSpace_of_metrizableSpace _
 
 /-- The atlas of `bX`: the charts `χ_D` of all chart data. -/
@@ -601,7 +601,7 @@ theorem isSubMPolyfold_of_isFaceIn (hP : P.IsTame) {V θ : Set X}
     P.exists_localFace_of_faceIn (hV.2 y hyV) ⟨hθ, hy⟩ hφ hyφ hsrc R hRO hT hR
   have hFlocO : Floc ⊆ R.retract := by
     obtain ⟨_, _, h⟩ := hFloc; rw [h]; exact inter_subset_right
-  obtain ⟨-, -, S', -, -, hS'ret, -⟩ := proposition_2_43 hT hR hFloc
+  obtain ⟨-, -, S', -, -, hS'ret, -⟩ := proposition_2_5_15 hT hR hFloc
   refine ⟨φ, hφ, hyφ, S', B, hB, hyB, ?_, ?_⟩
   · rw [hS'ret, ← hRO]; exact hFlocO
   · rw [hS'ret, hEq]
@@ -808,7 +808,7 @@ theorem tameBoundaryPolyfold_unique (hP : P.IsTame) (Q' : MPolyfold (P.TameBound
 transition map `Φ_{(x',V',θ')} ∘ Φ_{(x,V,θ)}⁻¹` (the identity of the underlying points of `X`) is an
 sc-diffeomorphism between the open subsets `Φ_{(x,V,θ)}(U ∩ U')` of `θ` and
 `Φ_{(x',V',θ')}(U ∩ U')` of `θ'` (with the natural structures of the faces). -/
-theorem proposition_2_7_12_scDiffeo_2021 (hP : P.IsTame)
+theorem proposition_2_7_12_scDiffeo (hP : P.IsTame)
     (t t' : BTriple (P.isCornerIndex_degIndex hP))
     (ht : IsCenteredAt P.degIndex t.x t.V) (ht' : IsCenteredAt P.degIndex t'.x t'.V) :
     letI := P.paracompactSpace_subtype t.θ
@@ -883,7 +883,7 @@ M-polyfold `X`: (2) `bX`, with the topology `T_{bX}` of (1), carries the tame M-
 triple `(x, V, θ)` with `V` centred at `x`, `Φ_{(x,V,θ)}` is an sc-diffeomorphism of the open set
 `U(x, V, θ)` onto the face `θ` with its natural structure; and every M-polyfold structure on `bX`
 with this property is equivalent to `tameBoundaryPolyfold`. -/
-theorem theorem_2_7_13_structure_2021 (hP : P.IsTame) :
+theorem theorem_2_7_13_structure (hP : P.IsTame) :
     (P.tameBoundaryPolyfold hP).IsTame ∧
       (P.tameBoundaryPolyfold hP).IsScSmoothMap P (P.tameBoundaryMap hP) ∧
       (∀ p, P.degIndex (P.tameBoundaryMap hP p) - 1 = (P.tameBoundaryPolyfold hP).degIndex p) ∧
@@ -984,7 +984,7 @@ end TameMPolyfoldBundle
 /-- **2021 Definition 2.7.14, p. 84** (new in the 2021 edition): the **tame boundary** of the tame
 `X` is the diagram `B : bX → X`, `bX` with its tame M-polyfold structure and `B` sc-smooth with
 image `∂X`. -/
-theorem definition_2_7_14_2021 (hP : P.IsTame) :
+theorem definition_2_7_14 (hP : P.IsTame) :
     (P.tameBoundaryPolyfold hP).IsTame ∧
       (P.tameBoundaryPolyfold hP).IsScSmoothMap P (P.tameBoundaryMap hP) ∧
       range (P.tameBoundaryMap hP) = P.boundary :=

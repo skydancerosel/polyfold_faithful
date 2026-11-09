@@ -31,13 +31,13 @@ open Polyfold CategoryTheory Set Function
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
   (type_of% @Polyfold.ScDiffeo.ext.{0}) ∧
-  (type_of% @Polyfold.IsCoveringFunctor.existsUnique_lift) ∧
-  (type_of% @Polyfold.isCoveringFunctor_of_isEmpty) ∧
+  (type_of% @Polyfold.IsCoveringFunctor.existsUnique_lift.{0}) ∧
+  (type_of% @Polyfold.isCoveringFunctor_of_isEmpty.{0}) ∧
   (type_of% @Polyfold.CoveringExamples.isCoveringFunctor_id)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.ScDiffeo.ext.{0}, @Polyfold.IsCoveringFunctor.existsUnique_lift,
-    @Polyfold.isCoveringFunctor_of_isEmpty, @Polyfold.CoveringExamples.isCoveringFunctor_id⟩
+  ⟨@Polyfold.ScDiffeo.ext.{0}, @Polyfold.IsCoveringFunctor.existsUnique_lift.{0},
+    @Polyfold.isCoveringFunctor_of_isEmpty.{0}, @Polyfold.CoveringExamples.isCoveringFunctor_id⟩
 
 /-- (ii): the project's covering functors are `B`'s. -/
 theorem isCoveringFunctor_iff {D : Type} [Groupoid D] {G : Type} [Group G]

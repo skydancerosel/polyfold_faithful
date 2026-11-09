@@ -2,50 +2,50 @@ import Polyfold.Chapter1.FredholmIndex
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1,
-Definition 1.8, Proposition 1.9 and the proof of Proposition 1.10 in Appendix §1.4.1, turned into
+Definition 1.1.9 (preprint 1.8), Proposition 1.1.10 (preprint 1.9) and the proof of Proposition 1.1.11 (preprint 1.10) in Appendix §1.4.1, turned into
 a criterion: **an sc-operator is sc-Fredholm iff it is Fredholm on level `0` and regularizing**,
-and its consequence for restrictions to sc-subspaces (the sc form of Proposition 3.5's direction
-"`Dg(0)` sc-Fredholm ⟹ `Tf(0)` sc-Fredholm", used for Proposition 3.52; round-trip items V3.46,
+and its consequence for restrictions to sc-subspaces (the sc form of Proposition 3.1.5 (preprint 3.5)'s direction
+"`Dg(0)` sc-Fredholm ⟹ `Tf(0)` sc-Fredholm", used for Proposition 3.6.5 (preprint 3.52); round-trip items V3.46,
 V3.68, V3.96; Findings, Chapter 3, items 233–234).
 
 # A criterion for sc-Fredholm operators
 
 ## The text, paraphrased
 
-(Definition 1.8) `T : E → F` is sc-Fredholm if there are sc-splittings `E = K ⊕ X`, `F = C ⊕ Y`
+(Definition 1.1.9 (preprint 1.8)) `T : E → F` is sc-Fredholm if there are sc-splittings `E = K ⊕ X`, `F = C ⊕ Y`
 with `K = ker T` and `C` finite-dimensional, `Y = T(E)`, and `T : X → Y` an sc-isomorphism.
-(Proposition 1.9) An sc-Fredholm operator is regularizing: `e ∈ E₀`, `T e ∈ F_m` imply `e ∈ E_m`.
-(§1.4.1, proof of Proposition 1.10) For `T + S` the text builds the splittings from three facts
+(Proposition 1.1.10 (preprint 1.9)) An sc-Fredholm operator is regularizing: `e ∈ E₀`, `T e ∈ F_m` imply `e ∈ E_m`.
+(§1.4.1, proof of Proposition 1.1.11 (preprint 1.10)) For `T + S` the text builds the splittings from three facts
 only: `T + S` is Fredholm, it is regularizing (`T` is, and `S` raises the level), and therefore its
 kernel lies in `E_∞` and the smooth points of its range are dense on every level.
 
 ## What is formalized
 
-* `Polyfold.ScOperator.IsRegularizing` (the conclusion of Proposition 1.9 as a property),
+* `Polyfold.ScOperator.IsRegularizing` (the conclusion of Proposition 1.1.10 (preprint 1.9) as a property),
   `ScOperator.IsRegularizing.ker_le_smooth` (the kernel of a regularizing operator is smooth),
   `ScOperator.IsRegularizing.surjective` (onto on level `0` ⟹ onto on every level),
-  `Polyfold.IsScFredholm.isRegularizing` (Proposition 1.9).
+  `Polyfold.IsScFredholm.isRegularizing` (Proposition 1.1.10 (preprint 1.9)).
 * `Polyfold.isScFredholm_of_isRegularizing` (**the criterion**): an sc-operator that is Fredholm on
   level `0` and regularizing is sc-Fredholm (the construction of §1.4.1 with "regularizing" as the
-  hypothesis); `Polyfold.isScFredholm_iff` (the converse is Proposition 1.9 and Lemma 2.D);
+  hypothesis); `Polyfold.isScFredholm_iff` (the converse is Proposition 1.1.10 (preprint 1.9) and Lemma 2.D);
   `Polyfold.isScFredholm_of_isRegularizing_index`: every level map is then Fredholm of the
   level-`0` index.
 * `Polyfold.isScOperator_of_mapsTo` (**closed graph theorem**): a bounded `T₀ : E₀ → F₀` with
   `T₀(E_m) ⊆ F_m` for every `m` is an sc-operator (the continuity of `T₀ : E_m → F_m`, which
-  Definition 1.3 asks for, is automatic).
+  Definition 1.1.4 (preprint 1.3) asks for, is automatic).
 * `Polyfold.ScOperator.restrict`: the restriction `A → B` of an sc-operator `T : E → F` with
   `T(A) ⊆ B`, `A`, `B` sc-subspaces, as an sc-operator between the induced sc-Banach spaces
-  (Definition 1.5); `ScOperator.IsRegularizing.restrict` (`A_m = A ∩ E_m`, so the restriction is
+  (Definition 1.1.6 (preprint 1.5)); `ScOperator.IsRegularizing.restrict` (`A_m = A ∩ E_m`, so the restriction is
   regularizing when `T` is); `Polyfold.IsScFredholm.restrict` (**the restriction of an
   sc-Fredholm operator which is Fredholm on level `0` is sc-Fredholm**, with the level-`0` index on
   every level).
 
 ## What the text leaves implicit, and the choices made
 
-* The criterion is not stated in the text; it is the proof of Proposition 1.10 (§1.4.1) with the
+* The criterion is not stated in the text; it is the proof of Proposition 1.1.11 (preprint 1.10) (§1.4.1) with the
   two properties it uses of `T + S` taken as hypotheses.  It is the tool for sc-Fredholmness of
-  operators obtained from sc-Fredholm ones by conjugation and restriction (Propositions 3.5, 3.52,
-  Theorem 3.19), for which the text says "is sc-Fredholm" without argument.
+  operators obtained from sc-Fredholm ones by conjugation and restriction (Propositions 3.1.5, 3.6.5 (preprint 3.5, 3.52),
+  Theorem 3.1.22 (preprint 3.19)), for which the text says "is sc-Fredholm" without argument.
 * The kernel hypothesis "`ker T ⊆ E_∞`" is not needed separately: it follows from regularizing.
 * For the restriction to sc-subspaces only the Fredholm property **on level `0`** of the
   restriction is assumed; on the higher levels it follows (from the regularity of `T`), as does
@@ -64,7 +64,7 @@ variable {E F : ScBanach}
 
 namespace ScOperator
 
-/-- An sc-operator `T : E → F` is **regularizing** (the property of Proposition 1.9): `e ∈ E₀` and
+/-- An sc-operator `T : E → F` is **regularizing** (the property of Proposition 1.1.10 (preprint 1.9)): `e ∈ E₀` and
 `T e ∈ F_m` imply `e ∈ E_m`. -/
 def IsRegularizing (T : ScOperator E F) : Prop :=
   ∀ (m : ℕ) (e : E 0), T 0 e ∈ range (F.toBase m) → e ∈ range (E.toBase m)
@@ -88,17 +88,17 @@ lemma IsRegularizing.surjective {T : ScOperator E F} (h : T.IsRegularizing)
 
 end ScOperator
 
-/-- **Proposition 1.9**, as a property: an sc-Fredholm operator is regularizing. -/
+/-- **Proposition 1.1.10 (preprint 1.9)**, as a property: an sc-Fredholm operator is regularizing. -/
 theorem IsScFredholm.isRegularizing {T : ScOperator E F} (hT : IsScFredholm T) :
     T.IsRegularizing := by
   obtain ⟨s⟩ := hT
-  exact fun _ _ he => proposition_1_9 s he
+  exact fun _ _ he => proposition_1_1_10 s he
 
 /-! ### The criterion -/
 
 /-- **A criterion for sc-Fredholm operators** (the construction of §1.4.1): an sc-operator
 `T : E → F` that is Fredholm on level `0` and regularizing is sc-Fredholm.  The kernel `K` is
-finite-dimensional and smooth (regularizing), so it has an sc-complement (Proposition 1.6); the
+finite-dimensional and smooth (regularizing), so it has an sc-complement (Proposition 1.1.7 (preprint 1.6)); the
 range `Y` is closed, `Y_m = T(E_m)` (regularizing) and its smooth points are dense in `Y_m`
 (images of smooth points); a complement `C` of `Y` spanned by smooth points exists because `F_∞`
 is dense in `F₀` and `F₀/Y` is finite-dimensional. -/
@@ -108,7 +108,7 @@ theorem isScFredholm_of_isRegularizing {T : ScOperator E F} (hF : (T 0).IsFredho
   set K := LinearMap.ker (T 0 : E 0 →ₗ[ℝ] F 0) with hK
   have hKfin : FiniteDimensional ℝ K := hF.finite_ker
   have hKsmooth : K ≤ E.smooth := hreg.ker_le_smooth
-  obtain ⟨X, hX⟩ := E.proposition_1_6 K hKsmooth
+  obtain ⟨X, hX⟩ := E.proposition_1_1_7 K hKsmooth
   -- the range `Y` is closed and its smooth points are dense on every level
   set Y := LinearMap.range (T 0 : E 0 →ₗ[ℝ] F 0) with hY
   have hYcl : IsClosed (Y : Set (F 0)) := hF.isClosed_range
@@ -180,7 +180,7 @@ theorem isScFredholm_of_isRegularizing {T : ScOperator E F} (hF : (T 0).IsFredho
       · rw [ScBanach.mem_levelSub, hc]
         exact LinearMap.mem_range_self σ _
   have hsplitF : F.IsScSplitting C Y :=
-    ⟨(F.proposition_1_6_iff C).2 hCsmooth, hYsc, fun m => (hcompl m).symm⟩
+    ⟨(F.proposition_1_1_7_iff C).2 hCsmooth, hYsc, fun m => (hcompl m).symm⟩
   -- the bijections `X_m → Y_m`
   refine ⟨⟨K, X, C, Y, hX, hsplitF, rfl, hKfin, hCfin, rfl, fun m => ⟨?_, ?_, ?_⟩⟩⟩
   · intro x _
@@ -213,7 +213,7 @@ theorem isScFredholm_of_isRegularizing_index {T : ScOperator E F} (hF : (T 0).Is
   have hT := isScFredholm_of_isRegularizing hF hreg
   exact ⟨hT, fun m => by rw [← scIndex_eq_fredholmIndex]; exact hT.fredholmIndex_lvl m⟩
 
-/-- **Sc-Fredholm = Fredholm on level `0` + regularizing** (Proposition 1.9 and the criterion). -/
+/-- **Sc-Fredholm = Fredholm on level `0` + regularizing** (Proposition 1.1.10 (preprint 1.9) and the criterion). -/
 theorem isScFredholm_iff {T : ScOperator E F} :
     IsScFredholm T ↔ (T 0).IsFredholm ∧ T.IsRegularizing := by
   refine ⟨fun hT => ⟨?_, hT.isRegularizing⟩, fun h => isScFredholm_of_isRegularizing h.1 h.2⟩
@@ -223,7 +223,7 @@ theorem isScFredholm_iff {T : ScOperator E F} :
 /-! ### Sc-operators from level-preserving bounded operators -/
 
 /-- **A bounded operator `T₀ : E₀ → F₀` with `T₀(E_m) ⊆ F_m` for every `m` is an sc-operator**
-(Definition 1.3): the continuity of `T₀ : E_m → F_m` follows from the closed graph theorem, since
+(Definition 1.1.4 (preprint 1.3)): the continuity of `T₀ : E_m → F_m` follows from the closed graph theorem, since
 `E_m → E₀` and `F_m → F₀` are continuous and injective. -/
 theorem isScOperator_of_mapsTo {T₀ : E 0 →L[ℝ] F 0}
     (h : ∀ m (x : E m), T₀ (E.toBase m x) ∈ range (F.toBase m)) : IsScOperator T₀ := by
@@ -301,7 +301,7 @@ theorem ScOperator.IsRegularizing.isScFredholm_restrict (h : T.IsRegularizing)
 
 /-- **The restriction of an sc-Fredholm operator** `T : E → F` to sc-subspaces `A → B`
 (`T(A) ⊆ B`) **is sc-Fredholm as soon as it is Fredholm on level `0`**, and then Fredholm on every
-level with the level-`0` index.  (The sc form of Proposition 3.5's direction "`Dg(0)` sc-Fredholm
+level with the level-`0` index.  (The sc form of Proposition 3.1.5 (preprint 3.5)'s direction "`Dg(0)` sc-Fredholm
 ⟹ `Tf(0)` sc-Fredholm", which needs the filler's condition (3) on level `0` only; round-trip items
 V3.46, V3.68.) -/
 theorem IsScFredholm.restrict (hT : IsScFredholm T) (hF : (T.restrict hA hB hAB 0).IsFredholm) :

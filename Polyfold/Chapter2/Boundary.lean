@@ -2,21 +2,21 @@ import Polyfold.Chapter2.Tame
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.3, the
-remainder: the basic properties of the boundary `∂X` (Definition 2.25) and of faces (Definition
-2.39), Proposition 2.30 (invariance of the reduced tangent space and of the partial cone under germs
-of sc-diffeomorphisms) and **Theorem 2.31** (`dim(T_xO/T_x^R O) ≤ d_O(x)`) in general, i.e. for
+remainder: the basic properties of the boundary `∂X` (Definition 2.4.5 (preprint 2.25)) and of faces (Definition
+2.39), Proposition 2.4.10 (preprint 2.30) (invariance of the reduced tangent space and of the partial cone under germs
+of sc-diffeomorphisms) and **Theorem 2.4.12 (preprint 2.31)** (`dim(T_xO/T_x^R O) ≤ d_O(x)`) in general, i.e. for
 every chart of every M-polyfold.
 
-# Boundary, partial cones, and Theorem 2.31
+# Boundary, partial cones, and Theorem 2.4.12 (preprint 2.31)
 
 ## The text, paraphrased
 
-(Definition 2.25) `∂X = {d_X ≥ 1}`.  (Lemma 2.29) For a retract `(O, C, E)` with
+(Definition 2.4.5 (preprint 2.25)) `∂X = {d_X ≥ 1}`.  (Lemma 2.4.9 (preprint 2.29)) For a retract `(O, C, E)` with
 `C = [0,∞)ᵏ ⊕ W` and `x ∈ O_∞`: `T_x^R O` is the closure of the derivatives `α̇(0)` of sc-smooth
 paths `α : (−ε, ε) → O` with `α(0) = x`; `C_xO` the closure of the one-sided derivatives of
-sc-smooth paths `α : [0, ε) → O`; `T_xO = C_xO − C_xO`.  (Proposition 2.30) A germ of
+sc-smooth paths `α : [0, ε) → O`; `T_xO = C_xO − C_xO`.  (Proposition 2.4.10 (preprint 2.30)) A germ of
 sc-diffeomorphisms `f : (O, x) → (O', y)` between retracts has `Tf(x)(T_x^R O) = T_y^R O'` and
-`Tf(x)(C_xO) = C_yO'`.  (Theorem 2.31) For a retract `O`, viewed as an M-polyfold with the chart
+`Tf(x)(C_xO) = C_yO'`.  (Theorem 2.4.12 (preprint 2.31)) For a retract `O`, viewed as an M-polyfold with the chart
 `id`, and a smooth `x ∈ O`: `dim(T_xO/T_x^R O) ≤ d_O(x)`, where `d_O(x) = min d_{C'}(φ(x))` over
 all germs of sc-diffeomorphisms `φ : (O, x) → (O', φ(x))` into retracts; if equality holds, `C_xO`
 is a partial quadrant in `T_xO`.
@@ -26,52 +26,52 @@ is a partial quadrant in `T_xO`.
 * `MPolyfold.isOpen_setOf_degIndex_lt`, `MPolyfold.isClosed_setOf_le_degIndex`,
   `MPolyfold.isClosed_boundary`, `MPolyfold.isOpen_interior`, `MPolyfold.corners` (the points with
   `d_X ≥ 2`), `MPolyfold.IsFace.subset_boundary`, `MPolyfold.IsScDiffeoOn.mem_boundary_iff`: the
-  basic properties of Definitions 2.25 and 2.39 that follow from Lemma 2.23 and Proposition 2.24.
+  basic properties of Definitions 2.4.5 and 2.5.10 (preprint 2.25 and 2.39) that follow from Lemma 2.4.3 (preprint 2.23) and Proposition 2.4.4 (preprint 2.24).
 * The **one-sided sign argument** `IsSc1With.deriv_mem_partialQuadrant_of_lvl1` (the content of
-  Lemma 2.29 (2)): for `f` sc¹ on `U ⊆ C` with values in `C'`, `x ∈ U₁`, `v ∈ E₁ ∩ C_x`, one has
+  Lemma 2.4.9 (preprint 2.29) (2)): for `f` sc¹ on `U ⊆ C` with values in `C'`, `x ∈ U₁`, `v ∈ E₁ ∩ C_x`, one has
   `Df(x)v ∈ C'_{f(x)}`; `IsSc1With.mapsTo_partialQuadrant` extends it to all of `C_x` by density
   (`partialQuadrantAtWith_subset_closure`).
 * `ScRetraction.IsDiffeoGerm R R' F G`: a germ of sc-diffeomorphisms between the retracts
   `r(U)` and `r'(U')` (`F ∘ r` and `G ∘ r'` sc¹, inverse to each other on the retracts), with the
   identities `D(G ∘ r')(y) ∘ D(F ∘ r)(x) = Dr(x)`, `D(F ∘ r)(x) ∘ D(G ∘ r')(y) = Dr'(y)` and the
   sign arguments for `F ∘ r`, `G ∘ r'`.
-* `Polyfold.proposition_2_30_reduced`, `Polyfold.proposition_2_30_cone` (**Proposition 2.30**).
+* `Polyfold.proposition_2_4_10_reduced`, `Polyfold.proposition_2_4_10_cone` (**Proposition 2.4.10 (preprint 2.30)**).
 * `Polyfold.quotDim A B = dim(A / (A ∩ B))`, the dimension `dim(T_xO/T_x^R O)` as a natural
   number, with `quotDim_inf_minimalSubspace_le : dim(T_xO/T_x^R O) ≤ d_C(x)` (and finite
   dimensionality).
-* `ScRetraction.IsDiffeoGerm.quotDim_le`: the core of Theorem 2.31 for one germ,
+* `ScRetraction.IsDiffeoGerm.quotDim_le`: the core of Theorem 2.4.12 (preprint 2.31) for one germ,
   `dim(T_xO/T_x^R O) ≤ d_{C'}(F(x))`; `MPolyfold.quotDim_le_chartDegIndex`: for two charts `φ`,
   `ψ` of an M-polyfold around `x`, `dim(T_{φ(x)}O/T^R) ≤ d_{C'}(ψ(x))`.
-* `Polyfold.theorem_2_31` (**Theorem 2.31**, for every M-polyfold): for a chart `φ` of `X` around
+* `Polyfold.theorem_2_4_12` (**Theorem 2.4.12 (preprint 2.31)**, for every M-polyfold): for a chart `φ` of `X` around
   `x` with `φ(x)` on level `1`, `dim(T_{φ(x)}O/T_{φ(x)}^R O) ≤ d_X(x)`;
-  `Polyfold.theorem_2_31_retract`: the text's form, for a retract `O` viewed as an M-polyfold.
+  `Polyfold.theorem_2_4_12_retract`: the text's form, for a retract `O` viewed as an M-polyfold.
 
 ## What the text leaves implicit, and the choices made
 
-* Lemma 2.29 is not formalized in its path formulation (gap G.10 of the report).  An sc-smooth path from an interval
+* Lemma 2.4.9 (preprint 2.29) is not formalized in its path formulation (gap G.10 of the report).  An sc-smooth path from an interval
   (with the constant sc-structure on `ℝ`) takes values in `O_∞` and has a smooth derivative, so the
   lemma is a statement about smooth vectors and needs the density of the smooth points of
   `T_x^R O` and of `C_xO` (the exposition's Lemma 3.A), which the text asserts without proof.
   The derivative-level content of the lemma — the two sign arguments and `Dr(x)v = v` on `T_xO` —
-  is what Proposition 2.30 and Theorem 2.31 use, and it is formalized directly:
+  is what Proposition 2.4.10 (preprint 2.30) and Theorem 2.4.12 (preprint 2.31) use, and it is formalized directly:
   `IsSc1With.deriv_mem_minimalSubspace_of_lvl1` (`DegeneracyIndex.lean`) is the two-sided
-  argument, `IsSc1With.deriv_mem_partialQuadrant_of_lvl1` the one-sided one.  Proposition 2.30 is
-  then proved from these, not from Lemma 2.29.
+  argument, `IsSc1With.deriv_mem_partialQuadrant_of_lvl1` the one-sided one.  Proposition 2.4.10 (preprint 2.30) is
+  then proved from these, not from Lemma 2.4.9 (preprint 2.29).
 * Everything is stated for `x` on level `1` (where `Dr(x)` exists) instead of smooth `x`.
-* The text proves Theorem 2.31 for a retract `O` as an M-polyfold, by reducing to one germ.  Here
+* The text proves Theorem 2.4.12 (preprint 2.31) for a retract `O` as an M-polyfold, by reducing to one germ.  Here
   the one-germ inequality is proved for a germ between retracts (`IsDiffeoGerm.quotDim_le`,
   which generalizes `degIndexWith_le_of_germ` of `DegeneracyIndex.lean` from `U₀` to a retract),
   and the theorem is then stated for an arbitrary M-polyfold `X` and any chart `φ` around `x`:
   `dim(T_{φ(x)}O/T^R) ≤ d(x, ψ)` for every other chart `ψ`, hence `≤ d_X(x)`.  The text's
   description of `d_O` as a minimum over germs of sc-diffeomorphisms into retracts is replaced by
-  Definition 2.22 for the M-polyfold `O` with the atlas `{id}`: its charts are exactly such germs
-  (restricted to open subsets, Proposition 2.10 (1)), and the restriction of a retraction to an
+  Definition 2.4.1 (preprint 2.22) for the M-polyfold `O` with the atlas `{id}`: its charts are exactly such germs
+  (restricted to open subsets, Proposition 2.3.1 (preprint 2.10) (1)), and the restriction of a retraction to an
   open subset has the same derivative (`ScRetraction.scDeriv_restrict`).
-* The second statement of Theorem 2.31 (if `dim(T_xO/T_x^R O) = d_O(x)` then `C_xO` is a partial
+* The second statement of Theorem 2.4.12 (preprint 2.31) (if `dim(T_xO/T_x^R O) = d_O(x)` then `C_xO` is a partial
   quadrant in `T_xO`) is not formalized: it needs the sc-Banach structure of `T_xO` (the range of
   the sc-projection `Dr(x)`) and smooth lifts of a basis of `T_xO/T_x^R O` (gap G.11 of the
   report).  For tame retracts the conclusion is proved directly, with explicit smooth lifts:
-  `proposition_2_36_partialCone` in `PartialCone.lean`.
+  `proposition_2_5_6_partialCone` in `PartialCone.lean`.
 -/
 
 open Set Filter Topology Function Module
@@ -82,7 +82,7 @@ namespace Polyfold
 
 variable {E E' : ScBanach}
 
-/-! ### The boundary and faces: basic properties (Definitions 2.25, 2.39) -/
+/-! ### The boundary and faces: basic properties (Definitions 2.4.5, 2.5.10 (preprint 2.25, 2.39)) -/
 
 namespace MPolyfold
 
@@ -90,11 +90,11 @@ universe u v
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- The sets `{d_X < k}` are open (Lemma 2.23). -/
+/-- The sets `{d_X < k}` are open (Lemma 2.4.3 (preprint 2.23)). -/
 theorem isOpen_setOf_degIndex_lt (k : ℕ) : IsOpen {x | P.degIndex x < k} := by
   rw [isOpen_iff_mem_nhds]
   intro x hx
-  exact (lemma_2_23 P x).mono fun y hy => lt_of_le_of_lt hy hx
+  exact (lemma_2_4_3 P x).mono fun y hy => lt_of_le_of_lt hy hx
 
 /-- The sets `{d_X ≥ k}` are closed. -/
 theorem isClosed_setOf_le_degIndex (k : ℕ) : IsClosed {x | k ≤ P.degIndex x} := by
@@ -103,7 +103,7 @@ theorem isClosed_setOf_le_degIndex (k : ℕ) : IsClosed {x | k ≤ P.degIndex x}
   rw [this]
   exact (P.isOpen_setOf_degIndex_lt k).isClosed_compl
 
-/-- **Definition 2.25**: the boundary `∂X` is closed. -/
+/-- **Definition 2.4.5 (preprint 2.25)**: the boundary `∂X` is closed. -/
 theorem isClosed_boundary : IsClosed P.boundary := P.isClosed_setOf_le_degIndex 1
 
 /-- The interior `{d_X = 0} = X \ ∂X` is open. -/
@@ -113,7 +113,7 @@ theorem isOpen_interior : IsOpen {x | P.degIndex x = 0} := by
   rw [this]
   exact P.isOpen_setOf_degIndex_lt 1
 
-/-- The **corners** of `X`: the points with `d_X ≥ 2` (Definition 1.23's terminology, transported
+/-- The **corners** of `X`: the points with `d_X ≥ 2` (Definition 1.3.3 (preprint 1.23)'s terminology, transported
 to `X`). -/
 def corners : Set X := {x | 2 ≤ P.degIndex x}
 
@@ -135,16 +135,16 @@ lemma IsFace.connectedComponentIn_subset {F : Set X} {x : X} (hx : P.degIndex x 
 
 variable {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
 
-/-- The boundary is invariant under germs of sc-diffeomorphisms (Proposition 2.24). -/
+/-- The boundary is invariant under germs of sc-diffeomorphisms (Proposition 2.4.4 (preprint 2.24)). -/
 theorem IsScDiffeoOn.mem_boundary_iff {P : MPolyfold X} {f : X → Y} {g : Y → X} {U : Set X}
     {V : Set Y} (h : P.IsScDiffeoOn Q f g U V) {x : X} (hx : x ∈ U) :
     x ∈ P.boundary ↔ f x ∈ Q.boundary := by
   change 1 ≤ P.degIndex x ↔ 1 ≤ Q.degIndex (f x)
-  rw [proposition_2_24 h hx]
+  rw [proposition_2_4_4 h hx]
 
 end MPolyfold
 
-/-! ### The one-sided sign argument (Lemma 2.29 (2)) -/
+/-! ### The one-sided sign argument (Lemma 2.4.9 (preprint 2.29) (2)) -/
 
 section Sign
 
@@ -243,7 +243,7 @@ lemma nonneg_of_hasDerivWithinAt_Ici {g : ℝ → ℝ} {c : ℝ} (hg : HasDerivW
   rw [slope_def_field, h0, sub_zero, sub_zero]
   exact div_nonneg hgt ht.1
 
-/-- **The one-sided sign argument** (Lemma 2.29 (2)): if `f` is sc¹ on `U ⊆ C` with values in
+/-- **The one-sided sign argument** (Lemma 2.4.9 (preprint 2.29) (2)): if `f` is sc¹ on `U ⊆ C` with values in
 `C'`, `x ∈ U₁` and `v ∈ E₁ ∩ C_x`, then `Df(x)v ∈ C'_{f(x)}`.  Proof: for `j` with
 `(T'(f(x)))_j = 0`, the function `t ↦ (T'(f(x + tv)))_j` is nonnegative on `[0, ε)` and vanishes
 at `0`, so its one-sided derivative `(T' Df(x) v)_j` at `0` is nonnegative. -/
@@ -422,8 +422,8 @@ theorem deriv_mapsTo_partialQuadrant (T : ScIso E ((ScBanach.const (Fin n → �
     ((R.lvlSet_retract_subset 1 hx))
   rwa [Function.comp_apply, R.apply_eq_self_of_mem_retract hx] at this
 
-/-- **Proposition 2.30**, first half: `Tf(x)(T_x^R O) = T_y^R O'`, with `Tf(x) = D(F ∘ r)(x)`. -/
-theorem _root_.Polyfold.proposition_2_30_reduced
+/-- **Proposition 2.4.10 (preprint 2.30)**, first half: `Tf(x)(T_x^R O) = T_y^R O'`, with `Tf(x) = D(F ∘ r)(x)`. -/
+theorem _root_.Polyfold.proposition_2_4_10_reduced
     (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)) (hT : C = T 0 ⁻¹' quadrant n W 0)
     (T' : ScIso E' ((ScBanach.const (Fin n' → ℝ)).prod W')) (hT' : C' = T' 0 ⁻¹' quadrant n' W' 0) :
     (reducedTangentSpaceWith R T x).map (scDeriv R.U (F ∘ R) x : E 0 →ₗ[ℝ] E' 0) =
@@ -453,8 +453,8 @@ theorem _root_.Polyfold.proposition_2_30_reduced
       obtain ⟨u, rfl⟩ := hw1
       exact congrArg (fun L : E' 0 →L[ℝ] E' 0 => L u) (R'.scDeriv_comp_self hy')
 
-/-- **Proposition 2.30**, second half: `Tf(x)(C_xO) = C_yO'`. -/
-theorem _root_.Polyfold.proposition_2_30_cone
+/-- **Proposition 2.4.10 (preprint 2.30)**, second half: `Tf(x)(C_xO) = C_yO'`. -/
+theorem _root_.Polyfold.proposition_2_4_10_cone
     (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)) (hT : C = T 0 ⁻¹' quadrant n W 0)
     (T' : ScIso E' ((ScBanach.const (Fin n' → ℝ)).prod W')) (hT' : C' = T' 0 ⁻¹' quadrant n' W' 0) :
     scDeriv R.U (F ∘ R) x '' partialConeWith R T x =
@@ -484,7 +484,7 @@ end IsDiffeoGerm
 
 end ScRetraction
 
-/-! ### The dimension `dim(T_xO / T_x^R O)` and Theorem 2.31 -/
+/-! ### The dimension `dim(T_xO / T_x^R O)` and Theorem 2.4.12 (preprint 2.31) -/
 
 /-- `dim(A / (A ∩ B))` for subspaces `A`, `B` of a vector space, as a natural number (`0` if
 infinite): the quotient of `A` by the trace of `B` on it. -/
@@ -563,7 +563,7 @@ namespace ScRetraction.IsDiffeoGerm
 variable {n n' : ℕ} {W W' : ScBanach} {C : Set (E 0)} {C' : Set (E' 0)} {R : ScRetraction E C}
   {R' : ScRetraction E' C'} {F : E 0 → E' 0} {G : E' 0 → E 0}
 
-/-- **The core of Theorem 2.31**: along a germ of sc-diffeomorphisms `F : (O, x) → (O', F(x))`
+/-- **The core of Theorem 2.4.12 (preprint 2.31)**: along a germ of sc-diffeomorphisms `F : (O, x) → (O', F(x))`
 between retracts, `dim(T_xO/T_x^R O) ≤ d_{C'}(F(x))` for `x ∈ O₁`.
 
 *Proof.* With `D = D(F ∘ r)(x)`, `D' = D(G ∘ r')(y)`: `D' ∘ D = Dr(x)`, `D ∘ D' = Dr'(y)`,
@@ -645,7 +645,7 @@ theorem quotDim_le (h : R.IsDiffeoGerm R' F G) (T : ScIso E ((ScBanach.const (Fi
 
 end ScRetraction.IsDiffeoGerm
 
-/-! ### Theorem 2.31 for M-polyfolds -/
+/-! ### Theorem 2.4.12 (preprint 2.31) for M-polyfolds -/
 
 namespace MChart
 
@@ -709,10 +709,10 @@ theorem quotDim_le_chartDegIndex {φ ψ : MChart X} (hφ : P.IsChart φ) (hψ : 
   rw [chartDegIndex, degIndex_eq T' hT' (ψ.apply_mem_C hx')]
   exact key
 
-/-- **Theorem 2.31**, for every M-polyfold: for a chart `φ` of `X` around `x` with `φ(x)` on level
+/-- **Theorem 2.4.12 (preprint 2.31)**, for every M-polyfold: for a chart `φ` of `X` around `x` with `φ(x)` on level
 `1`, a retraction `r` onto `O = φ(V)` and a presentation `T` of `C`,
 `dim(T_{φ(x)}O / T^R_{φ(x)}O) ≤ d_X(x)`. -/
-theorem _root_.Polyfold.theorem_2_31 {φ : MChart X} (hφ : P.IsChart φ)
+theorem _root_.Polyfold.theorem_2_4_12 {φ : MChart X} (hφ : P.IsChart φ)
     (R : ScRetraction φ.model.E φ.model.C) (hR : R.retract = φ.model.O)
     (T : ScIso φ.model.E ((ScBanach.const (Fin n → ℝ)).prod W))
     (hT : φ.model.C = T 0 ⁻¹' quadrant n W 0) {x : X} (hx : x ∈ φ.source) {z : φ.model.E 1}
@@ -725,15 +725,15 @@ theorem _root_.Polyfold.theorem_2_31 {φ : MChart X} (hφ : P.IsChart φ)
 
 end MPolyfold
 
-/-- **Theorem 2.31** in the text's form: for an sc-smooth retract `(O, C, E)` viewed as the
+/-- **Theorem 2.4.12 (preprint 2.31)** in the text's form: for an sc-smooth retract `(O, C, E)` viewed as the
 M-polyfold with the single chart `id` (`LocalModel.toMPolyfold`), a retraction `r` onto `O` and
 `x ∈ O₁`: `dim(T_xO / T_x^R O) ≤ d_O(x)`. -/
-theorem theorem_2_31_retract (M : LocalModel) (hO : M.O.Nonempty) (R : ScRetraction M.E M.C)
+theorem theorem_2_4_12_retract (M : LocalModel) (hO : M.O.Nonempty) (R : ScRetraction M.E M.C)
     (hR : R.retract = M.O) {n : ℕ} {W : ScBanach} (T : ScIso M.E ((ScBanach.const (Fin n → ℝ)).prod W))
     (hT : M.C = T 0 ⁻¹' quadrant n W 0) {x : M.E 1} (hx : x ∈ M.E.lvlSet M.O 1) :
     quotDim (LinearMap.range (scDeriv R.U R x : M.E 0 →ₗ[ℝ] M.E 0)) (reducedTangentSpaceWith R T x) ≤
       (M.toMPolyfold hO).degIndex ⟨M.E.toBase 1 x, hx⟩ :=
-  theorem_2_31 (M.toMPolyfold hO) ((M.toMPolyfold hO).isChart_of_mem (mem_singleton _)) R hR T hT
+  theorem_2_4_12 (M.toMPolyfold hO) ((M.toMPolyfold hO).isChart_of_mem (mem_singleton _)) R hR T hT
     (mem_univ _) rfl
 
 end Polyfold

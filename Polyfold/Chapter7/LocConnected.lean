@@ -2,21 +2,21 @@ import Polyfold.Chapter2.MPolyfold
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017), Part II, Chapter 7: the connected
-neighbourhoods used for the natural representation (the discussion after **Theorem 7.1**,
-pp. 231–233, **Proposition 7.5**, pp. 233–236, and the proof of **Theorem 7.5**, pp. 253–254) and
-the connected components of **Corollary 7.2** (p. 247).
+neighbourhoods used for the natural representation (the discussion after **Theorem 7.1.13 (2017: 7.1)**,
+pp. 231–233, **Proposition 7.1.15 (2017: 7.5)**, pp. 233–236, and the proof of **Theorem 7.6.1 (2017: 7.5)**, pp. 253–254) and
+the connected components of **Corollary 7.3.8 (2017: 7.2)** (p. 326 (2017 p. 247)).
 
 # Local path connectedness of retracts and M-polyfolds
 
 ## The text, paraphrased
 
 (p. 231) "We choose the connected open neighborhood `U(x) ⊂ X` so small that `𝐔(x)` splits into
-`#G_x`-many (disjoint) connected components" `𝐔(g)`, `g ∈ G_x`.  (Proposition 7.5) A finite set
+`#G_x`-many (disjoint) connected components" `𝐔(g)`, `g ∈ G_x`.  (Proposition 7.1.15 (2017: 7.5)) A finite set
 `Y` of isomorphic objects has "mutually disjoint connected open neighborhoods `U(y)` contained in
-`V`".  (Proof of Theorem 7.5) "For every `g ∈ G_{x₀}` we choose two contractible open
+`V`".  (Proof of Theorem 7.6.1 (2017: 7.5)) "For every `g ∈ G_{x₀}` we choose two contractible open
 neighborhoods `N^t_g` and `N^s_g`" on which `t` and `s` are sc-diffeomorphisms; "since the `N_g`
 are disjoint and since the structure maps are continuous we conclude that `Φ` is a homomorphism".
-(Corollary 7.2) "We work in a connected component of `K`".  The text does not state that these
+(Corollary 7.3.8 (2017: 7.2)) "We work in a connected component of `K`".  The text does not state that these
 connected neighbourhoods exist.
 
 ## What is formalized
@@ -38,7 +38,7 @@ connected neighbourhoods exist.
   particular an orbit space `|X|`, is locally path connected, so its components are open.
 * `exists_pairwiseDisjoint_isOpen_isConnected` (and `MPolyfold.…`): finitely many points of a
   Hausdorff locally connected space have pairwise disjoint connected open neighbourhoods inside
-  a given open set (Proposition 7.5).
+  a given open set (Proposition 7.1.15 (2017: 7.5)).
 * `eqOn_sections_of_isPreconnected`: two continuous sections of a locally injective `p : M → X`,
   `M` Hausdorff, agree on a preconnected set as soon as they agree at one point (Mathlib's
   `IsSeparatedMap.eqOn_of_comp_eqOn`).  For a local homeomorphism `s` this is the uniqueness of
@@ -48,7 +48,7 @@ connected neighbourhoods exist.
 
 * "Connected" is Mathlib's `IsConnected` (nonempty and preconnected); open connected sets of an
   M-polyfold are path connected (`MPolyfold.isConnected_iff_isPathConnected`).
-* The "contractible" neighbourhoods `N^t_g`, `N^s_g` of the proof of Theorem 7.5 are not
+* The "contractible" neighbourhoods `N^t_g`, `N^s_g` of the proof of Theorem 7.6.1 (2017: 7.5) are not
   formalized: the proof needs only connectedness (plan II.6, 3), which is provided here.  The
   segment homotopy `(p, τ) ↦ r(o + τ(p − o))` contracts `O ∩ B_ε(o)` inside the larger `O ∩ W`;
   that small neighbourhoods are themselves contractible is not claimed.
@@ -229,7 +229,7 @@ end MPolyfold
 
 /-! ### Disjoint connected neighbourhoods and sections over connected sets -/
 
-/-- **Disjoint connected neighbourhoods of finitely many points** (Proposition 7.5): in a
+/-- **Disjoint connected neighbourhoods of finitely many points** (Proposition 7.1.15 (2017: 7.5)): in a
 Hausdorff locally connected space, finitely many points of an open set `V` have pairwise disjoint
 connected open neighbourhoods contained in `V`. -/
 theorem exists_pairwiseDisjoint_isOpen_isConnected {X : Type*} [TopologicalSpace X] [T2Space X]
@@ -246,7 +246,7 @@ theorem exists_pairwiseDisjoint_isOpen_isConnected {X : Type*} [TopologicalSpace
   · exact isConnected_connectedComponentIn_iff.2 (hmem y hy)
 
 /-- **Disjoint connected neighbourhoods of finitely many points of an M-polyfold**, contained
-in a given open set (Proposition 7.5). -/
+in a given open set (Proposition 7.1.15 (2017: 7.5)). -/
 theorem MPolyfold.exists_pairwiseDisjoint_isOpen_isConnected {X : Type*} [TopologicalSpace X]
     [T2Space X] [ParacompactSpace X] (P : MPolyfold X) {S V : Set X} (hS : S.Finite)
     (hV : IsOpen V) (hSV : S ⊆ V) :

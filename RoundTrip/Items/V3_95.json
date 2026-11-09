@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = theorem_3_23' ∧ theorem_3_19' ∧ theorem_3_23_of_nearby ∧ lemma_2_26 ∧ theorem_3_23_sc (universes 0; germ reading). A ⇒ B (3.23): B's IsSurjGoodPosAt (non-centred tame chart, sc-complement) gives IsGoodPositionGermTame (isGoodPositionGerm_of_linAt_surj, IsGoodPositionGerm.toTame); theorem_3_23' gives U, the smoothness of S(f,U), tameness and IsManifoldWithCorners d ⇒ HasCornerStructure; B's uniqueness clause holds for every M-polyfold. (3.19): IsLinSurjAt with d_X ≡ 0 gives IsGoodPositionGermTame (isGoodPositionGerm_of_isLinSurjAt); theorem_3_19'; IsManifoldWithCorners d ∧ d_S ≡ 0 gives B's open-chart structure. B ⇒ A fails for a real reason: A's local theorems assume no tame strong bundle (B assumes PX.IsTame and a tame atlas) and conclude more (every zero in U in good position in a tame chart, a single dimension d); theorem_3_23_of_nearby, Lemma 2.26 and theorem_3_23_sc are not stated in B.",
+ "why": "A = theorem_3_1_26' ∧ theorem_3_1_22' ∧ theorem_3_1_26_of_nearby ∧ lemma_2_4_6 ∧ theorem_3_1_26_sc (universes 0; germ reading). A ⇒ B (3.23): B's IsSurjGoodPosAt (non-centred tame chart, sc-complement) gives IsGoodPositionGermTame (isGoodPositionGerm_of_linAt_surj, IsGoodPositionGerm.toTame); theorem_3_1_26' gives U, the smoothness of S(f,U), tameness and IsManifoldWithCorners d ⇒ HasCornerStructure; B's uniqueness clause holds for every M-polyfold. (3.19): IsLinSurjAt with d_X ≡ 0 gives IsGoodPositionGermTame (isGoodPositionGerm_of_isLinSurjAt); theorem_3_1_22'; IsManifoldWithCorners d ∧ d_S ≡ 0 gives B's open-chart structure. B ⇒ A fails for a real reason: A's local theorems assume no tame strong bundle (B assumes PX.IsTame and a tame atlas) and conclude more (every zero in U in good position in a tame chart, a single dimension d); theorem_3_1_26_of_nearby, Lemma 2.26 and theorem_3_1_26_sc are not stated in B.",
  "B_issue": "Not a bug of meaning, but B's reading of 'uniquely determined' (CornerStructureUnique: any two corner atlases equivalent to the induced atlas are equivalent) holds for every M-polyfold, because both atlases consist of charts of the structure (proved here as cornerStructureUnique from IsChart.compatible). So the clause adds no content, which matches the project's remark that uniqueness is not stated separately.",
  "overlap": "n/a (B_to_A not proved). The audit's informational #rt_overlap counts on A_to_B were not recomputed at HEAD.",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "theorem_3_23', theorem_3_19' and theorem_3_23_of_nearby now state the germ reading; A gains theorem_3_23_sc. The item did not compile (chart-change lemma); repaired through isGoodPositionGerm_of_linAt_surj. A ⇒ B proved again; B ⇒ A still fails."
+  "note": "theorem_3_1_26', theorem_3_1_22' and theorem_3_1_26_of_nearby now state the germ reading; A gains theorem_3_1_26_sc. The item did not compile (chart-change lemma); repaired through isGoodPositionGerm_of_linAt_surj. A ⇒ B proved again; B ⇒ A still fails."
  }
 }

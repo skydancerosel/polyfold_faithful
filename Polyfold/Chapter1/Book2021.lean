@@ -21,13 +21,13 @@ index statement.
 
 ## What is formalized
 
-* `Polyfold.proposition_1_1_11_2021`: `T + S` is sc-Fredholm and `ind(T + S) = ind(T)`, and on
+* `Polyfold.proposition_1_1_11`: `T + S` is sc-Fredholm and `ind(T + S) = ind(T)`, and on
   every level `(T + S)_m : E_m → F_m` is Fredholm of index `ind(T)`.  This is the conjunction of
-  the existing `proposition_1_10` (`ScFredholm.lean`, the 2017/preprint statement),
-  `proposition_1_10_index` and `proposition_1_10_index_lvl` (`FredholmIndex.lean`, where the
+  the existing `proposition_1_1_11_preprint` (`ScFredholm.lean`, the 2017/preprint statement),
+  `proposition_1_1_11_index` and `proposition_1_1_11_index_lvl` (`FredholmIndex.lean`, where the
   index part was already proved from the invariance of the Fredholm index under compact
   perturbations, `fredholmIndex_add_isCompactOperator`).
-* `Polyfold.remark_1_1_2_2021`, `Polyfold.remark_1_1_2_2021_openMapping`: the mathematical
+* `Polyfold.remark_1_1_2`, `Polyfold.remark_1_1_2_openMapping`: the mathematical
   content of Remark 1.1.2.  A vector space with
   two norms is modelled by two normed spaces `E₁`, `E₂` and a linear equivalence `e : E₁ ≃ E₂`
   (the identity of the underlying vector space).  (1) If `e` is a homeomorphism (the two norms
@@ -60,7 +60,7 @@ variable {E₁ E₂ : Type*} [NormedAddCommGroup E₁] [NormedSpace ℝ E₁] [N
 that induce the same topology are equivalent.  For a linear equivalence `e : E₁ ≃ E₂` (the identity
 of the vector space, `E₁` and `E₂` carrying the two norms) which is a homeomorphism, there is
 `c > 0` with `‖e x‖ ≤ c ‖x‖` and `‖x‖ ≤ c ‖e x‖`. -/
-theorem remark_1_1_2_2021 (e : E₁ ≃ₗ[ℝ] E₂) (he : Continuous e) (he' : Continuous e.symm) :
+theorem remark_1_1_2 (e : E₁ ≃ₗ[ℝ] E₂) (he : Continuous e) (he' : Continuous e.symm) :
     ∃ c : ℝ, 0 < c ∧ ∀ x, ‖e x‖ ≤ c * ‖x‖ ∧ ‖x‖ ≤ c * ‖e x‖ := by
   set f : E₁ →L[ℝ] E₂ := ⟨e.toLinearMap, he⟩
   set g : E₂ →L[ℝ] E₁ := ⟨e.symm.toLinearMap, he'⟩
@@ -78,8 +78,8 @@ theorem remark_1_1_2_2021 (e : E₁ ≃ₗ[ℝ] E₂) (he : Continuous e) (he' :
 
 /-- **Remark 1.1.2, p. 5 (new in the 2021 edition)**, the open mapping theorem: if both norms are
 complete and one dominates the other (`e : E₁ ≃ E₂` continuous), then `e⁻¹` is continuous, so the
-two norms induce the same topology and are equivalent (`remark_1_1_2_2021`). -/
-theorem remark_1_1_2_2021_openMapping [CompleteSpace E₁] [CompleteSpace E₂] (e : E₁ ≃ₗ[ℝ] E₂)
+two norms induce the same topology and are equivalent (`remark_1_1_2`). -/
+theorem remark_1_1_2_openMapping [CompleteSpace E₁] [CompleteSpace E₂] (e : E₁ ≃ₗ[ℝ] E₂)
     (he : Continuous e) :
     Continuous e.symm ∧ ∃ c : ℝ, 0 < c ∧ ∀ x, ‖e x‖ ≤ c * ‖x‖ ∧ ‖x‖ ≤ c * ‖e x‖ := by
   set f : E₁ →L[ℝ] E₂ := ⟨e.toLinearMap, he⟩
@@ -90,7 +90,7 @@ theorem remark_1_1_2_2021_openMapping [CompleteSpace E₁] [CompleteSpace E₂] 
     apply e.injective
     rw [e.apply_symm_apply]
     exact g.apply_symm_apply y
-  exact ⟨he', remark_1_1_2_2021 e he he'⟩
+  exact ⟨he', remark_1_1_2 e he he'⟩
 
 end Remark
 
@@ -104,11 +104,11 @@ variable {E F : ScBanach}
 Proposition 1.10, whose statement has no index): if `T : E → F` is sc-Fredholm and `S` is an
 sc⁺-operator, then `T + S` is sc-Fredholm **and has the same index**; moreover every level map
 `(T + S)_m : E_m → F_m` is Fredholm of index `ind(T)`. -/
-theorem proposition_1_1_11_2021 {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F) :
+theorem proposition_1_1_11 {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F) :
     IsScFredholm (T + S.toScOperator) ∧ scIndex (T + S.toScOperator) = scIndex T ∧
       ∀ m, ((T + S.toScOperator) m).IsFredholm ∧
         fredholmIndex ((T + S.toScOperator) m) = scIndex T :=
-  ⟨proposition_1_10 hT S, proposition_1_10_index hT S, proposition_1_10_index_lvl hT S⟩
+  ⟨proposition_1_1_11_preprint hT S, proposition_1_1_11_index hT S, proposition_1_1_11_index_lvl hT S⟩
 
 end CompactPerturbation
 

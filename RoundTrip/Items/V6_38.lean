@@ -2,7 +2,7 @@ import Polyfold
 import RoundTrip.Check
 import RoundTrip.Blind.V6_38
 
-/-! Round trip for V6_38 (Lemma 6.31: the sequence (96) is exact).  A is `lemma_6_31`, universes
+/-! Round trip for V6_38 (Lemma 6.31: the sequence (96) is exact).  A is `lemma_6_6_6`, universes
 at `0`.
 
 * `A_to_B` is not proved (see the JSON).  B's first three conjuncts (injectivity of `j`,
@@ -16,7 +16,7 @@ at `0`.
   point `p`.
 * `B_to_A` is proved only VACUOUSLY: A is re-proved outright from the non-item lemmas
   `exists_sliceKernel` (the slice operators, `T ∈ Lin(f, x)`, `T ⊕ φ` onto, the slice kernel) and
-  `lemma_6_14` (the stabilization sequence is exact) -- the proof of `lemma_6_31` itself.  B cannot
+  `lemma_6_4_14` (the stabilization sequence is exact) -- the proof of `lemma_6_6_6` itself.  B cannot
   be used: its surjectivity conjunct needs the general position of the slice `F_t` (tame chart,
   sc-complement of the kernel in the reduced tangent space), which A's hypotheses (only the
   surjectivity of the whole `F'`) do not give, and B says nothing about `T ∈ Lin(f, x)` or the
@@ -25,10 +25,10 @@ at `0`.
 namespace RoundTrip.V6_38
 open Polyfold
 
-/-- The project's statement (`lemma_6_31`), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.lemma_6_31.{0, 0}
+/-- The project's statement (`lemma_6_6_6`), universes instantiated at `0`. -/
+def A : Prop := type_of% @Polyfold.lemma_6_6_6.{0, 0}
 
-theorem A_holds : A := @Polyfold.lemma_6_31.{0, 0}
+theorem A_holds : A := @Polyfold.lemma_6_6_6.{0, 0}
 
 /-! ### B's exactness conjuncts are linear algebra -/
 
@@ -102,15 +102,15 @@ theorem B_alg_part {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace
 /-! ### `B ⇒ A`, vacuous -/
 
 /-- `B ⇒ A`, proved outright (the hypothesis is not used): `exists_sliceKernel` and
-`lemma_6_14`, both non-item lemmas. -/
+`lemma_6_4_14`, both non-item lemmas. -/
 theorem B_to_A : B → A := by
   intro _ n k X _ _ _ PX Y _ _ _ P _ _ Bd _ _ _ _ f hf S hS s hs Φ hΦ q x hΦq hΦ0 hsurj p q₀ q₁
   obtain ⟨T, φ, hT, hφ, hlin, hsurj', hker⟩ :=
     exists_sliceKernel hf hS hs hΦ hΦq hΦ0 hsurj p q₀ q₁
-  exact ⟨T, φ, hT, hφ, hlin, hker, lemma_6_14 hsurj'⟩
+  exact ⟨T, φ, hT, hφ, hlin, hker, lemma_6_4_14 hsurj'⟩
 
-#rt_check RoundTrip.V6_38.B_to_A [Polyfold.lemma_6_31]
-#rt_check RoundTrip.V6_38.B_alg_part [Polyfold.lemma_6_31]
-#rt_overlap RoundTrip.V6_38.B_to_A [Polyfold.lemma_6_31]
+#rt_check RoundTrip.V6_38.B_to_A [Polyfold.lemma_6_6_6]
+#rt_check RoundTrip.V6_38.B_alg_part [Polyfold.lemma_6_6_6]
+#rt_overlap RoundTrip.V6_38.B_to_A [Polyfold.lemma_6_6_6]
 
 end RoundTrip.V6_38

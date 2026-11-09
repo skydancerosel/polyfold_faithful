@@ -58,7 +58,7 @@ open Classical in
 noncomputable def germChart {E' : ScBanach} {C' O' : Set (E'.lvl 0)} (hO' : IsScRetract E' C' O')
     (x : O) (f : E.lvl 0 → E'.lvl 0) (g : E'.lvl 0 → E.lvl 0) (V : Set (E.lvl 0))
     (V' : Set (E'.lvl 0)) (h : IsGermDiffeoB C O C' O' x f g V V') : MChart O where
-  model := ⟨E', C', O' ∩ V', proposition_2_10_1 hO' h.2.1⟩
+  model := ⟨E', C', O' ∩ V', proposition_2_3_1_one hO' h.2.1⟩
   toPartialEquiv :=
     { toFun := fun z => f z.1
       invFun := fun w => if hw : g w ∈ O then ⟨g w, hw⟩ else x
@@ -84,11 +84,11 @@ noncomputable def germChart {E' : ScBanach} {C' O' : Set (E'.lvl 0)} (hO' : IsSc
   isOpen_source := h.1.preimage continuous_subtype_val
   target_eq := rfl
   continuousOn_toFun :=
-    (h.2.2.2.2.1.continuousOn (proposition_2_10_1 hO h.1)).comp
+    (h.2.2.2.2.1.continuousOn (proposition_2_3_1_one hO h.1)).comp
       continuous_subtype_val.continuousOn fun z hz => ⟨z.2, hz⟩
   continuousOn_invFun := by
     rw [Topology.IsInducing.subtypeVal.continuousOn_iff]
-    refine (h.2.2.2.2.2.1.continuousOn (proposition_2_10_1 hO' h.2.1)).congr fun w hw => ?_
+    refine (h.2.2.2.2.2.1.continuousOn (proposition_2_3_1_one hO' h.2.1)).congr fun w hw => ?_
     have := h.2.2.2.2.2.1.mapsTo hw
     change (if hw : g w ∈ O then (⟨g w, hw⟩ : O) else x).1 = g w
     rw [dif_pos this.1]

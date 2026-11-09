@@ -54,18 +54,18 @@ V3.108, V3.110) and not the project's (V3.13, V3.16):
   `isScFredholmSectionTame2021_iff`; `StrongBundle.IsGoodPositionGermTame2021` (Definition 3.6.6
   in a tame chart with the 2021 filling), `isGoodPositionGermTame2021_iff`.
 * The theorems, each a corollary of the project's by the dictionary:
-  `theorem_3_6_8_2021def` (Theorem 3.6.8 (1), (2); from `theorem_3_54'`),
-  `theorem_3_1_26_2021def` (Theorem 3.1.26; `theorem_3_23'`),
+  `theorem_3_6_8_2021def` (Theorem 3.6.8 (1), (2); from `theorem_3_6_8'`),
+  `theorem_3_1_26_2021def` (Theorem 3.1.26; `theorem_3_1_26'`),
   `theorem_3_1_22_2021def` and `theorem_3_1_22_linearization_2021def` (Theorem 3.1.22;
-  `theorem_3_19'`, `theorem_3_19_linearization`),
-  `theorem_3_6_11_2021def` (Theorem 3.6.11; `theorem_3_57`),
-  `corollary_3_1_27_2021def` (Corollary 3.1.27; `corollary_3_24`),
-  `theorem_3_6_10_2021def` (Theorem 3.6.10; `theorem_3_56`),
-  `corollary_5_2_5_2021def` (Corollary 5.2.5 for `i = 1`; `corollary_5_8`),
-  `theorem_5_3_5_2021def` (Theorem 5.3.5; `theorem_5_3_5_2021`),
-  `theorem_5_3_10_2021def` (Theorem 5.3.10; `theorem_5_18`),
-  `theorem_5_3_12_2021def` (Theorem 5.3.12; `theorem_5_19`),
-  `proposition_6_2_2_2021def` (Proposition 6.2.2; `proposition_6_2'`).
+  `theorem_3_1_22'`, `theorem_3_1_22_linearization`),
+  `theorem_3_6_11_2021def` (Theorem 3.6.11; `theorem_3_6_11`),
+  `corollary_3_1_27_2021def` (Corollary 3.1.27; `corollary_3_1_27`),
+  `theorem_3_6_10_2021def` (Theorem 3.6.10; `theorem_3_6_10`),
+  `corollary_5_2_5_2021def` (Corollary 5.2.5 for `i = 1`; `corollary_5_2_5`),
+  `theorem_5_3_5_2021def` (Theorem 5.3.5; `theorem_5_3_5`),
+  `theorem_5_3_10_2021def` (Theorem 5.3.10; `theorem_5_3_10_param`),
+  `theorem_5_3_12_2021def` (Theorem 5.3.12; `theorem_5_3_12_param`),
+  `proposition_6_2_2_2021def` (Proposition 6.2.2; `proposition_6_2_2'`).
   The versions used are the ones without the added hypothesis `IsGoodPositionGermFilled` (the
   primed theorems of `GlobalIFTNearbyOntoG.lean`), so no hypothesis is added here.
 
@@ -110,7 +110,7 @@ def IsScFredholmGermTame2021 (f : X → Y) (x₀ : X) : Prop :=
     IsScPlusGerm c.φ.model.C c.U s ∧ c.F.toBase 1 (s 0) = g 0 ∧
     IsConjugateToBasicGerm c.U (fun u => g u - c.F.toBase 1 (s u))
 
-/-- **The tame 2021 germ is the project's `IsScFredholmGermTame`** (Definition 3.50 of the
+/-- **The tame 2021 germ is the project's `IsScFredholmGermTame`** (Definition 3.6.3 (preprint 3.50) of the
 preprint, germ reading): `r(0) = 0` holds in a chart centred at `x₀`. -/
 theorem isScFredholmGermTame2021_iff {x₀ : X} :
     B.IsScFredholmGermTame2021 f x₀ ↔ B.IsScFredholmGermTame f x₀ := by
@@ -196,8 +196,8 @@ sc-Fredholm section `f` with germ data in tame charts (`IsScFredholmSectionTame2
 in good position (`IsGoodPositionGermTame2021`) has an open neighbourhood `Vx` such that (1) every
 zero in `Vx` is in good position, and (2) the solution set has at `x₀` regular tangent germ data
 of Definition 3.2.1 (2) of dimension `d` on a chart with source in `Vx`, with locally constant
-dimension (the sub-M-polyfold and manifold structure follow by Theorem 3.2.3, `theorem_3_27`;
-see `theorem_3_1_26_2021def`).  From `theorem_3_54'`, which adds no hypothesis. -/
+dimension (the sub-M-polyfold and manifold structure follow by Theorem 3.2.3, `theorem_3_2_3_of_isRegular`;
+see `theorem_3_1_26_2021def`).  From `theorem_3_6_8'`, which adds no hypothesis. -/
 theorem theorem_3_6_8_2021def (hf : B.IsScFredholmSectionTame2021 f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame2021 f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ Vx : Set X, IsOpen Vx ∧ x₀ ∈ Vx ∧
@@ -205,7 +205,7 @@ theorem theorem_3_6_8_2021def (hf : B.IsScFredholmSectionTame2021 f) {x₀ : X}
       ∃ d : ℕ, ∃ D : PX.TangentGermChart (solutionSet P f) x₀ d, D.IsRegular ∧ D.φ.source ⊆ Vx ∧
         ∀ y ∈ solutionSet P f ∩ D.φ.source,
           ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d := by
-  obtain ⟨Vx, hVxo, hx₀Vx, hall, hD⟩ := theorem_3_54' (isScFredholmSectionTame2021_iff.1 hf)
+  obtain ⟨Vx, hVxo, hx₀Vx, hall, hD⟩ := theorem_3_6_8' (isScFredholmSectionTame2021_iff.1 hf)
     (isGoodPositionGermTame2021_iff.1 hg) hx₀
   exact ⟨Vx, hVxo, hx₀Vx, fun y hy hy0 => isGoodPositionGermTame2021_iff.2 (hall y hy hy0), hD⟩
 
@@ -214,7 +214,7 @@ theorem theorem_3_6_8_2021def (hf : B.IsScFredholmSectionTame2021 f) {x₀ : X}
 `x` in good position; then there is an open `U ∋ x` such that every zero in `U` is in good
 position, `S(f, U)` consists of smooth points, is a sub-M-polyfold of `X`, and its induced
 structure is tame and that of a `d`-dimensional manifold with boundary with corners.  From
-`theorem_3_23'`. -/
+`theorem_3_1_26'`. -/
 theorem theorem_3_1_26_2021def (hf : B.IsScFredholmSectionTame2021 f) {x : X}
     (hx : IsZeroAt P f x) (hg : B.IsGoodPositionGermTame2021 f x) :
     ∃ U : Set X, IsOpen U ∧ x ∈ U ∧ (∀ y ∈ U, IsZeroAt P f y → B.IsGoodPositionGermTame2021 f y) ∧
@@ -223,7 +223,7 @@ theorem theorem_3_1_26_2021def (hf : B.IsScFredholmSectionTame2021 f) {x : X}
         haveI := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
         (MPolyfold.subPolyfold hsub).IsTame ∧
           (MPolyfold.subPolyfold hsub).IsManifoldWithCorners d := by
-  obtain ⟨U, hUo, hxU, hall, hsm, hrest⟩ := theorem_3_23' (isScFredholmSectionTame2021_iff.1 hf)
+  obtain ⟨U, hUo, hxU, hall, hsm, hrest⟩ := theorem_3_1_26' (isScFredholmSectionTame2021_iff.1 hf)
     hx (isGoodPositionGermTame2021_iff.1 hg)
   exact ⟨U, hUo, hxU, fun y hy hy0 => isGoodPositionGermTame2021_iff.2 (hall y hy hy0), hsm,
     hrest⟩
@@ -231,7 +231,7 @@ theorem theorem_3_1_26_2021def (hf : B.IsScFredholmSectionTame2021 f) {x : X}
 /-- **2021 Theorem 3.1.22, p. 100, the first clause** (preprint: Theorem 3.19): for an
 sc-Fredholm section in the 2021 sense and a zero `x₀` in good position, the linearization
 `Tf(x₀) = Dg(0)|_{T₀O}` in the chart of the germ data is Fredholm of index `n − N`, and so is
-`Dg(0)` (Proposition 3.6.5 for germs, `proposition_3_52`).  From `theorem_3_19_linearization`. -/
+`Dg(0)` (Proposition 3.6.5 for germs, `proposition_3_6_5_preprint`).  From `theorem_3_1_22_linearization`. -/
 theorem theorem_3_1_22_linearization_2021def (hf : B.IsScFredholmSection2021 f) {x₀ : X}
     (hx₀ : IsZeroAt P f x₀) (hg : B.IsGoodPositionGermTame2021 f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
@@ -246,7 +246,7 @@ theorem theorem_3_1_22_linearization_2021def (hf : B.IsScFredholmSection2021 f) 
         (StrongRetr.ρCLM c.isRetraction h0) (Dg 0) h1) ∧
       fredholmIndex (fillerRestrict (scDeriv c.U (StrongRetr.r c.R) 0)
         (StrongRetr.ρCLM c.isRetraction h0) (Dg 0) h1) = n - N :=
-  theorem_3_19_linearization (isScFredholmSection2021_iff.1 hf) hx₀
+  theorem_3_1_22_linearization (isScFredholmSection2021_iff.1 hf) hx₀
     (isGoodPositionGermTame2021_iff.1 hg).isGoodPositionGerm
 
 /-- **2021 Theorem 3.1.22, p. 100 (implicit function theorem, interior case)** (preprint: Theorem
@@ -254,7 +254,7 @@ theorem theorem_3_1_22_linearization_2021def (hf : B.IsScFredholmSection2021 f) 
 germ data in tame charts and a zero `x₀` in good position (here: `f'(x₀)` onto), there is an open
 `U ∋ x₀` such that every zero in `U` is in good position, `S(f, U)` consists of smooth points and
 is a sub-M-polyfold whose induced structure is that of a `d`-dimensional manifold without
-boundary.  From `theorem_3_19'`; the first clause is `theorem_3_1_22_linearization_2021def`. -/
+boundary.  From `theorem_3_1_22'`; the first clause is `theorem_3_1_22_linearization_2021def`. -/
 theorem theorem_3_1_22_2021def (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTame2021 f)
     {x₀ : X} (hx₀ : IsZeroAt P f x₀) (hg : B.IsGoodPositionGermTame2021 f x₀) :
     ∃ U : Set X, IsOpen U ∧ x₀ ∈ U ∧
@@ -264,7 +264,7 @@ theorem theorem_3_1_22_2021def (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmS
         haveI := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
         (MPolyfold.subPolyfold hsub).IsManifoldWithCorners d ∧
           (MPolyfold.subPolyfold hsub).IsWithoutBoundary := by
-  obtain ⟨U, hUo, hxU, hall, hsm, hrest⟩ := theorem_3_19' hX
+  obtain ⟨U, hUo, hxU, hall, hsm, hrest⟩ := theorem_3_1_22' hX
     (isScFredholmSectionTame2021_iff.1 hf) hx₀ (isGoodPositionGermTame2021_iff.1 hg)
   exact ⟨U, hUo, hxU, fun y hy hy0 => isGoodPositionGermTame2021_iff.2 (hall y hy hy0), hsm,
     hrest⟩
@@ -274,7 +274,7 @@ theorem theorem_3_1_22_2021def (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmS
 position (in a tame chart) at every zero; then the nonempty solution set `S` is a sub-M-polyfold
 of `X` whose induced structure is tame and that of a manifold with boundary with corners of
 locally constant dimension, with regular tangent germ data at every point.  From
-`theorem_3_57`. -/
+`theorem_3_6_11`. -/
 theorem theorem_3_6_11_2021def (hf : B.IsScFredholmSection2021 f)
     (hall : ∀ x, IsZeroAt P f x → B.IsGoodPositionGermTame2021 f x)
     (hne : (solutionSet P f).Nonempty) :
@@ -285,13 +285,13 @@ theorem theorem_3_6_11_2021def (hf : B.IsScFredholmSection2021 f)
         ∀ x ∈ solutionSet P f, ∃ d : ℕ, ∃ D : PX.TangentGermChart (solutionSet P f) x d,
           D.IsRegular ∧ ∀ y ∈ solutionSet P f ∩ D.φ.source,
             ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d :=
-  theorem_3_57 (isScFredholmSection2021_iff.1 hf)
+  theorem_3_6_11 (isScFredholmSection2021_iff.1 hf)
     (fun x hx => isGoodPositionGermTame2021_iff.1 (hall x hx)) hne
 
 /-- **2021 Corollary 3.1.27, p. 104** (preprint: Corollary 3.24), for the 2021 definitions: the
 solution set of an sc-Fredholm section in good position at every zero is a sub-M-polyfold whose
 induced structure is tame and that of a manifold with boundary with corners.  From
-`corollary_3_24`. -/
+`corollary_3_1_27`. -/
 theorem corollary_3_1_27_2021def (hf : B.IsScFredholmSection2021 f)
     (hall : ∀ x, IsZeroAt P f x → B.IsGoodPositionGermTame2021 f x)
     (hne : (solutionSet P f).Nonempty) :
@@ -299,13 +299,13 @@ theorem corollary_3_1_27_2021def (hf : B.IsScFredholmSection2021 f)
       haveI := PX.paracompactSpace_subtype (solutionSet P f)
       (MPolyfold.subPolyfold hsub).IsTame ∧
         (MPolyfold.subPolyfold hsub).IsManifoldWithCornersLoc :=
-  corollary_3_24 (isScFredholmSection2021_iff.1 hf)
+  corollary_3_1_27 (isScFredholmSection2021_iff.1 hf)
     (fun x hx => isGoodPositionGermTame2021_iff.1 (hall x hx)) hne
 
 /-- **2021 Theorem 3.6.10, p. 140 (global implicit function theorem I)** (preprint: Theorem
 3.56), for the 2021 definitions: over an M-polyfold without boundary, the solution set of an
 sc-Fredholm section in good position (`f'(x)` onto) at every zero is a sub-M-polyfold whose
-induced structure is that of a manifold without boundary.  From `theorem_3_56`. -/
+induced structure is that of a manifold without boundary.  From `theorem_3_6_10`. -/
 theorem theorem_3_6_10_2021def (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSection2021 f)
     (hall : ∀ x, IsZeroAt P f x → B.IsGoodPositionGermTame2021 f x)
     (hne : (solutionSet P f).Nonempty) :
@@ -313,7 +313,7 @@ theorem theorem_3_6_10_2021def (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmS
       haveI := PX.paracompactSpace_subtype (solutionSet P f)
       (MPolyfold.subPolyfold hsub).IsManifoldWithCornersLoc ∧
         (MPolyfold.subPolyfold hsub).IsWithoutBoundary :=
-  theorem_3_56 hX (isScFredholmSection2021_iff.1 hf)
+  theorem_3_6_10 hX (isScFredholmSection2021_iff.1 hf)
     (fun x hx => isGoodPositionGermTame2021_iff.1 (hall x hx)) hne
 
 /-! ### Chapter 5: Corollary 5.2.5 and the perturbation theorems -/
@@ -321,16 +321,16 @@ theorem theorem_3_6_10_2021def (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmS
 /-- **2021 Corollary 5.2.5, p. 212, for `i = 1`** (preprint: Corollary 5.8), for the 2021
 definitions: if `f` is an sc-Fredholm section of `P : Y → X` with compact solution set, then `f¹`
 is an sc-Fredholm section (2021 sense) of `P¹ : Y¹ → X¹` with compact solution set.  From
-`corollary_5_8`. -/
+`corollary_5_2_5`. -/
 theorem corollary_5_2_5_2021def (hf : B.IsScFredholmSection2021 f)
     (hS : IsCompact (solutionSet P f)) :
     B.shift.IsScFredholmSection2021 (B.sectionShift f) ∧
       IsCompact (solutionSet B.shiftProj (B.sectionShift f)) :=
-  ⟨isScFredholmSection2021_iff.2 (corollary_5_8 (isScFredholmSection2021_iff.1 hf) hS).1,
-    (corollary_5_8 (isScFredholmSection2021_iff.1 hf) hS).2⟩
+  ⟨isScFredholmSection2021_iff.2 (corollary_5_2_5 (isScFredholmSection2021_iff.1 hf) hS).1,
+    (corollary_5_2_5 (isScFredholmSection2021_iff.1 hf) hS).2⟩
 
 /-- **2021 Theorem 5.3.5, p. 217 (perturbation: interior case)** (preprint: Theorem 5.13), for
-the 2021 definitions: `theorem_5_3_5_2021` with the sc-Fredholm hypothesis in the 2021 sense
+the 2021 definitions: `theorem_5_3_5` with the sc-Fredholm hypothesis in the 2021 sense
 (germ data in tame charts). -/
 theorem theorem_5_3_5_2021def (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame2021 f) (hS : IsCompact (solutionSet P f))
@@ -345,10 +345,10 @@ theorem theorem_5_3_5_2021def (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBump
             IsCompact (solutionSet P (sectionAdd P f s))) ∧
           ((solutionSet P (sectionAdd P f s)).Nonempty →
             B.SolutionSetIsManifold (sectionAdd P f s)) :=
-  theorem_5_3_5_2021 hX hbump (isScFredholmSectionTame2021_iff.1 hf) hS hN
+  theorem_5_3_5 hX hbump (isScFredholmSectionTame2021_iff.1 hf) hS hN
 
 /-- **2021 Theorem 5.3.10, p. 220 (perturbation: general position)** (preprint: Theorem 5.18),
-for the 2021 definitions: `theorem_5_18` with the sc-Fredholm hypothesis in the 2021 sense. -/
+for the 2021 definitions: `theorem_5_3_10_param` with the sc-Fredholm hypothesis in the 2021 sense. -/
 theorem theorem_5_3_10_2021def (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame2021 f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N) :
@@ -364,10 +364,10 @@ theorem theorem_5_3_10_2021def (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
               paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam ∈ B.allowableSections N U ∧
               B.SolutionSetInGeneralPosition
                 (sectionAdd P f (paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam)) :=
-  theorem_5_18 hX hbump (isScFredholmSectionTame2021_iff.1 hf) hS hN
+  theorem_5_3_10_param hX hbump (isScFredholmSectionTame2021_iff.1 hf) hS hN
 
 /-- **2021 Theorem 5.3.12, p. 222 (perturbation and transversality: good position)** (preprint:
-Theorem 5.19), for the 2021 definitions: `theorem_5_19` with the sc-Fredholm hypothesis and the
+Theorem 5.19), for the 2021 definitions: `theorem_5_3_12_param` with the sc-Fredholm hypothesis and the
 good-position hypothesis and conclusion in the 2021 sense. -/
 theorem theorem_5_3_12_2021def (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame2021 f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
@@ -403,7 +403,7 @@ theorem theorem_5_3_12_2021def (hbump : PX.AdmitsBumpFunctions)
                 (MPolyfold.subPolyfold hsub).IsTame ∧
                   (MPolyfold.subPolyfold hsub).IsManifoldWithCornersLoc) := by
   obtain ⟨U, hUo, hSU, hcpt, m, t, ht, hsupp, hdisj, hN1, δ, hδ, CV, hCV, hlam⟩ :=
-    theorem_5_19 hbump (isScFredholmSectionTame2021_iff.1 hf) hS hN
+    theorem_5_3_12_param hbump (isScFredholmSectionTame2021_iff.1 hf) hS hN
       fun x hx hx0 => isGoodPositionGermTame2021_iff.1 (hbd x hx hx0)
   refine ⟨U, hUo, hSU, hcpt, m, t, ht, hsupp, hdisj, hN1, δ, hδ, CV, hCV, fun lam h1 h2 => ?_⟩
   obtain ⟨ha, hb, hc, hgood, he, hf'⟩ := hlam lam h1 h2
@@ -414,11 +414,11 @@ theorem theorem_5_3_12_2021def (hbump : PX.AdmitsBumpFunctions)
 /-- **2021 Proposition 6.2.2, p. 240 (stability of `ind(f, x)` along sc-smooth paths)**
 (preprint: Proposition 6.2), for the 2021 definitions: `X` admits sc-smooth bump functions, `f` is
 an sc-Fredholm section with germ data in tame charts (2021 sense) and `φ : ℝ → X` an sc-smooth
-path; then `ind(f, φ(t))` is one integer for all `t`.  From `proposition_6_2'`. -/
+path; then `ind(f, φ(t))` is one integer for all `t`.  From `proposition_6_2_2'`. -/
 theorem proposition_6_2_2_2021def (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame2021 f) {φ : (Fin 1 → ℝ) → X}
     (hφ : (rnPolyfold 1).IsScSmoothMap PX φ) :
     ∃ i : ℤ, ∀ t, B.IsIndexAt f (φ t) i :=
-  proposition_6_2' hbump (isScFredholmSectionTame2021_iff.1 hf) hφ
+  proposition_6_2_2' hbump (isScFredholmSectionTame2021_iff.1 hf) hφ
 
 end Polyfold

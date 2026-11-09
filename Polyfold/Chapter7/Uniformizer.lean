@@ -4,45 +4,45 @@ import Polyfold.Chapter7.Basic
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.1,
-pp. 236–237: **Proposition 7.6** (the orbit space of `U(x)` is `G_x\U(x)`, pp. 236–237),
-**Definition 7.9** (local uniformizer, p. 237) and the two claims after it ("there exists a local
+pp. 236–237: **Proposition 7.1.19 (2017: 7.6)** (the orbit space of `U(x)` is `G_x\U(x)`, pp. 236–237),
+**Definition 7.1.20 (2017: 7.9)** (local uniformizer, p. 237) and the two claims after it ("there exists a local
 uniformizer around every object", "a local uniformizer is injective on objects as well as
 morphisms", p. 237).  There is no 2014 preprint of Part II; numbers and pages are the 2017 text's.
-Definition 7.9 itself is in `EpGroupoid.lean` (`LocalUniformizer`).
+Definition 7.1.20 (2017: 7.9) itself is in `EpGroupoid.lean` (`LocalUniformizer`).
 
 # Local uniformizers
 
 ## The text, paraphrased
 
-(Proposition 7.6) Let `z = |x| ∈ |X|`, `G_x` the isotropy group of `x` and `U(x)` an open
+(Proposition 7.1.19 (2017: 7.6)) Let `z = |x| ∈ |X|`, `G_x` the isotropy group of `x` and `U(x)` an open
 neighbourhood with the natural `G_x`-action `g ∗ y = Φ(g)(y)`.  Then
 `τ : G_x\U(x) → |U(x)| = π(U(x))`, `G_x ∗ y ↦ |y|`, is a homeomorphism.  In other words, the
 functor `G_x ⋉ U(x) → X`, the inclusion on objects and `(g, y) ↦ Γ(g, y)` on morphisms, is fully
 faithful and induces a homeomorphism `|U(x)|_{G_x ⋉ U(x)} = G_x\U(x) → |U(x)|`.  *Proof.* `τ` is
-well defined and surjective; it is injective: for `φ : y → y'` Theorem 7.1 (3) gives `g` with
-`Γ(g, y) = φ`, so `y' = t(Γ(g, y)) = g ∗ y`.  `|U(x)|` is open by Proposition 7.1; `τ ∘ σ = π|U(x)`
+well defined and surjective; it is injective: for `φ : y → y'` Theorem 7.1.13 (2017: 7.1) (3) gives `g` with
+`Γ(g, y) = φ`, so `y' = t(Γ(g, y)) = g ∗ y`.  `|U(x)|` is open by Proposition 7.1.8 (2017: 7.1); `τ ∘ σ = π|U(x)`
 for the quotient map `σ : U(x) → G_x\U(x)`, which is open since `G_x` acts by sc-diffeomorphisms;
 hence `τ` is continuous (quotient topology of `G_x\U(x)`) and open (quotient topology of `|X|`).
-(Definition 7.9) A local uniformizer around `x` is a fully faithful embedding
+(Definition 7.1.20 (2017: 7.9)) A local uniformizer around `x` is a fully faithful embedding
 `Ψ_x ◦ G_x ⋉ U(x) → X`, `U(x)` with the natural action, inducing a homeomorphism of
 `|U(x)|_{G_x ⋉ U(x)}` onto the open neighbourhood `|U(x)| = π(U(x))` of `π(x)`.  (p. 237) There
-exists a local uniformizer around every object, as Proposition 7.6 shows; a local uniformizer is
+exists a local uniformizer around every object, as Proposition 7.1.19 (2017: 7.6) shows; a local uniformizer is
 injective on objects as well as morphisms.
 
 ## What is formalized (namespace `Polyfold.EpGroupoid`, `R : X.NaturalRep x`)
 
 * The fibres of `π` on `U(x)`: `NaturalRep.π_eq_π_iff_exists_smul` (`|y| = |y'|` iff
   `y' = g ∗ y`; the injectivity step of the proof).
-* **Proposition 7.6**: `NaturalRep.orbitQuotientMap` (`G_x ∗ y ↦ |y|` into `|X|`),
+* **Proposition 7.1.19 (2017: 7.6)**: `NaturalRep.orbitQuotientMap` (`G_x ∗ y ↦ |y|` into `|X|`),
   `isOpenEmbedding_orbitQuotientMap`, `range_orbitQuotientMap` (`= π(U(x))`), and
-  `proposition_7_6 R : G_x\U(x) ≃ₜ π(U(x))`, the text's `τ` (`proposition_7_6_apply_mk`).  The
-  second form: `proposition_7_6_fullyFaithful` (the functor `NaturalRep.functor`,
+  `proposition_7_1_19 R : G_x\U(x) ≃ₜ π(U(x))`, the text's `τ` (`proposition_7_1_19_apply_mk`).  The
+  second form: `proposition_7_1_19_fullyFaithful` (the functor `NaturalRep.functor`,
   `NaturalAction.lean`, is fully faithful), `isOpenEmbedding_functor_orbitMap`,
-  `range_functor_orbitMap`, `proposition_7_6_orbitMap : |U(x)|_{G_x ⋉ U(x)} ≃ₜ π(U(x))`, and
+  `range_functor_orbitMap`, `proposition_7_1_19_orbitMap : |U(x)|_{G_x ⋉ U(x)} ≃ₜ π(U(x))`, and
   `translationOrbitHomeomorph : |U(x)|_{G_x ⋉ U(x)} ≃ₜ G_x\U(x)` (the text's identification).
   The functor is an open embedding on objects and on morphisms: `isOpenEmbedding_functor_obj`,
   `isOpenEmbedding_functor_mor` (`G_x` discrete), with image `𝐔(x)` (`range_functor_mor`).
-* **Definition 7.9, existence** (p. 237): `NaturalRep.toLocalUniformizer` (every natural
+* **Definition 7.1.20 (2017: 7.9), existence** (p. 237): `NaturalRep.toLocalUniformizer` (every natural
   representation is a local uniformizer) and `exists_localUniformizer` (for every open `V ∋ x`
   there is a local uniformizer with `U(x) ⊆ V`).
 * **Injectivity** (p. 237): `LocalUniformizer.injective_obj`, `LocalUniformizer.injective_mor`.
@@ -54,16 +54,16 @@ injective on objects as well as morphisms.
   topology, for the action `g • y = Φ(g)(y)` of `EpGroupoid.lean`; `|U(x)| = π(U(x))` is the
   subspace `X.π '' R.U` of `|X|`.  "`U(x)` equipped with the natural `G_x`-action" is a
   `NaturalRep` datum (PLAN II.5, 6).
-* **The proof** follows the text: injectivity by Theorem 7.1 (3) (`existsUnique_Γ`), openness
-  through Proposition 7.1 (`proposition_7_1`).  The openness of `σ` is not needed: the image of an
+* **The proof** follows the text: injectivity by Theorem 7.1.13 (2017: 7.1) (3) (`existsUnique_Γ`), openness
+  through Proposition 7.1.8 (2017: 7.1) (`proposition_7_1_8`).  The openness of `σ` is not needed: the image of an
   open `Q ⊆ G_x\U(x)` is `π(σ⁻¹(Q))`, and `σ⁻¹(Q)` is open in the open `U(x)`, so `τ` (into `|X|`)
   is a continuous injective open map, an open embedding with range `π(U(x))`.  The same argument
   gives the second form, for the orbit space of the translation groupoid `G_x ⋉ U(x)`
   (`NaturalRep.translationGroupoid`), whose classes are the same `G_x`-orbits.
 * **"Fully faithful"** is Mathlib's `Functor.FullyFaithful` of `GroupoidFunctor.toFunctor` (the
   bridge `GroupoidStr.Ob`), from the instances `NaturalRep.full`, `NaturalRep.faithful` of
-  `NaturalAction.lean` (Theorem 7.1 (3)).
-* **Definition 7.9** (`EpGroupoid.lean`): the text's "`Ψx ◦ Gx ⋉ U(x) → X`" is read as
+  `NaturalAction.lean` (Theorem 7.1.13 (2017: 7.1) (3)).
+* **Definition 7.1.20 (2017: 7.9)** (`EpGroupoid.lean`): the text's "`Ψx ◦ Gx ⋉ U(x) → X`" is read as
   `Ψ_x : G_x ⋉ U(x) → X` (possible misprint).  "Embedding" is not a separate field of
   `LocalUniformizer`: the injectivity on objects and morphisms that the text notes afterwards
   follows from `Ψ_x` being the inclusion on objects and faithful (`injective_obj`,
@@ -71,8 +71,8 @@ injective on objects as well as morphisms.
   representations (`toLocalUniformizer`): `Ψ_x` is an open embedding on objects and on morphisms
   (`isOpenEmbedding_functor_obj`, `isOpenEmbedding_functor_mor`).
 * **"There exists a local uniformizer around every object"** is proved in the stronger form
-  inside every open `V ∋ x` (`exists_localUniformizer`), from Theorem 7.1 (`theorem_7_1`).
-* No hypothesis "for all …" is added.  No possible misprint other than Definition 7.9's was found
+  inside every open `V ∋ x` (`exists_localUniformizer`), from Theorem 7.1.13 (2017: 7.1) (`theorem_7_1_13`).
+* No hypothesis "for all …" is added.  No possible misprint other than Definition 7.1.20 (2017: 7.9)'s was found
   on pp. 236–237, apart from the doubled article in "a a local uniformizer" (p. 237).
 -/
 
@@ -97,7 +97,7 @@ variable (R : X.NaturalRep x)
 /-! ### The fibres of `π` on `U(x)` are the `G_x`-orbits -/
 
 /-- **`|y| = |z|` for `y, z ∈ U(x)` iff `z = g ∗ y` for some `g ∈ G_x`** (the injectivity step of
-the proof of Proposition 7.6, by Theorem 7.1 (3)). -/
+the proof of Proposition 7.1.19 (2017: 7.6), by Theorem 7.1.13 (2017: 7.1) (3)). -/
 theorem π_eq_π_iff_exists_smul {y z : R.U} :
     X.π y = X.π z ↔ ∃ g : X.Isotropy x, g • y = z := by
   constructor
@@ -130,7 +130,7 @@ private theorem isOpenEmbedding_quotient_lift {r : Setoid R.U}
       · rintro ⟨_, ⟨y, hy, rfl⟩, rfl⟩
         exact ⟨Quotient.mk r y, hy, rfl⟩
     rw [himage]
-    exact X.proposition_7_1 _ (R.isOpen_U.isOpenMap_subtype_val _
+    exact X.proposition_7_1_8 _ (R.isOpen_U.isOpenMap_subtype_val _
       (hS.preimage continuous_quotient_mk'))
 
 /-- The range of `[y] ↦ |y|` is `π(U(x))`. -/
@@ -160,9 +160,9 @@ private theorem translation_orbitSetoid_iff (y z : R.U) :
   · rintro ⟨g, rfl⟩
     exact ⟨(g, y), rfl, rfl⟩
 
-/-! ### Proposition 7.6 -/
+/-! ### Proposition 7.1.19 (2017: 7.6) -/
 
-/-- **The map `τ` of Proposition 7.6**, into `|X|`: `G_x ∗ y ↦ |y|`. -/
+/-- **The map `τ` of Proposition 7.1.19 (2017: 7.6)**, into `|X|`: `G_x ∗ y ↦ |y|`. -/
 def orbitQuotientMap : MulAction.orbitRel.Quotient (X.Isotropy x) R.U → X.OrbitSpace :=
   Quotient.lift (fun y : R.U => X.π y) fun y z h => (R.orbitRel_iff y z).1 h
 
@@ -206,7 +206,7 @@ theorem isOpenEmbedding_functor_obj : IsOpenEmbedding R.functor.obj :=
 
 open scoped Polyfold.EpGroupoid.NaturalRep in
 /-- **On morphisms, `G_x ⋉ U(x) → X`, `(g, y) ↦ Γ(g, y)`, is an open embedding** (`G_x`
-discrete): continuous on each sheet `{g} × U`, injective by Theorem 7.1 (3), and the image of an
+discrete): continuous on each sheet `{g} × U`, injective by Theorem 7.1.13 (2017: 7.1) (3), and the image of an
 open `S` is `⋃_g Γ(g, U) ∩ s⁻¹(S_g)`, `S_g = {y | (g, y) ∈ S}`. -/
 theorem isOpenEmbedding_functor_mor : IsOpenEmbedding R.functor.mor := by
   refine .of_continuous_injective_isOpenMap ?_ (fun p q h => ?_) fun S hS => ?_
@@ -234,7 +234,7 @@ theorem isOpenEmbedding_functor_mor : IsOpenEmbedding R.functor.mor := by
         (hS.preimage (continuous_const.prodMk continuous_id))).preimage X.continuous_src)
 
 /-- The image of `G_x ⋉ U(x) → X` on morphisms is `𝐔(x)`, the morphisms between points of
-`U(x)` (Theorem 7.1 (3)). -/
+`U(x)` (Theorem 7.1.13 (2017: 7.1) (3)). -/
 theorem range_functor_mor : range R.functor.mor = X.morOn R.U := by
   ext φ
   constructor
@@ -246,48 +246,48 @@ theorem range_functor_mor : range R.functor.mor = X.morOn R.U := by
 
 end NaturalRep
 
-/-- **Proposition 7.6**: `τ : G_x\U(x) → |U(x)| = π(U(x))`, `G_x ∗ y ↦ |y|`, is a
+/-- **Proposition 7.1.19 (2017: 7.6)**: `τ : G_x\U(x) → |U(x)| = π(U(x))`, `G_x ∗ y ↦ |y|`, is a
 homeomorphism. -/
-def proposition_7_6 (R : X.NaturalRep x) :
+def proposition_7_1_19 (R : X.NaturalRep x) :
     MulAction.orbitRel.Quotient (X.Isotropy x) R.U ≃ₜ X.π '' R.U :=
   R.isOpenEmbedding_orbitQuotientMap.isEmbedding.toHomeomorph.trans
     (Homeomorph.setCongr R.range_orbitQuotientMap)
 
 @[simp]
-theorem proposition_7_6_apply_mk (R : X.NaturalRep x) (y : R.U) :
-    (proposition_7_6 R (Quotient.mk _ y) : X.OrbitSpace) = X.π y :=
+theorem proposition_7_1_19_apply_mk (R : X.NaturalRep x) (y : R.U) :
+    (proposition_7_1_19 R (Quotient.mk _ y) : X.OrbitSpace) = X.π y :=
   rfl
 
-/-- **Proposition 7.6, second form**: the functor `G_x ⋉ U(x) → X` (the inclusion on objects,
+/-- **Proposition 7.1.19 (2017: 7.6), second form**: the functor `G_x ⋉ U(x) → X` (the inclusion on objects,
 `(g, y) ↦ Γ(g, y)` on morphisms) is fully faithful. -/
-def proposition_7_6_fullyFaithful (R : X.NaturalRep x) : R.functor.toFunctor.FullyFaithful :=
+def proposition_7_1_19_fullyFaithful (R : X.NaturalRep x) : R.functor.toFunctor.FullyFaithful :=
   .ofFullyFaithful _
 
-/-- **Proposition 7.6, second form**: the functor `G_x ⋉ U(x) → X` induces a homeomorphism
+/-- **Proposition 7.1.19 (2017: 7.6), second form**: the functor `G_x ⋉ U(x) → X` induces a homeomorphism
 `|U(x)|_{G_x ⋉ U(x)} → |U(x)| = π(U(x))`. -/
-def proposition_7_6_orbitMap (R : X.NaturalRep x) :
+def proposition_7_1_19_orbitMap (R : X.NaturalRep x) :
     R.translationGroupoid.OrbitSpace ≃ₜ X.π '' R.U :=
   R.isOpenEmbedding_functor_orbitMap.isEmbedding.toHomeomorph.trans
     (Homeomorph.setCongr R.range_functor_orbitMap)
 
 @[simp]
-theorem proposition_7_6_orbitMap_apply (R : X.NaturalRep x) (y : R.U) :
-    (proposition_7_6_orbitMap R (R.translationGroupoid.π y) : X.OrbitSpace) = X.π y :=
+theorem proposition_7_1_19_orbitMap_apply (R : X.NaturalRep x) (y : R.U) :
+    (proposition_7_1_19_orbitMap R (R.translationGroupoid.π y) : X.OrbitSpace) = X.π y :=
   rfl
 
 /-- The text's identification `|U(x)|_{G_x ⋉ U(x)} = G_x\U(x)` (p. 236), `|y| ↦ G_x ∗ y`. -/
 def translationOrbitHomeomorph (R : X.NaturalRep x) :
     R.translationGroupoid.OrbitSpace ≃ₜ MulAction.orbitRel.Quotient (X.Isotropy x) R.U :=
-  (proposition_7_6_orbitMap R).trans (proposition_7_6 R).symm
+  (proposition_7_1_19_orbitMap R).trans (proposition_7_1_19 R).symm
 
 @[simp]
 theorem translationOrbitHomeomorph_apply (R : X.NaturalRep x) (y : R.U) :
     translationOrbitHomeomorph R (R.translationGroupoid.π y) = Quotient.mk _ y := by
-  refine (proposition_7_6 R).injective ?_
+  refine (proposition_7_1_19 R).injective ?_
   rw [translationOrbitHomeomorph, Homeomorph.trans_apply, Homeomorph.apply_symm_apply]
   exact Subtype.ext rfl
 
-/-! ### Definition 7.9: existence of local uniformizers -/
+/-! ### Definition 7.1.20 (2017: 7.9): existence of local uniformizers -/
 
 /-- **A natural representation is a local uniformizer** (p. 237: "as Proposition 7.6 shows"),
 with `Ψ_x` the functor `G_x ⋉ U(x) → X` of `NaturalAction.lean`. -/
@@ -309,7 +309,7 @@ variable (X) in
 neighbourhood `V` of `x`. -/
 theorem exists_localUniformizer (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) :
     ∃ L : X.LocalUniformizer x, L.rep.U ⊆ V := by
-  obtain ⟨R, hRV⟩ := theorem_7_1 X x hV hx
+  obtain ⟨R, hRV⟩ := theorem_7_1_13 X x hV hx
   exact ⟨R.toLocalUniformizer, hRV⟩
 
 /-! ### Local uniformizers are injective on objects and morphisms -/
@@ -334,13 +334,13 @@ theorem injective_mor : Function.Injective L.Ψ.mor := by
     (a₁ := G.homMk p rfl rfl) (a₂ := G.homMk q hs ht) (Subtype.ext h)
   exact congrArg Subtype.val he
 
-/-- `|U(x)| = π(U(x))` is an open neighbourhood of `π(x)` (Proposition 7.1). -/
+/-- `|U(x)| = π(U(x))` is an open neighbourhood of `π(x)` (Proposition 7.1.8 (2017: 7.1)). -/
 theorem isOpen_image : IsOpen (X.π '' L.rep.U) :=
-  X.proposition_7_1 _ L.rep.isOpen_U
+  X.proposition_7_1_8 _ L.rep.isOpen_U
 
 theorem mem_image : X.π x ∈ X.π '' L.rep.U := mem_image_of_mem _ L.rep.mem_U
 
-/-- The homeomorphism `|U(x)|_{G_x ⋉ U(x)} → |U(x)|` of Definition 7.9 induced by `Ψ_x`. -/
+/-- The homeomorphism `|U(x)|_{G_x ⋉ U(x)} → |U(x)|` of Definition 7.1.20 (2017: 7.9) induced by `Ψ_x`. -/
 def orbitHomeomorph : L.rep.translationGroupoid.OrbitSpace ≃ₜ X.π '' L.rep.U :=
   L.isEmbedding_orbitMap.toHomeomorph.trans (Homeomorph.setCongr L.range_orbitMap)
 

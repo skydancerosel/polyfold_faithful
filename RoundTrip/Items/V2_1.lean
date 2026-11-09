@@ -14,7 +14,7 @@ and `Polyfold.ScRetraction.scDeriv_comp_self` (no universe parameters: `ScBanach
 packing/unpacking.  The projection claim for `x ∈ O₁` is `scDeriv_comp_self`.  B's chain-rule
 claim `Dr(r(x)) ∘ Dr(x) = Dr(x)` for every `x ∈ U₁` is *not* in A (A has it only on `O₁`); it is
 proved from the project's `ScRetraction.tangentMap_tangentMap` (`Tr ∘ Tr = Tr` on `TU`, the chain
-rule `theorem_1_21` applied to `r ∘ r = r`), which is not an item theorem.
+rule `theorem_1_3_1` applied to `r ∘ r = r`), which is not an item theorem.
 
 `B → A`: `scDeriv_comp_self` is B's projection claim; the other three conjuncts are elementary
 facts about `r(U)` proved directly. -/

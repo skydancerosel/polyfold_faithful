@@ -7,11 +7,11 @@ Round trip for V7_68 (Corollary 7.3: ep-groupoids whose object M-polyfold has an
 atlas).
 
 `A` is the conjunction of the types, universes at `0`, of the listed theorems:
-`EpGroupoid.corollary_7_3` (paracompact `|X|` and, for every `x`, a chart `φ` of the structure
+`EpGroupoid.corollary_7_6_6` (paracompact `|X|` and, for every `x`, a chart `φ` of the structure
 with `x ∈ dom φ`, `‖v‖² = b(v, v)` on `E₀` for a continuous bilinear `b`, **and
 `GodefroyTroyanskiWhitfieldZizlerStatement (φ.model.E 0) ⊤`**, imply `HasScPartitionsOfUnity`),
 `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (the same chart hypothesis on any M-polyfold
-gives `AdmitsScPartitionsOfUnity`), and `EpGroupoid.corollary_7_3_hypotheses_rn` (satisfiability
+gives `AdmitsScPartitionsOfUnity`), and `EpGroupoid.corollary_7_6_6_hypotheses_rn` (satisfiability
 on the trivial ep-groupoid on `ℝ¹`).  `GodefroyTroyanskiWhitfieldZizlerStatement` is a definition
 (the cited Theorem 5.14 [5.43] for `E₀`, an explicit hypothesis).
 
@@ -35,14 +35,14 @@ open Polyfold Set
 /-- The project's Corollary 7.3, its M-polyfold ingredient and the satisfiability witness,
 universes at `0`. -/
 def A : Prop :=
-  (type_of% @Polyfold.EpGroupoid.corollary_7_3.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.corollary_7_6_6.{0}) ∧
   (type_of% @Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.corollary_7_3_hypotheses_rn)
+  (type_of% @Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.corollary_7_3.{0},
+  ⟨@Polyfold.EpGroupoid.corollary_7_6_6.{0},
     @Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert.{0},
-    @Polyfold.EpGroupoid.corollary_7_3_hypotheses_rn⟩
+    @Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn⟩
 
 /-- A bilinear form with `‖v‖² = b(v, v)` gives the parallelogram identity. -/
 theorem isHilbertNormB_of_bilinear {E : Type} [NormedAddCommGroup E] [NormedSpace ℝ E]
@@ -89,11 +89,11 @@ theorem B_to_A : B → A := by
       (hasHilbertAtlasB_of h)).1
   · exact ⟨EpGroupoid.hasParacompactOrbitSpace_trivial _, rnPolyfold_one_hilbert_hypothesis⟩
 
-#rt_check RoundTrip.V7_68.B_to_A [Polyfold.EpGroupoid.corollary_7_3,
+#rt_check RoundTrip.V7_68.B_to_A [Polyfold.EpGroupoid.corollary_7_6_6,
   Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert,
-  Polyfold.EpGroupoid.corollary_7_3_hypotheses_rn]
-#rt_overlap RoundTrip.V7_68.B_to_A [Polyfold.EpGroupoid.corollary_7_3,
+  Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn]
+#rt_overlap RoundTrip.V7_68.B_to_A [Polyfold.EpGroupoid.corollary_7_6_6,
   Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert,
-  Polyfold.EpGroupoid.corollary_7_3_hypotheses_rn]
+  Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn]
 
 end RoundTrip.V7_68

@@ -5,7 +5,7 @@ import RoundTrip.Blind.V8_8
 /-! Round trip for V8_8 (Lemma 8.1.6 (2017: 8.5): `ι_T = Tι` is a two-sided inverse).
 
 `A` is the conjunction of the types of the five listed theorems, universes instantiated at `0`
-(`B` lives in `Type`): `tSrc_tInv`, `tTgt_tInv`, `tComp_tInv`, `tInv_tComp`, `lemma_8_5`.
+(`B` lives in `Type`): `tSrc_tInv`, `tTgt_tInv`, `tComp_tInv`, `tInv_tComp`, `lemma_8_1_6`.
 
 The notions agree definitionally: `B`'s `baseB X.PMor` is the project's `X.tBase`, and by proof
 irrelevance `tangentMap hs = X.tSrc`, `tangentMap ht = X.tTgt`, `tangentMap hι = X.tInv` and
@@ -22,12 +22,12 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.tTgt_tInv.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tComp_tInv.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tInv_tComp.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_8_5.{0})
+  (type_of% @Polyfold.EpGroupoid.lemma_8_1_6.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.tSrc_tInv.{0}, @Polyfold.EpGroupoid.tTgt_tInv.{0},
     @Polyfold.EpGroupoid.tComp_tInv.{0}, @Polyfold.EpGroupoid.tInv_tComp.{0},
-    @Polyfold.EpGroupoid.lemma_8_5.{0}⟩
+    @Polyfold.EpGroupoid.lemma_8_1_6.{0}⟩
 
 section
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -81,11 +81,11 @@ theorem B_to_A : B → A := by
     fun X v => (key _ _ X v).2.2.2.2, fun X v => (key _ _ X v).2.2.2.1, fun X v => key _ _ X v⟩
 
 #rt_check RoundTrip.V8_8.A_to_B [Polyfold.EpGroupoid.tSrc_tInv, Polyfold.EpGroupoid.tTgt_tInv,
-  Polyfold.EpGroupoid.tComp_tInv, Polyfold.EpGroupoid.tInv_tComp, Polyfold.EpGroupoid.lemma_8_5]
+  Polyfold.EpGroupoid.tComp_tInv, Polyfold.EpGroupoid.tInv_tComp, Polyfold.EpGroupoid.lemma_8_1_6]
 #rt_check RoundTrip.V8_8.B_to_A [Polyfold.EpGroupoid.tSrc_tInv, Polyfold.EpGroupoid.tTgt_tInv,
-  Polyfold.EpGroupoid.tComp_tInv, Polyfold.EpGroupoid.tInv_tComp, Polyfold.EpGroupoid.lemma_8_5]
+  Polyfold.EpGroupoid.tComp_tInv, Polyfold.EpGroupoid.tInv_tComp, Polyfold.EpGroupoid.lemma_8_1_6]
 #rt_overlap RoundTrip.V8_8.B_to_A [Polyfold.EpGroupoid.tSrc_tInv,
   Polyfold.EpGroupoid.tTgt_tInv, Polyfold.EpGroupoid.tComp_tInv, Polyfold.EpGroupoid.tInv_tComp,
-  Polyfold.EpGroupoid.lemma_8_5]
+  Polyfold.EpGroupoid.lemma_8_1_6]
 
 end RoundTrip.V8_8

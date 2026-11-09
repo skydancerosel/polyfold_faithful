@@ -77,17 +77,17 @@ theorem isSc1_iff_const {E F : ScBanach} [FiniteDimensional ℝ (E 0)] [FiniteDi
   have e4 : ∀ y, ψ.toScOperator 0 y = y := fun y => iso_zero F y
   constructor
   · intro hf
-    have h1 := (theorem_1_21' hU' hU (φ.symm.toScOperator.isScSmooth hU' 1).1 hf
+    have h1 := (theorem_1_3_1' hU' hU (φ.symm.toScOperator.isScSmooth hU' 1).1 hf
       (fun x hx => by rw [e1]; exact hx)).1
-    have h2 := (theorem_1_21' hU' (isScDomain_univ F) h1
+    have h2 := (theorem_1_3_1' hU' (isScDomain_univ F) h1
       (ψ.toScOperator.isScSmooth (isScDomain_univ F) 1).1 (Set.mapsTo_univ _ _)).1
     refine h2.congr fun x _ => ?_
     change ψ.toScOperator 0 (f (φ.symm.toScOperator 0 x)) = f x
     rw [e1, e4]
   · intro hf
-    have h1 := (theorem_1_21' hU hU' (φ.toScOperator.isScSmooth hU 1).1 hf
+    have h1 := (theorem_1_3_1' hU hU' (φ.toScOperator.isScSmooth hU 1).1 hf
       (fun x hx => by rw [e2]; exact hx)).1
-    have h2 := (theorem_1_21' hU (isScDomain_univ _) h1
+    have h2 := (theorem_1_3_1' hU (isScDomain_univ _) h1
       (ψ.symm.toScOperator.isScSmooth (isScDomain_univ _) 1).1 (Set.mapsTo_univ _ _)).1
     refine h2.congr fun x _ => ?_
     change ψ.symm.toScOperator 0 (f (φ.toScOperator 0 x)) = f x

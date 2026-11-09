@@ -6,18 +6,18 @@ import RoundTrip.Blind.V3_82_r2
 /-!
 Round trip for V3_82 (Theorem 3.54 (1) at the nearby zeros, first form), against the **second
 blind statement** `RoundTrip.V3_82_r2.B` (2026-11-02).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_54_one`, `Polyfold.StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm`
+`Polyfold.theorem_3_6_8_one`, `Polyfold.StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm`
 (universes `0, 0`) and `Polyfold.exists_range_deriv_eq_ρ_of_normal_injective_germ`
 (`IsGoodPositionGermFilled` is vocabulary), all in the text's germ reading.
 
 * `A_to_B` (proved from the hypothesis `A`, its first conjunct): `B`'s hypothesis
   `Bd.IsGoodPositionGermSc f x` (the project's Definition 3.53 with the sc-complement, germ
   reading) gives `IsGoodPositionGermTame` (forgetful), hence the filler condition of
-  `theorem_3_54_one` (the non-banned `isGoodPositionGermFilled_of_isGoodPositionGerm`);
-  `theorem_3_54_one` gives `IsGoodPositionGermTame` at the zeros near `x`, and the non-banned
+  `theorem_3_6_8_one` (the non-banned `isGoodPositionGermFilled_of_isGoodPositionGerm`);
+  `theorem_3_6_8_one` gives `IsGoodPositionGermTame` at the zeros near `x`, and the non-banned
   `IsGoodPositionGermTame.isGoodPositionGermSc` upgrades it to `B`'s sc-complement form.  `B`'s
   tame-bundle hypothesis is not needed.
-* `B → A` fails genuinely: `theorem_3_54_one` assumes no tame strong bundle (only tame germ data
+* `B → A` fails genuinely: `theorem_3_6_8_one` assumes no tame strong bundle (only tame germ data
   at the smooth points) — getting it from `B` would need restricting the bundle to an open set
   covered by tame charts, a construction neither side states — and `A`'s other two conjuncts (the
   forgetful projection of the filler condition and a chart-level surjectivity lemma) are not
@@ -33,12 +33,12 @@ open Polyfold Set
 strengthened good position is good position, and the surjectivity of `Tf̃(z₀)` from condition (3)
 of Definition 3.4 (germ reading). -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_54_one.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_6_8_one.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm.{0, 0} ∧
     type_of% @Polyfold.exists_range_deriv_eq_ρ_of_normal_injective_germ
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_54_one.{0, 0},
+  ⟨@Polyfold.theorem_3_6_8_one.{0, 0},
     @Polyfold.StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm.{0, 0},
     @Polyfold.exists_range_deriv_eq_ρ_of_normal_injective_germ⟩
 
@@ -156,13 +156,13 @@ theorem B_to_Bgerm_r1 (hB : B) : Bgerm_r1 := by
     (isGoodPositionGermTame_of_sc_r1 hf hy.2 (hall y hy)).isGoodPositionGermSc hf hy.2⟩
 
 
-#rt_check RoundTrip.V3_82.A_to_B [Polyfold.theorem_3_54_one,
+#rt_check RoundTrip.V3_82.A_to_B [Polyfold.theorem_3_6_8_one,
   Polyfold.StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm,
   Polyfold.exists_range_deriv_eq_ρ_of_normal_injective_germ]
-#rt_overlap RoundTrip.V3_82.A_to_B [Polyfold.theorem_3_54_one,
+#rt_overlap RoundTrip.V3_82.A_to_B [Polyfold.theorem_3_6_8_one,
   Polyfold.StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm,
   Polyfold.exists_range_deriv_eq_ρ_of_normal_injective_germ]
-#rt_check RoundTrip.V3_82.A_to_Bgerm_r1 [Polyfold.theorem_3_54_one,
+#rt_check RoundTrip.V3_82.A_to_Bgerm_r1 [Polyfold.theorem_3_6_8_one,
   Polyfold.StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm,
   Polyfold.exists_range_deriv_eq_ρ_of_normal_injective_germ]
 

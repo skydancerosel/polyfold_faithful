@@ -3,7 +3,7 @@ import RoundTrip.Check
 import RoundTrip.Blind.V5_12
 
 /-!
-Round trip for V5_12 (Theorem 5.7).  `A` is the conjunction of the types of `Polyfold.theorem_5_7`,
+Round trip for V5_12 (Theorem 5.7).  `A` is the conjunction of the types of `Polyfold.theorem_5_2_4`,
 `Polyfold.MPolyfold.tendsto_smoothLevel_iff`, `Polyfold.MPolyfold.smoothLevel_topology_eq` and
 `Polyfold.MPolyfold.metrizableSpace_smoothLevel`, universes instantiated at `0`.
 
@@ -11,7 +11,7 @@ Glue for `A → B`: B's own topology `smoothTopology PX` on `X_∞` (the infimum
 induced by `X_∞ → X_m`) is the project's instance by A's conjunct `smoothLevel_topology_eq`;
 `solutionSet P f` is `{x | IsZeroAt P f x}` by definition; B's tameness hypothesis is not needed.
 
-`B → A` is proved only for tame `X` (`B_to_A_tame`): A's `theorem_5_7` has no tameness hypothesis,
+`B → A` is proved only for tame `X` (`B_to_A_tame`): A's `theorem_5_2_4` has no tameness hypothesis,
 and B says nothing about non-tame M-polyfolds.  The remaining conjuncts of A are facts about the
 project's chosen topology on `X_∞` (convergence = convergence on each level, the infimum form,
 metrizability), which B does not state.
@@ -19,7 +19,7 @@ metrizability), which B does not state.
 
 /-! **Refresh 2026-11-02** (HEAD after the germ reading of Definition 3.11 and the notions built
 on it).
-theorem_5_7 and B now both use the germ-reading IsScFredholmSection; theorem_5_7 still drops the
+theorem_5_2_4 and B now both use the germ-reading IsScFredholmSection; theorem_5_2_4 still drops the
 text's tameness of X, the topology conjuncts are unchanged. Result unchanged: A ⇒ B proved (uses
 A's smoothLevel_topology_eq), B ⇒ A only for tame X (B_to_A_tame).
 -/
@@ -29,13 +29,13 @@ open Polyfold
 
 /-- The project's statement, universes `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_5_7.{0, 0} ∧
+  type_of% @Polyfold.theorem_5_2_4.{0, 0} ∧
     type_of% @Polyfold.MPolyfold.tendsto_smoothLevel_iff.{0} ∧
     type_of% @Polyfold.MPolyfold.smoothLevel_topology_eq.{0} ∧
     type_of% @Polyfold.MPolyfold.metrizableSpace_smoothLevel.{0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_5_7.{0, 0}, @Polyfold.MPolyfold.tendsto_smoothLevel_iff.{0},
+  ⟨@Polyfold.theorem_5_2_4.{0, 0}, @Polyfold.MPolyfold.tendsto_smoothLevel_iff.{0},
     @Polyfold.MPolyfold.smoothLevel_topology_eq.{0},
     @Polyfold.MPolyfold.metrizableSpace_smoothLevel.{0}⟩
 
@@ -48,7 +48,7 @@ theorem A_to_B : A → B := by
   rw [e]
   exact hK
 
-/-- B gives A's `theorem_5_7` for tame `X`. -/
+/-- B gives A's `theorem_5_2_4` for tame `X`. -/
 theorem B_to_A_tame : B →
     ∀ {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX : MPolyfold X}
       {Y : Type} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {P : Y → X}
@@ -70,9 +70,9 @@ theorem B_to_A_tame : B →
   rw [e] at hK
   exact hK
 
-#rt_check RoundTrip.V5_12.A_to_B [Polyfold.theorem_5_7, Polyfold.MPolyfold.tendsto_smoothLevel_iff,
+#rt_check RoundTrip.V5_12.A_to_B [Polyfold.theorem_5_2_4, Polyfold.MPolyfold.tendsto_smoothLevel_iff,
   Polyfold.MPolyfold.smoothLevel_topology_eq, Polyfold.MPolyfold.metrizableSpace_smoothLevel]
-#rt_check RoundTrip.V5_12.B_to_A_tame [Polyfold.theorem_5_7,
+#rt_check RoundTrip.V5_12.B_to_A_tame [Polyfold.theorem_5_2_4,
   Polyfold.MPolyfold.tendsto_smoothLevel_iff, Polyfold.MPolyfold.smoothLevel_topology_eq,
   Polyfold.MPolyfold.metrizableSpace_smoothLevel]
 

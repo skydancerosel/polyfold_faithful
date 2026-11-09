@@ -4,8 +4,8 @@ import Polyfold.Chapter5.GeneralPosition
 # Theorems 5.3.10 and 5.3.12 stated as the book states them
 
 2021 Theorem 5.3.10, p. 220 (2017: Theorem 5.6; preprint: Theorem 5.18, p. 177) and 2021 Theorem
-5.3.12, p. 222 (2017: Theorem 5.7; preprint: Theorem 5.19, p. 180).  The project's `theorem_5_18`
-and `theorem_5_19` (`Chapter5/GeneralPosition.lean`) state these theorems in the form their proofs
+5.3.12, p. 222 (2017: Theorem 5.7; preprint: Theorem 5.19, p. 180).  The project's `theorem_5_3_10_param`
+and `theorem_5_3_12_param` (`Chapter5/GeneralPosition.lean`) state these theorems in the form their proofs
 produce: a finite family `t₁, …, t_m` of sc⁺-sections, the perturbation `paramSlice s₀ … t λ`, a
 `δ > 0` and a null set of parameters, with an auxiliary norm bound on every `tᵢ`.  These objects
 come from the proofs; the book's statements do not mention them.  This file states the two
@@ -30,12 +30,12 @@ manifold with boundary with corners.
 
 ## What is formalized
 
-* `theorem_5_3_10_2021`: Theorem 5.3.10 with the book's quantifiers (from `theorem_5_18_dense`).
-* `theorem_5_3_12_2021`: Theorem 5.3.12 with the book's quantifiers (from `theorem_5_19`).
+* `theorem_5_3_10`: Theorem 5.3.10 with the book's quantifiers (from `theorem_5_3_10_dense`).
+* `theorem_5_3_12`: Theorem 5.3.12 with the book's quantifiers (from `theorem_5_3_12_param`).
 
 ## Readings
 
-The notions are the project's, as in `theorem_5_18` and `theorem_5_19`:
+The notions are the project's, as in `theorem_5_3_10_param` and `theorem_5_3_12_param`:
 
 * "sc-Fredholm section" is `IsScFredholmSectionTame` (germ data in a tame chart, row V3.103);
   "in general position" (Definition 5.3.9) is `IsGeneralPositionGerm`; "in good position" is
@@ -50,7 +50,7 @@ The notions are the project's, as in `theorem_5_18` and `theorem_5_19`:
 * "Manifold with boundary with corners" is `HasCornerStructure` in Theorem 5.3.10 and
   `IsManifoldWithCornersLoc` in Theorem 5.3.12, the forms the two project theorems prove; in
   Theorem 5.3.12 the sub-M-polyfold clause is stated for non-empty `S_{f+s}`, as in
-  `theorem_5_19`.
+  `theorem_5_3_12_param`.
 * In Theorem 5.3.12 the text writes "the pair `(f, x)` is in good position" for `x ∈ S_{f+s}`;
   as we read it, the pair meant is `(f + s, x)` (good position is defined at zeros of the
   section), which is what is stated.
@@ -78,7 +78,7 @@ compact for every `s ∈ Γ^{+,1}_U(P)`, and a subset `O ⊆ Γ^{+,1}_U(P)`, den
 `ρ(s, s') = sup_x N(s(x) − s'(x))`, such that for every `s ∈ O`, `(f + s, x)` is in general
 position at every `x ∈ S_{f+s}`; in particular `S_{f+s}` is a compact sub-M-polyfold whose induced
 structure is that of a manifold with boundary with corners, with `d_{S_{f+s}} = d_X`. -/
-theorem theorem_5_3_10_2021 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
+theorem theorem_5_3_10 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
@@ -94,7 +94,7 @@ theorem theorem_5_3_10_2021 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f
             (MPolyfold.subPolyfold hsub).HasCornerStructure ∧
               ∀ a : solutionSet P (sectionAdd P f s),
                 (MPolyfold.subPolyfold hsub).degIndex a = PX.degIndex a := by
-  obtain ⟨U, hUo, hSU, hcpt, hdense⟩ := theorem_5_18_dense hX hbump hf hS hN
+  obtain ⟨U, hUo, hSU, hcpt, hdense⟩ := theorem_5_3_10_dense hX hbump hf hS hN
   refine ⟨U, hUo, hSU, hcpt,
     {s | s ∈ B.allowableSections N U ∧ B.SolutionSetInGeneralPosition (sectionAdd P f s)},
     fun s hs => hs.1, fun s' hs' hs'alw ε hε => ?_, fun s hs => ?_⟩
@@ -112,7 +112,7 @@ compact solution set, `N` an auxiliary norm, and `(f, x)` in good position at ev
 vanishing near `∂X`, such that `f + s` is transversal to the zero section and in good position at
 every point of `S_{f+s}`; in particular, if non-empty, `S_{f+s}` is a sub-M-polyfold whose induced
 structure is that of a manifold with boundary with corners (compact by the first clause). -/
-theorem theorem_5_3_12_2021 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
+theorem theorem_5_3_12 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N)
     (hbd : ∀ x ∈ PX.boundary, IsZeroAt P f x → B.IsGoodPositionGermTame f x) :
@@ -129,7 +129,7 @@ theorem theorem_5_3_12_2021 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
             (MPolyfold.subPolyfold hsub).IsManifoldWithCornersLoc) := by
   classical
   obtain ⟨U, hUo, hSU, hcpt, m, t, ht, -, -, htN, δ, hδ, CV, hCV, hlam⟩ :=
-    theorem_5_19 hbump hf hS hN hbd
+    theorem_5_3_12_param hbump hf hS hN hbd
   refine ⟨U, hUo, hSU, hcpt, fun ε hε => ?_⟩
   -- a parameter `λ ∉ CV` with `|λ| < δ` and `m|λ| ≤ ε`
   set r : ℝ := min δ (ε / (m + 1)) with hr

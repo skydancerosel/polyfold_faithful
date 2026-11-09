@@ -15,7 +15,7 @@ only).
 
 ## The question (Findings, Chapter 5, item 145)
 
-Corollary 5.2.5 (`corollary_5_8`, `Corollary58.lean`) is formalized without tameness: for an
+Corollary 5.2.5 (`corollary_5_2_5`, `Corollary58.lean`) is formalized without tameness: for an
 sc-Fredholm section `f` of `P : Y → X`, `f¹` is an sc-Fredholm section of `P¹ : Y¹ → X¹`.  The
 text's standing hypothesis is a tame `X`, and the sections of Chapter 6 carry tame germ data
 (`IsScFredholmSectionTame`, preprint Definition 3.51; 2021 Definition 3.6.4 without "tame").
@@ -320,11 +320,11 @@ theorem isScFredholmGermTame_sectionShift (hf : B.IsScSmoothSection f) {x : PX.L
 open StrongBundle in
 /-- **Corollary 5.2.5 for `i = 1` with tame germ data, the section part**: if `f` is an
 sc-Fredholm section of `P : Y → X` with tame germ data (preprint Definition 3.51), then `f¹` is an
-sc-Fredholm section of `P¹ : Y¹ → X¹` with tame germ data (`corollary_5_8_isScFredholmSection`
+sc-Fredholm section of `P¹ : Y¹ → X¹` with tame germ data (`corollary_5_2_5_isScFredholmSection`
 and `isScFredholmGermTame_sectionShift`). -/
 theorem corollary_5_2_5_isScFredholmSectionTame (hf : B.IsScFredholmSectionTame f) :
     B.shift.IsScFredholmSectionTame (B.sectionShift f) :=
-  { corollary_5_8_isScFredholmSection hf.toIsScFredholmSection with
+  { corollary_5_2_5_isScFredholmSection hf.toIsScFredholmSection with
     germTame := fun x hx => isScFredholmGermTame_sectionShift hf.isScSmooth hx
       (hf.germTame _ ((MPolyfold.mem_shift_smoothSet_iff x).1 hx)) }
 
@@ -338,7 +338,7 @@ theorem corollary_5_2_5_tame (hf : B.IsScFredholmSectionTame f)
     B.shift.IsScFredholmSectionTame (B.sectionShift f) ∧
       IsCompact (solutionSet B.shiftProj (B.sectionShift f)) :=
   ⟨corollary_5_2_5_isScFredholmSectionTame hf,
-    (corollary_5_8 hf.toIsScFredholmSection hS).2⟩
+    (corollary_5_2_5 hf.toIsScFredholmSection hS).2⟩
 
 open StrongBundle in
 /-- **Corollary 5.2.5 for `i = 2` with tame germ data, by iteration.** -/

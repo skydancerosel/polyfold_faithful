@@ -136,8 +136,8 @@ theorem B_to_A : B → A := by
 /-! ### The no-peeking check
 
 `B` names the project's `tangentGroupoidStr` and `tangentEpGroupoid`, whose proof fields are
-proved with the banned theorems (`comp_assoc := X.lemma_8_3 h h'`, `exists_isProperMap :=
-X.lemma_8_7`, `isScSmoothComp := X.isScSmoothComp_tangent`, …).  Lean abstracts only non-trivial
+proved with the banned theorems (`comp_assoc := X.lemma_8_1_4 h h'`, `exists_isProperMap :=
+X.lemma_8_1_8`, `isScSmoothComp := X.isScSmoothComp_tangent`, …).  Lean abstracts only non-trivial
 proof terms into `_proof_N`; these fields are applications of a constant to variables and stay
 inline, so `#rt_check_soft` (which softens only `_proof_N`) fails already for `B → B := id`
 (`B_self` below).  The check `#rt_check_defthm_V8_1` is `#rt_check_soft` with one change: a

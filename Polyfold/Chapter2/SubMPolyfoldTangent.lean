@@ -20,7 +20,7 @@ and `a ∈ W` smooth, the induced map `W → A` is sc-smooth and `Ts(a)T_aX = T_
 `Chapter7/SubGroupoidTangent.lean`)
 
 (1), (2) are `subPolyfold_inclusion_isScSmooth`, `subPolyfold_retraction_isScSmooth`
-(`SubMPolyfold.lean`); (3), (4) in a chart are `proposition_2_21_3`, `proposition_2_21_4`
+(`SubMPolyfold.lean`); (3), (4) in a chart are `proposition_2_3_19_three`, `proposition_2_3_19_four`
 (`Metrizable.lean`).  With the linear structure of `T_xX` (`TangentSpaceLinear.lean`, gap G.7)
 and the fibrewise linearity of tangent maps (`TangentMapLinear.lean`), (3) and (4) are stated in
 `T_aX` itself, for `a ∈ A₁` (smoothness is not needed for the linear statements, as in the chart
@@ -32,10 +32,10 @@ form, V2.25):
 * **`MPolyfold.subRetractionCLM_subInclusionCLM`**: `T(i⁻¹ ∘ r) ∘ Ti = id` on `T_aA` (chain
   rule on `i⁻¹(V)`, where `i⁻¹ ∘ r ∘ i = id`); hence `Ti` is injective
   (`injective_subInclusionCLM`) and `T(i⁻¹ ∘ r)` is surjective.
-* **`MPolyfold.proposition_2_3_19_3_linear_2021`** (the linear content of (3)): `Ti(T_aA)` is a
+* **`MPolyfold.proposition_2_3_19_3_linear`** (the linear content of (3)): `Ti(T_aA)` is a
   closed subspace of `T_aX` with the closed complement `ker T(i⁻¹ ∘ r)`:
   `T_aX = Ti(T_aA) ⊕ ker T(i⁻¹ ∘ r)`.
-* **`MPolyfold.proposition_2_3_19_4_2021`**: `T(i⁻¹ ∘ r) : T_aX → T_aA` is onto,
+* **`MPolyfold.proposition_2_3_19_4`**: `T(i⁻¹ ∘ r) : T_aX → T_aA` is onto,
   `Ti ∘ T(i⁻¹ ∘ r) = Tr` on `T_aX` (for `r : V → X`), and the range of `Tr(a)` on `T_aX` is
   `Ti(T_aA)`: this is `Tr(a)T_aX = T_aA` with `T_aA ⊆ T_aX` through `Ti`.
 
@@ -45,7 +45,7 @@ form, V2.25):
   which is injective by (4).
 * The **sc**-complement of (3): the sc-structures of `T_aA`, `T_aX` at a smooth `a` live in the
   chart models (`isScSubspace_tangentFiberModel`); the sc-splitting
-  `T_aO = Dt(a)E ⊕ (Dr(a) − Dt(a))E` of the text's proof is `proposition_2_21_3`
+  `T_aO = Dt(a)E ⊕ (Dr(a) − Dt(a))E` of the text's proof is `proposition_2_3_19_three`
   (`Metrizable.lean`), in the chart.  Here (3) is proved as a topological direct sum in `T_aX`
   through the projection `Ti ∘ T(i⁻¹ ∘ r)`, which is the text's `Ts(a)`; that the complement
   `ker T(i⁻¹ ∘ r)` is an sc-subspace of `T_aX` (in the chart: the range of the idempotent
@@ -181,7 +181,7 @@ theorem ker_subInclusionCLM_comp_subRetractionCLM :
 /-- **Proposition 2.3.19 (3) (2021 p. 42; preprint 2.21 (3)), the linear content, in `T_aX`**:
 `Ti(T_aA)` is a closed subspace of `T_aX` and `T_aX = Ti(T_aA) ⊕ ker T(i⁻¹ ∘ r)` is a direct sum
 of closed subspaces (`T_aA` has a topological complement in `T_aX`), for `a ∈ A₁ ∩ V`. -/
-theorem proposition_2_3_19_3_linear_2021 :
+theorem proposition_2_3_19_3_linear :
     IsClosed (LinearMap.range (subInclusionCLM hA hax :
         (subPolyfold hA).tangentFiber a →ₗ[ℝ] P.tangentFiber x) : Set (P.tangentFiber x)) ∧
       IsClosed (LinearMap.ker (subRetractionCLM hA hax d a₀ hxV :
@@ -240,7 +240,7 @@ theorem subInclusionCLM_subRetractionCLM_apply (α : P.tangentFiber x) :
 `r : V → V` onto `A ∩ V` and `a ∈ A₁ ∩ V`, the induced map `i⁻¹ ∘ r : V → A` is sc-smooth
 (`subPolyfold_retraction_isScSmooth`), its tangent `T(i⁻¹ ∘ r) : T_aX → T_aA` is onto,
 `Ti ∘ T(i⁻¹ ∘ r) = Tr(a)` on `T_aX`, and `Tr(a)T_aX = Ti(T_aA)`: this is `Tr(a)T_aX = T_aA`. -/
-theorem proposition_2_3_19_4_2021 :
+theorem proposition_2_3_19_4 :
     Surjective (subRetractionCLM hA hax d a₀ hxV) ∧
       (∀ α : P.tangentFiber x,
         (subInclusionCLM hA hax (subRetractionCLM hA hax d a₀ hxV α) : P.TangentSpace) =

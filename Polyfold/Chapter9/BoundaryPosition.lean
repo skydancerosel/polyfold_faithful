@@ -52,7 +52,7 @@ paths) `T_y^R M₁ = T_y^R M₂`.
   chart) and `isTangentReducedAt_iff_forall`.
 * `MPolyfold.subDegIndex hA a` (`d_M(a)`, the degeneracy index of the induced structure).
 * **Lemma 9.2.13, (1) ⇒ (2)**, in every chart: `lemma_9_2_13_chart` and `lemma_9_2_13` (from
-  Theorem 2.31 for the induced structure, `theorem_2_31`: in the chart of `M` induced by `φ` the
+  Theorem 2.31 for the induced structure, `theorem_2_4_12`: in the chart of `M` induced by `φ` the
   partial quadrant is that of `φ`, so `dim(T_xM / T_xM ∩ E_x) ≤ d_M(x) = 0`).
 * **Lemma 9.2.13, (2) ⇒ (1), as printed, does not hold as we read it**:
   `not_lemma_9_2_13_two_one` (a point of `ℝⁿ`: (2) holds, `x ∉ ∂ℝⁿ`).  The intended reading is
@@ -92,7 +92,7 @@ paths) `T_y^R M₁ = T_y^R M₂`.
   induced by `φ` has the partial quadrant of `φ`, so the reduced tangent space of `M` there is
   `T_yM ∩ E_y`; the text's path argument (2021 Lemma 2.4.9, preprint 2.29, in its path form gap
   G.10) is not needed.  The text's Remark 2.5.9 (`d_X(x) = dim(T_xX/T_x^R X)` for tame `X`) is a
-  consequence of 2021 Proposition 2.5.6 (13) (preprint 2.36, `proposition_2_36`), here
+  consequence of 2021 Proposition 2.5.6 (13) (preprint 2.36, `proposition_2_5_6`), here
   `degIndex_eq_quotDim_of_isTame`.
 * Lemma 9.2.13 (1) ⇒ (2): the text's step `T_0M ⊆ T_0O ∩ C = T_0^R O` is read with `T_0M`
   linear: `T_0M ⊆ C_0` forces `T_0M ⊆ C_0 ∩ (−C_0) = E_0`
@@ -404,7 +404,7 @@ def subDegIndex {A : Set X} (hA : P.IsSubMPolyfold A) (a : A) : ℕ :=
 theorem subDegIndex_le {A : Set X} (hA : P.IsSubMPolyfold A) (a : A) :
     P.subDegIndex hA a ≤ P.degIndex a.1 := by
   let := P.paracompactSpace_subtype A
-  exact lemma_2_26 hA a
+  exact lemma_2_4_6 hA a
 
 /-! ### Lemma 9.2.13 (2) in charts, and its chart independence -/
 
@@ -507,7 +507,7 @@ theorem lemma_9_2_13_chart {A : Set X} (hA : P.IsSmoothSubmanifold A)
   have hψ := subPolyfold_isChart hA.isSubMPolyfold d.toSubData hφ a
   obtain ⟨R, hR⟩ := d.toSubData.isScRetract_image φ hφ
   have haψ : a ∈ (subChart d.toSubData hφ a).source := d.toSubData.mem_shrink φ a.2 haV haφ
-  have key := theorem_2_31 (subPolyfold hA.isSubMPolyfold) hψ R hR T hT haψ hz
+  have key := theorem_2_4_12 (subPolyfold hA.isSubMPolyfold) hψ R hR T hT haψ hz
   have h0' : (subPolyfold hA.isSubMPolyfold).degIndex a = 0 := h0
   rw [h0', Nat.le_zero] at key
   have hzR : z ∈ φ.model.E.lvlSet R.retract 1 := by
@@ -516,7 +516,7 @@ theorem lemma_9_2_13_chart {A : Set X} (hA : P.IsSmoothSubmanifold A)
   have hTS : tangentSpace φ.model.E φ.model.C (φ '' (d.toSubData.shrink φ ∩ A)) z =
       (LinearMap.range (scDeriv R.U R z : φ.model.E 0 →ₗ[ℝ] φ.model.E 0) : Set (φ.model.E 0)) := by
     rw [← hR]; exact tangentSpace_eq_coe_submodule R hzR
-  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_14 hφ a.2 haV haφ hz
+  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_2_2 hφ a.2 haV haφ hz
   have hNeq : N = LinearMap.range (scDeriv R.U R z : φ.model.E 0 →ₗ[ℝ] φ.model.E 0) :=
     SetLike.coe_injective (hN.trans hTS)
   subst hNeq
@@ -623,7 +623,7 @@ theorem subDegIndex_eq_quotDim_of_hasTameInducedStructure {A : Set X}
   obtain ⟨_, hY⟩ := htame
   have hψ := subPolyfold_isChart hA.isSubMPolyfold d.toSubData hφ a
   have haψ : a ∈ (subChart d.toSubData hφ a).source := d.toSubData.mem_shrink φ a.2 haV haφ
-  have hs : a ∈ (subPolyfold hA.isSubMPolyfold).smoothSet := hA.proposition_4_15_1.2 a
+  have hs : a ∈ (subPolyfold hA.isSubMPolyfold).smoothSet := hA.proposition_4_2_3_one.2 a
   exact (subPolyfold hA.isSubMPolyfold).degIndex_eq_quotDim_of_isTame hY hψ R hR T hT haψ hs hz
 
 /-- **Lemma 9.3.7, the general form**: for smooth submanifolds `M₁`, `M₂` of `X` with tame induced
@@ -718,7 +718,7 @@ theorem isTameBranched_indicator (n : ℕ) (p : Fin n → ℝ) :
   have hyp : y = p := by
     rw [supp_indicator_singleton] at hy; exact hy
   subst hyp
-  obtain ⟨R, -⟩ := theorem_7_1 (trivial (rnPolyfold n)) y isOpen_univ (mem_univ y)
+  obtain ⟨R, -⟩ := theorem_7_1_13 (trivial (rnPolyfold n)) y isOpen_univ (mem_univ y)
   let B := (localBranchingStructure_indicator n y).restrict R.isOpen_U R.mem_U (subset_univ _)
   exact ⟨{ toLocalBranchingStructure := B
            rep := R

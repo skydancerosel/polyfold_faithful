@@ -4,12 +4,12 @@ import RoundTrip.Blind.V3_77
 
 /-!
 Round trip for V3_77 (Theorems 3.43, 3.47 and Theorem 3.54 (3) with a closed good complement that
-projects into the quadrant).  `A` is the conjunction of the types of `Polyfold.theorem_3_43_closed`,
-`Polyfold.theorem_3_43_proj`, `Polyfold.theorem_3_47_proj`, `Polyfold.theorem_3_47_closed`,
-`Polyfold.theorem_3_54_graph_proj` (universes `u, v` at `0`),
+projects into the quadrant).  `A` is the conjunction of the types of `Polyfold.theorem_3_5_6_closed`,
+`Polyfold.theorem_3_5_6_proj`, `Polyfold.theorem_3_5_11_proj`, `Polyfold.theorem_3_5_11_closed`,
+`Polyfold.theorem_3_6_8_graph_proj` (universes `u, v` at `0`),
 `Polyfold.IsGoodComplement.prod_top_graph`, `Polyfold.ProjectsInto.prod_top_graph` and
 `Polyfold.ShiftedBasicData.exists_sol_of_goodComplement`.  Since the germ reading (refresh
-2026-11-02) `theorem_3_54_graph_proj` assumes the text's germ reading (`IsGoodPositionGermTame`);
+2026-11-02) `theorem_3_6_8_graph_proj` assumes the text's germ reading (`IsGoodPositionGermTame`);
 `B`'s whole-chart `IsGoodPosData` in (c) implies it (as a hypothesis), so nothing below changes.
 
 Neither direction is proved.  Compared with the earlier items V3_38 (Theorem 3.43), V3_42
@@ -22,7 +22,7 @@ from V3_20.  The remaining gaps:
 
 * `A → B`, (a) Theorem 3.43: B is stated for **every** strong bundle isomorphism `Φ` with
   `(Φ_* f)¹` basic, concluding good position of `K' = ker D(Φ_* f)(0)` and the graph form.  A's
-  `theorem_3_43_closed/proj` are germ-form statements about `ShiftedBasicData` and *assume* the
+  `theorem_3_5_6_closed/proj` are germ-form statements about `ShiftedBasicData` and *assume* the
   good position of `K'` (`hpos`) and the level-`1` smallness of the zeros (`hreg`, Lemma 3.42);
   deriving these for an arbitrary `Φ` (the project does it only for its own coordinate change of
   Theorem 3.38) is new mathematics.
@@ -36,7 +36,7 @@ from V3_20.  The remaining gaps:
   version of Proposition 1.19 on finite-dimensional domains (`C^k` lifts on shrinking
   neighbourhoods ⇒ sc^k-germ on the diagonal germ), which the project lacks (as in V3_22).
 * `A → B`, (c) Theorem 3.54 (3): B is claimed for every good-position datum `(c, g, s, D)` at `x`,
-  `theorem_3_54_graph_proj` only for a chart and coordinate change it chooses (existential); and
+  `theorem_3_6_8_graph_proj` only for a chart and coordinate change it chooses (existential); and
   `GraphFormCor` again needs the germ regularity of `σ`.
 * `B → A`: A's hypotheses are weaker (algebraic good position `hpos`, arbitrary finite-dimensional
   `P`, any `ShiftedBasicData`/`StabilityData`, `IsSection` and `IsGoodPositionGermTame` for 3.54)
@@ -50,16 +50,16 @@ open Polyfold Set Module
 
 /-- The project's statement: the listed theorems, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_43_closed ∧ type_of% @Polyfold.theorem_3_43_proj ∧
-    type_of% @Polyfold.theorem_3_47_proj ∧ type_of% @Polyfold.theorem_3_47_closed ∧
-    type_of% @Polyfold.theorem_3_54_graph_proj.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_5_6_closed ∧ type_of% @Polyfold.theorem_3_5_6_proj ∧
+    type_of% @Polyfold.theorem_3_5_11_proj ∧ type_of% @Polyfold.theorem_3_5_11_closed ∧
+    type_of% @Polyfold.theorem_3_6_8_graph_proj.{0, 0} ∧
     type_of% @Polyfold.IsGoodComplement.prod_top_graph ∧
     type_of% @Polyfold.ProjectsInto.prod_top_graph ∧
     type_of% @Polyfold.ShiftedBasicData.exists_sol_of_goodComplement
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_43_closed, @Polyfold.theorem_3_43_proj, @Polyfold.theorem_3_47_proj,
-    @Polyfold.theorem_3_47_closed, @Polyfold.theorem_3_54_graph_proj.{0, 0},
+  ⟨@Polyfold.theorem_3_5_6_closed, @Polyfold.theorem_3_5_6_proj, @Polyfold.theorem_3_5_11_proj,
+    @Polyfold.theorem_3_5_11_closed, @Polyfold.theorem_3_6_8_graph_proj.{0, 0},
     @Polyfold.IsGoodComplement.prod_top_graph, @Polyfold.ProjectsInto.prod_top_graph,
     @Polyfold.ShiftedBasicData.exists_sol_of_goodComplement⟩
 
@@ -131,11 +131,11 @@ smooth (Proposition 1.6), so `isGoodComplementSc_of_closed` applies to the kerne
 theorem le_smooth_of_isInGoodPositionSc {E : ScBanach} {C : Set (E 0)} {K : Submodule ℝ (E 0)}
     [FiniteDimensional ℝ K] (h : IsInGoodPositionSc E C K) : K ≤ E.smooth := by
   obtain ⟨-, Y, hsplit, -⟩ := h
-  exact (E.proposition_1_6_iff K).1 hsplit.1
+  exact (E.proposition_1_1_7_iff K).1 hsplit.1
 
-#rt_check RoundTrip.V3_77.isGoodComplementSc_of_closed [Polyfold.theorem_3_43_closed,
-  Polyfold.theorem_3_43_proj, Polyfold.theorem_3_47_proj, Polyfold.theorem_3_47_closed,
-  Polyfold.theorem_3_54_graph_proj, Polyfold.IsGoodComplement.prod_top_graph,
+#rt_check RoundTrip.V3_77.isGoodComplementSc_of_closed [Polyfold.theorem_3_5_6_closed,
+  Polyfold.theorem_3_5_6_proj, Polyfold.theorem_3_5_11_proj, Polyfold.theorem_3_5_11_closed,
+  Polyfold.theorem_3_6_8_graph_proj, Polyfold.IsGoodComplement.prod_top_graph,
   Polyfold.ProjectsInto.prod_top_graph, Polyfold.ShiftedBasicData.exists_sol_of_goodComplement]
 
 end RoundTrip.V3_77

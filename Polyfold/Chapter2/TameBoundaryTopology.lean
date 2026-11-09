@@ -34,16 +34,16 @@ cover `(V_x)` of `∂X`), so Nagata–Smirnov applies.
 All results are proved for an abstract `d : X → ℕ` with the corner axioms
 (`TameBoundary.IsCornerIndex`) and then specialized to tame M-polyfolds (`namespace MPolyfold`).
 * `IsBOpen` (the first characterization), `isBOpen_iff` (the alternative one), the topology
-  `bTopology` (**Lemma 2.7.15**, `lemma_2_7_15`, `MPolyfold.lemma_2_7_15_2021`), `isOpen_uSet`,
+  `bTopology` (**Lemma 2.7.15**, `lemma_2_7_15`, `MPolyfold.lemma_2_7_15`), `isOpen_uSet`,
   `isTopologicalBasis_uSet`, `continuous_bMap`.
 * **Proposition 2.7.12**, topological part: `proposition_2_7_12`,
-  `MPolyfold.proposition_2_7_12_2021` (the two images are open, the transition map is the
+  `MPolyfold.proposition_2_7_12` (the two images are open, the transition map is the
   identity on underlying points of `X`); `isOpenEmbedding_phi` (every `Φ_{(x,V,θ)}` is an open
   embedding into `θ`) and `phiHomeomorph` (a homeomorphism onto `θ` for `V` centred at `x`).
 * **Proposition 2.7.16**: `T2Space (BSpace hd)` and `proposition_2_7_16`
-  (`MPolyfold.proposition_2_7_16_2021`).
+  (`MPolyfold.proposition_2_7_16`).
 * **Theorem 2.7.13**, topological part: `theorem_2_7_13_topology`,
-  `MPolyfold.theorem_2_7_13_2021`: (1) metrizability; the characterization of the topology
+  `MPolyfold.theorem_2_7_13`: (1) metrizability; the characterization of the topology
   (`eq_of_isOpen_uSet`: a topology in which every `U(x, V, θ)` is open and every `Φ` is open
   onto its image is `T_{bX}`); continuity of `B`, its image `∂X`, and the fibre count
   `#B⁻¹(x) = d_X(x)` (the set-level content of (4)).
@@ -476,7 +476,7 @@ theorem proposition_2_7_16 [MetrizableSpace X] : MetrizableSpace (BSpace hd) := 
   exact ⟨reach d V x, hW.1.1.1, hW.2.1,
     metrizableSpace_preimage hd hW (isCenteredAt_reach hd hV.1.1.1 hV.2.1)⟩
 
-instance [MetrizableSpace X] : MetrizableSpace (BSpace hd) := proposition_2_7_16 hd
+instance [MetrizableSpace X] : MetrizableSpace (BSpace hd) := Polyfold.TameBoundary.proposition_2_7_16 hd
 
 /-- **2021 Theorem 2.7.13 (1)**, with the characterization of its last paragraph (topological
 part): `bX` carries the metrizable topology `T_{bX}`, for which every `U(x, V, θ)` is open, every
@@ -491,7 +491,7 @@ theorem theorem_2_7_13_topology [MetrizableSpace X] :
           τ = bTopology hd) ∧
       Continuous (bMap hd) ∧ range (bMap hd) = {x | 1 ≤ d x} ∧
       ∀ x, (bMap hd ⁻¹' {x}).encard = d x :=
-  ⟨proposition_2_7_16 hd, isOpen_uSet hd, isOpenEmbedding_phi hd, eq_of_isOpen_uSet hd,
+  ⟨Polyfold.TameBoundary.proposition_2_7_16 hd, isOpen_uSet hd, isOpenEmbedding_phi hd, eq_of_isOpen_uSet hd,
     continuous_bMap hd, range_bMap hd, encard_bMap_preimage hd⟩
 
 end Metrizable
@@ -507,34 +507,34 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P :
 
 /-- **2021 Lemma 2.7.15, p. 85** (new in the 2021 edition): for a tame `X`, the sets of `T_{bX}`
 (`IsBOpen`) are the open sets of a topology on `bX`. -/
-theorem lemma_2_7_15_2021 (hP : P.IsTame) :
+theorem lemma_2_7_15 (hP : P.IsTame) :
     ∃ τ : TopologicalSpace (P.TameBoundarySpace hP),
       ∀ U, IsOpen[τ] U ↔ IsBOpen (P.isCornerIndex_degIndex hP) U :=
-  lemma_2_7_15 _
+  Polyfold.TameBoundary.lemma_2_7_15 _
 
 /-- **2021 Proposition 2.7.12, p. 83** (new in the 2021 edition), topological part: for two
 triples, `Φ(U(x, V, θ) ∩ U(x', V', θ'))` is open in `θ` and in `θ'`, and the transition map is the
 identity on the underlying points (each `Φ` being an open embedding, `isOpenEmbedding_phi`). -/
-theorem proposition_2_7_12_2021 (hP : P.IsTame) (t t' : BTriple (P.isCornerIndex_degIndex hP)) :
+theorem proposition_2_7_12 (hP : P.IsTame) (t t' : BTriple (P.isCornerIndex_degIndex hP)) :
     (∃ N, IsOpen N ∧ bMap _ '' (uSet _ t ∩ uSet _ t') = N ∩ t.θ) ∧
       (∃ N', IsOpen N' ∧ bMap _ '' (uSet _ t ∩ uSet _ t') = N' ∩ t'.θ) ∧
       ∀ p (h : p ∈ uSet _ t ∩ uSet _ t'),
         (phi _ t' ⟨p, h.2⟩ : X) = (phi _ t ⟨p, h.1⟩ : X) :=
-  proposition_2_7_12 _ t t'
+  Polyfold.TameBoundary.proposition_2_7_12 _ t t'
 
 /-- **2021 Proposition 2.7.16, p. 85** (new in the 2021 edition): `T_{bX}` is Hausdorff and
 metrizable. -/
-theorem proposition_2_7_16_2021 (hP : P.IsTame) :
+theorem proposition_2_7_16 (hP : P.IsTame) :
     T2Space (P.TameBoundarySpace hP) ∧ MetrizableSpace (P.TameBoundarySpace hP) := by
   have := P.metrizableSpace
-  exact ⟨inferInstance, proposition_2_7_16 _⟩
+  exact ⟨inferInstance, Polyfold.TameBoundary.proposition_2_7_16 _⟩
 
 /-- **2021 Theorem 2.7.13, pp. 83–84** (new in the 2021 edition), the topological part:
 (1) `bX` carries the metrizable topology `T_{bX}`; every `U(x, V, θ)` is open and every
 `Φ_{(x,V,θ)}` is an open embedding into `θ` (onto `θ` for `V` centred at `x`); `T_{bX}` is the only
 topology with these properties; `B` is continuous with image `∂X`, and every `x` has exactly
 `d_X(x)` preimages.  Parts (2), (3) and the sc-statements are not formalized (see the header). -/
-theorem theorem_2_7_13_2021 (hP : P.IsTame) :
+theorem theorem_2_7_13 (hP : P.IsTame) :
     MetrizableSpace (P.TameBoundarySpace hP) ∧
       (∀ t, IsOpen (uSet (P.isCornerIndex_degIndex hP) t)) ∧
       (∀ t, Topology.IsOpenEmbedding (phi (P.isCornerIndex_degIndex hP) t)) ∧

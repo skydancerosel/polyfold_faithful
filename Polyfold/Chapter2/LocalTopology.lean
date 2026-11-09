@@ -67,34 +67,34 @@ open subcovering; (Lemma 2.7.2) in a regular Hausdorff space every open `U(x)` c
   any neighbourhood), `IsLocallyComplete.regularSpace`, `.t1Space`, `.t2Space` (the Hausdorff
   assumption is automatic).  Witnesses: `isLocallyComplete_of_completeSpace`,
   `isLocallyComplete_real`, `isLocallyComplete_univ_retract`.
-* `remark_2_1_6_2021` (the closure identity), `IsLocallyCompleteRel` (the modified definition) and
+* `remark_2_1_6` (the closure identity), `IsLocallyCompleteRel` (the modified definition) and
   `IsLocallyComplete.isLocallyCompleteRel` (**Remark 2.1.6**: it is weaker).
 * `ScRetraction.exists_isClosed_retract_inter_closedBall`, `IsScRetract.exists_isComplete_closure`
-  (with `W(x)` arbitrarily small), `proposition_2_1_4_2021` (**Proposition 2.1.4**),
-  `isLocallyComplete_of_metric`, `corollary_2_1_7_2021` (**Corollary 2.1.7**).
-* `IsLocallyComplete.of_isEmbedding`, `proposition_2_1_8_1_2021`, `proposition_2_1_8_2_2021`,
-  `proposition_2_1_8_3_2021`, `proposition_2_1_8_4_2021` (**Proposition 2.1.8**, the last part
+  (with `W(x)` arbitrarily small), `proposition_2_1_4` (**Proposition 2.1.4**),
+  `isLocallyComplete_of_metric`, `corollary_2_1_7` (**Corollary 2.1.7**).
+* `IsLocallyComplete.of_isEmbedding`, `proposition_2_1_8_1`, `proposition_2_1_8_2`,
+  `proposition_2_1_8_3`, `proposition_2_1_8_4` (**Proposition 2.1.8**, the last part
   being the open-cover statement).
-* `lemma_2_1_9_2021` (**Lemma 2.1.9**, `FirstCountableTopology`),
-  `IsLocallyComplete.completelyRegularSpace` and `proposition_2_1_10_2021` (**Proposition 2.1.10**,
+* `lemma_2_1_9` (**Lemma 2.1.9**, `FirstCountableTopology`),
+  `IsLocallyComplete.completelyRegularSpace` and `proposition_2_1_10` (**Proposition 2.1.10**,
   `T35Space`).
 * `ScBanach.lvlSetInfty E U` (`U_∞` in `∏_m E_m`, with `ScBanach.image_lvlSetInfty`),
   `ScBanach.smoothSeq`,
   `ScBanach.joinedIn_lvlSetInfty_of_segment`, `IsPartialQuadrant.exists_smooth_near` (smooth points
-  are dense in `C_m`), `IsRelOpenInQuadrant.exists_ball_inter_subset`, `lemma_2_2_1_2021`
-  (**Lemma 2.2.1**, `k ∈ ℕ`) and `lemma_2_2_1_infty_2021` (`k = ∞`).
-* `lemma_2_2_2_2021` (**Lemma 2.2.2**); `definition_2_2_3_2021` (**Definition 2.2.3** is Mathlib's
-  `LocallyPathConnectedSpace`); `theorem_2_2_4_2021` (**Theorem 2.2.4**).
-* `IsAlmostLocallyContractible` (**Definition 2.2.5**), `proposition_2_2_6_2021`
+  are dense in `C_m`), `IsRelOpenInQuadrant.exists_ball_inter_subset`, `lemma_2_2_1`
+  (**Lemma 2.2.1**, `k ∈ ℕ`) and `lemma_2_2_1_infty` (`k = ∞`).
+* `lemma_2_2_2` (**Lemma 2.2.2**); `definition_2_2_3` (**Definition 2.2.3** is Mathlib's
+  `LocallyPathConnectedSpace`); `theorem_2_2_4` (**Theorem 2.2.4**).
+* `IsAlmostLocallyContractible` (**Definition 2.2.5**), `proposition_2_2_6`
   (**Proposition 2.2.6**), witness `isAlmostLocallyContractible_univ`.
 * `IsLocallyFiniteSetFamily`, `IsParacompactStar` (the footnote to **Definition 2.3.4**),
-  `isParacompactStar_iff` (it is Mathlib's `ParacompactSpace`), `definition_2_3_4_2021`,
+  `isParacompactStar_iff` (it is Mathlib's `ParacompactSpace`), `definition_2_3_4`,
   `isParacompactStar_real`;
   `IsParacompactBySubcover` and `not_isParacompactBySubcover_real`.
-* `lemma_2_7_2_2021` (**Lemma 2.7.2**), `exists_isOpen_closure_subset_of_paracompact`,
-  `lemma_2_3_5_2021` (**Lemma 2.3.5**); `MChart.isLocallyComplete_source`,
-  `MPolyfold.isLocallyComplete`, `proposition_2_3_6_2021` (**Proposition 2.3.6**);
-  `proposition_2_3_7_2021` (**Proposition 2.3.7**).
+* `lemma_2_7_2` (**Lemma 2.7.2**), `exists_isOpen_closure_subset_of_paracompact`,
+  `lemma_2_3_5` (**Lemma 2.3.5**); `MChart.isLocallyComplete_source`,
+  `MPolyfold.isLocallyComplete`, `proposition_2_3_6` (**Proposition 2.3.6**);
+  `proposition_2_3_7` (**Proposition 2.3.7**).
 
 ## What the text leaves implicit, and the choices made
 
@@ -110,7 +110,7 @@ open subcovering; (Lemma 2.7.2) in a regular Hausdorff space every open `U(x)` c
   `d_O`; the proof uses `O ∩ B̄_ε(x)` instead of the text's `V'`.  Corollary 2.1.7 restricts `d_O`
   to `W(x)`.
 * **Remark 2.1.6**: "weaker" is formalized as the implication; that it is strictly weaker is
-  `remark_2_1_6_strict_2021` in `Chapter2/LocalTopologyExample.lean` (ℝ with the K-topology).
+  `remark_2_1_6_strict` in `Chapter2/LocalTopologyExample.lean` (ℝ with the K-topology).
 * **Proposition 2.1.8 (1)**: "locally closed" is Mathlib's `IsLocallyClosed` (open ∩ closed),
   equivalent to the text's use ("`U ∩ A` closed in `U` for an open `U ∋ a`",
   `isLocallyClosed_tfae`).  The proof goes through the general `IsLocallyComplete.of_isEmbedding`,
@@ -134,13 +134,13 @@ open subcovering; (Lemma 2.7.2) in a regular Hausdorff space every open `U(x)` c
   p. 183 recalls them without proof): `IsScRetract.locallyPathConnectedSpace` and
   `MPolyfold.locallyPathConnectedSpace` in `Chapter7/LocConnected.lean`, whose proof joins nearby
   points by `τ ↦ r(o + τ(p − o))` rather than through Lemma 2.2.2 and components.  Definition
-  2.2.3 is Mathlib's `LocallyPathConnectedSpace` (`definition_2_2_3_2021`).
+  2.2.3 is Mathlib's `LocallyPathConnectedSpace` (`definition_2_2_3`).
 * **Definition 2.2.5**: `[0, 1]` is `unitInterval`; `Φ` is a continuous map `I × W(z) → Z` with
   values in `V(z)`; (3) `Φ(1, W(z)) = {z}` is `Φ(1, y) = z` for all `y` (`W(z) ∋ z` is nonempty).
 * **Definition 2.3.4.**  The footnote's paracompactness (`IsParacompactStar`, coverings as sets of
   open sets) is equivalent to Mathlib's `ParacompactSpace` (`isParacompactStar_iff`), which does not
   include the Hausdorff property either.  So "Hausdorff paracompact*" is exactly the hypothesis
-  `[T2Space X] [ParacompactSpace X]` of `MPolyfold` (`definition_2_3_4_2021`): the footnote changes
+  `[T2Space X] [ParacompactSpace X]` of `MPolyfold` (`definition_2_3_4`): the footnote changes
   nothing for M-polyfolds, whose Hausdorff property is required separately (it matters for spaces
   not assumed Hausdorff, such as the orbit spaces of later chapters).  The wording of the
   convention in Appendix 2.7.2 (and 2017 Appendix 2.6.2, p. 51), a locally finite open
@@ -329,7 +329,7 @@ variable {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
 
 /-- **Remark 2.1.6 (2021)**, the identity: if `cl_X(V) ⊆ W`, the closure of `V` in `W` is
 `cl_X(V)`. -/
-theorem remark_2_1_6_2021 {W V : Set X} (h : closure V ⊆ W) :
+theorem remark_2_1_6 {W V : Set X} (h : closure V ⊆ W) :
     Subtype.val '' closure (Subtype.val ⁻¹' V : Set W) = closure V := by
   have hVW : V ⊆ W := subset_closure.trans h
   ext z
@@ -353,12 +353,12 @@ theorem IsLocallyComplete.isLocallyCompleteRel (h : IsLocallyComplete X) :
   obtain ⟨W, V, hW, hV, hxV, hVW, hm⟩ := h x
   refine ⟨W, V, hW, hV, hxV, subset_closure.trans hVW, ?_⟩
   have : closure (Subtype.val ⁻¹' V : Set W) = Subtype.val ⁻¹' closure V := by
-    rw [← remark_2_1_6_2021 hVW, preimage_image_eq _ Subtype.val_injective]
+    rw [← remark_2_1_6 hVW, preimage_image_eq _ Subtype.val_injective]
   rwa [this]
 
 /-- **Lemma 2.1.9 (2021)**: every point of a locally complete space has a countable neighbourhood
 basis. -/
-theorem lemma_2_1_9_2021 (h : IsLocallyComplete X) : FirstCountableTopology X := by
+theorem lemma_2_1_9 (h : IsLocallyComplete X) : FirstCountableTopology X := by
   refine ⟨fun x => ?_⟩
   obtain ⟨W, V, hW, -, hxV, hVW, hm⟩ := h x
   have := hm.metrizableSpace
@@ -403,7 +403,7 @@ theorem IsLocallyComplete.completelyRegularSpace (h : IsLocallyComplete X) :
 
 /-- **Proposition 2.1.10 (2021)**: a Hausdorff locally complete space is completely regular
 (Tychonoff). -/
-theorem proposition_2_1_10_2021 [T2Space X] (h : IsLocallyComplete X) : T35Space X :=
+theorem proposition_2_1_10 [T2Space X] (h : IsLocallyComplete X) : T35Space X :=
   @T35Space.mk X _ inferInstance h.completelyRegularSpace
 
 /-! ### Proposition 2.1.8 -/
@@ -438,26 +438,26 @@ theorem IsLocallyComplete.of_isEmbedding (h : IsLocallyComplete X) {f : Y → X}
 
 /-- **Proposition 2.1.8 (1) (2021)**: a locally closed subspace of a locally complete space is
 locally complete. -/
-theorem proposition_2_1_8_1_2021 (h : IsLocallyComplete X) {A : Set X}
+theorem proposition_2_1_8_1 (h : IsLocallyComplete X) {A : Set X}
     (hA : IsLocallyClosed A) : IsLocallyComplete A :=
   h.of_isEmbedding IsEmbedding.subtypeVal (by rwa [Subtype.range_coe])
 
 /-- **Proposition 2.1.8 (2) (2021)**: a space homeomorphic to a locally complete space is locally
 complete. -/
-theorem proposition_2_1_8_2_2021 (h : IsLocallyComplete X) (e : X ≃ₜ Y) : IsLocallyComplete Y :=
+theorem proposition_2_1_8_2 (h : IsLocallyComplete X) (e : X ≃ₜ Y) : IsLocallyComplete Y :=
   h.of_isEmbedding e.symm.isEmbedding (by
     rw [e.symm.range_coe]; exact isClosed_univ.isLocallyClosed)
 
 /-- **Proposition 2.1.8 (3) (2021)**: an open subset of a locally complete space is locally
 complete. -/
-theorem proposition_2_1_8_3_2021 (h : IsLocallyComplete X) {A : Set X} (hA : IsOpen A) :
+theorem proposition_2_1_8_3 (h : IsLocallyComplete X) {A : Set X} (hA : IsOpen A) :
     IsLocallyComplete A :=
-  proposition_2_1_8_1_2021 h hA.isLocallyClosed
+  proposition_2_1_8_1 h hA.isLocallyClosed
 
 /-- **Proposition 2.1.8, last part (2021)**: if `X` has an open covering `(Yᵢ)` such that (a) every
 `Yᵢ` is locally complete, and (b) every `z ∈ Yᵢ` has an open neighbourhood in `Yᵢ` whose closure in
 `X` lies in `Yᵢ`, then `X` is locally complete.  (The Hausdorff property of `X` is not used.) -/
-theorem proposition_2_1_8_4_2021 {ι : Type*} (Yᵢ : ι → Set X) (hYo : ∀ i, IsOpen (Yᵢ i))
+theorem proposition_2_1_8_4 {ι : Type*} (Yᵢ : ι → Set X) (hYo : ∀ i, IsOpen (Yᵢ i))
     (hcov : ∀ y, ∃ i, y ∈ Yᵢ i) (ha : ∀ i, IsLocallyComplete (Yᵢ i))
     (hb : ∀ i, ∀ z ∈ Yᵢ i, ∃ U, IsOpen U ∧ z ∈ U ∧ U ⊆ Yᵢ i ∧ closure U ⊆ Yᵢ i) :
     IsLocallyComplete X := by
@@ -582,20 +582,20 @@ theorem IsScRetract.exists_isComplete_closure {O : Set (E 0)} (hO : IsScRetract 
 /-- **Proposition 2.1.4 (2021)**: for an sc-smooth retract `(O, C, E)`, every `x ∈ O` has open
 neighbourhoods `V(x)`, `W(x)` in `O` with `cl_O(V(x)) ⊆ W(x)` such that the restriction of
 `d_O(x, y) = |x − y|₀` to `cl_O(V(x))` is complete. -/
-theorem proposition_2_1_4_2021 {O : Set (E 0)} (hO : IsScRetract E C O) (x : O) :
+theorem proposition_2_1_4 {O : Set (E 0)} (hO : IsScRetract E C O) (x : O) :
     ∃ W V : Set O, IsOpen W ∧ IsOpen V ∧ x ∈ V ∧ closure V ⊆ W ∧ IsComplete (closure V) := by
   obtain ⟨W, V, hW, hV, hxV, -, hVW, hc⟩ := hO.exists_isComplete_closure x univ_mem
   exact ⟨W, V, hW, hV, hxV, hVW, hc⟩
 
 /-- **Corollary 2.1.7 (2021)**: an sc-smooth retract `(O, C, E)` (level-`0` topology) is locally
 complete. -/
-theorem corollary_2_1_7_2021 {O : Set (E 0)} (hO : IsScRetract E C O) : IsLocallyComplete O :=
-  isLocallyComplete_of_metric (proposition_2_1_4_2021 hO)
+theorem corollary_2_1_7 {O : Set (E 0)} (hO : IsScRetract E C O) : IsLocallyComplete O :=
+  isLocallyComplete_of_metric (proposition_2_1_4 hO)
 
 /-- **Non-vacuity**: the retract `(E₀, E, E)` (the whole sc-Banach space, `r = id`) is locally
 complete, by Corollary 2.1.7. -/
 theorem isLocallyComplete_univ_retract (E : ScBanach) : IsLocallyComplete (univ : Set (E 0)) :=
-  corollary_2_1_7_2021 (C := univ)
+  corollary_2_1_7 (C := univ)
     (⟨isPartialQuadrant_univ E, univ, isOpen_univ, (univ_inter _).symm⟩ :
       IsRelOpenInQuadrant E univ univ).isScRetract
 
@@ -656,7 +656,7 @@ theorem isParacompactStar_iff : IsParacompactStar X ↔ ParacompactSpace X := by
 /-- **Definition 2.3.4 (2021)**: "Hausdorff paracompact*" is exactly the hypothesis
 `[T2Space X] [ParacompactSpace X]` of `MPolyfold` (2017 Definition 2.8, "Hausdorff
 paracompact"): the footnote changes nothing for M-polyfolds. -/
-theorem definition_2_3_4_2021 :
+theorem definition_2_3_4 :
     (T2Space X ∧ IsParacompactStar X) ↔ (T2Space X ∧ ParacompactSpace X) := by
   rw [isParacompactStar_iff]
 
@@ -697,7 +697,7 @@ theorem not_isParacompactBySubcover_real : ¬ IsParacompactBySubcover ℝ := by
 
 /-- **Lemma 2.7.2 (2021)**: in a regular space, every open neighbourhood `U(x)` contains an open
 `V(x)` with `V(x) ⊆ cl_X(V(x)) ⊆ U(x)` (the Hausdorff property is not used). -/
-theorem lemma_2_7_2_2021 [RegularSpace X] {x : X} {U : Set X} (hU : IsOpen U) (hx : x ∈ U) :
+theorem lemma_2_7_2 [RegularSpace X] {x : X} {U : Set X} (hU : IsOpen U) (hx : x ∈ U) :
     ∃ V, IsOpen V ∧ x ∈ V ∧ V ⊆ closure V ∧ closure V ⊆ U := by
   obtain ⟨t, ht, htc, htU⟩ := exists_mem_nhds_isClosed_subset (hU.mem_nhds hx)
   exact ⟨interior t, isOpen_interior, mem_interior_iff_mem_nhds.2 ht, subset_closure,
@@ -709,7 +709,7 @@ paracompact Hausdorff spaces are normal, Dieudonné.) -/
 theorem exists_isOpen_closure_subset_of_paracompact [T2Space X] [ParacompactSpace X] {x : X}
     {W N : Set X} (hW : IsOpen W) (hx : x ∈ W) (hN : N ∈ 𝓝 x) :
     ∃ V, IsOpen V ∧ x ∈ V ∧ V ⊆ N ∧ closure V ⊆ W := by
-  obtain ⟨V, hVo, hxV, -, hVW⟩ := lemma_2_7_2_2021 (hW.inter isOpen_interior)
+  obtain ⟨V, hVo, hxV, -, hVW⟩ := lemma_2_7_2 (hW.inter isOpen_interior)
     ⟨hx, mem_interior_iff_mem_nhds.2 hN⟩
   exact ⟨V, hVo, hxV, fun y hy => interior_subset (hVW (subset_closure hy)).2,
     hVW.trans inter_subset_left⟩
@@ -722,7 +722,7 @@ end Paracompact
 Proposition 2.1.8 (2)). -/
 theorem MChart.isLocallyComplete_source {X : Type*} [TopologicalSpace X] (φ : MChart X) :
     IsLocallyComplete φ.source :=
-  proposition_2_1_8_2_2021 (corollary_2_1_7_2021 φ.model.isScRetract) φ.sourceHomeomorph.symm
+  proposition_2_1_8_2 (corollary_2_1_7 φ.model.isScRetract) φ.sourceHomeomorph.symm
 
 section MPolyfold
 
@@ -734,13 +734,13 @@ set_option linter.unusedSectionVars false in
 /-- **Lemma 2.3.5 (2021)**: for an M-polyfold `X`, `x ∈ X` and an open neighbourhood `W(x)`, there
 is an open neighbourhood `V(x)` with `cl_X(V(x)) ⊆ W(x)`, which can be chosen inside any given
 neighbourhood `N` of `x` ("arbitrarily small"). -/
-theorem lemma_2_3_5_2021 {x : X} {W N : Set X} (hW : IsOpen W) (hx : x ∈ W) (hN : N ∈ 𝓝 x) :
+theorem lemma_2_3_5 {x : X} {W N : Set X} (hW : IsOpen W) (hx : x ∈ W) (hN : N ∈ 𝓝 x) :
     ∃ V, IsOpen V ∧ x ∈ V ∧ V ⊆ N ∧ closure V ⊆ W :=
   exists_isOpen_closure_subset_of_paracompact hW hx hN
 
 /-- An M-polyfold is locally complete (Definition 2.1.5). -/
 theorem MPolyfold.isLocallyComplete : IsLocallyComplete X := by
-  refine proposition_2_1_8_4_2021 (ι := {φ : MChart X // P.IsChart φ}) (fun φ => φ.1.source)
+  refine proposition_2_1_8_4 (ι := {φ : MChart X // P.IsChart φ}) (fun φ => φ.1.source)
     (fun φ => φ.1.isOpen_source) (fun y => ?_) (fun φ => φ.1.isLocallyComplete_source)
     (fun φ z hz => ?_)
   · obtain ⟨φ, hφ, hy⟩ := P.exists_isChart_mem_source y
@@ -753,7 +753,7 @@ theorem MPolyfold.isLocallyComplete : IsLocallyComplete X := by
 open neighbourhoods `V(x) ⊆ W(x)` with (1) `W(x)` inside any given neighbourhood `N` of `x`,
 (2) `cl_X(V(x)) ⊆ W(x)`, (3) `W(x)` admits a metric `d` defining its (level-`0`) topology whose
 restriction to `cl_X(V(x))` is complete. -/
-theorem proposition_2_3_6_2021 {x : X} {N : Set X} (hN : N ∈ 𝓝 x) :
+theorem proposition_2_3_6 {x : X} {N : Set X} (hN : N ∈ 𝓝 x) :
     ∃ W V : Set X, IsOpen W ∧ IsOpen V ∧ x ∈ V ∧ V ⊆ W ∧ W ⊆ N ∧ closure V ⊆ W ∧
       AdmitsCompleteMetricOn W (Subtype.val ⁻¹' closure V) := by
   obtain ⟨W, V, hW, hV, hxV, hWN, hVW, hm⟩ := P.isLocallyComplete.exists_subset hN
@@ -761,7 +761,7 @@ theorem proposition_2_3_6_2021 {x : X} {N : Set X} (hN : N ∈ 𝓝 x) :
 
 /-- **Proposition 2.3.7 (2021)**: every M-polyfold is locally path-connected.  This is
 `MPolyfold.locallyPathConnectedSpace` (`Chapter7/LocConnected.lean`). -/
-theorem proposition_2_3_7_2021 : LocallyPathConnectedSpace X :=
+theorem proposition_2_3_7 : LocallyPathConnectedSpace X :=
   P.locallyPathConnectedSpace
 
 end MPolyfold
@@ -849,7 +849,7 @@ theorem IsRelOpenInQuadrant.exists_ball_inter_subset (hU : IsRelOpenInQuadrant E
 /-- **Lemma 2.2.1 (2021), `k = ∞`**: if `U ⊆ C` is relatively open and connected, then
 `U_∞ = E_∞ ∩ U` is path-connected for the topology of `E_∞` (`ScBanach.lvlSetInfty`): any two
 points are joined by a path which is continuous into every level `E_m`. -/
-theorem lemma_2_2_1_infty_2021 (hU : IsRelOpenInQuadrant E C U) (hconn : IsConnected U) :
+theorem lemma_2_2_1_infty (hU : IsRelOpenInQuadrant E C U) (hconn : IsConnected U) :
     IsPathConnected (E.lvlSetInfty U) := by
   have hC := hU.isPartialQuadrant
   have hUC : U ⊆ C := by
@@ -918,7 +918,7 @@ theorem lemma_2_2_1_infty_2021 (hU : IsRelOpenInQuadrant E C U) (hconn : IsConne
 
 /-- **Lemma 2.2.1 (2021), `k ∈ ℕ`**: if `U ⊆ C` is relatively open and connected, then for every
 `k`, `U_k = E_k ∩ U` with the topology of `E_k` is path-connected (in particular connected). -/
-theorem lemma_2_2_1_2021 (hU : IsRelOpenInQuadrant E C U) (hconn : IsConnected U) (k : ℕ) :
+theorem lemma_2_2_1 (hU : IsRelOpenInQuadrant E C U) (hconn : IsConnected U) (k : ℕ) :
     IsPathConnected (E.lvlSet U k) := by
   have hC := hU.isPartialQuadrant
   obtain ⟨O', hO', hUO'⟩ := hU.relOpen
@@ -928,7 +928,7 @@ theorem lemma_2_2_1_2021 (hU : IsRelOpenInQuadrant E C U) (hconn : IsConnected U
     change E.toBase k (v k) ∈ U
     rw [hv.1 k]
     exact hv.2
-  obtain ⟨p, hp, hpj⟩ := (lemma_2_2_1_infty_2021 hU hconn).image (continuous_apply k)
+  obtain ⟨p, hp, hpj⟩ := (lemma_2_2_1_infty hU hconn).image (continuous_apply k)
   refine ⟨p, hsub hp, fun {x} hx => ?_⟩
   -- a smooth point `s` of `U_k` near `x`, joined to `x` by a segment in `U_k`
   have hx' : E.toBase k x ∈ O' ∩ C := hUO' ▸ hx
@@ -964,7 +964,7 @@ variable {E : ScBanach} {C : Set (E 0)}
 `V(x) = V' ∩ U` an open neighbourhood of `x` in `U`.  Then `W(x) = V(x) ∩ r⁻¹(V(x))` is a relatively
 open neighbourhood of `x` in `C`, and (1) `W(x) ∩ O = V(x) ∩ O`, (2) `r(W(x)) ⊆ W(x)` and
 `r(W(x)) = O ∩ V(x)`. -/
-theorem lemma_2_2_2_2021 (R : ScRetraction E C) {x : E 0} (hx : x ∈ R.retract) {V' : Set (E 0)}
+theorem lemma_2_2_2 (R : ScRetraction E C) {x : E 0} (hx : x ∈ R.retract) {V' : Set (E 0)}
     (hV' : IsOpen V') (hxV' : x ∈ V') :
     let V := V' ∩ R.U
     let W := V ∩ R ⁻¹' V
@@ -998,7 +998,7 @@ theorem lemma_2_2_2_2021 (R : ScRetraction E C) {x : E 0} (hx : x ∈ R.retract)
 
 /-- **Definition 2.2.3 (2021)** is Mathlib's `LocallyPathConnectedSpace`: every point `z` has,
 inside every open neighbourhood `V(z)`, a path-connected open neighbourhood `W(z)`. -/
-theorem definition_2_2_3_2021 {Z : Type*} [TopologicalSpace Z] :
+theorem definition_2_2_3 {Z : Type*} [TopologicalSpace Z] :
     LocallyPathConnectedSpace Z ↔ ∀ z : Z, ∀ V : Set Z, IsOpen V → z ∈ V →
       ∃ W, IsOpen W ∧ z ∈ W ∧ W ⊆ V ∧ IsPathConnected W := by
   constructor
@@ -1018,7 +1018,7 @@ theorem definition_2_2_3_2021 {Z : Type*} [TopologicalSpace Z] :
 
 /-- **Theorem 2.2.4 (2021)**: an sc-smooth retract `(O, C, E)` is locally path-connected.  This is
 `IsScRetract.locallyPathConnectedSpace` (`Chapter7/LocConnected.lean`). -/
-theorem theorem_2_2_4_2021 {O : Set (E 0)} (h : IsScRetract E C O) :
+theorem theorem_2_2_4 {O : Set (E 0)} (h : IsScRetract E C O) :
     LocallyPathConnectedSpace O :=
   h.locallyPathConnectedSpace
 
@@ -1040,7 +1040,7 @@ variable {E : ScBanach} {C : Set (E 0)}
 
 /-- **Proposition 2.2.6 (2021)**: an sc-smooth retract `(O, C, E)` is almost locally contractible,
 with `Φ(t, y) = r((1 − t)y + tx)` on `W(x) = B_ε(x) ∩ O`. -/
-theorem proposition_2_2_6_2021 {O : Set (E 0)} (hO : IsScRetract E C O) :
+theorem proposition_2_2_6 {O : Set (E 0)} (hO : IsScRetract E C O) :
     IsAlmostLocallyContractible O := by
   obtain ⟨R, rfl⟩ := hO
   intro z V hV hzV
@@ -1100,7 +1100,7 @@ theorem proposition_2_2_6_2021 {O : Set (E 0)} (hO : IsScRetract E C O) :
 almost locally contractible, by Proposition 2.2.6. -/
 theorem isAlmostLocallyContractible_univ (E : ScBanach) :
     IsAlmostLocallyContractible (univ : Set (E 0)) :=
-  proposition_2_2_6_2021 (C := univ)
+  proposition_2_2_6 (C := univ)
     (⟨isPartialQuadrant_univ E, univ, isOpen_univ, (univ_inter _).symm⟩ :
       IsRelOpenInQuadrant E univ univ).isScRetract
 

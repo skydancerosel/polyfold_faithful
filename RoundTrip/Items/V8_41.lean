@@ -7,7 +7,7 @@ import RoundTrip.Blind.V8_41
 
 `A` is the conjunction of the types of the three listed theorems, universes at `0`:
 `IsProperCovering.ncard_fiber_eq_sum` (`#F⁻¹(x) = ∑_{c ∈ π(F⁻¹(x))} #Θ_c`),
-`IsProperCovering.lemma_8_11` (`#Θ_c = #Θ'_c` for every `c ∈ |Y|`, `#F⁻¹(x) = #F⁻¹(x')`) and
+`IsProperCovering.lemma_8_6_3` (`#Θ_c = #Θ'_c` for every `c ∈ |Y|`, `#F⁻¹(x) = #F⁻¹(x')`) and
 `IsProperCovering.ncard_fiber_eq_of_isomorphic`.
 
 The project indexes the classes by `c ∈ |Y|`; B takes arbitrary decompositions `Θ`, `Θ'` (indexed
@@ -18,11 +18,11 @@ project's classes enumerated by `Fin q` form matched decompositions (`decomp_of_
 * `A ⇒ B`: matched classes `Θ_j`, `Θ'_j` are `fiberClass x c`, `fiberClass x' c` for one `c` (the
   points of `Θ_j` and `Θ'_j` are isomorphic: lift by the non-item
   `exists_isomorphic_of_isomorphic` and use the uniqueness of the matching index), so
-  `#Θ_j = #Θ'_j` is `lemma_8_11`; the sums are `ncard_fiber_eq_sum`; `#F⁻¹(x) = #F⁻¹(x')` is
+  `#Θ_j = #Θ'_j` is `lemma_8_6_3`; the sums are `ncard_fiber_eq_sum`; `#F⁻¹(x) = #F⁻¹(x')` is
   `ncard_fiber_eq_of_isomorphic`.  B's three claims from the paragraph before the lemma are not in
   A's theorems and are proved outright: `#G_{y₀} = #G_{y₀'}` and `#G_x = #G_{x'}` from the
   Chapter 7 `nat_card_isotropy_eq`, and `#Θ_j = #G_x / #G_{y₀}` from the non-item Lemma 8.6.1
-  (`lemma_8_9`).
+  (`lemma_8_6_1`).
 * `B ⇒ A`: B applied to the project's classes, enumerated by `Fin q` (for `x'` via the non-item
   `fiberIndex_eq`), gives all three theorems (for `ncard_fiber_eq_sum`, B at `x' = x`).
 -/
@@ -33,12 +33,12 @@ open Polyfold Set Function
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
   (type_of% @Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum.{0, 0}) ∧
-  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_11.{0, 0}) ∧
+  (type_of% @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3.{0, 0}) ∧
   (type_of% @Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic.{0, 0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum.{0, 0},
-    @Polyfold.EpFunctor.IsProperCovering.lemma_8_11.{0, 0},
+    @Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3.{0, 0},
     @Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic.{0, 0}⟩
 
 /-- `#G_x` computed on the group or on the set of morphisms `x → x`. -/
@@ -179,7 +179,7 @@ theorem A_to_B : A → B := by
     exact X.nat_card_isotropy_eq hx
   · -- `#Θ_j = #G_x / #G_{y₀}` from the non-item Lemma 8.6.1
     rw [← nat_card_isotropy_eq_ncard, ← nat_card_isotropy_eq_ncard,
-      ((hF.lemma_8_9 x (Y.π y₀)).2 y₀ ⟨hΘ.2.1 j h₀, rfl⟩).2, eq_fiberClass F hΘ j h₀]
+      ((hF.lemma_8_6_1 x (Y.π y₀)).2 y₀ ⟨hΘ.2.1 j h₀, rfl⟩).2, eq_fiberClass F hΘ j h₀]
     exact (Nat.mul_div_cancel_left _ Nat.card_pos).symm
 
 theorem B_to_A : B → A := by
@@ -193,13 +193,13 @@ theorem B_to_A : B → A := by
     exact (fromB hB F hF h).2.2
 
 #rt_check RoundTrip.V8_41.A_to_B [Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_11,
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3,
   Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic]
 #rt_check RoundTrip.V8_41.B_to_A [Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_11,
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3,
   Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic]
 #rt_overlap RoundTrip.V8_41.B_to_A [Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum,
-  Polyfold.EpFunctor.IsProperCovering.lemma_8_11,
+  Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3,
   Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic]
 
 end RoundTrip.V8_41

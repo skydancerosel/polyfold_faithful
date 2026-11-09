@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_86
 
 /-!
 Round trip for V3_86 (Theorem 3.56).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_56`, `Polyfold.theorem_3_57` and `Polyfold.lemma_2_26`, universes
+`Polyfold.theorem_3_6_10`, `Polyfold.theorem_3_6_11` and `Polyfold.lemma_2_4_6`, universes
 instantiated at `0`.
 
 Glue for `A → B`:
@@ -19,9 +19,9 @@ Glue for `A → B`:
   `> 0`; restrict the chart to the open set where they are `> 0` and change the model to
   `(U, univ, E₀)` with the constant structure (`compDiffeo` with the identity).
 
-**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_56` and `theorem_3_57` now state the
-germ reading, and A gains `theorem_3_56_sc` (good position with the text's sc-complement).  B's
-`IsScFredholmSectionTame` is the germ reading too; the proof (through `theorem_3_56` and the germ
+**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_6_10` and `theorem_3_6_11` now state the
+germ reading, and A gains `theorem_3_6_10_sc` (good position with the text's sc-complement).  B's
+`IsScFredholmSectionTame` is the germ reading too; the proof (through `theorem_3_6_10` and the germ
 form of `isGoodPositionGerm_of_isLinSurjAt`) checks unchanged.  B ⇒ A still fails.
 -/
 
@@ -31,12 +31,12 @@ open Polyfold Set
 /-- The project's statement: Theorem 3.56, Theorem 3.57 (germ reading), Lemma 2.26 and Theorem
 3.56 with the sc-complement form of good position, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_56.{0, 0} ∧ type_of% @Polyfold.theorem_3_57.{0, 0} ∧
-    type_of% @Polyfold.lemma_2_26.{0} ∧ type_of% @Polyfold.theorem_3_56_sc.{0, 0}
+  type_of% @Polyfold.theorem_3_6_10.{0, 0} ∧ type_of% @Polyfold.theorem_3_6_11.{0, 0} ∧
+    type_of% @Polyfold.lemma_2_4_6.{0} ∧ type_of% @Polyfold.theorem_3_6_10_sc.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_56.{0, 0}, @Polyfold.theorem_3_57.{0, 0}, @Polyfold.lemma_2_26.{0},
-    @Polyfold.theorem_3_56_sc.{0, 0}⟩
+  ⟨@Polyfold.theorem_3_6_10.{0, 0}, @Polyfold.theorem_3_6_11.{0, 0}, @Polyfold.lemma_2_4_6.{0},
+    @Polyfold.theorem_3_6_10_sc.{0, 0}⟩
 
 section Glue
 
@@ -146,7 +146,7 @@ theorem A_to_B : A → B := by
     exact ⟨hsub, inferInstance, boundaryless_of_loc h1 h2⟩
   · exact empty_case hne
 
-#rt_check RoundTrip.V3_86.A_to_B [Polyfold.theorem_3_56, Polyfold.theorem_3_57,
-  Polyfold.lemma_2_26, Polyfold.theorem_3_56_sc]
+#rt_check RoundTrip.V3_86.A_to_B [Polyfold.theorem_3_6_10, Polyfold.theorem_3_6_11,
+  Polyfold.lemma_2_4_6, Polyfold.theorem_3_6_10_sc]
 
 end RoundTrip.V3_86

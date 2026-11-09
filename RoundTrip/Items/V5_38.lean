@@ -3,7 +3,7 @@ import RoundTrip.Check
 import RoundTrip.Blind.V5_38
 
 /-!
-Round trip for V5_38 (Theorem 5.18).  `A` is the type of `Polyfold.theorem_5_18`, universes
+Round trip for V5_38 (Theorem 5.18).  `A` is the type of `Polyfold.theorem_5_3_10_param`, universes
 instantiated at `0`.
 
 Neither `A → B` nor `B → A` is proved.
@@ -12,7 +12,7 @@ Neither `A → B` nor `B → A` is proved.
   "not identically zero" (`AdmitsBumpFunctionsWeak`), A as "`f(x) ≠ 0`" (`AdmitsBumpFunctions`).
   With the strong reading, `A → Bstrong` is proved below (`A_to_Bstrong`): the dense set `O` is
   `{s allowable | f + s satisfies SolutionSetInGeneralPosition}`, its `ρ`-density is derived from
-  A's generic (family) form by the argument the project uses for `theorem_5_18_dense`, re-done here
+  A's generic (family) form by the argument the project uses for `theorem_5_3_10_dense`, re-done here
   (`dense_of_generic`, not using any banned declaration); B's tameness of the bundle is not needed.
   `Bstrong` is B with `AdmitsBumpFunctions` in place of `AdmitsBumpFunctionsWeak` (B ⇒ Bstrong
   trivially, `B_to_Bstrong`).
@@ -25,7 +25,7 @@ Neither `A → B` nor `B → A` is proved.
 
 /-! **Refresh 2026-11-02** (HEAD after the germ reading of Definition 3.11 and the notions built
 on it).
-theorem_5_18 and B now both use the germ-reading IsScFredholmSectionTame. The obstacles (weak vs
+theorem_5_3_10_param and B now both use the germ-reading IsScFredholmSectionTame. The obstacles (weak vs
 pointwise bump functions for A ⇒ B; B's tame strong bundle atlas and dense-set form for B ⇒ A) are
 untouched by the germ switch; A ⇒ Bstrong still checks. Result unchanged.
 -/
@@ -34,9 +34,9 @@ namespace RoundTrip.V5_38
 open Polyfold MeasureTheory
 
 /-- The project's statement, universes `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_5_18.{0, 0}
+def A : Prop := type_of% @Polyfold.theorem_5_3_10_param.{0, 0}
 
-theorem A_holds : A := @Polyfold.theorem_5_18.{0, 0}
+theorem A_holds : A := @Polyfold.theorem_5_3_10_param.{0, 0}
 
 /-- B with the strong reading of "bump functions" (`f(x) ≠ 0`). -/
 def Bstrong : Prop :=
@@ -77,7 +77,7 @@ theorem sectionDistAt_comm {N : Bd.One → ℝ} (hN : Bd.IsAuxNorm N) {s s' : X 
 
 set_option maxHeartbeats 1600000 in
 /-- The dense-set form from the generic (family) form, for any property `Q` of the perturbation
-(the argument of the project's `theorem_5_13` / `theorem_5_18_dense`: `s₀ = (1 − ε'/2)s'` and a
+(the argument of the project's `theorem_5_3_5_preprint` / `theorem_5_3_10_dense`: `s₀ = (1 − ε'/2)s'` and a
 parameter `λ` outside the null set in a small ball). -/
 theorem dense_of_generic {N : Bd.One → ℝ} (hN : Bd.IsAuxNorm N) {U : Set X}
     (Q : (X → Y) → Prop)
@@ -202,6 +202,6 @@ theorem A_to_Bstrong : A → Bstrong := by
     exact ⟨fun x hx => hgp x hx, hcomp, hS'.isSubMPolyfold, PX.paracompactSpace_subtype _, hcs,
       hdeg⟩
 
-#rt_check RoundTrip.V5_38.A_to_Bstrong [Polyfold.theorem_5_18]
+#rt_check RoundTrip.V5_38.A_to_Bstrong [Polyfold.theorem_5_3_10_param]
 
 end RoundTrip.V5_38

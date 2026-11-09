@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_22
 
 /-! Round trip for V6_22 (Lemma 6.19 in the case used and Proposition 6.20: `DET(T, P, ε)`).
 
-`A` is the conjunction of the types of `LocalDetChart.frame_ne_zero` and `proposition_6_20`
+`A` is the conjunction of the types of `LocalDetChart.frame_ne_zero` and `proposition_6_5_4`
 (universes at `0`); `LocalDetChart.kerFrame` and `LocalDetChart.frame` (`ω(S) = (k₁(S) ∧ … ∧ kₙ(S))
 ⊗ (e₁ ∧ … ∧ e_l)*`) are definitions (vocabulary).  A says: the chart frame never vanishes, and the
 frames of two charts with the same `P` (any centres and radii) differ on the common ball by a
@@ -14,7 +14,7 @@ ball (local linear trivializations with fibre `ℝ`).
 
 `B → A` (proved).  `frame_ne_zero` is not in B (B's line bundle structure says nothing about one
 particular vector); it is proved directly (`frame_ne_zero'`, linear algebra on the project's
-definition).  `proposition_6_20` comes from B's third conjunct: with `P = c.P` the chart frames of
+definition).  `proposition_6_5_4` comes from B's third conjunct: with `P = c.P` the chart frames of
 `c` and `c'` over the common ball `W` are frame pairs in B's sense (`chartKerFrame`,
 `chartCokFrame`: kernel frame `kᵢ + y(kᵢ, S)`, constant lifts of the basis of `F / R(P)`), so their
 frame maps are continuous for B's topology (`continuous_frameMap`); `g = dualVec(ω_c)(ω_{c'})`, and
@@ -28,7 +28,7 @@ topology runs over all of them, not only chart frames), the continuity of their 
 relative to the chart frame (`det(kerProj ∘ σ)`, `det([f])⁻¹` in `F/R(P)`, and their product), and
 (ii) the construction of an `OpenPartialHomeomorph`/`Trivialization` for the final topologies of
 `λ`, `λ*` and `det` (continuity of the coordinate map out of a `⨆ coinduced` topology, the inverse
-being a chart frame map).  A supplies only `frame_ne_zero` for this; `proposition_6_20` (two charts
+being a chart frame map).  A supplies only `frame_ne_zero` for this; `proposition_6_5_4` (two charts
 with the same `P`) is not even needed on a single ball.  Re-proving (i)–(ii) is the substance of
 Lemma 6.19, not glue.
 -/
@@ -40,10 +40,10 @@ open Polyfold Bundle Module TensorProduct
 `0`. -/
 def A : Prop :=
   type_of% @Polyfold.LocalDetChart.frame_ne_zero.{0, 0} ∧
-  type_of% @Polyfold.proposition_6_20.{0, 0}
+  type_of% @Polyfold.proposition_6_5_4.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.LocalDetChart.frame_ne_zero.{0, 0}, @Polyfold.proposition_6_20.{0, 0}⟩
+  ⟨@Polyfold.LocalDetChart.frame_ne_zero.{0, 0}, @Polyfold.proposition_6_5_4.{0, 0}⟩
 
 section BtoA
 
@@ -76,7 +76,7 @@ noncomputable def chartKerFrame (d : LocalDetChart E F) (U : Set (E →L[ℝ] F)
     have h := (d.continuousOn_kerMap_apply (Module.finBasis ℝ d.K i : E)).comp_continuous
       (continuous_subtype_val (p := fun S => S ∈ U)) fun S => hU S S.2
     exact h
-  mem S i := (d.lemma_6_18).2.1 S (hU S S.2) _ (Module.finBasis ℝ d.K i).2
+  mem S i := (d.lemma_6_5_2).2.1 S (hU S S.2) _ (Module.finBasis ℝ d.K i).2
   li S := by
     have h := (d.kerFrame_linearIndependent S (hU S S.2)).map' _ (Submodule.ker_subtype _)
     have heq : ⇑(LinearMap.ker ((d.P ∘L (S : E →L[ℝ] F) : E →L[ℝ] F) : E →ₗ[ℝ] F)).subtype ∘
@@ -252,9 +252,9 @@ end BtoA
 theorem B_to_A : B → A :=
   fun hB => ⟨fun c S hS => frame_ne_zero' c S hS, fun c c' hP => prop620 hB c c' hP⟩
 
-#rt_check RoundTrip.V6_22.B_to_A [Polyfold.LocalDetChart.frame_ne_zero, Polyfold.proposition_6_20]
+#rt_check RoundTrip.V6_22.B_to_A [Polyfold.LocalDetChart.frame_ne_zero, Polyfold.proposition_6_5_4]
 #rt_overlap RoundTrip.V6_22.B_to_A [Polyfold.LocalDetChart.frame_ne_zero,
-  Polyfold.proposition_6_20]
+  Polyfold.proposition_6_5_4]
 
 /-! `A_to_B` is not proved: see the module docstring (Lemma 6.19 for the final topologies is not
 in A and not formalized in the project). -/

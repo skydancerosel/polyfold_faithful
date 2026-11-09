@@ -5,7 +5,7 @@ import RoundTrip.Blind.V3_37
 /-!
 Round trip for V3_37 (Lemma 3.42: solutions of the push-forward are on level 1).
 
-`A` is the type of `Polyfold.StabilityData.lemma_3_42` (no universe parameters;
+`A` is the type of `Polyfold.StabilityData.lemma_3_5_5` (no universe parameters;
 `StabilityData.toShiftedBasicData` is a definition, vocabulary only): for the project's own
 coordinate change of Theorem 3.38 (`𝒮 : StabilityData`, `pushMap₀ f = Φ_*(f + s)` on the germ
 `pushGerm₀`), for every `ε > 0` there is `r > 0` such that every zero `x` with `|x|₀ < r` has its
@@ -34,9 +34,9 @@ namespace RoundTrip.V3_37
 open Polyfold
 
 /-- The project's statement: Lemma 3.42 for the coordinate change of Theorem 3.38. -/
-def A : Prop := type_of% @Polyfold.StabilityData.lemma_3_42
+def A : Prop := type_of% @Polyfold.StabilityData.lemma_3_5_5
 
-theorem A_holds : A := @Polyfold.StabilityData.lemma_3_42
+theorem A_holds : A := @Polyfold.StabilityData.lemma_3_5_5
 
 /-- **A gives B's first clause in A's own setting**: for the project's coordinate change
 (`𝒟 = 𝒮.toShiftedBasicData`), zeros `x = (a, w)` of `g` near `0` are `(a, ι δ(a))` with `a` in the
@@ -83,6 +83,6 @@ theorem zeros_eq_δ_of_A (hA : A) {P : Type} [NormedAddCommGroup P] [NormedSpace
   have hwδ : w₁ = 𝒟.δ a := 𝒟.eq_δ haN hwO hmem1 (by rw [hg₁]; rfl)
   exact ⟨haN, by rw [← hw₁, hwδ]⟩
 
-#rt_check RoundTrip.V3_37.zeros_eq_δ_of_A [Polyfold.StabilityData.lemma_3_42]
+#rt_check RoundTrip.V3_37.zeros_eq_δ_of_A [Polyfold.StabilityData.lemma_3_5_5]
 
 end RoundTrip.V3_37

@@ -2,7 +2,7 @@ import Polyfold.Chapter6.PropagationWellDefined
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-p. 227: the paragraph after **Theorem 6.35** and **Definition 6.36** (orientable neighbourhoods
+p. 227: the paragraph after **Theorem 6.6.11 (preprint 6.35)** and **Definition 6.6.12 (preprint 6.36)** (orientable neighbourhoods
 and their two continuous orientations) *(book 2017: after Theorem 6.1, Definition 6.10; see
 `BookConcordance.md`)*.
 
@@ -12,7 +12,7 @@ and their two continuous orientations) *(book 2017: after Theorem 6.1, Definitio
 
 Fixing an orientation `o_x` of `DET(f, x)`, `o_y = φ_* o_x` for an sc-smooth path `φ` in `U` from
 `x` to `y ∈ U_∞` does not depend on `φ`, and `ψ_* o_{y₁} = o_{y₂}` for every sc-smooth path `ψ`
-from `y₁` to `y₂`.  (Definition 6.36) An open contractible neighbourhood `U(x)` on which the local
+from `y₁` to `y₂`.  (Definition 6.6.12 (preprint 6.36)) An open contractible neighbourhood `U(x)` on which the local
 propagation construction can be carried out is an orientable neighbourhood of `(f, x)`; the two
 possible families of orientations of `DET(f, y)`, `y ∈ U_∞`, with the propagation property are the
 continuous orientations.  An orientable neighbourhood has precisely two continuous orientations.
@@ -21,13 +21,13 @@ continuous orientations.  An orientable neighbourhood has precisely two continuo
 
 * `HasLocalPropagation.eq_trans`: push-forwards in `U` compose along concatenated paths
   (`concatPath`, `IsPush.split`).
-* **Definition 6.36**: `IsContinuousOrientation` (orientations of `DET(f, y)`, `y ∈ V_∞`, carried
+* **Definition 6.6.12 (preprint 6.36)**: `IsContinuousOrientation` (orientations of `DET(f, y)`, `y ∈ V_∞`, carried
   into each other by the push-forwards along paths in `U`); `exists_two_isContinuousOrientation`
   (there are exactly two) and `exists_orientableNbhd` (every smooth point has such `V ⊆ U`).
 
 ## Reading
 
-The neighbourhood `U` of Proposition 6.28 is not shown to be sc-smoothly contractible (see
+The neighbourhood `U` of Proposition 6.6.3 (preprint 6.28) is not shown to be sc-smoothly contractible (see
 `OrientableNbhd.lean`).  The paths from `x` to the points of a smaller neighbourhood `V` run in `U`
 (`exists_nhds_scPath`), and the continuous orientations are defined over `V`, for paths in `U`.
 "The propagation property" is read for all sc-smooth paths in `U` between smooth points of `V`.
@@ -46,14 +46,14 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-! ### Proposition 6.32 and Theorem 6.35 -/
+/-! ### Proposition 6.6.7 (preprint 6.32) and Theorem 6.6.11 (preprint 6.35) -/
 
 section Push
 
 variable [∀ n : ℕ, ParacompactSpace ((Fin n → ℝ) × X)]
   [∀ n : ℕ, ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))]
 
-/-- **Push-forwards compose** (the paragraph after Theorem 6.35): for paths `γ₁` from `x₀` to
+/-- **Push-forwards compose** (the paragraph after Theorem 6.6.11 (preprint 6.35)): for paths `γ₁` from `x₀` to
 `x₁` and `γ₂` from `x₁` to `x₂` in `U`, a push-forward along any path in `U` from `x₀` to `x₂` is
 the composite (`concatPath`, `IsPush.split`). -/
 theorem HasLocalPropagation.eq_trans {hf : B.IsScFredholmSection f}
@@ -117,10 +117,10 @@ theorem HasLocalPropagation.eq_trans {hf : B.IsScFredholmSection f}
   subst h₁ h₂
   exact hee₃.trans h₃
 
-/-! ### Continuous orientations (Definition 6.36) -/
+/-! ### Continuous orientations (Definition 6.6.12 (preprint 6.36)) -/
 
 variable (f) in
-/-- **Definition 6.36, continuous orientations**: orientations `o_y` of `DET(f, y)` for the smooth
+/-- **Definition 6.6.12 (preprint 6.36), continuous orientations**: orientations `o_y` of `DET(f, y)` for the smooth
 points `y` of `V ⊆ U` such that `e(o_{y₁}) = o_{y₂}` for every push-forward `e` along an sc-smooth
 path in `U` from `y₁` to `y₂`. -/
 def IsContinuousOrientation (hf : B.IsScFredholmSection f) (c : StrongBundleChart PX P)
@@ -135,7 +135,7 @@ def IsContinuousOrientation (hf : B.IsScFredholmSection f) (c : StrongBundleChar
       IsPush f hf c hc γ (fun q hq => hUc (hγ q hq)) h₀ h₁ (hUc (hVU hy₁)) (hUc (hVU hy₂)) hs₁ hs₂
         e → e (o y₁ hy₁ hs₁) = o y₂ hy₂ hs₂
 
-/-- **An orientable neighbourhood has precisely two continuous orientations** (Definition 6.36):
+/-- **An orientable neighbourhood has precisely two continuous orientations** (Definition 6.6.12 (preprint 6.36)):
 for `U` with the local propagation property and `V ⊆ U` whose smooth points are joined by
 sc-smooth paths in `U`, with a smooth point in `V`. -/
 theorem exists_two_isContinuousOrientation {hf : B.IsScFredholmSection f}
@@ -195,7 +195,7 @@ variable [∀ k n : ℕ, ParacompactSpace ((Fin k → ℝ) × ((Fin n → ℝ) �
   [∀ k n : ℕ, ParacompactSpace (pullbackSpace (pullbackProj P (Prod.snd : (Fin n → ℝ) × X → X))
     (Prod.snd : (Fin k → ℝ) × ((Fin n → ℝ) × X) → (Fin n → ℝ) × X))]
 
-/-- **Orientable neighbourhoods exist** (Theorem 6.35 and Definition 6.36): every smooth point `x`
+/-- **Orientable neighbourhoods exist** (Theorem 6.6.11 (preprint 6.35) and Definition 6.6.12 (preprint 6.36)): every smooth point `x`
 has open `V ⊆ U` in the domain of a chart, `x ∈ V`, with `U` having the local propagation property
 and exactly two continuous orientations over `V`. -/
 theorem exists_orientableNbhd (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
@@ -210,7 +210,7 @@ theorem exists_orientableNbhd (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
         IsContinuousOrientation f hf.toIsScFredholmSection c hc hU.subset hVU o₂ ∧ o₁ ≠ o₂ ∧
         ∀ o, IsContinuousOrientation f hf.toIsScFredholmSection c hc hU.subset hVU o →
           o = o₁ ∨ o = o₂ := by
-  obtain ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_35 hX hbump hf hx
+  obtain ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_6_11 hX hbump hf hx
   obtain ⟨V, hVo, hxV, hVU, hpath⟩ := exists_nhds_scPath hc hUo hU.subset hxU
   exact ⟨c, hc, U, V, hU, hVU, hUo, hVo, hxV,
     exists_two_isContinuousOrientation hU hVU hxV hx hpath hsec⟩

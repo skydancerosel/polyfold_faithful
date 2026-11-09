@@ -6,30 +6,30 @@ import RoundTrip.Blind.V3_8
 Refreshed 2026-11-02 against HEAD (germ reading of Definition 3.4; new conjuncts in the row).
 
 `A` is the conjunction of the types of the listed theorems (universes at `0`):
-the whole-chart filler lemmas `Polyfold.IsFillerOf.proposition_3_5`, `deriv_comp_r_eq_zero`,
-`exists_kerEquiv`, `scDeriv_section_comp_r`, the abstract linear algebra `Polyfold.proposition_3_5`
+the whole-chart filler lemmas `Polyfold.IsFillerOf.proposition_3_1_5`, `deriv_comp_r_eq_zero`,
+`exists_kerEquiv`, `scDeriv_section_comp_r`, the abstract linear algebra `Polyfold.proposition_3_1_5_preprint`
 (universes `0, 0`), `Polyfold.StrongRetr.scDeriv_fiber_zero`, the sc-form results
-`Polyfold.IsScFredholm.restrict`, `IsFillerOf.proposition_3_5_sc`, `filler_condition_three_sc`,
-`proposition_3_5_sc_converse`, `proposition_3_5_sc_iff`, and their germ versions
-`Polyfold.IsFillingGerm.proposition_3_5`, `exists_kerEquiv`, `deriv_comp_r_eq_zero`,
-`proposition_3_5_sc`, `filler_condition_three_sc`, `proposition_3_5_sc_converse`,
-`proposition_3_5_sc_iff`.  `fillerRestrict`, `fillerRestrict_kerEquiv`, `fillerRestrict_cokerEquiv`
+`Polyfold.IsScFredholm.restrict`, `IsFillerOf.proposition_3_1_5_sc`, `filler_condition_three_sc`,
+`proposition_3_1_5_sc_converse`, `proposition_3_1_5_sc_iff`, and their germ versions
+`Polyfold.IsFillingGerm.proposition_3_1_5`, `exists_kerEquiv`, `deriv_comp_r_eq_zero`,
+`proposition_3_1_5_sc`, `filler_condition_three_sc`, `proposition_3_1_5_sc_converse`,
+`proposition_3_1_5_sc_iff`.  `fillerRestrict`, `fillerRestrict_kerEquiv`, `fillerRestrict_cokerEquiv`
 are definitions (vocabulary).
 
 * `A → B` is now PROVED (`A_to_B`).  At the audit A only had whole-chart lemmas (filler `g`
   sc-smooth on all of `U`), which a germ filler does not satisfy.  A now contains the germ forms
-  `IsFillingGerm.proposition_3_5` and `IsFillingGerm.exists_kerEquiv`, which take any derivative
+  `IsFillingGerm.proposition_3_1_5` and `IsFillingGerm.exists_kerEquiv`, which take any derivative
   family `Dg` of the germ `g` on a germ `G ⊆ U`.  Glue: B's `IsFillingB` (with the section
   property globalised by `𝐟'(x) = ρ(x)𝐟(x)`) is an `IsFillingGerm` (the fill defect's derivative
   family is `fillDefectDeriv`, `Dk(0) = Lk` by uniqueness on the germ); B's `Lr, Lg, ρ₀` are
   `scDeriv U r 0`, `Dg(0)`, `ρCLM` by uniqueness of the derivative on the germ's level `1`
   (locally equal to `U₁`); B's `Lf = D(𝐟 ∘ r)(0) = D(g ∘ r)(0) = Dg(0)Dr(0)` by locality and the
   germ chain rule `IsSc1GermWith.comp_preimage` (a project lemma, not in A); then the germ
-  `proposition_3_5` and `exists_kerEquiv` give (ii)–(v); `restrictB Lf` is `fillerRestrict`, B's
+  `IsFillingGerm.proposition_3_1_5` and `exists_kerEquiv` give (ii)–(v); `restrictB Lf` is `fillerRestrict`, B's
   `IsFredholmB`/`indexB` are Mathlib's `IsFredholm`/`fredholmIndex` between Banach spaces.
   The audit's whole-chart special case `A_to_B_wholeU` is kept.
 * `B → A` is NOT proved: A contains statements B does not speak about — the abstract
-  linear-algebra `proposition_3_5` for arbitrary Banach spaces (B only concerns sc-spaces, whose
+  linear-algebra `proposition_3_1_5_preprint` for arbitrary Banach spaces (B only concerns sc-spaces, whose
   level-0 spaces are separable), the fibre derivative `scDeriv_fiber_zero`, the sc-level
   statements (`IsScFredholm.restrict`, the `…_sc` lemmas: sc-Fredholmness of `Tf(0)` and `Dg(0)`
   on every level), and the whole-chart lemmas whose hypotheses (no germ-smooth `𝐟 ∘ r`, no given
@@ -40,35 +40,35 @@ open Polyfold Set Filter Topology StrongRetr Function
 
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.IsFillerOf.proposition_3_5) ∧ (type_of% @Polyfold.proposition_3_5.{0, 0}) ∧
+  (type_of% @Polyfold.IsFillerOf.proposition_3_1_5) ∧ (type_of% @Polyfold.proposition_3_1_5_preprint.{0, 0}) ∧
     (type_of% @Polyfold.StrongRetr.scDeriv_fiber_zero) ∧
     (type_of% @Polyfold.IsFillerOf.deriv_comp_r_eq_zero) ∧
     (type_of% @Polyfold.IsFillerOf.exists_kerEquiv) ∧
     (type_of% @Polyfold.IsFillerOf.scDeriv_section_comp_r) ∧
     (type_of% @Polyfold.IsScFredholm.restrict) ∧
-    (type_of% @Polyfold.IsFillerOf.proposition_3_5_sc) ∧
+    (type_of% @Polyfold.IsFillerOf.proposition_3_1_5_sc) ∧
     (type_of% @Polyfold.IsFillerOf.filler_condition_three_sc) ∧
-    (type_of% @Polyfold.IsFillerOf.proposition_3_5_sc_converse) ∧
-    (type_of% @Polyfold.IsFillerOf.proposition_3_5_sc_iff) ∧
-    (type_of% @Polyfold.IsFillingGerm.proposition_3_5) ∧
+    (type_of% @Polyfold.IsFillerOf.proposition_3_1_5_sc_converse) ∧
+    (type_of% @Polyfold.IsFillerOf.proposition_3_1_5_sc_iff) ∧
+    (type_of% @Polyfold.IsFillingGerm.proposition_3_1_5) ∧
     (type_of% @Polyfold.IsFillingGerm.exists_kerEquiv) ∧
     (type_of% @Polyfold.IsFillingGerm.deriv_comp_r_eq_zero) ∧
-    (type_of% @Polyfold.IsFillingGerm.proposition_3_5_sc) ∧
+    (type_of% @Polyfold.IsFillingGerm.proposition_3_1_5_sc) ∧
     (type_of% @Polyfold.IsFillingGerm.filler_condition_three_sc) ∧
-    (type_of% @Polyfold.IsFillingGerm.proposition_3_5_sc_converse) ∧
-    (type_of% @Polyfold.IsFillingGerm.proposition_3_5_sc_iff)
+    (type_of% @Polyfold.IsFillingGerm.proposition_3_1_5_sc_converse) ∧
+    (type_of% @Polyfold.IsFillingGerm.proposition_3_1_5_sc_iff)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.IsFillerOf.proposition_3_5, @Polyfold.proposition_3_5.{0, 0},
+  ⟨@Polyfold.IsFillerOf.proposition_3_1_5, @Polyfold.proposition_3_1_5_preprint.{0, 0},
     @Polyfold.StrongRetr.scDeriv_fiber_zero, @Polyfold.IsFillerOf.deriv_comp_r_eq_zero,
     @Polyfold.IsFillerOf.exists_kerEquiv, @Polyfold.IsFillerOf.scDeriv_section_comp_r,
-    @Polyfold.IsScFredholm.restrict, @Polyfold.IsFillerOf.proposition_3_5_sc,
-    @Polyfold.IsFillerOf.filler_condition_three_sc, @Polyfold.IsFillerOf.proposition_3_5_sc_converse,
-    @Polyfold.IsFillerOf.proposition_3_5_sc_iff, @Polyfold.IsFillingGerm.proposition_3_5,
+    @Polyfold.IsScFredholm.restrict, @Polyfold.IsFillerOf.proposition_3_1_5_sc,
+    @Polyfold.IsFillerOf.filler_condition_three_sc, @Polyfold.IsFillerOf.proposition_3_1_5_sc_converse,
+    @Polyfold.IsFillerOf.proposition_3_1_5_sc_iff, @Polyfold.IsFillingGerm.proposition_3_1_5,
     @Polyfold.IsFillingGerm.exists_kerEquiv, @Polyfold.IsFillingGerm.deriv_comp_r_eq_zero,
-    @Polyfold.IsFillingGerm.proposition_3_5_sc, @Polyfold.IsFillingGerm.filler_condition_three_sc,
-    @Polyfold.IsFillingGerm.proposition_3_5_sc_converse,
-    @Polyfold.IsFillingGerm.proposition_3_5_sc_iff⟩
+    @Polyfold.IsFillingGerm.proposition_3_1_5_sc, @Polyfold.IsFillingGerm.filler_condition_three_sc,
+    @Polyfold.IsFillingGerm.proposition_3_1_5_sc_converse,
+    @Polyfold.IsFillingGerm.proposition_3_1_5_sc_iff⟩
 
 /-- B restricted to fillers `g` that are sc-smooth on the whole `U` (the project's setting). -/
 def B_wholeU : Prop :=
@@ -308,16 +308,16 @@ theorem A_to_B_wholeU : A → B_wholeU := by
     · exact (fredB_iff _).trans (hfred.trans (fredB_iff _).symm)
     · exact (indexB_eq _).trans (hind.trans (indexB_eq _).symm)
 
-#rt_check RoundTrip.V3_8.A_to_B_wholeU [Polyfold.IsFillerOf.proposition_3_5,
-  Polyfold.proposition_3_5, Polyfold.StrongRetr.scDeriv_fiber_zero,
+#rt_check RoundTrip.V3_8.A_to_B_wholeU [Polyfold.IsFillerOf.proposition_3_1_5,
+  Polyfold.proposition_3_1_5_preprint, Polyfold.StrongRetr.scDeriv_fiber_zero,
   Polyfold.IsFillerOf.deriv_comp_r_eq_zero, Polyfold.IsFillerOf.exists_kerEquiv,
   Polyfold.IsFillerOf.scDeriv_section_comp_r, Polyfold.IsScFredholm.restrict,
-  Polyfold.IsFillerOf.proposition_3_5_sc, Polyfold.IsFillerOf.filler_condition_three_sc,
-  Polyfold.IsFillerOf.proposition_3_5_sc_converse, Polyfold.IsFillerOf.proposition_3_5_sc_iff,
-  Polyfold.IsFillingGerm.proposition_3_5, Polyfold.IsFillingGerm.exists_kerEquiv,
-  Polyfold.IsFillingGerm.deriv_comp_r_eq_zero, Polyfold.IsFillingGerm.proposition_3_5_sc,
+  Polyfold.IsFillerOf.proposition_3_1_5_sc, Polyfold.IsFillerOf.filler_condition_three_sc,
+  Polyfold.IsFillerOf.proposition_3_1_5_sc_converse, Polyfold.IsFillerOf.proposition_3_1_5_sc_iff,
+  Polyfold.IsFillingGerm.proposition_3_1_5, Polyfold.IsFillingGerm.exists_kerEquiv,
+  Polyfold.IsFillingGerm.deriv_comp_r_eq_zero, Polyfold.IsFillingGerm.proposition_3_1_5_sc,
   Polyfold.IsFillingGerm.filler_condition_three_sc,
-  Polyfold.IsFillingGerm.proposition_3_5_sc_converse, Polyfold.IsFillingGerm.proposition_3_5_sc_iff]
+  Polyfold.IsFillingGerm.proposition_3_1_5_sc_converse, Polyfold.IsFillingGerm.proposition_3_1_5_sc_iff]
 
 section GermGlue
 variable {E F : ScBanach} {C U : Set (E.lvl 0)} {R : E.lvl 0 × F.lvl 0 → E.lvl 0 × F.lvl 0}
@@ -365,7 +365,7 @@ theorem kerEquiv_of_bij {V W : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
 
 end GermGlue
 
-/-- **A ⇒ B** (the germ reading): through A's `IsFillingGerm.proposition_3_5` and
+/-- **A ⇒ B** (the germ reading): through A's `IsFillingGerm.proposition_3_1_5` and
 `IsFillingGerm.exists_kerEquiv`. -/
 theorem A_to_B : A → B := by
   intro hA E F C U R hU hR h0 _ht hr0 fb g hfK hfill hfb0 Lr Lg Lf ρ₀ hLr hLg hLf hρ₀
@@ -495,15 +495,15 @@ theorem A_to_B : A → B := by
     · exact (fredB_iff _).trans (hfred.trans (fredB_iff _).symm)
     · exact (indexB_eq _).trans (hind.trans (indexB_eq _).symm)
 
-#rt_check RoundTrip.V3_8.A_to_B [Polyfold.IsFillerOf.proposition_3_5,
-  Polyfold.proposition_3_5, Polyfold.StrongRetr.scDeriv_fiber_zero,
+#rt_check RoundTrip.V3_8.A_to_B [Polyfold.IsFillerOf.proposition_3_1_5,
+  Polyfold.proposition_3_1_5_preprint, Polyfold.StrongRetr.scDeriv_fiber_zero,
   Polyfold.IsFillerOf.deriv_comp_r_eq_zero, Polyfold.IsFillerOf.exists_kerEquiv,
   Polyfold.IsFillerOf.scDeriv_section_comp_r, Polyfold.IsScFredholm.restrict,
-  Polyfold.IsFillerOf.proposition_3_5_sc, Polyfold.IsFillerOf.filler_condition_three_sc,
-  Polyfold.IsFillerOf.proposition_3_5_sc_converse, Polyfold.IsFillerOf.proposition_3_5_sc_iff,
-  Polyfold.IsFillingGerm.proposition_3_5, Polyfold.IsFillingGerm.exists_kerEquiv,
-  Polyfold.IsFillingGerm.deriv_comp_r_eq_zero, Polyfold.IsFillingGerm.proposition_3_5_sc,
+  Polyfold.IsFillerOf.proposition_3_1_5_sc, Polyfold.IsFillerOf.filler_condition_three_sc,
+  Polyfold.IsFillerOf.proposition_3_1_5_sc_converse, Polyfold.IsFillerOf.proposition_3_1_5_sc_iff,
+  Polyfold.IsFillingGerm.proposition_3_1_5, Polyfold.IsFillingGerm.exists_kerEquiv,
+  Polyfold.IsFillingGerm.deriv_comp_r_eq_zero, Polyfold.IsFillingGerm.proposition_3_1_5_sc,
   Polyfold.IsFillingGerm.filler_condition_three_sc,
-  Polyfold.IsFillingGerm.proposition_3_5_sc_converse, Polyfold.IsFillingGerm.proposition_3_5_sc_iff]
+  Polyfold.IsFillingGerm.proposition_3_1_5_sc_converse, Polyfold.IsFillingGerm.proposition_3_1_5_sc_iff]
 
 end RoundTrip.V3_8

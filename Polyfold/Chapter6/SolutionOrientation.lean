@@ -3,15 +3,15 @@ import Polyfold.Chapter6.PushTransfer
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 229:
-**Theorem 6.41** *(book 2017: Theorem 6.3; see `BookConcordance.md`)*.
+**Theorem 6.6.18 (preprint 6.41)** *(book 2017: Theorem 6.3; see `BookConcordance.md`)*.
 
 # The natural orientation of the solution set
 
 ## The text, paraphrased
 
-(Theorem 6.41) Let `P : Y → X` be a strong bundle over a tame M-polyfold, `f` a proper
+(Theorem 6.6.18 (preprint 6.41)) Let `P : Y → X` be a strong bundle over a tame M-polyfold, `f` a proper
 sc-Fredholm section such that `(f, x)` is in general position to `∂X` at every zero `x`, and `o_f`
-an orientation of `f` (Definition 6.40).  Then the solution set `S = f⁻¹(0)` is a smooth compact
+an orientation of `f` (Definition 6.6.16 (preprint 6.40)).  Then the solution set `S = f⁻¹(0)` is a smooth compact
 manifold with boundary with corners with a natural orientation.  (Proof) That `S` is a compact
 manifold with boundary with corners is known from the transversality discussion.  At `x ∈ S`,
 `ker f'(x) = T_xS`, and since `f'(x)` is onto, `T_xS` is oriented by `o_f(x)`.  Since `o_f` has
@@ -22,13 +22,13 @@ oriented from `DET(f, x)`.
 
 ## What is formalized
 
-* **The first assertion**: `theorem_6_41_solutionSet`, the conclusions
-  `SolutionSetInGeneralPosition` of Theorem 5.18 (`S` compact, a smooth submanifold in general
+* **The first assertion**: `theorem_6_6_18_solutionSet`, the conclusions
+  `SolutionSetInGeneralPosition` of Theorem 5.3.10 (preprint 5.18) (`S` compact, a smooth submanifold in general
   position, with the induced structure of a tame manifold with boundary with corners and
   `d_S = d_X`), from Chapters 4 and 5;
-  `MPolyfold.IsGeneralPositionAt.isGoodPositionAt` (Lemma 4.19: general position implies good
+  `MPolyfold.IsGeneralPositionAt.isGoodPositionAt` (Lemma 4.2.8 (preprint 4.19): general position implies good
   position in a tame M-polyfold).
-* **`T_xS = ker f'(x)`**: `tangentSpace_solutionSet_eq_linKer` (from Theorem 3.54,
+* **`T_xS = ker f'(x)`**: `tangentSpace_solutionSet_eq_linKer` (from Theorem 3.6.8 (preprint 3.54),
   `exists_tangentSpace_eq_linKer`).
 * **The tangent orientation**: in a chart point `p` at a zero `x`, `ChartPoint.linZero`, the
   operator `f'(x) : T_zO → K_z`, with `linZero_mem_linSet` (`f'(x) ∈ Lin(f, x)`),
@@ -36,12 +36,12 @@ oriented from `DET(f, x)`.
   `ChartPoint.tangentOr`: `Or_x^f ≃` the orientations of `λ(ker f'(x))`, `o ↦ o(f'(x))` followed
   by `det f'(x) = λ(ker f'(x)) ⊗ λ(coker f'(x))* ≅ λ(ker f'(x))` (`detEquivOfSurjective`);
   `tangentOrAt`, the same in the chart point `chartPtOf c hc`.
-* **Naturality**: `exists_tangentFamily`, `tangentFamily`, `tangentFamily_L` (Lemma 6.30: along an
+* **Naturality**: `exists_tangentFamily`, `tangentFamily`, `tangentFamily_L` (Lemma 6.6.5 (preprint 6.30): along an
   sc-smooth path of zeros the kernels `ker f'(γ_q)` form a `SubspaceFamily`); `cont_tangentOr`
   (for a continuous orientation, continuation in `λ(Λ)` carries the tangent orientation at `δ(0)`
   to the one at `δ(1)`); `isLineOrientation_tangentOr` (along a path of zeros in `V` the tangent
   orientations form an orientation of the line bundle `λ(Λ)`);
-  `isLineOrientation_tangentOr_of_isSectionOrientation`; **Theorem 6.41**: `theorem_6_41`.
+  `isLineOrientation_tangentOr_of_isSectionOrientation`; **Theorem 6.6.18 (preprint 6.41)**: `theorem_6_6_18_hyp`.
 * Tools: the stabilization by `ℝ⁰` of an onto operator (`stabJ_surjective_zero`,
   `stabSign_of_surjective`, `stabIota_trans_zero`, `stabRayEquiv_zero`), `kerEquivOfMap`,
   `surjRay`, `stabRayEquiv_eq_surjRay`, `ChartPoint.stabRayEquiv_eq_tangentOr`;
@@ -61,24 +61,24 @@ oriented from `DET(f, x)`.
 ray of `det f'(x)`, and as `f'(x)` is onto, `det f'(x) ≅ λ(ker f'(x))`.
 
 "The local prolongation of the orientation of `S` is the Fredholm one" is read as: along every
-sc-smooth path `γ` of zeros in an orientable neighbourhood `V ⊆ U` (Definition 6.36), in its chart
-`c`, the kernels `ker f'(γ_q)` form a continuous family of subspaces `Λ` (Lemma 6.30), and the
+sc-smooth path `γ` of zeros in an orientable neighbourhood `V ⊆ U` (Definition 6.6.12 (preprint 6.36)), in its chart
+`c`, the kernels `ker f'(γ_q)` form a continuous family of subspaces `Λ` (Lemma 6.6.5 (preprint 6.30)), and the
 tangent orientations form an orientation of its line bundle `λ(Λ)` (`IsLineOrientation`): the
 continuous prolongation in `λ(Λ)` of the tangent orientation at `γ(0)` is the tangent orientation
 at every `γ(t)`.  The Fredholm side is the push-forward of pp. 222–224 for the datum `S = 0`,
 `k = 0`: along a path of zeros with `f'` onto the constant zero section is admissible, the
 kernels are `(v, 0)`, `v ∈ ker f'(γ_q)`, and the push-forward is continuation in `λ(Λ)` between
-the tangent orientations; a continuous orientation is invariant under it (Definition 6.36).  For an
+the tangent orientations; a continuous orientation is invariant under it (Definition 6.6.12 (preprint 6.36)).  For an
 intermediate point `γ(t)` we use the path `s ↦ γ(t · κ(s))`, `κ = Real.smoothTransition`, which is
 sc-smooth and stays in `γ([0, t])` for all `s ∈ ℝ` (the push-forward datum asks for zeros near
 `[0, 1]`).  The hypothesis `IsContinuousOrientation` of `isLineOrientation_tangentOr` is
 satisfiable: over an orientable neighbourhood there are two continuous orientations
-(`exists_two_isContinuousOrientation`); the hypothesis `IsSectionOrientation` of `theorem_6_41`
-(Definition 6.40) is satisfiable exactly when `f` is orientable (`exists_isSectionOrientation_iff`,
+(`exists_two_isContinuousOrientation`); the hypothesis `IsSectionOrientation` of `theorem_6_6_18_hyp`
+(Definition 6.6.16 (preprint 6.40)) is satisfiable exactly when `f` is orientable (`exists_isSectionOrientation_iff`,
 `OrientationFunctor.lean`).
 
 "Proper" is `StrongBundle.IsProper`; only the compactness of `S` is used.  "In general position to
-`∂X`" is `IsGeneralPositionGerm` (Definition 5.17); it gives `f'(x)` onto and the good position of
+`∂X`" is `IsGeneralPositionGerm` (Definition 5.3.9 (preprint 5.17)); it gives `f'(x)` onto and the good position of
 the germ.  The section has tame germ data (`IsScFredholmSectionTame`), the standing hypothesis of
 Chapter 5.  "Natural orientation" is formalized as the tangent orientations `tangentOr` together
 with their continuity along paths of zeros in orientable neighbourhoods; the orientation of `S` as
@@ -149,7 +149,7 @@ theorem stabIota_trans_zero (hT : T.IsFredholm) (hTs : Function.Surjective T)
       finrank ℝ (LinearMap.ker ((T.coprod φ : E × (Fin 0 → ℝ) →L[ℝ] F) :
         E × (Fin 0 → ℝ) →ₗ[ℝ] F)) :=
     (LinearEquiv.ofBijective (stabJ T φ) ⟨stabJ_injective, stabJ_surjective_zero⟩).finrank_eq
-  have h615 := proposition_6_15 hT hφ a cbar hd hm bbar hb hkl rfl
+  have h615 := proposition_6_4_15 hT hφ a cbar hd hm bbar hb hkl rfl
   have hone : stabOne hφ (emptyWedge _ (finrank_coker_of_surjective hφ)) = 1 :=
     dualVec_self finrank_maxPow (emptyWedge_ne_zero _ (finrank_coker_of_surjective hφ))
   have hcb : stabClass T φ ∘ cbar = Fin.elim0 := funext fun i => i.elim0
@@ -260,9 +260,9 @@ namespace MPolyfold
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX : MPolyfold X}
 
-/-- **General position implies good position** (Definitions 4.21 and 4.16) for a smooth
+/-- **General position implies good position** (Definitions 4.2.10 and 4.2.5 (preprint 4.21 and 4.16)) for a smooth
 finite-dimensional submanifold of a tame M-polyfold: in a tame chart centred at `a`, an
-sc-complement of `T_aA` inside `T_a^R X` is a good complement (Lemma 4.19 through
+sc-complement of `T_aA` inside `T_a^R X` is a good complement (Lemma 4.2.8 (preprint 4.19) through
 `IsGeneralPositionRetractAt.isGoodPositionRetractAt`). -/
 theorem IsGeneralPositionAt.isGoodPositionAt (hX : PX.IsTame) {A : Set X}
     (hA : PX.IsSmoothSubmanifold A) {a : X} (h : PX.IsGeneralPositionAt A a) :
@@ -293,16 +293,16 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **Theorem 6.41, first assertion** ("we already know from the transversality discussion"): for
+/-- **Theorem 6.6.18 (preprint 6.41), first assertion** ("we already know from the transversality discussion"): for
 a proper sc-Fredholm section `f` with tame germ data over a tame M-polyfold, in general position
-(Definition 5.17) at every zero, the solution set `S = f⁻¹(0)` is compact, a smooth
-finite-dimensional submanifold (Definition 4.13) in general position (Definition 4.21) whose
-induced structure is that of a tame manifold with boundary with corners (Definition 4.1)
-(`SolutionSetInGeneralPosition`).  *Proof*: Theorem 4.13 (`isSmoothSubmanifold_solutionSet_inter`)
+(Definition 5.3.9 (preprint 5.17)) at every zero, the solution set `S = f⁻¹(0)` is compact, a smooth
+finite-dimensional submanifold (Definition 4.2.1 (preprint 4.13)) in general position (Definition 4.2.10 (preprint 4.21)) whose
+induced structure is that of a tame manifold with boundary with corners (Definition 4.1.1 (preprint 4.1))
+(`SolutionSetInGeneralPosition`).  *Proof*: Definition 4.2.1 (preprint 4.13) (`isSmoothSubmanifold_solutionSet_inter`)
 for the submanifold, `exists_isOpen_isGeneralPositionGerm` for the general position of `S`,
-Lemma 4.19 for good position (`IsGeneralPositionAt.isGoodPositionAt`), Theorems 4.18 and 4.22 for
+Lemma 4.2.8 (preprint 4.19) for good position (`IsGeneralPositionAt.isGoodPositionAt`), Theorems 4.2.7 and 4.2.11 (preprint 4.18 and 4.22) for
 the corner structure, tameness and the degeneracy index. -/
-theorem theorem_6_41_solutionSet (hX : PX.IsTame) (hf : B.IsScFredholmSectionTame f)
+theorem theorem_6_6_18_solutionSet (hX : PX.IsTame) (hf : B.IsScFredholmSectionTame f)
     (hP : B.IsProper f) (hgp : ∀ x, IsZeroAt P f x → B.IsGeneralPositionGerm f x) :
     B.SolutionSetInGeneralPosition f := by
   have hS : IsCompact (solutionSet P f) := hP.1
@@ -321,13 +321,13 @@ theorem theorem_6_41_solutionSet (hX : PX.IsTame) (hf : B.IsScFredholmSectionTam
   have hgoodS : ∀ y ∈ solutionSet P f, PX.IsGoodPositionAt (solutionSet P f) y := fun y hy =>
     (hgpS y hy).isGoodPositionAt hX hSm
   have := PX.paracompactSpace_subtype (solutionSet P f)
-  obtain ⟨hcs, htameS⟩ := MPolyfold.theorem_4_18 hX hSm hgoodS
+  obtain ⟨hcs, htameS⟩ := MPolyfold.theorem_4_2_7 hX hSm hgoodS
   refine ⟨htr, hgp, hS, hSm, hgpS, hcs, htameS, fun a => ?_⟩
   obtain ⟨-, -, -, -, -, -, -, -, -, -, -, Ua, -, haU, -, -, -, hdeg, -, -⟩ :=
-    MPolyfold.theorem_4_22 hX hSm (hgpS a a.2)
+    MPolyfold.theorem_4_2_11_preprint hX hSm (hgpS a a.2)
   exact hdeg a haU
 
-/-- **`T_yS = ker f'(y)`** (the proof of Theorem 6.41, from Theorem 3.54): at a zero `y` with
+/-- **`T_yS = ker f'(y)`** (the proof of Theorem 6.6.18 (preprint 6.41), from Theorem 3.6.8 (preprint 3.54)): at a zero `y` with
 `(f, y)` in general position there is an open `W ∋ y` such that, in every chart `c` at `y` and for
 every open `G ⊆ W ∩ dom φ` containing `y` with `φ(G ∩ S)` a retract (`S = f⁻¹(0)`), the tangent
 space of `φ(G ∩ S)` at the level-`1` point `z` over `φ(y)` is the kernel of `Lin(z) = f'(y)`
@@ -373,7 +373,7 @@ theorem coe_linZero (hf : B.IsScFredholmSection f) (hx : IsZeroAt P f x) (v : �
     (p.linZero hf hx v : p.c.F 0) = linAt p.c.U p.c.R (p.c.principal f) p.z v :=
   rfl
 
-/-- `f'(x) ∈ Lin(f, x)` at a zero (with the sc⁺-section `s = 0` of Definition 6.1). -/
+/-- `f'(x) ∈ Lin(f, x)` at a zero (with the sc⁺-section `s = 0` of Definition 6.2.1 (preprint 6.1)). -/
 theorem linZero_mem_linSet (hf : B.IsScFredholmSection f) (hx : IsZeroAt P f x) :
     p.linZero hf hx ∈ p.linSet f := by
   have h0 := sectionAdd_fiberZero hf.isScSmooth.1
@@ -393,7 +393,7 @@ theorem linZero_surjective (hf : B.IsScFredholmSection f) (hx : IsZeroAt P f x)
   exact ⟨v, Subtype.ext hv⟩
 
 /-- **`ker f'(x)` as a subspace of `E₀`**: the image of `ker linZero` in `E₀` is `c.linKer f z`
-(the kernel of `Lin(z)`, Theorem 3.54 (4): `T_xS = ker f'(x)`). -/
+(the kernel of `Lin(z)`, Theorem 3.6.8 (preprint 3.54) (4): `T_xS = ker f'(x)`). -/
 theorem map_ker_linZero (hf : B.IsScFredholmSection f) (hx : IsZeroAt P f x) :
     (LinearMap.ker ((p.linZero hf hx : ↥p.T →L[ℝ] ↥p.K) : ↥p.T →ₗ[ℝ] ↥p.K)).map
       (p.T.subtypeL : ↥p.T →ₗ[ℝ] p.c.φ.model.E 0) = p.c.linKer f p.z := by
@@ -407,7 +407,7 @@ theorem map_ker_linZero (hf : B.IsScFredholmSection f) (hx : IsZeroAt P f x) :
   rw [hker]
   rfl
 
-/-- **The tangent orientation** (Theorem 6.41): for a zero `x` with `f'(x)` onto, the orientation
+/-- **The tangent orientation** (Theorem 6.6.18 (preprint 6.41)): for a zero `x` with `f'(x)` onto, the orientation
 `o` of `DET(f, x)` gives the ray `o(f'(x)) ∈ Ray(det f'(x))`, read in `λ(ker f'(x))`
 (`det f'(x) = λ(ker f'(x)) ⊗ λ*({0}) ≅ λ(ker f'(x))`, `surjRay`) with `ker f'(x) ⊆ E₀` the kernel
 `c.linKer f z` of `Lin(z)`: an orientation of `T_xS = ker f'(x)`. -/
@@ -556,7 +556,7 @@ theorem IsStabKernels.orRay_eq_tangentOr {Q : Type*} [TopologicalSpace Q]
 
 /-! ### The tangent family along a path of zeros -/
 
-/-- **The kernels along a path of zeros form a continuous family** (Lemma 6.30): for an sc-smooth
+/-- **The kernels along a path of zeros form a continuous family** (Lemma 6.6.5 (preprint 6.30)): for an sc-smooth
 path `γ` with `γ([0, 1])` in the domain of `c`, through zeros of `f` in general position, the
 kernels `ker f'(γ_q) = ker Lin(z_q) ⊆ E₀` at the level-`1` lifts `z_q` of `φ(γ_q)` form a
 `SubspaceFamily` over `[0, 1]`. -/
@@ -712,12 +712,12 @@ abbrev tangentOrAt (hf : B.IsScFredholmSection f) (c : StrongBundleChart PX P) (
   (chartPtOf c hc hy hys).tangentOr hf hy0 hyL
 
 /-- **The tangent orientations of a continuous orientation are continued into each other along a
-path of zeros** (the core of Theorem 6.41): for a continuous orientation `o` over `V ⊆ U`
-(Definition 6.36) and an sc-smooth path `δ` with values in `V`, through zeros of `f` with `f'`
+path of zeros** (the core of Theorem 6.6.18 (preprint 6.41)): for a continuous orientation `o` over `V ⊆ U`
+(Definition 6.6.12 (preprint 6.36)) and an sc-smooth path `δ` with values in `V`, through zeros of `f` with `f'`
 onto, and a family `Λ` of the kernels `ker f'(δ_q) ⊆ E₀` over `[0, 1]`, continuing the tangent
 orientation at `δ(0)` in `λ(Λ)` gives the tangent orientation at `δ(1)`.  *Proof*: `S = 0`, `k = 0`
 and the kernels `(v, 0)` form a push-forward datum (`isStabKernels_zero`); `o` is invariant under
-the push-forward (Definition 6.36), which is continuation between the orientations read in `λ(Λ')`
+the push-forward (Definition 6.6.12 (preprint 6.36)), which is continuation between the orientations read in `λ(Λ')`
 (`push_eq_orRay`); these are the tangent orientations (`orRay_zero`), and continuation commutes
 with `v ↦ (v, 0)` (`SubspaceFamily.cont_map`). -/
 theorem cont_tangentOr (hf : B.IsScFredholmSection f) {c : StrongBundleChart PX P}
@@ -790,8 +790,8 @@ theorem cont_tangentOr (hf : B.IsScFredholmSection f) {c : StrongBundleChart PX 
     (congrArg (Λ'.cont iccZero iccOne) h0e.symm).trans <| h2.trans h1e
   exact (Module.Ray.map (maxPowEquiv (e iccOne))).injective key
 
-/-- **Theorem 6.41, naturality of the tangent orientations along a path of zeros**: for a
-continuous orientation `o` over `V ⊆ U` (Definition 6.36) and an sc-smooth path `γ` with
+/-- **Theorem 6.6.18 (preprint 6.41), naturality of the tangent orientations along a path of zeros**: for a
+continuous orientation `o` over `V ⊆ U` (Definition 6.6.12 (preprint 6.36)) and an sc-smooth path `γ` with
 `γ([0, 1]) ⊆ V`, through zeros of `f` in general position, the tangent orientations
 `q ↦ tangentOr(o_{γ_q})` of `λ(ker f'(γ_q))` form an orientation of the line bundle `λ(Λ)` of the
 tangent family `Λ_q = ker f'(γ_q) = T_{γ_q}S` (`tangentFamily`): they vary continuously.
@@ -857,8 +857,8 @@ theorem isLineOrientation_tangentOr (hft : B.IsScFredholmSectionTame f)
   exact h1
 
 /-- **The natural orientation of `S` along paths, for an orientation of `f`**: for an orientation
-`o` of `f` (Definition 6.40), an orientable neighbourhood `V ⊆ U` of a smooth point `x₀` in the
-chart `c` (Definition 6.36) and an sc-smooth path `γ` with `γ([0, 1]) ⊆ V` through zeros of `f` in
+`o` of `f` (Definition 6.6.16 (preprint 6.40)), an orientable neighbourhood `V ⊆ U` of a smooth point `x₀` in the
+chart `c` (Definition 6.6.12 (preprint 6.36)) and an sc-smooth path `γ` with `γ([0, 1]) ⊆ V` through zeros of `f` in
 general position, the tangent orientations of `T_{γ_q}S = ker f'(γ_q)` by `o_{γ_q}` (read in `c`
 by `restrictOr`) form an orientation of the line bundle `λ(Λ)` of the tangent family
 (`isLineOrientation_tangentOr`, `o` being a continuous orientation over `V`). -/
@@ -881,15 +881,15 @@ theorem isLineOrientation_tangentOr_of_isSectionOrientation (hft : B.IsScFredhol
           (hft.toIsScFredholmSection.mem_smoothSet_of_isZeroAt (hγ0 q q.2))) :=
   isLineOrientation_tangentOr hft (ho x₀ hx₀ c hc U V hN) hγs hγV hγ0 hγgp
 
-/-- **Theorem 6.41**: let `P : Y → X` be a strong bundle over a tame M-polyfold, `f` a proper
+/-- **Theorem 6.6.18 (preprint 6.41)**: let `P : Y → X` be a strong bundle over a tame M-polyfold, `f` a proper
 sc-Fredholm section (with tame germ data) such that `(f, x)` is in general position at every
-zero `x`, and `o` an orientation of `f` (Definition 6.40).  Then (1) `S = f⁻¹(0)` is a compact
-manifold with boundary with corners (`SolutionSetInGeneralPosition`, `theorem_6_41_solutionSet`),
+zero `x`, and `o` an orientation of `f` (Definition 6.6.16 (preprint 6.40)).  Then (1) `S = f⁻¹(0)` is a compact
+manifold with boundary with corners (`SolutionSetInGeneralPosition`, `theorem_6_6_18_solutionSet`),
 and (2) the orientations of the tangent spaces `T_xS = ker f'(x)` by `o_x` (`tangentOr`) vary
 continuously: along every sc-smooth path `γ` of zeros in an orientable neighbourhood `V ⊆ U` of a
 smooth point, in its chart `c`, they form an orientation of the line bundle `λ(Λ)` of the tangent
 family `Λ_q = ker f'(γ_q)` (`tangentFamily`, `isLineOrientation_tangentOr`). -/
-theorem theorem_6_41 (hX : PX.IsTame) (hft : B.IsScFredholmSectionTame f) (hP : B.IsProper f)
+theorem theorem_6_6_18_hyp (hX : PX.IsTame) (hft : B.IsScFredholmSectionTame f) (hP : B.IsProper f)
     (hgp : ∀ x, IsZeroAt P f x → B.IsGeneralPositionGerm f x)
     {o : ∀ y (hy : y ∈ PX.smoothSet), Orx f hft.toIsScFredholmSection y hy}
     (ho : IsSectionOrientation f hft.toIsScFredholmSection o) :
@@ -908,7 +908,7 @@ theorem theorem_6_41 (hX : PX.IsTame) (hft : B.IsScFredholmSectionTame f) (hP : 
             (hgp (γ q) (hγ0 q q.2)).isLinSurjAt
             (restrictOr o hN (γ q) (hγV q q.2)
               (hft.toIsScFredholmSection.mem_smoothSet_of_isZeroAt (hγ0 q q.2))) :=
-  ⟨theorem_6_41_solutionSet hX hft hP hgp, fun _ hx₀ _ _ _ _ hN γ hγs hγV hγ0 =>
+  ⟨theorem_6_6_18_solutionSet hX hft hP hgp, fun _ hx₀ _ _ _ _ hN γ hγs hγV hγ0 =>
     isLineOrientation_tangentOr_of_isSectionOrientation hft ho hx₀ hN hγs hγV hγ0
       fun q hq => hgp (γ q) (hγ0 q hq)⟩
 

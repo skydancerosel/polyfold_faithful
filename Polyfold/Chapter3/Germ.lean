@@ -2,17 +2,17 @@ import Polyfold.Chapter2.Retracts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definitions 3.1 and 3.2: sc-germs of neighbourhoods and sc^k-germs, with the calculus the
+Definitions 3.1.1 and 3.1.2 (preprint 3.1 and 3.2): sc-germs of neighbourhoods and sc^k-germs, with the calculus the
 proofs of §3.3 use silently (restriction, the chain rule, pairings, linear maps).
 
 # Sc-germs of neighbourhoods and sc^k-germs
 
 ## The text, paraphrased
 
-(Definition 3.1) An sc-germ of neighbourhoods around `0 ∈ C`, `O(C, 0)`, is a decreasing sequence
+(Definition 3.1.1 (preprint 3.1)) An sc-germ of neighbourhoods around `0 ∈ C`, `O(C, 0)`, is a decreasing sequence
 `U₀ ⊃ U₁ ⊃ U₂ ⊃ …` where `U_m` is a relatively open neighbourhood of `0` in `C ∩ E_m`.  Its tangent
 `TO(C, 0)` is the sequence `U₁ ⊕ E₀ ⊃ U₂ ⊕ E₁ ⊃ …`.  A relatively open `U ∋ 0` with `U_m = U ∩ E_m`
-is an example; "the size of the sets `U_m` does not matter".  (Definition 3.2) An sc⁰-germ
+is an example; "the size of the sets `U_m` does not matter".  (Definition 3.1.2 (preprint 3.2)) An sc⁰-germ
 `f : O(C, 0) → F` is a continuous `f : U₀ → F` with `f(U_m) ⊂ F_m`, `f : U_m → F_m` continuous.  An
 sc¹-germ is an sc⁰-germ with, for every `x ∈ U₁`, a bounded `Df(x) : E₀ → F₀` with
 `|f(x+h) − f(x) − Df(x)h|₀/|h|₁ → 0` (`h ∈ E₁`, `x + h ∈ U₁`), such that
@@ -21,19 +21,19 @@ sc-smooth if sc^k for all `k`.
 
 ## What is formalized
 
-* `Polyfold.ScNbhdGerm E C` (**Definition 3.1**): `U : ∀ m, Set (E m)`, nested along the
+* `Polyfold.ScNbhdGerm E C` (**Definition 3.1.1 (preprint 3.1)**): `U : ∀ m, Set (E m)`, nested along the
   inclusions, each `U m` of the form `O ∩ C_m` with `O` open and containing `0`;
   `ScNbhdGerm.tangent` (`TO(C, 0)`, with `(TU)_m = U_{m+1} × E_m`), `ScNbhdGerm.ofSet` (the
   example `U_m = U ∩ E_m`), `ScNbhdGerm.full` (the germ of the whole space).
 * `Polyfold.IsQuadrantLike E C`: the regularity of `C` the calculus uses (each `C_m` convex with
   nonempty interior, `0 ∈ C`); partial quadrants have it, and it passes to `TC` and to products.
 * `Polyfold.IsSc0Germ`, `Polyfold.IsSc1GermWith`, `IsSc1Germ`, `scDerivGerm`, `IsSckGerm`,
-  `IsScSmoothGerm` (**Definition 3.2**), the exact analogues of `IsSc0`, `IsSc1With`, …, with
+  `IsScSmoothGerm` (**Definition 3.1.2 (preprint 3.2)**), the exact analogues of `IsSc0`, `IsSc1With`, …, with
   `U_m` in place of `U ∩ E_m`.
 * The bridge `IsSck.isSckGerm`: an sc^k map on a relatively open `U ∋ 0` is an sc^k-germ on
   `ofSet U`.
 * The calculus of germs: `IsSckGerm.congr`, `IsSckGerm.mono` (restriction to a smaller germ),
-  `IsSckGerm.comp` (the chain rule, Theorem 1.21 for germs), `ScOperator.isScSmoothGerm`
+  `IsSckGerm.comp` (the chain rule, Theorem 1.3.1 (preprint 1.21) for germs), `ScOperator.isScSmoothGerm`
   (sc-operators, in particular projections and sc-isomorphisms, are sc-smooth germs),
   `IsSckGerm.pair` (`(f, g)` is sc^k when `f`, `g` are).
 
@@ -42,7 +42,7 @@ sc-smooth if sc^k for all `k`.
 * A germ of neighbourhoods is *not* re-indexable in general: `(U_{m+1})_m` is not a germ (`U_{m+1}`
   is open in `C_{m+1}`, not in `C_m`).  It is when all levels of `E` coincide (finite-dimensional
   `E`), which is the case for the domain of the solution germ of §3.3.
-* Definition 3.2 says nothing about composing germs; the proofs of §3.3 compose `Tf` with maps
+* Definition 3.1.2 (preprint 3.2) says nothing about composing germs; the proofs of §3.3 compose `Tf` with maps
   built from the solution germ.  The chain rule needs the inner map to send `U_m` into `V_m`
   level by level (`ScNbhdGerm.MapsToGerm`); for the special example this is `f(U) ⊆ V`.
 * The derivative `Df(x)` is unique on `U₁` because `U₁ = O ∩ C₁` with `C₁` convex with nonempty
@@ -116,9 +116,9 @@ lemma IsQuadrantLike.uniqueDiffWithinAt {C : Set (E 0)} (hC : IsQuadrantLike E C
   exact (uniqueDiffWithinAt_convex (hC.convex m) (hC.interior_nonempty m)
     (subset_closure hx.2)).inter (hO.mem_nhds hx.1)
 
-/-! ### Definition 3.1: sc-germs of neighbourhoods -/
+/-! ### Definition 3.1.1 (preprint 3.1): sc-germs of neighbourhoods -/
 
-/-- **Definition 3.1**: an **sc-germ of neighbourhoods** `O(C, 0)` around `0 ∈ C`: relatively open
+/-- **Definition 3.1.1 (preprint 3.1)**: an **sc-germ of neighbourhoods** `O(C, 0)` around `0 ∈ C`: relatively open
 neighbourhoods `U m` of `0` in `C_m ⊆ E_m`, decreasing along the inclusions `E_{m+1} → E_m`. -/
 structure ScNbhdGerm (E : ScBanach) (C : Set (E 0)) where
   /-- The level-`m` neighbourhood `U_m ⊆ C_m`. -/
@@ -161,7 +161,7 @@ lemma relOpenConvex (hC : IsQuadrantLike E C) (m : ℕ) :
   obtain ⟨O, hO, h⟩ := G.relOpen m
   exact ⟨O, _, hO, hC.convex m, h⟩
 
-/-- The tangent germ `TO(C, 0) = (U_{m+1} ⊕ E_m)_m` (Definition 3.1). -/
+/-- The tangent germ `TO(C, 0) = (U_{m+1} ⊕ E_m)_m` (Definition 3.1.1 (preprint 3.1)). -/
 def tangent : ScNbhdGerm E.tangent (E.tangentSet C) where
   U m := G.U (m + 1) ×ˢ univ
   nested m p hp := ⟨G.nested (m + 1) p.1 hp.1, mem_univ _⟩
@@ -176,7 +176,7 @@ def tangent : ScNbhdGerm E.tangent (E.tangentSet C) where
 lemma mem_tangent_U {m : ℕ} {p : E.tangent m} : p ∈ G.tangent.U m ↔ p.1 ∈ G.U (m + 1) :=
   ⟨fun h => h.1, fun h => ⟨h, mem_univ _⟩⟩
 
-/-- The special example of Definition 3.1: a relatively open `U ∋ 0` in `C` with
+/-- The special example of Definition 3.1.1 (preprint 3.1): a relatively open `U ∋ 0` in `C` with
 `U_m = U ∩ E_m`. -/
 def ofSet {U : Set (E 0)} (hU : ∃ O : Set (E 0), IsOpen O ∧ U = O ∩ C) (h0 : (0 : E 0) ∈ U) :
     ScNbhdGerm E C where
@@ -228,11 +228,11 @@ lemma mapsToGerm_full (f : E 0 → F 0) : G.MapsToGerm (full F) f := fun _ _ _ =
 
 end ScNbhdGerm
 
-/-! ### Definition 3.2: sc⁰-germs -/
+/-! ### Definition 3.1.2 (preprint 3.2): sc⁰-germs -/
 
 variable {C : Set (E 0)} {D : Set (F 0)} {Q : Set (G 0)}
 
-/-- **Definition 3.2**: `f` is an **sc⁰-germ** on `O(C, 0)`: `f(U_m) ⊆ F_m` and `f : U_m → F_m` is
+/-- **Definition 3.1.2 (preprint 3.2)**: `f` is an **sc⁰-germ** on `O(C, 0)`: `f(U_m) ⊆ F_m` and `f : U_m → F_m` is
 continuous for every `m`. -/
 structure IsSc0Germ (G : ScNbhdGerm E C) (f : E 0 → F 0) : Prop where
   mem_range : ∀ m, ∀ x ∈ G.U m, f (E.toBase m x) ∈ range (F.toBase m)
@@ -306,10 +306,10 @@ lemma ScOperator.isSc0Germ (T : ScOperator E F) (G₁ : ScNbhdGerm E C) : IsSc0G
   ⟨fun m x _ => ⟨T m x, T.toBase_comm m x⟩, fun m => (T m).continuous.continuousOn.congr
     fun _ _ => levelMap_eq_of_toBase_eq (T.toBase_comm m _)⟩
 
-/-! ### Definition 3.2: sc¹-germs, sc^k-germs -/
+/-! ### Definition 3.1.2 (preprint 3.2): sc¹-germs, sc^k-germs -/
 
-/-- **Definition 3.2**: `f` is an **sc¹-germ with derivative family `D`** on `O(C, 0)`: an
-sc⁰-germ, differentiable at every `x ∈ U₁` within `U₁` (in the sense of Definition 1.14 (2)) with
+/-- **Definition 3.1.2 (preprint 3.2)**: `f` is an **sc¹-germ with derivative family `D`** on `O(C, 0)`: an
+sc⁰-germ, differentiable at every `x ∈ U₁` within `U₁` (in the sense of Definition 1.1.15 (preprint 1.14) (2)) with
 derivative `D x ∘ ι₁`, whose tangent map is an sc⁰-germ on `TO(C, 0)`. -/
 structure IsSc1GermWith (G : ScNbhdGerm E C) (f : E 0 → F 0) (D : E 1 → E 0 →L[ℝ] F 0) :
     Prop where
@@ -318,7 +318,7 @@ structure IsSc1GermWith (G : ScNbhdGerm E C) (f : E 0 → F 0) (D : E 1 → E 0 
     HasFDerivWithinAt (f ∘ E.toBase 1) ((D x).comp (E.toBase 1)) (G.U 1) x
   tangent_isSc0 : IsSc0Germ G.tangent (tangentMapWith f D)
 
-/-- **Definition 3.2**: `f` is an **sc¹-germ** on `O(C, 0)`. -/
+/-- **Definition 3.1.2 (preprint 3.2)**: `f` is an **sc¹-germ** on `O(C, 0)`. -/
 def IsSc1Germ (G : ScNbhdGerm E C) (f : E 0 → F 0) : Prop := ∃ D, IsSc1GermWith G f D
 
 open scoped Classical in
@@ -442,13 +442,13 @@ lemma tangentMapGerm_mono (hC : IsQuadrantLike E C) (h : IsSc1Germ G₁ f) {G₁
 
 end IsSc1Germ
 
-/-- **Definition 3.2**: `f` is an **sc^k-germ** on `O(C, 0)`: sc⁰ for `k = 0`; for `k + 1`, sc¹
+/-- **Definition 3.1.2 (preprint 3.2)**: `f` is an **sc^k-germ** on `O(C, 0)`: sc⁰ for `k = 0`; for `k + 1`, sc¹
 with `Tf` an sc^k-germ on `TO(C, 0)`. -/
 def IsSckGerm : ℕ → ∀ {E F : ScBanach} {C : Set (E 0)}, ScNbhdGerm E C → (E 0 → F 0) → Prop
   | 0, _, _, _, G, f => IsSc0Germ G f
   | k + 1, _, _, _, G, f => IsSc1Germ G f ∧ IsSckGerm k G.tangent (tangentMapGerm G f)
 
-/-- **Definition 3.2**: `f` is an **sc-smooth germ** on `O(C, 0)`. -/
+/-- **Definition 3.1.2 (preprint 3.2)**: `f` is an **sc-smooth germ** on `O(C, 0)`. -/
 def IsScSmoothGerm (G : ScNbhdGerm E C) (f : E 0 → F 0) : Prop := ∀ k, IsSckGerm k G f
 
 lemma isSckGerm_zero_iff {G₁ : ScNbhdGerm E C} {f : E 0 → F 0} :
@@ -527,7 +527,7 @@ lemma IsSc1.scDerivGerm_ofSet_eqOn {U : Set (E 0)} (hC : IsQuadrantLike E C)
         exact this.isSc0Germ _ _⟩
   exact IsSc1Germ.tangentMapGerm_eqOn hC h1
 
-/-- **The special example of Definition 3.1**: an sc^k map on a relatively open `U ∋ 0` in `C`
+/-- **The special example of Definition 3.1.1 (preprint 3.1)**: an sc^k map on a relatively open `U ∋ 0` in `C`
 is an sc^k-germ on `ofSet U`. -/
 theorem IsSck.isSckGerm : ∀ {k : ℕ} {E F : ScBanach} {C U : Set (E 0)}, IsQuadrantLike E C →
     ∀ (hU : ∃ O : Set (E 0), IsOpen O ∧ U = O ∩ C) (h0 : (0 : E 0) ∈ U) {f : E 0 → F 0},
@@ -548,7 +548,7 @@ theorem IsScSmooth.isScSmoothGerm {U : Set (E 0)} (hC : IsQuadrantLike E C)
   fun k => (hf k).isSckGerm hC hU h0
 
 
-/-! ### The chain rule for germs (Theorem 1.21 for germs; the proof of §1.4.2) -/
+/-! ### The chain rule for germs (Theorem 1.3.1 (preprint 1.21) for germs; the proof of §1.4.2) -/
 
 namespace IsSc1GermWith
 
@@ -751,7 +751,7 @@ theorem IsSc1Germ.comp {G₁ : ScNbhdGerm E C} {G₂ : ScNbhdGerm F D} {f : E 0 
   exact (IsSc1Germ.tangentMapGerm_eqOn hC hcomp).trans
     (IsSc1GermWith.tangentMapWith_comp hg.isSc0 hf.isSc0 hfV)
 
-/-- **The chain rule for sc^k-germs** (Theorem 1.21, iterated, for germs). -/
+/-- **The chain rule for sc^k-germs** (Theorem 1.3.1 (preprint 1.21), iterated, for germs). -/
 theorem IsSckGerm.comp : ∀ {k : ℕ} {E F G : ScBanach} {C : Set (E 0)} {D : Set (F 0)}
     {G₁ : ScNbhdGerm E C} {G₂ : ScNbhdGerm F D} {f : E 0 → F 0} {g : F 0 → G 0},
     IsQuadrantLike E C → IsQuadrantLike F D → IsSckGerm k G₂ g → IsSckGerm k G₁ f →

@@ -4,14 +4,14 @@ import Polyfold.Chapter5.PartitionsOfUnity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 219–221: **Proposition 6.28** (a neighbourhood of a smooth point on which orientations can be
+pp. 219–221: **Proposition 6.6.3 (preprint 6.28)** (a neighbourhood of a smooth point on which orientations can be
 propagated) *(book 2017: Proposition 6.12; see `BookConcordance.md`)*.
 
 # Neighbourhoods for the propagation of orientations
 
 ## The text, paraphrased
 
-(Proposition 6.28) If `f` is an sc-Fredholm section of `P : Y → X`, every smooth point `x` has an
+(Proposition 6.6.3 (preprint 6.28)) If `f` is an sc-Fredholm section of `P : Y → X`, every smooth point `x` has an
 open neighbourhood `U` with: (1) `U` is sc-smoothly contractible; (2) `{y ∈ cl_X(U) | f(y) = 0}`
 is compact; (3) for every sc-smooth path `φ : [0, 1] → U` there is an sc⁺-section
 `s : U × [0, 1] → Y` with `s(φ(t), t) = f(φ(t))`; (4) for `t₀ ∈ [0, 1]`, `y₀ ∈ U_∞` and a smooth
@@ -26,11 +26,11 @@ set (local compactness); `s(y, t) = R(y, f(φ(t)))` and `q(y, t) = R(y, e₀)`.
   (`Φ(0, t) = γ₀(t)`, `Φ(1, t) = γ₁(t)` for `t ∈ [0, 1]`, `Φ(τ, 0) = γ₀(0)`, `Φ(τ, 1) = γ₀(1)` for
   `τ ∈ [0, 1]`).
 * `exists_isScPlusSection_pullback_of_family` (property (3) for families `Φ : ℝⁿ → X`, as used for
-  paths and for the homotopies of Theorem 6.35): with sc-smooth bump functions, for `Φ([0,1]ⁿ)`
+  paths and for the homotopies of Theorem 6.6.11 (preprint 6.35)): with sc-smooth bump functions, for `Φ([0,1]ⁿ)`
   in the domain of a chart there is an sc⁺-section `S` of `ℝⁿ × X → Y` with `(f + S)(q, Φ(q)) = 0`
   for `q` near `[0, 1]ⁿ`, and for `q ∈ [0, 1]ⁿ`, `S(q, ·)` depends on `q` only through `Φ(q)`.
 * `hasScPlusSectionsThrough_pullback_rn_of_bump` (property (4)).
-* `proposition_6_28`: every smooth `x` has open `U ⊆ W` in the domain of one chart with (1′) any
+* `proposition_6_6_3`: every smooth `x` has open `U ⊆ W` in the domain of one chart with (1′) any
   two sc-smooth paths in `U` with the same end points are sc-smoothly homotopic in `W` with end
   points fixed, (2) the solution set in `cl(U)` is compact, (3) and (4).
 * The tools: `exists_contDiff_eq_id_near_Icc_mapsTo` (a `C^∞` self-map of `ℝⁿ` equal to the
@@ -40,7 +40,7 @@ set (local compactness); `s(y, t) = R(y, f(φ(t)))` and `q(y, t) = R(y, e₀)`.
   `exists_isScPlusSection_pullback_of_path_of_bump` for a family with values in a chart domain,
   with its dependence on the parameter), `isScSmoothMap_rn_chart_symm` and `isScSmooth_chart_comp`
   (maps `ℝᵐ → X` in a chart), `exists_nhds_isCompact_zeros` (local compactness of the solution
-  set: Theorem 5.6 at a zero, closedness of the solution set elsewhere).
+  set: Theorem 5.2.3 (preprint 5.6) at a zero, closedness of the solution set elsewhere).
 
 ## Reading
 
@@ -50,11 +50,11 @@ of unity from §6.2 on (p. 203); here the sections of (3) and (4) are global sc�
 `X = U`".  Property (1): the contraction `r̂(t, y) = r(ty)` contracts `O = r(V)` for a convex `V`,
 but for `U = r(V')` it needs `r(V') ⊆ V'`, which is not stated, and a convex domain of the
 retraction is not available in general; as we read it, (1) is not established for `U` itself.
-What the proof of Theorem 6.35 uses is that two paths in `U` with the same end points are
+What the proof of Theorem 6.6.11 (preprint 6.35) uses is that two paths in `U` with the same end points are
 sc-smoothly homotopic with fixed end points in a region where (3) holds; that is (1′), proved
 with `W = O ∩ B_δ`, `U = O ∩ B_{δ'}` and `r(B_{δ'}) ⊆ B_δ` (continuity of `r` at level `0`):
 `Φ(τ, t) = r((1 − ρ(τ)) φ(γ₀(t)) + ρ(τ) φ(γ₁(t)))` in the chart.  The construction does not use
-that `x` is smooth (at a zero of `f` it is automatic, and Theorem 5.6 applies).
+that `x` is smooth (at a zero of `f` it is automatic, and Theorem 5.2.3 (preprint 5.6) applies).
 -/
 
 open Set Filter Topology Function
@@ -175,7 +175,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 /-- **A cut-off equal to `1` near a compact set**: with sc-smooth bump functions, for a compact
 `K` in an open `V` there is an sc-smooth `β : X → ℝ` with `supp β ⊆ V` and `β = 1` near `K`
-(`β = 1 − ∏ᵢ (1 − βᵢ)` for finitely many bumps `βᵢ` of Proposition 5.30). -/
+(`β = 1 − ∏ᵢ (1 − βᵢ)` for finitely many bumps `βᵢ` of Proposition 5.5.3 (preprint 5.30)). -/
 theorem exists_isScSmoothMap_eq_one_nhdsSet (hbump : PX.AdmitsBumpFunctions) {K V : Set X}
     (hK : IsCompact K) (hV : IsOpen V) (hKV : K ⊆ V) :
     ∃ β : X → ℝ, PX.IsScSmoothMap realPolyfold β ∧ tsupport β ⊆ V ∧
@@ -185,7 +185,7 @@ theorem exists_isScSmoothMap_eq_one_nhdsSet (hbump : PX.AdmitsBumpFunctions) {K 
       (x ∈ K → ∀ᶠ y in 𝓝 x, b y = 1) := by
     intro x
     by_cases hx : x ∈ K
-    · obtain ⟨b, hb, -, -, hbs, hb1⟩ := proposition_5_30 hbump hV (hKV hx)
+    · obtain ⟨b, hb, -, -, hbs, hb1⟩ := proposition_5_5_3 hbump hV (hKV hx)
       exact ⟨b, hb, hbs, fun _ => hb1⟩
     · refine ⟨fun _ => 0, isScSmoothMap_real_const 0, ?_, fun h => absurd h hx⟩
       rw [show (fun _ : X => (0 : ℝ)) = 0 from rfl, tsupport_zero]
@@ -243,14 +243,14 @@ theorem isScSmooth_chart_comp {m : ℕ} {Γ : (Fin m → ℝ) → X}
     h1.comp_isScSmooth (ScRetraction.id (rn_relOpen_univ m)) (image_id _)
   exact hg.congr (isScDomain_univ _) fun a _ => by simp only [add_zero]
 
-/-- **Local compactness of the solution set** (Theorem 5.6 at a zero, closedness of the solution
+/-- **Local compactness of the solution set** (Theorem 5.2.3 (preprint 5.6) at a zero, closedness of the solution
 set elsewhere): every point `x` has a neighbourhood `N` such that `{y ∈ A | f(y) = 0}` is compact
 for every closed `A ⊆ N`. -/
 theorem exists_nhds_isCompact_zeros (hf : B.IsScFredholmSection f) (x : X) :
     ∃ N ∈ 𝓝 x, ∀ A : Set X, IsClosed A → A ⊆ N → IsCompact {y ∈ A | IsZeroAt P f y} := by
   have hZ : IsClosed (solutionSet P f) := isClosed_solutionSet hf.isScSmooth
   by_cases hx : IsZeroAt P f x
-  · obtain ⟨O, hO, hxO, -, hK⟩ := theorem_5_6 hf hx
+  · obtain ⟨O, hO, hxO, -, hK⟩ := theorem_5_2_3 hf hx
     obtain ⟨K, hK, hKeq⟩ := hK 0
     have hc : IsCompact (closure {y ∈ O 0 | IsZeroAt P f y}) :=
       hKeq ▸ hK.image (PX.continuous_levelVal 0)
@@ -515,18 +515,18 @@ theorem hasScPlusSectionsThrough_pullback_rn_of_bump (hbump : PX.AdmitsBumpFunct
 
 end Sections
 
-/-! ### Proposition 6.28 -/
+/-! ### Proposition 6.6.3 (preprint 6.28) -/
 
 -- `x ∈ X_∞` is the text's hypothesis; the construction does not use it
 set_option linter.unusedVariables false in
-/-- **Proposition 6.28** (with sc-smooth bump functions, the text's standing assumption from
+/-- **Proposition 6.6.3 (preprint 6.28)** (with sc-smooth bump functions, the text's standing assumption from
 §6.2 on): every smooth point `x` has open neighbourhoods `U ⊆ W` in the domain of one chart `c`
 of the atlas with (1′) any two sc-smooth paths in `U` with the same end points are sc-smoothly
 homotopic in `W` with end points fixed; (2) `{y ∈ cl(U) | f(y) = 0}` is compact; (3) along every
 sc-smooth family `Φ : ℝⁿ → X` with `Φ([0, 1]ⁿ) ⊆ W` there is an sc⁺-section `S` with
 `(f + S)(q, Φ(q)) = 0` near `[0, 1]ⁿ`, depending on `q ∈ [0, 1]ⁿ` only through `Φ(q)`;
 (4) `ℝⁿ × X → Y` has sc⁺-sections through all smooth fibre points. -/
-theorem proposition_6_28 (hbump : PX.AdmitsBumpFunctions) (hf : B.IsScFredholmSection f) {x : X}
+theorem proposition_6_6_3 (hbump : PX.AdmitsBumpFunctions) (hf : B.IsScFredholmSection f) {x : X}
     (hx : x ∈ PX.smoothSet) :
     ∃ (U W : Set X) (c : StrongBundleChart PX P), IsOpen U ∧ IsOpen W ∧ x ∈ U ∧ U ⊆ W ∧
       c ∈ B.atlas.charts ∧ W ⊆ c.φ.source ∧

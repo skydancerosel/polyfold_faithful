@@ -4,17 +4,17 @@ import RoundTrip.Blind.V2_7
 
 /-! Round trip for V2_7 (Theorem 2.8: the chain rule for sc-smooth maps between retracts).
 
-`A` is the conjunction of the types of `Polyfold.theorem_2_8`, `Polyfold.IsScSmoothRetractMap.comp`,
+`A` is the conjunction of the types of `Polyfold.theorem_2_1_15`, `Polyfold.IsScSmoothRetractMap.comp`,
 `Polyfold.retractTangentMap_comp`, `Polyfold.isScSmoothRetractMap_id`,
 `Polyfold.ScRetraction.isScSmoothRetractMap` and `Polyfold.IsScSmoothRetractMap.congr`.  None has
 universe parameters (`ScBanach` lives in `Type`), so no instantiation is needed.
 
 `A → B`: B's `IsScSmoothB` (sc-smooth for SOME retraction) is upgraded to the project's
 `IsScSmoothRetractMap` (for EVERY retraction) by Proposition 2.6 (1)
-(`isScSmoothRetractMap_iff_exists`); the conclusions of B are then `theorem_2_8` read through
+(`isScSmoothRetractMap_iff_exists`); the conclusions of B are then `theorem_2_1_15` read through
 `retractTangentMap_eqOn` (the project's `Tf` is `T(f ∘ r)` on `TO`, for any `r`).
 
-`B → A`: B assumes `O''` is a retract, which `theorem_2_8` does not; this is removed by applying B
+`B → A`: B assumes `O''` is a retract, which `theorem_2_1_15` does not; this is removed by applying B
 with the target retract `(E''₀, E''₀, E'')` (`C'' = O'' = univ`, retraction `id`) and getting
 `(g ∘ f)(O) ⊆ O''` from the hypotheses directly.  The project's `retractTangentMap` / `retractTangent`
 unfold to `T(· ∘ r)` / `Tr(TU)` for the chosen retraction `hO.choose`, an instance of B's
@@ -28,13 +28,13 @@ open Polyfold Set
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.theorem_2_8) ∧ (type_of% @Polyfold.IsScSmoothRetractMap.comp) ∧
+  (type_of% @Polyfold.theorem_2_1_15) ∧ (type_of% @Polyfold.IsScSmoothRetractMap.comp) ∧
     (type_of% @Polyfold.retractTangentMap_comp) ∧ (type_of% @Polyfold.isScSmoothRetractMap_id) ∧
     (type_of% @Polyfold.ScRetraction.isScSmoothRetractMap) ∧
     (type_of% @Polyfold.IsScSmoothRetractMap.congr)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_2_8, @Polyfold.IsScSmoothRetractMap.comp, @Polyfold.retractTangentMap_comp,
+  ⟨@Polyfold.theorem_2_1_15, @Polyfold.IsScSmoothRetractMap.comp, @Polyfold.retractTangentMap_comp,
     @Polyfold.isScSmoothRetractMap_id, @Polyfold.ScRetraction.isScSmoothRetractMap,
     @Polyfold.IsScSmoothRetractMap.congr⟩
 
@@ -82,7 +82,7 @@ theorem chain_of_B (hB : B) {E E' E'' : ScBanach} {C O : Set (E.lvl 0)} {C' O' :
 
 theorem B_to_A : B → A := by
   intro hB
-  have h28 : type_of% @Polyfold.theorem_2_8 := by
+  have h28 : type_of% @Polyfold.theorem_2_1_15 := by
     intro E E' E'' C C' C'' f g O O' O'' hO hO' hf hg
     obtain ⟨h1, h2⟩ := chain_of_B hB hO hO' hf hg
     refine ⟨h1, ?_⟩
@@ -106,13 +106,13 @@ theorem B_to_A : B → A := by
     exact ⟨fun _ hx => hff' hx ▸ hf.mapsTo hx, fun R hR =>
       (hf.comp_isScSmooth R hR).congr R.isScDomain fun _ hy => hff' (hR ▸ R.apply_mem_retract hy)⟩
 
-#rt_check RoundTrip.V2_7.A_to_B [Polyfold.theorem_2_8, Polyfold.IsScSmoothRetractMap.comp,
+#rt_check RoundTrip.V2_7.A_to_B [Polyfold.theorem_2_1_15, Polyfold.IsScSmoothRetractMap.comp,
   Polyfold.retractTangentMap_comp, Polyfold.isScSmoothRetractMap_id,
   Polyfold.ScRetraction.isScSmoothRetractMap, Polyfold.IsScSmoothRetractMap.congr]
-#rt_check RoundTrip.V2_7.B_to_A [Polyfold.theorem_2_8, Polyfold.IsScSmoothRetractMap.comp,
+#rt_check RoundTrip.V2_7.B_to_A [Polyfold.theorem_2_1_15, Polyfold.IsScSmoothRetractMap.comp,
   Polyfold.retractTangentMap_comp, Polyfold.isScSmoothRetractMap_id,
   Polyfold.ScRetraction.isScSmoothRetractMap, Polyfold.IsScSmoothRetractMap.congr]
-#rt_overlap RoundTrip.V2_7.B_to_A [Polyfold.theorem_2_8, Polyfold.IsScSmoothRetractMap.comp,
+#rt_overlap RoundTrip.V2_7.B_to_A [Polyfold.theorem_2_1_15, Polyfold.IsScSmoothRetractMap.comp,
   Polyfold.retractTangentMap_comp, Polyfold.isScSmoothRetractMap_id,
   Polyfold.ScRetraction.isScSmoothRetractMap, Polyfold.IsScSmoothRetractMap.congr]
 

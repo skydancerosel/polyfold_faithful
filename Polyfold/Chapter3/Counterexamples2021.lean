@@ -13,9 +13,9 @@ V3.24).  This file supplies them.
 
 2021 Lemma 3.8.6 (2), p. 148 (new in the 2021 edition): if `N` is in good position to
 `C = [0, ∞)ⁿ ⊕ W`, `N ∩ C` is a closed convex cone and `N ⊆ ℝ^{Γᶜ} ⊕ W`, then
-`(N, N ∩ C) ≅ (ℝ, ℝ₊)`.  The project proves it for `N ≠ 0` (`lemma_3_8_6_two_2021`), and
-`lemma_3_8_5_not_literal_2021` lists the facts about `N = 0` that refute it.  Here the refutation
-is stated directly: `not_lemma_3_8_6_two_2021` is the negation of Lemma 3.8.6 (2) as printed
+`(N, N ∩ C) ≅ (ℝ, ℝ₊)`.  The project proves it for `N ≠ 0` (`lemma_3_8_6_two`), and
+`lemma_3_8_5_not_literal` lists the facts about `N = 0` that refute it.  Here the refutation
+is stated directly: `not_lemma_3_8_6_two` is the negation of Lemma 3.8.6 (2) as printed
 (every `E`, every presentation, every `N`), witnessed by `N = 0` in `E = ℝ`, `C = [0, ∞)`.
 
 ## Good position is not stable under `ℝ × ·` (gap G.46)
@@ -27,19 +27,19 @@ applies "as before" the argument of Theorem 5.3.10 to the parametrized section
 position of `ℝᵐ × ker f'(x)` to `ℝᵐ × C_x` (Findings, Chapter 5, item 88).  The smallest
 instance, machine-checked here:
 
-* `isInGoodPosition_diag_2021`: the line `ℝ(1, 1)` is in good position to the corner `[0, ∞)²`
+* `isInGoodPosition_diag`: the line `ℝ(1, 1)` is in good position to the corner `[0, ∞)²`
   (2021 Definition 3.1.24, p. 102; preprint Definition 3.21), with good complement `ℝ(1, −1)`
-  (also with the sc-complement of the definition as written: `isInGoodPositionSc_diag_2021`);
-* `not_isInGoodPosition_prod_diag_2021`: `ℝ × ℝ(1, 1)` is **not** in good position to
+  (also with the sc-complement of the definition as written: `isInGoodPositionSc_diag`);
+* `not_isInGoodPosition_prod_diag`: `ℝ × ℝ(1, 1)` is **not** in good position to
   `ℝ × [0, ∞)²` in `ℝ × ℝ²`, not even with an algebraic complement.  A good complement `Y` would
   have, for `(a, 0)` with `|a|` large and `y ∈ Y`, `(a, 0) + y ∈ ℝ × [0, ∞)²`; so the second
   components of `Y` lie in `[0, ∞)² ∩ −[0, ∞)² = 0`, `Y ⊆ ℝ × 0 ⊆ ℝ × ℝ(1, 1)`, and
   `(0, (1, 0))` is not in `ℝ × ℝ(1, 1) + Y`.
-* `theorem_5_3_12_goodPosition_not_stable_2021` packages both.
+* `theorem_5_3_12_goodPosition_not_stable` packages both.
 
 So "as before" cannot apply the implicit function theorem for sections in good position (2021
 Theorem 3.6.8; preprint 3.54) to `F` at these zeros, and the project's proof of Theorem 5.3.12
-(`theorem_5_19`) avoids them (row V5.40).  This certifies gap **G.46**.
+(`theorem_5_3_12_param`) avoids them (row V5.40).  This certifies gap **G.46**.
 
 ## The set `Σ` of the proof of Theorem 3.2.3 (row V3.24)
 
@@ -47,9 +47,9 @@ The proof of 2021 Theorem 3.2.3, p. 107 (2017: Theorem 3.6; preprint: Theorem 3.
 says that for data `(φ, N, Y, V, δ)` of Definition 3.2.1 the set `Σ = {v + y ∈ C | v ∈ V, y ∈ Y}`
 is relatively open in `C` and contains `0`.  As we read it, this does not hold (Findings, Chapter
 3, item 83): in `ℝ³` with `C = [0, ∞)³`, `N = ℝ(1, 1, 1)` is in good position with the good
-sc-complement `Y = {x + y − z = 0}` (`isScGoodComplement_cube_2021`), and for every `V ⊆ N ∩ C`
+sc-complement `Y = {x + y − z = 0}` (`isScGoodComplement_cube`), and for every `V ⊆ N ∩ C`
 the points `(a, 0, a + a²) ∈ C`, `a > 0`, are not in `Σ` (on `Σ`, `x + y − z ≥ 0`) and tend to `0`
-(`theorem_3_2_3_sigma_not_relOpen_2021`).  The project's Theorem 3.2.3 assumes `π(O) ⊆ C`
+(`theorem_3_2_3_sigma_not_relOpen`).  The project's Theorem 3.2.3 assumes `π(O) ⊆ C`
 (condition (b) of `TangentGermChart.IsRegular`), under which `Σ ∩ O` is relatively open in `O`.
 
 ## Helpers
@@ -110,8 +110,8 @@ lemma le_smooth_const (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V] [Fin
 lemma isScSplitting_const (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V]
     [FiniteDimensional ℝ V] (A B : Submodule ℝ V) (h : IsCompl A B) :
     (ScBanach.const V).IsScSplitting A B := by
-  refine ⟨(ScBanach.proposition_1_6_iff (ScBanach.const V) A).2 (le_smooth_const V A),
-    (ScBanach.proposition_1_6_iff (ScBanach.const V) B).2 (le_smooth_const V B), fun m => ?_⟩
+  refine ⟨(ScBanach.proposition_1_1_7_iff (ScBanach.const V) A).2 (le_smooth_const V A),
+    (ScBanach.proposition_1_1_7_iff (ScBanach.const V) B).2 (le_smooth_const V B), fun m => ?_⟩
   rw [levelSub_const, levelSub_const]; exact h
 
 /-! ### Lemma 3.8.6 (2) at `N = 0` (row V3.120) -/
@@ -119,8 +119,8 @@ lemma isScSplitting_const (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V]
 /-- **2021 Lemma 3.8.6 (2), p. 148, as printed, does not hold as we read it** (row V3.120): it
 fails for `N = 0` in `E = ℝ ⊕ ℝ⁰`, `C = [0, ∞) ⊕ ℝ⁰`, where `N` is in good position, `N ∩ C = 0`
 is a closed convex cone and `N ⊆ ℝ^{Γᶜ} ⊕ W` (the kernel of `P : N → ℝ^Γ` is `N`), but `N ≇ ℝ`.
-The statement with `N ≠ 0` is `lemma_3_8_6_two_2021`. -/
-theorem not_lemma_3_8_6_two_2021 :
+The statement with `N ≠ 0` is `lemma_3_8_6_two`. -/
+theorem not_lemma_3_8_6_two :
     ¬ ∀ (E : ScBanach) (n : ℕ) (W : ScBanach) (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W))
       (N : Submodule ℝ (E 0)) [FiniteDimensional ℝ N],
       IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N →
@@ -128,7 +128,7 @@ theorem not_lemma_3_8_6_two_2021 :
       LinearMap.ker (sigmaCoord (coordFun (T 0)) N) = ⊤ →
       ∃ e : N ≃ₗ[ℝ] ℝ, ∀ x : N, x ∈ quadCone (coordFun (T 0)) N ↔ 0 ≤ e x := by
   intro h
-  obtain ⟨h1, h2, h3, -, h5⟩ := lemma_3_8_5_not_literal_2021
+  obtain ⟨h1, h2, h3, -, h5⟩ := lemma_3_8_5_not_literal
   obtain ⟨e, -⟩ := h E₁ 1 (rnSc 0) (ScIso.refl E₁) ⊥ h1 h2 h3
   exact h5.false e
 
@@ -193,7 +193,7 @@ theorem isGoodComplement_diag_antidiag : IsGoodComplement E2 corner diag antidia
 
 /-- **`ℝ(1, 1)` is in good position to `[0, ∞)²`** (2021 Definition 3.1.24, p. 102; preprint
 Definition 3.21), with good complement `ℝ(1, −1)`. -/
-theorem isInGoodPosition_diag_2021 : IsInGoodPosition E2 corner diag := by
+theorem isInGoodPosition_diag : IsInGoodPosition E2 corner diag := by
   refine ⟨⟨⟨![1, 1], Submodule.mem_span_singleton_self _⟩, ?_⟩,
     antidiag, isGoodComplement_diag_antidiag⟩
   rw [mem_interior]
@@ -205,14 +205,14 @@ theorem isInGoodPosition_diag_2021 : IsInGoodPosition E2 corner diag := by
 
 /-- `ℝ(1, 1)` is in good position to `[0, ∞)²` also with the sc-complement of Definition 3.1.24 as
 written (`IsInGoodPositionSc`). -/
-theorem isInGoodPositionSc_diag_2021 : IsInGoodPositionSc E2 corner diag :=
-  ⟨isInGoodPosition_diag_2021.interior_nonempty, antidiag,
+theorem isInGoodPositionSc_diag : IsInGoodPositionSc E2 corner diag :=
+  ⟨isInGoodPosition_diag.interior_nonempty, antidiag,
     isScSplitting_const _ _ _ isCompl_diag_antidiag, isGoodComplement_diag_antidiag.exists_eps⟩
 
 /-- **`ℝ × ℝ(1, 1)` is not in good position to `ℝ × [0, ∞)²`** (gap G.46), not even with an
 algebraic good complement: the second components of a good complement would lie in
 `[0, ∞)² ∩ −[0, ∞)² = 0`. -/
-theorem not_isInGoodPosition_prod_diag_2021 : ¬ IsInGoodPosition E3 cornerProd diagProd := by
+theorem not_isInGoodPosition_prod_diag : ¬ IsInGoodPosition E3 cornerProd diagProd := by
   rintro ⟨-, Y, hY⟩
   obtain ⟨ε, hε, hgood⟩ := hY.exists_eps
   -- every `y ∈ Y` has nonnegative second components
@@ -259,14 +259,14 @@ preprint: Theorem 5.19)**: good position is not stable under products with `ℝ`
 5, item 88).  `ℝ(1, 1)` is in good position to `[0, ∞)²` (with an sc-complement), but
 `ℝ × ℝ(1, 1)` is not in good position to `ℝ × [0, ∞)²`, neither with an
 sc-complement (Definition 3.1.24 as written) nor with an algebraic one. -/
-theorem theorem_5_3_12_goodPosition_not_stable_2021 :
+theorem theorem_5_3_12_goodPosition_not_stable :
     IsInGoodPositionSc E2 corner diag ∧
       cornerProd = (univ : Set ℝ) ×ˢ corner ∧
       diagProd = (⊤ : Submodule ℝ ℝ).prod diag ∧
       ¬ IsInGoodPosition E3 cornerProd diagProd ∧
       ¬ IsInGoodPositionSc E3 cornerProd diagProd :=
-  ⟨isInGoodPositionSc_diag_2021, cornerProd_eq, rfl, not_isInGoodPosition_prod_diag_2021,
-    fun h => not_isInGoodPosition_prod_diag_2021 h.toIsInGoodPosition⟩
+  ⟨isInGoodPositionSc_diag, cornerProd_eq, rfl, not_isInGoodPosition_prod_diag,
+    fun h => not_isInGoodPosition_prod_diag h.toIsInGoodPosition⟩
 
 /-! ### The set `Σ` of the proof of Theorem 3.2.3 (row V3.24) -/
 
@@ -314,7 +314,7 @@ theorem isCompl_diagCube_planeCube : IsCompl diagCube planeCube := by
 
 /-- **`Y = {x + y − z = 0}` is a good sc-complement of `N = ℝ(1, 1, 1)` for `[0, ∞)³`**
 (Definition 3.1.24 as written, `ε = 1/2`), and `N ∩ C` has interior in `N`. -/
-theorem isScGoodComplement_cube_2021 :
+theorem isScGoodComplement_cube :
     IsScGoodComplement Ecube cube diagCube planeCube ∧
       (interior (Subtype.val ⁻¹' cube : Set diagCube)).Nonempty := by
   refine ⟨⟨isScSplitting_const _ _ _ isCompl_diagCube_planeCube, 1 / 2, by norm_num,
@@ -351,7 +351,7 @@ theorem isScGoodComplement_cube_2021 :
 general not relatively open in `C`, as we read it** (row V3.24; Findings, Chapter 3, item 83): in
 `ℝ³` with `C = [0, ∞)³`, `N = ℝ(1, 1, 1)` and its good complement `Y = {x + y − z = 0}`, for no
 `V ⊆ N ∩ C` is `Σ = {v + y ∈ C | v ∈ V, y ∈ Y}` relatively open in `C` with `0 ∈ Σ`. -/
-theorem theorem_3_2_3_sigma_not_relOpen_2021 (V : Set (Ecube 0))
+theorem theorem_3_2_3_sigma_not_relOpen (V : Set (Ecube 0))
     (hV : V ⊆ (diagCube : Set (Ecube 0)) ∩ cube) :
     ¬ ((∃ O : Set (Ecube 0), IsOpen O ∧ sigmaCube V = O ∩ cube) ∧ (0 : Ecube 0) ∈ sigmaCube V) := by
   rintro ⟨⟨O, hO, hSig⟩, h0⟩

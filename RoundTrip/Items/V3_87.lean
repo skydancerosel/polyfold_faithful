@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_87
 
 /-!
 Round trip for V3_87 (Theorem 3.57).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_57`, `Polyfold.theorem_3_57_dim` and `Polyfold.theorem_3_27_loc`, universes
+`Polyfold.theorem_3_6_11`, `Polyfold.theorem_3_6_11_dim` and `Polyfold.theorem_3_2_3_loc_of_isRegular`, universes
 instantiated at `0` (`solutionSetDim` is vocabulary).
 
 Glue for `A → B`:
@@ -17,9 +17,9 @@ Glue for `A → B`:
 * A assumes `S ≠ ∅`; for `S = ∅` B's conclusion holds with the empty atlas.
 * `IsManifoldWithCornersLoc` is `HasCornerStructure` (`hasCornerStructure_iff_finiteDimensional`).
 
-**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_57` and `theorem_3_57_dim` now state
-the germ reading, and A gains `theorem_3_57_sc` (good position with the text's sc-complement).
-A ⇒ B still goes through `theorem_3_57`; the chart change `isGoodPositionGermTame_of_B` was
+**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_6_11` and `theorem_3_6_11_dim` now state
+the germ reading, and A gains `theorem_3_6_11_sc` (good position with the text's sc-complement).
+A ⇒ B still goes through `theorem_3_6_11`; the chart change `isGoodPositionGermTame_of_B` was
 repaired (`isGoodPositionGerm_of_linAt_surj` on `Lin(z)`).  B ⇒ A still fails.
 -/
 
@@ -30,12 +30,12 @@ open Polyfold
 with locally constant dimension, and Theorem 3.57 with the sc-complement form of good position,
 universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_57.{0, 0} ∧ type_of% @Polyfold.theorem_3_57_dim.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_27_loc.{0} ∧ type_of% @Polyfold.theorem_3_57_sc.{0, 0}
+  type_of% @Polyfold.theorem_3_6_11.{0, 0} ∧ type_of% @Polyfold.theorem_3_6_11_dim.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_2_3_loc_of_isRegular.{0} ∧ type_of% @Polyfold.theorem_3_6_11_sc.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_57.{0, 0}, @Polyfold.theorem_3_57_dim.{0, 0}, @Polyfold.theorem_3_27_loc.{0},
-    @Polyfold.theorem_3_57_sc.{0, 0}⟩
+  ⟨@Polyfold.theorem_3_6_11.{0, 0}, @Polyfold.theorem_3_6_11_dim.{0, 0}, @Polyfold.theorem_3_2_3_loc_of_isRegular.{0},
+    @Polyfold.theorem_3_6_11_sc.{0, 0}⟩
 
 section Glue
 
@@ -114,7 +114,7 @@ theorem A_to_B : A → B := by
     exact ⟨hsub, inferInstance, h1, MPolyfold.hasCornerStructure_iff_finiteDimensional.2 h2⟩
   · exact empty_case hne
 
-#rt_check RoundTrip.V3_87.A_to_B [Polyfold.theorem_3_57, Polyfold.theorem_3_57_dim,
-  Polyfold.theorem_3_27_loc, Polyfold.theorem_3_57_sc]
+#rt_check RoundTrip.V3_87.A_to_B [Polyfold.theorem_3_6_11, Polyfold.theorem_3_6_11_dim,
+  Polyfold.theorem_3_2_3_loc_of_isRegular, Polyfold.theorem_3_6_11_sc]
 
 end RoundTrip.V3_87

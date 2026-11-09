@@ -218,7 +218,7 @@ theorem exists_two_of_localPropagation {hf : Bd.IsScFredholmSection f}
       (hγ1 y₁ hy₁ hs₁) h₀ h₁ (hU.subset hxV) (hU.subset hy₁) (hU.subset hy₂)
       hxs hs₁ hs₂ (hE y₂ hy₂ hs₂) (hE y₁ hy₁ hs₁) he
     exact (congrArg (fun F => F o) h).symm
-  obtain ⟨a, b, hab, hall⟩ := (proposition_6_26
+  obtain ⟨a, b, hab, hall⟩ := (proposition_6_6_1
     ((chartPtOf c hc (hU.subset hxV) hxs).convex_linSet hf)
     (linSet_nonempty_of_localPropagation hU hxV hxs)
     ((chartPtOf c hc (hU.subset hxV) hxs).isFredholm_of_mem_linSet hf)).2

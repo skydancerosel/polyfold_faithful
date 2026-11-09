@@ -8,7 +8,7 @@ A = the conjunction of the item's theorems (universes at `0`): the tools
 `exists_contDiff_eq_id_near_Icc_mapsTo`, `exists_isScSmoothMap_eq_one_nhdsSet`,
 `exists_nhds_isCompact_zeros`, `exists_isScPlusSection_pullback_of_mapsTo_of_bump`,
 `exists_isScPlusSection_pullback_of_family`, `hasScPlusSectionsThrough_pullback_rn_of_bump`,
-`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`, and `proposition_6_28`:
+`MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`, and `proposition_6_6_3`:
 **with sc-smooth bump functions**, a smooth `x` has open `U ⊆ W ⊆ dom φ_c` (`c` in the atlas) with
 (1′) two sc-smooth paths in `U` with the same end points are sc-smoothly homotopic **in `W`** with
 end points fixed; (2) `{y ∈ cl U | f y = 0}` compact; (3) for every `n` and every globally
@@ -23,7 +23,7 @@ over `[0,1] × U_∞`.
 
 Neither direction is proved.
 
-* `A ⇒ B`: (a) A's `proposition_6_28` has the hypothesis `PX.AdmitsBumpFunctions`, which B does
+* `A ⇒ B`: (a) A's `proposition_6_6_3` has the hypothesis `PX.AdmitsBumpFunctions`, which B does
   not give (satisfiable: e.g. M-polyfolds modelled on Hilbert spaces or `ℝⁿ`; not implied).
   (b) B's (1) is not given by A: A has only (1′), homotopies of paths that stay in the larger `W`;
   the straight-line contraction `r((1 − t) u₀ + t φ(y))` of A's `U = φ⁻¹(B_{δ'}(u₀))` lands in
@@ -52,7 +52,7 @@ def A : Prop :=
   type_of% @Polyfold.exists_isScPlusSection_pullback_of_mapsTo_of_bump.{0, 0} ∧
   type_of% @Polyfold.exists_isScPlusSection_pullback_of_family.{0, 0} ∧
   type_of% @Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump.{0, 0} ∧
-  type_of% @Polyfold.proposition_6_28.{0, 0} ∧
+  type_of% @Polyfold.proposition_6_6_3.{0, 0} ∧
   type_of% @Polyfold.MPolyfold.paracompactSpace_prod.{0, 0} ∧
   type_of% @Polyfold.paracompactSpace_pullbackSpace.{0, 0, 0}
 
@@ -63,7 +63,7 @@ theorem A_holds : A :=
     @Polyfold.exists_isScPlusSection_pullback_of_mapsTo_of_bump.{0, 0},
     @Polyfold.exists_isScPlusSection_pullback_of_family.{0, 0},
     @Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump.{0, 0},
-    @Polyfold.proposition_6_28.{0, 0},
+    @Polyfold.proposition_6_6_3.{0, 0},
     @Polyfold.MPolyfold.paracompactSpace_prod.{0, 0},
     @Polyfold.paracompactSpace_pullbackSpace.{0, 0, 0}⟩
 

@@ -9,18 +9,18 @@ Round trip for V7_51 (Corollary 7.2: neighbourhoods of component compact sets).
 `Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace` (`|X|` is locally path connected),
 `Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure` (every neighbourhood `W` of `z`
 contains `cl U(z)` for an open `U(z) ∋ z` with metrizable closure),
-`Polyfold.EpGroupoid.corollary_7_2_of_isCompact` (the compact case, with `cl U ⊆ W` for a given
-open `W ⊇ K`) and `Polyfold.EpGroupoid.corollary_7_2` (the text's statement).
+`Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact` (the compact case, with `cl U ⊆ W` for a given
+open `W ⊇ K`) and `Polyfold.EpGroupoid.corollary_7_3_8` (the text's statement).
 
-* `A → B`: `corollary_7_2`, after identifying the project's `IsComponentCompact` with `B`'s
+* `A → B`: `corollary_7_3_8`, after identifying the project's `IsComponentCompact` with `B`'s
   `IsComponentCompactB` (the same as Definition 7.14, see V7_49).
 * `B → A`:
-  - `corollary_7_2` is `B`;
+  - `corollary_7_3_8` is `B`;
   - `exists_isOpen_metrizableSpace_closure`: `B` for the component compact `K = {z}` gives an open
     `U ∋ z` with metrizable `cl U`; the regularity of `|X|` (the project's instance
-    `EpGroupoid.lemma_7_7`, Lemma 7.7, not banned here) gives a closed neighbourhood `t ⊆ W ∩ U`
+    `EpGroupoid.lemma_7_3_5`, Lemma 7.7, not banned here) gives a closed neighbourhood `t ⊆ W ∩ U`
     of `z`, and `U(z) := int t` has `cl U(z) ⊆ t ⊆ W ∩ cl U`, metrizable as a subspace of `cl U`;
-  - `corollary_7_2_of_isCompact`: `B` for the compact (hence component compact: components are
+  - `corollary_7_3_8_of_isCompact`: `B` for the compact (hence component compact: components are
     closed) `K` gives `U`; regularity gives an open `V ⊇ K` with `cl V ⊆ W ∩ U`
     (`IsCompact.exists_isOpen_closure_subset`), and `cl V` is a closed subset of the paracompact
     metrizable `cl U`, so paracompact and metrizable, and `V ⊆ U` is metrizable;
@@ -37,14 +37,14 @@ open Polyfold Set Filter Topology TopologicalSpace
 def A : Prop :=
   type_of% @Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace.{0} ∧
   type_of% @Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure.{0} ∧
-  type_of% @Polyfold.EpGroupoid.corollary_7_2_of_isCompact.{0} ∧
-  type_of% @Polyfold.EpGroupoid.corollary_7_2.{0}
+  type_of% @Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact.{0} ∧
+  type_of% @Polyfold.EpGroupoid.corollary_7_3_8.{0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace.{0},
     @Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure.{0},
-    @Polyfold.EpGroupoid.corollary_7_2_of_isCompact.{0},
-    @Polyfold.EpGroupoid.corollary_7_2.{0}⟩
+    @Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact.{0},
+    @Polyfold.EpGroupoid.corollary_7_3_8.{0}⟩
 
 section
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -92,12 +92,12 @@ theorem B_to_A : B → A := by
 
 #rt_check RoundTrip.V7_51.A_to_B [Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace,
   Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure,
-  Polyfold.EpGroupoid.corollary_7_2_of_isCompact, Polyfold.EpGroupoid.corollary_7_2]
+  Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact, Polyfold.EpGroupoid.corollary_7_3_8]
 #rt_check RoundTrip.V7_51.B_to_A [Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace,
   Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure,
-  Polyfold.EpGroupoid.corollary_7_2_of_isCompact, Polyfold.EpGroupoid.corollary_7_2]
+  Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact, Polyfold.EpGroupoid.corollary_7_3_8]
 #rt_overlap RoundTrip.V7_51.B_to_A [Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace,
   Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure,
-  Polyfold.EpGroupoid.corollary_7_2_of_isCompact, Polyfold.EpGroupoid.corollary_7_2]
+  Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact, Polyfold.EpGroupoid.corollary_7_3_8]
 
 end RoundTrip.V7_51

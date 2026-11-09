@@ -2,9 +2,9 @@ import Polyfold.Chapter3.IndexAlongPathsLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.1, p. 201:
-**Definition 6.1** (the space `Lin(f, x)` of linearizations of an sc-Fredholm section at a smooth
+**Definition 6.2.1 (preprint 6.1)** (the space `Lin(f, x)` of linearizations of an sc-Fredholm section at a smooth
 point), and the facts stated with it: its members differ by sc⁺-operators, are Fredholm with one
-index, and (p. 219, before Proposition 6.26) `Lin(f, x)` is convex *(book 2017: Definition 6.1;
+index, and (p. 219, before Proposition 6.6.1 (preprint 6.26)) `Lin(f, x)` is convex *(book 2017: Definition 6.1;
 see `BookConcordance.md`)*.
 
 # The space of linearizations `Lin(f, x)`
@@ -12,7 +12,7 @@ see `BookConcordance.md`)*.
 ## The text, paraphrased
 
 At a smooth point `x` take a local sc⁺-section `s` with `s(x) = f(x)`; then
-`(f − s)'(x) : T_xX → Y_x` is well defined.  (Definition 6.1)
+`(f − s)'(x) : T_xX → Y_x` is well defined.  (Definition 6.2.1 (preprint 6.1))
 `Lin(f, x) = {(f − s)'(x) + a | a : T_xX → Y_x an sc⁺-operator}`.  The operators in `Lin(f, x)`
 differ by sc⁺-operators and are sc-Fredholm of one index `ind(f, x)`.  (p. 219) `Lin(f, x)` is a
 convex subset of the Fredholm operators `T_xX → Y_x` with the metric of the operator norm.
@@ -24,7 +24,7 @@ convex subset of the Fredholm operators `T_xX → Y_x` with the metric of the op
   (the text's `Y_x`), closed, hence complete.
 * `ChartPoint.IsScPlusOp p a`: `a : T_zO → K_z` is level `0` of an sc⁺-operator between the
   sc-subspaces `T_zO` and `K_z`.
-* `ChartPoint.linSet p f` (**Definition 6.1**): the operators `(f + s)'(x) + a` for an
+* `ChartPoint.linSet p f` (**Definition 6.2.1 (preprint 6.1)**): the operators `(f + s)'(x) + a` for an
   sc⁺-section `s` with `(f + s)(x) = 0` and an sc⁺-operator `a`; `mem_linSet_iff`: for one such
   `s` it is `(f + s)'(x) + {sc⁺-operators}`, as in the text.
 * `linSet_nonempty`, `isScPlusOp_sub_of_mem_linSet` (members differ by sc⁺-operators),
@@ -53,7 +53,7 @@ proved on level `0`, which is what the determinant lines use.
   `rho_scDeriv_comp_r`), so its restriction is an sc⁺-operator `T_zO → K_z`
   (`isScPlusOp_of_shift`).
 * **Fredholm of one index**: `(f + s)'(x)` is Fredholm of index `ind(f, x)` (the germ data of the
-  sc-Fredholm section `f + s`, Theorem 3.15, `isLinOfIndex_of_conjugationData`), an sc⁺-operator is
+  sc-Fredholm section `f + s`, Theorem 3.1.18 (preprint 3.15), `isLinOfIndex_of_conjugationData`), an sc⁺-operator is
   compact on level `0` (`ScPlus.isCompactOperator`, `IsScPlusOp.isCompactOperator`), and compact
   perturbations keep the Fredholm property and the index (`isFredholm_add_isCompactOperator`,
   `fredholmIndex_add_isCompactOperator`); `IsIndexAt.unique` makes the index independent of `s`.
@@ -147,7 +147,7 @@ def IsScPlusOp (a : ↥p.T →L[ℝ] ↥p.K) : Prop :=
       ((S.toScOperator 0 v).1 : p.c.F 0) = (a ⟨v.1, v.2⟩ : p.c.F 0)
 
 variable (f) in
-/-- **Definition 6.1**: `Lin(f, x)` in the chart point `p`: the operators
+/-- **Definition 6.2.1 (preprint 6.1)**: `Lin(f, x)` in the chart point `p`: the operators
 `(f + s)'(x) + a : T_zO → K_z` for an sc⁺-section `s` with `(f + s)(x) = 0` (the text's
 `(f − s)'(x)` with `s(x) = f(x)`) and an sc⁺-operator `a`. -/
 def linSet : Set (↥p.T →L[ℝ] ↥p.K) :=
@@ -210,7 +210,7 @@ theorem isScPlusOp_zero (hx : x ∈ PX.smoothSet) : p.IsScPlusOp 0 := by
   rfl
 
 variable {p} in
-/-- **An sc⁺-operator `T_zO → K_z` is compact** (the remark after Definition 1.4,
+/-- **An sc⁺-operator `T_zO → K_z` is compact** (the remark after Definition 1.1.5 (preprint 1.4),
 `ScPlus.isCompactOperator`, on level `0`, read through `(T_zO)₀ = T_zO` and `(K_z)₀ = K_z`). -/
 theorem IsScPlusOp.isCompactOperator {a : ↥p.T →L[ℝ] ↥p.K} (ha : p.IsScPlusOp a) :
     IsCompactOperator a := by
@@ -266,7 +266,7 @@ theorem exists_isScPlusOp_linAt_eq (hf : B.IsScFredholmSection f) {s s' : X → 
   have hfs := hf.isScSmooth
   have hg := hfs.sectionAdd hs
   have hg' := hfs.sectionAdd hs'
-  have hxs : x ∈ PX.smoothSet := (theorem_3_15 hf hs).mem_smoothSet_of_isZeroAt hx
+  have hxs : x ∈ PX.smoothSet := (theorem_3_1_18_preprint hf hs).mem_smoothSet_of_isZeroAt hx
   set d := sectionDiff P s' s with hd_def
   have hd : B.IsScPlusSection d := hs'.add (hs.smul_left (isScSmoothMap_real_const (-1)))
   have hsec : sectionAdd P (sectionAdd P f s) d = sectionAdd P f s' :=
@@ -305,7 +305,7 @@ theorem exists_isScPlusOp_linAt_eq (hf : B.IsScFredholmSection f) {s s' : X → 
 /-! ### `Lin(f, x)` -/
 
 /-- **`Lin(f, x)` for one section**: for a fixed sc⁺-section `s` with `(f + s)(x) = 0`, `Lin(f, x)`
-is `(f + s)'(x) + {sc⁺-operators}`, as in Definition 6.1 (the choice of `s` does not matter). -/
+is `(f + s)'(x) + {sc⁺-operators}`, as in Definition 6.2.1 (preprint 6.1) (the choice of `s` does not matter). -/
 theorem mem_linSet_iff (hf : B.IsScFredholmSection f) (hs : B.IsScPlusSection s)
     (hx : IsZeroAt P (sectionAdd P f s) x) (L : ↥p.T →L[ℝ] ↥p.K) :
     L ∈ p.linSet f ↔ ∃ a : ↥p.T →L[ℝ] ↥p.K, p.IsScPlusOp a ∧
@@ -357,13 +357,13 @@ theorem isScPlusOp_sub_of_mem_linSet (hf : B.IsScFredholmSection f) {L L' : ↥p
   exact ha.add (ha'.smul (-1))
 
 /-- **A member of `Lin(f, x)` is Fredholm, and its index is an index of `(f, x)`**
-(Definition 6.1, `IsIndexAt`): for `L = (f + s)'(x) + a`, `(f + s)'(x)` is Fredholm of the index of
-the germ data of `f + s` (Theorem 3.15, `isLinOfIndex_of_conjugationData`) and `a` is compact. -/
+(Definition 6.2.1 (preprint 6.1), `IsIndexAt`): for `L = (f + s)'(x) + a`, `(f + s)'(x)` is Fredholm of the index of
+the germ data of `f + s` (Theorem 3.1.18 (preprint 3.15), `isLinOfIndex_of_conjugationData`) and `a` is compact. -/
 theorem isFredholm_isIndexAt_of_mem_linSet (hf : B.IsScFredholmSection f)
     {L : ↥p.T →L[ℝ] ↥p.K} (hL : L ∈ p.linSet f) :
     L.IsFredholm ∧ B.IsIndexAt f x (fredholmIndex L) := by
   obtain ⟨s, hs, hx, a, ha, hLv⟩ := hL
-  have hF := theorem_3_15 hf hs
+  have hF := theorem_3_1_18_preprint hf hs
   have hxs := hF.mem_smoothSet_of_isZeroAt hx
   obtain ⟨-, c, hc, hxV, hφ0, h0U, g, t₀, hfill, ht₀, ht₀0, hconj⟩ := hF.germ x hxs
   obtain ⟨dc⟩ := isConjugateToBasicGerm_iff_nonempty.1 hconj
@@ -393,7 +393,7 @@ theorem exists_index_linSet (hf : B.IsScFredholmSection f) :
     obtain ⟨hF, hi⟩ := p.isFredholm_isIndexAt_of_mem_linSet hf hL
     exact ⟨hF, hi.unique hf (p.isFredholm_isIndexAt_of_mem_linSet hf hL₀).2⟩
 
-/-- The index of the members of `Lin(f, x)` is the index of Definition 6.1 (`IsIndexAt`). -/
+/-- The index of the members of `Lin(f, x)` is the index of Definition 6.2.1 (preprint 6.1) (`IsIndexAt`). -/
 theorem fredholmIndex_of_mem_linSet (hf : B.IsScFredholmSection f) {i : ℤ}
     (hi : B.IsIndexAt f x i) {L : ↥p.T →L[ℝ] ↥p.K} (hL : L ∈ p.linSet f) :
     L.IsFredholm ∧ fredholmIndex L = i := by

@@ -68,7 +68,7 @@ the atlas, for which Chapter 2 had not built $\Phi[1]$. $\square$
 The text asks for the bounds on all of $P^{-1}(\operatorname{dom}\Phi)$; its proof gives them only near $x$.
 *Checked by machine:* `Polyfold.StrongBundle.oneFiber`, `Polyfold.StrongBundle.complete_liftOneFiber`,
 `Polyfold.StrongBundle.IsAuxNorm`, `Polyfold.StrongBundle.oneChartOf`, `Polyfold.StrongBundle.IsAuxNorm.exists_bounds`,
-`Polyfold.lemma_5_2`.
+`Polyfold.lemma_5_1_2`.
 
 **Proposition 5.1.3 (preprint 5.3).** Auxiliary norms exist; for two of them there is a continuous $f:X\to(0,\infty)$ with
 $f(x)N_0(w)\le N_1(w)\le f(x)^{-1}N_0(w)$ on $(Y_{0,1})_x$.
@@ -80,7 +80,7 @@ chart, so Lemma 5.1.2 (ii) (preprint 5.2) holds. For the comparison, Lemma 5.1.2
 near $y$; the admissible constants at each point form an interval, so $f = \sum_j\sigma_jr_{y_j}$, for a partition of unity $(\sigma_j)$, works. $\square$
 
 Tameness, assumed in §5.1, is not used. *Checked by machine:* `Polyfold.StrongBundle.gluedNorm`,
-`Polyfold.StrongBundle.exists_uniform_comparison`, `Polyfold.proposition_5_3_exists`, `Polyfold.proposition_5_3_compare`.
+`Polyfold.StrongBundle.exists_uniform_comparison`, `Polyfold.proposition_5_1_3_exists`, `Polyfold.proposition_5_1_3_compare`.
 
 ## 2. Compactness (pp. 206–217 (preprint pp. 171–173) and §5.2 (preprint Appendix 5.4.1), preprint pp. 189–191)
 
@@ -118,14 +118,14 @@ continuous on $O$. $\square$
 > "$a\in\mathbb R^n$" in $\Sigma$ for $a\in\tilde C$; the ball "in $Y_0$" for $W_0$; in (89) mixed components ($z = Pz'-Pt(a,w)$).
 
 *Checked by machine:* `Polyfold.StrongBundle.IsProper.isWeaklyProper`, `Polyfold.IsStrongBundleMap.exists_fiber_bound_one`,
-`Polyfold.IsBasicGerm.exists_isCompact_bdd`, `Polyfold.exists_nbhd_isCompact_closure_bdd`, `Polyfold.theorem_5_5`,
-`Polyfold.theorem_5_5_iff`.
+`Polyfold.IsBasicGerm.exists_isCompact_bdd`, `Polyfold.exists_nbhd_isCompact_closure_bdd`, `Polyfold.theorem_5_2_2_preprint`,
+`Polyfold.theorem_5_2_2_iff`.
 
 **Theorem 5.2.3 (preprint 5.6) (local compactness).** For sc-Fredholm $f$ and a zero $x$ there are open $x\in U(i+1)\subset U(i)$ with
 $\operatorname{cl}_{X_0}\{y\in U(i):f(y) = 0\}$ compact in $X_i$.
 
 *Proof.* A zero is smooth, and $(f,x)$ is an sc-Fredholm germ there; apply Theorem 3.1.13 (preprint 3.12). $\square$ *Checked by machine:*
-`Polyfold.theorem_5_6`, from `Polyfold.theorem_3_12`.
+`Polyfold.theorem_5_2_3`, from `Polyfold.theorem_3_1_13_preprint`.
 
 **Theorem 5.2.4 (preprint 5.7).** If $f$ is sc-Fredholm and $S_f$ is compact in $X_0$, then $S_f\subset X_\infty$ is compact in $X_\infty$.
 
@@ -135,7 +135,7 @@ $\operatorname{cl}_{X_0}\{y\in U(i):f(y) = 0\}$ compact in $X_i$.
 *Proof.* $S_f\subset X_\infty$ by regularity. A sequence in $S_f$ has a subsequence converging in $X_0$ to some $x\in S_f$. The text says "by
 Theorem 5.6" it converges on every level; Theorem 5.2.3 (preprint 5.6) gives compactness, not convergence. Corollary 3.1.15 (preprint 3.13) at $x$ does: zeros
 converging to $x$ in $X_0$ converge on every level, $(f,x)$ being a germ at the smooth zero $x$. $\square$
-*Checked by machine:* `Polyfold.MPolyfold.tendsto_smoothLevel_iff`, `Polyfold.corollary_3_13_section`, `Polyfold.theorem_5_7`,
+*Checked by machine:* `Polyfold.MPolyfold.tendsto_smoothLevel_iff`, `Polyfold.corollary_3_1_15_section`, `Polyfold.theorem_5_2_4`,
 `Polyfold.isCompact_solutionSet_level` (compact in every $X_i$).
 
 **Corollary 5.2.5 (preprint 5.8).** For $f$ sc-Fredholm over a tame $X$ with $S_f$ compact, $f^i$ is an sc-Fredholm section of $P^i:Y^i\to X^i$ with
@@ -153,7 +153,7 @@ the levels of the iterated base are those of $X$ since, Chapter 2, §9.8, gap G.
 > ($Dg(0)-Ds(0)$ is conjugated to $Dh(0)$, $Dh(0)(a,w)_W = w-D_aB(0)a$, $D_aB(0)a\in W_\infty$); for $k\in\ker\rho(0)\cap F_1$, $\kappa = L^{-1}k$, the
 > Fredholm property gives $t\in T_0O$ with $Dg(0)(t+\kappa)\in F_1$, so $t+\kappa\in E_1$ and $\kappa = (1-Dr(0))(t+\kappa)\in E_1$. Not formalized.
 
-*Checked by machine:* `Polyfold.IsBasicGerm.shift`, `Polyfold.IsConjugateToBasicGerm.shift`, `Polyfold.corollary_5_8_chart`.
+*Checked by machine:* `Polyfold.IsBasicGerm.shift`, `Polyfold.IsConjugateToBasicGerm.shift`, `Polyfold.corollary_5_2_5_chart`.
 
 ## 3. Bump functions and sc$^+$-sections (pp. 213–218 (preprint pp. 173–174))
 
@@ -187,9 +187,9 @@ The text's bound at $x$ alone is trivial; tameness, normality and a centred char
 $W = \{N(\hat t)<N(e)+\varepsilon\}$ contains $x$; Proposition 5.3.2 (preprint 5.10) gives $\beta$, $\beta(x) = 1$, $\operatorname{supp}\beta\subset U\cap W$. Then $s = \beta\hat t$, extended by $0$, is
 sc$^+$ on the chart domain and on $X\setminus\operatorname{supp}\beta$, and $N(s) = \beta N(\hat t)<N(e)+\varepsilon$. $\square$
 
-*Checked by machine:* `Polyfold.realPolyfold`, `Polyfold.MPolyfold.AdmitsBumpFunctions`, `Polyfold.proposition_5_30`,
-`Polyfold.proposition_5_10`, `Polyfold.StrongBundle.IsScPlusSection.smul_left`,
-`Polyfold.StrongBundle.isScPlusSection_cutoffSection`, `Polyfold.lemma_5_11`.
+*Checked by machine:* `Polyfold.realPolyfold`, `Polyfold.MPolyfold.AdmitsBumpFunctions`, `Polyfold.proposition_5_5_3`,
+`Polyfold.proposition_5_3_2`, `Polyfold.StrongBundle.IsScPlusSection.smul_left`,
+`Polyfold.StrongBundle.isScPlusSection_cutoffSection`, `Polyfold.lemma_5_3_3`.
 
 **Allowable sections.** $\Gamma^{+,1}_U(P)$: the $s\in\Gamma^+(P)$ with $\operatorname{supp}s\subset U$ and $N(s)\le1$. The text's metric $\rho(s,s') = \sup N(s-s')$ is not
 formalized; "dense" is read pointwise.
@@ -199,7 +199,7 @@ formalized; "dense" is read pointwise.
 *Proof, and what is missing.* $s = 0$ off $U$ and $N(s)\le1$ survive uniform limits and put the solutions of $f+s = 0$ in
 $\{x\in U:N(f(x))\le1\}$, of compact closure. For $s\in\Gamma^+(P)$, $f+s$ is sc-Fredholm (Theorem 3.1.18 (preprint 3.15)), so $S_{f+s}$ is closed. For a limit
 section closedness needs continuity, which the remark does not address. $\square$
-*Checked by machine:* `Polyfold.StrongBundle.allowableSections`, `Polyfold.remark_5_12`, `Polyfold.isClosed_solutionSet`.
+*Checked by machine:* `Polyfold.StrongBundle.allowableSections`, `Polyfold.remark_5_3_4`, `Polyfold.isClosed_solutionSet`.
 
 ## 4. Transversality without boundary: Theorem 5.3.5 (preprint 5.13) (pp. 217–220 (preprint pp. 174–177))
 
@@ -254,8 +254,8 @@ Sard is used in its stratified form (Chapter 4, §8), which spares showing that 
 *Checked by machine:* `Polyfold.StrongBundle.IsTransversal`, `Polyfold.exists_spanning_sections`,
 `Polyfold.exists_isOpen_isLinSurjAt_zero_near`, `Polyfold.exists_isOpen_goodPosition_of_isLinSurjAt`,
 `Polyfold.exists_null_isLinSurjAt_paramSlice_near`, `Polyfold.StrongBundle.SolutionSetIsManifold`,
-`Polyfold.theorem_5_13_generic`, `Polyfold.theorem_5_13`, with `Polyfold.theorem_3_18_tame`,
-`Polyfold.theorem_3_56_of_surjective`, `Polyfold.measure_image_stratCritSet`.
+`Polyfold.theorem_5_3_5_generic`, `Polyfold.theorem_5_3_5_preprint`, with `Polyfold.theorem_3_1_21_tame`,
+`Polyfold.theorem_3_6_10_of_surjective`, `Polyfold.measure_image_stratCritSet`.
 
 ### An interactive look at a perturbation that removes a node
 
@@ -332,14 +332,14 @@ $\mathbb R^m$, so $f+s_\lambda$ is transversal (Lemma 10.C), in good position (a
 
 *Checked by machine:* `Polyfold.StrongBundleChart.IsParamGP` ((i)–(ii)), `Polyfold.exists_sections_isParamGP`,
 `Polyfold.isGeneralPositionGerm_paramSection_of_isParamGP`, `Polyfold.isGoodPositionGermTame_of_isGeneralPositionAt`,
-`Polyfold.StrongBundle.SolutionSetInGeneralPosition`, `Polyfold.theorem_5_18_of_family`, `Polyfold.theorem_5_18`,
-`Polyfold.theorem_5_18_dense`, with `Polyfold.theorem_4_23_of_subset`, `Polyfold.exists_scComplement_le`.
+`Polyfold.StrongBundle.SolutionSetInGeneralPosition`, `Polyfold.theorem_5_3_10_of_family`, `Polyfold.theorem_5_3_10_param`,
+`Polyfold.theorem_5_3_10_dense`, with `Polyfold.theorem_4_3_1_of_subset`, `Polyfold.exists_scComplement_le`.
 
 **Theorem 5.25 (preprint; not in the 2021 edition).** For $X$ tame with bump functions, $f$ proper with tame germ data, $N$, and $U$ as in Theorem 5.2.2 (preprint 5.5), some
 $s\in\Gamma^{+,1}_U(P)$ puts $(f+s,x)$ in good position at every zero; $S_{f+s}$ is a compact manifold with boundary with corners.
 
 *Proof.* Theorem 5.3.10 (preprint 5.18) with $s_0 = 0$; the ball $\{|\lambda|<\delta\}$ is not null, so some $\lambda\notin CV$ exists; Lemma 5.26 (preprint). $\square$ The text's proof says "in
-view of Theorem 3.54 ... in general position", which needs Corollary 5.B. *Checked by machine:* `Polyfold.theorem_5_25`.
+view of Theorem 3.54 ... in general position", which needs Corollary 5.B. *Checked by machine:* `Polyfold.theorem_5_25_preprint`.
 
 **Theorem 5.3.12 (preprint 5.19).** Let $X$ admit bump functions, $f$ be sc-Fredholm with tame germ data and $S_f$ compact, $N$ an auxiliary norm,
 and $(f,x)$ in good position at every zero $x\in\partial X$. There are $U$, allowable $t_1,\dots,t_m$ with supports disjoint from $\partial X$, $\delta>0$
@@ -358,7 +358,7 @@ At the zeros outside $V_{bd}$ — interior, away from $\operatorname{cl}V_1$ —
 along $\{0\}\times S_f$. The zeros of $f$ outside $V_1$ are interior ($d = 0$), so Steps B–E of Theorem 5.3.5 (preprint 5.13) apply there and make $f+s_\lambda$
 transversal, hence in good position, at its zeros outside $V_1$. On $V_1$, $f+s_\lambda = f$, and good position depends only on the
 germ of the section. Theorem 3.6.11 (preprint 3.57) gives the manifold structure. $\square$
-*Checked by machine:* `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`, `Polyfold.theorem_5_19` (generic form; no
+*Checked by machine:* `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`, `Polyfold.theorem_5_3_12_param` (generic form; no
 dense form).
 
 **Theorem 5.27 (preprint; not in the 2021 edition) (cobordism between good position perturbations).** For a proper homotopy $f_t$ over a tame $X$ with bump
@@ -391,7 +391,7 @@ for $T^*_yS_\lambda$; "good position" for "general position" in the proof.
 
 **Lemma 5.3.16 (preprint 5.23).** If $T = Z\oplus\ker\ell$ with $\ell$ linear, $\dim Z = 1$, and $S\subset T$, then each linear $\tau:S\to\mathbb R$ has a unique linear $b_\tau:S\to Z$ with
 $\ell\circ b_\tau = \tau$, and $\ell\circ(b_\tau+a) = \tau$ for $a:S\to\ker\ell$. Such $Z$ exists iff $\ell\ne0$, and can be spanned by a vector of any spanning set.
-(Proof: Lemma 10.D.) *Checked by machine:* `Polyfold.lemma_5_23`, `Polyfold.ne_zero_of_isCompl_ker`,
+(Proof: Lemma 10.D.) *Checked by machine:* `Polyfold.lemma_5_3_16_preprint`, `Polyfold.ne_zero_of_isCompl_ker`,
 `Polyfold.exists_isCompl_ker_of_ne_zero`.
 
 **Lemma 5.3.17 (preprint 5.24).** Let $f$ be sc-Fredholm, $x$ a zero, $z = \varphi(x)$ in a chart, $K\subset T_zO$ finite-dimensional (the text's $T_xS$), $b:K\to T_zO$
@@ -402,7 +402,7 @@ formalized.)
 *Proof.* Extend $-\mu$ to a continuous linear $\ell$ on the model space. With $s_e$ from Lemma 5.3.3 (preprint 5.11) and a bump $\beta\equiv1$ near $x$, put
 $s = \beta\,\ell(\varphi(\cdot)-z)\,s_e$. Then $s(x) = 0$ and, by the product rule ($Dr(z) = 1$ on $T_zO$), $\operatorname{Lin}_s(z)v = \ell(v)\Phi(e)_2 = -\mu(v)\Phi(e)_2$. $\square$
 The text's graph of $S$, its $j:L\to\mathbb R$ and its case distinction are not needed. *Checked by machine:*
-`Polyfold.scDeriv_smul_apply`, `Polyfold.exists_scPlusSection_linAt`, `Polyfold.lemma_5_24`.
+`Polyfold.scDeriv_smul_apply`, `Polyfold.exists_scPlusSection_linAt`, `Polyfold.lemma_5_3_17`.
 
 ## 7. Partitions of unity and bump functions (§5.5 (preprint Appendix 5.4.2), pp. 229–235 (preprint pp. 192–199))
 
@@ -431,7 +431,7 @@ continuous on $C\cap B(\varphi(x),r)$, $C$ closed). Then $\operatorname{supp}f\s
 
 *Checked by machine:* `Polyfold.MPolyfold.AdmitsBumpFunctionsWeak`, `Polyfold.HasContDiffBump`,
 `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity`, `Polyfold.LocalModel.HasBumpProperty`, `Polyfold.closure_inter_ball_subset`,
-`Polyfold.theorem_5_34`, `Polyfold.proposition_5_35`, `Polyfold.MPolyfold.admitsBumpFunctions_of_hilbert`.
+`Polyfold.theorem_5_5_7`, `Polyfold.proposition_5_5_8`, `Polyfold.MPolyfold.admitsBumpFunctions_of_hilbert`.
 
 **Definition 5.5.9 (preprint 5.36).** $(O,C,E)$ has the *approximation property* if for open $V = O\cap W$ with $\operatorname{cl}_{E_0}V\subset O$, continuous $f:O\to[0,1]$
 supported in $V$, and $\varepsilon>0$, some sc-smooth $g:O\to[0,1]$ supported in $V$ has $|f-g|\le\varepsilon$.
@@ -455,7 +455,7 @@ replacing the text's $\hat g_\lambda/\sum\hat g$. Metrizability, used twice in t
 
 *Checked by machine:* `Polyfold.LocalModel.HasApproxProperty`, `Polyfold.isScSmoothMap_real_finsum`,
 `Polyfold.MChart.isClosed_inter_preimage`, `Polyfold.hasApproxProperty_restrict`, `Polyfold.exists_isScSmoothMap_urysohn`,
-`Polyfold.admitsScPartitionsOfUnity_of_approx`, `Polyfold.theorem_5_37`, with Mathlib's
+`Polyfold.admitsScPartitionsOfUnity_of_approx`, `Polyfold.theorem_5_5_10`, with Mathlib's
 `BumpCovering.exists_isSubordinate_of_prop`, `BumpCovering.toPartitionOfUnity`.
 
 **Proposition 5.5.11 (preprint 5.38).** If $E_0$ admits $C^\infty$ partitions of unity, every local model on $E$ has the approximation property.
@@ -485,9 +485,9 @@ Theorem 5.5.16 (preprint 5.43) and Proposition 5.5.11 (preprint 5.38) — not Th
 sc-Hilbert spaces then admit sc-smooth partitions of unity. Conversely partitions of unity give bump functions (take one
 subordinate to $\{U,X\setminus\{x\}\}$); whether bump functions give partitions of unity is open in the text.
 
-*Checked by machine:* `Polyfold.proposition_5_38`, `Polyfold.cZero`, `Polyfold.TorunczykStatement` (not used),
-`Polyfold.IsWCG`, `Polyfold.proposition_5_42_reflexive`, `Polyfold.proposition_5_42_separable`,
-`Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement`, `Polyfold.isReflexive_of_hilbert`, `Polyfold.corollary_5_44`,
+*Checked by machine:* `Polyfold.proposition_5_5_11`, `Polyfold.cZero`, `Polyfold.TorunczykStatement` (not used),
+`Polyfold.IsWCG`, `Polyfold.proposition_5_5_15_reflexive`, `Polyfold.proposition_5_5_15_separable`,
+`Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement`, `Polyfold.isReflexive_of_hilbert`, `Polyfold.corollary_5_5_17`,
 `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, `Polyfold.MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions`.
 
 ## 8. Application: the two wires as an sc-Fredholm problem
@@ -596,13 +596,13 @@ sections the five properties are equivalent. The proof of §2 gives this: near a
 closure of $\{N(f)\le C\}$ lies in the compact set of the local step for the level-$1$ bound $A\cdot C$, on a neighbourhood that does not
 depend on $C$. (In the text's first display, "$N(f(x))\le d$" for the points $z$ of the set is a possible misprint for $N(f(z))\le d$.)
 
-*Checked by machine:* `Polyfold.theorem_5_2_2_2021`, `Polyfold.theorem_5_2_2_2021_tfae`.
+*Checked by machine:* `Polyfold.theorem_5_2_2`, `Polyfold.theorem_5_2_2_tfae`.
 
 **Theorem 5.3.5 (preprint 5.13), 2021 form.** For $s$ in the dense set, $S_{f+s}$ is a *compact sub-M-polyfold* with the structure of a
 compact manifold without boundary. In §4 it is compact and, if non-empty, a manifold; the empty set is a sub-M-polyfold. The
 bound printed as "$N(f(x))\le1$" is read, as in §4, as $N(s(x))\le1$ (possible misprint).
 
-*Checked by machine:* `Polyfold.theorem_5_3_5_2021`, `Polyfold.isSubMPolyfold_solutionSet_of_manifold`.
+*Checked by machine:* `Polyfold.theorem_5_3_5`, `Polyfold.isSubMPolyfold_solutionSet_of_manifold`.
 
 **Definition 5.3.13 (preprint 5.20), 2021 form.** A generalized compact homotopy is now: a tame strong bundle, an sc-Fredholm $f$ with
 compact solution set and an sc-smooth $t:X\to[0,1]$ with (1) $t^{-1}(i) = X_i$, (2) $(f|X_i,P|Y_i) = (f_i,P_i)$ for $i = 0,1$, and (3) $dt(x):T_xX\to\mathbb R$
@@ -626,7 +626,7 @@ one, since $t$ is not onto $[0,1]$.
 a one-dimensional complement $Z$ of $\ker dt(x)$ exists and Lemma 5.3.16 applies. Theorem 5.3.15 (preprint 5.22) itself, and the choice
 of a smooth $Z$, remain unformalized (gap G.48).
 
-*Checked by machine:* `Polyfold.lemma_5_3_16_2021`.
+*Checked by machine:* `Polyfold.lemma_5_3_16`.
 
 *Theorem 5.5.5 (preprint 5.32).* The 2017 and 2021 statements print the exponent $p$ in (1) and (2), which the preprint omits; it is
 still cited and not stated (gap G.50).

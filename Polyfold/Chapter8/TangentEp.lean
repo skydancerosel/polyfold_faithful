@@ -3,8 +3,8 @@ import Polyfold.Chapter8.TangentLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8, §8.1, pp. 257–268: **Theorem 8.1** (without its tameness sentence), **Lemmas
-8.1–8.7**, **Remark 8.1**, **Theorem 8.2**, **Theorem 8.3** and **Proposition 8.1**.  There is no
+Chapter 8, §8.1, pp. 257–268: **Theorem 8.1.1 (2017: 8.1)** (without its tameness sentence), **Lemmas
+8.1–8.7**, **Remark 8.1.10 (2017: 8.1)**, **Theorem 8.1.11 (2017: 8.2)**, **Theorem 8.1.12 (2017: 8.3)** and **Proposition 8.1.14 (2017: 8.1)**.  There is no
 2014 preprint of Part II; numbers and pages are the 2017 text's.  Part I's tangent bundle `TX` and
 tangent map `Tf` are `MPolyfold.TangentSpace` and `MPolyfold.tangentMap`; the structure maps
 (8.3)–(8.9) are `EpGroupoid.tSrc`, `tTgt`, `tComp`, `tUnit`, `tInv` (`Chapter8/Basic.lean`); the
@@ -18,25 +18,25 @@ tangents of maps sc-smooth on open sets are `MPolyfold.tangentMapOn` (`Chapter8/
 `(φ, h) ∈ T_φ𝐗` is a morphism `Ts(φ)(h) → Tt(φ)(h)` (8.2), so `s_T = Ts`, `t_T = Tt` (8.3); for
 `Ts(ψ)(k) = Tt(φ)(h)` (8.4), `(ψ, k) ∘ (φ, h) = (ψ ∘ φ, Ts(ψ ∘ φ)⁻¹(Ts(φ)(h)))` (8.5), in short
 (8.6) with the projection `p : T𝐗 → 𝐗¹`; the unit of `a ∈ T_xX` is `1_a = (1_x, Ts(1_x)⁻¹(a))`
-(8.7), (8.8); the inverse is `ι_T(φ, k) = (φ⁻¹, Tι(φ)(k))` (8.9).  (**Theorem 8.1**) `T(X, 𝐗)` is
+(8.7), (8.8); the inverse is `ι_T(φ, k) = (φ⁻¹, Tι(φ)(k))` (8.9).  (**Theorem 8.1.1 (2017: 8.1)**) `T(X, 𝐗)` is
 an ep-groupoid; if `X` is tame so is `TX`; the projections form an sc-smooth functor
-`(p, p) : T(X, 𝐗) → (X, 𝐗)¹`.  With `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗`: (**Lemma 8.1**)
+`(p, p) : T(X, 𝐗) → (X, 𝐗)¹`.  With `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗`: (**Lemma 8.1.2 (2017: 8.1)**)
 `(ψ, k) ∘ (φ, h) = Tm(ψ, φ)(k, h)`; the proof varies `φ'` near `φ` and `ψ' = F(φ') =
 (s|U(ψ))⁻¹(t(φ'))`, and differentiates `s(m(F(φ'), φ')) = s(φ')`.  (**Lemma 8.2**)
 `s_T(Ψ ∘ Φ) = s_T(Φ)`, `t_T(Ψ ∘ Φ) = t_T(Ψ)`, the second by differentiating
-`α ∘ s = t ∘ (s|U(ψ))⁻¹ ∘ t` near `φ`, `α = t ∘ (s|U(ψ ∘ φ))⁻¹`.  (**Lemma 8.3**) Associativity.
-(**Lemma 8.4**) `1_q` is a morphism `q → q` (`t ∘ (s|U(1_x))⁻¹ = id` near `x`) and a two-sided
-identity.  (**Lemma 8.5**) `ι_T` is a two-sided inverse (chain rule for `s ∘ ι = t`,
-`t ∘ ι = s`).  (**Lemma 8.6**) `s_T`, `t_T` are surjective local sc-diffeomorphisms "by
+`α ∘ s = t ∘ (s|U(ψ))⁻¹ ∘ t` near `φ`, `α = t ∘ (s|U(ψ ∘ φ))⁻¹`.  (**Lemma 8.1.4 (2017: 8.3)**) Associativity.
+(**Lemma 8.1.5 (2017: 8.4)**) `1_q` is a morphism `q → q` (`t ∘ (s|U(1_x))⁻¹ = id` near `x`) and a two-sided
+identity.  (**Lemma 8.1.6 (2017: 8.5)**) `ι_T` is a two-sided inverse (chain rule for `s ∘ ι = t`,
+`t ∘ ι = s`).  (**Lemma 8.1.7 (2017: 8.6)**) `s_T`, `t_T` are surjective local sc-diffeomorphisms "by
 construction", `u_T`, `ι_T` are sc-smooth, and the multiplication is `Tm`, sc-smooth.
-(**Lemma 8.7**) Properness: for `V(x)` as in (3), `t_T : s_T⁻¹(cl TV) → TX` is proper, by a
+(**Lemma 8.1.8 (2017: 8.7)**) Properness: for `V(x)` as in (3), `t_T : s_T⁻¹(cl TV) → TX` is proper, by a
 sequence argument (`φ_k → φ` in `𝐗` by properness of `X`, then in `𝐗¹`, then `(φ_k, h_k)`
-converges since `Ts : TU(φ) → TU(x)` is an sc-diffeomorphism).  (**Remark 8.1**) `Tφ`
-(Definition 7.4) is `t_T ∘ (s_T|T_xX)⁻¹`; `G : (φ, h) ↦ (Tφ, Ts(h))` identifies `T𝐗` with pairs
-`(Tφ, a)`, `a ∈ T_{s(φ)}X`, composed by `(Tψ, h) ∘ (Tφ, l) = (T(ψ ∘ φ), l)`.  (**Theorem 8.2**)
+converges since `Ts : TU(φ) → TU(x)` is an sc-diffeomorphism).  (**Remark 8.1.10 (2017: 8.1)**) `Tφ`
+(Definition 7.1.4 (2017: 7.4)) is `t_T ∘ (s_T|T_xX)⁻¹`; `G : (φ, h) ↦ (Tφ, Ts(h))` identifies `T𝐗` with pairs
+`(Tφ, a)`, `a ∈ T_{s(φ)}X`, composed by `(Tψ, h) ∘ (Tφ, l) = (T(ψ ∘ φ), l)`.  (**Theorem 8.1.11 (2017: 8.2)**)
 The tangent `(TΦ, T𝚽)` of an sc-smooth functor is an sc-smooth functor `T(X, 𝐗) → T(Y, 𝐘)`
 (differentiate `Φ(m(ψ, φ)) = m(Φ ψ, Φ φ)`, `s ∘ 𝚽 = Φ ∘ s`, `t ∘ 𝚽 = Φ ∘ t`).
-(**Theorem 8.3**) `T : EP → EP` is a functor, preserving tameness.  (**Proposition 8.1**) For a
+(**Theorem 8.1.12 (2017: 8.3)**) `T : EP → EP` is a functor, preserving tameness.  (**Proposition 8.1.14 (2017: 8.1)**) For a
 natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transformation (differentiate
 `Φ = s ∘ τ`, `Ψ = t ∘ τ` and the naturality square at `α₀ ∈ 𝐗¹`).
 
@@ -51,24 +51,24 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   `tangent_ext_tgt`, `exists_tSrc_eq`, `exists_tSrc_eq'` (fibre surjectivity of `Ts`).
 * **(8.5)**: `src_tBase_eq`, **`tComp_spec`** (`k ∘ h` lies over `p k ∘ p h`, `Ts(k ∘ h) = Ts h`),
   `tBase_tComp`, `tSrc_tComp`, `tComp_eq` (uniqueness).
-* **Lemma 8.1** on a sheet `s : W → V` with inverse `σ`: `tangentMapOn_srcInv_tSrc`,
+* **Lemma 8.1.2 (2017: 8.1)** on a sheet `s : W → V` with inverse `σ`: `tangentMapOn_srcInv_tSrc`,
   `mem_tangentPreimage_tgt`, **`tComp_eq_tangentMapOn`** (`k ∘ h = Tg(h)`,
-  `g(φ') = m(σ(t φ'), φ')`), `tTgt_tangentMapOn`; `lemma_8_1`.
-* **Lemmas 8.2–8.5**: `lemma_8_2`, `lemma_8_3`; `tSrc_tUnit`, `tTgt_tUnit`, `tUnit_eq`,
-  `tComp_tUnit`, `tUnit_tComp`, `lemma_8_4`; `tSrc_tInv`, `tTgt_tInv`, `tComp_tInv`, `tInv_tComp`,
-  `lemma_8_5`; the groupoid `tangentGroupoidStr`.
-* **Lemma 8.6**: `isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt`, `surjective_tSrc`,
+  `g(φ') = m(σ(t φ'), φ')`), `tTgt_tangentMapOn`; `lemma_8_1_2`.
+* **Lemmas 8.1.3–8.1.6 (2017: 8.2–8.5)**: `lemma_8_1_3`, `lemma_8_1_4`; `tSrc_tUnit`, `tTgt_tUnit`, `tUnit_eq`,
+  `tComp_tUnit`, `tUnit_tComp`, `lemma_8_1_5`; `tSrc_tInv`, `tTgt_tInv`, `tComp_tInv`, `tInv_tComp`,
+  `lemma_8_1_6`; the groupoid `tangentGroupoidStr`.
+* **Lemma 8.1.7 (2017: 8.6)**: `isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt`, `surjective_tSrc`,
   `surjective_tTgt`, `isScSmoothMap_tUnit`, `isScSmoothMap_tInv`, `isScSmoothCompSheet_tangent`
-  (condition (4), sheet form), `isScSmoothComp_tangent` (literally), `lemma_8_6`.
-* **Lemma 8.7**: `lemma_8_7`.
-* **Theorem 8.1**: the ep-groupoid **`tangentEpGroupoid : EpGroupoid TX T𝐗`**, the functor
+  (condition (4), sheet form), `isScSmoothComp_tangent` (literally), `lemma_8_1_7`.
+* **Lemma 8.1.8 (2017: 8.7)**: `lemma_8_1_8`.
+* **Theorem 8.1.1 (2017: 8.1)**: the ep-groupoid **`tangentEpGroupoid : EpGroupoid TX T𝐗`**, the functor
   **`tangentProjFunctor : EpFunctor X.tangentEpGroupoid X.liftOne`** (`(p, p)`, with Chapter 7's
-  `X¹ = liftOne`), `theorem_8_1`.
-* **Remark 8.1**: `tangentMor_tSrc` (`Tφ(Ts h) = Tt h`, Chapter 7's `tangentMor`),
-  `tangentMor_comp` (`T(ψ ∘ φ) = Tψ ∘ Tφ`), `remarkG` (`G`), `remark_8_1`.
-* **Theorem 8.2**: `EpFunctor.tangent`, `EpFunctor.theorem_8_2`.
-* **Theorem 8.3**: `EP.tangent`, **`tangentFunctor : EP ⥤ EP`**, `theorem_8_3`.
-* **Proposition 8.1**: `EpNatTrans.tangent`, `proposition_8_1`.
+  `X¹ = liftOne`), `theorem_8_1_1`.
+* **Remark 8.1.10 (2017: 8.1)**: `tangentMor_tSrc` (`Tφ(Ts h) = Tt h`, Chapter 7's `tangentMor`),
+  `tangentMor_comp` (`T(ψ ∘ φ) = Tψ ∘ Tφ`), `remarkG` (`G`), `remark_8_1_10`.
+* **Theorem 8.1.11 (2017: 8.2)**: `EpFunctor.tangent`, `EpFunctor.theorem_8_1_11`.
+* **Theorem 8.1.12 (2017: 8.3)**: `EP.tangent`, **`tangentFunctor : EP ⥤ EP`**, `theorem_8_1_12`.
+* **Proposition 8.1.14 (2017: 8.1)**: `EpNatTrans.tangent`, `proposition_8_1_14`.
 
 ## What the text leaves implicit, and the choices made
 
@@ -76,26 +76,26 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
   sc-diffeomorphism, so `Ts` is injective on every fibre `T_φ𝐗` and maps it onto `T_{s φ}X`
   (`IsLocalScDiffeo.bijOn_tangentFiber`).  Two vectors of `T𝐗` are therefore equal as soon as
   they have the same base point and the same `Ts` (`tangent_ext`).  This gives associativity, the
-  unit and inverse laws, the functoriality in Theorem 8.2 and the naturality in Proposition 8.1
+  unit and inverse laws, the functoriality in Theorem 8.1.11 (2017: 8.2) and the naturality in Proposition 8.1.14 (2017: 8.1)
   without differentiating the identities as the text does: the base points are computed in `𝐗`
   and the values of `Ts` by Part I's chain rule (`s ∘ u = id`, `s ∘ ι = t`, `s ∘ 𝚽 = Φ ∘ s`,
-  `s ∘ τ = Φ`).  The only genuine differentiation is `t_T(Ψ ∘ Φ) = t_T(Ψ)` (Lemma 8.2), done as in
+  `s ∘ τ = Φ`).  The only genuine differentiation is `t_T(Ψ ∘ Φ) = t_T(Ψ)` (Lemma 8.1.3 (2017: 8.2)), done as in
   the text with maps defined on open sets (`tangentMapOn`): `k ∘ h = Tg(h)` on a sheet and
   `t ∘ g = t ∘ σ ∘ t` on `t⁻¹(V)` (the text's `α ∘ s = t ∘ (s|U(ψ))⁻¹ ∘ t`).  The units are
   `u_T = Tu`, and `Tt(1_q) = q` is the chain rule for `t ∘ u = id` rather than the text's
   `t ∘ (s|U(1_x))⁻¹ = id` near `x`; with `tangent_ext` this is (8.8) (`tUnit_eq`).
 * **The sheet form of condition (4)** in place of `T(𝐗 ₛ×ₜ 𝐗) = T𝐗 _{Ts}×_{Tt} T𝐗`.  The
   identification of the tangent of the fibred product with the fibred product of tangents is not
-  proved here.  Lemma 8.1 is stated in the form the text's proof uses: for a sheet `s : W → V` with
+  proved here.  Lemma 8.1.2 (2017: 8.1) is stated in the form the text's proof uses: for a sheet `s : W → V` with
   inverse `σ = (s|U(ψ))⁻¹`, `g(φ') = m(σ(t φ'), φ')` (the text's `m(F(φ'), φ')`) is sc-smooth on
-  `t⁻¹(V)` (Chapter 7's `isScSmoothCompSheet`) and `k ∘ h = Tg(h)`.  Lemma 8.6's (4) is proved in
+  `t⁻¹(V)` (Chapter 7's `isScSmoothCompSheet`) and `k ∘ h = Tg(h)`.  Lemma 8.1.7 (2017: 8.6)'s (4) is proved in
   Chapter 7's sheet form (`isScSmoothComp_iff_sheet`): near a point, `Ψ ↦ σ_T(t_T Ψ) ∘ Ψ` is `Tg`
   for a sheet of `s`, sc-smooth by `tangentMapOn_isScSmoothOn`.
-* **Lemma 8.7.**  The text's step "`φ_k → φ` in `𝐗¹`" is not needed: convergence in `𝐗` already
+* **Lemma 8.1.8 (2017: 8.7).**  The text's step "`φ_k → φ` in `𝐗¹`" is not needed: convergence in `𝐗` already
   puts `φ_k` in `U(φ)`, and on `TU(φ) = p⁻¹(U(φ))` the inverse of `Tt` is continuous
   (`IsScDiffeoOn.tangentMap`), so `(φ_k, h_k) = (Tt|TU(φ))⁻¹(t_T(φ_k, h_k))` converges.  `TV` is
   `p⁻¹(V)` and properness is checked by the sequential criterion (`TX`, `T𝐗` are metrizable).
-* **Remark 8.1.**  `Tφ` is Chapter 7's `tangentMor` (Definition 7.4, `Tt ∘ (Ts|T_φ𝐗)⁻¹`); its
+* **Remark 8.1.10 (2017: 8.1).**  `Tφ` is Chapter 7's `tangentMor` (Definition 7.1.4 (2017: 7.4), `Tt ∘ (Ts|T_φ𝐗)⁻¹`); its
   functoriality `T(ψ ∘ φ) = Tψ ∘ Tφ` is `tangentMor_comp`.  In `G(φ, h) = (Tφ, Ts(h))` the first
   entry is read as `Tφ` labelled by `φ` (as a bare map, distinct morphisms with the same `Tφ`,
   e.g. isotropy acting trivially, would make `G` non-injective); `G = remarkG` then is a bijection
@@ -105,12 +105,12 @@ natural transformation `τ : Φ → Ψ`, `Tτ : TΦ → TΨ` is a natural transf
 * **Universes.**  Part I's `TangentSpace` of `X : Type u` lives in `Type (max u 1)`, so the tangent
   functor is `EP.{max u 1} ⥤ EP.{max u 1}` (Lean identifies `max (max u 1) 1` with `max u 1`).
   This is an artifact of the formalization.
-* **Tameness** ("if `X` is tame, then `TX` is tame", Theorem 8.1, Theorem 8.3, Lemma 8.8) is not
-  formalized here; it is proved in `TangentTame.lean` (`lemma_8_8`, `theorem_8_3_tame`).
-* **Possible misprints**, as we read them: (8.5) writes `T_{φ∘ψ}𝐗` for `T_{ψ∘φ}𝐗`; Lemma 8.1's proof
-  writes `s|U(φ ∘ ψ)` for `s|U(ψ ∘ φ)`; Lemma 8.2's proof has "`= =`", "`t : U(ψ ∘ φ) → U(y)` and
-  `: U(ψ ∘ φ) → U(x)`" without `s`, and `T t)φ)(h)`; Lemma 8.7's proof writes
-  `t(φ_k, h_k) = Ts(φ_k)(h_k)` for `Tt(φ_k)(h_k)`; Remark 8.1 writes `T_yY` for `T_yX`.
+* **Tameness** ("if `X` is tame, then `TX` is tame", Theorem 8.1.1 (2017: 8.1), Theorem 8.1.12 (2017: 8.3), Lemma 8.1.9 (2017: 8.8)) is not
+  formalized here; it is proved in `TangentTame.lean` (`lemma_8_1_9`, `theorem_8_1_12_tame`).
+* **Possible misprints**, as we read them: (8.5) writes `T_{φ∘ψ}𝐗` for `T_{ψ∘φ}𝐗`; Lemma 8.1.2 (2017: 8.1)'s proof
+  writes `s|U(φ ∘ ψ)` for `s|U(ψ ∘ φ)`; Lemma 8.1.3 (2017: 8.2)'s proof has "`= =`", "`t : U(ψ ∘ φ) → U(y)` and
+  `: U(ψ ∘ φ) → U(x)`" without `s`, and `T t)φ)(h)`; Lemma 8.1.8 (2017: 8.7)'s proof writes
+  `t(φ_k, h_k) = Ts(φ_k)(h_k)` for `Tt(φ_k)(h_k)`; Remark 8.1.10 (2017: 8.1) writes `T_yY` for `T_yX`.
 -/
 
 open Set Function Topology Filter CategoryTheory
@@ -291,7 +291,7 @@ theorem tComp_eq {k h v : X.PMor.TangentSpace} (hkh : X.tSrc k = X.tTgt h)
     X.tComp k h = v :=
   X.tangent_ext ((X.tBase_tComp hkh).trans hb.symm) ((X.tSrc_tComp hkh).trans hs.symm)
 
-/-! ### Lemma 8.1 on a sheet of `s` -/
+/-! ### Lemma 8.1.2 (2017: 8.1) on a sheet of `s` -/
 
 section Sheet
 
@@ -355,13 +355,13 @@ theorem tTgt_tangentMapOn (hd : X.PMor.IsScDiffeoOn X.PObj X.src σ W V)
   rfl
 
 variable (X) in
-/-- **Lemma 8.1** (in the sheet form of the text's proof): let `s : W → V` be a sheet of `s` with
+/-- **Lemma 8.1.2 (2017: 8.1)** (in the sheet form of the text's proof): let `s : W → V` be a sheet of `s` with
 inverse `σ = (s|U(ψ))⁻¹` and `g(φ') = m(σ(t φ'), φ')` (the text's `m(F(φ'), φ')`,
 `F = (s|U(ψ))⁻¹ ∘ t`; sc-smooth on `t⁻¹(V)` by condition (4)).  For composable `k, h`
 (`Ts(k) = Tt(h)`) with `k` over `W`: `k = T(s|U(ψ))⁻¹(Tt(h))`, the composition (8.5) is the
 tangent `k ∘ h = Tg(h)` (the text's `T m(ψ, φ)(k, h)`), and it lies over `ψ ∘ φ` with
 `Ts(k ∘ h) = Ts(h)`, i.e. `k ∘ h = (ψ ∘ φ, (Ts(ψ ∘ φ))⁻¹ Ts(φ)(h))`. -/
-theorem lemma_8_1 (hd : X.PMor.IsScDiffeoOn X.PObj X.src σ W V) {k h : X.PMor.TangentSpace}
+theorem lemma_8_1_2 (hd : X.PMor.IsScDiffeoOn X.PObj X.src σ W V) {k h : X.PMor.TangentSpace}
     (hkh : X.tSrc k = X.tTgt h) (hk : X.tBase k ∈ W) :
     MPolyfold.tangentMapOn hd.isScSmoothOn_inv (X.tTgt h) = k ∧
       X.tComp k h = MPolyfold.tangentMapOn (X.isScSmoothCompSheet σ W V hd) h ∧
@@ -372,26 +372,26 @@ theorem lemma_8_1 (hd : X.PMor.IsScDiffeoOn X.PObj X.src σ W V) {k h : X.PMor.T
 
 end Sheet
 
-/-! ### Lemmas 8.2 and 8.3 -/
+/-! ### Lemmas 8.1.3 and 8.1.4 (2017: 8.2 and 8.3) -/
 
-/-- **Lemma 8.2**: `s_T(Ψ ∘ Φ) = s_T(Φ)` and `t_T(Ψ ∘ Φ) = t_T(Ψ)`. -/
-theorem lemma_8_2 {k h : X.PMor.TangentSpace} (hkh : X.tSrc k = X.tTgt h) :
+/-- **Lemma 8.1.3 (2017: 8.2)**: `s_T(Ψ ∘ Φ) = s_T(Φ)` and `t_T(Ψ ∘ Φ) = t_T(Ψ)`. -/
+theorem lemma_8_1_3 {k h : X.PMor.TangentSpace} (hkh : X.tSrc k = X.tTgt h) :
     X.tSrc (X.tComp k h) = X.tSrc h ∧ X.tTgt (X.tComp k h) = X.tTgt k := by
   refine ⟨X.tSrc_tComp hkh, ?_⟩
   obtain ⟨W, V, σ, hk, hd⟩ := X.isLocalScDiffeo_src (X.tBase k)
   rw [tComp_eq_tangentMapOn hd hkh hk, tTgt_tangentMapOn hd hkh hk]
 
-/-- **Lemma 8.3**: the composition of `T𝐗` is associative. -/
-theorem lemma_8_3 {l k h : X.PMor.TangentSpace} (hlk : X.tSrc l = X.tTgt k)
+/-- **Lemma 8.1.4 (2017: 8.3)**: the composition of `T𝐗` is associative. -/
+theorem lemma_8_1_4 {l k h : X.PMor.TangentSpace} (hlk : X.tSrc l = X.tTgt k)
     (hkh : X.tSrc k = X.tTgt h) : X.tComp (X.tComp l k) h = X.tComp l (X.tComp k h) := by
   have h1 : X.tSrc (X.tComp l k) = X.tTgt h := by rw [X.tSrc_tComp hlk, hkh]
-  have h2 : X.tSrc l = X.tTgt (X.tComp k h) := by rw [(X.lemma_8_2 hkh).2, hlk]
+  have h2 : X.tSrc l = X.tTgt (X.tComp k h) := by rw [(X.lemma_8_1_3 hkh).2, hlk]
   refine X.tangent_ext ?_ ?_
   · rw [X.tBase_tComp h1, X.tBase_tComp h2, X.tBase_tComp hlk, X.tBase_tComp hkh,
       X.comp_assoc _ _ _ (X.src_tBase_eq hlk) (X.src_tBase_eq hkh)]
   · rw [X.tSrc_tComp h1, X.tSrc_tComp h2, X.tSrc_tComp hkh]
 
-/-! ### Units and inverses (Lemmas 8.4, 8.5) -/
+/-! ### Units and inverses (Lemmas 8.1.5, 8.1.6 (2017: 8.4, 8.5)) -/
 
 /-- `Ts ∘ Tu = id` (chain rule for `s ∘ u = id`). -/
 theorem tSrc_tUnit (a : X.PObj.TangentSpace) : X.tSrc (X.tUnit a) = a :=
@@ -435,10 +435,10 @@ theorem tInv_tComp (v : X.PMor.TangentSpace) : X.tComp (X.tInv v) v = X.tUnit (X
   X.tComp_eq (X.tSrc_tInv v)
     (by rw [tBase_tUnit, tBase_tInv, levelVal_tangentProj_tSrc, X.inv_comp]) (X.tSrc_tUnit _)
 
-/-- **Lemma 8.4** (with (8.7), (8.8)): the unit `1_q = u_T(q)` of `q ∈ T_xX` lies over `1_x`
+/-- **Lemma 8.1.5 (2017: 8.4)** (with (8.7), (8.8)): the unit `1_q = u_T(q)` of `q ∈ T_xX` lies over `1_x`
 with `Ts(1_q) = q`, i.e. `1_q = (1_x, Ts(1_x)⁻¹ q)`; it is a morphism `q → q` and a two-sided
 identity. -/
-theorem lemma_8_4 (q : X.PObj.TangentSpace) :
+theorem lemma_8_1_5 (q : X.PObj.TangentSpace) :
     X.tBase (X.tUnit q) = X.unit (X.PObj.levelVal 1 (X.PObj.tangentProj q)) ∧
       X.tSrc (X.tUnit q) = q ∧ X.tTgt (X.tUnit q) = q ∧
       (∀ k, X.tSrc k = q → X.tComp k (X.tUnit q) = k) ∧
@@ -449,24 +449,24 @@ theorem lemma_8_4 (q : X.PObj.TangentSpace) :
   · subst hk
     exact X.tUnit_tComp k
 
-/-- **Lemma 8.5** (with (8.9)): `ι_T(φ, k) = (φ⁻¹, Tι(φ)(k))` is a morphism
+/-- **Lemma 8.1.6 (2017: 8.5)** (with (8.9)): `ι_T(φ, k) = (φ⁻¹, Tι(φ)(k))` is a morphism
 `t_T(φ, k) → s_T(φ, k)` and a two-sided inverse. -/
-theorem lemma_8_5 (v : X.PMor.TangentSpace) :
+theorem lemma_8_1_6 (v : X.PMor.TangentSpace) :
     X.tBase (X.tInv v) = X.inv (X.tBase v) ∧ X.tSrc (X.tInv v) = X.tTgt v ∧
       X.tTgt (X.tInv v) = X.tSrc v ∧ X.tComp (X.tInv v) v = X.tUnit (X.tSrc v) ∧
       X.tComp v (X.tInv v) = X.tUnit (X.tTgt v) :=
   ⟨X.tBase_tInv v, X.tSrc_tInv v, X.tTgt_tInv v, X.tInv_tComp v, X.tComp_tInv v⟩
 
-/-- The groupoid `(TX, T𝐗)` with the structure maps (8.3)–(8.9) (Lemmas 8.2–8.5). -/
+/-- The groupoid `(TX, T𝐗)` with the structure maps (8.3)–(8.9) (Lemmas 8.1.3–8.1.6 (2017: 8.2–8.5)). -/
 def tangentGroupoidStr : GroupoidStr X.PObj.TangentSpace X.PMor.TangentSpace where
   src := X.tSrc
   tgt := X.tTgt
   comp := X.tComp
   unit := X.tUnit
   inv := X.tInv
-  src_comp _ _ h := (X.lemma_8_2 h).1
-  tgt_comp _ _ h := (X.lemma_8_2 h).2
-  comp_assoc _ _ _ h h' := X.lemma_8_3 h h'
+  src_comp _ _ h := (X.lemma_8_1_3 h).1
+  tgt_comp _ _ h := (X.lemma_8_1_3 h).2
+  comp_assoc _ _ _ h h' := X.lemma_8_1_4 h h'
   src_unit := X.tSrc_tUnit
   tgt_unit := X.tTgt_tUnit
   comp_unit := X.tComp_tUnit
@@ -476,7 +476,7 @@ def tangentGroupoidStr : GroupoidStr X.PObj.TangentSpace X.PMor.TangentSpace whe
   comp_inv := X.tComp_tInv
   inv_comp := X.tInv_tComp
 
-/-! ### Lemma 8.6: the differential geometric properties -/
+/-! ### Lemma 8.1.7 (2017: 8.6): the differential geometric properties -/
 
 theorem isLocalScDiffeo_tSrc :
     X.PMor.tangentPolyfold.IsLocalScDiffeo X.PObj.tangentPolyfold X.tSrc :=
@@ -527,10 +527,10 @@ theorem isScSmoothComp_tangent :
       X.isLocalScDiffeo_tSrc X.isLocalScDiffeo_tTgt.isScSmoothMap :=
   (isScSmoothComp_iff_sheet _ _).2 X.isScSmoothCompSheet_tangent
 
-/-- **Lemma 8.6**: `s_T` and `t_T` are surjective local sc-diffeomorphisms, `u_T` and `ι_T` are
+/-- **Lemma 8.1.7 (2017: 8.6)**: `s_T` and `t_T` are surjective local sc-diffeomorphisms, `u_T` and `ι_T` are
 sc-smooth, and the multiplication is sc-smooth on `T𝐗 ₛ×ₜ T𝐗` (condition (4), literally and in
 the sheet form). -/
-theorem lemma_8_6 :
+theorem lemma_8_1_7 :
     X.PMor.tangentPolyfold.IsLocalScDiffeo X.PObj.tangentPolyfold X.tSrc ∧ Surjective X.tSrc ∧
       X.PMor.tangentPolyfold.IsLocalScDiffeo X.PObj.tangentPolyfold X.tTgt ∧
       Surjective X.tTgt ∧
@@ -543,13 +543,13 @@ theorem lemma_8_6 :
     X.isScSmoothMap_tUnit, X.isScSmoothMap_tInv, X.isScSmoothComp_tangent,
     X.isScSmoothCompSheet_tangent⟩
 
-/-! ### Lemma 8.7: properness -/
+/-! ### Lemma 8.1.8 (2017: 8.7): properness -/
 
-/-- **Lemma 8.7**: `T(X, 𝐗)` has the properness property (3): for `a ∈ T_xX` and `V(x)` as in
+/-- **Lemma 8.1.8 (2017: 8.7)**: `T(X, 𝐗)` has the properness property (3): for `a ∈ T_xX` and `V(x)` as in
 (3) for `X`, `t_T : s_T⁻¹(cl TV) → TX` is proper, `TV = p⁻¹(V)`.  For `(Φ_k)` with
 `s_T(Φ_k) ∈ cl TV` and `t_T(Φ_k) → b`, a subsequence of the base points converges in `𝐗` to some
 `φ` (properness of `X`), and `Φ_k = (Tt|TU(φ))⁻¹(t_T(Φ_k)) → (Tt|TU(φ))⁻¹(b)`. -/
-theorem lemma_8_7 (a : X.PObj.TangentSpace) : ∃ V' : Set X.PObj.TangentSpace, IsOpen V' ∧
+theorem lemma_8_1_8 (a : X.PObj.TangentSpace) : ∃ V' : Set X.PObj.TangentSpace, IsOpen V' ∧
     a ∈ V' ∧ IsProperMap ((X.tSrc ⁻¹' closure V').domRestrict X.tTgt) := by
   obtain ⟨V, hVo, hxV, hV⟩ := X.exists_isProperMap (X.PObj.levelVal 1 (X.PObj.tangentProj a))
   have hpc := MPolyfold.continuous_levelVal_tangentProj (P := X.PObj)
@@ -584,9 +584,9 @@ theorem lemma_8_7 (a : X.PObj.TangentSpace) : ∃ V' : Set X.PObj.TangentSpace, 
   filter_upwards [hlim (hd.isScSmoothOn.isOpen.mem_nhds hφ₀W)] with n hn
   exact hD.left_inv _ hn
 
-/-! ### Theorem 8.1 -/
+/-! ### Theorem 8.1.1 (2017: 8.1) -/
 
-/-- **Theorem 8.1, the structure**: the tangent `T(X, 𝐗) = (TX, T𝐗)`, an ep-groupoid with the
+/-- **Theorem 8.1.1 (2017: 8.1), the structure**: the tangent `T(X, 𝐗) = (TX, T𝐗)`, an ep-groupoid with the
 object M-polyfold `TX`, the morphism M-polyfold `T𝐗` and the structure maps (8.3)–(8.9). -/
 def tangentEpGroupoid : EpGroupoid X.PObj.TangentSpace X.PMor.TangentSpace where
   toGroupoidStr := X.tangentGroupoidStr
@@ -596,11 +596,11 @@ def tangentEpGroupoid : EpGroupoid X.PObj.TangentSpace X.PMor.TangentSpace where
   isLocalScDiffeo_tgt := X.isLocalScDiffeo_tTgt
   isScSmoothMap_unit := X.isScSmoothMap_tUnit
   isScSmoothMap_inv := X.isScSmoothMap_tInv
-  exists_isProperMap := X.lemma_8_7
+  exists_isProperMap := X.lemma_8_1_8
   isScSmoothComp := X.isScSmoothComp_tangent
 
 /-- The projections `(p, p) : T(X, 𝐗) → (X, 𝐗)¹`, a functor sc-smooth on objects and morphisms
-(Theorem 8.1, last sentence; `(X, 𝐗)¹` is Chapter 7's `liftOne`). -/
+(Theorem 8.1.1 (2017: 8.1), last sentence; `(X, 𝐗)¹` is Chapter 7's `liftOne`). -/
 def tangentProjFunctor : EpFunctor X.tangentEpGroupoid X.liftOne where
   obj := X.PObj.tangentProj
   mor := X.PMor.tangentProj
@@ -616,12 +616,12 @@ def tangentProjFunctor : EpFunctor X.tangentEpGroupoid X.liftOne where
   isScSmoothMap_obj := X.PObj.tangentProj_isScSmooth
   isScSmoothMap_mor := X.PMor.tangentProj_isScSmooth
 
-/-- **Theorem 8.1** (without its tameness sentence, Lemma 8.8): `T(X, 𝐗) = (TX, T𝐗)` is an
+/-- **Theorem 8.1.1 (2017: 8.1)** (without its tameness sentence, Lemma 8.8): `T(X, 𝐗) = (TX, T𝐗)` is an
 ep-groupoid (`tangentEpGroupoid`) with the M-polyfolds `TX`, `T𝐗` and the structure maps
 `s_T = Ts`, `t_T = Tt` (8.3), the composition (8.5)–(8.6) (over `p(k) ∘ p(h)` with
 `Ts(k ∘ h) = Ts(h)`), `u_T = Tu` (8.8) and `ι_T = Tι` (8.9); and the projections
 `(p, p) : T(X, 𝐗) → (X, 𝐗)¹` form an sc-smooth functor (`tangentProjFunctor`). -/
-theorem theorem_8_1 :
+theorem theorem_8_1_1 :
     X.tangentEpGroupoid.PObj = X.PObj.tangentPolyfold ∧
       X.tangentEpGroupoid.PMor = X.PMor.tangentPolyfold ∧
       X.tangentEpGroupoid.src = MPolyfold.tangentMap X.isScSmoothMap_src ∧
@@ -637,9 +637,9 @@ theorem theorem_8_1 :
       X.tangentProjFunctor.mor = X.PMor.tangentProj :=
   ⟨rfl, rfl, rfl, rfl, rfl, rfl, rfl, fun _ _ h => X.tComp_spec h, rfl, rfl⟩
 
-/-! ### Remark 8.1: `Tφ = t_T ∘ (s_T|T_xX)⁻¹` -/
+/-! ### Remark 8.1.10 (2017: 8.1): `Tφ = t_T ∘ (s_T|T_xX)⁻¹` -/
 
-/-- `Tt ∘ (Ts|T_φ𝐗)⁻¹ = Tφ` (Chapter 7's `tangentMor`, Definition 7.4): for `h ∈ T_φ𝐗`,
+/-- `Tt ∘ (Ts|T_φ𝐗)⁻¹ = Tφ` (Chapter 7's `tangentMor`, Definition 7.1.4 (2017: 7.4)): for `h ∈ T_φ𝐗`,
 `Tφ(Ts(h)) = Tt(h)`. -/
 theorem tangentMor_tSrc (v : X.PMor.TangentSpace) :
     X.tangentMor (X.tBase v) (X.tSrc v) = X.tTgt v := by
@@ -660,18 +660,18 @@ theorem tangentMor_comp {φ ψ : Mor} (hφ : φ ∈ X.PMor.levelSet 1) (hψφ : 
   obtain ⟨k, rfl, hkh⟩ := X.exists_tSrc_eq' hψ1 (a := X.tTgt h)
     (by rw [levelVal_tangentProj_tTgt, hψφ])
   rw [X.tangentMor_tSrc h, ← hkh, X.tangentMor_tSrc k, ← X.tBase_tComp hkh,
-    ← X.tSrc_tComp hkh, X.tangentMor_tSrc, (X.lemma_8_2 hkh).2]
+    ← X.tSrc_tComp hkh, X.tangentMor_tSrc, (X.lemma_8_1_3 hkh).2]
 
-/-- The map `G : (φ, h) ↦ (Tφ, Ts(h))` of Remark 8.1, with `Tφ` recorded by its label
+/-- The map `G : (φ, h) ↦ (Tφ, Ts(h))` of Remark 8.1.10 (2017: 8.1), with `Tφ` recorded by its label
 `φ ∈ 𝐗₁`. -/
 def remarkG (v : X.PMor.TangentSpace) : Mor × X.PObj.TangentSpace := (X.tBase v, X.tSrc v)
 
-/-- **Remark 8.1**: (1) `t_T ∘ (s_T|T_φ𝐗)⁻¹ = Tφ : T_xX → T_yX` (Definition 7.4's `Tφ`);
+/-- **Remark 8.1.10 (2017: 8.1)**: (1) `t_T ∘ (s_T|T_φ𝐗)⁻¹ = Tφ : T_xX → T_yX` (Definition 7.1.4 (2017: 7.4)'s `Tφ`);
 (2) `T(ψ ∘ φ) = Tψ ∘ Tφ` on `T_{s φ}X`; (3) `G : (φ, h) ↦ (Tφ, Ts(h))` is a bijection of `T𝐗`
 onto the pairs `(Tφ, a)`, `φ ∈ 𝐗₁`, `a ∈ T_{s φ}X` (with `Tφ` labelled by `φ`); (4) `G` is
 compatible with the compositions: `(ψ, k) ∘ (φ, h)` is defined iff `Ts(k) = Tφ(Ts(h))`, and then
 `G(k ∘ h) = (T(ψ ∘ φ), Ts(h))` with `T(ψ ∘ φ) = Tψ ∘ Tφ`. -/
-theorem remark_8_1 :
+theorem remark_8_1_10 :
     (∀ v, X.tangentMor (X.tBase v) (X.tSrc v) = X.tTgt v) ∧
       (∀ φ ψ, φ ∈ X.PMor.levelSet 1 → X.src ψ = X.tgt φ → ∀ a,
         X.PObj.levelVal 1 (X.PObj.tangentProj a) = X.src φ →
@@ -702,7 +702,7 @@ theorem remark_8_1 :
 
 end EpGroupoid
 
-/-! ### Theorem 8.2: the tangent of an sc-smooth functor -/
+/-! ### Theorem 8.1.11 (2017: 8.2): the tangent of an sc-smooth functor -/
 
 namespace EpFunctor
 
@@ -712,7 +712,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   [TopologicalSpace Mor'] [T2Space Mor'] [ParacompactSpace Mor']
   {X : EpGroupoid Obj Mor} {Y : EpGroupoid Obj' Mor'}
 
-/-- **Theorem 8.2, the functor**: the tangent `(TΦ, T𝚽) : T(X, 𝐗) → T(Y, 𝐘)` of an sc-smooth
+/-- **Theorem 8.1.11 (2017: 8.2), the functor**: the tangent `(TΦ, T𝚽) : T(X, 𝐗) → T(Y, 𝐘)` of an sc-smooth
 functor, `TΦ` and `T𝚽` Part I's tangent maps. -/
 def tangent (Φ : EpFunctor X Y) : EpFunctor X.tangentEpGroupoid Y.tangentEpGroupoid where
   obj := MPolyfold.tangentMap Φ.isScSmoothMap_obj
@@ -744,10 +744,10 @@ def tangent (Φ : EpFunctor X Y) : EpFunctor X.tangentEpGroupoid Y.tangentEpGrou
   isScSmoothMap_obj := MPolyfold.tangentMap_isScSmooth Φ.isScSmoothMap_obj
   isScSmoothMap_mor := MPolyfold.tangentMap_isScSmooth Φ.isScSmoothMap_mor
 
-/-- **Theorem 8.2**: the tangent `(TΦ, T𝚽)` of an sc-smooth functor `(Φ, 𝚽) : (X, 𝐗) → (Y, 𝐘)`
+/-- **Theorem 8.1.11 (2017: 8.2)**: the tangent `(TΦ, T𝚽)` of an sc-smooth functor `(Φ, 𝚽) : (X, 𝐗) → (Y, 𝐘)`
 is an sc-smooth functor `T(X, 𝐗) → T(Y, 𝐘)` (`EpFunctor.tangent`): `TΦ`, `T𝚽` are sc-smooth,
 `T𝚽` is compatible with sources, targets, units and the composition (8.5). -/
-theorem theorem_8_2 (Φ : EpFunctor X Y) :
+theorem theorem_8_1_11 (Φ : EpFunctor X Y) :
     Φ.tangent.obj = MPolyfold.tangentMap Φ.isScSmoothMap_obj ∧
       Φ.tangent.mor = MPolyfold.tangentMap Φ.isScSmoothMap_mor ∧
       X.PObj.tangentPolyfold.IsScSmoothMap Y.PObj.tangentPolyfold Φ.tangent.obj ∧
@@ -762,7 +762,7 @@ theorem theorem_8_2 (Φ : EpFunctor X Y) :
 
 end EpFunctor
 
-/-! ### Theorem 8.3: the tangent functor `T : EP → EP` -/
+/-! ### Theorem 8.1.12 (2017: 8.3): the tangent functor `T : EP → EP` -/
 
 /-- The tangent `TX` of a bundled ep-groupoid (in `EP.{max u 1}`, Part I's `TangentSpace` of a
 type in `Type (max u 1)` being again in `Type (max u 1)`). -/
@@ -771,7 +771,7 @@ def EP.tangent (A : EP.{max u 1}) : EP.{max u 1} where
   Mor := A.X.PMor.TangentSpace
   X := A.X.tangentEpGroupoid
 
-/-- **Theorem 8.3, the functor** `T : EP → EP`, `X ↦ TX`, `Φ ↦ TΦ`. -/
+/-- **Theorem 8.1.12 (2017: 8.3), the functor** `T : EP → EP`, `X ↦ TX`, `Φ ↦ TΦ`. -/
 def tangentFunctor : EP.{max u 1} ⥤ EP.{max u 1} where
   obj A := A.tangent
   map Φ := EpFunctor.tangent Φ
@@ -780,11 +780,11 @@ def tangentFunctor : EP.{max u 1} ⥤ EP.{max u 1} where
     EpFunctor.ext (MPolyfold.tangentMap_comp Ψ.isScSmoothMap_obj Φ.isScSmoothMap_obj)
       (MPolyfold.tangentMap_comp Ψ.isScSmoothMap_mor Φ.isScSmoothMap_mor)
 
-/-- **Theorem 8.3 (functoriality of `T` on ep-groupoids)**: `T : EP → EP` (`tangentFunctor`) is
+/-- **Theorem 8.1.12 (2017: 8.3) (functoriality of `T` on ep-groupoids)**: `T : EP → EP` (`tangentFunctor`) is
 a functor associating with an ep-groupoid `X` its tangent `TX` and with an sc-smooth functor `Φ`
-its tangent `TΦ`, which preserves the composition and the other structure maps (Theorem 8.2).
-(Tameness, Lemma 8.8, is not formalized here.) -/
-theorem theorem_8_3 :
+its tangent `TΦ`, which preserves the composition and the other structure maps (Theorem 8.1.11 (2017: 8.2)).
+(Tameness, Lemma 8.1.9 (2017: 8.8), is not formalized here.) -/
+theorem theorem_8_1_12 :
     (∀ A : EP.{max u 1}, (tangentFunctor.obj A).X = A.X.tangentEpGroupoid) ∧
       (∀ {A B : EP.{max u 1}} (Φ : A ⟶ B), (tangentFunctor.map Φ : EpFunctor _ _) =
         EpFunctor.tangent (X := A.X) (Y := B.X) Φ) ∧
@@ -793,7 +793,7 @@ theorem theorem_8_3 :
         tangentFunctor.map (Φ ≫ Ψ) = tangentFunctor.map Φ ≫ tangentFunctor.map Ψ) :=
   ⟨fun _ => rfl, fun _ => rfl, tangentFunctor.map_id, tangentFunctor.map_comp⟩
 
-/-! ### Proposition 8.1: tangents of natural transformations -/
+/-! ### Proposition 8.1.14 (2017: 8.1): tangents of natural transformations -/
 
 namespace EpNatTrans
 
@@ -804,7 +804,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   {X : EpGroupoid Obj Mor} {Y : EpGroupoid Obj' Mor'} {Φ Ψ : EpFunctor X Y}
 
 /-- The tangent `Tτ : TX → T𝐘` of a natural transformation `τ : Φ → Ψ`, a natural
-transformation `TΦ → TΨ` (Proposition 8.1).  Naturality: both sides of the square lie over
+transformation `TΦ → TΨ` (Proposition 8.1.14 (2017: 8.1)).  Naturality: both sides of the square lie over
 `τ(t α) ∘ Φ(α) = Ψ(α) ∘ τ(s α)` and have the same `Ts`, namely `TΦ(s_T p)`. -/
 def tangent (τ : EpNatTrans Φ Ψ) : EpNatTrans Φ.tangent Ψ.tangent where
   app := MPolyfold.tangentMap τ.isScSmoothMap_app
@@ -846,10 +846,10 @@ def tangent (τ : EpNatTrans Φ Ψ) : EpNatTrans Φ.tangent Ψ.tangent where
 
 end EpNatTrans
 
-/-- **Proposition 8.1**: if `τ : Φ → Ψ` is a natural transformation between sc-smooth functors
+/-- **Proposition 8.1.14 (2017: 8.1)**: if `τ : Φ → Ψ` is a natural transformation between sc-smooth functors
 `Φ, Ψ : (X, 𝐗) → (Y, 𝐘)`, its tangent `Tτ : TX → T𝐘` is a natural transformation
 `Tτ : TΦ → TΨ` (`EpNatTrans.tangent`); in particular `Φ ≃ Ψ` implies `TΦ ≃ TΨ`. -/
-theorem proposition_8_1 {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj]
+theorem proposition_8_1_14 {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj]
     [ParacompactSpace Obj] [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor]
     {Obj' Mor' : Type v} [TopologicalSpace Obj'] [T2Space Obj'] [ParacompactSpace Obj']
     [TopologicalSpace Mor'] [T2Space Mor'] [ParacompactSpace Mor']

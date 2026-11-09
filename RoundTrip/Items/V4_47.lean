@@ -87,9 +87,9 @@ theorem A_to_B : A → B := by
   have hNt : N = LinearMap.range (scDeriv t.U t z : φ.model.E 0 →ₗ[ℝ] φ.model.E 0) := by
     refine SetLike.coe_injective (hN.trans ?_)
     rw [← ht']; exact tangentSpace_eq_coe_submodule t hzt
-  have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_7_ii htp hzt
+  have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_1_7_ii htp hzt
   have hNs : N ≤ φ.model.E.smooth :=
-    (φ.model.E.proposition_1_6_iff N).1 (hNt ▸ (t.isScSplitting_range_scDeriv hzt hzs).1)
+    (φ.model.E.proposition_1_1_7_iff N).1 (hNt ▸ (t.isScSplitting_range_scDeriv hzt hzs).1)
   have hN' : (N : Set (φ.model.E 0)) = tangentSpace φ.model.E φ.model.C t.retract z := by
     rw [ht']; exact hN
   -- the second conjunct of `A`

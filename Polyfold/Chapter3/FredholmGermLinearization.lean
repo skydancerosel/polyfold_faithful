@@ -4,22 +4,22 @@ import Polyfold.Chapter3.SectionCompactness
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Proposition 3.52** (the linearization of an sc-Fredholm section at a zero is Fredholm, of the
-index `n − N` of the conjugating basic germ), in the chart of Definition 3.11, together with the
-pieces of the proof of Theorem 3.54 that only involve the linearization: the derivative of the
+**Proposition 3.6.5 (preprint 3.52)** (the linearization of an sc-Fredholm section at a zero is Fredholm, of the
+index `n − N` of the conjugating basic germ), in the chart of Definition 3.1.11 (preprint 3.11), together with the
+pieces of the proof of Theorem 3.6.8 (preprint 3.54) that only involve the linearization: the derivative of the
 push-forward `Ψ_*(g − s)` is `Γ(0) ∘ D(g − s)(0) = Dh(0) ∘ Dψ(0)`, so `D(g − s)(0)` is Fredholm of
-index `n − N` (Proposition 3.10), `Dg(0) = D(g − s)(0) + ιDs(0)` is a compact perturbation, and
-`Tf(0) = Dg(0)|_{T₀O}` is Fredholm of the same index (Proposition 3.5).
+index `n − N` (Proposition 3.1.10 (preprint 3.10)), `Dg(0) = D(g − s)(0) + ιDs(0)` is a compact perturbation, and
+`Tf(0) = Dg(0)|_{T₀O}` is Fredholm of the same index (Proposition 3.1.5 (preprint 3.5)).
 
 # The linearization of an sc-Fredholm germ
 
 ## The text, paraphrased
 
-(Proposition 3.52) If `f` is an sc-Fredholm section of the tame strong bundle `P : Y → X` and
+(Proposition 3.6.5 (preprint 3.52)) If `f` is an sc-Fredholm section of the tame strong bundle `P : Y → X` and
 `f(x) = 0`, then `Tf(x) : T_xX → Y_x` is an sc-Fredholm operator.  Proof: in the chart of the
-sc-Fredholm germ, `D(g − s)(0)` is sc-Fredholm by Proposition 3.10, `Dg(0)` by Proposition 1.10
+sc-Fredholm germ, `D(g − s)(0)` is sc-Fredholm by Proposition 3.1.10 (preprint 3.10), `Dg(0)` by Proposition 1.1.11 (preprint 1.10)
 (`Ds(0)` is sc⁺), and `Tf̃(0) : T₀O → K₀` is sc-Fredholm of index `ind Dg(0) = ind D(g − s)(0)`
-by Proposition 3.5.  (Proof of Theorem 3.54) "`Ψ_*(g) = h + t` … `D(h + t)(0)` is sc-Fredholm …
+by Proposition 3.1.5 (preprint 3.5).  (Proof of Theorem 3.6.8 (preprint 3.54)) "`Ψ_*(g) = h + t` … `D(h + t)(0)` is sc-Fredholm …
 `Dg(0)` is also sc-Fredholm … `Tf̃(0)` is surjective … by Proposition 3.5 `Dg(0)` is surjective."
 
 ## What is formalized
@@ -30,29 +30,29 @@ by Proposition 3.5.  (Proof of Theorem 3.54) "`Ψ_*(g) = h + t` … `D(h + t)(0)
   `IsStrongBundleMap.scDeriv_fiber_zero` (`D(pr_{F'} ∘ Ψ)(0, 0)(h, k) = Γ(0)k`).
 * `Polyfold.isFredholm_equiv_comp_equiv`: Fredholm property and index are invariant under
   composition with linear isomorphisms on both sides.
-* `Polyfold.proposition_3_10_basic`: Proposition 3.10 for a basic germ alone (`s = 0`).
+* `Polyfold.proposition_3_1_10_basic`: Proposition 3.1.10 (preprint 3.10) for a basic germ alone (`s = 0`).
 * `Polyfold.IsConjugateToBasicGerm.scDeriv_isFredholm_wholeChart`: for `k` sc-smooth with `k(0) = 0`
   conjugated to a basic germ, `Dk(0)` is Fredholm (on level `0`) of index `n − N`.
-* `Polyfold.proposition_3_52_local_wholeChart` and `Polyfold.proposition_3_52_wholeChart`: in the chart of Definition
+* `Polyfold.proposition_3_6_5_local_wholeChart` and `Polyfold.proposition_3_6_5_wholeChart`: in the chart of Definition
   3.11 centred at a zero `x₀` of a section `f` with `(f, x₀)` an sc-Fredholm germ, `Dg(0)` and
   `Tf(0) = Dg(0)|_{T₀O} : T₀O → K₀` are Fredholm operators with `ind Tf(0) = ind Dg(0) = n − N`.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **Only the level-`0` (classical) Fredholm property is proved in this file**, with the index.
-  The text's "sc-Fredholm operator" `Tf(x) : T_xX → Y_x` (all levels, Definition 1.8) is
-  `proposition_3_52_local_sc_wholeChart` / `proposition_3_52_sc_wholeChart` in `FredholmGermLinearizationSc.lean`:
+  The text's "sc-Fredholm operator" `Tf(x) : T_xX → Y_x` (all levels, Definition 1.1.9 (preprint 1.8)) is
+  `proposition_3_6_5_local_sc_wholeChart` / `proposition_3_6_5_sc_wholeChart` in `FredholmGermLinearizationSc.lean`:
   `T₀O = Dr(0)E` and `K₀ = ρ(0)F` are sc-subspaces, `Dg(0)` and its restriction `T₀O → K₀`
   (`ScOperator.restrict`) are sc-Fredholm, by the criterion "Fredholm on level `0` + regularizing"
   (`isScFredholm_of_isRegularizing`, `Chapter1/ScFredholmCriterion.lean`; Findings, Chapter 3,
-  items 233–236).  The level-`0` statements here are what Proposition 3.5 and Theorem 3.54 use.
+  items 233–236).  The level-`0` statements here are what Proposition 3.1.5 (preprint 3.5) and Theorem 3.6.8 (preprint 3.54) use.
 * **The derivative of the conjugation.**  The identity `Ψ(u, (g − s)(u)) = (ψ(u), h(ψ(u)))` holds
   for `u ∈ U` near `0`; linearizing it needs the chain rule for the germ `h ∘ ψ` on a germ of
   neighbourhoods small enough that `ψ` maps it into the germ of `h` (`ScNbhdGerm.preimage`), the
   derivative of `u ↦ Γ(u, k(u))` at `0` (which is `Γ(0)Dk(0)` because `k(0) = 0` and `Γ(u, ·)` is
   linear, `scDeriv_fiber_zero`), and the invertibility of `Dψ(0)` (inverse `Dψ'(0)`, chain rule
   for `ψ' ∘ ψ = id`) and of `Γ(0)` (inverse `Γ'(0)`).
-* `k(0) = (g − s)(0) = 0` is `s(0) = g(0)` of Definition 3.11; `g(0) = f̂(0) = 0` is `f(x₀) = 0`
+* `k(0) = (g − s)(0) = 0` is `s(0) = g(0)` of Definition 3.1.11 (preprint 3.11); `g(0) = f̂(0) = 0` is `f(x₀) = 0`
   through condition (1) of the filler.
 -/
 
@@ -264,7 +264,7 @@ theorem isFredholm_equiv_comp_equiv {T : E₀ →L[ℝ] F₀} (hT : IsFredholm T
 
 end FredholmEquiv
 
-/-! ### Proposition 3.10 for a basic germ alone -/
+/-! ### Proposition 3.1.10 (preprint 3.10) for a basic germ alone -/
 
 /-- The zero sc-operator. -/
 def ScOperator.zero (E F : ScBanach) : ScOperator E F where
@@ -277,9 +277,9 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
   {Ct : Set P} {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {Q : Type}
   [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensional ℝ Q]
 
-/-- **Proposition 3.10 for a basic germ** (`s = 0`): `Dh(0)` is an sc-Fredholm operator of index
+/-- **Proposition 3.1.10 (preprint 3.10) for a basic germ** (`s = 0`): `Dh(0)` is an sc-Fredholm operator of index
 `n − N`. -/
-theorem proposition_3_10_basic (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h : P × W 0 → Q × W 0}
+theorem proposition_3_1_10_basic (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h : P × W 0 → Q × W 0}
     {Bc : P × W 0 → W 0} (hh : IsBasicGerm Ct G h Bc) :
     ∃ hop : IsScOperator (scDerivGerm (F := ScBanach.paramProd Q W) G h 0),
       IsScFredholm hop.toScOperator ∧ scIndex hop.toScOperator = finrank ℝ P - finrank ℝ Q := by
@@ -296,14 +296,14 @@ theorem proposition_3_10_basic (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h
     hh1.congr fun x _ => by
       change h x = h x + (ScBanach.paramProd Q W).toBase 1 0
       rw [map_zero, add_zero]
-  exact proposition_3_10 hC hh hs hF
+  exact proposition_3_1_10 hC hh hs hF
 
 /-- The level-`0` consequence: `Dh(0)` is Fredholm of index `n − N`. -/
-theorem proposition_3_10_basic_level_zero (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+theorem proposition_3_1_10_basic_level_zero (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     {h : P × W 0 → Q × W 0} {Bc : P × W 0 → W 0} (hh : IsBasicGerm Ct G h Bc) :
     IsFredholm (scDerivGerm (F := ScBanach.paramProd Q W) G h 0) ∧
       fredholmIndex (scDerivGerm (F := ScBanach.paramProd Q W) G h 0) = finrank ℝ P - finrank ℝ Q := by
-  obtain ⟨hop, hFred, hind⟩ := proposition_3_10_basic hC hh
+  obtain ⟨hop, hFred, hind⟩ := proposition_3_1_10_basic hC hh
   obtain ⟨sp⟩ := hFred
   have h1 := sp.isFredholm 0
   rw [hop.toScOperator_zero] at h1
@@ -353,7 +353,7 @@ theorem IsConjugateToBasicGerm.scDeriv_isFredholm_wholeChart (hU : IsRelOpenInQu
   set Γ := hΨ.toFun.fiberCLM h0 with hΓ
   set Γ' := hΨ.invFun.fiberCLM h0U' with hΓ'
   -- (a) `Dh(0)` is Fredholm of index `n − N`
-  obtain ⟨hDhF, hDhind⟩ := proposition_3_10_basic_level_zero hCt hh
+  obtain ⟨hDhF, hDhind⟩ := proposition_3_1_10_basic_level_zero hCt hh
   -- (b) `Γ(0)Dk(0) = Dh(0)Dψ(0)`
   have hlhs : scDeriv U (fun u => (Ψ (u, k u)).2) 0 = Γ.comp Dk :=
     hΨ.toFun.scDeriv_fiber_comp hU h0 hk hk0
@@ -443,7 +443,7 @@ theorem IsConjugateToBasicGerm.scDeriv_isFredholm_wholeChart (hU : IsRelOpenInQu
 
 end Conjugate
 
-/-! ### Proposition 3.52 -/
+/-! ### Proposition 3.6.5 (preprint 3.52) -/
 
 section Prop352
 
@@ -451,12 +451,12 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Proposition 3.52 in the chart of Definition 3.11**: let `g` be a filled version of the
+/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11)**: let `g` be a filled version of the
 principal part `f̂` of a section at a zero (`f̂(0) = 0`), `s` a local sc⁺-section with
 `s(0) = g(0)` and `g − s` conjugated to a basic germ.  Then `Dg(0) : E → F` is a Fredholm
 operator (on level `0`) of index `n − N`, and so is `Tf(0) = Dg(0)|_{T₀O} : T₀O → K₀`
-(Propositions 3.10, 1.10 and 3.5). -/
-theorem proposition_3_52_local_wholeChart (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
+(Propositions 3.1.10, 1.1.11 and 3.1.5 (preprint 3.10, 1.10 and 3.5)). -/
+theorem proposition_3_6_5_local_wholeChart (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
     (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U) {fb g : E 0 → F 0}
     (hfill : IsFilledVersion hU hR h0 fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ)) {s : E 0 → F 1}
@@ -506,13 +506,13 @@ theorem proposition_3_52_local_wholeChart (hU : IsRelOpenInQuadrant E C U) (hR :
     rw [hDg]; exact isFredholm_add_isCompactOperator hDkF hcompact
   have hDgind : fredholmIndex (scDeriv U g 0) = n - N := by
     rw [hDg, fredholmIndex_add_isCompactOperator hDkF hcompact, hDkind]
-  -- Proposition 3.5
-  obtain ⟨h1, -, hFiff, hindeq⟩ := hfill.filler.proposition_3_5 hg hg0 h0O hfK
+  -- Proposition 3.1.5 (preprint 3.5)
+  obtain ⟨h1, -, hFiff, hindeq⟩ := hfill.filler.proposition_3_1_5 hg hg0 h0O hfK
   exact ⟨h1, n, N, hDgF, hDgind, hFiff.2 hDgF, by rw [hindeq, hDgind]⟩
 
 end Prop352
 
-/-! ### Proposition 3.52 for sections of strong bundles -/
+/-! ### Proposition 3.6.5 (preprint 3.52) for sections of strong bundles -/
 
 section Bundle
 
@@ -525,14 +525,14 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
-/-- **Proposition 3.52**: let `f` be a section of the strong bundle `P : Y → X` with `(f, x₀)` an
-sc-Fredholm germ and `f(x₀) = 0`.  Then in the strong bundle chart of Definition 3.11 (centred at
+/-- **Proposition 3.6.5 (preprint 3.52)**: let `f` be a section of the strong bundle `P : Y → X` with `(f, x₀)` an
+sc-Fredholm germ and `f(x₀) = 0`.  Then in the strong bundle chart of Definition 3.1.11 (preprint 3.11) (centred at
 `x₀`, with filled version `g` of the principal part `f̂`) the linearization
 `Tf(x₀) = Dg(0)|_{T₀O} : T₀O → K₀` (`fillerRestrict`) is a Fredholm operator of index `n − N`,
 `n − N` the index of the conjugating basic germ, and so is `Dg(0) : E → F`.  (The text: "`Tf(x) :
 T_xX → Y_x` is an sc-Fredholm operator"; here the level-`0` Fredholm property with the index, in
 the chart.) -/
-theorem proposition_3_52_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
+theorem proposition_3_6_5_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
     (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (h0 : (0 : c.φ.model.E 0) ∈ c.U) (g : c.φ.model.E 0 → c.F 0)
@@ -558,7 +558,7 @@ theorem proposition_3_52_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsSc
     rw [← c.image_source]
     exact ⟨_, c.mem_source_of_proj (by rw [hf]; exact c.φ.symm_mapsTo hx), rfl⟩
   obtain ⟨h1, n, N, hDgF, hDgind, hTF, hTind⟩ :=
-    proposition_3_52_local_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 hconj
+    proposition_3_6_5_local_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 hconj
   exact ⟨c, hc, hxV, hφ0, h0U, g, hfill, h1, n, N, hDgF, hDgind, hTF, hTind⟩
 
 end Bundle

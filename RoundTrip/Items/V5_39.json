@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "incomparable"
   },
-  "note": "theorem_5_18_dense and B now both use the germ-reading IsScFredholmSectionTame. The obstacles (weak vs pointwise bump functions; B's tame strong bundle atlas) are untouched by the germ switch; A ⇒ BStrongBump still checks. Result unchanged."
+  "note": "theorem_5_3_10_dense and B now both use the germ-reading IsScFredholmSectionTame. The obstacles (weak vs pointwise bump functions; B's tame strong bundle atlas) are untouched by the germ switch; A ⇒ BStrongBump still checks. Result unchanged."
  }
 }

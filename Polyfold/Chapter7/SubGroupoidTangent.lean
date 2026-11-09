@@ -25,13 +25,13 @@ induced map `W → A` is sc-smooth and `T_aA = (Tr)(a)T_aX` at a smooth `a ∈ A
 * `EpGroupoid.subObjInclusionCLM hA hax : T_aA →L[ℝ] T_aX` and
   `EpGroupoid.subObjRetractionCLM hA hax d a₀ hxV : T_aX →L[ℝ] T_aA`, the tangents of `i` and
   of `i⁻¹ ∘ r`.
-* **`EpGroupoid.fact_3_subObj_2021`**: `Ti(T_aA)` is a closed subspace of `T_aX` with the closed
+* **`EpGroupoid.fact_3_subObj`**: `Ti(T_aA)` is a closed subspace of `T_aX` with the closed
   complement `ker T(i⁻¹ ∘ r)` (the linear content of (3)).
-* **`EpGroupoid.fact_4_subObj_2021`**: `T(i⁻¹ ∘ r)` is onto `T_aA`, `Ti ∘ T(i⁻¹ ∘ r) = Tr(a)`
+* **`EpGroupoid.fact_4_subObj`**: `T(i⁻¹ ∘ r)` is onto `T_aA`, `Ti ∘ T(i⁻¹ ∘ r) = Tr(a)`
   and `Tr(a)T_aX = Ti(T_aA)` (fact (4)).
 
 As in Part I the statements hold for every `a ∈ A₁ ∩ V`; smoothness is not needed.  The
-**sc**-complement of (3) is the chart statement `proposition_2_21_3` (`Metrizable.lean`), see
+**sc**-complement of (3) is the chart statement `proposition_2_3_19_three` (`Metrizable.lean`), see
 `SubMPolyfoldTangent.lean`.
 -/
 
@@ -63,7 +63,7 @@ abbrev subObjRetractionCLM : X.PObj.tangentFiber x →L[ℝ] (subObjPolyfold hA)
 
 /-- **Fact (3) for `A` (2021 pp. 305–307; 2017 pp. 237–238), the linear content**: `Ti(T_aA)` is
 a closed subspace of `T_aX` with the closed complement `ker T(i⁻¹ ∘ r)`, for `a ∈ A₁ ∩ V`. -/
-theorem fact_3_subObj_2021 :
+theorem fact_3_subObj :
     IsClosed (LinearMap.range (subObjInclusionCLM hA hax :
         (subObjPolyfold hA).tangentFiber a →ₗ[ℝ] X.PObj.tangentFiber x) :
           Set (X.PObj.tangentFiber x)) ∧
@@ -75,12 +75,12 @@ theorem fact_3_subObj_2021 :
           (subObjPolyfold hA).tangentFiber a →ₗ[ℝ] X.PObj.tangentFiber x))
         (LinearMap.ker (subObjRetractionCLM hA hax d a₀ hxV :
           X.PObj.tangentFiber x →ₗ[ℝ] (subObjPolyfold hA).tangentFiber a)) :=
-  MPolyfold.proposition_2_3_19_3_linear_2021 hA.isSubMPolyfold hax d a₀ hxV
+  MPolyfold.proposition_2_3_19_3_linear hA.isSubMPolyfold hax d a₀ hxV
 
 /-- **Fact (4) for `A` (2021 pp. 305–307; 2017 pp. 237–238)**: the induced map `i⁻¹ ∘ r : V → A`
 is sc-smooth (`isScSmoothOn_retractInto_subObj`), its tangent `T_aX → T_aA` is onto,
 `Ti ∘ T(i⁻¹ ∘ r) = Tr(a)` on `T_aX`, and `Tr(a)T_aX = Ti(T_aA)`, i.e. `T_aA = (Tr)(a)T_aX`. -/
-theorem fact_4_subObj_2021 :
+theorem fact_4_subObj :
     Surjective (subObjRetractionCLM hA hax d a₀ hxV) ∧
       (∀ α : X.PObj.tangentFiber x,
         (subObjInclusionCLM hA hax (subObjRetractionCLM hA hax d a₀ hxV α) :
@@ -90,7 +90,7 @@ theorem fact_4_subObj_2021 :
             X.PObj.tangentFiber x →ₗ[ℝ] X.PObj.tangentFiber x) =
         LinearMap.range (subObjInclusionCLM hA hax :
           (subObjPolyfold hA).tangentFiber a →ₗ[ℝ] X.PObj.tangentFiber x) :=
-  MPolyfold.proposition_2_3_19_4_2021 hA.isSubMPolyfold hax d a₀ hxV
+  MPolyfold.proposition_2_3_19_4 hA.isSubMPolyfold hax d a₀ hxV
 
 end EpGroupoid
 

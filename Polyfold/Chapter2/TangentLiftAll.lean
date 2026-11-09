@@ -43,12 +43,12 @@ section of `T(X^i) → X^{i+1}`.
   `levelVal_tangentLiftEquiv_succ`, `incl_tangentLiftEquiv`, `incl_shiftLiftEquiv`,
   `tangentProjLift_tangentLiftEquiv`, `tangentLiftEquiv_unique`, `tangentLiftEquiv_one`,
   `tangentIncl_tangentMap`, `tangentLiftEquiv_natural`.
-* **`proposition_2_3_17_all_2021`** (Proposition 2.3.17 for every `i`).
+* **`proposition_2_3_17_all`** (Proposition 2.3.17 for every `i`).
 * `BundledMPolyfold.raiseIndexAll` (`A^(i)`, by recursion: `A^(i+1) = (A^(i))^(1)`,
   `MPolyfold.raiseIndex`), `tangentIncl_raiseIndexAll`, `tangentLiftEquiv_raiseIndexAll`, and
-  **`lemma_4_4_4_all_2021`** (Lemma 4.4.4 for every `i`).
+  **`lemma_4_4_4_all`** (Lemma 4.4.4 for every `i`).
 * Witnesses: `BundledMPolyfold.nonempty` (a bundled M-polyfold exists: the half-line
-  `MPolyfold.quadrantPolyfold 1 W`), `lemma_4_4_4_all_2021_zero` (the zero vector field; with
+  `MPolyfold.quadrantPolyfold 1 W`), `lemma_4_4_4_all_zero` (the zero vector field; with
   `MPolyfold.isScVectorField_zero` the hypothesis of Lemma 4.4.4 is satisfiable).  `ScEquiv` and
   `ScMap` have the witnesses `ScEquiv.refl`, `tangentShiftScEquiv`, `tangentProjScMap`.
 
@@ -62,7 +62,7 @@ section of `T(X^i) → X^{i+1}`.
   `(TX)^{i+1} → (TX)^i` after `Φ_{i+1}` is `Φ_i` after `T(X^{i+1}) → T(X^i)`), hence with their
   composites into `TX` (part (4)); this determines `Φ_i` (part (7)).  `Φ_1` is the map of
   `TangentLift.lean` (`tangentLiftEquiv_one`), which in the charts `T(φ¹)`, `(Tφ)¹` is the identity
-  of `T(O¹) = (TO)¹` (`proposition_2_3_17_2021` (5)); `Φ_i` is a composite of index raises of such
+  of `T(O¹) = (TO)¹` (`proposition_2_3_17` (5)); `Φ_i` is a composite of index raises of such
   maps.  It is natural in `X` as well: `Φ_i ∘ T(f^i) = (Tf)^i ∘ Φ_i` (`tangentLiftEquiv_natural`).
 * `(X¹)^i ≡ (X^i)¹` is the sc-diffeomorphism `J_i`, the identity on the points of `X`
   (`incl_shiftLiftEquiv`).  "Covering" is `J_i ∘ p^i ∘ Φ_i = p_{X^i}` (part (3)), where
@@ -394,7 +394,7 @@ identification `T(X^i) ≡ (TX)^i` as M-polyfold bundles over `(X^i)¹ ≡ (X¹)
 inclusions `T(X^{i+1}) → T(X^i)`, `(TX)^{i+1} → (TX)^i` of the two towers of the text;
 (6) `J_i` is the identity on the points of `X`;
 (7) `Φ_i` is the only map with (4). -/
-theorem _root_.Polyfold.proposition_2_3_17_all_2021 (i : ℕ) :
+theorem _root_.Polyfold.proposition_2_3_17_all (i : ℕ) :
     (A.lift i).tangent.P.IsScDiffeoOn (A.tangent.lift i).P (A.tangentLiftEquiv i)
         (A.tangentLiftEquiv i).invFun univ univ ∧
       (A.shift.lift i).P.IsScDiffeoOn (A.lift i).shift.P (A.shiftLiftEquiv i)
@@ -452,7 +452,7 @@ def raiseIndexAll (V : A.P.Level 1 → A.P.TangentSpace) (hV : A.P.IsScVectorFie
     (i : ℕ) → {W : (A.lift i).P.Level 1 → (A.lift i).P.TangentSpace //
       (A.lift i).P.IsScVectorField W}
   | 0 => ⟨V, hV⟩
-  | i + 1 => ⟨raiseIndex (raiseIndexAll V hV i).2, (lemma_4_4_4_2021 (raiseIndexAll V hV i).2).1⟩
+  | i + 1 => ⟨raiseIndex (raiseIndexAll V hV i).2, (lemma_4_4_4 (raiseIndexAll V hV i).2).1⟩
 
 /-- `A^(i)` is `A`: its image in `TX` at `x ∈ X^{i+1}` is `A(x)`. -/
 theorem tangentIncl_raiseIndexAll (V : A.P.Level 1 → A.P.TangentSpace)
@@ -462,7 +462,7 @@ theorem tangentIncl_raiseIndexAll (V : A.P.Level 1 → A.P.TangentSpace)
     have : x = y := level_ext h.symm
     subst this; rfl
   | i + 1, x, y, h => by
-    have h1 := (lemma_4_4_4_2021 (raiseIndexAll V hV i).2).2 x
+    have h1 := (lemma_4_4_4 (raiseIndexAll V hV i).2).2 x
     exact (congrArg (A.tangentIncl i) h1).trans
       (tangentIncl_raiseIndexAll V hV i ((A.lift i).P.shift.levelVal 1 x) y h)
 
@@ -486,7 +486,7 @@ vector field `A` of `X`, `A^(i)` is an sc-smooth vector field of `X^i`, i.e. an 
 of `T(X^i) → X^{i+1}`; it is `A` (its image in `TX` at `x ∈ X^{i+1}` is `A(x)`); through the
 identifications `Φ_i`, `J_i` of Proposition 2.3.17 it is the `i`-th index raise of `A`; and
 `A^(i+1) = (A^(i))^(1)`. -/
-theorem _root_.Polyfold.lemma_4_4_4_all_2021 (V : A.P.Level 1 → A.P.TangentSpace)
+theorem _root_.Polyfold.lemma_4_4_4_all (V : A.P.Level 1 → A.P.TangentSpace)
     (hV : A.P.IsScVectorField V) (i : ℕ) :
     (A.lift i).P.IsScVectorField (raiseIndexAll V hV i).1 ∧
       (∀ (x : (A.lift i).P.Level 1) (y : A.P.Level 1), A.P.levelVal 1 y = A.incl (i + 1) x →
@@ -497,10 +497,10 @@ theorem _root_.Polyfold.lemma_4_4_4_all_2021 (V : A.P.Level 1 → A.P.TangentSpa
   ⟨(raiseIndexAll V hV i).2, tangentIncl_raiseIndexAll V hV i,
     tangentLiftEquiv_raiseIndexAll V hV i, fun _ => rfl⟩
 
-/-- **Witness** for `lemma_4_4_4_all_2021`: the zero vector field (`isScVectorField_zero`). -/
-theorem lemma_4_4_4_all_2021_zero (A : BundledMPolyfold.{u}) (i : ℕ) :
+/-- **Witness** for `lemma_4_4_4_all`: the zero vector field (`isScVectorField_zero`). -/
+theorem lemma_4_4_4_all_zero (A : BundledMPolyfold.{u}) (i : ℕ) :
     (A.lift i).P.IsScVectorField (raiseIndexAll A.P.zeroVectorField A.P.isScVectorField_zero i).1 :=
-  (lemma_4_4_4_all_2021 _ A.P.isScVectorField_zero i).1
+  (lemma_4_4_4_all _ A.P.isScVectorField_zero i).1
 
 end BundledMPolyfold
 

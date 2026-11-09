@@ -3,7 +3,7 @@ import Polyfold.Chapter3.SolutionLinearization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-**Proposition 3.10, second statement** (p. 68): the linearization of a basic germ plus an
+**Proposition 3.1.10 (preprint 3.10), second statement** (p. 68): the linearization of a basic germ plus an
 sc⁺-germ is Fredholm of index `n − N` on every level `m`, at points `(a, w) ∈ E_{m+1}` small in
 `E_m`.  Round-trip item V3.12.
 
@@ -11,13 +11,13 @@ sc⁺-germ is Fredholm of index `n − N` on every level `m`, at points `(a, w) 
 
 ## The text, paraphrased
 
-Let `f = h + s : O([0,∞)^k ⊕ ℝ^{n−k} ⊕ W, 0) → ℝᴺ ⊕ W` with `h` a basic germ (Definition 3.7,
+Let `f = h + s : O([0,∞)^k ⊕ ℝ^{n−k} ⊕ W, 0) → ℝᴺ ⊕ W` with `h` a basic germ (Definition 3.1.7 (preprint 3.7),
 `h(a, w) = (·, w − B(a, w))`) and `s` an sc⁺-germ.  "Moreover `Df(a, w) : ℝⁿ ⊕ W_m → ℝᴺ ⊕ W_m` is
 Fredholm of index `n − N` for `(a, w) ∈ E_{m+1}` small in `E_m`."  Proof (the text's, for the
 first statement, applied on level `m`): `Df(a, w)(δa, δw) = (pr_{ℝᴺ}Df(a, w)(δa, δw),
 δw − D₂B(a, w)δw − D₁B(a, w)δa + pr_W Ds(a, w)(δa, δw))`; the `ℝᴺ`-component and `D₁B(a, w)δa`
 have finite rank, `Ds(a, w)` maps `E_m` to `F_{m+1}` so `ι Ds(a, w)` is compact on level `m`, and
-`‖D₂B(a, w)‖_m ≤ ε` by Lemma 3.9 on level `m`.
+`‖D₂B(a, w)‖_m ≤ ε` by Lemma 3.1.9 (preprint 3.9) on level `m`.
 
 ## What is formalized
 
@@ -25,33 +25,33 @@ have finite rank, `Ds(a, w)` maps `E_m` to `F_{m+1}` so `ι Ds(a, w)` is compact
   `D(h + ι s)(x)` is `δw − DB(x)(δa, δw) + pr_W ι Ds(x)(δa, δw)` (uniqueness of derivatives within
   `U₁`, density of `E₁` in `E₀`).
 * `Polyfold.IsBasicGerm.snd_levelDeriv_add`: the same identity for the level-`m` operators
-  (`levelDeriv`, Proposition 1.16) at `x ∈ U_{m+1}`, with `pr_W ι Ds(x)` replaced by
+  (`levelDeriv`, Proposition 1.2.1 (preprint 1.16)) at `x ∈ U_{m+1}`, with `pr_W ι Ds(x)` replaced by
   `ι_m ∘ pr_W ∘ Ds(x)_m`, `Ds(x)_m : E_m → F_{m+1}`.
 * `Polyfold.IsBasicGerm.levelDeriv_add_eq`: the decomposition `Df(x)_m = T₀ + S(x) + K(x)` on
   level `m`, `T₀(δa, δw) = (0, δw)` (the operator (32), `ScBanach.projWOp`),
   `S(x)(δa, δw) = (0, −D₂B(x)_m δw)`, `K(x)` the rest; `K(x)` is compact
   (`IsBasicGerm.isCompactOperator_levelK`).
-* `Polyfold.proposition_3_10_level` (**Proposition 3.10, second statement**, on every level): for
+* `Polyfold.proposition_3_1_10_level` (**Proposition 3.1.10 (preprint 3.10), second statement**, on every level): for
   every `m` there is `δ > 0` such that for every `x ∈ U_{m+1}` with `|ιx|_m < δ` the level-`m`
   operator `Df(x)_m : ℝⁿ ⊕ W_m → ℝᴺ ⊕ W_m` (the bounded operator with `ι_m Df(x)_m v =
   Df(x₁) ι_m v`, `x₁ ∈ U₁` the image of `x`) is Fredholm of index `dim ℝⁿ − dim ℝᴺ`.
-* `Polyfold.proposition_3_10_full`: both statements of Proposition 3.10 together.
+* `Polyfold.proposition_3_1_10_full`: both statements of Proposition 3.1.10 (preprint 3.10) together.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The text's proof goes through on level `m` as written.**  The only input beyond the level-`0`
-  argument is Lemma 3.9 on level `m` (`IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le`,
+  argument is Lemma 3.1.9 (preprint 3.9) on level `m` (`IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le`,
   smallness of `x` on level `m` only), and the compactness of `F_{m+1} → F_m`.  The small part
   `S(x)` is handled by the stability of the index under small perturbations
   (`isFredholm_fredholmIndex_add_of_norm_lt`, with `ε` chosen against a quasi-inverse of
   `T₀ : E_m → F_m`), a Neumann series argument (equivalently, `1 − D₂B(x)_m` is invertible on
   `W_m` once `‖D₂B(x)_m‖ < 1`).
-* The radius `δ` depends on `m` (it is the radius of Lemma 3.9 on level `m` for an `ε` depending on
+* The radius `δ` depends on `m` (it is the radius of Lemma 3.1.9 (preprint 3.9) on level `m` for an `ε` depending on
   a quasi-inverse of `(32)` on level `m`); the text's "small in `E_m`" says the same.
-* `x` is a point of `U_{m+1}` (so that `Df(x)` has a level-`m` operator, Proposition 1.16); its
+* `x` is a point of `U_{m+1}` (so that `Df(x)` has a level-`m` operator, Proposition 1.2.1 (preprint 1.16)); its
   size on level `m + 1` is not restricted.
 * `f(0) = 0` is not used (it is a property of `f`, not of `Df`).  The quadrant hypothesis is the
-  one of Lemma 3.9 on level `m` (`IsQuadrantLike` for `C̃`; partial quadrants have it,
+  one of Lemma 3.1.9 (preprint 3.9) on level `m` (`IsQuadrantLike` for `C̃`; partial quadrants have it,
   `IsPartialQuadrant.isQuadrantLike`).
 -/
 
@@ -89,9 +89,9 @@ variable (hC : IsQuadrantLike (ScBanach.const P) Ct) {h : P × W 0 → Q × W 0}
   (hF : IsSc1GermWith G (fun x => h x + (ScBanach.paramProd Q W).toBase 1 (s x)) DF)
 include hC hh hB hs hF
 
-/-- The `W`-component of `Df(x)`, `f = h + ι s`, at `x ∈ U₁` (proof of Proposition 3.10):
+/-- The `W`-component of `Df(x)`, `f = h + ι s`, at `x ∈ U₁` (proof of Proposition 3.1.10 (preprint 3.10)):
 `pr_W Df(x)(δa, δw) = δw − DB(x)(δa, δw) + pr_W ι Ds(x)(δa, δw)`.  Both sides are derivatives
-of `pr_W ∘ f = pr_W − B + pr_W ι s` (Definition 3.7, on `U₀`) within `U₁` at `x`; uniqueness
+of `pr_W ∘ f = pr_W − B + pr_W ι s` (Definition 3.1.7 (preprint 3.7), on `U₀`) within `U₁` at `x`; uniqueness
 within `U₁` and density of `E₁` in `E₀`. -/
 theorem snd_deriv_add {x : (E') 1} (hx : x ∈ G.U 1) (v : (E') 0) :
     (DF x v).2 = v.2 - DB x v + ((F').toBase 1 (Ds x v)).2 := by
@@ -130,7 +130,7 @@ theorem snd_deriv_add {x : (E') 1} (hx : x ∈ G.U 1) (v : (E') 0) :
 
 /-- **The `W`-component of `Df(x)` on level `m`**: for `x ∈ U_{m+1}` and `v ∈ E_m`,
 `pr_W Df(x)_m v = pr_W v − DB(x)_m v + ι_m pr_W Ds(x)_m v`, where `Df(x)_m`, `DB(x)_m` and
-`Ds(x)_m : E_m → F_{m+1}` are the level-`m` operators (`levelDeriv`, Proposition 1.16).  From
+`Ds(x)_m : E_m → F_{m+1}` are the level-`m` operators (`levelDeriv`, Proposition 1.2.1 (preprint 1.16)).  From
 `snd_deriv_add` at the level-`1` image of `x`, through the injectivity of `ι_m : W_m → W₀`. -/
 theorem snd_levelDeriv_add {m : ℕ} {x : (E') (m + 1)} (hx : x ∈ G.U (m + 1)) (v : (E') m) :
     (levelDeriv DF m x v).2 =
@@ -152,7 +152,7 @@ theorem snd_levelDeriv_add {m : ℕ} {x : (E') (m + 1)} (hx : x ∈ G.U (m + 1))
   rw [hL, h0, map_add, map_sub, hLB, ← hLs, hι, hv]
 
 /-- The finite-rank and compact part `K(x)` of the level-`m` operator `Df(x)_m` (proof of
-Proposition 3.10): `K(x)(δa, δw) = (pr_{ℝᴺ} Df(x)_m(δa, δw), −DB(x)_m(δa, 0) +
+Proposition 3.1.10 (preprint 3.10)): `K(x)(δa, δw) = (pr_{ℝᴺ} Df(x)_m(δa, δw), −DB(x)_m(δa, 0) +
 ι_m pr_W Ds(x)_m(δa, δw))`. -/
 def levelK (DF : (E') 1 → (E') 0 →L[ℝ] (F') 0) (DB : (E') 1 → (E') 0 →L[ℝ] W 0)
     (Ds : (E') 1 → (E') 0 →L[ℝ] (F').shift 0) (m : ℕ) (x : (E') (m + 1)) :
@@ -178,7 +178,7 @@ lemma levelS_apply (DB : (E') 1 → (E') 0 →L[ℝ] W 0) (m : ℕ) (x : (E') (m
   simp only [levelS, neg_apply, ContinuousLinearMap.comp_apply,
     ContinuousLinearMap.inr_apply, ContinuousLinearMap.coe_snd', Prod.neg_mk, neg_zero]
 
-/-- **The decomposition of `Df(x)_m`** (proof of Proposition 3.10, on level `m`):
+/-- **The decomposition of `Df(x)_m`** (proof of Proposition 3.1.10 (preprint 3.10), on level `m`):
 `Df(x)_m = T₀ + S(x) + K(x)` with `T₀(δa, δw) = (0, δw)` (the operator (32) on level `m`),
 `S(x)(δa, δw) = (0, −D₂B(x)_m δw)` and `K(x)` of finite rank plus compact. -/
 theorem levelDeriv_add_eq {m : ℕ} {x : (E') (m + 1)} (hx : x ∈ G.U (m + 1)) :
@@ -221,19 +221,19 @@ theorem isCompactOperator_levelK (DF : (E') 1 → (E') 0 →L[ℝ] (F') 0)
 
 end IsBasicGerm
 
-/-! ### Proposition 3.10, second statement -/
+/-! ### Proposition 3.1.10 (preprint 3.10), second statement -/
 
-/-- **Proposition 3.10, second statement** (round-trip item V3.12): let `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`
-be a basic germ (Definition 3.7, `h = (·, w − B(a, w))` on `U₀`), `s` an sc⁺-germ (sc¹ into
+/-- **Proposition 3.1.10 (preprint 3.10), second statement** (round-trip item V3.12): let `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`
+be a basic germ (Definition 3.1.7 (preprint 3.7), `h = (·, w − B(a, w))` on `U₀`), `s` an sc⁺-germ (sc¹ into
 `(ℝᴺ ⊕ W)¹`, derivative `Ds`) and `f = h + s` sc¹ with derivative `Df`.  Then for every level `m`
 there is `δ > 0` such that for every `x ∈ U_{m+1}` with `|ιx|_m < δ` the level-`m` operator
 `Df(x)_m : ℝⁿ ⊕ W_m → ℝᴺ ⊕ W_m` — the bounded operator `levelDeriv Df m x` with
 `ι_m Df(x)_m v = Df(x₁) ι_m v`, `x₁ ∈ U₁` the level-`1` point with the image of `x` — is Fredholm
 of index `dim ℝⁿ − dim ℝᴺ`.  Proof (the text's): `Df(x)_m = T₀ + S(x) + K(x)`
 (`IsBasicGerm.levelDeriv_add_eq`), `T₀ = (32)` is Fredholm of index `n − N` on level `m`,
-`‖S(x)‖ ≤ ε` by Lemma 3.9 on level `m` (so `T₀ + S(x)` is Fredholm of the same index), and `K(x)`
+`‖S(x)‖ ≤ ε` by Lemma 3.1.9 (preprint 3.9) on level `m` (so `T₀ + S(x)` is Fredholm of the same index), and `K(x)`
 is compact. -/
-theorem proposition_3_10_level (hC : IsQuadrantLike (ScBanach.const P) Ct)
+theorem proposition_3_1_10_level (hC : IsQuadrantLike (ScBanach.const P) Ct)
     {h : P × W 0 → Q × W 0} {Bc : P × W 0 → W 0} (hh : IsBasicGerm Ct G h Bc)
     {s : P × W 0 → Q × W 1} {Ds : (E') 1 → (E') 0 →L[ℝ] (F').shift 0}
     (hs : IsSc1GermWith (F := (F').shift) G s Ds) {DF : (E') 1 → (E') 0 →L[ℝ] (F') 0}
@@ -250,7 +250,7 @@ theorem proposition_3_10_level (hC : IsQuadrantLike (ScBanach.const P) Ct)
   obtain ⟨hT₀F, hT₀I⟩ := (ScBanach.isScFredholm_projWOp P W Q).fredholmIndex_lvl m
   rw [ScBanach.scIndex_projWOp] at hT₀I
   obtain ⟨q, hq⟩ := hT₀F.exists_isQuasiInverse
-  -- Lemma 3.9 on level `m` with `ε = 1/(‖q‖ + 1)`
+  -- Lemma 3.1.9 (preprint 3.9) on level `m` with `ε = 1/(‖q‖ + 1)`
   obtain ⟨r, hr, h39⟩ := hh.contraction.exists_norm_levelDeriv_snd_le hC hB
     (ε := 1 / (‖q‖ + 1)) (by positivity) m
   refine ⟨r, hr, fun x hx hxr => ⟨fun v => hF.toBase_levelDeriv hx v, ?_⟩⟩
@@ -269,11 +269,11 @@ theorem proposition_3_10_level (hC : IsQuadrantLike (ScBanach.const P) Ct)
   exact ⟨isFredholm_add_isCompactOperator hF1 hK,
     by rw [fredholmIndex_add_isCompactOperator hF1 hK, hI1, hT₀I]⟩
 
-/-- **Proposition 3.10** (both statements; round-trip item V3.12): for a basic germ `h`, an
+/-- **Proposition 3.1.10 (preprint 3.10)** (both statements; round-trip item V3.12): for a basic germ `h`, an
 sc⁺-germ `s` and `f = h + s` sc¹ with derivative `Df`, (1) `Df(0)` is an sc-operator which is
-sc-Fredholm of index `n − N` (`proposition_3_10`), and (2) on every level `m`, `Df(x)_m` is
-Fredholm of index `n − N` for `x ∈ U_{m+1}` small on level `m` (`proposition_3_10_level`). -/
-theorem proposition_3_10_full (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+sc-Fredholm of index `n − N` (`proposition_3_1_10`), and (2) on every level `m`, `Df(x)_m` is
+Fredholm of index `n − N` for `x ∈ U_{m+1}` small on level `m` (`proposition_3_1_10_level`). -/
+theorem proposition_3_1_10_full (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     {h : P × W 0 → Q × W 0} {Bc : P × W 0 → W 0} (hh : IsBasicGerm Ct G h Bc)
     {s : P × W 0 → Q × W 1} {Ds : (E') 1 → (E') 0 →L[ℝ] (F').shift 0}
     (hs : IsSc1GermWith (F := (F').shift) G s Ds) {DF : (E') 1 → (E') 0 →L[ℝ] (F') 0}
@@ -285,6 +285,6 @@ theorem proposition_3_10_full (hC : IsPartialQuadrant (ScBanach.const P) Ct)
         DF ((E').shift.toBase m x) ((E').toBase m v)) ∧
       (levelDeriv DF m x).IsFredholm ∧
       fredholmIndex (levelDeriv DF m x) = finrank ℝ P - finrank ℝ Q :=
-  ⟨proposition_3_10 hC hh hs hF, proposition_3_10_level hC.isQuadrantLike hh hs hF⟩
+  ⟨proposition_3_1_10 hC hh hs hF, proposition_3_1_10_level hC.isQuadrantLike hh hs hF⟩
 
 end Polyfold

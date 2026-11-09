@@ -3,7 +3,7 @@ import RoundTrip.Check
 import RoundTrip.Blind.V5_45
 
 /-!
-Round trip for V5_45 (Theorem 5.25).  `A` is the type of `Polyfold.theorem_5_25`, universes
+Round trip for V5_45 (Theorem 5.25).  `A` is the type of `Polyfold.theorem_5_25_preprint`, universes
 instantiated at `0`.
 
 Neither `A → B` nor `B → A` is proved.
@@ -26,12 +26,12 @@ Neither `A → B` nor `B → A` is proved.
      every zero, `S_{f+s}` a compact smooth submanifold in general position, tame, with
      `d_{S_{f+s}} = d_X`) is much more than B's good position plus corner structure.
   (B's other hypothesis, a `U` with the compactness property, would be available from properness,
-  e.g. through `theorem_5_5`/`remark_5_12`; it is not the obstruction.)
+  e.g. through `theorem_5_2_2_preprint`/`remark_5_3_4`; it is not the obstruction.)
 -/
 
 /-! **Refresh 2026-11-02** (HEAD after the germ reading of Definition 3.11 and the notions built
 on it).
-theorem_5_25 and B now both use the germ-reading IsScFredholmSectionTame / IsGoodPositionGermTame.
+theorem_5_25_preprint and B now both use the germ-reading IsScFredholmSectionTame / IsGoodPositionGermTame.
 The obstacles (weak bump functions and B's 'every U' for A ⇒ B; B's tame strong bundle atlas and
 A's richer conclusion for B ⇒ A) are unrelated to the germ switch; A ⇒ BExStrong still checks.
 Result unchanged.
@@ -41,9 +41,9 @@ namespace RoundTrip.V5_45
 open Polyfold
 
 /-- The project's statement, universes `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_5_25.{0, 0}
+def A : Prop := type_of% @Polyfold.theorem_5_25_preprint.{0, 0}
 
-theorem A_holds : A := @Polyfold.theorem_5_25.{0, 0}
+theorem A_holds : A := @Polyfold.theorem_5_25_preprint.{0, 0}
 
 /-- B with the strong reading of bump functions and an existential `U` (not the item; it isolates
 the two differences). -/
@@ -69,6 +69,6 @@ theorem A_to_BExStrong : A → BExStrong := by
   exact ⟨U, hUo, hSU, hcpt, s, hs, fun x hx => hgood x hx,
     hsm.isSubMPolyfold, PX.paracompactSpace_subtype _, hcorner⟩
 
-#rt_check RoundTrip.V5_45.A_to_BExStrong [Polyfold.theorem_5_25]
+#rt_check RoundTrip.V5_45.A_to_BExStrong [Polyfold.theorem_5_25_preprint]
 
 end RoundTrip.V5_45

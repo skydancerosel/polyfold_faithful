@@ -16,7 +16,7 @@ universes at `0`:
 * `IsEquivalence.isClosed_nonEffectivePart_iff` (`𝐗^T` closed iff `𝐘^T` closed, for equivalences);
 * `continuous_reducedMap`, `isOpenMap_reducedMap` (for `F` a local sc-diffeomorphism on objects);
 * `proposition_10_1_13` (for an equivalence: `F_R` continuous and open, `T2 𝐗^R ↔ T2 𝐘^R`);
-* `EpGroupoid.theorem_7_2_22_2021` (Chapter 7: `T2 𝐗^R`, (LUC), `𝐗^T` closed are equivalent).
+* `EpGroupoid.theorem_7_2_22` (Chapter 7: `T2 𝐗^R`, (LUC), `𝐗^T` closed are equivalent).
 
 `B`: for B's own Definition 10.1.1 (`IsEquivB`), `F_R` is well defined (`φ ∼ φ' ⇒ [Fφ] = [Fφ']`),
 some `f` with `f [φ] = [F φ]` is continuous and open, and `T2 𝐗^R ↔ T2 𝐘^R`.
@@ -26,10 +26,10 @@ some `f` with `f [φ] = [F φ]` is continuous and open, and `T2 𝐗^R ↔ T2 �
   (`Quot.sound`).
 * `B_to_A`: `proposition_10_1_13` from `B` (`B`'s `f` is `reducedMap` by `Quot.ind`);
   `isClosed_nonEffectivePart_iff` from `B`'s Hausdorff equivalence and the (non-item) criterion
-  `proposition_7_2_17_2021` (`T2 𝐗^R ↔ 𝐗^T` closed).  The other seven conjuncts are not
+  `proposition_7_2_17` (`T2 𝐗^R ↔ 𝐗^T` closed).  The other seven conjuncts are not
   consequences of `B`: five are about functors that are only local sc-diffeomorphisms on objects
   (`B` is about equivalences only), `continuousAt_comp` is a general lemma on ep-groupoids, and
-  `theorem_7_2_22_2021` is a Chapter 7 theorem about a single ep-groupoid.  They are re-proved
+  `theorem_7_2_22` is a Chapter 7 theorem about a single ep-groupoid.  They are re-proved
   outright below (the project's proofs, copied, from non-item lemmas).
 -/
 
@@ -72,7 +72,7 @@ def A5 : Prop := type_of% @Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectiv
 def A6 : Prop := type_of% @Polyfold.EpFunctor.continuous_reducedMap.{0, 0}
 def A7 : Prop := type_of% @Polyfold.EpFunctor.isOpenMap_reducedMap.{0, 0}
 def A8 : Prop := type_of% @Polyfold.EpFunctor.proposition_10_1_13.{0, 0}
-def A9 : Prop := type_of% @Polyfold.EpGroupoid.theorem_7_2_22_2021.{0}
+def A9 : Prop := type_of% @Polyfold.EpGroupoid.theorem_7_2_22.{0}
 
 /-- The project's statement. -/
 def A : Prop := A1 ∧ A2 ∧ A3 ∧ A4 ∧ A5 ∧ A6 ∧ A7 ∧ A8 ∧ A9
@@ -86,7 +86,7 @@ theorem A_holds : A :=
     @Polyfold.EpFunctor.continuous_reducedMap.{0, 0},
     @Polyfold.EpFunctor.isOpenMap_reducedMap.{0, 0},
     @Polyfold.EpFunctor.proposition_10_1_13.{0, 0},
-    @Polyfold.EpGroupoid.theorem_7_2_22_2021.{0}⟩
+    @Polyfold.EpGroupoid.theorem_7_2_22.{0}⟩
 
 theorem A_to_B : A → B := by
   rintro ⟨-, -, -, -, -, -, -, h8, -⟩
@@ -176,8 +176,8 @@ theorem isOpenMap_reducedMap' : A7 := by
 
 theorem theorem_7_2_22_2021' : A9 := by
   intro Obj Mor _ _ _ _ _ _ X
-  tfae_have 1 ↔ 3 := X.proposition_7_2_17_2021
-  tfae_have 2 ↔ 3 := X.proposition_7_2_21_2021
+  tfae_have 1 ↔ 3 := X.proposition_7_2_17
+  tfae_have 2 ↔ 3 := X.proposition_7_2_21
   tfae_finish
 
 end Outright
@@ -186,7 +186,7 @@ theorem B_to_A : B → A := by
   intro hB
   have h5 : A5 := by
     intro Obj Mor _ _ _ _ _ _ Obj' Mor' _ _ _ _ _ _ X Y F hF
-    rw [← X.proposition_7_2_17_2021, ← Y.proposition_7_2_17_2021]
+    rw [← X.proposition_7_2_17, ← Y.proposition_7_2_17]
     exact (hB Obj Mor Obj' Mor' X Y F ((isEquivB_iff F).2 hF)).2.2
   have h8 : A8 := by
     intro Obj Mor _ _ _ _ _ _ Obj' Mor' _ _ _ _ _ _ X Y F hF
@@ -217,7 +217,7 @@ error: rt_check FAIL: RoundTrip.V10_10.A_to_B uses [Polyfold.EpFunctor.mor_mem_n
   Polyfold.EpGroupoid.continuousAt_comp,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
   Polyfold.EpFunctor.continuous_reducedMap, Polyfold.EpFunctor.isOpenMap_reducedMap,
-  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22_2021]
+  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22]
 
 /--
 error: rt_check FAIL: RoundTrip.V10_10.B_to_A uses [Polyfold.EpFunctor.mor_mem_nonEffectivePart]
@@ -228,25 +228,25 @@ error: rt_check FAIL: RoundTrip.V10_10.B_to_A uses [Polyfold.EpFunctor.mor_mem_n
   Polyfold.EpGroupoid.continuousAt_comp,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
   Polyfold.EpFunctor.continuous_reducedMap, Polyfold.EpFunctor.isOpenMap_reducedMap,
-  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22_2021]
+  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22]
 
 #rt_check_soft RoundTrip.V10_10.A_to_B [Polyfold.EpFunctor.mor_mem_nonEffectivePart,
   Polyfold.EpFunctor.mem_nonEffectivePart_of_mor, Polyfold.EpFunctor.nonEffectivePart_eq,
   Polyfold.EpGroupoid.continuousAt_comp,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
   Polyfold.EpFunctor.continuous_reducedMap, Polyfold.EpFunctor.isOpenMap_reducedMap,
-  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22_2021]
+  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22]
 #rt_check_soft RoundTrip.V10_10.B_to_A [Polyfold.EpFunctor.mor_mem_nonEffectivePart,
   Polyfold.EpFunctor.mem_nonEffectivePart_of_mor, Polyfold.EpFunctor.nonEffectivePart_eq,
   Polyfold.EpGroupoid.continuousAt_comp,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
   Polyfold.EpFunctor.continuous_reducedMap, Polyfold.EpFunctor.isOpenMap_reducedMap,
-  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22_2021]
+  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22]
 #rt_overlap RoundTrip.V10_10.B_to_A [Polyfold.EpFunctor.mor_mem_nonEffectivePart,
   Polyfold.EpFunctor.mem_nonEffectivePart_of_mor, Polyfold.EpFunctor.nonEffectivePart_eq,
   Polyfold.EpGroupoid.continuousAt_comp,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
   Polyfold.EpFunctor.continuous_reducedMap, Polyfold.EpFunctor.isOpenMap_reducedMap,
-  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22_2021]
+  Polyfold.EpFunctor.proposition_10_1_13, Polyfold.EpGroupoid.theorem_7_2_22]
 
 end RoundTrip.V10_10

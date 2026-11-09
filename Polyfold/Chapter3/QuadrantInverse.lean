@@ -2,44 +2,44 @@ import Polyfold.Chapter3.QuadrantIFT
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Appendix 3.8.4:
-Theorem 3.72 (the quadrant inverse function theorem) with Proposition 3.73 and Lemmas 3.74–3.77;
-and the characterisation `d_C(x) = 0 ↔ x ∈ int C` of interior points (Definition 1.23).
+Theorem 3.8.15 (preprint 3.72) (the quadrant inverse function theorem) with Proposition 3.8.17 (preprint 3.73) and Lemmas 3.8.18–3.8.21 (preprint 3.74–3.77);
+and the characterisation `d_C(x) = 0 ↔ x ∈ int C` of interior points (Definition 1.3.3 (preprint 1.23)).
 
 # The inverse function theorem in partial quadrants
 
 ## The text, paraphrased
 
-(Definition 3.71) `f : U → ℝᵐ` on a relatively open `U ⊆ C` is `C^1` if it has one-sided
+(Definition 3.8.14 (preprint 3.71)) `f : U → ℝᵐ` on a relatively open `U ⊆ C` is `C^1` if it has one-sided
 derivatives `Df(x)` depending continuously on `x`; `C^k` if `f` and `Tf` are `C^{k−1}`.  (Theorem
 3.72) Let `C ⊆ ℝⁿ` be a partial quadrant, `U ⊆ C` a relatively open neighbourhood of `0` and
 `f : U → ℝⁿ` smooth with `f(U) ⊆ C`, (1) `f(0) = 0`, `Df(0)C = C`, (2) `d_C(x) = d_C(f(x))` on `U`.
 Then `f` is a diffeomorphism between relatively open neighbourhoods `U'` and `V'` of `0` in `C`.
 *Proof.*  `Df(0)` is an isomorphism (`ℝⁿ = C − C`), and `g = Df(0)⁻¹ ∘ f` satisfies (1), (2) with
-`Dg(0) = 1`; Theorem 3.72 follows from (Proposition 3.73): for `U` relatively open and convex,
+`Dg(0) = 1`; Theorem 3.8.15 (preprint 3.72) follows from (Proposition 3.8.17 (preprint 3.73)): for `U` relatively open and convex,
 `f : U → C` smooth with `|Df(x) − 1| ≤ 1/2` and (2), `V = f(U)` is relatively open in `C` and
-`f : U → V` a diffeomorphism.  (Lemma 3.74) `|x − x'|/2 ≤ |f(x) − f(x')| ≤ 3|x − x'|/2`, so `f` is
+`f : U → V` a diffeomorphism.  (Lemma 3.8.18 (preprint 3.74)) `|x − x'|/2 ≤ |f(x) − f(x')| ≤ 3|x − x'|/2`, so `f` is
 injective; `V` is relatively open: for `y' = f(x')` and `B(x', 3r) ∩ C ⊆ U`, first the points with
 `d_C = 0` of `B(y', r) ∩ C` lie in `V` (a segment from `y₀ = f(x₀)`, `d_C(x₀) = 0`, to such a point
 stays in `V`: the supremum of the parameters in `V` is attained by a Cauchy argument, and the
 classical inverse function theorem at the interior point `x*` with `f(x*) = y_{τ*}` pushes it
-further), then the others by density.  (Lemma 3.77) `g = f⁻¹` is `C^1` with `Dg(y) = Df(g(y))⁻¹`
-(the bi-Lipschitz estimate makes `|h| → 0 ⟺ |δ| → 0`).  (Lemma 3.76, Proposition 3.73) The
-iterated tangent maps `T^k f` are homeomorphisms and satisfy the hypotheses of Lemma 3.77 again, so
+further), then the others by density.  (Lemma 3.8.21 (preprint 3.77)) `g = f⁻¹` is `C^1` with `Dg(y) = Df(g(y))⁻¹`
+(the bi-Lipschitz estimate makes `|h| → 0 ⟺ |δ| → 0`).  (Lemma 3.8.20 (preprint 3.76), Proposition 3.8.17 (preprint 3.73)) The
+iterated tangent maps `T^k f` are homeomorphisms and satisfy the hypotheses of Lemma 3.8.21 (preprint 3.77) again, so
 `g` is `C^∞`.
 
 ## What is formalized
 
 * `Polyfold.interior_quadrant`, `Polyfold.degIndex_eq_zero_iff` (`d_C(x) = 0 ↔ x ∈ int C`, the
-  "interior points" of Definition 1.23), `Polyfold.degIndex_map_eq` (invariance of `d_C` under a
-  linear isomorphism preserving `C`; Lemma 1.24 for the presentation `T ∘ S`).
-* `Polyfold.InvData` (the hypotheses of Proposition 3.73, with `d_C(x) = d_C(f(x))` replaced by
+  "interior points" of Definition 1.3.3 (preprint 1.23)), `Polyfold.degIndex_map_eq` (invariance of `d_C` under a
+  linear isomorphism preserving `C`; Lemma 1.3.4 (preprint 1.24) for the presentation `T ∘ S`).
+* `Polyfold.InvData` (the hypotheses of Proposition 3.8.17 (preprint 3.73), with `d_C(x) = d_C(f(x))` replaced by
   `x ∈ int C ↔ f(x) ∈ int C`, which is all the proof uses), `InvData.half_norm_le`,
-  `InvData.norm_sub_le`, `InvData.injOn` (**Lemma 3.74**, (70)), `InvData.map_nhds_eq` (the
+  `InvData.norm_sub_le`, `InvData.injOn` (**Lemma 3.8.18 (preprint 3.74)**, (70)), `InvData.map_nhds_eq` (the
   classical inverse function theorem at interior points), `InvData.ball_inter_subset_image`,
-  `InvData.image_relOpen` (**Lemma 3.74**, `f(U)` relatively open), `InvData.hasFDerivWithinAt_inv`
-  (**Lemma 3.77**), `InvData.contDiffOn_inv` (the inverse is `C^j`), `Polyfold.proposition_3_73`
-  (**Proposition 3.73**, for `C^j`, `j ≥ 1`), `Polyfold.corollary_3_75` (**Corollary 3.75**),
-  `Polyfold.theorem_3_72` (**Theorem 3.72**, for `C^j` maps on a finite-dimensional `V`; `C^∞` is
+  `InvData.image_relOpen` (**Lemma 3.8.18 (preprint 3.74)**, `f(U)` relatively open), `InvData.hasFDerivWithinAt_inv`
+  (**Lemma 3.8.21 (preprint 3.77)**), `InvData.contDiffOn_inv` (the inverse is `C^j`), `Polyfold.proposition_3_8_17`
+  (**Proposition 3.8.17 (preprint 3.73)**, for `C^j`, `j ≥ 1`), `Polyfold.corollary_3_8_19` (**Corollary 3.8.19 (preprint 3.75)**),
+  `Polyfold.theorem_3_8_15` (**Theorem 3.8.15 (preprint 3.72)**, for `C^j` maps on a finite-dimensional `V`; `C^∞` is
   the case of all `j`).
 
 ## What the text leaves implicit, and the choices made (the findings)
@@ -53,19 +53,19 @@ iterated tangent maps `T^k f` are homeomorphisms and satisfy the hypotheses of L
 * **`C^k` is Mathlib's `ContDiffOn` on `U`**, not Definition 3.71 (iterated tangent maps); on a
   relatively open subset of a partial quadrant the two agree (sc¹ = `C¹`, Chapter 1, and
   `Polyfold.isSc1_iff_contDiffOn_of_isRelOpenInQuadrant`).  Accordingly the regularity of the
-  inverse (Lemma 3.76 and the proof of Proposition 3.73 via `T^k f`) is proved by bootstrapping
+  inverse (Lemma 3.8.20 (preprint 3.76) and the proof of Proposition 3.8.17 (preprint 3.73) via `T^k f`) is proved by bootstrapping
   `Dg = [Df]⁻¹ ∘ g` (`InvData.contDiffOn_inv`), as in `QuadrantIFT.lean`.
-* **Lemma 3.74, the openness**: the text's Cauchy-sequence step is replaced by the compactness of
+* **Lemma 3.8.18 (preprint 3.74), the openness**: the text's Cauchy-sequence step is replaced by the compactness of
   `A = f(B̄(x', 2r) ∩ C)` (`B̄(x', 2r) ∩ C ⊆ U` is compact in finite dimensions), which also gives
   the density step.  The interior starting point `x₀` must be chosen with `f(x₀) ∈ B(y', r)` (the
   text takes any `x₀ ∈ B(x', 3r) ∩ C` with `d_C(x₀) = 0`), and `τ'` in "`τ_n → τ'`" is `τ*`.
-* **Lemma 3.77** is stated with the extra hypotheses "`V = f(U)` relatively open, `f : U → V` a
-  homeomorphism, `Df(x)` invertible"; all three are consequences of Proposition 3.73's hypotheses
+* **Lemma 3.8.21 (preprint 3.77)** is stated with the extra hypotheses "`V = f(U)` relatively open, `f : U → V` a
+  homeomorphism, `Df(x)` invertible"; all three are consequences of Proposition 3.8.17 (preprint 3.73)'s hypotheses
   (`‖Df − 1‖ ≤ 1/2` makes `Df(x)` a unit), so only `InvData` is assumed here.
 * **`Df(0)` is an isomorphism** from `Df(0)C = C` because `C` has an interior point
   (`Polyfold.surjective_of_image_eq`; the text: `ℝⁿ = C − C`); `0 ∈ U` and `f(0) = 0` are not
-  used in Proposition 3.73 (`InvData` has neither).
-* The partial quadrant structure of `C` enters Proposition 3.73 only through: `C` convex and closed
+  used in Proposition 3.8.17 (preprint 3.73) (`InvData` has neither).
+* The partial quadrant structure of `C` enters Proposition 3.8.17 (preprint 3.73) only through: `C` convex and closed
   with nonempty interior, and `d_C = 0 ↔ interior`.
 -/
 
@@ -116,7 +116,7 @@ lemma interior_quadrant (n : ℕ) (W : ScBanach) :
         isOpen_lt continuous_const ((continuous_apply i).comp continuous_fst)
     exact Filter.mem_of_superset (hopen.mem_nhds hp) fun q hq i => (hq i).le
 
-/-- `d_C(x) = 0` exactly at the interior points of `C` (Definition 1.23: "`x` is an interior
+/-- `d_C(x) = 0` exactly at the interior points of `C` (Definition 1.3.3 (preprint 1.23): "`x` is an interior
 point if `d_C(x) = 0`"). -/
 theorem degIndex_eq_zero_iff {C : Set (E 0)} (hC : IsPartialQuadrant E C) {x : E 0}
     (hx : x ∈ C) : degIndex E C x = 0 ↔ x ∈ interior C := by
@@ -151,7 +151,7 @@ def ScIso.ofCLE (S : V ≃L[ℝ] V) : ScIso (ScBanach.const V) (ScBanach.const V
   incl_comm _ _ := rfl
 
 /-- The degeneracy index is invariant under a linear isomorphism `S` with `S(C) = C`
-(Lemma 1.24: the presentation `T ∘ S` of `C`). -/
+(Lemma 1.3.4 (preprint 1.24): the presentation `T ∘ S` of `C`). -/
 theorem degIndex_map_eq {C : Set V} (hC : IsPartialQuadrant (ScBanach.const V) C) (S : V ≃L[ℝ] V)
     (hS : ∀ x, x ∈ C ↔ S x ∈ C) {x : V} (hx : x ∈ C) :
     degIndex (ScBanach.const V) C (S x) = degIndex (ScBanach.const V) C x := by
@@ -165,13 +165,13 @@ theorem degIndex_map_eq {C : Set V} (hC : IsPartialQuadrant (ScBanach.const V) C
 
 end DegMap
 
-/-! ### Proposition 3.73: the data -/
+/-! ### Proposition 3.8.17 (preprint 3.73): the data -/
 
 section Prop373
 
 variable {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
 
-/-- The hypotheses of Proposition 3.73: `U` a relatively open convex subset of the partial
+/-- The hypotheses of Proposition 3.8.17 (preprint 3.73): `U` a relatively open convex subset of the partial
 quadrant `C ⊆ V`, `f : U → C` of class `C^j` (`j ≥ 1`) with `‖Df(x) − 1‖ ≤ 1/2` on `U`, and `f`
 preserving interior points (`d_C(f(x)) = d_C(x)` is used only through `d_C = 0 ↔ interior`). -/
 structure InvData (C U : Set V) (f : V → V) (j : ℕ) : Prop where
@@ -213,7 +213,7 @@ lemma hasFDerivWithinAt {x : V} (hx : x ∈ U) : HasFDerivWithinAt f (fderivWith
 
 lemma continuousOn : ContinuousOn f U := h.contDiffOn.continuousOn
 
-/-- Lemma 3.74, (70), first step: `f − id` is a `1/2`-contraction on `U`. -/
+/-- Lemma 3.8.18 (preprint 3.74), (70), first step: `f − id` is a `1/2`-contraction on `U`. -/
 lemma norm_sub_sub_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
     ‖(f x' - x') - (f x - x)‖ ≤ 1 / 2 * ‖x' - x‖ :=
   Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le (f := fun z => f z - z)
@@ -221,7 +221,7 @@ lemma norm_sub_sub_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
     (fun z hz => (h.hasFDerivWithinAt hz).sub (hasFDerivWithinAt_id z U))
     (fun z hz => h.deriv_bound z hz) h.convex hx hx'
 
-/-- Lemma 3.74, (70): `|x − x'|/2 ≤ |f(x) − f(x')|`. -/
+/-- Lemma 3.8.18 (preprint 3.74), (70): `|x − x'|/2 ≤ |f(x) − f(x')|`. -/
 lemma half_norm_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
     1 / 2 * ‖x' - x‖ ≤ ‖f x' - f x‖ := by
   have h1 := h.norm_sub_sub_le hx hx'
@@ -230,7 +230,7 @@ lemma half_norm_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
       _ ≤ _ := norm_sub_le _ _
   linarith
 
-/-- Lemma 3.74, (70): `|f(x) − f(x')| ≤ 3|x − x'|/2`. -/
+/-- Lemma 3.8.18 (preprint 3.74), (70): `|f(x) − f(x')| ≤ 3|x − x'|/2`. -/
 lemma norm_sub_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
     ‖f x' - f x‖ ≤ 3 / 2 * ‖x' - x‖ := by
   have h1 := h.norm_sub_sub_le hx hx'
@@ -276,7 +276,7 @@ lemma map_nhds_eq {x : V} (hx : x ∈ U) (hxi : x ∈ interior C) : map f (𝓝 
   rw [heq] at hs
   exact hs.map_nhds_eq_of_equiv
 
-/-- **Lemma 3.74**, the openness: if `B(x', 3r) ∩ C ⊆ U` then `B(f(x'), r) ∩ C ⊆ f(U)`. -/
+/-- **Lemma 3.8.18 (preprint 3.74)**, the openness: if `B(x', 3r) ∩ C ⊆ U` then `B(f(x'), r) ∩ C ⊆ f(U)`. -/
 theorem ball_inter_subset_image {x' : V} (hx' : x' ∈ U) {r : ℝ} (hr : 0 < r)
     (hball : Metric.ball x' (3 * r) ∩ C ⊆ U) : Metric.ball (f x') r ∩ C ⊆ f '' U := by
   obtain ⟨O, hO, hU⟩ := h.relOpen
@@ -369,7 +369,7 @@ theorem ball_inter_subset_image {x' : V} (hx' : x' ∈ U) {r : ℝ} (hr : 0 < r)
   refine hstep1 _ ((convex_ball (f x') r).add_smul_sub_mem hy.1 hfx₀ ⟨ht0.le, ht1.le⟩) ?_
   exact h.convex_C.add_smul_sub_mem_interior hy.2 hy₀i ⟨ht0, ht1.le⟩
 
-/-- **Lemma 3.74**: `f(U)` is a relatively open subset of `C`. -/
+/-- **Lemma 3.8.18 (preprint 3.74)**: `f(U)` is a relatively open subset of `C`. -/
 theorem image_relOpen : ∃ O' : Set V, IsOpen O' ∧ f '' U = O' ∩ C := by
   classical
   obtain ⟨O, hO, hU⟩ := h.relOpen
@@ -391,7 +391,7 @@ theorem image_relOpen : ∃ O' : Set V, IsOpen O' ∧ f '' U = O' ∩ C := by
     obtain ⟨y', hy', hyy'⟩ := mem_iUnion₂.1 hy
     exact hrsub y' hy' ⟨hyy', hyC⟩
 
-/-! ### The inverse (Lemma 3.77) and its regularity (Proposition 3.73) -/
+/-! ### The inverse (Lemma 3.8.21 (preprint 3.77)) and its regularity (Proposition 3.8.17 (preprint 3.73)) -/
 
 omit h in
 /-- The inverse `g = f⁻¹ : f(U) → U`. -/
@@ -419,7 +419,7 @@ lemma uniqueDiffOn_image : UniqueDiffOn ℝ (f '' U) := by
   rw [hV, inter_comm]
   exact (uniqueDiffOn_convex h.convex_C h.interior_C_nonempty).inter hO'
 
-/-- **Lemma 3.77**: the inverse is differentiable within `f(U)` with `Dg(y) = [Df(g(y))]⁻¹`. -/
+/-- **Lemma 3.8.21 (preprint 3.77)**: the inverse is differentiable within `f(U)` with `Dg(y) = [Df(g(y))]⁻¹`. -/
 theorem hasFDerivWithinAt_inv {y : V} (hy : y ∈ f '' U) :
     HasFDerivWithinAt (inv U f) (Ring.inverse (fderivWithin ℝ f U (inv U f y))) (f '' U) y := by
   have hxU : inv U f y ∈ U := h.inv_mem hy
@@ -455,8 +455,8 @@ theorem contDiffOn_inverse_deriv :
   rw [h.derivUnit_val hx] at h2
   exact h2.contDiffWithinAt.comp x (hD x hx) (mapsTo_univ _ _)
 
-/-- **Proposition 3.73, the regularity of the inverse**: `g = f⁻¹` is of class `C^j` on `f(U)`
-(the text: via the iterated tangent maps `T^k f`, Lemma 3.76; here by bootstrapping
+/-- **Proposition 3.8.17 (preprint 3.73), the regularity of the inverse**: `g = f⁻¹` is of class `C^j` on `f(U)`
+(the text: via the iterated tangent maps `T^k f`, Lemma 3.8.20 (preprint 3.76); here by bootstrapping
 `Dg = [Df]⁻¹ ∘ g`). -/
 theorem contDiffOn_inv : ContDiffOn ℝ j (inv U f) (f '' U) := by
   have key : ∀ i : ℕ, i ≤ j → ContDiffOn ℝ i (inv U f) (f '' U) := by
@@ -476,27 +476,27 @@ theorem contDiffOn_inv : ContDiffOn ℝ j (inv U f) (f '' U) := by
 
 end InvData
 
-/-- **Proposition 3.73** (with Lemmas 3.74–3.77): under `InvData` — `U` relatively open and
+/-- **Proposition 3.8.17 (preprint 3.73)** (with Lemmas 3.74–3.77): under `InvData` — `U` relatively open and
 convex in the partial quadrant `C`, `f : U → C` of class `C^j` with `‖Df − 1‖ ≤ 1/2` and preserving
 interior points — the image `V = f(U)` is relatively open in `C` and `f : U → V` is a
 `C^j`-diffeomorphism: injective, with inverse `g` of class `C^j` on `V`. -/
-theorem proposition_3_73 {C U : Set V} {f : V → V} {j : ℕ} (h : InvData C U f j) :
+theorem proposition_3_8_17 {C U : Set V} {f : V → V} {j : ℕ} (h : InvData C U f j) :
     (∃ O' : Set V, IsOpen O' ∧ f '' U = O' ∩ C) ∧ InjOn f U ∧
       ∃ g : V → V, ContDiffOn ℝ j g (f '' U) ∧ (∀ x ∈ U, g (f x) = x) ∧
         ∀ y ∈ f '' U, f (g y) = y ∧ g y ∈ U :=
   ⟨h.image_relOpen, h.injOn, InvData.inv U f, h.contDiffOn_inv, fun _ hx => h.inv_apply hx,
     fun _ hy => ⟨h.apply_inv hy, h.inv_mem hy⟩⟩
 
-/-- **Corollary 3.75**: under the assumptions of Proposition 3.73, `f : U → V = f(U)` is a
-homeomorphism between relatively open subsets of `C` (`V` relatively open by Lemma 3.74). -/
-theorem corollary_3_75 {C U : Set V} {f : V → V} {j : ℕ} (h : InvData C U f j) :
+/-- **Corollary 3.8.19 (preprint 3.75)**: under the assumptions of Proposition 3.8.17 (preprint 3.73), `f : U → V = f(U)` is a
+homeomorphism between relatively open subsets of `C` (`V` relatively open by Lemma 3.8.18 (preprint 3.74)). -/
+theorem corollary_3_8_19 {C U : Set V} {f : V → V} {j : ℕ} (h : InvData C U f j) :
     ContinuousOn f U ∧ ContinuousOn (InvData.inv U f) (f '' U) ∧
       (∀ x ∈ U, InvData.inv U f (f x) = x) ∧ ∀ y ∈ f '' U, f (InvData.inv U f y) = y :=
   ⟨h.continuousOn, h.continuousOn_inv, fun _ hx => h.inv_apply hx, fun _ hy => h.apply_inv hy⟩
 
 end Prop373
 
-/-! ### Theorem 3.72 -/
+/-! ### Theorem 3.8.15 (preprint 3.72) -/
 
 section Theorem372
 
@@ -522,12 +522,12 @@ lemma surjective_of_image_eq {C : Set V} (hCi : (interior C).Nonempty)
   rw [map_smul, map_sub, hc₁, hc₂, add_sub_cancel_left, smul_smul,
     inv_mul_cancel₀ (by positivity), one_smul]
 
-/-- **Theorem 3.72 (quadrant inverse function theorem)**: `U` a relatively open neighbourhood of
+/-- **Theorem 3.8.15 (preprint 3.72) (quadrant inverse function theorem)**: `U` a relatively open neighbourhood of
 `0` in the partial quadrant `C` of the finite-dimensional `V`, `f : U → V` of class `C^j`
 (`j ≥ 1`; the text: smooth) with `f(U) ⊆ C`, (1) `f(0) = 0` and `Df(0)C = C`, (2)
 `d_C(x) = d_C(f(x))` for `x ∈ U`.  Then there are relatively open neighbourhoods `U' ⊆ U` and `V'`
 of `0` in `C` such that `f : U' → V'` is a `C^j`-diffeomorphism. -/
-theorem theorem_3_72 {C U : Set V} (hU : IsRelOpenInQuadrant (ScBanach.const V) C U)
+theorem theorem_3_8_15 {C U : Set V} (hU : IsRelOpenInQuadrant (ScBanach.const V) C U)
     (h0 : (0 : V) ∈ U) {f : V → V} {j : ℕ} (hj : 1 ≤ j) (hf : ContDiffOn ℝ j f U)
     (hfC : MapsTo f U C) (hf0 : f 0 = 0) (hDf : fderivWithin ℝ f U 0 '' C = C)
     (hdeg : ∀ x ∈ U, degIndex (ScBanach.const V) C x = degIndex (ScBanach.const V) C (f x)) :
@@ -618,7 +618,7 @@ theorem theorem_3_72 {C U : Set V} (hU : IsRelOpenInQuadrant (ScBanach.const V) 
           rw [Le.apply_symm_apply] at this
           exact this.symm
         rw [h1, hdeg x (hU'U hx)] }
-  obtain ⟨⟨O'', hO'', hV''⟩, hinj, g₁, hg₁cd, hg₁f, hg₁⟩ := proposition_3_73 hdata
+  obtain ⟨⟨O'', hO'', hV''⟩, hinj, g₁, hg₁cd, hg₁f, hg₁⟩ := proposition_3_8_17 hdata
   -- back to `f = Le ∘ g₀`
   have hfeq : ∀ x, f x = Le (g₀ x) := fun x => (Le.apply_symm_apply (f x)).symm
   have himg : f '' U' = Le '' (g₀ '' U') := by

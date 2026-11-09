@@ -4,27 +4,27 @@ import Mathlib.LinearAlgebra.Ray
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.3, p. 207:
-**Definition 6.7** (the determinant `det(T)` of a Fredholm operator) and **Definition 6.8** (an
+**Definition 6.4.1 (preprint 6.7)** (the determinant `det(T)` of a Fredholm operator) and **Definition 6.4.2 (preprint 6.8)** (an
 orientation of `T`) *(book 2017: Definitions 6.3 and 6.4; see `BookConcordance.md`)*.
 
 # The determinant line of a Fredholm operator
 
 ## The text, paraphrased
 
-(Definition 6.7) The determinant of a bounded linear Fredholm operator `T : E → F` between real
-Banach spaces is the line `det(T) = λ(ker T) ⊗ λ*(coker T)`.  (Definition 6.8) An orientation of
+(Definition 6.4.1 (preprint 6.7)) The determinant of a bounded linear Fredholm operator `T : E → F` between real
+Banach spaces is the line `det(T) = λ(ker T) ⊗ λ*(coker T)`.  (Definition 6.4.2 (preprint 6.8)) An orientation of
 `T` is an orientation of the line `det(T)`.
 
 ## What is formalized
 
 * `Polyfold.linDet T = λ(ker T) ⊗ λ*(F / im T)` for a linear map `T`, and
-  `Polyfold.fredholmDet T`, the same for a bounded operator (**Definition 6.7**);
+  `Polyfold.fredholmDet T`, the same for a bounded operator (**Definition 6.4.1 (preprint 6.7)**);
   `Polyfold.finrank_fredholmDet`: for `T` Fredholm it is a line.
 * `Polyfold.linDetEquivOfEq`: the identification `det(T) ≅ det(T')` for `T = T'` (the types
   `ker T` and `ker T'` are different), computed on wedges by `linDetEquivOfEq_tmul`; it is the
   identity for `T = T` (`linDetEquivOfEq_self`) and the identifications compose
   (`linDetEquivOfEq_trans`).
-* `Polyfold.FredholmOrientation T`: the rays of `det(T)` (**Definition 6.8**);
+* `Polyfold.FredholmOrientation T`: the rays of `det(T)` (**Definition 6.4.2 (preprint 6.8)**);
   `nonempty_fredholmOrientation`, `exists_two_fredholmOrientation`: for `T` Fredholm there are
   exactly two.
 
@@ -46,7 +46,7 @@ section Linear
 
 variable {E F : Type*} [AddCommGroup E] [Module ℝ E] [AddCommGroup F] [Module ℝ F]
 
-/-- **`det(T) = λ(ker T) ⊗ λ*(coker T)`** for a linear map `T` (Definition 6.7). -/
+/-- **`det(T) = λ(ker T) ⊗ λ*(coker T)`** for a linear map `T` (Definition 6.4.1 (preprint 6.7)). -/
 abbrev linDet (T : E →ₗ[ℝ] F) : Type _ :=
   maxPow (LinearMap.ker T) ⊗[ℝ] maxPowDual (F ⧸ LinearMap.range T)
 
@@ -128,7 +128,7 @@ section Banach
 variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [NormedAddCommGroup F]
   [NormedSpace ℝ F]
 
-/-- **Definition 6.7**: the determinant `det(T) = λ(ker T) ⊗ λ*(coker T)` of a bounded operator
+/-- **Definition 6.4.1 (preprint 6.7)**: the determinant `det(T) = λ(ker T) ⊗ λ*(coker T)` of a bounded operator
 `T : E → F`. -/
 abbrev fredholmDet (T : E →L[ℝ] F) : Type _ := linDet (T : E →ₗ[ℝ] F)
 
@@ -139,7 +139,7 @@ theorem finrank_fredholmDet {T : E →L[ℝ] F} (hT : T.IsFredholm) :
   have : FiniteDimensional ℝ (F ⧸ LinearMap.range (T : E →ₗ[ℝ] F)) := hT.finite_coker
   exact finrank_linDet _
 
-/-- **Definition 6.8**: an orientation of `T` is an orientation of the line `det(T)`, that is, a
+/-- **Definition 6.4.2 (preprint 6.8)**: an orientation of `T` is an orientation of the line `det(T)`, that is, a
 ray of `det(T)`. -/
 abbrev FredholmOrientation (T : E →L[ℝ] F) : Type _ := Module.Ray ℝ (fredholmDet T)
 

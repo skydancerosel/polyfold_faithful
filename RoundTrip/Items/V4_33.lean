@@ -6,7 +6,7 @@ import RoundTrip.Blind.V4_33
 Round trip for V4_33 (Proposition 4.15 (1)).  `A` is the conjunction of the types of
 `Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet`,
 `Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff` and
-`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1`, universe instantiated at `0`.
+`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one`, universe instantiated at `0`.
 
 Glue:
 * B's `IsSmoothSubmanifoldB` is the project's `IsSmoothSubmanifold` (V4_29: the sc⁺-retraction
@@ -25,12 +25,12 @@ open Polyfold
 def A : Prop :=
   type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet.{0} ∧
     type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff.{0} ∧
-    type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1.{0}
+    type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one.{0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet.{0},
     @Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff.{0},
-    @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1.{0}⟩
+    @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one.{0}⟩
 
 section Glue
 
@@ -102,12 +102,12 @@ theorem B_to_A : B → A := by
 
 #rt_check RoundTrip.V4_33.A_to_B [Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet,
   Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff,
-  Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1]
+  Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one]
 #rt_check RoundTrip.V4_33.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet,
   Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff,
-  Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1]
+  Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one]
 #rt_overlap RoundTrip.V4_33.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet,
   Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff,
-  Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1]
+  Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one]
 
 end RoundTrip.V4_33

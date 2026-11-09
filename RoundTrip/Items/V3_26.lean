@@ -4,13 +4,13 @@ import RoundTrip.Blind.V3_26
 
 /-!
 Round trip for V3_26 (Theorem 3.29).  `A` is the conjunction of the types of the theorems cited by
-the comparison: `Polyfold.theorem_3_29`, `Polyfold.theorem_3_29_of_isSc0ContractionGerm`,
+the comparison: `Polyfold.theorem_3_3_2`, `Polyfold.theorem_3_3_2_of_isSc0ContractionGerm`,
 `Polyfold.ContractionGerm.incl_fixLvl`, `Polyfold.ContractionGerm.eq_sol` and
 `Polyfold.exists_fixedPoint_continuousOn` (none has universe parameters: `P : Type`, `Λ X : Type`).
 `ContractionGerm.sol` is a definition (vocabulary).
 
 `A → B`:
-* existence: `theorem_3_29_of_isSc0ContractionGerm` (in `A`) for B's sc⁰-contraction germ, the
+* existence: `theorem_3_3_2_of_isSc0ContractionGerm` (in `A`) for B's sc⁰-contraction germ, the
   partial quadrant being quadrant-like;
 * uniqueness as a germ: the same conjunct of `A` gives a canonical solution germ `δ₀` on `V₀` and a
   radius `r` with uniqueness of solutions `‖w‖ < r` over `V₀`; two solution germs `δ`, `δ'` of `B`
@@ -23,12 +23,12 @@ open Polyfold
 
 /-- The project's statement: Theorem 3.29 and the lemmas cited with it. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_29 ∧ type_of% @Polyfold.theorem_3_29_of_isSc0ContractionGerm ∧
+  type_of% @Polyfold.theorem_3_3_2 ∧ type_of% @Polyfold.theorem_3_3_2_of_isSc0ContractionGerm ∧
     type_of% @Polyfold.ContractionGerm.incl_fixLvl ∧ type_of% @Polyfold.ContractionGerm.eq_sol ∧
     type_of% @Polyfold.exists_fixedPoint_continuousOn
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_29, @Polyfold.theorem_3_29_of_isSc0ContractionGerm,
+  ⟨@Polyfold.theorem_3_3_2, @Polyfold.theorem_3_3_2_of_isSc0ContractionGerm,
     @Polyfold.ContractionGerm.incl_fixLvl, @Polyfold.ContractionGerm.eq_sol,
     @Polyfold.exists_fixedPoint_continuousOn⟩
 
@@ -89,8 +89,8 @@ theorem A_to_B : A → B := by
       huniq a haV₀ (δ' a) (hu'r a ⟨ha.2.2, haV'⟩) (hs'.2.2 a haV').2
     rw [h1, h2]
 
-#rt_check RoundTrip.V3_26.A_to_B [Polyfold.theorem_3_29,
-  Polyfold.theorem_3_29_of_isSc0ContractionGerm, Polyfold.ContractionGerm.incl_fixLvl,
+#rt_check RoundTrip.V3_26.A_to_B [Polyfold.theorem_3_3_2,
+  Polyfold.theorem_3_3_2_of_isSc0ContractionGerm, Polyfold.ContractionGerm.incl_fixLvl,
   Polyfold.ContractionGerm.eq_sol, Polyfold.exists_fixedPoint_continuousOn]
 
 end RoundTrip.V3_26

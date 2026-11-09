@@ -54,7 +54,7 @@ good.
 
 * The text works at level `0` with "`B` is `C¹`"; the retraction is only sc-smooth, so all
   estimates are proved on level `1` for the lift `1₀¹ ∘ r` and brought down by `ι`; on `T` the
-  two norms are equivalent since `T` is finite-dimensional (`lemma_4_7_ii`).
+  two norms are equivalent since `T` is finite-dimensional (`lemma_4_1_7_ii`).
 * The project's earlier hypothesis `HasGraphChartAt` of `AppendixSlices.lean` (one cone `K` for
   every submanifold through `x`) was stronger than the text needs: the slice arguments use the
   cone of one tangent space at a time, so here the cone is chosen per tangent space
@@ -344,7 +344,7 @@ theorem exists_graph_unif (hR : R.IsScPlus) {z : E 1} (hz : E.toBase 1 z ∈ R.r
   set x₀ := E.toBase 1 z with hx₀def
   set N : Submodule ℝ (E 0) := LinearMap.range (D : E 0 →ₗ[ℝ] E 0) with hNdef
   have hmemN : ∀ v, v ∈ N ↔ v ∈ range D := fun v => by rw [hNdef, LinearMap.mem_range]; rfl
-  have : FiniteDimensional ℝ N := lemma_4_7_ii hR hz
+  have : FiniteDimensional ℝ N := lemma_4_1_7_ii hR hz
   have : CompleteSpace N := FiniteDimensional.complete ℝ N
   have hDfix : ∀ v ∈ range D, D v = v := by
     rintro _ ⟨u, rfl⟩
@@ -901,7 +901,7 @@ theorem finiteDimensional_range_P (hR : R.IsScPlus) {z : E 1}
     (hz : E.toBase 1 z ∈ R.retract) :
     FiniteDimensional ℝ (LinearMap.range (((R.plusDeriv z).comp (E.toBase 1) : E 1 →L[ℝ] E 1) :
         E 1 →ₗ[ℝ] E 1)) := by
-  have := lemma_4_7_ii hR hz
+  have := lemma_4_1_7_ii hR hz
   rw [range_scDeriv_eq_map hR hz] at this
   exact LinearEquiv.finiteDimensional
     (Submodule.equivMapOfInjective _ (E.toBase_injective 1) _).symm

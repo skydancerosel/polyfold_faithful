@@ -4,28 +4,28 @@ import Polyfold.Chapter3.IndexAlongPathsDevice
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017 book), Part II, Chapter 7, §7.1,
-pp. 226–228: the local sc-diffeomorphisms `s, t` of **Definition 7.3 (1)** and what the text
-draws from them: the sheets `U(φ)` and `φ̂ = t ∘ (s|U(φ))⁻¹` before **Definition 7.4**,
-`ml(s φ) = ml(φ) = ml(t φ)` and `d_X(s φ) = d_𝐗(φ) = d_X(t φ)` before **Definition 7.5**, the
-tameness of the morphism M-polyfold after **Definition 7.6**; the level-`1` local
-sc-diffeomorphisms behind "(1), (2) and (4) trivially" in **Proposition 7.11** (p. 247); and the
-witness `ℝⁿ` for the partitions of unity of **Definition 7.16** and **Corollary 7.3** (pp. 250,
+pp. 226–228: the local sc-diffeomorphisms `s, t` of **Definition 7.1.3 (2017: 7.3) (1)** and what the text
+draws from them: the sheets `U(φ)` and `φ̂ = t ∘ (s|U(φ))⁻¹` before **Definition 7.1.4 (2017: 7.4)**,
+`ml(s φ) = ml(φ) = ml(t φ)` and `d_X(s φ) = d_𝐗(φ) = d_X(t φ)` before **Definition 7.1.5 (2017: 7.5)**, the
+tameness of the morphism M-polyfold after **Definition 7.1.6 (2017: 7.6)**; the level-`1` local
+sc-diffeomorphisms behind "(1), (2) and (4) trivially" in **Proposition 7.3.9 (2017: 7.11)** (p. 327 (2017 p. 247)); and the
+witness `ℝⁿ` for the partitions of unity of **Definition 7.5.5 (2017: 7.16)** and **Corollary 7.6.6 (2017: 7.3)** (pp. 250,
 256) *(Part II has no 2014 preprint; numbers and pages are those of the 2017 text)*.
 
 # Local sc-diffeomorphisms
 
 ## What the text uses
 
-(Before Definition 7.4) "There exist open neighborhoods `U(φ) ⊂ 𝐗` and `U(x), U(y) ⊂ X` such that
+(Before Definition 7.1.4 (2017: 7.4)) "There exist open neighborhoods `U(φ) ⊂ 𝐗` and `U(x), U(y) ⊂ X` such that
 `s : U(φ) → U(x)` and `t : U(φ) → U(y)` are sc-diffeomorphisms", and `φ̂ = t ∘ (s|U(φ))⁻¹`.
 (p. 227) `ml(x)` is the largest `m ∈ ℕ ∪ {∞}` with `x ∈ X_m`; (p. 228) "the source and the target
 maps are local sc-diffeomorphisms and therefore preserve by definition the levels", so
-`ml(x) = ml(y) = ml(φ)` for `φ : x → y`; by Proposition 2.7 [2.24] the degeneracy indices are
+`ml(x) = ml(y) = ml(φ)` for `φ : x → y`; by Proposition 2.4.4 (2017: 2.7) [2.24] the degeneracy indices are
 invariant under local sc-diffeomorphisms, so `d_X(s(φ)) = d_𝐗(φ) = d_X(t(φ))`.  (After
-Definition 7.6) In a tame ep-groupoid the morphism M-polyfold is tame, since it "is locally
+Definition 7.1.6 (2017: 7.6)) In a tame ep-groupoid the morphism M-polyfold is tame, since it "is locally
 sc-diffeomorphic by `s` to `X` and the tameness condition is invariant under local
-sc-diffeomorphisms".  (Proposition 7.11) `X¹ = (X¹, 𝐗¹)` "satisfies trivially properties (1), (2)
-and (4) of Definition 7.3".  (Definition 7.16, Corollary 7.3) sc-smooth partitions of unity, and
+sc-diffeomorphisms".  (Proposition 7.3.9 (2017: 7.11)) `X¹ = (X¹, 𝐗¹)` "satisfies trivially properties (1), (2)
+and (4) of Definition 7.3".  (Definition 7.5.5 (2017: 7.16), Corollary 7.6.6 (2017: 7.3)) sc-smooth partitions of unity, and
 atlases whose `E₀` are Hilbert spaces.
 
 ## What is formalized
@@ -36,7 +36,7 @@ atlases whose `E₀` are Hilbert spaces.
   `IsScDiffeoOn.toOpenPartialHomeomorph`.
 * **Local sc-diffeomorphisms** (Part I's `MPolyfold.IsLocalScDiffeo`): `isLocalScDiffeo_id`,
   `IsLocalScDiffeo.comp`, `IsLocalScDiffeo.isLocalHomeomorph`, `IsLocalScDiffeo.isOpenMap` (for
-  Proposition 7.1), `IsLocalScDiffeo.exists_isScDiffeoOn_subset` (sheets inside any open
+  Proposition 7.1.8 (2017: 7.1)), `IsLocalScDiffeo.exists_isScDiffeoOn_subset` (sheets inside any open
   neighbourhood), and `IsLocalScDiffeo.exists_isScDiffeoOn_hat` (a common sheet `U(φ)` of `s` and
   `t`, and `φ̂ = t ∘ (s|U(φ))⁻¹` an sc-diffeomorphism `U(s φ) → U(t φ)` with `φ̂(s φ) = t φ`).
 * **Levels**: `IsScDiffeoOn.mem_levelSet_iff`, `IsLocalScDiffeo.mem_levelSet_iff`,
@@ -47,18 +47,18 @@ atlases whose `E₀` are Hilbert spaces.
   `IsLocalScDiffeo.mem_boundary_iff`.
 * **The transported tame atlas**: `IsScDiffeoOn.exists_tame_chart` (`ψ ∘ f`, Part I's
   `transportChart`, with the tame retraction of `ψ` restricted), `IsLocalScDiffeo.isTame` (the
-  source of a local sc-diffeomorphism into a tame M-polyfold is tame: Definition 7.6's tame `𝐗`),
+  source of a local sc-diffeomorphism into a tame M-polyfold is tame: Definition 7.1.6 (2017: 7.6)'s tame `𝐗`),
   `IsLocalScDiffeo.isTame_iff_of_surjective`.
 * **Level `1`**: `IsScSmoothOn.levelOne` (Part I's `IsScSmoothMap.levelOne` on an open set),
   `IsScDiffeoOn.levelOne`, `levelOneMap`, and `IsLocalScDiffeo.levelOne` (a local
   sc-diffeomorphism `X → Y` induces one `X¹ → Y¹`).
 * **`ℝⁿ`**: `admitsContDiffPartitionsOfUnity_of_finiteDimensional` (Mathlib's
   `SmoothPartitionOfUnity.exists_isSubordinate`), `rnPolyfold_admitsScPartitionsOfUnity` (by
-  Proposition 5.38 and Theorem 5.37),
-  `godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional` (Theorem 5.43 for
+  Proposition 5.5.11 (preprint 5.38) and Theorem 5.5.10 (preprint 5.37)),
+  `godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional` (Theorem 5.5.16 (preprint 5.43) for
   finite-dimensional spaces), `rnPolyfold_one_hilbert_hypothesis` and
   `rnPolyfold_one_admitsScPartitionsOfUnity_of_hilbert` (the hypothesis of
-  `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, Corollary 7.3's, holds for `ℝ¹`),
+  `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, Corollary 7.6.6 (2017: 7.3)'s, holds for `ℝ¹`),
   `isLocalScDiffeo_rn_of_contDiff`, `isLocalScDiffeo_rn_neg` (the reflection of the witness
   `ℤ/2 ⋉ ℝ`), `rnPolyfold_maxLevel`.
 
@@ -79,7 +79,7 @@ atlases whose `E₀` are Hilbert spaces.
   a junk value (as Part I's `levelChart`).  Tameness of `X¹` is not treated here (Part I leaves the
   shift of tameness open); it is proved in `Lift.lean` (`MPolyfold.IsTame.levelOne`).
 * The sup norm of `ℝⁿ` is not a Hilbert norm for `n ≥ 2`, so the Hilbert witness is `ℝ¹`; for
-  every `n`, `ℝⁿ` admits sc-smooth partitions of unity by Proposition 5.38.
+  every `n`, `ℝⁿ` admits sc-smooth partitions of unity by Proposition 5.5.11 (preprint 5.38).
 -/
 
 open Set Filter Topology Function
@@ -182,7 +182,7 @@ theorem IsLocalScDiffeo.isLocalHomeomorph (hf : P.IsLocalScDiffeo Q f) : IsLocal
     obtain ⟨U, V, g, hx, hd⟩ := hf x
     exact ⟨hd.toOpenPartialHomeomorph, hx, rfl⟩
 
-/-- A local sc-diffeomorphism is an open map (the property used in Proposition 7.1). -/
+/-- A local sc-diffeomorphism is an open map (the property used in Proposition 7.1.8 (2017: 7.1)). -/
 theorem IsLocalScDiffeo.isOpenMap (hf : P.IsLocalScDiffeo Q f) : IsOpenMap f :=
   hf.isLocalHomeomorph.isOpenMap
 
@@ -209,7 +209,7 @@ theorem IsLocalScDiffeo.comp {f₂ : Y → Z} (hf₂ : Q.IsLocalScDiffeo S f₂)
   exact ⟨U₁ ∩ f ⁻¹' U₂, _, h₁ ∘ h₂, ⟨hx, hfx⟩, (hd₂.restrict e₁.isOpen_target hsub).comp e₁⟩
 
 /-- **The associated local sc-diffeomorphism `φ̂ = t ∘ (s|U(φ))⁻¹`** (the paragraph before
-Definition 7.4): for local sc-diffeomorphisms `s, t : 𝐗 → X` and `φ ∈ 𝐗` there is an open
+Definition 7.1.4 (2017: 7.4)): for local sc-diffeomorphisms `s, t : 𝐗 → X` and `φ ∈ 𝐗` there is an open
 `U(φ) ∋ φ` on which both `s` and `t` are sc-diffeomorphisms, onto `U(s φ)` and `U(t φ)`, and then
 `t ∘ (s|U(φ))⁻¹ : U(s φ) → U(t φ)` is an sc-diffeomorphism sending `s(φ)` to `t(φ)`. -/
 theorem IsLocalScDiffeo.exists_isScDiffeoOn_hat {s t : X → Y} (hs : P.IsLocalScDiffeo Q s)
@@ -312,11 +312,11 @@ section Degeneracy
 
 variable {f : X → Y}
 
-/-- **`d_Y(f(x)) = d_X(x)`** for a local sc-diffeomorphism `f` (Proposition 2.7 [2.24]). -/
+/-- **`d_Y(f(x)) = d_X(x)`** for a local sc-diffeomorphism `f` (Proposition 2.4.4 (2017: 2.7) [2.24]). -/
 theorem IsLocalScDiffeo.degIndex_eq (hf : P.IsLocalScDiffeo Q f) (x : X) :
     Q.degIndex (f x) = P.degIndex x := by
   obtain ⟨U, V, g, hx, hd⟩ := hf x
-  exact (proposition_2_24 hd hx).symm
+  exact (proposition_2_4_4 hd hx).symm
 
 theorem IsLocalScDiffeo.mem_boundary_iff (hf : P.IsLocalScDiffeo Q f) (x : X) :
     f x ∈ Q.boundary ↔ x ∈ P.boundary := by
@@ -325,7 +325,7 @@ theorem IsLocalScDiffeo.mem_boundary_iff (hf : P.IsLocalScDiffeo Q f) (x : X) :
 
 end Degeneracy
 
-/-! ### Tameness transported along local sc-diffeomorphisms (the text after Definition 7.6) -/
+/-! ### Tameness transported along local sc-diffeomorphisms (the text after Definition 7.1.6 (2017: 7.6)) -/
 
 section Tame
 
@@ -346,7 +346,7 @@ theorem IsScDiffeoOn.exists_tame_chart (h : P.IsScDiffeoOn Q f g U V) (hQ : Q.Is
     rw [Rψ.restrict_retract, hRψ]; exact heq.symm
   exact h1
 
-/-- **Tameness pulls back along local sc-diffeomorphisms** (the text after Definition 7.6: in a
+/-- **Tameness pulls back along local sc-diffeomorphisms** (the text after Definition 7.1.6 (2017: 7.6): in a
 tame ep-groupoid the morphism M-polyfold is tame, `s : 𝐗 → X` being a local sc-diffeomorphism):
 the atlas of the transported tame charts. -/
 theorem IsLocalScDiffeo.isTame (hf : P.IsLocalScDiffeo Q f) (hQ : Q.IsTame) : P.IsTame :=
@@ -364,7 +364,7 @@ theorem IsLocalScDiffeo.isTame_iff_of_surjective (hf : P.IsLocalScDiffeo Q f)
 
 end Tame
 
-/-! ### Level-`1` versions (for `X¹`, Proposition 7.11) -/
+/-! ### Level-`1` versions (for `X¹`, Proposition 7.3.9 (2017: 7.11)) -/
 
 section LevelOne
 
@@ -511,22 +511,22 @@ theorem admitsContDiffPartitionsOfUnity_of_finiteDimensional (V : Type*) [Normed
   exact ⟨ρ.toPartitionOfUnity, hρ.toPartitionOfUnity,
     fun i => contMDiff_iff_contDiff.1 (ρ i).contMDiff⟩
 
-/-- **Theorem 5.43 holds for finite-dimensional spaces** (its conclusion does), so the explicit
-hypothesis of Corollary 5.44 [Corollary 7.3's source] is satisfiable. -/
+/-- **Theorem 5.5.16 (preprint 5.43) holds for finite-dimensional spaces** (its conclusion does), so the explicit
+hypothesis of Corollary 5.5.17 (preprint 5.44) [Corollary 7.6.6 (2017: 7.3)'s source] is satisfiable. -/
 theorem godefroyTroyanskiWhitfieldZizlerStatement_of_finiteDimensional (V : Type*)
     [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V] :
     GodefroyTroyanskiWhitfieldZizlerStatement V ⊤ :=
   fun _ _ => admitsContDiffPartitionsOfUnity_of_finiteDimensional V
 
-/-- **`ℝⁿ` admits sc-smooth partitions of unity** (Theorem 5.37 with the chart `id`, whose model
-has the approximation property by Proposition 5.38). -/
+/-- **`ℝⁿ` admits sc-smooth partitions of unity** (Theorem 5.5.10 (preprint 5.37) with the chart `id`, whose model
+has the approximation property by Proposition 5.5.11 (preprint 5.38)). -/
 theorem rnPolyfold_admitsScPartitionsOfUnity (n : ℕ) :
     (rnPolyfold n).AdmitsScPartitionsOfUnity := by
-  refine theorem_5_37.2 ⟨{rnChart n 0}, fun φ hφ => ?_, fun x => ⟨rnChart n 0, mem_singleton _,
+  refine theorem_5_5_10.2 ⟨{rnChart n 0}, fun φ hφ => ?_, fun x => ⟨rnChart n 0, mem_singleton _,
     mem_univ x⟩, fun φ hφ => ?_⟩
   · rw [mem_singleton_iff.1 hφ]; exact isChart_rnChart 0
   · rw [mem_singleton_iff.1 hφ]
-    exact proposition_5_38 _ (admitsContDiffPartitionsOfUnity_of_finiteDimensional (Fin n → ℝ))
+    exact proposition_5_5_11 _ (admitsContDiffPartitionsOfUnity_of_finiteDimensional (Fin n → ℝ))
 
 /-- The norm of `ℝ¹` comes from the bilinear form `b(v, w) = v₀ w₀`. -/
 theorem rn_one_norm_sq_eq (v : Fin 1 → ℝ) : ‖v‖ ^ 2 = v 0 * v 0 := by
@@ -534,7 +534,7 @@ theorem rn_one_norm_sq_eq (v : Fin 1 → ℝ) : ‖v‖ ^ 2 = v 0 * v 0 := by
     rw [Subsingleton.elim i 0]) (norm_le_pi_norm v 0)
   rw [h, Real.norm_eq_abs, sq_abs, sq]
 
-/-- **The hypothesis of `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (Corollary 7.3's) is
+/-- **The hypothesis of `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (Corollary 7.6.6 (2017: 7.3)'s) is
 satisfiable**: it holds for `ℝ¹` (a Hilbert space, finite-dimensional). -/
 theorem rnPolyfold_one_hilbert_hypothesis (x : Fin 1 → ℝ) :
     ∃ φ : MChart (Fin 1 → ℝ), (rnPolyfold 1).IsChart φ ∧ x ∈ φ.source ∧
@@ -546,7 +546,7 @@ theorem rnPolyfold_one_hilbert_hypothesis (x : Fin 1 → ℝ) :
     (ContinuousLinearMap.proj 0), fun v => ?_⟩
   exact rn_one_norm_sq_eq v
 
-/-- `ℝ¹` admits sc-smooth partitions of unity also by the Hilbert route (Corollary 5.44). -/
+/-- `ℝ¹` admits sc-smooth partitions of unity also by the Hilbert route (Corollary 5.5.17 (preprint 5.44)). -/
 theorem rnPolyfold_one_admitsScPartitionsOfUnity_of_hilbert :
     (rnPolyfold 1).AdmitsScPartitionsOfUnity :=
   MPolyfold.admitsScPartitionsOfUnity_of_hilbert rnPolyfold_one_hilbert_hypothesis

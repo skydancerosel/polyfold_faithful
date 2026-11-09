@@ -68,7 +68,7 @@ theorem quotDim_copy {A : Set X}
   obtain ⟨_, hY⟩ := htame
   have hψ := subPolyfold_isChart hA.isSubMPolyfold d.toSubData hφ a
   have haψ : a ∈ (subChart d.toSubData hφ a).source := d.toSubData.mem_shrink φ a.2 haV haφ
-  have hs : a ∈ (subPolyfold hA.isSubMPolyfold).smoothSet := hA.proposition_4_15_1.2 a
+  have hs : a ∈ (subPolyfold hA.isSubMPolyfold).smoothSet := hA.proposition_4_2_3_one.2 a
   exact (subPolyfold hA.isSubMPolyfold).degIndex_eq_quotDim_of_isTame hY hψ R hR T hT haψ hs hz
 
 theorem tangentSpace_eq_copy {A₁ A₂ : Set X} (hA₁ : P.IsSmoothSubmanifold A₁)

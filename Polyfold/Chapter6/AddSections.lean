@@ -2,7 +2,7 @@ import Polyfold.Chapter6.Continuation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 224–225: the linear algebra of **Lemma 6.33** (adding sc⁺-sections does not change the
+pp. 224–225: the linear algebra of **Lemma 6.6.8 (preprint 6.33)** (adding sc⁺-sections does not change the
 push-forward; "one verifies by a simple computation") *(book 2017: Lemma 6.15; see
 `BookConcordance.md`)*.
 
@@ -24,7 +24,7 @@ propagation.
   `kerAppend`: `ker(T ⊕ φ) → ker(T ⊕ (φ, ψ))`, `(v, λ) ↦ (v, λ ++ 0)`.
 * `detEquiv_stabIota_append`: **the simple computation**: under `det(T ⊕ φ) ≅ λ(ker(T ⊕ φ))`, the
   stabilization isomorphism of `(φ, ψ)` is that of `φ` followed by `wedgeExt kerAppend ℓ`, for any
-  `ℓⱼ ∈ ker(T ⊕ (φ, ψ))` whose `ψ`-coordinates are the standard basis (Proposition 6.15).
+  `ℓⱼ ∈ ker(T ⊕ (φ, ψ))` whose `ψ`-coordinates are the standard basis (Proposition 6.4.15 (preprint 6.15)).
 * `isLineOrientation_wedgeExt`: `wedgeExt` carries continuous orientations of a family `Λ` to
   continuous orientations of a family `Λ'` with `Λ' ⊇ M(Λ)` and `Λ'/M(Λ) ≅ ℝᵈ`.
 * `propagate_append`: **adding sections does not change the push-forward** `propagate`.
@@ -32,7 +32,7 @@ propagation.
 ## Reading
 
 The text's homotopy `F̃(τ, ·)` is not needed: the comparison is made directly between `T ⊕ φ` and
-`T ⊕ (φ, ψ)`, by Proposition 6.15 at the two end points and by `isLineOrientation_wedgeExt` along
+`T ⊕ (φ, ψ)`, by Proposition 6.4.15 (preprint 6.15) at the two end points and by `isLineOrientation_wedgeExt` along
 the family.  The appended sections come last (`Fin.castAdd`, `Fin.natAdd`); with this order the two
 isomorphisms agree exactly (no sign).
 -/
@@ -427,8 +427,8 @@ theorem exists_stabJ_completion (hT : T.IsFredholm) {p : ℕ}
     Module.finrank_eq_card_basis a, Fintype.card_fin]
 
 omit [CompleteSpace E] [CompleteSpace F] in
-/-- **The simple computation of Lemma 6.33 at a generator** `(a₁ ∧ … ∧ a_p) ⊗ (d̄₁ ∧ … ∧ d̄_m)*`,
-by Proposition 6.15 for `φ` (data `c̄`, `b̄`) and for `(φ, ψ)` (data `c̄ ++ 0`, `(b̄ ++ 0, ℓ)`). -/
+/-- **The simple computation of Lemma 6.6.8 (preprint 6.33) at a generator** `(a₁ ∧ … ∧ a_p) ⊗ (d̄₁ ∧ … ∧ d̄_m)*`,
+by Proposition 6.4.15 (preprint 6.15) for `φ` (data `c̄`, `b̄`) and for `(φ, ψ)` (data `c̄ ++ 0`, `(b̄ ++ 0, ℓ)`). -/
 theorem detEquiv_stabIota_append_wedge (hT : T.IsFredholm)
     (hφ : Function.Surjective (T.coprod φ))
     (ℓ : Fin d → LinearMap.ker ((T.coprod (appendStab φ ψ) : E × (Fin (k + d) → ℝ) →L[ℝ] F) :
@@ -477,8 +477,8 @@ theorem detEquiv_stabIota_append_wedge (hT : T.IsFredholm)
       (Fin (k + d) → ℝ) →ₗ[ℝ] Fin d → ℝ) ∘ₗ LinearMap.snd ℝ E (Fin (k + d) → ℝ) ∘ₗ
         (LinearMap.ker _).subtype) (hb.map' _ (LinearMap.ker_eq_bot.2 kerAppend_injective))
       (fun i => by simp [coe_kerAppend]) hℓ
-  have h615 := proposition_6_15 hT hφ a cbar hd rfl bbar hb hkl hn
-  have h615' := proposition_6_15 hT (surjective_appendStab (ψ := ψ) hφ) a
+  have h615 := proposition_6_4_15 hT hφ a cbar hd rfl bbar hb hkl hn
+  have h615' := proposition_6_4_15 hT (surjective_appendStab (ψ := ψ) hφ) a
     (appendZero k d ∘ cbar) (hcd' ▸ hd) rfl _ hb' hkl' hn'
   have hX := congrArg (fun w => wedge a (by rw [Module.finrank_eq_card_basis a,
     Fintype.card_fin]) ⊗ₜ[ℝ] dualVec w) (wedge_congr_fun hcd' rfl rfl)
@@ -509,9 +509,9 @@ theorem detEquiv_stabIota_append_wedge (hT : T.IsFredholm)
       (detEquivOfSurjective hφ y)) h615.symm
 
 omit [CompleteSpace E] [CompleteSpace F] in
-/-- **The simple computation of Lemma 6.33**: for `ℓⱼ ∈ ker(T ⊕ (φ, ψ))` whose `ψ`-coordinates are
+/-- **The simple computation of Lemma 6.6.8 (preprint 6.33)**: for `ℓⱼ ∈ ker(T ⊕ (φ, ψ))` whose `ψ`-coordinates are
 the standard basis vectors `eⱼ`, the stabilization isomorphism of `(φ, ψ)` is that of `φ` followed
-by `w ↦ (w, 0) ∧ ℓ₁ ∧ … ∧ ℓ_d` (Proposition 6.15 for both: the determinant in (94) is unchanged). -/
+by `w ↦ (w, 0) ∧ ℓ₁ ∧ … ∧ ℓ_d` (Proposition 6.4.15 (preprint 6.15) for both: the determinant in (94) is unchanged). -/
 theorem detEquiv_stabIota_append (hT : T.IsFredholm) (hφ : Function.Surjective (T.coprod φ))
     (ℓ : Fin d → LinearMap.ker ((T.coprod (appendStab φ ψ) : E × (Fin (k + d) → ℝ) →L[ℝ] F) :
         E × (Fin (k + d) → ℝ) →ₗ[ℝ] F))
@@ -820,7 +820,7 @@ theorem stabRayEquiv_append {T : E₀ →L[ℝ] F₀} {φ : (Fin k → ℝ) →L
     (detEquiv_stabIota_append hT hφ _ hℓ₀ x)).trans (LinearMap.congr_fun hsq _)
 
 omit [CompleteSpace E₀] [CompleteSpace F₀] [CompleteSpace E₁] [CompleteSpace F₁] in
-/-- **Adding sections does not change the push-forward** (the core of Lemma 6.33): for continuous
+/-- **Adding sections does not change the push-forward** (the core of Lemma 6.6.8 (preprint 6.33)): for continuous
 families `Λ` of `ker(T_q ⊕ φ_q)` in `V × ℝᵏ` and `Λ'` of `ker(T_q ⊕ (φ_q, ψ_q))` in `V × ℝ^{k+d}`
 with `(v, λ) ↦ (v, λ ++ 0)` mapping `Λ_q` into `Λ'_q`, and end points `q₀, q₁` where both are the
 images of the kernels of `T₀ ⊕ φ₀`, `T₀ ⊕ (φ₀, ψ₀)` (resp. at `q₁`) under `jᵢ × 1`, the two

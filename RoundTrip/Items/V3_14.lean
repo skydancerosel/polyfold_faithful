@@ -4,11 +4,11 @@ import RoundTrip.Blind.V3_14
 
 /-!
 Round trip for V3_14 (Theorem 3.12).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_12`, `Polyfold.theorem_3_12_local_subset`,
+`Polyfold.theorem_3_1_13_preprint`, `Polyfold.theorem_3_1_13_local_subset`,
 `Polyfold.IsStrongBundleIso.snd_eq_zero_iff`, `Polyfold.MPolyfold.continuousOn_levelChartSymm` and
 `Polyfold.eq_of_mem_closure_of_continuousOn`, universes instantiated at `0`.
 
-Refresh 2026-11-02 (HEAD after the germ reading, phase 2): `Polyfold.theorem_3_12` now denotes
+Refresh 2026-11-02 (HEAD after the germ reading, phase 2): `Polyfold.theorem_3_1_13_preprint` now denotes
 the germ-reading statement (hypothesis `IsScFredholmGerm`: filling `IsFillingGerm`, sc⁺-germ
 `IsScPlusGerm`), and B's `IsScFredholmGermTame` is the germ reading too; the proof below is
 unchanged and still checks.
@@ -19,7 +19,7 @@ Glue for `A → B`:
 * A's compact `K ⊆ X_i` (type `PX.Level i := PX.levelSet i` with `PX.levelTopology i`) with
   `levelVal '' K = cl{…}` is B's `{p : levelSet i | ↑p ∈ cl{…}}` (by injectivity of `levelVal`).
 
-`B → A` is not proved: `theorem_3_12` assumes neither a tame bundle nor tame germ data nor an
+`B → A` is not proved: `theorem_3_1_13_preprint` assumes neither a tame bundle nor tame germ data nor an
 sc-smooth section, and the other conjuncts are auxiliary lemmas B does not state.
 -/
 
@@ -28,13 +28,13 @@ open Polyfold
 
 /-- The project's statement: Theorem 3.12 and the four lemmas listed with it, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_12.{0, 0} ∧ type_of% @Polyfold.theorem_3_12_local_subset ∧
+  type_of% @Polyfold.theorem_3_1_13_preprint.{0, 0} ∧ type_of% @Polyfold.theorem_3_1_13_local_subset ∧
     type_of% @Polyfold.IsStrongBundleIso.snd_eq_zero_iff ∧
     type_of% @Polyfold.MPolyfold.continuousOn_levelChartSymm.{0} ∧
     type_of% @Polyfold.eq_of_mem_closure_of_continuousOn.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_12.{0, 0}, @Polyfold.theorem_3_12_local_subset,
+  ⟨@Polyfold.theorem_3_1_13_preprint.{0, 0}, @Polyfold.theorem_3_1_13_local_subset,
     @Polyfold.IsStrongBundleIso.snd_eq_zero_iff, @Polyfold.MPolyfold.continuousOn_levelChartSymm.{0},
     @Polyfold.eq_of_mem_closure_of_continuousOn.{0, 0}⟩
 
@@ -59,7 +59,7 @@ theorem A_to_B : A → B := by
     rw [hset]
     exact hKc
 
-#rt_check RoundTrip.V3_14.A_to_B [Polyfold.theorem_3_12, Polyfold.theorem_3_12_local_subset,
+#rt_check RoundTrip.V3_14.A_to_B [Polyfold.theorem_3_1_13_preprint, Polyfold.theorem_3_1_13_local_subset,
   Polyfold.IsStrongBundleIso.snd_eq_zero_iff, Polyfold.MPolyfold.continuousOn_levelChartSymm,
   Polyfold.eq_of_mem_closure_of_continuousOn]
 

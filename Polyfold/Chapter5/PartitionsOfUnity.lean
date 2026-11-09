@@ -3,24 +3,24 @@ import Polyfold.Chapter5.BumpFunctions
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Appendix 5.4.2
 (notes on partitions of unity and bump functions, the part not in `BumpFunctions.lean`):
-**Definitions 5.28, 5.31, 5.36, 5.39, 5.41, Theorem 5.37, Propositions 5.38, 5.42, Corollary
-5.44**; Theorems 5.40 and 5.43 as statements (cited, not formalized; 5.43 an explicit
-hypothesis of Corollary 5.44); Theorem 5.32 not formalized
+**Definitions 5.5.1, 5.5.4, 5.5.9, 5.5.12, 5.5.14 (preprint 5.28, 5.31, 5.36, 5.39, 5.41), Theorem 5.5.10 (preprint 5.37), Propositions 5.5.11, 5.5.15 (preprint 5.38, 5.42), Corollary
+5.44**; Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) as statements (cited, not formalized; 5.43 an explicit
+hypothesis of Corollary 5.5.17 (preprint 5.44)); Theorem 5.5.5 (preprint 5.32) not formalized
 *(book 2017: see `BookConcordance.md`)*.
 
 # Sc-smooth partitions of unity
 
 ## The text, paraphrased
 
-(Definition 5.28) `X` admits sc-smooth partitions of unity if every open cover has a subordinate
+(Definition 5.5.1 (preprint 5.28)) `X` admits sc-smooth partitions of unity if every open cover has a subordinate
 sc-smooth partition of unity.  A classically smooth partition of unity of a Banach space with an
-sc-structure is sc-smooth (Corollary 1.20); many Banach spaces have none.  (Definition 5.31) A
+sc-structure is sc-smooth (Corollary 1.2.5 (preprint 1.20)); many Banach spaces have none.  (Definition 5.5.4 (preprint 5.31)) A
 Banach space admits a `C^k`-bump function if some `C^k` `f : E → ℝ`, not identically zero, has
-bounded support; (Theorem 5.32, Bonic–Frampton) the `p`-th power of the `Lᵖ`-norm is `C^∞` (`p`
+bounded support; (Theorem 5.5.5 (preprint 5.32), Bonic–Frampton) the `p`-th power of the `Lᵖ`-norm is `C^∞` (`p`
 even), `C^{p−1}` (`p` odd), `C^{[p]}` (`p` not an integer); remark on `W^{1,4}` and `W^{1,3/2}`.
-(Definition 5.36) A local model `(O, C, E)` has the sc-smooth approximation property if for every
+(Definition 5.5.9 (preprint 5.36)) A local model `(O, C, E)` has the sc-smooth approximation property if for every
 open `V ⊆ O` with `cl_C(V) ⊆ O`, continuous `f : O → [0, 1]` supported in `V` and `ε > 0` there is
-an sc-smooth `g : O → [0, 1]` supported in `V` with `|f − g| ≤ ε` on `O`.  (Theorem 5.37) `X`
+an sc-smooth `g : O → [0, 1]` supported in `V` with `|f − g| ≤ ε` on `O`.  (Theorem 5.5.10 (preprint 5.37)) `X`
 admits sc-smooth partitions of unity iff it has an atlas of local models with the approximation
 property.  Proof of (i) ⇒ (ii): for a chart `φ : U → O`, "the sc-smooth function `f ∘ φ`" extended
 by `0` is a continuous `g` supported in `W = φ⁻¹(V)` "satisfying `cl_X(W) ⊆ U`"; with
@@ -30,16 +30,16 @@ by `0` is a continuous `g` supported in `W = φ⁻¹(V)` "satisfying `cl_X(W) �
 locally finite refinement `(W_λ)` "with the same index set" and `cl_X(W_λ) ⊆ U_{τ(λ)}`, a shrinking
 `(Q_λ)`, continuous `f_λ = 1` on `Q_λ` supported in `W_λ`, sc-smooth `g_λ` with
 `|f_λ ∘ φ⁻¹ − g_λ| < 1/2` "in view of (ii)", `ĝ_λ = g_λ ∘ φ` extended by `0`, and
-`γ_λ = ĝ_λ / Σ ĝ`.  (Proposition 5.38, "an immediate consequence of Theorem 5.37") If the
+`γ_λ = ĝ_λ / Σ ĝ`.  (Proposition 5.5.11 (preprint 5.38), "an immediate consequence of Theorem 5.37") If the
 sc-Banach space admits smooth partitions of unity, every local model `(O, C, E)` has the
-approximation property.  (Definition 5.39) `c₀(Γ)` with the max norm; coordinate-wise `C^k`
-homeomorphic embeddings into `c₀(Γ)`; (Theorem 5.40, Toruńczyk) `E` admits `C^k` partitions of
-unity iff it has one.  (Definition 5.41) `E` is WCG if `E = cl(span K)` for a weakly compact `K`.
-(Proposition 5.42) Reflexive or separable spaces are WCG (the unit ball is weakly compact; `{0} ∪
+approximation property.  (Definition 5.5.12 (preprint 5.39)) `c₀(Γ)` with the max norm; coordinate-wise `C^k`
+homeomorphic embeddings into `c₀(Γ)`; (Theorem 5.5.13 (preprint 5.40), Toruńczyk) `E` admits `C^k` partitions of
+unity iff it has one.  (Definition 5.5.14 (preprint 5.41)) `E` is WCG if `E = cl(span K)` for a weakly compact `K`.
+(Proposition 5.5.15 (preprint 5.42)) Reflexive or separable spaces are WCG (the unit ball is weakly compact; `{0} ∪
 {xₙ/n}` for a dense sequence of the ball).  (Theorem 5.43, [12]) A WCG space with a `C^k`-bump
-function admits `C^k` partitions of unity.  (Corollary 5.44) If `E₀` is a Hilbert space, `(O, C, E)`
+function admits `C^k` partitions of unity.  (Corollary 5.5.17 (preprint 5.44)) If `E₀` is a Hilbert space, `(O, C, E)`
 has the approximation property: a Hilbert space is reflexive, hence WCG, it has smooth bump
-functions, so Theorem 5.43 and Theorem 5.37 apply.
+functions, so Theorem 5.5.16 (preprint 5.43) and Theorem 5.5.10 (preprint 5.37) apply.
 
 ## What is formalized
 
@@ -49,10 +49,10 @@ functions, so Theorem 5.43 and Theorem 5.37 apply.
   (`isScSmoothMap_real_finsetSum`, `isScSmoothMap_real_finsetProd`), **locally finite sums**
   (`isScSmoothMap_real_finsum`), locality (`isScSmoothMap_real_of_eventuallyEq`), **extension by
   zero from a chart** (`isScSmoothMap_real_of_chart`), and `MPolyfold.IsScSmoothMap.real_chart_on`.
-* **Definition 5.28**: `MPolyfold.IsScSmoothPartitionOfUnity`, `MPolyfold.AdmitsScPartitionsOfUnity`
+* **Definition 5.5.1 (preprint 5.28)**: `MPolyfold.IsScSmoothPartitionOfUnity`, `MPolyfold.AdmitsScPartitionsOfUnity`
   (Mathlib's `PartitionOfUnity`, subordinate: `supp ρᵢ ⊆ Uᵢ`).
-* **Definition 5.36**: `LocalModel.HasApproxProperty`.
-* **Theorem 5.37**: `Polyfold.theorem_5_37`, from `hasApproxProperty_restrict` ("(i) ⇒ (ii)" for
+* **Definition 5.5.9 (preprint 5.36)**: `LocalModel.HasApproxProperty`.
+* **Theorem 5.5.10 (preprint 5.37)**: `Polyfold.theorem_5_5_10`, from `hasApproxProperty_restrict` ("(i) ⇒ (ii)" for
   the charts restricted to open `s` with `cl_X(s) ⊆ dom φ`), `exists_isScSmoothMap_urysohn`
   (sc-smooth Urysohn functions from (ii)) and `admitsScPartitionsOfUnity_of_approx` ("(ii) ⇒ (i)");
   the chart lemmas `MChart.isClosed_inter_preimage`, `MChart.exists_small_nhds`,
@@ -60,28 +60,28 @@ functions, so Theorem 5.43 and Theorem 5.37 apply.
   three facts on convex combinations `Σ ρᵢ cᵢ` (`PartitionOfUnity.abs_sub_finsum_mul_le`,
   `finsum_mul_mem_Icc`, `tsupport_finsum_mul_subset`).
 * `AdmitsContDiffPartitionsOfUnity` (`C^k` partitions of unity of a Banach space) and **Proposition
-  5.38**: `Polyfold.proposition_5_38` (`E₀` admits `C^∞` partitions of unity).
-* **Definition 5.31**: `HasContDiffBump`.  **Definition 5.39**: `cZero` (a submodule of `ℓ^∞(Γ)`),
+  5.38**: `Polyfold.proposition_5_5_11` (`E₀` admits `C^∞` partitions of unity).
+* **Definition 5.5.4 (preprint 5.31)**: `HasContDiffBump`.  **Definition 5.5.12 (preprint 5.39)**: `cZero` (a submodule of `ℓ^∞(Γ)`),
   `mem_cZero_iff` (the text's condition), `norm_cZero`, `IsCoordinatewiseContDiffEmbedding`;
-  **Theorem 5.40** as the statement `TorunczykStatement` (not proved, not used).
-* **Definition 5.41**: `IsWCG`; `IsReflexive` (`V → V''` onto).  **Proposition 5.42**:
-  `proposition_5_42_reflexive` (i) and `proposition_5_42_separable` (ii).
-* **Theorem 5.43** as the statement `GodefroyTroyanskiWhitfieldZizlerStatement V k`.
-* **Corollary 5.44**: `Polyfold.corollary_5_44` (`E₀` Hilbert, i.e. `‖v‖² = b(v, v)`, and Theorem
+  **Theorem 5.5.13 (preprint 5.40)** as the statement `TorunczykStatement` (not proved, not used).
+* **Definition 5.5.14 (preprint 5.41)**: `IsWCG`; `IsReflexive` (`V → V''` onto).  **Proposition 5.5.15 (preprint 5.42)**:
+  `proposition_5_5_15_reflexive` (i) and `proposition_5_5_15_separable` (ii).
+* **Theorem 5.5.16 (preprint 5.43)** as the statement `GodefroyTroyanskiWhitfieldZizlerStatement V k`.
+* **Corollary 5.5.17 (preprint 5.44)**: `Polyfold.corollary_5_5_17` (`E₀` Hilbert, i.e. `‖v‖² = b(v, v)`, and Theorem
   5.43 for `E₀`, `k = ∞`, as an explicit hypothesis), with `isReflexive_of_hilbert` and
   `hasContDiffBump_of_hilbert`; `MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (an M-polyfold on
   sc-Hilbert spaces admits sc-smooth partitions of unity, under the same hypothesis in the charts).
 * `MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions` (partitions of unity give bump
-  functions in the sense of Definition 5.9; the converse is the open problem the text states).
+  functions in the sense of Definition 5.3.1 (preprint 5.9); the converse is the open problem the text states).
 
 ## What the text leaves implicit, and the choices made
 
-* **Definition 5.28.**  A partition of unity is Mathlib's `PartitionOfUnity ι X` (continuous
+* **Definition 5.5.1 (preprint 5.28).**  A partition of unity is Mathlib's `PartitionOfUnity ι X` (continuous
   `ρᵢ ≥ 0`, locally finite supports, `Σ ρᵢ = 1`), subordinate to `(Uᵢ)` if `cl{ρᵢ ≠ 0} ⊆ Uᵢ`; the
   index type lives in the universe of `X` (every cover can be indexed by a set of subsets of `X`).
-* **Definition 5.36.**  `V = O ∩ W`, `W` open in `E₀`; `cl_C(V)` is the closure in `E₀` (`C` is
+* **Definition 5.5.9 (preprint 5.36).**  `V = O ∩ W`, `W` open in `E₀`; `cl_C(V)` is the closure in `E₀` (`C` is
   closed); the supports of `f` and `g` are taken in `O`.
-* **Theorem 5.37, "(i) ⇒ (ii)": `cl_X(W) ⊆ U` does not follow from `cl_C(V) ⊆ O`, and `f ∘ φ` is
+* **Theorem 5.5.10 (preprint 5.37), "(i) ⇒ (ii)": `cl_X(W) ⊆ U` does not follow from `cl_C(V) ⊆ O`, and `f ∘ φ` is
   only continuous.**  For `X = E` with `E₀` a Hilbert space, the chart `φ(u) = u/(1 − |u|₀²)` from
   the open unit ball `U` onto `O = E` (an sc-diffeomorphism), `V = O` and `f ≡ 1`: `cl_C(V) ⊆ O`,
   but `W = U` and `cl_X(W) ⊄ U`; the extension `g` is the indicator of the open ball, not
@@ -91,7 +91,7 @@ functions, so Theorem 5.43 and Theorem 5.37 apply.
   `W̃` is not needed: the sets `U_x`, `x ∈ φ⁻¹(V)`, need only lie in `φ⁻¹(V)` (subordinate means
   `supp β_x ⊆ U_x`), and the estimate gives `ε/2`.  Whether *every* chart has the approximation
   property under (i) is not settled here (it needs approximations on the open set `dom φ`).
-* **Theorem 5.37, "(ii) ⇒ (i)".**  (a) A refinement `(W_λ)` with the same index set and each
+* **Theorem 5.5.10 (preprint 5.37), "(ii) ⇒ (i)".**  (a) A refinement `(W_λ)` with the same index set and each
   `cl_X(W_λ)` inside one chart domain does not exist in general (the cover `{X}`).  (b)
   `cl_C(φ(W_λ)) ⊆ O`, needed to apply (ii), is not arranged: the proof uses small neighbourhoods
   (`MChart.exists_small_nhds`: `cl_X(N) ⊆ dom φ` and `φ(N)` inside half a ball contained in the
@@ -103,31 +103,31 @@ functions, so Theorem 5.43 and Theorem 5.37 apply.
   `BumpCovering.toPartitionOfUnity` (`ρᵢ = fᵢ ∏_{j < i}(1 − f_j)`, locally a finite product)
   replaces the quotient `ĝ_λ / Σ ĝ`.  Metrizability is not used, only paracompactness and the
   Hausdorff property.
-* **Proposition 5.38 is not an immediate consequence of Theorem 5.37**: Theorem 5.37 gives some
+* **Proposition 5.5.11 (preprint 5.38) is not an immediate consequence of Theorem 5.5.10 (preprint 5.37)**: Theorem 5.5.10 (preprint 5.37) gives some
   atlas, not the given local model, and applying it to the M-polyfold `O` would need sc-smooth
   partitions of unity on the domain of a retraction, an open subset of `C`.  The proof here repeats
   the argument of "(i) ⇒ (ii)" in `E₀`: `A = {x ∈ O | f(x) ≥ ε/2}` is closed in `E₀` because
   `cl(V) ⊆ O`, and the cover of `E₀` by `E₀ ∖ A` and small balls needs only partitions of unity of
   `E₀` itself.  "The sc-Banach space admits smooth partitions of unity" is read as: `E₀` admits
-  `C^∞` partitions of unity; `C^∞` functions on `E₀` are sc-smooth by Corollary 1.20.
-* **Definitions 5.39, 5.41.**  `c₀(Γ)` is the subspace of `ℓ^∞(Γ)` of functions tending to `0`
+  `C^∞` partitions of unity; `C^∞` functions on `E₀` are sc-smooth by Corollary 1.2.5 (preprint 1.20).
+* **Definitions 5.5.12, 5.5.14 (preprint 5.39, 5.41).**  `c₀(Γ)` is the subspace of `ℓ^∞(Γ)` of functions tending to `0`
   along the cofinite filter, equivalent to the text's finiteness condition (`mem_cZero_iff`); its
   norm is the supremum (a maximum for `f ≠ 0`).  "Homeomorphic embedding" is
   `Topology.IsEmbedding`.  "Weakly compact" is compactness in `WeakSpace ℝ V`; "reflexive", not
   defined in the text, is surjectivity of `V → V''`.
-* **Proposition 5.42.**  (i) Kakutani's theorem is available in Mathlib as
+* **Proposition 5.5.15 (preprint 5.42).**  (i) Kakutani's theorem is available in Mathlib as
   `NormedSpace.isCompact_closure_of_isBounded` (Banach–Alaoglu in `V''` and the embedding of
   `(V, weak)` into `(V'', weak-*)`); the span of the ball is all of `V`.  (ii) A dense sequence of
   `V`, scaled by `1/((n + 1)(|yₙ| + 1))`, replaces the text's dense sequence of the ball.
-* **Corollary 5.44.**  "Hilbert space" is `‖v‖² = b(v, v)` as in Proposition 5.35; "a Hilbert space
+* **Corollary 5.5.17 (preprint 5.44).**  "Hilbert space" is `‖v‖² = b(v, v)` as in Proposition 5.5.8 (preprint 5.35); "a Hilbert space
   is reflexive" is proved (`InnerProductSpace.ofNorm` and the Riesz representation); the `C^k`-bump
-  Theorem 5.43 needs is the classical `τ(1 − |v|²)`.  The proof's "admits sc-smooth partition of
+  Theorem 5.5.16 (preprint 5.43) needs is the classical `τ(1 − |v|²)`.  The proof's "admits sc-smooth partition of
   unity" means `C^∞` partitions of unity of `E₀`, and "in view of Theorem 5.37" means Proposition
-  5.38.  Theorem 5.43 is an explicit hypothesis.
-* **Not formalized**: Theorem 5.32 (Bonic–Frampton) and the remarks on `Lᵖ` and Sobolev spaces
-  (`W^{k,p}` norms, `W^{1,4}` against `W^{1,3/2}`: gap G.1); Theorems 5.40 and 5.43 (stated only);
+  5.38.  Theorem 5.5.16 (preprint 5.43) is an explicit hypothesis.
+* **Not formalized**: Theorem 5.5.5 (preprint 5.32) (Bonic–Frampton) and the remarks on `Lᵖ` and Sobolev spaces
+  (`W^{k,p}` norms, `W^{1,4}` against `W^{1,3/2}`: gap G.1); Theorems 5.5.13 and 5.5.16 (preprint 5.40 and 5.43) (stated only);
   they are deep Banach space geometry, and nothing on the main line uses partitions of unity (the
-  transversality theorems use bump functions, whose Hilbert case, Proposition 5.35, is elementary).
+  transversality theorems use bump functions, whose Hilbert case, Proposition 5.5.8 (preprint 5.35), is elementary).
 -/
 
 open Set Filter Topology Function
@@ -348,7 +348,7 @@ lemma PartitionOfUnity.tsupport_finsum_mul_subset (c : ι → ℝ) {T : Set Y}
 
 end POU
 
-/-! ### Definitions 5.28 and 5.36 -/
+/-! ### Definitions 5.5.1 and 5.5.9 (preprint 5.28 and 5.36) -/
 
 section Defs
 
@@ -358,7 +358,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (PX 
 def MPolyfold.IsScSmoothPartitionOfUnity {ι : Type*} (ρ : PartitionOfUnity ι X) : Prop :=
   ∀ i, PX.IsScSmoothMap realPolyfold (ρ i)
 
-/-- **Definition 5.28**: the M-polyfold `X` **admits sc-smooth partitions of unity** if for every
+/-- **Definition 5.5.1 (preprint 5.28)**: the M-polyfold `X` **admits sc-smooth partitions of unity** if for every
 open covering `(U_i)_{i ∈ ι}` of `X` there is a subordinate sc-smooth partition of unity
 (Mathlib's `PartitionOfUnity`: continuous `ρᵢ ≥ 0` with locally finite supports and `Σᵢ ρᵢ = 1`;
 subordinate: `supp(ρᵢ) ⊆ Uᵢ`). -/
@@ -368,7 +368,7 @@ def MPolyfold.AdmitsScPartitionsOfUnity : Prop :=
 
 end Defs
 
-/-- **Definition 5.36**: the local model `(O, C, E)` has the **sc-smooth approximation property**
+/-- **Definition 5.5.9 (preprint 5.36)**: the local model `(O, C, E)` has the **sc-smooth approximation property**
 if for every open subset `V = O ∩ W` of `O` with `cl_C(V) ⊆ O` (the closure in `E₀`, `C` being
 closed), every continuous `f : O → [0, 1]` with support in `V` (the closure of `{f ≠ 0}` in `O`)
 and every `ε > 0` there is an sc-smooth `g : O → [0, 1]` with support in `V` and
@@ -498,13 +498,13 @@ theorem LocalModel.HasApproxProperty.exists_approx {φ : MChart X} (hφ : PX.IsC
 
 end SmallCharts
 
-/-! ### Theorem 5.37: partitions of unity and the approximation property -/
+/-! ### Theorem 5.5.10 (preprint 5.37): partitions of unity and the approximation property -/
 
 section Theorem537
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX : MPolyfold X}
 
-/-- **Theorem 5.37 "(ii) ⇒ (i)", the core: sc-smooth Urysohn functions.**  If `X` has an atlas of
+/-- **Theorem 5.5.10 (preprint 5.37) "(ii) ⇒ (i)", the core: sc-smooth Urysohn functions.**  If `X` has an atlas of
 local models with the sc-smooth approximation property, then for disjoint closed `s, t ⊆ X` there
 is an sc-smooth `F : X → [0, 1]` with `F = 0` on `s` and `F = 1` on `t`.  (The text's construction:
 a locally finite refinement `W_x` of small chart neighbourhoods `N_x`, continuous bumps `f_x`
@@ -588,7 +588,7 @@ theorem exists_isScSmoothMap_urysohn {S : Set (MChart X)} (hS : ∀ φ ∈ S, PX
   · simp only [Function.comp_apply, hσ, Pi.one_apply]
     exact Real.smoothTransition.one_of_one_le (by linarith [hGt y hy])
 
-/-- **Theorem 5.37 "(ii) ⇒ (i)"**: if `X` has an atlas (a family of charts covering `X`) of local
+/-- **Theorem 5.5.10 (preprint 5.37) "(ii) ⇒ (i)"**: if `X` has an atlas (a family of charts covering `X`) of local
 models with the sc-smooth approximation property, then `X` admits sc-smooth partitions of unity:
 by the sc-smooth Urysohn functions (`exists_isScSmoothMap_urysohn`) there is a bump covering
 subordinate to the given cover with sc-smooth functions `fᵢ` (Mathlib's
@@ -616,7 +616,7 @@ theorem admitsScPartitionsOfUnity_of_approx {S : Set (MChart X)} (hS : ∀ φ �
   exact (hbp i).real_mul (isScSmoothMap_real_finsetProd _ fun j _ =>
     (isScSmoothMap_real_const 1).real_sub (hbp j))
 
-/-- **Theorem 5.37 "(i) ⇒ (ii)"** for a chart restricted to an open `s` with `cl_X(s) ⊆ dom φ`:
+/-- **Theorem 5.5.10 (preprint 5.37) "(i) ⇒ (ii)"** for a chart restricted to an open `s` with `cl_X(s) ⊆ dom φ`:
 if `X` admits sc-smooth partitions of unity, the local model `(φ(s), C, E)` has the sc-smooth
 approximation property.  (The text's argument: `F = f ∘ φ` extended by `0`, the cover of `X` by
 `{F < ε/2}` and the sets `U_x = {|F − F(x)| < ε/2} ∩ φ⁻¹(V)`, `x ∈ X`, a subordinate sc-smooth
@@ -734,12 +734,12 @@ theorem hasApproxProperty_restrict (h : PX.AdmitsScPartitionsOfUnity) {φ : MCha
     rw [φ.symm_apply_apply (hs hys), ← h2]
     linarith [h1]
 
-/-- **Theorem 5.37**: the M-polyfold `X` admits sc-smooth partitions of unity subordinate to any
+/-- **Theorem 5.5.10 (preprint 5.37)**: the M-polyfold `X` admits sc-smooth partitions of unity subordinate to any
 open cover if and only if it admits an atlas (a family of charts of `X` covering `X`) whose local
 models have the sc-smooth approximation property.  For "(i) ⇒ (ii)" the atlas consists of the
 charts restricted to open sets `s` with `cl_X(s) ⊆ dom φ` (`hasApproxProperty_restrict`); whether
 every chart of `X` has the property is not settled here. -/
-theorem theorem_5_37 :
+theorem theorem_5_5_10 :
     PX.AdmitsScPartitionsOfUnity ↔ ∃ S : Set (MChart X), (∀ φ ∈ S, PX.IsChart φ) ∧
       (∀ x, ∃ φ ∈ S, x ∈ φ.source) ∧ ∀ φ ∈ S, φ.model.HasApproxProperty := by
   constructor
@@ -760,20 +760,20 @@ theorem theorem_5_37 :
 
 end Theorem537
 
-/-! ### Banach spaces: `C^k` partitions of unity and bump functions (Definition 5.31) -/
+/-! ### Banach spaces: `C^k` partitions of unity and bump functions (Definition 5.5.4 (preprint 5.31)) -/
 
 section Banach
 
 variable (V : Type u) [NormedAddCommGroup V] [NormedSpace ℝ V]
 
-/-- A Banach space **admits `C^k` partitions of unity** (§5.4.2, before Proposition 5.38 and in
-Theorems 5.40, 5.43): every open cover of `V` has a subordinate partition of unity consisting of
+/-- A Banach space **admits `C^k` partitions of unity** (§5.4.2, before Proposition 5.5.11 (preprint 5.38) and in
+Theorems 5.5.13, 5.5.16 (preprint 5.40, 5.43)): every open cover of `V` has a subordinate partition of unity consisting of
 `C^k` functions (`k ∈ ℕ ∪ {∞}`). -/
 def AdmitsContDiffPartitionsOfUnity (k : ℕ∞) : Prop :=
   ∀ (ι : Type u) (U : ι → Set V), (∀ i, IsOpen (U i)) → ⋃ i, U i = univ →
     ∃ ρ : PartitionOfUnity ι V, ρ.IsSubordinate U ∧ ∀ i, ContDiff ℝ k (ρ i)
 
-/-- **Definition 5.31** (`C^k`-bump function): the Banach space `V` admits a `C^k`-bump function if
+/-- **Definition 5.5.4 (preprint 5.31)** (`C^k`-bump function): the Banach space `V` admits a `C^k`-bump function if
 there is a `C^k` function `f : V → ℝ`, not identically zero, with bounded support
 (`k ∈ ℕ ∪ {∞}`). -/
 def HasContDiffBump (k : ℕ∞) : Prop :=
@@ -781,16 +781,16 @@ def HasContDiffBump (k : ℕ∞) : Prop :=
 
 end Banach
 
-/-! ### Proposition 5.38 -/
+/-! ### Proposition 5.5.11 (preprint 5.38) -/
 
-/-- **Proposition 5.38**: if the `0`-level `E₀` of the sc-Banach space `E` admits smooth (`C^∞`)
+/-- **Proposition 5.5.11 (preprint 5.38)**: if the `0`-level `E₀` of the sc-Banach space `E` admits smooth (`C^∞`)
 partitions of unity, then the local model `(O, C, E)` has the sc-smooth approximation property.
 (The text calls it "an immediate consequence of Theorem 5.37"; the proof here is the argument of
 "(i) ⇒ (ii)" carried out in `E₀` itself, which needs no partition of unity on open subsets: the
 cover of `E₀` by `E₀ ∖ {x ∈ O | f(x) ≥ ε/2}` (closed in `E₀` because `cl(V) ⊆ O`) and by balls
 `B(x, r_x) ⊆ W`, `x ∈ V`, on which `f` varies by less than `ε/2` on `O`; then `g = Σ β_x f(x)` is
-`C^∞` on `E₀`, hence sc-smooth (Corollary 1.20).) -/
-theorem proposition_5_38 (M : LocalModel) (hE : AdmitsContDiffPartitionsOfUnity (M.E 0) ⊤) :
+`C^∞` on `E₀`, hence sc-smooth (Corollary 1.2.5 (preprint 1.20)).) -/
+theorem proposition_5_5_11 (M : LocalModel) (hE : AdmitsContDiffPartitionsOfUnity (M.E 0) ⊤) :
     M.HasApproxProperty := by
   intro W hW hWcl f hf hf01 hfsupp ε hε
   -- `A = {x ∈ O | f(x) ≥ ε/2}` is closed in `E₀` and lies in `V = O ∩ W`
@@ -862,13 +862,13 @@ theorem proposition_5_38 (M : LocalModel) (hE : AdmitsContDiffPartitionsOfUnity 
     rw [sub_zero, abs_of_nonneg (hf01 z hzO).1]; exact this.le
   · exact (hrf x z hzO hzU).le
 
-/-! ### Definition 5.39 and Theorem 5.40 (Toruńczyk, cited) -/
+/-! ### Definition 5.5.12 (preprint 5.39) and Theorem 5.5.13 (preprint 5.40) (Toruńczyk, cited) -/
 
 section CZero
 
 open scoped ENNReal
 
-/-- **Definition 5.39**: `c₀(Γ)`, the functions `f : Γ → ℝ` for which `{γ | |f(γ)| > ε}` is finite
+/-- **Definition 5.5.12 (preprint 5.39)**: `c₀(Γ)`, the functions `f : Γ → ℝ` for which `{γ | |f(γ)| > ε}` is finite
 for every `ε > 0` (`mem_cZero_iff`), with the norm `|f|_{c₀} = sup_γ |f(γ)|` (`norm_cZero`): the
 closed subspace of `ℓ^∞(Γ)` of the functions tending to `0` along the cofinite filter. -/
 def cZero (Γ : Type*) : Submodule ℝ (lp (fun _ : Γ => ℝ) ∞) where
@@ -903,13 +903,13 @@ theorem norm_cZero {Γ : Type*} (f : cZero Γ) :
 
 variable {V : Type u} [NormedAddCommGroup V] [NormedSpace ℝ V]
 
-/-- **Definition 5.39**: a homeomorphic embedding `h : V → c₀(Γ)` is **coordinate-wise `C^k`** if
+/-- **Definition 5.5.12 (preprint 5.39)**: a homeomorphic embedding `h : V → c₀(Γ)` is **coordinate-wise `C^k`** if
 every coordinate `e ↦ h(e)(γ)` is `C^k`. -/
 def IsCoordinatewiseContDiffEmbedding {Γ : Type*} (k : ℕ∞) (h : V → cZero Γ) : Prop :=
   Topology.IsEmbedding h ∧ ∀ γ, ContDiff ℝ k fun e => (h e : lp (fun _ : Γ => ℝ) ∞) γ
 
 variable (V) in
-/-- **Theorem 5.40** (Toruńczyk; [9], Theorem 30), **cited, not formalized**: the statement, for
+/-- **Theorem 5.5.13 (preprint 5.40)** (Toruńczyk; [9], Theorem 30), **cited, not formalized**: the statement, for
 the Banach space `V` and `k`: `V` admits `C^k` partitions of unity if and only if there are a set
 `Γ` and a coordinate-wise `C^k` homeomorphic embedding of `V` into `c₀(Γ)`.  It is not used. -/
 def TorunczykStatement (k : ℕ∞) : Prop :=
@@ -918,13 +918,13 @@ def TorunczykStatement (k : ℕ∞) : Prop :=
 
 end CZero
 
-/-! ### Definition 5.41 and Proposition 5.42: weakly compactly generated spaces -/
+/-! ### Definition 5.5.14 (preprint 5.41) and Proposition 5.5.15 (preprint 5.42): weakly compactly generated spaces -/
 
 section WCG
 
 variable (V : Type u) [NormedAddCommGroup V] [NormedSpace ℝ V]
 
-/-- **Definition 5.41**: a Banach space `V` is **weakly compactly generated** (WCG) if there is a
+/-- **Definition 5.5.14 (preprint 5.41)**: a Banach space `V` is **weakly compactly generated** (WCG) if there is a
 subset `K` compact in the weak topology (`toWeakSpace ℝ V '' K` compact in `WeakSpace ℝ V`) whose
 linear span is dense: `V = cl_V(span K)`. -/
 def IsWCG : Prop :=
@@ -945,12 +945,12 @@ lemma span_closedBall_eq_top : Submodule.span ℝ (Metric.closedBall (0 : V) 1) 
   have h2 := Submodule.smul_mem _ ‖v‖ (Submodule.subset_span h1)
   rwa [smul_smul, mul_inv_cancel₀ (norm_ne_zero_iff.2 hv), one_smul] at h2
 
-/-- **Proposition 5.42 (i)**: a reflexive Banach space is WCG.  The text's "the closed unit ball
+/-- **Proposition 5.5.15 (preprint 5.42) (i)**: a reflexive Banach space is WCG.  The text's "the closed unit ball
 is compact in the weak topology" (Kakutani's theorem) is Mathlib's
 `NormedSpace.isCompact_closure_of_isBounded` (Banach–Alaoglu in `V''` and the embedding of `V`
 with its weak topology into `V''` with its weak-* topology): the weak closure of the ball is weakly
 compact; its span contains the ball, hence is `V`. -/
-theorem proposition_5_42_reflexive (h : IsReflexive V) : IsWCG V := by
+theorem proposition_5_5_15_reflexive (h : IsReflexive V) : IsWCG V := by
   set S : Set (WeakSpace ℝ V) := toWeakSpace ℝ V '' Metric.closedBall 0 1 with hS
   have hb : Bornology.IsBounded ((toWeakSpace ℝ V) ⁻¹' S) := by
     rw [hS, Set.preimage_image_eq _ (toWeakSpace ℝ V).injective]
@@ -974,10 +974,10 @@ theorem proposition_5_42_reflexive (h : IsReflexive V) : IsWCG V := by
       eq_top_iff.2 (span_closedBall_eq_top (V := V) ▸ Submodule.span_mono hball)
     rw [htop, Submodule.top_coe, closure_univ]
 
-/-- **Proposition 5.42 (ii)**: a separable Banach space is WCG: for a dense sequence `(yₙ)`,
+/-- **Proposition 5.5.15 (preprint 5.42) (ii)**: a separable Banach space is WCG: for a dense sequence `(yₙ)`,
 `K = {0} ∪ {yₙ / ((n + 1)(|yₙ| + 1))}` is norm compact (a null sequence with its limit), hence
 weakly compact, and its span contains every `yₙ`. -/
-theorem proposition_5_42_separable [TopologicalSpace.SeparableSpace V] : IsWCG V := by
+theorem proposition_5_5_15_separable [TopologicalSpace.SeparableSpace V] : IsWCG V := by
   obtain ⟨y, hy⟩ := TopologicalSpace.exists_dense_seq V
   set a : ℕ → ℝ := fun n => ((n + 1 : ℝ) * (‖y n‖ + 1))⁻¹ with ha
   have hapos : ∀ n, 0 < a n := fun n => inv_pos.2 (by positivity)
@@ -1009,14 +1009,14 @@ theorem proposition_5_42_separable [TopologicalSpace.SeparableSpace V] : IsWCG V
 
 end WCG
 
-/-! ### Hilbert spaces; Theorem 5.43 (cited) and Corollary 5.44 -/
+/-! ### Hilbert spaces; Theorem 5.5.16 (preprint 5.43) (cited) and Corollary 5.5.17 (preprint 5.44) -/
 
 section Hilbert
 
 variable {V : Type u} [NormedAddCommGroup V] [NormedSpace ℝ V]
 
 /-- A Banach space whose norm comes from a continuous bilinear form, `‖v‖² = b(v, v)` (a Hilbert
-space, stated as in Proposition 5.35), admits a `C^∞`-bump function: `τ(1 − b(v, v))`. -/
+space, stated as in Proposition 5.5.8 (preprint 5.35)), admits a `C^∞`-bump function: `τ(1 − b(v, v))`. -/
 theorem hasContDiffBump_of_hilbert (b : V →L[ℝ] V →L[ℝ] ℝ) (hb : ∀ v, ‖v‖ ^ 2 = b v v) :
     HasContDiffBump V ⊤ := by
   refine ⟨fun v => Real.smoothTransition (1 - b v v), ?_, fun h => ?_, ?_⟩
@@ -1033,7 +1033,7 @@ theorem hasContDiffBump_of_hilbert (b : V →L[ℝ] V →L[ℝ] ℝ) (hb : ∀ v
     rw [mem_ball_zero_iff]
     exact lt_of_pow_lt_pow_left₀ 2 zero_le_one h2
 
-/-- **A Hilbert space is reflexive** (the first step of the proof of Corollary 5.44): with the inner
+/-- **A Hilbert space is reflexive** (the first step of the proof of Corollary 5.5.17 (preprint 5.44)): with the inner
 product of the norm (`InnerProductSpace.ofNorm`, the parallelogram law holds because
 `‖v‖² = b(v, v)`), every `φ ∈ V''` is `J(y)` for the Riesz representative `y` of
 `x ↦ φ(⟨x, ·⟩)`. -/
@@ -1065,26 +1065,26 @@ theorem isReflexive_of_hilbert [CompleteSpace V] (b : V →L[ℝ] V →L[ℝ] �
   rfl
 
 variable (V) in
-/-- **Theorem 5.43** ([12] = Godefroy, Troyanski, Whitfield, Zizler, J. Funct. Anal. 1983; [9],
+/-- **Theorem 5.5.16 (preprint 5.43)** ([12] = Godefroy, Troyanski, Whitfield, Zizler, J. Funct. Anal. 1983; [9],
 Theorem 31), **cited, not formalized**: the statement, for the Banach space `V` and `k`: if `V` is
 WCG and admits a `C^k`-bump function, then it admits `C^k` partitions of unity.  Used as an
-explicit hypothesis in Corollary 5.44. -/
+explicit hypothesis in Corollary 5.5.17 (preprint 5.44). -/
 def GodefroyTroyanskiWhitfieldZizlerStatement (k : ℕ∞) : Prop :=
   IsWCG V → HasContDiffBump V k → AdmitsContDiffPartitionsOfUnity V k
 
-/-- **Corollary 5.44**: if `E₀` is a Hilbert space (its norm comes from a continuous bilinear form,
-`‖v‖² = b(v, v)`, as in Proposition 5.35), then the local model `(O, C, E)` has the sc-smooth
-approximation property — **under the explicit hypothesis that Theorem 5.43 holds for `E₀` and
+/-- **Corollary 5.5.17 (preprint 5.44)**: if `E₀` is a Hilbert space (its norm comes from a continuous bilinear form,
+`‖v‖² = b(v, v)`, as in Proposition 5.5.8 (preprint 5.35)), then the local model `(O, C, E)` has the sc-smooth
+approximation property — **under the explicit hypothesis that Theorem 5.5.16 (preprint 5.43) holds for `E₀` and
 `k = ∞`** (a deep result of Banach space geometry, cited from [12] and not formalized).  The proof
-is the text's: `E₀` is reflexive (`isReflexive_of_hilbert`), hence WCG (Proposition 5.42 (i)),
-and has a `C^∞` bump function (`hasContDiffBump_of_hilbert`); Theorem 5.43 gives `C^∞`
-partitions of unity on `E₀`, and Proposition 5.38 (not Theorem 5.37, as the text says) the
+is the text's: `E₀` is reflexive (`isReflexive_of_hilbert`), hence WCG (Proposition 5.5.15 (preprint 5.42) (i)),
+and has a `C^∞` bump function (`hasContDiffBump_of_hilbert`); Theorem 5.5.16 (preprint 5.43) gives `C^∞`
+partitions of unity on `E₀`, and Proposition 5.5.11 (preprint 5.38) (not Theorem 5.37, as the text says) the
 approximation property. -/
-theorem corollary_5_44 (M : LocalModel)
+theorem corollary_5_5_17 (M : LocalModel)
     (hH : ∃ b : M.E 0 →L[ℝ] M.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v)
     (h543 : GodefroyTroyanskiWhitfieldZizlerStatement (M.E 0) ⊤) : M.HasApproxProperty := by
   obtain ⟨b, hb⟩ := hH
-  exact proposition_5_38 M (h543 (proposition_5_42_reflexive (isReflexive_of_hilbert b hb))
+  exact proposition_5_5_11 M (h543 (proposition_5_5_15_reflexive (isReflexive_of_hilbert b hb))
     (hasContDiffBump_of_hilbert b hb))
 
 end Hilbert
@@ -1096,22 +1096,22 @@ section Consequences
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX : MPolyfold X}
 
 /-- **An M-polyfold built on sc-Hilbert spaces admits sc-smooth partitions of unity**, under the
-explicit hypothesis that Theorem 5.43 holds (`k = ∞`) for the `0`-levels of the local models of
-an atlas: Corollary 5.44 in the charts and Theorem 5.37. -/
+explicit hypothesis that Theorem 5.5.16 (preprint 5.43) holds (`k = ∞`) for the `0`-levels of the local models of
+an atlas: Corollary 5.5.17 (preprint 5.44) in the charts and Theorem 5.5.10 (preprint 5.37). -/
 theorem MPolyfold.admitsScPartitionsOfUnity_of_hilbert
     (h : ∀ x, ∃ φ : MChart X, PX.IsChart φ ∧ x ∈ φ.source ∧
       (∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) ∧
       GodefroyTroyanskiWhitfieldZizlerStatement (φ.model.E 0) ⊤) :
     PX.AdmitsScPartitionsOfUnity := by
-  refine theorem_5_37.2 ⟨{φ | PX.IsChart φ ∧
+  refine theorem_5_5_10.2 ⟨{φ | PX.IsChart φ ∧
     (∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) ∧
     GodefroyTroyanskiWhitfieldZizlerStatement (φ.model.E 0) ⊤}, fun φ hφ => hφ.1,
-    fun x => ?_, fun φ hφ => corollary_5_44 _ hφ.2.1 hφ.2.2⟩
+    fun x => ?_, fun φ hφ => corollary_5_5_17 _ hφ.2.1 hφ.2.2⟩
   obtain ⟨φ, hφ, hx, hb, h543⟩ := h x
   exact ⟨φ, ⟨hφ, hb, h543⟩, hx⟩
 
 /-- **Sc-smooth partitions of unity give sc-smooth bump functions** (the easy direction of the
-open problem stated after Definition 5.29): for `x ∈ U`, the function of a partition of unity
+open problem stated after Definition 5.5.2 (preprint 5.29)): for `x ∈ U`, the function of a partition of unity
 subordinate to `{U, X ∖ {x}}` attached to `U` equals `1` at `x`. -/
 theorem MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions
     (h : PX.AdmitsScPartitionsOfUnity) : PX.AdmitsBumpFunctions := by

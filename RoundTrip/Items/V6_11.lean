@@ -3,21 +3,21 @@ import RoundTrip.Check
 import RoundTrip.Blind.V6_11
 
 /-!
-Round trip for V6_11 (Lemma 6.10).  `A` is `lemma_6_10 ∧ lemma_6_10_text_reading` (universes of
-`lemma_6_10` at `0`; `lemma_6_10_text_reading` has none).
+Round trip for V6_11 (Lemma 6.10).  `A` is `lemma_6_10_preprint ∧ lemma_6_10_text_reading_preprint` (universes of
+`lemma_6_10_preprint` at `0`; `lemma_6_10_text_reading_preprint` has none).
 
-* `A ⇒ B`: `lemma_6_10` (no Fredholm hypothesis, no completeness) specializes to B.
-* `B ⇒ A` is not proved.  Partial result `B_to_lemma_6_10_banach`: B gives `lemma_6_10` for
+* `A ⇒ B`: `lemma_6_10_preprint` (no Fredholm hypothesis, no completeness) specializes to B.
+* `B ⇒ A` is not proved.  Partial result `B_to_lemma_6_10_banach`: B gives `lemma_6_10_preprint` for
   every `T` between Banach spaces, Fredholm or not (apply B to `id_F`, which is Fredholm and has
   `Π_id ⊇ Π_T`, then `R(P'' T) = R(P'' P T) = P''(R(P)) = R(P'')`).  What B cannot give:
-  `lemma_6_10` on incomplete normed spaces, and the conjunct `lemma_6_10_text_reading`, a concrete
+  `lemma_6_10_preprint` on incomplete normed spaces, and the conjunct `lemma_6_10_text_reading_preprint`, a concrete
   statement about `ℝ²` that has nothing to do with B.
 * `B_proof` (the blind literal reading of the proof's construction) is false: `not_B_proof`
   (the blind's own example: `P` onto `ℝe₁` along `ℝe₂`, `P'` onto `ℝe₁` along `ℝ(e₁ + e₂)`,
   `X = X' = 0`, `Z = ker P`, `P'' = P`; then `P'' ≤ P'` fails).  Moreover A's second conjunct
   alone refutes it: `text_reading_to_not_B_proof` builds, for ANY `P, P'` of
-  `lemma_6_10_text_reading`, complements `X, X', Z` and the projection `P''` of B_proof, so the
-  project's `lemma_6_10_text_reading` says exactly that B_proof's construction fails.
+  `lemma_6_10_text_reading_preprint`, complements `X, X', Z` and the projection `P''` of B_proof, so the
+  project's `lemma_6_10_text_reading_preprint` says exactly that B_proof's construction fails.
 -/
 
 namespace RoundTrip.V6_11
@@ -25,9 +25,9 @@ open Polyfold
 
 /-- The project's statement: Lemma 6.10 and the text-reading counterexample, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.lemma_6_10.{0, 0} ∧ type_of% @Polyfold.lemma_6_10_text_reading
+  type_of% @Polyfold.lemma_6_10_preprint.{0, 0} ∧ type_of% @Polyfold.lemma_6_10_text_reading_preprint
 
-theorem A_holds : A := ⟨@Polyfold.lemma_6_10, @Polyfold.lemma_6_10_text_reading⟩
+theorem A_holds : A := ⟨@Polyfold.lemma_6_10_preprint, @Polyfold.lemma_6_10_text_reading_preprint⟩
 
 section Glue
 
@@ -84,7 +84,7 @@ theorem A_to_B : A → B := by
   obtain ⟨P'', h, h1, h2⟩ := hA.1 ((isGLP_iff T P).1 hP) ((isGLP_iff T P').1 hP')
   exact ⟨P'', (isGLP_iff T P'').2 h, h1, h2⟩
 
-/-- **Partial `B ⇒ A`**: B gives `lemma_6_10` for every `T` between Banach spaces (no Fredholm
+/-- **Partial `B ⇒ A`**: B gives `lemma_6_10_preprint` for every `T` between Banach spaces (no Fredholm
 hypothesis), via `id_F`. -/
 theorem B_to_lemma_6_10_banach (hB : B) {E F : Type} [NormedAddCommGroup E] [NormedSpace ℝ E]
     [CompleteSpace E] [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
@@ -135,10 +135,10 @@ theorem not_B_proof : ¬ B_proof := by
   simp only [ContinuousLinearMap.comp_apply, hPv, hP'v] at h
   norm_num at h
 
-/-- **A's second conjunct refutes `B_proof`**: for any `P, P'` as in `lemma_6_10_text_reading`, the
+/-- **A's second conjunct refutes `B_proof`**: for any `P, P'` as in `lemma_6_10_text_reading_preprint`, the
 complements `X, X', Z` and the projection `P''` of B_proof exist, and B_proof would put `P''` below
 both. -/
-theorem text_reading_to_not_B_proof : type_of% @Polyfold.lemma_6_10_text_reading → ¬ B_proof := by
+theorem text_reading_to_not_B_proof : type_of% @Polyfold.lemma_6_10_text_reading_preprint → ¬ B_proof := by
   intro hA hB
   obtain ⟨P, P', hP, hP', hno⟩ := hA
   set RP := LinearMap.range (P : (ℝ × ℝ) →ₗ[ℝ] (ℝ × ℝ))
@@ -226,15 +226,15 @@ theorem text_reading_to_not_B_proof : type_of% @Polyfold.lemma_6_10_text_reading
 /-- Hence `A ⇒ ¬ B_proof`. -/
 theorem A_to_not_B_proof : A → ¬ B_proof := fun hA => text_reading_to_not_B_proof hA.2
 
-#rt_check RoundTrip.V6_11.A_to_B [Polyfold.lemma_6_10, Polyfold.lemma_6_10_text_reading]
-#rt_check RoundTrip.V6_11.B_to_lemma_6_10_banach [Polyfold.lemma_6_10,
-  Polyfold.lemma_6_10_text_reading]
-#rt_check RoundTrip.V6_11.not_B_proof [Polyfold.lemma_6_10, Polyfold.lemma_6_10_text_reading]
-#rt_check RoundTrip.V6_11.text_reading_to_not_B_proof [Polyfold.lemma_6_10,
-  Polyfold.lemma_6_10_text_reading]
-#rt_check RoundTrip.V6_11.A_to_not_B_proof [Polyfold.lemma_6_10,
-  Polyfold.lemma_6_10_text_reading]
-#rt_overlap RoundTrip.V6_11.B_to_lemma_6_10_banach [Polyfold.lemma_6_10,
-  Polyfold.lemma_6_10_text_reading]
+#rt_check RoundTrip.V6_11.A_to_B [Polyfold.lemma_6_10_preprint, Polyfold.lemma_6_10_text_reading_preprint]
+#rt_check RoundTrip.V6_11.B_to_lemma_6_10_banach [Polyfold.lemma_6_10_preprint,
+  Polyfold.lemma_6_10_text_reading_preprint]
+#rt_check RoundTrip.V6_11.not_B_proof [Polyfold.lemma_6_10_preprint, Polyfold.lemma_6_10_text_reading_preprint]
+#rt_check RoundTrip.V6_11.text_reading_to_not_B_proof [Polyfold.lemma_6_10_preprint,
+  Polyfold.lemma_6_10_text_reading_preprint]
+#rt_check RoundTrip.V6_11.A_to_not_B_proof [Polyfold.lemma_6_10_preprint,
+  Polyfold.lemma_6_10_text_reading_preprint]
+#rt_overlap RoundTrip.V6_11.B_to_lemma_6_10_banach [Polyfold.lemma_6_10_preprint,
+  Polyfold.lemma_6_10_text_reading_preprint]
 
 end RoundTrip.V6_11

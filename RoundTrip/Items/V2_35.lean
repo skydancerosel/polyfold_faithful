@@ -6,7 +6,7 @@ import RoundTrip.Blind.V2_35
 
 `A` is the conjunction of the types of the theorems listed for the item (no universe parameters):
 `IsScSmoothRetractMap.isDiffeoGerm`, `ScRetraction.IsDiffeoGerm.deriv_inv_deriv`,
-`ScRetraction.IsDiffeoGerm.deriv_deriv_inv`, `proposition_2_30_reduced`, `proposition_2_30_cone`.
+`ScRetraction.IsDiffeoGerm.deriv_deriv_inv`, `proposition_2_4_10_reduced`, `proposition_2_4_10_cone`.
 `ScRetraction.IsDiffeoGerm` (a germ `F : r(U) → r'(U')` with inverse `G`, `F ∘ r`, `G ∘ r'` sc¹)
 is vocabulary.
 
@@ -32,13 +32,13 @@ def A : Prop :=
   (type_of% @Polyfold.IsScSmoothRetractMap.isDiffeoGerm) ∧
   (type_of% @Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv) ∧
   (type_of% @Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv) ∧
-  (type_of% @Polyfold.proposition_2_30_reduced) ∧
-  (type_of% @Polyfold.proposition_2_30_cone)
+  (type_of% @Polyfold.proposition_2_4_10_reduced) ∧
+  (type_of% @Polyfold.proposition_2_4_10_cone)
 
 theorem A_holds : A :=
   ⟨@Polyfold.IsScSmoothRetractMap.isDiffeoGerm, @Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv,
-    @Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv, @Polyfold.proposition_2_30_reduced,
-    @Polyfold.proposition_2_30_cone⟩
+    @Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv, @Polyfold.proposition_2_4_10_reduced,
+    @Polyfold.proposition_2_4_10_cone⟩
 
 /-- The tangent space at a level-1 point of `O ∩ V` is the same for a retraction `RV` onto `O ∩ V`
 and a retraction `R` onto `O` (Proposition 2.4 and restriction). -/
@@ -53,7 +53,7 @@ lemma range_scDeriv_eq {E : ScBanach} {C O V : Set (E.lvl 0)} (hV : IsOpen V)
   have h1 : range (scDeriv RV.U RV x₁) = range (scDeriv RR.U RR x₁) := by
     ext v
     rw [← RV.mem_tangent_iff_mem_range hxV, ← RR.mem_tangent_iff_mem_range hxR,
-      proposition_2_4 RV RR (by rw [hRV, hRR])]
+      proposition_2_1_11 RV RR (by rw [hRV, hRR])]
   rw [h1, R.scDeriv_restrict hV (RR.lvlSet_retract_subset 1 hxR)]
 
 /-- `A → B`. -/
@@ -102,6 +102,6 @@ theorem A_to_B : A → B := by
       simp only [partialConeWith]; rw [hrange']
     rw [← e1, ← e2, ← h]
 
-#rt_check RoundTrip.V2_35.A_to_B [Polyfold.IsScSmoothRetractMap.isDiffeoGerm, Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv, Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv, Polyfold.proposition_2_30_reduced, Polyfold.proposition_2_30_cone]
+#rt_check RoundTrip.V2_35.A_to_B [Polyfold.IsScSmoothRetractMap.isDiffeoGerm, Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv, Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv, Polyfold.proposition_2_4_10_reduced, Polyfold.proposition_2_4_10_cone]
 
 end RoundTrip.V2_35

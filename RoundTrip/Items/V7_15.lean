@@ -4,13 +4,13 @@ import RoundTrip.Blind.V7_15
 
 /-! Round trip for V7_15 (Proposition 7.4, p. 230: the isotropy groups are finite).
 
-`A` is the conjunction of the types of `EpGroupoid.proposition_7_4` (an instance
+`A` is the conjunction of the types of `EpGroupoid.proposition_7_1_12` (an instance
 `Finite (X.Isotropy x)`, universe at `0`) and `MPolyfold.finite_isotropy_of_isLocalScDiffeo`
 (an abstract form for maps `s, t : Y → X` between M-polyfolds, two universes, both at `0`).
 
 * `A → B`: `X.Isotropy x` (a structure: a morphism with `s = x`, `t = x`) maps onto `B`'s set
   `{g | s g = x ∧ t g = x}` by `val`, so the set is finite.
-* `B → A`: `proposition_7_4` from `B` (`val` is injective).  `finite_isotropy_of_isLocalScDiffeo`
+* `B → A`: `proposition_7_1_12` from `B` (`val` is injective).  `finite_isotropy_of_isLocalScDiffeo`
   speaks of arbitrary `s, t` (with `t` a local sc-diffeomorphism and a properness hypothesis),
   not of an ep-groupoid, so it is not a consequence of `B`; it is re-proved outright (compact
   discrete fibres are finite). -/
@@ -20,11 +20,11 @@ open Polyfold Set
 
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.EpGroupoid.proposition_7_4.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_7_1_12.{0}) ∧
   (type_of% @Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo.{0, 0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.proposition_7_4.{0},
+  ⟨@Polyfold.EpGroupoid.proposition_7_1_12.{0},
     @Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo.{0, 0}⟩
 
 theorem A_to_B : A → B := by
@@ -60,11 +60,11 @@ theorem B_to_A : B → A := by
     exact (finite_setOf_mem' ht.isLocallyInjective hV x).subset fun φ hφ =>
       ⟨hφ.1 ▸ subset_closure hxV, hφ.2⟩
 
-#rt_check RoundTrip.V7_15.A_to_B [Polyfold.EpGroupoid.proposition_7_4,
+#rt_check RoundTrip.V7_15.A_to_B [Polyfold.EpGroupoid.proposition_7_1_12,
   Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo]
-#rt_check RoundTrip.V7_15.B_to_A [Polyfold.EpGroupoid.proposition_7_4,
+#rt_check RoundTrip.V7_15.B_to_A [Polyfold.EpGroupoid.proposition_7_1_12,
   Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo]
-#rt_overlap RoundTrip.V7_15.B_to_A [Polyfold.EpGroupoid.proposition_7_4,
+#rt_overlap RoundTrip.V7_15.B_to_A [Polyfold.EpGroupoid.proposition_7_1_12,
   Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo]
 
 end RoundTrip.V7_15

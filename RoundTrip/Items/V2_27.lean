@@ -4,12 +4,12 @@ import RoundTrip.Blind.V2_27
 
 /-! Round trip for V2_27 (Lemma 2.23: upper semicontinuity of `d_X`).
 
-`A` is the conjunction of the types of the listed theorems `Polyfold.lemma_2_23`,
+`A` is the conjunction of the types of the listed theorems `Polyfold.lemma_2_4_3`,
 `Polyfold.eventually_degIndexWith_le`, `Polyfold.MPolyfold.isOpen_setOf_degIndex_lt` and
 `Polyfold.MPolyfold.isClosed_setOf_le_degIndex`, at universe `0` (B lives in `Type`;
 `eventually_degIndexWith_le` has no universe parameter).
 
-* `lemma_2_23` (`∀ᶠ y in 𝓝 x, d_X(y) ≤ d_X(x)`) is B (an open `U ∋ x` with `d_X ≤ d_X(x)` on `U`)
+* `lemma_2_4_3` (`∀ᶠ y in 𝓝 x, d_X(y) ≤ d_X(x)`) is B (an open `U ∋ x` with `d_X ≤ d_X(x)` on `U`)
   up to `mem_nhds_iff`.
 * `isOpen_setOf_degIndex_lt`, `isClosed_setOf_le_degIndex` are corollaries (sublevel sets open,
   superlevel sets closed), derived from B.
@@ -24,12 +24,12 @@ open Polyfold Set Filter Topology
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.lemma_2_23.{0}) ∧ (type_of% @Polyfold.eventually_degIndexWith_le) ∧
+  (type_of% @Polyfold.lemma_2_4_3.{0}) ∧ (type_of% @Polyfold.eventually_degIndexWith_le) ∧
     (type_of% @Polyfold.MPolyfold.isOpen_setOf_degIndex_lt.{0}) ∧
     (type_of% @Polyfold.MPolyfold.isClosed_setOf_le_degIndex.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_2_23.{0}, @Polyfold.eventually_degIndexWith_le,
+  ⟨@Polyfold.lemma_2_4_3.{0}, @Polyfold.eventually_degIndexWith_le,
     @Polyfold.MPolyfold.isOpen_setOf_degIndex_lt.{0},
     @Polyfold.MPolyfold.isClosed_setOf_le_degIndex.{0}⟩
 
@@ -62,13 +62,13 @@ theorem eventually_of_B (hB : B) {X : Type} [TopologicalSpace X] [T2Space X] [Pa
 
 end Glue
 
-/-- `A → B`: `lemma_2_23` gives an open neighbourhood. -/
+/-- `A → B`: `lemma_2_4_3` gives an open neighbourhood. -/
 theorem A_to_B : A → B := by
   rintro ⟨h223, -, -, -⟩ X _ _ _ P x
   obtain ⟨U, hUsub, hU, hxU⟩ := mem_nhds_iff.1 (h223 P x)
   exact ⟨U, hU, hxU, hUsub⟩
 
-/-- `B → A`: `lemma_2_23` and its two corollaries from B; `eventually_degIndexWith_le` directly. -/
+/-- `B → A`: `lemma_2_4_3` and its two corollaries from B; `eventually_degIndexWith_le` directly. -/
 theorem B_to_A : B → A := by
   intro hB
   have h1 : type_of% @Polyfold.MPolyfold.isOpen_setOf_degIndex_lt.{0} := by
@@ -83,11 +83,11 @@ theorem B_to_A : B → A := by
   rw [this]
   exact (h1 P k).isClosed_compl
 
-#rt_check RoundTrip.V2_27.A_to_B [Polyfold.lemma_2_23, Polyfold.eventually_degIndexWith_le,
+#rt_check RoundTrip.V2_27.A_to_B [Polyfold.lemma_2_4_3, Polyfold.eventually_degIndexWith_le,
   Polyfold.MPolyfold.isOpen_setOf_degIndex_lt, Polyfold.MPolyfold.isClosed_setOf_le_degIndex]
-#rt_check RoundTrip.V2_27.B_to_A [Polyfold.lemma_2_23, Polyfold.eventually_degIndexWith_le,
+#rt_check RoundTrip.V2_27.B_to_A [Polyfold.lemma_2_4_3, Polyfold.eventually_degIndexWith_le,
   Polyfold.MPolyfold.isOpen_setOf_degIndex_lt, Polyfold.MPolyfold.isClosed_setOf_le_degIndex]
-#rt_overlap RoundTrip.V2_27.B_to_A [Polyfold.lemma_2_23, Polyfold.eventually_degIndexWith_le,
+#rt_overlap RoundTrip.V2_27.B_to_A [Polyfold.lemma_2_4_3, Polyfold.eventually_degIndexWith_le,
   Polyfold.MPolyfold.isOpen_setOf_degIndex_lt, Polyfold.MPolyfold.isClosed_setOf_le_degIndex]
 
 end RoundTrip.V2_27

@@ -70,7 +70,7 @@ structures give the same sum) and a branched ep⁺-subgroupoid, the local branch
 
 * The generators of `Gr(x)` are taken to be all subsets `L ⊆ T_xX`: Part I's `T_xX` carries no
   linear structure here (gap G.7).  The values of `TΘ` are the `T_xMᵢ`, which are
-  finite-dimensional subspaces in a chart by Remark 4.14 (`remark_4_14`); the linear algebra stays
+  finite-dimensional subspaces in a chart by Remark 4.14 (`remark_4_2_2`); the linear algebra stays
   in the charts.  Formal sums are finitely supported weights `Set TX →₀ ℚ`, so "`σᵢ · Lᵢ + σⱼ · Lⱼ
   = (σᵢ + σⱼ) · L` for `Lᵢ = Lⱼ = L`" is built in.
 * A morphism `(L, φ)` of `Gr(X)` is recorded by `φ` with `s φ = π(L)`, `t φ = π(L')` and
@@ -106,7 +106,7 @@ structures give the same sum) and a branched ep⁺-subgroupoid, the local branch
   content enters as `HasTangentSlicesAt`, proved only for `ℝ⁰`.
 * The Part I facts in `TangentBranchingHyp`, proved only for `Θ = 0`.
 * The chart description of `submanifoldTangent` (its image under a tangent chart map is the
-  tangent space `T_z(φ(W ∩ A))` of the sub-retract, Remark 4.14, `remark_4_14`): not needed for
+  tangent space `T_z(φ(W ∩ A))` of the sub-retract, Remark 4.14, `remark_4_2_2`): not needed for
   the results here, which use only the data independence and the calculus of
   `submanifoldTangent`; it is what would identify the generators of `TΘ(x)` as linear
   subspaces.
@@ -255,7 +255,7 @@ variable (P) in
 vectors over `y` fixed by `Ts` for the sc⁺-retraction `s` of some data of Definition 4.13 at `y`
 (by `SubmanifoldData.tmap_eq_of_tmap_eq` the choice of the data does not matter; the fixed
 vectors of the idempotent `Ts(y)` form its image).  It needs no linear structure on `T_yX`
-(gap G.7).  Its chart description (Remark 4.14 in a chart, `remark_4_14`) is not formalized
+(gap G.7).  Its chart description (Remark 4.14 in a chart, `remark_4_2_2`) is not formalized
 here. -/
 def submanifoldTangent (A : Set X) (y : X) : Set P.TangentSpace :=
   {α | P.levelVal 1 (P.tangentProj α) = y ∧ ∃ d : P.SubmanifoldData A, y ∈ d.V ∧ d.tmap α = α}

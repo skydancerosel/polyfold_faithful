@@ -7,9 +7,9 @@ import Mathlib.Topology.Algebra.Module.LocallyConvex
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.4–6.5,
-pp. 217–219: **Definition 6.22** (the basis `𝓑`), **Proposition 6.23** (`𝓑` is a basis of a
-topology), **Proposition 6.24** (`DET(E,F)` is a topological line bundle), **Lemma 6.25** (the
-transition maps are continuous) and **Proposition 6.26** (a line bundle over a convex set of
+pp. 217–219: **Definition 6.5.6 (preprint 6.22)** (the basis `𝓑`), **Proposition 6.5.7 (preprint 6.23)** (`𝓑` is a basis of a
+topology), **Proposition 6.5.8 (preprint 6.24)** (`DET(E,F)` is a topological line bundle), **Lemma 6.5.9 (preprint 6.25)** (the
+transition maps are continuous) and **Proposition 6.6.1 (preprint 6.26)** (a line bundle over a convex set of
 Fredholm operators, with exactly two orientations) *(book 2017: Definition 6.8, Propositions
 6.9–6.10, Lemma 6.11, Proposition 6.11; see `BookConcordance.md`)*.
 
@@ -18,15 +18,15 @@ Fredholm operators, with exactly two orientations) *(book 2017: Definition 6.8, 
 ## The text, paraphrased
 
 `DET(E,F) = ⋃_{S ∈ F(E,F)} {S} × det(S)` over the space `F(E,F)` of Fredholm operators.  For `T`
-Fredholm, Proposition 6.20 gives `ε > 0` and `P ∈ Π_T` with the bijection
+Fredholm, Proposition 6.5.4 (preprint 6.20) gives `ε > 0` and `P ∈ Π_T` with the bijection
 `γ_(T,P,ε) : DET(E,F)|{‖S − T‖ < ε} → DET(T, P, ε)`, `(S, h) ↦ (S, γ^P_S(h))`, fibrewise linear
-over the identity.  (Definition 6.22) `𝓑` is the collection of subsets `B` of `DET(E,F)` with
-`γ_(T,P,ε)(B)` open in `DET(T, P, ε)` for some `γ_(T,P,ε)`.  (Proposition 6.23) `𝓑` is a basis of a
-topology `𝒯`.  (Proposition 6.24) `DET(E,F)` with the linear structure of its fibres and `𝒯` is a
-topological line bundle, and the `γ_(T,P,ε)` are topological bundle isomorphisms.  (Lemma 6.25) The
+over the identity.  (Definition 6.5.6 (preprint 6.22)) `𝓑` is the collection of subsets `B` of `DET(E,F)` with
+`γ_(T,P,ε)(B)` open in `DET(T, P, ε)` for some `γ_(T,P,ε)`.  (Proposition 6.5.7 (preprint 6.23)) `𝓑` is a basis of a
+topology `𝒯`.  (Proposition 6.5.8 (preprint 6.24)) `DET(E,F)` with the linear structure of its fibres and `𝒯` is a
+topological line bundle, and the `γ_(T,P,ε)` are topological bundle isomorphisms.  (Lemma 6.5.9 (preprint 6.25)) The
 transition maps `γ_(T',P',ε') ∘ γ_(T,P,ε)⁻¹` are topological isomorphisms: near `S₀` take
-`Q ≤ P, P'`; by Corollary 6.13 the transition is `(S, h) ↦ (S, (γ^Q_{P'S})⁻¹ γ^Q_{PS}(h))`,
-continuous by Lemma 6.21.  (Proposition 6.26) For the convex set `Lin(f, x)` of Fredholm operators,
+`Q ≤ P, P'`; by Corollary 6.4.12 (preprint 6.13) the transition is `(S, h) ↦ (S, (γ^Q_{P'S})⁻¹ γ^Q_{PS}(h))`,
+continuous by Lemma 6.5.5 (preprint 6.21).  (Proposition 6.6.1 (preprint 6.26)) For the convex set `Lin(f, x)` of Fredholm operators,
 `DET(f, x) = ⋃_{L ∈ Lin(f,x)} {L} × det(L)` is in a natural way a topological line bundle and has
 two orientations, the base being contractible.
 
@@ -34,26 +34,26 @@ two orientations, the base being contractible.
 
 * `Polyfold.DetFiber S = det(S)` over `S ∈ FredholmOp E F`, with the topology of a
   finite-dimensional space (`moduleTopology`).
-* `LocalDetChart.pretriv c`: `γ_(T,P,ε)` read in the frame of `DET(T, P, ε)` (Proposition 6.20), as
+* `LocalDetChart.pretriv c`: `γ_(T,P,ε)` read in the frame of `DET(T, P, ε)` (Proposition 6.5.4 (preprint 6.20)), as
   a pretrivialization `(S, h) ↦ (S, ω(S)*(γ^P_S h))` with model fibre `ℝ`.
-* **Lemma 6.25** (`lemma_6_25`): the transition `(S, t) ↦ (S, g(S) t)` between two charts has `g`
+* **Lemma 6.5.9 (preprint 6.25)** (`lemma_6_5_9`): the transition `(S, t) ↦ (S, g(S) t)` between two charts has `g`
   continuous and nowhere zero on the common ball.
 * `Polyfold.detPrebundle`: Mathlib's `VectorPrebundle` built from all the `γ_(T,P,ε)`; the topology
   of `DET(E,F)` and its `FiberBundle` and `VectorBundle` instances are the ones Mathlib derives.
-* **Definition 6.22** (`detBasis`) and **Proposition 6.23** (`proposition_6_23`): `𝓑` is a basis of
+* **Definition 6.5.6 (preprint 6.22)** (`detBasis`) and **Proposition 6.5.7 (preprint 6.23)** (`proposition_6_5_7`): `𝓑` is a basis of
   the topology of `DET(E,F)` (so the topology `𝒯` it generates is this one).
-* **Proposition 6.24** (`proposition_6_24`): `DET(E,F)` is a topological vector bundle with model
+* **Proposition 6.5.8 (preprint 6.24)** (`proposition_6_5_8`): `DET(E,F)` is a topological vector bundle with model
   fibre `ℝ`, and every `γ_(T,P,ε)` (in frames) is a trivialization of it.
 * `Polyfold.DetOn C hC`: the restriction (pull-back) of `DET(E,F)` to a set `C` of Fredholm
-  operators; **Proposition 6.26** (`proposition_6_26`): over a nonempty convex `C` it is a
+  operators; **Proposition 6.6.1 (preprint 6.26)** (`proposition_6_6_1`): over a nonempty convex `C` it is a
   topological line bundle with exactly two orientations.
 
 ## Reading
 
 `DET(T, P, ε)` carries the topology of the trivial bundle given by its frame `ω` (Proposition
 6.20); a set is in `𝓑` if it lies over the ball of some chart and its image in `ball × ℝ` is open.
-Proposition 6.23 is stated for the topology of the prebundle; by
-`IsTopologicalBasis.eq_generateFrom` it says that `𝓑` generates it.  Proposition 6.26 is stated
+Proposition 6.5.7 (preprint 6.23) is stated for the topology of the prebundle; by
+`IsTopologicalBasis.eq_generateFrom` it says that `𝓑` generates it.  Proposition 6.6.1 (preprint 6.26) is stated
 for any nonempty convex set of Fredholm operators; `Lin(f, x)` is one (`LinSet.lean`).  Its
 "contractible" is used through `exists_two_lineOrientation` (`LineBundleOrientation.lean`).
 -/
@@ -167,17 +167,17 @@ theorem pretriv_isLinear : c.pretriv.IsLinear ℝ :=
 end LocalDetChart
 
 /-- A local determinant chart centred at a Fredholm operator `T` with any given good
-left-projection `P ∈ Π_T` (Lemma 6.17 with a topological complement of the finite-dimensional
+left-projection `P ∈ Π_T` (Lemma 6.5.1 (preprint 6.17) with a topological complement of the finite-dimensional
 `ker(P T)`). -/
 theorem exists_localDetChart_of_proj {T : E →L[ℝ] F} (hT : T.IsFredholm) {P : F →L[ℝ] F}
     (hP : IsGoodLeftProj T P) : ∃ c : LocalDetChart E F, c.T = T ∧ c.P = P := by
   have := (hP.isFredholm_comp hT).finite_ker
   obtain ⟨Y, hY⟩ := (Submodule.ClosedComplemented.of_finiteDimensional
     (LinearMap.ker ((P ∘L T : E →L[ℝ] F) : E →ₗ[ℝ] F))).exists_isTopCompl
-  obtain ⟨ε, hε, h⟩ := lemma_6_17 hP hY
+  obtain ⟨ε, hε, h⟩ := lemma_6_5_1 hP hY
   exact ⟨⟨T, hT, P, hP, Y, hY, ε, hε, fun S hS => (h S hS).1, fun S hS => (h S hS).2⟩, rfl, rfl⟩
 
-/-- Every Fredholm operator `T` is the centre of a local determinant chart (Lemma 6.17 with a good
+/-- Every Fredholm operator `T` is the centre of a local determinant chart (Lemma 6.5.1 (preprint 6.17) with a good
 left-projection `P ∈ Π_T` and a topological complement of the finite-dimensional `ker(P T)`). -/
 theorem exists_localDetChart (T : FredholmOp E F) : ∃ c : LocalDetChart E F, c.T = T.1 := by
   obtain ⟨P, hP⟩ := exists_isGoodLeftProj T.2
@@ -196,7 +196,7 @@ theorem mem_baseSet_localDetChartAt (T : FredholmOp E F) : T ∈ (localDetChartA
   exact (localDetChartAt T).ε_pos
 
 omit [CompleteSpace E] [CompleteSpace F] in
-/-- The linear algebra behind Lemma 6.25: if `Λ₁ u = g₁ ω₃`, `Λ₂ (G₂ ω') = g₂ ω₃` and
+/-- The linear algebra behind Lemma 6.5.9 (preprint 6.25): if `Λ₁ u = g₁ ω₃`, `Λ₂ (G₂ ω') = g₂ ω₃` and
 `Λ₂ ∘ Λ₁₂ = Λ₁` at `u`, then `G₂⁻¹ (Λ₁₂ u) = (g₁ / g₂) ω'`. -/
 theorem transition_smul_eq {V₂ W₁ W₂ W : Type*} [AddCommMonoid V₂] [Module ℝ V₂]
     [AddCommMonoid W₁] [Module ℝ W₁] [AddCommMonoid W₂] [Module ℝ W₂] [AddCommMonoid W]
@@ -208,18 +208,18 @@ theorem transition_smul_eq {V₂ W₁ W₂ W : Type*} [AddCommMonoid V₂] [Modu
     Λ₂.injective (by rw [h₁₂, h₁, map_smul, h₂, smul_smul, div_mul_cancel₀ _ hg₂])
   rw [this, map_smul, LinearEquiv.symm_apply_apply]
 
-/-- Lemma 6.25 near one point `S₀`: with `Q ≤ P, P'` in `Π_{S₀}` (Lemma 6.10) and a chart with
-projection `Q` centred at `S₀`, Corollary 6.13 and Lemma 6.21 write the transition function as a
+/-- Lemma 6.5.9 (preprint 6.25) near one point `S₀`: with `Q ≤ P, P'` in `Π_{S₀}` (Lemma 6.10) and a chart with
+projection `Q` centred at `S₀`, Corollary 6.4.12 (preprint 6.13) and Lemma 6.5.5 (preprint 6.21) write the transition function as a
 quotient `g₁ / g₂` of continuous nowhere-zero functions on a neighbourhood of `S₀`. -/
-theorem lemma_6_25_local (c c' : LocalDetChart E F) {S₀ : FredholmOp E F}
+theorem lemma_6_5_9_local (c c' : LocalDetChart E F) {S₀ : FredholmOp E F}
     (hS₀ : S₀ ∈ c.baseSet ∩ c'.baseSet) :
     ∃ N ∈ 𝓝 S₀, ∃ φ : FredholmOp E F → ℝ, ContinuousOn φ N ∧
       ∀ S ∈ N, φ S ≠ 0 ∧ c'.coord S (c.coordInv S 1) = φ S := by
   obtain ⟨Q, hQ, hQP, hQP'⟩ :=
-    lemma_6_10 (c.isGoodLeftProj_of_lt S₀.1 hS₀.1) (c'.isGoodLeftProj_of_lt S₀.1 hS₀.2)
+    lemma_6_10_preprint (c.isGoodLeftProj_of_lt S₀.1 hS₀.1) (c'.isGoodLeftProj_of_lt S₀.1 hS₀.2)
   obtain ⟨c₃, hc₃T, rfl⟩ := exists_localDetChart_of_proj S₀.2 hQ
-  obtain ⟨g₁, hg₁c, hg₁⟩ := lemma_6_21 c c₃ hQP
-  obtain ⟨g₂, hg₂c, hg₂⟩ := lemma_6_21 c' c₃ hQP'
+  obtain ⟨g₁, hg₁c, hg₁⟩ := lemma_6_5_5 c c₃ hQP
+  obtain ⟨g₂, hg₂c, hg₂⟩ := lemma_6_5_5 c' c₃ hQP'
   have hS₀₃ : S₀ ∈ c₃.baseSet := by
     change ‖S₀.1 - c₃.T‖ < c₃.ε
     rw [hc₃T, sub_self, norm_zero]
@@ -244,7 +244,7 @@ theorem lemma_6_25_local (c c' : LocalDetChart E F) {S₀ : FredholmOp E F}
   obtain ⟨hg₂0, hg₂e⟩ := hg₂ S.1 S.2 hS2' hS3'
   refine ⟨div_ne_zero hg₁0 hg₂0, ?_⟩
   have h1 := finrank_fredholmDet ((c'.isGoodLeftProj_of_lt S.1 hS2').isFredholm_comp S.2)
-  have hcor := corollary_6_13 S.2 (c₃.isGoodLeftProj_of_lt S.1 hS3')
+  have hcor := corollary_6_4_12 S.2 (c₃.isGoodLeftProj_of_lt S.1 hS3')
     (c'.isGoodLeftProj_of_lt S.1 hS2') (c.isGoodLeftProj_of_lt S.1 hS1') hQP hQP'
     (c.frame S.1 hS1')
   have key := transition_smul_eq hg₂0 hg₁e hg₂e (linDetEquivOfEq_trans
@@ -253,23 +253,23 @@ theorem lemma_6_25_local (c c' : LocalDetChart E F) {S₀ : FredholmOp E F}
   rw [c'.coord_apply hS2', c.coordInv_apply hS1', one_smul, ← hcor, key, map_smul,
     dualVec_self h1 (c'.frame_ne_zero S.1 hS2'), smul_eq_mul, mul_one]
 
-/-- **Lemma 6.25**: the transition map `γ_(T',P',ε') ∘ γ_(T,P,ε)⁻¹` between two charts is
+/-- **Lemma 6.5.9 (preprint 6.25)**: the transition map `γ_(T',P',ε') ∘ γ_(T,P,ε)⁻¹` between two charts is
 `(S, t) ↦ (S, g(S) t)` with `g(S) = ω'(S)*(γ^{P'}_S (γ^P_S)⁻¹ ω(S))` continuous and nowhere zero on
 the common ball; so it is a topological isomorphism of line bundles. -/
-theorem lemma_6_25 (c c' : LocalDetChart E F) :
+theorem lemma_6_5_9 (c c' : LocalDetChart E F) :
     ContinuousOn (fun S : FredholmOp E F => c'.coord S (c.coordInv S 1)) (c.baseSet ∩ c'.baseSet) ∧
       ∀ S ∈ c.baseSet ∩ c'.baseSet, c'.coord S (c.coordInv S 1) ≠ 0 := by
   refine ⟨fun S₀ hS₀ => ?_, fun S₀ hS₀ => ?_⟩
-  · obtain ⟨N, hN, φ, hφ, hφe⟩ := lemma_6_25_local c c' hS₀
+  · obtain ⟨N, hN, φ, hφ, hφe⟩ := lemma_6_5_9_local c c' hS₀
     exact ((hφ.continuousAt hN).congr
       (Filter.eventually_of_mem hN fun S hS => (hφe S hS).2.symm)).continuousWithinAt
-  · obtain ⟨N, hN, φ, -, hφe⟩ := lemma_6_25_local c c' hS₀
+  · obtain ⟨N, hN, φ, -, hφe⟩ := lemma_6_5_9_local c c' hS₀
     rw [(hφe S₀ (mem_of_mem_nhds hN)).2]
     exact (hφe S₀ (mem_of_mem_nhds hN)).1
 
 variable (E F) in
 /-- **`DET(E,F)` as a vector prebundle**: the atlas of all `γ_(T,P,ε)` (in frames), with continuous
-coordinate changes by Lemma 6.25. -/
+coordinate changes by Lemma 6.5.9 (preprint 6.25). -/
 def detPrebundle : VectorPrebundle ℝ ℝ (DetFiber (E := E) (F := F)) where
   pretrivializationAtlas := range fun c : LocalDetChart E F => c.pretriv
   pretrivialization_linear' := by
@@ -281,7 +281,7 @@ def detPrebundle : VectorPrebundle ℝ ℝ (DetFiber (E := E) (F := F)) where
   exists_coordChange := by
     rintro _ ⟨c, rfl⟩ _ ⟨c', rfl⟩
     refine ⟨fun S => c'.coord S (c.coordInv S 1) • ContinuousLinearMap.id ℝ ℝ,
-      (lemma_6_25 c c').1.smul continuousOn_const, fun S hS v => ?_⟩
+      (lemma_6_5_9 c c').1.smul continuousOn_const, fun S hS v => ?_⟩
     rw [c.pretriv.mk_symm hS.1 v]
     change c'.coord S (c.coordInv S 1) * v = c'.coord S (c.coordInv S v)
     have hv : c.coordInv S v = v • c.coordInv S 1 := by rw [← map_smul, smul_eq_mul, mul_one]
@@ -304,14 +304,14 @@ instance : FiberBundle ℝ (DetFiber (E := E) (F := F)) := (detPrebundle E F).to
 instance : VectorBundle ℝ ℝ (DetFiber (E := E) (F := F)) := (detPrebundle E F).toVectorBundle
 
 variable (E F) in
-/-- **Definition 6.22**: `𝓑`, the subsets `B` of `DET(E,F)` over the ball of some chart whose image
+/-- **Definition 6.5.6 (preprint 6.22)**: `𝓑`, the subsets `B` of `DET(E,F)` over the ball of some chart whose image
 under `γ_(T,P,ε)` (in frames) is open in `DET(T, P, ε) ≅ ball × ℝ`. -/
 def detBasis : Set (Set (TotalSpace ℝ (DetFiber (E := E) (F := F)))) :=
   {B | ∃ c : LocalDetChart E F, B ⊆ c.pretriv.source ∧ IsOpen (c.pretriv '' B)}
 
-/-- **Proposition 6.23**: `𝓑` is a basis of a topology on `DET(E,F)`, namely of the topology `𝒯` of
+/-- **Proposition 6.5.7 (preprint 6.23)**: `𝓑` is a basis of a topology on `DET(E,F)`, namely of the topology `𝒯` of
 the prebundle. -/
-theorem proposition_6_23 : TopologicalSpace.IsTopologicalBasis (detBasis E F) := by
+theorem proposition_6_5_7 : TopologicalSpace.IsTopologicalBasis (detBasis E F) := by
   refine TopologicalSpace.isTopologicalBasis_of_isOpen_of_nhds ?_ ?_
   · rintro B ⟨c, hBs, hBo⟩
     let e := (detPrebundle E F).trivializationOfMemPretrivializationAtlas ⟨c, rfl⟩
@@ -331,10 +331,10 @@ theorem proposition_6_23 : TopologicalSpace.IsTopologicalBasis (detBasis E F) :=
     exact e.toOpenPartialHomeomorph.isOpen_image_of_subset_source (hO.inter e.open_source)
       inter_subset_right
 
-/-- **Proposition 6.24**: `DET(E,F)` with the linear structure of its fibres and the topology `𝒯` is
+/-- **Proposition 6.5.8 (preprint 6.24)**: `DET(E,F)` with the linear structure of its fibres and the topology `𝒯` is
 a topological line bundle over the Fredholm operators, and every `γ_(T,P,ε)` (in frames) is a
 trivialization of it. -/
-theorem proposition_6_24 :
+theorem proposition_6_5_8 :
     VectorBundle ℝ ℝ (DetFiber (E := E) (F := F)) ∧
       ∀ c : LocalDetChart E F, ∃ e : Trivialization ℝ (π ℝ (DetFiber (E := E) (F := F))),
         MemTrivializationAtlas e ∧ e.baseSet = c.baseSet ∧ ∀ x, e x = c.pretriv x :=
@@ -350,10 +350,10 @@ def fredholmIncl {C : Set (E →L[ℝ] F)} (hC : ∀ T ∈ C, T.IsFredholm) : C(
 abbrev DetOn (C : Set (E →L[ℝ] F)) (hC : ∀ T ∈ C, T.IsFredholm) : C → Type _ :=
   (fredholmIncl hC : C → FredholmOp E F) *ᵖ DetFiber
 
-/-- **Proposition 6.26**: for a nonempty convex set `C` of Fredholm operators (such as `Lin(f, x)`),
+/-- **Proposition 6.6.1 (preprint 6.26)**: for a nonempty convex set `C` of Fredholm operators (such as `Lin(f, x)`),
 `DET` over `C` is a topological line bundle (the restriction of `DET(E,F)`) and has exactly two
 orientations. -/
-theorem proposition_6_26 {C : Set (E →L[ℝ] F)} (hconv : Convex ℝ C) (hne : C.Nonempty)
+theorem proposition_6_6_1 {C : Set (E →L[ℝ] F)} (hconv : Convex ℝ C) (hne : C.Nonempty)
     (hC : ∀ T ∈ C, T.IsFredholm) :
     VectorBundle ℝ ℝ (DetOn C hC) ∧
       ∃ o₁ o₂ : LineOrientation (DetOn C hC), o₁ ≠ o₂ ∧

@@ -2,8 +2,8 @@ import Polyfold.Chapter6.PushData
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 224–227: **Proposition 6.32** (the push-forward does not depend on the choices),
-**Lemma 6.33** (adding sections), **Lemma 6.34** (changing the section `s`) and **Theorem 6.35**
+pp. 224–227: **Proposition 6.6.7 (preprint 6.32)** (the push-forward does not depend on the choices),
+**Lemma 6.6.8 (preprint 6.33)** (adding sections), **Lemma 6.6.10 (preprint 6.34)** (changing the section `s`) and **Theorem 6.6.11 (preprint 6.35)**
 (local propagation, independent of the path) *(book 2017: Proposition 6.13, Lemmas 6.15–6.16,
 Theorem 6.1; see `BookConcordance.md`)*.
 
@@ -11,28 +11,28 @@ Theorem 6.1; see `BookConcordance.md`)*.
 
 ## The text, paraphrased
 
-(Proposition 6.32) For `U` as in Proposition 6.28 and an sc-smooth path `φ : [0, 1] → U`, the
-push-forward `o ↦ φ_* o` does not depend on the choices of `s` and `s₁, …, s_k`.  (Lemma 6.33)
+(Proposition 6.6.7 (preprint 6.32)) For `U` as in Proposition 6.6.3 (preprint 6.28) and an sc-smooth path `φ : [0, 1] → U`, the
+push-forward `o ↦ φ_* o` does not depend on the choices of `s` and `s₁, …, s_k`.  (Lemma 6.6.8 (preprint 6.33))
 Adding sc⁺-sections `s̄₁, …, s̄_l` does not change it: over the square, the kernel bundle at
-`τ = 0` is `L ⊕ ℝˡ`, and the data at the end points vary continuously in `τ`.  (Lemma 6.34) For
+`τ = 0` is `L ⊕ ℝˡ`, and the data at the end points vary continuously in `τ`.  (Lemma 6.6.10 (preprint 6.34)) For
 two sections `s⁰, s¹` with `sⁱ(φ(t), t) = f(φ(t))`, the homotopy `s^τ = τ s¹ + (1 − τ) s⁰` with
 sections `s^τ_j` satisfying (P) gives the same push-forward for all `τ`.  The proof of the
 proposition: add sections on both sides to get the same number with (P) along the convex
 homotopy.  For two paths `φ₀, φ₁` in `U` with the same end points, homotope them in `U`; with a
-section `s(·, τ, t)` along the homotopy, every `φ_τ` gives the same push-forward.  (Theorem 6.35)
+section `s(·, τ, t)` along the homotopy, every `φ_τ` gives the same push-forward.  (Theorem 6.6.11 (preprint 6.35))
 Hence every smooth `x` has an open sc-smoothly contractible `U(x)` such that the propagation
 `o ↦ φ_* o` along sc-smooth paths in `U` is well defined and depends only on the end points.
 
 ## What is formalized
 
-* **Proposition 6.32** (`proposition_6_32`): two push-forwards (`IsPush`) along the same sc-smooth
-  path in the domain of a chart agree.  Lemma 6.33 is `IsStabKernels.push_append`, Lemma 6.34 the
+* **Proposition 6.6.7 (preprint 6.32)** (`proposition_6_6_7`): two push-forwards (`IsPush`) along the same sc-smooth
+  path in the domain of a chart agree.  Lemma 6.6.8 (preprint 6.33) is `IsStabKernels.push_append`, Lemma 6.6.10 (preprint 6.34) the
   square argument `IsStabKernels.push_square`.
 * `push_eq_of_homotopy`: push-forwards along the two edges `τ = 0, 1` of an sc-smooth homotopy in
-  the domain of the chart, with the end points fixed and with a section as in Proposition 6.28
-  (3), agree (the homotopy argument before Theorem 6.35).
+  the domain of the chart, with the end points fixed and with a section as in Proposition 6.6.3 (preprint 6.28)
+  (3), agree (the homotopy argument before Theorem 6.6.11 (preprint 6.35)).
 * `HasLocalPropagation f hf c hc U`: push-forwards exist along sc-smooth paths in `U` and depend
-  only on the end points; **Theorem 6.35** (`theorem_6_35`): every smooth point has such a `U`.
+  only on the end points; **Theorem 6.6.11 (preprint 6.35)** (`theorem_6_6_11`): every smooth point has such a `U`.
 * Helpers for push-forwards: `IsStabKernels.congr_data`, `IsStabKernels.push_congr_data` (equal
   data, propositionally), `IsStabKernels.push_eq_of_prefix` (a family of sections containing
   `s₁, …, s_k` as its first `k` members gives the same push-forward, from `push_append`).
@@ -49,16 +49,16 @@ Hence every smooth `x` has an open sc-smoothly contractible `U(x)` such that the
 ## Reading
 
 "Does not depend on the choices" is read as: any two data of `IsPush` along the same path give the
-same push-forward.  In the proof the homotopy of Lemma 6.34 and the added sections of Lemma 6.33
+same push-forward.  In the proof the homotopy of Lemma 6.6.10 (preprint 6.34) and the added sections of Lemma 6.6.8 (preprint 6.33)
 are combined over one square: `S^τ = (1 − τ) S⁰ + τ S¹` and the sections
 `(1 − τ) ŝ⁰ⱼ + τ ŝ¹ⱼ` (`j < k⁰ + k¹`, with `ŝⁱⱼ = sⁱⱼ` for `j < kⁱ` and `0` otherwise), followed by
-the sections `C` of Lemma 6.29 on the square, which give property (P).  At `τ = 0` the sections
+the sections `C` of Lemma 6.6.4 (preprint 6.29) on the square, which give property (P).  At `τ = 0` the sections
 `s⁰` are the first `k⁰` members of the family, at `τ = 1` the sections `s¹` are the first `k¹`, so
-Lemma 6.33 applies on both edges without reordering the sections; along the edges `t = 0, 1` the
+Lemma 6.6.8 (preprint 6.33) applies on both edges without reordering the sections; along the edges `t = 0, 1` the
 operators `(f + S^τ)'(xᵢ)` are affine in `τ`.  The text's `U` is "sc-smoothly contractible";
-Proposition 6.28 gives (1′) (two paths in `U` with the same end points are homotopic in `W`, see
-`OrientableNbhd.lean`), which is what the proof of Theorem 6.35 uses; along the homotopy the
-section of Proposition 6.28 (3) depends on the parameter only through the point, so the operators
+Proposition 6.6.3 (preprint 6.28) gives (1′) (two paths in `U` with the same end points are homotopic in `W`, see
+`OrientableNbhd.lean`), which is what the proof of Theorem 6.6.11 (preprint 6.35) uses; along the homotopy the
+section of Proposition 6.6.3 (preprint 6.28) (3) depends on the parameter only through the point, so the operators
 at the fixed end points do not change.  The homotopy `Φ` of (1′) is `γᵢ` on the edges only for
 `t ∈ [0, 1]`, while a datum of `IsPush` asks for `(f + S)(t, γ(t)) = 0` for `t` near `[0, 1]`; so
 the proof passes through the reparametrized paths `γᵢ ∘ κ` (`κ` the smooth transition function,
@@ -374,7 +374,7 @@ def sqPath (t : ℝ) (ht : t ∈ Icc (0 : ℝ) 1) :
   target' := rfl
 
 end Square
-/-! ### Proposition 6.32 and Theorem 6.35 -/
+/-! ### Proposition 6.6.7 (preprint 6.32) and Theorem 6.6.11 (preprint 6.35) -/
 
 section Push
 
@@ -385,9 +385,9 @@ variable [∀ k n : ℕ, ParacompactSpace ((Fin k → ℝ) × ((Fin n → ℝ) �
   [∀ k n : ℕ, ParacompactSpace (pullbackSpace (pullbackProj P (Prod.snd : (Fin n → ℝ) × X → X))
     (Prod.snd : (Fin k → ℝ) × ((Fin n → ℝ) × X) → (Fin n → ℝ) × X))]
 
-/-- **Proposition 6.32**: the push-forward along an sc-smooth path in the domain of a chart does
-not depend on the choices (with Lemmas 6.33 and 6.34). -/
-theorem proposition_6_32 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
+/-- **Proposition 6.6.7 (preprint 6.32)**: the push-forward along an sc-smooth path in the domain of a chart does
+not depend on the choices (with Lemmas 6.6.8 and 6.6.10 (preprint 6.33 and 6.34)). -/
+theorem proposition_6_6_7 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {c : StrongBundleChart PX P} (hc : B.IsChart c)
     {γ : (Fin 1 → ℝ) → X} (hγs : (rnPolyfold 1).IsScSmoothMap PX γ)
     (hγ : ∀ q ∈ Icc (0 : Fin 1 → ℝ) 1, γ q ∈ c.φ.source) {x₀ x₁ : X}
@@ -457,8 +457,8 @@ theorem proposition_6_32 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     rw [isZeroAt_pullback_iff_pullbackSlice ((isSection_pullbackLift _).sectionAdd hSsq.1),
       pullbackSlice_sectionAdd_paramLift hfs.1 hSsq.1, hslice q]
     exact isZeroAt_sectionAdd_combo hfs.1 (hSa.1.pullbackSlice _) (hSb.1.pullbackSlice _) ha hb _
-  -- Lemma 6.29 on the square
-  obtain ⟨m, C, hC, hGP⟩ := lemma_6_29 hX hbump hf hΦs hSsq hzsq
+  -- Lemma 6.6.4 (preprint 6.29) on the square
+  obtain ⟨m, C, hC, hGP⟩ := lemma_6_6_4 hX hbump hf hΦs hSsq hzsq
   -- the sections `ŝ⁰_j`, `ŝ¹_j` (zero beyond `k⁰`, `k¹`) and `u = ((1 − τ)ŝ⁰ + τŝ¹) ++ C`
   set sa' : Fin (ka + kb) → (Fin 2 → ℝ) × X → pullbackSpace P (Prod.snd : (Fin 2 → ℝ) × X → X) :=
     fun j => if h : (j : ℕ) < ka then reparamSection (fun q => A q + 0) (sa ⟨j, h⟩) (hsa _).1
@@ -491,7 +491,7 @@ theorem proposition_6_32 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
           ((isSection_pullbackLift _).sectionAdd hSsq.1) u fun i => (hu i).1) (0, (q, Φ q)) := by
     filter_upwards [hGP, hzsq] with q hq hq0
     exact StrongBundle.isGeneralPositionGerm_paramSection_of_comp (prod_rn_isTame hX)
-      (theorem_3_15_tame hf.param hSsq) hC hu (Fin.natAdd (ka + kb))
+      (theorem_3_1_18_tame hf.param hSsq) hC hu (Fin.natAdd (ka + kb))
       (fun i => (Fin.append_right _ C i).symm) hq0 hq
   -- the stabilized kernels over the square
   obtain ⟨Λ, hΛ⟩ := exists_isStabKernels hf hΦs hc hΦc hSsq hzsq hu hGPu
@@ -593,10 +593,10 @@ theorem proposition_6_32 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
   exact ea.symm.trans (ca.trans (sq.trans (cb.symm.trans eb)))
 
 /-- **Push-forwards along the two edges of a homotopy agree** (the homotopy argument before
-Theorem 6.35): for an sc-smooth `Φ : ℝ² → dom φ_c` with `Φ(0, ·) = γ₀`, `Φ(1, ·) = γ₁`, the end
+Theorem 6.6.11 (preprint 6.35)): for an sc-smooth `Φ : ℝ² → dom φ_c` with `Φ(0, ·) = γ₀`, `Φ(1, ·) = γ₁`, the end
 points fixed at `x₀`, `x₁` along `[0, 1]`, and an sc⁺-section `S` with `(f + S)(q, Φ(q)) = 0` near
-the square depending on `q ∈ [0, 1]²` only through `Φ(q)` (Proposition 6.28 (3)), push-forwards
-along `γ₀` and `γ₁` agree (Lemma 6.29 and `exists_isStabKernels` on the square, Proposition 6.32
+the square depending on `q ∈ [0, 1]²` only through `Φ(q)` (Proposition 6.6.3 (preprint 6.28) (3)), push-forwards
+along `γ₀` and `γ₁` agree (Lemma 6.6.4 (preprint 6.29) and `exists_isStabKernels` on the square, Proposition 6.6.7 (preprint 6.32)
 on the edges, `push_comp`, and `push_square` with constant operators at the end points). -/
 theorem push_eq_of_homotopy (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {c : StrongBundleChart PX P} (hc : B.IsChart c)
@@ -625,7 +625,7 @@ theorem push_eq_of_homotopy (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     e₀ = e₁ := by
   have hfs := hf.isScSmooth
   have hf' := hf.toIsScFredholmSection
-  obtain ⟨m, C, hC, hGP⟩ := lemma_6_29 hX hbump hf hΦs hS hz
+  obtain ⟨m, C, hC, hGP⟩ := lemma_6_6_4 hX hbump hf hΦs hS hz
   obtain ⟨Λ, hΛ⟩ := exists_isStabKernels hf hΦs hc hΦc hS hz hC hGP
   have h0I : (0 : ℝ) ∈ Icc (0 : ℝ) 1 := left_mem_Icc.2 zero_le_one
   have h1I : (1 : ℝ) ∈ Icc (0 : ℝ) 1 := right_mem_Icc.2 zero_le_one
@@ -677,9 +677,9 @@ theorem push_eq_of_homotopy (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
       pullbackSlice_reparamSection, ← hΦδ t, ← hA₀]
     exact ht
   -- the push-forwards along the edges
-  have ea := proposition_6_32 hX hbump hf hc hγ₀s hγ₀ h₀₀ h₀₁ hx₀ hx₁ hs₀ hs₁ he₀
+  have ea := proposition_6_6_7 hX hbump hf hc hγ₀s hγ₀ h₀₀ h₀₁ hx₀ hx₁ hs₀ hs₁ he₀
     (edge 0 h0I γ₀ hγ₀ hΦ0 h₀₀ h₀₁)
-  have eb := proposition_6_32 hX hbump hf hc hγ₁s hγ₁ h₁₀ h₁₁ hx₀ hx₁ hs₀ hs₁ he₁
+  have eb := proposition_6_6_7 hX hbump hf hc hγ₁s hγ₁ h₁₀ h₁₁ hx₀ hx₁ hs₀ hs₁ he₁
     (edge 1 h1I γ₁ hγ₁ hΦ1 h₁₀ h₁₁)
   have ca := hΛ.push_comp (sqEdge 0 h0I) hf' ⟨pt1 0, pt1_mem_Icc h0I⟩ ⟨pt1 1, pt1_mem_Icc h1I⟩
     (hΦa 0 h0I) (hΦb 0 h0I) hs₀ hs₁ _ hz₀ _ hz₁
@@ -713,7 +713,7 @@ theorem push_eq_of_homotopy (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
   exact ea.trans (ca.trans (sq.trans (cb.symm.trans eb.symm)))
 
 variable (f) in
-/-- **The local propagation property** of `U` in the chart `c` (Theorem 6.35): along every
+/-- **The local propagation property** of `U` in the chart `c` (Theorem 6.6.11 (preprint 6.35)): along every
 sc-smooth path in `U` with smooth end points there is a push-forward, and push-forwards along two
 paths in `U` with the same end points agree. -/
 structure HasLocalPropagation (hf : B.IsScFredholmSection f) (c : StrongBundleChart PX P)
@@ -734,15 +734,15 @@ structure HasLocalPropagation (hf : B.IsScFredholmSection f) (c : StrongBundleCh
       IsPush f hf c hc γ₀ (fun q hq => subset (hγ₀ q hq)) h₀₀ h₀₁ hx₀ hx₁ hs₀ hs₁ e₀ →
       IsPush f hf c hc γ₁ (fun q hq => subset (hγ₁ q hq)) h₁₀ h₁₁ hx₀ hx₁ hs₀ hs₁ e₁ → e₀ = e₁
 
-/-- **Theorem 6.35**: every smooth point `x` has an open neighbourhood `U` in the domain of a
-chart with the local propagation property (Proposition 6.28, `exists_isPush`, Proposition 6.32
-and the homotopy argument before Theorem 6.35). -/
-theorem theorem_6_35 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
+/-- **Theorem 6.6.11 (preprint 6.35)**: every smooth point `x` has an open neighbourhood `U` in the domain of a
+chart with the local propagation property (Proposition 6.6.3 (preprint 6.28), `exists_isPush`, Proposition 6.6.7 (preprint 6.32)
+and the homotopy argument before Theorem 6.6.11 (preprint 6.35)). -/
+theorem theorem_6_6_11 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {x : X} (hx : x ∈ PX.smoothSet) :
     ∃ (c : StrongBundleChart PX P) (hc : B.IsChart c) (U : Set X), IsOpen U ∧ x ∈ U ∧
       HasLocalPropagation f hf.toIsScFredholmSection c hc U := by
   obtain ⟨U, W, c, hUo, -, hxU, hUW, hcA, hWc, h1', -, h3, -⟩ :=
-    proposition_6_28 hbump hf.toIsScFredholmSection hx
+    proposition_6_6_3 hbump hf.toIsScFredholmSection hx
   have hc : B.IsChart c := B.isChart_of_mem hcA
   have h3' : ∀ Φ : (Fin 1 → ℝ) → X, (rnPolyfold 1).IsScSmoothMap PX Φ →
       (∀ q ∈ Icc (0 : Fin 1 → ℝ) 1, Φ q ∈ W) →

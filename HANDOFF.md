@@ -89,9 +89,9 @@ do not call the text wrong or speak of its "errors".
   storage keyed by V-id (export SIGNOFF.md). **No sign-off is recorded in the repository yet**, so
   V-items may still be edited in place; never renumber them.
 * **Chapter 3: the sc-Fredholm implicit function theorem holds with the text's hypotheses**
-  (Findings "## Chapter 3" 157, 189, 190–199). Theorems 3.19, 3.23, 3.54 (`theorem_3_19'`,
-  `theorem_3_23'`, `theorem_3_54'`, with dimension = Fredholm index and the index locally constant:
-  `theorem_3_23_index`, `theorem_3_54_index_locally_constant`), Corollary 3.24, Theorems 3.56, 3.57,
+  (Findings "## Chapter 3" 157, 189, 190–199). Theorems 3.19, 3.23, 3.54 (`theorem_3_1_22'`,
+  `theorem_3_1_26'`, `theorem_3_6_8'`, with dimension = Fredholm index and the index locally constant:
+  `theorem_3_1_26_index`, `theorem_3_6_8_index_locally_constant`), Corollary 3.24, Theorems 3.56, 3.57,
   Theorem 3.18, Corollary 3.39, the sharp Proposition 3.52. Two gaps of the text are closed by new
   arguments: the surjectivity of `f'(y)` at the nearby zeros (the text's Corollary 3.41 gives only
   the filled linearization; the same gap is in the book's arXiv version, its Theorem 3.13; Findings
@@ -114,14 +114,14 @@ do not call the text wrong or speak of its "errors".
   a chart domain, where its sections `R(·, e)` need no cut-off; the index of `f'(y)` is locally
   constant along the zero set for tame germ data (`index_locally_constant_tame`), and the index
   of Definition 6.1, read with the text's locally defined sections (`IsIndexAtLocal`), is constant
-  along every sc-smooth path `ℝ → X` (`proposition_6_2_local`); with bump functions the local and
+  along every sc-smooth path `ℝ → X` (`proposition_6_2_2_local`); with bump functions the local and
   the global reading agree (`isIndexAtLocal_iff_isIndexAt`). Comparison V3.98 stays "narrower"
   only because the path is on `ℝ`, not `[0, 1]` (the project has no M-polyfold `[0, 1]`). Added
   hypotheses left: `Y` closed (Def. 3.25, Lemma 3.55); the regularity conditions of Theorem 3.27
   for general subsets (not for solution sets).
 * **Chapter 4**: complete except Lemma 4.10 (not needed; G.32), §4.4 sc-differential forms (out of
   scope; G.37–G.40) and the open question after Prop 4.15. Remark 4.3's "X¹ ≠ X" has an example
-  since 2026-11-02 (`remark_4_3_example`, a retraction that loses a level, sc-smooth by a new
+  since 2026-11-02 (`remark_4_1_3_example`, a retraction that loses a level, sc-smooth by a new
   criterion `IsLossFamily.isScSmooth`; even the topologies of `X` and `X¹` differ; G.31 closed).
   Proposition 4.9 by a direct proof (the text's route gives only germ regularity); Theorem 4.23 with
   a repaired covering step; Sard's theorem vendored from the Milnor project into
@@ -130,7 +130,7 @@ do not call the text wrong or speak of its "errors".
 * **Chapter 5**: complete except Theorems 5.22 (Morse-type structure) and 5.27 (no proof in the
   text), the dense form of Theorem 5.19, and the cited Banach-space theorems 5.32, 5.40, 5.43 (5.43
   an explicit hypothesis of Corollary 5.44). Since 2026-11-02: Corollary 5.8 on the shifted strong
-  bundle `P¹ : Y¹ → X¹` (`corollary_5_8`, `corollary_5_8_two`; each fixed `i` by iteration, a
+  bundle `P¹ : Y¹ → X¹` (`corollary_5_2_5`, `corollary_5_2_5_two`; each fixed `i` by iteration, a
   uniform family `P^i` not formalized; the filler condition on level `1` proved; G.41 closed) and
   the metric `ρ` on `Γ^{+,1}_U(P)` (`StrongBundle.allowableMetric`; "not complete" proved for
   `ℝ × ℝ → ℝ` and false for `U = ∅` or a point base, so it needs a hypothesis; G.42 closed). Theorem 5.18
@@ -157,7 +157,7 @@ do not call the text wrong or speak of its "errors".
   we read it (G.71; discharged for effective `X`; `Examples.exists_not_t2Space_reducedMor` shows that
   `𝐗^R` need not be Hausdorff); `Tφ` of Definition 7.4 only defined (G.70, deferred to Chapter 8);
   `|X_∞|` not stated (G.72); the density of `X_∞` in `X_k` not formalized (G.73). The remark after Definition 7.7 does not hold as we read it
-  (counterexample `Examples.remark_definition_7_7_counterexample`); it holds for functors continuous
+  (counterexample `Examples.remark_definition_7_1_7_counterexample`); it holds for functors continuous
   on morphisms. Proved on the way: the local path connectedness of M-polyfolds (G.56, first fact),
   Michael's theorem (G.15), the tameness of index lifts (Ch. 5 item 145). Wave W5 done: the reports
   (commit 919831f) and the round-trip audit of the 64 non-extra, non-gap items (`RoundTrip/REPORT.md`,
@@ -179,7 +179,7 @@ do not call the text wrong or speak of its "errors".
   blocks), `Exposition/Chapter8.md`, `cmp/ch08.json`, `pbp/part08.md`, the Chapter 8 table of
   `BookConcordance.md`; G.70 now partly formalized (`tangentMor_tSrc`, `tangentMor_comp`). Theorem
   8.5 (5) as printed does not hold as we read it (counterexample
-  `CoveringExamples.theorem_8_5_five_as_printed`; Findings Ch. 8 item 54). The round-trip audit of
+  `CoveringExamples.theorem_8_5_3_five_as_printed`; Findings Ch. 8 item 54). The round-trip audit of
   Chapters 8–11 is done (2026-11-08; `RoundTrip/REPORT.md`, "Chapters 8–11, audited on 2026-11-08").
 * **Part II, Chapter 9** (2026-11-08; 2021 numbering, names without suffix, e.g. `lemma_9_1_7`):
   `Polyfold/Chapter9/` (25 files, 16,925 lines), §§9.1–9.5 and §9.6.1: branched ep⁺-subgroupoids and
@@ -255,8 +255,8 @@ each chapter lands)
    and rebuild.
 3. **Chapter 3 core** — done 2026-10-24 except Def 3.14 / Theorem 3.15 (they need strong bundle
    charts over M-polyfolds, item 4) and the passage of Theorem 3.12 / Cor 3.13 from germs to
-   M-polyfolds (commits f3fcfd8, 2e04b7d, f89d7c3, cf7d305: `theorem_3_33`, `corollary_3_34`,
-   `theorem_3_35`, Theorem 3.40, `theorem_3_12_local`, fillers; **the solution germ is sc^k only on
+   M-polyfolds (commits f3fcfd8, 2e04b7d, f89d7c3, cf7d305: `theorem_3_3_6`, `corollary_3_3_7`,
+   `theorem_3_35_preprint`, Theorem 3.40, `theorem_3_1_13_local`, fillers; **the solution germ is sc^k only on
    a germ shrunk by `s_k` levels**, Findings "## Chapter 3" items 1–17). Original: fix and finish
    `ContractionGerm.lean` (Def 3.28, Theorem 3.30, Lemmas
    3.31–3.32, **Theorem 3.33 Germ-IFT**, Cor 3.34, Thm 3.35); Theorem 3.12 (local compactness), Cor
@@ -272,13 +272,13 @@ each chapter lands)
    3.69–3.70), quadrant IFT 3.78 and inverse function theorem 3.72–3.75, sections of strong bundles
    (3.1–3.11, 3.14), Theorems 3.12–3.13 on M-polyfolds, 3.15, Prop 3.5, Thm 3.38, Cor 3.41,
    Thms 3.43/3.47 (local solvability), Prop 3.52, Lemma 3.55, Def 3.53, Thm 3.54 (3) as
-   `theorem_3_54_graph`, Def 3.25 and **Thm 3.27 under `IsRegular`** (two counterexamples to the
+   `theorem_3_6_8_graph`, Def 3.25 and **Thm 3.27 under `IsRegular`** (two counterexamples to the
    text's proof: Findings 82–83), Thms 3.56–3.57 of the tangent germ property. In progress (agents
    of 2026-10-25): Lemma 3.61 and 3.58–3.60; Thm 3.54 (1)–(2) via recentring, Prop 3.26, and
    3.19/3.23–3.24 as corollaries. Superseded by the proofs given: 3.62–3.64, 3.66–3.68, 3.76.
 5b. ~~**Chapter 3, what is left**~~ — done 2026-10-26 ((a) Findings 100–117, 150–159, 180–189;
    (b) `IsRegular` holds for solution sets, Findings 130–133, 150–151; (c) Cor 3.39, Findings 121–123;
-   (d) `proposition_3_52_index`, Finding 120; (e) not done). Original list: (a) Theorem 3.54 (1)–(2)
+   (d) `proposition_3_6_5_index`, Finding 120; (e) not done). Original list: (a) Theorem 3.54 (1)–(2)
    at the zeros `y ≠ x₀`: the text's "proceeding as above" re-centres the chart with a new filler at
    `y`; needs a chart centred at `y`, a filler at `y`, chart-independence of `f'(y)` surjective and
    of good position (gap G.13, do it in charts), and `N_v = ker D(h+t)(z)` from the derivative of
@@ -286,18 +286,18 @@ each chapter lands)
    follows from the text's hypotheses for the solution set of an sc-Fredholm section (the
    counterexamples 82–83 are for abstract tangent-germ sets) — prove it, or record precisely why
    not, under a Findings item "Does the sc-Fredholm IFT hold with the text's hypotheses?"; then
-   `theorem_3_54`, 3.19, 3.23, 3.24, 3.56, 3.57 unconditionally or under `IsRegular`; (c) Cor 3.39
+   `theorem_3_6_8`, 3.19, 3.23, 3.24, 3.56, 3.57 unconditionally or under `IsRegular`; (c) Cor 3.39
    (package Thm 3.38's linear coordinate change as an `IsStrongBundleIso` between shifted
    structures; composition lemma; `IsConjugateToBasicGerm` for `(g+s)¹`); (d) the sharper Prop
    3.52 (patch above); (e) Prop 3.10's second statement on levels m ≥ 1; Lemmas 3.55/3.70 for a
    general presentation of `C` (so `d_M = d_X` in Thm 3.27); Theorem 3.18; Remark 3.36.
 5a. ~~**Cleanup after the Chapter 3 Lean settles**~~ — done 2026-10-25 (Chapter 2: 601c861; Chapter 3:
-   3faaca4; `theorem_3_33` keeps `∃ s`, the shift `s_k = 2^k − 1` is recorded). Original list:
+   3faaca4; `theorem_3_3_6` keeps `∃ s`, the shift `s_k = 2^k − 1` is recorded). Original list:
    stale docstrings calling proved things "assumed"/"not formalized" in `Chapter2/{MPolyfold,
    LevelPolyfold,TangentBundle,SubMPolyfold,Tame,DegeneracyIndex}.lean`, `Chapter3/Filler.lean`
    (Thm 3.15, Def 3.14) and `Chapter3/LocalCompactness.lean` (global 3.12/3.13); the docstrings of
    `ContractionGerm.lean` (l. 28) and `GermIFT.lean` (l. 37) cite a non-existent `ContractionGerm.of`
-   (it is `IsSc0ContractionGerm.toContractionGerm`); sharpen `theorem_3_33`'s `∃ s` to
+   (it is `IsSc0ContractionGerm.toContractionGerm`); sharpen `theorem_3_3_6`'s `∃ s` to
    `s_k = 2^k − 1` (read off `isSckGerm_succ_of_next`) or record it; Findings "## Chapter 3":
    item 11 superseded by 40–45, item 17 resolved by `StrongBundle.IsScFredholmGerm.sectionAdd`,
    page refs in items 13 (p. 98) and 19 (p. 77); add items: the shrinking may not be intrinsic
@@ -326,17 +326,17 @@ each chapter lands)
    project's sc-Fredholm germ was stricter than the text's; removed in phase 2, below), the
    algebraic good complement (V3.20), bump functions. Missing in the project (REPORT, "Missing in the project"): sc-Fredholm theory on
    all levels, restriction of strong bundle charts, transitivity of strong-atlas equivalence, several
-   examples. Remark 2.28's negative claim does not hold in the formal reading — proved after the audit (`remark_2_28_isPartialQuadrant`,
+   examples. Remark 2.28's negative claim does not hold in the formal reading — proved after the audit (`remark_2_4_8_isPartialQuadrant`,
    `Chapter2/PartialConeQuadrant.lean`, Flor's theorem in the needed case). Moved into the
    project afterwards (f063505): the text's sc-complement form of Theorems 3.54 (1), 3.23, 3.56,
    3.57 (`Chapter3/GoodPositionSc.lean`), restriction of strong bundle charts and the equivalence
    relation on strong-bundle and M-polyfold atlases, Lemma 5.2 literally, Remark 5.12's closedness,
    Lemma 3.9 on level m, Lemma 3.81 on all of V₀ (Findings Ch. 2 40–44, Ch. 3 210–217, Ch. 5 130–131).
    sc-Fredholm theory on all levels, added the same day (Findings Ch. 3 items 230–236): Proposition
-   3.10's second statement on every level `m` (`proposition_3_10_level`); the criterion "sc-Fredholm
+   3.10's second statement on every level `m` (`proposition_3_1_10_level`); the criterion "sc-Fredholm
    ⟺ Fredholm on level 0 and regularizing" (`isScFredholm_iff`, `Chapter1/ScFredholmCriterion.lean`);
    Propositions 3.5, 3.52 and Theorem 3.19's "f'(x₀) is sc-Fredholm" in the centred chart
-   (`proposition_3_52_sc`, `theorem_3_19_linearization_sc`, `Chapter3/FredholmGermLinearizationSc.lean`;
+   (`proposition_3_6_5_sc`, `theorem_3_1_22_linearization_sc`, `Chapter3/FredholmGermLinearizationSc.lean`;
    filler condition (3) needed on level 0 only). Then (items 237–239, 250–252, Ch. 1 follow-up 1):
    `Lin(z)` sc-Fredholm at every zero in **every** chart (`StrongBundle.linAt_isScFredholm`,
    `Chapter3/LinearizationChartsSc.lean`, no tameness); filler (3) on every level at a zero; the
@@ -346,17 +346,17 @@ each chapter lands)
    Definition 1.14, an sc¹ map with `Df` not norm-continuous (`Chapter1/ScOneNotNormContinuous.lean`,
    gap G.3).
    The index of `f'(y)` is locally constant along the zero set without good position, for tame germ
-   data and bump functions (`theorem_3_54_index_locally_constant_general`,
+   data and bump functions (`theorem_3_6_8_index_locally_constant_general`,
    `Chapter3/IndexLocallyConstant.lean`, the text's stabilization device of Proposition 6.2; Findings
    Ch. 3 items 240–244); with the text's hypotheses (tame germ data, no bump functions) it is the
    same device on the restriction of the bundle to a chart domain, done 2026-11-02
    (`index_locally_constant_tame`, items 360–363); without tame germ data it is open, the missing
    step being `ind C(z) = 0` at nearby zeros (items 243, 343).
    Done on 2026-11-02 (commit 08c08c6; records in the fourth addendum of the comparison):
-   Corollary 5.8 on the shifted strong bundle (`corollary_5_8`, `corollary_5_8_two`, Ch. 5 items
+   Corollary 5.8 on the shifted strong bundle (`corollary_5_2_5`, `corollary_5_2_5_two`, Ch. 5 items
    140–146); Definition 6.1 and Proposition 6.2 along sc-smooth paths `ℝ → X` by the text's device,
-   with tame germ data and bump functions (`StrongBundle.IsIndexAt`, `proposition_6_2`, Ch. 3 items
-   340–348); the examples of V4.6 (`remark_4_3_example`, Ch. 4 items 140–146) and V5.21 (`ρ` a metric,
+   with tame germ data and bump functions (`StrongBundle.IsIndexAt`, `proposition_6_2_2`, Ch. 3 items
+   340–348); the examples of V4.6 (`remark_4_1_3_example`, Ch. 4 items 140–146) and V5.21 (`ρ` a metric,
    not complete for `ℝ × ℝ → ℝ`, complete for `U = ∅` or a point base, Ch. 5 items 150–153); item 199
    sharpened (re-centring an atlas chart cannot give tame germ data, Ch. 3 items 350–355); weak bump
    functions give pointwise ones at smooth points of sc-Banach spaces (Ch. 5 items 160–164);
@@ -366,7 +366,7 @@ each chapter lands)
    (`Chapter3/RestrictOpen.lean`, `RestrictOpenGerms.lean`), the index along the zero set for tame
    germ data (`index_locally_constant_tame`, `IndexLocallyConstantLocal.lean`), Definition 6.1 with
    the text's locally defined sections (`StrongBundle.IsIndexAtLocal`) and Proposition 6.2 with the
-   text's hypotheses for paths `ℝ → X` (`proposition_6_2_local`, `IndexAlongPathsLocal.lean`), the
+   text's hypotheses for paths `ℝ → X` (`proposition_6_2_2_local`, `IndexAlongPathsLocal.lean`), the
    two readings of Definition 6.1 agreeing under bump functions (`isIndexAtLocal_iff_isIndexAt`,
    `IndexAlongPathsLocalBump.lean`) (Ch. 3 items 349, 360–367).
    Open next steps (none is the hypothesis of a theorem): whether the text's germ reading and the
@@ -384,8 +384,8 @@ each chapter lands)
    switched in place to the text's germ reading: the filling (`IsFillingGerm`) and the sc⁺-section
    (`IsScPlusGerm`) are sc-smooth germs on germs whose levels may shrink. `StrongBundle.IsScFredholmGerm`,
    `IsScFredholmSection`, the tame and good-position variants and the canonical theorems
-   (`theorem_3_12`, `theorem_3_15`, `theorem_3_18`, `proposition_3_52`, `theorem_3_19`, `theorem_3_23`,
-   `theorem_3_54`, `theorem_3_56`, `theorem_3_57`, …; Chapter 5 follows) carry the text's hypotheses
+   (`theorem_3_1_13_preprint`, `theorem_3_1_18_preprint`, `theorem_3_1_21_preprint`, `proposition_3_6_5_preprint`, `theorem_3_1_22`, `theorem_3_1_26`,
+   `theorem_3_6_8`, `theorem_3_6_10`, `theorem_3_6_11`, …; Chapter 5 follows) carry the text's hypotheses
    with no added hypothesis; the whole-chart notions and theorems are kept as `…WholeChart` /
    `…_wholeChart` (142 renamed twins), the phase-2 names as aliases (`GermReadingAliases.lean`).
    Item 221's example is machine-checked (`exists_isScSmoothGerm_not_isScSmooth`). Definition 3.3
@@ -455,6 +455,22 @@ each chapter lands)
     products of Theorem 10.2.2, the universal property of the localization; Chapter 11: §§11.2,
     11.4, G.128, G.130, G.132–G.135); the docstrings of Chapters 9–11 were checked for numbering
     against the 2021 and 2017 texts by the report agents (slips fixed 2026-11-08).
+16. **Gap closing, 2021 names, reviewer checklist** (2026-11-09; the user: "make the math better and
+    more reliable"). New Lean in 752daae, fee9725, d9568d7 (each recorded in the comparison rows and
+    as dated notes in the Findings, 8115a42): 20 gaps closed, 37 narrower rows lifted, the main
+    theorems also stated with the 2021 definitions (`_2021def`), Theorems 5.3.10/5.3.12 in the book's
+    form, the clean orientation theorems 6.6.13/6.6.17/6.6.18, Mathlib `IsManifold` forms of the
+    solution sets. **The Lean names of Chapters 1–8 now carry the 2021 numbers** (791 declarations;
+    old name → new name in `Exposition/rename-2021.tsv`). An old form kept beside the 2021 one is
+    `_preprint`/`_2017` (the statement of the earlier version), `_hyp` (auxiliary hypotheses),
+    `_param` (the form the proof produces), `_of_isRegular` (Theorem 3.2.3 under the added
+    `IsRegular`). **Reviewer checklist**: `Exposition/ReviewerChecklist.md`, generated by
+    `lake env lean Exposition/checklist/TrustedBase.lean` and then
+    `python3 Exposition/checklist/build_checklist.py`; the main statements are listed in both
+    `checklist/mains.json` and `TrustedBase.lean` (keep them in step; regenerate when a main
+    statement or a row's declarations change). Still open: G.45, G.66, G.79 for charts centred at
+    boundary points, V3.89, Lemma 9.4.4 for M-polyfold sheets (G.105), the continuity in G.103, and
+    `d_{C_xX}(0) = d_X(x)` in G.13.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

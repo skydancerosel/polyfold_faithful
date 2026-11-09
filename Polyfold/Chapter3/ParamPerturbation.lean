@@ -5,22 +5,22 @@ import Polyfold.Chapter3.LinearizationCharts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-**Theorem 3.18** (parametrized perturbations; book 2017: Theorem 3.3), with the verification the
+**Theorem 3.1.21 (preprint 3.18)** (parametrized perturbations; book 2017: Theorem 3.3), with the verification the
 text calls "readily verified" and the linearization of the parametrized section used after
-Theorem 3.19 (and for transversality in Chapter 5).
+Theorem 3.1.22 (preprint 3.19) (and for transversality in Chapter 5).
 
 # Parametrized perturbations
 
 ## The text, paraphrased
 
-(Before Theorem 3.18) For a strong bundle `P : Y → X` and an sc-Fredholm section `f`, the
+(Before Theorem 3.1.21 (preprint 3.18)) For a strong bundle `P : Y → X` and an sc-Fredholm section `f`, the
 projection `π : ℝⁿ × X → X` pulls `P` back to the strong bundle `π*(P) : π*Y → ℝⁿ × X`; the
 section `f̃(r, x) = ((r, x), f(x))` of `π*(P)` "is a sc-Fredholm section as is readily
 verified".  For sc⁺-sections `s₁, …, sₙ` of `P`, `s̃(r, x) = ((r, x), Σ rᵢ sᵢ(x))` is an
-sc⁺-section of `π*(P)`, and by Theorem 3.15 `f̃ + s̃` is sc-Fredholm.  (Theorem 3.18) Let
+sc⁺-section of `π*(P)`, and by Theorem 3.1.18 (preprint 3.15) `f̃ + s̃` is sc-Fredholm.  (Theorem 3.1.21 (preprint 3.18)) Let
 `P : Y → X` be a tame strong bundle, `f` an sc-Fredholm section and `s₁, …, sₙ ∈ Γ⁺(P)`.  Then
 `ℝⁿ × X → Y, (r, x) ↦ f(x) + Σ rᵢ sᵢ(x)` defines an sc-Fredholm section of `π*(P)`.  (After
-Theorem 3.19) The linearization of `f̃(r, x) = f(x) + Σ rᵢ sᵢ(x)` at `(0, x₀)` is
+Theorem 3.1.22 (preprint 3.19)) The linearization of `f̃(r, x) = f(x) + Σ rᵢ sᵢ(x)` at `(0, x₀)` is
 `(h, u) ↦ f'(x₀)u + Σ hᵢ eᵢ`, `eᵢ = sᵢ(x₀)`.
 
 ## What is formalized
@@ -31,15 +31,15 @@ Theorem 3.19) The linearization of `f̃(r, x) = f(x) + Σ rᵢ sᵢ(x)` at `(0, 
   `(rnPolyfold n).prod PX`: `prod_rn_mem_levelSet_iff`, `prod_rn_mem_smoothSet_iff` (the levels
   and smooth points of `(r, x)` are those of `x`) and `prod_rn_isTame` (`ℝⁿ × X` is tame when
   `X` is, so `π*P` is a tame strong bundle when `P` is).
-* **The pull-back bundle.**  `Polyfold.StrongBundle.pullback B hπ`: Proposition 2.54 as a
-  structure (the atlas `pullbackAtlas` of all pulled-back charts; `proposition_2_54` states its
+* **The pull-back bundle.**  `Polyfold.StrongBundle.pullback B hπ`: Proposition 2.6.8 (preprint 2.54) as a
+  structure (the atlas `pullbackAtlas` of all pulled-back charts; `proposition_2_6_8` states its
   existence); `exists_pullbackChartData`, `PullbackChartData.isChart_toChart` (a chart pulled
   back from a strong bundle chart *compatible with* the atlas of `P` is a chart of `π*P`);
   `pullbackLift` (the section `z ↦ (z, τ(z))` of a map `τ` over `π`) and
   `StrongBundle.IsScSmoothSection.pullback` (the pull-back of an sc-smooth section along an
   sc-smooth map is sc-smooth).
 * **Two rules of the sc-calculus**: `IsScSmooth.smul` (a scalar factor: `x ↦ a(x) v(x)`, from
-  `isScSmooth_smul`, scalar multiplication `ℝ ⊕ F → F` is sc-smooth, Proposition 1.19) and
+  `isScSmooth_smul`, scalar multiplication `ℝ ⊕ F → F` is sc-smooth, Proposition 1.2.4 (preprint 1.19)) and
   `IsScSmooth.finsetSum`.
 * **The sections.**  `paramSection f hf s hs` is the text's `F(r, x) = f(x) + Σ rᵢ sᵢ(x)`
   (computed in `P⁻¹(x)` and regarded in the fibre of `π*Y` over `(r, x)`), `paramLift` is
@@ -65,40 +65,40 @@ Theorem 3.19) The linearization of `f̃(r, x) = f(x) + Σ rᵢ sᵢ(x)` at `(0, 
   germ**: filled version `(a, u) ↦ g(u)`, sc⁺-section `(a, u) ↦ t₀(u)`, conjugation to the
   `ℝⁿ`-extension of the basic germ of `g − t₀`), `StrongBundle.regularizing_paramLift_wholeChart`,
   `StrongBundle.IsScFredholmSectionWholeChart.param` (**`f̃` is an sc-Fredholm section of `π*P`**), and
-  **`Polyfold.theorem_3_18_wholeChart`**: `F` is an sc-Fredholm section of `π*P`, by Theorem 3.15 as in
-  the text; `theorem_3_18'_wholeChart` is the same with the paracompactness supplied by Theorem 2.16.
-* **Tame germ data** (Definition 3.51, `TameGerms.lean`): `PullbackChartData.ofProd_isTame` (**the
+  **`Polyfold.theorem_3_1_21_wholeChart`**: `F` is an sc-Fredholm section of `π*P`, by Theorem 3.1.18 (preprint 3.15) as in
+  the text; `theorem_3_1_21'_wholeChart` is the same with the paracompactness supplied by Theorem 2.3.10 (preprint 2.16).
+* **Tame germ data** (Definition 3.6.4 (preprint 3.51), `TameGerms.lean`): `PullbackChartData.ofProd_isTame` (**the
   product chart of a tame chart is tame**: the base retraction `1 × r` on `ℝⁿ × U`, with the
   identity of `ℝⁿ` tame and `ScRetraction.IsTameWith.prod`), `StrongBundle.IsScFredholmGermTameWholeChart.param`,
-  `StrongBundle.IsScFredholmSectionTameWholeChart.param` and `Polyfold.theorem_3_18_tame_wholeChart`: **`F` has tame
+  `StrongBundle.IsScFredholmSectionTameWholeChart.param` and `Polyfold.theorem_3_1_21_tame_wholeChart`: **`F` has tame
   germ data when `f` has** (Findings, Chapter 3 item 195).
 * **The linearization.**  `scDeriv_paramSection_wholeChart`: in the product chart at `(r₀, x)`,
   `D(F̂ ∘ (1 × r))(0)(δa, δu) = D(Ĝ ∘ r)(0) δu + Σ δaᵢ ŝᵢ(0)` with `Ĝ = f̂ + Σ r₀ᵢ ŝᵢ`;
   `linAt_paramSection_wholeChart` (the same in the chart form `linAt` of `LinearizationCharts.lean`, on
   `T₀(ℝⁿ × O) ⊆ ℝⁿ × T₀O`, `ofProd_mem_tangent`, `ofProd_scDeriv_r`) and
   `linAt_paramSection_zero_wholeChart` (at `r₀ = 0`: **`(δr, ξ) ↦ f'(x)ξ + Σ δrᵢ sᵢ(x)`**, the text's
-  formula after Theorem 3.19).
+  formula after Theorem 3.1.22 (preprint 3.19)).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Tameness is not used** (as in Theorem 3.15; the book drops "tame" in Theorem 3.18):
-  `theorem_3_18_wholeChart` has no tameness hypothesis.  Since Definition 3.14 is stated for tame strong
+* **Tameness is not used** (as in Theorem 3.1.18 (preprint 3.15); the book drops "tame" in Theorem 3.1.21 (preprint 3.18)):
+  `theorem_3_1_21_wholeChart` has no tameness hypothesis.  Since Definition 3.1.16 (preprint 3.14) is stated for tame strong
   bundles, the text needs `π*P` tame when `P` is; for the base that is `prod_rn_isTame`, for the
-  charts of the germ data (Definition 3.51, what the implicit function theorems of §3.6 use for
-  `F` in Chapter 5) it is `theorem_3_18_tame_wholeChart`.
+  charts of the germ data (Definition 3.6.4 (preprint 3.51), what the implicit function theorems of §3.6 use for
+  `F` in Chapter 5) it is `theorem_3_1_21_tame_wholeChart`.
 * **`ℝⁿ × X` and `π*(P)` are used without being constructed.**  `ℝⁿ` is the M-polyfold with the
   identity chart; its charts include the translations, which the germ property at `(r₀, x)`
-  needs (Definition 3.11 asks for a chart centred at `(r₀, x)`; the product `id × φ` is centred
-  only at `r₀ = 0`).  `π*(P)` carries the "natural structure" of Proposition 2.54 (all
+  needs (Definition 3.1.11 (preprint 3.11) asks for a chart centred at `(r₀, x)`; the product `id × φ` is centred
+  only at `r₀ = 0`).  `π*(P)` carries the "natural structure" of Proposition 2.6.8 (preprint 2.54) (all
   pulled-back charts, through every chart of `ℝⁿ × X`, not only product charts).  Its
-  paracompactness and that of `ℝⁿ × X` (Definitions 2.13, 2.51) are instance arguments, proved
-  by `MPolyfold.paracompactSpace_prod` and `paracompactSpace_pullbackSpace` (Theorem 2.16): not
+  paracompactness and that of `ℝⁿ × X` (Definitions 2.3.4, 2.6.5 (preprint 2.13, 2.51)) are instance arguments, proved
+  by `MPolyfold.paracompactSpace_prod` and `paracompactSpace_pullbackSpace` (Theorem 2.3.10 (preprint 2.16)): not
   added hypotheses.
 * **"`f̃` is a sc-Fredholm section as is readily verified".**  The verification is the
   `ℝⁿ`-extension: in the product chart the filled version, the sc⁺-part and the conjugation are
   those of `f` composed with `(a, u) ↦ u`, and the basic germ is extended to the parameter
   space `C̃ × ℝⁿ` (the new germ of neighbourhoods is unbounded in the `ℝⁿ`-direction, which
-  Definition 3.1 allows; the contraction estimate of Definition 3.28 is uniform in `λ` because
+  Definition 3.1.1 (preprint 3.1) allows; the contraction estimate of Definition 3.3.1 (preprint 3.28) is uniform in `λ` because
   `B'` does not depend on it).  The parameter factor is put second (`Pn × ℝⁿ`) to reuse
   `IsPartialQuadrant.const_prod_univ`; the order is immaterial.
 * **"`s̃` is a sc⁺-section of the pull back bundle"** needs the product rule for a scalar factor
@@ -111,13 +111,13 @@ Theorem 3.19) The linearization of `f̃(r, x) = f(x) + Σ rᵢ sᵢ(x)` at `(0, 
   3.15 (`StrongBundle.IsScFredholmGermWholeChart.sectionAdd`), with `s̃`, whose principal part is
   `(a, u) ↦ Σ (a + r₀)ᵢ ŝᵢ(u)`.  The translation `r − r₀` sits in the chart, so the
   conjugation itself has no translation.
-* **The linearization after Theorem 3.19** is stated at `(0, x₀)` with `f(x₀) = 0`.  At a
+* **The linearization after Theorem 3.1.22 (preprint 3.19)** is stated at `(0, x₀)` with `f(x₀) = 0`.  At a
   general `(r₀, x)` the first term is the linearization of `f + Σ r₀ᵢ sᵢ`, not `f'(x)`
-  (`linAt_paramSection_wholeChart`).  The formula is stated in the chart form `linAt` (Definition 3.53
+  (`linAt_paramSection_wholeChart`).  The formula is stated in the chart form `linAt` (Definition 3.6.6 (preprint 3.53)
   works in charts, gap G.13); it is the derivative at the centre of the chart and does not need
   `F(r₀, x) = 0`.
-* Typos in the passage: "a parametrized version of Proposition 3.15" (Theorem 3.15); after
-  Theorem 3.19, "the sc¹-sections `sᵢ`" (they must be sc⁺, as Theorem 3.18 requires and the
+* Typos in the passage: "a parametrized version of Proposition 3.15" (Theorem 3.1.18 (preprint 3.15)); after
+  Theorem 3.1.22 (preprint 3.19), "the sc¹-sections `sᵢ`" (they must be sc⁺, as Theorem 3.1.21 (preprint 3.18) requires and the
   preceding paragraph provides) and `ℝᵏ ⊕ X` for `ℝᵏ × X`; the symbol `f̃` denotes both
   `((r, x), f(x))` and `f(x) + Σ rᵢ sᵢ(x)`.
 -/
@@ -263,7 +263,7 @@ lemma prod_rn_mem_smoothSet_iff {z : (Fin n → ℝ) × X} :
   simp only [MPolyfold.smoothSet, mem_iInter, prod_rn_mem_levelSet_iff]
 
 /-- **The text's tameness**: `ℝⁿ × X` is tame when `X` is (so `π*P` is a tame strong bundle when
-`P` is, as Definition 3.14 requires). -/
+`P` is, as Definition 3.1.16 (preprint 3.14) requires). -/
 theorem prod_rn_isTame (hX : PX.IsTame) : ((rnPolyfold n).prod PX).IsTame :=
   (MPolyfold.isTame_prod (rnPolyfold n) PX rnPolyfold_isTame hX).1
 
@@ -362,7 +362,7 @@ lemma paramMap_shiftFiber (Φ : E 0 × F 0 → E' 0 × F' 0)
     shiftFiber (paramMap Λ Φ) p =
       ((p.1.1, (shiftFiber Φ (p.1.2, p.2)).1), (shiftFiber Φ (p.1.2, p.2)).2) := rfl
 
-/-- **The product with the identity of `Λ` is a strong bundle map** (Definition 2.47): on `[0]`
+/-- **The product with the identity of `Λ` is a strong bundle map** (Definition 2.6.1 (preprint 2.47)): on `[0]`
 and `[1]` it is `1 × Φ` up to the reassociations of the factors. -/
 theorem IsStrongBundleMap.paramMap {C : Set (E 0)} {U : Set (E 0)} {U' : Set (E' 0)}
     (hU : IsRelOpenInQuadrant E C U) {Φ : E 0 × F 0 → E' 0 × F' 0}
@@ -592,9 +592,9 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {Z : Type w} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z] {PZ : MPolyfold Z}
   {π : Z → X}
 
-/-- **Proposition 2.54** as a structure: the pull-back strong bundle `π*P : π*Y → Z` of the strong
+/-- **Proposition 2.6.8 (preprint 2.54)** as a structure: the pull-back strong bundle `π*P : π*Y → Z` of the strong
 bundle `P : Y → X` along the sc-smooth `π : Z → X`, with the atlas of all pulled-back charts
-(`pullbackAtlas`; `proposition_2_54` states its existence).  The paracompactness of `π*Y` is an
+(`pullbackAtlas`; `proposition_2_6_8` states its existence).  The paracompactness of `π*Y` is an
 instance argument; it holds by `paracompactSpace_pullbackSpace`. -/
 def StrongBundle.pullback (B : StrongBundle PX P) (hπ : PZ.IsScSmoothMap PX π)
     [ParacompactSpace (pullbackSpace P π)] : StrongBundle PZ (pullbackProj P π) where
@@ -741,7 +741,7 @@ def fiberComb (s : Fin n → X → Y) (hs : ∀ i, IsSection P (s i)) (z : (Fin 
     P ⁻¹' {z.2} :=
   ∑ i, z.1 i • (⟨s i z.2, hs i z.2⟩ : P ⁻¹' {z.2})
 
-/-- **The section of Theorem 3.18**: `F(r, x) = f(x) + Σ rᵢ sᵢ(x)`, computed in the fibre
+/-- **The section of Theorem 3.1.21 (preprint 3.18)**: `F(r, x) = f(x) + Σ rᵢ sᵢ(x)`, computed in the fibre
 `P⁻¹(x)` and regarded as a point of the fibre of `π*Y` over `(r, x)`. -/
 def paramSection (f : X → Y) (hf : IsSection P f) (s : Fin n → X → Y)
     (hs : ∀ i, IsSection P (s i)) :
@@ -762,7 +762,7 @@ abbrev paramComb (s : Fin n → X → Y) (hs : ∀ i, IsSection P (s i)) :
 omit [TopologicalSpace X] [T2Space X] [ParacompactSpace X] [TopologicalSpace Y] [T2Space Y]
   [ParacompactSpace Y] [ParacompactSpace ((Fin n → ℝ) × X)]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
-/-- `F = f̃ + s̃`, the sum taken in the fibres of `π*Y` (the text's proof of Theorem 3.18). -/
+/-- `F = f̃ + s̃`, the sum taken in the fibres of `π*Y` (the text's proof of Theorem 3.1.21 (preprint 3.18)). -/
 theorem paramSection_eq_sectionAdd (f : X → Y) (hf : IsSection P f) (s : Fin n → X → Y)
     (hs : ∀ i, IsSection P (s i)) :
     paramSection f hf s hs = sectionAdd (pullbackProj P Prod.snd) (paramLift (n := n) f hf)
@@ -1043,7 +1043,7 @@ omit [T2Space Y] [ParacompactSpace Y]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
 /-- The principal part of `s̃` in the product chart: `(a, u) ↦ Σ (a + r₀)ᵢ ŝᵢ(u)` on `ℝⁿ × O`
 (`a = r − r₀` is the chart coordinate of `r`).  At `r(a, u) = (a, r(u))` it is
-`Σ (a + r₀)ᵢ s̃ᵢ(u)` with `s̃ᵢ = ŝᵢ ∘ r`, the extension of Lemma 3.16 used by Theorem 3.15. -/
+`Σ (a + r₀)ᵢ s̃ᵢ(u)` with `s̃ᵢ = ŝᵢ ∘ r`, the extension of Lemma 3.1.19 (preprint 3.16) used by Theorem 3.1.18 (preprint 3.15). -/
 theorem ofProd_principal_paramComb {s : Fin n → X → Y} (hs : ∀ i, IsSection P (s i))
     {w : (Fin n → ℝ) × c.φ.model.E 0} (hw : w.2 ∈ c.φ.model.O) :
     ((ofProd c r₀).toChart q₀).principal (paramComb s hs) w =
@@ -1053,7 +1053,7 @@ theorem ofProd_principal_paramComb {s : Fin n → X → Y} (hs : ∀ i, IsSectio
 
 omit [T2Space Y] [ParacompactSpace Y]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
-/-- **The principal part of `F` in the product chart** (Theorem 3.18, the text's
+/-- **The principal part of `F` in the product chart** (Theorem 3.1.21 (preprint 3.18), the text's
 `F(r, x) = f(x) + Σ rᵢ sᵢ(x)` read in the chart `(r ↦ r − r₀) × Φ`):
 `(a, u) ↦ f̂(u) + Σ (a + r₀)ᵢ ŝᵢ(u)` on `ℝⁿ × O`; for `r₀ = 0` it is the text's
 `(r, u) ↦ f̂(u) + Σ rᵢ ŝᵢ(u)`. -/
@@ -1135,30 +1135,30 @@ theorem IsScFredholmSectionWholeChart.param (hf : B.IsScFredholmSectionWholeChar
 
 end StrongBundle
 
-/-- **Theorem 3.18 (parametrized perturbations).**  Let `P : Y → X` be a strong bundle, `f` an
+/-- **Theorem 3.1.21 (preprint 3.18) (parametrized perturbations).**  Let `P : Y → X` be a strong bundle, `f` an
 sc-Fredholm section and `s₁, …, sₙ` sc⁺-sections of `P`.  Then
 `F(r, x) = f(x) + Σ rᵢ sᵢ(x)` is an sc-Fredholm section of the pull-back bundle
-`π*P : π*Y → ℝⁿ × X`, `π(r, x) = x` (Proposition 2.54, `StrongBundle.pullback`).
+`π*P : π*Y → ℝⁿ × X`, `π(r, x) = x` (Proposition 2.6.8 (preprint 2.54), `StrongBundle.pullback`).
 
 The proof is the text's: `F = f̃ + s̃` fibrewise (`paramSection_eq_sectionAdd`), `f̃` is
 sc-Fredholm (`IsScFredholmSectionWholeChart.param`), `s̃` is sc⁺ (`isScPlusSection_paramComb`), and
-Theorem 3.15 applies.  The text assumes `P` tame; tameness is not used (as for Theorem 3.15), and
+Theorem 3.1.18 (preprint 3.15) applies.  The text assumes `P` tame; tameness is not used (as for Theorem 3.1.18 (preprint 3.15)), and
 `π*P` is tame when `P` is (`prod_rn_isTame`).  The paracompactness of `ℝⁿ × X` and of `π*Y` are
 instance arguments; they hold by `MPolyfold.paracompactSpace_prod` and
 `paracompactSpace_pullbackSpace`. -/
-theorem theorem_3_18_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSectionWholeChart f)
+theorem theorem_3_1_21_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSectionWholeChart f)
     {s : Fin n → X → Y} (hs : ∀ i, B.IsScPlusSection (s i)) :
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSectionWholeChart
       (paramSection f hf.isScSmooth.1 s fun i => (hs i).1) := by
   rw [paramSection_eq_sectionAdd]
-  exact theorem_3_15_wholeChart hf.param (StrongBundle.isScPlusSection_paramComb hs)
+  exact theorem_3_1_18_wholeChart hf.param (StrongBundle.isScPlusSection_paramComb hs)
 
 omit [ParacompactSpace ((Fin n → ℝ) × X)]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
-/-- **Theorem 3.18 with no instance argument**: the paracompactness of `ℝⁿ × X` and of `π*Y`
-(Definitions 2.13 and 2.51) is supplied by Theorem 2.16 (`MPolyfold.paracompactSpace_prod`,
-`paracompactSpace_pullbackSpace`), in the form of `proposition_2_54`. -/
-theorem theorem_3_18'_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSectionWholeChart f)
+/-- **Theorem 3.1.21 (preprint 3.18) with no instance argument**: the paracompactness of `ℝⁿ × X` and of `π*Y`
+(Definitions 2.3.4 and 2.6.5 (preprint 2.13 and 2.51)) is supplied by Theorem 2.3.10 (preprint 2.16) (`MPolyfold.paracompactSpace_prod`,
+`paracompactSpace_pullbackSpace`), in the form of `proposition_2_6_8`. -/
+theorem theorem_3_1_21'_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSectionWholeChart f)
     {s : Fin n → X → Y} (hs : ∀ i, B.IsScPlusSection (s i)) :
     haveI := MPolyfold.paracompactSpace_prod (rnPolyfold n) PX
     haveI := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin n → ℝ) × X → X))
@@ -1168,9 +1168,9 @@ theorem theorem_3_18'_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf : B.I
   have := MPolyfold.paracompactSpace_prod (rnPolyfold n) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin n → ℝ) × X → X))
     ((rnPolyfold n).prod PX) B
-  exact theorem_3_18_wholeChart hf hs
+  exact theorem_3_1_21_wholeChart hf hs
 
-/-! ### Theorem 3.18 for tame germ data -/
+/-! ### Theorem 3.1.21 (preprint 3.18) for tame germ data -/
 
 namespace PullbackChartData
 
@@ -1198,7 +1198,7 @@ namespace StrongBundle
 variable {B : StrongBundle PX P} {f : X → Y}
 
 /-- **The germ property of `f̃ = f ∘ π` at `(r₀, x)` in a tame chart**: if `(f, x)` has germ data in
-a tame chart `c` (Definition 3.50), then `(f̃, (r₀, x))` has germ data in the product chart
+a tame chart `c` (Definition 3.6.3 (preprint 3.50)), then `(f̃, (r₀, x))` has germ data in the product chart
 `(r ↦ r − r₀) × φ` (`IsScFredholmGermWholeChart.param`), which is tame (`ofProd_isTame`). -/
 theorem IsScFredholmGermTameWholeChart.param (hfs : IsSection P f) {x : X}
     (hg : B.IsScFredholmGermTameWholeChart f x) (r₀ : Fin n → ℝ) :
@@ -1225,7 +1225,7 @@ theorem IsScFredholmGermTameWholeChart.param (hfs : IsSection P f) {x : X}
   · exact IsConjugateToBasicGerm.paramExtend (Fin n → ℝ) c.relOpen hconj
 
 /-- **`f̃(r, x) = ((r, x), f(x))` is an sc-Fredholm section of `π*P` with tame germ data** when
-`f` has tame germ data (Definition 3.51): `IsScFredholmSectionWholeChart.param` and the tame product charts
+`f` has tame germ data (Definition 3.6.4 (preprint 3.51)): `IsScFredholmSectionWholeChart.param` and the tame product charts
 of `IsScFredholmGermTameWholeChart.param`. -/
 theorem IsScFredholmSectionTameWholeChart.param (hf : B.IsScFredholmSectionTameWholeChart f) :
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSectionTameWholeChart
@@ -1236,23 +1236,23 @@ theorem IsScFredholmSectionTameWholeChart.param (hf : B.IsScFredholmSectionTameW
 
 end StrongBundle
 
-/-- **Theorem 3.18 for a tame strong bundle** (parametrized perturbations, Definition 3.51):
+/-- **Theorem 3.1.21 (preprint 3.18) for a tame strong bundle** (parametrized perturbations, Definition 3.6.4 (preprint 3.51)):
 if `f` is an sc-Fredholm section with tame germ data and `s₁, …, sₙ` are sc⁺-sections, then
 `F(r, x) = f(x) + Σ rᵢ sᵢ(x)` is an sc-Fredholm section of `π*P` with tame germ data: `F = f̃ + s̃`,
-`f̃` has tame germ data in the product charts (`IsScFredholmSectionTameWholeChart.param`), and Theorem 3.15
-keeps the chart (`theorem_3_15_tame_wholeChart`).  This is what the implicit function theorems of §3.6 need
-for `F` (Chapter 5, Theorem 5.13). -/
-theorem theorem_3_18_tame_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSectionTameWholeChart f)
+`f̃` has tame germ data in the product charts (`IsScFredholmSectionTameWholeChart.param`), and Theorem 3.1.18 (preprint 3.15)
+keeps the chart (`theorem_3_1_18_tame_wholeChart`).  This is what the implicit function theorems of §3.6 need
+for `F` (Chapter 5, Theorem 5.3.5 (preprint 5.13)). -/
+theorem theorem_3_1_21_tame_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSectionTameWholeChart f)
     {s : Fin n → X → Y} (hs : ∀ i, B.IsScPlusSection (s i)) :
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSectionTameWholeChart
       (paramSection f hf.isScSmooth.1 s fun i => (hs i).1) := by
   rw [paramSection_eq_sectionAdd]
-  exact theorem_3_15_tame_wholeChart hf.param (StrongBundle.isScPlusSection_paramComb hs)
+  exact theorem_3_1_18_tame_wholeChart hf.param (StrongBundle.isScPlusSection_paramComb hs)
 
 /-! ### The linearization of `F` in the product chart -/
 
 /-- **The linearization of `F` at the centre of the product chart** (used for transversality, as
-in the text after Theorem 3.19): in the product chart `(r ↦ r − r₀) × Φ` pulled back from a strong
+in the text after Theorem 3.1.22 (preprint 3.19)): in the product chart `(r ↦ r − r₀) × Φ` pulled back from a strong
 bundle chart `c` with `0 ∈ O`, the derivative of `F̂ ∘ (1 × r)` at `0` is
 `(δa, δu) ↦ D(Ĝ ∘ r)(0) δu + Σ δaᵢ ŝᵢ(0)`, `Ĝ = f̂ + Σ r₀ᵢ ŝᵢ` the principal part of
 `f + Σ r₀ᵢ sᵢ` (the product rule at `a = 0`: the term `Σ aᵢ D(ŝᵢ ∘ r)` vanishes there). -/
@@ -1296,7 +1296,7 @@ theorem scDeriv_paramSection_wholeChart {B : StrongBundle PX P} {f : X → Y} (h
   have hc'B : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsChart c' :=
     d.isChart_toChart B _ hc q₀
   have hΦ : IsScSmooth (univ ×ˢ c.U) (c'.principal Fs ∘ StrongRetr.r c'.R) :=
-    ((((theorem_3_18_wholeChart hf hs).isScSmooth.isScSmoothRetractMap hc'B).comp_isScSmooth
+    ((((theorem_3_1_21_wholeChart hf hs).isScSmooth.isScSmoothRetractMap hc'B).comp_isScSmooth
       (c'.isRetraction.baseRetraction c'.relOpen) c'.base_retract).snd hU'.isScDomain).congr
       hU'.isScDomain fun _ _ => rfl
   have hΦΨ : ∀ w ∈ (univ ×ˢ c.U : Set ((Fin n → ℝ) × c.φ.model.E 0)),
@@ -1441,7 +1441,7 @@ theorem linAt_paramSection_wholeChart {B : StrongBundle PX P} {f : X → Y} (hf 
         ∑ i, w.1 i • c.principal (s i) 0 :=
   scDeriv_paramSection_wholeChart hf hs hc h0O r₀ q₀ w
 
-/-- **The text's form** (after Theorem 3.19): at `r₀ = 0` the linearization of `F` at `(0, x)` is
+/-- **The text's form** (after Theorem 3.1.22 (preprint 3.19)): at `r₀ = 0` the linearization of `F` at `(0, x)` is
 `(δr, ξ) ↦ f'(x)ξ + Σ δrᵢ sᵢ(x)`, in the chart form `Lin_F(0)(δa, δu) = Lin_f(0) δu +
 Σ δaᵢ ŝᵢ(0)`. -/
 theorem linAt_paramSection_zero_wholeChart {B : StrongBundle PX P} {f : X → Y}

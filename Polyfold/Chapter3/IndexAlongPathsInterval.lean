@@ -28,9 +28,9 @@ locally constant.
   functions) and an sc-smooth path `φ : [0, 1] → X` (`unitIntervalPolyfold`, Definition 2.3.8),
   `ind(f, φ(t))` (Definition 6.2.1 with local sections, `IsIndexAtLocal`) is one integer for all
   `t ∈ [0, 1]`; `proposition_6_2_2_interval'` is the text's form `ind(f, φ(0)) = ind(f, φ(1))`.
-  From `proposition_6_2_local`.
+  From `proposition_6_2_2_local`.
 * `Polyfold.proposition_6_2_2_interval_bump`: the same with global sc⁺-sections (`IsIndexAt`)
-  when `X` admits sc-smooth bump functions; from `proposition_6_2'`.
+  when `X` admits sc-smooth bump functions; from `proposition_6_2_2'`.
 * `Polyfold.proposition_6_2_2_interval_of_rn`: the earlier reading (decision D2) is the special
   case of the restriction to `[0, 1]` of an sc-smooth path on `ℝ`
   (`IsScSmoothMap.restrictUnitInterval`); this is also the witness that the path hypothesis is
@@ -85,11 +85,11 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 `[0, 1]`** (preprint: Proposition 6.2): let `f` be an sc-Fredholm section with tame germ data of a
 strong bundle `P : Y → X` (no bump functions) and `φ : [0, 1] → X` an sc-smooth path.  Then
 `ind(f, φ(t))` (Definition 6.2.1 with a locally defined sc⁺-section, `IsIndexAtLocal`) is one
-integer for all `t ∈ [0, 1]`.  From `proposition_6_2_local` applied to `φ ∘ sin²`. -/
+integer for all `t ∈ [0, 1]`.  From `proposition_6_2_2_local` applied to `φ ∘ sin²`. -/
 theorem proposition_6_2_2_interval (hf : B.IsScFredholmSectionTame f) {φ : unitInterval → X}
     (hφ : unitIntervalPolyfold.IsScSmoothMap PX φ) :
     ∃ i : ℤ, ∀ t, B.IsIndexAtLocal f (φ t) i :=
-  exists_forall_of_unitInterval_path (fun _ hψ => proposition_6_2_local hf hψ) hφ
+  exists_forall_of_unitInterval_path (fun _ hψ => proposition_6_2_2_local hf hψ) hφ
 
 /-- **2021 Proposition 6.2.2, the text's form**: `ind(f, φ(0)) = ind(f, φ(1))` for an sc-smooth
 path `φ : [0, 1] → X`, for any two values `i`, `j` of the local index at the ends of the path
@@ -103,12 +103,12 @@ theorem proposition_6_2_2_interval' (hf : B.IsScFredholmSectionTame f) {φ : uni
 
 /-- **2021 Proposition 6.2.2 on `[0, 1]` with global sc⁺-sections** (Definition 6.2.1 with a
 section of `P` on all of `X`, `IsIndexAt`), when `X` admits sc-smooth bump functions.  From
-`proposition_6_2'` applied to `φ ∘ sin²`. -/
+`proposition_6_2_2'` applied to `φ ∘ sin²`. -/
 theorem proposition_6_2_2_interval_bump (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {φ : unitInterval → X}
     (hφ : unitIntervalPolyfold.IsScSmoothMap PX φ) :
     ∃ i : ℤ, ∀ t, B.IsIndexAt f (φ t) i :=
-  exists_forall_of_unitInterval_path (fun _ hψ => proposition_6_2' hbump hf hψ) hφ
+  exists_forall_of_unitInterval_path (fun _ hψ => proposition_6_2_2' hbump hf hψ) hφ
 
 /-- **The reading of decision D2 is a special case**: for an sc-smooth `φ : ℝ → X`, the
 `[0, 1]`-statement applies to its restriction `t ↦ φ(t)`, `t ∈ [0, 1]`

@@ -3,9 +3,9 @@ import Polyfold.Chapter3.GoodPositionGermG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I: the chart
-independence of the linearization at a zero (the local form of Definition 2.38) and the assembly
-of Definition 3.53 at a zero from a chart which is not centred at it, **in the text's germ
-reading** of Definition 3.11 (phase 2): the fillings are sc-smooth germs (`IsFillingGerm`) on germs
+independence of the linearization at a zero (the local form of Definition 2.5.8 (preprint 2.38)) and the assembly
+of Definition 3.6.6 (preprint 3.53) at a zero from a chart which is not centred at it, **in the text's germ
+reading** of Definition 3.1.11 (preprint 3.11) (phase 2): the fillings are sc-smooth germs (`IsFillingGerm`) on germs
 of neighbourhoods whose levels may shrink, so their linearizations are the values of derivative
 families (`IsSc1GermWith G g Dg`), and good position is `IsGoodPositionAtGerm` at `Dg(0)`.
 
@@ -13,8 +13,8 @@ families (`IsSc1GermWith G g Dg`), and good position is `IsGoodPositionAtGerm` a
 
 ## The text, paraphrased
 
-See `LinearizationCharts.lean`: (before Definition 3.4) "`Tg(0) = Tf(0)` on `T₀O`"; (proof of
-Theorem 3.54, last paragraph) the argument at `x₀` is repeated at a zero `y` in a chart centred at
+See `LinearizationCharts.lean`: (before Definition 3.1.4 (preprint 3.4)) "`Tg(0) = Tf(0)` on `T₀O`"; (proof of
+Theorem 3.6.8 (preprint 3.54), last paragraph) the argument at `x₀` is repeated at a zero `y` in a chart centred at
 `y`.
 
 ## What is formalized
@@ -25,12 +25,12 @@ Theorem 3.54, last paragraph) the argument at `x₀` is repeated at a zero `y` i
   `IsFillingGerm.fillerRestrict_eq_linAt` (at a central zero `Lin(0)` is the `Tf̃(0)` of a filling
   germ, `fillerRestrict` for `Dg(0)`), the germ forms of `scDeriv_comp_r_eq_of_eventuallyEq`,
   `linAt_eq_scDeriv` and `IsFilledVersion.fillerRestrict_eq_linAt`.
-* **The assembly of Definition 3.53, germ reading, in a given centred chart `c'`** (filling germ
+* **The assembly of Definition 3.6.6 (preprint 3.53), germ reading, in a given centred chart `c'`** (filling germ
   `g'` with a derivative family `Dg'` on `G' ⊆ U'`):
   `StrongBundle.isGoodPositionAtGerm_of_linAt_surj` (from the linearization `Lin(z)` in a chart `c`
   around `y`, onto `K_z`, kernel in good position) and
   `StrongBundle.isGoodPositionAtGerm_of_linAt_dense` (range of `Lin(z)` containing `ρ(z)F_∞`, with
-  `Dg'(0)` Fredholm as hypothesis — Proposition 3.52 for germs); with the data in `c` a filling
+  `Dg'(0)` Fredholm as hypothesis — Proposition 3.6.5 (preprint 3.52) for germs); with the data in `c` a filling
   germ `g` on `G` with `z ∈ G₁` instead of `Lin(z)`: `StrongBundle.isGoodPositionAtGerm_of_chart`
   and `StrongBundle.isGoodPositionAtGerm_of_chart_dense` (the germ form of
   `isGoodPositionAt_of_chart_dense`).
@@ -50,12 +50,12 @@ Theorem 3.54, last paragraph) the argument at `x₀` is repeated at a zero `y` i
   `0` of `c`); both hold in the consumers, where `z` is the level-`1` lift of a nearby zero
   (Findings, Chapter 3, item 278 (e)).
 * **The surjectivity of `Tf̃'(0)` from a dense subset needs the closed range**, i.e. Proposition
-  3.52 in the chart `c'`; in the germ reading that is Proposition 3.52 for germs (Stage 1 B,
-  `proposition_3_52_local`), not imported here: the `_dense` forms take `IsFredholm (Dg' 0)`
+  3.52 in the chart `c'`; in the germ reading that is Proposition 3.6.5 (preprint 3.52) for germs (Stage 1 B,
+  `proposition_3_6_5_local`), not imported here: the `_dense` forms take `IsFredholm (Dg' 0)`
   as hypothesis.  With the surjectivity of `Lin(z)` onto `K_z` itself no closed range is needed
   (`_surj`, `_of_chart`): `Lin'(0) = Γ ∘ Lin(z) ∘ A⁻¹` is then onto `K'_0`.  The section-level
   `_dense`/`_of_linAt` forms (`isGoodPositionGerm_of_chart_dense`, `isGoodPositionGerm_of_linAt`)
-  are therefore not stated here; they are the chart-level theorems plus Proposition 3.52 for germs.
+  are therefore not stated here; they are the chart-level theorems plus Proposition 3.6.5 (preprint 3.52) for germs.
 -/
 
 open Set Filter Topology Function Module ContinuousLinearMap
@@ -78,7 +78,7 @@ variable (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
 include hU hR
 
 /-- **The bridge to filling germs** (germ reading, phase 2; the germ form of
-`scDeriv_comp_r_eq_of_eventuallyEq`, the text's "`Tg(0) = Tf(0)` on `T₀O`" before Definition 3.4,
+`scDeriv_comp_r_eq_of_eventuallyEq`, the text's "`Tg(0) = Tf(0)` on `T₀O`" before Definition 3.1.4 (preprint 3.4),
 at a level-`1` point `z` of the germ): if `g` is an sc¹-germ on `G₁` with derivative family `Dg`,
 `r(0) = 0`, `z ∈ G₁` with `ι z ∈ O`, and `g` agrees with `f̂` on `O` near `ι z`, then
 `D(f̂ ∘ r)(z) = Dg(z) ∘ Dr(z)`: `g ∘ r` is an sc¹-germ on `r⁻¹(G₁)` with the family
@@ -153,7 +153,7 @@ theorem IsFillingGerm.fillerRestrict_eq_linAt (hR : IsStrongBundleRetraction U R
 
 end LinGerm
 
-/-! ### Definition 3.53 at a zero, from a non-centred chart, germ reading -/
+/-! ### Definition 3.6.6 (preprint 3.53) at a zero, from a non-centred chart, germ reading -/
 
 section Bundle
 
@@ -172,7 +172,7 @@ lemma StrongBundle.IsScSmoothSection.principal_comp_r_isSc1 (hf : B.IsScSmoothSe
     (d.isRetraction.baseRetraction d.relOpen) d.base_retract
   exact ((h1.snd d.relOpen.isScDomain).congr d.relOpen.isScDomain fun _ _ => rfl).isSc1
 
-/-- **The kernel condition of Definition 3.53, germ reading, from a non-centred chart**
+/-- **The kernel condition of Definition 3.6.6 (preprint 3.53), germ reading, from a non-centred chart**
 (phase 2): with the chart change `A`, `Γ` of `linAt_chart_change` between a chart `c` around the
 zero `y` (at the level-`1` point `z` over `φ(y)`) and the chart `c'` centred at `y`, carrying a
 filling germ `g'` with a derivative family `Dg'` on `G' ⊆ U'`: if the kernel of `Lin(z)` is in good
@@ -260,7 +260,7 @@ theorem StrongBundle.isInGoodPositionIn_ker_germ_of_linAt (hf : B.IsScSmoothSect
     change Dg' 0 w = 0
     rw [← hxw]; exact h1.symm
 
-/-- **Definition 3.53 at a zero, from the linearization in a non-centred chart onto `K_z`, germ
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart onto `K_z`, germ
 reading** (phase 2; the chart-level germ form of `isGoodPositionGerm_of_linAt_surj_wholeChart`): if
 `Lin(z) : T_zO → K_z` (`linAt`) in a chart `c` around the zero `y` is onto `K_z` and its kernel is
 in good position to `C_{φ(y)}` inside `T_zO`, then in every chart `c'` centred at `y` carrying a
@@ -321,11 +321,11 @@ theorem StrongBundle.isGoodPositionAtGerm_of_linAt_surj (hf : B.IsScSmoothSectio
   rw [hbr', hkdef, Γ.apply_symm_apply] at h1
   exact ⟨A x, (A x).2, h1.symm⟩
 
-/-- **Definition 3.53 at a zero, from the linearization in a non-centred chart, germ reading**
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart, germ reading**
 (phase 2; the chart-level germ form of `isGoodPositionGerm_of_linAt`, with the dense range
 `ρ(z)F_∞` of `Lin(z)`): as `isGoodPositionAtGerm_of_linAt_surj`, with the range of `Lin(z)`
-containing `ρ(z)k̂` for every smooth `k̂ ∈ F_∞`, and `Dg'(0)` Fredholm (Proposition 3.52 in the
-chart `c'`, germ reading — a hypothesis here, `proposition_3_52_local` of Stage 1 B): the
+containing `ρ(z)k̂` for every smooth `k̂ ∈ F_∞`, and `Dg'(0)` Fredholm (Proposition 3.6.5 (preprint 3.52) in the
+chart `c'`, germ reading — a hypothesis here, `proposition_3_6_5_local` of Stage 1 B): the
 range of `Tf̃'(0)` is closed and contains the dense image under `Γ` of `ρ(z)F_∞`. -/
 theorem StrongBundle.isGoodPositionAtGerm_of_linAt_dense (hf : B.IsScSmoothSection f) {y : X}
     (hy0 : IsZeroAt P f y)
@@ -372,9 +372,9 @@ theorem StrongBundle.isGoodPositionAtGerm_of_linAt_dense (hf : B.IsScSmoothSecti
       linAt c'.U c'.R (c'.principal f) 0 x = Dg' 0 x := fun x =>
     linAt_eq_germDeriv c'.relOpen c'.isRetraction h0U' h0O' (hf.principal_comp_r_isSc1 hc') hg'
       hzO' (G'.zero_mem 1) (by rw [map_zero]; exact hfill'.eq_on) x
-  -- the closed range of `Tf̃'(0)` (Proposition 3.5 for the filling germ, `Dg'(0)` Fredholm)
+  -- the closed range of `Tf̃'(0)` (Proposition 3.1.5 (preprint 3.5) for the filling germ, `Dg'(0)` Fredholm)
   obtain ⟨h1, -, hFiff, -⟩ :=
-    hfill'.proposition_3_5 c'.relOpen c'.isRetraction h0U' hg'0 h0O' hfK' hG'U hg'
+    hfill'.proposition_3_1_5 c'.relOpen c'.isRetraction h0U' hg'0 h0O' hfK' hG'U hg'
   have hTF := hFiff.2 hDgF'
   set q := ρCLM c'.isRetraction h0U' with hq
   have hqidem : ∀ k, q (q k) = q k := ρCLM_idem c'.isRetraction h0U' h0O'
@@ -458,7 +458,7 @@ theorem StrongBundle.linAt_eq_germDeriv_chart (hf : B.IsScSmoothSection f) {y : 
   · rintro ⟨hw, hwT⟩
     exact ⟨⟨w, hwT⟩, by rw [hbr]; exact hw, rfl⟩
 
-/-- **Definition 3.53 at a zero, from a filling germ in a non-centred chart, germ reading**
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from a filling germ in a non-centred chart, germ reading**
 (phase 2; the germ form of `isGoodPositionAt_of_chart_dense` with the surjectivity of `Dg(z)` onto
 `K_z`): let `c` be a chart around the zero `y` with `0 ∈ O`, `g` an sc¹-germ on `G ⊆ U` with a
 derivative family `Dg` (e.g. a filling germ at the centre of `c`), agreeing with `f̂` on `O` near
@@ -493,10 +493,10 @@ theorem StrongBundle.isGoodPositionAtGerm_of_chart (hf : B.IsScSmoothSection f) 
   obtain ⟨x, hxT, hx⟩ := hsurj k hk
   exact ⟨⟨x, hxT⟩, by rw [hbr]; exact hx⟩
 
-/-- **Definition 3.53 at a zero, from a filling germ in a non-centred chart, germ reading, dense
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from a filling germ in a non-centred chart, germ reading, dense
 form** (phase 2; the germ form of `isGoodPositionAt_of_chart_dense`): as
 `isGoodPositionAtGerm_of_chart`, with the range of `Dg(z)|_{T_zO}` containing `ρ(z)k̂` for every
-smooth `k̂ ∈ F_∞`, and `Dg'(0)` Fredholm (Proposition 3.52 in `c'`, germ reading: a hypothesis
+smooth `k̂ ∈ F_∞`, and `Dg'(0)` Fredholm (Proposition 3.6.5 (preprint 3.52) in `c'`, germ reading: a hypothesis
 here). -/
 theorem StrongBundle.isGoodPositionAtGerm_of_chart_dense (hf : B.IsScSmoothSection f) {y : X}
     (hy0 : IsZeroAt P f y)
@@ -526,7 +526,7 @@ theorem StrongBundle.isGoodPositionAtGerm_of_chart_dense (hf : B.IsScSmoothSecti
   obtain ⟨x, hxT, hx⟩ := hsurj k hk
   exact ⟨⟨x, hxT⟩, by rw [hbr]; exact hx⟩
 
-/-- **Definition 3.53 at a zero, from the linearization in a non-centred chart, for a section,
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart, for a section,
 germ reading** (phase 2; the germ form of `isGoodPositionGerm_of_linAt_surj_wholeChart`): if `(f, y)` is an
 sc-Fredholm germ in the germ reading (`IsScFredholmGerm`), `f(y) = 0`, and in some chart `c`
 around `y` the linearization `Lin(z) : T_zO → K_z` is onto with kernel in good position to
@@ -552,7 +552,7 @@ theorem StrongBundle.isGoodPositionGerm_of_linAt_surj (hf : B.IsScSmoothSection 
     hG'U, hg', StrongBundle.isGoodPositionAtGerm_of_linAt_surj hf hy0 hc hyV hz T hT hsurj hker hc'
       hyV' hφ0 h0U' hfill' hG'U hg'⟩
 
-/-- **Definition 3.53 at a zero, from a filling germ in a non-centred chart, for a section, germ
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from a filling germ in a non-centred chart, for a section, germ
 reading** (phase 2; the germ form of `isGoodPositionGerm_of_chart_wholeChart`): as
 `isGoodPositionGerm_of_linAt_surj`, with the data in `c` given by a germ `g` on `G` (derivative
 family `Dg`, `z ∈ G₁`, `0 ∈ O`) agreeing with `f̂` near `φ(y)`, `Dg(z)(T_zO) ⊇ K_z` and

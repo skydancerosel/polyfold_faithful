@@ -8,8 +8,8 @@ import Polyfold.Chapter2.Metrizable
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.2,
-**Definition 3.25** (the `n`-dimensional tangent germ property), **Proposition 3.26** (invariance
-under sc-diffeomorphisms) and **Theorem 3.27** (a subset with the tangent germ property is a
+**Definition 3.2.1 (preprint 3.25)** (the `n`-dimensional tangent germ property), **Proposition 3.2.2 (preprint 3.26)** (invariance
+under sc-diffeomorphisms) and **Theorem 3.2.3 (preprint 3.27)** (a subset with the tangent germ property is a
 tame sub-M-polyfold carrying the structure of a finite-dimensional manifold with boundary with
 corners).
 
@@ -17,62 +17,62 @@ corners).
 
 ## The text, paraphrased
 
-(Definition 3.25) A subset `M` of a tame M-polyfold `X` has the `n`-dimensional tangent germ
+(Definition 3.2.1 (preprint 3.25)) A subset `M` of a tame M-polyfold `X` has the `n`-dimensional tangent germ
 property if (1) `M ⊆ X_∞` and (2) every `x ∈ M` has a chart `ϕ : (U, x) → (O, 0)` onto a tame
 retract `(O, C, E)`, an `n`-dimensional smooth subspace `N ⊆ E` in good position to `C` with a good
 complement `Y`, a relatively open neighbourhood `V` of `0` in `N ∩ C` and a continuous
 `δ : V → Y` with (i) `ϕ(M ∩ U) = {v + δ(v) | v ∈ V}` and (ii) `δ : O(N ∩ C, 0) → (Y, 0)` an
-sc^∞-germ with `δ(0) = 0`, `Dδ(0) = 0`.  (Proposition 3.26) The property is invariant under
-sc-diffeomorphisms.  (Theorem 3.27) Such an `M` is a sub-M-polyfold whose induced structure is
+sc^∞-germ with `δ(0) = 0`, `Dδ(0) = 0`.  (Proposition 3.2.2 (preprint 3.26)) The property is invariant under
+sc-diffeomorphisms.  (Theorem 3.2.3 (preprint 3.27)) Such an `M` is a sub-M-polyfold whose induced structure is
 tame and sc-smoothly equivalent to a manifold with boundary with corners; the map
 `y ↦ π ∘ ϕ(y)` is a smooth chart of `M` around `x`.
 
 ## What is formalized
 
-* `Polyfold.IsScInftyGermAt D δ`: **the reading of "sc^∞-germ" in Definition 3.25 (ii)**: for every
+* `Polyfold.IsScInftyGermAt D δ`: **the reading of "sc^∞-germ" in Definition 3.2.1 (preprint 3.25) (ii)**: for every
   level `m` and every `k` there is a relatively open neighbourhood `V_{m,k}` of `0` in `D = N ∩ C`
-  on which `δ` takes values in `E_m` and is `C^k` into `E_m`.  This is exactly what Corollary 3.34
-  (`corollary_3_34`) and Theorem 3.43/3.47 deliver (Findings 2 and 70): the neighbourhood
-  depends on `k` (and `m`).  (For Corollary 3.34 the fixed-germ reading also holds:
-  `corollary_3_34_isScSmoothGerm`, `GermIFTSmooth.lean`, Findings Chapter 3, items 222, 250.)  The reading "one sc-smooth germ on a fixed sequence `(V_m)`"
+  on which `δ` takes values in `E_m` and is `C^k` into `E_m`.  This is exactly what Corollary 3.3.7 (preprint 3.34)
+  (`corollary_3_3_7`) and Theorem 3.5.6 (preprint 3.43)/3.47 deliver (Findings 2 and 70): the neighbourhood
+  depends on `k` (and `m`).  (For Corollary 3.3.7 (preprint 3.34) the fixed-germ reading also holds:
+  `corollary_3_3_7_isScSmoothGerm`, `GermIFTSmooth.lean`, Findings Chapter 3, items 222, 250.)  The reading "one sc-smooth germ on a fixed sequence `(V_m)`"
   (`IsScSmoothGerm` on an `ScNbhdGerm`) implies it (`IsScSmoothGerm.isScInftyGermAt`), and so
   does set-sense sc-smoothness on a fixed neighbourhood (`IsScSmooth.isScInftyGermAt`); so the
   theorems below cover both readings.
-* `Polyfold.MPolyfold.TangentGermChart P M x n`: the data of **Definition 3.25 (2)** at `x`, and
-  `Polyfold.MPolyfold.HasTangentGermProperty P M n` (**Definition 3.25**).
+* `Polyfold.MPolyfold.TangentGermChart P M x n`: the data of **Definition 3.2.1 (preprint 3.25) (2)** at `x`, and
+  `Polyfold.MPolyfold.HasTangentGermProperty P M n` (**Definition 3.2.1 (preprint 3.25)**).
   **Added hypothesis: `Y` is closed** (the text's good complement is an sc-complement, hence
   closed; it is needed for the projection `π : E → N` along `Y` to be continuous, see
   `TangentGermChart.π`).
-* `Polyfold.proposition_3_26`: **Proposition 3.26** for an sc-diffeomorphism `ψ : X → X'` with
+* `Polyfold.proposition_3_2_2`: **Proposition 3.2.2 (preprint 3.26)** for an sc-diffeomorphism `ψ : X → X'` with
   inverse `ψ'` (`IsScDiffeoOn` on `univ`): `ψ(M)` has the property iff `M` has it; the data at
   `ψ(x)` are the chart `ϕ ∘ ψ⁻¹` (`transportChart`) with the same `N, Y, V, δ`
   (`MPolyfold.TangentGermChart.transport`), and `ψ(M) ⊆ X'_∞` because sc-smooth maps preserve
   the levels (`IsScSmoothOn.mapsTo_levelSet`).
 * `Polyfold.MPolyfold.TangentGermChart.IsRegular`: the two conditions under which the text's
-  proof of Theorem 3.27 goes through, see the findings below: (a) `δ` is sc-smooth on `V` in the
+  proof of Theorem 3.2.3 (preprint 3.27) goes through, see the findings below: (a) `δ` is sc-smooth on `V` in the
   set sense (not only as a germ at `0`), and (b) the projection `π` along `Y` maps `O` into `C`.
-* `Polyfold.theorem_3_27_isSubMPolyfold`: **Theorem 3.27 (1), first clause**, under `IsRegular`
+* `Polyfold.theorem_3_2_3_isSubMPolyfold`: **Theorem 3.2.3 (preprint 3.27) (1), first clause**, under `IsRegular`
   at every point: `M` is a sub-M-polyfold, with the text's retraction `s = ϕ⁻¹ ∘ t ∘ ϕ`,
   `t(v + w) = v + δ(v)`.
-* `Polyfold.MPolyfold.TangentGermChart.chart`: **Theorem 3.27 (2)**: the chart `y ↦ π ∘ ϕ(y)` of
-  `M`, modelled on `(V, N ∩ C, N)`; `theorem_3_27_isChart` (it is a chart of the induced
-  M-polyfold structure of Proposition 2.21), `theorem_3_27_isTame` (the induced structure is tame),
-  `theorem_3_27_isManifoldWithCorners` (an equivalent atlas of finite-dimensional corner charts,
+* `Polyfold.MPolyfold.TangentGermChart.chart`: **Theorem 3.2.3 (preprint 3.27) (2)**: the chart `y ↦ π ∘ ϕ(y)` of
+  `M`, modelled on `(V, N ∩ C, N)`; `theorem_3_2_3_isChart` (it is a chart of the induced
+  M-polyfold structure of Proposition 2.3.19 (preprint 2.21)), `theorem_3_2_3_isTame` (the induced structure is tame),
+  `theorem_3_2_3_isManifoldWithCorners` (an equivalent atlas of finite-dimensional corner charts,
   `MPolyfold.IsManifoldWithCorners`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **"sc^∞-germ" in (ii) is read with `k`-dependent neighbourhoods** (`IsScInftyGermAt`); see
   above.  With this reading, condition (ii) does **not** give an sc-smooth map on a fixed
-  neighbourhood of `0`, which is what the retraction `t` of the proof of Theorem 3.27 needs
-  (Definition 2.20 asks for an sc-smooth retraction on a fixed open set).
+  neighbourhood of `0`, which is what the retraction `t` of the proof of Theorem 3.2.3 (preprint 3.27) needs
+  (Definition 2.3.18 (preprint 2.20) asks for an sc-smooth retraction on a fixed open set).
 * **The step "δ is an sc^∞-germ near every `v₀ ∈ V`" of the text's proof fails as stated.**  The
   text linearizes `w ↦ π ∘ ϕ ∘ ψ⁻¹(w + τ(w))` at `0` and asserts that `h ↦ π ∘ T(ϕ ∘ ψ⁻¹)(0)h` is
   an isomorphism `N' → N`; this needs `δ` differentiable at `v₀` (the tangent space of the graph
   at `v₀ + δ(v₀)`), which is known only near `0`.  Example: `X = ℝ²`, `M` a smooth embedded curve
   through `0` tangent to the `x`-axis which has a vertical tangent at `(2, 4)`, chart `ϕ = id`,
   `N` the `x`-axis, `δ = g` with `M = graph g`, `g(s) = s²` near `0`, `g(s) = 4 + (s − 2)^{1/3}` near
-  `2`: all conditions of Definition 3.25 hold (at `(2, 4)` use the rotated chart), `δ` is smooth
+  `2`: all conditions of Definition 3.2.1 (preprint 3.25) hold (at `(2, 4)` use the rotated chart), `δ` is smooth
   at `0` but not at `v₀ = 2`, so "`v ↦ ϕ⁻¹(v + δ(v))` is an injective sc-smooth map" and "the map
   `U ∩ M → V, y ↦ π ∘ ϕ(y)` defines a smooth chart" are false on the whole `U`.  The statement is
   saved by shrinking `U` to where `δ` is sc-smooth; formally this is condition (a) of `IsRegular`
@@ -83,14 +83,14 @@ tame and sc-smoothly equivalent to a manifold with boundary with corners; the ma
   text's `t(v + w) = v + δ(v)` is not defined on a neighbourhood of `0` in `O = C`.  It holds when
   `π(O) ⊆ C` (condition (b) of `IsRegular`).  A closed good complement `Y'` with `π'(C) ⊆ N ∩ C`
   always exists (`exists_goodComplement_projectsInto`, `GoodComplementProjection.lean`, Finding
-  131: the projection keeps a set `S` of coordinates `ℓ_i` of the normal form of Proposition 3.22,
+  131: the projection keeps a set `S` of coordinates `ℓ_i` of the normal form of Proposition 3.1.25 (preprint 3.22),
   `S = Σ` the coordinates vanishing at a nonzero point of `N ∩ C` when `Σ ≠ ∅`, and one kept
   coordinate when `Σ = ∅` and `N ∩ C ≠ N` — the case which the sketch of Finding 83, projecting
   along the `ℓ_i`, `i ∈ Σ`, misses).  For an arbitrary `M` with the tangent germ property,
   `ϕ(M ∩ U)` then has to be re-written as a graph over `N` along `Y'`, which needs the quadrant
-  inverse function theorem (Theorem 3.72) and is not done here; for the solution set of an
-  sc-Fredholm section the complement is chosen in Theorem 3.43 instead
-  (`theorem_3_54_tangentGermChart_proj_wholeChart`, Findings 130–133).
+  inverse function theorem (Theorem 3.8.15 (preprint 3.72)) and is not done here; for the solution set of an
+  sc-Fredholm section the complement is chosen in Theorem 3.5.6 (preprint 3.43) instead
+  (`theorem_3_6_8_tangentGermChart_proj_wholeChart`, Findings 130–133).
 * **"Manifold with boundary with corners"**: Chapter 4 of the text; here the induced structure is
   called a manifold with corners if it has an equivalent atlas of charts modelled on relatively
   open subsets of partial quadrants of finite-dimensional spaces of dimension `n`
@@ -105,23 +105,23 @@ noncomputable section
 
 namespace Polyfold
 
-/-! ### sc^∞-germs on a finite-dimensional partial quadrant (the reading of Definition 3.25 (ii)) -/
+/-! ### sc^∞-germs on a finite-dimensional partial quadrant (the reading of Definition 3.2.1 (preprint 3.25) (ii)) -/
 
 section FinGerm
 
 variable {N : Type} [NormedAddCommGroup N] [NormedSpace ℝ N] [FiniteDimensional ℝ N] {E : ScBanach}
 
-/-- **The reading of "sc^∞-germ `δ : O(N ∩ C, 0) → (Y, 0)`" of Definition 3.25 (ii)**: for every
+/-- **The reading of "sc^∞-germ `δ : O(N ∩ C, 0) → (Y, 0)`" of Definition 3.2.1 (preprint 3.25) (ii)**: for every
 level `m` and every `k` there is a relatively open neighbourhood `V_{m,k}` of `0` in `D = N ∩ C`
 such that `δ(V_{m,k}) ⊆ E_m` and `δ : V_{m,k} → E_m` is of class `C^k`.  The neighbourhood depends
-on `k` and `m`, as in Corollary 3.34 (Finding 2). -/
+on `k` and `m`, as in Corollary 3.3.7 (preprint 3.34) (Finding 2). -/
 def IsScInftyGermAt (D : Set N) (δ : N → E 0) : Prop :=
   ∀ m k : ℕ, ∃ V : Set N, (∃ O : Set N, IsOpen O ∧ V = O ∩ D) ∧ (0 : N) ∈ V ∧
     (∀ v ∈ V, δ v ∈ range (E.toBase m)) ∧
     ContDiffOn ℝ k (levelMap (E := ScBanach.const N) (F := E) δ m) V
 
 /-- The fixed-germ reading implies the `k`-dependent one: an sc-smooth germ on a germ of
-neighbourhoods `G` in `N` is `C^k` into `E_m` on `G.U (m + k)` (Proposition 1.18 for germs). -/
+neighbourhoods `G` in `N` is `C^k` into `E_m` on `G.U (m + k)` (Proposition 1.2.3 (preprint 1.18) for germs). -/
 theorem IsScSmoothGerm.isScInftyGermAt {D : Set N} (hD : IsQuadrantLike (ScBanach.const N) D)
     (G : ScNbhdGerm (ScBanach.const N) D) {δ : N → E 0} (h : IsScSmoothGerm G δ) :
     IsScInftyGermAt D δ := by
@@ -209,7 +209,7 @@ theorem isScSmooth_subtype_val (hN : N ≤ E.smooth) {V : Set N}
 
 end Inclusion
 
-/-! ### Definition 3.25: the tangent germ property -/
+/-! ### Definition 3.2.1 (preprint 3.25): the tangent germ property -/
 
 namespace MPolyfold
 
@@ -217,7 +217,7 @@ universe u v
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- **Definition 3.25 (2), the data at a point `x` of `M`**: a chart `ϕ : (U, x) → (O, 0)` of `X`
+/-- **Definition 3.2.1 (preprint 3.25) (2), the data at a point `x` of `M`**: a chart `ϕ : (U, x) → (O, 0)` of `X`
 onto a tame retract `(O, C, E)`, an `n`-dimensional smooth subspace `N ⊆ E` in good position to `C`
 with a good complement `Y` (**added hypothesis: `Y` closed**, the text's sc-complement), a relatively
 open neighbourhood `V` of `0` in `N ∩ C` and a continuous map `δ : V → Y` with
@@ -253,7 +253,7 @@ structure TangentGermChart (M : Set X) (x : X) (n : ℕ) where
   δ_zero : δ 0 = 0
   fderivWithin_zero : fderivWithin ℝ δ (Subtype.val ⁻¹' φ.model.C) 0 = 0
 
-/-- **Definition 3.25**: the subset `M ⊆ X` has the **`n`-dimensional tangent germ property**:
+/-- **Definition 3.2.1 (preprint 3.25)**: the subset `M ⊆ X` has the **`n`-dimensional tangent germ property**:
 (1) `M ⊆ X_∞`, (2) every point of `M` has the data of `TangentGermChart`. -/
 def HasTangentGermProperty (M : Set X) (n : ℕ) : Prop :=
   M ⊆ P.smoothSet ∧ ∀ x ∈ M, Nonempty (P.TangentGermChart M x n)
@@ -264,9 +264,9 @@ variable {P} {M : Set X} {x : X} {n : ℕ} (d : P.TangentGermChart M x n)
 
 instance : FiniteDimensional ℝ d.N := d.finiteDimensional
 
-/-- `N ∩ C` is a partial quadrant in `N` (Proposition 3.22). -/
+/-- `N ∩ C` is a partial quadrant in `N` (Proposition 3.1.25 (preprint 3.22)). -/
 theorem isPartialQuadrant : IsPartialQuadrant (ScBanach.const d.N) (Subtype.val ⁻¹' d.φ.model.C) :=
-  proposition_3_22 d.φ.model.isPartialQuadrant d.goodPosition
+  proposition_3_1_25 d.φ.model.isPartialQuadrant d.goodPosition
 
 /-- `V` is a relatively open subset of the partial quadrant `N ∩ C`. -/
 theorem V_isRelOpenInQuadrant :
@@ -318,17 +318,17 @@ lemma exists_eq_Γ {y : X} (hy : y ∈ M ∩ d.φ.source) : d.π (d.φ y) ∈ d.
   have hπ : d.π (d.φ y) = v := by rw [← hvy]; exact d.π_graph v
   exact ⟨hπ ▸ hv, by rw [hπ]; exact hvy.symm⟩
 
-/-- The two conditions under which the text's proof of Theorem 3.27 goes through (see the module
+/-- The two conditions under which the text's proof of Theorem 3.2.3 (preprint 3.27) goes through (see the module
 docstring): (a) `δ` is sc-smooth on `V` in the set sense; (b) the projection `π` along `Y` maps
 the retract `O` into `C` (so that `Σ ∩ O = {z ∈ O | πz ∈ V}` is relatively open in `O`). -/
 structure IsRegular : Prop where
   isScSmooth : IsScSmooth (E := ScBanach.const d.N) (F := d.φ.model.E) d.V d.δ
   π_mem : ∀ z ∈ d.φ.model.O, (d.π z : d.φ.model.E 0) ∈ d.φ.model.C
 
-/-- The set `Σ ∩ O = {z ∈ O | πz ∈ V}` of the proof of Theorem 3.27. -/
+/-- The set `Σ ∩ O = {z ∈ O | πz ∈ V}` of the proof of Theorem 3.2.3 (preprint 3.27). -/
 def Sig : Set (d.φ.model.E 0) := {z | z ∈ d.φ.model.O ∧ d.π z ∈ d.V}
 
-/-- The retraction `t(v + w) = v + δ(v)` of the proof of Theorem 3.27. -/
+/-- The retraction `t(v + w) = v + δ(v)` of the proof of Theorem 3.2.3 (preprint 3.27). -/
 def t : d.φ.model.E 0 → d.φ.model.E 0 := fun z => d.Γ (d.π z)
 
 lemma t_apply (z : d.φ.model.E 0) : d.t z = (d.π z : d.φ.model.E 0) + d.δ (d.π z) := rfl
@@ -406,7 +406,7 @@ theorem Γ_isScSmooth (hreg : d.IsRegular) :
     (isScSmooth_subtype_val d.smooth d.V_isRelOpenInQuadrant.isScDomain) hreg.isScSmooth
 
 /-- The projection `π` is sc-smooth `E → N` (a continuous linear map into a finite-dimensional
-space, Corollary 1.20). -/
+space, Corollary 1.2.5 (preprint 1.20)). -/
 theorem π_isScSmooth : IsScSmooth (E := d.φ.model.E) (F := ScBanach.const d.N) univ d.π :=
   IsScSmooth.of_contDiffOn_finiteDimensional (isScDomain_univ _) d.π.contDiff.contDiffOn
 
@@ -424,12 +424,12 @@ theorem t_isScSmoothRetractMap (hreg : d.IsRegular) :
     exact IsScSmooth.comp (E := d.φ.model.E) (F := ScBanach.const d.N) (G := d.φ.model.E)
       R.isScDomain d.V_isRelOpenInQuadrant.isScDomain (d.Γ_isScSmooth hreg) hπR hmaps
 
-/-- The retraction `s = ϕ⁻¹ ∘ t ∘ ϕ` is sc-smooth on `U₀` (Definition 2.14, in the chart `ϕ`). -/
+/-- The retraction `s = ϕ⁻¹ ∘ t ∘ ϕ` is sc-smooth on `U₀` (Definition 2.3.8 (preprint 2.14), in the chart `ϕ`). -/
 theorem s_isScSmoothOn (hreg : d.IsRegular) : P.IsScSmoothOn P d.s d.U₀ := by
   have hcont : ContinuousOn d.s d.U₀ := by
     have h1 : ContinuousOn d.t d.Sig :=
       (d.t_isScSmoothRetractMap hreg).continuousOn
-        (by obtain ⟨O', hO', hSig⟩ := d.Sig_eq hreg; rw [hSig]; exact proposition_2_10_1 d.φ.model.isScRetract hO')
+        (by obtain ⟨O', hO', hSig⟩ := d.Sig_eq hreg; rw [hSig]; exact proposition_2_3_1_one d.φ.model.isScRetract hO')
     refine d.φ.continuousOn_invFun.comp (h1.comp (d.φ.continuousOn_toFun.mono fun y hy => hy.1) fun y hy => hy.2) ?_
     intro y hy
     exact (d.t_mem_Sig hy.2).1
@@ -443,25 +443,25 @@ theorem s_isScSmoothOn (hreg : d.IsRegular) : P.IsScSmoothOn P d.s d.U₀ := by
 
 end TangentGermChart
 
-/-- **Theorem 3.27 (1), first clause**: if every point of `M` has the data of Definition 3.25 (2)
+/-- **Theorem 3.2.3 (preprint 3.27) (1), first clause**: if every point of `M` has the data of Definition 3.2.1 (preprint 3.25) (2)
 satisfying the regularity conditions `IsRegular` (under which the text's proof goes through, see
-the module docstring), then `M` is a sub-M-polyfold of `X` (Definition 2.20), with the text's
+the module docstring), then `M` is a sub-M-polyfold of `X` (Definition 2.3.18 (preprint 2.20)), with the text's
 retraction `s = ϕ⁻¹ ∘ t ∘ ϕ`, `t(v + w) = v + δ(v)`, on `U₀ = ϕ⁻¹(Σ ∩ O)`. -/
-theorem _root_.Polyfold.theorem_3_27_isSubMPolyfold {M : Set X} {n : ℕ}
+theorem _root_.Polyfold.theorem_3_2_3_isSubMPolyfold {M : Set X} {n : ℕ}
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) : P.IsSubMPolyfold M := by
   intro a ha
   obtain ⟨d, hreg⟩ := hM a ha
   exact ⟨d.U₀, d.isOpen_U₀ hreg, d.mem_U₀, d.s, fun y hy => (d.s_mem hy).2, d.s_isScSmoothOn hreg,
     fun y hy => d.s_s hy, d.image_s⟩
 
-/-! ### Theorem 3.27: the chart `π ∘ ϕ` and the induced structure -/
+/-! ### Theorem 3.2.3 (preprint 3.27): the chart `π ∘ ϕ` and the induced structure -/
 
 variable {P}
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
 
 /-- **Manifold with boundary with corners of dimension `n`** (Chapter 4 of the text), as far as
-Theorem 3.27 needs it: the M-polyfold structure has an equivalent atlas all of whose charts are
+Theorem 3.2.3 (preprint 3.27) needs it: the M-polyfold structure has an equivalent atlas all of whose charts are
 modelled on relatively open subsets of partial quadrants of finite-dimensional spaces of dimension
 `n`; the transition maps are then classically smooth (`isScSmooth_iff_contDiffOn_const`). -/
 def IsManifoldWithCorners (Q : MPolyfold X) (n : ℕ) : Prop :=
@@ -494,7 +494,7 @@ lemma chartInv_val (a₀ : M) {v : d.N} (hv : v ∈ d.V) : (d.chartInv a₀ v).1
 lemma Γ_continuousOn : ContinuousOn d.Γ d.V :=
   continuous_subtype_val.continuousOn.add d.continuousOn
 
-/-- **Theorem 3.27 (2), the chart**: `y ↦ π ∘ ϕ(y)` on `M ∩ U₀`, a chart of `M` with the local
+/-- **Theorem 3.2.3 (preprint 3.27) (2), the chart**: `y ↦ π ∘ ϕ(y)` on `M ∩ U₀`, a chart of `M` with the local
 model `(V, N ∩ C, N)` (its inverse is `γ(v) = ϕ⁻¹(v + δ(v))`). -/
 def chart (hreg : d.IsRegular) (a₀ : M) : MChart M where
   model := d.model
@@ -551,7 +551,7 @@ theorem chart_isCorner : IsRelOpenInQuadrant (d.chart hreg a₀).model.E (d.char
 /-- The point `x` lies in the source of its chart. -/
 lemma mem_chart_source (hx : x ∈ M) : (⟨x, hx⟩ : M) ∈ (d.chart hreg a₀).source := d.mem_U₀
 
-/-! ### Compatibility with the charts of the sub-M-polyfold (Proposition 2.21) -/
+/-! ### Compatibility with the charts of the sub-M-polyfold (Proposition 2.3.19 (preprint 2.21)) -/
 
 /-- The graph map `Γ` as an sc-smooth map between retracts, from a sub-retract `O₁ ⊆ V` of the
 model into the retract `O'` of `E` containing its image. -/
@@ -577,7 +577,7 @@ theorem π_isScSmoothRetractMap (O' : Set (d.φ.model.E 0)) (C' : Set d.N) :
 variable {φ' : MChart X} (d' : P.SubData M) (hφ' : P.IsChart φ') (b₀ : M)
 
 /-- The chart `π ∘ ϕ` of `M` is compatible with every chart of the sub-M-polyfold structure of
-Proposition 2.21: both transition maps are compositions of the transition map `ϕ' ∘ ϕ⁻¹` of `X`
+Proposition 2.3.19 (preprint 2.21): both transition maps are compositions of the transition map `ϕ' ∘ ϕ⁻¹` of `X`
 with `Γ` and `π`. -/
 theorem chart_compatible_subChart :
     (d.chart hreg a₀).Compatible (subChart d' hφ' b₀) := by
@@ -632,42 +632,42 @@ theorem chart_compatible_subChart :
 
 end TangentGermChart
 
-/-! ### Theorem 3.27: the induced structure -/
+/-! ### Theorem 3.2.3 (preprint 3.27): the induced structure -/
 
 section Thm327
 
 variable (P) {M : Set X} {n : ℕ}
 
-/-- The charts `π ∘ ϕ` of all the regular data of Definition 3.25 (2). -/
+/-- The charts `π ∘ ϕ` of all the regular data of Definition 3.2.1 (preprint 3.25) (2). -/
 def tangentCharts : Set (MChart M) :=
   {κ | ∃ (x : X) (_ : x ∈ M) (d : P.TangentGermChart M x n) (hreg : d.IsRegular) (a₀ : M),
     κ = d.chart hreg a₀}
 
-/-- Every chart `π ∘ ϕ` is a chart of the induced M-polyfold structure of Proposition 2.21
+/-- Every chart `π ∘ ϕ` is a chart of the induced M-polyfold structure of Proposition 2.3.19 (preprint 2.21)
 (**Theorem 3.27 (2)**: "a smooth chart on `M` around the point `x`", here: a chart of the
 induced structure, modelled on `(V, N ∩ C, N)`). -/
-theorem theorem_3_27_isChart [ParacompactSpace M]
+theorem theorem_3_2_3_isChart [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) {x : X}
     (d : P.TangentGermChart M x n) (hreg : d.IsRegular) (a₀ : M) :
-    (subPolyfold (theorem_3_27_isSubMPolyfold P hM)).IsChart (d.chart hreg a₀) := by
+    (subPolyfold (theorem_3_2_3_isSubMPolyfold P hM)).IsChart (d.chart hreg a₀) := by
   rintro _ ⟨d', φ', hφ', b₀, rfl⟩
   exact d.chart_compatible_subChart hreg a₀ d' hφ' b₀
 
-/-- The charts `π ∘ ϕ` are pairwise compatible (through the charts of Proposition 2.21). -/
+/-- The charts `π ∘ ϕ` are pairwise compatible (through the charts of Proposition 2.3.19 (preprint 2.21)). -/
 theorem tangentCharts_compatible [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) :
     ∀ κ ∈ tangentCharts P (M := M) (n := n), ∀ κ' ∈ tangentCharts P (M := M) (n := n),
       κ.Compatible κ' := by
   rintro _ ⟨x, hx, d, hreg, a₀, rfl⟩ _ ⟨x', hx', d', hreg', a₀', rfl⟩
-  have hsub := theorem_3_27_isSubMPolyfold P hM
+  have hsub := theorem_3_2_3_isSubMPolyfold P hM
   refine MChart.compatible_of_locally _ _ (subAtlas hsub).charts ?_ ?_ fun y _ => ?_
   · intro χ hχ
-    exact theorem_3_27_isChart P hM d hreg a₀ χ hχ
+    exact theorem_3_2_3_isChart P hM d hreg a₀ χ hχ
   · intro χ hχ
-    exact (theorem_3_27_isChart P hM d' hreg' a₀' χ hχ).symm
+    exact (theorem_3_2_3_isChart P hM d' hreg' a₀' χ hχ).symm
   · exact (subAtlas hsub).cover y
 
-/-- **The atlas of Theorem 3.27**: the charts `π ∘ ϕ`. -/
+/-- **The atlas of Theorem 3.2.3 (preprint 3.27)**: the charts `π ∘ ϕ`. -/
 def germAtlas [ParacompactSpace M] (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular)
     (hne : M.Nonempty) : MAtlas M where
   charts := tangentCharts P (M := M) (n := n)
@@ -676,56 +676,56 @@ def germAtlas [ParacompactSpace M] (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart
     obtain ⟨d, hreg⟩ := hM y.1 y.2
     exact ⟨d.chart hreg ⟨hne.some, hne.some_mem⟩, ⟨y.1, y.2, d, hreg, _, rfl⟩, d.mem_U₀⟩
 
-/-- **Theorem 3.27 (1)**, the induced structure: the atlas of the charts `π ∘ ϕ` is equivalent
-to the induced atlas of Proposition 2.21. -/
-theorem theorem_3_27_atlas_equiv [ParacompactSpace M]
+/-- **Theorem 3.2.3 (preprint 3.27) (1)**, the induced structure: the atlas of the charts `π ∘ ϕ` is equivalent
+to the induced atlas of Proposition 2.3.19 (preprint 2.21). -/
+theorem theorem_3_2_3_atlas_equiv [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) (hne : M.Nonempty) :
-    (germAtlas P hM hne).Equiv (subPolyfold (theorem_3_27_isSubMPolyfold P hM)).atlas := by
+    (germAtlas P hM hne).Equiv (subPolyfold (theorem_3_2_3_isSubMPolyfold P hM)).atlas := by
   rw [MAtlas.equiv_iff]
   rintro _ ⟨x, hx, d, hreg, a₀, rfl⟩ χ hχ
-  exact theorem_3_27_isChart P hM d hreg a₀ χ hχ
+  exact theorem_3_2_3_isChart P hM d hreg a₀ χ hχ
 
-/-- **Theorem 3.27 (1)**: the induced M-polyfold structure on `M` is tame (its charts `π ∘ ϕ` are
+/-- **Theorem 3.2.3 (preprint 3.27) (1)**: the induced M-polyfold structure on `M` is tame (its charts `π ∘ ϕ` are
 modelled on the tame retracts `(V, N ∩ C, N)`). -/
-theorem theorem_3_27_isTame [ParacompactSpace M]
+theorem theorem_3_2_3_isTame [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) (hne : M.Nonempty) :
-    (subPolyfold (theorem_3_27_isSubMPolyfold P hM)).IsTame := by
-  refine ⟨germAtlas P hM hne, theorem_3_27_atlas_equiv P hM hne, ?_⟩
+    (subPolyfold (theorem_3_2_3_isSubMPolyfold P hM)).IsTame := by
+  refine ⟨germAtlas P hM hne, theorem_3_2_3_atlas_equiv P hM hne, ?_⟩
   rintro _ ⟨x, hx, d, hreg, a₀, rfl⟩
   exact d.model_isTameRetract
 
-/-- **Theorem 3.27 (1)**: the induced M-polyfold structure on `M` is sc-smoothly equivalent to the
+/-- **Theorem 3.2.3 (preprint 3.27) (1)**: the induced M-polyfold structure on `M` is sc-smoothly equivalent to the
 structure of an `n`-dimensional manifold with boundary with corners (`IsManifoldWithCorners`). -/
-theorem theorem_3_27_isManifoldWithCorners [ParacompactSpace M]
+theorem theorem_3_2_3_isManifoldWithCorners [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) (hne : M.Nonempty) :
-    (subPolyfold (theorem_3_27_isSubMPolyfold P hM)).IsManifoldWithCorners n := by
-  refine ⟨germAtlas P hM hne, theorem_3_27_atlas_equiv P hM hne, ?_⟩
+    (subPolyfold (theorem_3_2_3_isSubMPolyfold P hM)).IsManifoldWithCorners n := by
+  refine ⟨germAtlas P hM hne, theorem_3_2_3_atlas_equiv P hM hne, ?_⟩
   rintro _ ⟨x, hx, d, hreg, a₀, rfl⟩
   exact d.chart_isCorner hreg a₀
 
-/-- **The degeneracy index of `M` in the chart `π ∘ ϕ`** (Theorem 3.27 with Lemma 2.26 /
-Proposition 2.36): since the chart `π ∘ ϕ` has the tame model `(V, N ∩ C, N)`,
-`d_M(y) = d_{N ∩ C}(π ∘ ϕ(y))` for `y ∈ M ∩ U₀`.  (Lemma 3.70 then gives
+/-- **The degeneracy index of `M` in the chart `π ∘ ϕ`** (Theorem 3.2.3 (preprint 3.27) with Lemma 2.4.6 (preprint 2.26) /
+Proposition 2.5.6 (preprint 2.36)): since the chart `π ∘ ϕ` has the tame model `(V, N ∩ C, N)`,
+`d_M(y) = d_{N ∩ C}(π ∘ ϕ(y))` for `y ∈ M ∩ U₀`.  (Lemma 3.8.13 (preprint 3.70) then gives
 `d_{N ∩ C}(v) = d_C(v + δ(v)) = d_X(y)` for `v = π ∘ ϕ(y) ∉ N ∩ W` near `0`, in the model
 `E = ℝⁿ ⊕ W`; its transport to a general presentation of `C` is not done here.) -/
-theorem theorem_3_27_degIndex [ParacompactSpace M]
+theorem theorem_3_2_3_degIndex [ParacompactSpace M]
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) {x : X}
     (d : P.TangentGermChart M x n) (hreg : d.IsRegular) (a₀ : M) {y : M} (hy : y.1 ∈ d.U₀) :
-    (subPolyfold (theorem_3_27_isSubMPolyfold P hM)).degIndex y =
+    (subPolyfold (theorem_3_2_3_isSubMPolyfold P hM)).degIndex y =
       Polyfold.degIndex (ScBanach.const d.N) (Subtype.val ⁻¹' d.φ.model.C) (d.π (d.φ y.1)) :=
-  (subPolyfold (theorem_3_27_isSubMPolyfold P hM)).degIndex_eq_chartDegIndex_of_isTameRetract
-    (theorem_3_27_isChart P hM d hreg a₀) d.model_isTameRetract hy
+  (subPolyfold (theorem_3_2_3_isSubMPolyfold P hM)).degIndex_eq_chartDegIndex_of_isTameRetract
+    (theorem_3_2_3_isChart P hM d hreg a₀) d.model_isTameRetract hy
 
 end Thm327
 
 end MPolyfold
 
-/-- **Theorem 3.27** (under the regularity conditions `IsRegular` at every point, see the module
+/-- **Theorem 3.2.3 (preprint 3.27)** (under the regularity conditions `IsRegular` at every point, see the module
 docstring): a subset `M` of an M-polyfold `X` with the `n`-dimensional tangent germ property is a
-sub-M-polyfold of `X` whose induced M-polyfold structure (Proposition 2.21) is tame and equivalent
+sub-M-polyfold of `X` whose induced M-polyfold structure (Proposition 2.3.19 (preprint 2.21)) is tame and equivalent
 to the structure of an `n`-dimensional manifold with boundary with corners; the charts are the
 maps `y ↦ π ∘ ϕ(y)` of (2). -/
-theorem theorem_3_27 {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
+theorem theorem_3_2_3_of_isRegular {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
     (P : MPolyfold X) {M : Set X} {n : ℕ} (hne : M.Nonempty)
     (hM : ∀ x ∈ M, ∃ d : P.TangentGermChart M x n, d.IsRegular) :
     ∃ hsub : P.IsSubMPolyfold M,
@@ -735,12 +735,12 @@ theorem theorem_3_27 {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSp
         (MPolyfold.subPolyfold hsub).IsChart (d.chart hreg a₀) ∧
           (⟨x, hx⟩ : M) ∈ (d.chart hreg a₀).source := by
   have := P.paracompactSpace_subtype M
-  exact ⟨theorem_3_27_isSubMPolyfold P hM, MPolyfold.theorem_3_27_isTame P hM hne,
-    MPolyfold.theorem_3_27_isManifoldWithCorners P hM hne, fun x hx d hreg a₀ =>
-      ⟨MPolyfold.theorem_3_27_isChart P hM d hreg a₀, d.mem_chart_source hreg a₀ hx⟩⟩
+  exact ⟨theorem_3_2_3_isSubMPolyfold P hM, MPolyfold.theorem_3_2_3_isTame P hM hne,
+    MPolyfold.theorem_3_2_3_isManifoldWithCorners P hM hne, fun x hx d hreg a₀ =>
+      ⟨MPolyfold.theorem_3_2_3_isChart P hM d hreg a₀, d.mem_chart_source hreg a₀ hx⟩⟩
 
 
-/-! ### Proposition 3.26: invariance under sc-diffeomorphisms -/
+/-! ### Proposition 3.2.2 (preprint 3.26): invariance under sc-diffeomorphisms -/
 
 namespace MPolyfold
 
@@ -767,7 +767,7 @@ namespace TangentGermChart
 
 variable {M : Set X} {x : X} {n : ℕ}
 
-/-- **Proposition 3.26, the construction**: the data of Definition 3.25 (2) at `x ∈ M` are carried
+/-- **Proposition 3.2.2 (preprint 3.26), the construction**: the data of Definition 3.2.1 (preprint 3.25) (2) at `x ∈ M` are carried
 by an sc-diffeomorphism `ψ : X → X'` (with inverse `ψ'`) to data at `ψ(x) ∈ ψ(M)`: the chart
 `ϕ' = ϕ ∘ ψ⁻¹` (`transportChart`), with the same `N`, `Y`, `V`, `δ`. -/
 def transport (d : P.TangentGermChart M x n) {ψ : X → X'} {ψ' : X' → X}
@@ -817,12 +817,12 @@ end TangentGermChart
 
 end MPolyfold
 
-/-- **Proposition 3.26** (one direction): if `ψ : X → X'` is an sc-diffeomorphism of M-polyfolds
+/-- **Proposition 3.2.2 (preprint 3.26)** (one direction): if `ψ : X → X'` is an sc-diffeomorphism of M-polyfolds
 (with inverse `ψ'`) and `M ⊆ X` has the `n`-dimensional tangent germ property, then so does
 `ψ(M) ⊆ X'`: `ψ(M) ⊆ X'_∞` since sc-smooth maps preserve the levels, and the data of Definition
 3.25 (2) at `ψ(x)` are the chart `ϕ ∘ ψ⁻¹` with the data `N, Y, V, δ` at `x`
 (`TangentGermChart.transport`). -/
-theorem proposition_3_26_image {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
+theorem proposition_3_2_2_image {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
     {P : MPolyfold X} {X' : Type*} [TopologicalSpace X'] [T2Space X'] [ParacompactSpace X']
     {Q : MPolyfold X'} {ψ : X → X'} {ψ' : X' → X} (h : P.IsScDiffeoOn Q ψ ψ' univ univ)
     {M : Set X} {n : ℕ} (hM : P.HasTangentGermProperty M n) :
@@ -837,23 +837,23 @@ theorem proposition_3_26_image {X : Type*} [TopologicalSpace X] [T2Space X] [Par
     obtain ⟨d⟩ := hM.2 x hx
     exact ⟨d.transport h⟩
 
-/-- **Proposition 3.26**: the `n`-dimensional tangent germ property is invariant under
+/-- **Proposition 3.2.2 (preprint 3.26)**: the `n`-dimensional tangent germ property is invariant under
 sc-diffeomorphisms: if `ψ : X → X'` is an sc-diffeomorphism (with inverse `ψ'`) and
 `ψ(M) = M'`, then `M'` has the `n`-dimensional tangent germ property if and only if `M` has it. -/
-theorem proposition_3_26 {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
+theorem proposition_3_2_2 {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
     {P : MPolyfold X} {X' : Type*} [TopologicalSpace X'] [T2Space X'] [ParacompactSpace X']
     {Q : MPolyfold X'} {ψ : X → X'} {ψ' : X' → X} (h : P.IsScDiffeoOn Q ψ ψ' univ univ)
     {M : Set X} {M' : Set X'} (hM : ψ '' M = M') {n : ℕ} :
     Q.HasTangentGermProperty M' n ↔ P.HasTangentGermProperty M n := by
   constructor
   · intro hM'
-    have h1 := proposition_3_26_image h.symm hM'
+    have h1 := proposition_3_2_2_image h.symm hM'
     have hψ'M' : ψ' '' M' = M := by
       rw [← hM, image_image]
       conv_rhs => rw [← image_id M]
       exact image_congr fun x _ => h.left_inv x (mem_univ _)
     rwa [hψ'M'] at h1
   · intro hMP
-    rw [← hM]; exact proposition_3_26_image h hMP
+    rw [← hM]; exact proposition_3_2_2_image h hMP
 
 end Polyfold

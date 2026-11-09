@@ -4,7 +4,7 @@ import RoundTrip.Blind.V5_40
 
 /-!
 Round trip for V5_40 (Theorem 5.19).  `A` is the conjunction of the types of
-`Polyfold.theorem_5_19` and `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`, universes
+`Polyfold.theorem_5_3_12_param` and `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`, universes
 instantiated at `0`.
 
 Neither `A → B` nor `B → A` is proved.
@@ -32,7 +32,7 @@ Neither `A → B` nor `B → A` is proved.
 
 /-! **Refresh 2026-11-02** (HEAD after the germ reading of Definition 3.11 and the notions built
 on it).
-theorem_5_19 and IsGoodPositionGermTame.congr_nhds now denote the germ reading (congr_nhds lives
+theorem_5_3_12_param and IsGoodPositionGermTame.congr_nhds now denote the germ reading (congr_nhds lives
 in Chapter3/Chapter5BridgeG.lean), as do B's IsScFredholmSectionTame and IsGoodPositionGermTame.
 The obstacles (B's literal '(f, x)' misprint, weak bump functions, B's tame strong bundle) are
 unrelated; A ⇒ BIntendedStrong still checks. Result unchanged.
@@ -43,11 +43,11 @@ open Polyfold MeasureTheory
 
 /-- The project's statement, universes `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_5_19.{0, 0} ∧
+  type_of% @Polyfold.theorem_5_3_12_param.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_5_19.{0, 0}, @Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds.{0, 0}⟩
+  ⟨@Polyfold.theorem_5_3_12_param.{0, 0}, @Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds.{0, 0}⟩
 
 /-- The blind file's `BIntended` (misprint corrected) with the strong reading of bump functions
 (not the item; it isolates the differences). -/
@@ -169,7 +169,7 @@ theorem A_to_BIntendedStrong : A → BIntendedStrong := by
     exact ⟨hsub, PX.paracompactSpace_subtype _,
       MPolyfold.hasCornerStructure_iff.2 fun a => (he a.1 a.2).elim⟩
 
-#rt_check RoundTrip.V5_40.A_to_BIntendedStrong [Polyfold.theorem_5_19,
+#rt_check RoundTrip.V5_40.A_to_BIntendedStrong [Polyfold.theorem_5_3_12_param,
   Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds]
 
 end RoundTrip.V5_40

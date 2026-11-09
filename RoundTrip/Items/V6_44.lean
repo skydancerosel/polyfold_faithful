@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_44
 
 /-! Round trip for V6_44 (Proposition 6.32: the push-forward does not depend on the choices).
 
-A is the conjunction of the types of the item's theorems (`proposition_6_32` and its helpers
+A is the conjunction of the types of the item's theorems (`proposition_6_6_7` and its helpers
 `IsStabKernels.congr_data`, `push_congr_data`, `push_eq_of_prefix`, `isZeroAt_sectionAdd_combo`,
 `linAt_principal_combo`, `continuous_principal_pullbackSlice`), universes at `0`.
 
@@ -31,7 +31,7 @@ A is the conjunction of the types of the item's theorems (`proposition_6_32` and
   (sc⁺-sections of `π*P` over `ℝ × ℝ`, slice general position, a continuous kernel family and the
   computation of the end-point cokernels); it was not attempted within the budget.
 * So `A ⇒ B` is false.  Even with the sign inserted in B, `A ⇒ B` would need glue that is not
-  available: `proposition_6_32` assumes `B.IsScFredholmSectionTame f` (B: `IsScFredholmSection`)
+  available: `proposition_6_6_7` assumes `B.IsScFredholmSectionTame f` (B: `IsScFredholmSection`)
   and `PX.AdmitsBumpFunctions` (B: only `IsGoodNbhd`), and an `IsPush` datum asks
   `(f + S)(t, γ t) = 0` for `t` in a neighbourhood of `[0, 1]` (B's `s_eq`: only on `[0, 1]`).
   Conversely B's (P) and `IsGoodNbhd` are not needed by A.
@@ -49,13 +49,13 @@ def A : Prop :=
   type_of% @Polyfold.isZeroAt_sectionAdd_combo.{0, 0} ∧
   type_of% @Polyfold.linAt_principal_combo.{0, 0} ∧
   type_of% @Polyfold.continuous_principal_pullbackSlice.{0, 0} ∧
-  type_of% @Polyfold.proposition_6_32.{0, 0}
+  type_of% @Polyfold.proposition_6_6_7.{0, 0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.IsStabKernels.congr_data.{0, 0, 0}, @Polyfold.IsStabKernels.push_congr_data.{0, 0, 0},
     @Polyfold.IsStabKernels.push_eq_of_prefix.{0, 0, 0}, @Polyfold.isZeroAt_sectionAdd_combo.{0, 0},
     @Polyfold.linAt_principal_combo.{0, 0}, @Polyfold.continuous_principal_pullbackSlice.{0, 0},
-    @Polyfold.proposition_6_32.{0, 0}⟩
+    @Polyfold.proposition_6_6_7.{0, 0}⟩
 
 /-- The sign by which B's push-forward and the project's differ at an end-point operator `T`:
 `α(T) = (−1)^{dim coker T}`, `+1` for the identity of `ℝ`, `−1` for the zero map of `ℝ`

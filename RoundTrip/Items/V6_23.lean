@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_23
 
 /-! Round trip for V6_23 (Lemma 6.21: `γ^Q_{PS}` is an isomorphism of local determinant bundles).
 
-`A` is the conjunction of the types of `LocalDetChart.gammaProj_frame_eq` and `lemma_6_21`
+`A` is the conjunction of the types of `LocalDetChart.gammaProj_frame_eq` and `lemma_6_5_5`
 (universes at `0`).  `LocalDetChart`, `frame`, `gammaProj`, `linDetEquivOfEq`, `zSol`, `cokerLift`,
 `rangeInfKer` are definitions (vocabulary).
 
@@ -14,7 +14,7 @@ What A says.  For two charts `c` (projection `P`, centre `T`, radius `ε`) and `
 `Q ≤ P`, centre `T'`, radius `ε'`) and Fredholm `S` in both balls:
 * `gammaProj_frame_eq` (under two dimension hypotheses): the EXPLICIT formula
   `γ^Q_{PS}(ω_c(S)) = (det(kerProj(k(S), z(S))) · det([d], [f])⁻¹) · ω_{c'}(S)` (formula (91));
-* `lemma_6_21`: `γ^Q_{PS}(ω_c(S)) = g(S) ω_{c'}(S)` with `g` continuous and nowhere zero on
+* `lemma_6_5_5`: `γ^Q_{PS}(ω_c(S)) = g(S) ω_{c'}(S)` with `g` continuous and nowhere zero on
   `{S Fredholm, in both balls}`.
 These are statements about the two chart frames `ω_c`, `ω_{c'}` only; the project never puts a
 topology on `⋃ {S} × det(PS)`.
@@ -29,7 +29,7 @@ Lemma 6.19 for these final topologies: (a) for every continuous frame pair `(σ,
 coefficient of `σ ∧ … ⊗ ([f] ∧ …)*` against the chart frame `ω_c` is continuous (`det` of
 `kerProj ∘ σ` and of `[f]` in `F/R(P)`), so that a set is `natTopD`-open iff its preimage under the
 chart frame map `(S, t) ↦ (S, t ω_c(S))` is open, and (b) the same for `Q`.  Given (a), (b),
-`gammaQP` reads `(S, t) ↦ (S, t g(S))` in chart coordinates, and `lemma_6_21` (applied to the two
+`gammaQP` reads `(S, t) ↦ (S, t g(S))` in chart coordinates, and `lemma_6_5_5` (applied to the two
 charts with centre `T` and radius `ε` built from B's hypotheses, with `S` Fredholm on the ball)
 gives the homeomorphism.  The project does
 not formalize Lemma 6.19 (the same gap blocks V6_22 `A → B`), and building it for `⨆`-coinduced
@@ -38,7 +38,7 @@ substantial new work, not attempted within the budget.
 
 `B → A` fails.  (i) `gammaProj_frame_eq` is an explicit linear-algebra formula; B is purely
 topological and carries no information about it (reproving it means redoing §6.7's
-projection-sequence computation).  (ii) `lemma_6_21` needs, from B's homeomorphism, the continuity
+projection-sequence computation).  (ii) `lemma_6_5_5` needs, from B's homeomorphism, the continuity
 of the coordinate `g` of `γ(ω_c)` against `ω_{c'}`, i.e. continuity of coordinate extraction out of
 `natTopD` — again Lemma 6.19 (B gives a homeomorphism, not a trivialization) — and A allows charts
 with different centres and radii while B has one `T` and one `ε` (localizing needs Lemma 6.17 at
@@ -54,10 +54,10 @@ open Polyfold
 /-- The project's statement (formula (91) on the frames, and Lemma 6.21), universes at `0`. -/
 def A : Prop :=
   (type_of% @Polyfold.LocalDetChart.gammaProj_frame_eq.{0, 0}) ∧
-    (type_of% @Polyfold.lemma_6_21.{0, 0})
+    (type_of% @Polyfold.lemma_6_5_5.{0, 0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.LocalDetChart.gammaProj_frame_eq.{0, 0}, @Polyfold.lemma_6_21.{0, 0}⟩
+  ⟨@Polyfold.LocalDetChart.gammaProj_frame_eq.{0, 0}, @Polyfold.lemma_6_5_5.{0, 0}⟩
 
 section SideConditions
 
@@ -109,6 +109,6 @@ theorem side_conditions (T : E →L[ℝ] F) (P Q : F →L[ℝ] F) (ε : ℝ)
 end SideConditions
 
 #rt_check RoundTrip.V6_23.side_conditions [Polyfold.LocalDetChart.gammaProj_frame_eq,
-  Polyfold.lemma_6_21]
+  Polyfold.lemma_6_5_5]
 
 end RoundTrip.V6_23

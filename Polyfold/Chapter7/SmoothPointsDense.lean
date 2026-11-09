@@ -31,12 +31,12 @@ proof of Lemma 2.2.1 (2021 p. 30).
   hypothesis `MPolyfold.DenseSmooth` (gap G.73) holds for every M-polyfold;
   `MPolyfold.dense_smoothSet` (`X_∞` dense in `X`), `MPolyfold.smoothRegular_iff` (the field
   `denseSmooth` of `SmoothRegular` is automatic).
-* **`EpGroupoid.denseSmooth_obj`**, **`EpGroupoid.denseSmooth_mor`**, `EpGroupoid.p289_dense_2021`:
+* **`EpGroupoid.denseSmooth_obj`**, **`EpGroupoid.denseSmooth_mor`**, `EpGroupoid.p289_dense`:
   the density for the object and the morphism M-polyfold of an ep-groupoid.
 * The filtration of `|X|` (gap G.72): `EpGroupoid.mem_levelSet_of_isomorphic`,
   `π_mem_orbitLevel_iff`, `preimage_orbitLevel` (`π⁻¹(|X_k|) = X_k`), `orbitLevel_zero`,
   `orbitLevel_antitone`, `orbitSmooth` (`|X_∞| = π(X_∞)`), `preimage_orbitSmooth`,
-  **`orbitSmooth_eq_iInter`** (`|X_∞| = ⋂_k |X_k|`), `p290_orbit_filtration_2021`.
+  **`orbitSmooth_eq_iInter`** (`|X_∞| = ⋂_k |X_k|`), `p290_orbit_filtration`.
 * `EpGroupoid.dense_orbitSmooth`: `|X_∞|` is dense in `|X|`.  The text does not state this; it
   follows from the density of `X_∞` in `X` and the continuity of `π`.
 
@@ -203,7 +203,7 @@ theorem denseSmooth_mor : X.PMor.DenseSmooth := X.PMor.denseSmooth
 
 /-- **2021 p. 289 (2017 p. 227)**: for an ep-groupoid `(X, 𝐗)`, `X_∞` is dense in every `X_k` and
 `𝐗_∞` is dense in every `𝐗_k`. -/
-theorem p289_dense_2021 :
+theorem p289_dense :
     (∀ k, Dense {y : X.PObj.Level k | X.PObj.levelVal k y ∈ X.PObj.smoothSet}) ∧
       ∀ k, Dense {y : X.PMor.Level k | X.PMor.levelVal k y ∈ X.PMor.smoothSet} :=
   ⟨X.denseSmooth_obj, X.denseSmooth_mor⟩
@@ -253,7 +253,7 @@ theorem orbitSmooth_eq_iInter : X.orbitSmooth = ⋂ k, X.orbitLevel k := by
 
 /-- **2021 pp. 289–290 (2017 pp. 227–228)**: the filtration
 `|X| = |X₀| ⊃ |X₁| ⊃ ⋯ ⊃ |X_∞| = ⋂_k |X_k|` of the orbit space, with `π⁻¹(|X_k|) = X_k`. -/
-theorem p290_orbit_filtration_2021 :
+theorem p290_orbit_filtration :
     X.orbitLevel 0 = univ ∧ Antitone X.orbitLevel ∧ X.orbitSmooth = ⋂ k, X.orbitLevel k ∧
       (∀ k, X.π ⁻¹' X.orbitLevel k = X.PObj.levelSet k) ∧
       X.π ⁻¹' X.orbitSmooth = X.PObj.smoothSet :=

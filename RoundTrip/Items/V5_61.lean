@@ -4,7 +4,7 @@ import RoundTrip.Blind.V5_61
 
 /-!
 Round trip for V5_61 (Proposition 5.42).  `A` is the conjunction of the types of
-`Polyfold.proposition_5_42_reflexive`, `Polyfold.proposition_5_42_separable` and
+`Polyfold.proposition_5_5_15_reflexive`, `Polyfold.proposition_5_5_15_separable` and
 `Polyfold.span_closedBall_eq_top`, universes instantiated at `0`.
 
 Both sides use the project's `IsReflexive` and `IsWCG` (B checked them with `#print`).  The
@@ -29,12 +29,12 @@ open Polyfold Set Filter Topology
 
 /-- The project's statement, universe `0`. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_5_42_reflexive.{0}) ∧
-  (type_of% @Polyfold.proposition_5_42_separable.{0}) ∧
+  (type_of% @Polyfold.proposition_5_5_15_reflexive.{0}) ∧
+  (type_of% @Polyfold.proposition_5_5_15_separable.{0}) ∧
   (type_of% @Polyfold.span_closedBall_eq_top.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_5_42_reflexive.{0}, @Polyfold.proposition_5_42_separable.{0},
+  ⟨@Polyfold.proposition_5_5_15_reflexive.{0}, @Polyfold.proposition_5_5_15_separable.{0},
     @Polyfold.span_closedBall_eq_top.{0}⟩
 
 theorem A_to_B : A → B := by
@@ -97,11 +97,11 @@ theorem B_to_A : B → A := by
   have := completeSpace_of_isReflexive h
   exact (hB V).1 h
 
-#rt_check RoundTrip.V5_61.A_to_B [Polyfold.proposition_5_42_reflexive,
-  Polyfold.proposition_5_42_separable, Polyfold.span_closedBall_eq_top]
-#rt_check RoundTrip.V5_61.B_to_A [Polyfold.proposition_5_42_reflexive,
-  Polyfold.proposition_5_42_separable, Polyfold.span_closedBall_eq_top]
-#rt_overlap RoundTrip.V5_61.B_to_A [Polyfold.proposition_5_42_reflexive,
-  Polyfold.proposition_5_42_separable, Polyfold.span_closedBall_eq_top]
+#rt_check RoundTrip.V5_61.A_to_B [Polyfold.proposition_5_5_15_reflexive,
+  Polyfold.proposition_5_5_15_separable, Polyfold.span_closedBall_eq_top]
+#rt_check RoundTrip.V5_61.B_to_A [Polyfold.proposition_5_5_15_reflexive,
+  Polyfold.proposition_5_5_15_separable, Polyfold.span_closedBall_eq_top]
+#rt_overlap RoundTrip.V5_61.B_to_A [Polyfold.proposition_5_5_15_reflexive,
+  Polyfold.proposition_5_5_15_separable, Polyfold.span_closedBall_eq_top]
 
 end RoundTrip.V5_61

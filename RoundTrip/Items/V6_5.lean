@@ -9,7 +9,7 @@ choice are nonzero) and (2) (`Φ_E` is the map of (91) for some choice) are abou
 not about A's theorem: they are proved here from the definitions (`phi` is (91) for
 `canonicalChoice`) and the non-item lemmas `wedgeB_ne_zero`, `wedgeC_ne_zero`,
 `wedge_basis_ne_zero`, `source_ne_zero`, `eq_dualVec_of_apply_eq_one`, `dualVec_self`; A is used
-for (3) (bijectivity, as "a nonzero map of lines").  Lemma 6.5 (`lemma_6_5`, item V6_6) is not
+for (3) (bijectivity, as "a nonzero map of lines").  Lemma 6.5 (`lemma_6_3_3`, item V6_6) is not
 used. -/
 
 namespace RoundTrip.V6_5

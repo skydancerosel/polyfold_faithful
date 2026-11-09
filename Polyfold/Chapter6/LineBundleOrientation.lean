@@ -5,7 +5,7 @@ import Mathlib.LinearAlgebra.Ray
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 219:
-the topological fact behind **Proposition 6.26** ("consequently has two possible orientations since
+the topological fact behind **Proposition 6.6.1 (preprint 6.26)** ("consequently has two possible orientations since
 the base space is contractible") *(book 2017: Proposition 6.11; see `BookConcordance.md`)*.
 
 # Orientations of line bundles

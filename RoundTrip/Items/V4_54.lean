@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_54
 
 /-!
 Round trip for V4_54 (Theorem 4.23, families and Sard's theorem).  `A` is the type of
-`Polyfold.theorem_4_23`, universe instantiated at `0`.
+`Polyfold.theorem_4_3_1_preprint`, universe instantiated at `0`.
 
 Glue for `A → B`:
 * `|λ| ≤ ε` / `|λ| < ε`: B's `eucNorm λ = √(Σ λᵢ²)` vs A's `Σ λᵢ² ≤ ε²` / `< ε²` (`ε > 0`).
@@ -23,9 +23,9 @@ namespace RoundTrip.V4_54
 open Polyfold MeasureTheory
 
 /-- The project's statement, universe `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_4_23.{0}
+def A : Prop := type_of% @Polyfold.theorem_4_3_1_preprint.{0}
 
-theorem A_holds : A := @Polyfold.theorem_4_23.{0}
+theorem A_holds : A := @Polyfold.theorem_4_3_1_preprint.{0}
 
 theorem eucNorm_lt_iff {m : ℕ} {ε : ℝ} (hε : 0 < ε) (l : Fin m → ℝ) :
     eucNorm l < ε ↔ ∑ i, l i ^ 2 < ε ^ 2 :=
@@ -51,6 +51,6 @@ theorem A_to_B : A → B := by
   obtain ⟨v, hv, -, hv1⟩ := hμ μ
   exact ⟨v, hv, hv1⟩
 
-#rt_check RoundTrip.V4_54.A_to_B [Polyfold.theorem_4_23]
+#rt_check RoundTrip.V4_54.A_to_B [Polyfold.theorem_4_3_1_preprint]
 
 end RoundTrip.V4_54

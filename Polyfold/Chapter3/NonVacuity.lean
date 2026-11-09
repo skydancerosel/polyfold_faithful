@@ -4,12 +4,12 @@ import Polyfold.Chapter3.ParamPerturbation
 /-!
 # The hypotheses of the §3.6 implicit function theorems are satisfiable
 
-A **non-vacuity witness** for the global implicit function theorems of §3.6 (Theorems 3.54, 3.56,
-3.57, Corollary 3.24): the trivial strong bundle `ℝⁿ × ℝᵏ → ℝⁿ` over the M-polyfold `ℝⁿ` and the
+A **non-vacuity witness** for the global implicit function theorems of §3.6 (Theorems 3.6.8, 3.6.10 (preprint 3.54, 3.56),
+3.57, Corollary 3.1.27 (preprint 3.24)): the trivial strong bundle `ℝⁿ × ℝᵏ → ℝⁿ` over the M-polyfold `ℝⁿ` and the
 section `x ↦ (x, φ(x))` of a `C^∞` map `φ : ℝⁿ → ℝᵏ` satisfy the hypotheses `IsScFredholmSectionWholeChart`
 and "`(f, x)` is in good position in a tame chart at every zero" (`IsGoodPositionGermTameWholeChart`) as soon
-as `Dφ(x)` is onto at every zero of `φ`.  The conclusion of Theorem 3.57 is then the classical
-regular value theorem for `φ⁻¹(0)` (`theorem_3_57_trivialBundle`).
+as `Dφ(x)` is onto at every zero of `φ`.  The conclusion of Theorem 3.6.11 (preprint 3.57) is then the classical
+regular value theorem for `φ⁻¹(0)` (`theorem_3_6_11_trivialBundle`).
 
 This is not in the text.  It was added after the §3.6 theorems were found to have been vacuously
 true under an earlier formalization (the hypothesis `htame` quantified over all compatible charts,
@@ -28,7 +28,7 @@ finite-dimensional fibres; the boundary case of good position is `NonVacuityCorn
   section (`isScFredholmSection_graphSection_wholeChart`), with tame germ data at every point
   (`isScFredholmGermTame_graphSection_wholeChart`), in good position in a tame chart at every zero `x` where
   `Dφ(x)` is onto (`isGoodPositionGermTame_graphSection_wholeChart`).
-* `theorem_3_57_trivialBundle`: Theorem 3.57 applied to it.
+* `theorem_3_6_11_trivialBundle`: Theorem 3.6.11 (preprint 3.57) applied to it.
 
 The helper `isScSmooth_of_bijective_toBase` (a `C^∞` map between sc-Banach spaces whose inclusions
 `E_m → E_0` are bijective, e.g. products of finite-dimensional spaces with the constant structure,
@@ -261,7 +261,7 @@ lemma bijective_toBase_param (P : Type) [NormedAddCommGroup P] [NormedSpace ℝ 
     [FiniteDimensional ℝ P] (m : ℕ) : Bijective ((ScBanach.paramProd P zeroSc).toBase m) :=
   bijective_toBase_prod (bijective_toBase_const _) (bijective_toBase_const _) m
 
-/-- **A `C^∞` map `κ : ℝⁿ → ℝᵏ` with `κ(0) = 0` is conjugated to a basic germ** (Definition 3.11,
+/-- **A `C^∞` map `κ : ℝⁿ → ℝᵏ` with `κ(0) = 0` is conjugated to a basic germ** (Definition 3.1.11 (preprint 3.11),
 second paragraph): with `W = 0`, `Ψ(u, v) = ((u, 0), (v, 0))` and the basic germ
 `h(a, w) = (κ(a), w)` (`B = 0`). -/
 theorem isConjugateToBasicGerm_of_contDiff {κ : (Fin n → ℝ) → (Fin k → ℝ)}
@@ -421,7 +421,7 @@ lemma scDeriv_loc (hφ : ContDiff ℝ ∞ φ) (x₀ : Fin n → ℝ) :
   rw [h2] at this
   exact this
 
-/-- Condition (3) of Definition 3.4 when `ker Dr(0) = 0` and `ker ρ(0) = 0`. -/
+/-- Condition (3) of Definition 3.1.4 (preprint 3.4) when `ker Dr(0) = 0` and `ker ρ(0) = 0`. -/
 lemma exists_kerEquiv_of_injective {M M' : Type*} [NormedAddCommGroup M] [NormedSpace ℝ M]
     [NormedAddCommGroup M'] [NormedSpace ℝ M']
     (A : M →L[ℝ] M) (B : M' →L[ℝ] M') (D : M →L[ℝ] M') (hA : ∀ v, A v = 0 → v = 0)
@@ -474,7 +474,7 @@ theorem germData_graphSection (hφ : ContDiff ℝ ∞ φ) (x₀ : Fin n → ℝ)
     change φ (0 + x₀) - φ x₀ = 0
     rw [zero_add, sub_self]
 
-/-- **Tame germ data of the graph section at every point** (Definition 3.50). -/
+/-- **Tame germ data of the graph section at every point** (Definition 3.6.3 (preprint 3.50)). -/
 theorem isScFredholmGermTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) (x₀ : Fin n → ℝ) :
     (bundle n k).IsScFredholmGermTameWholeChart (graphSection φ) x₀ := by
   obtain ⟨hfill, hs, hs0, hconj⟩ := germData_graphSection (k := k) hφ x₀
@@ -482,9 +482,9 @@ theorem isScFredholmGermTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ)
     mem_univ x₀, sub_self x₀, mem_univ 0, loc φ x₀, fun _ => φ x₀, hfill, hs, hs0, hconj⟩
 
 /-- **The graph section is in good position in a tame chart at every zero `x₀` where `Dφ(x₀)` is
-onto** (Definition 3.53): `Tf̃(0) = Dφ(x₀)` is onto `ρ(0)F = ℝᵏ`, and its kernel is in good
+onto** (Definition 3.6.6 (preprint 3.53)): `Tf̃(0) = Dφ(x₀)` is onto `ρ(0)F = ℝᵏ`, and its kernel is in good
 position to the partial cone `C = ℝⁿ` (every subspace is: any complement is good).  (Good position
-does not use `φ(x₀) = 0`; Definition 3.53 is only applied at zeros.) -/
+does not use `φ(x₀) = 0`; Definition 3.6.6 (preprint 3.53) is only applied at zeros.) -/
 theorem isGoodPositionGermTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) {x₀ : Fin n → ℝ}
     (hsurj : Surjective (fderiv ℝ φ x₀)) :
     (bundle n k).IsGoodPositionGermTameWholeChart (graphSection φ) x₀ := by
@@ -500,9 +500,9 @@ theorem isGoodPositionGermTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ �
     rw [scDeriv_loc hφ x₀]; exact hx
   · rw [htop]; exact isInGoodPositionIn_univ _
 
-/-! ### The graph section is sc-Fredholm, and Theorem 3.57 applies -/
+/-! ### The graph section is sc-Fredholm, and Theorem 3.6.11 (preprint 3.57) applies -/
 
-/-- **The graph section of a `C^∞` map is an sc-Fredholm section** (Definition 3.14): sc-smooth,
+/-- **The graph section of a `C^∞` map is an sc-Fredholm section** (Definition 3.1.16 (preprint 3.14)): sc-smooth,
 regularizing (every point is smooth), with (tame) germ data at every point. -/
 theorem isScFredholmSection_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) :
     (bundle n k).IsScFredholmSectionWholeChart (graphSection φ) where
@@ -510,15 +510,15 @@ theorem isScFredholmSection_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) 
   regularizing m x _ _ := by rw [rnPolyfold_levelSet]; exact mem_univ x
   germ x _ := (isScFredholmGermTame_graphSection_wholeChart hφ x).isScFredholmGerm
 
-/-- The graph section has tame germ data at every point (Definition 3.51). -/
+/-- The graph section has tame germ data at every point (Definition 3.6.4 (preprint 3.51)). -/
 theorem isScFredholmSectionTame_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ) :
     (bundle n k).IsScFredholmSectionTameWholeChart (graphSection φ) where
   toIsScFredholmSectionWholeChart := isScFredholmSection_graphSection_wholeChart hφ
   germTame x _ := isScFredholmGermTame_graphSection_wholeChart hφ x
 
-/-- **The hypotheses of Theorem 3.57 hold** for the graph section of a `C^∞` map `φ : ℝⁿ → ℝᵏ`
+/-- **The hypotheses of Theorem 3.6.11 (preprint 3.57) hold** for the graph section of a `C^∞` map `φ : ℝⁿ → ℝᵏ`
 with `0` a regular value: sc-Fredholm, and in good position in a tame chart at every zero. -/
-theorem hypotheses_theorem_3_57_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ)
+theorem hypotheses_theorem_3_6_11_graphSection_wholeChart (hφ : ContDiff ℝ ∞ φ)
     (hreg : ∀ x, φ x = 0 → Surjective (fderiv ℝ φ x)) :
     (bundle n k).IsScFredholmSectionWholeChart (graphSection φ) ∧
       ∀ x, IsZeroAt (proj n k) (graphSection φ) x →
@@ -526,11 +526,11 @@ theorem hypotheses_theorem_3_57_graphSection_wholeChart (hφ : ContDiff ℝ ∞ 
   ⟨isScFredholmSection_graphSection_wholeChart hφ, fun x hx =>
     isGoodPositionGermTame_graphSection_wholeChart hφ (hreg x (isZeroAt_graphSection_iff.1 hx))⟩
 
-/-- **Theorem 3.57 for the trivial bundle (the regular value theorem)**: if `φ : ℝⁿ → ℝᵏ` is `C^∞`
+/-- **Theorem 3.6.11 (preprint 3.57) for the trivial bundle (the regular value theorem)**: if `φ : ℝⁿ → ℝᵏ` is `C^∞`
 with `0` a regular value and `φ⁻¹(0) ≠ ∅`, the solution set of the graph section, `φ⁻¹(0)`, is a
 tame sub-M-polyfold of `ℝⁿ` with the structure of a manifold with corners, of locally constant
-dimension.  The point is that the hypotheses of `theorem_3_57_wholeChart` are met (they are not vacuous). -/
-theorem theorem_3_57_trivialBundle (hφ : ContDiff ℝ ∞ φ)
+dimension.  The point is that the hypotheses of `theorem_3_6_11_wholeChart` are met (they are not vacuous). -/
+theorem theorem_3_6_11_trivialBundle (hφ : ContDiff ℝ ∞ φ)
     (hreg : ∀ x, φ x = 0 → Surjective (fderiv ℝ φ x)) (hne : ∃ x, φ x = 0) :
     ∃ hsub : (rnPolyfold n).IsSubMPolyfold (solutionSet (proj n k) (graphSection φ)),
       haveI := (rnPolyfold n).paracompactSpace_subtype (solutionSet (proj n k) (graphSection φ))
@@ -541,33 +541,33 @@ theorem theorem_3_57_trivialBundle (hφ : ContDiff ℝ ∞ φ)
             D.IsRegular ∧ ∀ y ∈ solutionSet (proj n k) (graphSection φ) ∩ D.φ.source,
               ∀ (n' : ℕ) (_ : (rnPolyfold n).TangentGermChart
                 (solutionSet (proj n k) (graphSection φ)) y n'), n' = d := by
-  obtain ⟨hf, hall⟩ := hypotheses_theorem_3_57_graphSection_wholeChart hφ hreg
+  obtain ⟨hf, hall⟩ := hypotheses_theorem_3_6_11_graphSection_wholeChart hφ hreg
   obtain ⟨x, hx⟩ := hne
-  exact theorem_3_57_wholeChart hf hall ⟨x, isZeroAt_graphSection_iff.2 hx⟩
+  exact theorem_3_6_11_wholeChart hf hall ⟨x, isZeroAt_graphSection_iff.2 hx⟩
 
 /-- **The hypotheses hold for every surjective linear map** `L : ℝⁿ → ℝᵏ` (the solution set is the
 subspace `ker L`). -/
-theorem hypotheses_theorem_3_57_linear_wholeChart (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (hL : Surjective L) :
+theorem hypotheses_theorem_3_6_11_linear_wholeChart (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (hL : Surjective L) :
     (bundle n k).IsScFredholmSectionWholeChart (graphSection L) ∧
       ∀ x, IsZeroAt (proj n k) (graphSection L) x →
         (bundle n k).IsGoodPositionGermTameWholeChart (graphSection L) x :=
-  hypotheses_theorem_3_57_graphSection_wholeChart L.contDiff fun x _ => by rw [L.fderiv]; exact hL
+  hypotheses_theorem_3_6_11_graphSection_wholeChart L.contDiff fun x _ => by rw [L.fderiv]; exact hL
 
 /-- The linear map `ℝ² → ℝ¹`, `(x, y) ↦ x`. -/
 def exampleMap : (Fin 2 → ℝ) →L[ℝ] (Fin 1 → ℝ) :=
   ContinuousLinearMap.pi fun _ => ContinuousLinearMap.proj 0
 
-/-- **A concrete instance of Theorem 3.57**: for the section `(x, y) ↦ ((x, y), x)` of the trivial
+/-- **A concrete instance of Theorem 3.6.11 (preprint 3.57)**: for the section `(x, y) ↦ ((x, y), x)` of the trivial
 bundle `ℝ² × ℝ → ℝ²`, the solution set (the line `x = 0`) is a sub-M-polyfold of `ℝ²` with the
 structure of a manifold with corners. -/
-theorem theorem_3_57_example :
+theorem theorem_3_6_11_example :
     ∃ hsub : (rnPolyfold 2).IsSubMPolyfold (solutionSet (proj 2 1) (graphSection exampleMap)),
       haveI := (rnPolyfold 2).paracompactSpace_subtype
         (solutionSet (proj 2 1) (graphSection exampleMap))
       (MPolyfold.subPolyfold hsub).IsManifoldWithCornersLoc := by
   have hsurj : Surjective exampleMap := fun y =>
     ⟨fun _ => y 0, funext fun j => by fin_cases j; rfl⟩
-  obtain ⟨hsub, -, h2, -⟩ := theorem_3_57_trivialBundle exampleMap.contDiff
+  obtain ⟨hsub, -, h2, -⟩ := theorem_3_6_11_trivialBundle exampleMap.contDiff
     (fun x _ => by rw [exampleMap.fderiv]; exact hsurj) ⟨0, map_zero _⟩
   exact ⟨hsub, h2⟩
 

@@ -866,7 +866,7 @@ theorem pruefer_not_hasParacompactOrbitSpace : ¬ pruefer.HasParacompactOrbitSpa
   not_paracompactSpace_orbitSpace default
 
 /-- Lemma 7.3.4 (p. 325 (2017: Lemma 7.6, p. 243)) applies: the orbit space is Hausdorff. -/
-theorem t2Space_orbitSpace_pruefer : T2Space pruefer.OrbitSpace := pruefer.lemma_7_6
+theorem t2Space_orbitSpace_pruefer : T2Space pruefer.OrbitSpace := pruefer.lemma_7_3_4
 
 /-- **Answer to the question of p. 340 (2017: p. 249)**: property (5) of Definition 7.5.1 is
 **not** a consequence of properties (1)–(4) of Definition 7.1.3.  There is an ep-groupoid, with

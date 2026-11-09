@@ -2,16 +2,16 @@ import Polyfold.Chapter1.FredholmIndex
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-**Proposition 3.5 (Filler)**: the linear algebra of the matrix representation of `Dg(0)`.
+**Proposition 3.1.5 (preprint 3.5) (Filler)**: the linear algebra of the matrix representation of `Dg(0)`.
 
 # The linear algebra of a filler
 
 ## The text, paraphrased
 
-(After Definition 3.4) With the splittings `E = Dr(0)E ⊕ (1 − Dr(0))E` and `F = ρ(0)F ⊕ (1 − ρ(0))F`,
+(After Definition 3.1.4 (preprint 3.4)) With the splittings `E = Dr(0)E ⊕ (1 − Dr(0))E` and `F = ρ(0)F ⊕ (1 − ρ(0))F`,
 `Dg(0)` has the matrix `[[Tf(0), B], [0, C]]` where `C = (1 − ρ(0))Dg(0)(1 − Dr(0))` restricted to
 `(1 − Dr(0))E = ker Dr(0)` is an isomorphism onto `ker ρ(0)` by condition (3) of the filler, so that
-`ker Dg(0) = ker Tf(0) ⊕ {0}`.  (Proposition 3.5) (1) `Tf(0) : Dr(0)E → ρ(0)F` is surjective iff
+`ker Dg(0) = ker Tf(0) ⊕ {0}`.  (Proposition 3.1.5 (preprint 3.5)) (1) `Tf(0) : Dr(0)E → ρ(0)F` is surjective iff
 `Dg(0) : E → F` is; (2) `Tf(0)` is Fredholm iff `Dg(0)` is, and `ind Tf(0) = ind Dg(0)`.  Proof of
 (2): `Dg(0) = [[1, BC⁻¹], [0, 1]] ∘ [[A, 0], [0, C]]`, the first factor an isomorphism (index `0`),
 the indices of a composition add.
@@ -21,11 +21,11 @@ the indices of a composition add.
 The abstract statement, for Banach spaces `E`, `F` with idempotent bounded operators `p`, `q`, a
 bounded `L : E → F` with `(1 − q)Lp = 0` and `(1 − q)L : ker p → ker q` a topological isomorphism
 `Φ`; `A = L|_{range p} : range p → range q` is `Polyfold.fillerRestrict`.
-* `Polyfold.fillerRestrict_surjective_iff` (**Proposition 3.5 (1)**).
+* `Polyfold.fillerRestrict_surjective_iff` (**Proposition 3.1.5 (preprint 3.5) (1)**).
 * `Polyfold.fillerRestrict_kerEquiv` (`ker A ≃ ker L`: the text's `ker Dg(0) = ker Tf(0) ⊕ {0}`),
   `Polyfold.fillerRestrict_cokerEquiv` (`range q / range A ≃ F / range L`).
 * `Polyfold.fillerRestrict_isFredholm_iff` and `Polyfold.fredholmIndex_fillerRestrict`
-  (**Proposition 3.5 (2)**), `Polyfold.proposition_3_5` (the three statements together).
+  (**Proposition 3.1.5 (preprint 3.5) (2)**), `Polyfold.proposition_3_1_5_preprint` (the three statements together).
 
 ## What the text leaves implicit, and the choices made
 
@@ -130,7 +130,7 @@ include hq in
 lemma fillerRestrict_q_sub (y : F) : q (y - q y) = 0 := by rw [map_sub, hq, sub_self]
 
 include hp hq h1 hΦ in
-/-- **Proposition 3.5 (1)**: `A : range p → range q` is surjective iff `L : E → F` is. -/
+/-- **Proposition 3.1.5 (preprint 3.5) (1)**: `A : range p → range q` is surjective iff `L : E → F` is. -/
 theorem fillerRestrict_surjective_iff :
     Surjective (fillerRestrict p q L h1) ↔ Surjective L := by
   constructor
@@ -233,7 +233,7 @@ def fillerRestrict_cokerEquiv :
   exact (Submodule.quotEquivOfEq _ _ hker.symm).trans (LinearMap.quotKerEquivOfSurjective Θ hsurj)
 
 include hp hq h1 hΦ in
-/-- **Proposition 3.5 (2), the index**: `ind A = ind L` (as `dim ker − dim coker`, with no
+/-- **Proposition 3.1.5 (preprint 3.5) (2), the index**: `ind A = ind L` (as `dim ker − dim coker`, with no
 finiteness assumption). -/
 theorem fredholmIndex_fillerRestrict :
     fredholmIndex (fillerRestrict p q L h1) = fredholmIndex L := by
@@ -309,7 +309,7 @@ lemma isClosed_range_of_fillerRestrict
   exact hA.preimage hMcont
 
 include hp hq h1 hΦ in
-/-- **Proposition 3.5 (2), the Fredholm property**: `A` is Fredholm iff `L` is. -/
+/-- **Proposition 3.1.5 (preprint 3.5) (2), the Fredholm property**: `A` is Fredholm iff `L` is. -/
 theorem fillerRestrict_isFredholm_iff :
     IsFredholm (fillerRestrict p q L h1) ↔ IsFredholm L := by
   have : CompleteSpace ↥(rangeS p) :=
@@ -338,12 +338,12 @@ theorem fillerRestrict_isFredholm_iff :
       exact Module.Finite.equiv (fillerRestrict_cokerEquiv hp hq h1 Φ hΦ).symm
 
 include hp hq h1 hΦ in
-/-- **Proposition 3.5 (Filler), the linear algebra**: for idempotent `p : E → E`, `q : F → F` and
+/-- **Proposition 3.1.5 (preprint 3.5) (Filler), the linear algebra**: for idempotent `p : E → E`, `q : F → F` and
 `L : E → F` with `(1 − q)Lp = 0` and `(1 − q)L : ker p → ker q` a topological isomorphism (the
 matrix `[[A, B], [0, C]]` of `Dg(0)` with `C` an isomorphism), the restriction
 `A = L|_{range p} : range p → range q` (the text's `Tf(0) : Dr(0)E → ρ(0)F`) satisfies:
 (1) `A` is surjective iff `L` is; (2) `A` is Fredholm iff `L` is, and `ind A = ind L`. -/
-theorem proposition_3_5 :
+theorem proposition_3_1_5_preprint :
     (Surjective (fillerRestrict p q L h1) ↔ Surjective L) ∧
       (IsFredholm (fillerRestrict p q L h1) ↔ IsFredholm L) ∧
       fredholmIndex (fillerRestrict p q L h1) = fredholmIndex L :=

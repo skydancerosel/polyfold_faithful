@@ -5,14 +5,14 @@ import Polyfold.Chapter3.GlobalIFTNearbyOntoXi
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.2,
-**Corollary 5.8** *(book 2017: Corollary 5.1)*, at the level of sections of the shifted strong
+**Corollary 5.2.5 (preprint 5.8)** *(book 2017: Corollary 5.1)*, at the level of sections of the shifted strong
 bundle `P¹ : Y¹ → X¹` (`Chapter5/StrongBundleShift.lean`).
 
-# Corollary 5.8 on the shifted strong bundle
+# Corollary 5.2.5 (preprint 5.8) on the shifted strong bundle
 
 ## The text, paraphrased
 
-(Corollary 5.8) Let `f` be an sc-Fredholm section of the strong bundle `P : Y → X` over the tame
+(Corollary 5.2.5 (preprint 5.8)) Let `f` be an sc-Fredholm section of the strong bundle `P : Y → X` over the tame
 M-polyfold `X` with compact solution set.  Then `f^i` is an sc-Fredholm section of
 `P^i : Y^i → X^i` with compact solution set.  ("It is a priori clear that `f^i` is sc-Fredholm.")
 
@@ -21,11 +21,11 @@ M-polyfold `X` with compact solution set.  Then `f^i` is an sc-Fredholm section 
 * `StrongBundleChart.principal_sectionShift`: in the index raise `Φ¹` of a chart, **the principal
   part of `f¹` is the level-`1` map of the principal part of `f`**; `shift_φ_eq_zero` (the shifted
   chart is centred where the chart is).
-* `IsFillingGerm.mem_range_toBase_of_fillDefect`: **condition (3) of Definition 3.4 holds on every
-  level at the centre of every datum of Definition 3.11** (not only at a zero): for
+* `IsFillingGerm.mem_range_toBase_of_fillDefect`: **condition (3) of Definition 3.1.4 (preprint 3.4) holds on every
+  level at the centre of every datum of Definition 3.1.11 (preprint 3.11)** (not only at a zero): for
   `v ∈ ker Dr(0)` with `Dk(0)v ∈ F_m`, `v ∈ E_m`.  Reduction to the case of a zero (Chapter 3 item
   237): `g' = g + ŝ ∘ r` with `ŝ(z) = Γ(z, −g(0))` fills `f̂ + ŝ` with the same fill defect,
-  `g'(0) = 0`, and `Dg'(0)` is sc-Fredholm (Proposition 3.52 in sc form for `g'` and the sc⁺-germ
+  `g'(0) = 0`, and `Dg'(0)` is sc-Fredholm (Proposition 3.6.5 (preprint 3.52) in sc form for `g'` and the sc⁺-germ
   `s + Γ¹(r(·), −s(0))`).
 * `toBase_scDeriv_r_shift` (`ι Dr¹(0) = Dr(0) ι`), `toBase_ρCLM_shift` (`ι ρ¹(0) = ρ(0) ι`),
   `IsFillingGerm.germ_shift`: **the germ field of the level-`1` filling**: the fill defect of `g¹`
@@ -34,23 +34,23 @@ M-polyfold `X` with compact solution set.  Then `f^i` is an sc-Fredholm section 
 * `StrongBundleChart.shift_filling_eq_on`, `shift_filling_mem_of_fixed`, `shift_isFillingGerm`:
   **`g¹` is a filling germ of the principal part of `f¹` in `Φ¹`**.
 * `Polyfold.isScFredholmGerm_sectionShift`: `f¹` is an sc-Fredholm germ at every smooth point of
-  `X¹`; **`Polyfold.corollary_5_8_isScFredholmSection`**: **`f¹` is an sc-Fredholm section of
-  `P¹`** (Definition 3.14, germ reading); **`Polyfold.corollary_5_8`** (**Corollary 5.8 for
-  `i = 1`**): with compact solution set; **`Polyfold.corollary_5_8_two`**: the same for
+  `X¹`; **`Polyfold.corollary_5_2_5_isScFredholmSection`**: **`f¹` is an sc-Fredholm section of
+  `P¹`** (Definition 3.1.16 (preprint 3.14), germ reading); **`Polyfold.corollary_5_2_5`** (**Corollary 5.2.5 (preprint 5.8) for
+  `i = 1`**): with compact solution set; **`Polyfold.corollary_5_2_5_two`**: the same for
   `f² = (f¹)¹` on `P² = (P¹)¹`, by iteration.
-* `Polyfold.corollary_5_8_data`: the data of the corollary unpacked in the shifted chart.
+* `Polyfold.corollary_5_2_5_data`: the data of the corollary unpacked in the shifted chart.
 
 ## What the text leaves implicit, and the choices made
 
 * **"It is a priori clear that `f^i` is sc-Fredholm"** hides condition (3) of the filling on level
   `1`, which does not follow from level `0` alone (Findings, Chapter 5, item 22).  It holds for
-  the data of Definition 3.11 by the argument of `IsFillingGerm.mem_range_toBase_of_fillDefect`
+  the data of Definition 3.1.11 (preprint 3.11) by the argument of `IsFillingGerm.mem_range_toBase_of_fillDefect`
   (regularity of `Dg'(0)` through the conjugation to a basic germ).  No hypothesis beyond the text's
   is added.
 * **Tameness**: the text assumes `X` tame; it is not used.  The tame variant (germ data in tame
   charts of `P¹`) is not stated: the tameness of the shifted charts is not proved (see
   `StrongBundleShift.lean`).
-* **`i ≥ 2`**: by iteration of `StrongBundle.shift` for every fixed `i` (`corollary_5_8_two` for
+* **`i ≥ 2`**: by iteration of `StrongBundle.shift` for every fixed `i` (`corollary_5_2_5_two` for
   `i = 2`); a uniform family indexed by `i` is not formalized.
 -/
 
@@ -91,9 +91,9 @@ germ of `f̂` (a section of `K → O`, `0 ∈ O`) on a germ `G ⊆ U`, with a de
 fill defect `k = [1 − ρ(r(·))]g`, `s` an sc⁺-germ with `s(0) = g(0)` and `g − s` conjugated to a
 basic germ.  If `v ∈ ker Dr(0)` and `Dk(0)v ∈ F_m`, then `v ∈ E_m`.  Proof: `c₀ = g(0)` is smooth
 (it is `ι s(0)`); `ŝ(z) = Γ(z, −c₀)` is a section of `K → O`, sc-smooth on `U`, so `g' = g + ŝ ∘ r`
-fills `f̂ + ŝ` with **the same** `k` (Lemma 3.17, `IsFillingGerm.add_section`), `g'(0) = 0`, and
+fills `f̂ + ŝ` with **the same** `k` (Lemma 3.1.20 (preprint 3.17), `IsFillingGerm.add_section`), `g'(0) = 0`, and
 `g' − s'` with the sc⁺-germ `s' = s + Γ¹(r(·), −s(0))` is `g − s`; hence `Dg'(0)` is sc-Fredholm
-(`proposition_3_52_local_sc`), `Dk(0) = (1 − ρ(0))Dg'(0)` (`fillDefect_deriv_zero_eq_rho`), and the
+(`proposition_3_6_5_local_sc`), `Dk(0) = (1 − ρ(0))Dg'(0)` (`fillDefect_deriv_zero_eq_rho`), and the
 case of a zero applies (`IsFillingGerm.mem_range_toBase_of_scDeriv_r_eq_zero`, Chapter 3 item
 237). -/
 theorem IsFillingGerm.mem_range_toBase_of_fillDefect (hU : IsRelOpenInQuadrant E C U)
@@ -193,14 +193,14 @@ theorem IsFillingGerm.mem_range_toBase_of_fillDefect (hU : IsRelOpenInQuadrant E
     abel
   obtain ⟨d'⟩ := isConjugateToBasicGerm_iff_nonempty.1 hconj'
   obtain ⟨hDg, -, -, -, hDgF, -⟩ :=
-    proposition_3_52_local_sc hU hR h0 h0O hfill' hfb0' hfK' hGU hg'1 hs'1 hs0' d'
+    proposition_3_6_5_local_sc hU hR h0 h0O hfill' hfb0' hfK' hGU hg'1 hs'1 hs0' d'
   have hy' : scDerivGerm G g' 0 v - ρCLM hR h0 (scDerivGerm G g' 0 v) ∈ range (F.toBase m) := by
     have := congrArg (fun T : E 0 →L[ℝ] F 0 => T v) hDkeq
     simp only [sub_apply, ContinuousLinearMap.comp_apply] at this
     rw [← this]; exact hy
   exact hfill'.mem_range_toBase_of_scDeriv_r_eq_zero hg'0 h0O hfK' hGU hg'1 hDg hDgF hv hy'
 
-/-- **The derivative of the shifted base retraction at `0`** (Proposition 1.17 for `r`):
+/-- **The derivative of the shifted base retraction at `0`** (Proposition 1.2.2 (preprint 1.17) for `r`):
 `ι Dr¹(0)v = Dr(0)(ι v)` for `v ∈ E₁`, `r¹ = r(R¹)` the base retraction of the index raise. -/
 theorem toBase_scDeriv_r_shift (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
     (h0 : (0 : E 0) ∈ U) (v : E 1) :
@@ -234,8 +234,8 @@ lemma toBase_ρCLM_shift (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRe
   change F.toBase 1 (strongShift R (0, h)).2 = (R (0, F.toBase 1 h)).2
   rw [hR.toIsStrongBundleMap.toBase_strongShift_snd (by rw [map_zero]; exact h0), map_zero]
 
-/-- **The germ part of the level-`1` filling** (Definition 3.4 (3) and the sc¹ fill defect on
-level `1`; Findings, Chapter 5, item 144): for a datum `(g, s)` of Definition 3.11 in a strong
+/-- **The germ part of the level-`1` filling** (Definition 3.1.4 (preprint 3.4) (3) and the sc¹ fill defect on
+level `1`; Findings, Chapter 5, item 144): for a datum `(g, s)` of Definition 3.1.11 (preprint 3.11) in a strong
 bundle chart, the level-`1` germ `g¹` on the shifted germ `G¹` has the fill defect
 `k¹ = [1 − ρ¹(r¹)]g¹ = (k)₁`, an sc¹-germ with the derivative family `(Dk)₁`
 (`IsSc1GermWith.shift`), and `Dk¹(0) = Dk(0)|_{E₁}` is a topological linear isomorphism
@@ -405,7 +405,7 @@ lemma tendsto_toBase_one (E : ScBanach) : Tendsto (E.toBase 1) (𝓝 0) (𝓝 0)
 
 variable {hc y₀}
 
-/-- **Condition (1) of the filling on level `1`** (Definition 3.4 (1) for `g¹` in the shifted
+/-- **Condition (1) of the filling on level `1`** (Definition 3.1.4 (preprint 3.4) (1) for `g¹` in the shifted
 chart): `(f¹)^ = g¹` on `O¹` near `0`, from `f̂ = g` on `O` near `0`. -/
 theorem shift_filling_eq_on (hf : B.IsScSmoothSection f) {g : c.φ.model.E 0 → c.F 0}
     (h1 : ∀ᶠ x in 𝓝 (0 : c.φ.model.E 0), x ∈ StrongRetr.r c.R '' c.U → c.principal f x = g x) :
@@ -420,7 +420,7 @@ theorem shift_filling_eq_on (hf : B.IsScSmoothSection f) {g : c.φ.model.E 0 →
   unfold levelMap
   rw [hz (by rw [c.r_image]; exact hzO')]
 
-/-- **Condition (2) of the filling on level `1`** (Definition 3.4 (2) for `g¹`): a point `y ∈ U¹`
+/-- **Condition (2) of the filling on level `1`** (Definition 3.1.4 (preprint 3.4) (2) for `g¹`): a point `y ∈ U¹`
 near `0` with `g¹(y) = ρ¹(r¹(y))g¹(y)` lies in `O¹`; apply `ι` and condition (2) on level `0`. -/
 theorem shift_filling_mem_of_fixed {g : c.φ.model.E 0 → c.F 0}
     {G : ScNbhdGerm c.φ.model.E c.φ.model.C} (hg : IsSc0Germ G g)
@@ -463,8 +463,8 @@ lemma principal_mem_image (hf : IsSection P f) :
   rw [← c.image_source]
   exact ⟨_, c.mem_source_of_proj (by rw [hf]; exact c.φ.symm_mapsTo hx), rfl⟩
 
-/-- **The level-`1` filling** (Definition 3.6 for `f¹` in the index raise `Φ¹`): for a datum
-`(g, s)` of Definition 3.11 of `f` in the chart `Φ` centred at a smooth point, `g¹` is a filling
+/-- **The level-`1` filling** (Definition 3.1.6 (preprint 3.6) for `f¹` in the index raise `Φ¹`): for a datum
+`(g, s)` of Definition 3.1.11 (preprint 3.11) of `f` in the chart `Φ` centred at a smooth point, `g¹` is a filling
 germ of the principal part of `f¹` in `Φ¹`: conditions (1), (2) (`shift_filling_eq_on`,
 `shift_filling_mem_of_fixed`), the sc¹ fill defect and condition (3) on level `1`
 (`IsFillingGerm.germ_shift`). -/
@@ -486,7 +486,7 @@ theorem shift_isFillingGerm (hf : B.IsScSmoothSection f) (h0U : (0 : c.φ.model.
 end StrongBundleChart
 
 open StrongBundle StrongBundleChart in
-/-- **`f¹` is an sc-Fredholm germ at every smooth point of `X¹`** (Definition 3.11, germ reading,
+/-- **`f¹` is an sc-Fredholm germ at every smooth point of `X¹`** (Definition 3.1.11 (preprint 3.11), germ reading,
 for `f¹` on `P¹`): from a datum `(g, s)` of `f` at the point in a chart `Φ`, the datum `(g¹, s¹)`
 in the index raise `Φ¹` (`shift_isFillingGerm`; `s¹` an sc⁺-germ on the shifted germ; `g¹ − s¹`
 conjugated to a basic germ by the index raise of the conjugation,
@@ -527,48 +527,48 @@ theorem isScFredholmGerm_sectionShift (hf : B.IsScSmoothSection f) {x : PX.Level
     rw [map_sub, hg0.toBase_levelMap (hug huU), hs0'.toBase_levelMap (hus huU)]
 
 open StrongBundle in
-/-- **Corollary 5.8 for `i = 1`: `f¹` is an sc-Fredholm section of `P¹ : Y¹ → X¹`** (Definition
-3.14 with the text's germ reading of Definition 3.11; round-trip item V5.14, gap G.41; Findings,
+/-- **Corollary 5.2.5 (preprint 5.8) for `i = 1`: `f¹` is an sc-Fredholm section of `P¹ : Y¹ → X¹`** (Definition
+3.14 with the text's germ reading of Definition 3.1.11 (preprint 3.11); round-trip item V5.14, gap G.41; Findings,
 Chapter 5, items 140–149): sc-smooth (`IsScSmoothSection.shift`), regularizing
 (`regularizing_sectionShift`), and an sc-Fredholm germ at every smooth point of `X¹`
 (`isScFredholmGerm_sectionShift`).  The text's "it is a priori clear"; condition (3) of the
 filling on level `1` is `IsFillingGerm.germ_shift`.  Tameness is not used. -/
-theorem corollary_5_8_isScFredholmSection (hf : B.IsScFredholmSection f) :
+theorem corollary_5_2_5_isScFredholmSection (hf : B.IsScFredholmSection f) :
     B.shift.IsScFredholmSection (B.sectionShift f) :=
   ⟨hf.isScSmooth.shift, regularizing_sectionShift hf.isScSmooth hf.regularizing, fun x hx =>
     isScFredholmGerm_sectionShift hf.isScSmooth hx
       (hf.germ _ ((MPolyfold.mem_shift_smoothSet_iff x).1 hx))⟩
 
 open StrongBundle in
-/-- **Corollary 5.8 for `i = 1`, as stated**: if `f` is an sc-Fredholm section of `P : Y → X` with
+/-- **Corollary 5.2.5 (preprint 5.8) for `i = 1`, as stated**: if `f` is an sc-Fredholm section of `P : Y → X` with
 compact solution set, then `f¹` is an sc-Fredholm section of `P¹ : Y¹ → X¹` with compact solution
 set. -/
-theorem corollary_5_8 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
+theorem corollary_5_2_5 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
     B.shift.IsScFredholmSection (B.sectionShift f) ∧
       IsCompact (solutionSet B.shiftProj (B.sectionShift f)) := by
-  refine ⟨corollary_5_8_isScFredholmSection hf, ?_⟩
+  refine ⟨corollary_5_2_5_isScFredholmSection hf, ?_⟩
   rw [solutionSet_sectionShift hf.isScSmooth]
   exact isCompact_solutionSet_level hf hS 1
 
 open StrongBundle in
-/-- **Corollary 5.8 for `i = 2`, by iteration**: `f² = (f¹)¹` is an sc-Fredholm section of
-`P² = (P¹)¹ : Y² → X²` with compact solution set (Corollary 5.8 for `i = 1` applied to `f¹`).
+/-- **Corollary 5.2.5 (preprint 5.8) for `i = 2`, by iteration**: `f² = (f¹)¹` is an sc-Fredholm section of
+`P² = (P¹)¹ : Y² → X²` with compact solution set (Corollary 5.2.5 (preprint 5.8) for `i = 1` applied to `f¹`).
 Every fixed `i` is obtained in the same way. -/
-theorem corollary_5_8_two (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
+theorem corollary_5_2_5_two (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
     B.shift.shift.IsScFredholmSection (B.shift.sectionShift (B.sectionShift f)) ∧
       IsCompact (solutionSet B.shift.shiftProj (B.shift.sectionShift (B.sectionShift f))) :=
-  corollary_5_8 (corollary_5_8 hf hS).1 (corollary_5_8 hf hS).2
+  corollary_5_2_5 (corollary_5_2_5 hf hS).1 (corollary_5_2_5 hf hS).2
 
 open StrongBundle StrongBundleChart in
-/-- **The data of Corollary 5.8 in the shifted chart** (an unpacked form of `corollary_5_8`, kept
+/-- **The data of Corollary 5.2.5 (preprint 5.8) in the shifted chart** (an unpacked form of `corollary_5_2_5`, kept
 for reference): for an sc-Fredholm `f` with compact solution set, `f¹` is an sc-smooth,
 regularizing section of `P¹` with compact solution set, and at every smooth point `x` of `X¹`, in
 the index raise `Φ¹` of the chart `Φ` of a germ datum `(g, s)` of `f` at `x` (a chart of `P¹`
 centred at `x`): conditions (1) and (2) of the filling for `g¹`, `g¹` an sc-smooth germ, `s¹` an
 sc⁺-germ with `s¹(0) = g¹(0)`, and `g¹ − s¹` conjugated to a basic germ by the index raise of the
 conjugating isomorphism.  The remaining field of the filling (the sc¹ fill defect and condition
-(3) on level `1`) is `IsFillingGerm.germ_shift`; the full statement is `corollary_5_8`. -/
-theorem corollary_5_8_data (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
+(3) on level `1`) is `IsFillingGerm.germ_shift`; the full statement is `corollary_5_2_5`. -/
+theorem corollary_5_2_5_data (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
     B.shift.IsScSmoothSection (B.sectionShift f) ∧
     (∀ m, ∀ x ∈ PX.shift.levelSet m, B.sectionShift f x ∈ B.shift.doubleLevel m (m + 1) →
       x ∈ PX.shift.levelSet (m + 1)) ∧
@@ -605,7 +605,7 @@ theorem corollary_5_8_data (hf : B.IsScFredholmSection f) (hS : IsCompact (solut
     exact isCompact_solutionSet_level hf hS 1
   have hx' : PX.levelVal 1 x ∈ PX.smoothSet := (MPolyfold.mem_shift_smoothSet_iff x).1 hx
   obtain ⟨c, hc, hxV, h0, h0U, g, s, hfill, hsP, hs0, hs1, hconj1⟩ :=
-    (corollary_5_8_chart hf hS).2 _ hx'
+    (corollary_5_2_5_chart hf hS).2 _ hx'
   obtain ⟨Gg, hGgU, hg, -⟩ := hfill.germ
   obtain ⟨Gs, -, hs⟩ := hsP
   have hQ := c.isQuadrantLike

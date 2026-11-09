@@ -176,7 +176,7 @@ theorem HasDimAt.le_of_inter_subset {A N W : Set X} (hA : P.IsSmoothSubmanifold 
     rw [ScBanach.mem_lvlSet, hz]; exact ⟨a, ⟨haG, haA''⟩, rfl⟩
   have hT := tangentSpace_subset_of_subset R hQ hsub hzQ
   rw [hR] at hT
-  obtain ⟨-, -, -, Nsub, hNsub, hNfin⟩ := d.remark_4_14 hφ haN ha haφ hz
+  obtain ⟨-, -, -, Nsub, hNsub, hNfin⟩ := d.remark_4_2_2 hφ haN ha haφ hz
   have hspan : span ℝ (tangentSpace φ.model.E φ.model.C
       (φ '' (d.toSubData.shrink φ ∩ N)) z) = Nsub := by
     rw [← hNsub, span_eq]

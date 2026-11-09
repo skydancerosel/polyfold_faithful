@@ -4,7 +4,7 @@ import RoundTrip.Blind.V1_6
 
 /-! Round trip for V1_6 (Proposition 1.7: quotients `E/A` with levels `E_m/A_m`).
 
-`A` is the type of `ScBanach.proposition_1_7` (no universe parameters): for a *closed* subspace `A`
+`A` is the type of `ScBanach.proposition_1_1_8` (no universe parameters): for a *closed* subspace `A`
 there is an sc-Banach space `Q` and a level-wise surjective sc-operator `q : E → Q` with
 `ker q_m = A_m`.  `B` asks, for an *sc-subspace* `A`, for an sc-Banach space `Q` with level-wise
 continuous linear equivalences `Q_m ≃ E_m/A_m` carrying the inclusions to the induced maps.
@@ -20,9 +20,9 @@ namespace RoundTrip.V1_6
 open Polyfold
 
 /-- The project's statement. -/
-def A : Prop := type_of% @Polyfold.ScBanach.proposition_1_7
+def A : Prop := type_of% @Polyfold.ScBanach.proposition_1_1_8
 
-theorem A_holds : A := @Polyfold.ScBanach.proposition_1_7
+theorem A_holds : A := @Polyfold.ScBanach.proposition_1_1_8
 
 section Glue
 
@@ -79,8 +79,8 @@ theorem B_to_A_scSubspace (hB : B) (E : ScBanach) {A' : Submodule ℝ (E.lvl 0)}
     change (φ m).symm (Submodule.Quotient.mk x) = 0 ↔ _
     rw [map_eq_zero_iff _ (φ m).symm.injective, Submodule.Quotient.mk_eq_zero]
 
-#rt_check RoundTrip.V1_6.A_to_B [Polyfold.ScBanach.proposition_1_7]
-#rt_check RoundTrip.V1_6.B_to_A_scSubspace [Polyfold.ScBanach.proposition_1_7]
-#rt_overlap RoundTrip.V1_6.B_to_A_scSubspace [Polyfold.ScBanach.proposition_1_7]
+#rt_check RoundTrip.V1_6.A_to_B [Polyfold.ScBanach.proposition_1_1_8]
+#rt_check RoundTrip.V1_6.B_to_A_scSubspace [Polyfold.ScBanach.proposition_1_1_8]
+#rt_overlap RoundTrip.V1_6.B_to_A_scSubspace [Polyfold.ScBanach.proposition_1_1_8]
 
 end RoundTrip.V1_6

@@ -13,7 +13,7 @@ sections `s(·, t)` and `s₁, …, s_k` with property (P)) *(book 2017: §6.5, 
 ## The text, paraphrased
 
 Along an sc-smooth path `φ` choose an sc⁺-section `s(·, t)` with `s(φ(t), t) = f(φ(t))` and
-sc⁺-sections `s₁, …, s_k` with property (P) of Lemma 6.29; the kernels `L_t` form a vector bundle
+sc⁺-sections `s₁, …, s_k` with property (P) of Lemma 6.6.4 (preprint 6.29); the kernels `L_t` form a vector bundle
 over `[0, 1]`, and `o₁ = φ_* o₀` is obtained from `Φ_{E₀}`, continuation and `Φ_{E₁}⁻¹`.
 
 ## What is formalized
@@ -24,8 +24,8 @@ over `[0, 1]`, and `o₁ = φ_* o₀` is obtained from `Φ_{E₀}`, continuation
   `S`, `s₁, …, s_k` of `ℝ × X → Y` with `(f + S)(t, γ(t)) = 0` near `[0, 1]` and a family `Λ` of
   stabilized kernels for their slices along `γ` (`IsStabKernels`) with `e = Λ.push`.
 * `IsPush.split`: a push-forward along `γ` is the composite of push-forwards along the two halves.
-* `exists_isPush`: along every sc-smooth path in a set `W` with property (3) of Proposition 6.28
-  there is a push-forward (Lemma 6.29 and `exists_isStabKernels`).
+* `exists_isPush`: along every sc-smooth path in a set `W` with property (3) of Proposition 6.6.3 (preprint 6.28)
+  there is a push-forward (Lemma 6.6.4 (preprint 6.29) and `exists_isStabKernels`).
 * Helpers for `IsPush.split`: `isZeroAt_sectionAdd_reparamSection` (the zeros of `f̃ + S(g(·), ·)`),
   `IsStabKernels.push_eq_of_eq` (the push-forward depends on the end parameters only as points)
   and `isPush_reparam` (a datum along `γ` restricts along an affine `g` of `ℝ¹` with
@@ -34,7 +34,7 @@ over `[0, 1]`, and `o₁ = φ_* o₀` is obtained from `Φ_{E₀}`, continuation
 ## Reading
 
 The sections of the text, over `U × [0, 1]`, are global sc⁺-sections of the pull-back bundle over
-`ℝ × X` (as in Proposition 6.28); the text's `f − s` is `f + S`.  Property (P) is used only to
+`ℝ × X` (as in Proposition 6.6.3 (preprint 6.28)); the text's `f − s` is `f + S`.  Property (P) is used only to
 construct a push-forward (`exists_isPush`); a datum of `IsPush` carries the family `Λ` of kernels
 instead, which is what the construction uses.  Push-forwards are read in one chart `c` (`Or` of
 `chartPtOf`).
@@ -252,8 +252,8 @@ variable [∀ k n : ℕ, ParacompactSpace ((Fin k → ℝ) × ((Fin n → ℝ) �
     (Prod.snd : (Fin k → ℝ) × ((Fin n → ℝ) × X) → (Fin n → ℝ) × X))]
 
 /-- **Existence of push-forwards**: along an sc-smooth path in a set `W` of the domain of a chart
-for which property (3) of Proposition 6.28 holds (for paths), there is a push-forward
-(Lemma 6.29, `exists_isStabKernels`). -/
+for which property (3) of Proposition 6.6.3 (preprint 6.28) holds (for paths), there is a push-forward
+(Lemma 6.6.4 (preprint 6.29), `exists_isStabKernels`). -/
 theorem exists_isPush (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {c : StrongBundleChart PX P} (hc : B.IsChart c)
     {W : Set X} (hW : W ⊆ c.φ.source)
@@ -270,7 +270,7 @@ theorem exists_isPush (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     ∃ e, IsPush f hf.toIsScFredholmSection c hc γ (fun q hq => hW (hγW q hq)) h₀ h₁ hx₀ hx₁ hs₀ hs₁
       e := by
   obtain ⟨S, hS, hz⟩ := h3 γ hγs hγW
-  obtain ⟨k, s, hs, hP⟩ := lemma_6_29 hX hbump hf hγs hS hz
+  obtain ⟨k, s, hs, hP⟩ := lemma_6_6_4 hX hbump hf hγs hS hz
   obtain ⟨Λ, hΛ⟩ := exists_isStabKernels hf hγs hc (fun q hq => hW (hγW q hq)) hS hz hs hP
   exact ⟨_, S, hS, hz, k, s, hs, Λ, hΛ, rfl⟩
 

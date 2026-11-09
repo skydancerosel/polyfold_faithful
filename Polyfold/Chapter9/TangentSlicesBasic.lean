@@ -138,7 +138,7 @@ theorem chartTangent_eq {A : Set X} (d : P.SubmanifoldData A) {y : X} (hyA : y �
       tangentSpace φ.model.E φ.model.C (φ '' (d.toSubData.shrink φ ∩ A)) (levelLift φ 1 y) := by
   have hy1 : y ∈ P.levelSet 1 := d.mem_levelSet_one hyA hyV
   have hz : φ.model.E.toBase 1 (levelLift φ 1 y) = φ y := P.toBase_levelLift hφ hyφ hy1
-  obtain ⟨-, h2, -, -⟩ := d.remark_4_14 hφ hyA hyV hyφ hz
+  obtain ⟨-, h2, -, -⟩ := d.remark_4_2_2 hφ hyA hyV hyφ hz
   have hyW : y ∈ d.toSubData.shrink φ := d.toSubData.mem_shrink φ hyA hyV hyφ
   rw [← h2]
   ext h
@@ -188,7 +188,7 @@ theorem exists_submodule_chartTangent {A : Set X} (hA : P.IsSmoothSubmanifold A)
   have hyV := hA.mem_data_V hyA
   have hy1 : y ∈ P.levelSet 1 := d.mem_levelSet_one hyA hyV
   have hz : φ.model.E.toBase 1 (levelLift φ 1 y) = φ y := P.toBase_levelLift hφ hyφ hy1
-  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_14 hφ hyA hyV hyφ hz
+  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_2_2 hφ hyA hyV hyφ hz
   exact ⟨N, hN.trans (chartTangent_eq hφ d hyA hyV hyφ).symm, hfin⟩
 
 /-- `T_yA = T_yA'` iff the chart images agree. -/

@@ -4,12 +4,12 @@ import RoundTrip.Blind.V8_14
 
 /-! Round trip for V8_14 (Theorem 8.1.12 (2017: 8.3): the functor `T : 𝓔𝓟 → 𝓔𝓟`).
 
-`A` is the conjunction of the types of `theorem_8_3` and `theorem_8_3_tame`, universe
+`A` is the conjunction of the types of `theorem_8_1_12` and `theorem_8_1_12_tame`, universe
 instantiated at `0`; `EP.tangent` and `tangentFunctor` are definitions (vocabulary).  At `u = 0`
 both theorems are about `EP.{max 0 1} = EP.{1}`: bundled ep-groupoids whose object and morphism
-spaces live in `Type 1`.  `theorem_8_3` says `tangentFunctor : EP.{1} ⥤ EP.{1}` sends `A` to
+spaces live in `Type 1`.  `theorem_8_1_12` says `tangentFunctor : EP.{1} ⥤ EP.{1}` sends `A` to
 `A.X.tangentEpGroupoid` and `Φ` to `EpFunctor.tangent Φ` (both `rfl`) and satisfies the functor
-laws; `theorem_8_3_tame` says it preserves tameness.
+laws; `theorem_8_1_12_tame` says it preserves tameness.
 
 `B` is stated for ep-groupoids in `Type` (universe `0`), their tangents in `Type 1`, component by
 component: (a) `TX` with (8.3)–(8.9) is an ep-groupoid, (b) `(TΦ, T𝚽)` is an sc-smooth functor,
@@ -20,19 +20,19 @@ be specialized to `B`'s objects, and `B` cannot be applied to `A`'s objects (in 
 directions are therefore proved outright, from non-item project lemmas, without using the
 hypothesis (vacuous for the audit):
 * `A_to_B`: (a) from the fields of `tangentEpGroupoid` (Theorem 8.1; properness from
-  `IsProperMap`), (b) from `EpFunctor.theorem_8_2`, (c) from Part I's `tangentMap_id`,
+  `IsProperMap`), (b) from `EpFunctor.theorem_8_1_11`, (c) from Part I's `tangentMap_id`,
   `tangentMap_comp`, (d) from `MPolyfold.IsTame.tangent`.
 * `B_to_A`: `rfl`, `rfl`, the `map_id`/`map_comp` fields of `tangentFunctor`, and
-  `EpGroupoid.lemma_8_8`. -/
+  `EpGroupoid.lemma_8_1_9`. -/
 
 namespace RoundTrip.V8_14
 open Polyfold CategoryTheory
 
 /-- The project's statement (universe at `0`, i.e. about `EP.{1}`). -/
 def A : Prop :=
-  (type_of% @Polyfold.theorem_8_3.{0}) ∧ (type_of% @Polyfold.theorem_8_3_tame.{0})
+  (type_of% @Polyfold.theorem_8_1_12.{0}) ∧ (type_of% @Polyfold.theorem_8_1_12_tame.{0})
 
-theorem A_holds : A := ⟨@Polyfold.theorem_8_3.{0}, @Polyfold.theorem_8_3_tame.{0}⟩
+theorem A_holds : A := ⟨@Polyfold.theorem_8_1_12.{0}, @Polyfold.theorem_8_1_12_tame.{0}⟩
 
 section
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -70,7 +70,7 @@ theorem tangentIsMorB {Obj Mor Obj' Mor' : Type} [TopologicalSpace Obj] [T2Space
     [TopologicalSpace Obj'] [T2Space Obj'] [ParacompactSpace Obj'] [TopologicalSpace Mor']
     [T2Space Mor'] [ParacompactSpace Mor'] {X : EpGroupoid Obj Mor} {Y : EpGroupoid Obj' Mor'}
     (F : EpFunctor X Y) : TangentIsMorB F := by
-  obtain ⟨-, -, hso, hsm, hs, ht, hc, hu⟩ := EpFunctor.theorem_8_2 F
+  obtain ⟨-, -, hso, hsm, hs, ht, hc, hu⟩ := EpFunctor.theorem_8_1_11 F
   refine ⟨X.isScSmoothMap_src, X.isScSmoothMap_tgt, Y.isScSmoothMap_src, Y.isScSmoothMap_tgt,
     hso, hsm, hs, ht, hc, fun a v hv => ?_⟩
   have hv' : X.tUnit a = v := eq_tUnit_of_isTUnitB X hv
@@ -95,10 +95,10 @@ theorem A_to_B : A → B := fun _ =>
 theorem B_to_A : B → A := fun _ =>
   ⟨⟨fun _ => rfl, fun _ => rfl, fun A => tangentFunctor.map_id A,
       fun Φ Ψ => tangentFunctor.map_comp Φ Ψ⟩,
-    fun A hA => A.X.lemma_8_8 hA⟩
+    fun A hA => A.X.lemma_8_1_9 hA⟩
 
-#rt_check RoundTrip.V8_14.A_to_B [Polyfold.theorem_8_3, Polyfold.theorem_8_3_tame]
-#rt_check RoundTrip.V8_14.B_to_A [Polyfold.theorem_8_3, Polyfold.theorem_8_3_tame]
-#rt_overlap RoundTrip.V8_14.B_to_A [Polyfold.theorem_8_3, Polyfold.theorem_8_3_tame]
+#rt_check RoundTrip.V8_14.A_to_B [Polyfold.theorem_8_1_12, Polyfold.theorem_8_1_12_tame]
+#rt_check RoundTrip.V8_14.B_to_A [Polyfold.theorem_8_1_12, Polyfold.theorem_8_1_12_tame]
+#rt_overlap RoundTrip.V8_14.B_to_A [Polyfold.theorem_8_1_12, Polyfold.theorem_8_1_12_tame]
 
 end RoundTrip.V8_14

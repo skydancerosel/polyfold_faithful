@@ -2,8 +2,8 @@ import Polyfold.Chapter3.TameGerms
 import Polyfold.Chapter2.FibredProduct
 
 /-!
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definition 2.34
-and Definition 2.50: **a retract carries non-tame retractions** — the local core of the remark
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definition 2.5.2 (preprint 2.34)
+and Definition 2.6.4 (preprint 2.50): **a retract carries non-tame retractions** — the local core of the remark
 (Findings, Chapter 3 item 190) that "the base retraction of every compatible strong bundle chart is
 tame" is false for every strong bundle over a nonempty base.
 
@@ -11,9 +11,9 @@ tame" is false for every strong bundle over a nonempty base.
 
 ## The text, paraphrased
 
-(Definition 2.34) An sc-smooth retraction `r : U → U` of a relatively open subset `U` of a partial
+(Definition 2.5.2 (preprint 2.34)) An sc-smooth retraction `r : U → U` of a relatively open subset `U` of a partial
 quadrant `C` is tame if (1) `d_C(r(x)) = d_C(x)` for `x ∈ U` and (2) at the smooth points of
-`O = r(U)` the tangent space has an sc-complement in `E_x`.  (Definition 2.50) Two strong bundle
+`O = r(U)` the tangent space has an sc-complement in `E_x`.  (Definition 2.6.4 (preprint 2.50)) Two strong bundle
 charts are compatible if their transition maps are sc-smooth; nothing is required of the
 retractions whose images the local models are.
 
@@ -38,7 +38,7 @@ retractions whose images the local models are.
   sc-calculus for affine maps of the size of `Chapter4/Recentre.lean`); for the trivial bundle
   `ℝⁿ × ℝᵏ → ℝⁿ` it is `TameVacuityChart.lean` (`TrivialBundle.not_forall_isTame_of_isChart`).  The factor is `ℝ ⊕ W` with an arbitrary
   sc-Banach space `W` only so that the partial quadrant `[0, ∞) ⊕ W` is in the presented form
-  `quadrant 1 W 0` of Definition 1.21; `W = ℝ⁰` would do.
+  `quadrant 1 W 0`, the form `[0, ∞)ᵏ ⊕ W` used before Definition 1.3.3; `W = ℝ⁰` would do.
 -/
 
 open Set Function

@@ -6,23 +6,23 @@ import RoundTrip.Blind.V4_6
 Round trip for V4_6 (Remark 4.3).  Refreshed 2026-11-02 against HEAD (Remark 4.3's example entered
 the comparison row).  The decls list two definitions (`ScBanach.liftOne`, `MPolyfold.toLevelOne`,
 vocabulary) and eight theorems, so `A` is the conjunction of the types of
-`MPolyfold.remark_4_3_levelVal`, `MPolyfold.remark_4_3_isScDiffeo`, `remark_4_3_const`,
-`remark_4_3_example`, `remark_4_3_retract_example`, `IsLossFamily.isScSmooth`,
+`MPolyfold.remark_4_1_3_levelVal`, `MPolyfold.remark_4_1_3_isScDiffeo`, `remark_4_1_3_const`,
+`remark_4_1_3_example`, `remark_4_1_3_retract_example`, `IsLossFamily.isScSmooth`,
 `exists_retract_smooth_not_scPlus_of_data` and `MPolyfold.mem_shift_levelSet_iff` (universes at `0`).
 
 * A ⇒ B (proved, new): clauses 1, 2, 4 of B as before (`A_to_B_rest`); B's third clause ("possibly
   `X¹ ≠ X` although the underlying sets agree": an M-polyfold with `X₀ = X_∞` and a junk value `x₀`
-  for which `1₀¹` is not an sc-diffeomorphism) now follows from A's `remark_4_3_retract_example`:
+  for which `1₀¹` is not an sc-diffeomorphism) now follows from A's `remark_4_1_3_retract_example`:
   the retract `O` is non-empty (`∅` is trivially an sc⁺-retract), and the one-chart M-polyfold of
   `O` (`retractPolyfold`, Proposition 4.8 in the chart, `retractPolyfold_smooth_not_toLevelOne`)
-  has `X₀ = X_∞` and `1₀¹` not sc-smooth.  (`remark_4_3_example` alone does not suffice: its
+  has `X₀ = X_∞` and `1₀¹` not sc-smooth.  (`remark_4_1_3_example` alone does not suffice: its
   M-polyfold could be empty, while B's clause asks for a point of `X₁`.)
 * B ⇒ A (not proved any more): B gives the first three conjuncts (`B_to_A_main`, the old `B_to_A`)
-  and `remark_4_3_example` (`B_gives_example`; the junk value of `1₀¹` is irrelevant when
+  and `remark_4_1_3_example` (`B_gives_example`; the junk value of `1₀¹` is irrelevant when
   `X₀ = X₁`).  It does not give the four auxiliary conjuncts: `IsLossFamily.isScSmooth` (an
   sc-smoothness criterion for families of operators with loss) and
   `exists_retract_smooth_not_scPlus_of_data` (the reduction of the example to its data) are lemmas
-  about sc-Banach spaces that B does not mention; `remark_4_3_retract_example` asks for a retract
+  about sc-Banach spaces that B does not mention; `remark_4_1_3_retract_example` asks for a retract
   in a whole sc-Banach space (`C = E`), whereas B's M-polyfold only yields a chart retract in a
   partial quadrant `C`; `mem_shift_levelSet_iff` (`(X¹)_m = X_{m+1}`) is not in B.
 -/
@@ -31,30 +31,30 @@ namespace RoundTrip.V4_6
 open Polyfold Set
 
 def A : Prop :=
-  type_of% @Polyfold.MPolyfold.remark_4_3_levelVal.{0} ∧
-  type_of% @Polyfold.MPolyfold.remark_4_3_isScDiffeo.{0} ∧
-  type_of% @Polyfold.remark_4_3_const ∧
-  type_of% @Polyfold.remark_4_3_example ∧
-  type_of% @Polyfold.remark_4_3_retract_example ∧
+  type_of% @Polyfold.MPolyfold.remark_4_1_3_levelVal.{0} ∧
+  type_of% @Polyfold.MPolyfold.remark_4_1_3_isScDiffeo.{0} ∧
+  type_of% @Polyfold.remark_4_1_3_const ∧
+  type_of% @Polyfold.remark_4_1_3_example ∧
+  type_of% @Polyfold.remark_4_1_3_retract_example ∧
   type_of% @Polyfold.IsLossFamily.isScSmooth ∧
   type_of% @Polyfold.exists_retract_smooth_not_scPlus_of_data ∧
   type_of% @Polyfold.MPolyfold.mem_shift_levelSet_iff.{0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.MPolyfold.remark_4_3_levelVal.{0}, @Polyfold.MPolyfold.remark_4_3_isScDiffeo.{0},
-    @Polyfold.remark_4_3_const, @Polyfold.remark_4_3_example, @Polyfold.remark_4_3_retract_example,
+  ⟨@Polyfold.MPolyfold.remark_4_1_3_levelVal.{0}, @Polyfold.MPolyfold.remark_4_1_3_isScDiffeo.{0},
+    @Polyfold.remark_4_1_3_const, @Polyfold.remark_4_1_3_example, @Polyfold.remark_4_1_3_retract_example,
     @Polyfold.IsLossFamily.isScSmooth, @Polyfold.exists_retract_smooth_not_scPlus_of_data,
     @Polyfold.MPolyfold.mem_shift_levelSet_iff.{0}⟩
 
 /-- The first three conjuncts of `A` (the ones before the refresh). -/
 def A_main : Prop :=
-  type_of% @Polyfold.MPolyfold.remark_4_3_levelVal.{0} ∧
-  type_of% @Polyfold.MPolyfold.remark_4_3_isScDiffeo.{0} ∧
-  type_of% @Polyfold.remark_4_3_const
+  type_of% @Polyfold.MPolyfold.remark_4_1_3_levelVal.{0} ∧
+  type_of% @Polyfold.MPolyfold.remark_4_1_3_isScDiffeo.{0} ∧
+  type_of% @Polyfold.remark_4_1_3_const
 
 /-- The conjuncts of `A` that `A ⇒ B` uses (their statements do not mention `RemarkFourThreeData`,
 see the harness note at the end). -/
-def A' : Prop := A_main ∧ type_of% @Polyfold.remark_4_3_retract_example
+def A' : Prop := A_main ∧ type_of% @Polyfold.remark_4_1_3_retract_example
 
 theorem A_to_A' (hA : A) : A' := ⟨⟨hA.1, hA.2.1, hA.2.2.1⟩, hA.2.2.2.2.1⟩
 
@@ -121,11 +121,11 @@ theorem A_to_B_rest (hA : A_main) :
     refine ⟨eq_univ_of_forall h1, fun x₀ => diffeo _ _ h1 x₀ ?_⟩
     have hplus : IsScPlusRetract (ScBanach.const V) univ univ :=
       (hA3 V).2.2 univ univ hV.isScRetract
-    exact ((MPolyfold.proposition_4_8_chart (isChart_self hV) x₀).1 hplus).2
+    exact ((MPolyfold.proposition_4_1_8_chart (isChart_self hV) x₀).1 hplus).2
 
-/-- A gives B's third clause, from `remark_4_3_retract_example`: the one-chart M-polyfold of a
+/-- A gives B's third clause, from `remark_4_1_3_retract_example`: the one-chart M-polyfold of a
 non-empty sc-retract `O = O_∞` that is not an sc⁺-retract. -/
-theorem A_gives_B3 (hR : type_of% @Polyfold.remark_4_3_retract_example) :
+theorem A_gives_B3 (hR : type_of% @Polyfold.remark_4_1_3_retract_example) :
     ∃ (X : Type) (_ : TopologicalSpace X) (_ : T2Space X) (_ : ParacompactSpace X)
       (P : MPolyfold X), P.smoothSet = Set.univ ∧
         ∃ x₀ : P.Level 1, ¬ IsScDiffeoB P (P.toLevelOne x₀) (P.levelVal 1) := by
@@ -175,7 +175,7 @@ theorem B_to_A_main : B → A_main := by
   let x₀ := (hV.toMPolyfold ⟨0, mem_univ _⟩).levelMk 1 _ h0
   have hsm := (hdiff x₀).1
   have hplus : IsScPlusRetract (ScBanach.const V) univ univ :=
-    (MPolyfold.proposition_4_8_chart (isChart_self hV) x₀).2
+    (MPolyfold.proposition_4_1_8_chart (isChart_self hV) x₀).2
       ⟨fun x _ => by rw [smoothSet_eq hV]; exact mem_univ x, hsm⟩
   -- every retraction `R` of `V` is sc⁺: `R = T ∘ R` with `T` the sc⁺-retraction onto `V`
   obtain ⟨T, hT, hTp⟩ := hplus
@@ -188,10 +188,10 @@ theorem B_to_A_main : B → A_main := by
   refine h.congr R.isScDomain fun x _ => ?_
   exact T.apply_eq_self_of_mem_retract (hTr _)
 
-/-- B gives `remark_4_3_example`: B's third clause together with its second (if `1₀¹` were
+/-- B gives `remark_4_1_3_example`: B's third clause together with its second (if `1₀¹` were
 sc-smooth it would be an sc-diffeomorphism); the junk value of `1₀¹` plays no role when every point
 lies in `X₁`. -/
-theorem B_gives_example (hB : B) : type_of% @Polyfold.remark_4_3_example := by
+theorem B_gives_example (hB : B) : type_of% @Polyfold.remark_4_1_3_example := by
   obtain ⟨-, hB2, ⟨X, _, _, _, P, hsm, x₀, hnd⟩, -⟩ := hB
   refine ⟨X, inferInstance, inferInstance, inferInstance, P, fun x => hsm ▸ mem_univ x,
     fun x₀' hmap => hnd ?_⟩
@@ -217,44 +217,44 @@ elab "#rt_check_except_defs " t:ident " [" ds:ident,* "]" " [" bs:ident,* "]" : 
   unless bad.isEmpty do throwError "FAIL: {t.getId} uses {bad} outside the bodies of the definitions"
   logInfo m!"OK: {t.getId} reaches the banned declarations only through the bodies of the definitions {ds.getElems.toList.map (·.getId)}"
 
-#rt_check RoundTrip.V4_6.A'_to_B [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_check RoundTrip.V4_6.A'_to_B [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
-#rt_check RoundTrip.V4_6.A_to_B_rest [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_check RoundTrip.V4_6.A_to_B_rest [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
 -- Harness: `A_to_B` itself cannot pass `#rt_check`/`#rt_check_soft`: its binder type `A` contains
 -- the type of `exists_retract_smooth_not_scPlus_of_data`, i.e. `RemarkFourThreeData`, whose body
 -- uses the definition `IsLossFamily.retraction`, whose `isScSmooth` field is the (non-abstracted)
 -- proof `h.isScSmooth_famRetr`, which uses the banned `IsLossFamily.isScSmooth`.  The traversal
 -- with the body of `IsLossFamily.retraction` not unfolded passes:
-#rt_check_except_defs RoundTrip.V4_6.A_to_B [Polyfold.IsLossFamily.retraction] [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_check_except_defs RoundTrip.V4_6.A_to_B [Polyfold.IsLossFamily.retraction] [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
 /-- error: rt_check_soft FAIL: RoundTrip.V4_6.A_to_B uses [Polyfold.IsLossFamily.isScSmooth] -/
 #guard_msgs in
-#rt_check_soft RoundTrip.V4_6.A_to_B [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_check_soft RoundTrip.V4_6.A_to_B [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
-#rt_check RoundTrip.V4_6.B_to_A_main [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_check RoundTrip.V4_6.B_to_A_main [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
-#rt_check RoundTrip.V4_6.B_gives_example [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_check RoundTrip.V4_6.B_gives_example [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
-#rt_overlap RoundTrip.V4_6.A'_to_B [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_overlap RoundTrip.V4_6.A'_to_B [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
-#rt_overlap RoundTrip.V4_6.B_to_A_main [Polyfold.MPolyfold.remark_4_3_levelVal,
-  Polyfold.MPolyfold.remark_4_3_isScDiffeo, Polyfold.remark_4_3_const, Polyfold.remark_4_3_example,
-  Polyfold.remark_4_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
+#rt_overlap RoundTrip.V4_6.B_to_A_main [Polyfold.MPolyfold.remark_4_1_3_levelVal,
+  Polyfold.MPolyfold.remark_4_1_3_isScDiffeo, Polyfold.remark_4_1_3_const, Polyfold.remark_4_1_3_example,
+  Polyfold.remark_4_1_3_retract_example, Polyfold.IsLossFamily.isScSmooth,
   Polyfold.exists_retract_smooth_not_scPlus_of_data, Polyfold.MPolyfold.mem_shift_levelSet_iff]
 
 end RoundTrip.V4_6

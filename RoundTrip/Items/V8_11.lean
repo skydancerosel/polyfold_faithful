@@ -13,7 +13,7 @@ definition, vocabulary), universes instantiated at `0` where there are any (`B` 
 6. `ScRetraction.IsTameWith.tangent`, 7. `ScRetraction.IsTame.tangentRetraction`,
    8. `IsTameRetract.tangent` (`Tr` is a tame retraction);
 9. `MPolyfold.IsTame.tangent` (`P` tame ⇒ `TP` tame, for every M-polyfold);
-10. `EpGroupoid.lemma_8_8` (`X` tame ⇒ `TX` tame);
+10. `EpGroupoid.lemma_8_1_9` (`X` tame ⇒ `TX` tame);
 11. `EpGroupoid.isTame_tangentEpGroupoid_trivial_rn` (satisfiability witness);
 12. `ScRetraction.IsTameWith.isTame` (Part I, Lemma 1.24: presentation independence).
 
@@ -40,7 +40,7 @@ def A : Prop :=
   (type_of% @Polyfold.ScRetraction.IsTame.tangentRetraction) ∧
   (type_of% @Polyfold.IsTameRetract.tangent) ∧
   (type_of% @Polyfold.MPolyfold.IsTame.tangent.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_8_8.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.lemma_8_1_9.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn) ∧
   (type_of% @Polyfold.ScRetraction.IsTameWith.isTame)
 
@@ -51,7 +51,7 @@ theorem A_holds : A :=
     @Polyfold.ScRetraction.scDeriv_tangentRetraction_inr,
     @Polyfold.ScRetraction.IsTameWith.tangent, @Polyfold.ScRetraction.IsTame.tangentRetraction,
     @Polyfold.IsTameRetract.tangent, @Polyfold.MPolyfold.IsTame.tangent.{0},
-    @Polyfold.EpGroupoid.lemma_8_8.{0}, @Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn,
+    @Polyfold.EpGroupoid.lemma_8_1_9.{0}, @Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn,
     @Polyfold.ScRetraction.IsTameWith.isTame⟩
 
 theorem A_to_B : A → B := by
@@ -62,7 +62,7 @@ theorem A_to_B : A → B := by
 /-- The M-polyfold and ep-groupoid conjuncts 9–11 of `A`. -/
 def AMain : Prop :=
   (type_of% @Polyfold.MPolyfold.IsTame.tangent.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_8_8.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.lemma_8_1_9.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn)
 
 /-- `B` gives conjuncts 9–11 of `A`: conjunct 9 by applying `B` to the trivial ep-groupoid of
@@ -70,7 +70,7 @@ def AMain : Prop :=
 object M-polyfold, conjunct 11 from 10 and Chapter 7's `isTame_trivial_rn`. -/
 theorem B_to_A_main : B → AMain := by
   intro hB
-  have h10 : type_of% @Polyfold.EpGroupoid.lemma_8_8.{0} :=
+  have h10 : type_of% @Polyfold.EpGroupoid.lemma_8_1_9.{0} :=
     fun X hX => hB _ _ X hX
   refine ⟨fun {Z} _ _ _ {P} _ hP => hB Z Z (EpGroupoid.trivial P) hP, h10, fun n => ?_⟩
   exact h10 _ (EpGroupoid.isTame_trivial_rn n)
@@ -80,21 +80,21 @@ theorem B_to_A_main : B → AMain := by
   Polyfold.ScRetraction.scDeriv_tangentRetraction_fst,
   Polyfold.ScRetraction.scDeriv_tangentRetraction_inr, Polyfold.ScRetraction.IsTameWith.tangent,
   Polyfold.ScRetraction.IsTame.tangentRetraction, Polyfold.IsTameRetract.tangent,
-  Polyfold.MPolyfold.IsTame.tangent, Polyfold.EpGroupoid.lemma_8_8,
+  Polyfold.MPolyfold.IsTame.tangent, Polyfold.EpGroupoid.lemma_8_1_9,
   Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn, Polyfold.ScRetraction.IsTameWith.isTame]
 #rt_check RoundTrip.V8_11.B_to_A_main [Polyfold.tangentSet_eq_tangentPres,
   Polyfold.degIndex_tangentSet, Polyfold.mem_minimalSubspaceWith_tangentPres,
   Polyfold.ScRetraction.scDeriv_tangentRetraction_fst,
   Polyfold.ScRetraction.scDeriv_tangentRetraction_inr, Polyfold.ScRetraction.IsTameWith.tangent,
   Polyfold.ScRetraction.IsTame.tangentRetraction, Polyfold.IsTameRetract.tangent,
-  Polyfold.MPolyfold.IsTame.tangent, Polyfold.EpGroupoid.lemma_8_8,
+  Polyfold.MPolyfold.IsTame.tangent, Polyfold.EpGroupoid.lemma_8_1_9,
   Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn, Polyfold.ScRetraction.IsTameWith.isTame]
 #rt_overlap RoundTrip.V8_11.B_to_A_main [Polyfold.tangentSet_eq_tangentPres,
   Polyfold.degIndex_tangentSet, Polyfold.mem_minimalSubspaceWith_tangentPres,
   Polyfold.ScRetraction.scDeriv_tangentRetraction_fst,
   Polyfold.ScRetraction.scDeriv_tangentRetraction_inr, Polyfold.ScRetraction.IsTameWith.tangent,
   Polyfold.ScRetraction.IsTame.tangentRetraction, Polyfold.IsTameRetract.tangent,
-  Polyfold.MPolyfold.IsTame.tangent, Polyfold.EpGroupoid.lemma_8_8,
+  Polyfold.MPolyfold.IsTame.tangent, Polyfold.EpGroupoid.lemma_8_1_9,
   Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn, Polyfold.ScRetraction.IsTameWith.isTame]
 
 end RoundTrip.V8_11

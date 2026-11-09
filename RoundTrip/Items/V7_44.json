@@ -5,8 +5,8 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A is lemma_7_5 at universe 0: for every ep-groupoid X (Obj Mor : Type) and z ∈ |X| there is V : ℕ → Set |X| with every V k open and containing z and (𝓝 z).HasAntitoneBasis V. B: open V k, z ∈ V (k+1) ⊆ V k, and (𝓝 z).HasBasis (fun _ ↦ True) V (index shift ℕ from 0 instead of 1). Mathlib's HasAntitoneBasis is exactly HasBasis (fun _ ↦ True) plus Antitone, Antitone on ℕ is V (k+1) ⊆ V k (antitone_nat_of_succ_le), and z ∈ V 0 follows from z ∈ V 1 ⊆ V 0. Pure repackaging.",
+ "why": "A is lemma_7_3_3 at universe 0: for every ep-groupoid X (Obj Mor : Type) and z ∈ |X| there is V : ℕ → Set |X| with every V k open and containing z and (𝓝 z).HasAntitoneBasis V. B: open V k, z ∈ V (k+1) ⊆ V k, and (𝓝 z).HasBasis (fun _ ↦ True) V (index shift ℕ from 0 instead of 1). Mathlib's HasAntitoneBasis is exactly HasBasis (fun _ ↦ True) plus Antitone, Antitone on ℕ is V (k+1) ⊆ V k (antitone_nat_of_succ_le), and z ∈ V 0 follows from z ∈ V 1 ⊆ V 0. Pure repackaging.",
  "B_issue": null,
- "overlap": "10 shared project theorems, all GroupoidStr lemmas reached through the definition of X.OrbitSpace (orbitSetoid) in both statements; no proof lemma of Lemma 7.5 (proposition_7_2) is reused.",
+ "overlap": "10 shared project theorems, all GroupoidStr lemmas reached through the definition of X.OrbitSpace (orbitSetoid) in both statements; no proof lemma of Lemma 7.5 (proposition_7_1_9) is reused.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
 }

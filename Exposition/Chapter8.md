@@ -144,7 +144,7 @@ over $g(\varphi) = \psi\circ\varphi$, and $Ts(Tg(h)) = Ts(h)$ because $s\circ g 
 $k\circ h = Tg(h)$. $\square$
 
 The proof writes $s|\mathbf U(\varphi\circ\psi)$ for $s|\mathbf U(\psi\circ\varphi)$ (possible misprint) (Findings, items 5, 111). *Checked by
-machine (V8.4):* `Polyfold.EpGroupoid.lemma_8_1`, `Polyfold.EpGroupoid.tComp_eq_tangentMapOn`,
+machine (V8.4):* `Polyfold.EpGroupoid.lemma_8_1_2`, `Polyfold.EpGroupoid.tComp_eq_tangentMapOn`,
 `Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc`, `Polyfold.EpGroupoid.mem_tangentPreimage_tgt`,
 `Polyfold.EpGroupoid.isScSmoothCompSheet`.
 
@@ -156,14 +156,14 @@ $\square$
 
 This is the text's computation, whose $\alpha\circ s = t\circ(s|\mathbf U(\psi))^{-1}\circ t$ near $\varphi$ is $t\circ g$ here. The proof has "$= =$",
 "$:\mathbf U(\psi\circ\varphi)\to U(x)$" without the map $s$, and "$Tt)\varphi)(h)$" (possible misprints) (Findings, item 6). *Checked by
-machine (V8.5):* `Polyfold.EpGroupoid.lemma_8_2`, `Polyfold.EpGroupoid.tTgt_tangentMapOn`.
+machine (V8.5):* `Polyfold.EpGroupoid.lemma_8_1_3`, `Polyfold.EpGroupoid.tTgt_tangentMapOn`.
 
 **Lemma 8.1.4 (2017: 8.3).** The composition of $T\mathbf X$ is associative.
 
 *Proof.* For composable $l$, $k$, $h$ over $\sigma$, $\psi$, $\varphi$, Lemma 8.1.3 (2017: 8.2) makes both $l\circ(k\circ h)$ and $(l\circ k)\circ h$ defined. Both lie
 over $\sigma\circ\psi\circ\varphi$, and by (8.5) both have the image $Ts(h)$ under $Ts$. By fibre injectivity they are equal. $\square$
 
-The text expands both sides with (8.5) (Findings, item 4). *Checked by machine (V8.6):* `Polyfold.EpGroupoid.lemma_8_3`.
+The text expands both sides with (8.5) (Findings, item 4). *Checked by machine (V8.6):* `Polyfold.EpGroupoid.lemma_8_1_4`.
 
 **Lemma 8.1.5 (2017: 8.4).** For $q\in T_xX$, $1_q = (1_x,Ts(1_x)^{-1}q)$ is a morphism $q\to q$ and a two-sided unit.
 
@@ -173,7 +173,7 @@ so $k\circ1_q = k$. If $Tt(k) = q$, then $1_q\circ k$ lies over $\varphi$ and $T
 
 The text obtains $Tt(1_q) = q$ from $t\circ(s|\mathbf U(1_x))^{-1} = \mathrm{id}$ near $x$; the chain rule for $t\circ u = \mathrm{id}$ gives it directly
 (Findings, item 6). *Checked by machine (V8.7):* `Polyfold.EpGroupoid.tSrc_tUnit`, `Polyfold.EpGroupoid.tTgt_tUnit`,
-`Polyfold.EpGroupoid.tComp_tUnit`, `Polyfold.EpGroupoid.tUnit_tComp`, `Polyfold.EpGroupoid.lemma_8_4`.
+`Polyfold.EpGroupoid.tComp_tUnit`, `Polyfold.EpGroupoid.tUnit_tComp`, `Polyfold.EpGroupoid.lemma_8_1_5`.
 
 **Lemma 8.1.6 (2017: 8.5).** $\iota_T(\varphi,k) = (\varphi^{-1},T\iota(\varphi)(k))$ is a two-sided inverse of $(\varphi,k)$.
 
@@ -182,7 +182,7 @@ $Tt(k)\to Ts(k)$. The composite $T\iota(k)\circ k$ lies over $\varphi^{-1}\circ\
 $1_{Ts(k)}$ (Lemma 8.1.5 (2017: 8.4)), and the two are equal. The other side is the same. $\square$
 
 *Checked by machine (V8.8):* `Polyfold.EpGroupoid.tSrc_tInv`, `Polyfold.EpGroupoid.tTgt_tInv`,
-`Polyfold.EpGroupoid.tComp_tInv`, `Polyfold.EpGroupoid.tInv_tComp`, `Polyfold.EpGroupoid.lemma_8_5`.
+`Polyfold.EpGroupoid.tComp_tInv`, `Polyfold.EpGroupoid.tInv_tComp`, `Polyfold.EpGroupoid.lemma_8_1_6`.
 
 **Lemma 8.1.7 (2017: 8.6).** $s_T$ and $t_T$ are surjective local sc-diffeomorphisms, and all structure maps of $(TX,T\mathbf X)$ are
 sc-smooth.
@@ -198,7 +198,7 @@ avoids it (Findings, item 7). *Checked by machine (V8.9):* `Polyfold.EpGroupoid.
 `Polyfold.EpGroupoid.isLocalScDiffeo_tTgt`, `Polyfold.EpGroupoid.surjective_tSrc`, `Polyfold.EpGroupoid.surjective_tTgt`,
 `Polyfold.EpGroupoid.isScSmoothMap_tUnit`, `Polyfold.EpGroupoid.isScSmoothMap_tInv`,
 `Polyfold.EpGroupoid.isScSmoothCompSheet_tangent`, `Polyfold.EpGroupoid.isScSmoothComp_tangent`,
-`Polyfold.EpGroupoid.lemma_8_6`, `Polyfold.isScSmoothComp_iff_sheet`.
+`Polyfold.EpGroupoid.lemma_8_1_7`, `Polyfold.isScSmoothComp_iff_sheet`.
 
 **Lemma 8.1.8 (2017: 8.7).** $(TX,T\mathbf X)$ has the properness property: every $a\in TX$ has an open neighbourhood $V'$ for which
 $t_T:s_T^{-1}(\mathrm{cl}\,V')\to TX$ is proper.
@@ -212,7 +212,7 @@ converges. $\square$
 
 The text's step "$\varphi_k\to\varphi$ in $\mathbf X^1$" is not needed. The proof writes $t(\varphi_k,h_k) = Ts(\varphi_k)(h_k)$ for $Tt(\varphi_k)(h_k)$
 (possible misprint), and accordingly inverts $Ts$ where the formal proof inverts $Tt$, the map whose values converge
-(Findings, item 7). *Checked by machine (V8.10):* `Polyfold.EpGroupoid.lemma_8_7`.
+(Findings, item 7). *Checked by machine (V8.10):* `Polyfold.EpGroupoid.lemma_8_1_8`.
 
 **Lemma 8.1.9 (2017: 8.8).** If the ep-groupoid $(X,\mathbf X)$ is tame, so is $(TX,T\mathbf X)$.
 
@@ -237,18 +237,18 @@ chart" is read as a chart modelled on a tame retract (Findings, item 8). *Checke
 `Polyfold.ScIso.tangentPres`, `Polyfold.degIndex_tangentSet`, `Polyfold.ScRetraction.scDeriv_tangentRetraction_fst`,
 `Polyfold.ScRetraction.scDeriv_tangentRetraction_inr`, `Polyfold.ScRetraction.IsTameWith.tangent`,
 `Polyfold.ScRetraction.IsTame.tangentRetraction`, `Polyfold.IsTameRetract.tangent`, `Polyfold.MPolyfold.IsTame.tangent`,
-`Polyfold.EpGroupoid.lemma_8_8`.
+`Polyfold.EpGroupoid.lemma_8_1_9`.
 
 **Proof of Theorem 8.1.1 (2017: 8.1)** *(pp. 363–365 (2017 pp. 263–264)).* Lemmas 8.1.3–8.1.6 (2017: 8.2–8.5) make $(TX,T\mathbf X)$ a groupoid, Lemmas 8.1.7 and 8.1.8 (2017: 8.6 and 8.7) give conditions
 (1)–(4) of Definition 7.1.3 (2017: 7.3), and Lemma 8.1.9 (2017: 8.8) gives the tameness. The projection $p$ is sc-smooth into the index lift
 $(X,\mathbf X)^1$ of Proposition 7.3.9 (2017: 7.11), and it is compatible with the composition, $p(k\circ h) = p(k)\circ p(h)$ by (8.5), which the text
 calls obvious. $\square$
 
-`Polyfold.EpGroupoid.theorem_8_1` records that the ep-groupoid has the M-polyfolds $TX$, $T\mathbf X$ and the text's structure
+`Polyfold.EpGroupoid.theorem_8_1_1` records that the ep-groupoid has the M-polyfolds $TX$, $T\mathbf X$ and the text's structure
 maps, with the base point and the source of a composite; the tameness sentence is a separate statement (Findings, items
 2, 9). *Checked by machine (V8.3):* `Polyfold.EpGroupoid.tangentGroupoidStr`, `Polyfold.EpGroupoid.tangentEpGroupoid`,
-`Polyfold.EpGroupoid.tangentProjFunctor`, `Polyfold.EpGroupoid.tBase_tComp`, `Polyfold.EpGroupoid.theorem_8_1`,
-`Polyfold.EpGroupoid.theorem_8_1_tame`.
+`Polyfold.EpGroupoid.tangentProjFunctor`, `Polyfold.EpGroupoid.tBase_tComp`, `Polyfold.EpGroupoid.theorem_8_1_1`,
+`Polyfold.EpGroupoid.theorem_8_1_1_tame`.
 
 ## 3. Remark 8.1.10 (2017: 8.1), the tangent functor and natural transformations (pp. 364–372 (2017 pp. 264–268))
 
@@ -271,7 +271,7 @@ uses them, the M-polyfold structure transported along $G$ and the triples $(a,T\
 for $T_yX$, twice on 2017 p. 264, and "the linearization of $t\circ(s|U(\varphi))^{-1}$ at $\varphi$" on 2017 p. 265 for "at $x$", the point where this
 map is defined and where 2017 p. 264 takes its tangent (Findings, items 10, 112, 113). *Checked by machine (V8.12):*
 `Polyfold.EpGroupoid.tangentMor`, `Polyfold.EpGroupoid.tangentMor_tSrc`, `Polyfold.EpGroupoid.tangentMor_comp`,
-`Polyfold.EpGroupoid.remarkG`, `Polyfold.EpGroupoid.remark_8_1`.
+`Polyfold.EpGroupoid.remarkG`, `Polyfold.EpGroupoid.remark_8_1_10`.
 
 **Theorem 8.1.11 (2017: 8.2).** If $(\Phi,\boldsymbol\Phi):(X,\mathbf X)\to(Y,\mathbf Y)$ is an sc-smooth functor between ep-groupoids, its tangent
 $(T\Phi,T\boldsymbol\Phi):T(X,\mathbf X)\to T(Y,\mathbf Y)$ is an sc-smooth functor.
@@ -283,7 +283,7 @@ injectivity in $T\mathbf Y$. Units: $T\boldsymbol\Phi(Tu(q)) = T(\boldsymbol\Phi
 
 The text differentiates $\boldsymbol\Phi(m(\psi,\varphi)) = m(\boldsymbol\Phi(\psi),\boldsymbol\Phi(\varphi))$ through Lemma 8.1.2 (2017: 8.1) and leaves the units to the reader; both are
 proved here (Findings, items 4, 11). *Checked by machine (V8.13):* `Polyfold.EpFunctor.tangent`,
-`Polyfold.EpFunctor.theorem_8_2`.
+`Polyfold.EpFunctor.theorem_8_1_11`.
 
 **Theorem 8.1.12 (2017: 8.3) (functoriality of $T$).** $T$ is a functor $\mathcal{EP}\to\mathcal{EP}$, $X\mapsto TX$, $\Phi\mapsto T\Phi$, and $TX$ is tame if $X$
 is.
@@ -295,7 +295,7 @@ $\square$
 an endofunctor `EP.{max u 1} ⥤ EP.{max u 1}` of the category of ep-groupoids in the universe `max u 1` (Lean identifies
 `max (max u 1) 1` with `max u 1`); an ep-groupoid in `Type` has its tangent ep-groupoid by Theorem 8.1.1 (2017: 8.1), in `Type 1`. This
 restriction comes from the formalization, not from the text (Findings, items 2, 11). *Checked by machine (V8.14):*
-`Polyfold.EP.tangent`, `Polyfold.tangentFunctor`, `Polyfold.theorem_8_3`, `Polyfold.theorem_8_3_tame`.
+`Polyfold.EP.tangent`, `Polyfold.tangentFunctor`, `Polyfold.theorem_8_1_12`, `Polyfold.theorem_8_1_12_tame`.
 
 **Definition 8.1.13 (2017: 8.1) (natural transformation, natural equivalence).** For sc-smooth functors $F,G:X\to Y$ between
 ep-groupoids, a natural transformation $\tau:F\to G$ is an sc-smooth map $\tau:X\to\mathbf Y$ with $\tau(x):F(x)\to G(x)$ and
@@ -323,7 +323,7 @@ equal. $\square$
 
 The text differentiates the naturality square at $\alpha_0\in\mathbf X^1$. Possible misprints: "$T\tau(x_0(h))$" for $T\tau(x_0)(h)$ (2017 p. 267), and the lower arrow of the last diagram labelled $T\tau(x_0)h$ for $T\tau(x_0')h'$ (2017 p. 268; possibly an artefact of the
 text extraction) (Findings, items 4, 13). *Checked by machine (V8.17):* `Polyfold.EpNatTrans.tangent`,
-`Polyfold.proposition_8_1`.
+`Polyfold.proposition_8_1_14`.
 
 ## 4. The orbit space of the tangent (2017 p. 268)
 
@@ -361,7 +361,7 @@ writes "parcompact" (possible misprint) (Findings, items 20, 21, 113). *Checked 
 `Polyfold.EpGroupoid.NaturalRep.tangentMulAction`, `Polyfold.EpGroupoid.NaturalRep.tΓ`,
 `Polyfold.EpGroupoid.NaturalRep.tangent_π_eq_iff`, `Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_tangentOrbitQuotientMap`,
 `Polyfold.EpGroupoid.NaturalRep.image_tangentU_eq_preimage`, `Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU`,
-`Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace`, `Polyfold.EpGroupoid.theorem_8_4`,
+`Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace`, `Polyfold.EpGroupoid.theorem_8_1_15`,
 `Polyfold.metrizableSpace_of_pullback`.
 
 ## 5. Sc-differential forms on ep-groupoids (pp. 368–375 (2017 pp. 268–270))
@@ -540,7 +540,7 @@ product lies in a particular position in the full product".
 *Checked by machine (V8.28):* `Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap`,
 `Polyfold.EpFunctor.IsProperCovering.degIndex_mor`, `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap_le`,
 `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap`, `Polyfold.MPolyfold.degIndex_prod_le`,
-`Polyfold.proposition_2_24`.
+`Polyfold.proposition_2_4_4`.
 
 **Proposition 8.5.2 (2017: 8.2).** If $F:Y\to X$ and $H:Z\to Y$ are proper covering functors, so is $F\circ H$.
 
@@ -554,7 +554,7 @@ the ambient M-polyfold. $\square$
 
 The proof writes "fo" for "for" (2017 p. 276; possible misprint) (Findings, item 52). *Checked by machine (V8.29):*
 `Polyfold.EpFunctor.IsProperCovering.evenlyCovered_comp`, `Polyfold.EpFunctor.IsProperCovering.isScDiffeo_fibredMap_comp`,
-`Polyfold.EpFunctor.IsProperCovering.proposition_8_2`.
+`Polyfold.EpFunctor.IsProperCovering.proposition_8_5_2`.
 
 **Theorem 8.5.3 (2017: 8.5) (Proper Covering I).** Let $F:Y\to X$ be a proper covering functor and $x\in X$. For a connected and sufficiently
 small open neighbourhood $U(x)$ admitting the natural $G_x$-action $(\Phi,\Gamma)$:
@@ -584,8 +584,8 @@ natural representation on a connected $U(x)\subseteq W$ belongs to a chart (Find
 > $t(F(\psi)) = \Phi(g)(F(s(\psi)))$, which differs from $F(s(\psi))$ wherever $\Phi(g)$ moves $F(s(\psi))$. Checked in Lean: the identity
 > functor of $\mathbb Z/2\ltimes\mathbb R$, $\mathbb Z/2$ acting by $z\mapsto\pm z$, is a proper covering functor; at $x = 0$, for every chart, the
 > sheet $\mathbf U(\psi_0)$ of $\psi_0 = (-1,0)$ contains $\psi = (-1,z)$ with $z\neq0$, and $F(s(\psi)) = z\neq-z = t(F(\psi))$; such charts exist
-> (`Polyfold.CoveringExamples.theorem_8_5_five_as_printed`,
-> `Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous`; Findings, item 54).
+> (`Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed`,
+> `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous`; Findings, item 54).
 
 So (5) is formalized with $s$ on both vertical arrows: $F(s(\psi)) = s(F(\psi))$ over $F:U(s(\psi_0))\to U(x)$, where the corner
 $U(s(F(\psi_0)))$ is $U(x)$ since $s(F(\psi_0)) = t(F(\psi_0)) = x$, the same set as the printed corner. A companion square with $t$ on both
@@ -616,8 +616,8 @@ statement, (2) has "morphismsm" (2017 p. 277) (Findings, items 53–55). *Checke
 `Polyfold.EpFunctor.ProperCoveringChart`, `Polyfold.EpFunctor.ProperCoveringChart.comm_src`,
 `Polyfold.EpFunctor.ProperCoveringChart.comm_tgt`, `Polyfold.EpFunctor.ProperCoveringLocal.Data`,
 `Polyfold.EpFunctor.ProperCoveringLocal.exists_data`, `Polyfold.EpFunctor.ProperCoveringLocal.Data.toChart`,
-`Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section`, `Polyfold.EpFunctor.theorem_8_5`,
-`Polyfold.EpFunctor.theorem_8_5_of_naturalRep`.
+`Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section`, `Polyfold.EpFunctor.theorem_8_5_3`,
+`Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep`.
 
 **Remark 8.5.4 (2017: 8.2).** (a) For a morphism $\varphi:y\to y'$ between points of $F^{-1}(x)$, $F(\varphi)$ belongs to $G_x$, since $F$ is a functor. (b) In
 Theorem 8.5.3 (2017: 8.5) everything is determined by the choice of the small connected $U(x)$ with the natural $G_x$-action.
@@ -626,8 +626,8 @@ Theorem 8.5.3 (2017: 8.5) everything is determined by the choice of the small co
 $U(x)$ the map $\Gamma(g,\cdot)$ is the continuous section of $s$ through $g$ (Chapter 7's uniqueness of natural representations), the
 same sets $U(y)$ and the same sheets $\mathbf U(\psi_0)$, which are connected components of $F^{-1}(U(x))$ and of $\mathbf U(s(\psi_0),t(\psi_0))$. The
 remark's comments on the naturality of Theorem 7.1.13's (2017: 7.1) construction and on the main point of the proof have no further
-formal content (Findings, item 56). *Checked by machine (V8.31):* `Polyfold.EpFunctor.remark_8_2_a`,
-`Polyfold.EpFunctor.isotropyMor`, `Polyfold.EpFunctor.remark_8_2_b`,
+formal content (Findings, item 56). *Checked by machine (V8.31):* `Polyfold.EpFunctor.remark_8_5_4_a`,
+`Polyfold.EpFunctor.isotropyMor`, `Polyfold.EpFunctor.remark_8_5_4_b`,
 `Polyfold.EpFunctor.ProperCoveringChart.connectedComponentIn_U`,
 `Polyfold.EpFunctor.ProperCoveringChart.connectedComponentIn_sheet`.
 
@@ -702,7 +702,7 @@ value off composable pairs. The proof's "the map $F:X\to Y$" is read as $F:Y\to 
 `Polyfold.GeometricLift.isProperMap_yTgt`, `Polyfold.GeometricLift.isScSmoothCompSheet_y`,
 `Polyfold.geometricLiftSource`, `Polyfold.geometricLiftTarget`, `Polyfold.geometricLiftFunctor`,
 `Polyfold.geometricLiftFunctor_surjective_iff`, `Polyfold.GeometricLift.isScSmoothMap_fibredInv`,
-`Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap`, `Polyfold.proposition_8_3`,
+`Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap`, `Polyfold.proposition_8_5_7`,
 `Polyfold.EpGroupoid.Examples.actionEpGroupoid`.
 
 **Theorem 8.5.8 (2017: 8.6) (Proper Covering II).** Let $F:Y\to X$ be a proper covering functor and $x\in X$; let $C$ be the full subcategory
@@ -736,7 +736,7 @@ morphisms $\{\varphi\mid s(\varphi),t(\varphi)\in U(x)\}$. The finiteness of $D$
 `Polyfold.EpFunctor.ProperCoveringChart.geometricLift`, `Polyfold.EpFunctor.ProperCoveringChart.Φ`,
 `Polyfold.EpFunctor.ProperCoveringChart.Ψ`, `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ`,
 `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor`, `Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ`,
-`Polyfold.EpFunctor.theorem_8_6`.
+`Polyfold.EpFunctor.theorem_8_5_8`.
 
 ## 9. Proper strong bundle covering functors and the appendix (pp. 392–400 (2017 pp. 284–289))
 
@@ -788,7 +788,7 @@ Dividing by $\#\Theta_j\ge1$ gives the last claim. $\square$
 
 (8.17) writes "$\psi\to(F\psi),s(\psi))$", with an unbalanced parenthesis, for $\psi\mapsto(F(\psi),s(\psi))$ (possible misprint) (Findings, item
 72). *Checked by machine (V8.39):* `Polyfold.EpFunctor.morOn_fiberClass_eq`,
-`Polyfold.EpFunctor.IsProperCovering.morOnClassEquiv`, `Polyfold.EpFunctor.IsProperCovering.lemma_8_9`.
+`Polyfold.EpFunctor.IsProperCovering.morOnClassEquiv`, `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1`.
 
 **Lemma 8.6.2 (2017: 8.10).** If $x$ and $x'$ are isomorphic, the isomorphism classes of $F^{-1}(x)$ and of $F^{-1}(x')$ correspond one to one:
 there are decompositions $F^{-1}(x) = \bigsqcup_j\Theta_j$ and $F^{-1}(x') = \bigsqcup_j\Theta'_j$ such that, if $y\in F^{-1}(x)$ and $y'\in F^{-1}(x')$ are
@@ -800,8 +800,8 @@ $|Y|$ the correspondence is the identity of indices; the index $j$ of the statem
 
 As a bijection between the sets of classes the correspondence is a separate statement (Findings, items 71, 73). *Checked
 by machine (V8.40):* `Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic`,
-`Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq`, `Polyfold.EpFunctor.IsProperCovering.lemma_8_10`,
-`Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv`.
+`Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq`, `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2`,
+`Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv`.
 
 **Lemma 8.6.3 (2017: 8.11).** If $x$ and $x'$ are isomorphic, then $\#\Theta_j = \#\Theta'_j$ for every $j$, and
 $\#F^{-1}(x) = \sum_j\#\Theta_j = \sum_j\#\Theta'_j = \#F^{-1}(x')$.
@@ -812,7 +812,7 @@ $\#\Theta_j = \#G_x/\#G_{y_0} = \#G_{x'}/\#G_{y_0'} = \#\Theta'_j$, dividing by 
 Possible misprints: after Lemma 8.6.2 (2017: 8.10) the text writes "Using the third claim of Lemma 8.10" for the third claim of Lemma
 8.6.1 (2017: 8.9), Lemma 8.6.2 (2017: 8.10) having no third claim; and Lemma 8.6.3 (2017: 8.11) writes $\sum_{i=1}^q\#\Theta_j$, a sum over $i$ of summands indexed by $j$
 (Findings, item 73). *Checked by machine (V8.41):* `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum`,
-`Polyfold.EpFunctor.IsProperCovering.lemma_8_11`, `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic`.
+`Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3`, `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic`.
 
 **Proposition 8.6.4 (2017: 8.4).** Let $F:Y\to X$ be a proper covering functor. For every connected component $c$ of $|X|$ there is a
 constant $k_c$ with $\#F^{-1}(x) = k_c$ whenever $\pi(x)\in c$. In other words, viewing $\mathbb N$ as an ep-groupoid with only identities,
@@ -829,7 +829,7 @@ $\mathbb N = \{1,2,\dots\}$ is Lean's $\mathbb N$, with $0$, as the trivial ep-g
 (Findings, items 74, 113). *Checked by machine (V8.42):* `Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber`,
 `Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber`, `Polyfold.EpFunctor.IsProperCovering.fiberCardOrbit`,
 `Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit`,
-`Polyfold.EpFunctor.IsProperCovering.proposition_8_4`, `Polyfold.EpFunctor.IsProperCovering.fiberCardFunctor`.
+`Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4`, `Polyfold.EpFunctor.IsProperCovering.fiberCardFunctor`.
 
 **The structure of strong bundle coverings** *(§8.6.2 (2017 §8.5.2), 2017 pp. 288–289).* For a proper strong bundle covering functor $A$
 over $F$, on morphisms $A(\varphi,w) = (F(\varphi),A_{s(\varphi)}(w))$, where $A_y:P^{-1}(y)\to Q^{-1}(F(y))$ is the topological linear isomorphism
@@ -869,10 +869,10 @@ statements; Findings, items 100–105).
 - *Proper covering functors.* The identity functor of every ep-groupoid is a proper covering functor, so Definition 8.5.1 (2017: 8.8),
   Propositions 8.5.2 and 8.6.4 (2017: 8.2 and 8.4), Theorems 8.5.3 and 8.5.8 (2017: 8.5 and 8.6) and Lemmas 8.6.1–8.6.3 (2017: 8.9–8.11) are not vacuous. Theorem 8.5.8 (2017: 8.6) quantifies over all
   charts of Theorem 8.5.3 (2017: 8.5), and charts exist inside every open neighbourhood of $x$. `Polyfold.EpFunctor.isProperCovering_id`,
-  `Polyfold.EpFunctor.theorem_8_5`.
+  `Polyfold.EpFunctor.theorem_8_5_3`.
 - *Square (5) as printed.* On the identity functor of $\mathbb Z/2\ltimes\mathbb R$ (§7).
-  `Polyfold.CoveringExamples.theorem_8_5_five_as_printed`,
-  `Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous`.
+  `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed`,
+  `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous`.
 - *Strong bundles over ep-groupoids.* Every strong bundle over an M-polyfold is a strong bundle over the trivial
   ep-groupoid of the M-polyfold, with $\mu(z,w) = w$ (Definition 8.3.1 (2017: 8.4)); the identity is a strong bundle map, a strong bundle
   functor and a proper strong bundle covering functor (Definitions 8.3.2, 8.3.3, 8.5.9 (2017: 8.5, 8.6, 8.10), the last on the reading of (3) in §9);
@@ -1008,7 +1008,7 @@ The step "the tangent of $k$ is the identity, so $Tg$ is" is where the text diff
 needs the second tangent bundle $T(TX)$, which is not formalized, and is a hypothesis, satisfiable (gap G.88). As in Chapter 7,
 tangents of isotropy elements are maps of sets, and no linear structure is used (Findings, item 115). *Checked by machine
 (V8.44):* `Polyfold.EpGroupoid.TangentZhouReflect`, `Polyfold.EpGroupoid.mem_nonEffectivePart_tangent`,
-`Polyfold.EpGroupoid.proposition_8_1_16_2021`, `Polyfold.EpGroupoid.tangentZhouReflect_trivial`.
+`Polyfold.EpGroupoid.proposition_8_1_16`, `Polyfold.EpGroupoid.tangentZhouReflect_trivial`.
 
 **Proposition 8.1.17.** (1) If $X^1$ has the local unique continuation property, so has $TX$, and $(T\mathbf X)^T = p^{-1}((\mathbf X^1)^T)$. (2) If every
 $X^i$ has it, so has every $(TX)^i$.
@@ -1022,9 +1022,9 @@ openness of $p:T\mathbf X\to\mathbf X^1$ (gap G.8). (2) is checked for every $i$
 for $T(X^i)$, and Part I's Proposition 2.3.17 gives $T(X^i)\cong(TX)^i$ as ep-groupoids, by sc-diffeomorphisms of objects and
 morphisms commuting with source and target, which carry LUC by Proposition 7.2.21. Their compatibility with unit, inverse and
 composition, not needed for LUC, is not checked (gap G.88, closed for (2)) (Findings, items 116, 124). *Checked by machine (V8.45,
-V8.52):* `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq`, `Polyfold.EpGroupoid.proposition_8_1_17_2021_one`,
-`Polyfold.EpGroupoid.proposition_8_1_17_2021_two`, `Polyfold.EpGroupoid.EpEquiv.isLUC`, `Polyfold.EP.tangentLiftEpEquiv`,
-`Polyfold.EP.proposition_8_1_17_two_all_2021`.
+V8.52):* `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq`, `Polyfold.EpGroupoid.proposition_8_1_17_one`,
+`Polyfold.EpGroupoid.proposition_8_1_17_two`, `Polyfold.EpGroupoid.EpEquiv.isLUC`, `Polyfold.EP.tangentLiftEpEquiv`,
+`Polyfold.EP.proposition_8_1_17_two_all`.
 
 **Proposition 8.2.3 (Poincaré lemma).** Every object has saturated open neighbourhoods $V\subseteq U$ such that every closed sc-form on $U$
 in the sense of §5 has a primitive on $V$; the proof averages a primitive of Part I's Lemma 4.4.8 over $G_x$. Not formalized, with
@@ -1048,7 +1048,7 @@ Chapter 7's Theorem 7.3.1 and Smirnov's theorem; so is its subspace $|X|$, which
 The text concludes from closedness instead. The other implications need $G_x$-equivariant bundle charts with invariant metrics
 and $W[1]$ as an ep-groupoid; not formalized (gap G.86) (Findings, item 118). *Checked by machine (V8.47):*
 `Polyfold.EpStrongBundle.zeroOrbitMap`, `Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap`,
-`Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one`.
+`Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one`.
 
 **Definition 8.4.2 (local regularity of a strong bundle).** With the natural lift $g * w = \mu(\Gamma(g,P(w)),w)$ of the action of $G_x$, a
 strong bundle has the local regularity property if every $x$ has arbitrarily small $U(x)$ such that every strong bundle
@@ -1062,7 +1062,7 @@ Proposition 8.4.3, that an effective $X$ with Chapter 7's (LR) gives it to every
 *Example 8.5.6.* For a covering functor $f:D\to C$, $f:G_d\to G_{f(d)}$ is injective but need not be onto: for $D$ with two objects and one
 morphism between any two, mapped to the group $\{1,\varepsilon\}$ by sending both non-identity morphisms to $\varepsilon$, the groups $G_d$ are trivial
 and $G_x$ has two elements (Findings, item 120). *Checked by machine (V8.49):* `Polyfold.IsCoveringFunctor.injective_map_end`,
-`Polyfold.example_8_5_6_2021`.
+`Polyfold.example_8_5_6`.
 
 *Definition 8.5.9 in the 2021 form* adds (0), $\tau(F(\psi),A(w)) = A(\mu(\psi,w))$, the strong bundle map property of the object map $A$. §9 had
 read the 2017 "strong bundle map $A$" as a strong bundle functor, which contains (0), and the two readings are equivalent
@@ -1081,7 +1081,7 @@ That $\mu_{F^*V}$ makes $F^*V$ a strong bundle over the ep-groupoid $Y$ is not p
 (Findings, item 122). *Checked by machine (V8.51):* `Polyfold.EpStrongBundle.pullbackμ`,
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB`,
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bijective_bundleB`,
-`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021`.
+`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10`.
 
 | Where (2021 text) | HWZ say | What is actually needed |
 |---|---|---|

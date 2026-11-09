@@ -5,29 +5,29 @@ import RoundTrip.Blind.V3_28
 /-!
 Round trip for V3_28 (Lemma 3.31).  Refreshed 2026-11-02 against HEAD (new conjunct:
 `f⁽¹⁾` is a Definition 3.28 contraction germ).  `A` is the conjunction of the types of
-`Polyfold.ContractionGerm.lemma_3_31`, `Polyfold.ContractionGerm.nextB_isSckGerm`,
+`Polyfold.ContractionGerm.lemma_3_3_4`, `Polyfold.ContractionGerm.nextB_isSckGerm`,
 `Polyfold.ContractionGerm.next_sol` and (new) `Polyfold.ContractionGerm.isSc0ContractionGerm_next`
 (no universe parameters; `next`, `nextB`, `tangentShuffle` are vocabulary).
 
-Glue for `A → B` (from the conjuncts `lemma_3_31` and `isSc0ContractionGerm_next`):
+Glue for `A → B` (from the conjuncts `lemma_3_3_4` and `isSc0ContractionGerm_next`):
 * The working form: `h.toContractionGerm`, with its parameter regions `N m` shrunk
   (`shrinkN`) into `⋂_{i ≤ m} V_i` and into the region `{δ ∈ O 0}`, so that B's arbitrary
   solution germ `δ` is `sol` there and `δ` sc^j on `V` gives `sol` sc^j on `germ 0`.
 * `G⁽¹⁾ := nextG 0`: B's `B⁽¹⁾` (written with `lvlLift` and B's arbitrary `DB`) agrees with the
-  project's `nextB DB` on `U⁽¹⁾₀`; so regularity is `lemma_3_31` (and `w − B⁽¹⁾` is then sc^k).
+  project's `nextB DB` on `U⁽¹⁾₀`; so regularity is `lemma_3_3_4` (and `w − B⁽¹⁾` is then sc^k).
 * Definition 3.28 for `B⁽¹⁾` (every `ε`, every level): at the audit this was not in A and was
   re-proved here (Lemma 3.9 on level `m` with an arbitrary `ε`); A now contains it
   (`isSc0ContractionGerm_next`, the audit's glue moved into the project), and it is transported to
   B's `B⁽¹⁾` along the agreement on `U⁽¹⁾₀` (`IsSc0Germ.levelMap_congr`).
 * Solution germ: `Tδ = (δ(v), Dδ(v)b)` is the solution `sol` of `next 0` on `(N 2 ∩ C̃) × P`
-  (`lemma_3_31`), since B's arbitrary `Dδ` equals the project's `solDeriv` there (uniqueness of
+  (`lemma_3_3_4`), since B's arbitrary `Dδ` equals the project's `solDeriv` there (uniqueness of
   derivatives on the quadrant).
 
 `B → A` is not proved: A covers every working-form `ContractionGerm` on a quadrant-like `C̃` and
 speaks about the specific construction `next s` (its germ, regions, `nextB_isSckGerm`, the formula
 of `next.sol`), none of which follows from B's existential `G⁽¹⁾`.
 
-`#rt_check_soft`: A's `lemma_3_31` and `isSc0ContractionGerm_next` are stated in terms of the
+`#rt_check_soft`: A's `lemma_3_3_4` and `isSc0ContractionGerm_next` are stated in terms of the
 definition `next`, whose proof field `isSc0` is proved with `nextB_isSckGerm`; that banned theorem is
 reached only through this field.
 -/
@@ -37,13 +37,13 @@ open Polyfold Set Filter Topology
 
 /-- The project's statement: Lemma 3.31 and its two parts. -/
 def A : Prop :=
-  type_of% @Polyfold.ContractionGerm.lemma_3_31 ∧
+  type_of% @Polyfold.ContractionGerm.lemma_3_3_4 ∧
   type_of% @Polyfold.ContractionGerm.nextB_isSckGerm ∧
   type_of% @Polyfold.ContractionGerm.next_sol ∧
   type_of% @Polyfold.ContractionGerm.isSc0ContractionGerm_next
 
 theorem A_holds : A :=
-  ⟨@Polyfold.ContractionGerm.lemma_3_31, @Polyfold.ContractionGerm.nextB_isSckGerm,
+  ⟨@Polyfold.ContractionGerm.lemma_3_3_4, @Polyfold.ContractionGerm.nextB_isSckGerm,
     @Polyfold.ContractionGerm.next_sol, @Polyfold.ContractionGerm.isSc0ContractionGerm_next⟩
 
 section Glue
@@ -262,7 +262,7 @@ theorem A_to_B : A → B := by
       rw [← hEq hmem]
       exact sub_eq_zero.2 (hsolN.fixed a ha).symm
 
-#rt_check_soft RoundTrip.V3_28.A_to_B [Polyfold.ContractionGerm.lemma_3_31,
+#rt_check_soft RoundTrip.V3_28.A_to_B [Polyfold.ContractionGerm.lemma_3_3_4,
   Polyfold.ContractionGerm.nextB_isSckGerm, Polyfold.ContractionGerm.next_sol,
   Polyfold.ContractionGerm.isSc0ContractionGerm_next]
 

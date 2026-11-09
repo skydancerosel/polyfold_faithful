@@ -6,12 +6,12 @@ import Polyfold.Chapter3.BasicGermShrinkIFT
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54, the graph description of the solution set in the chart at `x₀`, **in the text's germ
-reading of Definition 3.11** (phase 2): the filling `g` and the sc⁺-section `t₀` are sc-smooth
+reading of Definition 3.1.11 (preprint 3.11)** (phase 2): the filling `g` and the sc⁺-section `t₀` are sc-smooth
 germs on germs of neighbourhoods `G_g`, `G_s` whose levels may shrink, and the basic germ lives
 on a germ `G` that the inverse base map `ψ'` sends into `G_g ∩ G_s` level by level (the germ
 `G″` of `BasicGermShrink.lean`).
 
-# Theorem 3.54 (3) in the chart, germ reading
+# Theorem 3.6.8 (preprint 3.54) (3) in the chart, germ reading
 
 ## What is formalized
 
@@ -21,27 +21,27 @@ on a germ `G` that the inverse base map `ψ'` sends into `G_g ∩ G_s` level by 
   `pushforwardDeriv` (the germ form of `IsStrongBundleIso.scDeriv_pushforward_at`).
 * `Polyfold.IsStrongBundleIso.ker_deriv_eq_map_germ`:
   `ker Dg(u₁) = Dψ'(ψ u₁)(ker D(Ψ_*g)(ψ u₁))` (the germ form of `ker_scDeriv_eq_map`).
-* `Polyfold.theorem_3_54_chart_graph`: **Theorem 3.54 (3) in the chart at `x₀`, germ
-  reading** — the germ form of `theorem_3_54_chart_graph_wholeChart`, with the good complement of
-  `theorem_3_47_proj` (closed, and with `ProjectsInto`), and `D(h + t)(0) = D(Ψ_*g)(0)` for the
+* `Polyfold.theorem_3_6_8_chart_graph`: **Theorem 3.6.8 (preprint 3.54) (3) in the chart at `x₀`, germ
+  reading** — the germ form of `theorem_3_6_8_chart_graph_wholeChart`, with the good complement of
+  `theorem_3_5_11_proj` (closed, and with `ProjectsInto`), and `D(h + t)(0) = D(Ψ_*g)(0)` for the
   derivative family `pushforwardDeriv` exposed.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The germ `G` of the basic germ is assumed inside `G″`**: the hypothesis `hGψ'` asks that
-  `ψ'_m` map `G_m` into `(G_g)_m ∩ (G_s)_m` for every `m`.  The conjugation of Definition 3.11 can
+  `ψ'_m` map `G_m` into `(G_g)_m ∩ (G_s)_m` for every `m`.  The conjugation of Definition 3.1.11 (preprint 3.11) can
   always be shrunk to such a germ (`ConjugationData.shrink`, `BasicGermShrink.lean`), with the
   same `Ψ`, `h`, `B`; the section-level statements (`GlobalIFTG.lean`) do this.  On such a `G`
   the push-forward `t = Ψ[1]_*(t₀)` of the sc⁺-germ is an sc-smooth germ (`t₀ ∘ ψ'` is a germ on
   `ψ'⁻¹(G_s) ⊇ G`, then the whole-chart `Ψ[1]` is composed on the outside), the data `𝒮` of
-  Theorem 3.38 are built on `G` itself (`𝒮.G = G`), and every nearby zero that Theorem 3.47
+  Theorem 3.4.2 (preprint 3.38) are built on `G` itself (`𝒮.G = G`), and every nearby zero that Theorem 3.5.11 (preprint 3.47)
   produces lies in `𝒮.G₀ = G₀`.
 * **`D(h + t)(0) = D(Ψ_*g)(0)`** is the uniqueness of the derivative at `0` within `G₁` for the two
   maps that agree on `U' ∩ W'`; `D(Ψ_*g)(0)` is the value at `0` of the family `pushforwardDeriv`
   of `Ψ_*(g)` on `ψ'⁻¹(G_g) ⊇ G` (`IsStrongBundleIso.pushforward_isSc1GermWith`), whose
-  surjectivity and the good position of whose kernel are `theorem_3_54_pushforward`; the
-  Fredholm property of `Dg(0)` that this needs is Proposition 3.52 for germs
-  (`proposition_3_52_local`).
+  surjectivity and the good position of whose kernel are `theorem_3_6_8_pushforward`; the
+  Fredholm property of `Dg(0)` that this needs is Proposition 3.6.5 (preprint 3.52) for germs
+  (`proposition_3_6_5_local`).
 * Nothing of `g` or `t₀` away from the germs `G_g`, `G_s` is used: level `0` of `g` enters only
   through the conditions (1)–(2) of the filling (`eq_on`, `mem_of_fixed`, eventual statements at
   `0`) and the conjugation identity on `U ∩ N₁`; the sc¹-structure of `g` enters only at `0`.
@@ -132,7 +132,7 @@ end IsStrongBundleIso
 
 end DerivAt
 
-/-! ### Theorem 3.54 (3) in the chart at `x₀`, germ reading -/
+/-! ### Theorem 3.6.8 (preprint 3.54) (3) in the chart at `x₀`, germ reading -/
 
 section ChartGraph
 
@@ -141,21 +141,21 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 open StrongRetr
 
 set_option maxHeartbeats 1600000 in
-/-- **Theorem 3.54 (3) in the chart at `x₀`, germ reading** (phase 2; the germ form of
-`theorem_3_54_chart_graph_wholeChart`).  Let `g` be a filling germ of `f̂` at the zero `0`, sc-smooth on the
+/-- **Theorem 3.6.8 (preprint 3.54) (3) in the chart at `x₀`, germ reading** (phase 2; the germ form of
+`theorem_3_6_8_chart_graph_wholeChart`).  Let `g` be a filling germ of `f̂` at the zero `0`, sc-smooth on the
 germ `G_g ⊆ U` with a derivative family `Dg`, the germ in good position at `Dg(0)`
 (`IsGoodPositionAtGerm`), `t₀` an sc⁺-germ on `G_s ⊆ U` with `t₀(0) = g(0)`, `g − t₀` conjugated
 by `Ψ` (base map `ψ`, inverse `ψ'`) to the basic germ `h` on a germ `G` that `ψ'` maps into
 `G_g ∩ G_s` level by level (`G ⊆ G″`), the retraction tame (`(1 − Dr(0))E ⊆ E₀`).  Then there are
-the data `𝒮` of Theorem 3.38 **on the germ `G` itself** and the basic germ `h' = h + (t_{ℝᴺ}, 0)`
+the data `𝒮` of Theorem 3.4.2 (preprint 3.38) **on the germ `G` itself** and the basic germ `h' = h + (t_{ℝᴺ}, 0)`
 with `𝒮.fsum h' = Ψ_*(g)` on `U' ∩ W'`, `W'` an open neighbourhood of `0`;
 `D(𝒮.fsum h')(0) = D(Ψ_*g)(0)` (the family `pushforwardDeriv` at `0`), surjective with kernel `K`
-in good position; the data `Yc`, `V'`, `σ` of Theorem 3.47 (`Yc` closed, with `ProjectsInto`,
+in good position; the data `Yc`, `V'`, `σ` of Theorem 3.5.11 (preprint 3.47) (`Yc` closed, with `ProjectsInto`,
 `σ` with `C^k`-lifts); an open neighbourhood `N₁` of `0` on which the identities of the filling
 and of the conjugation hold and `ψ'(U' ∩ W') ⊆ N₁`; and an open neighbourhood `N₂ ⊆ N₁` of `0`
 such that `ψ(U ∩ N₂) ⊆ G₀ ∩ W'`, every zero of `g` in `U ∩ N₂` lies in `O`,
 `g(u) = 0 ↔ 𝒮.fsum h'(ψ u) = 0` on `O ∩ N₂`, and `ψ({u ∈ O ∩ N₂ | g(u) = 0}) = {v + σ(v) | v ∈ V'}`. -/
-theorem theorem_3_54_chart_graph (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_3_6_8_chart_graph (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0U : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFillingGerm hU hR h0U fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
@@ -305,7 +305,7 @@ theorem theorem_3_54_chart_graph (hU : IsRelOpenInQuadrant E C U)
     rw [e1, e2, e3, hΨ.toFun.snd_sub hu, sub_add_cancel]
     show (Ψ (ψ' (ψ u), g (ψ' (ψ u)))).2 = (Ψ (u, g u)).2
     rw [hψψ' u hu]
-  -- the basic germ `h' = h + (t_{ℝᴺ}, 0)` and the data of Theorem 3.38 with `s = t_W`
+  -- the basic germ `h' = h + (t_{ℝᴺ}, 0)` and the data of Theorem 3.4.2 (preprint 3.38) with `s = t_W`
   set h' : Pn × W 0 → Q × W 0 := fun x => h x + ScBanach.qPartOp Q W 0 (t x) with hh'def
   have hh' : IsBasicGerm Ct G h' Bc :=
     { isScSmooth := by
@@ -346,10 +346,10 @@ theorem theorem_3_54_chart_graph (hU : IsRelOpenInQuadrant E C U)
       inferInstance,
       W, Ct, U', Ψ, Ψ', G, h, Bc, hCt, hU', hΨ, hψ0, hG, hh, hev⟩
   have hDgF : IsFredholm (Dg 0) := by
-    obtain ⟨-, -, -, hF, -⟩ := proposition_3_52_local hU hR h0U h0O hfill hfb0 hfK hGg hDg
+    obtain ⟨-, -, -, hF, -⟩ := proposition_3_6_5_local hU hR h0U h0O hfill hfb0 hfK hGg hDg
       ((ht₀ 1).1.isSc1GermWith_scDerivGerm) ht₀0 hconj'
     exact hF
-  obtain ⟨-, hpush1, -, hsurjP, -, hposP⟩ := theorem_3_54_pushforward hU hR h0U h0O hfill
+  obtain ⟨-, hpush1, -, hsurjP, -, hposP⟩ := theorem_3_6_8_pushforward hU hR h0U h0O hfill
     hfb0 hfK hGg hg hDg hDgF T hT hK hgp hU' hΨ hψ0
   -- `G ⊆ ψ'⁻¹(G_g)`: the push-forward is an sc¹-germ on `G`
   have hGpull : ∀ m, G.U m ⊆ (hΨ.pullGerm hU hU' h0U hψ0 Gg).U m := fun m z hz =>
@@ -394,9 +394,9 @@ theorem theorem_3_54_chart_graph (hU : IsRelOpenInQuadrant E C U)
   have hsurj : Surjective (𝒮.Dfs h') := by rw [hDeq]; exact hsurjP
   have hpos : IsInGoodPosition (ScBanach.paramProd Pn W) (Ct ×ˢ univ)
       (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) := by rw [hDeq]; exact hposP
-  -- Theorem 3.47 for `h + t`
+  -- Theorem 3.5.11 (preprint 3.47) for `h + t`
   obtain ⟨Yc, V₀, σ, hYc, hYcc, hYcp, hV₀rel, hV₀0, hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, U'',
-    hU''o, h0U'', hU''⟩ := theorem_3_47_proj hCt 𝒮 hh'𝒮 hsurj hpos
+    hU''o, h0U'', hU''⟩ := theorem_3_5_11_proj hCt 𝒮 hh'𝒮 hsurj hpos
   -- the open set `Ω = U'' ∩ W'` of `E'` and the shrunken `V'`
   obtain ⟨Ω, hΩdef⟩ : ∃ Ω : Set ((ScBanach.paramProd Pn W) 0), Ω = U'' ∩ W' := ⟨_, rfl⟩
   have hΩo : IsOpen Ω := hΩdef ▸ hU''o.inter hW'open

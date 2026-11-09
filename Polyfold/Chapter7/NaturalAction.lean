@@ -6,20 +6,20 @@ import Polyfold.Chapter3.RestrictOpen
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.1,
-pp. 231–233: the consequences of **Theorem 7.1** (natural representation, p. 231) which the text
+pp. 231–233: the consequences of **Theorem 7.1.13 (2017: 7.1)** (natural representation, p. 231) which the text
 discusses informally after it (the morphisms `𝐔(x)` of `U(x)` and their sheets `𝐔(g)`, the
 translation groupoid `G_x ⋉ U(x)` and the claim that it is an ep-groupoid, the functor
 `Γ : G_x ⋉ U(x) → X`, full and faithful, and the action `Φ̂` of `G_x` on `𝐔(x)`), and the
 uniqueness of the natural representation on connected neighbourhoods, used tacitly for `T_x`
-(Definition 7.12, p. 241) and in Lemma 7.3 (p. 239).  Everything is derived from the data
-`NaturalRep` (`EpGroupoid.lean`); the existence, Theorem 7.1 (= Theorem 7.5, p. 253), is
+(Definition 7.2.7 (2017: 7.12), p. 310 (2017 p. 241)) and in Lemma 7.2.3 (2017: 7.3) (p. 308 (2017 p. 239)).  Everything is derived from the data
+`NaturalRep` (`EpGroupoid.lean`); the existence, Theorem 7.1.13 (2017: 7.1) (= Theorem 7.5, p. 253), is
 `NaturalRep.lean`.  There is no 2014 preprint of Part II; numbers and pages are the 2017 text's.
 
 # Consequences of the natural representation
 
 ## The text, paraphrased
 
-(Theorem 7.1) For `x` with isotropy `G = G_x` and an open `V ∋ x` there are an open `U ⊆ V` of
+(Theorem 7.1.13 (2017: 7.1)) For `x` with isotropy `G = G_x` and an open `V ∋ x` there are an open `U ⊆ V` of
 `x`, a homomorphism `Φ : G → Diff_sc(U)` and an sc-smooth `Γ : G × U → 𝐗` with (1) `Γ(g, x) = g`,
 (2) `s(Γ(g, y)) = y`, `t(Γ(g, y)) = Φ(g)(y)`, (3) every `h : y → z` between points of `U` is
 `Γ(g, y)` for a unique `g`: `Γ : G × U → {φ | s(φ), t(φ) ∈ U}` is a bijection.  (p. 231) With
@@ -42,7 +42,7 @@ with `Φ̂(g)(𝐔(h)) = 𝐔(g h g⁻¹)`, `s ∘ Φ̂(g) = Φ(g) ∘ s` and `t
   (`⋃_g 𝐔(g) = 𝐔(x)`, i.e. `X.morOn R.U`), `isOpen_morOn`, `connectedComponentIn_morOn` (the
   `𝐔(g)` are the connected components of `𝐔(x)`), `injective_image_Γ` (there are `#G_x` of them),
   `isScDiffeoOn_src_image`, `isScDiffeoOn_tgt_image` (`s, t : 𝐔(g) → U` are sc-diffeomorphisms),
-  `Γ_inj`, `bijOn_Γ` (**Theorem 7.1 (3)** as a bijection `G_x × U → 𝐔(x)`).
+  `Γ_inj`, `bijOn_Γ` (**Theorem 7.1.13 (2017: 7.1) (3)** as a bijection `G_x × U → 𝐔(x)`).
 * **The sheet index** `index φ` (`φ ∈ 𝐔(index φ)`): `Γ_index` (`φ = Γ(h, s φ)`),
   `tgt_eq_Φ_index` (`t φ = Φ(h)(s φ)`), `index_Γ`, `index_eq_iff`, `eventually_index_eq` (locally
   constant on `𝐔(x)`).
@@ -82,14 +82,14 @@ with `Φ̂(g)(𝐔(h)) = 𝐔(g h g⁻¹)`, `s ∘ Φ̂(g) = Φ(g) ∘ s` and `t
   (`eqOn_sections_of_isPreconnected`, `LocConnected.lean`).  Equivalently, the sheet index of
   `Γ(g, Φ(h) y) ∘ Γ(h, y)` is locally constant (`eventually_index_eq`), hence constant.
   `Γ_inv` then follows from the uniqueness of inverses.
-* **The sheets.**  Once the data of Theorem 7.1 are given with `U` connected, the text's "choose
+* **The sheets.**  Once the data of Theorem 7.1.13 (2017: 7.1) are given with `U` connected, the text's "choose
   `U(x)` so small that `𝐔(x)` splits into `#G_x`-many connected components" needs no further
   shrinking: the `𝐔(g) = Γ(g, U)` are open, connected, disjoint, nonempty and cover `𝐔(x)`.  "`𝐔(x)`
   fits into an arbitrarily small open neighbourhood of `G_x`" belongs to the construction of
-  Theorem 7.1 (`NaturalRep.lean`) and is not formalized here.
+  Theorem 7.1.13 (2017: 7.1) (`NaturalRep.lean`) and is not formalized here.
 * **Uniqueness** holds on the connected component of `x` in `U ∩ U'`, which is open, connected and
-  invariant; `U ∩ U'` itself need not be connected.  This is the form that `T_x` (Definition 7.12)
-  and Lemma 7.3 need (`eventually_Φ_eq_of_actsTrivially`).
+  invariant; `U ∩ U'` itself need not be connected.  This is the form that `T_x` (Definition 7.2.7 (2017: 7.12))
+  and Lemma 7.2.3 (2017: 7.3) need (`eventually_Φ_eq_of_actsTrivially`).
 * **`Φ̂`** is defined as the conjugation `Γ(g, t φ) ∘ φ ∘ Γ(g, s φ)⁻¹`, a total map; the text's
   definition `Φ̂(g)(φ) = Γ(g h g⁻¹, g ∗ s(φ))` for `φ ∈ 𝐔(h)` is `Φhat_Γ`.  "`Φ̂ : G_x →
   Diff_sc(𝐔(x))` is a group homomorphism" is read as `Φhat_one`, `Φhat_mul` on `𝐔(x)` and
@@ -98,15 +98,15 @@ with `Φ̂(g)(𝐔(h)) = 𝐔(g h g⁻¹)`, `s ∘ Φ̂(g) = Φ(g) ∘ s` and `t
   `G × U` the product of `discretePolyfold G` with the open-subset M-polyfold `U` (`Discrete.lean`:
   "the finite disjoint union of copies of `U`").  The text's "using the proof of Theorem 7.1" is not
   needed: the conditions follow from the data alone.  Properness holds for every `V(y)` (here `U`):
-  `t = π₂ ∘ ((g, y) ↦ (g, g ∗ y))` with `G_x` finite.  The finiteness (Proposition 7.4) is
+  `t = π₂ ∘ ((g, y) ↦ (g, g ∗ y))` with `G_x` finite.  The finiteness (Proposition 7.1.12 (2017: 7.4)) is
   re-derived privately (`finite_isotropy`, from `Discrete.lean`) so that this file does not import
   `Basic.lean`.  Condition (4) is checked in the sheet form: `σ(t ψ) ∘ ψ = (k(ψ) ψ₁, ψ₂)` with a
   locally constant `k`.
 * "Full" and "faithful" are Mathlib's `Functor.Full`, `Functor.Faithful` of
-  `GroupoidFunctor.toFunctor` (the bridge `GroupoidStr.Ob`), as in Definition 7.9's
+  `GroupoidFunctor.toFunctor` (the bridge `GroupoidStr.Ob`), as in Definition 7.1.20 (2017: 7.9)'s
   `LocalUniformizer`.
 * No hypothesis "for all …" is added: everything is a consequence of one datum `R`, and such data
-  exist (`EpGroupoid.trivialNaturalRep`; in general Theorem 7.1).
+  exist (`EpGroupoid.trivialNaturalRep`; in general Theorem 7.1.13 (2017: 7.1)).
 * No possible misprint was found on pp. 231–233.
 -/
 
@@ -236,7 +236,7 @@ theorem isScDiffeoOn_tgt_image (g : X.Isotropy x) :
   right_inv z hz := by
     rw [R.tgt_Γ g _ ((R.isScDiffeoOn_Φ g).mapsTo_inv hz), R.Φ_Φ_inv g hz]
 
-/-- `Γ(g, y) = Γ(h, y)` only for `g = h` (Theorem 7.1 (3)). -/
+/-- `Γ(g, y) = Γ(h, y)` only for `g = h` (Theorem 7.1.13 (2017: 7.1) (3)). -/
 theorem Γ_inj {g h : X.Isotropy x} {y : Obj} (hy : y ∈ R.U) : R.Γ g y = R.Γ h y ↔ g = h := by
   refine ⟨fun he => ?_, fun he => he ▸ rfl⟩
   have hs : X.src (R.Γ g y) = y := R.src_Γ g y hy
@@ -301,7 +301,7 @@ theorem injective_image_Γ : Function.Injective fun g : X.Isotropy x => R.Γ g '
   rw [hgh', disjoint_self, bot_eq_empty, image_eq_empty] at hd
   exact (hd ▸ R.mem_U : x ∈ (∅ : Set Obj))
 
-/-- **Theorem 7.1 (3)**: `Γ : G_x × U → 𝐔(x)` is a bijection. -/
+/-- **Theorem 7.1.13 (2017: 7.1) (3)**: `Γ : G_x × U → 𝐔(x)` is a bijection. -/
 theorem bijOn_Γ :
     BijOn (fun p : X.Isotropy x × Obj => R.Γ p.1 p.2) (univ ×ˢ R.U) (X.morOn R.U) := by
   refine ⟨fun p hp => R.Γ_mem_morOn p.1 hp.2, fun p hp q hq he => ?_, fun φ hφ => ?_⟩
@@ -360,7 +360,7 @@ theorem eventually_index_eq {φ : Mor} (hφ : φ ∈ X.morOn R.U) :
 
 /-! ### `Γ` is a functor `G_x ⋉ U → X` -/
 
-/-- `ψ ↦ Γ(g, t ψ) ∘ ψ` is sc-smooth on `t⁻¹(U)` (condition (4) of Definition 7.3 in the sheet
+/-- `ψ ↦ Γ(g, t ψ) ∘ ψ` is sc-smooth on `t⁻¹(U)` (condition (4) of Definition 7.1.3 (2017: 7.3) in the sheet
 form, for the sheet `𝐔(g)`). -/
 theorem isScSmoothOn_comp_Γ_tgt (g : X.Isotropy x) :
     X.PMor.IsScSmoothOn X.PMor (fun ψ => X.comp (R.Γ g (X.tgt ψ)) ψ) (X.tgt ⁻¹' R.U) :=
@@ -457,7 +457,7 @@ theorem isConnected_connectedComponentIn_inter :
     IsConnected (connectedComponentIn (R.U ∩ R'.U) x) :=
   ⟨⟨x, R.mem_connectedComponentIn_inter R'⟩, isPreconnected_connectedComponentIn⟩
 
-/-- **Uniqueness of `Γ`** (used tacitly for `T_x`, Definition 7.12, and in Lemma 7.3): two
+/-- **Uniqueness of `Γ`** (used tacitly for `T_x`, Definition 7.2.7 (2017: 7.12), and in Lemma 7.2.3 (2017: 7.3)): two
 natural representations at `x` have the same `Γ(g, ·)` on the connected component of `x` in
 `U ∩ U'`.  Both are continuous sections of `s` through `g`. -/
 theorem Γ_eqOn (g : X.Isotropy x) :
@@ -491,7 +491,7 @@ theorem mapsTo_Φ_connectedComponentIn (g : X.Isotropy x) :
     exact R'.mapsTo_Φ g (hC hy).2
   exact fun y hy => hsub (mem_image_of_mem _ hy)
 
-/-- If `g` acts trivially (Definition 7.12: `Φ'(g) = id` for some natural representation `R'`),
+/-- If `g` acts trivially (Definition 7.2.7 (2017: 7.12): `Φ'(g) = id` for some natural representation `R'`),
 then `Φ(g) = id` near `x` for every natural representation `R`. -/
 theorem eventually_Φ_eq_of_actsTrivially {g : X.Isotropy x} (hg : X.ActsTrivially g) :
     ∀ᶠ y in 𝓝 x, R.Φ g y = y := by
@@ -653,7 +653,7 @@ theorem image_Φhat (g h : X.Isotropy x) :
 
 /-! ### `G_x ⋉ U(x)` as an ep-groupoid (p. 232) -/
 
-/-- The isotropy group is finite (Proposition 7.4; the argument of Lemma 7.1). -/
+/-- The isotropy group is finite (Proposition 7.1.12 (2017: 7.4); the argument of Lemma 7.1.11 (2017: 7.1)). -/
 private theorem finite_isotropy : Finite (X.Isotropy x) := by
   have hfin := MPolyfold.finite_isotropy_of_isLocalScDiffeo X.isLocalScDiffeo_tgt
     (X.exists_isProperMap x)
@@ -769,7 +769,7 @@ def translationEpGroupoid : EpGroupoid R.U (X.Isotropy x × R.U) where
   exists_isProperMap _ := ⟨univ, isOpen_univ, mem_univ _, R.translation_isProperMap univ⟩
   isScSmoothComp := (isScSmoothComp_iff_sheet _ _).2 R.translation_isScSmoothCompSheet
 
-/-- **`Γ : G_x ⋉ U(x) → X` is a morphism of `EP`** (Definition 7.7): the functor `functor`,
+/-- **`Γ : G_x ⋉ U(x) → X` is a morphism of `EP`** (Definition 7.1.7 (2017: 7.7)): the functor `functor`,
 sc-smooth on objects (the inclusion `U ⊆ X`) and on morphisms (`Γ(g, ·)` on each sheet). -/
 def epFunctor : EpFunctor R.translationEpGroupoid X where
   toGroupoidFunctor := R.functor

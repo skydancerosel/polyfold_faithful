@@ -245,7 +245,7 @@ theorem isFaceStructured_quadrant' (n : ℕ) : (quadrantPolyfold n W).IsFaceStru
 
 theorem isHomeomorph_π_trivial' {Z : Type} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z]
     (P : MPolyfold Z) : IsHomeomorph (EpGroupoid.trivial P).π := by
-  refine ⟨(EpGroupoid.trivial P).continuous_π, (EpGroupoid.trivial P).proposition_7_1,
+  refine ⟨(EpGroupoid.trivial P).continuous_π, (EpGroupoid.trivial P).proposition_7_1_8,
     fun x y hxy => ?_, (EpGroupoid.trivial P).surjective_π⟩
   obtain ⟨φ, rfl, rfl⟩ := (EpGroupoid.trivial P).π_eq_π_iff.1 hxy
   rfl

@@ -4,14 +4,14 @@ import Polyfold.Chapter3.GlobalIFTNearbyGraphG
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54 (1), the kernel of the linearization at the nearby zeros, in the chart at `x₀`, **in the
-text's germ reading of Definition 3.11** (phase 2).
+text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
 
-# Theorem 3.54 (1), the kernel at the nearby zeros, germ reading
+# Theorem 3.6.8 (preprint 3.54) (1), the kernel at the nearby zeros, germ reading
 
 ## What is formalized
 
-`Polyfold.theorem_3_54_chart_kernel`: the germ form of `theorem_3_54_chart_kernel_wholeChart`.  In the
-data of `theorem_3_54_chart_graph` (the data `𝒮` of Theorem 3.38 on a germ whose points
+`Polyfold.theorem_3_6_8_chart_kernel`: the germ form of `theorem_3_6_8_chart_kernel_wholeChart`.  In the
+data of `theorem_3_6_8_chart_graph` (the data `𝒮` of Theorem 3.4.2 (preprint 3.38) on a germ whose points
 `ψ'` sends into the germ `G_g` of the filling `g`, with derivative family `Dg`), there is an open
 neighbourhood `N₃ ⊆ N₂` of `0` such that for every zero `z₀ ∈ O ∩ N₃` of `g` there are `v ∈ V'`
 with `ψ(z₀) = v + σ(v)`, the level-`1` point `z₀₁ ∈ U₁` over `z₀` **with `z₀₁ ∈ (G_g)₁`**, and
@@ -25,7 +25,7 @@ with `ψ(z₀) = v + σ(v)`, the level-`1` point `z₀₁ ∈ U₁` over `z₀` 
 * **This is the site where the germ reading matters most**: the text differentiates `g` at the
   nearby zero `z₀` ("`ker f'(y)` is in good position"), which requires `g` to be sc¹ at `z₀₁`.
   With `g` a germ on `G_g` only, this is the G″ property `ψ'₁(x₁) ∈ (G_g)₁` of the hypothesis
-  `hGψ'`, satisfied by the data of `theorem_3_54_chart_graph` built on `G″`
+  `hGψ'`, satisfied by the data of `theorem_3_6_8_chart_graph` built on `G″`
   (`BasicGermShrink.lean`, `BasicGermShrinkIFT.lean`); the derivative `Dg(z₀₁)` is the value of
   the derivative family `Dg` of the germ.
 * The two uses of the whole-chart `g` in the old proof — `D(Ψ_*g)(x₁) = D(h + t)(x₁)` and the
@@ -49,9 +49,9 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 open StrongRetr
 
 set_option maxHeartbeats 1600000 in
-/-- **Theorem 3.54 (1) at the nearby zeros, the kernel, in the chart at `x₀`, germ reading**
-(phase 2; the germ form of `theorem_3_54_chart_kernel_wholeChart`).  In the data of
-`theorem_3_54_chart_graph`, with `ψ'` mapping `𝒮.G` into the germ `G_g` of the filling `g`
+/-- **Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel, in the chart at `x₀`, germ reading**
+(phase 2; the germ form of `theorem_3_6_8_chart_kernel_wholeChart`).  In the data of
+`theorem_3_6_8_chart_graph`, with `ψ'` mapping `𝒮.G` into the germ `G_g` of the filling `g`
 (derivative family `Dg`), there is an open neighbourhood `N₃ ⊆ N₂` of `0` such that for every
 zero `z₀ ∈ O ∩ N₃` of `g` there are `v ∈ V'` with `ψ(z₀) = v + σ(v)`, the level-`1` point
 `z₀₁ ∈ U₁ ∩ (G_g)₁` over `z₀` and `x₁ = ψ₁(z₀₁) ∈ 𝒮.G₁` over `v + σ(v)`, with:
@@ -60,7 +60,7 @@ zero `z₀ ∈ O ∩ N₃` of `g` there are `v ∈ V'` with `ψ(z₀) = v + σ(v
 (b) `D(Ψ_*g)(x₁) = D(h + t)(x₁)` and `ker Dg(z₀₁) = Dψ'(x₁)(ker D(h + t)(x₁))`;
 (c) `ker Dg(z₀₁) ⊆ T_{z₀}O = Dr(z₀₁)E`;
 (d) `ker Dg(z₀₁)` is in good position to `C_{z₀}` inside `T_{z₀}O`. -/
-theorem theorem_3_54_chart_kernel (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_3_6_8_chart_kernel (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0U : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFillingGerm hU hR h0U fb g) (hfb0 : fb 0 = 0)
     {Gg : ScNbhdGerm E C} (hGg : Gg.U 0 ⊆ U) {Dg : E 1 → E 0 →L[ℝ] F 0}
@@ -154,10 +154,10 @@ theorem theorem_3_54_chart_kernel (hU : IsRelOpenInQuadrant E C U)
   -- the `C¹`-lift of `σ`
   obtain ⟨V₁, ⟨O₁, hO₁, hV₁⟩, h0V₁, hV₁V', σ₁, hσ₁, hσ₁eq⟩ := hlift 1 le_rfl
   have hV₁V'' : V₁ = V' ∩ O₁ := relOpen_cone_inter hV'rel hV₁ hV₁V'
-  -- Corollary 3.41 and Lemma 3.55 at the graph points
+  -- Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55) at the graph points
   obtain ⟨ρ₁, hρ₁, hA⟩ := 𝒮.exists_surjective_Dfs'_graph hCt hh'𝒮 hsurj h0V' hσC.continuousOn hσ0
     hsol
-  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_55_relOpen T' hT' hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
+  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_6_9_relOpen T' hT' hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
   obtain ⟨ρ₃, hρ₃, hρ₃O⟩ := Metric.isOpen_iff.1 hO₁ 0 (hV₁ ▸ h0V₁ : (0 : _) ∈ O₁ ∩ _).1
   -- the projection onto `K` along `Yc`
   have hTC : Submodule.IsTopCompl (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) Yc :=

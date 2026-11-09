@@ -5,7 +5,7 @@ import Polyfold.Chapter6.Stabilization
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
 pp. 221–223: the stabilized section `F(t, y, λ) = f(y) − s(y, t) + Σ λᵢ sᵢ(y, t)` (before
-Lemma 6.29), the kernels `L_t = ker F_t'(φ(t), 0)` (after Lemma 6.30) and **Lemma 6.31** (the
+Lemma 6.6.4 (preprint 6.29)), the kernels `L_t = ker F_t'(φ(t), 0)` (after Lemma 6.6.5 (preprint 6.30)) and **Lemma 6.6.6 (preprint 6.31)** (the
 sequence (96) is exact), read at one point of the family in a fixed product chart *(book 2017:
 Lemma 6.14, p. 209, sequence (6.12); see `BookConcordance.md`)*.
 
@@ -16,17 +16,17 @@ Lemma 6.14, p. 209, sequence (6.12); see `BookConcordance.md`)*.
 Let `f` be an sc-Fredholm section of `P : Y → X`, `φ : [0, 1] → X` an sc-smooth path and `s` an
 sc⁺-section of the pull-back to `X × [0, 1]` with `s(φ(t), t) = f(φ(t))`.  Adding sc⁺-sections
 `s₁, …, s_k` gives the sc-Fredholm section `F(t, y, λ) = f(y) − s(y, t) + Σ λᵢ sᵢ(y, t)`, which
-vanishes at the points `(t, φ(t), 0)`, and its slices `F_t(y, λ) = F(t, y, λ)`.  Lemma 6.29
+vanishes at the points `(t, φ(t), 0)`, and its slices `F_t(y, λ) = F(t, y, λ)`.  Lemma 6.6.4 (preprint 6.29)
 chooses the `sᵢ` so that (P) every `F_t` is in general position at `(φ(t), 0)`, and
 `L_t = ker F_t'(φ(t), 0)`.  For every `t` the sequence (96)
 `0 → ker (f − s(·, t))'(φ(t)) →j ker F_t'(φ(t), 0) →p ℝᵏ →c Y_{φ(t)} / R((f − s(·, t))'(φ(t))) → 0`
 is formed, with `j` the inclusion, `p` the projection to `ℝᵏ` and
-`c(λ) = Σ λᵢ sᵢ(t, φ(t)) + R((f − s(·, t))'(φ(t)))`.  (Lemma 6.31) It is exact: a kernel vector
+`c(λ) = Σ λᵢ sᵢ(t, φ(t)) + R((f − s(·, t))'(φ(t)))`.  (Lemma 6.6.6 (preprint 6.31)) It is exact: a kernel vector
 `(h, λ)` has `Σ λᵢ sᵢ` in the image of `(f − s(·, t))'(φ(t))`, and conversely; `c` is onto by (P).
 
 ## What is formalized
 
-The parameter `t ∈ [0, 1]` is `q ∈ ℝⁿ`, as in `lemma_6_29`.  `G` is a section of
+The parameter `t ∈ [0, 1]` is `q ∈ ℝⁿ`, as in `lemma_6_6_4`.  `G` is a section of
 `π*P → ℝⁿ × X` (the case needed is `G = f̃ + S`, the text's `f − s`), and
 `F(λ, (q, y)) = G(q, y) + Σ λᵢ sᵢ(q, y)` (`paramSection`) a section of the pull-back to
 `ℝᵏ × (ℝⁿ × X)`.  Everything is read in the product chart `χ = (λ ↦ λ) × ((q ↦ q) × φ)` over a
@@ -45,12 +45,12 @@ chart point `p = (c, z)` of `x` (`ChartPoint`), at the level-`1` point `(0, (q, 
   `ker Lin_F(0, (q, z)) ∩ ker ℓ = J(ker (T ⊕ φ))`, with `ℓ(λ, (σ, v)) = σ` (`sliceProj`),
   `J(v, λ) = (λ, (0, v))` (`sliceIncl`), `T = Lin_{g_q}(z) : T_zO → K_z` and
   `φ(λ) = Σ λᵢ ŝᵢ(q, ·)(φ(x))`; `exists_sliceOps` constructs `T` and `φ` at a zero of `g_q`.
-* `mem_linSet_sectionAdd_pullbackSlice`: `T ∈ Lin(f, x)` for `G = f̃ + S` (Definition 6.1 with
+* `mem_linSet_sectionAdd_pullbackSlice`: `T ∈ Lin(f, x)` for `G = f̃ + S` (Definition 6.2.1 (preprint 6.1) with
   `s = S(q, ·)` and `a = 0`).
 * `surjective_coprod_of_isLinSurjAt`: `T ⊕ φ` is onto when `F'(0, (q, x))` is onto and
   `x = Φ(q)` for an sc-smooth `Φ : ℝⁿ → X` with `G(q', Φ(q')) = 0` near `q`.
-* `exists_sliceKernel`: the three together for `G = f̃ + S`; `lemma_6_31`: with them the
-  sequence (96) is the stabilization sequence of `T` and `φ` (`lemma_6_14`), hence exact.
+* `exists_sliceKernel`: the three together for `G = f̃ + S`; `lemma_6_6_6`: with them the
+  sequence (96) is the stabilization sequence of `T` and `φ` (`lemma_6_4_14`), hence exact.
 
 ## Reading
 
@@ -60,11 +60,11 @@ chart point `p = (c, z)` of `x` (`ChartPoint`), at the level-`1` point `(0, (q, 
   `G(q, ·) = f + S(q, ·)` (`sectionAdd`, signs as in `LinSet.lean`), its `Y_{φ(t)}` is `K_z` and
   its `R(…)` is the range of `T`.
 * The text has `c` onto by (P), the general position of each slice `F_t`.  The project's
-  `lemma_6_29` gives the general position of the whole `F` at `(0, (q, Φ(q)))`, hence
+  `lemma_6_6_4` gives the general position of the whole `F` at `(0, (q, Φ(q)))`, hence
   `F'(0, (q, Φ(q)))` onto (`IsGeneralPositionGerm.isLinSurjAt`).  The surjectivity of `T ⊕ φ` then
   needs the `ℝⁿ`-directions to be absorbed: the derivative of the curve `q' ↦ (0, (q', Φ(q')))` of
   zeros of `F` lies in `ker Lin_F` (`fderiv_mem_linKer`), so `D_q σ` lies in the range of `T`.
-  The hypotheses on `Φ` (sc-smooth, `G(q', Φ(q')) = 0` near `q`) are those of `lemma_6_29`.
+  The hypotheses on `Φ` (sc-smooth, `G(q', Φ(q')) = 0` near `q`) are those of `lemma_6_6_4`.
 * `PullbackChartData.toChart` takes a point of the total space, used off the domain of the
   chart; the statements hold for every choice (`q₀`, `q₁`).
 -/
@@ -187,7 +187,7 @@ theorem StrongBundle.scDeriv_ofProd_slice_apply {G : (Fin m → ℝ) × X → pu
   have hmaps : MapsTo ι c.U pc.U := fun w hw => ⟨mem_univ _, hw⟩
   have hHι : (pc.principal G ∘ r pc.R) ∘ ι =
       c.principal (pullbackSlice G (a + t)) ∘ r c.R := rfl
-  have hcomp := (theorem_1_21 c.relOpen pc.relOpen hι hH hmaps).1
+  have hcomp := (theorem_1_3_1 c.relOpen pc.relOpen hι hH hmaps).1
   rw [hHι] at hcomp
   refine ⟨hcomp, fun v => ?_⟩
   have hu1 : u ∈ c.φ.model.E.lvlSet c.U 1 := hu
@@ -588,10 +588,10 @@ theorem exists_sliceOps
     ∑ i, (ContinuousLinearMap.proj i).smulRight (⟨_, he i⟩ : ↥p.K), fun v => rfl, fun μ => ?_⟩
   simp
 
-/-- **`T` is in `Lin(f, x)`** (Definition 6.1): for `G = f̃ + S` with `f` sc-Fredholm and `S` an
+/-- **`T` is in `Lin(f, x)`** (Definition 6.2.1 (preprint 6.1)): for `G = f̃ + S` with `f` sc-Fredholm and `S` an
 sc⁺-section of `π*P`, the slice is `G(q, ·) = f + S(q, ·)` with `S(q, ·)` an sc⁺-section of `P`
 (`IsScPlusSection.pullbackSlice`), so `T = Lin_{f + S(q, ·)}(z)` is `(f + s)'(x) + a` with
-`s = S(q, ·)` and `a = 0` (Definition 6.1). -/
+`s = S(q, ·)` and `a = 0` (Definition 6.2.1 (preprint 6.1)). -/
 theorem mem_linSet_sectionAdd_pullbackSlice {f : X → Y} (hf : B.IsScFredholmSection f)
     {S : (Fin n → ℝ) × X → pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X)}
     (hS : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScPlusSection S)
@@ -601,7 +601,7 @@ theorem mem_linSet_sectionAdd_pullbackSlice {f : X → Y} (hf : B.IsScFredholmSe
       linAt p.c.U p.c.R (p.c.principal (sectionAdd P f (pullbackSlice S q))) p.z v) :
     T ∈ p.linSet f := by
   have hSq := hS.pullbackSlice q
-  have hxs : x ∈ PX.smoothSet := (theorem_3_15 hf hSq).mem_smoothSet_of_isZeroAt hx0
+  have hxs : x ∈ PX.smoothSet := (theorem_3_1_18_preprint hf hSq).mem_smoothSet_of_isZeroAt hx0
   exact ⟨_, hSq, hx0, 0, p.isScPlusOp_zero hxs, fun v => by rw [hT]; simp⟩
 
 /-- A constant map `ℝᵐ → ℝⁿ` is an sc-smooth map of the M-polyfolds `ℝᵐ → ℝⁿ`. -/
@@ -789,12 +789,12 @@ theorem exists_sliceKernel {f : X → Y} (hf : B.IsScFredholmSection f)
     surjective_coprod_of_isLinSurjAt hG hs p q hΦ hΦq hΦ0 hsurj T hT φ hφ,
     linKer_inf_ker_sliceProj_eq_map hG hs p q₀ q₁ q T hT φ hφ⟩
 
-/-- **Lemma 6.31** (the sequence (96) is exact), at one point `q` of the family: in the setting
+/-- **Lemma 6.6.6 (preprint 6.31)** (the sequence (96) is exact), at one point `q` of the family: in the setting
 of `exists_sliceKernel`, `T = Lin_{f + S(q, ·)}(z) ∈ Lin(f, x)` and
 `φ(λ) = Σ λᵢ ŝᵢ(q, ·)(φ(x))` make `0 → ker T →j ker (T ⊕ φ) →p ℝᵏ →c K_z / R(T) → 0` exact
-(`lemma_6_14`, `T ⊕ φ` being onto), and `J` identifies `ker (T ⊕ φ)` with
+(`lemma_6_4_14`, `T ⊕ φ` being onto), and `J` identifies `ker (T ⊕ φ)` with
 `ker Lin_F(0, (q, z)) ∩ {σ = 0}`, the text's `ker F_t'(φ(t), 0)`. -/
-theorem lemma_6_31 {f : X → Y} (hf : B.IsScFredholmSection f)
+theorem lemma_6_6_6 {f : X → Y} (hf : B.IsScFredholmSection f)
     {S : (Fin n → ℝ) × X → pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X)}
     (hS : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScPlusSection S)
     {s : Fin k → (Fin n → ℝ) × X → pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X)}
@@ -828,7 +828,7 @@ theorem lemma_6_31 {f : X → Y} (hf : B.IsScFredholmSection f)
       Surjective (stabClass T φ) := by
   obtain ⟨T, φ, hT, hφ, hlin, hsurj', hker⟩ :=
     exists_sliceKernel hf hS hs hΦ hΦq hΦ0 hsurj p q₀ q₁
-  exact ⟨T, φ, hT, hφ, hlin, hker, lemma_6_14 hsurj'⟩
+  exact ⟨T, φ, hT, hφ, hlin, hker, lemma_6_4_14 hsurj'⟩
 
 end Stab
 

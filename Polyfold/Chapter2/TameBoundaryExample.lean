@@ -32,7 +32,7 @@ For the tame M-polyfold `X = [0,∞)ⁿ ⊕ W` (`MPolyfold.quadrantPolyfold n W`
   `counterTriple W = (x, V, θ)` (Definition 2.7.10).
 * `exists_face_not_mem`: `(0, 1, 0) ∈ θ` also lies on the face of `V` in `{p₂ = 0}`, which
   misses `x`; so (`pt_010_not_mem_image`) `(0, 1, 0)` is not in the image `θ ∩ V^x` of `Φ`
-  (`bMap_image_uSet`), `phi_not_surjective_2021`, and `not_forall_bijective_phi_2021`: **(2.44)
+  (`bMap_image_uSet`), `phi_not_surjective`, and `not_forall_bijective_phi`: **(2.44)
   does not hold as we read it** for this `V ∈ N_{X,x}`.
 
 ## What the text leaves implicit, and the choices made
@@ -77,7 +77,7 @@ theorem isCornerIndex_dq (n : ℕ) (W : ScBanach) : IsCornerIndex (dq n W) :=
 /-- `d_X(p)` is the number of vanishing half-line coordinates of `p`. -/
 lemma dq_eq (p : quadrant n W 0) :
     dq n W p = (Finset.univ.filter fun i => coord i p = 0).card := by
-  rw [dq, quadrantPolyfold, corollary_2_32 (isRelOpenInQuadrant_quadrant n W)
+  rw [dq, quadrantPolyfold, corollary_2_4_13 (isRelOpenInQuadrant_quadrant n W)
     (quadrant_nonempty n W), degIndex_quadrant p.2]
   rfl
 
@@ -384,7 +384,7 @@ theorem pt_010_not_mem_image :
 /-- **2021 Definition 2.7.11, (2.44)** (does not hold as we read it): for `x = (0, 0, 1)`,
 `V = slab W ∈ N_{X,x}` and the face `θ` of `V` through `x` and `(0, 1, 0)`, the map
 `Φ_{(x,V,θ)} : U(x, V, θ) → θ` is not onto `θ`. -/
-theorem phi_not_surjective_2021 :
+theorem phi_not_surjective :
     ¬ Surjective (phi (isCornerIndex_dq 3 W) (counterTriple W)) := by
   intro h
   have hyθ : pt W 0 1 0 ∈ (counterTriple W).θ := by
@@ -393,9 +393,9 @@ theorem phi_not_surjective_2021 :
   exact pt_010_not_mem_image W ⟨p.1, p.2, congrArg Subtype.val hp⟩
 
 /-- The negation of (2.44) for `X = [0,∞)³ ⊕ W`: not every `Φ_{(x,V,θ)}` is a bijection. -/
-theorem not_forall_bijective_phi_2021 :
+theorem not_forall_bijective_phi :
     ¬ ∀ t : BTriple (isCornerIndex_dq 3 W), Bijective (phi (isCornerIndex_dq 3 W) t) :=
-  fun h => phi_not_surjective_2021 W (h _).2
+  fun h => phi_not_surjective W (h _).2
 
 end Counterexample
 

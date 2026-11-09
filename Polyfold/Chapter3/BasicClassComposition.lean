@@ -3,19 +3,19 @@ import Polyfold.Chapter3.FredholmGermIndex
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.4,
-**Corollary 3.39** (composition of Theorem 3.38 with a given conjugation to a basic germ), with
+**Corollary 3.4.3 (preprint 3.39)** (composition of Theorem 3.38 with a given conjugation to a basic germ), with
 the calculus of strong bundle isomorphisms it uses: linear ones from sc-operators, the index
 raise of a strong bundle isomorphism, composition, and the composition of push-forwards.
 
-# Corollary 3.39
+# Corollary 3.4.3 (preprint 3.39)
 
 ## The text, paraphrased
 
-(Corollary 3.39) If the sc-germ `g : O(C, 0) → (F, 0)` is equivalent by a strong bundle
+(Corollary 3.4.3 (preprint 3.39)) If the sc-germ `g : O(C, 0) → (F, 0)` is equivalent by a strong bundle
 isomorphism `Φ` to the basic germ `Φ_* g`, and `s : O(C, 0) → (F, 0)` is an sc⁺-germ, then there
 is a strong bundle map `Ψ` such that `((Ψ ∘ Φ)_*(g + s))¹` is a basic germ.  *Proof.* `Φ` covers
 an sc-diffeomorphism `ϕ : (U, 0) → (V, 0)` with `Φ_* g = h` basic; `t = Φ_* s` is an sc⁺-section
-with `t(0) = 0` and `Φ_*(g + s) = h + t`; Theorem 3.38 gives `Ψ` with `(Ψ_*(h + t))¹` basic; take
+with `t(0) = 0` and `Φ_*(g + s) = h + t`; Theorem 3.4.2 (preprint 3.38) gives `Ψ` with `(Ψ_*(h + t))¹` basic; take
 `Γ = Ψ ∘ Φ`.
 
 ## What is formalized
@@ -28,27 +28,27 @@ with `t(0) = 0` and `Φ_*(g + s) = h + t`; Theorem 3.38 gives `Ψ` with `(Ψ_*(h
 * `Polyfold.strongShift Ψ = Ψ¹` (the level-`1` map) and `IsStrongBundleMap.shift`,
   `IsStrongBundleIso.shift`: **the index raise of a strong bundle map** `U ◁ F → U' ◁ F'` is a
   strong bundle map `U¹ ◁ F¹ → U'¹ ◁ F'¹` (its `[0]` is the shift of `[0]`, its `[1]` the shift
-  of `[1]`, Proposition 1.17), with `toBase_strongShift` (`ι Ψ¹ = Ψ ι` on `U₁ ⊕ F₁`).
+  of `[1]`, Proposition 1.2.2 (preprint 1.17)), with `toBase_strongShift` (`ι Ψ¹ = Ψ ι` on `U₁ ⊕ F₁`).
 * `IsStrongBundleMap.comp`, `IsStrongBundleIso.comp` (with `IsStrongBundleMap.base_comp`,
   `shiftFiber_comp`): **the composition** of strong bundle maps/isomorphisms; and
   `IsStrongBundleIso.pushforward_comp`: **`(Λ ∘ Φ)_* = Λ_* ∘ Φ_*`** on the target of `Λ`.
-* `Polyfold.StabilityData.linIso` (`Λ = (ψ, Ψ)` of Theorem 3.38 on the index-raised
+* `Polyfold.StabilityData.linIso` (`Λ = (ψ, Ψ)` of Theorem 3.4.2 (preprint 3.38) on the index-raised
   structures: base `split`, fibre `fiber`), `StabilityData.linIso_isStrongBundleIso`:
-  **Theorem 3.38's coordinate change is a strong bundle isomorphism**
+  **Theorem 3.4.2 (preprint 3.38)'s coordinate change is a strong bundle isomorphism**
   `U ◁ (ℝᴺ ⊕ W)¹ → ψ(U) ◁ ((ℝᴺ ⊕ Z) ⊕ X¹)` between the shifted structures, for every relatively
   open `U` in the shifted quadrant; `ψ(U) = glue⁻¹(U)` is relatively open in `(C̃ ⊕ C) ⊕ X¹`
   (`StabilityData.isRelOpen_glue_preimage`).  Before the index raise: `StabilityData.linIso₀`
   (`split₀`, `fiber₀`), `linIso₀_isStrongBundleIso`, and `StabilityData.strongShift_linIso₀`
   (`(Λ₀)¹ = Λ`); `IsStrongBundleMap.strongShift_comp` (`(Λ ∘ Φ)¹ = Λ¹ ∘ Φ¹`).
 * `Polyfold.ConjugationData.pushPlus` (`t = Φ[1]_* s`), `ConjugationData.absorb`
-  (`h' = h + (t_{ℝᴺ}, 0)`), and **`Polyfold.corollary_3_39`**: for conjugation data `d` of the
+  (`h' = h + (t_{ℝᴺ}, 0)`), and **`Polyfold.corollary_3_4_3`**: for conjugation data `d` of the
   sc-smooth `g` (`Φ = d.Ψ`) and an sc⁺-germ `s` with `s(0) = 0` there are the data `𝒮` of
-  Theorem 3.38 for `t_W` such that `Φ_*(g + s) = h + t` near `0`, the composite
+  Theorem 3.4.2 (preprint 3.38) for `t_W` such that `Φ_*(g + s) = h + t` near `0`, the composite
   `Γ = Λ ∘ Φ¹` (inverse `Φ'¹ ∘ Λ⁻¹`) is a strong bundle isomorphism
   `U¹ ◁ F¹ → ψ(U'¹) ◁ F'` covering an sc-diffeomorphism with `Γ(0) = 0`,
-  `Γ_* = Λ_* ∘ Φ¹_*`, the push-forward `𝒮.pushMap h'` is a basic germ (Theorem 3.38), and
+  `Γ_* = Λ_* ∘ Φ¹_*`, the push-forward `𝒮.pushMap h'` is a basic germ (Theorem 3.4.2 (preprint 3.38)), and
   `(Γ(u, (g + s)¹(u)))₂ = 𝒮.pushMap h'(γ(u))` for `u ∈ U¹` near `0`;
-  `Polyfold.corollary_3_39_isConjugate`: `(g + s)¹` is conjugated to a basic germ
+  `Polyfold.corollary_3_4_3_isConjugate`: `(g + s)¹` is conjugated to a basic germ
   (`IsConjugateToBasicGerm` on the shifted structure `E¹`, `F¹`);
   `Polyfold.ConjugationData.compIso_eq_strongShift`: the text's form `Γ = (Ψ ∘ Φ)¹`, i.e.
   `Λ₀ ∘ Φ` is a strong bundle isomorphism on level `0` and its index raise is `Λ ∘ Φ¹`.
@@ -56,7 +56,7 @@ with `t(0) = 0` and `Φ_*(g + s) = h + t`; Theorem 3.38 gives `Ψ` with `(Ψ_*(h
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **"`g` is equivalent by a strong bundle isomorphism `Φ` to the basic germ `Φ_* g`"** is read as
-  `IsConjugateToBasicGerm U g` (Definition 3.11, second paragraph): `Φ` is a strong bundle
+  `IsConjugateToBasicGerm U g` (Definition 3.1.11 (preprint 3.11), second paragraph): `Φ` is a strong bundle
   isomorphism `U ◁ F → U' ◁ (ℝᴺ ⊕ W)` covering `ϕ` with `ϕ(0) = 0` and `(Φ(u, g(u)))₂ = h(ϕ(u))`
   near `0` for a basic germ `h` on a germ inside `U'`.  "Sc-germ" is read as: `g` sc-smooth on `U`
   (needed for `(g + s)¹` to take values on level `1`).  `s(0) = 0` is the text's `(F, 0)`.
@@ -65,15 +65,15 @@ with `t(0) = 0` and `Φ_*(g + s) = h + t`; Theorem 3.38 gives `Ψ` with `(Ψ_*(h
   `E¹ ◁ F¹`, so the strong bundle isomorphism of the conclusion lives there too.  It is
   `Γ = Λ ∘ Φ¹`: the index raise `Φ¹` of the given `Φ` (a strong bundle isomorphism of the shifted
   structures, `IsStrongBundleIso.shift`; the text uses this silently) followed by the linear
-  `Λ` of Theorem 3.38 on the shifted structures, where the contraction normal form holds.  The
+  `Λ` of Theorem 3.4.2 (preprint 3.38) on the shifted structures, where the contraction normal form holds.  The
   text's "`Γ = Ψ ∘ Φ`, then raise the index" is the same map: `Λ₀ ∘ Φ` is a strong bundle
   isomorphism on level `0` and `(Λ₀ ∘ Φ)¹ = Λ₀¹ ∘ Φ¹ = Λ ∘ Φ¹` on `U¹ ⊕ F¹`
   (`ConjugationData.compIso_eq_strongShift`).
 * **`Φ_*(g + s) = h + t`** holds only near `0` (where the conjugation identity holds), and
   `t = Φ_* s = (u' ↦ Φ[1](ϕ⁻¹u', s(ϕ⁻¹u'))₂)` has an `ℝᴺ`-component, which the data of
-  Theorem 3.38 do not carry; it is absorbed into the basic germ `h' = h + (t_{ℝᴺ}, 0)`
-  (Finding 85, as in `theorem_3_54_graph_wholeChart`).  Then `Φ_*(g + s) = 𝒮.fsum h'` near `0`.
-* **"There exists a strong bundle map `Ψ`"**: the `Ψ` of Theorem 3.38 is a strong bundle
+  Theorem 3.4.2 (preprint 3.38) do not carry; it is absorbed into the basic germ `h' = h + (t_{ℝᴺ}, 0)`
+  (Finding 85, as in `theorem_3_6_8_graph_wholeChart`).  Then `Φ_*(g + s) = 𝒮.fsum h'` near `0`.
+* **"There exists a strong bundle map `Ψ`"**: the `Ψ` of Theorem 3.4.2 (preprint 3.38) is a strong bundle
   *isomorphism* (`linIso_isStrongBundleIso`), so the composite is one, which is what
   `IsConjugateToBasicGerm` needs.  The text's `τ : Z → C` is not applied (Finding 60): the new
   target is `(ℝᴺ ⊕ Z) ⊕ X¹`, the new parameter space `ℝⁿ ⊕ C`.
@@ -185,7 +185,7 @@ lemma toBase_base_strongShift {u : E 1} (hu : E.toBase 1 u ∈ U) :
 
 /-- **The index raise of a strong bundle map is a strong bundle map**: `Ψ¹ : U¹ ◁ F¹ → U'¹ ◁ F'¹`
 (the shifted structures `E¹`, `F¹`); `(U¹ ◁ F¹)[0]` is the shift of `(U ◁ F)[0]` and
-`(U¹ ◁ F¹)[1]` the shift of `(U ◁ F)[1]`, so both sc-smoothness axioms are Proposition 1.17. -/
+`(U¹ ◁ F¹)[1]` the shift of `(U ◁ F)[1]`, so both sc-smoothness axioms are Proposition 1.2.2 (preprint 1.17). -/
 theorem shift (hU : IsRelOpenInQuadrant E C U) :
     IsStrongBundleMap (E := E.shift) (F := F.shift) (E' := E'.shift) (F' := F'.shift)
       (E.lvlSet U 1) (E'.lvlSet U' 1) (strongShift Ψ) where
@@ -310,7 +310,7 @@ lemma shiftFiber_comp (hΦ : IsStrongBundleMap U U' Φ) {p : (E.prod F.shift) 0}
       Function.invFun (F''.toBase 1) (Λ ((shiftFiber Φ p).1, F'.toBase 1 (shiftFiber Φ p).2)).2)
   rw [h2]
 
-/-- **The composition of strong bundle maps is a strong bundle map** (Definition 2.47): on `[0]`
+/-- **The composition of strong bundle maps is a strong bundle map** (Definition 2.6.1 (preprint 2.47)): on `[0]`
 and `[1]` by the chain rule, `(Λ ∘ Φ)[1] = Λ[1] ∘ Φ[1]`. -/
 theorem comp (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant E' C' U')
     (hΦ : IsStrongBundleMap U U' Φ) (hΛ : IsStrongBundleMap U' U'' Λ) :
@@ -396,7 +396,7 @@ theorem IsStrongBundleMap.strongShift_comp {U : Set (E 0)} {U' : Set (E' 0)} {U'
   rw [hΛ.toBase_strongShift hm, hΦ.toBase_strongShift hp]
   rfl
 
-/-! ### Theorem 3.38's coordinate change as a strong bundle isomorphism -/
+/-! ### Theorem 3.4.2 (preprint 3.38)'s coordinate change as a strong bundle isomorphism -/
 
 namespace StabilityData
 
@@ -404,7 +404,7 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
   {W : ScBanach} {Ct : Set P} (𝒮 : StabilityData Ct W) (Q : Type) [NormedAddCommGroup Q]
   [NormedSpace ℝ Q] [FiniteDimensional ℝ Q]
 
-/-- **The coordinate change `Λ = (ψ, Ψ)` of Theorem 3.38 on the index-raised structures**:
+/-- **The coordinate change `Λ = (ψ, Ψ)` of Theorem 3.4.2 (preprint 3.38) on the index-raised structures**:
 `Λ((a, w), (q, w')) = (ψ(a, w), Ψ(q, w'))` with the linear `ψ(a, w) = ((a, (1 − P₁)w), P₁w)`
 (`split`) and `Ψ(q, w') = ((q, (1 − P₂)w'), L⁻¹P₂w')` (`fiber`), from
 `(ℝⁿ ⊕ W)¹ ◁ (ℝᴺ ⊕ W)¹` to `((ℝⁿ ⊕ C) ⊕ X¹) ◁ ((ℝᴺ ⊕ Z) ⊕ X¹)`. -/
@@ -441,7 +441,7 @@ lemma isRelOpen_glue_preimage (hC : IsPartialQuadrant (ScBanach.const P) Ct)
   rw [glue_apply]
   simp only [mem_prod, mem_univ, and_true]
 
-/-- **Theorem 3.38's coordinate change is a strong bundle isomorphism** of the index-raised
+/-- **Theorem 3.4.2 (preprint 3.38)'s coordinate change is a strong bundle isomorphism** of the index-raised
 structures: `Λ = (ψ, Ψ) : U ◁ (ℝᴺ ⊕ W)¹ → ψ(U) ◁ ((ℝᴺ ⊕ Z) ⊕ X¹)` with inverse `(ψ⁻¹, Ψ⁻¹)`, for
 every `U` relatively open in `(C̃ ⊕ W)¹`.  Base and fibre maps are the linear sc-isomorphisms
 `split`/`glue` and `fiber`/`fiberInv` (`ScOperator.isStrongBundleIso_prodMap`). -/
@@ -459,7 +459,7 @@ theorem linIso_isStrongBundleIso (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (fun k => 𝒮.fiberInv_fiber 0 k) (fun k' => 𝒮.fiber_fiberInv 0 k')
 
 variable (Q) in
-/-- The coordinate change `Λ₀ = (ψ, Ψ)` of Theorem 3.38 **before** the index raise, on
+/-- The coordinate change `Λ₀ = (ψ, Ψ)` of Theorem 3.4.2 (preprint 3.38) **before** the index raise, on
 `(ℝⁿ ⊕ W) ◁ (ℝᴺ ⊕ W) → ((ℝⁿ ⊕ C) ⊕ X) ◁ ((ℝᴺ ⊕ Z) ⊕ X)` (`split₀`, `fiber₀`); its index raise is
 `linIso` (`strongShift_linIso₀`). -/
 def linIso₀ : (ScBanach.paramProd P W) 0 × (ScBanach.paramProd Q W) 0 → 𝒮.E₀' 0 × 𝒮.F₀' Q 0 :=
@@ -484,7 +484,7 @@ lemma isRelOpen_glue₀_preimage (hC : IsPartialQuadrant (ScBanach.const P) Ct)
   rw [glue₀_apply]
   simp only [mem_prod, mem_univ, and_true]
 
-/-- **Theorem 3.38's coordinate change before the index raise is a strong bundle isomorphism**
+/-- **Theorem 3.4.2 (preprint 3.38)'s coordinate change before the index raise is a strong bundle isomorphism**
 `Λ₀ : U ◁ (ℝᴺ ⊕ W) → ψ(U) ◁ ((ℝᴺ ⊕ Z) ⊕ X)` (the text's `Ψ`, "a strong bundle map covering the
 sc-diffeomorphism `ψ`"). -/
 theorem linIso₀_isStrongBundleIso (hC : IsPartialQuadrant (ScBanach.const P) Ct)
@@ -513,14 +513,14 @@ theorem strongShift_linIso₀ : strongShift (𝒮.linIso₀ Q) = 𝒮.linIso Q :
 
 end StabilityData
 
-/-! ### Corollary 3.39 -/
+/-! ### Corollary 3.4.3 (preprint 3.39) -/
 
 namespace ConjugationData
 
 variable {U : Set (E 0)} {g : E 0 → F 0} (d : ConjugationData U g)
 
 /-- `t = Φ[1]_* s : U' → (ℝᴺ ⊕ W)¹`, `t(u') = (Φ[1](ϕ⁻¹u', s(ϕ⁻¹u')))₂`: the push-forward of a
-local sc⁺-section `s : U → F¹` by the conjugation `Φ = d.Ψ` (proof of Corollary 3.39: "`t = Φ_* s`
+local sc⁺-section `s : U → F¹` by the conjugation `Φ = d.Ψ` (proof of Corollary 3.4.3 (preprint 3.39): "`t = Φ_* s`
 defines an sc⁺-section"). -/
 def pushPlus (s : E 0 → F 1) :
     (ScBanach.paramProd d.Pn d.W) 0 → (ScBanach.paramProd d.Q d.W).shift 0 :=
@@ -533,9 +533,9 @@ def absorb (s : E 0 → F 1) : d.Pn × d.W 0 → d.Q × d.W 0 :=
 
 variable (𝒮 : StabilityData d.Ct d.W)
 
-/-- **The composite strong bundle isomorphism `Γ = Λ ∘ Φ¹` of Corollary 3.39**: the index raise
+/-- **The composite strong bundle isomorphism `Γ = Λ ∘ Φ¹` of Corollary 3.4.3 (preprint 3.39)**: the index raise
 `Φ¹ = strongShift d.Ψ` of the given conjugation followed by the linear coordinate change
-`Λ = 𝒮.linIso` of Theorem 3.38, on the shifted structures `E¹ ◁ F¹`. -/
+`Λ = 𝒮.linIso` of Theorem 3.4.2 (preprint 3.38), on the shifted structures `E¹ ◁ F¹`. -/
 def compIso : E.shift 0 × F.shift 0 → 𝒮.E' 0 × 𝒮.F' d.Q 0 :=
   𝒮.linIso d.Q ∘ strongShift d.Ψ
 
@@ -552,7 +552,7 @@ lemma compIso_eq : d.compIso 𝒮 = 𝒮.linIso d.Q ∘ strongShift d.Ψ := rfl
 lemma compIsoInv_eq : d.compIsoInv 𝒮 = strongShift d.Ψ' ∘ 𝒮.linIsoInv d.Q := rfl
 
 /-- **The text's form of the composite, `Γ = (Ψ ∘ Φ)¹`**: the composite `Λ₀ ∘ Φ` of the given
-conjugation with the coordinate change of Theorem 3.38 before the index raise is a strong bundle
+conjugation with the coordinate change of Theorem 3.4.2 (preprint 3.38) before the index raise is a strong bundle
 isomorphism `U ◁ F → ψ(U') ◁ ((ℝᴺ ⊕ Z) ⊕ X)` (level `0`), and its index raise is `Γ = Λ ∘ Φ¹` on
 `U¹ ⊕ F¹`. -/
 theorem compIso_eq_strongShift {C : Set (E 0)} (hU : IsRelOpenInQuadrant E C U) :
@@ -572,11 +572,11 @@ section Cor339
 variable {C U : Set (E 0)}
 
 open ConjugationData in
-/-- **Corollary 3.39**, with the composite strong bundle isomorphism explicit.  Let `g : U → F` be
+/-- **Corollary 3.4.3 (preprint 3.39)**, with the composite strong bundle isomorphism explicit.  Let `g : U → F` be
 sc-smooth and conjugated to a basic germ `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` by the strong bundle
 isomorphism `Φ = d.Ψ : U ◁ F → U' ◁ (ℝᴺ ⊕ W)` covering `ϕ` (the data `d`), and let `s : U → F¹`
 be an sc⁺-germ with `s(0) = 0`.  Then, with `t = Φ[1]_* s` (`d.pushPlus s`, `t(0) = 0`) and
-`h' = h + (t_{ℝᴺ}, 0)` (`d.absorb s`), there are the data `𝒮` of Theorem 3.38 for `t_W` on the
+`h' = h + (t_{ℝᴺ}, 0)` (`d.absorb s`), there are the data `𝒮` of Theorem 3.4.2 (preprint 3.38) for `t_W` on the
 germ of `h` such that:
 * `h'` is a basic germ and `Φ_*(g + s) = h + t = 𝒮.fsum h'` near `0` (the text's
   "`Φ_*(g + s) = h + t`");
@@ -584,10 +584,10 @@ germ of `h` such that:
   `U¹ ◁ F¹ → ψ(U'¹) ◁ ((ℝᴺ ⊕ Z) ⊕ X¹)` with inverse `Φ'¹ ∘ Λ⁻¹`, `γ(0) = 0`, onto a relatively
   open subset of `(C̃ ⊕ C) ⊕ X¹` containing the germ of `𝒮.pushMap h'`, and
   `Γ_* = Λ_* ∘ Φ¹_*`;
-* `𝒮.pushMap h' = (Λ_*(h + t))¹` is a basic germ (Theorem 3.38), and
+* `𝒮.pushMap h' = (Λ_*(h + t))¹` is a basic germ (Theorem 3.4.2 (preprint 3.38)), and
   `(Γ(u, (g + s)¹(u)))₂ = 𝒮.pushMap h'(γ(u))` for `u ∈ U¹` near `0`: `((Ψ ∘ Φ)_*(g + s))¹` is
   the basic germ `𝒮.pushMap h'`. -/
-theorem corollary_3_39 (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
+theorem corollary_3_4_3 (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
     {g : E 0 → F 0} (hg : IsScSmooth U g) (d : ConjugationData U g) {s : E 0 → F 1}
     (hs : IsScSmooth (F := F.shift) U s) (hs0 : s 0 = 0) :
     ∃ 𝒮 : StabilityData d.Ct d.W,
@@ -655,7 +655,7 @@ theorem corollary_3_39 (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
     have := Function.leftInverse_invFun ((ScBanach.paramProd d.Q d.W).toBase_injective 1) 0
     rw [map_zero] at this
     exact this
-  -- the basic germ `h' = h + (t_{ℝᴺ}, 0)` and the data of Theorem 3.38 with `s = t_W`
+  -- the basic germ `h' = h + (t_{ℝᴺ}, 0)` and the data of Theorem 3.4.2 (preprint 3.38) with `s = t_W`
   set h' := d.absorb s with hh'def
   have hh' : IsBasicGerm d.Ct d.G h' d.Bc :=
     { isScSmooth := by
@@ -724,7 +724,7 @@ theorem corollary_3_39 (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
   have hlev0 : levelMap (IsStrongBundleMap.base d.Ψ) 1 (0 : E 1) = 0 :=
     levelMap_eq_of_toBase_eq (by rw [map_zero, map_zero, d.base_zero])
   refine ⟨𝒮, h𝒮G, h𝒮s, ht0, hh'𝒮, ?_, hrel, hΓ, ?_, fun k y hy => hΦ1.pushforward_comp hΛ k hy,
-    ?_, theorem_3_38 𝒮 hCt.isQuadrantLike hh'𝒮, ?_⟩
+    ?_, theorem_3_4_2 𝒮 hCt.isQuadrantLike hh'𝒮, ?_⟩
   · filter_upwards [d.conj] with u hu huU
     rw [hpush u huU]
     exact hkey u huU (hu huU)
@@ -772,18 +772,18 @@ theorem corollary_3_39 (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
     hψsc.isSc1.isSc0.toBase_levelMap hu, hksc.isSc1.isSc0.toBase_levelMap hu]
   exact hkey _ hιu hconj
 
-/-- **Corollary 3.39**: if the sc-smooth `g : U → F` is conjugated to a basic germ and `s` is an
+/-- **Corollary 3.4.3 (preprint 3.39)**: if the sc-smooth `g : U → F` is conjugated to a basic germ and `s` is an
 sc⁺-germ with `s(0) = 0`, then the index-raised germ `(g + s)¹ : U¹ → F¹` is conjugated to a basic
 germ (on the shifted structures `E¹`, `F¹`); the conjugation is `Γ = Λ ∘ Φ¹` of
-`corollary_3_39`, with `Λ` the coordinate change of Theorem 3.38. -/
-theorem corollary_3_39_isConjugate (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
+`corollary_3_4_3`, with `Λ` the coordinate change of Theorem 3.4.2 (preprint 3.38). -/
+theorem corollary_3_4_3_isConjugate (hU : IsRelOpenInQuadrant E C U) (h0 : (0 : E 0) ∈ U)
     {g : E 0 → F 0} (hg : IsScSmooth U g) (hconj : IsConjugateToBasicGerm U g) {s : E 0 → F 1}
     (hs : IsScSmooth (F := F.shift) U s) (hs0 : s 0 = 0) :
     IsConjugateToBasicGerm (E := E.shift) (F := F.shift) (E.lvlSet U 1)
       (levelMap (fun v => g v + F.toBase 1 (s v)) 1) := by
   obtain ⟨d⟩ := isConjugateToBasicGerm_iff_nonempty.1 hconj
   obtain ⟨𝒮, -, -, -, -, -, hrel, hΓ, hb0, -, hsub, hbasic, hev⟩ :=
-    corollary_3_39 hU h0 hg d hs hs0
+    corollary_3_4_3 hU h0 hg d hs hs0
   exact ⟨d.Pn × 𝒮.Cs, d.Q × 𝒮.Zs, inferInstance, inferInstance, inferInstance, inferInstance,
     inferInstance, inferInstance, 𝒮.XB.shift, d.Ct ×ˢ univ, d.compDomain 𝒮, d.compIso 𝒮,
     d.compIsoInv 𝒮, 𝒮.pushGerm, 𝒮.pushMap (d.absorb s), 𝒮.pushB d.Bc,

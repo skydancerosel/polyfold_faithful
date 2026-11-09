@@ -9,11 +9,11 @@ noncomputable section
 namespace RoundTrip.V3_52
 open Polyfold
 
-/-- The project's statement: `lemma_3_59` (abstract form, for a family of sc-operators);
+/-- The project's statement: `lemma_3_7_2` (abstract form, for a family of sc-operators);
 `FamilyCompactness` is a definition.  No universe parameters. -/
-def A : Prop := type_of% @Polyfold.lemma_3_59
+def A : Prop := type_of% @Polyfold.lemma_3_7_2
 
-theorem A_holds : A := @Polyfold.lemma_3_59
+theorem A_holds : A := @Polyfold.lemma_3_7_2
 
 /-! ### Glue: the concrete family `L(b) = P_Y ∘ Df(b)|_X` as sc-operators `X → Y` -/
 
@@ -64,7 +64,7 @@ lemma famL_zero (hf : IsSc1 U f) (hBs : Bs ≤ E.smooth) (hXsc : E.IsScSubspace 
 
 end Family
 
-/-- A ⇒ B: Lemma 3.59 in the setting of Theorem 3.58, from the abstract `lemma_3_59` applied to
+/-- A ⇒ B: Lemma 3.59 in the setting of Theorem 3.58, from the abstract `lemma_3_7_2` applied to
 the family `L(b) = P_Y ∘ Df(b)|_X` over `Bf = B` (finite-dimensional), `O = {b ∈ B ∩ U, |b| < r}`
 (`r` from the compactness property): continuity from the sc¹ property, injectivity of `L(0)` from
 `ker Df(0) ⊆ B`, `B ∩ X = 0` and `A ∩ Y = 0`, and `FamilyCompactness` from `CompactnessProp`
@@ -76,8 +76,8 @@ theorem A_to_B : A → B := by
   have := hBfin
   have := hAfin
   set Y := imgY E F U f X with hYdef
-  have hBs : Bs ≤ E.smooth := (E.proposition_1_6_iff Bs).1 hsplit.1
-  have hAs : Ac ≤ F.smooth := (F.proposition_1_6_iff Ac).1 hAY.1
+  have hBs : Bs ≤ E.smooth := (E.proposition_1_1_7_iff Bs).1 hsplit.1
+  have hAs : Ac ≤ F.smooth := (F.proposition_1_1_7_iff Ac).1 hAY.1
   have hXsc : E.IsScSubspace X := hsplit.2.1
   have hYA : F.IsScSplitting Y Ac := hAY.symm
   obtain ⟨ℓ1, hℓ1⟩ := exists_lift E Bs hBs 1
@@ -220,8 +220,8 @@ theorem A_to_B : A → B := by
     have := hinjO b hbO hbr (hL.trans (map_zero _).symm)
     exact congrArg Subtype.val this
 
-#rt_check RoundTrip.V3_52.A_to_B [Polyfold.lemma_3_59]
-#rt_overlap RoundTrip.V3_52.A_to_B [Polyfold.lemma_3_59]
+#rt_check RoundTrip.V3_52.A_to_B [Polyfold.lemma_3_7_2]
+#rt_overlap RoundTrip.V3_52.A_to_B [Polyfold.lemma_3_7_2]
 
 end RoundTrip.V3_52
 

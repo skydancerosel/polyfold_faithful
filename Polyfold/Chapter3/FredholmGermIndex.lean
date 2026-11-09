@@ -2,24 +2,24 @@ import Polyfold.Chapter3.FredholmGermLinearization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Proposition 3.52 with its index clause**: the linearization of an sc-Fredholm section at a zero
+**Proposition 3.6.5 (preprint 3.52) with its index clause**: the linearization of an sc-Fredholm section at a zero
 is Fredholm of the index `n − N` of the basic germ to which the filled version is conjugated, with
 `n` and `N` the dimensions of the conjugation data at hand (not "some natural numbers").
 
-# The index in Proposition 3.52
+# The index in Proposition 3.6.5 (preprint 3.52)
 
 ## The text, paraphrased
 
-(Proposition 3.52, with the proof of Theorem 3.54) If `f` is an sc-Fredholm section of the tame
+(Proposition 3.6.5 (preprint 3.52), with the proof of Theorem 3.6.8 (preprint 3.54)) If `f` is an sc-Fredholm section of the tame
 strong bundle `P : Y → X` and `f(x) = 0`, then `Tf(x) : T_xX → Y_x` is an sc-Fredholm operator.
-In the chart of Definition 3.11, `g − s` is conjugated to a basic germ
+In the chart of Definition 3.1.11 (preprint 3.11), `g − s` is conjugated to a basic germ
 `h : O(([0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ) ⊕ W, 0) → (ℝᴺ ⊕ W, 0)`; `D(g − s)(0)` is sc-Fredholm of the index
-`n − N` of `h` (Proposition 3.10), `Dg(0)` is an sc⁺-perturbation of it (Proposition 1.10), and
-`Tf̃(0) = Dg(0)|_{T₀O} : T₀O → K₀` has the same index (Proposition 3.5).
+`n − N` of `h` (Proposition 3.1.10 (preprint 3.10)), `Dg(0)` is an sc⁺-perturbation of it (Proposition 1.1.11 (preprint 1.10)), and
+`Tf̃(0) = Dg(0)|_{T₀O} : T₀O → K₀` has the same index (Proposition 3.1.5 (preprint 3.5)).
 
 ## What is formalized
 
-* `Polyfold.ConjugationData U k`: the witnesses of `IsConjugateToBasicGerm U k` (Definition 3.11,
+* `Polyfold.ConjugationData U k`: the witnesses of `IsConjugateToBasicGerm U k` (Definition 3.1.11 (preprint 3.11),
   second paragraph) as a structure, so that the parameter space `Pn = ℝⁿ` and the
   finite-dimensional target `Q = ℝᴺ` of the basic germ can be named;
   `Polyfold.isConjugateToBasicGerm_iff_nonempty`.
@@ -27,16 +27,16 @@ In the chart of Definition 3.11, `g − s` is conjugated to a basic germ
   conjugation data `d` of `k`, `Dk(0)` is Fredholm (level `0`) of index `dim d.Pn − dim d.Q`;
   `Polyfold.ConjugationData.index_eq_wholeChart`: the number `dim d.Pn − dim d.Q` does not depend on the
   conjugation data.
-* `Polyfold.proposition_3_52_local_index_wholeChart` (in the chart of Definition 3.11, for given conjugation
-  data `d` of `g − s`) and `Polyfold.proposition_3_52_index_wholeChart` (for a section of a strong bundle):
+* `Polyfold.proposition_3_6_5_local_index_wholeChart` (in the chart of Definition 3.1.11 (preprint 3.11), for given conjugation
+  data `d` of `g − s`) and `Polyfold.proposition_3_6_5_index_wholeChart` (for a section of a strong bundle):
   `Dg(0)` and `Tf(x₀) = Dg(0)|_{T₀O} : T₀O → K₀` are Fredholm with
   `ind Tf(x₀) = ind Dg(0) = dim d.Pn − dim d.Q` for **every** conjugation data `d` of `g − s` to a
   basic germ (and such data exist).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **The index clause of `proposition_3_52_wholeChart` is vacuous.**  `proposition_3_52_local_wholeChart` and
-  `proposition_3_52_wholeChart` (`FredholmGermLinearization.lean`, statements kept for their consumers) state
+* **The index clause of `proposition_3_6_5_wholeChart` is vacuous.**  `proposition_3_6_5_local_wholeChart` and
+  `proposition_3_6_5_wholeChart` (`FredholmGermLinearization.lean`, statements kept for their consumers) state
   the index as "`n − N` for some natural numbers `n`, `N`", which every integer is.  The content
   of the text's claim is that `n` and `N` are the dimensions of the conjugating basic germ; this
   needs the witnesses of `IsConjugateToBasicGerm`, which is an existential proposition, as data:
@@ -45,10 +45,10 @@ In the chart of Definition 3.11, `g − s` is conjugated to a basic germ
 * **Independence of the conjugation.**  Since the index of `Dk(0)` is computed by every
   conjugation, `dim Pn − dim Q` is the same for all conjugations of `k` to basic germs
   (`ConjugationData.index_eq_wholeChart`); the text's "the Fredholm index is invariant under strong bundle
-  isomorphisms" (after Theorem 3.38) is this statement for the conjugations of one germ.
-* Only the level-`0` (classical) Fredholm property is proved here, as in `proposition_3_52_wholeChart`; the
+  isomorphisms" (after Theorem 3.4.2 (preprint 3.38)) is this statement for the conjugations of one germ.
+* Only the level-`0` (classical) Fredholm property is proved here, as in `proposition_3_6_5_wholeChart`; the
   sc-Fredholm property of `Dg(0)` and `Tf(x)` on all levels, with the index `dim d.Pn − dim d.Q`
-  on every level, is `proposition_3_52_local_sc_wholeChart` / `proposition_3_52_sc_wholeChart`
+  on every level, is `proposition_3_6_5_local_sc_wholeChart` / `proposition_3_6_5_sc_wholeChart`
   (`FredholmGermLinearizationSc.lean`).
 -/
 
@@ -66,7 +66,7 @@ section Conjugate
 
 variable {C U : Set (E 0)}
 
-/-- **The data of a conjugation to a basic germ** (Definition 3.11, second paragraph): the
+/-- **The data of a conjugation to a basic germ** (Definition 3.1.11 (preprint 3.11), second paragraph): the
 witnesses of `IsConjugateToBasicGerm U k` as a structure, so that the dimensions `n = dim Pn`,
 `N = dim Q` of the basic germ `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`, `C̃ ⊆ ℝⁿ`, can be named
 (`isConjugateToBasicGerm_iff_nonempty`). -/
@@ -124,7 +124,7 @@ theorem isConjugateToBasicGerm_iff_nonempty {k : E 0 → F 0} :
 sc-smooth with `k(0) = 0` and `(Ψ(u, k(u)))₂ = h(ψ(u))` near `0` for a basic germ
 `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`, `C̃ ⊆ ℝⁿ`, and a strong bundle isomorphism `Ψ` covering `ψ`, then
 `Γ(0)Dk(0) = Dh(0)Dψ(0)`, so `Dk(0) = Γ(0)⁻¹ Dh(0) Dψ(0)` is Fredholm (level `0`) of index
-`ind Dh(0) = n − N` (Proposition 3.10 for the basic germ).  The proof is that of
+`ind Dh(0) = n − N` (Proposition 3.1.10 (preprint 3.10) for the basic germ).  The proof is that of
 `IsConjugateToBasicGerm.scDeriv_isFredholm_wholeChart` with the dimensions kept. -/
 theorem ConjugationData.scDeriv_isFredholm_index_wholeChart (hU : IsRelOpenInQuadrant E C U)
     (h0 : (0 : E 0) ∈ U) {k : E 0 → F 0} (hk : IsScSmooth U k) (hk0 : k 0 = 0)
@@ -157,7 +157,7 @@ theorem ConjugationData.scDeriv_isFredholm_index_wholeChart (hU : IsRelOpenInQua
   set Γ := hΨ.toFun.fiberCLM h0 with hΓ
   set Γ' := hΨ.invFun.fiberCLM h0U' with hΓ'
   -- (a) `Dh(0)` is Fredholm of index `n − N`
-  obtain ⟨hDhF, hDhind⟩ := proposition_3_10_basic_level_zero hCt hh
+  obtain ⟨hDhF, hDhind⟩ := proposition_3_1_10_basic_level_zero hCt hh
   -- (b) `Γ(0)Dk(0) = Dh(0)Dψ(0)`
   have hlhs : scDeriv U (fun u => (Ψ (u, k u)).2) 0 = Γ.comp Dk :=
     hΨ.toFun.scDeriv_fiber_comp hU h0 hk hk0
@@ -253,7 +253,7 @@ theorem ConjugationData.index_eq_wholeChart (hU : IsRelOpenInQuadrant E C U) (h0
 
 end Conjugate
 
-/-! ### Proposition 3.52 with the index of the conjugation -/
+/-! ### Proposition 3.6.5 (preprint 3.52) with the index of the conjugation -/
 
 section Prop352
 
@@ -261,14 +261,14 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Proposition 3.52 in the chart of Definition 3.11, with the index**: let `g` be a filled
+/-- **Proposition 3.6.5 (preprint 3.52) in the chart of Definition 3.1.11 (preprint 3.11), with the index**: let `g` be a filled
 version of the principal part `f̂` of a section at a zero (`f̂(0) = 0`), `s` a local sc⁺-section
 with `s(0) = g(0)` and `d` conjugation data of `g − s` to a basic germ
 `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` with `C̃ ⊆ ℝⁿ`, `n = dim d.Pn`, `N = dim d.Q`.  Then `Dg(0) : E → F` is
 a Fredholm operator (on level `0`) of index `n − N`, and so is `Tf(0) = Dg(0)|_{T₀O} : T₀O → K₀`
-(Propositions 3.10, 1.10 and 3.5).  (`proposition_3_52_local_wholeChart` states the index as `n − N` for
+(Propositions 3.1.10, 1.1.11 and 3.1.5 (preprint 3.10, 1.10 and 3.5)).  (`proposition_3_6_5_local_wholeChart` states the index as `n − N` for
 some natural numbers.) -/
-theorem proposition_3_52_local_index_wholeChart (hU : IsRelOpenInQuadrant E C U)
+theorem proposition_3_6_5_local_index_wholeChart (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFilledVersion hU hR h0 fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ)) {s : E 0 → F 1}
@@ -324,13 +324,13 @@ theorem proposition_3_52_local_index_wholeChart (hU : IsRelOpenInQuadrant E C U)
     rw [hDg]; exact isFredholm_add_isCompactOperator hDkF hcompact
   have hDgind : fredholmIndex (scDeriv U g 0) = finrank ℝ d.Pn - finrank ℝ d.Q := by
     rw [hDg, fredholmIndex_add_isCompactOperator hDkF hcompact, hDkind]
-  -- Proposition 3.5
-  obtain ⟨h1, -, hFiff, hindeq⟩ := hfill.filler.proposition_3_5 hg hg0 h0O hfK
+  -- Proposition 3.1.5 (preprint 3.5)
+  obtain ⟨h1, -, hFiff, hindeq⟩ := hfill.filler.proposition_3_1_5 hg hg0 h0O hfK
   exact ⟨h1, hDgF, hDgind, hFiff.2 hDgF, by rw [hindeq, hDgind]⟩
 
 end Prop352
 
-/-! ### Proposition 3.52 for sections of strong bundles, with the index -/
+/-! ### Proposition 3.6.5 (preprint 3.52) for sections of strong bundles, with the index -/
 
 section Bundle
 
@@ -343,15 +343,15 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
-/-- **Proposition 3.52, with the index**: let `f` be a section of the strong bundle `P : Y → X`
-with `(f, x₀)` an sc-Fredholm germ and `f(x₀) = 0`.  In the strong bundle chart of Definition 3.11
+/-- **Proposition 3.6.5 (preprint 3.52), with the index**: let `f` be a section of the strong bundle `P : Y → X`
+with `(f, x₀)` an sc-Fredholm germ and `f(x₀) = 0`.  In the strong bundle chart of Definition 3.1.11 (preprint 3.11)
 centred at `x₀`, with the filled version `g` of the principal part `f̂` and the local sc⁺-section
 `s` (`s(0) = g(0)`) for which `g − s` is conjugated to a basic germ, the linearizations `Dg(0)` and
 `Tf(x₀) = Dg(0)|_{T₀O} : T₀O → K₀` (`fillerRestrict`) are Fredholm operators, and for **every**
 conjugation `d` of `g − s` to a basic germ `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`, `C̃ ⊆ ℝⁿ`, their index
-is `n − N = dim d.Pn − dim d.Q`.  (`proposition_3_52_wholeChart` states the index as `n − N` for some natural
+is `n − N = dim d.Pn − dim d.Q`.  (`proposition_3_6_5_wholeChart` states the index as `n − N` for some natural
 numbers `n`, `N`, which every integer is; this is the statement with content.) -/
-theorem proposition_3_52_index_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
+theorem proposition_3_6_5_index_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGermWholeChart f x₀)
     (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (h0 : (0 : c.φ.model.E 0) ∈ c.U) (g : c.φ.model.E 0 → c.F 0) (s : c.φ.model.E 0 → c.F 1)
@@ -383,10 +383,10 @@ theorem proposition_3_52_index_wholeChart (hf : IsSection P f) {x₀ : X} (hg : 
   have hne := isConjugateToBasicGerm_iff_nonempty.1 hconj
   obtain ⟨d₀⟩ := hne
   obtain ⟨h1, hDgF, -, hTF, -⟩ :=
-    proposition_3_52_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d₀
+    proposition_3_6_5_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d₀
   refine ⟨c, hc, hxV, hφ0, h0U, g, s, hfill, hs, hs0, ⟨d₀⟩, h1, hDgF, hTF, fun d => ?_⟩
   obtain ⟨h1', -, hDgind, -, hTind⟩ :=
-    proposition_3_52_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d
+    proposition_3_6_5_local_index_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 d
   exact ⟨hDgind, hTind⟩
 
 end Bundle

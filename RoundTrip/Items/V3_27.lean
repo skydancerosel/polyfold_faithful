@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_27
 
 /-!
 Round trip for V3_27 (Theorem 3.30).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_30`, `Polyfold.ContractionGerm.isSc1GermWith_sol`,
+`Polyfold.theorem_3_3_3`, `Polyfold.ContractionGerm.isSc1GermWith_sol`,
 `Polyfold.ContractionGerm.hasFDerivWithinAt_sol`, `Polyfold.ContractionGerm.Lop_Aop` and
 `Polyfold.ContractionGerm.continuousOn_Aop` (no universe parameters; `ContractionGerm.Aop` is a
 definition).
@@ -13,7 +13,7 @@ Glue for `A → B` (as in V3_30, with `k = 1`):
 * B's partial quadrant is quadrant-like.
 * B assumes `f = w − B(a, w)` sc¹; then `B = pr₂ − f` is sc¹ (pairing, the sc-operator
   `(u, v) ↦ u − v`).
-* `theorem_3_30` (in `A`) for the working form `h.toContractionGerm` gives `sol` sc¹ on `germ 1`;
+* `theorem_3_3_3` (in `A`) for the working form `h.toContractionGerm` gives `sol` sc¹ on `germ 1`;
   B's arbitrary solution germ `δ` agrees with `sol` near `0` (uniqueness of fixed points in `O 0`,
   `ContractionGerm.eq_sol`, which is not among the banned theorems of this item), so `δ` is sc¹ on
   `V' = V ∩ germ 1 ∩ {δ ∈ O 0}`.
@@ -24,12 +24,12 @@ open Polyfold
 
 /-- The project's statement: Theorem 3.30 and the lemmas cited with it. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_30 ∧ type_of% @Polyfold.ContractionGerm.isSc1GermWith_sol ∧
+  type_of% @Polyfold.theorem_3_3_3 ∧ type_of% @Polyfold.ContractionGerm.isSc1GermWith_sol ∧
     type_of% @Polyfold.ContractionGerm.hasFDerivWithinAt_sol ∧
     type_of% @Polyfold.ContractionGerm.Lop_Aop ∧ type_of% @Polyfold.ContractionGerm.continuousOn_Aop
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_30, @Polyfold.ContractionGerm.isSc1GermWith_sol,
+  ⟨@Polyfold.theorem_3_3_3, @Polyfold.ContractionGerm.isSc1GermWith_sol,
     @Polyfold.ContractionGerm.hasFDerivWithinAt_sol, @Polyfold.ContractionGerm.Lop_Aop,
     @Polyfold.ContractionGerm.continuousOn_Aop⟩
 
@@ -106,7 +106,7 @@ theorem A_to_B : A → B := by
     exact (sub_eq_zero.1 this).symm
   exact (𝒞.eq_sol haN hO hfix).symm
 
-#rt_check RoundTrip.V3_27.A_to_B [Polyfold.theorem_3_30,
+#rt_check RoundTrip.V3_27.A_to_B [Polyfold.theorem_3_3_3,
   Polyfold.ContractionGerm.isSc1GermWith_sol, Polyfold.ContractionGerm.hasFDerivWithinAt_sol,
   Polyfold.ContractionGerm.Lop_Aop, Polyfold.ContractionGerm.continuousOn_Aop]
 

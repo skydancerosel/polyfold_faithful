@@ -27,20 +27,20 @@ of `A_{T'}` and `B_{T'}` depend continuously on `T'`.
   complement `exists_isCompl_isCompl_of_finrank_eq` of `Book2021.lean`, cut down to
   `K₁ + K₂` and enlarged by a closed complement of `K₁ + K₂`).
 * `solveOp Q X S = (Q S|_X)⁻¹ ∘ Q : F → X ⊆ E` (the solution `x` of `Q S x = Q g`, with
-  `projRestrict` and `lemma_6_17` of `LocalDetBundle.lean`), `kerTransition Q X S = 1 − solveOp ∘ S`
+  `projRestrict` and `lemma_6_5_1` of `LocalDetBundle.lean`), `kerTransition Q X S = 1 − solveOp ∘ S`
   (`e ↦ e − x(e)`, the text's `A_S` on all of `E`) and `cokerTransition P Q X S`
   (`f ↦ f̃` for the representative `(1 − P) f`, the text's `B_S` lifted to `F`).
 * `diagram_of_solveOp`: for any `S` with `P, Q ∈ Π_S`, `X ⊕ ker(P S) = E` and `X ∩ ker(Q S) = 0`,
   and any solution operator `ξ`, the maps `e ↦ e − ξ(S e)` and `f + H ↦ f̃ + H` are isomorphisms
   `ker(P S) → ker(Q S)`, `F/R(P) → F/R(Q)` filling the diagram.
-* `proposition_6_4_13_continuity_2021` (**Proposition 6.4.13**, last sentence): there are a closed
+* `proposition_6_4_13_continuity` (**Proposition 6.4.13**, last sentence): there are a closed
   `X` and `ε > 0` such that `S ↦ kerTransition Q X S` and `S ↦ cokerTransition P Q X S` are
   continuous on `‖S − T‖ < ε` (operator norm; also jointly with the vector, i.e. as maps of the
   kernel bundles of Remark 6.4.5), and for every such `S`: `P, Q ∈ Π_S`,
   `ker(P S) ⊕ X = ker(Q S) ⊕ X = E` topologically, the text's equations (6.15)–(6.16) and
   (6.18)–(6.19) hold, and their restrictions/quotients are isomorphisms `A_S`, `B_S` making the
   diagram of `E(S, P)`, `E(S, Q)` commute.
-* `proposition_6_4_13_continuity_2021_hyps`: the hypotheses are satisfiable (`T = 1` on `ℝ`).
+* `proposition_6_4_13_continuity_hyps`: the hypotheses are satisfiable (`T = 1` on `ℝ`).
 
 ## Comments
 
@@ -51,8 +51,8 @@ of `A_{T'}` and `B_{T'}` depend continuously on `T'`.
   continuity clause says that `(S, e) ↦ (S, A_S e)` is continuous on it.  The conditions (6.15),
   (6.18) together with `X ∩ ker(Q S) = 0` determine both maps uniquely.
 * "`T'` near `T` so that `P, Q ∈ Π_{T'}`": `P, Q ∈ Π_S` holds automatically for `S` near `T`
-  (Lemma 6.17), and is part of the conclusion.
-* The algebraic part (the diagram at `T` itself) is also `proposition_6_4_13_2021` of
+  (Lemma 6.5.1 (preprint 6.17)), and is part of the conclusion.
+* The algebraic part (the diagram at `T` itself) is also `proposition_6_4_13` of
   `Book2021.lean`, there with an algebraic `X`; here `X` is closed, which the continuity needs.
 * `B_S` is an isomorphism by injectivity and `dim F/R(P) = dim F/R(Q)` (the text: five lemma);
   `A_S` is onto by `E = X ⊕ ker(P S)`.
@@ -369,7 +369,7 @@ closed `X` and `ε > 0` such that on `‖S − T‖ < ε`
 * `A_S` restricts to an isomorphism `ker(P S) → ker(Q S)`, `B_S` induces an isomorphism
   `F/R(P) → F/R(Q)` (`R(P) = R(Q) = H`), and they fill the diagram of `E(S, P)`, `E(S, Q)`:
   `A ∘ j_P = j_Q`, `Φ_Q ∘ A = B ∘ Φ_P`, `π_Q ∘ B = π_P`. -/
-theorem proposition_6_4_13_continuity_2021 {T : E →L[ℝ] F} (hT : T.IsFredholm)
+theorem proposition_6_4_13_continuity {T : E →L[ℝ] F} (hT : T.IsFredholm)
     {H : Submodule ℝ F} {P Q : F →L[ℝ] F} (hP : IsGoodLeftProj T P) (hQ : IsGoodLeftProj T Q)
     (hPH : LinearMap.range (P : F →ₗ[ℝ] F) = H) (hQH : LinearMap.range (Q : F →ₗ[ℝ] F) = H) :
     ∃ (X : Submodule ℝ E) (ε : ℝ), IsClosed (X : Set E) ∧ 0 < ε ∧
@@ -413,9 +413,9 @@ theorem proposition_6_4_13_continuity_2021 {T : E →L[ℝ] F} (hT : T.IsFredhol
     rw [hc] at h
     exact_mod_cast sub_left_inj.1 h
   obtain ⟨X, hXc, hX₁, hX₂⟩ := exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq K₁ K₂ hrank
-  -- Lemma 6.17 for `(T, P, X)` and `(T, Q, X)`
-  obtain ⟨εP, hεP, hP'⟩ := lemma_6_17 hP hX₁
-  obtain ⟨εQ, hεQ, hQ'⟩ := lemma_6_17 hQ hX₂
+  -- Lemma 6.5.1 (preprint 6.17) for `(T, P, X)` and `(T, Q, X)`
+  obtain ⟨εP, hεP, hP'⟩ := lemma_6_5_1 hP hX₁
+  obtain ⟨εQ, hεQ, hQ'⟩ := lemma_6_5_1 hQ hX₂
   have hball : ∀ S ∈ Metric.ball T (min εP εQ), ‖S - T‖ < εP ∧ ‖S - T‖ < εQ := fun S hS => by
     rw [mem_ball_iff_norm] at hS
     exact ⟨hS.trans_le (min_le_left _ _), hS.trans_le (min_le_right _ _)⟩
@@ -446,9 +446,9 @@ theorem proposition_6_4_13_continuity_2021 {T : E →L[ℝ] F} (hT : T.IsFredhol
   · rw [cokerTransition_apply, map_sub, hξ, sub_self]
   · rw [cokerTransition_apply, add_sub_cancel]
 
-/-- **Non-vacuity of `proposition_6_4_13_continuity_2021`**: its hypotheses hold for `T = 1` on
+/-- **Non-vacuity of `proposition_6_4_13_continuity`**: its hypotheses hold for `T = 1` on
 `ℝ`, `P = Q` a good left-projection of `T` and `H = R(P)`. -/
-theorem proposition_6_4_13_continuity_2021_hyps :
+theorem proposition_6_4_13_continuity_hyps :
     ∃ (T : ℝ →L[ℝ] ℝ) (P Q : ℝ →L[ℝ] ℝ) (H : Submodule ℝ ℝ), T.IsFredholm ∧
       IsGoodLeftProj T P ∧ IsGoodLeftProj T Q ∧ LinearMap.range (P : ℝ →ₗ[ℝ] ℝ) = H ∧
         LinearMap.range (Q : ℝ →ₗ[ℝ] ℝ) = H := by

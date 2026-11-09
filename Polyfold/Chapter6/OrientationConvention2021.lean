@@ -13,7 +13,7 @@ over `X × [0, 1]`, **with the 2021 convention `h̃ = (e ∧ a₁ ∧ … ∧ a�
 operator `L̃(a, b) = La` on `T_{(x, t)}(X × [0, 1])` is oriented by
 `h̃ = (e ∧ a₁ ∧ … ∧ aₙ) ⊗ (b₁ ∧ … ∧ b_l)*`, where `e` orients `[0, 1]`; `L̃` lies in the
 linearization space of `f̂` at `(x, t)`, which is thereby oriented.  The 2014 preprint
-(Remark 6.42) puts `e` **last**; `ProductOrientation.lean` follows the preprint.
+(Remark 6.6.19 (preprint 6.42)) puts `e` **last**; `ProductOrientation.lean` follows the preprint.
 
 ## What is formalized
 
@@ -458,25 +458,25 @@ theorem existsUnique_prodOrFirst (hf : B.IsScFredholmSection f) (hx : x ∈ PX.s
     (hne : (p.linSet f).Nonempty) (o : p.Or f hf) :
     ∃! ô : (p.prodPt t q₀).Or
         (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)
-        (theorem_3_15 hf.param hS),
+        (theorem_3_1_18_preprint hf.param hS),
       ∀ (L : ↥p.T →L[ℝ] ↥p.K) (hL : L ∈ p.linSet f),
         ô ⟨p.prodLin t q₀ L, p.prodLin_mem_linSet t q₀ hf hx hS hL⟩ =
           Module.Ray.map (extConjDetFirst (p.prodT t q₀) (p.prodK t q₀)
             (p.isFredholm_of_mem_linSet hf L hL)
-            ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+            ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
               (p.prodLin_mem_linSet t q₀ hf hx hS hL))) (o ⟨L, hL⟩) := by
   obtain ⟨L₀, hL₀⟩ := hne
   have : PreconnectedSpace (p.linSet f) :=
     isPreconnected_iff_preconnectedSpace.1 (p.convex_linSet hf).isPreconnected
   have : ContractibleSpace ((p.prodPt t q₀).linSet
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)) :=
-    ((p.prodPt t q₀).convex_linSet (theorem_3_15 hf.param hS)).contractibleSpace
+    ((p.prodPt t q₀).convex_linSet (theorem_3_1_18_preprint hf.param hS)).contractibleSpace
       ⟨_, p.prodLin_mem_linSet t q₀ hf hx hS hL₀⟩
   have : LocallyPathConnectedSpace ((p.prodPt t q₀).linSet
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)) :=
-    ((p.prodPt t q₀).convex_linSet (theorem_3_15 hf.param hS)).locallyPathConnectedSpace
+    ((p.prodPt t q₀).convex_linSet (theorem_3_1_18_preprint hf.param hS)).locallyPathConnectedSpace
   exact existsUnique_extConjOrFirst (p.prodT t q₀) (p.prodK t q₀) (p.isFredholm_of_mem_linSet hf)
-    ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS))
+    ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS))
     (fun L hL => p.prodLin_mem_linSet t q₀ hf hx hS hL) ⟨L₀, hL₀⟩ o
 
 /-- **The product orientation of 2021 Remark 6.6.19** at `(t, x)` (`e` first): the orientation
@@ -486,7 +486,7 @@ def prodOrFirst (hf : B.IsScFredholmSection f) (hx : x ∈ PX.smoothSet)
     (hS : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold 1) PX)).IsScPlusSection S)
     (hne : (p.linSet f).Nonempty) (o : p.Or f hf) :
     (p.prodPt t q₀).Or (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)
-      (theorem_3_15 hf.param hS) :=
+      (theorem_3_1_18_preprint hf.param hS) :=
   (p.existsUnique_prodOrFirst t q₀ hf hx hS hne o).exists.choose
 
 /-- **`prodOrFirst` at `L̂`** is `h ↦ h̃ = e ∧ h` (`extConjDetFirst`) of `o(L)`, for every
@@ -499,7 +499,7 @@ theorem prodOrFirst_apply (hf : B.IsScFredholmSection f) (hx : x ∈ PX.smoothSe
     p.prodOrFirst t q₀ hf hx hS hne o ⟨p.prodLin t q₀ L, p.prodLin_mem_linSet t q₀ hf hx hS hL⟩ =
       Module.Ray.map (extConjDetFirst (p.prodT t q₀) (p.prodK t q₀)
         (p.isFredholm_of_mem_linSet hf L hL)
-        ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+        ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
           (p.prodLin_mem_linSet t q₀ hf hx hS hL))) (o ⟨L, hL⟩) :=
   (p.existsUnique_prodOrFirst t q₀ hf hx hS hne o).exists.choose_spec L hL
 
@@ -512,10 +512,10 @@ theorem exists_extConjDetFirst_eq_sign_smul (hf : B.IsScFredholmSection f)
     (hx : x ∈ PX.smoothSet) :
     ∃ ε : ℝˣ, (ε = 1 ∨ ε = -1) ∧ ∀ (L : ↥p.T →L[ℝ] ↥p.K) (hL : L ∈ p.linSet f) y,
       extConjDetFirst (p.prodT t q₀) (p.prodK t q₀) (p.isFredholm_of_mem_linSet hf L hL)
-          ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+          ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
             (p.prodLin_mem_linSet t q₀ hf hx hS hL)) y =
         (ε : ℝ) • extConjDet (p.prodT t q₀) (p.prodK t q₀) (p.isFredholm_of_mem_linSet hf L hL)
-          ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+          ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
             (p.prodLin_mem_linSet t q₀ hf hx hS hL)) y := by
   have hidx := p.exists_index_linSet hf
   obtain ⟨i, hi⟩ := hidx
@@ -525,7 +525,7 @@ theorem exists_extConjDetFirst_eq_sign_smul (hf : B.IsScFredholmSection f)
     · exact Or.inr (h.neg_one_zpow)
   · exact extConjDetFirst_eq_zpow_smul (p.prodT t q₀) (p.prodK t q₀)
       (p.isFredholm_of_mem_linSet hf L hL)
-      ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+      ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
         (p.prodLin_mem_linSet t q₀ hf hx hS hL)) (hi L hL).2 y
 
 end ChartPoint

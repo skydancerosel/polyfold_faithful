@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A => B is proved entirely from A now. Clause (1): corollary_3_34 for the working form h.toContractionGerm (sc-smoothness of f = w - B gives that of B; B's arbitrary solution germ delta agrees with sol near 0 by uniqueness in O 0) gives V_{m,k} (shrunk into V_0 and the agreement region) with sol on level m and levelMap sol m of class C^k there. B's 'in particular delta is sc-smooth' (ONE germ V' on which delta is sc^k for every k), which at the audit was not in A and was proved in the item file, is now A's corollary_3_34_isScSmoothGerm (sol sc-smooth on one diagonal germ germDiag t): V' = V ∩ germDiag t ∩ (u ∩ C~), where delta = sol. B => A fails for genuine generality/content: A contains IsSckGerm.contDiffOn_levels (Proposition 1.18 for germs between arbitrary sc-Banach spaces) and isSckGerm_of_levels (locality of sc^k in the levels for arbitrary germs), and corollary_3_34(_isScSmoothGerm) is for any quadrant-like C~ and the working form ContractionGerm (a 1/2-contraction on explicit regions) with the specific sol and germs, none of which follows from B.",
+ "why": "A => B is proved entirely from A now. Clause (1): corollary_3_3_7 for the working form h.toContractionGerm (sc-smoothness of f = w - B gives that of B; B's arbitrary solution germ delta agrees with sol near 0 by uniqueness in O 0) gives V_{m,k} (shrunk into V_0 and the agreement region) with sol on level m and levelMap sol m of class C^k there. B's 'in particular delta is sc-smooth' (ONE germ V' on which delta is sc^k for every k), which at the audit was not in A and was proved in the item file, is now A's corollary_3_3_7_isScSmoothGerm (sol sc-smooth on one diagonal germ germDiag t): V' = V ∩ germDiag t ∩ (u ∩ C~), where delta = sol. B => A fails for genuine generality/content: A contains IsSckGerm.contDiffOn_levels (Proposition 1.18 for germs between arbitrary sc-Banach spaces) and isSckGerm_of_levels (locality of sc^k in the levels for arbitrary germs), and corollary_3_3_7(_isScSmoothGerm) is for any quadrant-like C~ and the working form ContractionGerm (a 1/2-contraction on explicit regions) with the specific sol and germs, none of which follows from B.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved)",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "A gained corollary_3_34_isScSmoothGerm and isSckGerm_of_levels (the audit's item-file glue moved into the project); A_to_B now takes B's 'in particular' clause from A (it previously came from theorem_3_33_smooth outside A). Result unchanged: A_stronger."
+  "note": "A gained corollary_3_3_7_isScSmoothGerm and isSckGerm_of_levels (the audit's item-file glue moved into the project); A_to_B now takes B's 'in particular' clause from A (it previously came from theorem_3_3_6_smooth outside A). Result unchanged: A_stronger."
  }
 }

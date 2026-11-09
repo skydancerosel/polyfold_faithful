@@ -5,11 +5,11 @@ import RoundTrip.Blind.V2_42
 /-! Round trip for V2_42 (Proposition 2.36: `d_O = d_C`, `T^R_xO` an sc-subspace of codimension
 `d_O(x)`, `C_xO` a partial quadrant).
 
-`A` is the conjunction of the types of `Polyfold.proposition_2_36`, `proposition_2_36_degIndex`,
+`A` is the conjunction of the types of `Polyfold.proposition_2_5_6`, `proposition_2_5_6_degIndex`,
 `quotDim_reducedTangentSpaceWith_eq`, `MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith`
 (universe `0`), `MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract` (universe `0`),
 `LocalModel.degIndex_toMPolyfold_of_isTameWith`, `quotDim_eq_finrank_quotient_of_isCompl`
-(universe `0`), `proposition_2_36_partialCone` and `isPartialQuadrant_ofSubspace`.  `splitIso` is a
+(universe `0`), `proposition_2_5_6_partialCone` and `isPartialQuadrant_ofSubspace`.  `splitIso` is a
 definition (vocabulary).
 
 `A → B`: B quantifies over every retraction `R` onto `O` (tame or not) and every presentation `T`;
@@ -23,7 +23,7 @@ finite-dimensional `E/E_x` (`rank_quot_eq`).
 (`IsTameWith.isTame`: tameness for one presentation gives tameness for all).  The M-polyfold
 statements (`degIndex_eq_chartDegIndex_of_isTameWith/_of_isTameRetract`: a chart `φ` on a tame
 retract realizes `d_X`) follow from (14) of `B` for the local model of `φ` and Proposition 2.24
-(`proposition_2_24`) along the sc-diffeomorphism `φ : V → O` (`chart_isScDiffeoOn`, new glue).
+(`proposition_2_4_4`) along the sc-diffeomorphism `φ : V → O` (`chart_isScDiffeoOn`, new glue).
 Three conjuncts are elementary linear algebra and are proved directly, without `B`:
 `quotDim_eq_finrank_quotient_of_isCompl`, `isPartialQuadrant_ofSubspace` (the definition
 `splitIso`), and `quotDim_reducedTangentSpaceWith_eq`, whose `T` is an arbitrary sc-isomorphism
@@ -35,22 +35,22 @@ open Polyfold Set Module
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_36) ∧ (type_of% @Polyfold.proposition_2_36_degIndex) ∧
+  (type_of% @Polyfold.proposition_2_5_6) ∧ (type_of% @Polyfold.proposition_2_5_6_degIndex) ∧
     (type_of% @Polyfold.quotDim_reducedTangentSpaceWith_eq) ∧
     (type_of% @Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith.{0}) ∧
     (type_of% @Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract.{0}) ∧
     (type_of% @Polyfold.LocalModel.degIndex_toMPolyfold_of_isTameWith) ∧
     (type_of% @Polyfold.quotDim_eq_finrank_quotient_of_isCompl.{0}) ∧
-    (type_of% @Polyfold.proposition_2_36_partialCone) ∧
+    (type_of% @Polyfold.proposition_2_5_6_partialCone) ∧
     (type_of% @Polyfold.isPartialQuadrant_ofSubspace)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_36, @Polyfold.proposition_2_36_degIndex,
+  ⟨@Polyfold.proposition_2_5_6, @Polyfold.proposition_2_5_6_degIndex,
     @Polyfold.quotDim_reducedTangentSpaceWith_eq,
     @Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith.{0},
     @Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract.{0},
     @Polyfold.LocalModel.degIndex_toMPolyfold_of_isTameWith,
-    @Polyfold.quotDim_eq_finrank_quotient_of_isCompl.{0}, @Polyfold.proposition_2_36_partialCone,
+    @Polyfold.quotDim_eq_finrank_quotient_of_isCompl.{0}, @Polyfold.proposition_2_5_6_partialCone,
     @Polyfold.isPartialQuadrant_ofSubspace⟩
 
 /-! ### Glue -/
@@ -196,7 +196,7 @@ theorem chart_degIndex_of_B (hB : B) (P : MPolyfold X) {φ : MChart X} (hφ : P.
     (htame : IsTameRetract φ.model.E φ.model.C φ.model.O) {x : X} (hx : x ∈ φ.source) :
     P.degIndex x = MPolyfold.chartDegIndex φ x := by
   have hne : φ.model.O.Nonempty := ⟨φ x, φ.mapsTo_model x hx⟩
-  rw [proposition_2_24 (chart_isScDiffeoOn P hφ hne) hx]
+  rw [proposition_2_4_4 (chart_isScDiffeoOn P hφ hne) hx]
   have hF : chartToModel φ hne x = ⟨φ x, φ.mapsTo_model x hx⟩ :=
     Subtype.ext (chartToModel_val hne hx)
   rw [hF]
@@ -246,7 +246,7 @@ theorem isPartialQuadrant_ofSubspace' : type_of% @Polyfold.isPartialQuadrant_ofS
 theorem B_to_A : B → A := by
   intro hB
   refine ⟨?_, ?_, quotDim_red', ?_, ?_, ?_, quotDim_isCompl', ?_, isPartialQuadrant_ofSubspace'⟩
-  · -- `proposition_2_36`
+  · -- `proposition_2_5_6`
     intro E n W C R T hT hR x hx hs
     have hBx := hB E C R.retract R.isScRetract ⟨R, rfl, hR.isTame hT⟩
     obtain ⟨-, hrk, -⟩ := hBx.1 (E.toBase 1 x) hx hs x rfl R rfl n W T hT
@@ -254,7 +254,7 @@ theorem B_to_A : B → A := by
     have := congrArg Cardinal.toNat hrk
     rw [Cardinal.toNat_natCast] at this
     exact this
-  · -- `proposition_2_36_degIndex`
+  · -- `proposition_2_5_6_degIndex`
     intro E n W C R T hT hR hne x
     exact (hB E C R.retract R.isScRetract ⟨R, rfl, hR.isTame hT⟩).2 x x.2
   · -- `degIndex_eq_chartDegIndex_of_isTameWith`
@@ -267,7 +267,7 @@ theorem B_to_A : B → A := by
     intro n W M hne R hRM T hT hR x
     cases M with
     | mk E C O hO => exact (hB E C O hO ⟨R, hRM, hR.isTame hT⟩).2 x x.2
-  · -- `proposition_2_36_partialCone`
+  · -- `proposition_2_5_6_partialCone`
     intro E n W C R T hT hR x hx hs
     have hBx := hB E C R.retract R.isScRetract ⟨R, rfl, hR.isTame hT⟩
     obtain ⟨hsc, -, h, hpq⟩ := hBx.1 (E.toBase 1 x) hx hs x rfl R rfl n W T hT
@@ -284,26 +284,26 @@ theorem B_to_A : B → A := by
       · intro hv; exact hv.2
     exact (congrArg (IsPartialQuadrant (E.ofSubspace h)) key).mpr hpq
 
-#rt_check RoundTrip.V2_42.A_to_B [Polyfold.proposition_2_36, Polyfold.proposition_2_36_degIndex,
+#rt_check RoundTrip.V2_42.A_to_B [Polyfold.proposition_2_5_6, Polyfold.proposition_2_5_6_degIndex,
   Polyfold.quotDim_reducedTangentSpaceWith_eq,
   Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith,
   Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract,
   Polyfold.LocalModel.degIndex_toMPolyfold_of_isTameWith,
-  Polyfold.quotDim_eq_finrank_quotient_of_isCompl, Polyfold.proposition_2_36_partialCone,
+  Polyfold.quotDim_eq_finrank_quotient_of_isCompl, Polyfold.proposition_2_5_6_partialCone,
   Polyfold.isPartialQuadrant_ofSubspace]
-#rt_check RoundTrip.V2_42.B_to_A [Polyfold.proposition_2_36, Polyfold.proposition_2_36_degIndex,
+#rt_check RoundTrip.V2_42.B_to_A [Polyfold.proposition_2_5_6, Polyfold.proposition_2_5_6_degIndex,
   Polyfold.quotDim_reducedTangentSpaceWith_eq,
   Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith,
   Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract,
   Polyfold.LocalModel.degIndex_toMPolyfold_of_isTameWith,
-  Polyfold.quotDim_eq_finrank_quotient_of_isCompl, Polyfold.proposition_2_36_partialCone,
+  Polyfold.quotDim_eq_finrank_quotient_of_isCompl, Polyfold.proposition_2_5_6_partialCone,
   Polyfold.isPartialQuadrant_ofSubspace]
-#rt_overlap RoundTrip.V2_42.B_to_A [Polyfold.proposition_2_36, Polyfold.proposition_2_36_degIndex,
+#rt_overlap RoundTrip.V2_42.B_to_A [Polyfold.proposition_2_5_6, Polyfold.proposition_2_5_6_degIndex,
   Polyfold.quotDim_reducedTangentSpaceWith_eq,
   Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith,
   Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract,
   Polyfold.LocalModel.degIndex_toMPolyfold_of_isTameWith,
-  Polyfold.quotDim_eq_finrank_quotient_of_isCompl, Polyfold.proposition_2_36_partialCone,
+  Polyfold.quotDim_eq_finrank_quotient_of_isCompl, Polyfold.proposition_2_5_6_partialCone,
   Polyfold.isPartialQuadrant_ofSubspace]
 
 end RoundTrip.V2_42

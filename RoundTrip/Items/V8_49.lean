@@ -7,7 +7,7 @@ Round trip for V8_49 (2021, the remark after Definition 8.5.5 and Example 8.5.6,
 
 The item lists the definitions `Example856D`, `example856Functor` (vocabulary) and the theorems
 `IsCoveringFunctor.injective_map_end` (for a covering functor `f : D → SingleObj G`, `f : G_d → G`
-is injective) and `example_8_5_6_2021` (the functor of Example 8.5.6 is a covering functor, the
+is injective) and `example_8_5_6` (the functor of Example 8.5.6 is a covering functor, the
 `G_d` are trivial, `ℤˣ` is not, and `f : G_d → ℤˣ` is injective and not surjective for both
 objects `d`).  `A` is the conjunction of their types (no universe parameters: everything is in
 `Type`).
@@ -35,10 +35,10 @@ open Polyfold CategoryTheory Function
 /-- The project's statement. -/
 def A : Prop :=
   (type_of% @Polyfold.IsCoveringFunctor.injective_map_end) ∧
-  (type_of% @Polyfold.example_8_5_6_2021)
+  (type_of% @Polyfold.example_8_5_6)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.IsCoveringFunctor.injective_map_end, @Polyfold.example_8_5_6_2021⟩
+  ⟨@Polyfold.IsCoveringFunctor.injective_map_end, @Polyfold.example_8_5_6⟩
 
 /-- The bijection `Σ a (c : SingleObj G), f a ⟶ c → G × D`, `(a, c, g) ↦ (g, a)`. -/
 def tgtEquivFun {D : Type} [Groupoid.{0} D] {G : Type} [Group G] (f : D ⥤ SingleObj G) :
@@ -101,10 +101,10 @@ theorem B_to_A : B → A := by
       exact absurd hψ (by decide)
 
 #rt_check RoundTrip.V8_49.A_to_B [Polyfold.IsCoveringFunctor.injective_map_end,
-  Polyfold.example_8_5_6_2021]
+  Polyfold.example_8_5_6]
 #rt_check RoundTrip.V8_49.B_to_A [Polyfold.IsCoveringFunctor.injective_map_end,
-  Polyfold.example_8_5_6_2021]
+  Polyfold.example_8_5_6]
 #rt_overlap RoundTrip.V8_49.B_to_A [Polyfold.IsCoveringFunctor.injective_map_end,
-  Polyfold.example_8_5_6_2021]
+  Polyfold.example_8_5_6]
 
 end RoundTrip.V8_49

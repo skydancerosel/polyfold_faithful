@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_31
 
 /-!
 Round trip for V4_31 (Remark 4.14 in a chart).  `A` is the type of
-`Polyfold.MPolyfold.SubmanifoldData.remark_4_14`, universe instantiated at `0`.
+`Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2`, universe instantiated at `0`.
 
 The two sides read Remark 4.14 in slightly different chart situations:
 * A: a chart `φ` of `X` around `a`, the shrunken set `W = V ∩ dom φ ∩ s⁻¹(V ∩ dom φ)`, `T_aX` as
@@ -24,9 +24,9 @@ Glue: `retractTangentMap_eqOn` (the tangent map between retracts is `D(ρ ∘ r)
 namespace RoundTrip.V4_31
 open Polyfold Set
 
-def A : Prop := type_of% @Polyfold.MPolyfold.SubmanifoldData.remark_4_14.{0}
+def A : Prop := type_of% @Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2.{0}
 
-theorem A_holds : A := @Polyfold.MPolyfold.SubmanifoldData.remark_4_14.{0}
+theorem A_holds : A := @Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2.{0}
 
 section Glue
 
@@ -252,8 +252,8 @@ theorem B_to_A : B → A := by
   · refine ⟨_, ?_, hd'⟩
     rw [LinearMap.coe_range, ContinuousLinearMap.coe_coe, ← hb', inter_comm]
 
-#rt_check RoundTrip.V4_31.A_to_B [Polyfold.MPolyfold.SubmanifoldData.remark_4_14]
-#rt_check RoundTrip.V4_31.B_to_A [Polyfold.MPolyfold.SubmanifoldData.remark_4_14]
-#rt_overlap RoundTrip.V4_31.B_to_A [Polyfold.MPolyfold.SubmanifoldData.remark_4_14]
+#rt_check RoundTrip.V4_31.A_to_B [Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2]
+#rt_check RoundTrip.V4_31.B_to_A [Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2]
+#rt_overlap RoundTrip.V4_31.B_to_A [Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2]
 
 end RoundTrip.V4_31

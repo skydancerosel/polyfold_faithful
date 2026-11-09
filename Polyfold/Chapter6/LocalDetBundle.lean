@@ -2,9 +2,9 @@ import Polyfold.Chapter6.ProjectionSequence
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.4,
-pp. 214–217: **Lemma 6.17** (`P ∈ Π_S` and `P S|_Y` an isomorphism for `S` near `T`),
-**Lemma 6.18** (the kernel bundle `⋃ {S} × ker(P S)` is trivial), **Lemma 6.19** (in the case
-used), **Proposition 6.20** (the local determinant bundle `DET(T, P, ε)`) and **Lemma 6.21**
+pp. 214–217: **Lemma 6.5.1 (preprint 6.17)** (`P ∈ Π_S` and `P S|_Y` an isomorphism for `S` near `T`),
+**Lemma 6.5.2 (preprint 6.18)** (the kernel bundle `⋃ {S} × ker(P S)` is trivial), **Lemma 6.5.3 (preprint 6.19)** (in the case
+used), **Proposition 6.5.4 (preprint 6.20)** (the local determinant bundle `DET(T, P, ε)`) and **Lemma 6.5.5 (preprint 6.21)**
 (`γ^Q_{PS}` is continuous in `S`) *(book 2017: Lemmas 6.7–6.9, Proposition 6.8, Lemma 6.10; see
 `BookConcordance.md`)*.
 
@@ -12,43 +12,43 @@ used), **Proposition 6.20** (the local determinant bundle `DET(T, P, ε)`) and *
 
 ## The text, paraphrased
 
-(Lemma 6.17) For `T` Fredholm, `P ∈ Π_T` and a topological complement `Y` of `ker(P T)`, there is
+(Lemma 6.5.1 (preprint 6.17)) For `T` Fredholm, `P ∈ Π_T` and a topological complement `Y` of `ker(P T)`, there is
 `ε > 0` such that for `‖S − T‖ < ε`: `P ∈ Π_S`, and `P S|_Y : Y → R(P)` is a topological
 isomorphism.  Writing `e = k + y`, `P S (k + y) = 0` is solved by
-`y(k, S) = −(P S|_Y)⁻¹(P S k)`, continuous in `(k, S)`.  (Lemma 6.18)
+`y(k, S) = −(P S|_Y)⁻¹(P S k)`, continuous in `(k, S)`.  (Lemma 6.5.2 (preprint 6.18))
 `⋃_{‖S − T‖ < ε} {S} × ker(P S) ⊂ L(E, F) ⊕ E` is a trivial vector bundle, trivialized by
 `(S, k) ↦ (S, k + y(k, S))` on `{S} × ker(P T)`, with inverse the restriction of
-`(S, k + y) ↦ (S, k)`.  (Lemma 6.19, cited) `λ`, `λ*`, `⊕`, `⊗` of finite-dimensional
-topological vector bundles are topological vector bundles.  (Proposition 6.20) Hence
+`(S, k + y) ↦ (S, k)`.  (Lemma 6.5.3 (preprint 6.19), cited) `λ`, `λ*`, `⊕`, `⊗` of finite-dimensional
+topological vector bundles are topological vector bundles.  (Proposition 6.5.4 (preprint 6.20)) Hence
 `DET(T, P, ε) = ⋃_{‖S − T‖ < ε} {S} × det(P S)` is a topological line bundle in a natural way.
-(Lemma 6.21) For `Q ≤ P` in `Π_T`, `(S, h) ↦ (S, γ^Q_{PS}(h))` is an isomorphism of line bundles
+(Lemma 6.5.5 (preprint 6.21)) For `Q ≤ P` in `Π_T`, `(S, h) ↦ (S, γ^Q_{PS}(h))` is an isomorphism of line bundles
 `DET(T, P, ε) → DET(T, Q, ε)`.
 
 ## What is formalized
 
 * `Polyfold.FredholmOp E F`, the Fredholm operators with the norm topology;
-  `Polyfold.projRestrict P S Y` (`P S|_Y : Y → R(P)`) and **Lemma 6.17** (`lemma_6_17`), without
+  `Polyfold.projRestrict P S Y` (`P S|_Y : Y → R(P)`) and **Lemma 6.5.1 (preprint 6.17)** (`lemma_6_5_1`), without
   the hypothesis that `T` is Fredholm (not used); a topological complement is Mathlib's
   `Submodule.IsTopCompl` (algebraic complement with continuous projection).
 * `Polyfold.LocalDetChart`: the data `(T, P, Y, ε)` of the text with the conclusions of
-  Lemma 6.17; `ySol` (`y(·, S)`), `kerMap` (`k ↦ k + y(k, S)`), `kerProj` (the projection onto
-  `ker(P T)` along `Y`) and **Lemma 6.18** (`lemma_6_18`), stated concretely: the trivialization is
+  Lemma 6.5.1 (preprint 6.17); `ySol` (`y(·, S)`), `kerMap` (`k ↦ k + y(k, S)`), `kerProj` (the projection onto
+  `ker(P T)` along `Y`) and **Lemma 6.5.2 (preprint 6.18)** (`lemma_6_5_2`), stated concretely: the trivialization is
   continuous, maps `ker(P T)` onto `ker(P S)`, and is inverted by the continuous `kerProj`.
 * `LocalDetChart.kerFrame`, `LocalDetChart.frame` (`ω(S) = (k₁(S) ∧ … ∧ kₙ(S)) ⊗ (e₁ ∧ … ∧ e_l)*`,
   the frame of `DET(T, P, ε)` over the ball), `frame_ne_zero`.
-* **Proposition 6.20** (`proposition_6_20`): the structure is natural — the frames of two charts
+* **Proposition 6.5.4 (preprint 6.20)** (`proposition_6_5_4`): the structure is natural — the frames of two charts
   with the same `P` differ by a continuous nowhere-zero factor.
-* **Lemma 6.21** (`lemma_6_21`): for `Q ≤ P`, `γ^Q_{PS}` maps the `P`-frame to a continuous
+* **Lemma 6.5.5 (preprint 6.21)** (`lemma_6_5_5`): for `Q ≤ P`, `γ^Q_{PS}` maps the `P`-frame to a continuous
   nowhere-zero multiple of the `Q`-frame, on the common ball (of any two charts).
 
 ## Reading
 
-Lemma 6.19 is not formalized in general (Mathlib has no exterior powers or tensor products of
-vector bundles); the only bundles it is applied to are trivial, and Proposition 6.20 is proved
+Lemma 6.5.3 (preprint 6.19) is not formalized in general (Mathlib has no exterior powers or tensor products of
+vector bundles); the only bundles it is applied to are trivial, and Proposition 6.5.4 (preprint 6.20) is proved
 with explicit frames: the wedge of the kernel frame `kᵢ + y(kᵢ, S)` and a constant basis of
 `F / R(P) = F / R(P S)`.  "In a natural way" is read as: the frames of two charts with the same `P`
-are related by a continuous nowhere-zero function.  Lemma 6.21 is stated for two charts (different
-centres and radii), which is the form Lemma 6.25 uses; the text's sketch ("extend the kernel
+are related by a continuous nowhere-zero function.  Lemma 6.5.5 (preprint 6.21) is stated for two charts (different
+centres and radii), which is the form Lemma 6.5.9 (preprint 6.25) uses; the text's sketch ("extend the kernel
 sections for the `P S` to … sections spanning `ker(Q S)`") is the proof.
 -/
 
@@ -123,10 +123,10 @@ theorem quotEquivOfEq_apply_symm_apply {G : Type*} [AddCommGroup G] [Module ℝ 
   induction x using Submodule.Quotient.induction_on
   rfl
 
-/-- **Lemma 6.17**: for `P ∈ Π_T` and a topological complement `Y` of `ker(P T)` there is
+/-- **Lemma 6.5.1 (preprint 6.17)**: for `P ∈ Π_T` and a topological complement `Y` of `ker(P T)` there is
 `ε > 0` such that for every `S` with `‖S − T‖ < ε`: (1) `P ∈ Π_S`; (2) `P S|_Y : Y → R(P)` is a
 topological isomorphism. -/
-theorem lemma_6_17 {T : E →L[ℝ] F} {P : F →L[ℝ] F} (hP : IsGoodLeftProj T P)
+theorem lemma_6_5_1 {T : E →L[ℝ] F} {P : F →L[ℝ] F} (hP : IsGoodLeftProj T P)
     {Y : Submodule ℝ E} (hY : (LinearMap.ker ((P ∘L T : E →L[ℝ] F) : E →ₗ[ℝ] F)).IsTopCompl Y) :
     ∃ ε > 0, ∀ S : E →L[ℝ] F, ‖S - T‖ < ε →
       IsGoodLeftProj S P ∧
@@ -175,7 +175,7 @@ theorem lemma_6_17 {T : E →L[ℝ] F} {P : F →L[ℝ] F} (hP : IsGoodLeftProj 
 
 variable (E F) in
 /-- The data of a local determinant bundle `DET(T, P, ε)`: a Fredholm operator `T`, `P ∈ Π_T`, a
-topological complement `Y` of `ker(P T)` and a radius `ε` for which the conclusions of Lemma 6.17
+topological complement `Y` of `ker(P T)` and a radius `ε` for which the conclusions of Lemma 6.5.1 (preprint 6.17)
 hold. -/
 structure LocalDetChart where
   /-- The centre `T`. -/
@@ -310,11 +310,11 @@ theorem proj_apply_ySol (S : E →L[ℝ] F) (hS : ‖S - c.T‖ < c.ε) (x : E) 
   rfl
 
 set_option linter.unusedSectionVars false in
-/-- **Lemma 6.18**: `(S, k) ↦ (S, k + y(k, S))` is continuous on `{‖S − T‖ < ε} × E`, maps
+/-- **Lemma 6.5.2 (preprint 6.18)**: `(S, k) ↦ (S, k + y(k, S))` is continuous on `{‖S − T‖ < ε} × E`, maps
 `ker(P T)` into `ker(P S)`, and is inverted on `ker(P S)` by the continuous projection
 `k + y ↦ k`: so `⋃_{‖S − T‖ < ε} {S} × ker(P S)` is a trivial vector bundle with fibre
 `ker(P T)`. -/
-theorem lemma_6_18 :
+theorem lemma_6_5_2 :
     ContinuousOn (fun p : (E →L[ℝ] F) × E => c.kerMap p.1 p.2) {p | ‖p.1 - c.T‖ < c.ε} ∧
       (∀ S : E →L[ℝ] F, ‖S - c.T‖ < c.ε → ∀ k ∈ c.K,
         c.kerMap S k ∈ LinearMap.ker ((c.P ∘L S : E →L[ℝ] F) : E →ₗ[ℝ] F)) ∧
@@ -346,17 +346,17 @@ theorem lemma_6_18 :
     rw [kerProj, Submodule.projectionOntoL_apply_left,
       (Submodule.projectionOntoL_apply_eq_zero_iff _).2 (c.ySol_mem S k), add_zero]
 
-/-- `ker(P T) ≅ ker(P S)`, `k ↦ k + y(k, S)` (Lemma 6.18). -/
+/-- `ker(P T) ≅ ker(P S)`, `k ↦ k + y(k, S)` (Lemma 6.5.2 (preprint 6.18)). -/
 def kerEquiv (S : E →L[ℝ] F) (hS : ‖S - c.T‖ < c.ε) :
     c.K ≃ₗ[ℝ] LinearMap.ker ((c.P ∘L S : E →L[ℝ] F) : E →ₗ[ℝ] F) where
-  toFun k := ⟨c.kerMap S k, (c.lemma_6_18).2.1 S hS k k.2⟩
+  toFun k := ⟨c.kerMap S k, (c.lemma_6_5_2).2.1 S hS k k.2⟩
   map_add' x y := Subtype.ext ((congrArg (c.kerMap S) (Submodule.coe_add x y)).trans
     (map_add (c.kerMap S) (x : E) (y : E)))
   map_smul' a x := Subtype.ext ((congrArg (c.kerMap S) (Submodule.coe_smul a x)).trans
     (map_smul (c.kerMap S) a (x : E)))
   invFun x := c.kerProj x
-  left_inv k := (c.lemma_6_18).2.2.2 S k
-  right_inv x := Subtype.ext ((c.lemma_6_18).2.2.1 S hS x x.2)
+  left_inv k := (c.lemma_6_5_2).2.2.2 S k
+  right_inv x := Subtype.ext ((c.lemma_6_5_2).2.2.1 S hS x x.2)
 
 @[simp] theorem coe_kerEquiv_apply (S : E →L[ℝ] F) (hS : ‖S - c.T‖ < c.ε) (k : c.K) :
     (c.kerEquiv S hS k : E) = c.kerMap S k := rfl
@@ -440,7 +440,7 @@ theorem wedge_eq_det_smul_wedge_kerFrame (S : E →L[ℝ] F) (hS : ‖S - c.T‖
     wedge v hk = ((Module.finBasis ℝ c.K).reindex (finCongr h1)).det (fun i => c.kerProj (v i)) •
       wedge (c.kerFrame S hS) (c.kerEquiv S hS).finrank_eq := by
   have e2 : (⇑((c.kerEquiv S hS : c.K →ₗ[ℝ] _)) ∘ fun i => c.kerProj (v i)) = v :=
-    funext fun i => Subtype.ext ((c.lemma_6_18).2.2.1 S hS _ (v i).2)
+    funext fun i => Subtype.ext ((c.lemma_6_5_2).2.2.1 S hS _ (v i).2)
   have e3 : (⇑((c.kerEquiv S hS : c.K →ₗ[ℝ] _)) ∘
       ⇑((Module.finBasis ℝ c.K).reindex (finCongr h1))) = c.kerFrame S hS ∘ Fin.cast h1.symm := by
     funext i
@@ -518,10 +518,10 @@ theorem continuousOn_kerMap_apply (x : E) :
 
 end LocalDetChart
 
-/-- **Proposition 6.20**: the local determinant bundle `DET(T, P, ε)` is a topological line bundle
+/-- **Proposition 6.5.4 (preprint 6.20)**: the local determinant bundle `DET(T, P, ε)` is a topological line bundle
 in a natural way: for two charts with the same projection `P` (any centres and radii), the frames
 differ on the common ball by a continuous nowhere-zero factor `g`. -/
-theorem proposition_6_20 (c c' : LocalDetChart E F) (hP : c'.P = c.P) :
+theorem proposition_6_5_4 (c c' : LocalDetChart E F) (hP : c'.P = c.P) :
     ∃ g : (E →L[ℝ] F) → ℝ, ContinuousOn g {S | ‖S - c.T‖ < c.ε ∧ ‖S - c'.T‖ < c'.ε} ∧
       ∀ (S : E →L[ℝ] F) (hS : ‖S - c.T‖ < c.ε) (hS' : ‖S - c'.T‖ < c'.ε), g S ≠ 0 ∧
         linDetEquivOfEq (congrArg (fun A : F →L[ℝ] F => ((A ∘L S : E →L[ℝ] F) : E →ₗ[ℝ] F)) hP)
@@ -817,11 +817,11 @@ theorem gammaProj_frame_eq (hQP : ProjLE c'.P c.P)
 
 end LocalDetChart
 
-/-- **Lemma 6.21**: for charts `c` (projection `P`) and `c'` (projection `Q ≤ P`), the isomorphism
+/-- **Lemma 6.5.5 (preprint 6.21)**: for charts `c` (projection `P`) and `c'` (projection `Q ≤ P`), the isomorphism
 `γ^Q_{PS} : det(P S) → det(Q P S) = det(Q S)` maps the frame of `c` to a continuous nowhere-zero
 multiple `g(S)` of the frame of `c'`, for Fredholm `S` in both balls; so
 `(S, h) ↦ (S, γ^Q_{PS}(h))` is an isomorphism of topological line bundles. -/
-theorem lemma_6_21 (c c' : LocalDetChart E F) (hQP : ProjLE c'.P c.P) :
+theorem lemma_6_5_5 (c c' : LocalDetChart E F) (hQP : ProjLE c'.P c.P) :
     ∃ g : (E →L[ℝ] F) → ℝ,
       ContinuousOn g {S | S.IsFredholm ∧ ‖S - c.T‖ < c.ε ∧ ‖S - c'.T‖ < c'.ε} ∧
       ∀ (S : E →L[ℝ] F) (hSF : S.IsFredholm) (hS : ‖S - c.T‖ < c.ε) (hS' : ‖S - c'.T‖ < c'.ε),

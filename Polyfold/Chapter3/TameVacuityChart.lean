@@ -10,7 +10,7 @@ compatible strong bundle chart has a tame base retraction**
 (`TrivialBundle.not_forall_isTame_of_isChart`).  So the hypothesis
 `htame : ∀ c, B.IsChart c → (base retraction of c).IsTame` with which the §3.6 theorems were first
 stated fails for this bundle, while the repaired hypotheses hold for it
-(`TrivialBundle.hypotheses_theorem_3_57_graphSection_wholeChart`): the repair was needed, and the bundle
+(`TrivialBundle.hypotheses_theorem_3_6_11_graphSection_wholeChart`): the repair was needed, and the bundle
 separates the two forms (`TrivialBundle.htame_fails_repaired_holds_wholeChart`).
 
 The chart is the construction of item 190: the model `(ℝ ⊕ ℝ⁰) ⊕ ℝⁿ` with the partial quadrant
@@ -249,7 +249,7 @@ theorem not_forall_isTame_of_isChart :
     ⟨0, mem_univ _⟩ ((h _ isChart_oddBundleChart).congr rfl fun _ _ => rfl)
 
 /-- **The trivial bundle separates the old and the repaired hypotheses**: for a surjective linear
-`L : ℝⁿ → ℝᵏ`, the graph section of `L` meets the repaired hypotheses of Theorem 3.57, while the
+`L : ℝⁿ → ℝᵏ`, the graph section of `L` meets the repaired hypotheses of Theorem 3.6.11 (preprint 3.57), while the
 old hypothesis `htame` (every compatible chart has a tame base retraction) fails for the bundle. -/
 theorem htame_fails_repaired_holds_wholeChart (L : (Fin n → ℝ) →L[ℝ] (Fin k → ℝ)) (hL : Surjective L) :
     ((bundle n k).IsScFredholmSectionWholeChart (graphSection L) ∧
@@ -257,7 +257,7 @@ theorem htame_fails_repaired_holds_wholeChart (L : (Fin n → ℝ) →L[ℝ] (Fi
         (bundle n k).IsGoodPositionGermTameWholeChart (graphSection L) x) ∧
     ¬ ∀ c : StrongBundleChart (rnPolyfold n) (proj n k), (bundle n k).IsChart c →
       (c.isRetraction.baseRetraction c.relOpen).IsTame :=
-  ⟨hypotheses_theorem_3_57_linear_wholeChart L hL, not_forall_isTame_of_isChart⟩
+  ⟨hypotheses_theorem_3_6_11_linear_wholeChart L hL, not_forall_isTame_of_isChart⟩
 
 end TrivialBundle
 

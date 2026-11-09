@@ -2,9 +2,9 @@ import Polyfold.Chapter6.GoodProjections
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.3,
-pp. 208–211, and Appendix 6.7.2, pp. 235–237: the exact sequence `E(T,P)` and **Lemma 6.11**, the
-isomorphism `γ^P_T : det(T) → det(P T)`, **Proposition 6.12** (`γ^P_{QT} ∘ γ^Q_T = γ^P_T` for
-`P ≤ Q`) and **Corollary 6.13** *(book 2017: Proposition 6.4, Proposition 6.5, Corollary 6.1; see
+pp. 208–211, and Appendix 6.7.2, pp. 235–237: the exact sequence `E(T,P)` and **Proposition 6.4.10 (preprint 6.11)**, the
+isomorphism `γ^P_T : det(T) → det(P T)`, **Proposition 6.4.11 (preprint 6.12)** (`γ^P_{QT} ∘ γ^Q_T = γ^P_T` for
+`P ≤ Q`) and **Corollary 6.4.12 (preprint 6.13)** *(book 2017: Proposition 6.4, Proposition 6.5, Corollary 6.1; see
 `BookConcordance.md`)*.
 
 # The isomorphisms `γ^P_T`
@@ -13,24 +13,24 @@ isomorphism `γ^P_T : det(T) → det(P T)`, **Proposition 6.12** (`γ^P_{QT} ∘
 
 For `P ∈ Π_T` the sequence
 `E(T,P) : 0 → ker T →j ker(P T) →Φ F / R(P) →π coker T → 0`, with `j` the inclusion,
-`Φ(x) = T x + R(P)` and `π(f + R(P)) = (I − P) f + R(T)`, is exact (Lemma 6.11).  Since
+`Φ(x) = T x + R(P)` and `π(f + R(P)) = (I − P) f + R(T)`, is exact (Proposition 6.4.10 (preprint 6.11)).  Since
 `R(P) = R(P T)`, its isomorphism `Φ_{E(T,P)}` is an isomorphism `γ^P_T : det(T) → det(P T)`.  For
 `P ≤ Q` in `Π_T`, `Q T` is Fredholm, `P ∈ Π_{QT}`, and `γ^P_{QT} ∘ γ^Q_T = γ^P_T`
-(Proposition 6.12, proof in §6.7.2).  Hence (Corollary 6.13) for `P ≤ S` and `P ≤ R` in `Π_T` the
+(Proposition 6.4.11 (preprint 6.12), proof in §6.7.2).  Hence (Corollary 6.4.12 (preprint 6.13)) for `P ≤ S` and `P ≤ R` in `Π_T` the
 map `det(S T) → det(R T)`, `h ↦ (γ^P_{RT})⁻¹ ∘ γ^P_{ST}(h)`, does not depend on `P` and equals
 `γ^R_T ∘ (γ^S_T)⁻¹`.
 
 ## What is formalized
 
-* `Polyfold.projSeqJ`, `projSeqPhi`, `projSeqPi`: the maps `j`, `Φ`, `π`; **Lemma 6.11**
-  (`lemma_6_11`): `E(T,P)` is exact; `Polyfold.projSeq`: `E(T,P)` as a `FourTermExact`.
+* `Polyfold.projSeqJ`, `projSeqPhi`, `projSeqPi`: the maps `j`, `Φ`, `π`; **Proposition 6.4.10 (preprint 6.11)**
+  (`proposition_6_4_10`): `E(T,P)` is exact; `Polyfold.projSeq`: `E(T,P)` as a `FourTermExact`.
 * `Polyfold.gammaProj hT hP` (`γ^P_T : det(T) ≅ det(P T)`): `Φ_{E(T,P)}` followed by the
   identification `F / R(P) = F / R(P T)`; `gammaProj_tmul`: its value on wedges, formula (91);
   `gammaProj_wedge_tmul`: the same for the choice given by families of vectors `a`, `b`, `c`, `d`.
-* **Proposition 6.12** (`proposition_6_12`): `Q T` is Fredholm, `P ∈ Π_{QT}`, and
+* **Proposition 6.4.11 (preprint 6.12)** (`proposition_6_4_11`): `Q T` is Fredholm, `P ∈ Π_{QT}`, and
   `γ^P_{QT} ∘ γ^Q_T = γ^P_T`, up to the identification `det(P (Q T)) = det(P T)` (the operators
   `P ∘ (Q ∘ T)` and `P ∘ T` are equal, the types of their kernels are not).
-* **Corollary 6.13** (`corollary_6_13`): `(γ^P_{RT})⁻¹ ∘ γ^P_{ST} = γ^R_T ∘ (γ^S_T)⁻¹`, again up to
+* **Corollary 6.4.12 (preprint 6.13)** (`corollary_6_4_12`): `(γ^P_{RT})⁻¹ ∘ γ^P_{ST} = γ^R_T ∘ (γ^S_T)⁻¹`, again up to
   the identification `det(P (S T)) = det(P (R T))`; the right side does not involve `P`.
 
 ## Reading
@@ -38,7 +38,7 @@ map `det(S T) → det(R T)`, `h ↦ (γ^P_{RT})⁻¹ ∘ γ^P_{ST}(h)`, does not
 `γ^P_T` is read with the identification of `λ*(F / R(P))` with `λ*(F / R(P T))` by the identity
 of `F`, which is what "recalling `R(P) = R(P T)`" means.
 
-In the proof of Proposition 6.12 (§6.7.2) the step "the classes of `d₁, …, d_l, T b₁, …` span
+In the proof of Proposition 6.4.11 (preprint 6.12) (§6.7.2) the step "the classes of `d₁, …, d_l, T b₁, …` span
 `ker Q̃`" is proved directly in `F` (`mem_span_append_of_ker`: if `Q g = 0`, then `g` is a
 combination of the `dᵢ` plus `T x` with `x ∈ ker(Q T)`); the classes `[T b̃]` and `[Q T b̃]` in
 `F / R(P)` then differ by elements of the span of `[d]`, `[T b]`, which does not change the wedge
@@ -94,9 +94,9 @@ set_option linter.unusedSectionVars false in
 @[simp] theorem projSeqPi_mk (hP : P ∘L P = P) (f : F) :
     projSeqPi (T := T) hP (Submodule.Quotient.mk f) = Submodule.Quotient.mk (f - P f) := rfl
 
-/-- **Lemma 6.11**: the sequence `E(T,P) : 0 → ker T → ker(P T) → F / R(P) → coker T → 0` is
+/-- **Proposition 6.4.10 (preprint 6.11)**: the sequence `E(T,P) : 0 → ker T → ker(P T) → F / R(P) → coker T → 0` is
 exact. -/
-theorem lemma_6_11 (hP : IsGoodLeftProj T P) :
+theorem proposition_6_4_10 (hP : IsGoodLeftProj T P) :
     Function.Injective (projSeqJ T P) ∧
       LinearMap.range (projSeqJ T P) = LinearMap.ker (projSeqPhi T P) ∧
       LinearMap.range (projSeqPhi T P) = LinearMap.ker (projSeqPi (T := T) hP.isProj) ∧
@@ -169,10 +169,10 @@ def projSeq (hP : IsGoodLeftProj T P) :
   α := projSeqJ T P
   β := projSeqPhi T P
   γ := projSeqPi hP.isProj
-  injective_α := (lemma_6_11 hP).1
-  range_α := (lemma_6_11 hP).2.1
-  range_β := (lemma_6_11 hP).2.2.1
-  surjective_γ := (lemma_6_11 hP).2.2.2
+  injective_α := (proposition_6_4_10 hP).1
+  range_α := (proposition_6_4_10 hP).2.1
+  range_β := (proposition_6_4_10 hP).2.2.1
+  surjective_γ := (proposition_6_4_10 hP).2.2.2
 
 end Sequence
 
@@ -210,7 +210,7 @@ theorem gammaProj_tmul (hT : T.IsFredholm) (hP : IsGoodLeftProj T P) :
       gammaProj hT hP χ.source =
         χ.wedgeB ⊗ₜ maxPowDualEquiv (cokerCompEquiv hP) (dualVec χ.wedgeC) := by
   intro χ
-  rw [gammaProj, LinearEquiv.trans_apply, FourTermExact.coe_phiEquiv, FourTermExact.lemma_6_5,
+  rw [gammaProj, LinearEquiv.trans_apply, FourTermExact.coe_phiEquiv, FourTermExact.lemma_6_3_3,
     FourTermExact.Choice.value, TensorProduct.congr_tmul, LinearEquiv.refl_apply]
 
 /-- **`γ^P_T` on families of vectors** (formula (91) for `E(T,P)`, in the form used in §6.7.2):
@@ -246,7 +246,7 @@ theorem gammaProj_wedge_tmul (hT : T.IsFredholm) (hP : IsGoodLeftProj T P) {n l 
     LinearEquiv.refl_apply, maxPowDualEquiv_dualVec_symm _ hli]
   rfl
 
-/-! ### Proposition 6.12 and Corollary 6.13 -/
+/-! ### Proposition 6.4.11 (preprint 6.12) and Corollary 6.4.12 (preprint 6.13) -/
 
 set_option linter.unusedSectionVars false in
 /-- `P ∘ (Q ∘ T) = P ∘ T` for `P ≤ Q`. -/
@@ -316,9 +316,9 @@ theorem mem_span_append_of_ker {Q : F →L[ℝ] F} (hT : T.IsFredholm) (hQ : IsG
   exact Submodule.add_mem_sup
     (Submodule.sum_mem _ fun i _ => Submodule.smul_mem _ _ (Submodule.subset_span ⟨i, rfl⟩)) hTx
 
-/-- **Proposition 6.12**: if `T` is Fredholm and `P ≤ Q` in `Π_T`, then `Q T` is Fredholm,
+/-- **Proposition 6.4.11 (preprint 6.12)**: if `T` is Fredholm and `P ≤ Q` in `Π_T`, then `Q T` is Fredholm,
 `P ∈ Π_{QT}`, and `γ^P_{QT} ∘ γ^Q_T = γ^P_T` (up to `det(P (Q T)) = det(P T)`). -/
-theorem proposition_6_12 {Q : F →L[ℝ] F} (hT : T.IsFredholm) (hP : IsGoodLeftProj T P)
+theorem proposition_6_4_11 {Q : F →L[ℝ] F} (hT : T.IsFredholm) (hP : IsGoodLeftProj T P)
     (hQ : IsGoodLeftProj T Q) (hPQ : ProjLE P Q) :
     (Q ∘L T).IsFredholm ∧ IsGoodLeftProj (Q ∘L T) P ∧
       ∀ h : fredholmDet T,
@@ -371,10 +371,10 @@ theorem proposition_6_12 {Q : F →L[ℝ] F} (hT : T.IsFredholm) (hP : IsGoodLef
   have hPdt : ∀ i, P (dt i) = 0 := fun i => by rw [← hPQf, hQdt, map_zero]
   -- `b` completing `a` to a basis of `ker(Q T)`, `b̃` completing `(a, b)` to one of `ker(P Q T)`
   have hex1 :=
-    exists_linearIndependent_append (projSeqJ T Q) (lemma_6_11 hQ).1 a.linearIndependent hn
+    exists_linearIndependent_append (projSeqJ T Q) (proposition_6_4_10 hQ).1 a.linearIndependent hn
   choose m b hb hm using hex1
   let a2 := Fin.append (projSeqJ T Q ∘ ⇑a) b
-  have hex2 := exists_linearIndependent_append (projSeqJ (Q ∘L T) P) (lemma_6_11 hP').1 hb hm
+  have hex2 := exists_linearIndependent_append (projSeqJ (Q ∘L T) P) (proposition_6_4_10 hP').1 hb hm
   choose k bt hbt hk using hex2
   have hQTb : ∀ i, Q (T (b i : E)) = 0 := fun i => by simpa using (b i).2
   have hPTb : ∀ i, P (T (b i : E)) = 0 := fun i => by rw [← hPQf, hQTb, map_zero]
@@ -542,10 +542,10 @@ theorem comp_comp_eq_comp_comp {R S : F →L[ℝ] F} (hPS : ProjLE P S) (hPR : P
     P ∘L (S ∘L T) = P ∘L (R ∘L T) := by
   rw [comp_comp_eq_of_projLE hPS, comp_comp_eq_of_projLE hPR]
 
-/-- **Corollary 6.13**: for `P ≤ S` and `P ≤ R` in `Π_T`, the map
+/-- **Corollary 6.4.12 (preprint 6.13)**: for `P ≤ S` and `P ≤ R` in `Π_T`, the map
 `det(S T) → det(R T)`, `h ↦ (γ^P_{RT})⁻¹ ∘ γ^P_{ST}(h)` (through `det(P (S T)) = det(P (R T))`),
 equals `γ^R_T ∘ (γ^S_T)⁻¹`; in particular it does not depend on `P`. -/
-theorem corollary_6_13 {R S : F →L[ℝ] F} (hT : T.IsFredholm) (hP : IsGoodLeftProj T P)
+theorem corollary_6_4_12 {R S : F →L[ℝ] F} (hT : T.IsFredholm) (hP : IsGoodLeftProj T P)
     (hR : IsGoodLeftProj T R) (hS : IsGoodLeftProj T S) (hPS : ProjLE P S) (hPR : ProjLE P R)
     (h : fredholmDet (S ∘L T)) :
     (gammaProj (hR.isFredholm_comp hT) (hP.of_projLE hPR)).symm
@@ -553,8 +553,8 @@ theorem corollary_6_13 {R S : F →L[ℝ] F} (hT : T.IsFredholm) (hP : IsGoodLef
             (comp_comp_eq_comp_comp (T := T) hPS hPR))
           (gammaProj (hS.isFredholm_comp hT) (hP.of_projLE hPS) h)) =
       gammaProj hT hR ((gammaProj hT hS).symm h) := by
-  have h12S := (proposition_6_12 hT hP hS hPS).2.2
-  have h12R := (proposition_6_12 hT hP hR hPR).2.2
+  have h12S := (proposition_6_4_11 hT hP hS hPS).2.2
+  have h12R := (proposition_6_4_11 hT hP hR hPR).2.2
   refine (LinearEquiv.symm_apply_eq _).2 ?_
   apply (linDetEquivOfEq (congrArg (fun A : E →L[ℝ] F => (A : E →ₗ[ℝ] F))
     (comp_comp_eq_of_projLE (T := T) hPR))).injective

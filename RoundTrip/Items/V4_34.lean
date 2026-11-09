@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_34
 
 /-!
 Round trip for V4_34 (Proposition 4.15 (2)).  `A` is the type of
-`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2`, universe instantiated at `0`.
+`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two`, universe instantiated at `0`.
 
 Glue:
 * B's `IsSmoothSubmanifoldB` is the project's `IsSmoothSubmanifold` (`smooth_iff`, copied from
@@ -18,9 +18,9 @@ Glue:
 namespace RoundTrip.V4_34
 open Polyfold
 
-def A : Prop := type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2.{0}
+def A : Prop := type_of% @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two.{0}
 
-theorem A_holds : A := @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2.{0}
+theorem A_holds : A := @Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two.{0}
 
 section Glue
 
@@ -78,8 +78,8 @@ theorem B_to_A : B → A := by
   intro hB X _ _ _ P S hS
   exact (isLocallyClosedB_iff S).1 (hB X P S ((smooth_iff P S).1 hS))
 
-#rt_check RoundTrip.V4_34.A_to_B [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2]
-#rt_check RoundTrip.V4_34.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2]
-#rt_overlap RoundTrip.V4_34.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2]
+#rt_check RoundTrip.V4_34.A_to_B [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two]
+#rt_check RoundTrip.V4_34.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two]
+#rt_overlap RoundTrip.V4_34.B_to_A [Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two]
 
 end RoundTrip.V4_34

@@ -4,25 +4,25 @@ import Polyfold.Chapter3.GoodComplementProjection
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §4.1,
-Definition 4.1 and Theorem 4.2 *(book 2017: Definition 4.1, Theorem 4.1; see
+Definition 4.1.1 (preprint 4.1) and Theorem 4.1.2 (preprint 4.2) *(book 2017: Definition 4.1, Theorem 4.1; see
 `BookConcordance.md`)*.
 
 # M-polyfolds that are manifolds with boundary with corners
 
 ## The text, paraphrased
 
-(Definition 4.1) An M-polyfold `X` has a compatible smooth manifold structure with boundary with
+(Definition 4.1.1 (preprint 4.1)) An M-polyfold `X` has a compatible smooth manifold structure with boundary with
 corners if it admits an atlas of sc-smoothly compatible charts `(V, φ, (U, C, ℝⁿ))`, `φ : V → U`
 an sc-diffeomorphism from an open `V ⊆ X` onto a relatively open subset `U` of a partial quadrant
 `C` in `ℝⁿ` (or in a finite-dimensional vector space), with the constant sc-structure.  The
 transition maps are sc-diffeomorphisms between relatively open subsets of partial quadrants in
 finite-dimensional spaces, hence classically `C^∞`, and the atlas is that of a smooth manifold
-with boundary with corners.  (Theorem 4.2) For a tame M-polyfold `X` the following are equivalent:
+with boundary with corners.  (Theorem 4.1.2 (preprint 4.2)) For a tame M-polyfold `X` the following are equivalent:
 (i) `X` has such a structure; (ii) `X₀ = X_∞`, the identity `1₀¹ : X → X¹` is sc-smooth, and every
 `x ∈ X` lies in a tame chart `(V, ψ, (O, C, E))` with `ψ(x) = 0` whose tangent space `T₀O` is
 finite-dimensional and in good position to `C`.  *Proof.* (i) ⇒ (ii): the identity of `U` is a
-tame retraction, `U = U_∞` and `1₀¹ : U → U¹` is sc-smooth.  (ii) ⇒ (i): by Proposition 4.8 the
-model `O` of `ψ` is an sc⁺-retract; Proposition 4.9 gives an sc-diffeomorphism `p : O' → V` of a
+tame retraction, `U = U_∞` and `1₀¹ : U → U¹` is sc-smooth.  (ii) ⇒ (i): by Proposition 4.1.8 (preprint 4.8) the
+model `O` of `ψ` is an sc⁺-retract; Proposition 4.1.9 (preprint 4.9) gives an sc-diffeomorphism `p : O' → V` of a
 neighbourhood `O'` of `0` in `O` onto a relatively open `V ⊆ T₀O ∩ C`, and `p ∘ ψ` on `ψ⁻¹(O')` is
 a chart onto the finite-dimensional model `(V, T₀O ∩ C, T₀O)`; "carrying out this construction
 around every point we obtain a smoothly compatible atlas of tame charts".
@@ -31,7 +31,7 @@ around every point we obtain a smoothly compatible atlas of tame charts".
 
 * `MChart.IsCornerChart` (a chart modelled on `LocalModel.ofRelOpen` of a relatively open
   `U ⊆ C` in `ScBanach.const V`, `V` finite-dimensional) and `MPolyfold.HasCornerStructure`
-  (**Definition 4.1**: an atlas of corner charts equivalent to the atlas of `X`; the dimension may
+  (**Definition 4.1.1 (preprint 4.1)**: an atlas of corner charts equivalent to the atlas of `X`; the dimension may
   vary from chart to chart), with `hasCornerStructure_iff` (local form: every point lies in a
   corner chart of the structure), `HasCornerStructure.isTame`,
   `MChart.IsCornerChart.contDiffOn_transition` (**the transition maps are `C^∞`** on the overlaps,
@@ -44,23 +44,23 @@ around every point we obtain a smoothly compatible atlas of tame charts".
   `isManifoldWithCorners_iff` (`IsManifoldWithCorners n` of `TangentGerm.lean` is a corner
   structure all of whose charts have dimension `n`), `IsManifoldWithCorners.hasCornerStructure`.
 * `MChart.compRetract`, `MChart.compRetract_isChart`: the chart `f ∘ φ` for an sc-diffeomorphism
-  `f` between the retract `(O, C, E)` of `φ` and another retract (Definition 2.7), a chart of the
+  `f` between the retract `(O, C, E)` of `φ` and another retract (Definition 2.1.14 (preprint 2.7)), a chart of the
   M-polyfold; `MChart.compDiffeo` is the special case of an sc-diffeomorphism between relatively
   open sets.
-* **Theorem 4.2**: `MPolyfold.theorem_4_2` (the text's statement, for tame `X`) and
-  `MPolyfold.theorem_4_2_general` (the same for every M-polyfold).  (i) ⇒ (ii):
-  `isScSmoothMap_toLevelOne_of_cover` (Proposition 4.8 in each corner chart, whose model is an
-  sc⁺-retract by `remark_4_3_const`) and `MChart.IsCornerChart.exists_centred_tame` (the corner
+* **Theorem 4.1.2 (preprint 4.2)**: `MPolyfold.theorem_4_1_2` (the text's statement, for tame `X`) and
+  `MPolyfold.theorem_4_1_2_general` (the same for every M-polyfold).  (i) ⇒ (ii):
+  `isScSmoothMap_toLevelOne_of_cover` (Proposition 4.1.8 (preprint 4.8) in each corner chart, whose model is an
+  sc⁺-retract by `remark_4_1_3_const`) and `MChart.IsCornerChart.exists_centred_tame` (the corner
   chart re-centred at `x`, `MChart.recentre`, modelled on a relatively open subset of `C_{φ(x)}`;
   `tangentSpace_relOpen`: `T₀O = E`; `isInGoodPosition_top`).  (ii) ⇒ (i):
   `CornerChartData` (the closed good complement `Y`, the projection `p` along `Y`, `W`, `V`, `Γ`
-  of Proposition 4.9), `exists_cornerChartData`, the chart `CornerChartData.chart = p ∘ ψ` on
-  `ψ⁻¹(W)` with `chart_isChart`, `chart_isCornerChart`, `theorem_4_2_chart`, and
+  of Proposition 4.1.9 (preprint 4.9)), `exists_cornerChartData`, the chart `CornerChartData.chart = p ∘ ψ` on
+  `ψ⁻¹(W)` with `chart_isChart`, `chart_isCornerChart`, `theorem_4_1_2_chart`, and
   `hasCornerStructure_of_centred` (without the tameness of the charts).
 
 ## What the text leaves implicit, and the choices made
 
-* **Several dimensions.**  Definition 4.1 allows the dimension of `C ⊆ ℝⁿ` to vary from chart to
+* **Several dimensions.**  Definition 4.1.1 (preprint 4.1) allows the dimension of `C ⊆ ℝⁿ` to vary from chart to
   chart, so `HasCornerStructure` is not `IsManifoldWithCorners n` (fixed `n`) but the analogue of
   `IsManifoldWithCornersLoc`; that the dimension is locally constant (invariance of dimension for
   the `C^∞` transition maps) is not formalized.
@@ -80,19 +80,19 @@ around every point we obtain a smoothly compatible atlas of tame charts".
   `C`), still in the same finite-dimensional space, and the text's checks "the identity is tame,
   `U = U_∞`, `1₀¹` sc-smooth" do not cover `T₀O = E` and its good position (complement `0`).
 * **Tameness is not used.**  Neither the tameness of `X` nor that of the charts in (ii) enters the
-  proof of (ii) ⇒ (i) (Proposition 4.9 does not need it), and (i) makes `X` tame
-  (`HasCornerStructure.isTame`); `theorem_4_2_general` drops the hypothesis.
-* **The projection.**  As in Proposition 4.9 (Findings Chapter 4, items 20–21) `p` is the
+  proof of (ii) ⇒ (i) (Proposition 4.1.9 (preprint 4.9) does not need it), and (i) makes `X` tame
+  (`HasCornerStructure.isTame`); `theorem_4_1_2_general` drops the hypothesis.
+* **The projection.**  As in Proposition 4.1.9 (preprint 4.9) (Findings Chapter 4, items 20–21) `p` is the
   projection onto `T₀O` along a *closed* good complement `Y`, not `Dt(0)`.  Here nothing is added:
   a closed good complement exists for every finite-dimensional subspace in good position
-  (`exists_proj_goodComplement`, the normal form of Proposition 3.22), and it is chosen.
+  (`exists_proj_goodComplement`, the normal form of Proposition 3.1.25 (preprint 3.22)), and it is chosen.
 * **Compatibility of the charts `p ∘ ψ`** ("a smoothly compatible atlas") is not argued in the
   text: `p ∘ ψ` is compatible with every chart `φ'` of `X` because its transition maps are
   `(φ' ∘ ψ⁻¹) ∘ Γ` and `p ∘ (ψ ∘ φ'⁻¹)`, compositions of sc-smooth maps between retracts
   (`MChart.compRetract_isChart`); two such charts are then compatible with each other by the
   locality of compatibility (`MPolyfold.IsChart.compatible`), and their atlas is equivalent to that
-  of `X` (`hasCornerStructure_iff`) — the pattern of `theorem_3_27_isChart` and
-  `theorem_3_27_atlas_equiv`.
+  of `X` (`hasCornerStructure_iff`) — the pattern of `theorem_3_2_3_isChart` and
+  `theorem_3_2_3_atlas_equiv`.
 -/
 
 open Set Filter Topology Function Module
@@ -156,7 +156,7 @@ variable {X : Type u} [TopologicalSpace X] (φ : MChart X) (M : LocalModel)
   {f : φ.model.E 0 → M.E 0} {g : M.E 0 → φ.model.E 0}
 
 /-- **The chart `f ∘ φ`** for a chart `φ : V → O` and an sc-diffeomorphism `f : O → O'` between
-the retracts `(O, C, E)` and `(O', C', E')` (Definition 2.7, with inverse `g`): a chart onto the
+the retracts `(O, C, E)` and `(O', C', E')` (Definition 2.1.14 (preprint 2.7), with inverse `g`): a chart onto the
 model `M = (O', C', E')`.  (`MChart.compDiffeo` is the case of an sc-diffeomorphism of relatively
 open sets containing `O`.) -/
 def MChart.compRetract
@@ -196,7 +196,7 @@ lemma MChart.compRetract_model : (φ.compRetract M hf hg hgf hfg).model = M := r
 
 /-- **The chart `f ∘ φ` is a chart of the M-polyfold structure**: its transition maps to a chart
 `φ'` of the atlas are `(φ' ∘ φ⁻¹) ∘ g` and `f ∘ (φ ∘ φ'⁻¹)`, compositions of sc-smooth maps between
-retracts (the pattern of `MChart.compDiffeo_isChart` and `theorem_3_27_isChart`). -/
+retracts (the pattern of `MChart.compDiffeo_isChart` and `theorem_3_2_3_isChart`). -/
 theorem MChart.compRetract_isChart [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
     (hφ : P.IsChart φ) : P.IsChart (φ.compRetract M hf hg hgf hfg) := by
   intro φ' hφ'
@@ -223,7 +223,7 @@ theorem MChart.compRetract_isChart [T2Space X] [ParacompactSpace X] {P : MPolyfo
 
 end CompRetract
 
-/-! ### Corner charts and Definition 4.1 -/
+/-! ### Corner charts and Definition 4.1.1 (preprint 4.1) -/
 
 section Corner
 
@@ -231,7 +231,7 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X]
 
-/-- A **corner chart** `(V, φ, (U, C, ℝⁿ))` of Definition 4.1: the local model is a relatively open
+/-- A **corner chart** `(V, φ, (U, C, ℝⁿ))` of Definition 4.1.1 (preprint 4.1): the local model is a relatively open
 subset `U` of a partial quadrant `C` in a finite-dimensional space `V` with the **constant
 sc-structure** (`ScBanach.const V`), with the identity retraction (`LocalModel.ofRelOpen`). -/
 def MChart.IsCornerChart (χ : MChart X) : Prop :=
@@ -262,12 +262,12 @@ theorem finiteDimensional : FiniteDimensional ℝ (χ.model.E 0) := by
 theorem isTameRetract : IsTameRetract χ.model.E χ.model.C χ.model.O :=
   ⟨ScRetraction.id h.isRelOpenInQuadrant, image_id _, ScRetraction.id_isTame _⟩
 
-/-- The model of a corner chart is an sc⁺-retract (Remark 4.3: a retract in a finite-dimensional
-space with the constant structure is an sc⁺-retract, `remark_4_3_const`). -/
+/-- The model of a corner chart is an sc⁺-retract (Remark 4.1.3 (preprint 4.3): a retract in a finite-dimensional
+space with the constant structure is an sc⁺-retract, `remark_4_1_3_const`). -/
 theorem isScPlusRetract : IsScPlusRetract χ.model.E χ.model.C χ.model.O := by
   obtain ⟨V, _, _, _, C, U, hU, hχ⟩ := h
   rw [hχ]
-  exact (remark_4_3_const V).2.2 C U hU.isScRetract
+  exact (remark_4_1_3_const V).2.2 C U hU.isScRetract
 
 /-- Every point of the model space of a corner chart is smooth. -/
 theorem mem_smooth (z : χ.model.E 0) : z ∈ χ.model.E.smooth := by
@@ -280,7 +280,7 @@ namespace MPolyfold
 
 variable [T2Space X] [ParacompactSpace X]
 
-/-- **Definition 4.1**: the M-polyfold `X` **has a compatible smooth manifold structure with
+/-- **Definition 4.1.1 (preprint 4.1)**: the M-polyfold `X` **has a compatible smooth manifold structure with
 boundary with corners** if it admits an atlas, equivalent to its atlas, of sc-smoothly compatible
 corner charts `(V, φ, (U, C, ℝⁿ))`: `φ : V → U` an sc-diffeomorphism onto a relatively open subset
 `U` of a partial quadrant `C` in a finite-dimensional space with the constant sc-structure
@@ -290,7 +290,7 @@ def HasCornerStructure (P : MPolyfold X) : Prop :=
 
 variable {P : MPolyfold X}
 
-/-- **Definition 4.1 is local**: `X` has a corner structure iff every point lies in a corner chart
+/-- **Definition 4.1.1 (preprint 4.1) is local**: `X` has a corner structure iff every point lies in a corner chart
 of the M-polyfold structure (the atlas of all corner charts of the maximal atlas is then
 equivalent to the atlas of `X`). -/
 theorem hasCornerStructure_iff :
@@ -338,7 +338,7 @@ theorem MChart.isRelOpenInQuadrant_overlap {χ : MChart X}
   rw [hWeq]
   exact hχ.inter_isOpen hW
 
-/-- **The transition maps between corner charts are classically smooth** (Definition 4.1: "the
+/-- **The transition maps between corner charts are classically smooth** (Definition 4.1.1 (preprint 4.1): "the
 transition maps ... are sc-diffeomorphisms between relatively open subsets of partial quadrants in
 finite-dimensional vector spaces, and therefore are classically smooth maps, i.e., of class
 `C^∞`"): for compatible corner charts `χ`, `χ'` the transition map `χ' ∘ χ⁻¹` is `C^∞` on the
@@ -408,7 +408,7 @@ theorem IsRelOpenInQuadrant.isScDiffeoQuadrant_toConst {C U : Set (E 0)}
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
 
-/-- **The constant sc-structure is no restriction** (Definition 4.1 and Finding Chapter 4, item 6):
+/-- **The constant sc-structure is no restriction** (Definition 4.1.1 (preprint 4.1) and Finding Chapter 4, item 6):
 a chart of `X` modelled on a relatively open subset of a partial quadrant in an sc-Banach space
 with finite-dimensional `E₀` is, with the same map, a corner chart modelled on `E₀` with the
 constant structure (`MChart.compDiffeo` with the identity, an sc-diffeomorphism by
@@ -428,7 +428,7 @@ theorem MChart.exists_isCornerChart_of_finiteDimensional {χ : MChart X} (hχ : 
 
 end ConstModel
 
-/-! ### Definition 4.1 and the manifolds with corners of Chapter 3 -/
+/-! ### Definition 4.1.1 (preprint 4.1) and the manifolds with corners of Chapter 3 -/
 
 namespace MPolyfold
 
@@ -436,12 +436,12 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
 
-/-- **Definition 4.1 with arbitrary finite-dimensional models**: `X` has a corner structure iff it
+/-- **Definition 4.1.1 (preprint 4.1) with arbitrary finite-dimensional models**: `X` has a corner structure iff it
 has an equivalent atlas of charts modelled on relatively open subsets of partial quadrants in
 sc-Banach spaces with finite-dimensional `E₀` (no condition on the sc-structure, which is then
 the constant one up to `ScBanach.scIsoConst`).  The right-hand side is, verbatim, the definition
 of `MPolyfold.IsManifoldWithCornersLoc` (`GlobalIFTTheorems.lean`, the manifolds with corners of
-locally constant dimension of Theorem 3.27, not imported here). -/
+locally constant dimension of Theorem 3.2.3 (preprint 3.27), not imported here). -/
 theorem hasCornerStructure_iff_finiteDimensional :
     P.HasCornerStructure ↔ ∃ A : MAtlas X, A.Equiv P.atlas ∧ ∀ χ ∈ A.charts,
       IsRelOpenInQuadrant χ.model.E χ.model.C χ.model.O ∧ FiniteDimensional ℝ (χ.model.E 0) := by
@@ -456,8 +456,8 @@ theorem hasCornerStructure_iff_finiteDimensional :
         (hc χ hχ).2
     exact ⟨χ', hχ', hsrc ▸ hx, hcorner⟩
 
-/-- **The manifolds with corners of dimension `n` of Theorem 3.27** (`IsManifoldWithCorners n`,
-`TangentGerm.lean`) are the M-polyfolds with a corner structure of Definition 4.1 all of whose
+/-- **The manifolds with corners of dimension `n` of Theorem 3.2.3 (preprint 3.27)** (`IsManifoldWithCorners n`,
+`TangentGerm.lean`) are the M-polyfolds with a corner structure of Definition 4.1.1 (preprint 4.1) all of whose
 corner charts have dimension `n`. -/
 theorem isManifoldWithCorners_iff {n : ℕ} :
     P.IsManifoldWithCorners n ↔ ∃ A : MAtlas X, A.Equiv P.atlas ∧ ∀ χ ∈ A.charts,
@@ -478,8 +478,8 @@ theorem isManifoldWithCorners_iff {n : ℕ} :
     exact ⟨A, hA, fun χ hχ => ⟨(hc χ hχ).1.isRelOpenInQuadrant, (hc χ hχ).1.finiteDimensional,
       (hc χ hχ).2⟩⟩
 
-/-- A manifold with corners of dimension `n` (Theorem 3.27) has a corner structure in the sense of
-Definition 4.1. -/
+/-- A manifold with corners of dimension `n` (Theorem 3.2.3 (preprint 3.27)) has a corner structure in the sense of
+Definition 4.1.1 (preprint 4.1). -/
 theorem IsManifoldWithCorners.hasCornerStructure {n : ℕ} (h : P.IsManifoldWithCorners n) :
     P.HasCornerStructure := by
   obtain ⟨A, hA, hc⟩ := isManifoldWithCorners_iff.1 h
@@ -487,7 +487,7 @@ theorem IsManifoldWithCorners.hasCornerStructure {n : ℕ} (h : P.IsManifoldWith
 
 end MPolyfold
 
-/-! ### The first condition of Theorem 4.2 (ii) from a cover by sc⁺-retracts -/
+/-! ### The first condition of Theorem 4.1.2 (preprint 4.2) (ii) from a cover by sc⁺-retracts -/
 
 namespace MPolyfold
 
@@ -496,7 +496,7 @@ universe u
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
 
 /-- If every point lies in a chart modelled on an sc⁺-retract, then `X₀ = X_∞` and
-`1₀¹ : X → X¹` is sc-smooth (Proposition 4.8 in each chart, `proposition_4_8_chart`, and the
+`1₀¹ : X → X¹` is sc-smooth (Proposition 4.1.8 (preprint 4.8) in each chart, `proposition_4_1_8_chart`, and the
 locality of sc-smoothness; the direction (⇐) of `isScSmoothMap_toLevelOne_iff` with a cover in
 place of all charts). -/
 theorem isScSmoothMap_toLevelOne_of_cover (x₀ : P.Level 1)
@@ -506,7 +506,7 @@ theorem isScSmoothMap_toLevelOne_of_cover (x₀ : P.Level 1)
   have hloc : ∀ x, ∃ φ : MChart X, P.IsChart φ ∧ x ∈ φ.source ∧ φ.source ⊆ P.smoothSet ∧
       P.IsScSmoothOn P.shift (P.toLevelOne x₀) φ.source := fun x => by
     obtain ⟨φ, hφ, hx, hplus⟩ := h x
-    exact ⟨φ, hφ, hx, (proposition_4_8_chart hφ x₀).1 hplus⟩
+    exact ⟨φ, hφ, hx, (proposition_4_1_8_chart hφ x₀).1 hplus⟩
   have hsm : ∀ x, x ∈ P.smoothSet := fun x => by
     obtain ⟨φ, -, hx, hsub, -⟩ := hloc x
     exact hsub hx
@@ -591,12 +591,12 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X]
 
-/-- **The data of the corner chart `p ∘ ψ`** of the proof of Theorem 4.2 for a chart `ψ` of `X`
+/-- **The data of the corner chart `p ∘ ψ`** of the proof of Theorem 4.1.2 (preprint 4.2) for a chart `ψ` of `X`
 with `0 ∈ O` and a finite-dimensional subspace `N` (the tangent space `T₀O`): a closed good
 complement `Y` of `N`, the projection `p : E → N` along `Y`, an open `W ∋ 0` in `E`, a relatively
 open `V ∋ 0` in the partial quadrant `N ∩ C` of `N`, and the inverse `Γ : V → O ∩ W` of `p`, such
 that `p` and `Γ` are mutually inverse sc-smooth maps between the retracts `(O ∩ W, C, E)` and
-`(V, N ∩ C, N)` (Proposition 4.9). -/
+`(V, N ∩ C, N)` (Proposition 4.1.9 (preprint 4.9)). -/
 structure CornerChartData (ψ : MChart X) (N : Submodule ℝ (ψ.model.E 0)) [FiniteDimensional ℝ N]
     where
   /-- The good complement `Y` of `N`. -/
@@ -641,9 +641,9 @@ lemma isOpen_source : IsOpen d.source :=
 lemma image_source : ψ '' d.source = ψ.model.O ∩ d.W := by
   rw [source, image_inter_preimage, ψ.image_source]
 
-/-- **The corner chart `p ∘ ψ : ψ⁻¹(W) → V`** of the proof of Theorem 4.2: the chart `ψ`
+/-- **The corner chart `p ∘ ψ : ψ⁻¹(W) → V`** of the proof of Theorem 4.1.2 (preprint 4.2): the chart `ψ`
 restricted to `ψ⁻¹(W)` (`MChart.restrict`) composed with the sc-diffeomorphism `p : O ∩ W → V` of
-Proposition 4.9 (`MChart.compRetract`), modelled on `(V, N ∩ C, N)`. -/
+Proposition 4.1.9 (preprint 4.9) (`MChart.compRetract`), modelled on `(V, N ∩ C, N)`. -/
 def chart : MChart X :=
   (ψ.restrict (s := d.source) (fun _ hy => hy.1) d.isOpen_source).compRetract d.model
     (f := d.p) (g := d.Γ)
@@ -660,7 +660,7 @@ lemma chart_symm_apply (a : N) : d.chart.symm a = ψ.symm (d.Γ a) := rfl
 
 lemma chart_model : d.chart.model = LocalModel.ofRelOpen d.V_relOpen := rfl
 
-/-- The corner chart `p ∘ ψ` is a corner chart (Definition 4.1), modelled on `(V, N ∩ C, N)`. -/
+/-- The corner chart `p ∘ ψ` is a corner chart (Definition 4.1.1 (preprint 4.1)), modelled on `(V, N ∩ C, N)`. -/
 theorem chart_isCornerChart : d.chart.IsCornerChart :=
   ⟨N, inferInstance, inferInstance, inferInstance, _, _, d.V_relOpen, rfl⟩
 
@@ -681,12 +681,12 @@ theorem chart_apply_eq_zero {x : X} (h0 : ψ x = 0) : (d.chart x : N) = 0 := by
 
 end CornerChartData
 
-/-- **Existence of the corner chart data (Proposition 4.9 in a chart)**: if the model `(O, C, E)`
+/-- **Existence of the corner chart data (Proposition 4.1.9 (preprint 4.9) in a chart)**: if the model `(O, C, E)`
 of `ψ` is an sc⁺-retract with `0 ∈ O` and `N = T₀O` is finite-dimensional and in good position to
 `C`, then the data of the corner chart `p ∘ ψ` exist: the closed good complement `Y` and the
-projection `p` along it come from `exists_proj_goodComplement` (Proposition 3.22's normal form;
-`p` even maps `C` into `C`), and `W`, `V`, `Γ` from `proposition_4_9` applied to an
-sc⁺-retraction onto `O` (Definition 4.6). -/
+projection `p` along it come from `exists_proj_goodComplement` (Proposition 3.1.25 (preprint 3.22)'s normal form;
+`p` even maps `C` into `C`), and `W`, `V`, `Γ` from `proposition_4_1_9` applied to an
+sc⁺-retraction onto `O` (Definition 4.1.6 (preprint 4.6)). -/
 theorem exists_cornerChartData {ψ : MChart X}
     (hplus : IsScPlusRetract ψ.model.E ψ.model.C ψ.model.O) (h0 : (0 : ψ.model.E 0) ∈ ψ.model.O)
     {N : Submodule ℝ (ψ.model.E 0)} [FiniteDimensional ℝ N]
@@ -697,14 +697,14 @@ theorem exists_cornerChartData {ψ : MChart X}
   have h0' : (0 : ψ.model.E 0) ∈ R.retract := hR ▸ h0
   have hN' : (N : Set (ψ.model.E 0)) = tangentSpace ψ.model.E ψ.model.C R.retract 0 := hR ▸ hN
   obtain ⟨W, V, Γ, hW, h0W, hV, h0V, -, hpΓ, -, -, hΓp, -, hpmap, hΓmap⟩ :=
-    proposition_4_9 R hRp h0' hN' hgood hY π.isClosed_ker π hπN fun y hy => LinearMap.mem_ker.1 hy
+    proposition_4_1_9 R hRp h0' hN' hgood hY π.isClosed_ker π hπN fun y hy => LinearMap.mem_ker.1 hy
   rw [hR] at hΓp hpmap hΓmap
   exact ⟨⟨_, hY, π.isClosed_ker, π, hπN, fun y hy => LinearMap.mem_ker.1 hy, W, hW, h0W, V, hV,
     h0V, Γ, hpmap, hΓmap, hΓp, hpΓ⟩⟩
 
 end CornerChart
 
-/-! ### Theorem 4.2 -/
+/-! ### Theorem 4.1.2 (preprint 4.2) -/
 
 namespace MPolyfold
 
@@ -712,15 +712,15 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
 
-/-- **The corner charts of (ii) ⇒ (i)** (the proof of Theorem 4.2): if `X₀ = X_∞` and
+/-- **The corner charts of (ii) ⇒ (i)** (the proof of Theorem 4.1.2 (preprint 4.2)): if `X₀ = X_∞` and
 `1₀¹ : X → X¹` is sc-smooth, then for every chart `ψ : V → O` of `X` with `ψ(x) = 0` whose tangent
 space `N = T₀O` is finite-dimensional and in good position to `C`, the chart `p ∘ ψ` on `ψ⁻¹(W)`
 (`CornerChartData.chart`: `p` the projection onto `N` along a closed good complement, `W` from
-Proposition 4.9) is a corner chart of `X` (Definition 4.1) modelled on `(V, N ∩ C, N)` with
-`(p ∘ ψ)(x) = 0`.  *Proof* (the text's): by Proposition 4.8 the model `O` is an sc⁺-retract
-(`isScSmoothMap_toLevelOne_iff`), and Proposition 4.9 gives the sc-diffeomorphism
+Proposition 4.1.9 (preprint 4.9)) is a corner chart of `X` (Definition 4.1.1 (preprint 4.1)) modelled on `(V, N ∩ C, N)` with
+`(p ∘ ψ)(x) = 0`.  *Proof* (the text's): by Proposition 4.1.8 (preprint 4.8) the model `O` is an sc⁺-retract
+(`isScSmoothMap_toLevelOne_iff`), and Proposition 4.1.9 (preprint 4.9) gives the sc-diffeomorphism
 `p : O ∩ W → V`. -/
-theorem theorem_4_2_chart (x₀ : P.Level 1) (hsm : ∀ x, x ∈ P.smoothSet)
+theorem theorem_4_1_2_chart (x₀ : P.Level 1) (hsm : ∀ x, x ∈ P.smoothSet)
     (hmap : P.IsScSmoothMap P.shift (P.toLevelOne x₀)) {ψ : MChart X} (hψ : P.IsChart ψ)
     {x : X} (hx : x ∈ ψ.source) (h0 : ψ x = 0) {N : Submodule ℝ (ψ.model.E 0)}
     [FiniteDimensional ℝ N]
@@ -734,10 +734,10 @@ theorem theorem_4_2_chart (x₀ : P.Level 1) (hsm : ∀ x, x ∈ P.smoothSet)
   exact ⟨d, d.chart_isChart hψ, d.mem_chart_source hx h0, d.chart_apply_eq_zero h0,
     d.chart_isCornerChart⟩
 
-/-- **Theorem 4.2, (ii) ⇒ (i)**, without the tameness of the charts: if `X₀ = X_∞`, `1₀¹ : X → X¹`
+/-- **Theorem 4.1.2 (preprint 4.2), (ii) ⇒ (i)**, without the tameness of the charts: if `X₀ = X_∞`, `1₀¹ : X → X¹`
 is sc-smooth and every point `x` lies in a chart `ψ` with `ψ(x) = 0` whose `T₀O` is
 finite-dimensional and in good position to `C`, then `X` has a corner structure (the charts
-`p ∘ ψ` of `theorem_4_2_chart` form an atlas equivalent to the atlas of `X`,
+`p ∘ ψ` of `theorem_4_1_2_chart` form an atlas equivalent to the atlas of `X`,
 `hasCornerStructure_iff`). -/
 theorem hasCornerStructure_of_centred (x₀ : P.Level 1) (hsm : ∀ x, x ∈ P.smoothSet)
     (hmap : P.IsScSmoothMap P.shift (P.toLevelOne x₀))
@@ -748,25 +748,25 @@ theorem hasCornerStructure_of_centred (x₀ : P.Level 1) (hsm : ∀ x, x ∈ P.s
     P.HasCornerStructure := by
   refine hasCornerStructure_iff.2 fun x => ?_
   obtain ⟨ψ, hψ, hx, h0, N, hN, hfin, hgood⟩ := hc x
-  obtain ⟨d, hd, hxd, -, hcd⟩ := theorem_4_2_chart x₀ hsm hmap hψ hx h0 hN hgood
+  obtain ⟨d, hd, hxd, -, hcd⟩ := theorem_4_1_2_chart x₀ hsm hmap hψ hx h0 hN hgood
   exact ⟨d.chart, hd, hxd, hcd⟩
 
-/-- **Theorem 4.2 (Characterization)**, for every M-polyfold `X` (the tameness of `X` assumed by
-the text is not used; `theorem_4_2` is the text's form): the following are equivalent.
+/-- **Theorem 4.1.2 (preprint 4.2) (Characterization)**, for every M-polyfold `X` (the tameness of `X` assumed by
+the text is not used; `theorem_4_1_2` is the text's form): the following are equivalent.
 (i) `X` has a compatible smooth manifold structure with boundary with corners
-(`HasCornerStructure`, Definition 4.1).
+(`HasCornerStructure`, Definition 4.1.1 (preprint 4.1)).
 (ii) `X₀ = X_∞`, the identity `1₀¹ : X → X¹` is sc-smooth (`toLevelOne x₀`, with an arbitrary
 junk value `x₀` off `X₁`), and every point `x` is contained in a tame chart `(V, ψ, (O, C, E))`
 of `X` with `ψ(x) = 0` whose tangent space `T₀O` is finite-dimensional and in good position to
 the partial quadrant `C`.
-*Proof* (the text's). (i) ⇒ (ii): corner charts are modelled on sc⁺-retracts (Remark 4.3), so
-`X₀ = X_∞` and `1₀¹` is sc-smooth (Proposition 4.8 in each chart,
+*Proof* (the text's). (i) ⇒ (ii): corner charts are modelled on sc⁺-retracts (Remark 4.1.3 (preprint 4.3)), so
+`X₀ = X_∞` and `1₀¹` is sc-smooth (Proposition 4.1.8 (preprint 4.8) in each chart,
 `isScSmoothMap_toLevelOne_of_cover`); the corner chart around `x`, re-centred at `x`
 (`MChart.recentre`), is a chart onto a relatively open subset of a partial quadrant, tame with the
 identity retraction, with `T₀O = E` finite-dimensional and in good position
 (`MChart.IsCornerChart.exists_centred_tame`).  (ii) ⇒ (i): `hasCornerStructure_of_centred`
-(Propositions 4.8 and 4.9). -/
-theorem theorem_4_2_general (x₀ : P.Level 1) :
+(Propositions 4.1.8 and 4.1.9 (preprint 4.8 and 4.9)). -/
+theorem theorem_4_1_2_general (x₀ : P.Level 1) :
     P.HasCornerStructure ↔
       (∀ x, x ∈ P.smoothSet) ∧ P.IsScSmoothMap P.shift (P.toLevelOne x₀) ∧
       ∀ x, ∃ ψ : MChart X, P.IsChart ψ ∧ x ∈ ψ.source ∧ ψ x = 0 ∧
@@ -788,12 +788,12 @@ theorem theorem_4_2_general (x₀ : P.Level 1) :
     obtain ⟨ψ, hψ, hx, h0, -, N, hN, hfin, hgood⟩ := hc x
     exact ⟨ψ, hψ, hx, h0, N, hN, hfin, hgood⟩
 
-/-- **Theorem 4.2 (Characterization)**, the text's form: for a tame M-polyfold `X`, (i) `X` has a
-compatible smooth manifold structure with boundary with corners (Definition 4.1) iff (ii)
+/-- **Theorem 4.1.2 (preprint 4.2) (Characterization)**, the text's form: for a tame M-polyfold `X`, (i) `X` has a
+compatible smooth manifold structure with boundary with corners (Definition 4.1.1 (preprint 4.1)) iff (ii)
 `X₀ = X_∞`, `1₀¹ : X → X¹` is sc-smooth, and every `x ∈ X` lies in a tame chart `ψ` with
 `ψ(x) = 0` whose `T₀O` is finite-dimensional and in good position to `C`.  The tameness of `X` is
-not used (`theorem_4_2_general`); (i) implies it (`HasCornerStructure.isTame`). -/
-theorem theorem_4_2 (_hP : P.IsTame) (x₀ : P.Level 1) :
+not used (`theorem_4_1_2_general`); (i) implies it (`HasCornerStructure.isTame`). -/
+theorem theorem_4_1_2 (_hP : P.IsTame) (x₀ : P.Level 1) :
     P.HasCornerStructure ↔
       (∀ x, x ∈ P.smoothSet) ∧ P.IsScSmoothMap P.shift (P.toLevelOne x₀) ∧
       ∀ x, ∃ ψ : MChart X, P.IsChart ψ ∧ x ∈ ψ.source ∧ ψ x = 0 ∧
@@ -801,7 +801,7 @@ theorem theorem_4_2 (_hP : P.IsTame) (x₀ : P.Level 1) :
         ∃ N : Submodule ℝ (ψ.model.E 0), (N : Set (ψ.model.E 0)) =
           tangentSpace ψ.model.E ψ.model.C ψ.model.O 0 ∧ FiniteDimensional ℝ N ∧
           IsInGoodPosition ψ.model.E ψ.model.C N :=
-  theorem_4_2_general x₀
+  theorem_4_1_2_general x₀
 
 end MPolyfold
 

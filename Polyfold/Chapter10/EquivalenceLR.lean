@@ -409,7 +409,7 @@ theorem proposition_10_1_9 (hF : F.IsEquivalence) : X.IsLR ↔ Y.IsLR := by
   · intro hX y O hO hyO
     obtain ⟨x, ψ₀, hs, ht⟩ := hF.exists_iso y
     obtain ⟨T, -⟩ := exists_transportChart hF.isLocalScDiffeo_obj hs ht
-    obtain ⟨R'₀, hR'₀⟩ := Y.theorem_7_1 y (hO.inter T.isOpen_W') ⟨hyO, T.mem_W'⟩
+    obtain ⟨R'₀, hR'₀⟩ := Y.theorem_7_1_13 y (hO.inter T.isOpen_W') ⟨hyO, T.mem_W'⟩
     have hO' : IsOpen (T.W ∩ T.Q ⁻¹' R'₀.U) :=
       T.continuousOn_Q.isOpen_inter_preimage T.isOpen_W R'₀.isOpen_U
     obtain ⟨R, hRO', hRLR⟩ := hX x _ hO'
@@ -426,10 +426,10 @@ theorem proposition_10_1_9 (hF : F.IsEquivalence) : X.IsLR ↔ Y.IsLR := by
   · intro hY x O hO hxO
     obtain ⟨T, -⟩ := exists_transportChart hF.isLocalScDiffeo_obj (Y.src_unit (F.obj x))
       (Y.tgt_unit (F.obj x))
-    obtain ⟨R'₁, -⟩ := Y.theorem_7_1 (F.obj x) isOpen_univ (mem_univ _)
+    obtain ⟨R'₁, -⟩ := Y.theorem_7_1_13 (F.obj x) isOpen_univ (mem_univ _)
     have hO' : IsOpen (O ∩ (T.W ∩ T.Q ⁻¹' R'₁.U)) :=
       hO.inter (T.continuousOn_Q.isOpen_inter_preimage T.isOpen_W R'₁.isOpen_U)
-    obtain ⟨R₀, hR₀⟩ := X.theorem_7_1 x hO'
+    obtain ⟨R₀, hR₀⟩ := X.theorem_7_1_13 x hO'
       ⟨hxO, T.mem_W, by rw [mem_preimage, T.Q_self]; exact R'₁.mem_U⟩
     have hR₀W : R₀.U ⊆ T.W := fun u hu => (hR₀ hu).2.1
     have hd₀ := T.isScDiffeoOn_image R₀.isOpen_U hR₀W
@@ -479,7 +479,7 @@ theorem proposition_10_1_10_one {F G : EpFunctor X Y} (hF : F.IsEquivalence)
     rw [G.orbitMap_π, G.orbitMap_π, Function.comp_apply, hdG.right_inv _ hzW₁.2, T.π_Q hzW₁.1,
       hπ z]
   -- Lemma 7.4.20: `β(U(x)) = U(x)`; then (LR) gives `β = ĝ`
-  obtain ⟨-, hβRR⟩ := X.lemma_7_4_20_2021 R hβR hβx hβπ
+  obtain ⟨-, hβRR⟩ := X.lemma_7_4_20 R hβR hβx hβπ
   obtain ⟨g, hg⟩ := hRLR _ _ hβRR hβπ
   -- `α_z = G(Γ(g, z))⁻¹ ∘ ψ_z`
   have hc : ∀ z ∈ R.U, Y.src (Y.inv (G.mor (R.Γ g z))) = Y.tgt (T.ψ z) := fun z hz => by

@@ -7,7 +7,7 @@
  "effort_only": false,
  "why": "B says the project's definitions are the text's: nonEffectivePart = 𝐗^T, ReducedRel = ∼ (both hold by the dictionary TxB = trivialSet alone, the formulas being identical), ∼ is an equivalence relation, and reducedπ is onto and identifies exactly the ∼-equivalent morphisms. In A → B the equivalence-relation property is derived from A's reducedRel_iff and mem_nonEffectivePart_iff (with closure of 𝐗^T under units, inverses, composition), and the fibres of reducedπ then follow from Quot.eq. A's theorems (𝐗^T = int{s = t}, the dependent-type-free and left forms of ∼, 𝐗^R = Quotient reducedSetoid) are further facts about these definitions that B does not state; B → A proves them outright without using B (VACUOUS direction for the audit). Both checks are #rt_check_soft: A's reducedMor_eq_quotient mentions reducedSetoid, whose iseqv field uses the banned reducedRel_iff and mem_nonEffectivePart_iff.",
  "B_issue": null,
- "overlap": "B_to_A: 537 shared project theorems: mem_trivialSet_iff_eventually and isotropyConj_mem_trivialSet (V7_37's, via conj_mem_nonEffectivePart), trivialSubgroup and theorem_7_1 construction, NaturalRep API; the banned reducedRel_iff, mem_nonEffectivePart_iff appear only through reducedSetoid's proof field.",
+ "overlap": "B_to_A: 537 shared project theorems: mem_trivialSet_iff_eventually and isotropyConj_mem_trivialSet (V7_37's, via conj_mem_nonEffectivePart), trivialSubgroup and theorem_7_1_13 construction, NaturalRep API; the banned reducedRel_iff, mem_nonEffectivePart_iff appear only through reducedSetoid's proof field.",
  "uses_hypothesis": {
   "A_to_B": true,
   "B_to_A": false

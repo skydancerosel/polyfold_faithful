@@ -6,9 +6,9 @@ namespace RoundTrip.V6_15
 open Polyfold Module
 
 /-- The project's statement (Corollary 6.13), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.corollary_6_13.{0, 0}
+def A : Prop := type_of% @Polyfold.corollary_6_4_12.{0, 0}
 
-theorem A_holds : A := @Polyfold.corollary_6_13.{0, 0}
+theorem A_holds : A := @Polyfold.corollary_6_4_12.{0, 0}
 
 section Glue
 variable {E F : Type} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
@@ -67,10 +67,10 @@ theorem eq_gammaProj_of_isGamma (hT : T.IsFredholm) (hP : IsGoodLeftProj T P)
   let d0 : Basis (Fin l) ℝ (F ⧸ LinearMap.range (T : E →ₗ[ℝ] F)) :=
     (Module.finBasis ℝ _).reindex (finCongr hl.symm)
   obtain ⟨j, b, hb, hj⟩ :=
-    exists_linearIndependent_append (projSeqJ T P) (lemma_6_11 hP).1 a.linearIndependent hn
+    exists_linearIndependent_append (projSeqJ T P) (proposition_6_4_10 hP).1 a.linearIndependent hn
   have hlift : ∀ i, ∃ f : F, (LinearMap.range (T : E →ₗ[ℝ] F)).mkQ (f - P f) = d0 i := by
     intro i
-    obtain ⟨c, hc⟩ := (lemma_6_11 hP).2.2.2 (d0 i)
+    obtain ⟨c, hc⟩ := (proposition_6_4_10 hP).2.2.2 (d0 i)
     obtain ⟨f, rfl⟩ := Submodule.Quotient.mk_surjective _ c
     exact ⟨f, hc⟩
   choose f hf using hlift
@@ -135,8 +135,8 @@ theorem B_to_A : B → A := by
     (gammaProj_isGamma _ _) (gammaProj_isGamma _ _) (gammaProj_isGamma _ _) (gammaProj_isGamma _ _)
   exact LinearMap.congr_fun this h
 
-#rt_check RoundTrip.V6_15.A_to_B [Polyfold.corollary_6_13]
-#rt_check RoundTrip.V6_15.B_to_A [Polyfold.corollary_6_13]
-#rt_overlap RoundTrip.V6_15.B_to_A [Polyfold.corollary_6_13]
+#rt_check RoundTrip.V6_15.A_to_B [Polyfold.corollary_6_4_12]
+#rt_check RoundTrip.V6_15.B_to_A [Polyfold.corollary_6_4_12]
+#rt_overlap RoundTrip.V6_15.B_to_A [Polyfold.corollary_6_4_12]
 
 end RoundTrip.V6_15

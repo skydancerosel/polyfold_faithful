@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A is EpGroupoid.corollary_7_1 at universe 0: for every ep-groupoid with [SecondCountableTopology X.OrbitSpace], MetrizableSpace X.OrbitSpace. B is the same statement with second countability as an explicit hypothesis; same Mathlib notions on the same quotient topology. The two are the same proposition up to the binder kind (instance vs explicit), and both directions are one-line re-applications of the hypothesis.",
+ "why": "A is EpGroupoid.corollary_7_3_6 at universe 0: for every ep-groupoid with [SecondCountableTopology X.OrbitSpace], MetrizableSpace X.OrbitSpace. B is the same statement with second countability as an explicit hypothesis; same Mathlib notions on the same quotient topology. The two are the same proposition up to the binder kind (instance vs explicit), and both directions are one-line re-applications of the hypothesis.",
  "B_issue": null,
  "overlap": "10 shared project theorems, all GroupoidStr groupoid-axiom lemmas reached through the definition of X.OrbitSpace (vocabulary only).",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

@@ -5,7 +5,7 @@ import RoundTrip.Blind.V6_57
 /-! Round trip for V6_57 (Theorem 6.37, the functor `Γ_f`).
 
 A is the conjunction of the 12 theorems of the row (universes at `0`).  The project's Theorem 6.37
-(`theorem_6_37`) assumes, beyond B's setting (tame `X`, `f` sc-Fredholm): sc-smooth bump functions
+(`theorem_6_6_13_hyp`) assumes, beyond B's setting (tame `X`, `f` sc-Fredholm): sc-smooth bump functions
 (`PX.AdmitsBumpFunctions`), a TAME sc-Fredholm section (`IsScFredholmSectionTame`), sc⁺-sections
 through every fibre point (`HasScPlusSectionsThrough`, a consequence of the bump functions) and two
 more families of paracompactness instances.  So `A → B` cannot be proved: B gives none of these.
@@ -46,7 +46,7 @@ def A : Prop :=
   type_of% @Polyfold.orFunctorMap_isStarProperty.{0, 0} ∧
   type_of% @Polyfold.orFunctorMap_unique_of_cover.{0, 0} ∧
   type_of% @Polyfold.orFunctorMap_unique.{0, 0} ∧
-  type_of% @Polyfold.theorem_6_37.{0, 0}
+  type_of% @Polyfold.theorem_6_6_13_hyp.{0, 0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.orPush_eq.{0, 0}, @Polyfold.orPush_compat.{0, 0}, @Polyfold.orPush_trans.{0, 0},
@@ -54,7 +54,7 @@ theorem A_holds : A :=
     @Polyfold.LocalTransport.transport_apply_eq_of_local.{0, 0}, @Polyfold.orFunctorMap_mk.{0, 0},
     @Polyfold.orFunctorMap_id.{0, 0}, @Polyfold.orFunctorMap_comp.{0, 0},
     @Polyfold.orFunctorMap_isStarProperty.{0, 0}, @Polyfold.orFunctorMap_unique_of_cover.{0, 0},
-    @Polyfold.orFunctorMap_unique.{0, 0}, @Polyfold.theorem_6_37.{0, 0}⟩
+    @Polyfold.orFunctorMap_unique.{0, 0}, @Polyfold.theorem_6_6_13_hyp.{0, 0}⟩
 
 local notation "κ" => Real.smoothTransition
 
@@ -311,11 +311,11 @@ elab "#rt_check_except_defs " t:ident " [" ds:ident,* "]" " [" bs:ident,* "]" : 
   Polyfold.orPush_trans, Polyfold.orLocalTransport_transport_eq,
   Polyfold.LocalTransport.transport_apply_eq_of_local, Polyfold.orFunctorMap_mk,
   Polyfold.orFunctorMap_id, Polyfold.orFunctorMap_comp, Polyfold.orFunctorMap_isStarProperty,
-  Polyfold.orFunctorMap_unique_of_cover, Polyfold.orFunctorMap_unique, Polyfold.theorem_6_37]
+  Polyfold.orFunctorMap_unique_of_cover, Polyfold.orFunctorMap_unique, Polyfold.theorem_6_6_13_hyp]
 #rt_overlap RoundTrip.V6_57.A_to_BExtra [Polyfold.orPush_eq, Polyfold.orPush_compat,
   Polyfold.orPush_trans, Polyfold.orLocalTransport_transport_eq,
   Polyfold.LocalTransport.transport_apply_eq_of_local, Polyfold.orFunctorMap_mk,
   Polyfold.orFunctorMap_id, Polyfold.orFunctorMap_comp, Polyfold.orFunctorMap_isStarProperty,
-  Polyfold.orFunctorMap_unique_of_cover, Polyfold.orFunctorMap_unique, Polyfold.theorem_6_37]
+  Polyfold.orFunctorMap_unique_of_cover, Polyfold.orFunctorMap_unique, Polyfold.theorem_6_6_13_hyp]
 
 end RoundTrip.V6_57

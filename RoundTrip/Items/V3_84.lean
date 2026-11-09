@@ -4,12 +4,12 @@ import RoundTrip.Blind.V3_84
 
 /-!
 Round trip for V3_84 (Theorem 3.54 (2) at the centre: the data of Definition 3.25 at `x₀`).  `A` is
-the conjunction of the types of `Polyfold.theorem_3_54_tangentGermChart_proj`,
-`Polyfold.theorem_3_54_tangentGermChart` (universes `0, 0`), `Polyfold.MChart.compDiffeo_isChart`,
+the conjunction of the types of `Polyfold.theorem_3_6_8_tangentGermChart_proj`,
+`Polyfold.theorem_3_6_8_tangentGermChart` (universes `0, 0`), `Polyfold.MChart.compDiffeo_isChart`,
 `Polyfold.MPolyfold.TangentGermChart.π_mem_of_projectsInto` (universe `0`),
 `Polyfold.isScInftyGermAt_of_lifts` and `Polyfold.StabilityData.ker_Dfs_le_smooth`
 (`MChart.compDiffeo` is vocabulary).  Since the germ reading (refresh 2026-11-02) the two
-`theorem_3_54_tangentGermChart…` assume good position in the text's germ reading
+`theorem_3_6_8_tangentGermChart…` assume good position in the text's germ reading
 (`IsGoodPositionGermTame`); nothing else changed.
 
 Neither direction is proved.  What is proved (`A_to_B_weak`, from the hypothesis `A`): under `B`'s
@@ -22,7 +22,7 @@ Gaps to `A → B` (`B`: the `d`-dimensional tangent germ property of `S(f, V)` a
 with `d = dim ker f'(x)` read in every chart):
 * `A` gives the data only at `x` (the item's title); data at the other points of `S` need good
   position at the nearby zeros (Theorem 3.54 (1)) and the local constancy of the dimension
-  (`theorem_3_54_two` / `exists_isRegular_of_locally`), none of which is in `A`.
+  (`theorem_3_6_8_two` / `exists_isRegular_of_locally`), none of which is in `A`.
 * `A`'s `d` is existential; `A` does not identify it with `dim ker f'(x)` in any chart.
 * `B`'s Definition 3.25 differs in its notions: the good complement must give an sc-splitting
   (`A`: a closed algebraic complement; for a smooth finite-dimensional `N` this upgrade is true and
@@ -36,16 +36,16 @@ open Polyfold Set
 /-- The project's statement: the data of Definition 3.25 (2) at the centre (with and without
 `π(O) ⊆ C`) and four lemmas of its proof. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_54_tangentGermChart_proj.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_tangentGermChart.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_6_8_tangentGermChart_proj.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_tangentGermChart.{0, 0} ∧
     type_of% @Polyfold.MChart.compDiffeo_isChart.{0} ∧
     type_of% @Polyfold.MPolyfold.TangentGermChart.π_mem_of_projectsInto.{0} ∧
     type_of% @Polyfold.isScInftyGermAt_of_lifts ∧
     type_of% @Polyfold.StabilityData.ker_Dfs_le_smooth
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_54_tangentGermChart_proj.{0, 0},
-    @Polyfold.theorem_3_54_tangentGermChart.{0, 0}, @Polyfold.MChart.compDiffeo_isChart.{0},
+  ⟨@Polyfold.theorem_3_6_8_tangentGermChart_proj.{0, 0},
+    @Polyfold.theorem_3_6_8_tangentGermChart.{0, 0}, @Polyfold.MChart.compDiffeo_isChart.{0},
     @Polyfold.MPolyfold.TangentGermChart.π_mem_of_projectsInto.{0},
     @Polyfold.isScInftyGermAt_of_lifts, @Polyfold.StabilityData.ker_Dfs_le_smooth⟩
 
@@ -138,8 +138,8 @@ theorem A_to_B_weak (hA : A) :
   have hg := isGoodPositionGermTame_of_sc hf hx hgsc
   exact hA.1 hf.isScSmooth.1 hg hx
 
-#rt_check RoundTrip.V3_84.A_to_B_weak [Polyfold.theorem_3_54_tangentGermChart_proj,
-  Polyfold.theorem_3_54_tangentGermChart, Polyfold.MChart.compDiffeo_isChart,
+#rt_check RoundTrip.V3_84.A_to_B_weak [Polyfold.theorem_3_6_8_tangentGermChart_proj,
+  Polyfold.theorem_3_6_8_tangentGermChart, Polyfold.MChart.compDiffeo_isChart,
   Polyfold.MPolyfold.TangentGermChart.π_mem_of_projectsInto, Polyfold.isScInftyGermAt_of_lifts,
   Polyfold.StabilityData.ker_Dfs_le_smooth]
 

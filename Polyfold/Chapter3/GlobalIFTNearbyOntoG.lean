@@ -6,26 +6,26 @@ import Polyfold.Chapter3.GlobalIFTTheoremsG
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
 3.54 (1) with the text's hypotheses — the surjectivity of the linearization at the nearby zeros
 by the perturbation argument — and the main theorems 3.54, 3.23, 3.19 without the added
-hypothesis, **in the text's germ reading of Definition 3.11** (phase 2).
+hypothesis, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
 
-# Theorem 3.54 (1) with the text's hypotheses, germ reading
+# Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses, germ reading
 
 ## What is formalized
 
-* `Polyfold.theorem_3_54_chart_onto`: the germ form of `theorem_3_54_chart_onto_wholeChart` (Theorem A
-  of the perturbation argument): in the data of `theorem_3_54_chart_graph`, for every zero
+* `Polyfold.theorem_3_6_8_chart_onto`: the germ form of `theorem_3_6_8_chart_onto_wholeChart` (Theorem A
+  of the perturbation argument): in the data of `theorem_3_6_8_chart_graph`, for every zero
   `z₀ ∈ O ∩ N₄` of the filling germ `g`, the level-`1` point `z₀₁` over `z₀` and every smooth
   `k ∈ F_∞` there is `x ∈ T_{z₀}O` with `Dg(z₀₁) x = ρ(z₀) k`, for the derivative family `Dg`.
-* `Polyfold.theorem_3_54_one'`: **Theorem 3.54 (1) with the text's hypotheses**, germ
+* `Polyfold.theorem_3_6_8_one'`: **Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses**, germ
   reading: every zero near `x₀` is in good position in a tame chart (`IsGoodPositionGermTame`).
-* `Polyfold.theorem_3_54'`, `Polyfold.theorem_3_23'`, `Polyfold.theorem_3_19'`:
-  Theorems 3.54 (1)–(2), 3.23 and 3.19 with the text's hypotheses, germ reading.
+* `Polyfold.theorem_3_6_8'`, `Polyfold.theorem_3_1_26'`, `Polyfold.theorem_3_1_22'`:
+  Theorems 3.6.8 (preprint 3.54) (1)–(2), 3.23 and 3.19 with the text's hypotheses, germ reading.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The curve of zeros lies in the germ of the filling.**  The perturbation argument differentiates
   `g` along the curve `u(μ) = ψ'₁(ι glue(u'(μ)))` of zeros of `g + μ ρ(r(·)) k` through `z₀`,
-  where `u'(μ)` lies on level `2` of the germ `𝒮.G` of Theorem 3.40.  With `g` a germ on `G_g`
+  where `u'(μ)` lies on level `2` of the germ `𝒮.G` of Theorem 3.5.1 (preprint 3.40).  With `g` a germ on `G_g`
   only, `g ∘ u` is differentiable at `μ = 0` because `u(μ) ∈ (G_g)₁`: `ι glue(u'(μ)) ∈ 𝒮.G₁`
   (`ScNbhdGerm.inclK_mem`) and `ψ'₁` maps `𝒮.G₁ ⊆ G″₁` into `(G_g)₁` (the G″ property).  The
   derivative of `g` at `z₀₁` is the value `Dg(z₀₁)` of the family, and the chain rule along the
@@ -50,14 +50,14 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 open StrongRetr
 
 set_option maxHeartbeats 3200000 in
-/-- **Theorem 3.54 (1), the surjectivity of the linearization at the nearby zeros, in the chart at
-`x₀`, germ reading** (phase 2; the germ form of `theorem_3_54_chart_onto_wholeChart`).  In the data of
-`theorem_3_54_chart_graph`, with `ψ'` mapping `𝒮.G` into the germ `G_g` of the filling `g`
-(derivative family `Dg`), together with condition (2) of Definition 3.4 on `N₂` and
+/-- **Theorem 3.6.8 (preprint 3.54) (1), the surjectivity of the linearization at the nearby zeros, in the chart at
+`x₀`, germ reading** (phase 2; the germ form of `theorem_3_6_8_chart_onto_wholeChart`).  In the data of
+`theorem_3_6_8_chart_graph`, with `ψ'` mapping `𝒮.G` into the germ `G_g` of the filling `g`
+(derivative family `Dg`), together with condition (2) of Definition 3.1.4 (preprint 3.4) on `N₂` and
 `ker D(h + t)(0) ≠ 0`, there is an open neighbourhood `N₄ ⊆ N₂` of `0` such that for every zero
 `z₀ ∈ O ∩ N₄` of `g`, every level-`1` point `z₀₁` over `z₀` and every smooth `k ∈ F_∞` there is
 `x ∈ T_{z₀}O = Dr(z₀)E` with `Dg(z₀₁) x = ρ(z₀) k`. -/
-theorem theorem_3_54_chart_onto (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_3_6_8_chart_onto (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0U : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFillingGerm hU hR h0U fb g) (hfb0 : fb 0 = 0)
     {Gg : ScNbhdGerm E C} (hGg : Gg.U 0 ⊆ U) {Dg : E 1 → E 0 →L[ℝ] F 0}
@@ -124,10 +124,10 @@ theorem theorem_3_54_chart_onto (hU : IsRelOpenInQuadrant E C U)
   have hKfin : FiniteDimensional ℝ (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) :=
     (𝒮.isFredholm_Dfs hCt hh'𝒮).1.finite_ker
   obtain ⟨n', Wq, T', hT'⟩ := hCt.prod_univ W
-  -- Lemma 3.55 at the graph points, with its radius
-  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_55_relOpen T' hT' hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
+  -- Lemma 3.6.9 (preprint 3.55) at the graph points, with its radius
+  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_6_9_relOpen T' hT' hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
   -- the kernel at the nearby zeros
-  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_54_chart_kernel hU hR h0U h0O hfill
+  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_6_8_chart_kernel hU hR h0U h0O hfill
     hfb0 hGg hgD hCt hU' hΨ hψ0 T hT 𝒮 h' Yc V' σ Wo N₂ hG hh'𝒮 hsurj hpos hGψ' hWo hagree hYc hYcc
     hV'rel h0V' hσY hσC
     hσ0 hDσ hsol hlift hN₂o h0N₂ hN₂ψ himage
@@ -135,7 +135,7 @@ theorem theorem_3_54_chart_onto (hU : IsRelOpenInQuadrant E C U)
   set 𝒟 := 𝒮.toShiftedBasicData hCq hh'𝒮 with h𝒟
   obtain ⟨δ, hδ, hbounds⟩ := exists_xi_radii_bounds (𝒮 := 𝒮) hU hR hCt hU' hΨ hψ0 h0U hG
   obtain ⟨Rd, hRd⟩ := 𝒟.exists_radii δ hδ
-  obtain ⟨r₄₂, hr₄₂, h₄₂⟩ := 𝒮.lemma_3_42 hCt hh'𝒮 (Rd.ρ 0) (Rd.ρ_pos 0)
+  obtain ⟨r₄₂, hr₄₂, h₄₂⟩ := 𝒮.lemma_3_5_5 hCt hh'𝒮 (Rd.ρ 0) (Rd.ρ_pos 0)
   -- the projection onto `K` along `Yc`
   have hTC : Submodule.IsTopCompl (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) Yc :=
     (Submodule.IsCompl.isTopCompl_of_isClosed_of_finiteDimensional hYc.isCompl.symm hYcc).symm
@@ -481,7 +481,7 @@ theorem theorem_3_54_chart_onto (hU : IsRelOpenInQuadrant E C U)
 
 end ChartOnto
 
-/-! ### Theorem 3.54 (1) with the text's hypotheses, germ reading -/
+/-! ### Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses, germ reading -/
 
 section Bundle
 
@@ -495,17 +495,17 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 set_option maxHeartbeats 3200000 in
-/-- **Theorem 3.54 (1) with the text's hypotheses, germ reading** (phase 2; the germ form of
-`theorem_3_54_one'_wholeChart`): let `f` be an sc-Fredholm section with tame germ data in the germ reading
+/-- **Theorem 3.6.8 (preprint 3.54) (1) with the text's hypotheses, germ reading** (phase 2; the germ form of
+`theorem_3_6_8_one'_wholeChart`): let `f` be an sc-Fredholm section with tame germ data in the germ reading
 (`IsScFredholmSectionTame`), `f(x₀) = 0`, and `(f, x₀)` in good position in a tame chart
 (`IsGoodPositionGermTame`).  Then there is an open neighbourhood `Vx` of `x₀` such that `(f, y)`
 is in good position in a tame chart in the germ reading at every zero `y ∈ Vx`.  Proof: in the
-chart `c` at `x₀` with the data of Theorem 3.38 on `G″`, `theorem_3_54_chart_kernel` gives the
-kernel conditions and `z₀₁ ∈ (G_g)₁`, `theorem_3_54_chart_onto` the surjectivity
+chart `c` at `x₀` with the data of Theorem 3.4.2 (preprint 3.38) on `G″`, `theorem_3_6_8_chart_kernel` gives the
+kernel conditions and `z₀₁ ∈ (G_g)₁`, `theorem_3_6_8_chart_onto` the surjectivity
 `ρ(z₀)F_∞ ⊆ Dg(z₀₁)(T_{z₀}O)` (for `d = 0` the only zero near `x₀` is `x₀`), and the chart
 independence `isGoodPositionGermTame_of_chart_dense` transports both to the tame chart of the
 germ data at `y`.  No hypothesis beyond the text's is added. -/
-theorem theorem_3_54_one' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
+theorem theorem_3_6_8_one' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ Vx : Set X, IsOpen Vx ∧ x₀ ∈ Vx ∧
       ∀ y ∈ Vx, IsZeroAt P f y → B.IsGoodPositionGermTame f y := by
@@ -536,11 +536,11 @@ theorem theorem_3_54_one' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
   obtain ⟨𝒮, h', Yc, V', σ, Wo, N₁, N₂, h𝒮G, hh'𝒮, hsurj, hpos, -, hWo, h0Wo, hagree, hYc, hYcc,
     -, hV'rel, h0V', hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, hN₁o, h0N₁, hN₁, hψ'N₁, hN₂o, h0N₂,
     hN₂N₁, hN₂ψ, hgO, hzero, himage⟩ :=
-    theorem_3_54_chart_graph hU c.isRetraction h0U h0O' hfill hfb0 hfK hGg hgsm hDg ht₀ ht₀0
+    theorem_3_6_8_chart_graph hU c.isRetraction h0U h0O' hfill hfb0 hfK hGg hgsm hDg ht₀ ht₀0
       d'.quadrant d'.relOpen hΨ hψ0 d'.germ_subset d'.basic hGψ' d'.conj T hT hK hgp
   have hGψ'g : ∀ m, ∀ x ∈ 𝒮.G.U m, levelMap ψ' m x ∈ Gg.U m := fun m x hx => by
     rw [h𝒮G] at hx; exact (hGψ' m x hx).1
-  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_54_chart_kernel hU c.isRetraction h0U
+  obtain ⟨N₃, hN₃o, h0N₃, hN₃N₂, hker⟩ := theorem_3_6_8_chart_kernel hU c.isRetraction h0U
     h0O' hfill hfb0 hGg hDg d'.quadrant d'.relOpen hΨ hψ0 T hT 𝒮 h' Yc V' σ Wo N₂
     (h𝒮G ▸ d'.germ_subset) hh'𝒮 hsurj hpos hGψ'g hWo hagree hYc hYcc hV'rel h0V' hσY hσC hσ0 hDσ
     hsol hlift hN₂o h0N₂ hN₂ψ himage
@@ -583,7 +583,7 @@ theorem theorem_3_54_one' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
   · -- the case `d ≥ 1`: the perturbation argument
     have hfix : ∀ u ∈ c.U ∩ N₂, g u = ρ c.R (r c.R u) (g u) → u ∈ r c.R '' c.U :=
       fun u hu => (hN₁ u (hN₂N₁ hu.2)).2.1 hu.1
-    obtain ⟨N₄, hN₄o, h0N₄, hN₄N₂, honto⟩ := theorem_3_54_chart_onto hU c.isRetraction h0U h0O'
+    obtain ⟨N₄, hN₄o, h0N₄, hN₄N₂, honto⟩ := theorem_3_6_8_chart_onto hU c.isRetraction h0U h0O'
       hfill hfb0 hGg hDg d'.quadrant d'.relOpen hΨ hψ0 T hT 𝒮 h' Yc V' σ Wo N₂
       (h𝒮G ▸ d'.germ_subset) hh'𝒮 hsurj hpos hGψ'g hWo hagree hYc hYcc hV'rel h0V' hσY hσC hσ0 hDσ
       hsol hlift hN₂o h0N₂ hN₂ψ himage hfix hK0
@@ -606,29 +606,29 @@ theorem theorem_3_54_one' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
     · exact honto (c.φ y) ⟨hyO, hyN.2⟩ hgy z₀₁ hz₀₁ k hk
     · rwa [inf_eq_left.2 hcle]
 
-/-- **Theorem 3.54 (1) and (2) with the text's hypotheses, germ reading** (phase 2; the germ form
-of `theorem_3_54'_wholeChart`): for an sc-Fredholm section with tame germ data in the germ reading,
+/-- **Theorem 3.6.8 (preprint 3.54) (1) and (2) with the text's hypotheses, germ reading** (phase 2; the germ form
+of `theorem_3_6_8'_wholeChart`): for an sc-Fredholm section with tame germ data in the germ reading,
 `f(x₀) = 0` and `(f, x₀)` in good position in a tame chart, (1) every zero `y ∈ Vx` is in good
-position in a tame chart (`theorem_3_54_one'`); (2) the solution set has the regular tangent
-germ data of Definition 3.25 (2) at `x₀` on a chart in `Vx`, with locally constant dimension
-(`theorem_3_54_two`). -/
-theorem theorem_3_54' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
+position in a tame chart (`theorem_3_6_8_one'`); (2) the solution set has the regular tangent
+germ data of Definition 3.2.1 (preprint 3.25) (2) at `x₀` on a chart in `Vx`, with locally constant dimension
+(`theorem_3_6_8_two`). -/
+theorem theorem_3_6_8' (hf : B.IsScFredholmSectionTame f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ Vx : Set X, IsOpen Vx ∧ x₀ ∈ Vx ∧
       (∀ y ∈ Vx, IsZeroAt P f y → B.IsGoodPositionGermTame f y) ∧
       ∃ d : ℕ, ∃ D : PX.TangentGermChart (solutionSet P f) x₀ d, D.IsRegular ∧ D.φ.source ⊆ Vx ∧
         ∀ y ∈ solutionSet P f ∩ D.φ.source,
           ∀ (n' : ℕ) (_ : PX.TangentGermChart (solutionSet P f) y n'), n' = d := by
-  obtain ⟨Vx, hVxo, hx₀Vx, hall⟩ := theorem_3_54_one' hf hg hx₀
-  exact ⟨Vx, hVxo, hx₀Vx, hall, theorem_3_54_two hf.isScSmooth.1 hg hx₀ hVxo hx₀Vx hall⟩
+  obtain ⟨Vx, hVxo, hx₀Vx, hall⟩ := theorem_3_6_8_one' hf hg hx₀
+  exact ⟨Vx, hVxo, hx₀Vx, hall, theorem_3_6_8_two hf.isScSmooth.1 hg hx₀ hVxo hx₀Vx hall⟩
 
-/-- **Theorem 3.23 (implicit function theorem, boundary case) with the text's hypotheses, germ
-reading** (phase 2; the germ form of `theorem_3_23'_wholeChart`): an sc-Fredholm section with tame germ data
+/-- **Theorem 3.1.26 (preprint 3.23) (implicit function theorem, boundary case) with the text's hypotheses, germ
+reading** (phase 2; the germ form of `theorem_3_1_26'_wholeChart`): an sc-Fredholm section with tame germ data
 in the germ reading, `f(x) = 0`, `(f, x)` in good position in a tame chart; then there is an open
 `U ∋ x` such that every zero in `U` is in good position in a tame chart, `S(f, U)` consists of
 smooth points, is a sub-M-polyfold, and its induced structure is tame and that of a
 `d`-dimensional manifold with boundary with corners. -/
-theorem theorem_3_23' (hf : B.IsScFredholmSectionTame f) {x : X} (hx : IsZeroAt P f x)
+theorem theorem_3_1_26' (hf : B.IsScFredholmSectionTame f) {x : X} (hx : IsZeroAt P f x)
     (hg : B.IsGoodPositionGermTame f x) :
     ∃ U : Set X, IsOpen U ∧ x ∈ U ∧ (∀ y ∈ U, IsZeroAt P f y → B.IsGoodPositionGermTame f y) ∧
       (∀ y ∈ U, IsZeroAt P f y → y ∈ PX.smoothSet) ∧
@@ -636,18 +636,18 @@ theorem theorem_3_23' (hf : B.IsScFredholmSectionTame f) {x : X} (hx : IsZeroAt 
         haveI := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
         (MPolyfold.subPolyfold hsub).IsTame ∧
           (MPolyfold.subPolyfold hsub).IsManifoldWithCorners d := by
-  obtain ⟨Vx, hVxo, hxVx, hall⟩ := theorem_3_54_one' hf hg hx
+  obtain ⟨Vx, hVxo, hxVx, hall⟩ := theorem_3_6_8_one' hf hg hx
   obtain ⟨U, hUo, hxU, hUV, hsm, d, hsub, h1, h2⟩ :=
-    theorem_3_23_of_nearby hf.toIsScFredholmSection hx hg hVxo hxVx hall
+    theorem_3_1_26_of_nearby hf.toIsScFredholmSection hx hg hVxo hxVx hall
   exact ⟨U, hUo, hxU, fun y hy hy0 => hall y (hUV hy) hy0, hsm, d, hsub, h1, h2⟩
 
-/-- **Theorem 3.19 (implicit function theorem, interior case) with the text's hypotheses, germ
-reading** (phase 2; the germ form of `theorem_3_19'_wholeChart`): for an M-polyfold without boundary, an
+/-- **Theorem 3.1.22 (preprint 3.19) (implicit function theorem, interior case) with the text's hypotheses, germ
+reading** (phase 2; the germ form of `theorem_3_1_22'_wholeChart`): for an M-polyfold without boundary, an
 sc-Fredholm section with tame germ data in the germ reading, `f(x₀) = 0` and `(f, x₀)` in good
 position in a tame chart; then there is an open `U ∋ x₀` such that every zero in `U` is in good
 position in a tame chart, `S(f, U)` consists of smooth points and is a sub-M-polyfold whose
 induced structure is that of a `d`-dimensional manifold without boundary. -/
-theorem theorem_3_19' (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTame f)
+theorem theorem_3_1_22' (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTame f)
     {x₀ : X} (hx₀ : IsZeroAt P f x₀) (hg : B.IsGoodPositionGermTame f x₀) :
     ∃ U : Set X, IsOpen U ∧ x₀ ∈ U ∧ (∀ y ∈ U, IsZeroAt P f y → B.IsGoodPositionGermTame f y) ∧
       (∀ y ∈ U, IsZeroAt P f y → y ∈ PX.smoothSet) ∧
@@ -655,10 +655,10 @@ theorem theorem_3_19' (hX : PX.IsWithoutBoundary) (hf : B.IsScFredholmSectionTam
         haveI := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
         (MPolyfold.subPolyfold hsub).IsManifoldWithCorners d ∧
           (MPolyfold.subPolyfold hsub).IsWithoutBoundary := by
-  obtain ⟨U, hUo, hxU, hgood, hsm, d, hsub, -, h2⟩ := theorem_3_23' hf hx₀ hg
+  obtain ⟨U, hUo, hxU, hgood, hsm, d, hsub, -, h2⟩ := theorem_3_1_26' hf hx₀ hg
   have := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
   refine ⟨U, hUo, hxU, hgood, hsm, d, hsub, h2, fun y => ?_⟩
-  have := lemma_2_26 hsub y
+  have := lemma_2_4_6 hsub y
   rw [hX y.1] at this
   exact Nat.le_zero.1 this
 

@@ -587,7 +587,7 @@ theorem isFaceStructured_quadrant (n : ℕ) : (quadrantPolyfold n W).IsFaceStruc
 /-- For the trivial ep-groupoid, `π : Z → |Z|` is a homeomorphism. -/
 theorem isHomeomorph_π_trivial {Z : Type u} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z]
     (P : MPolyfold Z) : IsHomeomorph (trivial P).π := by
-  refine ⟨(trivial P).continuous_π, (trivial P).proposition_7_1, fun x y hxy => ?_,
+  refine ⟨(trivial P).continuous_π, (trivial P).proposition_7_1_8, fun x y hxy => ?_,
     (trivial P).surjective_π⟩
   obtain ⟨φ, rfl, rfl⟩ := (trivial P).π_eq_π_iff.1 hxy
   rfl

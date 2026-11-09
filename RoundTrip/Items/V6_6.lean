@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_6
 
 /-! Round trip for V6_6 (Lemma 6.5: `Φ_E` does not depend on the choices).
 
-`A` is `Polyfold.FourTermExact.lemma_6_5` (universes at `0`): the project's `Φ_E`
+`A` is `Polyfold.FourTermExact.lemma_6_3_3` (universes at `0`): the project's `Φ_E`
 (`FourTermExact.phi`, made from the canonical choice) satisfies (91) for every project `Choice`.
 B's `Choice91` is the project's `Choice` with `n = dim A`, `l = dim D` fixed (bases indexed by
 `Fin (finrank ·)`) and the two dimension equations as fields; B's wedges are definitionally the
@@ -23,9 +23,9 @@ open Polyfold Module
 open scoped TensorProduct
 
 /-- The project's statement (Lemma 6.5), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.FourTermExact.lemma_6_5.{0, 0, 0, 0}
+def A : Prop := type_of% @Polyfold.FourTermExact.lemma_6_3_3.{0, 0, 0, 0}
 
-theorem A_holds : A := @Polyfold.FourTermExact.lemma_6_5.{0, 0, 0, 0}
+theorem A_holds : A := @Polyfold.FourTermExact.lemma_6_3_3.{0, 0, 0, 0}
 
 set_option linter.unusedSectionVars false
 
@@ -105,8 +105,8 @@ theorem B_to_A : B → A := by
   exact (hB A B C D S).2 χ' (dualVec χ'.wD) (dualVec χ'.wC)
     (dualVec_self finrank_maxPow (wedge_basis_ne_zero d)) (dualVec_self finrank_maxPow hwC)
 
-#rt_check RoundTrip.V6_6.A_to_B [Polyfold.FourTermExact.lemma_6_5]
-#rt_check RoundTrip.V6_6.B_to_A [Polyfold.FourTermExact.lemma_6_5]
-#rt_overlap RoundTrip.V6_6.B_to_A [Polyfold.FourTermExact.lemma_6_5]
+#rt_check RoundTrip.V6_6.A_to_B [Polyfold.FourTermExact.lemma_6_3_3]
+#rt_check RoundTrip.V6_6.B_to_A [Polyfold.FourTermExact.lemma_6_3_3]
+#rt_overlap RoundTrip.V6_6.B_to_A [Polyfold.FourTermExact.lemma_6_3_3]
 
 end RoundTrip.V6_6

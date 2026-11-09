@@ -6,7 +6,7 @@ import RoundTrip.Blind.V4_28
 
 `A` is the conjunction of the types of `Polyfold.exists_proj_goodComplement`,
 `Polyfold.exists_cornerChartData`, `Polyfold.CornerChartData.chart_isCornerChart`,
-`Polyfold.CornerChartData.chart_isChart`, `Polyfold.MPolyfold.theorem_4_2_chart` and
+`Polyfold.CornerChartData.chart_isChart`, `Polyfold.MPolyfold.theorem_4_1_2_chart` and
 `Polyfold.MPolyfold.hasCornerStructure_of_centred` (universe `0` for the M-polyfold `X`; the
 `CornerChartData` structure and `CornerChartData.chart` are definitions).
 
@@ -16,7 +16,7 @@ onto `O`) is the project's `tangentSpace` (`tangentSpace_eq_coe_submodule`); B's
 (an sc-complement) gives the project's `IsInGoodPosition` (an algebraic complement) through
 level `0` of the sc-splitting.  B's tameness hypotheses (of `X` and of the charts) are not needed.
 
-`B → A` fails for a genuine reason: `hasCornerStructure_of_centred` (and `theorem_4_2_chart`) assume
+`B → A` fails for a genuine reason: `hasCornerStructure_of_centred` (and `theorem_4_1_2_chart`) assume
 neither that `X` is tame nor that the centred charts are tame, and only an algebraic good complement;
 B assumes all three, so it cannot be applied under A's hypotheses.  The other conjuncts
 (`exists_proj_goodComplement`, the normal form of Proposition 3.22; `exists_cornerChartData`,
@@ -31,13 +31,13 @@ def A : Prop :=
     (type_of% @Polyfold.exists_cornerChartData.{0}) ∧
     (type_of% @Polyfold.CornerChartData.chart_isCornerChart.{0}) ∧
     (type_of% @Polyfold.CornerChartData.chart_isChart.{0}) ∧
-    (type_of% @Polyfold.MPolyfold.theorem_4_2_chart.{0}) ∧
+    (type_of% @Polyfold.MPolyfold.theorem_4_1_2_chart.{0}) ∧
     (type_of% @Polyfold.MPolyfold.hasCornerStructure_of_centred.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.exists_proj_goodComplement, @Polyfold.exists_cornerChartData.{0},
     @Polyfold.CornerChartData.chart_isCornerChart.{0}, @Polyfold.CornerChartData.chart_isChart.{0},
-    @Polyfold.MPolyfold.theorem_4_2_chart.{0}, @Polyfold.MPolyfold.hasCornerStructure_of_centred.{0}⟩
+    @Polyfold.MPolyfold.theorem_4_1_2_chart.{0}, @Polyfold.MPolyfold.hasCornerStructure_of_centred.{0}⟩
 
 /-- B's good position (with an sc-complement) gives the project's (an algebraic complement). -/
 theorem isInGoodPosition_of_B {E : ScBanach} {C : Set (E 0)} {N : Submodule ℝ (E 0)}
@@ -65,7 +65,7 @@ theorem A_to_B : A → B := by
 
 #rt_check RoundTrip.V4_28.A_to_B [Polyfold.exists_proj_goodComplement,
   Polyfold.exists_cornerChartData, Polyfold.CornerChartData.chart_isCornerChart,
-  Polyfold.CornerChartData.chart_isChart, Polyfold.MPolyfold.theorem_4_2_chart,
+  Polyfold.CornerChartData.chart_isChart, Polyfold.MPolyfold.theorem_4_1_2_chart,
   Polyfold.MPolyfold.hasCornerStructure_of_centred]
 
 end RoundTrip.V4_28

@@ -5,12 +5,12 @@ import RoundTrip.Blind.V4_55
 /-! Round trip for V4_55 (Remark 4.24).
 
 `A` is the conjunction of the types of `Polyfold.quotDim_le_finrank_of_eq_sup`,
-`Polyfold.remark_4_24_chart`, `Polyfold.MPolyfold.remark_4_24_codim`,
-`Polyfold.MPolyfold.remark_4_24` and `Polyfold.MPolyfold.remark_4_24_not_mem_boundary`
+`Polyfold.remark_4_3_2_chart`, `Polyfold.MPolyfold.remark_4_3_2_codim`,
+`Polyfold.MPolyfold.remark_4_3_2` and `Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary`
 (universes instantiated at `0`).
 
 `A → B`:
-* (b), (c) use A's `remark_4_24` (tame charts only) and a **chart change**: B quantifies over
+* (b), (c) use A's `remark_4_3_2` (tame charts only) and a **chart change**: B quantifies over
   every chart `φ` of the structure, not only tame ones.  At a tame chart `ψ` (which exists since
   `X` is tame) A gives `d_X(x) ≤ dim T_z(ψ(W ∩ A'))`; the dimension of the tangent space of the
   chart model of `A'` can only grow under the chart transition (`rank_le_transport`: the
@@ -18,20 +18,20 @@ import RoundTrip.Blind.V4_55
   project's `chart_change_of_transport`.  B's data `(V, s)` with `V ⊆ dom φ` is the project's
   `SubmanifoldData` with `shrink φ = V`.
 * (a) (`codim T^R = d_X(x)` in EVERY tame chart, at every presentation): A's
-  `remark_4_24_codim` gives it only in SOME tame chart `ψ` (an `∃`); it is moved to the given
+  `remark_4_3_2_codim` gives it only in SOME tame chart `ψ` (an `∃`); it is moved to the given
   tame chart by a chart change of the codimension (`codim_transport`: the transition derivative
   is an isomorphism `T_zO ≅ T_{z'}O'` carrying `T^R` onto `T^R`, the project's
-  `proposition_2_30_reduced`, so the quotients are isomorphic), with
+  `proposition_2_4_10_reduced`, so the quotients are isomorphic), with
   `T_zO / (T_zO ∩ E_z)` finite-dimensional (B uses `Module.rank`, A `finrank`).  (The codimension
-  half of `remark_4_24_chart` is not usable: it is guarded by a general-position hypothesis on an
+  half of `remark_4_3_2_chart` is not usable: it is guarded by a general-position hypothesis on an
   unrelated finite-dimensional `Q`.)
 
 `B → A`: proved for the three M-polyfold conjuncts, two of them only for tame `X`:
-`remark_4_24_codim` from (a) at the tame chart of `IsTame.exists_chart` (`B_to_A_codim`);
-`remark_4_24` and `remark_4_24_not_mem_boundary` from (b), (c) applied to the submanifold
+`remark_4_3_2_codim` from (a) at the tame chart of `IsTame.exists_chart` (`B_to_A_codim`);
+`remark_4_3_2` and `remark_4_3_2_not_mem_boundary` from (b), (c) applied to the submanifold
 `A ∩ V` (A's `A` only carries submanifold data near `a`), for TAME `X` (`B_to_A424Tame`,
 `B_to_ANotMemBoundaryTame`): A assumes only a tame chart at `a`, B a tame `X`.  The two chart
-lemmas `quotDim_le_finrank_of_eq_sup` (pure linear algebra) and `remark_4_24_chart` (an arbitrary
+lemmas `quotDim_le_finrank_of_eq_sup` (pure linear algebra) and `remark_4_3_2_chart` (an arbitrary
 set `Q ⊆ E`, a retraction tame for one presentation) are not consequences of B, which only speaks
 of submanifolds of tame M-polyfolds. -/
 
@@ -45,15 +45,15 @@ open Polyfold
 /-- The project's statement, universes `0`. -/
 def A : Prop :=
   (type_of% @Polyfold.quotDim_le_finrank_of_eq_sup.{0}) ∧
-  (type_of% @Polyfold.remark_4_24_chart) ∧
-  (type_of% @Polyfold.MPolyfold.remark_4_24_codim.{0}) ∧
-  (type_of% @Polyfold.MPolyfold.remark_4_24.{0}) ∧
-  (type_of% @Polyfold.MPolyfold.remark_4_24_not_mem_boundary.{0})
+  (type_of% @Polyfold.remark_4_3_2_chart) ∧
+  (type_of% @Polyfold.MPolyfold.remark_4_3_2_codim.{0}) ∧
+  (type_of% @Polyfold.MPolyfold.remark_4_3_2.{0}) ∧
+  (type_of% @Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.quotDim_le_finrank_of_eq_sup.{0}, @Polyfold.remark_4_24_chart,
-    @Polyfold.MPolyfold.remark_4_24_codim.{0}, @Polyfold.MPolyfold.remark_4_24.{0},
-    @Polyfold.MPolyfold.remark_4_24_not_mem_boundary.{0}⟩
+  ⟨@Polyfold.quotDim_le_finrank_of_eq_sup.{0}, @Polyfold.remark_4_3_2_chart,
+    @Polyfold.MPolyfold.remark_4_3_2_codim.{0}, @Polyfold.MPolyfold.remark_4_3_2.{0},
+    @Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary.{0}⟩
 
 /-! ### Linear algebra glue -/
 
@@ -175,7 +175,7 @@ theorem codim_transport (κ : Cardinal.{0}) :
       map_smul' := fun c v => Subtype.ext (map_smul A₀ c (v : E 0))
       left_inv := fun v => Subtype.ext (hinv1 v v.2)
       right_inv := fun w => Subtype.ext (hinv2 w w.2) }
-  have hred := proposition_2_30_reduced h hx T hT T' hT'
+  have hred := proposition_2_4_10_reduced h hx T hT T' hT'
   have hmap : (Submodule.comap M.subtype (minimalSubspaceWith T (E.toBase 1 z))).map
       (e : M →ₗ[ℝ] LinearMap.range (scDeriv R'.U R' y : E' 0 →ₗ[ℝ] E' 0)) =
       Submodule.comap (LinearMap.range (scDeriv R'.U R' y : E' 0 →ₗ[ℝ] E' 0)).subtype
@@ -200,7 +200,7 @@ variable {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : M
 
 /-- The core of `A → B` (b), (c): for ANY chart `φ` (not only tame ones), A's Remark 4.24 at a tame
 chart and the chart change give `d_X(x) ≤ dim T_z(φ(W ∩ A'))`. -/
-theorem degIndex_le_rank (h424 : type_of% @Polyfold.MPolyfold.remark_4_24.{0})
+theorem degIndex_le_rank (h424 : type_of% @Polyfold.MPolyfold.remark_4_3_2.{0})
     (hP : P.IsTame) {A' : Set X} {x : X} (hx : x ∈ A') (hgp : P.IsGeneralPositionAt A' x)
     (d : P.SubmanifoldData A') (hxd : x ∈ d.V) {φ : MChart X} (hφ : P.IsChart φ)
     (hxφ : x ∈ φ.source) {z : φ.model.E 1} (hz : φ.model.E.toBase 1 z = φ x)
@@ -210,7 +210,7 @@ theorem degIndex_le_rank (h424 : type_of% @Polyfold.MPolyfold.remark_4_24.{0})
     (P.degIndex x : Cardinal) ≤ Module.rank ℝ N := by
   obtain ⟨ψ, hψ, hxψ, htame⟩ := MPolyfold.IsTame.exists_chart P hP x
   obtain ⟨zψ, hzψ, hzψs⟩ := exists_smoothLvl_one_of_mem_smooth (d.apply_mem_smooth hψ hx hxd hxψ)
-  obtain ⟨-, -, -, Nψ, hNψ, hfin⟩ := d.remark_4_14 hψ hx hxd hxψ hzψ
+  obtain ⟨-, -, -, Nψ, hNψ, hfin⟩ := d.remark_4_2_2 hψ hx hxd hxψ hzψ
   have h1 : P.degIndex x ≤ Module.finrank ℝ Nψ := h424 hgp d hxd hψ hxψ htame hzψ hNψ
   obtain ⟨n, Wq, T, hT⟩ := ψ.model.isPartialQuadrant
   obtain ⟨n', Wq', T', hT'⟩ := φ.model.isPartialQuadrant
@@ -266,7 +266,7 @@ theorem A_to_B : A → B := by
     exact hN
   refine ⟨?_, fun A' x _ hx hgp V s φ z N hs himg hxV hφ hVφ hz hN =>
     hbc A' x hx hgp V s φ z N hs himg hxV hφ hVφ hz hN, ?_⟩
-  · -- (a): A's `remark_4_24_codim` (in one tame chart `ψ`) moved to the given tame chart `φ`
+  · -- (a): A's `remark_4_3_2_codim` (in one tame chart `ψ`) moved to the given tame chart `φ`
     -- by the chart change `codim_transport` (Proposition 2.30)
     intro φ n Wq T x z M hφ _ hT hxφ hxs hz hM
     obtain ⟨ψ, hψ, hxψ, Rψ, nψ, Wψ, Tψ, hRψ, hTψ, _, hcod⟩ := hcodim (P := P) hP hxs
@@ -307,13 +307,13 @@ theorem A_to_B : A → B := by
     omega
 
 #rt_check RoundTrip.V4_55.A_to_B [Polyfold.quotDim_le_finrank_of_eq_sup,
-  Polyfold.remark_4_24_chart, Polyfold.MPolyfold.remark_4_24_codim,
-  Polyfold.MPolyfold.remark_4_24, Polyfold.MPolyfold.remark_4_24_not_mem_boundary]
+  Polyfold.remark_4_3_2_chart, Polyfold.MPolyfold.remark_4_3_2_codim,
+  Polyfold.MPolyfold.remark_4_3_2, Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary]
 
 /-! ### `B → A` (the M-polyfold conjuncts) -/
 
-/-- `remark_4_24_codim` from B (a), at the tame chart of `IsTame.exists_chart`. -/
-theorem B_to_A_codim : B → type_of% @Polyfold.MPolyfold.remark_4_24_codim.{0} := by
+/-- `remark_4_3_2_codim` from B (a), at the tame chart of `IsTame.exists_chart`. -/
+theorem B_to_A_codim : B → type_of% @Polyfold.MPolyfold.remark_4_3_2_codim.{0} := by
   intro hB X _ _ _ P hP x hx
   obtain ⟨φ, hφ, hxφ, R, hR, hRt⟩ := MPolyfold.IsTame.exists_chart P hP x
   obtain ⟨n, Wq, T, hT⟩ := φ.model.isPartialQuadrant
@@ -385,7 +385,7 @@ theorem image_shrink_inter {A : Set X} (d : P.SubmanifoldData A) (φ : MChart X)
 
 end BtoA
 
-/-- `remark_4_24` restricted to tame `X` (B's setting): B (b) for the submanifold `A ∩ V`. -/
+/-- `remark_4_3_2` restricted to tame `X` (B's setting): B (b) for the submanifold `A ∩ V`. -/
 def A424Tame : Prop :=
   ∀ {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X},
     P.IsTame → ∀ {A : Set X} {a : X}, P.IsGeneralPositionAt A a → ∀ (d : P.SubmanifoldData A),
@@ -406,7 +406,7 @@ theorem B_to_A424Tame : B → A424Tame := by
   rw [← Module.finrank_eq_rank] at h
   exact_mod_cast h
 
-/-- `remark_4_24_not_mem_boundary` restricted to tame `X`: B (c) for the submanifold `A ∩ V`. -/
+/-- `remark_4_3_2_not_mem_boundary` restricted to tame `X`: B (c) for the submanifold `A ∩ V`. -/
 def ANotMemBoundaryTame : Prop :=
   ∀ {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X},
     P.IsTame → ∀ {A : Set X} {a : X}, P.IsGeneralPositionAt A a → ∀ (d : P.SubmanifoldData A),
@@ -426,23 +426,23 @@ theorem B_to_ANotMemBoundaryTame : B → ANotMemBoundaryTame := by
   rw [Submodule.bot_coe, inter_shrink_eq, h0]
 
 #rt_check RoundTrip.V4_55.B_to_A_codim [Polyfold.quotDim_le_finrank_of_eq_sup,
-  Polyfold.remark_4_24_chart, Polyfold.MPolyfold.remark_4_24_codim,
-  Polyfold.MPolyfold.remark_4_24, Polyfold.MPolyfold.remark_4_24_not_mem_boundary]
+  Polyfold.remark_4_3_2_chart, Polyfold.MPolyfold.remark_4_3_2_codim,
+  Polyfold.MPolyfold.remark_4_3_2, Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary]
 #rt_check RoundTrip.V4_55.B_to_A424Tame [Polyfold.quotDim_le_finrank_of_eq_sup,
-  Polyfold.remark_4_24_chart, Polyfold.MPolyfold.remark_4_24_codim,
-  Polyfold.MPolyfold.remark_4_24, Polyfold.MPolyfold.remark_4_24_not_mem_boundary]
+  Polyfold.remark_4_3_2_chart, Polyfold.MPolyfold.remark_4_3_2_codim,
+  Polyfold.MPolyfold.remark_4_3_2, Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary]
 #rt_check RoundTrip.V4_55.B_to_ANotMemBoundaryTame [Polyfold.quotDim_le_finrank_of_eq_sup,
-  Polyfold.remark_4_24_chart, Polyfold.MPolyfold.remark_4_24_codim,
-  Polyfold.MPolyfold.remark_4_24, Polyfold.MPolyfold.remark_4_24_not_mem_boundary]
+  Polyfold.remark_4_3_2_chart, Polyfold.MPolyfold.remark_4_3_2_codim,
+  Polyfold.MPolyfold.remark_4_3_2, Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary]
 #rt_overlap RoundTrip.V4_55.B_to_A_codim [Polyfold.quotDim_le_finrank_of_eq_sup,
-  Polyfold.remark_4_24_chart, Polyfold.MPolyfold.remark_4_24_codim,
-  Polyfold.MPolyfold.remark_4_24, Polyfold.MPolyfold.remark_4_24_not_mem_boundary]
+  Polyfold.remark_4_3_2_chart, Polyfold.MPolyfold.remark_4_3_2_codim,
+  Polyfold.MPolyfold.remark_4_3_2, Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary]
 #rt_overlap RoundTrip.V4_55.B_to_A424Tame [Polyfold.quotDim_le_finrank_of_eq_sup,
-  Polyfold.remark_4_24_chart, Polyfold.MPolyfold.remark_4_24_codim,
-  Polyfold.MPolyfold.remark_4_24, Polyfold.MPolyfold.remark_4_24_not_mem_boundary]
+  Polyfold.remark_4_3_2_chart, Polyfold.MPolyfold.remark_4_3_2_codim,
+  Polyfold.MPolyfold.remark_4_3_2, Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary]
 #rt_overlap RoundTrip.V4_55.B_to_ANotMemBoundaryTame [Polyfold.quotDim_le_finrank_of_eq_sup,
-  Polyfold.remark_4_24_chart, Polyfold.MPolyfold.remark_4_24_codim,
-  Polyfold.MPolyfold.remark_4_24, Polyfold.MPolyfold.remark_4_24_not_mem_boundary]
+  Polyfold.remark_4_3_2_chart, Polyfold.MPolyfold.remark_4_3_2_codim,
+  Polyfold.MPolyfold.remark_4_3_2, Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary]
 
 end RoundTrip.V4_55
 

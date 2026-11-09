@@ -3,23 +3,23 @@ import Polyfold.Chapter3.GlobalIFTG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
-3.54 (2) at the centre `x₀` — the data of Definition 3.25 (2) for the solution set in the chart
-`ψ ∘ ϕ` — **in the text's germ reading of Definition 3.11** (phase 2).
+3.54 (2) at the centre `x₀` — the data of Definition 3.2.1 (preprint 3.25) (2) for the solution set in the chart
+`ψ ∘ ϕ` — **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
 
-# Theorem 3.54 (2) at the centre, germ reading
+# Theorem 3.6.8 (preprint 3.54) (2) at the centre, germ reading
 
 ## What is formalized
 
-* `Polyfold.theorem_3_54_tangentGermChart_proj_conj`: the germ form of
-  `theorem_3_54_tangentGermChart_proj_conj_wholeChart`: the regular data `D` of Definition 3.25 (2) with
-  `π(O') ⊆ C'` at `x₀` for `S = {y ∈ Vx | f(y) = 0}`, with the data of Definition 3.53 in the
+* `Polyfold.theorem_3_6_8_tangentGermChart_proj_conj`: the germ form of
+  `theorem_3_6_8_tangentGermChart_proj_conj_wholeChart`: the regular data `D` of Definition 3.2.1 (preprint 3.25) (2) with
+  `π(O') ⊆ C'` at `x₀` for `S = {y ∈ Vx | f(y) = 0}`, with the data of Definition 3.6.6 (preprint 3.53) in the
   chart `c` in the germ reading and `d = dim dc.Pn − dim dc.Q`.
-* `Polyfold.theorem_3_54_tangentGermChart_proj`, `Polyfold.theorem_3_54_tangentGermChart`:
+* `Polyfold.theorem_3_6_8_tangentGermChart_proj`, `Polyfold.theorem_3_6_8_tangentGermChart`:
   the corollaries, with the same conclusions as the old theorems.
 
-The proofs are those of `GlobalIFTCenter.lean` from `theorem_3_54_graph_proj_conj`: the
+The proofs are those of `GlobalIFTCenter.lean` from `theorem_3_6_8_graph_proj_conj`: the
 chart `ψ ∘ ϕ` (`MChart.compDiffeo`), the tame retract `ψ(O)`, and the data `N`, `Y`, `V'`, `σ`
-of Theorem 3.47 on the `E'`-side; nothing of the filling `g` or the sc⁺-section `s` enters.
+of Theorem 3.5.11 (preprint 3.47) on the `E'`-side; nothing of the filling `g` or the sc⁺-section `s` enters.
 -/
 
 open Set Filter Topology Function Module
@@ -38,13 +38,13 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y}
 
 set_option maxHeartbeats 800000 in
-/-- **Theorem 3.54 (2) at the centre `x₀`, with the conjugation exposed, germ reading** (phase 2;
-the germ form of `theorem_3_54_tangentGermChart_proj_conj_wholeChart`): the data of Definition 3.25 (2) for
+/-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre `x₀`, with the conjugation exposed, germ reading** (phase 2;
+the germ form of `theorem_3_6_8_tangentGermChart_proj_conj_wholeChart`): the data of Definition 3.2.1 (preprint 3.25) (2) for
 `S = {y ∈ Vx | f(y) = 0}` at `x₀` with `π(O') ⊆ C'`, built from the chart `ψ ∘ ϕ` of
-`theorem_3_54_graph_proj_conj`, together with the data of Definition 3.53 in the chart `c`
+`theorem_3_6_8_graph_proj_conj`, together with the data of Definition 3.6.6 (preprint 3.53) in the chart `c`
 in the germ reading (filling germ `g`, sc⁺-germ `s`, derivative family `Dg` on a germ `G`, good
 position at `Dg(0)`, conjugation data `dc`) and `d = dim dc.Pn − dim dc.Q`. -/
-theorem theorem_3_54_tangentGermChart_proj_conj (hf : IsSection P f) {x₀ : X}
+theorem theorem_3_6_8_tangentGermChart_proj_conj (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
       (∃ D : PX.TangentGermChart {y ∈ Vx | IsZeroAt P f y} x₀ d,
@@ -64,7 +64,7 @@ theorem theorem_3_54_tangentGermChart_proj_conj (hf : IsSection P f) {x₀ : X}
   obtain ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     ψ', hψ'sc, hψ'U, hψψ', hψ'ψ, 𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, hconjd, hYc, hYcc,
     hYcp, hKsm, hV'rel, h0V', hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, hVxo, hx₀Vx, hVxsub, hinj, hzero,
-    himage⟩ := theorem_3_54_graph_proj_conj hf hg hx₀
+    himage⟩ := theorem_3_6_8_graph_proj_conj hf hg hx₀
   have hKfin : FiniteDimensional ℝ (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) :=
     (𝒮.isFredholm_Dfs hCt hh').1.finite_ker
   -- the sc-diffeomorphism `ψ : U → U'` and the tame retract `ψ(O)`
@@ -120,24 +120,24 @@ theorem theorem_3_54_tangentGermChart_proj_conj (hf : IsSection P f) {x₀ : X}
   -- condition (b) of `IsRegular`: `π(ψ(O)) ⊆ C'`, from the choice of `Y` (`ProjectsInto`)
   exact MPolyfold.TangentGermChart.π_mem_of_projectsInto _ hYcp
 
-/-- **Theorem 3.54 (2) at the centre `x₀` with condition (b) of `IsRegular`, germ reading**
-(phase 2; the germ form of `theorem_3_54_tangentGermChart_proj_wholeChart`, with the same conclusion). -/
-theorem theorem_3_54_tangentGermChart_proj (hf : IsSection P f) {x₀ : X}
+/-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre `x₀` with condition (b) of `IsRegular`, germ reading**
+(phase 2; the germ form of `theorem_3_6_8_tangentGermChart_proj_wholeChart`, with the same conclusion). -/
+theorem theorem_3_6_8_tangentGermChart_proj (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
       ∃ D : PX.TangentGermChart {y ∈ Vx | IsZeroAt P f y} x₀ d,
         ∀ z ∈ D.φ.model.O, (D.π z : D.φ.model.E 0) ∈ D.φ.model.C := by
-  obtain ⟨Vx, d, h1, h2, hD, -⟩ := theorem_3_54_tangentGermChart_proj_conj hf hg hx₀
+  obtain ⟨Vx, d, h1, h2, hD, -⟩ := theorem_3_6_8_tangentGermChart_proj_conj hf hg hx₀
   exact ⟨Vx, d, h1, h2, hD⟩
 
-/-- **Theorem 3.54 (2) at the centre `x₀`: the data of Definition 3.25 (2) for the solution set,
-germ reading** (phase 2; the germ form of `theorem_3_54_tangentGermChart_wholeChart`, with the same
+/-- **Theorem 3.6.8 (preprint 3.54) (2) at the centre `x₀`: the data of Definition 3.2.1 (preprint 3.25) (2) for the solution set,
+germ reading** (phase 2; the germ form of `theorem_3_6_8_tangentGermChart_wholeChart`, with the same
 conclusion). -/
-theorem theorem_3_54_tangentGermChart (hf : IsSection P f) {x₀ : X}
+theorem theorem_3_6_8_tangentGermChart (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
       Nonempty (PX.TangentGermChart {y ∈ Vx | IsZeroAt P f y} x₀ d) := by
-  obtain ⟨Vx, d, h1, h2, D, -⟩ := theorem_3_54_tangentGermChart_proj hf hg hx₀
+  obtain ⟨Vx, d, h1, h2, D, -⟩ := theorem_3_6_8_tangentGermChart_proj hf hg hx₀
   exact ⟨Vx, d, h1, h2, ⟨D⟩⟩
 
 end Center

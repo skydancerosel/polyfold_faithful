@@ -4,7 +4,7 @@ import RoundTrip.Blind.V8_10
 
 /-! Round trip for V8_10 (Lemma 8.1.8 (2017: 8.7): the properness property of `T(X, 𝐗)`).
 
-`A` is the type of `EpGroupoid.lemma_8_7`, universe instantiated at `0` (`B` lives in `Type`):
+`A` is the type of `EpGroupoid.lemma_8_1_8`, universe instantiated at `0` (`B` lives in `Type`):
 every `a ∈ TX` has an open `V' ∋ a` with `t_T : s_T⁻¹(cl V') → TX` a proper map (Mathlib's
 `IsProperMap`).  `B` asks the same with "proper" read as continuous with compact preimages of
 compact sets (`IsProperB`).  The two readings of "proper" agree because `TX` is Hausdorff and
@@ -16,9 +16,9 @@ namespace RoundTrip.V8_10
 open Polyfold
 
 /-- The project's statement (universe at `0`). -/
-def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_8_7.{0}
+def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_8_1_8.{0}
 
-theorem A_holds : A := @Polyfold.EpGroupoid.lemma_8_7.{0}
+theorem A_holds : A := @Polyfold.EpGroupoid.lemma_8_1_8.{0}
 
 /-- On maps into `TX`, Mathlib's `IsProperMap` is `B`'s `IsProperB`. -/
 theorem isProperMap_iff_isProperB {Z : Type} [TopologicalSpace Z] [T2Space Z]
@@ -40,8 +40,8 @@ theorem B_to_A : B → A := by
   obtain ⟨V, hV, ha, hp⟩ := h a
   exact ⟨V, hV, ha, (isProperMap_iff_isProperB X.PObj _).2 hp⟩
 
-#rt_check RoundTrip.V8_10.A_to_B [Polyfold.EpGroupoid.lemma_8_7]
-#rt_check RoundTrip.V8_10.B_to_A [Polyfold.EpGroupoid.lemma_8_7]
-#rt_overlap RoundTrip.V8_10.B_to_A [Polyfold.EpGroupoid.lemma_8_7]
+#rt_check RoundTrip.V8_10.A_to_B [Polyfold.EpGroupoid.lemma_8_1_8]
+#rt_check RoundTrip.V8_10.B_to_A [Polyfold.EpGroupoid.lemma_8_1_8]
+#rt_overlap RoundTrip.V8_10.B_to_A [Polyfold.EpGroupoid.lemma_8_1_8]
 
 end RoundTrip.V8_10

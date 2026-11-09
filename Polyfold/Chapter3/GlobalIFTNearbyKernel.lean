@@ -2,7 +2,7 @@ import Polyfold.Chapter3.GlobalIFTNearbyGraph
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1) at the nearby zeros, the kernel**: in the chart at `x₀`, at every zero
+**Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel**: in the chart at `x₀`, at every zero
 `z₀ = ϕ(y)` of the filled section `g` near `0`, the kernel of the intrinsic linearization
 `Tf̃(z₀) = Dg(z₀)|_{T_{z₀}O}` is the tangent space of the solution set, it lies in `T_{z₀}O`, and
 it is in good position to the partial cone `C_{z₀}O = T_{z₀}O ∩ C_{z₀}` inside `T_{z₀}O`.
@@ -11,20 +11,20 @@ it is in good position to the partial cone `C_{z₀}O = T_{z₀}O ∩ C_{z₀}` 
 
 ## The text, paraphrased
 
-(Proof of Theorem 3.54, (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that `ψ ∘ ϕ(y) = v + σ(v)`,
+(Proof of Theorem 3.6.8 (preprint 3.54), (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that `ψ ∘ ϕ(y) = v + σ(v)`,
 the kernel `ker f'(y)` is in good position to the partial cone `C_yX ⊆ T_yX`, and `f'(y)` is
 surjective.  Property (4) follows from Corollary 3.41 and from Lemma 3.55."
 
 ## What is formalized
 
-`Polyfold.theorem_3_54_chart_kernel_wholeChart`: in the data of `theorem_3_54_chart_graph_wholeChart` (the chart at
+`Polyfold.theorem_3_6_8_chart_kernel_wholeChart`: in the data of `theorem_3_6_8_chart_graph_wholeChart` (the chart at
 `x₀`, the filler `g`, the conjugating strong bundle isomorphism `Ψ` with base map `ψ` and inverse
 `ψ'`, the germ `h + t = 𝒮.fsum h'` with kernel `K = ker D(h + t)(0)`, the closed good complement
 `Yc`, the solution graph `σ : V' → Yc` with its `C¹`-lift), there is an open neighbourhood `N₃` of
 `0` such that for every zero `z₀ ∈ O ∩ N₃` of `g`, with `z = ψ(z₀) = v + σ(v)`, the level-`1`
 points `z₀₁ ∈ U₁`, `x₁ = v + σ(v) ∈ U'₁`:
 
-(i) `D(h + t)(x₁)` is a surjective Fredholm operator of index `n − N` (Corollary 3.41);
+(i) `D(h + t)(x₁)` is a surjective Fredholm operator of index `n − N` (Corollary 3.5.3 (preprint 3.41));
 (a) `N_v = {n + Dσ(v)n} = ker D(h + t)(x₁)` (`StabilityData.graphSpace_eq_ker_Dfs'`);
 (b) `D(Ψ_*g)(x₁) = D(h + t)(x₁)` and `ker Dg(z₀) = Dψ'(x₁)(ker D(h + t)(x₁))` (the chain rule
     for the push-forward at the zero `z₀`);
@@ -32,22 +32,22 @@ points `z₀₁ ∈ U₁`, `x₁ = v + σ(v) ∈ U'₁`:
     `r' ∘ (v + σ(v)) = v + σ(v)` for the transported retraction `r' = ψ ∘ r ∘ ψ'`, and
     differentiating along `V'` with the `C¹`-lift of `σ` shows that `Dr'(x₁)` fixes `N_v`;
 (d) `ker Dg(z₀)` is in good position to `C_{z₀}` inside `T_{z₀}O` (`IsInGoodPositionIn`):
-    Lemma 3.55 gives the good position of `N_v` to `C'_z`, carried to `C_{z₀}` by the linear
+    Lemma 3.6.9 (preprint 3.55) gives the good position of `N_v` to `C'_z`, carried to `C_{z₀}` by the linear
     isomorphism `Dψ'(x₁)` (which maps `C'_z` onto `C_{z₀}`, the one-sided sign argument), and a
     good complement in `E` restricts to `T_{z₀}O` because `ker Dg(z₀) ⊆ T_{z₀}O`.
 
 Hence `ker Tf̃(z₀) = ker Dg(z₀)` has dimension `d = dim K` and is in good position to the partial
-cone, which is condition (2) of Definition 3.53 at `z₀` in the chart at `x₀` (the chart
+cone, which is condition (2) of Definition 3.6.6 (preprint 3.53) at `z₀` in the chart at `x₀` (the chart
 independence, to the chart centred at `y`, is not part of this file).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The identification `N_v = ker D(h + t)(z)`** (Finding 91 (a)) is done here through the
-  `C¹`-lift `σ₁` of Theorem 3.47 (1) and the index count of Corollary 3.41.
+  `C¹`-lift `σ₁` of Theorem 3.5.11 (preprint 3.47) (1) and the index count of Corollary 3.5.3 (preprint 3.41).
 * **`ker Dg(z₀) ⊆ T_{z₀}O` at the nearby zero** is not a consequence of the filler conditions
-  (condition (3) of Definition 3.4 holds at `0` only); it follows from the tangency of the
+  (condition (3) of Definition 3.1.4 (preprint 3.4) holds at `0` only); it follows from the tangency of the
   solution set to `O`.  The text does not comment on this step.
-* **Surjectivity of `Tf̃(z₀)`** is **not** proved here (Corollary 3.41 gives the surjectivity of
+* **Surjectivity of `Tf̃(z₀)`** is **not** proved here (Corollary 3.5.3 (preprint 3.41) gives the surjectivity of
   the filled `Dg(z₀) : E → F`, not of its restriction `T_{z₀}O → K_{z₀}`); see
   `GlobalIFTNearbySurj.lean`.
 -/
@@ -67,8 +67,8 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 open StrongRetr
 
 set_option maxHeartbeats 1600000 in
-/-- **Theorem 3.54 (1) at the nearby zeros, the kernel, in the chart at `x₀`.**  In the data of
-`theorem_3_54_chart_graph_wholeChart` there is an open neighbourhood `N₃ ⊆ N₂` of `0` such that for every
+/-- **Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros, the kernel, in the chart at `x₀`.**  In the data of
+`theorem_3_6_8_chart_graph_wholeChart` there is an open neighbourhood `N₃ ⊆ N₂` of `0` such that for every
 zero `z₀ ∈ O ∩ N₃` of `g` there are `v ∈ V'` with `ψ(z₀) = v + σ(v)`, the level-`1` point
 `z₀₁ ∈ U₁` over `z₀` and `x₁ = ψ₁(z₀₁) ∈ G₁` over `v + σ(v)`, with:
 (i) `D(h + t)(x₁)` surjective Fredholm of index `n − N`;
@@ -76,7 +76,7 @@ zero `z₀ ∈ O ∩ N₃` of `g` there are `v ∈ V'` with `ψ(z₀) = v + σ(v
 (b) `D(Ψ_*g)(x₁) = D(h + t)(x₁)` and `ker Dg(z₀₁) = Dψ'(x₁)(ker D(h + t)(x₁))`;
 (c) `ker Dg(z₀₁) ⊆ T_{z₀}O = Dr(z₀₁)E`;
 (d) `ker Dg(z₀₁)` is in good position to `C_{z₀}` inside `T_{z₀}O`. -/
-theorem theorem_3_54_chart_kernel_wholeChart (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_3_6_8_chart_kernel_wholeChart (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0U : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFilledVersion hU hR h0U fb g) (hfb0 : fb 0 = 0)
     {Pn Q : Type} [NormedAddCommGroup Pn] [NormedSpace ℝ Pn] [FiniteDimensional ℝ Pn]
@@ -161,10 +161,10 @@ theorem theorem_3_54_chart_kernel_wholeChart (hU : IsRelOpenInQuadrant E C U)
   -- the `C¹`-lift of `σ`
   obtain ⟨V₁, ⟨O₁, hO₁, hV₁⟩, h0V₁, hV₁V', σ₁, hσ₁, hσ₁eq⟩ := hlift 1 le_rfl
   have hV₁V'' : V₁ = V' ∩ O₁ := relOpen_cone_inter hV'rel hV₁ hV₁V'
-  -- Corollary 3.41 and Lemma 3.55 at the graph points
+  -- Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55) at the graph points
   obtain ⟨ρ₁, hρ₁, hA⟩ := 𝒮.exists_surjective_Dfs'_graph hCt hh'𝒮 hsurj h0V' hσC.continuousOn hσ0
     hsol
-  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_55_relOpen T' hT' hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
+  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_6_9_relOpen T' hT' hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
   obtain ⟨ρ₃, hρ₃, hρ₃O⟩ := Metric.isOpen_iff.1 hO₁ 0 (hV₁ ▸ h0V₁ : (0 : _) ∈ O₁ ∩ _).1
   -- the projection onto `K` along `Yc`
   have hTC : Submodule.IsTopCompl (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) Yc :=

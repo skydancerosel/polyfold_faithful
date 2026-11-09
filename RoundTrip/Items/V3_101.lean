@@ -4,24 +4,24 @@ import RoundTrip.Blind.V3_101
 
 /-!
 Round trip for V3_101 (Theorems 3.19 and 3.56 with "`f'(x)` surjective").  `A` is the conjunction
-of the types of `Polyfold.theorem_3_19_of_surjective`, `Polyfold.theorem_3_56_of_surjective` and
-`Polyfold.theorem_3_56_tame`, universes instantiated at `0`.
+of the types of `Polyfold.theorem_3_1_22_of_surjective`, `Polyfold.theorem_3_6_10_of_surjective` and
+`Polyfold.theorem_3_6_10_tame`, universes instantiated at `0`.
 
 Neither direction is proved.
 
 * `A → B`: the (3.56) conjunct of `B` follows from `A` (`A_to_B_3_56` below:
-  `theorem_3_56_of_surjective` when `S ≠ ∅`, the empty atlas when `S = ∅`, and the open-chart
+  `theorem_3_6_10_of_surjective` when `S ≠ ∅`, the empty atlas when `S = ∅`, and the open-chart
   glue of V3_95 for `IsManifoldWithCornersLoc ∧ d ≡ 0 ⇒ HasBoundarylessManifoldStructure`).  The
   (3.19) conjunct does not: (i) `B` assumes only `IsScFredholmSection` (germ data in some chart, no
-  tameness) while `theorem_3_19_of_surjective` needs `IsScFredholmSectionTame`, and
-  `theorem_3_56_tame` (which takes a plain `IsScFredholmSection`) needs good position in a *tame*
+  tameness) while `theorem_3_1_22_of_surjective` needs `IsScFredholmSectionTame`, and
+  `theorem_3_6_10_tame` (which takes a plain `IsScFredholmSection`) needs good position in a *tame*
   chart at every zero; the project has no lemma producing tame germ data when `d_X ≡ 0`;
   (ii) `B` asserts that `f'(x₀) : T_zO → K_z` is an sc-Fredholm *sc-operator* between the induced
   sc-subspaces, with sc-index `d`, in every chart (`ChartLinScFredholm`), while `A` gives only the
   level-`0` statement `IsSurjLinOfIndex` (surjective, Fredholm, index `d = dim ker`).
 * `B → A`: `B`'s (3.56) assumes a tame strong bundle (`IsTameStrongBundle`), which `A` does not,
   and `A` concludes more (tameness of the induced structure, regular tangent data of
-  Definition 3.25 (2), `IsSurjLinOfIndex` at the nearby zeros, `theorem_3_56_tame` under good
+  Definition 3.25 (2), `IsSurjLinOfIndex` at the nearby zeros, `theorem_3_6_10_tame` under good
   position for a non-tame section).
 
 **Refresh 2026-11-02 (germ reading at HEAD).**  The three theorems now state the germ reading;
@@ -40,13 +40,13 @@ open Polyfold Set
 /-- The project's statement: Theorems 3.19 and 3.56 with "`f'` surjective", and Theorem 3.56 with
 tameness, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_19_of_surjective.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_56_of_surjective.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_56_tame.{0, 0}
+  type_of% @Polyfold.theorem_3_1_22_of_surjective.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_10_of_surjective.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_10_tame.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_19_of_surjective.{0, 0}, @Polyfold.theorem_3_56_of_surjective.{0, 0},
-    @Polyfold.theorem_3_56_tame.{0, 0}⟩
+  ⟨@Polyfold.theorem_3_1_22_of_surjective.{0, 0}, @Polyfold.theorem_3_6_10_of_surjective.{0, 0},
+    @Polyfold.theorem_3_6_10_tame.{0, 0}⟩
 
 section Glue
 
@@ -141,7 +141,7 @@ theorem boundaryless_of_isEmpty (hZ : IsEmpty Z) (QZ : MPolyfold Z) :
 
 end Glue
 
-/-- **The (3.56) conjunct of `B` follows from `A`** (from `theorem_3_56_of_surjective`; `∂X = ∅`
+/-- **The (3.56) conjunct of `B` follows from `A`** (from `theorem_3_6_10_of_surjective`; `∂X = ∅`
 is `d_X ≡ 0`, `isWithoutBoundary_iff`; the tame-bundle hypothesis of `B` is not used). -/
 theorem A_to_B_3_56 (hA : A) :
     ∀ {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (PX : MPolyfold X)
@@ -161,7 +161,7 @@ theorem A_to_B_3_56 (hA : A) :
   · have hsub : PX.IsSubMPolyfold (solutionSet P f) := fun a ha => absurd ⟨a, ha⟩ hne
     refine ⟨hsub, inferInstance, boundaryless_of_isEmpty ⟨fun z => hne ⟨z.1, z.2⟩⟩ _⟩
 
-#rt_check RoundTrip.V3_101.A_to_B_3_56 [Polyfold.theorem_3_19_of_surjective,
-  Polyfold.theorem_3_56_of_surjective, Polyfold.theorem_3_56_tame]
+#rt_check RoundTrip.V3_101.A_to_B_3_56 [Polyfold.theorem_3_1_22_of_surjective,
+  Polyfold.theorem_3_6_10_of_surjective, Polyfold.theorem_3_6_10_tame]
 
 end RoundTrip.V3_101

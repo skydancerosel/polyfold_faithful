@@ -53,7 +53,7 @@ The homotopies of Theorem 6.6.13 are maps on `[0, 1]²`, and Remark 6.6.19 works
   (it implies the `ℝ`-form `IsPropagationContinuous`; with `orPush_eq_of_endpoints`),
   `existsUnique_orientationTopology_interval` (without (2)), and **`theorem_6_6_17_interval`**:
   there is exactly one Hausdorff topology on `O_f` with (1), (2) and (3) for paths on `[0, 1]`
-  (under `HasConnectedSmoothNbhds`, as `theorem_6_6_17_2021`).
+  (under `HasConnectedSmoothNbhds`, as `theorem_6_6_17_hyp`).
 
 ## What the text leaves implicit, and the choices made
 
@@ -310,12 +310,12 @@ bundle over a tame M-polyfold admitting sc-smooth bump functions and an sc-Fredh
 with tame germ data, every smooth `x` has an open neighbourhood `U`, in the domain of a chart
 `c`, such that along every sc-smooth path `φ : [0, 1] → U` with smooth end points there is a
 push-forward of the orientations of `DET(f, φ(0))`, and two such paths with the same end points
-give the same push-forward.  From `theorem_6_35`. -/
+give the same push-forward.  From `theorem_6_6_11`. -/
 theorem theorem_6_6_11_interval (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {x : X} (hx : x ∈ PX.smoothSet) :
     ∃ (c : StrongBundleChart PX P) (hc : B.IsChart c) (U : Set X), IsOpen U ∧ x ∈ U ∧
       HasLocalPropagationI f hf.toIsScFredholmSection c hc U := by
-  obtain ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_35 hX hbump hf hx
+  obtain ⟨c, hc, U, hUo, hxU, hU⟩ := theorem_6_6_11 hX hbump hf hx
   exact ⟨c, hc, U, hUo, hxU, hU.toInterval⟩
 
 end Exists
@@ -598,7 +598,7 @@ theorem isPropagationContinuousI_orTopology :
 /-- **2021 Theorem 6.6.17, p. 275, with property (3) for sc-smooth paths `φ : [0, 1] → X`**:
 there is exactly one topology on `O_f` which is Hausdorff and has properties (1), (2) and (3)
 (`IsPropagationContinuousI`); under `HasConnectedSmoothNbhds` (used for (2) only), as
-`theorem_6_6_17_2021`.  Existence: `orTopology`; uniqueness: (3) for paths on `[0, 1]` gives (3)
+`theorem_6_6_17_hyp`.  Existence: `orTopology`; uniqueness: (3) for paths on `[0, 1]` gives (3)
 for paths on `ℝ` (`IsPropagationContinuousI.toReal`), and `eq_orTopology_of`. -/
 theorem theorem_6_6_17_interval (hC : PX.HasConnectedSmoothNbhds) :
     ∃! t : TopologicalSpace (OrSpace f hf.toIsScFredholmSection),

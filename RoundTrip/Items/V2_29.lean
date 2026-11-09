@@ -69,7 +69,7 @@ theorem B_to_A : B → A := by
   · intro X _ _ _ Y _ _ _ Q P f g U V h x hx
     rw [(hB X P).1, (hB Y Q).1]
     change 1 ≤ P.degIndex x ↔ 1 ≤ Q.degIndex (f x)
-    rw [proposition_2_24 h hx]
+    rw [proposition_2_4_4 h hx]
 
 #rt_check RoundTrip.V2_29.A_to_B [Polyfold.MPolyfold.isWithoutBoundary_iff,
   Polyfold.MPolyfold.isClosed_boundary, Polyfold.MPolyfold.isOpen_interior,

@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A now contains both statements of Proposition 3.10: proposition_3_10 (Df(0) sc-Fredholm of index dim P − dim Q) and proposition_3_10_level / proposition_3_10_full (for every m there is δ with levelDeriv Df m x Fredholm of index dim P − dim Q for x ∈ U_{m+1}, |ιx|_m < δ), for any basic germ h, sc⁺-germ s (sc¹ into F¹) and f = h + s. A ⇒ B (A_to_B) through proposition_3_10_full: CtB n k is a partial quadrant (ℝⁿ ≅ ℝᵏ × ℝⁿ⁻ᵏ), B's basic germ is the project's with B = w − P_W h, s sc-smooth into F¹ is sc¹; clause (i) as before (scIndex = indexB definitionally); clause (ii) with L := levelDeriv Df m x (A's identity ι_m L v = Df(ιx) ι_m v, ιx = x₁ by injectivity), Mathlib IsFredholm ⇒ B's IsFredholmB, indexB = fredholmIndex, finrank (Fin n → ℝ) = n. B ⇒ A fails genuinely: A is for any finite-dimensional P, Q and any partial (or quadrant-like) C̃, s only sc¹, and contains auxiliary statements B does not address (sc⁺ decomposition of Df(0), index of projWOp, Df(0) of any sc¹-germ is an sc-operator, the StabilityData level-0 statement, the level-m decomposition T₀ + S(x) + K(x) and its W-component).",
+ "why": "A now contains both statements of Proposition 3.10: proposition_3_1_10 (Df(0) sc-Fredholm of index dim P − dim Q) and proposition_3_1_10_level / proposition_3_1_10_full (for every m there is δ with levelDeriv Df m x Fredholm of index dim P − dim Q for x ∈ U_{m+1}, |ιx|_m < δ), for any basic germ h, sc⁺-germ s (sc¹ into F¹) and f = h + s. A ⇒ B (A_to_B) through proposition_3_1_10_full: CtB n k is a partial quadrant (ℝⁿ ≅ ℝᵏ × ℝⁿ⁻ᵏ), B's basic germ is the project's with B = w − P_W h, s sc-smooth into F¹ is sc¹; clause (i) as before (scIndex = indexB definitionally); clause (ii) with L := levelDeriv Df m x (A's identity ι_m L v = Df(ιx) ι_m v, ιx = x₁ by injectivity), Mathlib IsFredholm ⇒ B's IsFredholmB, indexB = fredholmIndex, finrank (Fin n → ℝ) = n. B ⇒ A fails genuinely: A is for any finite-dimensional P, Q and any partial (or quadrant-like) C̃, s only sc¹, and contains auxiliary statements B does not address (sc⁺ decomposition of Df(0), index of projWOp, Df(0) of any sc¹-germ is an sc-operator, the StabilityData level-0 statement, the level-m decomposition T₀ + S(x) + K(x) and its W-component).",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved). A_to_B and the partial A_to_B1 pass #rt_check against all ten listed theorems.",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "incomparable"
   },
-  "note": "A gained proposition_3_10_level/proposition_3_10_full (Proposition 3.10 on every level, smallness on level m), exactly B's missing clause (ii); A_to_B is now proved. B ⇒ A still fails (A's generality and auxiliary lemmas), so incomparable → A_stronger."
+  "note": "A gained proposition_3_1_10_level/proposition_3_1_10_full (Proposition 3.10 on every level, smallness on level m), exactly B's missing clause (ii); A_to_B is now proved. B ⇒ A still fails (A's generality and auxiliary lemmas), so incomparable → A_stronger."
  }
 }

@@ -4,17 +4,17 @@ import RoundTrip.Blind.V3_81
 
 /-!
 Round trip for V3_81 (Theorem 3.54 (1) at the nearby zeros: the kernel).  `A` is the conjunction of
-the types of `Polyfold.theorem_3_54_nearby_kernel` (universes `0, 0`),
-`Polyfold.theorem_3_54_chart_kernel`, `Polyfold.StabilityData.graphSpace_eq_ker_Dfs'`,
+the types of `Polyfold.theorem_3_6_8_nearby_kernel` (universes `0, 0`),
+`Polyfold.theorem_3_6_8_chart_kernel`, `Polyfold.StabilityData.graphSpace_eq_ker_Dfs'`,
 `Polyfold.IsStrongBundleIso.scDeriv_pushforward_at`,
 `Polyfold.IsStrongBundleIso.ker_scDeriv_eq_map`, `Polyfold.scDeriv_mem_partialQuadrantAtWith_iff`,
 `Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le` and (new in the refresh 2026-11-02)
 `Polyfold.IsStrongBundleIso.ker_deriv_eq_map_germ`.  Since the germ reading,
-`theorem_3_54_nearby_kernel` assumes the text's germ reading (`IsGoodPositionGermTame`) and states
+`theorem_3_6_8_nearby_kernel` assumes the text's germ reading (`IsGoodPositionGermTame`) and states
 the kernel of the derivative family `Q` of the filling germ at the level-`1` point `z₀₁`.
 
 Neither direction is proved.  Diagnosis of `A → B` (believed true; proof effort only):
-* `A`'s kernel statement (`theorem_3_54_nearby_kernel`, last conjunct) is made in **one** chart:
+* `A`'s kernel statement (`theorem_3_6_8_nearby_kernel`, last conjunct) is made in **one** chart:
   the tame chart `c` centred at `x₀` that the theorem constructs, for **one** presentation `T` of
   the quadrant, for the kernel of the filling germ's derivative `Q(z₀₁)` (shown to lie in
   `T_{z₀}O`), with an **algebraic** good complement.  `B` asks for the kernel
@@ -30,11 +30,11 @@ Neither direction is proved.  Diagnosis of `A → B` (believed true; proof effor
   point `z` (Proposition 2.35 at `z`, the transport lemma to `E` with the re-centred presentation
   of `C_z` from `Chapter4/Recentre.lean`, `IsInGoodPosition.isInGoodPositionScIn`), with the
   smooth finite-dimensional kernel from `linAt_isScFredholm`.  A few hundred lines through the
-  slow destructuring of `theorem_3_54_nearby_kernel`; not attempted within the budget.  All these
-  tools pass `#rt_check` (`glue_avail`).  (`theorem_3_54_one'` cannot be borrowed: it uses five
+  slow destructuring of `theorem_3_6_8_nearby_kernel`; not attempted within the budget.  All these
+  tools pass `#rt_check` (`glue_avail`).  (`theorem_3_6_8_one'` cannot be borrowed: it uses five
   of `A`'s lemmas.)
 
-`B → A` fails for a real reason: `theorem_3_54_nearby_kernel` assumes only `IsSection` and good
+`B → A` fails for a real reason: `theorem_3_6_8_nearby_kernel` assumes only `IsSection` and good
 position with an algebraic complement (no tame strong bundle, no sc-Fredholm property), and it
 asserts the whole graph description (`σ`, `Yc`, `V'`, the Fredholm index, the chart identities),
 none of which `B` states; the other seven conjuncts are chart-level lemmas.
@@ -45,8 +45,8 @@ open Polyfold
 /-- The project's statement: Theorem 3.54 (1) at the nearby zeros, the kernel (in the chart at
 `x₀` and in the abstract chart data), and the six lemmas of its proof (germ reading). -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_54_nearby_kernel.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_chart_kernel ∧
+  type_of% @Polyfold.theorem_3_6_8_nearby_kernel.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_chart_kernel ∧
     type_of% @Polyfold.StabilityData.graphSpace_eq_ker_Dfs' ∧
     type_of% @Polyfold.IsStrongBundleIso.scDeriv_pushforward_at ∧
     type_of% @Polyfold.IsStrongBundleIso.ker_scDeriv_eq_map ∧
@@ -55,7 +55,7 @@ def A : Prop :=
     type_of% @Polyfold.IsStrongBundleIso.ker_deriv_eq_map_germ
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_54_nearby_kernel.{0, 0}, @Polyfold.theorem_3_54_chart_kernel,
+  ⟨@Polyfold.theorem_3_6_8_nearby_kernel.{0, 0}, @Polyfold.theorem_3_6_8_chart_kernel,
     @Polyfold.StabilityData.graphSpace_eq_ker_Dfs', @Polyfold.IsStrongBundleIso.scDeriv_pushforward_at,
     @Polyfold.IsStrongBundleIso.ker_scDeriv_eq_map, @Polyfold.scDeriv_mem_partialQuadrantAtWith_iff,
     @Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le,
@@ -72,8 +72,8 @@ theorem glue_avail : (type_of% @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0})
   ⟨@Polyfold.StrongBundle.linAt_isScFredholm.{0, 0},
     @Polyfold.StrongBundle.linAt_chart_independence.{0, 0}, @Polyfold.linAt_eq_germDeriv⟩
 
-#rt_check RoundTrip.V3_81.glue_avail [Polyfold.theorem_3_54_nearby_kernel,
-  Polyfold.theorem_3_54_chart_kernel, Polyfold.StabilityData.graphSpace_eq_ker_Dfs',
+#rt_check RoundTrip.V3_81.glue_avail [Polyfold.theorem_3_6_8_nearby_kernel,
+  Polyfold.theorem_3_6_8_chart_kernel, Polyfold.StabilityData.graphSpace_eq_ker_Dfs',
   Polyfold.IsStrongBundleIso.scDeriv_pushforward_at, Polyfold.IsStrongBundleIso.ker_scDeriv_eq_map,
   Polyfold.scDeriv_mem_partialQuadrantAtWith_iff, Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le,
   Polyfold.IsStrongBundleIso.ker_deriv_eq_map_germ]

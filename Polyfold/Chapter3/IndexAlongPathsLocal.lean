@@ -2,19 +2,19 @@ import Polyfold.Chapter3.IndexLocallyConstantLocal
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.1,
-**Definition 6.1** (the index of an sc-Fredholm germ at a smooth point, with a *locally defined*
-sc⁺-section) and **Proposition 6.2** (stability of the index along sc-smooth paths,
+**Definition 6.2.1 (preprint 6.1)** (the index of an sc-Fredholm germ at a smooth point, with a *locally defined*
+sc⁺-section) and **Proposition 6.2.2 (preprint 6.2)** (stability of the index along sc-smooth paths,
 pp. 200–203), **with the text's hypotheses**: tame germ data and no bump functions ("we do not
 need a sc-smooth partition of unity").  Round-trip item V3.98 (a); Findings, Chapter 3, items
 360–369.
 
-# Definition 6.1 with local sections, and Proposition 6.2 without bump functions
+# Definition 6.2.1 (preprint 6.1) with local sections, and Proposition 6.2.2 (preprint 6.2) without bump functions
 
 ## The text, paraphrased
 
 (§6.1) At a smooth point `x` with `f(x) ≠ 0` "we take a local sc⁺-section `s` with `s(x) = f(x)`
 (in a chart, `s(y) = R(y, f(x))`)" and linearize `f − s` at its zero `x`; the Fredholm property
-and the index do not depend on `s`.  (Proposition 6.2) For a tame strong bundle, an sc-Fredholm
+and the index do not depend on `s`.  (Proposition 6.2.2 (preprint 6.2)) For a tame strong bundle, an sc-Fredholm
 section `f` and an sc-smooth path `φ`, `ind(f, φ(t))` is constant.  *Proof.* Near `t₀` a locally
 defined sc⁺-section `s(t, x)` of the pull-back with `s(t, φ(t)) = f(φ(t))` ("we do not need a
 sc-smooth partition of unity"), the stabilization by finitely many sc⁺-sections `R(·, eᵢ)` in a
@@ -22,7 +22,7 @@ chart, the implicit function theorem and the index count.
 
 ## What is formalized
 
-* `Polyfold.StrongBundle.IsIndexAtLocal B f x i` (**Definition 6.1 with local sections**): there
+* `Polyfold.StrongBundle.IsIndexAtLocal B f x i` (**Definition 6.2.1 (preprint 6.1) with local sections**): there
   is an open `V ∋ x` and an sc⁺-section `s` of the restriction `P|V` (`StrongBundle.restrictOpen`)
   with `(f|V + s)(x) = 0` and `(f|V + s)'(x)` Fredholm of index `i` in every chart of `P|V`
   (`IsIndexAt` on `P|V`).  `IsIndexAt.isIndexAtLocal` (**a global section gives a local one**),
@@ -36,21 +36,21 @@ chart, the implicit function theorem and the index count.
   the path (E) with the cut-off as data / with no cut-off on a bundle with a chart over the
   whole base; `isLinOfIndex_paramLift_sectionAdd_eventually_const_of_sections` and
   `hasScPlusSectionsThrough_pullback_rn_of_chart` (the stabilizing sections on `ℝ × V`).
-* **`Polyfold.proposition_6_2_local`** (**Proposition 6.2 with the text's hypotheses**): for an
-  sc-Fredholm section `f` with tame germ data (Definition 3.51) of a strong bundle `P : Y → X`
-  (no bump functions) and an sc-smooth path `φ : ℝ → X`, `ind(f, φ(t))` (Definition 6.1 with local
-  sections, `IsIndexAtLocal`) is one integer for all `t`; `proposition_6_2_local'` states
+* **`Polyfold.proposition_6_2_2_local`** (**Proposition 6.2.2 (preprint 6.2) with the text's hypotheses**): for an
+  sc-Fredholm section `f` with tame germ data (Definition 3.6.4 (preprint 3.51)) of a strong bundle `P : Y → X`
+  (no bump functions) and an sc-smooth path `φ : ℝ → X`, `ind(f, φ(t))` (Definition 6.2.1 (preprint 6.1) with local
+  sections, `IsIndexAtLocal`) is one integer for all `t`; `proposition_6_2_2_local'` states
   `ind(f, φ(0)) = ind(f, φ(1))` for any two values of the index.
 
 ## What the text leaves implicit, and the choices made
 
-* **The local section of Definition 6.1 is a section of `P|V`**, `V` an open neighbourhood of `x`
+* **The local section of Definition 6.2.1 (preprint 6.1) is a section of `P|V`**, `V` an open neighbourhood of `x`
   (the text: "a local sc⁺-section"; in a chart, on the chart domain).  The index is defined on
-  `P|V` by the global Definition 6.1 of `IndexAlongPaths.lean` (`IsIndexAt`), so Theorem 3.15 and
+  `P|V` by the global Definition 6.2.1 (preprint 6.1) of `IndexAlongPaths.lean` (`IsIndexAt`), so Theorem 3.1.18 (preprint 3.15) and
   the germ data on `P|V` (`RestrictOpenGerms.lean`) make it well defined; the comparison of two
   local sections on different domains needs the restriction to the intersection
   (`sectionRestrict`).
-* **The proof of Proposition 6.2** is that of `IndexAlongPathsDevice.lean` run on the restriction
+* **The proof of Proposition 6.2.2 (preprint 6.2)** is that of `IndexAlongPathsDevice.lean` run on the restriction
   `P|V` to the domain of a chart around `φ(t₀)`, where the sc⁺-sections of the text need no
   cut-off: the path is reparametrized into `V` (`exists_contDiff_eq_id_near_mapsTo`, as before),
   the section along the path is `exists_isScPlusSection_pullback_of_path_of_chart` with `β = 1`,
@@ -58,7 +58,7 @@ chart, the implicit function theorem and the index count.
   (`hasScPlusSectionsThrough_of_chart`), the local constancy along the zero set is
   `index_locally_constant_of_sections`, and the slice relation (S) is unchanged.  The hypotheses
   beyond the text: tame germ data in place of "tame strong bundle" (the project's reading of
-  Definition 3.51), and paths on `ℝ` (an sc-smooth path on `[0, 1]` which extends to `ℝ` is
+  Definition 3.6.4 (preprint 3.51)), and paths on `ℝ` (an sc-smooth path on `[0, 1]` which extends to `ℝ` is
   covered; a path sc-smooth on `[0, 1]` only is not).
 -/
 
@@ -292,7 +292,7 @@ theorem StrongBundle.IsLinOfIndex.restrictOpen_of_subset {g : V → pullbackSpac
   have h2 := hi cV hcV' hwc' _ hz hzU L fun x => hcongr x
   exact h2.2.symm.trans h1.2
 
-/-- **Definition 6.1 on `P|V` restricts to `P|W`**, `W ⊆ V` open. -/
+/-- **Definition 6.2.1 (preprint 6.1) on `P|V` restricts to `P|W`**, `W ⊆ V` open. -/
 theorem StrongBundle.IsIndexAt.restrictOpen_of_subset {f : X → Y}
     (hf : B.IsScFredholmSection f) {w : W} {i : ℤ}
     (hi : (B.restrictOpen hV).IsIndexAt (restrictSection P V f hf.isScSmooth.1)
@@ -302,8 +302,8 @@ theorem StrongBundle.IsIndexAt.restrictOpen_of_subset {f : X → Y}
   have hfs := hf.isScSmooth.1
   have hfV := hf.restrictOpen hV
   have hfW := hf.restrictOpen hW
-  have hgV := theorem_3_15 hfV hs
-  have hgW := theorem_3_15 hfW (hs.restrictOpen_of_subset hV hW hWV)
+  have hgV := theorem_3_1_18_preprint hfV hs
+  have hgW := theorem_3_1_18_preprint hfW (hs.restrictOpen_of_subset hV hW hWV)
   refine ⟨sectionRestrict P hWV s hs.1, hs.restrictOpen_of_subset hV hW hWV, ?_, ?_⟩
   · rw [← sectionRestrict_restrictSection hWV hfs, ← sectionRestrict_sectionAdd]
     exact (isZeroAt_sectionRestrict_iff hWV _ w).2 hsx
@@ -322,7 +322,7 @@ theorem StrongBundle.IsIndexAt.restrictOpen_of_subset {f : X → Y}
 
 end SectionRestrict
 
-/-! ### Definition 6.1 with local sections -/
+/-! ### Definition 6.2.1 (preprint 6.1) with local sections -/
 
 section IndexAtLocal
 
@@ -332,7 +332,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y}
 
 variable (B) in
-/-- **Definition 6.1 with a locally defined sc⁺-section** (the text's "we take a local
+/-- **Definition 6.2.1 (preprint 6.1) with a locally defined sc⁺-section** (the text's "we take a local
 sc⁺-section `s` with `s(x) = f(x)`"): the sc-Fredholm germ `(f, x)` has **index `i`** if there is
 an open `V ∋ x` and an sc⁺-section `s` of the restriction `P|V` with `(f|V + s)(x) = 0` and
 `(f|V + s)'(x)` Fredholm of index `i` in every chart of `P|V` (`IsIndexAt` on `P|V`).  By
@@ -355,7 +355,7 @@ theorem StrongBundle.IsIndexAt.isIndexAtLocal (hf : B.IsScFredholmSection f) {x 
     (PX.restrictOpen isOpen_univ) B
   exact hi.restrictOpen isOpen_univ hf (mem_univ x)
 
-/-- **Definition 6.1 with local sections is well defined**: two local sc⁺-sections `s` on `V`
+/-- **Definition 6.2.1 (preprint 6.1) with local sections is well defined**: two local sc⁺-sections `s` on `V`
 and `s'` on `V'` give the same index — both restrict to `V ∩ V'`
 (`IsIndexAt.restrictOpen_of_subset`), where `IsIndexAt.unique` applies. -/
 theorem StrongBundle.IsIndexAtLocal.unique (hf : B.IsScFredholmSection f) {x : X} {i j : ℤ}
@@ -385,10 +385,10 @@ theorem StrongBundle.isIndexAtLocal_of_isZeroAt (hf : B.IsScFredholmSection f) {
     (hx : IsZeroAt P f x) {i : ℤ} (hi : B.IsLinOfIndex f x i) : B.IsIndexAtLocal f x i :=
   (StrongBundle.isIndexAt_of_isZeroAt hf.isScSmooth.1 hx hi).isIndexAtLocal hf
 
-/-- **`ind(f, x)` exists at every smooth point, without bump functions** (Definition 6.1 with the
+/-- **`ind(f, x)` exists at every smooth point, without bump functions** (Definition 6.2.1 (preprint 6.1) with the
 text's local section): in a chart `c` around `x`, the sc⁺-section `s(y) = −R(φ(y), Φ(f(x))₂)` of
 `P|dom φ` has `s(x) = −f(x)` (`hasScPlusSectionsThrough_of_chart`), and `(f + s)'(x)` is Fredholm
-by Theorem 3.15 and the germ data of `f + s` at `x` on `P|dom φ`. -/
+by Theorem 3.1.18 (preprint 3.15) and the germ data of `f + s` at `x` on `P|dom φ`. -/
 theorem StrongBundle.exists_isIndexAtLocal (hf : B.IsScFredholmSection f) {x : X}
     (hx : x ∈ PX.smoothSet) : ∃ i : ℤ, B.IsIndexAtLocal f x i := by
   obtain ⟨c, hc, hxc⟩ := StrongBundle.exists_chart_mem B x
@@ -425,7 +425,7 @@ theorem StrongBundle.exists_isIndexAtLocal (hf : B.IsScFredholmSection f) {x : X
         ⟨fV ⟨x, hxc⟩, hfV'.isScSmooth.1 _⟩ := Subtype.ext hs₀x
     rw [h1, h2, neg_one_smul, add_neg_cancel]
     rfl
-  have hF := theorem_3_15 hfV' hs
+  have hF := theorem_3_1_18_preprint hfV' hs
   obtain ⟨-, c₁, hc₁, hxV₁, hφ₁, h0₁, g, t₀, hfill, ht₀, ht₀0, hconj⟩ := hF.germ _ hxs
   obtain ⟨dc⟩ := isConjugateToBasicGerm_iff_nonempty.1 hconj
   exact ⟨_, hfs, c.φ.source, hV, hxc, s, hs, hzero,
@@ -664,7 +664,7 @@ theorem hasScPlusSectionsThrough_pullback_rn_of_chart {c : StrongBundleChart PX 
 
 end Device
 
-/-! ### Proposition 6.2 with the text's hypotheses -/
+/-! ### Proposition 6.2.2 (preprint 6.2) with the text's hypotheses -/
 
 section Prop62
 
@@ -689,15 +689,15 @@ theorem isLinOfIndex_paramLift_sectionAdd_eventually_const_of_sections
     ∃ i : ℤ, ∀ᶠ t in 𝓝 t₀, (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold 1) PX)).IsLinOfIndex
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S) (t, φ t) i := by
   obtain ⟨V, i, hVo, hxV, hall⟩ := index_locally_constant_of_sections hsec
-    (theorem_3_15_tame hf.param hS) hz.self_of_nhds
+    (theorem_3_1_18_tame hf.param hS) hz.self_of_nhds
   refine ⟨i, ?_⟩
   filter_upwards [hz, (continuousAt_id.prodMk hφ).preimage_mem_nhds (hVo.mem_nhds hxV)]
     with t ht htV
   exact hall _ htV ht
 
-/-- **Proposition 6.2 near `t₀`, on the restriction to a chart domain**: let `f` have tame germ
+/-- **Proposition 6.2.2 (preprint 6.2) near `t₀`, on the restriction to a chart domain**: let `f` have tame germ
 data and `φ : ℝ → X` be sc-smooth.  Then for every `t₀` there is `i` with
-`ind(f, φ(t)) = i` (Definition 6.1 with local sections) for all `t` near `t₀`.  The text's
+`ind(f, φ(t)) = i` (Definition 6.2.1 (preprint 6.1) with local sections) for all `t` near `t₀`.  The text's
 device on `P|V`, `V = dom φ_c` for a chart `c` around `φ(t₀)`: the path reparametrized into `V`,
 the section along the path without cut-off, the stabilizing sections `R(·, eᵢ)` in the product
 chart, the local constancy along the zero set and the slice relation. -/
@@ -750,27 +750,27 @@ theorem isIndexAtLocal_eventually_const_of_path (hf : B.IsScFredholmSectionTame 
   rw [hpt] at h
   exact ⟨hfs, c.φ.source, hV, hφtV, h⟩
 
-/-- **Proposition 6.2 (stability of the index along sc-smooth paths), with the text's
-hypotheses**: let `f` be an sc-Fredholm section with tame germ data (Definition 3.51) of a strong
+/-- **Proposition 6.2.2 (preprint 6.2) (stability of the index along sc-smooth paths), with the text's
+hypotheses**: let `f` be an sc-Fredholm section with tame germ data (Definition 3.6.4 (preprint 3.51)) of a strong
 bundle `P : Y → X` — no bump functions — and `φ : ℝ → X` an sc-smooth path.  Then
-`ind(f, φ(t))` (Definition 6.1 with a locally defined sc⁺-section, `IsIndexAtLocal`) is one
+`ind(f, φ(t))` (Definition 6.2.1 (preprint 6.1) with a locally defined sc⁺-section, `IsIndexAtLocal`) is one
 integer for all `t`; in particular `ind(f, φ(0)) = ind(f, φ(1))`.  The proof is the text's:
 near each `t₀` the device of `IndexAlongPathsDevice.lean` on the restriction of `P` to the domain
 of a chart around `φ(t₀)` (`isIndexAtLocal_eventually_const_of_path`), where the sc⁺-sections of
 the text need no cut-off ("we do not need a sc-smooth partition of unity"), and the
 preconnectedness of `ℝ` (`isIndexAtLocal_const_of_forall_eventually`). -/
-theorem proposition_6_2_local (hf : B.IsScFredholmSectionTame f) {φ : (Fin 1 → ℝ) → X}
+theorem proposition_6_2_2_local (hf : B.IsScFredholmSectionTame f) {φ : (Fin 1 → ℝ) → X}
     (hφ : (rnPolyfold 1).IsScSmoothMap PX φ) :
     ∃ i : ℤ, ∀ t, B.IsIndexAtLocal f (φ t) i :=
   isIndexAtLocal_const_of_forall_eventually hf.toIsScFredholmSection fun t₀ =>
     isIndexAtLocal_eventually_const_of_path hf hφ t₀
 
-/-- **Proposition 6.2, the text's form**: `ind(f, φ(0)) = ind(f, φ(1))` for any two values `i`,
+/-- **Proposition 6.2.2 (preprint 6.2), the text's form**: `ind(f, φ(0)) = ind(f, φ(1))` for any two values `i`,
 `j` of the local index at the ends of the path (`IsIndexAtLocal.unique`). -/
-theorem proposition_6_2_local' (hf : B.IsScFredholmSectionTame f) {φ : (Fin 1 → ℝ) → X}
+theorem proposition_6_2_2_local' (hf : B.IsScFredholmSectionTame f) {φ : (Fin 1 → ℝ) → X}
     (hφ : (rnPolyfold 1).IsScSmoothMap PX φ) {i j : ℤ}
     (hi : B.IsIndexAtLocal f (φ 0) i) (hj : B.IsIndexAtLocal f (φ 1) j) : i = j := by
-  obtain ⟨k, hk⟩ := proposition_6_2_local hf hφ
+  obtain ⟨k, hk⟩ := proposition_6_2_2_local hf hφ
   exact (hi.unique hf.toIsScFredholmSection (hk 0)).trans
     ((hk 1).unique hf.toIsScFredholmSection hj)
 

@@ -8,17 +8,17 @@ import RoundTrip.Blind.V7_19
 arbitrary natural representation `R : X.NaturalRep x` (`isOpen_image_Γ`, `Γ_mem_image`,
 `pairwise_disjoint_image_Γ`, `iUnion_image_Γ`, `isOpen_morOn`, `isConnected_image_Γ`,
 `connectedComponentIn_morOn`, `isScDiffeoOn_src_image`, `isScDiffeoOn_tgt_image`, `Γ_index`), and
-`EpGroupoid.lemma_7_8` (`NaturalRep.index` is a definition: vocabulary).  The project's
+`EpGroupoid.lemma_7_6_2` (`NaturalRep.index` is a definition: vocabulary).  The project's
 `𝐔(g)` is `Γ(g, U)`.
 
-* `A → B`: `A`'s `lemma_7_8` with `N_g = W` for every `g` gives `U₁ ⊆ V` with `𝐔(U₁) ⊆ W`; a
+* `A → B`: `A`'s `lemma_7_6_2` with `N_g = W` for every `g` gives `U₁ ⊆ V` with `𝐔(U₁) ⊆ W`; a
   natural representation `R` with `R.U ⊆ U₁` is built by the project's construction of Theorem 7.5
-  (sheets, Lemma 7.9, `mkRep`), re-assembled here with `A`'s `lemma_7_8` in place of the project's
-  (`theorem_7_1` itself is not in `A` and its proof uses `lemma_7_8`, which may not be used).  Then
+  (sheets, Lemma 7.9, `mkRep`), re-assembled here with `A`'s `lemma_7_6_2` in place of the project's
+  (`theorem_7_1_13` itself is not in `A` and its proof uses `lemma_7_6_2`, which may not be used).  Then
   `𝐔(g) := Γ(g, U)` and `A`'s ten facts give the splitting clauses of `B` (component, disjoint,
   covering, `s` and `t` sc-diffeomorphisms), while `B`'s `IsNatRepData` comes from the fields of
   `R`.
-* `B → A`: `lemma_7_8` follows from `B` (take `V = int U₀` and `W = ⋃_g N_g`; then every `h`
+* `B → A`: `lemma_7_6_2` follows from `B` (take `V = int U₀` and `W = ⋃_g N_g`; then every `h`
   between points of `U` lies in `W`).  The other ten conjuncts are statements about every
   natural representation, which `B` (an existence statement) does not give; they are re-proved
   outright from the fields of `NaturalRep`, as in the project. -/
@@ -38,7 +38,7 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_src_image.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_tgt_image.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NaturalRep.Γ_index.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_7_8.{0})
+  (type_of% @Polyfold.EpGroupoid.lemma_7_6_2.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.NaturalRep.isOpen_image_Γ.{0},
@@ -51,7 +51,7 @@ theorem A_holds : A :=
     @Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_src_image.{0},
     @Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_tgt_image.{0},
     @Polyfold.EpGroupoid.NaturalRep.Γ_index.{0},
-    @Polyfold.EpGroupoid.lemma_7_8.{0}⟩
+    @Polyfold.EpGroupoid.lemma_7_6_2.{0}⟩
 
 section Dictionary
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -101,7 +101,7 @@ theorem natRepData (R : X.NaturalRep x) :
 
 /-- **Theorem 7.1 from a Lemma 7.8**: the project's construction (sheets, Lemma 7.9, `mkRep`),
 with the given form of Lemma 7.8. -/
-theorem exists_rep (h78 : type_of% @Polyfold.EpGroupoid.lemma_7_8.{0}) (X : EpGroupoid Obj Mor)
+theorem exists_rep (h78 : type_of% @Polyfold.EpGroupoid.lemma_7_6_2.{0}) (X : EpGroupoid Obj Mor)
     (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) : ∃ R : X.NaturalRep x, R.U ⊆ V := by
   have := EpGroupoid.NatRepConstruction.finite_isotropy X x
   obtain ⟨D⟩ := EpGroupoid.NatRepConstruction.exists_sheets X x
@@ -109,7 +109,7 @@ theorem exists_rep (h78 : type_of% @Polyfold.EpGroupoid.lemma_7_8.{0}) (X : EpGr
     inter_mem (hV.mem_nhds hx) (iInter_mem.2 fun g => (D.isOpen_S g).mem_nhds (D.mem_S g))
   obtain ⟨U₁, hU₁o, hxU₁, hU₁U₀, h78'⟩ := h78 X D.isOpen_N D.mem_N hU₀
   have hU₁S : ∀ g, U₁ ⊆ D.S g := fun g y hy => mem_iInter.1 (hU₁U₀ hy).2 g
-  obtain ⟨U₂, hU₂o, hU₂c, hxU₂, hU₂U₁, hUU₁, hinv⟩ := X.lemma_7_9 D hU₁o hxU₁ hU₁S h78'
+  obtain ⟨U₂, hU₂o, hU₂c, hxU₂, hU₂U₁, hUU₁, hinv⟩ := X.lemma_7_6_3 D hU₁o hxU₁ hU₁S h78'
   have hU₂S : ∀ g, U₂ ⊆ D.S g := fun g => hU₂U₁.trans (hU₁S g)
   have hUS : ∀ g, D.unionHat U₂ ⊆ D.S g := fun g => hUU₁.trans (hU₁S g)
   exact ⟨D.mkRep _ (D.isOpen_unionHat hU₂o hU₂S) (D.isConnected_unionHat hU₂c hxU₂ hU₂S)
@@ -137,7 +137,7 @@ theorem A_to_B : A → B := by
     fun g => ⟨⟨_, hsrc R (ofG g)⟩, ⟨_, htgt R (ofG g)⟩⟩⟩
   exact (ofG_surjective.iUnion_comp fun g' => R.Γ g' '' R.U).trans (hUnion R)
 
-/-! ### `B → A`: `lemma_7_8` from `B`, the rest outright -/
+/-! ### `B → A`: `lemma_7_6_2` from `B`, the rest outright -/
 
 /-- A continuous section of a continuous locally injective map over an open set has open image
 (as in the project, where it is private). -/
@@ -257,7 +257,7 @@ theorem B_to_A : B → A := by
   Polyfold.EpGroupoid.NaturalRep.connectedComponentIn_morOn,
   Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_src_image,
   Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_tgt_image, Polyfold.EpGroupoid.NaturalRep.Γ_index,
-  Polyfold.EpGroupoid.lemma_7_8]
+  Polyfold.EpGroupoid.lemma_7_6_2]
 #rt_check RoundTrip.V7_19.B_to_A [Polyfold.EpGroupoid.NaturalRep.isOpen_image_Γ,
   Polyfold.EpGroupoid.NaturalRep.Γ_mem_image, Polyfold.EpGroupoid.NaturalRep.pairwise_disjoint_image_Γ,
   Polyfold.EpGroupoid.NaturalRep.iUnion_image_Γ, Polyfold.EpGroupoid.NaturalRep.isOpen_morOn,
@@ -265,7 +265,7 @@ theorem B_to_A : B → A := by
   Polyfold.EpGroupoid.NaturalRep.connectedComponentIn_morOn,
   Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_src_image,
   Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_tgt_image, Polyfold.EpGroupoid.NaturalRep.Γ_index,
-  Polyfold.EpGroupoid.lemma_7_8]
+  Polyfold.EpGroupoid.lemma_7_6_2]
 #rt_overlap RoundTrip.V7_19.B_to_A [Polyfold.EpGroupoid.NaturalRep.isOpen_image_Γ,
   Polyfold.EpGroupoid.NaturalRep.Γ_mem_image, Polyfold.EpGroupoid.NaturalRep.pairwise_disjoint_image_Γ,
   Polyfold.EpGroupoid.NaturalRep.iUnion_image_Γ, Polyfold.EpGroupoid.NaturalRep.isOpen_morOn,
@@ -273,6 +273,6 @@ theorem B_to_A : B → A := by
   Polyfold.EpGroupoid.NaturalRep.connectedComponentIn_morOn,
   Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_src_image,
   Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_tgt_image, Polyfold.EpGroupoid.NaturalRep.Γ_index,
-  Polyfold.EpGroupoid.lemma_7_8]
+  Polyfold.EpGroupoid.lemma_7_6_2]
 
 end RoundTrip.V7_19

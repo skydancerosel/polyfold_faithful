@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_5
 
 /-!
 Round trip for V4_5 (Theorem 4.2, the characterization).  `A` is the conjunction of the types of
-`Polyfold.MPolyfold.theorem_4_2` and `Polyfold.MPolyfold.theorem_4_2_general`, universe
+`Polyfold.MPolyfold.theorem_4_1_2` and `Polyfold.MPolyfold.theorem_4_1_2_general`, universe
 instantiated at `0`.
 
 Glue:
@@ -13,7 +13,7 @@ Glue:
   Once `X₀ = X_∞ ⊆ X₁`, `toLevelOne x₀ = toLevelOne x₀'` (`toLevelOne_indep`), so the two agree;
   when `X = ∅` there is no `x₀` at all, and `HasCornerStructure` holds trivially.
 * Tame centred charts: the same conjuncts in a different order.
-* B ⇒ `theorem_4_2_general` (no tameness hypothesis): both (i) (`HasCornerStructure.isTame`) and
+* B ⇒ `theorem_4_1_2_general` (no tameness hypothesis): both (i) (`HasCornerStructure.isTame`) and
   (ii) (its tame charts cover `X`, `isTame_of_forall_exists_chart`) imply tameness, so B's
   tameness hypothesis can be discharged on either side of the equivalence.
 -/
@@ -23,9 +23,9 @@ open Polyfold
 
 /-- The project's statement: Theorem 4.2 (text's form) and its general form, universe `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.MPolyfold.theorem_4_2.{0} ∧ type_of% @Polyfold.MPolyfold.theorem_4_2_general.{0}
+  type_of% @Polyfold.MPolyfold.theorem_4_1_2.{0} ∧ type_of% @Polyfold.MPolyfold.theorem_4_1_2_general.{0}
 
-theorem A_holds : A := ⟨@Polyfold.MPolyfold.theorem_4_2.{0}, @Polyfold.MPolyfold.theorem_4_2_general.{0}⟩
+theorem A_holds : A := ⟨@Polyfold.MPolyfold.theorem_4_1_2.{0}, @Polyfold.MPolyfold.theorem_4_1_2_general.{0}⟩
 
 section Glue
 
@@ -92,7 +92,7 @@ theorem A_to_B : A → B := by
       obtain ⟨χ, hχ, hx, hcc⟩ := MPolyfold.hasCornerStructure_iff.1 hc x
       obtain ⟨R, hR, hRp⟩ := hcc.isScPlusRetract
       have hxs : x ∈ P.smoothSet := (MPolyfold.mem_smoothSet_iff hχ hx).2
-        (lemma_4_7_i hRp (hR ▸ χ.mapsTo_model x hx))
+        (lemma_4_1_7_i hRp (hR ▸ χ.mapsTo_model x hx))
       exact (iiB_iff_iiA _).2
         ((hA hP (P.levelMk 1 x (MPolyfold.smoothSet_subset_levelSet 1 hxs))).1 hc)
     · intro h
@@ -106,7 +106,7 @@ theorem A_to_B : A → B := by
 
 theorem B_to_A : B → A := by
   intro hB
-  have gen : type_of% @Polyfold.MPolyfold.theorem_4_2_general.{0} := by
+  have gen : type_of% @Polyfold.MPolyfold.theorem_4_1_2_general.{0} := by
     intro X _ _ _ P x₀
     constructor
     · intro hc
@@ -116,8 +116,8 @@ theorem B_to_A : B → A := by
       exact (hB X P hP).2 ((iiB_iff_iiA x₀).2 h)
   exact ⟨fun _ x₀ => gen x₀, gen⟩
 
-#rt_check RoundTrip.V4_5.A_to_B [Polyfold.MPolyfold.theorem_4_2, Polyfold.MPolyfold.theorem_4_2_general]
-#rt_check RoundTrip.V4_5.B_to_A [Polyfold.MPolyfold.theorem_4_2, Polyfold.MPolyfold.theorem_4_2_general]
-#rt_overlap RoundTrip.V4_5.B_to_A [Polyfold.MPolyfold.theorem_4_2, Polyfold.MPolyfold.theorem_4_2_general]
+#rt_check RoundTrip.V4_5.A_to_B [Polyfold.MPolyfold.theorem_4_1_2, Polyfold.MPolyfold.theorem_4_1_2_general]
+#rt_check RoundTrip.V4_5.B_to_A [Polyfold.MPolyfold.theorem_4_1_2, Polyfold.MPolyfold.theorem_4_1_2_general]
+#rt_overlap RoundTrip.V4_5.B_to_A [Polyfold.MPolyfold.theorem_4_1_2, Polyfold.MPolyfold.theorem_4_1_2_general]
 
 end RoundTrip.V4_5

@@ -5,8 +5,8 @@ import RoundTrip.Blind.V6_7
 /-! Round trip for V6_7 ((92) and Proposition 6.6: the isomorphism `Ψ_E`).
 
 The listed declarations are the definitions `Polyfold.contractDual` (`ῑ`),
-`Polyfold.FourTermExact.psi` (`Ψ_E`) and the theorem `Polyfold.FourTermExact.proposition_6_6`, so
-`A` is `proposition_6_6` (universes at `0`): `Ψ_E(w_C ⊗ (w_A ⊗ w_D*)) = w_B` for every project
+`Polyfold.FourTermExact.psi` (`Ψ_E`) and the theorem `Polyfold.FourTermExact.proposition_6_3_5`, so
+`A` is `proposition_6_3_5` (universes at `0`): `Ψ_E(w_C ⊗ (w_A ⊗ w_D*)) = w_B` for every project
 `Choice`.  B is the conjunction of (1) `ῑ(v ⊗ b ⊗ v*) = b`, (2) the defining formula (92) of
 `Ψ_E`, (3) `Ψ_E` bijective, (4) the formula of Proposition 6.6 for every `Choice91` and every `φ_D`
 with `φ_D(w_D) = 1`.
@@ -23,9 +23,9 @@ open Polyfold Module
 open scoped TensorProduct
 
 /-- The project's statement (Proposition 6.6), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.FourTermExact.proposition_6_6.{0, 0, 0, 0}
+def A : Prop := type_of% @Polyfold.FourTermExact.proposition_6_3_5.{0, 0, 0, 0}
 
-theorem A_holds : A := @Polyfold.FourTermExact.proposition_6_6.{0, 0, 0, 0}
+theorem A_holds : A := @Polyfold.FourTermExact.proposition_6_3_5.{0, 0, 0, 0}
 
 set_option linter.unusedSectionVars false
 
@@ -102,8 +102,8 @@ theorem B_to_A : B → A := by
   exact (hB.2 A B C D S).2.2 χ' (dualVec χ'.wD)
     (dualVec_self finrank_maxPow (wedge_basis_ne_zero d))
 
-#rt_check RoundTrip.V6_7.A_to_B [Polyfold.FourTermExact.proposition_6_6]
-#rt_check RoundTrip.V6_7.B_to_A [Polyfold.FourTermExact.proposition_6_6]
-#rt_overlap RoundTrip.V6_7.B_to_A [Polyfold.FourTermExact.proposition_6_6]
+#rt_check RoundTrip.V6_7.A_to_B [Polyfold.FourTermExact.proposition_6_3_5]
+#rt_check RoundTrip.V6_7.B_to_A [Polyfold.FourTermExact.proposition_6_3_5]
+#rt_overlap RoundTrip.V6_7.B_to_A [Polyfold.FourTermExact.proposition_6_3_5]
 
 end RoundTrip.V6_7

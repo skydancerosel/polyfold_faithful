@@ -4,8 +4,8 @@ import Polyfold.Chapter3.BasicGermLinearization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.5 and
-Appendix 3.8.2: **Lemma 3.46** (good position of the kernel of `DH(0)` in `ℝⁿ'`), and the local
-germ-solvability Theorems 3.43 and 3.47 with Lemmas 3.42 and 3.44.
+Appendix 3.8.2: **Lemma 3.5.10 (preprint 3.46)** (good position of the kernel of `DH(0)` in `ℝⁿ'`), and the local
+germ-solvability Theorems 3.43 and 3.47 with Lemmas 3.5.5 and 3.5.8 (preprint 3.42 and 3.44).
 
 # Local germ-solvability
 
@@ -21,7 +21,7 @@ namespace Polyfold
 variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensional ℝ P]
   {W : ScBanach} {Ct : Set P}
 
-/-! ### Lemma 3.46 -/
+/-! ### Lemma 3.5.10 (preprint 3.46) -/
 
 /-- The graph map `α ↦ (α, Lα) : P → P ⊕ W₀` of a linear map `L`. -/
 def graphMap (L : P →L[ℝ] W 0) : P →ₗ[ℝ] P × W 0 := LinearMap.prod LinearMap.id (L : P →ₗ[ℝ] W 0)
@@ -46,7 +46,7 @@ lemma graphMap_mem_prod_iff (L : P →L[ℝ] W 0) (α : P) :
     graphMap L α ∈ Ct ×ˢ (univ : Set (W 0)) ↔ α ∈ Ct := by
   simp [graphMap_apply]
 
-/-- **Lemma 3.46, the complement** (Appendix 3.8.2): let `K' = {(α, Lα) | α ∈ K̃} ⊆ ℝⁿ' ⊕ W'`
+/-- **Lemma 3.5.10 (preprint 3.46), the complement** (Appendix 3.8.2): let `K' = {(α, Lα) | α ∈ K̃} ⊆ ℝⁿ' ⊕ W'`
 (`L = Dδ(0)`, `K̃ = ker DH(0)`) have the good complement `Y'` with respect to
 `C' = C̃ ⊕ W'`.  Then there is a good complement `Z` of `K̃` in `ℝⁿ'` with respect to `C̃` such
 that `Z ⊕ W'` is a good complement of `K'` in `ℝⁿ' ⊕ W'`.
@@ -56,7 +56,7 @@ with `ℝⁿ' = K̃ ⊕ Z` and a linear right inverse `ρ : Z' → Y'` of the pr
 dimensions).  For `z ∈ Z`, `α ∈ K̃` with `|z| ≤ ε'|α|`, `y = ρ(z) = (z, w) ∈ Y'` has
 `|y| ≤ ‖ρ‖|z| ≤ ε|(α, Lα)|`, so `(α, Lα) ∈ C'` iff `(α, Lα) + y ∈ C'`, i.e. `α ∈ C̃` iff
 `α + z ∈ C̃`.  The text's intermediate complement `Y₀` of `Y' ∩ W'` in `Y'` is not needed. -/
-theorem lemma_3_46 {L : P →L[ℝ] W 0} {Kt : Submodule ℝ P} {Y' : Submodule ℝ (P × W 0)}
+theorem lemma_3_5_10 {L : P →L[ℝ] W 0} {Kt : Submodule ℝ P} {Y' : Submodule ℝ (P × W 0)}
     (hY' : IsGoodComplement (ScBanach.paramProd P W) (Ct ×ˢ univ) (Kt.map (graphMap L)) Y') :
     ∃ Z : Submodule ℝ P, IsGoodComplement (ScBanach.const P) Ct Kt Z ∧
       IsGoodComplement (ScBanach.paramProd P W) (Ct ×ˢ univ) (Kt.map (graphMap L)) (Z.prod ⊤) := by
@@ -173,9 +173,9 @@ theorem lemma_3_46 {L : P →L[ℝ] W 0} {Kt : Submodule ℝ P} {Y' : Submodule 
     rw [graphMap_mem_prod_iff, this]
     simp [graphMap_apply]
 
-/-- **Lemma 3.46, the good position**: if `K' = {(α, Lα) | α ∈ K̃}` is in good position to
+/-- **Lemma 3.5.10 (preprint 3.46), the good position**: if `K' = {(α, Lα) | α ∈ K̃}` is in good position to
 `C̃ ⊕ W'`, then `K̃` is in good position to `C̃` in `ℝⁿ'`. -/
-theorem lemma_3_46_isInGoodPosition {L : P →L[ℝ] W 0} {Kt : Submodule ℝ P}
+theorem lemma_3_5_10_isInGoodPosition {L : P →L[ℝ] W 0} {Kt : Submodule ℝ P}
     (hK' : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ) (Kt.map (graphMap L))) :
     IsInGoodPosition (ScBanach.const P) Ct Kt where
   interior_nonempty := by
@@ -197,7 +197,7 @@ theorem lemma_3_46_isInGoodPosition {L : P →L[ℝ] W 0} {Kt : Submodule ℝ P}
     rwa [ψ.preimage_interior, hpre] at this
   exists_goodComplement := by
     obtain ⟨Y', hY'⟩ := hK'.exists_goodComplement
-    obtain ⟨Z, hZ, -⟩ := lemma_3_46 hY'
+    obtain ⟨Z, hZ, -⟩ := lemma_3_5_10 hY'
     exact ⟨Z, hZ⟩
 
 
@@ -206,7 +206,7 @@ theorem lemma_3_46_isInGoodPosition {L : P →L[ℝ] W 0} {Kt : Submodule ℝ P}
 variable {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensional ℝ Q]
 
 /-- The contraction map `B` of a basic germ is an sc-smooth germ: `B(a, w) = w − (f(a, w))_W` on
-`U₀` (Definition 3.7 asks only for sc⁰). -/
+`U₀` (Definition 3.1.7 (preprint 3.7) asks only for sc⁰). -/
 theorem IsBasicGerm.B_isScSmoothGerm (hC : IsQuadrantLike (ScBanach.const P) Ct)
     {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {f : P × W 0 → Q × W 0}
     {B : P × W 0 → W 0} (hf : IsBasicGerm Ct G f B) : IsScSmoothGerm (F := W) G B := by
@@ -252,7 +252,7 @@ lemma exists_norm_le_of_injOn {Z : Submodule ℝ V} {T : V →L[ℝ] Q'}
 `H : U → Q'` be differentiable at `0` within `U ⊆ C̃` with `H(0) = 0`, `K̃ = ker DH(0)`, and let `Z`
 be a good complement of `K̃` with respect to `C̃` (constant `ε`).  Then for every solution
 `a = k + z ∈ U` (`k ∈ K̃`, `z ∈ Z`) of `H(a) = 0` close to `0`, `|z| ≤ ε|k|`, hence `k ∈ C̃`.
-(The text's proof of Theorem 3.43 uses the statement "if `g(y + w) = 0` for `y ∈ K' ∩ C'` and
+(The text's proof of Theorem 3.5.6 (preprint 3.43) uses the statement "if `g(y + w) = 0` for `y ∈ K' ∩ C'` and
 `w` small then `w = τ(y)`" without saying why the `K'`-component of a solution lies in `C'`.) -/
 theorem exists_proj_mem_of_eq_zero {C U : Set V} (hUC : U ⊆ C) {H : V → Q'} {DH : V →L[ℝ] Q'}
     (hH : HasFDerivWithinAt H DH U 0) (hH0 : H 0 = 0) {Kt Z : Submodule ℝ V}
@@ -306,11 +306,11 @@ theorem exists_proj_mem_of_eq_zero {C U : Set V} (hUC : U ⊆ C) {H : V → Q'} 
 
 end Projection
 
-/-! ### Theorem 3.43: the data -/
+/-! ### Theorem 3.5.6 (preprint 3.43): the data -/
 
-/-- **The data of Theorem 3.43**: an sc-smooth germ `g : O(C̃ ⊕ W, 0) → Q ⊕ W` with `g(0) = 0`
+/-- **The data of Theorem 3.5.6 (preprint 3.43)**: an sc-smooth germ `g : O(C̃ ⊕ W, 0) → Q ⊕ W` with `g(0) = 0`
 whose index-raised germ `g¹` (on `O(C̃ ⊕ W¹, 0)`, levels raised by one) is a basic germ with
-contraction map `B` (the text's `g = Φ_*(f)` with `g¹ = (Φ_*(h + s))¹` basic, Theorem 3.38).
+contraction map `B` (the text's `g = Φ_*(f)` with `g¹ = (Φ_*(h + s))¹` basic, Theorem 3.4.2 (preprint 3.38)).
 The shifted germ of neighbourhoods `G₁` is `(U_{m+1})_m`. -/
 structure ShiftedBasicData (Ct : Set P) (W : ScBanach) (Q : Type) [NormedAddCommGroup Q]
     [NormedSpace ℝ Q] [FiniteDimensional ℝ Q] where
@@ -358,7 +358,7 @@ lemma snd_g₁_sol {a : P} (ha : a ∈ 𝒟.𝒞.N 0 ∩ Ct) : (𝒟.g₁ (a, �
   change 𝒟.δ a - 𝒟.𝒞.B (a, 𝒟.δ a) = 0
   rw [𝒟.𝒞.sol_fixed ha, sub_self]
 
-/-- Uniqueness of the solution germ in the contraction region (Theorem 3.29). -/
+/-- Uniqueness of the solution germ in the contraction region (Theorem 3.3.2 (preprint 3.29)). -/
 lemma eq_δ {a : P} (ha : a ∈ 𝒟.𝒞.N 0 ∩ Ct) {w : W 1} (hw : w ∈ 𝒟.𝒞.O 0)
     (hx : ((a, w) : P × W 1) ∈ 𝒟.G₁.U 0) (h : (𝒟.g₁ (a, w)).2 = 0) : w = 𝒟.δ a := by
   refine 𝒟.𝒞.eq_sol ha hw ?_
@@ -384,7 +384,7 @@ lemma snd_g_sol {a : P} (ha : a ∈ 𝒟.𝒞.N 0 ∩ Ct) :
   rw [𝒟.snd_g₁_sol ha, map_zero] at this
   exact this.symm
 
-/-- The map `H(a) = (1 − P) ∘ g(a, δ(a))` of the proof of Theorem 3.43, read on level `0`. -/
+/-- The map `H(a) = (1 − P) ∘ g(a, δ(a))` of the proof of Theorem 3.5.6 (preprint 3.43), read on level `0`. -/
 def H : P → Q := fun a => (𝒟.g (a, W.toBase 1 (𝒟.δ a))).1
 
 lemma H_eq {a : P} (ha : a ∈ 𝒟.𝒞.N 0 ∩ Ct) : 𝒟.H a = (𝒟.g₁ (a, 𝒟.δ a)).1 := by
@@ -406,7 +406,7 @@ include hC in
 /-- **The regularity of `H`** ("the map `H` restricted to `U'_i` is of class `C^{i-1}`"): for every
 `j ≥ 1` there is a relatively open neighbourhood `V` of `0` in `C̃`, contained in the solution
 region, on which `H` is `C^j` and `δ` lifts to a `C^j` map into `W_{2j}` (so that `a ↦ (a, δ(a))`
-is `C^j` into `E_{2j}` and `g : E_{2j} → F_j` is `C^j` by Proposition 1.18). -/
+is `C^j` into `E_{2j}` and `g : E_{2j} → F_j` is `C^j` by Proposition 1.2.3 (preprint 1.18)). -/
 theorem H_contDiffOn (j : ℕ) (hj : 1 ≤ j) :
     ∃ V : Set P, (∃ O : Set P, IsOpen O ∧ V = O ∩ Ct) ∧ (0 : P) ∈ V ∧ V ⊆ 𝒟.𝒞.N 0 ∩ Ct ∧
       ContDiffOn ℝ j 𝒟.H V ∧
@@ -414,7 +414,7 @@ theorem H_contDiffOn (j : ℕ) (hj : 1 ≤ j) :
         ∀ a ∈ V, W.toBase (j + j) (δ' a) = W.toBase 1 (𝒟.δ a) := by
   obtain ⟨m, rfl⟩ : ∃ m, j = m + 1 := ⟨j - 1, by omega⟩
   have hCW := hC.paramProd W
-  obtain ⟨s, hsol, hs⟩ := theorem_3_33_smooth 𝒟.𝒞 hC (𝒟.B_isScSmooth hC) (m + 1)
+  obtain ⟨s, hsol, hs⟩ := theorem_3_3_6_smooth 𝒟.𝒞 hC (𝒟.B_isScSmooth hC) (m + 1)
   -- `δ` on level `2m + 1` of `W¹`, i.e. into `W_{2m+2}`
   set δ' : P → W.shift (m + 1 + m) :=
     levelMap (E := ScBanach.const P) (F := W.shift) 𝒟.δ (m + 1 + m) with hδ'
@@ -465,7 +465,7 @@ theorem H_contDiffOn (j : ℕ) (hj : 1 ≤ j) :
     rw [hδ'base a ha] at h
     exact h
 
-/-! ### The derivative data: `Dδ(0)`, `DH(0)` and Lemma 3.44 -/
+/-! ### The derivative data: `Dδ(0)`, `DH(0)` and Lemma 3.5.8 (preprint 3.44) -/
 
 /-- A relatively open neighbourhood `V₁` of `0` in `C̃` on which `H` and `δ : V₁ → W₁` are `C¹`
 (the text's `U'_2`), inside the solution region of `δ`. -/
@@ -481,7 +481,7 @@ structure Deriv (𝒟 : ShiftedBasicData Ct W Q) where
 include hC in
 theorem exists_deriv : Nonempty 𝒟.Deriv := by
   obtain ⟨V, ⟨O, hO, hVO⟩, h0V, hVsub, hH, -⟩ := 𝒟.H_contDiffOn hC 1 le_rfl
-  obtain ⟨s, hsol, hs⟩ := theorem_3_33_smooth 𝒟.𝒞 hC (𝒟.B_isScSmooth hC) 1
+  obtain ⟨s, hsol, hs⟩ := theorem_3_3_6_smooth 𝒟.𝒞 hC (𝒟.B_isScSmooth hC) 1
   have hδ : ContDiffOn ℝ 1 𝒟.δ ((𝒟.𝒞.germ hC s).U (0 + 1)) := by
     have := hs.contDiffOn_levels hC 0
     refine this.congr fun a _ => ?_
@@ -563,7 +563,7 @@ lemma fderivWithin_H : fderivWithin ℝ 𝒟.H 𝒱.V₁ 0 = 𝒱.DH₀ :=
 
 omit 𝒱 in
 include hC in
-/-- **Lemma 3.9 at `0`, read on level `0`** ("recalling from Lemma 3.9 that `D₂B(0) = 0`"): the
+/-- **Lemma 3.1.9 (preprint 3.9) at `0`, read on level `0`** ("recalling from Lemma 3.9 that `D₂B(0) = 0`"): the
 `W`-component of `Dg(0)(0, ζ)` is `ζ`.  From the basic germ `g¹` on the index-raised structure
 (`IsSc0ContractionGerm.deriv_zero_snd`, for `ζ ∈ W₁`) and the density of `W₁` in `W₀`. -/
 theorem snd_Dg_inr (ζ : W 0) : (𝒟.Dg ((0 : P), ζ)).2 = ζ := by
@@ -630,7 +630,7 @@ theorem snd_Dg_graph (α : P) : (𝒟.Dg (α, 𝒱.L α)).2 = 0 := by
   simpa [graphCLM_apply] using h
 
 include hC in
-/-- **Lemma 3.44**: `ker Dg(0) = {(α, Dδ(0)α) | α ∈ ker DH(0)}`. -/
+/-- **Lemma 3.5.8 (preprint 3.44)**: `ker Dg(0) = {(α, Dδ(0)α) | α ∈ ker DH(0)}`. -/
 theorem ker_Dg_eq :
     LinearMap.ker (𝒟.Dg : (ScBanach.paramProd P W) 0 →ₗ[ℝ] (ScBanach.paramProd Q W) 0) =
       (LinearMap.ker (𝒱.DH₀ : P →ₗ[ℝ] Q)).map (graphMap 𝒱.L) := by
@@ -682,22 +682,22 @@ theorem DH₀_surjective (hsurj : Surjective 𝒟.Dg) : Surjective 𝒱.DH₀ :=
 
 end Deriv
 
-/-! ### The choices of the proof of Theorem 3.43 -/
+/-! ### The choices of the proof of Theorem 3.5.6 (preprint 3.43) -/
 
 /-- The kernel `K' = ker Dg(0)`. -/
 abbrev K' : Submodule ℝ (P × W 0) := LinearMap.ker (𝒟.Dg : P × W 0 →ₗ[ℝ] Q × W 0)
 
-/-- **The data assembled in the proof of Theorem 3.43**: the derivative data, the kernel
-`K̃ = ker DH(0)` with `K' = {(α, Lα) | α ∈ K̃}` (Lemma 3.44), the good complement `Z` of `K̃` with
-`Z ⊕ W` a good complement of `K'` (Lemma 3.46), and the solution `σ : V' → Z` of `H(a + σ(a)) = 0`
-given by Theorem 3.78 with its uniqueness constants. -/
+/-- **The data assembled in the proof of Theorem 3.5.6 (preprint 3.43)**: the derivative data, the kernel
+`K̃ = ker DH(0)` with `K' = {(α, Lα) | α ∈ K̃}` (Lemma 3.5.8 (preprint 3.44)), the good complement `Z` of `K̃` with
+`Z ⊕ W` a good complement of `K'` (Lemma 3.5.10 (preprint 3.46)), and the solution `σ : V' → Z` of `H(a + σ(a)) = 0`
+given by Theorem 3.8.22 (preprint 3.78) with its uniqueness constants. -/
 structure Sol (𝒟 : ShiftedBasicData Ct W Q) extends 𝒟.Deriv where
   hker : 𝒟.K' = (LinearMap.ker (toDeriv.DH₀ : P →ₗ[ℝ] Q)).map (graphMap toDeriv.L)
   /-- The good complement `Z` of `K̃` in `ℝⁿ'`. -/
   Z : Submodule ℝ P
   hZ : IsGoodComplement (ScBanach.const P) Ct (LinearMap.ker (toDeriv.DH₀ : P →ₗ[ℝ] Q)) Z
   hY : IsGoodComplement (ScBanach.paramProd P W) (Ct ×ˢ univ) 𝒟.K' (Z.prod ⊤)
-  /-- The neighbourhood of `0` in `K̃ ∩ C̃` of Theorem 3.78. -/
+  /-- The neighbourhood of `0` in `K̃ ∩ C̃` of Theorem 3.8.22 (preprint 3.78). -/
   V' : Set (LinearMap.ker (toDeriv.DH₀ : P →ₗ[ℝ] Q))
   V'_relOpen : ∃ O : Set (LinearMap.ker (toDeriv.DH₀ : P →ₗ[ℝ] Q)), IsOpen O ∧
     V' = O ∩ Subtype.val ⁻¹' Ct
@@ -716,7 +716,7 @@ structure Sol (𝒟 : ShiftedBasicData Ct W Q) extends 𝒟.Deriv where
   σ_unique : ∀ k ∈ V', ‖k‖ ≤ ε → ∀ z ∈ Z, ‖z‖ ≤ σ₀ → (k : P) + z ∈ toDeriv.V₁ →
     𝒟.H ((k : P) + z) = 0 → z = σ k
 
-/-- The data of `Sol` exist: Lemma 3.46 and Theorem 3.78 applied to `H`. -/
+/-- The data of `Sol` exist: Lemma 3.5.10 (preprint 3.46) and Theorem 3.8.22 (preprint 3.78) applied to `H`. -/
 theorem exists_sol (hC : IsPartialQuadrant (ScBanach.const P) Ct) (hsurj : Surjective 𝒟.Dg)
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ) 𝒟.K') : Nonempty 𝒟.Sol := by
   classical
@@ -726,12 +726,12 @@ theorem exists_sol (hC : IsPartialQuadrant (ScBanach.const P) Ct) (hsurj : Surje
   have hpos' : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       ((LinearMap.ker (𝒱.DH₀ : P →ₗ[ℝ] Q)).map (graphMap 𝒱.L)) := hker ▸ hpos
   obtain ⟨Y', hY'⟩ := hpos'.exists_goodComplement
-  obtain ⟨Z, hZ, hY⟩ := lemma_3_46 hY'
-  have hKpos := lemma_3_46_isInGoodPosition hpos'
+  obtain ⟨Z, hZ, hY⟩ := lemma_3_5_10 hY'
+  have hKpos := lemma_3_5_10_isInGoodPosition hpos'
   have hU : IsRelOpenInQuadrant (ScBanach.const P) Ct 𝒱.V₁ := ⟨hC, 𝒱.relOpen⟩
   have hDH : fderivWithin ℝ 𝒟.H 𝒱.V₁ 0 = 𝒱.DH₀ := 𝒱.fderivWithin_H hCq
   obtain ⟨V', σ, ε, σ₀, hV'rel, hV'0, hσC, hσ0, hDσ, hsol, hε, hσ₀, hbound, huniq⟩ :=
-    theorem_3_78 hU 𝒱.zero_mem (j := 1) le_rfl 𝒱.H_contDiffOn 𝒟.H_zero
+    theorem_3_8_22 hU 𝒱.zero_mem (j := 1) le_rfl 𝒱.H_contDiffOn 𝒟.H_zero
       (by rw [hDH]; exact 𝒱.DH₀_surjective hCq hsurj) (by rw [hDH]) hKpos hZ
   exact ⟨⟨𝒱, hker, Z, hZ, hker ▸ hY, V', hV'rel, hV'0, σ, hσC, hσ0, hDσ, hsol, ε, hε, σ₀, hσ₀,
     hbound, huniq⟩⟩
@@ -772,7 +772,7 @@ lemma lift_π (y : 𝒟.K') : 𝒮.lift (𝒮.π y) = y := Subtype.ext (𝒮.coe
 lemma mem_C'_iff (y : 𝒟.K') : (y : P × W 0) ∈ Ct ×ˢ (univ : Set (W 0)) ↔ (𝒮.π y : P) ∈ Ct := by
   rw [𝒮.coe_eq_graph y, graphMap_mem_prod_iff]
 
-/-- **The map `τ` of Theorem 3.43**: `τ(y) = −Dδ(0)π(y) + γ(π(y))` with
+/-- **The map `τ` of Theorem 3.5.6 (preprint 3.43)**: `τ(y) = −Dδ(0)π(y) + γ(π(y))` with
 `γ(a) = σ(a) + δ(a + σ(a))`, i.e. `τ(y) = (σ(v), δ(v + σ(v)) − Lv)` for `y = (v, Lv)`. -/
 def τ (y : 𝒟.K') : P × W 0 :=
   ((𝒮.σ (𝒮.π y) : P), W.toBase 1 (𝒟.δ ((𝒮.π y : P) + 𝒮.σ (𝒮.π y))) - 𝒮.L (𝒮.π y))
@@ -811,7 +811,7 @@ lemma coe_add_τ (y : 𝒟.K') :
   · change 𝒮.L (𝒮.π y) + (W.toBase 1 (𝒟.δ _) - 𝒮.L (𝒮.π y)) = W.toBase 1 (𝒟.δ _)
     abel
 
-/-- **Theorem 3.43 (3), first half**: `g(y + τ(y)) = 0` for `y ∈ V`, and `y + τ(y) ∈ U`. -/
+/-- **Theorem 3.5.6 (preprint 3.43) (3), first half**: `g(y + τ(y)) = 0` for `y ∈ V`, and `y + τ(y) ∈ U`. -/
 theorem sol_mem_and_eq_zero {y : 𝒟.K'} (hy : y ∈ 𝒮.V) :
     (y : P × W 0) + 𝒮.τ y ∈ 𝒟.G₀.U 0 ∧ 𝒟.g ((y : P × W 0) + 𝒮.τ y) = 0 := by
   obtain ⟨hmem, hH⟩ := 𝒮.σ_sol _ hy
@@ -838,7 +838,7 @@ lemma a_contDiffOn : ContDiffOn ℝ 1 (fun y : 𝒟.K' => (𝒮.π y : P) + (�
 lemma a_mapsTo : MapsTo (fun y : 𝒟.K' => (𝒮.π y : P) + (𝒮.σ (𝒮.π y) : P)) 𝒮.V 𝒮.V₁ :=
   fun _ hy => (𝒮.σ_sol _ hy).1
 
-/-- **Theorem 3.43, "a `C¹`-map `τ : V → Y'₁`"**: `τ` is `C¹` on `V`. -/
+/-- **Theorem 3.5.6 (preprint 3.43), "a `C¹`-map `τ : V → Y'₁`"**: `τ` is `C¹` on `V`. -/
 theorem τ_contDiffOn : ContDiffOn ℝ 1 𝒮.τ 𝒮.V := by
   have h1 : ContDiffOn ℝ 1 (fun y : 𝒟.K' => (𝒮.σ (𝒮.π y) : P)) 𝒮.V :=
     𝒮.Z.subtypeL.contDiff.comp_contDiffOn
@@ -854,13 +854,13 @@ theorem τ_contDiffOn : ContDiffOn ℝ 1 𝒮.τ 𝒮.V := by
 theorem snd_τ_mem_range (y : 𝒟.K') : (𝒮.τ y).2 ∈ range (W.toBase 1) :=
   ⟨𝒟.δ ((𝒮.π y : P) + 𝒮.σ (𝒮.π y)) - 𝒮.Dδ₀ (𝒮.π y), by rw [map_sub]; rfl⟩
 
-/-! #### Regularity of `τ` on all levels: Theorem 3.43 (1) -/
+/-! #### Regularity of `τ` on all levels: Theorem 3.5.6 (preprint 3.43) (1) -/
 
-/-- **Theorem 3.43 (1), "`τ` is sc-smooth"**: for every `k ≥ 1` there are a relatively open
+/-- **Theorem 3.5.6 (preprint 3.43) (1), "`τ` is sc-smooth"**: for every `k ≥ 1` there are a relatively open
 neighbourhood `V_k ⊆ V` of `0` in `K' ∩ C'` and a `C^k`-map `τ_k : V_k → E_k = ℝⁿ' ⊕ W_k` lifting
-`τ` (`ι_k ∘ τ_k = τ` on `V_k`).  Proof: Theorem 3.78 applied to the `C^k`-map `H` on `U'_k ∩ V₁`
+`τ` (`ι_k ∘ τ_k = τ` on `V_k`).  Proof: Theorem 3.8.22 (preprint 3.78) applied to the `C^k`-map `H` on `U'_k ∩ V₁`
 gives a `C^k` solution `σ_k` which agrees with `σ` near `0` by the uniqueness clause (3) of
-Theorem 3.78 (`σ` is continuous with `σ(0) = 0`); the `W`-component of `τ` is
+Theorem 3.8.22 (preprint 3.78) (`σ` is continuous with `σ(0) = 0`); the `W`-component of `τ` is
 `ι(δ(a)) − L(πy)`, `a = πy + σ(πy)`, where `δ` lifts to a `C^k`-map `δ' : U'_k → W_{2k}`
 (`H_contDiffOn`) and `L = ι_{2k} ∘ Dδ'(0)` by the uniqueness of the derivative at `0`. -/
 theorem exists_contDiffOn_level (hCp : IsPartialQuadrant (ScBanach.const P) Ct)
@@ -895,10 +895,10 @@ theorem exists_contDiffOn_level (hCp : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒮.hasFDerivWithinAt_H.mono hUsub₁).fderivWithin huniqU
   have hpos' : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       ((LinearMap.ker (𝒮.DH₀ : P →ₗ[ℝ] Q)).map (graphMap 𝒮.L)) := 𝒮.hker ▸ hpos
-  have hKpos := lemma_3_46_isInGoodPosition hpos'
-  -- Theorem 3.78 for `H` on `U` with regularity `k`
+  have hKpos := lemma_3_5_10_isInGoodPosition hpos'
+  -- Theorem 3.8.22 (preprint 3.78) for `H` on `U` with regularity `k`
   obtain ⟨V'k, σk, εk, σ₀k, hV'krel, hV'k0, hσkC, -, -, hsolk, hεk, hσ₀k, -, huniqk⟩ :=
-    theorem_3_78 hUrel h0U (j := k) hk (hHC.mono hUsubH) 𝒟.H_zero
+    theorem_3_8_22 hUrel h0U (j := k) hk (hHC.mono hUsubH) 𝒟.H_zero
       (by rw [hDH]; exact 𝒮.DH₀_surjective hCq hsurj) (by rw [hDH]) hKpos 𝒮.hZ
   -- `σ = σ_k` near `0`
   have hσc : ContinuousWithinAt (fun y : 𝒮.Kt => (𝒮.σ y : P)) 𝒮.V' 0 :=
@@ -1046,7 +1046,7 @@ theorem hasFDerivWithinAt_τ : HasFDerivWithinAt 𝒮.τ (0 : 𝒟.K' →L[ℝ] 
     rw [sub_eq_zero]; rfl
 
 include hC in
-/-- **Theorem 3.43 (2)**: `Dτ(0) = 0`. -/
+/-- **Theorem 3.5.6 (preprint 3.43) (2)**: `Dτ(0) = 0`. -/
 theorem fderivWithin_τ (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ) 𝒟.K') :
     fderivWithin ℝ 𝒮.τ 𝒮.V 0 = 0 :=
   𝒮.hasFDerivWithinAt_τ.fderivWithin (𝒮.uniqueDiffWithinAt_V hC hpos)
@@ -1067,11 +1067,11 @@ lemma sub_projK_mem (a : P) : a - 𝒮.projK a ∈ 𝒮.Z := by
     exact Submodule.projectionOntoL_apply_left _ ⟨k, hk⟩
   rw [this]; simpa using hz
 
-/-- **Theorem 3.43 (3), second half**: under the regularity hypothesis of Lemma 3.42 (solutions
+/-- **Theorem 3.5.6 (preprint 3.43) (3), second half**: under the regularity hypothesis of Lemma 3.5.5 (preprint 3.42) (solutions
 near `0` on level `0` lie on level `1` and are small there), every solution `x` of `g(x) = 0`
 near `0` is of the form `y + τ(y)` with `y ∈ V`.  Proof: `x = (a, w)` with `w = δ(a)` by the
 uniqueness of the solution germ on level `1`, so `H(a) = 0`; `a = k + z` with `k ∈ K̃ ∩ C̃`
-(`exists_proj_mem_of_eq_zero`) and `z = σ(k)` by the uniqueness clause of Theorem 3.78. -/
+(`exists_proj_mem_of_eq_zero`) and `z = σ(k)` by the uniqueness clause of Theorem 3.8.22 (preprint 3.78). -/
 theorem exists_eq_add_τ
     (hreg : ∀ ε > 0, ∃ r > 0, ∀ x ∈ 𝒟.G₀.U 0, 𝒟.g x = 0 → ‖x‖ < r →
       ∃ w₁ : W 1, W.toBase 1 w₁ = x.2 ∧ ‖w₁‖ < ε) :
@@ -1177,19 +1177,19 @@ theorem exists_eq_add_τ
 
 end Sol
 
-/-- **Theorem 3.43 (Local Germ-Solvability I), germ form.**  Let `g : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` be an
+/-- **Theorem 3.5.6 (preprint 3.43) (Local Germ-Solvability I), germ form.**  Let `g : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` be an
 sc-smooth germ with `g(0) = 0` whose index-raised germ `g¹` is a basic germ (the `g = Φ_*(f)` of
-Theorem 3.38, with `C̃ ⊆ ℝⁿ'` a partial quadrant).  Assume `Dg(0)` is surjective, `K' = ker Dg(0)`
-is in good position to `C' = C̃ ⊕ W`, and (the content of Lemma 3.42, which the text derives from
-Theorem 3.40 for `f = h + s`) that the solutions of `g = 0` near `0` on level `0` lie on level
+Theorem 3.4.2 (preprint 3.38), with `C̃ ⊆ ℝⁿ'` a partial quadrant).  Assume `Dg(0)` is surjective, `K' = ker Dg(0)`
+is in good position to `C' = C̃ ⊕ W`, and (the content of Lemma 3.5.5 (preprint 3.42), which the text derives from
+Theorem 3.5.1 (preprint 3.40) for `f = h + s`) that the solutions of `g = 0` near `0` on level `0` lie on level
 `1` and are small there.  Then there are a good complement `Y' = Z ⊕ W` of `K'`, a relatively
 open neighbourhood `V` of `0` in `K' ∩ C'` and a `C¹`-map `τ : V → Y'` with values in `Y'₁`
 such that (2) `τ(0) = 0`, `Dτ(0) = 0`, and (3) the zero set of `g` near `0` is
 `{y + τ(y) | y ∈ V}`: every `y + τ(y)` is a zero in `U`, and every zero `x` of `g` in `U`
 close to `0` is of this form; and (1) `τ` is sc-smooth: for every `k ≥ 1` it lifts, on a
 relatively open neighbourhood `V_k ⊆ V` of `0`, to a `C^k`-map `τ_k : V_k → E_k`
-(`Sol.exists_contDiffOn_level`).  `theorem_3_43` is the same statement without (1). -/
-theorem _root_.Polyfold.theorem_3_43_sc_smooth (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+(`Sol.exists_contDiffOn_level`).  `theorem_3_5_6` is the same statement without (1). -/
+theorem _root_.Polyfold.theorem_3_5_6_sc_smooth (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒟 : ShiftedBasicData Ct W Q) (hsurj : Surjective 𝒟.Dg)
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ) 𝒟.K')
     (hreg : ∀ ε > 0, ∃ r > 0, ∀ x ∈ 𝒟.G₀.U 0, 𝒟.g x = 0 → ‖x‖ < r →
@@ -1213,9 +1213,9 @@ theorem _root_.Polyfold.theorem_3_43_sc_smooth (hC : IsPartialQuadrant (ScBanach
     fun _ hy => 𝒮.sol_mem_and_eq_zero hy,
     fun k hk => 𝒮.exists_contDiffOn_level hC hsurj hpos k hk, 𝒮.exists_eq_add_τ hreg⟩
 
-/-- **Theorem 3.43** without the regularity clause (1) (the form used by the global
-implicit function theorem, §3.6); see `theorem_3_43_sc_smooth` for the full statement. -/
-theorem _root_.Polyfold.theorem_3_43 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+/-- **Theorem 3.5.6 (preprint 3.43)** without the regularity clause (1) (the form used by the global
+implicit function theorem, §3.6); see `theorem_3_5_6_sc_smooth` for the full statement. -/
+theorem _root_.Polyfold.theorem_3_5_6 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒟 : ShiftedBasicData Ct W Q) (hsurj : Surjective 𝒟.Dg)
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ) 𝒟.K')
     (hreg : ∀ ε > 0, ∃ r > 0, ∀ x ∈ 𝒟.G₀.U 0, 𝒟.g x = 0 → ‖x‖ < r →
@@ -1229,20 +1229,20 @@ theorem _root_.Polyfold.theorem_3_43 (hC : IsPartialQuadrant (ScBanach.const P) 
       ∃ U'' : Set (P × W 0), IsOpen U'' ∧ (0 : P × W 0) ∈ U'' ∧
         ∀ x ∈ U'' ∩ 𝒟.G₀.U 0, 𝒟.g x = 0 → ∃ y ∈ V, x = (y : P × W 0) + τ y := by
   obtain ⟨Y, V, τ, h1, h2, h3, h4, h5, h6, h7, h8, h9, -, h10⟩ :=
-    theorem_3_43_sc_smooth hC 𝒟 hsurj hpos hreg
+    theorem_3_5_6_sc_smooth hC 𝒟 hsurj hpos hreg
   exact ⟨Y, V, τ, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10⟩
 
 end ShiftedBasicData
 
-/-! ### From Theorem 3.38 to Theorem 3.43: the push-forward of `f + s` -/
+/-! ### From Theorem 3.4.2 (preprint 3.38) to Theorem 3.5.6 (preprint 3.43): the push-forward of `f + s` -/
 
 namespace StabilityData
 
 variable (𝒮 : StabilityData Ct W) {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
   [FiniteDimensional ℝ Q] {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
 
-/-- The push-forward `g = Φ_*(f + s)` of Theorem 3.38 as the data of Theorem 3.43: `g` on level
-`0` (`pushMap₀`) with its index-raised basic germ `g¹ = pushMap f` (Theorem 3.38). -/
+/-- The push-forward `g = Φ_*(f + s)` of Theorem 3.4.2 (preprint 3.38) as the data of Theorem 3.5.6 (preprint 3.43): `g` on level
+`0` (`pushMap₀`) with its index-raised basic germ `g¹ = pushMap f` (Theorem 3.4.2 (preprint 3.38)). -/
 def toShiftedBasicData (hC : IsQuadrantLike (ScBanach.const P) Ct) (hf : IsBasicGerm Ct 𝒮.G f B) :
     ShiftedBasicData (Ct ×ˢ (univ : Set 𝒮.Cs)) 𝒮.XB (Q × 𝒮.Zs) where
   G₀ := 𝒮.pushGerm₀
@@ -1254,14 +1254,14 @@ def toShiftedBasicData (hC : IsQuadrantLike (ScBanach.const P) Ct) (hf : IsBasic
   g₁ := 𝒮.pushMap f
   g₁_eq := fun _ hx => 𝒮.pushMap_eq_levelMap_pushMap₀ hf.isScSmooth hx
   B := 𝒮.pushB B
-  basic := theorem_3_38 𝒮 hC hf
+  basic := theorem_3_4_2 𝒮 hC hf
 
-/-- **Lemma 3.42** (the regularity of the solutions of the pushed-forward germ, from Theorem
+/-- **Lemma 3.5.5 (preprint 3.42)** (the regularity of the solutions of the pushed-forward germ, from Theorem
 3.40): for every `ε > 0` there is `r > 0` such that every zero `x'` of `g = Φ_*(f + s)` in
 `ψ(U)` with `|x'|₀ < r` has its `X`-component on level `1` with `|·|₁ < ε`.  Proof: `ψ⁻¹(x')` is a
-zero of `f + s`, so by the lifts of Theorem 3.40 (`IsSc0ContractionGerm.exists_lift`, continuous
+zero of `f + s`, so by the lifts of Theorem 3.5.1 (preprint 3.40) (`IsSc0ContractionGerm.exists_lift`, continuous
 at `0`) it lies on level `1` and is small there; `ψ` is linear on level `1`. -/
-theorem lemma_3_42 (hC : IsPartialQuadrant (ScBanach.const P) Ct) (hf : IsBasicGerm Ct 𝒮.G f B) :
+theorem lemma_3_5_5 (hC : IsPartialQuadrant (ScBanach.const P) Ct) (hf : IsBasicGerm Ct 𝒮.G f B) :
     ∀ ε > 0, ∃ r > 0, ∀ x ∈ 𝒮.pushGerm₀.U 0, 𝒮.pushMap₀ f x = 0 → ‖x‖ < r →
       ∃ w₁ : 𝒮.XB 1, 𝒮.XB.toBase 1 w₁ = x.2 ∧ ‖w₁‖ < ε := by
   intro ε hε
@@ -1359,17 +1359,17 @@ lemma _root_.Polyfold.IsPartialQuadrant.const_prod_univ (hC : IsPartialQuadrant 
       incl_comm := fun _ _ => rfl }
   exact ⟨n, W', I.trans T, hT⟩
 
-/-- **Theorem 3.47 (Corollary 3.47 of the text), the local core**: let `f : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`
-be a basic germ and `s` an sc⁺-germ with `s(0) = 0` (the data `𝒮` of Theorem 3.38), and assume
+/-- **Theorem 3.5.11 (preprint 3.47) (Corollary 3.47 of the text), the local core**: let `f : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W`
+be a basic germ and `s` an sc⁺-germ with `s(0) = 0` (the data `𝒮` of Theorem 3.4.2 (preprint 3.38)), and assume
 the linearization `D(f + s)(0)` is surjective with kernel `K` in good position to
 `C = C̃ ⊕ W`.  Then there are a good complement `Y` of `K`, a relatively open neighbourhood `V` of
 `0` in `K ∩ C` and a `C¹`-map `σ : V → Y` with values in `Y₁` such that (2) `σ(0) = 0`,
 `Dσ(0) = 0`, and (3) the zero set of `f + s` in `U` near `0` is `{v + σ(v) | v ∈ V}`.  Proof:
-Theorem 3.43 for the pushed-forward germ `g = Φ_*(f + s)` of Theorem 3.38 (Lemma 3.42 gives its
+Theorem 3.5.6 (preprint 3.43) for the pushed-forward germ `g = Φ_*(f + s)` of Theorem 3.4.2 (preprint 3.38) (Lemma 3.42 gives its
 regularity hypothesis), transported back by the **linear** coordinate change `ψ`; the text's
-nonlinear transport (the degeneracy index argument with Lemma 3.70 and Theorem 3.72) is not
+nonlinear transport (the degeneracy index argument with Lemma 3.8.13 (preprint 3.70) and Theorem 3.8.15 (preprint 3.72)) is not
 needed since `ψ` is linear. -/
-theorem _root_.Polyfold.theorem_3_47_sc_smooth (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+theorem _root_.Polyfold.theorem_3_5_11_sc_smooth (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒮 : StabilityData Ct W) (hf : IsBasicGerm Ct 𝒮.G f B) (hsurj : Surjective (𝒮.Dfs f))
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       (LinearMap.ker (𝒮.Dfs f : P × W 0 →ₗ[ℝ] Q × W 0))) :
@@ -1442,7 +1442,7 @@ theorem _root_.Polyfold.theorem_3_47_sc_smooth (hC : IsPartialQuadrant (ScBanach
     constructor
     · rintro ⟨y', hy', rfl⟩; exact hSK' ⟨y', hy'⟩
     · intro hx; exact ⟨S x, hSK ⟨x, hx⟩, S.symm_apply_apply x⟩
-  -- finite dimensionality of the kernels (Lemma 3.44)
+  -- finite dimensionality of the kernels (Lemma 3.5.8 (preprint 3.44))
   have hC' : IsPartialQuadrant (ScBanach.const (P × 𝒮.Cs)) (Ct ×ˢ (univ : Set 𝒮.Cs)) :=
     hC.const_prod_univ 𝒮.Cs
   have hfinK' : FiniteDimensional ℝ 𝒟.K' := by
@@ -1463,7 +1463,7 @@ theorem _root_.Polyfold.theorem_3_47_sc_smooth (hC : IsPartialQuadrant (ScBanach
     refine ⟨𝒮.split₀ 0 x, ?_⟩
     rw [hDg_apply, 𝒮.glue₀_split₀, hx, 𝒮.fiber₀_fiberInv₀]
   obtain ⟨Y', V', τ, hY', hV'rel, hV'0, hτY, hτ1, hτC, hτ0, hDτ, hsol, hlev, U'', hU''o, hU''0,
-    hU''⟩ := theorem_3_43_sc_smooth hC' 𝒟 hsurj' hpos' (𝒮.lemma_3_42 hC hf)
+    hU''⟩ := theorem_3_5_6_sc_smooth hC' 𝒟 hsurj' hpos' (𝒮.lemma_3_5_5 hC hf)
   let SK : K →L[ℝ] 𝒟.K' :=
     { toFun := fun y => ⟨S y, hSK y⟩
       map_add' := fun _ _ => Subtype.ext (by simp)
@@ -1475,7 +1475,7 @@ theorem _root_.Polyfold.theorem_3_47_sc_smooth (hC : IsPartialQuadrant (ScBanach
   -- the complement, the neighbourhood and the map
   refine ⟨Y'.map (S.symm : 𝒮.E₀' 0 →ₗ[ℝ] P × W 0), SK ⁻¹' V', fun y => S.symm (τ (SK y)),
     ?_, ?_, ?_, fun y => ⟨τ (SK y), hτY _, rfl⟩, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · -- `Y` is a good complement of `K` (Lemma 3.45 for the linear `ψ⁻¹`)
+  · -- `Y` is a good complement of `K` (Lemma 3.5.9 (preprint 3.45) for the linear `ψ⁻¹`)
     have h := hY'.map (E' := ScBanach.paramProd P W) (C' := Ct ×ˢ univ) S.symm hS'_mem
     rwa [hKmap] at h
   · obtain ⟨O', hO', hV'⟩ := hV'rel
@@ -1566,10 +1566,10 @@ theorem _root_.Polyfold.theorem_3_47_sc_smooth (hC : IsPartialQuadrant (ScBanach
     change x = S.symm y' + S.symm (τ y')
     rw [← map_add, ← hxy', S.symm_apply_apply]
 
-/-- **Theorem 3.47 (Corollary 3.47 of the text)** without the regularity clause (1), the form
-used by the global implicit function theorem (§3.6); see `theorem_3_47_sc_smooth` for the full
+/-- **Theorem 3.5.11 (preprint 3.47) (Corollary 3.47 of the text)** without the regularity clause (1), the form
+used by the global implicit function theorem (§3.6); see `theorem_3_5_11_sc_smooth` for the full
 statement. -/
-theorem _root_.Polyfold.theorem_3_47 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+theorem _root_.Polyfold.theorem_3_5_11 (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒮 : StabilityData Ct W) (hf : IsBasicGerm Ct 𝒮.G f B) (hsurj : Surjective (𝒮.Dfs f))
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       (LinearMap.ker (𝒮.Dfs f : P × W 0 →ₗ[ℝ] Q × W 0))) :
@@ -1585,7 +1585,7 @@ theorem _root_.Polyfold.theorem_3_47 (hC : IsPartialQuadrant (ScBanach.const P) 
       ∃ U'' : Set (P × W 0), IsOpen U'' ∧ (0 : P × W 0) ∈ U'' ∧
         ∀ x ∈ U'' ∩ 𝒮.G.U 0, 𝒮.fsum f x = 0 → ∃ y ∈ V, x = (y : P × W 0) + σ y := by
   obtain ⟨Y, V, σ, h1, h2, h3, h4, h5, h6, h7, h8, h9, -, h10⟩ :=
-    theorem_3_47_sc_smooth hC 𝒮 hf hsurj hpos
+    theorem_3_5_11_sc_smooth hC 𝒮 hf hsurj hpos
   exact ⟨Y, V, σ, h1, h2, h3, h4, h5, h6, h7, h8, h9, h10⟩
 
 end StabilityData

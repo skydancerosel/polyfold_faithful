@@ -37,7 +37,7 @@ theorem A_holds : A := @Polyfold.EpStrongBundle.isLR_trivial.{0}
 theorem isLR_trivialGroupoid {Z : Type} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z]
     (PZ : MPolyfold Z) : (EpGroupoid.trivial PZ).IsLR := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β β' _ hπ => ⟨1, fun y hy => ?_⟩⟩
   obtain ⟨φ, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ y hy)
   have hs := R.src_Γ 1 y hy

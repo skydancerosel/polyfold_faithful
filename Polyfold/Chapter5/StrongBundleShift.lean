@@ -5,18 +5,18 @@ import Polyfold.Chapter2.TangentMap
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.2, the
-paragraph before **Corollary 5.8** ("a sc-smooth section `f` of the strong bundle `Y → X` defines,
+paragraph before **Corollary 5.2.5 (preprint 5.8)** ("a sc-smooth section `f` of the strong bundle `Y → X` defines,
 by raising the index, a sc-smooth section `f^i` of `Y^i → X^i`"), with the paragraph after
-Definition 2.14 (the M-polyfold `X¹`) and Definitions 2.47–2.52 (strong bundles).
+Definition 2.3.8 (preprint 2.14) (the M-polyfold `X¹`) and Definitions 2.6.1–2.6.6 (preprint 2.47–2.52) (strong bundles).
 
 # The shifted strong bundle `P¹ : Y¹ → X¹`
 
 ## The text, paraphrased
 
-(Before Corollary 5.8) An sc-smooth section `f` of `Y → X` defines, by raising the index, an
-sc-smooth section `f^i` of `Y^i → X^i`.  (Corollary 5.8) `f^i` is an sc-Fredholm section of
-`P^i : Y^i → X^i`.  The text never defines `Y^i → X^i` (only `X^i`, after Definition 2.14, and
-`Y[i]`, `i = 0, 1`, after Definition 2.51).
+(Before Corollary 5.2.5 (preprint 5.8)) An sc-smooth section `f` of `Y → X` defines, by raising the index, an
+sc-smooth section `f^i` of `Y^i → X^i`.  (Corollary 5.2.5 (preprint 5.8)) `f^i` is an sc-Fredholm section of
+`P^i : Y^i → X^i`.  The text never defines `Y^i → X^i` (only `X^i`, after Definition 2.3.8 (preprint 2.14), and
+`Y[i]`, `i = 0, 1`, after Definition 2.6.5 (preprint 2.51)).
 
 ## What is formalized
 
@@ -29,7 +29,7 @@ sc-smooth section `f^i` of `Y^i → X^i`.  (Corollary 5.8) `f^i` is an sc-Fredho
 * `MPolyfold.mem_shift_levelSet_iff`, `MPolyfold.mem_shift_smoothSet_iff`: **`(X¹)_m = X_{m+1}`**
   and `(X¹)_∞ = X_∞` (part of gap G.6).
 * `MPolyfold.IsScSmoothMap.levelOne`: **an sc-smooth map `X → Z` induces an sc-smooth map
-  `X¹ → Z¹`** (the text's "raising the index"; Proposition 1.17 in level charts).
+  `X¹ → Z¹`** (the text's "raising the index"; Proposition 1.2.2 (preprint 1.17) in level charts).
 * `StrongBundle.ShiftSpace` (**`Y¹ = Y_{1,1}`**, the level `Y[0]_1` with its level topology),
   `StrongBundle.shiftProj` (**`P¹`**), the fibres `StrongBundle.shiftFiberSubmodule`
   (`P⁻¹(x) ∩ Y_{1,1}`) with the instances `shiftFiber_addCommGroup`, `shiftFiber_module`.
@@ -37,9 +37,9 @@ sc-smooth section `f^i` of `Y^i → X^i`.  (Corollary 5.8) `f^i` is an sc-Fredho
   chart**: base chart the level chart `φ¹`, fibre model `F¹`, retraction `R¹`, bundle chart the
   level chart of `Φ` as a chart of `Y[0]`), with `shift_K` (`K¹ = K_{1,1}`), `shift_overlap`,
   `shift_transition`, `toBase_shift_apply`; `StrongBundleChart.Compatible.shift`
-  (**compatible charts have compatible index raises**, `[0]` and `[1]` by Proposition 1.17, the
+  (**compatible charts have compatible index raises**, `[0]` and `[1]` by Proposition 1.2.2 (preprint 1.17), the
   `F₁`-condition by the level-`1` property of `[1]`).
-* `StrongBundle.shift` (**the strong bundle `P¹ : Y¹ → X¹`**, Definition 2.51: continuous
+* `StrongBundle.shift` (**the strong bundle `P¹ : Y¹ → X¹`**, Definition 2.6.5 (preprint 2.51): continuous
   surjective projection, Banachable fibres, the atlas `shiftAtlas` of the index raises),
   `StrongBundle.isChart_shift`, `StrongBundle.isChart_shift_toMPolyfold0_iff` (**`Y¹[0] = Y[0]¹`**
   as M-polyfolds), `StrongBundle.mem_shift_doubleLevel_iff` (**`(Y¹)_{m,k} = Y_{m+1,k+1}`**).
@@ -53,9 +53,9 @@ sc-smooth section `f^i` of `Y^i → X^i`.  (Corollary 5.8) `f^i` is an sc-Fredho
   `(Y¹)_{m,k} = Y_{m+1,k+1}` (the convention of `E¹`, `(U ◁ F)¹ = U¹ ◁ F¹`): the total space is
   `Y_{1,1}` (not `Y_{0,1} = Y[1]`, nor `Y_{1,2}`), so that `f¹ = f|_{X₁}` takes values in it for
   every sc-smooth `f` (sc-smooth sections map `X_m` into `Y_{m,m}`).  Its topology is that of the
-  level `Y[0]_1` of the M-polyfold `Y[0]` (the paragraph after Definition 2.14), which is the
+  level `Y[0]_1` of the M-polyfold `Y[0]` (the paragraph after Definition 2.3.8 (preprint 2.14)), which is the
   topology making the charts `Φ¹` homeomorphisms onto `K_{1,1} ⊆ E₁ ⊕ F₁`; Hausdorff and
-  paracompact by Theorem 2.16 for `Y[0]`.
+  paracompact by Theorem 2.3.10 (preprint 2.16) for `Y[0]`.
 * **The fibres.**  `P¹⁻¹(x) = P⁻¹(x) ∩ Y_{1,1}` is a linear subspace of `P⁻¹(x)` (in a chart it is
   the preimage of `F₁` under the linear fibre map), and gets the induced linear structure; its
   Banachable topology is the one of `Y¹`, which is that of `F₁` in a chart (not the subspace
@@ -95,7 +95,7 @@ include hU hR
 
 /-- **The index raise of a strong bundle retraction** `R : U ◁ F → U ◁ F` is a strong bundle
 retraction `R¹ = strongShift R` on `U¹ ◁ F¹` (the shifted structures `E¹`, `F¹`): a strong bundle
-map by `IsStrongBundleMap.shift` (Proposition 1.17), idempotent because `ι R¹ = R ι`. -/
+map by `IsStrongBundleMap.shift` (Proposition 1.2.2 (preprint 1.17)), idempotent because `ι R¹ = R ι`. -/
 theorem shift :
     IsStrongBundleRetraction (E := E.shift) (F := F.shift) (E.lvlSet U 1) (strongShift R) :=
   { hR.toIsStrongBundleMap.shift hU with
@@ -233,7 +233,7 @@ lemma symm_mem_fiber {x : X} (hx : x ∈ c.φ.source) {h : c.F 0}
   exact c.φ.toPartialEquiv.injOn hs' hx h1.symm
 
 /-- **The fibre `P⁻¹(x)` is linearly homeomorphic to the closed subspace `K_{φ(x)}` of `F₀`**
-through the strong bundle chart (Definition 2.50: `Φ` is a homeomorphism, linear on the fibres). -/
+through the strong bundle chart (Definition 2.6.4 (preprint 2.50): `Φ` is a homeomorphism, linear on the fibres). -/
 def fiberCLE {x : X} (hx : x ∈ c.φ.source) :
     (P ⁻¹' {x}) ≃L[ℝ] c.fiberK (c.O_subset_U (c.φ.mapsTo_model x hx)) where
   toFun v := ⟨(c (v : Y)).2, c.snd_mem_fiberK hx v⟩
@@ -273,7 +273,7 @@ lemma continuousOn_proj : ContinuousOn P c.toPartialEquiv.source := by
   simp only [c.covers y hy, c.φ.symm_apply_apply hPy]
 
 /-- **The fibres of a strong bundle chart are Banachable**: `P⁻¹(x) ≅ K_{φ(x)}`, a closed subspace
-of the Banach space `F₀` (Definition 2.50; used for the shifted strong bundle). -/
+of the Banach space `F₀` (Definition 2.6.4 (preprint 2.50); used for the shifted strong bundle). -/
 theorem isBanachable_fiber {x : X} (hx : x ∈ c.φ.source) : IsBanachable (P ⁻¹' {x}) := by
   have : CompleteSpace (c.fiberK (c.O_subset_U (c.φ.mapsTo_model x hx))) :=
     (c.isClosed_fiberK _).completeSpace_coe
@@ -300,7 +300,7 @@ namespace MPolyfold
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX : MPolyfold X}
 
 /-- **The levels of the M-polyfold `X¹` are those of `X` shifted by one**: `(X¹)_m = X_{m+1}`
-(the paragraph after Definition 2.14; part of gap G.6). -/
+(the paragraph after Definition 2.3.8 (preprint 2.14); part of gap G.6). -/
 theorem mem_shift_levelSet_iff {m : ℕ} (x : PX.Level 1) :
     x ∈ PX.shift.levelSet m ↔ PX.levelVal 1 x ∈ PX.levelSet (m + 1) := by
   obtain ⟨φ, hφ, hx⟩ := PX.exists_isChart_mem_source (PX.levelVal 1 x)
@@ -360,7 +360,7 @@ lemma levelChart_apply_levelOne (hf₁ : ∀ x, Q.levelVal 1 (f₁ x) = f (PX.le
   simp only [Function.comp_apply, φ.symm_apply_apply hx]
 
 /-- **Raising the index of an sc-smooth map** (the text's "a sc-smooth section `f` ... defines,
-by raising the index, a sc-smooth section `f^i`", before Corollary 5.8; Proposition 1.17 in
+by raising the index, a sc-smooth section `f^i`", before Corollary 5.2.5 (preprint 5.8); Proposition 1.2.2 (preprint 1.17) in
 charts): an sc-smooth map `f : X → Z` between M-polyfolds induces an sc-smooth map
 `f₁ : X¹ → Z¹` between the level M-polyfolds (any `f₁` with `f₁(x) = f(x)` as points of `Z`).  In
 the level charts the local representative of `f₁` is the level-`1` map of that of `f`. -/
@@ -477,8 +477,8 @@ lemma mem_levelSet0_one_iff_of_fiber {c : StrongBundleChart PX P} (hc : B.IsChar
   exact ⟨fun h => h.2, fun h => ⟨(PX.mem_levelSet_iff c.isChart hx).1 hx1, h⟩⟩
 
 /-- **The total space `Y¹` of the shifted strong bundle**: the level `Y_{1,1} = Y[0]_1` of the
-M-polyfold `Y[0]` with its level topology (the paragraph after Definition 2.14), i.e. the
-underlying space of the M-polyfold `Y[0]¹`.  Hausdorff and paracompact (Theorem 2.16). -/
+M-polyfold `Y[0]` with its level topology (the paragraph after Definition 2.3.8 (preprint 2.14)), i.e. the
+underlying space of the M-polyfold `Y[0]¹`.  Hausdorff and paracompact (Theorem 2.3.10 (preprint 2.16)). -/
 abbrev ShiftSpace : Type v := B.toMPolyfold0.Level 1
 
 /-- **The projection `P¹ : Y¹ → X¹`**, `y ↦ P(y)` (`P` maps `Y_{1,1}` into `X₁`). -/
@@ -595,7 +595,7 @@ lemma levelVal_mem_source_of_fiber {x : PX.Level 1} (hx : PX.levelVal 1 x ∈ c.
   rw [c.source_eq, mem_preimage, ← B.levelVal_shiftProj, show B.shiftProj v = x from v.2]
   exact hx
 
-/-- `Φ¹` covers the level chart `φ¹` (Definition 2.50 for `Φ¹`). -/
+/-- `Φ¹` covers the level chart `φ¹` (Definition 2.6.4 (preprint 2.50) for `Φ¹`). -/
 lemma shift_covers (y : B.ShiftSpace)
     (hy : y ∈ (MPolyfold.levelChart hc.toMChart y₀).toPartialEquiv.source) :
     (MPolyfold.levelChart hc.toMChart y₀ y).1 =
@@ -608,7 +608,7 @@ lemma shift_covers (y : B.ShiftSpace)
     PX.toBase_levelLift c.isChart hPy (MPolyfold.levelVal_mem _), c.covers _ hy']
   rfl
 
-/-- `Φ¹` is linear on the fibres of `P¹` (Definition 2.50 for `Φ¹`). -/
+/-- `Φ¹` is linear on the fibres of `P¹` (Definition 2.6.4 (preprint 2.50) for `Φ¹`). -/
 lemma shift_fiber_linear (x : PX.Level 1) (hx : PX.levelVal 1 x ∈ c.φ.source) :
     IsLinearMap ℝ fun v : B.shiftProj ⁻¹' {x} =>
       (MPolyfold.levelChart hc.toMChart y₀ (v : B.ShiftSpace)).2 := by
@@ -770,7 +770,7 @@ lemma shift_transition_one (h : c.Compatible c')
         Function.invFun (c'.F.toBase 1) (T ((c.φ.model.E.prod c.F).toBase 1 q)).2
     rw [hTq, hsnd, Function.leftInverse_invFun (c'.F.shift.toBase_injective 1), hw2]
 
-/-- `[1]` of the transition of shifted charts is sc-smooth (Proposition 1.17 for `[1]` of the
+/-- `[1]` of the transition of shifted charts is sc-smooth (Proposition 1.2.2 (preprint 1.17) for `[1]` of the
 transition). -/
 theorem shift_compatible_one (h : c.Compatible c') :
     IsScSmoothRetractMap ((c.shift hc y₀).φ.model.E.prod (c.shift hc y₀).F.shift)
@@ -795,7 +795,7 @@ theorem shift_compatible_one (h : c.Compatible c') :
   rw [strongShiftOne_shift_overlap, strongShiftOne_shift_overlap]
   exact key
 
-/-- The `F₁`-condition of Definition 2.50 for the shifted charts (fibre components in `F₂` go to
+/-- The `F₁`-condition of Definition 2.6.4 (preprint 2.50) for the shifted charts (fibre components in `F₂` go to
 fibre components in `F'₂`). -/
 theorem shift_compatible_range (h : c.Compatible c') :
     ∀ x ∈ (c.shift hc y₀).overlap (c'.shift hc' y₀'),
@@ -809,9 +809,9 @@ theorem shift_compatible_range (h : c.Compatible c') :
       strongShiftOne ((c.shift hc y₀).overlap (c'.shift hc' y₀')) := hx
   exact (shift_transition_one h hp).1
 
-/-- **Compatible strong bundle charts have compatible index raises** (Definition 2.50 for the
+/-- **Compatible strong bundle charts have compatible index raises** (Definition 2.6.4 (preprint 2.50) for the
 shifted charts: `(Φ'¹ ∘ (Φ¹)⁻¹)[i]`, `i = 0, 1`, are the level-`1` maps of `(Φ' ∘ Φ⁻¹)[i]`,
-sc-smooth by Proposition 1.17; the `F₁`-condition of `[1]` is the level-`1` property of `[1]`). -/
+sc-smooth by Proposition 1.2.2 (preprint 1.17); the `F₁`-condition of `[1]` is the level-`1` property of `[1]`). -/
 theorem Compatible.shift (h : c.Compatible c') :
     (c.shift hc y₀).Compatible (c'.shift hc' y₀') := by
   have h0 := MPolyfold.levelChart_compatible hc.toMChart y₀ hc'.toMChart y₀'
@@ -868,7 +868,7 @@ theorem banachable_shift (x : PX.Level 1) : IsBanachable (B.shiftProj ⁻¹' {x}
     (x := x) hx
 
 /-- **The shifted strong bundle `P¹ : Y¹ → X¹`** (the index raise of the strong bundle
-`P : Y → X`; the text's `P^i : Y^i → X^i` for `i = 1` in Corollary 5.8, never defined in the
+`P : Y → X`; the text's `P^i : Y^i → X^i` for `i = 1` in Corollary 5.2.5 (preprint 5.8), never defined in the
 text): the total space `Y¹ = Y_{1,1}` with the level topology of `Y[0]`, the base the M-polyfold
 `X¹` (`MPolyfold.shift`), the projection `P¹ = P|_{Y_{1,1}}`, the fibres
 `P⁻¹(x) ∩ Y_{1,1}` (linear subspaces, Banachable as closed subspaces of `F₁` in a chart), and the
@@ -997,7 +997,7 @@ theorem solutionSet_sectionShift (hf : B.IsScSmoothSection f) :
   ext x
   exact isZeroAt_sectionShift_iff hf x
 
-/-- **`f¹` is regularizing** when `f` is (Definition 3.14 (2) on `X¹`): `x ∈ (X¹)_m = X_{m+1}` and
+/-- **`f¹` is regularizing** when `f` is (Definition 3.1.16 (preprint 3.14) (2) on `X¹`): `x ∈ (X¹)_m = X_{m+1}` and
 `f¹(x) ∈ (Y¹)_{m,m+1} = Y_{m+1,m+2}` give `x ∈ X_{m+2} = (X¹)_{m+1}`. -/
 theorem regularizing_sectionShift (hf : B.IsScSmoothSection f)
     (hreg : ∀ m, ∀ x ∈ PX.levelSet m, f x ∈ B.doubleLevel m (m + 1) → x ∈ PX.levelSet (m + 1)) :

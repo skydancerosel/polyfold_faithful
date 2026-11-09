@@ -6,31 +6,31 @@ import RoundTrip.Blind.V2_49
 sc-smooth retraction `s : V* → V*`, a sub-M-polyfold of `O`, tame, with `d_F = d_O − 1`).
 
 `A` is the conjunction of the types of the theorems among the item's declarations:
-`proposition_2_43`, `killCoord_mem`, `killCoord_eq_self`, `LocalModel.isSubMPolyfold_of_isFace`,
-`degIndexWith_eq_quadrantDeg_faceProj_add_one`, `proposition_2_43_tameModel`,
-`MPolyfold.faceChart_compatible_subChart` (universe `0`) and `LocalModel.proposition_2_43_isTame`.
+`proposition_2_5_15`, `killCoord_mem`, `killCoord_eq_self`, `LocalModel.isSubMPolyfold_of_isFace`,
+`degIndexWith_eq_quadrantDeg_faceProj_add_one`, `proposition_2_5_15_tameModel`,
+`MPolyfold.faceChart_compatible_subChart` (universe `0`) and `LocalModel.proposition_2_5_15_isTame`.
 `killCoord`, `faceIncl`, `faceProj`, `MPolyfold.faceChart` are definitions (vocabulary).
 
-`A → B`: B's retraction `s` is the `S` of `proposition_2_43` (`S.U ⊆ R.U`, `F ⊆ S.U`,
+`A → B`: B's retraction `s` is the `S` of `proposition_2_5_15` (`S.U ⊆ R.U`, `F ⊆ S.U`,
 `S.retract = F`), after moving the face between `↥O` and `E₀` with `isFace_toMPolyfold_iff`
 (item V2_46, not banned).  B's sub-M-polyfold data (`s|_V` sc-smooth on `V = O ∩ V*` in the
 M-polyfold `O`, `V → V`, idempotent, image `F ∩ V`) is not a theorem of A: it is the body of the
 proof of `isSubMPolyfold_of_isFace`, re-done here for any retraction `S` onto `F` (`subData_of`,
 glue copied from the project's proof).  The tame/degree clause is `isSubMPolyfold_of_isFace` +
-`proposition_2_43_isTame` (proof irrelevance for the sub-M-polyfold proof and the
+`proposition_2_5_15_isTame` (proof irrelevance for the sub-M-polyfold proof and the
 paracompactness instance, supplied by `paracompactSpace_subtype`).
 
-Harness: the statement of `proposition_2_43_isTame` contains the banned `isSubMPolyfold_of_isFace`
+Harness: the statement of `proposition_2_5_15_isTame` contains the banned `isSubMPolyfold_of_isFace`
 (the argument of `subPolyfold`), so every proof mentioning `A` reaches it hard.  As in V2_51/V2_53,
 `A'` is `A` with that proof (and the instance) universally quantified; `A_to_A'` is a projection by
 proof irrelevance and `A'_to_B` passes `#rt_check`; `A_to_B := A'_to_B ∘ A_to_A'`.
 
-`B → A` fails genuinely: `proposition_2_43` asserts the specific retraction `S = r ∘ P_i`
-(`P_i = killCoord T i`) on `S.U` and `F ⊆ f_i`; `proposition_2_43_tameModel` a tame model of `F`
+`B → A` fails genuinely: `proposition_2_5_15` asserts the specific retraction `S = r ∘ P_i`
+(`P_i = killCoord T i`) on `S.U` and `F ⊆ f_i`; `proposition_2_5_15_tameModel` a tame model of `F`
 through `faceProj`; `faceChart_compatible_subChart` a chart-compatibility lemma;
 `degIndexWith_eq_quadrantDeg_faceProj_add_one` and the `killCoord` lemmas are coordinate facts.
 B only asserts that SOME retraction onto `F` exists and the tame/degree conclusions.  B does give
-`isSubMPolyfold_of_isFace` (`B_to_isSubMPolyfold`) and `proposition_2_43_isTame` for any
+`isSubMPolyfold_of_isFace` (`B_to_isSubMPolyfold`) and `proposition_2_5_15_isTame` for any
 sub-M-polyfold proof (`B_to_isTame`), both `#rt_check` OK. -/
 
 namespace RoundTrip.V2_49
@@ -38,22 +38,22 @@ open Polyfold Set
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_43) ∧ (type_of% @Polyfold.killCoord_mem) ∧
+  (type_of% @Polyfold.proposition_2_5_15) ∧ (type_of% @Polyfold.killCoord_mem) ∧
     (type_of% @Polyfold.killCoord_eq_self) ∧
     (type_of% @Polyfold.LocalModel.isSubMPolyfold_of_isFace) ∧
     (type_of% @Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one) ∧
-    (type_of% @Polyfold.proposition_2_43_tameModel) ∧
+    (type_of% @Polyfold.proposition_2_5_15_tameModel) ∧
     (type_of% @Polyfold.MPolyfold.faceChart_compatible_subChart.{0}) ∧
-    (type_of% @Polyfold.LocalModel.proposition_2_43_isTame)
+    (type_of% @Polyfold.LocalModel.proposition_2_5_15_isTame)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_43, @Polyfold.killCoord_mem, @Polyfold.killCoord_eq_self,
+  ⟨@Polyfold.proposition_2_5_15, @Polyfold.killCoord_mem, @Polyfold.killCoord_eq_self,
     @Polyfold.LocalModel.isSubMPolyfold_of_isFace,
-    @Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, @Polyfold.proposition_2_43_tameModel,
+    @Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, @Polyfold.proposition_2_5_15_tameModel,
     @Polyfold.MPolyfold.faceChart_compatible_subChart.{0},
-    @Polyfold.LocalModel.proposition_2_43_isTame⟩
+    @Polyfold.LocalModel.proposition_2_5_15_isTame⟩
 
-/-- `proposition_2_43_isTame` with the sub-M-polyfold proof and the paracompactness instance
+/-- `proposition_2_5_15_isTame` with the sub-M-polyfold proof and the paracompactness instance
 quantified (they are propositions: equal to the project's by proof irrelevance). -/
 def IsTame' : Prop :=
   ∀ (M : LocalModel) (hne : M.O.Nonempty) {n : ℕ} {W : ScBanach} (R : ScRetraction M.E M.C)
@@ -64,13 +64,13 @@ def IsTame' : Prop :=
     (MPolyfold.subPolyfold hsub).IsTame ∧
       ∀ x : F, (MPolyfold.subPolyfold hsub).degIndex x + 1 = (M.toMPolyfold hne).degIndex x.1
 
-/-- `A` up to the proof term inside the statement of `proposition_2_43_isTame`. -/
+/-- `A` up to the proof term inside the statement of `proposition_2_5_15_isTame`. -/
 def A' : Prop :=
-  (type_of% @Polyfold.proposition_2_43) ∧ (type_of% @Polyfold.killCoord_mem) ∧
+  (type_of% @Polyfold.proposition_2_5_15) ∧ (type_of% @Polyfold.killCoord_mem) ∧
     (type_of% @Polyfold.killCoord_eq_self) ∧
     (type_of% @Polyfold.LocalModel.isSubMPolyfold_of_isFace) ∧
     (type_of% @Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one) ∧
-    (type_of% @Polyfold.proposition_2_43_tameModel) ∧
+    (type_of% @Polyfold.proposition_2_5_15_tameModel) ∧
     (type_of% @Polyfold.MPolyfold.faceChart_compatible_subChart.{0}) ∧ IsTame'
 
 theorem A_to_A' : A → A' := fun ⟨h1, h2, h3, h4, h5, h6, h7, h8⟩ =>
@@ -204,7 +204,7 @@ theorem B_to_isSubMPolyfold (hB : B) : type_of% @Polyfold.LocalModel.isSubMPolyf
     subst hRM
     exact ((hB E C R hne (hR.isTame hT) F hF).2).1
 
-/-- `B` gives `proposition_2_43_isTame`, for any sub-M-polyfold proof and paracompactness
+/-- `B` gives `proposition_2_5_15_isTame`, for any sub-M-polyfold proof and paracompactness
 instance (i.e. `IsTame'`). -/
 theorem B_to_isTame (hB : B) : IsTame' := by
   intro M hne n W R hRM T hT hR F hF hsub hpc
@@ -215,17 +215,17 @@ theorem B_to_isTame (hB : B) : IsTame' := by
     obtain ⟨-, _, _, h⟩ := hB E C R hne (hR.isTame hT) F hF
     exact h
 
-#rt_check RoundTrip.V2_49.A'_to_B [Polyfold.proposition_2_43, Polyfold.killCoord_mem,
+#rt_check RoundTrip.V2_49.A'_to_B [Polyfold.proposition_2_5_15, Polyfold.killCoord_mem,
   Polyfold.killCoord_eq_self, Polyfold.LocalModel.isSubMPolyfold_of_isFace,
-  Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, Polyfold.proposition_2_43_tameModel,
-  Polyfold.MPolyfold.faceChart_compatible_subChart, Polyfold.LocalModel.proposition_2_43_isTame]
-#rt_check RoundTrip.V2_49.B_to_isSubMPolyfold [Polyfold.proposition_2_43, Polyfold.killCoord_mem,
+  Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, Polyfold.proposition_2_5_15_tameModel,
+  Polyfold.MPolyfold.faceChart_compatible_subChart, Polyfold.LocalModel.proposition_2_5_15_isTame]
+#rt_check RoundTrip.V2_49.B_to_isSubMPolyfold [Polyfold.proposition_2_5_15, Polyfold.killCoord_mem,
   Polyfold.killCoord_eq_self, Polyfold.LocalModel.isSubMPolyfold_of_isFace,
-  Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, Polyfold.proposition_2_43_tameModel,
-  Polyfold.MPolyfold.faceChart_compatible_subChart, Polyfold.LocalModel.proposition_2_43_isTame]
-#rt_check RoundTrip.V2_49.B_to_isTame [Polyfold.proposition_2_43, Polyfold.killCoord_mem,
+  Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, Polyfold.proposition_2_5_15_tameModel,
+  Polyfold.MPolyfold.faceChart_compatible_subChart, Polyfold.LocalModel.proposition_2_5_15_isTame]
+#rt_check RoundTrip.V2_49.B_to_isTame [Polyfold.proposition_2_5_15, Polyfold.killCoord_mem,
   Polyfold.killCoord_eq_self, Polyfold.LocalModel.isSubMPolyfold_of_isFace,
-  Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, Polyfold.proposition_2_43_tameModel,
-  Polyfold.MPolyfold.faceChart_compatible_subChart, Polyfold.LocalModel.proposition_2_43_isTame]
+  Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one, Polyfold.proposition_2_5_15_tameModel,
+  Polyfold.MPolyfold.faceChart_compatible_subChart, Polyfold.LocalModel.proposition_2_5_15_isTame]
 
 end RoundTrip.V2_49

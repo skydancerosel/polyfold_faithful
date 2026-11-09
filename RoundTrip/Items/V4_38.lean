@@ -222,9 +222,9 @@ theorem B_holds : B := by
     have hNt : N = LinearMap.range (scDeriv t.U t 0 : ψ.model.E 0 →ₗ[ℝ] ψ.model.E 0) := by
       refine SetLike.coe_injective (hN.trans ?_)
       rw [← ht]; exact tangentSpace_eq_coe_submodule t h0t
-    have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_7_ii htp h0t
+    have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_1_7_ii htp h0t
     have hNs : N ≤ ψ.model.E.smooth :=
-      (ψ.model.E.proposition_1_6_iff N).1 (hNt ▸ (t.isScSplitting_range_scDeriv h0t hs0).1)
+      (ψ.model.E.proposition_1_1_7_iff N).1 (hNt ▸ (t.isScSplitting_range_scDeriv h0t hs0).1)
     refine ⟨d.toSubData.shrink ψ, d.s, ψ, n, Wq, T, 0, N, M,
       (retractionOn_iff P d.s _).1 (isScPlusRetractionOn_shrink d ψ), ?_,
       d.toSubData.mem_shrink ψ ha had haψ, hψ, d.toSubData.shrink_subset_source ψ, hT, hz, ?_, hM,

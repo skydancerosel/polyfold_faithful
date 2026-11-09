@@ -6,7 +6,7 @@ import RoundTrip.Blind.V7_64
 Round trip for V7_64 (Lemma 7.9: the invariant neighbourhood `U = ⋃_g t_g s_g⁻¹(U₂)`).
 
 `A` is the conjunction of the types, at universe `0`, of the listed theorems:
-`EpGroupoid.lemma_7_9` (for sheets `D : NatRepConstruction.Sheets X x` and an open `U₁ ∋ x` inside
+`EpGroupoid.lemma_7_6_3` (for sheets `D : NatRepConstruction.Sheets X x` and an open `U₁ ∋ x` inside
 every `s(N_g)` with the property of Lemma 7.8, a connected open `U₂ ∋ x`, `U₂ ⊆ U₁`, with
 `D.unionHat U₂ ⊆ U₁` invariant under every `D.hat g = t_g ∘ s_g⁻¹`), and the sheet lemmas
 `isConnected_unionHat`, `eqOn_σ_one`, `eqOn_σ_mul`, `hat_one`, `hat_mul` (on a connected
@@ -21,7 +21,7 @@ smaller `s(N_g)`, so Lemma 7.9 is applied to `U₁ ∩ ⋂_g s(N_g)` (open, `G_x
 
 `B → A` is not attempted: B says nothing about the homomorphism lemmas (`eqOn_σ_one`,
 `eqOn_σ_mul`, `hat_one`, `hat_mul`), nor about connectedness (`isConnected_unionHat`, the
-connected `U₂` of `lemma_7_9`).
+connected `U₂` of `lemma_7_6_3`).
 -/
 
 namespace RoundTrip.V7_64
@@ -29,7 +29,7 @@ open Polyfold Set
 
 /-- The project's Lemma 7.9 and the listed sheet lemmas, universes at `0`. -/
 def A : Prop :=
-  (type_of% @Polyfold.EpGroupoid.lemma_7_9.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.lemma_7_6_3.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NatRepConstruction.Sheets.isConnected_unionHat.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_one.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_mul.{0}) ∧
@@ -37,7 +37,7 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_mul.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.lemma_7_9.{0},
+  ⟨@Polyfold.EpGroupoid.lemma_7_6_3.{0},
     @Polyfold.EpGroupoid.NatRepConstruction.Sheets.isConnected_unionHat.{0},
     @Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_one.{0},
     @Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_mul.{0},
@@ -101,13 +101,13 @@ theorem A_to_B : A → B := by
   rw [hhat g (hUS g)]
   exact (hinv g).image_subset
 
-#rt_check RoundTrip.V7_64.A_to_B [Polyfold.EpGroupoid.lemma_7_9,
+#rt_check RoundTrip.V7_64.A_to_B [Polyfold.EpGroupoid.lemma_7_6_3,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.isConnected_unionHat,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_one,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_mul,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_one,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_mul]
-#rt_overlap RoundTrip.V7_64.A_to_B [Polyfold.EpGroupoid.lemma_7_9,
+#rt_overlap RoundTrip.V7_64.A_to_B [Polyfold.EpGroupoid.lemma_7_6_3,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.isConnected_unionHat,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_one,
   Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_mul,

@@ -4,11 +4,11 @@ import RoundTrip.Blind.V3_35
 
 /-!
 Round trip for V3_35 (Theorem 3.40).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_40_compactness`, `Polyfold.theorem_3_40_regularity`,
+`Polyfold.theorem_3_5_1_compactness`, `Polyfold.theorem_3_5_1_regularity`,
 `Polyfold.IsSc0ContractionGerm.exists_lift`, `Polyfold.IsSc0ContractionGerm.isCompact_lift_image`
-and `Polyfold.theorem_3_12_local` (no universe parameters).
+and `Polyfold.theorem_3_1_13_local` (no universe parameters).
 
-`A → B`: `theorem_3_12_local` (in `A`) for B's basic germ `h` and the sc⁺-germ `s` (only its sc⁰
+`A → B`: `theorem_3_1_13_local` (in `A`) for B's basic germ `h` and the sc⁺-germ `s` (only its sc⁰
 part is needed; a partial quadrant is closed) gives nested open `O(i) ∋ 0` in `E₀` with
 `cl(S ∩ O(i)) = ι_i(K_i)`.  B's relatively open `O(m)` are `O(m) ∩ U₀` (`U₀ = G.U 0`, relatively
 open in `C`): `S ∩ O(m) ∩ U₀ ⊆ S ∩ O(m)`, so its closure lies in the range of `ι_m`.
@@ -19,15 +19,15 @@ open Polyfold
 
 /-- The project's statement: Theorem 3.40, its lifts, and the local Theorem 3.12. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_40_compactness ∧ type_of% @Polyfold.theorem_3_40_regularity ∧
+  type_of% @Polyfold.theorem_3_5_1_compactness ∧ type_of% @Polyfold.theorem_3_5_1_regularity ∧
     type_of% @Polyfold.IsSc0ContractionGerm.exists_lift ∧
     type_of% @Polyfold.IsSc0ContractionGerm.isCompact_lift_image ∧
-    type_of% @Polyfold.theorem_3_12_local
+    type_of% @Polyfold.theorem_3_1_13_local
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_40_compactness, @Polyfold.theorem_3_40_regularity,
+  ⟨@Polyfold.theorem_3_5_1_compactness, @Polyfold.theorem_3_5_1_regularity,
     @Polyfold.IsSc0ContractionGerm.exists_lift, @Polyfold.IsSc0ContractionGerm.isCompact_lift_image,
-    @Polyfold.theorem_3_12_local⟩
+    @Polyfold.theorem_3_1_13_local⟩
 
 theorem A_to_B : A → B := by
   intro hA n N W Ct G h Bh s hPQ hh hs hs0 f S
@@ -50,8 +50,8 @@ theorem A_to_B : A → B := by
     obtain ⟨y, -, rfl⟩ := hx'
     exact ⟨hx.2, y, rfl⟩
 
-#rt_check RoundTrip.V3_35.A_to_B [Polyfold.theorem_3_40_compactness,
-  Polyfold.theorem_3_40_regularity, Polyfold.IsSc0ContractionGerm.exists_lift,
-  Polyfold.IsSc0ContractionGerm.isCompact_lift_image, Polyfold.theorem_3_12_local]
+#rt_check RoundTrip.V3_35.A_to_B [Polyfold.theorem_3_5_1_compactness,
+  Polyfold.theorem_3_5_1_regularity, Polyfold.IsSc0ContractionGerm.exists_lift,
+  Polyfold.IsSc0ContractionGerm.isCompact_lift_image, Polyfold.theorem_3_1_13_local]
 
 end RoundTrip.V3_35

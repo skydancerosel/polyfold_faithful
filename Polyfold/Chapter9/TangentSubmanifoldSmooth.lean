@@ -60,7 +60,7 @@ theorem retractTangentMap_shiftIncl {E : ScBanach} {C : Set (E 0)} (R : ScRetrac
   rw [← hR1, retractTangent_eq] at ha
   obtain ⟨haU, hfix⟩ := R.shift.mem_tangent_iff.1 ha
   have hι := (E.shiftIncl.isScSmooth (isScDomain_univ _)).isSc1
-  obtain ⟨_, hchain⟩ := theorem_1_21' R.shift.isScDomain (isScDomain_univ _) R.shift.isSc1 hι
+  obtain ⟨_, hchain⟩ := theorem_1_3_1' R.shift.isScDomain (isScDomain_univ _) R.shift.isSc1 hι
     (mapsTo_univ _ _)
   rw [hchain haU, Function.comp_apply, hfix, ScBanach.tangent_toBase]
   refine Prod.ext ?_ ?_
@@ -89,17 +89,17 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P :
 `φ¹` both read as `ι` on `T(O¹) = (TO)¹` (`retractTangentMap_shiftIncl`,
 `tangentChartMap_tangentLower`). -/
 theorem tangentMap_levelVal_one (β : P.shift.TangentSpace) :
-    tangentMap P.remark_4_3_levelVal β = tangentLower β := by
+    tangentMap P.remark_4_1_3_levelVal β = tangentLower β := by
   set y : P.Level 1 := P.shift.levelVal 1 (P.shift.tangentProj β) with hy
   obtain ⟨φ, hφ, hx⟩ := P.exists_isChart_mem_source (P.levelVal 1 y)
   have hχ : P.shift.IsChart (levelChart hφ y) := P.shift_isChart hφ y
   have hβχ : β ∈ tangentChartSet (P := P.shift) (levelChart hφ y) := hx
   have hL : tangentLower β ∈ tangentChartSet (P := P) φ := tangentLower_mem_tangentChartSet hx
-  have hR : tangentMap P.remark_4_3_levelVal β ∈ tangentChartSet (P := P) φ := by
+  have hR : tangentMap P.remark_4_1_3_levelVal β ∈ tangentChartSet (P := P) φ := by
     change P.levelVal 1 (P.tangentProj (tangentMap _ β)) ∈ φ.source
     rw [levelVal_tangentProj_tangentMap]; exact hx
   refine tangentChartMap_injOn hφ hR hL ?_
-  rw [tangentChartMap_tangentMap P.remark_4_3_levelVal hχ hφ hβχ hx,
+  rw [tangentChartMap_tangentMap P.remark_4_1_3_levelVal hχ hφ hβχ hx,
     tangentChartMap_tangentLower β hφ hx y]
   have hdom : levelChart hφ y '' TangentPre.fdom (levelChart hφ y) (P.levelVal 1) φ =
       φ.model.E.lvlSet φ.model.O 1 := by
@@ -134,7 +134,7 @@ theorem tangentLower_tangentMapOn_one (x₀ : P.Level 1) {α : P.TangentSpace}
     (hα : α ∈ P.tangentPreimage d.V) :
     tangentLower (tangentMapOn (d.isScPlusRetractionOn.isScSmoothOn_one x₀) α) = d.tmap α := by
   have hg := d.isScPlusRetractionOn.isScSmoothOn_one x₀
-  have hι : P.shift.IsScSmoothOn P (P.levelVal 1) univ := P.remark_4_3_levelVal
+  have hι : P.shift.IsScSmoothOn P (P.levelVal 1) univ := P.remark_4_1_3_levelVal
   have hcomp := tangentMapOn_comp hι hg (mapsTo_univ _ _) hα
   have hcongr := tangentMapOn_congr (hι.comp hg (mapsTo_univ _ _))
     d.isScPlusRetractionOn.isScSmoothOn d.isOpen subset_rfl subset_rfl
@@ -142,7 +142,7 @@ theorem tangentLower_tangentMapOn_one (x₀ : P.Level 1) {α : P.TangentSpace}
       change P.levelVal 1 (P.toLevelOne x₀ (d.s z)) = d.s z
       exact levelVal_toLevelOne x₀ (d.isScPlusRetractionOn.mem_levelSet z hz)) hα
   rw [hcomp] at hcongr
-  rw [Function.comp_apply, tangentMapOn_univ P.remark_4_3_levelVal,
+  rw [Function.comp_apply, tangentMapOn_univ P.remark_4_1_3_levelVal,
     tangentMap_levelVal_one] at hcongr
   exact hcongr
 

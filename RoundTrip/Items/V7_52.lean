@@ -21,7 +21,7 @@ proofs (`lsdLevelOne`, a copy of the 10-line proof of `IsLocalScDiffeo.levelOne`
 
 * `A → B`: `Y` is assembled from the conjuncts of the hypothesis (the fields of `liftOne` are the
   hypotheses 4–8 and 10), with `X.liftGroupoidStr`; `IsLiftB` is `MAtlas.Equiv.refl` and the
-  conjuncts of `proposition_7_11`.
+  conjuncts of `proposition_7_3_9`.
 * `B → A`: from `B`'s `Y` (atlases equivalent to `X¹`, `𝐗¹`; structure maps those of `X` on level
   `1`): (1), (2), (3), (4) of `Y` give `isLocalScDiffeo_liftSrc`, `_liftTgt`,
   `isScSmoothMap_liftUnit`, `_liftInv`, `exists_isProperMap_lift`, `isScSmoothCompSheet_lift`,
@@ -53,7 +53,7 @@ def A : Prop :=
   type_of% @Polyfold.EpGroupoid.isScSmoothComp_lift.{0} ∧
   type_of% @Polyfold.MPolyfold.IsTame.levelOne.{0} ∧
   type_of% @Polyfold.EpGroupoid.isTame_liftOne.{0} ∧
-  type_of% @Polyfold.EpGroupoid.proposition_7_11.{0}
+  type_of% @Polyfold.EpGroupoid.proposition_7_3_9.{0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.comp_mem_levelSet.{0}, @Polyfold.MPolyfold.IsLocalScDiffeo.levelOne.{0, 0},
@@ -65,7 +65,7 @@ theorem A_holds : A :=
     @Polyfold.EpGroupoid.exists_isProperMap_lift.{0},
     @Polyfold.EpGroupoid.isScSmoothCompSheet_lift.{0},
     @Polyfold.EpGroupoid.isScSmoothComp_lift.{0}, @Polyfold.MPolyfold.IsTame.levelOne.{0},
-    @Polyfold.EpGroupoid.isTame_liftOne.{0}, @Polyfold.EpGroupoid.proposition_7_11.{0}⟩
+    @Polyfold.EpGroupoid.isTame_liftOne.{0}, @Polyfold.EpGroupoid.proposition_7_3_9.{0}⟩
 
 /-! ### Glue: an unbanned proof of `IsLocalScDiffeo.levelOne`, and transport of the sc-notions
 along equivalent atlases -/
@@ -282,20 +282,20 @@ theorem B_to_A : B → A := B_to_Ar
   Polyfold.EpGroupoid.isScSmoothMap_liftUnit, Polyfold.EpGroupoid.isScSmoothMap_liftInv,
   Polyfold.EpGroupoid.exists_isProperMap_lift, Polyfold.EpGroupoid.isScSmoothCompSheet_lift,
   Polyfold.EpGroupoid.isScSmoothComp_lift, Polyfold.MPolyfold.IsTame.levelOne,
-  Polyfold.EpGroupoid.isTame_liftOne, Polyfold.EpGroupoid.proposition_7_11]
+  Polyfold.EpGroupoid.isTame_liftOne, Polyfold.EpGroupoid.proposition_7_3_9]
 #rt_check RoundTrip.V7_52.B_to_A [Polyfold.EpGroupoid.comp_mem_levelSet,
   Polyfold.MPolyfold.IsLocalScDiffeo.levelOne, Polyfold.MPolyfold.IsScSmoothMap.levelOne,
   Polyfold.EpGroupoid.isLocalScDiffeo_liftSrc, Polyfold.EpGroupoid.isLocalScDiffeo_liftTgt,
   Polyfold.EpGroupoid.isScSmoothMap_liftUnit, Polyfold.EpGroupoid.isScSmoothMap_liftInv,
   Polyfold.EpGroupoid.exists_isProperMap_lift, Polyfold.EpGroupoid.isScSmoothCompSheet_lift,
   Polyfold.EpGroupoid.isScSmoothComp_lift, Polyfold.MPolyfold.IsTame.levelOne,
-  Polyfold.EpGroupoid.isTame_liftOne, Polyfold.EpGroupoid.proposition_7_11]
+  Polyfold.EpGroupoid.isTame_liftOne, Polyfold.EpGroupoid.proposition_7_3_9]
 #rt_overlap RoundTrip.V7_52.B_to_A [Polyfold.EpGroupoid.comp_mem_levelSet,
   Polyfold.MPolyfold.IsLocalScDiffeo.levelOne, Polyfold.MPolyfold.IsScSmoothMap.levelOne,
   Polyfold.EpGroupoid.isLocalScDiffeo_liftSrc, Polyfold.EpGroupoid.isLocalScDiffeo_liftTgt,
   Polyfold.EpGroupoid.isScSmoothMap_liftUnit, Polyfold.EpGroupoid.isScSmoothMap_liftInv,
   Polyfold.EpGroupoid.exists_isProperMap_lift, Polyfold.EpGroupoid.isScSmoothCompSheet_lift,
   Polyfold.EpGroupoid.isScSmoothComp_lift, Polyfold.MPolyfold.IsTame.levelOne,
-  Polyfold.EpGroupoid.isTame_liftOne, Polyfold.EpGroupoid.proposition_7_11]
+  Polyfold.EpGroupoid.isTame_liftOne, Polyfold.EpGroupoid.proposition_7_3_9]
 
 end RoundTrip.V7_52

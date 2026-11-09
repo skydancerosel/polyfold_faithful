@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A = proposition_5_3_compare (universes 0) is literally B: for auxiliary norms N₀, N₁ of any strong bundle (no tameness) there is a continuous f : X → ℝ, f > 0, with f(P w)·N₀(w) ≤ N₁(w) ≤ f(P w)⁻¹·N₀(w) for all w ∈ Y_{0,1}. Both directions are instantiation; same setting, same instance arguments.",
+ "why": "A = proposition_5_1_3_compare (universes 0) is literally B: for auxiliary norms N₀, N₁ of any strong bundle (no tameness) there is a continuous f : X → ℝ, f > 0, with f(P w)·N₀(w) ≤ N₁(w) ≤ f(P w)⁻¹·N₀(w) for all w ∈ Y_{0,1}. Both directions are instantiation; same setting, same instance arguments.",
  "B_issue": null,
  "overlap": "0 shared project theorems",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

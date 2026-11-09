@@ -3,7 +3,7 @@ import Mathlib.Analysis.LocallyConvex.HahnBanach
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.3, p. 214:
-**Definition 6.16**, the isomorphism `det(T) ⊗ det(S) → det(T ⊕ S)` *(book 2017: Definition 6.7;
+**Definition 6.4.16 (preprint 6.16)**, the isomorphism `det(T) ⊗ det(S) → det(T ⊕ S)` *(book 2017: Definition 6.7;
 see `BookConcordance.md`)*.
 
 # The determinant of a direct sum
@@ -21,14 +21,14 @@ For Fredholm operators `T : E → F` and `S : E' → F'`, `T ⊕ S : E ⊕ E' �
   the same on cokernels; `kerProdEquiv`, `cokerProdEquiv`: together they give
   `ker T × ker S ≅ ker(T ⊕ S)` and `coker T × coker S ≅ coker(T ⊕ S)`; `finrank_ker_prodMap`,
   `finrank_coker_prodMap`, `isFredholm_prodMap`.
-* `Polyfold.directSumDet` (**Definition 6.16**), defined by the formula for one choice of bases;
+* `Polyfold.directSumDet` (**Definition 6.4.16 (preprint 6.16)**), defined by the formula for one choice of bases;
   `directSumVec_eq_smul`: how `(a ∧ a') ⊗ (d ∧ d')*` changes with the bases;
-  `definition_6_16`: the formula holds for all bases; `directSumDet_bijective`.
+  `definition_6_4_16`: the formula holds for all bases; `directSumDet_bijective`.
 
 ## Reading
 
-Definition 6.16 is a definition by a formula in bases; "natural" is read as: the map defined by one
-choice satisfies the formula for every choice (as in Lemma 6.5).  Bases are indexed by
+Definition 6.4.16 (preprint 6.16) is a definition by a formula in bases; "natural" is read as: the map defined by one
+choice satisfies the formula for every choice (as in Lemma 6.3.3 (preprint 6.5)).  Bases are indexed by
 `Fin (dim …)`, the vectors `(a, 0)`, `(0, a')`, `(d, 0)`, `(0, d')` are read through `kerInl` etc.
 -/
 
@@ -268,7 +268,7 @@ def directSumVec (hT : T.IsFredholm) (hS : S.IsFredholm)
     dualVec (wedge (Fin.append (cokerInl T S ∘ d) (cokerInr T S ∘ d'))
       (finrank_coker_prodMap T S hT hS))
 
-/-- **Definition 6.16**: the isomorphism `det(T) ⊗ det(S) → det(T ⊕ S)`, defined by the formula of
+/-- **Definition 6.4.16 (preprint 6.16)**: the isomorphism `det(T) ⊗ det(S) → det(T ⊕ S)`, defined by the formula of
 the text for the standard bases (`Module.finBasis`): `h ⊗ h' ↦ h₀*(h) h₀'*(h') g₀`, where
 `h₀ = a ⊗ d*`, `h₀' = a' ⊗ d'*` and `g₀ = (a ∧ a') ⊗ (d ∧ d')*` for those bases. -/
 def directSumDet (hT : T.IsFredholm) (hS : S.IsFredholm) :
@@ -333,9 +333,9 @@ theorem directSumVec_ne_zero (hT : T.IsFredholm) (hS : S.IsFredholm)
     (dualVec_ne_zero finrank_maxPow (wedge_ne_zero_of_span_eq_top _
       (top_le_span_append_of_surjective _ _ (bijective_coprod_cokerInl_cokerInr T S).2 d d')))
 
-/-- **Definition 6.16, the formula for all bases**: `h ⊗ h' ↦ (a ∧ a') ⊗ (d ∧ d')*` for
+/-- **Definition 6.4.16 (preprint 6.16), the formula for all bases**: `h ⊗ h' ↦ (a ∧ a') ⊗ (d ∧ d')*` for
 `h = a ⊗ d*` and `h' = a' ⊗ d'*`. -/
-theorem definition_6_16 (hT : T.IsFredholm) (hS : S.IsFredholm)
+theorem definition_6_4_16 (hT : T.IsFredholm) (hS : S.IsFredholm)
     (a : Basis (Fin (finrank ℝ (LinearMap.ker (T : E →ₗ[ℝ] F)))) ℝ (LinearMap.ker (T : E →ₗ[ℝ] F)))
     (d : Basis (Fin (finrank ℝ (F ⧸ LinearMap.range (T : E →ₗ[ℝ] F)))) ℝ
       (F ⧸ LinearMap.range (T : E →ₗ[ℝ] F)))
@@ -372,7 +372,7 @@ theorem definition_6_16 (hT : T.IsFredholm) (hS : S.IsFredholm)
   congr 1
   ring
 
-/-- The map of Definition 6.16 is an isomorphism. -/
+/-- The map of Definition 6.4.16 (preprint 6.16) is an isomorphism. -/
 theorem directSumDet_bijective (hT : T.IsFredholm) (hS : S.IsFredholm) :
     Function.Bijective (directSumDet hT hS) := by
   have := hT.finite_ker
@@ -393,7 +393,7 @@ theorem directSumDet_bijective (hT : T.IsFredholm) (hS : S.IsFredholm) :
     rw [Module.finrank_tensorProduct, finrank_fredholmDet hT, finrank_fredholmDet hS]
   refine bijective_of_finrank_eq_one h1 (finrank_fredholmDet (isFredholm_prodMap T S hT hS)) _
     (tmul_ne_zero_of_ne_zero h0 h0') ?_
-  rw [definition_6_16 hT hS fa fd fa' fd']
+  rw [definition_6_4_16 hT hS fa fd fa' fd']
   exact directSumVec_ne_zero hT hS fa fd fa' fd'
 
 end DirectSum

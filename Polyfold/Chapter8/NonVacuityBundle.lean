@@ -6,23 +6,23 @@ set_option maxSynthPendingDepth 3
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
 Chapter 8: **witnesses** for the definitions of §8.3, "Strong Bundles over Ep-Groupoids"
-(**Definitions 8.4, 8.5, 8.6, 8.7**, pp. 270–275), for **Definition 8.8** (proper covering
-functors, p. 275) and for **Definition 8.10** (proper strong bundle covering functors, p. 285; the
+(**Definitions 8.3.1, 8.3.2, 8.3.3, 8.3.4 (2017: 8.4, 8.5, 8.6, 8.7)**, pp. 270–275), for **Definition 8.5.1 (2017: 8.8)** (proper covering
+functors, p. 275) and for **Definition 8.5.9 (2017: 8.10)** (proper strong bundle covering functors, p. 285; the
 structure studied in §8.5.2, pp. 288–289).
 
 # Non-vacuity: strong bundles over ep-groupoids and their coverings
 
 ## The text, paraphrased
 
-(Definition 8.4) A strong bundle over an ep-groupoid `X` is a strong bundle `P : W → X` over the
+(Definition 8.3.1 (2017: 8.4)) A strong bundle over an ep-groupoid `X` is a strong bundle `P : W → X` over the
 object M-polyfold with a structure map `μ : 𝐗 ₛ×_P W → W`, a surjective local sc-diffeomorphism
 and strong bundle map covering `t`, with `μ(1_x, w) = w` and `μ(ψ ∘ γ, w) = μ(ψ, μ(γ, w))`.
-(Definitions 8.5, 8.6) Strong bundle maps `Φ` covering an sc-smooth functor `ϕ`, with
+(Definitions 8.3.2, 8.3.3 (2017: 8.5, 8.6)) Strong bundle maps `Φ` covering an sc-smooth functor `ϕ`, with
 `Φ(μ(γ, w)) = μ'(ϕ(γ), Φ(w))`; equivalently strong bundle functors `(W, 𝐖) → (W', 𝐖')`.
-(Definition 8.7) `Γ(P, μ)`, `Γ⁺(P, μ)`, `Fred(P, μ)`: the sc-smooth, sc⁺- and sc-Fredholm sections
-`f` with `f(t φ) = μ(φ, f(s φ))`.  (Definition 8.8) `F : Y → X` is a proper covering functor:
+(Definition 8.3.4 (2017: 8.7)) `Γ(P, μ)`, `Γ⁺(P, μ)`, `Fred(P, μ)`: the sc-smooth, sc⁺- and sc-Fredholm sections
+`f` with `f(t φ) = μ(φ, f(s φ))`.  (Definition 8.5.1 (2017: 8.8)) `F : Y → X` is a proper covering functor:
 `F` a surjective local sc-diffeomorphism on objects, finite and evenly covered fibres, and
-`φ ↦ (F(φ), s(φ))` an sc-diffeomorphism `𝐘 → 𝐗 ₛ×_F Y`.  (Definition 8.10) A proper strong bundle
+`φ ↦ (F(φ), s(φ))` an sc-diffeomorphism `𝐘 → 𝐗 ₛ×_F Y`.  (Definition 8.5.9 (2017: 8.10)) A proper strong bundle
 covering functor `A` covering a proper covering functor `F`: surjective, a local strong bundle
 isomorphism, a strong bundle isomorphism over the sets `U(y) → U(x)` of an even covering, and
 `(ψ, w) ↦ ((F(ψ), A(w)), w)` a strong bundle isomorphism `𝐖 → 𝐕 ₛ×_A W`.
@@ -35,19 +35,19 @@ isomorphism, a strong bundle isomorphism over the sets `U(y) → U(x)` of an eve
   `EpStrongBundle.IsMap.isStrongBundleFunctor_liftFunctor`, for a general second pull-back).
 * `StrongBundle.isStrongBundleIsoOn_id`: the identity is a strong bundle isomorphism `Y|U → Y|U`
   for open `U`.
-* **Definition 8.4**: `EpStrongBundle.trivial B : EpStrongBundle (EpGroupoid.trivial PZ) B`, the
+* **Definition 8.3.1 (2017: 8.4)**: `EpStrongBundle.trivial B : EpStrongBundle (EpGroupoid.trivial PZ) B`, the
   strong bundle `B` over the trivial ep-groupoid of `Z` (Chapter 7, `s = t = id`) with
   `μ(z, w) = w` (the pull-back projection along `id`); `trivial_μ`.
-* **Definitions 8.5, 8.6**: `EpStrongBundle.isMap_id` (the identity, covering `EpFunctor.id`),
+* **Definitions 8.3.2, 8.3.3 (2017: 8.5, 8.6)**: `EpStrongBundle.isMap_id` (the identity, covering `EpFunctor.id`),
   `EpStrongBundle.isStrongBundleFunctor_id`.
-* **Definition 8.7**: `EpStrongBundle.isFunctorialSection_trivial` (over the trivial ep-groupoid
+* **Definition 8.3.4 (2017: 8.7)**: `EpStrongBundle.isFunctorialSection_trivial` (over the trivial ep-groupoid
   every section is functorial), `mem_sectionFunctors_trivial`, `mem_plusSectionFunctors_trivial`,
   `mem_fredholmSectionFunctors_trivial` (`Γ`, `Γ⁺`, `Fred` are Part I's sc-smooth, sc⁺- and
   sc-Fredholm sections).
-* **Definition 8.8**: `EpFunctor.isScDiffeoOn_fibredMap_id` (`φ ↦ (φ, s(φ))` with inverse
+* **Definition 8.5.1 (2017: 8.8)**: `EpFunctor.isScDiffeoOn_fibredMap_id` (`φ ↦ (φ, s(φ))` with inverse
   `(φ, x) ↦ φ`) and **`EpFunctor.isProperCovering_id`**: the identity functor of any ep-groupoid
   is a proper covering functor.
-* **Definition 8.10**: `EpStrongBundle.isStrongBundleIso_fibredLift_id` (condition (3) for the
+* **Definition 8.5.9 (2017: 8.10)**: `EpStrongBundle.isStrongBundleIso_fibredLift_id` (condition (3) for the
   identity, with inverse `((φ, x), w) ↦ (φ, w)`) and
   **`EpStrongBundle.isProperStrongBundleCovering_id`**: the identity of any strong bundle over an
   ep-groupoid is a proper strong bundle covering functor covering the identity.
@@ -62,21 +62,21 @@ isomorphism, a strong bundle isomorphism over the sets `U(y) → U(x)` of an eve
 
 ## Witnesses and the hypotheses they make non-vacuous
 
-* `EpStrongBundle.trivial`: Definition 8.4 for every strong bundle over an M-polyfold; with
+* `EpStrongBundle.trivial`: Definition 8.3.1 (2017: 8.4) for every strong bundle over an M-polyfold; with
   `TrivialBundle.epBundle`, a concrete one in `Type`, for which the functorial picture
   (`toEpGroupoid`, an `EpGroupoid` of Chapter 7) is available.
-* `isMap_id`, `isStrongBundleFunctor_id`: Definitions 8.5 and 8.6.
-* `graphSection_mem_fredholmSectionFunctors_epBundle`: `Fred(P, μ) ≠ ∅` (Definition 8.7 (3)), with
+* `isMap_id`, `isStrongBundleFunctor_id`: Definitions 8.3.2 and 8.3.3 (2017: 8.5 and 8.6).
+* `graphSection_mem_fredholmSectionFunctors_epBundle`: `Fred(P, μ) ≠ ∅` (Definition 8.3.4 (2017: 8.7) (3)), with
   nonzero members; `fiberZero_mem_plusSectionFunctors_epBundle`: `Γ⁺(P, μ) ≠ ∅`.
-* `isProperCovering_id`: Definition 8.8, all of (1)–(3).
-* `isProperStrongBundleCovering_id`, `epBundle_isProperStrongBundleCovering`: Definition 8.10, all
+* `isProperCovering_id`: Definition 8.5.1 (2017: 8.8), all of (1)–(3).
+* `isProperStrongBundleCovering_id`, `epBundle_isProperStrongBundleCovering`: Definition 8.5.9 (2017: 8.10), all
   of (1)–(3), on the reading of (3) recorded in `EpStrongBundle.lean`; hence the hypothesis of
   `EpStrongBundle.section_8_5_2` can hold.
 
 ## What the witnesses do not exercise
 
 * All of them have trivial isotropy (the trivial ep-groupoid, or the identity functor): the fibres
-  `F⁻¹(x)` are singletons, so the even covering and the finiteness in Definitions 8.8 (2), 8.10 (2)
+  `F⁻¹(x)` are singletons, so the even covering and the finiteness in Definitions 8.5.1 (2017: 8.8) (2), 8.10 (2)
   are met with one sheet.  No covering with `|F⁻¹(x)| > 1` is constructed here.
 * `Γ⁺` is witnessed by the zero section only.
 -/
@@ -99,7 +99,7 @@ variable {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : 
 
 /-- **A map into a sub-M-polyfold** `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into
 `Y` (the private lemma of the same name in `ProperCovering.lean` and `SubGroupoid.lean`): near
-`x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto `A` near `f(x)` (Proposition 2.21 (2)). -/
+`x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto `A` near `f(x)` (Proposition 2.3.19 (preprint 2.21) (2)). -/
 private theorem isScSmoothOn_subPolyfold_of_val {A : Set Y} (hA : Q.IsSubMPolyfold A)
     [ParacompactSpace A] {f : X → A} {U : Set X}
     (hf : P.IsScSmoothOn Q (fun x => (f x : Y)) U) :
@@ -208,7 +208,7 @@ end StrongBundle
 
 end IsoOnId
 
-/-! ### Definition 8.4: strong bundles over the trivial ep-groupoid -/
+/-! ### Definition 8.3.1 (2017: 8.4): strong bundles over the trivial ep-groupoid -/
 
 section Trivial
 
@@ -218,7 +218,7 @@ variable {Z : Type u} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z] {PZ 
 
 namespace EpStrongBundle
 
-/-- **A strong bundle over the trivial ep-groupoid** (Definition 8.4): a strong bundle `B` over
+/-- **A strong bundle over the trivial ep-groupoid** (Definition 8.3.1 (2017: 8.4)): a strong bundle `B` over
 the M-polyfold `Z`, over `EpGroupoid.trivial PZ` (`𝐗 = X = Z`, `s = t = id`), with
 `μ(z, w) = w`, the pull-back projection `P' : id*W → W` (a strong bundle map covering `id = t` and
 a local sc-diffeomorphism by `StrongBundleMap.lean`). -/
@@ -264,7 +264,7 @@ end EpStrongBundle
 
 end Trivial
 
-/-! ### Definition 8.5: the identity -/
+/-! ### Definition 8.3.2 (2017: 8.5): the identity -/
 
 section MapId
 
@@ -275,7 +275,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 namespace EpStrongBundle
 
-/-- **Definition 8.5 for the identity**: `id : W → W` is a strong bundle map covering the identity
+/-- **Definition 8.3.2 (2017: 8.5) for the identity**: `id : W → W` is a strong bundle map covering the identity
 functor. -/
 theorem isMap_id (E : EpStrongBundle X B) : E.IsMap E (EpFunctor.id X) id where
   isStrongBundleMap := StrongBundle.IsStrongBundleMap.id B
@@ -285,7 +285,7 @@ end EpStrongBundle
 
 end MapId
 
-/-! ### Definition 8.8: the identity functor is a proper covering functor -/
+/-! ### Definition 8.5.1 (2017: 8.8): the identity functor is a proper covering functor -/
 
 section ProperCoveringId
 
@@ -296,7 +296,7 @@ namespace EpFunctor
 
 theorem preimage_obj_id (x : Obj) : (EpFunctor.id X).obj ⁻¹' {x} = {x} := rfl
 
-/-- Definition 8.8 (3) for the identity: `φ ↦ (φ, s(φ))` is an sc-diffeomorphism `𝐗 → 𝐗 ₛ×_id X`
+/-- Definition 8.5.1 (2017: 8.8) (3) for the identity: `φ ↦ (φ, s(φ))` is an sc-diffeomorphism `𝐗 → 𝐗 ₛ×_id X`
 onto Part I's fibred-product sub-M-polyfold, with inverse `(φ, x) ↦ φ`. -/
 theorem isScDiffeoOn_fibredMap_id [ParacompactSpace (Mor × Obj)]
     [ParacompactSpace (MPolyfold.fibredProduct X.src (EpFunctor.id X).obj)] :
@@ -312,7 +312,7 @@ theorem isScDiffeoOn_fibredMap_id [ParacompactSpace (Mor × Obj)]
   left_inv _ _ := rfl
   right_inv p _ := Subtype.ext (Prod.ext rfl p.2)
 
-/-- **Definition 8.8 for the identity**: the identity functor of an ep-groupoid is a proper
+/-- **Definition 8.5.1 (2017: 8.8) for the identity**: the identity functor of an ep-groupoid is a proper
 covering functor (one sheet `U(x) = U(y) = X` over every `x`, `F⁻¹(x) = {x}`). -/
 theorem isProperCovering_id : (EpFunctor.id X).IsProperCovering where
   surjective := surjective_id
@@ -336,7 +336,7 @@ end EpFunctor
 
 end ProperCoveringId
 
-/-! ### Definitions 8.6 and 8.10: the identity is a proper strong bundle covering functor -/
+/-! ### Definitions 8.3.3 and 8.5.9 (2017: 8.6 and 8.10): the identity is a proper strong bundle covering functor -/
 
 section CoveringId
 
@@ -348,14 +348,14 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 namespace EpStrongBundle
 
-/-- **Definition 8.6 for the identity**: the identity functor of `(W, 𝐖)` is a strong bundle
+/-- **Definition 8.3.3 (2017: 8.6) for the identity**: the identity functor of `(W, 𝐖)` is a strong bundle
 functor covering the identity functor of `X`. -/
 theorem isStrongBundleFunctor_id (E : EpStrongBundle X B) :
     E.IsStrongBundleFunctor E (EpFunctor.id X) (EpFunctor.id E.toEpGroupoid) :=
   ⟨StrongBundle.IsStrongBundleMap.id B, StrongBundle.IsStrongBundleMap.id _⟩
 
 variable (B) in
-/-- **Definition 8.10 (3) for the identity**: `(ψ, w) ↦ ((ψ, s(ψ)), w)` is a strong bundle
+/-- **Definition 8.5.9 (2017: 8.10) (3) for the identity**: `(ψ, w) ↦ ((ψ, s(ψ)), w)` is a strong bundle
 isomorphism `𝐖 → (𝐗 ₛ×_id X) ×_{pr₂} W` covering `ψ ↦ (ψ, s(ψ))`, with inverse
 `((φ, x), w) ↦ (φ, w)` covering `(φ, x) ↦ φ` (both maps of pull-backs, `pullbackMap`). -/
 theorem isStrongBundleIso_fibredLift_id [ParacompactSpace (Mor × Obj)]
@@ -379,7 +379,7 @@ theorem isStrongBundleIso_fibredLift_id [ParacompactSpace (Mor × Obj)]
         Mor × Obj).2 := (r : MPolyfold.fibredProduct X.src (EpFunctor.id X).obj × W).1.2
     exact Subtype.ext (Prod.ext (Subtype.ext (Prod.ext rfl hr)) rfl)
 
-/-- **Definition 8.10 for the identity**: the identity of a strong bundle `(P, μ)` over an
+/-- **Definition 8.5.9 (2017: 8.10) for the identity**: the identity of a strong bundle `(P, μ)` over an
 ep-groupoid is a proper strong bundle covering functor covering the identity functor. -/
 theorem isProperStrongBundleCovering_id (E : EpStrongBundle X B) :
     E.IsProperStrongBundleCovering E (EpFunctor.id X) (EpFunctor.id E.toEpGroupoid) where
@@ -420,7 +420,7 @@ instance : ParacompactSpace
   (bundle n k).paracompactSpace_pullback (rnPolyfold n) _
 
 /-- **Part I's trivial strong bundle `ℝⁿ × ℝᵏ → ℝⁿ` as a strong bundle over the trivial
-ep-groupoid of `ℝⁿ`** (Definition 8.4). -/
+ep-groupoid of `ℝⁿ`** (Definition 8.3.1 (2017: 8.4)). -/
 def epBundle : EpStrongBundle (EpGroupoid.trivial (rnPolyfold n)) (bundle n k) :=
   EpStrongBundle.trivial (bundle n k)
 
@@ -430,31 +430,31 @@ def epBundleEpGroupoid :
       (pullbackSpace (proj n k) (EpGroupoid.trivial (rnPolyfold n)).src) :=
   (epBundle n k).toEpGroupoid
 
-/-- Definition 8.5 for the concrete instance. -/
+/-- Definition 8.3.2 (2017: 8.5) for the concrete instance. -/
 theorem epBundle_isMap_id :
     (epBundle n k).IsMap (epBundle n k) (EpFunctor.id (EpGroupoid.trivial (rnPolyfold n))) id :=
   (epBundle n k).isMap_id
 
-/-- **Definition 8.10 is satisfiable**: the identity of `ℝⁿ × ℝᵏ → ℝⁿ` over the trivial
+/-- **Definition 8.5.9 (2017: 8.10) is satisfiable**: the identity of `ℝⁿ × ℝᵏ → ℝⁿ` over the trivial
 ep-groupoid of `ℝⁿ` is a proper strong bundle covering functor. -/
 theorem epBundle_isProperStrongBundleCovering :
     (epBundle n k).IsProperStrongBundleCovering (epBundle n k)
       (EpFunctor.id (EpGroupoid.trivial (rnPolyfold n))) (EpFunctor.id (epBundleEpGroupoid n k)) :=
   (epBundle n k).isProperStrongBundleCovering_id
 
-/-- `0 ∈ Γ⁺(P, μ)` (Definition 8.7 (2)) for the concrete instance. -/
+/-- `0 ∈ Γ⁺(P, μ)` (Definition 8.3.4 (2017: 8.7) (2)) for the concrete instance. -/
 theorem fiberZero_mem_plusSectionFunctors_epBundle :
     fiberZero (proj n k) ∈ (epBundle n k).plusSectionFunctors :=
   (epBundle n k).fiberZero_mem_plusSectionFunctors
 
 variable {n k} {φ : (Fin n → ℝ) → (Fin k → ℝ)}
 
-/-- The graph section `x ↦ (x, φ(x))` of a `C^∞` map is in `Γ(P, μ)` (Definition 8.7 (1)). -/
+/-- The graph section `x ↦ (x, φ(x))` of a `C^∞` map is in `Γ(P, μ)` (Definition 8.3.4 (2017: 8.7) (1)). -/
 theorem graphSection_mem_sectionFunctors_epBundle (hφ : ContDiff ℝ ∞ φ) :
     graphSection φ ∈ (epBundle n k).sectionFunctors :=
   EpStrongBundle.mem_sectionFunctors_trivial.2 (isScSmoothSection_graphSection hφ)
 
-/-- **`Fred(P, μ) ≠ ∅`** (Definition 8.7 (3)): the graph section of a `C^∞` map is an sc-Fredholm
+/-- **`Fred(P, μ) ≠ ∅`** (Definition 8.3.4 (2017: 8.7) (3)): the graph section of a `C^∞` map is an sc-Fredholm
 section functor (Part I's `isScFredholmSection_graphSection`, germ reading). -/
 theorem graphSection_mem_fredholmSectionFunctors_epBundle (hφ : ContDiff ℝ ∞ φ) :
     graphSection φ ∈ (epBundle n k).fredholmSectionFunctors :=

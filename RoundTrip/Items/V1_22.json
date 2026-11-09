@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "lemma_1_24 is B verbatim (same degIndexWith, same presentations T, T' with possibly different n, W, same quantification over x ∈ C). The other two conjuncts of A follow from B: lemma_1_24_dim by B at x = T⁻¹(0) (index n vs n'), and the core quadrantDeg_eq_of_equiv (an arbitrary level-0 linear equivalence S, not necessarily sc) by showing S maps 0×W₀ into 0×W'₀, so S induces a linear equivalence e : ℝⁿ ≃ ℝⁿ' with (S p).1 = e(p.1), and applying B to the presentations id and e×id of the quadrant in ℝⁿ ⊕ W. No universe parameters.",
+ "why": "lemma_1_3_4 is B verbatim (same degIndexWith, same presentations T, T' with possibly different n, W, same quantification over x ∈ C). The other two conjuncts of A follow from B: lemma_1_3_4_dim by B at x = T⁻¹(0) (index n vs n'), and the core quadrantDeg_eq_of_equiv (an arbitrary level-0 linear equivalence S, not necessarily sc) by showing S maps 0×W₀ into 0×W'₀, so S induces a linear equivalence e : ℝⁿ ≃ ℝⁿ' with (S p).1 = e(p.1), and applying B to the presentations id and e×id of the quadrant in ℝⁿ ⊕ W. No universe parameters.",
  "B_issue": null,
  "overlap": "21 shared project theorems, all structural glue (prodScale/constScale/const proof fields, toBase and smoothLvl lemmas, quadrant/quadrantDeg auxiliary proofs) plus quadrantDeg_zero; none of the sign argument of §1.4.3 (map_ker_coordMap_le etc.) is reused.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

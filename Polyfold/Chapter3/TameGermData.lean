@@ -3,22 +3,22 @@ import Polyfold.Chapter3.NonVacuityCorner
 import Polyfold.Chapter3.NonVacuityG
 
 /-!
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definitions 3.4,
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definitions 3.1.4 (preprint 3.4),
 3.6, 3.11 and 3.50 *(book 2017: Definitions 3.4, 3.5, 3.7 and 3.14; see `BookConcordance.md`)*:
-**does an sc-Fredholm germ (Definition 3.11) have germ data in a tame chart (Definition 3.50) when
+**does an sc-Fredholm germ (Definition 3.1.11 (preprint 3.11)) have germ data in a tame chart (Definition 3.6.3 (preprint 3.50)) when
 the atlas is tame?** (Findings, Chapter 3, items 199 and 350–359; comparison items V3.45, V3.103.)
 
 # Tame germ data from a tame atlas: the filler is chart-bound
 
 ## The text, paraphrased
 
-(Definition 3.4) A filler `g : U → F` of the principal part `f̂ : O → F` of a section of the local
+(Definition 3.1.4 (preprint 3.4)) A filler `g : U → F` of the principal part `f̂ : O → F` of a section of the local
 strong bundle `K = R(U ◁ F) → O` satisfies (1) `g = f̂` on `O` near `0`, (2) `y ∈ U` near `0` with
 `g(y) = ρ(r(y))g(y)` lies in `O`, and (3) the linearization at `0` of `y ↦ [1 − ρ(r(y))]g(y)`,
-restricted to `ker Dr(0)`, is a topological linear isomorphism onto `ker ρ(0)`.  (Definition 3.11)
+restricted to `ker Dr(0)`, is a topological linear isomorphism onto `ker ρ(0)`.  (Definition 3.1.11 (preprint 3.11))
 `(f, x₀)` is an sc-Fredholm germ if **there exists** a strong bundle chart centred at `x₀` in which
 `f̂` has a filling `g` and a local sc⁺-section `s` with `g − s` conjugated to a basic germ.
-(Definition 3.50) For a tame strong bundle the chart is required to have a tame local bundle.
+(Definition 3.6.3 (preprint 3.50)) For a tame strong bundle the chart is required to have a tame local bundle.
 
 ## What is formalized
 
@@ -26,7 +26,7 @@ restricted to `ker Dr(0)`, is a topological linear isomorphism onto `ker ρ(0)`.
   isomorphic**: a filling germ in a chart gives `ker Dr(0) ≃L[ℝ] ker ρ(0)` (the normal space of
   `O` in `E` at `0` and the normal space of the fibre `K₀ = ρ(0)F` in `F`).
   `Polyfold.not_isFillingGerm_of_ker`: **in a chart with `ker Dr(0) ≠ 0` and `ker ρ(0) = 0` no
-  section has a filling.**  So whether Definition 3.4 can be satisfied is a property of the chart
+  section has a filling.**  So whether Definition 3.1.4 (preprint 3.4) can be satisfied is a property of the chart
   (of its strong bundle retraction), not of the section.
 * **A compatible tame chart of the trivial bundle `ℝⁿ × ℝᵏ → ℝⁿ` in which no section has a
   filling** (`TrivialBundle.evenBundleChart`, centred at `0`): the model `ℝ ⊕ ℝⁿ` without
@@ -42,7 +42,7 @@ restricted to `ker Dr(0)`, is a topological linear isomorphism onto `ker ρ(0)`.
   `{evenBundleChart}`.  Its atlas consists of tame charts (`bundleEven_atlas_isTameChart`), the
   translation charts are compatible with it (`isChart_chart_even`, `isTameChart_chart_even`), the
   graph section of a `C^∞` map `φ : ℝⁿ → ℝᵏ` is an sc-Fredholm section with tame germ data
-  (`isScFredholmSectionTame_graphSection_even`, Definitions 3.14 and 3.51, germ reading) — **in the
+  (`isScFredholmSectionTame_graphSection_even`, Definitions 3.1.16 and 3.6.4 (preprint 3.14 and 3.51), germ reading) — **in the
   compatible translation charts, not in the chart of the atlas, where no section has germ data**
   (`tame_atlas_no_germData_in_atlas_chart`).
 
@@ -51,11 +51,11 @@ restricted to `ker Dr(0)`, is a topological linear isomorphism onto `ker ρ(0)`.
 * **What this settles.**  The proof strategy of Findings item 199 — re-centre a tame chart of the
   atlas at `x₀` and transport the filling, the sc⁺-germ and the conjugation to it — cannot work in
   general: the atlas chart need not carry any filling, by the necessary condition
-  `ker Dr(0) ≅ ker ρ(0)`.  Definition 3.50 must therefore be read, as the project reads it
+  `ker Dr(0) ≅ ker ρ(0)`.  Definition 3.6.3 (preprint 3.50) must therefore be read, as the project reads it
   (`StrongBundle.IsScFredholmGermTame`, `IsTameChart`: compatible with the atlas and tame), with the
   existential over **all** compatible tame charts, never as "in the (re-centred) chart of the given
   tame atlas": with the latter reading no section of `bundleEven` would be sc-Fredholm.
-* **What stays open.**  Whether germ data in some compatible chart (Definition 3.11, untamed) can
+* **What stays open.**  Whether germ data in some compatible chart (Definition 3.1.11 (preprint 3.11), untamed) can
   always be moved to some compatible tame chart when the atlas is tame.  The example is not a
   counterexample to this implication: the graph section has tame germ data, in a translation chart.
   A proof would have to produce, from the chart `c` of the germ data, a compatible tame chart whose
@@ -82,7 +82,7 @@ variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Condition (3) of Definition 3.4 forces the normal spaces to be isomorphic**: a filling germ
+/-- **Condition (3) of Definition 3.1.4 (preprint 3.4) forces the normal spaces to be isomorphic**: a filling germ
 `g` in a chart with the strong bundle retraction `R = (r, ρ)` gives a topological linear isomorphism
 `ker Dr(0) ≃ ker ρ(0)` (the linearization of `y ↦ [1 − ρ(r(y))]g(y)` restricted to `ker Dr(0)`).
 Whether a section has a filling in a chart therefore depends on the chart: the normal space of
@@ -98,7 +98,7 @@ theorem IsFillingGerm.nonempty_kerEquiv (hU : IsRelOpenInQuadrant E C U)
 
 /-- **A chart with `ker Dr(0) ≠ 0` and `ker ρ(0) = 0` carries no filling of any map**: if some
 `v ≠ 0` has `Dr(0)v = 0` while `ρ(0)` is injective, then no `g` is a filling germ of any `f̂` for
-this strong bundle retraction (Definition 3.4 (3) fails).  Being fillable is a property of the
+this strong bundle retraction (Definition 3.1.4 (preprint 3.4) (3) fails).  Being fillable is a property of the
 chart (Findings, Chapter 3, item 350). -/
 theorem not_isFillingGerm_of_ker (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) {v : E 0}
@@ -190,7 +190,7 @@ lemma Reven_retract : (Reven n).retract = {(0 : Fin 1 → ℝ)} ×ˢ univ := by
 lemma mem_Reven_retract {p : (Eeven n) 0} : p ∈ (Reven n).retract ↔ p.1 = 0 := by
   rw [Reven_retract]; exact ⟨fun h => h.1, fun h => ⟨h, mem_univ _⟩⟩
 
-/-- **`Reven` is tame** (Definition 2.34): the product of the tame retractions `zeroRetr` and
+/-- **`Reven` is tame** (Definition 2.5.2 (preprint 2.34)): the product of the tame retractions `zeroRetr` and
 `id` is tame for the product presentation (`ScRetraction.IsTameWith.prod`), hence for every
 presentation (`ScRetraction.IsTameWith.isTame`). -/
 theorem Reven_isTame : (Reven n).IsTame :=
@@ -386,7 +386,7 @@ theorem isChart_evenBundleChart : (bundle n k).IsChart (evenBundleChart (k := k)
   rintro _ ⟨a, rfl⟩
   exact evenBundleChart_compatible a
 
-/-- **`evenBundleChart` is a tame strong bundle chart** of the trivial bundle (Definition 3.50's
+/-- **`evenBundleChart` is a tame strong bundle chart** of the trivial bundle (Definition 3.6.3 (preprint 3.50)'s
 requirement on the chart). -/
 theorem isTameChart_evenBundleChart : (bundle n k).IsTameChart (evenBundleChart (k := k)) :=
   ⟨isChart_evenBundleChart, Reven_isTame.congr rfl fun _ _ => rfl⟩
@@ -409,9 +409,9 @@ lemma scDeriv_r_evenBundleChart_apply :
   rw [hD]
   rfl
 
-/-- **No map fills the principal part of any section in `evenBundleChart`** (Definition 3.4 (3)
+/-- **No map fills the principal part of any section in `evenBundleChart`** (Definition 3.1.4 (preprint 3.4) (3)
 fails: `ker Dr(0) = ℝ ⊕ 0 ≠ 0` while `ρ(0) = 1`).  So `evenBundleChart`, a compatible tame chart
-centred at `0`, carries the germ data of Definition 3.11 for no section (Findings, Chapter 3, item
+centred at `0`, carries the germ data of Definition 3.1.11 (preprint 3.11) for no section (Findings, Chapter 3, item
 351). -/
 theorem not_isFillingGerm_evenBundleChart (h0 : (0 : (Eeven n) 0) ∈ (evenBundleChart (k := k)).U)
     (fb g : (Eeven n) 0 → (rnSc k) 0) :
@@ -473,7 +473,7 @@ theorem isScSmoothSection_graphSection_even (hφ : ContDiff ℝ ∞ φ) :
     ((contDiff_const.prodMk (contDiff_id.add contDiff_const)).prodMk
       (hφ.comp (contDiff_id.add contDiff_const)))
 
-/-- **Tame germ data of the graph section at every point, for `bundleEven`** (Definition 3.50,
+/-- **Tame germ data of the graph section at every point, for `bundleEven`** (Definition 3.6.3 (preprint 3.50),
 whole-chart form): the data of `germData_graphSection` in the translation chart `chart x₀`, which
 is a tame chart of `bundleEven`. -/
 theorem isScFredholmGermTame_graphSection_even_wholeChart (hφ : ContDiff ℝ ∞ φ) (x₀ : Fin n → ℝ) :
@@ -483,7 +483,7 @@ theorem isScFredholmGermTame_graphSection_even_wholeChart (hφ : ContDiff ℝ �
     mem_univ x₀, sub_self x₀, mem_univ 0, loc φ x₀, fun _ => φ x₀, hfill, hs, hs0, hconj⟩
 
 /-- **The graph section of a `C^∞` map is an sc-Fredholm section of `bundleEven` with tame germ
-data at every point** (Definitions 3.14 and 3.51, germ reading) — the germ data lie in the
+data at every point** (Definitions 3.1.16 and 3.6.4 (preprint 3.14 and 3.51), germ reading) — the germ data lie in the
 compatible translation charts. -/
 theorem isScFredholmSectionTame_graphSection_even (hφ : ContDiff ℝ ∞ φ) :
     (bundleEven n k).IsScFredholmSectionTame (graphSection φ) where
@@ -497,7 +497,7 @@ theorem isScFredholmSectionTame_graphSection_even (hφ : ContDiff ℝ ∞ φ) :
 data in any chart of the atlas** (Findings, Chapter 3, item 352): for `bundleEven n k` every chart
 of the atlas is tame, the graph section of a `C^∞` map `φ : ℝⁿ → ℝᵏ` is an sc-Fredholm section
 with tame germ data (in the compatible translation charts), and in every chart of the atlas no map
-`g` fills the principal part of any section.  So "tame germ data" (Definition 3.50) cannot mean
+`g` fills the principal part of any section.  So "tame germ data" (Definition 3.6.3 (preprint 3.50)) cannot mean
 "germ data in a chart of the tame atlas": it is the existential over all compatible tame charts. -/
 theorem tame_atlas_no_germData_in_atlas_chart (hφ : ContDiff ℝ ∞ φ) :
     (∀ c ∈ (bundleEven n k).atlas.charts, (bundleEven n k).IsTameChart c) ∧

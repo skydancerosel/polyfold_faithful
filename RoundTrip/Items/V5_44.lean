@@ -15,14 +15,14 @@ open Polyfold
 /-- The project's statement: the two theorems of the decls (universes at `0`):
 `exists_scPlusSection_linAt` (for a strong bundle chart around a smooth point `x`, a smooth `e`
 over `x`, a continuous functional `ℓ` and an open `U ∋ x`, an sc⁺-section `s` with `s(x) = 0`,
-`supp s ⊆ U` and `Lin_s(z)v = ℓ(v)·Φ(e)₂` on `T_zO`) and `lemma_5_24` (for a finite-dimensional
+`supp s ⊆ U` and `Lin_s(z)v = ℓ(v)·Φ(e)₂` on `T_zO`) and `lemma_5_3_17` (for a finite-dimensional
 `K ⊆ T_zO` and `b : K → T_zO` with `Lin_f(z) ∘ b` in the line `ℝ·Φ(e)₂`, an sc⁺-section with
 `Lin_f(z)(b v) + Lin_s(z)v = 0` on `K`).  Both assume `AdmitsBumpFunctions` (`f(x) ≠ 0`). -/
 def A : Prop :=
   (type_of% @Polyfold.exists_scPlusSection_linAt.{0, 0}) ∧
-  (type_of% @Polyfold.lemma_5_24.{0, 0})
+  (type_of% @Polyfold.lemma_5_3_17.{0, 0})
 
-theorem A_holds : A := ⟨@Polyfold.exists_scPlusSection_linAt.{0, 0}, @Polyfold.lemma_5_24.{0, 0}⟩
+theorem A_holds : A := ⟨@Polyfold.exists_scPlusSection_linAt.{0, 0}, @Polyfold.lemma_5_3_17.{0, 0}⟩
 
 /-- B with the project's (strong) reading of "bump functions": `AdmitsBumpFunctions`
 (`f(x) ≠ 0`) in place of `AdmitsBumpFunctionsWeak` (`f ≢ 0`); otherwise literally B. -/
@@ -158,11 +158,11 @@ project's reading (`BStrong`) the implication is proved: `A_to_BStrong`; and `B 
 
 `B ⇒ A` is not proved: A's `exists_scPlusSection_linAt` prescribes `Lin_s(z) = ℓ(·)Φ(e)₂` on all
 of `T_zO` for an ARBITRARY functional `ℓ`, smooth `e` and strong bundle (no tameness, no
-sc-Fredholm `f`, no `t`, no `Z`); `lemma_5_24` is for an arbitrary section `f`, any
+sc-Fredholm `f`, no `t`, no `Z`); `lemma_5_3_17` is for an arbitrary section `f`, any
 finite-dimensional `K ⊆ T_zO` and any `b` into `T_zO` with `Lin_f ∘ b` in a smooth line.  B only
 controls `s'(x)` on `T_xS = ker f'(x)` for `b` with values in a smooth complement `Z` of
 `ker dt(x)`, under a tame strong bundle and tame germ data. -/
 
-#rt_check RoundTrip.V5_44.A_to_BStrong [Polyfold.exists_scPlusSection_linAt, Polyfold.lemma_5_24]
+#rt_check RoundTrip.V5_44.A_to_BStrong [Polyfold.exists_scPlusSection_linAt, Polyfold.lemma_5_3_17]
 
 end RoundTrip.V5_44

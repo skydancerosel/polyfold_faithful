@@ -116,8 +116,8 @@ lemma le_smooth_const (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V] [Fin
 lemma isScSplitting_const (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V]
     [FiniteDimensional ℝ V] (A B : Submodule ℝ V) (h : IsCompl A B) :
     (ScBanach.const V).IsScSplitting A B := by
-  refine ⟨(ScBanach.proposition_1_6_iff (ScBanach.const V) A).2 (le_smooth_const V A),
-    (ScBanach.proposition_1_6_iff (ScBanach.const V) B).2 (le_smooth_const V B), fun m => ?_⟩
+  refine ⟨(ScBanach.proposition_1_1_7_iff (ScBanach.const V) A).2 (le_smooth_const V A),
+    (ScBanach.proposition_1_1_7_iff (ScBanach.const V) B).2 (le_smooth_const V B), fun m => ?_⟩
   rw [levelSub_const, levelSub_const]; exact h
 
 lemma isCompl_span (u e : E2) (hdet : u 0 * e 1 - u 1 * e 0 ≠ 0) :

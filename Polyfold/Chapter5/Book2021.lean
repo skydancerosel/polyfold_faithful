@@ -47,9 +47,9 @@ with values in `Z` and `dt(x) ∘ b_τ = τ`; adding an operator with values in 
 * The a priori implications of p. 209: `IsProperLtInfty.isProper`,
   `IsWeaklyProperLtInfty.isWeaklyProperOnU`, `IsProper.isWeaklyProperOnU`,
   `IsProperLtInfty.isWeaklyProperLtInfty`, `IsWeaklyProperOnU.isCompact_solutionSet`.
-* `theorem_5_2_2_2021` (compact solution set ⟹ proper`<∞`) and `theorem_5_2_2_2021_tfae` (the
-  five properties are equivalent), by the argument of `theorem_5_5` with bounds `A·C`.
-* `theorem_5_3_5_2021`: `theorem_5_13` with the conclusion that `S_{f+s}` is a sub-M-polyfold and
+* `theorem_5_2_2` (compact solution set ⟹ proper`<∞`) and `theorem_5_2_2_tfae` (the
+  five properties are equivalent), by the argument of `theorem_5_2_2_preprint` with bounds `A·C`.
+* `theorem_5_3_5`: `theorem_5_3_5_preprint` with the conclusion that `S_{f+s}` is a sub-M-polyfold and
   compact (`isSubMPolyfold_solutionSet_of_manifold`; the empty set is a sub-M-polyfold).
 * `MPolyfold.HasSurjDerivAt` (Definition 5.3.13 (3) in a chart), `IsCompactFredholmRestriction`
   (Definition 5.3.13 (2): `f` restricts to a tame sc-Fredholm section over the tame
@@ -59,9 +59,9 @@ with values in `Z` and `dt(x) ∘ b_τ = τ`; adding an operator with values in 
   `not_isGenCompactHomotopy_witness` (the converse fails); the dependent result
   `IsSubmersiveGenCompactHomotopy.isCompact_solutionSet_restrict` (every fibre `t⁻¹(τ)` has a
   compact solution set) is re-derived from the new data.
-* `lemma_5_3_16_2021`: under (3), `dt(x) ≠ 0` on the tangent space `T_zO` of a chart, a
-  one-dimensional complement `Z` of its kernel exists, and Lemma 5.3.16 holds (`lemma_5_23`).
-  This supplies the hidden hypothesis `dt(x) ≠ 0` of the existing Lemma 5.23 (gap G.48).
+* `lemma_5_3_16`: under (3), `dt(x) ≠ 0` on the tangent space `T_zO` of a chart, a
+  one-dimensional complement `Z` of its kernel exists, and Lemma 5.3.16 holds (`lemma_5_3_16_preprint`).
+  This supplies the hidden hypothesis `dt(x) ≠ 0` of the existing Lemma 5.3.16 (preprint 5.23) (gap G.48).
 * Satisfiability (`isSubmersiveGenCompactHomotopy_witness`): on `ℝ` with the graph section of
   `id` and `t(x) = 1/2 + arctan(x)/π`, all of Definition 5.3.13 holds (the ends are empty).
 
@@ -69,7 +69,7 @@ with values in `Z` and `dt(x) ∘ b_τ = τ`; adding an operator with values in 
 
 * In Theorem 5.3.5 the bound is printed `N(f(x)) ≤ 1`; we read it as `N(s(x)) ≤ 1` (possible
   misprint; the proof and the 2017 text bound `s`), which is `allowableSections` of
-  `theorem_5_13`.
+  `theorem_5_3_5_preprint`.
 * `t : X → [0, 1]` is read as `t x ∈ [0, 1]` (`mem_Icc`); 2021 drops the surjectivity of `t` and
   the requirement that every fibre `X_τ` be a tame sc-Fredholm problem.  (1)–(2) are read as: for
   `i ∈ {0, 1}`, `t⁻¹(i)` is a tame sub-M-polyfold over which `f` restricts to a tame sc-Fredholm
@@ -219,9 +219,9 @@ open StrongBundle
 
 /-- **2021 Theorem 5.2.2, p. 210** (2017: Theorem 5.1; preprint: Theorem 5.5), first sentence:
 an sc-Fredholm section with a compact solution set is proper`<∞`.  The proof is that of
-`theorem_5_5`: near each zero the closure of `{N(f) ≤ C}` lies in a compact set given by the
+`theorem_5_2_2_preprint`: near each zero the closure of `{N(f) ≤ C}` lies in a compact set given by the
 contraction germ, for the bound `A · C`; the neighbourhood does not depend on `C`. -/
-theorem theorem_5_2_2_2021 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
+theorem theorem_5_2_2 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
     B.IsProperLtInfty f := by
   refine ⟨hS, fun N hN => ?_⟩
   have hsec := hf.isScSmooth.1
@@ -252,14 +252,14 @@ theorem theorem_5_2_2_2021 (hf : B.IsScFredholmSection f) (hS : IsCompact (solut
 
 /-- **2021 Theorem 5.2.2, p. 210**, second sentence: for an sc-Fredholm section, a compact
 solution set, weakly proper, proper, weakly proper`<∞` and proper`<∞` are equivalent. -/
-theorem theorem_5_2_2_2021_tfae (hf : B.IsScFredholmSection f) :
+theorem theorem_5_2_2_tfae (hf : B.IsScFredholmSection f) :
     List.TFAE [IsCompact (solutionSet P f), B.IsWeaklyProperOnU f, B.IsProper f,
       B.IsWeaklyProperLtInfty f, B.IsProperLtInfty f] := by
   have hfc : Continuous f := continuousOn_univ.1 hf.isScSmooth.2.continuousOn
   tfae_have 5 → 3 := IsProperLtInfty.isProper
   tfae_have 3 → 2 := IsProper.isWeaklyProperOnU hfc
   tfae_have 2 → 1 := IsWeaklyProperOnU.isCompact_solutionSet
-  tfae_have 1 → 5 := theorem_5_2_2_2021 hf
+  tfae_have 1 → 5 := theorem_5_2_2 hf
   tfae_have 5 → 4 := IsProperLtInfty.isWeaklyProperLtInfty hfc
   tfae_have 4 → 2 := IsWeaklyProperLtInfty.isWeaklyProperOnU
   tfae_finish
@@ -282,11 +282,11 @@ theorem isSubMPolyfold_solutionSet_of_manifold {h : X → Y}
   · exact (hm hne).1
 
 /-- **2021 Theorem 5.3.5, p. 217** (2017: Theorem 5.5; preprint: Theorem 5.13): the conclusions
-of `theorem_5_13`, with the 2021 addition that for the transversal perturbations `S_{f+s}` is a
+of `theorem_5_3_5_preprint`, with the 2021 addition that for the transversal perturbations `S_{f+s}` is a
 **compact sub-M-polyfold** (and a manifold when non-empty).  The perturbations are the
 `allowableSections` (support in `U`, `N(s) ≤ 1`); the printed `N(f(x)) ≤ 1` is read as
 `N(s(x)) ≤ 1` (possible misprint). -/
-theorem theorem_5_3_5_2021 (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions)
+theorem theorem_5_3_5 (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions)
     {f : X → Y} (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f))
     {N : B.One → ℝ} (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
@@ -299,7 +299,7 @@ theorem theorem_5_3_5_2021 (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFun
             IsCompact (solutionSet P (sectionAdd P f s))) ∧
           ((solutionSet P (sectionAdd P f s)).Nonempty →
             B.SolutionSetIsManifold (sectionAdd P f s)) := by
-  obtain ⟨U, hUo, hSU, hcpt, hdense⟩ := theorem_5_13 hX hbump hf hS hN
+  obtain ⟨U, hUo, hSU, hcpt, hdense⟩ := theorem_5_3_5_preprint hX hbump hf hS hN
   refine ⟨U, hUo, hSU, hcpt, fun s' hs' hs'a ε hε => ?_⟩
   obtain ⟨s, hs, hsa, hdist, htr, hc, hm⟩ := hdense s' hs' hs'a ε hε
   exact ⟨s, hs, hsa, hdist, htr, ⟨isSubMPolyfold_solutionSet_of_manifold hm, hc⟩, hm⟩
@@ -394,10 +394,10 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 /-- **2021 Lemma 5.3.16, p. 224** (2017: Lemma 5.4; preprint: Lemma 5.23), under 2021
 Definition 5.3.13 (3).  If `dt(x)` is onto (`HasSurjDerivAt`), then in a chart around `x` the
 derivative `ℓ` of `t` on the tangent space `T_zO = R'(z)(E₀)` is non-zero (the hidden hypothesis
-of `lemma_5_23`), `ker ℓ` has a one-dimensional complement `Z`, and for every linear `τ : S → ℝ`
+of `lemma_5_3_16_preprint`), `ker ℓ` has a one-dimensional complement `Z`, and for every linear `τ : S → ℝ`
 there is a unique `b_τ : S → Z` with `ℓ ∘ b_τ = τ`; adding a map with values in `ker ℓ` keeps
 `ℓ ∘ (b + a) = τ`. -/
-theorem lemma_5_3_16_2021 {t : X → ℝ} {x : X} (h : PX.HasSurjDerivAt t x) :
+theorem lemma_5_3_16 {t : X → ℝ} {x : X} (h : PX.HasSurjDerivAt t x) :
     ∃ (φ : MChart X) (_ : PX.IsChart φ) (_ : x ∈ φ.source)
       (R : ScRetraction φ.model.E φ.model.C) (_ : R.retract = φ.model.O) (z : φ.model.E 1)
       (_ : φ.model.E.toBase 1 z = φ x)
@@ -424,7 +424,7 @@ theorem lemma_5_3_16_2021 {t : X → ℝ} {x : X} (h : PX.HasSurjDerivAt t x) :
   obtain ⟨e, -, he0, he⟩ := exists_isCompl_ker_of_ne_zero hℓ (D := univ) Submodule.span_univ
   have hne : e ≠ 0 := fun h0 => he0 (by rw [h0, map_zero])
   exact ⟨φ, hφ, hx, R, hR, z, hz, ℓ, rfl, hℓ, ℝ ∙ e, finrank_span_singleton hne, he,
-    fun S _ _ τ => lemma_5_23 hℓ he τ⟩
+    fun S _ _ τ => lemma_5_3_16_preprint hℓ he τ⟩
 
 end Lemma5316
 

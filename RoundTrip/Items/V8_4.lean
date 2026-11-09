@@ -4,7 +4,7 @@ import RoundTrip.Blind.V8_4
 
 /-! Round trip for V8_4 (Lemma 8.1.2 = 2017 Lemma 8.1: the composition of `T𝐗` is `Tm`).
 
-`A` is the conjunction of the types of `EpGroupoid.lemma_8_1`, `tComp_eq_tangentMapOn`,
+`A` is the conjunction of the types of `EpGroupoid.lemma_8_1_2`, `tComp_eq_tangentMapOn`,
 `tangentMapOn_srcInv_tSrc`, `mem_tangentPreimage_tgt` and (Chapter 7's) `isScSmoothCompSheet`,
 universes at `0`.  The two sides state Lemma 8.1 in different forms:
 
@@ -30,16 +30,16 @@ rule on open sets (`tangentMapOn_tangentMap`, `tangentMapOn_congr`, `tangentMapO
   `Tm v = (Tpr₁ v) ∘ (Tpr₂ v)` is `tm_eq_tg` followed by the hypothesis' `tComp_eq_tangentMapOn`
   (with the hypothesis' sheet form of (4) for `g`); the base point and `Ts` of `Tm v` are the chain
   rule.
-* `B → A`: `tComp_eq_tangentMapOn` (and the second clause of `lemma_8_1`) from B: B's surjectivity
+* `B → A`: `tComp_eq_tangentMapOn` (and the second clause of `lemma_8_1_2`) from B: B's surjectivity
   gives `v` over the composable pair `(k, h)`, B gives `Tm v = k ∘ h`, and `tm_eq_tg` gives
   `Tm v = Tg(h)`.  The sheet form of (4) is B's sc-smoothness of `m` through Chapter 7's
   `isScSmoothComp_iff_sheet`.  `tangentMapOn_srcInv_tSrc` (`Tσ(Ts k) = k` on a sheet) and
   `mem_tangentPreimage_tgt` are statements about a sheet of `s` only, not consequences of B: they
   are re-proved outright (one line each, `IsScDiffeoOn.tangentMap`, `src_tBase_eq`); the other
-  clauses of `lemma_8_1` are `tComp_spec` (V8_1).
+  clauses of `lemma_8_1_2` are `tComp_spec` (V8_1).
 
 **The no-peeking check.**  The banned `isScSmoothCompSheet` occurs inside the *statements* of
-`lemma_8_1` and `tComp_eq_tangentMapOn` (as the proof argument of `tangentMapOn`), hence inside
+`lemma_8_1_2` and `tComp_eq_tangentMapOn` (as the proof argument of `tangentMapOn`), hence inside
 the value of `A`, so `#rt_check` fails for every proof term that mentions `A` (`A_self` below).
 Both directions are therefore proved through `A'`, which is `A` with that proof argument replaced
 by `sheet'` (re-proved from the field `isScSmoothComp`); `A = A'` is `rfl` (proof irrelevance), and
@@ -52,14 +52,14 @@ open Polyfold Set
 
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.EpGroupoid.lemma_8_1.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.lemma_8_1_2.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tComp_eq_tangentMapOn.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.mem_tangentPreimage_tgt.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isScSmoothCompSheet.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.lemma_8_1.{0}, @Polyfold.EpGroupoid.tComp_eq_tangentMapOn.{0},
+  ⟨@Polyfold.EpGroupoid.lemma_8_1_2.{0}, @Polyfold.EpGroupoid.tComp_eq_tangentMapOn.{0},
     @Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc.{0},
     @Polyfold.EpGroupoid.mem_tangentPreimage_tgt.{0},
     @Polyfold.EpGroupoid.isScSmoothCompSheet.{0}⟩
@@ -319,7 +319,7 @@ theorem B_to_A : B → A := B_to_A'
 /-! ### The checks -/
 
 /-- `A → A`: the official checks fail on it, because the value of `A` contains
-`isScSmoothCompSheet` (inside the statements of `lemma_8_1`, `tComp_eq_tangentMapOn`); this is why
+`isScSmoothCompSheet` (inside the statements of `lemma_8_1_2`, `tComp_eq_tangentMapOn`); this is why
 the directions are proved through `A'` and stated point-free. -/
 theorem A_self : A → A := id
 
@@ -327,17 +327,17 @@ theorem A_self : A → A := id
 error: rt_check_soft FAIL: RoundTrip.V8_4.A_self uses [Polyfold.EpGroupoid.isScSmoothCompSheet]
 -/
 #guard_msgs in
-#rt_check_soft RoundTrip.V8_4.A_self [Polyfold.EpGroupoid.lemma_8_1,
+#rt_check_soft RoundTrip.V8_4.A_self [Polyfold.EpGroupoid.lemma_8_1_2,
   Polyfold.EpGroupoid.tComp_eq_tangentMapOn, Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc,
   Polyfold.EpGroupoid.mem_tangentPreimage_tgt, Polyfold.EpGroupoid.isScSmoothCompSheet]
 
-#rt_check RoundTrip.V8_4.A_to_B [Polyfold.EpGroupoid.lemma_8_1,
+#rt_check RoundTrip.V8_4.A_to_B [Polyfold.EpGroupoid.lemma_8_1_2,
   Polyfold.EpGroupoid.tComp_eq_tangentMapOn, Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc,
   Polyfold.EpGroupoid.mem_tangentPreimage_tgt, Polyfold.EpGroupoid.isScSmoothCompSheet]
-#rt_check RoundTrip.V8_4.B_to_A [Polyfold.EpGroupoid.lemma_8_1,
+#rt_check RoundTrip.V8_4.B_to_A [Polyfold.EpGroupoid.lemma_8_1_2,
   Polyfold.EpGroupoid.tComp_eq_tangentMapOn, Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc,
   Polyfold.EpGroupoid.mem_tangentPreimage_tgt, Polyfold.EpGroupoid.isScSmoothCompSheet]
-#rt_overlap RoundTrip.V8_4.B_to_A [Polyfold.EpGroupoid.lemma_8_1,
+#rt_overlap RoundTrip.V8_4.B_to_A [Polyfold.EpGroupoid.lemma_8_1_2,
   Polyfold.EpGroupoid.tComp_eq_tangentMapOn, Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc,
   Polyfold.EpGroupoid.mem_tangentPreimage_tgt, Polyfold.EpGroupoid.isScSmoothCompSheet]
 

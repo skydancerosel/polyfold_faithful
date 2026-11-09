@@ -2,19 +2,19 @@ import Polyfold.Chapter7.Basic
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.1:
-**Definition 7.10** (ep-subgroupoid, p. 237), the facts (1)–(4) of Proposition 2.6 recalled for
-`A` before Proposition 7.7 (pp. 237–238), the construction of the M-polyfold `𝐀` (p. 238) and
-**Proposition 7.7** (pp. 238–239).  There is no 2014 preprint of Part II; numbers and pages are
+**Definition 7.1.21 (2017: 7.10)** (ep-subgroupoid, p. 237), the facts (1)–(4) of Proposition 2.6 recalled for
+`A` before Proposition 7.1.22 (2017: 7.7) (pp. 237–238), the construction of the M-polyfold `𝐀` (p. 238) and
+**Proposition 7.1.22 (2017: 7.7)** (pp. 238–239).  There is no 2014 preprint of Part II; numbers and pages are
 the 2017 text's.  Part I items carry their 2017 numbers, with the preprint number of the Lean name
-in brackets: Proposition 2.6 [2.21] (`MPolyfold.subPolyfold`), Definition 2.12 [2.20]
-(`MPolyfold.IsSubMPolyfold`), Proposition 2.15 [2.46] (`MPolyfold.isSubMPolyfold_fibredProduct`),
-Theorem 2.2 [2.16] (`MPolyfold.paracompactSpace_subtype`).
+in brackets: Proposition 2.3.19 (2017: 2.6) [2.21] (`MPolyfold.subPolyfold`), Definition 2.3.18 (2017: 2.12) [2.20]
+(`MPolyfold.IsSubMPolyfold`), Proposition 2.5.20 (2017: 2.15) [2.46] (`MPolyfold.isSubMPolyfold_fibredProduct`),
+Theorem 2.3.10 (2017: 2.2) [2.16] (`MPolyfold.paracompactSpace_subtype`).
 
 # Ep-subgroupoids
 
 ## The text, paraphrased
 
-(Definition 7.10) An ep-subgroupoid of `X` is the full subcategory on a subset `A` of the object
+(Definition 7.1.21 (2017: 7.10)) An ep-subgroupoid of `X` is the full subcategory on a subset `A` of the object
 space which is (1) a sub-M-polyfold of `X` and (2) saturated, `π⁻¹(π(A)) = A`.  (pp. 237–238) By
 Proposition 2.6, `A` has an M-polyfold structure with (1) the inclusion `i : A → X` sc-smooth and
 a homeomorphism onto its image; (2) `i⁻¹ ∘ r : V → A` sc-smooth for every sc-smooth retraction
@@ -26,13 +26,13 @@ onto `𝐔(φ) ∩ 𝐀`, by saturation.  `s, t : 𝐀 → A` are local sc-diffe
 `𝐔(φ) ∩ 𝐀` onto `U(a) ∩ A`; `u`, `ι`, `m` are restrictions of sc-smooth maps, hence sc-smooth;
 (pp. 238–239) properness holds for `U(a) ∩ A`, `U(a)` a neighbourhood with the natural `G_a`-action
 and `t : s⁻¹(cl_X U(a)) → X` proper: for `s(φ_k) ∈ cl_A(U(a) ∩ A)` and `t(φ_k) → c ∈ A`, a
-subsequence converges to some `φ` in `𝐗`, and `s(φ) ∈ A` by saturation.  (Proposition 7.7) For a
+subsequence converges to some `φ` in `𝐗`, and `s(φ) ∈ A` by saturation.  (Proposition 7.1.22 (2017: 7.7)) For a
 saturated sub-M-polyfold `A`, the full subcategory on `A` is an ep-groupoid; `A` and `𝐀` are
 sub-M-polyfolds of `X` and `𝐗`, and all structure maps are the restrictions of those of `X`.
 
 ## What is formalized (namespace `Polyfold.EpGroupoid`)
 
-* **Definition 7.10** is `IsEpSubgroupoid` (with `isEpSubgroupoid_univ`), in `EpGroupoid.lean`.
+* **Definition 7.1.21 (2017: 7.10)** is `IsEpSubgroupoid` (with `isEpSubgroupoid_univ`), in `EpGroupoid.lean`.
 * **The facts (1), (2)**, for `A` and for `𝐀`: `isScSmoothMap_val_subObj`,
   `isScSmoothOn_retractInto_subObj`, `isScSmoothMap_val_subMor`,
   `isScSmoothOn_retractInto_subMor`; the M-polyfolds `subObjPolyfold hA`, `subMorPolyfold hA`.
@@ -40,26 +40,26 @@ sub-M-polyfolds of `X` and `𝐗`, and all structure maps are the restrictions o
   saturated `A`), `src_mem_of_tgt_mem_of_isSaturated`, `isSubMPolyfold_preimage_src`,
   `isSubMPolyfold_preimage_tgt` (the retraction pulled back along `s`, resp. `t`),
   `isSubMPolyfold_morOn`; the scoped instance `instParacompactSpaceMorOn`.
-* **The conditions of Definition 7.3** for `fullSub A`: (1) `isLocalScDiffeo_fullSub_src`,
+* **The conditions of Definition 7.1.3 (2017: 7.3)** for `fullSub A`: (1) `isLocalScDiffeo_fullSub_src`,
   `isLocalScDiffeo_fullSub_tgt`; (2) `isScSmoothMap_fullSub_unit`, `isScSmoothMap_fullSub_inv`;
   (3) `exists_isProperMap_fullSub`; (4) `isScSmoothComp_fullSub`; `fullSub_comp_val`.
-* **Proposition 7.7**: `subEpGroupoid hA : EpGroupoid A (X.morOn A)` and `proposition_7_7` (`A`,
+* **Proposition 7.1.22 (2017: 7.7)**: `subEpGroupoid hA : EpGroupoid A (X.morOn A)` and `proposition_7_1_22` (`A`,
   `𝐀` are sub-M-polyfolds; `toGroupoidStr = fullSub A`, `PObj`, `PMor` the sub-M-polyfold
   structures; `s, t, u, ι, m` the restrictions), with `subEpGroupoid_src_val`, `_tgt_val`,
   `_unit_val`, `_inv_val`, `_comp_val`.  `subEpFunctor hA : EpFunctor (subEpGroupoid hA) X`, the
-  inclusion as a morphism of `EP` (Definition 7.7), full and faithful (`subEpFunctor_full`,
+  inclusion as a morphism of `EP` (Definition 7.1.7 (2017: 7.7)), full and faithful (`subEpFunctor_full`,
   `subEpFunctor_faithful`).
 * **Satisfiability**: `isEpSubgroupoid_univ` (`EpGroupoid.lean`), `isEpSubgroupoid_of_isOpen`
   (every saturated open set), `isEpSubgroupoid_saturation` (`π⁻¹(π(U))` for open `U`, by
-  Proposition 7.1), `isEpSubgroupoid_trivial` (every sub-M-polyfold of the trivial ep-groupoid).
+  Proposition 7.1.8 (2017: 7.1)), `isEpSubgroupoid_trivial` (every sub-M-polyfold of the trivial ep-groupoid).
 
 ## Reading
 
-* **Facts (3), (4)** (tangent spaces) are Part I's `proposition_2_21_3`, `proposition_2_21_4`, in
+* **Facts (3), (4)** (tangent spaces) are Part I's `proposition_2_3_19_three`, `proposition_2_3_19_four`, in
   a chart; they are not restated for `A` or `𝐀`, since `T_xX` carries no linear structure in
   Part I (gap G.7).  Nothing below uses them.
-* **Paracompactness** (an M-polyfold is paracompact, Definition 2.8): the text is silent for `A`
-  and `𝐀`; both are subspaces of metrizable spaces (Theorem 2.2 [2.16]).  For `𝐀` it is the scoped
+* **Paracompactness** (an M-polyfold is paracompact, Definition 2.3.4 (2017: 2.8)): the text is silent for `A`
+  and `𝐀`; both are subspaces of metrizable spaces (Theorem 2.3.10 (2017: 2.2) [2.16]).  For `𝐀` it is the scoped
   instance `instParacompactSpaceMorOn` (`open scoped Polyfold.EpGroupoid`).  For `A` it is an
   instance argument `[ParacompactSpace A]`, as in Part I's `subPolyfold`: `↥A` does not mention
   `X`, so no instance could find `X.PObj`.  It is always discharged by
@@ -75,13 +75,13 @@ sub-M-polyfolds of `X` and `𝐗`, and all structure maps are the restrictions o
   M-polyfold is sc-smooth into the sub-M-polyfold (near a point it is `(i⁻¹ ∘ r) ∘ i ∘ f`, by fact
   (2)); this is the private `isScSmoothOn_subPolyfold_of_val`.  For `m` (literal condition (4), not
   the sheet form) it is applied twice: the inclusion `𝐀 ₛ×ₜ 𝐀 → 𝐗 ₛ×ₜ 𝐗` is sc-smooth between the
-  fibred-product M-polyfolds of Proposition 2.15 [2.46], and `m` of `A` is `m` of `X` composed with
+  fibred-product M-polyfolds of Proposition 2.5.20 (2017: 2.15) [2.46], and `m` of `A` is `m` of `X` composed with
   it.  `fullSub`'s composition of a non-composable pair is a junk value; (4) only concerns
   `𝐀 ₛ×ₜ 𝐀`.
 * **(3)**: the text uses a `U(a)` "equipped with the natural `G_a`-action" for which
   `t : s⁻¹(cl_X U(a)) → X` is proper (which tacitly shrinks inside `V(a)`,
   `isProperMap_domRestrict_closure_mono`) and notes that `U(a) ∩ A` is `G_a`-invariant; the
-  invariance is not used, and any `V(a)` of Definition 7.3 (3) works: `exists_isProperMap_fullSub`
+  invariance is not used, and any `V(a)` of Definition 7.1.3 (2017: 7.3) (3) works: `exists_isProperMap_fullSub`
   takes `V(a) ∩ A`.  "We may assume `φ_k → φ`" is a subsequence (the sequential criterion of
   `ProperMaps.lean`, both spaces metrizable); `cl_A(V ∩ A) ⊆ cl_X V`, and the limit lies over
   `cl_A(V ∩ A)` since this set is closed in `A`.
@@ -258,14 +258,14 @@ theorem isSubMPolyfold_preimage_tgt {A : Set Obj} (hA : X.PObj.IsSubMPolyfold A)
     X.PMor.IsSubMPolyfold (X.tgt ⁻¹' A) :=
   isSubMPolyfold_preimage_of_isLocalScDiffeo X.isLocalScDiffeo_tgt hA
 
-/-- **`𝐀 = {φ | s(φ), t(φ) ∈ A}` is a sub-M-polyfold of `𝐗`** (Proposition 7.7, pp. 238–239). -/
+/-- **`𝐀 = {φ | s(φ), t(φ) ∈ A}` is a sub-M-polyfold of `𝐗`** (Proposition 7.1.22 (2017: 7.7), pp. 238–239). -/
 theorem isSubMPolyfold_morOn {A : Set Obj} (hA : X.IsEpSubgroupoid A) :
     X.PMor.IsSubMPolyfold (X.morOn A) := by
   rw [X.morOn_eq_preimage_src hA.isSaturated]
   exact X.isSubMPolyfold_preimage_src hA.isSubMPolyfold
 
 /-- The morphism set `𝐀` of the full subcategory on `A` is paracompact (a subspace of the
-metrizable `𝐗`, Theorem 2.2 [2.16]).  Scoped: `open scoped Polyfold.EpGroupoid`. -/
+metrizable `𝐗`, Theorem 2.3.10 (2017: 2.2) [2.16]).  Scoped: `open scoped Polyfold.EpGroupoid`. -/
 scoped instance instParacompactSpaceMorOn (A : Set Obj) : ParacompactSpace (X.morOn A) :=
   X.PMor.paracompactSpace_subtype _
 
@@ -274,7 +274,7 @@ theorem fullSub_comp_val {A : Set Obj} (φ ψ : X.morOn A) (h : X.src φ.1 = X.t
     ((X.fullSub A).comp φ ψ : Mor) = X.comp φ ψ := by
   simp only [GroupoidStr.fullSub, dif_pos h]
 
-/-! ### Proposition 7.7 -/
+/-! ### Proposition 7.1.22 (2017: 7.7) -/
 
 section Sub
 
@@ -283,7 +283,7 @@ variable {X} {A : Set Obj} (hA : X.IsEpSubgroupoid A)
 /-- The M-polyfold structure of `𝐀 = morOn A`. -/
 abbrev subMorPolyfold : MPolyfold (X.morOn A) := MPolyfold.subPolyfold (X.isSubMPolyfold_morOn hA)
 
-/-! #### The facts (1)–(2) of Proposition 2.6 [2.21], for `𝐀` and `A` (pp. 237–238) -/
+/-! #### The facts (1)–(2) of Proposition 2.3.19 (2017: 2.6) [2.21], for `𝐀` and `A` (pp. 237–238) -/
 
 /-- **Fact (1) for `𝐀`**: the inclusion `𝐀 → 𝐗` is sc-smooth and a homeomorphism onto its
 image. -/
@@ -306,7 +306,7 @@ theorem isScSmoothMap_fullSub_inv :
 
 variable [ParacompactSpace A]
 
-/-- The M-polyfold structure of `A` (Proposition 2.6 [2.21]). -/
+/-- The M-polyfold structure of `A` (Proposition 2.3.19 (2017: 2.6) [2.21]). -/
 abbrev subObjPolyfold : MPolyfold A := MPolyfold.subPolyfold hA.isSubMPolyfold
 
 /-- **Fact (1) for `A`**: the inclusion `i : A → X` is sc-smooth and a homeomorphism onto its
@@ -321,7 +321,7 @@ theorem isScSmoothOn_retractInto_subObj (d : X.PObj.SubData A) (a₀ : A) :
     X.PObj.IsScSmoothOn (subObjPolyfold hA) (d.retractInto a₀) d.V :=
   MPolyfold.subPolyfold_retraction_isScSmooth _ d a₀
 
-/-! #### The conditions of Definition 7.3 for the full subcategory -/
+/-! #### The conditions of Definition 7.1.3 (2017: 7.3) for the full subcategory -/
 
 /-- **(1)**: `s : 𝐀 → A` is a local sc-diffeomorphism. -/
 theorem isLocalScDiffeo_fullSub_src :
@@ -343,7 +343,7 @@ theorem isScSmoothMap_fullSub_unit :
     (X.isScSmoothMap_unit.comp (MPolyfold.subPolyfold_inclusion_isScSmooth _))
 
 include hA in
-/-- **(3)**: properness restricts.  For `a ∈ A` and `V = V(a)` of Definition 7.3 (3) for `X`,
+/-- **(3)**: properness restricts.  For `a ∈ A` and `V = V(a)` of Definition 7.1.3 (2017: 7.3) (3) for `X`,
 the open `V ∩ A` has the property for `A` (the argument of p. 239). -/
 theorem exists_isProperMap_fullSub (a : A) : ∃ V : Set A, IsOpen V ∧ a ∈ V ∧
     IsProperMap (((X.fullSub A).src ⁻¹' closure V).domRestrict (X.fullSub A).tgt) := by
@@ -395,7 +395,7 @@ theorem isScSmoothComp_fullSub :
   refine isScSmoothOn_subPolyfold_of_val _ ((hm.comp hj).congr fun p _ => ?_)
   exact (X.fullSub_comp_val p.1.1 p.1.2 (congrArg Subtype.val p.2)).symm
 
-/-- **Proposition 7.7, the structure**: the full subcategory on an ep-subgroupoid `A` is an
+/-- **Proposition 7.1.22 (2017: 7.7), the structure**: the full subcategory on an ep-subgroupoid `A` is an
 ep-groupoid, with the M-polyfold structures of the sub-M-polyfolds `A ⊆ X` and `𝐀 ⊆ 𝐗` and the
 restricted structure maps. -/
 def subEpGroupoid : EpGroupoid A (X.morOn A) where
@@ -430,11 +430,11 @@ theorem subEpGroupoid_comp_val {φ ψ : X.morOn A}
     ((subEpGroupoid hA).comp φ ψ : Mor) = X.comp φ ψ :=
   X.fullSub_comp_val φ ψ (congrArg Subtype.val h)
 
-/-- **Proposition 7.7**: for a saturated sub-M-polyfold `A` of the object space, `A` and
+/-- **Proposition 7.1.22 (2017: 7.7)**: for a saturated sub-M-polyfold `A` of the object space, `A` and
 `𝐀 = {φ | s(φ), t(φ) ∈ A}` are sub-M-polyfolds of `X` and `𝐗`, and the full subcategory on `A`
 is an ep-groupoid (`subEpGroupoid`) with these M-polyfold structures whose structure maps are the
 restrictions of those of `X`. -/
-theorem proposition_7_7 :
+theorem proposition_7_1_22 :
     X.PObj.IsSubMPolyfold A ∧ X.PMor.IsSubMPolyfold (X.morOn A) ∧
       (subEpGroupoid hA).toGroupoidStr = X.fullSub A ∧
       (subEpGroupoid hA).PObj = MPolyfold.subPolyfold hA.isSubMPolyfold ∧
@@ -448,7 +448,7 @@ theorem proposition_7_7 :
   ⟨hA.isSubMPolyfold, X.isSubMPolyfold_morOn hA, rfl, rfl, rfl, fun _ => rfl, fun _ => rfl,
     fun _ => rfl, fun _ => rfl, fun _ _ h => subEpGroupoid_comp_val hA h⟩
 
-/-- **The inclusion of an ep-subgroupoid is a morphism of `EP`** (Definition 7.7): the inclusions
+/-- **The inclusion of an ep-subgroupoid is a morphism of `EP`** (Definition 7.1.7 (2017: 7.7)): the inclusions
 `A → X` and `𝐀 → 𝐗`, sc-smooth by fact (1). -/
 def subEpFunctor : EpFunctor (subEpGroupoid hA) X where
   obj := Subtype.val
@@ -502,7 +502,7 @@ theorem isEpSubgroupoid_of_isOpen {A : Set Obj} (hA : IsOpen A) (hs : X.IsSatura
 7.1. -/
 theorem isEpSubgroupoid_saturation {U : Set Obj} (hU : IsOpen U) :
     X.IsEpSubgroupoid (X.saturation U) :=
-  X.isEpSubgroupoid_of_isOpen ((X.proposition_7_1 U hU).preimage X.continuous_π)
+  X.isEpSubgroupoid_of_isOpen ((X.proposition_7_1_8 U hU).preimage X.continuous_π)
     (X.isSaturated_saturation' U)
 
 /-- In the trivial ep-groupoid of an M-polyfold every sub-M-polyfold is an ep-subgroupoid. -/

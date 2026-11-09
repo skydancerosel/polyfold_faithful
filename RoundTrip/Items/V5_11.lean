@@ -4,7 +4,7 @@ import RoundTrip.Blind.V5_11
 
 /-! **Refresh 2026-11-02** (HEAD after the germ reading of Definition 3.11 and the notions built
 on it).
-theorem_5_6 and B now both use the germ-reading IsScFredholmSection (theorem_5_6 is theorem_3_12
+theorem_5_2_3 and B now both use the germ-reading IsScFredholmSection (theorem_5_2_3 is theorem_3_1_13_preprint
 applied to the germ at the zero); the conclusions are unchanged and both repackaging proofs still
 check. Result unchanged: equivalent.
 -/
@@ -13,9 +13,9 @@ namespace RoundTrip.V5_11
 open Polyfold
 
 /-- The project's statement (Theorem 5.6), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_5_6.{0, 0}
+def A : Prop := type_of% @Polyfold.theorem_5_2_3.{0, 0}
 
-theorem A_holds : A := @Polyfold.theorem_5_6.{0, 0}
+theorem A_holds : A := @Polyfold.theorem_5_2_3.{0, 0}
 
 /-- `A ⇒ B`: the compact `K ⊆ X_i` of A whose image is the closure is the set of points of `X_i`
 lying in the closure (the inclusion `X_i → X` is injective). -/
@@ -57,8 +57,8 @@ theorem B_to_A : B → A := by
   · intro hy
     exact ⟨PX.levelMk i y ((h4 i).1 hy), hy, rfl⟩
 
-#rt_check RoundTrip.V5_11.A_to_B [Polyfold.theorem_5_6]
-#rt_check RoundTrip.V5_11.B_to_A [Polyfold.theorem_5_6]
-#rt_overlap RoundTrip.V5_11.B_to_A [Polyfold.theorem_5_6]
+#rt_check RoundTrip.V5_11.A_to_B [Polyfold.theorem_5_2_3]
+#rt_check RoundTrip.V5_11.B_to_A [Polyfold.theorem_5_2_3]
+#rt_overlap RoundTrip.V5_11.B_to_A [Polyfold.theorem_5_2_3]
 
 end RoundTrip.V5_11

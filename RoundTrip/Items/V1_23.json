@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A ⇒ B: theorem_1_25 applied to the shrunken domains O∩U, O'∩U' (still relatively open in C, C'), with sc-smooth ⇒ sc¹, then degIndex_eq (Lemma 1.24, outside this item) turns the project's choice-based degIndex into degIndexWith for B's arbitrary presentations T, T'. B ⇒ A is not derivable: theorem_1_25 (and theorem_1_25_lvl1) only assume f and its inverse sc¹, whereas B assumes sc-smooth (the text's 'local sc-diffeomorphism'), so B says nothing about sc¹-but-not-sc² germs; moreover A also contains the retract-domain inequality degIndexWith_le_of_germ (the core of Thm 2.31) and the auxiliary lemmas (upper semicontinuity of d_C, level-1 approximation, Df(x)(E_x) ⊆ E'_{f(x)}), which are not consequences of B. A genuine generality gap in A's favour, not missing glue.",
+ "why": "A ⇒ B: theorem_1_3_5 applied to the shrunken domains O∩U, O'∩U' (still relatively open in C, C'), with sc-smooth ⇒ sc¹, then degIndex_eq (Lemma 1.24, outside this item) turns the project's choice-based degIndex into degIndexWith for B's arbitrary presentations T, T'. B ⇒ A is not derivable: theorem_1_3_5 (and theorem_1_3_5_lvl1) only assume f and its inverse sc¹, whereas B assumes sc-smooth (the text's 'local sc-diffeomorphism'), so B says nothing about sc¹-but-not-sc² germs; moreover A also contains the retract-domain inequality degIndexWith_le_of_germ (the core of Thm 2.31) and the auxiliary lemmas (upper semicontinuity of d_C, level-1 approximation, Df(x)(E_x) ⊆ E'_{f(x)}), which are not consequences of B. A genuine generality gap in A's favour, not missing glue.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved)",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": false}

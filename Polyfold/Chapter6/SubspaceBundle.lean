@@ -12,8 +12,8 @@ import Mathlib.Analysis.Normed.Module.HahnBanach
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
 pp. 222–227: the bundle `L = ⋃_t {t} × L_t` of kernels along a path, its line bundle
 `λ(L) = ⋃_t {t} × λ(L_t)`, and "an orientation of the lines `λ(L_t)` determines by continuation an
-orientation of all the other lines" (before (96)); the two-parameter bundles `L̃` of Lemmas 6.33,
-6.34 and of the proof of Theorem 6.35 *(book 2017: §6.5; see `BookConcordance.md`)*.
+orientation of all the other lines" (before (96)); the two-parameter bundles `L̃` of Lemmas 6.6.8 (preprint 6.33),
+6.34 and of the proof of Theorem 6.6.11 (preprint 6.35) *(book 2017: §6.5; see `BookConcordance.md`)*.
 
 # Continuous families of finite-dimensional subspaces and their determinant lines
 
@@ -37,7 +37,7 @@ orientation of `λ(L_1)`.  Over `[0, 1] × [0, 1]` the same holds for the bundle
   orientations; `transport_eq`: it is the value at `1` of any orientation through the given ray at
   `0`; `transport_injective`; and `transport_comp`: over a simply connected, locally
   path-connected base, the continuation along a path depends only on its end points (this is
-  what the two-parameter families of Lemmas 6.33–6.34 and Theorem 6.35 are used for).
+  what the two-parameter families of Lemmas 6.33–6.34 and Theorem 6.6.11 (preprint 6.35) are used for).
 
 ## Reading
 

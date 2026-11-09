@@ -2,81 +2,81 @@ import Polyfold.Chapter7.OrbitTopology
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.4
-and Appendix 7.5.2: **Theorem 7.3** (p. 250), **Remark 7.2** (p. 251), **Theorem 7.4** (p. 251)
-= **Theorem 7.6** (p. 255), **Lemma 7.10** (p. 255), the proof of Theorem 7.4 (pp. 255–256) and
-**Corollary 7.3** (p. 256).  There is no 2014 preprint of Part II; numbers and pages are the 2017
-text's.  Definition 7.16 (pp. 250–251) is in `EpGroupoid.lean` (`HasScPartitionsOfUnity`).
+and Appendix 7.5.2: **Theorem 7.5.4 (2017: 7.3)** (p. 341 (2017 p. 250)), **Remark 7.5.6 (2017: 7.2)** (p. 342 (2017 p. 251)), **Theorem 7.5.7 (2017: 7.4)** (p. 342 (2017 p. 251))
+= **Theorem 7.6.4 (2017: 7.6)** (p. 346 (2017 p. 255)), **Lemma 7.6.5 (2017: 7.10)** (p. 346 (2017 p. 255)), the proof of Theorem 7.5.7 (2017: 7.4) (pp. 255–256) and
+**Corollary 7.6.6 (2017: 7.3)** (p. 347 (2017 p. 256)).  There is no 2014 preprint of Part II; numbers and pages are the 2017
+text's.  Definition 7.5.5 (2017: 7.16) (pp. 250–251) is in `EpGroupoid.lean` (`HasScPartitionsOfUnity`).
 Part I items carry their 2017 numbers with the preprint number of the Lean name in brackets.
 
 # Partitions of unity on ep-groupoids
 
 ## The text, paraphrased
 
-(Theorem 7.3) If `|X|` is paracompact, every open cover `(O_λ)` of `|X|` has a subordinate
+(Theorem 7.5.4 (2017: 7.3)) If `|X|` is paracompact, every open cover `(O_λ)` of `|X|` has a subordinate
 partition of unity `(σ_λ)` (some `σ_λ ≡ 0`); every cover `(U_λ)` of `X` by saturated open sets has
 a subordinate continuous partition of unity `(β_λ)` whose functions take equal values on
 isomorphic objects.  *Proof*: `β_λ = σ_λ ∘ π` for `σ` subordinate to `O_λ = π(U_λ)`; its support
 lies in `π⁻¹(O_λ) = U_λ`, and `π⁻¹(V)` meets finitely many supports if `V` meets finitely many
-supports of the `σ_λ`.  (Remark 7.2) Apart from sc-Hilbert spaces the existence of sc-smooth
-partitions of unity is "a zoo", as for classically smooth ones on Banach spaces.  (Theorem 7.4 =
-Theorem 7.6) If `|X|` is paracompact and the object M-polyfold admits sc-smooth partitions of
+supports of the `σ_λ`.  (Remark 7.5.6 (2017: 7.2)) Apart from sc-Hilbert spaces the existence of sc-smooth
+partitions of unity is "a zoo", as for classically smooth ones on Banach spaces.  (Theorem 7.5.7 (2017: 7.4) =
+Theorem 7.6.4 (2017: 7.6)) If `|X|` is paracompact and the object M-polyfold admits sc-smooth partitions of
 unity, every cover of `X` by saturated open sets has a subordinate sc-smooth partition of unity of
-the ep-groupoid (Definition 7.16).  (Lemma 7.10) Let `|X|` be paracompact, `X` admit sc-smooth
+the ep-groupoid (Definition 7.5.5 (2017: 7.16)).  (Lemma 7.6.5 (2017: 7.10)) Let `|X|` be paracompact, `X` admit sc-smooth
 partitions of unity, `U(x) ⊆ cl U(x) ⊆ V(x)` open neighbourhoods of `x`, `V(x)` with the natural
 `G_x`-action and `U(x)` invariant.  A continuous `β : X → [0, 1]` supported in `U(x)` and
 invariant under `G_x` on `V(x)` lies below an sc-smooth `f : X → [0, ∞)` supported in `V(x)` and
 invariant under `G_x` on `V(x)`.  *Proof*: open `W(z)`, `z ∈ V(x)`, with numbers `a_z` (`cl W(z) ⊆
 U(x)` and `β < a_z` on `W(z)` for `z ∈ U(x)`; `W(z) ⊆ V(x)`, `β|W(z) = 0`, `a_z = 0` otherwise); an
 sc-smooth partition of unity `(σ_z)` of `V(x)` subordinate to them; `γ = Σ σ_z a_z ≥ β` is
-supported in `cl U(x)`; `f(y) = |G_x|⁻¹ Σ_g γ(g ∗ y)`.  (Proof of Theorem 7.4) For every `x` an
+supported in `cl U(x)`; `f(y) = |G_x|⁻¹ Σ_g γ(g ∗ y)`.  (Proof of Theorem 7.5.7 (2017: 7.4)) For every `x` an
 open `V(x)` with (1) an open `W(x)` with the natural `G_x`-action, `V(x) ⊆ cl V(x) ⊆ W(x)`, `V(x)`
 invariant; (2) `t : s⁻¹(cl V(x)) → X` proper; (3) `V(x) ⊆ U_λ` for some `λ`; (4) `(π⁻¹(|V(x)|) ∖
 V(x)) ∩ W(x) = ∅`.  A locally finite refinement `(V'_i)` of `(|V(x)|)`, `V'_i ⊆ |V(x_i)|`, open
 `V''_i ⊆ cl V''_i ⊆ V'_i` covering `|X|`, `U''_i = V(x_i) ∩ π⁻¹(V''_i)`, a partition of unity
-`(β_i)` subordinate to `(V''_i)`; Lemma 7.10 gives `f_i ≥ (β_i ∘ π)|V(x_i)` supported in
+`(β_i)` subordinate to `(V''_i)`; Lemma 7.6.5 (2017: 7.10) gives `f_i ≥ (β_i ∘ π)|V(x_i)` supported in
 `V(x_i)`; averaging, extending to the saturation and by `0` gives `h_i`; `h = Σ h_i > 0` is
-locally finite and `(h_i/h)` is the partition of unity.  (Corollary 7.3) If `|X|` is paracompact
-and the object M-polyfold has an atlas whose local models have Hilbert spaces `E₀`, Theorem 7.4
-applies: such an `X` admits sc-smooth partitions of unity (Appendix 5.5, Proposition 5.6 [5.35],
-Theorem 5.12 [5.37], Corollary 5.2 [5.44]).
+locally finite and `(h_i/h)` is the partition of unity.  (Corollary 7.6.6 (2017: 7.3)) If `|X|` is paracompact
+and the object M-polyfold has an atlas whose local models have Hilbert spaces `E₀`, Theorem 7.5.7 (2017: 7.4)
+applies: such an `X` admits sc-smooth partitions of unity (Appendix 5.5, Proposition 5.5.8 (2017: 5.6) [5.35],
+Theorem 5.5.10 (2017: 5.12) [5.37], Corollary 5.5.17 (2017: 5.2) [5.44]).
 
 ## What is formalized (namespace `Polyfold.EpGroupoid`)
 
-* **Theorem 7.3**: `theorem_7_3` (both statements); the pull-back `orbitPullback σ = σ ∘ π` of a
+* **Theorem 7.5.4 (2017: 7.3)**: `theorem_7_5_4` (both statements); the pull-back `orbitPullback σ = σ ∘ π` of a
   partition of unity of `|X|`, with `orbitPullback_apply`, `orbitPullback_src`,
   `tsupport_orbitPullback_subset`, `orbitPullback_isSubordinate`,
   `exists_isSaturated_nhds_finite_orbitPullback`.
-* **Remark 7.2**: no formal content; not formalized.
-* **Lemma 7.10**: `lemma_7_10`.
-* **The proof of Theorem 7.4**: properties (1)–(3), `exists_invariant_nhds_of_isOpen`; property
+* **Remark 7.5.6 (2017: 7.2)**: no formal content; not formalized.
+* **Lemma 7.6.5 (2017: 7.10)**: `lemma_7_6_5`.
+* **The proof of Theorem 7.5.7 (2017: 7.4)**: properties (1)–(3), `exists_invariant_nhds_of_isOpen`; property
   (4), `mem_of_π_mem_image_of_invariant` and `saturation_diff_inter_eq_empty`; the extension
   `orbitExtension R f` of a `G_x`-invariant function on `W(x)` to `|X|`, with
   `orbitExtension_π`, `orbitExtension_nonneg`, `support_orbitExtension_subset`,
   `isScSmoothMap_orbitExtension`; the invariant sc-smooth Urysohn lemma
   `exists_isScSmoothMap_orbit_urysohn`.
-* **Theorem 7.4**: `theorem_7_4`; **Theorem 7.6**: `theorem_7_6` (= `theorem_7_4`).
-* **Corollary 7.3**: `corollary_7_3`.
-* **Satisfiability** (PLAN II.5, 3): `theorem_7_4_hypotheses_rn`,
-  `hasScPartitionsOfUnity_trivial_rn_of_theorem_7_4`, `corollary_7_3_hypotheses_rn`.
+* **Theorem 7.5.7 (2017: 7.4)**: `theorem_7_5_7`; **Theorem 7.6.4 (2017: 7.6)**: `theorem_7_6_4` (= `theorem_7_5_7`).
+* **Corollary 7.6.6 (2017: 7.3)**: `corollary_7_6_6`.
+* **Satisfiability** (PLAN II.5, 3): `theorem_7_5_7_hypotheses_rn`,
+  `hasScPartitionsOfUnity_trivial_rn_of_theorem_7_5_7`, `corollary_7_6_6_hypotheses_rn`.
 
 ## Reading
 
-* **Theorem 7.3.**  Index types are arbitrary (`ι : Type v`); "subordinate" is Mathlib's
+* **Theorem 7.5.4 (2017: 7.3).**  Index types are arbitrary (`ι : Type v`); "subordinate" is Mathlib's
   `PartitionOfUnity.IsSubordinate` (`tsupport σ_λ ⊆ O_λ`); "(some of the `σ_λ ≡ 0`)" has no
   content beyond the index set being `Λ`.  "Due to paracompactness … a partition of unity" is
-  `PartitionOfUnity.exists_isSubordinate`, which needs `|X|` normal: paracompact (Definition 7.15,
-  `HasParacompactOrbitSpace`) and Hausdorff (Lemma 7.6, `lemma_7_6`).  The second statement has
-  the conclusions of Definition 7.16 except sc-smoothness: the text's neighbourhood `π⁻¹(V)` is a
+  `PartitionOfUnity.exists_isSubordinate`, which needs `|X|` normal: paracompact (Definition 7.5.1 (2017: 7.15),
+  `HasParacompactOrbitSpace`) and Hausdorff (Lemma 7.3.4 (2017: 7.6), `lemma_7_3_4`).  The second statement has
+  the conclusions of Definition 7.5.5 (2017: 7.16) except sc-smoothness: the text's neighbourhood `π⁻¹(V)` is a
   saturated open neighbourhood meeting finitely many supports, and "takes the same values on
   isomorphic objects" is `β_λ(s φ) = β_λ(t φ)`.  "The support of `β_λ` lies in `π⁻¹(O_λ) = U_λ`"
   is `tsupport (σ_λ ∘ π) ⊆ π⁻¹(tsupport σ_λ) ⊆ π⁻¹(π(U_λ)) = U_λ`.
-* **Lemma 7.10.**  "`V(x)` admits the natural `G_x`-action" is a natural representation `R` with
+* **Lemma 7.6.5 (2017: 7.10).**  "`V(x)` admits the natural `G_x`-action" is a natural representation `R` with
   `V(x) = R.U` (PLAN II.5, 6); "`U(x)` invariant" is `MapsTo (R.Φ g) U U` for all `g`; `β` is a
   continuous `Obj → ℝ` with values in `[0, 1]`, "support in `U(x)`" is `tsupport β ⊆ U`, the
   invariance is `β(Φ(g)(y)) = β(y)` on `R.U`; `f ≥ 0`.  The conclusion adds `tsupport f ⊆ cl U(x)`,
   which the proof gives ("`γ` … with support in `cl_X(U(x))`", kept by averaging over the invariant
-  `U(x)`) and which Theorem 7.4 needs (below).  The hypothesis "`U(x)` is a neighbourhood of `x`" is
-  not used by the proof and is omitted (a stronger statement): the proof of Theorem 7.4 applies the
+  `U(x)`) and which Theorem 7.5.7 (2017: 7.4) needs (below).  The hypothesis "`U(x)` is a neighbourhood of `x`" is
+  not used by the proof and is omitted (a stronger statement): the proof of Theorem 7.5.7 (2017: 7.4) applies the
   lemma to `U''_i`, which need not contain `x_i`.  The paracompactness of `|X|` and the continuity
   of `β` are kept as in the text (`_hpara`, `_hβ`) but not used: the two-set cover below needs
   neither.  **The partition of unity "of `V(x)`" is taken for a cover of `X`** (PLAN II.6, 4): the
@@ -88,15 +88,15 @@ Theorem 5.12 [5.37], Corollary 5.2 [5.44]).
   read on `V(x)` and extended by `0`: each `γ ∘ Φ(g)`, extended by `0`, is supported in `cl U(x) ⊆
   V(x)` and hence sc-smooth on `X`; `β ≤ f` uses the invariance of `β`, the invariance of `f` the
   reindexing `g ↦ g h`.
-* **Proof of Theorem 7.4, properties (1)–(4).**  (1)–(3) are `exists_invariant_nhds_of_isOpen`:
-  `W(x) = R.U` from Theorem 7.1 inside `U_λ ∩ V₀`, `V₀` with the properness property
-  (Definition 7.3 (3), `HasPropernessProperty.mono`), and `V(x) = ⋂_g Φ(g)⁻¹(N)` for an open
+* **Proof of Theorem 7.5.7 (2017: 7.4), properties (1)–(4).**  (1)–(3) are `exists_invariant_nhds_of_isOpen`:
+  `W(x) = R.U` from Theorem 7.1.13 (2017: 7.1) inside `U_λ ∩ V₀`, `V₀` with the properness property
+  (Definition 7.1.3 (2017: 7.3) (3), `HasPropernessProperty.mono`), and `V(x) = ⋂_g Φ(g)⁻¹(N)` for an open
   `N ∋ x` with `cl N ⊆ W(x)`.  **(4) follows from (1)** and is not a further choice: the
-  morphisms between points of `W(x)` are the `Γ(g, ·)` (Theorem 7.1 (3)), so a point of `W(x)`
+  morphisms between points of `W(x)` are the `Γ(g, ·)` (Theorem 7.1.13 (2017: 7.1) (3)), so a point of `W(x)`
   isomorphic to a point of the invariant `V(x)` lies in `V(x)` (`mem_of_π_mem_image_of_invariant`,
   `saturation_diff_inter_eq_empty`).
 * **The four points of PLAN II.6, 4, checked; all four stand.**
-  (a) Lemma 7.10 is applied with `W(x_i)` in the role of `V(x)` and `U''_i` in the role of
+  (a) Lemma 7.6.5 (2017: 7.10) is applied with `W(x_i)` in the role of `V(x)` and `U''_i` in the role of
   `U(x)`: its hypothesis `cl U ⊆ V`, with the natural action on `V`, holds for `W(x_i)` by (1).
   The text's "approximate `(β_i ∘ π)|V(x_i)` using Lemma 7.10" reads as `V(x_i)` in the role of
   `V(x)` (possible misprint).
@@ -105,41 +105,41 @@ Theorem 5.12 [5.37], Corollary 5.2 [5.44]).
   `supp β_i ⊆ V'_i ⊆ |V(x_i)|`), hence lies in `V(x_i)` by (4); so the cut-off is supported in
   `U''_i ⊆ V(x_i)`.
   (c) "The sum of all `h_i` is locally finite" needs `supp f_i ⊆ π⁻¹(cl V'_i)`, which the text
-  does not state: Lemma 7.10 as stated gives only `supp f_i ⊆ W(x_i)`, and the saturations of the
+  does not state: Lemma 7.6.5 (2017: 7.10) as stated gives only `supp f_i ⊆ W(x_i)`, and the saturations of the
   `W(x_i)` need not be locally finite.  The bound `supp f_i ⊆ cl U''_i` of the lemma's proof gives
   it, `(cl V'_i)` being locally finite.  (With the text's `V''_i`, `cl V''_i ⊆ V'_i ⊆ |V(x_i)|`
   and (4) also give the text's `supp f_i ⊆ V(x_i)`.)
   (d) The sc-smoothness of `h_i` uses that saturations of proper sets are closed: `h_i` vanishes
   off the saturation of `supp f_i`, which is closed because `supp f_i ⊆ cl V(x_i)` is proper by
-  (2) (`isClosed_saturation_of_isProperSubset`, the argument of Proposition 7.14 (1)).  Near a
-  point `y ≅ z` of that saturation `h_i = f_i ∘ s ∘ (t|U(φ))⁻¹`, `φ : z → y` (Definition 7.4).
-* "We average using the `G_{x_i}`-action": `f_i` is already invariant (Lemma 7.10), no second
+  (2) (`isClosed_saturation_of_isProperSubset`, the argument of Proposition 7.5.10 (2017: 7.14) (1)).  Near a
+  point `y ≅ z` of that saturation `h_i = f_i ∘ s ∘ (t|U(φ))⁻¹`, `φ : z → y` (Definition 7.1.4 (2017: 7.4)).
+* "We average using the `G_{x_i}`-action": `f_i` is already invariant (Lemma 7.6.5 (2017: 7.10)), no second
   average is taken.  "Extend to the saturation": `orbitExtension`, `F(|y|) = f(y)` for `y ∈ W(x)`,
   well defined since points of `W(x)` in one orbit differ by the natural action
-  (`NaturalRep.π_eq_π_iff_exists_smul`, Theorem 7.1 (3)).
+  (`NaturalRep.π_eq_π_iff_exists_smul`, Theorem 7.1.13 (2017: 7.1) (3)).
 * **The normalization.**  The text's `(h_i/h)` and the passage from the index set `I` of the
   refinement back to `Λ` (which the text leaves implicit) are replaced by Mathlib's
   `BumpCovering.exists_isSubordinate_of_prop` on `|X|` for the predicate "`g ∘ π` is sc-smooth",
-  as in Part I's Theorem 5.12 [5.37] (`admitsScPartitionsOfUnity_of_approx`).  Its Urysohn input,
+  as in Part I's Theorem 5.5.10 (2017: 5.12) [5.37] (`admitsScPartitionsOfUnity_of_approx`).  Its Urysohn input,
   `exists_isScSmoothMap_orbit_urysohn`, is the text's construction for closed disjoint `s, t ⊆ |X|`:
   the points `x ∈ π⁻¹(t)` with `W(x) ⊆ π⁻¹(|X| ∖ s)`, a refinement `(V'_x)` of `(|V(x)|)` covering
   `t`, a subordinate bump covering `(β_x)` of `t` (whose `tsupport β_x ⊆ V'_x` takes the place of
   `V''_x`), `G = Σ h_x` (`= 0` on `s`, `≥ 1` on `t`) and `F = τ ∘ G` with `τ` Mathlib's
   `Real.smoothTransition`.  The partition `ρ_λ = b_λ ∏_{μ<λ}(1 − b_μ)` of `|X|` is locally a finite
-  product of functions `g` with `g ∘ π` sc-smooth, and `ρ ∘ π` (Theorem 7.3's pull-back) is the
-  partition of unity of Definition 7.16.
-* **Corollary 7.3.**  "An atlas consisting of charts whose local models have Hilbert spaces `E₀`"
+  product of functions `g` with `g ∘ π` sc-smooth, and `ρ ∘ π` (Theorem 7.5.4 (2017: 7.3)'s pull-back) is the
+  partition of unity of Definition 7.5.5 (2017: 7.16).
+* **Corollary 7.6.6 (2017: 7.3).**  "An atlas consisting of charts whose local models have Hilbert spaces `E₀`"
   is existential, one chart per point, as Part I's `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`;
   "Hilbert" is read as there (`‖v‖² = b(v, v)` for a continuous bilinear `b`).  "Every compatible
-  chart has a Hilbert `E₀`" would be unsatisfiable (PLAN II.5, 2).  Theorem 5.14 [5.43]
+  chart has a Hilbert `E₀`" would be unsatisfiable (PLAN II.5, 2).  Theorem 5.5.16 (2017: 5.14) [5.43]
   (Godefroy–Troyanski–Whitfield–Zizler) is an explicit hypothesis,
   `GodefroyTroyanskiWhitfieldZizlerStatement`, as in Part I.  The text's references Proposition
-  5.6 [5.35], Theorem 5.12 [5.37] and Corollary 5.2 [5.44] are the ingredients of that theorem.
-* **Hypotheses.**  No hypothesis "for all charts" is added.  The hypotheses of Theorems 7.4 and
-  7.6, of Lemma 7.10 and of Corollary 7.3 are satisfiable: the trivial ep-groupoid on `ℝⁿ` has
+  5.6 [5.35], Theorem 5.5.10 (2017: 5.12) [5.37] and Corollary 5.5.17 (2017: 5.2) [5.44] are the ingredients of that theorem.
+* **Hypotheses.**  No hypothesis "for all charts" is added.  The hypotheses of Theorems 7.5.7 (2017: 7.4) and
+  7.6, of Lemma 7.6.5 (2017: 7.10) and of Corollary 7.6.6 (2017: 7.3) are satisfiable: the trivial ep-groupoid on `ℝⁿ` has
   paracompact orbit space (`hasParacompactOrbitSpace_trivial`) and `ℝⁿ` admits sc-smooth
-  partitions of unity (`rnPolyfold_admitsScPartitionsOfUnity`); the Hilbert atlas and Theorem 5.14
-  [5.43] hold for `ℝ¹` (`rnPolyfold_one_hilbert_hypothesis`).  Lemma 7.10's invariance hypotheses
+  partitions of unity (`rnPolyfold_admitsScPartitionsOfUnity`); the Hilbert atlas and Theorem 5.5.16 (2017: 5.14)
+  [5.43] hold for `ℝ¹` (`rnPolyfold_one_hilbert_hypothesis`).  Lemma 7.6.5 (2017: 7.10)'s invariance hypotheses
   ("for every `g`") hold for every `G_x`-invariant `β`, e.g. `β = 0`.
 * No possible misprint was found on pp. 250–256 other than (a).
 -/
@@ -190,13 +190,13 @@ namespace EpGroupoid
 variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] (X : EpGroupoid Obj Mor)
 
-/-! ### Theorem 7.3 -/
+/-! ### Theorem 7.5.4 (2017: 7.3) -/
 
 section Theorem73
 
 variable {ι : Type v}
 
-/-- **The pull-back `σ ∘ π`** of a partition of unity `σ` of `|X|` (the proof of Theorem 7.3). -/
+/-- **The pull-back `σ ∘ π`** of a partition of unity `σ` of `|X|` (the proof of Theorem 7.5.4 (2017: 7.3)). -/
 def orbitPullback (σ : PartitionOfUnity ι X.OrbitSpace) : PartitionOfUnity ι Obj where
   toFun i := (σ i).comp ⟨X.π, X.continuous_π⟩
   locallyFinite' := σ.locallyFinite.preimage_continuous X.continuous_π
@@ -225,7 +225,7 @@ theorem orbitPullback_isSubordinate {σ : PartitionOfUnity ι X.OrbitSpace} {U :
   ((X.tsupport_orbitPullback_subset σ i).trans (preimage_mono (hσ i))).trans (hU i).subset
 
 /-- Every object has a saturated open neighbourhood `π⁻¹(V)` meeting only finitely many
-`supp(σ_λ ∘ π)` (Definition 7.16 (1)). -/
+`supp(σ_λ ∘ π)` (Definition 7.5.5 (2017: 7.16) (1)). -/
 theorem exists_isSaturated_nhds_finite_orbitPullback (σ : PartitionOfUnity ι X.OrbitSpace)
     (x : Obj) : ∃ W : Set Obj, IsOpen W ∧ X.IsSaturated W ∧ x ∈ W ∧
       {i | (W ∩ tsupport (X.orbitPullback σ i)).Nonempty}.Finite := by
@@ -245,12 +245,12 @@ private theorem iUnion_image_π_eq_univ {U : ι → Set Obj} (hU : ⋃ i, U i = 
     ⋃ i, X.π '' U i = univ := by
   rw [← image_iUnion, hU, image_univ_of_surjective X.surjective_π]
 
-/-- **Theorem 7.3 (continuous partitions of unity)**: if `|X|` is paracompact, (1) every open
+/-- **Theorem 7.5.4 (2017: 7.3) (continuous partitions of unity)**: if `|X|` is paracompact, (1) every open
 cover `(O_λ)` of `|X|` has a subordinate partition of unity `(σ_λ)`, and (2) every cover `(U_λ)`
 of `X` by saturated open sets has a subordinate continuous partition of unity `(β_λ)`, every
 object having a saturated open neighbourhood meeting only finitely many supports, with
 `β_λ(y) = β_λ(z)` for isomorphic `y, z` (namely `β_λ = σ_λ ∘ π`). -/
-theorem theorem_7_3 (h : X.HasParacompactOrbitSpace) :
+theorem theorem_7_5_4 (h : X.HasParacompactOrbitSpace) :
     (∀ (ι : Type v) (O : ι → Set X.OrbitSpace), (∀ i, IsOpen (O i)) → ⋃ i, O i = univ →
       ∃ σ : PartitionOfUnity ι X.OrbitSpace, σ.IsSubordinate O) ∧
     ∀ (ι : Type v) (U : ι → Set Obj), (∀ i, IsOpen (U i)) → (∀ i, X.IsSaturated (U i)) →
@@ -263,14 +263,14 @@ theorem theorem_7_3 (h : X.HasParacompactOrbitSpace) :
       ∃ σ : PartitionOfUnity ι X.OrbitSpace, σ.IsSubordinate O := fun ι O hO hcov =>
     PartitionOfUnity.exists_isSubordinate isClosed_univ O hO hcov.symm.subset
   refine ⟨h1, fun ι U hUo hUs hcov => ?_⟩
-  obtain ⟨σ, hσ⟩ := h1 ι (fun i => X.π '' U i) (fun i => X.proposition_7_1 _ (hUo i))
+  obtain ⟨σ, hσ⟩ := h1 ι (fun i => X.π '' U i) (fun i => X.proposition_7_1_8 _ (hUo i))
     (X.iUnion_image_π_eq_univ hcov)
   exact ⟨X.orbitPullback σ, X.orbitPullback_isSubordinate hσ hUs,
     X.exists_isSaturated_nhds_finite_orbitPullback σ, X.orbitPullback_src σ⟩
 
 end Theorem73
 
-/-! ### The neighbourhoods `V(x) ⊆ W(x)` of the proof of Theorem 7.4 -/
+/-! ### The neighbourhoods `V(x) ⊆ W(x)` of the proof of Theorem 7.5.7 (2017: 7.4) -/
 
 section Neighbourhoods
 
@@ -282,14 +282,14 @@ private theorem π_Φ_eq {x : Obj} (R : X.NaturalRep x) (g : X.Isotropy x) {y : 
   rw [← R.tgt_Γ g y hy, ← X.π_src_eq_π_tgt, R.src_Γ g y hy]
 
 variable (X) in
-/-- **Properties (1)–(3) of the proof of Theorem 7.4**: for every open `W ∋ x` there are a natural
+/-- **Properties (1)–(3) of the proof of Theorem 7.5.7 (2017: 7.4)**: for every open `W ∋ x` there are a natural
 representation `R` of `G_x` on `W(x) = R.U ⊆ W` and an open `V(x) ∋ x`, invariant under the natural
 action, with `cl V(x) ⊆ W(x)` and `t : s⁻¹(cl V(x)) → X` proper.  ((3) is `W ⊆ U_λ`.) -/
 theorem exists_invariant_nhds_of_isOpen (x : Obj) {W : Set Obj} (hW : IsOpen W) (hx : x ∈ W) :
     ∃ (R : X.NaturalRep x) (V : Set Obj), IsOpen V ∧ x ∈ V ∧ (∀ g, MapsTo (R.Φ g) V V) ∧
       closure V ⊆ R.U ∧ R.U ⊆ W ∧ X.IsProperSubset (closure V) := by
   obtain ⟨V₀, hxV₀, hV₀⟩ := X.exists_hasPropernessProperty x
-  obtain ⟨R, hRU⟩ := theorem_7_1 X x (hW.inter hV₀.1) ⟨hx, hxV₀⟩
+  obtain ⟨R, hRU⟩ := theorem_7_1_13 X x (hW.inter hV₀.1) ⟨hx, hxV₀⟩
   obtain ⟨t, ht, htc, htU⟩ := exists_mem_nhds_isClosed_subset (R.isOpen_U.mem_nhds R.mem_U)
   -- `V(x) = ⋂_g Φ(g)⁻¹(int t)`
   let V := ⋂ g, R.U ∩ R.Φ g ⁻¹' interior t
@@ -309,9 +309,9 @@ theorem exists_invariant_nhds_of_isOpen (x : Obj) {W : Set Obj} (hW : IsOpen W) 
   refine ⟨R, V, hVo, hxV, hVinv, (closure_minimal hVt htc).trans htU, fun y hy => (hRU hy).1, ?_⟩
   exact hV₀.isProperSubset.of_subset (closure_mono fun y hy => (hRU (hVU hy)).2) isClosed_closure
 
-/-- **Property (4) of the proof of Theorem 7.4 follows from (1)**: a point of `W(x) = R.U`
+/-- **Property (4) of the proof of Theorem 7.5.7 (2017: 7.4) follows from (1)**: a point of `W(x) = R.U`
 isomorphic to a point of an invariant `V ⊆ W(x)` lies in `V` (the morphisms between points of
-`W(x)` are the `Γ(g, ·)`, Theorem 7.1 (3)). -/
+`W(x)` are the `Γ(g, ·)`, Theorem 7.1.13 (2017: 7.1) (3)). -/
 theorem mem_of_π_mem_image_of_invariant {x : Obj} (R : X.NaturalRep x) {V : Set Obj}
     (hVU : V ⊆ R.U) (hinv : ∀ g, MapsTo (R.Φ g) V V) {y : Obj} (hy : y ∈ R.U)
     (hyV : X.π y ∈ X.π '' V) : y ∈ V := by
@@ -336,7 +336,7 @@ section Extension
 variable {X}
 
 open scoped Classical in
-/-- **The extension to the saturation** (proof of Theorem 7.4): for `f` invariant under the
+/-- **The extension to the saturation** (proof of Theorem 7.5.7 (2017: 7.4)): for `f` invariant under the
 natural action on `W(x) = R.U`, `F(|y|) = f(y)` for `y ∈ W(x)` (`orbitExtension_π`), and `F = 0`
 off `|W(x)|`. -/
 def orbitExtension {x : Obj} (R : X.NaturalRep x) (f : Obj → ℝ) (q : X.OrbitSpace) : ℝ :=
@@ -369,9 +369,9 @@ theorem support_orbitExtension_subset {x : Obj} (R : X.NaturalRep x) (f : Obj �
   · exact ⟨h.choose, ⟨h.choose_spec.1, hq⟩, h.choose_spec.2⟩
   · exact absurd rfl hq
 
-/-- **The extension is sc-smooth** (proof of Theorem 7.4) if `f` is sc-smooth, invariant on `W(x)`,
+/-- **The extension is sc-smooth** (proof of Theorem 7.5.7 (2017: 7.4)) if `f` is sc-smooth, invariant on `W(x)`,
 supported in `W(x)` and `supp f` is proper: off the saturation of `supp f`, closed by properness
-(Proposition 7.14 (1)), `F ∘ π = 0`; near `y ≅ z ∈ supp f`, `F ∘ π = f ∘ s ∘ (t|U(φ))⁻¹`. -/
+(Proposition 7.5.10 (2017: 7.14) (1)), `F ∘ π = 0`; near `y ≅ z ∈ supp f`, `F ∘ π = f ∘ s ∘ (t|U(φ))⁻¹`. -/
 theorem isScSmoothMap_orbitExtension {x : Obj} (R : X.NaturalRep x) {f : Obj → ℝ}
     (hf : X.PObj.IsScSmoothMap realPolyfold f) (hinv : ∀ g, ∀ y ∈ R.U, f (R.Φ g y) = f y)
     (hsupp : tsupport f ⊆ R.U) (hprop : X.IsProperSubset (tsupport f)) :
@@ -410,19 +410,19 @@ theorem isScSmoothMap_orbitExtension {x : Obj} (R : X.NaturalRep x) {f : Obj →
 
 end Extension
 
-/-! ### Lemma 7.10 -/
+/-! ### Lemma 7.6.5 (2017: 7.10) -/
 
 section Lemma710
 
 variable {X}
 
-/-- **Lemma 7.10**: let `X` admit sc-smooth partitions of unity, `V(x) = R.U` carry the natural
+/-- **Lemma 7.6.5 (2017: 7.10)**: let `X` admit sc-smooth partitions of unity, `V(x) = R.U` carry the natural
 `G_x`-action, and `U(x)` be open and invariant with `cl U(x) ⊆ V(x)`.  A continuous
 `β : X → [0, 1]` supported in `U(x)` and invariant under `G_x` on `V(x)` lies below an sc-smooth
 `f : X → [0, ∞)` supported in `cl U(x) ⊆ V(x)` and invariant under `G_x` on `V(x)`.  (The text's
 "`U(x)` a neighbourhood of `x`" is omitted; the paracompactness of `|X|` and the continuity of `β`
 are kept but not used; the support bound `cl U(x)` is the proof's.) -/
-theorem lemma_7_10 (_hpara : X.HasParacompactOrbitSpace) (hpu : X.PObj.AdmitsScPartitionsOfUnity)
+theorem lemma_7_6_5 (_hpara : X.HasParacompactOrbitSpace) (hpu : X.PObj.AdmitsScPartitionsOfUnity)
     {x : Obj} (R : X.NaturalRep x) {U : Set Obj} (hUo : IsOpen U) (hUcl : closure U ⊆ R.U)
     (hUinv : ∀ g, MapsTo (R.Φ g) U U) {β : Obj → ℝ} (_hβ : Continuous β)
     (hβ01 : ∀ y, β y ∈ Icc (0 : ℝ) 1) (hβU : tsupport β ⊆ U)
@@ -511,15 +511,15 @@ theorem lemma_7_10 (_hpara : X.HasParacompactOrbitSpace) (hpu : X.PObj.AdmitsScP
 
 end Lemma710
 
-/-! ### The invariant sc-smooth Urysohn lemma and Theorem 7.4 -/
+/-! ### The invariant sc-smooth Urysohn lemma and Theorem 7.5.7 (2017: 7.4) -/
 
 section Theorem74
 
-/-- **The invariant sc-smooth Urysohn lemma** (the construction of the proof of Theorem 7.4): if
+/-- **The invariant sc-smooth Urysohn lemma** (the construction of the proof of Theorem 7.5.7 (2017: 7.4)): if
 `|X|` is paracompact and `X` admits sc-smooth partitions of unity, then for disjoint closed
 `s, t ⊆ |X|` there is a continuous `F : |X| → [0, 1]` with `F ∘ π` sc-smooth, `F = 0` on `s` and
 `F = 1` on `t`.  (The points `x ∈ π⁻¹(t)` with `V(x) ⊆ W(x) ⊆ π⁻¹(|X| ∖ s)`, a locally finite
-refinement `V'_x` of `(|V(x)|)`, a subordinate bump covering `(β_x)` of `t`, Lemma 7.10 for the
+refinement `V'_x` of `(|V(x)|)`, a subordinate bump covering `(β_x)` of `t`, Lemma 7.6.5 (2017: 7.10) for the
 cut-offs `(β_x ∘ π)|V(x)` on `U''_x = V(x) ∩ π⁻¹(V'_x)`, the extensions `h_x` to the saturations,
 `G = Σ h_x` and `F = τ ∘ G`.) -/
 theorem exists_isScSmoothMap_orbit_urysohn (hpara : X.HasParacompactOrbitSpace)
@@ -539,7 +539,7 @@ theorem exists_isScSmoothMap_orbit_urysohn (hpara : X.HasParacompactOrbitSpace)
     obtain ⟨y, rfl⟩ := X.surjective_π q
     exact mem_iUnion.2 ⟨⟨y, hq⟩, mem_image_of_mem _ (hxV ⟨y, hq⟩)⟩
   obtain ⟨v, hvo, htv, hvlf, hvV⟩ := precise_refinement_set ht (fun x : T => X.π '' V x)
-    (fun x => X.proposition_7_1 _ (hVo x)) hcov
+    (fun x => X.proposition_7_1_8 _ (hVo x)) hcov
   obtain ⟨b, hb⟩ := BumpCovering.exists_isSubordinate ht v hvo htv
   -- the cut-offs `c_x = (β_x ∘ π)|V(x)`, supported in `U''_x = V(x) ∩ π⁻¹(V'_x)` by (4)
   let U'' : T → Set Obj := fun x => V x ∩ X.π ⁻¹' v x
@@ -580,7 +580,7 @@ theorem exists_isScSmoothMap_orbit_urysohn (hpara : X.HasParacompactOrbitSpace)
         have h' := hVinv x g⁻¹ h
         rwa [(R x).Φ_inv_Φ g hy] at h')
       rw [hc_zero x _ hΦ, hc_zero x y hyV]
-  -- Lemma 7.10 with `(U, V) = (U''_x, W(x))`
+  -- Lemma 7.6.5 (2017: 7.10) with `(U, V) = (U''_x, W(x))`
   have hU''o : ∀ x, IsOpen (U'' x) := fun x => (hVo x).inter ((hvo x).preimage X.continuous_π)
   have hU''cl : ∀ x, closure (U'' x) ⊆ (R x).U := fun x =>
     (closure_mono inter_subset_left).trans (hVcl x)
@@ -590,7 +590,7 @@ theorem exists_isScSmoothMap_orbit_urysohn (hpara : X.HasParacompactOrbitSpace)
       rw [π_Φ_eq (R x) g (hVR x hy.1)]
       exact hy.2⟩
   choose f hfsc hf0 hfcl hfR hfinv hcf using fun x : T =>
-    lemma_7_10 hpara hpu (R x) (hU''o x) (hU''cl x) (hU''inv x) (hc_cont x) (hc01 x) (hc_tsupp x)
+    lemma_7_6_5 hpara hpu (R x) (hU''o x) (hU''cl x) (hU''inv x) (hc_cont x) (hc01 x) (hc_tsupp x)
       (hc_inv x)
   -- the extensions `h_x = F_x ∘ π` to the saturations, locally finite
   let F : T → X.OrbitSpace → ℝ := fun x => X.orbitExtension (R x) (f x)
@@ -639,7 +639,7 @@ theorem exists_isScSmoothMap_orbit_urysohn (hpara : X.HasParacompactOrbitSpace)
   have hFbar : X.PObj.IsScSmoothMap realPolyfold ((Real.smoothTransition ∘ G) ∘ X.π) :=
     hGsc.comp_contDiff hσ
   have hcont : Continuous (Real.smoothTransition ∘ G) :=
-    X.proposition_7_1_isOpenQuotientMap.isQuotientMap.continuous_iff.2
+    X.proposition_7_1_8_isOpenQuotientMap.isQuotientMap.continuous_iff.2
       (continuousOn_univ.1 hFbar.continuousOn)
   refine ⟨⟨Real.smoothTransition ∘ G, hcont⟩, hFbar, fun q hq => ?_, fun q hq => ?_,
     fun q => ⟨Real.smoothTransition.nonneg _, Real.smoothTransition.le_one _⟩⟩
@@ -648,10 +648,10 @@ theorem exists_isScSmoothMap_orbit_urysohn (hpara : X.HasParacompactOrbitSpace)
     exact Real.smoothTransition.zero_of_nonpos le_rfl
   · exact Real.smoothTransition.one_of_one_le (hG1 q hq)
 
-/-- **Theorem 7.4**: if `|X|` is paracompact and the object M-polyfold `X` admits sc-smooth
+/-- **Theorem 7.5.7 (2017: 7.4)**: if `|X|` is paracompact and the object M-polyfold `X` admits sc-smooth
 partitions of unity, then for every cover of `X` by saturated open sets there is a subordinate
-sc-smooth partition of unity of the ep-groupoid (Definition 7.16). -/
-theorem theorem_7_4 (hpara : X.HasParacompactOrbitSpace)
+sc-smooth partition of unity of the ep-groupoid (Definition 7.5.5 (2017: 7.16)). -/
+theorem theorem_7_5_7 (hpara : X.HasParacompactOrbitSpace)
     (hpu : X.PObj.AdmitsScPartitionsOfUnity) : X.HasScPartitionsOfUnity := by
   classical
   intro ι U hUo hUs hUcov
@@ -660,7 +660,7 @@ theorem theorem_7_4 (hpara : X.HasParacompactOrbitSpace)
   obtain ⟨b, hbp, hb⟩ := BumpCovering.exists_isSubordinate_of_prop
     (fun g : X.OrbitSpace → ℝ => X.PObj.IsScSmoothMap realPolyfold (g ∘ X.π))
     (fun s t hs ht hst => X.exists_isScSmoothMap_orbit_urysohn hpara hpu hs ht hst)
-    isClosed_univ (fun i => X.π '' U i) (fun i => X.proposition_7_1 _ (hUo i))
+    isClosed_univ (fun i => X.π '' U i) (fun i => X.proposition_7_1_8 _ (hUo i))
     (X.iUnion_image_π_eq_univ hUcov).symm.subset
   have hbp' : ∀ j, X.PObj.IsScSmoothMap realPolyfold (b j ∘ X.π) := hbp
   -- `β_λ = ρ_λ ∘ π`, `ρ_λ = b_λ ∏_{μ < λ} (1 − b_μ)`
@@ -678,22 +678,22 @@ theorem theorem_7_4 (hpara : X.HasParacompactOrbitSpace)
   rw [hz]
   simp [ContinuousMap.coe_prod, Finset.prod_apply]
 
-/-- **Theorem 7.6** (p. 255) is Theorem 7.4, restated in Appendix 7.5.2 with its proof. -/
-theorem theorem_7_6 (hpara : X.HasParacompactOrbitSpace)
+/-- **Theorem 7.6.4 (2017: 7.6)** (p. 346 (2017 p. 255)) is Theorem 7.5.7 (2017: 7.4), restated in Appendix 7.5.2 with its proof. -/
+theorem theorem_7_6_4 (hpara : X.HasParacompactOrbitSpace)
     (hpu : X.PObj.AdmitsScPartitionsOfUnity) : X.HasScPartitionsOfUnity :=
-  X.theorem_7_4 hpara hpu
+  X.theorem_7_5_7 hpara hpu
 
-/-- **Corollary 7.3**: if `|X|` is paracompact and the object M-polyfold has an atlas (one chart
+/-- **Corollary 7.6.6 (2017: 7.3)**: if `|X|` is paracompact and the object M-polyfold has an atlas (one chart
 around every point) whose local models have Hilbert spaces `E₀` (`‖v‖² = b(v, v)`), then every
 cover of `X` by saturated open sets has a subordinate sc-smooth partition of unity of the
-ep-groupoid — **under the explicit hypothesis that Theorem 5.14 [5.43] holds** for these `E₀`
+ep-groupoid — **under the explicit hypothesis that Theorem 5.5.16 (2017: 5.14) [5.43] holds** for these `E₀`
 (`GodefroyTroyanskiWhitfieldZizlerStatement`, cited and not formalized, as in Part I). -/
-theorem corollary_7_3 (hpara : X.HasParacompactOrbitSpace)
+theorem corollary_7_6_6 (hpara : X.HasParacompactOrbitSpace)
     (h : ∀ x, ∃ φ : MChart Obj, X.PObj.IsChart φ ∧ x ∈ φ.source ∧
       (∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) ∧
       GodefroyTroyanskiWhitfieldZizlerStatement (φ.model.E 0) ⊤) :
     X.HasScPartitionsOfUnity :=
-  X.theorem_7_4 hpara (MPolyfold.admitsScPartitionsOfUnity_of_hilbert h)
+  X.theorem_7_5_7 hpara (MPolyfold.admitsScPartitionsOfUnity_of_hilbert h)
 
 end Theorem74
 
@@ -701,23 +701,23 @@ end Theorem74
 
 section Satisfiability
 
-/-- **The hypotheses of Theorems 7.4 and 7.6 (and Lemma 7.10's) are satisfiable**: the trivial
+/-- **The hypotheses of Theorems 7.5.7 and 7.6.4 (2017: 7.4 and 7.6) (and Lemma 7.6.5 (2017: 7.10)'s) are satisfiable**: the trivial
 ep-groupoid on `ℝⁿ` has paracompact orbit space and its object M-polyfold `ℝⁿ` admits sc-smooth
 partitions of unity. -/
-theorem theorem_7_4_hypotheses_rn (n : ℕ) :
+theorem theorem_7_5_7_hypotheses_rn (n : ℕ) :
     (trivial (rnPolyfold n)).HasParacompactOrbitSpace ∧
       (trivial (rnPolyfold n)).PObj.AdmitsScPartitionsOfUnity :=
   ⟨hasParacompactOrbitSpace_trivial _, rnPolyfold_admitsScPartitionsOfUnity n⟩
 
-/-- Theorem 7.4 applies to the trivial ep-groupoid on `ℝⁿ`. -/
-theorem hasScPartitionsOfUnity_trivial_rn_of_theorem_7_4 (n : ℕ) :
+/-- Theorem 7.5.7 (2017: 7.4) applies to the trivial ep-groupoid on `ℝⁿ`. -/
+theorem hasScPartitionsOfUnity_trivial_rn_of_theorem_7_5_7 (n : ℕ) :
     (trivial (rnPolyfold n)).HasScPartitionsOfUnity :=
-  (trivial (rnPolyfold n)).theorem_7_4 (theorem_7_4_hypotheses_rn n).1
-    (theorem_7_4_hypotheses_rn n).2
+  (trivial (rnPolyfold n)).theorem_7_5_7 (theorem_7_5_7_hypotheses_rn n).1
+    (theorem_7_5_7_hypotheses_rn n).2
 
-/-- **The hypotheses of Corollary 7.3 are satisfiable**: the trivial ep-groupoid on `ℝ¹`, with the
-chart `id` (a Hilbert `E₀`) and Theorem 5.14 [5.43] for `ℝ¹` (finite-dimensional). -/
-theorem corollary_7_3_hypotheses_rn :
+/-- **The hypotheses of Corollary 7.6.6 (2017: 7.3) are satisfiable**: the trivial ep-groupoid on `ℝ¹`, with the
+chart `id` (a Hilbert `E₀`) and Theorem 5.5.16 (2017: 5.14) [5.43] for `ℝ¹` (finite-dimensional). -/
+theorem corollary_7_6_6_hypotheses_rn :
     (trivial (rnPolyfold 1)).HasParacompactOrbitSpace ∧
       ∀ x, ∃ φ : MChart (Fin 1 → ℝ), (trivial (rnPolyfold 1)).PObj.IsChart φ ∧ x ∈ φ.source ∧
         (∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) ∧

@@ -11,7 +11,7 @@ Lift: the proper covering functor of a geometric lift).
 `geometricLiftFunctor_surjective_iff` (`F` surjective iff `D ≠ ∅` or `U(x) = ∅`),
 `geometricLiftFunctor_isLocalScDiffeo`, `_finite_fiber`, `_evenlyCovered`,
 `GeometricLift.isScSmoothMap_fibredInv`, `geometricLiftFunctor_isScDiffeo_fibredMap`,
-`proposition_8_3` (`[Nonempty D]`, a covering functor `f`: the project's `F` is a proper covering
+`proposition_8_5_7` (`[Nonempty D]`, a covering functor `f`: the project's `F` is a proper covering
 functor) and `CoveringExamples.isProperCovering_reflectionLift`.  The constructions (`YObj`,
 `YMor`, `sourceStr`, `yObjPolyfold`, `yMorPolyfold`, `geometricLiftSource`, `geometricLiftTarget`,
 `geometricLiftFunctor`, `fibredInv`, `actionEpGroupoid`) are definitions.
@@ -26,14 +26,14 @@ functor) and `CoveringExamples.isProperCovering_reflectionLift`.  The constructi
   is Chapter 7's `actionEpGroupoid` for `G` itself (the project's `geometricLiftTarget` uses
   `ULift G`, `B` fixes the morphism type `G × U(x)`), and `A` is the project's functor with
   `ULift.up` removed (`functorG`).  Its proper-covering property comes from `A`'s
-  `proposition_8_3`: conditions (1), (2) are literally the same (same object spaces and
+  `proposition_8_5_7`: conditions (1), (2) are literally the same (same object spaces and
   structures), and (3) is transported along `((g, z), y) ↦ ((up g, z), y)` between the two fibred
   products (`Φ` in `isProperCovering_functorG`), an sc-smooth map of sub-M-polyfolds.  The summand clauses of `IsModelB`
   use `Sigma.mk` (`MPolyfold.isScSmoothMap_sigmaMk`) with the inverse `τ(y)⁻¹ ∘ F`.
 * `BRepaired → A`: not proved (see the JSON).  Eleven of `A`'s thirteen conjuncts are lemmas
   about the project's specific constructions, stated in a generality `BRepaired` does not cover
   (arbitrary, possibly infinite `D`; no covering hypothesis; `D = ∅` in `surjective_iff`); and
-  `BRepaired` only asserts *some* model `(EY, EX, A)`, so even `proposition_8_3` for the
+  `BRepaired` only asserts *some* model `(EY, EX, A)`, so even `proposition_8_5_7` for the
   project's `F` would need a transport of the proper-covering property from that model, through
   the identity `EY.PObj ≅ yObjPolyfold` (pinned down by the summand clauses) and `G` vs `ULift G`,
   including the fibred-product sub-M-polyfolds.  That is effort, not a mathematical gap.
@@ -58,7 +58,7 @@ def A : Prop :=
   (type_of% @Polyfold.geometricLiftFunctor_evenlyCovered.{0}) ∧
   (type_of% @Polyfold.GeometricLift.isScSmoothMap_fibredInv.{0}) ∧
   (type_of% @Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap.{0}) ∧
-  (type_of% @Polyfold.proposition_8_3.{0}) ∧
+  (type_of% @Polyfold.proposition_8_5_7.{0}) ∧
   (type_of% @Polyfold.CoveringExamples.isProperCovering_reflectionLift)
 
 theorem A_holds : A :=
@@ -73,7 +73,7 @@ theorem A_holds : A :=
     @Polyfold.geometricLiftFunctor_evenlyCovered.{0},
     @Polyfold.GeometricLift.isScSmoothMap_fibredInv.{0},
     @Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap.{0},
-    @Polyfold.proposition_8_3.{0},
+    @Polyfold.proposition_8_5_7.{0},
     @Polyfold.CoveringExamples.isProperCovering_reflectionLift⟩
 
 /-! ### `B` is false: `D = ∅` -/
@@ -370,7 +370,7 @@ elab "#rt_check_fields " t:ident " [" bs:ident,* "]" : command => do
   Polyfold.geometricLiftFunctor_surjective_iff, Polyfold.geometricLiftFunctor_isLocalScDiffeo,
   Polyfold.geometricLiftFunctor_finite_fiber, Polyfold.geometricLiftFunctor_evenlyCovered,
   Polyfold.GeometricLift.isScSmoothMap_fibredInv,
-  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_3,
+  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_5_7,
   Polyfold.CoveringExamples.isProperCovering_reflectionLift]
 #rt_check_fields RoundTrip.V8_35.B_to_A [Polyfold.GeometricLift.isLocalScDiffeo_ySrc,
   Polyfold.GeometricLift.isLocalScDiffeo_yTgt, Polyfold.GeometricLift.isProperMap_yTgt,
@@ -378,7 +378,7 @@ elab "#rt_check_fields " t:ident " [" bs:ident,* "]" : command => do
   Polyfold.geometricLiftFunctor_surjective_iff, Polyfold.geometricLiftFunctor_isLocalScDiffeo,
   Polyfold.geometricLiftFunctor_finite_fiber, Polyfold.geometricLiftFunctor_evenlyCovered,
   Polyfold.GeometricLift.isScSmoothMap_fibredInv,
-  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_3,
+  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_5_7,
   Polyfold.CoveringExamples.isProperCovering_reflectionLift]
 #rt_check_fields RoundTrip.V8_35.A_to_BRepaired [Polyfold.GeometricLift.isLocalScDiffeo_ySrc,
   Polyfold.GeometricLift.isLocalScDiffeo_yTgt, Polyfold.GeometricLift.isProperMap_yTgt,
@@ -386,7 +386,7 @@ elab "#rt_check_fields " t:ident " [" bs:ident,* "]" : command => do
   Polyfold.geometricLiftFunctor_surjective_iff, Polyfold.geometricLiftFunctor_isLocalScDiffeo,
   Polyfold.geometricLiftFunctor_finite_fiber, Polyfold.geometricLiftFunctor_evenlyCovered,
   Polyfold.GeometricLift.isScSmoothMap_fibredInv,
-  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_3,
+  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_5_7,
   Polyfold.CoveringExamples.isProperCovering_reflectionLift]
 #rt_overlap RoundTrip.V8_35.B_to_A [Polyfold.GeometricLift.isLocalScDiffeo_ySrc,
   Polyfold.GeometricLift.isLocalScDiffeo_yTgt, Polyfold.GeometricLift.isProperMap_yTgt,
@@ -394,7 +394,7 @@ elab "#rt_check_fields " t:ident " [" bs:ident,* "]" : command => do
   Polyfold.geometricLiftFunctor_surjective_iff, Polyfold.geometricLiftFunctor_isLocalScDiffeo,
   Polyfold.geometricLiftFunctor_finite_fiber, Polyfold.geometricLiftFunctor_evenlyCovered,
   Polyfold.GeometricLift.isScSmoothMap_fibredInv,
-  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_3,
+  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_5_7,
   Polyfold.CoveringExamples.isProperCovering_reflectionLift]
 #rt_overlap RoundTrip.V8_35.A_to_BRepaired [Polyfold.GeometricLift.isLocalScDiffeo_ySrc,
   Polyfold.GeometricLift.isLocalScDiffeo_yTgt, Polyfold.GeometricLift.isProperMap_yTgt,
@@ -402,7 +402,7 @@ elab "#rt_check_fields " t:ident " [" bs:ident,* "]" : command => do
   Polyfold.geometricLiftFunctor_surjective_iff, Polyfold.geometricLiftFunctor_isLocalScDiffeo,
   Polyfold.geometricLiftFunctor_finite_fiber, Polyfold.geometricLiftFunctor_evenlyCovered,
   Polyfold.GeometricLift.isScSmoothMap_fibredInv,
-  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_3,
+  Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap, Polyfold.proposition_8_5_7,
   Polyfold.CoveringExamples.isProperCovering_reflectionLift]
 
 end RoundTrip.V8_35

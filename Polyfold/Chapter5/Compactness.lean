@@ -7,9 +7,9 @@ import Polyfold.Chapter5.AuxNorm
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.2
-(compactness results) and Appendix 5.4.1: **Definition 5.4, Theorem 5.5** (with its proof in the
-appendix), **Theorems 5.6, 5.7, Corollary 5.8** (the compact solution set on every level; the
-sc-Fredholm property of `f¹` in a chart, in part) and **Remark 5.12**
+(compactness results) and Appendix 5.4.1: **Definition 5.2.1 (preprint 5.4), Theorem 5.2.2 (preprint 5.5)** (with its proof in the
+appendix), **Theorems 5.2.3, 5.2.4 (preprint 5.6, 5.7), Corollary 5.2.5 (preprint 5.8)** (the compact solution set on every level; the
+sc-Fredholm property of `f¹` in a chart, in part) and **Remark 5.3.4 (preprint 5.12)**
 *(book 2017: Definition 5.5, Theorems 5.1–5.3, Corollary 5.1, Remark 5.3; see
 `BookConcordance.md`)*.
 
@@ -17,52 +17,52 @@ sc-Fredholm property of `f¹` in a chart, in part) and **Remark 5.12**
 
 ## The text, paraphrased
 
-(Definition 5.4) An sc-smooth section `f` of `P : Y → X` has a *compact solution set* if
+(Definition 5.2.1 (preprint 5.4)) An sc-smooth section `f` of `P : Y → X` has a *compact solution set* if
 `f⁻¹(0)` is compact in `X₀`; it is *weakly proper* if moreover for every auxiliary norm `N` there
 is an open `U ⊇ f⁻¹(0)` such that `{f = s}` is compact for every sc⁺-section `s` with support in
 `U` and `N(s(y)) ≤ 1`; it is *proper* if for every `N` there is an open `U ⊇ f⁻¹(0)` with
 `cl_{X₀}{x ∈ U | N(f(x)) ≤ 1}` compact (`N(f(x)) = ∞` off `Y_{0,1}`).  "Obviously proper implies
-weakly proper, which implies compactness."  (Theorem 5.5) For an sc-Fredholm section over a tame
+weakly proper, which implies compactness."  (Theorem 5.2.2 (preprint 5.5)) For an sc-Fredholm section over a tame
 `X`, a compact solution set implies proper, so the three notions agree.  The proof (appendix): at a
 zero, "without loss of generality" `f = h + t` in local coordinates, `h` a basic germ, `t` an
 sc⁺-germ with `t(0) = 0`; it suffices to find `U ∋ 0` with `cl{(a, w) ∈ U | |(h + t)(a, w)|₁ ≤ c}`
 compact; with `P ∘ h(a, w) = w − B(a, w)`, `z = w − B(a, w)` has `|z|₁ ≤ 3c` and `|z|₀ < τ'/2`, so
 `w = δ(a, z)` for the parametrized fixed point `δ` of `w ↦ B(a, w) + z`; by the compactness of
 `E₁ → E₀`, `(a_n, z_n)` has a convergent subsequence in `E₀`, hence so has `w_n = δ(a_n, z_n)`.
-(Theorem 5.6) For an sc-Fredholm `f` and a solution `x` there are nested open `x ∈ U(i + 1) ⊆ U(i)`
-with `cl_{X₀}({y ∈ U(i) | f(y) = 0})` a compact subset of `X_i`.  (Theorem 5.7) If `S = f⁻¹(0)` is
+(Theorem 5.2.3 (preprint 5.6)) For an sc-Fredholm `f` and a solution `x` there are nested open `x ∈ U(i + 1) ⊆ U(i)`
+with `cl_{X₀}({y ∈ U(i) | f(y) = 0})` a compact subset of `X_i`.  (Theorem 5.2.4 (preprint 5.7)) If `S = f⁻¹(0)` is
 compact in `X₀`, it is compact in `X_∞`: `S ⊆ X_∞` (regularizing), `X_∞` is metrizable, and a
-sequence in `S` converging in `X₀` converges on every level "by Theorem 5.6".  (Corollary 5.8)
+sequence in `S` converging in `X₀` converges on every level "by Theorem 5.6".  (Corollary 5.2.5 (preprint 5.8))
 `f^i` is an sc-Fredholm section of `P^i : Y^i → X^i` with compact solution set ("it is a priori
-clear that `f^i` is sc-Fredholm").  (Remark 5.12) A section `s` in the completion of the allowable
+clear that `f^i` is sc-Fredholm").  (Remark 5.3.4 (preprint 5.12)) A section `s` in the completion of the allowable
 sc⁺-sections `Γ^{+,1}_U` (support in `U`, `N(s) ≤ 1`, for the distance `sup N(s − s')`) still has a
 compact solution set of `f + s = 0`, if `U` is adapted to `N` as in the properness result.
 
 ## What is formalized
 
-* `Polyfold.theorem_5_6` (**Theorem 5.6**): `theorem_3_12` at a zero of an sc-Fredholm section
+* `Polyfold.theorem_5_2_3` (**Theorem 5.2.3 (preprint 5.6)**): `theorem_3_1_13_preprint` at a zero of an sc-Fredholm section
   (a zero is a smooth point, and `(f, x)` is an sc-Fredholm germ there).
-* `Polyfold.theorem_5_7` (**Theorem 5.7**): `S ⊆ X_∞`, and the set of points of `X_∞`
+* `Polyfold.theorem_5_2_4` (**Theorem 5.2.4 (preprint 5.7)**): `S ⊆ X_∞`, and the set of points of `X_∞`
   (`MPolyfold.SmoothLevel`, with the topology induced by `X_∞ → ∏ X_m`) lying in `S` is compact;
   `MPolyfold.tendsto_smoothLevel_iff` (convergence in `X_∞` is convergence on every level).
-* `Polyfold.isCompact_solutionSet_level` (**Corollary 5.8, the compact solution set**, for every
+* `Polyfold.isCompact_solutionSet_level` (**Corollary 5.2.5 (preprint 5.8), the compact solution set**, for every
   `i`): the zeros of `f` in `X_i` form a compact subset of `X_i` (the underlying space of the
   M-polyfold `X^i`).
-* **Corollary 5.8 in a chart** (`i = 1`): `Polyfold.IsBasicGerm.shift` (the level shift `f¹` of a
+* **Corollary 5.2.5 (preprint 5.8) in a chart** (`i = 1`): `Polyfold.IsBasicGerm.shift` (the level shift `f¹` of a
   basic germ is a basic germ, on the shifted germ `ScNbhdGerm.shiftParam`, with
   `IsSc0ContractionGerm.shift`), `Polyfold.IsConjugateToBasicGerm.shift` (if `k : U → F` is
   conjugated to a basic germ `h` by `Ψ`, then `k¹ : U¹ → F¹` is conjugated to `h¹` by the index
   raise `Ψ¹ = strongShift Ψ`, `IsStrongBundleIso.shift` of `BasicClassComposition.lean`), its germ
   form `Polyfold.IsConjugateToBasicGerm.shift_germ` (`k` an sc⁰-germ only), and
-  `Polyfold.corollary_5_8_chart` (the compact solution set in `X₁`, and at every smooth point the
-  data of Definition 3.11 in the text's germ reading — filling germ `g`, sc⁺-germ `s` — with
+  `Polyfold.corollary_5_2_5_chart` (the compact solution set in `X₁`, and at every smooth point the
+  data of Definition 3.1.11 (preprint 3.11) in the text's germ reading — filling germ `g`, sc⁺-germ `s` — with
   `(g − s)¹` conjugated to a basic germ and `s¹` an sc⁺-germ on the shifted germ).
-* **Definition 5.4**: (1) is `IsCompact (solutionSet P f)`; `StrongBundle.AuxLe` (`N(y) ≤ r`,
+* **Definition 5.2.1 (preprint 5.4)**: (1) is `IsCompact (solutionSet P f)`; `StrongBundle.AuxLe` (`N(y) ≤ r`,
   with `N = ∞` off `Y_{0,1}`), (2) `StrongBundle.IsWeaklyProper`, (3) `StrongBundle.IsProper`;
   `StrongBundle.IsProper.isWeaklyProper` ("proper implies weakly proper", for a continuous `f`),
   `StrongBundle.IsWeaklyProper.isCompact_solutionSet`.
-* **Theorem 5.5**: `Polyfold.theorem_5_5` (compact solution set ⇒ proper) and
-  `Polyfold.theorem_5_5_iff` (proper ⟺ weakly proper ⟺ compact solution set for sc-Fredholm
+* **Theorem 5.2.2 (preprint 5.5)**: `Polyfold.theorem_5_2_2_preprint` (compact solution set ⇒ proper) and
+  `Polyfold.theorem_5_2_2_iff` (proper ⟺ weakly proper ⟺ compact solution set for sc-Fredholm
   sections), from
   - `IsSc0ContractionGerm.exists_isCompact_bdd`, `IsBasicGerm.exists_isCompact_bdd` (**the local
     form**, the appendix's (82)–(90)): an open `O ∋ 0`, independent of the bound `c`, such that the
@@ -73,33 +73,33 @@ compact solution set of `f + s = 0`, if `U` is adapted to `N` as in the properne
   - `exists_nbhd_isCompact_closure_bdd` (**the local step on the M-polyfold**: for an sc-Fredholm
     germ `(f, x₀)`, in its chart `Φ`, an open `V ∋ x₀` such that for every `C` the closure of
     `{x ∈ V | Φ(f(x))₂ ∈ F₁, |Φ(f(x))₂|₁ ≤ C}` is compact);
-  - Lemma 5.2's lower bound `|Φ[1](w)₂|₁ ≤ A·N(w)` in the chart of the germ
+  - Lemma 5.1.2 (preprint 5.2)'s lower bound `|Φ[1](w)₂|₁ ≤ A·N(w)` in the chart of the germ
     (`StrongBundle.IsAuxNorm.exists_norm_liftOne_le`, `AuxNorm.lean`) and a finite subcover.
-* **Remark 5.12**: `Polyfold.remark_5_12` (a section `s` vanishing off `U` with `N(s) ≤ 1` has its
+* **Remark 5.3.4 (preprint 5.12)**: `Polyfold.remark_5_3_4` (a section `s` vanishing off `U` with `N(s) ≤ 1` has its
   solution set of `f + s = 0` inside `{x ∈ U | N(f(x)) ≤ 1}`, so with compact closure);
   `StrongBundle.IsAuxNorm.auxLe_of_sectionAdd` (`f(x) + s(x) = 0` gives `N(f(x)) = N(s(x))`).
   The remark as stated (the solution set is compact for every `s` in the completion of
-  `Γ^{+,1}_U`, including its closedness) is `Polyfold.remark_5_12_completion` in
+  `Γ^{+,1}_U`, including its closedness) is `Polyfold.remark_5_3_4_completion` in
   `SolutionSetClosed.lean`.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Tameness is not used** (Theorems 5.5–5.7; the appendix restates Theorem 5.5 without it).
-* **Theorem 5.7 uses Corollary 3.13, not Theorem 5.6.**  The step "`x_k → x` in `X₀` implies
-  `x_k → x` on every level" is Corollary 3.13 at an arbitrary limit point
-  (`corollary_3_13_section`), which needs the germ property at the limit; the limit of zeros is a
+* **Tameness is not used** (Theorems 5.2.2–5.2.4 (preprint 5.5–5.7); the appendix restates Theorem 5.2.2 (preprint 5.5) without it).
+* **Theorem 5.2.4 (preprint 5.7) uses Corollary 3.1.15 (preprint 3.13), not Theorem 5.2.3 (preprint 5.6).**  The step "`x_k → x` in `X₀` implies
+  `x_k → x` on every level" is Corollary 3.1.15 (preprint 3.13) at an arbitrary limit point
+  (`corollary_3_1_15_section`), which needs the germ property at the limit; the limit of zeros is a
   zero (`StrongBundle.IsScSmoothSection.isZeroAt_of_tendsto`) and a smooth point (regularizing).
-  Theorem 5.6 alone gives the compactness of `cl({f = 0} ∩ U(i))` in `X_i`, not the convergence
+  Theorem 5.2.3 (preprint 5.6) alone gives the compactness of `cl({f = 0} ∩ U(i))` in `X_i`, not the convergence
   of a given sequence.  The topology of `X_∞` is not defined in the text; here it is the initial
   topology of the inclusions `X_∞ → X_m` (`MPolyfold.smoothLevel_topology_eq`), metrizable by
-  `MPolyfold.metrizableSpace_smoothLevel` (Theorem 2.16).
-* **Theorem 5.5: the uniform `(0, 1)` fibre bound of `Ψ`** is used silently when `f` is replaced
+  `MPolyfold.metrizableSpace_smoothLevel` (Theorem 2.3.10 (preprint 2.16)).
+* **Theorem 5.2.2 (preprint 5.5): the uniform `(0, 1)` fibre bound of `Ψ`** is used silently when `f` is replaced
   by `h + t` "without loss of generality": the bound `N(f(x)) ≤ 1` becomes `|g(u)|₁ ≤ A` in the
-  chart (Lemma 5.2), then `|g(u) − s(u)|₁ ≤ A + |s(0)|₁ + 1` near `0`, then
+  chart (Lemma 5.1.2 (preprint 5.2)), then `|g(u) − s(u)|₁ ≤ A + |s(0)|₁ + 1` near `0`, then
   `|h(ψ(u))|₁ = |Ψ[1](u, g(u) − s(u))₂|₁ ≤ M(A + |s(0)|₁ + 1)`.  Subtracting the sc⁺-part before
   the conjugation makes the text's `t`, (83) and (85) unnecessary, and the neighbourhood
   independent of the bound.
-* **Theorem 5.5: back from local coordinates.**  The set `{(a, w) ∈ U | |(h + t)(a, w)|₁ ≤ c}`
+* **Theorem 5.2.2 (preprint 5.5): back from local coordinates.**  The set `{(a, w) ∈ U | |(h + t)(a, w)|₁ ≤ c}`
   lives in the domain `U` of the filled version, which is larger than the retract `O ≅ V ⊆ X`; the
   closure of the image of `{x | N(f(x)) ≤ 1}` must stay in `O` to be pulled back to `X`.  It does,
   because `O` is the fixed point set of the retraction `r` in `U`; the compact set on the side of
@@ -108,30 +108,30 @@ compact solution set of `f + s = 0`, if `U` is adapted to `N` as in the properne
   complete": a finite cover of `f⁻¹(0)` by such neighbourhoods) leave both steps implicit.
 * **Appendix typos** (lines 7769–7891): `z' = h(a, w)` for `(h + t)(a, w)`; `ℝⁿ ⊕ Y₁` for
   `ℝᴺ ⊕ W₁`; "in view of (2) and (3)" for (84) and (86); `Σ` with `a ∈ ℝⁿ` for `a ∈ C̃` (`B` is only
-  defined on `C̃ ⊕ W`, and `C̃` must be closed for the compactness, as in Theorem 3.40); (86) has a
+  defined on `C̃ ⊕ W`, and `C̃` must be closed for the compactness, as in Theorem 3.5.1 (preprint 3.40)); (86) has a
   dangling clause; `B(τ')` is a ball "in `Y₀`" for `W₀`.
-* **Definition 5.4.**  The convention `N(f(x)) = ∞` off `Y_{0,1}` is `AuxLe`; the support of `s`
+* **Definition 5.2.1 (preprint 5.4).**  The convention `N(f(x)) = ∞` off `Y_{0,1}` is `AuxLe`; the support of `s`
   is the closure of `{s ≠ 0}`.  "Proper implies weakly proper" needs `{f = s}` closed (`f` and `s`
   continuous, `Y` Hausdorff) and the observation that a solution of `f = s` outside `U` would be a
   zero of `f`.
-* **Corollary 5.8: "it is a priori clear that `f^i` is sc-Fredholm".**  The text never defines
+* **Corollary 5.2.5 (preprint 5.8): "it is a priori clear that `f^i` is sc-Fredholm".**  The text never defines
   `Y^i → X^i` (only `Y[i]` for `i = 0, 1`).  The shifted strong bundle `P¹ : Y¹ → X¹`
   (`Y¹ = Y_{1,1}`, charts `Φ¹`) and the full corollary for `i = 1, 2` are in
-  `Chapter5/StrongBundleShift.lean` and `Chapter5/Corollary58.lean` (`Polyfold.corollary_5_8`,
-  `corollary_5_8_two`; Findings, Chapter 5, items 140–146).  This file gives the chart step: the
+  `Chapter5/StrongBundleShift.lean` and `Chapter5/Corollary58.lean` (`Polyfold.corollary_5_2_5`,
+  `corollary_5_2_5_two`; Findings, Chapter 5, items 140–146).  This file gives the chart step: the
   conjugation to a basic germ shifts (`IsConjugateToBasicGerm.shift_germ`, with
   `IsBasicGerm.shift`), and so does the sc⁺-germ (`IsSckGerm.shift`); the filler condition (3) on
   level `1` does not follow from condition (3) on level `0` alone (an sc-operator can be bijective
   on level `0` and not onto on level `1`) and is proved in `Corollary58.lean` for sc-Fredholm germs
   (`IsFillingGerm.germ_shift`).
-* **Remark 5.12.**  The completion of `Γ^{+,1}_U` is not constructed: what the remark uses of a
+* **Remark 5.3.4 (preprint 5.12).**  The completion of `Γ^{+,1}_U` is not constructed: what the remark uses of a
   limit `s` is that it vanishes outside `U` and has `N(s) ≤ 1` (both pass to uniform limits); then
   `{f + s = 0} ⊆ {x ∈ U | N(f(x)) ≤ 1}` (outside `U`, `f + s = f`; on `{f + s = 0}`,
   `N(f) = N(s)`), so the solution set has compact closure.  It is compact when it is closed, a
   point the text does not discuss; for the uniform `N`-limits of allowable sections the closedness
   is proved in `SolutionSetClosed.lean`
   (`StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd`, a chart argument with
-  Lemma 5.2), which gives the remark as stated (`remark_5_12_completion`).  The remark's
+  Lemma 5.1.2 (preprint 5.2)), which gives the remark as stated (`remark_5_3_4_completion`).  The remark's
   "adapted ... in the sense that `N(f(x)) ≤ 1` for `x ∈ U`, has the properties stipulated in the
   properness result" is garbled; it is read as "`cl{x ∈ U | N(f(x)) ≤ 1}` is compact".
 -/
@@ -151,21 +151,21 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-! ### Theorem 5.6: local compactness -/
+/-! ### Theorem 5.2.3 (preprint 5.6): local compactness -/
 
-/-- **Theorem 5.6 (local compactness)**: let `f` be an sc-Fredholm section of the strong bundle
+/-- **Theorem 5.2.3 (preprint 5.6) (local compactness)**: let `f` be an sc-Fredholm section of the strong bundle
 `P : Y → X` and `x` a solution of `f(x) = 0`.  Then there are open neighbourhoods
 `x ∈ U(i + 1) ⊆ U(i)` of `x` in `X = X₀` such that for every `i` the closure in `X₀` of
 `{y ∈ U(i) | f(y) = 0}` is a compact subset of `X_i`: it is the image of a compact subset of
-`X_i` (with its level topology) under the inclusion `X_i → X`.  This is `theorem_3_12` at the
+`X_i` (with its level topology) under the inclusion `X_i → X`.  This is `theorem_3_1_13_preprint` at the
 zero `x`, which is a smooth point (`f` is regularizing) where `(f, x)` is an sc-Fredholm germ. -/
-theorem theorem_5_6 (hf : B.IsScFredholmSection f) {x : X} (hx : IsZeroAt P f x) :
+theorem theorem_5_2_3 (hf : B.IsScFredholmSection f) {x : X} (hx : IsZeroAt P f x) :
     ∃ U : ℕ → Set X, (∀ i, IsOpen (U i)) ∧ (∀ i, x ∈ U i) ∧ (∀ i, U (i + 1) ⊆ U i) ∧
       ∀ i, ∃ K : Set (PX.Level i), IsCompact K ∧
         PX.levelVal i '' K = closure {y ∈ U i | IsZeroAt P f y} :=
-  theorem_3_12 hf.isScSmooth.1 (hf.germ x (hf.mem_smoothSet_of_isZeroAt hx)) hx
+  theorem_3_1_13_preprint hf.isScSmooth.1 (hf.germ x (hf.mem_smoothSet_of_isZeroAt hx)) hx
 
-/-! ### Theorem 5.7: the solution set is compact in `X_∞` -/
+/-! ### Theorem 5.2.4 (preprint 5.7): the solution set is compact in `X_∞` -/
 
 /-- The point of `X_∞` given by a smooth point of `X`. -/
 def _root_.Polyfold.MPolyfold.smoothMk (PX : MPolyfold X) (x : X) (hx : x ∈ PX.smoothSet) :
@@ -206,13 +206,13 @@ lemma _root_.Polyfold.MPolyfold.tendsto_smoothLevel_iff (PX : MPolyfold X) {u : 
   rw [(Topology.IsInducing.induced PX.smoothIncl).tendsto_nhds_iff, tendsto_pi_nhds]
   rfl
 
-/-- **Theorem 5.7**: let `f` be an sc-Fredholm section of the strong bundle `P : Y → X` whose
+/-- **Theorem 5.2.4 (preprint 5.7)**: let `f` be an sc-Fredholm section of the strong bundle `P : Y → X` whose
 solution set `S = {x ∈ X | f(x) = 0}` is compact in `X = X₀`.  Then `S ⊆ X_∞`, and `S` is a compact
 subset of `X_∞`: the set of points of `X_∞` lying in `S` is compact for the topology of `X_∞`
 (the initial topology of the inclusions `X_∞ → X_m`).  The text assumes `X` tame; tameness is not
-used.  The convergence on every level is Corollary 3.13 (`corollary_3_13_section`), which the text
-cites as Theorem 5.6. -/
-theorem theorem_5_7 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
+used.  The convergence on every level is Corollary 3.1.15 (preprint 3.13) (`corollary_3_1_15_section`), which the text
+cites as Theorem 5.2.3 (preprint 5.6). -/
+theorem theorem_5_2_4 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
     solutionSet P f ⊆ PX.smoothSet ∧
       IsCompact {x : PX.SmoothLevel | PX.smoothVal x ∈ solutionSet P f} := by
   have hreg : solutionSet P f ⊆ PX.smoothSet := fun x hx => hf.mem_smoothSet_of_isZeroAt hx
@@ -224,9 +224,9 @@ theorem theorem_5_7 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet 
   obtain ⟨x₀, hx₀S, φ, hφ, hlim⟩ := hS.tendsto_subseq (x := fun n => PX.smoothVal (u n)) hu
   have hx₀s : x₀ ∈ PX.smoothSet := hreg hx₀S
   refine ⟨PX.smoothMk x₀ hx₀s, hx₀S, φ, hφ, ?_⟩
-  -- convergence on every level (Corollary 3.13)
+  -- convergence on every level (Corollary 3.1.15 (preprint 3.13))
   refine PX.tendsto_smoothLevel_iff.2 fun m => ?_
-  obtain ⟨-, -, y₀, hy₀, y, hy, hylim⟩ := corollary_3_13_section hf
+  obtain ⟨-, -, y₀, hy₀, y, hy, hylim⟩ := corollary_3_1_15_section hf
     (x := fun n => PX.smoothVal (u (φ n))) (fun n => hu (φ n)) hlim m
   have e₀ : y₀ = PX.smoothIncl (PX.smoothMk x₀ hx₀s) m := MPolyfold.level_ext (by
     rw [hy₀, PX.levelVal_smoothIncl, PX.smoothVal_smoothMk])
@@ -235,14 +235,14 @@ theorem theorem_5_7 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet 
   filter_upwards [hy] with n hn
   exact MPolyfold.level_ext (by rw [hn, PX.levelVal_smoothIncl]; rfl)
 
-/-- **Corollary 5.8, the compact solution set** (for every `i`): if the solution set of the
+/-- **Corollary 5.2.5 (preprint 5.8), the compact solution set** (for every `i`): if the solution set of the
 sc-Fredholm section `f` is compact in `X₀`, then the solutions in `X_i` form a compact subset of
 `X_i` (the underlying space of the M-polyfold `X^i`, with the level topology): the image of the
-compact subset of `X_∞` of Theorem 5.7 under the continuous inclusion `X_∞ → X_i`. -/
+compact subset of `X_∞` of Theorem 5.2.4 (preprint 5.7) under the continuous inclusion `X_∞ → X_i`. -/
 theorem isCompact_solutionSet_level (hf : B.IsScFredholmSection f)
     (hS : IsCompact (solutionSet P f)) (i : ℕ) :
     IsCompact {x : PX.Level i | PX.levelVal i x ∈ solutionSet P f} := by
-  obtain ⟨hreg, hK⟩ := theorem_5_7 hf hS
+  obtain ⟨hreg, hK⟩ := theorem_5_2_4 hf hS
   convert hK.image (PX.continuous_smoothIncl i) using 1
   ext x
   constructor
@@ -254,7 +254,7 @@ theorem isCompact_solutionSet_level (hf : B.IsScFredholmSection f)
 
 end Bundle
 
-/-! ### Corollary 5.8 in a chart: the level shift of the conjugation to a basic germ -/
+/-! ### Corollary 5.2.5 (preprint 5.8) in a chart: the level shift of the conjugation to a basic germ -/
 
 section Shift
 
@@ -278,7 +278,7 @@ def ScNbhdGerm.shiftParam (G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ
 
 variable {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 → W 0}
 
-/-- **The level shift of an sc⁰-contraction germ** (Definition 3.28 on level `1`): `B¹ = B_1` on the
+/-- **The level shift of an sc⁰-contraction germ** (Definition 3.3.1 (preprint 3.28) on level `1`): `B¹ = B_1` on the
 shifted germ is an sc⁰-contraction germ (the estimates of level `m + 1` are those of level `m` of
 `B¹`). -/
 theorem IsSc0ContractionGerm.shift (h : IsSc0ContractionGerm Ct G B) :
@@ -298,11 +298,11 @@ theorem IsSc0ContractionGerm.shift (h : IsSc0ContractionGerm Ct G B) :
     rw [e1, e2]
     exact hc
 
-/-- **The level shift of a basic germ is a basic germ** (used silently in Corollary 5.8, "it is a
+/-- **The level shift of a basic germ is a basic germ** (used silently in Corollary 5.2.5 (preprint 5.8), "it is a
 priori clear that `f^i` is sc-Fredholm"): if `f : O(C̃ ⊕ W, 0) → Q ⊕ W` is a basic germ with
 `P ∘ f(a, w) = w − B(a, w)`, then `f¹ = f_1 : O(C̃ ⊕ W¹, 0) → Q ⊕ W¹` is a basic germ with
 `P ∘ f¹(a, w) = w − B¹(a, w)`.  `C̃` quadrant-like (a partial quadrant) is needed for the
-sc-smoothness of the shifted germ (Proposition 1.17 for germs). -/
+sc-smoothness of the shifted germ (Proposition 1.2.2 (preprint 1.17) for germs). -/
 theorem IsBasicGerm.shift {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
     [FiniteDimensional ℝ Q] {f : P × W 0 → Q × W 0} (hf : IsBasicGerm Ct G f B)
     (hCt : IsQuadrantLike (ScBanach.const P) Ct) :
@@ -337,7 +337,7 @@ section ShiftBundle
 
 variable {E F : ScBanach}
 
-/-- **The level shift of the conjugation to a basic germ** (Definition 3.11 on level `1`): if the
+/-- **The level shift of the conjugation to a basic germ** (Definition 3.1.11 (preprint 3.11) on level `1`): if the
 principal part `k : U → F` (sc⁰ on `U`, `0 ∈ U`) is conjugated to the basic germ `h` by the strong
 bundle isomorphism `Ψ`, then `k¹ : U¹ → F¹` is conjugated to the basic germ `h¹` by `Ψ¹`. -/
 theorem IsConjugateToBasicGerm.shift {U C : Set (E 0)} (hU : IsRelOpenInQuadrant E C U)
@@ -397,10 +397,10 @@ theorem IsConjugateToBasicGerm.shift {U C : Set (E 0)} (hU : IsRelOpenInQuadrant
     rw [hΨ.toFun.toBase_strongShift_snd huU', hk.toBase_levelMap huU,
       hu1 huU', (hh.isScSmooth 0).toBase_levelMap hGu, hΨ.toFun.toBase_base_strongShift huU']
 
-/-- **The level shift of the conjugation to a basic germ, germ form** (Definition 3.11 on level
+/-- **The level shift of the conjugation to a basic germ, germ form** (Definition 3.1.11 (preprint 3.11) on level
 `1`, germ reading): as `IsConjugateToBasicGerm.shift`, with `k` only an sc⁰-germ on a germ `Gk`
 (`0 ∈ U`): `k¹ : U¹ → F¹` is conjugated to the basic germ `h¹` by `Ψ¹`.  Used by
-`corollary_5_8_chart` for `k = g − s` with `g` the filling germ and `s` the sc⁺-germ. -/
+`corollary_5_2_5_chart` for `k = g − s` with `g` the filling germ and `s` the sc⁺-germ. -/
 theorem IsConjugateToBasicGerm.shift_germ {U C : Set (E 0)} (hU : IsRelOpenInQuadrant E C U)
     (h0U : (0 : E 0) ∈ U) {k : E 0 → F 0} {Gk : ScNbhdGerm E C} (hk : IsSc0Germ Gk k)
     (h : IsConjugateToBasicGerm U k) :
@@ -470,16 +470,16 @@ theorem IsConjugateToBasicGerm.shift_germ {U C : Set (E 0)} (hU : IsRelOpenInQua
     rw [hΨ.toFun.toBase_strongShift_snd huU', hk.toBase_levelMap (hu3 huU),
       hu1 huU', (hh.isScSmooth 0).toBase_levelMap hGu, hΨ.toFun.toBase_base_strongShift huU']
 
-/-- **Corollary 5.8 for `i = 1`, in a chart** (what is formalized of "`f¹` is sc-Fredholm with
+/-- **Corollary 5.2.5 (preprint 5.8) for `i = 1`, in a chart** (what is formalized of "`f¹` is sc-Fredholm with
 compact solution set"): if the sc-Fredholm section `f` has a compact solution set, then (a) the
 solutions in `X₁` form a compact subset of `X₁`; (b) at every smooth point `x`, in the chart `Φ` of
 the sc-Fredholm germ `(f, x)` with filling germ `g` and sc⁺-germ `s` (germ reading of Definition
 3.11), the level-`1` germ `(g − s)¹ : U¹ → F¹` is conjugated to a basic germ by the index raise of
 the conjugating strong bundle isomorphism (`IsConjugateToBasicGerm.shift_germ`), and
 `s¹ : U¹ → (F¹)¹` is an sc⁺-germ (on the shifted germ `G_s¹`).  The filling conditions of
-Definition 3.4 for `g¹` and the shifted strong bundle `Y¹ → X¹` itself are not formalized (see the
+Definition 3.1.4 (preprint 3.4) for `g¹` and the shifted strong bundle `Y¹ → X¹` itself are not formalized (see the
 module docstring). -/
-theorem corollary_5_8_chart {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
+theorem corollary_5_2_5_chart {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
     {PX : MPolyfold X} {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y]
     {P : Y → X} [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})]
     {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSection f)
@@ -510,7 +510,7 @@ theorem corollary_5_8_chart {X : Type u} [TopologicalSpace X] [T2Space X] [Parac
 
 end ShiftBundle
 
-/-! ### Theorem 5.5, the local form: a basic germ with a bounded level-`1` value -/
+/-! ### Theorem 5.2.2 (preprint 5.5), the local form: a basic germ with a bounded level-`1` value -/
 
 section LocalBound
 
@@ -528,7 +528,7 @@ lemma eq_delta_zero {p : P × W 0} (hp : p ∈ h.Sigma 0) {w : W 0} (hw : w ∈ 
     (hfix : B (p.1, w) - p.2 = w) : w = h.delta 0 p :=
   (h.exists_delta 0).choose_spec.2.2 p hp w hw (by simpa [gmap] using hfix)
 
-/-- **The local form of Theorem 5.5** (the appendix's (82)–(90)): there is an open neighbourhood
+/-- **The local form of Theorem 5.2.2 (preprint 5.5)** (the appendix's (82)–(90)): there is an open neighbourhood
 `O` of `0` in `E₀`, independent of `c`, such that for every `c` the points `(a, w) ∈ U₀ ∩ O` with
 `w − B(a, w) ∈ W₁` and `|w − B(a, w)|₁ ≤ c` lie in a compact subset of `E₀`: the image of the
 compact set `{(a, z) | a ∈ C̃, |a|₀ ≤ ρ, z ∈ K_c, |z|₀ ≤ r/8}` (`K_c ⊇ ι(B̄₁(c))` compact, by the
@@ -595,7 +595,7 @@ theorem exists_isCompact_bdd (hCt : IsClosed Ct) :
 
 end IsSc0ContractionGerm
 
-/-- **The local form of Theorem 5.5 for a basic germ** `f` (Definition 3.7): there is an open
+/-- **The local form of Theorem 5.2.2 (preprint 5.5) for a basic germ** `f` (Definition 3.1.7 (preprint 3.7)): there is an open
 neighbourhood `O` of `0` such that for every `c` the points `x ∈ U₀ ∩ O` with `f(x) ∈ ℝᴺ ⊕ W₁`,
 `|f(x)|₁ ≤ c`, lie in a compact subset of `E₀` (the `W`-component of `f(x)` is `w − B(a, w)`). -/
 theorem IsBasicGerm.exists_isCompact_bdd {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
@@ -639,8 +639,8 @@ lemma IsStrongBundleMap.shiftFiber_snd_smul (hΨ : IsStrongBundleMap U U' Ψ) {u
   exact (hΨ.fiber_linear u hu).map_smul a _
 
 /-- **Uniform `(0, 1)` fibre bounds of a strong bundle map near a point** (used silently in the
-proof of Theorem 5.5): there are `δ > 0` and `M ≥ 0` with `|(Ψ[1](u, k))₂|₁ ≤ M |k|₁` for
-`u ∈ U`, `|u − u₀|₀ < δ`, `k ∈ F₁` — from the continuity of `Ψ[1]` at `(u₀, 0)` (Definition 2.47)
+proof of Theorem 5.2.2 (preprint 5.5)): there are `δ > 0` and `M ≥ 0` with `|(Ψ[1](u, k))₂|₁ ≤ M |k|₁` for
+`u ∈ U`, `|u − u₀|₀ < δ`, `k ∈ F₁` — from the continuity of `Ψ[1]` at `(u₀, 0)` (Definition 2.6.1 (preprint 2.47))
 and the linearity of the fibre maps. -/
 theorem IsStrongBundleMap.exists_fiber_bound_one (hΨ : IsStrongBundleMap U U' Ψ) {u₀ : E 0}
     (hu₀ : u₀ ∈ U) :
@@ -674,7 +674,7 @@ theorem IsStrongBundleMap.exists_fiber_bound_one (hΨ : IsStrongBundleMap U U' �
 
 end FiberBound
 
-/-! ### The local step of Theorem 5.5 on the M-polyfold -/
+/-! ### The local step of Theorem 5.2.2 (preprint 5.5) on the M-polyfold -/
 
 section Bundle
 
@@ -683,8 +683,8 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **The local step of Theorem 5.5** (the appendix's proof, at one point): let `(f, x₀)` be an
-sc-Fredholm germ (Definition 3.11).  In the strong bundle chart `Φ` of the germ there is an open
+/-- **The local step of Theorem 5.2.2 (preprint 5.5)** (the appendix's proof, at one point): let `(f, x₀)` be an
+sc-Fredholm germ (Definition 3.1.11 (preprint 3.11)).  In the strong bundle chart `Φ` of the germ there is an open
 neighbourhood `V` of `x₀`, independent of `C`, such that for every `C` the closure in `X` of
 `{x ∈ V | Φ(f(x))₂ ∈ F₁, |Φ(f(x))₂|₁ ≤ C}` is compact.  The proof: `f̂ = g` on `O` near `0`
 (the filler), `|g − t₀|₁ ≤ C + |t₀(0)|₁ + 1` near `0` (`t₀` the sc⁺-section, continuous into
@@ -842,7 +842,7 @@ theorem exists_nbhd_isCompact_closure_bdd {x₀ : X}
 
 end Bundle
 
-/-! ### Definition 5.4, Theorem 5.5, Remark 5.12 -/
+/-! ### Definition 5.2.1 (preprint 5.4), Theorem 5.2.2 (preprint 5.5), Remark 5.3.4 (preprint 5.12) -/
 
 section Def54
 
@@ -854,12 +854,12 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 namespace StrongBundle
 
 variable (B) in
-/-- `N(y) ≤ r` with the convention of Definition 5.4 (3): `N(y) = ∞` when `y` does not have
+/-- `N(y) ≤ r` with the convention of Definition 5.2.1 (preprint 5.4) (3): `N(y) = ∞` when `y` does not have
 biregularity `(0, 1)`.  So `B.AuxLe N y r` says `y ∈ Y_{0,1}` and `N(y) ≤ r`. -/
 def AuxLe (N : B.One → ℝ) (y : Y) (r : ℝ) : Prop := ∃ hy : y ∈ B.oneSet, N (B.oneMk y hy) ≤ r
 
 variable (B) in
-/-- **Definition 5.4 (2)**: the section `f` is **weakly proper**: it has a compact solution set,
+/-- **Definition 5.2.1 (preprint 5.4) (2)**: the section `f` is **weakly proper**: it has a compact solution set,
 and for every auxiliary norm `N` there is an open neighbourhood `U` of `f⁻¹(0)` such that for
 every sc⁺-section `s` with support in `U` (the closure of `{s ≠ 0}`) and `N(s(y)) ≤ 1` for all
 `y`, the set `{x ∈ X | f(x) = s(x)}` is compact. -/
@@ -869,7 +869,7 @@ def IsWeaklyProper (f : X → Y) : Prop :=
       (∀ y, B.AuxLe N (s y) 1) → IsCompact {x | f x = s x}
 
 variable (B) in
-/-- **Definition 5.4 (3)**: the section `f` is **proper**: it has a compact solution set, and for
+/-- **Definition 5.2.1 (preprint 5.4) (3)**: the section `f` is **proper**: it has a compact solution set, and for
 every auxiliary norm `N` there is an open neighbourhood `U` of `f⁻¹(0)` such that the closure in
 `X₀` of `{x ∈ U | N(f(x)) ≤ 1}` is compact (with `N(f(x)) = ∞` if `f(x) ∉ Y_{0,1}`). -/
 def IsProper (f : X → Y) : Prop :=
@@ -908,16 +908,16 @@ end StrongBundle
 
 open StrongBundle
 
-/-- **Theorem 5.5**: an sc-Fredholm section `f` of a strong bundle `P : Y → X` over an M-polyfold
+/-- **Theorem 5.2.2 (preprint 5.5)**: an sc-Fredholm section `f` of a strong bundle `P : Y → X` over an M-polyfold
 with a compact solution set is proper: for every auxiliary norm `N` there is an open neighbourhood
 `U` of `f⁻¹(0)` such that `cl_{X₀}({x ∈ U | N(f(x)) ≤ 1})` is compact.  (The text assumes `X` tame
 in §5.2, not in the appendix; tameness is not used.)  Proof (appendix 5.4.1): at each zero `x`,
 in the chart `Φ` of the sc-Fredholm germ `(f, x)`, `exists_nbhd_isCompact_closure_bdd` gives an
 open `V ∋ x` such that the points of `V` where `Φ(f(·))₂ ∈ F₁` with `|·|₁ ≤ A` have compact closure
-for every `A`; Lemma 5.2 (`StrongBundle.IsAuxNorm.exists_norm_liftOne_le`: `|Φ[1](w)₂|₁ ≤ A·N(w)`
+for every `A`; Lemma 5.1.2 (preprint 5.2) (`StrongBundle.IsAuxNorm.exists_norm_liftOne_le`: `|Φ[1](w)₂|₁ ≤ A·N(w)`
 near `x`) turns `N(f(y)) ≤ 1` into `|Φ(f(y))₂|₁ ≤ A`; finitely many such `V` cover the compact
 `f⁻¹(0)`. -/
-theorem theorem_5_5 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
+theorem theorem_5_2_2_preprint (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet P f)) :
     B.IsProper f := by
   refine ⟨hS, fun N hN => ?_⟩
   have hsec := hf.isScSmooth.1
@@ -949,7 +949,7 @@ theorem theorem_5_5 (hf : B.IsScFredholmSection f) (hS : IsCompact (solutionSet 
   obtain ⟨x, hx, hyx⟩ := mem_iUnion₂.1 hyU
   exact mem_iUnion₂.2 ⟨x, hx, subset_closure ⟨hyx, hyN⟩⟩
 
-/-- **Definition 5.4, "proper implies weakly proper"** (for a continuous section `f`): with the
+/-- **Definition 5.2.1 (preprint 5.4), "proper implies weakly proper"** (for a continuous section `f`): with the
 neighbourhood `U` of properness, a solution of `f(x) = s(x)` lies in `U` (outside `U`, `s = 0`,
 so `f(x) = 0`, and `f⁻¹(0) ⊆ U`) and has `N(f(x)) = N(s(x)) ≤ 1`; and `{f = s}` is closed. -/
 theorem StrongBundle.IsProper.isWeaklyProper (hfc : Continuous f) (h : B.IsProper f) :
@@ -969,28 +969,28 @@ theorem StrongBundle.IsProper.isWeaklyProper (hfc : Continuous f) (h : B.IsPrope
     exact hxU (hSU (show IsZeroAt P f x from (show f x = s x from hx).trans hz))
   · exact (hsN x).congr (show f x = s x from hx).symm
 
-/-- **Definition 5.4, "weakly proper implies a compact solution set"**. -/
+/-- **Definition 5.2.1 (preprint 5.4), "weakly proper implies a compact solution set"**. -/
 theorem StrongBundle.IsWeaklyProper.isCompact_solutionSet (h : B.IsWeaklyProper f) :
     IsCompact (solutionSet P f) := h.1
 
-/-- **Theorem 5.5, second sentence**: for an sc-Fredholm section, being proper, being weakly
+/-- **Theorem 5.2.2 (preprint 5.5), second sentence**: for an sc-Fredholm section, being proper, being weakly
 proper and having a compact solution set are equivalent. -/
-theorem theorem_5_5_iff (hf : B.IsScFredholmSection f) :
+theorem theorem_5_2_2_iff (hf : B.IsScFredholmSection f) :
     (B.IsProper f ↔ B.IsWeaklyProper f) ∧ (B.IsWeaklyProper f ↔ IsCompact (solutionSet P f)) := by
   have hfc : Continuous f := continuousOn_univ.1 hf.isScSmooth.2.continuousOn
-  exact ⟨⟨fun h => h.isWeaklyProper hfc, fun h => theorem_5_5 hf h.1⟩,
-    ⟨fun h => h.1, fun h => (theorem_5_5 hf h).isWeaklyProper hfc⟩⟩
+  exact ⟨⟨fun h => h.isWeaklyProper hfc, fun h => theorem_5_2_2_preprint hf h.1⟩,
+    ⟨fun h => h.1, fun h => (theorem_5_2_2_preprint hf h).isWeaklyProper hfc⟩⟩
 
-/-- **Remark 5.12**: let `f` have a compact solution set and let `U` be an open neighbourhood of
-`f⁻¹(0)` adapted to the auxiliary norm `N` as in Theorem 5.5 (`cl{x ∈ U | N(f(x)) ≤ 1}` compact).
+/-- **Remark 5.3.4 (preprint 5.12)**: let `f` have a compact solution set and let `U` be an open neighbourhood of
+`f⁻¹(0)` adapted to the auxiliary norm `N` as in Theorem 5.2.2 (preprint 5.5) (`cl{x ∈ U | N(f(x)) ≤ 1}` compact).
 If the section `s` vanishes outside `U` and has `N(s(x)) ≤ 1` everywhere — which holds for the
 limits of sc⁺-sections with support in `U` and `N(s) ≤ 1` in the uniform distance
 `ρ(s, s') = sup N(s(x) − s'(x))` (the completion of `Γ^{+,1}_U`) — then the solution set of
 `f(x) + s(x) = 0` lies in `{x ∈ U | N(f(x)) ≤ 1}`, so its closure is compact; it is compact when
 it is closed (e.g. `f + s` continuous).  No sc⁺ property of `s` is used.  For `s` in the
-completion the solution set is closed, so compact: `remark_5_12_completion`
+completion the solution set is closed, so compact: `remark_5_3_4_completion`
 (`SolutionSetClosed.lean`). -/
-theorem remark_5_12 {N : B.One → ℝ} (hN : B.IsAuxNorm N) (hf : IsSection P f) {U : Set X}
+theorem remark_5_3_4 {N : B.One → ℝ} (hN : B.IsAuxNorm N) (hf : IsSection P f) {U : Set X}
     (hSU : solutionSet P f ⊆ U) (hU : IsCompact (closure {x ∈ U | B.AuxLe N (f x) 1}))
     {s : X → Y} (hs : IsSection P s) (hsU : ∀ x ∉ U, IsZeroAt P s x)
     (hsN : ∀ x, B.AuxLe N (s x) 1) :

@@ -4,22 +4,22 @@ import Polyfold.Chapter2.Boundary
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I: the chart
 independence of the linearization `f'(y)` of a section at a zero and of the good position of its
-kernel — the local form of Definition 2.38 (gap G.13 of the report) that Definition 3.53 and the
-proof of Theorem 3.54 (1) use at the zeros `y` near `x₀` — and the assembly of Definition 3.53 at
+kernel — the local form of Definition 2.5.8 (preprint 2.38) (gap G.13 of the report) that Definition 3.6.6 (preprint 3.53) and the
+proof of Theorem 3.6.8 (preprint 3.54) (1) use at the zeros `y` near `x₀` — and the assembly of Definition 3.6.6 (preprint 3.53) at
 such a zero from the data in a chart which is not centred at it.
 
 # The linearization of a section at a zero, in charts
 
 ## The text, paraphrased
 
-(Definition 2.38) For a smooth point `x` of an M-polyfold, `T^R_xX` and `C_xX` are the preimages
+(Definition 2.5.8 (preprint 2.38)) For a smooth point `x` of an M-polyfold, `T^R_xX` and `C_xX` are the preimages
 of `T^R_oO = T_oO ∩ E_o` and `C_oO = T_oO ∩ C_o` under `Tψ(x)` for any chart `ψ`; "by
 Proposition 2.30 these concepts are well defined and independent of the choice of the charts".
-(Before Definition 3.4) "The linearization `Tf(0)` of the section `f : O → K` at `0 = r(0)` is
+(Before Definition 3.1.4 (preprint 3.4)) "The linearization `Tf(0)` of the section `f : O → K` at `0 = r(0)` is
 the restriction of `D(f ∘ r)(0)` to `T₀O`"; from `ρ(r(y))f(r(y)) = f(r(y))` and `f(0) = 0`,
-`ρ(0)Tf(0) = Tf(0)`; from `g(r(y)) = f(r(y))`, `Tg(0) = Tf(0)` on `T₀O`.  (Definition 3.53) An
+`ρ(0)Tf(0) = Tf(0)`; from `g(r(y)) = f(r(y))`, `Tg(0) = Tf(0)` on `T₀O`.  (Definition 3.6.6 (preprint 3.53)) An
 sc-Fredholm germ `(f, x)` with `f(x) = 0` is in good position if `f'(x) : T_xX → Y_x` is onto and,
-if `d_X(x) ≥ 1`, `ker f'(x)` is in good position to `C_xX` in `T_xX`.  (Proof of Theorem 3.54,
+if `d_X(x) ≥ 1`, `ker f'(x)` is in good position to `C_xX` in `T_xX`.  (Proof of Theorem 3.6.8 (preprint 3.54),
 last paragraph) "for every `y ∈ S` … `f'(y)` is a surjective Fredholm operator whose kernel is in
 good position to `C_yV`, so that, proceeding as above we can construct a map `σ`": the argument
 at `x₀` is repeated at `y` in a chart centred at `y`.
@@ -31,8 +31,8 @@ at `x₀` is repeated at `y` in a chart centred at `y`.
   `ker_eq_map_of_conj`, `dense_image_of_conj`; `restrictEquiv` (an isomorphism of subspaces from
   operators inverse to each other on them); `transportSub` and
   `IsInGoodPositionIn.transport` / `isInGoodPositionIn_transport_iff`: good position inside a
-  subspace (Definition 3.53 (2), `IsInGoodPositionIn`) is carried by an isomorphism of the
-  subspaces respecting the cones, with the constant `ε/(‖A‖‖A⁻¹‖ + 1)` of Lemma 3.45.
+  subspace (Definition 3.6.6 (preprint 3.53) (2), `IsInGoodPositionIn`) is carried by an isomorphism of the
+  subspaces respecting the cones, with the constant `ε/(‖A‖‖A⁻¹‖ + 1)` of Lemma 3.5.9 (preprint 3.45).
 * **Derivatives at a level-`1` point**: `scDeriv_eq_of_eqOn_relOpen` (the derivative depends only
   on the map on a relatively open neighbourhood), `scDeriv_scPair`, and
   `scDeriv_fiber_of_vanishing`: the derivative at `(z, 0)` of a map vanishing on the zero
@@ -45,7 +45,7 @@ at `x₀` is repeated at `y` in a chart centred at `y`.
   `scDeriv_comp_r_eq_of_eventuallyEq` and `linAt_eq_scDeriv` (the bridge to fillers:
   `D(f̂ ∘ r)(z) = Dg(z)Dr(z)`, so `Lin(z) = Dg(z)` on `T_zO`, for every `g` agreeing with `f̂` on
   `O` near `z`), `IsFilledVersion.fillerRestrict_eq_linAt` (at a central zero `Lin(0)` is the
-  `Tf̃(0) = fillerRestrict` of Proposition 3.5).
+  `Tf̃(0) = fillerRestrict` of Proposition 3.1.5 (preprint 3.5)).
 * **The fibres of a strong bundle chart and of a transition** (`StrongBundleChart`):
   `Φ⁻¹(x, ·)` is linear on the fibre of `K` over `x ∈ O` (`symm_add`, `symm_smul`), the
   transition `Θ = Φ' ∘ Φ⁻¹` covers `τ = φ' ∘ φ⁻¹` and is linear on the fibres
@@ -61,24 +61,24 @@ at `x₀` is repeated at `y` in a chart centred at `y`.
   `Lin(z) : T_zO → K_z` and `Lin'(z') : T_{z'}O' → K'_{z'}` are simultaneously surjective,
   simultaneously Fredholm with the same index, and their kernels are simultaneously in good
   position to the partial cones.
-* **The assembly for Definition 3.53 at a non-central zero**:
+* **The assembly for Definition 3.6.6 (preprint 3.53) at a non-central zero**:
   `StrongBundle.isGoodPositionGerm_of_chart_dense` (and `_of_chart`, `_of_linAt`,
   `_of_linAt_surj`): if `(f, y)` is an sc-Fredholm germ, `f(y) = 0`, and in some strong bundle
   chart `c` around `y` (e.g. the chart centred at `x₀`), with `g` agreeing with `f̂` on `O` near
   `φ(y)`, the range of `Dg(z)|_{T_zO}` contains `ρ(z)F_∞` (or all of `K_z`) and
   `ker Dg(z) ∩ T_zO` is in good position to `C_{φ(y)}` inside `T_zO`, then `(f, y)` is in good
-  position in the sense of `StrongBundle.IsGoodPositionGermWholeChart` (Definition 3.53 in the chart `c'`
-  centred at `y` given by Definition 3.11).  `StrongBundle.isGoodPositionAt_of_chart_dense`: the
+  position in the sense of `StrongBundle.IsGoodPositionGermWholeChart` (Definition 3.6.6 (preprint 3.53) in the chart `c'`
+  centred at `y` given by Definition 3.1.11 (preprint 3.11)).  `StrongBundle.isGoodPositionAt_of_chart_dense`: the
   same conclusion in **every** chart `c'` carrying germ data at `y` (used to read the good
   position in a tame chart, `IsGoodPositionGermWholeChart.toTame`, `TameGerms.lean`).
 
 ## What the text leaves implicit, and the choices made
 
-* **Definition 3.53 is stated in `T_xX`**, where the formalization has no linear structure (gap
-  G.7), and `f'(x)` is defined (before Definition 3.4) only at the centre of a chart, through a
-  filler; `IsGoodPositionAt` therefore states Definition 3.53 in the chart of Definition 3.11.
+* **Definition 3.6.6 (preprint 3.53) is stated in `T_xX`**, where the formalization has no linear structure (gap
+  G.7), and `f'(x)` is defined (before Definition 3.1.4 (preprint 3.4)) only at the centre of a chart, through a
+  filler; `IsGoodPositionAt` therefore states Definition 3.6.6 (preprint 3.53) in the chart of Definition 3.1.11 (preprint 3.11).
   Neither the independence of `f'(x)` of the chart and the filler nor that of the two conditions
-  of Definition 3.53 is proved in the text (Definition 2.38 appeals to Proposition 2.30 for
+  of Definition 3.6.6 (preprint 3.53) is proved in the text (Definition 2.5.8 (preprint 2.38) appeals to Proposition 2.4.10 (preprint 2.30) for
   `T^R_xX` and `C_xX` only).  Here the linearization at a zero is the filler-free
   `Lin(z) = D(f̂ ∘ r)(z)|_{T_zO}`, defined at every level-`1` point of every chart; it agrees with
   `Tf̃(0)` at a centre (`fillerRestrict_eq_linAt`) and with `Dg(z)|_{T_zO}` for every `g` agreeing
@@ -92,29 +92,29 @@ at `x₀` is repeated at `y` in a chart centred at `y`.
   (`Φ` is a fibrewise linear bijection onto `K`) and continuous (`Φ` is a homeomorphism); the
   inverse is the fibre map of the reverse transition.  The text's "bounded linear on the fibres"
   is for `Φ` only.
-* **Proposition 2.30 is applied on the overlap retracts.**  The base transition `τ = φ' ∘ φ⁻¹` is
+* **Proposition 2.4.10 (preprint 2.30) is applied on the overlap retracts.**  The base transition `τ = φ' ∘ φ⁻¹` is
   a germ of sc-diffeomorphisms between `φ(V ∩ V') = O ∩ W` and `φ'(V ∩ V') = O' ∩ W'`, with the
-  restricted retractions `r|_{U ∩ r⁻¹(W)}` (Proposition 2.10 (1)); `A = D(τ ∘ r_W)(z)` restricted
+  restricted retractions `r|_{U ∩ r⁻¹(W)}` (Proposition 2.3.1 (preprint 2.10) (1)); `A = D(τ ∘ r_W)(z)` restricted
   to `T_zO` (inverse `D(τ' ∘ r'_{W'})(z')`, `IsDiffeoGerm.deriv_inv_deriv`), and
-  `proposition_2_30_cone` gives `A(T_zO ∩ C_z) = T_{z'}O' ∩ C'_{z'}` — the formalized partial cone
-  `partialConeWith R T z = range Dr(z) ∩ partialQuadrantAtWith T z` of Definition 2.27, with
+  `proposition_2_4_10_cone` gives `A(T_zO ∩ C_z) = T_{z'}O' ∩ C'_{z'}` — the formalized partial cone
+  `partialConeWith R T z = range Dr(z) ∩ partialQuadrantAtWith T z` of Definition 2.4.7 (preprint 2.27), with
   `Dr_W(z) = Dr(z)` by the uniqueness of the derivative on the smaller domain.  At a centre
   `C'_0 = C'` (`partialQuadrantAtWith_zero`).
-* **Hypotheses.**  Of the compatibility of Definition 2.50 only the sc-smoothness of
+* **Hypotheses.**  Of the compatibility of Definition 2.6.4 (preprint 2.50) only the sc-smoothness of
   `Θ = Φ' ∘ Φ⁻¹` on `[0]` is used (not `[1]`, not the reverse transition); for two strong bundle
   charts of `P` it holds because both are charts of the M-polyfold `Y[0]`
   (`StrongBundle.IsChart.transition_isScSmoothRetractMap`), and the base charts are compatible
   because both are charts of `X` (`MPolyfold.IsChart.compatible`).  The points need only be on
-  level `1` (as Proposition 2.30 in `Boundary.lean`); the text has smooth points.  Tameness is not
+  level `1` (as Proposition 2.4.10 (preprint 2.30) in `Boundary.lean`); the text has smooth points.  Tameness is not
   used.  The section is assumed sc-smooth (its principal parts are sc-smooth in every strong
-  bundle chart of `P`), which is part of Definition 3.14.
-* **The assembly.**  At the centre of the chart `c'` of Definition 3.11 the kernel condition of
+  bundle chart of `P`), which is part of Definition 3.1.16 (preprint 3.14).
+* **The assembly.**  At the centre of the chart `c'` of Definition 3.1.11 (preprint 3.11) the kernel condition of
   `IsGoodPositionAt` is about `ker Dg'(0)`, which equals `ker Tf̃'(0) ⊕ 0` by condition (3) of the
   filler at `0` (`IsFillerOf.ker_deriv_le_range`).  In the non-centred chart `c` the hypothesis
   is on `ker Dg(z) ∩ T_zO`, not on `ker Dg(z)`: condition (3) holds at the centre only, so
   `ker Dg(z)` need not lie in `T_zO` (Finding 91 (b)).  The surjectivity of `Tf̃'(0)` needs only a
   dense subset of `K_z` in the range of `Lin(z)` (e.g. `ρ(z)F_∞`): the range of `Tf̃'(0)` is
-  closed because `Tf̃'(0)` is Fredholm (Proposition 3.52 in the centred chart `c'`), and it
+  closed because `Tf̃'(0)` is Fredholm (Proposition 3.6.5 (preprint 3.52) in the centred chart `c'`), and it
   contains the dense image of that subset under `Γ`.
 -/
 
@@ -287,7 +287,7 @@ variable {E E' : ScBanach} {T : Submodule ℝ (E 0)} {T' : Submodule ℝ (E' 0)}
   {C : Set (E 0)} {C' : Set (E' 0)}
 
 /-- **Good position inside a subspace is carried by an isomorphism of the subspaces** (the
-transport form of Lemma 3.45): if `A : T ≃L T'` respects the cones (`x ∈ C ↔ Ax ∈ C'` on `T`) and
+transport form of Lemma 3.5.9 (preprint 3.45)): if `A : T ≃L T'` respects the cones (`x ∈ C ↔ Ax ∈ C'` on `T`) and
 `N ⊆ T` is in good position to `C` inside `T`, then `A(N)` is in good position to `C'` inside
 `T'`, with the constant `ε' = ε/(‖A‖‖A⁻¹‖ + 1)`. -/
 theorem IsInGoodPositionIn.transport (A : T ≃L[ℝ] T')
@@ -545,7 +545,7 @@ theorem scDeriv_r_idem_at {z : E 1} (hzO : E.toBase 1 z ∈ r R '' U) (h : E 0) 
     ((hR.baseRetraction hU).scDeriv_comp_self (x := z) hzO)
 
 /-- **The values of `Lin(z)` lie in `K_z = ρ(z)F`** at a zero `z` of `f̂` (the text's
-"`ρ(0)Tf(0) = Tf(0)`" before Definition 3.4, at any zero instead of the centre): differentiate
+"`ρ(0)Tf(0) = Tf(0)`" before Definition 3.1.4 (preprint 3.4), at any zero instead of the centre): differentiate
 `ρ(r(u)) f̂(r(u)) = f̂(r(u))` at `z`; the derivative of the left side is `ρ(z) D(f̂ ∘ r)(z)`
 because `(r(z), f̂(r(z))) = (z, 0)` and `ρ(u)0 = 0` (`scDeriv_fiber_of_vanishing`). -/
 theorem rho_scDeriv_comp_r {fb : E 0 → F 0} (hfr : IsSc1 U (fb ∘ r R))
@@ -561,7 +561,7 @@ theorem rho_scDeriv_comp_r {fb : E 0 → F 0} (hfr : IsSc1 U (fb ∘ r R))
     ⟨r_mem hR hu, mem_univ _⟩
   set Ψ₂ := (fun p : (E.prod F) 0 => (R p).2) ∘ scPair (r R) (fb ∘ r R) with hΨ₂def
   have hΨ₂ : IsSc1 U Ψ₂ :=
-    (theorem_1_21' hU.isScDomain hUF hpair (fiber_isSc1 hU hR) hmaps).1
+    (theorem_1_3_1' hU.isScDomain hUF hpair (fiber_isSc1 hU hR) hmaps).1
   have heq : EqOn Ψ₂ (fb ∘ r R) U := by
     intro u hu
     exact ρ_eq_self_of_mem_K hR (r_mem hR hu) (hfK _ ⟨u, hu, rfl⟩)
@@ -579,7 +579,7 @@ theorem rho_scDeriv_comp_r {fb : E 0 → F 0} (hfr : IsSc1 U (fb ∘ r R))
       (ρCLM hR hzU) (fun k => rfl)] at hchain
   rw [hchain, hD]
 
-/-- **The bridge to fillers** (the text's "`Tg(0) = Tf(0)` on `T₀O`" before Definition 3.4, at
+/-- **The bridge to fillers** (the text's "`Tg(0) = Tf(0)` on `T₀O`" before Definition 3.1.4 (preprint 3.4), at
 any point): if `g` agrees with `f̂` on `O` near the point `z` of the retract,
 then `D(f̂ ∘ r)(z) = Dg(z) ∘ Dr(z)` (`g ∘ r = f̂ ∘ r` near `z`, uniqueness of the derivative and
 the chain rule). -/
@@ -594,7 +594,7 @@ theorem scDeriv_comp_r_eq_of_eventuallyEq {fb g : E 0 → F 0} (hfr : IsSc1 U (f
   set Rb := hR.baseRetraction hU with hRb
   have hV : IsRelOpenInQuadrant E C (U ∩ r R ⁻¹' W) := Rb.relOpen_inter_preimage hWo
   have hgr : IsSc1 U (g ∘ r R) :=
-    (theorem_1_21' hU.isScDomain hU.isScDomain hr1 hg fun u hu => r_mem hR hu).1
+    (theorem_1_3_1' hU.isScDomain hU.isScDomain hr1 hg fun u hu => r_mem hR hu).1
   have hzV : z ∈ E.lvlSet (U ∩ r R ⁻¹' W) 1 := by
     refine ⟨hzU, ?_⟩
     change r R (E.toBase 1 z) ∈ W
@@ -639,7 +639,7 @@ lemma mem_rangeS_ρCLM_iff (hR : IsStrongBundleRetraction U R) {u : E 0} (huO : 
 
 
 /-- **At a central zero, `Lin(0)` is the `Tf̃(0)` of the filler** (`fillerRestrict` of
-`FillerLinearAlgebra.lean`, Proposition 3.5): for a filled version `g` of `f̂`,
+`FillerLinearAlgebra.lean`, Proposition 3.1.5 (preprint 3.5)): for a filled version `g` of `f̂`,
 `Tf̃(0)x = Dg(0)x = Lin(0)x` on `T₀O`. -/
 theorem IsFilledVersion.fillerRestrict_eq_linAt (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) {h0 : (0 : E 0) ∈ U} (h0O : (0 : E 0) ∈ r R '' U)
@@ -875,9 +875,9 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
-/-- **The chart independence of the linearization at a zero** (the local form of Definition 2.38
-and gap G.13 for Definition 3.53).  Let `c`, `c'` be strong bundle charts whose transition
-`Θ = Φ' ∘ Φ⁻¹` is sc-smooth on `[0]` (part of the compatibility of Definition 2.50), `f` a section
+/-- **The chart independence of the linearization at a zero** (the local form of Definition 2.5.8 (preprint 2.38)
+and gap G.13 for Definition 3.6.6 (preprint 3.53)).  Let `c`, `c'` be strong bundle charts whose transition
+`Θ = Φ' ∘ Φ⁻¹` is sc-smooth on `[0]` (part of the compatibility of Definition 2.6.4 (preprint 2.50)), `f` a section
 whose principal parts are sc-smooth in both charts, `y` a zero of `f` in both domains and
 `z = φ(y)`, `z' = φ'(y)` on level `1`.  Then there are topological linear isomorphisms
 `A : T_zO = Dr(z)E ≅ T_{z'}O' = Dr'(z')E'` (the derivative `D(τ ∘ r)(z)` of the base transition
@@ -887,7 +887,7 @@ of `Θ` over `z`) with
   (`linAt`): the chain rule for `u ↦ Θ(r(u), f̂(r(u)))₂ = f̂'(τ(r(u)))`, in which the derivative
   in the base direction drops out because `Θ(x, 0) = (τ(x), 0)` and `f̂(z) = 0`;
 * `A` carries the partial cone `C_zO = T_zO ∩ C_z` onto `C_{z'}O' = T_{z'}O' ∩ C'_{z'}`
-  (Proposition 2.30, `proposition_2_30_cone`, for the base transition). -/
+  (Proposition 2.4.10 (preprint 2.30), `proposition_2_4_10_cone`, for the base transition). -/
 theorem linAt_chart_change (c c' : StrongBundleChart PX P) (hf : IsSection P f)
     (hΘ : IsScSmoothRetractMap (c.φ.model.E.prod c.F) (c.φ.model.C ×ˢ univ) (c.overlap c')
       (c'.φ.model.E.prod c'.F) (c'.φ.model.C ×ˢ univ) (c'.overlap c) (c.transition c'))
@@ -1055,9 +1055,9 @@ theorem linAt_chart_change (c c' : StrongBundleChart PX P) (hf : IsSection P f)
       c'.apply_section' hf hy₁', hτu, hr']
   have hmapsτ : MapsTo (τ ∘ Rw) Rw.U c'.U := fun u hu => (hdiff.mapsTo_U hu).1
   have hℓ : IsSc1 Rw.U ((c'.principal f ∘ r c'.R) ∘ (τ ∘ Rw)) :=
-    (theorem_1_21' Rw.isScDomain c'.relOpen.isScDomain hdiff.isSc1 hfr' hmapsτ).1
+    (theorem_1_3_1' Rw.isScDomain c'.relOpen.isScDomain hdiff.isSc1 hfr' hmapsτ).1
   have hΦσ : IsSc1 Rw.U (Φ ∘ σ) :=
-    (theorem_1_21' Rw.isScDomain RK.isScDomain hσ1 hΦ hmapsσ).1
+    (theorem_1_3_1' Rw.isScDomain RK.isScDomain hσ1 hΦ hmapsσ).1
   have hDeq : scDeriv Rw.U ((c'.principal f ∘ r c'.R) ∘ (τ ∘ Rw)) z = scDeriv Rw.U (Φ ∘ σ) z :=
     scDeriv_eq_of_eqOn_relOpen Rw.relOpen hℓ hΦσ subset_rfl subset_rfl hEq hz1
   have hfz : c.principal f (c.φ.model.E.toBase 1 z) = 0 := by
@@ -1077,7 +1077,7 @@ theorem linAt_chart_change (c c' : StrongBundleChart PX P) (hf : IsSection P f)
     rw [hlevσ, hσdef, scDeriv_scPair Rw.relOpen hrRw hfrRw hz1, ContinuousLinearMap.prod_apply,
       scDeriv_fiber_of_vanishing Rw.relOpen hΦ hz1 hSD hzD hzero Γt hΓ] at h2
     rw [h1, hDeq, ← h2, hDfr]
-  -- the isomorphism `A` of the tangent spaces (Proposition 2.30)
+  -- the isomorphism `A` of the tangent spaces (Proposition 2.4.10 (preprint 2.30))
   set A₀ := scDeriv Rw.U (τ ∘ Rw) z with hA₀
   set A₀' := scDeriv Rw'.U (τ' ∘ Rw') z' with hA₀'
   have hTA : ∀ v ∈ rangeS (scDeriv c.U (r c.R) z), A₀ v ∈ rangeS (scDeriv c'.U (r c'.R) z') := by
@@ -1161,8 +1161,8 @@ theorem linAt_chart_change (c c' : StrongBundleChart PX P) (hf : IsSection P f)
   · -- `Γ ∘ Lin(z) = Lin'(z') ∘ A`
     rw [hΓdef, restrictEquiv_apply, hk, hAdef, linAt_apply, linAt_apply, restrictEquiv_apply]
     exact (key x).symm
-  · -- the partial cones (Proposition 2.30)
-    have hcone := proposition_2_30_cone hdiff hx T hT T' hT'
+  · -- the partial cones (Proposition 2.4.10 (preprint 2.30))
+    have hcone := proposition_2_4_10_cone hdiff hx T hT T' hT'
     rw [hlev] at hcone
     simp only [partialConeWith] at hcone
     rw [hDr, hDr'] at hcone
@@ -1212,19 +1212,19 @@ lemma StrongBundleChart.principal_mem_K (c : StrongBundleChart PX P) (hf : IsSec
   rw [← c.apply_section hf hx, ← c.image_source]
   exact ⟨_, c.mem_source_of_proj (by rw [hf]; exact c.φ.symm_mapsTo hx), rfl⟩
 
-/-- **Definition 3.53 at a zero, from a non-centred chart, in a given centred chart** (the
-assembly step of Theorem 3.54 (1) at the zeros `y ≠ x₀`).  Let `f` be an sc-smooth section, `y`
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from a non-centred chart, in a given centred chart** (the
+assembly step of Theorem 3.6.8 (preprint 3.54) (1) at the zeros `y ≠ x₀`).  Let `f` be an sc-smooth section, `y`
 a zero, `c` a strong bundle chart of `P` around `y` (not necessarily centred), `z` on level `1`
 with `ι z = φ(y)`, and `g` sc¹ on `U` agreeing with `f̂` on `O` near `φ(y)` (e.g. a filled
 version of the germ at another point `x₀`).  Assume, with a presentation `T` of `C`:
 * the range of `Dg(z)|_{T_zO}` contains `ρ(z)k̂` for every smooth `k̂ ∈ F_∞`;
 * `ker Dg(z) ∩ T_zO` is in good position to the partial quadrant `C_{φ(y)}` inside `T_zO`.
-Then for **every** datum of Definition 3.11 at `y` (a strong bundle chart `c'` centred at `y`, a
+Then for **every** datum of Definition 3.1.11 (preprint 3.11) at `y` (a strong bundle chart `c'` centred at `y`, a
 filled version `g'` of `f̂'`, an sc⁺-section `s'` with `s'(0) = g'(0)` and `g' − s'` conjugated
 to a basic germ) the germ is in good position in `c'` (`IsGoodPositionAt`): the linearizations
 in `c` at `z` and in `c'` at `0` are conjugate (`linAt_chart_change`), so the kernel condition is
 transported (`IsInGoodPositionIn.transport`) and becomes `ker Dg'(0)` by condition (3) of the
-filler `g'` at `0` (`ker Dg'(0) ⊆ T₀O'`); the range of `Tf̃'(0)` is closed (Proposition 3.52 in
+filler `g'` at `0` (`ker Dg'(0) ⊆ T₀O'`); the range of `Tf̃'(0)` is closed (Proposition 3.6.5 (preprint 3.52) in
 `c'`) and contains the dense image under `Γ` of `ρ(z)F_∞`, hence is all of `K'_0`.  (The chart
 `c'` is arbitrary; this is what lets the good position be read in a tame chart,
 `StrongBundle.IsGoodPositionGermWholeChart.toTame`, `TameGerms.lean`.) -/
@@ -1296,7 +1296,7 @@ theorem StrongBundle.isGoodPositionAt_of_chart_dense (hf : B.IsScSmoothSection f
     ⟨_, rho_scDeriv_comp_r c.relOpen c.isRetraction (hσsm hc) hfK hzO hfz x⟩
   refine ⟨?_, ?_⟩
   · -- (1) surjectivity of `Tf̃'(0)`
-    obtain ⟨h1, -, -, -, -, hTF, -⟩ := proposition_3_52_local_wholeChart c'.relOpen c'.isRetraction h0U' h0O'
+    obtain ⟨h1, -, -, -, -, hTF, -⟩ := proposition_3_6_5_local_wholeChart c'.relOpen c'.isRetraction h0U' h0O'
       hfill' hfb0' hfK' hs' hs0' hconj'
     set q := ρCLM c'.isRetraction h0U' with hq
     have hqidem : ∀ k, q (q k) = q k := ρCLM_idem c'.isRetraction h0U' h0O'
@@ -1385,16 +1385,16 @@ theorem StrongBundle.isGoodPositionAt_of_chart_dense (hf : B.IsScSmoothSection f
       rw [← hxw]; exact h1.symm
 
 
-/-- **Definition 3.53 at a zero, from a non-centred chart** (the assembly step of Theorem 3.54
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from a non-centred chart** (the assembly step of Theorem 3.6.8 (preprint 3.54)
 (1) at the zeros `y ≠ x₀`).  Let `f` be an sc-smooth section, `y` a zero with `(f, y)` an
-sc-Fredholm germ (Definition 3.11), `c` a strong bundle chart of `P` around `y` (not necessarily
+sc-Fredholm germ (Definition 3.1.11 (preprint 3.11)), `c` a strong bundle chart of `P` around `y` (not necessarily
 centred), `z` on level `1` with `ι z = φ(y)`, and `g` sc¹ on `U` agreeing with `f̂` on `O` near
 `φ(y)` (e.g. a filled version of the germ at another point `x₀`).  Assume, with a presentation
 `T` of `C`:
 * the range of `Dg(z)|_{T_zO}` contains `ρ(z)k̂` for every smooth `k̂ ∈ F_∞`;
 * `ker Dg(z) ∩ T_zO` is in good position to the partial quadrant `C_{φ(y)}` inside `T_zO`.
 Then `(f, y)` is in good position (`IsGoodPositionGermWholeChart`), in the chart `c'` centred at `y` given
-by Definition 3.11 (`isGoodPositionAt_of_chart_dense`). -/
+by Definition 3.1.11 (preprint 3.11) (`isGoodPositionAt_of_chart_dense`). -/
 theorem StrongBundle.isGoodPositionGerm_of_chart_dense (hf : B.IsScSmoothSection f) {y : X}
     (hy : B.IsScFredholmGermWholeChart f y) (hy0 : IsZeroAt P f y)
     {c : StrongBundleChart PX P} (hc : B.IsChart c) (hyV : y ∈ c.φ.source)
@@ -1415,7 +1415,7 @@ theorem StrongBundle.isGoodPositionGerm_of_chart_dense (hf : B.IsScSmoothSection
     StrongBundle.isGoodPositionAt_of_chart_dense hf hy0 hc hyV hz hg hfg T hT hsurj hker hc' hyV'
       hφ0 h0U' hfill' hs' hs0' hconj'⟩
 
-/-- **Definition 3.53 at a zero, from a non-centred chart**, with the surjectivity hypothesis
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from a non-centred chart**, with the surjectivity hypothesis
 `Dg(z)(T_zO) ⊇ K_z = {k | (φ(y), k) ∈ K}` (`isGoodPositionGerm_of_chart_dense` with the weaker
 hypothesis on `ρ(z)F_∞`). -/
 theorem StrongBundle.isGoodPositionGerm_of_chart_wholeChart (hf : B.IsScSmoothSection f) {y : X}
@@ -1435,7 +1435,7 @@ theorem StrongBundle.isGoodPositionGerm_of_chart_wholeChart (hf : B.IsScSmoothSe
   StrongBundle.isGoodPositionGerm_of_chart_dense hf hy hy0 hc hyV hz hg hfg T hT
     (fun k _ => hsurj _ (c.mem_K_ρ (c.φ.mapsTo_model y hyV) k)) hker
 
-/-- **Definition 3.53 at a zero, from the linearization in a non-centred chart**: the intrinsic
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart**: the intrinsic
 form of `isGoodPositionGerm_of_chart_dense`, with the hypotheses on `Lin(z) = D(f̂ ∘ r)(z)|_{T_zO}`
 (`linAt`) itself: its range contains `ρ(z)F_∞`, and its kernel is in good position to `C_{φ(y)}`
 inside `T_zO`.  (Take `g = f̂ ∘ r`.) -/
@@ -1472,7 +1472,7 @@ theorem StrongBundle.isGoodPositionGerm_of_linAt (hf : B.IsScSmoothSection f) {y
     · rintro ⟨x, hx, rfl⟩
       exact ⟨hx, x.2⟩
 
-/-- **Definition 3.53 at a zero, from the linearization in a non-centred chart**, with the
+/-- **Definition 3.6.6 (preprint 3.53) at a zero, from the linearization in a non-centred chart**, with the
 surjectivity of `Lin(z) : T_zO → K_z`. -/
 theorem StrongBundle.isGoodPositionGerm_of_linAt_surj_wholeChart (hf : B.IsScSmoothSection f) {y : X}
     (hy : B.IsScFredholmGermWholeChart f y) (hy0 : IsZeroAt P f y)
@@ -1491,7 +1491,7 @@ theorem StrongBundle.isGoodPositionGerm_of_linAt_surj_wholeChart (hf : B.IsScSmo
     (fun k _ => hsurj _ (c.mem_K_ρ (c.φ.mapsTo_model y hyV) k)) hker
 
 /-- **The chart independence of the linearization at a zero and of the good position of its
-kernel** (the local form of gap G.13 for Definition 3.53).  For two strong bundle charts `c`,
+kernel** (the local form of gap G.13 for Definition 3.6.6 (preprint 3.53)).  For two strong bundle charts `c`,
 `c'` of `P` around a zero `y` of the sc-smooth section `f`, with level-`1` points `z`, `z'` over
 `φ(y)`, `φ'(y)`, the linearizations `L = Lin(z) : T_zO → K_z` and `L' = Lin'(z') : T_{z'}O' →
 K'_{z'}` satisfy: `L` is surjective iff `L'` is; `L` is Fredholm iff `L'` is, with the same index;

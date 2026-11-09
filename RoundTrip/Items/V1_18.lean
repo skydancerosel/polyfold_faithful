@@ -5,20 +5,20 @@ import RoundTrip.Blind.V1_18
 /-! Round trip for V1_18 (Proposition 1.19: sc^{k+1} from `C^{l+1}` on `U_{m+l} → F_m`).
 
 `A` is the conjunction of the types of the theorems in the item's declaration list:
-`proposition_1_19_text`, `IsScSmooth.of_contDiffOn_levels_text`, `proposition_1_19_zero`,
-`proposition_1_19`, `IsScSmooth.of_contDiffOn_levels`.  None has universe parameters.
+`proposition_1_2_4_text`, `IsScSmooth.of_contDiffOn_levels_text`, `proposition_1_2_4_zero`,
+`proposition_1_2_4`, `IsScSmooth.of_contDiffOn_levels`.  None has universe parameters.
 
 Same notions: `B`'s `levelTo f (m+l) m` is `levelMap f m ∘ E.inclK m l` (pointwise, by
 `toBase_inclK`); `B`'s "`f` induces `U_{m+l} → F_m`" (membership) for `l = 0` plus `C¹` on `U_m`
 is the project's `IsSc0`; `sc^{k+1}` is `IsSck (k+1)`.
 
-* `A → B`: `proposition_1_19_text` on the sc-domain `U`, with `IsSc0` assembled from `B`'s
+* `A → B`: `proposition_1_2_4_text` on the sc-domain `U`, with `IsSc0` assembled from `B`'s
   hypothesis at `l = 0`.
 * `B → A` fails for a genuine reason: every conjunct of `A` is stated for an arbitrary
   `IsScDomain U`, `B` only for relatively open subsets of partial quadrants; and
-  `proposition_1_19_zero` names the derivative family (`fderivWithin ℝ f U`), which `B` (an
+  `proposition_1_2_4_zero` names the derivative family (`fderivWithin ℝ f U`), which `B` (an
   `IsSck` statement) does not.  On relatively open subsets of partial quadrants,
-  `proposition_1_19_text`, `IsScSmooth.of_contDiffOn_levels_text`, `proposition_1_19` and
+  `proposition_1_2_4_text`, `IsScSmooth.of_contDiffOn_levels_text`, `proposition_1_2_4` and
   `IsScSmooth.of_contDiffOn_levels` follow from `B` (`B_text_quadrant`, `B_smooth_text_quadrant`,
   `B_strong_quadrant`, `B_smooth_strong_quadrant`). -/
 
@@ -28,14 +28,14 @@ open scoped ContDiff
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_1_19_text) ∧
+  (type_of% @Polyfold.proposition_1_2_4_text) ∧
     (type_of% @Polyfold.IsScSmooth.of_contDiffOn_levels_text) ∧
-    (type_of% @Polyfold.proposition_1_19_zero) ∧ (type_of% @Polyfold.proposition_1_19) ∧
+    (type_of% @Polyfold.proposition_1_2_4_zero) ∧ (type_of% @Polyfold.proposition_1_2_4) ∧
     (type_of% @Polyfold.IsScSmooth.of_contDiffOn_levels)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_1_19_text, @Polyfold.IsScSmooth.of_contDiffOn_levels_text,
-    @Polyfold.proposition_1_19_zero, @Polyfold.proposition_1_19,
+  ⟨@Polyfold.proposition_1_2_4_text, @Polyfold.IsScSmooth.of_contDiffOn_levels_text,
+    @Polyfold.proposition_1_2_4_zero, @Polyfold.proposition_1_2_4,
     @Polyfold.IsScSmooth.of_contDiffOn_levels⟩
 
 /-- The blind `levelTo f (m+l) m` is the project's `levelMap f m ∘ ι`. -/
@@ -70,7 +70,7 @@ theorem hyp_of_text {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0} {k : ℕ}
   have := hf.mem_range m (E.inclK m l x) (E.inclK_mem_lvlSet hx)
   rwa [E.toBase_inclK] at this
 
-/-- `B → A` on relatively open subsets of partial quadrants: `proposition_1_19_text`. -/
+/-- `B → A` on relatively open subsets of partial quadrants: `proposition_1_2_4_text`. -/
 theorem B_text_quadrant (hB : B) {E F : ScBanach} {C U : Set (E 0)} {f : E 0 → F 0} {k : ℕ}
     (hU : IsRelOpenInQuadrant E C U) (hf : IsSc0 E F U f)
     (h : ∀ m l, l ≤ k → ContDiffOn ℝ (l + 1) (levelMap f m ∘ E.inclK m l) (E.lvlSet U (m + l))) :
@@ -96,7 +96,7 @@ theorem text_of_strong {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0} {k : �
   refine ((h m).comp (E.inclK m l).contDiff.contDiffOn fun x hx => E.inclK_mem_lvlSet hx).of_le ?_
   exact_mod_cast Nat.add_le_add_right hl 1
 
-/-- `B → A` on relatively open subsets of partial quadrants: `proposition_1_19`. -/
+/-- `B → A` on relatively open subsets of partial quadrants: `proposition_1_2_4`. -/
 theorem B_strong_quadrant (hB : B) {E F : ScBanach} {C U : Set (E 0)} {f : E 0 → F 0} {k : ℕ}
     (hU : IsRelOpenInQuadrant E C U) (hf : IsSc0 E F U f)
     (h : ∀ m, ContDiffOn ℝ (k + 1) (levelMap f m) (E.lvlSet U m)) : IsSck (k + 1) E F U f :=
@@ -124,7 +124,7 @@ theorem isSc1With_congr_deriv {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0}
     change (levelMap f 1 p.1, D p.1 p.2) = (levelMap f 1 p.1, D' p.1 p.2)
     rw [hD p.1 hp]
 
-/-- `B → A` on relatively open subsets of partial quadrants: `proposition_1_19_zero`, with its
+/-- `B → A` on relatively open subsets of partial quadrants: `proposition_1_2_4_zero`, with its
 derivative family `fderivWithin ℝ f U` (identified with the family given by `B` through the
 uniqueness of derivatives on `U₁` and the density of `E₁` in `E₀`). -/
 theorem B_zero_quadrant (hB : B) {E F : ScBanach} {C U : Set (E 0)} {f : E 0 → F 0}
@@ -151,17 +151,17 @@ theorem B_zero_quadrant (hB : B) {E F : ScBanach} {C U : Set (E 0)} {f : E 0 →
   rintro _ ⟨y, rfl⟩
   exact congrArg (fun L : E 1 →L[ℝ] F 0 => L y) h1
 
-#rt_check RoundTrip.V1_18.B_zero_quadrant [Polyfold.proposition_1_19_text,
-  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_19_zero,
-  Polyfold.proposition_1_19, Polyfold.IsScSmooth.of_contDiffOn_levels]
-#rt_check RoundTrip.V1_18.A_to_B [Polyfold.proposition_1_19_text,
-  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_19_zero,
-  Polyfold.proposition_1_19, Polyfold.IsScSmooth.of_contDiffOn_levels]
-#rt_check RoundTrip.V1_18.B_smooth_text_quadrant [Polyfold.proposition_1_19_text,
-  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_19_zero,
-  Polyfold.proposition_1_19, Polyfold.IsScSmooth.of_contDiffOn_levels]
-#rt_check RoundTrip.V1_18.B_smooth_strong_quadrant [Polyfold.proposition_1_19_text,
-  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_19_zero,
-  Polyfold.proposition_1_19, Polyfold.IsScSmooth.of_contDiffOn_levels]
+#rt_check RoundTrip.V1_18.B_zero_quadrant [Polyfold.proposition_1_2_4_text,
+  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_2_4_zero,
+  Polyfold.proposition_1_2_4, Polyfold.IsScSmooth.of_contDiffOn_levels]
+#rt_check RoundTrip.V1_18.A_to_B [Polyfold.proposition_1_2_4_text,
+  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_2_4_zero,
+  Polyfold.proposition_1_2_4, Polyfold.IsScSmooth.of_contDiffOn_levels]
+#rt_check RoundTrip.V1_18.B_smooth_text_quadrant [Polyfold.proposition_1_2_4_text,
+  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_2_4_zero,
+  Polyfold.proposition_1_2_4, Polyfold.IsScSmooth.of_contDiffOn_levels]
+#rt_check RoundTrip.V1_18.B_smooth_strong_quadrant [Polyfold.proposition_1_2_4_text,
+  Polyfold.IsScSmooth.of_contDiffOn_levels_text, Polyfold.proposition_1_2_4_zero,
+  Polyfold.proposition_1_2_4, Polyfold.IsScSmooth.of_contDiffOn_levels]
 
 end RoundTrip.V1_18

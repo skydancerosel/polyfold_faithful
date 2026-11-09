@@ -5,10 +5,10 @@ import Polyfold.Chapter5.BumpFunctions
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §8.3,
 pp. 270–275: the infrastructure behind "`µ : 𝐗 ₛ×_P W → W` a strong bundle map covering the
-target map `t`" in the definition of strong bundles over ep-groupoids (Definitions 8.4–8.5):
+target map `t`" in the definition of strong bundles over ep-groupoids (Definitions 8.3.1–8.3.2 (2017: 8.4–8.5)):
 global strong bundle maps between strong bundles over M-polyfolds, and the pull-back strong
 bundle `𝐗 ₛ×_P W` along the source map as a usable object.  Built on Part I's Definitions
-2.22–2.28 [2.47–2.53] and Proposition 2.16 [2.54].
+2.22–2.28 [2.47–2.53] and Proposition 2.6.8 (2017: 2.16) [2.54].
 
 # Strong bundle maps and the pull-back strong bundle
 
@@ -16,18 +16,18 @@ bundle `𝐗 ₛ×_P W` along the source map as a usable object.  Built on Part 
 
 (§8.3) A strong bundle over an ep-groupoid `X` consists of a strong M-polyfold bundle
 `P : W → X` over the object M-polyfold and a map `µ : 𝐗 ₛ×_P W → W`, defined on "the pull-back of
-a strong M-polyfold bundle" `P` along the source map `s : 𝐗 → X` (Part I's Definition 2.28 [2.53]
-and Proposition 2.16 [2.54]), which is a strong bundle map covering the target map `t`, with
+a strong M-polyfold bundle" `P` along the source map `s : 𝐗 → X` (Part I's Definition 2.6.7 (2017: 2.28) [2.53]
+and Proposition 2.6.8 (2017: 2.16) [2.54]), which is a strong bundle map covering the target map `t`, with
 (1) `µ` a surjective local sc-diffeomorphism, linear on the fibres, (2) `µ(1_x, w) = w`,
-(3) `µ(ψ ∘ γ, w) = µ(ψ, µ(γ, w))` (Definition 8.4, p. 271).
+(3) `µ(ψ ∘ γ, w) = µ(ψ, µ(γ, w))` (Definition 8.3.1 (2017: 8.4), p. 375 (2017 p. 271)).
 Part I defines strong bundle maps only between the local models
-`U ◁ F → U' ◁ F'` (Definition 2.22 [2.47]: preserving the double filtration, linear on the fibres,
+`U ◁ F → U' ◁ F'` (Definition 2.6.1 (2017: 2.22) [2.47]: preserving the double filtration, linear on the fibres,
 sc-smooth on `[0]` and `[1]`); the text uses the global notion without defining it.
 
 ## What is formalized
 
 * **The pull-back bundle** is Part I's `Polyfold.StrongBundle.pullback B hf`
-  (`Chapter3/ParamPerturbation.lean`: Proposition 2.16 [2.54] as a definition, atlas
+  (`Chapter3/ParamPerturbation.lean`: Proposition 2.6.8 (2017: 2.16) [2.54] as a definition, atlas
   `pullbackAtlas B hf`), with the paracompactness of `f*Y` as an instance argument.  The
   pattern is `have := B.paracompactSpace_pullback PZ f` in a proof (`haveI` in a definition;
   `StrongBundle.paracompactSpace_pullback`, Part I's `paracompactSpace_pullbackSpace`), then
@@ -63,7 +63,7 @@ sc-smooth on `[0]` and `[1]`); the text uses the global notion without defining 
   `isScSmoothMap_one_pullbackProj'` (`P'[1] : f*Y[1] → Y[1]` sc-smooth),
   `isStrongBundleMap_pullbackProj'`, and `fiberMap_pullbackProj'` (its fibre maps are Part I's
   `pullbackFiberCLE`).
-* `Polyfold.MPolyfold.isScSmoothMap_of_forall_charts`: Definition 2.9 [2.14] checked on whole chart
+* `Polyfold.MPolyfold.isScSmoothMap_of_forall_charts`: Definition 2.3.8 (2017: 2.9) [2.14] checked on whole chart
   domains, with continuity read off from the charts.
 
 ## What the text leaves implicit, and the choices made
@@ -73,16 +73,16 @@ sc-smooth on `[0]` and `[1]`); the text uses the global notion without defining 
   `f : X → X'`, `Φ : Y → Y'`: (i) `P' ∘ Φ = f ∘ P`; (ii) `Φ` is linear on the fibres, i.e. the
   restrictions `P⁻¹(x) → P'⁻¹(f(x))` (`fiberRestrict`) are linear for the fibre structures of the
   strong bundles; (iii) `Φ : Y[0] → Y'[0]` is sc-smooth; (iv) `Φ(Y_{0,1}) ⊆ Y'_{0,1}` and the
-  induced `Y[1] → Y'[1]` is sc-smooth.  This is the global form of Definition 2.22 [2.47], in the
-  way Definition 2.25 [2.50] treats the transition maps: in the charts, (iii) and (iv) say that the
+  induced `Y[1] → Y'[1]` is sc-smooth.  This is the global form of Definition 2.6.1 (2017: 2.22) [2.47], in the
+  way Definition 2.6.4 (2017: 2.25) [2.50] treats the transition maps: in the charts, (iii) and (iv) say that the
   local representatives `K[i] → K'[i]` are sc-smooth.  Preservation of the double filtration,
-  part of Definition 2.22 [2.47], is not assumed: it follows (`mapsTo_doubleLevel`; for `k ≤ m`
+  part of Definition 2.6.1 (2017: 2.22) [2.47], is not assumed: it follows (`mapsTo_doubleLevel`; for `k ≤ m`
   from (iii) on `Y_{k,k}` and at the zero of the fibre, for `k = m + 1` from (iv)).  Boundedness of
   the fibre maps follows from (iii) (`fiberMap`), and so does the sc-smoothness of the base map `f`
   (`isScSmoothMap_base`: `f = P' ∘ Φ ∘ 0` with the zero section).
 * A strong bundle isomorphism (`IsStrongBundleIso`) is a pair of strong bundle maps inverse to each
   other; this extends Part I's local `Polyfold.IsStrongBundleIso` (Chapter 3) to strong bundles.
-* The paracompactness of `f*Y` (Definition 2.26 [2.51] requires a paracompact total space) is an
+* The paracompactness of `f*Y` (Definition 2.6.5 (2017: 2.26) [2.51] requires a paracompact total space) is an
   instance argument, as in Part I; it is a `Prop`, so the instance supplied by
   `paracompactSpace_pullback` agrees with any other.
 * The inverse `w ↦ (σ(P w), w)` of `P'` over a sheet takes a junk value off `P⁻¹(V)`.
@@ -138,7 +138,7 @@ namespace MPolyfold
 variable {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX : MPolyfold X}
   {Y : Type*} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {PY : MPolyfold Y}
 
-/-- The locality of Definition 2.9 [2.14] with whole chart domains: `f` is sc-smooth if every point
+/-- The locality of Definition 2.3.8 (2017: 2.9) [2.14] with whole chart domains: `f` is sc-smooth if every point
 lies in the domain of a chart `φ` with `f(dom φ) ⊆ dom ψ` and `ψ ∘ f ∘ φ⁻¹ : O → O'` sc-smooth
 (the continuity of `f` follows from the charts). -/
 theorem isScSmoothMap_of_forall_charts {f : X → Y}
@@ -237,7 +237,7 @@ namespace StrongBundle
 variable (B : StrongBundle PX P)
 
 include B in
-/-- `f*Y` is paracompact (Part I's `paracompactSpace_pullbackSpace`, by Theorem 2.2 [2.16]); use
+/-- `f*Y` is paracompact (Part I's `paracompactSpace_pullbackSpace`, by Theorem 2.3.10 (2017: 2.2) [2.16]); use
 `have := B.paracompactSpace_pullback PZ f` (`haveI` in a definition) before `B.pullback hf`. -/
 theorem paracompactSpace_pullback (PZ : MPolyfold Z) (f : Z → X) :
     ParacompactSpace (pullbackSpace P f) :=
@@ -436,7 +436,7 @@ def oneRestrict (B : StrongBundle PX P) (B' : StrongBundle PX' P') (Φ : Y → Y
 /-- **A strong bundle map covering `f`** (a reading of §8.3's "strong bundle map covering `t`"):
 `Φ : Y → Y'` with (i) `P' ∘ Φ = f ∘ P`, (ii) linear on the fibres, (iii) sc-smooth `Y[0] → Y'[0]`,
 (iv) mapping `Y_{0,1}` into `Y'_{0,1}` with the induced map `Y[1] → Y'[1]` sc-smooth.  Part I
-defines strong bundle maps only between local models (Definition 2.22 [2.47]); the preservation
+defines strong bundle maps only between local models (Definition 2.6.1 (2017: 2.22) [2.47]); the preservation
 of the double filtration required there follows from (i)–(iv)
 (`IsStrongBundleMap.mapsTo_doubleLevel`). -/
 structure IsStrongBundleMap (B : StrongBundle PX P) (B' : StrongBundle PX' P') (f : X → X')
@@ -564,7 +564,7 @@ theorem zero_mem_doubleLevel {y : Y} {m k : ℕ} (hk : k ≤ m + 1) (hy : y ∈ 
   · rw [map_zero]; exact ((c.fiber_linear (P y) hx).map_zero).symm
 
 /-- **A strong bundle map preserves the double filtration** `Y_{m,k}`, `k ≤ m + 1` (part of
-Definition 2.22 [2.47] for local models): for `k ≤ m` from the sc-smoothness on `Y[0]` (on
+Definition 2.6.1 (2017: 2.22) [2.47] for local models): for `k ≤ m` from the sc-smoothness on `Y[0]` (on
 `Y_{k,k}` for the fibre component, at the zero of the fibre for the base component), for
 `k = m + 1` from the sc-smoothness on `Y[1]`. -/
 theorem IsStrongBundleMap.mapsTo_doubleLevel (h : B.IsStrongBundleMap B' f Φ) {m k : ℕ}

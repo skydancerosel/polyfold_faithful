@@ -6,7 +6,7 @@ import RoundTrip.Blind.V3_19
 Refreshed 2026-11-02 against HEAD (new conjuncts: Lemma 3.17 for filling germs).
 
 `A` is the conjunction of the types of `Polyfold.IsFillingGerm.add_section_germ`,
-`Polyfold.IsFillingGerm.add_section`, `Polyfold.lemma_3_17` and `Polyfold.IsFillerOf.congr_left`
+`Polyfold.IsFillingGerm.add_section`, `Polyfold.lemma_3_1_20` and `Polyfold.IsFillerOf.congr_left`
 (no universe parameters).
 
 * At the audit A only had the whole-chart filler `IsFillerOf` (no regularity of `g`, the fill
@@ -21,7 +21,7 @@ Refreshed 2026-11-02 against HEAD (new conjuncts: Lemma 3.17 for filling germs).
   `g + ŝ'' ∘ r` is turned back into B's `IsFillingB` for `f̂ + ŝ` and `g + ŝ ∘ r` (both agree on
   `U` since `r ∘ r = r` there, and on `O` since `r = id` there; the `≃L` gives back a bijection
   with bounded inverse).  The audit's outright proof `B_holds` is kept.
-* `B → A` fails genuinely: `lemma_3_17` and `IsFillerOf.congr_left` are about the whole-chart
+* `B → A` fails genuinely: `lemma_3_1_20` and `IsFillerOf.congr_left` are about the whole-chart
   `IsFillerOf` with an arbitrary `s : E₀ → F₀` (no regularity), `add_section`/`add_section_germ`
   about an arbitrary `ŝ` sc-smooth on `U` (resp. a germ) with only the section property; B only
   covers the principal parts of sc⁺-sections of a tame bundle and sc-smooth `f`.
@@ -34,13 +34,13 @@ open Polyfold Set Filter Topology
 def A : Prop :=
   (type_of% @Polyfold.IsFillingGerm.add_section_germ) ∧
   (type_of% @Polyfold.IsFillingGerm.add_section) ∧
-  (type_of% @Polyfold.lemma_3_17) ∧ (type_of% @Polyfold.IsFillerOf.congr_left)
+  (type_of% @Polyfold.lemma_3_1_20) ∧ (type_of% @Polyfold.IsFillerOf.congr_left)
 
 theorem A_holds : A :=
   ⟨@Polyfold.IsFillingGerm.add_section_germ, @Polyfold.IsFillingGerm.add_section,
-    @Polyfold.lemma_3_17, @Polyfold.IsFillerOf.congr_left⟩
+    @Polyfold.lemma_3_1_20, @Polyfold.IsFillerOf.congr_left⟩
 
-/-- **`B` holds** (outright; `lemma_3_17` cannot be applied to germ fillers). -/
+/-- **`B` holds** (outright; `lemma_3_1_20` cannot be applied to germ fillers). -/
 theorem B_holds : B := by
   intro E F C U R hU hR _ h0 _ f s g _ hs hfill
   have hUd := hU.isScDomain
@@ -208,10 +208,10 @@ theorem A_to_B : A → B := by
     exact hfix
 
 #rt_check RoundTrip.V3_19.A_to_B [Polyfold.IsFillingGerm.add_section_germ,
-  Polyfold.IsFillingGerm.add_section, Polyfold.lemma_3_17, Polyfold.IsFillerOf.congr_left]
+  Polyfold.IsFillingGerm.add_section, Polyfold.lemma_3_1_20, Polyfold.IsFillerOf.congr_left]
 #rt_check RoundTrip.V3_19.B_holds [Polyfold.IsFillingGerm.add_section_germ,
-  Polyfold.IsFillingGerm.add_section, Polyfold.lemma_3_17, Polyfold.IsFillerOf.congr_left]
+  Polyfold.IsFillingGerm.add_section, Polyfold.lemma_3_1_20, Polyfold.IsFillerOf.congr_left]
 #rt_overlap RoundTrip.V3_19.B_holds [Polyfold.IsFillingGerm.add_section_germ,
-  Polyfold.IsFillingGerm.add_section, Polyfold.lemma_3_17, Polyfold.IsFillerOf.congr_left]
+  Polyfold.IsFillingGerm.add_section, Polyfold.lemma_3_1_20, Polyfold.IsFillerOf.congr_left]
 
 end RoundTrip.V3_19

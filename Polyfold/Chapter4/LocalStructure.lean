@@ -4,14 +4,14 @@ import Polyfold.Chapter2.PartialCone
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §4.2–4.3,
-Theorem 4.22 and Remark 4.24 *(book 2017: Theorem 4.3 and Remark 4.5; see `BookConcordance.md`)*.
+Theorem 4.2.11 (preprint 4.22) and Remark 4.3.2 (preprint 4.24) *(book 2017: Theorem 4.3 and Remark 4.5; see `BookConcordance.md`)*.
 
 # The local structure of smooth submanifolds in general position
 
 ## The text, paraphrased
 
-(Theorem 4.22) Let `A` be a smooth finite-dimensional submanifold of the tame M-polyfold `X`, in
-general position at `x ∈ A` (Definition 4.21: `T_xA` has in `T_xX` an sc-complement contained in
+(Theorem 4.2.11 (preprint 4.22)) Let `A` be a smooth finite-dimensional submanifold of the tame M-polyfold `X`, in
+general position at `x ∈ A` (Definition 4.2.10 (preprint 4.21): `T_xA` has in `T_xX` an sc-complement contained in
 `T_x^R X`).  There is an open `U ∋ x` such that (1) there are precisely `d = d_X(x)` local faces
 `F_1, …, F_d` in `U`; (2) `d_X(a) = d_A(a)` for `a ∈ A ∩ U`; (3) `A` is in general position at every
 `a ∈ A ∩ U`; (4) for `σ ⊆ {1, …, d}`, `F_σ = ⋂_{i ∈ σ} F_i` is a tame M-polyfold, `A ∩ F_σ` is a
@@ -19,14 +19,14 @@ tame smooth submanifold of `F_σ`, in general position in `F_σ` at every point 
 *Proof*: in a tame chart `(O, C, E)` with `x = 0`, `C = [0, ∞)ⁿ ⊕ W`, `n = d_O(0)`; `T₀^R O =
 T₀O ∩ ({0} ⊕ W)` (Definition 2.27); `E = T₀O ⊕ Z = T₀A ⊕ Ã ⊕ Z` with `Ã ⊆ T₀^R O` and `Z ⊆ W`
 (tameness), so `E = T₀A ⊕ Y` with `Y ⊆ W`; `T₀A` is in good position to `C` with good complement
-`Y`, `T₀A ∩ C` is a partial quadrant (Proposition 3.22), and by Proposition 4.9 `A` is near `0` the
+`Y`, `T₀A ∩ C` is a partial quadrant (Proposition 3.1.25 (preprint 3.22)), and by Proposition 4.1.9 (preprint 4.9) `A` is near `0` the
 graph `{v + δ(v)}` of `δ : V → Y`, `V ⊆ T₀A ∩ C`.  (2): `p : A → V` is an sc-diffeomorphism, so
-`d_A(a) = d_{T₀A ∩ C}(p(a))` (Proposition 2.24), `= d_C(a)` (since `δ` takes values in `W`),
-`= d_O(a)` (Proposition 2.36).  (3): `T_aA = {h + Dδ(v)h}` and `T₀A + W = E` give `T_aA + W = E`,
+`d_A(a) = d_{T₀A ∩ C}(p(a))` (Proposition 2.4.4 (preprint 2.24)), `= d_C(a)` (since `δ` takes values in `W`),
+`= d_O(a)` (Proposition 2.5.6 (preprint 2.36)).  (3): `T_aA = {h + Dδ(v)h}` and `T₀A + W = E` give `T_aA + W = E`,
 hence `T_aO = T_aA + (W ∩ T_aO) = T_aA + T_a^R O`.  (4): "in view of the arguments in the proof of
 Proposition 2.43 the `F_σ` are tame M-polyfolds; `A ∩ F_σ` are smooth submanifolds of `F_σ`; the
-previous arguments, applied to `A ∩ F_σ`, conclude the proof."  (Remark 4.24) By Proposition 2.36,
-`codim T_x^R X = d_X(x)`; so in Theorem 4.23 a point `x ∈ A_λ` can lie in a corner only if
+previous arguments, applied to `A ∩ F_σ`, conclude the proof."  (Remark 4.3.2 (preprint 4.24)) By Proposition 2.5.6 (preprint 2.36),
+`codim T_x^R X = d_X(x)`; so in Theorem 4.3.1 (preprint 4.23) a point `x ∈ A_λ` can lie in a corner only if
 `d_X(x) ≤ dim A_λ`.
 
 ## What is formalized
@@ -43,31 +43,31 @@ previous arguments, applied to `A ∩ F_σ`, conclude the proof."  (Remark 4.24)
   the explicit presentation `v ↦ (λ(v), v − s(λ(v)))` of `N ∩ C` (`degIndex_slice`).
 * **An sc-complement inside an sc-subspace** (`exists_scComplement_le`): for `N ⊆ E_∞`
   finite-dimensional and an sc-subspace `TR`, `N` has in `N + TR` an sc-complement contained in
-  `TR` (via Proposition 1.6 and the sc-projection of Lemma 2.B).
+  `TR` (via Proposition 1.1.7 (preprint 1.6) and the sc-projection of Lemma 2.B).
 * **General position in a chart from `T_yQ + E_0 = E`** (`isGeneralPositionRetractAt_of_sup_eq_top`,
-  the modular law and Proposition 2.36: `T_y^R O` is an sc-subspace).
-* **Theorem 4.22 in a tame chart centred at the point** (`theorem_4_22_chart`): from general
-  position at `0`, `T₀A + E_0 = E` (`sup_minimalSubspaceWith_eq_top`, with Proposition 2.35);
-  Proposition 4.9 with the good complement `Y ⊆ E_0`; `d_{T₀A ∩ C}(v) = d_C(Γ(v))`; general position
+  the modular law and Proposition 2.5.6 (preprint 2.36): `T_y^R O` is an sc-subspace).
+* **Theorem 4.2.11 (preprint 4.22) in a tame chart centred at the point** (`theorem_4_2_11_chart`): from general
+  position at `0`, `T₀A + E_0 = E` (`sup_minimalSubspaceWith_eq_top`, with Proposition 2.5.3 (preprint 2.35));
+  Proposition 4.1.9 (preprint 4.9) with the good complement `Y ⊆ E_0`; `d_{T₀A ∩ C}(v) = d_C(Γ(v))`; general position
   at every point of the graph (`sup_minimalSubspaceWith_eq_top_graph`: `T_yA = DΓ(v)T₀A` with
   `DΓ(v)h − h ∈ ker p = Y`).
-* **Theorem 4.22 (4) in the chart**: `κ_σ` killing the coordinates in `σ` on `T₀A` (`killOn`,
+* **Theorem 4.2.11 (preprint 4.22) (4) in the chart**: `κ_σ` killing the coordinates in `σ` on `T₀A` (`killOn`,
   through a linear section of `λ|_{T₀A}`), continuous linear maps into finite-dimensional spaces as
   sc-operators (`opToConst`); the **sc⁺-retraction `t_σ = Γ ∘ κ_σ ∘ p ∘ t` onto `A ∩ F_σ`**
   (`exists_scPlus_retraction_corner`, with `T_yA ∩ f_σ ⊆ T_y(A ∩ F_σ)` by the chain rule), its
   corner model (`exists_cornerModel_retraction`: `π_σ ∘ S ∘ ι_σ`, sc⁺ if `S` is), and
-  `theorem_4_22_four_chart`: `F_σ` near `0` with its tame corner model (Proposition 2.44,
+  `theorem_4_2_11_four_chart`: `F_σ` near `0` with its tame corner model (Proposition 2.5.16 (preprint 2.44),
   `corner_retraction`, `corner_tameModel`), `A ∩ F_σ` an sc⁺-retract inside it, in general position
   in the corner model.
 * **General position implies good position** (`IsGeneralPositionRetractAt.isGoodPositionRetractAt`).
 * **sc⁺-retractions in a chart are sc⁺-retractions on open subsets** of the M-polyfold
   (`MPolyfold.isScPlusRetractionOn_of_chart`).
-* **Theorem 4.22 (1)–(4)** on the M-polyfold: `MPolyfold.theorem_4_22`, with (4) for one `σ` in
-  `MPolyfold.theorem_4_22_four_of_chart` (`F_σ = ψ⁻¹(G ∩ ⋂_{i ∈ σ} F_i)`,
+* **Theorem 4.2.11 (preprint 4.22) (1)–(4)** on the M-polyfold: `MPolyfold.theorem_4_2_11_preprint`, with (4) for one `σ` in
+  `MPolyfold.theorem_4_2_11_four_of_chart` (`F_σ = ψ⁻¹(G ∩ ⋂_{i ∈ σ} F_i)`,
   `MChart.cornerPreimage`).
-* **Remark 4.24**: `MPolyfold.remark_4_24_codim` (`codim T_x^R X = d_X(x)` in a tame chart),
-  `MPolyfold.remark_4_24` (general position at `a` gives `d_X(a) ≤ dim T_aA`),
-  `MPolyfold.remark_4_24_not_mem_boundary`; in a chart `remark_4_24_chart`
+* **Remark 4.3.2 (preprint 4.24)**: `MPolyfold.remark_4_3_2_codim` (`codim T_x^R X = d_X(x)` in a tame chart),
+  `MPolyfold.remark_4_3_2` (general position at `a` gives `d_X(a) ≤ dim T_aA`),
+  `MPolyfold.remark_4_3_2_not_mem_boundary`; in a chart `remark_4_3_2_chart`
   (with `quotDim_le_finrank_of_eq_sup`).
 
 ## What the text leaves implicit, and the choices made
@@ -75,30 +75,30 @@ previous arguments, applied to `A ∩ F_σ`, conclude the proof."  (Remark 4.24)
 * The chart `(O, C, E)` with `x = 0` and `C = [0, ∞)ⁿ ⊕ W`, `n = d_O(0)`, is the tame chart
   re-centred at the smooth point `x` (`IsTame.exists_centredChart`, Findings Chapter 4, item 1); in
   it every half-line coordinate vanishes at `0`, so `n = d_X(x)` for any presentation of `C`.
-* The good complement `Y ⊆ W` of `T₀A` is chosen closed (Proposition 4.9 needs it, Findings
+* The good complement `Y ⊆ W` of `T₀A` is chosen closed (Proposition 4.1.9 (preprint 4.9) needs it, Findings
   Chapter 4, item 21): any closed complement of `T₀A` inside the closed `E_0 = {0} ⊕ W`; it is good
   with every `ε`, since adding a vector of `E_0` changes no coordinate.  The text's further
   splitting `T₀A = N ⊕ (T₀A ∩ W)`, `E = N ⊕ W`, is replaced by the presentation of `T₀A ∩ C`
   through the coordinates `λ|_{T₀A}`, which are onto `ℝⁿ`.
-* (2) uses the corner chart `p ∘ ψ` of `A` (Theorem 4.2's `CornerChartData`, for the induced chart
+* (2) uses the corner chart `p ∘ ψ` of `A` (Theorem 4.1.2 (preprint 4.2)'s `CornerChartData`, for the induced chart
   of `A` and the complement `Y ⊆ E_0`), which is tame and hence realizes `d_A`
   (`degIndex_eq_chartDegIndex_of_isTameRetract`); the text's "by Proposition 2.24" is this.  The
   identity `d_{T₀A ∩ C}(p(a)) = d_C(a)` holds because `a − p(a) ∈ Y ⊆ E_0` has vanishing
-  coordinates; and `d_C(ψ(a)) = d_X(a)` because the chart is tame (the text: Proposition 2.36).
+  coordinates; and `d_C(ψ(a)) = d_X(a)` because the chart is tame (the text: Proposition 2.5.6 (preprint 2.36)).
 * (3): "`T_aA + W = E` by the particular form of `α`" needs `Dδ(v)h ∈ W`, which follows from
   `p ∘ DΓ(v) = 1` (`tangentSpace_eq_range_graph`) and `ker p = Y ⊆ W`; "`T_aA` has in `T_aO` an
-  sc-complement contained in `T_a^R O`" needs `T_a^R O` to be an sc-subspace (Proposition 2.36, for
+  sc-complement contained in `T_a^R O`" needs `T_a^R O` to be an sc-subspace (Proposition 2.5.6 (preprint 2.36), for
   tame retracts) and the construction of `exists_scComplement_le`.
 * (1) is read as: `d_X(x)` equals the number of half-line coordinates of the centred tame chart,
   all vanishing at `0` (the local faces are `F_i = O ∩ {λ_i = 0}`), and `x` lies in exactly
-  `d_X(x)` faces of the chart model (Corollary 2.41).  It does not involve `A`.
+  `d_X(x)` faces of the chart model (Corollary 2.5.13 (preprint 2.41)).  It does not involve `A`.
 * (4) has no proof in the text ("the previous arguments, but now applied to `A ∩ F_σ`").  `F_σ` is
   the germ `ψ⁻¹(G ∩ ⋂_{i ∈ σ} F_i)`, `F_i` the faces of the chart model through `0`, with `G` chosen
   inside the submanifold chart so that `F_σ ⊆ U` and `A ∩ F_σ` is exactly the retract of `t_σ`; it
-  is a tame sub-M-polyfold by Proposition 2.44 (second sentence, `CornerGerms.lean`) in the centred
+  is a tame sub-M-polyfold by Proposition 2.5.16 (preprint 2.44) (second sentence, `CornerGerms.lean`) in the centred
   chart.  `A ∩ F_σ` is a smooth submanifold of `F_σ` through the sc⁺-retraction `t_σ`, read in the
   face chart `π_σ ∘ ψ` of `F_σ`; general position in `F_σ` comes from `T_yA + E_0 = E` restricted to
-  `f_σ`; tameness of `A ∩ F_σ` is Theorem 4.18 in `F_σ`, good position following from general
+  `f_σ`; tameness of `A ∩ F_σ` is Theorem 4.2.7 (preprint 4.18) in `F_σ`, good position following from general
   position.
 * No hypothesis is added; `[ParacompactSpace A]` is the instance argument of the induced structure
   (`subPolyfold`), as in `Submanifolds.lean`; the paracompactness of `F_σ` and of `A ∩ F_σ` is
@@ -249,7 +249,7 @@ lemma interior_nonempty_of_sup_eq_top (hT : C = T 0 ⁻¹' quadrant n Wq 0)
     rw [this]; exact one_pos
   exact ⟨u, interior_maximal hGC hGo huG⟩
 
-/-- **A complement inside `E_0` is a good complement** (Definition 3.21, with any `ε`): adding a
+/-- **A complement inside `E_0` is a good complement** (Definition 3.1.24 (preprint 3.21), with any `ε`): adding a
 vector of `E_0` does not change membership in `C`. -/
 lemma isGoodComplement_of_le_zero (hT : C = T 0 ⁻¹' quadrant n Wq 0) {N Y : Submodule ℝ (E 0)}
     (hNY : IsCompl N Y) (hY : Y ≤ minimalSubspaceWith T 0) : IsGoodComplement E C N Y :=
@@ -317,11 +317,11 @@ section ScComplement
 
 variable {E : ScBanach}
 
-/-- **An sc-complement inside an sc-subspace** (the last step of the proof of Theorem 4.22 (3)):
+/-- **An sc-complement inside an sc-subspace** (the last step of the proof of Theorem 4.2.11 (preprint 4.22) (3)):
 let `N ⊆ E_∞` be finite-dimensional, `TR` an sc-subspace and `M = N + TR`.  Then `N` has in `M` an
 sc-complement `B ⊆ TR`: an sc-subspace with `M_m = N_m ⊕ B_m` on every level.  *Proof*:
 `K = N ∩ TR` is finite-dimensional and smooth, so it has an sc-complement `G` in `E`
-(Proposition 1.6); `B = TR ∩ G`.  The smooth points of `B_m` are dense: for `x ∈ B_m` and smooth
+(Proposition 1.1.7 (preprint 1.6)); `B = TR ∩ G`.  The smooth points of `B_m` are dense: for `x ∈ B_m` and smooth
 `u ∈ TR_m` close to `x`, `u − P_m u ∈ B_m` is smooth and close to `x − P_m x = x` (`P` the
 sc-projection onto `K` along `G`, Lemma 2.B). -/
 theorem exists_scComplement_le {N M TR : Submodule ℝ (E 0)} [FiniteDimensional ℝ N]
@@ -332,7 +332,7 @@ theorem exists_scComplement_le {N M TR : Submodule ℝ (E 0)} [FiniteDimensional
   set K : Submodule ℝ (E 0) := N ⊓ TR with hKdef
   have : FiniteDimensional ℝ K := Submodule.finiteDimensional_of_le inf_le_left
   have hKs : K ≤ E.smooth := inf_le_left.trans hNs
-  obtain ⟨G, hG⟩ := E.proposition_1_6 K hKs
+  obtain ⟨G, hG⟩ := E.proposition_1_1_7 K hKs
   have hKG : K ⊓ G = ⊥ := by
     have := (hG.2.2 0).inf_eq_bot
     rwa [ScBanach.levelSub_zero, ScBanach.levelSub_zero] at this
@@ -402,7 +402,7 @@ theorem exists_scComplement_le {N M TR : Submodule ℝ (E 0)} [FiniteDimensional
 
 end ScComplement
 
-/-! ### General position in a tame chart (Definition 4.21, chart level) -/
+/-! ### General position in a tame chart (Definition 4.2.10 (preprint 4.21), chart level) -/
 
 section GeneralPositionChart
 
@@ -411,13 +411,13 @@ variable {E : ScBanach} {n : ℕ} {Wq : ScBanach}
   (hT : C = T 0 ⁻¹' quadrant n Wq 0)
 
 include hT in
-/-- **General position from `T_yQ + E_0 = E`** (the core of Theorem 4.22 (3)): let `r` be a tame
+/-- **General position from `T_yQ + E_0 = E`** (the core of Theorem 4.2.11 (preprint 4.22) (3)): let `r` be a tame
 retraction onto `O`, `Q ⊆ O` a retract and `y ∈ Q₁` smooth, and suppose the tangent space
 `T_yQ` (finite-dimensional, smooth) satisfies `T_yQ + E_0 = E`, `E_0` the minimal subspace at the
 corner `0` (in the text: `T_aA + W = E`).  Then `T_yQ` has in `T_yO` an sc-complement contained in
 `T_y^R O`.  *Proof* (the text's): `E_0 ⊆ E_y`, and intersecting `T_yQ + E_0 = E` with `T_yO ⊇ T_yQ`
 gives `T_yO = T_yQ + (T_yO ∩ E_0) = T_yQ + T_y^R O` (modular law); `T_y^R O` is an sc-subspace
-(Proposition 2.36), and `exists_scComplement_le` gives the sc-complement. -/
+(Proposition 2.5.6 (preprint 2.36)), and `exists_scComplement_le` gives the sc-complement. -/
 theorem isGeneralPositionRetractAt_of_sup_eq_top {R : ScRetraction E C} (hR : R.IsTameWith T)
     {Q : Set (E 0)} (hQ : IsScRetract E C Q) (hQR : Q ⊆ R.retract) {y : E 1}
     (hy : y ∈ E.lvlSet Q 1) (hys : y ∈ E.smoothLvl 1) {N' : Submodule ℝ (E 0)}
@@ -432,7 +432,7 @@ theorem isGeneralPositionRetractAt_of_sup_eq_top {R : ScRetraction E C} (hR : R.
     have hv' : v ∈ tangentSpace E C Q y := by rw [← hN']; exact hv
     have := tangentSpace_subset_of_subset R hQ hQR hy hv'
     rw [← hM] at this; exact this
-  obtain ⟨-, hTR, -⟩ := proposition_2_36_partialCone hT hR hyR hys
+  obtain ⟨-, hTR, -⟩ := proposition_2_5_6_partialCone hT hR hyR hys
   have hMeq : M = N' ⊔ reducedTangentSpaceWith R T y := by
     refine le_antisymm (fun v hv => ?_) (sup_le hNM inf_le_left)
     have hv' : v ∈ N' ⊔ minimalSubspaceWith T 0 := by rw [hsup]; exact Submodule.mem_top
@@ -446,7 +446,7 @@ theorem isGeneralPositionRetractAt_of_sup_eq_top {R : ScRetraction E C} (hR : R.
 
 end GeneralPositionChart
 
-/-! ### Theorem 4.22 in a tame chart centred at the point -/
+/-! ### Theorem 4.2.11 (preprint 4.22) in a tame chart centred at the point -/
 
 section ChartTheorem
 
@@ -456,8 +456,8 @@ variable {E : ScBanach} {n : ℕ} {Wq : ScBanach}
 
 include hT in
 /-- **`T₀A + E_0 = E` from general position at the centre** (the first step of the proof of
-Theorem 4.22): if `T₀Q` has in `T₀O` an sc-complement `B ⊆ T₀^R O ⊆ E_0` and `r` is tame, then
-`E = T₀O ⊕ (1 − Dr(0))E` with `(1 − Dr(0))E ⊆ E_0` (Proposition 2.35), so
+Theorem 4.2.11 (preprint 4.22)): if `T₀Q` has in `T₀O` an sc-complement `B ⊆ T₀^R O ⊆ E_0` and `r` is tame, then
+`E = T₀O ⊕ (1 − Dr(0))E` with `(1 − Dr(0))E ⊆ E_0` (Proposition 2.5.3 (preprint 2.35)), so
 `E = T₀Q + B + (1 − Dr(0))E ⊆ T₀Q + E_0`.  (The text: "`E = T₀O ⊕ Z = T₀A ⊕ Ã ⊕ Z`, so `T₀A` has
 in `E` an sc-complement `Y` contained in `W`".) -/
 theorem sup_minimalSubspaceWith_eq_top {R : ScRetraction E C} (hR : R.IsTameWith T)
@@ -473,7 +473,7 @@ theorem sup_minimalSubspaceWith_eq_top {R : ScRetraction E C} (hR : R.IsTameWith
   have hs0 : (0 : E 1) ∈ E.smoothLvl 1 := by
     change E.toBase 1 0 ∈ (E.smooth : Set (E 0))
     rw [map_zero]; exact E.smooth.zero_mem
-  have hK := (proposition_2_35 hT hR h01 hs0).1
+  have hK := (proposition_2_5_3 hT hR h01 hs0).1
   rw [map_zero] at hK hBM
   have hMeq : M = LinearMap.range (scDeriv R.U R 0 : E 0 →ₗ[ℝ] E 0) :=
     SetLike.coe_injective (hM.trans (tangentSpace_eq_coe_submodule R h01))
@@ -492,7 +492,7 @@ theorem sup_minimalSubspaceWith_eq_top {R : ScRetraction E C} (hR : R.IsTameWith
 
 /-- **`T_aA + E_0 = E` along the graph** (the text: "by means of the particular form of the map
 `α : h ↦ h + Dδ(v)h`, also `T_aA + W = E` for all `a ∈ A ∩ U`"): if `Γ : V → Q ∩ W` is the graph
-map of Proposition 4.9 for a projection `p` onto `N` whose kernel lies in `Y ⊆ E_0`, and
+map of Proposition 4.1.9 (preprint 4.9) for a projection `p` onto `N` whose kernel lies in `Y ⊆ E_0`, and
 `N + E_0 = E`, then at `y` over `Γ(v)` the tangent space `T_yQ = DΓ(v)N` satisfies
 `T_yQ + E_0 = E`: `DΓ(v)n − n ∈ ker p ⊆ E_0` because `p ∘ DΓ(v) = 1`. -/
 theorem sup_minimalSubspaceWith_eq_top_graph {Q : Set (E 0)} (hQ : IsScRetract E C Q)
@@ -506,7 +506,7 @@ theorem sup_minimalSubspaceWith_eq_top_graph {Q : Set (E 0)} (hQ : IsScRetract E
     {y : E 1} (hy : E.toBase 1 y = Γ v) {N' : Submodule ℝ (E 0)}
     (hN' : (N' : Set (E 0)) = tangentSpace E C Q y) :
     N' ⊔ minimalSubspaceWith T 0 = ⊤ := by
-  have hQW : IsScRetract E C (Q ∩ W) := proposition_2_10_1 hQ hW
+  have hQW : IsScRetract E C (Q ∩ W) := proposition_2_3_1_one hQ hW
   obtain ⟨-, hTy, hpD⟩ := tangentSpace_eq_range_graph hQW hV hpmap hΓmap hΓp hpΓ hv hy
   have hyQW : E.toBase 1 y ∈ Q ∩ W := by rw [hy]; exact hΓmap.mapsTo hv
   rw [tangentSpace_inter_isOpen hQ hW hyQW] at hTy
@@ -526,20 +526,20 @@ theorem sup_minimalSubspaceWith_eq_top_graph {Q : Set (E 0)} (hQ : IsScRetract E
   exact Submodule.add_mem_sup hDa (Submodule.add_mem _ hdiff hk)
 
 include hT in
-/-- **Theorem 4.22 in a tame chart centred at the point** (the chart form of (2) and (3), and the
+/-- **Theorem 4.2.11 (preprint 4.22) in a tame chart centred at the point** (the chart form of (2) and (3), and the
 graph description of `A` used in the text's proof).  Let `r` be a tame retraction onto `O ∋ 0`
 (presentation `T`, `C = T⁻¹([0, ∞)ⁿ ⊕ W)`, so that all coordinates vanish at `0`: `d_C(0) = n`), `t`
 an sc⁺-retraction onto `Q ⊆ O` with `0 ∈ Q` (the chart model of the submanifold `A`), and
-`N = T₀Q`.  If `T₀Q` has in `T₀O` an sc-complement contained in `T₀^R O` (Definition 4.21 at `0`),
+`N = T₀Q`.  If `T₀Q` has in `T₀O` an sc-complement contained in `T₀^R O` (Definition 4.2.10 (preprint 4.21) at `0`),
 then:
 * `N + E_0 = E`, `N` is in good position to `C`, and `N` has a closed (good) complement
   `Y ⊆ E_0` (the text's `Y ⊆ W`), with the projection `p : E → N` along `Y`;
-* Proposition 4.9 for this `Y`: `Q ∩ W'` is the graph `Γ(V)`, `Γ(v) − v ∈ Y`, of an sc-smooth
+* Proposition 4.1.9 (preprint 4.9) for this `Y`: `Q ∩ W'` is the graph `Γ(V)`, `Γ(v) − v ∈ Y`, of an sc-smooth
   `Γ` on a relatively open `V ∋ 0` of the partial quadrant `N ∩ C`, with inverse `p`;
 * (2) **`d_{N ∩ C}(v) = d_C(Γ(v))`** for `v ∈ V` (the text: `d_A(a) = d_{T₀A ∩ C}(p(a)) = d_C(a)`);
 * (3) **general position at every point of `Q ∩ W'`**: at every level-`1` point `y` over
   `u ∈ Q ∩ W'`, `T_yQ` has in `T_yO` an sc-complement contained in `T_y^R O`. -/
-theorem theorem_4_22_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
+theorem theorem_4_2_11_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
     (h0O : (0 : E 0) ∈ R.retract) (t : ScRetraction E C) (ht : t.IsScPlus)
     (htR : t.retract ⊆ R.retract) (h0 : (0 : E 0) ∈ t.retract) {N : Submodule ℝ (E 0)}
     [FiniteDimensional ℝ N] (hN : (N : Set (E 0)) = tangentSpace E C t.retract 0)
@@ -562,7 +562,7 @@ theorem theorem_4_22_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
   obtain ⟨hgood, Y, hYE, hYc, hYgood⟩ := exists_goodComplement_le_zero T hT hsup
   obtain ⟨p, hpN, hpY, hker⟩ := exists_proj_of_isCompl hYc hYgood.isCompl
   obtain ⟨W, V, Γ, hW, h0W, hV, h0V, hΓs, hpΓ, hΓY, hΓV, hΓp, hΓ0, hpmap, hΓmap⟩ :=
-    proposition_4_9 t ht h0 hN hgood hYgood hYc p hpN hpY
+    proposition_4_1_9 t ht h0 hN hgood hYgood hYc p hpN hpY
   refine ⟨hsup, hgood, Y, p, W, V, Γ, hYE, hYc, hYgood, hpN, hpY, hker, hW, h0W, hV, h0V, hΓs, hpΓ,
     hΓY, hΓV, hΓp, hΓ0, hpmap, hΓmap, fun a ha => ?_, fun u hu y hy => ?_⟩
   · -- (2): `d_{N ∩ C}(a) = d_C(a) = d_C(Γ a)`
@@ -578,13 +578,13 @@ theorem theorem_4_22_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
     have hyt : y ∈ E.lvlSet t.retract 1 := by rw [ScBanach.mem_lvlSet, hy]; exact hu.1
     have hys : y ∈ E.smoothLvl 1 := by
       change E.toBase 1 y ∈ (E.smooth : Set (E 0))
-      rw [hy]; exact lemma_4_7_i ht hu.1
+      rw [hy]; exact lemma_4_1_7_i ht hu.1
     set N' : Submodule ℝ (E 0) := LinearMap.range (scDeriv t.U t y : E 0 →ₗ[ℝ] E 0) with hN'def
-    have : FiniteDimensional ℝ N' := lemma_4_7_ii ht hyt
+    have : FiniteDimensional ℝ N' := lemma_4_1_7_ii ht hyt
     have hN' : (N' : Set (E 0)) = tangentSpace E C t.retract y :=
       (tangentSpace_eq_coe_submodule t hyt).symm
     have hN's : N' ≤ E.smooth :=
-      (E.proposition_1_6_iff N').1 (t.isScSplitting_range_scDeriv hyt hys).1
+      (E.proposition_1_1_7_iff N').1 (t.isScSplitting_range_scDeriv hyt hys).1
     have hsup' := sup_minimalSubspaceWith_eq_top_graph T t.isScRetract hsup hYE hpN hker hW hV
       hpmap hΓmap hΓp hpΓ hv hy hN'
     exact isGeneralPositionRetractAt_of_sup_eq_top T hT hR t.isScRetract htR hyt hys hN' hN's hsup'
@@ -607,10 +607,10 @@ theorem quotDim_le_finrank_of_eq_sup {V : Type*} [AddCommGroup V] [Module ℝ V]
   exact K.neg_mem (hBK hb)
 
 include hT in
-/-- **Remark 4.24 in a chart**: at a smooth point `z` of a tame retract, `codim T_z^R O = d_C(z)`
-(Proposition 2.36), and if `T_zQ` has in `T_zO` an sc-complement contained in `T_z^R O`, then
+/-- **Remark 4.3.2 (preprint 4.24) in a chart**: at a smooth point `z` of a tame retract, `codim T_z^R O = d_C(z)`
+(Proposition 2.5.6 (preprint 2.36)), and if `T_zQ` has in `T_zO` an sc-complement contained in `T_z^R O`, then
 `d_C(z) ≤ dim T_zQ` (`T_zO = T_zQ + T_z^R O`). -/
-theorem remark_4_24_chart {R : ScRetraction E C} (hR : R.IsTameWith T) {Q : Set (E 0)} {z : E 1}
+theorem remark_4_3_2_chart {R : ScRetraction E C} (hR : R.IsTameWith T) {Q : Set (E 0)} {z : E 1}
     (hz : z ∈ E.lvlSet R.retract 1) (hzs : z ∈ E.smoothLvl 1)
     (hgp : IsGeneralPositionRetractAt E C R.retract Q T z) {N : Submodule ℝ (E 0)}
     [FiniteDimensional ℝ N] (hN : (N : Set (E 0)) = tangentSpace E C Q z) :
@@ -637,8 +637,8 @@ theorem remark_4_24_chart {R : ScRetraction E C} (hR : R.IsTameWith T) {Q : Set 
 if `T_zQ` has in `T_zO` an sc-complement `B ⊆ T_z^R O = T_zO ∩ E_z`, then `T_zQ` is in good position
 to the partial cone `C_zO` inside `T_zO`, with good complement `B` (adding a vector of `E_z` does
 not change membership in `C_z`); the interior points come from the coordinates `λ_i`, `i ∈ I(z)`,
-which map `T_zO` onto `ℝ^{I(z)}` (`dim T_zO/T_z^R O = d_C(z)`, Proposition 2.36) and vanish on
-`B`.  This is what makes `A ∩ F_σ` tame in Theorem 4.22 (4), through Theorem 4.18. -/
+which map `T_zO` onto `ℝ^{I(z)}` (`dim T_zO/T_z^R O = d_C(z)`, Proposition 2.5.6 (preprint 2.36)) and vanish on
+`B`.  This is what makes `A ∩ F_σ` tame in Theorem 4.2.11 (preprint 4.22) (4), through Theorem 4.2.7 (preprint 4.18). -/
 theorem IsGeneralPositionRetractAt.isGoodPositionRetractAt {R : ScRetraction E C}
     (hR : R.IsTameWith T) {Q : Set (E 0)} {z : E 1} (hz : z ∈ E.lvlSet R.retract 1)
     (hzs : z ∈ E.smoothLvl 1) (hgp : IsGeneralPositionRetractAt E C R.retract Q T z) :
@@ -705,7 +705,7 @@ theorem IsGeneralPositionRetractAt.isGoodPositionRetractAt {R : ScRetraction E C
 
 end ChartTheorem
 
-/-! ### Theorem 4.22 (4) in the chart: the retraction onto `A ∩ F_σ` -/
+/-! ### Theorem 4.2.11 (preprint 4.22) (4) in the chart: the retraction onto `A ∩ F_σ` -/
 
 section CornerSubmanifold
 
@@ -787,8 +787,8 @@ def opToConst {N : Type} [NormedAddCommGroup N] [NormedSpace ℝ N] [FiniteDimen
     [FiniteDimensional ℝ N] (L : E 0 →L[ℝ] N) (x : E 0) : opToConst L 0 x = L x := rfl
 
 include hT in
-/-- **Theorem 4.22 (4) in the chart, the sc⁺-retraction onto `A ∩ F_σ`** (the brief's
-`Γ ∘ κ_σ ∘ p ∘ s`; the text gives no argument).  In the situation of `theorem_4_22_chart`, for
+/-- **Theorem 4.2.11 (preprint 4.22) (4) in the chart, the sc⁺-retraction onto `A ∩ F_σ`** (the brief's
+`Γ ∘ κ_σ ∘ p ∘ s`; the text gives no argument).  In the situation of `theorem_4_2_11_chart`, for
 `σ ⊆ {1, …, n}` and an open `B ∋ 0`, there are an open `G ∋ 0`, `G ⊆ W ∩ B`, and an
 **sc⁺-retraction `t_σ = Γ ∘ κ_σ ∘ p ∘ t`** (on `U ∩ t⁻¹(G)`) onto
 `Q_σ = Q ∩ G ∩ f_σ`, `f_σ = {λ_i = 0, i ∈ σ}` (the chart form of `A ∩ F_σ`).  At every point `y` of
@@ -925,7 +925,7 @@ theorem exists_scPlus_retraction_corner (t : ScRetraction E C) (ht : t.IsScPlus)
   have hyt : y ∈ E.lvlSet t.retract 1 := hy'.1.1
   have hyU : y ∈ E.lvlSet R₁.U 1 := tσ.retract_subset hy
   -- `T_yQ = DΓ(w)N` and `p ∘ DΓ(w) = 1`
-  have hQW := proposition_2_10_1 t.isScRetract hW
+  have hQW := proposition_2_3_1_one t.isScRetract hW
   obtain ⟨-, hTy, hpD⟩ := tangentSpace_eq_range_graph hQW hV hpmap hΓmap hΓp hpΓ hwV
     (y := y) (by rw [hΓw])
   rw [tangentSpace_inter_isOpen t.isScRetract hW hqQW] at hTy
@@ -976,7 +976,7 @@ theorem exists_scPlus_retraction_corner (t : ScRetraction E C) (ht : t.IsScPlus)
 
 include hT in
 /-- **The corner model of a retraction onto a subset of `f_σ`** (the model `π_σ(…)` of
-Proposition 2.44, `corner_tameModel`, without tameness): for a retraction `S` with
+Proposition 2.5.16 (preprint 2.44), `corner_tameModel`, without tameness): for a retraction `S` with
 `S(U) ⊆ f_σ = {λ_i = 0, i ∈ σ}`, the map `π_σ ∘ S ∘ ι_σ` on `ι_σ⁻¹(S.U)` is a retraction of
 `C' = [0, ∞)^{n − #σ} ⊕ W` onto `π_σ(S(U))`, sc⁺ if `S` is. -/
 theorem exists_cornerModel_retraction (σ : Finset (Fin n)) (S : ScRetraction E C)
@@ -1036,28 +1036,28 @@ theorem exists_cornerModel_retraction (σ : Finset (Fin n)) (S : ScRetraction E 
   exact h2
 
 include hT in
-/-- **Theorem 4.22 (4) in a tame chart centred at the point.**  With the data of
-`theorem_4_22_chart` (tame `r` onto `O ∋ 0`, sc⁺ `t` onto `Q ∋ 0`, `T₀Q + E_0 = E`, the graph
+/-- **Theorem 4.2.11 (preprint 4.22) (4) in a tame chart centred at the point.**  With the data of
+`theorem_4_2_11_chart` (tame `r` onto `O ∋ 0`, sc⁺ `t` onto `Q ∋ 0`, `T₀Q + E_0 = E`, the graph
 `Γ : V → Q ∩ W` over `N = T₀Q` with `Γ(v) − v ∈ Y ⊆ E_0`), for every `σ ⊆ {1, …, n}` and every
 open `B₀ ∋ 0` there are the faces `F_i ∋ 0` (`i ∈ σ`) of `O` and an open `G ∋ 0`, `G ⊆ W ∩ B₀`,
 with:
 * **`F_σ` near `0` is a tame retract**: an sc-smooth retraction `S` onto
   `O ∩ G ∩ f_σ = O ∩ G ∩ ⋂_{i ∈ σ} F_i` (`corner_retraction`, restricted to `G`) whose corner model
   `π_σ(O ∩ G ∩ f_σ) ⊆ [0, ∞)^{n − #σ} ⊕ W` is the retract of a **tame** retraction `r'`, with
-  `d_{C'}(π_σ y) + #σ = d_C(y)` (`corner_tameModel`, Proposition 2.44);
+  `d_{C'}(π_σ y) + #σ = d_C(y)` (`corner_tameModel`, Proposition 2.5.16 (preprint 2.44));
 * **`A ∩ F_σ` near `0` is an sc⁺-retract**: `Q ∩ G ∩ f_σ` is the retract of an sc⁺-retraction
   `t_σ`, and its corner model `π_σ(Q ∩ G ∩ f_σ)` is the retract of an sc⁺-retraction `t'` and lies
   in the retract of `r'`;
 * **general position in `F_σ`**: at every level-`1` point `y'` of `π_σ(Q ∩ G ∩ f_σ)`, its tangent
   space has in the tangent space of the model of `F_σ` an sc-complement contained in the reduced
-  tangent space (Definition 4.21 in the corner model, with the presentation `id`).
+  tangent space (Definition 4.2.10 (preprint 4.21) in the corner model, with the presentation `id`).
 *Proof*: `T_yQ + E_0 = E` at `y = ι_σ(y')` (`sup_minimalSubspaceWith_eq_top_graph`) gives, for
 every `b ∈ ℝ^{n − #σ}`, a `v ∈ T_yQ` with `λ(v) = ι(b)` (zero on `σ`); `v ∈ f_σ`, so `v` is tangent
 to `Q_σ` (`exists_scPlus_retraction_corner`), and `π_σ v` is tangent to `π_σ(Q_σ)` at `y'`
 (`scDeriv_mem_tangentSpace_of_subset` for `π_σ`), with first component `b`; so
 `T_{y'}π_σ(Q_σ) + E'_0 = E'` and `isGeneralPositionRetractAt_of_sup_eq_top` applies in the corner
 model. -/
-theorem theorem_4_22_four_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
+theorem theorem_4_2_11_four_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
     (h0O : (0 : E 0) ∈ R.retract) (t : ScRetraction E C) (ht : t.IsScPlus)
     (htR : t.retract ⊆ R.retract) {N : Submodule ℝ (E 0)} [FiniteDimensional ℝ N]
     (hsup : N ⊔ minimalSubspaceWith T 0 = ⊤) {Y : Submodule ℝ (E 0)}
@@ -1129,7 +1129,7 @@ theorem theorem_4_22_four_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
   set ι := cornerIncl σ T with hι
   set π := cornerProj σ T with hπ
   have hT' : quadrant σᶜ.card Wq 0 = (ScIso.refl E') 0 ⁻¹' quadrant σᶜ.card Wq 0 := by ext; rfl
-  have hy's : y' ∈ E'.smoothLvl 1 := lemma_4_7_i ht'p hy'
+  have hy's : y' ∈ E'.smoothLvl 1 := lemma_4_1_7_i ht'p hy'
   have hy'2 := hy'
   rw [ht'ret] at hy'2
   obtain ⟨q₀, hq₀, hq₀y⟩ := hy'2
@@ -1151,11 +1151,11 @@ theorem theorem_4_22_four_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
   have hy't : y' ∈ E'.lvlSet t'.retract 1 := hy'
   set N'' : Submodule ℝ (E' 0) := LinearMap.range (scDeriv t'.U t' y' : E' 0 →ₗ[ℝ] E' 0)
     with hN''def
-  have : FiniteDimensional ℝ N'' := lemma_4_7_ii ht'p hy'
+  have : FiniteDimensional ℝ N'' := lemma_4_1_7_ii ht'p hy'
   have hN'' : (N'' : Set (E' 0)) = tangentSpace E' (quadrant σᶜ.card Wq 0) t'.retract y' :=
     (tangentSpace_eq_coe_submodule t' hy't).symm
   have hN''s : N'' ≤ E'.smooth :=
-    (E'.proposition_1_6_iff N'').1 (t'.isScSplitting_range_scDeriv hy't hy's).1
+    (E'.proposition_1_1_7_iff N'').1 (t'.isScSplitting_range_scDeriv hy't hy's).1
   refine isGeneralPositionRetractAt_of_sup_eq_top (ScIso.refl E') hT' hR'tame t'.isScRetract ht'R'
     hy't hy's hN'' hN''s ?_
   rw [eq_top_iff]
@@ -1207,7 +1207,7 @@ theorem theorem_4_22_four_chart {R : ScRetraction E C} (hR : R.IsTameWith T)
 
 end CornerSubmanifold
 
-/-! ### Theorem 4.22 (1)–(3) on the M-polyfold -/
+/-! ### Theorem 4.2.11 (preprint 4.22) (1)–(3) on the M-polyfold -/
 
 namespace MPolyfold
 
@@ -1219,7 +1219,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P :
 /-! ### sc⁺-retractions on open subsets from sc⁺-retractions in a chart -/
 
 /-- **An sc⁺-retraction in a chart is an sc⁺-retraction on an open subset of the M-polyfold**
-(Definition 4.4 read in a chart; the converse of `SubmanifoldData.isScSmoothRetractMap_lift`): for
+(Definition 4.1.4 (preprint 4.4) read in a chart; the converse of `SubmanifoldData.isScSmoothRetractMap_lift`): for
 a chart `χ` and an sc⁺-retraction `τ` of the model with `τ(U) ⊆ O`, the map `s = χ⁻¹ ∘ τ ∘ χ` is an
 sc⁺-retraction on the open set `V = χ⁻¹(τ.U)` with `s(V) = χ⁻¹(τ(U))`.  *Proof*: sc-smoothness of
 `s` and of `1₀¹ ∘ s` are read in the charts `χ` of `X` and `levelChart χ` of `X¹`, where they are
@@ -1246,7 +1246,7 @@ theorem isScPlusRetractionOn_of_chart {χ : MChart X} (hχ : P.IsChart χ)
     ⟨hsrc x hx, by rw [mem_preimage, hχs x hx]; exact τ.mapsTo hx.2⟩
   have hlev1 : ∀ x ∈ V, s x ∈ P.levelSet 1 := fun x hx => by
     rw [P.mem_levelSet_iff hχ (hsrc x hx), hχs x hx]
-    obtain ⟨y, hy⟩ := (χ.model.E.mem_smooth_iff).1 (lemma_4_7_i hτ (τ.apply_mem_retract hx.2)) 1
+    obtain ⟨y, hy⟩ := (χ.model.E.mem_smooth_iff).1 (lemma_4_1_7_i hτ (τ.apply_mem_retract hx.2)) 1
     exact ⟨y, hy⟩
   have hcont : ContinuousOn s V :=
     χ.continuousOn_invFun.comp ((τ.isSc1.isSc0.continuousOn_base).comp
@@ -1316,20 +1316,20 @@ def _root_.Polyfold.MChart.cornerPreimage (ψ : MChart X) (G : Set (ψ.model.E 0
     (F : ι → Set (ψ.model.E 0)) : Set X :=
   {y | y ∈ ψ.source ∧ ψ y ∈ G ∧ ∀ i, ψ y ∈ F i}
 
-/-- **Theorem 4.22 (4), for one `σ`, from the chart data** (the M-polyfold form of
-`theorem_4_22_four_chart`): in a tame chart `ψ` centred at `x` with the data of
-`theorem_4_22_chart` for the chart retraction `t` of `A`, for `σ ⊆ {1, …, n}` there are the faces
+/-- **Theorem 4.2.11 (preprint 4.22) (4), for one `σ`, from the chart data** (the M-polyfold form of
+`theorem_4_2_11_four_chart`): in a tame chart `ψ` centred at `x` with the data of
+`theorem_4_2_11_chart` for the chart retraction `t` of `A`, for `σ ⊆ {1, …, n}` there are the faces
 `F_i ∋ 0` (`i ∈ σ`) of the model and an open `G ∋ 0` such that `F_σ = ψ⁻¹(G ∩ ⋂_{i ∈ σ} F_i)`
 (which contains `x` and lies in the domain `W` of the submanifold chart) is a sub-M-polyfold of
-`X`, **tame**, with `d_{F_σ} + #σ = d_X` (Proposition 2.44), and **`A ∩ F_σ` is a smooth
+`X`, **tame**, with `d_{F_σ} + #σ = d_X` (Proposition 2.5.16 (preprint 2.44)), and **`A ∩ F_σ` is a smooth
 finite-dimensional submanifold of `F_σ`, in general position at each of its points, and tame**.
 *Proof*: the chart of `F_σ` is the face chart `π_σ ∘ ψ` modelled on the tame corner model;
-`A ∩ F_σ` is in it the retract of the sc⁺-retraction `t'` of `theorem_4_22_four_chart`, which
+`A ∩ F_σ` is in it the retract of the sc⁺-retraction `t'` of `theorem_4_2_11_four_chart`, which
 `isScPlusRetractionOn_of_chart` turns into an sc⁺-retraction on an open subset of `F_σ`; general
-position is that of `theorem_4_22_four_chart` read in this chart; tameness is Theorem 4.18 for the
+position is that of `theorem_4_2_11_four_chart` read in this chart; tameness is Theorem 4.2.7 (preprint 4.18) for the
 tame M-polyfold `F_σ`, good position following from general position
 (`IsGeneralPositionRetractAt.isGoodPositionRetractAt`). -/
-theorem theorem_4_22_four_of_chart {A : Set X} {ψ : MChart X} (hψ : P.IsChart ψ) {x : X}
+theorem theorem_4_2_11_four_of_chart {A : Set X} {ψ : MChart X} (hψ : P.IsChart ψ) {x : X}
     (hxψ : x ∈ ψ.source) (hψ0 : ψ x = 0) {R : ScRetraction ψ.model.E ψ.model.C}
     (hR : R.retract = ψ.model.O) {n : ℕ} {Wq : ScBanach}
     {T : ScIso ψ.model.E ((ScBanach.const (Fin n → ℝ)).prod Wq)}
@@ -1381,7 +1381,7 @@ theorem theorem_4_22_four_of_chart {A : Set X} {ψ : MChart X} (hψ : P.IsChart 
   have h0O : (0 : ψ.model.E 0) ∈ R.retract := htR h0t
   obtain ⟨Fc, G, S, R', tσ, t', hFc, hG, h0G, hGWK, hSret1, hSret2, hR'tame, hR'ret, hdeg, -,
     htσret, ht'p, ht'ret, ht'R', hgen'⟩ :=
-    theorem_4_22_four_chart hT hRT h0O t htp htR hsup hYE hpN hker hW h0W hV h0V hΓs hpΓ hΓY
+    theorem_4_2_11_four_chart hT hRT h0O t htp htR hsup hYE hpN hker hW h0W hV h0V hΓs hpΓ hΓY
       hΓp hΓ0 hpmap hΓmap σ hK h0K
   set Fσ := ψ.cornerPreimage G Fc with hFσ
   have hψFσ : ψ '' Fσ = S.retract := by
@@ -1492,19 +1492,19 @@ theorem theorem_4_22_four_of_chart {A : Set X} {ψ : MChart X} (hψ : P.IsChart 
   have hgenF : ∀ b : Fσ, (b : X) ∈ A → (subPolyfold hF).IsGeneralPositionAt Aσ b := by
     intro b hb
     have hbr : χ b ∈ t'.retract := (hmemA b).2 hb
-    obtain ⟨y', hy', -⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_7_i ht'p hbr)
+    obtain ⟨y', hy', -⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_1_7_i ht'p hbr)
     refine ⟨hb, d', χ, σᶜ.card, Wq, ScIso.refl _, y', hAV b hb, hχQ, hsrc b, hT', hy', ?_⟩
     have := hgen' y' (by rw [hy']; exact hbr)
     show IsGeneralPositionRetractAt _ _ χ.model.O (χ '' (d'.toSubData.shrink χ ∩ Aσ))
       (ScIso.refl _) y'
     rw [hχA, hχO, ← hR'O]
     exact this
-  -- tameness of `A ∩ F_σ` (Theorem 4.18 in `F_σ`)
+  -- tameness of `A ∩ F_σ` (Theorem 4.2.7 (preprint 4.18) in `F_σ`)
   have : ParacompactSpace Aσ := (subPolyfold hF).paracompactSpace_subtype Aσ
   have hgoodF : ∀ b ∈ Aσ, (subPolyfold hF).IsGoodPositionAt Aσ b := by
     intro b hb
     have hbr : χ b ∈ t'.retract := (hmemA b).2 hb
-    obtain ⟨y', hy', hy's⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_7_i ht'p hbr)
+    obtain ⟨y', hy', hy's⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_1_7_i ht'p hbr)
     refine ⟨hb, d', χ, σᶜ.card, Wq, ScIso.refl _, y', hAV b hb, hχQ, hsrc b, hT', hy', ?_⟩
     have hgp' := hgen' y' (by rw [hy']; exact hbr)
     have hy'R : y' ∈ ((ScBanach.const (Fin σᶜ.card → ℝ)).prod Wq).lvlSet R'.retract 1 := by
@@ -1514,31 +1514,31 @@ theorem theorem_4_22_four_of_chart {A : Set X} {ψ : MChart X} (hψ : P.IsChart 
       (ScIso.refl _) y'
     rw [hχA, hχO, ← hR'O]
     exact this
-  exact ⟨hFtame, hdegF, hAσsub, hgenF, (theorem_4_18 hFtame hAσsub hgoodF).2⟩
+  exact ⟨hFtame, hdegF, hAσsub, hgenF, (theorem_4_2_7 hFtame hAσsub hgoodF).2⟩
 
-/-- **Theorem 4.22 (Local structure of smooth submanifolds).**  Let `X` be a tame M-polyfold,
-`A ⊆ X` a smooth finite-dimensional submanifold (Definition 4.13) and `x ∈ A` a point at which `A`
-is in general position (Definition 4.21).  Then there are a tame chart `ψ : V → O` of `X` with
+/-- **Theorem 4.2.11 (preprint 4.22) (Local structure of smooth submanifolds).**  Let `X` be a tame M-polyfold,
+`A ⊆ X` a smooth finite-dimensional submanifold (Definition 4.2.1 (preprint 4.13)) and `x ∈ A` a point at which `A`
+is in general position (Definition 4.2.10 (preprint 4.21)).  Then there are a tame chart `ψ : V → O` of `X` with
 `ψ(x) = 0` (tame retraction `r` onto `O`, presentation `T : E ≅ ℝⁿ ⊕ W` of the partial quadrant)
 and an open neighbourhood `U ⊆ V` of `x` such that:
 (1) `d_X(x) = n`, the number of half-line coordinates of `C = T⁻¹([0, ∞)ⁿ ⊕ W)`, all of which
 vanish at `ψ(x) = 0`, and `x` lies in exactly `d_X(x)` faces of the M-polyfold `O ≅ V`
-(Corollary 2.41 in the chart);
+(Corollary 2.5.13 (preprint 2.41) in the chart);
 (2) **`d_X(a) = d_A(a)`** for every `a ∈ A ∩ U`, `d_A` the degeneracy index of the M-polyfold `A`
-with its induced structure (Proposition 2.21);
+with its induced structure (Proposition 2.3.19 (preprint 2.21));
 (3) **`A` is in general position at every `a ∈ A ∩ U`**;
 (4) for every `σ ⊆ {1, …, n}`, with the faces `F_i` (`i ∈ σ`) of `O` through `0` and an open
 `G ∋ 0`, the intersection of local faces **`F_σ = ψ⁻¹(G ∩ ⋂_{i ∈ σ} F_i) ⊆ U`** is a sub-M-polyfold,
 **tame**, with `d_{F_σ} + #σ = d_X`, and **`A ∩ F_σ` is a tame smooth finite-dimensional
 submanifold of `F_σ`, in general position (in `F_σ`) at each of its points**.
-*Proof* (the text's, in the chart `ψ`, completed): `theorem_4_22_chart` for the tame retraction `r`
+*Proof* (the text's, in the chart `ψ`, completed): `theorem_4_2_11_chart` for the tame retraction `r`
 and the sc⁺ chart retraction `t = ψ ∘ s ∘ ψ⁻¹ ∘ r` onto `ψ(W ∩ A)`.  For (2), the corner chart
 `p ∘ ψ` of `A` (`CornerChartData.chart` for the induced chart of `A`, with the good complement
 `Y ⊆ E_0`) is a chart of `A` modelled on `(V, N ∩ C, N)`, tame, so `d_A(a) = d_{N ∩ C}(p(ψ a))`
 (the text: "by Proposition 2.24"), and `d_{N ∩ C}(p(ψ a)) = d_C(ψ a) = d_X(a)` (the text: "in view
 of Proposition 2.36, `d_C(a) = d_O(a)`"; here the tame chart realizes `d_X`).  (4), for which the
-text gives no argument, is `theorem_4_22_four_of_chart`. -/
-theorem theorem_4_22 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
+text gives no argument, is `theorem_4_2_11_four_of_chart`. -/
+theorem theorem_4_2_11_preprint (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
     [ParacompactSpace A] {x : X} (hgp : P.IsGeneralPositionAt A x) :
     ∃ ψ : MChart X, P.IsChart ψ ∧ ∃ hx : x ∈ ψ.source, ψ x = 0 ∧
       ∃ (R : ScRetraction ψ.model.E ψ.model.C) (n : ℕ) (Wq : ScBanach)
@@ -1584,7 +1584,7 @@ theorem theorem_4_22 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
   have h01 : ψ.model.E.toBase 1 (0 : ψ.model.E 1) ∈ t.retract := by rw [map_zero]; exact h0
   set N : Submodule ℝ (ψ.model.E 0) :=
     LinearMap.range (scDeriv t.U t 0 : ψ.model.E 0 →ₗ[ℝ] ψ.model.E 0) with hNdef
-  have : FiniteDimensional ℝ N := lemma_4_7_ii htp h01
+  have : FiniteDimensional ℝ N := lemma_4_1_7_ii htp h01
   have hN : (N : Set (ψ.model.E 0)) = tangentSpace ψ.model.E ψ.model.C t.retract 0 :=
     (tangentSpace_eq_coe_submodule t h01).symm
   have hz0 : ψ.model.E.toBase 1 0 = ψ x := by rw [map_zero, hψ0]
@@ -1594,7 +1594,7 @@ theorem theorem_4_22 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
     exact this
   obtain ⟨hsup, -, Y, p, W₁, V, Γ, hYE, hYc, hYgood, hpN, hpY, hker, hW₁, h0W₁, hV, h0V, hΓs,
     hpΓ, hΓY, -, hΓp, hΓ0, hpmap, hΓmap, hdeg, hgen⟩ :=
-    theorem_4_22_chart T hT hRT h0O t htp htR h0 hN hgp0
+    theorem_4_2_11_chart T hT hRT h0O t htp htR h0 hN hgp0
   -- the neighbourhood `U`
   set U : Set X := d.toSubData.shrink ψ ∩ ψ ⁻¹' W₁ with hUdef
   have hUo : IsOpen U :=
@@ -1610,7 +1610,7 @@ theorem theorem_4_22 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
     rw [P.degIndex_eq_chartDegIndex_of_isTameWith hψ R hR hT hRT hxψ, chartDegIndex, hψ0,
       degIndex_eq T hT (by rw [← hψ0]; exact ψ.apply_mem_C hxψ), degIndexWith, map_zero,
       quadrantDeg_zero]
-  · -- (1): Corollary 2.41 in the chart
+  · -- (1): Corollary 2.5.13 (preprint 2.41) in the chart
     set hne : ψ.model.O.Nonempty := ⟨_, ψ.mapsTo_model x hxψ⟩
     have hdx : (ψ.model.toMPolyfold hne).degIndex ⟨ψ x, ψ.mapsTo_model x hxψ⟩ = P.degIndex x :=
       (ψ.model.degIndex_toMPolyfold_of_isTameWith hne R hR hT hRT _).trans
@@ -1665,15 +1665,15 @@ theorem theorem_4_22 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
   · -- (4)
     intro σ
     obtain ⟨Fc, G, hFc, hG, h0G, hGW, hxF, hFsh, hF, hrest⟩ :=
-      theorem_4_22_four_of_chart hψ hxψ hψ0 hR hT hRT d t ht htp hsup hYE hpN hker hW₁ h0W₁ hV h0V
+      theorem_4_2_11_four_of_chart hψ hxψ hψ0 hR hT hRT d t ht htp hsup hYE hpN hker hW₁ h0W₁ hV h0V
         hΓs hpΓ hΓY hΓp hΓ0 hpmap hΓmap σ
     exact ⟨Fc, G, hFc, hG, h0G, hxF, fun y hy => ⟨hFsh hy, hGW hy.2.1⟩, hF, hrest⟩
 
-/-- **Remark 4.24**, first sentence: at a smooth point `x` of a tame M-polyfold, in a tame chart
+/-- **Remark 4.3.2 (preprint 4.24)**, first sentence: at a smooth point `x` of a tame M-polyfold, in a tame chart
 `φ` (tame retraction `r`, presentation `T`) and at the level-`1` point `z` over `φ(x)`, the
-reduced tangent space has codimension `dim(T_zO / T_z^R O) = d_X(x)` (Proposition 2.36, with
+reduced tangent space has codimension `dim(T_zO / T_z^R O) = d_X(x)` (Proposition 2.5.6 (preprint 2.36), with
 `d_X(x) = d_C(φ x)` in a tame chart). -/
-theorem remark_4_24_codim (hP : P.IsTame) {x : X} (hx : x ∈ P.smoothSet) :
+theorem remark_4_3_2_codim (hP : P.IsTame) {x : X} (hx : x ∈ P.smoothSet) :
     ∃ φ : MChart X, P.IsChart φ ∧ x ∈ φ.source ∧ ∃ (R : ScRetraction φ.model.E φ.model.C) (n : ℕ)
       (Wq : ScBanach) (T : ScIso φ.model.E ((ScBanach.const (Fin n → ℝ)).prod Wq)),
       R.retract = φ.model.O ∧ φ.model.C = T 0 ⁻¹' quadrant n Wq 0 ∧ R.IsTameWith T ∧
@@ -1692,12 +1692,12 @@ theorem remark_4_24_codim (hP : P.IsTame) {x : X} (hx : x ∈ P.smoothSet) :
   rw [quotDim_reducedTangentSpaceWith_eq hRT hz1 hzs, ← degIndex_eq T hT (R.retract_subset_C hz1),
     hz, P.degIndex_eq_chartDegIndex_of_isTameWith hφ R hR hT hRT hxφ, chartDegIndex]
 
-/-- **Remark 4.24**, second sentence: if `A` is in general position at `a`, then
+/-- **Remark 4.3.2 (preprint 4.24)**, second sentence: if `A` is in general position at `a`, then
 `d_X(a) ≤ dim T_aA` (since `T_aX = T_aA + T_a^R X` and `codim T_a^R X = d_X(a)`); so `a` can lie
 in a corner (`d_X(a) ≥ 2`) only if `d_X(a) ≤ dim A` near `a`, a zero-dimensional `A` in general
 position lies in `X ∖ ∂X`, a one-dimensional one meets only `{d_X = 1}`, etc.  Stated in any
-tame chart `φ` at `a`, for the tangent space `T_zA = T_z(φ(W ∩ A))` of Remark 4.14. -/
-theorem remark_4_24 {A : Set X} {a : X}
+tame chart `φ` at `a`, for the tangent space `T_zA = T_z(φ(W ∩ A))` of Remark 4.2.2 (preprint 4.14). -/
+theorem remark_4_3_2 {A : Set X} {a : X}
     (hgp : P.IsGeneralPositionAt A a) (d : P.SubmanifoldData A) (had : a ∈ d.V) {φ : MChart X}
     (hφ : P.IsChart φ) (haφ : a ∈ φ.source)
     (htame : IsTameRetract φ.model.E φ.model.C φ.model.O) {z : φ.model.E 1}
@@ -1715,19 +1715,19 @@ theorem remark_4_24 {A : Set X} {a : X}
   have hzs : z ∈ φ.model.E.smoothLvl 1 := by
     change φ.model.E.toBase 1 z ∈ (φ.model.E.smooth : Set (φ.model.E 0))
     rw [hz]; exact d.apply_mem_smooth hφ hgp.1 had haφ
-  have := (remark_4_24_chart T hT hRT hz1 hzs hchart hN).2
+  have := (remark_4_3_2_chart T hT hRT hz1 hzs hchart hN).2
   rwa [hz, ← chartDegIndex, ← P.degIndex_eq_chartDegIndex_of_isTameWith hφ R hR hT hRT haφ] at this
 
-/-- **Remark 4.24**, the example: a smooth submanifold in general position at `a` with
+/-- **Remark 4.3.2 (preprint 4.24)**, the example: a smooth submanifold in general position at `a` with
 `T_aA = 0` (zero-dimensional near `a`) does not meet the boundary at `a`. -/
-theorem remark_4_24_not_mem_boundary {A : Set X} {a : X}
+theorem remark_4_3_2_not_mem_boundary {A : Set X} {a : X}
     (hgp : P.IsGeneralPositionAt A a) (d : P.SubmanifoldData A) (had : a ∈ d.V) {φ : MChart X}
     (hφ : P.IsChart φ) (haφ : a ∈ φ.source)
     (htame : IsTameRetract φ.model.E φ.model.C φ.model.O) {z : φ.model.E 1}
     (hz : φ.model.E.toBase 1 z = φ a)
     (h0 : tangentSpace φ.model.E φ.model.C (φ '' (d.toSubData.shrink φ ∩ A)) z = {0}) :
     a ∉ P.boundary := by
-  have h := remark_4_24 hgp d had hφ haφ htame hz (N := ⊥) (by rw [Submodule.bot_coe, h0])
+  have h := remark_4_3_2 hgp d had hφ haφ htame hz (N := ⊥) (by rw [Submodule.bot_coe, h0])
   rw [finrank_bot] at h
   change ¬ (1 ≤ P.degIndex a)
   omega

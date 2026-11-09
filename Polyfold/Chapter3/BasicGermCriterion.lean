@@ -1,13 +1,13 @@
 import Polyfold.Chapter3.InverseFamily
 
 /-!
-# Towards the basic germ criterion (§3.7): Lemmas 3.59 and 3.60
+# Towards the basic germ criterion (§3.7): Lemmas 3.7.2 and 3.7.3 (preprint 3.59 and 3.60)
 
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7.  In the proof of Theorem 3.58 the
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I*, §3.7.  In the proof of Theorem 3.7.1 (preprint 3.58) the
 family `L(b) = P ∘ Df(b)|X : X → Y` is shown to consist of injective operators for `b` near `0`
-(**Lemma 3.59**) and to satisfy uniform lower bounds `|L(b)h|_m ≥ c_m |h|_m` on a compact
-neighbourhood of `0` (**Lemma 3.60**), the hypotheses of Lemma 3.61.  Both proofs are sequence
-arguments using the compactness property (2) of Theorem 3.58 for `Df` together with the
+(**Lemma 3.7.2 (preprint 3.59)**) and to satisfy uniform lower bounds `|L(b)h|_m ≥ c_m |h|_m` on a compact
+neighbourhood of `0` (**Lemma 3.7.3 (preprint 3.60)**), the hypotheses of Lemma 3.7.4 (preprint 3.61).  Both proofs are sequence
+arguments using the compactness property (2) of Theorem 3.7.1 (preprint 3.58) for `Df` together with the
 finite dimensionality of `A = ker P`; what they use of (2) is the following property of the
 family `L` itself: if `b_j → b` in `B ∩ C`, `(h_j)` is bounded in `X_m` and `L(b_j)h_j → 0` in
 `Y_m`, then `(h_j)` has a convergent subsequence in `X_m` (`Polyfold.FamilyCompactness`).  The
@@ -17,8 +17,8 @@ two lemmas are formalized in this abstract form, for an arbitrary family of sc-o
 
 ## Main results
 
-* `Polyfold.lemma_3_59`: `L(b)` is injective on `X₀` for `b ∈ B ∩ C` close to `0` if `L(0)` is.
-* `Polyfold.lemma_3_60`: on a compact `K ⊆ B ∩ C` on which every `L(b)_m` is injective there is
+* `Polyfold.lemma_3_7_2`: `L(b)` is injective on `X₀` for `b ∈ B ∩ C` close to `0` if `L(0)` is.
+* `Polyfold.lemma_3_7_3`: on a compact `K ⊆ B ∩ C` on which every `L(b)_m` is injective there is
   `c_m > 0` with `|L(b)h|_m ≥ c_m |h|_m` for all `b ∈ K`, `h ∈ X_m`.
 -/
 
@@ -31,7 +31,7 @@ namespace Polyfold
 variable {Bf : Type} [NormedAddCommGroup Bf] [NormedSpace ℝ Bf] [FiniteDimensional ℝ Bf]
   {X Y : ScBanach}
 
-/-- **The compactness property (2) of Theorem 3.58, for the family `L(b) = P ∘ Df(b)|X`**: if
+/-- **The compactness property (2) of Theorem 3.7.1 (preprint 3.58), for the family `L(b) = P ∘ Df(b)|X`**: if
 `b_j → b` in `O ⊆ B ∩ C`, `(h_j)` is bounded in `X_m` and `L(b_j)h_j → 0` in `Y_m`, then `(h_j)`
 has a convergent subsequence in `X_m`.  (For `L = P ∘ Df|X` this follows from (2): `Df(b_j)h_j`
 differs from `L(b_j)h_j` by `(1 − P)Df(b_j)h_j ∈ A`, bounded on every level because `A` is a
@@ -41,12 +41,12 @@ def FamilyCompactness (O : Set Bf) (L : Bf → ScOperator X Y) (m : ℕ) : Prop 
     (∃ M : ℝ, ∀ j, ‖h j‖ ≤ M) → Tendsto (fun j => L (b j) m (h j)) atTop (𝓝 0) →
     ∃ h₀ : X m, ∃ φ : ℕ → ℕ, StrictMono φ ∧ Tendsto (h ∘ φ) atTop (𝓝 h₀)
 
-/-- **Lemma 3.59** (abstract form): let `b ↦ L(b)` be a family of sc-operators `X → Y` with
+/-- **Lemma 3.7.2 (preprint 3.59)** (abstract form): let `b ↦ L(b)` be a family of sc-operators `X → Y` with
 `(b, h) ↦ L(b)h` continuous on `O × X₀` (`O ⊆ B ∩ C` a neighbourhood of `0`), `L(0)` injective on
 `X₀`, and the compactness property on level `0`.  Then `L(b)` is injective on `X₀` for all `b ∈ O`
 close to `0`.  Proof: otherwise there are `b_j → 0` and unit vectors `h_j` with `L(b_j)h_j = 0`;
 a subsequence `h_j → h` has `|h| = 1` and `L(0)h = 0`. -/
-theorem lemma_3_59 {O : Set Bf} (h0 : (0 : Bf) ∈ O) (L : Bf → ScOperator X Y)
+theorem lemma_3_7_2 {O : Set Bf} (h0 : (0 : Bf) ∈ O) (L : Bf → ScOperator X Y)
     (hcont : ContinuousOn (fun p : Bf × X 0 => L p.1 0 p.2) (O ×ˢ univ))
     (hinj : Injective (L 0 0)) (hcpt : FamilyCompactness O L 0) :
     ∃ r > 0, ∀ b ∈ O, ‖b‖ < r → Injective (L b 0) := by
@@ -84,13 +84,13 @@ theorem lemma_3_59 {O : Set Bf} (h0 : (0 : Bf) ∈ O) (L : Bf → ScOperator X Y
     simp only [hun]; exact tendsto_const_nhds
   exact zero_ne_one (tendsto_nhds_unique hn hn1)
 
-/-- **Lemma 3.60** (abstract form): let `K ⊆ B ∩ C` be compact (the closure of the neighbourhood
+/-- **Lemma 3.7.3 (preprint 3.60)** (abstract form): let `K ⊆ B ∩ C` be compact (the closure of the neighbourhood
 `Õ` of the text), `b ↦ L(b)` a family of sc-operators with `(b, h) ↦ L(b)_m h` continuous on
 `K × X_m`, every `L(b)_m`, `b ∈ K`, injective, and the compactness property on level `m`.  Then
 there is `c_m > 0` with `|L(b)h|_m ≥ c_m |h|_m` for all `b ∈ K` and `h ∈ X_m`.  Proof: otherwise
 there are `b_j ∈ K` and unit vectors `h_j ∈ X_m` with `|L(b_j)h_j|_m → 0`; after passing to
 subsequences `b_j → b ∈ K` and `h_j → h` with `|h|_m = 1`, and `L(b)h = 0` by continuity. -/
-theorem lemma_3_60 {K : Set Bf} (hK : IsCompact K) (L : Bf → ScOperator X Y) (m : ℕ)
+theorem lemma_3_7_3 {K : Set Bf} (hK : IsCompact K) (L : Bf → ScOperator X Y) (m : ℕ)
     (hcont : ContinuousOn (fun p : Bf × X m => L p.1 m p.2) (K ×ˢ univ))
     (hinj : ∀ b ∈ K, Injective (L b m)) (hcpt : FamilyCompactness K L m) :
     ∃ c > 0, ∀ b ∈ K, ∀ h : X m, c * ‖h‖ ≤ ‖L b m h‖ := by

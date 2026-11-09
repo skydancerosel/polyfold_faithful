@@ -54,7 +54,7 @@ theorem B_iff_Theorem : B ↔ EPLoc.Theorem_10_3_19.{0} :=
 /-- (LR) for `ℤ/3 × ℝ ⇉ ℝ` (trivial action), re-proved: its orbits are points. -/
 theorem isLR_trivialZ3' : trivialZ3EpGroupoid.IsLR := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β β' _ hπ => ⟨1, fun y hy => ?_⟩⟩
   obtain ⟨φ, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ y hy)
   rw [R.Φ_one y hy]

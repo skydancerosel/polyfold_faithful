@@ -5,18 +5,18 @@ import RoundTrip.Blind.V8_7
 /-! Round trip for V8_7 (Lemma 8.1.5 = 2017 Lemma 8.4: the units `1_q = (1_x, Ts(1_x)⁻¹ q)`).
 
 `A` is the conjunction of the types of `EpGroupoid.tSrc_tUnit`, `tTgt_tUnit`, `tComp_tUnit`,
-`tUnit_tComp` and `lemma_8_4`, universes at `0`.  The project's unit is `tUnit = Tu`, the
+`tUnit_tComp` and `lemma_8_1_5`, universes at `0`.  The project's unit is `tUnit = Tu`, the
 tangent of the unit map; B's unit is the text's `1_q`, characterized by `IsTUnitB q v` (`v` over
 `1_x` with `Ts v = q`).
 
 * `A → B`: `1_q` exists (`tUnit q`, by the project lemma `tBase_tUnit` and `tSrc_tUnit`); any
   `v` with B's characterization equals `tUnit q` (fibre injectivity `tangent_ext`, with
-  `tSrc_tUnit` from the hypothesis), and then B's four properties are `lemma_8_4`.
+  `tSrc_tUnit` from the hypothesis), and then B's four properties are `lemma_8_1_5`.
 * `B → A`: `Ts(Tu q) = q` is *not* a consequence of `B` (B never mentions `Tu`; it only
   characterizes `1_q` by its base point and its `Ts`), so `tSrc_tUnit` is re-proved outright by
   the chain rule for `s ∘ u = id` (`tangentMap_tangentMap_of_eq_id`).  With it `tUnit q` satisfies
   `IsTUnitB q`, and `tTgt_tUnit`, `tComp_tUnit`, `tUnit_tComp` and the last three clauses of
-  `lemma_8_4` all come from B; the base point clause of `lemma_8_4` is `tBase_tUnit`. -/
+  `lemma_8_1_5` all come from B; the base point clause of `lemma_8_1_5` is `tBase_tUnit`. -/
 
 namespace RoundTrip.V8_7
 open Polyfold
@@ -27,12 +27,12 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.tTgt_tUnit.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tComp_tUnit.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tUnit_tComp.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_8_4.{0})
+  (type_of% @Polyfold.EpGroupoid.lemma_8_1_5.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.tSrc_tUnit.{0}, @Polyfold.EpGroupoid.tTgt_tUnit.{0},
     @Polyfold.EpGroupoid.tComp_tUnit.{0}, @Polyfold.EpGroupoid.tUnit_tComp.{0},
-    @Polyfold.EpGroupoid.lemma_8_4.{0}⟩
+    @Polyfold.EpGroupoid.lemma_8_1_5.{0}⟩
 
 /-! ### `A → B` -/
 
@@ -84,12 +84,12 @@ theorem B_to_A : B → A := by
 
 #rt_check RoundTrip.V8_7.A_to_B [Polyfold.EpGroupoid.tSrc_tUnit,
   Polyfold.EpGroupoid.tTgt_tUnit, Polyfold.EpGroupoid.tComp_tUnit,
-  Polyfold.EpGroupoid.tUnit_tComp, Polyfold.EpGroupoid.lemma_8_4]
+  Polyfold.EpGroupoid.tUnit_tComp, Polyfold.EpGroupoid.lemma_8_1_5]
 #rt_check RoundTrip.V8_7.B_to_A [Polyfold.EpGroupoid.tSrc_tUnit,
   Polyfold.EpGroupoid.tTgt_tUnit, Polyfold.EpGroupoid.tComp_tUnit,
-  Polyfold.EpGroupoid.tUnit_tComp, Polyfold.EpGroupoid.lemma_8_4]
+  Polyfold.EpGroupoid.tUnit_tComp, Polyfold.EpGroupoid.lemma_8_1_5]
 #rt_overlap RoundTrip.V8_7.B_to_A [Polyfold.EpGroupoid.tSrc_tUnit,
   Polyfold.EpGroupoid.tTgt_tUnit, Polyfold.EpGroupoid.tComp_tUnit,
-  Polyfold.EpGroupoid.tUnit_tComp, Polyfold.EpGroupoid.lemma_8_4]
+  Polyfold.EpGroupoid.tUnit_tComp, Polyfold.EpGroupoid.lemma_8_1_5]
 
 end RoundTrip.V8_7

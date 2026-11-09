@@ -27,10 +27,10 @@ boundary with corners with a natural orientation.
   `paracompactSpace_rn_pullback`, `paracompactSpace_rn_rn_prod`, `paracompactSpace_rn_rn_pullback`
   (`ℝⁿ × X`, `ℝᵏ × (ℝⁿ × X)` and the pull-back spaces are paracompact: Theorem 2.3.10 (2021;
   preprint Theorem 2.16), `MPolyfold.paracompactSpace_prod`, `paracompactSpace_pullbackSpace`).
-* `theorem_6_6_13`: Theorem 6.6.13 (`theorem_6_37`) without the hypothesis
+* `theorem_6_6_13`: Theorem 6.6.13 (`theorem_6_6_13_hyp`) without the hypothesis
   `B.HasScPlusSectionsThrough` (it follows from the bump functions,
   `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`) and without instance arguments.
-* `theorem_6_6_17`: Theorem 6.6.17 (`theorem_6_6_17_2021`) likewise, and without
+* `theorem_6_6_17`: Theorem 6.6.17 (`theorem_6_6_17_hyp`) likewise, and without
   `HasConnectedSmoothNbhds`: `MPolyfold.hasConnectedSmoothNbhds` proves it for every M-polyfold
   (gap G.90).
 * `SectionOrientation`: Definition 6.6.16, the orientations of `f` (`IsSectionOrientation`).
@@ -38,14 +38,14 @@ boundary with corners with a natural orientation.
   the orientations `tangentOr(o_x)` of `T_xS = ker f'(x)` read in charts (1) agree in any two
   charts through the tangent map of the transition (gap G.68, `tangentOrAt_toChartOr`) and
   (2) form an orientation of the kernel line bundle along every sc-smooth path of zeros in an
-  orientable neighbourhood (`theorem_6_41`).
+  orientable neighbourhood (`theorem_6_6_18_hyp`).
 * `theorem_6_6_18`: **Theorem 6.6.18 in the book's shape**: `SolutionSetInGeneralPosition`
   (compact manifold with boundary with corners in general position) and
   `IsNaturalSolutionOrientation`.
 
 ## What this makes unnecessary
 
-* The hypothesis `hsec : B.HasScPlusSectionsThrough` of `theorem_6_37`, `theorem_6_6_17_2021`
+* The hypothesis `hsec : B.HasScPlusSectionsThrough` of `theorem_6_6_13_hyp`, `theorem_6_6_17_hyp`
   (and of the sections `Transport` of `OrientationFunctor.lean` and `Existence` of
   `OrientationSpace.lean`): discharged by
   `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough hbump`.
@@ -126,7 +126,7 @@ end MPolyfold
 /-- **Theorem 6.6.13** (2021, p. 273; preprint Theorem 6.37): for an sc-Fredholm section `f` (with
 tame germ data) of a strong bundle over a tame M-polyfold with bump functions, there is a unique
 family of maps `Γ_f([φ]) : Or_x^f ≃ Or_y^f` on the morphisms `[φ] : x ⟶ y` of `PX` which is a
-functor and has property (∗).  `theorem_6_37` without `B.HasScPlusSectionsThrough` and without
+functor and has property (∗).  `theorem_6_6_13_hyp` without `B.HasScPlusSectionsThrough` and without
 instance arguments. -/
 theorem theorem_6_6_13 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) :
@@ -143,10 +143,10 @@ theorem theorem_6_6_13 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
   have := paracompactSpace_rn_pullback B
   have := paracompactSpace_rn_rn_prod PX
   have := paracompactSpace_rn_rn_pullback B
-  exact theorem_6_37 hX hbump hf (MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough hbump)
+  exact theorem_6_6_13_hyp hX hbump hf (MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough hbump)
 
 /-- **Theorem 6.6.17** (2021, p. 275, new in 2021): there is exactly one topology on `O_f` which
-is Hausdorff and has properties (1), (2) and (3).  `theorem_6_6_17_2021` without
+is Hausdorff and has properties (1), (2) and (3).  `theorem_6_6_17_hyp` without
 `B.HasScPlusSectionsThrough`, without `HasConnectedSmoothNbhds` (it holds for every M-polyfold,
 `MPolyfold.hasConnectedSmoothNbhds`) and without instance arguments. -/
 theorem theorem_6_6_17 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
@@ -159,7 +159,7 @@ theorem theorem_6_6_17 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
   have := paracompactSpace_rn_pullback B
   have := paracompactSpace_rn_rn_prod PX
   have := paracompactSpace_rn_rn_pullback B
-  exact theorem_6_6_17_2021 hX hbump hf (MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough hbump)
+  exact theorem_6_6_17_hyp hX hbump hf (MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough hbump)
     PX.hasConnectedSmoothNbhds
 
 /-! ### Definition 6.6.16 and Theorem 6.6.18 -/
@@ -226,7 +226,7 @@ theorem theorem_6_6_18 (hX : PX.IsTame) (hf : B.IsScFredholmSectionTame f) (hP :
     B.SolutionSetInGeneralPosition f ∧ IsNaturalSolutionOrientation f hf hgp o := by
   have := paracompactSpace_rn_prod PX
   have := paracompactSpace_rn_pullback B
-  obtain ⟨h1, h2⟩ := theorem_6_41 hX hf hP hgp o.2
+  obtain ⟨h1, h2⟩ := theorem_6_6_18_hyp hX hf hP hgp o.2
   exact ⟨h1, fun x hs hx0 c c' hc hc' hxc hxc' =>
     tangentOrAt_toChartOr hf.toIsScFredholmSection hs hx0 _ (o.1 x hs) hc hc' hxc hxc', h2⟩
 

@@ -50,7 +50,7 @@ Local models (`T(f¹) = (Tf)¹`):
   `r¹`) and `IsScSmoothRetractMap.retractTangentMap_isBundleMapOn` (`Tf` covers `f¹`).
 
 M-polyfolds:
-* `theorem_2_3_16_2021` (**Theorem 2.3.16**, bundle form): the tangent charts belong to the
+* `theorem_2_3_16` (**Theorem 2.3.16**, bundle form): the tangent charts belong to the
   structure of `TX`, `p` is sc-smooth, `p` is the first projection in the tangent charts, the
   models are bundle retracts, and the transition maps of tangent charts are bundle maps covering
   those of the charts `φ¹` of `X¹`.
@@ -58,12 +58,12 @@ M-polyfolds:
   `TangentPre.transport_lower`), `MPolyfold.tangentShiftMap`, `MPolyfold.tangentShiftEquiv`
   (`Φ : T(X¹) ≃ (TX)¹`), `MPolyfold.tangentShiftHomeomorph`, `MPolyfold.tangentProjShift`
   (`p¹ : (TX)¹ → (X¹)¹`), `MPolyfold.tangentShiftEquiv_isScDiffeoOn`.
-* `proposition_2_3_17_2021` (**Proposition 2.3.17**, `i = 1`): `Φ` is an sc-diffeomorphism of
+* `proposition_2_3_17` (**Proposition 2.3.17**, `i = 1`): `Φ` is an sc-diffeomorphism of
   M-polyfolds, `p¹ ∘ Φ = p_{X¹}`, `p¹` is sc-smooth, `Φ` is natural (`Tψ ∘ Φ = ι ∘ T(ψ¹)` in
   every chart `ψ`, `MPolyfold.tangentChartMap_tangentLower`) and, in the charts `T(φ¹)`, `(Tφ)¹`,
   the identity of `T(O¹) = (TO)¹` (`MPolyfold.levelChart_tangentShiftMap`).
 * `MPolyfold.levelOneEquiv`, `MPolyfold.levelOneEquiv_isScDiffeoOn` (the index raise of an
-  sc-diffeomorphism), `MPolyfold.tangentShiftEquivTwo` and `proposition_2_3_17_two_2021`
+  sc-diffeomorphism), `MPolyfold.tangentShiftEquivTwo` and `proposition_2_3_17_two`
   (**Proposition 2.3.17**, `i = 2`).
 * Gap G.6 of the report: `MPolyfold.levelLift_transition`, `MPolyfold.levelLift_levelChart` (the
   level-`m` lift of the chart `φ¹` of `X¹` is the level-`(m+1)` lift of `φ`),
@@ -81,8 +81,8 @@ The diagonal example (Remark 2.4.2):
 * `diagonalEmbed`, `diagonalProject`, `diagonalEmbed_isScDiffeoOn` (`s ↦ (s, s, s)` is an
   sc-diffeomorphism from the half-line M-polyfold `MPolyfold.quadrantPolyfold 1 W`).
 * `degIndex_diagonal_quadrant` (`d_C`), `diagonalPolyfold_degIndex` (`d_Δ`, through
-  `proposition_2_24`), `diagonalHalfLineChart`, `diagonalHalfLineChart_spec` (one chart on all of
-  `Δ`, with model `[0,∞) ⊕ W`, in which the index is `d_Δ`), and `remark_2_4_2_2021` collecting
+  `proposition_2_4_4`), `diagonalHalfLineChart`, `diagonalHalfLineChart_spec` (one chart on all of
+  `Δ`, with model `[0,∞) ⊕ W`, in which the index is `d_Δ`), and `remark_2_4_2` collecting
   these.
 
 ## What the text leaves implicit, and the choices made
@@ -94,7 +94,7 @@ The diagonal example (Remark 2.4.2):
   it (`tangentChartMap_tangentLower` holds in every chart).
 * `X^i` is the iterate `(X¹)¹ ⋯` (`MPolyfold.shift`).  The case `i = 1` is proved; every fixed `i`
   follows by iteration (`i = 2` is written out, with `levelOneEquiv` as the inductive step); the
-  statement for all `i` at once is `proposition_2_3_17_all_2021` in `Chapter2/TangentLiftAll.lean`.
+  statement for all `i` at once is `proposition_2_3_17_all` in `Chapter2/TangentLiftAll.lean`.
 * `(X¹)^i ≡ (X^i)¹` is an equality for `i = 1`, and for `i = 2` it is `((X¹)¹)¹ = ((X¹)¹)¹`.
   That the levels of `X¹` carry the topology of the levels of `X` is a separate statement (gap
   G.6), proved here as `shiftLevelHomeomorph`; Proposition 2.3.17 does not use it.
@@ -674,7 +674,7 @@ level-`1` map of `p : TX → X¹`, (3) itself sc-smooth;
 `Φ` does not depend on the charts used to define it;
 (5) as a map of bundles it is, in the charts `T(φ¹)` and `(Tφ)¹`, the identity of
 `T(O¹) = (TO)¹` (in particular linear on the fibres). -/
-theorem _root_.Polyfold.proposition_2_3_17_2021 :
+theorem _root_.Polyfold.proposition_2_3_17 :
     P.shift.tangentPolyfold.IsScDiffeoOn P.tangentPolyfold.shift tangentShiftEquiv
       tangentShiftEquiv.symm univ univ ∧
     (∀ α : P.shift.TangentSpace, tangentProjShift (tangentShiftEquiv α) = P.shift.tangentProj α) ∧
@@ -741,7 +741,7 @@ def tangentProjShiftTwo (γ : P.tangentPolyfold.shift.Level 1) : P.shift.shift.L
 /-- **2021 Proposition 2.3.17, p. 42, for `i = 2`** (iterating the case `i = 1`; every fixed `i`
 is obtained in the same way): `T(X²) ≡ (TX)²` is an sc-diffeomorphism covering the identity of
 `(X¹)² = (X²)¹`. -/
-theorem _root_.Polyfold.proposition_2_3_17_two_2021 :
+theorem _root_.Polyfold.proposition_2_3_17_two :
     P.shift.shift.tangentPolyfold.IsScDiffeoOn P.tangentPolyfold.shift.shift tangentShiftEquivTwo
       tangentShiftEquivTwo.symm univ univ ∧
     ∀ α : P.shift.shift.TangentSpace,
@@ -768,7 +768,7 @@ statement: `TX` is an M-polyfold with the tangent charts `Tφ` of the charts `φ
 `p : TX → X¹` is sc-smooth; in a tangent chart `p` is the first projection onto the level chart
 `φ¹` of `X¹`; the models `(TO, TC, TE)` are bundle retracts (`Tr` covers `r¹`); and the transition
 maps of tangent charts are bundle maps covering the transition maps of the charts `φ¹`. -/
-theorem _root_.Polyfold.theorem_2_3_16_2021 [ParacompactSpace P.TangentSpace]
+theorem _root_.Polyfold.theorem_2_3_16 [ParacompactSpace P.TangentSpace]
     [ParacompactSpace (P.Level 1)] :
     (∀ {φ : MChart X} (hφ : P.IsChart φ) (α₀ : P.TangentSpace),
       P.tangentPolyfold.IsChart (tangentChart hφ α₀)) ∧
@@ -1129,7 +1129,7 @@ lemma halfLinePoint_mem {s : ℝ} (hs : 0 ≤ s) (w : W 0) :
 lemma degIndex_halfLinePoint {s : ℝ} (hs : 0 ≤ s) (w : W 0) :
     (MPolyfold.quadrantPolyfold 1 W).degIndex ⟨_, halfLinePoint_mem W hs w⟩ =
       if s = 0 then 1 else 0 := by
-  rw [MPolyfold.quadrantPolyfold, corollary_2_32 (MPolyfold.isRelOpenInQuadrant_quadrant 1 W)
+  rw [MPolyfold.quadrantPolyfold, corollary_2_4_13 (MPolyfold.isRelOpenInQuadrant_quadrant 1 W)
     (MPolyfold.quadrant_nonempty 1 W), degIndex_quadrant (halfLinePoint_mem W hs w)]
   unfold quadrantDeg
   split_ifs with h <;> simp [h]
@@ -1140,7 +1140,7 @@ theorem diagonalPolyfold_degIndex {s : ℝ} (hs : 0 ≤ s) (w : W 0) :
     (diagonalPolyfold W).degIndex ⟨((fun _ => s), w), diagonalPoint_mem W hs w⟩ =
       if s = 0 then 1 else 0 := by
   rw [← degIndex_halfLinePoint W hs w]
-  exact (proposition_2_24 (diagonalEmbed_isScDiffeoOn W)
+  exact (proposition_2_4_4 (diagonalEmbed_isScDiffeoOn W)
     (mem_univ (⟨_, halfLinePoint_mem W hs w⟩ : quadrant 1 W 0))).symm
 
 /-- The chart `Δ → [0,∞) ⊕ W`, `((s, s, s), w) ↦ (s, w)`, transported from the identity chart of
@@ -1163,8 +1163,8 @@ theorem diagonalHalfLineChart_spec :
     congr 1
     rw [univ_inter]
     exact MChart.image_source _
-  · rw [proposition_2_24 (diagonalEmbed_isScDiffeoOn W).symm (mem_univ x),
-      MPolyfold.quadrantPolyfold, corollary_2_32 (MPolyfold.isRelOpenInQuadrant_quadrant 1 W)
+  · rw [proposition_2_4_4 (diagonalEmbed_isScDiffeoOn W).symm (mem_univ x),
+      MPolyfold.quadrantPolyfold, corollary_2_4_13 (MPolyfold.isRelOpenInQuadrant_quadrant 1 W)
       (MPolyfold.quadrant_nonempty 1 W)]
     rfl
 
@@ -1178,7 +1178,7 @@ coordinates), and with the resulting M-polyfold structure
 3. `Δ` has an atlas whose local model is the relatively open subset `[0,∞)` (`⊕ W`) of a
    partial quadrant of `ℝ` (`⊕ W`): one chart, defined on all of `Δ`, in which the index is
    `d_Δ`. -/
-theorem remark_2_4_2_2021 :
+theorem remark_2_4_2 :
     (MPolyfold.quadrantPolyfold 1 W).IsScDiffeoOn (diagonalPolyfold W) (diagonalEmbed W)
       (diagonalProject W) univ univ ∧
     (∀ {s : ℝ} (hs : 0 ≤ s) (w : W 0),

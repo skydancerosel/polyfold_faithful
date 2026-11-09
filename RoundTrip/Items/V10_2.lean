@@ -191,7 +191,7 @@ theorem B_to_A : B → A := by
       (inferInstance : (F.toFunctor ⋙ G.toFunctor).IsEquivalence)
     exact lem (G.comp F) h3 (hG.isLocalScDiffeo_obj.comp hF.isLocalScDiffeo_obj)
   · intro Obj Mor _ _ _ _ _ _ Obj' Mor' _ _ _ _ _ _ X Y F
-    exact X.proposition_7_1_isOpenQuotientMap.isQuotientMap.continuous_iff.2
+    exact X.proposition_7_1_8_isOpenQuotientMap.isQuotientMap.continuous_iff.2
       (Y.continuous_π.comp F.continuous_obj')
   · intro Obj Mor _ _ _ _ _ _ Obj' Mor' _ _ _ _ _ _ X Y F h O hO
     have he : F.orbitMap '' O = Y.π '' (F.obj '' (X.π ⁻¹' O)) := by
@@ -203,7 +203,7 @@ theorem B_to_A : B → A := by
       · rintro ⟨_, ⟨x, hx, rfl⟩, rfl⟩
         exact ⟨X.π x, hx, rfl⟩
     rw [he]
-    exact Y.proposition_7_1 _ (h _ (hO.preimage X.continuous_π))
+    exact Y.proposition_7_1_8 _ (h _ (hO.preimage X.continuous_π))
   · rintro ⟨G, hG⟩
     have h := (hG 0).symm.trans (hG 1)
     exact absurd h (by decide)

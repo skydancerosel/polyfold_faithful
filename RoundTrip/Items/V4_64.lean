@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_64
 
 /-! Round trip for V4_64 (proof of Theorem 4.23: the finite cover of `{z ∈ A : |p(z)| ≤ ε}`).
 
-`A` is the type of `Polyfold.theorem_4_23_of_subset`, universe `0`.
+`A` is the type of `Polyfold.theorem_4_3_1_of_subset`, universe `0`.
 
 `B` (the blind author's reading, flagged by them as false) says that every choice of open
 neighbourhoods `U(z)` of the points of `K = {z ∈ A : |p(z)| ≤ ε}` has a finite subcover, i.e.
@@ -19,7 +19,7 @@ finite and nonempty; but `K ⊇ (0, 1] × {1}` accumulates at `(0, 1) ∉ A`, an
 `U(λ, 1) = {r > λ/2}`, `U(λ, 0) = {x < 1/2}` have no finite subcover.
 
 Consequently `A → B` is false (`not_A_to_B`: `A` holds), and `B → A` holds only ex falso.  The
-project's `theorem_4_23_of_subset` replaces the text's finite cover by a countable one (`A` is
+project's `theorem_4_3_1_of_subset` replaces the text's finite cover by a countable one (`A` is
 second countable), which is what the text's argument needs. -/
 
 open Set Polyfold
@@ -29,9 +29,9 @@ noncomputable section
 namespace RoundTrip.V4_64
 
 /-- The project's statement, universe `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_4_23_of_subset.{0}
+def A : Prop := type_of% @Polyfold.theorem_4_3_1_of_subset.{0}
 
-theorem A_holds : A := @Polyfold.theorem_4_23_of_subset.{0}
+theorem A_holds : A := @Polyfold.theorem_4_3_1_of_subset.{0}
 
 namespace CE
 
@@ -227,7 +227,7 @@ theorem isGeneralPositionAt {z : Z} (hz : z ∈ Aset) : PZ.IsGeneralPositionAt A
   obtain ⟨n, W, T, hT⟩ := χ.model.isPartialQuadrant
   obtain ⟨y, hy, hys⟩ := exists_smoothLvl_one_of_mem_smooth (d.apply_mem_smooth hχ hz hzd hzχ)
   refine ⟨hz, d, χ, n, W, T, y, hzd, hχ, hzχ, hT, hy, ?_⟩
-  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_14 hχ hz hzd hzχ hy
+  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_2_2 hχ hz hzd hzχ hy
   have hU : IsRelOpenInQuadrant χ.model.E χ.model.C χ.model.O :=
     ⟨hPQ, univ, isOpen_univ, by rw [univ_inter]; rfl⟩
   set R := ScRetraction.id hU with hRdef
@@ -248,7 +248,7 @@ theorem isGeneralPositionAt {z : Z} (hz : z ∈ Aset) : PZ.IsGeneralPositionAt A
   · rw [hmin, sup_top_eq]
 
 theorem isTameSubmanifold : PZ.IsTameSubmanifold Aset :=
-  (MPolyfold.theorem_4_18 (prod_rn_isTame rnPolyfold_isTame) isSmoothSubmanifold
+  (MPolyfold.theorem_4_2_7 (prod_rn_isTame rnPolyfold_isTame) isSmoothSubmanifold
     fun a ha => MPolyfold.isGoodPositionAt_of_degIndex_eq_zero isSmoothSubmanifold ha
       (degIndex_zero a)).2
 
@@ -358,8 +358,8 @@ theorem not_A_to_B : ¬ (A → B) := fun h => not_B (h A_holds)
 /-- `B → A` only ex falso. -/
 theorem B_to_A : B → A := fun h => (not_B h).elim
 
-#rt_check RoundTrip.V4_64.not_B [Polyfold.theorem_4_23_of_subset]
-#rt_check RoundTrip.V4_64.B_to_A [Polyfold.theorem_4_23_of_subset]
-#rt_overlap RoundTrip.V4_64.B_to_A [Polyfold.theorem_4_23_of_subset]
+#rt_check RoundTrip.V4_64.not_B [Polyfold.theorem_4_3_1_of_subset]
+#rt_check RoundTrip.V4_64.B_to_A [Polyfold.theorem_4_3_1_of_subset]
+#rt_overlap RoundTrip.V4_64.B_to_A [Polyfold.theorem_4_3_1_of_subset]
 
 end RoundTrip.V4_64

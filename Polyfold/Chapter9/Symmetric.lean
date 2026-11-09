@@ -368,7 +368,7 @@ theorem lemma_9_1_7 (hΘ : X.IsBranchedEpSubgroupoid Θ) {x : Obj} (hx : x ∈ s
     {V : Set Obj} (hV : IsOpen V) (hxV : x ∈ V) :
     ∃ S : X.SymmetricBranchingStructure Θ x, S.U ⊆ V := by
   obtain ⟨B⟩ := hΘ.localBranching x hx
-  obtain ⟨R, hR⟩ := theorem_7_1 X x (B.isOpen_U.inter hV) ⟨B.mem_U, hxV⟩
+  obtain ⟨R, hR⟩ := theorem_7_1_13 X x (B.isOpen_U.inter hV) ⟨B.mem_U, hxV⟩
   exact ⟨B.symmetrize hΘ.isFunctorial R fun y hy => (hR hy).1, fun y hy => (hR hy).2⟩
 
 open scoped Classical in

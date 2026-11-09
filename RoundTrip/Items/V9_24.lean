@@ -62,7 +62,7 @@ theorem A_holds : A :=
 
 The project's `lemma_9_2_13_of_not_mem_boundary` proves both, but reaches the item theorem
 `subDegIndex_le` for the second; its first half is re-proved here verbatim, the second from
-Lemma 2.26 (`lemma_2_26`) directly. -/
+Lemma 2.26 (`lemma_2_4_6`) directly. -/
 
 section offBoundary
 open MPolyfold
@@ -95,7 +95,7 @@ theorem subDegIndex_eq_zero_of_not_mem_boundary {M : Set Z} (hA : P.IsSmoothSubm
     omega
   let := P.paracompactSpace_subtype M
   have hle : P.subDegIndex hA.isSubMPolyfold a ≤ P.degIndex a.1 :=
-    lemma_2_26 hA.isSubMPolyfold a
+    lemma_2_4_6 hA.isSubMPolyfold a
   omega
 
 end offBoundary

@@ -19,7 +19,7 @@ conjugation `Φ̂(g)(φ) = Γ(g, t φ) ∘ φ ∘ Γ(g, s φ)⁻¹`, a total map
   We believe (i)–(v) are nevertheless true for disconnected `U` (the text's formula needs only
   property (3) of Theorem 7.1: the index of `Γ(k, z)` is `k`), so this is proof effort: one would
   have to re-prove (i)–(v), in particular the sc-smoothness (ii), outright.  (vi) would follow from
-  `A` with `theorem_7_1` and the sheet lemmas.
+  `A` with `theorem_7_1_13` and the sheet lemmas.
 * `B → A`: on a natural representation, `R.Φhat g = PhiHatB g` on `𝐔(x)` (`agree`, via the text's
   formula, which follows from `Γ_mul`, `Γ_inv`, results of V7_22).  Then `src_Φhat`, `tgt_Φhat`
   come from (v), `Φhat_mul` from (iii), `Φhat_one` from (i), `Φhat_mem_image`, `image_Φhat` from

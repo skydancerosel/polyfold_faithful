@@ -432,13 +432,13 @@ So $T+S:X\to Y$ is an sc-isomorphism; this is condition (3) of Definition 1.1.9 
 does not verify. Finally $\dim K-\dim C$ is the index of $T+S$ on level $0$, which equals the
 index of $T$ on level $0$ by (F2), which is $\operatorname{ind}(T)$ by Lemma 2.D. $\square$
 
-*Checked by machine.* $T+S$ is sc-Fredholm: `Polyfold.proposition_1_10`, by this proof (with the
+*Checked by machine.* $T+S$ is sc-Fredholm: `Polyfold.proposition_1_1_11_preprint`, by this proof (with the
 bootstrap `Polyfold.ScPlus.regularizing_add`, and the complement $C$ taken as the range of a linear
 right inverse of $F_0\to F_0/Y$ with values in $F_\infty$ instead of the span of lifted basis
-vectors). $\operatorname{ind}(T+S) = \operatorname{ind}(T)$: `Polyfold.proposition_1_10_index`,
+vectors). $\operatorname{ind}(T+S) = \operatorname{ind}(T)$: `Polyfold.proposition_1_1_11_index`,
 where the index is $\dim\ker T_0-\dim(F_0/T(E_0))$ (`Polyfold.scIndex`), by (F2) on level $0$. On
 every level $(T+S)_m:E_m\to F_m$ is Fredholm of index $\operatorname{ind}(T)$:
-`Polyfold.proposition_1_10_index_lvl`, by Lemma 2.D for $T+S$.
+`Polyfold.proposition_1_1_11_index_lvl`, by Lemma 2.D for $T+S$.
 
 ---
 
@@ -615,7 +615,7 @@ along $U$, the one-sided derivative of Definition 3.C; and $f$ is sc-smooth if a
 $C^\infty$ within $U$ (`Polyfold.isScSmooth_iff_contDiffOn_of_isRelOpenInQuadrant`,
 `Polyfold.isScSmooth_iff_contDiffOn_const`). The formal proof does not use the compact unit sphere
 but Propositions 1.2.1 and 1.2.4 (preprint 1.16 and 1.19) for $k = 0$ below (`Polyfold.IsSc1With.contDiffOn_base`,
-`Polyfold.corollary_1_20_zero`). Mathlib's "$C^1$ within $U$" is Definition 3.C, with uniqueness of
+`Polyfold.corollary_1_2_5_zero`). Mathlib's "$C^1$ within $U$" is Definition 3.C, with uniqueness of
 the derivative from the non-empty interior of the quadrant.
 
 **Definition (sc$^k$).** Inductively, an $\mathrm{sc}^0$ map $f$ is *$\mathrm{sc}^{k+1}$* if it is
@@ -890,7 +890,7 @@ $(k+2,l;n_1+1,\dots,n_i,\dots,n_j+1)$: $j+l-1\le n_i\le k+1$ and $j+l-1\le n_s+1
 *Checked by machine as stated*, for $U$ an sc-domain (the property of relatively open subsets of
 partial quadrants that the proofs use) and $f$ $\mathrm{sc}^0$: if $f:U_{m+l}\to F_m$ is $C^{l+1}$
 for all $m\ge0$ and $0\le l\le k$, then $f$ is $\mathrm{sc}^{k+1}$
-(`Polyfold.proposition_1_19_text`); if this holds for every $l$, then $f$ is sc-smooth
+(`Polyfold.proposition_1_2_4_text`); if this holds for every $l$, then $f$ is sc-smooth
 (`Polyfold.IsScSmooth.of_contDiffOn_levels_text`). The formal proof is the one above. The
 derivatives $d^jf(x)$, with their compatibility across levels, are collected in a *derivative
 tower* (`Polyfold.IsDerivTower`, built from the hypothesis by
@@ -910,8 +910,8 @@ coarser levels supplies the missing order.
 
 *Remark.* An earlier formal version assumes more and needs no ($\mathrm S_k$): if $f:U_m\to F_m$
 is $C^{k+1}$ for every $m$, the level maps of $Tf$ are $C^k$ and the induction is immediate
-(`Polyfold.proposition_1_19`); for $k = 0$ the two hypotheses agree
-(`Polyfold.proposition_1_19_zero`: $C^1$ on every $U_m\to F_m$ gives $\mathrm{sc}^1$, with
+(`Polyfold.proposition_1_2_4`); for $k = 0$ the two hypotheses agree
+(`Polyfold.proposition_1_2_4_zero`: $C^1$ on every $U_m\to F_m$ gives $\mathrm{sc}^1$, with
 $Df(x) = df(x)$); and a map that is $C^\infty$ on every level is sc-smooth
 (`Polyfold.IsScSmooth.of_contDiffOn_levels`).
 
@@ -928,16 +928,16 @@ $C^\infty$ map on every $U_l$. $\square$
 
 *Checked by machine as stated*, for a finite-dimensional target $V$ with its constant structure
 (in place of $\mathbb R^N$) and $U$ an sc-domain: if $f:U_l\to V$ is $C^{l+1}$ for $0\le l\le k$,
-then $f$ is $\mathrm{sc}^{k+1}$ (`Polyfold.corollary_1_20_text`, by the proof above from
-`Polyfold.proposition_1_19_text`; $f$ is $\mathrm{sc}^0$ because each $f:U_m\to V$ is the
+then $f$ is $\mathrm{sc}^{k+1}$ (`Polyfold.corollary_1_2_5_text`, by the proof above from
+`Polyfold.proposition_1_2_4_text`; $f$ is $\mathrm{sc}^0$ because each $f:U_m\to V$ is the
 continuous $f:U_0\to V$ composed with the inclusion); the middle claim, $C^{l+1}$ on $U_l$ for
 every $l$ implies sc-smooth (`Polyfold.IsScSmooth.of_contDiffOn_levels_finiteDimensional_text`);
 and the last claim, $C^\infty$ on $U_0$ implies sc-smooth
 (`Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional`). The earlier versions under the stronger
 hypothesis remain: $C^{k+1}$ on *every* $U_m$ gives $\mathrm{sc}^{k+1}$
-(`Polyfold.corollary_1_20`), in particular $C^{k+1}$ on $U_0$ does
-(`Polyfold.corollary_1_20_base`), and for $k = 0$, where the hypotheses agree,
-`Polyfold.corollary_1_20_zero`.
+(`Polyfold.corollary_1_2_5`), in particular $C^{k+1}$ on $U_0$ does
+(`Polyfold.corollary_1_2_5_base`), and for $k = 0$, where the hypotheses agree,
+`Polyfold.corollary_1_2_5_zero`.
 
 In the other direction Proposition 1.2.3 (preprint 1.18) gives, for an sc-smooth $f:U\to\mathbb R^N$, that
 $f:U_l\to\mathbb R^N$ is $C^l$ for every $l$ (take $m = 0$, $k = l$). The two conditions differ by
@@ -1167,13 +1167,13 @@ $Df(x)(\Sigma)$ has codimension $\#I$ in $E'_0$ and is contained in $\Sigma'$ of
 $\#I'$; hence $\#I'\le\#I$. The same argument for $f^{-1}$ at $x'$ (a smooth point, as $f$ is
 $\mathrm{sc}^0$) gives $\#I\le\#I'$. $\square$
 
-*Checked by machine:* `Polyfold.theorem_1_25`, in `Polyfold/Chapter2/DegeneracyIndex.lean`, for a
+*Checked by machine:* `Polyfold.theorem_1_3_5`, in `Polyfold/Chapter2/DegeneracyIndex.lean`, for a
 germ read as an $\mathrm{sc}^1$ map $f:U\to U'$ with $\mathrm{sc}^1$ inverse between relatively open
 subsets of partial quadrants. The formal proof is the argument of Chapter 2, §2.4 (preprint §2.3) for the identity
 retraction, which is the proof above with points of level $1$ in place of smooth points
-(`Polyfold.theorem_1_25_lvl1`, `Polyfold.degIndexWith_le_of_germ`); Lemma 5.A appears as
+(`Polyfold.theorem_1_3_5_lvl1`, `Polyfold.degIndexWith_le_of_germ`); Lemma 5.A appears as
 `Polyfold.eventually_degIndexWith_le` and `Polyfold.exists_tendsto_lvl1_degIndexWith`, and Lemma
-1.3.4 (preprint 1.24) as `Polyfold.lemma_1_24`.
+1.3.4 (preprint 1.24) as `Polyfold.lemma_1_3_4`.
 
 HWZ remark that sc-diffeomorphisms recognize boundary points *and* corners, whereas
 homeomorphisms recognize only the boundary: the homeomorphism $[0,\infty)^2\to\mathbb
@@ -1394,13 +1394,13 @@ identity of the underlying space). Two readings of the remark hold:
 $c$ is the larger of the two operator norms plus one. The open mapping theorem gives (2), two complete norms one of which
 dominates the other. Read as "the same topology", the remark holds without it.
 
-*Checked by machine:* `Polyfold.remark_1_1_2_2021`, `Polyfold.remark_1_1_2_2021_openMapping`.
+*Checked by machine:* `Polyfold.remark_1_1_2`, `Polyfold.remark_1_1_2_openMapping`.
 
 **Proposition 1.1.11 (preprint 1.10), 2021 statement (p. 9).** The 2021 statement adds that $T+S$ has the index of $T$. This is
 the statement of §2 above, where the index was the exposition's addition. The proof in Appendix 1.4.1 (pp. 15–16) is the
 earlier one and does not argue the index; the argument of §2 does, by (F2) on level $0$ and Lemma 2.D. On every level
 $(T+S)_m:E_m\to F_m$ is Fredholm of index $\operatorname{ind}(T)$, which the text does not state.
 
-*Checked by machine:* `Polyfold.proposition_1_1_11_2021`, the conjunction of `Polyfold.proposition_1_10`,
-`Polyfold.proposition_1_10_index` and `Polyfold.proposition_1_10_index_lvl`. These are V1.40–V1.41 in
+*Checked by machine:* `Polyfold.proposition_1_1_11`, the conjunction of `Polyfold.proposition_1_1_11_preprint`,
+`Polyfold.proposition_1_1_11_index` and `Polyfold.proposition_1_1_11_index_lvl`. These are V1.40–V1.41 in
 `Exposition/Verification.md`.

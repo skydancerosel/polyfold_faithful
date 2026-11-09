@@ -8,9 +8,9 @@ metrizable when paracompact).
 
 `A` is the conjunction of the types of the three listed theorems, universes at `0`
 (`Obj Mor : Type`; `metrizableSpace_of_locally` has one universe, also at `0`):
-* `EpGroupoid.theorem_7_2`: `|X|` is locally metrizable (every point has an open neighbourhood
+* `EpGroupoid.theorem_7_3_1`: `|X|` is locally metrizable (every point has an open neighbourhood
   with metrizable subspace topology), `RegularSpace`, `T2Space`;
-* `EpGroupoid.theorem_7_2_metrizable`: `ParacompactSpace |X| → MetrizableSpace |X|`;
+* `EpGroupoid.theorem_7_3_1_metrizable`: `ParacompactSpace |X| → MetrizableSpace |X|`;
 * `metrizableSpace_of_locally` (Part I, Smirnov's theorem): every paracompact Hausdorff locally
   metrizable space (in `Type`) is metrizable.
 
@@ -31,12 +31,12 @@ open Polyfold Set Filter Topology
 
 /-- The project's statements, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.EpGroupoid.theorem_7_2.{0} ∧
-  type_of% @Polyfold.EpGroupoid.theorem_7_2_metrizable.{0} ∧
+  type_of% @Polyfold.EpGroupoid.theorem_7_3_1.{0} ∧
+  type_of% @Polyfold.EpGroupoid.theorem_7_3_1_metrizable.{0} ∧
   type_of% @Polyfold.metrizableSpace_of_locally.{0}
 
 theorem A_holds : A :=
-  ⟨@EpGroupoid.theorem_7_2, @EpGroupoid.theorem_7_2_metrizable, @metrizableSpace_of_locally⟩
+  ⟨@EpGroupoid.theorem_7_3_1, @EpGroupoid.theorem_7_3_1_metrizable, @metrizableSpace_of_locally⟩
 
 /-- Mathlib's regularity is the text's. -/
 theorem regular_iff_text (Y : Type) [TopologicalSpace Y] :
@@ -62,8 +62,8 @@ theorem A_to_B : A → B := by
 
 /-- The part of `A` about ep-groupoids follows from `B`. -/
 theorem B_to_A_core : B →
-    (type_of% @Polyfold.EpGroupoid.theorem_7_2.{0} ∧
-      type_of% @Polyfold.EpGroupoid.theorem_7_2_metrizable.{0}) := by
+    (type_of% @Polyfold.EpGroupoid.theorem_7_3_1.{0} ∧
+      type_of% @Polyfold.EpGroupoid.theorem_7_3_1_metrizable.{0}) := by
   intro hB
   refine ⟨?_, ?_⟩
   · intro Obj Mor _ _ _ _ _ _ X
@@ -77,15 +77,15 @@ theorem B_to_A : B → A := fun hB =>
   ⟨(B_to_A_core hB).1, (B_to_A_core hB).2, fun {_} _ _ _ h =>
     metrizableSpace_of_pullback id continuous_id h⟩
 
-#rt_check RoundTrip.V7_42.A_to_B [Polyfold.EpGroupoid.theorem_7_2,
-  Polyfold.EpGroupoid.theorem_7_2_metrizable, Polyfold.metrizableSpace_of_locally]
-#rt_check RoundTrip.V7_42.B_to_A [Polyfold.EpGroupoid.theorem_7_2,
-  Polyfold.EpGroupoid.theorem_7_2_metrizable, Polyfold.metrizableSpace_of_locally]
-#rt_check RoundTrip.V7_42.B_to_A_core [Polyfold.EpGroupoid.theorem_7_2,
-  Polyfold.EpGroupoid.theorem_7_2_metrizable, Polyfold.metrizableSpace_of_locally]
-#rt_overlap RoundTrip.V7_42.B_to_A [Polyfold.EpGroupoid.theorem_7_2,
-  Polyfold.EpGroupoid.theorem_7_2_metrizable, Polyfold.metrizableSpace_of_locally]
-#rt_overlap RoundTrip.V7_42.B_to_A_core [Polyfold.EpGroupoid.theorem_7_2,
-  Polyfold.EpGroupoid.theorem_7_2_metrizable, Polyfold.metrizableSpace_of_locally]
+#rt_check RoundTrip.V7_42.A_to_B [Polyfold.EpGroupoid.theorem_7_3_1,
+  Polyfold.EpGroupoid.theorem_7_3_1_metrizable, Polyfold.metrizableSpace_of_locally]
+#rt_check RoundTrip.V7_42.B_to_A [Polyfold.EpGroupoid.theorem_7_3_1,
+  Polyfold.EpGroupoid.theorem_7_3_1_metrizable, Polyfold.metrizableSpace_of_locally]
+#rt_check RoundTrip.V7_42.B_to_A_core [Polyfold.EpGroupoid.theorem_7_3_1,
+  Polyfold.EpGroupoid.theorem_7_3_1_metrizable, Polyfold.metrizableSpace_of_locally]
+#rt_overlap RoundTrip.V7_42.B_to_A [Polyfold.EpGroupoid.theorem_7_3_1,
+  Polyfold.EpGroupoid.theorem_7_3_1_metrizable, Polyfold.metrizableSpace_of_locally]
+#rt_overlap RoundTrip.V7_42.B_to_A_core [Polyfold.EpGroupoid.theorem_7_3_1,
+  Polyfold.EpGroupoid.theorem_7_3_1_metrizable, Polyfold.metrizableSpace_of_locally]
 
 end RoundTrip.V7_42

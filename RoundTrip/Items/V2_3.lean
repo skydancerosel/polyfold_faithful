@@ -4,32 +4,32 @@ import RoundTrip.Blind.V2_3
 
 /-! Round trip for V2_3 (Proposition 2.4: `Tr(TU) = Tr'(TU')` when `r(U) = r'(U')`).
 
-`A` is the conjunction of the types of `Polyfold.proposition_2_4`,
+`A` is the conjunction of the types of `Polyfold.proposition_2_1_11`,
 `Polyfold.ScRetraction.comp_eq_self_of_retract_subset`,
 `Polyfold.ScRetraction.tangent_subset_of_retract_subset` and `Polyfold.ScRetraction.mem_tangent_iff`
 (no universe parameters: `ScBanach` lives in `Type`).  `ScRetraction.tangent` is a definition
 (vocabulary): `R.tangent = tangentMap R.U R '' E.tangentSet R.U` by `rfl`, exactly B's sets.
 
-`A → B`: `proposition_2_4`, unfolding `tangent`.
+`A → B`: `proposition_2_1_11`, unfolding `tangent`.
 
-`B → A`: the main conjunct `proposition_2_4` is B itself.  The three helper conjuncts (the
+`B → A`: the main conjunct `proposition_2_1_11` is B itself.  The three helper conjuncts (the
 idempotence identity `r' ∘ r = r`, the fixed-point description `TO = {p ∈ TU | Tr(p) = p}`, and the
 inclusion version `r(U) ⊆ r'(U') ⇒ Tr(TU) ⊆ Tr'(TU')`) are proved directly (they are not consequences
 of B, which only compares retractions with *equal* images), by the text's own argument (chain rule
-`theorem_1_21` applied to `r' ∘ r = r`), avoiding the banned lemmas. -/
+`theorem_1_3_1` applied to `r' ∘ r = r`), avoiding the banned lemmas. -/
 
 namespace RoundTrip.V2_3
 open Polyfold Set
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_4) ∧
+  (type_of% @Polyfold.proposition_2_1_11) ∧
     (type_of% @Polyfold.ScRetraction.comp_eq_self_of_retract_subset) ∧
     (type_of% @Polyfold.ScRetraction.tangent_subset_of_retract_subset) ∧
     (type_of% @Polyfold.ScRetraction.mem_tangent_iff)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_4, @Polyfold.ScRetraction.comp_eq_self_of_retract_subset,
+  ⟨@Polyfold.proposition_2_1_11, @Polyfold.ScRetraction.comp_eq_self_of_retract_subset,
     @Polyfold.ScRetraction.tangent_subset_of_retract_subset, @Polyfold.ScRetraction.mem_tangent_iff⟩
 
 theorem A_to_B : A → B := by
@@ -68,7 +68,7 @@ theorem tangent_subset' {E : ScBanach} {C : Set (E 0)} (R R' : ScRetraction E C)
   rw [mem_tangent_iff' R']
   refine ⟨hpU', ?_⟩
   have hmaps : MapsTo R R.U R'.U := fun y hy => R'.retract_subset (h (R.apply_mem_retract hy))
-  obtain ⟨_, hchain⟩ := theorem_1_21 R.relOpen R'.relOpen R.isSc1 R'.isSc1 hmaps
+  obtain ⟨_, hchain⟩ := theorem_1_3_1 R.relOpen R'.relOpen R.isSc1 R'.isSc1 hmaps
   have hcongr : EqOn (tangentMap R.U (R' ∘ R)) (tangentMap R.U R) (E.tangentSet R.U) :=
     (R.isSc1.tangentMap_congr R.isScDomain fun y hy =>
       (R'.apply_eq_self_of_mem_retract (h (R.apply_mem_retract hy))).symm).symm
@@ -86,13 +86,13 @@ theorem B_to_A : B → A := by
   · intro E C R p
     exact mem_tangent_iff' R
 
-#rt_check RoundTrip.V2_3.A_to_B [Polyfold.proposition_2_4,
+#rt_check RoundTrip.V2_3.A_to_B [Polyfold.proposition_2_1_11,
   Polyfold.ScRetraction.comp_eq_self_of_retract_subset,
   Polyfold.ScRetraction.tangent_subset_of_retract_subset, Polyfold.ScRetraction.mem_tangent_iff]
-#rt_check RoundTrip.V2_3.B_to_A [Polyfold.proposition_2_4,
+#rt_check RoundTrip.V2_3.B_to_A [Polyfold.proposition_2_1_11,
   Polyfold.ScRetraction.comp_eq_self_of_retract_subset,
   Polyfold.ScRetraction.tangent_subset_of_retract_subset, Polyfold.ScRetraction.mem_tangent_iff]
-#rt_overlap RoundTrip.V2_3.B_to_A [Polyfold.proposition_2_4,
+#rt_overlap RoundTrip.V2_3.B_to_A [Polyfold.proposition_2_1_11,
   Polyfold.ScRetraction.comp_eq_self_of_retract_subset,
   Polyfold.ScRetraction.tangent_subset_of_retract_subset, Polyfold.ScRetraction.mem_tangent_iff]
 

@@ -4,22 +4,22 @@ import RoundTrip.Blind.V3_18
 
 /-! Round trip for V3_18 (Lemma 3.16, the extension `s̃ = s ∘ r`).
 
-`A` is the conjunction of the types of `Polyfold.lemma_3_16` (no universe parameters) and
+`A` is the conjunction of the types of `Polyfold.lemma_3_1_19` (no universe parameters) and
 `Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd` (universes `u v` of `X`, `Y`, instantiated at
 `0`).
 
 Refresh 2026-11-02: `IsScFredholmGerm.sectionAdd` now states the germ reading of Definition 3.11
-(`IsFillingGerm`, `IsScPlusGerm`); `lemma_3_16` and B are unchanged, and the proof below (which uses
-only `lemma_3_16`) still checks.
+(`IsFillingGerm`, `IsScPlusGerm`); `lemma_3_1_19` and B are unchanged, and the proof below (which uses
+only `lemma_3_1_19`) still checks.
 
-* `A → B` is proved.  `B`'s (1) and (2) are `lemma_3_16` (from the hypothesis) applied to the
+* `A → B` is proved.  `B`'s (1) and (2) are `lemma_3_1_19` (from the hypothesis) applied to the
   principal part `ι ∘ ŝ : E₀ → F₀` of the sc⁺-section (its section condition `(x, ι ŝ(x)) ∈ K` is
   `IsScPlusSection.mem`), plus injectivity of `ι : F₁ → F₀`.  `B`'s regularity clause
   (`s̃` is an sc⁺-section of `U ◁ F → U`) is NOT in the statement of any theorem of `A`: in the
   project it appears only inside the proof of `IsScFredholmGerm.sectionAdd` (`hlift`).  It is
   proved here directly from the project's sc-calculus (Definition 2.7 for one retraction,
   `baseRetraction`, `IsScSmooth.snd`, `scPair`), not from `A`.
-* `B → A` is not proved: `A`'s `lemma_3_16` is about an ARBITRARY map `s : E₀ → F₀` satisfying
+* `B → A` is not proved: `A`'s `lemma_3_1_19` is about an ARBITRARY map `s : E₀ → F₀` satisfying
   only the section condition (no regularity, values in `F₀`), while `B` only speaks about
   sc⁺-sections (values in `F₁`, sc-smooth into `K[1]`); and `IsScFredholmGerm.sectionAdd` is the
   germ part of Theorem 3.15 (fillers via Lemma 3.17, sc-Fredholm germs over an M-polyfold), which
@@ -31,11 +31,11 @@ open Polyfold Set
 
 /-- The project's statement (universes of `IsScFredholmGerm.sectionAdd` at `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.lemma_3_16) ∧
+  (type_of% @Polyfold.lemma_3_1_19) ∧
     (type_of% @Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd.{0, 0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_3_16, @Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd.{0, 0}⟩
+  ⟨@Polyfold.lemma_3_1_19, @Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd.{0, 0}⟩
 
 theorem A_to_B : A → B := by
   rintro ⟨h16, -⟩ E F C U R hU hR s hs
@@ -71,9 +71,9 @@ theorem A_to_B : A → B := by
     rw [hs.fst_eq (r u) hru]
     exact h2u
 
-#rt_check RoundTrip.V3_18.A_to_B [Polyfold.lemma_3_16,
+#rt_check RoundTrip.V3_18.A_to_B [Polyfold.lemma_3_1_19,
   Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd]
-#rt_overlap RoundTrip.V3_18.A_to_B [Polyfold.lemma_3_16,
+#rt_overlap RoundTrip.V3_18.A_to_B [Polyfold.lemma_3_1_19,
   Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd]
 
 end RoundTrip.V3_18

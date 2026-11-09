@@ -5,9 +5,9 @@ import RoundTrip.Blind.V3_97
 /-!
 Round trip for V3_97 (the dimension of the solution set is the Fredholm index), refreshed
 2026-11-02 against HEAD (germ reading).  `A` is the conjunction of the types of
-`theorem_3_54_tangentGermChart_index`, `theorem_3_54_tangentGermChart_solutionSet_index`,
-`theorem_3_54_two_index`, `theorem_3_23_index`, `theorem_3_19_index`, `theorem_3_57_index`,
-`theorem_3_54_graph_proj_conj`, `theorem_3_54_tangentGermChart_proj_conj` and
+`theorem_3_6_8_tangentGermChart_index`, `theorem_3_6_8_tangentGermChart_solutionSet_index`,
+`theorem_3_6_8_two_index`, `theorem_3_1_26_index`, `theorem_3_1_22_index`, `theorem_3_6_11_index`,
+`theorem_3_6_8_graph_proj_conj`, `theorem_3_6_8_tangentGermChart_proj_conj` and
 `StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex`, universes instantiated at `0`.
 
 Neither direction is proved.  What is proved from the hypothesis `A`:
@@ -16,7 +16,7 @@ Neither direction is proved.  What is proved from the hypothesis `A`:
   exactly), and the project's tangent germ datum (Definition 3.25 (2), `TangentGermChart`) of
   `S(f, V)` at `x` of dimension `d`.  Glue: `B`'s `IsGoodPositionGermSc` (whole-chart data) gives
   the project's `IsGoodPositionGermTameWholeChart`, hence the germ-reading
-  `IsGoodPositionGermTame` (from V3_94); `A`'s `theorem_3_54_tangentGermChart_index` gives the
+  `IsGoodPositionGermTame` (from V3_94); `A`'s `theorem_3_6_8_tangentGermChart_index` gives the
   datum and `IsSurjLinOfIndex f x d`; the latter gives `KerDimInChart`.
 * `chartLinScFredholm_of_isSurjLinOfIndex` (new conjunct
   `linAt_isScFredholm_of_isSurjLinOfIndex`): at a zero of an sc-Fredholm section with
@@ -30,7 +30,7 @@ The gaps to `A → B`:
   germ reading; the translation is the open half of V3_22 (needs a germ form of Proposition 1.19),
   not glue.
 * (3.19) `B` assumes only `IsScFredholmSection` (germ data in some chart, no tameness) and
-  `IsLinSurjAt`, while `A`'s `theorem_3_19_index` needs tame germ data (`IsScFredholmSectionTame`)
+  `IsLinSurjAt`, while `A`'s `theorem_3_1_22_index` needs tame germ data (`IsScFredholmSectionTame`)
   and good position in a tame chart, which the project cannot produce from `B`'s hypotheses (as in
   V3_68/V3_101).
 -/
@@ -40,23 +40,23 @@ open Polyfold Set StrongRetr
 
 /-- The project's statement, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_54_tangentGermChart_index.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_tangentGermChart_solutionSet_index.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_two_index.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_23_index.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_19_index.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_57_index.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_graph_proj_conj.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_tangentGermChart_proj_conj.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_6_8_tangentGermChart_index.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_tangentGermChart_solutionSet_index.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_two_index.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_1_26_index.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_1_22_index.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_11_index.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_graph_proj_conj.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_tangentGermChart_proj_conj.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_54_tangentGermChart_index.{0, 0},
-    @Polyfold.theorem_3_54_tangentGermChart_solutionSet_index.{0, 0},
-    @Polyfold.theorem_3_54_two_index.{0, 0}, @Polyfold.theorem_3_23_index.{0, 0},
-    @Polyfold.theorem_3_19_index.{0, 0}, @Polyfold.theorem_3_57_index.{0, 0},
-    @Polyfold.theorem_3_54_graph_proj_conj.{0, 0},
-    @Polyfold.theorem_3_54_tangentGermChart_proj_conj.{0, 0},
+  ⟨@Polyfold.theorem_3_6_8_tangentGermChart_index.{0, 0},
+    @Polyfold.theorem_3_6_8_tangentGermChart_solutionSet_index.{0, 0},
+    @Polyfold.theorem_3_6_8_two_index.{0, 0}, @Polyfold.theorem_3_1_26_index.{0, 0},
+    @Polyfold.theorem_3_1_22_index.{0, 0}, @Polyfold.theorem_3_6_11_index.{0, 0},
+    @Polyfold.theorem_3_6_8_graph_proj_conj.{0, 0},
+    @Polyfold.theorem_3_6_8_tangentGermChart_proj_conj.{0, 0},
     @Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex.{0, 0}⟩
 
 section Glue
@@ -242,16 +242,16 @@ theorem A_to_B_354_part (hA : A) :
   exact ⟨Vx, hVo, hxV, d, fun c hc hxc => kerDimInChart_of_isSurjLinOfIndex hf.isScSmooth hx
     (hf.mem_smoothSet_of_isZeroAt hx) hI hc hxc, ⟨D⟩⟩
 
-#rt_check RoundTrip.V3_97.A_to_B_354_part [Polyfold.theorem_3_54_tangentGermChart_index,
-  Polyfold.theorem_3_54_tangentGermChart_solutionSet_index, Polyfold.theorem_3_54_two_index,
-  Polyfold.theorem_3_23_index, Polyfold.theorem_3_19_index, Polyfold.theorem_3_57_index,
-  Polyfold.theorem_3_54_graph_proj_conj, Polyfold.theorem_3_54_tangentGermChart_proj_conj,
+#rt_check RoundTrip.V3_97.A_to_B_354_part [Polyfold.theorem_3_6_8_tangentGermChart_index,
+  Polyfold.theorem_3_6_8_tangentGermChart_solutionSet_index, Polyfold.theorem_3_6_8_two_index,
+  Polyfold.theorem_3_1_26_index, Polyfold.theorem_3_1_22_index, Polyfold.theorem_3_6_11_index,
+  Polyfold.theorem_3_6_8_graph_proj_conj, Polyfold.theorem_3_6_8_tangentGermChart_proj_conj,
   Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex]
 #rt_check RoundTrip.V3_97.chartLinScFredholm_of_isSurjLinOfIndex [
-  Polyfold.theorem_3_54_tangentGermChart_index,
-  Polyfold.theorem_3_54_tangentGermChart_solutionSet_index, Polyfold.theorem_3_54_two_index,
-  Polyfold.theorem_3_23_index, Polyfold.theorem_3_19_index, Polyfold.theorem_3_57_index,
-  Polyfold.theorem_3_54_graph_proj_conj, Polyfold.theorem_3_54_tangentGermChart_proj_conj,
+  Polyfold.theorem_3_6_8_tangentGermChart_index,
+  Polyfold.theorem_3_6_8_tangentGermChart_solutionSet_index, Polyfold.theorem_3_6_8_two_index,
+  Polyfold.theorem_3_1_26_index, Polyfold.theorem_3_1_22_index, Polyfold.theorem_3_6_11_index,
+  Polyfold.theorem_3_6_8_graph_proj_conj, Polyfold.theorem_3_6_8_tangentGermChart_proj_conj,
   Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex]
 
 end RoundTrip.V3_97

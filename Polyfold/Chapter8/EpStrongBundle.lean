@@ -6,9 +6,9 @@ set_option maxSynthPendingDepth 3
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §8.3,
-"Strong Bundles over Ep-Groupoids", pp. 270–275: **Definitions 8.4, 8.5 and 8.7** (the lead's
-definitions; the functorial picture and Definition 8.6 follow below them).  Also §8.4, p. 285:
-**Definition 8.10** (proper strong bundle covering functors), and Appendix **§8.5.2**, "The
+"Strong Bundles over Ep-Groupoids", pp. 270–275: **Definitions 8.3.1, 8.3.2 and 8.3.4 (2017: 8.4, 8.5 and 8.7)** (the lead's
+definitions; the functorial picture and Definition 8.3.3 (2017: 8.6) follow below them).  Also §8.4, p. 285:
+**Definition 8.5.9 (2017: 8.10)** (proper strong bundle covering functors), and Appendix **§8.5.2**, "The
 Structure of Strong Bundle Coverings", pp. 288–289.
 
 # Strong bundles over ep-groupoids
@@ -20,16 +20,16 @@ the object M-polyfold.  Since `s : 𝐗 → X` is a local sc-diffeomorphism, the
 `𝐗 ₛ×_P W = {(ψ, w) ∈ 𝐗 × W | s(ψ) = P(w)}` is an M-polyfold and, as the pull-back of `P`, a
 strong bundle `π₁ : 𝐗 ₛ×_P W → 𝐗`.
 
-(Definition 8.4) A strong bundle over `X` is a pair `(P, μ)`: `P : W → X` a strong bundle over the
+(Definition 8.3.1 (2017: 8.4)) A strong bundle over `X` is a pair `(P, μ)`: `P : W → X` a strong bundle over the
 object M-polyfold and `μ : 𝐗 ₛ×_P W → W` a strong bundle map covering `t`, `P ∘ μ(ψ, w) = t(ψ)`,
 with (1) `μ` a surjective local sc-diffeomorphism, linear on the fibres; (2) `μ(1_x, w) = w`;
 (3) `μ(ψ ∘ γ, w) = μ(ψ, μ(γ, w))` whenever `s(γ) = P(w)` and `t(γ) = s(ψ) = P(μ(γ, w))`.
 
-(Definition 8.5) A strong bundle map between `(P : W → X, μ)` and `(P' : W' → X', μ')` is a
+(Definition 8.3.2 (2017: 8.5)) A strong bundle map between `(P : W → X, μ)` and `(P' : W' → X', μ')` is a
 strong bundle map `Φ : W → W'` covering an sc-smooth functor `ϕ : X → X'` with
 `Φ(μ(γ, w)) = μ'(ϕ(γ), Φ(w))` for `s(γ) = P(w)`.
 
-(Definition 8.7) For a strong bundle `(P, μ)` over `X`: (1) an sc-smooth section functor is an
+(Definition 8.3.4 (2017: 8.7)) For a strong bundle `(P, μ)` over `X`: (1) an sc-smooth section functor is an
 sc-smooth section `f` of `P` with `f(y) = μ(φ, f(x))` for `φ : x → y`; `Γ(P, μ)` the vector space
 of these; (2) an sc⁺-section functor is one with values in `W_{0,1}`, sc-smooth as a section of
 `W[1] → X`, `Γ⁺(P, μ)`; (3) an sc-Fredholm section functor is one which is an sc-Fredholm section
@@ -41,15 +41,15 @@ of `W → X`, `Fred(P, μ)`.
 `1_w = (1_x, w)`, `(ψ, w)⁻¹ = (ψ⁻¹, μ(ψ, w))`, `(ψ, w') ∘ (γ, w) = (ψ ∘ γ, w)` for
 `w' = μ(γ, w)`.  The orbit of `w` covers that of `P(w)`, so `|P| : |W| → |X|` is surjective and
 continuous; `(P, π₁) : (W, 𝐖) → (X, 𝐗)` is an sc-smooth functor.  (pp. 273–274) A strong bundle
-map `Φ` of Definition 8.5 lifts to `Φ(γ, w) = (ϕ(γ), Φ(w))`, a strong bundle map `𝐖 → 𝐖'`
+map `Φ` of Definition 8.3.2 (2017: 8.5) lifts to `Φ(γ, w) = (ϕ(γ), Φ(w))`, a strong bundle map `𝐖 → 𝐖'`
 covering `ϕ : 𝐗 → 𝐗'` with `s' ∘ Φ = Φ ∘ s`, `t' ∘ Φ = Φ ∘ t`; conversely a functor covering `ϕ`
-and linear on the fibres gives a strong bundle map with the properties of Definition 8.5, and
-"from the strong bundle map we can recover the functor completely".  (Definition 8.6) A strong
+and linear on the fibres gives a strong bundle map with the properties of Definition 8.3.2 (2017: 8.5), and
+"from the strong bundle map we can recover the functor completely".  (Definition 8.3.3 (2017: 8.6)) A strong
 bundle functor is a functor `Φ : (W, 𝐖) → (W', 𝐖')`, linear on the fibres, covering an sc-smooth
 functor `ϕ : X → X'` and inducing strong bundle maps `W → W'` and `𝐖 → 𝐖'` with
 `P' ∘ Φ = ϕ ∘ P`.
 
-(Definition 8.10, p. 285) For strong bundles `P : W → Y` (structure map `μ`) and `Q : V → X`
+(Definition 8.5.9 (2017: 8.10), p. 394 (2017 p. 285)) For strong bundles `P : W → Y` (structure map `μ`) and `Q : V → X`
 (`τ`) over ep-groupoids, a proper strong bundle covering functor is a strong bundle map `A`
 (fibrewise linear) with `Q ∘ A = F ∘ P` and (1) `A` is surjective and a local strong bundle
 isomorphism covering an sc-smooth proper covering functor `F : Y → X`; (2) `F⁻¹(x)` is finite and
@@ -65,23 +65,23 @@ linear isomorphisms, `y ↦ A_y` is a natural transformation `μ_Y → μ_X ∘ 
 
 ## What is formalized
 
-* `EpStrongBundle X B` (**Definition 8.4**) for a strong bundle `B : StrongBundle X.PObj P`: the
+* `EpStrongBundle X B` (**Definition 8.3.1 (2017: 8.4)**) for a strong bundle `B : StrongBundle X.PObj P`: the
   structure map `μ` on Part I's pull-back `pullbackSpace P X.src` (whose points are the pairs
   `((ψ, w), s(ψ) = P(w))`) with its strong bundle structure `B.pullback X.isScSmoothMap_src`
-  (Proposition 2.16 [2.54]); `μ` a strong bundle map covering `t` in the sense of
+  (Proposition 2.6.8 (2017: 2.16) [2.54]); `μ` a strong bundle map covering `t` in the sense of
   `StrongBundle.IsStrongBundleMap` (`StrongBundleMap.lean`; this contains `P ∘ μ = t ∘ π₁` and
   the linearity on the fibres), a surjective local sc-diffeomorphism of the `[0]`-M-polyfolds,
   and (2), (3).
-* `EpStrongBundle.IsMap` (**Definition 8.5**).
+* `EpStrongBundle.IsMap` (**Definition 8.3.2 (2017: 8.5)**).
 * `EpStrongBundle.IsScSmoothSectionFunctor`, `IsScPlusSectionFunctor`,
-  `IsScFredholmSectionFunctor` (**Definition 8.7**) and the sets `Γ`, `Γ⁺`, `Fred`.
+  `IsScFredholmSectionFunctor` (**Definition 8.3.4 (2017: 8.7)**) and the sets `Γ`, `Γ⁺`, `Fred`.
 * **The fibre maps** (p. 271): `EpStrongBundle.fiberMor ψ : W_{s(ψ)} →L W_{t(ψ)}`, `μ_add`,
   `μ_smul`, and `fiberMorEquiv ψ : W_{s(ψ)} ≃L W_{t(ψ)}` (**`μ(ψ, ·)` is a linear isomorphism**,
   inverse `μ(ψ⁻¹, ·)`: `μ_inv_μ`, `μ_μ_inv`); `continuous_μ`, `μ_congr`.
 * **The functorial picture** (pp. 271–272): `EpStrongBundle.morInv`, `morComp` (`morComp_val`,
   `μ_morComp`, `μ_morInv`), the groupoid `toGroupoidStr`, and **the ep-groupoid
   `E.toEpGroupoid : EpGroupoid W (pullbackSpace P X.src)`** (objects `W[0]`, morphisms
-  `𝐖[0] = 𝐗 ₛ×_P W`), with Definition 7.3 (3) `exists_isProperMap_tgt` and (4)
+  `𝐖[0] = 𝐗 ₛ×_P W`), with Definition 7.1.3 (2017: 7.3) (3) `exists_isProperMap_tgt` and (4)
   `isScSmoothCompSheet_toGroupoidStr`; `isStrongBundleMap_src`, `isStrongBundleMap_tgt`
   (`s_𝐖`, `t_𝐖` strong bundle maps covering `s`, `t`); the sc-smooth functor
   `projFunctor : EpFunctor E.toEpGroupoid X` (`(P, π₁)`); `exists_isomorphic_of_isomorphic` (the
@@ -91,13 +91,13 @@ linear isomorphisms, `y ↦ A_y` is a natural transformation `μ_Y → μ_X ∘ 
   `StrongBundle.isScSmoothMap_to_pullback_one` (**the universal property of `f*Y[1]`**);
   `pullbackFiberLinearEquiv`, `fiberCast`, `isLinearMap_fiberRestrict_pullbackMap` (maps
   `(z, y) ↦ (g(z), Φ(y))` of pull-backs are linear on the fibres).
-* **Definition 8.6**: `EpStrongBundle.IsStrongBundleFunctor E E' ϕ Φ`; `projFunctor_comp`
+* **Definition 8.3.3 (2017: 8.6)**: `EpStrongBundle.IsStrongBundleFunctor E E' ϕ Φ`; `projFunctor_comp`
   (`(P', π₁') ∘ Φ = ϕ ∘ (P, π₁)`), `IsStrongBundleFunctor.mor_val` (`Φ(γ, w) = (ϕ(γ), Φ(w))`),
   `IsStrongBundleFunctor.isMap` (8.6 ⇒ 8.5), `liftMor`, `IsMap.liftFunctor` and
   `IsMap.isStrongBundleFunctor_liftFunctor` (8.5 ⇒ 8.6), `IsStrongBundleFunctor.eq_liftFunctor`,
   and **`EpStrongBundle.isMap_iff_strongBundleFunctor`** (the equivalence, with uniqueness of the
   functor).
-* **Definition 8.7, the claims**: Part I's operations:
+* **Definition 8.3.4 (2017: 8.7), the claims**: Part I's operations:
   `StrongBundle.isScSmoothSection_of_principal`,
   `IsScSmoothSection.sectionAdd_of_isScSmoothSection` (the sum of two sc-smooth sections),
   `IsScSmoothSection.sectionSmul_const`, `isScSmoothSection_fiberZero`; then
@@ -106,7 +106,7 @@ linear isomorphisms, `y ↦ A_y` is a natural transformation `μ_Y → μ_X ∘ 
   `plusSectionFunctors_subset`, `fiberZero_mem_plusSectionFunctors`,
   `sectionAdd_mem_plusSectionFunctors`, `sectionSmul_mem_plusSectionFunctors` (**`Γ⁺ ⊆ Γ` a
   subspace**), `fredholmSectionFunctors_subset`.
-* **Definition 8.10**: `StrongBundle.IsStrongBundleIsoOn` (a strong bundle map restricting to a
+* **Definition 8.5.9 (2017: 8.10)**: `StrongBundle.IsStrongBundleIsoOn` (a strong bundle map restricting to a
   strong bundle isomorphism `Y|U → Y'|U'`) with `IsStrongBundleIsoOn.fiberEquiv`;
   `EpFunctor.fibredSnd`, `isScSmoothMap_fibredSnd`, `EpStrongBundle.fibredLift`,
   `fibredBundleEquiv` (the text's `𝐕 ₛ×_A W` as a pull-back), `pullbackProj_fibredLift`,
@@ -120,61 +120,61 @@ linear isomorphisms, `y ↦ A_y` is a natural transformation `μ_Y → μ_X ∘ 
 ## What the text leaves implicit, and the choices made
 
 * "Strong bundle map" between strong bundles over M-polyfolds is not defined in Part I (only
-  between local models, Definition 2.22 [2.47]); we use `StrongBundle.IsStrongBundleMap`: covering,
+  between local models, Definition 2.6.1 (2017: 2.22) [2.47]); we use `StrongBundle.IsStrongBundleMap`: covering,
   linear on the fibres, sc-smooth on `[0]` and on `[1]` (a reading; `StrongBundleMap.lean`).
 * The M-polyfold structure of `𝐗 ₛ×_P W` is that of the pull-back strong bundle (`[0]`).
 * The membership proofs `s(ψ) = P(w)` are carried by the points of `pullbackSpace P X.src`; in
   (2) and (3) they are supplied from the laws of `X` and from `P ∘ μ = t ∘ π₁`.
-* **"We can define the ep-groupoid"** (p. 271) is asserted without proof; Definition 7.3 is proved
+* **"We can define the ep-groupoid"** (p. 271) is asserted without proof; Definition 7.1.3 (2017: 7.3) is proved
   here for `(W, 𝐖)` (`toEpGroupoid`): (1) `s_𝐖` is the pull-back projection along the local
-  sc-diffeomorphism `s` (`isLocalScDiffeo_pullbackProj'`), `t_𝐖 = μ` is one by Definition 8.4 (1);
+  sc-diffeomorphism `s` (`isLocalScDiffeo_pullbackProj'`), `t_𝐖 = μ` is one by Definition 8.3.1 (2017: 8.4) (1);
   (2) `u_𝐖`, `ι_𝐖` by the universal property of the pull-back; (3) with `V = P⁻¹(V(P w))`, by
   sequences, the properness of `X`, the continuity of `μ` and `w = μ(ψ⁻¹, μ(ψ, w))`; (4) in sheet
   form, through a sheet of `s` near each point and condition (4) of `X`.  The groupoid laws use
-  Definition 8.4 (2), (3).  The multiplication of `𝐖` is total, with the junk value `(γ, w)` off
+  Definition 8.3.1 (2017: 8.4) (2), (3).  The multiplication of `𝐖` is total, with the junk value `(γ, w)` off
   composable pairs (as Chapter 7's `GroupoidStr.comp`); it does not involve `μ`.
 * **Universes**: an `EpGroupoid` has objects and morphisms in one universe, so from the functorial
-  picture on `W` lives in the universe of the objects and morphisms of `X` (Definitions 8.4, 8.5,
+  picture on `W` lives in the universe of the objects and morphisms of `X` (Definitions 8.3.1, 8.3.2 (2017: 8.4, 8.5),
   8.7 above are universe polymorphic).  The paracompactness of `𝐗 ₛ×_P W` is an instance argument
   `[ParacompactSpace (pullbackSpace P X.src)]` there, supplied by
   `B.paracompactSpace_pullback X.PMor X.src`; it is a `Prop`, so it agrees with the instance used
   inside `EpStrongBundle`.
-* **Definition 8.6**: "linear on the fibers", "covers `ϕ`" and "induces strong bundle maps" are read
+* **Definition 8.3.3 (2017: 8.6)**: "linear on the fibers", "covers `ϕ`" and "induces strong bundle maps" are read
   together as the two conditions `IsStrongBundleMap` on objects (`P`, `P'`, covering `ϕ` on
   objects; this is the square `P' ∘ Φ = ϕ ∘ P`) and on morphisms (the pull-back bundles
   `𝐖 → 𝐗`, `𝐖' → 𝐗'`, covering `ϕ` on morphisms).  The `[1]`-smoothness of the lifted morphism
   map needs the universal property of the pull-back at level `[1]`, proved here.  "Strong bundle
-  functor" (Definition 8.6) and "strong bundle map" (Definition 8.5) are identical notions in the
+  functor" (Definition 8.3.3 (2017: 8.6)) and "strong bundle map" (Definition 8.3.2 (2017: 8.5)) are identical notions in the
   text; the equivalence is `isMap_iff_strongBundleFunctor`.
-* **Definition 8.7, "the vector space `Γ(P, μ)`"**: the operations are Part I's fibrewise
+* **Definition 8.3.4 (2017: 8.7), "the vector space `Γ(P, μ)`"**: the operations are Part I's fibrewise
   `sectionAdd`, `sectionSmul` (by a constant) and the zero section `fiberZero`; the closure of `Γ`,
   `Γ⁺` under them is proved, no `Module` structure on the set is built.  Part I proves the sum of an
   sc-smooth and an sc⁺-section (Theorem 3.15); the sum of two sc-smooth sections and constant
   multiples are proved here, in the charts.
-* **Definition 8.10**: `A` is taken in the functorial picture, an sc-smooth functor
-  `(W, 𝐖) → (V, 𝐕)` which is a strong bundle functor covering `F` (Definition 8.6; equivalently,
-  by `isMap_iff_strongBundleFunctor`, its object map is a strong bundle map of Definition 8.5).
+* **Definition 8.5.9 (2017: 8.10)**: `A` is taken in the functorial picture, an sc-smooth functor
+  `(W, 𝐖) → (V, 𝐕)` which is a strong bundle functor covering `F` (Definition 8.3.3 (2017: 8.6); equivalently,
+  by `isMap_iff_strongBundleFunctor`, its object map is a strong bundle map of Definition 8.3.2 (2017: 8.5)).
   "A local strong bundle isomorphism" is: every `y` has an open `U ∋ y` and an open `U'` with
   `A : W|U → V|U'` a strong bundle isomorphism covering `F : U → U'`; "`A : W|U(y) → V|U(x)` is a
   strong bundle isomorphism" is `IsStrongBundleIsoOn` (`F : U(y) → U(x)` an sc-diffeomorphism and
   `A : P⁻¹(U(y)) → Q⁻¹(U(x))` an sc-diffeomorphism on `[0]` and on `[1]`; the inverse is then
   linear on the fibres).  The finiteness of `F⁻¹(x)` in (2) is part of `F.IsProperCovering`
-  (Definition 8.8 (2)) and is not repeated.  In (3) the text does not say which strong bundle
+  (Definition 8.5.1 (2017: 8.8) (2)) and is not repeated.  In (3) the text does not say which strong bundle
   structure `𝐕 ₛ×_A W → 𝐗 ₛ×_F Y` carries: it is read as the pull-back of `P : W → Y` along
   `pr₂ : 𝐗 ₛ×_F Y → Y`, `(φ, y) ↦ y`, on Part I's sub-M-polyfold `𝐗 ₛ×_F Y` of `𝐗 × Y` (as in
-  Definition 8.8 (3)); its points `((φ, y), w)` with `P(w) = y` correspond to the text's
+  Definition 8.5.1 (2017: 8.8) (3)); its points `((φ, y), w)` with `P(w) = y` correspond to the text's
   `((φ, v), w)` with `v = A(w)` (`fibredBundleEquiv`; under it the map is `fibredLift` and the
   projection is `((φ, v), w) ↦ (φ, P(w))`).  "Strong bundle isomorphism" is
   `StrongBundle.IsStrongBundleIso` (two inverse strong bundle maps, on `[0]` and `[1]`).
 * **§8.5.2**: the natural transformation `μ_Y → μ_X ∘ F` of functors into `Ban` is stated as its
   naturality identity (`section_8_5_2`), the fibres `Q⁻¹(F(s φ))` and `Q⁻¹(s(F φ))` being
-  identified through their values in `V`.  Only the strong bundle functor part of Definition 8.10
+  identified through their values in `V`.  Only the strong bundle functor part of Definition 8.5.9 (2017: 8.10)
   enters (`IsStrongBundleFunctor.μ_comm`); (1) makes the `A_y` topological linear isomorphisms
   (`IsProperStrongBundleCovering.fiberEquiv`, through `IsStrongBundleIsoOn.fiberEquiv`).
 
 ## Not formalized
 
-* No example of a proper strong bundle covering functor (Definition 8.10) is constructed in this
+* No example of a proper strong bundle covering functor (Definition 8.5.9 (2017: 8.10)) is constructed in this
   file.
 -/
 
@@ -197,7 +197,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 def EpGroupoid.unitPair (w : W) : pullbackSpace P X.src :=
   ⟨(X.unit (P w), w), (X.src_unit (P w)).symm⟩
 
-/-- **Definition 8.4 (strong bundle over an ep-groupoid)**: for a strong bundle `B` over the
+/-- **Definition 8.3.1 (2017: 8.4) (strong bundle over an ep-groupoid)**: for a strong bundle `B` over the
 object M-polyfold, a structure map `μ : 𝐗 ₛ×_P W → W` which is a strong bundle map covering `t`
 (from the pull-back strong bundle `𝐗 ₛ×_P W → 𝐗`), with (1) `μ` a surjective local
 sc-diffeomorphism (and linear on the fibres, part of `IsStrongBundleMap`), (2) `μ(1_x, w) = w`,
@@ -232,31 +232,31 @@ theorem P_μ (q : pullbackSpace P X.src) : P (E.μ q) = X.tgt q.1.1 := by
 def sectionPair {f : Obj → W} (hf : IsSection P f) (ψ : Mor) : pullbackSpace P X.src :=
   ⟨(ψ, f (X.src ψ)), hf (X.src ψ)⟩
 
-/-- The functorial condition of Definition 8.7: `f(t φ) = μ(φ, f(s φ))` for every morphism. -/
+/-- The functorial condition of Definition 8.3.4 (2017: 8.7): `f(t φ) = μ(φ, f(s φ))` for every morphism. -/
 def IsFunctorialSection {f : Obj → W} (hf : IsSection P f) : Prop :=
   ∀ φ : Mor, f (X.tgt φ) = E.μ (sectionPair hf φ)
 
-/-- **Definition 8.7 (1)**: an sc-smooth section functor. -/
+/-- **Definition 8.3.4 (2017: 8.7) (1)**: an sc-smooth section functor. -/
 def IsScSmoothSectionFunctor (f : Obj → W) : Prop :=
   ∃ hf : B.IsScSmoothSection f, E.IsFunctorialSection hf.1
 
-/-- **Definition 8.7 (2)**: an sc⁺-section functor: an sc-smooth section functor with values in
+/-- **Definition 8.3.4 (2017: 8.7) (2)**: an sc⁺-section functor: an sc-smooth section functor with values in
 `W_{0,1}`, sc-smooth as a section of `W[1] → X` (Part I's `IsScPlusSection`). -/
 def IsScPlusSectionFunctor (f : Obj → W) : Prop :=
   E.IsScSmoothSectionFunctor f ∧ B.IsScPlusSection f
 
-/-- **Definition 8.7 (3)**: an sc-Fredholm section functor: an sc-smooth section functor which is
+/-- **Definition 8.3.4 (2017: 8.7) (3)**: an sc-Fredholm section functor: an sc-smooth section functor which is
 an sc-Fredholm section of `W → X` (Part I's Definition 3.14 [3.8], germ reading). -/
 def IsScFredholmSectionFunctor (f : Obj → W) : Prop :=
   E.IsScSmoothSectionFunctor f ∧ B.IsScFredholmSection f
 
-/-- `Γ(P, μ)`, the sc-smooth section functors (Definition 8.7 (1)). -/
+/-- `Γ(P, μ)`, the sc-smooth section functors (Definition 8.3.4 (2017: 8.7) (1)). -/
 def sectionFunctors : Set (Obj → W) := {f | E.IsScSmoothSectionFunctor f}
 
-/-- `Γ⁺(P, μ)` (Definition 8.7 (2)). -/
+/-- `Γ⁺(P, μ)` (Definition 8.3.4 (2017: 8.7) (2)). -/
 def plusSectionFunctors : Set (Obj → W) := {f | E.IsScPlusSectionFunctor f}
 
-/-- `Fred(P, μ)` (Definition 8.7 (3)). -/
+/-- `Fred(P, μ)` (Definition 8.3.4 (2017: 8.7) (3)). -/
 def fredholmSectionFunctors : Set (Obj → W) := {f | E.IsScFredholmSectionFunctor f}
 
 end EpStrongBundle
@@ -274,7 +274,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
   {W' : Type v} [TopologicalSpace W'] [T2Space W'] [ParacompactSpace W'] {P' : W' → Obj'}
   [∀ x, AddCommGroup (P' ⁻¹' {x})] [∀ x, Module ℝ (P' ⁻¹' {x})] {B' : StrongBundle X'.PObj P'}
 
-/-- **Definition 8.5 (strong bundle map)** between strong bundles `(P, μ)` over `X` and
+/-- **Definition 8.3.2 (2017: 8.5) (strong bundle map)** between strong bundles `(P, μ)` over `X` and
 `(P', μ')` over `X'`: a strong bundle map `Φ : W → W'` covering the object map of an sc-smooth
 functor `ϕ : X → X'` with `Φ(μ(γ, w)) = μ'(ϕ(γ), Φ(w))` for `s(γ) = P(w)`. -/
 structure EpStrongBundle.IsMap (E : EpStrongBundle X B) (E' : EpStrongBundle X' B')
@@ -411,7 +411,7 @@ theorem μ_smul (ψ : Mor) (a : ℝ) (v : P ⁻¹' {X.src ψ}) :
   congrArg Subtype.val ((E.fiberMor ψ).map_smul a v)
 
 /-- **`μ(ψ, ·) : W_x → W_y` is a linear isomorphism for `ψ : x → y`** (p. 271, "it follows, in
-particular"), with inverse `μ(ψ⁻¹, ·)`, by (2) and (3) of Definition 8.4. -/
+particular"), with inverse `μ(ψ⁻¹, ·)`, by (2) and (3) of Definition 8.3.1 (2017: 8.4). -/
 def fiberMorEquiv (ψ : Mor) : P ⁻¹' {X.src ψ} ≃L[ℝ] P ⁻¹' {X.tgt ψ} where
   toLinearMap := (E.fiberMor ψ).toLinearMap
   invFun v := ⟨E.μ ⟨(X.inv ψ, v), v.2.trans (X.src_inv ψ).symm⟩, by
@@ -469,7 +469,7 @@ theorem morComp_val {q' q : pullbackSpace P X.src} (h : (q' : Mor × W).2 = E.μ
       (X.src_comp _ _ (src_eq_tgt_of_eq_μ h)).symm
   unfold morComp; rw [dif_pos hc]
 
-/-- `t_𝐖((ψ, w') ∘ (γ, w)) = μ(ψ ∘ γ, w) = μ(ψ, μ(γ, w)) = t_𝐖(ψ, w')` (Definition 8.4 (3)). -/
+/-- `t_𝐖((ψ, w') ∘ (γ, w)) = μ(ψ ∘ γ, w) = μ(ψ, μ(γ, w)) = t_𝐖(ψ, w')` (Definition 8.3.1 (2017: 8.4) (3)). -/
 theorem μ_morComp {q' q : pullbackSpace P X.src} (h : (q' : Mor × W).2 = E.μ q) :
     E.μ (morComp q' q) = E.μ q' := by
   obtain ⟨⟨γ, w⟩, hq⟩ := q
@@ -556,7 +556,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 namespace EpStrongBundle
 
-/-- Definition 7.3 (3) for `(W, 𝐖)`: for `V = P⁻¹(V(P w))`, `t_𝐖 : s_𝐖⁻¹(cl V) → W` is proper.  A
+/-- Definition 7.1.3 (2017: 7.3) (3) for `(W, 𝐖)`: for `V = P⁻¹(V(P w))`, `t_𝐖 : s_𝐖⁻¹(cl V) → W` is proper.  A
 sequence `(ψ_n, w_n)` with `w_n ∈ cl V` and `μ(ψ_n, w_n) → y` has `t(ψ_n) → P(y)` and
 `s(ψ_n) ∈ cl V(P w)`, so a subsequence `ψ_n → ψ₀` by properness of `X`, and then
 `w_n = μ(ψ_n⁻¹, μ(ψ_n, w_n)) → μ(ψ₀⁻¹, y)`. -/
@@ -590,7 +590,7 @@ theorem exists_isProperMap_tgt (w : W) : ∃ V : Set W, IsOpen V ∧ w ∈ V ∧
   · rw [Topology.IsInducing.subtypeVal.tendsto_nhds_iff]
     exact hkt.prodMk_nhds hw
 
-/-- Definition 7.3 (4) for `(W, 𝐖)`, in sheet form: for a sheet `σ` of `s_𝐖`,
+/-- Definition 7.1.3 (2017: 7.3) (4) for `(W, 𝐖)`, in sheet form: for a sheet `σ` of `s_𝐖`,
 `(ψ, w) ↦ σ(μ(ψ, w)) ∘ (ψ, w) = (σ(μ(ψ, w))₁ ∘ ψ, w)` is sc-smooth on `μ⁻¹(V)`.  Near a point,
 `σ(μ(ψ, w))₁` lies in a sheet `U'` of `s` with inverse `σ'`, so equals `σ'(t ψ)`, and
 `ψ ↦ σ'(t ψ) ∘ ψ` is sc-smooth by condition (4) of `X`. -/
@@ -758,7 +758,7 @@ theorem isLinearMap_fiberRestrict_pullbackMap {h : X → X'} {g : Z → Z'} {Φ 
 
 end PullbackMapLinear
 
-/-! ### Definition 8.6: strong bundle functors, and the equivalence with Definition 8.5 -/
+/-! ### Definition 8.3.3 (2017: 8.6): strong bundle functors, and the equivalence with Definition 8.3.2 (2017: 8.5) -/
 
 section BundleFunctor
 
@@ -777,7 +777,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 namespace EpStrongBundle
 
 variable (E E' ϕ) in
-/-- **Definition 8.6 (strong bundle functor)**: a functor `Φ : (W, 𝐖) → (W', 𝐖')` between the
+/-- **Definition 8.3.3 (2017: 8.6) (strong bundle functor)**: a functor `Φ : (W, 𝐖) → (W', 𝐖')` between the
 ep-groupoids of the functorial picture which covers the sc-smooth functor `ϕ : X → X'` and induces
 strong bundle maps `Φ : W → W'` (covering `ϕ` on objects, for `P`, `P'`) and `Φ : 𝐖 → 𝐖'`
 (covering `ϕ` on morphisms, for the pull-back bundles `𝐖 → 𝐗`, `𝐖' → 𝐗'`).  Covering and the
@@ -801,8 +801,8 @@ theorem IsStrongBundleFunctor.mor_val {Φ : EpFunctor E.toEpGroupoid E'.toEpGrou
     (Φ.mor q : Mor' × W') = (ϕ.mor (q : Mor × W).1, Φ.obj (q : Mor × W).2) :=
   Prod.ext (h.isStrongBundleMap_mor.covers q) (Φ.src_mor q)
 
-/-- **Definition 8.6 ⇒ Definition 8.5** (p. 274): the object map of a strong bundle functor is a
-strong bundle map in the sense of Definition 8.5: `Φ(μ(γ, w)) = Φ(t(γ, w)) = t'(Φ(γ, w)) =
+/-- **Definition 8.3.3 (2017: 8.6) ⇒ Definition 8.3.2 (2017: 8.5)** (p. 274): the object map of a strong bundle functor is a
+strong bundle map in the sense of Definition 8.3.2 (2017: 8.5): `Φ(μ(γ, w)) = Φ(t(γ, w)) = t'(Φ(γ, w)) =
 μ'(ϕ(γ), Φ(w))`. -/
 theorem IsStrongBundleFunctor.isMap {Φ : EpFunctor E.toEpGroupoid E'.toEpGroupoid}
     (h : E.IsStrongBundleFunctor E' ϕ Φ) : E.IsMap E' ϕ Φ.obj where
@@ -828,8 +828,8 @@ omit [TopologicalSpace W] [T2Space W] [ParacompactSpace W] [∀ x, AddCommGroup 
     (q : pullbackSpace P X.src) :
     (liftMor ϕ hΦ q : Mor' × W') = (ϕ.mor (q : Mor × W).1, Φ (q : Mor × W).2) := rfl
 
-/-- **Definition 8.5 ⇒ the functorial picture** (p. 273): a strong bundle map `Φ` in the sense of
-Definition 8.5 lifts to the functor `(W, 𝐖) → (W', 𝐖')` with `Φ(γ, w) = (ϕ(γ), Φ(w))`; the two
+/-- **Definition 8.3.2 (2017: 8.5) ⇒ the functorial picture** (p. 273): a strong bundle map `Φ` in the sense of
+Definition 8.3.2 (2017: 8.5) lifts to the functor `(W, 𝐖) → (W', 𝐖')` with `Φ(γ, w) = (ϕ(γ), Φ(w))`; the two
 squares `s' ∘ Φ = Φ ∘ s` and `t' ∘ Φ = Φ ∘ t` are its `src_mor`, `tgt_mor`. -/
 def IsMap.liftFunctor {Φ : W → W'} (h : E.IsMap E' ϕ Φ) :
     EpFunctor E.toEpGroupoid E'.toEpGroupoid where
@@ -892,9 +892,9 @@ theorem IsStrongBundleFunctor.eq_liftFunctor {Φ : EpFunctor E.toEpGroupoid E'.t
     (h : E.IsStrongBundleFunctor E' ϕ Φ) : Φ = h.isMap.liftFunctor :=
   EpFunctor.ext rfl (funext fun q => Subtype.ext (h.mor_val q))
 
-/-- **Definitions 8.5 and 8.6 are equivalent** (pp. 273–274): `Φ : W → W'` is a strong bundle map
-covering `ϕ` in the sense of Definition 8.5 iff it is the object map of a strong bundle functor
-covering `ϕ` (Definition 8.6), and that functor is then unique (`Φ(γ, w) = (ϕ(γ), Φ(w))`). -/
+/-- **Definitions 8.3.2 and 8.3.3 (2017: 8.5 and 8.6) are equivalent** (pp. 273–274): `Φ : W → W'` is a strong bundle map
+covering `ϕ` in the sense of Definition 8.3.2 (2017: 8.5) iff it is the object map of a strong bundle functor
+covering `ϕ` (Definition 8.3.3 (2017: 8.6)), and that functor is then unique (`Φ(γ, w) = (ϕ(γ), Φ(w))`). -/
 theorem isMap_iff_strongBundleFunctor {Φ : W → W'} :
     E.IsMap E' ϕ Φ ↔
       ∃! Ψ : EpFunctor E.toEpGroupoid E'.toEpGroupoid, E.IsStrongBundleFunctor E' ϕ Ψ ∧
@@ -923,7 +923,7 @@ variable {X : Type*} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX :
 namespace StrongBundle
 
 /-- A section is sc-smooth as soon as its local representatives `z ↦ (z, ĝ(z)) : O → K` are
-sc-smooth in the charts of the atlas (Definition 2.52 read in the charts; the continuity of `g`
+sc-smooth in the charts of the atlas (Definition 2.6.6 (preprint 2.52) read in the charts; the continuity of `g`
 follows from the charts). -/
 theorem isScSmoothSection_of_principal {g : X → Y} (hg : IsSection P g)
     (h : ∀ c ∈ B.atlas.charts, IsScSmoothRetractMap c.φ.model.E c.φ.model.C c.φ.model.O
@@ -988,7 +988,7 @@ end StrongBundle
 
 end SectionAlgebra
 
-/-! ### Definition 8.7: `Γ(P, μ)` and `Γ⁺(P, μ)` are vector spaces -/
+/-! ### Definition 8.3.4 (2017: 8.7): `Γ(P, μ)` and `Γ⁺(P, μ)` are vector spaces -/
 
 section SectionFunctors
 
@@ -1038,11 +1038,11 @@ theorem IsFunctorialSection.sectionSmul {hf : IsSection P f} (a : ℝ)
         (E.μ_smul φ a ⟨f (X.src φ), hf _⟩).symm
     _ = E.μ (sectionPair (hf.sectionSmul (f := fun _ => a)) φ) := E.μ_congr hs
 
-/-- **`Γ(P, μ)` contains the zero section** (Definition 8.7 (1), "the vector space"). -/
+/-- **`Γ(P, μ)` contains the zero section** (Definition 8.3.4 (2017: 8.7) (1), "the vector space"). -/
 theorem fiberZero_mem_sectionFunctors : fiberZero P ∈ E.sectionFunctors :=
   ⟨StrongBundle.isScSmoothSection_fiberZero, E.isFunctorialSection_fiberZero⟩
 
-/-- **`Γ(P, μ)` is closed under sums**: by the linearity of `μ(φ, ·)` (Definition 8.4 (1)) and
+/-- **`Γ(P, μ)` is closed under sums**: by the linearity of `μ(φ, ·)` (Definition 8.3.1 (2017: 8.4) (1)) and
 Part I's sum of sc-smooth sections. -/
 theorem sectionAdd_mem_sectionFunctors (hf : f ∈ E.sectionFunctors)
     (hg : g ∈ E.sectionFunctors) : sectionAdd P f g ∈ E.sectionFunctors := by
@@ -1056,7 +1056,7 @@ theorem sectionSmul_mem_sectionFunctors (a : ℝ) (hf : f ∈ E.sectionFunctors)
   obtain ⟨hf, hf'⟩ := hf
   exact ⟨hf.sectionSmul_const a, hf'.sectionSmul E a⟩
 
-/-- `Γ⁺(P, μ) ⊆ Γ(P, μ)` (Definition 8.7 (2)). -/
+/-- `Γ⁺(P, μ) ⊆ Γ(P, μ)` (Definition 8.3.4 (2017: 8.7) (2)). -/
 theorem plusSectionFunctors_subset : E.plusSectionFunctors ⊆ E.sectionFunctors :=
   fun _ hf => hf.1
 
@@ -1073,7 +1073,7 @@ theorem sectionSmul_mem_plusSectionFunctors (a : ℝ) (hf : f ∈ E.plusSectionF
   ⟨E.sectionSmul_mem_sectionFunctors a hf.1,
     hf.2.smul_left (isScSmoothMap_real_const a)⟩
 
-/-- `Fred(P, μ) ⊆ Γ(P, μ)` (Definition 8.7 (3)). -/
+/-- `Fred(P, μ) ⊆ Γ(P, μ)` (Definition 8.3.4 (2017: 8.7) (3)). -/
 theorem fredholmSectionFunctors_subset : E.fredholmSectionFunctors ⊆ E.sectionFunctors :=
   fun _ hf => hf.1
 
@@ -1143,7 +1143,7 @@ end StrongBundle
 
 end IsoOn
 
-/-! ### Definition 8.10: proper strong bundle covering functors -/
+/-! ### Definition 8.5.9 (2017: 8.10): proper strong bundle covering functors -/
 
 section ProperBundleCovering
 
@@ -1173,7 +1173,7 @@ theorem EpFunctor.isScSmoothMap_fibredSnd (F : EpFunctor Y X) [ParacompactSpace 
 namespace EpStrongBundle
 
 variable (P) in
-/-- The map `𝐖 = 𝐘 ₛ×_P W → (𝐗 ₛ×_F Y) ×_{pr₂} W`, `(ψ, w) ↦ ((F(ψ), s(ψ)), w)` of Definition 8.10
+/-- The map `𝐖 = 𝐘 ₛ×_P W → (𝐗 ₛ×_F Y) ×_{pr₂} W`, `(ψ, w) ↦ ((F(ψ), s(ψ)), w)` of Definition 8.5.9 (2017: 8.10)
 (3), read on the pull-back of `P` along `pr₂` (see `fibredBundleEquiv` for the text's
 `𝐕 ₛ×_A W`). -/
 def fibredLift (F : EpFunctor Y X) (q : pullbackSpace P Y.src) : pullbackSpace P F.fibredSnd :=
@@ -1189,7 +1189,7 @@ theorem pullbackProj_fibredLift (F : EpFunctor Y X) (q : pullbackSpace P Y.src) 
 variable {F : EpFunctor Y X} {A : W → V} (hA : ∀ w, Q (A w) = F.obj (P w))
 
 include hA in
-/-- **The text's `𝐕 ₛ×_A W = {((φ, v), w) ∈ 𝐕 × W | s_𝐕(φ, v) = A(w)}`** (Definition 8.10 (3))
+/-- **The text's `𝐕 ₛ×_A W = {((φ, v), w) ∈ 𝐕 × W | s_𝐕(φ, v) = A(w)}`** (Definition 8.5.9 (2017: 8.10) (3))
 is the pull-back `(𝐗 ₛ×_F Y) ×_{pr₂} W = {((φ, y), w) | s(φ) = F(y), P(w) = y}`:
 `((φ, v), w) ↦ ((φ, P(w)), w)`, with inverse `((φ, y), w) ↦ ((φ, A(w)), w)` (`v = A(w)` is
 determined by `w`). -/
@@ -1263,11 +1263,11 @@ variable {ObjY MorY : Type u} [TopologicalSpace ObjY] [T2Space ObjY] [Paracompac
 
 namespace EpStrongBundle
 
-/-- **Definition 8.10 (proper strong bundle covering functor)** for strong bundles `(W, μ)` over
-`Y` and `(V, τ)` over `X`: a strong bundle functor `A : (W, 𝐖) → (V, 𝐕)` (Definition 8.6, "a strong
+/-- **Definition 8.5.9 (2017: 8.10) (proper strong bundle covering functor)** for strong bundles `(W, μ)` over
+`Y` and `(V, τ)` over `X`: a strong bundle functor `A : (W, 𝐖) → (V, 𝐕)` (Definition 8.3.3 (2017: 8.6), "a strong
 bundle map `A`, in particular fibrewise linear", `Q ∘ A = F ∘ P`) covering `F : Y → X`, with
 (1) `A` surjective and a local strong bundle isomorphism, `F` an sc-smooth proper covering
-functor (Definition 8.8); (2) for every `x ∈ X` (whose `F⁻¹(x)` is finite by Definition 8.8 (2))
+functor (Definition 8.5.1 (2017: 8.8)); (2) for every `x ∈ X` (whose `F⁻¹(x)` is finite by Definition 8.5.1 (2017: 8.8) (2))
 an open `U(x) ∋ x` and mutually disjoint `U(y) ∋ y`, `y ∈ F⁻¹(x)`, with
 `A : W|U(y) → V|U(x)` strong bundle isomorphisms and `F⁻¹(U(x)) = ⋃ U(y)`; (3)
 `(ψ, w) ↦ ((F(ψ), A(w)), w)` is a strong bundle isomorphism `𝐖 → 𝐕 ₛ×_A W` covering the
@@ -1310,7 +1310,7 @@ theorem IsProperStrongBundleCovering.mor_val (h : EW.IsProperStrongBundleCoverin
 
 /-- **The fibre maps `A_y : P⁻¹(y) → Q⁻¹(F(y))` are topological linear isomorphisms**
 (§8.5.2, p. 288: "the topological linear isomorphism induced by `A` between the fibers"), from
-Definition 8.10 (1). -/
+Definition 8.5.9 (2017: 8.10) (1). -/
 def IsProperStrongBundleCovering.fiberEquiv (h : EW.IsProperStrongBundleCovering EV F A)
     (y : ObjY) : P ⁻¹' {y} ≃L[ℝ] Q ⁻¹' {F.obj y} :=
   (Classical.choose_spec (Classical.choose_spec (h.isLocalStrongBundleIso y))).2.fiberEquiv
@@ -1333,7 +1333,7 @@ theorem IsStrongBundleFunctor.μ_comm (h : EW.IsStrongBundleFunctor EV F A) (φ 
 family `y ↦ A_y` is a natural transformation `μ_Y → μ_X ∘ F` of the functors into `Ban` (Banach
 spaces and topological linear isomorphisms), stated as this identity.  The fibre `Q⁻¹(F(s φ))`
 is identified with `Q⁻¹(s(F φ))` (`F(s φ) = s(F φ)`).  Of the hypotheses only the strong bundle
-functor part of Definition 8.10 is used (`IsStrongBundleFunctor.μ_comm`); (1) makes the `A_y`
+functor part of Definition 8.5.9 (2017: 8.10) is used (`IsStrongBundleFunctor.μ_comm`); (1) makes the `A_y`
 topological linear isomorphisms. -/
 theorem section_8_5_2 (h : EW.IsProperStrongBundleCovering EV F A) (φ : MorY)
     (v : P ⁻¹' {Y.src φ}) :

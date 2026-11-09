@@ -5,29 +5,29 @@ import Mathlib.Tactic.TFAE
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017 book), Part I, §2.6.2, p. 51:
-**Lemma 2.7** [preprint 2.56] (Michael) and **Proposition 2.17** [preprint 2.57]; infrastructure
-for Part II, Chapter 7: Corollary 7.2 (p. 247), Proposition 7.12 (pp. 249–250), Proposition 7.14 (2)
-(p. 252), and Chapter 8, Theorem 8.4 (p. 268).
+**Lemma 2.7.3 (2017: 2.7)** [preprint 2.56] (Michael) and **Proposition 2.7.4 (2017: 2.17)** [preprint 2.57]; infrastructure
+for Part II, Chapter 7: Corollary 7.3.8 (2017: 7.2) (p. 326 (2017 p. 247)), Proposition 7.5.3 (2017: 7.12) (pp. 249–250), Proposition 7.5.10 (2017: 7.14) (2)
+(p. 252), and Chapter 8, Theorem 8.1.15 (2017: 8.4) (p. 368 (2017 p. 268)).
 
 # Michael's lemma; locally finite unions of closed paracompact subspaces
 
 ## The text, paraphrased
 
-(Lemma 2.7, quoting [55], Lemma 1 = E. Michael, *A note on paracompact spaces*, Proc. Amer. Math.
+(Lemma 2.7.3 (2017: 2.7), quoting [55], Lemma 1 = E. Michael, *A note on paracompact spaces*, Proc. Amer. Math.
 Soc. 4 (1953), 831–838) A regular Hausdorff space is paracompact if and only if every open cover has
 a locally finite refinement by closed sets.  (pp. 51, 249) Paracompact means: every open cover has
 a locally finite open refinement (p. 51 says "subcovering"; we read "refinement", as on p. 249);
-Hausdorff is not part of it.  (Proposition 2.17) A regular Hausdorff
+Hausdorff is not part of it.  (Proposition 2.7.4 (2017: 2.17)) A regular Hausdorff
 space `Y` which is the union of a locally finite family `(Y_i)` of closed paracompact subspaces is
 paracompact.  *Proof*: closed locally finite refinements `(C^i_j)_j` of the traces `(Y_i ∩ U_j)_j`
-(Lemma 2.7 in `Y_i`), `C_j := ⋃_i C^i_j`, and Lemma 2.7 in `Y`.
+(Lemma 2.7.3 (2017: 2.7) in `Y_i`), `C_j := ⋃_i C^i_j`, and Lemma 2.7.3 (2017: 2.7) in `Y`.
 
-How Part II uses them.  Corollary 7.2: the union `⋃_{i ≤ k} cl U(zᵢ)` of finitely many closed
-paracompact (metrizable) subsets of the regular `|X|` is paracompact.  Proposition 7.12: Lemma 2.7
+How Part II uses them.  Corollary 7.3.8 (2017: 7.2): the union `⋃_{i ≤ k} cl U(zᵢ)` of finitely many closed
+paracompact (metrizable) subsets of the regular `|X|` is paracompact.  Proposition 7.5.3 (2017: 7.12): Lemma 2.7.3 (2017: 2.7)
 gives a locally finite closed refinement `(A_x)` of `(|U(x)|)`, and `|X¹|` is paracompact as the
-locally finite union of the closed paracompact `A_x ∩ |X¹|` (Proposition 2.17).  Proposition 7.14
-(2): Lemma 2.7 in the closed `A ⊆ |X|` gives a locally finite closed cover `A_i ⊆ π(Q_{zᵢ})`.
-Theorem 8.4: `|TX|` is paracompact by Proposition 2.17.
+locally finite union of the closed paracompact `A_x ∩ |X¹|` (Proposition 2.7.4 (2017: 2.17)).  Proposition 7.5.10 (2017: 7.14)
+(2): Lemma 2.7.3 (2017: 2.7) in the closed `A ⊆ |X|` gives a locally finite closed cover `A_i ⊆ π(Q_{zᵢ})`.
+Theorem 8.1.15 (2017: 8.4): `|TX|` is paracompact by Proposition 2.7.4 (2017: 2.17).
 
 ## What is formalized
 
@@ -50,28 +50,28 @@ a locally finite refinement by closed sets.
 * `Polyfold.exists_closed_precise_refinement` (and `…_set` for a cover of a closed subset): in a
   regular paracompact space every open cover `(u_i)` has a closed locally finite refinement `(v_i)`
   with the same index and `v_i ⊆ u_i` ((a) ⇒ (d), via Mathlib's shrinking lemma).
-* `Polyfold.lemma_2_56` (**Lemma 2.7**, the "iff") and `Polyfold.michael_tfae` (Michael's Lemma 1).
-* `Polyfold.proposition_2_57` (**Proposition 2.17**) and its subspace forms
+* `Polyfold.lemma_2_7_3` (**Lemma 2.7.3 (2017: 2.7)**, the "iff") and `Polyfold.michael_tfae` (Michael's Lemma 1).
+* `Polyfold.proposition_2_7_4` (**Proposition 2.7.4 (2017: 2.17)**) and its subspace forms
   `Polyfold.paracompactSpace_iUnion` (a locally finite family of closed paracompact subsets has a
   paracompact union), `Polyfold.paracompactSpace_iUnion_of_finite`,
   `Polyfold.paracompactSpace_biUnion_of_finite`, `Polyfold.paracompactSpace_union` (the form
-  Corollary 7.2 needs), and `Polyfold.paracompactSpace_of_isClosed_subset` (a closed subset of a
+  Corollary 7.3.8 (2017: 7.2) needs), and `Polyfold.paracompactSpace_of_isClosed_subset` (a closed subset of a
   paracompact subspace).
 * Tools: `Polyfold.locallyFinite_image_val` (a locally finite family in a closed subspace is
   locally finite in the space), `Polyfold.homeomorphPreimageVal` (`t ↓∩ s ≃ₜ s` for `s ⊆ t`).
 
 ## What the text leaves implicit, and the choices made
 
-* **Hausdorff is never used.**  The text's Lemma 2.7 and Proposition 2.17 assume "regular
+* **Hausdorff is never used.**  The text's Lemma 2.7.3 (2017: 2.7) and Proposition 2.7.4 (2017: 2.17) assume "regular
   Hausdorff"; here only `RegularSpace` (no `T1`), and (d) ⇒ (a) holds in every topological space.
-  Regularity enters only through (c) ⇒ (d) and (a) ⇒ (d), and in Proposition 2.17 through the
+  Regularity enters only through (c) ⇒ (d) and (a) ⇒ (d), and in Proposition 2.7.4 (2017: 2.17) through the
   subspaces `Y_i`, which are regular because `Y` is.
 * "Refinement" is Mathlib's: each set lies in some set of the cover, and the sets cover `X`.
-* The plan (`PLAN.md`, II.6, 7) replaces the proof of Proposition 7.12 by
-  `Polyfold.metrizableSpace_of_pullback`, and `ProperSubsets.lean` proves Proposition 7.14 (2) with
+* The plan (`PLAN.md`, II.6, 7) replaces the proof of Proposition 7.5.3 (2017: 7.12) by
+  `Polyfold.metrizableSpace_of_pullback`, and `ProperSubsets.lean` proves Proposition 7.5.10 (2017: 7.14) (2) with
   Mathlib's `precise_refinement_set` and closures, without regularity of `|X|`; the results here
   give the text's routes as well (`exists_closed_precise_refinement_set` is the text's step of
-  7.14 (2), under regularity), but neither project proof uses them.  Corollary 7.2 does.
+  7.14 (2), under regularity), but neither project proof uses them.  Corollary 7.3.8 (2017: 7.2) does.
 -/
 
 open Set Filter Topology Function
@@ -110,7 +110,7 @@ def homeomorphPreimageVal {s t : Set X} (h : s ⊆ t) : (t ↓∩ s) ≃ₜ s wh
 
 /-! ### Michael's Lemma 1 -/
 
-/-- **Michael's lemma, (d) ⇒ (a)** (Michael 1953, Lemma 1; the "if" of Lemma 2.7 [2.56]): if every
+/-- **Michael's lemma, (d) ⇒ (a)** (Michael 1953, Lemma 1; the "if" of Lemma 2.7.3 (2017: 2.7) [2.56]): if every
 open cover of `X` has a locally finite refinement by closed sets, then `X` is paracompact.  No
 separation axiom is needed. -/
 theorem paracompactSpace_of_closed_refinement
@@ -248,10 +248,10 @@ theorem exists_closed_precise_refinement_set [RegularSpace X] [ParacompactSpace 
   | none => exact absurd hx (vs none ho)
   | some i => exact mem_iUnion.2 ⟨i, ho, hx⟩
 
-/-- **Lemma 2.7** [2.56] (Michael 1953, Lemma 1): a regular space is paracompact if and only if
+/-- **Lemma 2.7.3 (2017: 2.7)** [2.56] (Michael 1953, Lemma 1): a regular space is paracompact if and only if
 every open cover has a locally finite refinement by closed sets.  The text assumes "regular
 Hausdorff"; Hausdorff is not used. -/
-theorem lemma_2_56 [RegularSpace X] :
+theorem lemma_2_7_3 [RegularSpace X] :
     ParacompactSpace X ↔
       ∀ (α : Type u) (s : α → Set X), (∀ a, IsOpen (s a)) → ⋃ a, s a = univ →
         ∃ (β : Type u) (t : β → Set X), (∀ b, IsClosed (t b)) ∧ ⋃ b, t b = univ ∧
@@ -285,10 +285,10 @@ theorem michael_tfae [RegularSpace X] :
 
 /-! ### Locally finite unions of closed paracompact subspaces -/
 
-/-- **Proposition 2.17** [2.57]: a regular space which is the union of a locally finite family of
+/-- **Proposition 2.7.4 (2017: 2.17)** [2.57]: a regular space which is the union of a locally finite family of
 closed paracompact subspaces is paracompact.  The text assumes "regular Hausdorff"; Hausdorff is
 not used. -/
-theorem proposition_2_57 [RegularSpace X] {ι : Type v} (Y : ι → Set X)
+theorem proposition_2_7_4 [RegularSpace X] {ι : Type v} (Y : ι → Set X)
     (hYc : ∀ i, IsClosed (Y i)) (hYf : LocallyFinite Y) (hYu : ⋃ i, Y i = univ)
     [∀ i, ParacompactSpace (Y i)] : ParacompactSpace X := by
   refine paracompactSpace_of_closed_refinement fun α U hUo hUu => ?_
@@ -318,14 +318,14 @@ theorem proposition_2_57 [RegularSpace X] {ι : Type v} (Y : ι → Set X)
     have hi : (Y i ∩ N).Nonempty := ⟨z, z.2, hyN⟩
     exact mem_iUnion₂.2 ⟨i, hi, (z : X), ⟨z, hz, rfl⟩, mem_iInter₂.1 hyM i hi⟩
 
-/-- **Proposition 2.17**, subspace form: in a regular space, the union of a locally finite family
+/-- **Proposition 2.7.4 (2017: 2.17)**, subspace form: in a regular space, the union of a locally finite family
 of closed subsets, each paracompact, is paracompact. -/
 theorem paracompactSpace_iUnion [RegularSpace X] {ι : Type v} {s : ι → Set X}
     (hc : ∀ i, IsClosed (s i)) (hf : LocallyFinite s) [∀ i, ParacompactSpace (s i)] :
     ParacompactSpace (⋃ i, s i) := by
   have : ∀ i, ParacompactSpace ((⋃ i, s i) ↓∩ s i) := fun i =>
     (homeomorphPreimageVal (subset_iUnion s i)).paracompactSpace_iff.2 inferInstance
-  refine proposition_2_57 (fun i => (⋃ i, s i) ↓∩ s i)
+  refine proposition_2_7_4 (fun i => (⋃ i, s i) ↓∩ s i)
     (fun i => (hc i).preimage continuous_subtype_val)
     (hf.preimage_continuous continuous_subtype_val) (eq_univ_iff_forall.2 fun x => ?_)
   obtain ⟨i, hi⟩ := mem_iUnion.1 x.2
@@ -338,7 +338,7 @@ theorem paracompactSpace_iUnion_of_finite [RegularSpace X] {ι : Type v} [Finite
   paracompactSpace_iUnion hc (locallyFinite_of_finite s)
 
 /-- In a regular space, `⋃ i ∈ S, s i` is paracompact for a finite `S` and closed paracompact
-`s i`, `i ∈ S` (Corollary 7.2's `⋃ cl U(zᵢ)`). -/
+`s i`, `i ∈ S` (Corollary 7.3.8 (2017: 7.2)'s `⋃ cl U(zᵢ)`). -/
 theorem paracompactSpace_biUnion_of_finite [RegularSpace X] {ι : Type v} {S : Set ι}
     (hS : S.Finite) {s : ι → Set X} (hc : ∀ i ∈ S, IsClosed (s i))
     (hp : ∀ i ∈ S, ParacompactSpace (s i)) : ParacompactSpace (⋃ i ∈ S, s i) := by

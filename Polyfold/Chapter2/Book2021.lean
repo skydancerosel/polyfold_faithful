@@ -19,9 +19,9 @@ rule, for a retraction `ρ` onto `O'`) uses it.
 
 ## What is formalized
 
-* `Polyfold.proposition_2_1_13_2021`: the three parts together, (3) under the 2021 hypothesis.
-  The Lean statements of the preprint item, `proposition_2_6_1`, `proposition_2_6_2`,
-  `proposition_2_6_3` (`Retracts.lean`), already carry the hypothesis "`f ∘ r` sc-smooth" in (3):
+* `Polyfold.proposition_2_1_13`: the three parts together, (3) under the 2021 hypothesis.
+  The Lean statements of the preprint item, `proposition_2_1_13_one`, `proposition_2_1_13_two`,
+  `proposition_2_1_13_three` (`Retracts.lean`), already carry the hypothesis "`f ∘ r` sc-smooth" in (3):
   the formalization had read (3) in the 2021 form from the start, and the 2021 change confirms
   that reading.  The proof is the conjunction of these three theorems.
 
@@ -46,13 +46,13 @@ form: for sc-smooth retractions `r` (`R`), `s` (`S`) onto the same retract `O` a
 (1) if `f ∘ r` is sc-smooth then `f ∘ s` is sc-smooth (and, exchanging the roles, conversely);
 (2) if `f ∘ r` is sc-smooth then `T(f ∘ r) = T(f ∘ s)` on `TO`;
 (3) **if `f ∘ r` is sc-smooth** then `T(f ∘ r)` maps `TO` into `TO'`. -/
-theorem proposition_2_1_13_2021 (R S : ScRetraction E C) (hRS : R.retract = S.retract)
+theorem proposition_2_1_13 (R S : ScRetraction E C) (hRS : R.retract = S.retract)
     (R' : ScRetraction E' C') (hfO : MapsTo f R.retract R'.retract) :
     (IsScSmooth R.U (f ∘ R) ↔ IsScSmooth S.U (f ∘ S)) ∧
     (IsScSmooth R.U (f ∘ R) →
       EqOn (tangentMap R.U (f ∘ R)) (tangentMap S.U (f ∘ S)) R.tangent) ∧
     (IsScSmooth R.U (f ∘ R) → MapsTo (tangentMap R.U (f ∘ R)) R.tangent R'.tangent) :=
-  ⟨⟨proposition_2_6_1 R S hRS, proposition_2_6_1 S R hRS.symm⟩,
-    proposition_2_6_2 R S hRS, fun hf => proposition_2_6_3 R R' hf hfO⟩
+  ⟨⟨proposition_2_1_13_one R S hRS, proposition_2_1_13_one S R hRS.symm⟩,
+    proposition_2_1_13_two R S hRS, fun hf => proposition_2_1_13_three R R' hf hfO⟩
 
 end Polyfold

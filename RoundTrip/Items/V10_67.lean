@@ -48,7 +48,7 @@ theorem A_holds : A :=
 property: `μ(φ, w) = w`, so `IsoW E w (Φ w)` forces `Φ w = w = 1 ∗ w`. -/
 theorem isLRB_z3 : IsLRB (z3SEP 0).E := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := trivialZ3EpGroupoid.theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β Φ _ hiso => ⟨1, fun w hw => ?_⟩⟩
   obtain ⟨φ, h, hφ⟩ := hiso w hw
   exact hφ.symm

@@ -3,17 +3,17 @@ import Polyfold.Chapter2.StrongBundlePullback
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.4,
-**Proposition 2.43** (the tame part), **Proposition 2.44** (first sentence) and **Theorem 2.45**
+**Proposition 2.5.15 (preprint 2.43)** (the tame part), **Proposition 2.5.16 (preprint 2.44)** (first sentence) and **Theorem 2.5.17 (preprint 2.45)**
 (the remaining statements): faces of tame M-polyfolds are tame.
 
 # Faces of tame M-polyfolds
 
 ## The text, paraphrased
 
-(Proposition 2.43) A face `F` of a tame retract `O` is a sub-M-polyfold of `O`; it is tame and
-`d_F(x) = d_O(x) − 1`.  (Proposition 2.44) In a tame M-polyfold every point `x` has exactly
+(Proposition 2.5.15 (preprint 2.43)) A face `F` of a tame retract `O` is a sub-M-polyfold of `O`; it is tame and
+`d_F(x) = d_O(x) − 1`.  (Proposition 2.5.16 (preprint 2.44)) In a tame M-polyfold every point `x` has exactly
 `d_X(x)` local faces, each a tame M-polyfold with `d_F(x) = d_X(x) − 1`; for a set `σ` of face
-germs at `x`, `F^σ_x` is the germ of a tame sub-M-polyfold of codimension `#σ`.  (Theorem 2.45)
+germs at `x`, `F^σ_x` is the germ of a tame sub-M-polyfold of codimension `#σ`.  (Theorem 2.5.17 (preprint 2.45))
 For a face `F = closure(G)` of a tame M-polyfold, `G` (the interior of the face) is a
 sub-M-polyfold; if `X` is face-structured, every face is a sub-M-polyfold, tame in the induced
 structure, and `d_X(i(x)) = d_F(x) + 1`.
@@ -21,31 +21,31 @@ structure, and `d_X(i(x)) = d_F(x) + 1`.
 ## What is formalized
 
 * `Polyfold.minimalSubspaceWith_eq`: `E_x` does not depend on the presentation of `C` (the
-  argument of Lemma 1.24), so `ScRetraction.IsTameWith.isTame`: tameness for one presentation is
-  tameness (Definition 2.34 is presentation independent).  `ScRetraction.IsTameWith.restrict`.
+  argument of Lemma 1.3.4 (preprint 1.24)), so `ScRetraction.IsTameWith.isTame`: tameness for one presentation is
+  tameness (Definition 2.5.2 (preprint 2.34) is presentation independent).  `ScRetraction.IsTameWith.restrict`.
 * The extended face as a model space: `insertCoordL`, `removeCoordL`, the sc-operators
   `faceIncl T i : ℝᵏ ⊕ W → E` (`ι`, onto `f_i`) and `faceProj T i : E → ℝᵏ ⊕ W` (`π`), with
   `π ∘ ι = 1`, `ι ∘ π = 1` on `f_i`, `ι(C') ⊆ C`, `π(C) ⊆ C'` and
   `degIndexWith_eq_quadrantDeg_faceProj_add_one` (`d_C = d_{C'} ∘ π + 1` on `f_i`).
   `ScOperator.scDeriv_eq` (`DL = L`), `scDeriv_comp_apply_of_isScDomain` (chain rule at a point).
-* `Polyfold.proposition_2_43_tameModel` (**Proposition 2.43**, the tame model): `r' = π ∘ r ∘ ι`
+* `Polyfold.proposition_2_5_15_tameModel` (**Proposition 2.5.15 (preprint 2.43)**, the tame model): `r' = π ∘ r ∘ ι`
   is a tame sc-smooth retraction of `C' = [0,∞)ᵏ ⊕ W` onto `π(F)`, and
   `d_{C'}(π y) + 1 = d_C(y)` on `F`.
 * `MPolyfold.faceChart` (the chart `π ∘ φ : A ∩ V₁ → π(φ(A ∩ V₁))`),
   `MPolyfold.faceChart_compatible_subChart`, `MPolyfold.isChart_subPolyfold_of_compatible`,
   `MPolyfold.isTame_of_forall_exists_chart`.
-* `LocalModel.proposition_2_43_isTame` (**Proposition 2.43**, last statements): a face `F` of a
+* `LocalModel.proposition_2_5_15_isTame` (**Proposition 2.5.15 (preprint 2.43)**, last statements): a face `F` of a
   tame retract `O`, with its sub-M-polyfold structure, is tame and `d_F(x) + 1 = d_O(x)`.
-* `MPolyfold.proposition_2_44` (**Proposition 2.44**, first sentence).
+* `MPolyfold.proposition_2_5_16` (**Proposition 2.5.16 (preprint 2.44)**, first sentence).
 * `MPolyfold.isSubMPolyfold_of_local` (a local criterion for sub-M-polyfolds: `φ(A)` agrees near
-  each point with an sc-smooth retract), `MPolyfold.theorem_2_45_isSubMPolyfold_interior`
-  (**Theorem 2.45**: the interior `G` of a face is a sub-M-polyfold),
+  each point with an sc-smooth retract), `MPolyfold.theorem_2_5_17_isSubMPolyfold_interior`
+  (**Theorem 2.5.17 (preprint 2.45)**: the interior `G` of a face is a sub-M-polyfold),
   `MPolyfold.exists_localFace_of_isFaceStructured` (in the face-structured case, a face agrees near
   each of its points with a local face of a tame chart),
-  `MPolyfold.theorem_2_45_isSubMPolyfold_face` and `MPolyfold.theorem_2_45_isTame_face`
-  (**Theorem 2.45**, face-structured case: every face is a tame sub-M-polyfold with
+  `MPolyfold.theorem_2_5_17_isSubMPolyfold_face` and `MPolyfold.theorem_2_5_17_isTame_face`
+  (**Theorem 2.5.17 (preprint 2.45)**, face-structured case: every face is a tame sub-M-polyfold with
   `d_X(i(x)) = d_F(x) + 1`).  The local and global face counts of
-  Theorem 2.45 are `proposition_2_42` and the definition of face-structured.
+  Theorem 2.5.17 (preprint 2.45) are `proposition_2_5_14` and the definition of face-structured.
 
 ## What the text leaves implicit, and the choices made
 
@@ -54,21 +54,21 @@ structure, and `d_X(i(x)) = d_F(x) + 1`.
   `π = (delete i) ∘ T`, so that `C' = [0,∞)ᵏ ⊕ W` comes with its standard presentation; the
   retraction is `r' = π ∘ r ∘ ι` on `ι⁻¹(U*)`, not the restriction `r|_{U* ∩ f_1}` (they
   correspond under `ι`).
-* Tameness (2) of `r'` is proved with `A' = (1 − Dr'(x))E'` (Proposition 2.35 for `r` gives
+* Tameness (2) of `r'` is proved with `A' = (1 − Dr'(x))E'` (Proposition 2.5.3 (preprint 2.35) for `r` gives
   `λ_{j'} ∘ Dr(ιx) = λ_{j'}`, hence `(1 − Dr'(x))E' ⊆ E'_x`), not by intersecting the
   complement `A` of `T_xO` with `f_1` as in the exposition.
-* "`F` is tame" is read as Definition 2.37 for the sub-M-polyfold structure of Proposition 2.21
+* "`F` is tame" is read as Definition 2.5.7 (preprint 2.37) for the sub-M-polyfold structure of Proposition 2.3.19 (preprint 2.21)
   (`subPolyfold`); its paracompactness holds because faces are closed.  `d_F = d_O − 1` is stated
   as `d_F + 1 = d_O` (it includes `d_O ≥ 1` on `F`).
-* In Theorem 2.45 (face-structured case) the identification "each global face through `x`
+* In Theorem 2.5.17 (preprint 2.45) (face-structured case) the identification "each global face through `x`
   contains exactly one local face" is the counting argument: the map from `I(φ x)` to the faces
   through `x` is onto, and face-structuredness makes it injective (`Finset.card_image_iff`).
 
 ## Elsewhere
 
-* Proposition 2.44, second sentence (the germs `F^σ_x` of codimension `#σ`), is in
+* Proposition 2.5.16 (preprint 2.44), second sentence (the germs `F^σ_x` of codimension `#σ`), is in
   `Polyfold.Chapter2.CornerGerms`.
-* Proposition 2.46 (fibred products) is in `Polyfold.Chapter2.FibredProduct`.
+* Proposition 2.5.20 (preprint 2.46) (fibred products) is in `Polyfold.Chapter2.FibredProduct`.
 -/
 
 open Set Filter Topology Function Module
@@ -109,7 +109,7 @@ lemma eventually_add_smul_mem_of_minimalSubspace
   rw [hT]; exact fun l => ht l
 
 /-- The minimal subspace `E_x` does not depend on the presentation of `C` (the argument of
-Lemma 1.24, `S(E_x) ⊆ E'_{Sx}`). -/
+Lemma 1.3.4 (preprint 1.24), `S(E_x) ⊆ E'_{Sx}`). -/
 theorem minimalSubspaceWith_le (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W))
     (hT : C = T 0 ⁻¹' quadrant n W 0) (T' : ScIso E ((ScBanach.const (Fin n' → ℝ)).prod W'))
     (hT' : C = T' 0 ⁻¹' quadrant n' W' 0) {x : E 0} (hx : x ∈ C) :
@@ -136,7 +136,7 @@ theorem minimalSubspaceWith_eq (T : ScIso E ((ScBanach.const (Fin n → ℝ)).pr
     minimalSubspaceWith T x = minimalSubspaceWith T' x :=
   le_antisymm (minimalSubspaceWith_le T hT T' hT' hx) (minimalSubspaceWith_le T' hT' T hT hx)
 
-/-- **Definition 2.34 does not depend on the presentation**: a retraction tame with respect to one
+/-- **Definition 2.5.2 (preprint 2.34) does not depend on the presentation**: a retraction tame with respect to one
 presentation of `C` is tame (with respect to all of them). -/
 theorem ScRetraction.IsTameWith.isTame {R : ScRetraction E C}
     {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)} (hT : C = T 0 ⁻¹' quadrant n W 0)
@@ -219,7 +219,7 @@ def removeCoordModel (W : ScBanach) (i : Fin (k + 1)) :
 variable (T : ScIso E ((ScBanach.const (Fin (k + 1) → ℝ)).prod W)) (i : Fin (k + 1))
 
 /-- The inclusion `ι : ℝᵏ ⊕ W ≅ f_i ⊆ E` of the extended face `f_i = {λ_i = 0}`, an sc-operator
-(the text's identification `f_1 = E_1 ≅ ℝᵏ⁻¹ ⊕ W` in the proof of Proposition 2.43). -/
+(the text's identification `f_1 = E_1 ≅ ℝᵏ⁻¹ ⊕ W` in the proof of Proposition 2.5.15 (preprint 2.43)). -/
 def faceIncl : ScOperator ((ScBanach.const (Fin k → ℝ)).prod W) E :=
   T.symm.toScOperator.comp (insertCoordModel W i)
 
@@ -290,29 +290,29 @@ lemma scDeriv_comp_apply_of_isScDomain {F G : ScBanach} {U : Set (E 0)} {V : Set
     {f : E 0 → F 0} {g : F 0 → G 0} (hU : IsScDomain E U) (hV : IsScDomain F V) (hf : IsSc1 U f)
     (hg : IsSc1 V g) (hfV : MapsTo f U V) {x : E 1} (hx : x ∈ E.lvlSet U 1) (h : E 0) :
     scDeriv V g (levelMap f 1 x) (scDeriv U f x h) = scDeriv U (g ∘ f) x h := by
-  obtain ⟨_, hchain⟩ := theorem_1_21' hU hV hf hg hfV
+  obtain ⟨_, hchain⟩ := theorem_1_3_1' hU hV hf hg hfV
   have := hchain (show ((x, h) : E.tangent 0) ∈ E.tangentSet U from hx)
   exact (congrArg Prod.snd this).symm
 
-/-! ### Proposition 2.43: the tame model `(F, C ∩ f_i, f_i)` of a face -/
+/-! ### Proposition 2.5.15 (preprint 2.43): the tame model `(F, C ∩ f_i, f_i)` of a face -/
 
 section Prop243Tame
 
 variable {k : ℕ} {W : ScBanach} {C : Set (E 0)} {R : ScRetraction E C}
   {T : ScIso E ((ScBanach.const (Fin (k + 1) → ℝ)).prod W)}
 
-/-- **Proposition 2.43**, the tame model of a face: let `r : U → U` be a tame retraction onto `O`
+/-- **Proposition 2.5.15 (preprint 2.43)**, the tame model of a face: let `r : U → U` be a tame retraction onto `O`
 and `F ⊆ f_i` a face of `O`.  With `E' = f_i ≅ ℝᵏ ⊕ W` (through `ι = faceIncl T i`,
 `π = faceProj T i`) and `C' = C ∩ f_i ≅ [0,∞)ᵏ ⊕ W`, the map `r' = π ∘ r ∘ ι` on
-`U' = ι⁻¹(U*)` (`U*` the neighbourhood of `F` of `proposition_2_43`) is a **tame** sc-smooth
+`U' = ι⁻¹(U*)` (`U*` the neighbourhood of `F` of `proposition_2_5_15`) is a **tame** sc-smooth
 retraction onto `π(F)`.
 
 *Proof* (exposition §4.3).  `r'` is a retraction onto `π(F)` since `r ∘ ι` maps `U'` into
 `F ⊆ f_i`, where `ι ∘ π = 1`.  Tameness (1): `d_C = d_{C'} ∘ π + 1` on `f_i` and `d_C ∘ r = d_C`.
 Tameness (2): `λ'_j ∘ Dr'(x) = λ_{j'} ∘ Dr(ι x) ∘ ι = λ_{j'} ∘ ι = λ'_j` for `j ∈ I'(x)`, where
-`j' = i.succAbove j ∈ I(ι x)`, by Proposition 2.35 (`coord_scDeriv_eq`); so
+`j' = i.succAbove j ∈ I(ι x)`, by Proposition 2.5.3 (preprint 2.35) (`coord_scDeriv_eq`); so
 `(1 − Dr'(x))E' ⊆ E'_x` is an sc-complement of `T_x O'`. -/
-theorem proposition_2_43_tameModel (hT : C = T 0 ⁻¹' quadrant (k + 1) W 0) (hR : R.IsTameWith T)
+theorem proposition_2_5_15_tameModel (hT : C = T 0 ⁻¹' quadrant (k + 1) W 0) (hR : R.IsTameWith T)
     {F : Set (E 0)} (hF : R.IsRetractFace F) :
     ∃ i : Fin (k + 1), F ⊆ coordHyper T i ∧
       ∃ R' : ScRetraction ((ScBanach.const (Fin k → ℝ)).prod W) (quadrant k W 0),
@@ -320,7 +320,7 @@ theorem proposition_2_43_tameModel (hT : C = T 0 ⁻¹' quadrant (k + 1) W 0) (h
         ∀ y ∈ F, degIndex _ (quadrant k W 0) (faceProj T i 0 y) + 1 = degIndex E C y := by
   classical
   have hFO : F ⊆ R.retract := by obtain ⟨_, _, rfl⟩ := hF; exact inter_subset_right
-  obtain ⟨i, hFi, S, hFS, hSU, hSret, hSeq⟩ := proposition_2_43 hT hR hF
+  obtain ⟨i, hFi, S, hFS, hSU, hSret, hSeq⟩ := proposition_2_5_15 hT hR hF
   refine ⟨i, hFi, ?_⟩
   obtain ⟨W₀, hW₀, hSW⟩ := S.relOpen.relOpen
   set E' := (ScBanach.const (Fin k → ℝ)).prod W with hE'
@@ -447,7 +447,7 @@ lemma faceChartInv_spec (hιπ : ∀ y ∈ φ '' (A ∩ V₁), ι 0 (π 0 y) = y
 
 /-- The chart `π ∘ φ : A ∩ V₁ → π(φ(A ∩ V₁)) ⊆ E'` of a subset `A ⊆ X`, for a chart `φ` of `X`,
 an open `V₁ ⊆ V` and sc-operators `ι, π` with `ι ∘ π = 1` on `φ(A ∩ V₁)` and `π ∘ ι = 1` (the
-text's chart `(F, id, (F, C', E'))` in the proof of Proposition 2.43, transported by `φ`). -/
+text's chart `(F, id, (F, C', E'))` in the proof of Proposition 2.5.15 (preprint 2.43), transported by `φ`). -/
 def faceChart (hV₁ : IsOpen V₁) (hV₁φ : V₁ ⊆ φ.source)
     (hιπ : ∀ y ∈ φ '' (A ∩ V₁), ι 0 (π 0 y) = y) (hπι : ∀ z, π 0 (ι 0 z) = z)
     (hret : IsScRetract E' C' (π 0 '' (φ '' (A ∩ V₁)))) : MChart A where
@@ -487,7 +487,7 @@ def faceChart (hV₁ : IsOpen V₁) (hV₁φ : V₁ ⊆ φ.source)
 
 variable {x₀ φ V₁ C' ι π}
 
-/-- The chart of a face is compatible with the sub-charts of `A` built on `φ` (Proposition 2.21):
+/-- The chart of a face is compatible with the sub-charts of `A` built on `φ` (Proposition 2.3.19 (preprint 2.21)):
 the transition maps are the sc-operators `ι` and `π`. -/
 theorem faceChart_compatible_subChart (hφ : P.IsChart φ) (hV₁ : IsOpen V₁) (hV₁φ : V₁ ⊆ φ.source)
     (hιπ : ∀ y ∈ φ '' (A ∩ V₁), ι 0 (π 0 y) = y) (hπι : ∀ z, π 0 (ι 0 z) = z)
@@ -531,7 +531,7 @@ theorem isChart_subPolyfold_of_compatible {A : Set X} [ParacompactSpace A]
       (hA.data y.2).mem_shrink φ y.2 (hA.mem_data_V y.2) (hsrc y hy.1)⟩
 
 variable (P) in
-/-- `X` is tame (Definition 2.37) as soon as every point lies in the domain of a chart of the
+/-- `X` is tame (Definition 2.5.7 (preprint 2.37)) as soon as every point lies in the domain of a chart of the
 structure modelled on a tame retract (the atlas of all such charts is equivalent). -/
 theorem isTame_of_forall_exists_chart (h : ∀ x : X, ∃ φ : MChart X, P.IsChart φ ∧
     x ∈ φ.source ∧ IsTameRetract φ.model.E φ.model.C φ.model.O) : P.IsTame := by
@@ -545,7 +545,7 @@ theorem isTame_of_forall_exists_chart (h : ∀ x : X, ∃ φ : MChart X, P.IsCha
 
 end MPolyfold
 
-/-! ### Proposition 2.43: a face is a tame M-polyfold with `d_F = d_O − 1` -/
+/-! ### Proposition 2.5.15 (preprint 2.43): a face is a tame M-polyfold with `d_F = d_O − 1` -/
 
 namespace LocalModel
 
@@ -554,18 +554,18 @@ variable (M : LocalModel) (hne : M.O.Nonempty) {n : ℕ} {W : ScBanach}
   {T : ScIso M.E ((ScBanach.const (Fin n → ℝ)).prod W)}
 
 include hRM in
-/-- **Proposition 2.43**, last statements: a face `F` of a tame retract `O`, with the M-polyfold
-structure of a sub-M-polyfold (Proposition 2.21, via `isSubMPolyfold_of_isFace`), is **tame**, and
+/-- **Proposition 2.5.15 (preprint 2.43)**, last statements: a face `F` of a tame retract `O`, with the M-polyfold
+structure of a sub-M-polyfold (Proposition 2.3.19 (preprint 2.21), via `isSubMPolyfold_of_isFace`), is **tame**, and
 `d_F(x) = d_O(x) − 1` for all `x ∈ F` (stated as `d_F(x) + 1 = d_O(x)`).
 
 *Proof.* The chart `π : F → π(F)` (`MPolyfold.faceChart`, with `φ = id`) onto the tame retract
-`(π(F), C', E')` of `proposition_2_43_tameModel` is compatible with the sub-charts of `F` built on
+`(π(F), C', E')` of `proposition_2_5_15_tameModel` is compatible with the sub-charts of `F` built on
 the identity chart of `O` (its transition maps are the sc-operators `ι`, `π`), hence it is a chart
 of the induced structure; its model is tame.  The tame chart realizes `d_F`
 (`degIndex_eq_chartDegIndex_of_isTameWith`), and `d_{C'}(π y) + 1 = d_C(y) = d_O(y)` (equation
-(4.2) twice).  Paracompactness of `F` (needed for Proposition 2.21) holds since faces are
+(4.2) twice).  Paracompactness of `F` (needed for Proposition 2.3.19 (preprint 2.21)) holds since faces are
 closed. -/
-theorem proposition_2_43_isTame (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
+theorem proposition_2_5_15_isTame (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
     {F : Set M.O} (hF : (M.toMPolyfold hne).IsFace F) :
     haveI : ParacompactSpace F :=
       MPolyfold.paracompactSpace_of_isClosed (MPolyfold.IsFace.isClosed _ hF)
@@ -576,9 +576,9 @@ theorem proposition_2_43_isTame (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.I
   have : ParacompactSpace F :=
     MPolyfold.paracompactSpace_of_isClosed (MPolyfold.IsFace.isClosed _ hF)
   have hG := (M.isFace_toMPolyfold_iff hne R hRM hT hR F).1 hF
-  obtain ⟨i₀, -⟩ := proposition_2_43 hT hR hG
+  obtain ⟨i₀, -⟩ := proposition_2_5_15 hT hR hG
   obtain ⟨k, rfl⟩ : ∃ k, n = k + 1 := ⟨n - 1, by have := i₀.pos; omega⟩
-  obtain ⟨i, hFi, R', hR'tame, hR'ret, hdeg⟩ := proposition_2_43_tameModel hT hR hG
+  obtain ⟨i, hFi, R', hR'tame, hR'ret, hdeg⟩ := proposition_2_5_15_tameModel hT hR hG
   have hsub := M.isSubMPolyfold_of_isFace hne R hRM hT hR hF
   have hT' : quadrant k W 0 = (ScIso.refl ((ScBanach.const (Fin k → ℝ)).prod W)) 0 ⁻¹'
       quadrant k W 0 := by ext; rfl
@@ -617,10 +617,10 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- **A local criterion for sub-M-polyfolds** (the argument of Theorem 2.45, "transport by
+/-- **A local criterion for sub-M-polyfolds** (the argument of Theorem 2.5.17 (preprint 2.45), "transport by
 `φ⁻¹`"): if near every `a ∈ A`, in a chart `φ : V → O`, the image `φ(A ∩ V)` agrees on an open
 set `B ∋ φ(a)` with an sc-smooth retract `s(U_s) ⊆ O` of `C`, then `A` is a sub-M-polyfold of `X`
-(Definition 2.20), with the retraction `φ⁻¹ ∘ s ∘ φ` near `a`. -/
+(Definition 2.3.18 (preprint 2.20)), with the retraction `φ⁻¹ ∘ s ∘ φ` near `a`. -/
 theorem isSubMPolyfold_of_local {A : Set X}
     (h : ∀ a ∈ A, ∃ φ : MChart X, P.IsChart φ ∧ a ∈ φ.source ∧
       ∃ (S : ScRetraction φ.model.E φ.model.C) (B : Set (φ.model.E 0)), IsOpen B ∧ φ a ∈ B ∧
@@ -730,15 +730,15 @@ theorem isSubMPolyfold_of_local {A : Set X}
       rw [← hSA] at hmem
       rw [hr y hyV, S.apply_eq_self_of_mem_retract hmem.1, φ.symm_apply_apply hyV.1]
 
-/-- **Theorem 2.45**, the interior of a face is a sub-M-polyfold: in a tame M-polyfold, a
+/-- **Theorem 2.5.17 (preprint 2.45)**, the interior of a face is a sub-M-polyfold: in a tame M-polyfold, a
 connected component `G` of `{d_X = 1}` is a sub-M-polyfold of `X`.
 
 *Proof.* At `y ∈ G`, in a tame chart `φ` with `I(φ y) = {i}`, Lemma 4.C gives a ball `B` around
 `φ(y)` and the component `F̂` of `S` with: points of `O ∩ B` with `d_C = 1` lie in `F̂`, and
 `φ⁻¹(F̂) ⊆ G`.  Hence `F_loc ∩ B = φ(G ∩ V) ∩ B` for the local face `F_loc = closure(F̂) ∩ O`
-(both are `F̂ ∩ B`: points of `F_loc ∩ B` lie in `f_i` and have `I ⊆ {i}`), and Proposition 2.43
+(both are `F̂ ∩ B`: points of `F_loc ∩ B` lie in `f_i` and have `I ⊆ {i}`), and Proposition 2.5.15 (preprint 2.43)
 gives a retraction onto `F_loc`; conclude by `isSubMPolyfold_of_local`. -/
-theorem theorem_2_45_isSubMPolyfold_interior (hP : P.IsTame) (y₀ : X) :
+theorem theorem_2_5_17_isSubMPolyfold_interior (hP : P.IsTame) (y₀ : X) :
     P.IsSubMPolyfold (connectedComponentIn {y | P.degIndex y = 1} y₀) := by
   classical
   set G := connectedComponentIn {y | P.degIndex y = 1} y₀ with hG
@@ -787,7 +787,7 @@ theorem theorem_2_45_isSubMPolyfold_interior (hP : P.IsTame) (y₀ : X) :
   -- the local face and its retraction
   have hFloc : R.IsRetractFace (closure (connectedComponentIn R.faceStratum p) ∩ R.retract) :=
     ⟨p, hpS, rfl⟩
-  obtain ⟨-, -, S', -, -, hS'ret, -⟩ := proposition_2_43 hT hR hFloc
+  obtain ⟨-, -, S', -, -, hS'ret, -⟩ := proposition_2_5_15 hT hR hFloc
   have hcl : closure (connectedComponentIn R.faceStratum p) ⊆ coordHyper T i :=
     (isClosed_coordHyper T i).closure_subset_iff.2 (connectedComponentIn_faceStratum_subset hT hpi)
   refine ⟨φ, hφ, hyV, S', Metric.ball o ε, Metric.isOpen_ball, Metric.mem_ball_self hε, ?_, ?_⟩
@@ -807,7 +807,7 @@ theorem theorem_2_45_isSubMPolyfold_interior (hP : P.IsTame) (y₀ : X) :
         rw [← degIndexWith_eq_card_zeroSet, hg1, Finset.card_singleton]
       exact ⟨⟨subset_closure (hnear _ ⟨hzB, hgO⟩ hgI), hgO⟩, hzB⟩
 
-/-- **Theorem 2.45**, the local shape of a face of a face-structured tame M-polyfold: near each
+/-- **Theorem 2.5.17 (preprint 2.45)**, the local shape of a face of a face-structured tame M-polyfold: near each
 of its points `x`, in a tame chart `φ : V → O`, the image `φ(F ∩ V)` agrees on a ball `B` around
 `φ(x)` with a face `F_loc` of the retract `O`.
 
@@ -967,40 +967,40 @@ theorem exists_localFace_of_isFaceStructured (hP : P.IsTame) (hfs : P.IsFaceStru
       rw [hFeq, hG, hGj]; exact closure_mono (hKc j hjJ) h1
     exact ⟨⟨φ.symm z, ⟨hFj, φ.symm_mapsTo hzO'⟩, φ.apply_symm_apply hzO'⟩, hzB⟩
 
-/-- **Theorem 2.45**: in a face-structured tame M-polyfold every face `F` is a sub-M-polyfold
-of `X` (`exists_localFace_of_isFaceStructured`, Proposition 2.43's retraction onto the local face,
+/-- **Theorem 2.5.17 (preprint 2.45)**: in a face-structured tame M-polyfold every face `F` is a sub-M-polyfold
+of `X` (`exists_localFace_of_isFaceStructured`, Proposition 2.5.15 (preprint 2.43)'s retraction onto the local face,
 and `isSubMPolyfold_of_local`). -/
-theorem theorem_2_45_isSubMPolyfold_face (hP : P.IsTame) (hfs : P.IsFaceStructured) {F : Set X}
+theorem theorem_2_5_17_isSubMPolyfold_face (hP : P.IsTame) (hfs : P.IsFaceStructured) {F : Set X}
     (hF : P.IsFace F) : P.IsSubMPolyfold F := by
   refine P.isSubMPolyfold_of_local fun x hxF => ?_
   obtain ⟨φ, hφ, hx, R, hRO, n, W, T, hT, hR, Floc, hFloc, B, hB, hxB, hEq⟩ :=
     exists_localFace_of_isFaceStructured P hP hfs hF hxF
   have hFlocO : Floc ⊆ R.retract := by
     obtain ⟨_, _, h⟩ := hFloc; rw [h]; exact inter_subset_right
-  obtain ⟨-, -, S', -, -, hS'ret, -⟩ := proposition_2_43 hT hR hFloc
+  obtain ⟨-, -, S', -, -, hS'ret, -⟩ := proposition_2_5_15 hT hR hFloc
   refine ⟨φ, hφ, hx, S', B, hB, hxB, ?_, ?_⟩
   · rw [hS'ret, ← hRO]; exact hFlocO
   · rw [hS'ret, hEq]
 
-/-- **Theorem 2.45**, the face-structured case: every face `F` of a face-structured tame
-M-polyfold, with the structure of a sub-M-polyfold (Proposition 2.21), is **tame**, and the
+/-- **Theorem 2.5.17 (preprint 2.45)**, the face-structured case: every face `F` of a face-structured tame
+M-polyfold, with the structure of a sub-M-polyfold (Proposition 2.3.19 (preprint 2.21)), is **tame**, and the
 inclusion satisfies `d_X(i(x)) = d_F(x) + 1`.
 
 *Proof.* Near `x ∈ F`, `φ(F) ∩ B = F_loc ∩ B` for a face `F_loc ⊆ f_i` of a tame chart
 (`exists_localFace_of_isFaceStructured`); the chart `π ∘ φ` of `F` (`faceChart`) onto
 `π(F_loc ∩ B)`, the retract of the restriction of the tame retraction `r'` of
-`proposition_2_43_tameModel`, is a chart of the induced structure modelled on a tame retract, and
+`proposition_2_5_15_tameModel`, is a chart of the induced structure modelled on a tame retract, and
 it realizes `d_F(x) = d_{C'}(π φ x) = d_C(φ x) − 1 = d_X(x) − 1`.  Paracompactness of `F` holds
 since faces are closed. -/
-theorem theorem_2_45_isTame_face (hP : P.IsTame) (hfs : P.IsFaceStructured) {F : Set X}
+theorem theorem_2_5_17_isTame_face (hP : P.IsTame) (hfs : P.IsFaceStructured) {F : Set X}
     (hF : P.IsFace F) :
     haveI : ParacompactSpace F := paracompactSpace_of_isClosed (IsFace.isClosed P hF)
-    (subPolyfold (theorem_2_45_isSubMPolyfold_face P hP hfs hF)).IsTame ∧
+    (subPolyfold (theorem_2_5_17_isSubMPolyfold_face P hP hfs hF)).IsTame ∧
       ∀ x : F, P.degIndex x =
-        (subPolyfold (theorem_2_45_isSubMPolyfold_face P hP hfs hF)).degIndex x + 1 := by
+        (subPolyfold (theorem_2_5_17_isSubMPolyfold_face P hP hfs hF)).degIndex x + 1 := by
   classical
   have : ParacompactSpace F := paracompactSpace_of_isClosed (IsFace.isClosed P hF)
-  have hsub := theorem_2_45_isSubMPolyfold_face P hP hfs hF
+  have hsub := theorem_2_5_17_isSubMPolyfold_face P hP hfs hF
   suffices key : ∀ x : F, ∃ χ : MChart F, (subPolyfold hsub).IsChart χ ∧ x ∈ χ.source ∧
       IsTameRetract χ.model.E χ.model.C χ.model.O ∧
       P.degIndex x = (subPolyfold hsub).degIndex x + 1 by
@@ -1010,9 +1010,9 @@ theorem theorem_2_45_isTame_face (hP : P.IsTame) (hfs : P.IsFaceStructured) {F :
   intro x
   obtain ⟨φ, hφ, hx, R, hRO, n, W, T, hT, hR, Floc, hFloc, B, hB, hxB, hEq⟩ :=
     exists_localFace_of_isFaceStructured P hP hfs hF x.2
-  obtain ⟨i₀, -⟩ := proposition_2_43 hT hR hFloc
+  obtain ⟨i₀, -⟩ := proposition_2_5_15 hT hR hFloc
   obtain ⟨k, rfl⟩ : ∃ k, n = k + 1 := ⟨n - 1, by have := i₀.pos; omega⟩
-  obtain ⟨i, hFi, R', hR'tame, hR'ret, hdeg'⟩ := proposition_2_43_tameModel hT hR hFloc
+  obtain ⟨i, hFi, R', hR'tame, hR'ret, hdeg'⟩ := proposition_2_5_15_tameModel hT hR hFloc
   have hT' : quadrant k W 0 = (ScIso.refl ((ScBanach.const (Fin k → ℝ)).prod W)) 0 ⁻¹'
       quadrant k W 0 := by ext; rfl
   set V₁ := φ.source ∩ φ ⁻¹' B with hV₁def
@@ -1058,11 +1058,11 @@ theorem theorem_2_45_isTame_face (hP : P.IsTame) (hfs : P.IsFaceStructured) {F :
     rw [hFV] at this; exact this.1
   exact (hdeg' _ hxF).symm
 
-/-- **Proposition 2.44**, first sentence: in a tame M-polyfold every point `x` has exactly
+/-- **Proposition 2.5.16 (preprint 2.44)**, first sentence: in a tame M-polyfold every point `x` has exactly
 `d_X(x)` local faces, each a tame M-polyfold `F` with `d_F(x) = d_X(x) − 1`.  "Local faces" are
 the faces of the M-polyfold `O ≅ V` of a tame chart `φ : V → O` around `x` (as in
-`proposition_2_42`), with the sub-M-polyfold structure of Proposition 2.21. -/
-theorem proposition_2_44 (hP : P.IsTame) (x : X) :
+`proposition_2_5_14`), with the sub-M-polyfold structure of Proposition 2.3.19 (preprint 2.21). -/
+theorem proposition_2_5_16 (hP : P.IsTame) (x : X) :
     ∃ φ : MChart X, P.IsChart φ ∧ ∃ hx : x ∈ φ.source,
       {F | (φ.model.toMPolyfold ⟨_, φ.mapsTo_model x hx⟩).IsFace F ∧
         (⟨φ x, φ.mapsTo_model x hx⟩ : φ.model.O) ∈ F}.encard = (P.degIndex x : ℕ∞) ∧
@@ -1082,7 +1082,7 @@ theorem proposition_2_44 (hP : P.IsTame) (x : X) :
   refine ⟨φ, hφ, hx, ?_, fun F hF => ?_⟩
   · rw [φ.model.isFaceStructured_toMPolyfold hne R hRO hT hR, hdx]
   · have : ParacompactSpace F := paracompactSpace_of_isClosed (IsFace.isClosed _ hF)
-    obtain ⟨h1, h2⟩ := φ.model.proposition_2_43_isTame hne R hRO hT hR hF
+    obtain ⟨h1, h2⟩ := φ.model.proposition_2_5_15_isTame hne R hRO hT hR hF
     exact ⟨_, h1, fun hxF => (h2 ⟨_, hxF⟩).trans hdx⟩
 
 end MPolyfold

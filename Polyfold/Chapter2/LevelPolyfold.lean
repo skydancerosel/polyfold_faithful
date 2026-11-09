@@ -3,7 +3,7 @@ import Polyfold.Chapter2.DegeneracyIndex
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.2, the
-paragraph after Definition 2.14: the shifted M-polyfold `X¹` (and, by iteration, `X_m`).
+paragraph after Definition 2.3.8 (preprint 2.14): the shifted M-polyfold `X¹` (and, by iteration, `X_m`).
 
 # The level `X¹` of an M-polyfold as an M-polyfold
 
@@ -12,20 +12,20 @@ paragraph after Definition 2.14: the shifted M-polyfold `X¹` (and, by iteration
 "With this topology, the set `V_m := V ∩ X_m` is an open subset of `X_m` and `φ : V_m → O_m` is a
 homeomorphism, so that the tuple `(V_m, φ, (O_m, C_m, E_m))` is a chart on `X_m`.  Any two such
 charts are sc-smoothly compatible and the collection of such charts is an atlas on `X_m`."
-(Theorem 2.16) `X_m` is metrizable, in particular paracompact (Appendix 2.6.2, with Smirnov's
+(Theorem 2.3.10 (preprint 2.16)) `X_m` is metrizable, in particular paracompact (Appendix 2.6.2, with Smirnov's
 theorem).
 
 ## What is formalized
 
 * The level shift of the local data: `Polyfold.ScIso.shift`, `IsPartialQuadrant.shift` (`C¹ = C_1`
   is a partial quadrant in `E¹`), `IsRelOpenInQuadrant.shift`, `ScRetraction.shift` (the
-  retraction `r : U¹ → U¹`, sc-smooth by Proposition 1.17 = `IsScSmooth.shift`) with
+  retraction `r : U¹ → U¹`, sc-smooth by Proposition 1.2.2 (preprint 1.17) = `IsScSmooth.shift`) with
   `ScRetraction.shift_retract : r(U¹) = O¹`, `IsScRetract.shift`, `LocalModel.shift`
   (`(O¹, C¹, E¹)`), and `IsScSmoothRetractMap.shift`: an sc-smooth map between retracts induces an
-  sc-smooth map `f : O¹ → O'¹` (Proposition 1.17 for retracts).
+  sc-smooth map `f : O¹ → O'¹` (Proposition 1.2.2 (preprint 1.17) for retracts).
 * Sc-smooth maps between retracts are continuous on every level
   (`IsScSmoothRetractMap.continuousOn_levelMap`, `mapsTo_levelMap`).
-* `MPolyfold.Level P m`: the type `X_m` with the topology of Definition 2.14's paragraph
+* `MPolyfold.Level P m`: the type `X_m` with the topology of Definition 2.3.8 (preprint 2.14)'s paragraph
   (`levelTopology`); `MPolyfold.continuous_levelVal` (the inclusion `X_m → X` is continuous) and
   the instance `T2Space (P.Level m)`.
 * `MPolyfold.levelChart hφ x₀ : MChart (P.Level 1)`, the chart `(V₁, φ, (O₁, C₁, E¹))`;
@@ -33,25 +33,25 @@ theorem).
   `MPolyfold.shift P : MPolyfold (P.Level 1)`, the M-polyfold `X¹`, with the instance argument
   `[ParacompactSpace (P.Level 1)]` (supplied by `MPolyfold.paracompactSpace_level` in
   `Metrizable.lean`); `MPolyfold.shift_isChart`.
-* `MPolyfold.IsScSmoothOn.of_exists_charts`: Definition 2.14 only needs to be checked for *one*
-  pair of charts around each point (the locality of Definition 2.14, used for `TX → X¹` and `Tf`).
+* `MPolyfold.IsScSmoothOn.of_exists_charts`: Definition 2.3.8 (preprint 2.14) only needs to be checked for *one*
+  pair of charts around each point (the locality of Definition 2.3.8 (preprint 2.14), used for `TX → X¹` and `Tf`).
 
 ## What the text leaves implicit, and the choices made
 
 * `X_m` is treated for `m = 1` only; `X_m` is `(X¹)_{m-1}` by iteration (the level sets of `X¹`
   are those of `X` shifted by one, which is not formalized: gap G.6 of the report).
-* Paracompactness of `X¹` (part of Theorem 2.16) is an instance argument
+* Paracompactness of `X¹` (part of Theorem 2.3.10 (preprint 2.16)) is an instance argument
   `[ParacompactSpace (P.Level 1)]` of `MPolyfold.shift`, because this file comes before the
   metrizability proof.  It is not an added hypothesis: it is proved, for every `X_m` and with no
-  added hypothesis, as the instance `MPolyfold.paracompactSpace_level` (Theorem 2.16,
-  `Polyfold.theorem_2_16`) in `Metrizable.lean`, so that wherever that file is imported the
+  added hypothesis, as the instance `MPolyfold.paracompactSpace_level` (Theorem 2.3.10 (preprint 2.16),
+  `Polyfold.theorem_2_3_10`) in `Metrizable.lean`, so that wherever that file is imported the
   argument is filled in automatically.  The text's proof of paracompactness uses a locally finite
-  closed refinement of a chart cover of `X` (Lemma 2.56), the paracompactness of closed subsets of
-  the metrizable sets `V_m ≅ O_m`, and Proposition 2.57 ("a regular space with a locally finite
+  closed refinement of a chart cover of `X` (Lemma 2.7.3 (preprint 2.56)), the paracompactness of closed subsets of
+  the metrizable sets `V_m ≅ O_m`, and Proposition 2.7.4 (preprint 2.57) ("a regular space with a locally finite
   closed cover by paracompact subspaces is paracompact"), which also needs `X_m` to be *regular*,
   a point the text does not check (a Hausdorff locally metrizable space need not be regular; it
   holds here because `X_m → X` is continuous and `X` is regular).  The formal proof avoids Lemma
-  2.56 and Proposition 2.57 (not formalized, as not needed: G.15): a partition of unity of `X`
+  2.56 and Proposition 2.7.4 (preprint 2.57) (not formalized, as not needed: G.15): a partition of unity of `X`
   pulled back to `X_m` gives a metric (`Polyfold.metrizableSpace_of_pullback`, Smirnov's theorem),
   and paracompactness follows by Stone's theorem.
 * The Hausdorff property of `X_m` is proved from the continuity and injectivity of the inclusion
@@ -89,7 +89,7 @@ theorem IsRelOpenInQuadrant.shift {C U : Set (E 0)} (hU : IsRelOpenInQuadrant E 
   obtain ⟨O, hO, rfl⟩ := hU.relOpen
   exact ⟨hU.isPartialQuadrant.shift, E.lvlSet O 1, E.isOpen_lvlSet hO 1, rfl⟩
 
-/-- The sc-smooth retraction `r : U¹ → U¹` induced on level `1` (Proposition 1.17). -/
+/-- The sc-smooth retraction `r : U¹ → U¹` induced on level `1` (Proposition 1.2.2 (preprint 1.17)). -/
 def ScRetraction.shift {C : Set (E 0)} (R : ScRetraction E C) :
     ScRetraction E.shift (E.lvlSet C 1) where
   U := E.lvlSet R.U 1
@@ -157,7 +157,7 @@ theorem IsScSmoothRetractMap.continuousOn_levelMap (hf : IsScSmoothRetractMap E 
     (hO : IsScRetract E C O) (m : ℕ) : ContinuousOn (levelMap f m) (E.lvlSet O m) :=
   (hf.isSc0 hO).continuousOn m
 
-/-- **Proposition 1.17 for retracts**: an sc-smooth map `f : (O, C, E) → (O', C', E')` induces an
+/-- **Proposition 1.2.2 (preprint 1.17) for retracts**: an sc-smooth map `f : (O, C, E) → (O', C', E')` induces an
 sc-smooth map `f : (O¹, C¹, E¹) → (O'¹, C'¹, E'¹)` (its level-`1` map). -/
 theorem IsScSmoothRetractMap.shift (hf : IsScSmoothRetractMap E C O E' C' O' f)
     (hO : IsScRetract E C O) :
@@ -174,7 +174,7 @@ theorem IsScSmoothRetractMap.shift (hf : IsScSmoothRetractMap E C O E' C' O' f)
 
 end RetractMaps
 
-/-! ### The locality of Definition 2.14 -/
+/-! ### The locality of Definition 2.3.8 (preprint 2.14) -/
 
 namespace MPolyfold
 
@@ -183,7 +183,7 @@ universe u v
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
 
-/-- **The locality of Definition 2.14**: `f : X → Y` is sc-smooth on the open set `U` as soon as it
+/-- **The locality of Definition 2.3.8 (preprint 2.14)**: `f : X → Y` is sc-smooth on the open set `U` as soon as it
 is continuous on `U` and every `x ∈ U` has charts `φ` of `X` around `x`, `ψ` of `Y` around `f(x)`
 and an open `V ∋ x`, `V ⊆ U ∩ dom φ`, `f(V) ⊆ dom ψ`, with `ψ ∘ f ∘ φ⁻¹` sc-smooth on `φ(V)`.
 (The text's "the definition does not depend on the choice of sc-smoothly compatible charts".) -/
@@ -261,7 +261,7 @@ theorem IsScSmoothOn.of_exists_charts {f : X → Y} {U : Set X} (hU : IsOpen U)
 
 variable (P) in
 /-- The level `X_m` of the M-polyfold `X`, as a type with the topology generated by the sets
-`φ⁻¹(W)`, `W` open in `O_m` (the paragraph after Definition 2.14). -/
+`φ⁻¹(W)`, `W` open in `O_m` (the paragraph after Definition 2.3.8 (preprint 2.14)). -/
 def Level (m : ℕ) : Type u := P.levelSet m
 
 instance (m : ℕ) : TopologicalSpace (P.Level m) := P.levelTopology m
@@ -465,7 +465,7 @@ lemma levelChart_transition (hψ : P.IsChart ψ) (y₀ : P.Level 1) {z : φ.mode
   rfl
 
 /-- "Any two such charts are sc-smoothly compatible": the level charts of two charts of the
-structure are compatible (Proposition 1.17 for the transition maps). -/
+structure are compatible (Proposition 1.2.2 (preprint 1.17) for the transition maps). -/
 theorem levelChart_compatible (hψ : P.IsChart ψ) (y₀ : P.Level 1) :
     (levelChart hφ x₀).Compatible (levelChart hψ y₀) := by
   have key : ∀ (φ ψ : MChart X) (hφ : P.IsChart φ) (hψ : P.IsChart ψ) (x₀ y₀ : P.Level 1),
@@ -497,8 +497,8 @@ def levelAtlas : MAtlas (P.Level 1) where
     exact ⟨levelChart hφ x, ⟨φ, hφ, x, rfl⟩, hx⟩
 
 variable (P) in
-/-- **The M-polyfold `X¹`** (the paragraph after Definition 2.14): the level `X_1` with the charts
-`(V₁, φ, (O₁, C₁, E¹))`.  Paracompactness of `X¹` is an instance argument, proved (Theorem 2.16)
+/-- **The M-polyfold `X¹`** (the paragraph after Definition 2.3.8 (preprint 2.14)): the level `X_1` with the charts
+`(V₁, φ, (O₁, C₁, E¹))`.  Paracompactness of `X¹` is an instance argument, proved (Theorem 2.3.10 (preprint 2.16))
 by the instance `MPolyfold.paracompactSpace_level` in `Metrizable.lean`. -/
 def shift [ParacompactSpace (P.Level 1)] : MPolyfold (P.Level 1) where
   atlas := P.levelAtlas

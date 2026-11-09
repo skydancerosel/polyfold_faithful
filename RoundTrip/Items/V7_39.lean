@@ -6,7 +6,7 @@ import RoundTrip.Blind.V7_39
 
 `A` is the conjunction of the types of the eleven listed theorems, universes at `0`:
 `isQuotientMap_reducedπ`, `isOpenMap_reducedπ`, `injOn_reducedπ`, `reducedChart_compatible`,
-`isChart_reducedChart`, `isScDiffeoOn_reducedπ`, `isLocalScDiffeo_reducedπ`, `proposition_7_9`,
+`isChart_reducedChart`, `isScDiffeoOn_reducedπ`, `isLocalScDiffeo_reducedπ`, `proposition_7_2_10`,
 `t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`,
 `paracompactSpace_reducedMor_of_t3`.  The definitions `reducedπ`, `reducedChart`,
 `reducedCharts`, `reducedAtlas`, `reducedPolyfold` are vocabulary.  `reducedPolyfold` and the
@@ -33,7 +33,7 @@ Dictionary: `B`'s `NatRepB`/`TxB`/`RelB` are the project's `NaturalRep`/`trivial
   overlap is `B`(2); the rest copies the project's private `reducedChart_transition`), and the
   three Hausdorff/paracompact conjuncts (`B`(3), which gives them without effectiveness).
   `isQuotientMap_reducedπ` is Mathlib; `isChart_reducedChart`, `isScDiffeoOn_reducedπ`,
-  `isLocalScDiffeo_reducedπ`, `proposition_7_9` concern the project's specific atlas (not `B`'s
+  `isLocalScDiffeo_reducedπ`, `proposition_7_2_10` concern the project's specific atlas (not `B`'s
   `Q`) and are re-proved by copying the project's proofs, with `isOpenMap_reducedπ` replaced by
   the `B`-derived one.
 
@@ -54,7 +54,7 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.isChart_reducedChart.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isScDiffeoOn_reducedπ.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_9.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_7_2_10.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3.{0})
@@ -63,7 +63,7 @@ theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.isQuotientMap_reducedπ.{0}, @Polyfold.EpGroupoid.isOpenMap_reducedπ.{0},
     @Polyfold.EpGroupoid.injOn_reducedπ.{0}, @Polyfold.EpGroupoid.reducedChart_compatible.{0},
     @Polyfold.EpGroupoid.isChart_reducedChart.{0}, @Polyfold.EpGroupoid.isScDiffeoOn_reducedπ.{0},
-    @Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ.{0}, @Polyfold.EpGroupoid.proposition_7_9.{0},
+    @Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ.{0}, @Polyfold.EpGroupoid.proposition_7_2_10.{0},
     @Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective.{0},
     @Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective.{0},
     @Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3.{0}⟩
@@ -362,7 +362,7 @@ theorem isLocalScDiffeo_reducedπ' (hB : B) :
   obtain ⟨W, V, σ, hφ, hS⟩ := X.isLocalScDiffeo_src φ
   exact ⟨W, _, _, hφ, isScDiffeoOn_reducedπ' hB hS⟩
 
-theorem proposition_7_9' (hB : B) : type_of% @Polyfold.EpGroupoid.proposition_7_9.{0} := by
+theorem proposition_7_9' (hB : B) : type_of% @Polyfold.EpGroupoid.proposition_7_2_10.{0} := by
   intro Obj Mor _ _ _ _ _ _ X _ _
   exact ⟨rfl, fun _ hχ => X.reducedPolyfold.isChart_of_mem hχ,
     fun _ _ _ hS => ⟨isOpenMap_of_B X hB _ hS.isScSmoothOn.isOpen, isScDiffeoOn_reducedπ' hB hS⟩,
@@ -379,21 +379,21 @@ theorem B_to_A : B → A := fun hB =>
   Polyfold.EpGroupoid.isOpenMap_reducedπ, Polyfold.EpGroupoid.injOn_reducedπ,
   Polyfold.EpGroupoid.reducedChart_compatible, Polyfold.EpGroupoid.isChart_reducedChart,
   Polyfold.EpGroupoid.isScDiffeoOn_reducedπ, Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ,
-  Polyfold.EpGroupoid.proposition_7_9, Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective,
+  Polyfold.EpGroupoid.proposition_7_2_10, Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective,
   Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective,
   Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3]
 #rt_check_soft RoundTrip.V7_39.B_to_A [Polyfold.EpGroupoid.isQuotientMap_reducedπ,
   Polyfold.EpGroupoid.isOpenMap_reducedπ, Polyfold.EpGroupoid.injOn_reducedπ,
   Polyfold.EpGroupoid.reducedChart_compatible, Polyfold.EpGroupoid.isChart_reducedChart,
   Polyfold.EpGroupoid.isScDiffeoOn_reducedπ, Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ,
-  Polyfold.EpGroupoid.proposition_7_9, Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective,
+  Polyfold.EpGroupoid.proposition_7_2_10, Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective,
   Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective,
   Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3]
 #rt_overlap RoundTrip.V7_39.B_to_A [Polyfold.EpGroupoid.isQuotientMap_reducedπ,
   Polyfold.EpGroupoid.isOpenMap_reducedπ, Polyfold.EpGroupoid.injOn_reducedπ,
   Polyfold.EpGroupoid.reducedChart_compatible, Polyfold.EpGroupoid.isChart_reducedChart,
   Polyfold.EpGroupoid.isScDiffeoOn_reducedπ, Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ,
-  Polyfold.EpGroupoid.proposition_7_9, Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective,
+  Polyfold.EpGroupoid.proposition_7_2_10, Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective,
   Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective,
   Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3]
 

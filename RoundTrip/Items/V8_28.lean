@@ -11,7 +11,7 @@ The item lists seven theorems; `A` is the conjunction of their types, universes 
 `degIndex_prod_fibredMap` (for **tame** `X`, `Y`: `d_{𝐗×Y}(F φ, s φ) = 2 d_𝐘(φ)` and
 `2 d_{𝐗 ₛ×_F Y} = d_{𝐗×Y}`), and Part I's `MPolyfold.degIndex_prod_le`
 (`d_{X×Y} ≤ d_X + d_Y`), `MPolyfold.isTame_prod` (tame product, with `d_{X×Y} = d_X + d_Y`) and
-`proposition_2_24` (sc-diffeomorphism germs preserve `d`).
+`proposition_2_4_4` (sc-diffeomorphism germs preserve `d`).
 
 `B` asserts, for every proper covering functor, (a) `d_𝐘 = d_{𝐗 ₛ×_F Y} ∘ L`, (b) the product
 formula `d_{𝐗×Y}(φ, y) = d_𝐗(φ) + d_Y(y)` for **all** `(φ, y)`, (c) `d_𝐗(F φ) = d_𝐘(φ) = d_Y(s φ)`,
@@ -40,7 +40,7 @@ def A : Prop :=
   (type_of% @Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap.{0, 0}) ∧
   (type_of% @Polyfold.MPolyfold.degIndex_prod_le.{0, 0}) ∧
   (type_of% @Polyfold.MPolyfold.isTame_prod.{0, 0}) ∧
-  (type_of% @Polyfold.proposition_2_24.{0, 0})
+  (type_of% @Polyfold.proposition_2_4_4.{0, 0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap.{0, 0},
@@ -49,7 +49,7 @@ theorem A_holds : A :=
     @Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap.{0, 0},
     @Polyfold.MPolyfold.degIndex_prod_le.{0, 0},
     @Polyfold.MPolyfold.isTame_prod.{0, 0},
-    @Polyfold.proposition_2_24.{0, 0}⟩
+    @Polyfold.proposition_2_4_4.{0, 0}⟩
 
 /-! ### `B → A` -/
 
@@ -162,16 +162,16 @@ theorem B_to_BTame : B → BTame := fun hB ObjY MorY _ _ _ _ _ _ ObjX MorX _ _ _
   Polyfold.EpFunctor.IsProperCovering.degIndex_mor,
   Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap_le,
   Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap, Polyfold.MPolyfold.degIndex_prod_le,
-  Polyfold.MPolyfold.isTame_prod, Polyfold.proposition_2_24]
+  Polyfold.MPolyfold.isTame_prod, Polyfold.proposition_2_4_4]
 #rt_check RoundTrip.V8_28.A_to_BTame [Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap,
   Polyfold.EpFunctor.IsProperCovering.degIndex_mor,
   Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap_le,
   Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap, Polyfold.MPolyfold.degIndex_prod_le,
-  Polyfold.MPolyfold.isTame_prod, Polyfold.proposition_2_24]
+  Polyfold.MPolyfold.isTame_prod, Polyfold.proposition_2_4_4]
 #rt_overlap RoundTrip.V8_28.B_to_A [Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap,
   Polyfold.EpFunctor.IsProperCovering.degIndex_mor,
   Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap_le,
   Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap, Polyfold.MPolyfold.degIndex_prod_le,
-  Polyfold.MPolyfold.isTame_prod, Polyfold.proposition_2_24]
+  Polyfold.MPolyfold.isTame_prod, Polyfold.proposition_2_4_4]
 
 end RoundTrip.V8_28

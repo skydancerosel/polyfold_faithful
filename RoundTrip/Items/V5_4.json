@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = lemma_5_2 ∧ exists_le_mul_norm_liftOne ∧ IsAuxNorm.exists_norm_liftOne_le ∧ IsAuxNorm.exists_bounds ∧ lemma_5_2_literal (universes 0). lemma_5_2_literal is B itself (B's fiberNormOne c y unfolds to ‖(c.liftOne y).2‖): B_gives_lemma_5_2_literal, and A ⇒ B could be read off it; the recorded A_to_B goes through lemma_5_2 (bounds on some open V ⊆ dom φ) plus the item's own chart restriction (StrongBundleChart'.restr, ~200 lines of glue, written when the project had no restriction of strong bundle charts; the project now has StrongBundleChart.restrict). B gives lemma_5_2 and lemma_5_2_literal. B ⇒ A fails genuinely on the other three conjuncts: exists_le_mul_norm_liftOne is a general upper bound for any g continuous at 0_x and fibrewise homogeneous (not about auxiliary norms), and exists_norm_liftOne_le/exists_bounds give the bounds in EVERY strong bundle chart around x, while B gives SOME chart; transferring needs the local comparison of two charts' |·|₁, the item's own upper-bound argument.",
+ "why": "A = lemma_5_1_2 ∧ exists_le_mul_norm_liftOne ∧ IsAuxNorm.exists_norm_liftOne_le ∧ IsAuxNorm.exists_bounds ∧ lemma_5_1_2_literal (universes 0). lemma_5_1_2_literal is B itself (B's fiberNormOne c y unfolds to ‖(c.liftOne y).2‖): B_gives_lemma_5_2_literal, and A ⇒ B could be read off it; the recorded A_to_B goes through lemma_5_1_2 (bounds on some open V ⊆ dom φ) plus the item's own chart restriction (StrongBundleChart'.restr, ~200 lines of glue, written when the project had no restriction of strong bundle charts; the project now has StrongBundleChart.restrict). B gives lemma_5_1_2 and lemma_5_1_2_literal. B ⇒ A fails genuinely on the other three conjuncts: exists_le_mul_norm_liftOne is a general upper bound for any g continuous at 0_x and fibrewise homogeneous (not about auxiliary norms), and exists_norm_liftOne_le/exists_bounds give the bounds in EVERY strong bundle chart around x, while B gives SOME chart; transferring needs the local comparison of two charts' |·|₁, the item's own upper-bound argument.",
  "B_issue": null,
  "overlap": "B_to_A not proved. B_gives_lemma_5_2 (rt_check OK): 231 shared project theorems, all sc-retract/chart infrastructure reached through the chart-restriction glue (no Lemma 5.2 content). B_gives_lemma_5_2_literal (rt_check OK) is an instantiation of B.",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "A gained lemma_5_2_literal, which is B verbatim (B gives it). The other auxiliary conjuncts still block B ⇒ A; A ⇒ B still proved. Relation unchanged (A_stronger)."
+  "note": "A gained lemma_5_1_2_literal, which is B verbatim (B gives it). The other auxiliary conjuncts still block B ⇒ A; A ⇒ B still proved. Relation unchanged (A_stronger)."
  }
 }

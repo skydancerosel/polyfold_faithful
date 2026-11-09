@@ -4,8 +4,8 @@ import RoundTrip.Blind.V3_95
 
 /-!
 Round trip for V3_95 (Theorems 3.23 and 3.19 with the text's hypotheses).  `A` is the conjunction of
-the types of `Polyfold.theorem_3_23'`, `Polyfold.theorem_3_19'`, `Polyfold.theorem_3_23_of_nearby`
-and `Polyfold.lemma_2_26`, universes instantiated at `0`.
+the types of `Polyfold.theorem_3_1_26'`, `Polyfold.theorem_3_1_22'`, `Polyfold.theorem_3_1_26_of_nearby`
+and `Polyfold.lemma_2_4_6`, universes instantiated at `0`.
 
 Glue for `A → B`:
 * (3.23) B's `IsSurjGoodPosAt` (in a not necessarily centred tame chart, sc-complement) gives A's
@@ -17,9 +17,9 @@ Glue for `A → B`:
   (`StrongBundle.isGoodPositionGerm_of_isLinSurjAt`); `IsManifoldWithCorners d` and `d_S ≡ 0` give
   B's atlas of charts onto open subsets of finite-dimensional spaces (`boundaryless_of_loc`).
 
-**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_23'`, `theorem_3_19'` and
-`theorem_3_23_of_nearby` now state the germ reading, and A gains `theorem_3_23_sc` (good position
-with the text's sc-complement).  A ⇒ B still goes through `theorem_3_23'` and `theorem_3_19'`; the
+**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_1_26'`, `theorem_3_1_22'` and
+`theorem_3_1_26_of_nearby` now state the germ reading, and A gains `theorem_3_1_26_sc` (good position
+with the text's sc-complement).  A ⇒ B still goes through `theorem_3_1_26'` and `theorem_3_1_22'`; the
 chart change `isGoodPositionGermTame_of_B` was repaired (`isGoodPositionGerm_of_linAt_surj` on
 `Lin(z)`).  B ⇒ A still fails.
 -/
@@ -30,14 +30,14 @@ open Polyfold Set
 /-- The project's statement: Theorems 3.23', 3.19', 3.23 (nearby form), Lemma 2.26 and Theorem 3.23
 with the sc-complement form of good position (all germ reading), universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_23'.{0, 0} ∧ type_of% @Polyfold.theorem_3_19'.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_23_of_nearby.{0, 0} ∧ type_of% @Polyfold.lemma_2_26.{0} ∧
-    type_of% @Polyfold.theorem_3_23_sc.{0, 0}
+  type_of% @Polyfold.theorem_3_1_26'.{0, 0} ∧ type_of% @Polyfold.theorem_3_1_22'.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_1_26_of_nearby.{0, 0} ∧ type_of% @Polyfold.lemma_2_4_6.{0} ∧
+    type_of% @Polyfold.theorem_3_1_26_sc.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_23'.{0, 0}, @Polyfold.theorem_3_19'.{0, 0},
-    @Polyfold.theorem_3_23_of_nearby.{0, 0}, @Polyfold.lemma_2_26.{0},
-    @Polyfold.theorem_3_23_sc.{0, 0}⟩
+  ⟨@Polyfold.theorem_3_1_26'.{0, 0}, @Polyfold.theorem_3_1_22'.{0, 0},
+    @Polyfold.theorem_3_1_26_of_nearby.{0, 0}, @Polyfold.lemma_2_4_6.{0},
+    @Polyfold.theorem_3_1_26_sc.{0, 0}⟩
 
 section Glue
 
@@ -200,7 +200,7 @@ theorem A_to_B : A → B := by
     have := PX.paracompactSpace_subtype {y ∈ U | IsZeroAt P f y}
     exact ⟨U, hUo, hxU, hsub, inferInstance, boundaryless_of_loc h1.isManifoldWithCornersLoc h2⟩
 
-#rt_check RoundTrip.V3_95.A_to_B [Polyfold.theorem_3_23', Polyfold.theorem_3_19',
-  Polyfold.theorem_3_23_of_nearby, Polyfold.lemma_2_26, Polyfold.theorem_3_23_sc]
+#rt_check RoundTrip.V3_95.A_to_B [Polyfold.theorem_3_1_26', Polyfold.theorem_3_1_22',
+  Polyfold.theorem_3_1_26_of_nearby, Polyfold.lemma_2_4_6, Polyfold.theorem_3_1_26_sc]
 
 end RoundTrip.V3_95

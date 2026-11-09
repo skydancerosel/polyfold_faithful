@@ -102,7 +102,7 @@ theorem paracompact_trivial (S : Set Z) : ParacompactSpace ((EpGroupoid.trivial 
     obtain ⟨φ, h1, h2⟩ := Y.π_eq_π_iff.1 h
     exact h1.symm.trans h2
   let e : Z ≃ₜ Y.OrbitSpace := Equiv.toHomeomorphOfContinuousOpen
-    (Equiv.ofBijective _ ⟨hinj, Y.surjective_π⟩) Y.continuous_π Y.proposition_7_1
+    (Equiv.ofBijective _ ⟨hinj, Y.surjective_π⟩) Y.continuous_π Y.proposition_7_1_8
   have : ParacompactSpace S := paracompactSpace_of_metrizableSpace _
   exact (e.image S).paracompactSpace_iff.1 inferInstance
 
@@ -269,7 +269,7 @@ theorem exists_naturalRep' {Θ : Obj → ℚ} {x : Obj} {B B' : X.LocalBranching
     ∃ R : X.NaturalRep x, R.U ⊆ B.U ∩ B'.U ∧
       ∀ k, ∀ y ∈ R.U, B.dimPart dim k y = B'.dimPart dim' k y := by
   obtain ⟨V, hV, hxV, hVU, hk⟩ := h
-  obtain ⟨R, hR⟩ := theorem_7_1 X x hV hxV
+  obtain ⟨R, hR⟩ := theorem_7_1_13 X x hV hxV
   exact ⟨R, hR.trans hVU, fun k y hy => hk k y (hR hy)⟩
 
 theorem isOfDim' {Θ : Obj → ℚ} {x : Obj} {n : ℕ} (B B' : X.LocalBranchingStructure Θ x)

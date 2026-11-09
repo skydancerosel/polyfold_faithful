@@ -20,7 +20,7 @@ family, `T_0, T_1 ∈ Lin`).
 
 No direction is proved.
 * `A ⇒ B` fails: B's hypotheses do not give A's — B has no `PX.AdmitsBumpFunctions` (needed by the
-  project's `lemma_6_29`, which builds the `sᵢ` with bump functions; B instead offers (4) of
+  project's `lemma_6_6_4`, which builds the `sᵢ` with bump functions; B instead offers (4) of
   Proposition 6.28), its sections along paths vanish only on `[0, 1]` (A needs a neighbourhood),
   and it has `IsScFredholmSection` + `PX.IsTame` rather than `IsScFredholmSectionTame`.  And A's
   conclusion is not B's: A's datum is per chart and carries the parametrized (P) of the project

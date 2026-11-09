@@ -194,7 +194,7 @@ theorem sc1_of_contDiffOn {E F : ScBanach} [FiniteDimensional ℝ (E.lvl 0)]
   have hsc0 : IsSc0 E F U f :=
     ⟨fun m x _ => ⟨(toBaseEquiv F m).symm (f (E.toBase m x)), toBase_symm F m _⟩,
       fun m => (hlev m).continuousOn⟩
-  exact ⟨_, proposition_1_19_zero hU.isScDomain hsc0 hlev⟩
+  exact ⟨_, proposition_1_2_4_zero hU.isScDomain hsc0 hlev⟩
 
 theorem Bc_of_continuousOn_deriv (hcd : type_of% @Polyfold.IsSc1With.continuousOn_deriv) : Bc := by
   intro E F hE hF C U f hU

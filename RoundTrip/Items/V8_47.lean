@@ -8,11 +8,11 @@ together).
 `A` is the conjunction of the types of the five listed theorems, universes at `0`:
 `EpStrongBundle.μ_fiberZero`, `continuous_zeroOrbitMap`, `leftInverse_zeroOrbitMap`,
 `isEmbedding_zeroOrbitMap` (the zero section `|0| : |X| → |W|` is an embedding) and
-`proposition_8_4_1_2021_two_imp_one` (`|W[0]|` paracompact ⇒ `|X|` paracompact, for the
+`proposition_8_4_1_two_imp_one` (`|W[0]|` paracompact ⇒ `|X|` paracompact, for the
 ep-groupoid `E.toEpGroupoid`, under the instance `ParacompactSpace (𝐗 ₛ×_P W)`).  The listed
 `zeroOrbitMap` is a definition (vocabulary).
 
-* `B → A` (proved): `proposition_8_4_1_2021_two_imp_one` is `B`'s (2) ⇒ (1)
+* `B → A` (proved): `proposition_8_4_1_two_imp_one` is `B`'s (2) ⇒ (1)
   (`E.toEpGroupoid.OrbitSpace` is literally `E.toGroupoidStr.OrbitSpace` with the quotient
   topology of `W`).  The other four conjuncts are lemmas about the zero section, not consequences
   of `B`; re-proved outright (copies of short proofs from non-item lemmas).
@@ -31,14 +31,14 @@ def A : Prop :=
   (type_of% @Polyfold.EpStrongBundle.continuous_zeroOrbitMap.{0}) ∧
   (type_of% @Polyfold.EpStrongBundle.leftInverse_zeroOrbitMap.{0}) ∧
   (type_of% @Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap.{0}) ∧
-  (type_of% @Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one.{0})
+  (type_of% @Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpStrongBundle.μ_fiberZero.{0},
     @Polyfold.EpStrongBundle.continuous_zeroOrbitMap.{0},
     @Polyfold.EpStrongBundle.leftInverse_zeroOrbitMap.{0},
     @Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap.{0},
-    @Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one.{0}⟩
+    @Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one.{0}⟩
 
 /-! ### Outright re-proofs of the zero-section lemmas (not consequences of `B`) -/
 
@@ -100,10 +100,10 @@ are not in the project. -/
 #rt_check_soft RoundTrip.V8_47.B_to_A [Polyfold.EpStrongBundle.μ_fiberZero,
   Polyfold.EpStrongBundle.continuous_zeroOrbitMap, Polyfold.EpStrongBundle.leftInverse_zeroOrbitMap,
   Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap,
-  Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one]
+  Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one]
 #rt_overlap RoundTrip.V8_47.B_to_A [Polyfold.EpStrongBundle.μ_fiberZero,
   Polyfold.EpStrongBundle.continuous_zeroOrbitMap, Polyfold.EpStrongBundle.leftInverse_zeroOrbitMap,
   Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap,
-  Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one]
+  Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one]
 
 end RoundTrip.V8_47

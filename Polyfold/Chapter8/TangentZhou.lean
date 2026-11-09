@@ -31,13 +31,13 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
 * `MPolyfold.levelVal_tangentProj_mem_smoothSet` (smooth tangent vectors lie over smooth points).
 * `EpGroupoid.mem_nonEffectivePart_tangent`: if `p(v) ∈ 𝐗^T` then `v ∈ (T𝐗)^T` (the last step of
   the proof of Proposition 8.1.16).
-* `TangentZhouReflect` (the step "`T(g, h) = id` ⇒ `Tg = id`") and **`proposition_8_1_16_2021`**.
-* `nonEffectivePart_tangent_eq` (`(T𝐗)^T = p⁻¹((𝐗¹)^T)`), **`proposition_8_1_17_2021_one`**
-  (Proposition 8.1.17 (1)) and `proposition_8_1_17_2021_two` (Proposition 8.1.17 (2) for `(TX)⁰`).
+* `TangentZhouReflect` (the step "`T(g, h) = id` ⇒ `Tg = id`") and **`proposition_8_1_16`**.
+* `nonEffectivePart_tangent_eq` (`(T𝐗)^T = p⁻¹((𝐗¹)^T)`), **`proposition_8_1_17_one`**
+  (Proposition 8.1.17 (1)) and `proposition_8_1_17_two` (Proposition 8.1.17 (2) for `(TX)⁰`).
 * `EpStrongBundle.natLift` (`g ∗ w`) and **`EpStrongBundle.IsLR`** (Definition 8.4.2).
 * Witnesses: `tangentMor_trivial`, `tangentZhouReflect_trivial`,
-  `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_16_2021_point`,
-  `Examples.proposition_8_1_17_2021_one_point` (the hypotheses of Propositions 8.1.16 and
+  `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_16_point`,
+  `Examples.proposition_8_1_17_one_point` (the hypotheses of Propositions 8.1.16 and
   8.1.17 (1) hold for the point ep-groupoid), `EpStrongBundle.isLR_trivial` (every strong bundle
   over a trivial ep-groupoid has the local regularity property).
 
@@ -54,11 +54,11 @@ If `X` is effective and has (LR), the strong bundle has the local regularity pro
   `p⁻¹((𝐗¹)^T)`, closed by (LUC) for `X¹`.  It assumes, as Appendix 7.6.4 does,
   `HasConnectedDenseLevelOneReps` (`U(x) ∩ X₁` connected and dense; the text's `V(x)`), and that
   `p : T𝐗 → 𝐗¹` is open (Part I, gap G.8).  (2) is proved here for `(TX)⁰ = TX`; for all `i` it is
-  `EP.proposition_8_1_17_two_all_2021` in `Chapter8/TangentZhouLevels.lean`, through
+  `EP.proposition_8_1_17_two_all` in `Chapter8/TangentZhouLevels.lean`, through
   `(TX)ⁱ ≡ T(Xⁱ)` (`EP.tangentLiftEpEquiv`).
 * **Definition 8.4.2** reads "strong bundle isomorphism `B : W|U(x) → W|U(x)`" as the project's
   `StrongBundle.IsStrongBundleIsoOn` (a strong bundle map `W → W` restricting to an isomorphism of
-  `W|U(x)`, as for Definition 8.10 in `EpStrongBundle.lean`), and `|B(w)| = |w|` as equality of
+  `W|U(x)`, as for Definition 8.5.9 (2017: 8.10) in `EpStrongBundle.lean`), and `|B(w)| = |w|` as equality of
   orbits in the groupoid `(W, 𝐖)`.
 * **Proposition 8.4.3 is not formalized**: its density argument needs the openness of the bundle
   projection `P : W → X` (not in the project) and the density of the regular points of `U(x)`.
@@ -121,7 +121,7 @@ def TangentZhouReflect : Prop :=
 
 /-- **2021 Proposition 8.1.16, p. 369 (new in the 2021 edition)**: if `X` satisfies (ZHOU), so does
 the tangent ep-groupoid `TX`, given `TangentZhouReflect`. -/
-theorem proposition_8_1_16_2021 (hZ : X.IsZhou) (hr : X.TangentZhouReflect) :
+theorem proposition_8_1_16 (hZ : X.IsZhou) (hr : X.TangentZhouReflect) :
     X.tangentEpGroupoid.IsZhou := by
   intro y k hk
   have hx : X.PObj.levelVal 1 (X.PObj.tangentProj (X.tangentEpGroupoid.PObj.smoothVal y)) ∈
@@ -146,7 +146,7 @@ theorem proposition_8_1_16_2021 (hZ : X.IsZhou) (hr : X.TangentZhouReflect) :
 theorem nonEffectivePart_tangent_eq (h : X.liftOne.IsLUC) (hR : X.HasConnectedDenseLevelOneReps)
     (hp : IsOpenMap X.PMor.tangentProj) :
     X.tangentEpGroupoid.nonEffectivePart = X.PMor.tangentProj ⁻¹' X.liftOne.nonEffectivePart := by
-  have hT1 := X.nonEffectivePart_liftOne_eq (X.liftOne.proposition_7_2_21_2021.1 h) hR
+  have hT1 := X.nonEffectivePart_liftOne_eq (X.liftOne.proposition_7_2_21.1 h) hR
   ext v
   constructor
   · intro hv
@@ -165,17 +165,17 @@ theorem nonEffectivePart_tangent_eq (h : X.liftOne.IsLUC) (hR : X.HasConnectedDe
 
 /-- **2021 Proposition 8.1.17 (1), p. 371 (new in the 2021 edition)**: if `X¹` has (LUC), so has
 `TX`. -/
-theorem proposition_8_1_17_2021_one (h : X.liftOne.IsLUC) (hR : X.HasConnectedDenseLevelOneReps)
+theorem proposition_8_1_17_one (h : X.liftOne.IsLUC) (hR : X.HasConnectedDenseLevelOneReps)
     (hp : IsOpenMap X.PMor.tangentProj) : X.tangentEpGroupoid.IsLUC := by
-  refine X.tangentEpGroupoid.proposition_7_2_21_2021.2 ?_
+  refine X.tangentEpGroupoid.proposition_7_2_21.2 ?_
   rw [X.nonEffectivePart_tangent_eq h hR hp]
-  exact (X.liftOne.proposition_7_2_21_2021.1 h).preimage MPolyfold.continuous_tangentProj
+  exact (X.liftOne.proposition_7_2_21.1 h).preimage MPolyfold.continuous_tangentProj
 
 /-- **2021 Proposition 8.1.17 (2), p. 371, for `(TX)⁰`**: (SLUC) for `X` gives (LUC) for `TX`. -/
-theorem proposition_8_1_17_2021_two (A : EP.{u}) (h : A.IsSLUC)
+theorem proposition_8_1_17_two (A : EP.{u}) (h : A.IsSLUC)
     (hR : A.X.HasConnectedDenseLevelOneReps) (hp : IsOpenMap A.X.PMor.tangentProj) :
     A.X.tangentEpGroupoid.IsLUC :=
-  A.X.proposition_8_1_17_2021_one (h 1) hR hp
+  A.X.proposition_8_1_17_one (h 1) hR hp
 
 /-! ### Witnesses -/
 
@@ -203,13 +203,13 @@ theorem isOpenMap_tangentProj_of_subsingleton {Z : Type u} [TopologicalSpace Z] 
 
 namespace Examples
 
-/-- The hypotheses of `proposition_8_1_16_2021` are satisfiable. -/
-theorem proposition_8_1_16_2021_point : pointEpGroupoid.tangentEpGroupoid.IsZhou :=
-  pointEpGroupoid.proposition_8_1_16_2021 (isZhou_trivial _) (tangentZhouReflect_trivial _)
+/-- The hypotheses of `proposition_8_1_16` are satisfiable. -/
+theorem proposition_8_1_16_point : pointEpGroupoid.tangentEpGroupoid.IsZhou :=
+  pointEpGroupoid.proposition_8_1_16 (isZhou_trivial _) (tangentZhouReflect_trivial _)
 
-/-- The hypotheses of `proposition_8_1_17_2021_one` are satisfiable. -/
-theorem proposition_8_1_17_2021_one_point : pointEpGroupoid.tangentEpGroupoid.IsLUC :=
-  pointEpGroupoid.proposition_8_1_17_2021_one isLUC_liftOne_point
+/-- The hypotheses of `proposition_8_1_17_one` are satisfiable. -/
+theorem proposition_8_1_17_one_point : pointEpGroupoid.tangentEpGroupoid.IsLUC :=
+  pointEpGroupoid.proposition_8_1_17_one isLUC_liftOne_point
     hasConnectedDenseLevelOneReps_point (isOpenMap_tangentProj_of_subsingleton _)
 
 end Examples
@@ -259,7 +259,7 @@ property. -/
 theorem EpStrongBundle.isLR_trivial (B : StrongBundle PZ P) :
     (EpStrongBundle.trivial B).IsLR := by
   intro x O hO hxO
-  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1 x hO hxO
+  obtain ⟨R, hRO⟩ := (EpGroupoid.trivial PZ).theorem_7_1_13 x hO hxO
   refine ⟨R, hRO, fun β Φ hΦ _ hπ => ⟨1, fun w hw => ?_⟩⟩
   obtain ⟨q, h1, h2⟩ := (GroupoidStr.π_eq_π_iff _).1 (hπ w hw)
   exact h1.symm.trans h2

@@ -181,7 +181,7 @@ theorem tangentChartMap_of_mem_submanifoldTangent {α : P.TangentSpace} {y : X} 
   refine ⟨h1, ?_⟩
   have hy1 : y ∈ P.levelSet 1 := d.mem_levelSet_one hyA hyV
   have hz : φ.model.E.toBase 1 (levelLift φ 1 y) = φ y := P.toBase_levelLift hφ hyφ hy1
-  obtain ⟨-, h2, -⟩ := d.remark_4_14 hφ hyA hyV hyφ hz
+  obtain ⟨-, h2, -⟩ := d.remark_4_2_2 hφ hyA hyV hyφ hz
   rw [← h2]
   have hmem := tangentChartMap_mem hφ hαφ
   have hv : tangentChartMap hφ α = (levelLift φ 1 y, (tangentChartMap hφ α).2) := Prod.ext h1 rfl
@@ -203,7 +203,7 @@ theorem exists_mem_submanifoldTangent {y : X} (hyA : y ∈ A) (hyV : y ∈ d.V) 
     ∃ α ∈ P.submanifoldTangent A y, tangentChartMap hφ α = (levelLift φ 1 y, h) := by
   have hy1 : y ∈ P.levelSet 1 := d.mem_levelSet_one hyA hyV
   have hz : φ.model.E.toBase 1 (levelLift φ 1 y) = φ y := P.toBase_levelLift hφ hyφ hy1
-  obtain ⟨-, h2, -⟩ := d.remark_4_14 hφ hyA hyV hyφ hz
+  obtain ⟨-, h2, -⟩ := d.remark_4_2_2 hφ hyA hyV hyφ hz
   rw [← h2] at hh
   obtain ⟨h', hh', rfl⟩ := hh
   have ha' : ((levelLift φ 1 y, h') : φ.model.E.tangent 0) ∈

@@ -2,22 +2,22 @@ import Polyfold.Chapter8.TangentEp
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8, §8.1, p. 268: **Theorem 8.4** (paracompactness of `|TX|`) with its proof; the sentence
-before it recalls Theorem 7.2 (`hasParacompactOrbitSpace_iff_metrizableSpace`, `Lift.lean`) and
-Theorem 8.1 (`TangentEp.lean`).  There is no 2014 preprint of Part II; numbers and pages are the
+Chapter 8, §8.1, p. 268: **Theorem 8.1.15 (2017: 8.4)** (paracompactness of `|TX|`) with its proof; the sentence
+before it recalls Theorem 7.3.1 (2017: 7.2) (`hasParacompactOrbitSpace_iff_metrizableSpace`, `Lift.lean`) and
+Theorem 8.1.1 (2017: 8.1) (`TangentEp.lean`).  There is no 2014 preprint of Part II; numbers and pages are the
 2017 text's.  Part I items carry their 2017 numbers, with the preprint number of the Lean name in
-brackets: Theorem 2.5 [2.55] (Smirnov, `metrizableSpace_of_pullback`), Lemma 2.7 [2.56] (Michael),
-Proposition 2.17 [2.57] (`proposition_2_57`), Proposition 2.5 (3) [2.19 (3)]
+brackets: Theorem 2.7.1 (2017: 2.5) [2.55] (Smirnov, `metrizableSpace_of_pullback`), Lemma 2.7.3 (2017: 2.7) [2.56] (Michael),
+Proposition 2.7.4 (2017: 2.17) [2.57] (`proposition_2_7_4`), Proposition 2.3.15 (2017: 2.5) (3) [2.19 (3)]
 (`MPolyfold.metrizableSpace_tangentSpace`).
 
 # The orbit space of the tangent ep-groupoid
 
 ## The text, paraphrased
 
-(p. 268) For an ep-groupoid with paracompact orbit space, `|X|` is metrizable (Theorem 7.2), and
-`TX` is an ep-groupoid (Theorem 8.1); the paracompactness passes to `|TX|`.  (**Theorem 8.4**) If
+(p. 268) For an ep-groupoid with paracompact orbit space, `|X|` is metrizable (Theorem 7.3.1 (2017: 7.2)), and
+`TX` is an ep-groupoid (Theorem 8.1.1 (2017: 8.1)); the paracompactness passes to `|TX|`.  (**Theorem 8.1.15 (2017: 8.4)**) If
 `X` has paracompact orbit space `|X|`, then `TX` has paracompact orbit space `|TX|`.  *Proof*:
-`|X¹|` is paracompact (Proposition 7.12).  For `z ∈ |X¹|` take a representative `x_z ∈ X₁` and a
+`|X¹|` is paracompact (Proposition 7.5.3 (2017: 7.12)).  For `z ∈ |X¹|` take a representative `x_z ∈ X₁` and a
 neighbourhood `U(x_z)` in `X` with the natural `G_{x_z}`-action, such that `TU(x_z)`, as a bundle
 over `U(x_z)¹`, is sc-isomorphic to a local bundle model `TO → O¹` with an sc-smooth bundle action
 of `G_{x_z}`; then `|TU(x_z)|` and `|U(x_z)¹|` are metrizable.  The `|U(x_z)¹|` cover `|X¹|`;
@@ -25,14 +25,14 @@ take a subordinate locally finite closed cover `(A_z)_{z ∈ Σ}`.  The restrict
 `G_{x_z}`-invariant closed subset of `U(x_z)¹`, divided by `G_{x_z}`, gives a closed paracompact
 `Ã_z ⊆ |TX|`; `(Ã_z)` is a locally finite cover of `|TX|` by closed paracompact sets, and `|TX|`
 is regular Hausdorff (being the orbit space of an ep-groupoid), so `|TX|` is paracompact by
-Proposition 2.17.
+Proposition 2.7.4 (2017: 2.17).
 
 ## What is formalized (namespace `Polyfold.EpGroupoid`)
 
 * **The orbit map** `tangentOrbitProj : |TX| → |X¹|` of the projection functor `(p, p) : TX → X¹`
-  (`tangentProjFunctor`, Theorem 8.1), `tangentOrbitProj_π`, `continuous_tangentOrbitProj`, and
+  (`tangentProjFunctor`, Theorem 8.1.1 (2017: 8.1)), `tangentOrbitProj_π`, `continuous_tangentOrbitProj`, and
   `preimage_tangentOrbitProj_image` (`|p|⁻¹(π₁(U ∩ X₁)) = π_T(p⁻¹(U))` for every `U ⊆ X`).
-* **The action of `G_x` on `TU(x)`** for a natural representation `U(x)` (Theorem 7.1):
+* **The action of `G_x` on `TU(x)`** for a natural representation `U(x)` (Theorem 7.1.13 (2017: 7.1)):
   `NaturalRep.tangentU` (`TU(x) = p⁻¹(U(x))`, open: `isOpen_tangentU`), `NaturalRep.tΦ` (the
   tangent maps `TΦ(g)`), `isScDiffeoOn_tΦ` (sc-diffeomorphisms of `TU(x)` with inverse `TΦ(g⁻¹)`),
   `levelVal_tangentProj_tΦ` (over `Φ(g)`), the action `tangentMulAction` (`tΦ_one`, `tΦ_mul`,
@@ -46,40 +46,40 @@ Proposition 2.17.
   `isOpen_image_liftU`.
 * **The text's metrizability claims**: `metrizableSpace_image_tangentU` (`|TU(x_z)|`),
   `metrizableSpace_image_liftU` (`|U(x_z)¹|`), and `metrizableSpace_preimage_tangentOrbitProj`.
-* **Theorem 8.4**: `metrizableSpace_tangent_orbitSpace` (`|TX|` is even metrizable),
-  **`theorem_8_4`**, and the witness `hasParacompactOrbitSpace_tangent_trivial`.
+* **Theorem 8.1.15 (2017: 8.4)**: `metrizableSpace_tangent_orbitSpace` (`|TX|` is even metrizable),
+  **`theorem_8_1_15`**, and the witness `hasParacompactOrbitSpace_tangent_trivial`.
 
 ## Reading
 
-* **The route differs from the text's.**  The text's route (Lemma 2.7 for a locally finite
+* **The route differs from the text's.**  The text's route (Lemma 2.7.3 (2017: 2.7) for a locally finite
   closed refinement `(A_z)` of `(|U(x_z)¹|)`, the closed paracompact `Ã_z`, the regularity of
-  `|TX|` and Proposition 2.17) is replaced, as for Proposition 7.12 in `Lift.lean`, by Smirnov's
+  `|TX|` and Proposition 2.7.4 (2017: 2.17)) is replaced, as for Proposition 7.5.3 (2017: 7.12) in `Lift.lean`, by Smirnov's
   theorem pulled back along `|p| : |TX| → |X¹|` (Part I's `metrizableSpace_of_pullback`):
-  `|X¹|` is metrizable (Proposition 7.12, `metrizableSpace_liftOne_orbitSpace`), hence paracompact
+  `|X¹|` is metrizable (Proposition 7.5.3 (2017: 7.12), `metrizableSpace_liftOne_orbitSpace`), hence paracompact
   and Hausdorff, and every point of `|X¹|` has the open neighbourhood `|U(x)₁| = π₁(U(x)₁)` whose
   preimage `|p|⁻¹(|U(x)₁|) = |TU(x)|` is metrizable.  So `|TX|` is metrizable, hence paracompact
   (Stone).  The step shared with the text is the metrizability of `|TU(x_z)|`.  Neither the
-  regularity of `|TX|` (Lemma 7.7 for `TX`) nor Proposition 2.17 is used; `Michael.lean` has the
-  text's tools (`proposition_2_57`) but this proof does not need them.
+  regularity of `|TX|` (Lemma 7.3.5 (2017: 7.7) for `TX`) nor Proposition 2.7.4 (2017: 2.17) is used; `Michael.lean` has the
+  text's tools (`proposition_2_7_4`) but this proof does not need them.
 * **`TU(x_z)` and its action.**  `TU(x)` is read as `p⁻¹(U(x)) ⊆ TX` (`tangentPreimage`), an open
   subset of `TX`, and the bundle action of `G_x` as `g ↦ TΦ(g)`, the tangent maps of the natural
   action (`tangentMapOn`; sc-diffeomorphisms of `TU(x)` covering `Φ(g)`).  The sc-isomorphism with
   a local bundle model `TO → O¹` is not used: `TU(x)` is metrizable as a subspace of `TX`
-  (Proposition 2.5 (3) [2.19 (3)]), and `G_x\TU(x)` by the text's metric `ρ̂` of Lemma 7.4
+  (Proposition 2.3.15 (2017: 2.5) (3) [2.19 (3)]), and `G_x\TU(x)` by the text's metric `ρ̂` of Lemma 7.3.2 (2017: 7.4)
   (repeated here for a finite group acting by homeomorphisms on a metrizable space, since the
   versions in `OrbitTopology.lean` and `Lift.lean` are private).  The fibrewise linearity of the
   action is not formalized (Part I's `T_xX` carries no linear structure, gap G.7).
 * **`|TU(x_z)|` and `|U(x_z)¹|`** are read as the subsets `π_T(TU(x)) ⊆ |TX|` and
   `π₁(U(x)₁) ⊆ |X¹|` with the subspace topologies (`U(x)₁ = U(x) ∩ X₁`, Chapter 7's
   `NaturalRep.liftU`).  That `G_x\TU(x) → |TX|` is an open embedding onto `|TU(x)|` (the argument
-  of Proposition 7.6 for `TX`) is left implicit in the text: the fibres of `π_T` on `TU(x)` are the
+  of Proposition 7.1.19 (2017: 7.6) for `TX`) is left implicit in the text: the fibres of `π_T` on `TU(x)` are the
   `G_x`-orbits because a morphism `k : v → w` of `TX` lies over a morphism `p(k)` between points of
-  `U(x)`, so `p(k) = Γ(g, s(p k))` (Theorem 7.1 (3)), and `k = TΓ(g)(v)` by fibre injectivity of
+  `U(x)`, so `p(k) = Γ(g, s(p k))` (Theorem 7.1.13 (2017: 7.1) (3)), and `k = TΓ(g)(v)` by fibre injectivity of
   `Ts` (`tangent_ext`); conversely `TΓ(g)(v)` is a morphism `v → TΦ(g)(v)`.
   `|TU(x)| = |p|⁻¹(|U(x)₁|)` uses fibre surjectivity of `Ts` (`exists_tSrc_eq`): a vector over a
   point isomorphic in `X¹` to a point of `U(x)₁` is isomorphic in `TX` to a vector over `U(x)₁`.
 * **The representatives.**  For `z ∈ |X¹|` with representative `a ∈ X¹`, `U(x)` is a natural
-  representation in `X` (Theorem 7.1) at `x = a ∈ X₁` with `G_x` the isotropy group in `X`, as in
+  representation in `X` (Theorem 7.1.13 (2017: 7.1)) at `x = a ∈ X₁` with `G_x` the isotropy group in `X`, as in
   the text ("`U(x_z)` in `X`").
 * **Hypotheses.**  No hypothesis "for all …" is added.  `X.HasParacompactOrbitSpace` is
   satisfiable (the trivial ep-groupoid, `hasParacompactOrbitSpace_trivial`); the conclusion then
@@ -89,7 +89,7 @@ Proposition 2.17.
 * **"Subordinate locally finite closed subcover"** (the text's route, not followed here) is read
   as a locally finite closed refinement: the `A_z` are closed subsets of the open `|U(x_z)¹|`, not
   members of the cover (as `Michael.lean` reads p. 51's "subcovering").
-* **Possible misprint**, as we read it: the statement of Theorem 8.4 writes "parcompact" for
+* **Possible misprint**, as we read it: the statement of Theorem 8.1.15 (2017: 8.4) writes "parcompact" for
   "paracompact".
 -/
 
@@ -101,7 +101,7 @@ namespace Polyfold
 
 universe u
 
-/-! ### The text's metrics `ρ` and `ρ̂` (Lemma 7.4), for a finite group
+/-! ### The text's metrics `ρ` and `ρ̂` (Lemma 7.3.2 (2017: 7.4)), for a finite group
 
 Repeated from `OrbitTopology.lean` and `Lift.lean`, where they are private; used for
 `G_x\TU(x)`. -/
@@ -110,7 +110,7 @@ section QuotientMetric
 
 variable (G : Type*) {U : Type*} [Group G] [Fintype G] [MulAction G U] [PseudoMetricSpace U]
 
-/-- `ρ(y, z) = max_g d(g y, g z)` (Lemma 7.4). -/
+/-- `ρ(y, z) = max_g d(g y, g z)` (Lemma 7.3.2 (2017: 7.4)). -/
 private def tqMaxDist (y z : U) : ℝ :=
   Finset.univ.sup' Finset.univ_nonempty fun g : G => dist (g • y) (g • z)
 
@@ -139,7 +139,7 @@ private theorem tqMaxDist_triangle (y z w : U) :
   Finset.sup'_le _ _ fun g _ => (dist_triangle _ (g • z) _).trans
     (add_le_add (dist_smul_le_tqMaxDist g y z) (dist_smul_le_tqMaxDist g z w))
 
-/-- **`ρ` is invariant** (Lemma 7.4): `ρ(h y, h z) = ρ(y, z)`. -/
+/-- **`ρ` is invariant** (Lemma 7.3.2 (2017: 7.4)): `ρ(h y, h z) = ρ(y, z)`. -/
 private theorem tqMaxDist_smul (h : G) (y z : U) :
     tqMaxDist G (h • y) (h • z) = tqMaxDist G y z := by
   refine le_antisymm (Finset.sup'_le _ _ fun g _ => ?_) (Finset.sup'_le _ _ fun g _ => ?_)
@@ -195,7 +195,7 @@ private theorem tqQuotDistAux_triangle (y z w : U) :
 
 variable (G U) in
 /-- **The quotient distance** `ρ̂([y], [z]) = min_{g, h} ρ(g y, h z) = min_h ρ(y, h z)` on `G\U`
-(Lemma 7.4). -/
+(Lemma 7.3.2 (2017: 7.4)). -/
 private def tqQuotDist :
     MulAction.orbitRel.Quotient G U → MulAction.orbitRel.Quotient G U → ℝ :=
   Quotient.lift₂ (tqQuotDistAux G) <| by
@@ -208,7 +208,7 @@ private theorem tqQuotDist_mk (y z : U) :
 end QuotientMetric
 
 /-- **The quotient of a metrizable space by a finite group of homeomorphisms is metrizable**, by
-the text's metric `ρ̂` (the argument of Lemma 7.4). -/
+the text's metric `ρ̂` (the argument of Lemma 7.3.2 (2017: 7.4)). -/
 private theorem metrizableSpace_quotient_of_finite {G U : Type*} [Group G] [Finite G]
     [MulAction G U] [TopologicalSpace U] [MetrizableSpace U]
     (hc : ∀ g : G, Continuous fun y : U => g • y) :
@@ -284,7 +284,7 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 /-! ### The orbit map `|p| : |TX| → |X¹|` -/
 
 /-- **The orbit map `|p| : |TX| → |X¹|`** induced by the projection functor
-`(p, p) : TX → X¹` (`tangentProjFunctor`, Theorem 8.1), `|a|_T ↦ |p(a)|₁`. -/
+`(p, p) : TX → X¹` (`tangentProjFunctor`, Theorem 8.1.1 (2017: 8.1)), `|a|_T ↦ |p(a)|₁`. -/
 def tangentOrbitProj : X.tangentEpGroupoid.OrbitSpace → X.liftOne.OrbitSpace :=
   X.tangentProjFunctor.orbitMap
 
@@ -415,7 +415,7 @@ theorem tangent_π_smul (g : X.Isotropy x) (v : R.tangentU) :
 
 /-- **`|v|_T = |w|_T` for `v, w ∈ TU(x)` iff `w = g ∗ v`**: a morphism `k : v → w` of `TX` lies
 over a morphism `p(k)` between points of `U(x)`, so `p(k) = Γ(g, s(p k))` for some `g`
-(Theorem 7.1 (3)), and `k = TΓ(g)(v)` by fibre injectivity (`tangent_ext`). -/
+(Theorem 7.1.13 (2017: 7.1) (3)), and `k = TΓ(g)(v)` by fibre injectivity (`tangent_ext`). -/
 theorem tangent_π_eq_iff {v w : R.tangentU} :
     X.tangentEpGroupoid.π v.1 = X.tangentEpGroupoid.π w.1 ↔ ∃ g : X.Isotropy x, g • v = w := by
   constructor
@@ -447,7 +447,7 @@ def tangentOrbitQuotientMap :
   Quotient.lift (fun v : R.tangentU => X.tangentEpGroupoid.π v.1) fun v w h =>
     (R.tangentOrbitRel_iff v w).1 h
 
-/-- **`G_x\TU(x) → |TX|` is an open embedding** (the argument of Proposition 7.6 for `TX`, with
+/-- **`G_x\TU(x) → |TX|` is an open embedding** (the argument of Proposition 7.1.19 (2017: 7.6) for `TX`, with
 the `G_x`-action on `TU(x)` in place of a natural representation of `TX`). -/
 theorem isOpenEmbedding_tangentOrbitQuotientMap : IsOpenEmbedding R.tangentOrbitQuotientMap := by
   refine .of_continuous_injective_isOpenMap
@@ -466,7 +466,7 @@ theorem isOpenEmbedding_tangentOrbitQuotientMap : IsOpenEmbedding R.tangentOrbit
       · rintro ⟨_, ⟨v, hv, rfl⟩, rfl⟩
         exact ⟨Quotient.mk _ v, hv, rfl⟩
     rw [himage]
-    exact X.tangentEpGroupoid.proposition_7_1 _ (R.isOpen_tangentU.isOpenMap_subtype_val _
+    exact X.tangentEpGroupoid.proposition_7_1_8 _ (R.isOpen_tangentU.isOpenMap_subtype_val _
       (hS.preimage continuous_quotient_mk'))
 
 /-- The range of `G_x\TU(x) → |TX|` is `|TU(x)| = π_T(TU(x))`. -/
@@ -485,12 +485,12 @@ theorem image_tangentU_eq_preimage :
     X.tangentEpGroupoid.π '' R.tangentU = X.tangentOrbitProj ⁻¹' (X.liftOne.π '' R.liftU) :=
   (X.preimage_tangentOrbitProj_image R.U).symm
 
-/-- `|U(x)₁| = π₁(U(x)₁)` is open in `|X¹|` (Proposition 7.1 for `X¹`). -/
+/-- `|U(x)₁| = π₁(U(x)₁)` is open in `|X¹|` (Proposition 7.1.8 (2017: 7.1) for `X¹`). -/
 theorem isOpen_image_liftU : IsOpen (X.liftOne.π '' R.liftU) :=
-  X.liftOne.proposition_7_1 _ R.isOpen_liftU
+  X.liftOne.proposition_7_1_8 _ R.isOpen_liftU
 
 /-- **`|TU(x)|` is metrizable** (the text's "`|TU(x_z)|` … metrizable"): `TU(x)` is metrizable as
-a subset of `TX` (Proposition 2.19 (3)), so is `G_x\TU(x)` (the metric `ρ̂` of Lemma 7.4), and
+a subset of `TX` (Proposition 2.3.15 (preprint 2.19) (3)), so is `G_x\TU(x)` (the metric `ρ̂` of Lemma 7.3.2 (2017: 7.4)), and
 `G_x\TU(x) → |TX|` is an open embedding onto `|TU(x)|`. -/
 theorem metrizableSpace_image_tangentU : MetrizableSpace (X.tangentEpGroupoid.π '' R.tangentU) := by
   have := X.PObj.metrizableSpace_tangentSpace
@@ -498,7 +498,7 @@ theorem metrizableSpace_image_tangentU : MetrizableSpace (X.tangentEpGroupoid.π
   exact (R.isOpenEmbedding_tangentOrbitQuotientMap.isEmbedding.toHomeomorph.trans
     (Homeomorph.setCongr R.range_tangentOrbitQuotientMap)).symm.isEmbedding.metrizableSpace
 
-/-- **`|U(x)₁|` is metrizable** (the text's "`|U(x_z)¹|` … metrizable"; Proposition 7.12's
+/-- **`|U(x)₁|` is metrizable** (the text's "`|U(x_z)¹|` … metrizable"; Proposition 7.5.3 (2017: 7.12)'s
 `metrizableSpace_preimage_orbitIncl`, carried along `|U(x)|₁ = π₁(U(x)₁)`). -/
 theorem metrizableSpace_image_liftU : MetrizableSpace (X.liftOne.π '' R.liftU) := by
   have := R.metrizableSpace_preimage_orbitIncl
@@ -512,9 +512,9 @@ theorem metrizableSpace_preimage_tangentOrbitProj :
 
 end NaturalRep
 
-/-! ### Theorem 8.4 -/
+/-! ### Theorem 8.1.15 (2017: 8.4) -/
 
-/-- **`|TX|` is metrizable** if `|X|` is paracompact: `|X¹|` is metrizable (Proposition 7.12),
+/-- **`|TX|` is metrizable** if `|X|` is paracompact: `|X¹|` is metrizable (Proposition 7.5.3 (2017: 7.12)),
 hence paracompact and Hausdorff, and Smirnov's theorem pulled back along `|p| : |TX| → |X¹|`
 (`metrizableSpace_of_pullback`) applies, the preimages `|p|⁻¹(|U(x)₁|) = |TU(x)|` being
 metrizable. -/
@@ -524,23 +524,23 @@ theorem metrizableSpace_tangent_orbitSpace (h : X.HasParacompactOrbitSpace) :
   have : ParacompactSpace X.liftOne.OrbitSpace := paracompactSpace_of_metrizableSpace _
   refine metrizableSpace_of_pullback X.tangentOrbitProj X.continuous_tangentOrbitProj fun z => ?_
   obtain ⟨a, rfl⟩ := X.liftOne.surjective_π z
-  obtain ⟨R, -⟩ := theorem_7_1 X (X.PObj.levelVal 1 a) isOpen_univ (mem_univ _)
+  obtain ⟨R, -⟩ := theorem_7_1_13 X (X.PObj.levelVal 1 a) isOpen_univ (mem_univ _)
   exact ⟨X.liftOne.π '' R.liftU, R.isOpen_image_liftU,
     mem_image_of_mem _ (R.mem_U : a ∈ R.liftU), R.metrizableSpace_preimage_tangentOrbitProj⟩
 
-/-- **Theorem 8.4**: if the ep-groupoid `X` has paracompact orbit space `|X|`, then the tangent
-ep-groupoid `TX` (Theorem 8.1) has paracompact orbit space `|TX|`. -/
-theorem theorem_8_4 (h : X.HasParacompactOrbitSpace) :
+/-- **Theorem 8.1.15 (2017: 8.4)**: if the ep-groupoid `X` has paracompact orbit space `|X|`, then the tangent
+ep-groupoid `TX` (Theorem 8.1.1 (2017: 8.1)) has paracompact orbit space `|TX|`. -/
+theorem theorem_8_1_15 (h : X.HasParacompactOrbitSpace) :
     X.tangentEpGroupoid.HasParacompactOrbitSpace :=
   have := X.metrizableSpace_tangent_orbitSpace h
   paracompactSpace_of_metrizableSpace _
 
-/-- **Theorem 8.4 is not vacuous**: the trivial ep-groupoid of any M-polyfold `Z` has paracompact
+/-- **Theorem 8.1.15 (2017: 8.4) is not vacuous**: the trivial ep-groupoid of any M-polyfold `Z` has paracompact
 orbit space (`hasParacompactOrbitSpace_trivial`), hence so has its tangent. -/
 theorem hasParacompactOrbitSpace_tangent_trivial {Z : Type u} [TopologicalSpace Z] [T2Space Z]
     [ParacompactSpace Z] (P : MPolyfold Z) :
     (trivial P).tangentEpGroupoid.HasParacompactOrbitSpace :=
-  (trivial P).theorem_8_4 (hasParacompactOrbitSpace_trivial P)
+  (trivial P).theorem_8_1_15 (hasParacompactOrbitSpace_trivial P)
 
 end EpGroupoid
 

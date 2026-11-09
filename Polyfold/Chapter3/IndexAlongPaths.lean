@@ -2,9 +2,9 @@ import Polyfold.Chapter3.IndexLocallyConstantG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.1,
-**Definition 6.1** (the index of an sc-Fredholm germ `(f, x)` at a smooth point which need not be
-a zero) and **Proposition 6.2** (stability of `ind(f, x)` along sc-smooth paths, p. 201–203),
-in the text's germ reading of Definition 3.11 (round-trip item V3.98 (a); Findings, Chapter 3,
+**Definition 6.2.1 (preprint 6.1)** (the index of an sc-Fredholm germ `(f, x)` at a smooth point which need not be
+a zero) and **Proposition 6.2.2 (preprint 6.2)** (stability of `ind(f, x)` along sc-smooth paths, p. 201–203),
+in the text's germ reading of Definition 3.1.11 (preprint 3.11) (round-trip item V3.98 (a); Findings, Chapter 3,
 items 340–349).
 
 # The index at non-zeros and along paths
@@ -15,9 +15,9 @@ items 340–349).
 bundle `P : Y → X` one takes a local sc⁺-section `s` with `s(x) = f(x)` (in a chart,
 `s(y) = R(y, f(x))`) and linearizes `f − s` at its zero `x`.  Two such `s, t` give
 `(f − s)'(x) = (f − t)'(x) + (t − s)'(x)` with `(t − s)'(x)` an sc⁺-operator, so the Fredholm
-property and the index do not depend on `s` (Proposition 1.10).  (Definition 6.1) `Lin(f, x)` is
+property and the index do not depend on `s` (Proposition 1.1.11 (preprint 1.10)).  (Definition 6.2.1 (preprint 6.1)) `Lin(f, x)` is
 the set of all `(f − s)'(x) + a`, `a` an sc⁺-operator, and `ind(f, x) := ind (f − s)'(x)`.
-(Proposition 6.2) For a tame M-polyfold `X`, an sc-Fredholm section `f` and smooth points
+(Proposition 6.2.2 (preprint 6.2)) For a tame M-polyfold `X`, an sc-Fredholm section `f` and smooth points
 `x₀, x₁` joined by an sc-smooth path `φ : [0, 1] → X`, `ind(f, x₀) = ind(f, x₁)`.  *Proof.* Fix
 `t₀`; choose a locally defined sc⁺-section `s(t, x)` of the pull-back to `[0, 1] × X` with
 `s(t, φ(t)) = f(φ(t))` near `t₀` ("we do not need a sc-smooth partition of unity"); add finitely
@@ -29,7 +29,7 @@ constant.
 
 ## What is formalized
 
-* `Polyfold.StrongBundle.IsIndexAt B f x i` (**Definition 6.1**): there is an sc⁺-section `s`
+* `Polyfold.StrongBundle.IsIndexAt B f x i` (**Definition 6.2.1 (preprint 6.1)**): there is an sc⁺-section `s`
   with `f + s` vanishing at `x` and `(f + s)'(x)` Fredholm of index `i` in every chart
   (`IsLinOfIndex`; the text's `f − s` with `s(x) = f(x)` is `f + (−s)`).
 * `Polyfold.StrongBundle.IsLinOfIndex.unique`: at a zero of an sc-Fredholm section the index of
@@ -37,18 +37,18 @@ constant.
 * `Polyfold.StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt` (**the "same index" of Definition
   6.1**): at a zero `x` of the sc-Fredholm section `f`, adding an sc⁺-section vanishing at `x`
   does not change the index — not through the compactness of `(t − s)'(x)` as in the text, but
-  through Theorem 3.15: `f + s` has germ data in the same chart with the same conjugation to a
+  through Theorem 3.1.18 (preprint 3.15): `f + s` has germ data in the same chart with the same conjugation to a
   basic germ (`sectionAdd_chartData_germ`), so both indices are `dim Pn − dim Q`
   (`ConjugationData.congr` of `BasicGermShrink.lean`).
-* `Polyfold.StrongBundle.IsIndexAt.unique` (**Definition 6.1 is well defined**),
+* `Polyfold.StrongBundle.IsIndexAt.unique` (**Definition 6.2.1 (preprint 6.1) is well defined**),
   `isIndexAt_of_isZeroAt`, `IsIndexAt.isLinOfIndex_of_isZeroAt` (at a zero, `ind(f, x)` is the
   index of `f'(x)`), `StrongBundle.exists_isIndexAt` (**with bump functions, `ind(f, x)` exists
-  at every smooth point**: Lemma 5.11 through `f(x)` and Theorem 3.15).
+  at every smooth point**: Lemma 5.3.3 (preprint 5.11) through `f(x)` and Theorem 3.1.18 (preprint 3.15)).
 * `Polyfold.isIndexAt_locally_constant_of_isZeroAt_sectionAdd`: **`ind(f, y)` is constant along
   the zero set of `f + s` near a zero**, for `f` with tame germ data on an M-polyfold admitting
-  bump functions and any sc⁺-section `s` (Theorem 3.15 and the local constancy along the zero
+  bump functions and any sc⁺-section `s` (Theorem 3.1.18 (preprint 3.15) and the local constancy along the zero
   set, `index_locally_constant_of_admitsBumpFunctions`).
-* `Polyfold.isIndexAt_eventually_const_of_path`: **the local form of Proposition 6.2 along a
+* `Polyfold.isIndexAt_eventually_const_of_path`: **the local form of Proposition 6.2.2 (preprint 6.2) along a
   continuous path**: if an sc⁺-section `s` makes `f + s` vanish along `φ` near `t₀`, then
   `t ↦ ind(f, φ(t))` is constant near `t₀`; `Polyfold.isIndexAt_const_of_forall_eventually` and
   `Polyfold.isIndexAt_const_of_path`: on a preconnected parameter space a locally constant index
@@ -57,26 +57,26 @@ constant.
   when `X` does** (products `β₁(r) β₂(x)` of a `C^∞` bump and a bump of `X`).
 * `Polyfold.isLinOfIndex_paramLift_sectionAdd_eventually_const`: **the text's device on
   `ℝ × X`**: for an sc⁺-section `s̃` of the pull-back `π*P` with `f̃ + s̃` vanishing along the
-  graph `t ↦ (t, φ(t))` near `t₀` (`f̃ = f ∘ π`, Theorem 3.18), the index of `(f̃ + s̃)'(t, φ(t))`
-  is constant near `t₀`; `Polyfold.proposition_6_2_of_sections_of_slice`: **Proposition 6.2
+  graph `t ↦ (t, φ(t))` near `t₀` (`f̃ = f ∘ π`, Theorem 3.1.21 (preprint 3.18)), the index of `(f̃ + s̃)'(t, φ(t))`
+  is constant near `t₀`; `Polyfold.proposition_6_2_2_of_sections_of_slice`: **Proposition 6.2.2 (preprint 6.2)
   follows from the two steps (E), (S) below**, stated as hypotheses.
 
 ## What the text leaves implicit, and the choices made
 
-* **Definition 6.1 with global sc⁺-sections.**  The text's `s` is defined near `x`; here `s` is an
+* **Definition 6.2.1 (preprint 6.1) with global sc⁺-sections.**  The text's `s` is defined near `x`; here `s` is an
   sc⁺-section of `P` on all of `X` (`IsScPlusSection`).  With bump functions the two readings
-  agree (Lemma 5.11 cuts a local section off); without them the formal definition is a priori
+  agree (Lemma 5.3.3 (preprint 5.11) cuts a local section off); without them the formal definition is a priori
   stronger.  `IsIndexAt` is stated existentially; `IsIndexAt.unique` makes it a function of `(f, x)`
   on the smooth points where some `s` exists.
-* **"Same index" without compact operators.**  The text invokes Proposition 1.10 (sc⁺-operators
+* **"Same index" without compact operators.**  The text invokes Proposition 1.1.11 (preprint 1.10) (sc⁺-operators
   are level-wise compact) for the independence of `s`.  The project has no "`Lin(z)` of an
   sc⁺-section is compact" lemma; the independence is proved from the germ data instead (Theorem
   3.15 keeps the chart and the basic germ), which is the same fact one level down.
-* **Proposition 6.2 along paths: the reduction.**  Of the text's proof, the stabilization by
+* **Proposition 6.2.2 (preprint 6.2) along paths: the reduction.**  Of the text's proof, the stabilization by
   finitely many sections, the implicit function theorem and the index count are the local
   constancy along the zero set (`index_locally_constant_of_admitsBumpFunctions`, applied here on
   `ℝ × X` with bump functions from `admitsBumpFunctions_prod_rn`).  Two steps are stated as
-  hypotheses of `proposition_6_2_of_sections_of_slice`: (E) the sc⁺-section
+  hypotheses of `proposition_6_2_2_of_sections_of_slice`: (E) the sc⁺-section
   `s̃(t, x) = −R(x, f(φ(t)))` of `π*P` with `f̃ + s̃ = 0` along the graph of the path (its
   sc⁺-smoothness needs that `t ↦ Φ(f(φ(t)))₂` is sc-smooth into `F¹`, a curve of smooth points
   from the constant sc-structure of `ℝ`, and the `[1]`-sc-smoothness of the bundle retraction;
@@ -85,11 +85,11 @@ constant.
   `isLinOfIndex_of_paramSection_isLinOfIndex` for a `t`-dependent section
   (`fredholmIndex_eq_of_param` with `k = 1`).  Given (E) and (S),
   `isLinOfIndex_paramLift_sectionAdd_eventually_const` and `isIndexAt_const_of_path` give
-  Proposition 6.2 for every sc-smooth path on a preconnected parameter set.  **Both steps are
+  Proposition 6.2.2 (preprint 6.2) for every sc-smooth path on a preconnected parameter set.  **Both steps are
   proved in `IndexAlongPathsDevice.lean`** (`exists_isScPlusSection_pullback_of_path`,
-  `StrongBundle.isIndexAt_of_pullback_isLinOfIndex`), which states `proposition_6_2`.  The
-  tameness of `X` enters through the tame germ data (Definition 3.51), the bump functions through
-  Lemma 5.11 for the stabilizing sections and the cut-off of the section along the path (the text
+  `StrongBundle.isIndexAt_of_pullback_isLinOfIndex`), which states `proposition_6_2_2`.  The
+  tameness of `X` enters through the tame germ data (Definition 3.6.4 (preprint 3.51)), the bump functions through
+  Lemma 5.3.3 (preprint 5.11) for the stabilizing sections and the cut-off of the section along the path (the text
   uses locally defined sections and no bump functions).
 -/
 
@@ -217,7 +217,7 @@ lemma isZeroAt_sectionDiff_of_isZeroAt_sectionAdd {s' : X → Y} (hf : IsSection
 
 end SectionAlgebra
 
-/-! ### Definition 6.1: the index of `(f, x)` at a smooth point -/
+/-! ### Definition 6.2.1 (preprint 6.1): the index of `(f, x)` at a smooth point -/
 
 section IndexAt
 
@@ -229,7 +229,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 variable (B) in
-/-- **Definition 6.1**: the sc-Fredholm germ `(f, x)` has **index `i`** if there is an sc⁺-section
+/-- **Definition 6.2.1 (preprint 6.1)**: the sc-Fredholm germ `(f, x)` has **index `i`** if there is an sc⁺-section
 `s` of `P` with `f + s` vanishing at `x` (the text's `f − s` with `s(x) = f(x)`) such that
 `(f + s)'(x)` is Fredholm of index `i` in every strong bundle chart (`IsLinOfIndex`).  By
 `IsIndexAt.unique` the index does not depend on `s`. -/
@@ -262,7 +262,7 @@ theorem StrongBundle.IsLinOfIndex.unique (hf : B.IsScFredholmSection f) {x : X}
   exact h1.2.symm.trans h2.2
 
 /-- **Adding an sc⁺-section vanishing at a zero does not change the index** (the "same Fredholm
-index" of Definition 6.1 and of the paragraph before it, at a zero): for an sc-Fredholm section `f`
+index" of Definition 6.2.1 (preprint 6.1) and of the paragraph before it, at a zero): for an sc-Fredholm section `f`
 with `f(x) = 0` and an sc⁺-section `s` with `s(x) = 0`, `IsLinOfIndex f x i` gives
 `IsLinOfIndex (f + s) x i`.  Proof: the germ datum of `f` at `x` (chart `c`, filling germ `g`,
 sc⁺-germ `t₀`, conjugation data `dc`) gives the index `dim Pn − dim Q` of `f'(x)`
@@ -284,7 +284,7 @@ theorem StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt (hf : B.IsScFredholmSec
   obtain ⟨h1, h2, h3, -⟩ :=
     StrongBundle.sectionAdd_chartData_germ hfs hs hc h0U hfill ht₀ ht₀0 hconj
   have hx' : IsZeroAt P (sectionAdd P f s) x := hx.sectionAdd hfs hs.1 hsx
-  have hfs' := theorem_3_15 hf hs
+  have hfs' := theorem_3_1_18_preprint hf hs
   -- the same conjugation data, for the new filling and sc⁺-germ
   set dc' := dc.congr (k' := fun u => (g u + c.principal s (StrongRetr.r c.R u)) -
       c.F.toBase 1 (c.principalLift s (StrongRetr.r c.R u) + t₀ u))
@@ -297,11 +297,11 @@ theorem StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt (hf : B.IsScFredholmSec
   rw [hi']
   exact hidx'
 
-/-- **Definition 6.1 is well defined**: at a smooth point `x` of an sc-Fredholm section `f`, two
+/-- **Definition 6.2.1 (preprint 6.1) is well defined**: at a smooth point `x` of an sc-Fredholm section `f`, two
 sc⁺-sections `s, s'` with `f + s`, `f + s'` vanishing at `x` give the same index: `s' − s` is an
 sc⁺-section vanishing at `x` (`IsScPlusSection.add`, `IsScPlusSection.smul_left`),
 `(f + s) + (s' − s) = f + s'`, and `isLinOfIndex_sectionAdd_of_isZeroAt` at the zero `x` of the
-sc-Fredholm section `f + s` (Theorem 3.15). -/
+sc-Fredholm section `f + s` (Theorem 3.1.18 (preprint 3.15)). -/
 theorem StrongBundle.IsIndexAt.unique (hf : B.IsScFredholmSection f) {x : X} {i j : ℤ}
     (hi : B.IsIndexAt f x i) (hj : B.IsIndexAt f x j) : i = j := by
   obtain ⟨s, hs, hsx, hLi⟩ := hi
@@ -311,9 +311,9 @@ theorem StrongBundle.IsIndexAt.unique (hf : B.IsScFredholmSection f) {x : X} {i 
     hs'.add (hs.smul_left (isScSmoothMap_real_const (-1)))
   have hdx : IsZeroAt P (sectionDiff P s' s) x :=
     isZeroAt_sectionDiff_of_isZeroAt_sectionAdd hfs hs.1 hs'.1 hsx hs'x
-  have h := StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt (theorem_3_15 hf hs) hd hsx hdx hLi
+  have h := StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt (theorem_3_1_18_preprint hf hs) hd hsx hdx hLi
   rw [sectionAdd_sectionAdd_sectionDiff hfs hs.1 hs'.1] at h
-  exact h.unique (theorem_3_15 hf hs') hs'x hLj
+  exact h.unique (theorem_3_1_18_preprint hf hs') hs'x hLj
 
 /-- At a zero, the index of `f'(x)` is the index of the germ (`s = 0`). -/
 theorem StrongBundle.isIndexAt_of_isZeroAt (hf : IsSection P f) {x : X} (hx : IsZeroAt P f x)
@@ -327,7 +327,7 @@ theorem StrongBundle.IsIndexAt.isLinOfIndex_of_isZeroAt (hf : B.IsScFredholmSect
   obtain ⟨s, hs, hsx, hL⟩ := hi
   have hfs : IsSection P f := hf.isScSmooth.1
   have hs0 : IsZeroAt P s x := isZeroAt_of_isZeroAt_sectionAdd hfs hs.1 hx hsx
-  have h := StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt (theorem_3_15 hf hs)
+  have h := StrongBundle.isLinOfIndex_sectionAdd_of_isZeroAt (theorem_3_1_18_preprint hf hs)
     (hs.smul_left (isScSmoothMap_real_const (-1))) hsx (hs0.sectionSmul hs.1 _) hL
   have e : sectionAdd P (sectionAdd P f s) (sectionSmul P (fun _ => (-1 : ℝ)) s) = f := by
     have := sectionAdd_sectionAdd_sectionDiff hfs hs.1 isSection_fiberZero
@@ -335,20 +335,20 @@ theorem StrongBundle.IsIndexAt.isLinOfIndex_of_isZeroAt (hf : B.IsScFredholmSect
     rwa [fiberZero_sectionAdd hs.1.sectionSmul, sectionAdd_fiberZero hfs] at this
   rwa [e] at h
 
-/-- **Definition 6.1 is total on smooth points when `X` admits bump functions**: for an
+/-- **Definition 6.2.1 (preprint 6.1) is total on smooth points when `X` admits bump functions**: for an
 sc-Fredholm section `f` and a smooth point `x`, there is an sc⁺-section `s` with
-`(f + s)(x) = 0` (Lemma 5.11 through the smooth point `f(x)`, negated), and `(f + s)'(x)` is
-Fredholm (Theorem 3.15 and Proposition 3.52 for the germ data of `f + s` at `x`), so `ind(f, x)`
+`(f + s)(x) = 0` (Lemma 5.3.3 (preprint 5.11) through the smooth point `f(x)`, negated), and `(f + s)'(x)` is
+Fredholm (Theorem 3.1.18 (preprint 3.15) and Proposition 3.6.5 (preprint 3.52) for the germ data of `f + s` at `x`), so `ind(f, x)`
 exists. -/
 theorem StrongBundle.exists_isIndexAt (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSection f) {x : X} (hx : x ∈ PX.smoothSet) :
     ∃ i : ℤ, B.IsIndexAt f x i := by
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := B)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := B)
   have hfs : IsSection P f := hf.isScSmooth.1
   have he : f x ∈ B.toMPolyfold0.smoothSet :=
     mem_iInter.2 fun m => hf.isScSmooth.2.mapsTo_levelSet m (mem_iInter.1 hx m)
   obtain ⟨-, s₀, hs₀, hs₀x, -, -⟩ :=
-    lemma_5_11 hbump hN hx he (hfs x) one_pos isOpen_univ (mem_univ x)
+    lemma_5_3_3 hbump hN hx he (hfs x) one_pos isOpen_univ (mem_univ x)
   set s := sectionSmul P (fun _ => (-1 : ℝ)) s₀ with hsdef
   have hs : B.IsScPlusSection s := hs₀.smul_left (isScSmoothMap_real_const (-1))
   have hzero : IsZeroAt P (sectionAdd P f s) x := by
@@ -359,7 +359,7 @@ theorem StrongBundle.exists_isIndexAt (hbump : PX.AdmitsBumpFunctions)
     have h2 : (⟨s₀ x, hs₀.1 x⟩ : P ⁻¹' {x}) = ⟨f x, hfs x⟩ := Subtype.ext hs₀x
     rw [h1, h2, neg_one_smul, add_neg_cancel]
     rfl
-  have hF := theorem_3_15 hf hs
+  have hF := theorem_3_1_18_preprint hf hs
   obtain ⟨-, c, hc, hxV, hφ0, h0U, g, t₀, hfill, ht₀, ht₀0, hconj⟩ := hF.germ x hx
   obtain ⟨dc⟩ := isConjugateToBasicGerm_iff_nonempty.1 hconj
   exact ⟨_, s, hs, hzero, StrongBundle.isLinOfIndex_of_conjugationData hF.isScSmooth hzero hc
@@ -370,7 +370,7 @@ theorem StrongBundle.exists_isIndexAt (hbump : PX.AdmitsBumpFunctions)
 /-- **The index of the germ is locally constant along the zero set of `f + s`**: let `X` admit
 sc-smooth bump functions, `f` be an sc-Fredholm section with tame germ data and `s` an
 sc⁺-section with `(f + s)(x₀) = 0`.  Then there are an open `V ∋ x₀` and `i ∈ ℤ` with
-`ind(f, y) = i` (Definition 6.1) at every zero `y ∈ V` of `f + s`.  (`theorem_3_15_tame` and
+`ind(f, y) = i` (Definition 6.2.1 (preprint 6.1)) at every zero `y ∈ V` of `f + s`.  (`theorem_3_1_18_tame` and
 `index_locally_constant_of_admitsBumpFunctions` for `f + s`.) -/
 theorem isIndexAt_locally_constant_of_isZeroAt_sectionAdd (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) (hs : B.IsScPlusSection s) {x₀ : X}
@@ -378,10 +378,10 @@ theorem isIndexAt_locally_constant_of_isZeroAt_sectionAdd (hbump : PX.AdmitsBump
     ∃ (V : Set X) (i : ℤ), IsOpen V ∧ x₀ ∈ V ∧
       ∀ y ∈ V, IsZeroAt P (sectionAdd P f s) y → B.IsIndexAt f y i := by
   obtain ⟨V, i, hVo, hxV, hall⟩ :=
-    index_locally_constant_of_admitsBumpFunctions hbump (theorem_3_15_tame hf hs) hx₀
+    index_locally_constant_of_admitsBumpFunctions hbump (theorem_3_1_18_tame hf hs) hx₀
   exact ⟨V, i, hVo, hxV, fun y hy hy0 => ⟨s, hs, hy0, hall y hy hy0⟩⟩
 
-/-- **The local form of Proposition 6.2 along a continuous path**: if an sc⁺-section `s` makes
+/-- **The local form of Proposition 6.2.2 (preprint 6.2) along a continuous path**: if an sc⁺-section `s` makes
 `f + s` vanish along `φ` near `t₀`, then `t ↦ ind(f, φ(t))` is constant near `t₀`.  (The text
 obtains such an `s`, depending on `t`, on `[0, 1] × X`; see the module docstring.) -/
 theorem isIndexAt_eventually_const_of_path (hbump : PX.AdmitsBumpFunctions)
@@ -416,9 +416,9 @@ theorem isIndexAt_const_of_forall_eventually (hf : B.IsScFredholmSection f) {T :
   rw [← hlc.apply_eq_of_isPreconnected isPreconnected_univ (mem_univ t) (mem_univ t₀)]
   exact (hind t).self_of_nhds
 
-/-- **Proposition 6.2 along a path, given the sections**: let `T` be a preconnected space and
+/-- **Proposition 6.2.2 (preprint 6.2) along a path, given the sections**: let `T` be a preconnected space and
 `φ : T → X` continuous, and suppose that for every `t` there is an sc⁺-section `s_t` with
-`f + s_t` vanishing along `φ` near `t`.  Then `ind(f, φ(t))` (Definition 6.1) is the same for all
+`f + s_t` vanishing along `φ` near `t`.  Then `ind(f, φ(t))` (Definition 6.2.1 (preprint 6.1)) is the same for all
 `t` (`isIndexAt_eventually_const_of_path`, `isIndexAt_const_of_forall_eventually`). -/
 theorem isIndexAt_const_of_path (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {T : Type*} [TopologicalSpace T] [PreconnectedSpace T]
@@ -473,8 +473,8 @@ lemma tsupport_prod_mul_subset {Z W : Type*} [TopologicalSpace Z] [TopologicalSp
   rw [mem_support] at hp
   exact ⟨left_ne_zero_of_mul hp, right_ne_zero_of_mul hp⟩
 
-/-- **`ℝⁿ × X` admits sc-smooth bump functions when `X` does** (Definition 5.9 for the product
-M-polyfold of Theorem 3.18): around `(r, x)` in an open `U ⊇ U₁ × U₂`, the product `β₁(r') β₂(x')`
+/-- **`ℝⁿ × X` admits sc-smooth bump functions when `X` does** (Definition 5.3.1 (preprint 5.9) for the product
+M-polyfold of Theorem 3.1.21 (preprint 3.18)): around `(r, x)` in an open `U ⊇ U₁ × U₂`, the product `β₁(r') β₂(x')`
 of a `C^∞` bump `β₁` on `ℝⁿ` supported in `U₁` and a bump `β₂` of `X` supported in `U₂`. -/
 theorem MPolyfold.admitsBumpFunctions_prod_rn {n : ℕ} [ParacompactSpace ((Fin n → ℝ) × X)]
     (hbump : PX.AdmitsBumpFunctions) : ((rnPolyfold n).prod PX).AdmitsBumpFunctions := by
@@ -505,13 +505,13 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **The text's device for Proposition 6.2, on `ℝ × X`**: let `X` admit sc-smooth bump functions
+/-- **The text's device for Proposition 6.2.2 (preprint 6.2), on `ℝ × X`**: let `X` admit sc-smooth bump functions
 and `f` be an sc-Fredholm section with tame germ data; let `f̃ = f ∘ π` be its pull-back to
-`ℝ × X` (Theorem 3.18, `paramLift`), `φ : ℝ → X` continuous at `t₀`, and `s̃` an sc⁺-section of
+`ℝ × X` (Theorem 3.1.21 (preprint 3.18), `paramLift`), `φ : ℝ → X` continuous at `t₀`, and `s̃` an sc⁺-section of
 `π*P` with `f̃ + s̃` vanishing along the graph `t ↦ (t, φ(t))` near `t₀` (the text's
 `s(t, x)` with `s(t, φ(t)) = f(φ(t))`).  Then the index of `(f̃ + s̃)'(t, φ(t))` is the same for
 all `t` near `t₀`: `f̃ + s̃` is an sc-Fredholm section of `π*P` with tame germ data
-(`IsScFredholmSectionTame.param`, `theorem_3_15_tame`), `ℝ × X` admits bump functions
+(`IsScFredholmSectionTame.param`, `theorem_3_1_18_tame`), `ℝ × X` admits bump functions
 (`admitsBumpFunctions_prod_rn`), and the index is locally constant along its zero set
 (`index_locally_constant_of_admitsBumpFunctions`), which contains the graph near `t₀`.  What is
 not formalized (module docstring): the construction of `s̃` and the slice relation
@@ -528,13 +528,13 @@ theorem isLinOfIndex_paramLift_sectionAdd_eventually_const
     ∃ i : ℤ, ∀ᶠ t in 𝓝 t₀, (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold 1) PX)).IsLinOfIndex
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S) (t, φ t) i := by
   obtain ⟨V, i, hVo, hxV, hall⟩ := index_locally_constant_of_admitsBumpFunctions
-    (MPolyfold.admitsBumpFunctions_prod_rn hbump) (theorem_3_15_tame hf.param hS) hz.self_of_nhds
+    (MPolyfold.admitsBumpFunctions_prod_rn hbump) (theorem_3_1_18_tame hf.param hS) hz.self_of_nhds
   refine ⟨i, ?_⟩
   filter_upwards [hz, (continuousAt_id.prodMk hφ).preimage_mem_nhds (hVo.mem_nhds hxV)]
     with t ht htV
   exact hall _ htV ht
 
-/-- **Proposition 6.2 from the two open steps (E) and (S)** (the precise reduction; module
+/-- **Proposition 6.2.2 (preprint 6.2) from the two open steps (E) and (S)** (the precise reduction; module
 docstring): let `X` admit bump functions, `f` have tame germ data, `φ : ℝ → X` be continuous, and
 suppose (E) every `t₀` has an sc⁺-section `S` of `π*P` with `f̃ + S` vanishing along the graph of
 `φ` near `t₀`, and (S) at a zero `(t, φ(t))` of `f̃ + S` the index `i` of `(f̃ + S)'(t, φ(t))` gives
@@ -542,7 +542,7 @@ suppose (E) every `t₀` has an sc⁺-section `S` of `π*P` with `f̃ + S` vanis
 (`isLinOfIndex_paramLift_sectionAdd_eventually_const`, `isIndexAt_const_of_forall_eventually`;
 `ℝ` is preconnected).  For the text's sc-smooth path `φ : [0, 1] → X`, (E) is the text's
 construction of `s(t, x)` and (S) its index count `ind(F, (0, t, φ(t))) = ind(f, φ(t)) + m + p`. -/
-theorem proposition_6_2_of_sections_of_slice
+theorem proposition_6_2_2_of_sections_of_slice
     [ParacompactSpace ((Fin 1 → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin 1 → ℝ) × X → X))]
     (hbump : PX.AdmitsBumpFunctions) (hf : B.IsScFredholmSectionTame f)

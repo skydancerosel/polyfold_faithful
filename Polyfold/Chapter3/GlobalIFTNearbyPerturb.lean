@@ -2,17 +2,17 @@ import Polyfold.Chapter3.GlobalIFTNearbyGraph
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6 and §6.1:
-the linear algebra behind the **perturbation argument of Proposition 6.2** applied to the
-surjectivity of `Tf̃(z₀)` at the nearby zeros of Theorem 3.54 (Finding 105): the kernel of the
+the linear algebra behind the **perturbation argument of Proposition 6.2.2 (preprint 6.2)** applied to the
+surjectivity of `Tf̃(z₀)` at the nearby zeros of Theorem 3.6.8 (preprint 3.54) (Finding 105): the kernel of the
 linearization of a parametrized problem must be in good position to the partial quadrant
-`Λ × C'` at the corner `(0, 0)` for Theorem 3.47 to apply, and this fails for the naive
+`Λ × C'` at the corner `(0, 0)` for Theorem 3.5.11 (preprint 3.47) to apply, and this fails for the naive
 extension.
 
 # Good position of the kernel of the parametrized problem
 
 ## The text, paraphrased
 
-(Proof of Proposition 6.2) "The linearization at `(0, t₀, φ(t₀))` with respect to the first and
+(Proof of Proposition 6.2.2 (preprint 6.2)) "The linearization at `(0, t₀, φ(t₀))` with respect to the first and
 second variable is surjective and the kernel of the linearization has a complement contained in
 `T^R_{(0,t₀,φ(t₀))}(ℝ^{m+p} ⊕ [0,1] ⊕ X) = ℝ^{m+p} ⊕ T^R_{t₀}[0,1] ⊕ T^R_{φ(t₀)}X`.  Hence
 `ker F'(0, t₀, φ(t₀))` is in good position to the boundary."
@@ -22,11 +22,11 @@ second variable is surjective and the kernel of the linearization has a compleme
 * `Polyfold.mem_lineality_of_goodComplement_prod` and
   `Polyfold.sup_lineality_eq_top_of_goodComplement_prod`: **the obstruction**.  For a subspace `N` of
   `V` and a partial-quadrant-like cone `C ⊆ V` (closed under nonnegative scaling), a good
-  complement `P` of `ℝ × N` with respect to `ℝ × C` (Definition 3.21) has its `V`-projection in
+  complement `P` of `ℝ × N` with respect to `ℝ × C` (Definition 3.1.24 (preprint 3.21)) has its `V`-projection in
   the lineality space `C ∩ (−C)`; hence `ℝ × N` is in good position to `ℝ × C` only if
   `N + (C ∩ −C) = V`.  (Take `n = (1, 0)`: `n ∈ ℝ × C`, and `n + p = (1 + μ, y) ∈ ℝ × C` forces
   `y ∈ C` for every small `p = (μ, y) ∈ P`.)  So for the kernel `ℝ × K` of the λ-extended problem
-  of Theorem 3.54 the good position at the corner fails unless `K` projects onto all boundary
+  of Theorem 3.6.8 (preprint 3.54) the good position at the corner fails unless `K` projects onto all boundary
   coordinates — the text's "has a complement contained in `T^R`" is exactly the statement that
   the complement lies in the lineality space.
 * `Polyfold.isInGoodPosition_extendedKernel`: **the fix**.  In `(Λ × Pn) ⊕ W` with the partial
@@ -35,17 +35,17 @@ second variable is surjective and the kernel of the linearization has a compleme
   `K ∩ j(Λ) = 0`, `(K ⊕ j(Λ)) ⊕ Y' = Pn ⊕ W` with `Y'` in the lineality space of `C̃ ⊕ W`, and
   `K ⊕ j(Λ)` meets the interior of `C̃ ⊕ W`: the good complement is `Λ_c × Y'` (`Λ_c` a complement
   of `ker j`) and the `ε`-condition holds for every `ε`.  The directions `j(Λ) ⊆ T₀(ψ(O)) ∩ E'_∞`
-  with `K + j(Λ) + E'_0 = E'` exist by tameness (`T₀O + E₀ = E`, Proposition 2.35) and are
+  with `K + j(Λ) + E'_0 = E'` exist by tameness (`T₀O + E₀ = E`, Proposition 2.5.3 (preprint 2.35)) and are
   realized by the sc⁺-perturbations `ρ(r(u)) Dg(0)Dψ⁻¹(0) j(λ)` (Finding 105).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* The text's Proposition 6.2 asserts the good position of the kernel of the extended problem from
-  the existence of "a complement contained in `T^R`" without constructing it; for Theorem 3.54 (1)
+* The text's Proposition 6.2.2 (preprint 6.2) asserts the good position of the kernel of the extended problem from
+  the existence of "a complement contained in `T^R`" without constructing it; for Theorem 3.6.8 (preprint 3.54) (1)
   at the nearby zeros the untilted extension (parameters multiplying smooth vectors `k̂` with a
   factor vanishing at `0`) has kernel `ℝ × K`, which is **not** in good position in general
   (`sup_lineality_eq_top_of_goodComplement_prod`); the tilt by `j(Λ)` is needed.
-* Neither lemma uses the sc-structure: both are statements about Definition 3.21 in the Banach
+* Neither lemma uses the sc-structure: both are statements about Definition 3.1.24 (preprint 3.21) in the Banach
   space `E'₀`, with the cone described by its lineality space.
 -/
 
@@ -69,7 +69,7 @@ abbrev prodSub (N : Submodule ℝ V) : Submodule ℝ (ℝ × V) := (⊤ : Submod
 
 /-- **The obstruction to good position at the corner for the λ-extended problem.**  Let `C ⊆ V` be
 closed under nonnegative scaling with `0 ∈ C`, `N ⊆ V` a subspace and `P ⊆ ℝ × V` a subspace
-with the good-complement property of Definition 3.21 for `ℝ × N` with respect to `ℝ × C` (for some
+with the good-complement property of Definition 3.1.24 (preprint 3.21) for `ℝ × N` with respect to `ℝ × C` (for some
 `ε > 0`).  Then every `p = (μ, y) ∈ P` has `y ∈ C` and `−y ∈ C`: the `V`-projection of `P` lies
 in the lineality space of `C`.  (With `n = (1, 0) ∈ ℝ × N`: `n ∈ ℝ × C`, so `n + tp ∈ ℝ × C` for
 `|t|` small, i.e. `ty ∈ C`.) -/
@@ -177,7 +177,7 @@ lemma mem_extendedCompl {Λc : Submodule ℝ Λ} {Y' : Submodule ℝ (Pn × W 0)
 (`y ∈ Y'` ⟹ `v + y ∈ C' ↔ v ∈ C'`), and let `K ⊔ j(Λ)` contain an interior point of `C'`.  Then
 `Ñ = {((λ, a), w) | (a, w) + j(λ) ∈ K}` is in good position to `(Λ × C̃) ⊕ W` in
 `(Λ × Pn) ⊕ W`, with the good complement `Λ_c × Y'` for any complement `Λ_c` of `ker j`; the
-`ε`-condition of Definition 3.21 holds for every `ε`. -/
+`ε`-condition of Definition 3.1.24 (preprint 3.21) holds for every `ε`. -/
 theorem isInGoodPosition_extendedKernel {K Y' : Submodule ℝ (Pn × W 0)} (j : Λ →ₗ[ℝ] Pn × W 0)
     (hKj : K ⊓ LinearMap.range j = ⊥) (hcompl : IsCompl (K ⊔ LinearMap.range j) Y')
     (hY' : ∀ y ∈ Y', ∀ v : Pn × W 0, v + y ∈ Ct ×ˢ univ ↔ v ∈ Ct ×ˢ univ)

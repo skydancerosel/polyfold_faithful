@@ -2,19 +2,19 @@ import Polyfold.Chapter3.ParamPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017 book), Part II, Chapter 7, §7.1:
-infrastructure for **Lemma 7.1** and **Proposition 7.4** (p. 230: finitely many morphisms, finite
-isotropy) and for **Theorem 7.1** (p. 231: the sc-smooth map `Γ : G × U → 𝐗`) *(Part II has no
+infrastructure for **Lemma 7.1.11 (2017: 7.1)** and **Proposition 7.1.12 (2017: 7.4)** (p. 293 (2017 p. 230): finitely many morphisms, finite
+isotropy) and for **Theorem 7.1.13 (2017: 7.1)** (p. 293 (2017 p. 231): the sc-smooth map `Γ : G × U → 𝐗`) *(Part II has no
 2014 preprint; numbers and pages are those of the 2017 text)*.
 
 # Discreteness, finiteness, and discrete M-polyfolds
 
 ## What the text uses
 
-(Lemma 7.1) If `t : s⁻¹(cl_X(U(x'))) → X` is proper, only finitely many morphisms `ψ` have
+(Lemma 7.1.11 (2017: 7.1)) If `t : s⁻¹(cl_X(U(x'))) → X` is proper, only finitely many morphisms `ψ` have
 `s(ψ) = x` and `t(ψ) ∈ U(x')`.  The proof argues by contradiction with a sequence of distinct
 morphisms `ψ_n : s(ψ_n) → x` with `s(ψ_n) ∈ U(x')`: properness gives a convergent subsequence,
 `t` is a local sc-diffeomorphism near the limit, and `t(ψ_n) = t(ψ_m) = x` forces `ψ_n = ψ_m`.
-(Proposition 7.4, "as a consequence") The isotropy group `G_x` is finite.  (Theorem 7.1) For the
+(Proposition 7.1.12 (2017: 7.4), "as a consequence") The isotropy group `G_x` is finite.  (Theorem 7.1.13 (2017: 7.1)) For the
 finite group `G = G_x` and an open `U ∋ x`, "a sc-smooth map `Γ : G × U → 𝐗`"; the text names no
 M-polyfold structure on `G × U`, and the proof (Appendix 7.5.1) builds `Γ` sheet by sheet,
 `Γ(g, ·)` being an inverse of `s` near `g`.
@@ -27,12 +27,12 @@ M-polyfold structure on `G × U`, and the proof (Appendix 7.5.1) builds `Γ` she
   and `MPolyfold.IsLocalScDiffeo.isDiscrete_preimage_singleton` (local sc-diffeomorphisms).
 * **Proper maps with discrete fibres have finite fibres**: `IsProperMap.finite_preimage_singleton`,
   `IsProperMap.finite_preimage_singleton_of_isLocallyInjective`.
-* **Lemma 7.1 and Proposition 7.4, abstract forms** (maps `s, t : M → X`, no groupoid structure):
+* **Lemma 7.1.11 (2017: 7.1) and Proposition 7.1.12 (2017: 7.4), abstract forms** (maps `s, t : M → X`, no groupoid structure):
   `finite_setOf_mem_of_isProperMap_domRestrict` (`{ψ | s ψ ∈ K ∧ t ψ = x}` is finite when
   `t : s⁻¹(K) → X` is proper and `t` is locally injective), `finite_setOf_src_eq_tgt_eq`,
   `finite_setOf_src_eq_self_tgt_eq_self` and `finite_subtype_src_eq_self_tgt_eq_self` (finite
-  isotropy under Definition 7.3 (3)); for M-polyfolds, with `t` a local sc-diffeomorphism
-  (Definition 7.3 (1)), `MPolyfold.finite_setOf_mem_of_isLocalScDiffeo` and
+  isotropy under Definition 7.1.3 (2017: 7.3) (3)); for M-polyfolds, with `t` a local sc-diffeomorphism
+  (Definition 7.1.3 (2017: 7.3) (1)), `MPolyfold.finite_setOf_mem_of_isLocalScDiffeo` and
   `MPolyfold.finite_isotropy_of_isLocalScDiffeo`.
 * **Non-vacuity**: `isotropy_snd_witness` (`s = t = π₂ : G × X → X`, the trivial action of a finite
   discrete `G`, satisfies the hypotheses at every point, and the isotropy set has `|G|` elements),
@@ -56,7 +56,7 @@ M-polyfold structure on `G × U`, and the proof (Appendix 7.5.1) builds `Γ` she
   sequences nor metrizability: a fibre of a proper map is compact, a fibre of a locally injective
   map is discrete, and a compact discrete set is finite (`IsCompact.finite`).  This is the text's
   sequence argument without the sequences.
-* Lemma 7.1 is formalized in the form its proof treats (targets `t(ψ) = x`, sources in
+* Lemma 7.1.11 (2017: 7.1) is formalized in the form its proof treats (targets `t(ψ) = x`, sources in
   `cl_X(U(x'))`); the statement's form (sources `s(ψ) = x`, targets in `U(x')`) follows by the
   inverse map `ι`, which exchanges `s` and `t` and belongs to the groupoid structure
   (`EpGroupoid.lean`).  The condition on the sources is used only as `s(ψ) ∈ cl_X(U(x'))`.
@@ -120,7 +120,7 @@ theorem IsProperMap.finite_preimage_singleton_of_isLocallyInjective {f : M → X
     (hf : IsProperMap f) (hi : IsLocallyInjective f) (x : X) : (f ⁻¹' {x}).Finite :=
   IsProperMap.finite_preimage_singleton hf (IsLocallyInjective.isDiscrete_preimage_singleton hi x)
 
-/-- **Lemma 7.1, abstract form.**  Let `s, t : M → X` with `t` locally injective, and `K ⊆ X` such
+/-- **Lemma 7.1.11 (2017: 7.1), abstract form.**  Let `s, t : M → X` with `t` locally injective, and `K ⊆ X` such
 that `t : s⁻¹(K) → X` is proper.  Then for every `x` only finitely many `ψ` have `s(ψ) ∈ K` and
 `t(ψ) = x`. -/
 theorem finite_setOf_mem_of_isProperMap_domRestrict {s t : M → X} (ht : IsLocallyInjective t)
@@ -131,15 +131,15 @@ theorem finite_setOf_mem_of_isProperMap_domRestrict {s t : M → X} (ht : IsLoca
   rintro ψ ⟨hψK, hψx⟩
   exact ⟨⟨ψ, hψK⟩, hψx, rfl⟩
 
-/-- **Proposition 7.4, abstract form** (with `y = x`): under the properness of `t` on `s⁻¹(cl V)`,
+/-- **Proposition 7.1.12 (2017: 7.4), abstract form** (with `y = x`): under the properness of `t` on `s⁻¹(cl V)`,
 only finitely many `φ` have `s(φ) = y` and `t(φ) = x`, for every `y ∈ cl V`. -/
 theorem finite_setOf_src_eq_tgt_eq {s t : M → X} (ht : IsLocallyInjective t) {V : Set X}
     (hV : IsProperMap ((s ⁻¹' closure V).domRestrict t)) {x y : X} (hy : y ∈ closure V) :
     {φ | s φ = y ∧ t φ = x}.Finite :=
   (finite_setOf_mem_of_isProperMap_domRestrict ht hV x).subset fun _ hφ => ⟨hφ.1 ▸ hy, hφ.2⟩
 
-/-- **Finite isotropy, abstract form** (Proposition 7.4): if `t` is locally injective and some open
-`V ∋ x` makes `t : s⁻¹(cl V) → X` proper (Definition 7.3 (3)), then only finitely many `φ` have
+/-- **Finite isotropy, abstract form** (Proposition 7.1.12 (2017: 7.4)): if `t` is locally injective and some open
+`V ∋ x` makes `t : s⁻¹(cl V) → X` proper (Definition 7.1.3 (2017: 7.3) (3)), then only finitely many `φ` have
 `s(φ) = x = t(φ)`. -/
 theorem finite_setOf_src_eq_self_tgt_eq_self {s t : M → X} (ht : IsLocallyInjective t) {x : X}
     (hx : ∃ V : Set X, IsOpen V ∧ x ∈ V ∧ IsProperMap ((s ⁻¹' closure V).domRestrict t)) :
@@ -218,14 +218,14 @@ theorem IsLocalScDiffeo.isDiscrete_preimage_singleton {f : X → Z} (hf : P.IsLo
 
 variable {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Q : MPolyfold Y}
 
-/-- **Lemma 7.1** for M-polyfolds: `s, t : 𝐗 → X` with `t` a local sc-diffeomorphism and
+/-- **Lemma 7.1.11 (2017: 7.1)** for M-polyfolds: `s, t : 𝐗 → X` with `t` a local sc-diffeomorphism and
 `t : s⁻¹(K) → X` proper; then only finitely many `ψ` have `s(ψ) ∈ K` and `t(ψ) = x`. -/
 theorem finite_setOf_mem_of_isLocalScDiffeo {s t : Y → X} (ht : Q.IsLocalScDiffeo P t)
     {K : Set X} (hK : IsProperMap ((s ⁻¹' K).domRestrict t)) (x : X) :
     {ψ | s ψ ∈ K ∧ t ψ = x}.Finite :=
   finite_setOf_mem_of_isProperMap_domRestrict ht.isLocallyInjective hK x
 
-/-- **Proposition 7.4** for M-polyfolds, in the form Definition 7.3 (1), (3) give it: if `t` is a
+/-- **Proposition 7.1.12 (2017: 7.4)** for M-polyfolds, in the form Definition 7.1.3 (2017: 7.3) (1), (3) give it: if `t` is a
 local sc-diffeomorphism and `t : s⁻¹(cl V(x)) → X` is proper for an open `V(x) ∋ x`, the
 morphisms `φ` with `s(φ) = x = t(φ)` form a finite set. -/
 theorem finite_isotropy_of_isLocalScDiffeo {s t : Y → X} (ht : Q.IsLocalScDiffeo P t) {x : X}
@@ -404,10 +404,10 @@ theorem prod_discrete_mem_levelSet_iff {m : ℕ} (p : G × X) :
     have := hd.isScSmoothOn_inv.mapsTo_levelSet m ⟨mem_univ _, hp⟩
     exact this
 
-/-- `d_{G × X}(g, x) = d_X(x)` (Proposition 2.24 along the sheet). -/
+/-- `d_{G × X}(g, x) = d_X(x)` (Proposition 2.4.4 (preprint 2.24) along the sheet). -/
 theorem degIndex_prod_discrete (p : G × X) :
     ((discretePolyfold G).prod PX).degIndex p = PX.degIndex p.2 :=
-  proposition_2_24 (isScDiffeoOn_snd_sheet p.1) ⟨rfl, mem_univ _⟩
+  proposition_2_4_4 (isScDiffeoOn_snd_sheet p.1) ⟨rfl, mem_univ _⟩
 
 /-- **Sc-smoothness on `G × X` is sc-smoothness on each sheet**: for an open `W ⊆ G × X`, `f` is
 sc-smooth on `W` if and only if every `f(g, ·)` is sc-smooth on `{x | (g, x) ∈ W}`. -/

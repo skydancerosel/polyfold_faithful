@@ -17,7 +17,7 @@ project's `i⁻¹ ∘ r = retractInto a₀` is sc-smooth on `V` for every `SubDa
 `(V, r)` of B is exactly a `SubData`, and every `g` agreeing with `r` on `V` is handled by
 `IsScSmoothOn.congr`).  The tangent-space facts — (3) `T_aA` has an sc-complement in `T_aX`, and
 `T_aA = Tr(a)T_aX` in (4) — are not in A at all: the project states them only in a chart for a
-retract (`proposition_2_21_3`, `proposition_2_21_4` of Part I) and does not transport them to
+retract (`proposition_2_3_19_three`, `proposition_2_3_19_four` of Part I) and does not transport them to
 `T_aX`, `T_aA` (its gap G.7; the module docstring of `SubGroupoid.lean` says so).  This is the
 same missing glue as in item V2_25 (several hundred lines of tangent-map/chain-rule work:
 identifying the chart image of `Ti(a)T_aA` for `subPolyfold`, and the mixed-chart computation for

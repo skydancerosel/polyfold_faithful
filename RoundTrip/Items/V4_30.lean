@@ -22,7 +22,7 @@ Glue:
 * `A → B` (1) is glue that does not use A: `V' = W` (the project's `SubData.shrink`) and `r'` the
   restriction of `r` to `r⁻¹(G)` with `φ(W) = O ∩ G`.
 * `B → A`: every conjunct of A comes from B (2) applied to `V := W` and `r := R|_{R⁻¹(G)}` (a
-  retraction onto `φ(W) = O ∩ G`); `apply_mem_smooth` then is Lemma 4.7 (i) (`lemma_4_7_i`).
+  retraction onto `φ(W) = O ∩ G`); `apply_mem_smooth` then is Lemma 4.7 (i) (`lemma_4_1_7_i`).
 -/
 
 namespace RoundTrip.V4_30
@@ -229,7 +229,7 @@ theorem B_to_A : B → A := by
   · intro X _ _ _ P S d φ hφ a ha haV haφ
     obtain ⟨R, hR⟩ := φ.model.isScRetract
     obtain ⟨t, ht, htp, -⟩ := chartRetraction_of_B hB d hφ R hR
-    exact lemma_4_7_i htp (ht ▸ ⟨a, ⟨d.toSubData.mem_shrink φ ha haV haφ, ha⟩, rfl⟩)
+    exact lemma_4_1_7_i htp (ht ▸ ⟨a, ⟨d.toSubData.mem_shrink φ ha haV haφ, ha⟩, rfl⟩)
 
 #rt_check RoundTrip.V4_30.A_to_B [Polyfold.MPolyfold.SubmanifoldData.isScSmoothRetractMap_lift,
   Polyfold.MPolyfold.SubmanifoldData.exists_chartRetraction,

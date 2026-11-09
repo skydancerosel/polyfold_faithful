@@ -3,14 +3,14 @@ import Polyfold.Chapter2.Tame
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6 and
-Appendix 3.8.3, **Lemma 3.55**: good position is preserved along the graph of a `C^1`-map
+Appendix 3.8.3, **Lemma 3.6.9 (preprint 3.55)**: good position is preserved along the graph of a `C^1`-map
 `τ : N ∩ C → Y` with `τ(0) = 0`, `Dτ(0) = 0`.
 
 # Good position along a graph
 
 ## The text, paraphrased
 
-(Lemma 3.55) Let `C ⊆ E` be a partial quadrant, `N ⊆ E` a finite-dimensional smooth subspace in
+(Lemma 3.6.9 (preprint 3.55)) Let `C ⊆ E` be a partial quadrant, `N ⊆ E` a finite-dimensional smooth subspace in
 good position to `C` with good complement `Y`, `V ⊆ N ∩ C` a relatively open neighbourhood of `0`
 and `τ : V → Y₁` of class `C^1` with `τ(0) = 0`, `Dτ(0) = 0`.  Then there is a relatively open
 neighbourhood `V' ⊆ V` of `0` such that for `v ∈ V'`: (1) `v + τ(v) ∈ C₁`; (2) `Y` is a topological
@@ -21,8 +21,8 @@ with `|y|₀ ≤ γ_v|n|₀`, `n ∈ C_x` iff `n + y ∈ C_x`, where `x = v + τ
 (67b).  (2) is linear algebra, using `Dτ(v)n ∈ Y`.  For (3), if `v ∈ N ∩ W` then `τ_i(v) = 0`
 (both `v ± τ(v) ∈ C`) so `C_x = C`, and the estimate (69)
 `|y + Dτ(v)n|₀ ≤ (γ_v + εγ_v + ε)|n|₀ ≤ γ|n|₀` (with `|Dτ(v)n|₀ ≤ ε|n|₀`, `ε < γ/2`) transfers the
-statement from `N` to `N_v`; if `v ∉ N ∩ W`, in the normal form of Proposition 3.22 the good
-complement lies in `{0}^m ⊕ ℝ^{n−m} ⊕ W` (Lemma 3.65) and `x_j > 0` for `j > m` (Lemma 3.70), so
+statement from `N` to `N_v`; if `v ∉ N ∩ W`, in the normal form of Proposition 3.1.25 (preprint 3.22) the good
+complement lies in `{0}^m ⊕ ℝ^{n−m} ⊕ W` (Lemma 3.8.8 (preprint 3.65)) and `x_j > 0` for `j > m` (Lemma 3.8.13 (preprint 3.70)), so
 `C_x` depends only on coordinates on which `Y` vanishes.
 
 ## What is formalized
@@ -31,9 +31,9 @@ complement lies in `{0}^m ⊕ ℝ^{n−m} ⊕ W` (Lemma 3.65) and `x_j > 0` for 
   the derivative within `s` at a point of unique differentiability of a map with values in a
   **closed** subspace `P` takes its values in `P` (the text's "`Dτ(v)n ∈ Y`").
 * `Polyfold.graphSpace N L = {n + L n | n ∈ N}` (the text's `N_v` for `L = Dτ(v)`).
-* `Polyfold.lemma_3_55_core`: **Lemma 3.55 in coordinates** (`ℓ_i` the coordinate functionals,
+* `Polyfold.lemma_3_6_9_core`: **Lemma 3.6.9 (preprint 3.55) in coordinates** (`ℓ_i` the coordinate functionals,
   `N ∩ C = {ℓ_i ≥ 0 on N}`, `C_x = {ℓ_i ≥ 0 for the `i` with `ℓ_i(x) = 0}`).
-* `Polyfold.lemma_3_55`: **Lemma 3.55** in the model `E = ℝⁿ ⊕ W`, `C = [0,∞)ⁿ ⊕ W`: for `v ∈ N ∩ C`
+* `Polyfold.lemma_3_6_9_preprint`: **Lemma 3.6.9 (preprint 3.55)** in the model `E = ℝⁿ ⊕ W`, `C = [0,∞)ⁿ ⊕ W`: for `v ∈ N ∩ C`
   near `0`, `v + τ(v) ∈ C` and `Y` is a good complement (`IsGoodComplement`, which contains the
   algebraic splitting (2) and the constant (3)) of `N_v` with respect to the partial quadrant
   `C_{v + τ(v)}` (`partialQuadrantAtWith`).
@@ -48,11 +48,11 @@ complement lies in `{0}^m ⊕ ℝ^{n−m} ⊕ W` (Lemma 3.65) and `x_j > 0` for 
   `v` in the neighbourhood (on which `‖Dτ(v)‖ ≤ ε₀/4`), since
   `γ_v(1 + ε₀/4) + ε₀/4 ≤ ε₀`; the text chooses `γ_v` after `v`.
 * **The case `v ∉ N ∩ W` needs no normal form**: if `ℓ_i(v) = 0` for some `i` then `i ∈ Σ` (the
-  index set of Proposition 3.22), so `ℓ_i` vanishes on `Y` by Lemma 3.65, and by Lemma 3.70
+  index set of Proposition 3.1.25 (preprint 3.22)), so `ℓ_i` vanishes on `Y` by Lemma 3.8.8 (preprint 3.65), and by Lemma 3.8.13 (preprint 3.70)
   `ℓ_i(x) = 0 ↔ ℓ_i(v) = 0`; hence `ℓ_i(h + y) = ℓ_i(h)` for all `i` with `ℓ_i(x) = 0`, and the
   equivalence in (3) holds for every `γ_v`.  The two cases `dim N = 1`, `dim N > 1` of the text are
   not needed.
-* **"`τ : V → Y₁`" and "`v + τ(v) ∈ C₁`"**: the sc-level plays no role (as in Lemma 3.70); `τ` is a
+* **"`τ : V → Y₁`" and "`v + τ(v) ∈ C₁`"**: the sc-level plays no role (as in Lemma 3.8.13 (preprint 3.70)); `τ` is a
   `C^1`-map into `Y ⊆ E₀` and (1) is `v + τ(v) ∈ C`.
 -/
 
@@ -100,7 +100,7 @@ lemma fderivWithin_mem_of_mapsTo {W : Type*} [NormedAddCommGroup W] [NormedSpace
 
 end Tangent
 
-/-! ### Lemma 3.55 in coordinates -/
+/-! ### Lemma 3.6.9 (preprint 3.55) in coordinates -/
 
 section Core
 
@@ -145,12 +145,12 @@ lemma graphSpace_isCompl (P : Submodule ℝ V) (hNP : IsCompl N P) (L : N →L[�
     exact Submodule.mem_sup.2 ⟨a + L ⟨a, ha⟩, add_mem_graphSpace N L ⟨a, ha⟩, b - L ⟨a, ha⟩,
       P.sub_mem hb (hLP _), by abel⟩
 
-/-- **Lemma 3.55, in coordinates.**  `N` in good position (complement `P`, closed, constant `ε`),
+/-- **Lemma 3.6.9 (preprint 3.55), in coordinates.**  `N` in good position (complement `P`, closed, constant `ε`),
 `τ : N → V` with values in `P`, of class `C^1` on `N ∩ C` with `τ(0) = 0`, `Dτ(0) = 0`.  Then for
 `v ∈ N ∩ C` near `0`, with `x = v + τ(v)` and `N_v = {n + Dτ(v)n}`: (1) `x ∈ C`; (2) `E = N_v ⊕ P`;
 (3) there is `γ > 0` such that for `h ∈ N_v`, `y ∈ P` with `‖y‖ ≤ γ‖h‖`, `h ∈ C_x ↔ h + y ∈ C_x`,
 where `C_x = {z | ℓ_i(z) ≥ 0 whenever ℓ_i(x) = 0}`. -/
-theorem lemma_3_55_core (P : Submodule ℝ V) (hNP : IsCompl N P) (hPc : IsClosed (P : Set V))
+theorem lemma_3_6_9_core (P : Submodule ℝ V) (hNP : IsCompl N P) (hPc : IsClosed (P : Set V))
     {ε : ℝ} (hε : 0 < ε)
     (hgood : ∀ x ∈ N, ∀ p ∈ P, ‖p‖ ≤ ε * ‖x‖ →
       ((∀ i, 0 ≤ ℓ i x) ↔ ∀ i, 0 ≤ ℓ i (x + p)))
@@ -176,8 +176,8 @@ theorem lemma_3_55_core (P : Submodule ℝ V) (hNP : IsCompl N P) (hPc : IsClose
   have hgood₀ : ∀ x ∈ N, ∀ p ∈ P, ‖p‖ ≤ ε₀ * ‖x‖ →
       ((∀ i, 0 ≤ ℓ i x) ↔ ∀ i, 0 ≤ ℓ i (x + p)) := fun x hx p hp hle =>
     hgood x hx p hp (hle.trans (mul_le_mul_of_nonneg_right hε₀ε (norm_nonneg x)))
-  -- Lemma 3.70: `v + τ(v) ∈ C`, and the vanishing coordinates
-  obtain ⟨ρ₁, hρ₁, h70⟩ := lemma_3_70_core ℓ N P hNP hε hgood hℓ hint τ hτP hτ hτ0 hDτ0
+  -- Lemma 3.8.13 (preprint 3.70): `v + τ(v) ∈ C`, and the vanishing coordinates
+  obtain ⟨ρ₁, hρ₁, h70⟩ := lemma_3_8_13_core ℓ N P hNP hε hgood hℓ hint τ hτP hτ hτ0 hDτ0
   -- `‖τ v‖ ≤ ε₀ ‖v‖` near `0`
   obtain ⟨ρ₂, hρ₂, hlip⟩ := exists_lipschitz_small ℓ N hint τ hτ hDτ0 hε₀
   -- `‖Dτ(v)‖ ≤ ε₀ / 4` near `0`
@@ -240,24 +240,24 @@ theorem lemma_3_55_core (P : Submodule ℝ V) (hNP : IsCompl N P) (hPc : IsClose
       intro i hi
       have hiv : ℓ i (v : V) = 0 := (hvan hvW i).2 hi
       have hiS : i ∈ vanIdx (ℓlin ℓ) N := (mem_vanIdx _ _).2 ⟨v, hv, hv0, hiv⟩
-      exact lemma_3_65 (ℓlin ℓ) N P hε hgood hy hiS
+      exact lemma_3_8_8 (ℓlin ℓ) N P hε hgood hy hiS
     exact forall_congr' fun i => imp_congr_right fun hi => by
       rw [map_add, hzero i hi, add_zero]
 
 end Core
 
-/-! ### Lemma 3.55 in the model `ℝⁿ ⊕ W` -/
+/-! ### Lemma 3.6.9 (preprint 3.55) in the model `ℝⁿ ⊕ W` -/
 
 section Model
 
 variable {n : ℕ} {W : ScBanach}
 
-/-- **Lemma 3.55**: `N` in good position to `C = [0,∞)ⁿ ⊕ W` with closed good complement `Y`, and
+/-- **Lemma 3.6.9 (preprint 3.55)**: `N` in good position to `C = [0,∞)ⁿ ⊕ W` with closed good complement `Y`, and
 `τ : N ∩ C → Y` of class `C^1` with `τ(0) = 0`, `Dτ(0) = 0`.  Then for `v ∈ N ∩ C` close to `0`:
 (1) `v + τ(v) ∈ C`; (2), (3) `Y` is a good complement of `N_v = {n + Dτ(v)n | n ∈ N}` with respect
 to the partial quadrant `C_{v + τ(v)}` (in particular `E = N_v ⊕ Y`, both closed).
 Added hypothesis: `Y` closed (the text's `Y = Y₀` is a topological complement). -/
-theorem lemma_3_55 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
+theorem lemma_3_6_9_preprint {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
     [FiniteDimensional ℝ N] (hN : IsInGoodPosition _ (quadrant n W 0) N)
     {Y : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
     (hY : IsGoodComplement _ (quadrant n W 0) N Y)
@@ -279,7 +279,7 @@ theorem lemma_3_55 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W)
   rw [← hDeq] at hτ hDτ0 ⊢
   have hint : (interior (quadCone (ℓlin (coordCLM (W := W))) N)).Nonempty := by
     rw [hDeq]; exact hN.interior_nonempty
-  obtain ⟨ρ, hρ, hmain⟩ := lemma_3_55_core (coordCLM (W := W)) N Y hY.isCompl hYc hε hgood hℓ hint
+  obtain ⟨ρ, hρ, hmain⟩ := lemma_3_6_9_core (coordCLM (W := W)) N Y hY.isCompl hYc hε hgood hℓ hint
     τ hτY hτ hτ0 hDτ0
   refine ⟨ρ, hρ, fun v hv hvρ => ?_⟩
   have hvD : v ∈ quadCone (ℓlin (coordCLM (W := W))) N := by rw [hDeq]; exact hv

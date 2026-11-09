@@ -3,7 +3,7 @@ import Polyfold.Chapter3.GlobalIFTNearbyKernel
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1), the surjectivity of `f'(y)` at the nearby zeros: the perturbation family in
+**Theorem 3.6.8 (preprint 3.54) (1), the surjectivity of `f'(y)` at the nearby zeros: the perturbation family in
 the normalized coordinates (Lemma 2 of the argument).**
 
 # The perturbation `Ξ(u', λ) = Θ(θ⁻¹u', ρ(r(θ⁻¹u'))λ)` and its bounds
@@ -12,8 +12,8 @@ the normalized coordinates (Lemma 2 of the argument).**
 
 Nothing in the text (the repair of the gap of Finding 100, see `GlobalIFTNearbyOntoLemmas.lean`).
 The perturbed section `g + μ ρ(r(·)) λ` of the chart at `x₀` is transported to the normal form of
-Theorem 3.38 by the strong bundle isomorphism `Θ = Λ ∘ Ψ` (`Ψ` the conjugation of Definition
-3.11, `Λ = (split, fiber)` the linear change of Theorem 3.38): its push-forward is `G + μ ê_λ`
+Theorem 3.4.2 (preprint 3.38) by the strong bundle isomorphism `Θ = Λ ∘ Ψ` (`Ψ` the conjugation of Definition
+3.11, `Λ = (split, fiber)` the linear change of Theorem 3.4.2 (preprint 3.38)): its push-forward is `G + μ ê_λ`
 with `ê_λ(u') = Γ_Θ(θ⁻¹u') ρ(r(θ⁻¹u')) λ`.
 
 ## What is formalized
@@ -23,11 +23,11 @@ with `ê_λ(u') = Γ_Θ(θ⁻¹u') ρ(r(θ⁻¹u')) λ`.
   (a composition of the strong bundle maps `R[1]`, `Ψ[1]` with sc-smooth maps); `xiMap_smul`,
   `levelMap_xiMap_smul`: it is linear in `κ` on every level.
 * `Polyfold.ehat`: `ê_λ(y) = Ξ(y, λ₁)` for a smooth `λ` with level-`1` representative `λ₁`;
-  `ehat_isScSmoothGerm`: an sc⁺-perturbation on the germ `ψ(U)` of Theorem 3.38
+  `ehat_isScSmoothGerm`: an sc⁺-perturbation on the germ `ψ(U)` of Theorem 3.4.2 (preprint 3.38)
   (`isScSmooth_const_of_smooth`: constant maps with a smooth value are sc-smooth).
 * `Polyfold.exists_xi_bounds` (**Lemma 2**): for every level `m` there are a radius `δ_m > 0` and
   a constant `M_m` such that on `{‖a‖ < δ_m} × {‖w‖_{m+1} < δ_m} × {‖κ‖_{m+2} < δ_m}` the level map
-  `Ξ_m` is bounded by `1` and `M_m`-Lipschitz in `w` (Proposition 1.18 and the continuity of `Ξ_m`
+  `Ξ_m` is bounded by `1` and `M_m`-Lipschitz in `w` (Proposition 1.2.3 (preprint 1.18) and the continuity of `Ξ_m`
   and of its derivative at `0`).
 * `Polyfold.exists_xi_radii_bounds`: the bounds `c_m(λ) = (2|λ|_{m+2}/δ_m) max(1, M_m)` of
   `(ê_λ)_W` on the λ-independent regions `{‖a‖ < ν_m} × {‖w‖ < ρ_m}` with `ν_m, ρ_m ≤ δ_m`, by
@@ -36,7 +36,7 @@ with `ê_λ(u') = Γ_Θ(θ⁻¹u') ρ(r(θ⁻¹u')) λ`.
 ## What the text leaves implicit, and the choices made (the findings)
 
 Finding 183: the bounds are uniform in `λ` on fixed neighbourhoods because `Ξ` is sc-smooth
-jointly in `(u', λ)` and linear in `λ`; this is where the index raise of Theorem 3.38 is used
+jointly in `(u', λ)` and linear in `λ`; this is where the index raise of Theorem 3.4.2 (preprint 3.38) is used
 (`Ξ` is `C¹` from level `m+1` to level `m+1`, i.e. from shifted level `m` to shifted level `m`).
 -/
 
@@ -251,7 +251,7 @@ theorem ehat_isScSmooth (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRet
     (xiMap_isScSmooth (𝒮 := 𝒮) hU hR hCt hU' hΨ) hpair hmaps
   exact this.congr hD fun _ _ => rfl
 
-/-- `ψ(U)_m ⊇ U⁰_m`: the germ of Theorem 3.38 lies in `glue⁻¹(U')`. -/
+/-- `ψ(U)_m ⊇ U⁰_m`: the germ of Theorem 3.4.2 (preprint 3.38) lies in `glue⁻¹(U')`. -/
 lemma pushGerm₀_U_subset (hG : 𝒮.G.U 0 ⊆ U') (m : ℕ) :
     𝒮.pushGerm₀.U m ⊆ 𝒮.E₀'.lvlSet (𝒮.glue₀ 0 ⁻¹' U') m := by
   intro y hy
@@ -259,7 +259,7 @@ lemma pushGerm₀_U_subset (hG : 𝒮.G.U 0 ⊆ U') (m : ℕ) :
   rw [ScBanach.mem_lvlSet, mem_preimage, ← 𝒮.glue₀.toBase_comm]
   exact hG (𝒮.G.toBase_mem hy)
 
-/-- **`ê_λ` is an sc⁺-perturbation on the germ `ψ(U)` of Theorem 3.38.** -/
+/-- **`ê_λ` is an sc⁺-perturbation on the germ `ψ(U)` of Theorem 3.4.2 (preprint 3.38).** -/
 theorem ehat_isScSmoothGerm (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
     (hCt : IsPartialQuadrant (ScBanach.const Pn) Ct)
     (hU' : IsRelOpenInQuadrant (ScBanach.paramProd Pn W) (Ct ×ˢ univ) U')
@@ -298,7 +298,7 @@ theorem levelMap_ehat (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetra
 `‖w‖ < δ` on `S` whose points `((a, w), κ)` lie in the level-`(m+1)` domain of `Ξ`, the level
 map `Ξ_m = Ξ_m ∘ ι` satisfies `‖Ξ_m((a, w), κ)‖ ≤ 1` and
 `‖Ξ_m((a, w), κ) − Ξ_m((a, w'), κ)‖ ≤ M ‖w − w'‖` on `S`.  (Continuity of `Ξ_m` and of its
-derivative at `0` — Proposition 1.18 — and the mean value inequality.) -/
+derivative at `0` — Proposition 1.2.3 (preprint 1.18) — and the mean value inequality.) -/
 theorem exists_xi_bounds (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
     (hCt : IsPartialQuadrant (ScBanach.const Pn) Ct)
     (hU' : IsRelOpenInQuadrant (ScBanach.paramProd Pn W) (Ct ×ˢ univ) U')

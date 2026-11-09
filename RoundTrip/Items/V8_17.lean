@@ -6,7 +6,7 @@ import RoundTrip.Blind.V8_17
 transformation).
 
 The item lists the definition `EpNatTrans.tangent` (vocabulary) and the theorem
-`proposition_8_1`; `A` is its type, universes at `0` (B lives in `Type`): for every project
+`proposition_8_1_14`; `A` is its type, universes at `0` (B lives in `Type`): for every project
 natural transformation `τ : Φ → Ψ` there is `Tτ : EpNatTrans Φ.tangent Ψ.tangent` with
 `Tτ.app = Tτ` (Part I's tangent map of `τ.app`), and `Φ ≃ Ψ → TΦ ≃ TΨ`.
 
@@ -29,9 +29,9 @@ namespace RoundTrip.V8_17
 open Polyfold
 
 /-- The project's statement (universes at `0`). -/
-def A : Prop := type_of% @Polyfold.proposition_8_1.{0, 0}
+def A : Prop := type_of% @Polyfold.proposition_8_1_14.{0, 0}
 
-theorem A_holds : A := @Polyfold.proposition_8_1.{0, 0}
+theorem A_holds : A := @Polyfold.proposition_8_1_14.{0, 0}
 
 section Glue
 variable {Obj Mor Obj' Mor' : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -90,8 +90,8 @@ theorem B_to_A : B → A := by
   rintro ⟨σ⟩
   exact ⟨(tangent_of_B σ (hB Obj Mor Obj' Mor' X Y Φ Ψ σ.app (proj_to_B σ))).choose⟩
 
-#rt_check RoundTrip.V8_17.A_to_B [Polyfold.proposition_8_1]
-#rt_check RoundTrip.V8_17.B_to_A [Polyfold.proposition_8_1]
-#rt_overlap RoundTrip.V8_17.B_to_A [Polyfold.proposition_8_1]
+#rt_check RoundTrip.V8_17.A_to_B [Polyfold.proposition_8_1_14]
+#rt_check RoundTrip.V8_17.B_to_A [Polyfold.proposition_8_1_14]
+#rt_overlap RoundTrip.V8_17.B_to_A [Polyfold.proposition_8_1_14]
 
 end RoundTrip.V8_17

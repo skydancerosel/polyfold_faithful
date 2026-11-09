@@ -3,15 +3,15 @@ import Polyfold.Chapter5.BumpFunctions
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.3,
-**Remark 5.12** (the completion of the allowable sc⁺-sections) *(book 2017: Remark 5.3; see
+**Remark 5.3.4 (preprint 5.12)** (the completion of the allowable sc⁺-sections) *(book 2017: Remark 5.3; see
 `BookConcordance.md`)*.
 
 # The solution set of `f + s` for `s` in the completion of `Γ^{+,1}_U(P)` is compact
 
 ## The text, paraphrased
 
-(Remark 5.12) Let `f` be an sc-Fredholm section with compact solution set, `N` an auxiliary norm
-and `U` an open neighbourhood of `f⁻¹(0)` adapted to `N` as in the properness result (Theorem 5.5).
+(Remark 5.3.4 (preprint 5.12)) Let `f` be an sc-Fredholm section with compact solution set, `N` an auxiliary norm
+and `U` an open neighbourhood of `f⁻¹(0)` adapted to `N` as in the properness result (Theorem 5.2.2 (preprint 5.5)).
 On `Γ^{+,1}_U(P)` (the sc⁺-sections with support in `U` and `N(s) ≤ 1`) take the distance
 `ρ(s, s') = sup_x N(s(x) − s'(x))`.  Then for every `s` in the completion of `Γ^{+,1}_U(P)` the
 solution set of `f + s = 0` is still compact.
@@ -25,28 +25,28 @@ solution set of `f + s = 0` is still compact.
   `StrongBundle.isInAllowableCompletion_of_mem` (the allowable sections themselves).
 * `StrongBundle.IsInAllowableCompletion.isZeroAt_of_not_mem` and `.auxLe_one`: a point of the
   completion vanishes off `U` and has `N(s(x)) ≤ 1` everywhere (the hypotheses of the project's
-  `Polyfold.remark_5_12`).
+  `Polyfold.remark_5_3_4`).
 * `StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd` (**the solution set of
   `f + s` is closed**, the step the text does not discuss): for a continuous section `f` and `s` in
   the completion, `{x | f(x) + s(x) = 0}` is closed in `X`.
-* `Polyfold.remark_5_12_completion` (**Remark 5.12 as stated**, for `U` with
-  `cl{x ∈ U | N(f(x)) ≤ 1}` compact) and `Polyfold.remark_5_12_of_isScFredholmSection` (for an
-  sc-Fredholm section with compact solution set, with the neighbourhood `U` of Theorem 5.5).
+* `Polyfold.remark_5_3_4_completion` (**Remark 5.3.4 (preprint 5.12) as stated**, for `U` with
+  `cl{x ∈ U | N(f(x)) ≤ 1}` compact) and `Polyfold.remark_5_3_4_of_isScFredholmSection` (for an
+  sc-Fredholm section with compact solution set, with the neighbourhood `U` of Theorem 5.2.2 (preprint 5.5)).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The completion is represented by sections.**  The fibres `(Y_{0,1})_x` are complete for `N`
-  (Definition 5.1 (1)), so a `ρ`-Cauchy sequence in `Γ^{+,1}_U(P)` converges uniformly (in `N`)
+  (Definition 5.1.1 (preprint 5.1) (1)), so a `ρ`-Cauchy sequence in `Γ^{+,1}_U(P)` converges uniformly (in `N`)
   to a section with values in `Y_{0,1}`; the remark speaks of `f + s` for `s` in the completion,
   which presupposes this identification.  `IsInAllowableCompletion` is the property "uniform
   `N`-limit of allowable sections"; the metric space `(Γ^{+,1}_U(P), ρ)` and its completion are
   not constructed (Chapter 5 item 89).
-* **Closedness is the missing step.**  `Polyfold.remark_5_12` (in `Compactness.lean`) gives
+* **Closedness is the missing step.**  `Polyfold.remark_5_3_4` (in `Compactness.lean`) gives
   `S_{f+s} ⊆ {x ∈ U | N(f(x)) ≤ 1}` and the compactness of the closure.  The continuity of a
   limit `s` is not part of the data (`ρ` is a uniform distance in `N`, not in the topology of `Y`),
   so the closedness of `S_{f+s}` has to be proved.  It is proved by a
   chart argument: near a limit point `x` of `S_{f+s}`, in a strong bundle chart `Φ` of the atlas,
-  Lemma 5.2's bound `|Φ[1](w)₂|₁ ≤ A·N(w)` (`StrongBundle.IsAuxNorm.exists_norm_liftOne_le`)
+  Lemma 5.1.2 (preprint 5.2)'s bound `|Φ[1](w)₂|₁ ≤ A·N(w)` (`StrongBundle.IsAuxNorm.exists_norm_liftOne_le`)
   turns `N(s − s') ≤ ε` into `|Φ(s(y))₂ − Φ(s'(y))₂|₀ ≤ ‖ι‖·A·ε` near `x` for an allowable `s'`;
   `y ↦ Φ(f(y))₂ + Φ(s'(y))₂` is continuous at `x` (`s'` is sc⁺, so continuous) and is small at the
   zeros of `f + s`, so `|Φ(f(x))₂ + Φ(s(x))₂|₀ ≤ 2‖ι‖Aε` for every `ε`, i.e. `f(x) + s(x) = 0`.
@@ -77,7 +77,7 @@ def sectionOneVec {s : X → Y} (hs : IsSection P s) (hs1 : ∀ x, s x ∈ B.one
   ⟨⟨s x, hs x⟩, hs1 x⟩
 
 variable (B) in
-/-- **The completion of `(Γ^{+,1}_U(P), ρ)`, as sections** (Remark 5.12): `s` is a section of `P`
+/-- **The completion of `(Γ^{+,1}_U(P), ρ)`, as sections** (Remark 5.3.4 (preprint 5.12)): `s` is a section of `P`
 with values in `Y_{0,1}` which is a uniform `N`-limit of allowable sections, i.e. for every
 `ε > 0` some `s' ∈ Γ^{+,1}_U(P)` has `ρ(s, s') = sup_x N(s(x) − s'(x)) ≤ ε` (the difference
 taken in the fibre `(Y_{0,1})_x`).  Since the fibres are complete for `N`, these are the limits
@@ -89,7 +89,7 @@ structure IsInAllowableCompletion (N : B.One → ℝ) (U : Set X) (s : X → Y) 
     N (B.toOne (B.sectionOneVec isSection mem_oneSet x -
       B.sectionOneVec hs'.1.1 hs'.1.mem_oneSet x)) ≤ ε
 
-/-- Remark 5.12: the allowable sections lie in the completion (the constant sequence; round-trip
+/-- Remark 5.3.4 (preprint 5.12): the allowable sections lie in the completion (the constant sequence; round-trip
 item V5.22). -/
 theorem isInAllowableCompletion_of_mem {N : B.One → ℝ} (hN : B.IsAuxNorm N) {U : Set X}
     {s : X → Y} (hs : s ∈ B.allowableSections N U) : B.IsInAllowableCompletion N U s := by
@@ -99,7 +99,7 @@ theorem isInAllowableCompletion_of_mem {N : B.One → ℝ} (hN : B.IsAuxNorm N) 
   rw [(hN.fiber x).map_zero]
   exact hε.le
 
-/-- An allowable section vanishes off `U` (its support lies in `U`; used for Remark 5.12,
+/-- An allowable section vanishes off `U` (its support lies in `U`; used for Remark 5.3.4 (preprint 5.12),
 round-trip item V5.22). -/
 lemma sectionOneVec_eq_zero_of_mem_allowableSections {N : B.One → ℝ} {U : Set X} {s : X → Y}
     (hs : s ∈ B.allowableSections N U) {x : X} (hx : x ∉ U) :
@@ -113,7 +113,7 @@ namespace IsInAllowableCompletion
 
 variable {N : B.One → ℝ} {U : Set X} {s : X → Y}
 
-/-- **A point of the completion vanishes off `U`** (Remark 5.12, "both survive uniform limits";
+/-- **A point of the completion vanishes off `U`** (Remark 5.3.4 (preprint 5.12), "both survive uniform limits";
 round-trip item V5.22): `N(s(x)) ≤ ε` for every `ε` at `x ∉ U`. -/
 theorem isZeroAt_of_not_mem (hN : B.IsAuxNorm N) (hs : B.IsInAllowableCompletion N U s) {x : X}
     (hx : x ∉ U) : IsZeroAt P s x := by
@@ -128,7 +128,7 @@ theorem isZeroAt_of_not_mem (hN : B.IsAuxNorm N) (hs : B.IsInAllowableCompletion
   have h1 := (hN.fiber x).eq_zero _ h0
   exact congrArg (fun v : B.oneFiber x => ((v : P ⁻¹' {x}) : Y)) h1
 
-/-- **A point of the completion has `N(s(x)) ≤ 1` everywhere** (Remark 5.12; round-trip item
+/-- **A point of the completion has `N(s(x)) ≤ 1` everywhere** (Remark 5.3.4 (preprint 5.12); round-trip item
 V5.22): the triangle inequality in the fibre and `N(s'(x)) ≤ 1` for the allowable `s'`. -/
 theorem auxLe_one (hN : B.IsAuxNorm N) (hs : B.IsInAllowableCompletion N U s) (x : X) :
     B.AuxLe N (s x) 1 := by
@@ -146,8 +146,8 @@ theorem auxLe_one (hN : B.IsAuxNorm N) (hs : B.IsInAllowableCompletion N U s) (x
   linarith
 
 /-- **The solution set of `f + s` is closed** for a continuous section `f` and a point `s` of the
-completion of `Γ^{+,1}_U(P)` (Remark 5.12; the step the text does not discuss).  *Proof*: let `x`
-be a limit point of `S_{f+s}`, and `Φ` a strong bundle chart of the atlas at `x`.  Lemma 5.2
+completion of `Γ^{+,1}_U(P)` (Remark 5.3.4 (preprint 5.12); the step the text does not discuss).  *Proof*: let `x`
+be a limit point of `S_{f+s}`, and `Φ` a strong bundle chart of the atlas at `x`.  Lemma 5.1.2 (preprint 5.2)
 (`IsAuxNorm.exists_norm_liftOne_le`) gives `|Φ(w)₂|₀ ≤ κ·A·N(w)` for `w ∈ Y_{0,1}` over a
 neighbourhood `V` of `x` (`κ = ‖ι : F₁ → F₀‖`).  For an allowable `s'` with `ρ(s, s') ≤ ε` the
 principal parts satisfy `|Φ(s(y))₂ − Φ(s'(y))₂|₀ ≤ κAε` on `V`; `y ↦ |Φ(f(y))₂ + Φ(s'(y))₂|₀` is
@@ -165,7 +165,7 @@ theorem isClosed_solutionSet_sectionAdd (hN : B.IsAuxNorm N) {f : X → Y} (hfc 
   have hκ0 : 0 ≤ κ := norm_nonneg _
   have hsrc : ∀ {y : X} (v : P ⁻¹' {y}), y ∈ c.φ.source → (v : Y) ∈ c.toPartialEquiv.source :=
     fun {y} v hy => c.mem_source_of_proj (by rw [v.2]; exact hy)
-  -- the chart estimate (Lemma 5.2)
+  -- the chart estimate (Lemma 5.1.2 (preprint 5.2))
   have key : ∀ y ∈ V, ∀ v : B.oneFiber y,
       ‖(c ((v : P ⁻¹' {y}) : Y)).2‖ ≤ κ * (A * N (B.toOne v)) := by
     intro y hy v
@@ -258,39 +258,39 @@ end StrongBundle
 
 open StrongBundle
 
-/-- **Remark 5.12** (as stated): let `f` be a continuous section, `N` an auxiliary norm and `U` an
+/-- **Remark 5.3.4 (preprint 5.12)** (as stated): let `f` be a continuous section, `N` an auxiliary norm and `U` an
 open neighbourhood of `f⁻¹(0)` adapted to `N` (`cl{x ∈ U | N(f(x)) ≤ 1}` compact, as in Theorem
 5.5).  For every `s` in the completion of `(Γ^{+,1}_U(P), ρ)` the solution set of `f + s = 0` is
 compact (and lies in `{x ∈ U | N(f(x)) ≤ 1}`).  *Proof*: `s` vanishes off `U` and has
-`N(s) ≤ 1` (`IsInAllowableCompletion.isZeroAt_of_not_mem`, `.auxLe_one`), so `remark_5_12` gives
+`N(s) ≤ 1` (`IsInAllowableCompletion.isZeroAt_of_not_mem`, `.auxLe_one`), so `remark_5_3_4` gives
 the inclusion and the compactness of the closure; the solution set is closed
 (`IsInAllowableCompletion.isClosed_solutionSet_sectionAdd`).  Round-trip item V5.22. -/
-theorem remark_5_12_completion {N : B.One → ℝ} (hN : B.IsAuxNorm N) {f : X → Y}
+theorem remark_5_3_4_completion {N : B.One → ℝ} (hN : B.IsAuxNorm N) {f : X → Y}
     (hfc : Continuous f) (hf : IsSection P f) {U : Set X} (hSU : solutionSet P f ⊆ U)
     (hU : IsCompact (closure {x ∈ U | B.AuxLe N (f x) 1})) {s : X → Y}
     (hs : B.IsInAllowableCompletion N U s) :
     solutionSet P (sectionAdd P f s) ⊆ {x ∈ U | B.AuxLe N (f x) 1} ∧
       IsCompact (solutionSet P (sectionAdd P f s)) := by
-  obtain ⟨hsub, hcl⟩ := remark_5_12 hN hf hSU hU hs.isSection
+  obtain ⟨hsub, hcl⟩ := remark_5_3_4 hN hf hSU hU hs.isSection
     (fun x hx => hs.isZeroAt_of_not_mem hN hx) (fun x => hs.auxLe_one hN x)
   have hclosed := hs.isClosed_solutionSet_sectionAdd hN hfc hf
   rw [hclosed.closure_eq] at hcl
   exact ⟨hsub, hcl⟩
 
-/-- **Remark 5.12 for an sc-Fredholm section** (the text's setting): if `f` is sc-Fredholm with
+/-- **Remark 5.3.4 (preprint 5.12) for an sc-Fredholm section** (the text's setting): if `f` is sc-Fredholm with
 compact solution set and `N` is an auxiliary norm, there is an open neighbourhood `U` of `f⁻¹(0)`
-(the one of Theorem 5.5, `cl{x ∈ U | N(f(x)) ≤ 1}` compact) such that for every `s` in the
+(the one of Theorem 5.2.2 (preprint 5.5), `cl{x ∈ U | N(f(x)) ≤ 1}` compact) such that for every `s` in the
 completion of `(Γ^{+,1}_U(P), ρ)` the solution set of `f + s = 0` is compact.  Round-trip item
 V5.22. -/
-theorem remark_5_12_of_isScFredholmSection {f : X → Y} (hf : B.IsScFredholmSection f)
+theorem remark_5_3_4_of_isScFredholmSection {f : X → Y} (hf : B.IsScFredholmSection f)
     (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ} (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
       IsCompact (closure {x ∈ U | B.AuxLe N (f x) 1}) ∧
       ∀ s : X → Y, B.IsInAllowableCompletion N U s →
         IsCompact (solutionSet P (sectionAdd P f s)) := by
-  obtain ⟨U, hUo, hSU, hK⟩ := (theorem_5_5 hf hS).2 N hN
+  obtain ⟨U, hUo, hSU, hK⟩ := (theorem_5_2_2_preprint hf hS).2 N hN
   have hfc : Continuous f := continuousOn_univ.1 hf.isScSmooth.2.continuousOn
   exact ⟨U, hUo, hSU, hK, fun s hs =>
-    (remark_5_12_completion hN hfc hf.isScSmooth.1 hSU hK hs).2⟩
+    (remark_5_3_4_completion hN hfc hf.isScSmooth.1 hSU hK hs).2⟩
 
 end Polyfold

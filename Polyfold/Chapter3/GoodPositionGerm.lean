@@ -5,21 +5,21 @@ import Polyfold.Chapter2.TameRetracts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Definition 3.53** (good position of an sc-Fredholm germ) in the chart of Definition 3.11, and
-the linear part of the proof of **Theorem 3.54**: if the germ is in good position then `Dg(0)` is
+**Definition 3.6.6 (preprint 3.53)** (good position of an sc-Fredholm germ) in the chart of Definition 3.1.11 (preprint 3.11), and
+the linear part of the proof of **Theorem 3.6.8 (preprint 3.54)**: if the germ is in good position then `Dg(0)` is
 surjective and `ker Dg(0)` is in good position to the partial quadrant `C` in `E`, and the same
 holds for the push-forward `Ψ_*(g) = h + t` under the conjugating strong bundle isomorphism, which
-are the hypotheses of Theorem 3.47 (local germ solvability).
+are the hypotheses of Theorem 3.5.11 (preprint 3.47) (local germ solvability).
 
 # Good position of an sc-Fredholm germ
 
 ## The text, paraphrased
 
-(Definition 3.53) An sc-Fredholm germ `(f, x)` of a tame strong bundle with `f(x) = 0` is in good
+(Definition 3.6.6 (preprint 3.53)) An sc-Fredholm germ `(f, x)` of a tame strong bundle with `f(x) = 0` is in good
 position if (1) `f'(x) : T_xX → Y_x` is surjective and (2) if `d_X(x) ≥ 1`, `ker f'(x) ⊆ T_xX` is in
 good position to the partial cone `C_xX` in the tangent space `T_xX`.
 
-(Proof of Theorem 3.54, the linear part) "From the postulated surjectivity of `f'(x)` we deduce
+(Proof of Theorem 3.6.8 (preprint 3.54), the linear part) "From the postulated surjectivity of `f'(x)` we deduce
 that `Tf̃(0) : T₀O → K₀` is surjective.  Hence, by Proposition 3.5, `Dg(0)` is surjective.  Since
 `ker f'(x)` is in good position to `C_xX` and `Tϕ(x)(C_xX) = C₀O = T₀O ∩ C`, the kernel
 `ker Tf̃(0)` is in good position to `C₀O`.  The retract `O` is tame, hence `T₀O` has the
@@ -30,50 +30,50 @@ the filler, `ker Dg(0)` is in good position to `C` in `E`."
 
 ## What is formalized
 
-* `Polyfold.IsInGoodPositionIn E T C N`: Definition 3.21 inside a subspace `T ⊆ E₀` (`N ⊆ T`,
+* `Polyfold.IsInGoodPositionIn E T C N`: Definition 3.1.24 (preprint 3.21) inside a subspace `T ⊆ E₀` (`N ⊆ T`,
   `N ∩ C` has nonempty interior in `N`, and `N` has a good complement `P ⊆ T` in `T`); for `T = E₀`
   it is `IsInGoodPosition` (`isInGoodPositionIn_top_iff`).
 * `Polyfold.IsInGoodPositionIn.isInGoodPosition`: **the transport lemma** of the proof of
-  Theorem 3.54: if `π` is a bounded idempotent with `(1 − π)E ⊆ E₀ = {v | (Tv)_i = 0 ∀ i}` (the
+  Theorem 3.6.8 (preprint 3.54): if `π` is a bounded idempotent with `(1 − π)E ⊆ E₀ = {v | (Tv)_i = 0 ∀ i}` (the
   minimal subspace at `0`), then good position inside `T = πE` implies good position in `E`, with
   the good complement `P ⊕ (1 − π)E` and the constant `ε/(‖π‖ + 1)`.
 * `Polyfold.IsFillerOf.ker_deriv_le_range`: `ker Dg(0) ⊆ T₀O = Dr(0)E` (the text's
   `ker Tf̃(0) ⊕ {0} = ker Dg(0)`), and `IsFillerOf.map_ker_fillerRestrict`: the kernel of
   `Tf̃(0) = Dg(0)|_{T₀O}` is `ker Dg(0)`.
-* `Polyfold.IsGoodPositionAt hU hR h0 g`: **Definition 3.53 in the chart**: `Tf̃(0) : T₀O → K₀` is
+* `Polyfold.IsGoodPositionAt hU hR h0 g`: **Definition 3.6.6 (preprint 3.53) in the chart**: `Tf̃(0) : T₀O → K₀` is
   onto and `ker Dg(0) (= ker Tf̃(0))` is in good position to `C₀O = T₀O ∩ C` inside `T₀O`.
   `IsGoodPositionAt.surjective_fillerRestrict` identifies (1) with the surjectivity of
   `fillerRestrict`.
-* `Polyfold.theorem_3_54_linear_wholeChart`: **the linear part of Theorem 3.54**: for a filled version `g`
-  at a zero with the germ in good position, and `(1 − Dr(0))E ⊆ E₀` (Proposition 2.35 for the tame
+* `Polyfold.theorem_3_6_8_linear_wholeChart`: **the linear part of Theorem 3.6.8 (preprint 3.54)**: for a filled version `g`
+  at a zero with the germ in good position, and `(1 − Dr(0))E ⊆ E₀` (Proposition 2.5.3 (preprint 2.35) for the tame
   retraction `r`), `Dg(0)` is surjective and `ker Dg(0)` is in good position to `C` in `E`;
-  `theorem_3_54_linear_of_isTameWith_wholeChart` derives the hypothesis on `(1 − Dr(0))E` from a tame
-  `ScRetraction` with the same domain and map (Proposition 2.35).
+  `theorem_3_6_8_linear_of_isTameWith_wholeChart` derives the hypothesis on `(1 − Dr(0))E` from a tame
+  `ScRetraction` with the same domain and map (Proposition 2.5.3 (preprint 2.35)).
 * `Polyfold.scDeriv_mem_iff_of_inverse`: the text's "`C' = Tψ(0)C`" for an sc-diffeomorphism
   `ψ : U → U'` between relatively open subsets of partial quadrants with `ψ(0) = 0` (the one-sided
-  sign argument of Lemma 2.29 for `ψ` and `ψ⁻¹`).
+  sign argument of Lemma 2.4.9 (preprint 2.29) for `ψ` and `ψ⁻¹`).
 * `Polyfold.pushforward Ψ Ψ' g` (`Ψ_*(g)(u') = (Ψ(ψ⁻¹(u'), g(ψ⁻¹(u'))))₂`, the text's `h + t`),
   `IsStrongBundleIso.pushforward_linearization_wholeChart` (`D(Ψ_*g)(0) = Γ(0) ∘ Dg(0) ∘ Dψ(0)⁻¹`),
   `IsStrongBundleIso.pushforward_surjective_wholeChart`, `IsStrongBundleIso.pushforward_ker_isInGoodPosition_wholeChart`
-  (`N' = ker D(h + t)(0) = Dψ(0)(ker Dg(0))` is in good position to `C'`, by Lemma 3.45).
-* `Polyfold.StrongBundle.IsGoodPositionGermWholeChart f x₀`: Definition 3.53 for a section of a strong
-  bundle (the data of Definition 3.11 with the germ in good position in the chart), and
-  `theorem_3_54_pushforward_section_wholeChart`, the bundle form of `theorem_3_54_pushforward_wholeChart`.
-* `Polyfold.theorem_3_54_pushforward_wholeChart`: **the step of Theorem 3.54 before Theorem 3.47**: under the
-  hypotheses of Proposition 3.52 with the germ in good position and `(1 − Dr(0))E ⊆ E₀`, for any
+  (`N' = ker D(h + t)(0) = Dψ(0)(ker Dg(0))` is in good position to `C'`, by Lemma 3.5.9 (preprint 3.45)).
+* `Polyfold.StrongBundle.IsGoodPositionGermWholeChart f x₀`: Definition 3.6.6 (preprint 3.53) for a section of a strong
+  bundle (the data of Definition 3.1.11 (preprint 3.11) with the germ in good position in the chart), and
+  `theorem_3_6_8_pushforward_section_wholeChart`, the bundle form of `theorem_3_6_8_pushforward_wholeChart`.
+* `Polyfold.theorem_3_6_8_pushforward_wholeChart`: **the step of Theorem 3.6.8 (preprint 3.54) before Theorem 3.5.11 (preprint 3.47)**: under the
+  hypotheses of Proposition 3.6.5 (preprint 3.52) with the germ in good position and `(1 − Dr(0))E ⊆ E₀`, for any
   conjugating isomorphism `Ψ` with `ψ(0) = 0` the push-forward `Ψ_*(g)` is sc-smooth, vanishes at
   `0`, and `D(Ψ_*g)(0)` is a surjective Fredholm operator whose kernel is in good position to `C'`.
-  The next steps of Theorem 3.54 are in `GlobalIFT.lean`: Theorem 3.47 (`LocalSolvability.lean`)
+  The next steps of Theorem 3.6.8 (preprint 3.54) are in `GlobalIFT.lean`: Theorem 3.5.11 (preprint 3.47) (`LocalSolvability.lean`)
   applied to `h + t` gives the graph description (3) of the solution set
-  (`Polyfold.theorem_3_54_graph_wholeChart`), and Theorem 3.27 (`TangentGerm.lean`) the manifold structure
-  from the tangent germ property (`theorem_3_57_of_tangentGerm`, `theorem_3_56_of_tangentGerm`).
-  The good position at the nearby zeros (Corollary 3.41 in `SolutionLinearization.lean`, Lemma
+  (`Polyfold.theorem_3_6_8_graph_wholeChart`), and Theorem 3.2.3 (preprint 3.27) (`TangentGerm.lean`) the manifold structure
+  from the tangent germ property (`theorem_3_6_11_of_tangentGerm`, `theorem_3_6_10_of_tangentGerm`).
+  The good position at the nearby zeros (Corollary 3.5.3 (preprint 3.41) in `SolutionLinearization.lean`, Lemma
   3.55 in `GoodPositionOpen.lean`, transported to charts centred at those zeros) is not assembled
   (Findings, Chapter 3, item 87).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Condition (2) of Definition 3.53 is stated unconditionally.**  If `d_X(x) = 0` the partial
+* **Condition (2) of Definition 3.6.6 (preprint 3.53) is stated unconditionally.**  If `d_X(x) = 0` the partial
   cone is the whole tangent space and (2) holds for every finite-dimensional subspace; the case
   distinction of the text is therefore not needed.
 * **The projection onto `T₀O` along `ker Dr(0)` is `Dr(0)`.**  The estimate `|z| ≤ ε|n|` for the
@@ -84,15 +84,15 @@ the filler, `ker Dg(0)` is in good position to `C` in `E`."
   the `ℝⁿ`-coordinates of `k` vanish.
 * **`ker Dg(0) ⊆ T₀O`** follows from property (3) of the filler ((1 − ρ(0))Dg(0) injective on
   `ker Dr(0)`) and `ρ(0)Dg(0)Dr(0) = Dg(0)Dr(0)`; the text's "by the properties of the filler".
-* **Tameness enters only through `(1 − Dr(0))E ⊆ E₀`** (Proposition 2.35); the theorem is stated
+* **Tameness enters only through `(1 − Dr(0))E ⊆ E₀`** (Proposition 2.5.3 (preprint 2.35)); the theorem is stated
   with this inclusion as hypothesis and derived for a tame `ScRetraction`.
 * **"`C' = Tψ(0)C`"** is not part of the data of a conjugation (`IsConjugateToBasicGerm`); it is a
-  theorem (`scDeriv_mem_iff_of_inverse`), proved by the sign argument of Lemma 2.29 applied to `ψ`
+  theorem (`scDeriv_mem_iff_of_inverse`), proved by the sign argument of Lemma 2.4.9 (preprint 2.29) applied to `ψ`
   and `ψ⁻¹`, since `C_0 = C` at the corner `0` (`partialQuadrantAtWith_zero`).
 * **The push-forward is linearized by the chain rule** `D(κ ∘ ψ⁻¹)(0) = Dκ(0)Dψ⁻¹(0)` with
   `κ(u) = (Ψ(u, g(u)))₂` and `Dκ(0) = Γ(0)Dg(0)` (`g(0) = 0`, `Ψ` linear on the fibres); the text
-  writes `Ψ_*(g) = h + t` and uses Propositions 3.10 and 1.10 for `D(h + t)(0)`; here the Fredholm
-  property of `D(Ψ_*g)(0)` is transported from `Dg(0)` (Proposition 3.52) through the isomorphisms.
+  writes `Ψ_*(g) = h + t` and uses Propositions 3.1.10 and 1.1.11 (preprint 3.10 and 1.10) for `D(h + t)(0)`; here the Fredholm
+  property of `D(Ψ_*g)(0)` is transported from `Dg(0)` (Proposition 3.6.5 (preprint 3.52)) through the isomorphisms.
 -/
 
 open Set Filter Topology Function Module ContinuousLinearMap
@@ -109,10 +109,10 @@ section GoodPositionIn
 
 variable {C : Set (E 0)}
 
-/-- **Definition 3.21 inside a subspace `T ⊆ E₀`**: `N ⊆ T`, the interior of `N ∩ C` in `N` is
+/-- **Definition 3.1.24 (preprint 3.21) inside a subspace `T ⊆ E₀`**: `N ⊆ T`, the interior of `N ∩ C` in `N` is
 nonempty, and `N` has a good complement `P ⊆ T` in `T` (`T = N ⊕ P` with the constant `ε`).  For
 `T = E₀` this is `IsInGoodPosition`; for `T = T₀O` and `C` the partial quadrant it is good position
-to the partial cone `C₀O = T₀O ∩ C` in `T₀O` (Definition 3.53 (2)). -/
+to the partial cone `C₀O = T₀O ∩ C` in `T₀O` (Definition 3.6.6 (preprint 3.53) (2)). -/
 structure IsInGoodPositionIn (E : ScBanach) (T : Submodule ℝ (E 0)) (C : Set (E 0))
     (N : Submodule ℝ (E 0)) : Prop where
   le : N ≤ T
@@ -131,9 +131,9 @@ theorem isInGoodPositionIn_top_iff {N : Submodule ℝ (E 0)} :
 
 variable {n : ℕ} {W : ScBanach}
 
-/-- **The transport lemma of the proof of Theorem 3.54.**  Let `π : E₀ → E₀` be a bounded
+/-- **The transport lemma of the proof of Theorem 3.6.8 (preprint 3.54).**  Let `π : E₀ → E₀` be a bounded
 idempotent with `(1 − π)E₀ ⊆ E₀ = {v | (Tv)_i = 0 for all i}` (the minimal subspace at `0`,
-Proposition 2.35 for `π = Dr(0)`), and `C = T⁻¹([0,∞)ⁿ ⊕ W)`.  If `N` is in good position to `C`
+Proposition 2.5.3 (preprint 2.35) for `π = Dr(0)`), and `C = T⁻¹([0,∞)ⁿ ⊕ W)`.  If `N` is in good position to `C`
 inside `T = πE₀` then `N` is in good position to `C` in `E₀`: a good complement is `P ⊕ (1 − π)E₀`
 with the constant `ε/(‖π‖ + 1)`. -/
 theorem IsInGoodPositionIn.isInGoodPosition (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W))
@@ -257,7 +257,7 @@ end IsFillerOf
 
 end Kernel
 
-/-! ### Definition 3.53 in the chart -/
+/-! ### Definition 3.6.6 (preprint 3.53) in the chart -/
 
 section Def353
 
@@ -265,7 +265,7 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- **Definition 3.53 in the chart of Definition 3.11**: for the filled version `g` of the
+/-- **Definition 3.6.6 (preprint 3.53) in the chart of Definition 3.1.11 (preprint 3.11)**: for the filled version `g` of the
 principal part at the zero `0`, the sc-Fredholm germ is **in good position** if (1)
 `Tf̃(0) = Dg(0)|_{T₀O} : T₀O → K₀` is onto, and (2) `ker Tf̃(0) = ker Dg(0)` is in good position to
 the partial cone `C₀O = T₀O ∩ C` inside `T₀O = Dr(0)E` (`IsInGoodPositionIn`).  (2) is stated
@@ -276,7 +276,7 @@ structure IsGoodPositionAt (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundle
   kernel : IsInGoodPositionIn E (rangeS (scDeriv U (r R) 0)) C
     (LinearMap.ker (scDeriv U g 0 : E 0 →ₗ[ℝ] F 0))
 
-/-- Condition (1) of Definition 3.53 is the surjectivity of `fillerRestrict`. -/
+/-- Condition (1) of Definition 3.6.6 (preprint 3.53) is the surjectivity of `fillerRestrict`. -/
 theorem IsGoodPositionAt.surjective_fillerRestrict {hU : IsRelOpenInQuadrant E C U}
     {hR : IsStrongBundleRetraction U R} {h0 : (0 : E 0) ∈ U} {g : E 0 → F 0}
     (hgp : IsGoodPositionAt hU hR h0 g)
@@ -289,11 +289,11 @@ theorem IsGoodPositionAt.surjective_fillerRestrict {hU : IsRelOpenInQuadrant E C
 
 variable {n : ℕ} {W : ScBanach}
 
-/-- **Theorem 3.54, the linear part**: let `g` be a filled version of the principal part `f̂` of a
-section at a zero (`f̂(0) = 0`), with the germ in good position (Definition 3.53), and assume
-`(1 − Dr(0))E ⊆ E₀` (Proposition 2.35 for the tame retraction `r`; `E₀` the minimal subspace at
+/-- **Theorem 3.6.8 (preprint 3.54), the linear part**: let `g` be a filled version of the principal part `f̂` of a
+section at a zero (`f̂(0) = 0`), with the germ in good position (Definition 3.6.6 (preprint 3.53)), and assume
+`(1 − Dr(0))E ⊆ E₀` (Proposition 2.5.3 (preprint 2.35) for the tame retraction `r`; `E₀` the minimal subspace at
 `0`).  Then `Dg(0) : E → F` is surjective and `ker Dg(0)` is in good position to `C` in `E`. -/
-theorem theorem_3_54_linear_wholeChart (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
+theorem theorem_3_6_8_linear_wholeChart (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
     (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U) {fb g : E 0 → F 0}
     (hfill : IsFilledVersion hU hR h0 fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
@@ -305,14 +305,14 @@ theorem theorem_3_54_linear_wholeChart (hU : IsRelOpenInQuadrant E C U) (hR : Is
       IsInGoodPosition E C (LinearMap.ker (scDeriv U g 0 : E 0 →ₗ[ℝ] F 0)) := by
   have hg : IsScSmooth U g := hfill.isScSmooth
   have hg0 : g 0 = 0 := by rw [← hfill.filler.eq_on.self_of_nhds h0O, hfb0]
-  obtain ⟨h1, hsurj, -, -⟩ := hfill.filler.proposition_3_5 hg hg0 h0O hfK
+  obtain ⟨h1, hsurj, -, -⟩ := hfill.filler.proposition_3_1_5 hg hg0 h0O hfK
   refine ⟨hsurj.1 (hgp.surjective_fillerRestrict h1), ?_⟩
   exact hgp.kernel.isInGoodPosition T hC (scDeriv U (r R) 0) (scDeriv_r_idem hU hR h0O) hK
 
-/-- **Theorem 3.54, the linear part, for a tame retraction**: the hypothesis `(1 − Dr(0))E ⊆ E₀` of
-`theorem_3_54_linear_wholeChart` is Proposition 2.35 for a tame sc-retraction `Rr` with `Rr.U = U` and
+/-- **Theorem 3.6.8 (preprint 3.54), the linear part, for a tame retraction**: the hypothesis `(1 − Dr(0))E ⊆ E₀` of
+`theorem_3_6_8_linear_wholeChart` is Proposition 2.5.3 (preprint 2.35) for a tame sc-retraction `Rr` with `Rr.U = U` and
 `Rr = r` (the base retraction of the strong bundle retraction `R`). -/
-theorem theorem_3_54_linear_of_isTameWith_wholeChart (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_3_6_8_linear_of_isTameWith_wholeChart (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFilledVersion hU hR h0 fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
@@ -321,14 +321,14 @@ theorem theorem_3_54_linear_of_isTameWith_wholeChart (hU : IsRelOpenInQuadrant E
     (hgp : IsGoodPositionAt hU hR h0 g) :
     Surjective (scDeriv U g 0) ∧
       IsInGoodPosition E C (LinearMap.ker (scDeriv U g 0 : E 0 →ₗ[ℝ] F 0)) := by
-  refine theorem_3_54_linear_wholeChart hU hR h0 h0O hfill hfb0 hfK T hC ?_ hgp
+  refine theorem_3_6_8_linear_wholeChart hU hR h0 h0O hfill hfb0 hfK T hC ?_ hgp
   have h01 : (0 : E 1) ∈ E.lvlSet Rr.retract 1 := by
     rw [ScBanach.mem_lvlSet, map_zero, ScRetraction.retract, hRrU, hRr]
     exact h0O
   have hs : (0 : E 1) ∈ E.smoothLvl 1 := by
     change E.toBase 1 0 ∈ (E.smooth : Set (E 0))
     rw [map_zero]; exact E.smooth.zero_mem
-  have h235 := (proposition_2_35 hC hRt h01 hs).1
+  have h235 := (proposition_2_5_3 hC hRt h01 hs).1
   rw [map_zero] at h235
   have heq : scDeriv Rr.U Rr 0 = scDeriv U (r R) 0 := by rw [hRrU, hRr]
   rwa [heq] at h235
@@ -352,7 +352,7 @@ lemma partialQuadrantAtWith_zero {n : ℕ} {W : ScBanach}
   · intro h i _
     exact h i
 
-/-- **`C' = Tψ(0)C`** (proof of Theorem 3.54): for an sc-diffeomorphism `ψ : U → U'` between
+/-- **`C' = Tψ(0)C`** (proof of Theorem 3.6.8 (preprint 3.54)): for an sc-diffeomorphism `ψ : U → U'` between
 relatively open subsets of the partial quadrants `C`, `C'` with `ψ(0) = 0`, `x ∈ C ↔ Dψ(0)x ∈ C'`
 (the one-sided sign argument `IsSc1With.mapsTo_partialQuadrant` for `ψ` and for `ψ⁻¹`). -/
 theorem scDeriv_mem_iff_of_inverse (hU : IsRelOpenInQuadrant E C U)
@@ -467,7 +467,7 @@ theorem IsStrongBundleIso.pushforward_surjective_wholeChart (hU : IsRelOpenInQua
   simp only [ContinuousLinearMap.coe_comp', ContinuousLinearEquiv.coe_coe]
   exact Γ.surjective.comp (hsurj.comp S.symm.surjective)
 
-/-- **`N' = ker D(h + t)(0)` is in good position to `C' = Tψ(0)C`** (proof of Theorem 3.54): the
+/-- **`N' = ker D(h + t)(0)` is in good position to `C' = Tψ(0)C`** (proof of Theorem 3.6.8 (preprint 3.54)): the
 kernel of `D(Ψ_*g)(0)` is `Dψ(0)(ker Dg(0))`, and good position is carried by `Dψ(0)` (Lemma
 3.45). -/
 theorem IsStrongBundleIso.pushforward_ker_isInGoodPosition_wholeChart (hU : IsRelOpenInQuadrant E C U)
@@ -494,7 +494,7 @@ theorem IsStrongBundleIso.pushforward_ker_isInGoodPosition_wholeChart (hU : IsRe
 
 end Transfer
 
-/-! ### Theorem 3.54: the hypotheses of Theorem 3.47 for the push-forward -/
+/-! ### Theorem 3.6.8 (preprint 3.54): the hypotheses of Theorem 3.5.11 (preprint 3.47) for the push-forward -/
 
 section Thm354
 
@@ -505,15 +505,15 @@ open StrongRetr
 
 variable {n : ℕ} {W : ScBanach}
 
-/-- **Theorem 3.54, the step before Theorem 3.47**: under the hypotheses of Proposition 3.52
+/-- **Theorem 3.6.8 (preprint 3.54), the step before Theorem 3.5.11 (preprint 3.47)**: under the hypotheses of Proposition 3.6.5 (preprint 3.52)
 (`g` a filled version of `f̂` at the zero `0`, `s` a local sc⁺-section with `s(0) = g(0)` and
-`g − s` conjugated to a basic germ), with the germ in good position (Definition 3.53) and
-`(1 − Dr(0))E ⊆ E₀` (Proposition 2.35 for the tame retraction), the push-forward
+`g − s` conjugated to a basic germ), with the germ in good position (Definition 3.6.6 (preprint 3.53)) and
+`(1 − Dr(0))E ⊆ E₀` (Proposition 2.5.3 (preprint 2.35) for the tame retraction), the push-forward
 `Ψ_*(g) = h + t` under **any** strong bundle isomorphism `Ψ : U ◁ F → U' ◁ F'` with `ψ(0) = 0` is
 sc-smooth with `Ψ_*(g)(0) = 0`, `D(Ψ_*g)(0) : E' → F'` is a surjective Fredholm operator and its
-kernel `N'` is in good position to `C'` in `E'`.  These are the hypotheses of Theorem 3.47 (local
+kernel `N'` is in good position to `C'` in `E'`.  These are the hypotheses of Theorem 3.5.11 (preprint 3.47) (local
 germ solvability) for `h + t`. -/
-theorem theorem_3_54_pushforward_wholeChart (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_3_6_8_pushforward_wholeChart (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFilledVersion hU hR h0 fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ)) {s : E 0 → F 1}
@@ -531,8 +531,8 @@ theorem theorem_3_54_pushforward_wholeChart (hU : IsRelOpenInQuadrant E C U)
         (LinearMap.ker (scDeriv U' (pushforward Ψ Ψ' g) 0 : E' 0 →ₗ[ℝ] F' 0)) := by
   have hg : IsScSmooth U g := hfill.isScSmooth
   have hg0 : g 0 = 0 := by rw [← hfill.filler.eq_on.self_of_nhds h0O, hfb0]
-  obtain ⟨hsurj, hker⟩ := theorem_3_54_linear_wholeChart hU hR h0 h0O hfill hfb0 hfK T hC hK hgp
-  obtain ⟨-, -, -, hDgF, -, -, -⟩ := proposition_3_52_local_wholeChart hU hR h0 h0O hfill hfb0 hfK hs hs0 hconj
+  obtain ⟨hsurj, hker⟩ := theorem_3_6_8_linear_wholeChart hU hR h0 h0O hfill hfb0 hfK T hC hK hgp
+  obtain ⟨-, -, -, hDgF, -, -, -⟩ := proposition_3_6_5_local_wholeChart hU hR h0 h0O hfill hfb0 hfK hs hs0 hconj
   haveI : FiniteDimensional ℝ (LinearMap.ker (scDeriv U g 0 : E 0 →ₗ[ℝ] F 0)) := hDgF.finite_ker
   obtain ⟨hsm, hz, Γ, S, -, hD⟩ := hΨ.pushforward_linearization_wholeChart hU hU' h0 hψ0 hg hg0
   refine ⟨hsm, hz, hΨ.pushforward_surjective_wholeChart hU hU' h0 hψ0 hg hg0 hsurj, ?_,
@@ -542,7 +542,7 @@ theorem theorem_3_54_pushforward_wholeChart (hU : IsRelOpenInQuadrant E C U)
 
 end Thm354
 
-/-! ### Definition 3.53 for sections of strong bundles -/
+/-! ### Definition 3.6.6 (preprint 3.53) for sections of strong bundles -/
 
 section Bundle
 
@@ -556,8 +556,8 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 variable (B) in
-/-- **Definition 3.53** for a section `f` of the strong bundle `P : Y → X`: `(f, x₀)` is an
-**sc-Fredholm germ in good position**: the data of Definition 3.11 (a strong bundle chart centred at
+/-- **Definition 3.6.6 (preprint 3.53)** for a section `f` of the strong bundle `P : Y → X`: `(f, x₀)` is an
+**sc-Fredholm germ in good position**: the data of Definition 3.1.11 (preprint 3.11) (a strong bundle chart centred at
 `x₀`, a filled version `g` of `f̂`, a local sc⁺-section `s` with `s(0) = g(0)` and `g − s`
 conjugated to a basic germ) such that the germ is in good position in the chart (`IsGoodPositionAt`:
 `Tf̃(0) : T₀O → K₀` onto, `ker Tf̃(0)` in good position to `C₀O` in `T₀O`). This is the project's
@@ -578,15 +578,15 @@ theorem StrongBundle.IsGoodPositionGermWholeChart.isScFredholmGerm {x₀ : X}
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj, -⟩ := h
   exact ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩
 
-/-- **Theorem 3.54, the step before Theorem 3.47, for a section**: let `f` be a section of the
+/-- **Theorem 3.6.8 (preprint 3.54), the step before Theorem 3.5.11 (preprint 3.47), for a section**: let `f` be a section of the
 strong bundle `P : Y → X` with `f(x₀) = 0` and `(f, x₀)` an sc-Fredholm germ in good position.
-Then in the chart of Definition 3.53 (centred at `x₀`, with filled version `g` of `f̂`), for every
-presentation `T` of the partial quadrant `C` with `(1 − Dr(0))E ⊆ E₀` (Proposition 2.35 for a tame
+Then in the chart of Definition 3.6.6 (preprint 3.53) (centred at `x₀`, with filled version `g` of `f̂`), for every
+presentation `T` of the partial quadrant `C` with `(1 − Dr(0))E ⊆ E₀` (Proposition 2.5.3 (preprint 2.35) for a tame
 retraction) and every strong bundle isomorphism `Ψ : U ◁ F → U' ◁ F'` with `ψ(0) = 0`, the
 push-forward `Ψ_*(g)` is sc-smooth, vanishes at `0`, and `D(Ψ_*g)(0)` is a surjective Fredholm
 operator whose kernel is in good position to `C'`; moreover `Dg(0)` is surjective and `ker Dg(0)`
 is in good position to `C` in `E`. -/
-theorem theorem_3_54_pushforward_section_wholeChart (hf : IsSection P f) {x₀ : X}
+theorem theorem_3_6_8_pushforward_section_wholeChart (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (h0 : (0 : c.φ.model.E 0) ∈ c.U) (g : c.φ.model.E 0 → c.F 0)
@@ -621,9 +621,9 @@ theorem theorem_3_54_pushforward_section_wholeChart (hf : IsSection P f) {x₀ :
     rw [← c.image_source]
     exact ⟨_, c.mem_source_of_proj (by rw [hf]; exact c.φ.symm_mapsTo hx), rfl⟩
   refine ⟨c, hc, hxV, hφ0, h0U, g, hfill, fun T hC hK => ⟨?_, ?_⟩⟩
-  · exact theorem_3_54_linear_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK T hC hK hgp
+  · exact theorem_3_6_8_linear_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK T hC hK hgp
   · intro E' F' C' U' Ψ Ψ' hU' hΨ hψ0
-    exact theorem_3_54_pushforward_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 hconj T
+    exact theorem_3_6_8_pushforward_wholeChart c.relOpen c.isRetraction h0U h0O hfill hfb0 hfK hs hs0 hconj T
       hC hK hgp hU' hΨ hψ0
 
 end Bundle

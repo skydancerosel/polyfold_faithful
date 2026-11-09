@@ -19,7 +19,7 @@ Chapter 7's general equivalence of condition (4) of Definition 7.3 with its shee
   `isScSmoothComp_iff_sheet` (with `IsScSmoothOn.of_locally` in place of a private helper), which
   also proves that conjunct outright: it is a general Chapter 7 lemma about which `B` says
   nothing.
-* **Harness.** The statements of `isScSmoothComp_tangent` and `lemma_8_6` mention the banned
+* **Harness.** The statements of `isScSmoothComp_tangent` and `lemma_8_1_7` mention the banned
   theorems `isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt` as proof arguments of
   `IsScSmoothComp`, so every term mentioning `A` reaches them.  `A'` is `A` with those two proof
   arguments replaced by non-banned proofs of the same propositions; `A` and `A'` are
@@ -39,7 +39,7 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.isScSmoothMap_tInv.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isScSmoothCompSheet_tangent.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isScSmoothComp_tangent.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_8_6.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.lemma_8_1_7.{0}) ∧
   (type_of% @Polyfold.isScSmoothComp_iff_sheet.{0})
 
 theorem A_holds : A :=
@@ -47,7 +47,7 @@ theorem A_holds : A :=
     @Polyfold.EpGroupoid.surjective_tSrc.{0}, @Polyfold.EpGroupoid.surjective_tTgt.{0},
     @Polyfold.EpGroupoid.isScSmoothMap_tUnit.{0}, @Polyfold.EpGroupoid.isScSmoothMap_tInv.{0},
     @Polyfold.EpGroupoid.isScSmoothCompSheet_tangent.{0},
-    @Polyfold.EpGroupoid.isScSmoothComp_tangent.{0}, @Polyfold.EpGroupoid.lemma_8_6.{0},
+    @Polyfold.EpGroupoid.isScSmoothComp_tangent.{0}, @Polyfold.EpGroupoid.lemma_8_1_7.{0},
     @Polyfold.isScSmoothComp_iff_sheet.{0}⟩
 
 section
@@ -201,19 +201,19 @@ theorem B_to_A : B → A := B_to_A'
   Polyfold.EpGroupoid.isLocalScDiffeo_tTgt, Polyfold.EpGroupoid.surjective_tSrc,
   Polyfold.EpGroupoid.surjective_tTgt, Polyfold.EpGroupoid.isScSmoothMap_tUnit,
   Polyfold.EpGroupoid.isScSmoothMap_tInv, Polyfold.EpGroupoid.isScSmoothCompSheet_tangent,
-  Polyfold.EpGroupoid.isScSmoothComp_tangent, Polyfold.EpGroupoid.lemma_8_6,
+  Polyfold.EpGroupoid.isScSmoothComp_tangent, Polyfold.EpGroupoid.lemma_8_1_7,
   Polyfold.isScSmoothComp_iff_sheet]
 #rt_check RoundTrip.V8_9.B_to_A [Polyfold.EpGroupoid.isLocalScDiffeo_tSrc,
   Polyfold.EpGroupoid.isLocalScDiffeo_tTgt, Polyfold.EpGroupoid.surjective_tSrc,
   Polyfold.EpGroupoid.surjective_tTgt, Polyfold.EpGroupoid.isScSmoothMap_tUnit,
   Polyfold.EpGroupoid.isScSmoothMap_tInv, Polyfold.EpGroupoid.isScSmoothCompSheet_tangent,
-  Polyfold.EpGroupoid.isScSmoothComp_tangent, Polyfold.EpGroupoid.lemma_8_6,
+  Polyfold.EpGroupoid.isScSmoothComp_tangent, Polyfold.EpGroupoid.lemma_8_1_7,
   Polyfold.isScSmoothComp_iff_sheet]
 #rt_overlap RoundTrip.V8_9.B_to_A [Polyfold.EpGroupoid.isLocalScDiffeo_tSrc,
   Polyfold.EpGroupoid.isLocalScDiffeo_tTgt, Polyfold.EpGroupoid.surjective_tSrc,
   Polyfold.EpGroupoid.surjective_tTgt, Polyfold.EpGroupoid.isScSmoothMap_tUnit,
   Polyfold.EpGroupoid.isScSmoothMap_tInv, Polyfold.EpGroupoid.isScSmoothCompSheet_tangent,
-  Polyfold.EpGroupoid.isScSmoothComp_tangent, Polyfold.EpGroupoid.lemma_8_6,
+  Polyfold.EpGroupoid.isScSmoothComp_tangent, Polyfold.EpGroupoid.lemma_8_1_7,
   Polyfold.isScSmoothComp_iff_sheet]
 
 end RoundTrip.V8_9

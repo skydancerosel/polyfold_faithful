@@ -2,17 +2,17 @@ import Polyfold.Chapter3.LocalSolvability
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.2 (Definition
-3.21, the proof of Theorem 3.27), §3.5 (Theorem 3.43, Lemma 3.46) and Appendix 3.8.1 (the normal
-form of Proposition 3.22): **good complements whose projection maps the partial quadrant into
-itself**, and Theorem 3.43 with such a complement.
+3.21, the proof of Theorem 3.2.3 (preprint 3.27)), §3.5 (Theorem 3.5.6 (preprint 3.43), Lemma 3.5.10 (preprint 3.46)) and Appendix 3.8.1 (the normal
+form of Proposition 3.1.25 (preprint 3.22)): **good complements whose projection maps the partial quadrant into
+itself**, and Theorem 3.5.6 (preprint 3.43) with such a complement.
 
 # Good complements with a projection into the partial quadrant
 
 ## The text, paraphrased
 
-(Proof of Theorem 3.27) "The subset `Σ = {v + y ∈ C | v ∈ V, y ∈ Y}` is relatively open in `C`",
-and the retraction `t(v + w) = v + δ(v)` is defined on `Σ ∩ O`.  (Proof of Theorem 3.43,
-Appendix 3.8.2, Lemma 3.46) a good complement `Z` of `K̃ = ker DH(0)` in `ℝⁿ'` is obtained by
+(Proof of Theorem 3.2.3 (preprint 3.27)) "The subset `Σ = {v + y ∈ C | v ∈ V, y ∈ Y}` is relatively open in `C`",
+and the retraction `t(v + w) = v + δ(v)` is defined on `Σ ∩ O`.  (Proof of Theorem 3.5.6 (preprint 3.43),
+Appendix 3.8.2, Lemma 3.5.10 (preprint 3.46)) a good complement `Z` of `K̃ = ker DH(0)` in `ℝⁿ'` is obtained by
 projecting a good complement `Y'` of `K'`, and `Z ⊕ W` is a good complement of
 `K' = {(α, Dδ(0)α) | α ∈ K̃}`.
 
@@ -30,14 +30,14 @@ projecting a good complement `Y'` of `K'`, and `Z ⊕ W` is a good complement of
 * `Polyfold.IsGoodComplement.prod_top_graph`: for **any** good complement `Z` of `K̃` in `ℝⁿ'`,
   `Z ⊕ W` is a good complement of `K' = graph(L|K̃)` in `ℝⁿ' ⊕ W` (constant `ε/(‖L‖ + 1)`), and
   `ProjectsInto.prod_top_graph` (the property passes from `(K̃, Z)` to `(K', Z ⊕ W)`).
-* `Polyfold.ShiftedBasicData.exists_sol_of_goodComplement`: the data of the proof of Theorem 3.43
+* `Polyfold.ShiftedBasicData.exists_sol_of_goodComplement`: the data of the proof of Theorem 3.5.6 (preprint 3.43)
   exist with a prescribed good complement `Z` of `K̃`; `ShiftedBasicData.exists_sol_proj`: with a
   `Z` whose projection maps `C̃` into `K̃ ∩ C̃`.
-* `Polyfold.theorem_3_43_proj`: **Theorem 3.43** (`theorem_3_43_closed`) with the additional
-  conclusion `ProjectsInto (C̃ ⊕ W) K' Y`.  The consequences for Corollary 3.47
-  (`theorem_3_47_proj`, `LocalSolvabilityClosed.lean`), the graph description of Theorem 3.54
-  (`theorem_3_54_graph_proj_wholeChart`, `GlobalIFT.lean`) and the tangent germ chart at the centre
-  (`theorem_3_54_tangentGermChart_proj_wholeChart`, condition (b) of `TangentGermChart.IsRegular`,
+* `Polyfold.theorem_3_5_6_proj`: **Theorem 3.5.6 (preprint 3.43)** (`theorem_3_5_6_closed`) with the additional
+  conclusion `ProjectsInto (C̃ ⊕ W) K' Y`.  The consequences for Theorem 3.5.11 (preprint 3.47)
+  (`theorem_3_5_11_proj`, `LocalSolvabilityClosed.lean`), the graph description of Theorem 3.6.8 (preprint 3.54)
+  (`theorem_3_6_8_graph_proj_wholeChart`, `GlobalIFT.lean`) and the tangent germ chart at the centre
+  (`theorem_3_6_8_tangentGermChart_proj_wholeChart`, condition (b) of `TangentGermChart.IsRegular`,
   `GlobalIFTCenter.lean`) are proved where the old statements are (those are now corollaries).
 
 ## What the text leaves implicit, and the choices made (the findings)
@@ -46,10 +46,10 @@ projecting a good complement `Y'` of `K'`, and `Z ⊕ W` is a good complement of
   set** (Finding 130).  For a general good complement the projection need not map `C` into `C`
   (Finding 83: `C = [0,∞)³`, `N = ℝ(1,1,1)`, `Y = {x + y − z = 0}`), and then the text's claim that
   `Σ` is relatively open in `C` fails.  For the solution set of an sc-Fredholm section the good
-  complement is produced by the proof (Theorem 3.43, Lemma 3.46) and can be chosen with the
+  complement is produced by the proof (Theorem 3.5.6 (preprint 3.43), Lemma 3.5.10 (preprint 3.46)) and can be chosen with the
   projection property from the start, so no re-graphing over another complement is needed.
 * **The construction and its cases** (Finding 131).  With `Σ` the indices vanishing at some nonzero
-  point of `N ∩ C` and `Q = (ℓ_i)_{i ∈ Σ} : N → ℝ^Σ` (onto by Lemma 3.65), `π(z) =
+  point of `N ∩ C` and `Q = (ℓ_i)_{i ∈ Σ} : N → ℝ^Σ` (onto by Lemma 3.8.8 (preprint 3.65)), `π(z) =
   p_N(z) + g(ℓ_Σ(z − p_N(z)))` for a continuous projection `p_N` onto `N` and a right inverse `g`
   of `Q`: `ℓ_i ∘ π = ℓ_i` for `i ∈ Σ`, so `π(C) ⊆ {n ∈ N | ℓ_i(n) ≥ 0, i ∈ Σ} = N ∩ C`.  This
   needs `N ∩ C = {ℓ_i ≥ 0, i ∈ Σ}`, which holds when `Σ ≠ ∅` (`mem_quadCone_of_vanIdx`) and when
@@ -128,7 +128,7 @@ variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V] {n : ℕ}
   (ℓ : Fin n → V →ₗ[ℝ] ℝ) (N : Submodule ℝ V)
 
 /-- The coordinates in a set `S` of indices: `Q_S : N → ℝ^S`, `Q_S(x)_i = ℓ_i(x)` (for `S = Σ`
-this is the map `Q` of the proof of Proposition 3.22, `sigmaCoord`). -/
+this is the map `Q` of the proof of Proposition 3.1.25 (preprint 3.22), `sigmaCoord`). -/
 def coordOn (S : Finset (Fin n)) : N →ₗ[ℝ] (S → ℝ) := LinearMap.pi fun i => restrFun ℓ N i.1
 
 @[simp] lemma coordOn_apply (S : Finset (Fin n)) (x : N) (i : S) :
@@ -420,8 +420,8 @@ theorem exists_proj_goodComplement {C : Set (E 0)} (hC : IsPartialQuadrant E C)
 /-- **The finite-dimensional lemma (Finding 83).**  If the finite-dimensional subspace `N` is in
 good position to the partial quadrant `C` in `E`, then `N` has a closed good complement `Y` such
 that the projection onto `N` along `Y` maps `C` into `N ∩ C` (`ProjectsInto C N Y`).  The text's
-Definition 3.21 (and Proposition 3.22) does not need this; it is what makes condition (b) of
-`TangentGermChart.IsRegular` available (see `theorem_3_54_tangentGermChart_proj_wholeChart`). -/
+Definition 3.1.24 (preprint 3.21) (and Proposition 3.22) does not need this; it is what makes condition (b) of
+`TangentGermChart.IsRegular` available (see `theorem_3_6_8_tangentGermChart_proj_wholeChart`). -/
 theorem exists_goodComplement_projectsInto {C : Set (E 0)} (hC : IsPartialQuadrant E C)
     {N : Submodule ℝ (E 0)} [FiniteDimensional ℝ N] (hN : IsInGoodPosition E C N) :
     ∃ Y : Submodule ℝ (E 0), IsGoodComplement E C N Y ∧ IsClosed (Y : Set (E 0)) ∧
@@ -436,7 +436,7 @@ theorem exists_goodComplement_projectsInto {C : Set (E 0)} (hC : IsPartialQuadra
 
 end ScLevel
 
-/-! ### Theorem 3.43 with a prescribed good complement -/
+/-! ### Theorem 3.5.6 (preprint 3.43) with a prescribed good complement -/
 
 section Graph
 
@@ -445,7 +445,7 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
 
 /-- **Any good complement `Z` of `K̃` gives the good complement `Z ⊕ W` of
 `K' = {(α, Lα) | α ∈ K̃}`** with respect to `C' = C̃ ⊕ W`, with constant `ε/(‖L‖ + 1)` (the
-second half of the proof of Lemma 3.46, `lemma_3_46`, for an arbitrary good complement `Z`). -/
+second half of the proof of Lemma 3.5.10 (preprint 3.46), `lemma_3_5_10`, for an arbitrary good complement `Z`). -/
 theorem IsGoodComplement.prod_top_graph {L : P →L[ℝ] W 0} {Kt Z : Submodule ℝ P}
     (hZ : IsGoodComplement (ScBanach.const P) Ct Kt Z) :
     IsGoodComplement (ScBanach.paramProd P W) (Ct ×ˢ univ) (Kt.map (graphMap L)) (Z.prod ⊤) := by
@@ -508,9 +508,9 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
   {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensional ℝ Q]
   (𝒟 : ShiftedBasicData Ct W Q)
 
-/-- **The data of the proof of Theorem 3.43 with a prescribed good complement**: for the
+/-- **The data of the proof of Theorem 3.5.6 (preprint 3.43) with a prescribed good complement**: for the
 derivative data `𝒱` and *any* good complement `Z` of `K̃ = ker DH(0)` in `ℝⁿ'`, the data `Sol`
-exist with this `Z` (`exists_sol` takes the `Z` of Lemma 3.46; Lemma 3.46 is needed only for the
+exist with this `Z` (`exists_sol` takes the `Z` of Lemma 3.5.10 (preprint 3.46); Lemma 3.5.10 (preprint 3.46) is needed only for the
 good position of `K̃`, and `Z ⊕ W` is a good complement of `K'` by
 `IsGoodComplement.prod_top_graph`). -/
 theorem exists_sol_of_goodComplement (hC : IsPartialQuadrant (ScBanach.const P) Ct)
@@ -525,16 +525,16 @@ theorem exists_sol_of_goodComplement (hC : IsPartialQuadrant (ScBanach.const P) 
   have hpos' : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       ((LinearMap.ker (𝒱.DH₀ : P →ₗ[ℝ] Q)).map (graphMap 𝒱.L)) := hker ▸ hpos
   have hY := hZ.prod_top_graph (L := 𝒱.L) (W := W)
-  have hKpos := lemma_3_46_isInGoodPosition hpos'
+  have hKpos := lemma_3_5_10_isInGoodPosition hpos'
   have hU : IsRelOpenInQuadrant (ScBanach.const P) Ct 𝒱.V₁ := ⟨hC, 𝒱.relOpen⟩
   have hDH : fderivWithin ℝ 𝒟.H 𝒱.V₁ 0 = 𝒱.DH₀ := 𝒱.fderivWithin_H hCq
   obtain ⟨V', σ, ε, σ₀, hV'rel, hV'0, hσC, hσ0, hDσ, hsol, hε, hσ₀, hbound, huniq⟩ :=
-    theorem_3_78 hU 𝒱.zero_mem (j := 1) le_rfl 𝒱.H_contDiffOn 𝒟.H_zero
+    theorem_3_8_22 hU 𝒱.zero_mem (j := 1) le_rfl 𝒱.H_contDiffOn 𝒟.H_zero
       (by rw [hDH]; exact 𝒱.DH₀_surjective hCq hsurj) (by rw [hDH]) hKpos hZ
   exact ⟨⟨𝒱, hker, Z, hZ, hker ▸ hY, V', hV'rel, hV'0, σ, hσC, hσ0, hDσ, hsol, ε, hε, σ₀, hσ₀,
     hbound, huniq⟩, rfl, rfl⟩
 
-/-- **The data of the proof of Theorem 3.43 with a good complement `Z` of `K̃` whose projection
+/-- **The data of the proof of Theorem 3.5.6 (preprint 3.43) with a good complement `Z` of `K̃` whose projection
 maps `C̃` into `K̃ ∩ C̃`** (`exists_goodComplement_projectsInto` in `ℝⁿ'`, then
 `exists_sol_of_goodComplement`). -/
 theorem exists_sol_proj (hC : IsPartialQuadrant (ScBanach.const P) Ct) (hsurj : Surjective 𝒟.Dg)
@@ -545,18 +545,18 @@ theorem exists_sol_proj (hC : IsPartialQuadrant (ScBanach.const P) Ct) (hsurj : 
   have hpos' : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       ((LinearMap.ker (𝒱.DH₀ : P →ₗ[ℝ] Q)).map (graphMap 𝒱.L)) := hker ▸ hpos
   obtain ⟨Z, hZ, -, hZp⟩ :=
-    exists_goodComplement_projectsInto hC (lemma_3_46_isInGoodPosition hpos')
+    exists_goodComplement_projectsInto hC (lemma_3_5_10_isInGoodPosition hpos')
   obtain ⟨𝒮, h1, h2⟩ := 𝒟.exists_sol_of_goodComplement hC hsurj hpos 𝒱 hZ
   refine ⟨𝒮, ?_⟩
   change ProjectsInto Ct (LinearMap.ker (𝒮.toDeriv.DH₀ : P →ₗ[ℝ] Q)) 𝒮.Z
   rw [h1, h2]
   exact hZp
 
-/-- **Theorem 3.43 with a good complement whose projection maps the partial quadrant into itself**:
-`theorem_3_43_closed` with the additional conclusion `ProjectsInto (C̃ ⊕ W) K' Y`, i.e. the
+/-- **Theorem 3.5.6 (preprint 3.43) with a good complement whose projection maps the partial quadrant into itself**:
+`theorem_3_5_6_closed` with the additional conclusion `ProjectsInto (C̃ ⊕ W) K' Y`, i.e. the
 projection onto `K' = ker Dg(0)` along `Y = Z ⊕ W` maps `C' = C̃ ⊕ W` into `K' ∩ C'`.  The good
 complement is that of `exists_sol_proj`. -/
-theorem _root_.Polyfold.theorem_3_43_proj (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+theorem _root_.Polyfold.theorem_3_5_6_proj (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒟 : ShiftedBasicData Ct W Q) (hsurj : Surjective 𝒟.Dg)
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ) 𝒟.K')
     (hreg : ∀ ε > 0, ∃ r > 0, ∀ x ∈ 𝒟.G₀.U 0, 𝒟.g x = 0 → ‖x‖ < r →

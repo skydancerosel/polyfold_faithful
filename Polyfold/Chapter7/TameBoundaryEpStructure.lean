@@ -39,10 +39,10 @@ in the charts `Φ_{(φ,𝐕,θ)}`, `Φ_{(x,V,θ)}` the map `s : U(φ, 𝐕, θ) 
   the sketch); `boundaryEpGroupoid` (**(5)**: the `EpGroupoid` `(bX, b𝐗)`),
   `isTame_boundaryEpGroupoid`; `boundaryEpFunctor` (`B` is an ep-functor, a morphism of the
   category `EP` of 2021 Definition 7.1.7 (2017: Definition 7.7)).
-* **Theorem 7.6.9**, `theorem_7_6_9_full_2021`: (1) metrizability; (2) the tame structures, with
+* **Theorem 7.6.9**, `theorem_7_6_9_full`: (1) metrizability; (2) the tame structures, with
   the characterization and its uniqueness, for `bX` and for `b𝐗`; (3); (4) as printed; (5) the
   tame ep-groupoid with its structure maps; and `B` an ep-functor.  The characterization of the
-  topologies in (1) is `theorem_7_6_9_2021`.
+  topologies in (1) is `theorem_7_6_9`.
 * Witness: `trivial_quadrant_boundaryEp_witness` (the trivial ep-groupoid of the tame quadrant
   `[0,∞)ⁿ ⊕ W`, `n ≥ 1`: its boundary ep-groupoid is tame with nonempty object and morphism
   sets, and over the corner `d_{bX} = n − 1`).
@@ -373,7 +373,7 @@ theorem phiTot_bSrc (hX : X.IsTame) {W : Set Mor} {V : Set Obj} {σ : Obj → Mo
 
 /-- **2021 Theorem 7.6.9, p. 355** (new in the 2021 edition), for a tame ep-groupoid `(X, 𝐗)`:
 (1) `bX` and `b𝐗` are metrizable (the characterization of their topologies is
-`theorem_7_6_9_2021`); (2) `bX` and `b𝐗` carry the tame M-polyfold structures `bPObj`, `bPMor`,
+`theorem_7_6_9`); (2) `bX` and `b𝐗` carry the tame M-polyfold structures `bPObj`, `bPMor`,
 characterized as in 2021 Theorem 2.7.13: every `U(x, V, θ)` is open and, for `V` centred at `x`,
 `Φ_{(x,V,θ)}` is an sc-diffeomorphism onto the face `θ` with its natural structure, and every
 structure with this property is equivalent to it; (3) both maps `B` are sc-smooth;
@@ -382,7 +382,7 @@ structure with this property is equivalent to it; (3) both maps `B` are sc-smoot
 sc-diffeomorphisms, `u, ι` sc-smooth, `m` sc-smooth on `b𝐗 ₛ×ₜ b𝐗`; and `B` is an ep-functor.
 The hypothesis of the two uniqueness statements is satisfied by `bPObj`, `bPMor` themselves (the
 two conjuncts before them). -/
-theorem theorem_7_6_9_full_2021 (hX : X.IsTame) :
+theorem theorem_7_6_9_full (hX : X.IsTame) :
     -- (1)
     TopologicalSpace.MetrizableSpace (X.bObj hX) ∧ TopologicalSpace.MetrizableSpace (X.bMor hX) ∧
       -- (2), tameness
@@ -434,8 +434,8 @@ theorem theorem_7_6_9_full_2021 (hX : X.IsTame) :
             (X.PMor.phiTot (X.isTame_PMor hX) t)
             (fun y => ((phiHomeomorph _ ht).symm y : X.bMor hX)) (uSet _ t) univ) →
         Q'.atlas.Equiv (X.bPMor hX).atlas := by
-  obtain ⟨t₀, s₀, d₀, c₀, u₀⟩ := X.PObj.theorem_2_7_13_structure_2021 hX
-  obtain ⟨t₁, s₁, d₁, c₁, u₁⟩ := X.PMor.theorem_2_7_13_structure_2021 (X.isTame_PMor hX)
+  obtain ⟨t₀, s₀, d₀, c₀, u₀⟩ := X.PObj.theorem_2_7_13_structure hX
+  obtain ⟨t₁, s₁, d₁, c₁, u₁⟩ := X.PMor.theorem_2_7_13_structure (X.isTame_PMor hX)
   exact ⟨metrizableSpace_bObj hX, metrizableSpace_bMor hX, t₀, t₁, s₀, s₁, d₀, d₁,
     isTame_boundaryEpGroupoid hX, rfl, rfl, rfl, isLocalScDiffeo_bSrc hX,
     isLocalScDiffeo_bTgt hX, isScSmoothMap_bUnit hX, isScSmoothMap_bInv hX,
@@ -443,7 +443,7 @@ theorem theorem_7_6_9_full_2021 (hX : X.IsTame) :
 
 /-! ### Witness -/
 
-/-- **Witness** for `theorem_7_6_9_full_2021` (its only hypothesis, tameness, is satisfied, and
+/-- **Witness** for `theorem_7_6_9_full` (its only hypothesis, tameness, is satisfied, and
 its conclusions are not vacuous): the trivial ep-groupoid of the tame quadrant `[0, ∞)ⁿ ⊕ W`,
 `n ≥ 1`, is tame; its boundary ep-groupoid is tame, with nonempty object and morphism sets, and
 the classes over the corner `0` have degeneracy index `n − 1` in `bX`. -/

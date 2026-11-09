@@ -29,7 +29,7 @@ space structure of `T_{φ(x)}O ⊆ E₀`; if `x ∈ X_∞`, `T_xX` is an sc-Bana
   `MPolyfold.transitionCLM`, `MPolyfold.tangentFiberTransition`): for two charts `φ`, `ψ` around
   `x`,
   `Tψ ∘ (Tφ)⁻¹` on the fibre is the restriction of the continuous linear map
-  `D(ψ ∘ φ⁻¹)(φ(x)) : E → E'` (the derivative of the transition, Theorem 2.1.15 / `theorem_2_8`
+  `D(ψ ∘ φ⁻¹)(φ(x)) : E → E'` (the derivative of the transition, Theorem 2.1.15 / `theorem_2_1_15`
   through `retractTangentMap_apply`), it maps `T_{φ(x)}O` into `T_{ψ(x)}O'`
   (`tangentFiberEquiv_symm_trans`), and the two transitions are inverse to each other
   (`tangentFiberTransition_transition`).  At a smooth `x` the transition is an sc-operator
@@ -51,7 +51,7 @@ space structure of `T_{φ(x)}O ⊆ E₀`; if `x ∈ X_∞`, `T_xX` is an sc-Bana
   (`tangentFiberNormedAddCommGroup_toTopologicalSpace`) and is complete
   (`completeSpace_tangentFiber`).
 * The text's formula `λ[(x, φ, h₁)] + μ[(x, φ, h₂)] = [(x, φ, λh₁ + μh₂)]`:
-  **`MPolyfold.definition_2_3_14_2021`**, for every chart `φ` around `x`.
+  **`MPolyfold.definition_2_3_14`**, for every chart `φ` around `x`.
 * `MPolyfold.tangentFiberTransitionEquiv hφ hψ hx hx' : T_{φ(x)}O ≃L[ℝ] T_{ψ(x)}O'`, the
   transition as a Banach-space isomorphism, with `coe_tangentFiberTransitionEquiv`.
 * **The sc-structure at a smooth point** (p. 39, "if `x ∈ X_∞` ... an sc-Banach space"):
@@ -95,7 +95,7 @@ section LocalLinear
 variable {E : ScBanach} {C O : Set (E 0)}
 
 /-- `T_aO ⊆ E₀` is a closed subspace, for `a ∈ O₁`: it is `Dr(a)E`, the range of a continuous
-projection (Remark 2.3.13 (2021), the remark after Definition 2.17 (preprint)). -/
+projection (Remark 2.3.13 (2021), the remark after Definition 2.3.12 (preprint 2.17) (preprint)). -/
 theorem exists_submodule_eq_tangentSpace (hO : IsScRetract E C O) {a : E 1}
     (ha : a ∈ E.lvlSet O 1) :
     ∃ S : Submodule ℝ (E 0), (S : Set (E 0)) = tangentSpace E C O a ∧ IsClosed (S : Set (E 0)) := by
@@ -432,7 +432,7 @@ lemma coe_tangentFiberLinearEquiv_apply (α : P.tangentFiber x) :
 
 /-- **Definition 2.3.14 (2021 p. 39; preprint 2.18)**: the text's formula
 `λ[(x, φ, h₁)] + μ[(x, φ, h₂)] = [(x, φ, λh₁ + μh₂)]`, for every chart `φ` around `x`. -/
-theorem definition_2_3_14_2021 (l m : ℝ) (v w : tangentFiberModel hφ hx) :
+theorem definition_2_3_14 (l m : ℝ) (v w : tangentFiberModel hφ hx) :
     l • tangentFiberMk hφ hx v + m • tangentFiberMk hφ hx w =
       tangentFiberMk hφ hx (l • v + m • w) := by
   simp only [tangentFiberMk, ← tangentFiberLinearEquiv_symm_apply, map_add, map_smul]

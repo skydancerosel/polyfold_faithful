@@ -81,8 +81,8 @@ theorem B_gives_weak_of_dense (hB : B) :
 theorems); proved WITHOUT B, to locate where its content lies. -/
 theorem of_hilbert_from_5_34 : type_of% @Polyfold.MPolyfold.admitsBumpFunctions_of_hilbert.{0} := by
   intro X _ _ _ PX h
-  refine theorem_5_34.2 ⟨{φ | PX.IsChart φ ∧ ∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ,
-    ∀ v, ‖v‖ ^ 2 = b v v}, fun φ hφ => hφ.1, fun x => ?_, fun φ hφ => proposition_5_35 _ hφ.2⟩
+  refine theorem_5_5_7.2 ⟨{φ | PX.IsChart φ ∧ ∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ,
+    ∀ v, ‖v‖ ^ 2 = b v v}, fun φ hφ => hφ.1, fun x => ?_, fun φ hφ => proposition_5_5_8 _ hφ.2⟩
   obtain ⟨φ, hφ, hx, hb⟩ := h x
   exact ⟨φ, ⟨hφ, hb⟩, hx⟩
 

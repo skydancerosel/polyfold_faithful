@@ -10,7 +10,7 @@ The item lists the definitions `pullbackμ`, `bundleB`, `bundleBInv` (vocabulary
 theorems: `bundleB_val` (`B(w) = (P w, A w)`), `bundleB_μ` ((8.23)), `eq_of_isStrongBundleIsoOn`
 (`F` injective on a local isomorphism domain), `bijective_bundleB`, `bundleBInv_eq_of` (local
 formula for `B⁻¹`), `isStrongBundleMap_bundleB`, `mapsTo_oneSet_bundleBInv`,
-`isStrongBundleMap_bundleBInv` and `lemma_8_5_10_2021` (`B` is a strong bundle isomorphism over
+`isStrongBundleMap_bundleBInv` and `lemma_8_5_10` (`B` is a strong bundle isomorphism over
 `id_Y` with inverse `B⁻¹`, `pr₁ ∘ B = P`, and (8.23)).  `A` is the conjunction of their types,
 universes at `0`.
 
@@ -18,13 +18,13 @@ universes at `0`.
 inverse), (b) (8.23), (c) `A = Ā ∘ B`, (d) `F*V` carries an `EpStrongBundle` structure over `Y`
 with structure map `μ_{F*V}`.
 
-* `A ⇒ B`: (a), (b) from `lemma_8_5_10_2021`, (c) by `rfl`; (d) is **not** in `A` (the project's
+* `A ⇒ B`: (a), (b) from `lemma_8_5_10`, (c) by `rfl`; (d) is **not** in `A` (the project's
   file says the `EpStrongBundle` structure of `F*V` is not proved there), but the project has it
   in Chapter 10: `EpStrongBundle.pullbackAlong EV F` (the pull-back `F*V` along the sc-smooth
   functor `F`, structure map `(t(m), μ(F(m), v))`, definitionally `μ_{F*V}`), which does not use
   the item's theorems.
 * `B ⇒ A`: `bundleB_μ`, `bijective_bundleB`, `isStrongBundleMap_bundleB`, the two `bundleBInv`
-  conjuncts and `lemma_8_5_10_2021` come from (a), (b) (the inverse `Binv` from (a) equals
+  conjuncts and `lemma_8_5_10` come from (a), (b) (the inverse `Binv` from (a) equals
   `bundleBInv`, both being inverses of the bijection `B`); `bundleB_val` is `rfl` and
   `eq_of_isStrongBundleIsoOn` (injectivity of the base sc-diffeomorphism) is re-proved (B does
   not contain it); `bundleBInv_eq_of` combines it with the bijectivity from (a).
@@ -53,7 +53,7 @@ def A : Prop :=
     @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv.{0}) ∧
   (type_of%
     @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv.{0}) ∧
-  (type_of% @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021.{0})
+  (type_of% @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val.{0},
@@ -64,7 +64,7 @@ theorem A_holds : A :=
     @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB.{0},
     @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv.{0},
     @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv.{0},
-    @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021.{0}⟩
+    @Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10.{0}⟩
 
 theorem A_to_B : A → B := by
   intro hA ObjY MorY _ _ _ _ _ _ Y ObjX MorX _ _ _ _ _ _ X W _ _ _ P _ _ BW _ V _ _ _ Q _ _ BV
@@ -170,7 +170,7 @@ theorem B_to_A : B → A := by
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv,
-  Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021]
+  Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10]
 #rt_check_soft RoundTrip.V8_51.B_to_A
   [Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_μ,
@@ -180,7 +180,7 @@ theorem B_to_A : B → A := by
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv,
-  Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021]
+  Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10]
 #rt_overlap RoundTrip.V8_51.B_to_A
   [Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_μ,
@@ -190,6 +190,6 @@ theorem B_to_A : B → A := by
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv,
   Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv,
-  Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021]
+  Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10]
 
 end RoundTrip.V8_51

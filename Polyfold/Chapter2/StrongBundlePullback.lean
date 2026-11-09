@@ -3,14 +3,14 @@ import Polyfold.Chapter2.Metrizable
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.5,
-**Proposition 2.54**: the pull-back of a strong bundle along an sc-smooth map is a strong bundle.
+**Proposition 2.6.8 (preprint 2.54)**: the pull-back of a strong bundle along an sc-smooth map is a strong bundle.
 
 # The pull-back strong bundle
 
 ## The text, paraphrased
 
-(Definition 2.53) For a strong bundle `P : Y → X` and an sc-smooth `f : Z → X`,
-`f*Y = {(z, y) ∈ Z × Y | P(y) = f(z)}` with `P_f(z, y) = z`.  (Proposition 2.54) "The pull-back
+(Definition 2.6.7 (preprint 2.53)) For a strong bundle `P : Y → X` and an sc-smooth `f : Z → X`,
+`f*Y = {(z, y) ∈ Z × Y | P(y) = f(z)}` with `P_f(z, y) = z`.  (Proposition 2.6.8 (preprint 2.54)) "The pull-back
 bundle `P_f : f*Y → Z` carries a natural structure of a strong M-polyfold bundle over the
 M-polyfold `Z`.  The easy proof is left to the reader" (with a reference to [20], Proposition 4.11).
 
@@ -30,15 +30,15 @@ M-polyfold `Z`.  The easy proof is left to the reader" (with a reference to [20]
   charts are retracts on `[0]` and `[1]`), `PullbackChartData.transition_eqOn` (the transition
   maps of pulled-back charts are `(w, h) ↦ (ψ₂ψ₁⁻¹(w), pr_F(Φ₂Φ₁⁻¹)(g₁(w), h))`),
   `transition_isScSmooth`, `transitionOne_isScSmooth`, `compatible_toChart`.
-* `Polyfold.paracompactSpace_pullbackSpace` (`f*Y ⊆ Z × Y` is metrizable, by Theorem 2.16 for `Z`
-  and `Y[0]`), `Polyfold.pullbackAtlas`, and `Polyfold.proposition_2_54` (**Proposition 2.54**).
+* `Polyfold.paracompactSpace_pullbackSpace` (`f*Y ⊆ Z × Y` is metrizable, by Theorem 2.3.10 (preprint 2.16) for `Z`
+  and `Y[0]`), `Polyfold.pullbackAtlas`, and `Polyfold.proposition_2_6_8` (**Proposition 2.6.8 (preprint 2.54)**).
 
 ## What the text leaves implicit, and the choices made
 
 * "Natural structure": the atlas consists of all pulled-back charts (`pullbackAtlas`); any two
   are compatible, so the structure does not depend on choices.
-* The paracompactness of `f*Y` (required by Definition 2.51) is not mentioned in the text; it
-  follows from the metrizability of `Z` and of `Y[0]` (Theorem 2.16), as the exposition notes.
+* The paracompactness of `f*Y` (required by Definition 2.6.5 (preprint 2.51)) is not mentioned in the text; it
+  follows from the metrizability of `Z` and of `Y[0]` (Theorem 2.3.10 (preprint 2.16)), as the exposition notes.
 -/
 
 open Set Filter Topology Function TopologicalSpace
@@ -205,7 +205,7 @@ lemma invFun_of_mem (q₀ : pullbackSpace P f) {k : d.ψ.model.E 0 × d.c.F 0} (
     (d.invFun q₀ k : Z × Y) = (d.ψ.symm k.1, d.c.toPartialEquiv.symm (d.g k.1, k.2)) := by
   unfold invFun; rw [dif_pos hk]
 
-/-- **Proposition 2.54**, the charts: the strong bundle chart
+/-- **Proposition 2.6.8 (preprint 2.54)**, the charts: the strong bundle chart
 `Φ_f(z, y) = (ψ(z), pr_F Φ(y)) : P_f⁻¹(V_Z) → K_g` of `f*Y` (exposition, proof of Proposition
 2.54). -/
 def toChart (q₀ : pullbackSpace P f) : StrongBundleChart PZ (pullbackProj P f) where
@@ -316,7 +316,7 @@ lemma isScRetract_overlap_one :
   obtain ⟨W, hW, hWeq⟩ := c.overlap_eq_inter c' hP
   have hW' : IsOpen ((c.φ.model.E.prodShiftInclOp c.F 0) ⁻¹' W) :=
     hW.preimage (c.φ.model.E.prodShiftInclOp c.F 0).continuous
-  have := proposition_2_10_1 c.isScRetract_one hW'
+  have := proposition_2_3_1_one c.isScRetract_one hW'
   convert this using 1
   rw [hWeq]; rfl
 
@@ -354,7 +354,7 @@ def transitionFormula : (d₁.ψ.model.E.prod d₁.c.F) 0 → (d₂.ψ.model.E.p
     (d₁.ψ.transition d₂.ψ ∘ Prod.fst) (Prod.snd ∘ d₁.c.transition d₂.c ∘ d₁.gPair)
 
 /-- The transition map of two pulled-back charts, written through the transition maps of the
-charts of `Z` and of `Y` (exposition, proof of Proposition 2.54). -/
+charts of `Z` and of `Y` (exposition, proof of Proposition 2.6.8 (preprint 2.54)). -/
 lemma transition_eqOn :
     EqOn (transitionFormula d₁ d₂) ((d₁.toChart q₁).transition (d₂.toChart q₂))
       ((d₁.toChart q₁).overlap (d₂.toChart q₂)) := by
@@ -405,7 +405,7 @@ lemma transition_snd_mem_range (hB : d₁.c.Compatible d₂.c) {k : d₁.ψ.mode
 
 variable (d₁ d₂ q₁ q₂)
 
-/-- **Proposition 2.54**, compatibility on `[0]`: the transition maps of pulled-back charts are
+/-- **Proposition 2.6.8 (preprint 2.54)**, compatibility on `[0]`: the transition maps of pulled-back charts are
 sc-smooth. -/
 theorem transition_isScSmooth (hP : Continuous P) (hB : d₁.c.Compatible d₂.c)
     (hZ : d₁.ψ.Compatible d₂.ψ) :
@@ -465,7 +465,7 @@ lemma transitionOne_eqOn :
   have h := transition_eqOn d₁ d₂ q₁ q₂ hp
   exact congrArg (fun x : _ × _ => (x.1, Function.invFun (d₂.c.F.toBase 1) x.2)) h
 
-/-- **Proposition 2.54**, compatibility on `[1]`. -/
+/-- **Proposition 2.6.8 (preprint 2.54)**, compatibility on `[1]`. -/
 theorem transitionOne_isScSmooth (hP : Continuous P) (hB : d₁.c.Compatible d₂.c)
     (hZ : d₁.ψ.Compatible d₂.ψ) :
     IsScSmoothRetractMap (d₁.ψ.model.E.prod d₁.c.F.shift) (d₁.ψ.model.C ×ˢ univ)
@@ -522,7 +522,7 @@ theorem transitionOne_isScSmooth (hP : Continuous P) (hB : d₁.c.Compatible d�
       exact transition_mem hk
   exact hpair.congr (transitionOne_eqOn d₁ d₂ q₁ q₂)
 
-/-- **Proposition 2.54**: two pulled-back charts are compatible. -/
+/-- **Proposition 2.6.8 (preprint 2.54)**: two pulled-back charts are compatible. -/
 theorem compatible_toChart (hP : Continuous P) (hB : d₁.c.Compatible d₂.c)
     (hZ : d₁.ψ.Compatible d₂.ψ) : (d₁.toChart q₁).Compatible (d₂.toChart q₂) :=
   ⟨transition_isScSmooth d₁ d₂ q₁ q₂ hP hB hZ, transition_isScSmooth d₂ d₁ q₂ q₁ hP hB.symm hZ.symm,
@@ -533,7 +533,7 @@ theorem compatible_toChart (hP : Continuous P) (hB : d₁.c.Compatible d₂.c)
 
 end PullbackChartData
 
-/-! ### Proposition 2.54 -/
+/-! ### Proposition 2.6.8 (preprint 2.54) -/
 
 /-- The fibre identification `P_f⁻¹(z) ≅ P⁻¹(f(z))` as a continuous linear equivalence. -/
 def pullbackFiberCLE (z : Z) : (pullbackProj P f ⁻¹' {z}) ≃L[ℝ] (P ⁻¹' {f z}) where
@@ -550,7 +550,7 @@ def pullbackFiberCLE (z : Z) : (pullbackProj P f ⁻¹' {z}) ≃L[ℝ] (P ⁻¹'
 
 variable [T2Space Y] [ParacompactSpace Y]
 
-/-- `f*Y` is paracompact: it is a subspace of the metrizable space `Z × Y` (Theorem 2.16 for `Z`
+/-- `f*Y` is paracompact: it is a subspace of the metrizable space `Z × Y` (Theorem 2.3.10 (preprint 2.16) for `Z`
 and for the M-polyfold `Y[0]`). -/
 theorem paracompactSpace_pullbackSpace (Q : MPolyfold Z) (B : StrongBundle PX P) :
     ParacompactSpace (pullbackSpace P f) := by
@@ -586,13 +586,13 @@ def pullbackAtlas (B : StrongBundle PX P) (hf : PZ.IsScSmoothMap PX f) :
     let d : PullbackChartData PX P PZ f := ⟨c, ψ, hψ, hψf, RZ, hRZ, hsm⟩
     exact ⟨d.toChart q, ⟨d, q, hc, rfl⟩, show q.1.1 ∈ ψ.source from ⟨hz, hfz⟩⟩
 
-/-- **Proposition 2.54**: the pull-back `P_f : f*Y → Z` of a strong bundle `P : Y → X` along an
+/-- **Proposition 2.6.8 (preprint 2.54)**: the pull-back `P_f : f*Y → Z` of a strong bundle `P : Y → X` along an
 sc-smooth map `f : Z → X` carries a natural structure of a strong bundle over `Z`: `f*Y` is
 paracompact Hausdorff, `P_f` is a continuous surjection with Banachable fibres
 `P_f⁻¹(z) ≅ P⁻¹(f(z))`, and the pulled-back charts `Φ_f(z, y) = (ψ(z), pr_F Φ(y))` with the
 strong bundle retractions `R_g(w, h) = (r_Z(w), Γ(g(r_Z(w)), h))`, `g = φ ∘ f ∘ ψ⁻¹`, form a strong
 bundle atlas (the preprint: "the easy proof is left to the reader"). -/
-theorem proposition_2_54 (B : StrongBundle PX P) (hf : PZ.IsScSmoothMap PX f) :
+theorem proposition_2_6_8 (B : StrongBundle PX P) (hf : PZ.IsScSmoothMap PX f) :
     haveI := paracompactSpace_pullbackSpace (f := f) PZ B
     ∃ B' : StrongBundle PZ (pullbackProj P f), B'.atlas.charts = (pullbackAtlas B hf).charts := by
   have := paracompactSpace_pullbackSpace (f := f) PZ B

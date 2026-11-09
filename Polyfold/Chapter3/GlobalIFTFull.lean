@@ -5,32 +5,32 @@ import Polyfold.Chapter3.LocalSolvabilityClosed
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1)** ("at every point `y ∈ S` the sc-Fredholm germ `(f, y)` is in good position"),
-in the chart at `x₀`: property (4) of the proof of Theorem 3.54, from Corollary 3.41 and
-Lemma 3.55.
+**Theorem 3.6.8 (preprint 3.54) (1)** ("at every point `y ∈ S` the sc-Fredholm germ `(f, y)` is in good position"),
+in the chart at `x₀`: property (4) of the proof of Theorem 3.6.8 (preprint 3.54), from Corollary 3.5.3 (preprint 3.41) and
+Lemma 3.6.9 (preprint 3.55).
 
-# Theorem 3.54: good position at the nearby zeros
+# Theorem 3.6.8 (preprint 3.54): good position at the nearby zeros
 
 ## The text, paraphrased
 
-(Proof of Theorem 3.54, (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that
+(Proof of Theorem 3.6.8 (preprint 3.54), (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that
 `ψ ∘ ϕ(y) = v + σ(v)`, the kernel `ker f'(y)` is in good position to the partial cone
 `C_yX ⊆ T_yX`, and `f'(y) : T_yX → Y_y` is surjective.  Property (4) follows from Corollary 3.41
-and from Lemma 3.55."  (Lemma 3.55) For `v ∈ N ∩ C` near `0`, `v + τ(v) ∈ C`, and `Y` is a good
+and from Lemma 3.55."  (Lemma 3.6.9 (preprint 3.55)) For `v ∈ N ∩ C` near `0`, `v + τ(v) ∈ C`, and `Y` is a good
 complement of `N_v = {n + Dτ(v)n | n ∈ N}` with respect to the partial quadrant `C_{v + τ(v)}`.
 
 ## What is formalized
 
-* `Polyfold.lemma_3_55_relOpen`: **Lemma 3.55 for a relatively open domain `V ⊆ N ∩ C` and a
+* `Polyfold.lemma_3_6_9_relOpen`: **Lemma 3.6.9 (preprint 3.55) for a relatively open domain `V ⊆ N ∩ C` and a
   general presentation `T` of `C`** (the form in which it is applied: `σ` is defined on the
-  neighbourhood `V'` of Theorem 3.47, and `C' = C̃ ⊕ W` is presented by `T`); for `v ∈ V` close to
+  neighbourhood `V'` of Theorem 3.5.11 (preprint 3.47), and `C' = C̃ ⊕ W` is presented by `T`); for `v ∈ V` close to
   `0` and `z = v + σ(v)`: `z ∈ C`, `Y` is a good complement of `N_v` with respect to `C_z`
   (`partialQuadrantAtWith T z`), and `N_v` is in good position to `C_z`.
-* `Polyfold.StabilityData.exists_surjective_Dfs'_graph`: **Corollary 3.41 at the graph points**:
+* `Polyfold.StabilityData.exists_surjective_Dfs'_graph`: **Corollary 3.5.3 (preprint 3.41) at the graph points**:
   `v + σ(v)` lies on level `1` and `D(h + s)(v + σ(v))` is a surjective Fredholm operator of index
   `n − N` for `v` close to `0`.
-* `Polyfold.theorem_3_54_nearby_wholeChart`: **Theorem 3.54 (1) in the chart at `x₀`**: the data of
-  `theorem_3_54_graph_wholeChart` together with a presentation `T` of `C'` and an open neighbourhood
+* `Polyfold.theorem_3_6_8_nearby_wholeChart`: **Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`**: the data of
+  `theorem_3_6_8_graph_wholeChart` together with a presentation `T` of `C'` and an open neighbourhood
   `Vx₁ ⊆ Vx` of `x₀` such that for every zero `y ∈ Vx₁` of `f`, with `z = ψ ∘ ϕ(y) = v + σ(v)`:
   `D(h + t)(z)` is a surjective Fredholm operator of index `n − N`, `z ∈ C'`, and the tangent
   space `N_v` of the graph at `z` is in good position to `C'_z` with the closed good complement
@@ -38,33 +38,33 @@ complement of `N_v = {n + Dτ(v)n | n ∈ N}` with respect to the partial quadra
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Lemma 3.55 is stated for `τ` on all of `N ∩ C`**, but `σ` is given on the relatively open
+* **Lemma 3.6.9 (preprint 3.55) is stated for `τ` on all of `N ∩ C`**, but `σ` is given on the relatively open
   `V' ⊆ N ∩ C` only.  `σ` is extended to the cone by `σ ∘ Φ`, `Φ(v) = b(v) v` with a smooth bump
   `b` (`= 1` near `0`, `0` outside a ball inside `V'`); `Φ` maps the cone into `V'`, and the
   extension agrees with `σ` near `0`, so the derivatives at the points near `0` are those of `σ`
   within `V'` (`fderivWithin_inter`).
 * **"`N_v` is in good position"** needs the interior of `N_v ∩ C_z` in `N_v` to be nonempty, which
-  Lemma 3.55 does not state: `n ↦ n + Dσ(v)n` carries the interior of `N ∩ C` into `C ⊆ C_z` as
+  Lemma 3.6.9 (preprint 3.55) does not state: `n ↦ n + Dσ(v)n` carries the interior of `N ∩ C` into `C ⊆ C_z` as
   soon as `‖Dσ(v)‖ ≤ ε` (the good-complement constant of `(N, Y)`), which holds for `v` near `0`
   by the continuity of `Dσ` and `Dσ(0) = 0`.
-* **The closedness of `Y`** (added hypothesis of Lemma 3.55, Finding 49) is taken from
-  `theorem_3_47_closed` (`LocalSolvabilityClosed.lean`).
+* **The closedness of `Y`** (added hypothesis of Lemma 3.6.9 (preprint 3.55), Finding 49) is taken from
+  `theorem_3_5_11_closed` (`LocalSolvabilityClosed.lean`).
 * **Done in later files** (this file stops at the chart at `x₀`): (a) the identification
-  `N_v = ker D(h + t)(z)` (the text passes from Lemma 3.55, which concerns `N_v`, to "`ker f'(y)`
+  `N_v = ker D(h + t)(z)` (the text passes from Lemma 3.6.9 (preprint 3.55), which concerns `N_v`, to "`ker f'(y)`
   is in good position" without comment) is `StabilityData.graphSpace_eq_ker_Dfs'`
   (`GlobalIFTNearbyGraph.lean`, Finding 101), through the `C¹`-lift `σ₁ : V₁ → E'₁` of Theorem
   3.47 (1) since `h + t` is differentiable on level `1` only, and the dimension count
   `dim N_v = dim ker D(h + t)(0) = ind = dim ker D(h + t)(z)`; the kernel of `f'(y)` in the chart
-  at `x₀` is `theorem_3_54_nearby_kernel_wholeChart` (`GlobalIFTNearbyKernel.lean`, `GlobalIFTNearbySurj.lean`,
+  at `x₀` is `theorem_3_6_8_nearby_kernel_wholeChart` (`GlobalIFTNearbyKernel.lean`, `GlobalIFTNearbySurj.lean`,
   Findings 101–104), and its identification with the tangent space of the solution set is
-  `theorem_3_54_ker_eq_tangent_wholeChart` (`GlobalIFTIndex.lean`).  (b) The passage from the chart at `x₀`
-  to Definition 3.53 at `y` (`IsGoodPositionGermWholeChart f y`): the chart independence of the
-  linearization `f'(y)` and of the good position of its kernel (the local form of Definition 2.38,
+  `theorem_3_6_8_ker_eq_tangent_wholeChart` (`GlobalIFTIndex.lean`).  (b) The passage from the chart at `x₀`
+  to Definition 3.6.6 (preprint 3.53) at `y` (`IsGoodPositionGermWholeChart f y`): the chart independence of the
+  linearization `f'(y)` and of the good position of its kernel (the local form of Definition 2.5.8 (preprint 2.38),
   gap G.13) is `LinearizationCharts.lean` (`linAt_chart_independence`,
   `isGoodPositionGerm_of_chart_dense`, Findings 110–117); the surjectivity of `f'(y)` is not a
   consequence of the surjectivity of `Dg(y)` for the filler `g` at `x₀` (condition (3) of
-  Definition 3.4 is imposed at `0` only, Finding 100), and is proved with the text's hypotheses by
-  an implicit function theorem at the nearby zero (`theorem_3_54_one'_wholeChart`,
+  Definition 3.1.4 (preprint 3.4) is imposed at `0` only, Finding 100), and is proved with the text's hypotheses by
+  an implicit function theorem at the nearby zero (`theorem_3_6_8_one'_wholeChart`,
   `GlobalIFTNearbyOnto*.lean`, Findings 180–189).  The assembled theorems are in
   `GlobalIFTTheorems.lean` and `GlobalIFTNearbyOnto.lean`.
 -/
@@ -75,7 +75,7 @@ noncomputable section
 
 namespace Polyfold
 
-/-! ### Lemma 3.55 for a relatively open domain and a general presentation -/
+/-! ### Lemma 3.6.9 (preprint 3.55) for a relatively open domain and a general presentation -/
 
 section Lemma355
 
@@ -105,17 +105,17 @@ lemma subset_partialQuadrantAtWith {C : Set (E 0)}
     (z : E 0) : C ⊆ partialQuadrantAtWith T z := fun h hh i _ =>
   ((mem_iff_coordCLMWith T hT h).1 hh) i
 
-/-- **Lemma 3.55 for a relatively open domain `V ⊆ N ∩ C` and a general presentation `T` of the
+/-- **Lemma 3.6.9 (preprint 3.55) for a relatively open domain `V ⊆ N ∩ C` and a general presentation `T` of the
 partial quadrant `C`**: `N` in good position to `C` with the closed good complement `Y`, and
 `σ : V → Y` of class `C¹` on the relatively open neighbourhood `V` of `0` in `N ∩ C` with
 `σ(0) = 0`, `Dσ(0) = 0`.  Then for `v ∈ V` close to `0`, with `z = v + σ(v)`:
 (1) `z ∈ C`; (2), (3) `Y` is a good complement of `N_v = {n + Dσ(v)n | n ∈ N}` with respect to the
 partial quadrant `C_z` (`partialQuadrantAtWith T z`), and `N_v` is in good position to `C_z`.
 The text's `τ` is defined on all of `N ∩ C`; here `σ` is extended from `V` to the cone by a
-smooth bump (`σ ∘ (b · id)`, equal to `σ` near `0`), so that `lemma_3_55_core` applies.  The
+smooth bump (`σ ∘ (b · id)`, equal to `σ` near `0`), so that `lemma_3_6_9_core` applies.  The
 interior of `N_v ∩ C_z` is nonempty because `n ↦ n + Dσ(v)n` carries the interior of `N ∩ C`
 into `C ⊆ C_z` once `‖Dσ(v)‖ ≤ ε` (the good-complement constant of `(N, Y)`). -/
-theorem lemma_3_55_relOpen {C : Set (E 0)} (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W'))
+theorem lemma_3_6_9_relOpen {C : Set (E 0)} (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W'))
     (hT : C = T 0 ⁻¹' quadrant n W' 0) {N : Submodule ℝ (E 0)} [FiniteDimensional ℝ N]
     (hN : IsInGoodPosition E C N) {Y : Submodule ℝ (E 0)} (hY : IsGoodComplement E C N Y)
     (hYc : IsClosed (Y : Set (E 0))) {V : Set N}
@@ -210,8 +210,8 @@ theorem lemma_3_55_relOpen {C : Set (E 0)} (T : ScIso E ((ScBanach.const (Fin n 
   have hℓs : ∀ (s : Finset (Fin n)) (k : Fin n → ℝ), ∃ v : E 0, ∀ i ∈ s, ℓ i v = k i :=
     fun s k => ⟨(T 0).symm (k, 0), fun i _ => by
       rw [hℓdef, coordCLMWith_apply, ContinuousLinearEquiv.apply_symm_apply]⟩
-  -- Lemma 3.55 in coordinates
-  obtain ⟨ρ₁, hρ₁, hmain⟩ := lemma_3_55_core ℓ N Y hY.isCompl hYc hε hgood' hℓs hint τ
+  -- Lemma 3.6.9 (preprint 3.55) in coordinates
+  obtain ⟨ρ₁, hρ₁, hmain⟩ := lemma_3_6_9_core ℓ N Y hY.isCompl hYc hε hgood' hℓs hint τ
     (fun v => hσY _) hτ hτ0 hDτ0
   -- continuity of `Dσ` at `0`: `‖Dσ(v)‖ < ε` for `v` small
   have hcont : ContinuousWithinAt (fderivWithin ℝ σ V) V 0 :=
@@ -269,7 +269,7 @@ theorem lemma_3_55_relOpen {C : Set (E 0)} (T : ScIso E ((ScBanach.const (Fin n 
 
 end Lemma355
 
-/-! ### Corollary 3.41 at the points of the graph -/
+/-! ### Corollary 3.5.3 (preprint 3.41) at the points of the graph -/
 
 section Cor341
 
@@ -278,7 +278,7 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
   {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensional ℝ Q]
   (𝒮 : StabilityData Ct W) {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
 
-/-- **Corollary 3.41 at the points `v + σ(v)` of the solution graph** (Theorem 3.54 (4), the
+/-- **Corollary 3.5.3 (preprint 3.41) at the points `v + σ(v)` of the solution graph** (Theorem 3.6.8 (preprint 3.54) (4), the
 surjectivity part): for `v ∈ V` close to `0` the zero `v + σ(v)` of `h + s` lies on level `1` and
 `D(h + s)(v + σ(v)) : E₀ → F₀` is a surjective Fredholm operator of index `n − N`. -/
 theorem StabilityData.exists_surjective_Dfs'_graph (hC : IsPartialQuadrant (ScBanach.const P) Ct)
@@ -292,7 +292,7 @@ theorem StabilityData.exists_surjective_Dfs'_graph (hC : IsPartialQuadrant (ScBa
       IsFredholm (𝒮.Dfs' f x₁) ∧
       fredholmIndex (𝒮.Dfs' f x₁) = Module.finrank ℝ P - Module.finrank ℝ Q ∧
       Surjective (𝒮.Dfs' f x₁) := by
-  obtain ⟨r, hr, hr'⟩ := 𝒮.corollary_3_41 hC hf hsurj
+  obtain ⟨r, hr, hr'⟩ := 𝒮.corollary_3_5_3 hC hf hsurj
   have hΓ : ContinuousWithinAt (fun v : LinearMap.ker (𝒮.Dfs f : P × W 0 →ₗ[ℝ] Q × W 0) =>
       (v : P × W 0) + σ v) V 0 :=
     (continuous_subtype_val.continuousOn.add hσC) 0 h0V
@@ -305,7 +305,7 @@ theorem StabilityData.exists_surjective_Dfs'_graph (hC : IsPartialQuadrant (ScBa
 
 end Cor341
 
-/-! ### Theorem 3.54 (1) in the chart at `x₀`: the nearby zeros -/
+/-! ### Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`: the nearby zeros -/
 
 section Thm354Nearby
 
@@ -317,24 +317,24 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y}
 
 set_option maxHeartbeats 800000 in
-/-- **Theorem 3.54 (1) in the chart at `x₀`** (the text's property (4) in the proof of Theorem
+/-- **Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`** (the text's property (4) in the proof of Theorem
 3.54: "for every `y ∈ V` with `f(y) = 0`, so that `ψ ∘ ϕ(y) = v + σ(v)`, the kernel `ker f'(y)`
-is in good position to the partial cone `C_yX` and `f'(y)` is surjective", from Corollary 3.41
-and Lemma 3.55).  In the data of `theorem_3_54_graph_wholeChart` (chart `c` at `x₀`, conjugating
+is in good position to the partial cone `C_yX` and `f'(y)` is surjective", from Corollary 3.5.3 (preprint 3.41)
+and Lemma 3.6.9 (preprint 3.55)).  In the data of `theorem_3_6_8_graph_wholeChart` (chart `c` at `x₀`, conjugating
 sc-diffeomorphism `ψ`, the germ `h + t = 𝒮.fsum h'` with kernel `K = ker D(h + t)(0)`, closed
 good complement `Y`, `σ : V' → Y`) there are a presentation `T` of the partial quadrant
 `C' = C̃ ⊕ W` and an open neighbourhood `Vx₁ ⊆ Vx` of `x₀` such that for every zero `y ∈ Vx₁` of
 `f`, with `z = ψ ∘ ϕ(y) = v + σ(v)`, `v ∈ V'`:
 (i) `z` lies on level `1` and `D(h + t)(z) : E'₀ → F'₀` is a surjective Fredholm operator of index
-`n − N` (Corollary 3.41);
+`n − N` (Corollary 3.5.3 (preprint 3.41));
 (ii) `z ∈ C'`, and the tangent space `N_v = {n + Dσ(v)n | n ∈ K}` of the graph at `z` is in good
 position to the partial quadrant `C'_z` (`partialQuadrantAtWith T z`) with `Y` as a good
-complement (Lemma 3.55).
+complement (Lemma 3.6.9 (preprint 3.55)).
 What is **not** formalized (see the module docstring): the identification `N_v = ker D(h + t)(z)`
-and the passage from these statements in the chart at `x₀` to Definition 3.53 at `y`
+and the passage from these statements in the chart at `x₀` to Definition 3.6.6 (preprint 3.53) at `y`
 (`IsGoodPositionGermWholeChart f y`), which needs the chart-independence of the linearization `f'(y)` and
-of good position (Definition 2.38 in `T_yX`). -/
-theorem theorem_3_54_nearby_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsGoodPositionGermTameWholeChart f x₀)
+of good position (Definition 2.5.8 (preprint 2.38) in `T_yX`). -/
+theorem theorem_3_6_8_nearby_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.IsGoodPositionGermTameWholeChart f x₀)
     (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (Pn Q : Type) (_ : NormedAddCommGroup Pn) (_ : NormedSpace ℝ Pn) (_ : FiniteDimensional ℝ Pn)
@@ -384,14 +384,14 @@ theorem theorem_3_54_nearby_wholeChart (hf : IsSection P f) {x₀ : X} (hg : B.I
   obtain ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     -, -, -, -, -,
     𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, hYc, hYcc, -, hV'rel, h0V', hσY, hσ1, hσC, hσ0,
-    hDσ, hsol, -, hVxo, hx₀Vx, hVxsub, hinj, hzero, himage⟩ := theorem_3_54_graph_wholeChart hf hg hx₀
+    hDσ, hsol, -, hVxo, hx₀Vx, hVxsub, hinj, hzero, himage⟩ := theorem_3_6_8_graph_wholeChart hf hg hx₀
   have hKfin : FiniteDimensional ℝ (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) :=
     (𝒮.isFredholm_Dfs hCt hh').1.finite_ker
   obtain ⟨n', W', T, hT⟩ := hCt.prod_univ W
-  -- Corollary 3.41 and Lemma 3.55 at the graph points
+  -- Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55) at the graph points
   obtain ⟨ρ₁, hρ₁, hA⟩ := 𝒮.exists_surjective_Dfs'_graph hCt hh' hsurj h0V' hσC.continuousOn hσ0
     hsol
-  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_55_relOpen T hT hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
+  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_6_9_relOpen T hT hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
   -- the projection onto `K` along `Y`
   have hTC : Submodule.IsTopCompl (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) Yc :=
     (Submodule.IsCompl.isTopCompl_of_isClosed_of_finiteDimensional hYc.isCompl.symm hYcc).symm

@@ -3,7 +3,7 @@ import Polyfold.Chapter3.StrongBundleSections
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.1,
-**Definition 5.1, Lemma 5.2, Proposition 5.3** (auxiliary norms)
+**Definition 5.1.1 (preprint 5.1), Lemma 5.1.2 (preprint 5.2), Proposition 5.1.3 (preprint 5.3)** (auxiliary norms)
 *(book 2017: Definition 5.1, Lemma 5.1, Proposition 5.1; see `BookConcordance.md`)*.
 
 # Auxiliary norms
@@ -12,15 +12,15 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 
 (§5.1) For a strong bundle `P : Y → X` over a tame M-polyfold, the subset `Y_{0,1}` of
 biregularity `(0, 1)` is a topological space, `P : Y_{0,1} → X` is continuous, and the fibres
-`Y_x = P⁻¹(x)` are Banach spaces.  (Definition 5.1) An auxiliary norm is a continuous
+`Y_x = P⁻¹(x)` are Banach spaces.  (Definition 5.1.1 (preprint 5.1)) An auxiliary norm is a continuous
 `N : Y_{0,1} → ℝ` such that (1) the restriction of `N` to a fibre is a complete norm, and (2) if
 `(w_k) ⊆ Y_{0,1}` with `P(w_k) → x` and `N(w_k) → 0`, then `w_k → 0_x` in `Y_{0,1}`.
-(Lemma 5.2) For a continuous `N : Y_{0,1} → ℝ` which is fibrewise a complete norm, (i) `N` is an
+(Lemma 5.1.2 (preprint 5.2)) For a continuous `N : Y_{0,1} → ℝ` which is fibrewise a complete norm, (i) `N` is an
 auxiliary norm iff (ii) every `x` has a strong bundle isomorphism `Φ : Y|V → K` and constants
 `0 < c < C` with `c·N(w) ≤ |h|₁ ≤ C·N(w)` for `w ∈ P⁻¹(V)`, `Φ(w) = (p, h)`.  Proof of (i) ⇒ (ii):
 by continuity `N < 1` on a neighbourhood `|p − q|₀ + |h|₁ < ε` of `0_x`, and homogeneity gives
 `N(w) ≤ (2/ε)|h|₁`; if no `c` existed, sequences `|h_k|₁ = 1`, `N(w_k) → 0`, `P(w_k) → x` would
-contradict (2).  (ii) ⇒ (i) is "obvious".  (Proposition 5.3) Auxiliary norms exist (a partition
+contradict (2).  (ii) ⇒ (i) is "obvious".  (Proposition 5.1.3 (preprint 5.3)) Auxiliary norms exist (a partition
 of unity on the paracompact `X`, pulling back `|·|₁` by strong bundle charts), and for two of them
 there is a continuous `f : X → (0, ∞)` with `f(x)·N₀ ≤ N₁ ≤ (1/f(x))·N₀` on `P⁻¹(x)`.
 
@@ -36,15 +36,15 @@ there is a continuous `f : X → (0, ∞)` with `f(x)·N₀ ≤ N₁ ≤ (1/f(x)
   chart**: the injective linear map `StrongBundle.liftOneFiber : (Y_{0,1})_x → F₁`
   (`liftOneFiber_injective`), its range (`mem_range_liftOneFiber`, `isClosed_slice`) and
   `StrongBundle.complete_liftOneFiber` (**the fibre is complete for `|·|₁`**).
-* `StrongBundle.IsCompleteFiberNorm` (**Definition 5.1 (1)**) and `StrongBundle.IsAuxNorm`
-  (**Definition 5.1**), with `IsAuxNorm.nonneg`, `IsAuxNorm.smul`.
-* **Lemma 5.2**: `StrongBundle.exists_le_mul_norm_liftOne` (the upper bound `g ≤ C·|h|₁` for any
+* `StrongBundle.IsCompleteFiberNorm` (**Definition 5.1.1 (preprint 5.1) (1)**) and `StrongBundle.IsAuxNorm`
+  (**Definition 5.1.1 (preprint 5.1)**), with `IsAuxNorm.nonneg`, `IsAuxNorm.smul`.
+* **Lemma 5.1.2 (preprint 5.2)**: `StrongBundle.exists_le_mul_norm_liftOne` (the upper bound `g ≤ C·|h|₁` for any
   `g` continuous at `0_x` and homogeneous on the fibres), `IsAuxNorm.exists_norm_liftOne_le` (the
   lower bound, from (2) by contradiction), `IsAuxNorm.exists_bounds` (**(i) ⇒ (ii) in every
-  strong bundle chart around `x`**) and `Polyfold.lemma_5_2` (the equivalence).
-* **Proposition 5.3**: `StrongBundle.gluedNorm` (`N(w) = Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁`),
+  strong bundle chart around `x`**) and `Polyfold.lemma_5_1_2` (the equivalence).
+* **Proposition 5.1.3 (preprint 5.3)**: `StrongBundle.gluedNorm` (`N(w) = Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁`),
   `continuous_gluedNorm`, `isCompleteFiberNorm_gluedNorm`, `gluedNorm_bounds`,
-  `Polyfold.proposition_5_3_exists` (**existence**) and `Polyfold.proposition_5_3_compare`
+  `Polyfold.proposition_5_1_3_exists` (**existence**) and `Polyfold.proposition_5_1_3_compare`
   (**comparison by a continuous `f : X → (0, ∞)`**, by
   `exists_continuous_forall_mem_convex_of_local_const`).
   The auxiliary comparisons `exists_norm_liftOne_le_mul` (the norms `|·|₁` of two charts are
@@ -58,8 +58,8 @@ there is a continuous `f : X → (0, ∞)` with `f(x)·N₀ ≤ N₁ ≤ (1/f(x)
   `F₁ ⊆ F₀` is a subspace.  The text's `|h|₁` is the `F₁`-norm of the fibre component of
   `Φ[1](w)`; it depends on the chart, but any two are equivalent on each fibre and locally uniformly
   (`exists_norm_liftOne_le_mul`: continuity of `Φ'[1] ∘ Φ[1]⁻¹` at the zero section and fibre
-  linearity, the argument of the first half of Lemma 5.2).
-* **"Complete norm" (Definition 5.1 (1)) is read as: `N` is a norm on `(Y_{0,1})_x` and the fibre
+  linearity, the argument of the first half of Lemma 5.1.2 (preprint 5.2)).
+* **"Complete norm" (Definition 5.1.1 (preprint 5.1) (1)) is read as: `N` is a norm on `(Y_{0,1})_x` and the fibre
   with `N` is complete** (`IsCompleteFiberNorm`: `N(v) = 0 ⇒ v = 0`, `N(tv) = |t|N(v)`, the triangle
   inequality, and every `N`-Cauchy sequence converges).  The fibre with the chart norm `|·|₁` is
   complete because it is the slice `{h ∈ F₁ | (φ(x), h) ∈ K[1]}`, closed as the fixed point set of
@@ -68,30 +68,30 @@ there is a continuous `f : X → (0, ∞)` with `f(x)·N₀ ≤ N₁ ≤ (1/f(x)
 * `N` is a function on `Y[1]` (`B.One`, the set `Y_{0,1}` with the topology of §2.5), so its
   continuity and the convergence `w_k → 0_x` in (2) are in that topology, as the text says.
   Condition (2) is stated with sequences, as in the text.
-* **Lemma 5.2 (ii)** is stated with a strong bundle chart of `P` (`B.IsChart`), the text's "strong
+* **Lemma 5.1.2 (preprint 5.2) (ii)** is stated with a strong bundle chart of `P` (`B.IsChart`), the text's "strong
   bundle isomorphism `Φ : Y|V → K`", and a neighbourhood `V ⊆ dom φ` of `x`; the text's `V` is the
   domain of `Φ`, but its own proof only gives the bounds "for `P(w)` close to `x`", so `V` is a
   neighbourhood on which they hold.  The direction (i) ⇒ (ii) holds in *every* strong bundle chart
-  around `x` (`IsAuxNorm.exists_bounds`), which Proposition 5.3 uses.  The direction (ii) ⇒ (i),
+  around `x` (`IsAuxNorm.exists_bounds`), which Proposition 5.1.3 (preprint 5.3) uses.  The direction (ii) ⇒ (i),
   "obvious" in the text, needs that `Φ[1]` is a homeomorphism onto `K[1]` for a chart compatible
   with the atlas (`oneChartOf`): `Φ[1](w_k) → (φ(x), 0)` gives `w_k → 0_x`.
-* **The proof of Lemma 5.2 needs no metrizability**: the contradiction argument uses the
+* **The proof of Lemma 5.1.2 (preprint 5.2) needs no metrizability**: the contradiction argument uses the
   neighbourhoods `φ⁻¹(B(φ(x), 1/(k + 1)))` of the chart, whose points converge to `x` because `φ⁻¹`
   is continuous on `O`.
-* **Proposition 5.3, existence.**  The glued norm `Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁` (over the charts of
+* **Proposition 5.1.3 (preprint 5.3), existence.**  The glued norm `Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁` (over the charts of
   the atlas, `(ρᵢ)` a partition of unity subordinate to their domains, which exists since `X` is
   paracompact and Hausdorff, hence normal) is continuous on `Y[1]` (each term has closed support in
   the domain of `Φᵢ[1]`, and the sum is locally finite), a norm on each fibre, complete and
   comparable to the norm of any chart near each point (the finitely many charts meeting a
-  neighbourhood of `x` are uniformly comparable there); Lemma 5.2 (ii) ⇒ (i) concludes.  The text
+  neighbourhood of `x` are uniformly comparable there); Lemma 5.1.2 (preprint 5.2) (ii) ⇒ (i) concludes.  The text
   gives one sentence.
-* **Proposition 5.3, comparison.**  The text's "the local compatibility implies the existence of
-  `f`" is: Lemma 5.2 (i) ⇒ (ii) for `N₀` and `N₁` in the same chart around `x` gives a local
+* **Proposition 5.1.3 (preprint 5.3), comparison.**  The text's "the local compatibility implies the existence of
+  `f`" is: Lemma 5.1.2 (preprint 5.2) (i) ⇒ (ii) for `N₀` and `N₁` in the same chart around `x` gives a local
   constant `r_x > 0` with `r_x N₀ ≤ N₁` and `r_x N₁ ≤ N₀` near `x`; the set of admissible `r` at
   each point is convex, so a partition of unity glues the constants into a continuous `f`
   (`exists_continuous_forall_mem_convex_of_local_const`).
 * **Tameness is not used**: §5.1 places the strong bundle over a tame M-polyfold, but Definition
-  5.1, Lemma 5.2 and Proposition 5.3 hold for every strong bundle (Lemma 5.2 is stated in the text
+  5.1, Lemma 5.1.2 (preprint 5.2) and Proposition 5.1.3 (preprint 5.3) hold for every strong bundle (Lemma 5.1.2 (preprint 5.2) is stated in the text
   without tameness).
 -/
 
@@ -316,7 +316,7 @@ lemma oneChartOf_transition (hc : B.IsChart c) (y₀ : B.One) {c' : StrongBundle
   rfl
 
 /-- The charts `Φ[1]` of two compatible strong bundle charts are compatible charts of `Y[1]`: the
-transition maps are the `[1]`-transitions of Definition 2.50. -/
+transition maps are the `[1]`-transitions of Definition 2.6.4 (preprint 2.50). -/
 theorem oneChartOf_compatible (hc : B.IsChart c) (y₀ : B.One) {c' : StrongBundleChart PX P}
     (hc' : c' ∈ B.atlas.charts) (y₀' : B.One) :
     (oneChartOf hc y₀).Compatible (oneChartOf (B.isChart_of_mem hc') y₀') := by
@@ -554,13 +554,13 @@ end ChartNorm
 
 end Fiber
 
-/-! ### Definition 5.1: auxiliary norms -/
+/-! ### Definition 5.1.1 (preprint 5.1): auxiliary norms -/
 
 section Def51
 
 variable (B : StrongBundle PX P)
 
-/-- **Definition 5.1 (1)** at one point: the restriction of `N : Y_{0,1} → ℝ` to the fibre
+/-- **Definition 5.1.1 (preprint 5.1) (1)** at one point: the restriction of `N : Y_{0,1} → ℝ` to the fibre
 `(Y_{0,1})_x` is a norm, and the fibre with this norm is complete (Cauchy sequences converge). -/
 structure IsCompleteFiberNorm (N : B.One → ℝ) (x : X) : Prop where
   eq_zero : ∀ v : B.oneFiber x, N (B.toOne v) = 0 → v = 0
@@ -570,7 +570,7 @@ structure IsCompleteFiberNorm (N : B.One → ℝ) (x : X) : Prop where
     (∀ ε > 0, ∃ n, ∀ m ≥ n, ∀ k ≥ n, N (B.toOne (u m - u k)) < ε) →
       ∃ v, Tendsto (fun k => N (B.toOne (u k - v))) atTop (𝓝 0)
 
-/-- **Definition 5.1**: an **auxiliary norm** for the strong bundle `P : Y → X` is a continuous map
+/-- **Definition 5.1.1 (preprint 5.1)**: an **auxiliary norm** for the strong bundle `P : Y → X` is a continuous map
 `N : Y_{0,1} → ℝ` (on `Y[1]`, the set `Y_{0,1}` with its topology) such that (1) its restriction
 to every fibre `(Y_{0,1})_x` is a complete norm, and (2) if `(w_k)` is a sequence in `Y_{0,1}` with
 `P(w_k) → x` in `X` and `N(w_k) → 0`, then `w_k → 0_x` in `Y_{0,1}`. -/
@@ -604,11 +604,11 @@ lemma IsAuxNorm.smul {N : B.One → ℝ} (hN : B.IsAuxNorm N) {y : X} (v : B.one
     N (B.toOne (t • v)) = |t| * N (B.toOne v) :=
   (hN.fiber y).smul t v
 
-/-! ### The local comparison with the norms of the charts (Lemma 5.2) -/
+/-! ### The local comparison with the norms of the charts (Lemma 5.1.2 (preprint 5.2)) -/
 
 variable {c : StrongBundleChart PX P}
 
-/-- **The upper bound of Lemma 5.2, from continuity at the zero section** (the first half of the
+/-- **The upper bound of Lemma 5.1.2 (preprint 5.2), from continuity at the zero section** (the first half of the
 text's proof of "(i) ⇒ (ii)"): if `g : Y_{0,1} → ℝ` is continuous at `0_x` and positively
 homogeneous on the fibres near `x`, then `g(w) ≤ C·|h|₁` for `P(w)` near `x`, where `Φ[1](w) =
 (p, h)` in a strong bundle chart `Φ` around `x`.  (The text: "`N(y) < 1` for
@@ -681,7 +681,7 @@ theorem exists_le_mul_norm_liftOne (hc : B.IsChart c) {x : X} (hx : x ∈ c.φ.s
       rw [← toOne_ofOne B w, ← hv, hv0]; exact h
     rw [this, ← hzero, mul_zero]
 
-/-- **The lower bound of Lemma 5.2, from condition (2) of Definition 5.1** (the second half of the
+/-- **The lower bound of Lemma 5.1.2 (preprint 5.2), from condition (2) of Definition 5.1.1 (preprint 5.1)** (the second half of the
 text's proof of "(i) ⇒ (ii)", by contradiction with sequences): for an auxiliary norm `N`,
 `|h|₁ ≤ A·N(w)` for `P(w)` near `x`. -/
 theorem IsAuxNorm.exists_norm_liftOne_le {N : B.One → ℝ} (hN : B.IsAuxNorm N) (hc : B.IsChart c)
@@ -752,7 +752,7 @@ theorem IsAuxNorm.exists_norm_liftOne_le {N : B.One → ℝ} (hN : B.IsAuxNorm N
     h3'.congr fun k => hnorm1 k
   exact one_ne_zero (tendsto_nhds_unique tendsto_const_nhds h4)
 
-/-- **Lemma 5.2, "(i) ⇒ (ii)", in every strong bundle chart**: for an auxiliary norm `N` and a
+/-- **Lemma 5.1.2 (preprint 5.2), "(i) ⇒ (ii)", in every strong bundle chart**: for an auxiliary norm `N` and a
 strong bundle chart `Φ` of `P` around `x`, there are a neighbourhood `V ⊆ dom φ` of `x` and
 constants `0 < a < A` with `a·N(w) ≤ |h|₁ ≤ A·N(w)` for `w ∈ Y_{0,1}`, `P(w) ∈ V`,
 `Φ[1](w) = (p, h)`. -/
@@ -773,11 +773,11 @@ theorem IsAuxNorm.exists_bounds {N : B.One → ℝ} (hN : B.IsAuxNorm N) (hc : B
     _ ≤ ‖(c.liftOne (B.oneVal w)).2‖ := by
         rw [one_div_mul_eq_div, div_le_iff₀ hC, mul_comm]; exact h1
 
-/-- **Lemma 5.2**: for a continuous `N : Y_{0,1} → ℝ` which is a complete norm on every fibre,
+/-- **Lemma 5.1.2 (preprint 5.2)**: for a continuous `N : Y_{0,1} → ℝ` which is a complete norm on every fibre,
 `N` is an auxiliary norm if and only if (ii) every `x ∈ X` lies in the domain of a strong bundle
 chart `Φ` of `P` with a neighbourhood `V` of `x` and constants `0 < a < A` such that
 `a·N(w) ≤ |h|₁ ≤ A·N(w)` for all `w ∈ Y_{0,1}` with `P(w) ∈ V`, where `Φ(w) = (p, h)`. -/
-theorem _root_.Polyfold.lemma_5_2 {N : B.One → ℝ} (hcont : Continuous N)
+theorem _root_.Polyfold.lemma_5_1_2 {N : B.One → ℝ} (hcont : Continuous N)
     (hfib : ∀ x, B.IsCompleteFiberNorm N x) :
     B.IsAuxNorm N ↔ ∀ x, ∃ c : StrongBundleChart PX P, B.IsChart c ∧
       ∃ V, IsOpen V ∧ x ∈ V ∧ V ⊆ c.φ.source ∧ ∃ a A : ℝ, 0 < a ∧ a < A ∧
@@ -817,13 +817,13 @@ theorem _root_.Polyfold.lemma_5_2 {N : B.One → ℝ} (hcont : Continuous N)
 
 end Def51
 
-/-! ### Proposition 5.3 -/
+/-! ### Proposition 5.1.3 (preprint 5.3) -/
 
 section Prop53
 
 variable {B : StrongBundle PX P}
 
-/-- **The norms `|·|₁` of two strong bundle charts around `x` are locally comparable**: Lemma 5.2's
+/-- **The norms `|·|₁` of two strong bundle charts around `x` are locally comparable**: Lemma 5.1.2 (preprint 5.2)'s
 upper bound (continuity at the zero section and homogeneity) for `g = |Φ₁[1](·)|₁`. -/
 theorem exists_norm_liftOne_le_mul {c₁ c₂ : StrongBundleChart PX P} (hc₁ : B.IsChart c₁)
     (hc₂ : B.IsChart c₂) {x : X} (hx₁ : x ∈ c₁.φ.source) (hx₂ : x ∈ c₂.φ.source) :
@@ -895,7 +895,7 @@ theorem complete_of_bounds {g : B.One → ℝ} {c : StrongBundleChart PX P} (hc 
 variable {ι : Type*} {c : ι → StrongBundleChart PX P} {ρ : PartitionOfUnity ι X univ}
 
 variable (B) in
-/-- **The glued norm of the proof of Proposition 5.3**: `N(w) = Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁` for a
+/-- **The glued norm of the proof of Proposition 5.1.3 (preprint 5.3)**: `N(w) = Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁` for a
 family of strong bundle charts `Φᵢ` and a partition of unity `(ρᵢ)` subordinate to their domains
 (the text: "a partition of unity argument ... pulling back by strong bundle maps the standard norm
 `|·|₁` to the fibers"). -/
@@ -968,7 +968,7 @@ theorem gluedNorm_bounds (hc : ∀ i, B.IsChart (c i))
       _ = C * ∑ i ∈ is, ρ i (P (B.oneVal w)) * ‖((c i).liftOne (B.oneVal w)).2‖ := by
           rw [Finset.mul_sum]; exact Finset.sum_congr rfl fun i _ => by ring
 
-/-- **The glued norm is a complete norm on every fibre** (Definition 5.1 (1)). -/
+/-- **The glued norm is a complete norm on every fibre** (Definition 5.1.1 (preprint 5.1) (1)). -/
 theorem isCompleteFiberNorm_gluedNorm (hc : ∀ i, B.IsChart (c i))
     (hρ : ρ.IsSubordinate fun i => (c i).φ.source) (x : X) :
     B.IsCompleteFiberNorm (gluedNorm B c ρ) x := by
@@ -1016,18 +1016,18 @@ theorem isCompleteFiberNorm_gluedNorm (hc : ∀ i, B.IsChart (c i))
       (fun v => (hb v).1)
     rw [one_div_mul_eq_div, div_le_iff₀ hC, mul_comm]; exact (hb v).2
 
-/-- **Proposition 5.3, existence**: every strong bundle `P : Y → X` admits an auxiliary norm
+/-- **Proposition 5.1.3 (preprint 5.3), existence**: every strong bundle `P : Y → X` admits an auxiliary norm
 (the glued norm `Σᵢ ρᵢ(P(w))·|Φᵢ[1](w)|₁` over the charts of the atlas, for a partition of unity
-of the paracompact Hausdorff space `X` subordinate to their domains; Definition 5.1 through
-Lemma 5.2). -/
-theorem _root_.Polyfold.proposition_5_3_exists : ∃ N : B.One → ℝ, B.IsAuxNorm N := by
+of the paracompact Hausdorff space `X` subordinate to their domains; Definition 5.1.1 (preprint 5.1) through
+Lemma 5.1.2 (preprint 5.2)). -/
+theorem _root_.Polyfold.proposition_5_1_3_exists : ∃ N : B.One → ℝ, B.IsAuxNorm N := by
   set c : B.atlas.charts → StrongBundleChart PX P := fun i => i.1 with hcdef
   have hc : ∀ i, B.IsChart (c i) := fun i => B.isChart_of_mem i.2
   obtain ⟨ρ, hρ⟩ := PartitionOfUnity.exists_isSubordinate isClosed_univ
     (fun i => (c i).φ.source) (fun i => (c i).φ.isOpen_source) fun x _ => by
       obtain ⟨c₀, hc₀, hx⟩ := exists_chart_mem B x
       exact mem_iUnion.2 ⟨⟨c₀, hc₀⟩, hx⟩
-  refine ⟨gluedNorm B c ρ, (lemma_5_2 (continuous_gluedNorm hc hρ)
+  refine ⟨gluedNorm B c ρ, (lemma_5_1_2 (continuous_gluedNorm hc hρ)
     (isCompleteFiberNorm_gluedNorm hc hρ)).2 fun x => ?_⟩
   obtain ⟨c', hc'm, hx'⟩ := exists_chart_mem B x
   have hc' := B.isChart_of_mem hc'm
@@ -1038,11 +1038,11 @@ theorem _root_.Polyfold.proposition_5_3_exists : ∃ N : B.One → ℝ, B.IsAuxN
   · exact (hV w hw).2.trans (mul_le_mul_of_nonneg_right (by linarith [one_div_pos.2 hC])
       (gluedNorm_nonneg w))
 
-/-- **Proposition 5.3, comparison**: for two auxiliary norms `N₀`, `N₁` there is a continuous
+/-- **Proposition 5.1.3 (preprint 5.3), comparison**: for two auxiliary norms `N₀`, `N₁` there is a continuous
 `f : X → (0, ∞)` with `f(x)·N₀(w) ≤ N₁(w) ≤ (1/f(x))·N₀(w)` for all `w ∈ P⁻¹(x) ∩ Y_{0,1}` ("the
-local compatibility implies the existence of `f`": Lemma 5.2 in one chart around each point gives
+local compatibility implies the existence of `f`": Lemma 5.1.2 (preprint 5.2) in one chart around each point gives
 local constants, glued by a partition of unity). -/
-theorem _root_.Polyfold.proposition_5_3_compare {N₀ N₁ : B.One → ℝ} (h₀ : B.IsAuxNorm N₀)
+theorem _root_.Polyfold.proposition_5_1_3_compare {N₀ N₁ : B.One → ℝ} (h₀ : B.IsAuxNorm N₀)
     (h₁ : B.IsAuxNorm N₁) :
     ∃ f : X → ℝ, Continuous f ∧ (∀ x, 0 < f x) ∧ ∀ w : B.One,
       f (P (B.oneVal w)) * N₀ w ≤ N₁ w ∧ N₁ w ≤ (f (P (B.oneVal w)))⁻¹ * N₀ w := by

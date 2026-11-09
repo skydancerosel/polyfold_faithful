@@ -4,10 +4,10 @@ import RoundTrip.Blind.V1_8
 
 /-! Round trip for V1_8 (Proposition 1.9: sc-Fredholm operators are regularizing).
 
-`A` is the conjunction of the types of `Polyfold.proposition_1_9`,
+`A` is the conjunction of the types of `Polyfold.proposition_1_1_10`,
 `Polyfold.IsScFredholm.isRegularizing` and `Polyfold.isScFredholm_iff` (refresh 2026-11-02: the last
 two were added to the row, with the vocabulary `ScOperator.IsRegularizing`).  No universe
-parameters (`ScBanach` lives in `Type`).  `proposition_1_9` quantifies over the *data*
+parameters (`ScBanach` lives in `Type`).  `proposition_1_1_10` quantifies over the *data*
 `s : ScFredholmSplitting T`, `B` over the proposition `IsScFredholmB T` (an existential over the
 same four submodules with the same seven conditions), so the two are repackagings of each other;
 `IsScFredholm.isRegularizing` is the same statement with `IsRegularizing` folded.
@@ -34,11 +34,11 @@ theorem isScFredholmB_iff {E F : ScBanach} (T : ScOperator E F) :
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_1_9) ∧ (type_of% @Polyfold.IsScFredholm.isRegularizing) ∧
+  (type_of% @Polyfold.proposition_1_1_10) ∧ (type_of% @Polyfold.IsScFredholm.isRegularizing) ∧
     (type_of% @Polyfold.isScFredholm_iff)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_1_9, @Polyfold.IsScFredholm.isRegularizing, @Polyfold.isScFredholm_iff⟩
+  ⟨@Polyfold.proposition_1_1_10, @Polyfold.IsScFredholm.isRegularizing, @Polyfold.isScFredholm_iff⟩
 
 theorem A_to_B : A → B := by
   intro hA E F T hT m e he
@@ -55,11 +55,11 @@ theorem B_to_A : B → A := by
   obtain ⟨s⟩ := hT
   exact s.isFredholm 0
 
-#rt_check RoundTrip.V1_8.A_to_B [Polyfold.proposition_1_9, Polyfold.IsScFredholm.isRegularizing,
+#rt_check RoundTrip.V1_8.A_to_B [Polyfold.proposition_1_1_10, Polyfold.IsScFredholm.isRegularizing,
   Polyfold.isScFredholm_iff]
-#rt_check RoundTrip.V1_8.B_to_A [Polyfold.proposition_1_9, Polyfold.IsScFredholm.isRegularizing,
+#rt_check RoundTrip.V1_8.B_to_A [Polyfold.proposition_1_1_10, Polyfold.IsScFredholm.isRegularizing,
   Polyfold.isScFredholm_iff]
-#rt_overlap RoundTrip.V1_8.B_to_A [Polyfold.proposition_1_9, Polyfold.IsScFredholm.isRegularizing,
+#rt_overlap RoundTrip.V1_8.B_to_A [Polyfold.proposition_1_1_10, Polyfold.IsScFredholm.isRegularizing,
   Polyfold.isScFredholm_iff]
 
 end RoundTrip.V1_8

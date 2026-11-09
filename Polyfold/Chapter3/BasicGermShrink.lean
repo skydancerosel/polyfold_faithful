@@ -2,7 +2,7 @@ import Polyfold.Chapter3.FredholmGermIndex
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definitions 3.7 (basic germs) and 3.11 (sc-Fredholm germs), **in the text's germ reading**: the
+Definitions 3.1.7 (preprint 3.7) (basic germs) and 3.11 (sc-Fredholm germs), **in the text's germ reading**: the
 basic germ to which `g − s` is conjugated may be restricted to a smaller germ of neighbourhoods, in
 particular to the germ of the points that the inverse base map `ψ'` sends into the germs on which
 the filling `g` and the sc⁺-section `s` are sc-smooth.
@@ -11,13 +11,13 @@ the filling `g` and the sc⁺-section `s` are sc-smooth.
 
 ## The text, paraphrased
 
-(Definition 3.7) A basic germ is an sc-smooth germ `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` with `h(0) = 0`
-whose `W`-part is `w − B(a, w)`, `B` an sc⁰-contraction germ (Definition 3.28).  (Definition 3.11)
+(Definition 3.1.7 (preprint 3.7)) A basic germ is an sc-smooth germ `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` with `h(0) = 0`
+whose `W`-part is `w − B(a, w)`, `B` an sc⁰-contraction germ (Definition 3.3.1 (preprint 3.28)).  (Definition 3.1.11 (preprint 3.11))
 `(f, x₀)` is an sc-Fredholm germ if, in a chart centred at `x₀`, the principal part has a filling
 `(g, 0)` (an sc-smooth section germ of `U ◁ F → U`), there is a local sc⁺-section `s` near `0` with
 `s(0) = g(0)`, and `g − s` is conjugated by a strong bundle isomorphism `Ψ : U ◁ F → U' ◁ (ℝᴺ ⊕ W)`
 to a basic germ.  All of these are **germs**: `g` and `s` are sc-smooth on germs of neighbourhoods
-`G_g`, `G_s` of `0` (Definition 3.1) whose levels may shrink with the level.
+`G_g`, `G_s` of `0` (Definition 3.1.1 (preprint 3.1)) whose levels may shrink with the level.
 
 ## What is formalized
 
@@ -38,32 +38,32 @@ to a basic germ.  All of these are **germs**: `g` and `s` are sc-smooth on germs
   (`levelMap_inclK_mem_of_subset_shrinkGerm`): `x ∈ G″_m ⇒ ψ'_m(x) ∈ G'_m`; read on the `E`-side,
   `ConjugationData.mem_of_levelMap_base_mem`: `u ∈ U_m` with `ψ_m(u) ∈ G″_m` lies in `G'_m`.  This
   is what makes the nearby points `x₁ ∈ G″₁` produced by the implicit function theorem
-  (Corollary 3.41) points where `g` is sc¹: `ψ'₁(x₁) ∈ (G_g)₁` (`BasicGermShrinkIFT.lean`).
+  (Corollary 3.5.3 (preprint 3.41)) points where `g` is sc¹: `ψ'₁(x₁) ∈ (G_g)₁` (`BasicGermShrinkIFT.lean`).
 * `Polyfold.IsConjugateToBasicGerm.exists_conjugationData_mapsToGerm`: the conjugation of
-  Definition 3.11 can always be chosen with `ψ'` mapping the basic germ's germ into `G_g ∩ G_s`.
+  Definition 3.1.11 (preprint 3.11) can always be chosen with `ψ'` mapping the basic germ's germ into `G_g ∩ G_s`.
 * `Polyfold.ConjugationData.congr`: conjugation data of `k` are conjugation data of every `k'`
   equal to `k` on `U` near `0`, with the same germ `G″` (`shrinkGerm_congr`); this is the
-  conjugation part of Theorem 3.15 (`IsScFredholmGermWholeChart.sectionAdd`) in the germ reading.  The
-  filling and sc⁺-section parts of Theorem 3.15 on germs (`g + ŝ ∘ r` a filling germ on `G_g`,
-  `ŝ₁ ∘ r + t₀` an sc⁺-germ on `G_s`) need the addition of germs and the germ form of Lemma 3.17,
+  conjugation part of Theorem 3.1.18 (preprint 3.15) (`IsScFredholmGermWholeChart.sectionAdd`) in the germ reading.  The
+  filling and sc⁺-section parts of Theorem 3.1.18 (preprint 3.15) on germs (`g + ŝ ∘ r` a filling germ on `G_g`,
+  `ŝ₁ ∘ r + t₀` an sc⁺-germ on `G_s`) need the addition of germs and the germ form of Lemma 3.1.20 (preprint 3.17),
   which are not proved here.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **Restricting a basic germ is harmless, but one field needs a reason.**  The sc⁰-contraction
-  estimate of Definition 3.28 asks that the points `(a, w)`, `a ∈ C̃`, `|a|, |w|_m < r`, lie in
+  estimate of Definition 3.3.1 (preprint 3.28) asks that the points `(a, w)`, `a ∈ C̃`, `|a|, |w|_m < r`, lie in
   `U_m`; for a smaller germ this holds after shrinking `r`, because every level of a germ is a
   relatively open neighbourhood of `0` in `C̃ ⊕ W_m` (`exists_ball_paramProd`): no extra
   condition.  The sc-smoothness of `h` on the smaller germ uses the uniqueness of the derivatives
-  (`IsScSmoothGerm.mono`), i.e. that `C̃` is quadrant-like; the basic germs of Definition 3.11 have
+  (`IsScSmoothGerm.mono`), i.e. that `C̃` is quadrant-like; the basic germs of Definition 3.1.11 (preprint 3.11) have
   `C̃` a partial quadrant (`ConjugationData.quadrant`), so this is no restriction there.
 * **`G ∩ preimage = preimage`.**  The germ "`G″ = G ∩ ψ'^{-1}(G_g ∩ G_s)`" is the preimage germ
   `G.preimage (G_g ∩ G_s)` itself, which is already contained in `G`
   (`ScNbhdGerm.inter_preimage_U`).
 * **The text does not say on which germ the conjugated basic germ lives relative to `G_g`, `G_s`.**
-  Its proofs (Corollary 3.41, Theorem 3.54) differentiate `g` at `ψ'(x₁)` for the nearby solutions
+  Its proofs (Corollary 3.5.3 (preprint 3.41), Theorem 3.6.8 (preprint 3.54)) differentiate `g` at `ψ'(x₁)` for the nearby solutions
   `x₁ ∈ G₁` of the basic germ.  With `g` an sc-smooth germ on `G_g` only, `ψ'(x₁)` must lie in
-  `(G_g)₁`; for the basic germ on an arbitrary `G` it need not (nothing in Definition 3.11 relates
+  `(G_g)₁`; for the basic germ on an arbitrary `G` it need not (nothing in Definition 3.1.11 (preprint 3.11) relates
   `G` to `G_g`, whose levels may shrink faster).  Shrinking `G` to `G″` costs
   nothing (`shrink` keeps `Ψ`, `h`, `B` and the conjugation identity) and makes every such point
   admissible.  The restriction `ψ'|_G` is an sc⁰-germ because `ψ'` is sc-smooth on the whole `U'`
@@ -116,7 +116,7 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
   {W : ScBanach} {Ct : Set P} {G G' : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)}
   {B : P × W 0 → W 0}
 
-/-- **An sc⁰-contraction germ (Definition 3.28) restricts to every smaller germ** `G'`
+/-- **An sc⁰-contraction germ (Definition 3.3.1 (preprint 3.28)) restricts to every smaller germ** `G'`
 (`G'_m ⊆ G_m` for all `m`), with the same `B`: the contraction radius is shrunk so that the
 `C̃ ⊕ W_m`-ball lies in `G'_m` (`ScNbhdGerm.exists_ball_paramProd`). -/
 theorem IsSc0ContractionGerm.mono (h : IsSc0ContractionGerm Ct G B)
@@ -140,11 +140,11 @@ theorem IsSc0ContractionGerm.inter (h : IsSc0ContractionGerm Ct G B)
 variable {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensional ℝ Q]
   {f : P × W 0 → Q × W 0}
 
-/-- **A basic germ (Definition 3.7) restricts to every smaller germ** `G'` (`G'_m ⊆ G_m` for all
+/-- **A basic germ (Definition 3.1.7 (preprint 3.7)) restricts to every smaller germ** `G'` (`G'_m ⊆ G_m` for all
 `m`), with the same `h` and `B`.  The contraction field restricts to every smaller germ
 (`IsSc0ContractionGerm.mono`); the sc-smoothness of `f` restricts because `C̃` is quadrant-like
 (uniqueness of the derivatives, `IsScSmoothGerm.mono`), which holds for the partial quadrants
-`C̃` of Definition 3.11. -/
+`C̃` of Definition 3.1.11 (preprint 3.11). -/
 theorem IsBasicGerm.mono (hC : IsQuadrantLike (ScBanach.const P) Ct) (h : IsBasicGerm Ct G f B)
     (hsub : ∀ m, G'.U m ⊆ G.U m) : IsBasicGerm Ct G' f B where
   isScSmooth := IsScSmoothGerm.mono (E := ScBanach.paramProd P W) (F := ScBanach.paramProd Q W)
@@ -246,7 +246,7 @@ theorem levelMap_mem_inter_of_mem_shrinkGerm {Gg Gs : ScNbhdGerm E C} {m : ℕ}
     {x : (ScBanach.paramProd d.Pn d.W) m} (hx : x ∈ (d.shrinkGerm hU h0 (Gg.inter Gs)).U m) :
     levelMap (IsStrongBundleMap.base d.Ψ') m x ∈ Gg.U m ∩ Gs.U m := hx.2
 
-/-- The G″ property for every germ `𝒢` inside `G″` (e.g. the germ of the data of Theorem 3.38
+/-- The G″ property for every germ `𝒢` inside `G″` (e.g. the germ of the data of Theorem 3.4.2 (preprint 3.38)
 built on `G″`). -/
 theorem levelMap_mem_of_subset_shrinkGerm
     {𝒢 : ScNbhdGerm (ScBanach.paramProd d.Pn d.W) (d.Ct ×ˢ univ)}
@@ -266,7 +266,7 @@ theorem levelMap_inclK_mem_of_subset_shrinkGerm
 
 /-- **The G″ property read on the `E`-side**: a point `u ∈ U_m` whose image `ψ_m(u)` lies in a
 germ `𝒢 ⊆ G″` lies in `G'_m` (`u = ψ'_m(ψ_m(u))`).  This is the form of the nearby points
-`z₀₁ ∈ U₁` with `ψ₁(z₀₁) = x₁ ∈ 𝒢₁` of Theorem 3.54 (1) (`theorem_3_54_chart_kernel_wholeChart`). -/
+`z₀₁ ∈ U₁` with `ψ₁(z₀₁) = x₁ ∈ 𝒢₁` of Theorem 3.6.8 (preprint 3.54) (1) (`theorem_3_6_8_chart_kernel_wholeChart`). -/
 theorem mem_of_levelMap_base_mem
     {𝒢 : ScNbhdGerm (ScBanach.paramProd d.Pn d.W) (d.Ct ×ˢ univ)}
     (h𝒢 : ∀ m, 𝒢.U m ⊆ (d.shrinkGerm hU h0 G').U m) {m : ℕ} {u : E m}
@@ -292,7 +292,7 @@ lemma shrinkGerm_mono {G'' : ScNbhdGerm E C} (hG : ∀ m, G'.U m ⊆ G''.U m) (m
     (d.shrinkGerm hU h0 G').U m ⊆ (d.shrinkGerm hU h0 G'').U m := fun _ hx =>
   ⟨hx.1, hG m hx.2⟩
 
-/-- **The basic germ on `G″`**: `h` is a basic germ (Definition 3.7) on `G″`, with the same
+/-- **The basic germ on `G″`**: `h` is a basic germ (Definition 3.1.7 (preprint 3.7)) on `G″`, with the same
 contraction map `B` (`IsBasicGerm.mono`; `C̃` is a partial quadrant). -/
 theorem basic_shrinkGerm : IsBasicGerm d.Ct (d.shrinkGerm hU h0 G') d.h d.Bc :=
   d.basic.mono d.quadrant.isQuadrantLike (d.shrinkGerm_subset hU h0 G')
@@ -341,7 +341,7 @@ lemma shrink_G_subset (m : ℕ) : (d.shrink hU h0 G').G.U m ⊆ d.G.U m :=
   d.shrinkGerm_subset hU h0 G' m
 
 /-- **Conjugation data transfer to every `k'` equal to `k` on `U` near `0`** (same `Ψ`, `h`, `B`,
-`G`).  This is the conjugation part of Theorem 3.15 (`IsScFredholmGermWholeChart.sectionAdd`:
+`G`).  This is the conjugation part of Theorem 3.1.18 (preprint 3.15) (`IsScFredholmGermWholeChart.sectionAdd`:
 `(g + t̃) − (t̃ + t₀) = g − t₀`) in the germ reading. -/
 def congr (hkk' : ∀ᶠ u in 𝓝 (0 : E 0), u ∈ U → k u = k' u) : ConjugationData U k' :=
   { d with
@@ -355,7 +355,7 @@ lemma shrinkGerm_congr (hkk' : ∀ᶠ u in 𝓝 (0 : E 0), u ∈ U → k u = k' 
 
 end ConjugationData
 
-/-- **Definition 3.11 with the basic germ shrunk to the germs of `g` and `s`**: if `k` is
+/-- **Definition 3.1.11 (preprint 3.11) with the basic germ shrunk to the germs of `g` and `s`**: if `k` is
 conjugated to a basic germ, then for any germs `G_g`, `G_s` of neighbourhoods of `0` in `C`
 there are conjugation data of `k` whose inverse base map `ψ' = base Ψ'` maps the basic germ's germ
 into `G_g` and into `G_s`, level by level. -/

@@ -6,17 +6,17 @@ import RoundTrip.Blind.V7_53
 Round trip for V7_53 (Definition 7.15, the sentence before Remark 7.1, Remark 7.1).
 
 `A` is the conjunction of the types of the three listed theorems (universes at `0`):
-`remark_7_1` (second countable object space ⇒ `|X|` paracompact),
+`remark_7_5_2` (second countable object space ⇒ `|X|` paracompact),
 `hasParacompactOrbitSpace_of_secondCountableTopology` (second countable `|X|` ⇒ paracompact) and
 `hasParacompactOrbitSpace_iff_metrizableSpace` (`|X|` paracompact ⇔ metrizable, Theorem 7.2).
 The listed definition `HasParacompactOrbitSpace` is `ParacompactSpace X.OrbitSpace`, whose single
 field is literally B's `IsParacompactB` (index types in `Type`), so B's first conjunct is proved
 outright (`defn_iff`).
 
-* `A → B`: `defn_iff` and `remark_7_1` (from the hypothesis).
-* `B → A`: `remark_7_1` is B's second conjunct (via `defn_iff`).  The other two conjuncts of `A` are
+* `A → B`: `defn_iff` and `remark_7_5_2` (from the hypothesis).
+* `B → A`: `remark_7_5_2` is B's second conjunct (via `defn_iff`).  The other two conjuncts of `A` are
   not in `B` (nor in the text's Definition 7.15 paragraph): they are proved outright from the
-  unbanned `corollary_7_1` (second countable `|X|` ⇒ metrizable), `theorem_7_2_metrizable`
+  unbanned `corollary_7_3_6` (second countable `|X|` ⇒ metrizable), `theorem_7_3_1_metrizable`
   (paracompact `|X|` ⇒ metrizable, Theorem 7.2) and Stone's theorem.
 -/
 
@@ -25,12 +25,12 @@ open Polyfold
 
 /-- The listed theorems (universes at `0`). -/
 def A : Prop :=
-  type_of% @Polyfold.EpGroupoid.remark_7_1.{0} ∧
+  type_of% @Polyfold.EpGroupoid.remark_7_5_2.{0} ∧
   type_of% @Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology.{0} ∧
   type_of% @Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace.{0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.remark_7_1.{0},
+  ⟨@Polyfold.EpGroupoid.remark_7_5_2.{0},
     @Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology.{0},
     @Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace.{0}⟩
 
@@ -54,18 +54,18 @@ theorem B_to_A : B → A := by
   rintro ⟨-, h2⟩
   refine ⟨fun {Obj Mor} _ _ _ _ _ _ X _ => (defn_iff X).2 (h2 Obj Mor X inferInstance), ?_, ?_⟩
   · intro Obj Mor _ _ _ _ _ _ X _
-    have := X.corollary_7_1
+    have := X.corollary_7_3_6
     exact paracompactSpace_of_metrizableSpace _
   · intro Obj Mor _ _ _ _ _ _ X
-    exact ⟨X.theorem_7_2_metrizable, fun _ => paracompactSpace_of_metrizableSpace _⟩
+    exact ⟨X.theorem_7_3_1_metrizable, fun _ => paracompactSpace_of_metrizableSpace _⟩
 
-#rt_check RoundTrip.V7_53.A_to_B [Polyfold.EpGroupoid.remark_7_1,
+#rt_check RoundTrip.V7_53.A_to_B [Polyfold.EpGroupoid.remark_7_5_2,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace]
-#rt_check RoundTrip.V7_53.B_to_A [Polyfold.EpGroupoid.remark_7_1,
+#rt_check RoundTrip.V7_53.B_to_A [Polyfold.EpGroupoid.remark_7_5_2,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace]
-#rt_overlap RoundTrip.V7_53.B_to_A [Polyfold.EpGroupoid.remark_7_1,
+#rt_overlap RoundTrip.V7_53.B_to_A [Polyfold.EpGroupoid.remark_7_5_2,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace]
 

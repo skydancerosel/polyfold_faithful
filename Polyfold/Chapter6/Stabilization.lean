@@ -3,39 +3,39 @@ import Polyfold.Chapter1.FredholmPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.3,
-pp. 211–213: the stabilization `T_φ`, **Lemma 6.14** (its exact sequence), formula (94) and
-**Proposition 6.15** (the isomorphism `ι_φ : det(T) → det(T_φ)`) *(book 2017: Lemma 6.6,
-Proposition 6.7; see `BookConcordance.md`)*.  Definition 6.16 is in `DirectSumDet.lean`.
+pp. 211–213: the stabilization `T_φ`, **Lemma 6.4.14 (preprint 6.14)** (its exact sequence), formula (94) and
+**Proposition 6.4.15 (preprint 6.15)** (the isomorphism `ι_φ : det(T) → det(T_φ)`) *(book 2017: Lemma 6.6,
+Proposition 6.7; see `BookConcordance.md`)*.  Definition 6.4.16 (preprint 6.16) is in `DirectSumDet.lean`.
 
 # Stabilization
 
 ## The text, paraphrased
 
 Let `T : E → F` be Fredholm and `φ : ℝⁿ → F` linear with `T_φ : E ⊕ ℝⁿ → F`,
-`T_φ(e, r) = T e + φ r`, surjective.  (Lemma 6.14) The sequence
+`T_φ(e, r) = T e + φ r`, surjective.  (Lemma 6.4.14 (preprint 6.14)) The sequence
 `0 → ker T →j ker T_φ →π ℝⁿ →[φ] F / R(T) → 0`, `j(e) = (e, 0)`, `π(e, r) = r`,
 `[φ](r) = φ(r) + R(T)`, is exact; it gives `Φ_E : det(T) → λ(ker T_φ) ⊗ λ*(ℝⁿ)`.  With
 `ψ : λ*(ℝⁿ) → λ*({0}) = ℝ*`, `(e₁ ∧ … ∧ eₙ)* ↦ 1*`, one has (94)
 `ψ((c₁ ∧ … ∧ cₙ)*) = det[c₁, …, cₙ]⁻¹ 1*`, and `ι_φ = (1 ⊗ ψ) ∘ Φ_E : det(T) → det(T_φ)`.
-(Proposition 6.15) For a basis `a` of `ker T`, `c̄₁, …, c̄_m ∈ ℝⁿ` with `φ(c̄ᵢ) + R(T)` a basis of
+(Proposition 6.4.15 (preprint 6.15)) For a basis `a` of `ker T`, `c̄₁, …, c̄_m ∈ ℝⁿ` with `φ(c̄ᵢ) + R(T)` a basis of
 `F / R(T)`, and `b̄ᵢ = (bᵢ, rᵢ)` completing `(a, 0)` to a basis of `ker T_φ`,
 `ι_φ(h) = det(c̄₁, …, c̄_m, r₁, …, r_l)⁻¹ ((a₁, 0) ∧ … ∧ (a_k, 0) ∧ b̄₁ ∧ … ∧ b̄_l) ⊗ 1*`.
 
 ## What is formalized
 
-* `Polyfold.stabSeq hφ`: the sequence of Lemma 6.14 as a `FourTermExact`, with
-  **Lemma 6.14** (`lemma_6_14`) its exactness; `exists_surjective_coprod`: for `T` Fredholm a
+* `Polyfold.stabSeq hφ`: the sequence of Lemma 6.4.14 (preprint 6.14) as a `FourTermExact`, with
+  **Lemma 6.4.14 (preprint 6.14)** (`lemma_6_4_14`) its exactness; `exists_surjective_coprod`: for `T` Fredholm a
   stabilizing `φ` exists.
 * `Polyfold.stabPsi` (`ψ`) and `stabPsi_dualVec` (**(94)**).
-* `Polyfold.stabIota` (`ι_φ`), an isomorphism `det(T) ≅ det(T_φ)`, and **Proposition 6.15**
-  (`proposition_6_15`).
+* `Polyfold.stabIota` (`ι_φ`), an isomorphism `det(T) ≅ det(T_φ)`, and **Proposition 6.4.15 (preprint 6.15)**
+  (`proposition_6_4_15`).
 
 ## Reading
 
 `ℝⁿ` is `Fin n → ℝ` with the standard basis `Pi.basisFun`; `det[c₁, …, cₙ]` is the determinant
 of the matrix with columns `cⱼ`, `(Pi.basisFun ℝ (Fin n)).det c`.  `λ*({0})`: as `T_φ` is onto,
 `F / R(T_φ) = 0` and `λ*(F / R(T_φ))` is the dual of `⋀⁰`, with `1*` the dual of the empty wedge.
-In Proposition 6.15 the identity `m + l = n` is a hypothesis of the statement (it is needed to form
+In Proposition 6.4.15 (preprint 6.15) the identity `m + l = n` is a hypothesis of the statement (it is needed to form
 `det(c̄, r)`); `stab_card_eq` shows it always holds.
 -/
 
@@ -91,7 +91,7 @@ private theorem isCompl_span_of_linearIndependent_append [FiniteDimensional ℝ 
 
 end Helpers
 
-/-! ### Lemma 6.14 -/
+/-! ### Lemma 6.4.14 (preprint 6.14) -/
 
 section Stab
 
@@ -192,16 +192,16 @@ theorem stabClass_surjective (hφ : Function.Surjective (T.coprod φ)) :
   simp
 
 omit [CompleteSpace E] [CompleteSpace F] in
-/-- **Lemma 6.14**: if `T_φ` is onto, the sequence
+/-- **Lemma 6.4.14 (preprint 6.14)**: if `T_φ` is onto, the sequence
 `0 → ker T →j ker T_φ →π ℝⁿ →[φ] F / R(T) → 0` is exact. -/
-theorem lemma_6_14 (hφ : Function.Surjective (T.coprod φ)) :
+theorem lemma_6_4_14 (hφ : Function.Surjective (T.coprod φ)) :
     Function.Injective (stabJ T φ) ∧
       LinearMap.range (stabJ T φ) = LinearMap.ker (stabPi T φ) ∧
       LinearMap.range (stabPi T φ) = LinearMap.ker (stabClass T φ) ∧
       Function.Surjective (stabClass T φ) :=
   ⟨stabJ_injective, range_stabJ, range_stabPi, stabClass_surjective hφ⟩
 
-/-- The exact sequence of Lemma 6.14. -/
+/-- The exact sequence of Lemma 6.4.14 (preprint 6.14). -/
 def stabSeq (hφ : Function.Surjective (T.coprod φ)) :
     FourTermExact (LinearMap.ker (T : E →ₗ[ℝ] F))
       (LinearMap.ker ((T.coprod φ : E × (Fin n → ℝ) →L[ℝ] F) : E × (Fin n → ℝ) →ₗ[ℝ] F))
@@ -209,10 +209,10 @@ def stabSeq (hφ : Function.Surjective (T.coprod φ)) :
   α := stabJ T φ
   β := stabPi T φ
   γ := stabClass T φ
-  injective_α := (lemma_6_14 hφ).1
-  range_α := (lemma_6_14 hφ).2.1
-  range_β := (lemma_6_14 hφ).2.2.1
-  surjective_γ := (lemma_6_14 hφ).2.2.2
+  injective_α := (lemma_6_4_14 hφ).1
+  range_α := (lemma_6_4_14 hφ).2.1
+  range_β := (lemma_6_4_14 hφ).2.2.1
+  surjective_γ := (lemma_6_4_14 hφ).2.2.2
 
 omit [CompleteSpace E] [CompleteSpace F] in
 /-- Stabilizations exist: for `T` Fredholm there are `n` and `φ : ℝⁿ → F` with `T_φ` onto (take
@@ -254,7 +254,7 @@ theorem finrank_coker_coprod (hφ : Function.Surjective (T.coprod φ)) :
   have := subsingleton_coker_coprod hφ
   finrank_zero_of_subsingleton
 
-/-! ### Formula (94) and Proposition 6.15 -/
+/-! ### Formula (94) and Proposition 6.4.15 (preprint 6.15) -/
 
 /-- The wedge `e₁ ∧ … ∧ eₙ` of the standard basis of `ℝⁿ`. -/
 def stdWedge (n : ℕ) : maxPow (Fin n → ℝ) :=
@@ -334,7 +334,7 @@ theorem finiteDimensional_ker_coprod [FiniteDimensional ℝ (LinearMap.ker (T : 
   · rw [top_inf_eq, ← range_stabJ]
     exact (Submodule.fg_iff_finiteDimensional _).2 inferInstance
 
-/-- **`ι_φ : det(T) → det(T_φ)`**: `Φ_E` of the sequence of Lemma 6.14 followed by `1 ⊗ ψ`. -/
+/-- **`ι_φ : det(T) → det(T_φ)`**: `Φ_E` of the sequence of Lemma 6.4.14 (preprint 6.14) followed by `1 ⊗ ψ`. -/
 def stabIota (hT : T.IsFredholm) (hφ : Function.Surjective (T.coprod φ)) :
     fredholmDet T →ₗ[ℝ] fredholmDet (T.coprod φ) :=
   haveI := hT.finite_ker
@@ -363,7 +363,7 @@ theorem stabIota_bijective (hT : T.IsFredholm) (hφ : Function.Surjective (T.cop
     (stabSeq hφ).phi_bijective
 
 omit [CompleteSpace E] [CompleteSpace F] in
-/-- The dimension count behind Proposition 6.15: `m + l = n`, where `m = dim coker T`,
+/-- The dimension count behind Proposition 6.4.15 (preprint 6.15): `m + l = n`, where `m = dim coker T`,
 `k = dim ker T` and `k + l = dim ker T_φ`. -/
 theorem stab_card_eq (hT : T.IsFredholm) (hφ : Function.Surjective (T.coprod φ)) {m l : ℕ}
     (hm : m = finrank ℝ (F ⧸ LinearMap.range (T : E →ₗ[ℝ] F)))
@@ -413,12 +413,12 @@ theorem isCompl_range_stabPi_span [FiniteDimensional ℝ (F ⧸ LinearMap.range 
     rw [hsum, sub_self]
 
 omit [CompleteSpace E] [CompleteSpace F] in
-/-- **Proposition 6.15**: for a basis `a₁, …, a_k` of `ker T`, vectors `c̄₁, …, c̄_m ∈ ℝⁿ` whose
+/-- **Proposition 6.4.15 (preprint 6.15)**: for a basis `a₁, …, a_k` of `ker T`, vectors `c̄₁, …, c̄_m ∈ ℝⁿ` whose
 classes `d̄ᵢ = φ(c̄ᵢ) + R(T)` form a basis of `F / R(T)`, and `b̄₁ = (b₁, r₁), …, b̄_l = (b_l, r_l)`
 completing `(a₁, 0), …, (a_k, 0)` to a basis of `ker T_φ`,
 `ι_φ((a₁ ∧ … ∧ a_k) ⊗ (d̄₁ ∧ … ∧ d̄_m)*) =
   det(c̄₁, …, c̄_m, r₁, …, r_l)⁻¹ ((a₁, 0) ∧ … ∧ (a_k, 0) ∧ b̄₁ ∧ … ∧ b̄_l) ⊗ 1*`. -/
-theorem proposition_6_15 (hT : T.IsFredholm) (hφ : Function.Surjective (T.coprod φ))
+theorem proposition_6_4_15 (hT : T.IsFredholm) (hφ : Function.Surjective (T.coprod φ))
     {k m l : ℕ} (a : Basis (Fin k) ℝ (LinearMap.ker (T : E →ₗ[ℝ] F))) (cbar : Fin m → Fin n → ℝ)
     (hd : LinearIndependent ℝ (stabClass T φ ∘ cbar))
     (hm : m = finrank ℝ (F ⧸ LinearMap.range (T : E →ₗ[ℝ] F)))
@@ -452,7 +452,7 @@ theorem proposition_6_15 (hT : T.IsFredholm) (hφ : Function.Surjective (T.copro
       V := Submodule.span ℝ (Set.range cbar), isCompl_V := hV, a := a, d := d,
       b' := Basis.span hbb, c := cbar, c_mem := fun i => Submodule.subset_span ⟨i, rfl⟩,
       γ_c := fun i => (congrFun hd' i).symm }
-  have h65 := (stabSeq hφ).lemma_6_5 χ
+  have h65 := (stabSeq hφ).lemma_6_3_3 χ
   have hsrc : χ.source = wedge a (by rw [Module.finrank_eq_card_basis a, Fintype.card_fin]) ⊗ₜ
       dualVec (wedge (stabClass T φ ∘ cbar) hm) :=
     congrArg (wedge a _ ⊗ₜ[ℝ] ·) (congrArg dualVec
@@ -469,7 +469,7 @@ theorem proposition_6_15 (hT : T.IsFredholm) (hφ : Function.Surjective (T.copro
   have hc : LinearIndependent ℝ (Fin.append cbar r ∘ Fin.cast hn.symm) := by
     rw [← wedge_ne_zero_iff (by simp), hcast, ← hwC]
     exact χ.wedgeC_ne_zero
-  -- `ι_φ(h) = (1 ⊗ ψ)(Φ_E(h))`, `Φ_E(h)` by Lemma 6.5 for the choice `χ`, then (94)
+  -- `ι_φ(h) = (1 ⊗ ψ)(Φ_E(h))`, `Φ_E(h)` by Lemma 6.3.3 (preprint 6.5) for the choice `χ`, then (94)
   have step1 : stabIota hT hφ χ.source = LinearMap.lTensor _ (stabPsi hφ) χ.value :=
     (stabIota_apply hT hφ χ.source).trans (congrArg (LinearMap.lTensor _ (stabPsi hφ)) h65)
   have step2 : LinearMap.lTensor _ (stabPsi hφ) χ.value =

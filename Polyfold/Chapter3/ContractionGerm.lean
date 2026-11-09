@@ -2,41 +2,41 @@ import Polyfold.Chapter3.GermLevels
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.3,
-Definition 3.28, Theorems 3.29 and 3.30 (existence and sc¹-regularity of the solution germ of an
-sc⁰-contraction germ).  The induction to sc^k (Lemmas 3.31–3.32, Theorem 3.33) is in `GermIFT.lean`.
+Definition 3.3.1 (preprint 3.28), Theorems 3.3.2 and 3.3.3 (preprint 3.29 and 3.30) (existence and sc¹-regularity of the solution germ of an
+sc⁰-contraction germ).  The induction to sc^k (Lemmas 3.3.4–3.3.5 (preprint 3.31–3.32), Theorem 3.3.6 (preprint 3.33)) is in `GermIFT.lean`.
 
 # Contraction germs: existence and sc¹-regularity of the solution germ
 
 ## The text, paraphrased
 
-(Definition 3.28) An sc⁰-germ `f : O(C̃ ⊕ W, 0) → (W, 0)`, `C̃ = [0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ`, is an
+(Definition 3.3.1 (preprint 3.28)) An sc⁰-germ `f : O(C̃ ⊕ W, 0) → (W, 0)`, `C̃ = [0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ`, is an
 **sc⁰-contraction germ** if `f(a, w) = w − B(a, w)` and for every `ε > 0` and `m ≥ 0`,
 `|B(a, w) − B(a, w')|_m ≤ ε |w − w'|_m` for all `(a, w)`, `(a, w')` on level `m` sufficiently close
-to `(0, 0)`.  (Theorem 3.29) It admits a uniquely determined sc⁰-solution germ
+to `(0, 0)`.  (Theorem 3.3.2 (preprint 3.29)) It admits a uniquely determined sc⁰-solution germ
 `δ : O(C̃, 0) → (W, 0)` with `f(a, δ(a)) = 0`: Banach's fixed point theorem, level by level, the
-solutions on the levels agreeing by uniqueness.  (Theorem 3.30, from [21, Theorem 2.3], no proof
-in the text) If `f` is sc¹ then `δ` is sc¹.  (Lemma 3.31) If `f` is sc^k and `δ` is sc^j, then
+solutions on the levels agreeing by uniqueness.  (Theorem 3.3.3 (preprint 3.30), from [21, Theorem 2.3], no proof
+in the text) If `f` is sc¹ then `δ` is sc¹.  (Lemma 3.3.4 (preprint 3.31)) If `f` is sc^k and `δ` is sc^j, then
 `f⁽¹⁾(v, b, u, w) = (u − B(v, u), w − DB(v, δ(v))(b, w))` is an sc⁰-contraction germ of class
-`sc^{min(k−1, j)}` with solution germ `Tδ`.  (Lemma 3.32, Theorem 3.33) Iterating, if `f` is sc^k
+`sc^{min(k−1, j)}` with solution germ `Tδ`.  (Lemma 3.3.5 (preprint 3.32), Theorem 3.3.6 (preprint 3.33)) Iterating, if `f` is sc^k
 then `δ` is sc^k.  (Theorem 3.35) The same for any finite-dimensional partial quadrant `C̃`.
 
 ## What is formalized
 
-* `Polyfold.IsSc0ContractionGerm` (**Definition 3.28**, with the text's balls, for any convex `C̃`),
+* `Polyfold.IsSc0ContractionGerm` (**Definition 3.3.1 (preprint 3.28)**, with the text's balls, for any convex `C̃`),
   and the working form `Polyfold.ContractionGerm P C̃ W`: the germ data together with explicit
   regions `N m ⊆ P` (open neighbourhoods of `0`), `K m ⊆ O m ⊆ W_m` (`K` closed, `O` open) on
   which `B(a, ·)` is a `1/2`-contraction (`O`) and self-mapping (`K`).
-  `IsSc0ContractionGerm.toContractionGerm` (**the construction behind Theorem 3.29**, in
-  `GermIFT.lean`) produces it from Definition 3.28 with balls.
+  `IsSc0ContractionGerm.toContractionGerm` (**the construction behind Theorem 3.3.2 (preprint 3.29)**, in
+  `GermIFT.lean`) produces it from Definition 3.3.1 (preprint 3.28) with balls.
 * `ContractionGerm.sol` (the solution germ `δ`), `ContractionGerm.germ s` (the germs
-  `(N (m+s) ∩ C̃)_m`), `ContractionGerm.IsSolutionGerm`; **Theorem 3.29** (`theorem_3_29`):
-  existence, uniqueness in `O 0`, sc⁰; **Theorem 3.30** (`theorem_3_30`): `δ` is an sc¹-germ on
-  `germ 1`.  (Lemmas 3.31–3.32, Theorem 3.33, Corollary 3.34 and Theorem 3.35 are in
+  `(N (m+s) ∩ C̃)_m`), `ContractionGerm.IsSolutionGerm`; **Theorem 3.3.2 (preprint 3.29)** (`theorem_3_3_2`):
+  existence, uniqueness in `O 0`, sc⁰; **Theorem 3.3.3 (preprint 3.30)** (`theorem_3_3_3`): `δ` is an sc¹-germ on
+  `germ 1`.  (Lemmas 3.3.4–3.3.5 (preprint 3.31–3.32), Theorem 3.3.6 (preprint 3.33), Corollary 3.3.7 (preprint 3.34) and Theorem 3.35 are in
   `GermIFT.lean`.)
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Theorem 3.30 has no proof in the text** ([21, Theorem 2.3] is cited).  The proof given here:
+* **Theorem 3.3.3 (preprint 3.30) has no proof in the text** ([21, Theorem 2.3] is cited).  The proof given here:
   for `a₀` with `(a₀, δ(a₀)) ∈ U₂` the candidate derivative `A = (1 − D₂B)⁻¹D₁B` maps into `W₁`
   (the level-`1` operators exist at points of `U₂`), so `w₀ + Ah` is an `E₁`-increment of size
   `O(|h|)`, the sc¹-remainder of `B` is `o(|h|)`, and the `1/2`-contraction on level `0` gives
@@ -44,20 +44,20 @@ then `δ` is sc^k.  (Theorem 3.35) The same for any finite-dimensional partial q
   does not apply (`Ah ∉ W₁`); the conclusion holds for the **re-indexed germ `V_m := N(m+1) ∩ C̃`**
   (`germ 1`).  Re-indexing is legitimate here only because the domain `C̃ ⊆ P` is
   finite-dimensional (all levels of `P` coincide), which the text does not remark.  Each
-  application of Theorem 3.30 in the induction of Theorem 3.33 costs one more shift: `δ` is sc^k
+  application of Theorem 3.3.3 (preprint 3.30) in the induction of Theorem 3.3.6 (preprint 3.33) costs one more shift: `δ` is sc^k
   on `germ s` for some `s` depending on `k` (the proof gives `s = 2^k − 1`, see `GermIFT.lean`;
   one germ for all `k` is the diagonal germ of `GermIFTSmooth.lean`).
 * **The solution germ of `f⁽¹⁾` is a germ at `(0, 0) ∈ TC̃`, but `Tδ` must be controlled on
   `V_{m+1} ⊕ ℝⁿ`** (the fibre of the tangent germ is the whole space).  The text identifies the two
   by uniqueness without comment.  Here the contraction regions are kept explicit so that the
   regions of `f⁽¹⁾` are of the form `(N' × ℝⁿ) × (K_{m+1} × W_m)`: unbounded in the tangent
-  directions, where `B⁽¹⁾` is affine.  Definition 3.28's balls do not express this, which is
+  directions, where `B⁽¹⁾` is affine.  Definition 3.3.1 (preprint 3.28)'s balls do not express this, which is
   why the working form `ContractionGerm` carries the regions.
-* Lemma 3.31's "as one verifies by comparing `Tf` with `f⁽¹⁾`" is the chain rule for germs with
+* Lemma 3.3.4 (preprint 3.31)'s "as one verifies by comparing `Tf` with `f⁽¹⁾`" is the chain rule for germs with
   the maps `σ(v, b, u, w) = ((v, u), (b, w))` and `Γ(v, b, u, w) = ((v, δ(v)), (b, w))`, where
-  `v ↦ δ(v) ∈ W₁` is the level-shifted germ (Proposition 1.17 for germs, `IsSckGerm.shift`).
-* Lemma 3.9's estimate `|D₂B(a, w)ζ|_m ≤ ε|ζ|_m` needs differentiability of `B : U_{m+1} → W_m`
-  (Proposition 1.16), proved for germs in `GermLevels.lean`; the text's proof says "recalling
+  `v ↦ δ(v) ∈ W₁` is the level-shifted germ (Proposition 1.2.2 (preprint 1.17) for germs, `IsSckGerm.shift`).
+* Lemma 3.1.9 (preprint 3.9)'s estimate `|D₂B(a, w)ζ|_m ≤ ε|ζ|_m` needs differentiability of `B : U_{m+1} → W_m`
+  (Proposition 1.2.1 (preprint 1.16)), proved for germs in `GermLevels.lean`; the text's proof says "recalling
   Proposition 1.17".
 -/
 
@@ -126,7 +126,7 @@ lemma IsQuadrantLike.prod_univ_const (hC : IsQuadrantLike (ScBanach.const P) Ct)
   refine isQuadrantLike_const_iff.2 ⟨⟨h0, mem_univ _⟩, hc.prod convex_univ, ?_⟩
   rw [interior_prod_eq, interior_univ]; exact hi.prod univ_nonempty
 
-/-! ### Definition 3.28 -/
+/-! ### Definition 3.3.1 (preprint 3.28) -/
 
 /-- The level-`m` map `B_m : P × W_m → W_m` of `B : P × W₀ → W₀` (meaningful where `B` maps
 `P × W_m` into `W_m`). -/
@@ -136,7 +136,7 @@ abbrev levelB (B : P × W 0 → W 0) (m : ℕ) (p : P × W m) : W m :=
 @[simp] lemma levelB_zero (B : P × W 0 → W 0) (p : P × W 0) : levelB B 0 p = B p :=
   levelMap_zero (E := ScBanach.paramProd P W) (F := W) B p
 
-/-- **Definition 3.28**: `f(a, w) = w − B(a, w)` is an **sc⁰-contraction germ** on the germ `G`
+/-- **Definition 3.3.1 (preprint 3.28)**: `f(a, w) = w − B(a, w)` is an **sc⁰-contraction germ** on the germ `G`
 around `0 ∈ C̃ ⊕ W`: `B` is an sc⁰-germ with `B(0, 0) = 0`, and for every `ε > 0` and `m` there
 is `r > 0` such that `|B(a, w) − B(a, w')|_m ≤ ε|w − w'|_m` for `a ∈ C̃`, `|a| < r`,
 `|w|_m, |w'|_m < r` (such points lying in `U_m`). -/
@@ -147,10 +147,10 @@ structure IsSc0ContractionGerm (Ct : Set P) (G : ScNbhdGerm (ScBanach.paramProd 
   contraction : ∀ ε > 0, ∀ m, ∃ r > 0, ∀ a ∈ Ct, ‖a‖ < r → ∀ w w' : W m, ‖w‖ < r → ‖w'‖ < r →
     ((a, w) : P × W m) ∈ G.U m ∧ ‖levelB B m (a, w) - levelB B m (a, w')‖ ≤ ε * ‖w - w'‖
 
-/-- The contraction germ `f = w − B(a, w)` of Definition 3.28, as a map. -/
+/-- The contraction germ `f = w − B(a, w)` of Definition 3.3.1 (preprint 3.28), as a map. -/
 def contractionMap (B : P × W 0 → W 0) : P × W 0 → W 0 := fun p => p.2 - B p
 
-/-- **The working form of a contraction germ**: the data of Definition 3.28 together with explicit
+/-- **The working form of a contraction germ**: the data of Definition 3.3.1 (preprint 3.28) together with explicit
 regions: open neighbourhoods `N m` of `0` in `P` (decreasing), open `O m ∋ 0` and closed
 `K m ⊆ O m` in `W_m`, compatible with the inclusions, such that for `a ∈ N m ∩ C̃` the map
 `B_m(a, ·)` is a `1/2`-contraction on `O m` and maps `K m` into itself, all of `N m × O m` lying
@@ -263,7 +263,7 @@ lemma shift_toBase_fixLvl (m : ℕ) {a : P} (ha : a ∈ 𝒞.N (m + 1) ∩ Ct) :
     change W.shift.toBase m (W.shift.incl m _) = W.shift.toBase m _
     rw [ScBanach.shift_incl, 𝒞.incl_fixLvl (m + 1) ha]
 
-/-- **The solution germ `δ`** (Theorem 3.29): the level-`0` fixed point. -/
+/-- **The solution germ `δ`** (Theorem 3.3.2 (preprint 3.29)): the level-`0` fixed point. -/
 def sol : P → W 0 := 𝒞.fixLvl 0
 
 lemma toBase_fixLvl (m : ℕ) {a : P} (ha : a ∈ 𝒞.N m ∩ Ct) :
@@ -286,7 +286,7 @@ lemma sol_zero : 𝒞.sol 0 = 0 := by
   have := 𝒞.eq_fixLvl 0 h0 (𝒞.zero_mem_O 0) (by rw [levelB_zero]; exact 𝒞.B_zero)
   exact this.symm
 
-/-- **Uniqueness (Theorem 3.29)**: a solution `w ∈ O 0` of `w = B(a, w)`, `a ∈ N 0 ∩ C̃`, is
+/-- **Uniqueness (Theorem 3.3.2 (preprint 3.29))**: a solution `w ∈ O 0` of `w = B(a, w)`, `a ∈ N 0 ∩ C̃`, is
 `δ(a)`. -/
 lemma eq_sol {a : P} (ha : a ∈ 𝒞.N 0 ∩ Ct) {w : W 0} (hw : w ∈ 𝒞.O 0) (h : 𝒞.B (a, w) = w) :
     w = 𝒞.sol a :=
@@ -347,9 +347,9 @@ structure IsSolutionGerm (V : ScNbhdGerm (ScBanach.const P) Ct) (δ : P → W 0)
   mem_G : ∀ m, ∀ a ∈ V.U m, ((a, levelMap (E := ScBanach.const P) δ m a) : P × W m) ∈ 𝒞.G.U m
   fixed : ∀ a ∈ V.U 0, 𝒞.B (a, δ a) = δ a
 
-/-- **Theorem 3.29 (Existence)**: the sc⁰-contraction germ admits the sc⁰-solution germ `δ` on
+/-- **Theorem 3.3.2 (preprint 3.29) (Existence)**: the sc⁰-contraction germ admits the sc⁰-solution germ `δ` on
 `V_m = N m ∩ C̃`, uniquely determined among the solutions in `O 0`. -/
-theorem _root_.Polyfold.theorem_3_29 (hC : IsQuadrantLike (ScBanach.const P) Ct) :
+theorem _root_.Polyfold.theorem_3_3_2 (hC : IsQuadrantLike (ScBanach.const P) Ct) :
     𝒞.IsSolutionGerm (𝒞.germ hC 0) 𝒞.sol ∧
       ∀ a ∈ 𝒞.N 0 ∩ Ct, ∀ w ∈ 𝒞.O 0, 𝒞.B (a, w) = w → w = 𝒞.sol a := by
   refine ⟨⟨⟨fun m a ha => ?_, fun m => ?_⟩, 𝒞.sol_zero, fun m a ha => ?_, fun a ha => ?_⟩,
@@ -364,13 +364,13 @@ theorem _root_.Polyfold.theorem_3_29 (hC : IsQuadrantLike (ScBanach.const P) Ct)
 /-- The solution germ property restricts to the smaller germs `germ s`. -/
 lemma isSolutionGerm_germ (hC : IsQuadrantLike (ScBanach.const P) Ct) (s : ℕ) :
     𝒞.IsSolutionGerm (𝒞.germ hC s) 𝒞.sol := by
-  have h := (theorem_3_29 𝒞 hC).1
+  have h := (theorem_3_3_2 𝒞 hC).1
   have hsub := 𝒞.germ_U_subset hC (Nat.zero_le s)
   exact ⟨h.isSc0.mono hsub, h.zero, fun m a ha => h.mem_G m a (hsub m ha),
     fun a ha => h.fixed a (hsub 0 ha)⟩
 
 
-/-! ### Lemma 3.9 at level `m`: the fibre derivative is small -/
+/-! ### Lemma 3.1.9 (preprint 3.9) at level `m`: the fibre derivative is small -/
 
 /-- A linear map of norm `≤ 1/2` has no nonzero fixed point. -/
 lemma eq_zero_of_norm_le_half {Z : Type} [NormedAddCommGroup Z] [NormedSpace ℝ Z]
@@ -384,11 +384,11 @@ lemma eq_zero_of_norm_le_half {Z : Type} [NormedAddCommGroup Z] [NormedSpace ℝ
 
 variable {D : (ScBanach.paramProd P W) 1 → (ScBanach.paramProd P W) 0 →L[ℝ] W 0}
 
-/-- **Lemma 3.9 on level `m`** (with the constant `1/2`): for `(a, w) ∈ U_{m+1}` with
+/-- **Lemma 3.1.9 (preprint 3.9) on level `m`** (with the constant `1/2`): for `(a, w) ∈ U_{m+1}` with
 `a ∈ N (m+1) ∩ C̃`, `w ∈ O (m+1)` and `ι w ∈ O m`, the level-`m` operator `Df(a, w)` satisfies
 `|D₂B(a, w) ζ|_m ≤ (1/2)|ζ|_m` for all `ζ ∈ W_m`.  Proof: for `ζ ∈ W_{m+1}` the difference quotient
 of `B_m(a, ι w + t ζ)` is bounded by the contraction constant, and `B : U_{m+1} → W_m` is
-differentiable (Proposition 1.16); then density of `W_{m+1}` in `W_m`. -/
+differentiable (Proposition 1.2.1 (preprint 1.16)); then density of `W_{m+1}` in `W_m`. -/
 lemma norm_levelDeriv_snd_le (hC : IsQuadrantLike (ScBanach.const P) Ct)
     (hB : IsSc1GermWith 𝒞.G 𝒞.B D) {m : ℕ} {a : P} (ha : a ∈ 𝒞.N (m + 1) ∩ Ct) {w : W (m + 1)}
     (hw : w ∈ 𝒞.O (m + 1)) (hw' : W.incl m w ∈ 𝒞.O m) (ζ : W m) :
@@ -470,7 +470,7 @@ lemma norm_levelDeriv_snd_le (hC : IsQuadrantLike (ScBanach.const P) Ct)
   change ‖L (W.incl m ζ')‖ ≤ 1 / 2 * ‖W.incl m ζ'‖
   exact this
 
-/-! ### Theorem 3.30: the solution germ is sc¹ -/
+/-! ### Theorem 3.3.3 (preprint 3.30): the solution germ is sc¹ -/
 
 /-- The level-`m` operator `Df(a, δ_{m+1}(a)) : P × W_m → W_m` at the solution point. -/
 def Lop (m : ℕ) (a : P) : (ScBanach.paramProd P W) m →L[ℝ] W m :=
@@ -552,7 +552,7 @@ lemma toBase_Aop {m : ℕ} {a : P} (ha : a ∈ 𝒞.N (m + 1) ∩ Ct) (h : P) :
   simp only at this
   rw [← this, 𝒞.Lop_Aop hC hB ha]
 
-/-- **The differentiability step of Theorem 3.30**: `δ` is differentiable at `a₀ ∈ N 2 ∩ C̃` within
+/-- **The differentiability step of Theorem 3.3.3 (preprint 3.30)**: `δ` is differentiable at `a₀ ∈ N 2 ∩ C̃` within
 `N 2 ∩ C̃` with derivative `Aop 0 a₀`, by the approximate fixed point `δ(a₀) + Aop 1 a₀ h ∈ W₁`
 and the `1/2`-contraction on level `0`. -/
 lemma hasFDerivWithinAt_sol {a₀ : P} (ha₀ : a₀ ∈ 𝒞.N 2 ∩ Ct) :
@@ -728,7 +728,7 @@ lemma continuousOn_Aop (m : ℕ) :
     exact norm_add_le _ _
   linarith
 
-/-- **Theorem 3.30** (sc¹-regularity of the solution germ): if the sc⁰-contraction germ is sc¹,
+/-- **Theorem 3.3.3 (preprint 3.30)** (sc¹-regularity of the solution germ): if the sc⁰-contraction germ is sc¹,
 the solution germ `δ` is an sc¹-germ **on the re-indexed germ `V_m = N(m+1) ∩ C̃`** (`germ 1`),
 with derivative family `solDeriv`.  (See the module docstring for the shift.) -/
 theorem isSc1GermWith_sol : IsSc1GermWith (𝒞.germ hC 1) 𝒞.sol (𝒞.solDeriv (D := D)) where
@@ -757,8 +757,8 @@ theorem isSc1GermWith_sol : IsSc1GermWith (𝒞.germ hC 1) 𝒞.sol (𝒞.solDer
       · exact levelMap_eq_of_toBase_eq (𝒞.tangent_toBase_sol hC hB hq.1 q.2)
 
 omit hC hB in
-/-- **Theorem 3.30**, as stated: an sc¹ sc⁰-contraction germ has an sc¹ solution germ. -/
-theorem _root_.Polyfold.theorem_3_30 (hC : IsQuadrantLike (ScBanach.const P) Ct)
+/-- **Theorem 3.3.3 (preprint 3.30)**, as stated: an sc¹ sc⁰-contraction germ has an sc¹ solution germ. -/
+theorem _root_.Polyfold.theorem_3_3_3 (hC : IsQuadrantLike (ScBanach.const P) Ct)
     (hB : IsSc1Germ 𝒞.G 𝒞.B) :
     𝒞.IsSolutionGerm (𝒞.germ hC 1) 𝒞.sol ∧ IsSckGerm 1 (𝒞.germ hC 1) 𝒞.sol := by
   obtain ⟨D, hD⟩ := hB

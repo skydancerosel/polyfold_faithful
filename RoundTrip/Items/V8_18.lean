@@ -18,7 +18,7 @@ has two universe parameters, both at `0`):
 8. `NaturalRep.metrizableSpace_image_tangentU` (`|TU(x)|` metrizable),
 9. `NaturalRep.metrizableSpace_image_liftU` (`|U(x)₁|` metrizable),
 10. `metrizableSpace_tangent_orbitSpace` (`|X|` paracompact ⇒ `|TX|` **metrizable**),
-11. `theorem_8_4` (`|X|` paracompact ⇒ `|TX|` paracompact),
+11. `theorem_8_1_15` (`|X|` paracompact ⇒ `|TX|` paracompact),
 12. `hasParacompactOrbitSpace_tangent_trivial` (non-vacuity witness),
 13. `metrizableSpace_of_pullback` (Part I's Smirnov theorem pulled back along a map).
 
@@ -27,7 +27,7 @@ has two universe parameters, both at `0`):
 
 * `OrbitParacompactB G ↔ G.HasParacompactOrbitSpace` is `Iff.rfl`: the project's orbit space is a
   `Quotient` with the quotient topology `coinduced (Quotient.mk _)`, and `π = Quotient.mk _`.
-* `A ⇒ B`: conjunct 11, `theorem_8_4`.
+* `A ⇒ B`: conjunct 11, `theorem_8_1_15`.
 * `B ⇒ A` is **not proved**.  Conjuncts 11 and 12 follow from `B` (`B_to_A_core`, with the
   Chapter 7 lemma `hasParacompactOrbitSpace_trivial` for 12).  The other eleven conjuncts are not
   consequences of `B`: they are the project's proof of Theorem 8.4 (a different route from the
@@ -53,7 +53,7 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.theorem_8_4.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.theorem_8_1_15.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial.{0}) ∧
   (type_of% @Polyfold.metrizableSpace_of_pullback.{0, 0})
 
@@ -68,7 +68,7 @@ theorem A_holds : A :=
     @Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU.{0},
     @Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU.{0},
     @Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace.{0},
-    @Polyfold.EpGroupoid.theorem_8_4.{0},
+    @Polyfold.EpGroupoid.theorem_8_1_15.{0},
     @Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial.{0},
     @Polyfold.metrizableSpace_of_pullback.{0, 0}⟩
 
@@ -80,9 +80,9 @@ theorem A_to_B : A → B := by
   intro hA Obj Mor _ _ _ _ _ _ X hX
   exact (orbitParacompactB_iff _).2 (hA.2.2.2.2.2.2.2.2.2.2.1 X ((orbitParacompactB_iff _).1 hX))
 
-/-- The part of `A` that `B` gives: `theorem_8_4` and its non-vacuity witness. -/
+/-- The part of `A` that `B` gives: `theorem_8_1_15` and its non-vacuity witness. -/
 theorem B_to_A_core : B →
-    (type_of% @Polyfold.EpGroupoid.theorem_8_4.{0}) ∧
+    (type_of% @Polyfold.EpGroupoid.theorem_8_1_15.{0}) ∧
     (type_of% @Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial.{0}) := by
   intro hB
   refine ⟨fun {Obj Mor} _ _ _ _ _ _ X hX => (orbitParacompactB_iff _).1
@@ -97,7 +97,7 @@ pulled back) is foundational Part I infrastructure, reached by *every* statement
 tangent ep-groupoid, `B` included: e.g. `B → B._proof_2 → MPolyfold.paracompactSpace_tangentSpace
 → MPolyfold.metrizableSpace_tangentSpace → metrizableSpace_of_pullback` (the instance
 `[ParacompactSpace TX]` that `tangentEpGroupoid` needs), and
-`tangentEpGroupoid → lemma_8_7 → … → MPolyfold.metrizableSpace → metrizableSpace_of_locally →
+`tangentEpGroupoid → lemma_8_1_8 → … → MPolyfold.metrizableSpace → metrizableSpace_of_locally →
 metrizableSpace_of_pullback` (every M-polyfold is metrizable).  So `#rt_check` and
 `#rt_check_soft` fail on every term mentioning `B` (recorded below with `#guard_msgs` on
 `B_stmt : B → B := id`).  We therefore run `#rt_check_beyond_stmt T`: the harness traversal
@@ -137,7 +137,7 @@ error: rt_check FAIL: RoundTrip.V8_18.B_stmt uses [Polyfold.metrizableSpace_of_p
   Polyfold.EpGroupoid.NaturalRep.image_tangentU_eq_preimage,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU,
-  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_4,
+  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_1_15,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial, Polyfold.metrizableSpace_of_pullback]
 
 #rt_check_beyond_stmt RoundTrip.V8_18.A_to_B [Polyfold.EpGroupoid.continuous_tangentOrbitProj,
@@ -148,7 +148,7 @@ error: rt_check FAIL: RoundTrip.V8_18.B_stmt uses [Polyfold.metrizableSpace_of_p
   Polyfold.EpGroupoid.NaturalRep.image_tangentU_eq_preimage,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU,
-  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_4,
+  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_1_15,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial, Polyfold.metrizableSpace_of_pullback]
 #rt_check_beyond_stmt RoundTrip.V8_18.B_to_A_core [Polyfold.EpGroupoid.continuous_tangentOrbitProj,
   Polyfold.EpGroupoid.preimage_tangentOrbitProj_image,
@@ -158,7 +158,7 @@ error: rt_check FAIL: RoundTrip.V8_18.B_stmt uses [Polyfold.metrizableSpace_of_p
   Polyfold.EpGroupoid.NaturalRep.image_tangentU_eq_preimage,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU,
-  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_4,
+  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_1_15,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial, Polyfold.metrizableSpace_of_pullback]
 #rt_overlap RoundTrip.V8_18.B_to_A_core [Polyfold.EpGroupoid.continuous_tangentOrbitProj,
   Polyfold.EpGroupoid.preimage_tangentOrbitProj_image,
@@ -168,7 +168,7 @@ error: rt_check FAIL: RoundTrip.V8_18.B_stmt uses [Polyfold.metrizableSpace_of_p
   Polyfold.EpGroupoid.NaturalRep.image_tangentU_eq_preimage,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU,
-  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_4,
+  Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace, Polyfold.EpGroupoid.theorem_8_1_15,
   Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial, Polyfold.metrizableSpace_of_pullback]
 
 end RoundTrip.V8_18

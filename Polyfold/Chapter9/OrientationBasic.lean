@@ -85,7 +85,7 @@ theorem exists_submodule_chartVec_image {A : Set X} (hA : P.IsSmoothSubmanifold 
   have hyV : y ∈ d.V := hA.mem_data_V h.1
   have hy1 : y ∈ P.levelSet 1 := d.mem_levelSet_one h.1 hyV
   have hz : φ.model.E.toBase 1 (levelLift φ 1 y) = φ y := P.toBase_levelLift hφ hyφ hy1
-  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_14 hφ h.1 hyV hyφ hz
+  obtain ⟨-, -, -, N, hN, hfin⟩ := d.remark_4_2_2 hφ h.1 hyV hyφ hz
   refine ⟨N, hN.trans (chartVec_image_submanifoldTangent hφ d h.1 hyV hyφ).symm, hfin, ?_⟩
   have hk := h.finrank_eq d hφ hyV hyφ hz
   rw [← hN, span_eq] at hk
@@ -103,7 +103,7 @@ theorem chartVec_image_submanifoldTangent_singleton {p : X} (hp : p ∈ P.smooth
     rw [inter_eq_right.2 (singleton_subset_iff.2
       (d.toSubData.mem_shrink φ (mem_singleton p) hpV hpφ)), image_singleton]
   obtain ⟨R, hR⟩ := d.toSubData.isScRetract_image φ hφ
-  obtain ⟨-, -, -, N, hN, -⟩ := d.remark_4_14 hφ (mem_singleton p) hpV hpφ hz
+  obtain ⟨-, -, -, N, hN, -⟩ := d.remark_4_2_2 hφ (mem_singleton p) hpV hpφ hz
   rw [chartVec_image_submanifoldTangent hφ d (mem_singleton p) hpV hpφ]
   refine Subset.antisymm (fun v hv => ?_) ?_
   · rw [hQ] at hv

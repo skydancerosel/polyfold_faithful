@@ -10,9 +10,13 @@ under way: Chapters 7–11 are formalized (Chapter 11 without its §§11.2 and 1
 integration). The authoritative text is the
 Springer edition (Ergebnisse der Mathematik und ihrer Grenzgebiete 72, 2021): the reports cite its three-level numbers and
 pages first, with the numbers of the earlier versions in parentheses (the 2014 preprint, arXiv
-1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names keep the
-numbers they were given first; items added or changed in 2021 have names ending in `_2021`, and
-`Exposition/BookConcordance.md` maps the three numberings.
+1407.3185, for Part I; the 2017 arXiv version, 1707.08941, for Part II). Lean names use the
+2021 numbers (`theorem_3_6_8` is Theorem 3.6.8 of the Springer edition). Where an earlier or
+auxiliary form of a statement is kept as well, its name says which: `_preprint` or `_2017` for
+the statement of an earlier version, `_hyp` for a form with auxiliary hypotheses, `_param` for
+the form a proof produces, `_2021def` for a statement in the 2021 definitions.
+`Exposition/BookConcordance.md` maps the three numberings, and `Exposition/rename-2021.tsv` the
+Lean names used before 9 November 2026 to the current ones.
 
 The Lean code, the exposition and the reports were written by AI agents (Claude models) under the
 direction of the project lead. Lean checks the proofs; whether the definitions and statements mean
@@ -47,7 +51,7 @@ To read rather than sign: `Exposition/Verification.pdf` has the same items as a 
 (open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
 GitHub displays it directly.
 
-## Status (8 November 2026)
+## Status (9 November 2026)
 
 * **Part I, Chapters 1–6, is formalized**, Chapter 6 except Theorem 6.7.1 (preprint 6.43; the
   invariant `Ψ_(f,o)`) and the admissible sections of §6.7.
@@ -55,7 +59,10 @@ GitHub displays it directly.
   unity; the tangent ep-groupoid and functor, strong bundles over ep-groupoids, proper covering
   functors). In the 2021 text the reduced ep-groupoid exists when `T_R` is Hausdorff (Theorem
   7.2.14), and `T_R` is always paracompact (proved); that `𝐗^R` need not be Hausdorff is checked in
-  Lean. The sc-differential forms of §8.2 are not formalized.
+  Lean. The sc-differential forms of §8.2 are not formalized. The facts of Part I that Chapter 7
+  relies on are proved for every M-polyfold: `X_∞` is dense in every `X_k`, `U ∩ X_∞` is connected
+  for connected open `U`, `p : TX → X¹` is open, the tangent `Tφ` of a smooth morphism is an
+  sc-isomorphism, and the orbit space has its filtration `|X_∞|` (G.8, G.70, G.72, G.73, G.85, G.90).
 * **The additions and changes of the 2021 edition in Chapters 1–8 are formalized**, among them
   locally complete spaces (§2.1), the tame boundary `bX` (§2.7, Theorem 2.7.13) and the boundary
   ep-groupoid (Theorem 7.6.9), Proposition 2.3.17 for all `i`, the global Lie bracket (§4.4–4.5),
@@ -63,9 +70,13 @@ GitHub displays it directly.
   (§7.4, §8.1).
 * **Part II, Chapter 9, is formalized**, §§9.1–9.5 (branched ep⁺-subgroupoids, local branching
   structures, the tangent and the boundary, good points, orientations, the geometry of local
-  branching structures, sets of measure zero and the canonical σ-algebras), with the parts that need
-  level-0 sc-calculus in general M-polyfolds taken as explicit hypotheses, each shown satisfiable and
-  discharged on `ℝᵐ`. Branched integration, the boundary measures and Stokes' theorems (Theorems
+  branching structures, sets of measure zero and the canonical σ-algebras). The level-0 facts it
+  needs are proved for every M-polyfold (local constancy of the dimension, domain invariance,
+  continuity on level 1, graph charts; G.93 in part, G.97, G.98, G.100), and Proposition 9.1.11
+  (existence and uniqueness of the local dimensional decomposition, in the reading of its proof)
+  and Proposition 9.1.12 hold for every ep-groupoid. Not yet proved in general: Lemma 9.4.4 for
+  sheets in an M-polyfold (a hypothesis, shown satisfiable; G.105) and the continuity of the
+  boundary orientation of Definition 9.3.10 (G.103). Branched integration, the boundary measures and Stokes' theorems (Theorems
   9.5.4, 9.5.5, 9.5.15–9.5.18) are not formalized; they need the sc-differential forms of §8.2.
 * **Part II, Chapter 10, is formalized**, §§10.1–10.5 with the Appendix proofs 10.6.1–10.6.2
   (equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the
@@ -73,25 +84,26 @@ GitHub displays it directly.
   equivalences, push-forward and pull-back of sections along generalized strong bundle
   isomorphisms, the weak fibred product of strong bundles and the category `SEP(F⁻¹)`). Local
   regularity under equivalences (Propositions 10.1.9, 10.1.10, 10.1.19, 10.3.16) is proved.
-  Theorems 10.3.19 and 10.5.7 do not hold as we read them (counterexamples in Lean); Theorem
-  10.3.19 holds when the target is effective. Not formalized: Propositions 10.4.6–10.4.7 (local
+  Theorems 10.3.19 and 10.5.7 do not hold as we read them (counterexamples in Lean); both hold
+  when the target is effective. Not formalized: Propositions 10.4.6–10.4.7 (local
   regularity for strong bundles), the Fredholm parts of Theorems 10.4.5 and 10.5.4, the iterated
   products of Theorem 10.2.2, and the universal property of the localization.
 * **Part II, Chapter 11, is formalized** except §11.2 (sc-differential forms under equivalences)
   and §11.4 (integration), which need the forms of §8.2: the tangent functor on `EP(E⁻¹)`, the
   degeneracy index and the faces under generalized isomorphisms (§11.1), branched
   ep⁺-subgroupoids, their tangent sections and orientations pushed forward and pulled back
-  (§11.3; Theorem 11.3.9 for a representative, under an explicit hypothesis on the boundary
-  operations, satisfied by the identity), strong bundles up to equivalence (§11.5), and
+  (§11.3; Theorem 11.3.9 for the generalized isomorphism itself, with the intrinsic boundary
+  orientation and no added hypothesis, G.130), strong bundles up to equivalence (§11.5), and
   equivalences of proper coverings with Theorem 11.6.6 and Proposition 11.6.8 (§11.6). Not
   formalized besides: the structures of Proposition 11.1.6, parts of Proposition 11.5.1 and the
   local section structures of §11.5, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128–G.135).
-* About 211,000 lines of Lean in 330 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (10,746 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* About 234,000 lines of Lean in 384 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (12,047 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
 * **Every numbered item of Chapters 1–11 is compared with its formal version** (824 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.135).
+  list of what is not formalized and why (G.1–G.135). 64 items are narrower than the text, each
+  with its reason; 53 of the 135 gaps are closed and 82 remain.
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -105,6 +117,7 @@ GitHub displays it directly.
 
 | Document | What it is |
 |---|---|
+| `Exposition/ReviewerChecklist.md` | **Start here to review.** The statements and definitions a person has to check (Lean checks the rest), in four tiers: the Part I core, orientation, Part II, the tame boundary. |
 | `Exposition/polyfold-beside-lean.html` | The comparison: the book's statement beside the formal one, in mathematical language, with the verdict and every difference listed. |
 | `Exposition/polyfold-signoff.html` | The sign-off list: one sentence per item to confirm or flag. Ticks are kept in your browser and can be exported as text. |
 | `Exposition/Verification.pdf` | The verified edition: each item as a short paragraph ending in the sentence to confirm. |
@@ -125,7 +138,10 @@ Open the HTML pages in a browser straight from the folder; they need no server.
    stronger (items 220–222, 260–334).
 2. **The readings the formalization had to choose**: sc-smooth germs on neighbourhoods that may
    shrink with the level; "strong bundle chart" as any chart compatible with the atlas; "tame" as
-   tame charts for the germ data; "a bump function with `f ≠ 0`" as `f(x) ≠ 0`; Definition 6.2.1
+   tame charts for the germ data (the 2021 text uses "tame strong bundle" from Theorem 3.6.8 on
+   without defining it, and its Definition 3.6.3 no longer says "tame"; we read the phrase as the
+   preprint and the 2017 version define it, and the theorems hold for the plain 2021 notion at
+   germs centred at interior points, G.79); "a bump function with `f ≠ 0`" as `f(x) ≠ 0`; Definition 6.2.1
    (preprint 6.1), p. 239, with locally defined sections. Each is recorded in the Findings with its reason.
 3. **The new arguments** supplied where we could not complete a proof step from the text alone,
    before anyone cites them:
@@ -141,7 +157,8 @@ Open the HTML pages in a browser straight from the folder; they need no server.
    (V5.55), Definition 1.1.9 (preprint 1.8), p. 8 (V1.7), Lemma 5.3.16 (preprint 5.23), p. 224 (V5.42),
    the "Clearly" in Theorem 5.5.7 (preprint 5.34), p. 231 (Findings, Chapter 5, item 43) and the "not
    complete" in §5.3, p. 217 (V5.21). Each counterexample is to our reading of the text, and a
-   misreading on our side would remove it; telling which is the reviewer's task. How the 2021 edition
+   misreading on our side would remove it; telling which is the reviewer's task. Theorem 3.2.3
+   itself holds as printed, by another route (`theorem_3_2_3`, V3.24). How the 2021 edition
    reads at the eight points: the same at six (Theorem 3.2.3, Theorem 4.3.1, Theorem 5.5.10,
    Definition 1.1.9, Theorem 5.5.7, §5.3), although Theorem 4.3.1 is restated in its conclusion (1);
    changed at Remark 2.4.8, which now gives an example (the intersection of a 3-plane
@@ -187,9 +204,10 @@ Open the HTML pages in a browser straight from the folder; they need no server.
     the decompositions the proof constructs, those given near each point by the dimensional parts of a
     local branching structure (`proposition_9_1_11_unique_rn`, `isDimDecomposition_unique`,
     `Polyfold/Chapter9/DimDecompositionUnique.lean`; Findings, Chapter 9, item 105), and such a
-    decomposition exists: read this way, with local finiteness, the proposition holds for every
-    ep-groupoid over `ℝᵐ` (`proposition_9_1_11_local_rn`, `Polyfold/Chapter9/DimDecompositionExists.lean`;
-    Findings, Chapter 9, item 106).
+    decomposition exists: read this way, the proposition holds for every branched
+    ep⁺-subgroupoid of every ep-groupoid (`existsUnique_localDimDecomposition_general`,
+    `Polyfold/Chapter9/GeneralCorollaries.lean`; first over `ℝᵐ`, `proposition_9_1_11_local_rn`;
+    Findings, Chapter 9, items 106, 107).
 11. **Sheets of different dimensions in §§9.3–9.5**: Lemma 9.3.4 (p. 423), Lemma 9.4.4 with the note
     in Definition 9.4.7 (pp. 431–432), and Lemma 9.5.2 (p. 437) do not hold as we read them when the
     local branching structure has sheets of different dimensions; each counterexample is checked in
@@ -217,7 +235,8 @@ None of these is a hypothesis of a theorem of the project; each is stated precis
   sections sc-smooth on `X` (Chapter 3, item 264).
 * Whether germ data can always be moved to a compatible tame chart when the atlas is tame (item 199;
   re-centring a chart of the atlas provably cannot do it, items 350–353; the kernel condition can
-  always be met, by stabilization, item 379).
+  always be met, by stabilization, item 379; germ data in a chart centred at an interior point are
+  tame after shrinking the chart, item 382). The open case is a chart centred at a boundary point.
 * Whether a weak bump function (Definition 5.5.2 (preprint 5.29), p. 229) gives one non-zero at a given point of a
   general M-polyfold (Chapter 5, item 163; on an sc-Banach space it does at every point, since its bump points
   are all points or none, item 180).
@@ -239,10 +258,9 @@ p. 223, and 5.27 (preprint; in neither the 2017 nor the 2021 text), the Banach-s
 Theorem 5.3.12 (preprint 5.19), Theorem 6.7.1 (preprint 6.43), p. 277 (it needs the forms, integration
 and Stokes' theorem; G.54) with the admissible sections of §6.7 (preprint §6.6), used only there
 (G.55), and the infinite-dimensional examples of the applications (weighted Sobolev scales,
-splicings). In Chapter 7: the tangent `Tφ` of a morphism as an sc-isomorphism (deferred to Chapter
-8; G.70), the set `|X_∞|` of the filtration of the orbit space (G.72), and the density of `X_∞` in
-`X_k` (G.73). (The paracompactness and Hausdorffness of `𝐗^R`, gap G.71, are settled; see item 6
-above.) In Chapter 8: the sc-differential forms on ep-groupoids and the sc-de Rham complex
+splicings). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
+of `X_∞` in `X_k`, gaps G.70, G.72, G.73, are now formalized; the paracompactness and
+Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Chapter 8: the sc-differential forms on ep-groupoids and the sc-de Rham complex
 (Definitions 8.2.1, 8.2.2, pp. 372–373; 2017: 8.2, 8.3; G.74), and Lemma 8.1.2 (2017: 8.1), p. 359,
 as printed, the identification of the tangent of the fibred product (G.75).
 

@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A is lemma_8_3: (l ∘ k) ∘ h = l ∘ (k ∘ h) for Ts l = Tt k, Ts k = Tt h, with the project's tComp. B's tCompB is tComp by rfl (same Classical choice; B's tangentMap hs is tSrc by proof irrelevance). B asserts the equality of the bracketings plus the text's description of the common value: it lies over σ ∘ (ψ ∘ φ) and has Ts equal to Ts h. A_to_B gets the equality from the hypothesis and the description from the project's tBase_tComp/tSrc_tComp, applied twice, after composability of l with k ∘ h (Lemma 8.2's target clause, project lemma lemma_8_2, outside this item). B_to_A is B's first clause. Universes at 0.",
+ "why": "A is lemma_8_1_4: (l ∘ k) ∘ h = l ∘ (k ∘ h) for Ts l = Tt k, Ts k = Tt h, with the project's tComp. B's tCompB is tComp by rfl (same Classical choice; B's tangentMap hs is tSrc by proof irrelevance). B asserts the equality of the bracketings plus the text's description of the common value: it lies over σ ∘ (ψ ∘ φ) and has Ts equal to Ts h. A_to_B gets the equality from the hypothesis and the description from the project's tBase_tComp/tSrc_tComp, applied twice, after composability of l with k ∘ h (Lemma 8.2's target clause, project lemma lemma_8_1_3, outside this item). B_to_A is B's first clause. Universes at 0.",
  "B_issue": null,
  "overlap": "B_to_A: 256 shared project theorems, all M-polyfold/sc-calculus infrastructure and EpGroupoid.isScSmoothMap_src/tgt, isLocalScDiffeo_src/tgt (reached through the elaborated statement); B_to_A itself is one projection of B.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

@@ -4,35 +4,35 @@ import Polyfold.Chapter3.LocalCompactness
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definitions 3.3 (sc-smooth section germs), 3.6 (filled versions), 3.11 (sc-Fredholm germs) and
+Definitions 3.1.3 (preprint 3.3) (sc-smooth section germs), 3.6 (filled versions), 3.11 (sc-Fredholm germs) and
 3.14 (sc-Fredholm sections), with the section algebra of a strong bundle over an M-polyfold they
 presuppose (the fibrewise sum of sections, principal parts in a strong bundle chart, the local
 representatives of sc-smooth and sc⁺-sections in *any* compatible chart), and
-**Theorem 3.15** (stability of sc-Fredholm sections under sc⁺-perturbations).
+**Theorem 3.1.18 (preprint 3.15)** (stability of sc-Fredholm sections under sc⁺-perturbations).
 
-Since the switch of Definition 3.11 to the text's germ reading (phase 2, 2026-11-01; Findings,
+Since the switch of Definition 3.1.11 (preprint 3.11) to the text's germ reading (phase 2, 2026-11-01; Findings,
 Chapter 3, items 330–339) the notions and the theorem of this file carry the suffix `WholeChart` /
 `_wholeChart`: they are the project's original whole-chart reading, stricter than the text
 (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is `IsScFredholmGerm`
-(`GermFillingChart.lean`), `IsScFredholmSection` (`TameGermsG.lean`) and `theorem_3_15`
+(`GermFillingChart.lean`), `IsScFredholmSection` (`TameGermsG.lean`) and `theorem_3_1_18_preprint`
 (`FredholmSectionsG.lean`) (phase 2, items 270–330).
 
 # Sc-Fredholm sections of strong bundles
 
 ## The text, paraphrased
 
-(Definition 3.3) An sc-smooth section germ `(f, x₀)` of `P : Y → X` is a continuous section
+(Definition 3.1.3 (preprint 3.3)) An sc-smooth section germ `(f, x₀)` of `P : Y → X` is a continuous section
 `f : V → P⁻¹(V)` near the smooth point `x₀` such that in a strong bundle chart
 `(Φ, P⁻¹(V), K, U ◁ F)` with `φ(x₀) = 0` the principal part `f̂` of `Φ ∘ f ∘ φ⁻¹ : O → K` has
-`f̂ ∘ r : O(C, 0) → F` sc-smooth (Definition 3.2).  (Definition 3.6) `(f, x₀)` has a filling if in
-such a chart the section germ `Φ ∘ f ∘ φ⁻¹` has a filling `g : U → U ◁ F` (Definition 3.4) near
-`0`; `(g, 0)` is a filled version.  (Definition 3.11) `(f, x₀)` is an sc-Fredholm germ if it has a
+`f̂ ∘ r : O(C, 0) → F` sc-smooth (Definition 3.1.2 (preprint 3.2)).  (Definition 3.1.6 (preprint 3.6)) `(f, x₀)` has a filling if in
+such a chart the section germ `Φ ∘ f ∘ φ⁻¹` has a filling `g : U → U ◁ F` (Definition 3.1.4 (preprint 3.4)) near
+`0`; `(g, 0)` is a filled version.  (Definition 3.1.11 (preprint 3.11)) `(f, x₀)` is an sc-Fredholm germ if it has a
 filled version `(g, 0)` and a local sc⁺-section `s : U → U ◁ F` with `s(0) = g(0)` such that
 `g − s` is conjugated to a basic germ: a strong bundle isomorphism `Ψ : U ◁ F → U' ◁ F'` covering
-an sc-diffeomorphism `ψ : U → U'` with `Ψ ∘ (g − s) ∘ ψ⁻¹` a basic germ (Definition 3.7).
-(Definition 3.14) A section `f` of the tame strong bundle `P : Y → X` is sc-Fredholm if (1) it is
+an sc-diffeomorphism `ψ : U → U'` with `Ψ ∘ (g − s) ∘ ψ⁻¹` a basic germ (Definition 3.1.7 (preprint 3.7)).
+(Definition 3.1.16 (preprint 3.14)) A section `f` of the tame strong bundle `P : Y → X` is sc-Fredholm if (1) it is
 sc-smooth, (2) regularizing (`x ∈ X_m`, `f(x) ∈ Y_{m,m+1}` imply `x ∈ X_{m+1}`), (3) `(f, x)` is
-an sc-Fredholm germ at every smooth point.  (Theorem 3.15) `f ∈ Fred(P)`, `s ∈ Γ⁺(P)` imply
+an sc-Fredholm germ at every smooth point.  (Theorem 3.1.18 (preprint 3.15)) `f ∈ Fred(P)`, `s ∈ Γ⁺(P)` imply
 `f + s ∈ Fred(P)`.
 
 ## What is formalized
@@ -49,26 +49,26 @@ an sc-Fredholm germ at every smooth point.  (Theorem 3.15) `f ∈ Fred(P)`, `s �
   `StrongBundle.IsScSmoothSection.isScSmoothRetractMap` (`z ↦ (z, f̂(z))` is sc-smooth `O → K`)
   and `StrongBundle.IsScPlusSection.isScSmoothRetractMap_one` (`z ↦ (z, ŝ₁(z))` is sc-smooth
   `O → K[1]`) **in every compatible chart**, not only in the charts of the atlas (the change of
-  chart on `[1]` is the compatibility of Definition 2.50).
-* `Polyfold.StrongBundle.IsScSmoothSectionGerm` (**Definition 3.3**),
-  `Polyfold.IsFilledVersion` (**Definition 3.6**, the local data), `Polyfold.IsStrongBundleIso`
-  (the strong bundle isomorphisms of Definition 3.11), `Polyfold.IsConjugateToBasicGerm`,
-  `Polyfold.StrongBundle.IsScFredholmGermWholeChart` (**Definition 3.11**),
-  `Polyfold.StrongBundle.IsScFredholmSectionWholeChart` (**Definition 3.14**).
-* `Polyfold.theorem_3_15_wholeChart` (**Theorem 3.15**): `sectionAdd f s` is an sc-Fredholm section when `f`
+  chart on `[1]` is the compatibility of Definition 2.6.4 (preprint 2.50)).
+* `Polyfold.StrongBundle.IsScSmoothSectionGerm` (**Definition 3.1.3 (preprint 3.3)**),
+  `Polyfold.IsFilledVersion` (**Definition 3.1.6 (preprint 3.6)**, the local data), `Polyfold.IsStrongBundleIso`
+  (the strong bundle isomorphisms of Definition 3.1.11 (preprint 3.11)), `Polyfold.IsConjugateToBasicGerm`,
+  `Polyfold.StrongBundle.IsScFredholmGermWholeChart` (**Definition 3.1.11 (preprint 3.11)**),
+  `Polyfold.StrongBundle.IsScFredholmSectionWholeChart` (**Definition 3.1.16 (preprint 3.14)**).
+* `Polyfold.theorem_3_1_18_wholeChart` (**Theorem 3.1.18 (preprint 3.15)**): `sectionAdd f s` is an sc-Fredholm section when `f`
   is one and `s` is an sc⁺-section, with the three auxiliary statements
   `StrongBundle.IsScSmoothSection.sectionAdd` (`f + s` is sc-smooth),
   `StrongBundle.regularizing_sectionAdd_wholeChart` (`f + s` is regularizing) and
-  `StrongBundle.IsScFredholmGermWholeChart.sectionAdd` (the germ property, from Lemma 3.17 and
+  `StrongBundle.IsScFredholmGermWholeChart.sectionAdd` (the germ property, from Lemma 3.1.20 (preprint 3.17) and
   `(g + t̃) − (t̃ + t₀) = g − t₀`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Tameness is not used.**  Definition 3.14 and Theorem 3.15 are stated for a tame strong bundle
+* **Tameness is not used.**  Definition 3.1.16 (preprint 3.14) and Theorem 3.1.18 (preprint 3.15) are stated for a tame strong bundle
   (a strong bundle over a tame M-polyfold); nothing in Definitions 3.3–3.14 or in the proof of
-  Theorem 3.15 uses the tameness, so `IsScFredholmSectionWholeChart` and `theorem_3_15_wholeChart` do not assume it
+  Theorem 3.1.18 (preprint 3.15) uses the tameness, so `IsScFredholmSectionWholeChart` and `theorem_3_1_18_wholeChart` do not assume it
   (they apply to tame bundles in particular).
-* **"Strong bundle chart"** in Definitions 3.3, 3.6, 3.11 is read as a chart compatible with the
+* **"Strong bundle chart"** in Definitions 3.1.3, 3.1.6, 3.1.11 (preprint 3.3, 3.6, 3.11) is read as a chart compatible with the
   atlas of `P` (`StrongBundle.IsChart`), not necessarily a member of the atlas: a chart of the
   atlas need not be centred (`φ(x₀) = 0`), and the notion must not depend on the chosen atlas in
   its equivalence class.  This is why the local representatives of sc-smooth and sc⁺-sections
@@ -87,21 +87,21 @@ an sc-Fredholm germ at every smooth point.  (Theorem 3.15) `f ∈ Fred(P)`, `s �
   reading is `StrongBundle.IsScFredholmGerm` (`GermFillingChart.lean`; phase 2, items 270–330),
   the canonical name since the switch, and `isScFredholmGerm_iff_germG_wholeChart` says that
   `IsScFredholmGermWholeChart` is exactly the germ reading with `g` and `s` sc-smooth on the whole
-  `U`; whether the two agree for sections sc-smooth on `X` is open (item 264).  Conditions (1)–(3) of Definition 3.4
+  `U`; whether the two agree for sections sc-smooth on `X` is open (item 264).  Conditions (1)–(3) of Definition 3.1.4 (preprint 3.4)
   keep their "near `0`" form (`IsFillerOf`).
 * **Local sc⁺-sections** `s : U → U ◁ F` are maps `s : E₀ → F₁` sc-smooth into `F¹` on `U`
-  (the principal part, as in `Polyfold.IsScPlusSection` of Definition 2.49); `g − s` is
+  (the principal part, as in `Polyfold.IsScPlusSection` of Definition 2.6.3 (preprint 2.49)); `g − s` is
   `u ↦ g(u) − ι(s(u))` with the inclusion `ι : F₁ → F₀`.
 * **Conjugation to a basic germ.**  "`Ψ ∘ (g − s) ∘ ψ⁻¹ : U' → U' ◁ F'` is a basic germ" is read as:
   `Ψ` is a strong bundle isomorphism `U ◁ F → U' ◁ F'` (`IsStrongBundleIso`: strong bundle maps
   in both directions, inverse to each other), `ψ(0) = 0`, `U' ⊆ C' = C̃ ⊕ W` relatively open with
   `C̃` a partial quadrant of a finite-dimensional space, `h : O(C', 0) → ℝᴺ ⊕ W` a basic germ on a
   germ of neighbourhoods `G` with `G₀ ⊆ U'`, and `(Ψ(u, (g − s)(u)))₂ = h(ψ(u))` for `u ∈ U` near
-  `0`.  The text's `C' = Tψ(0)C` (proof of Theorem 3.54) is not imposed.
+  `0`.  The text's `C' = Tψ(0)C` (proof of Theorem 3.6.8 (preprint 3.54)) is not imposed.
 * **`f + s`** needs the fibrewise vector space structure, given on `P⁻¹(x)`; `sectionAdd` is the
   sum in the fibre (with a junk value where `f` or `s` is not a section).  In a chart,
   `(f + s)^ = f̂ + ŝ` because `Φ` is linear on the fibres.
-* **Theorem 3.15, "`f + s` is an sc-smooth section which is also regularizing".**  Sc-smoothness
+* **Theorem 3.1.18 (preprint 3.15), "`f + s` is an sc-smooth section which is also regularizing".**  Sc-smoothness
   of `f + s` is the sum rule in the charts (the local representative of `s` lies in `K[1] ⊆ K`,
   and `K` has linear fibres); regularizing: `s(x) ∈ Y_{m,m+1}` for `x ∈ X_m` (an sc⁺-section is
   sc-smooth into `Y[1]`), and `Y_{m,m+1}` is closed under fibrewise subtraction, so
@@ -241,7 +241,7 @@ namespace StrongBundleChart
 variable (c : StrongBundleChart PX P)
 
 /-- The **principal part** `f̂ : O → F` of a section `f` in the strong bundle chart `c`:
-`Φ ∘ f ∘ φ⁻¹(z) = (z, f̂(z))` (Definition 3.3, "the section `f̂ : O → K ⊂ U ◁ F` is of the form
+`Φ ∘ f ∘ φ⁻¹(z) = (z, f̂(z))` (Definition 3.1.3 (preprint 3.3), "the section `f̂ : O → K ⊂ U ◁ F` is of the form
 `f̂(p) = (p, f̂(p))`"). -/
 def principal (f : X → Y) : c.φ.model.E 0 → c.F 0 := fun z => (c (f (c.φ.symm z))).2
 
@@ -341,7 +341,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 namespace StrongBundle
 
 /-- A **strong bundle chart of `P`**: a strong bundle chart compatible with the atlas of `B`
-(Definition 2.50; the charts the text uses in Definitions 3.3, 3.6, 3.11). -/
+(Definition 2.6.4 (preprint 2.50); the charts the text uses in Definitions 3.1.3, 3.1.6, 3.1.11 (preprint 3.3, 3.6, 3.11)). -/
 def IsChart (c : StrongBundleChart PX P) : Prop := ∀ c' ∈ B.atlas.charts, c.Compatible c'
 
 lemma isChart_of_mem {c : StrongBundleChart PX P} (hc : c ∈ B.atlas.charts) : B.IsChart c :=
@@ -356,7 +356,7 @@ lemma IsChart.toMChart {c : StrongBundleChart PX P} (hc : B.IsChart c) :
 variable {B}
 
 /-- **The local representative of an sc-smooth section** in a strong bundle chart of `P`:
-`z ↦ (z, f̂(z))` is sc-smooth `O → K` (Definition 2.52 read in the chart). -/
+`z ↦ (z, f̂(z))` is sc-smooth `O → K` (Definition 2.6.6 (preprint 2.52) read in the chart). -/
 theorem IsScSmoothSection.isScSmoothRetractMap (hf : B.IsScSmoothSection f)
     {c : StrongBundleChart PX P} (hc : B.IsChart c) :
     IsScSmoothRetractMap c.φ.model.E c.φ.model.C c.φ.model.O (c.φ.model.E.prod c.F)
@@ -375,7 +375,7 @@ theorem IsScSmoothSection.continuousOn_principal (hf : B.IsScSmoothSection f)
     ((hf.isScSmoothRetractMap hc).continuousOn c.φ.model.isScRetract)).congr fun _ _ => rfl
 
 /-- The principal part of an sc⁺-section takes values in `F₁`, in every strong bundle chart of
-`P` (the compatibility of Definition 2.50 on `[1]`). -/
+`P` (the compatibility of Definition 2.6.4 (preprint 2.50) on `[1]`). -/
 theorem IsScPlusSection.principal_mem_range (hs : B.IsScPlusSection s) {c : StrongBundleChart PX P}
     (hc : B.IsChart c) {z : c.φ.model.E 0} (hz : z ∈ c.φ.model.O) :
     c.principal s z ∈ range (c.F.toBase 1) := by
@@ -390,8 +390,8 @@ theorem IsScPlusSection.principal_mem_range (hs : B.IsScPlusSection s) {c : Stro
   exact h2
 
 /-- **The local representative of an sc⁺-section** in a strong bundle chart of `P`:
-`z ↦ (z, ŝ₁(z))` is sc-smooth `O → K[1]` (Definition 2.52 read in the chart; for a chart not in
-the atlas this is the change of chart `(Φ ∘ Φ'⁻¹)[1]` of Definition 2.50). -/
+`z ↦ (z, ŝ₁(z))` is sc-smooth `O → K[1]` (Definition 2.6.6 (preprint 2.52) read in the chart; for a chart not in
+the atlas this is the change of chart `(Φ ∘ Φ'⁻¹)[1]` of Definition 2.6.4 (preprint 2.50)). -/
 theorem IsScPlusSection.isScSmoothRetractMap_one (hs : B.IsScPlusSection s)
     {c : StrongBundleChart PX P} (hc : B.IsChart c) :
     IsScSmoothRetractMap c.φ.model.E c.φ.model.C c.φ.model.O (c.φ.model.E.prod c.F.shift)
@@ -497,16 +497,16 @@ end StrongBundle
 end Bundle
 
 
-/-! ### Definition 3.6 (filled versions), strong bundle isomorphisms, conjugation to a basic germ -/
+/-! ### Definition 3.1.6 (preprint 3.6) (filled versions), strong bundle isomorphisms, conjugation to a basic germ -/
 
 section LocalData
 
 variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
-/-- **Definition 3.6, the local data**: `g : U → F` is a **filled version** of the principal part
+/-- **Definition 3.1.6 (preprint 3.6), the local data**: `g : U → F` is a **filled version** of the principal part
 `f̂ : O → F` of a section of the tame strong local bundle `K = R(U ◁ F) → O`: `g` is sc-smooth on
 `U` (the principal part of an sc-smooth section `u ↦ (u, g(u))` of `U ◁ F → U`) and fills `f̂` in
-the sense of Definition 3.4 (`IsFillerOf`: conditions (1)–(3) near `0`).  The text's germ
+the sense of Definition 3.1.4 (preprint 3.4) (`IsFillerOf`: conditions (1)–(3) near `0`).  The text's germ
 `(g, 0)` is defined near `0` only; here on the whole `U` of the chart — stricter than the text for
 germs whose level sets shrink with the level (Findings, Chapter 3 items 220–221 and 260–263; the
 text's germ reading is `IsFillingGerm` in `Chapter3/GermVsChart.lean`, and
@@ -516,9 +516,9 @@ structure IsFilledVersion (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleR
   isScSmooth : IsScSmooth U g
   filler : IsFillerOf hU hR h0 fb g
 
-/-- A **strong bundle isomorphism** `Ψ : U ◁ F → U' ◁ F'` (Definition 3.11: "a strong bundle
+/-- A **strong bundle isomorphism** `Ψ : U ◁ F → U' ◁ F'` (Definition 3.1.11 (preprint 3.11): "a strong bundle
 isomorphism `Ψ : U ◁ F → U' ◁ F'` covering the sc-diffeomorphism `ψ : U → U'`"): strong bundle maps
-(Definition 2.47) in both directions, inverse to each other on `U ⊕ F` and `U' ⊕ F'`.  The base
+(Definition 2.6.1 (preprint 2.47)) in both directions, inverse to each other on `U ⊕ F` and `U' ⊕ F'`.  The base
 maps `ψ = base Ψ`, `ψ' = base Ψ'` are then inverse sc-diffeomorphisms `U ≅ U'`. -/
 structure IsStrongBundleIso {E' F' : ScBanach} (U : Set (E 0)) (U' : Set (E' 0))
     (Ψ : E 0 × F 0 → E' 0 × F' 0) (Ψ' : E' 0 × F' 0 → E 0 × F 0) : Prop where
@@ -527,11 +527,11 @@ structure IsStrongBundleIso {E' F' : ScBanach} (U : Set (E 0)) (U' : Set (E' 0))
   left_inv : ∀ p ∈ U ×ˢ (univ : Set (F 0)), Ψ' (Ψ p) = p
   right_inv : ∀ p ∈ U' ×ˢ (univ : Set (F' 0)), Ψ (Ψ' p) = p
 
-/-- **Definition 3.11, second paragraph**: the principal part `k : U → F` of a section of
+/-- **Definition 3.1.11 (preprint 3.11), second paragraph**: the principal part `k : U → F` of a section of
 `U ◁ F → U` is **conjugated to a basic germ**: there are a strong bundle isomorphism
 `Ψ : U ◁ F → U' ◁ F'` with `ψ(0) = 0`, where `U'` is relatively open in the partial quadrant
 `C' = C̃ ⊕ W` of `E' = ℝⁿ ⊕ W` (`C̃` a partial quadrant in the finite-dimensional `ℝⁿ`) and
-`F' = ℝᴺ ⊕ W`, and a basic germ `h : O(C', 0) → ℝᴺ ⊕ W` (Definition 3.7, on a germ of
+`F' = ℝᴺ ⊕ W`, and a basic germ `h : O(C', 0) → ℝᴺ ⊕ W` (Definition 3.1.7 (preprint 3.7), on a germ of
 neighbourhoods `G` with `G₀ ⊆ U'`) such that the push-forward section `Ψ ∘ (u, k(u)) ∘ ψ⁻¹` is
 `h` near `0`: `(Ψ(u, k(u)))₂ = h(ψ(u))` for `u ∈ U` near `0`. -/
 def IsConjugateToBasicGerm (U : Set (E 0)) (k : E 0 → F 0) : Prop :=
@@ -565,7 +565,7 @@ theorem IsFillerOf.congr_left (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBun
 
 end LocalData
 
-/-! ### Definitions 3.3, 3.11, 3.14 for sections of a strong bundle -/
+/-! ### Definitions 3.1.3, 3.1.11, 3.1.16 (preprint 3.3, 3.11, 3.14) for sections of a strong bundle -/
 
 section FredholmSections
 
@@ -673,7 +673,7 @@ theorem continuousOn_sectionAdd (hf : B.IsScSmoothSection f) (hs : B.IsScPlusSec
   rw [← c.principal_sectionAdd hf.1 hs.1 (c.φ.mapsTo_model x hx), ← c.apply_section' hsec hx]
   exact (c.toPartialEquiv.left_inv (c.mem_source_of_proj (by rw [hsec]; exact hx))).symm
 
-/-- **Theorem 3.15, first clause**: the sum of an sc-smooth section and an sc⁺-section is an
+/-- **Theorem 3.1.18 (preprint 3.15), first clause**: the sum of an sc-smooth section and an sc⁺-section is an
 sc-smooth section (the sum rule in the charts). -/
 theorem IsScSmoothSection.sectionAdd (hf : B.IsScSmoothSection f) (hs : B.IsScPlusSection s) :
     B.IsScSmoothSection (Polyfold.sectionAdd P f s) := by
@@ -692,11 +692,11 @@ theorem IsScSmoothSection.sectionAdd (hf : B.IsScSmoothSection f) (hs : B.IsScPl
     change (z, c.principal f z + c.principal s z) = c (Polyfold.sectionAdd P f s (c.φ.symm z))
     rw [c.apply_section hsec hz, c.principal_sectionAdd hf.1 hs.1 hz]
 
-/-- **Definition 3.3**: an **sc-smooth section germ** `(f, x₀)` of `P : Y → X`: a section `f`
+/-- **Definition 3.1.3 (preprint 3.3)**: an **sc-smooth section germ** `(f, x₀)` of `P : Y → X`: a section `f`
 and a smooth point `x₀` such that in some strong bundle chart of `P` with `φ(x₀) = 0 ∈ O` the
 principal part `f̂` of `Φ ∘ f ∘ φ⁻¹ : O → K` has `f̂ ∘ r : O(C, 0) → F` sc-smooth in the sense of
-Definition 3.2, on some sc-germ of neighbourhoods `G` of `0` with `G₀ ⊆ U` (the text's germ
-reading: the levels `G_m` may shrink with `m`, Definition 3.1; Findings, Chapter 3, items 221 and
+Definition 3.1.2 (preprint 3.2), on some sc-germ of neighbourhoods `G` of `0` with `G₀ ⊆ U` (the text's germ
+reading: the levels `G_m` may shrink with `m`, Definition 3.1.1 (preprint 3.1); Findings, Chapter 3, items 221 and
 260; until 2026-11-02 the germ was the chart's `U ∩ E_m`).  The text's "continuous section on an
 open neighbourhood `V` of `x₀`" is the section on `V = dom φ`. -/
 structure IsScSmoothSectionGerm (f : X → Y) (x₀ : X) : Prop where
@@ -707,7 +707,7 @@ structure IsScSmoothSectionGerm (f : X → Y) (x₀ : X) : Prop where
     ∃ G : ScNbhdGerm c.φ.model.E c.φ.model.C, G.U 0 ⊆ c.U ∧
       IsScSmoothGerm G (c.principal f ∘ StrongRetr.r c.R)
 
-/-- An sc-smooth section (Definition 2.52) is an sc-smooth section germ (Definition 3.3) at every
+/-- An sc-smooth section (Definition 2.6.6 (preprint 2.52)) is an sc-smooth section germ (Definition 3.1.3 (preprint 3.3)) at every
 smooth point around which there is a centred strong bundle chart. -/
 theorem IsScSmoothSection.isScSmoothSectionGerm (hf : B.IsScSmoothSection f) {x₀ : X}
     (hx₀ : x₀ ∈ PX.smoothSet) {c : StrongBundleChart PX P} (hc : B.IsChart c)
@@ -721,10 +721,10 @@ theorem IsScSmoothSection.isScSmoothSectionGerm (hf : B.IsScSmoothSection f) {x�
     h2.isScSmoothGerm c.isQuadrantLike c.relOpen.relOpen _⟩
 
 variable (B) in
-/-- **Definition 3.11**: `(f, x₀)` is an **sc-Fredholm germ** of the section `f` at the smooth point
+/-- **Definition 3.1.11 (preprint 3.11)**: `(f, x₀)` is an **sc-Fredholm germ** of the section `f` at the smooth point
 `x₀`: in some strong bundle chart of `P` centred at `x₀`, the principal part `f̂` has a filled
-version `g : U → F` (Definition 3.6), and there is a local sc⁺-section `s : U → F¹` with
-`s(0) = g(0)` such that `g − s` is conjugated to a basic germ (Definition 3.7). This is the
+version `g : U → F` (Definition 3.1.6 (preprint 3.6)), and there is a local sc⁺-section `s : U → F¹` with
+`s(0) = g(0)` such that `g − s` is conjugated to a basic germ (Definition 3.1.7 (preprint 3.7)). This is the
 project's original whole-chart reading, stricter than the text (Findings, Chapter 3, items 220–221,
 260–266); the text's germ reading is `IsScFredholmGerm` (`GermFillingChart.lean`, phase 2, items
 270–330). -/
@@ -737,10 +737,10 @@ def IsScFredholmGermWholeChart (f : X → Y) (x₀ : X) : Prop :=
     IsConjugateToBasicGerm c.U (fun u => g u - c.F.toBase 1 (s u))
 
 variable (B) in
-/-- **Definition 3.14**: an **sc-Fredholm section** of the strong bundle `P : Y → X`: (1) `f` is
+/-- **Definition 3.1.16 (preprint 3.14)**: an **sc-Fredholm section** of the strong bundle `P : Y → X`: (1) `f` is
 sc-smooth; (2) `f` is regularizing: `x ∈ X_m` and `f(x) ∈ Y_{m,m+1}` imply `x ∈ X_{m+1}`; (3)
 `(f, x)` is an sc-Fredholm germ at every smooth point `x`. (The text states the definition for a
-tame strong bundle; tameness plays no role in it, nor in Theorem 3.15.) This is the project's
+tame strong bundle; tameness plays no role in it, nor in Theorem 3.1.18 (preprint 3.15).) This is the project's
 original whole-chart reading, stricter than the text (Findings, Chapter 3, items 220–221, 260–266);
 the text's germ reading is `IsScFredholmSection` (`TameGermsG.lean`, phase 2, items 270–330). -/
 structure IsScFredholmSectionWholeChart (f : X → Y) : Prop where
@@ -748,7 +748,7 @@ structure IsScFredholmSectionWholeChart (f : X → Y) : Prop where
   regularizing : ∀ m, ∀ x ∈ PX.levelSet m, f x ∈ B.doubleLevel m (m + 1) → x ∈ PX.levelSet (m + 1)
   germ : ∀ x ∈ PX.smoothSet, B.IsScFredholmGermWholeChart f x
 
-/-- **Theorem 3.15, second clause**: `f + s` is regularizing when `f` is: `s(x) ∈ Y_{m,m+1}` for
+/-- **Theorem 3.1.18 (preprint 3.15), second clause**: `f + s` is regularizing when `f` is: `s(x) ∈ Y_{m,m+1}` for
 `x ∈ X_m`, and `Y_{m,m+1}` is closed under fibrewise subtraction, so `(f + s)(x) ∈ Y_{m,m+1}` gives
 `f(x) ∈ Y_{m,m+1}`. -/
 theorem regularizing_sectionAdd_wholeChart (hf : B.IsScFredholmSectionWholeChart f) (hs : B.IsScPlusSection s) :
@@ -771,9 +771,9 @@ theorem regularizing_sectionAdd_wholeChart (hf : B.IsScFredholmSectionWholeChart
     obtain ⟨b, hb⟩ := hsx
     exact ⟨a - b, by rw [map_sub, ha, hb, heq]⟩
 
-/-- **Theorem 3.15, the germ property**: if `(f, x)` is an sc-Fredholm germ and `s` is an
+/-- **Theorem 3.1.18 (preprint 3.15), the germ property**: if `(f, x)` is an sc-Fredholm germ and `s` is an
 sc⁺-section, then `(f + s, x)` is an sc-Fredholm germ, in the same chart: the filled version
-`g + t̃` with `t̃ = ŝ ∘ r` (Lemma 3.17), the sc⁺-section `t̃ + t₀`, and
+`g + t̃` with `t̃ = ŝ ∘ r` (Lemma 3.1.20 (preprint 3.17)), the sc⁺-section `t̃ + t₀`, and
 `(g + t̃) − (t̃ + t₀) = g − t₀`, which is conjugated to the same basic germ. -/
 theorem IsScFredholmGermWholeChart.sectionAdd {x : X} (hfs : IsSection P f) (hg : B.IsScFredholmGermWholeChart f x)
     (hs : B.IsScPlusSection s) : B.IsScFredholmGermWholeChart (Polyfold.sectionAdd P f s) x := by
@@ -789,8 +789,8 @@ theorem IsScFredholmGermWholeChart.sectionAdd {x : X} (hfs : IsSection P f) (hg 
   refine ⟨hxs, c, hc, hxV, h0, h0U, fun u => g u + c.principal s (StrongRetr.r c.R u),
     fun u => c.principalLift s (StrongRetr.r c.R u) + t₀ u, ⟨hfill.isScSmooth.add hU hsr, ?_⟩,
     hlift.add hU ht₀, ?_, ?_⟩
-  · -- Lemma 3.17
-    have h17 := lemma_3_17 c.relOpen c.isRetraction h0U hfill.filler
+  · -- Lemma 3.1.20 (preprint 3.17)
+    have h17 := lemma_3_1_20 c.relOpen c.isRetraction h0U hfill.filler
       (s := c.principal s) fun z hz => hs.mem_K hc (c.r_image ▸ hz)
     refine h17.congr_left c.relOpen c.isRetraction h0U fun z hz => ?_
     exact (c.principal_sectionAdd hfs hs.1 (c.r_image ▸ hz)).symm
@@ -803,10 +803,10 @@ theorem IsScFredholmGermWholeChart.sectionAdd {x : X} (hfs : IsSection P f) (hg 
     rw [hs.toBase_principalLift hc (c.r_mem_O hu)]
     abel
 
-/-- **Theorem 3.15 (stability under sc⁺-perturbations)**: if `f` is an sc-Fredholm section of the
+/-- **Theorem 3.1.18 (preprint 3.15) (stability under sc⁺-perturbations)**: if `f` is an sc-Fredholm section of the
 strong bundle `P : Y → X` and `s` is an sc⁺-section, then `f + s` is an sc-Fredholm section.
 (The text assumes the bundle tame; tameness is not used.) -/
-theorem _root_.Polyfold.theorem_3_15_wholeChart (hf : B.IsScFredholmSectionWholeChart f) (hs : B.IsScPlusSection s) :
+theorem _root_.Polyfold.theorem_3_1_18_wholeChart (hf : B.IsScFredholmSectionWholeChart f) (hs : B.IsScPlusSection s) :
     B.IsScFredholmSectionWholeChart (sectionAdd P f s) where
   isScSmooth := hf.isScSmooth.sectionAdd hs
   regularizing := regularizing_sectionAdd_wholeChart hf hs

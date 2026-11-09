@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_88
 
 /-!
 Round trip for V3_88 (Theorem 3.58, given the family of sc-isomorphisms).  `A` is the conjunction
-of the types of `Polyfold.theorem_3_58_of_family`, `Polyfold.contrMap358_contraction`,
+of the types of `Polyfold.theorem_3_7_1_of_family`, `Polyfold.contrMap358_contraction`,
 `Polyfold.norm_sub_sub_le_of_hasFDerivWithinAt_segment` (universes `0, 0, 0`),
 `Polyfold.fiberIsoMap_isStrongBundleIso` and `Polyfold.famInv_isScSmooth_of`
 (`Polyfold.DerivCondition` is vocabulary).
@@ -27,12 +27,12 @@ open Polyfold Set
 /-- The project's statement: Theorem 3.58 from the family, the contraction estimate, the mean
 value inequality along a segment, the strong bundle isomorphism and Lemma 3.61. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_58_of_family ∧ type_of% @Polyfold.contrMap358_contraction ∧
+  type_of% @Polyfold.theorem_3_7_1_of_family ∧ type_of% @Polyfold.contrMap358_contraction ∧
     type_of% @Polyfold.norm_sub_sub_le_of_hasFDerivWithinAt_segment.{0, 0, 0} ∧
     type_of% @Polyfold.fiberIsoMap_isStrongBundleIso ∧ type_of% @Polyfold.famInv_isScSmooth_of
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_58_of_family, @Polyfold.contrMap358_contraction,
+  ⟨@Polyfold.theorem_3_7_1_of_family, @Polyfold.contrMap358_contraction,
     @Polyfold.norm_sub_sub_le_of_hasFDerivWithinAt_segment.{0, 0, 0},
     @Polyfold.fiberIsoMap_isStrongBundleIso, @Polyfold.famInv_isScSmooth_of⟩
 
@@ -80,10 +80,10 @@ theorem A_to_B (hA : A) : B := by
     inter_subset_left, fun u hu => ⟨hu.2.1, (hUC hu.1).1⟩, hiso, _, contrMap358 L f,
     fun u hu => hu, hbasic⟩
 
-#rt_check RoundTrip.V3_88.A_to_B [Polyfold.theorem_3_58_of_family,
+#rt_check RoundTrip.V3_88.A_to_B [Polyfold.theorem_3_7_1_of_family,
   Polyfold.contrMap358_contraction, Polyfold.norm_sub_sub_le_of_hasFDerivWithinAt_segment,
   Polyfold.fiberIsoMap_isStrongBundleIso, Polyfold.famInv_isScSmooth_of]
-#rt_overlap RoundTrip.V3_88.A_to_B [Polyfold.theorem_3_58_of_family,
+#rt_overlap RoundTrip.V3_88.A_to_B [Polyfold.theorem_3_7_1_of_family,
   Polyfold.contrMap358_contraction, Polyfold.norm_sub_sub_le_of_hasFDerivWithinAt_segment,
   Polyfold.fiberIsoMap_isStrongBundleIso, Polyfold.famInv_isScSmooth_of]
 

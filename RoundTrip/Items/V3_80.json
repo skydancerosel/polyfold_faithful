@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "incomparable",
  "effort_only": false,
- "why": "A = theorem_3_54_nearby (universes 0; germ reading at HEAD, hypothesis IsGoodPositionGermTame) ∧ lemma_3_55_relOpen ∧ exists_surjective_Dfs'_graph. A ⇒ B fails on the conclusion: B is claimed for every good-position datum (chart c, filler g, sc⁺ s, conjugation D) handed to it, while theorem_3_54_nearby chooses its own chart, coordinate change ψ and σ (existential); and B's SurjGoodPosInChart is about D(f̂∘r)(z) in the chart c (onto K_z, kernel ∩ T_zO in good position with an sc-complement to T_zO ∩ C_z), whereas A states surjectivity of D(h+t)(z) and good position of the graph tangent space N_v (algebraic closed complement) in its own ψ-coordinates, explicitly without N_v = ker and without the passage back to the chart. B's GraphFormCor also wants σ C¹ into level 1 and an sc-smooth germ into E'¹ (A: C¹ into level 0, level-1 values, k-dependent lifts). B ⇒ A fails: lemma_3_55_relOpen and exists_surjective_Dfs'_graph are general lemmas, and theorem_3_54_nearby needs only IsSection + IsGoodPositionGermTame, weaker than B's tame sc-Fredholm setting.",
+ "why": "A = theorem_3_6_8_nearby (universes 0; germ reading at HEAD, hypothesis IsGoodPositionGermTame) ∧ lemma_3_6_9_relOpen ∧ exists_surjective_Dfs'_graph. A ⇒ B fails on the conclusion: B is claimed for every good-position datum (chart c, filler g, sc⁺ s, conjugation D) handed to it, while theorem_3_6_8_nearby chooses its own chart, coordinate change ψ and σ (existential); and B's SurjGoodPosInChart is about D(f̂∘r)(z) in the chart c (onto K_z, kernel ∩ T_zO in good position with an sc-complement to T_zO ∩ C_z), whereas A states surjectivity of D(h+t)(z) and good position of the graph tangent space N_v (algebraic closed complement) in its own ψ-coordinates, explicitly without N_v = ker and without the passage back to the chart. B's GraphFormCor also wants σ C¹ into level 1 and an sc-smooth germ into E'¹ (A: C¹ into level 0, level-1 values, k-dependent lifts). B ⇒ A fails: lemma_3_6_9_relOpen and exists_surjective_Dfs'_graph are general lemmas, and theorem_3_6_8_nearby needs only IsSection + IsGoodPositionGermTame, weaker than B's tame sc-Fredholm setting.",
  "B_issue": null,
  "overlap": "n/a (no direction proved)",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "incomparable"
   },
-  "note": "theorem_3_54_nearby now assumes the germ reading, which B's whole-chart IsGoodPosData implies; the file compiles unchanged. Result unchanged: the gaps (B's claim for every datum, the conclusion in B's chart versus A's ψ-coordinates, the germ regularity of σ) are not about the whole-chart reading."
+  "note": "theorem_3_6_8_nearby now assumes the germ reading, which B's whole-chart IsGoodPosData implies; the file compiles unchanged. Result unchanged: the gaps (B's claim for every datum, the conclusion in B's chart versus A's ψ-coordinates, the germ regularity of σ) are not about the whole-chart reading."
  }
 }

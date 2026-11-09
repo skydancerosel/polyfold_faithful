@@ -18,7 +18,7 @@ and `π⁻¹(π(A)) = A`".  The project's structure `IsEpSubgroupoid` has exactl
 trivial ep-groupoid).  B is used only to package `IsEpSubgroupoid` from its two conditions; the
 conditions themselves are proved from Part I / Chapter 7 lemmas outside the item
 (`isSubMPolyfold_univ`, `isSaturated_univ`, an open set is a sub-M-polyfold with `r = id`,
-Proposition 7.1 `proposition_7_1`, `isSaturated_trivial`). -/
+Proposition 7.1 `proposition_7_1_8`, `isSaturated_trivial`). -/
 
 namespace RoundTrip.V7_29
 open Polyfold Set
@@ -51,7 +51,7 @@ theorem B_to_A : B → A := by
       MPolyfold.isScSmoothMap_id.mono hS (subset_univ _), fun _ _ => rfl, by
         rw [image_id, inter_self]⟩, hs⟩
   · intro Obj Mor _ _ _ _ _ _ X U hU
-    have hO : IsOpen (X.saturation U) := (X.proposition_7_1 U hU).preimage X.continuous_π
+    have hO : IsOpen (X.saturation U) := (X.proposition_7_1_8 U hU).preimage X.continuous_π
     refine (hB Obj Mor X _).2 ⟨fun a ha => ⟨_, hO, ha, id, mapsTo_id _,
       MPolyfold.isScSmoothMap_id.mono hO (subset_univ _), fun _ _ => rfl, by
         rw [image_id, inter_self]⟩, ?_⟩

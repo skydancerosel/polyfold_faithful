@@ -2,72 +2,72 @@ import Polyfold.Chapter3.ContractionGerm
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.3,
-Lemmas 3.31 and 3.32, Theorem 3.33 (the germ implicit function theorem), Corollary 3.34,
+Lemmas 3.3.4 and 3.3.5 (preprint 3.31 and 3.32), Theorem 3.3.6 (preprint 3.33) (the germ implicit function theorem), Corollary 3.3.7 (preprint 3.34),
 Theorem 3.35.
 
 # The germ implicit function theorem
 
 ## The text, paraphrased
 
-(Lemma 3.31) Let `f(a, w) = w − B(a, w)` be an sc⁰-contraction germ of class sc^k, `k ≥ 1`, with
+(Lemma 3.3.4 (preprint 3.31)) Let `f(a, w) = w − B(a, w)` be an sc⁰-contraction germ of class sc^k, `k ≥ 1`, with
 solution germ `δ` of class sc^j.  Then
 `f⁽¹⁾(v, b, u, w) = (u − B(v, u), w − DB(v, δ(v))(b, w)) = (u, w) − B⁽¹⁾(v, b, u, w)` is an
 sc⁰-contraction germ `O(TC̃ ⊕ TW, 0) → TW` of class `sc^{min(k−1, j)}`, and its solution germ is
-`Tδ`.  (Lemma 3.32) Iterating, for `j ≤ k` there is a contraction germ `f⁽ʲ⁾` of class
-`sc^{min(k−j, 1)}` with solution germ `T^jδ`.  (Theorem 3.33) If `f` is sc^k, then `δ` is sc^k:
-otherwise `δ` is sc^j but not sc^{j+1} for some `j < k`; `f⁽ʲ⁾` is sc¹, so by Theorem 3.30 its
-solution germ `T^jδ` is sc¹, so `δ` is sc^{j+1}.  (Corollary 3.34) If `f` is sc-smooth then for
+`Tδ`.  (Lemma 3.3.5 (preprint 3.32)) Iterating, for `j ≤ k` there is a contraction germ `f⁽ʲ⁾` of class
+`sc^{min(k−j, 1)}` with solution germ `T^jδ`.  (Theorem 3.3.6 (preprint 3.33)) If `f` is sc^k, then `δ` is sc^k:
+otherwise `δ` is sc^j but not sc^{j+1} for some `j < k`; `f⁽ʲ⁾` is sc¹, so by Theorem 3.3.3 (preprint 3.30) its
+solution germ `T^jδ` is sc¹, so `δ` is sc^{j+1}.  (Corollary 3.3.7 (preprint 3.34)) If `f` is sc-smooth then for
 all `m, k` there is a relatively open `V_{m,k} ∋ 0` with `δ(V_{m,k}) ⊆ W_m` and
 `δ : V_{m,k} → W_m` of class `C^k`.  (Theorem 3.35) The same for any finite-dimensional partial
 quadrant `C̃ ⊆ ℝⁿ`.
 
 ## What is formalized
 
-* `ContractionGerm.next 𝒞 hC hB s` (**the germ `f⁽¹⁾` of Lemma 3.31**, formula (38)), a
+* `ContractionGerm.next 𝒞 hC hB s` (**the germ `f⁽¹⁾` of Lemma 3.3.4 (preprint 3.31)**, formula (38)), a
   `ContractionGerm (P × P) (C̃ × P) (TW)` with explicit regions `N(m+2+s) × P`, `O(m+1) × W_m`,
   `K(m+1) × W_m`; its map `nextB` is `(pr₁ ∘ TB ∘ σ, pr₂ ∘ TB ∘ Γ)` with the reshuffle
   `σ(v, b, u, w) = ((v, u), (b, w))` and `Γ(v, b, u, w) = ((v, δ(v)), (b, w))`.
-  `ContractionGerm.lemma_3_31`: it is of class `sc^{min(k−1, j)}` (`nextB_isSckGerm`) and its
+  `ContractionGerm.lemma_3_3_4`: it is of class `sc^{min(k−1, j)}` (`nextB_isSckGerm`) and its
   solution germ is `Tδ = (δ(v), Dδ(v)b)` on `N(2+s) ∩ C̃ × P` (`next_sol`,
   `next_sol_eq_tangentMapWith`).
-* `ContractionGerm.sol_isSckGerm` (**Lemma 3.32 and the proof of Theorem 3.33**, as one induction
+* `ContractionGerm.sol_isSckGerm` (**Lemma 3.3.5 (preprint 3.32) and the proof of Theorem 3.3.6 (preprint 3.33)**, as one induction
   on `j` over all contraction germs: if `f` is sc^k and `j ≤ k`, then `δ` is an sc^j-germ on some
-  `germ s`), **Theorem 3.33** (`theorem_3_33`), **Corollary 3.34** (`corollary_3_34`), **Theorem
-  3.35** (`theorem_3_35`, for `C̃` a partial quadrant in `P`), and the versions from Definition
-  3.28's balls (`theorem_3_29_of_isSc0ContractionGerm`, `theorem_3_33_of_isSc0ContractionGerm`)
+  `germ s`), **Theorem 3.3.6 (preprint 3.33)** (`theorem_3_3_6`), **Corollary 3.3.7 (preprint 3.34)** (`corollary_3_3_7`), **Theorem
+  3.35** (`theorem_3_35_preprint`, for `C̃` a partial quadrant in `P`), and the versions from Definition
+  3.28's balls (`theorem_3_3_2_of_isSc0ContractionGerm`, `theorem_3_3_6_of_isSc0ContractionGerm`)
   through the working form `IsSc0ContractionGerm.toContractionGerm` (the construction in the
-  proof of Theorem 3.29, at the end of this file).
+  proof of Theorem 3.3.2 (preprint 3.29), at the end of this file).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **The germ shrinks with `k`.**  Theorem 3.30 gives sc¹ on the re-indexed germ `germ 1`
-  (see `ContractionGerm.lean`), and each induction step of Theorem 3.33 shifts again: `δ` is
+* **The germ shrinks with `k`.**  Theorem 3.3.3 (preprint 3.30) gives sc¹ on the re-indexed germ `germ 1`
+  (see `ContractionGerm.lean`), and each induction step of Theorem 3.3.6 (preprint 3.33) shifts again: `δ` is
   sc^k on `germ (s k)` with `s k` growing with `k`.  The proof gives the explicit shift
   `s_k = 2^k − 1`: the step `j → j + 1` (`isSckGerm_succ_of_next`) combines the shift `s` of `δ`
   and the shift `s'` of `Tδ` (the solution germ of `f⁽¹⁾`, again shifted by `s_j`) into
-  `s + s' + 1`, so `s_0 = 0`, `s_{j+1} = 2s_j + 1`.  So `theorem_3_33_smooth`, `corollary_3_34`
-  and `theorem_3_35_smooth` below state "δ is sc-smooth" as "for every `k`, sc^k on `germ s_k`"
-  (`V_{m,k}` depending on `k`, as in Corollary 3.34's first clause); no single `germ s` is
+  `s + s' + 1`, so `s_0 = 0`, `s_{j+1} = 2s_j + 1`.  So `theorem_3_3_6_smooth`, `corollary_3_3_7`
+  and `theorem_3_35_smooth_preprint` below state "δ is sc-smooth" as "for every `k`, sc^k on `germ s_k`"
+  (`V_{m,k}` depending on `k`, as in Corollary 3.3.7 (preprint 3.34)'s first clause); no single `germ s` is
   certified for all `k`.  The text's reading — one germ on which `δ` is sc^k for every `k`
   (`IsScSmoothGerm`) — nevertheless holds, on the diagonal germ `V_m = N(m + Σ_{j ≤ m} s_j) ∩ C̃`,
-  since sc^j only involves the levels `≥ j` (`corollary_3_34_isScSmoothGerm`,
-  `theorem_3_35_isScSmoothGerm`, `theorem_3_35_of_isSc0ContractionGerm` in `GermIFTSmooth.lean`;
+  since sc^j only involves the levels `≥ j` (`corollary_3_3_7_isScSmoothGerm`,
+  `theorem_3_35_isScSmoothGerm_preprint`, `theorem_3_35_of_isSc0ContractionGerm_preprint` in `GermIFTSmooth.lean`;
   round-trip items V3.31, V3.32).
-* **Lemma 3.32 is reorganised.**  The text proves Theorem 3.33 by contradiction from Lemma 3.32
+* **Lemma 3.3.5 (preprint 3.32) is reorganised.**  The text proves Theorem 3.3.6 (preprint 3.33) by contradiction from Lemma 3.3.5 (preprint 3.32)
   (an `f⁽ʲ⁾` with solution `T^jδ`).  Here the induction is on `j` with the statement quantified
   over all contraction germs (the parameter space of `f⁽¹⁾` is `P × P`, its fibre `TW`): if `δ`
-  is sc^j then `f⁽¹⁾` is sc^j (Lemma 3.31, `k − 1 ≥ j`), so its solution `Tδ` is sc^j by the
-  induction hypothesis, and `δ` is sc¹ by Theorem 3.30, hence sc^{j+1}.  This is the content of
-  Lemma 3.32 without the iterated germs `f⁽ʲ⁾`.
+  is sc^j then `f⁽¹⁾` is sc^j (Lemma 3.3.4 (preprint 3.31), `k − 1 ≥ j`), so its solution `Tδ` is sc^j by the
+  induction hypothesis, and `δ` is sc¹ by Theorem 3.3.3 (preprint 3.30), hence sc^{j+1}.  This is the content of
+  Lemma 3.3.5 (preprint 3.32) without the iterated germs `f⁽ʲ⁾`.
 * **The solution germ of `f⁽¹⁾` is `Tδ`**: the text says "from the uniqueness".  Uniqueness holds
   in `O⁽¹⁾₀ = O₁ × W₀`, and `Tδ(v, b) = (δ(v), Dδ(v)b)` lies there because `δ(v) ∈ O₁` for
   `v ∈ N 1` (the fibre of the tangent germ is unbounded, which is why the regions are kept
   explicit); and `Dδ(v) = (1 − D₂B)⁻¹D₁B` needs `v ∈ N 2` (the level-`1` operators), hence the
   region `N(2+s) × P` of `f⁽¹⁾`.
-* **"As one verifies by comparing `Tf` with `f⁽¹⁾`"** (Lemma 3.31) is the chain rule for germs
+* **"As one verifies by comparing `Tf` with `f⁽¹⁾`"** (Lemma 3.3.4 (preprint 3.31)) is the chain rule for germs
   (`IsSckGerm.comp`, `IsSckGerm.pair`) with the sc-operators `σ`, the projections, and the
-  shifted solution germ `v ↦ δ(v) ∈ W₁` (Proposition 1.17 for germs, `IsSckGerm.shift`).
-* **Corollary 3.34 (2)** uses Proposition 1.18 for germs (`IsSckGerm.contDiffOn_levels`, proved
+  shifted solution germ `v ↦ δ(v) ∈ W₁` (Proposition 1.2.2 (preprint 1.17) for germs, `IsSckGerm.shift`).
+* **Corollary 3.3.7 (preprint 3.34) (2)** uses Proposition 1.2.3 (preprint 1.18) for germs (`IsSckGerm.contDiffOn_levels`, proved
   in `GermLevels.lean`; the text cites the version for relatively open sets).
 * The identifications `TC̃ = C̃ × P` (for finite-dimensional `P`, `(const P).tangent` and
   `const (P × P)` have the same levels) are sc-isomorphisms applied through the chain rule,
@@ -157,7 +157,7 @@ namespace ContractionGerm
 variable (𝒞 : ContractionGerm P Ct W)
   {D : (ScBanach.paramProd P W) 1 → (ScBanach.paramProd P W) 0 →L[ℝ] W 0}
 
-/-! ### Lemma 3.31: the contraction germ `f⁽¹⁾` -/
+/-! ### Lemma 3.3.4 (preprint 3.31): the contraction germ `f⁽¹⁾` -/
 
 /-- The germ of neighbourhoods of `f⁽¹⁾`: `U⁽¹⁾_m = {((v, b), (u, w)) | (v, u) ∈ U_{m+1},
 v ∈ N(m+1+s)}` in `(P ⊕ P) ⊕ TW`. -/
@@ -204,7 +204,7 @@ lemma nextΓ_apply (q : (ScBanach.paramProd (P × P) W.tangent) 0) :
     𝒞.nextΓ q = ((((q.1 : P × P).1, levelMap (E := ScBanach.const P) (F := W) 𝒞.sol 1 (q.1 : P × P).1),
       ((q.1 : P × P).2, (q.2 : W 1 × W 0).2)) : (ScBanach.paramProd P W).tangent 0) := rfl
 
-/-- **The map `B⁽¹⁾` of Lemma 3.31**, formula (38):
+/-- **The map `B⁽¹⁾` of Lemma 3.3.4 (preprint 3.31)**, formula (38):
 `B⁽¹⁾((v, b), (u, w)) = (B(v, u), DB(v, δ(v))(b, w))`, written as `(pr₁ ∘ TB ∘ σ, pr₂ ∘ TB ∘ Γ)`. -/
 def nextB (D : (ScBanach.paramProd P W) 1 → (ScBanach.paramProd P W) 0 →L[ℝ] W 0) :
     (ScBanach.paramProd (P × P) W.tangent) 0 → W.tangent 0 :=
@@ -271,7 +271,7 @@ lemma nextΓ_isSckGerm {j s : ℕ} (hs : IsSckGerm j (𝒞.germ hC s) 𝒞.sol) 
   exact IsSckGerm.comp hC' hC.shift (hs.shift hC) ((projV P W).isSckGerm j _ hC')
     (𝒞.projV_mapsToGerm hC s)
 
-/-- **Lemma 3.31, the regularity**: if `TB` is an sc^j-germ on `TU` and `δ` an sc^j-germ on
+/-- **Lemma 3.3.4 (preprint 3.31), the regularity**: if `TB` is an sc^j-germ on `TU` and `δ` an sc^j-germ on
 `germ s`, then `B⁽¹⁾` is an sc^j-germ on `U⁽¹⁾`. -/
 theorem nextB_isSckGerm {j s : ℕ} (hTB : IsSckGerm j 𝒞.G.tangent (tangentMapWith 𝒞.B D))
     (hs : IsSckGerm j (𝒞.germ hC s) 𝒞.sol) : IsSckGerm j (𝒞.nextG s) (𝒞.nextB D) := by
@@ -317,7 +317,7 @@ lemma nextB_zero : 𝒞.nextB D ((0 : P × P), (0 : W.tangent 0)) = 0 := by
   · show D _ (((0 : P), (0 : W 0)) : (ScBanach.paramProd P W) 0) = 0
     exact map_zero _
 
-/-- **The contraction germ `f⁽¹⁾` of Lemma 3.31** (formula (38)), in the working form: parameter
+/-- **The contraction germ `f⁽¹⁾` of Lemma 3.3.4 (preprint 3.31)** (formula (38)), in the working form: parameter
 space `P × P ⊇ C̃ × P`, fibre `TW`, map `B⁽¹⁾`, regions `N(m+2+s) × P`, `O(m+1) × W_m`,
 `K(m+1) × W_m`. -/
 def next (s : ℕ) : ContractionGerm (P × P) (Ct ×ˢ univ) W.tangent where
@@ -369,8 +369,8 @@ def next (s : ℕ) : ContractionGerm (P × P) (Ct ×ˢ univ) W.tangent where
 @[simp] lemma next_N (s m : ℕ) : (𝒞.next hC hB s).N m = 𝒞.N (m + 2 + s) ×ˢ univ := rfl
 @[simp] lemma next_O (s m : ℕ) : (𝒞.next hC hB s).O m = 𝒞.O (m + 1) ×ˢ univ := rfl
 
-/-- **Lemma 3.31, the solution germ**: the solution germ of `f⁽¹⁾` is
-`Tδ(v, b) = (δ(v), Dδ(v)b)` (by the uniqueness of Theorem 3.29 in `O₁ × W₀`). -/
+/-- **Lemma 3.3.4 (preprint 3.31), the solution germ**: the solution germ of `f⁽¹⁾` is
+`Tδ(v, b) = (δ(v), Dδ(v)b)` (by the uniqueness of Theorem 3.3.2 (preprint 3.29) in `O₁ × W₀`). -/
 theorem next_sol {s : ℕ} {v b : P} (hv : v ∈ 𝒞.N (2 + s) ∩ Ct) :
     (𝒞.next hC hB s).sol (v, b) = ((𝒞.fixLvl 1 v, 𝒞.Aop (D := D) 0 v b) : W.tangent 0) := by
   have hv1 : v ∈ 𝒞.N 1 ∩ Ct := ⟨𝒞.N_anti_le (by omega) hv.1, hv.2⟩
@@ -394,10 +394,10 @@ theorem next_sol_eq_tangentMapWith {s : ℕ} {q : P × P} (hq : q.1 ∈ 𝒞.N (
   change _ = ((levelMap (E := ScBanach.const P) 𝒞.sol 1 v, 𝒞.solDeriv (D := D) v b) : W.tangent 0)
   rw [𝒞.levelMap_sol 1 hv1, 𝒞.solDeriv_of_mem hv2]
 
-/-- **Lemma 3.31**, assembled: if `f` is sc^{k+1} with derivative family `D` and `δ` is sc^j on
+/-- **Lemma 3.3.4 (preprint 3.31)**, assembled: if `f` is sc^{k+1} with derivative family `D` and `δ` is sc^j on
 `germ s`, then `f⁽¹⁾ = next s` is a contraction germ of class `sc^{min(k, j)}` whose solution germ
 is `Tδ` on `(N(2+s) ∩ C̃) × P`. -/
-theorem lemma_3_31 {k j s : ℕ} (hk : IsSckGerm (k + 1) 𝒞.G 𝒞.B)
+theorem lemma_3_3_4 {k j s : ℕ} (hk : IsSckGerm (k + 1) 𝒞.G 𝒞.B)
     (hs : IsSckGerm j (𝒞.germ hC s) 𝒞.sol) :
     IsSckGerm (min k j) (𝒞.next hC hB s).G (𝒞.next hC hB s).B ∧
       ∀ q : P × P, q.1 ∈ 𝒞.N (2 + s) ∩ Ct →
@@ -410,9 +410,9 @@ theorem lemma_3_31 {k j s : ℕ} (hk : IsSckGerm (k + 1) 𝒞.G 𝒞.B)
     exact h2.of_le (min_le_left _ _)
   exact 𝒞.nextB_isSckGerm hC hTB (hs.of_le (min_le_right _ _))
 
-/-! ### Theorem 3.33: the induction -/
+/-! ### Theorem 3.3.6 (preprint 3.33): the induction -/
 
-/-- **The induction step of Theorem 3.33**: `δ` is sc¹ on `germ 1` (Theorem 3.30); if the solution
+/-- **The induction step of Theorem 3.3.6 (preprint 3.33)**: `δ` is sc¹ on `germ 1` (Theorem 3.3.3 (preprint 3.30)); if the solution
 germ `Tδ` of `f⁽¹⁾ = next s` is sc^j on `(next s).germ s'`, then `δ` is sc^{j+1} on
 `germ (s + s' + 1)`.  The germ of `Tδ` is transported from `P × P` to `T P` along the
 sc-isomorphism `constTangentOp`. -/
@@ -446,18 +446,18 @@ theorem isSckGerm_succ_of_next {j s s' : ℕ}
 
 end ContractionGerm
 
-/-- **Lemma 3.32 and the proof of Theorem 3.33**, as one induction on `j` over all contraction
+/-- **Lemma 3.3.5 (preprint 3.32) and the proof of Theorem 3.3.6 (preprint 3.33)**, as one induction on `j` over all contraction
 germs: if the sc⁰-contraction germ `f = w − B(a, w)` is of class sc^k and `j ≤ k`, then its
 solution germ `δ` is an sc^j-germ on `germ s` for some `s`.  Step `j → j + 1`: by the induction
 hypothesis `δ` is sc^j on some `germ s`; `f⁽¹⁾ = next s` is a contraction germ of class sc^j
-(Lemma 3.31, `k − 1 ≥ j`) with solution germ `Tδ`, which is sc^j by the induction hypothesis
-applied to `f⁽¹⁾` (a contraction germ on `(P × P) ⊕ TW`); `δ` is sc¹ by Theorem 3.30; so `δ` is
+(Lemma 3.3.4 (preprint 3.31), `k − 1 ≥ j`) with solution germ `Tδ`, which is sc^j by the induction hypothesis
+applied to `f⁽¹⁾` (a contraction germ on `(P × P) ⊕ TW`); `δ` is sc¹ by Theorem 3.3.3 (preprint 3.30); so `δ` is
 sc^{j+1}. -/
 theorem ContractionGerm.sol_isSckGerm : ∀ (j : ℕ) {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P]
     [FiniteDimensional ℝ P] {W : ScBanach} {Ct : Set P} (𝒞 : ContractionGerm P Ct W)
     (hC : IsQuadrantLike (ScBanach.const P) Ct) {k : ℕ}, j ≤ k → IsSckGerm k 𝒞.G 𝒞.B →
     ∃ s, IsSckGerm j (𝒞.germ hC s) 𝒞.sol
-  | 0, P, _, _, _, W, Ct, 𝒞, hC, _, _, _ => ⟨0, (theorem_3_29 𝒞 hC).1.isSc0⟩
+  | 0, P, _, _, _, W, Ct, 𝒞, hC, _, _, _ => ⟨0, (theorem_3_3_2 𝒞 hC).1.isSc0⟩
   | j + 1, P, _, _, _, W, Ct, 𝒞, hC, k, hjk, hB => by
     obtain ⟨k', rfl⟩ : ∃ k', k = k' + 1 := ⟨k - 1, by omega⟩
     have hD : IsSc1GermWith 𝒞.G 𝒞.B (scDerivGerm 𝒞.G 𝒞.B) := hB.1.isSc1GermWith_scDerivGerm
@@ -473,23 +473,23 @@ namespace ContractionGerm
 
 variable (𝒞 : ContractionGerm P Ct W) (hC : IsQuadrantLike (ScBanach.const P) Ct)
 
-/-- **Theorem 3.33 (Germ implicit function theorem)**: if the sc⁰-contraction germ
-`f(a, w) = w − B(a, w)` is of class sc^k, its solution germ `δ` (Theorem 3.29) is of class sc^k
+/-- **Theorem 3.3.6 (preprint 3.33) (Germ implicit function theorem)**: if the sc⁰-contraction germ
+`f(a, w) = w − B(a, w)` is of class sc^k, its solution germ `δ` (Theorem 3.3.2 (preprint 3.29)) is of class sc^k
 **on the shrunken germ `germ s = (N(m+s) ∩ C̃)_m` for some `s`** (see the module docstring: the
 text's germs are up to shrinking).  The proof gives `s = 2^k − 1`: `sol_isSckGerm` returns `0` for
 `j = 0` and `s + s' + 1` for `j + 1` (`isSckGerm_succ_of_next`), with `s` and `s'` both the shifts
 of level `j`, so `s_{j+1} = 2s_j + 1`; the statement keeps the existential. -/
-theorem _root_.Polyfold.theorem_3_33 {k : ℕ} (hB : IsSckGerm k 𝒞.G 𝒞.B) :
+theorem _root_.Polyfold.theorem_3_3_6 {k : ℕ} (hB : IsSckGerm k 𝒞.G 𝒞.B) :
     ∃ s, 𝒞.IsSolutionGerm (𝒞.germ hC s) 𝒞.sol ∧ IsSckGerm k (𝒞.germ hC s) 𝒞.sol := by
   obtain ⟨s, hs⟩ := 𝒞.sol_isSckGerm k hC le_rfl hB
   exact ⟨s, 𝒞.isSolutionGerm_germ hC s, hs⟩
 
-/-- The sc-smooth case of Theorem 3.33 ("the solution germ is sc-smooth at the smooth point `0`",
+/-- The sc-smooth case of Theorem 3.3.6 (preprint 3.33) ("the solution germ is sc-smooth at the smooth point `0`",
 Corollary 3.34): for every `k`, `δ` is sc^k on some `germ s` (depending on `k`).  For one germ on
-which `δ` is sc^k for every `k`, see `corollary_3_34_isScSmoothGerm` (`GermIFTSmooth.lean`). -/
-theorem _root_.Polyfold.theorem_3_33_smooth (hB : IsScSmoothGerm 𝒞.G 𝒞.B) (k : ℕ) :
+which `δ` is sc^k for every `k`, see `corollary_3_3_7_isScSmoothGerm` (`GermIFTSmooth.lean`). -/
+theorem _root_.Polyfold.theorem_3_3_6_smooth (hB : IsScSmoothGerm 𝒞.G 𝒞.B) (k : ℕ) :
     ∃ s, 𝒞.IsSolutionGerm (𝒞.germ hC s) 𝒞.sol ∧ IsSckGerm k (𝒞.germ hC s) 𝒞.sol :=
-  theorem_3_33 𝒞 hC (hB k)
+  theorem_3_3_6 𝒞 hC (hB k)
 
 /-- The inclusions of the constant structure are the identity. -/
 lemma _root_.Polyfold.ScBanach.const_inclK (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V]
@@ -498,15 +498,15 @@ lemma _root_.Polyfold.ScBanach.const_inclK (V : Type) [NormedAddCommGroup V] [No
   | k + 1, x => ScBanach.const_inclK V m k x
 
 include hC in
-/-- **Corollary 3.34**: if the sc⁰-contraction germ is sc-smooth, then for every `m` and `k` there
+/-- **Corollary 3.3.7 (preprint 3.34)**: if the sc⁰-contraction germ is sc-smooth, then for every `m` and `k` there
 is a relatively open neighbourhood `V_{m,k}` of `0` in `C̃` with (1) `δ(V_{m,k}) ⊆ W_m` and (2)
-`δ : V_{m,k} → W_m` of class `C^k` (Proposition 1.18 for germs).  Here `V_{m,k} = N(m+k+s) ∩ C̃`
-with `s` from Theorem 3.33 for this `k`. -/
-theorem _root_.Polyfold.corollary_3_34 (hB : IsScSmoothGerm 𝒞.G 𝒞.B) (m k : ℕ) :
+`δ : V_{m,k} → W_m` of class `C^k` (Proposition 1.2.3 (preprint 1.18) for germs).  Here `V_{m,k} = N(m+k+s) ∩ C̃`
+with `s` from Theorem 3.3.6 (preprint 3.33) for this `k`. -/
+theorem _root_.Polyfold.corollary_3_3_7 (hB : IsScSmoothGerm 𝒞.G 𝒞.B) (m k : ℕ) :
     ∃ V : Set P, (∃ O : Set P, IsOpen O ∧ V = O ∩ Ct) ∧ (0 : P) ∈ V ∧
       (∀ a ∈ V, 𝒞.sol a ∈ range (W.toBase m)) ∧
       ContDiffOn ℝ k (levelMap (E := ScBanach.const P) (F := W) 𝒞.sol m) V := by
-  obtain ⟨s, hsol, hs⟩ := theorem_3_33_smooth 𝒞 hC hB k
+  obtain ⟨s, hsol, hs⟩ := theorem_3_3_6_smooth 𝒞 hC hB k
   refine ⟨(𝒞.germ hC s).U (m + k), ⟨𝒞.N (m + k + s), 𝒞.N_open _, rfl⟩, (𝒞.germ hC s).zero_mem _,
     fun a ha => ?_, ?_⟩
   · have := hsol.isSc0.mem_range m a ⟨𝒞.N_anti_le (by omega) ha.1, ha.2⟩
@@ -516,24 +516,24 @@ theorem _root_.Polyfold.corollary_3_34 (hB : IsScSmoothGerm 𝒞.G 𝒞.B) (m k 
 
 /-- **Theorem 3.35**: for `C̃` a finite-dimensional partial quadrant in `P` (the text: in `ℝⁿ`), an
 sc⁰-contraction germ of class sc^k has a solution germ of class sc^k (on some `germ s`). -/
-theorem _root_.Polyfold.theorem_3_35 (hC : IsPartialQuadrant (ScBanach.const P) Ct) {k : ℕ}
+theorem _root_.Polyfold.theorem_3_35_preprint (hC : IsPartialQuadrant (ScBanach.const P) Ct) {k : ℕ}
     (hB : IsSckGerm k 𝒞.G 𝒞.B) :
     ∃ s, 𝒞.IsSolutionGerm (𝒞.germ hC.isQuadrantLike s) 𝒞.sol ∧
       IsSckGerm k (𝒞.germ hC.isQuadrantLike s) 𝒞.sol :=
-  theorem_3_33 𝒞 hC.isQuadrantLike hB
+  theorem_3_3_6 𝒞 hC.isQuadrantLike hB
 
 /-- **Theorem 3.35**, second sentence: if `f` is sc-smooth, so is `δ` (for every `k`, sc^k on
 some `germ s` depending on `k`; see the module docstring).  On one germ for all `k`:
-`theorem_3_35_isScSmoothGerm` (`GermIFTSmooth.lean`). -/
-theorem _root_.Polyfold.theorem_3_35_smooth (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+`theorem_3_35_isScSmoothGerm_preprint` (`GermIFTSmooth.lean`). -/
+theorem _root_.Polyfold.theorem_3_35_smooth_preprint (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (hB : IsScSmoothGerm 𝒞.G 𝒞.B) (k : ℕ) :
     ∃ s, 𝒞.IsSolutionGerm (𝒞.germ hC.isQuadrantLike s) 𝒞.sol ∧
       IsSckGerm k (𝒞.germ hC.isQuadrantLike s) 𝒞.sol :=
-  theorem_3_33 𝒞 hC.isQuadrantLike (hB k)
+  theorem_3_3_6 𝒞 hC.isQuadrantLike (hB k)
 
 end ContractionGerm
 
-/-! ### From Definition 3.28 (balls) to the working form -/
+/-! ### From Definition 3.3.1 (preprint 3.28) (balls) to the working form -/
 
 namespace IsSc0ContractionGerm
 
@@ -618,7 +618,7 @@ lemma prad_le_rad' : ∀ m, h.prad m ≤ h.rad' m
 
 lemma prad_anti (m : ℕ) : h.prad (m + 1) ≤ h.prad m := min_le_left _ _
 
-/-- **The working form of Definition 3.28** (the construction in the proof of Theorem 3.29): the
+/-- **The working form of Definition 3.3.1 (preprint 3.28)** (the construction in the proof of Theorem 3.29): the
 regions `N m = ball 0 (ρ m)`, `O m = ball 0 (r' m)`, `K m = closedBall 0 (r' m / 2)`. -/
 def toContractionGerm : ContractionGerm P Ct W where
   B := B
@@ -674,11 +674,11 @@ def toContractionGerm : ContractionGerm P Ct W where
 
 end IsSc0ContractionGerm
 
-/-- **Theorem 3.29 in the text's form** (from Definition 3.28 with balls): an sc⁰-contraction
+/-- **Theorem 3.3.2 (preprint 3.29) in the text's form** (from Definition 3.3.1 (preprint 3.28) with balls): an sc⁰-contraction
 germ admits an sc⁰-solution germ `δ : O(C̃, 0) → (W, 0)`, `δ(0) = 0`, `(a, δ(a)) ∈ U_m` for
 `a ∈ V_m`, `f(a, δ(a)) = 0` on `V₀`, uniquely determined among the solutions `w` with `‖w‖ < r`
 for `a ∈ V₀`. -/
-theorem theorem_3_29_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.const P) Ct)
+theorem theorem_3_3_2_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.const P) Ct)
     {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 → W 0}
     (h : IsSc0ContractionGerm Ct G B) :
     ∃ (V : ScNbhdGerm (ScBanach.const P) Ct) (δ : P → W 0), IsSc0Germ V δ ∧ δ 0 = 0 ∧
@@ -686,7 +686,7 @@ theorem theorem_3_29_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.cons
       (∀ a ∈ V.U 0, contractionMap B (a, δ a) = 0) ∧
       ∃ r > 0, ∀ a ∈ V.U 0, ∀ w : W 0, ‖w‖ < r → contractionMap B (a, w) = 0 → w = δ a := by
   set 𝒞 := h.toContractionGerm
-  obtain ⟨hsol, huniq⟩ := theorem_3_29 𝒞 hC
+  obtain ⟨hsol, huniq⟩ := theorem_3_3_2 𝒞 hC
   refine ⟨𝒞.germ hC 0, 𝒞.sol, hsol.isSc0, hsol.zero, hsol.mem_G, fun a ha => ?_,
     h.rad' 0, h.rad'_pos 0, fun a ha w hw hfix => ?_⟩
   · show 𝒞.sol a - B (a, 𝒞.sol a) = 0
@@ -698,15 +698,15 @@ theorem theorem_3_29_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.cons
     · have : w - B (a, w) = 0 := hfix
       exact (sub_eq_zero.1 this).symm
 
-/-- **Theorem 3.33 in the text's form** (from Definition 3.28 with balls): if the sc⁰-contraction
+/-- **Theorem 3.3.6 (preprint 3.33) in the text's form** (from Definition 3.3.1 (preprint 3.28) with balls): if the sc⁰-contraction
 germ is of class sc^k, there is a solution germ `δ : O(C̃, 0) → (W, 0)` of class sc^k. -/
-theorem theorem_3_33_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.const P) Ct)
+theorem theorem_3_3_6_of_isSc0ContractionGerm (hC : IsQuadrantLike (ScBanach.const P) Ct)
     {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {B : P × W 0 → W 0}
     (h : IsSc0ContractionGerm Ct G B) {k : ℕ} (hB : IsSckGerm k G B) :
     ∃ (V : ScNbhdGerm (ScBanach.const P) Ct) (δ : P → W 0), IsSckGerm k V δ ∧ δ 0 = 0 ∧
       (∀ m, ∀ a ∈ V.U m, ((a, levelMap (E := ScBanach.const P) δ m a) : P × W m) ∈ G.U m) ∧
       ∀ a ∈ V.U 0, contractionMap B (a, δ a) = 0 := by
-  obtain ⟨s, hsol, hs⟩ := theorem_3_33 h.toContractionGerm hC hB
+  obtain ⟨s, hsol, hs⟩ := theorem_3_3_6 h.toContractionGerm hC hB
   refine ⟨_, _, hs, hsol.zero, hsol.mem_G, fun a ha => ?_⟩
   show h.toContractionGerm.sol a - B (a, h.toContractionGerm.sol a) = 0
   rw [sub_eq_zero]

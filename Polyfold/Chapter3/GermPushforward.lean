@@ -112,7 +112,7 @@ lemma pushforward_eq (k : E 0 → F 0) :
 
 variable {G₁}
 
-/-- **The push-forward of a germ by a strong bundle isomorphism is a germ** (Definition 3.11,
+/-- **The push-forward of a germ by a strong bundle isomorphism is a germ** (Definition 3.1.11 (preprint 3.11),
 "`Ψ_*(g)`"): for `k` an sc-smooth germ on `G ⊆ U`, `Ψ_*(k) = (Ψ(ψ'(·), k(ψ'(·))))₂` is an
 sc-smooth germ on `ψ'⁻¹(G)`. -/
 theorem pushforward_isScSmoothGerm (hU : IsRelOpenInQuadrant E C U)

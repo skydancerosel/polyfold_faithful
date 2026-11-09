@@ -15,7 +15,7 @@ vectors).  `gammaProj`, `projSeq`, `cokerCompEquiv` are vocabulary.
   into B's families: bases `a`, `d`, `b' = Z ∘ b'`, lifts `f` of the `c`).  The project's
   `gammaProj` is by definition `smulRight (dualVec χ₀.source) χ₀.value` for the canonical choice
   `χ₀`, so it agrees with `γ` on `χ₀.source ≠ 0` (unfolding only, NOT the banned theorems nor the
-  choice-independence `lemma_6_5`); `det(T)` is a line, hence `gammaProj = γ`
+  choice-independence `lemma_6_3_3`); `det(T)` is a line, hence `gammaProj = γ`
   (`gammaProj_eq_of_isGamma`) and both conjuncts of A follow from B's `IsGamma`.  So B's
   choice-independence (Lemma 6.5 for `E(T,P)`) is what B ⇒ A uses.
 -/
@@ -201,9 +201,9 @@ theorem B_to_A : B → A := by
 #rt_check RoundTrip.V6_13.B_to_A [Polyfold.gammaProj_tmul, Polyfold.gammaProj_wedge_tmul]
 #rt_overlap RoundTrip.V6_13.B_to_A [Polyfold.gammaProj_tmul, Polyfold.gammaProj_wedge_tmul]
 
-/-! `B ⇒ A` does not use the choice-independence `lemma_6_5` of `Φ_E` (nor its family form
+/-! `B ⇒ A` does not use the choice-independence `lemma_6_3_3` of `Φ_E` (nor its family form
 `phi_wedge_tmul`): that content comes from B. -/
-#rt_check RoundTrip.V6_13.B_to_A [Polyfold.FourTermExact.lemma_6_5,
+#rt_check RoundTrip.V6_13.B_to_A [Polyfold.FourTermExact.lemma_6_3_3,
   Polyfold.FourTermExact.phi_wedge_tmul, Polyfold.FourTermExact.exists_smul_source_value]
 
 end RoundTrip.V6_13

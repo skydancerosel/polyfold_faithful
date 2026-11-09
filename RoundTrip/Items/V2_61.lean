@@ -4,7 +4,7 @@ import RoundTrip.Blind.V2_61
 
 /-! Round trip for V2_61 (Proposition 2.54: the pull-back of a strong bundle is a strong bundle).
 
-`A` is the conjunction of the types of the theorems `Polyfold.proposition_2_54`,
+`A` is the conjunction of the types of the theorems `Polyfold.proposition_2_6_8`,
 `Polyfold.PullbackChartData.transition_eqOn`, `PullbackChartData.transition_isScSmooth`,
 `PullbackChartData.transitionOne_isScSmooth`, `PullbackChartData.compatible_toChart`,
 `Polyfold.paracompactSpace_pullbackSpace`, `Polyfold.pullback_image`,
@@ -17,7 +17,7 @@ Neither direction is proved.
 `A → B` fails because B's "naturality" is not in `A`: B asks that `P' : f*Y → Y`, `(z, y) ↦ y`, be
 sc-smooth from `f*Y[0]` to `Y[0]` and from `f*Y[1]` to `Y[1]` for the strong bundle structure on
 `f*Y`.  `A` only says that the pulled-back charts `Φ_f(z, y) = (ψ(z), pr_F Φ(y))` form a strong
-bundle atlas (`proposition_2_54`: `∃ B'`, `B'.atlas.charts = (pullbackAtlas B hf).charts`); no
+bundle atlas (`proposition_2_6_8`: `∃ B'`, `B'.atlas.charts = (pullbackAtlas B hf).charts`); no
 project statement mentions the sc-smoothness of `P'`.  It is believed true (in the charts `Φ_f`,
 `Φ` the map `P'` is `(w, h) ↦ (g(w), h)` on `K_g`, `g = φ ∘ f ∘ ψ⁻¹` sc-smooth), but proving it is
 new work on the chart API (`IsScSmoothOn.of_exists_charts` on both `toMPolyfold0` and
@@ -28,9 +28,9 @@ fibre-linearity conjunct comes from the project lemmas `pullbackFiberEquiv_add/s
 the retraction `R_g` and its image `K_g`, and that exactly these charts form the atlas), while B
 only asserts that SOME strong bundle structure exists with `P'` sc-smooth.  `A` also asserts
 paracompactness of `f*Y` for an arbitrary map `f` (not only sc-smooth ones).  B does give the
-existence part of `proposition_2_54` (`B_to_exists`).
+existence part of `proposition_2_6_8` (`B_to_exists`).
 
-Harness note: the statement of `proposition_2_54` itself contains the banned
+Harness note: the statement of `proposition_2_6_8` itself contains the banned
 `paracompactSpace_pullbackSpace` (the instance on `f*Y` used by `StrongBundle`), so any proof that
 mentions `A` fails `#rt_check`.  The partial results are therefore routed through `Exists254`
 (the existence part of Proposition 2.54, with the instance existentially quantified): `A → Exists254`
@@ -41,7 +41,7 @@ open Polyfold Set
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_54.{0, 0, 0}) ∧
+  (type_of% @Polyfold.proposition_2_6_8.{0, 0, 0}) ∧
     (type_of% @Polyfold.PullbackChartData.transition_eqOn.{0, 0, 0}) ∧
     (type_of% @Polyfold.PullbackChartData.transition_isScSmooth.{0, 0, 0}) ∧
     (type_of% @Polyfold.PullbackChartData.transitionOne_isScSmooth.{0, 0, 0}) ∧
@@ -51,7 +51,7 @@ def A : Prop :=
     (type_of% @Polyfold.isStrongBundleRetract_pullback)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_54.{0, 0, 0}, @Polyfold.PullbackChartData.transition_eqOn.{0, 0, 0},
+  ⟨@Polyfold.proposition_2_6_8.{0, 0, 0}, @Polyfold.PullbackChartData.transition_eqOn.{0, 0, 0},
     @Polyfold.PullbackChartData.transition_isScSmooth.{0, 0, 0},
     @Polyfold.PullbackChartData.transitionOne_isScSmooth.{0, 0, 0},
     @Polyfold.PullbackChartData.compatible_toChart.{0, 0, 0},
@@ -81,7 +81,7 @@ def Bstruct : Prop :=
         pullbackFiberEquiv P f z (c • a) = c • pullbackFiberEquiv P f z a) ∧
       ∃ (_ : ParacompactSpace (pullbackSpace P f)), Nonempty (StrongBundle PZ (pullbackProj P f))
 
-/-- `A` gives the existence part (projection of `proposition_2_54`). -/
+/-- `A` gives the existence part (projection of `proposition_2_6_8`). -/
 theorem A_to_exists : A → Exists254 := by
   intro hA X _ _ _ PX Y _ P _ _ Z _ _ _ PZ f _ _ Bd hf
   obtain ⟨B', -⟩ := hA.1 Bd hf
@@ -101,12 +101,12 @@ theorem B_to_exists : B → Exists254 := by
   obtain ⟨-, hpc, Bf, -⟩ := hB PX P PZ Bd f hf
   exact ⟨hpc, ⟨Bf⟩⟩
 
-#rt_check RoundTrip.V2_61.exists_to_struct [Polyfold.proposition_2_54,
+#rt_check RoundTrip.V2_61.exists_to_struct [Polyfold.proposition_2_6_8,
   Polyfold.PullbackChartData.transition_eqOn, Polyfold.PullbackChartData.transition_isScSmooth,
   Polyfold.PullbackChartData.transitionOne_isScSmooth, Polyfold.PullbackChartData.compatible_toChart,
   Polyfold.paracompactSpace_pullbackSpace, Polyfold.pullback_image,
   Polyfold.isStrongBundleRetraction_pullback, Polyfold.isStrongBundleRetract_pullback]
-#rt_check RoundTrip.V2_61.B_to_exists [Polyfold.proposition_2_54,
+#rt_check RoundTrip.V2_61.B_to_exists [Polyfold.proposition_2_6_8,
   Polyfold.PullbackChartData.transition_eqOn, Polyfold.PullbackChartData.transition_isScSmooth,
   Polyfold.PullbackChartData.transitionOne_isScSmooth, Polyfold.PullbackChartData.compatible_toChart,
   Polyfold.paracompactSpace_pullbackSpace, Polyfold.pullback_image,

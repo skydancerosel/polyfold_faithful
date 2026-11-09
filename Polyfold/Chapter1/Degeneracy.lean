@@ -2,7 +2,7 @@ import Polyfold.Chapter1.ScSmooth
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.3,
-Definition 1.23 and Lemma 1.24, with the proof of Appendix §1.4.3.
+Definition 1.3.3 (preprint 1.23) and Lemma 1.3.4 (preprint 1.24), with the proof of Appendix §1.4.3.
 
 # The degeneracy index of a partial quadrant
 
@@ -10,8 +10,8 @@ Definition 1.23 and Lemma 1.24, with the proof of Appendix §1.4.3.
 
 Let `C` be a partial quadrant in `E` and `T : E → ℝᵏ ⊕ W` an sc-isomorphism with
 `T(C) = [0,∞)ᵏ ⊕ W`.  For `x ∈ C` write `T(x) = (a₁, …, a_k, w)` and set
-`d_C(x) = #{i | a_i = 0}`.  (Definition 1.23) `d_C : C → ℕ₀` is the degeneracy index; points with
-`d_C = 0` are interior, `d_C = 1` boundary points, `d_C ≥ 2` corners.  (Lemma 1.24) `d_C` does not
+`d_C(x) = #{i | a_i = 0}`.  (Definition 1.3.3 (preprint 1.23)) `d_C : C → ℕ₀` is the degeneracy index; points with
+`d_C = 0` are interior, `d_C = 1` boundary points, `d_C ≥ 2` corners.  (Lemma 1.3.4 (preprint 1.24)) `d_C` does not
 depend on `T`.  (§1.4.3) *Proof*: for a second `T' : E → ℝᵏ' ⊕ W'`, `S = T' ∘ T⁻¹` is an
 sc-isomorphism with `S([0,∞)ᵏ ⊕ W) = [0,∞)ᵏ' ⊕ W'`.  Since `S(0, tw) = t S(0, w)` lies in the
 quadrant for all `t ∈ ℝ`, `S({0} ⊕ W) = {0} ⊕ W'`, and comparing codimensions `k = k'`.  For
@@ -24,10 +24,10 @@ codimension `#I(x)`.  For `u ∈ E_x`, `x + tu` is in the quadrant for `|t|` sma
 
 * `Polyfold.quadrantDeg p = #{i | p.1 i = 0}` for `p ∈ ℝⁿ ⊕ W`, and
   `Polyfold.degIndexWith T x = quadrantDeg (T x)` for an sc-isomorphism `T` presenting `C`.
-* `Polyfold.lemma_1_24` (**Lemma 1.24**): `degIndexWith T x = degIndexWith T' x` for `x ∈ C` and
-  any two presentations `T`, `T'` of `C`.  `Polyfold.lemma_1_24_dim`: the number `k` of
+* `Polyfold.lemma_1_3_4` (**Lemma 1.3.4 (preprint 1.24)**): `degIndexWith T x = degIndexWith T' x` for `x ∈ C` and
+  any two presentations `T`, `T'` of `C`.  `Polyfold.lemma_1_3_4_dim`: the number `k` of
   half-line factors is also independent of `T` (the text's `k = k'`).
-* `Polyfold.degIndex E C x` (**Definition 1.23**): `d_C(x)`, defined through an arbitrary
+* `Polyfold.degIndex E C x` (**Definition 1.3.3 (preprint 1.23)**): `d_C(x)`, defined through an arbitrary
   presentation; `Polyfold.degIndex_eq` identifies it with `degIndexWith T x` for every `T`.
 
 ## What the text leaves implicit, and the choices made
@@ -39,13 +39,13 @@ codimension `#I(x)`.  For `u ∈ E_x`, `x + tu` is in the quadrant for `|t|` sma
   (`Submodule.Quotient.equiv`).
 * "`x + tu` in the quadrant for `|t|` small" is proved as an `∀ᶠ t in 𝓝 0` statement, coordinate
   by coordinate (finitely many coordinates), rather than with an explicit bound.
-* Only the base level of the sc-isomorphisms is used: Lemma 1.24 holds for any continuous linear
+* Only the base level of the sc-isomorphisms is used: Lemma 1.3.4 (preprint 1.24) holds for any continuous linear
   equivalence `S` of `ℝⁿ × W₀` onto `ℝⁿ' × W'₀` carrying the quadrant onto the quadrant; the
   sc-structure plays no role in it.
-* Theorem 1.25 (boundary recognition under local sc-diffeomorphisms), for which the text cites
+* Theorem 1.3.5 (preprint 1.25) (boundary recognition under local sc-diffeomorphisms), for which the text cites
   [20, Theorem 1.19], is proved in `Polyfold/Chapter2/DegeneracyIndex.lean`
-  (`Polyfold.theorem_1_25`, for sc¹ germs), by the argument of §2.3 for the identity retraction,
-  on top of the degeneracy index and Lemma 1.24 of this file.
+  (`Polyfold.theorem_1_3_5`, for sc¹ germs), by the argument of §2.3 for the identity retraction,
+  on top of the degeneracy index and Lemma 1.3.4 (preprint 1.24) of this file.
 -/
 
 open Set Filter Topology Function Module
@@ -153,7 +153,7 @@ private lemma map_ker_coordMap_le (S : (V n W) ≃L[ℝ] (V n' W'))
   rw [h', hi, zero_add] at this
   exact this
 
-/-- **Lemma 1.24**, core form: a linear equivalence `S : ℝⁿ ⊕ W → ℝⁿ' ⊕ W'` carrying the quadrant
+/-- **Lemma 1.3.4 (preprint 1.24)**, core form: a linear equivalence `S : ℝⁿ ⊕ W → ℝⁿ' ⊕ W'` carrying the quadrant
 onto the quadrant preserves the number of vanishing half-line coordinates. -/
 theorem quadrantDeg_eq_of_equiv (S : (V n W) ≃L[ℝ] (V n' W'))
     (hS : ∀ q, q ∈ quadrant n W 0 ↔ S q ∈ quadrant n' W' 0) {p : V n W}
@@ -179,9 +179,9 @@ lemma quadrantDeg_zero : quadrantDeg (0 : V n W) = n := by
 
 end Core
 
-/-- **Lemma 1.24**: the degeneracy index of `x ∈ C` does not depend on the sc-isomorphism `T`
+/-- **Lemma 1.3.4 (preprint 1.24)**: the degeneracy index of `x ∈ C` does not depend on the sc-isomorphism `T`
 presenting the partial quadrant `C`. -/
-theorem lemma_1_24 {C : Set (E 0)} {n n' : ℕ} {W W' : ScBanach}
+theorem lemma_1_3_4 {C : Set (E 0)} {n n' : ℕ} {W W' : ScBanach}
     (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W))
     (T' : ScIso E ((ScBanach.const (Fin n' → ℝ)).prod W')) (hT : C = T 0 ⁻¹' quadrant n W 0)
     (hT' : C = T' 0 ⁻¹' quadrant n' W' 0) {x : E 0} (hx : x ∈ C) :
@@ -201,14 +201,14 @@ theorem lemma_1_24 {C : Set (E 0)} {n n' : ℕ} {W W' : ScBanach}
 
 /-- The number `n` of half-line factors of a partial quadrant does not depend on the presentation
 (the text's `k = k'`). -/
-theorem lemma_1_24_dim {C : Set (E 0)} {n n' : ℕ} {W W' : ScBanach}
+theorem lemma_1_3_4_dim {C : Set (E 0)} {n n' : ℕ} {W W' : ScBanach}
     (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W))
     (T' : ScIso E ((ScBanach.const (Fin n' → ℝ)).prod W')) (hT : C = T 0 ⁻¹' quadrant n W 0)
     (hT' : C = T' 0 ⁻¹' quadrant n' W' 0) : n = n' := by
   have hx : (T 0).symm 0 ∈ C := by
     rw [hT, mem_preimage, ContinuousLinearEquiv.apply_symm_apply]
     intro i; exact le_rfl
-  have h := lemma_1_24 T T' hT hT' hx
+  have h := lemma_1_3_4 T T' hT hT' hx
   have hT0 : T 0 ((T 0).symm 0) = 0 := ContinuousLinearEquiv.apply_symm_apply _ _
   have hT'0 : T' 0 ((T 0).symm 0) = 0 := by
     have hx' := hx
@@ -220,9 +220,9 @@ theorem lemma_1_24_dim {C : Set (E 0)} {n n' : ℕ} {W W' : ScBanach}
   exact h
 
 open scoped Classical in
-/-- **Definition 1.23**: the degeneracy index `d_C : C → ℕ₀` of a partial quadrant `C`, computed
+/-- **Definition 1.3.3 (preprint 1.23)**: the degeneracy index `d_C : C → ℕ₀` of a partial quadrant `C`, computed
 with an arbitrary presentation `T : E ≅ ℝⁿ ⊕ W` (`0` if `C` is not a partial quadrant).  It is
-independent of the presentation by Lemma 1.24 (`degIndex_eq`). -/
+independent of the presentation by Lemma 1.3.4 (preprint 1.24) (`degIndex_eq`). -/
 def degIndex (E : ScBanach) (C : Set (E 0)) (x : E 0) : ℕ :=
   if h : IsPartialQuadrant E C then degIndexWith h.choose_spec.choose_spec.choose x else 0
 
@@ -231,7 +231,7 @@ theorem degIndex_eq {C : Set (E 0)} {n : ℕ} {W : ScBanach}
     {x : E 0} (hx : x ∈ C) : degIndex E C x = degIndexWith T x := by
   have h : IsPartialQuadrant E C := ⟨n, W, T, hT⟩
   rw [degIndex, dif_pos h]
-  exact lemma_1_24 _ T h.choose_spec.choose_spec.choose_spec hT hx
+  exact lemma_1_3_4 _ T h.choose_spec.choose_spec.choose_spec hT hx
 
 /-- The degeneracy index of a point of the quadrant `[0,∞)ⁿ ⊕ W` itself. -/
 lemma degIndex_quadrant {n : ℕ} {W : ScBanach} {p : ((ScBanach.const (Fin n → ℝ)).prod W) 0}

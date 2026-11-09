@@ -31,11 +31,11 @@ of `T_xX` from `Chapter2/TangentSpaceLinear.lean` (gap G.7) this becomes:
   isomorphism with inverse `T(φ⁻¹)` (`tangentMorCLM_apply`, `tangentMorCLE_apply`,
   `tangentMorCLE_symm_apply`).  This is the text's "bounded linear isomorphism on level `0`" in
   the (chart-independent) linear structure of Definition 2.3.14.
-* **`EpGroupoid.definition_7_1_4_sc_2021`**: for a smooth `φ`, in charts `χ`, `ψ`, `Tφ` and
+* **`EpGroupoid.definition_7_1_4_sc`**: for a smooth `φ`, in charts `χ`, `ψ`, `Tφ` and
   `T(φ⁻¹)` are represented by sc-operators `L`, `L'` which restrict to mutually inverse maps
   `T_{χ(s φ)}O ⇄ T_{ψ(t φ)}O'` between the sc-subspaces `T_{χ(s φ)}O`, `T_{ψ(t φ)}O'`
   (`isScSubspace_tangentFiberModel`): `Tφ` is an sc-isomorphism `T_{s(φ)}X → T_{t(φ)}X`.
-* `EpGroupoid.definition_7_1_4_linear_2021`: the bundle for `φ ∈ 𝐗₁`.
+* `EpGroupoid.definition_7_1_4_linear`: the bundle for `φ ∈ 𝐗₁`.
 
 ## What the text leaves implicit, and the choices made
 
@@ -230,7 +230,7 @@ theorem tangentMorCLE_symm_apply (b : X.PObj.tangentFiber y) :
 /-- **2021 p. 289 (2017 p. 227), gap G.70: `Tφ` is a bounded linear isomorphism
 `T_{s(φ)}X → T_{t(φ)}X` for `φ ∈ 𝐗₁`**, in the linear structure of Definition 2.3.14: `Tφ` is
 additive, homogeneous, continuous, bijective, with inverse `T(φ⁻¹)`. -/
-theorem definition_7_1_4_linear_2021 :
+theorem definition_7_1_4_linear :
     (∀ a b : X.PObj.tangentFiber x,
         X.tangentMorFiber hφ hx hy (a + b) =
           X.tangentMorFiber hφ hx hy a + X.tangentMorFiber hφ hx hy b) ∧
@@ -258,7 +258,7 @@ morphism `φ`, `Tφ : T_{s(φ)}X → T_{t(φ)}X` is an sc-isomorphism.**  In cha
 `L : E → E'`, `L' : E' → E`, which restrict to mutually inverse maps between the sc-subspaces
 `T_{χ(s φ)}O` and `T_{ψ(t φ)}O'` (the sc-Banach spaces `T_{s(φ)}X`, `T_{t(φ)}X` of
 Definition 2.3.14, p. 39). -/
-theorem definition_7_1_4_sc_2021 {φ : Mor} (hs : φ ∈ X.PMor.smoothSet) {χ ψ : MChart Obj}
+theorem definition_7_1_4_sc {φ : Mor} (hs : φ ∈ X.PMor.smoothSet) {χ ψ : MChart Obj}
     (hχ : X.PObj.IsChart χ) (hψ : X.PObj.IsChart ψ) (hx : X.src φ ∈ χ.source)
     (hy : X.tgt φ ∈ ψ.source) :
     ∃ (L : χ.model.E 0 →L[ℝ] ψ.model.E 0) (L' : ψ.model.E 0 →L[ℝ] χ.model.E 0),

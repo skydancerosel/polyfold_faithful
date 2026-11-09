@@ -10,9 +10,9 @@ The item lists the definitions `ScEquiv.toHomeomorph`, `EP.tangentEP`, `EpEquiv`
 `EpEquiv.shift`, `tangentShiftEpEquiv`, `EP.tangentLiftEpEquiv`,
 `BundledMPolyfold.tangentLiftEquiv` (vocabulary) and seven theorems: `EpEquiv.nonEffectivePart_eq`,
 `EpEquiv.isLUC` ((LUC) is transported by an `EpEquiv`), `EP.isLUC_tangent_lift` (every `T(Xⁱ)`
-has (LUC)), **`EP.proposition_8_1_17_two_all_2021`**, the witnesses
-`hasConnectedDenseLevelOneReps_of_subsingleton`, `Examples.proposition_8_1_17_two_all_2021_pointEP`,
-and `proposition_2_3_17_all_2021` (`T(Xⁱ) ≅ (TX)ⁱ` for bundled M-polyfolds).  `A` is the
+has (LUC)), **`EP.proposition_8_1_17_two_all`**, the witnesses
+`hasConnectedDenseLevelOneReps_of_subsingleton`, `Examples.proposition_8_1_17_two_all_pointEP`,
+and `proposition_2_3_17_all` (`T(Xⁱ) ≅ (TX)ⁱ` for bundled M-polyfolds).  `A` is the
 conjunction of their types, universes at `0` (the point witness has none).
 
 `B`: for `A : EP.{0}`, (LUC) for every `Xⁱ` implies (LUC) for every `(TX)ⁱ`.
@@ -21,8 +21,8 @@ conjunction of their types, universes at `0` (the point witness has none).
   hypotheses, so it gives the project's theorem with `hR`, `hp` unused).  The other five conjuncts
   are auxiliary lemmas of the project's proof that `B` does not contain; they are re-proved here
   from the non-item lemmas their proofs use (2021 Proposition 7.2.21,
-  `proposition_8_1_17_2021_one`, the Proposition 2.3.17 sub-lemmas of `TangentLiftAll.lean`).
-* `A ⇒ B` **fails**: `proposition_8_1_17_two_all_2021` assumes, for every `i`,
+  `proposition_8_1_17_one`, the Proposition 2.3.17 sub-lemmas of `TangentLiftAll.lean`).
+* `A ⇒ B` **fails**: `proposition_8_1_17_two_all` assumes, for every `i`,
   `HasConnectedDenseLevelOneReps (Xⁱ)` (natural representations with `U(x) ∩ X₁` connected and
   dense, the text's `V(x)`) and that `p : T𝐗ⁱ → (𝐗ⁱ)¹` is open (Part I gap G.8), which `B` does
   not have.  With them, `A ⇒ B` is immediate (`A_to_B_of_hyp`).  Both are satisfiable (the point
@@ -37,19 +37,19 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.EpEquiv.nonEffectivePart_eq.{0, 0}) ∧
   (type_of% @Polyfold.EpGroupoid.EpEquiv.isLUC.{0, 0}) ∧
   (type_of% @Polyfold.EP.isLUC_tangent_lift.{0}) ∧
-  (type_of% @Polyfold.EP.proposition_8_1_17_two_all_2021.{0}) ∧
+  (type_of% @Polyfold.EP.proposition_8_1_17_two_all.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP) ∧
-  (type_of% @Polyfold.proposition_2_3_17_all_2021.{0})
+  (type_of% @Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP) ∧
+  (type_of% @Polyfold.proposition_2_3_17_all.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.EpEquiv.nonEffectivePart_eq.{0, 0},
     @Polyfold.EpGroupoid.EpEquiv.isLUC.{0, 0},
     @Polyfold.EP.isLUC_tangent_lift.{0},
-    @Polyfold.EP.proposition_8_1_17_two_all_2021.{0},
+    @Polyfold.EP.proposition_8_1_17_two_all.{0},
     @Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton.{0},
-    @Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP,
-    @Polyfold.proposition_2_3_17_all_2021.{0}⟩
+    @Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP,
+    @Polyfold.proposition_2_3_17_all.{0}⟩
 
 /-- `A ⇒ B` under the project's extra hypotheses (the only difference). -/
 theorem A_to_B_of_hyp (hA : A) (X : EP.{0}) (h : ∀ i : ℕ, (X.lift i).X.IsLUC)
@@ -79,13 +79,13 @@ theorem nonEffectivePart_eq' (e : EpGroupoid.EpEquiv X X') :
 
 /-- `EpEquiv.isLUC`, re-proved. -/
 theorem isLUC' (e : EpGroupoid.EpEquiv X X') (h : X.IsLUC) : X'.IsLUC := by
-  rw [X'.proposition_7_2_21_2021, nonEffectivePart_eq' e]
-  exact (X.proposition_7_2_21_2021.1 h).preimage e.mor.toHomeomorph.symm.continuous
+  rw [X'.proposition_7_2_21, nonEffectivePart_eq' e]
+  exact (X.proposition_7_2_21.1 h).preimage e.mor.toHomeomorph.symm.continuous
 
 /-- `hasConnectedDenseLevelOneReps_of_subsingleton`, re-proved. -/
 theorem hasConnectedDense' (X : EpGroupoid Obj Mor) [Subsingleton Obj]
     (hs : X.PObj.smoothSet = univ) : X.HasConnectedDenseLevelOneReps := fun x => by
-  obtain ⟨R, -⟩ := X.theorem_7_1 (X.PObj.levelVal 1 x) isOpen_univ (mem_univ _)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 (X.PObj.levelVal 1 x) isOpen_univ (mem_univ _)
   refine ⟨R, Set.Subsingleton.isPreconnected fun _ _ _ _ =>
     MPolyfold.level_ext (Subsingleton.elim _ _), ?_⟩
   have h1 : X.PObj.levelSet 1 = univ := eq_univ_of_forall fun y =>
@@ -102,8 +102,8 @@ theorem B_to_A : B → A := by
     hB EpGroupoid.Examples.pointEP EpGroupoid.Examples.isSLUC_pointEP, ?_⟩
   · -- `isLUC_tangent_lift`: part (1) for every `Xⁱ` (not part of `B`)
     intro X h hR hp i
-    exact (X.lift i).X.proposition_8_1_17_2021_one (h (i + 1)) (hR i) (hp i)
-  · -- `proposition_2_3_17_all_2021` (not part of `B`): its sub-lemmas
+    exact (X.lift i).X.proposition_8_1_17_one (h (i + 1)) (hR i) (hp i)
+  · -- `proposition_2_3_17_all` (not part of `B`): its sub-lemmas
     intro M i
     exact ⟨(M.tangentLiftEquiv i).isScDiffeoOn, (M.shiftLiftEquiv i).isScDiffeoOn,
       ⟨(M.tangentProjLift i).isScSmoothMap, (M.lift i).P.tangentProj_isScSmooth⟩,
@@ -112,21 +112,21 @@ theorem B_to_A : B → A := by
 
 #rt_check RoundTrip.V8_52.B_to_A [Polyfold.EpGroupoid.EpEquiv.nonEffectivePart_eq,
   Polyfold.EpGroupoid.EpEquiv.isLUC, Polyfold.EP.isLUC_tangent_lift,
-  Polyfold.EP.proposition_8_1_17_two_all_2021,
+  Polyfold.EP.proposition_8_1_17_two_all,
   Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton,
-  Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP,
-  Polyfold.proposition_2_3_17_all_2021]
+  Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP,
+  Polyfold.proposition_2_3_17_all]
 #rt_check RoundTrip.V8_52.A_to_B_of_hyp [Polyfold.EpGroupoid.EpEquiv.nonEffectivePart_eq,
   Polyfold.EpGroupoid.EpEquiv.isLUC, Polyfold.EP.isLUC_tangent_lift,
-  Polyfold.EP.proposition_8_1_17_two_all_2021,
+  Polyfold.EP.proposition_8_1_17_two_all,
   Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton,
-  Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP,
-  Polyfold.proposition_2_3_17_all_2021]
+  Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP,
+  Polyfold.proposition_2_3_17_all]
 #rt_overlap RoundTrip.V8_52.B_to_A [Polyfold.EpGroupoid.EpEquiv.nonEffectivePart_eq,
   Polyfold.EpGroupoid.EpEquiv.isLUC, Polyfold.EP.isLUC_tangent_lift,
-  Polyfold.EP.proposition_8_1_17_two_all_2021,
+  Polyfold.EP.proposition_8_1_17_two_all,
   Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton,
-  Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP,
-  Polyfold.proposition_2_3_17_all_2021]
+  Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP,
+  Polyfold.proposition_2_3_17_all]
 
 end RoundTrip.V8_52

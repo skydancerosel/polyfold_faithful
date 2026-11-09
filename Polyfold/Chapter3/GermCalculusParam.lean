@@ -3,9 +3,9 @@ import Polyfold.Chapter3.ParamPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1 and
-§3.2, Definitions 3.4, 3.6, 3.11 and Theorem 3.18: **the germ calculus in the strong bundle
+§3.2, Definitions 3.1.4, 3.1.6, 3.1.11 (preprint 3.4, 3.6, 3.11) and Theorem 3.1.21 (preprint 3.18): **the germ calculus in the strong bundle
 charts** — the derivative identities at `0` in the form the linearization files use, the
-push-forward by a strong bundle isomorphism, and the product germ `ℝⁿ × G` of Theorem 3.18
+push-forward by a strong bundle isomorphism, and the product germ `ℝⁿ × G` of Theorem 3.1.21 (preprint 3.18)
 (phase 2; Findings, Chapter 3, items 272–274).
 
 # The germ calculus in strong bundle charts
@@ -19,7 +19,7 @@ push-forward by a strong bundle isomorphism, and the product germ `ℝⁿ × G` 
   `IsFillingGerm.exists_kerEquiv` (condition (3) of a filling germ in terms of `Dg(0)`: the germ
   analogue of `IsFillerOf.exists_kerEquiv`), `IsFillingGerm.deriv_comp_r_eq_zero`
   (`(1 − ρ(0))Dg(0)Dr(0) = 0`), `IsFillingGerm.ρ_deriv_comp_r` and
-  `IsFillingGerm.proposition_3_5` (**Proposition 3.5 for a filling germ**: `Dg(0)|_{Dr(0)E}` is
+  `IsFillingGerm.proposition_3_1_5` (**Proposition 3.1.5 (preprint 3.5) for a filling germ**: `Dg(0)|_{Dr(0)E}` is
   surjective, Fredholm, iff `Dg(0)` is, with the same index).
 * **The push-forward by a strong bundle isomorphism** `Ψ : U ◁ F → U' ◁ F'` with inverse `Ψ'`,
   `ψ(0) = 0`: `IsStrongBundleIso.pullGerm` (the germ `ψ'⁻¹(G) ⊆ U'`),
@@ -29,7 +29,7 @@ push-forward by a strong bundle isomorphism, and the product germ `ℝⁿ × G` 
   `fiberCompDeriv_zero_eq`, `pushforwardDeriv_zero_eq`, `IsStrongBundleIso.pushforwardDeriv_zero`
   (`D(Ψ_*k)(0) = Γ(0) ∘ Dk(0) ∘ Dψ'(0)` with `Γ(0) = fiberCLM`, the form of
   `IsStrongBundleIso.pushforward_linearization_wholeChart`, whose `S.symm` is `Dψ'(0) = scDeriv U' ψ' 0`).
-* **The product germ of Theorem 3.18**: `ScNbhdGerm.univProd` (the germ `Λ × G` in `Λ ⊕ E` with
+* **The product germ of Theorem 3.1.21 (preprint 3.18)**: `ScNbhdGerm.univProd` (the germ `Λ × G` in `Λ ⊕ E` with
   quadrant `Λ × C`), `IsQuadrantLike.univ_prod`, `IsSckGerm.univProd`, `IsScSmoothGerm.univProd`
   (`(a, u) ↦ g(u)` is an sc-smooth germ on `Λ × G`), `IsSc1GermWith.univProd` (derivative family
   `Dg(u) ∘ pr₂`), and `PullbackChartData.ofProd_isFillingGerm` (the germ analogue of
@@ -54,7 +54,7 @@ noncomputable section
 
 namespace Polyfold
 
-/-! ### The product germ `Λ × G` of Theorem 3.18 -/
+/-! ### The product germ `Λ × G` of Theorem 3.1.21 (preprint 3.18) -/
 
 section UnivProd
 
@@ -80,7 +80,7 @@ lemma IsQuadrantLike.univ_prod (hC : IsQuadrantLike E C) :
     rw [this, interior_prod_eq, interior_univ]; exact univ_nonempty.prod (hC.interior_nonempty m)
 
 /-- **The product germ `Λ × G`** in `Λ ⊕ E` (constant structure on the finite-dimensional `Λ`),
-with levels `Λ × U_m`, around `0 ∈ Λ × C` (the germ of Theorem 3.18, `Λ = ℝⁿ`). -/
+with levels `Λ × U_m`, around `0 ∈ Λ × C` (the germ of Theorem 3.1.21 (preprint 3.18), `Λ = ℝⁿ`). -/
 def ScNbhdGerm.univProd (G₁ : ScNbhdGerm E C) : ScNbhdGerm ((ScBanach.const Λ).prod E) (univ ×ˢ C)
     where
   U m := univ ×ˢ G₁.U m
@@ -132,7 +132,7 @@ theorem IsSc1GermWith.univProd (hC : IsQuadrantLike E C) {G₁ : ScNbhdGerm E C}
 
 end UnivProd
 
-/-! ### Theorem 3.18: the filling germ in the product chart -/
+/-! ### Theorem 3.1.21 (preprint 3.18): the filling germ in the product chart -/
 
 section Param
 
@@ -151,7 +151,7 @@ variable (c : StrongBundleChart PX P) (r₀ : Fin n → ℝ)
 
 omit [T2Space Y] [ParacompactSpace Y]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
-/-- **The filling germ in the product chart (Theorem 3.18, the germ reading of
+/-- **The filling germ in the product chart (Theorem 3.1.21 (preprint 3.18), the germ reading of
 `ofProd_isFillerOf`)**: if the germ `g` on `G` fills `f̂` in the chart `c`, then `(a, u) ↦ g(u)`,
 an sc-smooth germ on `ℝⁿ × G`, fills `(a, u) ↦ f̂(u)` in the product chart `(r ↦ r − r₀) × φ`:
 `[1 − ρ(r(a, u))]g(u) = [1 − ρ(r(u))]g(u)` does not depend on `a`, so its derivative family

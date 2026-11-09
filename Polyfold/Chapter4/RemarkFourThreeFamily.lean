@@ -2,21 +2,21 @@ import Polyfold.Chapter4.RemarkFourThreeExample
 import Polyfold.Chapter1.ScOneNotNormContinuous
 
 /-!
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), §4.1, Remark 4.3, p. 148.
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), §4.1, Remark 4.1.3 (preprint 4.3), p. 176 (preprint p. 148).
 
-# Remark 4.3's example: an sc-retract `O = O_∞` that is not an sc⁺-retract
+# Remark 4.1.3 (preprint 4.3)'s example: an sc-retract `O = O_∞` that is not an sc⁺-retract
 
 ## The text, paraphrased
 
-(Remark 4.3) "It is possible that `X¹ ≠ X` as M-polyfolds although the underlying sets agree":
+(Remark 4.1.3 (preprint 4.3)) "It is possible that `X¹ ≠ X` as M-polyfolds although the underlying sets agree":
 an M-polyfold with `X₀ = X_∞` for which `1₀¹ : X → X¹` is not sc-smooth.  No example is given
 (comparison item V4.6, gap G.31).
 
 ## What is formalized
 
-* **The example** (`remark_4_3_example`): an M-polyfold `X` (`retractPolyfold`, a retract with
+* **The example** (`remark_4_1_3_example`): an M-polyfold `X` (`retractPolyfold`, a retract with
   one chart) with every point smooth and `1₀¹ : X → X¹` not sc-smooth, for every junk value.  At
-  the level of retracts: `remark_4_3_retract_example`, an sc-retract `O = O_∞` that is not an
+  the level of retracts: `remark_4_1_3_retract_example`, an sc-retract `O = O_∞` that is not an
   sc⁺-retract.  Both come from `RemarkFourThree.remarkFourThreeData : RemarkFourThreeData ℝ X`
   through the reduction of `RemarkFourThreeExample.lean`.
 * **The family.**  `X` is the weighted sequence space of `ScOneNotNormContinuous.lean`
@@ -43,7 +43,7 @@ an M-polyfold with `X₀ = X_∞` for which `1₀¹ : X → X¹` is not sc-smoot
 ## What the text leaves implicit, and the choices made
 
 * The text's "`X¹ ≠ X` as M-polyfolds" is read as "`1₀¹` is not sc-smooth" (with
-  `remark_4_3_isScDiffeo`, the identity is then not an sc-diffeomorphism `X → X¹`).  The example
+  `remark_4_1_3_isScDiffeo`, the identity is then not an sc-diffeomorphism `X → X¹`).  The example
   even has different topologies: `X` and `X¹` have the same points but `o_k → 0` only in `X`.
 * The sparse indices `2^k` make one level gain `2^{−k}`, which absorbs the polynomial cost
   `(k+3)^{2j}` of the transitions; consecutive indices would not (Findings, Chapter 4, item 142).
@@ -839,7 +839,7 @@ theorem not_continuousOn_liftOne :
     push_cast; linarith
   exact absurd hk (not_lt.2 hge)
 
-/-- **Remark 4.3's data, machine-checked**: the moving rank-one projections `L(t)` on the weighted
+/-- **Remark 4.1.3 (preprint 4.3)'s data, machine-checked**: the moving rank-one projections `L(t)` on the weighted
 sequence space `X` of `ScOneNotNormContinuous.lean` form a loss family of projections with smooth
 ranges whose retract has a discontinuous lift into level `1`. -/
 theorem remarkFourThreeData : RemarkFourThreeData ℝ X :=
@@ -848,17 +848,17 @@ theorem remarkFourThreeData : RemarkFourThreeData ℝ X :=
 
 end RemarkFourThree
 
-/-- **Remark 4.3: "`X¹ ≠ X` is possible"** (§4.1, p. 148; comparison item V4.6, gap G.31), at the
+/-- **Remark 4.1.3 (preprint 4.3): "`X¹ ≠ X` is possible"** (§4.1, p. 148; comparison item V4.6, gap G.31), at the
 level of retracts: there is an sc-retract `O = r(ℝ ⊕ X)` (the moving rank-one projections of
 `RemarkFourThree.fam` on the weighted sequence space `X`) all of whose points are smooth,
 `O = O_∞`, which is not an sc⁺-retract, i.e. `1₀¹ : O → O¹` is not sc-smooth
-(Proposition 4.8). -/
-theorem remark_4_3_retract_example :
+(Proposition 4.1.8 (preprint 4.8)). -/
+theorem remark_4_1_3_retract_example :
     ∃ (E : ScBanach) (O : Set (E 0)), IsScRetract E univ O ∧ O ⊆ E.smooth ∧
       ¬ IsScPlusRetract E univ O :=
   exists_retract_smooth_not_scPlus_of_data RemarkFourThree.remarkFourThreeData
 
-/-! ### The M-polyfold of a retract, and Remark 4.3 for M-polyfolds -/
+/-! ### The M-polyfold of a retract, and Remark 4.1.3 (preprint 4.3) for M-polyfolds -/
 
 section RetractPolyfold
 
@@ -887,7 +887,7 @@ def retractChart (hO : IsScRetract E C O) (o₀ : O) : MChart O where
     change Continuous (O.domRestrict (fun x => if h : x ∈ O then (⟨x, h⟩ : O) else o₀))
     rw [e]; exact continuous_id
 
-/-- **The M-polyfold of a retract** `O` (Definition 2.13): `O` with the single chart `O → O`. -/
+/-- **The M-polyfold of a retract** `O` (Definition 2.3.4 (preprint 2.13)): `O` with the single chart `O → O`. -/
 def retractPolyfold (hO : IsScRetract E C O) (o₀ : O) : MPolyfold O where
   atlas :=
     { charts := {retractChart hO o₀}
@@ -899,7 +899,7 @@ lemma isChart_retractChart (hO : IsScRetract E C O) (o₀ : O) :
     (retractPolyfold hO o₀).IsChart (retractChart hO o₀) :=
   (retractPolyfold hO o₀).isChart_of_mem (mem_singleton _)
 
-/-- **Remark 4.3 for the M-polyfold of a retract**: if `O ⊆ E_∞` is not an sc⁺-retract, the
+/-- **Remark 4.1.3 (preprint 4.3) for the M-polyfold of a retract**: if `O ⊆ E_∞` is not an sc⁺-retract, the
 M-polyfold `X = O` has `X₀ = X_∞` but `1₀¹ : X → X¹` is not sc-smooth. -/
 theorem retractPolyfold_smooth_not_toLevelOne (hO : IsScRetract E C O) (o₀ : O)
     (hsm : O ⊆ E.smooth) (hnot : ¬ IsScPlusRetract E C O) :
@@ -914,12 +914,12 @@ theorem retractPolyfold_smooth_not_toLevelOne (hO : IsScRetract E C O) (o₀ : O
 
 end RetractPolyfold
 
-/-- **Remark 4.3: "`X¹ ≠ X` is possible although the underlying sets agree"** (§4.1, p. 148;
+/-- **Remark 4.1.3 (preprint 4.3): "`X¹ ≠ X` is possible although the underlying sets agree"** (§4.1, p. 148;
 comparison item V4.6, gap G.31), machine-checked: there is an M-polyfold `X` (a retract
 `O ⊆ ℝ ⊕ X` of the moving rank-one projections `RemarkFourThree.fam`, with one chart) with
 `X₀ = X_∞` (every point smooth) for which `1₀¹ : X → X¹` is not sc-smooth; so `X¹ ≠ X` as
-M-polyfolds (`remark_4_3_isScDiffeo`: `1₀¹` would otherwise be an sc-diffeomorphism). -/
-theorem remark_4_3_example :
+M-polyfolds (`remark_4_1_3_isScDiffeo`: `1₀¹` would otherwise be an sc-diffeomorphism). -/
+theorem remark_4_1_3_example :
     ∃ (Y : Type) (_ : TopologicalSpace Y) (_ : T2Space Y) (_ : ParacompactSpace Y)
       (P : MPolyfold Y), (∀ x, x ∈ P.smoothSet) ∧
         ∀ x₀ : P.Level 1, ¬ P.IsScSmoothMap P.shift (P.toLevelOne x₀) := by

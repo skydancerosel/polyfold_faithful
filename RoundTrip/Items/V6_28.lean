@@ -4,15 +4,15 @@ import RoundTrip.Blind.V6_28
 
 /-! Round trip for V6_28 (Lemma 6.25, the transition maps of the local determinant bundles).
 
-A = `lemma_6_25` ∧ `lemma_6_25_local` (universes at `0`): the transition function
+A = `lemma_6_5_9` ∧ `lemma_6_5_9_local` (universes at `0`): the transition function
 `g(S) = ω'(S)*(γ^{P'}_S (γ^P_S)⁻¹ ω(S))` is continuous and nowhere zero on the common ball
 (and, locally, a continuous nowhere-zero function).
 B = `Formula` (Corollary 6.13 for the transition on each fibre, for every `Q ≤ P, P'` good for
 `P S`, `P' S`) ∧ `TopIso` (in the frames, `(S, t) ↦ (S, g(S) t)` is a homeomorphism of
 `(ball ∩ ball') × ℝ`).
 
-* `A ⇒ B`: `TopIso` from `lemma_6_25` (an explicit homeomorphism with inverse `t ↦ t / g(S)`);
-  `Formula` is `corollary_6_13` (a project lemma of §6.2, not part of the item) after
+* `A ⇒ B`: `TopIso` from `lemma_6_5_9` (an explicit homeomorphism with inverse `t ↦ t / g(S)`);
+  `Formula` is `corollary_6_4_12` (a project lemma of §6.2, not part of the item) after
   `Q ∈ Π_{P S}`, `Q ≤ P` ⇒ `Q ∈ Π_S` — it is proved outright, without the hypothesis.
 * `B ⇒ A`: `g(S) = (Φ(S, 1)).2` is continuous on the subtype; `g(S) ≠ 0` since `Φ` is injective
   and `Φ(S, 0) = (S, 0)`; the local form takes `N = ball ∩ ball'`.
@@ -23,9 +23,9 @@ open Polyfold
 
 /-- The project's statement (Lemma 6.25 and its local form), universes instantiated at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.lemma_6_25.{0, 0} ∧ type_of% @Polyfold.lemma_6_25_local.{0, 0}
+  type_of% @Polyfold.lemma_6_5_9.{0, 0} ∧ type_of% @Polyfold.lemma_6_5_9_local.{0, 0}
 
-theorem A_holds : A := ⟨@Polyfold.lemma_6_25.{0, 0}, @Polyfold.lemma_6_25_local.{0, 0}⟩
+theorem A_holds : A := ⟨@Polyfold.lemma_6_5_9.{0, 0}, @Polyfold.lemma_6_5_9_local.{0, 0}⟩
 
 section
 variable {E F : Type} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
@@ -43,7 +43,7 @@ theorem isGoodLeftProj_of_comp {S : E →L[ℝ] F} {P Q : F →L[ℝ] F} (hQP : 
 /-- B's `Formula` is Corollary 6.13 (proved outright; it does not use A). -/
 theorem formula_holds : Formula (E := E) (F := F) := by
   intro c c' S hS hS' Q hQ hQ' hPS hP'S hQS hQS' h
-  exact (corollary_6_13 (T := (S : E →L[ℝ] F)) S.2 (isGoodLeftProj_of_comp hQ hQS)
+  exact (corollary_6_4_12 (T := (S : E →L[ℝ] F)) S.2 (isGoodLeftProj_of_comp hQ hQS)
     (c'.isGoodLeftProj_of_lt S hS') (c.isGoodLeftProj_of_lt S hS) hQ hQ' h).symm
 
 /-- `TopIso` from the continuity and non-vanishing of the transition function. -/
@@ -82,7 +82,7 @@ theorem topIso_of
 
 end
 
-/-- `A ⇒ B`: `TopIso` from `lemma_6_25`; `Formula` from `corollary_6_13`. -/
+/-- `A ⇒ B`: `TopIso` from `lemma_6_5_9`; `Formula` from `corollary_6_4_12`. -/
 theorem A_to_B : A → B := by
   intro hA E F _ _ _ _ _ _
   exact ⟨formula_holds, topIso_of fun c c' => hA.1 c c'⟩
@@ -120,8 +120,8 @@ theorem B_to_A : B → A := by
     (c.isOpen_baseSet.inter c'.isOpen_baseSet).mem_nhds hS₀,
     fun S => c'.coord S (c.coordInv S 1), (key hB c c').1, fun S hS => ⟨(key hB c c').2 S hS, rfl⟩⟩
 
-#rt_check RoundTrip.V6_28.A_to_B [Polyfold.lemma_6_25, Polyfold.lemma_6_25_local]
-#rt_check RoundTrip.V6_28.B_to_A [Polyfold.lemma_6_25, Polyfold.lemma_6_25_local]
-#rt_overlap RoundTrip.V6_28.B_to_A [Polyfold.lemma_6_25, Polyfold.lemma_6_25_local]
+#rt_check RoundTrip.V6_28.A_to_B [Polyfold.lemma_6_5_9, Polyfold.lemma_6_5_9_local]
+#rt_check RoundTrip.V6_28.B_to_A [Polyfold.lemma_6_5_9, Polyfold.lemma_6_5_9_local]
+#rt_overlap RoundTrip.V6_28.B_to_A [Polyfold.lemma_6_5_9, Polyfold.lemma_6_5_9_local]
 
 end RoundTrip.V6_28

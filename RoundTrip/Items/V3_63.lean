@@ -4,12 +4,12 @@ import RoundTrip.Blind.V3_63
 
 /-! Round trip for V3_63 (Theorem 3.78, the implicit function theorem in partial quadrants).
 
-`A` is the conjunction of the types of `Polyfold.theorem_3_78` and
+`A` is the conjunction of the types of `Polyfold.theorem_3_8_22` and
 `Polyfold.ContractionData.exists_solution` (neither has universe parameters: all spaces live in
 `Type`).
 
 `A → B`: the blind setting (`ℝⁿ = Fin n → ℝ`, `C = quadC n k`, `f` into `Fin N → ℝ`) is an instance
-of `theorem_3_78`: `quadC n k` is a partial quadrant (`isPartialQuadrant_quadC`, via the linear
+of `theorem_3_8_22`: `quadC n k` is a partial quadrant (`isPartialQuadrant_quadC`, via the linear
 equivalence `ℝⁿ ≅ ℝᵏ × ℝⁿ⁻ᵏ`), `fderivWithin f U 0 = L` by unique differentiability of `U`, the
 blind good position/complement data are the project's `IsInGoodPosition`/`IsGoodComplement`, and
 `τ : K → Y` is composed with `Y ↪ ℝⁿ`.  The clause `f(k + τ k) = 0` of `A` is dropped.
@@ -19,7 +19,7 @@ consists of zeros of `f` (`A`'s `f (k + τ k) = 0`); its conclusions about `f` a
 uniqueness clause (3), whose hypothesis is a zero of `f`.  No instance of `B` yields a zero of any
 map, so `A`'s existence clause would have to be re-proved (the contraction argument of Lemmas
 3.79–3.82).  `B_to_A378_without_existence` checks that in the blind coordinates `B` yields every
-other clause of `theorem_3_78`.  The remaining differences (an arbitrary finite-dimensional `V`
+other clause of `theorem_3_8_22`.  The remaining differences (an arbitrary finite-dimensional `V`
 with any norm, an arbitrary normed target `F`, an abstract partial quadrant
 `C = T⁻¹([0,∞)ⁿ ⊕ W)`, and the normalized conjunct `ContractionData.exists_solution`) are
 transport glue only. -/
@@ -33,9 +33,9 @@ open Polyfold
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.theorem_3_78) ∧ (type_of% @Polyfold.ContractionData.exists_solution)
+  (type_of% @Polyfold.theorem_3_8_22) ∧ (type_of% @Polyfold.ContractionData.exists_solution)
 
-theorem A_holds : A := ⟨@Polyfold.theorem_3_78, @Polyfold.ContractionData.exists_solution⟩
+theorem A_holds : A := ⟨@Polyfold.theorem_3_8_22, @Polyfold.ContractionData.exists_solution⟩
 
 /-! ### Glue: `quadC n k` is a partial quadrant -/
 
@@ -111,15 +111,15 @@ theorem A_to_B : A → B := by
   · intro v hv y hy hvε hyσ hyU hfy
     exact huniq v hv hvε y hy hyσ hyU hfy
 
-#rt_check RoundTrip.V3_63.A_to_B [Polyfold.theorem_3_78, Polyfold.ContractionData.exists_solution]
+#rt_check RoundTrip.V3_63.A_to_B [Polyfold.theorem_3_8_22, Polyfold.ContractionData.exists_solution]
 
 /-! ### `B → A` without the existence clause (diagnostic)
 
-`B → A` is not proved.  To locate the gap: `B` gives `theorem_3_78`, restricted to the blind
+`B → A` is not proved.  To locate the gap: `B` gives `theorem_3_8_22`, restricted to the blind
 coordinates (`V = Fin n → ℝ`, `F = Fin N → ℝ`, `C = quadC n q`), with every clause except
 `f (k + τ k) = 0` (`B_to_A378_without_existence`). -/
 
-/-- `theorem_3_78` in the blind coordinates, without the clause `f (k + τ k) = 0`. -/
+/-- `theorem_3_8_22` in the blind coordinates, without the clause `f (k + τ k) = 0`. -/
 def A378NoExistence : Prop :=
   ∀ (n q N j : ℕ) (U : Set (Fin n → ℝ)) (f : (Fin n → ℝ) → (Fin N → ℝ))
     (K Y : Submodule ℝ (Fin n → ℝ)),
@@ -179,10 +179,10 @@ theorem B_to_A378_without_existence : B → A378NoExistence := by
     exact huniq k hk y hy hkε hyσ hyU hfy
 
 #rt_check RoundTrip.V3_63.B_to_A378_without_existence
-  [Polyfold.theorem_3_78, Polyfold.ContractionData.exists_solution]
+  [Polyfold.theorem_3_8_22, Polyfold.ContractionData.exists_solution]
 #rt_overlap RoundTrip.V3_63.B_to_A378_without_existence
-  [Polyfold.theorem_3_78, Polyfold.ContractionData.exists_solution]
-#rt_overlap RoundTrip.V3_63.A_to_B [Polyfold.theorem_3_78, Polyfold.ContractionData.exists_solution]
+  [Polyfold.theorem_3_8_22, Polyfold.ContractionData.exists_solution]
+#rt_overlap RoundTrip.V3_63.A_to_B [Polyfold.theorem_3_8_22, Polyfold.ContractionData.exists_solution]
 
 end RoundTrip.V3_63
 

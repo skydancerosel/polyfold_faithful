@@ -26,9 +26,9 @@ Status as of 2026-11-07 (see `HANDOFF.md`): **Part I, Chapters 1–6, done** (Le
 
 | # | Result (preprint numbering; book numbering to be added) | Status |
 |---|---|---|
-| H1 | **The sc-chain rule** (§1.3, Theorem 1.21; proof in §1.4.2): the composition of sc¹ maps is sc¹, with `T(g ∘ f) = Tg ∘ Tf`; hence sc^k and sc-smooth compose | done (`Polyfold.theorem_1_21`, `Polyfold.IsSck.comp`, `Polyfold.IsScSmooth.comp`); with it Definitions 1.1–1.15, Propositions 1.6, 1.7, 1.9, 1.10 (and the classical compact-perturbation theorem Mathlib lacks), Lemma 1.24, Props 1.16/1.18 in the base case and 1.19/Cor 1.20 for `k = 0`. Props 1.16–1.18 for all levels and 1.19/1.20 for all `k` (`Polyfold/Chapter1/Levels.lean`, 80 theorems in all), 1.19/1.20 under the stronger hypothesis that every level map `U_m → F_m` is `C^{k+1}` (the text's weaker shifted-level hypothesis is not formalized). Theorem 1.25 (boundary recognition) proved in `Chapter2/DegeneracyIndex.lean` by the §2.3 argument, for sc¹ maps |
+| H1 | **The sc-chain rule** (§1.3, Theorem 1.21; proof in §1.4.2): the composition of sc¹ maps is sc¹, with `T(g ∘ f) = Tg ∘ Tf`; hence sc^k and sc-smooth compose | done (`Polyfold.theorem_1_3_1`, `Polyfold.IsSck.comp`, `Polyfold.IsScSmooth.comp`); with it Definitions 1.1–1.15, Propositions 1.6, 1.7, 1.9, 1.10 (and the classical compact-perturbation theorem Mathlib lacks), Lemma 1.24, Props 1.16/1.18 in the base case and 1.19/Cor 1.20 for `k = 0`. Props 1.16–1.18 for all levels and 1.19/1.20 for all `k` (`Polyfold/Chapter1/Levels.lean`, 80 theorems in all), 1.19/1.20 under the stronger hypothesis that every level map `U_m → F_m` is `C^{k+1}` (the text's weaker shifted-level hypothesis is not formalized). Theorem 1.25 (boundary recognition) proved in `Chapter2/DegeneracyIndex.lean` by the §2.3 argument, for sc¹ maps |
 | H2 | Sc-differentiability is strictly weaker than classical differentiability on each level, and strictly stronger than level-wise differentiability of the restrictions: the shift map on weighted Sobolev spaces is sc-smooth but not C¹ (1002.3381, §1) | planned |
-| H3 | **Sc-smooth retractions** (§2.1): an sc-smooth retraction `r` has an sc-smooth retract `O = r(U)` whose tangent space `T_xO = Tr(x)(T_xU)` does not depend on `r`; sc-smooth maps between retracts have well-defined tangent maps | done (`Polyfold.proposition_2_4`, `Polyfold.theorem_2_8` the chain rule for retracts, Props 2.6, 2.10; `Chapter2/Retracts.lean`). Not done: Prop 2.2 (classical), Def 2.9 (bundle retractions) |
+| H3 | **Sc-smooth retractions** (§2.1): an sc-smooth retraction `r` has an sc-smooth retract `O = r(U)` whose tangent space `T_xO = Tr(x)(T_xU)` does not depend on `r`; sc-smooth maps between retracts have well-defined tangent maps | done (`Polyfold.proposition_2_1_11`, `Polyfold.theorem_2_1_15` the chain rule for retracts, Props 2.6, 2.10; `Chapter2/Retracts.lean`). Not done: Prop 2.2 (classical), Def 2.9 (bundle retractions) |
 | H4 | **M-polyfolds** (§2.2–2.4): charts, transition maps, the tangent bundle `TX → X¹`, the degeneracy index `d_X` and its invariance, sub-M-polyfolds, tame M-polyfolds and the boundary structure | in progress: charts, atlases (maximal atlas), M-polyfolds, the level sets `X_m` and their topology (Lemma 2.15), sc-smooth maps, sub-M-polyfolds (definition), the degeneracy index with Lemma 2.23, Prop 2.24 (invariance under sc-diffeomorphisms), Cor 2.32, and Theorem 1.25 (`Chapter2/{MPolyfold,DegeneracyIndex}.lean`); §2.4–2.5 definitions (`Tame.lean`). `X¹` as an M-polyfold (`Chapter2/LevelPolyfold.lean`, Prop 1.17 for retracts), `TX` as a Hausdorff M-polyfold with sc-smooth projection `TX → X¹` (Defs 2.17–2.19, `Chapter2/TangentBundle.lean`), the tangent map `Tf : TX → TY`, `T(id) = id`, the chain rule `T(g ∘ f) = Tg ∘ Tf` and `Tf` sc-smooth (`Chapter2/TangentMap.lean`), Prop 2.21 (1), (2) and Lemma 2.26 (`Chapter2/SubMPolyfold.lean`); paracompactness of `X¹`, `TX`, `A` is an instance hypothesis (Theorem 2.16 / Prop 2.19 (3) not formalized: Smirnov; the closed case of `A` is proved). Not done: `X_m` for `m ≥ 2` (iterate), Theorem 2.16, Prop 2.19 (2) openness and (3), Prop 2.21 (3), (4), Lemma 2.29, Prop 2.30, Theorem 2.31 in general, Props 2.35–2.46 (tame), Defs 2.50–2.54 (strong bundles) |
 | H5 | **Strong bundles** (§2.5) and sc-Fredholm sections (§3): the filled version, the contraction-germ normal form (basic germs), stability of the sc-Fredholm property under sc⁺-perturbations (Proposition 1.10, proof in §1.4.1) | planned |
 | H6 | **The implicit function theorem** for sc-Fredholm germs (§3): the solution set of a transversal sc-Fredholm section near a zero is an sc-smooth finite-dimensional manifold of dimension the Fredholm index, with the natural sc-structure; the local compactness of solution sets | planned |
@@ -105,7 +105,7 @@ given).
 | Preprint | p. | Content | 2017 | Tier | Lean target (`Polyfold/Chapter6/`) |
 |---|---|---|---|---|---|
 | Def 6.1 | 201 | `Lin(f, x)`, the index `ind(f, x)` | Def 6.1 | C (done in part) | `StrongBundle.IsIndexAt`, `IsIndexAtLocal` exist (V3.98); add the set `Lin(f, x)` in a chart: `LinSet.lean` |
-| Prop 6.2 | 201 | `ind(f, x)` constant along sc-smooth paths, `X` tame | Prop 6.1 (+ Rem 6.1) | C (done) | `proposition_6_2_local` (V3.98), paths on `ℝ` |
+| Prop 6.2 | 201 | `ind(f, x)` constant along sc-smooth paths, `X` tame | Prop 6.1 (+ Rem 6.1) | C (done) | `proposition_6_2_2_local` (V3.98), paths on `ℝ` |
 | Def 6.3 | 204 | `ι : λ(E*) → λ*(E)`, `ι(e*∧…)(a∧…) = det(e*ᵢ(aⱼ))` | Def 6.2 | A | `DetLine.lean`: Mathlib's `exteriorPower.pairingDual` |
 | Prop 6.4 | 205 | `λ*(Φ) ∘ ι = ι ∘ λ(Φ*)` | Prop 6.2 | A | `DetLine.lean` |
 | Lemma 6.5 | 206 | `Φ_E : λ(A)⊗λ*(D) → λ(B)⊗λ*(C)` of a 4-term exact sequence is independent of the choices | Lemma 6.1 (+ Lemma 6.2 naturality) | A | `ExactSequence.lean` |
@@ -189,14 +189,14 @@ of the space of Fredholm operators).
   in the project (gaps G.6, G.7, G.13), so `Lin(f, x)`, `DET(f, x)` and orientations are made in a
   chart and carried between charts by the conjugation.
 * §6.1 already: Definition 6.1 (`StrongBundle.IsIndexAt`, `IsIndexAtLocal`, `IsIndexAt.unique`)
-  and Proposition 6.2 with the text's hypotheses for paths `ℝ → X` (`proposition_6_2_local`), with
+  and Proposition 6.2 with the text's hypotheses for paths `ℝ → X` (`proposition_6_2_2_local`), with
   the stabilization device of its proof on `ℝⁿ × X` (`IndexAlongPathsDevice.lean`: `paramSection`,
   `ofProd`, pull-back bundles, `linAt_ofProd_slice`) and the restriction of bundles to open sets
   (`MPolyfold.restrictOpen`, `StrongBundle.restrictOpen`). This is the device §6.5 reuses.
-* Implicit function theorems: `theorem_3_23`, `theorem_3_54_two` (a `TangentGermChart`: the local
-  solution set as a graph over the kernel), `theorem_3_57`; general position
+* Implicit function theorems: `theorem_3_1_26`, `theorem_3_6_8_two` (a `TangentGermChart`: the local
+  solution set as a graph over the kernel), `theorem_3_6_11`; general position
   (`StrongBundle.IsGeneralPositionGerm`) and its openness along the zero set
-  (`exists_isOpen_isGeneralPositionGerm`); local compactness (`theorem_3_12`); Theorem 5.18 with
+  (`exists_isOpen_isGeneralPositionGerm`); local compactness (`theorem_3_1_13_preprint`); Theorem 5.18 with
   auxiliary norms and allowable sections; manifolds with corners as M-polyfolds
   (`IsManifoldWithCorners`); products `MPolyfold.prod`, `rnPolyfold n`.
 * Not available: `[0, 1]` as an M-polyfold with boundary (decision D2); sc-smooth contractibility;
@@ -354,9 +354,9 @@ is no 2014 preprint of Part II, so numbers and pages are the 2017 text's: printe
 off the running heads (even pages "226 7 Ep-Groupoids", odd pages "7.1 … 227", the first page of a
 chapter from its footer), as `BookConcordance.md` does for Chapter 6. Each kind has its own counter
 (Definition 7.3 ≠ Proposition 7.3). Part I items cited by Part II carry their 2017 numbers, with the
-preprint number used by the Lean name in brackets: Theorem 2.2 [2.16] = `Polyfold.theorem_2_16`,
-Proposition 2.7 [2.24] = `Polyfold.proposition_2_24`, Proposition 2.15 [2.46] =
-`MPolyfold.proposition_2_46`, Definition 2.19 [2.37] = `MPolyfold.IsTame`, Lemma 2.7 [2.56] (Michael;
+preprint number used by the Lean name in brackets: Theorem 2.2 [2.16] = `Polyfold.theorem_2_3_10`,
+Proposition 2.7 [2.24] = `Polyfold.proposition_2_4_4`, Proposition 2.15 [2.46] =
+`MPolyfold.proposition_2_5_20`, Definition 2.19 [2.37] = `MPolyfold.IsTame`, Lemma 2.7 [2.56] (Michael;
 not formalized, avoided in Part I). Lean names below are in namespace `Polyfold`.
 
 ### II.1 Overview
@@ -382,7 +382,7 @@ unnumbered claims of the text that later items use.
 | Def 7.2 | 226 | isotropy group `G_x` | — | `CategoryTheory.Groupoid.vertexGroup`, `…vertexGroupIsomOfMap` | A | `Groupoid.lean` |
 | Def 7.3 | 226 | ep-groupoid: (1) `s, t` local sc-diffeos; (2) `u, ι` sc-smooth; (3) each `x` has open `V(x)` with `t : s⁻¹(cl V(x)) → X` proper; (4) `m` sc-smooth on `X s×t X` | `MPolyfold`, `MPolyfold.IsLocalScDiffeo`, `MPolyfold.IsScSmoothMap`, `MPolyfold.fibredProduct`, `MPolyfold.isSubMPolyfold_fibredProduct`, `MPolyfold.subPolyfold`, `MPolyfold.prod`, `MPolyfold.paracompactSpace_prod` | `IsProperMap`, `Set.restrict` | B | `EpGroupoid.lean` |
 | Def 7.4 | 227 | `φ̂ = t ∘ (s\|U(φ))⁻¹`; `Tφ` for `φ ∈ X_∞` | `MPolyfold.IsScDiffeoOn`, `MPolyfold.restrictOpen`, `MPolyfold.tangentMap` | — | B | `EpGroupoid.lean` |
-| (text) | 227–228 | `ml(sφ) = ml(φ) = ml(tφ)`, filtration `\|X_k\|`; `d_X(sφ) = d_X(φ) = d_X(tφ)` | `MPolyfold.levelSet`, `MPolyfold.IsScSmoothOn.mapsTo_levelSet`, `MPolyfold.degIndex`, `proposition_2_24` | `Set.image` | A | `EpGroupoid.lean` |
+| (text) | 227–228 | `ml(sφ) = ml(φ) = ml(tφ)`, filtration `\|X_k\|`; `d_X(sφ) = d_X(φ) = d_X(tφ)` | `MPolyfold.levelSet`, `MPolyfold.IsScSmoothOn.mapsTo_levelSet`, `MPolyfold.degIndex`, `proposition_2_4_4` | `Set.image` | A | `EpGroupoid.lean` |
 | Def 7.5 | 228 | `d_{\|X\|}(\|x\|) = d_X(x)` | `MPolyfold.degIndex` | `Quotient.lift` | A | `EpGroupoid.lean` |
 | Def 7.6 | 228 | tame: `X` tame; (text) then the morphism M-polyfold is tame | `MPolyfold.IsTame`, `MPolyfold.transportChart`, `MPolyfold.transportChart_isChart` | — | A/B | `EpGroupoid.lean` |
 | Def 7.7 | 228 | category `EP`: functors sc-smooth on objects and morphisms; (text) sc-smooth on objects suffices | `MPolyfold.IsScSmoothMap.comp`, `MPolyfold.isScSmoothMap_id` | `CategoryTheory.Category` | A; B (II.6, 1) | `EpGroupoid.lean` |
@@ -415,7 +415,7 @@ unnumbered claims of the text that later items use.
 | Cor 7.1 | 247 | second countable `\|X\|` ⇒ metrizable (Urysohn) | — | `TopologicalSpace.metrizableSpace_of_t3_secondCountable` | A | `OrbitTopology.lean` |
 | Def 7.14 | 247 | component compact | — | `connectedComponent`, `IsCompact` | A | `OrbitTopology.lean` |
 | Cor 7.2 | 247 | component compact `K` has an open `U ⊃ K` with `cl U` paracompact, `U` metrizable | `metrizableSpace_of_locally` | `isOpen_connectedComponent`, `LocallyConnectedSpace` | C | `OrbitTopology.lean` |
-| Prop 7.11 | 247 | `X¹ = (X¹, 𝐗¹)` is an ep-groupoid; tame ⇒ tame | `MPolyfold.Level`, `MPolyfold.shift`, `MPolyfold.IsScSmoothMap.levelOne`, `theorem_2_16` | — | B | `Lift.lean` |
+| Prop 7.11 | 247 | `X¹ = (X¹, 𝐗¹)` is an ep-groupoid; tame ⇒ tame | `MPolyfold.Level`, `MPolyfold.shift`, `MPolyfold.IsScSmoothMap.levelOne`, `theorem_2_3_10` | — | B | `Lift.lean` |
 | Def 7.15 | 249 | ep-groupoid with paracompact orbit space (5) | — | `ParacompactSpace` | A | `Lift.lean` |
 | Rem 7.1 | 249 | second countable objects ⇒ (5); (text) "not known" whether (1)–(4) ⇒ (5): not formalized | — | `SecondCountableTopology` | A | `Lift.lean` |
 | Prop 7.12 | 249 | `\|X\|` paracompact ⇒ `\|X¹\|` paracompact | `metrizableSpace_of_pullback` (avoids Lemma 2.7) | — | B | `Lift.lean` |
@@ -430,7 +430,7 @@ unnumbered claims of the text that later items use.
 | Lemma 7.8 | 253 | morphisms between points of `U₁` lie in the sheets `N_g` | — | `IsCompact.tendsto_subseq` | B | `NaturalRep.lean` |
 | Lemma 7.9 | 254 | `U = ⋃_g t_g s_g⁻¹(U₂)` is invariant | `MPolyfold.IsScDiffeoOn` | — | B | `NaturalRep.lean` |
 | Lemma 7.10 | 255 | invariant sc-smooth `f ≥ β` supported in `V(x)` | `MPolyfold.AdmitsScPartitionsOfUnity`, `isScSmoothMap_real_finsum` | — | B | `PartitionsOfUnity.lean` |
-| Cor 7.3 | 256 | an atlas with Hilbert `E₀` ⇒ invariant sc-smooth partitions of unity | `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, `corollary_5_44` (Theorem 5.14 [5.43] an explicit hypothesis, `GodefroyTroyanskiWhitfieldZizlerStatement`) | — | A | `PartitionsOfUnity.lean` |
+| Cor 7.3 | 256 | an atlas with Hilbert `E₀` ⇒ invariant sc-smooth partitions of unity | `MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, `corollary_5_5_17` (Theorem 5.14 [5.43] an explicit hypothesis, `GodefroyTroyanskiWhitfieldZizlerStatement`) | — | A | `PartitionsOfUnity.lean` |
 
 **New infrastructure** (no item of its own): `ProperMaps.lean` (proper maps between metrizable spaces
 ⟺ the sequential criterion every proof of the text uses; closed subsets of proper sets are proper; the
@@ -440,7 +440,7 @@ components are open), `Discrete.lean` (a finite discrete type as an M-polyfold w
 `G × U` by `MPolyfold.prod`, sc-smoothness on `G × U` ⟺ on each sheet), `LocalDiffeo.lean` (levels,
 degeneracy, the transported tame atlas, level-1 versions of `IsScDiffeoOn` / `IsLocalScDiffeo`, `ℝⁿ`
 admits sc-smooth partitions of unity via `SmoothPartitionOfUnity.exists_isSubordinate` and
-`proposition_5_38`), `Michael.lean` (Lemma 2.7 [2.56]: a regular space whose open covers have locally
+`proposition_5_5_11`), `Michael.lean` (Lemma 2.7 [2.56]: a regular space whose open covers have locally
 finite closed refinements is paracompact; finite unions of closed paracompact subspaces; Mathlib has
 no Michael theorem).
 
@@ -479,8 +479,8 @@ no Michael theorem).
 * **P7. Reduced groupoid.** Props 7.9–7.10 are formalized as an atlas of compatible charts `Ψ_φ` on
   `X^R`; the M-polyfold `X^R` (Definition 2.8 asks Hausdorff and paracompact) takes these two properties
   as hypotheses, discharged for effective `X` and for the witnesses (II.6, 2).
-* **P8. Bookkeeping.** Lean names `definition_7_3`, `theorem_7_1`, …; restatements `theorem_7_5 :=
-  theorem_7_1`, `theorem_7_6 := theorem_7_4`. Sign-off items V7.1, … in book order; gaps from G.70;
+* **P8. Bookkeeping.** Lean names `definition_7_3`, `theorem_7_1_13`, …; restatements `theorem_7_6_1 :=
+  theorem_7_1_13`, `theorem_7_6_4 := theorem_7_5_7`. Sign-off items V7.1, … in book order; gaps from G.70;
   `Findings.md` new "## Chapter 7"; `BookConcordance.md` gets a Part II section (2017 items and pages
   only). Definitions are written by the session lead first (§6.7, step 1), proofs delegated.
 

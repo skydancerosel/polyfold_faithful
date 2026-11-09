@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_38
 
 /-! Round trip for V3_38 (Theorem 3.43, local germ-solvability I).
 
-`A` is the conjunction of the types of `Polyfold.theorem_3_43_sc_smooth`, `Polyfold.theorem_3_43`,
+`A` is the conjunction of the types of `Polyfold.theorem_3_5_6_sc_smooth`, `Polyfold.theorem_3_5_6`,
 `Polyfold.ShiftedBasicData.Sol.exists_contDiffOn_level`, `Polyfold.ShiftedBasicData.H_contDiffOn`,
 `Polyfold.ShiftedBasicData.Sol.exists_eq_add_τ` and `Polyfold.exists_proj_mem_of_eq_zero` (no
 universe parameters: everything is in `Type`).
@@ -26,7 +26,7 @@ Neither direction is proved; the two statements are set up differently.
 `A → B` fails: from `B`'s hypotheses one must (a) produce `hpos` for `K'` (transport of the good
 position of `K` along `Dφ(0)`, which maps `C` onto `C'`), (b) produce `hreg` (Lemma 3.42, from
 Theorem 3.40 for `f + s` and the level-`1` continuity of `φ`) — both are proofs the project does
-only for its own coordinate change (`StabilityData.lemma_3_42`), not for an arbitrary `Φ` — and
+only for its own coordinate change (`StabilityData.lemma_3_5_5`), not for an arbitrary `Φ` — and
 (c) `A`'s complement is only algebraic while `B` demands an sc-complement (`IsScSplitting`),
 which cannot be obtained without re-choosing the complement (a reparametrization of `K' ∩ C'`, an
 inverse function theorem on a partial quadrant).  (c) is a genuine difference in the conclusion.
@@ -45,14 +45,14 @@ open Polyfold
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.theorem_3_43_sc_smooth) ∧ (type_of% @Polyfold.theorem_3_43) ∧
+  (type_of% @Polyfold.theorem_3_5_6_sc_smooth) ∧ (type_of% @Polyfold.theorem_3_5_6) ∧
     (type_of% @Polyfold.ShiftedBasicData.Sol.exists_contDiffOn_level) ∧
     (type_of% @Polyfold.ShiftedBasicData.H_contDiffOn) ∧
     (type_of% @Polyfold.ShiftedBasicData.Sol.exists_eq_add_τ) ∧
     (type_of% @Polyfold.exists_proj_mem_of_eq_zero)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_43_sc_smooth, @Polyfold.theorem_3_43,
+  ⟨@Polyfold.theorem_3_5_6_sc_smooth, @Polyfold.theorem_3_5_6,
     @Polyfold.ShiftedBasicData.Sol.exists_contDiffOn_level, @Polyfold.ShiftedBasicData.H_contDiffOn,
     @Polyfold.ShiftedBasicData.Sol.exists_eq_add_τ, @Polyfold.exists_proj_mem_of_eq_zero⟩
 

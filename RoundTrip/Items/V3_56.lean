@@ -9,11 +9,11 @@ noncomputable section
 namespace RoundTrip.V3_56
 open Polyfold
 
-/-- The project's statement: `proposition_3_69` (no universe parameters).  `QuadrantNormalForm`
+/-- The project's statement: `proposition_3_8_12` (no universe parameters).  `QuadrantNormalForm`
 is vocabulary. -/
-def A : Prop := type_of% @Polyfold.proposition_3_69
+def A : Prop := type_of% @Polyfold.proposition_3_8_12
 
-theorem A_holds : A := @Polyfold.proposition_3_69
+theorem A_holds : A := @Polyfold.proposition_3_8_12
 
 /-- `N ∩ W` as a subspace of `N` (the project's `ker (fst ∘ ι_N)`) has the dimension of the
 blind `N ⊓ Wsub`. -/
@@ -48,7 +48,7 @@ theorem A_to_B : A → B := by
     rw [finrank_ker_fst_eq] at this
     exact Nat.eq_sub_of_add_eq this
 
-#rt_check RoundTrip.V3_56.A_to_B [Polyfold.proposition_3_69]
+#rt_check RoundTrip.V3_56.A_to_B [Polyfold.proposition_3_8_12]
 
 /-- The degeneracy index is carried by an sc-isomorphism (Lemma 1.24 for the presentation
 `T ∘ S`); `0` on both sides if the set is not a partial quadrant. -/
@@ -233,7 +233,7 @@ theorem B_to_A : B → A := by
     rw [hdeg, h2, ← hrank2, ← hrank1]
     exact Nat.sub_add_cancel hle
 
-#rt_check RoundTrip.V3_56.B_to_A [Polyfold.proposition_3_69]
-#rt_overlap RoundTrip.V3_56.B_to_A [Polyfold.proposition_3_69]
+#rt_check RoundTrip.V3_56.B_to_A [Polyfold.proposition_3_8_12]
+#rt_overlap RoundTrip.V3_56.B_to_A [Polyfold.proposition_3_8_12]
 
 end RoundTrip.V3_56

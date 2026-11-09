@@ -4,8 +4,8 @@ import Polyfold.Chapter3.ParamPerturbationG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.3 (the start:
-`Γ⁺(P)`, Definition 5.9, Proposition 5.10, **Lemma 5.11**, `Γ^{+,1}_U(P)`) and Appendix 5.4.2
-(**Definitions 5.29, 5.33, Proposition 5.30, Theorem 5.34, Proposition 5.35**)
+`Γ⁺(P)`, Definition 5.3.1 (preprint 5.9), Proposition 5.3.2 (preprint 5.10), **Lemma 5.3.3 (preprint 5.11)**, `Γ^{+,1}_U(P)`) and Appendix 5.4.2
+(**Definitions 5.5.2, 5.5.6 (preprint 5.29, 5.33), Proposition 5.5.3 (preprint 5.30), Theorem 5.5.7 (preprint 5.34), Proposition 5.5.8 (preprint 5.35)**)
 *(book 2017: Definition 5.7, Proposition 5.4, Lemma 5.3; Definitions 5.13, 5.15, Proposition 5.5,
 Theorem 5.11, Proposition 5.6; see `BookConcordance.md`)*.
 
@@ -14,23 +14,23 @@ Theorem 5.11, Proposition 5.6; see `BookConcordance.md`)*.
 ## The text, paraphrased
 
 (§5.3) For an sc-Fredholm section `f` one studies `f + s`, `s ∈ Γ⁺(P)`; the supply of
-sc⁺-sections comes from sc-smooth bump functions.  (Definition 5.9) `X` admits sc-smooth bump
+sc⁺-sections comes from sc-smooth bump functions.  (Definition 5.3.1 (preprint 5.9)) `X` admits sc-smooth bump
 functions if for every `x` and open `U(x)` there is an sc-smooth `f : X → ℝ` with `f ≠ 0` and
-`supp(f) ⊆ U(x)`.  (Proposition 5.10 = 5.30) Then there is an sc-smooth `f : X → [0, 1]` with
+`supp(f) ⊆ U(x)`.  (Proposition 5.3.2 (preprint 5.10) = 5.30) Then there is an sc-smooth `f : X → [0, 1]` with
 `f(x) = 1`, `supp(f) ⊆ U(x)`, and `f ≡ 1` near `x`; proof: `f = σ ∘ g` for a bump `g` with
 `g(x) = 1` (sic) and `σ` "`0` for `s ≤ 1` and `1` for `s ≥ 1`", `f = σ(δ·g)`, `δ > 1`, for the
-second claim.  (Lemma 5.11) For a tame strong bundle over a tame `X` admitting sc-smooth bump
+second claim.  (Lemma 5.3.3 (preprint 5.11)) For a tame strong bundle over a tame `X` admitting sc-smooth bump
 functions, an auxiliary norm `N`, a smooth `x`, a smooth `e ∈ P⁻¹(x)`, `ε > 0` and an open `U ∋ x`,
 there is `s ∈ Γ⁺(P)` with `s(x) = e`, `supp(s) ⊆ U` and `N(s(x)) < N(e) + ε`; proof: in a strong
 bundle chart centred at `x`, `t(y) = R(y, ê)`, `N(t(y)) < N(e) + ε` for `|y|₀ < δ`, and
-`s = β·t` for a bump `β` with `β(0) = 1` supported in `O' ∩ {|y|₀ < ε}`.  (After Lemma 5.11)
+`s = β·t` for a bump `β` with `β(0) = 1` supported in `O' ∩ {|y|₀ < ε}`.  (After Lemma 5.3.3 (preprint 5.11))
 `Γ^{+,1}_U(P)` is the set of `s ∈ Γ⁺(P)` with `supp(s) ⊆ U` and `N(s(x)) ≤ 1` for all `x`.
-(Definition 5.29) "admits sc-smooth bump functions": `f` **not identically zero** with support in
-`U(x)`.  For a Hilbert space `E`, `f(x) = β(‖x‖²)` is smooth, hence sc-smooth by Corollary 1.20.
-(Definition 5.33) A local model `(O, C, E)` has the sc-smooth bump function property if for every
+(Definition 5.5.2 (preprint 5.29)) "admits sc-smooth bump functions": `f` **not identically zero** with support in
+`U(x)`.  For a Hilbert space `E`, `f(x) = β(‖x‖²)` is smooth, hence sc-smooth by Corollary 1.2.5 (preprint 1.20).
+(Definition 5.5.6 (preprint 5.33)) A local model `(O, C, E)` has the sc-smooth bump function property if for every
 `x ∈ O` and open `U(x) ⊆ O` with `cl_E(U(x)) ⊆ O` there is an sc-smooth `f : O → ℝ` with `f ≠ 0`
-and `supp(f) ⊆ U(x)`.  (Theorem 5.34, "clearly") `X` admits sc-smooth bump functions iff it has
-an atlas whose local models have the bump property.  (Proposition 5.35) If `E₀` is a Hilbert space,
+and `supp(f) ⊆ U(x)`.  (Theorem 5.5.7 (preprint 5.34), "clearly") `X` admits sc-smooth bump functions iff it has
+an atlas whose local models have the bump property.  (Proposition 5.5.8 (preprint 5.35)) If `E₀` is a Hilbert space,
 `(O, C, E)` has the bump property: `β(‖x‖²)`, scaled, translated, composed with the retraction.
 
 ## What is formalized
@@ -40,16 +40,16 @@ an atlas whose local models have the bump property.  (Proposition 5.35) If `E₀
   map between M-polyfolds is checked in one pair of charts around each point, continuity
   included), `MPolyfold.IsScSmoothMap.real_chart`, `isScSmoothMap_real_of_local`,
   `isScSmoothMap_real_const`, `MPolyfold.IsScSmoothMap.comp_contDiff` (`σ ∘ f` for `C^∞` `σ`).
-* `MPolyfold.AdmitsBumpFunctions` (**Definition 5.9**, read with `f(x) ≠ 0`),
-  `MPolyfold.AdmitsBumpFunctionsWeak` (**Definition 5.29** as written) and
-  `AdmitsBumpFunctions.weak`; `Polyfold.proposition_5_30` and `Polyfold.proposition_5_10`
-  (**Propositions 5.30 and 5.10**: `f : X → [0, 1]`, `f(x) = 1`, `supp(f) ⊆ U`, `f ≡ 1` near `x`).
-* `LocalModel.HasBumpProperty` (**Definition 5.33**), `Polyfold.theorem_5_34` (**Theorem 5.34**),
+* `MPolyfold.AdmitsBumpFunctions` (**Definition 5.3.1 (preprint 5.9)**, read with `f(x) ≠ 0`),
+  `MPolyfold.AdmitsBumpFunctionsWeak` (**Definition 5.5.2 (preprint 5.29)** as written) and
+  `AdmitsBumpFunctions.weak`; `Polyfold.proposition_5_5_3` and `Polyfold.proposition_5_3_2`
+  (**Propositions 5.5.3 and 5.3.2 (preprint 5.30 and 5.10)**: `f : X → [0, 1]`, `f(x) = 1`, `supp(f) ⊆ U`, `f ≡ 1` near `x`).
+* `LocalModel.HasBumpProperty` (**Definition 5.5.6 (preprint 5.33)**), `Polyfold.theorem_5_5_7` (**Theorem 5.5.7 (preprint 5.34)**),
   `closure_inter_ball_subset` (a retract is closed near each of its points),
   `LocalModel.hasBumpProperty_of_quadratic` (the bump property when `κ‖v‖² ≤ b(v, v)` for a
-  continuous bilinear `b`) and `Polyfold.proposition_5_35` (**Proposition 5.35**, `‖v‖² = b(v, v)`);
+  continuous bilinear `b`) and `Polyfold.proposition_5_5_8` (**Proposition 5.5.8 (preprint 5.35)**, `‖v‖² = b(v, v)`);
   `MPolyfold.admitsBumpFunctions_of_hilbert` (an M-polyfold built on sc-Hilbert spaces admits
-  sc-smooth bump functions, the remark before Definition 5.9).
+  sc-smooth bump functions, the remark before Definition 5.3.1 (preprint 5.9)).
 * **Sections**: `Polyfold.sectionSupport` (`supp(s)`), `StrongBundle.scPlusSections` (**`Γ⁺(P)`**),
   `StrongBundle.allowableSections` (**`Γ^{+,1}_U(P)`**), `IsScPlusSection.mem_oneSet`;
   `sectionSmul`, `sectionSum`; `StrongBundle.isScPlusSection_fiberZero` (the zero section),
@@ -58,23 +58,23 @@ an atlas whose local models have the bump property.  (Proposition 5.35) If `E₀
   `isScSmooth_const_of_mem_smooth`.
 * `StrongBundle.cutoffSection` with `StrongBundle.isScPlusSection_cutoffSection` (**a local
   sc⁺-section `z ↦ (z, τ(z))` of `K[1] → O` cut off by a bump function supported in the chart
-  domain and extended by `0` is an sc⁺-section**), and `Polyfold.lemma_5_11`
-  (**Lemma 5.11**, with the bound at every point).
+  domain and extended by `0` is an sc⁺-section**), and `Polyfold.lemma_5_3_3`
+  (**Lemma 5.3.3 (preprint 5.11)**, with the bound at every point).
 
 ## What the text leaves implicit, and the choices made
 
-* **Definition 5.9 "`f ≠ 0`" against Definition 5.29 "not identically zero".**  Proposition 5.30's
+* **Definition 5.3.1 (preprint 5.9) "`f ≠ 0`" against Definition 5.5.2 (preprint 5.29) "not identically zero".**  Proposition 5.5.3 (preprint 5.30)'s
   proof starts from "a bump function `g` with `g(0) = 1`" (meaning `g(x) = 1`), which needs
   `g(x) ≠ 0` at the given point; on an M-polyfold there are no translations to move a bump that is
-  merely not identically zero to `x`.  `AdmitsBumpFunctions` is therefore Definition 5.9 read as
-  `f(x) ≠ 0`; it implies the reading of Definition 5.29 (`AdmitsBumpFunctions.weak`), and it is the
-  hypothesis of Proposition 5.30, Theorem 5.34 and Lemma 5.11.  Definition 5.33's "`f ≠ 0`" is read
-  the same way, so that Theorem 5.34 is an equivalence between the same notions.
-* **Proposition 5.30.**  The text's `σ` ("`0` for `s ≤ 1` and `1` for `s ≥ 1`") is misprinted, and
+  merely not identically zero to `x`.  `AdmitsBumpFunctions` is therefore Definition 5.3.1 (preprint 5.9) read as
+  `f(x) ≠ 0`; it implies the reading of Definition 5.5.2 (preprint 5.29) (`AdmitsBumpFunctions.weak`), and it is the
+  hypothesis of Proposition 5.5.3 (preprint 5.30), Theorem 5.5.7 (preprint 5.34) and Lemma 5.3.3 (preprint 5.11).  Definition 5.5.6 (preprint 5.33)'s "`f ≠ 0`" is read
+  the same way, so that Theorem 5.5.7 (preprint 5.34) is an equivalence between the same notions.
+* **Proposition 5.5.3 (preprint 5.30).**  The text's `σ` ("`0` for `s ≤ 1` and `1` for `s ≥ 1`") is misprinted, and
   `f = σ ∘ g` needs `g(x) = 1`, not given.  Here `f = τ(3g/g(x) − 1)`, `τ` Mathlib's
   `Real.smoothTransition` (`0` on `(−∞, 0]`, `1` on `[1, ∞)`): `f(x) = τ(2) = 1`, `f ≡ 1` where
   `g/g(x) > 2/3`, and `f ≠ 0` only where `g/g(x) > 1/3`, so `supp(f) ⊆ supp(g)`.
-* **Theorem 5.34, "⇐".**  "Clearly" hides the support condition: a bump `f₀` of the chart `φ`
+* **Theorem 5.5.7 (preprint 5.34), "⇐".**  "Clearly" hides the support condition: a bump `f₀` of the chart `φ`
   with `supp_O(f₀) ⊆ U(x)` and `cl_E(U(x)) ⊆ O` gives `f = f₀ ∘ φ` on `V`, but `cl_X(supp f)` may
   leave `V` (for example `X = E` a Hilbert space, `V` its open unit ball, `φ(u) = u/(1 − |u|²)`
   onto `O = E`, `U(x) = O` and `f₀ ≡ 1`: then `f` is `1` on `V` and `0` outside).  The proof
@@ -83,7 +83,7 @@ an atlas whose local models have the bump property.  (Proposition 5.35) If `E₀
   The condition `cl_E(U(x)) ⊆ O` for the small ball holds because a retract is closed near its
   points (`closure_inter_ball_subset`: the retraction is continuous on its domain
   `C ∩ W'`, `C` is closed).  "⇒" uses every chart of `X`.
-* **Proposition 5.35.**  "`E₀` is a Hilbert space" is stated as: the norm of `E₀` comes from a
+* **Proposition 5.5.8 (preprint 5.35).**  "`E₀` is a Hilbert space" is stated as: the norm of `E₀` comes from a
   continuous bilinear form, `‖v‖² = b(v, v)`; an `InnerProductSpace` instance on `E₀` would create a
   second, non-defeq `NormedSpace` structure next to the one of the sc-scale.  The proof uses only
   that `v ↦ b(v − x, v − x)` is `C^∞` and dominates `κ‖v − x‖²`
@@ -93,10 +93,10 @@ an atlas whose local models have the bump property.  (Proposition 5.35) If `E₀
   retraction `r` onto `O`.
 * **The product rule.**  "`β·t` is an sc⁺-section" needs the product of an sc-smooth function and
   an sc⁺-section, which the text does not state; in a chart of the atlas it is the product rule of
-  the sc-calculus (`IsScSmooth.smul`) for `(f ∘ φ⁻¹)·ŝ`.  Lemma 5.11 needs a local version: `t` is
+  the sc-calculus (`IsScSmooth.smul`) for `(f ∘ φ⁻¹)·ŝ`.  Lemma 5.3.3 (preprint 5.11) needs a local version: `t` is
   defined only on the chart domain, so the section is the cut-off `cutoffSection` (sc⁺ on the chart
   domain through `Φ[1]`, the zero section off `supp(β)`, and these two open sets cover `X`).
-* **Lemma 5.11.**  (a) The bound `N(s(x)) < N(e) + ε` "at `x`" is trivial (`s(x) = e`); the bound
+* **Lemma 5.3.3 (preprint 5.11).**  (a) The bound `N(s(x)) < N(e) + ε` "at `x`" is trivial (`s(x) = e`); the bound
   proved, and needed for `Γ^{+,1}_U` in §5.3, is `N(s(y)) < N(e) + ε` for **all** `y`, and the
   text's proof gives it, with `ε` reused for the radius `δ`.  (b) **Tameness, the normality of
   `X` and a chart centred at `x` are not needed**: any strong bundle chart of the atlas around
@@ -146,7 +146,7 @@ def realChart : MChart ℝ where
 lemma realChart_compatible : realChart.Compatible realChart := MChart.compatible_self _
 
 /-- **`ℝ` as an M-polyfold**, with the single chart `id`; an **sc-smooth function** on an
-M-polyfold `X` is an sc-smooth map `X → ℝ` (Definition 2.14). -/
+M-polyfold `X` is an sc-smooth map `X → ℝ` (Definition 2.3.8 (preprint 2.14)). -/
 def realPolyfold : MPolyfold ℝ where
   atlas :=
     { charts := {realChart}
@@ -168,7 +168,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {Z : Type w} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z] {PZ : MPolyfold Z}
 
 /-- **Sc-smoothness of a map between M-polyfolds is local and may be checked in one pair of charts
-around each point** (Definition 2.14; continuity follows from the local representatives). -/
+around each point** (Definition 2.3.8 (preprint 2.14); continuity follows from the local representatives). -/
 theorem MPolyfold.isScSmoothMap_of_local {f : X → Z}
     (h : ∀ x, ∃ (φ : MChart X) (ψ : MChart Z) (V : Set X), PX.IsChart φ ∧ PZ.IsChart ψ ∧
       IsOpen V ∧ x ∈ V ∧ V ⊆ φ.source ∧ MapsTo f V ψ.source ∧
@@ -235,21 +235,21 @@ theorem MPolyfold.IsScSmoothMap.comp_contDiff {f : X → ℝ} (hf : PX.IsScSmoot
 
 end Locality
 
-/-! ### Definitions 5.9 and 5.29 and Propositions 5.10 and 5.30: sc-smooth bump functions -/
+/-! ### Definitions 5.3.1 and 5.5.2 (preprint 5.9 and 5.29) and Propositions 5.3.2 and 5.5.3 (preprint 5.10 and 5.30): sc-smooth bump functions -/
 
 section Bump
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (PX : MPolyfold X)
 
-/-- **Definition 5.9**: the M-polyfold `X` **admits sc-smooth bump functions** if for every
+/-- **Definition 5.3.1 (preprint 5.9)**: the M-polyfold `X` **admits sc-smooth bump functions** if for every
 `x ∈ X` and every open neighbourhood `U` of `x` there is an sc-smooth `f : X → ℝ` with
-`supp(f) ⊆ U` and `f ≠ 0`, the latter read as **`f(x) ≠ 0`** (the reading Proposition 5.30's proof
-uses; Definition 5.29 reads "not identically zero", `AdmitsBumpFunctionsWeak`). -/
+`supp(f) ⊆ U` and `f ≠ 0`, the latter read as **`f(x) ≠ 0`** (the reading Proposition 5.5.3 (preprint 5.30)'s proof
+uses; Definition 5.5.2 (preprint 5.29) reads "not identically zero", `AdmitsBumpFunctionsWeak`). -/
 def MPolyfold.AdmitsBumpFunctions : Prop :=
   ∀ x (U : Set X), IsOpen U → x ∈ U →
     ∃ f : X → ℝ, PX.IsScSmoothMap realPolyfold f ∧ f x ≠ 0 ∧ tsupport f ⊆ U
 
-/-- **Definition 5.29** as written: for every `x` and every open neighbourhood `U` of `x` there is
+/-- **Definition 5.5.2 (preprint 5.29)** as written: for every `x` and every open neighbourhood `U` of `x` there is
 an sc-smooth `f : X → ℝ` **not identically zero** with `supp(f) ⊆ U`. -/
 def MPolyfold.AdmitsBumpFunctionsWeak : Prop :=
   ∀ x (U : Set X), IsOpen U → x ∈ U →
@@ -257,18 +257,18 @@ def MPolyfold.AdmitsBumpFunctionsWeak : Prop :=
 
 variable {PX}
 
-/-- The reading of Definition 5.9 implies that of Definition 5.29. -/
+/-- The reading of Definition 5.3.1 (preprint 5.9) implies that of Definition 5.5.2 (preprint 5.29). -/
 theorem MPolyfold.AdmitsBumpFunctions.weak (h : PX.AdmitsBumpFunctions) :
     PX.AdmitsBumpFunctionsWeak := fun x U hU hx => by
   obtain ⟨f, hf, hfx, hsupp⟩ := h x U hU hx
   exact ⟨f, hf, fun h0 => hfx (congrFun h0 x), hsupp⟩
 
-/-- **Proposition 5.30** (= Proposition 5.10): if `X` admits sc-smooth bump functions, then for
+/-- **Proposition 5.5.3 (preprint 5.30)** (= Proposition 5.10): if `X` admits sc-smooth bump functions, then for
 every `x` and every open neighbourhood `U` of `x` there is an sc-smooth `f : X → [0, 1]` with
 `f(x) = 1` and `supp(f) ⊆ U`, and `f ≡ 1` near `x`.  (The text's `σ`, "`0` for `s ≤ 1` and `1`
 for `s ≥ 1`", is misprinted; here `f = σ ∘ g` with `σ(s) = τ(3s/g(x) − 1)`, `τ` the smooth
 transition from `0` on `(−∞, 0]` to `1` on `[1, ∞)`.) -/
-theorem proposition_5_30 (h : PX.AdmitsBumpFunctions) {x : X} {U : Set X} (hU : IsOpen U)
+theorem proposition_5_5_3 (h : PX.AdmitsBumpFunctions) {x : X} {U : Set X} (hU : IsOpen U)
     (hx : x ∈ U) :
     ∃ f : X → ℝ, PX.IsScSmoothMap realPolyfold f ∧ (∀ y, f y ∈ Icc (0 : ℝ) 1) ∧ f x = 1 ∧
       tsupport f ⊆ U ∧ ∀ᶠ y in 𝓝 x, f y = 1 := by
@@ -296,23 +296,23 @@ theorem proposition_5_30 (h : PX.AdmitsBumpFunctions) {x : X} {U : Set X} (hU : 
     rw [mul_div_assoc]
     linarith
 
-/-- **Proposition 5.10**: the statement of Proposition 5.30. -/
-theorem proposition_5_10 (h : PX.AdmitsBumpFunctions) {x : X} {U : Set X} (hU : IsOpen U)
+/-- **Proposition 5.3.2 (preprint 5.10)**: the statement of Proposition 5.5.3 (preprint 5.30). -/
+theorem proposition_5_3_2 (h : PX.AdmitsBumpFunctions) {x : X} {U : Set X} (hU : IsOpen U)
     (hx : x ∈ U) :
     ∃ f : X → ℝ, PX.IsScSmoothMap realPolyfold f ∧ (∀ y, f y ∈ Icc (0 : ℝ) 1) ∧ f x = 1 ∧
       tsupport f ⊆ U ∧ ∀ᶠ y in 𝓝 x, f y = 1 :=
-  proposition_5_30 h hU hx
+  proposition_5_5_3 h hU hx
 
 end Bump
 
-/-! ### Definition 5.33, Theorem 5.34, Proposition 5.35: the bump property of local models -/
+/-! ### Definition 5.5.6 (preprint 5.33), Theorem 5.5.7 (preprint 5.34), Proposition 5.5.8 (preprint 5.35): the bump property of local models -/
 
 section LocalBump
 
-/-- **Definition 5.33**: the local model `(O, C, E)` has the **sc-smooth bump function property**
+/-- **Definition 5.5.6 (preprint 5.33)**: the local model `(O, C, E)` has the **sc-smooth bump function property**
 if for every `x ∈ O` and every open neighbourhood `U(x) = O ∩ W` of `x` in `O` with
 `cl_E(U(x)) ⊆ O` there is an sc-smooth `f : O → ℝ` with `f ≠ 0`, read as `f(x) ≠ 0` (as in
-Definition 5.9), and `supp(f) ⊆ U(x)`, the support taken in `O`. -/
+Definition 5.3.1 (preprint 5.9)), and `supp(f) ⊆ U(x)`, the support taken in `O`. -/
 def LocalModel.HasBumpProperty (M : LocalModel) : Prop :=
   ∀ x ∈ M.O, ∀ W : Set (M.E 0), IsOpen W → x ∈ W → closure (M.O ∩ W) ⊆ M.O →
     ∃ f : M.E 0 → ℝ, IsScSmoothRetractMap M.E M.C M.O realSc univ univ f ∧ f x ≠ 0 ∧
@@ -358,13 +358,13 @@ lemma closure_inter_ball_subset {M : LocalModel} {z : M.E 0} {r : ℝ} (R : ScRe
   rw [← hR]
   exact R.mem_retract_iff.2 ⟨hpU, hfix (mem_insert p _)⟩
 
-/-- **Theorem 5.34**: `X` admits sc-smooth bump functions if and only if it admits an sc-smooth
+/-- **Theorem 5.5.7 (preprint 5.34)**: `X` admits sc-smooth bump functions if and only if it admits an sc-smooth
 atlas (a family of charts of `X` covering `X`) whose local models have the sc-smooth bump function
 property.  ("Clearly"; for "⇐" the bump `f₀` of a chart is supported in a small ball
 `B(φ(x), r/2)` with `φ⁻¹(B(φ(x), r) ∩ O)` inside a neighbourhood `U₁` of `x` with
 `cl_X(U₁) ⊆ U ∩ V`, so that `cl_X(supp f) ⊆ U` and the extension by `0` is sc-smooth; the text's
 `cl_C(V) ⊆ O` alone gives neither.) -/
-theorem theorem_5_34 :
+theorem theorem_5_5_7 :
     PX.AdmitsBumpFunctions ↔ ∃ S : Set (MChart X), (∀ φ ∈ S, PX.IsChart φ) ∧
       (∀ x, ∃ φ ∈ S, x ∈ φ.source) ∧ ∀ φ ∈ S, φ.model.HasBumpProperty := by
   constructor
@@ -452,10 +452,10 @@ theorem theorem_5_34 :
     · simp only [hfdef, indicator_of_mem hxφ, Function.comp_apply]
       exact hf₀z
 
-/-- **Proposition 5.35** in the form the proof uses: if the norm of `E₀` is dominated by a
+/-- **Proposition 5.5.8 (preprint 5.35)** in the form the proof uses: if the norm of `E₀` is dominated by a
 continuous quadratic form, `κ‖v‖² ≤ b(v, v)` (`E₀` is Hilbertable), then `(O, C, E)` has the
 sc-smooth bump function property: `f(v) = τ(1 − b(v − x, v − x)/ρ)` (`τ` the smooth transition)
-is `C^∞` on `E₀`, hence sc-smooth (Corollary 1.20), with `f(x) = 1` and support in a small ball;
+is `C^∞` on `E₀`, hence sc-smooth (Corollary 1.2.5 (preprint 1.20)), with `f(x) = 1` and support in a small ball;
 "using scaling, translating, and composition with the sc-smooth retraction onto `O`". -/
 theorem LocalModel.hasBumpProperty_of_quadratic (M : LocalModel)
     (b : M.E 0 →L[ℝ] M.E 0 →L[ℝ] ℝ) {κ : ℝ} (hκ : 0 < κ) (hb : ∀ v, κ * ‖v‖ ^ 2 ≤ b v v) :
@@ -496,23 +496,23 @@ theorem LocalModel.hasBumpProperty_of_quadratic (M : LocalModel)
         Metric.closure_ball_subset_closedBall) hp.1
     exact hball (Metric.closedBall_subset_ball (by linarith) h1)
 
-/-- **Proposition 5.35**: if the `0`-level `E₀` of the sc-Banach space `E` is a Hilbert space
+/-- **Proposition 5.5.8 (preprint 5.35)**: if the `0`-level `E₀` of the sc-Banach space `E` is a Hilbert space
 (its norm comes from a continuous symmetric bilinear form `b`, `‖v‖² = b(v, v)`), the local model
 `(O, C, E)` has the sc-smooth bump function property. -/
-theorem proposition_5_35 (M : LocalModel)
+theorem proposition_5_5_8 (M : LocalModel)
     (hH : ∃ b : M.E 0 →L[ℝ] M.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) : M.HasBumpProperty := by
   obtain ⟨b, hb⟩ := hH
   exact M.hasBumpProperty_of_quadratic b one_pos fun v => by rw [one_mul, hb]
 
 /-- **An M-polyfold built on sc-Hilbert spaces admits sc-smooth bump functions** (§5.3, before
-Definition 5.9: "This is, for example, the case if `X` is built on sc-Hilbert spaces"):
-Proposition 5.35 in the charts and Theorem 5.34. -/
+Definition 5.3.1 (preprint 5.9): "This is, for example, the case if `X` is built on sc-Hilbert spaces"):
+Proposition 5.5.8 (preprint 5.35) in the charts and Theorem 5.5.7 (preprint 5.34). -/
 theorem MPolyfold.admitsBumpFunctions_of_hilbert
     (h : ∀ x, ∃ φ : MChart X, PX.IsChart φ ∧ x ∈ φ.source ∧
       ∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ, ∀ v, ‖v‖ ^ 2 = b v v) :
     PX.AdmitsBumpFunctions := by
-  refine theorem_5_34.2 ⟨{φ | PX.IsChart φ ∧ ∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ,
-    ∀ v, ‖v‖ ^ 2 = b v v}, fun φ hφ => hφ.1, fun x => ?_, fun φ hφ => proposition_5_35 _ hφ.2⟩
+  refine theorem_5_5_7.2 ⟨{φ | PX.IsChart φ ∧ ∃ b : φ.model.E 0 →L[ℝ] φ.model.E 0 →L[ℝ] ℝ,
+    ∀ v, ‖v‖ ^ 2 = b v v}, fun φ hφ => hφ.1, fun x => ?_, fun φ hφ => proposition_5_5_8 _ hφ.2⟩
   obtain ⟨φ, hφ, hx, hb⟩ := h x
   exact ⟨φ, ⟨hφ, hb⟩, hx⟩
 
@@ -607,10 +607,10 @@ namespace StrongBundle
 
 variable (B : StrongBundle PX P)
 
-/-- **`Γ⁺(P)`**: the space of sc⁺-sections of `P` (Definition 2.52). -/
+/-- **`Γ⁺(P)`**: the space of sc⁺-sections of `P` (Definition 2.6.6 (preprint 2.52)). -/
 def scPlusSections : Set (X → Y) := {s | B.IsScPlusSection s}
 
-/-- **`Γ^{+,1}_U(P)`** (§5.3, after Lemma 5.11): the sc⁺-sections `s` with `supp(s) ⊆ U` and
+/-- **`Γ^{+,1}_U(P)`** (§5.3, after Lemma 5.3.3 (preprint 5.11)): the sc⁺-sections `s` with `supp(s) ⊆ U` and
 `N(s(x)) ≤ 1` for all `x`, for an auxiliary norm `N` and an open `U ⊆ X` (the "allowable
 sc⁺-sections"). -/
 def allowableSections (N : B.One → ℝ) (U : Set X) : Set (X → Y) :=
@@ -762,7 +762,7 @@ end StrongBundle
 
 end Sections
 
-/-! ### Lemma 5.11: existence of sc⁺-sections -/
+/-! ### Lemma 5.3.3 (preprint 5.11): existence of sc⁺-sections -/
 
 section Existence
 
@@ -896,15 +896,15 @@ theorem isScPlusSection_cutoffSection (hc : c ∈ B.atlas.charts)
           c'.liftOne (cutoffSection c β τ (c'.φ.symm (c'.φ y')))
         rw [c'.φ.symm_apply_apply hy'.1, hzero y' hy', liftOne_fiberZero hy'.1]
 
-/-- **Lemma 5.11 (existence of sc⁺-sections)**: let `P : Y → X` be a strong bundle over an
-M-polyfold which admits sc-smooth bump functions (Definition 5.9, read as `f(x) ≠ 0`), and `N` an
+/-- **Lemma 5.3.3 (preprint 5.11) (existence of sc⁺-sections)**: let `P : Y → X` be a strong bundle over an
+M-polyfold which admits sc-smooth bump functions (Definition 5.3.1 (preprint 5.9), read as `f(x) ≠ 0`), and `N` an
 auxiliary norm.  For a smooth point `x ∈ X`, a smooth point `e` of the fibre `P⁻¹(x)`, an open
 neighbourhood `U` of `x` and `ε > 0`, there is an sc⁺-section `s` with `s(x) = e`,
 `supp(s) ⊆ U` and **`N(s(y)) < N(e) + ε` for all `y`** (the text writes the bound at `x` only,
 where it is trivial).  The proof is the text's: in a strong bundle chart around `x`, `t(y) =
 R(φ(y), ê)` with `ê = Φ(e)₂ ∈ F_∞` constant, cut off by a bump `β` with `β(x) = 1` supported where
 `N(t(y)) < N(e) + ε`.  Neither tameness nor a chart centred at `x` is needed. -/
-theorem _root_.Polyfold.lemma_5_11 (hbump : PX.AdmitsBumpFunctions) {N : B.One → ℝ}
+theorem _root_.Polyfold.lemma_5_3_3 (hbump : PX.AdmitsBumpFunctions) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N)
     {x : X} (_hx : x ∈ PX.smoothSet) {e : Y} (he : e ∈ B.toMPolyfold0.smoothSet) (hex : P e = x)
     {ε : ℝ} (hε : 0 < ε) {U : Set X} (hU : IsOpen U) (hxU : x ∈ U) :
@@ -991,7 +991,7 @@ theorem _root_.Polyfold.lemma_5_11 (hbump : PX.AdmitsBumpFunctions) {N : B.One �
     change N (tt x) < N y₀ + ε
     rw [httx]; linarith⟩
   -- the bump function
-  obtain ⟨β, hβ, hβ01, hβx, hβs, -⟩ := proposition_5_30 hbump (hU.inter hGo) ⟨hxU, hxG⟩
+  obtain ⟨β, hβ, hβ01, hβx, hβs, -⟩ := proposition_5_5_3 hbump (hU.inter hGo) ⟨hxU, hxG⟩
   have hβsrc : tsupport β ⊆ c.φ.source := fun y hy => (hβs hy).2.1
   refine ⟨he1, cutoffSection c β τ, isScPlusSection_cutoffSection hc hβ hβsrc hτ, ?_, ?_, ?_⟩
   · -- `s(x) = e`

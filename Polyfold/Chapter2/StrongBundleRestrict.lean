@@ -2,18 +2,18 @@ import Polyfold.Chapter2.StrongBundleOne
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.5,
-Definitions 2.50–2.51 (strong bundle charts, atlases, their equivalence, and "an equivalence class
-of strong bundle atlases"); §2.2, Definition 2.12 (equivalence of M-polyfold atlases).
+Definitions 2.6.4–2.6.5 (preprint 2.50–2.51) (strong bundle charts, atlases, their equivalence, and "an equivalence class
+of strong bundle atlases"); §2.2, Definition 2.3.3 (preprint 2.12) (equivalence of M-polyfold atlases).
 
 # Restriction of strong bundle charts; equivalence of strong bundle atlases
 
 ## The text, paraphrased
 
-(Definition 2.50) A strong bundle chart `(Φ, P⁻¹(V), K, U ◁ F)` is a homeomorphism
+(Definition 2.6.4 (preprint 2.50)) A strong bundle chart `(Φ, P⁻¹(V), K, U ◁ F)` is a homeomorphism
 `Φ : P⁻¹(V) → K` covering a homeomorphism `φ : V → O`, linear on the fibres; two charts are
 compatible if `(Φ' ∘ Φ⁻¹)[i]` are sc-diffeomorphisms for `i = 0, 1`; two strong bundle atlases are
-equivalent if their union is an atlas.  (Definition 2.51) A strong bundle is `P : Y → X` with "an
-equivalence class of strong bundle atlases".  (Definition 2.12) The same for M-polyfold atlases.
+equivalent if their union is an atlas.  (Definition 2.6.5 (preprint 2.51)) A strong bundle is `P : Y → X` with "an
+equivalence class of strong bundle atlases".  (Definition 2.3.3 (preprint 2.12)) The same for M-polyfold atlases.
 
 ## What is formalized
 
@@ -31,9 +31,9 @@ equivalence class of strong bundle atlases".  (Definition 2.12) The same for M-p
   `MChart.compatible_of_locally`.
 * `StrongBundleAtlas.equiv_iff` (equivalence is pairwise compatibility),
   `StrongBundleAtlas.Equiv.refl`, `.symm`, `.trans` and `StrongBundleAtlas.equivalence`:
-  **equivalence of strong bundle atlases is an equivalence relation** (Definition 2.51's
+  **equivalence of strong bundle atlases is an equivalence relation** (Definition 2.6.5 (preprint 2.51)'s
   "equivalence class").  Likewise `MAtlas.Equiv.trans`, `MAtlas.equivalence` for M-polyfold atlases
-  (Definition 2.12/2.13; the project had `refl` and `symm` only).
+  (Definition 2.3.3 (preprint 2.12)/2.13; the project had `refl` and `symm` only).
 * Overlaps without continuity of `P`: `StrongBundleChart.image_preimage_eq`
   (`Φ(P⁻¹(t)) = K ∩ (W × F)` for `t ⊆ V` open, `φ(t) = O ∩ W`), `isScRetract_overlap'`,
   `isScRetract_overlap_one'`.
@@ -43,7 +43,7 @@ equivalence class of strong bundle atlases".  (Definition 2.12) The same for M-p
 * That atlas equivalence is transitive (needed for "equivalence class") is not discussed in the
   text, for strong bundle atlases nor for M-polyfold atlases.  It rests on the locality of
   compatibility: near a point of `Φ(P⁻¹(V ∩ V''))` the transition `Φ'' ∘ Φ⁻¹` factors through a
-  chart `Φ'` of the middle atlas, on `[0]` and on `[1]` (Theorem 2.8 and the locality of
+  chart `Φ'` of the middle atlas, on `[0]` and on `[1]` (Theorem 2.1.15 (preprint 2.8) and the locality of
   sc-smoothness between retracts), and the `F₁`-condition of the `[1]`-transition (Findings,
   Chapter 2, item 11) passes through the factorization.
 * Nothing here uses the continuity of `P` (the text's `P` is continuous, but `StrongBundleAtlas`
@@ -71,8 +71,8 @@ namespace MAtlas
 
 variable {X : Type u} [TopologicalSpace X]
 
-/-- **Equivalence of M-polyfold atlases is transitive** (Definition 2.12; needed for "an
-equivalence class of atlases", Definition 2.13): by the locality of compatibility through the
+/-- **Equivalence of M-polyfold atlases is transitive** (Definition 2.3.3 (preprint 2.12); needed for "an
+equivalence class of atlases", Definition 2.3.4 (preprint 2.13)): by the locality of compatibility through the
 charts of the middle atlas (`MChart.compatible_of_locally`). -/
 theorem Equiv.trans {A B C : MAtlas X} (hAB : A.Equiv B) (hBC : B.Equiv C) : A.Equiv C := by
   rw [MAtlas.equiv_iff] at hAB hBC ⊢
@@ -80,7 +80,7 @@ theorem Equiv.trans {A B C : MAtlas X} (hAB : A.Equiv B) (hBC : B.Equiv C) : A.E
   exact MChart.compatible_of_locally φ ψ B.charts (fun χ hχ => hAB φ hφ χ hχ)
     (fun χ hχ => hBC χ hχ ψ hψ) fun x _ => B.cover x
 
-/-- **Equivalence of M-polyfold atlases is an equivalence relation** (Definition 2.12). -/
+/-- **Equivalence of M-polyfold atlases is an equivalence relation** (Definition 2.3.3 (preprint 2.12)). -/
 theorem equivalence : Equivalence (MAtlas.Equiv (X := X)) :=
   ⟨Equiv.refl, Equiv.symm, Equiv.trans⟩
 
@@ -94,7 +94,7 @@ variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 /-- **The restriction of a strong bundle retraction** `R(u, h) = (r(u), Γ(u, h))` on `U ◁ F` to
 `(U ∩ r⁻¹(W)) ◁ F`, `W` open: again a strong bundle retraction (its base retraction is the
-restriction `r|U ∩ r⁻¹(W)` of Proposition 2.10 (1), `ScRetraction.restrict`). -/
+restriction `r|U ∩ r⁻¹(W)` of Proposition 2.3.1 (preprint 2.10) (1), `ScRetraction.restrict`). -/
 theorem IsStrongBundleRetraction.restrict (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) {W : Set (E 0)} (hW : IsOpen W) :
     IsStrongBundleRetraction ((hR.baseRetraction hU).restrict hW).U R where
@@ -202,7 +202,7 @@ lemma isScRetract_image_preimage {t : Set X} (ht : t ⊆ c.φ.source) (hto : IsO
     IsScRetract (c.φ.model.E.prod c.F) (c.φ.model.C ×ˢ univ) (c.toPartialEquiv '' (P ⁻¹' t)) := by
   obtain ⟨W, hW, hWeq⟩ := c.φ.exists_isOpen_image_eq ht hto
   rw [c.image_preimage_eq ht hWeq]
-  exact proposition_2_10_1 c.isScRetract (hW.prod isOpen_univ)
+  exact proposition_2_3_1_one c.isScRetract (hW.prod isOpen_univ)
 
 /-- The part `Φ(P⁻¹(t))[1]` over an open `t ⊆ V` is a retract, `[1]`. -/
 lemma isScRetract_one_image_preimage {t : Set X} (ht : t ⊆ c.φ.source) (hto : IsOpen t) :
@@ -210,7 +210,7 @@ lemma isScRetract_one_image_preimage {t : Set X} (ht : t ⊆ c.φ.source) (hto :
       (strongShiftOne (c.toPartialEquiv '' (P ⁻¹' t))) := by
   obtain ⟨W, hW, hWeq⟩ := c.φ.exists_isOpen_image_eq ht hto
   rw [c.image_preimage_eq ht hWeq, strongShiftOne_inter_prod]
-  exact proposition_2_10_1 c.isScRetract_one (hW.prod isOpen_univ)
+  exact proposition_2_3_1_one c.isScRetract_one (hW.prod isOpen_univ)
 
 /-- Overlaps of strong bundle charts are retracts, `[0]`, without continuity of `P` (compare
 `StrongBundleChart.isScRetract_overlap`). -/
@@ -431,9 +431,9 @@ private theorem compatible_of_locally_aux (S : Set (StrongBundleChart PX P))
 `MChart.compatible_of_locally`): if `c` and `c'` are compatible with every chart of a family `S`
 whose domains cover `P⁻¹(V ∩ V')`, then `c` and `c'` are compatible.  Near a point of
 `Φ(P⁻¹(V ∩ V'))` the transitions factor through a chart `χ ∈ S`,
-`Φ' ∘ Φ⁻¹ = (Φ' ∘ Φ_χ⁻¹) ∘ (Φ_χ ∘ Φ⁻¹)`, on `[0]` and on `[1]` (Theorem 2.8 and the locality of
+`Φ' ∘ Φ⁻¹ = (Φ' ∘ Φ_χ⁻¹) ∘ (Φ_χ ∘ Φ⁻¹)`, on `[0]` and on `[1]` (Theorem 2.1.15 (preprint 2.8) and the locality of
 sc-smoothness, `IsScSmoothRetractMap.of_locally`); the `F₁`-condition passes through `χ`.  No
-continuity of `P` is needed.  (Implicit in Definition 2.51's "equivalence class"; round-trip
+continuity of `P` is needed.  (Implicit in Definition 2.6.5 (preprint 2.51)'s "equivalence class"; round-trip
 item V2.58.) -/
 theorem compatible_of_locally (c c' : StrongBundleChart PX P) (S : Set (StrongBundleChart PX P))
     (hc : ∀ χ ∈ S, c.Compatible χ) (hc' : ∀ χ ∈ S, χ.Compatible c')
@@ -638,7 +638,7 @@ end StrongBundleChart
 
 namespace StrongBundleAtlas
 
-/-- **Definition 2.50**: equivalence of strong bundle atlases ("their union is an atlas") is the
+/-- **Definition 2.6.4 (preprint 2.50)**: equivalence of strong bundle atlases ("their union is an atlas") is the
 pairwise compatibility of their charts. -/
 theorem equiv_iff (A B : StrongBundleAtlas PX P) :
     A.Equiv B ↔ ∀ c ∈ A.charts, ∀ c' ∈ B.charts, c.Compatible c' := by
@@ -663,7 +663,7 @@ lemma Equiv.symm {A B : StrongBundleAtlas PX P} (h : A.Equiv B) : B.Equiv A := b
   obtain ⟨D, hD⟩ := h
   exact ⟨D, hD.trans (union_comm _ _)⟩
 
-/-- **Equivalence of strong bundle atlases is transitive** (presupposed by Definition 2.51's
+/-- **Equivalence of strong bundle atlases is transitive** (presupposed by Definition 2.6.5 (preprint 2.51)'s
 "an equivalence class of strong bundle atlases"; round-trip item V2.58): a chart of `A` and a
 chart of `C` are compatible because both are compatible with the charts of `B`, which cover `Y`
 (`StrongBundleChart.compatible_of_locally`). -/
@@ -674,7 +674,7 @@ theorem Equiv.trans {A B C : StrongBundleAtlas PX P} (hAB : A.Equiv B) (hBC : B.
   exact StrongBundleChart.compatible_of_locally c c'' B.charts (fun χ hχ => hAB c hc χ hχ)
     (fun χ hχ => hBC χ hχ c'' hc'') fun y _ => B.cover y
 
-/-- **Equivalence of strong bundle atlases is an equivalence relation** (Definitions 2.50–2.51;
+/-- **Equivalence of strong bundle atlases is an equivalence relation** (Definitions 2.6.4–2.6.5 (preprint 2.50–2.51);
 round-trip item V2.58 (a)), for every `P : Y → X` (no continuity needed). -/
 theorem equivalence : Equivalence (StrongBundleAtlas.Equiv (PX := PX) (P := P)) :=
   ⟨Equiv.refl, Equiv.symm, Equiv.trans⟩

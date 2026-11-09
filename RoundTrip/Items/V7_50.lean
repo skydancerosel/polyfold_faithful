@@ -7,11 +7,11 @@ Round trip for V7_50 (Part I, Lemma 2.7 (Michael) and Proposition 2.17, p. 51).
 
 `A` is the conjunction of the types of the ten listed theorems of `Polyfold/Chapter7/Michael.lean`,
 all universes at `0` (the space `X : Type`, the index types `ι : Type`; the cover indices of
-`lemma_2_56`, `michael_tfae`, `paracompactSpace_of_closed_refinement` live in the universe of `X`,
+`lemma_2_7_3`, `michael_tfae`, `paracompactSpace_of_closed_refinement` live in the universe of `X`,
 hence in `Type`, as in `B`).
 
-* `A → B`: `B`'s Lemma 2.7 is `lemma_2_56` (its extra `[T2Space T]` is not used), `B`'s
-  Proposition 2.17 is `proposition_2_57`; both are taken from the hypothesis.
+* `A → B`: `B`'s Lemma 2.7 is `lemma_2_7_3` (its extra `[T2Space T]` is not used), `B`'s
+  Proposition 2.17 is `proposition_2_7_4`; both are taken from the hypothesis.
 * `B → A` is not proved.  `A` is strictly more general than `B`:
   - every listed theorem drops the text's Hausdorff assumption (only `RegularSpace`);
   - `paracompactSpace_of_closed_refinement` ((d) ⇒ (a) of Michael's lemma) has **no separation
@@ -36,9 +36,9 @@ open Polyfold Set
 
 /-- The ten listed theorems, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.lemma_2_56.{0} ∧
+  type_of% @Polyfold.lemma_2_7_3.{0} ∧
   type_of% @Polyfold.michael_tfae.{0} ∧
-  type_of% @Polyfold.proposition_2_57.{0, 0} ∧
+  type_of% @Polyfold.proposition_2_7_4.{0, 0} ∧
   type_of% @Polyfold.paracompactSpace_of_closed_refinement.{0} ∧
   type_of% @Polyfold.exists_closed_precise_refinement.{0, 0} ∧
   type_of% @Polyfold.paracompactSpace_iUnion.{0, 0} ∧
@@ -48,7 +48,7 @@ def A : Prop :=
   type_of% @Polyfold.paracompactSpace_of_isClosed_subset.{0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_2_56.{0}, @Polyfold.michael_tfae.{0}, @Polyfold.proposition_2_57.{0, 0},
+  ⟨@Polyfold.lemma_2_7_3.{0}, @Polyfold.michael_tfae.{0}, @Polyfold.proposition_2_7_4.{0, 0},
     @Polyfold.paracompactSpace_of_closed_refinement.{0},
     @Polyfold.exists_closed_precise_refinement.{0, 0}, @Polyfold.paracompactSpace_iUnion.{0, 0},
     @Polyfold.paracompactSpace_iUnion_of_finite.{0, 0},
@@ -60,13 +60,13 @@ theorem A_to_B : A → B := by
   refine ⟨fun T _ _ _ => h256, fun T _ _ _ ι Y hYc hYf hYu hYp => ?_⟩
   exact @h257 T _ _ ι Y hYc hYf hYu hYp
 
-#rt_check RoundTrip.V7_50.A_to_B [Polyfold.lemma_2_56, Polyfold.michael_tfae,
-  Polyfold.proposition_2_57, Polyfold.paracompactSpace_of_closed_refinement,
+#rt_check RoundTrip.V7_50.A_to_B [Polyfold.lemma_2_7_3, Polyfold.michael_tfae,
+  Polyfold.proposition_2_7_4, Polyfold.paracompactSpace_of_closed_refinement,
   Polyfold.exists_closed_precise_refinement, Polyfold.paracompactSpace_iUnion,
   Polyfold.paracompactSpace_iUnion_of_finite, Polyfold.paracompactSpace_biUnion_of_finite,
   Polyfold.paracompactSpace_union, Polyfold.paracompactSpace_of_isClosed_subset]
-#rt_overlap RoundTrip.V7_50.A_to_B [Polyfold.lemma_2_56, Polyfold.michael_tfae,
-  Polyfold.proposition_2_57, Polyfold.paracompactSpace_of_closed_refinement,
+#rt_overlap RoundTrip.V7_50.A_to_B [Polyfold.lemma_2_7_3, Polyfold.michael_tfae,
+  Polyfold.proposition_2_7_4, Polyfold.paracompactSpace_of_closed_refinement,
   Polyfold.exists_closed_precise_refinement, Polyfold.paracompactSpace_iUnion,
   Polyfold.paracompactSpace_iUnion_of_finite, Polyfold.paracompactSpace_biUnion_of_finite,
   Polyfold.paracompactSpace_union, Polyfold.paracompactSpace_of_isClosed_subset]

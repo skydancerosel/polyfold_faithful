@@ -4,28 +4,28 @@ import Polyfold.Chapter7.Basic
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.2,
-pp. 239–241: the claim after **Definition 7.11** (p. 239), **Lemma 7.2** (p. 239), **Lemma 7.3**
-(pp. 239–240), **Proposition 7.8** (pp. 240–241) and the discussion of `T_x` before
-**Definition 7.12** (p. 241).  There is no 2014 preprint of Part II; numbers and pages are the
+pp. 239–241: the claim after **Definition 7.2.1 (2017: 7.11)** (p. 307 (2017 p. 239)), **Lemma 7.2.2 (2017: 7.2)** (p. 307 (2017 p. 239)), **Lemma 7.2.3 (2017: 7.3)**
+(pp. 239–240), **Proposition 7.2.4 (2017: 7.8)** (pp. 240–241) and the discussion of `T_x` before
+**Definition 7.2.7 (2017: 7.12)** (p. 310 (2017 p. 241)).  There is no 2014 preprint of Part II; numbers and pages are the
 2017 text's.
 
 # Effective ep-groupoids and the subgroup `T_x`
 
 ## The text, paraphrased
 
-(Definition 7.11) `X` is effective if for every `x`, every `g ∈ G_x ∖ {1_x}` and every open
+(Definition 7.2.1 (2017: 7.11)) `X` is effective if for every `x`, every `g ∈ G_x ∖ {1_x}` and every open
 `𝐔(g)` there is `ψ ∈ 𝐔(g)` with `s(ψ) ≠ t(ψ)`; `x` is regular if `G_x = {1_x}`.  (p. 239) If
-`s(φ)` is regular, so is `t(φ)`; `X_reg = {x | G_x = {1_x}}`.  (Lemma 7.2) `X_reg` is open: for
+`s(φ)` is regular, so is `t(φ)`; `X_reg = {x | G_x = {1_x}}`.  (Lemma 7.2.2 (2017: 7.2)) `X_reg` is open: for
 regular `x` and `U(x)` with the natural action, every `φ : a → b` between points of `U(x)` is
 `Γ(1_x, a)`, so `b = a` and `φ = 1_a`.  "Examples show that the regular set can be empty."
-(Lemma 7.3) Equivalent: (1) `X` is effective; (2) every open `V(x)` contains an open `U(x)` with
+(Lemma 7.2.3 (2017: 7.3)) Equivalent: (1) `X` is effective; (2) every open `V(x)` contains an open `U(x)` with
 the natural action such that `Φ : G_x → Diff_sc(U(x))` is injective.  Proof of (1) ⇒ (2) by
 contradiction: `Φ(h) = 1`, `h ≠ 1`; effectiveness gives `φ_k → h` with `s(φ_k) ≠ t(φ_k)`;
 `φ_k = Γ(h_k, s(φ_k))` with `h_k ≠ h`, after a subsequence `h_k = g`; in the limit `h = Γ(g, x)`,
 so `h = g`.  Proof of (2) ⇒ (1): `Φ(g) ≠ 1` gives `a` with `Φ(g)(a) ≠ a`, and `φ = Γ(g, a)` has
 `s(φ) ≠ t(φ)`; "by taking smaller and smaller neighborhoods `U(x)` and adapting the corresponding
-restrictions of `Γ`" one finds `φ_k → g`.  (Proposition 7.8) If `X` is effective, `X_reg` is
-open and dense.  Proof: in `U(x₀)` take `x` with `#G_x` minimal; if `#G_x > 1`, Lemma 7.3 gives
+restrictions of `Γ`" one finds `φ_k → g`.  (Proposition 7.2.4 (2017: 7.8)) If `X` is effective, `X_reg` is
+open and dense.  Proof: in `U(x₀)` take `x` with `#G_x` minimal; if `#G_x > 1`, Lemma 7.2.3 (2017: 7.3) gives
 `U(x) ⊆ U(x₀)` with `Φ` injective and, for `g ≠ 1`, a point `a` with `Φ(g)(a) ≠ a`; `G_a` is
 isomorphic to `H = {h ∈ G_x | Φ(h)(a) = a}`, so `#G_x ≤ #G_a = #H ≤ #G_x`, `H = G_x`, a
 contradiction.  (p. 241) `g ∈ G_x` acts trivially if `Φ(g) = 1` for some `U(x)` with the natural
@@ -42,10 +42,10 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   "`Φ(g) = id` on `U` only for `g = 1`").
 * **The isotropy of points of `U(x)`** (p. 241): `NaturalRep.stabilizerEquivIsotropy`
   (`{h ∈ G_x | Φ(h)(a) = a} ≅ G_a`, `h ↦ Γ(h, a)`), `NaturalRep.subset_regularSet`.
-* **Lemma 7.2**: `lemma_7_2`.
-* **Lemma 7.3**: `lemma_7_3`; (1) ⇒ (2) for *every* natural representation:
+* **Lemma 7.2.2 (2017: 7.2)**: `lemma_7_2_2`.
+* **Lemma 7.2.3 (2017: 7.3)**: `lemma_7_2_3`; (1) ⇒ (2) for *every* natural representation:
   `IsEffective.eq_one`, `isEffective_iff_forall_naturalRep`.
-* **Proposition 7.8**: `proposition_7_8`; its converse (not in the text):
+* **Proposition 7.2.4 (2017: 7.8)**: `proposition_7_2_4`; its converse (not in the text):
   `isEffective_of_dense_regularSet`, `isEffective_iff_dense_regularSet`.
 * **`T_x`** (p. 241): `NaturalRep.actsTrivially_iff` (for every `R`: `g ∈ T_x` iff `Φ(g) = id` near
   `x`), `mem_trivialSet_of_section`, `mem_trivialSet_iff_eventually` (intrinsically: `g ∈ T_x` iff
@@ -55,18 +55,18 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   `trivialSubgroup x` (carrier `trivialSet x`), `mem_trivialSubgroup`, `coe_trivialSubgroup`, the
   instance `trivialSubgroup_normal`; `normalClosure_trivialSet` and `effIsotropyEquiv`
   (`EffIsotropy x = G_x/T_x`); `NaturalRep.mem_trivialSet_of_val_eq_Γ` (`Γ(g, y) ∈ T_y`, used in
-  the proof of Proposition 7.9, p. 242); **`T_x` along a morphism**: `isotropyConj_mem_trivialSet`,
+  the proof of Proposition 7.2.10 (2017: 7.9), p. 313 (2017 p. 242)); **`T_x` along a morphism**: `isotropyConj_mem_trivialSet`,
   `isotropyConj_mem_trivialSet_iff`, `map_isotropyConj_trivialSubgroup` (`φ T_x φ⁻¹ = T_y`);
   `isEffective_iff_trivialSubgroup_eq_bot`.
 * Satisfiability: `trivialSubgroup_trivial`.
 
 ## Reading
 
-* **Lemma 7.2** uses `Γ(1_x, a) = 1_a`, which needs `U(x)` connected (`NaturalRep.Γ_one`,
+* **Lemma 7.2.2 (2017: 7.2)** uses `Γ(1_x, a) = 1_a`, which needs `U(x)` connected (`NaturalRep.Γ_one`,
   `NaturalAction.lean`; PLAN II.6, 3).  The lemma holds for *every* natural representation at a
   regular `x`: `NaturalRep.subset_regularSet`.  "Examples show that the regular set can be empty"
   is not formalized here (`ℤ/3 × ℝ ⇉ ℝ` with the trivial action, PLAN II.5, a W5 witness).
-* **Lemma 7.3.**  "`Φ : G_x → Diff_sc(U(x))` is injective" is stated as `Φ(g) = id` on `U` only
+* **Lemma 7.2.3 (2017: 7.3).**  "`Φ : G_x → Diff_sc(U(x))` is injective" is stated as `Φ(g) = id` on `U` only
   for `g = 1`; `NaturalRep.injective_Φ_iff` shows that this is the injectivity of
   `g ↦ Φ(g)|_U`, and `NaturalRep.kerΦ_eq_bot_iff`, `kerΦ_eq_bot_iff_injective` that it is the
   injectivity of the homomorphism `G_x → Perm(U)`.  Since `Diff_sc(U) ⊆ Perm(U)`, this is the
@@ -78,13 +78,13 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   `Γ`"; they agree with it on the smaller `U(x)` by the uniqueness on connected sets
   (`NaturalRep.Γ_eqOn`), which is what the proof uses.  One application of (2) suffices: for a
   given open `𝐔(g)` we apply (2) to `V = {y ∈ U₀ | Γ₀(g, y) ∈ 𝐔(g)}`.
-* **Proposition 7.8.**  The minimum of `#G_y` is taken over the given open set itself; the
+* **Proposition 7.2.4 (2017: 7.8).**  The minimum of `#G_y` is taken over the given open set itself; the
   natural representation `U(x₀)` of the text is not needed.  Only "`#G_a = #H < #G_x`" is used,
   via `NaturalRep.stabilizerEquivIsotropy` (a group isomorphism, as the text says, though a
   bijection would do).  The converse (`isEffective_iff_dense_regularSet`) is not in the text: if
   `X_reg` is dense and `g ≠ 1`, a regular `a` near `x` with `Γ(g, a)` in a given `𝐔(g)` has
   `Γ(g, a) ≠ 1_a = Γ(1, a)`, so `s ≠ t` there.
-* **`T_x` (p. 241).**  `T_x` is the union over all natural representations (Definition 7.12,
+* **`T_x` (p. 241).**  `T_x` is the union over all natural representations (Definition 7.2.7 (2017: 7.12),
   `EpGroupoid.trivialSet`).  Since sc-smooth maps are not analytic, `Φ(g) = id` near `x` does not
   give `Φ(g) = id` on a connected `U(x)`; the kernel of `Φ` may depend on `U(x)`, which is why the
   text says "for small `U(x)`".  For example (not formalized: it needs a dimension-jumping
@@ -94,28 +94,28 @@ subgroup `T_x` of the elements acting trivially, a normal subgroup as a kernel.
   `eventually_Φ_eq_of_actsTrivially` and `exists_naturalRep_shrink`), and there is a neighbourhood
   `N` of `x` such that `ker Φ = T_x` for **every** natural representation with `U ⊆ N`
   (`exists_mem_nhds_trivialSet_iff`; `N` is the common fixed set in `U₀` of the elements of `T_x`
-  for one `R₀`, a neighbourhood of `x` since `G_x` is finite, Proposition 7.4).  The text's
+  for one `R₀`, a neighbourhood of `x` since `G_x` is finite, Proposition 7.1.12 (2017: 7.4)).  The text's
   "acting trivially on `U(x)`" is read so.  That `T_x` is a subgroup and normal is then the
   kernel argument of the text.  The text writes "`Φ : Gx → Diffsc (U(x)`" with a parenthesis
   missing (possible misprint).
 * **`T_x` intrinsically** (not in the text): `g ∈ T_x` iff `s = t` on a neighbourhood of `g` in
-  `𝐗` (`mem_trivialSet_iff_eventually`); so Definition 7.11 says exactly `T_x = {1_x}`
+  `𝐗` (`mem_trivialSet_iff_eventually`); so Definition 7.2.1 (2017: 7.11) says exactly `T_x = {1_x}`
   (`isEffective_iff_trivialSubgroup_eq_bot`).
-* **`T_x` at nearby points**: the proof of Proposition 7.9 (pp. 242–243) uses "`Γ(g, s(ψ'))`
+* **`T_x` at nearby points**: the proof of Proposition 7.2.10 (2017: 7.9) (pp. 242–243) uses "`Γ(g, s(ψ'))`
   belongs to `T_{s(ψ')}`" for `g ∈ T_x = ker Φ`; this is `NaturalRep.mem_trivialSet_of_val_eq_Γ`.
 * **`T_x` along a morphism** (not stated in the text; the composition of `X_R`, Proposition 7.10,
   needs `φ ∘ T_x = T_y ∘ φ`): for `φ : x → y` and `g ∈ T_x`, the
   map `z ↦ θ(z) ∘ Γ(g, s θ(z)) ∘ θ(z)⁻¹`, `θ = (t|𝐔(φ))⁻¹`, is a continuous section of `s` with
   `t = s` near `y` through `φ g φ⁻¹`; by `mem_trivialSet_of_section` (uniqueness of sections of
-  `s` on connected sets) `φ g φ⁻¹ ∈ T_y`.  Its continuity uses condition (4) of Definition 7.3 in
+  `s` on connected sets) `φ g φ⁻¹ ∈ T_y`.  Its continuity uses condition (4) of Definition 7.1.3 (2017: 7.3) in
   the sheet form (`isScSmoothCompSheet`), twice.
-* **Hypotheses** (PLAN II.5, 5): `IsEffective` (Proposition 7.8, `IsEffective.eq_one`) holds for
+* **Hypotheses** (PLAN II.5, 5): `IsEffective` (Proposition 7.2.4 (2017: 7.8), `IsEffective.eq_one`) holds for
   the trivial ep-groupoid (`isEffective_trivial`, vacuously: all `G_x` are trivial;
   `trivialSubgroup_trivial`).  A non-vacuous witness (`ℤ/2 ⋉ ℝ` by reflection) needs a finite
   group action as an ep-groupoid (`G × U` from `Discrete.lean`) and is not cheap here; it belongs
   to `NonVacuity.lean` (W5).  The "for every natural representation" of
   `isEffective_iff_forall_naturalRep` is equivalent to `IsEffective`, and natural representations
-  exist (Theorem 7.1).  The hypotheses of `mem_trivialSet_of_section` are met by `k = Γ(g, ·)`
+  exist (Theorem 7.1.13 (2017: 7.1)).  The hypotheses of `mem_trivialSet_of_section` are met by `k = Γ(g, ·)`
   (`NaturalRep.mem_trivialSet_of_val_eq_Γ`); "`X_reg` dense" by the trivial ep-groupoid
   (`regularSet_trivial`).  No hypothesis "for all charts" is added.
 * No other possible misprint was found on pp. 239–241.
@@ -134,7 +134,7 @@ universe u
 variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] (X : EpGroupoid Obj Mor)
 
-/-! ### The claim after Definition 7.11 -/
+/-! ### The claim after Definition 7.2.1 (2017: 7.11) -/
 
 /-- **(p. 239)** "If `φ ∈ 𝐗` and `s(φ)` is a regular object, the same has to be true for
 `t(φ)`." -/
@@ -216,7 +216,7 @@ def stabilizerEquivIsotropy (a : R.U) :
     rw [hh'] at hm
     exact hm.symm)
 
-/-- **Lemma 7.2, for every natural representation**: if `x` is regular, so is every point of
+/-- **Lemma 7.2.2 (2017: 7.2), for every natural representation**: if `x` is regular, so is every point of
 `U(x)`. -/
 theorem subset_regularSet (hx : X.IsRegular x) : R.U ⊆ X.regularSet := fun a ha k => by
   obtain ⟨h, hh, -⟩ := R.existsUnique_Γ k.val (by rw [k.src_val]; exact ha)
@@ -226,17 +226,17 @@ theorem subset_regularSet (hx : X.IsRegular x) : R.U ⊆ X.regularSet := fun a h
 
 end NaturalRep
 
-/-! ### Lemma 7.2 -/
+/-! ### Lemma 7.2.2 (2017: 7.2) -/
 
-/-- **Lemma 7.2 (openness of the regular set)**: `X_reg` is open. -/
-theorem lemma_7_2 : IsOpen X.regularSet := isOpen_iff_forall_mem_open.2 fun x hx => by
-  obtain ⟨R, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ x)
+/-- **Lemma 7.2.2 (2017: 7.2) (openness of the regular set)**: `X_reg` is open. -/
+theorem lemma_7_2_2 : IsOpen X.regularSet := isOpen_iff_forall_mem_open.2 fun x hx => by
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ x)
   exact ⟨R.U, R.subset_regularSet hx, R.isOpen_U, R.mem_U⟩
 
-/-! ### Lemma 7.3 -/
+/-! ### Lemma 7.2.3 (2017: 7.3) -/
 
 variable {X} in
-/-- **Lemma 7.3, (1) ⇒ (2), for every natural representation**: if `X` is effective, `Φ(g) = id`
+/-- **Lemma 7.2.3 (2017: 7.3), (1) ⇒ (2), for every natural representation**: if `X` is effective, `Φ(g) = id`
 on `U` only for `g = 1`. -/
 theorem IsEffective.eq_one (hX : X.IsEffective) {x : Obj} (R : X.NaturalRep x)
     {g : X.Isotropy x} (hg : ∀ y ∈ R.U, R.Φ g y = y) : g = 1 := by
@@ -248,13 +248,13 @@ theorem IsEffective.eq_one (hX : X.IsEffective) {x : Obj} (R : X.NaturalRep x)
   rw [R.src_Γ g y hy, R.tgt_Γ g y hy, hg y hy] at hψ
   exact hψ rfl
 
-/-- **Lemma 7.3**: `X` is effective iff (2) every open `V ∋ x` contains the `U` of a natural
+/-- **Lemma 7.2.3 (2017: 7.3)**: `X` is effective iff (2) every open `V ∋ x` contains the `U` of a natural
 representation of `G_x` with `Φ : G_x → Diff_sc(U)` injective. -/
-theorem lemma_7_3 : X.IsEffective ↔ ∀ x, ∀ V : Set Obj, IsOpen V → x ∈ V →
+theorem lemma_7_2_3 : X.IsEffective ↔ ∀ x, ∀ V : Set Obj, IsOpen V → x ∈ V →
     ∃ R : X.NaturalRep x, R.U ⊆ V ∧ ∀ g, (∀ y ∈ R.U, R.Φ g y = y) → g = 1 := by
-  refine ⟨fun h x V hV hx => (X.theorem_7_1 x hV hx).imp fun R hR => ⟨hR, fun _ => h.eq_one R⟩,
+  refine ⟨fun h x V hV hx => (X.theorem_7_1_13 x hV hx).imp fun R hR => ⟨hR, fun _ => h.eq_one R⟩,
     fun h x g hg W hW hgW => ?_⟩
-  obtain ⟨R₀, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ x)
+  obtain ⟨R₀, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ x)
   have hUo : IsOpen (R₀.U ∩ R₀.Γ g ⁻¹' W) :=
     (R₀.continuousOn_Γ g).isOpen_inter_preimage R₀.isOpen_U hW
   have hxU : x ∈ R₀.U ∩ R₀.Γ g ⁻¹' W := ⟨R₀.mem_U, by rw [mem_preimage, R₀.Γ_self]; exact hgW⟩
@@ -268,24 +268,24 @@ theorem lemma_7_3 : X.IsEffective ↔ ∀ x, ∀ V : Set Obj, IsOpen V → x ∈
   rw [R.src_Γ g a ha, R.tgt_Γ g a ha]
   exact Ne.symm hga
 
-/-- **Lemma 7.3 for every natural representation**: `X` is effective iff `Φ` is injective for
+/-- **Lemma 7.2.3 (2017: 7.3) for every natural representation**: `X` is effective iff `Φ` is injective for
 every natural representation. -/
 theorem isEffective_iff_forall_naturalRep : X.IsEffective ↔
     ∀ x (R : X.NaturalRep x) g, (∀ y ∈ R.U, R.Φ g y = y) → g = 1 :=
-  ⟨fun h _ R _ => h.eq_one R, fun h => X.lemma_7_3.2 fun x _ hV hx =>
-    (X.theorem_7_1 x hV hx).imp fun R hR => ⟨hR, h x R⟩⟩
+  ⟨fun h _ R _ => h.eq_one R, fun h => X.lemma_7_2_3.2 fun x _ hV hx =>
+    (X.theorem_7_1_13 x hV hx).imp fun R hR => ⟨hR, h x R⟩⟩
 
-/-! ### Proposition 7.8 -/
+/-! ### Proposition 7.2.4 (2017: 7.8) -/
 
-/-- **Proposition 7.8**: if `X` is effective, `X_reg` is open and dense. -/
-theorem proposition_7_8 (hX : X.IsEffective) : IsOpen X.regularSet ∧ Dense X.regularSet := by
-  refine ⟨X.lemma_7_2, dense_iff_inter_open.2 fun O hO hne => ?_⟩
+/-- **Proposition 7.2.4 (2017: 7.8)**: if `X` is effective, `X_reg` is open and dense. -/
+theorem proposition_7_2_4 (hX : X.IsEffective) : IsOpen X.regularSet ∧ Dense X.regularSet := by
+  refine ⟨X.lemma_7_2_2, dense_iff_inter_open.2 fun O hO hne => ?_⟩
   -- `x ∈ O` with `#G_x` minimal (7.3)
   let f : Obj → ℕ := fun y => Nat.card (X.Isotropy y)
   have hxO : argminOn f O hne ∈ O := argminOn_mem f O hne
   refine ⟨argminOn f O hne, hxO, fun g => ?_⟩
   by_contra hg
-  obtain ⟨R, hRO⟩ := X.theorem_7_1 _ hO hxO
+  obtain ⟨R, hRO⟩ := X.theorem_7_1_13 _ hO hxO
   have hnot : ¬ ∀ y ∈ R.U, R.Φ g y = y := fun h => hg (hX.eq_one R h)
   push Not at hnot
   obtain ⟨a, ha, hga⟩ := hnot
@@ -301,11 +301,11 @@ theorem proposition_7_8 (hX : X.IsEffective) : IsOpen X.regularSet ∧ Dense X.r
   rw [Nat.card_congr (R.stabilizerEquivIsotropy a').toEquiv] at hlt
   exact not_lt_argminOn f O (hRO ha) hlt
 
-/-- **The converse of Proposition 7.8** (not in the text): if `X_reg` is dense, `X` is
+/-- **The converse of Proposition 7.2.4 (2017: 7.8)** (not in the text): if `X_reg` is dense, `X` is
 effective. -/
 theorem isEffective_of_dense_regularSet (h : Dense X.regularSet) : X.IsEffective := by
   intro x g hg W hW hgW
-  obtain ⟨R, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ x)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ x)
   obtain ⟨a, ⟨ha, haW⟩, hreg⟩ := dense_iff_inter_open.1 h _
     ((R.continuousOn_Γ g).isOpen_inter_preimage R.isOpen_U hW)
     ⟨x, R.mem_U, by rw [mem_preimage, R.Γ_self]; exact hgW⟩
@@ -318,7 +318,7 @@ theorem isEffective_of_dense_regularSet (h : Dense X.regularSet) : X.IsEffective
 
 /-- **An ep-groupoid is effective iff its regular part is dense.** -/
 theorem isEffective_iff_dense_regularSet : X.IsEffective ↔ Dense X.regularSet :=
-  ⟨fun h => (X.proposition_7_8 h).2, X.isEffective_of_dense_regularSet⟩
+  ⟨fun h => (X.proposition_7_2_4 h).2, X.isEffective_of_dense_regularSet⟩
 
 /-! ### `T_x`: germs of the natural action -/
 
@@ -342,7 +342,7 @@ of `s` over an open `D ∋ y` with `t ∘ k = id` on `D`. -/
 theorem mem_trivialSet_of_section {y : Obj} {h : X.Isotropy y} {D : Set Obj} (hD : IsOpen D)
     (hyD : y ∈ D) {k : Obj → Mor} (hk : ContinuousOn k D) (hks : ∀ z ∈ D, X.src (k z) = z)
     (hkt : ∀ z ∈ D, X.tgt (k z) = z) (hky : k y = h.val) : h ∈ X.trivialSet y := by
-  obtain ⟨R, -⟩ := X.theorem_7_1 y isOpen_univ (mem_univ y)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 y isOpen_univ (mem_univ y)
   refine R.actsTrivially_iff.2 ?_
   have hyC : y ∈ connectedComponentIn (D ∩ R.U) y := mem_connectedComponentIn ⟨hyD, R.mem_U⟩
   have hC := connectedComponentIn_subset (D ∩ R.U) y
@@ -391,7 +391,7 @@ representation with `U ⊆ N`. -/
 theorem exists_mem_nhds_trivialSet_iff (x : Obj) :
     ∃ N ∈ 𝓝 x, ∀ R : X.NaturalRep x, R.U ⊆ N →
       ∀ g, g ∈ X.trivialSet x ↔ ∀ y ∈ R.U, R.Φ g y = y := by
-  obtain ⟨R₀, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ x)
+  obtain ⟨R₀, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ x)
   have hev : ∀ᶠ y in 𝓝 x, ∀ g, g ∈ X.trivialSet x → R₀.Φ g y = y := by
     refine Filter.eventually_all.2 fun g => ?_
     by_cases hg : g ∈ X.trivialSet x
@@ -408,7 +408,7 @@ of a natural representation with `ker Φ = T_x`. -/
 theorem exists_naturalRep_trivialSet_iff (x : Obj) {V : Set Obj} (hV : IsOpen V) (hx : x ∈ V) :
     ∃ R : X.NaturalRep x, R.U ⊆ V ∧ ∀ g, g ∈ X.trivialSet x ↔ ∀ y ∈ R.U, R.Φ g y = y := by
   obtain ⟨N, hN, hNR⟩ := X.exists_mem_nhds_trivialSet_iff x
-  obtain ⟨R, hRU⟩ := X.theorem_7_1 x (isOpen_interior.inter hV)
+  obtain ⟨R, hRU⟩ := X.theorem_7_1_13 x (isOpen_interior.inter hV)
     ⟨mem_interior_iff_mem_nhds.2 hN, hx⟩
   exact ⟨R, fun y hy => (hRU hy).2, hNR R fun y hy => interior_subset (hRU hy).1⟩
 
@@ -421,7 +421,7 @@ def trivialSubgroup (x : Obj) : Subgroup (X.Isotropy x) where
     obtain ⟨R, -, hR⟩ := X.exists_naturalRep_trivialSet_iff x isOpen_univ (mem_univ x)
     exact ⟨R, fun y hy => by rw [R.Φ_mul g h y hy, (hR h).1 hh y hy, (hR g).1 hg y hy]⟩
   one_mem' := by
-    obtain ⟨R, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ x)
+    obtain ⟨R, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ x)
     exact X.one_mem_trivialSet R
   inv_mem' {g} hg := by
     obtain ⟨R, hR⟩ := hg
@@ -455,7 +455,7 @@ theorem normalClosure_trivialSet (x : Obj) :
     Subgroup.normalClosure (X.trivialSet x) = X.trivialSubgroup x :=
   Subgroup.normalClosure_eq_self (X.trivialSubgroup x)
 
-/-- **Definition 7.13**: `EffIsotropy x = G_x ⧸ normalClosure(T_x)` is `G_x/T_x`. -/
+/-- **Definition 7.2.15 (2017: 7.13)**: `EffIsotropy x = G_x ⧸ normalClosure(T_x)` is `G_x/T_x`. -/
 def effIsotropyEquiv (x : Obj) : X.EffIsotropy x ≃* X.Isotropy x ⧸ X.trivialSubgroup x :=
   QuotientGroup.quotientMulEquivOfEq (X.normalClosure_trivialSet x)
 
@@ -475,7 +475,7 @@ namespace NaturalRep
 variable {X} {x : Obj} (R : X.NaturalRep x)
 
 /-- **`Γ(g, y) ∈ T_y`** for `g` acting trivially on `U` and `y ∈ U` (used in the proof of
-Proposition 7.9, p. 242: "the morphism `Γ(g, s(ψ'))` belongs to `T_{s(ψ')}`"). -/
+Proposition 7.2.10 (2017: 7.9), p. 313 (2017 p. 242): "the morphism `Γ(g, s(ψ'))` belongs to `T_{s(ψ')}`"). -/
 theorem mem_trivialSet_of_val_eq_Γ {g : X.Isotropy x} (hg : ∀ z ∈ R.U, R.Φ g z = z) {y : Obj}
     (hy : y ∈ R.U) {h : X.Isotropy y} (hh : h.val = R.Γ g y) : h ∈ X.trivialSet y :=
   X.mem_trivialSet_of_section R.isOpen_U hy (R.continuousOn_Γ g) (R.src_Γ g)
@@ -510,7 +510,7 @@ private theorem exists_conj_section {x y : Obj} {φ : Mor} (hx : X.src φ = x) (
   refine ⟨D, hDo, hyD, fun z => X.comp (S.tgtInv z)
     (X.comp (R.Γ g (X.src (S.tgtInv z))) (X.inv (S.tgtInv z))), ?_, fun z hz => ?_,
     fun z hz => ?_, ?_⟩
-  · -- continuity, from Definition 7.3 (4) in the sheet form, twice
+  · -- continuity, from Definition 7.1.3 (2017: 7.3) (4) in the sheet form, twice
     have hF₁ := (R.isScSmoothOn_comp_Γ_tgt g).continuousOn
     have hF₂ := (X.isScSmoothCompSheet S.srcInv S.carrier S.srcSet hσ).continuousOn
     have hψ : ContinuousOn (fun z => X.inv (S.tgtInv z)) D :=

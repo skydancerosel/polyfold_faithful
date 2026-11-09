@@ -6,12 +6,12 @@ import RoundTrip.Blind.V8_44
 
 `A` is the conjunction of the types of the six listed theorems, universes at `0`:
 `MPolyfold.levelVal_tangentProj_mem_smoothSet`, `EpGroupoid.mem_nonEffectivePart_tangent`,
-`EpGroupoid.proposition_8_1_16_2021` (`X.IsZhou → X.TangentZhouReflect → TX.IsZhou`),
+`EpGroupoid.proposition_8_1_16` (`X.IsZhou → X.TangentZhouReflect → TX.IsZhou`),
 `EpGroupoid.tangentMor_trivial`, `EpGroupoid.tangentZhouReflect_trivial` and
-`EpGroupoid.Examples.proposition_8_1_16_2021_point` (no universe parameters).  The listed
+`EpGroupoid.Examples.proposition_8_1_16_point` (no universe parameters).  The listed
 `EpGroupoid.TangentZhouReflect` is a definition (vocabulary).
 
-* `B → A` (proved): `proposition_8_1_16_2021` is `B` with its extra hypothesis
+* `B → A` (proved): `proposition_8_1_16` is `B` with its extra hypothesis
   `TangentZhouReflect` dropped; the point example is `B` at `pointEpGroupoid` (with the non-item
   `isZhou_trivial`).  The other four conjuncts are lemmas/witnesses, not consequences of `B`;
   they are re-proved outright (copies of short proofs from non-item lemmas).
@@ -29,18 +29,18 @@ open Polyfold Set Function Topology Filter
 def A : Prop :=
   (type_of% @Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.mem_nonEffectivePart_tangent.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_8_1_16_2021.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_8_1_16.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tangentMor_trivial.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.tangentZhouReflect_trivial.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.Examples.proposition_8_1_16_2021_point)
+  (type_of% @Polyfold.EpGroupoid.Examples.proposition_8_1_16_point)
 
 theorem A_holds : A :=
   ⟨@Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet.{0},
     @Polyfold.EpGroupoid.mem_nonEffectivePart_tangent.{0},
-    @Polyfold.EpGroupoid.proposition_8_1_16_2021.{0},
+    @Polyfold.EpGroupoid.proposition_8_1_16.{0},
     @Polyfold.EpGroupoid.tangentMor_trivial.{0},
     @Polyfold.EpGroupoid.tangentZhouReflect_trivial.{0},
-    @Polyfold.EpGroupoid.Examples.proposition_8_1_16_2021_point⟩
+    @Polyfold.EpGroupoid.Examples.proposition_8_1_16_point⟩
 
 /-! ### Outright re-proofs of the lemma/witness conjuncts (not consequences of `B`) -/
 
@@ -85,17 +85,17 @@ theorem B_to_A : B → A :=
 
 /-! ### `A → B`: not proved
 
-`A`'s `proposition_8_1_16_2021` concludes `TX.IsZhou` only under `TangentZhouReflect X`, which `B`
+`A`'s `proposition_8_1_16` concludes `TX.IsZhou` only under `TangentZhouReflect X`, which `B`
 does not provide; deriving it from `X.IsZhou` (or outright) is the unformalized second-tangent
 step of the text's proof. -/
 
 #rt_check RoundTrip.V8_44.B_to_A [Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet,
-  Polyfold.EpGroupoid.mem_nonEffectivePart_tangent, Polyfold.EpGroupoid.proposition_8_1_16_2021,
+  Polyfold.EpGroupoid.mem_nonEffectivePart_tangent, Polyfold.EpGroupoid.proposition_8_1_16,
   Polyfold.EpGroupoid.tangentMor_trivial, Polyfold.EpGroupoid.tangentZhouReflect_trivial,
-  Polyfold.EpGroupoid.Examples.proposition_8_1_16_2021_point]
+  Polyfold.EpGroupoid.Examples.proposition_8_1_16_point]
 #rt_overlap RoundTrip.V8_44.B_to_A [Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet,
-  Polyfold.EpGroupoid.mem_nonEffectivePart_tangent, Polyfold.EpGroupoid.proposition_8_1_16_2021,
+  Polyfold.EpGroupoid.mem_nonEffectivePart_tangent, Polyfold.EpGroupoid.proposition_8_1_16,
   Polyfold.EpGroupoid.tangentMor_trivial, Polyfold.EpGroupoid.tangentZhouReflect_trivial,
-  Polyfold.EpGroupoid.Examples.proposition_8_1_16_2021_point]
+  Polyfold.EpGroupoid.Examples.proposition_8_1_16_point]
 
 end RoundTrip.V8_44

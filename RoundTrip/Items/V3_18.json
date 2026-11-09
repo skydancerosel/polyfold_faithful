@@ -5,9 +5,9 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = lemma_3_16 ∧ IsScFredholmGerm.sectionAdd (universes u v of the latter at 0; at HEAD the latter is the germ-reading statement). B's (1) s̃ = s on O and (2) R(r(u), s̃(u)) = s(r(u)) are lemma_3_16 (from the hypothesis) applied to the principal part ι∘ŝ of the sc⁺-section (section condition from IsScPlusSection.mem) plus injectivity of ι : F₁ → F₀. B's regularity clause (s̃ = s∘r is an sc⁺-section of U ◁ F → U) is in no statement of A — the project proves it only inside proofs (the hlift step of sectionAdd) — and is re-proved here from the sc-calculus (Definition 2.7 with ScRetraction.id, baseRetraction, IsScSmooth.snd/scPair). B ⇒ A fails genuinely: A's lemma_3_16 holds for an ARBITRARY s : E₀ → F₀ with only the section condition (no regularity, values in F₀), while B only covers sc⁺-sections; and IsScFredholmGerm.sectionAdd is the germ part of Theorem 3.15 (filling germ g + ŝ∘r via Lemma 3.17, sc-Fredholm germs over an M-polyfold), which B does not mention.",
+ "why": "A = lemma_3_1_19 ∧ IsScFredholmGerm.sectionAdd (universes u v of the latter at 0; at HEAD the latter is the germ-reading statement). B's (1) s̃ = s on O and (2) R(r(u), s̃(u)) = s(r(u)) are lemma_3_1_19 (from the hypothesis) applied to the principal part ι∘ŝ of the sc⁺-section (section condition from IsScPlusSection.mem) plus injectivity of ι : F₁ → F₀. B's regularity clause (s̃ = s∘r is an sc⁺-section of U ◁ F → U) is in no statement of A — the project proves it only inside proofs (the hlift step of sectionAdd) — and is re-proved here from the sc-calculus (Definition 2.7 with ScRetraction.id, baseRetraction, IsScSmooth.snd/scPair). B ⇒ A fails genuinely: A's lemma_3_1_19 holds for an ARBITRARY s : E₀ → F₀ with only the section condition (no regularity, values in F₀), while B only covers sc⁺-sections; and IsScFredholmGerm.sectionAdd is the germ part of Theorem 3.15 (filling germ g + ŝ∘r via Lemma 3.17, sc-Fredholm germs over an M-polyfold), which B does not mention.",
  "B_issue": null,
- "overlap": "A_to_B: 159 shared project theorems (HEAD), all sc-calculus glue for the regularity of s̃ (IsScSmooth.comp/scPair/snd, theorem_1_21', proposition_1_19, IsScSmoothRetractMap.comp_isScSmooth, baseRetraction proof fields) — the same steps as the hlift step inside the project's sectionAdd proofs, redone; no banned theorem. B_to_A not proved.",
+ "overlap": "A_to_B: 159 shared project theorems (HEAD), all sc-calculus glue for the regularity of s̃ (IsScSmooth.comp/scPair/snd, theorem_1_3_1', proposition_1_2_4, IsScSmoothRetractMap.comp_isScSmooth, baseRetraction proof fields) — the same steps as the hlift step inside the project's sectionAdd proofs, redone; no banned theorem. B_to_A not proved.",
  "uses_hypothesis": {
   "A_to_B": true,
   "B_to_A": false
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "Only IsScFredholmGerm.sectionAdd changed (now the germ reading); A_to_B uses only lemma_3_16 and still checks unchanged. Result unchanged: A_stronger."
+  "note": "Only IsScFredholmGerm.sectionAdd changed (now the germ reading); A_to_B uses only lemma_3_1_19 and still checks unchanged. Result unchanged: A_stronger."
  }
 }

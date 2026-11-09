@@ -23,7 +23,7 @@ hypotheses of (1)), and the witness `proposition_10_1_10_hypotheses` (point ep-g
   `proposition_10_1_10_two` evaluated at `|p|`.
 * `B_to_A`: `B` needs (LR) on both sides; from (LR) on one side the other follows by the non-item
   Proposition 10.1.9 (`EpFunctor.proposition_10_1_9`).  The smallness `R.U ⊆ O` of A's (1) is
-  recovered by shrinking: Theorem 7.1.13 (`theorem_7_1`) gives a natural representation inside
+  recovered by shrinking: Theorem 7.1.13 (`theorem_7_1_13`) gives a natural representation inside
   `O ∩ R.U`, on which `α` is still sc-smooth.  (2) by quotient induction.  The witness is
   re-proved outright (`IsEquivalence.id`, `isSLR_pointEP`).
 -/
@@ -86,7 +86,7 @@ theorem one' {F G : EpFunctor X Y} (hF : F.IsEquivalence) (hG : G.IsEquivalence)
       ∀ z ∈ R.U, Y.src (α z) = F.obj z ∧ Y.tgt (α z) = G.obj z := by
   obtain ⟨R, α, hα, hst⟩ := (B' hB hF hG hFG hX).1 x
   -- shrink `R.U` into `O` (Theorem 7.1.13)
-  obtain ⟨R', hR'⟩ := X.theorem_7_1 x (hO.inter R.isOpen_U) ⟨hxO, R.mem_U⟩
+  obtain ⟨R', hR'⟩ := X.theorem_7_1_13 x (hO.inter R.isOpen_U) ⟨hxO, R.mem_U⟩
   exact ⟨R', fun u hu => (hR' hu).1, α, hα.mono R'.isOpen_U fun u hu => (hR' hu).2,
     fun z hz => hst z (hR' hz).2⟩
 

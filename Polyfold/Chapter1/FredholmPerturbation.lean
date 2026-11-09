@@ -1,7 +1,7 @@
 import Polyfold.Basic
 
 /-!
-Infrastructure for Hofer–Wysocki–Zehnder, Part I, §1.4.1 (the proof of Proposition 1.10), which
+Infrastructure for Hofer–Wysocki–Zehnder, Part I, §1.4.1 (the proof of Proposition 1.1.11 (preprint 1.10)), which
 opens with "Since `S : E_m → F_m` is compact for every level, the operator `T + S : E_m → F_m` is
 Fredholm for every `m`" — the classical stability of Fredholm operators under compact
 perturbations, which Mathlib (v4.33.1) does not have.

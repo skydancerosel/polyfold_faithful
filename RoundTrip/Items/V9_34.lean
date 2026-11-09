@@ -19,7 +19,7 @@ sheets of such data are manifolds with boundary with corners.
   tame induced structures) gives `B`'s data, with `Φ(g)⁻¹ = Φ(g⁻¹)` as the inverse.
 * "⇐" is not proved: `B`'s natural action (`IsNatAction`) does not ask `U(x)` to be connected,
   and the project's `NaturalRep` does.  From `B`'s data one gets a project structure by passing
-  to a connected `U' ⊆ U(x)` (Theorem 7.1, `theorem_7_1`; properness passes to open subsets,
+  to a connected `U' ⊆ U(x)` (Theorem 7.1, `theorem_7_1_13`; properness passes to open subsets,
   `HasPropernessProperty.mono`; `LocalBranchingStructure.restrict`).  The sheets `Mᵢ ∩ U'` must
   then have tame induced structures, i.e. a tame induced structure restricts to open pieces,
   which the project does not have as a lemma.  This direction is believed true; it is proof
@@ -101,7 +101,7 @@ theorem isTameBranched_indicator_copy (n : ℕ) (p : Fin n → ℝ) :
   have hyp : y = p := by
     rw [supp_indicator_singleton] at hy; exact hy
   subst hyp
-  obtain ⟨R, -⟩ := theorem_7_1 (trivial (rnPolyfold n)) y isOpen_univ (mem_univ y)
+  obtain ⟨R, -⟩ := theorem_7_1_13 (trivial (rnPolyfold n)) y isOpen_univ (mem_univ y)
   let B := (localBranchingStructure_indicator n y).restrict R.isOpen_U R.mem_U (subset_univ _)
   exact ⟨{ toLocalBranchingStructure := B
            rep := R

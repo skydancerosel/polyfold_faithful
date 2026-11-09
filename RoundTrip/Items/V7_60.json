@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A (universes 0) is the conjunction of proposition_7_13 and its alias IsProperSubset.isClosed, both 'X.IsProperSubset Q -> IsClosed Q' in the object space; B is the same statement with all binders explicit. Both directions are one-line re-applications of the hypothesis; same definitions on both sides.",
+ "why": "A (universes 0) is the conjunction of proposition_7_5_9 and its alias IsProperSubset.isClosed, both 'X.IsProperSubset Q -> IsClosed Q' in the object space; B is the same statement with all binders explicit. Both directions are one-line re-applications of the hypothesis; same definitions on both sides.",
  "B_issue": null,
  "overlap": "0 shared project theorems in either direction.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

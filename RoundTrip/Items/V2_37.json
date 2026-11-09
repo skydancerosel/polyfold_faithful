@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "Same notions on both sides (T_xO = range Dr(x), E_x = minimalSubspaceWith T x, quotDim, d_O = degIndex of LocalModel.toMPolyfold); the project's reducedTangentSpaceWith is T_xO ⊓ E_x, and quotDim A (A ⊓ B) = quotDim A B, so A ⇒ B is theorem_2_31_retract applied at the level-1 lift x₁ of B's smooth point (unchanged with the larger A). B ⇒ A fails for a genuine reason: the Theorem 2.31 conjuncts of A are stated for points x ∈ O₁ (level 1), while the text and B only treat smooth points x ∈ O_∞; restricted to smooth points, theorem_2_31_retract does follow from B (B_to_retract_smooth, rt_check OK). The other conjuncts (M-polyfold form with d_X(x), germ forms IsDiffeoGerm.quotDim_le / degIndexWith_le_of_germ, scDeriv_restrict) are more general proof-internal statements, and the added remark_2_28_isPartialQuadrant (C_xO is a partial quadrant in T_xO at smooth points, via Flor's theorem) is a different statement about the partial cone that B, a dimension inequality, does not touch.",
+ "why": "Same notions on both sides (T_xO = range Dr(x), E_x = minimalSubspaceWith T x, quotDim, d_O = degIndex of LocalModel.toMPolyfold); the project's reducedTangentSpaceWith is T_xO ⊓ E_x, and quotDim A (A ⊓ B) = quotDim A B, so A ⇒ B is theorem_2_4_12_retract applied at the level-1 lift x₁ of B's smooth point (unchanged with the larger A). B ⇒ A fails for a genuine reason: the Theorem 2.31 conjuncts of A are stated for points x ∈ O₁ (level 1), while the text and B only treat smooth points x ∈ O_∞; restricted to smooth points, theorem_2_4_12_retract does follow from B (B_to_retract_smooth, rt_check OK). The other conjuncts (M-polyfold form with d_X(x), germ forms IsDiffeoGerm.quotDim_le / degIndexWith_le_of_germ, scDeriv_restrict) are more general proof-internal statements, and the added remark_2_4_8_isPartialQuadrant (C_xO is a partial quadrant in T_xO at smooth points, via Flor's theorem) is a different statement about the partial cone that B, a dimension inequality, does not touch.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved); B_to_retract_smooth uses only the definitions quotDim/reducedTangentSpaceWith and the glue lemma quotDim_inf_self.",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "A gained remark_2_28_isPartialQuadrant (Remark 2.28's partial quadrant, refuting the text's negative claim). A_to_B is unaffected and re-checked; B_to_A still fails, now also because B says nothing about the structure of C_xO. Relation unchanged (A_stronger)."
+  "note": "A gained remark_2_4_8_isPartialQuadrant (Remark 2.28's partial quadrant, refuting the text's negative claim). A_to_B is unaffected and re-checked; B_to_A still fails, now also because B says nothing about the structure of C_xO. Relation unchanged (A_stronger)."
  }
 }

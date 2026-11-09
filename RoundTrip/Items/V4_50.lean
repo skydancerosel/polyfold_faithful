@@ -3,7 +3,7 @@ import RoundTrip.Check
 import RoundTrip.Blind.V4_50
 
 /-!
-Round trip for V4_50 (Theorem 4.22).  `A` is the type of `Polyfold.MPolyfold.theorem_4_22`
+Round trip for V4_50 (Theorem 4.22).  `A` is the type of `Polyfold.MPolyfold.theorem_4_2_11_preprint`
 (universe `0`).
 
 Neither direction is proved; the parts of B that `A` does give are proved as `A_to_B23`
@@ -27,9 +27,9 @@ Neither direction is proved; the parts of B that `A` does give are proved as `A_
 namespace RoundTrip.V4_50
 open Polyfold
 
-def A : Prop := type_of% @Polyfold.MPolyfold.theorem_4_22.{0}
+def A : Prop := type_of% @Polyfold.MPolyfold.theorem_4_2_11_preprint.{0}
 
-theorem A_holds : A := @Polyfold.MPolyfold.theorem_4_22.{0}
+theorem A_holds : A := @Polyfold.MPolyfold.theorem_4_2_11_preprint.{0}
 
 /-- Statements (2) and (3) of B (on a common open `U ∋ x`). -/
 def B23 : Prop :=
@@ -49,6 +49,6 @@ theorem A_to_B23 : A → B23 := by
   exact ⟨U, hU, hxU, ⟨hS.isSubMPolyfold, this, fun a ha => (h2 a ha).symm⟩,
     fun a ha => h3 a ⟨ha.2, ha.1⟩⟩
 
-#rt_check RoundTrip.V4_50.A_to_B23 [Polyfold.MPolyfold.theorem_4_22]
+#rt_check RoundTrip.V4_50.A_to_B23 [Polyfold.MPolyfold.theorem_4_2_11_preprint]
 
 end RoundTrip.V4_50

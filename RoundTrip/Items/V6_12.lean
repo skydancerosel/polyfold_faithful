@@ -3,7 +3,7 @@ import RoundTrip.Check
 import RoundTrip.Blind.V6_12
 
 /-!
-Round trip for V6_12 (Lemma 6.11).  `A` is the type of `lemma_6_11` (universes at `0`); the maps
+Round trip for V6_12 (Lemma 6.11).  `A` is the type of `proposition_6_4_10` (universes at `0`); the maps
 `projSeqJ`, `projSeqPhi`, `projSeqPi` and `projSeq` are vocabulary.
 
 The maps agree definitionally with B's: `jMap`/`projSeqJ` are `Submodule.inclusion` of the same
@@ -23,9 +23,9 @@ namespace RoundTrip.V6_12
 open Polyfold
 
 /-- The project's statement (Lemma 6.11), universes at `0`. -/
-def A : Prop := type_of% @Polyfold.lemma_6_11.{0, 0}
+def A : Prop := type_of% @Polyfold.proposition_6_4_10.{0, 0}
 
-theorem A_holds : A := @Polyfold.lemma_6_11
+theorem A_holds : A := @Polyfold.proposition_6_4_10
 
 set_option linter.unusedSectionVars false
 
@@ -51,7 +51,7 @@ theorem A_to_B : A → B := by
   intro hA E F _ _ _ _ _ _ T _ P hP
   exact hA ((isGLP_iff T P).1 hP)
 
-#rt_check RoundTrip.V6_12.A_to_B [Polyfold.lemma_6_11]
-#rt_check RoundTrip.V6_12.piMap_eq [Polyfold.lemma_6_11]
+#rt_check RoundTrip.V6_12.A_to_B [Polyfold.proposition_6_4_10]
+#rt_check RoundTrip.V6_12.piMap_eq [Polyfold.proposition_6_4_10]
 
 end RoundTrip.V6_12

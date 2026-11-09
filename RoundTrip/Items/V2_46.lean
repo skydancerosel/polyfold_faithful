@@ -5,7 +5,7 @@ import RoundTrip.Blind.V2_46
 /-! Round trip for V2_46 (Lemma 2.40: the faces of a tame retract are the connected components of
 the sets `f ∩ O`, `f` an extended face; components through `x` agree iff `f = f'`).
 
-`A` is the conjunction of the types of `Polyfold.lemma_2_40`, `lemma_2_40_injective`,
+`A` is the conjunction of the types of `Polyfold.lemma_2_5_12`, `lemma_2_5_12_injective`,
 `closure_connectedComponentIn_faceStratum`, `connectedComponentIn_coordHyper_eq`,
 `LocalModel.isFace_toMPolyfold_iff` and `subset_of_relClopen_of_isPreconnected` (universe `0`).
 `ScRetraction.IsRetractFace` is a definition (vocabulary).
@@ -17,11 +17,11 @@ has a single vanishing `T`-coordinate `i`; near `p`, `C` is the half-space `{λ_
 `{λ'_j ≥ 0}`, so `ker λ_i = ker λ'_j`).  B's extended faces range over all presentations; A's are
 the hyperplanes of one presentation `T`.
 
-`A → B`: the first claim is `isFace_toMPolyfold_iff` + `lemma_2_40` (the latter for the
-presentation of `f`, `r` being tame for all presentations); the second is `lemma_2_40_injective`
+`A → B`: the first claim is `isFace_toMPolyfold_iff` + `lemma_2_5_12` (the latter for the
+presentation of `f`, `r` being tame for all presentations); the second is `lemma_2_5_12_injective`
 after moving `f'` to the presentation of `f` (`coordHyper_indep`).
 
-`B → A`: `lemma_2_40`, `lemma_2_40_injective`, `closure_connectedComponentIn_faceStratum` and
+`B → A`: `lemma_2_5_12`, `lemma_2_5_12_injective`, `closure_connectedComponentIn_faceStratum` and
 `connectedComponentIn_coordHyper_eq` are derived from `B` (for the retract `r(U)`, tame by
 `IsTameWith.isTame`), through `coordHyper_indep`, the injectivity of `i ↦ f_i`, and `d_C = 1` on
 the stratum `S`.  `isFace_toMPolyfold_iff` (the transfer of faces between the subtype `↥O` and
@@ -35,14 +35,14 @@ open Polyfold Set Filter Topology
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.lemma_2_40) ∧ (type_of% @Polyfold.lemma_2_40_injective) ∧
+  (type_of% @Polyfold.lemma_2_5_12) ∧ (type_of% @Polyfold.lemma_2_5_12_injective) ∧
     (type_of% @Polyfold.closure_connectedComponentIn_faceStratum) ∧
     (type_of% @Polyfold.connectedComponentIn_coordHyper_eq) ∧
     (type_of% @Polyfold.LocalModel.isFace_toMPolyfold_iff) ∧
     (type_of% @Polyfold.subset_of_relClopen_of_isPreconnected.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_2_40, @Polyfold.lemma_2_40_injective,
+  ⟨@Polyfold.lemma_2_5_12, @Polyfold.lemma_2_5_12_injective,
     @Polyfold.closure_connectedComponentIn_faceStratum,
     @Polyfold.connectedComponentIn_coordHyper_eq, @Polyfold.LocalModel.isFace_toMPolyfold_iff,
     @Polyfold.subset_of_relClopen_of_isPreconnected.{0}⟩
@@ -238,7 +238,7 @@ variable (hB : B)
 include hB
 
 /-- **Lemma 2.40** in the project's form, from `B`. -/
-theorem B_lemma_2_40 : type_of% @Polyfold.lemma_2_40 := by
+theorem B_lemma_2_40 : type_of% @Polyfold.lemma_2_5_12 := by
   intro E n W C R T hT hR G
   have hO : IsScRetract E C R.retract := ⟨R, rfl⟩
   have htame : IsTameRetract E C R.retract := ⟨R, rfl, hR.isTame hT⟩
@@ -277,7 +277,7 @@ theorem B_lemma_2_40 : type_of% @Polyfold.lemma_2_40 := by
     exact hface
 
 /-- The second statement of Lemma 2.40 in the project's form, from `B`. -/
-theorem B_lemma_2_40_injective : type_of% @Polyfold.lemma_2_40_injective := by
+theorem B_lemma_2_40_injective : type_of% @Polyfold.lemma_2_5_12_injective := by
   intro E n W C R T hT hR x hx i j hxi h
   have hO : IsScRetract E C R.retract := ⟨R, rfl⟩
   have htame : IsTameRetract E C R.retract := ⟨R, rfl, hR.isTame hT⟩
@@ -318,13 +318,13 @@ end FromB
 theorem B_to_A : B → A := fun hB =>
   ⟨B_lemma_2_40 hB, B_lemma_2_40_injective hB, B_closure hB, B_cc hB, isFace_iff', relClopen'⟩
 
-#rt_check RoundTrip.V2_46.A_to_B [Polyfold.lemma_2_40, Polyfold.lemma_2_40_injective,
+#rt_check RoundTrip.V2_46.A_to_B [Polyfold.lemma_2_5_12, Polyfold.lemma_2_5_12_injective,
   Polyfold.closure_connectedComponentIn_faceStratum, Polyfold.connectedComponentIn_coordHyper_eq,
   Polyfold.LocalModel.isFace_toMPolyfold_iff, Polyfold.subset_of_relClopen_of_isPreconnected]
-#rt_check RoundTrip.V2_46.B_to_A [Polyfold.lemma_2_40, Polyfold.lemma_2_40_injective,
+#rt_check RoundTrip.V2_46.B_to_A [Polyfold.lemma_2_5_12, Polyfold.lemma_2_5_12_injective,
   Polyfold.closure_connectedComponentIn_faceStratum, Polyfold.connectedComponentIn_coordHyper_eq,
   Polyfold.LocalModel.isFace_toMPolyfold_iff, Polyfold.subset_of_relClopen_of_isPreconnected]
-#rt_overlap RoundTrip.V2_46.B_to_A [Polyfold.lemma_2_40, Polyfold.lemma_2_40_injective,
+#rt_overlap RoundTrip.V2_46.B_to_A [Polyfold.lemma_2_5_12, Polyfold.lemma_2_5_12_injective,
   Polyfold.closure_connectedComponentIn_faceStratum, Polyfold.connectedComponentIn_coordHyper_eq,
   Polyfold.LocalModel.isFace_toMPolyfold_iff, Polyfold.subset_of_relClopen_of_isPreconnected]
 

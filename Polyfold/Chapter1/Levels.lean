@@ -2,7 +2,7 @@ import Polyfold.Chapter1.Properties
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.2,
-Propositions 1.16–1.19 and Corollary 1.20 on all levels (the proofs are those of [25] = arXiv
+Propositions 1.2.1–1.2.4 (preprint 1.16–1.19) and Corollary 1.2.5 (preprint 1.20) on all levels (the proofs are those of [25] = arXiv
 1002.3381, §2.1, Propositions 2.1–2.4 and Corollary 2.5, as written out in `Exposition/Chapter1.md`
 §3.4).
 
@@ -10,15 +10,15 @@ Propositions 1.16–1.19 and Corollary 1.20 on all levels (the proofs are those 
 
 ## The text, paraphrased
 
-(Proposition 1.16) An sc⁰ map `f : U → F` on a relatively open subset `U` of a partial quadrant is
+(Proposition 1.2.1 (preprint 1.16)) An sc⁰ map `f : U → F` on a relatively open subset `U` of a partial quadrant is
 sc¹ iff (1) for every `m ≥ 1` the induced map `f : U_m → F_{m−1}` is `C¹`, so that
 `df : U_m → L(E_m, F_{m−1})` is continuous, and (2) for every `m ≥ 1` and `x ∈ U_m` the operator
 `df(x) : E_m → F_{m−1}` extends to a bounded `Df(x) : E_{m−1} → F_{m−1}` such that
-`U_m ⊕ E_{m−1} → F_{m−1}`, `(x, h) ↦ Df(x)h`, is continuous.  (Proposition 1.17) If `f : U → V` is
-sc^k then `f : U¹ → V¹` is sc^k.  (Proposition 1.18) If `f : U → V` is sc^k then `f : U_{m+k} → V_m`
-is `C^k` for every `m`, and `f : U_{m+l} → V_m` is `C^l` for `0 ≤ l ≤ k`.  (Proposition 1.19) If
+`U_m ⊕ E_{m−1} → F_{m−1}`, `(x, h) ↦ Df(x)h`, is continuous.  (Proposition 1.2.2 (preprint 1.17)) If `f : U → V` is
+sc^k then `f : U¹ → V¹` is sc^k.  (Proposition 1.2.3 (preprint 1.18)) If `f : U → V` is sc^k then `f : U_{m+k} → V_m`
+is `C^k` for every `m`, and `f : U_{m+l} → V_m` is `C^l` for `0 ≤ l ≤ k`.  (Proposition 1.2.4 (preprint 1.19)) If
 `f : U_{m+l} → F_m` is `C^{l+1}` for all `m ≥ 0` and `0 ≤ l ≤ k`, then `f` is sc^{k+1}.
-(Corollary 1.20) If `f : U → ℝᴺ` has `f : U_l → ℝᴺ` of class `C^{l+1}` for `0 ≤ l ≤ k`, then `f` is
+(Corollary 1.2.5 (preprint 1.20)) If `f : U → ℝᴺ` has `f : U_l → ℝᴺ` of class `C^{l+1}` for `0 ≤ l ≤ k`, then `f` is
 sc^{k+1}.
 
 ## What is formalized
@@ -33,9 +33,9 @@ sc^{k+1}.
 * `Polyfold.levelDeriv D m x : E_m → F_m` (`x ∈ E_{m+1}`): the level-`m` operator of `Df(x)`,
   i.e. the unique bounded `T` with `ι_m ∘ T = Df(x) ∘ ι_m`; for an sc¹ map it exists for
   `x ∈ U_{m+1}` (`IsSc1With.toBase_levelDeriv`), and `(x, h) ↦ Df(x)h` is continuous on
-  `U_{m+1} × E_m` (`IsSc1With.continuousOn_levelDeriv`): this is condition (3) of Definition 1.14
-  on level `m`, and condition (2) of Proposition 1.16.
-* **Proposition 1.16** (`Polyfold.proposition_1_16`): for an sc⁰ map `f` on an sc-domain `U`,
+  `U_{m+1} × E_m` (`IsSc1With.continuousOn_levelDeriv`): this is condition (3) of Definition 1.1.15 (preprint 1.14)
+  on level `m`, and condition (2) of Proposition 1.2.1 (preprint 1.16).
+* **Proposition 1.2.1 (preprint 1.16)** (`Polyfold.proposition_1_2_1`): for an sc⁰ map `f` on an sc-domain `U`,
   `f` is sc¹ iff there is a family `Dl m x ∈ L(E_m, F_m)` (`x ∈ U_{m+1}`) with
   `Polyfold.IsSc1Levels U f Dl`: `f : U_{m+1} → F_m` is differentiable at every point of
   `U_{m+1}` with derivative `Dl m x|_{E_{m+1}}`, and `(x, h) ↦ Dl m x h` is continuous on
@@ -46,52 +46,52 @@ sc^{k+1}.
   integral `f(x+h) − f(x) = ∫₀¹ Df(x+τh)h dτ` in `F_m`).  The direction (⇐) uses that the
   extensions `Dl m x` are the restrictions of `Dl 0 (x)` (`IsSc1Levels.toBase_apply`, Lemma 3.H
   of the exposition), which the text does not state.
-* **Proposition 1.17** (`Polyfold.IsSck.shift`, `Polyfold.IsScSmooth.shift`): if `f` is sc^k on
+* **Proposition 1.2.2 (preprint 1.17)** (`Polyfold.IsSck.shift`, `Polyfold.IsScSmooth.shift`): if `f` is sc^k on
   `U` then `f : U¹ → F¹` (the level-`1` map `levelMap f 1` between the shifted spaces) is sc^k on
   `U¹ = U_1`; for sc¹ with the level operators `levelDeriv D 1` (`IsSc1With.shift`).
-* **Proposition 1.18** (`Polyfold.IsSck.contDiffOn_levels`, `IsSck.contDiffOn_levels_of_le`,
+* **Proposition 1.2.3 (preprint 1.18)** (`Polyfold.IsSck.contDiffOn_levels`, `IsSck.contDiffOn_levels_of_le`,
   `IsSck.contDiffOn_base`): if `f` is sc^k then `f : U_{m+k} → F_m` is `C^k` for every `m`,
   `f : U_{m+l} → F_m` is `C^l` for `l ≤ k`, and in particular `f : U_k → F_0` is `C^k`.  The proof
   is an induction on `k` over all sc-domains: the derivative of `f : U_{m+k+1} → F_m` is
   `x ↦ Df(x)|_{E_{m+k+1}}`, which is `C^k` into `L(E_{m+k+1}, F_m)` by the compact-open lemma
   applied to the second component `(x, h) ↦ Df(x)h` of the level-`(m+k)` tangent map (which is
   `C^k` by the induction hypothesis for `Tf`).
-* **Proposition 1.19** (`Polyfold.proposition_1_19`) and **Corollary 1.20**
-  (`Polyfold.corollary_1_20`, `Polyfold.corollary_1_20_base`) for all `k`, under the **stronger**
+* **Proposition 1.2.4 (preprint 1.19)** (`Polyfold.proposition_1_2_4`) and **Corollary 1.2.5 (preprint 1.20)**
+  (`Polyfold.corollary_1_2_5`, `Polyfold.corollary_1_2_5_base`) for all `k`, under the **stronger**
   hypothesis that `f : U_m → F_m` is `C^{k+1}` for every `m`; `Polyfold.IsScSmooth.of_contDiffOn_levels`:
   a map that is `C^∞` on every level is sc-smooth, and
   `Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional`: a `C^∞` map into a finite-dimensional
   space is sc-smooth.  **Under the text's hypothesis** (`f : U_{m+l} → F_m` of class `C^{l+1}` for
   all `m` and `l ≤ k`) both are proved in `Polyfold/Chapter1/LevelsWeak.lean`
-  (`Polyfold.proposition_1_19_text`, `Polyfold.corollary_1_20_text`, and the sc-smooth versions
+  (`Polyfold.proposition_1_2_4_text`, `Polyfold.corollary_1_2_5_text`, and the sc-smooth versions
   `IsScSmooth.of_contDiffOn_levels_text`, `IsScSmooth.of_contDiffOn_levels_finiteDimensional_text`),
   by the induction `(S_k)` of [25, Proposition 2.4] on the elementary maps
   `(x, h₁, …, h_j) ↦ d^j f(x)(h₁, …, h_j)`.
 
-## The two hypotheses of Proposition 1.19
+## The two hypotheses of Proposition 1.2.4 (preprint 1.19)
 
 * With the stronger hypothesis the induction of this file is immediate: the level maps of `Tf`
   are `(x, h) ↦ (f(x), d(f_m)(x)h)`, which are `C^k` when the `f_m` are `C^{k+1}` (for `k = 0`
-  the two hypotheses agree, `proposition_1_19_zero`).  With the text's hypothesis `Tf` does not
+  the two hypotheses agree, `proposition_1_2_4_zero`).  With the text's hypothesis `Tf` does not
   satisfy the hypothesis with `k − 1` in general (its second component is only `C^l` on
   `U_{m+l+1} × E_{m+l} → F_m`), and the induction has to carry the description `(S_k)` of the
   components of `T^{k+1}f`; this is done in `LevelsWeak.lean`.
 
 ## What the text leaves implicit, and the choices made
 
-* Proposition 1.16 (2) writes one operator `Df(x)` for all `m`; here `Dl m x` is a family, and the
+* Proposition 1.2.1 (preprint 1.16) (2) writes one operator `Df(x)` for all `m`; here `Dl m x` is a family, and the
   compatibility `ι_m ∘ Dl m x = Dl 0 (x) ∘ ι_m` is proved (`IsSc1Levels.toBase_apply`) from the
   uniqueness of derivatives on `U_{m+1}` and the density of `E_{m+1}` in `E_m`; it is what makes
   the direction (⇐), called "clear" in [25], work.
 * The hypotheses "`U` relatively open in a partial quadrant" of the text enter only through
   `IsScDomain E U` (open-in-convex levels with unique differentiability), as in the chain rule;
   it is needed for the segments `x + τh ⊆ U_{m+1}` of the integral representation and for the
-  uniqueness of derivatives.  Proposition 1.17 for sc⁰ needs no hypothesis on `U`.
+  uniqueness of derivatives.  Proposition 1.2.2 (preprint 1.17) for sc⁰ needs no hypothesis on `U`.
 * In [25, Proposition 2.1] the integral `∫₀¹ Df(x+τh)h dτ` is first formed in `F_0` and then
   "the integrand is continuous into `F_m`"; here the Bochner integral is formed in `F_m` directly,
   and its image under `ι_m : F_m → F_0` is identified with `f(x+h) − f(x)` by the fundamental
   theorem of calculus for the `C¹` map `f : U_1 → F_0`.
-* [25, Proposition 2.3] proves `f : U_k → F_0` is `C^k` and then invokes Proposition 2.2 for the
+* [25, Proposition 2.3] proves `f : U_k → F_0` is `C^k` and then invokes Proposition 2.1.2 (preprint 2.2) for the
   general level; here the general level is proved directly, with a compatible level-lowering
   operator `ρ : E_n → E_m` (`n = m + k`) as a parameter (`IsSck.contDiffOn_levels'`), which avoids
   identifying `(E^m)_k` with `E_{m+k}`.
@@ -359,7 +359,7 @@ lemma IsSc0.levelMap_shift (hf : IsSc0 E F U f) {m : ℕ} {x : E (m + 1)}
   rw [← F.shift_toBase, hf.toBase_levelMap hx,
     hf.toBase_levelMap (E.mem_lvlSet_shift_toBase.2 hx), E.shift_toBase]
 
-/-- **Proposition 1.17 for sc⁰**: if `f : U → F` is sc⁰ then `f : U¹ → F¹` is sc⁰ (no hypothesis
+/-- **Proposition 1.2.2 (preprint 1.17) for sc⁰**: if `f : U → F` is sc⁰ then `f : U¹ → F¹` is sc⁰ (no hypothesis
 on `U`). -/
 theorem IsSc0.shift (hf : IsSc0 E F U f) :
     IsSc0 E.shift F.shift (E.lvlSet U 1) (levelMap f 1) where
@@ -384,7 +384,7 @@ lemma IsScDomain.shift (hU : IsScDomain E U) : IsScDomain E.shift (E.lvlSet U 1)
 open scoped Classical in
 /-- The **level-`m` operator** of a derivative family `D` (`D x = Df(x) : E₀ → F₀` for `x ∈ E₁`) at
 `x ∈ E_{m+1}`: the continuous linear `T : E_m → F_m` with `ι_m ∘ T = Df(x) ∘ ι_m`, i.e. the operator
-`Df(x) : E_m → F_m` of Proposition 1.16 (2), when it exists (a junk value otherwise; it is unique
+`Df(x) : E_m → F_m` of Proposition 1.2.1 (preprint 1.16) (2), when it exists (a junk value otherwise; it is unique
 by the injectivity of `ι_m`). -/
 def levelDeriv (D : E 1 → E 0 →L[ℝ] F 0) (m : ℕ) (x : E (m + 1)) : E m →L[ℝ] F m :=
   if h : ∃ T : E m →L[ℝ] F m, ∀ v, F.toBase m (T v) = D (E.shift.toBase m x) (E.toBase m v) then
@@ -405,7 +405,7 @@ namespace IsSc1With
 
 /-- For an sc¹ map and `x ∈ U_{m+1}`, the level-`m` operator `Df(x) : E_m → F_m` exists: it is the
 second component of the level-`m` tangent map `(x, h) ↦ (f(x), Df(x)h)`, which is linear and
-continuous in `h` (condition (3) of Definition 1.14). -/
+continuous in `h` (condition (3) of Definition 1.1.15 (preprint 1.14)). -/
 theorem exists_levelDeriv (h : IsSc1With U f D) {m : ℕ} {x : E (m + 1)}
     (hx : x ∈ E.lvlSet U (m + 1)) :
     ∃ T : E m →L[ℝ] F m, ∀ v, F.toBase m (T v) = D (E.shift.toBase m x) (E.toBase m v) := by
@@ -450,7 +450,7 @@ theorem levelMap_tangentMapWith (h : IsSc1With U f D) {m : ℕ} {p : E.tangent m
   rw [← F.shift_toBase, h.isSc0.toBase_levelMap hp,
     h.isSc0.toBase_levelMap (E.mem_lvlSet_shift_toBase.2 hp), E.shift_toBase]
 
-/-- **Proposition 1.16 (2)** (condition (3) of Definition 1.14 on level `m`): `(x, h) ↦ Df(x)h` is
+/-- **Proposition 1.2.1 (preprint 1.16) (2)** (condition (3) of Definition 1.1.15 (preprint 1.14) on level `m`): `(x, h) ↦ Df(x)h` is
 continuous `U_{m+1} × E_m → F_m`. -/
 theorem continuousOn_levelDeriv (h : IsSc1With U f D) (m : ℕ) :
     ContinuousOn (fun p : E (m + 1) × E m => levelDeriv D m p.1 p.2)
@@ -462,7 +462,7 @@ theorem continuousOn_levelDeriv (h : IsSc1With U f D) (m : ℕ) :
     rw [ScBanach.lvlSet_tangentSet]; exact hp
   rw [Function.comp_apply, h.levelMap_tangentMapWith hp']
 
-/-- **Proposition 1.16 (1), continuity of `df`**: `x ↦ Df(x)|_{E_{m+1}}` is continuous
+/-- **Proposition 1.2.1 (preprint 1.16) (1), continuity of `df`**: `x ↦ Df(x)|_{E_{m+1}}` is continuous
 `U_{m+1} → L(E_{m+1}, F_m)` in the operator norm (the compactness argument of
 [25, Proposition 2.1], here the compact-open lemma for `k = 0`). -/
 theorem continuousOn_levelDeriv_clm (h : IsSc1With U f D) (m : ℕ) :
@@ -470,7 +470,7 @@ theorem continuousOn_levelDeriv_clm (h : IsSc1With U f D) (m : ℕ) :
   continuousOn_clm_comp_of_isCompactOperator (A := levelDeriv D m) (h.continuousOn_levelDeriv m)
     (E.incl_isCompactOperator m)
 
-/-- **Proposition 1.16 (1), differentiability** (the level-raising step of [25, Proposition 2.1]):
+/-- **Proposition 1.2.1 (preprint 1.16) (1), differentiability** (the level-raising step of [25, Proposition 2.1]):
 for an sc¹ map on an sc-domain, `f : U_{m+1} → F_m` is differentiable at every `x ∈ U_{m+1}`
 within `U_{m+1}`, with derivative `Df(x)|_{E_{m+1}}`.
 
@@ -587,8 +587,8 @@ theorem hasFDerivWithinAt_level (hU : IsScDomain E U) (h : IsSc1With U f D) {m :
   have := intervalIntegral.norm_integral_le_of_norm_le_const hbd
   simpa using this
 
-/-- **Proposition 1.16 (1)** for an sc¹ map: `f : U_{m+1} → F_m` is `C¹` on `U_{m+1}` for every `m`
-(Proposition 1.18 for `k = 1`). -/
+/-- **Proposition 1.2.1 (preprint 1.16) (1)** for an sc¹ map: `f : U_{m+1} → F_m` is `C¹` on `U_{m+1}` for every `m`
+(Proposition 1.2.3 (preprint 1.18) for `k = 1`). -/
 theorem contDiffOn_level (hU : IsScDomain E U) (h : IsSc1With U f D) (m : ℕ) :
     ContDiffOn ℝ 1 (levelMap f m ∘ E.incl m) (E.lvlSet U (m + 1)) := by
   rw [show (1 : WithTop ℕ∞) = 0 + 1 from rfl,
@@ -633,9 +633,9 @@ theorem levelDeriv_eq (hU : IsScDomain E U) (h : IsSc1With U f D) {m : ℕ} {x :
 
 end IsSc1With
 
-/-! ### Proposition 1.16 -/
+/-! ### Proposition 1.2.1 (preprint 1.16) -/
 
-/-- **The level conditions of Proposition 1.16** for a family of operators `Dl m x ∈ L(E_m, F_m)`,
+/-- **The level conditions of Proposition 1.2.1 (preprint 1.16)** for a family of operators `Dl m x ∈ L(E_m, F_m)`,
 `x ∈ E_{m+1}` (the text's `Df(x) : E_{m−1} → F_{m−1}`, `x ∈ U_m`, with `m − 1` written `m`):
 (1) `f : U_{m+1} → F_m` is differentiable at every `x ∈ U_{m+1}` with derivative `Dl m x|_{E_{m+1}}`
 (so `Dl m x` is the extension of `df(x)` of condition (2)), and (2) `(x, h) ↦ Dl m x h` is
@@ -652,13 +652,13 @@ namespace IsSc1Levels
 
 variable {Dl : ∀ m, E (m + 1) → E m →L[ℝ] F m}
 
-/-- Proposition 1.16 (1): `df : U_{m+1} → L(E_{m+1}, F_m)` is continuous. -/
+/-- Proposition 1.2.1 (preprint 1.16) (1): `df : U_{m+1} → L(E_{m+1}, F_m)` is continuous. -/
 theorem continuousOn_clm (h : IsSc1Levels U f Dl) (m : ℕ) :
     ContinuousOn (fun x => (Dl m x).comp (E.incl m)) (E.lvlSet U (m + 1)) :=
   continuousOn_clm_comp_of_isCompactOperator (A := Dl m) (h.continuousOn m)
     (E.incl_isCompactOperator m)
 
-/-- Proposition 1.16 (1): `f : U_{m+1} → F_m` is `C¹`. -/
+/-- Proposition 1.2.1 (preprint 1.16) (1): `f : U_{m+1} → F_m` is `C¹`. -/
 theorem contDiffOn (hU : IsScDomain E U) (h : IsSc1Levels U f Dl) (m : ℕ) :
     ContDiffOn ℝ 1 (levelMap f m ∘ E.incl m) (E.lvlSet U (m + 1)) := by
   rw [show (1 : WithTop ℕ∞) = 0 + 1 from rfl,
@@ -699,7 +699,7 @@ theorem toBase_apply (hU : IsScDomain E U) (hf : IsSc0 E F U f) (h : IsSc1Levels
     exact congrArg (Dl 0 (E.shift.toBase m x)) (E.shift_toBase m w).symm
   exact congrArg (fun T : E m →L[ℝ] F 0 => T v) h3
 
-/-- **Proposition 1.16 (⇐)**: an sc⁰ map on an sc-domain satisfying the level conditions is sc¹,
+/-- **Proposition 1.2.1 (preprint 1.16) (⇐)**: an sc⁰ map on an sc-domain satisfying the level conditions is sc¹,
 with `Df(x) = Dl 0 x`. -/
 theorem isSc1With (hU : IsScDomain E U) (hf : IsSc0 E F U f) (h : IsSc1Levels U f Dl) :
     IsSc1With U f (Dl 0) where
@@ -729,25 +729,25 @@ theorem isSc1With (hU : IsScDomain E U) (hf : IsSc0 E F U f) (h : IsSc1Levels U 
 
 end IsSc1Levels
 
-/-- **Proposition 1.16 (⇒)**: the level operators of an sc¹ map on an sc-domain satisfy the level
+/-- **Proposition 1.2.1 (preprint 1.16) (⇒)**: the level operators of an sc¹ map on an sc-domain satisfy the level
 conditions. -/
 theorem IsSc1With.isSc1Levels (hU : IsScDomain E U) (h : IsSc1With U f D) :
     IsSc1Levels U f fun m => levelDeriv D m where
   hasFDerivWithinAt _ _ hx := h.hasFDerivWithinAt_level hU hx
   continuousOn m := h.continuousOn_levelDeriv m
 
-/-- **Proposition 1.16**: an sc⁰ map `f : U → F` on an sc-domain `U` is sc¹ iff there are operators
+/-- **Proposition 1.2.1 (preprint 1.16)**: an sc⁰ map `f : U → F` on an sc-domain `U` is sc¹ iff there are operators
 `Dl m x ∈ L(E_m, F_m)` (`x ∈ U_{m+1}`) such that, for every `m`, `f : U_{m+1} → F_m` is
 differentiable with derivative `Dl m x|_{E_{m+1}}` (hence `C¹`, with `df` continuous into
 `L(E_{m+1}, F_m)`: `IsSc1Levels.contDiffOn`, `IsSc1Levels.continuousOn_clm`) and
 `(x, h) ↦ Dl m x h` is continuous on `U_{m+1} × E_m`. -/
-theorem proposition_1_16 (hU : IsScDomain E U) (hf : IsSc0 E F U f) :
+theorem proposition_1_2_1 (hU : IsScDomain E U) (hf : IsSc0 E F U f) :
     IsSc1 U f ↔ ∃ Dl : ∀ m, E (m + 1) → E m →L[ℝ] F m, IsSc1Levels U f Dl :=
   ⟨fun ⟨_, h⟩ => ⟨_, h.isSc1Levels hU⟩, fun ⟨_, h⟩ => ⟨_, h.isSc1With hU hf⟩⟩
 
-/-! ### Proposition 1.17: lifting the index -/
+/-! ### Proposition 1.2.2 (preprint 1.17): lifting the index -/
 
-/-- **Proposition 1.17 for sc¹**: if `f : U → F` is sc¹ with derivatives `Df` then `f : U¹ → F¹` is
+/-- **Proposition 1.2.2 (preprint 1.17) for sc¹**: if `f : U → F` is sc¹ with derivatives `Df` then `f : U¹ → F¹` is
 sc¹ on `U¹ = U_1`, with derivatives the level-`1` operators `Df(x) : E_1 → F_1`, `x ∈ U_2`. -/
 theorem IsSc1With.shift (hU : IsScDomain E U) (h : IsSc1With U f D) :
     IsSc1With (E := E.shift) (F := F.shift) (E.lvlSet U 1) (levelMap f 1) (levelDeriv D 1) where
@@ -763,7 +763,7 @@ theorem IsSc1With.shift (hU : IsScDomain E U) (h : IsSc1With U f D) :
       (levelMap (levelMap f 1) 1 p.1, levelDeriv D 1 p.1 p.2)
     rw [h.isSc0.levelMap_shift (E.mem_lvlSet_tangentSet.1 hp')]
 
-/-- **Proposition 1.17**: if `f : U → F` is sc^k on an sc-domain `U` then `f : U¹ → F¹` is sc^k.
+/-- **Proposition 1.2.2 (preprint 1.17)**: if `f : U → F` is sc^k on an sc-domain `U` then `f : U¹ → F¹` is sc^k.
 Induction on `k`: the tangent map of `f : U¹ → F¹` is the level-`1` map of `Tf`, on
 `T(U¹) = (TU)¹`. -/
 theorem IsSck.shift : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0},
@@ -785,18 +785,18 @@ theorem IsSck.shift : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)} {f : E 0 �
     rw [hf.1.isSc0.levelMap_shift (E.mem_lvlSet_tangentSet.1 hp'),
       IsSc1.scDeriv_eqOn h1 (hU.shift.uniqueDiffWithinAt 1) hp]
 
-/-- **Proposition 1.17 for sc-smooth maps**: `f : U → F` sc-smooth ⇒ `f : U¹ → F¹` sc-smooth. -/
+/-- **Proposition 1.2.2 (preprint 1.17) for sc-smooth maps**: `f : U → F` sc-smooth ⇒ `f : U¹ → F¹` sc-smooth. -/
 theorem IsScSmooth.shift (hU : IsScDomain E U) (hf : IsScSmooth U f) :
     IsScSmooth (E := E.shift) (F := F.shift) (E.lvlSet U 1) (levelMap f 1) :=
   fun k => (hf k).shift hU
 
-/-! ### Proposition 1.18: sc^k maps are `C^k` from `U_{m+k}` to `F_m` -/
+/-! ### Proposition 1.2.3 (preprint 1.18): sc^k maps are `C^k` from `U_{m+k}` to `F_m` -/
 
-/-- **Proposition 1.18**, with a compatible level-lowering operator `ρ : E_n → E_m`, `n = m + k`, as
+/-- **Proposition 1.2.3 (preprint 1.18)**, with a compatible level-lowering operator `ρ : E_n → E_m`, `n = m + k`, as
 a parameter: if `f` is sc^k on an sc-domain `U` then `f_m ∘ ρ : U_n → F_m` is `C^k`.
 
 Induction on `k` over all sc-domains.  For `k + 1`: `f : U_{m+k+1} → F_m` is differentiable with
-derivative `x ↦ Df(x)|_{E_{m+k+1}}` (Proposition 1.16 on level `m`, restricted); by the induction
+derivative `x ↦ Df(x)|_{E_{m+k+1}}` (Proposition 1.2.1 (preprint 1.16) on level `m`, restricted); by the induction
 hypothesis for `Tf` the map `(x, h) ↦ Df(x)h` is `C^k` on `U_{m+k+1} × E_{m+k}`, so by the
 compact-open lemma `x ↦ Df(x)|_{E_{m+k+1}}` is `C^k` into `L(E_{m+k+1}, F_m)`. -/
 theorem IsSck.contDiffOn_levels' : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0},
@@ -851,20 +851,20 @@ theorem IsSck.contDiffOn_levels' : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)
     exact congrArg (levelDeriv (scDeriv U f) m (E.shift.inclK m k x))
       ((hρ' y).symm.trans (E.incl_shift_inclK m k y))
 
-/-- **Proposition 1.18**: if `f` is sc^k on an sc-domain `U` then `f : U_{m+k} → F_m` is `C^k` for
+/-- **Proposition 1.2.3 (preprint 1.18)**: if `f` is sc^k on an sc-domain `U` then `f : U_{m+k} → F_m` is `C^k` for
 every `m`. -/
 theorem IsSck.contDiffOn_levels {k : ℕ} (hU : IsScDomain E U) (hf : IsSck k E F U f) (m : ℕ) :
     ContDiffOn ℝ k (levelMap f m ∘ E.inclK m k) (E.lvlSet U (m + k)) :=
   hf.contDiffOn_levels' hU rfl (E.inclK m k) (E.toBase_inclK m k)
 
-/-- **Proposition 1.18**, second part: if `f` is sc^k then `f : U_{m+l} → F_m` is `C^l` for
+/-- **Proposition 1.2.3 (preprint 1.18)**, second part: if `f` is sc^k then `f : U_{m+l} → F_m` is `C^l` for
 `0 ≤ l ≤ k`. -/
 theorem IsSck.contDiffOn_levels_of_le {k l : ℕ} (hl : l ≤ k) (hU : IsScDomain E U)
     (hf : IsSck k E F U f) (m : ℕ) :
     ContDiffOn ℝ l (levelMap f m ∘ E.inclK m l) (E.lvlSet U (m + l)) :=
   (hf.of_le hl).contDiffOn_levels hU m
 
-/-- **Proposition 1.18** on the base level: if `f` is sc^k then `f : U_k → F_0` is `C^k`. -/
+/-- **Proposition 1.2.3 (preprint 1.18)** on the base level: if `f` is sc^k then `f : U_k → F_0` is `C^k`. -/
 theorem IsSck.contDiffOn_base {k : ℕ} (hU : IsScDomain E U) (hf : IsSck k E F U f) :
     ContDiffOn ℝ k (f ∘ E.toBase k) (E.lvlSet U k) := by
   have := hf.contDiffOn_levels' hU (Nat.zero_add k).symm (E.toBase k) fun _ => rfl
@@ -875,24 +875,24 @@ theorem IsScSmooth.contDiffOn_levels (hU : IsScDomain E U) (hf : IsScSmooth U f)
     ContDiffOn ℝ k (levelMap f m ∘ E.inclK m k) (E.lvlSet U (m + k)) :=
   (hf k).contDiffOn_levels hU m
 
-/-! ### Proposition 1.19 and Corollary 1.20 for all `k` -/
+/-! ### Proposition 1.2.4 (preprint 1.19) and Corollary 1.2.5 (preprint 1.20) for all `k` -/
 
-/-- **Proposition 1.19** (with the hypothesis "`f : U_m → F_m` is `C^{k+1}` for every `m`", see the
+/-- **Proposition 1.2.4 (preprint 1.19)** (with the hypothesis "`f : U_m → F_m` is `C^{k+1}` for every `m`", see the
 module docstring): an sc⁰ map on an sc-domain whose level maps are `C^{k+1}` is sc^{k+1}.
 Induction on `k`: the level-`m` tangent map is `(x, h) ↦ (f(x), d f_m(x) h)` on `U_{m+1} × E_m`,
 which is `C^k` when the `f_m` are `C^{k+1}`. -/
-theorem proposition_1_19 : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0},
+theorem proposition_1_2_4 : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)} {f : E 0 → F 0},
     IsScDomain E U → IsSc0 E F U f → (∀ m, ContDiffOn ℝ (k + 1) (levelMap f m) (E.lvlSet U m)) →
       IsSck (k + 1) E F U f
   | 0, E, F, U, f, hU, hf, h => by
-    have hD := proposition_1_19_zero hU hf fun m => by simpa using h m
+    have hD := proposition_1_2_4_zero hU hf fun m => by simpa using h m
     exact ⟨hD.isSc1, hD.isSc1.tangentMap_isSc0⟩
   | k + 1, E, F, U, f, hU, hf, h => by
     have h1 : ∀ m, ContDiffOn ℝ 1 (levelMap f m) (E.lvlSet U m) := fun m =>
       (h m).of_le (by norm_cast; omega)
-    have hD := proposition_1_19_zero hU hf h1
+    have hD := proposition_1_2_4_zero hU hf h1
     have hD' := hD.isSc1.isSc1With_scDeriv
-    refine ⟨hD.isSc1, proposition_1_19 (k := k) hU.tangentSet hD.isSc1.tangentMap_isSc0 fun m => ?_⟩
+    refine ⟨hD.isSc1, proposition_1_2_4 (k := k) hU.tangentSet hD.isSc1.tangentMap_isSc0 fun m => ?_⟩
     -- the level-`m` tangent map is `(x, h) ↦ (f(x), d f_m(x) h)`
     have hTf : ∀ p ∈ E.tangent.lvlSet (E.tangentSet U) m, levelMap (tangentMap U f) m p =
         ((levelMap f (m + 1) p.1, fderivWithin ℝ (levelMap f m) (E.lvlSet U m) (E.incl m p.1) p.2) :
@@ -913,10 +913,10 @@ theorem proposition_1_19 : ∀ {k : ℕ} {E F : ScBanach} {U : Set (E 0)} {f : E
           (E.lvlSet U (m + 1) ×ˢ univ) := ((E.incl m).contDiff.comp contDiff_fst).contDiffOn
       exact (hd.comp hg fun p hp => hp.1).clm_apply contDiffOn_snd
 
-/-- **Corollary 1.20** (with the hypothesis "`f : U_m → ℝᴺ` is `C^{k+1}` for every `m`"): a map into
+/-- **Corollary 1.2.5 (preprint 1.20)** (with the hypothesis "`f : U_m → ℝᴺ` is `C^{k+1}` for every `m`"): a map into
 a finite-dimensional space (constant sc-structure) that is `C^{k+1}` on every level `U_m` is
 sc^{k+1}. -/
-theorem corollary_1_20 {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
+theorem corollary_1_2_5 {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
     [FiniteDimensional ℝ V] (hU : IsScDomain E U) {f : E 0 → (ScBanach.const V) 0}
     (h : ∀ m, ContDiffOn ℝ (k + 1) (f ∘ E.toBase m) (E.lvlSet U m)) :
     IsSck (k + 1) E (ScBanach.const V) U f := by
@@ -925,19 +925,19 @@ theorem corollary_1_20 {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedSpace 
   have hf : IsSc0 E (ScBanach.const V) U f :=
     ⟨fun m x _ => ⟨f (E.toBase m x), ScBanach.const_toBase V m _⟩,
       fun m => by rw [hlvl]; exact (h m).continuousOn⟩
-  exact proposition_1_19 hU hf fun m => by rw [hlvl]; exact h m
+  exact proposition_1_2_4 hU hf fun m => by rw [hlvl]; exact h m
 
-/-- **Corollary 1.20** from the base level: a map `f : U → ℝᴺ` of class `C^{k+1}` on `U = U_0` is
+/-- **Corollary 1.2.5 (preprint 1.20)** from the base level: a map `f : U → ℝᴺ` of class `C^{k+1}` on `U = U_0` is
 sc^{k+1} (its restrictions to the levels `U_m` are `C^{k+1}`). -/
-theorem corollary_1_20_base {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
+theorem corollary_1_2_5_base {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
     [FiniteDimensional ℝ V] (hU : IsScDomain E U) {f : E 0 → (ScBanach.const V) 0}
     (h : ContDiffOn ℝ (k + 1) f U) : IsSck (k + 1) E (ScBanach.const V) U f :=
-  corollary_1_20 hU fun m => h.comp (E.toBase m).contDiff.contDiffOn (E.mapsTo_toBase_lvlSet U m)
+  corollary_1_2_5 hU fun m => h.comp (E.toBase m).contDiff.contDiffOn (E.mapsTo_toBase_lvlSet U m)
 
 lemma natCast_add_one_le_infty (k : ℕ) : ((k : WithTop ℕ∞) + 1) ≤ ∞ := by
   exact_mod_cast le_top
 
-/-- **Sc-smoothness from classical smoothness on the levels** (Proposition 1.19 for all `k`): if
+/-- **Sc-smoothness from classical smoothness on the levels** (Proposition 1.2.4 (preprint 1.19) for all `k`): if
 `f : U → F` maps every `U_m` into `F_m` and the induced maps `f : U_m → F_m` are `C^∞`, then `f` is
 sc-smooth. -/
 theorem IsScSmooth.of_contDiffOn_levels (hU : IsScDomain E U)
@@ -947,16 +947,16 @@ theorem IsScSmooth.of_contDiffOn_levels (hU : IsScDomain E U)
   intro k
   cases k with
   | zero => exact hf
-  | succ k => exact proposition_1_19 hU hf fun m => (h m).of_le (natCast_add_one_le_infty k)
+  | succ k => exact proposition_1_2_4 hU hf fun m => (h m).of_le (natCast_add_one_le_infty k)
 
-/-- **Corollary 1.20 for sc-smoothness**: a `C^∞` map `f : U → ℝᴺ` on an sc-domain `U` (into a
+/-- **Corollary 1.2.5 (preprint 1.20) for sc-smoothness**: a `C^∞` map `f : U → ℝᴺ` on an sc-domain `U` (into a
 finite-dimensional space with its constant sc-structure) is sc-smooth. -/
 theorem IsScSmooth.of_contDiffOn_finiteDimensional {V : Type} [NormedAddCommGroup V]
     [NormedSpace ℝ V] [FiniteDimensional ℝ V] (hU : IsScDomain E U)
     {f : E 0 → (ScBanach.const V) 0} (h : ContDiffOn ℝ ∞ f U) : IsScSmooth U f := by
   intro k
   cases k with
-  | zero => exact (corollary_1_20_base (k := 0) hU (h.of_le (natCast_add_one_le_infty 0))).isSc0
-  | succ k => exact corollary_1_20_base hU (h.of_le (natCast_add_one_le_infty k))
+  | zero => exact (corollary_1_2_5_base (k := 0) hU (h.of_le (natCast_add_one_le_infty 0))).isSc0
+  | succ k => exact corollary_1_2_5_base hU (h.of_le (natCast_add_one_le_infty k))
 
 end Polyfold

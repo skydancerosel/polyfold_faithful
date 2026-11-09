@@ -5,8 +5,8 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A = proposition_4_8: IsScRetract E C O → (IsScPlusRetract E C O ↔ O ⊆ E_∞ ∧ IsScSmoothRetractMap E C O E¹ C¹ O¹ E.liftOne). Same statement as B up to glue: IsScPlusRetract ↔ B's IsScPlusRetractB (IsScPlus.iff_exists + mem_lvlSet_succ, as in V4_9/V4_11); O ⊆ E_∞ ↔ pointwise lifts (mem_smooth_iff); A states sc-smoothness of 1₀¹ for the canonical lift E.liftOne, B for every g with ι₁∘g = id on O — equivalent because IsScSmoothRetractMap only sees g on O and g∘R on R.U with R(R.U) = O (IsScSmooth.congr), and E.liftOne is such a lift once O ⊆ E₁. Both directions use the hypothesis.",
+ "why": "A = proposition_4_1_8: IsScRetract E C O → (IsScPlusRetract E C O ↔ O ⊆ E_∞ ∧ IsScSmoothRetractMap E C O E¹ C¹ O¹ E.liftOne). Same statement as B up to glue: IsScPlusRetract ↔ B's IsScPlusRetractB (IsScPlus.iff_exists + mem_lvlSet_succ, as in V4_9/V4_11); O ⊆ E_∞ ↔ pointwise lifts (mem_smooth_iff); A states sc-smoothness of 1₀¹ for the canonical lift E.liftOne, B for every g with ι₁∘g = id on O — equivalent because IsScSmoothRetractMap only sees g on O and g∘R on R.U with R(R.U) = O (IsScSmooth.congr), and E.liftOne is such a lift once O ⊆ E₁. Both directions use the hypothesis.",
  "B_issue": null,
- "overlap": "90 shared project theorems, all sc-calculus infrastructure reached through IsScSmooth.congr / IsScPlus.iff_exists (IsSck/IsSc1/IsSc0 congruence chain, scale proof fields, mem_lvlSet, mem_smooth_iff, toBase_liftOne, apply_mem_retract, IsScSmoothRetractMap.comp_isScSmooth); the substantive ingredients of proposition_4_8's proof (lemma_4_7_i, isScSmoothRetractMap_iff_exists) are not used.",
+ "overlap": "90 shared project theorems, all sc-calculus infrastructure reached through IsScSmooth.congr / IsScPlus.iff_exists (IsSck/IsSc1/IsSc0 congruence chain, scale proof fields, mem_lvlSet, mem_smooth_iff, toBase_liftOne, apply_mem_retract, IsScSmoothRetractMap.comp_isScSmooth); the substantive ingredients of proposition_4_8's proof (lemma_4_1_7_i, isScSmoothRetractMap_iff_exists) are not used.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
 }

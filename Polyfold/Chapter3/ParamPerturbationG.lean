@@ -4,21 +4,21 @@ import Polyfold.Chapter3.TameGermsAddG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-**Theorem 3.18** (parametrized perturbations; book 2017: Theorem 3.3) **in the text's germ
-reading** of Definition 3.11 (phase 2 of the germ-versus-chart work; Findings, Chapter 3, items
-300–309), with its tame form (Definition 3.51) and the linearization of the parametrized section
-used after Theorem 3.19.
+**Theorem 3.1.21 (preprint 3.18)** (parametrized perturbations; book 2017: Theorem 3.3) **in the text's germ
+reading** of Definition 3.1.11 (preprint 3.11) (phase 2 of the germ-versus-chart work; Findings, Chapter 3, items
+300–309), with its tame form (Definition 3.6.4 (preprint 3.51)) and the linearization of the parametrized section
+used after Theorem 3.1.22 (preprint 3.19).
 
 # Parametrized perturbations, germ reading
 
 ## The text, paraphrased
 
-(Before Theorem 3.18) For an sc-Fredholm section `f` of `P : Y → X`, the section
+(Before Theorem 3.1.21 (preprint 3.18)) For an sc-Fredholm section `f` of `P : Y → X`, the section
 `f̃(r, x) = ((r, x), f(x))` of the pull-back `π*(P)` along `π : ℝⁿ × X → X` "is a sc-Fredholm
 section as is readily verified"; for sc⁺-sections `s₁, …, sₙ`, `s̃(r, x) = ((r, x), Σ rᵢ sᵢ(x))` is
-an sc⁺-section, and by Theorem 3.15 `f̃ + s̃` is sc-Fredholm.  (Theorem 3.18)
+an sc⁺-section, and by Theorem 3.1.18 (preprint 3.15) `f̃ + s̃` is sc-Fredholm.  (Theorem 3.1.21 (preprint 3.18))
 `(r, x) ↦ f(x) + Σ rᵢ sᵢ(x)` is an sc-Fredholm section of `π*(P)`.  The germ data of Definition
-3.11 are germs (Definitions 3.1–3.2: sc-germs of neighbourhoods whose levels may shrink with the
+3.11 are germs (Definitions 3.1.1–3.1.2 (preprint 3.1–3.2): sc-germs of neighbourhoods whose levels may shrink with the
 level).
 
 ## What is formalized
@@ -31,11 +31,11 @@ level).
   unchanged: it is about `g − t₀` on `U`).
 * `Polyfold.StrongBundle.regularizing_paramLift`,
   `Polyfold.StrongBundle.IsScFredholmSection.param` (`f̃` is an sc-Fredholm section of `π*P` in the
-  germ reading), **`Polyfold.theorem_3_18`** (`F = f̃ + s̃` is one, by `theorem_3_15`) and
-  `Polyfold.theorem_3_18'` (no paracompactness instance arguments).
+  germ reading), **`Polyfold.theorem_3_1_21_preprint`** (`F = f̃ + s̃` is one, by `theorem_3_1_18_preprint`) and
+  `Polyfold.theorem_3_1_21'` (no paracompactness instance arguments).
 * Tame germ data: `StrongBundle.IsScFredholmGermTame.param` (the product chart of a tame chart is
   tame, `PullbackChartData.ofProd_isTame`), `StrongBundle.IsScFredholmSectionTame.param` and
-  **`Polyfold.theorem_3_18_tame`** (by `theorem_3_15_tame`).
+  **`Polyfold.theorem_3_1_21_tame`** (by `theorem_3_1_18_tame`).
 * The linearization of `F` in the product chart, which only uses that `f` is an sc-smooth section:
   `scDeriv_paramSection_of_isScSmoothSection` (the proof of `scDeriv_paramSection_wholeChart` with that
   hypothesis), and the germ-reading forms `scDeriv_paramSection`, `linAt_paramSection`,
@@ -73,7 +73,7 @@ namespace StrongBundle
 variable {B : StrongBundle PX P} {f : X → Y}
 
 /-- **The germ property of `f̃ = f ∘ π` at `(r₀, x)`, germ reading** (phase 2; the germ form of
-`IsScFredholmGermWholeChart.param`, Theorem 3.18's "readily verified"): if `(f, x)` is an sc-Fredholm germ in
+`IsScFredholmGermWholeChart.param`, Theorem 3.1.21 (preprint 3.18)'s "readily verified"): if `(f, x)` is an sc-Fredholm germ in
 the germ reading (`IsScFredholmGerm`, filling germ `g` on `G_g`, sc⁺-germ `t₀` on `G_{t₀}`), then
 so is `(f̃, (r₀, x))`, in the product chart `(r ↦ r − r₀) × φ`: the filling germ `(a, u) ↦ g(u)`
 (`PullbackChartData.ofProd_isFillingGerm`, on `ℝⁿ × G_g`), the sc⁺-germ `(a, u) ↦ t₀(u)` on
@@ -131,25 +131,25 @@ theorem IsScFredholmSection.param (hf : B.IsScFredholmSection f) :
 
 end StrongBundle
 
-/-- **Theorem 3.18 (parametrized perturbations), germ reading** (phase 2; the germ form of
-`theorem_3_18_wholeChart`): if `f` is an sc-Fredholm section of `P : Y → X` in the text's germ reading of
-Definition 3.11 (`IsScFredholmSection`) and `s₁, …, sₙ` are sc⁺-sections of `P`, then
+/-- **Theorem 3.1.21 (preprint 3.18) (parametrized perturbations), germ reading** (phase 2; the germ form of
+`theorem_3_1_21_wholeChart`): if `f` is an sc-Fredholm section of `P : Y → X` in the text's germ reading of
+Definition 3.1.11 (preprint 3.11) (`IsScFredholmSection`) and `s₁, …, sₙ` are sc⁺-sections of `P`, then
 `F(r, x) = f(x) + Σ rᵢ sᵢ(x)` is an sc-Fredholm section of `π*P : π*Y → ℝⁿ × X` in the germ
 reading: `F = f̃ + s̃` (`paramSection_eq_sectionAdd`), `f̃` is one
-(`IsScFredholmSection.param`), `s̃` is sc⁺ (`isScPlusSection_paramComb`), and Theorem 3.15 in the
-germ reading (`theorem_3_15`) applies. -/
-theorem theorem_3_18 {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSection f)
+(`IsScFredholmSection.param`), `s̃` is sc⁺ (`isScPlusSection_paramComb`), and Theorem 3.1.18 (preprint 3.15) in the
+germ reading (`theorem_3_1_18_preprint`) applies. -/
+theorem theorem_3_1_21_preprint {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSection f)
     {s : Fin n → X → Y} (hs : ∀ i, B.IsScPlusSection (s i)) :
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSection
       (paramSection f hf.isScSmooth.1 s fun i => (hs i).1) := by
   rw [paramSection_eq_sectionAdd]
-  exact theorem_3_15 hf.param (StrongBundle.isScPlusSection_paramComb hs)
+  exact theorem_3_1_18_preprint hf.param (StrongBundle.isScPlusSection_paramComb hs)
 
 omit [ParacompactSpace ((Fin n → ℝ) × X)]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
-/-- **Theorem 3.18, germ reading, with no instance argument** (phase 2; the germ form of
-`theorem_3_18'_wholeChart`): the paracompactness of `ℝⁿ × X` and of `π*Y` is supplied by Theorem 2.16. -/
-theorem theorem_3_18' {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSection f)
+/-- **Theorem 3.1.21 (preprint 3.18), germ reading, with no instance argument** (phase 2; the germ form of
+`theorem_3_1_21'_wholeChart`): the paracompactness of `ℝⁿ × X` and of `π*Y` is supplied by Theorem 2.3.10 (preprint 2.16). -/
+theorem theorem_3_1_21' {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholmSection f)
     {s : Fin n → X → Y} (hs : ∀ i, B.IsScPlusSection (s i)) :
     haveI := MPolyfold.paracompactSpace_prod (rnPolyfold n) PX
     haveI := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin n → ℝ) × X → X))
@@ -159,9 +159,9 @@ theorem theorem_3_18' {B : StrongBundle PX P} {f : X → Y} (hf : B.IsScFredholm
   have := MPolyfold.paracompactSpace_prod (rnPolyfold n) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin n → ℝ) × X → X))
     ((rnPolyfold n).prod PX) B
-  exact theorem_3_18 hf hs
+  exact theorem_3_1_21_preprint hf hs
 
-/-! ### Theorem 3.18 for tame germ data, germ reading -/
+/-! ### Theorem 3.1.21 (preprint 3.18) for tame germ data, germ reading -/
 
 namespace StrongBundle
 
@@ -201,17 +201,17 @@ theorem IsScFredholmSectionTame.param (hf : B.IsScFredholmSectionTame f) :
 
 end StrongBundle
 
-/-- **Theorem 3.18 for a tame strong bundle, germ reading** (phase 2; the germ form of
-`theorem_3_18_tame_wholeChart`, Definition 3.51): if `f` is an sc-Fredholm section with tame germ data in the
+/-- **Theorem 3.1.21 (preprint 3.18) for a tame strong bundle, germ reading** (phase 2; the germ form of
+`theorem_3_1_21_tame_wholeChart`, Definition 3.6.4 (preprint 3.51)): if `f` is an sc-Fredholm section with tame germ data in the
 germ reading (`IsScFredholmSectionTame`) and `s₁, …, sₙ` are sc⁺-sections, then
 `F(r, x) = f(x) + Σ rᵢ sᵢ(x)` is one of `π*P` (`IsScFredholmSectionTame.param` and
-`theorem_3_15_tame`). -/
-theorem theorem_3_18_tame {B : StrongBundle PX P} {f : X → Y}
+`theorem_3_1_18_tame`). -/
+theorem theorem_3_1_21_tame {B : StrongBundle PX P} {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) {s : Fin n → X → Y} (hs : ∀ i, B.IsScPlusSection (s i)) :
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX)).IsScFredholmSectionTame
       (paramSection f hf.isScSmooth.1 s fun i => (hs i).1) := by
   rw [paramSection_eq_sectionAdd]
-  exact theorem_3_15_tame hf.param (StrongBundle.isScPlusSection_paramComb hs)
+  exact theorem_3_1_18_tame hf.param (StrongBundle.isScPlusSection_paramComb hs)
 
 /-! ### The linearization of `F` in the product chart, for sc-smooth `f` -/
 
@@ -352,7 +352,7 @@ theorem scDeriv_paramSection_of_isScSmoothSection {B : StrongBundle PX P} {f : X
     ContinuousLinearMap.coe_snd', ContinuousLinearMap.coe_fst', ContinuousLinearMap.proj_apply]
 
 /-- **The linearization of `F` at the centre of the product chart, germ reading** (phase 2; the
-germ form of `scDeriv_paramSection_wholeChart`, used for transversality after Theorem 3.19):
+germ form of `scDeriv_paramSection_wholeChart`, used for transversality after Theorem 3.1.22 (preprint 3.19)):
 `D(F̂ ∘ (1 × r))(0)(δa, δu) = D(Ĝ ∘ r)(0) δu + Σ δaᵢ ŝᵢ(0)`, `Ĝ = f̂ + Σ r₀ᵢ ŝᵢ`, for `f` an
 sc-Fredholm section in the germ reading (only its sc-smoothness is used). -/
 theorem scDeriv_paramSection {B : StrongBundle PX P} {f : X → Y}
@@ -390,7 +390,7 @@ theorem linAt_paramSection {B : StrongBundle PX P} {f : X → Y}
   scDeriv_paramSection hf hs hc h0O r₀ q₀ w
 
 /-- **The text's form, germ reading** (phase 2; the germ form of `linAt_paramSection_zero_wholeChart`, after
-Theorem 3.19): at `r₀ = 0` the linearization of `F` at `(0, x)` is
+Theorem 3.1.22 (preprint 3.19)): at `r₀ = 0` the linearization of `F` at `(0, x)` is
 `(δr, ξ) ↦ f'(x)ξ + Σ δrᵢ sᵢ(x)`, in the chart form
 `Lin_F(0)(δa, δu) = Lin_f(0) δu + Σ δaᵢ ŝᵢ(0)`. -/
 theorem linAt_paramSection_zero {B : StrongBundle PX P} {f : X → Y}

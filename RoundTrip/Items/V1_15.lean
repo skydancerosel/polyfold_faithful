@@ -7,7 +7,7 @@ sc-operator at smooth points).
 
 `A` is the conjunction of the types of the theorems in the item's declaration list:
 `IsSc1Levels.continuousOn_clm`, `IsSc1Levels.contDiffOn`, `IsSc1Levels.toBase_apply`,
-`IsSc1Levels.isSc1With`, `IsSc1With.isSc1Levels`, `proposition_1_16`,
+`IsSc1Levels.isSc1With`, `IsSc1With.isSc1Levels`, `proposition_1_2_1`,
 `IsSc1With.contDiffOn_base`, `IsSc1With.scOperator_deriv` (`IsSc1Levels` is a definition, the
 vocabulary).  None has universe parameters (`ScBanach` lives in `Type`).
 
@@ -18,7 +18,7 @@ Same notions: `B`'s `levelTo f (m+1) m` is `levelMap f m ∘ E.incl m` by `rfl`;
 domains with unique differentiability, the operator-norm continuity of `df` being the compact-open
 lemma.
 
-* `A → B`: `proposition_1_16`, `IsSc1Levels.contDiffOn`, `IsSc1Levels.continuousOn_clm` and
+* `A → B`: `proposition_1_2_1`, `IsSc1Levels.contDiffOn`, `IsSc1Levels.continuousOn_clm` and
   `IsSc1With.scOperator_deriv`, on the sc-domain `U` (`IsRelOpenInQuadrant.isScDomain`).
 * `B → A` fails for a genuine reason: every conjunct of `A` is stated for an arbitrary
   `IsScDomain U` (e.g. a closed disc; `continuousOn_clm`, `contDiffOn_base`, `scOperator_deriv` even
@@ -26,7 +26,7 @@ lemma.
   `B` does not state (`toBase_apply`: the extensions are restrictions of `Dl 0`;
   `isSc1With` / `isSc1Levels`: the specific derivative families `Dl 0` and `levelDeriv D`).  `B`
   covers only relatively open subsets of partial quadrants.  On those domains the two conjuncts that
-  correspond to the text — `proposition_1_16` and `scOperator_deriv` — follow from `B`
+  correspond to the text — `proposition_1_2_1` and `scOperator_deriv` — follow from `B`
   (`B_proposition_1_16_quadrant`, `B_scOperator_deriv_quadrant`). -/
 
 namespace RoundTrip.V1_15
@@ -39,14 +39,14 @@ def A : Prop :=
     (type_of% @Polyfold.IsSc1Levels.toBase_apply) ∧
     (type_of% @Polyfold.IsSc1Levels.isSc1With) ∧
     (type_of% @Polyfold.IsSc1With.isSc1Levels) ∧
-    (type_of% @Polyfold.proposition_1_16) ∧
+    (type_of% @Polyfold.proposition_1_2_1) ∧
     (type_of% @Polyfold.IsSc1With.contDiffOn_base) ∧
     (type_of% @Polyfold.IsSc1With.scOperator_deriv)
 
 theorem A_holds : A :=
   ⟨@Polyfold.IsSc1Levels.continuousOn_clm, @Polyfold.IsSc1Levels.contDiffOn,
     @Polyfold.IsSc1Levels.toBase_apply, @Polyfold.IsSc1Levels.isSc1With,
-    @Polyfold.IsSc1With.isSc1Levels, @Polyfold.proposition_1_16,
+    @Polyfold.IsSc1With.isSc1Levels, @Polyfold.proposition_1_2_1,
     @Polyfold.IsSc1With.contDiffOn_base, @Polyfold.IsSc1With.scOperator_deriv⟩
 
 /-- The blind `levelTo f (m+1) m` is the project's `levelMap f m ∘ ι_m`. -/
@@ -70,7 +70,7 @@ theorem A_to_B : A → B := by
     rw [← (h2 m).1 x hx] at hd
     exact hd
 
-/-- `B → A`, restricted to relatively open subsets of partial quadrants: `proposition_1_16`. -/
+/-- `B → A`, restricted to relatively open subsets of partial quadrants: `proposition_1_2_1`. -/
 theorem B_proposition_1_16_quadrant (hB : B) {E F : ScBanach} {C U : Set (E 0)}
     (hUC : IsRelOpenInQuadrant E C U) {f : E 0 → F 0} (hf : IsSc0 E F U f) :
     IsSc1 U f ↔ ∃ Dl : ∀ m, E (m + 1) → E m →L[ℝ] F m, IsSc1Levels U f Dl := by
@@ -108,15 +108,15 @@ theorem B_scOperator_deriv_quadrant (hB : B) {E F : ScBanach} {C U : Set (E 0)}
 
 #rt_check RoundTrip.V1_15.A_to_B [Polyfold.IsSc1Levels.continuousOn_clm,
   Polyfold.IsSc1Levels.contDiffOn, Polyfold.IsSc1Levels.toBase_apply,
-  Polyfold.IsSc1Levels.isSc1With, Polyfold.IsSc1With.isSc1Levels, Polyfold.proposition_1_16,
+  Polyfold.IsSc1Levels.isSc1With, Polyfold.IsSc1With.isSc1Levels, Polyfold.proposition_1_2_1,
   Polyfold.IsSc1With.contDiffOn_base, Polyfold.IsSc1With.scOperator_deriv]
 #rt_check RoundTrip.V1_15.B_proposition_1_16_quadrant [Polyfold.IsSc1Levels.continuousOn_clm,
   Polyfold.IsSc1Levels.contDiffOn, Polyfold.IsSc1Levels.toBase_apply,
-  Polyfold.IsSc1Levels.isSc1With, Polyfold.IsSc1With.isSc1Levels, Polyfold.proposition_1_16,
+  Polyfold.IsSc1Levels.isSc1With, Polyfold.IsSc1With.isSc1Levels, Polyfold.proposition_1_2_1,
   Polyfold.IsSc1With.contDiffOn_base, Polyfold.IsSc1With.scOperator_deriv]
 #rt_check RoundTrip.V1_15.B_scOperator_deriv_quadrant [Polyfold.IsSc1Levels.continuousOn_clm,
   Polyfold.IsSc1Levels.contDiffOn, Polyfold.IsSc1Levels.toBase_apply,
-  Polyfold.IsSc1Levels.isSc1With, Polyfold.IsSc1With.isSc1Levels, Polyfold.proposition_1_16,
+  Polyfold.IsSc1Levels.isSc1With, Polyfold.IsSc1With.isSc1Levels, Polyfold.proposition_1_2_1,
   Polyfold.IsSc1With.contDiffOn_base, Polyfold.IsSc1With.scOperator_deriv]
 
 end RoundTrip.V1_15

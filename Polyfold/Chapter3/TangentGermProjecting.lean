@@ -50,9 +50,9 @@ This file removes (b):
 * `MPolyfold.TangentGermChart.exists_isRegular`: `exists_isRegular_of_locally` without its
   hypothesis `hπ` (row V3.74); `MPolyfold.HasTangentGermProperty.exists_isRegular`: under the
   tangent germ property, every point has regular data.
-* `Polyfold.theorem_3_2_3_2021` (**Theorem 3.2.3 as stated**, rows V3.24 and V3.72: the
-  hypothesis `IsRegular` of `theorem_3_27` is removed), `theorem_3_2_3_loc_2021` (with the
-  dimension depending on the point, `theorem_3_27_loc`), and `theorem_3_2_3_2021def` (with the
+* `Polyfold.theorem_3_2_3` (**Theorem 3.2.3 as stated**, rows V3.24 and V3.72: the
+  hypothesis `IsRegular` of `theorem_3_2_3_of_isRegular` is removed), `theorem_3_2_3_loc` (with the
+  dimension depending on the point, `theorem_3_2_3_loc_of_isRegular`), and `theorem_3_2_3_2021def` (with the
   data of Definition 3.2.1 as written, `HasTangentGermProperty2021`).
 
 ## What the text leaves implicit, and the choices made
@@ -149,7 +149,7 @@ lemma mem_iff_coordFun (T : ScIso E ((ScBanach.const (Fin q → ℝ)).prod W)) {
     (hT : C = T 0 ⁻¹' quadrant q W 0) (z : E 0) : z ∈ C ↔ ∀ i, 0 ≤ coordFun (T 0) i z := by
   rw [hT]; exact Iff.rfl
 
-/-- **2021 Lemma 3.8.8, p. 150** (preprint: Lemma 3.65, `lemma_3_65`), for a presentation `T` of
+/-- **2021 Lemma 3.8.8, p. 150** (preprint: Lemma 3.65, `lemma_3_8_8`), for a presentation `T` of
 the partial quadrant `C`: the coordinates `ℓ_i`, `i ∈ Σ` (those vanishing at some nonzero point of
 `N ∩ C`), vanish on every good complement `Y` of `N`. -/
 lemma IsGoodComplement.coordFun_eq_zero (T : ScIso E ((ScBanach.const (Fin q → ℝ)).prod W))
@@ -157,7 +157,7 @@ lemma IsGoodComplement.coordFun_eq_zero (T : ScIso E ((ScBanach.const (Fin q →
     (hY : IsGoodComplement E C N Y) {p : E 0} (hp : p ∈ Y) {i : Fin q}
     (hi : i ∈ vanIdx (coordFun (T 0)) N) : coordFun (T 0) i p = 0 := by
   obtain ⟨ε, hε, hgood⟩ := hY.exists_eps
-  exact lemma_3_65 (coordFun (T 0)) N Y hε (fun x hx p hp hle =>
+  exact lemma_3_8_8 (coordFun (T 0)) N Y hε (fun x hx p hp hle =>
     (mem_iff_coordFun T hT x).symm.trans ((hgood x hx p hp hle).trans (mem_iff_coordFun T hT _)))
     hp hi
 
@@ -668,12 +668,12 @@ universe u
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
 
 /-- **2021 Theorem 3.2.3, p. 106** (preprint: Theorem 3.27), **under the `n`-dimensional tangent
-germ property alone** (`theorem_3_27` without its hypothesis `IsRegular`; rows V3.24, V3.72): a
+germ property alone** (`theorem_3_2_3_of_isRegular` without its hypothesis `IsRegular`; rows V3.24, V3.72): a
 nonempty subset `M` of an M-polyfold `X` with the `n`-dimensional tangent germ property is a
 sub-M-polyfold of `X` whose induced structure is tame and equivalent to that of an
 `n`-dimensional manifold with boundary with corners; at every `x ∈ M` the maps `y ↦ π ∘ ϕ(y)` of
 the regular data are charts of `M` (part (2)). -/
-theorem theorem_3_2_3_2021 (P : MPolyfold X) {M : Set X} {n : ℕ} (hne : M.Nonempty)
+theorem theorem_3_2_3 (P : MPolyfold X) {M : Set X} {n : ℕ} (hne : M.Nonempty)
     (hM : P.HasTangentGermProperty M n) :
     ∃ hsub : P.IsSubMPolyfold M,
       haveI := P.paracompactSpace_subtype M
@@ -681,7 +681,7 @@ theorem theorem_3_2_3_2021 (P : MPolyfold X) {M : Set X} {n : ℕ} (hne : M.None
       ∀ x (hx : x ∈ M) (d : P.TangentGermChart M x n) (hreg : d.IsRegular) (a₀ : M),
         (MPolyfold.subPolyfold hsub).IsChart (d.chart hreg a₀) ∧
           (⟨x, hx⟩ : M) ∈ (d.chart hreg a₀).source :=
-  theorem_3_27 P hne fun _ hx => hM.exists_isRegular hx
+  theorem_3_2_3_of_isRegular P hne fun _ hx => hM.exists_isRegular hx
 
 /-- **Theorem 3.2.3 with the data of Definition 3.2.1 as written** (`HasTangentGermProperty2021`:
 good position and good complement in the sense of Definition 3.1.24, no added closedness), under
@@ -693,14 +693,14 @@ theorem theorem_3_2_3_2021def (P : MPolyfold X) {M : Set X} {n : ℕ} (hne : M.N
       (MPolyfold.subPolyfold hsub).IsTame ∧
         (MPolyfold.subPolyfold hsub).IsManifoldWithCorners n := by
   obtain ⟨hsub, h1, h2, -⟩ :=
-    theorem_3_2_3_2021 P hne ((MPolyfold.hasTangentGermProperty2021_iff P).1 hM)
+    theorem_3_2_3 P hne ((MPolyfold.hasTangentGermProperty2021_iff P).1 hM)
   exact ⟨hsub, h1, h2⟩
 
-/-- **Theorem 3.2.3 with the dimension depending on the point** (`theorem_3_27_loc` without
+/-- **Theorem 3.2.3 with the dimension depending on the point** (`theorem_3_2_3_loc_of_isRegular` without
 `IsRegular`; row V3.72): if `M ⊆ X_∞` is nonempty and every point of `M` has data of Definition
 3.2.1 (b) of some dimension, then `M` is a sub-M-polyfold whose induced structure is tame and
 that of a manifold with boundary with corners of locally constant dimension. -/
-theorem theorem_3_2_3_loc_2021 (P : MPolyfold X) {M : Set X} (hne : M.Nonempty)
+theorem theorem_3_2_3_loc (P : MPolyfold X) {M : Set X} (hne : M.Nonempty)
     (hM : ∀ x ∈ M, ∃ n : ℕ, Nonempty (P.TangentGermChart M x n)) :
     ∃ hsub : P.IsSubMPolyfold M,
       haveI := P.paracompactSpace_subtype M
@@ -712,7 +712,7 @@ theorem theorem_3_2_3_loc_2021 (P : MPolyfold X) {M : Set X} (hne : M.Nonempty)
     obtain ⟨D', hreg', -, -⟩ :=
       D.exists_isRegular isOpen_univ (mem_univ x) fun z hz => hM z hz.1
     exact ⟨n, D', hreg'⟩
-  obtain ⟨hsub, h1, h2, -⟩ := theorem_3_27_loc P hne hreg
+  obtain ⟨hsub, h1, h2, -⟩ := theorem_3_2_3_loc_of_isRegular P hne hreg
   exact ⟨hsub, h1, h2⟩
 
 end Thm323

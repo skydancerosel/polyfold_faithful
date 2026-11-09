@@ -3,7 +3,7 @@ import Polyfold.Chapter3.IndexAlongPaths
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 222:
-**Lemma 6.29** (finitely many sc⁺-sections put the family `F` along a path in general position)
+**Lemma 6.6.4 (preprint 6.29)** (finitely many sc⁺-sections put the family `F` along a path in general position)
 and the paragraph after it *(book 2017: Lemma 6.12; see `BookConcordance.md`)*.
 
 # General position of the family `F` along a path
@@ -12,9 +12,9 @@ and the paragraph after it *(book 2017: Lemma 6.12; see `BookConcordance.md`)*.
 
 Let `P : Y → X` be a strong bundle over a tame M-polyfold, `f` an sc-Fredholm section,
 `φ : [0, 1] → X` an sc-smooth path and `s` an sc⁺-section of the pull-back of `P` to
-`X × [0, 1]` with `s(φ(t), t) = f(φ(t))` (Proposition 6.28 (3)).  For sc⁺-sections
+`X × [0, 1]` with `s(φ(t), t) = f(φ(t))` (Proposition 6.6.3 (preprint 6.28) (3)).  For sc⁺-sections
 `s₁, …, s_k` of the same bundle, `F(t, y, λ) = f(y) − s(y, t) + Σ λᵢ sᵢ(y, t)` satisfies
-`F(t, φ(t), 0) = 0`; put `F_t(y, λ) = F(t, y, λ)`.  (Lemma 6.29) There are finitely many
+`F(t, φ(t), 0) = 0`; put `F_t(y, λ) = F(t, y, λ)`.  (Lemma 6.6.4 (preprint 6.29)) There are finitely many
 `s₁, …, s_k` with property (P): for every `t ∈ [0, 1]`, `F_t` is in general position to the
 boundary of `X × ℝᵏ` at `(φ(t), 0)`.  (After the lemma) (P) implies that `F` is in general position
 to the boundary of `[0, 1] × X × ℝᵏ` at all points `(t, φ(t), 0)`.  The text's proof is the
@@ -27,8 +27,8 @@ sentence before the lemma: "using the results from the transversality theory".
 * `exists_sections_isGeneralPositionGerm_of_isCompact`: the construction in the proof of Theorem
   5.18 over a compact set `K` of zeros of `g`: over a tame `X` with sc-smooth bump functions there
   are finitely many sc⁺-sections `s₁, …, s_k` and an open `W ⊇ K` such that `F` is in general
-  position (Definition 5.17) at `(0, y)` for every zero `y ∈ W` of `g`.
-* `lemma_6_29`: Lemma 6.29 in the form that the text derives from (P) and uses afterwards: for an
+  position (Definition 5.3.9 (preprint 5.17)) at `(0, y)` for every zero `y ∈ W` of `g`.
+* `lemma_6_6_4`: Lemma 6.6.4 (preprint 6.29) in the form that the text derives from (P) and uses afterwards: for an
   sc-smooth family `Φ : ℝⁿ → X` and an sc⁺-section `S` of `ℝⁿ × X → Y` with
   `(f̃ + S)(q, Φ(q)) = 0` for `q` near `[0, 1]ⁿ`, there are finitely many sc⁺-sections
   `s₁, …, s_k` of `ℝⁿ × X → Y` such that `F(λ, (q, y)) = f(y) + S(q, y) + Σ λᵢ sᵢ(q, y)` is in
@@ -38,19 +38,19 @@ sentence before the lemma: "using the results from the transversality theory".
 
 * Paths and families are on `ℝⁿ` and only `[0, 1]ⁿ` matters (decision D2, as in
   `OrientableNbhd.lean`): `n = 1` is the text's path, `n = 2` serves the homotopies of Theorem
-  6.35.  The hypothesis on `S` is the conclusion of Proposition 6.28 (3)
+  6.35.  The hypothesis on `S` is the conclusion of Proposition 6.6.3 (preprint 6.28) (3)
   (`exists_isScPlusSection_pullback_of_family`), with `S = −s` (the sign of `sectionAdd`).  The
-  factors are ordered `ℝᵏ × (ℝⁿ × X)` (Theorem 3.18's `paramSection`), so the text's point
+  factors are ordered `ℝᵏ × (ℝⁿ × X)` (Theorem 3.1.21 (preprint 3.18)'s `paramSection`), so the text's point
   `(t, φ(t), 0)` is `(0, (q, Φ(q)))`.
 * The hypotheses are the text's standing ones: `X` tame (§6.5 works over a tame M-polyfold;
-  Definition 5.17 is read in tame charts, and the openness of general position along the solution
-  set, Theorem 4.22 (3), uses it), sc-smooth bump functions (assumed from §6.2 on), and `f` with
-  tame germ data (Definition 3.51, as in Chapters 3 and 5).
-* The text gives no proof; the one here is that of Theorem 5.18 (`exists_sections_isParamGP`,
+  Definition 5.3.9 (preprint 5.17) is read in tame charts, and the openness of general position along the solution
+  set, Theorem 4.2.11 (preprint 4.22) (3), uses it), sc-smooth bump functions (assumed from §6.2 on), and `f` with
+  tame germ data (Definition 3.6.4 (preprint 3.51), as in Chapters 3 and 5).
+* The text gives no proof; the one here is that of Theorem 5.3.10 (preprint 5.18) (`exists_sections_isParamGP`,
   openness of general position, compactness of `[0, 1]ⁿ`).
 * Property (P) for the slices `F_t` on `X × ℝᵏ` is not stated here.  The conclusion is the general
   position of `F` at the points `(t, φ(t), 0)`, which is what the implicit function theorem of
-  Lemma 6.30 needs.  As we read it, the slice form follows from it: the tangent vectors
+  Lemma 6.6.5 (preprint 6.30) needs.  As we read it, the slice form follows from it: the tangent vectors
   `(0, (τ, Φ'(q)τ))` of the family of zeros lie in `ker F'`, so `F'` and `F_t'` have the same
   image, and `Φ'(q)τ` lies in the reduced tangent space (`ℝⁿ` has no boundary, so a corner
   coordinate of `Φ` vanishing at `q` has a minimum there); this chart computation is not carried
@@ -86,11 +86,11 @@ theorem isZeroAt_paramSection_zero {g : X → Y} (hg : IsSection P g) {k : ℕ}
   rw [paramSlice_zero]; exact hy
 
 /-- **Sections putting `F` in general position along a compact set of zeros** (the construction
-in the proof of Theorem 5.18, `theorem_5_18`, over a compact set `K` of zeros in place of the
+in the proof of Theorem 5.3.10 (preprint 5.18), `theorem_5_3_10_param`, over a compact set `K` of zeros in place of the
 solution set): let `X` be tame with sc-smooth bump functions, `g` an sc-Fredholm section with tame
 germ data and `K` a compact set of zeros of `g`.  Then there are finitely many sc⁺-sections
 `s₁, …, s_k` and an open `W ⊇ K` such that `F(λ, y) = g(y) + Σ λᵢ sᵢ(y)` is in general position
-(Definition 5.17) at `(0, y)` for every zero `y ∈ W` of `g`.  The paracompactness of `ℝᵏ × X` and
+(Definition 5.3.9 (preprint 5.17)) at `(0, y)` for every zero `y ∈ W` of `g`.  The paracompactness of `ℝᵏ × X` and
 of the pull-back bundle (Props; they hold by `MPolyfold.paracompactSpace_prod` and
 `paracompactSpace_pullbackSpace`) are instance binders of the conclusion, `k` being existential.
 *Proof*: at `x ∈ K`, sections with (i)–(ii) in a tame chart centred at `x`
@@ -110,7 +110,7 @@ theorem exists_sections_isGeneralPositionGerm_of_isCompact (hX : PX.IsTame)
           (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold k) PX)).IsGeneralPositionGerm
             (paramSection g hg.isScSmooth.1 s fun i => (hs i).1) (0, y) := by
   classical
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := B)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := B)
   have hgF : B.IsScFredholmSection g := hg.toIsScFredholmSection
   -- a tame chart centred at every zero of `g`, with a presentation
   have hch : ∀ y : solutionSet P g, ∃ c : StrongBundleChart PX P,
@@ -138,7 +138,7 @@ theorem exists_sections_isGeneralPositionGerm_of_isCompact (hX : PX.IsTame)
     have := MPolyfold.paracompactSpace_prod (rnPolyfold k) PX
     have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin k → ℝ) × X → X))
       ((rnPolyfold k).prod PX) B
-    have hFt := theorem_3_18_tame hg hsp
+    have hFt := theorem_3_1_21_tame hg hsp
     have hz0 : ∀ y, IsZeroAt P g y → IsZeroAt (pullbackProj P Prod.snd)
         (paramSection g hg.isScSmooth.1 s fun i => (hsp i).1) (0, y) := fun y hy =>
       isZeroAt_paramSection_zero hg.isScSmooth.1 (fun i => (hsp i).1) hy
@@ -175,7 +175,7 @@ theorem exists_sections_isGeneralPositionGerm_of_isCompact (hX : PX.IsTame)
 
 end Compact
 
-/-! ### Lemma 6.29 -/
+/-! ### Lemma 6.6.4 (preprint 6.29) -/
 
 section Lemma629
 
@@ -185,22 +185,22 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y} {n : ℕ} [ParacompactSpace ((Fin n → ℝ) × X)]
   [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))]
 
-/-- **Lemma 6.29**, in the form that the text derives from property (P) and uses afterwards
+/-- **Lemma 6.6.4 (preprint 6.29)**, in the form that the text derives from property (P) and uses afterwards
 ("`F` is in general position to the boundary at all points `(t, φ(t), 0)`"): let `X` be tame with
 sc-smooth bump functions, `f` an sc-Fredholm section with tame germ data, `Φ : ℝⁿ → X`
 sc-smooth and `S` an sc⁺-section of the pull-back `π*Y → ℝⁿ × X` with `(f̃ + S)(q, Φ(q)) = 0`
-for `q` near `[0, 1]ⁿ` (Proposition 6.28 (3), `S = −s`).  Then there are finitely many
+for `q` near `[0, 1]ⁿ` (Proposition 6.6.3 (preprint 6.28) (3), `S = −s`).  Then there are finitely many
 sc⁺-sections `s₁, …, s_k` of `π*Y` such that `F(λ, (q, y)) = f(y) + S(q, y) + Σ λᵢ sᵢ(q, y)`
 (the text's `F(t, y, λ) = f(y) − s(y, t) + Σ λᵢ sᵢ(y, t)`) is in general position (Definition
 5.17) at `(0, (q, Φ(q)))` for all `q` near `[0, 1]ⁿ`.  The paracompactness of
 `ℝᵏ × (ℝⁿ × X)` and of the pull-back bundle are instance binders of the conclusion, `k` being
 existential.  *Proof*: `f̃ + S` is an sc-Fredholm section with tame germ data
-(`IsScFredholmSectionTame.param`, `theorem_3_15_tame`) of `π*Y` over the tame `ℝⁿ × X`
+(`IsScFredholmSectionTame.param`, `theorem_3_1_18_tame`) of `π*Y` over the tame `ℝⁿ × X`
 (`prod_rn_isTame`), which admits sc-smooth bump functions (`admitsBumpFunctions_prod_rn`);
 `exists_sections_isGeneralPositionGerm_of_isCompact` applies to the compact set of zeros
 `{(q, Φ(q)) | q ∈ [0, 1]ⁿ}`, and its open `W` pulls back along `q ↦ (q, Φ(q))` to a
 neighbourhood of `[0, 1]ⁿ`. -/
-theorem lemma_6_29 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
+theorem lemma_6_6_4 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) {Φ : (Fin n → ℝ) → X}
     (hΦ : (rnPolyfold n).IsScSmoothMap PX Φ)
     {S : (Fin n → ℝ) × X → pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X)}
@@ -221,7 +221,7 @@ theorem lemma_6_29 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
               ((isSection_pullbackLift _).sectionAdd hS.1) s fun i => (hs i).1) (0, (q, Φ q)) := by
   have hΦc : Continuous Φ := continuousOn_univ.1 hΦ.continuousOn
   have hγ : Continuous fun q : Fin n → ℝ => (q, Φ q) := continuous_id.prodMk hΦc
-  have hg := theorem_3_15_tame hf.param hS
+  have hg := theorem_3_1_18_tame hf.param hS
   have hK : IsCompact ((fun q : Fin n → ℝ => (q, Φ q)) '' Icc 0 1) :=
     isCompact_Icc.image hγ
   have hK0 : ∀ x ∈ (fun q : Fin n → ℝ => (q, Φ q)) '' Icc 0 1, IsZeroAt (pullbackProj P Prod.snd)

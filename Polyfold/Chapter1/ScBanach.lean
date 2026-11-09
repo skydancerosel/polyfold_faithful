@@ -2,25 +2,25 @@ import Polyfold.Basic
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1,
-Definitions 1.1, 1.3, 1.4, 1.5, Propositions 1.6 and 1.7.
+Definitions 1.1.1, 1.1.4, 1.1.5, 1.1.6 (preprint 1.1, 1.3, 1.4, 1.5), Propositions 1.1.7 and 1.1.8 (preprint 1.6 and 1.7).
 
 # Sc-Banach spaces, sc-operators, sc-subspaces, sc-splittings
 
 ## The text, paraphrased
 
-(Definition 1.1) An sc-structure on a Banach space `E` is a decreasing sequence of Banach spaces `E
+(Definition 1.1.1 (preprint 1.1)) An sc-structure on a Banach space `E` is a decreasing sequence of Banach spaces `E
 = E₀ ⊃ E₁ ⊃ E₂ ⊃ …` such that (1) every inclusion `E_{m+1} → E_m` is compact and (2) the
 intersection `E_∞ = ⋂ E_m` is dense in every `E_m`. The level shift `E^k` has levels `(E^k)_m =
 E_{k+m}`; a direct sum `E ⊕ F` has levels `E_m ⊕ F_m`; a finite-dimensional space has exactly one
-sc-structure, the constant one. (Definition 1.3) A linear map `T : E → F` is an sc-operator if
+sc-structure, the constant one. (Definition 1.1.4 (preprint 1.3)) A linear map `T : E → F` is an sc-operator if
 `T(E_m) ⊂ F_m` with `T : E_m → F_m` continuous for every `m`; an sc-isomorphism is a bijective
-sc-operator with sc-operator inverse. (Definition 1.4) An sc⁺-operator is an sc-operator `S : E →
+sc-operator with sc-operator inverse. (Definition 1.1.5 (preprint 1.4)) An sc⁺-operator is an sc-operator `S : E →
 F` with `S(E_m) ⊂ F_{m+1}` and `S : E → F¹` an sc-operator; it is then compact on every level.
-(Definition 1.5) A closed subspace `F ⊂ E` is an sc-subspace if `F_m = F ∩ E_m` is an sc-structure
+(Definition 1.1.6 (preprint 1.5)) A closed subspace `F ⊂ E` is an sc-subspace if `F_m = F ∩ E_m` is an sc-structure
 on `F`; an sc-complement of `F` is an algebraic complement `G` such that `G_m = G ∩ E_m` is an
 sc-structure on `G` and `E_m = F_m ⊕ G_m` is a topological direct sum for every `m` (an
-sc-splitting). (Proposition 1.6) A finite-dimensional subspace is an sc-subspace iff it lies in
-`E_∞`, and then it has an sc-complement. (Proposition 1.7) If `A` is an sc-subspace then `E/A` with
+sc-splitting). (Proposition 1.1.7 (preprint 1.6)) A finite-dimensional subspace is an sc-subspace iff it lies in
+`E_∞`, and then it has an sc-complement. (Proposition 1.1.8 (preprint 1.7)) If `A` is an sc-subspace then `E/A` with
 the filtration `E_m/A_m` is an sc-Banach space.
 
 ## What is formalized
@@ -34,18 +34,18 @@ the filtration `E_m/A_m` is an sc-Banach space.
   The weaker "the image of `E_{m+k}` is dense in `E_m`" is `ScBanach.denseRange_inclK`.
 * `ScBanach.const V` (finite-dimensional `V`, constant structure), `ScBanach.prod E F`
   (`E ⊕ F`), `ScBanach.shift E` (`E¹`; `E^k` is the `k`-fold iterate `ScBanach.shiftK`).
-* `Polyfold.ScOperator E F` (Definition 1.3): a family of continuous linear maps
+* `Polyfold.ScOperator E F` (Definition 1.1.4 (preprint 1.3)): a family of continuous linear maps
   `T m : E m →L[ℝ] F m` commuting with the inclusions.  `Polyfold.IsScOperator T₀` is the
   predicate on `T₀ : E 0 →L[ℝ] F 0`; the two are equivalent (`ScOperator.isScOperator`,
   `IsScOperator.toScOperator`).  `Polyfold.ScIso E F`: level-wise continuous linear equivalences
   commuting with the inclusions.
-* `Polyfold.ScPlus E F := ScOperator E F.shift` (Definition 1.4), `ScPlus.toScOperator` is the
+* `Polyfold.ScPlus E F := ScOperator E F.shift` (Definition 1.1.5 (preprint 1.4)), `ScPlus.toScOperator` is the
   underlying sc-operator `E → F`, `ScPlus.isCompactOperator` is the compactness on every level.
 * `ScBanach.levelSub A m = A ∩ E_m` (as `A.comap (toBase m)`), `ScBanach.IsScSubspace`
-  (Definition 1.5), `ScBanach.ofSubspace` (the sc-Banach space `F` of Definition 1.5),
+  (Definition 1.1.6 (preprint 1.5)), `ScBanach.ofSubspace` (the sc-Banach space `F` of Definition 1.1.6 (preprint 1.5)),
   `ScBanach.IsScSplitting F G` (sc-complement / sc-splitting).
-* `ScBanach.proposition_1_6_iff`, `ScBanach.proposition_1_6` (**Proposition 1.6**),
-  `ScBanach.quotient` and `ScBanach.proposition_1_7` (**Proposition 1.7**).
+* `ScBanach.proposition_1_1_7_iff`, `ScBanach.proposition_1_1_7` (**Proposition 1.1.7 (preprint 1.6)**),
+  `ScBanach.quotient` and `ScBanach.proposition_1_1_8` (**Proposition 1.1.8 (preprint 1.7)**).
 
 ## What the text leaves implicit, and the choices made
 
@@ -58,15 +58,15 @@ the filtration `E_m/A_m` is an sc-Banach space.
 * Condition (2) is stated as density of `E_∞ ∩ E_m` in `E_m` for every `m`, exactly as in the
   text.  The weaker "`E_{m+1}` is dense in `E_m`" (true for all `m`) does *not* obviously
   imply it, so the strong form is the axiom.
-* An sc⁺-operator is defined as an sc-operator into the shifted space `F¹` (Definition 1.4 says
+* An sc⁺-operator is defined as an sc-operator into the shifted space `F¹` (Definition 1.1.5 (preprint 1.4) says
   `S : E → F¹` is an sc-operator and `S(E_m) ⊂ F_{m+1}`; the latter is the former).
-* Definition 1.5 asks for the subspace `F` to be closed and for `(F_m)` to be an sc-structure; the
+* Definition 1.1.6 (preprint 1.5) asks for the subspace `F` to be closed and for `(F_m)` to be an sc-structure; the
   compactness of `F_{m+1} → F_m` is automatic (restriction of a compact operator), so
   `IsScSubspace` asks only for closedness and density of `F ∩ E_∞` in every `F_m`.  For the
   sc-complement, the topological direct sum `E_m = F_m ⊕ G_m` follows from `IsCompl` of the
   closed subspaces `F_m`, `G_m` (closed graph theorem), so `IsScSplitting` asks only for
   `IsCompl` on every level; `IsScSplitting.closedComplemented` records the consequence.
-* Proposition 1.7 is stated for an sc-subspace `A`; the proof uses only that `A` is closed, so
+* Proposition 1.1.8 (preprint 1.7) is stated for an sc-subspace `A`; the proof uses only that `A` is closed, so
   `ScBanach.quotient` takes `IsClosed A`.  The levels `E_m/A_m` are the abstract quotients
   `E m ⧸ levelSub A m`, with the inclusion `E_{m+1}/A_{m+1} → E_m/A_m` induced by `incl m`;
   the text's identification of `E_m/A_m` with a subset of `E/A` is the injectivity of this
@@ -79,7 +79,7 @@ noncomputable section
 
 namespace Polyfold
 
-/-- A **scale of Banach spaces** (condition (1) of Definition 1.1): real Banach spaces
+/-- A **scale of Banach spaces** (condition (1) of Definition 1.1.1 (preprint 1.1)): real Banach spaces
 `lvl m`, `m ∈ ℕ`, with injective compact continuous linear inclusions `lvl (m+1) → lvl m`. -/
 structure ScScale where
   /-- The level `m` Banach space `E_m`. -/
@@ -166,7 +166,7 @@ lemma smoothLvl_submodule_closed_sub {m : ℕ} {x y : E m} (hx : x ∈ E.smoothL
 
 end ScScale
 
-/-- An **sc-Banach space** (Definition 1.1): a scale of Banach spaces with compact inclusions in
+/-- An **sc-Banach space** (Definition 1.1.1 (preprint 1.1)): a scale of Banach spaces with compact inclusions in
 which the smooth points `E_∞` are dense in every level `E_m`. -/
 structure ScBanach extends ScScale where
   dense_smooth : ∀ m, Dense (toScScale.smoothLvl m)
@@ -209,7 +209,7 @@ lemma constScale_smoothLvl (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V]
   refine ⟨fun _ => mem_univ _, fun _ => ((constScale V).mem_smoothLvl_iff).2 fun j => ?_⟩
   exact ⟨show (constScale V) j from x, by rw [constScale_toBase, constScale_toBase]⟩
 
-/-- The constant sc-structure `E_m = V` on a finite-dimensional space `V` (Definition 1.1). -/
+/-- The constant sc-structure `E_m = V` on a finite-dimensional space `V` (Definition 1.1.1 (preprint 1.1)). -/
 abbrev const (V : Type) [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V] :
     ScBanach where
   toScScale := constScale V
@@ -263,7 +263,7 @@ lemma prodScale_smoothLvl (E F : ScScale) (m : ℕ) :
     rw [prodScale_toBase, prodScale_toBase]
     exact Prod.ext ha hb
 
-/-- The direct sum `E ⊕ F` of sc-Banach spaces (Definition 1.1), with levels `E_m × F_m`. -/
+/-- The direct sum `E ⊕ F` of sc-Banach spaces (Definition 1.1.1 (preprint 1.1)), with levels `E_m × F_m`. -/
 abbrev prod (E F : ScBanach) : ScBanach where
   toScScale := prodScale E.toScScale F.toScScale
   dense_smooth m := by
@@ -311,7 +311,7 @@ lemma shiftScale_smoothLvl (E : ScScale) (m : ℕ) :
     rw [shiftScale_toBase E j y, shiftScale_toBase E m x] at hy
     exact E.toBase_injective 1 hy
 
-/-- The level shift `E¹` (Definition 1.1), with levels `(E¹)_m = E_{m+1}`. -/
+/-- The level shift `E¹` (Definition 1.1.1 (preprint 1.1)), with levels `(E¹)_m = E_{m+1}`. -/
 abbrev shift (E : ScBanach) : ScBanach where
   toScScale := shiftScale E.toScScale
   dense_smooth m := by rw [shiftScale_smoothLvl]; exact E.dense_smooth (m + 1)
@@ -333,9 +333,9 @@ def shiftK (E : ScBanach) : ℕ → ScBanach
 
 end ScBanach
 
-/-! ### Sc-operators (Definition 1.3), sc-isomorphisms, sc⁺-operators (Definition 1.4) -/
+/-! ### Sc-operators (Definition 1.1.4 (preprint 1.3)), sc-isomorphisms, sc⁺-operators (Definition 1.1.5 (preprint 1.4)) -/
 
-/-- An **sc-operator** `T : E → F` (Definition 1.3): continuous linear maps `T m : E_m → F_m` on
+/-- An **sc-operator** `T : E → F` (Definition 1.1.4 (preprint 1.3)): continuous linear maps `T m : E_m → F_m` on
 every level, compatible with the inclusions.  The text's `T : E → F` is `T 0`; the level maps
 are determined by it (`ScOperator.ext_base`). -/
 structure ScOperator (E F : ScBanach) where
@@ -400,7 +400,7 @@ lemma mapsTo_smoothLvl (T : ScOperator E F) (m : ℕ) :
 
 end ScOperator
 
-/-- `T₀ : E₀ → F₀` **is an sc-operator** (Definition 1.3, as a predicate on the base map): for
+/-- `T₀ : E₀ → F₀` **is an sc-operator** (Definition 1.1.4 (preprint 1.3), as a predicate on the base map): for
 every `m` it maps `E_m` into `F_m` by a continuous linear map. -/
 def IsScOperator {E F : ScBanach} (T₀ : E 0 →L[ℝ] F 0) : Prop :=
   ∀ m, ∃ Tm : E m →L[ℝ] F m, ∀ x, F.toBase m (Tm x) = T₀ (E.toBase m x)
@@ -423,7 +423,7 @@ def IsScOperator.toScOperator {E F : ScBanach} {T₀ : E 0 →L[ℝ] F 0} (h : I
   change (h 0).choose x = T₀ x
   simpa using this
 
-/-- An **sc-isomorphism** (Definition 1.3): a bijective sc-operator whose inverse is an
+/-- An **sc-isomorphism** (Definition 1.1.4 (preprint 1.3)): a bijective sc-operator whose inverse is an
 sc-operator, i.e. continuous linear equivalences on every level, compatible with the
 inclusions. -/
 structure ScIso (E F : ScBanach) where
@@ -474,7 +474,7 @@ def refl (E : ScBanach) : ScIso E E where
 
 end ScIso
 
-/-- An **sc⁺-operator** `E → F` (Definition 1.4): an sc-operator `E → F¹` into the shifted space,
+/-- An **sc⁺-operator** `E → F` (Definition 1.1.5 (preprint 1.4)): an sc-operator `E → F¹` into the shifted space,
 i.e. it raises the level by one. -/
 abbrev ScPlus (E F : ScBanach) := ScOperator E F.shift
 
@@ -497,7 +497,7 @@ def toScOperator (S : ScPlus E F) : ScOperator E F := F.shiftIncl.comp S
 @[simp] lemma toScOperator_apply (S : ScPlus E F) (m : ℕ) (x : E m) :
     S.toScOperator m x = F.incl m (S m x) := rfl
 
-/-- An sc⁺-operator is compact on every level (the remark after Definition 1.4). -/
+/-- An sc⁺-operator is compact on every level (the remark after Definition 1.1.5 (preprint 1.4)). -/
 lemma isCompactOperator (S : ScPlus E F) (m : ℕ) : IsCompactOperator (S.toScOperator m) :=
   (F.incl_isCompactOperator m).comp_clm (S m)
 
@@ -507,7 +507,7 @@ namespace ScBanach
 
 variable (E : ScBanach)
 
-/-! ### Sc-subspaces and sc-splittings (Definition 1.5) -/
+/-! ### Sc-subspaces and sc-splittings (Definition 1.1.6 (preprint 1.5)) -/
 
 /-- The level `m` part `A_m = A ∩ E_m` of a subspace `A ⊆ E₀`, as a subspace of `E_m`. -/
 def levelSub (A : Submodule ℝ (E 0)) (m : ℕ) : Submodule ℝ (E m) :=
@@ -525,7 +525,7 @@ lemma incl_mem_levelSub {A : Submodule ℝ (E 0)} {m : ℕ} {x : E (m + 1)}
 lemma isClosed_levelSub {A : Submodule ℝ (E 0)} (hA : IsClosed (A : Set (E 0))) (m : ℕ) :
     IsClosed (E.levelSub A m : Set (E m)) := hA.preimage (E.toBase m).continuous
 
-/-- `A` is an **sc-subspace** of `E` (Definition 1.5): a closed subspace such that the filtration
+/-- `A` is an **sc-subspace** of `E` (Definition 1.1.6 (preprint 1.5)): a closed subspace such that the filtration
 `A_m = A ∩ E_m` is an sc-structure on `A`, i.e. the smooth points `A ∩ E_∞` are dense in every
 `A_m` (the compactness of `A_{m+1} → A_m` is automatic). -/
 def IsScSubspace (A : Submodule ℝ (E 0)) : Prop :=
@@ -580,7 +580,7 @@ lemma ofSubspaceScale_smoothLvl {A : Submodule ℝ (E 0)} (hA : IsClosed (A : Se
       (Subtype.val ⁻¹' E.smoothLvl m : Set (E.levelSub A m)) :=
   Set.ext fun x => E.mem_ofSubspaceScale_smoothLvl hA m x
 
-/-- An sc-subspace `A` with the induced sc-structure `A_m = A ∩ E_m` (Definition 1.5). -/
+/-- An sc-subspace `A` with the induced sc-structure `A_m = A ∩ E_m` (Definition 1.1.6 (preprint 1.5)). -/
 def ofSubspace {A : Submodule ℝ (E 0)} (h : E.IsScSubspace A) : ScBanach where
   toScScale := E.ofSubspaceScale h.isClosed
   dense_smooth m := by
@@ -592,7 +592,7 @@ def ofSubspace {A : Submodule ℝ (E 0)} (h : E.IsScSubspace A) : ScBanach where
     rw [ofSubspaceScale_smoothLvl]
     exact hd
 
-/-- `E = F ⊕ G` is an **sc-splitting** (Definition 1.5): `F` and `G` are sc-subspaces and
+/-- `E = F ⊕ G` is an **sc-splitting** (Definition 1.1.6 (preprint 1.5)): `F` and `G` are sc-subspaces and
 `E_m = F_m ⊕ G_m` on every level.  The direct sum is automatically topological
 (`IsScSplitting.closedComplemented`). -/
 def IsScSplitting (F G : Submodule ℝ (E 0)) : Prop :=
@@ -606,11 +606,11 @@ lemma IsScSplitting.closedComplemented {F G : Submodule ℝ (E 0)} (h : E.IsScSp
 lemma IsScSplitting.symm {F G : Submodule ℝ (E 0)} (h : E.IsScSplitting F G) :
     E.IsScSplitting G F := ⟨h.2.1, h.1, fun m => (h.2.2 m).symm⟩
 
-/-! ### Proposition 1.6 -/
+/-! ### Proposition 1.1.7 (preprint 1.6) -/
 
-/-- **Proposition 1.6**, first part: a finite-dimensional subspace `F` is an sc-subspace iff
+/-- **Proposition 1.1.7 (preprint 1.6)**, first part: a finite-dimensional subspace `F` is an sc-subspace iff
 `F ⊆ E_∞`. -/
-theorem proposition_1_6_iff (F : Submodule ℝ (E 0)) [FiniteDimensional ℝ F] :
+theorem proposition_1_1_7_iff (F : Submodule ℝ (E 0)) [FiniteDimensional ℝ F] :
     E.IsScSubspace F ↔ F ≤ E.smooth := by
   constructor
   · intro h
@@ -675,12 +675,12 @@ private lemma finProj_eq_zero_iff (F : Submodule ℝ (E 0)) [FiniteDimensional �
   change (E.levelEquiv F hF m).symm (p (E.toBase m x)) = 0 ↔ _
   exact LinearEquiv.map_eq_zero_iff _
 
-/-- **Proposition 1.6**, second part: a finite-dimensional sc-subspace `F ⊆ E_∞` has an
+/-- **Proposition 1.1.7 (preprint 1.6)**, second part: a finite-dimensional sc-subspace `F ⊆ E_∞` has an
 sc-complement. -/
-theorem proposition_1_6 (F : Submodule ℝ (E 0)) [FiniteDimensional ℝ F] (hF : F ≤ E.smooth) :
+theorem proposition_1_1_7 (F : Submodule ℝ (E 0)) [FiniteDimensional ℝ F] (hF : F ≤ E.smooth) :
     ∃ G : Submodule ℝ (E 0), E.IsScSplitting F G := by
   obtain ⟨p, hp⟩ := Submodule.ClosedComplemented.of_finiteDimensional F
-  refine ⟨LinearMap.ker (p : E 0 →ₗ[ℝ] F), (E.proposition_1_6_iff F).2 hF,
+  refine ⟨LinearMap.ker (p : E 0 →ₗ[ℝ] F), (E.proposition_1_1_7_iff F).2 hF,
     ⟨p.isClosed_ker, fun m => ?_⟩, fun m => ?_⟩
   · -- density of the smooth points of `G_m = ker P_m`
     intro g hg
@@ -713,7 +713,7 @@ theorem proposition_1_6 (F : Submodule ℝ (E 0)) [FiniteDimensional ℝ F] (hF 
     rw [hker]
     exact LinearMap.isCompl_of_proj (E.finProj_apply_of_mem F hF p hp m)
 
-/-! ### Proposition 1.7: quotients -/
+/-! ### Proposition 1.1.8 (preprint 1.7): quotients -/
 
 section Quotient
 
@@ -763,7 +763,7 @@ lemma quotientScale_toBase_mk (hA : IsClosed (A : Set (E 0))) (m : ℕ) (x : E m
   | zero => rfl
   | succ m ih => exact ih _
 
-/-- **Proposition 1.7**: the quotient `E/A` of an sc-Banach space by a closed subspace `A`, with
+/-- **Proposition 1.1.8 (preprint 1.7)**: the quotient `E/A` of an sc-Banach space by a closed subspace `A`, with
 the filtration `E_m/A_m`. -/
 def quotient (hA : IsClosed (A : Set (E 0))) : ScBanach where
   toScScale := E.quotientScale hA
@@ -782,9 +782,9 @@ def quotientMap (hA : IsClosed (A : Set (E 0))) : ScOperator E (E.quotient hA) w
   lvl m := (E.levelSub A m).mkQL
   incl_comm _ _ := rfl
 
-/-- **Proposition 1.7**, as a statement: there is an sc-Banach space `E/A` with a level-wise
+/-- **Proposition 1.1.8 (preprint 1.7)**, as a statement: there is an sc-Banach space `E/A` with a level-wise
 surjective sc-operator `E → E/A` whose level-`m` kernel is `A_m = A ∩ E_m`. -/
-theorem proposition_1_7 (hA : IsClosed (A : Set (E 0))) : ∃ (Q : ScBanach) (q : ScOperator E Q),
+theorem proposition_1_1_8 (hA : IsClosed (A : Set (E 0))) : ∃ (Q : ScBanach) (q : ScOperator E Q),
     (∀ m, Function.Surjective (q m)) ∧ ∀ m, LinearMap.ker (q m : E m →ₗ[ℝ] Q m) = E.levelSub A m :=
   ⟨E.quotient hA, E.quotientMap hA, fun _ => Submodule.mkQ_surjective _,
     fun _ => Submodule.ker_mkQ _⟩

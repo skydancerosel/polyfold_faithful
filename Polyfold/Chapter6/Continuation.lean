@@ -4,7 +4,7 @@ import Polyfold.Chapter6.Stabilization
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
 pp. 222–224: the linear algebra of the **push-forward of orientations** `o₁ = φ_* o₀` along a
-path, from Lemma 6.31 to the paragraph after it *(book 2017: Lemma 6.14 and after; see
+path, from Lemma 6.6.6 (preprint 6.31) to the paragraph after it *(book 2017: Lemma 6.14 and after; see
 `BookConcordance.md`)*.
 
 # Continuation of orientations and the push-forward along a stabilized family
@@ -27,15 +27,15 @@ to `det(T_1)`.
   (pull-back along a map of bases) and `cont_eq_transport` (continuation along a path).
 * `detEquivOfSurjective`: `det(T) ≅ λ(ker T)` for a surjective `T` (the factor `λ*({0})`).
 * `stabRayEquiv hT hφ ι`: the rays of `det(T)` and of `λ(L)`, for a stabilization `T_φ = T ⊕ φ`
-  onto and an identification `ι : ker T_φ ≅ L` (Lemma 6.31 is Lemma 6.14, `stabSeq`; the map is
-  `Φ_{E}` followed by `λ*(ℝᵏ) ≅ λ*({0})`, i.e. `stabIota`, Definition 6.16 / formula (94)).
+  onto and an identification `ι : ker T_φ ≅ L` (Lemma 6.6.6 (preprint 6.31) is Lemma 6.4.14 (preprint 6.14), `stabSeq`; the map is
+  `Φ_{E}` followed by `λ*(ℝᵏ) ≅ λ*({0})`, i.e. `stabIota`, Definition 6.4.16 (preprint 6.16) / formula (94)).
 * `propagate`: the push-forward `Ray(det T₀) ≃ Ray(det T₁)` along a family `Λ` with stabilized end
   points; `propagate_trans`, `propagate_self`, `propagate_comp`.
 
 ## Reading
 
 The text's continuation is along `[0, 1]`; here it is over any simply connected, locally
-path-connected base, so that one statement covers the paths of Theorem 6.35 and the squares of
+path-connected base, so that one statement covers the paths of Theorem 6.6.11 (preprint 6.35) and the squares of
 Lemmas 6.33–6.34.  The text writes the target as `λ(L_t) ⊗ λ*(ℝᵏ)`; `stabIota` contains the fixed
 identification `λ*(ℝᵏ) ≅ λ*({0})` of formula (94) (`(e₁ ∧ … ∧ e_k)* ↦ 1*`), so the line used is
 `det(T ⊕ φ) ≅ λ(ker(T ⊕ φ))`; the same identification at both ends cancels in `φ_*`.
@@ -174,7 +174,7 @@ theorem detEquivOfSurjective_tmul {T : E →L[ℝ] F} (hT : Function.Surjective 
 variable {k : ℕ} {T : E →L[ℝ] F} {φ : (Fin k → ℝ) →L[ℝ] F}
 
 /-- **The rays of `det(T)` and of `λ(L)`** for a stabilization `T ⊕ φ` onto and an identification
-`ι : ker(T ⊕ φ) ≅ L`: `ι_φ` (`stabIota`, `Φ_E` of Lemma 6.14 with formula (94)), then
+`ι : ker(T ⊕ φ) ≅ L`: `ι_φ` (`stabIota`, `Φ_E` of Lemma 6.4.14 (preprint 6.14) with formula (94)), then
 `det(T ⊕ φ) ≅ λ(ker(T ⊕ φ))`, then `λ(ι)`. -/
 def stabRayEquiv (hT : T.IsFredholm) (hφ : Function.Surjective (T.coprod φ))
     {W : Type*} [AddCommGroup W] [Module ℝ W] {L : Submodule ℝ W} [FiniteDimensional ℝ L]

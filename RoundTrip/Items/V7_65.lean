@@ -5,7 +5,7 @@ import RoundTrip.Blind.V7_65
 /-!
 Round trip for V7_65 (Theorem 7.6 = Theorem 7.4: sc-smooth partitions of unity of an ep-groupoid).
 
-`A` is the type of `Polyfold.EpGroupoid.theorem_7_6` at universe `0`: for every ep-groupoid
+`A` is the type of `Polyfold.EpGroupoid.theorem_7_6_4` at universe `0`: for every ep-groupoid
 `X : EpGroupoid Obj Mor` (`Obj Mor : Type`) with `X.HasParacompactOrbitSpace` (by definition
 `ParacompactSpace X.OrbitSpace`) and `X.PObj.AdmitsScPartitionsOfUnity`, `X.HasScPartitionsOfUnity`
 (Definition 7.16: every saturated open cover indexed by a `Type` has a subordinate Mathlib
@@ -21,9 +21,9 @@ namespace RoundTrip.V7_65
 open Polyfold
 
 /-- The project's Theorem 7.6, universes at `0`. -/
-def A : Prop := type_of% @Polyfold.EpGroupoid.theorem_7_6.{0}
+def A : Prop := type_of% @Polyfold.EpGroupoid.theorem_7_6_4.{0}
 
-theorem A_holds : A := @Polyfold.EpGroupoid.theorem_7_6.{0}
+theorem A_holds : A := @Polyfold.EpGroupoid.theorem_7_6_4.{0}
 
 theorem A_to_B : A → B := by
   intro hA Obj Mor _ _ _ _ _ _ X hpara hpu Λ U hUo hUs hcov
@@ -46,9 +46,9 @@ theorem B_to_A : B → A := by
       sum_le_one' := fun y => (h1 y).le }
   exact ⟨ρ, hsub, hsm, hW, hinv⟩
 
-#rt_check RoundTrip.V7_65.A_to_B [Polyfold.EpGroupoid.theorem_7_6]
-#rt_check RoundTrip.V7_65.B_to_A [Polyfold.EpGroupoid.theorem_7_6]
-#rt_overlap RoundTrip.V7_65.B_to_A [Polyfold.EpGroupoid.theorem_7_6]
-#rt_overlap RoundTrip.V7_65.A_to_B [Polyfold.EpGroupoid.theorem_7_6]
+#rt_check RoundTrip.V7_65.A_to_B [Polyfold.EpGroupoid.theorem_7_6_4]
+#rt_check RoundTrip.V7_65.B_to_A [Polyfold.EpGroupoid.theorem_7_6_4]
+#rt_overlap RoundTrip.V7_65.B_to_A [Polyfold.EpGroupoid.theorem_7_6_4]
+#rt_overlap RoundTrip.V7_65.A_to_B [Polyfold.EpGroupoid.theorem_7_6_4]
 
 end RoundTrip.V7_65

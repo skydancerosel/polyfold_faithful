@@ -8,10 +8,10 @@ import Mathlib.Algebra.Group.Action.Defs
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.1,
-pp. 225–226: **Definition 7.1** (groupoid, `mor(x, y)`, orbit space `|X|`, `π`) and
-**Definition 7.2** (isotropy group `G_x`), with the algebraic notions of Chapter 7 that need no
+pp. 225–226: **Definition 7.1.1 (2017: 7.1)** (groupoid, `mor(x, y)`, orbit space `|X|`, `π`) and
+**Definition 7.1.2 (2017: 7.2)** (isotropy group `G_x`), with the algebraic notions of Chapter 7 that need no
 topology: the conjugation `G_x ≅ G_y` (p. 230), functors, full subcategories (pp. 231, 237),
-saturated sets (pp. 237, 250), regular objects (Definition 7.11, p. 239) and the translation
+saturated sets (pp. 237, 250), regular objects (Definition 7.2.1 (2017: 7.11), p. 307 (2017 p. 239)) and the translation
 groupoid `G ⋉ U` (p. 232).  There is no 2014 preprint of Part II; numbers and pages are the 2017
 text's.
 
@@ -19,19 +19,19 @@ text's.
 
 ## The text, paraphrased
 
-(Definition 7.1) A groupoid `X = (X, 𝐗)` is a small category with object set `X` and morphism set
+(Definition 7.1.1 (2017: 7.1)) A groupoid `X = (X, 𝐗)` is a small category with object set `X` and morphism set
 `𝐗`, all morphisms invertible, given by five structure maps: source and target `s, t : 𝐗 → X`; the
 associative multiplication `m : 𝐗 ₛ×ₜ 𝐗 → 𝐗`, `m(φ, ψ) = φ ∘ ψ`, on `𝐗 ₛ×ₜ 𝐗 = {(φ, ψ) | s(φ) =
 t(ψ)}` (for `ψ : x → z`, `φ : z → y`, `φ ∘ ψ : x → y`); the unit map `u(x) = 1_x`, a two-sided
 unit; the inverse map `ι(φ) = φ⁻¹`, a two-sided inverse.  `mor(x, y)` is the set of `φ` with
 `s(φ) = x`, `t(φ) = y`.  The orbit space `|X| = X/∼` is the quotient by `x ∼ y ⟺` there is a
-morphism `x → y`; `|x|` is the class, `π : X → |X|` the quotient map.  (Definition 7.2) The
+morphism `x → y`; `|x|` is the class, `π : X → |X|` the quotient map.  (Definition 7.1.2 (2017: 7.2)) The
 isotropy group of `x` is `G_x = {φ ∈ 𝐗 | φ : x → x}`.  (p. 230) An isomorphism `φ : x → y` gives
 `G_x → G_y`, `g ↦ φ ∘ g ∘ φ⁻¹`.
 
 ## What is formalized
 
-* **Definition 7.1**: `GroupoidStr Obj Mor` (the five structure maps `src tgt comp unit inv`, the
+* **Definition 7.1.1 (2017: 7.1)**: `GroupoidStr Obj Mor` (the five structure maps `src tgt comp unit inv`, the
   laws on composable pairs), `GroupoidStr.mor`, `GroupoidStr.morOn` (morphisms between points of
   a set: the text's `𝐔(x)`, `𝐀`), `GroupoidStr.Isomorphic`, `GroupoidStr.orbitSetoid`,
   `GroupoidStr.OrbitSpace`, `GroupoidStr.π`, `GroupoidStr.π_eq_π_iff`.
@@ -39,7 +39,7 @@ isotropy group of `x` is `G_x = {φ ∈ 𝐗 | φ : x → x}`.  (p. 230) An isom
   `eq_inv_of_comp_eq_unit`, `eq_inv_of_comp_eq_unit'` (uniqueness of inverses), `inv_inv`,
   `inv_unit`, `inv_comp_cancel_left`, `comp_inv_cancel_right`, `comp_left_cancel`,
   `comp_right_cancel`, `inv_comp_rev`.
-* **Definition 7.2**: `GroupoidStr.Isotropy G x` with its `Group` structure (`g * h = g ∘ h`);
+* **Definition 7.1.2 (2017: 7.2)**: `GroupoidStr.Isotropy G x` with its `Group` structure (`g * h = g ∘ h`);
   `isotropyConj` (`g ↦ φ ∘ g ∘ φ⁻¹`, a `MulEquiv`), `isotropyConj_val`.
 * The bridge to Mathlib: `GroupoidStr.Ob G` (a type synonym of `Obj`) with
   `CategoryTheory.Groupoid` (`x ⟶ y` is `mor(x, y)`), `Ob.hom_ext`, `Ob.comp_val`, `Ob.id_val`,
@@ -48,9 +48,9 @@ isotropy group of `x` is `G_x = {φ ∈ 𝐗 | φ : x → x}`.  (p. 230) An isom
 * Functors: `GroupoidFunctor G H` (maps on objects and morphisms commuting with `s, t, m, u`),
   `GroupoidFunctor.mor_inv`, `.id`, `.comp`, `.ext`, `GroupoidFunctor.toFunctor` (a Mathlib
   functor `G.Ob ⥤ H.Ob`, so `Functor.Full`/`Faithful` apply), `GroupoidFunctor.orbitMap`.
-* Saturated sets (p. 237, Definition 7.10 (2); p. 250): `GroupoidStr.saturation`,
+* Saturated sets (p. 237, Definition 7.1.21 (2017: 7.10) (2); p. 250): `GroupoidStr.saturation`,
   `GroupoidStr.IsSaturated` (`π⁻¹(π(A)) = A`), `isSaturated_iff` (closed under morphisms).
-* Regular objects (Definition 7.11, second half): `GroupoidStr.IsRegular`, `regularSet`,
+* Regular objects (Definition 7.2.1 (2017: 7.11), second half): `GroupoidStr.IsRegular`, `regularSet`,
   `isRegular_tgt_iff` (the text's "if `s(φ)` is regular, so is `t(φ)`").
 * The full subcategory on `A ⊆ X` (pp. 231, 237): `GroupoidStr.fullSub G A`.
 * The translation groupoid (p. 232): `GroupoidStr.translation K U` for a group `K` acting on `U`,
@@ -68,7 +68,7 @@ isotropy group of `x` is `G_x = {φ ∈ 𝐗 | φ : x → x}`.  (p. 230) An isom
 * **The isotropy group is a type of its own, with the text's order of multiplication** (a
   deviation from P1, which proposed Mathlib's `vertexGroup`).  Mathlib's `vertexGroup` on
   `x ⟶ x` multiplies in diagrammatic order (`a * b = a ≫ b`, i.e. the text's `b ∘ a`); with it the
-  natural representation `Φ : G_x → Diff_sc(U)` of Theorem 7.1, `Φ(g ∘ h) = Φ(g) ∘ Φ(h)`, would
+  natural representation `Φ : G_x → Diff_sc(U)` of Theorem 7.1.13 (2017: 7.1), `Φ(g ∘ h) = Φ(g) ∘ Φ(h)`, would
   be an anti-homomorphism.  `GroupoidStr.Isotropy G x` (an element is a morphism `x → x`) has
   `g * h = g ∘ h`; it is `(x ⟶ x)ᵐᵒᵖ` as a group (`isotropyEquivVertexGroup`) and Mathlib's
   `Aut x` (`isotropyEquivAut`, whose multiplication is composition of maps).
@@ -76,7 +76,7 @@ isotropy group of `x` is `G_x = {φ ∈ 𝐗 | φ : x → x}`.  (p. 230) An isom
   `mor(x, y)` and `f ≫ g = g ∘ f`; it is used for Mathlib's notions (`Functor.Full`,
   `Functor.Faithful`, `isIsomorphicSetoid`, `vertexGroupIsomOfMap`), while the chapter's proofs
   work with the structure maps on `Mor`.
-* A **functor** (Definition 7.7; Propositions 7.5, 7.6; Definition 7.9) commutes with `s`, `t`,
+* A **functor** (Definition 7.1.7 (2017: 7.7); Propositions 7.1.15, 7.1.19 (2017: 7.5, 7.6); Definition 7.1.20 (2017: 7.9)) commutes with `s`, `t`,
   `m` (on composable pairs) and `u`; it then commutes with `ι` (`GroupoidFunctor.mor_inv`).
 * **Saturated** is the text's literal `π⁻¹(π(A)) = A`; `isSaturated_iff` gives the form with
   morphisms used in proofs.
@@ -90,7 +90,7 @@ namespace Polyfold
 
 universe u v w
 
-/-- **Definition 7.1 (groupoid)**: a small category with all morphisms invertible, given by its
+/-- **Definition 7.1.1 (2017: 7.1) (groupoid)**: a small category with all morphisms invertible, given by its
 five structure maps.  `comp φ ψ = φ ∘ ψ` (first `ψ`, then `φ`) is meant on the composable pairs
 `src φ = tgt ψ` (the fibred product `𝐗 ₛ×ₜ 𝐗`); the laws are asked there. -/
 structure GroupoidStr (Obj Mor : Type u) where
@@ -192,7 +192,7 @@ def mor (x y : Obj) : Set Mor := {φ | G.src φ = x ∧ G.tgt φ = y}
 text's `𝐔(x)`, p. 231, and `𝐀`, p. 238). -/
 def morOn (A : Set Obj) : Set Mor := {φ | G.src φ ∈ A ∧ G.tgt φ ∈ A}
 
-/-- `x ∼ y`: there is a morphism `x → y` (Definition 7.1). -/
+/-- `x ∼ y`: there is a morphism `x → y` (Definition 7.1.1 (2017: 7.1)). -/
 def Isomorphic (x y : Obj) : Prop := ∃ φ, G.src φ = x ∧ G.tgt φ = y
 
 theorem isomorphic_refl (x : Obj) : G.Isomorphic x x := ⟨G.unit x, G.src_unit x, G.tgt_unit x⟩
@@ -209,12 +209,12 @@ theorem Isomorphic.trans {x y z : Obj} (h : G.Isomorphic x y) (h' : G.Isomorphic
   obtain ⟨ψ, hψ, rfl⟩ := h'
   exact ⟨G.comp ψ φ, G.src_comp _ _ hψ, G.tgt_comp _ _ hψ⟩
 
-/-- The equivalence relation `∼` of Definition 7.1. -/
+/-- The equivalence relation `∼` of Definition 7.1.1 (2017: 7.1). -/
 def orbitSetoid : Setoid Obj where
   r := G.Isomorphic
   iseqv := ⟨G.isomorphic_refl, Isomorphic.symm, Isomorphic.trans⟩
 
-/-- **The orbit space** `|X| = X/∼` (Definition 7.1). -/
+/-- **The orbit space** `|X| = X/∼` (Definition 7.1.1 (2017: 7.1)). -/
 abbrev OrbitSpace : Type u := Quotient G.orbitSetoid
 
 /-- **The quotient map** `π : X → |X|`, `x ↦ |x|`. -/
@@ -232,7 +232,7 @@ theorem surjective_π : Function.Surjective G.π := Quotient.mk_surjective
 /-- The saturation `π⁻¹(π(A))` of `A`. -/
 def saturation (A : Set Obj) : Set Obj := G.π ⁻¹' (G.π '' A)
 
-/-- `A` is **saturated**: `π⁻¹(π(A)) = A` (Definition 7.10 (2); p. 250). -/
+/-- `A` is **saturated**: `π⁻¹(π(A)) = A` (Definition 7.1.21 (2017: 7.10) (2); p. 250). -/
 def IsSaturated (A : Set Obj) : Prop := G.π ⁻¹' (G.π '' A) = A
 
 theorem subset_saturation (A : Set Obj) : A ⊆ G.saturation A := subset_preimage_image _ _
@@ -251,9 +251,9 @@ theorem isSaturated_iff {A : Set Obj} : G.IsSaturated A ↔ ∀ φ, G.src φ ∈
 
 theorem isSaturated_univ : G.IsSaturated univ := G.isSaturated_iff.2 fun _ _ => mem_univ _
 
-/-! ### Definition 7.2: the isotropy group -/
+/-! ### Definition 7.1.2 (2017: 7.2): the isotropy group -/
 
-/-- **Definition 7.2**: an element of the **isotropy group** `G_x`, a morphism `x → x`. -/
+/-- **Definition 7.1.2 (2017: 7.2)**: an element of the **isotropy group** `G_x`, a morphism `x → x`. -/
 @[ext]
 structure Isotropy (x : Obj) where
   /-- The morphism. -/
@@ -345,7 +345,7 @@ end Ob
 theorem homMk_val {x y : Obj} (φ : Mor) (hx : G.src φ = x) (hy : G.tgt φ = y) :
     (G.homMk φ hx hy).1 = φ := rfl
 
-/-- The orbit relation of Definition 7.1 is Mathlib's "isomorphic" relation of the bridge. -/
+/-- The orbit relation of Definition 7.1.1 (2017: 7.1) is Mathlib's "isomorphic" relation of the bridge. -/
 theorem orbitSetoid_eq : G.orbitSetoid = isIsomorphicSetoid G.Ob := by
   refine Setoid.ext fun x y => ⟨?_, ?_⟩
   · rintro ⟨φ, hx, hy⟩
@@ -384,9 +384,9 @@ theorem isotropyConj_val {x y : Obj} (φ : Mor) (hx : G.src φ = x) (hy : G.tgt 
     (G.isotropyConj φ hx hy g).val = G.comp (G.comp φ g.val) (G.inv φ) :=
   rfl
 
-/-! ### Regular objects (Definition 7.11, second half) -/
+/-! ### Regular objects (Definition 7.2.1 (2017: 7.11), second half) -/
 
-/-- An object `x` is **regular**: `G_x = {1_x}` (Definition 7.11). -/
+/-- An object `x` is **regular**: `G_x = {1_x}` (Definition 7.2.1 (2017: 7.11)). -/
 def IsRegular (x : Obj) : Prop := ∀ g : G.Isotropy x, g = 1
 
 /-- The **regular part** `X_reg = {x | G_x = {1_x}}` (p. 239). -/
@@ -511,7 +511,7 @@ end GroupoidStr
 /-! ### Functors -/
 
 /-- **A functor** between groupoids: maps on objects and morphisms commuting with `s`, `t`, `m`
-(on composable pairs) and `u` (Definition 7.7; Propositions 7.5, 7.6; Definition 7.9). -/
+(on composable pairs) and `u` (Definition 7.1.7 (2017: 7.7); Propositions 7.1.15, 7.1.19 (2017: 7.5, 7.6); Definition 7.1.20 (2017: 7.9)). -/
 structure GroupoidFunctor {Obj Mor : Type u} {Obj' Mor' : Type v} (G : GroupoidStr Obj Mor)
     (H : GroupoidStr Obj' Mor') where
   /-- The map on objects. -/

@@ -2,7 +2,7 @@ import Polyfold.Chapter3.GlobalIFTNearbyOntoGerm
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1), the surjectivity of `f'(y)` at the nearby zeros: the curve of perturbed zeros
+**Theorem 3.6.8 (preprint 3.54) (1), the surjectivity of `f'(y)` at the nearby zeros: the curve of perturbed zeros
 through a nearby zero (Lemma 4 and Proposition 7 of the argument).**
 
 # The finite-dimensional reduction at a nearby zero and the curve of perturbed zeros
@@ -23,7 +23,7 @@ and `β`).
 * `ShiftedBasicData.curveMap`, `hasFDerivWithinAt_curveMap` (**Lemma 4 (i)**): the map
   `G̃(μ, a) = (g + μ ι e)(a, δ_μ(μ, a))` is `C¹` on the region `(−μ_3, μ_3) × (N(3) ∩ C̃)` with
   derivative `Dg(z) ∘ (α, Dδ(0, a₀)(dμ, α)) + dμ · ι e(z)` at `(0, a₀)` (the chain rule with
-  Theorem 3.30 for the perturbed germ).
+  Theorem 3.3.3 (preprint 3.30) for the perturbed germ).
 * `ShiftedBasicData.curveMap_snd` : the `W`-component of `G̃` vanishes identically (`δ_μ` is the
   fixed point of `B_μ`), so `H = (1 − P) G̃` carries the whole equation.
 * `ShiftedBasicData.surjective_DH_and_ker_eq` (**Lemma 4 (ii)**): `ker Dg(z)` is the graph
@@ -38,7 +38,7 @@ and `β`).
 ## What the text leaves implicit, and the choices made (the findings)
 
 The level bookkeeping (Finding 186): `δ_μ` is `C¹` into `W₂` on `(−μ_3, μ_3) × (N(3) ∩ C̃)`
-(Theorem 3.30 on the re-indexed germ and Proposition 1.16 on level `1`), so the curve is right
+(Theorem 3.3.3 (preprint 3.30) on the re-indexed germ and Proposition 1.2.1 (preprint 1.16) on level `1`), so the curve is right
 differentiable into `E₂ = ℝⁿ ⊕ W₂`; `g` and `e` are differentiated from level `1` to level `0`.
 -/
 
@@ -227,7 +227,7 @@ lemma curveLift_zero_eq : 𝒟.curveLift hC R he c hc hce ((0 : ℝ), z.1) = z :
   Prod.ext rfl (𝒟.sol_zero_eq hC R he c hc hce hz hzC hzν hzρ hz0)
 
 include hz hzρ hz0 in
-/-- **The derivative of `G̃` at `(0, a₀)`** (the chain rule with Theorem 3.30). -/
+/-- **The derivative of `G̃` at `(0, a₀)`** (the chain rule with Theorem 3.3.3 (preprint 3.30)). -/
 theorem hasFDerivWithinAt_curveMap :
     HasFDerivWithinAt (𝒟.curveMap hC R he c hc hce) (𝒟.curveDeriv hC R he c hc hce (z := z))
       (𝒟.curveDom hC R he c hc hce) ((0 : ℝ), z.1) := by

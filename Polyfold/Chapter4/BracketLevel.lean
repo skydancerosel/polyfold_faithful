@@ -32,8 +32,8 @@ which is said to prove that `[A, B]` is an sc-smooth section of `TX|X² → X²`
   for two of them the bracket `retractLieBracket` of §4.5.1 is the commutator `S₀ T₁ − T₀ S₁`.
   `BracketLevel.isRetractVectorField_opS`, `BracketLevel.isRetractVectorField_opT`.
 * `BracketLevel.bracket_not_mem_level_one`: for `x_k = (k+1)^{-3}`, a point of `O₂ = X₂`
-  (`BracketLevel.xPt`), `[S, T](x) ∉ X₁`.  `lieBracket_level_counterexample_2021`,
-  `not_forall_lieBracket_mem_level_one_2021`: the sentence of p. 201 ("belongs to the level 1"), and
+  (`BracketLevel.xPt`), `[S, T](x) ∉ X₁`.  `lieBracket_level_counterexample`,
+  `not_forall_lieBracket_mem_level_one`: the sentence of p. 201 ("belongs to the level 1"), and
   that of p. 200 (here `T_xO = X₀`, so `(T_xO)₁ = X₁`), read as `[A, B](x) ∈ E₁` for `x ∈ O₂`,
   **do not hold as we read them**.
 
@@ -43,7 +43,7 @@ which is said to prove that `[A, B]` is an sc-smooth section of `TX|X² → X²`
   (the M-polyfold `X` with one chart), `S`, `T` are sc-smooth sections of `TO → O¹`, and `x ∈ O₂`.
   `DA(x)` is the derivative of `Ã = A ∘ r¹`, here `A` itself.
 * What holds is the shifted statement: `x ∈ O_{m+2}` gives `[A, B](x) ∈ E_m`, i.e. `[A, B]` is an
-  sc-smooth section of `TO|O² → O²` (`proposition_4_4_5_local_2021`, `VectorFields.lean`).  We read
+  sc-smooth section of `TO|O² → O²` (`proposition_4_4_5_local`, `VectorFields.lean`).  We read
   the two sentences as: `[A, B](x)` is a tangent vector at the point `x` of level `1` of `X¹`; this
   reading is the one formalized there.  Proposition 4.4.5 itself is not affected.
 * The sketch in the docstring of `VectorFields.lean` (`E_m = ℓ²` with weights `4^{mk}`,
@@ -232,7 +232,7 @@ end BracketLevel
 /-- **2021 Appendix 4.5, §4.5.1, pp. 200–201** (does not hold as we read it): there are a local
 model `(O, C, E)` with a retraction `r` onto `O`, two sc-smooth vector fields `A`, `B` on it (2021
 Definition 4.4.3) and `x ∈ O₂` with `[A, B](x) ∉ E₁`. -/
-theorem lieBracket_level_counterexample_2021 :
+theorem lieBracket_level_counterexample :
     ∃ (E : ScBanach) (R : ScRetraction E univ) (A B : E 1 → E 0),
       IsRetractVectorField E univ R.retract A ∧ IsRetractVectorField E univ R.retract B ∧
       ∃ x ∈ E.shift.lvlSet (E.lvlSet R.retract 1) 1,
@@ -244,13 +244,13 @@ theorem lieBracket_level_counterexample_2021 :
 
 /-- The negation of the sentence of 2021 p. 201, read as `[A, B](x) ∈ E₁` for every local model,
 all vector fields `A`, `B` and all `x ∈ O₂`. -/
-theorem not_forall_lieBracket_mem_level_one_2021 :
+theorem not_forall_lieBracket_mem_level_one :
     ¬ ∀ (E : ScBanach) (R : ScRetraction E univ) (A B : E 1 → E 0),
       IsRetractVectorField E univ R.retract A → IsRetractVectorField E univ R.retract B →
       ∀ x ∈ E.shift.lvlSet (E.lvlSet R.retract 1) 1,
         retractLieBracket R A B x ∈ range (E.toBase 1) := by
   intro h
-  obtain ⟨E, R, A, B, hA, hB, x, hx, hn⟩ := lieBracket_level_counterexample_2021
+  obtain ⟨E, R, A, B, hA, hB, x, hx, hn⟩ := lieBracket_level_counterexample
   exact hn (h E R A B hA hB x hx)
 
 end Polyfold

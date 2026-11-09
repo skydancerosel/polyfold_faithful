@@ -25,18 +25,18 @@ near a smooth point in `X_∞` have the same tangent there.  Chapter 7 bundles t
   (`Chapter2/TangentProjOpen.lean`, gap G.8) and `MPolyfold.tangentDeterminedSmooth`
   (`Chapter7/ZhouFacts.lean`).
 * **§7.4 with (ZHOU) as the only hypothesis** (rows V7.90, V7.91, V7.94, V7.102 lose
-  `SmoothRegular` and `DenseSmoothTangent`): `proposition_7_4_8_2021_unconditional`
-  ((ZHOU) ⇔ (ZHOU')), `proposition_7_4_10_2021_of_isZhou` ((ZHOU) ⇒ (LUC)),
-  `isSmoothUC_of_isZhou'`, `isVSLUC_of_isZhou'`, `corollary_7_4_11_2021_of_isZhou`,
-  `proposition_7_4_22_2021_of_isZhou` ((ZHOU) ⇒ (LR)), `corollary_7_6_8_2021_of_isZhou'`
+  `SmoothRegular` and `DenseSmoothTangent`): `proposition_7_4_8_unconditional`
+  ((ZHOU) ⇔ (ZHOU')), `proposition_7_4_10_of_isZhou` ((ZHOU) ⇒ (LUC)),
+  `isSmoothUC_of_isZhou'`, `isVSLUC_of_isZhou'`, `corollary_7_4_11_of_isZhou`,
+  `proposition_7_4_22_of_isZhou` ((ZHOU) ⇒ (LR)), `corollary_7_6_8_of_isZhou'`
   (Corollary 7.6.8 under (ZHOU) alone, row V7.83); for every `X^i`:
-  `EP.proposition_7_4_9_2021_of_isZhou`, `EP.corollary_7_4_11_all_2021_of_isZhou`,
-  `EP.theorem_7_4_13_all_2021_of_isZhou` ((ZHOU) ⇒ (SLUC)),
-  `EP.theorem_7_4_24_all_2021_of_isZhou` ((ZHOU) ⇒ (SLR)).
+  `EP.proposition_7_4_9_of_isZhou`, `EP.corollary_7_4_11_all_of_isZhou`,
+  `EP.theorem_7_4_13_all_of_isZhou` ((ZHOU) ⇒ (SLUC)),
+  `EP.theorem_7_4_24_all_of_isZhou` ((ZHOU) ⇒ (SLR)).
 * **Proposition 8.1.17 with no hypothesis beyond LUC/SLUC** (rows V8.45, V8.52):
-  `nonEffectivePart_tangent_eq_of_isLUC`, `proposition_8_1_17_2021_one_of_isLUC`,
-  `EP.proposition_8_1_17_2021_two_of_isSLUC`, `EP.isLUC_tangent_lift_of_isSLUC`,
-  `EP.proposition_8_1_17_two_all_2021_of_isSLUC`.
+  `nonEffectivePart_tangent_eq_of_isLUC`, `proposition_8_1_17_one_of_isLUC`,
+  `EP.proposition_8_1_17_two_of_isSLUC`, `EP.isLUC_tangent_lift_of_isSLUC`,
+  `EP.proposition_8_1_17_two_all_of_isSLUC`.
 * **`EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional`**: the example of Appendix 7.6.3
   fails (ZHOU), with no hypothesis (row V7.95; 2021 p. 331).
 
@@ -75,13 +75,13 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 /-- **2021 Proposition 7.4.8, p. 332 (new in the 2021 edition)**: (ZHOU) ⇔ (ZHOU'), with no
 hypothesis (row V7.90). -/
-theorem proposition_7_4_8_2021_unconditional : X.IsZhou ↔ X.IsZhou' :=
-  X.proposition_7_4_8_2021 X.PObj.smoothRegular X.PObj.denseSmoothTangent
+theorem proposition_7_4_8_unconditional : X.IsZhou ↔ X.IsZhou' :=
+  X.proposition_7_4_8 X.PObj.smoothRegular X.PObj.denseSmoothTangent
 
 /-- **2021 Proposition 7.4.10, p. 333 (new in the 2021 edition)**: (ZHOU) ⇒ (LUC), with no
 Part I hypothesis (row V7.90). -/
-theorem proposition_7_4_10_2021_of_isZhou (hZ : X.IsZhou) : X.IsLUC :=
-  X.proposition_7_4_10_2021 X.PObj.smoothRegular hZ
+theorem proposition_7_4_10_of_isZhou (hZ : X.IsZhou) : X.IsLUC :=
+  X.proposition_7_4_10 X.PObj.smoothRegular hZ
 
 /-- (ZHOU) gives unique continuation through `X_∞`, with no Part I hypothesis. -/
 theorem isSmoothUC_of_isZhou' (hZ : X.IsZhou) : X.IsSmoothUC :=
@@ -93,21 +93,21 @@ theorem isVSLUC_of_isZhou' (hZ : X.IsZhou) : X.IsVSLUC :=
 
 /-- **2021 Corollary 7.4.11, p. 334 (new in the 2021 edition), for `X⁰` and `X¹`**: (ZHOU)
 gives (LUC) for `X` and for `X¹`, with no Part I hypothesis (row V7.90). -/
-theorem corollary_7_4_11_2021_of_isZhou (hZ : X.IsZhou) : X.IsLUC ∧ X.liftOne.IsLUC :=
-  X.corollary_7_4_11_2021 X.PObj.smoothRegular hZ
+theorem corollary_7_4_11_of_isZhou (hZ : X.IsZhou) : X.IsLUC ∧ X.liftOne.IsLUC :=
+  X.corollary_7_4_11 X.PObj.smoothRegular hZ
 
 /-- **2021 Proposition 7.4.22, p. 338 (new in the 2021 edition)**: (ZHOU) ⇒ (LR), with no
 Part I hypothesis (row V7.94). -/
-theorem proposition_7_4_22_2021_of_isZhou (hZ : X.IsZhou) : X.IsLR :=
-  X.proposition_7_4_22_2021 X.PObj.smoothRegular hZ
+theorem proposition_7_4_22_of_isZhou (hZ : X.IsZhou) : X.IsLR :=
+  X.proposition_7_4_22 X.PObj.smoothRegular hZ
 
 /-- **2021 Corollary 7.6.8, p. 351, for `i = 1` and as sets**, under (ZHOU) alone (row V7.83). -/
-theorem corollary_7_6_8_2021_of_isZhou' (hZ : X.IsZhou) :
+theorem corollary_7_6_8_of_isZhou' (hZ : X.IsZhou) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,
       (∀ φ, X.reducedLevelOneMap hT (X.liftOne.reducedπ φ) = X.reducedπ (X.PMor.levelVal 1 φ)) ∧
       Injective (X.reducedLevelOneMap hT) ∧ Continuous (X.reducedLevelOneMap hT) ∧
       range (X.reducedLevelOneMap hT) = X.reducedπ '' X.PMor.levelSet 1 :=
-  X.corollary_7_6_8_2021_of_isZhou hZ X.PObj.smoothRegular X.hasConnectedDenseLevelOneReps
+  X.corollary_7_6_8_of_isZhou hZ X.PObj.smoothRegular X.hasConnectedDenseLevelOneReps
 
 /-! ### Proposition 8.1.17 without added hypotheses -/
 
@@ -118,9 +118,9 @@ theorem nonEffectivePart_tangent_eq_of_isLUC (h : X.liftOne.IsLUC) :
 
 /-- **2021 Proposition 8.1.17 (1), p. 371 (new in the 2021 edition)**: if `X¹` has (LUC), so has
 `TX`; with no further hypothesis (row V8.45). -/
-theorem proposition_8_1_17_2021_one_of_isLUC (h : X.liftOne.IsLUC) :
+theorem proposition_8_1_17_one_of_isLUC (h : X.liftOne.IsLUC) :
     X.tangentEpGroupoid.IsLUC :=
-  X.proposition_8_1_17_2021_one h X.hasConnectedDenseLevelOneReps X.PMor.isOpenMap_tangentProj
+  X.proposition_8_1_17_one h X.hasConnectedDenseLevelOneReps X.PMor.isOpenMap_tangentProj
 
 end EpGroupoid
 
@@ -130,33 +130,33 @@ open EpGroupoid
 
 /-- **2021 Proposition 7.4.9, p. 333 (new in the 2021 edition)**: (ZHOU) for `X` gives (ZHOU) for
 every `X^i`, with no Part I hypothesis (row V7.102). -/
-theorem proposition_7_4_9_2021_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) (i : ℕ) :
+theorem proposition_7_4_9_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) (i : ℕ) :
     (A.lift i).X.IsZhou :=
-  A.proposition_7_4_9_2021 hZ A.X.PObj.denseSmoothTangent
+  A.proposition_7_4_9 hZ A.X.PObj.denseSmoothTangent
     (fun i => (A.lift i).X.PObj.smoothRegular) i
 
 /-- **2021 Corollary 7.4.11, p. 334 (new in the 2021 edition)**: under (ZHOU) every `X^i` has
 (LUC), with no Part I hypothesis (row V7.102). -/
-theorem corollary_7_4_11_all_2021_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) (i : ℕ) :
+theorem corollary_7_4_11_all_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) (i : ℕ) :
     (A.lift i).X.IsLUC :=
-  A.corollary_7_4_11_all_2021 hZ A.X.PObj.denseSmoothTangent
+  A.corollary_7_4_11_all hZ A.X.PObj.denseSmoothTangent
     (fun i => (A.lift i).X.PObj.smoothRegular) i
 
 /-- **2021 Theorem 7.4.13, p. 334 (new in the 2021 edition)**: (ZHOU) ⇒ (SLUC), with no Part I
 hypothesis (rows V7.91, V7.102). -/
-theorem theorem_7_4_13_all_2021_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) : A.IsSLUC :=
-  A.theorem_7_4_13_all_2021 hZ A.X.PObj.denseSmoothTangent fun i => (A.lift i).X.PObj.smoothRegular
+theorem theorem_7_4_13_all_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) : A.IsSLUC :=
+  A.theorem_7_4_13_all hZ A.X.PObj.denseSmoothTangent fun i => (A.lift i).X.PObj.smoothRegular
 
 /-- **2021 Theorem 7.4.24, p. 340 (new in the 2021 edition)**: (ZHOU) ⇒ (SLR), with no Part I
 hypothesis (rows V7.94, V7.102). -/
-theorem theorem_7_4_24_all_2021_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) : A.IsSLR :=
-  A.theorem_7_4_24_all_2021 hZ A.X.PObj.denseSmoothTangent fun i => (A.lift i).X.PObj.smoothRegular
+theorem theorem_7_4_24_all_of_isZhou (A : EP.{u}) (hZ : A.X.IsZhou) : A.IsSLR :=
+  A.theorem_7_4_24_all hZ A.X.PObj.denseSmoothTangent fun i => (A.lift i).X.PObj.smoothRegular
 
 /-- **2021 Proposition 8.1.17 (2), p. 371, for `(TX)⁰`**: (SLUC) for `X` gives (LUC) for `TX`,
 with no further hypothesis (row V8.45). -/
-theorem proposition_8_1_17_2021_two_of_isSLUC (A : EP.{u}) (h : A.IsSLUC) :
+theorem proposition_8_1_17_two_of_isSLUC (A : EP.{u}) (h : A.IsSLUC) :
     A.X.tangentEpGroupoid.IsLUC :=
-  A.X.proposition_8_1_17_2021_one_of_isLUC (h 1)
+  A.X.proposition_8_1_17_one_of_isLUC (h 1)
 
 /-- Under (SLUC) every `T(X^i)` has (LUC), with no further hypothesis (row V8.52). -/
 theorem isLUC_tangent_lift_of_isSLUC (A : EP.{u}) (h : A.IsSLUC) (i : ℕ) :
@@ -166,9 +166,9 @@ theorem isLUC_tangent_lift_of_isSLUC (A : EP.{u}) (h : A.IsSLUC) (i : ℕ) :
 
 /-- **2021 Proposition 8.1.17 (2), p. 371 (new in the 2021 edition)**: if `X` has (SLUC), so
 has `TX`; with no further hypothesis (row V8.52). -/
-theorem proposition_8_1_17_two_all_2021_of_isSLUC (A : EP.{u}) (h : A.IsSLUC) :
+theorem proposition_8_1_17_two_all_of_isSLUC (A : EP.{u}) (h : A.IsSLUC) :
     A.tangentEP.IsSLUC :=
-  A.proposition_8_1_17_two_all_2021 h (fun i => (A.lift i).X.hasConnectedDenseLevelOneReps)
+  A.proposition_8_1_17_two_all h (fun i => (A.lift i).X.hasConnectedDenseLevelOneReps)
     fun i => (A.lift i).X.PMor.isOpenMap_tangentProj
 
 end EP

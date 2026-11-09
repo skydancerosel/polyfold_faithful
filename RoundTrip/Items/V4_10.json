@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A = type of lemma_4_5: ∀ E C T S, T.IsScPlus → T.retract = S.retract → S.IsScPlus. B is the same statement with the equation of retracts oriented the other way (s.retract = t.retract); both directions are one-line term proofs (Eq.symm). Both use the project's ScRetraction.IsScPlus as the notion of sc⁺-retraction (its agreement with Definition 4.4 is V4_9).",
+ "why": "A = type of lemma_4_1_5: ∀ E C T S, T.IsScPlus → T.retract = S.retract → S.IsScPlus. B is the same statement with the equation of retracts oriented the other way (s.retract = t.retract); both directions are one-line term proofs (Eq.symm). Both use the project's ScRetraction.IsScPlus as the notion of sc⁺-retraction (its agreement with Definition 4.4 is V4_9).",
  "B_issue": null,
  "overlap": "0 shared project theorems.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

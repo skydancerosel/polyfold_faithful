@@ -15,7 +15,7 @@
  "partial": {
   "D640_of_isSectionOrientation": "proved, rt_check OK: A's hypothesis IsSectionOrientation gives B's D640",
   "isCompactCornerManifold_of_solutionSetInGeneralPosition": "proved: SolutionSetInGeneralPosition → IsCompactCornerManifold",
-  "corner_of_A": "proved, rt_check OK, uses the hypothesis theorem_6_41_solutionSet (A's first conjunct), stated on that conjunct because A's type mentions tangentFamily, whose body is exists_tangentFamily.choose, which rt_check would otherwise traverse: with tame germ data, B's IsCompactCornerManifold",
+  "corner_of_A": "proved, rt_check OK, uses the hypothesis theorem_6_6_18_solutionSet (A's first conjunct), stated on that conjunct because A's type mentions tangentFamily, whose body is exists_tangentFamily.choose, which rt_check would otherwise traverse: with tame germ data, B's IsCompactCornerManifold",
   "missing_A_to_B": "tame germ data from B's hypotheses; D640 → IsSectionOrientation; TangentOrContinuous from path-wise IsLineOrientation; B's part (2)",
   "missing_B_to_A": "the auxiliary lemmas; transversality, general position, tameness and d_S = d_X of S; path-wise IsLineOrientation in the orientable pair's chart from B's frames in another chart (cross-chart agreement of tangentOr)"
  }

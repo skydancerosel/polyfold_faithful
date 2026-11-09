@@ -6,7 +6,7 @@ import Polyfold.Chapter5.Homotopy
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.2 and §2.5:
 the restriction of an M-polyfold and of a strong bundle to an open subset (used implicitly
 throughout the text: "a locally defined sc⁺-section", "in a chart, `s(y) = R(y, f(x))`", the
-proof of Proposition 6.2: "we do not need a sc-smooth partition of unity").  Round-trip item
+proof of Proposition 6.2.2 (preprint 6.2): "we do not need a sc-smooth partition of unity").  Round-trip item
 V3.98 (a); Findings, Chapter 3, items 360–369.
 
 # Restriction of M-polyfolds and strong bundles to open subsets
@@ -15,7 +15,7 @@ V3.98 (a); Findings, Chapter 3, items 360–369.
 
 The text freely restricts a strong bundle `P : Y → X` to an open subset `V ⊆ X` (the domain of
 a chart, say) and speaks of sections of `P|V`: the stabilizing sections `R(·, e)` of the proof of
-Proposition 6.2 and of Theorem 3.54, the local sc⁺-sections of Definition 6.1.  No partition of
+Proposition 6.2.2 (preprint 6.2) and of Theorem 3.6.8 (preprint 3.54), the local sc⁺-sections of Definition 6.2.1 (preprint 6.1).  No partition of
 unity is needed for these constructions because the sections live on `V` only.
 
 ## What is formalized
@@ -42,11 +42,11 @@ unity is needed for these constructions because the sections live on `V` only.
 ## What the text leaves implicit, and the choices made
 
 * The total space of `P|V` is the pull-back `ι*Y = {(v, y) | P(y) = v}` along the inclusion
-  (Definition 2.53), as in Definition 5.20 (`restrictSection`); its fibres are those of `P`
+  (Definition 2.6.7 (preprint 2.53)), as in Definition 5.3.13 (preprint 5.20) (`restrictSection`); its fibres are those of `P`
   (`pullbackFiberEquiv`).  The atlas consists of all charts of `P` whose base domain lies in `V`;
   every chart of `P` restricts to such a chart (`StrongBundleChart.restrict`).
 * The paracompactness of `V` and of `ι*Y` are instance arguments, supplied by
-  `MPolyfold.paracompactSpace_subtype` and `paracompactSpace_pullbackSpace` (Theorem 2.16).
+  `MPolyfold.paracompactSpace_subtype` and `paracompactSpace_pullbackSpace` (Theorem 2.3.10 (preprint 2.16)).
   The junk values of the transported inverse charts need `V` nonempty (`[Nonempty V]`).
 -/
 

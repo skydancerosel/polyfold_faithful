@@ -2,25 +2,25 @@ import Polyfold.Chapter3.GoodPosition
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Appendix 3.8.5:
-Theorem 3.78 (an implicit function theorem in partial quadrants) with Lemmas 3.79–3.82.
+Theorem 3.8.22 (preprint 3.78) (an implicit function theorem in partial quadrants) with Lemmas 3.8.23–3.8.26 (preprint 3.79–3.82).
 
 # The implicit function theorem in partial quadrants
 
 ## The text, paraphrased
 
-(Theorem 3.78) Let `U` be a relatively open neighbourhood of `0` in the partial quadrant
+(Theorem 3.8.22 (preprint 3.78)) Let `U` be a relatively open neighbourhood of `0` in the partial quadrant
 `C = [0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ ⊆ ℝⁿ` and `f : U → ℝᴺ` of class `C^j`, `j ≥ 1`, with `f(0) = 0`, `Df(0)` onto,
 and the kernel `K = ker Df(0)` in good position to `C` with good complement `Y`, `ℝⁿ = K ⊕ Y`.
 Then there are an open neighbourhood `V` of `0` in the partial quadrant `K ∩ C`, a `C^j`-map
 `τ : V → Y` and constants `ε, σ > 0` with (1) `τ(0) = 0`, `Dτ(0) = 0`, `k + τ(k) ∈ U` for `k ∈ V`;
 (2) `|τ(k)| ≤ σ` if `k ∈ V`, `|k| ≤ ε`; (3) if `f(k + y) = 0` for `k ∈ V`, `|k| ≤ ε`, `y ∈ Y`,
 `|y| ≤ σ`, then `y = τ(k)`.  *Proof.*  Replacing `f` by `(Df(0)|Y)⁻¹ ∘ f` one has
-`f(k, y) = y − B(k, y)` with `B(0) = 0`, `DB(0) = 0` ((71)–(72)).  (Lemma 3.79) On
+`f(k, y) = y − B(k, y)` with `B(0) = 0`, `DB(0) = 0` ((71)–(72)).  (Lemma 3.8.23 (preprint 3.79)) On
 `(B_K(a) ⊕ B_Y(b)) ∩ C ⊆ U`, `B(k, ·)` is a `1/2`-contraction, so `f(k, y) = f(k, y')` forces
-`y = y'`.  (Lemma 3.80) `|B(k, y)| ≤ ε|k|` for `|y| ≤ ε|k|`, with `ε` the good position constant,
+`y = y'`.  (Lemma 3.8.24 (preprint 3.80)) `|B(k, y)| ≤ ε|k|` for `|y| ≤ ε|k|`, with `ε` the good position constant,
 so `B(k, ·)` maps `X_k = B̄_Y(ε|k|)` into itself (`k + y ∈ C` for `y ∈ X_k` by good position) and
-has a unique fixed point `τ(k) ∈ X_k`.  (Lemma 3.81) `τ` is continuous with `|τ(k)| ≤ ε|k|/2`.
-(Lemma 3.82) `τ` is `C^1` with `Dτ(k) = (1 − D₂B(k, τ k))⁻¹ D₁B(k, τ k)`; for `C^j` iterate with
+has a unique fixed point `τ(k) ∈ X_k`.  (Lemma 3.8.25 (preprint 3.81)) `τ` is continuous with `|τ(k)| ≤ ε|k|/2`.
+(Lemma 3.8.26 (preprint 3.82)) `τ` is `C^1` with `Dτ(k) = (1 − D₂B(k, τ k))⁻¹ D₁B(k, τ k)`; for `C^j` iterate with
 `f⁽¹⁾(k, h, y, η) = (y − B(k, y), η − DB(k, y)(h, η))`.
 
 ## What is formalized
@@ -30,29 +30,29 @@ has a unique fixed point `τ(k) ∈ X_k`.  (Lemma 3.81) `τ` is continuous with 
   and the interior condition) and `Polyfold.Radii` (the constants `ε`, `a`, `b` of Lemmas
   3.79–3.80, `Polyfold.ContractionData.exists_radii`).
 * `Polyfold.Radii.τ` (the fixed point), `Radii.eq_τ` (uniqueness), `Radii.norm_τ_le`,
-  `Radii.norm_τ_sub_le_global` (**Lemma 3.81**, Lipschitz on all of `V₀` with the constant
+  `Radii.norm_τ_sub_le_global` (**Lemma 3.8.25 (preprint 3.81)**, Lipschitz on all of `V₀` with the constant
   `ε/(1 + ε)`; `Radii.norm_τ_sub_le_eps`, the text's constant `ε`; `Radii.lipschitzOnWith_τ`),
   `Radii.norm_τ_sub_le` (the earlier form, constant `1 + 2ε`), `Radii.hasFDerivWithinAt_τ`,
-  `Radii.fderivWithin_τ` (**Lemma 3.82**, the derivative formula), `Radii.contDiffOn_τ`
+  `Radii.fderivWithin_τ` (**Lemma 3.8.26 (preprint 3.82)**, the derivative formula), `Radii.contDiffOn_τ`
   (`τ ∈ C^j`).
-* `Polyfold.ContractionData.exists_solution` (**Theorem 3.78 in normalized form**) and
-  `Polyfold.theorem_3_78` (**Theorem 3.78**), for a finite-dimensional `V` in place of `ℝⁿ`, `f`
+* `Polyfold.ContractionData.exists_solution` (**Theorem 3.8.22 (preprint 3.78) in normalized form**) and
+  `Polyfold.theorem_3_8_22` (**Theorem 3.8.22 (preprint 3.78)**), for a finite-dimensional `V` in place of `ℝⁿ`, `f`
   into any normed space, `C^j` in Mathlib's sense (`ContDiffOn ℝ j f U`; equal to Definition
   3.71 by `Polyfold.isSc1_iff_contDiffOn_of_isRelOpenInQuadrant` and Chapter 1).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Theorem 3.78 (1) does not state `f(k + τ(k)) = 0`**, and (3) does not state `k + y ∈ U`;
+* **Theorem 3.8.22 (preprint 3.78) (1) does not state `f(k + τ(k)) = 0`**, and (3) does not state `k + y ∈ U`;
   both are needed to make sense of the statement (`f` is defined on `U`) and are included.
 * **Only the convexity of `C` and the nonemptiness of its interior are used**, not the partial
   quadrant structure: `ContractionData.exists_solution` is stated for a convex `C`.  The quadrant
   enters only through the good position hypothesis.
-* **The regularity induction** of Lemma 3.82 (iterating `f ↦ f⁽¹⁾`) is replaced by bootstrapping
+* **The regularity induction** of Lemma 3.8.26 (preprint 3.82) (iterating `f ↦ f⁽¹⁾`) is replaced by bootstrapping
   the derivative formula: `Dτ = Φ ∘ (id, τ)` with `Φ(p) = (1 − D₂B(p))⁻¹ D₁B(p)` of class `C^{j−1}`
   on the region `R` (inversion is smooth on units), so `τ ∈ C^i` gives `τ ∈ C^{i+1}` for `i < j`
   (`Radii.contDiffOn_τ`).  This also removes the text's "on a possibly smaller neighbourhood `V`
   of `0`": `τ` is `C^j` on the whole `V₀ = {k ∈ K ∩ C | |k| < a}`.
-* **Lemma 3.81's estimate `|τ(k) − τ(k₀)| ≤ ε|k − k₀|`** uses the point `(k, τ(k₀))` of the
+* **Lemma 3.8.25 (preprint 3.81)'s estimate `|τ(k) − τ(k₀)| ≤ ε|k − k₀|`** uses the point `(k, τ(k₀))` of the
   region `R`, which the text does not check; it lies in `R` when `|τ(k₀)| ≤ ε|k|`, e.g. when
   `|k₀| ≤ 2|k|` (as `|τ(k₀)| ≤ ε|k₀|/2`).  The estimate nevertheless holds on all of `V₀`: if
   `|k₀| > 2|k|`, then `|k| < 2|k₀|` and the same argument with `k` and `k₀` exchanged (through
@@ -61,10 +61,10 @@ has a unique fixed point `τ(k) ∈ X_k`.  (Lemma 3.81) `τ` is continuous with 
   V3.66).  The first Lean proof (`Radii.norm_τ_sub_le`) treated the second case through
   `|τ(k)| + |τ(k₀)|` and only obtained the constant `1 + 2ε`.
 * **The fixed-point set `X_k = B̄_Y(ε|k|)` depends on `k`** (it must, since `(k, y) ∈ C` is needed
-  for `B(k, y)` to be defined); the parametrized Banach fixed point theorem of Theorems 3.29/3.40
+  for `B(k, y)` to be defined); the parametrized Banach fixed point theorem of Theorems 3.3.2 (preprint 3.29)/3.40
   (`Polyfold.exists_fixedPoint_continuousOn`, fixed set) does not apply, and continuity is proved
-  by hand (Lemma 3.81).
-* **Lemma 3.82, the differentiability**: the text's remainder `R(δk)` and `A(δk)` are organised
+  by hand (Lemma 3.8.25 (preprint 3.81)).
+* **Lemma 3.8.26 (preprint 3.82), the differentiability**: the text's remainder `R(δk)` and `A(δk)` are organised
   here as the little-o composition `(B ∘ g)(k') − B(g k) − DB(g k)(g k' − g k) = o(|g k' − g k|)`
   with `g(k') = (k', τ(k'))` Lipschitz (`hasFDerivWithinAt_τ`), which is the same estimate.
 * The derivative `Dτ(0) = 0` in (1): `Dτ(0) = (1 − D₂B(0))⁻¹ D₁B(0) = 0` since `DB(0) = 0`.
@@ -83,7 +83,7 @@ section Core
 variable {K Y : Type} [NormedAddCommGroup K] [NormedSpace ℝ K] [FiniteDimensional ℝ K]
   [NormedAddCommGroup Y] [NormedSpace ℝ Y] [FiniteDimensional ℝ Y]
 
-/-- The data of the proof of Theorem 3.78 after the normalization `f ↦ (Df(0)|Y)⁻¹ ∘ f` (p. 142,
+/-- The data of the proof of Theorem 3.8.22 (preprint 3.78) after the normalization `f ↦ (Df(0)|Y)⁻¹ ∘ f` (p. 142,
 (71)–(72)): on `K × Y` the convex set `Cp` (the partial quadrant `C`) with nonempty interior, the
 relatively open `Up ∋ 0`, and `B` of class `C^j` on `Up` with `B(0) = 0`, `DB(0) = 0`, such that the
 solutions of `f = 0` are the fixed points `y = B(k, y)`.  `K` is in good position to `C` with good
@@ -100,7 +100,7 @@ structure ContractionData (Cp Up : Set (K × Y)) (B : K × Y → Y) (j : ℕ) : 
   good : ∃ ε > 0, ∀ (k : K) (y : Y), ‖y‖ ≤ ε * ‖k‖ → ((k, 0) ∈ Cp ↔ (k, y) ∈ Cp)
   interior_K_nonempty : (interior {k : K | ((k, 0) : K × Y) ∈ Cp}).Nonempty
 
-/-- The constants of Lemmas 3.79–3.80: `ε` of the good position, radii `a` (in `K`) and `b` (in `Y`)
+/-- The constants of Lemmas 3.8.23–3.8.24 (preprint 3.79–3.80): `ε` of the good position, radii `a` (in `K`) and `b` (in `Y`)
 with `εa ≤ b`, such that the region `R = {|k| ≤ a, |y| ≤ b} ∩ C` lies in `U` and `‖DB‖ ≤ c₀` on it,
 `c₀ = ε / (2(1 + ε))`. -/
 structure Radii (Cp Up : Set (K × Y)) (B : K × Y → Y) where
@@ -150,7 +150,7 @@ lemma continuousOn_deriv : ContinuousOn (fderivWithin ℝ B Up) Up :=
   (h.contDiffOn.fderivWithin h.uniqueDiffOn_U (by exact_mod_cast h.one_le :
     (0 : WithTop ℕ∞) + 1 ≤ j)).continuousOn
 
-/-- The constants exist (Lemmas 3.79, 3.80). -/
+/-- The constants exist (Lemmas 3.8.23, 3.8.24 (preprint 3.79, 3.80)). -/
 theorem exists_radii : Nonempty (Radii Cp Up B) := by
   obtain ⟨ε, hε, hgood⟩ := h.good
   obtain ⟨O, hO, hU⟩ := h.relOpen
@@ -259,7 +259,7 @@ lemma R_convex (h : ContractionData Cp Up B j) : Convex ℝ S.R :=
 lemma zero_mem_R (h : ContractionData Cp Up B j) : (0 : K × Y) ∈ S.R :=
   ⟨by simp [S.a_pos.le], by simp [S.b_pos.le], h.zero_mem⟩
 
-/-- The mean value inequality on `R` (Lemma 3.79 (73), Lemma 3.80 (74)). -/
+/-- The mean value inequality on `R` (Lemma 3.8.23 (preprint 3.79) (73), Lemma 3.8.24 (preprint 3.80) (74)). -/
 lemma norm_sub_le (h : ContractionData Cp Up B j) {p q : K × Y} (hp : p ∈ S.R) (hq : q ∈ S.R) :
     ‖B q - B p‖ ≤ S.c₀ * ‖q - p‖ :=
   Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le
@@ -287,7 +287,7 @@ lemma norm_B_sub_le_fst (h : ContractionData Cp Up B j) {k k' : K} {y : Y} (hk :
     rw [Prod.norm_def]; simp
   rwa [hn] at this
 
-/-- `B(k, ·)` maps the ball `X_k = {|y| ≤ ε|k|}` into itself (Lemma 3.80). -/
+/-- `B(k, ·)` maps the ball `X_k = {|y| ≤ ε|k|}` into itself (Lemma 3.8.24 (preprint 3.80)). -/
 lemma mapsTo_ball (h : ContractionData Cp Up B j) {k : K} (hk : k ∈ S.V₀) :
     MapsTo (fun y => B (k, y)) (Metric.closedBall (0 : Y) (S.ε * ‖k‖))
       (Metric.closedBall (0 : Y) (S.ε * ‖k‖)) := by
@@ -345,7 +345,7 @@ lemma τ_fixed {k : K} (hk : k ∈ S.V₀) : B (k, S.τ h k) = S.τ h k := by
 lemma τ_mem_R {k : K} (hk : k ∈ S.V₀) : (k, S.τ h k) ∈ S.R :=
   S.mem_R_of_mem_V₀ hk (S.norm_τ_le_eps h hk)
 
-/-- Lemma 3.81: `|τ(k)| ≤ ε|k|/2`. -/
+/-- Lemma 3.8.25 (preprint 3.81): `|τ(k)| ≤ ε|k|/2`. -/
 lemma norm_τ_le {k : K} (hk : k ∈ S.V₀) : ‖S.τ h k‖ ≤ S.ε / 2 * ‖k‖ := by
   have h1 := S.norm_B_le h (S.τ_mem_R h hk)
   rw [S.τ_fixed h hk] at h1
@@ -364,7 +364,7 @@ lemma τ_zero : S.τ h 0 = 0 := by
   rw [norm_zero, mul_zero] at this
   exact norm_le_zero_iff.1 this
 
-/-- Uniqueness: a fixed point `y` with `(k, y) ∈ R` is `τ(k)` (Lemma 3.79, last sentence). -/
+/-- Uniqueness: a fixed point `y` with `(k, y) ∈ R` is `τ(k)` (Lemma 3.8.23 (preprint 3.79), last sentence). -/
 lemma eq_τ {k : K} (hk : k ∈ S.V₀) {y : Y} (hy : (k, y) ∈ S.R) (hfix : B (k, y) = y) :
     y = S.τ h k := by
   have := S.norm_B_sub_le_snd h hy (S.τ_mem_R h hk)
@@ -372,7 +372,7 @@ lemma eq_τ {k : K} (hk : k ∈ S.V₀) {y : Y} (hy : (k, y) ∈ S.R) (hfix : B 
   have h2 : ‖y - S.τ h k‖ ≤ 0 := by linarith
   exact sub_eq_zero.1 (norm_le_zero_iff.1 h2)
 
-/-- Lemma 3.81, the Lipschitz estimate, in a weaker form (with the constant `1 + 2ε`, the case
+/-- Lemma 3.8.25 (preprint 3.81), the Lipschitz estimate, in a weaker form (with the constant `1 + 2ε`, the case
 `|k₀| > 2|k|` bounded through `|τ(k)| + |τ(k₀)|`).  The text's `ε|k − k₀|` holds on all of `V₀`,
 even with the constant `ε/(1 + ε)`: `norm_τ_sub_le_global`, `norm_τ_sub_le_eps`. -/
 lemma norm_τ_sub_le {k k₀ : K} (hk : k ∈ S.V₀) (hk₀ : k₀ ∈ S.V₀) :
@@ -401,7 +401,7 @@ lemma norm_τ_sub_le {k k₀ : K} (hk : k ∈ S.V₀) (hk₀ : k₀ ∈ S.V₀) 
       rwa [norm_sub_rev] at this
     nlinarith [S.ε_pos, norm_nonneg k, norm_nonneg k₀]
 
-/-- Lemma 3.81, the case `|k₀| ≤ 2|k|` of `norm_τ_sub_le_global` (round-trip item V3.66): then
+/-- Lemma 3.8.25 (preprint 3.81), the case `|k₀| ≤ 2|k|` of `norm_τ_sub_le_global` (round-trip item V3.66): then
 `(k, τ(k₀))` lies in the region `R` (`|τ(k₀)| ≤ ε|k₀|/2 ≤ ε|k|`), and
 `τ(k) − τ(k₀) = [B(k, τ k) − B(k, τ k₀)] + [B(k, τ k₀) − B(k₀, τ k₀)]` gives
 `|τ(k) − τ(k₀)| ≤ (1/2)|τ(k) − τ(k₀)| + c₀|k − k₀|`. -/
@@ -427,7 +427,7 @@ lemma norm_τ_sub_le_of_norm_le {k k₀ : K} (hk : k ∈ S.V₀) (hk₀ : k₀ �
   have h5 : 0 ≤ ‖k - k₀‖ := norm_nonneg _
   nlinarith
 
-/-- **Lemma 3.81, the Lipschitz estimate on all of `V₀`** (round-trip item V3.66): for all
+/-- **Lemma 3.8.25 (preprint 3.81), the Lipschitz estimate on all of `V₀`** (round-trip item V3.66): for all
 `k, k₀ ∈ V₀`, `|τ(k) − τ(k₀)| ≤ ε/(1 + ε)·|k − k₀|`.  If `|k₀| ≤ 2|k|` this is
 `norm_τ_sub_le_of_norm_le`; otherwise `|k| < 2|k₀|`, and the same lemma applies with `k` and `k₀`
 exchanged.  (The text proves `ε|k − k₀|` through `(k, τ(k₀)) ∈ R`, which it does not check; the
@@ -442,7 +442,7 @@ theorem norm_τ_sub_le_global {k k₀ : K} (hk : k ∈ S.V₀) (hk₀ : k₀ ∈
     rw [norm_sub_rev, norm_sub_rev k]
     exact S.norm_τ_sub_le_of_norm_le h hk₀ hk hcase'
 
-/-- **Lemma 3.81 as stated**: `|τ(k) − τ(k₀)| ≤ ε|k − k₀|` for all `k, k₀ ∈ V₀` (from
+/-- **Lemma 3.8.25 (preprint 3.81) as stated**: `|τ(k) − τ(k₀)| ≤ ε|k − k₀|` for all `k, k₀ ∈ V₀` (from
 `norm_τ_sub_le_global`, `ε/(1 + ε) ≤ ε`; round-trip item V3.66). -/
 theorem norm_τ_sub_le_eps {k k₀ : K} (hk : k ∈ S.V₀) (hk₀ : k₀ ∈ S.V₀) :
     ‖S.τ h k - S.τ h k₀‖ ≤ S.ε * ‖k - k₀‖ := by
@@ -451,7 +451,7 @@ theorem norm_τ_sub_le_eps {k k₀ : K} (hk : k ∈ S.V₀) (hk₀ : k₀ ∈ S.
     (mul_le_mul_of_nonneg_right ?_ (norm_nonneg _))
   exact div_le_self hε.le (by linarith)
 
-/-- `τ` is `ε/(1 + ε)`-Lipschitz on `V₀` (Lemma 3.81, `norm_τ_sub_le_global`; round-trip item
+/-- `τ` is `ε/(1 + ε)`-Lipschitz on `V₀` (Lemma 3.8.25 (preprint 3.81), `norm_τ_sub_le_global`; round-trip item
 V3.66). -/
 theorem lipschitzOnWith_τ :
     LipschitzOnWith ⟨S.ε / (1 + S.ε), by have := S.ε_pos; positivity⟩ (S.τ h) S.V₀ :=
@@ -465,7 +465,7 @@ lemma continuousOn_τ : ContinuousOn (S.τ h) S.V₀ :=
       rw [dist_eq_norm, dist_eq_norm]
       exact S.norm_τ_sub_le h hk hk₀).continuousOn
 
-/-! ### The derivative of `τ` (Lemma 3.82) -/
+/-! ### The derivative of `τ` (Lemma 3.8.26 (preprint 3.82)) -/
 
 variable (Up B) in
 /-- `D₁B(p) = DB(p) ∘ inl : K → Y`. -/
@@ -495,7 +495,7 @@ lemma M_mul {p : K × Y} (hp : p ∈ S.R) : M Up B p * (1 - D₂ Up B p) = 1 :=
   Ring.inverse_mul_cancel _ (Units.oneSub (D₂ Up B p) (S.norm_D₂_lt_one hp)).isUnit
 
 variable (Up B) in
-/-- The candidate derivative `Φ(p) = (1 − D₂B(p))⁻¹ D₁B(p)` (the formula of Lemma 3.82). -/
+/-- The candidate derivative `Φ(p) = (1 − D₂B(p))⁻¹ D₁B(p)` (the formula of Lemma 3.8.26 (preprint 3.82)). -/
 def Φ (p : K × Y) : K →L[ℝ] Y := (M Up B p).comp (D₁ Up B p)
 
 lemma convex_CK (h : ContractionData Cp Up B j) : Convex ℝ {k : K | ((k, 0) : K × Y) ∈ Cp} :=
@@ -509,7 +509,7 @@ lemma uniqueDiffOn_V₀ (h : ContractionData Cp Up B j) : UniqueDiffOn ℝ S.V�
 
 variable (h : ContractionData Cp Up B j)
 
-/-- **Lemma 3.82, the differentiability**: `τ` is differentiable within `V₀` at `k` with derivative
+/-- **Lemma 3.8.26 (preprint 3.82), the differentiability**: `τ` is differentiable within `V₀` at `k` with derivative
 `Φ(k, τ(k)) = (1 − D₂B(k, τ k))⁻¹ D₁B(k, τ k)`. -/
 theorem hasFDerivWithinAt_τ {k : K} (hk : k ∈ S.V₀) :
     HasFDerivWithinAt (S.τ h) (Φ Up B (k, S.τ h k)) S.V₀ k := by
@@ -553,7 +553,7 @@ theorem fderivWithin_τ {k : K} (hk : k ∈ S.V₀) :
     fderivWithin ℝ (S.τ h) S.V₀ k = Φ Up B (k, S.τ h k) :=
   (S.hasFDerivWithinAt_τ h hk).fderivWithin (S.uniqueDiffOn_V₀ h k hk)
 
-/-! ### Regularity (Lemma 3.82, the induction) -/
+/-! ### Regularity (Lemma 3.8.26 (preprint 3.82), the induction) -/
 
 include h in
 /-- `Φ` is of class `C^{j−1}` on `R`: `DB` is `C^{j−1}` and inversion is smooth on units. -/
@@ -572,7 +572,7 @@ theorem contDiffOn_Φ : ContDiffOn ℝ (j - 1 : ℕ) (Φ Up B) S.R := by
     exact h2.contDiffWithinAt.comp p h1 (mapsTo_univ _ _)
   exact hM.clm_comp hD₁
 
-/-- **Lemma 3.82**: `τ` is of class `C^j` on `V₀`.  (The text iterates `f ↦ f⁽¹⁾`; here the
+/-- **Lemma 3.8.26 (preprint 3.82)**: `τ` is of class `C^j` on `V₀`.  (The text iterates `f ↦ f⁽¹⁾`; here the
 derivative formula `Dτ = Φ ∘ (id, τ)` is bootstrapped: `τ ∈ C^i` gives `Dτ ∈ C^i`, so
 `τ ∈ C^{i+1}`.) -/
 theorem contDiffOn_τ : ContDiffOn ℝ j (S.τ h) S.V₀ := by
@@ -594,7 +594,7 @@ theorem contDiffOn_τ : ContDiffOn ℝ j (S.τ h) S.V₀ := by
 
 end Radii
 
-/-- **Theorem 3.78 in the normalized form** (after `f ↦ (Df(0)|Y)⁻¹ ∘ f`, on `K × Y`): the fixed
+/-- **Theorem 3.8.22 (preprint 3.78) in the normalized form** (after `f ↦ (Df(0)|Y)⁻¹ ∘ f`, on `K × Y`): the fixed
 point equation `y = B(k, y)` has a solution `τ : V' → Y` of class `C^j` on a relatively open
 neighbourhood `V'` of `0` in `K ∩ C`, with `τ(0) = 0`, `Dτ(0) = 0`, `(k, τ k) ∈ U`, bounded by `σ`
 for `|k| ≤ ε`, and unique among the solutions `(k, y) ∈ U` with `|k| ≤ ε`, `|y| ≤ σ`. -/
@@ -627,14 +627,14 @@ theorem ContractionData.exists_solution (h : ContractionData Cp Up B j) :
 
 end Core
 
-/-! ### Theorem 3.78 -/
+/-! ### Theorem 3.8.22 (preprint 3.78) -/
 
 section Theorem378
 
 variable {V F : Type} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
   [NormedAddCommGroup F] [NormedSpace ℝ F]
 
-/-- **Theorem 3.78 (implicit function theorem in partial quadrants)**: `U` a relatively open
+/-- **Theorem 3.8.22 (preprint 3.78) (implicit function theorem in partial quadrants)**: `U` a relatively open
 neighbourhood of `0` in the partial quadrant `C` of the finite-dimensional space `V` (the text:
 `C = [0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ ⊆ ℝⁿ`), `f : U → F` of class `C^j` (`j ≥ 1`) with `f(0) = 0`, `Df(0)` onto,
 `K = ker Df(0)` in good position to `C` with good complement `Y`.  Then there are a relatively open
@@ -645,7 +645,7 @@ neighbourhood `V'` of `0` in `K ∩ C`, a `C^j`-map `τ : V' → Y` and `ε, σ 
 
 Only the convexity of `C` and the nonemptiness of its interior are used
 (`Polyfold.ContractionData.exists_solution`). -/
-theorem theorem_3_78 {C U : Set V} (hU : IsRelOpenInQuadrant (ScBanach.const V) C U)
+theorem theorem_3_8_22 {C U : Set V} (hU : IsRelOpenInQuadrant (ScBanach.const V) C U)
     (h0 : (0 : V) ∈ U) {f : V → F} {j : ℕ} (hj : 1 ≤ j) (hf : ContDiffOn ℝ j f U) (hf0 : f 0 = 0)
     (hsurj : Function.Surjective (fderivWithin ℝ f U 0)) {K Y : Submodule ℝ V}
     (hK : K = LinearMap.ker (fderivWithin ℝ f U 0 : V →ₗ[ℝ] F))

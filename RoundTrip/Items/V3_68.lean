@@ -4,8 +4,8 @@ import RoundTrip.Blind.V3_68
 
 /-!
 Round trip for V3_68 (Theorem 3.19), refreshed 2026-11-02 against HEAD (germ reading).  `A` is the
-conjunction of the types of `Polyfold.theorem_3_19`, `Polyfold.theorem_3_19_linearization`,
-`Polyfold.theorem_3_23`, `Polyfold.lemma_2_26`, `Polyfold.theorem_3_19_linearization_sc` and
+conjunction of the types of `Polyfold.theorem_3_1_22`, `Polyfold.theorem_3_1_22_linearization`,
+`Polyfold.theorem_3_1_26`, `Polyfold.lemma_2_4_6`, `Polyfold.theorem_3_1_22_linearization_sc` and
 (added 2026-11-02, second refresh) `Polyfold.StrongBundle.linAt_isScFredholm`, universes
 instantiated at `0` (`MPolyfold.IsWithoutBoundary` is vocabulary).  The blind statement `B` is
 unchanged.
@@ -15,10 +15,10 @@ Neither direction is proved; both gaps are genuine.
 * `A → B`:
   - B's first clause (at **every** zero, in **every** strong bundle chart, `f'(x₀)` is
     sc-Fredholm) now follows from `A`: its new conjunct `StrongBundle.linAt_isScFredholm` gives
-    it (`clause_one`, proved from the hypothesis `A`).  (`theorem_3_19_linearization_sc` alone
+    it (`clause_one`, proved from the hypothesis `A`).  (`theorem_3_1_22_linearization_sc` alone
     gives it only in the chart of the germ data and only when `Tf(x₀)` is onto there.)
   - B's second clause: B assumes only `IsScFredholmSection` (germ data in any compatible chart, no
-    tameness) and `IsLinSurjAt`; A's `theorem_3_19` needs tame germ data
+    tameness) and `IsLinSurjAt`; A's `theorem_3_1_22` needs tame germ data
     (`IsScFredholmSectionTame`) and the added `IsGoodPositionGermFilled`.  The project has no
     lemma producing tame germ data from `IsScFredholmSection` (not even for `d_X ≡ 0`); every
     implicit function theorem of the project assumes `IsScFredholmSectionTame`.  B's conclusions
@@ -26,8 +26,8 @@ Neither direction is proved; both gaps are genuine.
     "`ker f'(y) = T_yS(f, U)`" are not in A either.
 * `B → A`: A contains Lemma 2.26 (`d_A ≤ d_X` for every sub-M-polyfold) and the boundary-case
   Theorem 3.23, which B (assuming `d_X ≡ 0` and only about the zero set of `f`) cannot give; A's
-  `theorem_3_19_linearization(_sc)` is about the filling germ `Dg(0)` on all of `E` and needs no
-  `d_X ≡ 0`; A's `theorem_3_19` concludes good position in a tame chart, a notion B does not mention;
+  `theorem_3_1_22_linearization(_sc)` is about the filling germ `Dg(0)` on all of `E` and needs no
+  `d_X ≡ 0`; A's `theorem_3_1_22` concludes good position in a tame chart, a notion B does not mention;
   A's `linAt_isScFredholm` (every level Fredholm with the index of every germ datum) is more than
   B's first clause.
 -/
@@ -37,15 +37,15 @@ open Polyfold StrongRetr
 
 /-- The project's statement: the theorems listed for Theorem 3.19, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_19.{0, 0} ∧ type_of% @Polyfold.theorem_3_19_linearization.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_23.{0, 0} ∧ type_of% @Polyfold.lemma_2_26.{0} ∧
-    type_of% @Polyfold.theorem_3_19_linearization_sc.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_1_22.{0, 0} ∧ type_of% @Polyfold.theorem_3_1_22_linearization.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_1_26.{0, 0} ∧ type_of% @Polyfold.lemma_2_4_6.{0} ∧
+    type_of% @Polyfold.theorem_3_1_22_linearization_sc.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_19.{0, 0}, @Polyfold.theorem_3_19_linearization.{0, 0},
-    @Polyfold.theorem_3_23.{0, 0}, @Polyfold.lemma_2_26.{0},
-    @Polyfold.theorem_3_19_linearization_sc.{0, 0},
+  ⟨@Polyfold.theorem_3_1_22.{0, 0}, @Polyfold.theorem_3_1_22_linearization.{0, 0},
+    @Polyfold.theorem_3_1_26.{0, 0}, @Polyfold.lemma_2_4_6.{0},
+    @Polyfold.theorem_3_1_22_linearization_sc.{0, 0},
     @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0}⟩
 
 section Glue
@@ -84,7 +84,7 @@ end Glue
 
 /-- **B's first clause from `A`**: by `A`'s conjunct `StrongBundle.linAt_isScFredholm`, at every
 zero of an sc-Fredholm section and in every strong bundle chart around it, `f'(x₀)` is sc-Fredholm
-in B's sense.  (`theorem_3_19_linearization_sc` alone gives this only in the chart of the germ
+in B's sense.  (`theorem_3_1_22_linearization_sc` alone gives this only in the chart of the germ
 data and under surjectivity.) -/
 theorem clause_one (hA : A) {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
     (PX : MPolyfold X) {Y : Type} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y]
@@ -103,8 +103,8 @@ theorem clause_one (hA : A) {X : Type} [TopologicalSpace X] [T2Space X] [Paracom
   obtain ⟨hD, hT, hK, hTK, -, hsc, -⟩ := hA.2.2.2.2.2 hf hx0 hc hxV hz hzU
   exact ⟨_, chartLin_of f x₀ c hxV _ hz hzU hD hT hK hTK hsc⟩
 
-#rt_check RoundTrip.V3_68.clause_one [Polyfold.theorem_3_19, Polyfold.theorem_3_19_linearization,
-  Polyfold.theorem_3_23, Polyfold.lemma_2_26, Polyfold.theorem_3_19_linearization_sc,
+#rt_check RoundTrip.V3_68.clause_one [Polyfold.theorem_3_1_22, Polyfold.theorem_3_1_22_linearization,
+  Polyfold.theorem_3_1_26, Polyfold.lemma_2_4_6, Polyfold.theorem_3_1_22_linearization_sc,
   Polyfold.StrongBundle.linAt_isScFredholm]
 
 end RoundTrip.V3_68

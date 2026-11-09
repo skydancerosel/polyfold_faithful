@@ -5,7 +5,7 @@ import RoundTrip.Blind.V2_41
 /-! Round trip for V2_41 (Proposition 2.35: `(1 − Dr(x))E ⊆ E_x`, and `A = (1 − Dr(x))E` works in
 condition (2) of Definition 2.34).
 
-`A` is the conjunction of the types of `Polyfold.proposition_2_35`,
+`A` is the conjunction of the types of `Polyfold.proposition_2_5_3`,
 `ScRetraction.scDeriv_mapsTo_minimalSubspace`, `ScRetraction.isScOperator_scDeriv`,
 `ScRetraction.isScSplitting_range_scDeriv` and `coord_scDeriv_eq` (no universe parameters).
 
@@ -14,10 +14,10 @@ B's `tangentAt R x₁` is `range Dr(x)`, and "smooth `x ∈ O` with lift `x₁`"
 `x₁ ∈ O₁ ∩ (E₁)_∞`.
 
 `A → B`: B assumes `R.IsTame` (every presentation) and fixes a presentation `T`; A's
-`proposition_2_35` needs only `R.IsTameWith T`.  The sc-subspace clause of B is part of the
+`proposition_2_5_3` needs only `R.IsTameWith T`.  The sc-subspace clause of B is part of the
 project's `IsScSplitting`.
 
-`B → A`: `proposition_2_35` (stated for `R.IsTameWith T`, one presentation) is B after
+`B → A`: `proposition_2_5_3` (stated for `R.IsTameWith T`, one presentation) is B after
 `IsTameWith.isTame` (a non-item project lemma: tameness for one presentation gives it for all).
 `coord_scDeriv_eq` (`λ_j ∘ Dr(x) = λ_j` for `j ∈ I(x)`) is B's inclusion read in coordinates.  The
 other three conjuncts are facts about an ARBITRARY sc-smooth retraction (no tameness): `Dr(x)` maps
@@ -32,14 +32,14 @@ open Polyfold Set
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_35) ∧
+  (type_of% @Polyfold.proposition_2_5_3) ∧
     (type_of% @Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace) ∧
     (type_of% @Polyfold.ScRetraction.isScOperator_scDeriv) ∧
     (type_of% @Polyfold.ScRetraction.isScSplitting_range_scDeriv) ∧
     (type_of% @Polyfold.coord_scDeriv_eq)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_35, @Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace,
+  ⟨@Polyfold.proposition_2_5_3, @Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace,
     @Polyfold.ScRetraction.isScOperator_scDeriv, @Polyfold.ScRetraction.isScSplitting_range_scDeriv,
     @Polyfold.coord_scDeriv_eq⟩
 
@@ -122,7 +122,7 @@ end Outright
 theorem B_to_A : B → A := by
   intro hB
   -- Proposition 2.35 for one presentation, from B
-  have hprop : type_of% @Polyfold.proposition_2_35 := by
+  have hprop : type_of% @Polyfold.proposition_2_5_3 := by
     intro E n W C R T hT hRT x hx hs
     have h := hB E C R (ScRetraction.IsTameWith.isTame hT hRT) (E.toBase 1 x) hx hs x rfl n W T hT
     rw [complB_eq, tangentAt_eq] at h
@@ -137,13 +137,13 @@ theorem B_to_A : B → A := by
   rw [map_sub, Prod.fst_sub, Pi.sub_apply, sub_eq_zero] at this
   exact this.symm
 
-#rt_check RoundTrip.V2_41.A_to_B [Polyfold.proposition_2_35,
+#rt_check RoundTrip.V2_41.A_to_B [Polyfold.proposition_2_5_3,
   Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace, Polyfold.ScRetraction.isScOperator_scDeriv,
   Polyfold.ScRetraction.isScSplitting_range_scDeriv, Polyfold.coord_scDeriv_eq]
-#rt_check RoundTrip.V2_41.B_to_A [Polyfold.proposition_2_35,
+#rt_check RoundTrip.V2_41.B_to_A [Polyfold.proposition_2_5_3,
   Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace, Polyfold.ScRetraction.isScOperator_scDeriv,
   Polyfold.ScRetraction.isScSplitting_range_scDeriv, Polyfold.coord_scDeriv_eq]
-#rt_overlap RoundTrip.V2_41.B_to_A [Polyfold.proposition_2_35,
+#rt_overlap RoundTrip.V2_41.B_to_A [Polyfold.proposition_2_5_3,
   Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace, Polyfold.ScRetraction.isScOperator_scDeriv,
   Polyfold.ScRetraction.isScSplitting_range_scDeriv, Polyfold.coord_scDeriv_eq]
 

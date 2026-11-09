@@ -3,19 +3,19 @@ import Polyfold.Chapter3.TangentGerm
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.5–3.6: two
-regularity facts about the solution germ of Theorem 3.47 needed for Definition 3.25 (2) at the
-zero `x₀` (the proof of Theorem 3.54 (2)).
+regularity facts about the solution germ of Theorem 3.5.11 (preprint 3.47) needed for Definition 3.2.1 (preprint 3.25) (2) at the
+zero `x₀` (the proof of Theorem 3.6.8 (preprint 3.54) (2)).
 
 # Regularity of the solution germ
 
 * `Polyfold.isScInftyGermAt_of_lifts`: the level-wise `C^k`-lifts `σ_k : V_k → E_k` of Theorem
-  3.47 (1) (`theorem_3_47_sc_smooth`) give the sc^∞-germ property of Definition 3.25 (ii) in the
+  3.47 (1) (`theorem_3_5_11_sc_smooth`) give the sc^∞-germ property of Definition 3.2.1 (preprint 3.25) (ii) in the
   `k`-dependent reading `IsScInftyGermAt` (Finding 80): on `V_j`, `j = max(m, k) + 1`, `σ` takes
   values in `E_m` and is `C^k` into `E_m`.
 * `Polyfold.StabilityData.ker_Dfs_le_smooth`: the kernel `N' = ker D(h + s)(0)` of the
   linearization of `h + s` (basic germ plus sc⁺-germ) consists of smooth points, `N' ⊆ E'_∞`
-  (Definition 3.25 (2) asks for a smooth subspace `N`; the text does not comment).  Bootstrap along
-  the `W`-component of the kernel equation `w = D₁B(0)a − ι Ds(0)(a, w)` (Lemma 3.9,
+  (Definition 3.2.1 (preprint 3.25) (2) asks for a smooth subspace `N`; the text does not comment).  Bootstrap along
+  the `W`-component of the kernel equation `w = D₁B(0)a − ι Ds(0)(a, w)` (Lemma 3.1.9 (preprint 3.9),
   `D₂B(0) = 0`): `D₁B(0)a ∈ W_∞` since `DB(0)` is an sc-operator and `a` is smooth, and `Ds(0)`
   raises the level by one.
 -/
@@ -26,7 +26,7 @@ noncomputable section
 
 namespace Polyfold
 
-/-! ### The sc^∞-germ property from the `C^k`-lifts of Theorem 3.47 (1) -/
+/-! ### The sc^∞-germ property from the `C^k`-lifts of Theorem 3.5.11 (preprint 3.47) (1) -/
 
 section Lifts
 
@@ -44,7 +44,7 @@ theorem exists_clm_toBase_eq {m j : ℕ} (h : m ≤ j) :
 
 variable {N : Type} [NormedAddCommGroup N] [NormedSpace ℝ N] [FiniteDimensional ℝ N]
 
-/-- **The sc^∞-germ property of Definition 3.25 (ii) from the level-wise `C^k`-lifts of Theorem
+/-- **The sc^∞-germ property of Definition 3.2.1 (preprint 3.25) (ii) from the level-wise `C^k`-lifts of Theorem
 3.47 (1)**: if for every `k ≥ 1` the map `σ : N ⊇ D → E₀` lifts on a relatively open neighbourhood
 `V_k` of `0` in `D` to a `C^k`-map `σ_k : V_k → E_k`, then `σ` is an sc^∞-germ at `0` in the
 `k`-dependent sense (`IsScInftyGermAt`): on `V_j`, `j = max(m, k) + 1`, `σ` takes values in `E_m`
@@ -77,9 +77,9 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
   (𝒮 : StabilityData Ct W) {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
 
 /-- **The kernel `N' = ker D(h + s)(0)` is a smooth subspace** (`N' ⊆ E'_∞`; the text takes the
-kernel of an sc-Fredholm operator to be smooth without comment, Definition 3.25 (2) asks for a
+kernel of an sc-Fredholm operator to be smooth without comment, Definition 3.2.1 (preprint 3.25) (2) asks for a
 smooth subspace).  Proof by bootstrapping along the `W`-component of the kernel equation:
-`w = D₁B(0)a − ι Ds(0)(a, w)` (Lemma 3.9: `D₂B(0) = 0`), where `D₁B(0)a ∈ W_∞` for the smooth
+`w = D₁B(0)a − ι Ds(0)(a, w)` (Lemma 3.1.9 (preprint 3.9): `D₂B(0) = 0`), where `D₁B(0)a ∈ W_∞` for the smooth
 `a ∈ ℝⁿ` (`DB(0)` is an sc-operator) and `Ds(0)` raises the level by one (sc⁺): `w ∈ W_m` gives
 `w ∈ W_{m+1}`. -/
 theorem StabilityData.ker_Dfs_le_smooth (hC : IsPartialQuadrant (ScBanach.const P) Ct)

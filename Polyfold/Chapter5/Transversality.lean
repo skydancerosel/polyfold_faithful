@@ -9,8 +9,8 @@ import Polyfold.Chapter4.Families
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.3:
-**Definition 5.15** (transversal to the zero section), **Definition 5.17** (general position of
-`(f, x)`), **Lemma 5.26** (general position implies good position), and **Theorem 5.13**
+**Definition 5.3.7 (preprint 5.15)** (transversal to the zero section), **Definition 5.3.9 (preprint 5.17)** (general position of
+`(f, x)`), **Lemma 5.26** (general position implies good position), and **Theorem 5.3.5 (preprint 5.13)**
 (perturbation and transversality, interior case), with the lemmas its proof uses without stating
 them *(book 2017: Definitions 5.8, 5.9, Theorem 5.5; Lemma 5.26 is the unnumbered sentence
 "Clearly general position implies good position", p. 166; see `BookConcordance.md`)*.
@@ -19,11 +19,11 @@ them *(book 2017: Definitions 5.8, 5.9, Theorem 5.5; Lemma 5.26 is the unnumbere
 
 ## The text, paraphrased
 
-(Definition 5.15) An sc-Fredholm section `g` is *transversal to the zero section* if at every
-zero `x` the linearization `g'(x) : T_xX → Y_x` is surjective.  (Definition 5.17) `(f, x)`,
+(Definition 5.3.7 (preprint 5.15)) An sc-Fredholm section `g` is *transversal to the zero section* if at every
+zero `x` the linearization `g'(x) : T_xX → Y_x` is surjective.  (Definition 5.3.9 (preprint 5.17)) `(f, x)`,
 `f(x) = 0`, is *in general position* if `f'(x)` is surjective and `ker f'(x)` has an
 sc-complement contained in the reduced tangent space `T^R_xX`.  (Lemma 5.26, used after Theorem
-5.19) "Clearly general position implies good position."  (Theorem 5.13) `P : Y → X` a strong
+5.19) "Clearly general position implies good position."  (Theorem 5.3.5 (preprint 5.13)) `P : Y → X` a strong
 bundle over an M-polyfold with `∂X = ∅` admitting sc-smooth bump functions, `f` an sc-Fredholm
 section with compact solution set, `N` an auxiliary norm.  There is an open `U ⊇ S_f` such that
 for every `s ∈ Γ⁺(P)` with `supp(s) ⊆ U` and `N(s(x)) ≤ 1` ("`N(f(x)) ≤ 1`" in the text) the
@@ -31,27 +31,27 @@ solution set `S_{f+s}` is compact, and a dense subset `O ⊆ (Γ^{+,1}_U(P), ρ)
 `s ∈ O` the section `f + s` is transversal and `S_{f+s}` is a compact smooth manifold without
 boundary.  Proof: given `s₀'` and `ε`, take `s₀ = δ s₀'`; at every `x ∈ S_{f+s₀}` finitely many
 allowable sc⁺-sections span `Y_x` together with the range of `(f + s₀)'(x)`; the parametrized
-section `F(λ, y) = f(y) + s₀(y) + Σ λⱼ tⱼ(y)` (Theorem 3.18) has surjective linearization at
-`(0, x)`, hence (Theorem 3.19) at `(0, y)` for zeros `y` near `x`; a finite subcover gives
+section `F(λ, y) = f(y) + s₀(y) + Σ λⱼ tⱼ(y)` (Theorem 3.1.21 (preprint 3.18)) has surjective linearization at
+`(0, x)`, hence (Theorem 3.1.22 (preprint 3.19)) at `(0, y)` for zeros `y` near `x`; a finite subcover gives
 `t₁, …, t_m`; by the implicit function theorem `S̃ = F⁻¹(0)` is a smooth manifold near
 `{0} × S_{f+s₀}`; for a regular value `λ₀` of the projection `S̃ → ℝᵐ` "it is easily verified
 that `f + s₀ + s(λ₀, ·)` is transversal".
 
 ## What is formalized
 
-* `StrongBundle.IsTransversal` (**Definition 5.15**): `IsLinSurjAt` at every zero (the chart
+* `StrongBundle.IsTransversal` (**Definition 5.3.7 (preprint 5.15)**): `IsLinSurjAt` at every zero (the chart
   form of "`g'(x)` surjective", chart independent by `linAt_chart_independence`;
   `StrongBundle.IsLinSurjAt.linAt_surjective`, `GlobalIFTIndex.lean`, states the surjectivity in
   every chart).
-* `StrongBundle.IsGeneralPositionGerm` (**Definition 5.17**, in a chart): in a tame strong bundle
+* `StrongBundle.IsGeneralPositionGerm` (**Definition 5.3.9 (preprint 5.17)**, in a chart): in a tame strong bundle
   chart around the zero (`IsTameChart`), `Lin(z)` is onto `K_z`, and for every presentation `T` of the partial
   quadrant the kernel of `Lin(z)` has an sc-complement in `T_zO` contained in `T^R_zO`
-  (`reducedTangentSpaceWith`, the form of Definition 4.21 in `Chapter4/Submanifolds.lean`).
+  (`reducedTangentSpaceWith`, the form of Definition 4.2.10 (preprint 4.21) in `Chapter4/Submanifolds.lean`).
 * `isInGoodPositionIn_of_scComplement_le_reduced` and
   `StrongBundle.IsGeneralPositionGerm.isGoodPositionGerm` (**Lemma 5.26**): a subspace of `T_zO`
   with an sc-complement inside `T^R_zO` is in good position to the partial cone (with the
-  interior condition of Definition 3.21, which the text omits), so general position gives
-  Definition 3.53 (`isGoodPositionGerm_of_linAt_surj`);
+  interior condition of Definition 3.1.24 (preprint 3.21), which the text omits), so general position gives
+  Definition 3.6.6 (preprint 3.53) (`isGoodPositionGerm_of_linAt_surj`);
   `StrongBundle.IsGeneralPositionGerm.isGoodPositionGermTame`: the same in the tame chart of the
   germ data, for a section with tame germ data.
 * `surjective_of_forall_exists_ker_fst` and `forall_exists_ker_fst_of_surjective` (**"regular
@@ -59,11 +59,11 @@ that `f + s₀ + s(λ₀, ·)` is transversal".
   projection `ker M → ℝᵐ` is onto iff `L` is onto.
 * `exists_fin_mem_of_dense_of_closedComplemented`: a closed subspace of finite codimension and
   a dense subspace: finitely many vectors of the dense subspace span a complement (the
-  smooth vectors needed for Lemma 5.11).
+  smooth vectors needed for Lemma 5.3.3 (preprint 5.11)).
 * **The parametrized section and its slices**: `paramSlice` (the section `g + Σ λᵢ tᵢ` of `P`
   at the parameter `λ`), `isZeroAt_paramSection_iff` (the zeros of `F` are the pairs `(λ, y)`
   with `y` a zero of the slice), `paramSlice_eq_sectionAdd`, `isScFredholmSection_paramSlice`
-  (Theorem 3.15), `isScPlusSection_paramSlice`, `principal_paramSlice`, `sectionAdd_paramSlice`,
+  (Theorem 3.1.18 (preprint 3.15)), `isScPlusSection_paramSlice`, `principal_paramSlice`, `sectionAdd_paramSlice`,
   `paramSlice_zero`; `mem_K_ofProd_zero_iff` (the fibre of the product chart over `(0, 0)`),
   `linAt_congr`.
 * **"It is easily verified" (regular value ⟹ transversal)**: `isLinSurjAt_paramSlice_of_ker_fst`:
@@ -74,55 +74,55 @@ that `f + s₀ + s(λ₀, ·)` is transversal".
   span `K₀` together with the range of `Lin_g(0)`.
 * **The spanning sections** (`exists_spanning_sections`): at a zero of an sc-Fredholm section,
   finitely many allowable sc⁺-sections whose values span a complement of the range of `Lin(0)`
-  in `K₀`, from Proposition 3.52, the density of the smooth vectors `ρ(0)F_∞ ⊆ K₀ ∩ F_∞` and
-  Lemma 5.11, rescaled so that `N ≤ 1`.
+  in `K₀`, from Proposition 3.6.5 (preprint 3.52), the density of the smooth vectors `ρ(0)F_∞ ⊆ K₀ ∩ F_∞` and
+  Lemma 5.3.3 (preprint 5.11), rescaled so that `N ≤ 1`.
 * **The openness steps**: `exists_isOpen_isLinSurjAt_zero_near` (transversality of `F_x` at
-  `(0, x)` propagates to the zeros `y` near `x`: Theorem 3.54 (1)),
+  `(0, x)` propagates to the zeros `y` near `x`: Theorem 3.6.8 (preprint 3.54) (1)),
   `isLinSurjAt_paramSection_zero_of_comp` (adding sections keeps the transversality),
   `exists_isOpen_goodPosition_of_isLinSurjAt` (an open `V ⊇ {0} × S_g` of zeros of `F` in good
   position), `isWithoutBoundary_prod_rn` (`ℝᵐ × X` has no boundary), `isClosed_solutionSet`.
 * **The omitted step** `exists_pos_forall_mem_of_isCompact`: for a compact `Z ⊆ ℝᵐ × X` and an
-  open `V` containing `Z ∩ {λ = 0}`, `Z ∩ {|λ| < δ} ⊆ V` for some `δ > 0`; with Remark 5.12 for
+  open `V` containing `Z ∩ {λ = 0}`, `Z ∩ {|λ| < δ} ⊆ V` for some `δ > 0`; with Remark 5.3.4 (preprint 5.12) for
   the allowable perturbations `s₀ + Σ λᵢ tᵢ` (`auxLe_paramSlice`,
   `sectionSupport_paramSlice_subset`,
   `isZeroAt_paramSlice_of_not_mem_support`), every zero of `F(λ, ·)` with `|λ|` small lies in `V`.
 * **The Sard step** `exists_null_isLinSurjAt_paramSlice_near`: at a zero `z₀` of `F` in good
-  position, the regular tangent germ chart `D` of Theorem 3.54 (2), the `C^∞` map
+  position, the regular tangent germ chart `D` of Theorem 3.6.8 (preprint 3.54) (2), the `C^∞` map
   `q = p ∘ D.φ⁻¹ ∘ Γ` on the finite-dimensional model `V`, Sard's theorem on the strata of `V`
   (`measure_image_stratCritSet`), and, at a zero over a regular value, the derivative of
   `gmap = ψ ∘ D.φ⁻¹ ∘ Γ` (`ψ` the product chart) with values in `T₀O ∩ ker Lin_F(0)`.
-* **Theorem 5.13**: `theorem_5_13_generic` (the generic form: for almost every small `λ` the
+* **Theorem 5.3.5 (preprint 5.13)**: `theorem_5_3_5_generic` (the generic form: for almost every small `λ` the
   perturbation `s₀ + Σ λᵢ tᵢ` is allowable, `f + s₀ + Σ λᵢ tᵢ` is transversal, its solution set
   is compact and, if non-empty, a smooth manifold without boundary of dimension the Fredholm
-  index, `StrongBundle.SolutionSetIsManifold`), and `theorem_5_13` (the text's dense-set form,
+  index, `StrongBundle.SolutionSetIsManifold`), and `theorem_5_3_5_preprint` (the text's dense-set form,
   with the pointwise distance `StrongBundle.sectionDistAt`), for `f` with tame germ data
-  (`IsScFredholmSectionTame`, Definition 3.51); the parametrized sections then have tame germ data
-  by `theorem_3_18_tame`.
+  (`IsScFredholmSectionTame`, Definition 3.6.4 (preprint 3.51)); the parametrized sections then have tame germ data
+  by `theorem_3_1_21_tame`.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **Definitions 5.15 and 5.17 are stated in `T_xX`** (gap G.7/G.13): here in charts, with the
-  linearization `Lin(z)` of `LinearizationCharts.lean`, and for Definition 5.17 with the reduced
-  tangent space `T^R_zO` of Definition 2.27 and the presentation `T` of the partial quadrant.
-  The chart independence of Definition 5.15 is `IsLinSurjAt.linAt_surjective`; that of Definition
-  5.17 (transport of the sc-complement by `D(τ ∘ r)(z)`, Proposition 2.30) is proved in
+* **Definitions 5.3.7 and 5.3.9 (preprint 5.15 and 5.17) are stated in `T_xX`** (gap G.7/G.13): here in charts, with the
+  linearization `Lin(z)` of `LinearizationCharts.lean`, and for Definition 5.3.9 (preprint 5.17) with the reduced
+  tangent space `T^R_zO` of Definition 2.4.7 (preprint 2.27) and the presentation `T` of the partial quadrant.
+  The chart independence of Definition 5.3.7 (preprint 5.15) is `IsLinSurjAt.linAt_surjective`; that of Definition
+  5.17 (transport of the sc-complement by `D(τ ∘ r)(z)`, Proposition 2.4.10 (preprint 2.30)) is proved in
   `GeneralPosition.lean` (`exists_isGeneralPositionGerm_iff`, Finding 82).
-* **Lemma 5.26** needs the interior condition of Definition 3.21 and the tameness of the chart
-  (for `dim T_zO/T^R_zO = d_C(z)`, Proposition 2.36); the text argues in basic germ coordinates.
-* **Tameness.**  The text assumes a tame strong bundle in §5.3 but not in Theorem 5.13; the
+* **Lemma 5.26** needs the interior condition of Definition 3.1.24 (preprint 3.21) and the tameness of the chart
+  (for `dim T_zO/T^R_zO = d_C(z)`, Proposition 2.5.6 (preprint 2.36)); the text argues in basic germ coordinates.
+* **Tameness.**  The text assumes a tame strong bundle in §5.3 but not in Theorem 5.3.5 (preprint 5.13); the
   implicit function theorems of §3.6 need the germ data in tame strong bundle charts (Definitions
   3.50, 3.51: `IsScFredholmSectionTame`, `IsGoodPositionGermTame`, `TameGerms.lean`), so Theorem
   5.13 takes `f` with tame germ data, and the parametrized sections `F` on `ℝᵏ × X` inherit it
-  (`theorem_3_18_tame`: the product chart of a tame chart is tame).  (An earlier version assumed
+  (`theorem_3_1_21_tame`: the product chart of a tame chart is tame).  (An earlier version assumed
   the base retraction of every compatible chart of `P` and of the pull-backs `π*P` tame, which no
   strong bundle over a nonempty base satisfies; Findings, Chapter 3 items 190–199 and Chapter 5
-  items 74–79.)  Definition 5.17 is stated in a tame chart (`IsTameChart`), where `T^R_zO` and
+  items 74–79.)  Definition 5.3.9 (preprint 5.17) is stated in a tame chart (`IsTameChart`), where `T^R_zO` and
   the count `dim T_zO/T^R_zO = d_C(z)` of Lemma 5.26 make sense.
 * **"`N(f(x)) ≤ 1`" is `N(s(x)) ≤ 1`**, "`(f, x)` in good position" is `(f + s, x)`, and
   "`N(s₀(y) + s(λ₀, y)) ≤ 1 − ε/2`" is `≤ 1`; "generic" is made precise as "for every `λ` outside
   a Lebesgue null set, `|λ| < δ`".
 * **The omitted step**: that for small `λ` every zero of `F(λ, ·)` lies in the neighbourhood
-  where `F'` is onto needs the compactness of `{(λ, y) | |λ| ≤ δ₁, F(λ, y) = 0}` (Remark 5.12).
+  where `F'` is onto needs the compactness of `{(λ, y) | |λ| ≤ δ₁, F(λ, y) = 0}` (Remark 5.3.4 (preprint 5.12)).
 * **"It is easily verified"**: only the direction "regular value ⟹ transversal" is needed, and it
   needs only `range D(gmap)(v) ⊆ ker Lin_F`, not `T_zS̃ = ker F'(z)`; the text's "⟺" (the
   converse, by the dimension count `dim T_zS̃ = dim ker F'(z)`) is not formalized.  Sard's theorem
@@ -130,7 +130,7 @@ that `f + s₀ + s(λ₀, ·)` is transversal".
   the points of the model `V` over the zeros are interior points (they are, since `∂X = ∅`).
 * **The metric `ρ`** on `Γ^{+,1}_U(P)` is not built as a metric space; density is stated
   pointwise, `∀ ε > 0, ∃ s, ∀ x, N(s(x) − s'(x)) ≤ ε`.
-* **The empty solution set**: Theorem 3.56 as formalized needs a non-empty solution set, so the
+* **The empty solution set**: Theorem 3.6.10 (preprint 3.56) as formalized needs a non-empty solution set, so the
   manifold conclusion is stated under that hypothesis (an empty set is trivially a manifold).
 -/
 
@@ -277,11 +277,11 @@ variable {E : ScBanach} {n : ℕ} {Wq : ScBanach} {C : Set (E 0)}
 
 /-- **A subspace of `T_zO` with an sc-complement inside `T^R_zO` is in good position to the partial
 cone `C_zO` inside `T_zO`** (the linear algebra of Lemma 5.26, with the interior condition of
-Definition 3.21 that the text omits): for a tame retraction `r` and a smooth point `z` of the
+Definition 3.1.24 (preprint 3.21) that the text omits): for a tame retraction `r` and a smooth point `z` of the
 retract, let `N ⊆ T_zO` and `B ⊆ T^R_zO = T_zO ∩ E_z` with `T_zO = N ⊕ B`.  Then `N` is in good
 position to `C_z` inside `T_zO` with good complement `B` (adding a vector of `E_z` does not change
 membership in `C_z`), and `N ∩ C_z` has non-empty interior in `N`: the coordinates `λᵢ`,
-`i ∈ I(z)`, map `T_zO` onto `ℝ^{I(z)}` (`dim T_zO/T^R_zO = d_C(z)`, Proposition 2.36) and vanish
+`i ∈ I(z)`, map `T_zO` onto `ℝ^{I(z)}` (`dim T_zO/T^R_zO = d_C(z)`, Proposition 2.5.6 (preprint 2.36)) and vanish
 on `B`, so a vector of `N` with all these coordinates equal to `1` is interior.  (The argument of
 `IsGeneralPositionRetractAt.isGoodPositionRetractAt`, `Chapter4/LocalStructure.lean`, for a
 subspace that is not given as a tangent space.) -/
@@ -343,7 +343,7 @@ theorem isInGoodPositionIn_of_scComplement_le_reduced
 
 end GoodPositionCore
 
-/-! ### Definitions 5.15 and 5.17, and Lemma 5.26 -/
+/-! ### Definitions 5.3.7 and 5.3.9 (preprint 5.15 and 5.17), and Lemma 5.26 -/
 
 section Defs
 
@@ -355,7 +355,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 variable (B) in
-/-- **Definition 5.15**: the section `g` of the strong bundle `P : Y → X` is **transversal to the
+/-- **Definition 5.3.7 (preprint 5.15)**: the section `g` of the strong bundle `P : Y → X` is **transversal to the
 zero section** if at every zero `x` the linearization `g'(x) : T_xX → Y_x` is surjective
 (`IsLinSurjAt`: `Lin(z) : T_zO → K_z` onto in a strong bundle chart around `x`, hence in every
 chart by `StrongBundle.linAt_chart_independence`). -/
@@ -369,12 +369,12 @@ def StrongBundleChart.linKer (c : StrongBundleChart PX P) (f : X → Y) (z : c.�
     ↥(rangeS (scDeriv c.U (r c.R) z)) →ₗ[ℝ] c.F 0)).map (rangeS (scDeriv c.U (r c.R) z)).subtype
 
 variable (B) in
-/-- **Definition 5.17 (general position), in a chart**: `(f, y)`, `f(y) = 0`, is **in general
+/-- **Definition 5.3.9 (preprint 5.17) (general position), in a chart**: `(f, y)`, `f(y) = 0`, is **in general
 position** if in a tame strong bundle chart `c` around `y` (`IsTameChart`; the reduced tangent
 space and Lemma 5.26 are about tame retracts), at a level-`1` point `z` over `φ(y)`,
 the linearization `Lin(z) : T_zO → K_z` (`linAt`) is onto, and for every presentation `T` of the
 partial quadrant `C` the kernel `ker Lin(z)` has an sc-complement `B` in `T_zO` contained in the
-reduced tangent space `T^R_zO = T_zO ∩ E_z` (`reducedTangentSpaceWith`, Definitions 2.27, 2.38):
+reduced tangent space `T^R_zO = T_zO ∩ E_z` (`reducedTangentSpaceWith`, Definitions 2.4.7, 2.5.8 (preprint 2.27, 2.38)):
 an sc-subspace `B` with `(T_zO)_m = (ker Lin(z))_m ⊕ B_m` on every level, the form of Definition
 4.21 in `Chapter4/Submanifolds.lean`.  (The text states the definition in `T_yX`, gap G.7.) -/
 def StrongBundle.IsGeneralPositionGerm (f : X → Y) (y : X) : Prop :=
@@ -390,7 +390,7 @@ def StrongBundle.IsGeneralPositionGerm (f : X → Y) (y : X) : Prop :=
           c.φ.model.E.levelSub (c.linKer f z) m ⊔ c.φ.model.E.levelSub Bc m =
             c.φ.model.E.levelSub (rangeS (scDeriv c.U (r c.R) z)) m
 
-/-- **Definition 5.17 contains the surjectivity**: a germ in general position is transversal at
+/-- **Definition 5.3.9 (preprint 5.17) contains the surjectivity**: a germ in general position is transversal at
 its point. -/
 theorem StrongBundle.IsGeneralPositionGerm.isLinSurjAt {y : X}
     (h : B.IsGeneralPositionGerm f y) : B.IsLinSurjAt f y := by
@@ -398,14 +398,14 @@ theorem StrongBundle.IsGeneralPositionGerm.isLinSurjAt {y : X}
   exact ⟨c, hc.1, hyV, z, hz, hsurj⟩
 
 /-- **Lemma 5.26 (general position implies good position)** ("Clearly general position implies
-good position", after Theorem 5.19).  Let `f` be an sc-Fredholm section of a strong bundle,
-`f(y) = 0`, and `(f, y)` in general position (Definition 5.17, in a tame chart).  Then `(f, y)` is
-in good position (Definition 3.53, `IsGoodPositionGerm`).  *Proof*: in the chart of
-Definition 5.17, `Lin(z)` is onto, and `ker Lin(z)` has an sc-complement `B ⊆ T^R_zO`; by
+good position", after Theorem 5.3.12 (preprint 5.19)).  Let `f` be an sc-Fredholm section of a strong bundle,
+`f(y) = 0`, and `(f, y)` in general position (Definition 5.3.9 (preprint 5.17), in a tame chart).  Then `(f, y)` is
+in good position (Definition 3.6.6 (preprint 3.53), `IsGoodPositionGerm`).  *Proof*: in the chart of
+Definition 5.3.9 (preprint 5.17), `Lin(z)` is onto, and `ker Lin(z)` has an sc-complement `B ⊆ T^R_zO`; by
 `isInGoodPositionIn_of_scComplement_le_reduced` (the tameness of the chart enters through
 `dim T_zO/T^R_zO = d_C(z)`) the kernel is in good position to the partial cone `C_zO` inside
-`T_zO`, with the interior condition of Definition 3.21 that the text omits; then
-`isGoodPositionGerm_of_linAt_surj` assembles Definition 3.53 in the chart centred at `y`. -/
+`T_zO`, with the interior condition of Definition 3.1.24 (preprint 3.21) that the text omits; then
+`isGoodPositionGerm_of_linAt_surj` assembles Definition 3.6.6 (preprint 3.53) in the chart centred at `y`. -/
 theorem StrongBundle.IsGeneralPositionGerm.isGoodPositionGerm (hf : B.IsScFredholmSection f)
     {y : X} (hy0 : IsZeroAt P f y) (h : B.IsGeneralPositionGerm f y) :
     B.IsGoodPositionGerm f y := by
@@ -429,7 +429,7 @@ theorem StrongBundle.IsGeneralPositionGerm.isGoodPositionGerm (hf : B.IsScFredho
     hz T hT hsurj hker
 
 /-- **Lemma 5.26 in a tame chart**: for an sc-Fredholm section with tame germ data
-(`IsScFredholmSectionTame`, Definition 3.51), a zero in general position is in good position in
+(`IsScFredholmSectionTame`, Definition 3.6.4 (preprint 3.51)), a zero in general position is in good position in
 the tame chart of its germ data (`IsGeneralPositionGerm.isGoodPositionGerm` and
 `IsGoodPositionGerm.toTame`), the form the implicit function theorems of §3.6 take. -/
 theorem StrongBundle.IsGeneralPositionGerm.isGoodPositionGermTame
@@ -440,7 +440,7 @@ theorem StrongBundle.IsGeneralPositionGerm.isGoodPositionGermTame
 
 end Defs
 
-/-! ### Spanning sc⁺-sections at a zero (the first step of the proof of Theorem 5.13) -/
+/-! ### Spanning sc⁺-sections at a zero (the first step of the proof of Theorem 5.3.5 (preprint 5.13)) -/
 
 section Spanning
 
@@ -498,12 +498,12 @@ allowable sc⁺-sections `s¹_x, …, s^{k_x}_x` such that the range of `(f + s�
 the sections `s^j_x` span `Y_x`").  Let `X` admit sc-smooth bump functions, `N` be an auxiliary
 norm, `g` an sc-Fredholm section, `y` a zero of `g` and `U ∋ y` open.  Then there are finitely
 many sc⁺-sections `s₁, …, s_k` with `supp(sᵢ) ⊆ U` and `N(sᵢ(x)) ≤ 1` for all `x` (allowable),
-and a strong bundle chart `c` centred at `y` (the chart of Definition 3.11) in which
-`Lin(0)(T₀O) + span{ŝᵢ(0)} = K₀`.  *Proof*: `Lin(0)` is Fredholm (Proposition 3.52), so its range
+and a strong bundle chart `c` centred at `y` (the chart of Definition 3.1.11 (preprint 3.11)) in which
+`Lin(0)(T₀O) + span{ŝᵢ(0)} = K₀`.  *Proof*: `Lin(0)` is Fredholm (Proposition 3.6.5 (preprint 3.52)), so its range
 is closed, complemented and of finite codimension in `K₀ = ρ(0)F`; the smooth vectors
 `ρ(0)F_∞ ⊆ K₀ ∩ F_∞` are dense in `K₀`, so finitely many of them span a complement
 (`exists_fin_mem_of_dense_of_closedComplemented`); each is `Φ(eᵢ)₂` for a smooth point `eᵢ` of
-the fibre over `y`, and Lemma 5.11 gives `sᵢ` with `sᵢ(y) = eᵢ`, `supp(sᵢ) ⊆ U` and
+the fibre over `y`, and Lemma 5.3.3 (preprint 5.11) gives `sᵢ` with `sᵢ(y) = eᵢ`, `supp(sᵢ) ⊆ U` and
 `N(sᵢ(x)) < N(eᵢ) + 1`; rescaling by `1/(N(eᵢ) + 1)` makes the sections allowable.  (The text does
 not say how the spanning sections are found; the density of the smooth vectors is the point.) -/
 theorem exists_spanning_sections (hbump : PX.AdmitsBumpFunctions) {N : B.One → ℝ}
@@ -520,7 +520,7 @@ theorem exists_spanning_sections (hbump : PX.AdmitsBumpFunctions) {N : B.One →
   have hgs : IsSection P g := hg.isScSmooth.1
   have hys : y ∈ PX.smoothSet := hg.mem_smoothSet_of_isZeroAt hy0
   obtain ⟨c, hc, hyV, hφ0, h0U, gf, hfill, G, -, -, Dg, hDg, h1, n, Nn, -, -, hFred, -⟩ :=
-    proposition_3_52 hgs (hg.germ y hys) hy0
+    proposition_3_6_5_preprint hgs (hg.germ y hys) hy0
   have h0O : (0 : c.φ.model.E 0) ∈ r c.R '' c.U := by
     rw [c.r_image, ← hφ0]; exact c.φ.mapsTo_model y hyV
   have hfr : IsSc1 c.U (c.principal g ∘ r c.R) := hg.isScSmooth.isSc1_principal_comp_r hc
@@ -564,11 +564,11 @@ theorem exists_spanning_sections (hbump : PX.AdmitsBumpFunctions) {N : B.One →
     rw [c.proj_symm (hdK i)]; exact hφsymm0
   have hesm : ∀ i, e i ∈ B.toMPolyfold0.smoothSet := fun i =>
     mem_smoothSet_toMPolyfold0_of_chart hc (hdK i) c.φ.model.E.smooth.zero_mem (hdsm i)
-  -- Lemma 5.11 at each `eᵢ`
+  -- Lemma 5.3.3 (preprint 5.11) at each `eᵢ`
   have hsec : ∀ i, ∃ he1 : e i ∈ B.oneSet, ∃ s : X → Y, B.IsScPlusSection s ∧ s y = e i ∧
       sectionSupport P s ⊆ U ∧
       ∀ x (hx : s x ∈ B.oneSet), N (B.oneMk (s x) hx) < N (B.oneMk (e i) he1) + 1 :=
-    fun i => lemma_5_11 hbump hN hys (hesm i) (hPe i) one_pos hU hyU
+    fun i => lemma_5_3_3 hbump hN hys (hesm i) (hPe i) one_pos hU hyU
   choose he1 s hs hsy hssupp hsN using hsec
   -- rescale by `1/Mᵢ`, `Mᵢ = N(eᵢ) + 1`
   set M : Fin k → ℝ := fun i => N (B.oneMk (e i) (he1 i)) + 1 with hMdef
@@ -622,7 +622,7 @@ variable {m : ℕ} {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpa
 open StrongRetr
 
 /-- **The slice `g + Σ λᵢ tᵢ`** of the parametrized section `F(λ, y) = g(y) + Σ λᵢ tᵢ(y)` of
-Theorem 3.18 at the parameter `λ`: the section `y ↦ F(λ, y)` of `P` (the text's
+Theorem 3.1.21 (preprint 3.18) at the parameter `λ`: the section `y ↦ F(λ, y)` of `P` (the text's
 `f + s₀ + s(λ₀, ·)`). -/
 def paramSlice (g : X → Y) (hg : IsSection P g) (t : Fin m → X → Y)
     (ht : ∀ i, IsSection P (t i)) (lam : Fin m → ℝ) (y : X) : Y :=
@@ -682,12 +682,12 @@ lemma paramSlice_eq_sectionAdd (lam : Fin m → ℝ) :
 
 variable {B : StrongBundle PX P}
 
-/-- **The slices are sc-Fredholm sections** (Theorem 3.15: `Σ λᵢ tᵢ` is an sc⁺-section). -/
+/-- **The slices are sc-Fredholm sections** (Theorem 3.1.18 (preprint 3.15): `Σ λᵢ tᵢ` is an sc⁺-section). -/
 theorem isScFredholmSection_paramSlice (hgF : B.IsScFredholmSection g)
     (htp : ∀ i, B.IsScPlusSection (t i)) (lam : Fin m → ℝ) :
     B.IsScFredholmSection (paramSlice g hgF.isScSmooth.1 t (fun i => (htp i).1) lam) := by
   rw [paramSlice_eq_sectionAdd]
-  exact theorem_3_15 hgF (StrongBundle.isScPlusSection_sectionSum _ fun i =>
+  exact theorem_3_1_18_preprint hgF (StrongBundle.isScPlusSection_sectionSum _ fun i =>
     (htp i).smul_left (isScSmoothMap_real_const _))
 
 omit [T2Space Y] [ParacompactSpace Y] in
@@ -775,7 +775,7 @@ lemma mem_K_ofProd_zero_iff (c : StrongBundleChart PX P) (r₀ : Fin m → ℝ)
 
 /-- **Transversality of a slice from the linearization of `F` in the product chart** (the text's
 "it is easily verified that `f + s₀ + s(λ₀, ·)` is transversal to the zero section", in the
-direction needed for Theorem 5.13).  Let `g` be sc-Fredholm, `tᵢ` sc⁺-sections, `y` a zero of the
+direction needed for Theorem 5.3.5 (preprint 5.13)).  Let `g` be sc-Fredholm, `tᵢ` sc⁺-sections, `y` a zero of the
 slice `g_λ = g + Σ λᵢ tᵢ`, and `c` a strong bundle chart centred at `y`.  If the linearization of
 `F` at `(λ, y)` is onto (`IsLinSurjAt`, in any chart) and the kernel of `Lin_F(0)` in the product
 chart `(r ↦ r − λ) × Φ` projects onto `ℝᵐ` (every `a ∈ ℝᵐ` is the `ℝᵐ`-component of a kernel
@@ -815,7 +815,7 @@ theorem isLinSurjAt_paramSlice_of_ker_fst (hgF : B.IsScFredholmSection g)
   have hFz : IsZeroAt (pullbackProj P Prod.snd)
       (paramSection g hgF.isScSmooth.1 t fun i => (htp i).1) (lam, y) :=
     (isZeroAt_paramSection_iff (lam, y)).2 hy0
-  have hFsm := (theorem_3_18 hgF htp).isScSmooth
+  have hFsm := (theorem_3_1_21_preprint hgF htp).isScSmooth
   have hsurjχ := hsurj.linAt_surjective hFsm hFz hχc hzV' hz'
   -- the linearization of the slice in `c`, and the formula for `Lin_F(0)`
   have hglF : B.IsScFredholmSection (paramSlice g hgF.isScSmooth.1 t (fun i => (htp i).1) lam) :=
@@ -997,10 +997,10 @@ lemma paramSlice_zero {m : ℕ} (hg : IsSection P g) {t : Fin m → X → Y}
   rw [this, add_zero]
 
 /-- **Adding sections keeps the transversality of `F` at `(0, y)`** (the text: "adding more
-sections, the properties (i)–(ii) will still hold", proof of Theorem 5.18, used implicitly in the
-proof of Theorem 5.13 when the finitely many families are united): if the parametrized section of
+sections, the properties (i)–(ii) will still hold", proof of Theorem 5.3.10 (preprint 5.18), used implicitly in the
+proof of Theorem 5.3.5 (preprint 5.13) when the finitely many families are united): if the parametrized section of
 a subfamily `s`, `sᵢ = t_{ι(i)}`, is transversal at `(0, y)`, so is the parametrized section of
-`t`.  In the chart of Definition 3.11 centred at `y`, `Lin_g(0)(T₀O) + span{t̂_{ι(i)}(0)} = K₀`
+`t`.  In the chart of Definition 3.1.11 (preprint 3.11) centred at `y`, `Lin_g(0)(T₀O) + span{t̂_{ι(i)}(0)} = K₀`
 implies `Lin_g(0)(T₀O) + span{t̂_j(0)} = K₀`. -/
 theorem isLinSurjAt_paramSection_zero_of_comp {k m : ℕ} [ParacompactSpace ((Fin k → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin k → ℝ) × X → X))]
@@ -1034,7 +1034,7 @@ theorem isLinSurjAt_paramSection_zero_of_comp {k m : ℕ} [ParacompactSpace ((Fi
     rw [isZeroAt_paramSection_iff]
     change IsZeroAt P (paramSlice g hgF.isScSmooth.1 s (fun i => (hsp i).1) 0) y
     rw [paramSlice_zero]; exact hy0
-  have hFsm := (theorem_3_18 hgF hsp).isScSmooth
+  have hFsm := (theorem_3_1_21_preprint hgF hsp).isScSmooth
   have hsχ := hs.linAt_surjective hFsm hFz hχc hzV' hz'
   -- spanning for the subfamily, in `c`
   have hspan : ∀ k', ((0 : c.φ.model.E 0), k') ∈ c.K →
@@ -1060,7 +1060,7 @@ theorem isLinSurjAt_paramSection_zero_of_comp {k m : ℕ} [ParacompactSpace ((Fi
 function theorem we find an open neighbourhood `U ⊆ ℝᵐ ⊕ X` of `{0} × S_{f+s₀}` such that the
 section `F` has a surjective linearization at every solution `(λ, y) ∈ U`"): for `X` without
 boundary and `F` transversal at every `(0, y)`, `y ∈ S_g`, there is an open `V ⊇ {0} × S_g` all of
-whose zeros of `F` are in good position (Theorem 3.54 (1) at each `(0, y)`, and the union). -/
+whose zeros of `F` are in good position (Theorem 3.6.8 (preprint 3.54) (1) at each `(0, y)`, and the union). -/
 theorem exists_isOpen_goodPosition_of_isLinSurjAt {m : ℕ} [ParacompactSpace ((Fin m → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin m → ℝ) × X → X))]
     (hX : PX.IsWithoutBoundary) (hgF : B.IsScFredholmSectionTame g) {t : Fin m → X → Y}
@@ -1073,7 +1073,7 @@ theorem exists_isOpen_goodPosition_of_isLinSurjAt {m : ℕ} [ParacompactSpace ((
         (paramSection g hgF.isScSmooth.1 t fun i => (htp i).1) z →
         (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold m) PX)).IsGoodPositionGermTame
           (paramSection g hgF.isScSmooth.1 t fun i => (htp i).1) z := by
-  have hF := theorem_3_18_tame hgF htp
+  have hF := theorem_3_1_21_tame hgF htp
   have hXZ := isWithoutBoundary_prod_rn (PX := PX) m hX
   have hloc : ∀ y, IsZeroAt P g y → ∃ V : Set ((Fin m → ℝ) × X), IsOpen V ∧ (0, y) ∈ V ∧
       ∀ z ∈ V, IsZeroAt (pullbackProj P Prod.snd)
@@ -1088,7 +1088,7 @@ theorem exists_isOpen_goodPosition_of_isLinSurjAt {m : ℕ} [ParacompactSpace ((
       rw [paramSlice_zero]; exact hy
     have hgp := StrongBundle.isGoodPositionGerm_of_isLinSurjAt hF hz0 (hXZ (0, y))
       (hsurj y hy)
-    exact theorem_3_54_one' hF hgp hz0
+    exact theorem_3_6_8_one' hF hgp hz0
   choose! V hVo hzV hall using hloc
   refine ⟨⋃ y ∈ solutionSet P g, V y, isOpen_biUnion fun y hy => hVo y hy,
     fun y hy => mem_biUnion hy (hzV y hy), fun z hz hz0 => ?_⟩
@@ -1098,7 +1098,7 @@ theorem exists_isOpen_goodPosition_of_isLinSurjAt {m : ℕ} [ParacompactSpace ((
 /-- **Transversality of `F` at `(0, x)` propagates to the zeros `y` of `g` near `x`** (the text:
 "in view of the interior case of the implicit function theorem, Theorem 3.19, there exists an open
 neighbourhood `U(x)` of `x` such that for every `(0, y)` with `y ∈ U(x) ∩ S_{f+s₀}` the
-linearization of the above section is surjective"): Theorem 3.54 (1) for `F` at `(0, x)`, and
+linearization of the above section is surjective"): Theorem 3.6.8 (preprint 3.54) (1) for `F` at `(0, x)`, and
 `U(x) = {y | (0, y) ∈ V}`. -/
 theorem exists_isOpen_isLinSurjAt_zero_near {k : ℕ} [ParacompactSpace ((Fin k → ℝ) × X)]
     [ParacompactSpace (pullbackSpace P (Prod.snd : (Fin k → ℝ) × X → X))]
@@ -1110,7 +1110,7 @@ theorem exists_isOpen_isLinSurjAt_zero_near {k : ℕ} [ParacompactSpace ((Fin k 
     ∃ Ux : Set X, IsOpen Ux ∧ x ∈ Ux ∧ ∀ y ∈ Ux, IsZeroAt P g y →
       (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold k) PX)).IsLinSurjAt
         (paramSection g hgF.isScSmooth.1 s fun i => (hsp i).1) (0, y) := by
-  have hF := theorem_3_18_tame hgF hsp
+  have hF := theorem_3_1_21_tame hgF hsp
   have hXZ := isWithoutBoundary_prod_rn (PX := PX) k hX
   have hz0 : ∀ y, IsZeroAt P g y → IsZeroAt (pullbackProj P Prod.snd)
       (paramSection g hgF.isScSmooth.1 s fun i => (hsp i).1) (0, y) := fun y hy => by
@@ -1118,13 +1118,13 @@ theorem exists_isOpen_isLinSurjAt_zero_near {k : ℕ} [ParacompactSpace ((Fin k 
     change IsZeroAt P (paramSlice g hgF.isScSmooth.1 s (fun i => (hsp i).1) 0) y
     rw [paramSlice_zero]; exact hy
   have hgp := StrongBundle.isGoodPositionGerm_of_isLinSurjAt hF (hz0 x hx) (hXZ (0, x)) hsurj
-  obtain ⟨V, hVo, hxV, hall⟩ := theorem_3_54_one' hF hgp (hz0 x hx)
+  obtain ⟨V, hVo, hxV, hall⟩ := theorem_3_6_8_one' hF hgp (hz0 x hx)
   refine ⟨Prod.mk 0 ⁻¹' V, hVo.preimage (continuous_const.prodMk continuous_id), hxV,
     fun y hy hy0 => ?_⟩
   exact (hall (0, y) hy (hz0 y hy0)).isGoodPositionGerm.isLinSurjAt hF.isScSmooth
 
 omit [T2Space X] [ParacompactSpace X] in
-/-- **The omitted step of the proof of Theorem 5.13**: if `Z ⊆ ℝᵐ × X` is compact and the open set
+/-- **The omitted step of the proof of Theorem 5.3.5 (preprint 5.13)**: if `Z ⊆ ℝᵐ × X` is compact and the open set
 `V` contains the part of `Z` over `λ = 0`, then `V` contains the part of `Z` over a ball
 `|λ| < δ` (the projection of the compact set `Z ∖ V` to `ℝᵐ` is closed and misses `0`). -/
 lemma exists_pos_forall_mem_of_isCompact {m : ℕ} {Z V : Set ((Fin m → ℝ) × X)}
@@ -1279,13 +1279,13 @@ variable {m : ℕ} {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpa
 open StrongRetr
 
 set_option maxHeartbeats 3200000 in
--- destructuring the tangent germ chart of `theorem_3_54_index` and the product chart
-/-- **The Sard step of the proof of Theorem 5.13, at one point of `S̃`** (the text: "`S̃ = F⁻¹(0)`
+-- destructuring the tangent germ chart of `theorem_3_6_8_index` and the product chart
+/-- **The Sard step of the proof of Theorem 5.3.5 (preprint 5.13), at one point of `S̃`** (the text: "`S̃ = F⁻¹(0)`
 is a smooth manifold ... taking a regular value `λ₀` for the projection `S̃ → ℝᵐ`, it is easily
 verified that `f + s₀ + s(λ₀, ·)` is transversal to the zero section").  Let `z₀` be a zero of
 `F(λ, y) = g(y) + Σ λᵢ tᵢ(y)` in good position.  Then there are an open `W ∋ z₀` and a Lebesgue
 null set `CV ⊆ ℝᵐ` such that for every zero `z = (λ, y) ∈ W` of `F` with `λ ∉ CV`, the slice
-`g + Σ λᵢ tᵢ` is transversal at `y`.  *Proof*: Theorem 3.54 (2) gives the regular tangent germ
+`g + Σ λᵢ tᵢ` is transversal at `y`.  *Proof*: Theorem 3.6.8 (preprint 3.54) (2) gives the regular tangent germ
 chart `D` of `S̃` at `z₀` (model `V ⊆ N ∩ C`, graph map `Γ`, `D.φ⁻¹ ∘ Γ` the parametrization of
 `S̃ ∩ W`, `W = D.φ.source`); `q = p ∘ D.φ⁻¹ ∘ Γ : V → ℝᵐ` is `C^∞` (sc-smooth on the
 finite-dimensional `V`); Sard's theorem on the strata of `V` (`measure_image_stratCritSet`) makes
@@ -1309,11 +1309,11 @@ theorem exists_null_isLinSurjAt_paramSlice_near (hgF : B.IsScFredholmSectionTame
         z.1 ∉ CV →
       B.IsLinSurjAt (paramSlice g hgF.isScSmooth.1 t (fun i => (htp i).1) z.1) z.2 := by
   classical
-  have hF := theorem_3_18_tame hgF htp
+  have hF := theorem_3_1_21_tame hgF htp
   have hFsm := hF.isScSmooth
   have hFsec : IsSection (pullbackProj P Prod.snd)
       (paramSection g hgF.isScSmooth.1 t fun i => (htp i).1) := hFsm.1
-  obtain ⟨Vx, d, hVxo, hz₀Vx, hgood, D, hreg, hDsrc, -⟩ := theorem_3_54_index hF hgp hz₀
+  obtain ⟨Vx, d, hVxo, hz₀Vx, hgood, D, hreg, hDsrc, -⟩ := theorem_3_6_8_index hF hgp hz₀
   -- the tame retraction of the chart `D.φ`
   obtain ⟨RD, hRD, -⟩ := D.tame
   have hRDU : D.φ.model.O ⊆ RD.U := by rw [← hRD]; exact RD.retract_subset
@@ -1487,7 +1487,7 @@ theorem exists_null_isLinSurjAt_paramSlice_near (hgF : B.IsScFredholmSectionTame
       ((((PullbackChartData.ofProd c z.1).toChart q₀).principal
         (paramSection g hgF.isScSmooth.1 t fun i => (htp i).1) ∘
           r ((PullbackChartData.ofProd c z.1).toChart q₀).R) ∘ gmap) :=
-    (theorem_1_21' hV'dom.isScDomain
+    (theorem_1_3_1' hV'dom.isScDomain
       ((PullbackChartData.ofProd c z.1).toChart q₀).relOpen.isScDomain
       hgmap.isSc1 hFr hmapsU).1
   have hF0 : EqOn ((((PullbackChartData.ofProd c z.1).toChart q₀).principal
@@ -1534,7 +1534,7 @@ theorem exists_null_isLinSurjAt_paramSlice_near (hgF : B.IsScFredholmSectionTame
 
 end Sard
 
-/-! ### Theorem 5.13 -/
+/-! ### Theorem 5.3.5 (preprint 5.13) -/
 
 section Theorem513
 
@@ -1546,7 +1546,7 @@ open StrongRetr
 
 variable (B) in
 /-- **"`S_h` is a sub-M-polyfold whose induced structure is that of a compact smooth manifold
-without boundary"**, as Theorem 3.56 gives it (`theorem_3_56_of_surjective`): the solution set of
+without boundary"**, as Theorem 3.6.10 (preprint 3.56) gives it (`theorem_3_6_10_of_surjective`): the solution set of
 `h` is a sub-M-polyfold whose induced structure is tame, a manifold without boundary of locally
 constant dimension, with regular tangent germ data at every zero whose dimension is the Fredholm
 index of `h'(y)` (`IsSurjLinOfIndex`).  (Compactness is stated separately.) -/
@@ -1563,32 +1563,32 @@ def StrongBundle.SolutionSetIsManifold (h : X → Y) : Prop :=
 
 set_option maxHeartbeats 3200000 in
 -- the assembly of the proof: several large existentials are destructured
-/-- **Theorem 5.13 (perturbation and transversality, interior case), generic form.**  Let
+/-- **Theorem 5.3.5 (preprint 5.13) (perturbation and transversality, interior case), generic form.**  Let
 `P : Y → X` be a strong bundle over an M-polyfold `X` with `∂X = ∅` which admits sc-smooth bump
 functions, `f` an sc-Fredholm section with compact solution set and with tame germ data
-(`IsScFredholmSectionTame`, Definition 3.51: the standing tameness of §3.6 and §5.3), `N` an
+(`IsScFredholmSectionTame`, Definition 3.6.4 (preprint 3.51): the standing tameness of §3.6 and §5.3), `N` an
 auxiliary norm.  Then there is an open neighbourhood `U` of `S_f` such that
 (1) for every allowable `s ∈ Γ^{+,1}_U(P)` (sc⁺, `supp(s) ⊆ U`, `N(s(x)) ≤ 1`) the solution set
 `S_{f+s}` is compact, and (2) for every sc⁺-section `s₀` with `supp(s₀) ⊆ U` and
 `N(s₀(x)) ≤ 1 − ε` (`ε > 0`) there are finitely many allowable sc⁺-sections `t₁, …, t_m`, a
 `δ > 0` and a Lebesgue null set `CV ⊆ ℝᵐ` such that for every `λ` with `|λ| < δ`, `λ ∉ CV`
 (a set of full measure in the ball), the perturbation `s_λ = s₀ + Σ λᵢ tᵢ` is allowable,
-`f + s_λ` is transversal to the zero section (Definition 5.15), `S_{f+s_λ}` is compact, and, if
+`f + s_λ` is transversal to the zero section (Definition 5.3.7 (preprint 5.15)), `S_{f+s_λ}` is compact, and, if
 non-empty, a sub-M-polyfold whose induced structure is that of a smooth manifold without boundary
-with dimension the Fredholm index (Theorem 3.56).  The dense-set form of the text is
-`theorem_5_13`.
+with dimension the Fredholm index (Theorem 3.6.10 (preprint 3.56)).  The dense-set form of the text is
+`theorem_5_3_5_preprint`.
 
-*Proof* (the text's, with the omitted steps): `U` and the compactness from Theorem 5.5 and Remark
+*Proof* (the text's, with the omitted steps): `U` and the compactness from Theorem 5.2.2 (preprint 5.5) and Remark
 5.12; at every zero of `g = f + s₀` the spanning sections of `exists_spanning_sections`, the
 transversality of the parametrized section `F_x` at `(0, x)` and at `(0, y)` for `y` near `x`
 (`exists_isOpen_isLinSurjAt_zero_near`); a finite subcover of the compact `S_g`, the united family
 `t` (`isLinSurjAt_paramSection_zero_of_comp`); the open set `V ⊇ {0} × S_g` of zeros of `F` in
 good position (`exists_isOpen_goodPosition_of_isLinSurjAt`); the compact set
-`Z = {(λ, y) | |λ| ≤ δ₁, F(λ, y) = 0}` (Remark 5.12 for the allowable `s_λ`) and the small `δ₀`
+`Z = {(λ, y) | |λ| ≤ δ₁, F(λ, y) = 0}` (Remark 5.3.4 (preprint 5.12) for the allowable `s_λ`) and the small `δ₀`
 with `Z ∩ {|λ| < δ₀} ⊆ V` (`exists_pos_forall_mem_of_isCompact`, the omitted step); the Sard step
 `exists_null_isLinSurjAt_paramSlice_near` at the points of the compact
 `Z₀ = Z ∩ {|λ| ≤ δ/2}`, a finite subcover and the union of the null sets. -/
-theorem theorem_5_13_generic (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions)
+theorem theorem_5_3_5_generic (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions)
     {f : X → Y} (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f))
     {N : B.One → ℝ} (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
@@ -1610,23 +1610,23 @@ theorem theorem_5_13_generic (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpF
                   (sectionAdd P f (paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam))) := by
   classical
   have hfs : IsSection P f := hf.isScSmooth.1
-  -- Theorem 5.5: the neighbourhood `U` and the compact closure
-  obtain ⟨-, hprop⟩ := theorem_5_5 hf.toIsScFredholmSection hS
+  -- Theorem 5.2.2 (preprint 5.5): the neighbourhood `U` and the compact closure
+  obtain ⟨-, hprop⟩ := theorem_5_2_2_preprint hf.toIsScFredholmSection hS
   obtain ⟨U, hUo, hSU, hK⟩ := hprop N hN
-  -- (1) compactness for allowable sections (Remark 5.12, and the solution set is closed)
+  -- (1) compactness for allowable sections (Remark 5.3.4 (preprint 5.12), and the solution set is closed)
   have hcpt : ∀ s ∈ B.allowableSections N U, IsCompact (solutionSet P (sectionAdd P f s)) := by
     rintro s ⟨hs, hssupp, hsN⟩
     have hsU : ∀ x ∉ U, IsZeroAt P s x := fun x hx =>
       not_not.1 fun hne => hx (hssupp (subset_closure hne))
     have hsN' : ∀ x, B.AuxLe N (s x) 1 := fun x => ⟨hs.mem_oneSet x, hsN x _⟩
-    obtain ⟨-, hcl⟩ := remark_5_12 hN hfs hSU hK hs.1 hsU hsN'
+    obtain ⟨-, hcl⟩ := remark_5_3_4 hN hfs hSU hK hs.1 hsU hsN'
     exact hcl.of_isClosed_subset
-      (isClosed_solutionSet (theorem_3_15 hf.toIsScFredholmSection hs).isScSmooth)
+      (isClosed_solutionSet (theorem_3_1_18_preprint hf.toIsScFredholmSection hs).isScSmooth)
       subset_closure
   refine ⟨U, hUo, hSU, hcpt, ?_⟩
   intro s₀ hs₀ hs₀supp ε hε hs₀N
   -- `g = f + s₀`, sc-Fredholm with compact solution set inside `U`
-  have hgFt : B.IsScFredholmSectionTame (sectionAdd P f s₀) := theorem_3_15_tame hf hs₀
+  have hgFt : B.IsScFredholmSectionTame (sectionAdd P f s₀) := theorem_3_1_18_tame hf hs₀
   have hgF : B.IsScFredholmSection (sectionAdd P f s₀) := hgFt.toIsScFredholmSection
   have hs₀alw : s₀ ∈ B.allowableSections N U :=
     ⟨hs₀, hs₀supp, fun x hx => (hs₀N x hx).trans (by linarith)⟩
@@ -1635,7 +1635,7 @@ theorem theorem_5_13_generic (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpF
     have hs₀U : ∀ x ∉ U, IsZeroAt P s₀ x := fun x hx =>
       not_not.1 fun hne => hx (hs₀supp (subset_closure hne))
     have hs₀N' : ∀ x, B.AuxLe N (s₀ x) 1 := fun x => ⟨hs₀.mem_oneSet x, hs₀alw.2.2 x _⟩
-    exact fun x hx => ((remark_5_12 hN hfs hSU hK hs₀.1 hs₀U hs₀N').1 hx).1
+    exact fun x hx => ((remark_5_3_4 hN hfs hSU hK hs₀.1 hs₀U hs₀N').1 hx).1
   -- spanning sections at every zero of `g`, and the neighbourhood where `F_x` is transversal
   have hspan : ∀ x : solutionSet P (sectionAdd P f s₀),
       ∃ (k : ℕ) (s : Fin k → X → Y) (hsp : ∀ i, B.IsScPlusSection (s i)),
@@ -1719,11 +1719,11 @@ theorem theorem_5_13_generic (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpF
     have hx' : IsZeroAt P (paramSlice (sectionAdd P f s₀) hgF.isScSmooth.1 t
         (fun i => (ht i).1) lam) x := (isZeroAt_paramSection_iff (lam, x)).1 hz
     rw [← hslice lam] at hx'
-    exact subset_closure ((remark_5_12 hN hfs hSU hK (isSection_paramSlice lam) (hsuppl lam)
+    exact subset_closure ((remark_5_3_4 hN hfs hSU hK (isSection_paramSlice lam) (hsuppl lam)
       (hallow lam hlam)).1 hx')
   have hZclosed : IsClosed Z :=
     (isClosed_le (continuous_norm.comp continuous_fst) continuous_const).inter
-      (isClosed_solutionSet (theorem_3_18 hgF ht).isScSmooth)
+      (isClosed_solutionSet (theorem_3_1_21_preprint hgF ht).isScSmooth)
   have hZ : IsCompact Z :=
     ((isCompact_closedBall _ _).prod hK).of_isClosed_subset hZclosed hZsub
   -- the omitted step: `Z ∩ {|λ| < δ₀} ⊆ V`
@@ -1741,7 +1741,7 @@ theorem theorem_5_13_generic (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpF
   have hZ₀Z : Z₀ ⊆ Z := fun z hz => ⟨hz.1.trans (by linarith [min_le_right δ₀ δ₁]), hz.2⟩
   have hZ₀closed : IsClosed Z₀ :=
     (isClosed_le (continuous_norm.comp continuous_fst) continuous_const).inter
-      (isClosed_solutionSet (theorem_3_18 hgF ht).isScSmooth)
+      (isClosed_solutionSet (theorem_3_1_21_preprint hgF ht).isScSmooth)
   have hZ₀ : IsCompact Z₀ := hZ.of_isClosed_subset hZ₀closed hZ₀Z
   have hZ₀V : ∀ z ∈ Z₀, z ∈ V := fun z hz =>
     hδ₀V z (hZ₀Z hz) (by linarith [min_le_left δ₀ δ₁, hz.1])
@@ -1777,7 +1777,7 @@ theorem theorem_5_13_generic (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpF
     have hlamCV' : lam ∉ CV z := fun h => hlamCV (mem_iUnion₂.2 ⟨z, hzT', h⟩)
     exact hWtr z (lam, y) hzW' ((isZeroAt_paramSection_iff (lam, y)).2 hy) hlamCV'
   refine ⟨halw, htrans, hcpt _ halw, fun hne => ?_⟩
-  exact theorem_3_56_of_surjective hX (theorem_3_15_tame hf hsl) htrans hne
+  exact theorem_3_6_10_of_surjective hX (theorem_3_1_18_tame hf hsl) htrans hne
 
 variable (B) in
 /-- **The distance `N(s(x) − s'(x))` of two sc⁺-sections at `x`**: the text's uniform distance
@@ -1790,10 +1790,10 @@ def StrongBundle.sectionDistAt (N : B.One → ℝ) {s s' : X → Y} (hs : B.IsSc
 
 set_option maxHeartbeats 1600000 in
 -- the fibre arithmetic in `(Y_{0,1})_x` with the destructured generic form
-/-- **Theorem 5.13 (perturbation and transversality, interior case)**, the text's dense-set
+/-- **Theorem 5.3.5 (preprint 5.13) (perturbation and transversality, interior case)**, the text's dense-set
 form.  Let `P : Y → X` be a strong bundle over an M-polyfold `X` with `∂X = ∅` which admits
 sc-smooth bump functions, `f` an sc-Fredholm section with compact solution set, `N` an auxiliary
-norm (and `f` with tame germ data, as in `theorem_5_13_generic`).  Then there is an open neighbourhood
+norm (and `f` with tame germ data, as in `theorem_5_3_5_generic`).  Then there is an open neighbourhood
 `U` of `S_f` such that for every allowable section `s ∈ Γ^{+,1}_U(P)` the solution set `S_{f+s}`
 is compact, and the allowable sections `s` for which `f + s` is transversal to the zero section
 and `S_{f+s}` is a compact smooth manifold without boundary are dense in `(Γ^{+,1}_U(P), ρ)`: for
@@ -1803,7 +1803,7 @@ form gives `t`, `δ`, `CV`; a `λ ∉ CV` with `|λ| < δ` and `m|λ| ≤ ε'/2`
 null and the ball has positive measure; `s = s₀ + Σ λᵢ tᵢ` satisfies
 `N(s − s') ≤ (ε'/2)N(s') + Σ|λᵢ| N(tᵢ) ≤ ε'`.  (The text's "`N(s₀(y) + s(λ₀, y)) ≤ 1 − ε/2`" is
 a slip for `≤ 1`.) -/
-theorem theorem_5_13 (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions)
+theorem theorem_5_3_5_preprint (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions)
     {f : X → Y} (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f))
     {N : B.One → ℝ} (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
@@ -1815,7 +1815,7 @@ theorem theorem_5_13 (hX : PX.IsWithoutBoundary) (hbump : PX.AdmitsBumpFunctions
           ((solutionSet P (sectionAdd P f s)).Nonempty →
             B.SolutionSetIsManifold (sectionAdd P f s)) := by
   classical
-  obtain ⟨U, hUo, hSU, hcpt, hgen⟩ := theorem_5_13_generic hX hbump hf hS hN
+  obtain ⟨U, hUo, hSU, hcpt, hgen⟩ := theorem_5_3_5_generic hX hbump hf hS hN
   refine ⟨U, hUo, hSU, hcpt, fun s' hs' hs'alw ε hε => ?_⟩
   obtain ⟨-, hs'supp, hs'N⟩ := hs'alw
   -- `ε' = min ε 1`, `θ = 1 − ε'/2`, `s₀ = θ s'`

@@ -241,7 +241,7 @@ theorem lemma_9_1_5 (hΘ : X.IsBranchedEpSubgroupoid Θ) : IsLocallyClosed (X.or
   rw [isLocallyClosed_iff_isOpen_coborder]
   refine isQuotientMap_quotient_mk'.isOpen_preimage.1 ?_
   change IsOpen (X.π ⁻¹' coborder (X.orbitSupp Θ))
-  rw [← coborder_preimage X.proposition_7_1 X.continuous_π, preimage_π_orbitSupp hΘ.isFunctorial]
+  rw [← coborder_preimage X.proposition_7_1_8 X.continuous_π, preimage_π_orbitSupp hΘ.isFunctorial]
   exact (isLocallyClosed_supp hΘ).isOpen_coborder
 
 variable (X)

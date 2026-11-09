@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "theorem_7_4 (universe 0) and B have the same hypotheses (HasParacompactOrbitSpace, PObj.AdmitsScPartitionsOfUnity) and conclusions that agree by the V7_56 rephrasing (HasScPartitionsOfUnity ⇔ B's HasScPUB: invariance β(s φ) = β(t φ) vs. IsoB y z → β z = β y, everything else literally equal). Both directions are that rephrasing applied to the hypothesis.",
+ "why": "theorem_7_5_7 (universe 0) and B have the same hypotheses (HasParacompactOrbitSpace, PObj.AdmitsScPartitionsOfUnity) and conclusions that agree by the V7_56 rephrasing (HasScPartitionsOfUnity ⇔ B's HasScPUB: invariance β(s φ) = β(t φ) vs. IsoB y z → β z = β y, everything else literally equal). Both directions are that rephrasing applied to the hypothesis.",
  "B_issue": null,
  "overlap": "Both directions rt_check OK; B_to_A shares 121 project theorems, all from the statement's vocabulary (proof fields behind realPolyfold/IsScSmoothMap, the orbit setoid, groupoid axioms), none of theorem_7_4's proof.",
  "uses_hypothesis": {

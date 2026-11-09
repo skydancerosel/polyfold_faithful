@@ -3,41 +3,41 @@ import Polyfold.Chapter3.TangentGerm
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §4.1,
-Proposition 4.9 with Lemmas 4.11 and 4.12 *(book 2017: Proposition 4.2, Lemmas 4.4, 4.5; see
+Proposition 4.1.9 (preprint 4.9) with Lemmas 4.1.12 and 4.1.13 (preprint 4.11 and 4.12) *(book 2017: Proposition 4.2, Lemmas 4.4, 4.5; see
 `BookConcordance.md`)*.
 
 # An sc⁺-retract near a point is the graph of a map on its tangent space
 
 ## The text, paraphrased
 
-(Proposition 4.9) Let `(O, C, E)` be an sc⁺-retract, `t : U → U` an sc⁺-retraction of the
+(Proposition 4.1.9 (preprint 4.9)) Let `(O, C, E)` be an sc⁺-retract, `t : U → U` an sc⁺-retraction of the
 relatively open `U ⊆ C` onto `O`, `0 ∈ O`, and let the tangent space `T₀O` (finite-dimensional by
-Lemma 4.7) be in good position to `C`, with a good complement `Y`, `E = T₀O ⊕ Y`; let
+Lemma 4.1.7 (preprint 4.7)) be in good position to `C`, with a good complement `Y`, `E = T₀O ⊕ Y`; let
 `p = Dt(0) : E → T₀O` be "the sc-projection".  Then there are open neighbourhoods `U₀` of `0` in
 `O` and `V` of `0` in `T₀O ∩ C` such that `p : U₀ → V` is an sc-diffeomorphism; `(V, T₀O ∩ C, T₀O)`
-is a local model by Proposition 3.22.  *Proof in the text*: the section `f(u) = (1 − p)(u − t(u))`
-of `U ◁ Y` is sc-Fredholm (Lemma 4.10), with `f(0) = 0`, `Df(0) = 1 − p`, kernel `T₀O` and image
-`Y`; Corollary 3.47 describes the solutions near `0` as the graph `{a + δ(a) | a ∈ V}` of an
-sc-smooth `δ : V → Y`.  (Lemma 4.11) Every small solution `a + y` has `y = δ(a)`: on level `1`,
+is a local model by Proposition 3.1.25 (preprint 3.22).  *Proof in the text*: the section `f(u) = (1 − p)(u − t(u))`
+of `U ◁ Y` is sc-Fredholm (Lemma 4.1.11 (preprint 4.10)), with `f(0) = 0`, `Df(0) = 1 − p`, kernel `T₀O` and image
+`Y`; Theorem 3.5.11 (preprint 3.47) describes the solutions near `0` as the graph `{a + δ(a) | a ∈ V}` of an
+sc-smooth `δ : V → Y`.  (Lemma 4.1.12 (preprint 4.11)) Every small solution `a + y` has `y = δ(a)`: on level `1`,
 `y − δ(a) = (1 − p)[t(a + y) − t(a + δ(a))]` and `‖(1 − p)Dt(u)‖_{L(E₁)} ≤ 1/2` near `0` since
-`(1 − p)Dt(0) = 0` ((76)–(77)).  (Lemma 4.12) `a + δ(a) ∈ O`: with `a₁ = p t(a + δ(a))`,
+`(1 − p)Dt(0) = 0` ((76)–(77)).  (Lemma 4.1.13 (preprint 4.12)) `a + δ(a) ∈ O`: with `a₁ = p t(a + δ(a))`,
 `t(a₁ + δ(a)) = t(a + δ(a))` and `Dt(0)(a₁ − a) = a₁ − a`, the level-`1` estimate
 `‖Dt(v) − Dt(0)‖ ≤ 1/2` forces `a₁ = a`.  Then `p` is an sc-diffeomorphism from
 `U₀ = {a + δ(a) | a ∈ V}` onto `V` with inverse `a ↦ a + δ(a)`.
 
 ## What is formalized
 
-* `Polyfold.proposition_4_9` (**Proposition 4.9**): for the sc⁺-retraction `t` onto `O ∋ 0`,
+* `Polyfold.proposition_4_1_9` (**Proposition 4.1.9 (preprint 4.9)**): for the sc⁺-retraction `t` onto `O ∋ 0`,
   `N = T₀O`, a closed good complement `Y` and the projection `p : E → N` along `Y`, there are an
   open `W ∋ 0` in `E`, a relatively open `V ∋ 0` in the partial quadrant `N ∩ C` of `N`, and
   `Γ : V → E` sc-smooth on `V` (set sense, on the fixed `V`) with `p ∘ Γ = 1` on `V`,
   `Γ(a) − a ∈ Y`, `Γ(V) = O ∩ W`, `Γ ∘ p = 1` on `O ∩ W`, `Γ(0) = 0`, and `p`, `Γ` sc-smooth
-  between the retracts `(O ∩ W, C, E)` and `(V, N ∩ C, N)` (Definition 2.7): the
+  between the retracts `(O ∩ W, C, E)` and `(V, N ∩ C, N)` (Definition 2.1.14 (preprint 2.7)): the
   sc-diffeomorphism `p : O ∩ W → V` with inverse `Γ`.
-* `Polyfold.GraphData` (the data), `GraphData.exists_contraction_radius` (**Lemma 4.11**, the
+* `Polyfold.GraphData` (the data), `GraphData.exists_contraction_radius` (**Lemma 4.1.12 (preprint 4.11)**, the
   level-`(k+1)` contraction estimate `‖(1 − p)(u' − u)‖ ≤ ‖1 − p‖θ‖u' − u‖` on `O_{k+1}` near `0`,
   and `GraphData.eq_of_p_eq`: two points of `O` near `0` with the same projection coincide),
-  `GraphData.exists_graph_point` (**Lemma 4.12**: existence of `a + δ(a) ∈ O` by a level-`1`
+  `GraphData.exists_graph_point` (**Lemma 4.1.13 (preprint 4.12)**: existence of `a + δ(a) ∈ O` by a level-`1`
   contraction), `GraphData.p_mem_C` (`p(O ∩ W) ⊆ C`), `GraphData.Nbhd` and
   `GraphData.exists_nbhd` (the neighbourhoods `W`, `V` and the map `Γ`).
 * The regularity of `Γ` on the fixed `V`: `GraphData.Nbhd.continuousOn_Γ_lvl` (continuous into
@@ -48,44 +48,44 @@ sc-smooth `δ : V → Y`.  (Lemma 4.11) Every small solution `a + y` has `y = δ
   inverse of a projection with values in a "retract" is Lipschitz and differentiable); the
   level data of an sc⁺-retraction (`ScRetraction.lvlMap`, `lvlDeriv`,
   `ScRetraction.IsScPlus.exists_mvt`: the mean value estimate on `C_{k+1} ∩ B(u₀, r)`);
-  Proposition 1.18 for the tangent map of the lift (`GraphData.contDiffOn_lvlDeriv_apply`);
-  `Polyfold.finiteDimensional_tangentSpace_zero` (Lemma 4.7 (ii) in the form used here).
+  Proposition 1.2.3 (preprint 1.18) for the tangent map of the lift (`GraphData.contDiffOn_lvlDeriv_apply`);
+  `Polyfold.finiteDimensional_tangentSpace_zero` (Lemma 4.1.7 (preprint 4.7) (ii) in the form used here).
 
 ## What the text leaves implicit, and the choices made
 
 * **`p = Dt(0)` is not the projection along `Y`.**  `Dt(0)` is a projection onto `T₀O` along
   `ker Dt(0)`, and nothing relates `ker Dt(0)` to the chosen good complement `Y`; the proof of
-  Lemma 4.12 writes `t(a + δ(a)) = p t(a + δ(a)) + δ(a)` with `δ(a) ∈ Y`, which needs `p` to be
+  Lemma 4.1.13 (preprint 4.12) writes `t(a + δ(a)) = p t(a + δ(a)) + δ(a)` with `δ(a) ∈ Y`, which needs `p` to be
   the projection along `Y`.  Here `p` is **the projection along `Y`** (`p = 1` on `N`, `p = 0`
-  on `Y`, two hypotheses of `proposition_4_9`); the identities the proof uses, `(1 − p)Dt(0) = 0`
+  on `Y`, two hypotheses of `proposition_4_1_9`); the identities the proof uses, `(1 − p)Dt(0) = 0`
   and `Dt(0) = 1` on `N`, hold for it (`GraphData.qL_lvlDeriv_zero`, `lvlDeriv_zero_of_mem_N`).
 * **`Y` is closed** (added hypothesis, as in Findings Chapter 3, items 81 and 93): otherwise `p`
   is not continuous.  With `N` finite-dimensional, `E = N ⊕ Y` is then a topological splitting.
-* **The direct proof.**  The text's route through Lemma 4.10 and Corollary 3.47 produces `δ` only
+* **The direct proof.**  The text's route through Lemma 4.1.11 (preprint 4.10) and Theorem 3.5.11 (preprint 3.47) produces `δ` only
   as an sc-smooth *germ* (neighbourhoods depending on the level and the order of
   differentiability, Findings Chapter 3, items 2 and 82) and with a good complement of Corollary
   3.47's own choice, not `Y`; the claim of an sc-diffeomorphism on fixed open sets, with inverse
   `a ↦ a + δ(a)` sc-smooth on the fixed `V`, needs a direct argument.  It uses the sc⁺ property:
   `t : U_{k+1} → E_{k+1}` is `C¹` with `Dt(x) ∈ L(E_{k+1})` continuous in the operator norm
-  (Proposition 1.16 for the lift `t¹ : U → E¹`), so the mean value estimate
+  (Proposition 1.2.1 (preprint 1.16) for the lift `t¹ : U → E¹`), so the mean value estimate
   `‖(t z' − t z) − Dt(u₀)(z' − z)‖ ≤ θ‖z' − z‖` holds on `C_{k+1} ∩ B(u₀, r)` on every level.
-  Uniqueness and existence are the text's Lemmas 4.11 and 4.12 on level `1` (the existence by a
+  Uniqueness and existence are the text's Lemmas 4.1.12 and 4.1.13 (preprint 4.11 and 4.12) on level `1` (the existence by a
   contraction for `y ↦ (1 − p)t(a + y)` on `{y ∈ Y₁ | ‖y‖₁ ≤ ε'‖a‖₁}`, a set on which `a + y ∈ C`
-  by the good complement property; the text takes `δ` from Corollary 3.47 instead).  The step
+  by the good complement property; the text takes `δ` from Theorem 3.5.11 (preprint 3.47) instead).  The step
   `p(O ∩ W) ⊆ C`, which the text does not address, follows from `|(1 − p)u|₀ ≤ ε|p(u)|₀` and the
   good complement property.  The regularity on the fixed `V`: `Γ` is continuous into every level
   because `t : U_m → E_{m+1}` is continuous and `Γ = t ∘ Γ`; `Γ` is differentiable into every
   level with the frame formula, by the mean value estimate at `u₀ = Γ(a)` (not at `0`) and the
   projection onto `T_{u₀}O` along `Y`, which exists since `T_{u₀}O ∩ Y = 0` (the level-`1`
   estimate again); and derivatives of `t` are only applied to the finite-dimensional smooth `N`,
-  so the level loss of `Tt` (Proposition 1.18) does not accumulate: `Γ` is `C^{k+1}` into every
+  so the level loss of `Tt` (Proposition 1.2.3 (preprint 1.18)) does not accumulate: `Γ` is `C^{k+1}` into every
   level as soon as it is `C^k` into every level.  The criterion `IsScSmooth.of_contDiffOn_levels`
-  (Proposition 1.19) closes.
+  (Proposition 1.2.4 (preprint 1.19)) closes.
 * The neighbourhood `U₀ = {a + δ(a) | a ∈ V}` "open in `O`" is `O ∩ W` with `W` open in `E₀`
   (`W = B(0, δ₀) ∩ p⁻¹(V')`); the level-`1` control `‖u‖₁ < r` of its points comes from the
   continuity of `t : U → E₁` at `0` and `u = t(u)` — the sc⁺ property a second time.
 * `[FiniteDimensional ℝ N]` is a hypothesis of the statement (needed to form the sc-Banach space
-  `N` with its constant structure); it is Lemma 4.7 (ii), `finiteDimensional_tangentSpace_zero`.
+  `N` with its constant structure); it is Lemma 4.1.7 (preprint 4.7) (ii), `finiteDimensional_tangentSpace_zero`.
 * The mean value estimate is proved on the convex set `C_{k+1} ∩ B(u₀, r)` (contained in `U_{k+1}`
   for `r` small) rather than on `U_{k+1}`, which need not be convex; the text's integral (77) is
   the mean value inequality.
@@ -100,7 +100,7 @@ namespace Polyfold
 
 /-! ### A mean value estimate -/
 
-/-- **The mean value estimate** behind Lemmas 4.11 and 4.12 (the text's (76)–(77)): if `s` is
+/-- **The mean value estimate** behind Lemmas 4.1.12 and 4.1.13 (preprint 4.11 and 4.12) (the text's (76)–(77)): if `s` is
 differentiable within the convex set `S` with derivative `D`, continuous at `u₀ ∈ S` in the
 operator norm, then for every `θ > 0` there is `r > 0` with
 `‖(s z' − s z) − Ds(u₀)(z' − z)‖ ≤ θ‖z' − z‖` for all `z, z' ∈ S ∩ B(u₀, r)`. -/
@@ -130,7 +130,7 @@ theorem exists_norm_sub_sub_le_of_hasFDerivWithinAt {X : Type*} [NormedAddCommGr
 /-! ### The level data of an sc⁺-retraction
 
 For an sc⁺-retraction `t : U → U` the lift `t¹ = ι⁻¹ ∘ t : U → E¹` is sc-smooth, so by
-Proposition 1.16 the map `t : U_{k+1} → E_{k+1}` is `C¹` with a derivative
+Proposition 1.2.1 (preprint 1.16) the map `t : U_{k+1} → E_{k+1}` is `C¹` with a derivative
 `Dt_{k+1}(x) ∈ L(E_{k+1}, E_{k+1})` depending continuously on `x ∈ U_{k+1}` in the operator norm.
 These are the level maps `T.lvlMap k` and derivatives `T.lvlDeriv k` below; for `k = 0` they are
 the maps `t : U₁ → E₁` and `Dt(u) ∈ L(E₁, E₁)` of the text's (76). -/
@@ -166,14 +166,14 @@ lemma ScRetraction.IsScPlus.isSc1With_liftOne :
   hT.isScSmooth_lift.isSc1.isSc1With_scDeriv
 
 /-- `t : U_{k+1} → E_{k+1}` is differentiable at `x ∈ U_{k+1}` with derivative `Dt(x)`
-(Proposition 1.16 for the lift). -/
+(Proposition 1.2.1 (preprint 1.16) for the lift). -/
 theorem ScRetraction.IsScPlus.hasFDerivWithinAt_lvlMap (k : ℕ) {x : E (k + 1)}
     (hx : x ∈ E.lvlSet T.U (k + 1)) :
     HasFDerivWithinAt (T.lvlMap k) (T.lvlDeriv k x) (E.lvlSet T.U (k + 1)) x :=
   hT.isSc1With_liftOne.hasFDerivWithinAt_level T.isScDomain hx
 
 /-- `x ↦ Dt(x) ∈ L(E_{k+1}, E_{k+1})` is continuous on `U_{k+1}` in the operator norm
-(Proposition 1.16 (1)). -/
+(Proposition 1.2.1 (preprint 1.16) (1)). -/
 theorem ScRetraction.IsScPlus.continuousOn_lvlDeriv (k : ℕ) :
     ContinuousOn (T.lvlDeriv k) (E.lvlSet T.U (k + 1)) :=
   hT.isSc1With_liftOne.continuousOn_levelDeriv_clm k
@@ -312,14 +312,14 @@ theorem ScRetraction.IsScPlus.exists_mvt (k : ℕ) {u₀ : E (k + 1)}
 
 end LevelData
 
-/-! ### The data of Proposition 4.9
+/-! ### The data of Proposition 4.1.9 (preprint 4.9)
 
 The sc⁺-retraction `t` onto `O ∋ 0`, the tangent space `N = T₀O`, a closed good complement `Y`
 (**added hypothesis**: the text's "sc-complement"; closedness is what makes the projection
 continuous, as in Findings Chapter 3, items 81 and 93), and the projection `p : E → N` along `Y`
 (**not** `Dt(0)`, see the module docstring). -/
 
-/-- The data of Proposition 4.9: an sc⁺-retraction `t : U → U` onto `O ∋ 0` in the partial
+/-- The data of Proposition 4.1.9 (preprint 4.9): an sc⁺-retraction `t : U → U` onto `O ∋ 0` in the partial
 quadrant `C ⊆ E`, the tangent space `N = T₀O`, a closed good complement `Y` of `N`, and the
 continuous projection `p : E → N` along `Y` (`p = 1` on `N`, `p = 0` on `Y`). -/
 structure GraphData (E : ScBanach) (C : Set (E 0)) where
@@ -350,14 +350,14 @@ lemma zero_mem_lvlSet_retract (m : ℕ) : (0 : E m) ∈ E.lvlSet d.T.retract m :
 lemma zero_mem_lvlSet_U (m : ℕ) : (0 : E m) ∈ E.lvlSet d.T.U m :=
   d.T.lvlSet_retract_subset m (d.zero_mem_lvlSet_retract m)
 
-/-- `N = Dt(0)E` (Lemma 4.7 (ii) and the remark after Definition 2.17). -/
+/-- `N = Dt(0)E` (Lemma 4.1.7 (preprint 4.7) (ii) and the remark after Definition 2.3.12 (preprint 2.17)). -/
 theorem N_eq_range : d.N = LinearMap.range (scDeriv d.T.U d.T 0 : E 0 →ₗ[ℝ] E 0) :=
   SetLike.coe_injective
     (d.N_eq.trans (tangentSpace_eq_coe_submodule d.T (d.zero_mem_lvlSet_retract 1)))
 
-/-- **Lemma 4.7 (ii)**: `N = T₀O` is finite-dimensional. -/
+/-- **Lemma 4.1.7 (preprint 4.7) (ii)**: `N = T₀O` is finite-dimensional. -/
 instance finiteDimensional : FiniteDimensional ℝ d.N := by
-  have := lemma_4_7_ii d.isScPlus (d.zero_mem_lvlSet_retract 1)
+  have := lemma_4_1_7_ii d.isScPlus (d.zero_mem_lvlSet_retract 1)
   exact Submodule.finiteDimensional_of_le d.N_eq_range.le
 
 lemma scDeriv_zero_mem (v : E 0) : scDeriv d.T.U d.T 0 v ∈ d.N := by
@@ -370,7 +370,7 @@ lemma scDeriv_zero_of_mem {n : E 0} (hn : n ∈ d.N) : scDeriv d.T.U d.T 0 n = n
     (d.T.scDeriv_comp_self (d.zero_mem_lvlSet_retract 1))
 
 /-- `N ⊆ E_∞`: `Dt(0)` is an sc⁺-operator and `N` consists of its fixed vectors
-(Lemma 4.7 (ii): "the tangent space `T₀O` is a smooth subspace"). -/
+(Lemma 4.1.7 (preprint 4.7) (ii): "the tangent space `T₀O` is a smooth subspace"). -/
 theorem smooth : d.N ≤ E.smooth := by
   have h0s : (0 : E 1) ∈ E.smoothLvl 1 := by
     change E.toBase 1 (0 : E 1) ∈ (E.smooth : Set (E 0))
@@ -478,7 +478,7 @@ lemma norm_coe (n : d.N) : ‖(n : E 0)‖ = ‖n‖ := rfl
 
 /-! ### The good complement constant -/
 
-/-- The constant `ε` of the good complement `Y` (Definition 3.21). -/
+/-- The constant `ε` of the good complement `Y` (Definition 3.1.24 (preprint 3.21)). -/
 def eps : ℝ := d.goodComplement.exists_eps.choose
 
 lemma eps_pos : 0 < d.eps := d.goodComplement.exists_eps.choose_spec.1
@@ -511,9 +511,9 @@ lemma norm_toBase_le_eps_mul {a : d.N} {y : E 1} (hy : ‖y‖ ≤ d.eps' * ‖d
     _ = (‖E.toBase 1‖ * ‖d.liftN 1‖ * d.eps') * ‖a‖ := by ring
     _ ≤ d.eps * ‖a‖ := by gcongr
 
-/-! ### Lemma 4.11: the contraction estimate near `0` -/
+/-! ### Lemma 4.1.12 (preprint 4.11): the contraction estimate near `0` -/
 
-/-- **The contraction estimate of Lemma 4.11** (on level `k + 1`): for `θ > 0` there is `r > 0`
+/-- **The contraction estimate of Lemma 4.1.12 (preprint 4.11)** (on level `k + 1`): for `θ > 0` there is `r > 0`
 with `C_{k+1} ∩ B(0, r) ⊆ U_{k+1}`, `‖Dt(z) − Dt(0)‖ ≤ θ` on `C_{k+1} ∩ B(0, r)`, the mean value
 estimate `‖(t z' − t z) − Dt(0)(z' − z)‖ ≤ θ‖z' − z‖` there, and for `u, u' ∈ O_{k+1} ∩ B(0, r)`
 the text's (77): `‖(1 − p)(u' − u)‖ ≤ ‖1 − p‖ θ ‖u' − u‖`. -/
@@ -541,7 +541,7 @@ theorem exists_contraction_radius (k : ℕ) {θ : ℝ} (hθ : 0 < θ) :
     _ ≤ ‖d.qL (k + 1)‖ * (θ * ‖u' - u‖) := by gcongr
     _ = ‖d.qL (k + 1)‖ * θ * ‖u' - u‖ := by ring
 
-/-- **Lemma 4.11** (the uniqueness step): two points `u, u' ∈ O_{k+1}` with the same projection
+/-- **Lemma 4.1.12 (preprint 4.11)** (the uniqueness step): two points `u, u' ∈ O_{k+1}` with the same projection
 `p(u) = p(u')` and `‖(1 − p)(u' − u)‖ ≤ c‖u' − u‖`, `c < 1`, coincide. -/
 theorem eq_of_p_eq {m : ℕ} {u u' : E m} {c : ℝ} (hc : c < 1)
     (hq : ‖d.qL m (u' - u)‖ ≤ c * ‖u' - u‖)
@@ -559,9 +559,9 @@ theorem eq_of_p_eq {m : ℕ} {u u' : E m} {c : ℝ} (hc : c < 1)
   rw [← sub_eq_zero]
   exact norm_le_zero_iff.1 h0
 
-/-! ### Lemma 4.12: existence of the graph point `a + δ(a)` -/
+/-! ### Lemma 4.1.13 (preprint 4.12): existence of the graph point `a + δ(a)` -/
 
-/-- **Lemma 4.12** (existence, by a level-`1` contraction): under the contraction estimate with
+/-- **Lemma 4.1.13 (preprint 4.12)** (existence, by a level-`1` contraction): under the contraction estimate with
 constant `θ` on `C₁ ∩ B(0, r)`, `θ < 1`, `‖1 − p‖θ < 1` and `‖1 − p‖ θ (1 + ε') ≤ ε'`, there is
 `ρ > 0` such that for every `a ∈ N ∩ C` with `‖a‖₁ < ρ` there is `u ∈ O₁` with `p(u) = a`,
 `u − a ∈ Y`, `‖u − a‖₁ ≤ ε'‖a‖₁` and `‖u‖₁ < r`: `u = a + δ(a)` is the fixed point of
@@ -732,7 +732,7 @@ theorem p_mem_C {u : E 1} (hu : u ∈ E.lvlSet d.T.retract 1) {κ : ℝ} (hκ0 :
 
 /-! ### The neighbourhoods `W`, `V` and the graph map `Γ` -/
 
-/-- **The conclusion of Proposition 4.9 before regularity**: an open `W ∋ 0` in `E`, an open
+/-- **The conclusion of Proposition 4.1.9 (preprint 4.9) before regularity**: an open `W ∋ 0` in `E`, an open
 `V' ∋ 0` in `N` (so that `V = V' ∩ C` is a relatively open neighbourhood of `0` in `N ∩ C`) and the
 map `Γ : V → O ∩ W`, `Γ(a) = a + δ(a)`, with `p ∘ Γ = 1` on `V`, `Γ ∘ p = 1` on `O ∩ W`,
 `Γ(a) − a ∈ Y`, and `p(O ∩ W) ⊆ V`.  The radius `r` controls the level-`1` size of the points of
@@ -797,7 +797,7 @@ theorem injOn_p : InjOn d.p (d.T.retract ∩ n.W) := fun u hu u' hu' h => by
 
 end Nbhd
 
-/-- **Lemmas 4.11 and 4.12 assembled**: for every `θ₀ > 0` the data `Nbhd` exist.  The constant
+/-- **Lemmas 4.1.12 and 4.1.13 (preprint 4.11 and 4.12) assembled**: for every `θ₀ > 0` the data `Nbhd` exist.  The constant
 `θ` of the contraction is chosen below `θ₀`, below `ε'/(2(‖1 − p‖ + 1)(1 + ε'))` (existence and
 uniqueness) and below `ε/(2‖ι₁‖‖lift‖(‖1 − p‖ + 1) + 1)` (so that `p(O ∩ W) ⊆ C`). -/
 theorem exists_nbhd {θ₀ : ℝ} (hθ₀ : 0 < θ₀) : Nonempty (d.Nbhd θ₀) := by
@@ -1245,11 +1245,11 @@ namespace Nbhd
 
 variable {θ₀ : ℝ} (n : d.Nbhd θ₀)
 
-/-- `(V, N ∩ C, N)` is a local model: `N ∩ C` is a partial quadrant in `N` (Proposition 3.22)
+/-- `(V, N ∩ C, N)` is a local model: `N ∩ C` is a partial quadrant in `N` (Proposition 3.1.25 (preprint 3.22))
 and `V` is relatively open in it. -/
 theorem V_isRelOpenInQuadrant :
     IsRelOpenInQuadrant (ScBanach.const d.N) (Subtype.val ⁻¹' C) n.V :=
-  ⟨proposition_3_22 d.T.relOpen.isPartialQuadrant d.goodPosition, n.V_relOpen⟩
+  ⟨proposition_3_1_25 d.T.relOpen.isPartialQuadrant d.goodPosition, n.V_relOpen⟩
 
 theorem isScDomain_V : IsScDomain (ScBanach.const d.N) n.V := n.V_isRelOpenInQuadrant.isScDomain
 
@@ -1259,7 +1259,7 @@ theorem uniqueDiffOn_V : UniqueDiffOn ℝ n.V := n.isScDomain_V.uniqueDiffWithin
 def Γ_lvl (m : ℕ) (a : d.N) : E m := Function.invFun (E.toBase m) (n.Γ a)
 
 lemma Γ_mem_smooth {a : d.N} (ha : a ∈ n.V) : n.Γ a ∈ E.smooth :=
-  lemma_4_7_i d.isScPlus (n.Γ_mem a ha)
+  lemma_4_1_7_i d.isScPlus (n.Γ_mem a ha)
 
 lemma toBase_Γ_lvl (m : ℕ) {a : d.N} (ha : a ∈ n.V) : E.toBase m (n.Γ_lvl m a) = n.Γ a :=
   Function.invFun_eq ((ScScale.mem_smooth_iff _).1 (n.Γ_mem_smooth ha) m)
@@ -1414,13 +1414,13 @@ end Nbhd
 /-! ### The `C^k`-bootstrap along the finite-dimensional `N`
 
 `DΓ(a) = Dt(Γ(a))|_N ∘ (p ∘ Dt(Γ(a))|_N)⁻¹` on every level.  Derivatives of `t` are only applied to
-vectors of the smooth finite-dimensional `N`, so the level loss of `Tt` (Proposition 1.18) does not
+vectors of the smooth finite-dimensional `N`, so the level loss of `Tt` (Proposition 1.2.3 (preprint 1.18)) does not
 accumulate: if `Γ` is `C^k` into every level then `a ↦ Dt(Γ(a))|_N ∈ L(N, E_{j+1})` is `C^k`
 (it factors through `Tt¹ : (TU)_{j+k} → (TE¹)_j`, which is `C^k`, and `Γ_{j+k+1}`), and so `Γ` is
 `C^{k+1}` into every level. -/
 
 variable (d) in
-/-- **Proposition 1.18 for the tangent map of the lift `t¹`**: `(x, w) ↦ Dt_{j+1}(x) w` is `C^k`
+/-- **Proposition 1.2.3 (preprint 1.18) for the tangent map of the lift `t¹`**: `(x, w) ↦ Dt_{j+1}(x) w` is `C^k`
 on `U_{j+k+1} × E_{j+k+1}` (through the inclusions into level `j + 1`). -/
 theorem contDiffOn_lvlDeriv_apply (j k : ℕ) :
     ContDiffOn ℝ k (fun q : E (j + k + 1) × E (j + k + 1) =>
@@ -1540,16 +1540,16 @@ theorem isScSmooth_Γ (hθ₀ : d.FrameSmall θ₀) :
 
 /-! ### The sc-diffeomorphism `p : O ∩ W → V` between the retracts -/
 
-/-- `(O ∩ W, C, E)` is an sc-smooth retract (Proposition 2.10 (1)). -/
+/-- `(O ∩ W, C, E)` is an sc-smooth retract (Proposition 2.3.1 (preprint 2.10) (1)). -/
 theorem isScRetract_inter_W : IsScRetract E C (d.T.retract ∩ n.W) :=
-  proposition_2_10_1 d.T.isScRetract n.isOpen_W
+  proposition_2_3_1_one d.T.isScRetract n.isOpen_W
 
 /-- `(V, N ∩ C, N)` is an sc-smooth retract (the identity retraction). -/
 theorem isScRetract_V : IsScRetract (ScBanach.const d.N) (Subtype.val ⁻¹' C) n.V :=
   n.V_isRelOpenInQuadrant.isScRetract
 
 /-- `p` is sc-smooth `E → N` (a continuous linear map into a finite-dimensional space,
-Corollary 1.20). -/
+Corollary 1.2.5 (preprint 1.20)). -/
 theorem _root_.Polyfold.GraphData.p_isScSmooth :
     IsScSmooth (E := E) (F := ScBanach.const d.N) univ d.p :=
   IsScSmooth.of_contDiffOn_finiteDimensional (isScDomain_univ _) d.p.contDiff.contDiffOn
@@ -1576,28 +1576,28 @@ end Nbhd
 
 end GraphData
 
-/-! ### Proposition 4.9 -/
+/-! ### Proposition 4.1.9 (preprint 4.9) -/
 
-/-- **Lemma 4.7 (ii) in the form needed by Proposition 4.9**: `T₀O` is finite-dimensional. -/
+/-- **Lemma 4.1.7 (preprint 4.7) (ii) in the form needed by Proposition 4.1.9 (preprint 4.9)**: `T₀O` is finite-dimensional. -/
 theorem finiteDimensional_tangentSpace_zero {C : Set (E 0)} (T : ScRetraction E C)
     (hT : T.IsScPlus) (h0 : (0 : E 0) ∈ T.retract) {N : Submodule ℝ (E 0)}
     (hN : (N : Set (E 0)) = tangentSpace E C T.retract 0) : FiniteDimensional ℝ N := by
   have h0' : (0 : E 1) ∈ E.lvlSet T.retract 1 := by rw [ScBanach.mem_lvlSet, map_zero]; exact h0
-  have := lemma_4_7_ii hT h0'
+  have := lemma_4_1_7_ii hT h0'
   exact Submodule.finiteDimensional_of_le
     (SetLike.coe_injective (hN.trans (tangentSpace_eq_coe_submodule T h0'))).le
 
-/-- **Proposition 4.9** (with Lemmas 4.11 and 4.12), by the direct proof.  Let `(O, C, E)` be an
+/-- **Proposition 4.1.9 (preprint 4.9)** (with Lemmas 4.11 and 4.12), by the direct proof.  Let `(O, C, E)` be an
 sc⁺-retract, `t : U → U` an sc⁺-retraction onto `O` with `0 ∈ O`, `N = T₀O` (finite-dimensional
-by Lemma 4.7, `[FiniteDimensional ℝ N]` is `finiteDimensional_tangentSpace_zero`) in good position
+by Lemma 4.1.7 (preprint 4.7), `[FiniteDimensional ℝ N]` is `finiteDimensional_tangentSpace_zero`) in good position
 to `C`, `Y` a good complement of `N` (**added hypothesis: `Y` closed**), and `p : E → N` the
 projection along `Y` (`p = 1` on `N`, `p = 0` on `Y`; the text writes `p = Dt(0)`, see the module
 docstring).  Then there are an open `W ∋ 0` in `E` and a relatively open `V ∋ 0` in the partial
-quadrant `N ∩ C` of `N` (Proposition 3.22) and a map `Γ : V → E`, sc-smooth on `V`, with
+quadrant `N ∩ C` of `N` (Proposition 3.1.25 (preprint 3.22)) and a map `Γ : V → E`, sc-smooth on `V`, with
 `p ∘ Γ = 1` on `V`, `Γ(a) − a ∈ Y`, `Γ(V) = O ∩ W` and `Γ ∘ p = 1` on `O ∩ W`; so
 `p : (O ∩ W, C, E) → (V, N ∩ C, N)` is an sc-diffeomorphism between the retracts, with inverse
-`Γ` (both directions sc-smooth in the sense of Definition 2.7). -/
-theorem proposition_4_9 {C : Set (E 0)} (T : ScRetraction E C) (hT : T.IsScPlus)
+`Γ` (both directions sc-smooth in the sense of Definition 2.1.14 (preprint 2.7)). -/
+theorem proposition_4_1_9 {C : Set (E 0)} (T : ScRetraction E C) (hT : T.IsScPlus)
     (h0 : (0 : E 0) ∈ T.retract) {N : Submodule ℝ (E 0)} [FiniteDimensional ℝ N]
     (hN : (N : Set (E 0)) = tangentSpace E C T.retract 0) (hgood : IsInGoodPosition E C N)
     {Y : Submodule ℝ (E 0)} (hY : IsGoodComplement E C N Y) (hYc : IsClosed (Y : Set (E 0)))

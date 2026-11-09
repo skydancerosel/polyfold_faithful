@@ -3,17 +3,17 @@ import Polyfold.Chapter3.GlobalIFTG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6, Theorem
-3.54 (1) in the chart at `x₀` (Corollary 3.41 and Lemma 3.55 at the points of the solution
-graph), **in the text's germ reading of Definition 3.11** (phase 2).
+3.54 (1) in the chart at `x₀` (Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55) at the points of the solution
+graph), **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2).
 
-# Theorem 3.54 (1) in the chart at `x₀`, germ reading
+# Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`, germ reading
 
 ## What is formalized
 
-`Polyfold.theorem_3_54_nearby`: the germ form of `theorem_3_54_nearby_wholeChart`, with the same
+`Polyfold.theorem_3_6_8_nearby`: the germ form of `theorem_3_6_8_nearby_wholeChart`, with the same
 conclusions, under the hypothesis `IsGoodPositionGermTame` of the germ reading.  The proof is
-that of `theorem_3_54_nearby_wholeChart` from `theorem_3_54_graph` in place of `theorem_3_54_graph_wholeChart`:
-only the data of Theorem 3.47 on the `E'`-side are used (Corollary 3.41 along the graph, Lemma
+that of `theorem_3_6_8_nearby_wholeChart` from `theorem_3_6_8_graph` in place of `theorem_3_6_8_graph_wholeChart`:
+only the data of Theorem 3.5.11 (preprint 3.47) on the `E'`-side are used (Corollary 3.5.3 (preprint 3.41) along the graph, Lemma
 3.55), nothing of the filling `g` or the sc⁺-section `s`.
 -/
 
@@ -33,14 +33,14 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   {f : X → Y}
 
 set_option maxHeartbeats 800000 in
-/-- **Theorem 3.54 (1) in the chart at `x₀`, germ reading** (phase 2; the germ form of
-`theorem_3_54_nearby_wholeChart`, with the same conclusions): in the data of `theorem_3_54_graph`
+/-- **Theorem 3.6.8 (preprint 3.54) (1) in the chart at `x₀`, germ reading** (phase 2; the germ form of
+`theorem_3_6_8_nearby_wholeChart`, with the same conclusions): in the data of `theorem_3_6_8_graph`
 there are a presentation `T` of `C' = C̃ ⊕ W` and an open neighbourhood `Vx₁ ⊆ Vx` of `x₀` such
 that for every zero `y ∈ Vx₁` of `f`, with `z = ψ ∘ ϕ(y) = v + σ(v)`, `v ∈ V'`: (i) `z` lies on
-level `1` and `D(h + t)(z)` is a surjective Fredholm operator of index `n − N` (Corollary 3.41);
+level `1` and `D(h + t)(z)` is a surjective Fredholm operator of index `n − N` (Corollary 3.5.3 (preprint 3.41));
 (ii) `z ∈ C'`, and the tangent space `N_v` of the graph at `z` is in good position to `C'_z` with
-`Y` as a good complement (Lemma 3.55). -/
-theorem theorem_3_54_nearby (hf : IsSection P f) {x₀ : X}
+`Y` as a good complement (Lemma 3.6.9 (preprint 3.55)). -/
+theorem theorem_3_6_8_nearby (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (Pn Q : Type) (_ : NormedAddCommGroup Pn) (_ : NormedSpace ℝ Pn) (_ : FiniteDimensional ℝ Pn)
@@ -90,14 +90,14 @@ theorem theorem_3_54_nearby (hf : IsSection P f) {x₀ : X}
   obtain ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     -, -, -, -, -,
     𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, hYc, hYcc, -, hV'rel, h0V', hσY, hσ1, hσC, hσ0,
-    hDσ, hsol, -, hVxo, hx₀Vx, hVxsub, hinj, hzero, himage⟩ := theorem_3_54_graph hf hg hx₀
+    hDσ, hsol, -, hVxo, hx₀Vx, hVxsub, hinj, hzero, himage⟩ := theorem_3_6_8_graph hf hg hx₀
   have hKfin : FiniteDimensional ℝ (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) :=
     (𝒮.isFredholm_Dfs hCt hh').1.finite_ker
   obtain ⟨n', W', T, hT⟩ := hCt.prod_univ W
-  -- Corollary 3.41 and Lemma 3.55 at the graph points
+  -- Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55) at the graph points
   obtain ⟨ρ₁, hρ₁, hA⟩ := 𝒮.exists_surjective_Dfs'_graph hCt hh' hsurj h0V' hσC.continuousOn hσ0
     hsol
-  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_55_relOpen T hT hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
+  obtain ⟨ρ₂, hρ₂, hB⟩ := lemma_3_6_9_relOpen T hT hpos hYc hYcc hV'rel h0V' σ hσY hσC hσ0 hDσ
   -- the projection onto `K` along `Y`
   have hTC : Submodule.IsTopCompl (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) Yc :=
     (Submodule.IsCompl.isTopCompl_of_isClosed_of_finiteDimensional hYc.isCompl.symm hYcc).symm

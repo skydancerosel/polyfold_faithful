@@ -5,7 +5,7 @@ import RoundTrip.Blind.V7_46
 /-!
 Round trip for V7_46 (Lemma 7.7: `|X|` is regular).
 
-`A` is the type of `Polyfold.EpGroupoid.lemma_7_7` at universe `0`: for every ep-groupoid
+`A` is the type of `Polyfold.EpGroupoid.lemma_7_3_5` at universe `0`: for every ep-groupoid
 `X : EpGroupoid Obj Mor` (`Obj Mor : Type`), Mathlib's `RegularSpace X.OrbitSpace`.
 `B` is the text's definition of regularity, stated literally (a point and a nonempty closed set
 not containing it have disjoint open neighbourhoods).  The two notions agree in every topological
@@ -17,9 +17,9 @@ namespace RoundTrip.V7_46
 open Polyfold Set Filter Topology
 
 /-- The project's Lemma 7.7, universes at `0`. -/
-def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_7.{0}
+def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_3_5.{0}
 
-theorem A_holds : A := @Polyfold.EpGroupoid.lemma_7_7.{0}
+theorem A_holds : A := @Polyfold.EpGroupoid.lemma_7_3_5.{0}
 
 /-- Mathlib's regularity is the text's. -/
 theorem regular_iff_text (Y : Type) [TopologicalSpace Y] :
@@ -44,9 +44,9 @@ theorem A_to_B : A → B := fun hA _ _ _ _ _ _ _ _ X =>
 theorem B_to_A : B → A := fun hB {Obj Mor} _ _ _ _ _ _ X =>
   (regular_iff_text X.OrbitSpace).2 (hB Obj Mor X)
 
-#rt_check RoundTrip.V7_46.A_to_B [Polyfold.EpGroupoid.lemma_7_7]
-#rt_check RoundTrip.V7_46.B_to_A [Polyfold.EpGroupoid.lemma_7_7]
-#rt_overlap RoundTrip.V7_46.B_to_A [Polyfold.EpGroupoid.lemma_7_7]
-#rt_overlap RoundTrip.V7_46.A_to_B [Polyfold.EpGroupoid.lemma_7_7]
+#rt_check RoundTrip.V7_46.A_to_B [Polyfold.EpGroupoid.lemma_7_3_5]
+#rt_check RoundTrip.V7_46.B_to_A [Polyfold.EpGroupoid.lemma_7_3_5]
+#rt_overlap RoundTrip.V7_46.B_to_A [Polyfold.EpGroupoid.lemma_7_3_5]
+#rt_overlap RoundTrip.V7_46.A_to_B [Polyfold.EpGroupoid.lemma_7_3_5]
 
 end RoundTrip.V7_46

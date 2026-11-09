@@ -25,7 +25,7 @@ bijective), `TransportChart.Q_Φ` (`Q(g ∗ u) = (ψ F(g) ψ⁻¹) ∗ Q(u)`), `
   proof lemmas are statements about charts, natural representations and isotropy maps, not
   consequences of `B`; they are re-proved outright below (the project's proofs, copied, with the
   banned lemmas replaced by the primed copies; the non-item helpers `Γ_conj`, `π_Q`,
-  `π_eq_π_iff`, `isScDiffeoOn_image`, `exists_naturalRep_restrict`, `theorem_7_1`, ... are used).
+  `π_eq_π_iff`, `isScDiffeoOn_image`, `exists_naturalRep_restrict`, `theorem_7_1_13`, ... are used).
 -/
 
 namespace RoundTrip.V10_62

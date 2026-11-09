@@ -5,25 +5,25 @@ import RoundTrip.Blind.V2_51
 /-! Round trip for V2_51 (Theorem 2.45: interiors of faces and faces of face-structured
 M-polyfolds).
 
-`A` is the conjunction of the types of `MPolyfold.theorem_2_45_interior`,
-`MPolyfold.isSubMPolyfold_of_local`, `MPolyfold.theorem_2_45_isSubMPolyfold_interior`,
-`MPolyfold.exists_localFace_of_isFaceStructured`, `MPolyfold.theorem_2_45_isSubMPolyfold_face`,
-`MPolyfold.theorem_2_45_isTame_face` and `MPolyfold.isTame_of_forall_exists_chart` (namespace
+`A` is the conjunction of the types of `MPolyfold.theorem_2_5_17_interior`,
+`MPolyfold.isSubMPolyfold_of_local`, `MPolyfold.theorem_2_5_17_isSubMPolyfold_interior`,
+`MPolyfold.exists_localFace_of_isFaceStructured`, `MPolyfold.theorem_2_5_17_isSubMPolyfold_face`,
+`MPolyfold.theorem_2_5_17_isTame_face` and `MPolyfold.isTame_of_forall_exists_chart` (namespace
 `Polyfold`), all at universe `0`.
 
 `A → B`:
-* (interior) B's interior of `F = closure G` is `F ∩ {d_X = 1}`; `theorem_2_45_interior` says this
-  is `G`, a sub-M-polyfold by `theorem_2_45_isSubMPolyfold_interior`.
-* (face-structured case) `theorem_2_45_isSubMPolyfold_face` and `theorem_2_45_isTame_face`
+* (interior) B's interior of `F = closure G` is `F ∩ {d_X = 1}`; `theorem_2_5_17_interior` says this
+  is `G`, a sub-M-polyfold by `theorem_2_5_17_isSubMPolyfold_interior`.
+* (face-structured case) `theorem_2_5_17_isSubMPolyfold_face` and `theorem_2_5_17_isTame_face`
   (paracompactness of `F` from `paracompactSpace_of_isClosed`).
-* (local face count) NOT in `A`: the project proves it as `Polyfold.proposition_2_42` (the chart
+* (local face count) NOT in `A`: the project proves it as `Polyfold.proposition_2_5_14` (the chart
   model `O` of a tame chart around `x` is a face-structured M-polyfold with `d_O ∘ φ = d_X`), which
   is not among the listed theorems.  It is used here, transported from the M-polyfold `O` to B's
   "faces of the open set `U = dom φ`" along `φ⁻¹ : O → U` (`localCount`).
 * (global count) is the definition of face-structured.
 
-Harness note: the statement of `theorem_2_45_isTame_face` contains the banned
-`theorem_2_45_isSubMPolyfold_face` (as the proof argument of `subPolyfold`), so `#rt_check` fails
+Harness note: the statement of `theorem_2_5_17_isTame_face` contains the banned
+`theorem_2_5_17_isSubMPolyfold_face` (as the proof argument of `subPolyfold`), so `#rt_check` fails
 for any proof that mentions `A`.  The proof is therefore `A'_to_B`, where `A'` is `A` with that
 proof term replaced by an arbitrary proof `hsub` (definitionally implied by `A`, by proof
 irrelevance: `A_to_A'`); `#rt_check` is run on `A'_to_B`, and `A_to_B := A'_to_B ∘ A_to_A'`.
@@ -41,20 +41,20 @@ open Polyfold Set
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.MPolyfold.theorem_2_45_interior.{0}) ∧
+  (type_of% @Polyfold.MPolyfold.theorem_2_5_17_interior.{0}) ∧
     (type_of% @Polyfold.MPolyfold.isSubMPolyfold_of_local.{0}) ∧
-    (type_of% @Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior.{0}) ∧
+    (type_of% @Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior.{0}) ∧
     (type_of% @Polyfold.MPolyfold.exists_localFace_of_isFaceStructured.{0}) ∧
-    (type_of% @Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face.{0}) ∧
-    (type_of% @Polyfold.MPolyfold.theorem_2_45_isTame_face.{0}) ∧
+    (type_of% @Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face.{0}) ∧
+    (type_of% @Polyfold.MPolyfold.theorem_2_5_17_isTame_face.{0}) ∧
     (type_of% @Polyfold.MPolyfold.isTame_of_forall_exists_chart.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.MPolyfold.theorem_2_45_interior.{0}, @Polyfold.MPolyfold.isSubMPolyfold_of_local.{0},
-    @Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior.{0},
+  ⟨@Polyfold.MPolyfold.theorem_2_5_17_interior.{0}, @Polyfold.MPolyfold.isSubMPolyfold_of_local.{0},
+    @Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior.{0},
     @Polyfold.MPolyfold.exists_localFace_of_isFaceStructured.{0},
-    @Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face.{0},
-    @Polyfold.MPolyfold.theorem_2_45_isTame_face.{0},
+    @Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face.{0},
+    @Polyfold.MPolyfold.theorem_2_5_17_isTame_face.{0},
     @Polyfold.MPolyfold.isTame_of_forall_exists_chart.{0}⟩
 
 /-! ### Glue: transporting faces along an embedding with a continuous left inverse -/
@@ -175,29 +175,29 @@ theorem localCount (φ : MChart X) (hne : φ.model.O.Nonempty)
       exact ⟨g y, hyF, hhg y hy⟩
   rw [hset, (hinj.mono (subset_univ _)).encard_image, hfs (g y), hdeg, hhg y hy]
 
-/-- B's local face count, from `Polyfold.proposition_2_42` (not one of the listed theorems). -/
+/-- B's local face count, from `Polyfold.proposition_2_5_14` (not one of the listed theorems). -/
 theorem localFaceCount (hP : P.IsTame) (x : X) :
     ∃ U : Set X, IsOpen U ∧ x ∈ U ∧
       ∀ y ∈ U, {G : Set X | IsFaceOfOpen P U G ∧ y ∈ G}.encard = (P.degIndex y : ℕ∞) := by
-  obtain ⟨⟨φ, -, hx, -, hdO, hfs⟩, -⟩ := proposition_2_42 P hP x
+  obtain ⟨⟨φ, -, hx, -, hdO, hfs⟩, -⟩ := proposition_2_5_14 P hP x
   have hne : φ.model.O.Nonempty := ⟨φ x, φ.mapsTo_model x hx⟩
   exact ⟨φ.source, φ.isOpen_source, hx, fun y hy => localCount P φ hne hdO (hfs hne) y hy⟩
 
 end LocalCount
 
-/-- `A` with the proof `theorem_2_45_isSubMPolyfold_face P hP hfs hF` that occurs inside the
-*statement* of `theorem_2_45_isTame_face` (as the argument of `subPolyfold`) replaced by an
+/-- `A` with the proof `theorem_2_5_17_isSubMPolyfold_face P hP hfs hF` that occurs inside the
+*statement* of `theorem_2_5_17_isTame_face` (as the argument of `subPolyfold`) replaced by an
 arbitrary proof `hsub` (and the paracompactness instance on `F` by an arbitrary one).  Both are
 proofs of propositions, so `A → A'` is definitional (`A_to_A'`).  `A'` is needed only for the
 harness: `#rt_check` follows the constants of `A`'s own definition, so any proof that mentions `A`
-reaches the banned `theorem_2_45_isSubMPolyfold_face` through the statement of
-`theorem_2_45_isTame_face`. -/
+reaches the banned `theorem_2_5_17_isSubMPolyfold_face` through the statement of
+`theorem_2_5_17_isTame_face`. -/
 def A' : Prop :=
-  (type_of% @Polyfold.MPolyfold.theorem_2_45_interior.{0}) ∧
+  (type_of% @Polyfold.MPolyfold.theorem_2_5_17_interior.{0}) ∧
     (type_of% @Polyfold.MPolyfold.isSubMPolyfold_of_local.{0}) ∧
-    (type_of% @Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior.{0}) ∧
+    (type_of% @Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior.{0}) ∧
     (type_of% @Polyfold.MPolyfold.exists_localFace_of_isFaceStructured.{0}) ∧
-    (type_of% @Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face.{0}) ∧
+    (type_of% @Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face.{0}) ∧
     (∀ {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X),
       P.IsTame → P.IsFaceStructured → ∀ {F : Set X}, P.IsFace F →
         ∀ (hsub : P.IsSubMPolyfold F) [ParacompactSpace F],
@@ -225,13 +225,13 @@ theorem A'_to_B : A' → B := by
 
 theorem A_to_B : A → B := fun h => A'_to_B (A_to_A' h)
 
-/-- `B` gives `theorem_2_45_isSubMPolyfold_face`. -/
+/-- `B` gives `theorem_2_5_17_isSubMPolyfold_face`. -/
 theorem B_to_isSubMPolyfold_face (hB : B) {X : Type} [TopologicalSpace X] [T2Space X]
     [ParacompactSpace X] (P : MPolyfold X) (hP : P.IsTame) (hfs : P.IsFaceStructured) {F : Set X}
     (hF : P.IsFace F) : P.IsSubMPolyfold F :=
   ((hB X P hP).2.1 hfs F hF).1
 
-/-- `B` gives `theorem_2_45_isTame_face`, for any proof `hsub` that `F` is a sub-M-polyfold and any
+/-- `B` gives `theorem_2_5_17_isTame_face`, for any proof `hsub` that `F` is a sub-M-polyfold and any
 paracompactness instance on `F` (both propositions). -/
 theorem B_to_isTame_face (hB : B) {X : Type} [TopologicalSpace X] [T2Space X]
     [ParacompactSpace X] (P : MPolyfold X) (hP : P.IsTame) (hfs : P.IsFaceStructured) {F : Set X}
@@ -241,20 +241,20 @@ theorem B_to_isTame_face (hB : B) {X : Type} [TopologicalSpace X] [T2Space X]
   obtain ⟨_, _, h1, h2⟩ := (hB X P hP).2.1 hfs F hF
   exact ⟨h1, h2⟩
 
-#rt_check RoundTrip.V2_51.A'_to_B [Polyfold.MPolyfold.theorem_2_45_interior,
-  Polyfold.MPolyfold.isSubMPolyfold_of_local, Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior,
+#rt_check RoundTrip.V2_51.A'_to_B [Polyfold.MPolyfold.theorem_2_5_17_interior,
+  Polyfold.MPolyfold.isSubMPolyfold_of_local, Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior,
   Polyfold.MPolyfold.exists_localFace_of_isFaceStructured,
-  Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face, Polyfold.MPolyfold.theorem_2_45_isTame_face,
+  Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face, Polyfold.MPolyfold.theorem_2_5_17_isTame_face,
   Polyfold.MPolyfold.isTame_of_forall_exists_chart]
-#rt_check RoundTrip.V2_51.B_to_isSubMPolyfold_face [Polyfold.MPolyfold.theorem_2_45_interior,
-  Polyfold.MPolyfold.isSubMPolyfold_of_local, Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior,
+#rt_check RoundTrip.V2_51.B_to_isSubMPolyfold_face [Polyfold.MPolyfold.theorem_2_5_17_interior,
+  Polyfold.MPolyfold.isSubMPolyfold_of_local, Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior,
   Polyfold.MPolyfold.exists_localFace_of_isFaceStructured,
-  Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face, Polyfold.MPolyfold.theorem_2_45_isTame_face,
+  Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face, Polyfold.MPolyfold.theorem_2_5_17_isTame_face,
   Polyfold.MPolyfold.isTame_of_forall_exists_chart]
-#rt_check RoundTrip.V2_51.B_to_isTame_face [Polyfold.MPolyfold.theorem_2_45_interior,
-  Polyfold.MPolyfold.isSubMPolyfold_of_local, Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior,
+#rt_check RoundTrip.V2_51.B_to_isTame_face [Polyfold.MPolyfold.theorem_2_5_17_interior,
+  Polyfold.MPolyfold.isSubMPolyfold_of_local, Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior,
   Polyfold.MPolyfold.exists_localFace_of_isFaceStructured,
-  Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face, Polyfold.MPolyfold.theorem_2_45_isTame_face,
+  Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face, Polyfold.MPolyfold.theorem_2_5_17_isTame_face,
   Polyfold.MPolyfold.isTame_of_forall_exists_chart]
 
 end RoundTrip.V2_51

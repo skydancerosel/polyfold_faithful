@@ -4,26 +4,26 @@ import RoundTrip.Blind.V3_69
 
 /-!
 Round trip for V3_69 (Theorem 3.23).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_23_of_nearby`, `Polyfold.theorem_3_23`, `Polyfold.theorem_3_54_two` and
-`Polyfold.theorem_3_27`, universes instantiated at `0` (`subPolyfold`, `IsManifoldWithCorners` are
+`Polyfold.theorem_3_1_26_of_nearby`, `Polyfold.theorem_3_1_26`, `Polyfold.theorem_3_6_8_two` and
+`Polyfold.theorem_3_2_3_of_isRegular`, universes instantiated at `0` (`subPolyfold`, `IsManifoldWithCorners` are
 vocabulary).
 
-Glue for `A → B` (through A's `theorem_3_23`):
+Glue for `A → B` (through A's `theorem_3_1_26`):
 * B's hypothesis `IsSurjGoodPosAt` (surjectivity onto `K_z` and good position with an
   *sc*-complement, in some tame chart around `x`) gives `IsGoodPositionGermTame` at `x` by the
   project's chart-change lemma `StrongBundle.isGoodPositionGerm_of_linAt_surj` (on `Lin(z)`) and
   `IsGoodPositionGerm.toTame` (as in V3_70).
-* A's `theorem_3_23` assumes `IsGoodPositionGermFilled`; it follows from the tame good position
+* A's `theorem_3_1_26` assumes `IsGoodPositionGermFilled`; it follows from the tame good position
   by the project lemma `isGoodPositionGermFilled_of_isGoodPositionGerm` (Finding 174).
 * `IsManifoldWithCorners d` gives `HasCornerStructure` (`hasCornerStructure_iff_finiteDimensional`).
 * B's `CornerStructureUnique` holds for every M-polyfold: two atlases equivalent to the same atlas
   consist of charts of the structure, which are pairwise compatible (`IsChart.compatible`).
 
-**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_23_of_nearby`, `theorem_3_23` and
-`theorem_3_54_two` now state the germ reading (the former `…_germ` statements); B's
+**Refresh 2026-11-02 (germ reading at HEAD).**  `theorem_3_1_26_of_nearby`, `theorem_3_1_26` and
+`theorem_3_6_8_two` now state the germ reading (the former `…_germ` statements); B's
 `IsScFredholmSectionTame` is the germ reading too.  The chart change `isGoodPositionGermTame_of_B`
 was repaired (germ form: `isGoodPositionGerm_of_linAt_surj` on `Lin(z)`); the rest of the proof
-(germ form of `isGoodPositionGermFilled_of_isGoodPositionGerm`, then A's `theorem_3_23`) is
+(germ form of `isGoodPositionGermFilled_of_isGoodPositionGerm`, then A's `theorem_3_1_26`) is
 unchanged.  B ⇒ A still fails.
 -/
 
@@ -32,12 +32,12 @@ open Polyfold
 
 /-- The project's statement: the theorems listed for Theorem 3.23, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_23_of_nearby.{0, 0} ∧ type_of% @Polyfold.theorem_3_23.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_two.{0, 0} ∧ type_of% @Polyfold.theorem_3_27.{0}
+  type_of% @Polyfold.theorem_3_1_26_of_nearby.{0, 0} ∧ type_of% @Polyfold.theorem_3_1_26.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_two.{0, 0} ∧ type_of% @Polyfold.theorem_3_2_3_of_isRegular.{0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_23_of_nearby.{0, 0}, @Polyfold.theorem_3_23.{0, 0},
-    @Polyfold.theorem_3_54_two.{0, 0}, @Polyfold.theorem_3_27.{0}⟩
+  ⟨@Polyfold.theorem_3_1_26_of_nearby.{0, 0}, @Polyfold.theorem_3_1_26.{0, 0},
+    @Polyfold.theorem_3_6_8_two.{0, 0}, @Polyfold.theorem_3_2_3_of_isRegular.{0}⟩
 
 section Glue
 
@@ -113,7 +113,7 @@ theorem A_to_B : A → B := by
     MPolyfold.hasCornerStructure_iff_finiteDimensional.2 h2.isManifoldWithCornersLoc,
     cornerStructureUnique_all _⟩
 
-#rt_check RoundTrip.V3_69.A_to_B [Polyfold.theorem_3_23_of_nearby, Polyfold.theorem_3_23,
-  Polyfold.theorem_3_54_two, Polyfold.theorem_3_27]
+#rt_check RoundTrip.V3_69.A_to_B [Polyfold.theorem_3_1_26_of_nearby, Polyfold.theorem_3_1_26,
+  Polyfold.theorem_3_6_8_two, Polyfold.theorem_3_2_3_of_isRegular]
 
 end RoundTrip.V3_69

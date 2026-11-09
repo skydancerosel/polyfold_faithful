@@ -94,7 +94,7 @@ theorem B_to_A : B → A := by
   · -- re-proved outright: Proposition 2.24 on a sheet of `f`
     intro Z _ _ _ P Y _ _ _ Q f hf x
     obtain ⟨U, V, g, hx, hd⟩ := hf x
-    exact (proposition_2_24 hd hx).symm
+    exact (proposition_2_4_4 hd hx).symm
 
 #rt_check RoundTrip.V7_6.B_to_A [Polyfold.EpGroupoid.mem_levelSet_src_iff, Polyfold.EpGroupoid.mem_levelSet_tgt_iff, Polyfold.MPolyfold.IsLocalScDiffeo.maxLevel_eq, Polyfold.MPolyfold.IsLocalScDiffeo.degIndex_eq, Polyfold.EpGroupoid.degIndex_src, Polyfold.EpGroupoid.degIndex_tgt]
 #rt_check RoundTrip.V7_6.A_to_B_of_density [Polyfold.EpGroupoid.mem_levelSet_src_iff, Polyfold.EpGroupoid.mem_levelSet_tgt_iff, Polyfold.MPolyfold.IsLocalScDiffeo.maxLevel_eq, Polyfold.MPolyfold.IsLocalScDiffeo.degIndex_eq, Polyfold.EpGroupoid.degIndex_src, Polyfold.EpGroupoid.degIndex_tgt]

@@ -6,25 +6,25 @@ import Polyfold.Chapter7.ProperSubsets
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
 Chapter 7: **witnesses and counterexamples** for the definitions and hypotheses of the chapter
 (PLAN II.5, II.6 item 1, wave W5): the translation groupoid `K ⋉ U` of a finite group (p. 232),
-**Definition 7.3** (3) (pp. 226–227), the remark after **Definition 7.7** (pp. 228–229),
-**Definition 7.11** and "examples show that the regular set can be empty" (p. 239),
-**Definition 7.12** (`T_x`, p. 241), **Definitions 7.15** and **7.17** (pp. 249, 251).
+**Definition 7.1.3 (2017: 7.3)** (3) (pp. 226–227), the remark after **Definition 7.1.7 (2017: 7.7)** (pp. 228–229),
+**Definition 7.2.1 (2017: 7.11)** and "examples show that the regular set can be empty" (p. 239),
+**Definition 7.2.7 (2017: 7.12)** (`T_x`, p. 241), **Definitions 7.5.1 (2017: 7.15)** and **7.17** (pp. 249, 251).
 There is no 2014 preprint of Part II; numbers and pages are the 2017 text's.
 
 # Non-vacuity: witnesses and counterexamples
 
 ## The text, paraphrased
 
-(Definition 7.3 (3)) Every object `x` has an open neighbourhood `V(x)` with `t : s⁻¹(cl V(x)) → X`
+(Definition 7.1.3 (2017: 7.3) (3)) Every object `x` has an open neighbourhood `V(x)` with `t : s⁻¹(cl V(x)) → X`
 proper.  (p. 232) For a finite group `G` acting on `U` by sc-diffeomorphisms the translation
 groupoid `G ⋉ U` has objects `U`, morphisms `G × U`, `s(g, y) = y`, `t(g, y) = g ∗ y`.
-(Definition 7.7) `EP`: functors sc-smooth on objects and on morphisms; "actually, it is sufficient
+(Definition 7.1.7 (2017: 7.7)) `EP`: functors sc-smooth on objects and on morphisms; "actually, it is sufficient
 to require that the functor `f` is sc-smooth between the object spaces", by
-`f(γ) = (s|U(ψ))⁻¹(f(s(γ)))` on a neighbourhood `U(φ)` with `f(U(φ)) ⊂ U(ψ)`.  (Definition 7.11)
+`f(γ) = (s|U(ψ))⁻¹(f(s(γ)))` on a neighbourhood `U(φ)` with `f(U(φ)) ⊂ U(ψ)`.  (Definition 7.2.1 (2017: 7.11))
 `X` is effective if for every `x`, `g ∈ G_x ∖ {1_x}` and open `𝐔(g)` there is `ψ ∈ 𝐔(g)` with
 `s(ψ) ≠ t(ψ)`; `x` is regular if `G_x = {1_x}`; (p. 239) "examples show that the regular set can
-be empty".  (Definition 7.12) `T_x ⊆ G_x`, the elements acting trivially near `x`.
-(Definition 7.17) `Q ⊆ X` is proper if `t : s⁻¹(Q) → X` is proper.
+be empty".  (Definition 7.2.7 (2017: 7.12)) `T_x ⊆ G_x`, the elements acting trivially near `x`.
+(Definition 7.5.8 (2017: 7.17)) `Q ⊆ X` is proper if `t : s⁻¹(Q) → X` is proper.
 
 ## What is formalized (namespace `Polyfold.EpGroupoid.Examples`)
 
@@ -49,37 +49,37 @@ be empty".  (Definition 7.12) `T_x ⊆ G_x`, the elements acting trivially near 
   `instMulActionZ3`): `trivialZ3EpGroupoid`, `trivialZ3IsotropyEquiv` (`G_x ≅ ℤ/3`),
   `trivialSubgroup_trivialZ3` (`T_x = G_x`), `trivialZ3TrivialSubgroupEquiv` (`T_x ≅ ℤ/3`),
   `not_isEffective_trivialZ3`, `regularSet_trivialZ3` (`X_reg = ∅`).
-* **The remark after Definition 7.7** (PLAN II.6, 1): `remarkFunctor` on `trivialZ3EpGroupoid`
+* **The remark after Definition 7.1.7 (2017: 7.7)** (PLAN II.6, 1): `remarkFunctor` on `trivialZ3EpGroupoid`
   (the identity on objects, `(g, y) ↦ (g, y)` for `y ≤ 0`, `(g², y)` for `y > 0`), a
   `GroupoidFunctor`; `isScSmoothMap_remarkFunctor_obj`, `not_continuous_remarkFunctor_mor`,
   `not_isScSmoothMap_remarkFunctor_mor`, `not_exists_epFunctor_remarkFunctor`, and the summary
-  `remark_definition_7_7_counterexample`.
-* **Definition 7.3 (3), the universal reading** (PLAN II.5, 4): the pair groupoid of `ℤ`,
+  `remark_definition_7_1_7_counterexample`.
+* **Definition 7.1.3 (2017: 7.3) (3), the universal reading** (PLAN II.5, 4): the pair groupoid of `ℤ`,
   `pairGroupoidStr`, `pairEpGroupoid` (`ℤ` and `ℤ × ℤ` discrete M-polyfolds, `V(x) = {x}`:
   `pair_isProperMap`); `pair_not_isProperMap_univ`, `pair_exists_not_isProperMap`,
   `pair_not_forall_isProperMap`.
 
 ## Witnesses and the hypotheses they make non-vacuous
 
-* `K ⋉ U`, any finite `K`: Definition 7.3 with isotropy groups `K_x` of any finite group
-  (`actionEpGroupoid`, `isotropyEquivStabilizer`); Definition 7.17 with proper subsets beyond the
+* `K ⋉ U`, any finite `K`: Definition 7.1.3 (2017: 7.3) with isotropy groups `K_x` of any finite group
+  (`actionEpGroupoid`, `isotropyEquivStabilizer`); Definition 7.5.8 (2017: 7.17) with proper subsets beyond the
   compact ones, all closed sets (`isProperSubset_action_iff`); for second countable `U`,
-  Definition 7.15 (5) (`hasParacompactOrbitSpace_action`).
-* `ℤ/2 ⋉ ℝ`: Definition 7.11, effective with `G_0 ≠ 1`, not vacuously
-  (`isEffective_reflection_nonvacuous`); Lemma 7.2 and Proposition 7.8 with `X_reg` open, dense
-  and `≠ X` (`regularSet_reflection`); Definitions 7.6 and 7.15 (`isTame_reflection`,
-  `hasParacompactOrbitSpace_reflection`); Definition 7.12 with `T_x = 1 ≠ G_0`
+  Definition 7.5.1 (2017: 7.15) (5) (`hasParacompactOrbitSpace_action`).
+* `ℤ/2 ⋉ ℝ`: Definition 7.2.1 (2017: 7.11), effective with `G_0 ≠ 1`, not vacuously
+  (`isEffective_reflection_nonvacuous`); Lemma 7.2.2 (2017: 7.2) and Proposition 7.2.4 (2017: 7.8) with `X_reg` open, dense
+  and `≠ X` (`regularSet_reflection`); Definitions 7.1.6 and 7.5.1 (2017: 7.6 and 7.15) (`isTame_reflection`,
+  `hasParacompactOrbitSpace_reflection`); Definition 7.2.7 (2017: 7.12) with `T_x = 1 ≠ G_0`
   (`trivialSubgroup_reflection`, `reflectionIsotropyZeroEquiv`).
-* `ℤ/3 × ℝ ⇉ ℝ` (trivial action): Definition 7.12 with `T_x = G_x ≠ 1`
+* `ℤ/3 × ℝ ⇉ ℝ` (trivial action): Definition 7.2.7 (2017: 7.12) with `T_x = G_x ≠ 1`
   (`trivialSubgroup_trivialZ3`); "the regular set can be empty" (`regularSet_trivialZ3`); a
   non-effective ep-groupoid (`not_isEffective_trivialZ3`).
-* `remarkFunctor` on `ℤ/3 × ℝ ⇉ ℝ`: Definition 7.7, sc-smoothness on morphisms is not implied
-  by sc-smoothness on objects (`remark_definition_7_7_counterexample`).
-* The pair groupoid of `ℤ`: Definition 7.3 (3) must be existential in `V(x)`
+* `remarkFunctor` on `ℤ/3 × ℝ ⇉ ℝ`: Definition 7.1.7 (2017: 7.7), sc-smoothness on morphisms is not implied
+  by sc-smoothness on objects (`remark_definition_7_1_7_counterexample`).
+* The pair groupoid of `ℤ`: Definition 7.1.3 (2017: 7.3) (3) must be existential in `V(x)`
   (`pair_not_forall_isProperMap`).
 
-The vacuous case of Definition 7.11 (trivial isotropy) is `EpGroupoid.isEffective_trivial`
-(`EpGroupoid.lean`); Definitions 7.8, 7.10, 7.16 and Theorem 7.1's data are witnessed there by
+The vacuous case of Definition 7.2.1 (2017: 7.11) (trivial isotropy) is `EpGroupoid.isEffective_trivial`
+(`EpGroupoid.lean`); Definitions 7.1.18, 7.1.21, 7.5.5 (2017: 7.8, 7.10, 7.16) and Theorem 7.1.13 (2017: 7.1)'s data are witnessed there by
 the trivial ep-groupoid.
 
 ## Reading
@@ -92,23 +92,23 @@ the trivial ep-groupoid.
   replaced by the hypothesis `hP`; condition (4) is checked in the sheet form.  The isotropy
   group is the stabilizer `K_x` and the orbit space is `U/K` with its quotient topology.
 * **"Every subset is proper"** is read as "every closed subset is proper": a proper subset is
-  closed (Proposition 7.13), and for finite `K` every closed subset is proper
+  closed (Proposition 7.5.9 (2017: 7.13)), and for finite `K` every closed subset is proper
   (`isProperSubset_action_iff`).
 * **Effective, non-vacuously.**  In `ℤ/2 ⋉ ℝ`, `G_0 = ℤ/2` and every neighbourhood of `(−1, 0)`
   contains `(−1, y)`, `y ≠ 0`, with `s = y ≠ −y = t`; `G_x = 1` for `x ≠ 0`.  So `X_reg = ℝ ∖ {0}`,
-  open and dense as Proposition 7.8 says, and not all of `ℝ`.  `|X| = ℝ/±1` is paracompact
-  (second countable, so metrizable by Corollary 7.1).
+  open and dense as Proposition 7.2.4 (2017: 7.8) says, and not all of `ℝ`.  `|X| = ℝ/±1` is paracompact
+  (second countable, so metrizable by Corollary 7.3.6 (2017: 7.1)).
 * **The regular set can be empty** (p. 239): in `ℤ/3 × ℝ ⇉ ℝ` with the trivial action every
   object has `G_x = T_x ≅ ℤ/3`; the ep-groupoid is not effective, consistently with
-  Proposition 7.8.
-* **The remark after Definition 7.7** does not hold as we read it (PLAN II.6, 1): the functor
+  Proposition 7.2.4 (2017: 7.8).
+* **The remark after Definition 7.1.7 (2017: 7.7)** does not hold as we read it (PLAN II.6, 1): the functor
   `remarkFunctor` is a functor (composable morphisms have the same `y`, and `g ↦ g²` is an
   automorphism of `ℤ/3`), it is sc-smooth (the identity) on the object spaces, but it is not
   continuous on the morphism spaces (`y ↦ (f(g, y)).1` jumps from `g` to `g² ≠ g` at `0` while `ℝ`
   is connected), hence not sc-smooth there and not a morphism of `EP`.  The text's choice of
   `U(φ)` with `f(U(φ)) ⊂ U(ψ)` uses continuity on morphisms; with continuity added the remark
   holds (`EpGroupoid.isScSmoothMap_mor_of_continuous`, `EpFunctor.ofContinuous`, `Basic.lean`).
-* **Definition 7.3 (3)** is existential in `V(x)` (PLAN P3): in the pair groupoid of `ℤ`, the
+* **Definition 7.1.3 (2017: 7.3) (3)** is existential in `V(x)` (PLAN P3): in the pair groupoid of `ℤ`, the
   choice `V(x) = {x}` works (`t : ℤ × {x} → ℤ` is a bijection of discrete spaces), but for the
   neighbourhood `V = ℤ` of any `x`, `t : ℤ × ℤ → ℤ` has the infinite fibre `{0} × ℤ` over `0` and is
   not proper.  So the reading "for every neighbourhood `V` of `x`" would exclude this
@@ -316,23 +316,23 @@ def actionOrbitHomeomorph :
 
 /-! #### Properness -/
 
-/-- **Every closed subset of `K ⋉ U` is proper** (Definition 7.17). -/
+/-- **Every closed subset of `K ⋉ U` is proper** (Definition 7.5.8 (2017: 7.17)). -/
 theorem isProperSubset_action {Q : Set U} (hQ : IsClosed Q) :
     (actionEpGroupoid hP).IsProperSubset Q :=
   (action_isProperMap_tgt hP).restrict (hQ.preimage continuous_snd)
 
-/-- In `K ⋉ U` a subset is proper iff it is closed (Proposition 7.13 for one direction). -/
+/-- In `K ⋉ U` a subset is proper iff it is closed (Proposition 7.5.9 (2017: 7.13) for one direction). -/
 theorem isProperSubset_action_iff {Q : Set U} :
     (actionEpGroupoid hP).IsProperSubset Q ↔ IsClosed Q :=
-  ⟨(actionEpGroupoid hP).proposition_7_13, isProperSubset_action hP⟩
+  ⟨(actionEpGroupoid hP).proposition_7_5_9, isProperSubset_action hP⟩
 
-/-- **Every open subset of `K ⋉ U` has the properness property** (Definition 7.17). -/
+/-- **Every open subset of `K ⋉ U` has the properness property** (Definition 7.5.8 (2017: 7.17)). -/
 theorem hasPropernessProperty_action {V : Set U} (hV : IsOpen V) :
     (actionEpGroupoid hP).HasPropernessProperty V :=
   ⟨hV, isProperSubset_action hP isClosed_closure⟩
 
-/-- **`|K ⋉ U|` is paracompact** for second countable `U` (Definition 7.15): `U/K` is second
-countable, hence metrizable (Corollary 7.1). -/
+/-- **`|K ⋉ U|` is paracompact** for second countable `U` (Definition 7.5.1 (2017: 7.15)): `U/K` is second
+countable, hence metrizable (Corollary 7.3.6 (2017: 7.1)). -/
 theorem hasParacompactOrbitSpace_action [SecondCountableTopology U] :
     (actionEpGroupoid hP).HasParacompactOrbitSpace := by
   have : ContinuousConstSMul K U := ⟨action_continuous_smul hP⟩
@@ -340,7 +340,7 @@ theorem hasParacompactOrbitSpace_action [SecondCountableTopology U] :
     ContinuousConstSMul.secondCountableTopology
   have : SecondCountableTopology (actionEpGroupoid hP).OrbitSpace :=
     (actionOrbitHomeomorph hP).secondCountableTopology
-  have := (actionEpGroupoid hP).corollary_7_1
+  have := (actionEpGroupoid hP).corollary_7_3_6
   exact paracompactSpace_of_metrizableSpace _
 
 end Action
@@ -365,7 +365,7 @@ theorem isScSmoothMap_units_smul (k : ℤˣ) :
 def reflectionEpGroupoid : EpGroupoid (Fin 1 → ℝ) (ℤˣ × (Fin 1 → ℝ)) :=
   actionEpGroupoid isScSmoothMap_units_smul
 
-/-- **`ℤ/2 ⋉ ℝ` is effective** (Definition 7.11), not vacuously: `G_0 = ℤ/2`
+/-- **`ℤ/2 ⋉ ℝ` is effective** (Definition 7.2.1 (2017: 7.11)), not vacuously: `G_0 = ℤ/2`
 (`reflectionIsotropyZeroEquiv`) and every neighbourhood of `(−1, 0)` contains `(−1, y)`, `y ≠ 0`,
 with `s = y ≠ −y = t`. -/
 theorem isEffective_reflection : reflectionEpGroupoid.IsEffective := by
@@ -400,7 +400,7 @@ theorem reflectionIsotropyNegOne_ne_one : reflectionIsotropyNegOne ≠ 1 := fun 
   absurd (congrArg (fun g : reflectionEpGroupoid.Isotropy 0 => g.val.1) h : (-1 : ℤˣ) = 1)
     (by decide)
 
-/-- **Definition 7.11 is satisfied non-vacuously**: `ℤ/2 ⋉ ℝ` is effective and has an object with
+/-- **Definition 7.2.1 (2017: 7.11) is satisfied non-vacuously**: `ℤ/2 ⋉ ℝ` is effective and has an object with
 non-trivial isotropy. -/
 theorem isEffective_reflection_nonvacuous : reflectionEpGroupoid.IsEffective ∧
     ∃ (x : Fin 1 → ℝ) (g : reflectionEpGroupoid.Isotropy x), g ≠ 1 :=
@@ -427,10 +427,10 @@ def reflectionIsotropyZeroEquiv : reflectionEpGroupoid.Isotropy 0 ≃* ℤˣ :=
 theorem trivialSubgroup_reflection (x : Fin 1 → ℝ) : reflectionEpGroupoid.trivialSubgroup x = ⊥ :=
   reflectionEpGroupoid.isEffective_iff_trivialSubgroup_eq_bot.1 isEffective_reflection x
 
-/-- `ℤ/2 ⋉ ℝ` is tame (Definition 7.6). -/
+/-- `ℤ/2 ⋉ ℝ` is tame (Definition 7.1.6 (2017: 7.6)). -/
 theorem isTame_reflection : reflectionEpGroupoid.IsTame := rnPolyfold_isTame
 
-/-- `|ℤ/2 ⋉ ℝ| = ℝ/±1` is paracompact (Definition 7.15). -/
+/-- `|ℤ/2 ⋉ ℝ| = ℝ/±1` is paracompact (Definition 7.5.1 (2017: 7.15)). -/
 theorem hasParacompactOrbitSpace_reflection : reflectionEpGroupoid.HasParacompactOrbitSpace :=
   hasParacompactOrbitSpace_action isScSmoothMap_units_smul
 
@@ -493,7 +493,7 @@ theorem regularSet_trivialZ3 : trivialZ3EpGroupoid.regularSet = ∅ := by
 
 end TrivialZ3
 
-/-! ### The remark after Definition 7.7 -/
+/-! ### The remark after Definition 7.1.7 (2017: 7.7) -/
 
 section Remark
 
@@ -555,11 +555,11 @@ theorem not_exists_epFunctor_remarkFunctor :
   rw [show F.mor = remarkFunctor.mor from congrArg GroupoidFunctor.mor hF] at h
   exact not_continuous_remarkFunctor_mor h
 
-/-- **The remark after Definition 7.7 does not hold as we read it**: a functor between
+/-- **The remark after Definition 7.1.7 (2017: 7.7) does not hold as we read it**: a functor between
 ep-groupoids that is sc-smooth on the object spaces need not be continuous, nor sc-smooth, on the
 morphism spaces, and need not be a morphism of `EP`.  (With continuity on morphisms it holds:
 `EpFunctor.ofContinuous`.) -/
-theorem remark_definition_7_7_counterexample :
+theorem remark_definition_7_1_7_counterexample :
     ∃ F : GroupoidFunctor trivialZ3EpGroupoid.toGroupoidStr trivialZ3EpGroupoid.toGroupoidStr,
       trivialZ3EpGroupoid.PObj.IsScSmoothMap trivialZ3EpGroupoid.PObj F.obj ∧
       ¬ Continuous F.mor ∧
@@ -570,7 +570,7 @@ theorem remark_definition_7_7_counterexample :
 
 end Remark
 
-/-! ### Definition 7.3 (3): the pair groupoid of `ℤ` -/
+/-! ### Definition 7.1.3 (2017: 7.3) (3): the pair groupoid of `ℤ` -/
 
 section Pair
 
@@ -619,7 +619,7 @@ theorem pair_isProperMap (x : ℤ) :
   exact Subtype.ext (Prod.ext hab (ha'.trans hb'.symm))
 
 /-- **The pair groupoid of `ℤ` is an ep-groupoid**, with `ℤ` and `ℤ × ℤ` discrete M-polyfolds and
-`V(x) = {x}` in Definition 7.3 (3). -/
+`V(x) = {x}` in Definition 7.1.3 (2017: 7.3) (3). -/
 def pairEpGroupoid : EpGroupoid ℤ (ℤ × ℤ) where
   toGroupoidStr := pairGroupoidStr
   PObj := discretePolyfold ℤ
@@ -653,7 +653,7 @@ theorem pair_exists_not_isProperMap (x : ℤ) : ∃ V : Set ℤ, IsOpen V ∧ x 
     ¬ IsProperMap ((pairEpGroupoid.src ⁻¹' closure V).domRestrict pairEpGroupoid.tgt) :=
   ⟨univ, isOpen_univ, mem_univ x, pair_not_isProperMap_univ⟩
 
-/-- **The universal reading of Definition 7.3 (3) fails** for the pair groupoid of `ℤ`, an
+/-- **The universal reading of Definition 7.1.3 (2017: 7.3) (3) fails** for the pair groupoid of `ℤ`, an
 ep-groupoid (`pairEpGroupoid`): "for every open neighbourhood `V` of `x`, `t : s⁻¹(cl V) → X` is
 proper" does not hold. -/
 theorem pair_not_forall_isProperMap :

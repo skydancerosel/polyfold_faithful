@@ -6,9 +6,9 @@ import RoundTrip.Blind.V8_30
 
 `A` is the conjunction of the types of the six listed theorems, universes at `0`:
 `ProperCoveringLocal.exists_data`, `ProperCoveringLocal.isScSmoothOn_of_section`,
-`EpFunctor.theorem_8_5` (a chart with `U(x)` inside any open `V ∋ x`),
-`EpFunctor.theorem_8_5_of_naturalRep` (one open `W ∋ x` such that every natural representation on
-a connected `U(x) ⊆ W` is the `R` of a chart), `CoveringExamples.theorem_8_5_five_as_printed`
+`EpFunctor.theorem_8_5_3` (a chart with `U(x)` inside any open `V ∋ x`),
+`EpFunctor.theorem_8_5_3_of_naturalRep` (one open `W ∋ x` such that every natural representation on
+a connected `U(x) ⊆ W` is the `R` of a chart), `CoveringExamples.theorem_8_5_3_five_as_printed`
 (for `𝟭` on `ℤ/2 ⋉ ℝ` every chart at `0` has a `ψ ∈ 𝐔(−1, 0)` with `F(s ψ) ≠ t(F ψ)`) and
 `..._nonvacuous` (such charts exist).  `ProperCoveringChart`, `ProperCoveringLocal.Data`,
 `Data.toChart` are definitions.  The chart's (5) is the square with `s` on both sides
@@ -18,21 +18,21 @@ possible misprint.
 * `B` formalizes (5) literally (`t ∘ F = F ∘ s` on `𝐔(ψ₀)`) and, as its author says, is **false**:
   `not_B`, on `𝟭 : ℤ/2 ⋉ ℝ → ℤ/2 ⋉ ℝ` at `x = 0`, `ψ₀ = (−1, 0)`: any open `𝐔(ψ₀) ∋ ψ₀` contains
   `(−1, y)`, `y ≠ 0`, with `t(F(−1, y)) = −y ≠ y = F(s(−1, y))` (the argument of the project's
-  `theorem_8_5_five_as_printed`, re-done here).  Hence `A → B` is false (`not_A_to_B`) and
+  `theorem_8_5_3_five_as_printed`, re-done here).  Hence `A → B` is false (`not_A_to_B`) and
   `B → A` holds only ex falso.
 * `BRepaired`: `B` with (5)'s right arrow `s` instead of `t` (`s : 𝐔(F ψ₀) → U(x)` an
   sc-diffeomorphism and `s ∘ F = F ∘ s` on `𝐔(ψ₀)`), the first of the author's two suggested
   readings, and the project's `comm_src`.  `A_to_BRepaired` and `BRepaired_to_A` are both proved.
-  - `A → BRepaired`: `theorem_8_5_of_naturalRep` (the "for every sufficiently small `U(x)`"
+  - `A → BRepaired`: `theorem_8_5_3_of_naturalRep` (the "for every sufficiently small `U(x)`"
     reading, `B`'s) applied to the natural representation built from `B`'s action (`toRep`: `U`
     connected, inverse `Φ(g⁻¹)`); every clause is a chart field.
-  - `BRepaired → A`: `theorem_8_5_of_naturalRep` from `BRepaired`: the chart's fields are
+  - `BRepaired → A`: `theorem_8_5_3_of_naturalRep` from `BRepaired`: the chart's fields are
     `BRepaired`'s clauses except three, proved here: `connectedComponentIn_eq` (Chapter 7),
     disjointness of the `𝐔(ψ₀)` over **all** morphisms between points of `F⁻¹(x)` (`B` has it per
     `mor(y, y')`; the rest from (2) and the disjointness of the `U(y)`), and the companion square
-    (`comm_tgt` by functoriality, `t : 𝐔(F ψ₀) → U(x)` from (1) at `g = F(ψ₀)`).  `theorem_8_5`
-    follows with Chapter 7's `theorem_7_1`, `..._nonvacuous` from that for `𝟭`.  `exists_data`,
-    `isScSmoothOn_of_section` (lemmas of the proof) and `theorem_8_5_five_as_printed` (a statement
+    (`comm_tgt` by functoriality, `t : 𝐔(F ψ₀) → U(x)` from (1) at `g = F(ψ₀)`).  `theorem_8_5_3`
+    follows with Chapter 7's `theorem_7_1_13`, `..._nonvacuous` from that for `𝟭`.  `exists_data`,
+    `isScSmoothOn_of_section` (lemmas of the proof) and `theorem_8_5_3_five_as_printed` (a statement
     about every chart of one example) are re-proved outright. -/
 
 namespace RoundTrip.V8_30
@@ -43,17 +43,17 @@ open Polyfold.EpGroupoid.Examples Polyfold.CoveringExamples
 def A : Prop :=
   (type_of% @Polyfold.EpFunctor.ProperCoveringLocal.exists_data.{0, 0}) ∧
   (type_of% @Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section.{0}) ∧
-  (type_of% @Polyfold.EpFunctor.theorem_8_5.{0, 0}) ∧
-  (type_of% @Polyfold.EpFunctor.theorem_8_5_of_naturalRep.{0, 0}) ∧
-  (type_of% @Polyfold.CoveringExamples.theorem_8_5_five_as_printed) ∧
-  (type_of% @Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous)
+  (type_of% @Polyfold.EpFunctor.theorem_8_5_3.{0, 0}) ∧
+  (type_of% @Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep.{0, 0}) ∧
+  (type_of% @Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed) ∧
+  (type_of% @Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous)
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpFunctor.ProperCoveringLocal.exists_data.{0, 0},
     @Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section.{0},
-    @Polyfold.EpFunctor.theorem_8_5.{0, 0}, @Polyfold.EpFunctor.theorem_8_5_of_naturalRep.{0, 0},
-    @Polyfold.CoveringExamples.theorem_8_5_five_as_printed,
-    @Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous⟩
+    @Polyfold.EpFunctor.theorem_8_5_3.{0, 0}, @Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep.{0, 0},
+    @Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed,
+    @Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous⟩
 
 /-! ### Glue: natural actions and natural representations -/
 
@@ -129,7 +129,7 @@ theorem not_B : ¬ B := by
   intro hB
   obtain ⟨V, hVo, h0V, hV⟩ := hB _ _ _ _ reflectionEpGroupoid reflectionEpGroupoid
     (EpFunctor.id reflectionEpGroupoid) EpFunctor.isProperCovering_id 0
-  obtain ⟨R, hRV⟩ := reflectionEpGroupoid.theorem_7_1 0 hVo h0V
+  obtain ⟨R, hRV⟩ := reflectionEpGroupoid.theorem_7_1_13 0 hVo h0V
   obtain ⟨-, Uy, UY, -, h2, h345⟩ :=
     hV R.U R.Φ R.Γ (isNatAction_of_rep R) R.isConnected_U hRV
   have hm : reflectionψ₀ ∈
@@ -223,7 +223,7 @@ theorem A_to_BRepaired : A → BRepaired := by
   rw [hU] at h0 h345
   exact ⟨h1, C.U, C.sheet, h0, h2, h345⟩
 
-/-- `theorem_8_5_of_naturalRep` from `BRepaired`. -/
+/-- `theorem_8_5_3_of_naturalRep` from `BRepaired`. -/
 theorem naturalRep_of_BRepaired (hR : BRepaired) {ObjY MorY ObjX MorX : Type}
     [TopologicalSpace ObjY] [T2Space ObjY] [ParacompactSpace ObjY]
     [TopologicalSpace MorY] [T2Space MorY] [ParacompactSpace MorY]
@@ -307,7 +307,7 @@ theorem BRepaired_to_A : BRepaired → A := by
         ∃ C : F.ProperCoveringChart x, C.R.U ⊆ V := by
     intro ObjY MorY ObjX MorX _ _ _ _ _ _ _ _ _ _ _ _ Y X F hF x V hV hx
     obtain ⟨W, hWo, hxW, hW⟩ := naturalRep_of_BRepaired hR hF x
-    obtain ⟨R, hRs⟩ := X.theorem_7_1 x (hV.inter hWo) ⟨hx, hxW⟩
+    obtain ⟨R, hRs⟩ := X.theorem_7_1_13 x (hV.inter hWo) ⟨hx, hxW⟩
     obtain ⟨C, rfl⟩ := hW R fun z hz => (hRs hz).2
     exact ⟨C, fun z hz => (hRs hz).1⟩
   refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
@@ -343,51 +343,51 @@ theorem BRepaired_to_A : BRepaired → A := by
     · refine (hd.isScSmoothOn_inv.mono hN inter_subset_right).congr fun w hw => ?_
       have h1 := hd.left_inv (τ w) hw.1.2
       rwa [hsec w hw.1.1] at h1
-  · -- `theorem_8_5`, from `BRepaired`
+  · -- `theorem_8_5_3`, from `BRepaired`
     intro ObjY MorY _ _ _ _ _ _ ObjX MorX _ _ _ _ _ _ Y X F hF x V hV hx
     exact h85 hF x hV hx
-  · -- `theorem_8_5_of_naturalRep`, from `BRepaired`
+  · -- `theorem_8_5_3_of_naturalRep`, from `BRepaired`
     intro ObjY MorY _ _ _ _ _ _ ObjX MorX _ _ _ _ _ _ Y X F hF x
     exact naturalRep_of_BRepaired hR hF x
-  · -- `theorem_8_5_five_as_printed`, outright (a statement about every chart of one example)
+  · -- `theorem_8_5_3_five_as_printed`, outright (a statement about every chart of one example)
     intro C
     have hm := reflectionψ₀_mem_morOn
     obtain ⟨y, hyS, hne⟩ := exists_reflection_ne (C.isOpen_sheet _ hm) (C.mem_sheet _ hm)
     exact ⟨_, hyS, fun h => hne h.symm⟩
-  · -- `..._nonvacuous`, from the `theorem_8_5` derived from `BRepaired`
+  · -- `..._nonvacuous`, from the `theorem_8_5_3` derived from `BRepaired`
     obtain ⟨C, -⟩ := h85 (EpFunctor.isProperCovering_id (X := reflectionEpGroupoid)) 0
       isOpen_univ (mem_univ _)
     exact ⟨C⟩
 
 #rt_check RoundTrip.V8_30.not_B [Polyfold.EpFunctor.ProperCoveringLocal.exists_data,
-  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5,
-  Polyfold.EpFunctor.theorem_8_5_of_naturalRep,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous]
+  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5_3,
+  Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous]
 #rt_check RoundTrip.V8_30.B_to_A [Polyfold.EpFunctor.ProperCoveringLocal.exists_data,
-  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5,
-  Polyfold.EpFunctor.theorem_8_5_of_naturalRep,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous]
+  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5_3,
+  Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous]
 #rt_check RoundTrip.V8_30.A_to_BRepaired [Polyfold.EpFunctor.ProperCoveringLocal.exists_data,
-  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5,
-  Polyfold.EpFunctor.theorem_8_5_of_naturalRep,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous]
+  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5_3,
+  Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous]
 #rt_check RoundTrip.V8_30.BRepaired_to_A [Polyfold.EpFunctor.ProperCoveringLocal.exists_data,
-  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5,
-  Polyfold.EpFunctor.theorem_8_5_of_naturalRep,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous]
+  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5_3,
+  Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous]
 #rt_overlap RoundTrip.V8_30.B_to_A [Polyfold.EpFunctor.ProperCoveringLocal.exists_data,
-  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5,
-  Polyfold.EpFunctor.theorem_8_5_of_naturalRep,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous]
+  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5_3,
+  Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous]
 #rt_overlap RoundTrip.V8_30.BRepaired_to_A [Polyfold.EpFunctor.ProperCoveringLocal.exists_data,
-  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5,
-  Polyfold.EpFunctor.theorem_8_5_of_naturalRep,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed,
-  Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous]
+  Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section, Polyfold.EpFunctor.theorem_8_5_3,
+  Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed,
+  Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous]
 
 end RoundTrip.V8_30

@@ -37,7 +37,7 @@ Theorem 3.6.8) and `dim ker f'(y) = ind f'(y)` for onto `f'(y)`
   index `d`, the solution set has dimension `d` at `y` (Remark 9.1.1's `HasDimAt`).
 * **Theorem 3.6.8 with the dimension** (`theorem_3_6_8_isSubmanifoldOfDim`): near a zero in good
   position the solution set is an `n`-dimensional submanifold, `n = ind f'(y)`, with no global
-  hypothesis on the index (`theorem_3_54_index_locally_constant`).
+  hypothesis on the index (`theorem_3_6_8_index_locally_constant`).
 * **The dimension of the solution set is the index**: `StrongBundle.isSubmanifoldOfDim_solutionSet`
   (good position at every zero, `IsSurjLinOfIndex` at every zero) and its forms with the index
   hypothesis `IsLinOfIndex f y d` at every zero:
@@ -64,7 +64,7 @@ Theorem 3.6.8) and `dim ker f'(y) = ind f'(y)` for onto `f'(y)`
 
 * "Of dimension the Fredholm index": the index is `IsLinOfIndex f y d`, "`f'(y)` is Fredholm of
   index `d` in every strong bundle chart around `y`".  It is locally constant along the zero set
-  (Proposition 6.2.2, `theorem_3_54_index_locally_constant`); the global statements take one index
+  (Proposition 6.2.2, `theorem_3_6_8_index_locally_constant`); the global statements take one index
   `d` for all zeros (the text's "the index of `f`"), the local one (`theorem_3_6_8_isSubmanifoldOfDim`)
   takes none.
 * Gaps G.62 and G.67 (Lemma 6.6.5, Theorem 6.6.18) asked for the solution set as a manifold with
@@ -149,13 +149,13 @@ theorem StrongBundle.hasDimAt_solutionSet_inter (hft : B.IsScFredholmSectionTame
 /-- **Theorem 3.6.8 (2), (3) with the dimension** (p. 136; preprint 3.54): near a zero `x₀` in good
 position the solution set is an `n`-dimensional smooth submanifold (`IsSubmanifoldOfDim`), where
 `n = ind f'(y) = dim ker f'(y)` at every zero `y` nearby (no hypothesis on the index: it is locally
-constant, `theorem_3_54_index_locally_constant`). -/
+constant, `theorem_3_6_8_index_locally_constant`). -/
 theorem theorem_3_6_8_isSubmanifoldOfDim (hft : B.IsScFredholmSectionTame f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (V : Set X) (d : ℕ), IsOpen V ∧ x₀ ∈ V ∧
       (∀ y ∈ V, IsZeroAt P f y → B.IsGoodPositionGermTame f y ∧ B.IsSurjLinOfIndex f y d) ∧
       PX.IsSubmanifoldOfDim (solutionSet P f ∩ V) d := by
-  obtain ⟨Vx, d, hVxo, hx₀Vx, hind⟩ := theorem_3_54_index_locally_constant hft hg hx₀
+  obtain ⟨Vx, d, hVxo, hx₀Vx, hind⟩ := theorem_3_6_8_index_locally_constant hft hg hx₀
   obtain ⟨V₁, hV₁o, hx₀V₁, hall, -⟩ := exists_tangentSpace_eq_linKer hft hg hx₀
   set V := V₁ ∩ Vx with hVdef
   have hVo : IsOpen V := hV₁o.inter hVxo
@@ -242,26 +242,26 @@ theorem StrongBundle.SolutionSetInGeneralPosition.isManifold (hX : PX.IsTame)
 /-- **Theorem 6.6.18, first sentence, in Mathlib's language** (p. 274; preprint 6.41; gap G.67,
 the manifold part): over a tame `X`, for a proper sc-Fredholm section `f` (tame germ data) of index
 `d` with `(f, x)` in general position at every zero, the solution set `S = f⁻¹(0)` is a smooth
-compact manifold with boundary and corners of dimension `d` (`theorem_6_41_solutionSet`). -/
+compact manifold with boundary and corners of dimension `d` (`theorem_6_6_18_solutionSet`). -/
 theorem theorem_6_6_18_isManifold (hX : PX.IsTame) (hft : B.IsScFredholmSectionTame f)
     (hP : B.IsProper f) (hgp : ∀ x, IsZeroAt P f x → B.IsGeneralPositionGerm f x) {d : ℕ}
     (hidx : ∀ y, IsZeroAt P f y → B.IsLinOfIndex f y d) :
     IsCompact (solutionSet P f) ∧
       letI := PX.paracompactSpace_subtype (solutionSet P f)
       letI := (MPolyfold.subPolyfold
-        ((theorem_6_41_solutionSet hX hft hP hgp).isSubmanifoldOfDim hft hidx).1.isSubMPolyfold).cornerChartedSpace
-        (((theorem_6_41_solutionSet hX hft hP hgp).isSubmanifoldOfDim hft hidx).hasCornerStructureOfDim_of_tame
-          hX ((theorem_6_41_solutionSet hX hft hP hgp).isGoodPositionAt hX))
+        ((theorem_6_6_18_solutionSet hX hft hP hgp).isSubmanifoldOfDim hft hidx).1.isSubMPolyfold).cornerChartedSpace
+        (((theorem_6_6_18_solutionSet hX hft hP hgp).isSubmanifoldOfDim hft hidx).hasCornerStructureOfDim_of_tame
+          hX ((theorem_6_6_18_solutionSet hX hft hP hgp).isGoodPositionAt hX))
       IsManifold (modelWithCornersEuclideanQuadrant d) ∞ (solutionSet P f) :=
-  (theorem_6_41_solutionSet hX hft hP hgp).isManifold hX hft hidx
+  (theorem_6_6_18_solutionSet hX hft hP hgp).isManifold hX hft hidx
 
 /-- **Theorem 5.3.10 in Mathlib's language** (p. 220; preprint 5.18): under the hypotheses of
-`theorem_5_18` (tame `X` with sc-smooth bump functions, `f` sc-Fredholm with tame germ data and
+`theorem_5_3_10_param` (tame `X` with sc-smooth bump functions, `f` sc-Fredholm with tame germ data and
 compact solution set, an auxiliary norm `N`), for every `λ` with `‖λ‖ < δ`, `λ ∉ CV`, the perturbed
 section `f + s_λ` has a compact solution set in general position which, if `f + s_λ` has index `d`
 at its zeros, is a smooth manifold with boundary and corners of dimension `d`
 (`SolutionSetInGeneralPosition.isManifold`; `f + s_λ` is sc-Fredholm with tame germ data by
-Theorem 3.1.16, `theorem_3_15_tame`). -/
+Theorem 3.1.16, `theorem_3_1_18_tame`). -/
 theorem theorem_5_3_10_isManifold (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
     (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N) :
@@ -287,14 +287,14 @@ theorem theorem_5_3_10_isManifold (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctio
                       (hgp.isGoodPositionAt hX))
                   IsManifold (modelWithCornersEuclideanQuadrant d) ∞ (solutionSet P
                     (sectionAdd P f (paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam))) := by
-  obtain ⟨U, hUo, hSU, -, hmain⟩ := theorem_5_18 hX hbump hf hS hN
+  obtain ⟨U, hUo, hSU, -, hmain⟩ := theorem_5_3_10_param hX hbump hf hS hN
   refine ⟨U, hUo, hSU, fun s₀ hs₀ hsupp ε hε hNε => ?_⟩
   obtain ⟨m, t, ht, -, -, δ, hδ, CV, hCV, hlam⟩ := hmain s₀ hs₀ hsupp ε hε hNε
   refine ⟨m, t, ht, δ, hδ, CV, hCV, fun lam h1 h2 d => ?_⟩
   obtain ⟨-, hgp⟩ := hlam lam h1 h2
   have hft : B.IsScFredholmSectionTame
       (sectionAdd P f (paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam)) :=
-    theorem_3_15_tame hf (isScPlusSection_paramSlice hs₀ ht lam)
+    theorem_3_1_18_tame hf (isScPlusSection_paramSlice hs₀ ht lam)
   exact ⟨hft, hgp, fun hidx => hgp.isManifold hX hft hidx⟩
 
 /-- **Theorems 3.1.22 and 3.6.10 in Mathlib's language** (pp. 100, 140; preprint 3.19, 3.56): over an
@@ -342,8 +342,8 @@ manifold with boundary and corners `IsManifold (modelWithCornersEuclideanQuadran
 theorem theorem_3_2_3_isManifold_2021 (P : MPolyfold X) {M : Set X} {n : ℕ} [ParacompactSpace M]
     (hne : M.Nonempty) (hM : P.HasTangentGermProperty M n) :
     letI := (MPolyfold.subPolyfold
-      (theorem_3_27_isSubMPolyfold P fun _ hx => hM.exists_isRegular hx)).cornerChartedSpace
-      (MPolyfold.theorem_3_27_isManifoldWithCorners P (fun _ hx => hM.exists_isRegular hx)
+      (theorem_3_2_3_isSubMPolyfold P fun _ hx => hM.exists_isRegular hx)).cornerChartedSpace
+      (MPolyfold.theorem_3_2_3_isManifoldWithCorners P (fun _ hx => hM.exists_isRegular hx)
         hne).hasCornerStructureOfDim
     IsManifold (modelWithCornersEuclideanQuadrant n) ∞ M :=
   MPolyfold.theorem_3_2_3_isManifold P (fun _ hx => hM.exists_isRegular hx) hne
@@ -352,9 +352,9 @@ theorem theorem_3_2_3_isManifold_2021 (P : MPolyfold X) {M : Set X} {n : ℕ} [P
 (`HasTangentGermProperty2021`, `hasTangentGermProperty2021_iff`). -/
 theorem theorem_3_2_3_isManifold_2021def (P : MPolyfold X) {M : Set X} {n : ℕ}
     [ParacompactSpace M] (hne : M.Nonempty) (hM : P.HasTangentGermProperty2021 M n) :
-    letI := (MPolyfold.subPolyfold (theorem_3_27_isSubMPolyfold P fun _ hx =>
+    letI := (MPolyfold.subPolyfold (theorem_3_2_3_isSubMPolyfold P fun _ hx =>
       ((MPolyfold.hasTangentGermProperty2021_iff P).1 hM).exists_isRegular hx)).cornerChartedSpace
-      (MPolyfold.theorem_3_27_isManifoldWithCorners P (fun _ hx =>
+      (MPolyfold.theorem_3_2_3_isManifoldWithCorners P (fun _ hx =>
         ((MPolyfold.hasTangentGermProperty2021_iff P).1 hM).exists_isRegular hx)
         hne).hasCornerStructureOfDim
     IsManifold (modelWithCornersEuclideanQuadrant n) ∞ M :=

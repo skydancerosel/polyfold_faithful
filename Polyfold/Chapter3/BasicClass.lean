@@ -4,20 +4,20 @@ import Polyfold.Chapter3.StrongBundleSections
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.4,
-**Theorem 3.38** (weak stability of basic germs under sc⁺-perturbations) with its index statement,
-in the germ setting of Definitions 3.7 and 3.37.
+**Theorem 3.4.2 (preprint 3.38)** (weak stability of basic germs under sc⁺-perturbations) with its index statement,
+in the germ setting of Definitions 3.1.7 and 3.4.1 (preprint 3.7 and 3.37).
 
 # Stability of basic germs
 
 ## The text, paraphrased
 
-(Definition 3.37) The basic class `C_basic` consists of the basic germs
-`f : O([0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ ⊕ W, 0) → (ℝᴺ ⊕ W, 0)` (Definition 3.7).  (Theorem 3.38) Let `f` be a basic
+(Definition 3.4.1 (preprint 3.37)) The basic class `C_basic` consists of the basic germs
+`f : O([0,∞)ᵏ ⊕ ℝⁿ⁻ᵏ ⊕ W, 0) → (ℝᴺ ⊕ W, 0)` (Definition 3.1.7 (preprint 3.7)).  (Theorem 3.4.2 (preprint 3.38)) Let `f` be a basic
 germ and `s` the principal part of an sc⁺-section with `s(0) = 0`.  Then there is a strong bundle
 isomorphism `Φ : U ◁ (ℝᴺ ⊕ W) → U' ◁ (ℝᴺ' ⊕ W')` covering an sc-diffeomorphism `ϕ : (U, 0) → (V, 0)`
 such that `(Φ_*(f + s))¹` (the levels raised by one) is a basic germ; `n − N = n' − N'`.  *Proof.*
 `P ∘ f(a, w) = w − B(a, w)`; `A := P ∘ D₂s(0) : W → W` is an sc⁺-operator, so `1 + A` is
-sc-Fredholm of index `0` (Proposition 1.10) with sc-splittings `W = C ⊕ X = R ⊕ Z`,
+sc-Fredholm of index `0` (Proposition 1.1.11 (preprint 1.10)) with sc-splittings `W = C ⊕ X = R ⊕ Z`,
 `C = ker(1 + A)`, `R = range(1 + A)`, `dim C = dim Z`.  Write `P ∘ s(a, w) = Aw + S(a, w)` with
 `D₂S(0) = 0`; `S` is an arbitrarily small contraction in `w` on every level `m ≥ 1`.  Then
 `P ∘ (f + s)(a, w) = (1 + A)w − B̄(a, w)`, `B̄ = B − S`, and with `P₁ : W → X`, `P₂ : W → R` the
@@ -25,7 +25,7 @@ projections and `L = (1 + A)|_X : X → R`, `L⁻¹P₂ ∘ P ∘ (f + s)(a, c +
 `B̂((a, c), x) = L⁻¹P₂B̄(a, c + x)`, which is the contraction normal form in the new parameter
 `(a, c) ∈ V ⊕ C` and the new fibre variable `x ∈ X` on all levels `m ≥ 1`.  The coordinate change
 is `ψ(a, w) = (a, (1 − P₁)w, P₁w)`, `Ψ(δa ⊕ δw) = δa ⊕ L⁻¹P₂δw ⊕ τ(1 − P₂)δw`.
-(Corollary 3.39) If `g` is conjugate to a basic germ by `Φ` and `s` is sc⁺, then
+(Corollary 3.4.3 (preprint 3.39)) If `g` is conjugate to a basic germ by `Φ` and `s` is sc⁺, then
 `((Ψ ∘ Φ)_*(g + s))¹` is a basic germ for some `Ψ`.
 
 ## What is formalized
@@ -35,19 +35,19 @@ is `ψ(a, w) = (a, (1 − P₁)w, P₁w)`, `Ψ(δa ⊕ δw) = δa ⊕ L⁻¹P₂
   (`ScBanach.finLift`), and `isScFredholm_id`, `scIndex_id` (the identity is sc-Fredholm of
   index `0`, the trivial splitting).
 * `Polyfold.scPlusOfDeriv` (the sc⁺-operator `A = D₂s(0)` of an sc⁺-germ, from the level
-  operators of Proposition 1.16 at `0`), `Polyfold.scPlusRemainder` (`S = s − A`) and
+  operators of Proposition 1.2.1 (preprint 1.16) at `0`), `Polyfold.scPlusRemainder` (`S = s − A`) and
   **`Polyfold.scPlusRemainder_contraction`** (the contraction estimate for `S` on level `m + 1`,
   by the mean value inequality and the continuity of the derivative).
 * `Polyfold.StabilityData` (the data: the germ, the sc⁺-germ `s` with `s(0) = 0`, and an
   sc-Fredholm splitting `W = C ⊕ X = R ⊕ Z` of `1 + A`; `StabilityData.exists_of_scPlus` by
-  Proposition 1.10), with the sc-isomorphism `L : X_m ≃ R_m` (`StabilityData.Lequiv`, inverse
+  Proposition 1.1.11 (preprint 1.10)), with the sc-isomorphism `L : X_m ≃ R_m` (`StabilityData.Lequiv`, inverse
   continuous by the open mapping theorem), the sc-operators `L⁻¹P₂` (`LinvPOp`), the base change
   `ψ` (`split`) and its inverse `ψ⁻¹` (`glue`), the fibre change `Ψ` (`fiber`) and its inverse
   (`fiberInv`), all on the index-raised structures, with `split_glue`, `glue_split`,
   `fiber_fiberInv`, `fiberInv_fiber`.
 * `StabilityData.pushGerm` (the germ `ψ(U_{m+1})`), `StabilityData.pushMap f`
   (`(Φ_*(f + s))¹ = Ψ ∘ (f + s)¹ ∘ ψ⁻¹`), `StabilityData.pushB B` (`B̂`), and
-  **`Polyfold.theorem_3_38`**: `pushMap f` is a basic germ with contraction map `pushB B`
+  **`Polyfold.theorem_3_4_2`**: `pushMap f` is a basic germ with contraction map `pushB B`
   (`pushMap_isScSmoothGerm`, `snd_pushMap`, `pushB_isSc0ContractionGerm`).
 * `StabilityData.pushMap_eq_zero_iff` (the solution sets correspond under `ψ`),
   `StabilityData.finrank_Cs_eq_finrank_Zs` (**the index statement** `dim C = dim Z`, i.e.
@@ -55,28 +55,28 @@ is `ψ(a, w) = (a, (1 − P₁)w, P₁w)`, `Ψ(δa ⊕ δw) = δa ⊕ L⁻¹P₂
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **The coordinate change of Theorem 3.38 is linear**: `ψ(a, w) = ((a, (1 − P₁)w), P₁w)` and
+* **The coordinate change of Theorem 3.4.2 (preprint 3.38) is linear**: `ψ(a, w) = ((a, (1 − P₁)w), P₁w)` and
   `Ψ` are sc-isomorphisms (sc-operators with sc-operator inverses), so no general strong bundle
   isomorphism is needed here; the push-forward is written with these operators.  The text's
   `τ : Z → C` (to make the new finite-dimensional target `ℝᴺ ⊕ C`) is not applied: the new
   target is `(Q ⊕ Z) ⊕ X¹` (`StabilityData.F'`), the new source `(P ⊕ C) ⊕ X¹` (`E'`).
 * **The index raise is a change of sc-structure**: the new germ lives on the shifted spaces
   `X¹` (levels `X_{m+1}`), and its germ of neighbourhoods is `ψ(U_{m+1})`; "the levels are
-  raised by `1`" is `IsSckGerm.shift` (Proposition 1.17 for germs) for `(f + s)¹`.
-* **"`S` is an arbitrarily small contraction on every level `m ≥ 1`"** needs Proposition 1.16
+  raised by `1`" is `IsSckGerm.shift` (Proposition 1.2.2 (preprint 1.17) for germs) for `(f + s)¹`.
+* **"`S` is an arbitrarily small contraction on every level `m ≥ 1`"** needs Proposition 1.2.1 (preprint 1.16)
   for the sc⁺-germ `s` at level `m + 1` (`s : U_{m+1} → W_{m+1}` is `C¹` with derivative
   continuous in the operator norm, `continuousOn_levelDeriv_clm`) and the mean value inequality
   on a ball in `W_{m+1}` for fixed `a`; only the partial derivative `D₂S(0) = 0` vanishes
   (`scPlusRemainder_contraction`).
 * **Hypotheses actually used**: of the sc⁺-section `s` only its `W`-component enters the
   contraction (it must be sc-smooth into `W¹` for the push-forward to be sc-smooth); of the basic
-  germ, `B` is used only through Definition 3.7 (sc⁰ with the contraction estimates); `1 + A` is
-  sc-Fredholm by Proposition 1.10 applied to the identity (`isScFredholm_id`), and
-  `dim C = dim Z` is `ind(1 + A) = ind(1) = 0` (`proposition_1_10_index`, `scIndex_id`).
+  germ, `B` is used only through Definition 3.1.7 (preprint 3.7) (sc⁰ with the contraction estimates); `1 + A` is
+  sc-Fredholm by Proposition 1.1.11 (preprint 1.10) applied to the identity (`isScFredholm_id`), and
+  `dim C = dim Z` is `ind(1 + A) = ind(1) = 0` (`proposition_1_1_11_index`, `scIndex_id`).
 * The sum `f + s` of the text is `fsum f = f + ι ∘ s` (`StabilityData.fsum`), sc-smooth by the
   pairing and operator rules of the germ calculus; its `W`-component at a level-`1` point is
   `(1 + A)w − B̄(a, w)` (`snd_levelMap_fsum`).
-* Corollary 3.39 (the composition with a given conjugation to a basic germ) is not formalized
+* Corollary 3.4.3 (preprint 3.39) (the composition with a given conjugation to a basic germ) is not formalized
   here; it is the composition of a strong bundle isomorphism with the linear change of this file.
 -/
 
@@ -293,8 +293,8 @@ variable {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)} {s : P × W 0 
   {Ds : (ScBanach.paramProd P W) 1 → (ScBanach.paramProd P W) 0 →L[ℝ] W 1}
 
 /-- The sc⁺-operator `A = D₂s(0) : W → W¹` of an sc¹-germ `s : O(C̃ ⊕ W, 0) → W¹` (proof of
-Theorem 3.38: "since `s` is an sc⁺-section and `0` is a smooth point, `A` is an sc⁺-operator");
-its level-`m` map is the level operator of Proposition 1.16 at `0 ∈ U_{m+1}`. -/
+Theorem 3.4.2 (preprint 3.38): "since `s` is an sc⁺-section and `0` is a smooth point, `A` is an sc⁺-operator");
+its level-`m` map is the level operator of Proposition 1.2.1 (preprint 1.16) at `0 ∈ U_{m+1}`. -/
 def scPlusOfDeriv (hs : IsSc1GermWith (E := ScBanach.paramProd P W) (F := W.shift) G s Ds) :
     ScPlus W W where
   lvl m := (levelDeriv (E := ScBanach.paramProd P W) (F := W.shift) Ds m 0).comp
@@ -317,17 +317,17 @@ lemma scPlusOfDeriv_zero_apply
     scPlusOfDeriv hs 0 w = Ds 0 ((0 : P), w) := by
   rw [scPlusOfDeriv_apply, levelDeriv_zero]
 
-/-- The remainder `S(a, w) = s(a, w) − A w` on level `m + 1` (proof of Theorem 3.38:
+/-- The remainder `S(a, w) = s(a, w) − A w` on level `m + 1` (proof of Theorem 3.4.2 (preprint 3.38):
 `P ∘ s(a, w) = Aw + S(a, w)`, `D₂S(0, 0) = 0`). -/
 def scPlusRemainder (hs : IsSc1GermWith (E := ScBanach.paramProd P W) (F := W.shift) G s Ds)
     (m : ℕ) (x : P × W (m + 1)) : W (m + 1) :=
   levelMap (E := ScBanach.paramProd P W) (F := W.shift) s m ((ScBanach.paramProd P W).incl m x) -
     scPlusOfDeriv hs m (W.incl m x.2)
 
-/-- **The contraction estimate for the remainder** (proof of Theorem 3.38: "`S` is, with respect to
+/-- **The contraction estimate for the remainder** (proof of Theorem 3.4.2 (preprint 3.38): "`S` is, with respect to
 the second variable `w`, an arbitrary small contraction on every level `m ≥ 1`, if `a` and `w` are
 sufficiently small depending on the level `m` and the contraction constant"): since `D₂S(0) = 0`
-on level `m + 1` and the derivative is continuous there (Proposition 1.16), the mean value
+on level `m + 1` and the derivative is continuous there (Proposition 1.2.1 (preprint 1.16)), the mean value
 inequality gives `|S(a, w) − S(a, w')|_{m+1} ≤ ε|w − w'|_{m+1}` near `0`. -/
 theorem scPlusRemainder_contraction (hC : IsQuadrantLike (ScBanach.const P) Ct)
     (hs : IsSc1GermWith (E := ScBanach.paramProd P W) (F := W.shift) G s Ds) (m : ℕ) {ε : ℝ}
@@ -407,12 +407,12 @@ theorem scPlusRemainder_contraction (hC : IsQuadrantLike (ScBanach.const P) Ct)
 
 end Linearization
 
-/-! ### Theorem 3.38: the data of the coordinate change -/
+/-! ### Theorem 3.4.2 (preprint 3.38): the data of the coordinate change -/
 
-/-- **The data of Theorem 3.38**: the germ of neighbourhoods `G = O(C̃ ⊕ W, 0)`, an sc⁺-germ
+/-- **The data of Theorem 3.4.2 (preprint 3.38)**: the germ of neighbourhoods `G = O(C̃ ⊕ W, 0)`, an sc⁺-germ
 `s : O(C̃ ⊕ W, 0) → W¹` (the `W`-component of the sc⁺-section) with `s(0) = 0`, and an
-sc-Fredholm splitting (Definition 1.8) `W = C ⊕ X = R ⊕ Z` of `1 + A`, `A = D₂s(0)`
-(Proposition 1.10; `C = ker(1 + A)`, `R = range(1 + A)`). -/
+sc-Fredholm splitting (Definition 1.1.9 (preprint 1.8)) `W = C ⊕ X = R ⊕ Z` of `1 + A`, `A = D₂s(0)`
+(Proposition 1.1.11 (preprint 1.10); `C = ker(1 + A)`, `R = range(1 + A)`). -/
 structure StabilityData (Ct : Set P) (W : ScBanach) where
   /-- The germ of neighbourhoods. -/
   G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)
@@ -754,7 +754,7 @@ def fsum (f : P × W 0 → Q × W 0) : P × W 0 → Q × W 0 :=
 lemma fsum_apply (f : P × W 0 → Q × W 0) (x : P × W 0) :
     𝒮.fsum f x = f x + ((0 : Q), W.toBase 1 (𝒮.s x)) := rfl
 
-/-- `B̄ = B − S` with `S(a, w) = s(a, w) − Aw` (proof of Theorem 3.38, "we have abbreviated
+/-- `B̄ = B − S` with `S(a, w) = s(a, w) − Aw` (proof of Theorem 3.4.2 (preprint 3.38), "we have abbreviated
 `B̄(a, w) = B(a, w) − S(a, w)`"), as a germ on `O(C̃ ⊕ W, 0)`. -/
 def Bbar (B : P × W 0 → W 0) : P × W 0 → W 0 :=
   W.addOp 0 ∘ pairMap (E := ScBanach.paramProd P W) (F := W) (G := W) B ((W.negOp.comp W.shiftIncl) 0 ∘
@@ -799,13 +799,13 @@ lemma glue_mapsToGerm : 𝒮.pushGerm.MapsToGerm 𝒮.G.shift (𝒮.glue 0) := b
   rw [ScOperator.levelMap_eq]
   exact hy
 
-/-- **The pushed-forward germ `Φ_*(f + s)` of Theorem 3.38** (on level `1`):
+/-- **The pushed-forward germ `Φ_*(f + s)` of Theorem 3.4.2 (preprint 3.38)** (on level `1`):
 `Ψ ∘ (f + s) ∘ ψ⁻¹ : (P ⊕ C) ⊕ X¹ → (Q ⊕ Z) ⊕ X¹`. -/
 def pushMap (f : P × W 0 → Q × W 0) : 𝒮.E' 0 → 𝒮.F' Q 0 :=
   𝒮.fiber 0 ∘ levelMap (E := ScBanach.paramProd P W) (F := ScBanach.paramProd Q W) (𝒮.fsum f) 1 ∘
     𝒮.glue 0
 
-/-- **The contraction map `B̂` of Theorem 3.38**: `B̂((a, c), x) = L⁻¹P₂ B̄(a, c + x)`. -/
+/-- **The contraction map `B̂` of Theorem 3.4.2 (preprint 3.38)**: `B̂((a, c), x) = L⁻¹P₂ B̄(a, c + x)`. -/
 def pushB (B : P × W 0 → W 0) : 𝒮.E' 0 → 𝒮.XB.shift 0 :=
   𝒮.LinvPOp.shiftOp 0 ∘ levelMap (E := ScBanach.paramProd P W) (F := W) (𝒮.Bbar B) 1 ∘ 𝒮.glue 0
 
@@ -832,7 +832,7 @@ lemma Bbar_isSc0Germ {B : P × W 0 → W 0} (hB : IsSc0Germ 𝒮.G B) : IsSc0Ger
     (((W.shift.negOp.comp (𝒮.A.comp (ScBanach.sndOp (ScBanach.const P) W))).isSc0Germ _))
 
 /-- The pushed-forward germ is sc-smooth: it is `Ψ ∘ (f + s)¹ ∘ ψ⁻¹` with `Ψ`, `ψ⁻¹`
-sc-operators and `(f + s)¹` sc-smooth on the shifted germ (Proposition 1.17). -/
+sc-operators and `(f + s)¹` sc-smooth on the shifted germ (Proposition 1.2.2 (preprint 1.17)). -/
 theorem pushMap_isScSmoothGerm {f : P × W 0 → Q × W 0}
     (hf : IsScSmoothGerm (E := ScBanach.paramProd P W) (F := ScBanach.paramProd Q W) 𝒮.G f) :
     IsScSmoothGerm 𝒮.pushGerm (𝒮.pushMap f) := by
@@ -868,7 +868,7 @@ lemma snd_levelMap_fsum {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0} (hf :
 
 omit hC in
 /-- The identity `P ∘ Ψ ∘ (f + s) ∘ ψ⁻¹(a, c, x) = x − B̂(a, c, x)` (the "desired formula" of the
-proof of Theorem 3.38). -/
+proof of Theorem 3.4.2 (preprint 3.38)). -/
 theorem snd_pushMap {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0} (hf : IsBasicGerm Ct 𝒮.G f B)
     {y : 𝒮.E' 0} (hy : y ∈ 𝒮.pushGerm.U 0) : (𝒮.pushMap f y).2 = y.2 - 𝒮.pushB B y := by
   obtain ⟨⟨a, c⟩, x⟩ := y
@@ -928,9 +928,9 @@ lemma levelMap_pushB {B : P × W 0 → W 0} (hB : IsSc0Germ 𝒮.G B) {m : ℕ} 
       𝒮.glue_mapsToGerm hy, ScOperator.levelMap_eq, hBb.levelMap_shift hy]
   rfl
 
-/-- **`B̂` is an sc⁰-contraction germ on the index-raised structure** (the core of Theorem 3.38):
+/-- **`B̂` is an sc⁰-contraction germ on the index-raised structure** (the core of Theorem 3.4.2 (preprint 3.38)):
 on level `m` of `(P ⊕ C) ⊕ X¹`, i.e. level `m + 1` of `W`, `B̂ = L⁻¹P₂(B − S)` is a contraction in
-`x` with arbitrarily small constant near `0`, since `B` is (Definition 3.7) and `S` is
+`x` with arbitrarily small constant near `0`, since `B` is (Definition 3.1.7 (preprint 3.7)) and `S` is
 (`scPlusRemainder_contraction`). -/
 theorem pushB_isSc0ContractionGerm {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
     (hf : IsBasicGerm Ct 𝒮.G f B) : IsSc0ContractionGerm (Ct ×ˢ univ) 𝒮.pushGerm (𝒮.pushB B) where
@@ -1024,15 +1024,15 @@ theorem pushB_isSc0ContractionGerm {f : P × W 0 → Q × W 0} {B : P × W 0 →
     rw [hnorm]
     exact key
 
-/-- **Theorem 3.38 (weak stability of basic germs)**: let `f : O(C̃ ⊕ W, 0) → Q ⊕ W` be a basic
+/-- **Theorem 3.4.2 (preprint 3.38) (weak stability of basic germs)**: let `f : O(C̃ ⊕ W, 0) → Q ⊕ W` be a basic
 germ and `s` an sc⁺-germ with `s(0) = 0` (the `W`-component of the sc⁺-section; its
 `Q`-component does not enter).  With the sc-Fredholm splitting `W = C ⊕ X = R ⊕ Z` of
-`1 + D₂s(0)` (Proposition 1.10), the strong bundle isomorphism `Φ = (ψ, Ψ)` with the **linear**
+`1 + D₂s(0)` (Proposition 1.1.11 (preprint 1.10)), the strong bundle isomorphism `Φ = (ψ, Ψ)` with the **linear**
 base change `ψ(a, w) = ((a, (1 − P₁)w), P₁w)` (`StabilityData.split`, inverse `glue`) and fibre
 change `Ψ(q, w) = ((q, (1 − P₂)w), L⁻¹P₂w)` (`fiber`, inverse `fiberInv`) carries `f + s` to the
 germ `(Φ_*(f + s))¹ = pushMap f` on `O((C̃ ⊕ C) ⊕ X¹, 0)` (levels raised by one), which is a
 basic germ with contraction map `B̂ = pushB B`. -/
-theorem _root_.Polyfold.theorem_3_38 {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
+theorem _root_.Polyfold.theorem_3_4_2 {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
     (hf : IsBasicGerm Ct 𝒮.G f B) :
     IsBasicGerm (Ct ×ˢ univ) 𝒮.pushGerm (𝒮.pushMap f) (𝒮.pushB B) where
   isScSmooth := 𝒮.pushMap_isScSmoothGerm hC hf.isScSmooth
@@ -1059,13 +1059,13 @@ theorem pushMap_eq_zero_iff {f : P × W 0 → Q × W 0}
   · intro h; exact (ScBanach.paramProd Q W).toBase_injective 1 (by rw [h, map_zero])
 
 omit hC in
-/-- **Theorem 3.38, the index**: `dim C = dim Z` ("because the Fredholm index is invariant under
-strong bundle isomorphisms": `ind(1 + A) = ind(1) = 0` by Proposition 1.10), so that
+/-- **Theorem 3.4.2 (preprint 3.38), the index**: `dim C = dim Z` ("because the Fredholm index is invariant under
+strong bundle isomorphisms": `ind(1 + A) = ind(1) = 0` by Proposition 1.1.11 (preprint 1.10)), so that
 `n − N = n' − N'` with `n' = n + dim C`, `N' = N + dim Z`. -/
 theorem finrank_Cs_eq_finrank_Zs : Module.finrank ℝ 𝒮.Cs = Module.finrank ℝ 𝒮.Zs := by
   have h1 := 𝒮.sp.index_eq
   have h2 : scIndex 𝒮.T = 0 := by
-    rw [proposition_1_10_index (isScFredholm_id W) 𝒮.A, scIndex_id]
+    rw [proposition_1_1_11_index (isScFredholm_id W) 𝒮.A, scIndex_id]
   rw [h2] at h1
   unfold ScFredholmSplitting.index at h1
   change (Module.finrank ℝ 𝒮.sp.K : ℤ) - Module.finrank ℝ 𝒮.sp.C = 0 at h1
@@ -1259,12 +1259,12 @@ theorem pushMap_eq_levelMap_pushMap₀ {f : P × W 0 → Q × W 0}
 
 end StabilityData
 
-/-- The data of Theorem 3.38 exist for every sc-smooth sc⁺-germ `s` with `s(0) = 0`:
-`1 + D₂s(0)` is sc-Fredholm by Proposition 1.10. -/
+/-- The data of Theorem 3.4.2 (preprint 3.38) exist for every sc-smooth sc⁺-germ `s` with `s(0) = 0`:
+`1 + D₂s(0)` is sc-Fredholm by Proposition 1.1.11 (preprint 1.10). -/
 theorem StabilityData.exists_of_scPlus {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)}
     {s : P × W 0 → W 1} (hs : IsScSmoothGerm (E := ScBanach.paramProd P W) (F := W.shift) G s)
     (hs0 : s 0 = 0) : ∃ 𝒮 : StabilityData Ct W, 𝒮.G = G ∧ 𝒮.s = s := by
-  have h := proposition_1_10 (isScFredholm_id W) (scPlusOfDeriv ((hs 1).1.isSc1GermWith_scDerivGerm))
+  have h := proposition_1_1_11_preprint (isScFredholm_id W) (scPlusOfDeriv ((hs 1).1.isSc1GermWith_scDerivGerm))
   exact ⟨⟨G, s, hs, hs0, Classical.choice h⟩, rfl, rfl⟩
 
 

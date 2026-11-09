@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = theorem_3_15_tame ∧ StrongBundle.IsScFredholmGermTame.sectionAdd (universes 0); at HEAD both and B's IsScFredholmSectionTame use the germ reading of Definitions 3.50/3.51 (filling and sc⁺-section as germs, data in a tame chart). B is theorem_3_15_tame with the extra hypothesis IsTameStrongBundle Bd (tame base and an equivalent atlas of tame charts); A_to_B is the first conjunct applied, the extra hypothesis unused. B ⇒ A fails for a genuine reason: A assumes no tameness of the bundle (only tame germ data, IsScFredholmSectionTame), and its second conjunct is a pointwise germ statement (f only a section with tame germ data at one point x, s an sc⁺-section) that B, a statement about global sc-Fredholm sections of tame bundles, does not give.",
+ "why": "A = theorem_3_1_18_tame ∧ StrongBundle.IsScFredholmGermTame.sectionAdd (universes 0); at HEAD both and B's IsScFredholmSectionTame use the germ reading of Definitions 3.50/3.51 (filling and sc⁺-section as germs, data in a tame chart). B is theorem_3_1_18_tame with the extra hypothesis IsTameStrongBundle Bd (tame base and an equivalent atlas of tame charts); A_to_B is the first conjunct applied, the extra hypothesis unused. B ⇒ A fails for a genuine reason: A assumes no tameness of the bundle (only tame germ data, IsScFredholmSectionTame), and its second conjunct is a pointwise germ statement (f only a section with tame germ data at one point x, s an sc⁺-section) that B, a statement about global sc-Fredholm sections of tame bundles, does not give.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved); A_to_B uses only the hypothesis",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "theorem_3_15_tame and IsScFredholmGermTame.sectionAdd now state the germ reading, as does B's IsScFredholmSectionTame; A_to_B still checks unchanged (hypothesis used). Result unchanged: A_stronger."
+  "note": "theorem_3_1_18_tame and IsScFredholmGermTame.sectionAdd now state the germ reading, as does B's IsScFredholmSectionTame; A_to_B still checks unchanged (hypothesis used). Result unchanged: A_stronger."
  }
 }

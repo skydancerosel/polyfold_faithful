@@ -2,7 +2,7 @@ import Polyfold.Chapter2.StrongBundlePullback
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.5, the text
-after **Definition 2.51** and **Definition 2.52**: the M-polyfold `Y[1]` of a strong bundle, the
+after **Definition 2.6.5 (preprint 2.51)** and **Definition 2.6.6 (preprint 2.52)**: the M-polyfold `Y[1]` of a strong bundle, the
 projection `P[1]`, the chart independence of the double filtration, and sc⁺-sections as sc-smooth
 maps into `Y[1]`.
 
@@ -10,9 +10,9 @@ maps into `Y[1]`.
 
 ## The text, paraphrased
 
-(After Definition 2.51) The strong bundle charts induce a double filtration `Y_{m,k}`,
+(After Definition 2.6.5 (preprint 2.51)) The strong bundle charts induce a double filtration `Y_{m,k}`,
 `0 ≤ k ≤ m + 1`, and two M-polyfolds `Y[i]`, `Y[i]_m = Y_{m,m+i}` (`i = 0, 1`), with the charts
-`Φ : P⁻¹(V)[i] → K[i]`; the projections `P[i] : Y[i] → X` are sc-smooth.  (Definition 2.52) An
+`Φ : P⁻¹(V)[i] → K[i]`; the projections `P[i] : Y[i] → X` are sc-smooth.  (Definition 2.6.6 (preprint 2.52)) An
 sc⁺-section is a section that is sc-smooth as a map `X → Y[1]`.
 
 ## What is formalized
@@ -23,11 +23,11 @@ sc⁺-section is a section that is sc-smooth as a map `X → Y[1]`.
   continuous) and the `T2Space` instance.
 * `StrongBundle.oneChart` (the chart `Φ[1] : P⁻¹(V)[1] → K[1]`), `oneChart_overlap`,
   `oneChart_transition`, `oneChart_compatible`, `StrongBundle.atlas1`,
-  `StrongBundle.metrizableSpace_one` and the instance `paracompactSpace_one` (as in Theorem 2.16),
+  `StrongBundle.metrizableSpace_one` and the instance `paracompactSpace_one` (as in Theorem 2.3.10 (preprint 2.16)),
   `StrongBundle.toMPolyfold1` (**the M-polyfold `Y[1]`**), `StrongBundle.isScSmoothMap_proj1`
   (**`P[1] : Y[1] → X` is sc-smooth**), `StrongBundle.isScSmoothMap_oneVal` (`Y[1] → Y[0]` is
   sc-smooth).
-* `StrongBundle.isScPlusSection_iff` (**Definition 2.52**: the chart-wise `IsScPlusSection` is
+* `StrongBundle.isScPlusSection_iff` (**Definition 2.6.6 (preprint 2.52)**: the chart-wise `IsScPlusSection` is
   "sc-smooth as a map `X → Y[1]`").
 * `StrongBundle.mem_doubleLevel_iff` (the double filtration `Y_{m,k}` is chart independent).
 
@@ -86,7 +86,7 @@ namespace StrongBundle
 
 variable [T2Space Y] [ParacompactSpace Y] (B : StrongBundle PX P)
 
-/-- The set `Y[1] = Y_{0,1}` (after Definition 2.51): the points whose fibre component lies in
+/-- The set `Y[1] = Y_{0,1}` (after Definition 2.6.5 (preprint 2.51)): the points whose fibre component lies in
 `F₁` in the charts of the atlas. -/
 def oneSet : Set Y :=
   {y | ∀ c ∈ B.atlas.charts, y ∈ c.toPartialEquiv.source → (c y).2 ∈ range (c.F.toBase 1)}
@@ -195,7 +195,7 @@ lemma liftOne_symm {z : (c.φ.model.E.prod c.F.shift) 0} (hz : z ∈ strongShift
     c.toPartialEquiv.right_inv hz']
   exact Prod.ext rfl (c.F.toBase_injective 1 (Function.invFun_eq ⟨z.2, rfl⟩))
 
-/-- The chart `Φ[1] : P⁻¹(V)[1] → K[1]` of `Y[1]` (after Definition 2.51), with model
+/-- The chart `Φ[1] : P⁻¹(V)[1] → K[1]` of `Y[1]` (after Definition 2.6.5 (preprint 2.51)), with model
 `(K[1], C ◁ F, E ◁ F¹)`. -/
 def oneChart : MChart B.One where
   model := ⟨c.φ.model.E.prod c.F.shift, c.φ.model.C ×ˢ univ, strongShiftOne c.K,
@@ -311,7 +311,7 @@ lemma oneChart_transition {c' : StrongBundleChart PX P} (hc' : c' ∈ B.atlas.ch
   rfl
 
 /-- The charts `Φ[1]` are pairwise compatible: their transition maps are the `[1]`-transition maps
-`(Φ' ∘ Φ⁻¹)[1]` of Definition 2.50. -/
+`(Φ' ∘ Φ⁻¹)[1]` of Definition 2.6.4 (preprint 2.50). -/
 theorem oneChart_compatible {c' : StrongBundleChart PX P} (hc' : c' ∈ B.atlas.charts)
     (y₀' : B.One) : (oneChart hc y₀).Compatible (oneChart hc' y₀') := by
   have h := B.atlas.compatible c hc c' hc'
@@ -338,7 +338,7 @@ def atlas1 : MAtlas B.One where
     obtain ⟨c, hc, hy⟩ := B.atlas.cover (B.oneVal y)
     exact ⟨oneChart hc y, ⟨c, hc, y, rfl⟩, hy⟩
 
-/-- `Y[1]` is metrizable (as in Theorem 2.16: it is locally homeomorphic to the retracts `K[1]`
+/-- `Y[1]` is metrizable (as in Theorem 2.3.10 (preprint 2.16): it is locally homeomorphic to the retracts `K[1]`
 over a paracompact base). -/
 theorem metrizableSpace_one : MetrizableSpace B.One := by
   rcases isEmpty_or_nonempty B.One with h | hne
@@ -360,7 +360,7 @@ instance paracompactSpace_one : ParacompactSpace B.One := by
   have := B.metrizableSpace_one
   exact paracompactSpace_of_metrizableSpace _
 
-/-- **The M-polyfold `Y[1]`** (after Definition 2.51): `Y_{0,1}` with the charts
+/-- **The M-polyfold `Y[1]`** (after Definition 2.6.5 (preprint 2.51)): `Y_{0,1}` with the charts
 `Φ[1] : P⁻¹(V)[1] → K[1]`. -/
 def toMPolyfold1 : MPolyfold B.One := ⟨B.atlas1⟩
 
@@ -368,7 +368,7 @@ lemma isChart_oneChart {c : StrongBundleChart PX P} (hc : c ∈ B.atlas.charts) 
     B.toMPolyfold1.IsChart (oneChart hc y₀) :=
   B.toMPolyfold1.isChart_of_mem ⟨c, hc, y₀, rfl⟩
 
-/-- **After Definition 2.51**: the projection `P[1] : Y[1] → X` is sc-smooth (in the charts `Φ[1]`
+/-- **After Definition 2.6.5 (preprint 2.51)**: the projection `P[1] : Y[1] → X` is sc-smooth (in the charts `Φ[1]`
 and `φ` it is the projection `K[1] → O`, Lemma 5.B). -/
 theorem isScSmoothMap_proj1 : B.toMPolyfold1.IsScSmoothMap PX (P ∘ B.oneVal) := by
   refine MPolyfold.IsScSmoothOn.of_exists_charts isOpen_univ
@@ -405,9 +405,9 @@ theorem isScSmoothMap_oneVal : B.toMPolyfold1.IsScSmoothMap B.toMPolyfold0 B.one
   have hk' : (k.1, c.F.toBase 1 k.2) ∈ c.toPartialEquiv.target := by rw [c.target_eq]; exact hk
   exact (c.toPartialEquiv.right_inv hk').symm
 
-/-! ### Sc⁺-sections are the sc-smooth sections into `Y[1]` (Definition 2.52) -/
+/-! ### Sc⁺-sections are the sc-smooth sections into `Y[1]` (Definition 2.6.6 (preprint 2.52)) -/
 
-/-- **Definition 2.52**, sc⁺-sections: the chart-wise definition `IsScPlusSection` (the principal
+/-- **Definition 2.6.6 (preprint 2.52)**, sc⁺-sections: the chart-wise definition `IsScPlusSection` (the principal
 parts take values in `F₁` and their representatives `O → K[1]` are sc-smooth) agrees with the
 text's "`f` is sc-smooth as a map `X → Y[1]`". -/
 theorem isScPlusSection_iff (f : X → Y) :
@@ -488,7 +488,7 @@ lemma range_toBase_mono (E : ScBanach) {k m : ℕ} (hkm : k ≤ m) :
   rintro _ ⟨w, rfl⟩
   exact ⟨E.inclK k j w, E.toBase_inclK k j w⟩
 
-/-- **After Definition 2.51**: the double filtration `Y_{m,k}` (`0 ≤ k ≤ m + 1`) is chart
+/-- **After Definition 2.6.5 (preprint 2.51)**: the double filtration `Y_{m,k}` (`0 ≤ k ≤ m + 1`) is chart
 independent: `y ∈ Y_{m,k}` as soon as `Φ(y) ∈ E_m ⊕ F_k` for *one* chart `Φ` of the atlas around
 `y` ("the transition maps preserve the double filtrations": the base transition is sc-smooth, the
 `[0]`-transition preserves `E_k ⊕ F_k`, and the `[1]`-transition preserves `E_m ⊕ F_{m+1}`). -/

@@ -5,7 +5,7 @@ import Polyfold.Chapter6.StabilizationContinuity
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
 pp. 221–226: the **push-forward of orientations** `o ↦ φ_* o` along stabilized kernels, defined
-after Lemma 6.31, and the two facts behind Proposition 6.32 and Lemmas 6.33–6.34: adding sections
+after Lemma 6.6.6 (preprint 6.31), and the two facts behind Proposition 6.6.7 (preprint 6.32) and Lemmas 6.33–6.34: adding sections
 and deforming the data over a square do not change it *(book 2017: Lemma 6.14 and after,
 Proposition 6.13, Lemmas 6.15–6.16; see `BookConcordance.md`)*.
 
@@ -40,17 +40,17 @@ of `λ(L₁) ⊗ λ*(ℝᵏ)`, and `Φ_{E₁}⁻¹` gives `o₁ = φ_* o₀`.
 * `IsStabKernels.comp`, `push_comp`: pulling back along `g : Q' → Q`.
 * `IsStabKernels.push_congr`: the push-forward depends only on the data.
 * `IsStabKernels.push_trans`: it is compatible with concatenation (`propagate_trans`).
-* `IsStabKernels.push_append`: **adding sections** `s̄₁, …, s̄_d` does not change it (Lemma 6.33,
+* `IsStabKernels.push_append`: **adding sections** `s̄₁, …, s̄_d` does not change it (Lemma 6.6.8 (preprint 6.33),
   from `propagate_append`).
 * `IsStabKernels.push_square`: **the push-forward is unchanged by a deformation** with fixed end
   points `x₀`, `x₁`, along which the end-point operators vary continuously (Lemmas 6.33–6.34 and the
-  homotopy argument before Theorem 6.35).
+  homotopy argument before Theorem 6.6.11 (preprint 6.35)).
 
 ## Reading
 
 The text uses only the data along the path; so does `IsStabKernels`: sections are given pointwise
 (`S q`, `s i q` are sections of `P`), and the continuity in `q` is the continuity of the family `Λ`
-(which Lemma 6.30 provides).  The end points are fixed points `x₀ = y(a)`, `x₁ = y(b)` with chart
+(which Lemma 6.6.5 (preprint 6.30) provides).  The end points are fixed points `x₀ = y(a)`, `x₁ = y(b)` with chart
 points of the chart `c`, so that push-forwards along different families have the same type.  The
 text's `f − s` is `f + S` here.  The isomorphism `Φ_E` of formula (94) does not vary continuously
 in the topology of `DET` where `dim coker T` jumps, as we read it (`StabilizationContinuity.lean`);
@@ -537,7 +537,7 @@ theorem push_trans (hΛ : IsStabKernels f c hc y hy S s Λ) (hf : B.IsScFredholm
   simp only [Equiv.trans_apply, Equiv.apply_symm_apply, SubspaceFamily.contEquiv_apply,
     SubspaceFamily.cont_trans]
 
-/-- **Lemma 6.33, the core: adding sections does not change the push-forward.** For the same
+/-- **Lemma 6.6.8 (preprint 6.33), the core: adding sections does not change the push-forward.** For the same
 points and sections `S_q`, the kernels of `s₁, …, s_k` and of `s₁, …, s_k, s̄₁, …, s̄_d` give the
 same push-forward (`propagate_append`). -/
 theorem push_append (hΛ : IsStabKernels f c hc y hy S s Λ) [Nonempty Q] {d : ℕ}
@@ -632,7 +632,7 @@ theorem push_append (hΛ : IsStabKernels f c hc y hy S s Λ) [Nonempty Q] {d : �
   exact equiv_trans_congr_mid_aux _ _ (Equiv.ext key) _ _
 
 /-- **The push-forward is unchanged by a deformation with fixed end points** (the argument of
-Lemmas 6.33–6.34 and before Theorem 6.35): for paths `γ₀` from `a` to `a'` and `γ₁` from `b` to `b'`
+Lemmas 6.33–6.34 and before Theorem 6.6.11 (preprint 6.35)): for paths `γ₀` from `a` to `a'` and `γ₁` from `b` to `b'`
 in `Q` along which the points stay at `x₀`, resp. `x₁`, and along which the operators
 `(f + S_q)'(xᵢ)` and the values `ŝᵢ(q)(xᵢ)` vary continuously, the push-forwards from `a` to `b`
 and from `a'` to `b'` agree.  (In `Q` simply connected, continuation from `a` to `b'` through `b`

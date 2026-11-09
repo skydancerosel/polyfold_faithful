@@ -135,7 +135,7 @@ So $(x,h)$ is in the image of $Tr'$, and since $(x,h)\in TU'$, $(x,h) = Tr'(x,h)
 
 *Step 3.* Exchanging the roles of $r$ and $r'$ gives $Tr'(TU')\subset Tr(TU)$. $\square$
 
-*Checked by machine:* `Polyfold.proposition_2_4`, by this proof, written with the description of $Tr(TU)$ as the set of $p\in TU$ with $Tr(p) = p$ (`Polyfold.ScRetraction.mem_tangent_iff`); the inclusion is proved from $r(U)\subset r'(U')$ alone (`Polyfold.ScRetraction.tangent_subset_of_retract_subset`).
+*Checked by machine:* `Polyfold.proposition_2_1_11`, by this proof, written with the description of $Tr(TU)$ as the set of $p\in TU$ with $Tr(p) = p$ (`Polyfold.ScRetraction.mem_tangent_iff`); the inclusion is proved from $r(U)\subset r'(U')$ alone (`Polyfold.ScRetraction.tangent_subset_of_retract_subset`).
 
 **Definition 2.1.12 (preprint 2.5).** The *tangent* of the sc-smooth retract $(O,C,E)$ is the tuple
 $$T(O,C,E) = (TO,TC,TE),\qquad TO := Tr(TU),$$
@@ -169,7 +169,7 @@ $$T(f\circ r)(x,h) = T(f\circ r)(Ts(x,h)) = T(f\circ r\circ s)(x,h) = T(f\circ s
 (3) Let $\rho:U'\to U'$ be an sc-smooth retraction onto $O'$ for $(O',C',E')$. Since $f$ takes values in $O'$, $\rho\circ f = f$, hence $\rho\circ f\circ r = f\circ r$ as maps $U\to E'$ (with $f\circ r$ valued in $O'\subset U'$). By the chain rule, for $(x,h)\in TO\subset TU$,
 $$T(f\circ r)(x,h) = T(\rho\circ f\circ r)(x,h) = T\rho\big(T(f\circ r)(x,h)\big)\in T\rho(TU') = TO'. \qquad\square$$
 
-*(Checked by machine: `Polyfold.proposition_2_6_1`, `Polyfold.proposition_2_6_2`, `Polyfold.proposition_2_6_3`, by this proof.)*
+*(Checked by machine: `Polyfold.proposition_2_1_13_one`, `Polyfold.proposition_2_1_13_two`, `Polyfold.proposition_2_1_13_three`, by this proof.)*
 
 **Definition 2.1.14 (preprint 2.7).** A map $f:O\to O'$ between sc-smooth retracts $(O,C,E)$ and $(O',C',E')$ is
 *sc-smooth* if $f\circ r:U\to E'$ is sc-smooth for one (equivalently, by Proposition 2.1.13(1) (preprint 2.6), every)
@@ -190,7 +190,7 @@ between sc-smooth retracts. Then $g\circ f:O\to O''$ is sc-smooth and $T(g\circ 
 $$(g\circ f)\circ r = g\circ r'\circ(f\circ r)$$
 on $U$, with $f\circ r:U\to U'$ sc-smooth (its values lie in $O'\subset U'$) and $g\circ r':U'\to E''$ sc-smooth. By Corollary 4.A of Chapter 1, $(g\circ f)\circ r$ is sc-smooth and $T((g\circ f)\circ r) = T(g\circ r')\circ T(f\circ r)$. Restricting to $TO$ and using that $T(f\circ r)$ maps $TO$ into $TO'$ (Proposition 2.1.13(3) (preprint 2.6)), $T(g\circ f) = Tg\circ Tf$. $\square$
 
-*(Checked by machine: `Polyfold.theorem_2_8`, for retracts $O$, $O'$, by this proof.)*
+*(Checked by machine: `Polyfold.theorem_2_1_15`, for retracts $O$, $O'$, by this proof.)*
 
 HWZ summarize: sc-smooth retracts with sc-smooth maps form a category $\mathcal R$, and $T$ is a functor $\mathcal R\to\mathcal R$ ($T(\mathrm{id}_O) = \mathrm{id}_{TO}$ since $\mathrm{id}\circ r = r$ and $Tr|_{TO} = \mathrm{id}$; functoriality is Theorem 2.1.15 (preprint 2.8)). It has more structure than that: $TO\to O^1$ is a bundle whose fibres are Banach spaces, and the tangent maps are fibrewise linear. The preprint formalizes this with a second category.
 
@@ -237,7 +237,7 @@ $s(r(x))\in V$ and hence $r(s(r(x))) = s(r(x))$: $r\circ\rho = \rho$. Therefore
 $\rho\circ\rho = s\circ(r\circ s\circ r) = s\circ s\circ r = s\circ r = \rho$, and
 $\rho(U) = s(r(U)) = s(V)$. $\square$
 
-*(Checked by machine: `Polyfold.proposition_2_10_1`, with $O' = O\cap W$ for $W$ open in $E_0$, and `Polyfold.proposition_2_10_2`, by this proof. That sc-smoothness between retracts is a local property, used below for charts, is `Polyfold.IsScSmoothRetractMap.of_locally`.)*
+*(Checked by machine: `Polyfold.proposition_2_3_1_one`, with $O' = O\cap W$ for $W$ open in $E_0$, and `Polyfold.proposition_2_3_1_two`, by this proof. That sc-smoothness between retracts is a local property, used below for charts, is `Polyfold.IsScSmoothRetractMap.of_locally`.)*
 
 HWZ extend the word: an sc-smooth $s:O\to O$ on a retract with $s\circ s = s$ is also called an
 sc-smooth retraction.
@@ -330,7 +330,7 @@ $\varphi$ and $W$ open in $O_m$. Write $W = W'\cap O$ with $W'$ open in $E_m$. T
 $W'' := W'\cap E_{m+1}$ is open in $E_{m+1}$ (the inclusion $E_{m+1}\to E_m$ is continuous), and
 $\varphi^{-1}(W)\cap X_{m+1} = \varphi^{-1}(W''\cap O)$ with $W''\cap O$ open in $O_{m+1}$. $\square$
 
-*(Checked by machine: `Polyfold.lemma_2_15`.)*
+*(Checked by machine: `Polyfold.lemma_2_3_9`.)*
 
 **Theorem 2.3.10 (preprint 2.16).** Let $X$ be an M-polyfold. For every $m\ge0$ the space $X_m$ is metrizable, in
 particular paracompact. $X_\infty$ is metrizable.
@@ -340,7 +340,7 @@ paracompact Hausdorff space which is locally metrizable is metrizable) and on a 
 finite closed covers by paracompact subspaces. One point the preprint passes over is that $X_m$ must
 be shown *regular* before that lemma applies; §8 does this. So $X_m$ is an M-polyfold in its own right (with the sc-structures $E^m$), and all the constructions below apply to it.
 
-*Checked by machine:* `Polyfold.theorem_2_16`, **with the text's hypotheses**: $X$ is metrizable, every $X_m$ is metrizable and paracompact, and $X_\infty$ is metrizable. The formal proof does not go through Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57), and so does not need the regularity of $X_m$: a partition of unity of $X$ subordinate to the chart domains, pulled back to $X_m$ along the continuous inclusion, gives an explicit metric (`Polyfold.metrizableSpace_of_pullback`, through the cone metrics of `Polyfold.metrizableSpace_of_partition`), and paracompactness follows by Stone's theorem. The same argument proves Smirnov's theorem, which Mathlib lacks (`Polyfold.metrizableSpace_of_locally`). As a by-product every subset of an M-polyfold is paracompact (`Polyfold.MPolyfold.paracompactSpace_subtype`).
+*Checked by machine:* `Polyfold.theorem_2_3_10`, **with the text's hypotheses**: $X$ is metrizable, every $X_m$ is metrizable and paracompact, and $X_\infty$ is metrizable. The formal proof does not go through Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57), and so does not need the regularity of $X_m$: a partition of unity of $X$ subordinate to the chart domains, pulled back to $X_m$ along the continuous inclusion, gives an explicit metric (`Polyfold.metrizableSpace_of_pullback`, through the cone metrics of `Polyfold.metrizableSpace_of_partition`), and paracompactness follows by Stone's theorem. The same argument proves Smirnov's theorem, which Mathlib lacks (`Polyfold.metrizableSpace_of_locally`). As a by-product every subset of an M-polyfold is paracompact (`Polyfold.MPolyfold.paracompactSpace_subtype`).
 
 ### 2.3 The tangent bundle
 
@@ -392,7 +392,7 @@ charts $(V,\varphi,(O,C,E))$ of the atlas and open subsets $W$ of $TO\subset E_1
 projection $p:TX\to X_1$, $p(T_xX) = x$, is continuous and open. (3) $TX$ is metrizable, hence
 paracompact.
 
-*Checked by machine:* (1) Hausdorff, the instance `Polyfold.MPolyfold.instT2SpaceTangentSpace` (the basis property is not needed: the topology is the one generated by $\mathcal B$); (2) continuity of $p$, `Polyfold.MPolyfold.continuous_tangentProj`; the openness of $p$ is **not formalized**; (3) `Polyfold.proposition_2_19_3`, by the pull-back argument of Theorem 2.3.10 (preprint 2.16) along $TX\to X_1\to X$.
+*Checked by machine:* (1) Hausdorff, the instance `Polyfold.MPolyfold.instT2SpaceTangentSpace` (the basis property is not needed: the topology is the one generated by $\mathcal B$); (2) continuity of $p$, `Polyfold.MPolyfold.continuous_tangentProj`; the openness of $p$ is **not formalized**; (3) `Polyfold.proposition_2_3_15_three`, by the pull-back argument of Theorem 2.3.10 (preprint 2.16) along $TX\to X_1\to X$.
 
 The proof (appendix 2.7.3 (preprint 2.6.3)) is in §8. Granting it: each $T\varphi:TV\to TO$ is a
 homeomorphism (open by the definition of the basis, continuous by the transition-map argument of
@@ -493,7 +493,7 @@ The preprint's proof of (3) writes "$T_aO = Ds(a)\circ Dr(a) + (I-Ds(a))Dr(a)E$"
 displayed splitting with $Ds(a)$ standing for $Dt(a)$; that the sum is an *sc*-splitting (and not
 just algebraic) is what Lemma 2.B of Chapter 1 adds.
 
-*Checked by machine.* The structure, with the subspace topology on $A$: `Polyfold.MPolyfold.subPolyfold`, with the charts `Polyfold.MPolyfold.subChart` built from the set $W$ (`Polyfold.MPolyfold.SubData.shrink`) and pairwise compatible (`Polyfold.MPolyfold.subChart_compatible`, through `Polyfold.IsScSmoothRetractMap.mono_source`); paracompactness of $A$ is `Polyfold.MPolyfold.paracompactSpace_subtype`. (1): `Polyfold.MPolyfold.subPolyfold_inclusion_isScSmooth`; (2): `Polyfold.MPolyfold.subPolyfold_retraction_isScSmooth`. (3) and (4) are proved **in a chart**, as above: `Polyfold.proposition_2_21_3` ($T_aO = Dt(a)E\oplus(Dr(a)-Dt(a))E$, both summands sc-subspaces, the sum direct on every level; $(Dr(a)-Dt(a))E = (1-Dt(a))(T_aO)$) and `Polyfold.proposition_2_21_4`. The transport to $T_aX$ by $T\varphi(a)$ is not formalized, since the fibres of $TX$ carry no sc-structure in the formalization.
+*Checked by machine.* The structure, with the subspace topology on $A$: `Polyfold.MPolyfold.subPolyfold`, with the charts `Polyfold.MPolyfold.subChart` built from the set $W$ (`Polyfold.MPolyfold.SubData.shrink`) and pairwise compatible (`Polyfold.MPolyfold.subChart_compatible`, through `Polyfold.IsScSmoothRetractMap.mono_source`); paracompactness of $A$ is `Polyfold.MPolyfold.paracompactSpace_subtype`. (1): `Polyfold.MPolyfold.subPolyfold_inclusion_isScSmooth`; (2): `Polyfold.MPolyfold.subPolyfold_retraction_isScSmooth`. (3) and (4) are proved **in a chart**, as above: `Polyfold.proposition_2_3_19_three` ($T_aO = Dt(a)E\oplus(Dr(a)-Dt(a))E$, both summands sc-subspaces, the sum direct on every level; $(Dr(a)-Dt(a))E = (1-Dt(a))(T_aO)$) and `Polyfold.proposition_2_3_19_four`. The transport to $T_aX$ by $T\varphi(a)$ is not formalized, since the fibres of $TX$ carry no sc-structure in the formalization.
 
 ---
 
@@ -521,7 +521,7 @@ are restrictions of linear maps), where the index of the origin is $1$. So $d_O(
 $= 1$ (Corollary 2.4.13 (preprint 2.32) and Proposition 2.4.4 (preprint 2.24) below). Theorem 2.4.12 (preprint 2.31) in §3.3 says how far a chart index can
 exceed an intrinsic quantity.
 
-*(Checked by machine: `Polyfold.MPolyfold.degIndex`, over all charts of the structure, with the minimum attained, `Polyfold.MPolyfold.exists_isChart_degIndex_eq`. The two-dimensional diagonal is not formalized; the three-dimensional one of the 2021 Remark 2.4.2 is, §9.9, `Polyfold.remark_2_4_2_2021`.)*
+*(Checked by machine: `Polyfold.MPolyfold.degIndex`, over all charts of the structure, with the minimum attained, `Polyfold.MPolyfold.exists_isChart_degIndex_eq`. The two-dimensional diagonal is not formalized; the three-dimensional one of the 2021 Remark 2.4.2 is, §9.9, `Polyfold.remark_2_4_2`.)*
 
 **Lemma 2.4.3 (preprint 2.23).** Every $x\in X$ has an open neighbourhood $U(x)$ with $d_X(y)\le d_X(x)$ for all
 $y\in U(x)$.
@@ -531,7 +531,7 @@ $y\in U(x)$.
 $d_C\le d_C(\varphi(x))$; put $U(x) := \varphi^{-1}(N\cap O)$. For $y\in U(x)$,
 $d_X(y)\le d_C(\varphi(y))\le d_C(\varphi(x)) = d_X(x)$. $\square$
 
-*(Checked by machine: `Polyfold.lemma_2_23`.)*
+*(Checked by machine: `Polyfold.lemma_2_4_3`.)*
 
 **Proposition 2.4.4 (preprint 2.24).** Let $f:(U,x)\to(V,f(x))$ be a germ of sc-diffeomorphisms between open subsets
 of M-polyfolds $X$, $Y$. Then $d_X(x) = d_Y(f(x))$.
@@ -541,7 +541,7 @@ $(V',\psi,(O',C',E'))$ is a chart of $Y$ around $f(x)$, then $(f^{-1}(V'\cap V),
 is a chart around $x$ compatible with the atlas of $X$: its transition map with a chart $\varphi$ of
 $X$ is $\psi\circ f\circ\varphi^{-1}$, sc-smooth because $f$ is. It gives $d(x,\dots) = d_{C'}(\psi(f(x)))$. Taking the minimum over $\psi$, $d_X(x)\le d_Y(f(x))$; the same with $f^{-1}$ gives the reverse. (The index is defined with respect to the equivalence class of atlases, so adding this compatible chart does not change $d_X$.) $\square$
 
-*(Checked by machine: `Polyfold.proposition_2_24`, for an sc-diffeomorphism between open subsets (`Polyfold.MPolyfold.IsScDiffeoOn`); the transported chart $\psi\circ f$ is `Polyfold.MPolyfold.transportChart`.)*
+*(Checked by machine: `Polyfold.proposition_2_4_4`, for an sc-diffeomorphism between open subsets (`Polyfold.MPolyfold.IsScDiffeoOn`); the transported chart $\psi\circ f$ is `Polyfold.MPolyfold.transportChart`.)*
 
 **Definition 2.4.5 (preprint 2.25).** $\partial X := \{x\in X : d_X(x)\ge1\}$ is the *boundary* of $X$; $X$ is
 *without boundary* if $d_X\equiv0$.
@@ -556,7 +556,7 @@ produces the chart $(W\cap A,\psi,(O',C,E))$ of $A$ with $\psi = \varphi|_{W\cap
 quadrant $C$. Hence $d(a,W\cap A,\psi,(O',C,E)) = d_C(\varphi(a)) = d_X(a)$, and $d_A(a)$, a minimum
 over charts of $A$, is $\le d_X(a)$. $\square$
 
-*(Checked by machine: `Polyfold.lemma_2_26`.)*
+*(Checked by machine: `Polyfold.lemma_2_4_6`.)*
 
 ### 3.2 Reduced tangent space and partial cone
 
@@ -595,7 +595,7 @@ index can exceed this dimension ($2$ against $1$) — there $C_xO$ is a ray in a
 quadrant. The tame retracts of §4 are exactly those for which equality, and hence the quadrant
 property, holds at every smooth point.
 
-*(Checked by machine: $T^R_xO\subset C_xO$, `Polyfold.reducedTangentSpaceWith_subset_partialConeWith`; for tame retracts $C_xO$ is a partial quadrant at every smooth point, `Polyfold.proposition_2_36_partialCone`. The negative claim of the remark is not formalized.)*
+*(Checked by machine: $T^R_xO\subset C_xO$, `Polyfold.reducedTangentSpaceWith_subset_partialConeWith`; for tame retracts $C_xO$ is a partial quadrant at every smooth point, `Polyfold.proposition_2_5_6_partialCone`. The negative claim of the remark is not formalized.)*
 
 Two facts about intersections with finitely many hyperplanes are needed before the next lemma;
 the preprint uses both without comment ("since the closure of $(T^R_xO)_\infty$ is equal to
@@ -615,7 +615,7 @@ $\Lambda(N_\infty)$ is dense in $\Lambda(N_m) = L$ (the image of a dense subspac
 
 (2) $Q := L\cap[0,\infty)^d$ is a closed convex cone in $L$ and $P = \Lambda^{-1}(Q)$. Let $p\in Q$ be a point of the relative interior of $Q$ in $L$ (non-empty, as $Q$ is a non-empty convex set in the finite-dimensional space $L$; if $L\cap(0,\infty)^d\neq\emptyset$ it is that intersection, and in general $Q$ spans a subspace $L'\subset L$ and the relative interior is taken in $L'$ — but then $Q\subset L'$ and we may replace $L$ by $L'$ and $N$ by $\Lambda^{-1}(L')$, which is an sc-subspace by (1); so assume $Q$ has interior in $L$). Fix $e := \sigma(p)\in N_\infty\cap P$. Let $v\in P\cap N_m$ and $\varepsilon>0$. The point $v+\varepsilon e$ has $\Lambda(v+\varepsilon e) = \Lambda(v)+\varepsilon p$ in the interior of $Q$ (interior point plus any point of the convex $Q$, scaled, is interior). Choose $v_n\in N_\infty$ with $v_n\to v+\varepsilon e$ in $N_m$; then $\Lambda(v_n)\to\Lambda(v)+\varepsilon p$, so $\Lambda(v_n)\in Q$ for large $n$, i.e. $v_n\in P\cap N_\infty$. Thus $v+\varepsilon e$ is an $m$-limit of smooth points of $P$, and letting $\varepsilon\to0$ so is $v$. $\square$
 
-*Checked by machine* in the form the proofs of §2.3 use, with level $1$ in place of smooth points: for a continuous linear map $L$ from $E_0$ to a finite-dimensional space, the points of $\ker L$ on level $1$ are dense in $\ker L$ (`Polyfold.ScBanach.subset_closure_ker_inter_range_toBase`), and the points of $C_x$ on level $1$ are dense in $C_x$ (`Polyfold.partialQuadrantAtWith_subset_closure`). Lemma 3.A as stated (smooth points, every level, a general sc-Banach space $N$) is not formalized; the case that Proposition 2.5.6 (preprint 2.36) needs, $T^R_xO$ for a tame retract, is proved directly there (`Polyfold.proposition_2_36_partialCone`).
+*Checked by machine* in the form the proofs of §2.3 use, with level $1$ in place of smooth points: for a continuous linear map $L$ from $E_0$ to a finite-dimensional space, the points of $\ker L$ on level $1$ are dense in $\ker L$ (`Polyfold.ScBanach.subset_closure_ker_inter_range_toBase`), and the points of $C_x$ on level $1$ are dense in $C_x$ (`Polyfold.partialQuadrantAtWith_subset_closure`). Lemma 3.A as stated (smooth points, every level, a general sc-Banach space $N$) is not formalized; the case that Proposition 2.5.6 (preprint 2.36) needs, $T^R_xO$ for a tame retract, is proved directly there (`Polyfold.proposition_2_5_6_partialCone`).
 
 In particular $T^R_xO$ and $C_xO$, for $x\in O_\infty$, are the sets $K$ and $P$ of the lemma for
 $N = T_xO$ (an sc-Banach space) and the functionals $\lambda_i|_{T_xO}$, $i\in I(x)$: $T^R_xO$ is an
@@ -672,7 +672,7 @@ $\Gamma$ (resp. $\Gamma^+$) for $O$ into the corresponding set for $O'$, and bei
 closures into closures: $Tf(x)(T^R_xO)\subset T^R_yO'$ and $Tf(x)(C_xO)\subset C_yO'$ by Lemma 2.4.9 (preprint 2.29).
 The same for $f^{-1}$ gives the reverse inclusions. $\square$
 
-*Checked by machine:* `Polyfold.proposition_2_30_reduced`, `Polyfold.proposition_2_30_cone`, in a stronger form, at every $x$ on level $1$ and for germs that are only $\mathrm{sc}^1$ (`Polyfold.ScRetraction.IsDiffeoGerm`), and by a different proof: not through Lemma 2.4.9 (preprint 2.29) but from the sign arguments and the identities $D(f^{-1}\circ r')(y)\,D(f\circ r)(x) = Dr(x)$, $D(f\circ r)(x)\,D(f^{-1}\circ r')(y) = Dr'(y)$ (`Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv`, `Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv`).
+*Checked by machine:* `Polyfold.proposition_2_4_10_reduced`, `Polyfold.proposition_2_4_10_cone`, in a stronger form, at every $x$ on level $1$ and for germs that are only $\mathrm{sc}^1$ (`Polyfold.ScRetraction.IsDiffeoGerm`), and by a different proof: not through Lemma 2.4.9 (preprint 2.29) but from the sign arguments and the identities $D(f^{-1}\circ r')(y)\,D(f\circ r)(x) = Dr(x)$, $D(f\circ r)(x)\,D(f^{-1}\circ r')(y) = Dr'(y)$ (`Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv`, `Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv`).
 
 ### 3.3 The index of a retract and the boundary recognition theorem
 
@@ -724,7 +724,7 @@ $S$ is a linear bijection with inverse $(a,u)\mapsto\sum a_j\hat v^j+u$. On ever
 > an sc-subspace of $T_xO$ (dense smooth points), which is Lemma 3.A(1). Without (ii) the target
 > $\mathbb R^d\oplus T^R_xO$ is not an sc-Banach space.
 
-*Checked by machine:* the inequality, in a stronger form: for every chart $\varphi$ of every M-polyfold $X$ around $x$ with $\varphi(x)$ on level $1$, $\dim(T_{\varphi(x)}O/T^R_{\varphi(x)}O)\le d_X(x)$ (`Polyfold.theorem_2_31`; for a retract as above, `Polyfold.theorem_2_31_retract`). The proof does not reduce to a chart realizing $d_O(x)$: for every chart $\psi$ around $x$, $D(\psi\circ\varphi^{-1})$ induces an isomorphism $T_xO/T^R_xO\cong T_yO'/T^R_yO'$, and the latter embeds in $E'/E'_y$, of dimension $d_{C'}(y)$ (`Polyfold.ScRetraction.IsDiffeoGerm.quotDim_le`). **The second statement** (equality makes $C_xO$ a partial quadrant) **is not formalized in general**; for tame retracts its conclusion is proved directly, with explicit smooth vectors $\hat v^j$ (Proposition 2.5.6 (preprint 2.36) below, `Polyfold.proposition_2_36_partialCone`).
+*Checked by machine:* the inequality, in a stronger form: for every chart $\varphi$ of every M-polyfold $X$ around $x$ with $\varphi(x)$ on level $1$, $\dim(T_{\varphi(x)}O/T^R_{\varphi(x)}O)\le d_X(x)$ (`Polyfold.theorem_2_4_12`; for a retract as above, `Polyfold.theorem_2_4_12_retract`). The proof does not reduce to a chart realizing $d_O(x)$: for every chart $\psi$ around $x$, $D(\psi\circ\varphi^{-1})$ induces an isomorphism $T_xO/T^R_xO\cong T_yO'/T^R_yO'$, and the latter embeds in $E'/E'_y$, of dimension $d_{C'}(y)$ (`Polyfold.ScRetraction.IsDiffeoGerm.quotDim_le`). **The second statement** (equality makes $C_xO$ a partial quadrant) **is not formalized in general**; for tame retracts its conclusion is proved directly, with explicit smooth vectors $\hat v^j$ (Proposition 2.5.6 (preprint 2.36) below, `Polyfold.proposition_2_5_6_partialCone`).
 
 The partial quadrant $C\subset E$ is itself a retract, with $r = \mathrm{id}_C$, $U = C$; HWZ denote
 the resulting M-polyfold $X_C$. For a smooth $x\in C$, $T_xC = E$ and $T^R_xC = E_x$, so
@@ -742,7 +742,7 @@ Proposition 2.4.4 (preprint 2.24), the definition of $d_{X_{C'}}$, and the semic
 $$d_C(x) = d_{X_C}(x_k) = d_{X_{C'}}(f(x_k))\le d_{C'}(f(x_k))\le d_{C'}(f(x)) = d_{X_C}(x)$$
 for large $k$. With $d_{X_C}(x)\le d_C(x)$ this is the claim. $\square$
 
-*(Checked by machine: `Polyfold.corollary_2_32`, for every nonempty relatively open subset $U$ of $C$ viewed as an M-polyfold; level-$1$ points of the same index suffice for the approximation.)*
+*(Checked by machine: `Polyfold.corollary_2_4_13`, for every nonempty relatively open subset $U$ of $C$ viewed as an M-polyfold; level-$1$ points of the same index suffice for the approximation.)*
 
 **Theorem 1.3.5 (preprint 1.25) (boundary recognition), second proof.** Let $(U,C,E)$ and $(U',C',E')$ be tuples
 and $f:(U,x)\to(U',x')$ a germ of local sc-diffeomorphism. Then $d_C(x) = d_{C'}(x')$.
@@ -753,7 +753,7 @@ sc-diffeomorphism between them in the sense of Definition 2.3.8 (preprint 2.14),
 $r = \mathrm{id}$ is sc-smoothness in the sense of Definition 1.1.15 (preprint 1.14). By Proposition 2.4.4 (preprint 2.24),
 $d_{X_C}(x) = d_{X_{C'}}(x')$, and by Corollary 2.4.13 (preprint 2.32) both sides are $d_C(x)$, $d_{C'}(x')$. $\square$
 
-*(Checked by machine: `Polyfold.theorem_1_25`, in `Polyfold/Chapter2/DegeneracyIndex.lean`, for $\mathrm{sc}^1$ germs; the proof applies the core inequality of Theorem 2.4.12 (preprint 2.31) for germs between relatively open subsets of quadrants, `Polyfold.degIndexWith_le_of_germ`, to $f$ and to $f^{-1}$, at level-$1$ points, and approximates.)*
+*(Checked by machine: `Polyfold.theorem_1_3_5`, in `Polyfold/Chapter2/DegeneracyIndex.lean`, for $\mathrm{sc}^1$ germs; the proof applies the core inequality of Theorem 2.4.12 (preprint 2.31) for germs between relatively open subsets of quadrants, `Polyfold.degIndexWith_le_of_germ`, to $f$ and to $f^{-1}$, at level-$1$ points, and approximates.)*
 
 This is the route the preprint intends when it cites, for Theorem 1.3.5 (preprint 1.25), a "more general result".
 The ingredients are the same as in the direct proof of Chapter 1, §5: the chain rule (through
@@ -840,7 +840,7 @@ and $\lambda_i$ continuous linear on $E_0$) gives $\lambda_i(Dr(x)y) = 0$, i.e. 
 $y\in E_x$ on level $0$, approximate by smooth $y_n\in E_x$ (Lemma 3.A(1), or directly: $E_x = \mathbb R^{k-d}\oplus W$ has dense smooth points) and use that $Dr(x)$ is bounded on $E_0$ and $E_x$ closed.
 Finally, $(1-Dr(x))E\subset E_x = \bigcap_{i\in I(x)}\ker\lambda_i$ says exactly $\lambda_i(v-Dr(x)v) = 0$ for all $v$. $\square$
 
-*Checked by machine:* `Polyfold.proposition_2_35` and the reformulation `Polyfold.coord_scDeriv_eq`. The formal proof needs only condition (2): the step $Dr(x)E_x\subset E_x$ holds for *every* sc-smooth retraction at every point of $O_1$, by the sign argument applied to $r$ with $r(x) = x$ (`Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace`), so condition (1) is not used.
+*Checked by machine:* `Polyfold.proposition_2_5_3` and the reformulation `Polyfold.coord_scDeriv_eq`. The formal proof needs only condition (2): the step $Dr(x)E_x\subset E_x$ holds for *every* sc-smooth retraction at every point of $O_1$, by the sign argument applied to $r$ with $r(x) = x$ (`Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace`), so condition (1) is not used.
 
 The reformulation is the form in which the proposition is used below: at a smooth point of a tame
 retract, the derivative of the retraction does not change the coordinates that vanish at that point.
@@ -884,7 +884,7 @@ tameness (1), $d_C(x_j) = d_C(a,w_j) = d_C(a,w) = d_C(x)$. By the smooth case, $
 By Lemma 2.4.3 (preprint 2.23) there is a neighbourhood of $x$ in $O$ on which $d_O\le d_O(x)$, so for large $j$,
 $d_C(x) = d_O(x_j)\le d_O(x)\le d_C(x)$. $\square$
 
-*Checked by machine:* (4.1) and (4.2), `Polyfold.proposition_2_36` and `Polyfold.proposition_2_36_degIndex`, by this proof, and in the stronger form that a chart of any M-polyfold whose model is a tame retract realizes the degeneracy index at every point of its domain (`Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith`). That $T^R_xO$ is an sc-subspace and $C_xO$ a partial quadrant in $T_xO$ is `Polyfold.proposition_2_36_partialCone`, by a different route that does not use the second statement of Theorem 2.4.12 (preprint 2.31): for a tame retraction the smooth vectors of its proof can be written down, $\hat v^j = Dr(x)T^{-1}(e_{i_j},0)$, smooth because $Dr(x)$ is an sc-operator at the smooth point $x$, with $\lambda_{i_k}(\hat v^j) = \delta_{jk}$ by Proposition 2.5.3 (preprint 2.35); the map $S$ is the sc-isomorphism `Polyfold.splitIso`. That $T^R_xO$ is an sc-subspace follows from $Dr(x)E_x\subset E_x$: for $u\in T^R_xO\cap E_m$ with $Tu = (a,w)$, the smooth points $Dr(x)T^{-1}(a,w')$, $w'\in W_\infty$, lie in $T^R_xO$ and converge to $u$ in $E_m$.
+*Checked by machine:* (4.1) and (4.2), `Polyfold.proposition_2_5_6` and `Polyfold.proposition_2_5_6_degIndex`, by this proof, and in the stronger form that a chart of any M-polyfold whose model is a tame retract realizes the degeneracy index at every point of its domain (`Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith`). That $T^R_xO$ is an sc-subspace and $C_xO$ a partial quadrant in $T_xO$ is `Polyfold.proposition_2_5_6_partialCone`, by a different route that does not use the second statement of Theorem 2.4.12 (preprint 2.31): for a tame retraction the smooth vectors of its proof can be written down, $\hat v^j = Dr(x)T^{-1}(e_{i_j},0)$, smooth because $Dr(x)$ is an sc-operator at the smooth point $x$, with $\lambda_{i_k}(\hat v^j) = \delta_{jk}$ by Proposition 2.5.3 (preprint 2.35); the map $S$ is the sc-isomorphism `Polyfold.splitIso`. That $T^R_xO$ is an sc-subspace follows from $Dr(x)E_x\subset E_x$: for $u\in T^R_xO\cap E_m$ with $Tu = (a,w)$, the smooth points $Dr(x)T^{-1}(a,w')$, $w'\in W_\infty$, lie in $T^R_xO$ and converge to $u$ in $E_m$.
 
 **Definition 2.5.7 (preprint 2.37).** A *tame M-polyfold* is an M-polyfold with an atlas (in the equivalence class)
 all of whose charts are modelled on tame retracts.
@@ -907,7 +907,7 @@ realizes the minimum in Definition 2.4.1 (preprint 2.22) (by (4.2) its chart ind
 $d_X(x)$ by Proposition 2.4.4 (preprint 2.24) applied to the chart map). In a tame M-polyfold the degeneracy index is
 thus read off from the tangent space: the boundary structure is linearized.
 
-*Not checked by machine:* Definition 2.5.8 (preprint 2.38) is formalized only in a chart (Definition 2.4.7 (preprint 2.27), with the invariance of Proposition 2.4.10 (preprint 2.30)); $T^R_xX$, $C_xX$ and the identity $d_X(x) = d_{C_xX}(0_x)$ are not. That $d_X(x) = \dim(T_{\psi(x)}O/T^R_{\psi(x)}O)$ in a tame chart at a smooth point is `Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith` with (4.1), and that $C_{\psi(x)}O$ is a partial quadrant in $T_{\psi(x)}O$ there is `Polyfold.proposition_2_36_partialCone`.
+*Not checked by machine:* Definition 2.5.8 (preprint 2.38) is formalized only in a chart (Definition 2.4.7 (preprint 2.27), with the invariance of Proposition 2.4.10 (preprint 2.30)); $T^R_xX$, $C_xX$ and the identity $d_X(x) = d_{C_xX}(0_x)$ are not. That $d_X(x) = \dim(T_{\psi(x)}O/T^R_{\psi(x)}O)$ in a tame chart at a smooth point is `Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith` with (4.1), and that $C_{\psi(x)}O$ is a partial quadrant in $T_{\psi(x)}O$ there is `Polyfold.proposition_2_5_6_partialCone`.
 
 ### 4.3 Faces
 
@@ -974,7 +974,7 @@ Pick $z\in\widehat F$, so $I(z) = \{i\}$. Points of $C$ near $z$ have vanishing 
 no point of $S_j$ ($I = \{j\}$) lies near $z$ if $j\ne i$; but $z\in\overline{\widehat F'}$. Hence
 $i = j$. $\square$
 
-*(Checked by machine: `Polyfold.lemma_2_40` and `Polyfold.lemma_2_40_injective`, for faces of the retract in $E_0$; they are the faces of the M-polyfold $O$ by `Polyfold.LocalModel.isFace_toMPolyfold_iff`.)*
+*(Checked by machine: `Polyfold.lemma_2_5_12` and `Polyfold.lemma_2_5_12_injective`, for faces of the retract in $E_0$; they are the faces of the M-polyfold $O$ by `Polyfold.LocalModel.isFace_toMPolyfold_iff`.)*
 
 **Corollary 2.5.13 (preprint 2.41).** In a tame retract $(O,C,E)$ every point $x$ lies in exactly $d_O(x)$ faces.
 
@@ -982,7 +982,7 @@ $i = j$. $\square$
 $f_i\cap O$ with $x\in f_i$, i.e. $i\in I(x)$ (Lemma 2.5.12 (preprint 2.40)); for each $i\in I(x)$ there is exactly one
 such component, and distinct $i$ give distinct faces. $\square$
 
-*(Checked by machine: `Polyfold.corollary_2_41`, the M-polyfold $O$ is face-structured.)*
+*(Checked by machine: `Polyfold.corollary_2_5_13`, the M-polyfold $O$ is face-structured.)*
 
 **Proposition 2.5.14 (preprint 2.42).** Let $X$ be a tame M-polyfold. Every $x\in X$ has an open neighbourhood $V$ such
 that $d_V = d_X|_V$ and every $y\in V$ lies in exactly $d_X(y)$ faces of the M-polyfold $V$. Globally,
@@ -1001,7 +1001,7 @@ of these components, i.e. in a face of $V$ contained in $F$. Distinct global fac
 distinct local faces (a component of $\{d_V = 1\}$ lies in only one component of $\{d_X = 1\}$). So
 there are at most $d_X(x)$ of them. $\square$
 
-*(Checked by machine: `Polyfold.proposition_2_42`, with the neighbourhood $V$ represented by the M-polyfold $O$ of a tame chart, and the global bound `Polyfold.MPolyfold.faces_encard_le`.)*
+*(Checked by machine: `Polyfold.proposition_2_5_14`, with the neighbourhood $V$ represented by the M-polyfold $O$ of a tame chart, and the global bound `Polyfold.MPolyfold.faces_encard_le`.)*
 
 A global face can pass through $x$ more than once (think of a disc from which two boundary points are
 identified), which is why only an inequality holds globally; face-structured M-polyfolds are those
@@ -1064,7 +1064,7 @@ $d_F(x) = d_{C'}(x) = d_C(x)-1 = d_O(x)-1$. $\square$
 > without argument); this is Lemma 4.C, which rests on Lemma 4.B, i.e. on tameness condition (2)
 > through Proposition 2.5.3 (preprint 2.35). The "last statement" $d_F = d_O-1$, called obvious, is (4.2) applied twice.
 
-*Checked by machine:* the retraction, `Polyfold.proposition_2_43` (with the neighbourhoods $B'_e$, $s = r\circ P_1$), and $F$ a sub-M-polyfold of $O$, `Polyfold.LocalModel.isSubMPolyfold_of_isFace`. The tame model is formalized differently: the extended face is modelled on $\mathbb R^{k-1}\oplus W$ itself through the sc-operators $\iota$ (insert a zero coordinate) and $\pi$ (delete it) (`Polyfold.faceIncl`, `Polyfold.faceProj`), the retraction is $r' = \pi\circ r\circ\iota$ on $\iota^{-1}(U^*)$, and condition (2) is proved with the complement $(1-Dr'(x))E'$, by Proposition 2.5.3 (preprint 2.35) for $r$, instead of intersecting $A$ with $f_1$ (`Polyfold.proposition_2_43_tameModel`). With the chart $\pi:F\to\pi(F)$, compatible with the sub-M-polyfold structure, $F$ is tame and $d_F+1 = d_O$ (`Polyfold.LocalModel.proposition_2_43_isTame`). No hypothesis is added.
+*Checked by machine:* the retraction, `Polyfold.proposition_2_5_15` (with the neighbourhoods $B'_e$, $s = r\circ P_1$), and $F$ a sub-M-polyfold of $O$, `Polyfold.LocalModel.isSubMPolyfold_of_isFace`. The tame model is formalized differently: the extended face is modelled on $\mathbb R^{k-1}\oplus W$ itself through the sc-operators $\iota$ (insert a zero coordinate) and $\pi$ (delete it) (`Polyfold.faceIncl`, `Polyfold.faceProj`), the retraction is $r' = \pi\circ r\circ\iota$ on $\iota^{-1}(U^*)$, and condition (2) is proved with the complement $(1-Dr'(x))E'$, by Proposition 2.5.3 (preprint 2.35) for $r$, instead of intersecting $A$ with $f_1$ (`Polyfold.proposition_2_5_15_tameModel`). With the chart $\pi:F\to\pi(F)$, compatible with the sub-M-polyfold structure, $F$ is tame and $d_F+1 = d_O$ (`Polyfold.LocalModel.proposition_2_5_15_isTame`). No hypothesis is added.
 
 **Face germs.** Since every point $x$ of a tame M-polyfold has a neighbourhood $V$ in which exactly
 $d_X(x)$ faces of $V$ pass through $x$ (Proposition 2.5.14 (preprint 2.42)), and $V$ can be shrunk, one speaks of the
@@ -1093,7 +1093,7 @@ number of quadrant coordinates removed from the model) grows by one. $\square$
 (The preprint states Proposition 2.5.16 (preprint 2.44) without proof; the identification of the germ of
 $F_1\cap F_2$ with a face of $F_1$ is the step that needs Lemma 4.C.)
 
-*Checked by machine:* the first sentence, `Polyfold.MPolyfold.proposition_2_44` (the local faces being the faces of the M-polyfold $O$ of a tame chart); the second sentence, `Polyfold.MPolyfold.proposition_2_44_corner`, by a different route. The face germs at $x$ are the faces $F_i$, $i\in I(\varphi(x))$, of a tame chart $\varphi$, and for $\sigma\subset I(\varphi(x))$ the set $A = \varphi^{-1}(B\cap\bigcap_{i\in\sigma}F_i)$, $B$ a small open set, is a tame sub-M-polyfold with $d_A+\#\sigma = d_X$ on all of $A$; the codimension is the number of quadrant coordinates removed in its tame model. Instead of the induction above, all coordinates of $\sigma$ are removed at once: Lemma 4.C(3) for each $i\in\sigma$ shows that $r$ maps points of $f_\sigma\cap C$ near $\varphi(x)$, $f_\sigma = \bigcap_{i\in\sigma}f_i$, into $f_\sigma$, so that $r\circ P_\sigma$ is a retraction onto $O\cap f_\sigma$ near $\varphi(x)$ (`Polyfold.corner_retraction`), and the tame model is $\pi_\sigma\circ r\circ\iota_\sigma$ on $\mathbb R^{n-\#\sigma}\oplus W$ (`Polyfold.corner_tameModel`), as in Proposition 2.5.15 (preprint 2.43).
+*Checked by machine:* the first sentence, `Polyfold.MPolyfold.proposition_2_5_16` (the local faces being the faces of the M-polyfold $O$ of a tame chart); the second sentence, `Polyfold.MPolyfold.proposition_2_5_16_corner`, by a different route. The face germs at $x$ are the faces $F_i$, $i\in I(\varphi(x))$, of a tame chart $\varphi$, and for $\sigma\subset I(\varphi(x))$ the set $A = \varphi^{-1}(B\cap\bigcap_{i\in\sigma}F_i)$, $B$ a small open set, is a tame sub-M-polyfold with $d_A+\#\sigma = d_X$ on all of $A$; the codimension is the number of quadrant coordinates removed in its tame model. Instead of the induction above, all coordinates of $\sigma$ are removed at once: Lemma 4.C(3) for each $i\in\sigma$ shows that $r$ maps points of $f_\sigma\cap C$ near $\varphi(x)$, $f_\sigma = \bigcap_{i\in\sigma}f_i$, into $f_\sigma$, so that $r\circ P_\sigma$ is a retraction onto $O\cap f_\sigma$ near $\varphi(x)$ (`Polyfold.corner_retraction`), and the tame model is $\pi_\sigma\circ r\circ\iota_\sigma$ on $\mathbb R^{n-\#\sigma}\oplus W$ (`Polyfold.corner_tameModel`), as in Proposition 2.5.15 (preprint 2.43).
 
 **Theorem 2.5.17 (preprint 2.45).** Let $X$ be a tame M-polyfold and $F = \overline G$ a face, $G$ a component of
 $\{d_X = 1\}$. Then $F\cap\{d_X = 1\} = G$ (the "interior" of the face), and $G$ is a sub-M-polyfold
@@ -1127,7 +1127,7 @@ Proposition 2.5.15 (preprint 2.43), so $F$ is tame, and $d_F(x) = d_{F_{loc}}(\v
 by Proposition 2.5.15 (preprint 2.43) and Proposition 2.5.14 (preprint 2.42) ($d_F(x)$ is computed in the tame chart of $F$ by (4.2)).
 The last two statements are Proposition 2.5.14 (preprint 2.42) and the definition of face-structured. $\square$
 
-*Checked by machine:* $F\cap\{d_X = 1\} = G$, `Polyfold.MPolyfold.theorem_2_45_interior`; $G$ a sub-M-polyfold, `Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior`, through the local criterion `Polyfold.MPolyfold.isSubMPolyfold_of_local` (which includes the shrinking just described); the face-structured case, `Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face` and `Polyfold.MPolyfold.theorem_2_45_isTame_face`, with "each global face through $x$ contains exactly one local face" proved by counting (`Polyfold.MPolyfold.exists_localFace_of_isFaceStructured`).
+*Checked by machine:* $F\cap\{d_X = 1\} = G$, `Polyfold.MPolyfold.theorem_2_5_17_interior`; $G$ a sub-M-polyfold, `Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior`, through the local criterion `Polyfold.MPolyfold.isSubMPolyfold_of_local` (which includes the shrinking just described); the face-structured case, `Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face` and `Polyfold.MPolyfold.theorem_2_5_17_isTame_face`, with "each global face through $x$ contains exactly one local face" proved by counting (`Polyfold.MPolyfold.exists_localFace_of_isFaceStructured`).
 
 **Lemma 4.D (products).** If $X$ and $Y$ are M-polyfolds, $X\times Y$ is an M-polyfold with the
 product charts $(V\times V',\varphi\times\varphi',(O\times O',C\times C',E\oplus E'))$, and
@@ -1164,7 +1164,7 @@ $y'\mapsto R(x,y')$, but it cannot be factored through $y'\mapsto(x,y')$: a cons
 when its value is a smooth point.) So $\pi_2$ is a local sc-diffeomorphism onto $Y$, and by Proposition 2.4.4 (preprint 2.24), $d_{X_f\times_gY}(x,y) = d_Y(y)$; if $Y$ is tame, the charts $\varphi'\circ\pi_2$ with tame charts $\varphi'$ of $V$ form a tame atlas, compatible with the sub-M-polyfold structure because $\pi_2$ is an sc-diffeomorphism onto $V$. (The preprint writes "$\pi_2:X_f\times_gY\to X$, $(x,y)\to y$" — the target is $Y$.) If also $g$ is a local sc-diffeomorphism, the symmetric argument gives $d_{X_f\times_gY}(x,y) = d_X(x)$ (no tameness is needed for this), so $d_X(x) = d_Y(y)$, and, for tame $X$ and $Y$, $d_{X\times Y}(x,y) = d_X(x)+d_Y(y) = 2d_{X_f\times_gY}(x,y)$ by Lemma 4.D. The fibred
 product is paracompact, being closed in the metrizable space $X\times Y$. $\square$
 
-*Checked by machine:* `Polyfold.MPolyfold.proposition_2_46`, with "local sc-diffeomorphism" read as "each point has an open neighbourhood mapped sc-diffeomorphically onto an open set" (`Polyfold.MPolyfold.IsLocalScDiffeo`); the retraction $R$ is `Polyfold.MPolyfold.fibredSubDataL`, $\pi_2$ is a local sc-diffeomorphism by `Polyfold.MPolyfold.isScDiffeoOn_snd_fibredProduct`, and $d_{X_f\times_gY} = d_Y\circ\pi_2$ holds without tameness (`Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd`). The last statement is `Polyfold.MPolyfold.proposition_2_46_of_isLocalScDiffeo`: $d_{X_f\times_gY} = d_X = d_Y$ for arbitrary $X$, $Y$, and $2d_{X_f\times_gY} = d_{X\times Y}$ when $X$ and $Y$ are tame.
+*Checked by machine:* `Polyfold.MPolyfold.proposition_2_5_20`, with "local sc-diffeomorphism" read as "each point has an open neighbourhood mapped sc-diffeomorphically onto an open set" (`Polyfold.MPolyfold.IsLocalScDiffeo`); the retraction $R$ is `Polyfold.MPolyfold.fibredSubDataL`, $\pi_2$ is a local sc-diffeomorphism by `Polyfold.MPolyfold.isScDiffeoOn_snd_fibredProduct`, and $d_{X_f\times_gY} = d_Y\circ\pi_2$ holds without tameness (`Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd`). The last statement is `Polyfold.MPolyfold.proposition_2_5_20_of_isLocalScDiffeo`: $d_{X_f\times_gY} = d_X = d_Y$ for arbitrary $X$, $Y$, and $2d_{X_f\times_gY} = d_{X\times Y}$ when $X$ and $Y$ are tame.
 
 ### An interactive look at a retract whose dimension jumps
 
@@ -1367,7 +1367,7 @@ sc-smooth on $U_Z\oplus F^i$ because $(\Phi'\circ\Phi^{-1})[i]$ is sc-smooth on 
 charts are compatible, and the equivalence class of the atlas is independent of the choices (a chart
 built from other data is compatible by the same computation). $\square$
 
-*Checked by machine:* `Polyfold.proposition_2_54`, by this construction: the pulled-back retraction `Polyfold.pullbackRetraction` (a strong bundle retraction with image $K_g$, `Polyfold.isStrongBundleRetraction_pullback`, `Polyfold.pullback_image`), the charts `Polyfold.PullbackChartData.toChart`, the transition formula `Polyfold.PullbackChartData.transition_eqOn` and compatibility on $[0]$ and $[1]$ (`Polyfold.PullbackChartData.compatible_toChart`), and the paracompactness of $f^*Y$ (`Polyfold.paracompactSpace_pullbackSpace`; it is metrizable as a subspace of $Z\times Y$).
+*Checked by machine:* `Polyfold.proposition_2_6_8`, by this construction: the pulled-back retraction `Polyfold.pullbackRetraction` (a strong bundle retraction with image $K_g$, `Polyfold.isStrongBundleRetraction_pullback`, `Polyfold.pullback_image`), the charts `Polyfold.PullbackChartData.toChart`, the transition formula `Polyfold.PullbackChartData.transition_eqOn` and compatibility on $[0]$ and $[1]$ (`Polyfold.PullbackChartData.compatible_toChart`), and the paracompactness of $f^*Y$ (`Polyfold.paracompactSpace_pullbackSpace`; it is metrizable as a subspace of $Z\times Y$).
 
 ---
 
@@ -1637,7 +1637,7 @@ It is paracompact: let $(C_j)$ be a closed locally finite refinement of the char
 closed in $TX$ and locally finite ($p$ is continuous), with $\widetilde K^j\subset TV^j$ metrizable, hence
 paracompact (Stone, closed subsets). By Proposition 2.7.4 (preprint 2.57), $TX$ is paracompact, and by Smirnov metrizable. $\square$
 
-*Checked by machine:* (1) Hausdorff (the basis property is not needed); (2) continuity of $p$, not its openness; (3) by the pull-back argument along $TX\to X$, not through Proposition 2.7.4 (preprint 2.57) (`Polyfold.proposition_2_19_3`).
+*Checked by machine:* (1) Hausdorff (the basis property is not needed); (2) continuity of $p$, not its openness; (3) by the pull-back argument along $TX\to X$, not through Proposition 2.7.4 (preprint 2.57) (`Polyfold.proposition_2_3_15_three`).
 
 **Checked by machine.** This chapter is formalized in Lean 4 against Mathlib (`Polyfold/Chapter2/`); the
 paragraphs "*Checked by machine*" after the statements above name the declarations. Formalized: every
@@ -1682,7 +1682,7 @@ M-polyfold structure of $bX$ (pp. 83–84). All items are new in the 2021 editio
 Part (3) now carries the hypothesis "$f\circ r$ sc-smooth", without which $T(f\circ r)$ is not defined. The proof in §1 used it,
 so the 2021 statement is the conjunction of the three parts proved there.
 
-*Checked by machine:* `Polyfold.proposition_2_1_13_2021`.
+*Checked by machine:* `Polyfold.proposition_2_1_13`.
 
 ### 9.2 Local completeness (pp. 22–25)
 
@@ -1726,9 +1726,9 @@ sets $W$ and $X\setminus\mathrm{cl}_X(V)$ covering $X$. The text argues with seq
 - the definitions: `Polyfold.AdmitsCompleteMetricOn`, `Polyfold.IsLocallyComplete`, `Polyfold.IsLocallyCompleteRel`;
 - the separation properties: `Polyfold.IsLocallyComplete.regularSpace`, `Polyfold.IsLocallyComplete.t1Space`,
   `Polyfold.IsLocallyComplete.t2Space`, `Polyfold.IsLocallyComplete.completelyRegularSpace`;
-- the numbered items: `Polyfold.remark_2_1_6_2021`, `Polyfold.proposition_2_1_4_2021`, `Polyfold.corollary_2_1_7_2021`,
-  `Polyfold.IsLocallyComplete.of_isEmbedding`, `Polyfold.proposition_2_1_8_1_2021` to `Polyfold.proposition_2_1_8_4_2021`,
-  `Polyfold.lemma_2_1_9_2021`, `Polyfold.proposition_2_1_10_2021`.
+- the numbered items: `Polyfold.remark_2_1_6`, `Polyfold.proposition_2_1_4`, `Polyfold.corollary_2_1_7`,
+  `Polyfold.IsLocallyComplete.of_isEmbedding`, `Polyfold.proposition_2_1_8_1` to `Polyfold.proposition_2_1_8_4`,
+  `Polyfold.lemma_2_1_9`, `Polyfold.proposition_2_1_10`.
 
 ### 9.3 Local path-connectedness and contractibility (pp. 30–33)
 
@@ -1758,9 +1758,9 @@ $W\ni z$ that contracts to $z$ inside $V$, fixing $z$. A retract is almost local
 $B_\varepsilon(z)\cap C\subseteq U$ and $r(B_\varepsilon(z)\cap C)\subseteq V$. Then $\Phi(t,y) = r((1-t)y+tz)$ on
 $W = B_\varepsilon(z)\cap O$ contracts $W$ to $z$ inside $V$, fixing $z$.
 
-*Checked by machine:* `Polyfold.ScBanach.lvlSetInfty`, `Polyfold.lemma_2_2_1_2021`, `Polyfold.lemma_2_2_1_infty_2021`,
-`Polyfold.lemma_2_2_2_2021`, `Polyfold.definition_2_2_3_2021`, `Polyfold.theorem_2_2_4_2021`,
-`Polyfold.IsAlmostLocallyContractible`, `Polyfold.proposition_2_2_6_2021`.
+*Checked by machine:* `Polyfold.ScBanach.lvlSetInfty`, `Polyfold.lemma_2_2_1`, `Polyfold.lemma_2_2_1_infty`,
+`Polyfold.lemma_2_2_2`, `Polyfold.definition_2_2_3`, `Polyfold.theorem_2_2_4`,
+`Polyfold.IsAlmostLocallyContractible`, `Polyfold.proposition_2_2_6`.
 
 ### 9.4 Paracompactness, and Propositions 2.3.6–2.3.7 (pp. 35–36, 72)
 
@@ -1781,9 +1781,9 @@ $\mathrm{cl}(V)$ in a given neighbourhood.
 domains form an open cover satisfying the condition of Proposition 2.1.8 by Lemma 2.3.5, so every M-polyfold is locally
 complete (Proposition 2.3.6) and locally path-connected (Proposition 2.3.7).
 
-*Checked by machine:* `Polyfold.isParacompactStar_iff`, `Polyfold.definition_2_3_4_2021`,
-`Polyfold.not_isParacompactBySubcover_real`, `Polyfold.lemma_2_7_2_2021`, `Polyfold.lemma_2_3_5_2021`,
-`Polyfold.proposition_2_3_6_2021`, `Polyfold.proposition_2_3_7_2021`.
+*Checked by machine:* `Polyfold.isParacompactStar_iff`, `Polyfold.definition_2_3_4`,
+`Polyfold.not_isParacompactBySubcover_real`, `Polyfold.lemma_2_7_2`, `Polyfold.lemma_2_3_5`,
+`Polyfold.proposition_2_3_6`, `Polyfold.proposition_2_3_7`.
 
 ### 9.5 Tame sub-M-polyfolds (Definitions 2.5.18, 2.5.19, pp. 62–63)
 
@@ -1873,15 +1873,15 @@ and the iterated boundaries are §9.11, for every representative (gap G.78, clos
 
 *Checked by machine:*
 - faces and the corner axioms: `Polyfold.TameBoundary.IsCornerIndex`, `Polyfold.MPolyfold.isCornerIndex_degIndex`,
-  `Polyfold.TameBoundary.proposition_2_7_5`, `Polyfold.MPolyfold.proposition_2_7_5_2021`,
-  `Polyfold.MPolyfold.proposition_2_7_7_2021`;
+  `Polyfold.TameBoundary.proposition_2_7_5`, `Polyfold.MPolyfold.proposition_2_7_5`,
+  `Polyfold.MPolyfold.proposition_2_7_7`;
 - $L_X$, $bX$ and $B$: `Polyfold.TameBoundary.IsMor.trans`, `Polyfold.TameBoundary.boundaryFunctor`,
   `Polyfold.TameBoundary.BSpace`, `Polyfold.TameBoundary.range_bMap`, `Polyfold.TameBoundary.encard_bMap_preimage`;
 - (2.44): `Polyfold.TameBoundary.bMap_image_uSet`, `Polyfold.TameBoundary.phi_bijective_of_isCenteredAt`,
-  `Polyfold.TameBoundaryExample.phi_not_surjective_2021`;
+  `Polyfold.TameBoundaryExample.phi_not_surjective`;
 - the topology: `Polyfold.TameBoundary.lemma_2_7_15`, `Polyfold.TameBoundary.isOpenEmbedding_phi`,
   `Polyfold.TameBoundary.proposition_2_7_12`, `Polyfold.TameBoundary.proposition_2_7_16`,
-  `Polyfold.TameBoundary.theorem_2_7_13_topology`, `Polyfold.MPolyfold.theorem_2_7_13_2021`, `Polyfold.MPolyfold.tameBoundary`;
+  `Polyfold.TameBoundary.theorem_2_7_13_topology`, `Polyfold.MPolyfold.theorem_2_7_13`, `Polyfold.MPolyfold.tameBoundary`;
 - the witness: `Polyfold.MPolyfold.quadrantPolyfold_encard_preimage`.
 
 ### 9.7 Remark 2.1.6 is strictly weaker (p. 23)
@@ -1900,7 +1900,7 @@ $K = \{1/(n+1) : n\in\mathbb N\}$ and give $\mathbb R$ the *K-topology*, generat
 So the remark holds as we read it, and "weaker" is strict. The example also shows what the global condition
 $\mathrm{cl}_X(V)\subseteq W$ is for: it makes a locally complete space regular.
 
-*Checked by machine:* `Polyfold.remark_2_1_6_strict_2021`, with `Polyfold.RealKTop`,
+*Checked by machine:* `Polyfold.remark_2_1_6_strict`, with `Polyfold.RealKTop`,
 `Polyfold.RealKTop.isLocallyCompleteRel`, `Polyfold.RealKTop.not_regularSpace`, `Polyfold.RealKTop.not_isLocallyComplete`,
 `Polyfold.isLocallyCompleteRel_of_forall_isCompletelyMetrizable` and
 `Polyfold.isCompletelyMetrizableSpace_of_isEmbedding_compl_range` (Mathlib has no "$G_\delta$ subsets of complete metric
@@ -1941,8 +1941,8 @@ the M-polyfold is bundled with its space.
 *Checked by machine:* `Polyfold.ScRetraction.IsBundleRetractionOver`, `Polyfold.IsBundleMapOn`,
 `Polyfold.ScRetraction.tangentRetraction_isBundleRetractionOver`, `Polyfold.IsScSmoothRetractMap.retractTangentMap_isBundleMapOn`
 (Definition 2.1.16, gap G.5, apart from the categories); `Polyfold.MPolyfold.shiftLevelHomeomorph`,
-`Polyfold.MPolyfold.shift_level_eq` (gap G.6, closed); `Polyfold.theorem_2_3_16_2021`; `Polyfold.proposition_2_3_17_2021`
-($i = 1$), `Polyfold.proposition_2_3_17_two_2021` ($i = 2$), `Polyfold.proposition_2_3_17_all_2021` (every $i$), with
+`Polyfold.MPolyfold.shift_level_eq` (gap G.6, closed); `Polyfold.theorem_2_3_16`; `Polyfold.proposition_2_3_17`
+($i = 1$), `Polyfold.proposition_2_3_17_two` ($i = 2$), `Polyfold.proposition_2_3_17_all` (every $i$), with
 `Polyfold.MPolyfold.tangentShiftEquiv`, `Polyfold.MPolyfold.levelOneEquiv_isScDiffeoOn`,
 `Polyfold.BundledMPolyfold.tangentLiftEquiv`, `Polyfold.BundledMPolyfold.tangentLiftEquiv_natural`.
 
@@ -1955,7 +1955,7 @@ $d_C = 3$, while $d_\Delta = 1$ by Proposition 2.4.4 (preprint 2.24) applied to 
 are $0$. The defining chart realizes $d_C$; one chart on all of $\Delta\oplus W$ with model $[0,\infty)\oplus W$ realizes
 $d_\Delta$, which is the "more economical" atlas of the remark. §3.1's two-dimensional diagonal is the same phenomenon.
 
-*Checked by machine:* `Polyfold.remark_2_4_2_2021`, with `Polyfold.diagonalRetraction`, `Polyfold.diagonalEmbed_isScDiffeoOn`,
+*Checked by machine:* `Polyfold.remark_2_4_2`, with `Polyfold.diagonalRetraction`, `Polyfold.diagonalEmbed_isScDiffeoOn`,
 `Polyfold.degIndex_diagonal_quadrant`, `Polyfold.diagonalPolyfold_degIndex`, `Polyfold.diagonalHalfLineChart_spec`.
 
 ### 9.10 Tame sub-M-polyfolds, continued (p. 63)
@@ -1978,10 +1978,10 @@ while on $B$ the index is $2$ at the corner and $0$ elsewhere. So $B$ is not tam
 $t\mapsto(t,t,0)$ is an sc-diffeomorphism from the half-line onto $B$, whose induced structure is therefore tame. Both claims
 of the text hold, for every $W$ in place of $\mathbb R$.
 
-*Checked by machine:* `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart_2021`,
-`Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure_2021`, `Polyfold.TameSubExample.isTameSubMPolyfold_fixSet`,
-`Polyfold.TameSubExample.not_isTameSubMPolyfold_setB_2021`, `Polyfold.TameSubExample.hasTameInducedStructure_setB_2021`,
-`Polyfold.TameSubExample.examples_A_B_2021`. Gap G.77 is closed; condition (3) is still stated in charts (gap G.7).
+*Checked by machine:* `Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart`,
+`Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure`, `Polyfold.TameSubExample.isTameSubMPolyfold_fixSet`,
+`Polyfold.TameSubExample.not_isTameSubMPolyfold_setB`, `Polyfold.TameSubExample.hasTameInducedStructure_setB`,
+`Polyfold.TameSubExample.examples_A_B`. Gap G.77 is closed; condition (3) is still stated in charts (gap G.7).
 
 ### 9.11 The tame M-polyfold $bX$ (Theorem 2.7.13 (2)–(4), Proposition 2.7.12, Definition 2.7.14, pp. 83–84)
 
@@ -2013,10 +2013,10 @@ $n\ge1$, chart data exist, and over the corner $d_{bX} = n-1$.
 *Checked by machine:* `Polyfold.MPolyfold.BChartData`, `Polyfold.MPolyfold.tameBoundaryPolyfold`,
 `Polyfold.MPolyfold.tameBoundaryPolyfold_isTame`, `Polyfold.MPolyfold.tameBoundaryMap_isScSmooth`,
 `Polyfold.MPolyfold.degIndex_tameBoundaryMap_sub_one`, `Polyfold.MPolyfold.phi_isScDiffeoOn`,
-`Polyfold.MPolyfold.tameBoundaryPolyfold_unique`, `Polyfold.MPolyfold.theorem_2_7_13_structure_2021`;
-`Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred_2021`, `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred_2021`,
-`Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps_2021`, `Polyfold.MPolyfold.not_surjOn_phiTot_2021` (gap G.78,
-closed); `Polyfold.MPolyfold.definition_2_7_14_2021`, `Polyfold.MPolyfold.TameMPolyfoldBundle.iterMap_isScSmooth`,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_unique`, `Polyfold.MPolyfold.theorem_2_7_13_structure`;
+`Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred`, `Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred`,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps`, `Polyfold.MPolyfold.not_surjOn_phiTot` (gap G.78,
+closed); `Polyfold.MPolyfold.definition_2_7_14`, `Polyfold.MPolyfold.TameMPolyfoldBundle.iterMap_isScSmooth`,
 `Polyfold.MPolyfold.TameMPolyfoldBundle.degIndex_iterMap`, `Polyfold.MPolyfold.TameMPolyfoldBundle.range_iterMap`,
 `Polyfold.MPolyfold.quadrantPolyfold_degIndex_tameBoundary`.
 

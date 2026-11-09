@@ -2,7 +2,7 @@ import Polyfold.Chapter6.ScHomotopy
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 228:
-the proof of **Theorem 6.37** (the transport of orientations along sc-smooth paths by a finite
+the proof of **Theorem 6.6.13 (preprint 6.37)** (the transport of orientations along sc-smooth paths by a finite
 covering, and its independence of the homotopy class) *(book 2017: Theorem 6.2, p. 213; see
 `BookConcordance.md`)*.
 
@@ -10,7 +10,7 @@ covering, and its independence of the homotopy class) *(book 2017: Theorem 6.2, 
 
 ## The text, paraphrased
 
-(Theorem 6.37) For a strong bundle over a tame M-polyfold `X` and an sc-Fredholm section `f`
+(Theorem 6.6.13 (preprint 6.37)) For a strong bundle over a tame M-polyfold `X` and an sc-Fredholm section `f`
 there is a uniquely determined functor `Γ_f` from the category `P_X` (smooth points, sc-smooth
 homotopy classes `[φ]` of paths with end points fixed) to the sets `Or_x^f`, with the property
 (∗): for an sc-smooth path `φ` in a neighbourhood `U` with the local propagation property,
@@ -55,7 +55,7 @@ the homotopy class `[φ]` with fixed end points, and `Γ_f` is clearly unique.
 ## Reading
 
 The covering argument is done abstractly, for any local transport data; the instance given by
-the orientable neighbourhoods of Theorem 6.35 and Definition 6.36 is not made here, and neither
+the orientable neighbourhoods of Theorem 6.6.11 (preprint 6.35) and Definition 6.6.12 (preprint 6.36) is not made here, and neither
 is the passage to the homotopy classes of `P_X` (the transport is homotopy invariant, takes
 `concatPath` to composites and constant paths to the identity).  Dyadic subdivisions of `[0, 1]`
 are used in place of an arbitrary finite covering: the transport along `γ` is the composite of
@@ -85,7 +85,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 variable (PX) in
 /-- **Local transport data** for a family of types `O x` over the smooth points `x ∈ X_∞` (in
-Theorem 6.37, `O x = Or_x^f`, the orientations of `DET(f, x)`): a family of *good* open sets
+Theorem 6.6.13 (preprint 6.37), `O x = Or_x^f`, the orientations of `DET(f, x)`): a family of *good* open sets
 covering `X_∞` (the orientable neighbourhoods), all fibres in bijection, and for every good set `U`
 a push-forward `O x₀ ≃ O x₁` along every sc-smooth path `γ` with `γ([0, 1]) ⊆ U` from `x₀` to
 `x₁`, such that push-forwards in one good set compose (`push_trans`) and do not depend on the good
@@ -395,7 +395,7 @@ theorem exists_level {γ : (Fin 1 → ℝ) → X} (hγ : (rnPolyfold 1).IsScSmoo
 /-! ### The transport -/
 
 /-- **The transport along an sc-smooth path** `γ` from `x₀` to `x₁` (the map `φ_*` of the proof
-of Theorem 6.37): the dyadic transport at a level at which every dyadic piece of `γ` lies in a good
+of Theorem 6.6.13 (preprint 6.37)): the dyadic transport at a level at which every dyadic piece of `γ` lies in a good
 set. -/
 def transport (γ : (Fin 1 → ℝ) → X) (hγ : (rnPolyfold 1).IsScSmoothMap PX γ) {x₀ x₁ : X}
     (h₀ : γ (pt1 0) = x₀) (h₁ : γ (pt1 1) = x₁) (hs₀ : x₀ ∈ PX.smoothSet)
@@ -423,7 +423,7 @@ theorem transport_eq_transportN {δ : ℝ} {γ : (Fin 1 → ℝ) → X} (hδ : L
     L.transport γ hγ h₀ h₁ hs₀ hs₁ = L.transportN N γ hγ h₀ h₁ hs₀ hs₁ :=
   L.transport_eq_transportN_of_isFine (L.isFine_of_isLebesgueNumber N hδ hN) hγ h₀ h₁ hs₀ hs₁
 
-/-- **Property (∗) of Theorem 6.37**: on a path in a good set `U` the transport is the
+/-- **Property (∗) of Theorem 6.6.13 (preprint 6.37)**: on a path in a good set `U` the transport is the
 push-forward in `U`. -/
 theorem transport_eq_push {U : Set X} (hU : L.Good U) {γ : (Fin 1 → ℝ) → X}
     (hγ : (rnPolyfold 1).IsScSmoothMap PX γ) (hγU : ∀ t ∈ Icc (0 : ℝ) 1, γ (pt1 t) ∈ U)
@@ -725,7 +725,7 @@ theorem transportN_square {Φ : (Fin 2 → ℝ) → X} (hΦ : (rnPolyfold 2).IsS
 
 /-! ### Homotopy invariance, functoriality and uniqueness -/
 
-/-- **Homotopy invariance** (the covering argument of the proof of Theorem 6.37): the transports
+/-- **Homotopy invariance** (the covering argument of the proof of Theorem 6.6.13 (preprint 6.37)): the transports
 along two sc-smooth paths which are sc-smoothly homotopic with end points fixed agree.  (A Lebesgue
 number `δ` for the homotopy `Φ` on `[0, 1]²`, the square lemma at a level `n` with `2ⁿ δ > 1`, and
 the two sides `τ ↦ Φ(τ, 0)`, `τ ↦ Φ(τ, 1)`, constant on `[0, 1]`, with trivial transport.) -/

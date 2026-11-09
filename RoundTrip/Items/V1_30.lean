@@ -5,8 +5,8 @@ import RoundTrip.Blind.V1_30
 /-! Round trip for V1_30 (Proposition 1.10: compact perturbation of sc-Fredholm operators; the
 project's item is the index statement).
 
-`A` is the conjunction of the types of `Polyfold.proposition_1_10_index` (`ind(T + S) = ind T`)
-and `Polyfold.proposition_1_10_index_lvl` (every `(T + S)_m` is Fredholm of index `ind T`).
+`A` is the conjunction of the types of `Polyfold.proposition_1_1_11_index` (`ind(T + S) = ind T`)
+and `Polyfold.proposition_1_1_11_index_lvl` (every `(T + S)_m` is Fredholm of index `ind T`).
 Neither has universe parameters (`ScBanach` lives in `Type`).
 
 * `A → B` is proved *using* `A`: an sc-operator `T'` all of whose level maps are Fredholm with the
@@ -14,7 +14,7 @@ Neither has universe parameters (`ScBanach` lives in `Type`).
   `dim ker T'_m ≤ dim ker T'_0`, `codim R_m ≥ codim R_0` since `F_m` is dense, and the indices
   agree), and a regularizing sc-operator with Fredholm level maps is sc-Fredholm (the construction
   of the project's proof of Proposition 1.10, with its bootstrap `ScPlus.regularizing_add`
-  replaced by the index argument).  `proposition_1_10` itself is not used.
+  replaced by the index argument).  `proposition_1_1_11_preprint` itself is not used.
 * `B → A`: `B` gives that `T + S` is sc-Fredholm, hence (Lemma 2.D, `IsScFredholm.fredholmIndex_lvl`)
   every level map is Fredholm of index `ind(T + S)`; the index equality `ind(T + S) = ind T` is
   not in `B` and is supplied by the classical invariance of the Fredholm index under compact
@@ -122,7 +122,7 @@ theorem isScFredholm_of_regularizing {E F : ScBanach} (T' : ScOperator E F)
     intro m
     have hx0 : T' 0 x = 0 := hx
     exact hreg (m := m) (e := x) (by rw [hx0]; exact ⟨0, map_zero _⟩)
-  obtain ⟨X', hX'⟩ := E.proposition_1_6 K' hK'smooth
+  obtain ⟨X', hX'⟩ := E.proposition_1_1_7 K' hK'smooth
   -- the range `Y'` is closed and its smooth points are dense on every level
   set Y' := LinearMap.range (T' 0 : E 0 →ₗ[ℝ] F 0) with hY'
   have hY'cl : IsClosed (Y' : Set (F 0)) := (hFred 0).isClosed_range
@@ -195,7 +195,7 @@ theorem isScFredholm_of_regularizing {E F : ScBanach} (T' : ScOperator E F)
       · rw [ScBanach.mem_levelSub, hc]
         exact LinearMap.mem_range_self σ _
   have hsplitF : F.IsScSplitting C' Y' :=
-    ⟨(F.proposition_1_6_iff C').2 hC'smooth, hY'sc, fun m => (hcompl m).symm⟩
+    ⟨(F.proposition_1_1_7_iff C').2 hC'smooth, hY'sc, fun m => (hcompl m).symm⟩
   -- the bijections `X'_m → Y'_m`
   refine ⟨⟨K', X', C', Y', hX', hsplitF, rfl, hK'fin, hC'fin, rfl, fun m => ⟨?_, ?_, ?_⟩⟩⟩
   · intro x _
@@ -221,9 +221,9 @@ theorem isScFredholm_of_regularizing {E F : ScBanach} (T' : ScOperator E F)
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_1_10_index) ∧ (type_of% @Polyfold.proposition_1_10_index_lvl)
+  (type_of% @Polyfold.proposition_1_1_11_index) ∧ (type_of% @Polyfold.proposition_1_1_11_index_lvl)
 
-theorem A_holds : A := ⟨@Polyfold.proposition_1_10_index, @Polyfold.proposition_1_10_index_lvl⟩
+theorem A_holds : A := ⟨@Polyfold.proposition_1_1_11_index, @Polyfold.proposition_1_1_11_index_lvl⟩
 
 /-- `A → B`, using `A`'s second conjunct: the level maps of `T + S` are Fredholm, all of index
 `ind T`. -/
@@ -252,13 +252,13 @@ theorem B_to_A : B → A := by
   rw [← hind hT S]
   exact hTS.fredholmIndex_lvl m
 
-#rt_check RoundTrip.V1_30.A_to_B [Polyfold.proposition_1_10_index,
-  Polyfold.proposition_1_10_index_lvl]
-#rt_check RoundTrip.V1_30.B_to_A [Polyfold.proposition_1_10_index,
-  Polyfold.proposition_1_10_index_lvl]
-#rt_overlap RoundTrip.V1_30.A_to_B [Polyfold.proposition_1_10_index,
-  Polyfold.proposition_1_10_index_lvl]
-#rt_overlap RoundTrip.V1_30.B_to_A [Polyfold.proposition_1_10_index,
-  Polyfold.proposition_1_10_index_lvl]
+#rt_check RoundTrip.V1_30.A_to_B [Polyfold.proposition_1_1_11_index,
+  Polyfold.proposition_1_1_11_index_lvl]
+#rt_check RoundTrip.V1_30.B_to_A [Polyfold.proposition_1_1_11_index,
+  Polyfold.proposition_1_1_11_index_lvl]
+#rt_overlap RoundTrip.V1_30.A_to_B [Polyfold.proposition_1_1_11_index,
+  Polyfold.proposition_1_1_11_index_lvl]
+#rt_overlap RoundTrip.V1_30.B_to_A [Polyfold.proposition_1_1_11_index,
+  Polyfold.proposition_1_1_11_index_lvl]
 
 end RoundTrip.V1_30

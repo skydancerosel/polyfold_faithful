@@ -2,14 +2,14 @@ import Polyfold.Chapter2.TameFaces
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.4,
-**Proposition 2.46** (fibred products), with the products of M-polyfolds it needs (exposition
+**Proposition 2.5.20 (preprint 2.46)** (fibred products), with the products of M-polyfolds it needs (exposition
 Lemma 4.D).
 
 # Products and fibred products of M-polyfolds
 
 ## The text, paraphrased
 
-(Proposition 2.46) Let `f : X → Z` be a local sc-diffeomorphism and `g : Y → Z` sc-smooth.  Then
+(Proposition 2.5.20 (preprint 2.46)) Let `f : X → Z` be a local sc-diffeomorphism and `g : Y → Z` sc-smooth.  Then
 `X ₓ×_g Y = {(x, y) | f(x) = g(y)}` is a sub-M-polyfold of `X × Y`.  If `Y` is tame, so is
 `X ₓ×_g Y`, and `d_{X ₓ×_g Y}(x, y) = d_Y(y)`.  If `X` and `Y` are tame and `f`, `g` are both local
 sc-diffeomorphisms, `d_{X ₓ×_g Y}(x, y) = ½ d_{X×Y}(x, y) = ½(d_X(x) + d_Y(y)) = d_X(x) = d_Y(y)`.
@@ -27,7 +27,7 @@ that `d_{X × Y} = d_X + d_Y` for tame `X`, `Y` (exposition Lemma 4.D).
   `IsScRetract.prod`, `IsScSmoothRetractMap.prodMap`, `IsScSubspace.prod`, `IsScSplitting.prod`,
   `ScRetraction.IsTameWith.prod` (products of tame retractions are tame).
 * `LocalModel.prod`, `MChart.prod`, `MChart.overlap_prod`, `MChart.Compatible.prod`,
-  `MPolyfold.paracompactSpace_prod` (from Theorem 2.16), `MPolyfold.prod` (**Lemma 4.D**: `X × Y`
+  `MPolyfold.paracompactSpace_prod` (from Theorem 2.3.10 (preprint 2.16)), `MPolyfold.prod` (**Lemma 4.D**: `X × Y`
   with the product charts), `MPolyfold.IsChart.prod`, `MPolyfold.degIndex_prod_le`
   (`d_{X × Y} ≤ d_X + d_Y`), `MPolyfold.isTame_prod` (tame factors: `X × Y` is tame and
   `d_{X × Y} = d_X + d_Y`), `MPolyfold.isScSmoothMap_fst`, `MPolyfold.isScSmoothMap_snd`,
@@ -36,19 +36,19 @@ that `d_{X × Y} = d_X + d_Y` for tame `X`, `Y` (exposition Lemma 4.D).
   (`R(x', y') = ((f|_U)⁻¹(g(y')), y')`) and `fibredSubDataR`, `isSubMPolyfold_fibredProduct`,
   `isScDiffeoOn_snd_fibredProduct` / `isScDiffeoOn_fst_fibredProduct` (`π₂`, resp. `π₁`, is an
   sc-diffeomorphism near each point), `degIndex_fibredProduct_eq_snd` / `_fst`,
-  `isTame_fibredProduct`, and `MPolyfold.proposition_2_46`,
-  `MPolyfold.proposition_2_46_of_isLocalScDiffeo` (**Proposition 2.46**).
+  `isTame_fibredProduct`, and `MPolyfold.proposition_2_5_20`,
+  `MPolyfold.proposition_2_5_20_of_isLocalScDiffeo` (**Proposition 2.5.20 (preprint 2.46)**).
 
 ## What the text leaves implicit, and the choices made
 
 * "Local sc-diffeomorphism" is read as: every `x` has an open neighbourhood `U` such that `f|_U`
   is an sc-diffeomorphism onto an open subset of `Z` (`IsScDiffeoOn`).
-* The fibred product carries the sub-M-polyfold structure of Proposition 2.21; it is paracompact
+* The fibred product carries the sub-M-polyfold structure of Proposition 2.3.19 (preprint 2.21); it is paracompact
   as a closed subset of the metrizable `X × Y`.
 * The inverse of `π₂` near `(x, y)` is `y' ↦ ((f|_U)⁻¹(g(y')), y')` followed by Proposition
   2.21 (2); the exposition's factorization through `y' ↦ (x, y')` is not sc-smooth unless `x` is
   a smooth point (a constant map is sc⁰ only when its value lies in `X_∞`).
-* In the last statement, `d_{X ₓ×_g Y} = d_X = d_Y` holds without tameness (Proposition 2.24 along
+* In the last statement, `d_{X ₓ×_g Y} = d_X = d_Y` holds without tameness (Proposition 2.4.4 (preprint 2.24) along
   `π₁` and `π₂`); tameness enters only through `d_{X × Y} = d_X + d_Y`, stated as
   `2 d_{X ₓ×_g Y}(x, y) = d_{X × Y}(x, y)`.
 -/
@@ -451,7 +451,7 @@ variable {X : Type u} {Y : Type v} [TopologicalSpace X] [T2Space X] [Paracompact
   [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] (P : MPolyfold X) (Q : MPolyfold Y)
 
 include P Q in
-/-- `X × Y` is paracompact: it is metrizable (Theorem 2.16 for `X` and `Y`). -/
+/-- `X × Y` is paracompact: it is metrizable (Theorem 2.3.10 (preprint 2.16) for `X` and `Y`). -/
 theorem paracompactSpace_prod : ParacompactSpace (X × Y) := by
   have := P.metrizableSpace
   have := Q.metrizableSpace
@@ -575,7 +575,7 @@ theorem IsScSmoothOn.prodMk [ParacompactSpace (X × Y)] {f : Z → X} {g : Z →
 
 end MPolyfold
 
-/-! ### Fibred products (Proposition 2.46) -/
+/-! ### Fibred products (Proposition 2.5.20 (preprint 2.46)) -/
 
 namespace MPolyfold
 
@@ -608,7 +608,7 @@ lemma isClosed_fibredProduct {f : X → Z} {g : Y → Z} (hf : Continuous f) (hg
 variable [ParacompactSpace (X × Y)] {f : X → Z} {g : Y → Z}
 
 /-- The retraction `R(x', y') = ((f|_U)⁻¹(g(y')), y')` of `U × g⁻¹(V)` onto the fibred product, for
-an sc-diffeomorphism `f|_U : U → V` (the proof of Proposition 2.46). -/
+an sc-diffeomorphism `f|_U : U → V` (the proof of Proposition 2.5.20 (preprint 2.46)). -/
 def fibredSubDataL {h : Z → X} {U : Set X} {V : Set Z} (hd : P.IsScDiffeoOn S f h U V)
     (hg : Q.IsScSmoothMap S g) : (P.prod Q).SubData (fibredProduct f g) where
   V := U ×ˢ (g ⁻¹' V)
@@ -667,7 +667,7 @@ def fibredSubDataR {k : Z → Y} {U : Set Y} {V : Set Z} (hd : Q.IsScDiffeoOn S 
       change k (f p.1) = p.2
       rw [show f p.1 = g p.2 from hpA, hd.left_inv _ hpV.2]
 
-/-- **Proposition 2.46**, first statement: for a local sc-diffeomorphism `f : X → Z` and an
+/-- **Proposition 2.5.20 (preprint 2.46)**, first statement: for a local sc-diffeomorphism `f : X → Z` and an
 sc-smooth `g : Y → Z`, the fibred product `X ₓ×_g Y` is a sub-M-polyfold of `X × Y`. -/
 theorem isSubMPolyfold_fibredProduct (hf : P.IsLocalScDiffeo S f) (hg : Q.IsScSmoothMap S g) :
     (P.prod Q).IsSubMPolyfold (fibredProduct f g) := by
@@ -710,7 +710,7 @@ section Diffeo
 variable [ParacompactSpace (fibredProduct f g)] (hA : (P.prod Q).IsSubMPolyfold (fibredProduct f g))
 
 /-- Near a point of the fibred product, `π₂ : (x, y) ↦ y` is an sc-diffeomorphism onto an open
-subset of `Y`, with inverse `y ↦ ((f|_U)⁻¹(g(y)), y)` (the proof of Proposition 2.46). -/
+subset of `Y`, with inverse `y ↦ ((f|_U)⁻¹(g(y)), y)` (the proof of Proposition 2.5.20 (preprint 2.46)). -/
 theorem isScDiffeoOn_snd_fibredProduct {h : Z → X} {U : Set X} {V : Set Z}
     (hd : P.IsScDiffeoOn S f h U V) (hg : Q.IsScSmoothMap S g) (a₀ : fibredProduct f g) :
     (subPolyfold hA).IsScDiffeoOn Q (fun a => (a : X × Y).2)
@@ -775,12 +775,12 @@ theorem isScDiffeoOn_fst_fibredProduct {k : Z → Y} {U : Set Y} {V : Set Z}
     rw [show f (a : X × Y).1 = g (a : X × Y).2 from a.2, hd.left_inv _ ha.2]
   · rw [hval x hx]
 
-/-- `d_{X ₓ×_g Y}(x, y) = d_Y(y)` when `f` is a local sc-diffeomorphism (Proposition 2.24 along
+/-- `d_{X ₓ×_g Y}(x, y) = d_Y(y)` when `f` is a local sc-diffeomorphism (Proposition 2.4.4 (preprint 2.24) along
 `π₂`). -/
 theorem degIndex_fibredProduct_eq_snd (hf : P.IsLocalScDiffeo S f) (hg : Q.IsScSmoothMap S g)
     (a : fibredProduct f g) : (subPolyfold hA).degIndex a = Q.degIndex (a : X × Y).2 := by
   obtain ⟨U, V, h, hx, hd⟩ := hf (a : X × Y).1
-  refine proposition_2_24 (isScDiffeoOn_snd_fibredProduct hA hd hg a) ⟨hx, ?_⟩
+  refine proposition_2_4_4 (isScDiffeoOn_snd_fibredProduct hA hd hg a) ⟨hx, ?_⟩
   change g (a : X × Y).2 ∈ V
   rw [← show f (a : X × Y).1 = g (a : X × Y).2 from a.2]; exact hd.mapsTo hx
 
@@ -788,7 +788,7 @@ theorem degIndex_fibredProduct_eq_snd (hf : P.IsLocalScDiffeo S f) (hg : Q.IsScS
 theorem degIndex_fibredProduct_eq_fst (hf : P.IsScSmoothMap S f) (hg : Q.IsLocalScDiffeo S g)
     (a : fibredProduct f g) : (subPolyfold hA).degIndex a = P.degIndex (a : X × Y).1 := by
   obtain ⟨U, V, k, hy, hd⟩ := hg (a : X × Y).2
-  refine proposition_2_24 (isScDiffeoOn_fst_fibredProduct hA hd hf a) ⟨?_, hy⟩
+  refine proposition_2_4_4 (isScDiffeoOn_fst_fibredProduct hA hd hf a) ⟨?_, hy⟩
   change f (a : X × Y).1 ∈ V
   rw [show f (a : X × Y).1 = g (a : X × Y).2 from a.2]; exact hd.mapsTo hy
 
@@ -814,11 +814,11 @@ theorem isTame_fibredProduct (hf : P.IsLocalScDiffeo S f) (hg : Q.IsScSmoothMap 
 
 end Diffeo
 
-/-- **Proposition 2.46**: let `f : X → Z` be a local sc-diffeomorphism and `g : Y → Z`
+/-- **Proposition 2.5.20 (preprint 2.46)**: let `f : X → Z` be a local sc-diffeomorphism and `g : Y → Z`
 sc-smooth.  The fibred product `X ₓ×_g Y` is a sub-M-polyfold of `X × Y`;
 `d_{X ₓ×_g Y}(x, y) = d_Y(y)`; and if `Y` is tame, so is `X ₓ×_g Y`.  (Paracompactness of the
 fibred product: it is closed in the metrizable `X × Y`.) -/
-theorem proposition_2_46 (hf : P.IsLocalScDiffeo S f) (hg : Q.IsScSmoothMap S g) :
+theorem proposition_2_5_20 (hf : P.IsLocalScDiffeo S f) (hg : Q.IsScSmoothMap S g) :
     haveI : ParacompactSpace (fibredProduct f g) := paracompactSpace_of_isClosed
       (isClosed_fibredProduct hf.continuous (continuousOn_univ.1 hg.continuousOn))
     ∃ hA : (P.prod Q).IsSubMPolyfold (fibredProduct f g),
@@ -829,10 +829,10 @@ theorem proposition_2_46 (hf : P.IsLocalScDiffeo S f) (hg : Q.IsScSmoothMap S g)
   have hA := isSubMPolyfold_fibredProduct hf hg
   exact ⟨hA, degIndex_fibredProduct_eq_snd hA hf hg, isTame_fibredProduct hA hf hg⟩
 
-/-- **Proposition 2.46**, last statement: if both `f` and `g` are local sc-diffeomorphisms, then
+/-- **Proposition 2.5.20 (preprint 2.46)**, last statement: if both `f` and `g` are local sc-diffeomorphisms, then
 `d_{X ₓ×_g Y}(x, y) = d_X(x) = d_Y(y)`, and if moreover `X` and `Y` are tame,
 `2 d_{X ₓ×_g Y}(x, y) = d_{X × Y}(x, y)` (`= d_X(x) + d_Y(y)`, Lemma 4.D). -/
-theorem proposition_2_46_of_isLocalScDiffeo (hf : P.IsLocalScDiffeo S f)
+theorem proposition_2_5_20_of_isLocalScDiffeo (hf : P.IsLocalScDiffeo S f)
     (hg : Q.IsLocalScDiffeo S g) :
     haveI : ParacompactSpace (fibredProduct f g) := paracompactSpace_of_isClosed
       (isClosed_fibredProduct hf.continuous hg.continuous)

@@ -3,27 +3,27 @@ import Polyfold.Chapter1.Levels
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.2,
-Propositions 1.16 (⇒) and 1.17, for the sc^k-germs of §3.1 (Definition 3.2).
+Propositions 1.2.1 (preprint 1.16) (⇒) and 1.17, for the sc^k-germs of §3.1 (Definition 3.1.2 (preprint 3.2)).
 
 # Level operators and the level shift for germs
 
 ## The text, paraphrased
 
 The proofs of §3.3 use, for a germ `f : O(C, 0) → F`, that `f : U_{m+1} → F_m` is `C¹` with
-derivative the level-`m` operator `Df(x) : E_m → F_m` (Proposition 1.16), and that the shifted germ
-`f : O(C, 0)¹ → F¹` is again sc^k (Proposition 1.17, "recalling Proposition 1.17" in the proof of
-Lemma 3.9 and in Lemma 3.31).  Both propositions are stated in §1.2 for relatively open sets; the
+derivative the level-`m` operator `Df(x) : E_m → F_m` (Proposition 1.2.1 (preprint 1.16)), and that the shifted germ
+`f : O(C, 0)¹ → F¹` is again sc^k (Proposition 1.2.2 (preprint 1.17), "recalling Proposition 1.17" in the proof of
+Lemma 3.1.9 (preprint 3.9) and in Lemma 3.3.4 (preprint 3.31)).  Both propositions are stated in §1.2 for relatively open sets; the
 germ versions are not stated.
 
 ## What is formalized
 
 * `IsSc1GermWith.exists_levelDeriv`, `toBase_levelDeriv`, `levelMap_tangentMapWith`,
   `continuousOn_levelDeriv`, `continuousOn_levelDeriv_clm`: the level operators `levelDeriv D m x`
-  of a derivative family at `x ∈ U_{m+1}` and their continuity (Proposition 1.16 (2)).
-* `IsSc1GermWith.hasFDerivWithinAt_level` (**Proposition 1.16 (⇒)** for germs): `f : U_{m+1} → F_m`
+  of a derivative family at `x ∈ U_{m+1}` and their continuity (Proposition 1.2.1 (preprint 1.16) (2)).
+* `IsSc1GermWith.hasFDerivWithinAt_level` (**Proposition 1.2.1 (preprint 1.16) (⇒)** for germs): `f : U_{m+1} → F_m`
   is differentiable at every point of `U_{m+1}` with derivative `Df(x)|_{E_{m+1}}`.
 * `ScNbhdGerm.shift` (the germ `O(C, 0)¹ = (U_{m+1})_m` in `E¹`), `IsSc0Germ.shift`,
-  `IsSc1GermWith.shift`, `IsSckGerm.shift` (**Proposition 1.17** for germs).
+  `IsSc1GermWith.shift`, `IsSckGerm.shift` (**Proposition 1.2.2 (preprint 1.17)** for germs).
 * `IsSckGerm.of_U_eq`: sc^k depends on a germ only through its sets `U_m`.
 
 ## What the text leaves implicit
@@ -83,7 +83,7 @@ theorem IsSckGerm.of_U_eq : ∀ {k : ℕ} {E F : ScBanach} {C C' : Set (E 0)} {G
       exact (h2 (ScNbhdGerm.tangent_U_eq h 0 ▸ hp)).symm
     exact IsSckGerm.of_U_eq (k := k) hC' (ScNbhdGerm.tangent_U_eq h) h4
 
-/-! ### The level operators of an sc¹-germ (Proposition 1.16 (2)) -/
+/-! ### The level operators of an sc¹-germ (Proposition 1.2.1 (preprint 1.16) (2)) -/
 
 namespace IsSc1GermWith
 
@@ -142,7 +142,7 @@ theorem continuousOn_levelDeriv_clm (h : IsSc1GermWith G₁ f D) (m : ℕ) :
   continuousOn_clm_comp_of_isCompactOperator (A := levelDeriv D m) (h.continuousOn_levelDeriv m)
     (E.incl_isCompactOperator m)
 
-/-- **Proposition 1.16 (⇒) for germs**: `f : U_{m+1} → F_m` is differentiable at every
+/-- **Proposition 1.2.1 (preprint 1.16) (⇒) for germs**: `f : U_{m+1} → F_m` is differentiable at every
 `x ∈ U_{m+1}` within `U_{m+1}`, with derivative `Df(x)|_{E_{m+1}}` (the integral representation
 `f(x+k) − f(x) = ∫₀¹ Df(x+τk)k dτ` in `F_m`). -/
 theorem hasFDerivWithinAt_level (hC : IsQuadrantLike E C) (h : IsSc1GermWith G₁ f D) {m : ℕ}
@@ -249,7 +249,7 @@ theorem hasFDerivWithinAt_level (hC : IsQuadrantLike E C) (h : IsSc1GermWith G�
 
 end IsSc1GermWith
 
-/-! ### Proposition 1.17 for germs: the level shift -/
+/-! ### Proposition 1.2.2 (preprint 1.17) for germs: the level shift -/
 
 namespace ScNbhdGerm
 
@@ -282,7 +282,7 @@ lemma IsSc0Germ.levelMap_shift (hf : IsSc0Germ G₁ f) {m : ℕ} {x : E (m + 1)}
   rw [← F.shift_toBase, hf.toBase_levelMap hx,
     hf.toBase_levelMap (G₁.shift_toBase_mem hx), E.shift_toBase m x]
 
-/-- **Proposition 1.17 for sc⁰-germs.** -/
+/-- **Proposition 1.2.2 (preprint 1.17) for sc⁰-germs.** -/
 theorem IsSc0Germ.shift (hf : IsSc0Germ G₁ f) :
     IsSc0Germ G₁.shift (E := E.shift) (F := F.shift) (levelMap f 1) where
   mem_range m x hx := by
@@ -292,7 +292,7 @@ theorem IsSc0Germ.shift (hf : IsSc0Germ G₁ f) :
       E.shift_toBase m x]
   continuousOn m := (hf.continuousOn (m + 1)).congr fun x hx => hf.levelMap_shift hx
 
-/-- **Proposition 1.17 for sc¹-germs.** -/
+/-- **Proposition 1.2.2 (preprint 1.17) for sc¹-germs.** -/
 theorem IsSc1GermWith.shift (hC : IsQuadrantLike E C) (h : IsSc1GermWith G₁ f D) :
     IsSc1GermWith G₁.shift (E := E.shift) (F := F.shift) (levelMap f 1) (levelDeriv D 1) where
   isSc0 := h.isSc0.shift
@@ -306,7 +306,7 @@ theorem IsSc1GermWith.shift (hC : IsQuadrantLike E C) (h : IsSc1GermWith G₁ f 
       (levelMap (levelMap f 1) 1 p.1, levelDeriv D 1 p.1 p.2)
     rw [h.isSc0.levelMap_shift hp'.1]
 
-/-- **Proposition 1.17 for sc^k-germs**: if `f` is an sc^k-germ on `O(C, 0)` then `f : O(C,0)¹ → F¹`
+/-- **Proposition 1.2.2 (preprint 1.17) for sc^k-germs**: if `f` is an sc^k-germ on `O(C, 0)` then `f : O(C,0)¹ → F¹`
 is an sc^k-germ on the shifted germ. -/
 theorem IsSckGerm.shift : ∀ {k : ℕ} {E F : ScBanach} {C : Set (E 0)} {G₁ : ScNbhdGerm E C}
     {f : E 0 → F 0}, IsQuadrantLike E C → IsSckGerm k G₁ f →
@@ -327,7 +327,7 @@ theorem IsSckGerm.shift : ∀ {k : ℕ} {E F : ScBanach} {C : Set (E 0)} {G₁ :
     change ((levelMap f 2 p.1, levelDeriv (scDerivGerm G₁ f) 1 p.1 p.2) : F.tangent 1) = _
     rw [hf.1.isSc0.levelMap_shift hp'.1, IsSc1Germ.scDerivGerm_eqOn hC.shift h1 hp.1]
 
-/-! ### Proposition 1.18 for germs: `f : U_{m+k} → F_m` is `C^k` -/
+/-! ### Proposition 1.2.3 (preprint 1.18) for germs: `f : U_{m+k} → F_m` is `C^k` -/
 
 namespace ScNbhdGerm
 
@@ -341,7 +341,7 @@ lemma uniqueDiffOn (G₁ : ScNbhdGerm E C) (hC : IsQuadrantLike E C) (m : ℕ) :
 
 end ScNbhdGerm
 
-/-- **Proposition 1.18 for germs**, with the inclusion `E_n → E_m`, `n = m + k`, as a parameter:
+/-- **Proposition 1.2.3 (preprint 1.18) for germs**, with the inclusion `E_n → E_m`, `n = m + k`, as a parameter:
 if `f` is an sc^k-germ on `O(C, 0)` then `f_m ∘ ρ : U_n → F_m` is `C^k`.  The proof of
 `IsSck.contDiffOn_levels'` with `U_m` in place of `U ∩ E_m`. -/
 theorem IsSckGerm.contDiffOn_levels' : ∀ {k : ℕ} {E F : ScBanach} {C : Set (E 0)}
@@ -393,13 +393,13 @@ theorem IsSckGerm.contDiffOn_levels' : ∀ {k : ℕ} {E F : ScBanach} {C : Set (
     exact congrArg (levelDeriv (scDerivGerm G₁ f) m (E.shift.inclK m k x))
       ((hρ' y).symm.trans (E.incl_shift_inclK m k y))
 
-/-- **Proposition 1.18 for germs**: if `f` is an sc^k-germ on `O(C, 0)` then `f : U_{m+k} → F_m`
+/-- **Proposition 1.2.3 (preprint 1.18) for germs**: if `f` is an sc^k-germ on `O(C, 0)` then `f : U_{m+k} → F_m`
 is `C^k` for every `m`. -/
 theorem IsSckGerm.contDiffOn_levels {k : ℕ} (hC : IsQuadrantLike E C) (hf : IsSckGerm k G₁ f)
     (m : ℕ) : ContDiffOn ℝ k (levelMap f m ∘ E.inclK m k) (G₁.U (m + k)) :=
   hf.contDiffOn_levels' hC rfl (E.inclK m k) (E.toBase_inclK m k)
 
-/-- **Proposition 1.18 for germs**, on the base level: `f : U_k → F_0` is `C^k`. -/
+/-- **Proposition 1.2.3 (preprint 1.18) for germs**, on the base level: `f : U_k → F_0` is `C^k`. -/
 theorem IsSckGerm.contDiffOn_base {k : ℕ} (hC : IsQuadrantLike E C) (hf : IsSckGerm k G₁ f) :
     ContDiffOn ℝ k (f ∘ E.toBase k) (G₁.U k) := by
   have := hf.contDiffOn_levels' hC (Nat.zero_add k).symm (E.toBase k) fun _ => rfl

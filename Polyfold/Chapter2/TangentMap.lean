@@ -12,9 +12,9 @@ import Polyfold.Chapter2.StrongBundleOne
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.2: the tangent
 map `Tf : TX → TY` of an sc-smooth map between M-polyfolds and the chain rule (the text's
-"tangent functor", the paragraph after Theorem 2.8, transported to M-polyfolds; the text itself
+"tangent functor", the paragraph after Theorem 2.1.15 (preprint 2.8), transported to M-polyfolds; the text itself
 only writes `Tf` for sc-smooth maps between retracts and uses `Tf` for M-polyfolds from §2.3 on,
-e.g. in Proposition 2.21 (4) and Definition 2.38).
+e.g. in Proposition 2.3.19 (preprint 2.21) (4) and Definition 2.5.8 (preprint 2.38)).
 
 # The tangent map of an sc-smooth map between M-polyfolds
 
@@ -47,7 +47,7 @@ e.g. in Proposition 2.21 (4) and Definition 2.38).
   `Polyfold.Chapter2.CornerGerms` (§2.4),
   `Polyfold.Chapter2.StrongBundle`,
   `Polyfold.Chapter2.StrongBundlePullback`, `Polyfold.Chapter2.StrongBundleOne` (§2.5) and `Polyfold.Chapter2.Metrizable` (Theorem
-  2.16, Propositions 2.19 (3), 2.21 (3)–(4)) only so that they are part of the build; nothing from
+  2.16, Propositions 2.3.15 (preprint 2.19) (3), 2.21 (3)–(4)) only so that they are part of the build; nothing from
   them is used here.
 -/
 

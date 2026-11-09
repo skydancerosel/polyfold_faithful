@@ -3,27 +3,27 @@ import Polyfold.Chapter2.MPolyfold
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.3,
-Definition 2.22, Lemma 2.23, Proposition 2.24, Definition 2.25, the subspaces `E_x`, and
-Corollary 2.32 (with the core of Theorem 2.31); and §1.3, Theorem 1.25, which the text quotes from
+Definition 2.4.1 (preprint 2.22), Lemma 2.4.3 (preprint 2.23), Proposition 2.4.4 (preprint 2.24), Definition 2.4.5 (preprint 2.25), the subspaces `E_x`, and
+Corollary 2.4.13 (preprint 2.32) (with the core of Theorem 2.31); and §1.3, Theorem 1.3.5 (preprint 1.25), which the text quotes from
 [20] and whose proof is the argument of §2.3.
 
 # The degeneracy index of an M-polyfold; boundary recognition
 
 ## The text, paraphrased
 
-For a chart `(V, φ, (O, C, E))` around `x ∈ X` put `d(x, φ) = d_C(φ(x))`.  (Definition 2.22) The
-degeneracy index `d_X(x)` is the minimum of `d(x, φ)` over all charts around `x`.  (Lemma 2.23)
-`d_X(y) ≤ d_X(x)` for `y` near `x`.  (Proposition 2.24) A germ of sc-diffeomorphisms
-`f : (U, x) → (V, f(x))` has `d_X(x) = d_Y(f(x))`.  (Definition 2.25) `∂X = {d_X ≥ 1}`.
+For a chart `(V, φ, (O, C, E))` around `x ∈ X` put `d(x, φ) = d_C(φ(x))`.  (Definition 2.4.1 (preprint 2.22)) The
+degeneracy index `d_X(x)` is the minimum of `d(x, φ)` over all charts around `x`.  (Lemma 2.4.3 (preprint 2.23))
+`d_X(y) ≤ d_X(x)` for `y` near `x`.  (Proposition 2.4.4 (preprint 2.24)) A germ of sc-diffeomorphisms
+`f : (U, x) → (V, f(x))` has `d_X(x) = d_Y(f(x))`.  (Definition 2.4.5 (preprint 2.25)) `∂X = {d_X ≥ 1}`.
 For `E = ℝᵏ ⊕ W`, `C = [0,∞)ᵏ ⊕ W` and `x ∈ C`, `E_x = {(a, w) | a_i = 0 for all i with x_i = 0}`;
-for a retract `O` and `x ∈ O_∞`, `T_x^R O = T_xO ∩ E_x` (Definition 2.27).  (Theorem 2.31) For a
+for a retract `O` and `x ∈ O_∞`, `T_x^R O = T_xO ∩ E_x` (Definition 2.4.7 (preprint 2.27)).  (Theorem 2.4.12 (preprint 2.31)) For a
 smooth `x ∈ O`, `dim(T_xO / T_x^R O) ≤ d_O(x)`, where `d_O` is the degeneracy index of `O` as an
 M-polyfold, i.e. the minimum of `d_{C'}(φ(x))` over germs of sc-diffeomorphisms `φ : (O, x) →
 (O', φ(x))` into retracts.  (Corollary 2.32) For a partial quadrant `C`, viewed as the M-polyfold
 `X_C`, `d_{X_C} = d_C`: for smooth `x`, `T_xC = E` and `T_x^R C = E_x` give `d_C(x) =
 dim(E/E_x) ≤ d_{X_C}(x) ≤ d_C(x)`; a general `x` is a limit of smooth `x_k` with
-`d_C(x_k) = d_C(x)`, and `d_{X_C}(x_k) ≤ d_{X_C}(x)` for large `k` by Lemma 2.23.
-(Theorem 1.25) For a germ `f : (U, x) → (U', f(x))` of local sc-diffeomorphisms between
+`d_C(x_k) = d_C(x)`, and `d_{X_C}(x_k) ≤ d_{X_C}(x)` for large `k` by Lemma 2.4.3 (preprint 2.23).
+(Theorem 1.3.5 (preprint 1.25)) For a germ `f : (U, x) → (U', f(x))` of local sc-diffeomorphisms between
 relatively open subsets of partial quadrants, `d_C(x) = d_{C'}(f(x))`.
 
 ## What is formalized
@@ -31,52 +31,52 @@ relatively open subsets of partial quadrants, `d_C(x) = d_{C'}(f(x))`.
 * `Polyfold.minimalSubspaceWith T x` (`E_x`, for a presentation `T : E ≅ ℝⁿ ⊕ W` of `C`), with
   `finrank_quotient_minimalSubspaceWith : dim(E/E_x) = d_C(x)`.
 * `Polyfold.eventually_degIndexWith_le`: upper semicontinuity of `d_C`.
-* `IsSc1With.deriv_mem_minimalSubspace_of_lvl1` (the **sign argument** of Lemma 2.29 / Theorem
+* `IsSc1With.deriv_mem_minimalSubspace_of_lvl1` (the **sign argument** of Lemma 2.4.9 (preprint 2.29) / Theorem
   2.31): if `f` is sc¹ on `U ⊆ C` with values in `C'`, `x ∈ U₁`, `v ∈ E₁ ∩ E_x`, then
   `Df(x)v ∈ E'_{f(x)}`; `IsSc1With.mapsTo_minimalSubspace` extends it to all `v ∈ E_x` by the
   density of `E₁ ∩ E_x` in `E_x` (`ScBanach.subset_closure_ker_inter_range_toBase`).
-* `Polyfold.degIndexWith_le_of_germ`: the core of Theorem 2.31 in the form used by Corollary 2.32
-  and Theorem 1.25.  For a germ `F : (U₀, x) → (O', F(x))` of sc-diffeomorphisms from a relatively
+* `Polyfold.degIndexWith_le_of_germ`: the core of Theorem 2.4.12 (preprint 2.31) in the form used by Corollary 2.4.13 (preprint 2.32)
+  and Theorem 1.3.5 (preprint 1.25).  For a germ `F : (U₀, x) → (O', F(x))` of sc-diffeomorphisms from a relatively
   open `U₀ ⊆ C` to a retract `O' = r'(U')`, with inverse `G`, and `x ∈ U₀` on level `1`:
   `d_C(x) = dim(E/E_x) = dim(T_yO'/T_y^R O') ≤ dim(E'/E'_y) = d_{C'}(y)`, `y = F(x)`.
-* `Polyfold.theorem_1_25` (**Theorem 1.25**), `Polyfold.theorem_1_25_lvl1` (the level-`1` case).
-* `MPolyfold.degIndex P x` (**Definition 2.22**, over the maximal atlas), `Polyfold.lemma_2_23`
-  (**Lemma 2.23**), `MPolyfold.IsScDiffeoOn` and `Polyfold.proposition_2_24`
-  (**Proposition 2.24**), `MPolyfold.boundary` (**Definition 2.25**).
-* `Polyfold.corollary_2_32` (**Corollary 2.32**), for a nonempty relatively open subset `U` of a
+* `Polyfold.theorem_1_3_5` (**Theorem 1.3.5 (preprint 1.25)**), `Polyfold.theorem_1_3_5_lvl1` (the level-`1` case).
+* `MPolyfold.degIndex P x` (**Definition 2.4.1 (preprint 2.22)**, over the maximal atlas), `Polyfold.lemma_2_4_3`
+  (**Lemma 2.4.3 (preprint 2.23)**), `MPolyfold.IsScDiffeoOn` and `Polyfold.proposition_2_4_4`
+  (**Proposition 2.4.4 (preprint 2.24)**), `MPolyfold.boundary` (**Definition 2.4.5 (preprint 2.25)**).
+* `Polyfold.corollary_2_4_13` (**Corollary 2.4.13 (preprint 2.32)**), for a nonempty relatively open subset `U` of a
   partial quadrant `C` viewed as an M-polyfold: `d_{X_U} = d_C` on `U`.
 
 ## What the text leaves implicit, and the choices made
 
-* The text proves Theorem 2.31 for *smooth* points and Corollary 2.32 by approximating with smooth
+* The text proves Theorem 2.4.12 (preprint 2.31) for *smooth* points and Corollary 2.4.13 (preprint 2.32) by approximating with smooth
   points.  The argument only needs points on level `1` (where the derivative exists), and the
   approximation by level-`1` points `T⁻¹(a, w')`, `w' ∈ W₁`, which keeps `d_C` constant; this is
   what is formalized.  Smoothness of `x` is not needed anywhere in §2.3's index computations.
 * The "sign argument" (`x + tv ∈ C` for small `|t|`, differentiate a nonnegative function with a
-  zero at `t = 0`) appears in the text in the proofs of Lemma 2.29 and Proposition 2.35; it is
+  zero at `t = 0`) appears in the text in the proofs of Lemma 2.4.9 (preprint 2.29) and Proposition 2.5.3 (preprint 2.35); it is
   formalized once, through `IsLocalMin.hasDerivAt_eq_zero`, as the derivative of
-  `t ↦ (T'(f(x + tv)))_j` at `0`.  Since `f` is differentiable only along `E₁` (Definition 1.14),
+  `t ↦ (T'(f(x + tv)))_j` at `0`.  Since `f` is differentiable only along `E₁` (Definition 1.1.15 (preprint 1.14)),
   the argument gives `Df(x)(E_x ∩ E₁) ⊆ E'_{f(x)}` and the density of `E_x ∩ E₁` in `E_x` is
   needed to conclude; the text asserts "the closure of `(T_x^R O)_∞` is `T_x^R O`" without proof.
   Here the density is proved for the kernel of any continuous linear map to a finite-dimensional
   space (`E_x` is such a kernel), without the sc-structure of `T_xO`.
-* Theorem 2.31 is stated in the text for the degeneracy index `d_O` of a retract as an M-polyfold,
+* Theorem 2.4.12 (preprint 2.31) is stated in the text for the degeneracy index `d_O` of a retract as an M-polyfold,
   i.e. over all sc-diffeomorphism germs into retracts.  The formalization proves the inequality for
-  one germ (`degIndexWith_le_of_germ`) and deduces Corollary 2.32 by quantifying over the charts of
-  the maximal atlas of `X_U`.  The general Theorem 2.31 (`dim(T_xO/T_x^R O) ≤ d_O(x)` for every
-  retract `O`, and indeed for every chart of every M-polyfold) is `Polyfold.theorem_2_31` in
-  `Boundary.lean` (with `theorem_2_31_retract`, the text's form), from the one-germ inequality
+  one germ (`degIndexWith_le_of_germ`) and deduces Corollary 2.4.13 (preprint 2.32) by quantifying over the charts of
+  the maximal atlas of `X_U`.  The general Theorem 2.4.12 (preprint 2.31) (`dim(T_xO/T_x^R O) ≤ d_O(x)` for every
+  retract `O`, and indeed for every chart of every M-polyfold) is `Polyfold.theorem_2_4_12` in
+  `Boundary.lean` (with `theorem_2_4_12_retract`, the text's form), from the one-germ inequality
   between retracts `ScRetraction.IsDiffeoGerm.quotDim_le`, the same argument with `U₀` replaced
   by a retract.  Its second statement (if `dim(T_xO/T_x^R O) = d_O(x)` then `C_xO` is a partial
   quadrant in `T_xO`) is not formalized in general (gap G.11 of the report); for tame retracts
-  the conclusion is proved directly (`proposition_2_36_partialCone` in `PartialCone.lean`).
-* Theorem 1.25 is quoted in Chapter 1 from [20, Theorem 1.19] without proof; its hypotheses "germ
+  the conclusion is proved directly (`proposition_2_5_6_partialCone` in `PartialCone.lean`).
+* Theorem 1.3.5 (preprint 1.25) is quoted in Chapter 1 from [20, Theorem 1.19] without proof; its hypotheses "germ
   of a local sc-diffeomorphism" are read as: `f : U → U'` and `g : U' → U` sc¹ (sc¹ suffices;
   the text has sc-smooth), inverse to each other on `U` and `U'`.
-* Proposition 2.24's "germ of sc-diffeomorphisms" is `IsScDiffeoOn P Q f U V`: `f` sc-smooth on
+* Proposition 2.4.4 (preprint 2.24)'s "germ of sc-diffeomorphisms" is `IsScDiffeoOn P Q f U V`: `f` sc-smooth on
   the open `U`, with an sc-smooth inverse on the open `V = f(U)`.  The proof constructs the chart
   `ψ ∘ f` of `X` from a chart `ψ` of `Y` (which the text calls "deduced immediately from the
-  definitions"); that it is a chart of the maximal atlas uses Definition 2.14 for `f` and `g`.
+  definitions"); that it is a chart of the maximal atlas uses Definition 2.3.8 (preprint 2.14) for `f` and `g`.
 -/
 
 open Set Filter Topology Function Module
@@ -257,7 +257,7 @@ lemma eventually_add_smul_mem_lvlSet (T : ScIso E ((ScBanach.const (Fin n → �
   rw [hUO]
   exact ⟨ht1, by rw [hT]; exact fun i => ht2 i⟩
 
-/-- **The sign argument** (Lemma 2.29, Theorem 2.31, Proposition 2.35): if `f` is sc¹ on `U ⊆ C`
+/-- **The sign argument** (Lemma 2.4.9 (preprint 2.29), Theorem 2.4.12 (preprint 2.31), Proposition 2.5.3 (preprint 2.35)): if `f` is sc¹ on `U ⊆ C`
 with values in `C'`, `x ∈ U₁` and `v ∈ E₁ ∩ E_x`, then `Df(x)v ∈ E'_{f(x)}`.  Proof: the
 function `t ↦ (T'(f(x + tv)))_j` is nonnegative near `0` and vanishes at `0`, so its derivative
 `(T' Df(x) v)_j` at `0` is zero, for each `j` with `(T'(f(x)))_j = 0`. -/
@@ -382,7 +382,7 @@ variable {C : Set (E 0)} {C' : Set (E' 0)} {U : Set (E 0)} {U' : Set (E' 0)} {f 
 lemma scDeriv_comp_apply (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant E' C' U')
     (hf : IsSc1 U f) (hg : IsSc1 U' g) (hfU : MapsTo f U U') {x : E 1} (hx : x ∈ E.lvlSet U 1)
     (h : E 0) : scDeriv U' g (levelMap f 1 x) (scDeriv U f x h) = scDeriv U (g ∘ f) x h := by
-  obtain ⟨_, hchain⟩ := theorem_1_21 hU hU' hf hg hfU
+  obtain ⟨_, hchain⟩ := theorem_1_3_1 hU hU' hf hg hfU
   have := hchain (show ((x, h) : E.tangent 0) ∈ E.tangentSet U from hx)
   exact (congrArg Prod.snd this).symm
 
@@ -407,13 +407,13 @@ lemma scDeriv_comp_eq_self (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQu
 
 end ChainPoint
 
-/-! ### The core of Theorem 2.31: the index does not increase along sc-diffeomorphism germs -/
+/-! ### The core of Theorem 2.4.12 (preprint 2.31): the index does not increase along sc-diffeomorphism germs -/
 
 section Core
 
 variable {n n' : ℕ} {W W' : ScBanach} {C : Set (E 0)} {C' : Set (E' 0)}
 
-/-- The core of Theorem 2.31 and Corollary 2.32.  Let `U₀` be relatively open in the partial
+/-- The core of Theorem 2.4.12 (preprint 2.31) and Corollary 2.4.13 (preprint 2.32).  Let `U₀` be relatively open in the partial
 quadrant `C ⊆ E` (presented by `T`), `r' : U' → U'` an sc-smooth retraction in `C' ⊆ E'` (presented
 by `T'`) onto `O'`, and `F : U₀ → O'`, `G : O' → U₀` sc-smooth and inverse to each other
 (`G ∘ r'` sc-smooth on `U'`).  Then for `x ∈ U₀` on level `1`, `d_C(x) ≤ d_{C'}(F(x))`.
@@ -523,16 +523,16 @@ theorem degIndexWith_le_of_germ (T : ScIso E ((ScBanach.const (Fin n → ℝ)).p
 
 end Core
 
-/-! ### Theorem 1.25 -/
+/-! ### Theorem 1.3.5 (preprint 1.25) -/
 
 section Theorem125
 
 variable {C : Set (E 0)} {C' : Set (E' 0)} {U : Set (E 0)} {U' : Set (E' 0)} {f : E 0 → E' 0}
   {g : E' 0 → E 0}
 
-/-- **Theorem 1.25** at points on level `1`: a germ of local sc-diffeomorphisms (here: `f : U → U'`
+/-- **Theorem 1.3.5 (preprint 1.25)** at points on level `1`: a germ of local sc-diffeomorphisms (here: `f : U → U'`
 and `g : U' → U` sc¹ and inverse to each other) preserves the degeneracy index at `x ∈ U₁`. -/
-theorem theorem_1_25_lvl1 (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant E' C' U')
+theorem theorem_1_3_5_lvl1 (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant E' C' U')
     (hf : IsSc1 U f) (hg : IsSc1 U' g) (hfU : MapsTo f U U') (hgU : MapsTo g U' U)
     (hgf : ∀ x ∈ U, g (f x) = x) (hfg : ∀ y ∈ U', f (g y) = y) {x : E 1} (hx : x ∈ E.lvlSet U 1) :
     degIndex E C (E.toBase 1 x) = degIndex E' C' (f (E.toBase 1 x)) := by
@@ -565,11 +565,11 @@ theorem theorem_1_25_lvl1 (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQua
       (by exact hf) (by rw [hRret]; exact hgU) hfU hfg (by rw [hRret]; exact hgf) hy
     rwa [hιy, hgf _ hx] at this
 
-/-- **Theorem 1.25** (boundary recognition): given relatively open subsets `U ⊆ C ⊆ E` and
+/-- **Theorem 1.3.5 (preprint 1.25)** (boundary recognition): given relatively open subsets `U ⊆ C ⊆ E` and
 `U' ⊆ C' ⊆ E'` of partial quadrants and a germ `f : (U, x) → (U', f(x))` of local
 sc-diffeomorphisms (an sc¹ map `f : U → U'` with sc¹ inverse `g : U' → U`), `d_C(x) = d_{C'}(f(x))`
 for every `x ∈ U`. -/
-theorem theorem_1_25 (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant E' C' U')
+theorem theorem_1_3_5 (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant E' C' U')
     (hf : IsSc1 U f) (hg : IsSc1 U' g) (hfU : MapsTo f U U') (hgU : MapsTo g U' U)
     (hgf : ∀ x ∈ U, g (f x) = x) (hfg : ∀ y ∈ U', f (g y) = y) {x : E 0} (hx : x ∈ U) :
     degIndex E C x = degIndex E' C' (f x) := by
@@ -603,7 +603,7 @@ theorem theorem_1_25 (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant
       filter_upwards [hσ1, hσU, hle] with i hi1 hiU hile
       obtain ⟨z, hz⟩ := hi1
       have hzU : z ∈ E.lvlSet U 1 := by rw [ScBanach.mem_lvlSet, hz]; exact hiU
-      have h := theorem_1_25_lvl1 hU hU' hf hg hfU hgU hgf hfg hzU
+      have h := theorem_1_3_5_lvl1 hU hU' hf hg hfU hgU hgf hfg hzU
       rw [hz, degIndex_eq T hT (hUO ▸ hiU).2, degIndex_eq T' hT' (by
         obtain ⟨O', _, hO'⟩ := hU'.relOpen
         exact (hO' ▸ hfU hiU).2)] at h
@@ -618,7 +618,7 @@ theorem theorem_1_25 (hU : IsRelOpenInQuadrant E C U) (hU' : IsRelOpenInQuadrant
 end Theorem125
 
 
-/-! ### The degeneracy index of an M-polyfold (Definition 2.22) -/
+/-! ### The degeneracy index of an M-polyfold (Definition 2.4.1 (preprint 2.22)) -/
 
 lemma LocalModel.O_subset_C (M : LocalModel) : M.O ⊆ M.C := by
   obtain ⟨R, hR⟩ := M.isScRetract
@@ -643,7 +643,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P :
 /-- `d(x, φ) = d_C(φ(x))`, the index of `x` seen in the chart `φ`. -/
 def chartDegIndex (φ : MChart X) (x : X) : ℕ := Polyfold.degIndex φ.model.E φ.model.C (φ x)
 
-/-- **Definition 2.22**: the **degeneracy index** `d_X(x)`, the minimum of `d(x, φ)` over the charts
+/-- **Definition 2.4.1 (preprint 2.22)**: the **degeneracy index** `d_X(x)`, the minimum of `d(x, φ)` over the charts
 `φ` of the structure around `x`. -/
 def degIndex (x : X) : ℕ :=
   sInf {d | ∃ φ : MChart X, P.IsChart φ ∧ x ∈ φ.source ∧ chartDegIndex φ x = d}
@@ -652,7 +652,7 @@ lemma degIndex_le {φ : MChart X} (hφ : P.IsChart φ) {x : X} (hx : x ∈ φ.so
     P.degIndex x ≤ chartDegIndex φ x :=
   Nat.sInf_le ⟨φ, hφ, hx, rfl⟩
 
-/-- The minimum in Definition 2.22 is attained. -/
+/-- The minimum in Definition 2.4.1 (preprint 2.22) is attained. -/
 lemma exists_isChart_degIndex_eq (x : X) :
     ∃ φ : MChart X, P.IsChart φ ∧ x ∈ φ.source ∧ P.degIndex x = chartDegIndex φ x := by
   have hne : {d | ∃ φ : MChart X, P.IsChart φ ∧ x ∈ φ.source ∧ chartDegIndex φ x = d}.Nonempty := by
@@ -673,17 +673,17 @@ lemma eventually_chartDegIndex_le (φ : MChart X) {x : X} (hx : x ∈ φ.source)
     degIndex_eq T hT (φ.apply_mem_C hx)]
   exact hle
 
-/-- **Lemma 2.23**: every `x ∈ X` has a neighbourhood on which `d_X(y) ≤ d_X(x)`. -/
-theorem _root_.Polyfold.lemma_2_23 (x : X) : ∀ᶠ y in 𝓝 x, P.degIndex y ≤ P.degIndex x := by
+/-- **Lemma 2.4.3 (preprint 2.23)**: every `x ∈ X` has a neighbourhood on which `d_X(y) ≤ d_X(x)`. -/
+theorem _root_.Polyfold.lemma_2_4_3 (x : X) : ∀ᶠ y in 𝓝 x, P.degIndex y ≤ P.degIndex x := by
   obtain ⟨φ, hφ, hx, hd⟩ := P.exists_isChart_degIndex_eq x
   filter_upwards [φ.isOpen_source.mem_nhds hx, eventually_chartDegIndex_le φ hx] with y hy hle
   rw [hd]
   exact (P.degIndex_le hφ hy).trans hle
 
-/-- **Definition 2.25**: the **boundary** `∂X = {x | d_X(x) ≥ 1}`. -/
+/-- **Definition 2.4.5 (preprint 2.25)**: the **boundary** `∂X = {x | d_X(x) ≥ 1}`. -/
 def boundary : Set X := {x | 1 ≤ P.degIndex x}
 
-/-- **Definition 2.25**: an M-polyfold **without boundary** has `d_X ≡ 0`. -/
+/-- **Definition 2.4.5 (preprint 2.25)**: an M-polyfold **without boundary** has `d_X ≡ 0`. -/
 def IsWithoutBoundary : Prop := ∀ x, P.degIndex x = 0
 
 lemma isWithoutBoundary_iff : P.IsWithoutBoundary ↔ P.boundary = ∅ := by
@@ -697,7 +697,7 @@ lemma isWithoutBoundary_iff : P.IsWithoutBoundary ↔ P.boundary = ∅ := by
     by_contra hx
     exact eq_empty_iff_forall_notMem.1 h x (Nat.one_le_iff_ne_zero.2 hx)
 
-/-! ### Proposition 2.24: invariance under germs of sc-diffeomorphisms -/
+/-! ### Proposition 2.4.4 (preprint 2.24): invariance under germs of sc-diffeomorphisms -/
 
 variable {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] (Q : MPolyfold Y)
 
@@ -742,7 +742,7 @@ private lemma image_transport_source (h : P.IsScDiffeoOn Q f g U V) (ψ : MChart
       h.right_inv y hy⟩
 
 /-- The chart `ψ ∘ f` of `X` obtained from a chart `ψ` of `Y` through the sc-diffeomorphism `f`
-(the proof of Proposition 2.24). -/
+(the proof of Proposition 2.4.4 (preprint 2.24)). -/
 def transportChart (h : P.IsScDiffeoOn Q f g U V) (ψ : MChart Y) : MChart X where
   model := ⟨ψ.model.E, ψ.model.C, ψ '' (V ∩ ψ.source),
     ψ.isScRetract_image inter_subset_right (isOpen_transport_target h ψ)⟩
@@ -828,16 +828,16 @@ lemma chartDegIndex_transportChart (h : P.IsScDiffeoOn Q f g U V) (ψ : MChart Y
 
 end Transport
 
-/-- One half of Proposition 2.24: `d_X(x) ≤ d_Y(f(x))` along an sc-diffeomorphism germ. -/
+/-- One half of Proposition 2.4.4 (preprint 2.24): `d_X(x) ≤ d_Y(f(x))` along an sc-diffeomorphism germ. -/
 theorem degIndex_le_of_isScDiffeoOn {f : X → Y} {g : Y → X} {U : Set X} {V : Set Y}
     (h : P.IsScDiffeoOn Q f g U V) {x : X} (hx : x ∈ U) : P.degIndex x ≤ Q.degIndex (f x) := by
   obtain ⟨ψ, hψ, hfx, hd⟩ := Q.exists_isChart_degIndex_eq (f x)
   rw [hd, ← chartDegIndex_transportChart h ψ x]
   exact P.degIndex_le (transportChart_isChart h hψ) ⟨hx, hfx⟩
 
-/-- **Proposition 2.24**: a germ of sc-diffeomorphisms `f : (U, x) → (V, f(x))` between M-polyfolds
+/-- **Proposition 2.4.4 (preprint 2.24)**: a germ of sc-diffeomorphisms `f : (U, x) → (V, f(x))` between M-polyfolds
 preserves the degeneracy index: `d_X(x) = d_Y(f(x))`. -/
-theorem _root_.Polyfold.proposition_2_24 {f : X → Y} {g : Y → X} {U : Set X} {V : Set Y}
+theorem _root_.Polyfold.proposition_2_4_4 {f : X → Y} {g : Y → X} {U : Set X} {V : Set Y}
     (h : P.IsScDiffeoOn Q f g U V) {x : X} (hx : x ∈ U) : P.degIndex x = Q.degIndex (f x) := by
   refine le_antisymm (degIndex_le_of_isScDiffeoOn h hx) ?_
   have := degIndex_le_of_isScDiffeoOn h.symm (h.mapsTo hx)
@@ -845,7 +845,7 @@ theorem _root_.Polyfold.proposition_2_24 {f : X → Y} {g : Y → X} {U : Set X}
 
 end MPolyfold
 
-/-! ### Corollary 2.32: `d_{X_U} = d_C` -/
+/-! ### Corollary 2.4.13 (preprint 2.32): `d_{X_U} = d_C` -/
 
 section Corollary232
 
@@ -933,10 +933,10 @@ theorem IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1 (x : U) (hx1 : (x : E 0
   rw [MPolyfold.chartDegIndex, degIndex_eq T hT hxC, degIndex_eq T' hT' (ψ.apply_mem_C hxψ)]
   exact key
 
-/-- **Corollary 2.32**: for a (nonempty, relatively open subset `U` of a) partial quadrant `C`,
-viewed as the M-polyfold `X_U`, the degeneracy index of Definition 2.22 is `d_C`: `d_{X_U} = d_C`
+/-- **Corollary 2.4.13 (preprint 2.32)**: for a (nonempty, relatively open subset `U` of a) partial quadrant `C`,
+viewed as the M-polyfold `X_U`, the degeneracy index of Definition 2.4.1 (preprint 2.22) is `d_C`: `d_{X_U} = d_C`
 on `U`. -/
-theorem corollary_2_32 (x : U) : (XU).degIndex x = degIndex E C x := by
+theorem corollary_2_4_13 (x : U) : (XU).degIndex x = degIndex E C x := by
   refine le_antisymm (hU.degIndex_le hne x) ?_
   obtain ⟨n, W, T, hT⟩ := hU.isPartialQuadrant
   obtain ⟨O, hO, hUO⟩ := hU.relOpen
@@ -958,7 +958,7 @@ theorem corollary_2_32 (x : U) : (XU).degIndex x = degIndex E C x := by
     refine hσ.congr' ?_
     filter_upwards [hσU] with i hi
     simp only [τ, dif_pos hi]
-  have hle := hτ.eventually (lemma_2_23 (XU) x)
+  have hle := hτ.eventually (lemma_2_4_3 (XU) x)
   have hev : ∀ᶠ i in l, degIndex E C x ≤ (XU).degIndex x := by
     filter_upwards [hσU, hσ1, hle] with i hiU hi1 hile
     have hτi : τ i = ⟨σ i, hiU⟩ := by simp only [τ, dif_pos hiU]

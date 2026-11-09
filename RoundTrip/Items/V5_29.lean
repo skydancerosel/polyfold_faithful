@@ -4,7 +4,7 @@ import RoundTrip.Blind.V5_29
 
 /-!
 Round trip for V5_29 (Theorem 5.13, generic form).  `A` is the type of
-`Polyfold.theorem_5_13_generic`, universes instantiated at `0` (`StrongBundle.SolutionSetIsManifold`
+`Polyfold.theorem_5_3_5_generic`, universes instantiated at `0` (`StrongBundle.SolutionSetIsManifold`
 is vocabulary).
 
 Neither `A → B` nor `B → A` is proved.
@@ -18,7 +18,7 @@ Neither `A → B` nor `B → A` is proved.
   2. B reads "bump functions" weakly (`AdmitsBumpFunctionsWeak`, `f ≢ 0`), A strongly
      (`AdmitsBumpFunctions`, `f(x) ≠ 0`).
   3. A is the generic (family) form; B the dense form.  This one is only glue: re-done below
-     (`dense_of_generic`, the argument of the project's `theorem_5_13`, without banned names).
+     (`dense_of_generic`, the argument of the project's `theorem_5_3_5_preprint`, without banned names).
   With 1 and 2 removed, i.e. for `BIntendedStrong` (= the blind file's `BIntended` with
   `AdmitsBumpFunctions`), `A → BIntendedStrong` is proved (`A_to_BIntendedStrong`): good position of
   `(f + s, x)` from transversality and `d_X = 0` (`isGoodPositionGerm_of_isLinSurjAt`), the corner
@@ -32,7 +32,7 @@ Neither `A → B` nor `B → A` is proved.
 
 /-! **Refresh 2026-11-02** (HEAD after the germ reading of Definition 3.11 and the notions built
 on it).
-theorem_5_13_generic and B now both use the germ-reading IsScFredholmSectionTame /
+theorem_5_3_5_generic and B now both use the germ-reading IsScFredholmSectionTame /
 IsGoodPositionGermTame. None of the obstacles involved the whole-chart reading (B's two literal
 misprints, weak vs pointwise bump functions, B's tame strong bundle and dense-set form); A ⇒
 BIntendedStrong still checks. Result unchanged.
@@ -42,9 +42,9 @@ namespace RoundTrip.V5_29
 open Polyfold MeasureTheory
 
 /-- The project's statement, universes `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_5_13_generic.{0, 0}
+def A : Prop := type_of% @Polyfold.theorem_5_3_5_generic.{0, 0}
 
-theorem A_holds : A := @Polyfold.theorem_5_13_generic.{0, 0}
+theorem A_holds : A := @Polyfold.theorem_5_3_5_generic.{0, 0}
 
 /-- The blind file's `BIntended` (misprints corrected) with the strong reading of bump functions. -/
 def BIntendedStrong : Prop :=
@@ -83,7 +83,7 @@ theorem sectionDistAt_comm {N : Bd.One → ℝ} (hN : Bd.IsAuxNorm N) {s s' : X 
 
 set_option maxHeartbeats 1600000 in
 /-- The dense-set form from the generic (family) form, for any property `Q` of the perturbation
-(the argument of the project's `theorem_5_13` / `theorem_5_18_dense`: `s₀ = (1 − ε'/2)s'` and a
+(the argument of the project's `theorem_5_3_5_preprint` / `theorem_5_3_10_dense`: `s₀ = (1 − ε'/2)s'` and a
 parameter `λ` outside the null set in a small ball). -/
 theorem dense_of_generic {N : Bd.One → ℝ} (hN : Bd.IsAuxNorm N) {U : Set X}
     (Q : (X → Y) → Prop)
@@ -209,7 +209,7 @@ theorem A_to_BIntendedStrong : A → BIntendedStrong := by
     rw [sectionDistAt_comm hN]
     exact hdist x
   · obtain ⟨⟨hsp, -, -⟩, htr, hcomp, hman⟩ := hs
-    have hft : Bd.IsScFredholmSectionTame (sectionAdd P f s) := theorem_3_15_tame hf hsp
+    have hft : Bd.IsScFredholmSectionTame (sectionAdd P f s) := theorem_3_1_18_tame hf hsp
     have := PX.paracompactSpace_subtype (solSet P (sectionAdd P f s))
     refine ⟨htr, fun x hx => StrongBundle.isGoodPositionGerm_of_isLinSurjAt hft hx (hX x)
       (htr x hx), hcomp, ?_⟩
@@ -223,6 +223,6 @@ theorem A_to_BIntendedStrong : A → BIntendedStrong := by
         MPolyfold.hasCornerStructure_iff.2 fun a => (he a.1 a.2).elim,
         fun a => (he a.1 a.2).elim⟩
 
-#rt_check RoundTrip.V5_29.A_to_BIntendedStrong [Polyfold.theorem_5_13_generic]
+#rt_check RoundTrip.V5_29.A_to_BIntendedStrong [Polyfold.theorem_5_3_5_generic]
 
 end RoundTrip.V5_29

@@ -54,7 +54,7 @@ the sc-diffeomorphism `s : θ → s(θ)`.
   `bInv` **(7.27)**, `bUnit` **(7.28)**, `bComp` **(7.29)**, with the formulas `bSrc_cls`,
   `bTgt_cls`, `bInv_cls`, `bUnit_cls` and the characterization `bComp_eq`; `boundaryGroupoid`
   (the groupoid laws); `boundaryFunctor` (`B` is a functor).
-* **Theorem 7.6.9**, `theorem_7_6_9_2021`: (1) with the topological characterization (from
+* **Theorem 7.6.9**, `theorem_7_6_9`: (1) with the topological characterization (from
   `theorem_2_7_13_topology` for `X` and `𝐗`); (3) continuity of both maps `B`; (4) in the form "a
   point of index `d` has exactly `d` preimages under `B`"; (5) the groupoid `(bX, b𝐗)`: `s, t`
   local homeomorphisms (`isLocalHomeomorph_bSrc`, `isLocalHomeomorph_bTgt`), `u, ι` continuous,
@@ -91,7 +91,7 @@ the sc-diffeomorphism `s : θ → s(θ)`.
   in `Chapter2/TameBoundaryStructure.lean`), is in `Chapter7/TameBoundaryEpStructure.lean`: part (2),
   the sc-smoothness in (3) and (5), `d_{bX}` in (4), the tame ep-groupoid
   `EpGroupoid.boundaryEpGroupoid` and the ep-functor `EpGroupoid.boundaryEpFunctor`; the full
-  statement is `EpGroupoid.theorem_7_6_9_full_2021`.
+  statement is `EpGroupoid.theorem_7_6_9_full`.
 -/
 
 set_option maxSynthPendingDepth 3
@@ -699,7 +699,7 @@ variable {A : Type u} [TopologicalSpace A] [T2Space A] [ParacompactSpace A] {P :
   {B : Type v} [TopologicalSpace B] [T2Space B] [ParacompactSpace B] {Q : MPolyfold B}
 
 /-- An sc-diffeomorphism `f : U → V` between open sets is an index-preserving homeomorphism onto
-an open set (Proposition 2.7 [2.24] of the preprint, `proposition_2_24`, for the index). -/
+an open set (Proposition 2.4.4 (2017: 2.7) [2.24] of the preprint, `proposition_2_4_4`, for the index). -/
 theorem IsScDiffeoOn.isDHomeoOn {f : A → B} {g : B → A} {U : Set A} {V : Set B}
     (h : P.IsScDiffeoOn Q f g U V) : IsDHomeoOn P.degIndex Q.degIndex f U where
   isOpen := h.isOpen_source
@@ -707,7 +707,7 @@ theorem IsScDiffeoOn.isDHomeoOn {f : A → B} {g : B → A} {U : Set A} {V : Set
   injOn := h.injOn
   isOpen_image U' hU' hsub := by
     rw [(h.restrict hU' hsub).image_eq]; exact (h.restrict hU' hsub).isOpen_target
-  deg_eq _ hy := (proposition_2_24 h hy).symm
+  deg_eq _ hy := (proposition_2_4_4 h hy).symm
 
 /-- A local sc-diffeomorphism is an index-preserving local homeomorphism. -/
 theorem IsLocalScDiffeo.isDLocalHomeo {f : A → B} (hf : P.IsLocalScDiffeo Q f) :
@@ -1110,11 +1110,11 @@ theorem continuousOn_bComp (hX : X.IsTame) :
 
 theorem metrizableSpace_bObj (hX : X.IsTame) : TopologicalSpace.MetrizableSpace (X.bObj hX) := by
   have := X.PObj.metrizableSpace
-  exact proposition_2_7_16 _
+  exact Polyfold.TameBoundary.proposition_2_7_16 _
 
 theorem metrizableSpace_bMor (hX : X.IsTame) : TopologicalSpace.MetrizableSpace (X.bMor hX) := by
   have := X.PMor.metrizableSpace
-  exact proposition_2_7_16 _
+  exact Polyfold.TameBoundary.proposition_2_7_16 _
 
 variable (X) in
 /-- **2021 Theorem 7.6.9 (3)–(5)**, the functor part: `B : (bX, b𝐗) → (X, 𝐗)` is a functor. -/
@@ -1174,8 +1174,8 @@ topologies (every `U` open, every `Φ` an open embedding, and uniqueness); (3) c
 two maps `B`; (4) in counting form; (5) the groupoid `(bX, b𝐗)` of (7.25)–(7.29) with its
 topological ep-groupoid properties (`s, t` local homeomorphisms, `u, ι, m` continuous, the
 properness property) and `B` a functor.  Parts (2), the sc-smoothness in (3) and (5), and `d_{bX}`
-in (4) are in `theorem_7_6_9_full_2021` (`Chapter7/TameBoundaryEpStructure.lean`). -/
-theorem theorem_7_6_9_2021 (hX : X.IsTame) :
+in (4) are in `theorem_7_6_9_full` (`Chapter7/TameBoundaryEpStructure.lean`). -/
+theorem theorem_7_6_9 (hX : X.IsTame) :
     -- (1), and the characterization of the topologies in the paragraph after the theorem
     TopologicalSpace.MetrizableSpace (X.bObj hX) ∧ TopologicalSpace.MetrizableSpace (X.bMor hX) ∧
       (∀ t, IsOpen (uSet (X.cornerObj hX) t) ∧ IsOpenEmbedding (phi (X.cornerObj hX) t)) ∧
@@ -1226,7 +1226,7 @@ theorem bSrc_trivial (hX : (trivial P).IsTame) (a : (trivial P).bMor hX) :
     (trivial P).bSrc hX a = a :=
   (isLiftOf_bSrc hX a).unique (isLiftOf_id _ a) (Eventually.of_forall fun _ => rfl)
 
-/-- **Witness** for `theorem_7_6_9_2021`: the trivial ep-groupoid of the tame quadrant
+/-- **Witness** for `theorem_7_6_9`: the trivial ep-groupoid of the tame quadrant
 `[0, ∞)ⁿ ⊕ W` (`MPolyfold.quadrantPolyfold`) is tame; for `n ≥ 1` its boundary groupoid
 `(bX, b𝐗)` is nonempty, and the corner `0` has exactly `n` preimages in `bX`. -/
 theorem trivial_quadrant_witness (n : ℕ) (W : ScBanach) (hn : 1 ≤ n) :

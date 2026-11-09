@@ -5,7 +5,7 @@ import RoundTrip.Blind.V6_61
 /-! Round trip for V6_61 (Theorem 6.41, its proof, and the paragraph after it; §6.5, pp. 229–230).
 
 A is the conjunction of the 16 theorems among the item's 22 declarations (universes at `0`):
-`theorem_6_41`, `theorem_6_41_solutionSet` and the lemmas of its proof (good position, `T_yS =
+`theorem_6_6_18_hyp`, `theorem_6_6_18_solutionSet` and the lemmas of its proof (good position, `T_yS =
 ker f'(y)`, `f'(y) ∈ Lin`, the stabilization by `ℝ⁰`, tangent families, `cont_tangentOr`,
 `isLineOrientation_tangentOr*`).
 
@@ -45,7 +45,7 @@ open scoped ContDiff
 
 /-- The project's statement (the theorems among the item's declarations), universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_6_41_solutionSet.{0, 0} ∧
+  type_of% @Polyfold.theorem_6_6_18_solutionSet.{0, 0} ∧
   type_of% @Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt.{0} ∧
   type_of% @Polyfold.tangentSpace_solutionSet_eq_linKer.{0, 0} ∧
   type_of% @Polyfold.ChartPoint.linZero_mem_linSet.{0, 0} ∧
@@ -61,10 +61,10 @@ def A : Prop :=
   type_of% @Polyfold.cont_tangentOr.{0, 0} ∧
   type_of% @Polyfold.isLineOrientation_tangentOr.{0, 0} ∧
   type_of% @Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation.{0, 0} ∧
-  type_of% @Polyfold.theorem_6_41.{0, 0}
+  type_of% @Polyfold.theorem_6_6_18_hyp.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_6_41_solutionSet.{0, 0},
+  ⟨@Polyfold.theorem_6_6_18_solutionSet.{0, 0},
     @Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt.{0},
     @Polyfold.tangentSpace_solutionSet_eq_linKer.{0, 0},
     @Polyfold.ChartPoint.linZero_mem_linSet.{0, 0},
@@ -80,7 +80,7 @@ theorem A_holds : A :=
     @Polyfold.cont_tangentOr.{0, 0},
     @Polyfold.isLineOrientation_tangentOr.{0, 0},
     @Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation.{0, 0},
-    @Polyfold.theorem_6_41.{0, 0}⟩
+    @Polyfold.theorem_6_6_18_hyp.{0, 0}⟩
 
 section Paths
 
@@ -162,8 +162,8 @@ theorem isCompactCornerManifold_of_solutionSetInGeneralPosition {Bd : StrongBund
 omit [∀ n : ℕ, ParacompactSpace ((Fin n → ℝ) × X)]
   [∀ n : ℕ, ParacompactSpace (pullbackSpace P (Prod.snd : (Fin n → ℝ) × X → X))] in
 /-- **Partial `A ⇒ B` (1)**: with tame germ data (which B does not assume), A (its first conjunct,
-`theorem_6_41_solutionSet`) gives B's first conclusion. -/
-theorem corner_of_A (hA : type_of% @Polyfold.theorem_6_41_solutionSet.{0, 0})
+`theorem_6_6_18_solutionSet`) gives B's first conclusion. -/
+theorem corner_of_A (hA : type_of% @Polyfold.theorem_6_6_18_solutionSet.{0, 0})
     {Bd : StrongBundle PX P} {f : X → Y} (hX : PX.IsTame)
     (hft : Bd.IsScFredholmSectionTame f) (hP : Bd.IsProper f)
     (hgp : ∀ x, IsZeroAt P f x → Bd.IsGeneralPositionGerm f x) :
@@ -172,7 +172,7 @@ theorem corner_of_A (hA : type_of% @Polyfold.theorem_6_41_solutionSet.{0, 0})
 
 end Glue
 
-#rt_check RoundTrip.V6_61.D640_of_isSectionOrientation [Polyfold.theorem_6_41_solutionSet,
+#rt_check RoundTrip.V6_61.D640_of_isSectionOrientation [Polyfold.theorem_6_6_18_solutionSet,
   Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt,
   Polyfold.tangentSpace_solutionSet_eq_linKer, Polyfold.ChartPoint.linZero_mem_linSet,
   Polyfold.ChartPoint.linZero_surjective, Polyfold.ChartPoint.map_ker_linZero,
@@ -180,8 +180,8 @@ end Glue
   Polyfold.ChartPoint.stabRayEquiv_eq_tangentOr, Polyfold.IsStabKernels.orRay_eq_tangentOr,
   Polyfold.isStabKernels_zero, Polyfold.exists_tangentFamily, Polyfold.tangentFamily_L,
   Polyfold.cont_tangentOr, Polyfold.isLineOrientation_tangentOr,
-  Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation, Polyfold.theorem_6_41]
-#rt_check RoundTrip.V6_61.corner_of_A [Polyfold.theorem_6_41_solutionSet,
+  Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation, Polyfold.theorem_6_6_18_hyp]
+#rt_check RoundTrip.V6_61.corner_of_A [Polyfold.theorem_6_6_18_solutionSet,
   Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt,
   Polyfold.tangentSpace_solutionSet_eq_linKer, Polyfold.ChartPoint.linZero_mem_linSet,
   Polyfold.ChartPoint.linZero_surjective, Polyfold.ChartPoint.map_ker_linZero,
@@ -189,6 +189,6 @@ end Glue
   Polyfold.ChartPoint.stabRayEquiv_eq_tangentOr, Polyfold.IsStabKernels.orRay_eq_tangentOr,
   Polyfold.isStabKernels_zero, Polyfold.exists_tangentFamily, Polyfold.tangentFamily_L,
   Polyfold.cont_tangentOr, Polyfold.isLineOrientation_tangentOr,
-  Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation, Polyfold.theorem_6_41]
+  Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation, Polyfold.theorem_6_6_18_hyp]
 
 end RoundTrip.V6_61

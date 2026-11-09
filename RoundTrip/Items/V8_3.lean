@@ -5,37 +5,37 @@ import RoundTrip.Blind.V8_3
 /-! Round trip for V8_3 (Theorem 8.1.1 = 2017 Theorem 8.1: the tangent ep-groupoid `T(X, 𝐗)`).
 
 The listed definitions `tangentGroupoidStr`, `tangentEpGroupoid`, `tangentProjFunctor`,
-`liftOne` are vocabulary; `A` is the conjunction of the types of `EpGroupoid.theorem_8_1` and
-`EpGroupoid.theorem_8_1_tame`, universes at `0` (the tangent spaces are then in `Type 1`).
-`theorem_8_1` identifies the M-polyfolds and structure maps of the project's `tangentEpGroupoid`
+`liftOne` are vocabulary; `A` is the conjunction of the types of `EpGroupoid.theorem_8_1_1` and
+`EpGroupoid.theorem_8_1_1_tame`, universes at `0` (the tangent spaces are then in `Type 1`).
+`theorem_8_1_1` identifies the M-polyfolds and structure maps of the project's `tangentEpGroupoid`
 (all `rfl` except the (8.5) clause) and the maps of `tangentProjFunctor`; that `(TX, T𝐗)` *is* an
 ep-groupoid and `(p, 𝐩)` a functor is carried by the definitions themselves (their proof fields,
 Lemmas 8.2–8.7), not by the theorem's type.
 
 * `A → B`: `G` is the groupoid of `tangentEpGroupoid`.  B's structure maps: `rfl`, the unit by the
-  project lemmas `tBase_tUnit`, `tSrc_tUnit`, the composition by `theorem_8_1`'s `comp = tComp`
+  project lemmas `tBase_tUnit`, `tSrc_tUnit`, the composition by `theorem_8_1_1`'s `comp = tComp`
   (B's `tCompB` is `tComp` by `rfl`).  B's Definition 7.3 for `G` with `TX`, `T𝐗` is read off the
   fields of `tangentEpGroupoid` exactly as in V7_3 (`IsProperMap` gives B's "continuous with compact
   preimages"; B's existential sub-M-polyfold data is the project's `isSubMPolyfold_fibredProduct`
   with its paracompactness instances).  The functor clauses: base points of `Ts`, `Tt`, `Tu` are
   the project lemmas `levelVal_tangentProj_tSrc/tTgt`, `tBase_tUnit`, the composition clause is
-  `theorem_8_1`'s (8.5) clause, sc-smoothness of `p` into `X¹` is Part I's `tangentProj_isScSmooth`.
-  Tameness is `theorem_8_1_tame` (`EpGroupoid.IsTame` is `PObj.IsTame`).
-* `B → A`: all clauses of `theorem_8_1` but (8.5) are `rfl`; (8.5) — `k ∘ h` lies over
+  `theorem_8_1_1`'s (8.5) clause, sc-smoothness of `p` into `X¹` is Part I's `tangentProj_isScSmooth`.
+  Tameness is `theorem_8_1_1_tame` (`EpGroupoid.IsTame` is `PObj.IsTame`).
+* `B → A`: all clauses of `theorem_8_1_1` but (8.5) are `rfl`; (8.5) — `k ∘ h` lies over
   `p k ∘ p h` and `Ts(k ∘ h) = Ts h` — follows from B's `G`: its composition is `tCompB = tComp`
   on composable pairs, B's functor clause gives the base point and `G.src_comp` the source.
-  `theorem_8_1_tame` is B's tameness clause. -/
+  `theorem_8_1_1_tame` is B's tameness clause. -/
 
 namespace RoundTrip.V8_3
 open Polyfold
 
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.EpGroupoid.theorem_8_1.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.theorem_8_1_tame.{0})
+  (type_of% @Polyfold.EpGroupoid.theorem_8_1_1.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.theorem_8_1_1_tame.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.theorem_8_1.{0}, @Polyfold.EpGroupoid.theorem_8_1_tame.{0}⟩
+  ⟨@Polyfold.EpGroupoid.theorem_8_1_1.{0}, @Polyfold.EpGroupoid.theorem_8_1_1_tame.{0}⟩
 
 /-! ### `A → B` -/
 
@@ -82,11 +82,11 @@ theorem B_to_A : B → A := by
   · intro Obj Mor _ _ _ _ _ _ X hX
     exact (hB Obj Mor X).2.2.2.2 hX
 
-#rt_check RoundTrip.V8_3.A_to_B [Polyfold.EpGroupoid.theorem_8_1,
-  Polyfold.EpGroupoid.theorem_8_1_tame]
-#rt_check RoundTrip.V8_3.B_to_A [Polyfold.EpGroupoid.theorem_8_1,
-  Polyfold.EpGroupoid.theorem_8_1_tame]
-#rt_overlap RoundTrip.V8_3.B_to_A [Polyfold.EpGroupoid.theorem_8_1,
-  Polyfold.EpGroupoid.theorem_8_1_tame]
+#rt_check RoundTrip.V8_3.A_to_B [Polyfold.EpGroupoid.theorem_8_1_1,
+  Polyfold.EpGroupoid.theorem_8_1_1_tame]
+#rt_check RoundTrip.V8_3.B_to_A [Polyfold.EpGroupoid.theorem_8_1_1,
+  Polyfold.EpGroupoid.theorem_8_1_1_tame]
+#rt_overlap RoundTrip.V8_3.B_to_A [Polyfold.EpGroupoid.theorem_8_1_1,
+  Polyfold.EpGroupoid.theorem_8_1_1_tame]
 
 end RoundTrip.V8_3

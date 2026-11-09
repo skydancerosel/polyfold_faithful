@@ -41,7 +41,7 @@ and `T_xX` inherits the Banach space structure of `T_{ϕ(x)}O ⊆ E`.
 * **`tangentMor_chart_iso`**: `L` maps `T_{χ(s φ)}O` bijectively onto `T_{ψ(t φ)}O'`, with inverse
   the restriction of the continuous linear map `L'` representing `T(φ⁻¹)`.  This is the text's
   "bounded linear isomorphism on level `0`" in the linear structure of Definition 2.3.14.
-* `definition_7_1_4_2021`: the bundle of these statements.
+* `definition_7_1_4`: the bundle of these statements.
 
 ## What the text leaves implicit, and the choices made
 
@@ -60,8 +60,8 @@ and `T_xX` inherits the Banach space structure of `T_{ϕ(x)}O ⊆ E`.
 * **Not formalized**: that `Tφ` is an sc-operator (an sc-isomorphism) for smooth `φ`, which needs
   the sc-structure of `T_xX` at smooth `x` (gap G.7 again), and the restatement of the facts (3),
   (4) on sub-M-polyfolds after Definition 7.1.21 (row V7.30), which concern the linear structure of
-  `T_aA ⊆ T_aX` and are proved in a chart in Part I (`Polyfold.proposition_2_21_3`,
-  `Polyfold.proposition_2_21_4`).
+  `T_aA ⊆ T_aX` and are proved in a chart in Part I (`Polyfold.proposition_2_3_19_three`,
+  `Polyfold.proposition_2_3_19_four`).
 -/
 
 open Set Function Topology
@@ -273,7 +273,7 @@ theorem tangentMor_chart_iso {φ : Mor} (hφ : φ ∈ X.PMor.levelSet 1) {χ ψ 
 for `φ ∈ 𝐗₁`, `φ̂(s φ) = t φ`; `Tφ = Tφ̂(s(φ))` on `T_{s(φ)}X`; `Tφ` is a bijection
 `T_{s(φ)}X → T_{t(φ)}X` with inverse `T(φ⁻¹)`; `T(ψ ∘ φ) = Tψ ∘ Tφ`; and in any charts `Tφ` is a
 bounded linear isomorphism `T_{χ(s φ)}O → T_{ψ(t φ)}O'` (`tangentMor_chart_iso`). -/
-theorem definition_7_1_4_2021 {φ : Mor} (hφ : φ ∈ X.PMor.levelSet 1) :
+theorem definition_7_1_4 {φ : Mor} (hφ : φ ∈ X.PMor.levelSet 1) :
     X.hat φ (X.src φ) = X.tgt φ ∧
       (∀ a ∈ X.tangentFiberAt (X.src φ),
         MPolyfold.tangentMapOn (X.isScDiffeoOn_hat φ).isScSmoothOn a = X.tangentMor φ a) ∧

@@ -3,7 +3,7 @@ import Polyfold.Chapter2.TangentBundle
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part I, §2.3,
 **Proposition 2.3.15 (2)**, p. 39, proved in Appendix 2.7.3, pp. 76–77 (2014 preprint:
-Proposition 2.19 (2); 2017 arXiv 1707.08941: Proposition 2.5 (2)): the projection `p : TX → X¹`
+Proposition 2.3.15 (preprint 2.19) (2); 2017 arXiv 1707.08941: Proposition 2.5 (2)): the projection `p : TX → X¹`
 of the tangent bundle is open.
 
 # The projection `p : TX → X¹` is open
@@ -26,7 +26,7 @@ factor; that `π` is open is stated without proof.
   M-polyfold.  An open `S ⊆ TX` around `α` is read in the tangent chart `Tφ` of a representative
   of `α` as `TO ∩ W`, and the open set `N` of the local step gives the basic open set
   `{y ∈ X¹ | y ∈ V, φ(y) ∈ N}` of `X¹` inside `p(S)`.
-* `MPolyfold.proposition_2_3_15_two_2021`: Proposition 2.3.15 (2) in full (continuous and open).
+* `MPolyfold.proposition_2_3_15_two`: Proposition 2.3.15 (2) in full (continuous and open).
 
 This makes the field `isOpenMap_tangentProj` of Chapter 7's `MPolyfold.SmoothRegular`
 unnecessary and closes gap G.8 (row V2.20, "openness of `p` missing").  The hypotheses
@@ -127,7 +127,7 @@ theorem isOpenMap_tangentProj : IsOpenMap P.tangentProj := by
 
 /-- **2021 Proposition 2.3.15 (2)** (2014 Proposition 2.19 (2), 2017 Proposition 2.5 (2)): the
 projection `p : TX → X¹` is continuous and open. -/
-theorem _root_.Polyfold.proposition_2_3_15_two_2021 :
+theorem _root_.Polyfold.proposition_2_3_15_two :
     Continuous P.tangentProj ∧ IsOpenMap P.tangentProj :=
   ⟨continuous_tangentProj, P.isOpenMap_tangentProj⟩
 

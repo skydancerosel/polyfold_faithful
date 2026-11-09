@@ -6,10 +6,10 @@ import RoundTrip.Blind.V8_45
 
 `A` is the conjunction of the types of the five listed theorems, universes at `0`:
 `EpGroupoid.nonEffectivePart_tangent_eq` (`(T𝐗)^T = p⁻¹((𝐗¹)^T)`),
-`EpGroupoid.proposition_8_1_17_2021_one` (`X¹` LUC ⇒ `TX` LUC),
-`EpGroupoid.proposition_8_1_17_2021_two` (`X` SLUC ⇒ `TX = (TX)⁰` LUC),
+`EpGroupoid.proposition_8_1_17_one` (`X¹` LUC ⇒ `TX` LUC),
+`EpGroupoid.proposition_8_1_17_two` (`X` SLUC ⇒ `TX = (TX)⁰` LUC),
 `EpGroupoid.isOpenMap_tangentProj_of_subsingleton` and
-`EpGroupoid.Examples.proposition_8_1_17_2021_one_point` (no universe parameters).  The first
+`EpGroupoid.Examples.proposition_8_1_17_one_point` (no universe parameters).  The first
 three carry two hypotheses the text does not state: `X.HasConnectedDenseLevelOneReps` (every
 `x ∈ X₁` has a natural representation with `U(x) ∩ X₁` preconnected in `X¹` and dense in `U(x)`)
 and `IsOpenMap X.PMor.tangentProj` (`p : T𝐗 → 𝐗¹` open).
@@ -32,17 +32,17 @@ open Polyfold Set Function
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.nonEffectivePart_tangent_eq.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_8_1_17_2021_one.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_8_1_17_2021_two.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_8_1_17_one.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_8_1_17_two.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.Examples.proposition_8_1_17_2021_one_point)
+  (type_of% @Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point)
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.nonEffectivePart_tangent_eq.{0},
-    @Polyfold.EpGroupoid.proposition_8_1_17_2021_one.{0},
-    @Polyfold.EpGroupoid.proposition_8_1_17_2021_two.{0},
+    @Polyfold.EpGroupoid.proposition_8_1_17_one.{0},
+    @Polyfold.EpGroupoid.proposition_8_1_17_two.{0},
     @Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton.{0},
-    @Polyfold.EpGroupoid.Examples.proposition_8_1_17_2021_one_point⟩
+    @Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point⟩
 
 /-- The witness conjunct, re-proved outright (not a consequence of `B`). -/
 theorem isOpenMap_tangentProj_of_subsingleton' {Z : Type} [TopologicalSpace Z] [T2Space Z]
@@ -67,12 +67,12 @@ theorem B_to_A : B → A := fun hB =>
 (for (2): for every lift `Xⁱ`), which `B`'s premises do not supply. -/
 
 #rt_check RoundTrip.V8_45.B_to_A [Polyfold.EpGroupoid.nonEffectivePart_tangent_eq,
-  Polyfold.EpGroupoid.proposition_8_1_17_2021_one, Polyfold.EpGroupoid.proposition_8_1_17_2021_two,
+  Polyfold.EpGroupoid.proposition_8_1_17_one, Polyfold.EpGroupoid.proposition_8_1_17_two,
   Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton,
-  Polyfold.EpGroupoid.Examples.proposition_8_1_17_2021_one_point]
+  Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point]
 #rt_overlap RoundTrip.V8_45.B_to_A [Polyfold.EpGroupoid.nonEffectivePart_tangent_eq,
-  Polyfold.EpGroupoid.proposition_8_1_17_2021_one, Polyfold.EpGroupoid.proposition_8_1_17_2021_two,
+  Polyfold.EpGroupoid.proposition_8_1_17_one, Polyfold.EpGroupoid.proposition_8_1_17_two,
   Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton,
-  Polyfold.EpGroupoid.Examples.proposition_8_1_17_2021_one_point]
+  Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point]
 
 end RoundTrip.V8_45

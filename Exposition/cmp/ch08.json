@@ -90,13 +90,13 @@
     "statement": "The tangent $T(X, \\mathbf X) = (TX, T\\mathbf X)$ of the ep-groupoid $(X, \\mathbf X)$, together with the structure maps (8.3)–(8.9), is an ep-groupoid. If $(X, \\mathbf X)$ is tame, then also $T(X, \\mathbf X)$ is tame. Moreover, the two projections $p : TX \\to X^1$ and $\\mathbf p : T\\mathbf X \\to \\mathbf X^1$ together define an sc-smooth functor $(p, \\mathbf p) : T(X, \\mathbf X) \\to (X, \\mathbf X)^1$. (The proof assembles Lemmas 8.1.2–8.1.9 (2017: 8.1–8.8); that the projections form a functor \"is obvious\": $\\mathbf p(\\varphi, h) = \\varphi : s(\\varphi) \\to t(\\varphi)$ is compatible with the composition.)"
    },
    "lean": {
-    "statement": "`tangentGroupoidStr` is the groupoid of (8.3)–(8.9), and `tangentEpGroupoid` the ep-groupoid on Part I's M-polyfolds $TX$, $T\\mathbf X$. `theorem_8_1`: its object and morphism M-polyfolds are $TX$ and $T\\mathbf X$, its source, target, unit and inverse are $Ts$, $Tt$, $Tu$, $T\\iota$, its composition is `tComp`, a composite $k \\circ h$ lies over $\\mathbf p(k) \\circ \\mathbf p(h)$ with source $Ts(h)$, and `tangentProjFunctor`, the ep-functor $(p, \\mathbf p) : T(X, \\mathbf X) \\to (X, \\mathbf X)^1$ into Chapter 7's `liftOne`, has the maps $p$ and $\\mathbf p$. `theorem_8_1_tame`: if $X$ is tame, so is $TX$.",
+    "statement": "`tangentGroupoidStr` is the groupoid of (8.3)–(8.9), and `tangentEpGroupoid` the ep-groupoid on Part I's M-polyfolds $TX$, $T\\mathbf X$. `theorem_8_1_1`: its object and morphism M-polyfolds are $TX$ and $T\\mathbf X$, its source, target, unit and inverse are $Ts$, $Tt$, $Tu$, $T\\iota$, its composition is `tComp`, a composite $k \\circ h$ lies over $\\mathbf p(k) \\circ \\mathbf p(h)$ with source $Ts(h)$, and `tangentProjFunctor`, the ep-functor $(p, \\mathbf p) : T(X, \\mathbf X) \\to (X, \\mathbf X)^1$ into Chapter 7's `liftOne`, has the maps $p$ and $\\mathbf p$. `theorem_8_1_1_tame`: if $X$ is tame, so is $TX$.",
     "decls": [
      "Chapter8/TangentEp · EpGroupoid.tangentGroupoidStr",
      "Chapter8/TangentEp · EpGroupoid.tangentEpGroupoid",
      "Chapter8/TangentEp · EpGroupoid.tangentProjFunctor",
-     "Chapter8/TangentEp · EpGroupoid.theorem_8_1",
-     "Chapter8/TangentTame · EpGroupoid.theorem_8_1_tame",
+     "Chapter8/TangentEp · EpGroupoid.theorem_8_1_1",
+     "Chapter8/TangentTame · EpGroupoid.theorem_8_1_1_tame",
      "Chapter7/Lift · EpGroupoid.liftOne"
     ]
    },
@@ -105,7 +105,7 @@
     "$(X, \\mathbf X)^1$: Chapter 7’s `liftOne`"
    ],
    "diff": [
-    "`theorem_8_1` records the data and the structure maps of the ep-groupoid; the conditions of Definition 7.1.3 (2017: 7.3) are Lemmas 8.1.3–8.1.8 (2017: 8.2–8.7) (V8.5–V8.10), the tameness sentence is Lemma 8.1.9 (2017: 8.8) (V8.11) (Findings, Chapter 8, item 9).",
+    "`theorem_8_1_1` records the data and the structure maps of the ep-groupoid; the conditions of Definition 7.1.3 (2017: 7.3) are Lemmas 8.1.3–8.1.8 (2017: 8.2–8.7) (V8.5–V8.10), the tameness sentence is Lemma 8.1.9 (2017: 8.8) (V8.11) (Findings, Chapter 8, item 9).",
     "$TX$ and $T\\mathbf X$ live in `Type (max u 1)` for $X$ in `Type u` (Findings, Chapter 8, item 2)."
    ]
   },
@@ -119,9 +119,9 @@
     "statement": "With $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X)$ identified with $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X$: if $m$ is the multiplication of $\\mathbf X$, the multiplication (8.5) of $T\\mathbf X$ can be written as $(\\psi, k) \\circ (\\varphi, h) = Tm(\\psi, \\varphi)(k, h) = (\\psi \\circ \\varphi, (Ts(\\psi \\circ \\varphi))^{-1} \\circ Ts(\\varphi)(h))$, keeping in mind that $k = Ts(\\psi)^{-1}(Tt(\\varphi)(h))$. In the proof, $\\psi'$ near $\\psi$ is the function $\\psi' = F(\\varphi') = (s|\\mathbf U(\\psi))^{-1}(t(\\varphi'))$ of $\\varphi'$ near $\\varphi$, and the identity $s|\\mathbf U(\\varphi \\circ \\psi) \\circ m((s|\\mathbf U(\\psi))^{-1}(t(\\varphi')), \\varphi') = s(\\varphi')$ is differentiated at $\\varphi$ in the direction $h$."
    },
    "lean": {
-    "statement": "`lemma_8_1`: for a sheet $s : W \\to V$ of the source map with inverse $\\sigma$ and $k$, $h$ with $Ts(k) = Tt(h)$ and $\\mathbf p(k) \\in W$: $k = T\\sigma(Tt(h))$, $k \\circ h = Tg(h)$ for $g(\\varphi') = m(\\sigma(t(\\varphi')), \\varphi')$, which is sc-smooth on $t^{-1}(V)$ by Chapter 7's sheet form of Definition 7.1.3 (4) (2017: 7.3) (`EpGroupoid.isScSmoothCompSheet`), and $k \\circ h$ lies over $\\mathbf p(k) \\circ \\mathbf p(h)$ with $Ts(k \\circ h) = Ts(h)$. The steps: `tComp_eq_tangentMapOn`, `tangentMapOn_srcInv_tSrc`, `mem_tangentPreimage_tgt`.",
+    "statement": "`lemma_8_1_2`: for a sheet $s : W \\to V$ of the source map with inverse $\\sigma$ and $k$, $h$ with $Ts(k) = Tt(h)$ and $\\mathbf p(k) \\in W$: $k = T\\sigma(Tt(h))$, $k \\circ h = Tg(h)$ for $g(\\varphi') = m(\\sigma(t(\\varphi')), \\varphi')$, which is sc-smooth on $t^{-1}(V)$ by Chapter 7's sheet form of Definition 7.1.3 (4) (2017: 7.3) (`EpGroupoid.isScSmoothCompSheet`), and $k \\circ h$ lies over $\\mathbf p(k) \\circ \\mathbf p(h)$ with $Ts(k \\circ h) = Ts(h)$. The steps: `tComp_eq_tangentMapOn`, `tangentMapOn_srcInv_tSrc`, `mem_tangentPreimage_tgt`.",
     "decls": [
-     "Chapter8/TangentEp · EpGroupoid.lemma_8_1",
+     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_2",
      "Chapter8/TangentEp · EpGroupoid.tComp_eq_tangentMapOn",
      "Chapter8/TangentEp · EpGroupoid.tangentMapOn_srcInv_tSrc",
      "Chapter8/TangentEp · EpGroupoid.mem_tangentPreimage_tgt",
@@ -147,9 +147,9 @@
     "statement": "Abbreviating the morphisms of $T\\mathbf X$ as $\\Phi = (\\varphi, h)$ and $\\Psi = (\\psi, k)$: the definitions of $s_{T\\mathbf X}$ and $t_{T\\mathbf X}$ are compatible with the composition, i.e. $s_{T\\mathbf X}(\\Psi \\circ \\Phi) = s_{T\\mathbf X}(\\Phi)$ and $t_{T\\mathbf X}(\\Psi \\circ \\Phi) = t_{T\\mathbf X}(\\Psi)$. (The target is computed with $\\alpha = t \\circ (s|\\mathbf U(\\psi \\circ \\varphi))^{-1}$ and the identity $\\alpha(s(\\varphi')) = t \\circ (s|\\mathbf U(\\psi))^{-1}(t(\\varphi'))$ for $\\varphi'$ near $\\varphi$.)"
    },
    "lean": {
-    "statement": "`lemma_8_2`: if $Ts(k) = Tt(h)$, then $Ts(k \\circ h) = Ts(h)$ and $Tt(k \\circ h) = Tt(k)$. `tTgt_tangentMapOn`: the target computed as in the text, through the tangent of $t \\circ \\sigma \\circ t$ on $t^{-1}(V)$.",
+    "statement": "`lemma_8_1_3`: if $Ts(k) = Tt(h)$, then $Ts(k \\circ h) = Ts(h)$ and $Tt(k \\circ h) = Tt(k)$. `tTgt_tangentMapOn`: the target computed as in the text, through the tangent of $t \\circ \\sigma \\circ t$ on $t^{-1}(V)$.",
     "decls": [
-     "Chapter8/TangentEp · EpGroupoid.lemma_8_2",
+     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_3",
      "Chapter8/TangentEp · EpGroupoid.tTgt_tangentMapOn"
     ]
    },
@@ -169,9 +169,9 @@
     "statement": "The composition of morphisms in $T\\mathbf X$ is associative: when the sources and targets match, $(\\sigma, l) \\circ ((\\psi, k) \\circ (\\varphi, h))$ and $((\\sigma, l) \\circ (\\psi, k)) \\circ (\\varphi, h)$ are both $(\\sigma \\circ \\psi \\circ \\varphi, (Ts(\\sigma \\circ \\psi \\circ \\varphi))^{-1}Ts(\\varphi)(h))$."
    },
    "lean": {
-    "statement": "`lemma_8_3`: if $Ts(l) = Tt(k)$ and $Ts(k) = Tt(h)$, then $(l \\circ k) \\circ h = l \\circ (k \\circ h)$.",
+    "statement": "`lemma_8_1_4`: if $Ts(l) = Tt(k)$ and $Ts(k) = Tt(h)$, then $(l \\circ k) \\circ h = l \\circ (k \\circ h)$.",
     "decls": [
-     "Chapter8/TangentEp · EpGroupoid.lemma_8_3"
+     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_4"
     ]
    },
    "chips": [],
@@ -189,13 +189,13 @@
     "statement": "The 1-morphism associated with the object $q \\in T_xX$, $1_q = (1_x, Ts(1_x)^{-1}q) \\in T_{1_x}\\mathbf X$, is a two-sided identity for the composition. (Proof: $s_{T\\mathbf X}(1_q) = q$, and $t_{T\\mathbf X}(1_q) = q$ since $t \\circ (s|\\mathbf U(1_x))^{-1}(b) = b$ for $b$ near $x$; $(\\varphi, k) \\circ 1_q = (\\varphi, k)$ if $Ts(\\varphi)(k) = q$, and $1_q \\circ (\\varphi, k) = (\\varphi, k)$ if $Tt(\\varphi)(k) = q$.)"
    },
    "lean": {
-    "statement": "`lemma_8_4`, with $1_q$ = `tUnit q` $= Tu(q)$: $1_q$ lies over $1_x$, $Ts(1_q) = q = Tt(1_q)$ (`tSrc_tUnit`, `tTgt_tUnit`), $k \\circ 1_q = k$ if $Ts(k) = q$ (`tComp_tUnit`) and $1_q \\circ k = k$ if $Tt(k) = q$ (`tUnit_tComp`).",
+    "statement": "`lemma_8_1_5`, with $1_q$ = `tUnit q` $= Tu(q)$: $1_q$ lies over $1_x$, $Ts(1_q) = q = Tt(1_q)$ (`tSrc_tUnit`, `tTgt_tUnit`), $k \\circ 1_q = k$ if $Ts(k) = q$ (`tComp_tUnit`) and $1_q \\circ k = k$ if $Tt(k) = q$ (`tUnit_tComp`).",
     "decls": [
      "Chapter8/TangentEp · EpGroupoid.tSrc_tUnit",
      "Chapter8/TangentEp · EpGroupoid.tTgt_tUnit",
      "Chapter8/TangentEp · EpGroupoid.tComp_tUnit",
      "Chapter8/TangentEp · EpGroupoid.tUnit_tComp",
-     "Chapter8/TangentEp · EpGroupoid.lemma_8_4"
+     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_5"
     ]
    },
    "chips": [],
@@ -213,13 +213,13 @@
     "statement": "The inverse $\\iota_{T\\mathbf X}(\\varphi, k) = (\\varphi^{-1}, T\\iota_X(\\varphi)(k))$ is a two-sided inverse for the composition. (Proof: by the chain rule for $s(\\varphi^{-1}) = t(\\varphi)$ and $t(\\varphi^{-1}) = s(\\varphi)$, $s_{T\\mathbf X}(\\iota_{T\\mathbf X}(\\varphi, k)) = t_{T\\mathbf X}(\\varphi, k)$ and $t_{T\\mathbf X}(\\iota_{T\\mathbf X}(\\varphi, k)) = s_{T\\mathbf X}(\\varphi, k)$; then $\\iota_{T\\mathbf X}(\\varphi, k) \\circ (\\varphi, k) = 1_{Ts(\\varphi)k}$, and the composition from the right is verified the same way.)"
    },
    "lean": {
-    "statement": "`lemma_8_5`: $T\\iota(v)$ lies over $\\mathbf p(v)^{-1}$, $Ts(T\\iota(v)) = Tt(v)$ and $Tt(T\\iota(v)) = Ts(v)$ (`tSrc_tInv`, `tTgt_tInv`), $T\\iota(v) \\circ v = 1_{Ts(v)}$ (`tInv_tComp`) and $v \\circ T\\iota(v) = 1_{Tt(v)}$ (`tComp_tInv`).",
+    "statement": "`lemma_8_1_6`: $T\\iota(v)$ lies over $\\mathbf p(v)^{-1}$, $Ts(T\\iota(v)) = Tt(v)$ and $Tt(T\\iota(v)) = Ts(v)$ (`tSrc_tInv`, `tTgt_tInv`), $T\\iota(v) \\circ v = 1_{Ts(v)}$ (`tInv_tComp`) and $v \\circ T\\iota(v) = 1_{Tt(v)}$ (`tComp_tInv`).",
     "decls": [
      "Chapter8/TangentEp · EpGroupoid.tSrc_tInv",
      "Chapter8/TangentEp · EpGroupoid.tTgt_tInv",
      "Chapter8/TangentEp · EpGroupoid.tComp_tInv",
      "Chapter8/TangentEp · EpGroupoid.tInv_tComp",
-     "Chapter8/TangentEp · EpGroupoid.lemma_8_5"
+     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_6"
     ]
    },
    "chips": [],
@@ -237,7 +237,7 @@
     "statement": "For the category with object M-polyfold $TX$ and morphism M-polyfold $T\\mathbf X$, the source and target maps $s_{T\\mathbf X}$, $t_{T\\mathbf X}$ are surjective local sc-diffeomorphisms and all structure maps are sc-smooth. (Proof: $s_{T\\mathbf X}$ and $t_{T\\mathbf X}$ are local sc-diffeomorphisms by construction; $1_q$ depends sc-smoothly on $q$; the inversion is the tangent of $\\iota$, hence an sc-diffeomorphism; the fibred product $T\\mathbf X\\,{}_{s_{T\\mathbf X}}{\\times}_{t_{T\\mathbf X}}\\,T\\mathbf X$ is an M-polyfold, and the multiplication $((\\psi, k), (\\varphi, h)) \\mapsto (\\psi \\circ \\varphi, (Ts(\\psi \\circ \\varphi))^{-1}Ts(\\varphi)(h))$ is sc-smooth by inspection; alternatively, the tangent of $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$ is naturally identified with this fibred product and $m_{T\\mathbf X}$ is precisely $Tm$.)"
    },
    "lean": {
-    "statement": "`lemma_8_6`: $Ts$ and $Tt$ are surjective local sc-diffeomorphisms (`isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt`, `surjective_tSrc`, `surjective_tTgt`), $Tu$ and $T\\iota$ are sc-smooth (`isScSmoothMap_tUnit`, `isScSmoothMap_tInv`), and the multiplication is sc-smooth in Chapter 7's sheet form (`isScSmoothCompSheet_tangent`) and hence on the fibred product $T\\mathbf X\\,{}_{s_T}{\\times}_{t_T}\\,T\\mathbf X$ (`isScSmoothComp_tangent`, by `isScSmoothComp_iff_sheet`).",
+    "statement": "`lemma_8_1_7`: $Ts$ and $Tt$ are surjective local sc-diffeomorphisms (`isLocalScDiffeo_tSrc`, `isLocalScDiffeo_tTgt`, `surjective_tSrc`, `surjective_tTgt`), $Tu$ and $T\\iota$ are sc-smooth (`isScSmoothMap_tUnit`, `isScSmoothMap_tInv`), and the multiplication is sc-smooth in Chapter 7's sheet form (`isScSmoothCompSheet_tangent`) and hence on the fibred product $T\\mathbf X\\,{}_{s_T}{\\times}_{t_T}\\,T\\mathbf X$ (`isScSmoothComp_tangent`, by `isScSmoothComp_iff_sheet`).",
     "decls": [
      "Chapter8/TangentEp · EpGroupoid.isLocalScDiffeo_tSrc",
      "Chapter8/TangentEp · EpGroupoid.isLocalScDiffeo_tTgt",
@@ -247,7 +247,7 @@
      "Chapter8/TangentEp · EpGroupoid.isScSmoothMap_tInv",
      "Chapter8/TangentEp · EpGroupoid.isScSmoothCompSheet_tangent",
      "Chapter8/TangentEp · EpGroupoid.isScSmoothComp_tangent",
-     "Chapter8/TangentEp · EpGroupoid.lemma_8_6",
+     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_7",
      "Chapter7/EpGroupoid · isScSmoothComp_iff_sheet"
     ]
    },
@@ -269,9 +269,9 @@
     "statement": "If $(X, \\mathbf X)$ is an ep-groupoid, then $(TX, T\\mathbf X)$ has the properness property. (Proof: for $x \\in X_1$ and $V(x)$ with $t : s^{-1}(\\mathrm{cl}_X(V(x))) \\to X$ proper (8.10), $t_{T\\mathbf X} : s^{-1}(\\mathrm{cl}_{TX}(TV)) \\to TX$ is proper (8.11): for a sequence $(\\varphi_k, h_k)$ with $s_{T\\mathbf X}(\\varphi_k, h_k) \\in \\mathrm{cl}_{TX}(TV)$ and $t(\\varphi_k, h_k)$ in a compact set, after taking a subsequence $\\varphi_k \\to \\varphi$ in $\\mathbf X$ and then in $\\mathbf X^1$, and $(\\varphi_k, h_k)$ converges, since $Ts : T\\mathbf U(\\varphi) \\to TU(x)$ is an sc-diffeomorphism.)"
    },
    "lean": {
-    "statement": "`lemma_8_7`: every $a \\in TX$ has an open neighbourhood $V'$ such that $Tt : (Ts)^{-1}(\\mathrm{cl}\\,V') \\to TX$ is a proper map (Mathlib's `IsProperMap` of the restriction). In the proof $V' = p^{-1}(V)$, $V$ as in Definition 7.1.3 (3) (2017: 7.3) for $X$ at the base point of $a$.",
+    "statement": "`lemma_8_1_8`: every $a \\in TX$ has an open neighbourhood $V'$ such that $Tt : (Ts)^{-1}(\\mathrm{cl}\\,V') \\to TX$ is a proper map (Mathlib's `IsProperMap` of the restriction). In the proof $V' = p^{-1}(V)$, $V$ as in Definition 7.1.3 (3) (2017: 7.3) for $X$ at the base point of $a$.",
     "decls": [
-     "Chapter8/TangentEp · EpGroupoid.lemma_8_7"
+     "Chapter8/TangentEp · EpGroupoid.lemma_8_1_8"
     ]
    },
    "chips": [],
@@ -290,7 +290,7 @@
     "statement": "If the ep-groupoid $(X, \\mathbf X)$ is tame, so is the ep-groupoid $(TX, T\\mathbf X)$. (Proof: if $\\varphi : U \\to O$, $O = (O, C, E)$, is a tame chart of the object M-polyfold and $O = r(U) \\subset C$ a tame retract, then $Tr : TU \\to TU$ is also a tame retraction; so $TX$ has a tame object space.)"
    },
    "lean": {
-    "statement": "`ScRetraction.IsTameWith.tangent`, `ScRetraction.IsTame.tangentRetraction`: the tangent $Tr$ of a tame retraction is tame, proved for one presentation of $TC$ (`ScIso.tangentPres`, `tangentSet_eq_tangentPres`, `degIndex_tangentSet`, `mem_minimalSubspaceWith_tangentPres`) with the derivatives `ScRetraction.scDeriv_tangentRetraction_fst`, `ScRetraction.scDeriv_tangentRetraction_inr`, and passed to every presentation (`ScRetraction.IsTameWith.isTame`). `IsTameRetract.tangent`, `MPolyfold.IsTame.tangent`: the tangent of a tame retract and of a tame M-polyfold is tame. `lemma_8_8`: if $X$ is tame, so is $TX$. `isTame_tangentEpGroupoid_trivial_rn`: the tangent of the trivial ep-groupoid of $\\mathbb R^n$ is tame.",
+    "statement": "`ScRetraction.IsTameWith.tangent`, `ScRetraction.IsTame.tangentRetraction`: the tangent $Tr$ of a tame retraction is tame, proved for one presentation of $TC$ (`ScIso.tangentPres`, `tangentSet_eq_tangentPres`, `degIndex_tangentSet`, `mem_minimalSubspaceWith_tangentPres`) with the derivatives `ScRetraction.scDeriv_tangentRetraction_fst`, `ScRetraction.scDeriv_tangentRetraction_inr`, and passed to every presentation (`ScRetraction.IsTameWith.isTame`). `IsTameRetract.tangent`, `MPolyfold.IsTame.tangent`: the tangent of a tame retract and of a tame M-polyfold is tame. `lemma_8_1_9`: if $X$ is tame, so is $TX$. `isTame_tangentEpGroupoid_trivial_rn`: the tangent of the trivial ep-groupoid of $\\mathbb R^n$ is tame.",
     "decls": [
      "Chapter8/TangentTame · ScIso.tangentPres",
      "Chapter8/TangentTame · tangentSet_eq_tangentPres",
@@ -302,7 +302,7 @@
      "Chapter8/TangentTame · ScRetraction.IsTame.tangentRetraction",
      "Chapter8/TangentTame · IsTameRetract.tangent",
      "Chapter8/TangentTame · MPolyfold.IsTame.tangent",
-     "Chapter8/TangentTame · EpGroupoid.lemma_8_8",
+     "Chapter8/TangentTame · EpGroupoid.lemma_8_1_9",
      "Chapter8/TangentTame · EpGroupoid.isTame_tangentEpGroupoid_trivial_rn",
      "Chapter2/TameFaces · ScRetraction.IsTameWith.isTame"
     ]
@@ -324,20 +324,20 @@
     "statement": "There are equivalent ways to turn $T\\mathbf X$ into an ep-groupoid. A morphism $\\varphi : x \\to y$ with $x \\in X_1$ has a well-defined associated linear isomorphism $T\\varphi : T_xX \\to T_yY$, the tangent map of $t \\circ (s|\\mathbf U(\\varphi))^{-1}$ at $x$; $(T\\varphi, h)$ is a morphism from $h$ to $T\\varphi(h)$, and $(T\\psi, h) \\circ (T\\varphi, l) = (T\\psi \\circ T\\varphi, l) = (T(\\psi \\circ \\varphi), l)$ for $h = T\\varphi(l)$. The map $G : (\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is compatible with the functorial structures, and $G : T\\mathbf X \\to \\{(T\\varphi, a) \\mid \\varphi \\in \\mathbf X_1, a \\in T_{s(\\varphi)}X\\}$ is a bijection; the right-hand side can be given an M-polyfold structure making $G$ an sc-diffeomorphism, and the pairs $(T\\varphi, a)$ can be identified with the triples $(a, T\\varphi, b)$, $b = T\\varphi(a)$. Finally, $Tt(\\varphi) \\circ Ts(\\varphi)^{-1} : T_xX \\to T_yX$ is the linearization of $t \\circ (s|\\mathbf U(\\varphi))^{-1}$ at $\\varphi$, hence equal to $T\\varphi$, and $t_{T\\mathbf X} \\circ (s_{T\\mathbf X}|T_xX)^{-1} = T\\varphi : T_xX \\to T_yX$ is a linear isomorphism."
    },
    "lean": {
-    "statement": "$T\\varphi$ is Chapter 7's `tangentMor` (V7.5) and $G$ is `remarkG`, $G(v) = (\\mathbf p(v), Ts(v))$. `remark_8_1`: $T\\varphi(Ts(v)) = Tt(v)$ for every $v$ over $\\varphi$, i.e. $t_T \\circ (s_T|T_\\varphi\\mathbf X)^{-1} = T\\varphi$ (`tangentMor_tSrc`); $T(\\psi \\circ \\varphi) = T\\psi \\circ T\\varphi$ on $T_{s(\\varphi)}X$ for $\\varphi \\in \\mathbf X_1$ (`tangentMor_comp`); $G$ is injective, with range the pairs $(\\varphi, a)$ with $\\varphi \\in \\mathbf X_1$ and $a \\in T_{s(\\varphi)}X$; $Ts(k) = Tt(h)$ iff $Ts(k) = T\\mathbf p(h)(Ts(h))$; and $G(k \\circ h) = (\\mathbf p(k) \\circ \\mathbf p(h), Ts(h))$ with $T(\\mathbf p(k) \\circ \\mathbf p(h)) = T\\mathbf p(k) \\circ T\\mathbf p(h)$, so that $G$ is compatible with the compositions. For $\\varphi \\in \\mathbf X_1$, $T\\varphi = T\\hat\\varphi(s(\\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), a bijection $T_{s(\\varphi)}X \\to T_{t(\\varphi)}X$ (`bijOn_tangentMor`), a bounded linear isomorphism in charts (`tangentMor_chart_iso`). `remark_8_1_10_not_injective_2021`: on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action, where $T\\varphi = \\mathrm{id}$ for every $\\varphi$ (`tangentMor_trivialZ3`), the map $v \\mapsto (T\\mathbf p(v), Ts(v))$ with the bare $T\\varphi$ is not injective. With the linear structure of Definition 2.3.14, $T\\varphi$ is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear_2021`, V7.5).",
+    "statement": "$T\\varphi$ is Chapter 7's `tangentMor` (V7.5) and $G$ is `remarkG`, $G(v) = (\\mathbf p(v), Ts(v))$. `remark_8_1_10`: $T\\varphi(Ts(v)) = Tt(v)$ for every $v$ over $\\varphi$, i.e. $t_T \\circ (s_T|T_\\varphi\\mathbf X)^{-1} = T\\varphi$ (`tangentMor_tSrc`); $T(\\psi \\circ \\varphi) = T\\psi \\circ T\\varphi$ on $T_{s(\\varphi)}X$ for $\\varphi \\in \\mathbf X_1$ (`tangentMor_comp`); $G$ is injective, with range the pairs $(\\varphi, a)$ with $\\varphi \\in \\mathbf X_1$ and $a \\in T_{s(\\varphi)}X$; $Ts(k) = Tt(h)$ iff $Ts(k) = T\\mathbf p(h)(Ts(h))$; and $G(k \\circ h) = (\\mathbf p(k) \\circ \\mathbf p(h), Ts(h))$ with $T(\\mathbf p(k) \\circ \\mathbf p(h)) = T\\mathbf p(k) \\circ T\\mathbf p(h)$, so that $G$ is compatible with the compositions. For $\\varphi \\in \\mathbf X_1$, $T\\varphi = T\\hat\\varphi(s(\\varphi))$ (`tangentMor_eq_tangentMapOn_hat`), a bijection $T_{s(\\varphi)}X \\to T_{t(\\varphi)}X$ (`bijOn_tangentMor`), a bounded linear isomorphism in charts (`tangentMor_chart_iso`). `remark_8_1_10_not_injective`: on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action, where $T\\varphi = \\mathrm{id}$ for every $\\varphi$ (`tangentMor_trivialZ3`), the map $v \\mapsto (T\\mathbf p(v), Ts(v))$ with the bare $T\\varphi$ is not injective. With the linear structure of Definition 2.3.14, $T\\varphi$ is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ (`tangentMorCLE`, `definition_7_1_4_linear`, V7.5).",
     "decls": [
      "Chapter7/EpGroupoid · EpGroupoid.tangentMor",
      "Chapter8/TangentEp · EpGroupoid.tangentMor_tSrc",
      "Chapter8/TangentEp · EpGroupoid.tangentMor_comp",
      "Chapter8/TangentEp · EpGroupoid.remarkG",
-     "Chapter8/TangentEp · EpGroupoid.remark_8_1",
+     "Chapter8/TangentEp · EpGroupoid.remark_8_1_10",
      "Chapter8/TangentEpNotInjective · EpGroupoid.Examples.tangentMor_trivialZ3",
-     "Chapter8/TangentEpNotInjective · EpGroupoid.Examples.remark_8_1_10_not_injective_2021",
+     "Chapter8/TangentEpNotInjective · EpGroupoid.Examples.remark_8_1_10_not_injective",
      "Chapter9/Tangent · EpGroupoid.tangentMor_eq_tangentMapOn_hat",
      "Chapter7/TangentMorphism · EpGroupoid.bijOn_tangentMor",
      "Chapter7/TangentMorphism · EpGroupoid.tangentMor_chart_iso",
      "Chapter7/TangentMorphismLinear · EpGroupoid.tangentMorCLE",
-     "Chapter7/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear_2021"
+     "Chapter7/TangentMorphismLinear · EpGroupoid.definition_7_1_4_linear"
     ]
    },
    "chips": [
@@ -346,8 +346,8 @@
     "linearity of $T\\varphi$: proved"
    ],
    "diff": [
-    "**Narrower.** The first entry of $G$ is read as $T\\varphi$ labelled by $\\varphi$, i.e. as $\\varphi$ itself: as a bare map, $(\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is not injective, as we read it, on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action (`remark_8_1_10_not_injective_2021`) (Findings, Chapter 8, item 10).",
-    "Updated (2026-11-09): $T\\varphi$, which is $t_T \\circ (s_T|T_xX)^{-1}$, is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ in the linear structure of Definition 2.3.14 (`tangentMorCLE`, `definition_7_1_4_linear_2021`; gaps G.7 and G.70 closed, V2.19, V7.5); the bijections, $T\\varphi = T\\hat\\varphi(x)$ and the bounded linear isomorphisms in charts are kept (`bijOn_tangentMor`, `tangentMor_eq_tangentMapOn_hat`, `tangentMor_chart_iso`). Not formalized: the M-polyfold structure transported along $G$ and the triples $(a, T\\varphi, b)$, which have no gap since nothing depends on them (Findings, Chapter 8, items 112, 113).",
+    "**Narrower.** The first entry of $G$ is read as $T\\varphi$ labelled by $\\varphi$, i.e. as $\\varphi$ itself: as a bare map, $(\\varphi, h) \\mapsto (T\\varphi, Ts(h))$ is not injective, as we read it, on $\\mathbb Z/3 \\ltimes \\mathbb R$ with the trivial action (`remark_8_1_10_not_injective`) (Findings, Chapter 8, item 10).",
+    "Updated (2026-11-09): $T\\varphi$, which is $t_T \\circ (s_T|T_xX)^{-1}$, is a bounded linear isomorphism $T_xX \\to T_yX$ for $\\varphi \\in \\mathbf X_1$ in the linear structure of Definition 2.3.14 (`tangentMorCLE`, `definition_7_1_4_linear`; gaps G.7 and G.70 closed, V2.19, V7.5); the bijections, $T\\varphi = T\\hat\\varphi(x)$ and the bounded linear isomorphisms in charts are kept (`bijOn_tangentMor`, `tangentMor_eq_tangentMapOn_hat`, `tangentMor_chart_iso`). Not formalized: the M-polyfold structure transported along $G$ and the triples $(a, T\\varphi, b)$, which have no gap since nothing depends on them (Findings, Chapter 8, items 112, 113).",
     "The remark writes \"$T\\varphi : T_xX \\to T_yY$\" for $T_yX$, and calls $T\\varphi$ the linearization \"at $x$\" and later \"at $\\varphi$\" (possible misprints)."
    ]
   },
@@ -361,10 +361,10 @@
     "statement": "If $(\\Phi, \\boldsymbol\\Phi) : (X, \\mathbf X) \\to (Y, \\mathbf Y)$ is an sc-smooth functor between two ep-groupoids, then the tangent map $(T\\Phi, T\\boldsymbol\\Phi) : T(X, \\mathbf X) \\to T(Y, \\mathbf Y)$ is an sc-smooth functor between the tangent ep-groupoids. (Proof: $T\\Phi$ and $T\\boldsymbol\\Phi$ are sc-smooth; differentiating $\\boldsymbol\\Phi(m_X(\\psi, \\varphi)) = m_Y(\\boldsymbol\\Phi(\\psi), \\boldsymbol\\Phi(\\varphi))$ and using Lemma 8.1.2 (2017: 8.1) gives $T\\boldsymbol\\Phi(\\psi \\circ \\varphi)(k \\circ h) = (T\\boldsymbol\\Phi(\\psi)(k)) \\circ (T\\boldsymbol\\Phi(\\varphi)(h))$; that $T\\Phi$ preserves the units is left to the reader; differentiating $s(\\boldsymbol\\Phi(\\alpha)) = \\Phi(s(\\alpha))$ and $t(\\boldsymbol\\Phi(\\alpha)) = \\Phi(t(\\alpha))$ gives the compatibility with sources and targets.)"
    },
    "lean": {
-    "statement": "`EpFunctor.tangent` is $(T\\Phi, T\\boldsymbol\\Phi)$, an ep-functor $T(X, \\mathbf X) \\to T(Y, \\mathbf Y)$. `theorem_8_2`: its maps are Part I's tangent maps of $\\Phi$ and $\\boldsymbol\\Phi$, sc-smooth, compatible with the sources and targets, with the composition of composable pairs, and with the units.",
+    "statement": "`EpFunctor.tangent` is $(T\\Phi, T\\boldsymbol\\Phi)$, an ep-functor $T(X, \\mathbf X) \\to T(Y, \\mathbf Y)$. `theorem_8_1_11`: its maps are Part I's tangent maps of $\\Phi$ and $\\boldsymbol\\Phi$, sc-smooth, compatible with the sources and targets, with the composition of composable pairs, and with the units.",
     "decls": [
      "Chapter8/TangentEp · EpFunctor.tangent",
-     "Chapter8/TangentEp · EpFunctor.theorem_8_2"
+     "Chapter8/TangentEp · EpFunctor.theorem_8_1_11"
     ]
    },
    "chips": [
@@ -384,19 +384,19 @@
     "statement": "The tangent gives rise to a functor $T : \\mathcal{EP} \\to \\mathcal{EP}$, associating with an ep-groupoid $X$ its tangent $TX$ and with a smooth functor $\\Phi : X \\to Y$ the tangent functor $T\\Phi$. In particular, $T\\Phi$ preserves the composition and the other structure maps. Furthermore, $T$ preserves tameness: if $X$ is a tame ep-groupoid, so is $TX$."
    },
    "lean": {
-    "statement": "`EP.tangent`, `tangentFunctor`: a functor `EP.{max u 1} ⥤ EP.{max u 1}` on Chapter 7's category $\\mathcal{EP}$ (V7.9). `theorem_8_3`: it maps $A$ to its `tangentEpGroupoid` and $\\Phi$ to `EpFunctor.tangent` $\\Phi$, and preserves identities and composites. `theorem_8_3_tame`: $TA$ is tame if $A$ is.",
+    "statement": "`EP.tangent`, `tangentFunctor`: a functor `EP.{max u 1} ⥤ EP.{max u 1}` on Chapter 7's category $\\mathcal{EP}$ (V7.9). `theorem_8_1_12`: it maps $A$ to its `tangentEpGroupoid` and $\\Phi$ to `EpFunctor.tangent` $\\Phi$, and preserves identities and composites. `theorem_8_1_12_tame`: $TA$ is tame if $A$ is.",
     "decls": [
      "Chapter8/TangentEp · EP.tangent",
      "Chapter8/TangentEp · tangentFunctor",
-     "Chapter8/TangentEp · theorem_8_3",
-     "Chapter8/TangentTame · theorem_8_3_tame"
+     "Chapter8/TangentEp · theorem_8_1_12",
+     "Chapter8/TangentTame · theorem_8_1_12_tame"
     ]
    },
    "chips": [
     "on `EP.{max u 1}`"
    ],
    "diff": [
-    "A functor on the ep-groupoids in `Type (max u 1)`, since $TX$ lives there for $X$ in `Type u`; the functor laws are Part I's chain rule, and the tameness sentence is `theorem_8_3_tame` (Findings, Chapter 8, items 2, 11)."
+    "A functor on the ep-groupoids in `Type (max u 1)`, since $TX$ lives there for $X$ in `Type u`; the functor laws are Part I's chain rule, and the tameness sentence is `theorem_8_1_12_tame` (Findings, Chapter 8, items 2, 11)."
    ]
   },
   {
@@ -463,10 +463,10 @@
     "statement": "If $\\tau : \\Phi \\to \\Psi$ is a natural transformation between two sc-smooth functors $\\Phi, \\Psi : X = (X, \\mathbf X) \\to Y = (Y, \\mathbf Y)$ between ep-groupoids, then the tangent $T\\tau : TX \\to T\\mathbf Y$ is a natural transformation $T\\tau : T\\Phi \\to T\\Psi$ between the two tangent functors $T\\Phi, T\\Psi : (TX, T\\mathbf X) \\to (TY, T\\mathbf Y)$. (Proof: differentiating $\\Phi(x) = s(\\tau(x))$ and $\\Psi(x) = t(\\tau(x))$ shows that $T\\tau(x_0)(h)$ is a morphism $T\\Phi(x_0)(h) \\to T\\Psi(x_0)(h)$; differentiating the naturality square along the morphisms $\\alpha$ near $\\alpha_0$ gives the naturality of $T\\tau$.)"
    },
    "lean": {
-    "statement": "`EpNatTrans.tangent`: Part I's tangent $T\\tau$ of $\\tau$ is a natural transformation $T\\Phi \\to T\\Psi$. `proposition_8_1`: there is a natural transformation $T\\Phi \\to T\\Psi$ whose map is $T\\tau$, and $\\Phi \\simeq \\Psi$ implies $T\\Phi \\simeq T\\Psi$.",
+    "statement": "`EpNatTrans.tangent`: Part I's tangent $T\\tau$ of $\\tau$ is a natural transformation $T\\Phi \\to T\\Psi$. `proposition_8_1_14`: there is a natural transformation $T\\Phi \\to T\\Psi$ whose map is $T\\tau$, and $\\Phi \\simeq \\Psi$ implies $T\\Phi \\simeq T\\Psi$.",
     "decls": [
      "Chapter8/TangentEp · EpNatTrans.tangent",
-     "Chapter8/TangentEp · proposition_8_1"
+     "Chapter8/TangentEp · proposition_8_1_14"
     ]
    },
    "chips": [],
@@ -485,7 +485,7 @@
     "statement": "If $X$ is an ep-groupoid with paracompact orbit space $|X|$, then the tangent ep-groupoid $TX$ has a paracompact orbit space $|TX|$ as well. (Proof: $|X^1|$ is paracompact; for $z \\in |X^1|$ with representative $x_z$ take $U(x_z)$ with the natural $G_{x_z}$-action such that $TU(x_z)$ is, as a bundle over $U(x_z)_1$, sc-isomorphic to a local bundle model $TO \\to O^1$ with an sc-smooth bundle action of $G_{x_z}$; then $|TU(x_z)|$ and $|U(x_z)_1|$ are metrizable. A locally finite closed subcover $(A_z)$ of $(|U(x_z)_1|)$ gives a locally finite covering $(\\tilde A_z)$ of $|TX|$ by closed paracompact sets, and $|TX|$, a regular Hausdorff space, is paracompact by the topological Proposition 2.7.4 (2017: 2.17).)"
    },
    "lean": {
-    "statement": "`theorem_8_4`: if $|X|$ is paracompact, so is $|TX|$; `metrizableSpace_tangent_orbitSpace`: $|TX|$ is then **metrizable**. The proof: the map $|p| : |TX| \\to |X^1|$ (`tangentOrbitProj`, `continuous_tangentOrbitProj`, `preimage_tangentOrbitProj_image`); for a natural representation, the action of $G_x$ on $TU(x)$ (`NaturalRep.tangentU`, `NaturalRep.tΦ`, `NaturalRep.isScDiffeoOn_tΦ`, `NaturalRep.tangentMulAction`, `NaturalRep.tΓ`, `NaturalRep.tangent_π_eq_iff`), the open embedding $G_x\\backslash TU(x) \\to |TX|$ (`NaturalRep.isOpenEmbedding_tangentOrbitQuotientMap`, `NaturalRep.range_tangentOrbitQuotientMap`), the metrizable $|TU(x)| = |p|^{-1}(|U(x)_1|)$ (`NaturalRep.image_tangentU_eq_preimage`, `NaturalRep.metrizableSpace_image_tangentU`, `NaturalRep.metrizableSpace_image_liftU`), and Smirnov's theorem pulled back along $|p|$ (Part I's `metrizableSpace_of_pullback`). `hasParacompactOrbitSpace_tangent_trivial`: the tangent of the trivial ep-groupoid of an M-polyfold.",
+    "statement": "`theorem_8_1_15`: if $|X|$ is paracompact, so is $|TX|$; `metrizableSpace_tangent_orbitSpace`: $|TX|$ is then **metrizable**. The proof: the map $|p| : |TX| \\to |X^1|$ (`tangentOrbitProj`, `continuous_tangentOrbitProj`, `preimage_tangentOrbitProj_image`); for a natural representation, the action of $G_x$ on $TU(x)$ (`NaturalRep.tangentU`, `NaturalRep.tΦ`, `NaturalRep.isScDiffeoOn_tΦ`, `NaturalRep.tangentMulAction`, `NaturalRep.tΓ`, `NaturalRep.tangent_π_eq_iff`), the open embedding $G_x\\backslash TU(x) \\to |TX|$ (`NaturalRep.isOpenEmbedding_tangentOrbitQuotientMap`, `NaturalRep.range_tangentOrbitQuotientMap`), the metrizable $|TU(x)| = |p|^{-1}(|U(x)_1|)$ (`NaturalRep.image_tangentU_eq_preimage`, `NaturalRep.metrizableSpace_image_tangentU`, `NaturalRep.metrizableSpace_image_liftU`), and Smirnov's theorem pulled back along $|p|$ (Part I's `metrizableSpace_of_pullback`). `hasParacompactOrbitSpace_tangent_trivial`: the tangent of the trivial ep-groupoid of an M-polyfold.",
     "decls": [
      "Chapter8/TangentOrbit · EpGroupoid.tangentOrbitProj",
      "Chapter8/TangentOrbit · EpGroupoid.continuous_tangentOrbitProj",
@@ -502,7 +502,7 @@
      "Chapter8/TangentOrbit · EpGroupoid.NaturalRep.metrizableSpace_image_tangentU",
      "Chapter8/TangentOrbit · EpGroupoid.NaturalRep.metrizableSpace_image_liftU",
      "Chapter8/TangentOrbit · EpGroupoid.metrizableSpace_tangent_orbitSpace",
-     "Chapter8/TangentOrbit · EpGroupoid.theorem_8_4",
+     "Chapter8/TangentOrbit · EpGroupoid.theorem_8_1_15",
      "Chapter8/TangentOrbit · EpGroupoid.hasParacompactOrbitSpace_tangent_trivial",
      "Chapter2/Metrizable · metrizableSpace_of_pullback"
     ]
@@ -807,7 +807,7 @@
     "statement": "The sc-diffeomorphism $\\mathbf Y \\to \\mathbf X\\,{}_s{\\times}_F\\,Y$, $\\varphi \\mapsto (F(\\varphi), s(\\varphi))$, preserves the degeneracy index, so $d_{\\mathbf Y}(\\varphi) = d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi))$. The fibred product is a sub-M-polyfold of $\\mathbf X \\times Y$, which has the degeneracy index $d_{\\mathbf X \\times Y}(\\varphi, y) = d_{\\mathbf X}(\\varphi) + d_Y(y)$. Since $F$ and $s$ are local sc-diffeomorphisms, $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) = d_{\\mathbf X}(F(\\varphi)) + d_Y(s(\\varphi)) = 2\\,d_{\\mathbf Y}(\\varphi)$, hence $d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi)) = \\tfrac12\\,d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi))$: the fibred product lies in a particular position in the full product."
    },
    "lean": {
-    "statement": "`IsProperCovering.degIndex_fibredMap`: $d_{\\mathbf Y}(\\varphi) = d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi))$, by Part I's invariance of the degeneracy index under sc-diffeomorphisms (`proposition_2_24`); `IsProperCovering.degIndex_mor`: $d_{\\mathbf X}(F(\\varphi)) = d_{\\mathbf Y}(\\varphi)$. In general, `IsProperCovering.degIndex_prod_fibredMap_le`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) \\le 2\\,d_{\\mathbf Y}(\\varphi)$, from Part I's `MPolyfold.degIndex_prod_le`. **For tame $X$ and $Y$**, `IsProperCovering.degIndex_prod_fibredMap`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) = 2\\,d_{\\mathbf Y}(\\varphi)$ and $2\\,d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi)) = d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi))$, from Part I's product formula for tame M-polyfolds (`MPolyfold.isTame_prod`).",
+    "statement": "`IsProperCovering.degIndex_fibredMap`: $d_{\\mathbf Y}(\\varphi) = d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi))$, by Part I's invariance of the degeneracy index under sc-diffeomorphisms (`proposition_2_4_4`); `IsProperCovering.degIndex_mor`: $d_{\\mathbf X}(F(\\varphi)) = d_{\\mathbf Y}(\\varphi)$. In general, `IsProperCovering.degIndex_prod_fibredMap_le`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) \\le 2\\,d_{\\mathbf Y}(\\varphi)$, from Part I's `MPolyfold.degIndex_prod_le`. **For tame $X$ and $Y$**, `IsProperCovering.degIndex_prod_fibredMap`: $d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi)) = 2\\,d_{\\mathbf Y}(\\varphi)$ and $2\\,d_{\\mathbf X\\,{}_s{\\times}_F\\,Y}(F(\\varphi), s(\\varphi)) = d_{\\mathbf X \\times Y}(F(\\varphi), s(\\varphi))$, from Part I's product formula for tame M-polyfolds (`MPolyfold.isTame_prod`).",
     "decls": [
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.degIndex_fibredMap",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.degIndex_mor",
@@ -815,7 +815,7 @@
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.degIndex_prod_fibredMap",
      "Chapter2/FibredProduct · MPolyfold.degIndex_prod_le",
      "Chapter2/FibredProduct · MPolyfold.isTame_prod",
-     "Chapter2/DegeneracyIndex · proposition_2_24"
+     "Chapter2/DegeneracyIndex · proposition_2_4_4"
     ]
    },
    "chips": [
@@ -837,11 +837,11 @@
     "statement": "Assume that $X$, $Y$ and $Z$ are ep-groupoids. If $F : Y \\to X$ and $H : Z \\to Y$ are proper covering functors, then the composition $F \\circ H : Z \\to X$ is a proper covering functor. (Proof: (1) and (2) \"follow easily\"; for (3), $L_{F \\circ H} = \\tilde K \\circ L_H$ with $\\tilde K : \\mathbf Y\\,{}_s{\\times}_H\\,Z \\to \\mathbf X\\,{}_s{\\times}_{F \\circ H}\\,Z$, $(\\psi, z) \\mapsto (F(\\psi), z)$, whose inverse is $\\tilde L(\\varphi, z) = (L_F^{-1}(\\varphi, H(z)), z)$.)"
    },
    "lean": {
-    "statement": "`IsProperCovering.proposition_8_2`: `(F.comp H).IsProperCovering`. (2) by shrinking $U(x)$ (`IsProperCovering.evenlyCovered_comp`); (3) through $\\tilde K$ and $\\tilde L$ (`IsProperCovering.isScDiffeo_fibredMap_comp`).",
+    "statement": "`IsProperCovering.proposition_8_5_2`: `(F.comp H).IsProperCovering`. (2) by shrinking $U(x)$ (`IsProperCovering.evenlyCovered_comp`); (3) through $\\tilde K$ and $\\tilde L$ (`IsProperCovering.isScDiffeo_fibredMap_comp`).",
     "decls": [
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.evenlyCovered_comp",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.isScDiffeo_fibredMap_comp",
-     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.proposition_8_2"
+     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.proposition_8_5_2"
     ]
    },
    "chips": [],
@@ -860,17 +860,17 @@
     "statement": "Let $F : Y \\to X$ be a proper covering functor and $x \\in X$. Then for a connected and sufficiently small open neighborhood $U(x)$ admitting the natural $G_x$-action (given by the data $(\\Phi, \\Gamma)$): (0) $F^{-1}(U(x))$ is a disjoint union of connected open neighborhoods $U(y)$ of all $y \\in F^{-1}(x)$, every $F : U(y) \\to U(x)$ an sc-diffeomorphism; (1) $\\Gamma(G_x, U(x)) = \\{\\varphi \\in \\mathbf X \\mid s(\\varphi), t(\\varphi) \\in U(x)\\} =: \\mathbf U(x)$ is the union of connected components $\\mathbf U(g)$, $g \\in G_x$, and $s, t : \\mathbf U(g) \\to U(x)$ are sc-diffeomorphisms; (2) for every pair $y, y' \\in F^{-1}(x)$, $\\mathbf U(y, y') = \\{\\psi \\in \\mathbf Y \\mid s(\\psi) \\in U(y), t(\\psi) \\in U(y')\\}$ is the disjoint union of connected open neighborhoods $\\mathbf U(\\psi_0)$ centred at the morphisms $\\psi_0 : y \\to y'$, for which (3)–(5) hold; (3) $s : \\mathbf U(\\psi_0) \\to U(y)$ and $t : \\mathbf U(\\psi_0) \\to U(y')$ are sc-diffeomorphisms; (4) $F : \\mathbf U(\\psi_0) \\to \\mathbf U(F(\\psi_0))$ is an sc-diffeomorphism; (5) the diagram with top arrow $F : \\mathbf U(\\psi_0) \\to \\mathbf U(F(\\psi_0))$, left arrow $s : \\mathbf U(\\psi_0) \\to U(s(\\psi_0))$, right arrow $t : \\mathbf U(F(\\psi_0)) \\to U(t(F(\\psi_0)))$ and bottom arrow $F : U(s(\\psi_0)) \\to U(t(F(\\psi_0)))$ is a commutative diagram of sc-diffeomorphisms."
    },
    "lean": {
-    "statement": "`ProperCoveringChart F x`: a natural representation of $G_x$ on a connected open $U(x)$ (Chapter 7's `NaturalRep`), sets $U(y)$ and $\\mathbf U(\\psi_0)$ for the morphisms $\\psi_0$ between points of $F^{-1}(x)$, and (0)–(5) as fields; (5) is `comm_src`, $F(s(\\psi)) = s(F(\\psi))$ on $\\mathbf U(\\psi_0)$, with $s$ on both vertical arrows, together with the companion square `comm_tgt`, $F(t(\\psi)) = t(F(\\psi))$, all arrows sc-diffeomorphisms. `theorem_8_5`: for every open $V \\ni x$ there is a chart with $U(x) \\subseteq V$; `theorem_8_5_of_naturalRep`: there is an open $W \\ni x$ such that **every** natural representation on a connected $U(x) \\subseteq W$ is that of a chart. The proof: `ProperCoveringLocal.Data`, `ProperCoveringLocal.exists_data`, `ProperCoveringLocal.Data.toChart`, `ProperCoveringLocal.isScSmoothOn_of_section`. `CoveringExamples.theorem_8_5_five_as_printed`: for the identity functor of $\\mathbb Z/2 \\ltimes \\mathbb R$, every chart at $x = 0$ and $\\psi_0 = (-1, 0)$, $\\mathbf U(\\psi_0)$ contains a $\\psi$ with $F(s(\\psi)) \\ne t(F(\\psi))$; such charts exist (`CoveringExamples.theorem_8_5_five_as_printed_nonvacuous`).",
+    "statement": "`ProperCoveringChart F x`: a natural representation of $G_x$ on a connected open $U(x)$ (Chapter 7's `NaturalRep`), sets $U(y)$ and $\\mathbf U(\\psi_0)$ for the morphisms $\\psi_0$ between points of $F^{-1}(x)$, and (0)–(5) as fields; (5) is `comm_src`, $F(s(\\psi)) = s(F(\\psi))$ on $\\mathbf U(\\psi_0)$, with $s$ on both vertical arrows, together with the companion square `comm_tgt`, $F(t(\\psi)) = t(F(\\psi))$, all arrows sc-diffeomorphisms. `theorem_8_5_3`: for every open $V \\ni x$ there is a chart with $U(x) \\subseteq V$; `theorem_8_5_3_of_naturalRep`: there is an open $W \\ni x$ such that **every** natural representation on a connected $U(x) \\subseteq W$ is that of a chart. The proof: `ProperCoveringLocal.Data`, `ProperCoveringLocal.exists_data`, `ProperCoveringLocal.Data.toChart`, `ProperCoveringLocal.isScSmoothOn_of_section`. `CoveringExamples.theorem_8_5_3_five_as_printed`: for the identity functor of $\\mathbb Z/2 \\ltimes \\mathbb R$, every chart at $x = 0$ and $\\psi_0 = (-1, 0)$, $\\mathbf U(\\psi_0)$ contains a $\\psi$ with $F(s(\\psi)) \\ne t(F(\\psi))$; such charts exist (`CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous`).",
     "decls": [
      "Chapter8/ProperCoveringLocal · EpFunctor.ProperCoveringChart",
      "Chapter8/ProperCoveringLocal · EpFunctor.ProperCoveringLocal.Data",
      "Chapter8/ProperCoveringLocal · EpFunctor.ProperCoveringLocal.exists_data",
      "Chapter8/ProperCoveringLocal · EpFunctor.ProperCoveringLocal.Data.toChart",
      "Chapter8/ProperCoveringLocal · EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section",
-     "Chapter8/ProperCoveringLocal · EpFunctor.theorem_8_5",
-     "Chapter8/ProperCoveringLocal · EpFunctor.theorem_8_5_of_naturalRep",
-     "Chapter8/NonVacuity · CoveringExamples.theorem_8_5_five_as_printed",
-     "Chapter8/NonVacuity · CoveringExamples.theorem_8_5_five_as_printed_nonvacuous"
+     "Chapter8/ProperCoveringLocal · EpFunctor.theorem_8_5_3",
+     "Chapter8/ProperCoveringLocal · EpFunctor.theorem_8_5_3_of_naturalRep",
+     "Chapter8/NonVacuity · CoveringExamples.theorem_8_5_3_five_as_printed",
+     "Chapter8/NonVacuity · CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous"
     ]
    },
    "chips": [
@@ -880,7 +880,7 @@
     "via Definition 8.5.1 (3), not sheets in $Y$"
    ],
    "diff": [
-    "**(5) as printed does not hold as we read it.** With $t$ on the right arrow and the corner $U(t(F(\\psi_0)))$, the square says $F(s(\\psi)) = t(F(\\psi))$ on $\\mathbf U(\\psi_0)$, while a functor has $F(s(\\psi)) = s(F(\\psi))$, and $t(F(\\psi)) = \\Phi(g)(F(s(\\psi)))$ for $g = F(\\psi_0)$. Checked in Lean: the identity functor of $\\mathbb Z/2 \\ltimes \\mathbb R$, $\\mathbb Z/2$ acting by $z \\mapsto \\pm z$, is a proper covering functor, and for every chart at $x = 0$ and $\\psi_0 = (-1, 0)$ there is $\\psi = (-1, z) \\in \\mathbf U(\\psi_0)$ with $F(s(\\psi)) = z \\ne -z = t(F(\\psi))$ (`CoveringExamples.theorem_8_5_five_as_printed`; charts exist, `CoveringExamples.theorem_8_5_five_as_printed_nonvacuous`). The square is formalized with $s$ on both vertical arrows (`comm_src`), the right arrow $t$ being a possible misprint for $s$, together with the companion square with $t$ on both (`comm_tgt`) (Findings, Chapter 8, item 54).",
+    "**(5) as printed does not hold as we read it.** With $t$ on the right arrow and the corner $U(t(F(\\psi_0)))$, the square says $F(s(\\psi)) = t(F(\\psi))$ on $\\mathbf U(\\psi_0)$, while a functor has $F(s(\\psi)) = s(F(\\psi))$, and $t(F(\\psi)) = \\Phi(g)(F(s(\\psi)))$ for $g = F(\\psi_0)$. Checked in Lean: the identity functor of $\\mathbb Z/2 \\ltimes \\mathbb R$, $\\mathbb Z/2$ acting by $z \\mapsto \\pm z$, is a proper covering functor, and for every chart at $x = 0$ and $\\psi_0 = (-1, 0)$ there is $\\psi = (-1, z) \\in \\mathbf U(\\psi_0)$ with $F(s(\\psi)) = z \\ne -z = t(F(\\psi))$ (`CoveringExamples.theorem_8_5_3_five_as_printed`; charts exist, `CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous`). The square is formalized with $s$ on both vertical arrows (`comm_src`), the right arrow $t$ being a possible misprint for $s$, together with the companion square with $t$ on both (`comm_tgt`) (Findings, Chapter 8, item 54).",
     "**Stronger**: \"sufficiently small\" is proved in two forms, charts with $U(x)$ inside every open $V \\ni x$, and one open $W \\ni x$ that works for every natural representation on a connected $U(x) \\subseteq W$. $\\mathbf U(\\varphi)$ for $\\varphi \\in \\mathbf U(x)$ is read as the connected component of $\\mathbf U(x)$ at $\\varphi$ (Findings, Chapter 8, item 53).",
     "The proof differs from the text's: Definition 8.5.1 (3) (2017: 8.8) gives the sheets $\\mathbf U(\\psi_0)$ as images of continuous sections of $s$; the finiteness of $F^{-1}(x)$ and Definition 8.5.1 (1) (2017: 8.8) are not needed. In the proof, \"$g \\in G_y$\", \"$G_y$-invariant\" and \"$F(z') = s(F(\\varphi))$\" for $g \\in G_x$, $G_x$-invariant and $t(F(\\varphi))$, and \"admitting admitting\"; in (2), \"morphismsm\" (possible misprints) (Findings, Chapter 8, item 55)."
    ]
@@ -895,11 +895,11 @@
     "statement": "(a) As $F$ is a functor, for a morphism $\\varphi : y \\to y'$ in $\\mathbf Y$ connecting two objects $y, y' \\in F^{-1}(x)$, the morphism $F(\\varphi) : F(y) \\to F(y')$ belongs to the isotropy group $G_x$. (b) In Theorem 8.5.3 (2017: 8.5) everything is determined by the choice of a small connected open neighborhood $U(x)$ of $x$ admitting the natural $G_x$-action; the construction of the data $(\\Phi, \\Gamma)$ of Theorem 7.1.13 (2017: 7.1) is natural, and the main point of the proof is the interplay between $F$ restricted to suitable subsets and its compatibility with the source and target maps."
    },
    "lean": {
-    "statement": "`remark_8_2_a`: $F(\\varphi) \\in \\mathrm{mor}(x, x)$ for $\\varphi$ between points of $F^{-1}(x)$; `isotropyMor` is it as an element of $G_x$. `remark_8_2_b`: two charts of Theorem 8.5.3 (2017: 8.5) with the same $U(x)$ have the same $\\Phi$ and $\\Gamma$ on $U(x)$, the same $U(y)$ and the same $\\mathbf U(\\psi_0)$; these are connected components, of $F^{-1}(U(x))$ and of $\\mathbf U(y, y')$ (`ProperCoveringChart.connectedComponentIn_U`, `ProperCoveringChart.connectedComponentIn_sheet`).",
+    "statement": "`remark_8_5_4_a`: $F(\\varphi) \\in \\mathrm{mor}(x, x)$ for $\\varphi$ between points of $F^{-1}(x)$; `isotropyMor` is it as an element of $G_x$. `remark_8_5_4_b`: two charts of Theorem 8.5.3 (2017: 8.5) with the same $U(x)$ have the same $\\Phi$ and $\\Gamma$ on $U(x)$, the same $U(y)$ and the same $\\mathbf U(\\psi_0)$; these are connected components, of $F^{-1}(U(x))$ and of $\\mathbf U(y, y')$ (`ProperCoveringChart.connectedComponentIn_U`, `ProperCoveringChart.connectedComponentIn_sheet`).",
     "decls": [
-     "Chapter8/ProperCoveringLocal · EpFunctor.remark_8_2_a",
+     "Chapter8/ProperCoveringLocal · EpFunctor.remark_8_5_4_a",
      "Chapter8/ProperCoveringLocal · EpFunctor.isotropyMor",
-     "Chapter8/ProperCoveringLocal · EpFunctor.remark_8_2_b",
+     "Chapter8/ProperCoveringLocal · EpFunctor.remark_8_5_4_b",
      "Chapter8/ProperCoveringLocal · EpFunctor.ProperCoveringChart.connectedComponentIn_U",
      "Chapter8/ProperCoveringLocal · EpFunctor.ProperCoveringChart.connectedComponentIn_sheet"
     ]
@@ -1023,7 +1023,7 @@
     "statement": "Associated with a covering functor $f : D \\to C$ and a geometric lift $\\tau : L_D \\to L_C \\circ f$ of $f$ there is a natural construction of a proper covering functor $F : Y \\to X$ between two ep-groupoids. (Construction: $X = G_x \\ltimes U(x)$, with $s(g, z) = z$, $t(g, z) = g \\ast z$; $Y = \\bigcup_{y \\in D} U(y)$ and $\\mathbf Y = \\bigcup_{(y, y') \\in D \\times D} [\\mathrm{mor}(y, y') \\times U(y)]$, with $s(\\psi, z) = z$, $t(\\psi, z) = \\varphi_{yy'}(\\psi)(z)$, $(\\psi, z') \\circ (\\gamma, z) = (\\psi \\circ \\gamma, z)$, units $(1_y, z)$ and inverses $(\\psi^{-1}, \\varphi_{yy'}(\\psi)(z))$, and \"one verifies\" that $Y$ is an ep-groupoid; $F|U(y) := \\tau(y)$ and $F(\\psi, z) = (f(\\psi), \\tau(y)(z))$. The map (8.16) $\\mathbf Y \\to \\mathbf X\\,{}_s{\\times}_F\\,Y$, $(\\psi, z) \\mapsto ((f(\\psi), F(z)), z)$, is a bijection, by the definition of a covering functor, and a local sc-diffeomorphism, hence an sc-diffeomorphism.)"
    },
    "lean": {
-    "statement": "`proposition_8_3` (for `[Nonempty D]`): `geometricLiftFunctor L` is a proper covering functor from `geometricLiftSource L` to `geometricLiftTarget L`. The source is the ep-groupoid on `GeometricLift.YObj` and `GeometricLift.YMor` (`GeometricLift.sourceStr`, `yObjPolyfold`, `yMorPolyfold`), with $s$, $t$ local sc-diffeomorphisms (`isLocalScDiffeo_ySrc`, `isLocalScDiffeo_yTgt`), properness with $V = Y$ (`isProperMap_yTgt`) and (4) in sheet form (`isScSmoothCompSheet_y`); the target is Chapter 7's action ep-groupoid of $G$ on $U(x)$ (`EpGroupoid.Examples.actionEpGroupoid`). The conditions: `geometricLiftFunctor_surjective`, `geometricLiftFunctor_isLocalScDiffeo`, `geometricLiftFunctor_finite_fiber`, `geometricLiftFunctor_evenlyCovered`, and (8.16) with its sc-smooth inverse (`GeometricLift.fibredInv`, `isScSmoothMap_fibredInv`, `geometricLiftFunctor_isScDiffeo_fibredMap`). `geometricLiftFunctor_surjective_iff`: $F$ is surjective on objects iff $D$ is nonempty or $U(x)$ is empty. `CoveringExamples.isProperCovering_reflectionLift`: an example.",
+    "statement": "`proposition_8_5_7` (for `[Nonempty D]`): `geometricLiftFunctor L` is a proper covering functor from `geometricLiftSource L` to `geometricLiftTarget L`. The source is the ep-groupoid on `GeometricLift.YObj` and `GeometricLift.YMor` (`GeometricLift.sourceStr`, `yObjPolyfold`, `yMorPolyfold`), with $s$, $t$ local sc-diffeomorphisms (`isLocalScDiffeo_ySrc`, `isLocalScDiffeo_yTgt`), properness with $V = Y$ (`isProperMap_yTgt`) and (4) in sheet form (`isScSmoothCompSheet_y`); the target is Chapter 7's action ep-groupoid of $G$ on $U(x)$ (`EpGroupoid.Examples.actionEpGroupoid`). The conditions: `geometricLiftFunctor_surjective`, `geometricLiftFunctor_isLocalScDiffeo`, `geometricLiftFunctor_finite_fiber`, `geometricLiftFunctor_evenlyCovered`, and (8.16) with its sc-smooth inverse (`GeometricLift.fibredInv`, `isScSmoothMap_fibredInv`, `geometricLiftFunctor_isScDiffeo_fibredMap`). `geometricLiftFunctor_surjective_iff`: $F$ is surjective on objects iff $D$ is nonempty or $U(x)$ is empty. `CoveringExamples.isProperCovering_reflectionLift`: an example.",
     "decls": [
      "Chapter8/GeometricLift · GeometricLift.YObj",
      "Chapter8/GeometricLift · GeometricLift.YMor",
@@ -1045,7 +1045,7 @@
      "Chapter8/GeometricLift · GeometricLift.fibredInv",
      "Chapter8/GeometricLift · GeometricLift.isScSmoothMap_fibredInv",
      "Chapter8/GeometricLift · geometricLiftFunctor_isScDiffeo_fibredMap",
-     "Chapter8/GeometricLift · proposition_8_3",
+     "Chapter8/GeometricLift · proposition_8_5_7",
      "Chapter7/NonVacuity · EpGroupoid.Examples.actionEpGroupoid",
      "Chapter8/NonVacuity · CoveringExamples.isProperCovering_reflectionLift"
     ]
@@ -1071,7 +1071,7 @@
     "statement": "Let $F : Y \\to X$ be a proper covering functor and fix $x \\in X$; let $C$ be the full subcategory of $X$ with the single object $x$ and the morphisms $G_x$, and $D$ the full subcategory with the finite object set $F^{-1}(x)$. Then $f = F|D : D \\to C$ is a covering functor. Given a sufficiently small open neighborhood $U(x)$ of $x$ as in Theorem 8.5.3 (2017: 8.5), there exist a geometric lift $A : K \\to L$ of $f$ and fully faithful open embedding functors $\\Phi : L \\to X$ and $\\Psi : K \\to Y$, the image of $\\Phi$ the full subcategory associated with $U(x)$ and the image of $\\Psi$ the full subcategory associated with $F^{-1}(U(x))$, such that $F \\circ \\Psi = \\Phi \\circ A$. (In the proof, $L_C(x) = U(x)$, $L_C(g) = \\Phi(g)$, $L_D(y) = U(y)$, $L_D(\\psi) = t \\circ (s|\\mathbf U(\\psi_0))^{-1}$ for $\\psi : y \\to y'$ in $\\mathbf U(\\psi_0)$, and $\\tau(y) = F|U(y)$; \"one verifies\" that this is a geometric lift, and $A : K \\to L$, $L = G_x \\ltimes U(x)$, is its functor of Proposition 8.5.7 (2017: 8.3).)"
    },
    "lean": {
-    "statement": "`theorem_8_6`, for ep-groupoids whose objects and morphisms are in `Type`: `restrictFiber x` $= F|D : D \\to C$ (`FiberCat`, `GroupoidStr.FullOb`, `fiberIsotropy`) is a covering functor (`covering_restrict`; $D$ finite and nonempty, `fintypeFiberCat`, `nonempty_fiberCat`); charts of Theorem 8.5.3 (2017: 8.5) exist inside every open $V \\ni x$; and for every chart there are a geometric lift (`ProperCoveringChart.geometricLift`, with `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`), whose functor $A$ is a proper covering functor (Proposition 8.5.7 (2017: 8.3)), and ep-functors $\\Phi$ = `ProperCoveringChart.Φ`, $\\Psi$ = `ProperCoveringChart.Ψ` that are fully faithful open embeddings (`IsFullyFaithfulOpenEmbedding`; `isFullyFaithfulOpenEmbedding_Φ`, `isFullyFaithfulOpenEmbedding_Ψ`), with images $U(x)$, the morphisms over $U(x)$, $F^{-1}(U(x))$ and the morphisms over $F^{-1}(U(x))$ (`range_Φ_obj`, `range_Φ_mor`, `range_Ψ_obj`, `range_Ψ_mor`), and $F \\circ \\Psi = \\Phi \\circ A$ (`comp_Ψ`).",
+    "statement": "`theorem_8_5_8`, for ep-groupoids whose objects and morphisms are in `Type`: `restrictFiber x` $= F|D : D \\to C$ (`FiberCat`, `GroupoidStr.FullOb`, `fiberIsotropy`) is a covering functor (`covering_restrict`; $D$ finite and nonempty, `fintypeFiberCat`, `nonempty_fiberCat`); charts of Theorem 8.5.3 (2017: 8.5) exist inside every open $V \\ni x$; and for every chart there are a geometric lift (`ProperCoveringChart.geometricLift`, with `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`), whose functor $A$ is a proper covering functor (Proposition 8.5.7 (2017: 8.3)), and ep-functors $\\Phi$ = `ProperCoveringChart.Φ`, $\\Psi$ = `ProperCoveringChart.Ψ` that are fully faithful open embeddings (`IsFullyFaithfulOpenEmbedding`; `isFullyFaithfulOpenEmbedding_Φ`, `isFullyFaithfulOpenEmbedding_Ψ`), with images $U(x)$, the morphisms over $U(x)$, $F^{-1}(U(x))$ and the morphisms over $F^{-1}(U(x))$ (`range_Φ_obj`, `range_Φ_mor`, `range_Ψ_obj`, `range_Ψ_mor`), and $F \\circ \\Psi = \\Phi \\circ A$ (`comp_Ψ`).",
     "decls": [
      "Chapter8/GeometricLift · GroupoidStr.FullOb",
      "Chapter8/GeometricLift · EpFunctor.FiberCat",
@@ -1093,8 +1093,8 @@
      "Chapter8/GeometricLift · EpFunctor.ProperCoveringChart.range_Ψ_obj",
      "Chapter8/GeometricLift · EpFunctor.ProperCoveringChart.range_Ψ_mor",
      "Chapter8/GeometricLift · EpFunctor.ProperCoveringChart.comp_Ψ",
-     "Chapter8/GeometricLift · EpFunctor.theorem_8_6",
-     "Chapter8/NonVacuity · CoveringExamples.theorem_8_6_id"
+     "Chapter8/GeometricLift · EpFunctor.theorem_8_5_8",
+     "Chapter8/NonVacuity · CoveringExamples.theorem_8_5_8_id"
     ]
    },
    "chips": [
@@ -1103,7 +1103,7 @@
     "$L_D(\\psi)$ read at $\\psi = \\psi_0$"
    ],
    "diff": [
-    "For ep-groupoids $X$, $Y$ whose objects and morphisms lie in any one universe, the universe of Definition 8.5.5 (2017: 8.9) (V8.32); until 2026-11-09 it was stated for `Type` (Findings, Chapter 8, items 2, 60, 125). Witness in every universe: the identity functor of any ep-groupoid (`CoveringExamples.theorem_8_6_id`).",
+    "For ep-groupoids $X$, $Y$ whose objects and morphisms lie in any one universe, the universe of Definition 8.5.5 (2017: 8.9) (V8.32); until 2026-11-09 it was stated for `Type` (Findings, Chapter 8, items 2, 60, 125). Witness in every universe: the identity functor of any ep-groupoid (`CoveringExamples.theorem_8_5_8_id`).",
     "\"A sufficiently small $U(x)$ as in Theorem 8.5\" is any chart of Theorem 8.5.3 (2017: 8.5), and charts exist inside every open $V \\ni x$; \"a geometric lift $A : K \\to L$\" is read as a geometric lift with its functor $A$ of Proposition 8.5.7 (2017: 8.3); $L_D$ on the morphism $\\psi_0$ of $D$ is $t \\circ (s|\\mathbf U(\\psi_0))^{-1}$, the text's \"$\\psi \\in \\mathbf U(\\psi_0)$\" read as $\\psi = \\psi_0$; both \"one verifies\" are carried out (Findings, Chapter 8, item 60).",
     "\"there exists exists\", \"$\\tau(t)$\" for $\\tau(y)$, and \"$A(\\psi, z) = (f(z), F(z))$\" for $(f(\\psi), F(z))$ (possible misprints)."
    ]
@@ -1185,11 +1185,11 @@
     "statement": "For every $j = 1, \\dots, q$: $\\#G_x \\cdot \\#\\Theta_j = \\#\\{\\psi \\in \\mathrm{mor}(F^{-1}(x)) \\mid s(\\psi), t(\\psi) \\in \\Theta_j\\}$. Moreover, for every $j$ and $y_0 \\in \\Theta_j$, $\\#\\{\\psi \\in \\mathrm{mor}(F^{-1}(x)) \\mid s(\\psi), t(\\psi) \\in \\Theta_j\\} = \\#G_{y_0} \\cdot (\\#\\Theta_j)^2$ and $\\#G_x = \\#G_{y_0} \\cdot \\#\\Theta_j$. (Proof: the map (8.17) of this set to $G_x \\times \\Theta_j$, $\\psi \\mapsto (F(\\psi), s(\\psi))$, is a bijection by Definition 8.5.1 (3) (2017: 8.8); the set is the disjoint union of the nonempty $\\mathrm{mor}(y, y')$, $(y, y') \\in \\Theta_j \\times \\Theta_j$, each in bijection with $\\mathrm{mor}(y_0, y_0)$.)"
    },
    "lean": {
-    "statement": "`IsProperCovering.lemma_8_9 x c`: $\\#G_x \\cdot \\#\\Theta_c = \\#\\mathrm{mor}(\\Theta_c)$, and for $y_0 \\in \\Theta_c$, $\\#\\mathrm{mor}(\\Theta_c) = \\#G_{y_0} \\cdot (\\#\\Theta_c)^2$ and $\\#G_x = \\#G_{y_0} \\cdot \\#\\Theta_c$. `morOn_fiberClass_eq`: the set $\\{\\psi \\in \\mathrm{mor}(F^{-1}(x)) \\mid s(\\psi), t(\\psi) \\in \\Theta_c\\}$ is $\\mathrm{mor}(\\Theta_c)$; `IsProperCovering.morOnClassEquiv`: the bijection (8.17).",
+    "statement": "`IsProperCovering.lemma_8_6_1 x c`: $\\#G_x \\cdot \\#\\Theta_c = \\#\\mathrm{mor}(\\Theta_c)$, and for $y_0 \\in \\Theta_c$, $\\#\\mathrm{mor}(\\Theta_c) = \\#G_{y_0} \\cdot (\\#\\Theta_c)^2$ and $\\#G_x = \\#G_{y_0} \\cdot \\#\\Theta_c$. `morOn_fiberClass_eq`: the set $\\{\\psi \\in \\mathrm{mor}(F^{-1}(x)) \\mid s(\\psi), t(\\psi) \\in \\Theta_c\\}$ is $\\mathrm{mor}(\\Theta_c)$; `IsProperCovering.morOnClassEquiv`: the bijection (8.17).",
     "decls": [
      "Chapter8/ProperCovering · EpFunctor.morOn_fiberClass_eq",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.morOnClassEquiv",
-     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_9"
+     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_6_1"
     ]
    },
    "chips": [],
@@ -1208,19 +1208,19 @@
     "statement": "Given a proper covering functor $F : Y \\to X$ and isomorphic $x$, $x'$, there is a one-to-one correspondence between the isomorphism classes of $F^{-1}(x)$ and of $F^{-1}(x')$: if $F^{-1}(x) = \\bigsqcup_{j=1}^q \\Theta_j$ is the decomposition into isomorphism classes, there is a decomposition $F^{-1}(x') = \\bigsqcup_{j=1}^q \\Theta'_j$ such that, if $y \\in F^{-1}(x)$ and $y' \\in F^{-1}(x')$ are connected by an isomorphism, there is a uniquely determined $j$ with $y \\in \\Theta_j$ and $y' \\in \\Theta'_j$. (Before the lemma: the objects of $F^{-1}(x')$ reachable by a morphism from $y \\in F^{-1}(x)$ are mutually isomorphic, and so are those reachable from the class of $y$.)"
    },
    "lean": {
-    "statement": "`IsProperCovering.exists_isomorphic_of_isomorphic`: every $y \\in F^{-1}(x)$ is isomorphic to some $y' \\in F^{-1}(x')$. `IsProperCovering.fiberIndex_eq` and `IsProperCovering.lemma_8_10`: $F^{-1}(x)$ and $F^{-1}(x')$ have the same index set in $|Y|$, and isomorphic $y \\in F^{-1}(x)$, $y' \\in F^{-1}(x')$ lie in $\\Theta_c$ and $\\Theta'_c$ for exactly one $c$. `IsProperCovering.lemma_8_10_equiv`: a bijection between the sets of classes, matching isomorphic elements.",
+    "statement": "`IsProperCovering.exists_isomorphic_of_isomorphic`: every $y \\in F^{-1}(x)$ is isomorphic to some $y' \\in F^{-1}(x')$. `IsProperCovering.fiberIndex_eq` and `IsProperCovering.lemma_8_6_2`: $F^{-1}(x)$ and $F^{-1}(x')$ have the same index set in $|Y|$, and isomorphic $y \\in F^{-1}(x)$, $y' \\in F^{-1}(x')$ lie in $\\Theta_c$ and $\\Theta'_c$ for exactly one $c$. `IsProperCovering.lemma_8_6_2_equiv`: a bijection between the sets of classes, matching isomorphic elements.",
     "decls": [
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.fiberIndex_eq",
-     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_10",
-     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_10_equiv"
+     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_6_2",
+     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_6_2_equiv"
     ]
    },
    "chips": [
     "correspondence: the same index $c \\in |Y|$"
    ],
    "diff": [
-    "The correspondence is \"the same index $c \\in |Y|$\"; as a bijection of the sets of classes it is `lemma_8_10_equiv` (Findings, Chapter 8, items 71, 73)."
+    "The correspondence is \"the same index $c \\in |Y|$\"; as a bijection of the sets of classes it is `lemma_8_6_2_equiv` (Findings, Chapter 8, items 71, 73)."
    ]
   },
   {
@@ -1233,10 +1233,10 @@
     "statement": "Given a proper covering functor $F : Y \\to X$ and isomorphic $x$, $x'$, with the decompositions of $F^{-1}(x)$ and $F^{-1}(x')$ of Lemma 8.6.2 (2017: 8.10): $\\#\\Theta_j = \\#\\Theta'_j$ for every $j = 1, \\dots, q$; in particular $\\#F^{-1}(x) = \\sum_j \\#\\Theta_j = \\sum_j \\#\\Theta'_j = \\#F^{-1}(x')$. (Before the lemma: for $y_0 \\in \\Theta_j$ and $y_0' \\in \\Theta'_j$, $\\#G_{y_0} = \\#G_{y_0'}$, and $\\#G_x = \\#G_{x'}$; with \"the third claim of Lemma 8.10\", $\\#\\Theta_j = \\#G_x/\\#G_{y_0} = \\#G_{x'}/\\#G_{y_0'} = \\#\\Theta'_j$.)"
    },
    "lean": {
-    "statement": "`IsProperCovering.lemma_8_11`: $\\#\\Theta_c = \\#\\Theta'_c$ for every $c \\in |Y|$, and $\\#F^{-1}(x) = \\#F^{-1}(x')$. `IsProperCovering.ncard_fiber_eq_sum`: $\\#F^{-1}(x) = \\sum_c \\#\\Theta_c$; `IsProperCovering.ncard_fiber_eq_of_isomorphic`.",
+    "statement": "`IsProperCovering.lemma_8_6_3`: $\\#\\Theta_c = \\#\\Theta'_c$ for every $c \\in |Y|$, and $\\#F^{-1}(x) = \\#F^{-1}(x')$. `IsProperCovering.ncard_fiber_eq_sum`: $\\#F^{-1}(x) = \\sum_c \\#\\Theta_c$; `IsProperCovering.ncard_fiber_eq_of_isomorphic`.",
     "decls": [
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.ncard_fiber_eq_sum",
-     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_11",
+     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.lemma_8_6_3",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic"
     ]
    },
@@ -1256,14 +1256,14 @@
     "statement": "The structure of isomorphism classes of $F^{-1}(x)$ stays the same if $x$ is perturbed, which follows from the definition of a proper covering functor; together with Lemma 8.6.3 (2017: 8.11) this gives: let $F : Y \\to X$ be an sc-smooth proper covering functor. Then for every connected component $c$ of the orbit space $|X|$ there is a constant $k_c$ such that $\\#F^{-1}(x) = k_c$ whenever $\\pi(x) \\in c$. In other words, viewing $\\mathbb N = \\{1, 2, \\dots\\}$ as an ep-groupoid with the identities as the morphisms, the map $X \\to \\mathbb N$, $x \\mapsto \\#F^{-1}(x)$, is an sc-smooth functor."
    },
    "lean": {
-    "statement": "`IsProperCovering.proposition_8_4`: for every connected component $c$ of $|X|$ there is $k$ with $\\#F^{-1}(x) = k$ for all $x$ with $\\pi(x) \\in c$. The proof: $\\#F^{-1}(x) \\ge 1$ (`IsProperCovering.one_le_ncard_fiber`), locally constant on $X$ (`IsProperCovering.eventually_ncard_fiber_eq`, `IsProperCovering.isLocallyConstant_ncard_fiber`) and constant on isomorphism classes (Lemma 8.6.3 (2017: 8.11)), hence a locally constant function on $|X|$ (`IsProperCovering.fiberCardOrbit`, `IsProperCovering.isLocallyConstant_fiberCardOrbit`). `IsProperCovering.fiberCardFunctor`: $x \\mapsto \\#F^{-1}(x)$ is an ep-functor into the trivial ep-groupoid (`EpGroupoid.trivial`) of the discrete M-polyfold $\\mathbb N$ (`discretePolyfold`).",
+    "statement": "`IsProperCovering.proposition_8_6_4`: for every connected component $c$ of $|X|$ there is $k$ with $\\#F^{-1}(x) = k$ for all $x$ with $\\pi(x) \\in c$. The proof: $\\#F^{-1}(x) \\ge 1$ (`IsProperCovering.one_le_ncard_fiber`), locally constant on $X$ (`IsProperCovering.eventually_ncard_fiber_eq`, `IsProperCovering.isLocallyConstant_ncard_fiber`) and constant on isomorphism classes (Lemma 8.6.3 (2017: 8.11)), hence a locally constant function on $|X|$ (`IsProperCovering.fiberCardOrbit`, `IsProperCovering.isLocallyConstant_fiberCardOrbit`). `IsProperCovering.fiberCardFunctor`: $x \\mapsto \\#F^{-1}(x)$ is an ep-functor into the trivial ep-groupoid (`EpGroupoid.trivial`) of the discrete M-polyfold $\\mathbb N$ (`discretePolyfold`).",
     "decls": [
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.one_le_ncard_fiber",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.eventually_ncard_fiber_eq",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.fiberCardOrbit",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit",
-     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.proposition_8_4",
+     "Chapter8/ProperCovering · EpFunctor.IsProperCovering.proposition_8_6_4",
      "Chapter8/ProperCovering · EpFunctor.IsProperCovering.fiberCardFunctor",
      "Chapter7/EpGroupoid · EpGroupoid.trivial",
      "Chapter7/Discrete · discretePolyfold"
@@ -1312,15 +1312,15 @@
     "statement": "If the ep-groupoid $X$ satisfies the Zhou condition (Definition 7.4.5), so does its tangent $TX$. The proof writes an isotropy element of a smooth $b \\in TX$ over $x$ as $(g, h)$ with $g \\in G_x$, differentiates the identity (8.16) relating the action of $(g, h)$ on $TX$ to $Tg$, and uses that $T\\tau$ is onto to conclude from $T(g, h) = \\mathrm{id}$ that $Tg = \\mathrm{id}$, hence $g \\in T_x$ and $(g, h) \\in T_b$."
    },
    "lean": {
-    "statement": "`MPolyfold.levelVal_tangentProj_mem_smoothSet`: a smooth point of $TX$ lies over a smooth point of $X$. `mem_nonEffectivePart_tangent`: if the base $p(v)$ of $v \\in T\\mathbf X$ lies in $\\mathbf X^T$ (so $s = t$ near $p(v)$), then $v \\in (T\\mathbf X)^T$. `TangentZhouReflect`: for smooth $b \\in TX$ and $(g, h) \\in G_b$, `tangentMor` of $(g, h)$ in $TX$ the identity on $T_b(TX)$ implies $Tg = \\mathrm{id}$ on $T_{p(b)}X$. `proposition_8_1_16_2021`: `X.IsZhou` and `TangentZhouReflect` give `IsZhou` for the tangent ep-groupoid. Witnesses: `tangentMor_trivial`, `tangentZhouReflect_trivial` (every trivial ep-groupoid), `Examples.proposition_8_1_16_2021_point`.",
+    "statement": "`MPolyfold.levelVal_tangentProj_mem_smoothSet`: a smooth point of $TX$ lies over a smooth point of $X$. `mem_nonEffectivePart_tangent`: if the base $p(v)$ of $v \\in T\\mathbf X$ lies in $\\mathbf X^T$ (so $s = t$ near $p(v)$), then $v \\in (T\\mathbf X)^T$. `TangentZhouReflect`: for smooth $b \\in TX$ and $(g, h) \\in G_b$, `tangentMor` of $(g, h)$ in $TX$ the identity on $T_b(TX)$ implies $Tg = \\mathrm{id}$ on $T_{p(b)}X$. `proposition_8_1_16`: `X.IsZhou` and `TangentZhouReflect` give `IsZhou` for the tangent ep-groupoid. Witnesses: `tangentMor_trivial`, `tangentZhouReflect_trivial` (every trivial ep-groupoid), `Examples.proposition_8_1_16_point`.",
     "decls": [
      "Chapter8/TangentZhou · MPolyfold.levelVal_tangentProj_mem_smoothSet",
      "Chapter8/TangentZhou · EpGroupoid.mem_nonEffectivePart_tangent",
      "Chapter8/TangentZhou · EpGroupoid.TangentZhouReflect",
-     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16_2021",
+     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16",
      "Chapter8/TangentZhou · EpGroupoid.tangentMor_trivial",
      "Chapter8/TangentZhou · EpGroupoid.tangentZhouReflect_trivial",
-     "Chapter8/TangentZhou · EpGroupoid.Examples.proposition_8_1_16_2021_point"
+     "Chapter8/TangentZhou · EpGroupoid.Examples.proposition_8_1_16_point"
     ]
    },
    "chips": [
@@ -1342,18 +1342,18 @@
     "statement": "(1) If $X^1$ has the local unique continuation property, so has $TX$, and $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$. (2) If $X$ has (SLUC), so has $TX$."
    },
    "lean": {
-    "statement": "`nonEffectivePart_tangent_eq_of_isLUC` and `proposition_8_1_17_2021_one_of_isLUC`: if $X^1$ is LUC, $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_2021_two_of_isSLUC`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$, and `EP.proposition_8_1_17_two_all_2021_of_isSLUC` (V8.52) gives (SLUC) for $TX$; no added hypothesis. The forms first proved, under the hypotheses that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$ and that $p : T\\mathbf X \\to \\mathbf X^1$ is open, are kept: `nonEffectivePart_tangent_eq`, `proposition_8_1_17_2021_one`, `proposition_8_1_17_2021_two`; with the openness of $p$ only, `proposition_8_1_17_2021_one_of_isOpenMap`. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_2021_one_point`.",
+    "statement": "`nonEffectivePart_tangent_eq_of_isLUC` and `proposition_8_1_17_one_of_isLUC`: if $X^1$ is LUC, $(T\\mathbf X)^T = p^{-1}((\\mathbf X^1)^T)$ and $TX$ is LUC; `proposition_8_1_17_two_of_isSLUC`: (SLUC) for $X$ gives LUC for $TX = (TX)^0$, and `EP.proposition_8_1_17_two_all_of_isSLUC` (V8.52) gives (SLUC) for $TX$; no added hypothesis. The forms first proved, under the hypotheses that every $x \\in X_1$ has a natural representation with $U(x) \\cap X_1$ connected in $X^1$ and dense in $U(x)$ and that $p : T\\mathbf X \\to \\mathbf X^1$ is open, are kept: `nonEffectivePart_tangent_eq`, `proposition_8_1_17_one`, `proposition_8_1_17_two`; with the openness of $p$ only, `proposition_8_1_17_one_of_isOpenMap`. Witnesses: `isOpenMap_tangentProj_of_subsingleton`, `Examples.proposition_8_1_17_one_point`.",
     "decls": [
      "Chapter7/SmoothRegularAssembly · EpGroupoid.nonEffectivePart_tangent_eq_of_isLUC",
-     "Chapter7/SmoothRegularAssembly · EpGroupoid.proposition_8_1_17_2021_one_of_isLUC",
-     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_2021_two_of_isSLUC",
-     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_2021_of_isSLUC",
-     "Chapter7/SmoothConnectedReps · EpGroupoid.proposition_8_1_17_2021_one_of_isOpenMap",
+     "Chapter7/SmoothRegularAssembly · EpGroupoid.proposition_8_1_17_one_of_isLUC",
+     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_of_isSLUC",
+     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_of_isSLUC",
+     "Chapter7/SmoothConnectedReps · EpGroupoid.proposition_8_1_17_one_of_isOpenMap",
      "Chapter8/TangentZhou · EpGroupoid.nonEffectivePart_tangent_eq",
-     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_one",
-     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_two",
+     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_one",
+     "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_two",
      "Chapter8/TangentZhou · EpGroupoid.isOpenMap_tangentProj_of_subsingleton",
-     "Chapter8/TangentZhou · EpGroupoid.Examples.proposition_8_1_17_2021_one_point"
+     "Chapter8/TangentZhou · EpGroupoid.Examples.proposition_8_1_17_one_point"
     ]
    },
    "chips": [
@@ -1362,7 +1362,7 @@
     "gap G.88 (closed for (2))"
    ],
    "diff": [
-    "Updated (2026-11-09): both hypotheses are theorems, the connectedness and density of $U(x) \\cap X_1$ (gaps G.85, G.73 closed) and the openness of $p$ (gap G.8 closed), so (1) and (2) hold with no added hypothesis (`proposition_8_1_17_2021_one_of_isLUC`, `EP.proposition_8_1_17_two_all_2021_of_isSLUC`); the forms with the hypotheses are kept (`proposition_8_1_17_2021_one`, `proposition_8_1_17_2021_two`) (Findings, Chapter 8, item 116).",
+    "Updated (2026-11-09): both hypotheses are theorems, the connectedness and density of $U(x) \\cap X_1$ (gaps G.85, G.73 closed) and the openness of $p$ (gap G.8 closed), so (1) and (2) hold with no added hypothesis (`proposition_8_1_17_one_of_isLUC`, `EP.proposition_8_1_17_two_all_of_isSLUC`); the forms with the hypotheses are kept (`proposition_8_1_17_one`, `proposition_8_1_17_two`) (Findings, Chapter 8, item 116).",
     "(1) goes through Proposition 7.2.21 for $TX$. (2) is proved for $(TX)^0 = TX$ here and for every $(TX)^i$, through $T(X^i) \\cong (TX)^i$ as ep-groupoids, in V8.52 (gap G.88, closed for Proposition 8.1.17 (2)) (Findings, Chapter 8, items 116, 124)."
    ]
   },
@@ -1403,14 +1403,14 @@
     "statement": "For a strong bundle $P : W \\to X$ over an ep-groupoid the following are equivalent: (1) $|X|$ is paracompact; (2) $|W[0]|$ is paracompact; (3) $|W[1]|$ is paracompact."
    },
    "lean": {
-    "statement": "`EpStrongBundle.μ_fiberZero`: $\\mu(\\varphi, 0_{s(\\varphi)}) = 0_{t(\\varphi)}$. `EpStrongBundle.zeroOrbitMap`: the map $|0| : |X| \\to |W[0]|$ induced by the zero section, continuous (`continuous_zeroOrbitMap`), with left inverse $|P|$ (`leftInverse_zeroOrbitMap`), a topological embedding (`isEmbedding_zeroOrbitMap`). `EpStrongBundle.proposition_8_4_1_2021_two_imp_one`: if $|W[0]|$ is paracompact, so is $|X|$.",
+    "statement": "`EpStrongBundle.μ_fiberZero`: $\\mu(\\varphi, 0_{s(\\varphi)}) = 0_{t(\\varphi)}$. `EpStrongBundle.zeroOrbitMap`: the map $|0| : |X| \\to |W[0]|$ induced by the zero section, continuous (`continuous_zeroOrbitMap`), with left inverse $|P|$ (`leftInverse_zeroOrbitMap`), a topological embedding (`isEmbedding_zeroOrbitMap`). `EpStrongBundle.proposition_8_4_1_two_imp_one`: if $|W[0]|$ is paracompact, so is $|X|$.",
     "decls": [
      "Chapter8/Book2021 · EpStrongBundle.μ_fiberZero",
      "Chapter8/Book2021 · EpStrongBundle.zeroOrbitMap",
      "Chapter8/Book2021 · EpStrongBundle.continuous_zeroOrbitMap",
      "Chapter8/Book2021 · EpStrongBundle.leftInverse_zeroOrbitMap",
      "Chapter8/Book2021 · EpStrongBundle.isEmbedding_zeroOrbitMap",
-     "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_2021_two_imp_one"
+     "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_two_imp_one"
     ]
    },
    "chips": [
@@ -1458,12 +1458,12 @@
     "statement": "For a covering functor $f : D \\to C$ and $d \\in D$ with $f(d) = x$, the map $f : G_d \\to G_x$ is injective, but it need not be surjective. Example 8.5.6: $D$ with two objects $a$, $b$ and exactly one morphism between any two objects, $C$ with one object $x$ and $G_x = \\{1_x, \\varepsilon\\}$, $f(\\varphi) = f(\\varphi^{-1}) = \\varepsilon$ for the morphism $\\varphi : a \\to b$."
    },
    "lean": {
-    "statement": "`IsCoveringFunctor.injective_map_end`: $f : G_d \\to G_{f(d)}$ is injective. `Example856D` (two objects, one morphism between any two), `example856Functor` (to $\\mathbb Z^\\times$ as a one-object category, $\\varepsilon = -1$), `example_8_5_6_2021`: it is a covering functor, $G_a$ and $G_b$ are trivial, $G_x \\cong \\mathbb Z/2$ is not, and $f : G_a \\to G_x$ is injective and not surjective.",
+    "statement": "`IsCoveringFunctor.injective_map_end`: $f : G_d \\to G_{f(d)}$ is injective. `Example856D` (two objects, one morphism between any two), `example856Functor` (to $\\mathbb Z^\\times$ as a one-object category, $\\varepsilon = -1$), `example_8_5_6`: it is a covering functor, $G_a$ and $G_b$ are trivial, $G_x \\cong \\mathbb Z/2$ is not, and $f : G_a \\to G_x$ is injective and not surjective.",
     "decls": [
      "Chapter8/Book2021 · IsCoveringFunctor.injective_map_end",
      "Chapter8/Book2021 · Example856D",
      "Chapter8/Book2021 · example856Functor",
-     "Chapter8/Book2021 · example_8_5_6_2021"
+     "Chapter8/Book2021 · example_8_5_6"
     ]
    },
    "chips": [
@@ -1510,7 +1510,7 @@
     "statement": "For a proper strong bundle covering functor $A : W \\to V$ covering $F : Y \\to X$, the map $B : W \\to F^*V$, $w \\mapsto (P(w), A(w))$, is a strong bundle isomorphism over the ep-groupoid $Y$, where $F^*V$ carries $\\mu_{F^*V}(\\varphi, (y, v)) = (t(\\varphi), \\mu_X(F(\\varphi), v))$; it satisfies (8.23) $B(\\mu_Y(\\varphi, w)) = \\mu_{F^*V}(\\varphi, B(w))$, and $A = \\bar A \\circ B$."
    },
    "lean": {
-    "statement": "`EpStrongBundle.pullbackμ`: $\\mu_{F^*V}$. For `A : IsProperStrongBundleCovering2021`: `bundleB` with `bundleB_val`, (8.23) `bundleB_μ`; `bijective_bundleB` (via `eq_of_isStrongBundleIsoOn`); the inverse `bundleBInv` (`bundleBInv_eq_of`: near every point the inverse of a local strong bundle isomorphism of Definition 8.5.9 (1)); `isStrongBundleMap_bundleB`, `mapsTo_oneSet_bundleBInv`, `isStrongBundleMap_bundleBInv`. `lemma_8_5_10_2021`: $B$ is a strong bundle isomorphism $W \\to F^*V$ covering the identity of $Y$, with (8.23) and $A = \\bar A \\circ B$.",
+    "statement": "`EpStrongBundle.pullbackμ`: $\\mu_{F^*V}$. For `A : IsProperStrongBundleCovering2021`: `bundleB` with `bundleB_val`, (8.23) `bundleB_μ`; `bijective_bundleB` (via `eq_of_isStrongBundleIsoOn`); the inverse `bundleBInv` (`bundleBInv_eq_of`: near every point the inverse of a local strong bundle isomorphism of Definition 8.5.9 (1)); `isStrongBundleMap_bundleB`, `mapsTo_oneSet_bundleBInv`, `isStrongBundleMap_bundleBInv`. `lemma_8_5_10`: $B$ is a strong bundle isomorphism $W \\to F^*V$ covering the identity of $Y$, with (8.23) and $A = \\bar A \\circ B$.",
     "decls": [
      "Chapter8/Book2021 · EpStrongBundle.pullbackμ",
      "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.bundleB",
@@ -1523,7 +1523,7 @@
      "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB",
      "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv",
      "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv",
-     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021"
+     "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10"
     ]
    },
    "chips": [
@@ -1545,9 +1545,9 @@
     "statement": "If $X$ has (SLUC), so has $TX$. The proof: by (1) every $T(X^i)$ has (LUC), and naturally $(TX)^i = T(X^i)$."
    },
    "lean": {
-    "statement": "`EpGroupoid.EpEquiv`: sc-diffeomorphisms of the object and the morphism M-polyfolds commuting with $s$ and $t$; `refl`, `trans`, `shift` (to the index raises), `nonEffectivePart_eq`, `EpEquiv.isLUC` (by Proposition 7.2.21). `tangentShiftEpEquiv`: $T(X^1) \\cong (TX)^1$, from Part I's Proposition 2.3.17 for $i = 1$; `EP.tangentEP`, `EP.tangentLiftEpEquiv`: $T(X^i) \\cong (TX)^i$ for every $i$. `EP.isLUC_tangent_lift_of_isSLUC`: under (SLUC) every $T(X^i)$ has LUC; `EP.proposition_8_1_17_two_all_2021_of_isSLUC`: `A.tangentEP.IsSLUC`; no other hypothesis. The forms first proved, with `HasConnectedDenseLevelOneReps` and $p$ open for every $X^i$, are kept: `EP.isLUC_tangent_lift`, `EP.proposition_8_1_17_two_all_2021`. Witness: `Examples.proposition_8_1_17_two_all_2021_pointEP`.",
+    "statement": "`EpGroupoid.EpEquiv`: sc-diffeomorphisms of the object and the morphism M-polyfolds commuting with $s$ and $t$; `refl`, `trans`, `shift` (to the index raises), `nonEffectivePart_eq`, `EpEquiv.isLUC` (by Proposition 7.2.21). `tangentShiftEpEquiv`: $T(X^1) \\cong (TX)^1$, from Part I's Proposition 2.3.17 for $i = 1$; `EP.tangentEP`, `EP.tangentLiftEpEquiv`: $T(X^i) \\cong (TX)^i$ for every $i$. `EP.isLUC_tangent_lift_of_isSLUC`: under (SLUC) every $T(X^i)$ has LUC; `EP.proposition_8_1_17_two_all_of_isSLUC`: `A.tangentEP.IsSLUC`; no other hypothesis. The forms first proved, with `HasConnectedDenseLevelOneReps` and $p$ open for every $X^i$, are kept: `EP.isLUC_tangent_lift`, `EP.proposition_8_1_17_two_all`. Witness: `Examples.proposition_8_1_17_two_all_pointEP`.",
     "decls": [
-     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_2021_of_isSLUC",
+     "Chapter7/SmoothRegularAssembly · EP.proposition_8_1_17_two_all_of_isSLUC",
      "Chapter7/SmoothRegularAssembly · EP.isLUC_tangent_lift_of_isSLUC",
      "Chapter8/TangentZhouLevels · MPolyfold.ScEquiv.toHomeomorph",
      "Chapter8/TangentZhouLevels · EP.tangentEP",
@@ -1558,11 +1558,11 @@
      "Chapter8/TangentZhouLevels · EpGroupoid.tangentShiftEpEquiv",
      "Chapter8/TangentZhouLevels · EP.tangentLiftEpEquiv",
      "Chapter8/TangentZhouLevels · EP.isLUC_tangent_lift",
-     "Chapter8/TangentZhouLevels · EP.proposition_8_1_17_two_all_2021",
+     "Chapter8/TangentZhouLevels · EP.proposition_8_1_17_two_all",
      "Chapter8/TangentZhouLevels · EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton",
-     "Chapter8/TangentZhouLevels · EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP",
+     "Chapter8/TangentZhouLevels · EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP",
      "Chapter2/TangentLiftAll · BundledMPolyfold.tangentLiftEquiv",
-     "Chapter2/TangentLiftAll · proposition_2_3_17_all_2021"
+     "Chapter2/TangentLiftAll · proposition_2_3_17_all"
     ]
    },
    "chips": [
@@ -1572,7 +1572,7 @@
     "gap G.88 closed for (2)"
    ],
    "diff": [
-    "Updated (2026-11-09): the hypotheses of (1) on every level are theorems (gaps G.85, G.73 and G.8 closed), so (SLUC) for $X$ is the only hypothesis (`EP.proposition_8_1_17_two_all_2021_of_isSLUC`); the form with them is kept (`EP.proposition_8_1_17_two_all_2021`) (Findings, Chapter 8, item 124).",
+    "Updated (2026-11-09): the hypotheses of (1) on every level are theorems (gaps G.85, G.73 and G.8 closed), so (SLUC) for $X$ is the only hypothesis (`EP.proposition_8_1_17_two_all_of_isSLUC`); the form with them is kept (`EP.proposition_8_1_17_two_all`) (Findings, Chapter 8, item 124).",
     "\\\"Naturally $(TX)^i = T(X^i)$\\\" is used through an equivalence commuting with source and target; its compatibility with unit, inverse and composition is not formalized, since LUC does not need it (Findings, Chapter 8, item 124)."
    ]
   }
@@ -1590,9 +1590,9 @@
    "label": "§8.1, 2017 p. 259, the identification before Lemma 8.1.2 (2017: 8.1) and Lemma 8.1.2 (2017: 8.1) (also the proof of Lemma 8.1.7 (2017: 8.6), p. 362 (2017 p. 262))",
    "page": 259,
    "book": "The tangent $T(\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X)$ of the sub-M-polyfold $\\mathbf X\\,{}_s{\\times}_t\\,\\mathbf X$ of $\\mathbf X \\times \\mathbf X$ is identified with $T\\mathbf X\\,{}_{Ts}{\\times}_{Tt}\\,T\\mathbf X \\subseteq T\\mathbf X \\times T\\mathbf X$. Lemma 8.1.2 (2017: 8.1): the multiplication (8.5) of $T\\mathbf X$ can be written as $(\\psi, k) \\circ (\\varphi, h) = Tm(\\psi, \\varphi)(k, h) = (\\psi \\circ \\varphi, (Ts(\\psi \\circ \\varphi))^{-1} \\circ Ts(\\varphi)(h))$, with $k = Ts(\\psi)^{-1}(Tt(\\varphi)(h))$. The proof of Lemma 8.1.7 (2017: 8.6) notes that the multiplication of $T\\mathbf X$ is precisely $Tm$, hence sc-smooth.",
-   "instead": "**Not formalized** as printed: the identification of the tangent of the fibred product with the fibred product of the tangents, and $m_{T\\mathbf X} = Tm$ on it, are not stated. Lemma 8.1.2 (2017: 8.1) is formalized in the form its proof uses: on a sheet $s : W \\to V$ with inverse $\\sigma$, $k \\circ h = Tg(h)$ for $g(\\varphi') = m(\\sigma(t\\varphi'), \\varphi')$ (`lemma_8_1`, V8.4); the sc-smoothness of the multiplication of $T\\mathbf X$ on $T\\mathbf X\\,{}_{s_T}{\\times}_{t_T}\\,T\\mathbf X$ is proved from Chapter 7's sheet form (`isScSmoothComp_tangent`, V8.9), so nothing in Chapter 8 depends on the identification (Findings, Chapter 8, items 5, 111).",
+   "instead": "**Not formalized** as printed: the identification of the tangent of the fibred product with the fibred product of the tangents, and $m_{T\\mathbf X} = Tm$ on it, are not stated. Lemma 8.1.2 (2017: 8.1) is formalized in the form its proof uses: on a sheet $s : W \\to V$ with inverse $\\sigma$, $k \\circ h = Tg(h)$ for $g(\\varphi') = m(\\sigma(t\\varphi'), \\varphi')$ (`lemma_8_1_2`, V8.4); the sc-smoothness of the multiplication of $T\\mathbf X$ on $T\\mathbf X\\,{}_{s_T}{\\times}_{t_T}\\,T\\mathbf X$ is proved from Chapter 7's sheet form (`isScSmoothComp_tangent`, V8.9), so nothing in Chapter 8 depends on the identification (Findings, Chapter 8, items 5, 111).",
    "decls": [
-    "Chapter8/TangentEp · EpGroupoid.lemma_8_1",
+    "Chapter8/TangentEp · EpGroupoid.lemma_8_1_2",
     "Chapter8/TangentEp · EpGroupoid.isScSmoothComp_tangent"
    ]
   },
@@ -1604,7 +1604,7 @@
    "book": "Proposition 8.4.1: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together. Proposition 8.4.3: if $X$ is effective and has the local regularity property (LR) of Definition 7.4.19, every strong bundle over $X$ has the local regularity property of Definition 8.4.2.",
    "instead": "**Not formalized**: (1) ⇒ (2), (3) needs $G_x$-equivariant strong bundle charts with invariant metrics and $W[1]$ as an ep-groupoid; Proposition 8.4.3 needs the openness of $P : W \\to X$ and the lift of (LR) to the bundle. Formalized: (2) ⇒ (1) (V8.47) and Definition 8.4.2 (V8.48) (Findings, Chapter 8, items 118, 119).",
    "decls": [
-    "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_2021_two_imp_one",
+    "Chapter8/Book2021 · EpStrongBundle.proposition_8_4_1_two_imp_one",
     "Chapter8/TangentZhou · EpStrongBundle.IsLR"
    ]
   },
@@ -1625,10 +1625,10 @@
    "instead": "**Not formalized** for Proposition 8.1.16: the step $T(g, h) = \\mathrm{id} \\Rightarrow Tg = \\mathrm{id}$ needs the second tangent bundle $T(TX)$ and $T\\tau$, and is the hypothesis `TangentZhouReflect` (V8.44). The entry's second part, Proposition 8.1.17 (2) for every $(TX)^i$ (p. 371), which needed $(TX)^i = T(X^i)$ and was proved for $(TX)^0$ (V8.45), is **formalized since the first edition of this page** (Springer 2021 additions; V8.52): Part I's Proposition 2.3.17 gives $T(X^i) \\cong (TX)^i$ as ep-groupoids (sc-diffeomorphisms of objects and morphisms commuting with source and target), which transports LUC by Proposition 7.2.21 (Findings, Chapter 8, items 115, 116, 124).",
    "decls": [
     "Chapter8/TangentZhou · EpGroupoid.TangentZhouReflect",
-    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16_2021",
-    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_2021_two",
+    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_16",
+    "Chapter8/TangentZhou · EpGroupoid.proposition_8_1_17_two",
     "Chapter8/TangentZhouLevels · EP.tangentLiftEpEquiv",
-    "Chapter8/TangentZhouLevels · EP.proposition_8_1_17_two_all_2021"
+    "Chapter8/TangentZhouLevels · EP.proposition_8_1_17_two_all"
    ]
   },
   {
@@ -1640,7 +1640,7 @@
    "instead": "**Not formalized**: that $\\mu_{F^*V}$ satisfies the conditions of a strong bundle over an ep-groupoid (Definition 8.3.1 (2017: 8.4)); the lemma is proved with its formula only, $B$ a strong bundle isomorphism $W \\to F^*V$ with (8.23) (V8.51) (Findings, Chapter 8, item 122).",
    "decls": [
     "Chapter8/Book2021 · EpStrongBundle.pullbackμ",
-    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021"
+    "Chapter8/Book2021 · EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10"
    ]
   }
  ]

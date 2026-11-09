@@ -9,7 +9,7 @@ import RoundTrip.Blind.V3_64
 
 `A → B`: the blind setting (with the given right inverse `Linv : ℝᴺ → Y` of `L`) is the project's
 `ContractionData` for `Cp = {(k, y) | k + y ∈ C}`, `Up = {(k, y) | k + y ∈ U}` and
-`B(k, y) = y − Linv f(k + y)` (glue copied from the proof of `theorem_3_78`, as in V3_65).
+`B(k, y) = y − Linv f(k + y)` (glue copied from the proof of `theorem_3_8_22`, as in V3_65).
 `exists_radii` gives radii `a, b`; the region claim is `Radii.region_sub`; `norm_sub_le` on the
 region `R` gives `‖B(k, y) − B(k, y')‖ ≤ c₀‖y − y'‖ ≤ ½‖y − y'‖`; the injectivity
 `f(k + y) = f(k + y') ⇒ y = y'` follows from the contraction.  `eq_τ` is not needed.
@@ -95,7 +95,7 @@ lemma mem_Cp_iff (p : kerCLM L × Y) :
     p ∈ Cp q L Y ↔ (p.1 : Fin n → ℝ) + (p.2 : Fin n → ℝ) ∈ quadC n q := Iff.rfl
 
 /-- The blind setting gives the project's `ContractionData` (as in the proof of
-`theorem_3_78`). -/
+`theorem_3_8_22`). -/
 theorem contractionData {j : ℕ} {U : Set (Fin n → ℝ)} {f : (Fin n → ℝ) → (Fin N → ℝ)}
     (hj : 1 ≤ j) (hU : ∃ O : Set (Fin n → ℝ), IsOpen O ∧ U = O ∩ quadC n q)
     (h0 : (0 : Fin n → ℝ) ∈ U) (hf : ContDiffOn ℝ j f U) (hf0 : f 0 = 0)

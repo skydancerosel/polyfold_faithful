@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "A = lemma_4_7_i ∧ lemma_4_7_ii ∧ lemma_4_7_ii_tangentSpace. (i): A's R.retract ⊆ E.smooth is B's 'every o ∈ O lifts to every level' (mem_smooth_iff). (ii): A's lemma_4_7_ii is B's finite-dimensionality verbatim; A's tangent-space clause is stated for SOME smooth lift o₁ of o, B's for EVERY level-1 o₁ over O — the same since ι₁ is injective — and ↑(LinearMap.range L) = Set.range L. Conversely B's (i) at level 1 produces the smooth lift o₁ required by lemma_4_7_ii_tangentSpace (smoothLvl 1 is the preimage of E_∞), and B's (ii) gives the rest. Pure glue both ways.",
+ "why": "A = lemma_4_1_7_i ∧ lemma_4_1_7_ii ∧ lemma_4_1_7_ii_tangentSpace. (i): A's R.retract ⊆ E.smooth is B's 'every o ∈ O lifts to every level' (mem_smooth_iff). (ii): A's lemma_4_1_7_ii is B's finite-dimensionality verbatim; A's tangent-space clause is stated for SOME smooth lift o₁ of o, B's for EVERY level-1 o₁ over O — the same since ι₁ is injective — and ↑(LinearMap.range L) = Set.range L. Conversely B's (i) at level 1 produces the smooth lift o₁ required by lemma_4_1_7_ii_tangentSpace (smoothLvl 1 is the preimage of E_∞), and B's (ii) gives the rest. Pure glue both ways.",
  "B_issue": null,
  "overlap": "21 shared project theorems, all sc-scale vocabulary (shift/prod scale proof fields, mem_smooth_iff, mem_smoothLvl_iff, toBase_injective, levelMap._proof_1); none of the proof of Lemma 4.7 (mem_range_succ, isCompactOperator_deriv, the Riesz lemma) is used.",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

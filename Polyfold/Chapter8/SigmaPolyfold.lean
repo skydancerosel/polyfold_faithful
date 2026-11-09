@@ -3,14 +3,14 @@ import Polyfold.Chapter7.Discrete
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8: infrastructure for **Proposition 8.3** (p. 281), the **disjoint union of M-polyfolds**.
+Chapter 8: infrastructure for **Proposition 8.5.7 (2017: 8.3)** (p. 390 (2017 p. 281)), the **disjoint union of M-polyfolds**.
 Numbers and pages are the 2017 text's (there is no 2014 preprint of Part II).
 
 # Disjoint unions of M-polyfolds
 
 ## The text, paraphrased
 
-(Proposition 8.3, p. 281) From open sets `U(y)`, `y ∈ D`, the proof forms an ep-groupoid whose
+(Proposition 8.5.7 (2017: 8.3), p. 390 (2017 p. 281)) From open sets `U(y)`, `y ∈ D`, the proof forms an ep-groupoid whose
 object set is the disjoint union `Y = ⊔_{y ∈ D} U(y)` and whose morphism set is the disjoint union
 `𝐘 = ⊔_{(y, y') ∈ D × D} mor(y, y') × U(y)`; of the latter it says that it possesses a natural
 M-polyfold structure.  The text does not describe that structure further.
@@ -294,7 +294,7 @@ theorem compatible_sigmaChart_of_ne {i j : ι} (hij : i ≠ j) (φ : MChart (X i
     (image_subset_range _ _))
 
 /-- **The M-polyfold structure of a disjoint union** `Σ i, X i` (the "natural M-polyfold
-structure" of Proposition 8.3): the charts of every `X i`, pushed forward along `Sigma.mk i`. -/
+structure" of Proposition 8.5.7 (2017: 8.3)): the charts of every `X i`, pushed forward along `Sigma.mk i`. -/
 def sigma : MPolyfold (Σ i, X i) where
   atlas :=
     { charts := {χ | ∃ i, ∃ φ ∈ (P i).atlas.charts, χ = sigmaChart i φ}

@@ -130,7 +130,7 @@ theorem finrank_levelSub' (E : ScBanach) {A' : Submodule ℝ (E 0)} (hA : A' ≤
 theorem C_le_smooth' {E F : ScBanach} {T : ScOperator E F} (s : ScFredholmSplitting T) :
     s.C ≤ F.smooth :=
   haveI := s.finite_C
-  (F.proposition_1_6_iff s.C).1 s.splitF.1
+  (F.proposition_1_1_7_iff s.C).1 s.splitF.1
 
 theorem fredholmIndex_lvl' {E F : ScBanach} {T : ScOperator E F} (s : ScFredholmSplitting T)
     (m : ℕ) : (T m).IsFredholm ∧ fredholmIndex (T m) = s.index := by

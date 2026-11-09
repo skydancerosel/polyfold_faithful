@@ -825,7 +825,7 @@ theorem exists_isOrientedAt_submanifoldTangent {A : Set X} (hA : P.IsSmoothSubma
   have hy1 : y ∈ P.levelSet 1 := ((hA.data hy).mem_levelSet_one hy hyV)
   have hz : c.φ.model.E.toBase 1 (levelLift c.φ 1 y) = c.φ y :=
     P.toBase_levelLift c.isChart c.mem_source hy1
-  obtain ⟨-, -, -, N, hN, hfin⟩ := (hA.data hy).remark_4_14 c.isChart hy hyV c.mem_source hz
+  obtain ⟨-, -, -, N, hN, hfin⟩ := (hA.data hy).remark_4_2_2 c.isChart hy hyV c.mem_source hz
   rw [← chartVec_image_submanifoldTangent c.isChart (hA.data hy) hy hyV c.mem_source] at hN
   obtain ⟨O₁, O₂, -, hO⟩ := exists_two_orientations c.isChart c.mem_source (fun α hα => hα.1) hN
     (n := finrank ℝ N) rfl

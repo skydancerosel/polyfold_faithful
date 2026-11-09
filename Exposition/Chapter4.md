@@ -83,8 +83,8 @@ agree: one would be a retract $O = O_\infty$ that is not sc$^+$ (Proposition 4.1
 infinite-dimensional tangent space (Lemma 4.1.7 (preprint 4.7)), if such a retract exists. For $\mathbb R^n$ with the constant
 structure $(\mathbb R^n)^1 = \mathbb R^n$, and every retract in $\mathbb R^n$ is an sc$^+$-retract.
 
-*Checked by machine:* `Polyfold.MPolyfold.remark_4_3_levelVal`, `Polyfold.MPolyfold.remark_4_3_isScDiffeo`,
-`Polyfold.remark_4_3_const`; "$X^1\ne X$ is possible" is not formalized.
+*Checked by machine:* `Polyfold.MPolyfold.remark_4_1_3_levelVal`, `Polyfold.MPolyfold.remark_4_1_3_isScDiffeo`,
+`Polyfold.remark_4_1_3_const`; "$X^1\ne X$ is possible" is not formalized.
 
 ## 2. sc$^+$-retractions and sc$^+$-retracts (pp. 176–178 (preprint pp. 148–149))
 
@@ -123,10 +123,10 @@ representative of $1_0^1$ is the lift $O\to O^1$. So "$X_0 = X_\infty$ and $1_0^
 modelled on an sc$^+$-retract.
 
 *Checked by machine:* `Polyfold.IsScPlus`, `Polyfold.IsScPlus.comp_isScSmooth`, `Polyfold.IsScSmooth.comp_isScPlus`,
-`Polyfold.IsScPlus.exists_scPlus_deriv`, `Polyfold.ScRetraction.IsScPlus`, `Polyfold.lemma_4_5`,
-`Polyfold.IsScPlusRetract`, `Polyfold.lemma_4_7_i`, `Polyfold.lemma_4_7_ii` (with
-`Polyfold.finiteDimensional_range_of_isCompactOperator_of_idem`), `Polyfold.proposition_4_8`,
-`Polyfold.MPolyfold.proposition_4_8_chart`, `Polyfold.MPolyfold.isScSmoothMap_toLevelOne_iff`,
+`Polyfold.IsScPlus.exists_scPlus_deriv`, `Polyfold.ScRetraction.IsScPlus`, `Polyfold.lemma_4_1_5`,
+`Polyfold.IsScPlusRetract`, `Polyfold.lemma_4_1_7_i`, `Polyfold.lemma_4_1_7_ii` (with
+`Polyfold.finiteDimensional_range_of_isCompactOperator_of_idem`), `Polyfold.proposition_4_1_8`,
+`Polyfold.MPolyfold.proposition_4_1_8_chart`, `Polyfold.MPolyfold.isScSmoothMap_toLevelOne_iff`,
 `Polyfold.MPolyfold.IsScPlusRetractionOn`.
 
 ## 3. Charts centred at a point (not in the text)
@@ -243,7 +243,7 @@ Inverting $p\circ t$ on $N\cap C$ instead does not work: in $\mathbb R^3$, $C = 
 $\Gamma(a) = (a_1,a_2,a_2^2)$, $t(x) = \Gamma(x_1+(x_3-x_2^2)^2,x_2)$ is a retraction with $N = \mathbb R^2\times0$, and
 $p\,t(x_1,x_2,0) = (x_1+x_2^4,x_2)$ misses the points $(0,y_2)$, $y_2>0$.
 
-*Checked by machine:* `Polyfold.proposition_4_9` (hypotheses "$Y$ closed", "$p$ the projection along $Y$");
+*Checked by machine:* `Polyfold.proposition_4_1_9` (hypotheses "$Y$ closed", "$p$ the projection along $Y$");
 `Polyfold.ScRetraction.IsScPlus.exists_mvt` (P4), `Polyfold.GraphData.exists_contraction_radius`,
 `Polyfold.GraphData.eq_of_p_eq` (Step 1), `Polyfold.GraphData.exists_graph_point` (Step 2),
 `Polyfold.GraphData.p_mem_C` (Step 3), `Polyfold.GraphData.exists_nbhd` (Step 4),
@@ -292,7 +292,7 @@ of the overlap), so the $\psi_x$ form an atlas equivalent to that of $X$. $\squa
 
 The text's "we obtain a smoothly compatible atlas" skips this argument. Neither the tameness of $X$ nor that of $\psi$ was used.
 
-*Checked by machine:* `Polyfold.MPolyfold.theorem_4_2`, `Polyfold.MPolyfold.theorem_4_2_general`,
+*Checked by machine:* `Polyfold.MPolyfold.theorem_4_1_2`, `Polyfold.MPolyfold.theorem_4_1_2_general`,
 `Polyfold.MChart.IsCornerChart.exists_centred_tame`, `Polyfold.MPolyfold.HasCornerStructure.isTame`,
 `Polyfold.exists_proj_goodComplement`, `Polyfold.CornerChartData.chart_isCornerChart`,
 `Polyfold.CornerChartData.chart_isChart`, `Polyfold.MChart.compRetract_isChart`,
@@ -333,10 +333,10 @@ The text's definition of "locally closed" is garbled (it uses $U$ twice); its pr
 metrizability; for (4) it says only that the retraction "is the identity on the retract $A$".
 
 *Checked by machine:* `Polyfold.MPolyfold.IsSmoothSubmanifold`, `Polyfold.MPolyfold.SubmanifoldData.exists_chartRetraction`,
-`Polyfold.MPolyfold.SubmanifoldData.remark_4_14`, `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero`,
-`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1`, `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2`
-(Mathlib's `IsLocallyClosed`), `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_3`,
-`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4`.
+`Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2`, `Polyfold.MPolyfold.hasCornerStructure_of_degIndex_eq_zero`,
+`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one`, `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two`
+(Mathlib's `IsLocallyClosed`), `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_three`,
+`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four`.
 
 **Open question (preprint p. 159).** Is a sub-M-polyfold with $A = A_\infty$ and $\dim T_aA$ finite and locally constant a smooth
 finite-dimensional submanifold? HWZ expect not, and ask whether the "T" $\{(x,0):|x|<1\}\cup\{(0,y):0\le y<1\}$ is
@@ -391,7 +391,7 @@ finite-dimensional; good position at $a$, read in $\psi$ (Lemma 6.B), and Lemma 
 The text cites "Proposition 4.2", takes $p = Dt(0)$ with the complement $Y\oplus Z$, assumes "$V = \varphi^{-1}(O)$" where the $W$ of
 Lemma 6.A is needed, and writes $\varphi^{-1}(V_0)\cap A$ for $(p\circ\varphi)^{-1}(V_0)\cap A$.
 
-*Checked by machine:* `Polyfold.lemma_4_19`, `Polyfold.isGoodComplement_sup_range`, `Polyfold.MPolyfold.theorem_4_18`,
+*Checked by machine:* `Polyfold.lemma_4_2_8`, `Polyfold.isGoodComplement_sup_range`, `Polyfold.MPolyfold.theorem_4_2_7`,
 `Polyfold.MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame`; no hypothesis added.
 
 **Remark 4.2.9 (preprint 4.20).** For tame $X$, good position at $a$ holds on a neighbourhood of $a$ in $A$.
@@ -405,7 +405,7 @@ complement $Y\cap T_{\Gamma(v)}O$. $\square$
 
 The text omits "tame" and justifies the remark by "the tangent spaces of $A$ move only slowly", which is $D\sigma(0) = 0$.
 
-*Checked by machine:* `Polyfold.MPolyfold.remark_4_20`, `Polyfold.tangentSpace_eq_range_graph`, `Polyfold.lemma_3_55_relOpen`.
+*Checked by machine:* `Polyfold.MPolyfold.remark_4_2_9`, `Polyfold.tangentSpace_eq_range_graph`, `Polyfold.lemma_3_6_9_relOpen`.
 
 ## 7. The local structure in general position: Theorem 4.2.11 (preprint 4.22) (pp. 190–193 (preprint pp. 162–164))
 
@@ -465,9 +465,9 @@ $T_zQ\cap C_z$ has interior points. $\square$
 The proof of Theorem 4.3.1 (preprint 4.23) also uses $\dim(A\cap F_\sigma) = \dim A-\#\sigma$, which Theorem 4.2.11 (preprint 4.22) does not state: $T_0(A\cap F_\sigma) = N\cap f_\sigma$
 has codimension $\#\sigma$, $\ell|_N$ being onto.
 
-*Checked by machine:* `Polyfold.MPolyfold.theorem_4_22` ((1)–(4), no hypothesis added), `Polyfold.theorem_4_22_chart`,
+*Checked by machine:* `Polyfold.MPolyfold.theorem_4_2_11_preprint` ((1)–(4), no hypothesis added), `Polyfold.theorem_4_2_11_chart`,
 `Polyfold.sup_minimalSubspaceWith_eq_top`, `Polyfold.exists_goodComplement_le_zero`, `Polyfold.degIndex_slice`,
-`Polyfold.sup_minimalSubspaceWith_eq_top_graph`, `Polyfold.MPolyfold.theorem_4_22_four_of_chart`,
+`Polyfold.sup_minimalSubspaceWith_eq_top_graph`, `Polyfold.MPolyfold.theorem_4_2_11_four_of_chart`,
 `Polyfold.exists_scPlus_retraction_corner`, `Polyfold.MPolyfold.isScPlusRetractionOn_of_chart`,
 `Polyfold.exists_scComplement_le` (7.A), `Polyfold.IsGeneralPositionRetractAt.isGoodPositionRetractAt` (7.B),
 `Polyfold.finrank_stratSub`. Not formalized: the identification of local faces of the chart with germs of global faces.
@@ -496,8 +496,8 @@ The text says "regular values of $p$", and misprints (2) as "a sc-complement $T_
 **Remark 4.3.2 (preprint 4.24).** For tame $X$ and smooth $x$, $\operatorname{codim}T^R_xX = d_X(x)$ (Proposition 2.5.6 (preprint 2.36)), so general position at $a$ gives
 $d_X(a)\le\dim T_aA$. For $\lambda\in\Sigma$: zero-dimensional $A_\lambda$ avoid $\partial X$, one-dimensional ones meet only $\{d_X = 1\}$, and so on.
 
-*Checked by machine:* `Polyfold.MPolyfold.remark_4_24_codim`, `Polyfold.MPolyfold.remark_4_24`,
-`Polyfold.MPolyfold.remark_4_24_not_mem_boundary`.
+*Checked by machine:* `Polyfold.MPolyfold.remark_4_3_2_codim`, `Polyfold.MPolyfold.remark_4_3_2`,
+`Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary`.
 
 *Proof of Theorem 4.3.1 (preprint 4.23).* *Step 1 (the chart).* For $z_0 = (\lambda_0,x_0)\in A$, take $\varphi$ tame and centred at the smooth $x_0$ (§3), so
 $\chi$ is a tame chart of $Z$ centred at $z_0$ with coordinates $\ell$ (those of $C$; $\mathbb R^m$ has none). By (2) at $z_0$, the proof of
@@ -547,9 +547,9 @@ structure. $\square$
 
 Not used: the tameness of $A$, the non-emptiness in (1), $\varepsilon>0$; any parameter set $S$ may replace the ball.
 
-*Checked by machine:* `Polyfold.theorem_4_23` (no hypothesis added), `Polyfold.theorem_4_23_of_subset`,
+*Checked by machine:* `Polyfold.theorem_4_3_1_preprint` (no hypothesis added), `Polyfold.theorem_4_3_1_of_subset`,
 `Polyfold.IsStratRegularPoint`, `Polyfold.IsStratRegularValue`, `Polyfold.exists_local_family`, `Polyfold.stratCritSet`,
-`Polyfold.measure_image_stratCritSet`, `Polyfold.exists_goodComplement_stratSub`, `Polyfold.theorem_3_78_smooth`,
+`Polyfold.measure_image_stratCritSet`, `Polyfold.exists_goodComplement_stratSub`, `Polyfold.theorem_3_8_22_smooth`,
 `Polyfold.exists_fibre_retraction`, `Polyfold.exists_slice_retraction`, `Polyfold.isGeneralPositionRetractAt_slice`.
 Not formalized: the chart independence of stratified regularity (true by the argument of Lemma 6.B).
 
@@ -722,14 +722,14 @@ proves Proposition 4.4.5 (preprint 4.26) in a new Appendix 4.5. Remark 4.1.3 (pr
 coordinate face $F_i$ a germ $\psi^{-1}(G\cap F_i)$ that contains $x$ and lies in $U$. The identification with faces of $U$ itself
 remains open, as in §7.
 
-*Checked by machine:* `Polyfold.MPolyfold.theorem_4_2_11_2021`.
+*Checked by machine:* `Polyfold.MPolyfold.theorem_4_2_11`.
 
 **Theorem 4.3.1 (preprint 4.23), 2021 form.** Hypothesis (1) asks only that $p^{-1}(\lambda)$ be compact for $|\lambda|\le\varepsilon$; the
 set $\Sigma$ is *measurable*. Non-emptiness was never used (§8). The countable cover of §8 gives some $\Sigma_0$ with null
 complement; removing a measurable null set $N\supseteq B\setminus\Sigma_0$, $B = \{|\lambda|<\varepsilon\}$, leaves the measurable
 $\Sigma = B\setminus N\subseteq\Sigma_0$ with all the conclusions, and (1) makes each $A_\lambda$, $\lambda\in\Sigma$, compact.
 
-*Checked by machine:* `Polyfold.theorem_4_3_1_2021`.
+*Checked by machine:* `Polyfold.theorem_4_3_1`.
 
 **Definition 4.4.3.** An *sc-smooth vector field* on $X$ is an sc-smooth section $A$ of $p:TX\to X^1$: it is defined on $X^1$, not on
 $X$. In a local model $O = r(U)$ its principal part is a map $A:E_1\to E_0$ with $x\mapsto(x,A(x))$ sc-smooth from $O^1$ to $TO$;
@@ -803,9 +803,9 @@ $\Phi_i:T(X^i)\to(TX)^i$ of Proposition 2.3.17 it is the $i$-th index raise of $
 
 *Checked by machine:* `Polyfold.retractLieBracket_natural`, `Polyfold.retractLieBracket_natural_inter` (Lemma 4.5.1 in a local
 model); `Polyfold.MPolyfold.principalPart`, `Polyfold.MPolyfold.IsScVectorField.chartLieBracket_change` (independence of the chart);
-`Polyfold.MPolyfold.lieBracket`, `Polyfold.MPolyfold.tangentChartMap_lieBracket`, `Polyfold.proposition_4_4_5_2021` (Proposition
-4.4.5); `Polyfold.lemma_4_5_1_2021` (Lemma 4.5.1); `Polyfold.MPolyfold.raiseIndex`, `Polyfold.lemma_4_4_4_2021` (Lemma 4.4.4,
-$i = 1$); `Polyfold.BundledMPolyfold.raiseIndexAll`, `Polyfold.lemma_4_4_4_all_2021` (Lemma 4.4.4, every $i$). The findings are `Exposition/Findings.md`, "Chapter 4", items 160–164.
+`Polyfold.MPolyfold.lieBracket`, `Polyfold.MPolyfold.tangentChartMap_lieBracket`, `Polyfold.proposition_4_4_5` (Proposition
+4.4.5); `Polyfold.lemma_4_5_1` (Lemma 4.5.1); `Polyfold.MPolyfold.raiseIndex`, `Polyfold.lemma_4_4_4` (Lemma 4.4.4,
+$i = 1$); `Polyfold.BundledMPolyfold.raiseIndexAll`, `Polyfold.lemma_4_4_4_all` (Lemma 4.4.4, every $i$). The findings are `Exposition/Findings.md`, "Chapter 4", items 160–164.
 
 *Not formalized.* The pull-back bundle $TX|X^2\to X^2$ as a bundle, Lemma 4.5.1 for a local sc-diffeomorphism between open
 subsets of $X$ (gap G.92).
@@ -817,15 +817,15 @@ the formula for $d\omega$ (p. 197) the sign $(-1)^{\ell+k}$ and the summation in
 Subsection 1.4.4, made an M-polyfold with $X_\infty = X$; if $1_0^1$ were sc-smooth, Theorem 4.1.2 (preprint 4.2) would make the connected
 $X$ a manifold of constant local dimension, which it is not. The argument holds as we read it (here $C = E$, and an
 sc$^+$-retract has finite-dimensional tangent spaces); it is not formalized. The project proves "$X^1\ne X$ is possible" with a
-different example, added after §1 was written: `Polyfold.remark_4_3_example`, a retract $O = O_\infty$ whose retraction loses a level in
+different example, added after §1 was written: `Polyfold.remark_4_1_3_example`, a retract $O = O_\infty$ whose retraction loses a level in
 its first derivative (Findings, Chapter 4, items 140–146).
 
 *Checked by machine:* `Polyfold.IsRetractVectorField`, `Polyfold.isRetractVectorField_zero`,
 `Polyfold.IsRetractVectorField.scDeriv_apply`, `Polyfold.MPolyfold.IsScVectorField`, `Polyfold.MPolyfold.isScVectorField_zero`
 (Definition 4.4.3); `Polyfold.retractTangent_shift`, `Polyfold.IsRetractVectorField.shift` (Lemma 4.4.4, $i = 1$);
 `Polyfold.scSecondDeriv`, `Polyfold.scSecondDeriv_symm`; `Polyfold.retractLieBracket`, `Polyfold.IsRetractVectorField.diff_identity`,
-`Polyfold.retractLieBracket_mem_tangent` (§4.5.1); `Polyfold.proposition_4_4_5_local_2021` (Proposition 4.4.5 in a local model);
-`Polyfold.lieBracket_level_counterexample_2021`, `Polyfold.not_forall_lieBracket_mem_level_one_2021` (the level of the bracket).
+`Polyfold.retractLieBracket_mem_tangent` (§4.5.1); `Polyfold.proposition_4_4_5_local` (Proposition 4.4.5 in a local model);
+`Polyfold.lieBracket_level_counterexample`, `Polyfold.not_forall_lieBracket_mem_level_one` (the level of the bracket).
 The findings are `Exposition/Findings.md`, "Chapter 4", items 150–159.
 
 ---

@@ -241,7 +241,7 @@ theorem MPolyfold.admitsBumpFunctions_of_model_hasBumpAt
     (h : ∀ x, ∃ φ : MChart X, PX.IsChart φ ∧ x ∈ φ.source ∧
       ∃ x₀, (scPolyfold φ.model.E).HasBumpAt x₀) :
     PX.AdmitsBumpFunctions := by
-  refine theorem_5_34.2 ⟨{φ | PX.IsChart φ ∧ ∃ x₀, (scPolyfold φ.model.E).HasBumpAt x₀},
+  refine theorem_5_5_7.2 ⟨{φ | PX.IsChart φ ∧ ∃ x₀, (scPolyfold φ.model.E).HasBumpAt x₀},
     fun φ hφ => hφ.1, fun x => ?_, fun φ hφ => ?_⟩
   · obtain ⟨φ, hφ, hx, hb⟩ := h x
     exact ⟨φ, ⟨hφ, hb⟩, hx⟩

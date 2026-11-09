@@ -9,16 +9,16 @@ noncomputable section
 namespace RoundTrip.V3_54
 open Polyfold
 
-/-- The project's statement: `lemma_3_61` and the theorems of its proof listed with it
+/-- The project's statement: `lemma_3_7_4` and the theorems of its proof listed with it
 (`famInv_isSc0Germ`, `famInv_isSc1GermWith`, `famInv_hasFDerivWithinAt`, `famInv_isSckGerm`,
 `exists_forall_norm_le_of_isCompact`); all already in `Type`, no universe parameters. -/
 def A : Prop :=
-  type_of% @Polyfold.lemma_3_61 ∧ type_of% @Polyfold.famInv_isSc0Germ ∧
+  type_of% @Polyfold.lemma_3_7_4 ∧ type_of% @Polyfold.famInv_isSc0Germ ∧
     type_of% @Polyfold.famInv_isSc1GermWith ∧ type_of% @Polyfold.famInv_hasFDerivWithinAt ∧
     type_of% @Polyfold.famInv_isSckGerm ∧ type_of% @Polyfold.exists_forall_norm_le_of_isCompact
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_3_61, @Polyfold.famInv_isSc0Germ, @Polyfold.famInv_isSc1GermWith,
+  ⟨@Polyfold.lemma_3_7_4, @Polyfold.famInv_isSc0Germ, @Polyfold.famInv_isSc1GermWith,
     @Polyfold.famInv_hasFDerivWithinAt, @Polyfold.famInv_isSckGerm,
     @Polyfold.exists_forall_norm_le_of_isCompact⟩
 
@@ -32,7 +32,7 @@ lemma param_mem_smooth {G : Type} [NormedAddCommGroup G] [NormedSpace ℝ G] [Fi
 
 /-- Lemma 3.61 in set form on `(Vo ∩ C̃) ⊕ X`, `0 ∈ Vo` (the germ `ofSet`), from the hypothesis
 `h361` (the argument of the project's `famInv_isScSmooth_of`, re-done with the hypothesis). -/
-theorem famInv_set (h361 : type_of% @Polyfold.lemma_3_61) {P : Type} [NormedAddCommGroup P]
+theorem famInv_set (h361 : type_of% @Polyfold.lemma_3_7_4) {P : Type} [NormedAddCommGroup P]
     [NormedSpace ℝ P] [FiniteDimensional ℝ P] {Ct : Set P} {X Y : ScBanach}
     (hC : IsPartialQuadrant (ScBanach.const P) Ct) {Vo : Set P}
     (hVo : IsOpen Vo) (hVo0 : (0 : P) ∈ Vo) {L : P → ScIso X Y}
@@ -64,7 +64,7 @@ theorem famInv_set (h361 : type_of% @Polyfold.lemma_3_61) {P : Type} [NormedAddC
       ScNbhdGerm.prodFull_U, hGvU]) (h1 k)
   exact h2.isScSmooth_ofSet hCY hUY.relOpen h0Y
 
-/-- A ⇒ B: `lemma_3_61` is for germs at `0`; B's `V` is an arbitrary relatively open subset of
+/-- A ⇒ B: `lemma_3_7_4` is for germs at `0`; B's `V` is an arbitrary relatively open subset of
 `C_G`.  sc-smoothness is local (`IsScSmooth.of_locally`); near a point `(e, k)` of `V ⊕ F` the
 family is re-centred, `L'(u) = L(u + e)` on `(V − e) ∩ G(e)`, a relatively open neighbourhood of
 `0` in the partial quadrant `C_e` (Definition 2.33; `recentreNbhd`, `isPartialQuadrant_partialQuadrantAtWith`),
@@ -153,10 +153,10 @@ theorem A_to_B : A → B := by
   simp only [Function.comp_apply, famInv, hL', Prod.fst_sub, Prod.snd_sub, sub_zero,
     sub_add_cancel]
 
-#rt_check RoundTrip.V3_54.A_to_B [Polyfold.lemma_3_61, Polyfold.famInv_isSc0Germ,
+#rt_check RoundTrip.V3_54.A_to_B [Polyfold.lemma_3_7_4, Polyfold.famInv_isSc0Germ,
   Polyfold.famInv_isSc1GermWith, Polyfold.famInv_hasFDerivWithinAt, Polyfold.famInv_isSckGerm,
   Polyfold.exists_forall_norm_le_of_isCompact]
-#rt_overlap RoundTrip.V3_54.A_to_B [Polyfold.lemma_3_61, Polyfold.famInv_isSc0Germ,
+#rt_overlap RoundTrip.V3_54.A_to_B [Polyfold.lemma_3_7_4, Polyfold.famInv_isSc0Germ,
   Polyfold.famInv_isSc1GermWith, Polyfold.famInv_hasFDerivWithinAt, Polyfold.famInv_isSckGerm,
   Polyfold.exists_forall_norm_le_of_isCompact]
 

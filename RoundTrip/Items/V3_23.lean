@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_23
 
 /-! Round trip for V3_23 (Proposition 3.26: invariance of the tangent germ property).
 
-`A` is the conjunction of the types of `proposition_3_26` and `proposition_3_26_image` (universes
+`A` is the conjunction of the types of `proposition_3_2_2` and `proposition_3_2_2_image` (universes
 of `X`, `X'` instantiated at `0`); `TangentGermChart.transport` is a definition.
 
 * Neither direction is derived from the other side (`A_to_B` below is VACUOUS: `fun _ => B_holds`).  `A` is about the project's notion `HasTangentGermProperty`, `B`
@@ -26,9 +26,9 @@ open Polyfold Set
 
 /-- The project's statement (universes of `X`, `X'` at `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_3_26.{0, 0}) ∧ (type_of% @Polyfold.proposition_3_26_image.{0, 0})
+  (type_of% @Polyfold.proposition_3_2_2.{0, 0}) ∧ (type_of% @Polyfold.proposition_3_2_2_image.{0, 0})
 
-theorem A_holds : A := ⟨@Polyfold.proposition_3_26.{0, 0}, @Polyfold.proposition_3_26_image.{0, 0}⟩
+theorem A_holds : A := ⟨@Polyfold.proposition_3_2_2.{0, 0}, @Polyfold.proposition_3_2_2_image.{0, 0}⟩
 
 /-- The text's data are carried by an sc-diffeomorphism (the project's construction
 `TangentGermChart.transport`, redone for `HasTangentGermPropertyB`). -/
@@ -85,7 +85,7 @@ theorem B_holds : B := by
 /-- Vacuous: `B` is proved outright (the hypothesis is not used). -/
 theorem A_to_B : A → B := fun _ => B_holds
 
-#rt_check RoundTrip.V3_23.A_to_B [Polyfold.proposition_3_26, Polyfold.proposition_3_26_image]
-#rt_overlap RoundTrip.V3_23.A_to_B [Polyfold.proposition_3_26, Polyfold.proposition_3_26_image]
+#rt_check RoundTrip.V3_23.A_to_B [Polyfold.proposition_3_2_2, Polyfold.proposition_3_2_2_image]
+#rt_overlap RoundTrip.V3_23.A_to_B [Polyfold.proposition_3_2_2, Polyfold.proposition_3_2_2_image]
 
 end RoundTrip.V3_23

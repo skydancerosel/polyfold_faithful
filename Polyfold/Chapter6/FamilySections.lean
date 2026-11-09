@@ -4,7 +4,7 @@ import Polyfold.Chapter3.IndexAlongPathsDevice
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
 pp. 224–226: two facts about sections over parameter families used in the proofs of
-Proposition 6.32, Lemmas 6.33–6.34 and Theorem 6.35 *(book 2017: Proposition 6.13,
+Proposition 6.6.7 (preprint 6.32), Lemmas 6.33–6.34 and Theorem 6.6.11 (preprint 6.35) *(book 2017: Proposition 6.13,
 Lemmas 6.15–6.16, Theorem 6.1; see `BookConcordance.md`)*.
 
 # Sections over parameter families

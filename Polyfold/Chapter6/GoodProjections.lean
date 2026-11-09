@@ -4,7 +4,7 @@ import Polyfold.Chapter1.FredholmPerturbation
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.3,
-pp. 207–208: **Definition 6.9** (good left-projections `Π_T` and their order) and **Lemma 6.10**
+pp. 207–208: **Definition 6.4.3 (preprint 6.9)** (good left-projections `Π_T` and their order) and **Lemma 6.10**
 (two good left-projections have a common lower bound) *(book 2017: Definition 6.5; Lemma 6.10 is
 not in the 2017 version, see below and `BookConcordance.md`)*.
 
@@ -12,7 +12,7 @@ not in the 2017 version, see below and `BookConcordance.md`)*.
 
 ## The text, paraphrased
 
-(Definition 6.9) Let `T : E → F` be Fredholm.  A good left-projection for `T` is a bounded
+(Definition 6.4.3 (preprint 6.9)) Let `T : E → F` be Fredholm.  A good left-projection for `T` is a bounded
 projection `P : F → F` with (1) `dim(F / R(P)) < ∞` and (2) `R(P ∘ T) = R(P)`; `Π_T` is the set
 of them.  Then `P` is Fredholm of index `0`, `P ∘ T` is Fredholm and `ind(P ∘ T) = ind(T)`.  `Π_T`
 is partially ordered by `P ≤ Q` iff `P = PQ = QP`.  For `P, P' ∈ Π_T`, `R(P) ∩ R(P')` has finite
@@ -23,7 +23,7 @@ complement `Z` of `X ⊕ X' ⊕ R(P) ∩ R(P')`, and `P''` the projection onto `
 
 ## What is formalized
 
-* `Polyfold.IsGoodLeftProj T P` (**Definition 6.9**), `Polyfold.goodLeftProjs T` (`Π_T`),
+* `Polyfold.IsGoodLeftProj T P` (**Definition 6.4.3 (preprint 6.9)**), `Polyfold.goodLeftProjs T` (`Π_T`),
   `Polyfold.ProjLE P Q` (`P = PQ = QP`) with `ProjLE.refl`, `ProjLE.antisymm`, `ProjLE.trans`
   (a partial order on projections).
 * The remarks after the definition: `IsGoodLeftProj.isFredholm` and
@@ -33,9 +33,9 @@ complement `Z` of `X ⊕ X' ⊕ R(P) ∩ R(P')`, and `P''` the projection onto `
   finite codimension).
 * `Polyfold.exists_isGoodLeftProj`: `Π_T` is not empty for `T` Fredholm (the projection onto
   `R(T)` along a finite-dimensional complement), which the text uses without stating it.
-* **Lemma 6.10** (`lemma_6_10`), without the hypothesis that `T` is Fredholm, by a construction that
+* **Lemma 6.10** (`lemma_6_10_preprint`), without the hypothesis that `T` is Fredholm, by a construction that
   differs from the text's (below).
-* `lemma_6_10_text_reading`: on `F = ℝ²` with `T = 1` there are `P, P' ∈ Π_T` such that **no**
+* `lemma_6_10_text_reading_preprint`: on `F = ℝ²` with `T = 1` there are `P, P' ∈ Π_T` such that **no**
   projection with range `R(P) ∩ R(P')` lies below both; so the text's `P''` (whose range is
   `R(P) ∩ R(P')`) does not satisfy `P'' = P'' P` and `P'' = P'' P'` as we read it.
 
@@ -62,7 +62,7 @@ namespace Polyfold
 variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
   [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
 
-/-- **Definition 6.9**: a **good left-projection** for `T : E → F` is a bounded projection
+/-- **Definition 6.4.3 (preprint 6.9)**: a **good left-projection** for `T : E → F` is a bounded projection
 `P : F → F` with (1) `dim(F / R(P)) < ∞` and (2) `R(P ∘ T) = R(P)`. -/
 structure IsGoodLeftProj (T : E →L[ℝ] F) (P : F →L[ℝ] F) : Prop where
   /-- `P` is a projection. -/
@@ -222,7 +222,7 @@ theorem range_comp_eq_of_comp_eq {T : E →L[ℝ] F} {P P'' : F →L[ℝ] F} (hP
 
 omit [CompleteSpace E] [CompleteSpace F] in
 /-- **Lemma 6.10**: given `P, P' ∈ Π_T`, there is `P'' ∈ Π_T` with `P'' ≤ P` and `P'' ≤ P'`. -/
-theorem lemma_6_10 {T : E →L[ℝ] F} {P P' : F →L[ℝ] F} (hP : IsGoodLeftProj T P)
+theorem lemma_6_10_preprint {T : E →L[ℝ] F} {P P' : F →L[ℝ] F} (hP : IsGoodLeftProj T P)
     (hP' : IsGoodLeftProj T P') :
     ∃ P'' : F →L[ℝ] F, IsGoodLeftProj T P'' ∧ ProjLE P'' P ∧ ProjLE P'' P' := by
   -- `K = ker P + ker P'` is finite-dimensional; `N` is a closed complement of `K`.
@@ -256,7 +256,7 @@ theorem lemma_6_10 {T : E →L[ℝ] F} {P P' : F →L[ℝ] F} (hP : IsGoodLeftPr
 
 /-- **The text's construction in Lemma 6.10, as we read it**: on `F = ℝ²` with `T = 1` there are
 `P, P' ∈ Π_T` such that no projection with range `R(P) ∩ R(P')` lies below both. -/
-theorem lemma_6_10_text_reading :
+theorem lemma_6_10_text_reading_preprint :
     ∃ P P' : (ℝ × ℝ) →L[ℝ] (ℝ × ℝ),
       IsGoodLeftProj (ContinuousLinearMap.id ℝ (ℝ × ℝ)) P ∧
       IsGoodLeftProj (ContinuousLinearMap.id ℝ (ℝ × ℝ)) P' ∧

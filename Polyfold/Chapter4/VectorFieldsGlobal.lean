@@ -49,12 +49,12 @@ M-polyfolds:
 * `MPolyfold.lieBracket` (`[A, B] : X² → TX`, defined in a chosen chart),
   `MPolyfold.tangentChartMap_lieBracket` (in every chart `ψ`,
   `Tψ([A, B](x)) = (ψ(x), [A_ψ, B_ψ](ψ(x)))`), `MPolyfold.continuous_lieBracket`, and
-  `proposition_4_4_5_2021` (**Proposition 4.4.5**): `[A, B]` is sc-smooth from `X²` to `TX` and
+  `proposition_4_4_5` (**Proposition 4.4.5**): `[A, B]` is sc-smooth from `X²` to `TX` and
   `p ∘ [A, B]` is the inclusion `X² → X¹`.
 * `MPolyfold.liftLevelOneMap`, `MPolyfold.levelTwoMap` (`f₁ : X¹ → Y¹`, `f₂ : X² → Y²`) and
-  `lemma_4_5_1_2021` (**Lemma 4.5.1**): for an sc-smooth `f : X → Y` with `Tf ∘ A = A' ∘ f₁` and
+  `lemma_4_5_1` (**Lemma 4.5.1**): for an sc-smooth `f : X → Y` with `Tf ∘ A = A' ∘ f₁` and
   `Tf ∘ B = B' ∘ f₁` on `X¹`, `Tf ∘ [A, B] = [A', B'] ∘ f₂` on `X²`.
-* `MPolyfold.vectorFieldLevelOne`, `MPolyfold.raiseIndex`, `lemma_4_4_4_2021`
+* `MPolyfold.vectorFieldLevelOne`, `MPolyfold.raiseIndex`, `lemma_4_4_4`
   (**Lemma 4.4.4**, `i = 1`): `A^(1) = Φ⁻¹ ∘ A₁` is an sc-smooth vector field on `X¹`, with
   `Φ(A^(1)(x)) = A(x)`.
 
@@ -78,7 +78,7 @@ The hypotheses `IsScVectorField` are satisfiable: `MPolyfold.isScVectorField_zer
   applied to the transition maps of charts, which gives the independence of the chart.
 * Lemma 4.4.4 is proved for `i = 1`; every fixed `i` follows by applying it to `X¹`, `X²`, …,
   since `A^(1)` is again an sc-smooth vector field; the statement for all `i` at once is
-  `lemma_4_4_4_all_2021` in `Chapter2/TangentLiftAll.lean`.
+  `lemma_4_4_4_all` in `Chapter2/TangentLiftAll.lean`.
 -/
 
 open Set Filter Topology Function
@@ -147,7 +147,7 @@ theorem IsRetractVectorField.diff_related {R : ScRetraction E C} {R' : ScRetract
       (levelMap g 1 y, A' (R'.shift (levelMap g 1 y)))
     rw [hgρρ y hy, hAA' _ hyO, hgρ y hy, hfix']
   have hx1 : x ∈ E.shift.lvlSet ρ.U 1 := E.lvlSet_mono R.retract_subset 2 hx
-  obtain ⟨hTβ, hchain⟩ := theorem_1_21' ρ.isScDomain R.isScDomain.tangentSet (hβ 1).1 hTg hβmaps
+  obtain ⟨hTβ, hchain⟩ := theorem_1_3_1' ρ.isScDomain R.isScDomain.tangentSet (hβ 1).1 hTg hβmaps
   have hcongr := hTβ.tangentMap_congr ρ.isScDomain hfix
   have hq : ((x, b) : E.shift.tangent 0) ∈ E.shift.tangentSet ρ.U := hx1
   have key := congrArg Prod.snd ((hchain hq).symm.trans (hcongr hq))
@@ -179,7 +179,7 @@ theorem IsRetractVectorField.diff_related {R : ScRetraction E C} {R' : ScRetract
   have key2 := congrArg Prod.snd key
   simp only [Prod.snd_add] at key2
   -- the chain rule for `Ã' ∘ g₁`
-  obtain ⟨-, hchain2⟩ := theorem_1_21' ρ.isScDomain R'.shift.isScDomain (hg1 1).1 (hA's 1).1 hmaps1
+  obtain ⟨-, hchain2⟩ := theorem_1_3_1' ρ.isScDomain R'.shift.isScDomain (hg1 1).1 (hA's 1).1 hmaps1
   have key3 := congrArg Prod.snd (hchain2 hq)
   change scDeriv ρ.U ((A' ∘ R'.shift) ∘ levelMap g 1) x b =
     scDeriv R'.shift.U (A' ∘ R'.shift) (levelMap (levelMap g 1) 1 x)
@@ -352,7 +352,7 @@ theorem retractLieBracket_natural_inter {R : ScRetraction E C} {R' : ScRetractio
     (hrel B B' hB₀ hBB') hx₀
   have hx₀U : x ∈ E.shift.lvlSet R₀.shift.U 1 := E.lvlSet_mono R₀.retract_subset 2 hx₀
   have hloc := retractLieBracket_restrict hA hB hW hx₀U
-  have hbr := (proposition_4_4_5_local_2021 hA₀ hB₀).1 x hx₀
+  have hbr := (proposition_4_4_5_local hA₀ hB₀).1 x hx₀
   rw [← hR₀, ← hloc, retractTangentMap_apply hf₀ R₀ rfl hbr, hnat,
     levelMap_levelMap_comp_eq hf₀ hx₀]
   refine Prod.ext ?_ rfl
@@ -476,7 +476,7 @@ variable (hφ x₀) in
 def chartLieBracket (A B : P.Level 1 → P.TangentSpace) (z : φ.model.E.shift 1) : φ.model.E 0 :=
   retractLieBracket (chartRetraction φ) (principalPart hφ x₀ A) (principalPart hφ x₀ B) z
 
-/-- Proposition 4.4.5 in the chart `φ` (`proposition_4_4_5_local_2021`). -/
+/-- Proposition 4.4.5 in the chart `φ` (`proposition_4_4_5_local`). -/
 theorem IsScVectorField.chartLieBracket_spec {A B : P.Level 1 → P.TangentSpace}
     (hA : P.IsScVectorField A) (hB : P.IsScVectorField B) :
     (∀ z ∈ φ.model.E.shift.lvlSet (φ.model.E.lvlSet φ.model.O 1) 1,
@@ -490,7 +490,7 @@ theorem IsScVectorField.chartLieBracket_spec {A B : P.Level 1 → P.TangentSpace
   have hA' := hA.isRetractVectorField_principalPart (hφ := hφ) (x₀ := x₀)
   have hB' := hB.isRetractVectorField_principalPart (hφ := hφ) (x₀ := x₀)
   rw [← chartRetraction_retract φ] at hA' hB'
-  have h := proposition_4_4_5_local_2021 hA' hB'
+  have h := proposition_4_4_5_local hA' hB'
   rw [chartRetraction_retract φ] at h
   exact h
 
@@ -675,7 +675,7 @@ theorem continuous_lieBracket (hA : P.IsScVectorField A) (hB : P.IsScVectorField
 `[A, B]`, defined in charts by the usual formula, is an sc-smooth section of `TX|X² → X²`: an
 sc-smooth map `X² → TX` with `p([A, B](x)) = x`.  It does not depend on the chart
 (`tangentChartMap_lieBracket`). -/
-theorem _root_.Polyfold.proposition_4_4_5_2021 (hA : P.IsScVectorField A)
+theorem _root_.Polyfold.proposition_4_4_5 (hA : P.IsScVectorField A)
     (hB : P.IsScVectorField B) :
     P.shift.shift.IsScSmoothMap P.tangentPolyfold (lieBracket hA hB) ∧
       ∀ x, P.tangentProj (lieBracket hA hB x) = P.shift.levelVal 1 x := by
@@ -733,7 +733,7 @@ variable {A B : P.Level 1 → P.TangentSpace} {A' B' : Q.Level 1 → Q.TangentSp
 /-- **2021 Lemma 4.5.1, p. 201 (new in the 2021 edition; proof left to the reader)**, for an
 sc-smooth map `f : X → Y` of M-polyfolds (a local sc-diffeomorphism `X → X` in the text): if
 `Tf ∘ A = A' ∘ f₁` and `Tf ∘ B = B' ∘ f₁` on `X¹`, then `Tf ∘ [A, B] = [A', B'] ∘ f₂` on `X²`. -/
-theorem _root_.Polyfold.lemma_4_5_1_2021 (hA : P.IsScVectorField A) (hB : P.IsScVectorField B)
+theorem _root_.Polyfold.lemma_4_5_1 (hA : P.IsScVectorField A) (hB : P.IsScVectorField B)
     (hA' : Q.IsScVectorField A') (hB' : Q.IsScVectorField B')
     (hAA' : ∀ x, tangentMap hf (A x) = A' (liftLevelOneMap hf x))
     (hBB' : ∀ x, tangentMap hf (B x) = B' (liftLevelOneMap hf x)) (x : P.shift.Level 1) :
@@ -855,7 +855,7 @@ def raiseIndex (hA : P.IsScVectorField A) (x : P.shift.Level 1) : P.shift.Tangen
 `A^(1)` is again an sc-smooth vector field, of `X¹`): `A^(1)` is an sc-smooth vector field on
 `X¹`, i.e. an sc-smooth section of `T(X¹) → X²`, and it is `A` on `X²`: `Φ(A^(1)(x)) = A(x)`
 (as an element of `(TX)¹`). -/
-theorem _root_.Polyfold.lemma_4_4_4_2021 (hA : P.IsScVectorField A) :
+theorem _root_.Polyfold.lemma_4_4_4 (hA : P.IsScVectorField A) :
     P.shift.IsScVectorField (raiseIndex hA) ∧
       ∀ x, P.tangentPolyfold.levelVal 1 (tangentShiftEquiv (raiseIndex hA x)) =
         A (P.shift.levelVal 1 x) := by

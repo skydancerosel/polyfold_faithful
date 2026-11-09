@@ -9,7 +9,7 @@ import Polyfold.Chapter3.ParamPerturbationG
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5, p. 230:
-**Remark 6.42**, the orientation of `f̂(x, t) = f(x) + s(x, t)` over `X × [0, 1]` *(book 2017:
+**Remark 6.6.19 (preprint 6.42)**, the orientation of `f̂(x, t) = f(x) + s(x, t)` over `X × [0, 1]` *(book 2017:
 Remark 6.4; see `BookConcordance.md`)*.
 
 # The product orientation of `f + s` over `X × [0, 1]`
@@ -47,7 +47,7 @@ natural orientation, made from `o` and the standard orientation of `[0, 1]`.  At
   * `prodT`, `prodK` and `prodLin` are `A`, `Γ` and `L̂`.
   * `prodLin_mem_linSet`: **`L̂ ∈ Lin(f̂, (t, x))`** for every `L ∈ Lin(f, x)`, where
     `f̂ = f̃ + S`.  The proof uses `IsScPlusOp.prodPt` and the `t`-constant lift `constLift`.
-* **Remark 6.42**: `ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr` and `prodOr_apply`.
+* **Remark 6.6.19 (preprint 6.42)**: `ChartPoint.existsUnique_prodOr`, `ChartPoint.prodOr` and `prodOr_apply`.
   An orientation `o` of `DET(f, x)` gives exactly one orientation `ô` of `DET(f̂, (t, x))` with
   `ô(L̂) = extConjDet(o(L))` for **all** `L ∈ Lin(f, x)`.  So the orientation does not depend on
   the choice of `L`.  `prodOr_injective` says that `o ↦ ô` is injective.
@@ -58,7 +58,7 @@ natural orientation, made from `o` and the standard orientation of `[0, 1]`.  At
   (`rnPolyfold 1`, as for the families of Chapter 6) and comes first.
   * `s` is an sc⁺-section `S` of the pull-back `π*P` along `π = Prod.snd : ℝ¹ × X → X`.
   * `f̂ = f̃ + S` with `f̃(t, x) = f(x)` (`paramLift`); it is sc-Fredholm by
-    `IsScFredholmSection.param` and Theorem 3.15.
+    `IsScFredholmSection.param` and Theorem 3.1.18 (preprint 3.15).
   * At a single point the restriction to `t ∈ [0, 1]` plays no role.
 * **The linearization space of `f̂` is read in a product chart point** `prodPt`.
   * The chart is `(r ↦ r) × φ` of `ℝ¹ × X` over a chart point `p = (c, z)` of `x`, taken at
@@ -199,7 +199,7 @@ def extCoker (T : E →L[ℝ] F) :
       F ⧸ LinearMap.range (T : E →ₗ[ℝ] F) :=
   Submodule.quotEquivOfEq _ _ (range_extOp T)
 
-/-- **`det(L) ≅ det(L̃)`, `(a₁ ∧ … ∧ aₙ) ⊗ ξ ↦ (a₁ ∧ … ∧ aₙ ∧ e) ⊗ ξ`** (the map of Remark 6.42,
+/-- **`det(L) ≅ det(L̃)`, `(a₁ ∧ … ∧ aₙ) ⊗ ξ ↦ (a₁ ∧ … ∧ aₙ ∧ e) ⊗ ξ`** (the map of Remark 6.6.19 (preprint 6.42),
 with `coker L̃ = coker L`). -/
 def extDet (hT : T.IsFredholm) : fredholmDet T ≃ₗ[ℝ] fredholmDet (extOp T) :=
   TensorProduct.congr (extKer hT) (maxPowDualEquiv (extCoker T))
@@ -220,7 +220,7 @@ theorem extDet_wedge_tmul (hT : T.IsFredholm) {n l : ℕ}
   rw [extDet, TensorProduct.congr_tmul, extKer_wedge, maxPowDualEquiv_dualVec_symm _ hd hl]
 
 /-- **The sign-normalized isomorphism** `(−1)^{dim coker L} · extDet : det(L) ≅ det(L̃)`: the map
-`h ↦ h̃` of Remark 6.42, normalized so that it is continuous in `L` (it agrees with the text's map
+`h ↦ h̃` of Remark 6.6.19 (preprint 6.42), normalized so that it is continuous in `L` (it agrees with the text's map
 when `L` is onto). -/
 def extDetN (hT : T.IsFredholm) : fredholmDet T ≃ₗ[ℝ] fredholmDet (extOp T) :=
   (LinearEquiv.smulOfUnit (stabSign T)).trans (extDet hT)
@@ -434,11 +434,11 @@ theorem coord_extDet (c : LocalDetChart E F) (c' : LocalDetChart (E × (Fin 1 �
   have := c.finiteDimensional_ker S hS
   set a := Module.finBasis ℝ (LinearMap.ker (S : E →ₗ[ℝ] F))
   set d := Module.finBasis ℝ (F ⧸ LinearMap.range (S : E →ₗ[ℝ] F))
-  obtain ⟨j, b, hb, hj⟩ := exists_linearIndependent_append (projSeqJ S c.P) (lemma_6_11 hPS).1
+  obtain ⟨j, b, hb, hj⟩ := exists_linearIndependent_append (projSeqJ S c.P) (proposition_6_4_10 hPS).1
     a.linearIndependent rfl
   have hex : ∀ i, ∃ y : F,
       projSeqPi (T := S) hPS.isProj (Submodule.Quotient.mk y) = d i := fun i => by
-    obtain ⟨q, hq⟩ := (lemma_6_11 hPS).2.2.2 (d i)
+    obtain ⟨q, hq⟩ := (proposition_6_4_10 hPS).2.2.2 (d i)
     obtain ⟨y, rfl⟩ := Submodule.Quotient.mk_surjective _ q
     exact ⟨y, hq⟩
   choose y hy using hex
@@ -586,7 +586,7 @@ theorem isLineOrientation_extPull (hmem : ∀ S ∈ C, extOp S ∈ C')
       funext j
       rw [show (c'.kerMap (extOp (b₀ : E →L[ℝ] F)) (t j) : E × (Fin 1 → ℝ)) =
         (L (Pi.basisFun ℝ (Fin 1) j) : E × (Fin 1 → ℝ)) from
-          (c'.lemma_6_18).2.2.1 _ hb₀c' _ (L _).2]
+          (c'.lemma_6_5_2).2.2.1 _ hb₀c' _ (L _).2]
       exact LinearMap.congr_fun hL _
     rw [h, Basis.det_self]
     exact one_ne_zero
@@ -634,7 +634,7 @@ theorem isLineOrientation_extPull (hmem : ∀ S ∈ C, extOp S ∈ C')
     rw [h2]
     exact (inv_mul_cancel_left₀ (hκ0 b hb) _).symm
   refine ⟨U, hU, σ, ?_, fun b hb => ?_⟩
-  · obtain ⟨e, -, he, hee⟩ := (proposition_6_24 (E := E) (F := F)).2 c
+  · obtain ⟨e, -, he, hee⟩ := (proposition_6_5_8 (E := E) (F := F)).2 c
     have hsrc : U ⊆ (fun b : C => (⟨fredholmIncl hC b, σ b⟩ :
         TotalSpace ℝ (DetFiber (E := E) (F := F)))) ⁻¹' e.source :=
       fun b hb => e.mem_source.2 (by rw [he]; exact hb.2.1)
@@ -728,7 +728,7 @@ theorem extDetFiber_rfl_apply {T : E →L[ℝ] F} (hS : T.IsFredholm)
   DFunLike.congr_fun (linDetEquivOfEq_self
     ((extOp T : E × (Fin 1 → ℝ) →L[ℝ] F) : E × (Fin 1 → ℝ) →ₗ[ℝ] F) rfl) (extDetN hS y)
 
-/-- **`L̂ = Γ⁻¹ (L ⊕ 0) A`**: the operator `L̃(a, b) = La` of Remark 6.42 transported along
+/-- **`L̂ = Γ⁻¹ (L ⊕ 0) A`**: the operator `L̃(a, b) = La` of Remark 6.6.19 (preprint 6.42) transported along
 isomorphisms `A : E' ≅ E × ℝ¹` and `Γ : F' ≅ F`. -/
 def extConjOp (L : E →L[ℝ] F) : E' →L[ℝ] F' :=
   (Γ.symm : F →L[ℝ] F') ∘L extOp L ∘L (A : E' →L[ℝ] E × (Fin 1 → ℝ))
@@ -785,7 +785,7 @@ theorem rayMap_trans_symm_cancel {M N Q : Type*} [AddCommMonoid M] [Module ℝ M
       simp only [Module.Ray.map_apply, LinearEquiv.trans_apply, LinearEquiv.apply_symm_apply,
         LinearEquiv.symm_apply_apply]) r
 
-/-- **One orientation for all `L̂`** (the abstract form of Remark 6.42): for a preconnected `C`
+/-- **One orientation for all `L̂`** (the abstract form of Remark 6.6.19 (preprint 6.42)): for a preconnected `C`
 and a simply connected, locally path-connected `Ĉ` with `L̂ ∈ Ĉ` for `L ∈ C`, an orientation `o`
 of `DET` over a nonempty `C` gives exactly one orientation `ô` over `Ĉ` with
 `ô(L̂) = extConjDet(o(L))` for every `L ∈ C` (`LineOrientation.conj`, `LineOrientation.extPull`). -/
@@ -1044,7 +1044,7 @@ namespace ChartPoint
 variable {x : X} (p : ChartPoint B x) (t : Fin 1 → ℝ)
   (q₀ : pullbackSpace P (Prod.snd : (Fin 1 → ℝ) × X → X))
 
-/-- **`L̂ ∈ Lin(f̂, (t, x))`** for `L ∈ Lin(f, x)` (Remark 6.42, "`L̃ ∈ Lin(f̂, (x, t))`"), at a
+/-- **`L̂ ∈ Lin(f̂, (t, x))`** for `L ∈ Lin(f, x)` (Remark 6.6.19 (preprint 6.42), "`L̃ ∈ Lin(f̂, (x, t))`"), at a
 smooth point: for `L = (f + s)'(x) + a`, take `ŝ = s̃ − S` with the `t`-constant lift `s̃` of `s`;
 then `f̂ + ŝ = f̃ + s̃` is `(t, y) ↦ (f + s)(y)`, whose linearization at `(t, z)` is
 `(σ, v) ↦ (f + s)'(x) v` (`StrongBundle.scDeriv_paramSection_apply`), and `(σ, v) ↦ a(v)` is an
@@ -1127,7 +1127,7 @@ namespace ChartPoint
 variable {x : X} (p : ChartPoint B x) (t : Fin 1 → ℝ)
   (q₀ : pullbackSpace P (Prod.snd : (Fin 1 → ℝ) × X → X))
 
-/-- **Remark 6.42: the natural orientation of `f̂ = f̃ + S`** at `(t, x)`, read in the product
+/-- **Remark 6.6.19 (preprint 6.42): the natural orientation of `f̂ = f̃ + S`** at `(t, x)`, read in the product
 chart point `prodPt`.  For an sc-Fredholm `f`, an sc⁺-section `S` of `π*P` over `ℝ¹ × X`, a smooth
 point `x` with `Lin(f, x)` nonempty and an orientation `o` of `DET(f, x)`, there is exactly one
 orientation `ô` of `DET(f̂, (t, x))` with `ô(L̂) = extConjDet(o(L))` for **every**
@@ -1139,35 +1139,35 @@ theorem existsUnique_prodOr (hf : B.IsScFredholmSection f) (hx : x ∈ PX.smooth
     (hne : (p.linSet f).Nonempty) (o : p.Or f hf) :
     ∃! ô : (p.prodPt t q₀).Or
         (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)
-        (theorem_3_15 hf.param hS),
+        (theorem_3_1_18_preprint hf.param hS),
       ∀ (L : ↥p.T →L[ℝ] ↥p.K) (hL : L ∈ p.linSet f),
         ô ⟨p.prodLin t q₀ L, p.prodLin_mem_linSet t q₀ hf hx hS hL⟩ =
           Module.Ray.map (extConjDet (p.prodT t q₀) (p.prodK t q₀)
             (p.isFredholm_of_mem_linSet hf L hL)
-            ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+            ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
               (p.prodLin_mem_linSet t q₀ hf hx hS hL))) (o ⟨L, hL⟩) := by
   obtain ⟨L₀, hL₀⟩ := hne
   have : PreconnectedSpace (p.linSet f) :=
     isPreconnected_iff_preconnectedSpace.1 (p.convex_linSet hf).isPreconnected
   have : ContractibleSpace ((p.prodPt t q₀).linSet
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)) :=
-    ((p.prodPt t q₀).convex_linSet (theorem_3_15 hf.param hS)).contractibleSpace
+    ((p.prodPt t q₀).convex_linSet (theorem_3_1_18_preprint hf.param hS)).contractibleSpace
       ⟨_, p.prodLin_mem_linSet t q₀ hf hx hS hL₀⟩
   have : LocallyPathConnectedSpace ((p.prodPt t q₀).linSet
       (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)) :=
-    ((p.prodPt t q₀).convex_linSet (theorem_3_15 hf.param hS)).locallyPathConnectedSpace
+    ((p.prodPt t q₀).convex_linSet (theorem_3_1_18_preprint hf.param hS)).locallyPathConnectedSpace
   exact existsUnique_extConjOr (p.prodT t q₀) (p.prodK t q₀) (p.isFredholm_of_mem_linSet hf)
-    ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS))
+    ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS))
     (fun L hL => p.prodLin_mem_linSet t q₀ hf hx hS hL) ⟨L₀, hL₀⟩ o
 
-/-- **The product orientation of Remark 6.42** at `(t, x)`: the orientation `ô` of
+/-- **The product orientation of Remark 6.6.19 (preprint 6.42)** at `(t, x)`: the orientation `ô` of
 `DET(f̂, (t, x))` determined by `o` (`existsUnique_prodOr`). -/
 def prodOr (hf : B.IsScFredholmSection f) (hx : x ∈ PX.smoothSet)
     {S : (Fin 1 → ℝ) × X → pullbackSpace P (Prod.snd : (Fin 1 → ℝ) × X → X)}
     (hS : (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold 1) PX)).IsScPlusSection S)
     (hne : (p.linSet f).Nonempty) (o : p.Or f hf) :
     (p.prodPt t q₀).Or (sectionAdd (pullbackProj P Prod.snd) (paramLift f hf.isScSmooth.1) S)
-      (theorem_3_15 hf.param hS) :=
+      (theorem_3_1_18_preprint hf.param hS) :=
   (p.existsUnique_prodOr t q₀ hf hx hS hne o).exists.choose
 
 /-- **`prodOr` at `L̂`** is `h ↦ h̃` (`extConjDet`) of `o(L)`, for every `L ∈ Lin(f, x)`. -/
@@ -1179,7 +1179,7 @@ theorem prodOr_apply (hf : B.IsScFredholmSection f) (hx : x ∈ PX.smoothSet)
     p.prodOr t q₀ hf hx hS hne o ⟨p.prodLin t q₀ L, p.prodLin_mem_linSet t q₀ hf hx hS hL⟩ =
       Module.Ray.map (extConjDet (p.prodT t q₀) (p.prodK t q₀)
         (p.isFredholm_of_mem_linSet hf L hL)
-        ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+        ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
           (p.prodLin_mem_linSet t q₀ hf hx hS hL))) (o ⟨L, hL⟩) :=
   (p.existsUnique_prodOr t q₀ hf hx hS hne o).exists.choose_spec L hL
 
@@ -1198,7 +1198,7 @@ theorem prodOr_injective (hf : B.IsScFredholmSection f) (hx : x ∈ PX.smoothSet
   exact LineOrientation.eq_of_apply_eq ⟨L₀, hL₀⟩
     ((Module.Ray.map (extConjDet (p.prodT t q₀) (p.prodK t q₀)
       (p.isFredholm_of_mem_linSet hf L₀ hL₀)
-      ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_15 hf.param hS) _
+      ((p.prodPt t q₀).isFredholm_of_mem_linSet (theorem_3_1_18_preprint hf.param hS) _
         (p.prodLin_mem_linSet t q₀ hf hx hS hL₀)))).injective
       (((p.prodOr_apply t q₀ hf hx hS ⟨L₀, hL₀⟩ o₁ L₀ hL₀).symm.trans h3).trans
         (p.prodOr_apply t q₀ hf hx hS ⟨L₀, hL₀⟩ o₂ L₀ hL₀)))

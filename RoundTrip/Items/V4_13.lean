@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_13
 
 /-!
 Round trip for V4_13 (Proposition 4.8: an sc-smooth retract `(O, C, E)` is an sc⁺-retract iff
-`O₀ = O_∞` and `1₀¹ : O → O¹` is sc-smooth).  `A` is the type of `Polyfold.proposition_4_8` (no
+`O₀ = O_∞` and `1₀¹ : O → O¹` is sc-smooth).  `A` is the type of `Polyfold.proposition_4_1_8` (no
 universe parameters).
 
 Glue:
@@ -20,9 +20,9 @@ Glue:
 namespace RoundTrip.V4_13
 open Polyfold
 
-def A : Prop := type_of% @Polyfold.proposition_4_8
+def A : Prop := type_of% @Polyfold.proposition_4_1_8
 
-theorem A_holds : A := @Polyfold.proposition_4_8
+theorem A_holds : A := @Polyfold.proposition_4_1_8
 
 /-- The project's `ScRetraction.IsScPlus` is B's Definition 4.4 (cf. V4_9). -/
 theorem isScPlus_iff {E : ScBanach} {C : Set (E.lvl 0)} (R : ScRetraction E C) :
@@ -80,8 +80,8 @@ theorem B_to_A : B → A := by
     exact ⟨fun o ho => E.mem_smooth_iff.1 (hsm ho), fun g hg =>
       retractMap_congr (liftOne_lift hsm) hg hmap⟩
 
-#rt_check RoundTrip.V4_13.A_to_B [Polyfold.proposition_4_8]
-#rt_check RoundTrip.V4_13.B_to_A [Polyfold.proposition_4_8]
-#rt_overlap RoundTrip.V4_13.B_to_A [Polyfold.proposition_4_8]
+#rt_check RoundTrip.V4_13.A_to_B [Polyfold.proposition_4_1_8]
+#rt_check RoundTrip.V4_13.B_to_A [Polyfold.proposition_4_1_8]
+#rt_overlap RoundTrip.V4_13.B_to_A [Polyfold.proposition_4_1_8]
 
 end RoundTrip.V4_13

@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = proposition_3_22 ∧ exists_quadrantNormalForm ∧ mem_quadCone_of_vanIdx ∧ sigmaCoord_surjective (V universes at 0). A ⇒ B: B's good position (sc-complement for smooth N, closed complement otherwise, plus ε) gives the project's IsInGoodPosition (the level-0 part of an sc-splitting is an algebraic complement) and proposition_3_22 concludes; B's extra hypothesis IsScSubspace N is not needed. B ⇒ A fails genuinely: proposition_3_22 applies to any finite-dimensional N (not necessarily smooth) with a merely algebraic good complement, which B (smooth N, sc-complement) does not cover, and the other three conjuncts are the coordinate core of the proof (functionals ℓ_i on an arbitrary normed V) that B does not state.",
+ "why": "A = proposition_3_1_25 ∧ exists_quadrantNormalForm ∧ mem_quadCone_of_vanIdx ∧ sigmaCoord_surjective (V universes at 0). A ⇒ B: B's good position (sc-complement for smooth N, closed complement otherwise, plus ε) gives the project's IsInGoodPosition (the level-0 part of an sc-splitting is an algebraic complement) and proposition_3_1_25 concludes; B's extra hypothesis IsScSubspace N is not needed. B ⇒ A fails genuinely: proposition_3_1_25 applies to any finite-dimensional N (not necessarily smooth) with a merely algebraic good complement, which B (smooth N, sc-complement) does not cover, and the other three conjuncts are the coordinate core of the proof (functionals ℓ_i on an arbitrary normed V) that B does not state.",
  "B_issue": null,
  "overlap": "A_to_B: 20 shared project theorems, all sc-structure glue (prodScale/constScale/const proof fields, mem_smoothLvl_iff); no mathematical lemma of Prop 3.22 is reused.",
  "uses_hypothesis": {

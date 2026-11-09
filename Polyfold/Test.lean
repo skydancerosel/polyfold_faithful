@@ -25,10 +25,10 @@ namespace Polyfold
 #print axioms ScPlus.isCompactOperator
 #print axioms ScBanach.ofSubspace
 #print axioms ScBanach.IsScSplitting.closedComplemented
-#print axioms ScBanach.proposition_1_6_iff
-#print axioms ScBanach.proposition_1_6
+#print axioms ScBanach.proposition_1_1_7_iff
+#print axioms ScBanach.proposition_1_1_7
 #print axioms ScBanach.quotient
-#print axioms ScBanach.proposition_1_7
+#print axioms ScBanach.proposition_1_1_8
 
 /-! ### Axioms: ScSmooth.lean (Definitions 1.11–1.15) -/
 
@@ -46,8 +46,8 @@ namespace Polyfold
 
 #print axioms IsSc1With.hasFDerivWithinAt_comp
 #print axioms IsSc1With.comp
-#print axioms theorem_1_21'
-#print axioms theorem_1_21
+#print axioms theorem_1_3_1'
+#print axioms theorem_1_3_1
 #print axioms IsSck.congr
 #print axioms IsSck.comp
 #print axioms IsScSmooth.comp
@@ -56,8 +56,8 @@ namespace Polyfold
 /-! ### Axioms: Degeneracy.lean (Definition 1.23, Lemma 1.24) -/
 
 #print axioms quadrantDeg_eq_of_equiv
-#print axioms lemma_1_24
-#print axioms lemma_1_24_dim
+#print axioms lemma_1_3_4
+#print axioms lemma_1_3_4_dim
 #print axioms degIndex_eq
 #print axioms degIndex_quadrant
 
@@ -77,9 +77,9 @@ namespace Polyfold
 #print axioms ScFredholmSplitting.index_eq
 #print axioms ScFredholmSplitting.K_le_smooth
 #print axioms ScFredholmSplitting.isFredholm
-#print axioms proposition_1_9
+#print axioms proposition_1_1_10
 #print axioms ScPlus.regularizing_add
-#print axioms proposition_1_10
+#print axioms proposition_1_1_11_preprint
 
 /-! ### Axioms: Properties.lean (Propositions 1.16, 1.18, 1.19, Corollary 1.20, partial) -/
 
@@ -87,8 +87,8 @@ namespace Polyfold
 #print axioms IsSc1With.continuousOn_deriv_clm
 #print axioms IsSc1With.contDiffOn_base
 #print axioms IsSc1With.scOperator_deriv
-#print axioms proposition_1_19_zero
-#print axioms corollary_1_20_zero
+#print axioms proposition_1_2_4_zero
+#print axioms corollary_1_2_5_zero
 
 /-! ### Examples -/
 
@@ -130,7 +130,7 @@ theorem isSc1_iff_contDiffOn_of_finiteDimensional {U : Set V} (hU : IsOpen U)
     rwa [const_lvlSet, show (f ∘ (ScBanach.const V).toBase 1) = f from
       funext fun x => congrArg f (ScBanach.const_toBase V 1 x)] at this
   · intro hf
-    refine corollary_1_20_zero (isRelOpenInQuadrant_of_isOpen hU).isScDomain fun m => ?_
+    refine corollary_1_2_5_zero (isRelOpenInQuadrant_of_isOpen hU).isScDomain fun m => ?_
     rw [const_lvlSet, show (f ∘ (ScBanach.const V).toBase m) = f from
       funext fun x => congrArg f (ScBanach.const_toBase V m x)]
     exact hf
@@ -168,7 +168,7 @@ end Examples
 #print axioms ContractionGerm.levelMap_sol
 #print axioms ContractionGerm.continuousOn_fixLvl
 #print axioms ContractionGerm.germ_U_subset
-#print axioms theorem_3_29
+#print axioms theorem_3_3_2
 #print axioms ContractionGerm.isSolutionGerm_germ
 #print axioms ContractionGerm.eq_zero_of_norm_le_half
 #print axioms ContractionGerm.norm_levelDeriv_snd_le
@@ -184,7 +184,7 @@ end Examples
 #print axioms ContractionGerm.tangent_toBase_sol
 #print axioms ContractionGerm.continuousOn_Aop
 #print axioms ContractionGerm.isSc1GermWith_sol
-#print axioms theorem_3_30
+#print axioms theorem_3_3_3
 
 /-! ### Axioms: Chapter3/GermLevels.lean, continued (Proposition 1.18 for germs) -/
 
@@ -221,15 +221,15 @@ end Examples
 #print axioms ContractionGerm.next_O
 #print axioms ContractionGerm.next_sol
 #print axioms ContractionGerm.next_sol_eq_tangentMapWith
-#print axioms ContractionGerm.lemma_3_31
+#print axioms ContractionGerm.lemma_3_3_4
 #print axioms ContractionGerm.isSckGerm_succ_of_next
 #print axioms ContractionGerm.sol_isSckGerm
-#print axioms theorem_3_33
-#print axioms theorem_3_33_smooth
+#print axioms theorem_3_3_6
+#print axioms theorem_3_3_6_smooth
 #print axioms ScBanach.const_inclK
-#print axioms corollary_3_34
-#print axioms theorem_3_35
-#print axioms theorem_3_35_smooth
+#print axioms corollary_3_3_7
+#print axioms theorem_3_35_preprint
+#print axioms theorem_3_35_smooth_preprint
 #print axioms IsSc0ContractionGerm.rad_pos
 #print axioms IsSc0ContractionGerm.rad_spec
 #print axioms IsSc0ContractionGerm.rad'_pos
@@ -245,8 +245,8 @@ end Examples
 #print axioms IsSc0ContractionGerm.prad_anti
 #print axioms IsSc0ContractionGerm.toContractionGerm_B
 #print axioms IsSc0ContractionGerm.toContractionGerm_G
-#print axioms theorem_3_29_of_isSc0ContractionGerm
-#print axioms theorem_3_33_of_isSc0ContractionGerm
+#print axioms theorem_3_3_2_of_isSc0ContractionGerm
+#print axioms theorem_3_3_6_of_isSc0ContractionGerm
 
 /-! ### Axioms: Chapter3/LocalCompactness.lean (Definition 3.7, Theorem 3.40, local Theorem 3.12,
   Corollary 3.13) -/
@@ -278,10 +278,10 @@ end Examples
 #print axioms IsSc0ContractionGerm.exists_lift
 #print axioms ScBanach.toBase_succ_isCompactOperator
 #print axioms IsSc0ContractionGerm.isCompact_lift_image
-#print axioms theorem_3_40_compactness
-#print axioms theorem_3_40_regularity
-#print axioms theorem_3_12_local
-#print axioms corollary_3_13_local
+#print axioms theorem_3_5_1_compactness
+#print axioms theorem_3_5_1_regularity
+#print axioms theorem_3_1_13_local
+#print axioms corollary_3_1_15_local
 
 /-! ### Axioms: Chapter3/Filler.lean (Definition 3.4, Lemmas 3.16, 3.17 for principal parts) -/
 
@@ -297,8 +297,8 @@ end Examples
 #print axioms StrongRetr.ρ_isLinear
 #print axioms StrongRetr.ρ_continuous
 #print axioms StrongRetr.ρCLM_apply
-#print axioms lemma_3_16
-#print axioms lemma_3_17
+#print axioms lemma_3_1_19
+#print axioms lemma_3_1_20
 
 end Polyfold
 
@@ -316,7 +316,7 @@ namespace Polyfold
 #print axioms IsSc1With.levelDeriv_eq
 #print axioms IsSc1Levels.toBase_apply
 #print axioms IsSc1Levels.isSc1With
-#print axioms proposition_1_16
+#print axioms proposition_1_2_1
 #print axioms IsSc0.shift
 #print axioms IsSc1With.shift
 #print axioms IsSck.shift
@@ -325,9 +325,9 @@ namespace Polyfold
 #print axioms IsSck.contDiffOn_levels_of_le
 #print axioms IsSck.contDiffOn_base
 #print axioms IsScSmooth.contDiffOn_levels
-#print axioms proposition_1_19
-#print axioms corollary_1_20
-#print axioms corollary_1_20_base
+#print axioms proposition_1_2_4
+#print axioms corollary_1_2_5
+#print axioms corollary_1_2_5_base
 #print axioms IsScSmooth.of_contDiffOn_levels
 #print axioms IsScSmooth.of_contDiffOn_finiteDimensional
 
@@ -377,22 +377,22 @@ Theorem 2.8; locality of sc-smoothness) -/
 #print axioms ScRetraction.mem_tangent_iff
 #print axioms ScRetraction.mem_tangent_iff_mem_range
 #print axioms ScRetraction.scDeriv_comp_self
-#print axioms proposition_2_4
+#print axioms proposition_2_1_11
 #print axioms retractTangent_eq
 #print axioms tangentSpace_eq_range
-#print axioms proposition_2_6_1
-#print axioms proposition_2_6_2
-#print axioms proposition_2_6_3
+#print axioms proposition_2_1_13_one
+#print axioms proposition_2_1_13_two
+#print axioms proposition_2_1_13_three
 #print axioms isScSmoothRetractMap_iff_exists
 #print axioms retractTangentMap_eqOn
 #print axioms IsScSmoothRetractMap.tangentMap_mapsTo
 #print axioms IsScSmoothRetractMap.comp
 #print axioms retractTangentMap_comp
-#print axioms theorem_2_8
+#print axioms theorem_2_1_15
 #print axioms IsScSmoothRetractMap.continuousOn
 #print axioms IsScSmoothRetractMap.mem_range_toBase
-#print axioms proposition_2_10_1
-#print axioms proposition_2_10_2
+#print axioms proposition_2_3_1_one
+#print axioms proposition_2_3_1_two
 #print axioms IsScSmoothRetractMap.restrict
 #print axioms IsScSmoothRetractMap.of_locally
 
@@ -408,7 +408,7 @@ Theorem 2.8; locality of sc-smoothness) -/
 #print axioms MPolyfold.isChart_congr
 #print axioms MPolyfold.mem_levelSet_iff
 #print axioms MPolyfold.levelSet_antitone
-#print axioms lemma_2_15
+#print axioms lemma_2_3_9
 #print axioms MPolyfold.isScSmoothMap_id
 #print axioms MPolyfold.IsScSmoothOn.comp
 #print axioms MPolyfold.IsScSmoothMap.comp
@@ -427,16 +427,16 @@ Proposition 2.24, Corollary 2.32; Theorem 1.25) -/
 #print axioms IsSc1With.mapsTo_minimalSubspace
 #print axioms scDeriv_comp_eq_self
 #print axioms degIndexWith_le_of_germ
-#print axioms theorem_1_25_lvl1
-#print axioms theorem_1_25
+#print axioms theorem_1_3_5_lvl1
+#print axioms theorem_1_3_5
 #print axioms MPolyfold.exists_isChart_degIndex_eq
-#print axioms lemma_2_23
+#print axioms lemma_2_4_3
 #print axioms MPolyfold.isWithoutBoundary_iff
 #print axioms MPolyfold.transportChart_isChart
 #print axioms MPolyfold.degIndex_le_of_isScDiffeoOn
-#print axioms proposition_2_24
+#print axioms proposition_2_4_4
 #print axioms IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1
-#print axioms corollary_2_32
+#print axioms corollary_2_4_13
 
 /-! ### Axioms: Chapter2/Tame.lean (§2.4, §2.5: definitions) -/
 
@@ -503,7 +503,7 @@ namespace Polyfold
 #print axioms MPolyfold.paracompactSpace_of_isClosed
 #print axioms MPolyfold.subPolyfold_inclusion_isScSmooth
 #print axioms MPolyfold.subPolyfold_retraction_isScSmooth
-#print axioms lemma_2_26
+#print axioms lemma_2_4_6
 
 
 /-! ### Axioms: Chapter1/FredholmIndex.lean -/
@@ -553,8 +553,8 @@ namespace Polyfold
 #print axioms ScRetraction.IsDiffeoGerm.deriv_mem_range
 #print axioms ScRetraction.IsDiffeoGerm.deriv_mapsTo_minimalSubspace
 #print axioms ScRetraction.IsDiffeoGerm.deriv_mapsTo_partialQuadrant
-#print axioms proposition_2_30_reduced
-#print axioms proposition_2_30_cone
+#print axioms proposition_2_4_10_reduced
+#print axioms proposition_2_4_10_cone
 #print axioms quotDim_congr
 #print axioms quotDim_inf_minimalSubspace_le
 #print axioms quotDim_reducedTangentSpaceWith_le
@@ -563,8 +563,8 @@ namespace Polyfold
 #print axioms ScRetraction.IsDiffeoGerm.quotDim_le
 #print axioms MChart.Compatible.isDiffeoGerm
 #print axioms MPolyfold.quotDim_le_chartDegIndex
-#print axioms theorem_2_31
-#print axioms theorem_2_31_retract
+#print axioms theorem_2_4_12
+#print axioms theorem_2_4_12_retract
 
 /-! ### Axioms: Chapter3/Germ.lean -/
 
@@ -682,8 +682,8 @@ namespace Polyfold
 #print axioms ScFredholmSplitting.fredholmIndex_lvl
 #print axioms IsScFredholm.fredholmIndex_lvl
 #print axioms scIndex_eq_fredholmIndex
-#print axioms proposition_1_10_index
-#print axioms proposition_1_10_index_lvl
+#print axioms proposition_1_1_11_index
+#print axioms proposition_1_1_11_index_lvl
 
 /-! ### Axioms: Chapter1/ExpositionLemmas.lean (exposition Lemmas 1.A(2)–(3), 2.B, 2.C, 3.F;
   sc¹ = C¹ on quadrants in finite dimensions) -/
@@ -721,7 +721,7 @@ namespace Polyfold
 #print axioms ScRetraction.scDeriv_mapsTo_minimalSubspace
 #print axioms ScRetraction.isScOperator_scDeriv
 #print axioms ScRetraction.isScSplitting_range_scDeriv
-#print axioms proposition_2_35
+#print axioms proposition_2_5_3
 #print axioms quotDim_reducedTangentSpaceWith_eq
 #print axioms exists_tendsto_smooth_degIndexWith
 #print axioms IsSc0.mem_smooth
@@ -729,8 +729,8 @@ namespace Polyfold
 #print axioms MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith
 #print axioms MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract
 #print axioms LocalModel.degIndex_toMPolyfold_of_isTameWith
-#print axioms proposition_2_36_degIndex
-#print axioms proposition_2_36
+#print axioms proposition_2_5_6_degIndex
+#print axioms proposition_2_5_6
 #print axioms degIndexWith_eq_card_zeroSet
 #print axioms mem_zeroSet
 #print axioms continuous_coord
@@ -758,27 +758,27 @@ namespace Polyfold
 #print axioms connectedComponentIn_eq_of_mem_closure
 #print axioms closure_connectedComponentIn_faceStratum
 #print axioms connectedComponentIn_coordHyper_eq
-#print axioms lemma_2_40
-#print axioms lemma_2_40_injective
-#print axioms corollary_2_41_retract
+#print axioms lemma_2_5_12
+#print axioms lemma_2_5_12_injective
+#print axioms corollary_2_5_13_retract
 #print axioms image_val_closure
 #print axioms LocalModel.isFace_toMPolyfold_iff
 #print axioms LocalModel.isFaceStructured_toMPolyfold
-#print axioms corollary_2_41
+#print axioms corollary_2_5_13
 #print axioms MPolyfold.isChart_of_mem_equiv
 #print axioms MPolyfold.IsTame.exists_chart
 #print axioms MPolyfold.faces_encard_le
-#print axioms proposition_2_42
+#print axioms proposition_2_5_14
 #print axioms killCoordL_apply
 #print axioms killCoord_apply
 #print axioms killCoord_coord
 #print axioms killCoord_eq_self
 #print axioms killCoord_mem
 #print axioms killCoord_coord_self
-#print axioms proposition_2_43
+#print axioms proposition_2_5_15
 #print axioms LocalModel.selfChart_symm_apply
 #print axioms LocalModel.isSubMPolyfold_of_isFace
-#print axioms MPolyfold.theorem_2_45_interior
+#print axioms MPolyfold.theorem_2_5_17_interior
 
 /-! ### Axioms: Chapter2/StrongBundle.lean (§2.5: Lemmas 5.A, 5.B of the exposition,
   Definitions 2.50–2.53, the local content of Proposition 2.54) -/
@@ -841,7 +841,7 @@ namespace Polyfold
 #print axioms quadCone_isClosed
 #print axioms mem_vanIdx
 #print axioms pos_of_not_mem_vanIdx
-#print axioms lemma_3_65
+#print axioms lemma_3_8_8
 #print axioms sigmaCoord_apply
 #print axioms mem_nullSpace
 #print axioms sigmaCoord_surjective
@@ -858,10 +858,10 @@ namespace Polyfold
 #print axioms scIsoOfLinearEquiv_apply
 #print axioms IsInGoodPosition.quadrantNormalForm
 #print axioms preimage_eq_of_normalForm
-#print axioms proposition_3_22
+#print axioms proposition_3_1_25
 #print axioms IsGoodComplement.map
 #print axioms IsInGoodPosition.map
-#print axioms proposition_3_69
+#print axioms proposition_3_8_12
 
 /-! ### Axioms: Chapter2/Metrizable.lean (Theorem 2.16 with Smirnov's theorem, Propositions
   2.19 (3), 2.21 (3)–(4)) -/
@@ -886,17 +886,17 @@ namespace Polyfold
 #print axioms MPolyfold.paracompactSpace_level
 #print axioms MPolyfold.smoothLevel_topology_eq
 #print axioms MPolyfold.metrizableSpace_smoothLevel
-#print axioms theorem_2_16
+#print axioms theorem_2_3_10
 #print axioms MPolyfold.paracompactSpace_subtype
 #print axioms MPolyfold.metrizableSpace_tangentSpace
 #print axioms MPolyfold.paracompactSpace_tangentSpace
-#print axioms proposition_2_19_3
+#print axioms proposition_2_3_15_three
 #print axioms ScOperator.lvl_comp_of_base
 #print axioms ScOperator.lvl_comp_eq_zero_of_base
 #print axioms ScOperator.lvl_eq_add_of_base
 #print axioms ScRetraction.compRetraction_retract
-#print axioms proposition_2_21_3
-#print axioms proposition_2_21_4
+#print axioms proposition_2_3_19_three
+#print axioms proposition_2_3_19_four
 
 /-! ### Axioms: Chapter2/StrongBundlePullback.lean (Proposition 2.54) -/
 
@@ -931,7 +931,7 @@ namespace Polyfold
 #print axioms PullbackChartData.transitionOne_isScSmooth
 #print axioms PullbackChartData.compatible_toChart
 #print axioms paracompactSpace_pullbackSpace
-#print axioms proposition_2_54
+#print axioms proposition_2_6_8
 
 /-! ### Axioms: Chapter3/QuadrantIFT.lean (Theorem 3.78, Lemmas 3.79-3.82) -/
 
@@ -976,7 +976,7 @@ namespace Polyfold
 #print axioms Radii.contDiffOn_Φ
 #print axioms Radii.contDiffOn_τ
 #print axioms ContractionData.exists_solution
-#print axioms theorem_3_78
+#print axioms theorem_3_8_22
 
 /-! ### Axioms: Chapter3/QuadrantInverse.lean (Theorem 3.72, Proposition 3.73, Lemmas 3.74, 3.77;
   interior points and the degeneracy index) -/
@@ -1011,10 +1011,10 @@ namespace Polyfold
 #print axioms InvData.hasFDerivWithinAt_inv
 #print axioms InvData.contDiffOn_inverse_deriv
 #print axioms InvData.contDiffOn_inv
-#print axioms proposition_3_73
+#print axioms proposition_3_8_17
 #print axioms surjective_of_image_eq
-#print axioms theorem_3_72
-#print axioms corollary_3_75
+#print axioms theorem_3_8_15
+#print axioms corollary_3_8_19
 
 -- Chapter 2, §2.4: faces of tame M-polyfolds (TameFaces.lean)
 #print axioms minimalSubspaceWith_le
@@ -1036,18 +1036,18 @@ namespace Polyfold
 #print axioms faceProj_mem
 #print axioms degIndexWith_eq_quadrantDeg_faceProj_add_one
 #print axioms scDeriv_comp_apply_of_isScDomain
-#print axioms proposition_2_43_tameModel
+#print axioms proposition_2_5_15_tameModel
 #print axioms MPolyfold.faceChartInv_spec
 #print axioms MPolyfold.faceChart_compatible_subChart
 #print axioms MPolyfold.isChart_subPolyfold_of_compatible
 #print axioms MPolyfold.isTame_of_forall_exists_chart
-#print axioms LocalModel.proposition_2_43_isTame
+#print axioms LocalModel.proposition_2_5_15_isTame
 #print axioms MPolyfold.isSubMPolyfold_of_local
-#print axioms MPolyfold.theorem_2_45_isSubMPolyfold_interior
+#print axioms MPolyfold.theorem_2_5_17_isSubMPolyfold_interior
 #print axioms MPolyfold.exists_localFace_of_isFaceStructured
-#print axioms MPolyfold.theorem_2_45_isSubMPolyfold_face
-#print axioms MPolyfold.theorem_2_45_isTame_face
-#print axioms MPolyfold.proposition_2_44
+#print axioms MPolyfold.theorem_2_5_17_isSubMPolyfold_face
+#print axioms MPolyfold.theorem_2_5_17_isTame_face
+#print axioms MPolyfold.proposition_2_5_16
 
 
 /-! ### Axioms: Chapter3/GoodPositionGraph.lean (Lemma 3.70, the ray decomposition of `N ∩ C`) -/
@@ -1056,10 +1056,10 @@ namespace Polyfold
 #print axioms quadCone_convex
 #print axioms exists_rayDecomp
 #print axioms exists_lipschitz_small
-#print axioms lemma_3_70_core
+#print axioms lemma_3_8_13_core
 #print axioms coordCLM_apply
 #print axioms quadCone_coordCLM
-#print axioms lemma_3_70
+#print axioms lemma_3_8_13
 
 /-! ### Axioms: Chapter3/StrongBundleSections.lean (Definitions 3.3, 3.6, 3.11, 3.14; Theorem 3.15) -/
 
@@ -1110,7 +1110,7 @@ namespace Polyfold
 #print axioms StrongBundle.IsScSmoothSection.isScSmoothSectionGerm
 #print axioms StrongBundle.regularizing_sectionAdd_wholeChart
 #print axioms StrongBundle.IsScFredholmGermWholeChart.sectionAdd
-#print axioms theorem_3_15_wholeChart
+#print axioms theorem_3_1_18_wholeChart
 
 -- Chapter 2, §2.4: products and fibred products (FibredProduct.lean)
 #print axioms prodPresentation_apply
@@ -1157,8 +1157,8 @@ namespace Polyfold
 #print axioms MPolyfold.degIndex_fibredProduct_eq_snd
 #print axioms MPolyfold.degIndex_fibredProduct_eq_fst
 #print axioms MPolyfold.isTame_fibredProduct
-#print axioms MPolyfold.proposition_2_46
-#print axioms MPolyfold.proposition_2_46_of_isLocalScDiffeo
+#print axioms MPolyfold.proposition_2_5_20
+#print axioms MPolyfold.proposition_2_5_20_of_isLocalScDiffeo
 
 /-! ### Axioms: Chapter3/SectionCompactness.lean (Theorem 3.12, Corollary 3.13 for sections) -/
 
@@ -1176,13 +1176,13 @@ namespace Polyfold
 #print axioms tendsto_of_isCompact_of_tendsto_map
 #print axioms MPolyfold.levelVal_levelChartSymm
 #print axioms MPolyfold.continuousOn_levelChartSymm
-#print axioms theorem_3_12_local_subset
-#print axioms theorem_3_12_wholeChart
-#print axioms corollary_3_13_wholeChart
+#print axioms theorem_3_1_13_local_subset
+#print axioms theorem_3_1_13_wholeChart
+#print axioms corollary_3_1_15_wholeChart
 #print axioms StrongBundle.fiberZero_mem_doubleLevel
 #print axioms StrongBundle.IsScFredholmSectionWholeChart.mem_smoothSet_of_isZeroAt
 #print axioms StrongBundle.IsScSmoothSection.isZeroAt_of_tendsto
-#print axioms corollary_3_13_section_wholeChart
+#print axioms corollary_3_1_15_section_wholeChart
 
 -- Chapter 2, §2.4: the partial cone of a tame retract (PartialCone.lean)
 #print axioms toBase_smoothLift
@@ -1198,7 +1198,7 @@ namespace Polyfold
 #print axioms splitIso_fst
 #print axioms isPartialQuadrant_ofSubspace
 #print axioms coordVec_mem_smooth
-#print axioms proposition_2_36_partialCone
+#print axioms proposition_2_5_6_partialCone
 
 -- Chapter 2, §2.4: corner germs (CornerGerms.lean)
 #print axioms cornerIdx_not_mem
@@ -1223,7 +1223,7 @@ namespace Polyfold
 #print axioms cornerKill_mem
 #print axioms corner_retraction
 #print axioms corner_tameModel
-#print axioms MPolyfold.proposition_2_44_corner
+#print axioms MPolyfold.proposition_2_5_16_corner
 
 /-! ### Axioms: Chapter3/BasicGermLinearization.lean (Lemma 3.9 at 0, Proposition 3.10) -/
 
@@ -1236,9 +1236,9 @@ namespace Polyfold
 #print axioms ScBanach.projWSplitting
 #print axioms ScBanach.isScFredholm_projWOp
 #print axioms ScBanach.scIndex_projWOp
-#print axioms proposition_3_10_scPlus
+#print axioms proposition_3_1_10_scPlus
 #print axioms ContinuousLinearMap.ext_of_comp_toBase_one
-#print axioms proposition_3_10
+#print axioms proposition_3_1_10
 
 -- Chapter 2, §2.5: the M-polyfold Y[1] (StrongBundleOne.lean)
 #print axioms strongShiftOne_mono
@@ -1403,7 +1403,7 @@ namespace Polyfold
 #print axioms StabilityData.levelMap_Bbar
 #print axioms StabilityData.levelMap_pushB
 #print axioms StabilityData.pushB_isSc0ContractionGerm
-#print axioms theorem_3_38
+#print axioms theorem_3_4_2
 #print axioms StabilityData.pushMap_eq_zero_iff
 #print axioms StabilityData.finrank_Cs_eq_finrank_Zs
 #print axioms StabilityData.exists_of_scPlus
@@ -1456,7 +1456,7 @@ the matrix of `Dg(0)`, Remark 3.49) -/
 #print axioms fillerRestrict_isClosed_range_of
 #print axioms isClosed_range_of_fillerRestrict
 #print axioms fillerRestrict_isFredholm_iff
-#print axioms proposition_3_5
+#print axioms proposition_3_1_5_preprint
 #print axioms scDeriv_comp_apply'
 #print axioms StrongRetr.r_isScSmooth
 #print axioms StrongRetr.r_zero
@@ -1469,9 +1469,9 @@ the matrix of `Dg(0)`, Remark 3.49) -/
 #print axioms IsFillerOf.deriv_comp_r_eq_zero
 #print axioms IsFillerOf.exists_kerEquiv
 #print axioms IsFillerOf.ρ_deriv_comp_r
-#print axioms IsFillerOf.proposition_3_5
+#print axioms IsFillerOf.proposition_3_1_5
 #print axioms IsFillerOf.scDeriv_section_comp_r
-#print axioms IsFillerOf.remark_3_49
+#print axioms IsFillerOf.remark_3_6_2
 
 /-! ### Axioms: Chapter3/FredholmGermLinearization.lean (Proposition 3.52: the linearization of an
 sc-Fredholm germ at a zero is Fredholm of index `n − N`) -/
@@ -1488,11 +1488,11 @@ sc-Fredholm germ at a zero is Fredholm of index `n − N`) -/
 #print axioms IsStrongBundleMap.scDeriv_fiber_comp
 #print axioms isFredholm_equiv_comp_equiv
 #print axioms ScOperator.zero
-#print axioms proposition_3_10_basic
-#print axioms proposition_3_10_basic_level_zero
+#print axioms proposition_3_1_10_basic
+#print axioms proposition_3_1_10_basic_level_zero
 #print axioms IsConjugateToBasicGerm.scDeriv_isFredholm_wholeChart
-#print axioms proposition_3_52_local_wholeChart
-#print axioms proposition_3_52_wholeChart
+#print axioms proposition_3_6_5_local_wholeChart
+#print axioms proposition_3_6_5_wholeChart
 
 /-! ### Axioms: Chapter3/GoodPositionOpen.lean (Lemma 3.55: good position along the graph of a
 `C^1`-map with `τ(0) = 0`, `Dτ(0) = 0`) -/
@@ -1504,8 +1504,8 @@ sc-Fredholm germ at a zero is Fredholm of index `n − N`) -/
 #print axioms add_mem_graphSpace
 #print axioms graphSpace_isClosed
 #print axioms graphSpace_isCompl
-#print axioms lemma_3_55_core
-#print axioms lemma_3_55
+#print axioms lemma_3_6_9_core
+#print axioms lemma_3_6_9_preprint
 
 /-! ### Axioms: Chapter3/GoodPositionGerm.lean (Definition 3.53 in the chart, the linear part of
 Theorem 3.54 and the push-forward `Ψ_*(g) = h + t`) -/
@@ -1517,18 +1517,18 @@ Theorem 3.54 and the push-forward `Ψ_*(g) = h + t`) -/
 #print axioms IsFillerOf.map_ker_fillerRestrict
 #print axioms IsGoodPositionAt
 #print axioms IsGoodPositionAt.surjective_fillerRestrict
-#print axioms theorem_3_54_linear_wholeChart
-#print axioms theorem_3_54_linear_of_isTameWith_wholeChart
+#print axioms theorem_3_6_8_linear_wholeChart
+#print axioms theorem_3_6_8_linear_of_isTameWith_wholeChart
 #print axioms partialQuadrantAtWith_zero
 #print axioms scDeriv_mem_iff_of_inverse
 #print axioms pushforward
 #print axioms IsStrongBundleIso.pushforward_linearization_wholeChart
 #print axioms IsStrongBundleIso.pushforward_surjective_wholeChart
 #print axioms IsStrongBundleIso.pushforward_ker_isInGoodPosition_wholeChart
-#print axioms theorem_3_54_pushforward_wholeChart
+#print axioms theorem_3_6_8_pushforward_wholeChart
 #print axioms StrongBundle.IsGoodPositionGermWholeChart
 #print axioms StrongBundle.IsGoodPositionGermWholeChart.isScFredholmGerm
-#print axioms theorem_3_54_pushforward_section_wholeChart
+#print axioms theorem_3_6_8_pushforward_section_wholeChart
 
 /-! ### Axioms: Chapter3/LocalSolvability.lean (Lemmas 3.42, 3.44, 3.46, Theorems 3.43, 3.47,
 local germ-solvability) -/
@@ -1538,8 +1538,8 @@ local germ-solvability) -/
 #print axioms graphMap_injective
 #print axioms mem_map_graphMap
 #print axioms graphMap_mem_prod_iff
-#print axioms lemma_3_46
-#print axioms lemma_3_46_isInGoodPosition
+#print axioms lemma_3_5_10
+#print axioms lemma_3_5_10_isInGoodPosition
 #print axioms IsBasicGerm.B_isScSmoothGerm
 #print axioms exists_norm_le_of_injOn
 #print axioms exists_proj_mem_of_eq_zero
@@ -1611,15 +1611,15 @@ local germ-solvability) -/
 #print axioms ShiftedBasicData.Sol.sub_projK_mem
 #print axioms ShiftedBasicData.Sol.exists_eq_add_τ
 #print axioms ShiftedBasicData.Sol.exists_contDiffOn_level
-#print axioms theorem_3_43_sc_smooth
-#print axioms theorem_3_43
+#print axioms theorem_3_5_6_sc_smooth
+#print axioms theorem_3_5_6
 #print axioms StabilityData.toShiftedBasicData
-#print axioms StabilityData.lemma_3_42
+#print axioms StabilityData.lemma_3_5_5
 #print axioms StabilityData.Dfs
 #print axioms StabilityData.scDerivGerm_pushMap₀
 #print axioms IsPartialQuadrant.const_prod_univ
-#print axioms theorem_3_47_sc_smooth
-#print axioms theorem_3_47
+#print axioms theorem_3_5_11_sc_smooth
+#print axioms theorem_3_5_11
 
 /-! ### Axioms: Chapter3/SolutionLinearization.lean (Corollary 3.41: the linearization at nearby
 solutions; Fredholm stability under small perturbations, Lemma 3.9 on level 0) -/
@@ -1651,7 +1651,7 @@ solutions; Fredholm stability under small perturbations, Lemma 3.9 on level 0) -
 #print axioms IsSc1GermWith.tendsto_deriv
 #print axioms IsSc1GermWith.exists_norm_deriv_le
 #print axioms StabilityData.exists_ker_Dfs'_inf_eq_bot
-#print axioms StabilityData.corollary_3_41
+#print axioms StabilityData.corollary_3_5_3
 
 /-! ### Axioms: Chapter3/InverseFamily.lean (Lemma 3.61: the inverse `(v, k) ↦ L(v)⁻¹k` of a family
 of sc-isomorphisms is sc-smooth) -/
@@ -1683,14 +1683,14 @@ of sc-isomorphisms is sc-smooth) -/
 #print axioms tangentFiberOp
 #print axioms ScBanach.subOp
 #print axioms famInv_isSckGerm
-#print axioms lemma_3_61
+#print axioms lemma_3_7_4
 
 /-! ### Axioms: Chapter3/BasicGermCriterion.lean (Lemmas 3.59, 3.60 in abstract form, towards
 Theorem 3.58) -/
 
 #print axioms FamilyCompactness
-#print axioms lemma_3_59
-#print axioms lemma_3_60
+#print axioms lemma_3_7_2
+#print axioms lemma_3_7_3
 
 /-! ### Axioms: Chapter1/LevelsWeak.lean (Proposition 1.19 and Corollary 1.20 under the text's
 hypothesis) -/
@@ -1706,9 +1706,9 @@ hypothesis) -/
 #print axioms ElemData.isSc1With
 #print axioms ElemData.tangentMap_eqOn
 #print axioms ElemData.isSck
-#print axioms proposition_1_19_text
+#print axioms proposition_1_2_4_text
 #print axioms IsScSmooth.of_contDiffOn_levels_text
-#print axioms corollary_1_20_text
+#print axioms corollary_1_2_5_text
 #print axioms IsScSmooth.of_contDiffOn_levels_finiteDimensional_text
 
 
@@ -1740,7 +1740,7 @@ under the regularity conditions `IsRegular`) -/
 #print axioms MPolyfold.TangentGermChart.π_isScSmooth
 #print axioms MPolyfold.TangentGermChart.t_isScSmoothRetractMap
 #print axioms MPolyfold.TangentGermChart.s_isScSmoothOn
-#print axioms theorem_3_27_isSubMPolyfold
+#print axioms theorem_3_2_3_isSubMPolyfold
 #print axioms MPolyfold.TangentGermChart.model_isTameRetract
 #print axioms MPolyfold.TangentGermChart.chart
 #print axioms MPolyfold.TangentGermChart.chart_symm_apply
@@ -1749,17 +1749,17 @@ under the regularity conditions `IsRegular`) -/
 #print axioms MPolyfold.TangentGermChart.Γ_isScSmoothRetractMap
 #print axioms MPolyfold.TangentGermChart.π_isScSmoothRetractMap
 #print axioms MPolyfold.TangentGermChart.chart_compatible_subChart
-#print axioms MPolyfold.theorem_3_27_isChart
+#print axioms MPolyfold.theorem_3_2_3_isChart
 #print axioms MPolyfold.tangentCharts_compatible
 #print axioms MPolyfold.germAtlas
-#print axioms MPolyfold.theorem_3_27_atlas_equiv
-#print axioms MPolyfold.theorem_3_27_isTame
-#print axioms MPolyfold.theorem_3_27_isManifoldWithCorners
-#print axioms theorem_3_27
-#print axioms MPolyfold.theorem_3_27_degIndex
+#print axioms MPolyfold.theorem_3_2_3_atlas_equiv
+#print axioms MPolyfold.theorem_3_2_3_isTame
+#print axioms MPolyfold.theorem_3_2_3_isManifoldWithCorners
+#print axioms theorem_3_2_3_of_isRegular
+#print axioms MPolyfold.theorem_3_2_3_degIndex
 #print axioms MPolyfold.TangentGermChart.transport
-#print axioms proposition_3_26_image
-#print axioms proposition_3_26
+#print axioms proposition_3_2_2_image
+#print axioms proposition_3_2_2
 
 
 /-! ### Axioms: Chapter3/GlobalIFT.lean (Theorem 3.54, the graph description of the solution set;
@@ -1768,9 +1768,9 @@ Theorems 3.56, 3.57 from the tangent germ property) -/
 #print axioms ScBanach.qPartOp
 #print axioms ScBanach.wPartOp
 #print axioms scDeriv_eq_of_eqOn_nhds
-#print axioms theorem_3_54_graph_wholeChart
-#print axioms theorem_3_57_of_tangentGerm
-#print axioms theorem_3_56_of_tangentGerm
+#print axioms theorem_3_6_8_graph_wholeChart
+#print axioms theorem_3_6_11_of_tangentGerm
+#print axioms theorem_3_6_10_of_tangentGerm
 
 /-! ### Axioms: Chapter2/TameInvariance.lean (tameness is carried by sc-diffeomorphisms) -/
 
@@ -1798,8 +1798,8 @@ the kernel of `D(h + s)(0)` is smooth) -/
 /-! ### Axioms: Chapter3/LocalSolvabilityClosed.lean (Theorems 3.43, 3.47 with the closedness of
 the good complement) -/
 
-#print axioms theorem_3_43_closed
-#print axioms theorem_3_47_closed
+#print axioms theorem_3_5_6_closed
+#print axioms theorem_3_5_11_closed
 
 /-! ### Axioms: Chapter3/GlobalIFTFull.lean (Theorem 3.54 (1) in the chart at `x₀`: Corollary 3.41
 and Lemma 3.55 at the nearby zeros) -/
@@ -1807,9 +1807,9 @@ and Lemma 3.55 at the nearby zeros) -/
 #print axioms coordCLMWith
 #print axioms mem_iff_coordCLMWith
 #print axioms subset_partialQuadrantAtWith
-#print axioms lemma_3_55_relOpen
+#print axioms lemma_3_6_9_relOpen
 #print axioms StabilityData.exists_surjective_Dfs'_graph
-#print axioms theorem_3_54_nearby_wholeChart
+#print axioms theorem_3_6_8_nearby_wholeChart
 
 /-! ### Axioms: Chapter3/GlobalIFTCenter.lean (the chart `ψ ∘ ϕ`; the data of Definition 3.25 (2) for
 the solution set at `x₀`) -/
@@ -1817,7 +1817,7 @@ the solution set at `x₀`) -/
 #print axioms IsScSmooth.isScSmoothRetractMap_of_subset
 #print axioms MChart.compDiffeo
 #print axioms MChart.compDiffeo_isChart
-#print axioms theorem_3_54_tangentGermChart_wholeChart
+#print axioms theorem_3_6_8_tangentGermChart_wholeChart
 
 /-! ### Axioms: Chapter3/BasicGermCriterionProof.lean (Theorem 3.58 from the family of
 sc-isomorphisms `L(b) = P ∘ D₂f(b, 0)|X`: the contraction estimate, the strong bundle isomorphism
@@ -1844,7 +1844,7 @@ sc-isomorphisms `L(b) = P ∘ D₂f(b, 0)|X`: the contraction estimate, the stro
 #print axioms fiberIsoMap_isStrongBundleIso
 #print axioms famMap_isScSmooth_of_deriv
 #print axioms famInv_isScSmooth_of
-#print axioms theorem_3_58_of_family
+#print axioms theorem_3_7_1_of_family
 
 /-! ### Axioms: Chapter3/BasicGermCriterionIndex.lean (Theorem 3.58: the family `L(b)` from
 conditions (1), (2) via Lemmas 3.59, 3.60 and the index argument) -/
@@ -1864,7 +1864,7 @@ conditions (1), (2) via Lemmas 3.59, 3.60 and the index argument) -/
 #print axioms familyCompactness_derivFamOp
 #print axioms ScOperator.injective_lvl
 #print axioms FamilyCompactness.mono
-#print axioms theorem_3_58
+#print axioms theorem_3_7_1
 
 /-! ### Axioms: Chapter3/LinearizationCharts.lean (the chart independence of the linearization of a
 section at a zero and of good position; Definition 3.53 at a zero from a non-centred chart) -/
@@ -1953,13 +1953,13 @@ at the nearby zeros) -/
 #print axioms IsInGoodPosition.isInGoodPositionIn_of_le
 #print axioms StabilityData.graphSpace_le_ker_Dfs'
 #print axioms StabilityData.graphSpace_eq_ker_Dfs'
-#print axioms theorem_3_54_chart_graph_wholeChart
-#print axioms theorem_3_54_chart_kernel_wholeChart
+#print axioms theorem_3_6_8_chart_graph_wholeChart
+#print axioms theorem_3_6_8_chart_kernel_wholeChart
 #print axioms exists_range_scDeriv_eq_ρ_of_normal_injective
 #print axioms StrongBundle.IsScSmoothSection.isSc1_principal_comp_r
-#print axioms theorem_3_54_nearby_kernel_wholeChart
+#print axioms theorem_3_6_8_nearby_kernel_wholeChart
 #print axioms StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGerm
-#print axioms theorem_3_54_one_wholeChart
+#print axioms theorem_3_6_8_one_wholeChart
 
 
 /-! ### Axioms: Chapter3/GoodComplementProjection.lean and the `_proj` theorems in
@@ -1986,12 +1986,12 @@ at the centre) -/
 #print axioms ProjectsInto.prod_top_graph
 #print axioms ShiftedBasicData.exists_sol_of_goodComplement
 #print axioms ShiftedBasicData.exists_sol_proj
-#print axioms theorem_3_43_proj
-#print axioms theorem_3_47_proj
-#print axioms theorem_3_54_graph_proj_wholeChart
+#print axioms theorem_3_5_6_proj
+#print axioms theorem_3_5_11_proj
+#print axioms theorem_3_6_8_graph_proj_wholeChart
 #print axioms MPolyfold.TangentGermChart.π_mem_of_projectsInto
 #print axioms MPolyfold.TangentGermChart.isRegular_of_projectsInto
-#print axioms theorem_3_54_tangentGermChart_proj_wholeChart
+#print axioms theorem_3_6_8_tangentGermChart_proj_wholeChart
 
 /-! ### Axioms: Chapter3/GlobalIFTNearbyPerturb.lean (the linear algebra of the λ-extended problem
 of Proposition 6.2: the obstruction to good position at the corner and the tilted kernel) -/
@@ -2010,8 +2010,8 @@ given conjugation to a basic germ) -/
 #print axioms isConjugateToBasicGerm_iff_nonempty
 #print axioms ConjugationData.scDeriv_isFredholm_index_wholeChart
 #print axioms ConjugationData.index_eq_wholeChart
-#print axioms proposition_3_52_local_index_wholeChart
-#print axioms proposition_3_52_index_wholeChart
+#print axioms proposition_3_6_5_local_index_wholeChart
+#print axioms proposition_3_6_5_index_wholeChart
 
 /-! ### Axioms: Chapter3/BasicClassComposition.lean (Corollary 3.39: strong bundle isomorphisms
 from sc-operators, the index raise, composition, push-forwards, Theorem 3.38's change as a strong
@@ -2043,8 +2043,8 @@ bundle isomorphism) -/
 #print axioms ConjugationData.compIso_eq
 #print axioms ConjugationData.compIsoInv_eq
 #print axioms ConjugationData.compIso_eq_strongShift
-#print axioms corollary_3_39
-#print axioms corollary_3_39_isConjugate
+#print axioms corollary_3_4_3
+#print axioms corollary_3_4_3_isConjugate
 
 /-! ### Axioms: Chapter3/SolutionGermRecentre.lean (the regularity of the solution germ away from
 the centre: the re-centring lemma, condition (a) of `IsRegular`, the shrinking of the data of
@@ -2094,25 +2094,25 @@ Theorems 3.54 (2), 3.19, 3.23, 3.56, 3.57, Corollary 3.24 for the solution set o
 section; the decomposition of the solution set by dimension) -/
 
 #print axioms MPolyfold.IsManifoldWithCorners.isManifoldWithCornersLoc
-#print axioms MPolyfold.theorem_3_27_loc_isSubMPolyfold
-#print axioms MPolyfold.theorem_3_27_loc_isChart
+#print axioms MPolyfold.theorem_3_2_3_loc_isSubMPolyfold
+#print axioms MPolyfold.theorem_3_2_3_loc_isChart
 #print axioms MPolyfold.tangentChartsLoc_compatible
-#print axioms MPolyfold.theorem_3_27_loc_atlas_equiv
-#print axioms MPolyfold.theorem_3_27_loc_isTame
-#print axioms MPolyfold.theorem_3_27_loc_isManifoldWithCornersLoc
-#print axioms theorem_3_27_loc
-#print axioms theorem_3_54_tangentGermChart_solutionSet_wholeChart
-#print axioms theorem_3_54_two_wholeChart
-#print axioms theorem_3_54_wholeChart
-#print axioms theorem_3_23_of_nearby_wholeChart
-#print axioms theorem_3_23_wholeChart
-#print axioms theorem_3_19_linearization_wholeChart
-#print axioms theorem_3_19_wholeChart
-#print axioms theorem_3_57_wholeChart
-#print axioms corollary_3_24_wholeChart
-#print axioms theorem_3_56_wholeChart
+#print axioms MPolyfold.theorem_3_2_3_loc_atlas_equiv
+#print axioms MPolyfold.theorem_3_2_3_loc_isTame
+#print axioms MPolyfold.theorem_3_2_3_loc_isManifoldWithCornersLoc
+#print axioms theorem_3_2_3_loc_of_isRegular
+#print axioms theorem_3_6_8_tangentGermChart_solutionSet_wholeChart
+#print axioms theorem_3_6_8_two_wholeChart
+#print axioms theorem_3_6_8_wholeChart
+#print axioms theorem_3_1_26_of_nearby_wholeChart
+#print axioms theorem_3_1_26_wholeChart
+#print axioms theorem_3_1_22_linearization_wholeChart
+#print axioms theorem_3_1_22_wholeChart
+#print axioms theorem_3_6_11_wholeChart
+#print axioms corollary_3_1_27_wholeChart
+#print axioms theorem_3_6_10_wholeChart
 #print axioms isOpen_solutionSetDimOpen
-#print axioms theorem_3_57_dim_wholeChart
+#print axioms theorem_3_6_11_dim_wholeChart
 
 /-! ### Axioms: Chapter3/ParamPerturbation.lean (Theorem 3.18: `ℝⁿ` and `ℝⁿ × X`, the pull-back
 bundle as a structure, the `Λ`-extension of strong bundle isomorphisms and basic germs, the
@@ -2183,8 +2183,8 @@ product chart, the sc-Fredholm sections `f̃` and `F = f̃ + s̃`, the lineariza
 #print axioms StrongBundle.IsScFredholmGermWholeChart.param
 #print axioms StrongBundle.regularizing_paramLift_wholeChart
 #print axioms StrongBundle.IsScFredholmSectionWholeChart.param
-#print axioms theorem_3_18_wholeChart
-#print axioms theorem_3_18'_wholeChart
+#print axioms theorem_3_1_21_wholeChart
+#print axioms theorem_3_1_21'_wholeChart
 #print axioms scDeriv_paramSection_wholeChart
 #print axioms PullbackChartData.ofProd_scDeriv_r
 #print axioms PullbackChartData.ofProd_mem_tangent
@@ -2210,28 +2210,28 @@ Proposition 4.8 in the retract and chart forms; Remark 4.3; finite-dimensional s
 #print axioms IsScPlus.isCompactOperator_deriv
 #print axioms finiteDimensional_range_of_isCompactOperator_of_idem
 #print axioms ScRetraction.IsScPlus.mem_lvlSet_succ
-#print axioms lemma_4_5
+#print axioms lemma_4_1_5
 #print axioms IsScPlusRetract.isScRetract
 #print axioms IsScPlusRetract.isScPlus
 #print axioms isScPlusRetract_iff_forall
-#print axioms lemma_4_7_i
-#print axioms lemma_4_7_ii
-#print axioms lemma_4_7_ii_tangentSpace
-#print axioms proposition_4_8
+#print axioms lemma_4_1_7_i
+#print axioms lemma_4_1_7_ii
+#print axioms lemma_4_1_7_ii_tangentSpace
+#print axioms proposition_4_1_8
 #print axioms ScBanach.finiteDimensional_lvl
 #print axioms ScBanach.toBase_surjective
 #print axioms ScBanach.scIsoConst
 #print axioms ScBanach.scIsoConst_apply
-#print axioms remark_4_3_const
+#print axioms remark_4_1_3_const
 #print axioms MPolyfold.levelVal_toLevelOne
 #print axioms MPolyfold.toLevelOne_levelVal
 #print axioms MPolyfold.levelChart_toLevelOne
 #print axioms isScSmoothRetractMap_toBase_one
-#print axioms MPolyfold.remark_4_3_levelVal
-#print axioms MPolyfold.remark_4_3_isScDiffeo
+#print axioms MPolyfold.remark_4_1_3_levelVal
+#print axioms MPolyfold.remark_4_1_3_isScDiffeo
 #print axioms MPolyfold.mem_smoothSet_iff
 #print axioms MPolyfold.smoothSet_subset_levelSet
-#print axioms MPolyfold.proposition_4_8_chart
+#print axioms MPolyfold.proposition_4_1_8_chart
 #print axioms MPolyfold.isScSmoothMap_toLevelOne_iff
 
 /-! ### Axioms: Chapter4/Recentre.lean (re-centring of charts and strong bundle charts at a smooth
@@ -2452,7 +2452,7 @@ proof: the sc-diffeomorphism `p : O ∩ W → V ⊆ T₀O ∩ C` of an sc⁺-ret
 #print axioms GraphData.Nbhd.p_isScSmoothRetractMap
 #print axioms GraphData.Nbhd.Γ_isScSmoothRetractMap
 #print axioms finiteDimensional_tangentSpace_zero
-#print axioms proposition_4_9
+#print axioms proposition_4_1_9
 
 /-! ### Axioms: Chapter4/Characterization.lean (Definition 4.1 and Theorem 4.2: M-polyfolds with a
 compatible structure of a manifold with boundary with corners) -/
@@ -2502,10 +2502,10 @@ compatible structure of a manifold with boundary with corners) -/
 #print axioms CornerChartData.mem_chart_source
 #print axioms CornerChartData.chart_apply_eq_zero
 #print axioms exists_cornerChartData
-#print axioms MPolyfold.theorem_4_2_chart
+#print axioms MPolyfold.theorem_4_1_2_chart
 #print axioms MPolyfold.hasCornerStructure_of_centred
-#print axioms MPolyfold.theorem_4_2_general
-#print axioms MPolyfold.theorem_4_2
+#print axioms MPolyfold.theorem_4_1_2_general
+#print axioms MPolyfold.theorem_4_1_2
 
 /-! ### Axioms: Chapter4/Submanifolds.lean (§4.2: Definition 4.13, Remark 4.14, Proposition 4.15,
 Definitions 4.16, 4.17, 4.21 in charts with chart independence, Lemma 4.19, Theorem 4.18,
@@ -2525,7 +2525,7 @@ Remark 4.20) -/
 #print axioms hasFDerivWithinAt_scDeriv_const
 #print axioms tangentSpace_eq_range_graph
 #print axioms isGoodComplement_sup_range
-#print axioms lemma_4_19
+#print axioms lemma_4_2_8
 #print axioms MPolyfold.SubmanifoldData
 #print axioms MPolyfold.IsSmoothSubmanifold
 #print axioms MPolyfold.isSmoothSubmanifold_iff
@@ -2538,17 +2538,17 @@ Remark 4.20) -/
 #print axioms MPolyfold.SubmanifoldData.exists_chartRetraction
 #print axioms MPolyfold.SubmanifoldData.isScPlusRetract_image
 #print axioms MPolyfold.SubmanifoldData.apply_mem_smooth
-#print axioms MPolyfold.SubmanifoldData.remark_4_14
+#print axioms MPolyfold.SubmanifoldData.remark_4_2_2
 #print axioms MPolyfold.IsSmoothSubmanifold.data
 #print axioms MPolyfold.IsSmoothSubmanifold.mem_data_V
 #print axioms MPolyfold.IsSmoothSubmanifold.isSubMPolyfold
 #print axioms MPolyfold.IsSmoothSubmanifold.mem_levelSet_one
 #print axioms MPolyfold.IsSmoothSubmanifold.subset_smoothSet
 #print axioms MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff
-#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_4
-#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_1
-#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_2
-#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_15_3
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two
+#print axioms MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_three
 #print axioms MChart.image_inter_eq_inter
 #print axioms MPolyfold.chart_change_of_transport
 #print axioms MPolyfold.isGoodPositionRetractAt_chart_change
@@ -2565,10 +2565,10 @@ Remark 4.20) -/
 #print axioms MPolyfold.IsTameSubmanifold
 #print axioms MPolyfold.hasCornerStructure_of_centred_isInGoodPosition
 #print axioms MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame
-#print axioms MPolyfold.theorem_4_18
+#print axioms MPolyfold.theorem_4_2_7
 #print axioms MPolyfold.isGoodPositionAt_of_degIndex_eq_zero
 #print axioms MPolyfold.hasCornerStructure_of_degIndex_eq_zero
-#print axioms MPolyfold.remark_4_20
+#print axioms MPolyfold.remark_4_2_9
 
 /-! ### Axioms: Chapter3/GlobalIFTNearbyOntoLemmas.lean, GlobalIFTNearbyOntoGerm.lean,
 GlobalIFTNearbyOntoCurve.lean, GlobalIFTNearbyOntoXi.lean, GlobalIFTNearbyOnto.lean (Theorem 3.54
@@ -2658,11 +2658,11 @@ function theorem for the perturbed equation `g(u) + μ ρ(r(u)) λ = 0` at the n
 #print axioms StabilityData.split₀_injective
 #print axioms StabilityData.ker_fiber₀_comp_glue₀
 #print axioms exists_Ico_of_eventually_nhdsWithin_Ici
-#print axioms theorem_3_54_chart_onto_wholeChart
-#print axioms theorem_3_54_one'_wholeChart
-#print axioms theorem_3_54'_wholeChart
-#print axioms theorem_3_23'_wholeChart
-#print axioms theorem_3_19'_wholeChart
+#print axioms theorem_3_6_8_chart_onto_wholeChart
+#print axioms theorem_3_6_8_one'_wholeChart
+#print axioms theorem_3_6_8'_wholeChart
+#print axioms theorem_3_1_26'_wholeChart
+#print axioms theorem_3_1_22'_wholeChart
 
 /-! ### Axioms: Chapter3/GlobalIFTIndex.lean and the `_conj` theorems of GlobalIFT.lean and
 GlobalIFTCenter.lean (Chapter 3 polish: the dimension of the solution set is the Fredholm index,
@@ -2670,8 +2670,8 @@ the index is locally constant along the solution set, `ker f'(y) = T_yS` in a ch
 and surjectivity when `d_X = 0`, Theorems 3.19, 3.23, 3.54, 3.56, 3.57 with these clauses, the
 converse in Finding 100) -/
 
-#print axioms theorem_3_54_graph_proj_conj_wholeChart
-#print axioms theorem_3_54_tangentGermChart_proj_conj_wholeChart
+#print axioms theorem_3_6_8_graph_proj_conj_wholeChart
+#print axioms theorem_3_6_8_tangentGermChart_proj_conj_wholeChart
 #print axioms isInGoodPositionIn_of_subset
 #print axioms normal_injective_of_exists_range_scDeriv_eq_ρ
 #print axioms exists_range_scDeriv_eq_ρ_iff_normal_injective
@@ -2685,20 +2685,20 @@ converse in Finding 100) -/
 #print axioms StrongBundle.isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero_wholeChart
 #print axioms StrongBundle.isGoodPositionGerm_of_isLinSurjAt_wholeChart
 #print axioms StrongBundle.isGoodPositionGerm_iff_isLinSurjAt_wholeChart
-#print axioms theorem_3_19_linearization_index_wholeChart
-#print axioms theorem_3_54_tangentGermChart_index_wholeChart
-#print axioms theorem_3_54_tangentGermChart_solutionSet_index_wholeChart
-#print axioms theorem_3_54_two_index_wholeChart
+#print axioms theorem_3_1_22_linearization_index_wholeChart
+#print axioms theorem_3_6_8_tangentGermChart_index_wholeChart
+#print axioms theorem_3_6_8_tangentGermChart_solutionSet_index_wholeChart
+#print axioms theorem_3_6_8_two_index_wholeChart
 #print axioms isSurjLinOfIndex_of_forall_dim_wholeChart
-#print axioms theorem_3_54_index_locally_constant_wholeChart
-#print axioms theorem_3_54_index_wholeChart
-#print axioms theorem_3_23_index_wholeChart
-#print axioms theorem_3_19_index_wholeChart
-#print axioms theorem_3_19_of_surjective_wholeChart
-#print axioms theorem_3_57_index_wholeChart
-#print axioms theorem_3_56_tame_wholeChart
-#print axioms theorem_3_56_of_surjective_wholeChart
-#print axioms theorem_3_54_ker_eq_tangent_wholeChart
+#print axioms theorem_3_6_8_index_locally_constant_wholeChart
+#print axioms theorem_3_6_8_index_wholeChart
+#print axioms theorem_3_1_26_index_wholeChart
+#print axioms theorem_3_1_22_index_wholeChart
+#print axioms theorem_3_1_22_of_surjective_wholeChart
+#print axioms theorem_3_6_11_index_wholeChart
+#print axioms theorem_3_6_10_tame_wholeChart
+#print axioms theorem_3_6_10_of_surjective_wholeChart
+#print axioms theorem_3_6_8_ker_eq_tangent_wholeChart
 #print axioms isGoodPositionGermFilled_of_isGoodPositionGerm_wholeChart
 
 /-! ### Axioms: Chapter4/LocalStructure.lean (Theorem 4.22 (1)–(4), Remark 4.24) -/
@@ -2720,9 +2720,9 @@ converse in Finding 100) -/
 #print axioms isGeneralPositionRetractAt_of_sup_eq_top
 #print axioms sup_minimalSubspaceWith_eq_top
 #print axioms sup_minimalSubspaceWith_eq_top_graph
-#print axioms theorem_4_22_chart
+#print axioms theorem_4_2_11_chart
 #print axioms quotDim_le_finrank_of_eq_sup
-#print axioms remark_4_24_chart
+#print axioms remark_4_3_2_chart
 #print axioms IsGeneralPositionRetractAt.isGoodPositionRetractAt
 #print axioms maskL
 #print axioms maskL_apply_mem
@@ -2736,14 +2736,14 @@ converse in Finding 100) -/
 #print axioms opToConst_zero_apply
 #print axioms exists_scPlus_retraction_corner
 #print axioms exists_cornerModel_retraction
-#print axioms theorem_4_22_four_chart
+#print axioms theorem_4_2_11_four_chart
 #print axioms MPolyfold.isScPlusRetractionOn_of_chart
 #print axioms MChart.cornerPreimage
-#print axioms MPolyfold.theorem_4_22_four_of_chart
-#print axioms MPolyfold.theorem_4_22
-#print axioms MPolyfold.remark_4_24_codim
-#print axioms MPolyfold.remark_4_24
-#print axioms MPolyfold.remark_4_24_not_mem_boundary
+#print axioms MPolyfold.theorem_4_2_11_four_of_chart
+#print axioms MPolyfold.theorem_4_2_11_preprint
+#print axioms MPolyfold.remark_4_3_2_codim
+#print axioms MPolyfold.remark_4_3_2
+#print axioms MPolyfold.remark_4_3_2_not_mem_boundary
 
 /-! ### Vendored: Milnor's Sard (`Vendor/MilnorSard/*`, copied from
 `Milnor/Chapter1/InverseFunction.lean` and
@@ -2770,7 +2770,7 @@ fibre over a stratified regular value) -/
 #print axioms stratCritSet
 #print axioms measure_image_stratCritSet
 #print axioms ContractionData.exists_solution_smooth
-#print axioms theorem_3_78_smooth
+#print axioms theorem_3_8_22_smooth
 #print axioms quadAt
 #print axioms sliceEquiv
 #print axioms isPartialQuadrant_quadC
@@ -2799,13 +2799,13 @@ and Theorem 4.23) -/
 #print axioms IsStratRegularValue
 #print axioms FibreLocal
 #print axioms exists_local_family
-#print axioms theorem_4_23_of_subset
-#print axioms theorem_4_23
+#print axioms theorem_4_3_1_of_subset
+#print axioms theorem_4_3_1_preprint
 
 /-! ### Axioms: Chapter5/Compactness.lean (Definition 5.4, Theorems 5.5–5.7, Corollary 5.8 in a
 chart, Remark 5.12) -/
 
-#print axioms theorem_5_6
+#print axioms theorem_5_2_3
 #print axioms MPolyfold.smoothMk
 #print axioms MPolyfold.smoothVal
 #print axioms MPolyfold.smoothVal_mem
@@ -2814,7 +2814,7 @@ chart, Remark 5.12) -/
 #print axioms MPolyfold.continuous_smoothIncl
 #print axioms MPolyfold.continuous_smoothVal
 #print axioms MPolyfold.tendsto_smoothLevel_iff
-#print axioms theorem_5_7
+#print axioms theorem_5_2_4
 #print axioms isCompact_solutionSet_level
 #print axioms ScNbhdGerm.shiftParam
 #print axioms ScNbhdGerm.shiftParam_U
@@ -2822,7 +2822,7 @@ chart, Remark 5.12) -/
 #print axioms IsBasicGerm.shift
 #print axioms IsConjugateToBasicGerm.shift
 #print axioms IsConjugateToBasicGerm.shift_germ
-#print axioms corollary_5_8_chart
+#print axioms corollary_5_2_5_chart
 #print axioms IsSc0ContractionGerm.eq_delta_zero
 #print axioms IsSc0ContractionGerm.exists_isCompact_bdd
 #print axioms IsBasicGerm.exists_isCompact_bdd
@@ -2835,11 +2835,11 @@ chart, Remark 5.12) -/
 #print axioms StrongBundle.IsProper
 #print axioms StrongBundle.AuxLe.congr
 #print axioms StrongBundle.IsAuxNorm.auxLe_of_sectionAdd
-#print axioms theorem_5_5
+#print axioms theorem_5_2_2_preprint
 #print axioms StrongBundle.IsProper.isWeaklyProper
 #print axioms StrongBundle.IsWeaklyProper.isCompact_solutionSet
-#print axioms theorem_5_5_iff
-#print axioms remark_5_12
+#print axioms theorem_5_2_2_iff
+#print axioms remark_5_3_4
 
 /-! ### Axioms: Chapter5/AuxNorm.lean (Definition 5.1, Lemma 5.2, Proposition 5.3: auxiliary norms;
 the charts `Φ[1]` of every strong bundle chart, the fibres `(Y_{0,1})_x`) -/
@@ -2893,7 +2893,7 @@ the charts `Φ[1]` of every strong bundle chart, the fibres `(Y_{0,1})_x`) -/
 #print axioms StrongBundle.exists_le_mul_norm_liftOne
 #print axioms StrongBundle.IsAuxNorm.exists_norm_liftOne_le
 #print axioms StrongBundle.IsAuxNorm.exists_bounds
-#print axioms lemma_5_2
+#print axioms lemma_5_1_2
 #print axioms StrongBundle.exists_norm_liftOne_le_mul
 #print axioms StrongBundle.exists_uniform_comparison
 #print axioms StrongBundle.complete_of_bounds
@@ -2904,8 +2904,8 @@ the charts `Φ[1]` of every strong bundle chart, the fibres `(Y_{0,1})_x`) -/
 #print axioms StrongBundle.continuous_gluedNorm
 #print axioms StrongBundle.gluedNorm_bounds
 #print axioms StrongBundle.isCompleteFiberNorm_gluedNorm
-#print axioms proposition_5_3_exists
-#print axioms proposition_5_3_compare
+#print axioms proposition_5_1_3_exists
+#print axioms proposition_5_1_3_compare
 
 /-! ### Axioms: Chapter5/BumpFunctions.lean (Definitions 5.9, 5.29, 5.33, Propositions 5.10, 5.30,
 5.35, Theorem 5.34, Lemma 5.11; `ℝ` as an M-polyfold, `Γ⁺(P)`, `Γ^{+,1}_U(P)`, products and sums of
@@ -2926,13 +2926,13 @@ sc⁺-sections) -/
 #print axioms MPolyfold.AdmitsBumpFunctions
 #print axioms MPolyfold.AdmitsBumpFunctionsWeak
 #print axioms MPolyfold.AdmitsBumpFunctions.weak
-#print axioms proposition_5_30
-#print axioms proposition_5_10
+#print axioms proposition_5_5_3
+#print axioms proposition_5_3_2
 #print axioms LocalModel.HasBumpProperty
 #print axioms closure_inter_ball_subset
-#print axioms theorem_5_34
+#print axioms theorem_5_5_7
 #print axioms LocalModel.hasBumpProperty_of_quadratic
-#print axioms proposition_5_35
+#print axioms proposition_5_5_8
 #print axioms MPolyfold.admitsBumpFunctions_of_hilbert
 #print axioms isScSmooth_const_of_mem_smooth
 #print axioms sectionSupport
@@ -2962,7 +2962,7 @@ sc⁺-sections) -/
 #print axioms StrongBundle.cutoffSection_mem_oneSet
 #print axioms StrongBundle.liftOne_cutoffSection
 #print axioms StrongBundle.isScPlusSection_cutoffSection
-#print axioms lemma_5_11
+#print axioms lemma_5_3_3
 
 /-! ### Axioms: Chapter5/PartitionsOfUnity.lean (Definitions 5.28, 5.31, 5.36, 5.39, 5.41,
 Theorem 5.37, Propositions 5.38, 5.42, Corollary 5.44; Theorems 5.40, 5.43 as statements; sums,
@@ -2994,10 +2994,10 @@ products and locally finite sums of sc-smooth functions) -/
 #print axioms exists_isScSmoothMap_urysohn
 #print axioms admitsScPartitionsOfUnity_of_approx
 #print axioms hasApproxProperty_restrict
-#print axioms theorem_5_37
+#print axioms theorem_5_5_10
 #print axioms AdmitsContDiffPartitionsOfUnity
 #print axioms HasContDiffBump
-#print axioms proposition_5_38
+#print axioms proposition_5_5_11
 #print axioms cZero
 #print axioms mem_cZero_iff
 #print axioms norm_cZero
@@ -3006,12 +3006,12 @@ products and locally finite sums of sc-smooth functions) -/
 #print axioms IsWCG
 #print axioms IsReflexive
 #print axioms span_closedBall_eq_top
-#print axioms proposition_5_42_reflexive
-#print axioms proposition_5_42_separable
+#print axioms proposition_5_5_15_reflexive
+#print axioms proposition_5_5_15_separable
 #print axioms hasContDiffBump_of_hilbert
 #print axioms isReflexive_of_hilbert
 #print axioms GodefroyTroyanskiWhitfieldZizlerStatement
-#print axioms corollary_5_44
+#print axioms corollary_5_5_17
 #print axioms MPolyfold.admitsScPartitionsOfUnity_of_hilbert
 #print axioms MPolyfold.AdmitsScPartitionsOfUnity.admitsBumpFunctions
 
@@ -3062,9 +3062,9 @@ the parametrized section and its slices, the spanning sections, the Sard step) -
 #print axioms auxLe_paramSlice
 #print axioms exists_null_isLinSurjAt_paramSlice_near
 #print axioms StrongBundle.SolutionSetIsManifold
-#print axioms theorem_5_13_generic
+#print axioms theorem_5_3_5_generic
 #print axioms StrongBundle.sectionDistAt
-#print axioms theorem_5_13
+#print axioms theorem_5_3_5_preprint
 
 /-! ### Axioms: Chapter3/TameGerms.lean and the tame forms of §3.6 (Definitions 3.50, 3.51, 3.53 in
 a tame chart; good position in any chart of the germ data; Theorems 3.15 and 3.18 for tame germ
@@ -3083,13 +3083,13 @@ data; Lemma 5.26 in a tame chart; Findings Chapter 3 items 190–199, Chapter 5 
 #print axioms StrongBundle.IsGoodPositionGermWholeChart.toTame
 #print axioms StrongBundle.IsScFredholmGermTameWholeChart.sectionAdd
 #print axioms StrongBundle.isTameChart_of_eqOn_id
-#print axioms theorem_3_15_tame_wholeChart
+#print axioms theorem_3_1_18_tame_wholeChart
 #print axioms StrongBundle.isGoodPositionAt_of_chart_dense
 #print axioms StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGermTame
 #print axioms PullbackChartData.ofProd_isTame
 #print axioms StrongBundle.IsScFredholmGermTameWholeChart.param
 #print axioms StrongBundle.IsScFredholmSectionTameWholeChart.param
-#print axioms theorem_3_18_tame_wholeChart
+#print axioms theorem_3_1_21_tame_wholeChart
 #print axioms StrongBundle.IsGeneralPositionGerm.isGoodPositionGermTame
 #print axioms halfLineSc
 #print axioms isRelOpenInQuadrant_quadrant_one
@@ -3142,11 +3142,11 @@ value; Findings Chapter 3 item 200) -/
 #print axioms TrivialBundle.isGoodPositionGermTame_graphSection_wholeChart
 #print axioms TrivialBundle.isScFredholmSection_graphSection_wholeChart
 #print axioms TrivialBundle.isScFredholmSectionTame_graphSection_wholeChart
-#print axioms TrivialBundle.hypotheses_theorem_3_57_graphSection_wholeChart
-#print axioms TrivialBundle.theorem_3_57_trivialBundle
-#print axioms TrivialBundle.hypotheses_theorem_3_57_linear_wholeChart
+#print axioms TrivialBundle.hypotheses_theorem_3_6_11_graphSection_wholeChart
+#print axioms TrivialBundle.theorem_3_6_11_trivialBundle
+#print axioms TrivialBundle.hypotheses_theorem_3_6_11_linear_wholeChart
 #print axioms TrivialBundle.exampleMap
-#print axioms TrivialBundle.theorem_3_57_example
+#print axioms TrivialBundle.theorem_3_6_11_example
 
 /-! ### Axioms: Chapter3/NonVacuityCorner.lean (the hypotheses of the §3.6 implicit function
 theorems over the half-space `[0, ∞) × ℝᵐ`, good position at boundary zeros; Findings Chapter 3
@@ -3203,10 +3203,10 @@ item 201) -/
 #print axioms HalfSpaceBundle.isScFredholmSection_graphSection_wholeChart
 #print axioms HalfSpaceBundle.isScFredholmSectionTame_graphSection_wholeChart
 #print axioms HalfSpaceBundle.IsRegularOnHalfSpace
-#print axioms HalfSpaceBundle.hypotheses_theorem_3_57_halfSpace_wholeChart
-#print axioms HalfSpaceBundle.theorem_3_57_halfSpace
+#print axioms HalfSpaceBundle.hypotheses_theorem_3_6_11_halfSpace_wholeChart
+#print axioms HalfSpaceBundle.theorem_3_6_11_halfSpace
 #print axioms HalfSpaceBundle.exampleMap
-#print axioms HalfSpaceBundle.theorem_3_57_halfSpace_example
+#print axioms HalfSpaceBundle.theorem_3_6_11_halfSpace_example
 
 /-! ### Axioms: Chapter3/TameVacuityChart.lean (the old hypothesis `htame` fails for the trivial
 bundle of `NonVacuity.lean`: a compatible strong bundle chart with a non-tame base retraction;
@@ -3239,7 +3239,7 @@ Findings Chapter 3 item 202) -/
 /-! ### Axioms: Chapter5/Homotopy.lean (Definition 5.20, Lemmas 5.23 and 5.24; Theorems 5.22 and
 5.27 not formalized) -/
 
-#print axioms lemma_5_23
+#print axioms lemma_5_3_16_preprint
 #print axioms ne_zero_of_isCompl_ker
 #print axioms exists_isCompl_ker_of_ne_zero
 #print axioms restrictSection
@@ -3254,7 +3254,7 @@ Findings Chapter 3 item 202) -/
 #print axioms sectionSupport_sectionSmul_subset
 #print axioms principal_sectionSmul
 #print axioms exists_scPlusSection_linAt
-#print axioms lemma_5_24
+#print axioms lemma_5_3_17
 
 
 /-! ### Axioms: Chapter5/GeneralPosition.lean (Theorems 5.18, 5.19, 5.25; the bridge lemma,
@@ -3279,7 +3279,7 @@ Findings Chapter 3 item 202) -/
 #print axioms exists_isGeneralPositionGerm_iff
 #print axioms exists_isOpen_isGeneralPositionGerm
 #print axioms StrongBundle.SolutionSetInGeneralPosition
-#print axioms theorem_5_18_of_family
+#print axioms theorem_5_3_10_of_family
 #print axioms StrongBundleChart.IsParamGP
 #print axioms StrongBundleChart.IsParamGP.comp
 #print axioms minimalSubspaceWith_rnPres
@@ -3290,13 +3290,13 @@ Findings Chapter 3 item 202) -/
 #print axioms spanning_of_isLinSurjAt
 #print axioms exists_sections_isParamGP
 #print axioms isZeroAt_of_sectionAdd
-#print axioms theorem_5_18
+#print axioms theorem_5_3_10_param
 #print axioms StrongBundle.IsAuxNorm.fiberZero_eq
-#print axioms theorem_5_25
-#print axioms theorem_5_18_dense
+#print axioms theorem_5_25_preprint
+#print axioms theorem_5_3_10_dense
 #print axioms StrongBundle.IsGoodPositionGermTame.congr_nhds
 #print axioms sectionAdd_fiberZero
-#print axioms theorem_5_19
+#print axioms theorem_5_3_12_param
 
 
 /-! ### Axioms: Chapter3/GoodPositionSc.lean (Definition 3.21 with the text's sc-complement,
@@ -3323,14 +3323,14 @@ Definition 3.53 with it, Theorem 3.54 (1) with the text's notion of good positio
 #print axioms StrongBundle.IsGoodPositionGermScWholeChart.isGoodPositionGermTame
 #print axioms StrongBundle.IsGoodPositionGermTameWholeChart.isGoodPositionGermSc
 #print axioms StrongBundle.isGoodPositionGermSc_iff_wholeChart
-#print axioms theorem_3_54_one_sc_of_tame_wholeChart
-#print axioms theorem_3_54_one_sc_wholeChart
-#print axioms theorem_3_54_sc_wholeChart
-#print axioms theorem_3_23_sc_wholeChart
+#print axioms theorem_3_6_8_one_sc_of_tame_wholeChart
+#print axioms theorem_3_6_8_one_sc_wholeChart
+#print axioms theorem_3_6_8_sc_wholeChart
+#print axioms theorem_3_1_26_sc_wholeChart
 #print axioms forall_isGoodPositionGermSc_iff_wholeChart
-#print axioms theorem_3_57_sc_wholeChart
-#print axioms corollary_3_24_sc_wholeChart
-#print axioms theorem_3_56_sc_wholeChart
+#print axioms theorem_3_6_11_sc_wholeChart
+#print axioms corollary_3_1_27_sc_wholeChart
+#print axioms theorem_3_6_10_sc_wholeChart
 
 
 /-! ### Axioms: Chapter2/StrongBundleRestrict.lean, Chapter3/StrongBundleMaximalAtlas.lean,
@@ -3397,7 +3397,7 @@ Lemma 5.2 in the text's literal form; Findings Chapter 2 items 40–44) -/
 #print axioms StrongBundle.maximalAtlas_equiv
 #print axioms StrongBundle.isChart_iff_exists_equiv
 #print axioms StrongBundle.isChart_congr
-#print axioms lemma_5_2_literal
+#print axioms lemma_5_1_2_literal
 
 
 /-! ### Axioms: Chapter5/SolutionSetClosed.lean, and additions to Chapter3/SolutionLinearization.lean
@@ -3410,8 +3410,8 @@ smallness on level `m`, Lemma 3.81's Lipschitz estimate on all of `V₀`; Findin
 #print axioms StrongBundle.IsInAllowableCompletion.isZeroAt_of_not_mem
 #print axioms StrongBundle.IsInAllowableCompletion.auxLe_one
 #print axioms StrongBundle.IsInAllowableCompletion.isClosed_solutionSet_sectionAdd
-#print axioms remark_5_12_completion
-#print axioms remark_5_12_of_isScFredholmSection
+#print axioms remark_5_3_4_completion
+#print axioms remark_5_3_4_of_isScFredholmSection
 #print axioms IsSc0ContractionGerm.exists_norm_deriv_snd_le_base
 #print axioms IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le
 #print axioms Radii.norm_τ_sub_le_of_norm_le
@@ -3438,10 +3438,10 @@ Chapter 2 item 50) -/
 #print axioms coneMatrix_mapsTo_orthant
 #print axioms coordMapL_mem_range_coneMatrix
 #print axioms coordMapL_image_partialConeWith
-#print axioms remark_2_28_quotient_simplicial
+#print axioms remark_2_4_8_quotient_simplicial
 #print axioms ScRetraction.isScSubspace_reducedTangentSpaceWith
-#print axioms remark_2_28_isPartialQuadrant
-#print axioms remark_2_28_partialConeWith
+#print axioms remark_2_4_8_isPartialQuadrant
+#print axioms remark_2_4_8_partialConeWith
 
 /-! ### Axioms: Chapter3/BasicGermLinearizationLevel.lean (Proposition 3.10, second statement, on
 every level `m`; round-trip item V3.12; Findings Chapter 3 item 230) -/
@@ -3452,8 +3452,8 @@ every level `m`; round-trip item V3.12; Findings Chapter 3 item 230) -/
 #print axioms IsBasicGerm.levelS_apply
 #print axioms IsBasicGerm.levelDeriv_add_eq
 #print axioms IsBasicGerm.isCompactOperator_levelK
-#print axioms proposition_3_10_level
-#print axioms proposition_3_10_full
+#print axioms proposition_3_1_10_level
+#print axioms proposition_3_1_10_full
 
 /-! ### Axioms: Chapter1/ScFredholmCriterion.lean (sc-Fredholm = Fredholm on level `0` +
 regularizing; restriction to sc-subspaces; Findings Chapter 3 items 233–234) -/
@@ -3487,10 +3487,10 @@ Chapter 3 items 235–236) -/
 #print axioms StrongRetr.isScSubspace_range_scDeriv_r
 #print axioms StrongRetr.isScOperator_ρCLM
 #print axioms StrongRetr.isScSubspace_range_ρCLM
-#print axioms IsFillerOf.proposition_3_5_sc
-#print axioms proposition_3_52_local_sc_wholeChart
-#print axioms proposition_3_52_sc_wholeChart
-#print axioms theorem_3_19_linearization_sc_wholeChart
+#print axioms IsFillerOf.proposition_3_1_5_sc
+#print axioms proposition_3_6_5_local_sc_wholeChart
+#print axioms proposition_3_6_5_sc_wholeChart
+#print axioms theorem_3_1_22_linearization_sc_wholeChart
 
 /-! ### Axioms: Chapter3/GermIFTSmooth.lean (Corollary 3.34 and Theorem 3.35 on one germ for all
 `k`; Theorem 3.35 for any representative; Lemma 3.31's `f⁽¹⁾` satisfies Definition 3.28;
@@ -3508,11 +3508,11 @@ round-trip items V3.28, V3.31, V3.32; Findings Chapter 3, items 250–252) -/
 #print axioms ContractionGerm.diagShift_succ
 #print axioms ContractionGerm.le_diagShift
 #print axioms ContractionGerm.isScSmoothGerm_germDiag
-#print axioms corollary_3_34_isScSmoothGerm
-#print axioms theorem_3_35_isScSmoothGerm
+#print axioms corollary_3_3_7_isScSmoothGerm
+#print axioms theorem_3_35_isScSmoothGerm_preprint
 #print axioms isSckGerm_contractionMap_iff
 #print axioms IsSc0ContractionGerm.exists_eq_sol
-#print axioms theorem_3_35_of_isSc0ContractionGerm
+#print axioms theorem_3_35_of_isSc0ContractionGerm_preprint
 #print axioms ContractionGerm.isSc0ContractionGerm_next
 
 /-! ### Axioms: Chapter1/ScOneNotNormContinuous.lean (the remark after Definition 1.14: an sc¹
@@ -3591,13 +3591,13 @@ every strong bundle chart; round-trip items V3.46, V3.96, V3.98; Findings Chapte
 #print axioms StrongRetr.rangeS_ρCLM_congr
 #print axioms IsFillerOf.mem_range_toBase_of_scDeriv_r_eq_zero
 #print axioms IsFillerOf.filler_condition_three_sc
-#print axioms IsFillerOf.proposition_3_5_sc_converse
-#print axioms IsFillerOf.proposition_3_5_sc_iff
+#print axioms IsFillerOf.proposition_3_1_5_sc_converse
+#print axioms IsFillerOf.proposition_3_1_5_sc_iff
 #print axioms linAt_chart_change_sc
 #print axioms StrongBundle.linAt_sc_of_germ_wholeChart
 #print axioms StrongBundle.linAt_isScFredholm_wholeChart
 #print axioms StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex_wholeChart
-#print axioms theorem_3_54_index_locally_constant_sc_wholeChart
+#print axioms theorem_3_6_8_index_locally_constant_sc_wholeChart
 
 /-! ### Axioms: Chapter3/IndexLocallyConstant.lean (the Fredholm index is locally constant along
 the zero set without good position, for sections with tame germ data on an M-polyfold admitting
@@ -3610,7 +3610,7 @@ bump functions; round-trip item V3.98 (b); Findings Chapter 3, items 240–244) 
 #print axioms StrongBundle.isLinOfIndex_of_conjugationData_wholeChart
 #print axioms StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex_wholeChart
 #print axioms index_locally_constant_of_admitsBumpFunctions_wholeChart
-#print axioms theorem_3_54_index_locally_constant_general_wholeChart
+#print axioms theorem_3_6_8_index_locally_constant_general_wholeChart
 
 /-! ### Axioms: Chapter3/GermVsChart.lean (the example of item 221 machine-checked: an sc-smooth
 germ with shrinking levels, sc-smooth on no neighbourhood; Definition 3.11 in the text's germ
@@ -3708,8 +3708,8 @@ items 275–279) -/
 #print axioms ConjugationData.congr
 #print axioms ConjugationData.shrinkGerm_congr
 #print axioms IsConjugateToBasicGerm.exists_conjugationData_mapsToGerm
-#print axioms ConjugationData.corollary_3_41_of_subset_shrinkGerm
-#print axioms ConjugationData.corollary_3_41_shrink
+#print axioms ConjugationData.corollary_3_5_3_of_subset_shrinkGerm
+#print axioms ConjugationData.corollary_3_5_3_shrink
 #print axioms ConjugationData.exists_stabilityData_shrinkGerm
 
 /-! ### Axioms: Chapter3/GermCalculus.lean and Chapter3/GermCalculusParam.lean (the germ calculus
@@ -3792,7 +3792,7 @@ isomorphism, the product germ `ℝⁿ × G` of Theorem 3.18; Findings Chapter 3,
 #print axioms IsFillingGerm.exists_kerEquiv
 #print axioms IsFillingGerm.deriv_comp_r_eq_zero
 #print axioms IsFillingGerm.ρ_deriv_comp_r
-#print axioms IsFillingGerm.proposition_3_5
+#print axioms IsFillingGerm.proposition_3_1_5
 #print axioms fiberCompDeriv_zero_eq
 #print axioms pushforwardDeriv_zero_eq
 #print axioms IsStrongBundleIso.zero_mem'
@@ -3826,23 +3826,23 @@ Corollary 3.13 in the germ reading of Definition 3.11; Findings Chapter 3, items
 #print axioms IsConjugateToBasicGerm.scDeriv_isFredholm
 #print axioms IsSc1GermWith.sub_toBase_shift
 #print axioms IsSc1GermWith.deriv_zero_eq_add_scPlus
-#print axioms proposition_3_52_local
-#print axioms proposition_3_52_local_of_germ
+#print axioms proposition_3_6_5_local
+#print axioms proposition_3_6_5_local_of_germ
 #print axioms StrongBundleChart.zero_data
-#print axioms proposition_3_52
+#print axioms proposition_3_6_5_preprint
 #print axioms ConjugationData.scDeriv_isFredholm_index
 #print axioms ConjugationData.index_eq
-#print axioms proposition_3_52_local_index
-#print axioms proposition_3_52_index
+#print axioms proposition_3_6_5_local_index
+#print axioms proposition_3_6_5_index
 #print axioms ConjugationData.scDeriv_isRegularizing
 #print axioms ConjugationData.scDeriv_isScFredholm
-#print axioms IsFillingGerm.proposition_3_5_sc
-#print axioms proposition_3_52_local_sc
-#print axioms theorem_3_19_linearization_sc_local_germ
-#print axioms proposition_3_52_sc
-#print axioms theorem_3_19_linearization_sc
-#print axioms theorem_3_12
-#print axioms corollary_3_13
+#print axioms IsFillingGerm.proposition_3_1_5_sc
+#print axioms proposition_3_6_5_local_sc
+#print axioms theorem_3_1_22_linearization_sc_local_germ
+#print axioms proposition_3_6_5_sc
+#print axioms theorem_3_1_22_linearization_sc
+#print axioms theorem_3_1_13_preprint
+#print axioms corollary_3_1_15_preprint
 
 /-! ### Axioms: Chapter3/GoodPositionGermG.lean and Chapter3/LinearizationChartsG.lean
 (Definition 3.53, the linear part of Theorem 3.54 and its push-forward step, and the assembly of
@@ -3859,20 +3859,20 @@ Chapter 3, items 280–285) -/
 #print axioms IsGoodPositionAtGerm.surjective_fillerRestrict
 #print axioms IsGoodPositionAtGerm.congr
 #print axioms IsGoodPositionAtGerm.of_isSc1GermWith
-#print axioms theorem_3_54_linear
-#print axioms theorem_3_54_linear_of_isTameWith
+#print axioms theorem_3_6_8_linear
+#print axioms theorem_3_6_8_linear_of_isTameWith
 #print axioms IsStrongBundleIso.exists_fiber_base_equiv
 #print axioms IsStrongBundleIso.pushforward_linearization
 #print axioms IsStrongBundleIso.pushforward_surjective
 #print axioms IsStrongBundleIso.pushforward_ker_isInGoodPosition
 #print axioms IsStrongBundleIso.pushforward_isFredholm_germ
-#print axioms theorem_3_54_pushforward
+#print axioms theorem_3_6_8_pushforward
 #print axioms StrongBundle.IsGoodPositionGerm
 #print axioms StrongBundle.IsGoodPositionGerm.isScFredholmGerm
 #print axioms StrongBundle.IsGoodPositionGermWholeChart.isGoodPositionGerm
 #print axioms StrongBundle.IsGoodPositionGerm.forall_isGoodPositionAtGerm
 #print axioms StrongBundle.isGoodPositionGerm_iff_germG_wholeChart
-#print axioms theorem_3_54_pushforward_section
+#print axioms theorem_3_6_8_pushforward_section
 #print axioms scDeriv_comp_r_eq_germ
 #print axioms linAt_eq_germDeriv
 #print axioms IsFillingGerm.fillerRestrict_eq_linAt
@@ -3903,18 +3903,18 @@ Chapter 3, items 280–285) -/
 #print axioms StrongBundle.IsScFredholmGerm.sectionAdd
 #print axioms StrongBundle.regularizing_sectionAdd
 #print axioms StrongBundle.IsScFredholmGermWholeChart.sectionAdd_germG
-#print axioms theorem_3_15
+#print axioms theorem_3_1_18_preprint
 #print axioms StrongBundle.IsGoodPositionGerm.toTame
 #print axioms StrongBundle.IsScFredholmGermTame.sectionAdd
-#print axioms theorem_3_15_tame
+#print axioms theorem_3_1_18_tame
 #print axioms StrongBundle.IsScFredholmGerm.param
 #print axioms StrongBundle.regularizing_paramLift
 #print axioms StrongBundle.IsScFredholmSection.param
-#print axioms theorem_3_18
-#print axioms theorem_3_18'
+#print axioms theorem_3_1_21_preprint
+#print axioms theorem_3_1_21'
 #print axioms StrongBundle.IsScFredholmGermTame.param
 #print axioms StrongBundle.IsScFredholmSectionTame.param
-#print axioms theorem_3_18_tame
+#print axioms theorem_3_1_21_tame
 #print axioms scDeriv_paramSection_of_isScSmoothSection
 #print axioms scDeriv_paramSection
 #print axioms linAt_paramSection
@@ -3923,69 +3923,69 @@ Chapter 3, items 280–285) -/
 #print axioms TrivialBundle.isGoodPositionGermTame_graphSection
 #print axioms TrivialBundle.isScFredholmSection_graphSection
 #print axioms TrivialBundle.isScFredholmSectionTame_graphSection
-#print axioms TrivialBundle.hypotheses_theorem_3_57_graphSection
-#print axioms TrivialBundle.hypotheses_theorem_3_57_linear
+#print axioms TrivialBundle.hypotheses_theorem_3_6_11_graphSection
+#print axioms TrivialBundle.hypotheses_theorem_3_6_11_linear
 #print axioms TrivialBundle.htame_fails_repaired_holds
 #print axioms HalfSpaceBundle.isScFredholmGermTame_graphSection
 #print axioms HalfSpaceBundle.isGoodPositionGermTame_graphSection
 #print axioms HalfSpaceBundle.isScFredholmSection_graphSection
 #print axioms HalfSpaceBundle.isScFredholmSectionTame_graphSection
-#print axioms HalfSpaceBundle.hypotheses_theorem_3_57_halfSpace
+#print axioms HalfSpaceBundle.hypotheses_theorem_3_6_11_halfSpace
 
 -- Chapter3/GlobalIFTNearbyGraphG.lean (phase 2: Theorem 3.54 (3) in the chart, germ reading)
 #print axioms levelMap_pairMap_id_at
 #print axioms IsStrongBundleMap.fiberCompDeriv_at
 #print axioms IsStrongBundleIso.pushforwardDeriv_at
 #print axioms IsStrongBundleIso.ker_deriv_eq_map_germ
-#print axioms theorem_3_54_chart_graph
+#print axioms theorem_3_6_8_chart_graph
 
 -- Chapter3/GlobalIFTG.lean (phase 2: Theorem 3.54 (3) for sections, germ reading)
 #print axioms StrongBundle.IsTameChart.range_id_sub_scDeriv_le
-#print axioms theorem_3_54_graph_proj_conj
-#print axioms theorem_3_54_graph_proj
-#print axioms theorem_3_54_graph
+#print axioms theorem_3_6_8_graph_proj_conj
+#print axioms theorem_3_6_8_graph_proj
+#print axioms theorem_3_6_8_graph
 
 -- Chapter3/GlobalIFTFullG.lean (phase 2: Theorem 3.54 (1) in the chart at `x₀`, germ reading)
-#print axioms theorem_3_54_nearby
+#print axioms theorem_3_6_8_nearby
 
 -- Chapter3/GlobalIFTCenterG.lean (phase 2: Theorem 3.54 (2) at the centre, germ reading)
-#print axioms theorem_3_54_tangentGermChart_proj_conj
-#print axioms theorem_3_54_tangentGermChart_proj
-#print axioms theorem_3_54_tangentGermChart
+#print axioms theorem_3_6_8_tangentGermChart_proj_conj
+#print axioms theorem_3_6_8_tangentGermChart_proj
+#print axioms theorem_3_6_8_tangentGermChart
 
 -- Chapter3/GlobalIFTNearbyKernelG.lean (phase 2: Theorem 3.54 (1), the kernel, germ reading)
-#print axioms theorem_3_54_chart_kernel
+#print axioms theorem_3_6_8_chart_kernel
 
 -- Chapter3/GlobalIFTNearbySurjG.lean (phase 2: Theorem 3.54 (1) for sections, germ reading)
 #print axioms exists_range_deriv_eq_ρ_of_normal_injective_germ
 #print axioms StrongBundle.IsScFredholmSection.mem_smoothSet_of_isZeroAt
 #print axioms StrongBundle.isGoodPositionGermTame_of_chart_dense
-#print axioms theorem_3_54_nearby_kernel
+#print axioms theorem_3_6_8_nearby_kernel
 #print axioms StrongBundle.IsGoodPositionGermFilled
 #print axioms StrongBundle.IsGoodPositionGermFilled.isGoodPositionGermTame
 #print axioms StrongBundle.IsGoodPositionGermFilled.isGoodPositionGerm
 #print axioms StrongBundle.IsGoodPositionGermFilledWholeChart.isGoodPositionGermFilled
-#print axioms theorem_3_54_one
+#print axioms theorem_3_6_8_one
 
 -- Chapter3/GlobalIFTTheoremsG.lean (phase 2: the main theorems, germ reading)
-#print axioms theorem_3_54_tangentGermChart_solutionSet
-#print axioms theorem_3_54_two
-#print axioms theorem_3_54
-#print axioms theorem_3_23_of_nearby
-#print axioms theorem_3_23
-#print axioms theorem_3_19_linearization
-#print axioms theorem_3_19
-#print axioms theorem_3_57
-#print axioms corollary_3_24
-#print axioms theorem_3_56
-#print axioms theorem_3_57_dim
+#print axioms theorem_3_6_8_tangentGermChart_solutionSet
+#print axioms theorem_3_6_8_two
+#print axioms theorem_3_6_8
+#print axioms theorem_3_1_26_of_nearby
+#print axioms theorem_3_1_26
+#print axioms theorem_3_1_22_linearization
+#print axioms theorem_3_1_22
+#print axioms theorem_3_6_11
+#print axioms corollary_3_1_27
+#print axioms theorem_3_6_10
+#print axioms theorem_3_6_11_dim
 
 -- Chapter3/GlobalIFTNearbyOntoG.lean (phase 2: Theorem 3.54 (1) with the text's hypotheses, germ reading)
-#print axioms theorem_3_54_chart_onto
-#print axioms theorem_3_54_one'
-#print axioms theorem_3_54'
-#print axioms theorem_3_23'
-#print axioms theorem_3_19'
+#print axioms theorem_3_6_8_chart_onto
+#print axioms theorem_3_6_8_one'
+#print axioms theorem_3_6_8'
+#print axioms theorem_3_1_26'
+#print axioms theorem_3_1_22'
 
 -- Chapter3/GoodPositionScG.lean (phase 2: good position with an sc-complement, germ reading;
 -- Findings Chapter 3, items 320–329)
@@ -3997,17 +3997,17 @@ Chapter 3, items 280–285) -/
 #print axioms StrongBundle.IsGoodPositionGermScWholeChart.isGoodPositionGermSc
 #print axioms StrongBundle.IsGoodPositionGermTame.isGoodPositionGermSc
 #print axioms StrongBundle.isGoodPositionGermSc_iff
-#print axioms theorem_3_54_one_sc_of_tame
-#print axioms theorem_3_54_one_sc
-#print axioms theorem_3_54_sc
-#print axioms theorem_3_23_sc
+#print axioms theorem_3_6_8_one_sc_of_tame
+#print axioms theorem_3_6_8_one_sc
+#print axioms theorem_3_6_8_sc
+#print axioms theorem_3_1_26_sc
 #print axioms forall_isGoodPositionGermSc_iff
-#print axioms theorem_3_57_sc
-#print axioms corollary_3_24_sc
-#print axioms theorem_3_56_sc
+#print axioms theorem_3_6_11_sc
+#print axioms corollary_3_1_27_sc
+#print axioms theorem_3_6_10_sc
 
 -- Chapter3/Chapter5BridgeG.lean (phase 2: the Chapter 5 interface, germ reading)
-#print axioms corollary_3_13_section
+#print axioms corollary_3_1_15_section
 #print axioms StrongBundle.IsGoodPositionGermTame.congr_nhds
 
 -- Chapter3/GlobalIFTIndexG.lean (phase 2: the index statements, germ reading;
@@ -4021,31 +4021,31 @@ Chapter 3, items 280–285) -/
 #print axioms StrongBundle.isGoodPositionGerm_of_linAt_surj_of_degIndex_eq_zero
 #print axioms StrongBundle.isGoodPositionGerm_of_isLinSurjAt
 #print axioms StrongBundle.isGoodPositionGerm_iff_isLinSurjAt
-#print axioms theorem_3_19_linearization_index
-#print axioms theorem_3_54_tangentGermChart_index
-#print axioms theorem_3_54_tangentGermChart_solutionSet_index
-#print axioms theorem_3_54_two_index
+#print axioms theorem_3_1_22_linearization_index
+#print axioms theorem_3_6_8_tangentGermChart_index
+#print axioms theorem_3_6_8_tangentGermChart_solutionSet_index
+#print axioms theorem_3_6_8_two_index
 #print axioms isSurjLinOfIndex_of_forall_dim
-#print axioms theorem_3_54_index_locally_constant
-#print axioms theorem_3_54_index
-#print axioms theorem_3_23_index
-#print axioms theorem_3_19_index
-#print axioms theorem_3_19_of_surjective
-#print axioms theorem_3_57_index
-#print axioms theorem_3_56_tame
-#print axioms theorem_3_56_of_surjective
-#print axioms theorem_3_54_ker_eq_tangent
+#print axioms theorem_3_6_8_index_locally_constant
+#print axioms theorem_3_6_8_index
+#print axioms theorem_3_1_26_index
+#print axioms theorem_3_1_22_index
+#print axioms theorem_3_1_22_of_surjective
+#print axioms theorem_3_6_11_index
+#print axioms theorem_3_6_10_tame
+#print axioms theorem_3_6_10_of_surjective
+#print axioms theorem_3_6_8_ker_eq_tangent
 #print axioms isGoodPositionGermFilled_of_isGoodPositionGerm
 
 -- Chapter3/LinearizationChartsScG.lean (phase 2: sc-Fredholm linearizations, germ reading)
 #print axioms IsFillingGerm.mem_range_toBase_of_scDeriv_r_eq_zero
 #print axioms IsFillingGerm.filler_condition_three_sc
-#print axioms IsFillingGerm.proposition_3_5_sc_converse
-#print axioms IsFillingGerm.proposition_3_5_sc_iff
+#print axioms IsFillingGerm.proposition_3_1_5_sc_converse
+#print axioms IsFillingGerm.proposition_3_1_5_sc_iff
 #print axioms StrongBundle.linAt_sc_of_germ
 #print axioms StrongBundle.linAt_isScFredholm
 #print axioms StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex
-#print axioms theorem_3_54_index_locally_constant_sc
+#print axioms theorem_3_6_8_index_locally_constant_sc
 
 -- Chapter3/IndexLocallyConstantG.lean (phase 2: the index along the zero set, germ reading)
 #print axioms StrongBundle.isLinOfIndex_of_conjugationData
@@ -4056,7 +4056,7 @@ Chapter 3, items 280–285) -/
 #print axioms exists_sections_isParamGP_germ
 #print axioms isGoodPositionGermTame_paramSection_of_isParamGP
 #print axioms index_locally_constant_of_admitsBumpFunctions
-#print axioms theorem_3_54_index_locally_constant_general
+#print axioms theorem_3_6_8_index_locally_constant_general
 
 /-! ### Axioms: Chapter5/StrongBundleShift.lean and Chapter5/Corollary58.lean (the shifted strong
 bundle `P¹ : Y¹ → X¹` and Corollary 5.8: `f¹` an sc-Fredholm section of `P¹` with compact solution
@@ -4160,10 +4160,10 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms StrongBundleChart.principal_mem_image
 #print axioms StrongBundleChart.shift_isFillingGerm
 #print axioms isScFredholmGerm_sectionShift
-#print axioms corollary_5_8_isScFredholmSection
-#print axioms corollary_5_8
-#print axioms corollary_5_8_two
-#print axioms corollary_5_8_data
+#print axioms corollary_5_2_5_isScFredholmSection
+#print axioms corollary_5_2_5
+#print axioms corollary_5_2_5_two
+#print axioms corollary_5_2_5_data
 
 -- Chapter3/IndexAlongPaths.lean (Definition 6.1, the index at non-zeros; Proposition 6.2 along
 -- paths: the local form and the text's device on ℝ × X)
@@ -4189,7 +4189,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms tsupport_prod_mul_subset
 #print axioms MPolyfold.admitsBumpFunctions_prod_rn
 #print axioms isLinOfIndex_paramLift_sectionAdd_eventually_const
-#print axioms proposition_6_2_of_sections_of_slice
+#print axioms proposition_6_2_2_of_sections_of_slice
 
 -- Chapter3/IndexAlongPathsDevice.lean (Proposition 6.2 closed: the sc⁺-section along the path
 -- and the slice relation)
@@ -4206,8 +4206,8 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms isScSmoothMap_rn_of_contDiff
 #print axioms exists_contDiff_eq_id_near_mapsTo
 #print axioms exists_isScPlusSection_pullback_of_path
-#print axioms proposition_6_2
-#print axioms proposition_6_2'
+#print axioms proposition_6_2_2
+#print axioms proposition_6_2_2'
 
 -- Chapter4/RemarkFourThreeExample.lean (Remark 4.3, "X¹ ≠ X is possible": an sc-smoothness
 -- criterion with one level of loss, and the reduction of the example to a loss family)
@@ -4240,10 +4240,10 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms RemarkFourThree.fam_mem_smooth
 #print axioms RemarkFourThree.not_continuousOn_liftOne
 #print axioms RemarkFourThree.remarkFourThreeData
-#print axioms remark_4_3_retract_example
+#print axioms remark_4_1_3_retract_example
 #print axioms retractPolyfold
 #print axioms retractPolyfold_smooth_not_toLevelOne
-#print axioms remark_4_3_example
+#print axioms remark_4_1_3_example
 
 -- Chapter5/AllowableSectionsMetric.lean (§5.3: the metric ρ on Γ^{+,1}_U(P); not complete on the
 -- trivial bundle ℝ × ℝ → ℝ; complete for U = ∅ and over a point)
@@ -4393,7 +4393,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.exists_sections_isParamGP_of_sections
 #print axioms Polyfold.index_locally_constant_of_sections
 #print axioms Polyfold.index_locally_constant_tame
-#print axioms Polyfold.theorem_3_54_index_locally_constant_general_tame
+#print axioms Polyfold.theorem_3_6_8_index_locally_constant_general_tame
 -- IndexAlongPathsLocal.lean
 #print axioms Polyfold.sectionRestrict
 #print axioms Polyfold.StrongBundle.IsScPlusSection.restrictOpen_of_subset
@@ -4410,8 +4410,8 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.hasScPlusSectionsThrough_pullback_rn_of_chart
 #print axioms Polyfold.isLinOfIndex_paramLift_sectionAdd_eventually_const_of_sections
 #print axioms Polyfold.isIndexAtLocal_eventually_const_of_path
-#print axioms Polyfold.proposition_6_2_local
-#print axioms Polyfold.proposition_6_2_local'
+#print axioms Polyfold.proposition_6_2_2_local
+#print axioms Polyfold.proposition_6_2_2_local'
 -- IndexAlongPathsLocalBump.lean
 #print axioms Polyfold.StrongBundle.cutoffSection_mem_oneSet_of_isChart
 #print axioms Polyfold.StrongBundle.isScPlusSection_cutoffSection_of_isChart
@@ -4487,7 +4487,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.coe_maxPowDualEquiv
 #print axioms Polyfold.maxPowDualEquiv_dualVec
 #print axioms Polyfold.maxPowDualEquiv_dualVec_symm
-#print axioms Polyfold.proposition_6_4
+#print axioms Polyfold.proposition_6_3_2
 -- Chapter6/ExactSequence.lean
 #print axioms Polyfold.tmul_ne_zero_of_ne_zero
 #print axioms Polyfold.exists_linearIndependent_append
@@ -4517,7 +4517,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.FourTermExact.finrank_add
 #print axioms Polyfold.FourTermExact.finrank_eq_of_families
 #print axioms Polyfold.FourTermExact.phi
-#print axioms Polyfold.FourTermExact.lemma_6_5
+#print axioms Polyfold.FourTermExact.lemma_6_3_3
 #print axioms Polyfold.FourTermExact.phi_ne_zero
 #print axioms Polyfold.FourTermExact.phi_bijective
 #print axioms Polyfold.FourTermExact.phiEquiv
@@ -4533,7 +4533,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.contractDual_tmul
 #print axioms Polyfold.contractDual_tmul_dualVec
 #print axioms Polyfold.FourTermExact.psi
-#print axioms Polyfold.FourTermExact.proposition_6_6
+#print axioms Polyfold.FourTermExact.proposition_6_3_5
 -- Chapter6/FredholmDet.lean
 #print axioms Polyfold.linDet
 #print axioms Polyfold.finrank_linDet
@@ -4568,15 +4568,15 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.exists_isGoodLeftProj
 #print axioms Polyfold.projLE_projectionL
 #print axioms Polyfold.range_comp_eq_of_comp_eq
-#print axioms Polyfold.lemma_6_10
-#print axioms Polyfold.lemma_6_10_text_reading
+#print axioms Polyfold.lemma_6_10_preprint
+#print axioms Polyfold.lemma_6_10_text_reading_preprint
 -- Chapter6/ProjectionSequence.lean
 #print axioms Polyfold.ker_le_ker_comp
 #print axioms Polyfold.projSeqJ
 #print axioms Polyfold.projSeqPhi
 #print axioms Polyfold.projSeqPi
 #print axioms Polyfold.projSeqPi_mk
-#print axioms Polyfold.lemma_6_11
+#print axioms Polyfold.proposition_6_4_10
 #print axioms Polyfold.projSeq
 #print axioms Polyfold.cokerCompEquiv
 #print axioms Polyfold.gammaProj
@@ -4585,9 +4585,9 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.comp_comp_eq_of_projLE
 #print axioms Polyfold.IsGoodLeftProj.of_projLE
 #print axioms Polyfold.mem_span_append_of_ker
-#print axioms Polyfold.proposition_6_12
+#print axioms Polyfold.proposition_6_4_11
 #print axioms Polyfold.comp_comp_eq_comp_comp
-#print axioms Polyfold.corollary_6_13
+#print axioms Polyfold.corollary_6_4_12
 -- Chapter6/Stabilization.lean
 #print axioms Polyfold.stabJ
 #print axioms Polyfold.stabPi
@@ -4600,7 +4600,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.range_stabJ
 #print axioms Polyfold.range_stabPi
 #print axioms Polyfold.stabClass_surjective
-#print axioms Polyfold.lemma_6_14
+#print axioms Polyfold.lemma_6_4_14
 #print axioms Polyfold.stabSeq
 #print axioms Polyfold.exists_surjective_coprod
 #print axioms Polyfold.subsingleton_coker_coprod
@@ -4620,7 +4620,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.stabIota_bijective
 #print axioms Polyfold.stab_card_eq
 #print axioms Polyfold.isCompl_range_stabPi_span
-#print axioms Polyfold.proposition_6_15
+#print axioms Polyfold.proposition_6_4_15
 -- Chapter6/DirectSumDet.lean
 #print axioms Polyfold.dualVec_smul_of_ne_zero
 #print axioms Polyfold.wedge_tmul_dualVec_eq_smul
@@ -4645,7 +4645,7 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms Polyfold.directSumDet
 #print axioms Polyfold.directSumVec_eq_smul
 #print axioms Polyfold.directSumVec_ne_zero
-#print axioms Polyfold.definition_6_16
+#print axioms Polyfold.definition_6_4_16
 #print axioms Polyfold.directSumDet_bijective
 
 /-! ### Axioms: Chapter 6, §6.4 (the determinant bundle, Lemma 6.17 – Proposition 6.26),
@@ -4695,7 +4695,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.dualVec_smul_eq_inv_smul
 #print axioms Polyfold.continuous_basis_det
 #print axioms Polyfold.quotEquivOfEq_apply_symm_apply
-#print axioms Polyfold.lemma_6_17
+#print axioms Polyfold.lemma_6_5_1
 #print axioms Polyfold.LocalDetChart
 #print axioms Polyfold.LocalDetChart.K
 #print axioms Polyfold.LocalDetChart.projComp
@@ -4713,7 +4713,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.LocalDetChart.continuousAt_kerMap
 #print axioms Polyfold.LocalDetChart.ySol_mem
 #print axioms Polyfold.LocalDetChart.proj_apply_ySol
-#print axioms Polyfold.LocalDetChart.lemma_6_18
+#print axioms Polyfold.LocalDetChart.lemma_6_5_2
 #print axioms Polyfold.LocalDetChart.kerEquiv
 #print axioms Polyfold.LocalDetChart.coe_kerEquiv_apply
 #print axioms Polyfold.LocalDetChart.kerFrame
@@ -4731,7 +4731,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.LocalDetChart.dualVec_wedge_eq_inv_det_smul
 #print axioms Polyfold.LocalDetChart.linDetEquivOfEq_wedge_tmul
 #print axioms Polyfold.LocalDetChart.continuousOn_kerMap_apply
-#print axioms Polyfold.proposition_6_20
+#print axioms Polyfold.proposition_6_5_4
 #print axioms Polyfold.LocalDetChart.rangeInfKer
 #print axioms Polyfold.LocalDetChart.zSol
 #print axioms Polyfold.LocalDetChart.proj_apply_zSol
@@ -4747,7 +4747,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.LocalDetChart.cokerLift
 #print axioms Polyfold.LocalDetChart.projSeqPi_cokerLift
 #print axioms Polyfold.LocalDetChart.gammaProj_frame_eq
-#print axioms Polyfold.lemma_6_21
+#print axioms Polyfold.lemma_6_5_5
 -- Chapter6/DetBundle.lean
 #print axioms Polyfold.DetFiber
 #print axioms Polyfold.finrank_detFiber
@@ -4769,15 +4769,15 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.localDetChartAt_T
 #print axioms Polyfold.mem_baseSet_localDetChartAt
 #print axioms Polyfold.transition_smul_eq
-#print axioms Polyfold.lemma_6_25_local
-#print axioms Polyfold.lemma_6_25
+#print axioms Polyfold.lemma_6_5_9_local
+#print axioms Polyfold.lemma_6_5_9
 #print axioms Polyfold.detPrebundle
 #print axioms Polyfold.detBasis
-#print axioms Polyfold.proposition_6_23
-#print axioms Polyfold.proposition_6_24
+#print axioms Polyfold.proposition_6_5_7
+#print axioms Polyfold.proposition_6_5_8
 #print axioms Polyfold.fredholmIncl
 #print axioms Polyfold.DetOn
-#print axioms Polyfold.proposition_6_26
+#print axioms Polyfold.proposition_6_6_1
 -- Chapter6/SubspaceBundle.lean
 #print axioms Polyfold.SubspaceFamily
 #print axioms Polyfold.SubspaceFamily.det
@@ -5015,7 +5015,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.exists_isScPlusSection_pullback_of_mapsTo_of_bump
 #print axioms Polyfold.exists_isScPlusSection_pullback_of_family
 #print axioms Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump
-#print axioms Polyfold.proposition_6_28
+#print axioms Polyfold.proposition_6_6_3
 -- Chapter6/KernelFamily.lean
 #print axioms Polyfold.StrongBundle.IsSurjLinOfIndex.finrank_linKer
 #print axioms Polyfold.exists_local_frame_linKer
@@ -5025,7 +5025,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 -- Chapter6/Lemma629.lean
 #print axioms Polyfold.isZeroAt_paramSection_zero
 #print axioms Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact
-#print axioms Polyfold.lemma_6_29
+#print axioms Polyfold.lemma_6_6_4
 -- Chapter6/ParamKernel.lean
 #print axioms Polyfold.StrongBundleChart.paramDerivAt.congr_simp
 #print axioms Polyfold.PullbackChartData.ofProd_scDeriv_r_apply
@@ -5045,7 +5045,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.mem_linSet_sectionAdd_pullbackSlice
 #print axioms Polyfold.surjective_coprod_of_isLinSurjAt
 #print axioms Polyfold.exists_sliceKernel
-#print axioms Polyfold.lemma_6_31
+#print axioms Polyfold.lemma_6_6_6
 -- Chapter6/AddSections.lean
 #print axioms Polyfold.SubspaceFamily.Frame.basis.congr_simp
 #print axioms Polyfold.SubspaceFamily.Frame.vec.congr_simp
@@ -5201,13 +5201,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.continuous_pt2
 #print axioms Polyfold.sqEdge
 #print axioms Polyfold.sqPath
-#print axioms Polyfold.proposition_6_32
+#print axioms Polyfold.proposition_6_6_7
 #print axioms Polyfold.push_eq_of_homotopy
 #print axioms Polyfold.HasLocalPropagation
 #print axioms Polyfold.HasLocalPropagation.subset
 #print axioms Polyfold.HasLocalPropagation.exists_isPush
 #print axioms Polyfold.HasLocalPropagation.eq
-#print axioms Polyfold.theorem_6_35
+#print axioms Polyfold.theorem_6_6_11
 -- Chapter6/ContinuousOrientation.lean
 #print axioms Polyfold.HasLocalPropagation.eq_trans
 #print axioms Polyfold.IsContinuousOrientation
@@ -5551,7 +5551,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.orFunctorMap_isStarProperty
 #print axioms Polyfold.orFunctorMap_unique_of_cover
 #print axioms Polyfold.orFunctorMap_unique
-#print axioms Polyfold.theorem_6_37
+#print axioms Polyfold.theorem_6_6_13_hyp
 #print axioms Polyfold.IsOrientableSection
 #print axioms Polyfold.orFunctorMap_apply_eq_of_local
 #print axioms Polyfold.isContinuousOrientation_of_apply_eq
@@ -5641,7 +5641,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.surjRay
 #print axioms Polyfold.stabRayEquiv_eq_surjRay
 #print axioms Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt
-#print axioms Polyfold.theorem_6_41_solutionSet
+#print axioms Polyfold.theorem_6_6_18_solutionSet
 #print axioms Polyfold.tangentSpace_solutionSet_eq_linKer
 #print axioms Polyfold.ChartPoint.linZero
 #print axioms Polyfold.ChartPoint.coe_linZero
@@ -5666,7 +5666,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.cont_tangentOr
 #print axioms Polyfold.isLineOrientation_tangentOr
 #print axioms Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation
-#print axioms Polyfold.theorem_6_41
+#print axioms Polyfold.theorem_6_6_18_hyp
 
 /-! Axioms: Part II, Chapter 7 (ep-groupoids), waves W0–W1: definitions and infrastructure -/
 
@@ -5680,9 +5680,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.paracompactSpace_of_sigma_refinement
 #print axioms Polyfold.exists_closed_precise_refinement
 #print axioms Polyfold.exists_closed_precise_refinement_set
-#print axioms Polyfold.lemma_2_56
+#print axioms Polyfold.lemma_2_7_3
 #print axioms Polyfold.michael_tfae
-#print axioms Polyfold.proposition_2_57
+#print axioms Polyfold.proposition_2_7_4
 #print axioms Polyfold.paracompactSpace_iUnion
 #print axioms Polyfold.paracompactSpace_iUnion_of_finite
 #print axioms Polyfold.paracompactSpace_biUnion_of_finite
@@ -6060,19 +6060,19 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 
 /-! Axioms: Part II, Chapter 7 (ep-groupoids), wave W2: basic properties, natural representation, proper subsets -/
 -- Chapter7/Basic.lean
-#print axioms Polyfold.EpGroupoid.proposition_7_1
-#print axioms Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap
-#print axioms Polyfold.EpGroupoid.proposition_7_1_map_nhds
-#print axioms Polyfold.EpGroupoid.proposition_7_2_of_hasAntitoneBasis
-#print axioms Polyfold.EpGroupoid.proposition_7_2
-#print axioms Polyfold.EpGroupoid.proposition_7_2_firstCountableTopology
-#print axioms Polyfold.EpGroupoid.proposition_7_3_of_isProperMap
-#print axioms Polyfold.EpGroupoid.proposition_7_3
-#print axioms Polyfold.EpGroupoid.lemma_7_1_swap_of_isProperMap
-#print axioms Polyfold.EpGroupoid.lemma_7_1_of_isProperMap
-#print axioms Polyfold.EpGroupoid.lemma_7_1
-#print axioms Polyfold.EpGroupoid.lemma_7_1_swap
-#print axioms Polyfold.EpGroupoid.proposition_7_4
+#print axioms Polyfold.EpGroupoid.proposition_7_1_8
+#print axioms Polyfold.EpGroupoid.proposition_7_1_8_isOpenQuotientMap
+#print axioms Polyfold.EpGroupoid.proposition_7_1_8_map_nhds
+#print axioms Polyfold.EpGroupoid.proposition_7_1_9_of_hasAntitoneBasis
+#print axioms Polyfold.EpGroupoid.proposition_7_1_9
+#print axioms Polyfold.EpGroupoid.proposition_7_1_9_firstCountableTopology
+#print axioms Polyfold.EpGroupoid.proposition_7_1_10_of_isProperMap
+#print axioms Polyfold.EpGroupoid.proposition_7_1_10
+#print axioms Polyfold.EpGroupoid.lemma_7_1_11_swap_of_isProperMap
+#print axioms Polyfold.EpGroupoid.lemma_7_1_11_of_isProperMap
+#print axioms Polyfold.EpGroupoid.lemma_7_1_11
+#print axioms Polyfold.EpGroupoid.lemma_7_1_11_swap
+#print axioms Polyfold.EpGroupoid.proposition_7_1_12
 #print axioms Polyfold.EpGroupoid.conjIsotropy
 #print axioms Polyfold.EpGroupoid.conjIsotropy_val
 #print axioms Polyfold.EpGroupoid.nonempty_isotropy_mulEquiv
@@ -6087,10 +6087,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 -- Chapter7/ProperSubsets.lean
 #print axioms Polyfold.EpGroupoid.isProperSubset_iff_isCompact
 #print axioms Polyfold.EpGroupoid.isProperSubset_iff_exists_tendsto_subseq
-#print axioms Polyfold.EpGroupoid.proposition_7_13
+#print axioms Polyfold.EpGroupoid.proposition_7_5_9
 #print axioms Polyfold.EpGroupoid.IsProperSubset.isClosed
 #print axioms Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset
-#print axioms Polyfold.EpGroupoid.proposition_7_14_one
+#print axioms Polyfold.EpGroupoid.proposition_7_5_10_one
 #print axioms Polyfold.EpGroupoid.IsProperSubset.of_subset
 #print axioms Polyfold.EpGroupoid.isProperSubset_empty
 #print axioms Polyfold.EpGroupoid.IsProperSubset.union
@@ -6102,9 +6102,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.HasPropernessProperty.mono
 #print axioms Polyfold.EpGroupoid.exists_hasPropernessProperty_subset
 #print axioms Polyfold.EpGroupoid.exists_hasPropernessProperty_isConnected_subset
-#print axioms Polyfold.EpGroupoid.proposition_7_14_two
+#print axioms Polyfold.EpGroupoid.proposition_7_5_10_two
 -- Chapter7/NaturalRep.lean
-#print axioms Polyfold.EpGroupoid.lemma_7_8
+#print axioms Polyfold.EpGroupoid.lemma_7_6_2
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.finite_isotropy
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.N
@@ -6142,11 +6142,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_mul
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.isScDiffeoOn_hat
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.Sheets.mkRep
-#print axioms Polyfold.EpGroupoid.lemma_7_9
+#print axioms Polyfold.EpGroupoid.lemma_7_6_3
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets
 #print axioms Polyfold.EpGroupoid.NatRepConstruction.restrict
-#print axioms Polyfold.EpGroupoid.theorem_7_1
-#print axioms Polyfold.EpGroupoid.theorem_7_5
+#print axioms Polyfold.EpGroupoid.theorem_7_1_13
+#print axioms Polyfold.EpGroupoid.theorem_7_6_1
 #print axioms Polyfold.EpGroupoid.exists_naturalRep_restrict
 #print axioms Polyfold.EpGroupoid.exists_naturalRep_shrink
 -- Chapter7/NaturalAction.lean
@@ -6298,8 +6298,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NatRepFinite.emptyNaturalRepFinite
 #print axioms Polyfold.EpGroupoid.NatRepFinite.mono
 #print axioms Polyfold.EpGroupoid.NatRepFinite.connectedComponentIn_morOn
-#print axioms Polyfold.EpGroupoid.proposition_7_5
-#print axioms Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet
+#print axioms Polyfold.EpGroupoid.proposition_7_1_15_2017
+#print axioms Polyfold.EpGroupoid.proposition_7_1_15_of_mem_nhdsSet
 -- Chapter7/Uniformizer.lean
 #print axioms Polyfold.EpGroupoid.NaturalRep.π_eq_π_iff_exists_smul
 #print axioms Polyfold.EpGroupoid.NaturalRep.orbitQuotientMap
@@ -6312,11 +6312,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_functor_obj
 #print axioms Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_functor_mor
 #print axioms Polyfold.EpGroupoid.NaturalRep.range_functor_mor
-#print axioms Polyfold.EpGroupoid.proposition_7_6
-#print axioms Polyfold.EpGroupoid.proposition_7_6_apply_mk
-#print axioms Polyfold.EpGroupoid.proposition_7_6_fullyFaithful
-#print axioms Polyfold.EpGroupoid.proposition_7_6_orbitMap
-#print axioms Polyfold.EpGroupoid.proposition_7_6_orbitMap_apply
+#print axioms Polyfold.EpGroupoid.proposition_7_1_19
+#print axioms Polyfold.EpGroupoid.proposition_7_1_19_apply_mk
+#print axioms Polyfold.EpGroupoid.proposition_7_1_19_fullyFaithful
+#print axioms Polyfold.EpGroupoid.proposition_7_1_19_orbitMap
+#print axioms Polyfold.EpGroupoid.proposition_7_1_19_orbitMap_apply
 #print axioms Polyfold.EpGroupoid.translationOrbitHomeomorph
 #print axioms Polyfold.EpGroupoid.translationOrbitHomeomorph_apply
 #print axioms Polyfold.EpGroupoid.NaturalRep.toLocalUniformizer
@@ -6330,21 +6330,21 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.LocalUniformizer.orbitHomeomorph_apply
 -- Chapter7/OrbitTopology.lean
 #print axioms Polyfold.EpGroupoid.metrizableSpace_orbitRel_quotient_naturalRep
-#print axioms Polyfold.EpGroupoid.lemma_7_4_naturalRep
-#print axioms Polyfold.EpGroupoid.lemma_7_4
-#print axioms Polyfold.EpGroupoid.lemma_7_5
+#print axioms Polyfold.EpGroupoid.lemma_7_3_2_naturalRep
+#print axioms Polyfold.EpGroupoid.lemma_7_3_2
+#print axioms Polyfold.EpGroupoid.lemma_7_3_3
 #print axioms Polyfold.EpGroupoid.t1Space_orbitSpace
-#print axioms Polyfold.EpGroupoid.lemma_7_7
-#print axioms Polyfold.EpGroupoid.lemma_7_6
-#print axioms Polyfold.EpGroupoid.theorem_7_2
-#print axioms Polyfold.EpGroupoid.theorem_7_2_metrizable
-#print axioms Polyfold.EpGroupoid.corollary_7_1
+#print axioms Polyfold.EpGroupoid.lemma_7_3_5
+#print axioms Polyfold.EpGroupoid.lemma_7_3_4
+#print axioms Polyfold.EpGroupoid.theorem_7_3_1
+#print axioms Polyfold.EpGroupoid.theorem_7_3_1_metrizable
+#print axioms Polyfold.EpGroupoid.corollary_7_3_6
 #print axioms Polyfold.EpGroupoid.exists_metrizable_nhds_subtype
 #print axioms Polyfold.EpGroupoid.metrizableSpace_of_paracompactSpace_subtype
 #print axioms Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace
 #print axioms Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure
-#print axioms Polyfold.EpGroupoid.corollary_7_2_of_isCompact
-#print axioms Polyfold.EpGroupoid.corollary_7_2
+#print axioms Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact
+#print axioms Polyfold.EpGroupoid.corollary_7_3_8
 -- Chapter7/Effective.lean
 #print axioms Polyfold.EpGroupoid.isRegular_tgt_of_isRegular_src
 #print axioms Polyfold.EpGroupoid.isSaturated_regularSet
@@ -6355,11 +6355,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRep.kerΦ_eq_bot_iff_injective
 #print axioms Polyfold.EpGroupoid.NaturalRep.stabilizerEquivIsotropy
 #print axioms Polyfold.EpGroupoid.NaturalRep.subset_regularSet
-#print axioms Polyfold.EpGroupoid.lemma_7_2
+#print axioms Polyfold.EpGroupoid.lemma_7_2_2
 #print axioms Polyfold.EpGroupoid.IsEffective.eq_one
-#print axioms Polyfold.EpGroupoid.lemma_7_3
+#print axioms Polyfold.EpGroupoid.lemma_7_2_3
 #print axioms Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep
-#print axioms Polyfold.EpGroupoid.proposition_7_8
+#print axioms Polyfold.EpGroupoid.proposition_7_2_4
 #print axioms Polyfold.EpGroupoid.isEffective_of_dense_regularSet
 #print axioms Polyfold.EpGroupoid.isEffective_iff_dense_regularSet
 #print axioms Polyfold.EpGroupoid.NaturalRep.actsTrivially_iff
@@ -6408,7 +6408,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.subEpGroupoid_unit_val
 #print axioms Polyfold.EpGroupoid.subEpGroupoid_inv_val
 #print axioms Polyfold.EpGroupoid.subEpGroupoid_comp_val
-#print axioms Polyfold.EpGroupoid.proposition_7_7
+#print axioms Polyfold.EpGroupoid.proposition_7_1_22
 #print axioms Polyfold.EpGroupoid.subEpFunctor
 #print axioms Polyfold.EpGroupoid.subEpFunctor_obj
 #print axioms Polyfold.EpGroupoid.subEpFunctor_mor
@@ -6503,8 +6503,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.quotientTrivialSubgroupEquiv
 #print axioms Polyfold.EpGroupoid.quotientTrivialSubgroupEquiv_mk
 #print axioms Polyfold.EpGroupoid.effIsotropyEquivReduced
-#print axioms Polyfold.EpGroupoid.proposition_7_9
-#print axioms Polyfold.EpGroupoid.proposition_7_10
+#print axioms Polyfold.EpGroupoid.proposition_7_2_10
+#print axioms Polyfold.EpGroupoid.proposition_7_10_2017
 #print axioms Polyfold.EpGroupoid.reducedRel_iff_eq_of_isEffective
 #print axioms Polyfold.EpGroupoid.injective_reducedπ_of_isEffective
 #print axioms Polyfold.EpGroupoid.reducedHomeomorph
@@ -6547,7 +6547,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.liftOne_inv_val
 #print axioms Polyfold.EpGroupoid.liftOne_comp_val
 #print axioms Polyfold.EpGroupoid.isTame_liftOne
-#print axioms Polyfold.EpGroupoid.proposition_7_11
+#print axioms Polyfold.EpGroupoid.proposition_7_3_9
 #print axioms Polyfold.EpGroupoid.liftIncl
 #print axioms Polyfold.EpGroupoid.orbitIncl
 #print axioms Polyfold.EpGroupoid.orbitIncl_π
@@ -6570,9 +6570,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl
 #print axioms Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace
 #print axioms Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology
-#print axioms Polyfold.EpGroupoid.remark_7_1
+#print axioms Polyfold.EpGroupoid.remark_7_5_2
 #print axioms Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace
-#print axioms Polyfold.EpGroupoid.proposition_7_12
+#print axioms Polyfold.EpGroupoid.proposition_7_5_3
 -- Chapter7/PartitionsOfUnity.lean
 #print axioms Polyfold.EpGroupoid.orbitPullback
 #print axioms Polyfold.EpGroupoid.orbitPullback_apply
@@ -6580,7 +6580,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.tsupport_orbitPullback_subset
 #print axioms Polyfold.EpGroupoid.orbitPullback_isSubordinate
 #print axioms Polyfold.EpGroupoid.exists_isSaturated_nhds_finite_orbitPullback
-#print axioms Polyfold.EpGroupoid.theorem_7_3
+#print axioms Polyfold.EpGroupoid.theorem_7_5_4
 #print axioms Polyfold.EpGroupoid.exists_invariant_nhds_of_isOpen
 #print axioms Polyfold.EpGroupoid.mem_of_π_mem_image_of_invariant
 #print axioms Polyfold.EpGroupoid.saturation_diff_inter_eq_empty
@@ -6589,14 +6589,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.orbitExtension_nonneg
 #print axioms Polyfold.EpGroupoid.support_orbitExtension_subset
 #print axioms Polyfold.EpGroupoid.isScSmoothMap_orbitExtension
-#print axioms Polyfold.EpGroupoid.lemma_7_10
+#print axioms Polyfold.EpGroupoid.lemma_7_6_5
 #print axioms Polyfold.EpGroupoid.exists_isScSmoothMap_orbit_urysohn
-#print axioms Polyfold.EpGroupoid.theorem_7_4
-#print axioms Polyfold.EpGroupoid.theorem_7_6
-#print axioms Polyfold.EpGroupoid.corollary_7_3
-#print axioms Polyfold.EpGroupoid.theorem_7_4_hypotheses_rn
-#print axioms Polyfold.EpGroupoid.hasScPartitionsOfUnity_trivial_rn_of_theorem_7_4
-#print axioms Polyfold.EpGroupoid.corollary_7_3_hypotheses_rn
+#print axioms Polyfold.EpGroupoid.theorem_7_5_7
+#print axioms Polyfold.EpGroupoid.theorem_7_6_4
+#print axioms Polyfold.EpGroupoid.corollary_7_6_6
+#print axioms Polyfold.EpGroupoid.theorem_7_5_7_hypotheses_rn
+#print axioms Polyfold.EpGroupoid.hasScPartitionsOfUnity_trivial_rn_of_theorem_7_5_7
+#print axioms Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn
 -- Chapter7/NonVacuity.lean
 #print axioms Polyfold.EpGroupoid.Examples.actionMorPolyfold
 #print axioms Polyfold.EpGroupoid.Examples.action_continuous_smul
@@ -6652,7 +6652,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.not_continuous_remarkFunctor_mor
 #print axioms Polyfold.EpGroupoid.Examples.not_isScSmoothMap_remarkFunctor_mor
 #print axioms Polyfold.EpGroupoid.Examples.not_exists_epFunctor_remarkFunctor
-#print axioms Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample
+#print axioms Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample
 #print axioms Polyfold.EpGroupoid.Examples.pairGroupoidStr
 #print axioms Polyfold.EpGroupoid.Examples.pair_isProperMap
 #print axioms Polyfold.EpGroupoid.Examples.pairEpGroupoid
@@ -6978,13 +6978,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.IsProperCovering.finite_fiberClass
 #print axioms Polyfold.EpFunctor.IsProperCovering.finite_fiberClasses
 #print axioms Polyfold.EpFunctor.IsProperCovering.morOnClassEquiv
-#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_9
+#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1
 #print axioms Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic
 #print axioms Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq
-#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_10
-#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv
+#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2
+#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv
 #print axioms Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum
-#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_11
+#print axioms Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3
 #print axioms Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic
 #print axioms Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber
 #print axioms Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq
@@ -6992,7 +6992,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.IsProperCovering.fiberCardOrbit
 #print axioms Polyfold.EpFunctor.IsProperCovering.fiberCardOrbit_π
 #print axioms Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit
-#print axioms Polyfold.EpFunctor.IsProperCovering.proposition_8_4
+#print axioms Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4
 #print axioms Polyfold.EpFunctor.IsProperCovering.fiberCardFunctor
 #print axioms Polyfold.EpFunctor.IsProperCovering.fiberCardFunctor_obj
 #print axioms Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap
@@ -7001,7 +7001,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap
 #print axioms Polyfold.EpFunctor.IsProperCovering.evenlyCovered_comp
 #print axioms Polyfold.EpFunctor.IsProperCovering.isScDiffeo_fibredMap_comp
-#print axioms Polyfold.EpFunctor.IsProperCovering.proposition_8_2
+#print axioms Polyfold.EpFunctor.IsProperCovering.proposition_8_5_2
 
 -- Chapter8/ProperCoveringLocal.lean
 #print axioms Polyfold.EpFunctor.ProperCoveringLocal.isScDiffeoOn_congr_left
@@ -7009,7 +7009,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.ProperCoveringLocal.connectedComponentIn_eq_of_iUnion
 #print axioms Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section
 #print axioms Polyfold.EpFunctor.ProperCoveringLocal.connectedComponentIn_morOn_val
-#print axioms Polyfold.EpFunctor.remark_8_2_a
+#print axioms Polyfold.EpFunctor.remark_8_5_4_a
 #print axioms Polyfold.EpFunctor.isotropyMor
 #print axioms Polyfold.EpFunctor.isotropyMor_val
 #print axioms Polyfold.EpFunctor.ProperCoveringChart
@@ -7094,11 +7094,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.ProperCoveringLocal.Data.isScDiffeoOn_mor_sheet
 #print axioms Polyfold.EpFunctor.ProperCoveringLocal.Data.toChart
 #print axioms Polyfold.EpFunctor.ProperCoveringLocal.Data.toChart_R
-#print axioms Polyfold.EpFunctor.theorem_8_5_of_naturalRep
-#print axioms Polyfold.EpFunctor.theorem_8_5
+#print axioms Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep
+#print axioms Polyfold.EpFunctor.theorem_8_5_3
 #print axioms Polyfold.EpFunctor.ProperCoveringChart.connectedComponentIn_U
 #print axioms Polyfold.EpFunctor.ProperCoveringChart.connectedComponentIn_sheet
-#print axioms Polyfold.EpFunctor.remark_8_2_b
+#print axioms Polyfold.EpFunctor.remark_8_5_4_b
 
 -- Chapter8/GeometricLift.lean
 #print axioms Polyfold.EpFunctor.ProperCoveringChart.Ψ.congr_simp
@@ -7180,7 +7180,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.GeometricLift.fibredInv
 #print axioms Polyfold.GeometricLift.isScSmoothMap_fibredInv
 #print axioms Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap
-#print axioms Polyfold.proposition_8_3
+#print axioms Polyfold.proposition_8_5_7
 #print axioms Polyfold.GroupoidStr.FullOb
 #print axioms Polyfold.GroupoidStr.FullOb.ext
 #print axioms Polyfold.GroupoidStr.FullOb.val
@@ -7265,7 +7265,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj
 #print axioms Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor
 #print axioms Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ
-#print axioms Polyfold.EpFunctor.theorem_8_6
+#print axioms Polyfold.EpFunctor.theorem_8_5_8
 
 -- Chapter8/TangentEp.lean
 #print axioms Polyfold.MPolyfold.tangentMap_congr_fun
@@ -7297,9 +7297,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.mem_tangentPreimage_tgt
 #print axioms Polyfold.EpGroupoid.tComp_eq_tangentMapOn
 #print axioms Polyfold.EpGroupoid.tTgt_tangentMapOn
-#print axioms Polyfold.EpGroupoid.lemma_8_1
-#print axioms Polyfold.EpGroupoid.lemma_8_2
-#print axioms Polyfold.EpGroupoid.lemma_8_3
+#print axioms Polyfold.EpGroupoid.lemma_8_1_2
+#print axioms Polyfold.EpGroupoid.lemma_8_1_3
+#print axioms Polyfold.EpGroupoid.lemma_8_1_4
 #print axioms Polyfold.EpGroupoid.tSrc_tUnit
 #print axioms Polyfold.EpGroupoid.tTgt_tUnit
 #print axioms Polyfold.EpGroupoid.tUnit_eq
@@ -7309,8 +7309,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.tUnit_tComp
 #print axioms Polyfold.EpGroupoid.tComp_tInv
 #print axioms Polyfold.EpGroupoid.tInv_tComp
-#print axioms Polyfold.EpGroupoid.lemma_8_4
-#print axioms Polyfold.EpGroupoid.lemma_8_5
+#print axioms Polyfold.EpGroupoid.lemma_8_1_5
+#print axioms Polyfold.EpGroupoid.lemma_8_1_6
 #print axioms Polyfold.EpGroupoid.tangentGroupoidStr
 #print axioms Polyfold.EpGroupoid.isLocalScDiffeo_tSrc
 #print axioms Polyfold.EpGroupoid.isLocalScDiffeo_tTgt
@@ -7320,22 +7320,22 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isScSmoothMap_tInv
 #print axioms Polyfold.EpGroupoid.isScSmoothCompSheet_tangent
 #print axioms Polyfold.EpGroupoid.isScSmoothComp_tangent
-#print axioms Polyfold.EpGroupoid.lemma_8_6
-#print axioms Polyfold.EpGroupoid.lemma_8_7
+#print axioms Polyfold.EpGroupoid.lemma_8_1_7
+#print axioms Polyfold.EpGroupoid.lemma_8_1_8
 #print axioms Polyfold.EpGroupoid.tangentEpGroupoid
 #print axioms Polyfold.EpGroupoid.tangentProjFunctor
-#print axioms Polyfold.EpGroupoid.theorem_8_1
+#print axioms Polyfold.EpGroupoid.theorem_8_1_1
 #print axioms Polyfold.EpGroupoid.tangentMor_tSrc
 #print axioms Polyfold.EpGroupoid.tangentMor_comp
 #print axioms Polyfold.EpGroupoid.remarkG
-#print axioms Polyfold.EpGroupoid.remark_8_1
+#print axioms Polyfold.EpGroupoid.remark_8_1_10
 #print axioms Polyfold.EpFunctor.tangent
-#print axioms Polyfold.EpFunctor.theorem_8_2
+#print axioms Polyfold.EpFunctor.theorem_8_1_11
 #print axioms Polyfold.EP.tangent
 #print axioms Polyfold.tangentFunctor
-#print axioms Polyfold.theorem_8_3
+#print axioms Polyfold.theorem_8_1_12
 #print axioms Polyfold.EpNatTrans.tangent
-#print axioms Polyfold.proposition_8_1
+#print axioms Polyfold.proposition_8_1_14
 
 -- Chapter8/TangentTame.lean
 #print axioms Polyfold.ScIso.tangentPres
@@ -7349,10 +7349,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ScRetraction.IsTame.tangentRetraction
 #print axioms Polyfold.IsTameRetract.tangent
 #print axioms Polyfold.MPolyfold.IsTame.tangent
-#print axioms Polyfold.EpGroupoid.lemma_8_8
-#print axioms Polyfold.EpGroupoid.theorem_8_1_tame
+#print axioms Polyfold.EpGroupoid.lemma_8_1_9
+#print axioms Polyfold.EpGroupoid.theorem_8_1_1_tame
 #print axioms Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn
-#print axioms Polyfold.theorem_8_3_tame
+#print axioms Polyfold.theorem_8_1_12_tame
 
 -- Chapter8/TangentOrbit.lean
 #print axioms Polyfold.EpGroupoid.tangentOrbitProj
@@ -7385,7 +7385,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU
 #print axioms Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_tangentOrbitProj
 #print axioms Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace
-#print axioms Polyfold.EpGroupoid.theorem_8_4
+#print axioms Polyfold.EpGroupoid.theorem_8_1_15
 #print axioms Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial
 
 -- Chapter8/EpStrongBundle.lean
@@ -7520,10 +7520,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.CoveringExamples.isProperCovering_reflectionLift
 #print axioms Polyfold.CoveringExamples.reflectionψ₀
 #print axioms Polyfold.CoveringExamples.reflectionψ₀_mem_morOn
-#print axioms Polyfold.CoveringExamples.theorem_8_5_five_as_printed
-#print axioms Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous
+#print axioms Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed
+#print axioms Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous
 
-#print axioms Polyfold.CoveringExamples.theorem_8_6_id
+#print axioms Polyfold.CoveringExamples.theorem_8_5_8_id
 -- Chapter8/NonVacuityBundle.lean
 #print axioms Polyfold.pullbackMap
 #print axioms Polyfold.pullbackMap_val
@@ -7567,36 +7567,36 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isLocallyComplete_of_completeSpace
 #print axioms Polyfold.isLocallyComplete_real
 #print axioms Polyfold.isLocallyComplete_of_metric
-#print axioms Polyfold.remark_2_1_6_2021
+#print axioms Polyfold.remark_2_1_6
 #print axioms Polyfold.IsLocallyCompleteRel
 #print axioms Polyfold.IsLocallyComplete.isLocallyCompleteRel
-#print axioms Polyfold.lemma_2_1_9_2021
+#print axioms Polyfold.lemma_2_1_9
 #print axioms Polyfold.IsLocallyComplete.completelyRegularSpace
-#print axioms Polyfold.proposition_2_1_10_2021
+#print axioms Polyfold.proposition_2_1_10
 #print axioms Polyfold.IsLocallyComplete.of_isEmbedding
-#print axioms Polyfold.proposition_2_1_8_1_2021
-#print axioms Polyfold.proposition_2_1_8_2_2021
-#print axioms Polyfold.proposition_2_1_8_3_2021
-#print axioms Polyfold.proposition_2_1_8_4_2021
+#print axioms Polyfold.proposition_2_1_8_1
+#print axioms Polyfold.proposition_2_1_8_2
+#print axioms Polyfold.proposition_2_1_8_3
+#print axioms Polyfold.proposition_2_1_8_4
 #print axioms Polyfold.ScRetraction.exists_isClosed_retract_inter_closedBall
 #print axioms Polyfold.IsScRetract.exists_isComplete_closure
-#print axioms Polyfold.proposition_2_1_4_2021
-#print axioms Polyfold.corollary_2_1_7_2021
+#print axioms Polyfold.proposition_2_1_4
+#print axioms Polyfold.corollary_2_1_7
 #print axioms Polyfold.isLocallyComplete_univ_retract
 #print axioms Polyfold.IsLocallyFiniteSetFamily
 #print axioms Polyfold.IsParacompactStar
 #print axioms Polyfold.isParacompactStar_iff
-#print axioms Polyfold.definition_2_3_4_2021
+#print axioms Polyfold.definition_2_3_4
 #print axioms Polyfold.isParacompactStar_real
 #print axioms Polyfold.IsParacompactBySubcover
 #print axioms Polyfold.not_isParacompactBySubcover_real
-#print axioms Polyfold.lemma_2_7_2_2021
+#print axioms Polyfold.lemma_2_7_2
 #print axioms Polyfold.exists_isOpen_closure_subset_of_paracompact
 #print axioms Polyfold.MChart.isLocallyComplete_source
-#print axioms Polyfold.lemma_2_3_5_2021
+#print axioms Polyfold.lemma_2_3_5
 #print axioms Polyfold.MPolyfold.isLocallyComplete
-#print axioms Polyfold.proposition_2_3_6_2021
-#print axioms Polyfold.proposition_2_3_7_2021
+#print axioms Polyfold.proposition_2_3_6
+#print axioms Polyfold.proposition_2_3_7
 #print axioms Polyfold.ScBanach.lvlSetInfty
 #print axioms Polyfold.ScBanach.smoothSeq
 #print axioms Polyfold.ScBanach.toBase_smoothSeq
@@ -7606,13 +7606,13 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.ScBanach.joinedIn_lvlSetInfty_of_segment
 #print axioms Polyfold.IsPartialQuadrant.exists_smooth_near
 #print axioms Polyfold.IsRelOpenInQuadrant.exists_ball_inter_subset
-#print axioms Polyfold.lemma_2_2_1_infty_2021
-#print axioms Polyfold.lemma_2_2_1_2021
-#print axioms Polyfold.lemma_2_2_2_2021
-#print axioms Polyfold.definition_2_2_3_2021
-#print axioms Polyfold.theorem_2_2_4_2021
+#print axioms Polyfold.lemma_2_2_1_infty
+#print axioms Polyfold.lemma_2_2_1
+#print axioms Polyfold.lemma_2_2_2
+#print axioms Polyfold.definition_2_2_3
+#print axioms Polyfold.theorem_2_2_4
 #print axioms Polyfold.IsAlmostLocallyContractible
-#print axioms Polyfold.proposition_2_2_6_2021
+#print axioms Polyfold.proposition_2_2_6
 #print axioms Polyfold.isAlmostLocallyContractible_univ
 -- Chapter7/ReducedCriterion.lean
 #print axioms Polyfold.EpGroupoid.NaturalRep.HasLUC
@@ -7623,17 +7623,17 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRep.kerOn_anti
 #print axioms Polyfold.EpGroupoid.NaturalRep.kerOn_normal
 #print axioms Polyfold.EpGroupoid.NaturalRep.kerOn_le_trivialSubgroup
-#print axioms Polyfold.EpGroupoid.definition_7_2_5_2021
-#print axioms Polyfold.EpGroupoid.lemma_7_2_6_2021
-#print axioms Polyfold.EpGroupoid.trivialSubgroupEquiv_2021
-#print axioms Polyfold.EpGroupoid.trivialSubgroupEquiv_2021_apply
-#print axioms Polyfold.EpGroupoid.remark_7_2_8_2021
+#print axioms Polyfold.EpGroupoid.definition_7_2_5
+#print axioms Polyfold.EpGroupoid.lemma_7_2_6
+#print axioms Polyfold.EpGroupoid.trivialSubgroupEquiv
+#print axioms Polyfold.EpGroupoid.trivialSubgroupEquiv_apply
+#print axioms Polyfold.EpGroupoid.remark_7_2_8
 #print axioms Polyfold.EpGroupoid.paracompactSpace_of_isOpenMap
 #print axioms Polyfold.EpGroupoid.exists_isCompact_preimage_reducedπ_subset
 #print axioms Polyfold.EpGroupoid.paracompactSpace_reducedMor
-#print axioms Polyfold.EpGroupoid.proposition_7_2_12_2021
-#print axioms Polyfold.EpGroupoid.proposition_7_2_13_2021
-#print axioms Polyfold.EpGroupoid.theorem_7_2_14_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_2_12
+#print axioms Polyfold.EpGroupoid.proposition_7_2_13
+#print axioms Polyfold.EpGroupoid.theorem_7_2_14
 #print axioms Polyfold.EpGroupoid.reducedπ_eq_iff_comp_inv
 #print axioms Polyfold.EpGroupoid.mem_nonEffectivePart_iff_reducedπ
 #print axioms Polyfold.EpGroupoid.continuous_comp_fibredProduct
@@ -7641,7 +7641,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isClosed_reducedπ_eq_of_isClosed
 #print axioms Polyfold.EpGroupoid.isOpenQuotientMap_reducedπ
 #print axioms Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_t2Space
-#print axioms Polyfold.EpGroupoid.proposition_7_2_17_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_2_17
 #print axioms Polyfold.EpGroupoid.isClosed_src_eq_tgt
 #print axioms Polyfold.EpGroupoid.closure_nonEffectivePart_subset
 #print axioms Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq_of_Γ_mem
@@ -7649,11 +7649,11 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRep.hasLUC_of_isClosed
 #print axioms Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_isLUC
 #print axioms Polyfold.EpGroupoid.isLUC_iff_forall_naturalRep
-#print axioms Polyfold.EpGroupoid.proposition_7_2_21_2021
-#print axioms Polyfold.EpGroupoid.remark_7_2_20_2021
-#print axioms Polyfold.EpGroupoid.theorem_7_2_22_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_2_21
+#print axioms Polyfold.EpGroupoid.remark_7_2_20
+#print axioms Polyfold.EpGroupoid.theorem_7_2_22
 #print axioms Polyfold.EpGroupoid.t2Space_reducedMor_of_isLUC
-#print axioms Polyfold.EpGroupoid.proposition_7_2_23_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_2_23
 #print axioms Polyfold.EpGroupoid.isClosed_range_unit
 #print axioms Polyfold.EpGroupoid.nonEffectivePart_eq_range_unit_of_isEffective
 #print axioms Polyfold.EpGroupoid.isLUC_of_isEffective
@@ -7667,7 +7667,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isReducedEvenlyCovered_of_t2Space
 #print axioms Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_isReducedEvenlyCovered
 #print axioms Polyfold.EpGroupoid.isReducedEvenlyCovered_iff_t2Space
-#print axioms Polyfold.EpGroupoid.lemma_7_2_11_2021
+#print axioms Polyfold.EpGroupoid.lemma_7_2_11
 #print axioms Polyfold.EpGroupoid.mem_nonEffectivePart_liftOne_of_levelVal
 #print axioms Polyfold.EpGroupoid.NaturalRep.levelOneΓ
 #print axioms Polyfold.EpGroupoid.NaturalRep.levelVal_levelOneΓ
@@ -7680,18 +7680,18 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.nonEffectivePart_liftOne_eq
 #print axioms Polyfold.EpGroupoid.liftOne_reducedπ_eq_iff
 #print axioms Polyfold.EpGroupoid.reducedLevelOneMap
-#print axioms Polyfold.EpGroupoid.theorem_7_6_7_2021
-#print axioms Polyfold.EpGroupoid.corollary_7_6_8_2021
+#print axioms Polyfold.EpGroupoid.theorem_7_6_7
+#print axioms Polyfold.EpGroupoid.corollary_7_6_8
 #print axioms Polyfold.EpGroupoid.Examples.pointEpGroupoid
 #print axioms Polyfold.EpGroupoid.Examples.isLUC_liftOne_point
 #print axioms Polyfold.EpGroupoid.Examples.hasConnectedDenseLevelOneReps_point
-#print axioms Polyfold.EpGroupoid.Examples.theorem_7_6_7_2021_point
+#print axioms Polyfold.EpGroupoid.Examples.theorem_7_6_7_point
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.reducedπ_preimage_one
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_isReducedEvenlyCovered
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.mem_closure_nonEffectivePart
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC
-#print axioms Polyfold.EpGroupoid.Examples.remark_7_2_19_2021
+#print axioms Polyfold.EpGroupoid.Examples.remark_7_2_19
 -- Chapter2/TameBoundary.lean
 #print axioms Polyfold.MPolyfold.SubData.mk.congr_simp
 #print axioms Polyfold.TameBoundary.LocalPieces.mono.congr_simp
@@ -7827,8 +7827,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.exists_localPieces_chart
 #print axioms Polyfold.MPolyfold.isCornerIndex_degIndex
 #print axioms Polyfold.MPolyfold.isFaceIn_univ_iff
-#print axioms Polyfold.MPolyfold.proposition_2_7_5_2021
-#print axioms Polyfold.MPolyfold.proposition_2_7_7_2021
+#print axioms Polyfold.MPolyfold.proposition_2_7_5
+#print axioms Polyfold.MPolyfold.proposition_2_7_7
 #print axioms Polyfold.MPolyfold.LocalBoundaryCategory
 #print axioms Polyfold.MPolyfold.boundaryStructureFunctor
 #print axioms Polyfold.MPolyfold.TameBoundarySpace
@@ -7886,10 +7886,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TameBoundary.proposition_2_7_16
 #print axioms Polyfold.TameBoundary.instMetrizableSpaceBSpace
 #print axioms Polyfold.TameBoundary.theorem_2_7_13_topology
-#print axioms Polyfold.MPolyfold.lemma_2_7_15_2021
-#print axioms Polyfold.MPolyfold.proposition_2_7_12_2021
-#print axioms Polyfold.MPolyfold.proposition_2_7_16_2021
-#print axioms Polyfold.MPolyfold.theorem_2_7_13_2021
+#print axioms Polyfold.MPolyfold.lemma_2_7_15
+#print axioms Polyfold.MPolyfold.proposition_2_7_12
+#print axioms Polyfold.MPolyfold.proposition_2_7_16
+#print axioms Polyfold.MPolyfold.theorem_2_7_13
 #print axioms Polyfold.MPolyfold.tameBoundary
 #print axioms Polyfold.MPolyfold.tameBoundary_apply
 -- Chapter5/Book2021.lean
@@ -7905,10 +7905,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.IsProper.isWeaklyProperOnU
 #print axioms Polyfold.StrongBundle.IsProperLtInfty.isWeaklyProperLtInfty
 #print axioms Polyfold.StrongBundle.IsWeaklyProperOnU.isCompact_solutionSet
-#print axioms Polyfold.theorem_5_2_2_2021
-#print axioms Polyfold.theorem_5_2_2_2021_tfae
+#print axioms Polyfold.theorem_5_2_2
+#print axioms Polyfold.theorem_5_2_2_tfae
 #print axioms Polyfold.isSubMPolyfold_solutionSet_of_manifold
-#print axioms Polyfold.theorem_5_3_5_2021
+#print axioms Polyfold.theorem_5_3_5
 #print axioms Polyfold.MPolyfold.HasSurjDerivAt
 #print axioms Polyfold.StrongBundle.IsCompactFredholmRestriction
 #print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy
@@ -7921,7 +7921,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.surjDeriv
 #print axioms Polyfold.StrongBundle.IsGenCompactHomotopy.isSubmersiveGenCompactHomotopy
 #print axioms Polyfold.StrongBundle.IsSubmersiveGenCompactHomotopy.isCompact_solutionSet_restrict
-#print axioms Polyfold.lemma_5_3_16_2021
+#print axioms Polyfold.lemma_5_3_16
 #print axioms Polyfold.isScSmoothRetractMap_of_domain_empty
 #print axioms Polyfold.StrongBundle.isCompactFredholmRestriction_of_eq_empty
 #print axioms Polyfold.GenCompactHomotopyWitness.arctanTime
@@ -7938,14 +7938,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.projIntertwiner_self
 #print axioms Polyfold.projIntertwiner_mul
 #print axioms Polyfold.continuous_projIntertwiner
-#print axioms Polyfold.lemma_6_4_4_2021
+#print axioms Polyfold.lemma_6_4_4
 #print axioms Polyfold.finrank_sup_span_singleton_of_notMem
 #print axioms Polyfold.isCompl_sup_span_singleton
 #print axioms Polyfold.exists_isCompl_isCompl_of_finrank_eq_aux
 #print axioms Polyfold.exists_isCompl_isCompl_of_finrank_eq
-#print axioms Polyfold.proposition_6_4_13_2021
-#print axioms Polyfold.lemma_6_6_8_2021
-#print axioms Polyfold.lemma_6_6_9_2021
+#print axioms Polyfold.proposition_6_4_13
+#print axioms Polyfold.lemma_6_6_8
+#print axioms Polyfold.lemma_6_6_9
 -- Chapter3/Book2021Germs.lean
 #print axioms Polyfold.IsFilling2021
 #print axioms Polyfold.IsFilling2021.r_zero
@@ -7995,7 +7995,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.CornerFilling.not_isInGoodPosition_gc
 #print axioms Polyfold.CornerFilling.not_range_le_minimalSubspace
 #print axioms Polyfold.exists_isFilling2021_not_isFilling2017
-#print axioms Polyfold.theorem_3_6_8_tame_step_2021
+#print axioms Polyfold.theorem_3_6_8_tame_step
 #print axioms Polyfold.StrongBundle.IsScFredholmGerm2021
 #print axioms Polyfold.StrongBundle.IsScFredholmGerm2017
 #print axioms Polyfold.StrongBundle.IsScFredholmSection2021
@@ -8007,16 +8007,16 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.StrongBundle.isScFredholmGerm2017_iff
 #print axioms Polyfold.StrongBundle.IsScFredholmGerm2017.isScFredholmGerm2021
 #print axioms Polyfold.StrongBundle.isScFredholmSection2021_iff
-#print axioms Polyfold.theorem_3_1_13_2021
-#print axioms Polyfold.corollary_3_1_15_2021
-#print axioms Polyfold.theorem_3_1_18_2021
-#print axioms Polyfold.theorem_3_1_21_2021
-#print axioms Polyfold.proposition_3_6_5_2021
+#print axioms Polyfold.theorem_3_1_13
+#print axioms Polyfold.corollary_3_1_15
+#print axioms Polyfold.theorem_3_1_18
+#print axioms Polyfold.theorem_3_1_21
+#print axioms Polyfold.proposition_3_6_5
 #print axioms Polyfold.isScFredholmSection2021_graphSection
 #print axioms Polyfold.isScFredholmGerm2017_graphSection
-#print axioms Polyfold.proposition_3_1_5_2021
+#print axioms Polyfold.proposition_3_1_5
 #print axioms Polyfold.IsBasicGerm.solves
-#print axioms Polyfold.theorem_3_5_1_2021
+#print axioms Polyfold.theorem_3_5_1
 -- Chapter3/Book2021Items.lean
 #print axioms Polyfold.IsClosedConvexCone
 #print axioms Polyfold.IsClosedConvexCone.isClosed
@@ -8030,23 +8030,23 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isExtremeRayGen_symm_single
 #print axioms Polyfold.exists_sub_single_mem
 #print axioms Polyfold.exists_quadrantEquiv_of_pointed
-#print axioms Polyfold.lemma_3_8_4_2021
-#print axioms Polyfold.lemma_3_8_5_2021
-#print axioms Polyfold.lemma_3_8_6_2021
-#print axioms Polyfold.lemma_3_8_6_two_2021
-#print axioms Polyfold.corollary_3_8_7_2021
+#print axioms Polyfold.lemma_3_8_4
+#print axioms Polyfold.lemma_3_8_5
+#print axioms Polyfold.lemma_3_8_6
+#print axioms Polyfold.lemma_3_8_6_two
+#print axioms Polyfold.corollary_3_8_7
 #print axioms Polyfold.E₁
-#print axioms Polyfold.lemma_3_8_5_not_literal_2021
-#print axioms Polyfold.halfLine_witness_2021
+#print axioms Polyfold.lemma_3_8_5_not_literal
+#print axioms Polyfold.halfLine_witness
 -- Chapter1/Book2021.lean
-#print axioms Polyfold.remark_1_1_2_2021
-#print axioms Polyfold.remark_1_1_2_2021_openMapping
-#print axioms Polyfold.proposition_1_1_11_2021
+#print axioms Polyfold.remark_1_1_2
+#print axioms Polyfold.remark_1_1_2_openMapping
+#print axioms Polyfold.proposition_1_1_11
 -- Chapter2/Book2021.lean
-#print axioms Polyfold.proposition_2_1_13_2021
+#print axioms Polyfold.proposition_2_1_13
 -- Chapter4/Book2021.lean
-#print axioms Polyfold.MPolyfold.theorem_4_2_11_2021
-#print axioms Polyfold.theorem_4_3_1_2021
+#print axioms Polyfold.MPolyfold.theorem_4_2_11
+#print axioms Polyfold.theorem_4_3_1
 -- Chapter4/VectorFields.lean
 #print axioms Polyfold.IsRetractVectorField
 #print axioms Polyfold.isRetractVectorField_zero
@@ -8069,7 +8069,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.retractLieBracket_mem_tangent
 #print axioms Polyfold.levelMap_shift_shift_eq
 #print axioms Polyfold.isScSmooth_scDeriv_apply
-#print axioms Polyfold.proposition_4_4_5_local_2021
+#print axioms Polyfold.proposition_4_4_5_local
 #print axioms Polyfold.MPolyfold.IsScVectorField
 #print axioms Polyfold.MPolyfold.zeroTangentPre
 #print axioms Polyfold.MPolyfold.zeroVectorField
@@ -8079,8 +8079,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.isScVectorField_zero
 -- Chapter7/Book2021Basic.lean
 #print axioms Polyfold.EpGroupoid.Examples.actionEpGroupoid.congr_simp
-#print axioms Polyfold.EpGroupoid.remark_7_1_7_2021
-#print axioms Polyfold.EpGroupoid.remark_7_1_7_2021_remarkFunctor
+#print axioms Polyfold.EpGroupoid.remark_definition_7_1_7
+#print axioms Polyfold.EpGroupoid.remark_definition_7_1_7_remarkFunctor
 #print axioms Polyfold.EpGroupoid.IsotropySheetData
 #print axioms Polyfold.EpGroupoid.IsotropySheetData.W
 #print axioms Polyfold.EpGroupoid.IsotropySheetData.srcSheet
@@ -8093,17 +8093,17 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.IsotropySheetData.isScDiffeoOn_src
 #print axioms Polyfold.EpGroupoid.IsotropySheetData.isScDiffeoOn_tgt
 #print axioms Polyfold.EpGroupoid.exists_isotropySheetData
-#print axioms Polyfold.EpGroupoid.proposition_7_1_14_2021
-#print axioms Polyfold.EpGroupoid.proposition_7_1_14_2021_of_naturalRep
-#print axioms Polyfold.EpGroupoid.proposition_7_1_15_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_1_14
+#print axioms Polyfold.EpGroupoid.proposition_7_1_14_of_naturalRep
+#print axioms Polyfold.EpGroupoid.proposition_7_1_15
 #print axioms Polyfold.EpGroupoid.src_eq_tgt_of_printed_2017
 #print axioms Polyfold.EpGroupoid.not_printed_2017_reflection
 #print axioms Polyfold.EpGroupoid.NaturalRepFinite.mem_U_of_tendsto
-#print axioms Polyfold.EpGroupoid.lemma_7_1_16_2021
-#print axioms Polyfold.EpGroupoid.corollary_7_1_17_4_2021
-#print axioms Polyfold.EpGroupoid.corollary_7_1_17_5_2021
-#print axioms Polyfold.EpGroupoid.corollary_7_1_17_6_2021
-#print axioms Polyfold.EpGroupoid.corollary_7_1_17_7_2021
+#print axioms Polyfold.EpGroupoid.lemma_7_1_16
+#print axioms Polyfold.EpGroupoid.corollary_7_1_17_4
+#print axioms Polyfold.EpGroupoid.corollary_7_1_17_5
+#print axioms Polyfold.EpGroupoid.corollary_7_1_17_6
+#print axioms Polyfold.EpGroupoid.corollary_7_1_17_7
 -- Chapter8/Book2021.lean
 #print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021
 #print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isMap
@@ -8124,7 +8124,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.example856_sign_inj
 #print axioms Polyfold.example856_sign_not
 #print axioms Polyfold.example856Functor
-#print axioms Polyfold.example_8_5_6_2021
+#print axioms Polyfold.example_8_5_6
 #print axioms Polyfold.EpStrongBundle.IsAuxNorm
 #print axioms Polyfold.EpStrongBundle.IsAuxNorm.isAuxNorm
 #print axioms Polyfold.EpStrongBundle.IsAuxNorm.map_μ
@@ -8136,7 +8136,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.continuous_zeroOrbitMap
 #print axioms Polyfold.EpStrongBundle.leftInverse_zeroOrbitMap
 #print axioms Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap
-#print axioms Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one
+#print axioms Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one
 #print axioms Polyfold.EpStrongBundle.pullbackμ
 #print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB
 #print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.bundleB_val
@@ -8152,7 +8152,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB
 #print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv
 #print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv
-#print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021
+#print axioms Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10
 -- Chapter4/BracketLevel.lean
 #print axioms Polyfold.BracketLevel.wshift
 #print axioms Polyfold.BracketLevel.wshift_apply
@@ -8177,8 +8177,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.BracketLevel.bracket_not_mem_level_one
 #print axioms Polyfold.BracketLevel.isRetractVectorField_opS
 #print axioms Polyfold.BracketLevel.isRetractVectorField_opT
-#print axioms Polyfold.lieBracket_level_counterexample_2021
-#print axioms Polyfold.not_forall_lieBracket_mem_level_one_2021
+#print axioms Polyfold.lieBracket_level_counterexample
+#print axioms Polyfold.not_forall_lieBracket_mem_level_one
 -- Chapter2/TameBoundaryExample.lean
 #print axioms Polyfold.TameBoundaryExample.coord
 #print axioms Polyfold.TameBoundaryExample.coord_nonneg
@@ -8217,8 +8217,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TameBoundaryExample.counterTriple
 #print axioms Polyfold.TameBoundaryExample.exists_face_not_mem
 #print axioms Polyfold.TameBoundaryExample.pt_010_not_mem_image
-#print axioms Polyfold.TameBoundaryExample.phi_not_surjective_2021
-#print axioms Polyfold.TameBoundaryExample.not_forall_bijective_phi_2021
+#print axioms Polyfold.TameBoundaryExample.phi_not_surjective
+#print axioms Polyfold.TameBoundaryExample.not_forall_bijective_phi
 -- Chapter7/TameBoundaryEp.lean
 #print axioms Polyfold.TameBoundary.IsDHomeoOn
 #print axioms Polyfold.TameBoundary.IsDHomeoOn.isOpen
@@ -8333,7 +8333,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.metrizableSpace_bMor
 #print axioms Polyfold.EpGroupoid.boundaryFunctor
 #print axioms Polyfold.EpGroupoid.exists_isProperMap_bTgt
-#print axioms Polyfold.EpGroupoid.theorem_7_6_9_2021
+#print axioms Polyfold.EpGroupoid.theorem_7_6_9
 #print axioms Polyfold.EpGroupoid.bSrc_trivial
 #print axioms Polyfold.EpGroupoid.trivial_quadrant_witness
 -- Chapter7/Zhou.lean
@@ -8342,12 +8342,12 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EP.lift_zero
 #print axioms Polyfold.EP.lift_succ
 #print axioms Polyfold.EP.lift_succ'
-#print axioms Polyfold.EpGroupoid.proposition_7_4_2_2021
-#print axioms Polyfold.EpGroupoid.remark_7_4_3_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_4_2
+#print axioms Polyfold.EpGroupoid.remark_7_4_3
 #print axioms Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps
 #print axioms Polyfold.EpGroupoid.NaturalRep.eqOn_of_isClosed_liftOne
 #print axioms Polyfold.EpGroupoid.isLUC_of_isLUC_liftOne
-#print axioms Polyfold.EpGroupoid.lemma_7_4_4_2021
+#print axioms Polyfold.EpGroupoid.lemma_7_4_4
 #print axioms Polyfold.MPolyfold.DenseSmooth
 #print axioms Polyfold.MPolyfold.SmoothConnected
 #print axioms Polyfold.MPolyfold.DenseSmoothTangent
@@ -8392,26 +8392,26 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.SmoothRegular.isOpenMap_tangentProj
 #print axioms Polyfold.MPolyfold.SmoothRegular.tangentDeterminedSmooth
 #print axioms Polyfold.MPolyfold.smoothRegular_of_subsingleton
-#print axioms Polyfold.EpGroupoid.lemma_7_4_6_2021
+#print axioms Polyfold.EpGroupoid.lemma_7_4_6
 #print axioms Polyfold.EpGroupoid.isZhou_of_isZhou'
-#print axioms Polyfold.EpGroupoid.proposition_7_4_8_2021
-#print axioms Polyfold.EpGroupoid.proposition_7_4_10_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_4_8
+#print axioms Polyfold.EpGroupoid.proposition_7_4_10
 #print axioms Polyfold.EpGroupoid.IsSmoothUC
 #print axioms Polyfold.EpGroupoid.isSmoothUC_of_isZhou
 #print axioms Polyfold.EpGroupoid.isLUC_of_isSmoothUC
 #print axioms Polyfold.EpGroupoid.isLUC_liftOne_of_isSmoothUC
-#print axioms Polyfold.EpGroupoid.corollary_7_4_11_2021
+#print axioms Polyfold.EpGroupoid.corollary_7_4_11
 #print axioms Polyfold.EP.IsSLUC
-#print axioms Polyfold.EpGroupoid.corollary_7_4_11_2021_lift
-#print axioms Polyfold.EpGroupoid.theorem_7_4_13_2021
+#print axioms Polyfold.EpGroupoid.corollary_7_4_11_lift
+#print axioms Polyfold.EpGroupoid.theorem_7_4_13
 #print axioms Polyfold.EpGroupoid.IsVSLUC
 #print axioms Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC
 #print axioms Polyfold.EpGroupoid.isVSLUC_of_isSmoothUC
-#print axioms Polyfold.EpGroupoid.lemma_7_4_15_2021
-#print axioms Polyfold.EpGroupoid.proposition_7_4_16_2021
-#print axioms Polyfold.EpGroupoid.proposition_7_4_17_2021
+#print axioms Polyfold.EpGroupoid.lemma_7_4_15
+#print axioms Polyfold.EpGroupoid.proposition_7_4_16
+#print axioms Polyfold.EpGroupoid.proposition_7_4_17
 #print axioms Polyfold.EpGroupoid.isVSLUC_of_isZhou
-#print axioms Polyfold.EpGroupoid.corollary_7_6_8_2021_of_isZhou
+#print axioms Polyfold.EpGroupoid.corollary_7_6_8_of_isZhou
 #print axioms Polyfold.EpGroupoid.isSmoothUC_of_subsingleton
 #print axioms Polyfold.EpGroupoid.isVSLUC_of_subsingleton
 #print axioms Polyfold.EpGroupoid.isLUC_of_subsingleton_mor
@@ -8424,38 +8424,38 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.Examples.smoothRegular_lift_pointEP
 #print axioms Polyfold.EpGroupoid.Examples.isZhou_lift_pointEP
 #print axioms Polyfold.EpGroupoid.Examples.isSLUC_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.theorem_7_4_13_2021_pointEP
+#print axioms Polyfold.EpGroupoid.Examples.theorem_7_4_13_pointEP
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou
 #print axioms Polyfold.EpGroupoid.IsLR
 #print axioms Polyfold.EpGroupoid.IsLR'
 #print axioms Polyfold.EpGroupoid.NaturalRep.exists_Φ_eq_of_π_eq
 #print axioms Polyfold.EpGroupoid.NaturalRep.eq_self_of_π_eq
-#print axioms Polyfold.EpGroupoid.lemma_7_4_20_2021
+#print axioms Polyfold.EpGroupoid.lemma_7_4_20
 #print axioms Polyfold.EpGroupoid.isLR_iff_isLR'
 #print axioms Polyfold.EpGroupoid.NaturalRep.eqOn_Φ_of_tangent
 #print axioms Polyfold.EpGroupoid.NaturalRep.exists_eq_Φ_of_isZhou
-#print axioms Polyfold.EpGroupoid.proposition_7_4_22_2021
+#print axioms Polyfold.EpGroupoid.proposition_7_4_22
 #print axioms Polyfold.EP.IsSLR
-#print axioms Polyfold.EpGroupoid.theorem_7_4_24_2021
+#print axioms Polyfold.EpGroupoid.theorem_7_4_24
 #print axioms Polyfold.EpGroupoid.Examples.isSLR_pointEP
 #print axioms Polyfold.EpGroupoid.hasLevelOneConnectedDenseReps_of_subsingleton
 #print axioms Polyfold.EpGroupoid.Examples.hasLevelOneConnectedDenseReps_lift_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.lemma_7_4_4_2021_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_8_2021_point
-#print axioms Polyfold.EpGroupoid.Examples.corollary_7_6_8_2021_of_isZhou_point
+#print axioms Polyfold.EpGroupoid.Examples.lemma_7_4_4_pointEP
+#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_8_point
+#print axioms Polyfold.EpGroupoid.Examples.corollary_7_6_8_of_isZhou_point
 -- Chapter8/TangentZhou.lean
 #print axioms Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet
 #print axioms Polyfold.EpGroupoid.mem_nonEffectivePart_tangent
 #print axioms Polyfold.EpGroupoid.TangentZhouReflect
-#print axioms Polyfold.EpGroupoid.proposition_8_1_16_2021
+#print axioms Polyfold.EpGroupoid.proposition_8_1_16
 #print axioms Polyfold.EpGroupoid.nonEffectivePart_tangent_eq
-#print axioms Polyfold.EpGroupoid.proposition_8_1_17_2021_one
-#print axioms Polyfold.EpGroupoid.proposition_8_1_17_2021_two
+#print axioms Polyfold.EpGroupoid.proposition_8_1_17_one
+#print axioms Polyfold.EpGroupoid.proposition_8_1_17_two
 #print axioms Polyfold.EpGroupoid.tangentMor_trivial
 #print axioms Polyfold.EpGroupoid.tangentZhouReflect_trivial
 #print axioms Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton
-#print axioms Polyfold.EpGroupoid.Examples.proposition_8_1_16_2021_point
-#print axioms Polyfold.EpGroupoid.Examples.proposition_8_1_17_2021_one_point
+#print axioms Polyfold.EpGroupoid.Examples.proposition_8_1_16_point
+#print axioms Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point
 #print axioms Polyfold.EpStrongBundle.natLift
 #print axioms Polyfold.EpStrongBundle.IsLR
 #print axioms Polyfold.EpStrongBundle.isLR_trivial
@@ -8525,10 +8525,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.BChartData.chart_mem_O
 #print axioms Polyfold.MPolyfold.BChartData.phi_symm_faceChart'_symm_chart
 #print axioms Polyfold.MPolyfold.tameBoundaryPolyfold_unique
-#print axioms Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_2021
+#print axioms Polyfold.MPolyfold.proposition_2_7_12_scDiffeo
 #print axioms Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies
 #print axioms Polyfold.MPolyfold.degIndex_tameBoundaryMap_sub_one
-#print axioms Polyfold.MPolyfold.theorem_2_7_13_structure_2021
+#print axioms Polyfold.MPolyfold.theorem_2_7_13_structure
 #print axioms Polyfold.MPolyfold.TameMPolyfoldBundle
 #print axioms Polyfold.MPolyfold.TameMPolyfoldBundle.carrier
 #print axioms Polyfold.MPolyfold.TameMPolyfoldBundle.top
@@ -8544,7 +8544,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.TameMPolyfoldBundle.iterMap_isScSmooth
 #print axioms Polyfold.MPolyfold.TameMPolyfoldBundle.degIndex_iterMap
 #print axioms Polyfold.MPolyfold.TameMPolyfoldBundle.range_iterMap
-#print axioms Polyfold.MPolyfold.definition_2_7_14_2021
+#print axioms Polyfold.MPolyfold.definition_2_7_14
 #print axioms Polyfold.MPolyfold.quadrantPolyfold_bChartData_nonempty
 #print axioms Polyfold.MPolyfold.quadrantPolyfold_degIndex_tameBoundary
 -- Chapter2/TangentLift.lean
@@ -8597,15 +8597,15 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.tangentProjShift_isScSmooth
 #print axioms Polyfold.MPolyfold.tangentProjShift_tangentShiftMap
 #print axioms Polyfold.MPolyfold.tangentShiftEquiv_isScDiffeoOn
-#print axioms Polyfold.proposition_2_3_17_2021
+#print axioms Polyfold.proposition_2_3_17
 #print axioms Polyfold.MPolyfold.levelOneEquiv
 #print axioms Polyfold.MPolyfold.levelVal_levelOneEquiv
 #print axioms Polyfold.MPolyfold.levelVal_levelOneEquiv_symm
 #print axioms Polyfold.MPolyfold.levelOneEquiv_isScDiffeoOn
 #print axioms Polyfold.MPolyfold.tangentShiftEquivTwo
 #print axioms Polyfold.MPolyfold.tangentProjShiftTwo
-#print axioms Polyfold.proposition_2_3_17_two_2021
-#print axioms Polyfold.theorem_2_3_16_2021
+#print axioms Polyfold.proposition_2_3_17_two
+#print axioms Polyfold.theorem_2_3_16
 #print axioms Polyfold.MPolyfold.levelLift_transition
 #print axioms Polyfold.MPolyfold.levelLift_levelChart
 #print axioms Polyfold.MPolyfold.shiftLevelMap
@@ -8636,7 +8636,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.diagonalPolyfold_degIndex
 #print axioms Polyfold.diagonalHalfLineChart
 #print axioms Polyfold.diagonalHalfLineChart_spec
-#print axioms Polyfold.remark_2_4_2_2021
+#print axioms Polyfold.remark_2_4_2
 -- Chapter4/VectorFieldsGlobal.lean
 #print axioms Polyfold.IsRetractVectorField.diff_related
 #print axioms Polyfold.IsRetractVectorField.related_shift
@@ -8662,14 +8662,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.tangentChartMap_lieBracket
 #print axioms Polyfold.MPolyfold.tangentChartMap_lieBracket_eq
 #print axioms Polyfold.MPolyfold.continuous_lieBracket
-#print axioms Polyfold.proposition_4_4_5_2021
+#print axioms Polyfold.proposition_4_4_5
 #print axioms Polyfold.MPolyfold.liftLevelOneMap
 #print axioms Polyfold.MPolyfold.levelTwoMap
 #print axioms Polyfold.MPolyfold.levelMap_coord_levelLift
-#print axioms Polyfold.lemma_4_5_1_2021
+#print axioms Polyfold.lemma_4_5_1
 #print axioms Polyfold.MPolyfold.vectorFieldLevelOne
 #print axioms Polyfold.MPolyfold.raiseIndex
-#print axioms Polyfold.lemma_4_4_4_2021
+#print axioms Polyfold.lemma_4_4_4
 -- Chapter7/TameBoundaryEpStructure.lean
 #print axioms Polyfold.MPolyfold.isScSmoothOn_of_bMap
 #print axioms Polyfold.MPolyfold.isScSmoothMap_bLift
@@ -8689,10 +8689,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isTame_boundaryEpGroupoid
 #print axioms Polyfold.EpGroupoid.boundaryEpFunctor
 #print axioms Polyfold.EpGroupoid.phiTot_bSrc
-#print axioms Polyfold.EpGroupoid.theorem_7_6_9_full_2021
+#print axioms Polyfold.EpGroupoid.theorem_7_6_9_full
 #print axioms Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness
 -- Chapter7/TameBoundaryFull.lean
-#print axioms Polyfold.EpGroupoid.theorem_7_6_9_allReps_2021
+#print axioms Polyfold.EpGroupoid.theorem_7_6_9_allReps
 -- Chapter7/PropertyFiveResearch.lean
 #print axioms Polyfold.isScSmoothOn_rn_rn_of_contDiffOn
 #print axioms Polyfold.EpGroupoid.Examples.Pruefer.E2
@@ -8818,8 +8818,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.isPropagationContinuous_orTopology
 #print axioms Polyfold.eventually_eq_orSec_of_continuousOn
 #print axioms Polyfold.eq_orTopology_of
-#print axioms Polyfold.existsUnique_orientationTopology_2021
-#print axioms Polyfold.theorem_6_6_17_2021
+#print axioms Polyfold.existsUnique_orientationTopology
+#print axioms Polyfold.theorem_6_6_17_hyp
 -- Chapter2/LocalTopologyExample.lean
 #print axioms Polyfold.isLocallyCompleteRel_of_forall_isCompletelyMetrizable
 #print axioms Polyfold.isCompletelyMetrizableSpace_of_isEmbedding_compl_range
@@ -8841,7 +8841,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.RealKTop.isEmbedding_subtype
 #print axioms Polyfold.RealKTop.range_subtype
 #print axioms Polyfold.RealKTop.isLocallyCompleteRel
-#print axioms Polyfold.remark_2_1_6_strict_2021
+#print axioms Polyfold.remark_2_1_6_strict
 -- Chapter6/Book2021Continuity.lean
 #print axioms Polyfold.isCompl_sup_inf_of_isCompl
 #print axioms Polyfold.exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq
@@ -8857,8 +8857,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.disjoint_ker_comp_of_projRestrict_eq
 #print axioms Polyfold.isTopCompl_ker_comp_of_projRestrict_eq
 #print axioms Polyfold.continuousAt_solveOp
-#print axioms Polyfold.proposition_6_4_13_continuity_2021
-#print axioms Polyfold.proposition_6_4_13_continuity_2021_hyps
+#print axioms Polyfold.proposition_6_4_13_continuity
+#print axioms Polyfold.proposition_6_4_13_continuity_hyps
 -- Chapter2/TameBoundaryNonCentred.lean
 #print axioms Polyfold.TameBoundary.BTriple.exists_centred_subset
 #print axioms Polyfold.TameBoundary.phiInv
@@ -8871,20 +8871,20 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.reachSet_eq_univ_of_isCenteredAt
 #print axioms Polyfold.MPolyfold.phiTot_isScSmoothOn
 #print axioms Polyfold.MPolyfold.phiInv_isScSmoothOn
-#print axioms Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred_2021
+#print axioms Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred
 #print axioms Polyfold.MPolyfold.phiInv_eq_phiHomeomorph_symm
-#print axioms Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps_2021
-#print axioms Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies_allReps_2021
-#print axioms Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred_2021
-#print axioms Polyfold.MPolyfold.not_surjOn_phiTot_2021
+#print axioms Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps
+#print axioms Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies_allReps
+#print axioms Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred
+#print axioms Polyfold.MPolyfold.not_surjOn_phiTot
 -- Chapter2/TameSub.lean
 #print axioms Polyfold.ScBanach.levelSub_sup_of_le_of_isScSplitting
 #print axioms Polyfold.ScBanach.isScSplitting_sup_of_complementIn
 #print axioms Polyfold.MPolyfold.mem_smoothSet_iff_of_isChart
-#print axioms Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart_2021
-#print axioms Polyfold.MPolyfold.TameSubData.complement_forall_charts_2021
+#print axioms Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart
+#print axioms Polyfold.MPolyfold.TameSubData.complement_forall_charts
 #print axioms Polyfold.MPolyfold.TameSubData.isTameRetract_image
-#print axioms Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure_2021
+#print axioms Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure
 #print axioms Polyfold.TameSubExample.constOp
 #print axioms Polyfold.TameSubExample.quadrantMap_isScSmoothMap
 #print axioms Polyfold.TameSubExample.opRetraction
@@ -8896,8 +8896,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TameSubExample.projA
 #print axioms Polyfold.TameSubExample.setA
 #print axioms Polyfold.TameSubExample.setA_eq_fixSet
-#print axioms Polyfold.TameSubExample.isTameSubMPolyfold_setA_2021
-#print axioms Polyfold.TameSubExample.hasTameInducedStructure_setA_2021
+#print axioms Polyfold.TameSubExample.isTameSubMPolyfold_setA
+#print axioms Polyfold.TameSubExample.hasTameInducedStructure_setA
 #print axioms Polyfold.TameSubExample.average2
 #print axioms Polyfold.TameSubExample.average2_apply
 #print axioms Polyfold.TameSubExample.projB
@@ -8907,8 +8907,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TameSubExample.setB_eq_fixSet
 #print axioms Polyfold.TameSubExample.isSubMPolyfold_setB
 #print axioms Polyfold.TameSubExample.zero_mem_setB
-#print axioms Polyfold.TameSubExample.not_mem_tameSubData_setB_2021
-#print axioms Polyfold.TameSubExample.not_isTameSubMPolyfold_setB_2021
+#print axioms Polyfold.TameSubExample.not_mem_tameSubData_setB
+#print axioms Polyfold.TameSubExample.not_isTameSubMPolyfold_setB
 #print axioms Polyfold.TameSubExample.zeroSpace
 #print axioms Polyfold.TameSubExample.dup2
 #print axioms Polyfold.TameSubExample.first2
@@ -8918,9 +8918,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.TameSubExample.firstOp_mapsTo
 #print axioms Polyfold.TameSubExample.halfLineToB
 #print axioms Polyfold.TameSubExample.bToHalfLine
-#print axioms Polyfold.TameSubExample.halfLineToB_isScDiffeoOn_2021
-#print axioms Polyfold.TameSubExample.hasTameInducedStructure_setB_2021
-#print axioms Polyfold.TameSubExample.examples_A_B_2021
+#print axioms Polyfold.TameSubExample.halfLineToB_isScDiffeoOn
+#print axioms Polyfold.TameSubExample.hasTameInducedStructure_setB
+#print axioms Polyfold.TameSubExample.examples_A_B
 -- Chapter2/TangentLiftAll.lean
 #print axioms Polyfold.MPolyfold.ScEquiv
 #print axioms Polyfold.MPolyfold.ScEquiv.toEquiv
@@ -8969,7 +8969,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.BundledMPolyfold.incl_liftMap
 #print axioms Polyfold.BundledMPolyfold.tangentLiftEquiv_one
 #print axioms Polyfold.BundledMPolyfold.tangentLiftEquiv_unique
-#print axioms Polyfold.proposition_2_3_17_all_2021
+#print axioms Polyfold.proposition_2_3_17_all
 #print axioms Polyfold.BundledMPolyfold.tangentScMap
 #print axioms Polyfold.BundledMPolyfold.tangentIncl_tangentMap
 #print axioms Polyfold.BundledMPolyfold.tangentLiftEquiv_natural
@@ -8977,8 +8977,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.BundledMPolyfold.tangentIncl_raiseIndexAll
 #print axioms Polyfold.BundledMPolyfold.vectorFieldScMap
 #print axioms Polyfold.BundledMPolyfold.tangentLiftEquiv_raiseIndexAll
-#print axioms Polyfold.lemma_4_4_4_all_2021
-#print axioms Polyfold.BundledMPolyfold.lemma_4_4_4_all_2021_zero
+#print axioms Polyfold.lemma_4_4_4_all
+#print axioms Polyfold.BundledMPolyfold.lemma_4_4_4_all_zero
 -- Chapter7/ZhouLevels.lean
 #print axioms Polyfold.MPolyfold.continuous_levelDown
 #print axioms Polyfold.MPolyfold.shiftSmoothMap
@@ -8995,14 +8995,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.isZhou'_liftOne
 #print axioms Polyfold.EpGroupoid.isVSLUC_liftOne
 #print axioms Polyfold.EP.isZhou'_lift
-#print axioms Polyfold.EP.proposition_7_4_9_2021
+#print axioms Polyfold.EP.proposition_7_4_9
 #print axioms Polyfold.EP.denseSmooth_lift
 #print axioms Polyfold.EP.isVSLUC_lift
-#print axioms Polyfold.EP.corollary_7_4_11_all_2021
-#print axioms Polyfold.EP.theorem_7_4_13_all_2021
-#print axioms Polyfold.EP.proposition_7_4_16_all_2021
-#print axioms Polyfold.EP.proposition_7_4_17_all_2021
-#print axioms Polyfold.EP.theorem_7_4_24_all_2021
+#print axioms Polyfold.EP.corollary_7_4_11_all
+#print axioms Polyfold.EP.theorem_7_4_13_all
+#print axioms Polyfold.EP.proposition_7_4_16_all
+#print axioms Polyfold.EP.proposition_7_4_17_all
+#print axioms Polyfold.EP.theorem_7_4_24_all
 #print axioms Polyfold.MPolyfold.levelDownTo
 #print axioms Polyfold.MPolyfold.continuous_levelDownTo
 #print axioms Polyfold.MPolyfold.exists_level_nhds_smooth
@@ -9020,14 +9020,14 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.NaturalRep.levelConnected_liftOneRep
 #print axioms Polyfold.EP.eqOn_of_level_smooth
 #print axioms Polyfold.EP.isVSLUC_of_isSLUC
-#print axioms Polyfold.EP.proposition_7_4_18_2021
+#print axioms Polyfold.EP.proposition_7_4_18
 #print axioms Polyfold.EpGroupoid.Examples.isVSLUC_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_9_2021_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.theorem_7_4_13_all_2021_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.theorem_7_4_24_all_2021_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_17_all_2021_pointEP
+#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_9_pointEP
+#print axioms Polyfold.EpGroupoid.Examples.theorem_7_4_13_all_pointEP
+#print axioms Polyfold.EpGroupoid.Examples.theorem_7_4_24_all_pointEP
+#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_17_all_pointEP
 #print axioms Polyfold.EpGroupoid.Examples.levelConnected_pointEP
-#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_18_2021_pointEP
+#print axioms Polyfold.EpGroupoid.Examples.proposition_7_4_18_pointEP
 -- Chapter8/TangentZhouLevels.lean
 #print axioms Polyfold.MPolyfold.ScEquiv.toHomeomorph
 #print axioms Polyfold.EP.tangentEP
@@ -9045,8 +9045,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton
 #print axioms Polyfold.EP.tangentLiftEpEquiv
 #print axioms Polyfold.EP.isLUC_tangent_lift
-#print axioms Polyfold.EP.proposition_8_1_17_two_all_2021
-#print axioms Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP
+#print axioms Polyfold.EP.proposition_8_1_17_two_all
+#print axioms Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP
 
 /-! Axioms: Part II, Chapter 9 (branched ep⁺-subgroupoids), 2021 numbering -/
 -- Chapter9/Basic.lean
@@ -11812,7 +11812,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 -- Chapter 2: results of 2026-11-09 (TangentProjOpen.lean)
 #print axioms Polyfold.ScRetraction.exists_isOpen_tangent_section
 #print axioms Polyfold.MPolyfold.isOpenMap_tangentProj
-#print axioms Polyfold.proposition_2_3_15_two_2021
+#print axioms Polyfold.proposition_2_3_15_two
 
 -- Chapter 2: results of 2026-11-09 (TangentSpaceLinear.lean)
 #print axioms Polyfold.exists_submodule_eq_tangentSpace
@@ -11862,7 +11862,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.tangentFiberLinearEquiv_apply
 #print axioms Polyfold.MPolyfold.tangentFiberLinearEquiv_symm_apply
 #print axioms Polyfold.MPolyfold.coe_tangentFiberLinearEquiv_apply
-#print axioms Polyfold.MPolyfold.definition_2_3_14_2021
+#print axioms Polyfold.MPolyfold.definition_2_3_14
 #print axioms Polyfold.MPolyfold.continuous_tangentFiberEquiv
 #print axioms Polyfold.MPolyfold.continuous_tangentFiberEquiv_symm
 #print axioms Polyfold.MPolyfold.tangentFiberContinuousLinearEquiv
@@ -11894,7 +11894,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.tangentMapOnCLM
 #print axioms Polyfold.MPolyfold.tangentMapOnCLM_apply
 #print axioms Polyfold.MPolyfold.tangentMapOnCLM_eq
-#print axioms Polyfold.MPolyfold.theorem_2_3_16_linear_2021
+#print axioms Polyfold.MPolyfold.theorem_2_3_16_linear
 #print axioms Polyfold.MPolyfold.tangentMapCLM
 #print axioms Polyfold.MPolyfold.tangentMapCLM_apply
 
@@ -11914,9 +11914,9 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.isIdempotentElem_subInclusionCLM_comp_subRetractionCLM
 #print axioms Polyfold.MPolyfold.range_subInclusionCLM_comp_subRetractionCLM
 #print axioms Polyfold.MPolyfold.ker_subInclusionCLM_comp_subRetractionCLM
-#print axioms Polyfold.MPolyfold.proposition_2_3_19_3_linear_2021
+#print axioms Polyfold.MPolyfold.proposition_2_3_19_3_linear
 #print axioms Polyfold.MPolyfold.subInclusionCLM_subRetractionCLM_apply
-#print axioms Polyfold.MPolyfold.proposition_2_3_19_4_2021
+#print axioms Polyfold.MPolyfold.proposition_2_3_19_4
 
 -- Chapter 2: results of 2026-11-09 (ReducedTangentIntrinsic.lean)
 #print axioms Polyfold.MPolyfold.fiberCoord
@@ -11938,7 +11938,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 -- Chapter 2: results of 2026-11-09 (SubMPolyfoldTangentSc.lean)
 #print axioms Polyfold.MPolyfold.SubData.r_levelVal_eq
 #print axioms Polyfold.MPolyfold.subInclusionCLM_comp_subRetractionCLM_eq
-#print axioms Polyfold.MPolyfold.proposition_2_3_19_3_sc_2021
+#print axioms Polyfold.MPolyfold.proposition_2_3_19_3_sc
 
 -- Chapter 3: results of 2026-11-09 (UnitIntervalPolyfold.lean)
 #print axioms Polyfold.isScSmoothRetractMap_const_of_contDiff_of_mapsTo
@@ -12062,7 +12062,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.TangentGermChart2021.germ_of_isScSmoothGerm
 #print axioms Polyfold.MPolyfold.TangentGermChart.toTangentGermChart2021
 #print axioms Polyfold.MPolyfold.hasTangentGermProperty2021_iff
-#print axioms Polyfold.lemma_3_6_9_2021
+#print axioms Polyfold.lemma_3_6_9
 
 -- Chapter 3: results of 2026-11-09 (TangentGermProjecting.lean)
 #print axioms Polyfold.IsScInftyGermAt.contDiffOn_level_zero
@@ -12104,16 +12104,16 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.TangentGermChart.exists_projecting
 #print axioms Polyfold.MPolyfold.TangentGermChart.exists_isRegular
 #print axioms Polyfold.MPolyfold.HasTangentGermProperty.exists_isRegular
-#print axioms Polyfold.theorem_3_2_3_2021
+#print axioms Polyfold.theorem_3_2_3
 #print axioms Polyfold.theorem_3_2_3_2021def
-#print axioms Polyfold.theorem_3_2_3_loc_2021
+#print axioms Polyfold.theorem_3_2_3_loc
 
 -- Chapter 3: results of 2026-11-09 (Counterexamples2021.lean)
 #print axioms Polyfold.Counterexamples2021.isCompl_span_pair
 #print axioms Polyfold.Counterexamples2021.levelSub_const
 #print axioms Polyfold.Counterexamples2021.le_smooth_const
 #print axioms Polyfold.Counterexamples2021.isScSplitting_const
-#print axioms Polyfold.Counterexamples2021.not_lemma_3_8_6_two_2021
+#print axioms Polyfold.Counterexamples2021.not_lemma_3_8_6_two
 #print axioms Polyfold.Counterexamples2021.E2
 #print axioms Polyfold.Counterexamples2021.E3
 #print axioms Polyfold.Counterexamples2021.corner
@@ -12124,10 +12124,10 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Counterexamples2021.cornerProd_eq
 #print axioms Polyfold.Counterexamples2021.isCompl_diag_antidiag
 #print axioms Polyfold.Counterexamples2021.isGoodComplement_diag_antidiag
-#print axioms Polyfold.Counterexamples2021.isInGoodPosition_diag_2021
-#print axioms Polyfold.Counterexamples2021.isInGoodPositionSc_diag_2021
-#print axioms Polyfold.Counterexamples2021.not_isInGoodPosition_prod_diag_2021
-#print axioms Polyfold.Counterexamples2021.theorem_5_3_12_goodPosition_not_stable_2021
+#print axioms Polyfold.Counterexamples2021.isInGoodPosition_diag
+#print axioms Polyfold.Counterexamples2021.isInGoodPositionSc_diag
+#print axioms Polyfold.Counterexamples2021.not_isInGoodPosition_prod_diag
+#print axioms Polyfold.Counterexamples2021.theorem_5_3_12_goodPosition_not_stable
 #print axioms Polyfold.Counterexamples2021.Ecube
 #print axioms Polyfold.Counterexamples2021.cube
 #print axioms Polyfold.Counterexamples2021.diagCube
@@ -12136,8 +12136,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Counterexamples2021.planeCube
 #print axioms Polyfold.Counterexamples2021.sigmaCube
 #print axioms Polyfold.Counterexamples2021.isCompl_diagCube_planeCube
-#print axioms Polyfold.Counterexamples2021.isScGoodComplement_cube_2021
-#print axioms Polyfold.Counterexamples2021.theorem_3_2_3_sigma_not_relOpen_2021
+#print axioms Polyfold.Counterexamples2021.isScGoodComplement_cube
+#print axioms Polyfold.Counterexamples2021.theorem_3_2_3_sigma_not_relOpen
 
 -- Chapter 3: results of 2026-11-09 (RecentreCounterexample2021.lean)
 #print axioms Polyfold.Recentre2021.IsGoodComplementLit
@@ -12186,8 +12186,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.Recentre2021.CE.not_germNear
 #print axioms Polyfold.Recentre2021.CE.x0_mem
 #print axioms Polyfold.Recentre2021.Theorem_3_2_3_GermNearEveryPoint
-#print axioms Polyfold.Recentre2021.not_theorem_3_2_3_germNearEveryPoint_2021
-#print axioms Polyfold.Recentre2021.not_theorem_3_2_3_recentreStep_2021
+#print axioms Polyfold.Recentre2021.not_theorem_3_2_3_germNearEveryPoint
+#print axioms Polyfold.Recentre2021.not_theorem_3_2_3_recentreStep
 
 -- Chapter 3: results of 2026-11-09 (FredholmPullbackIso.lean)
 #print axioms Polyfold.fiberMapOf
@@ -12300,8 +12300,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.remark_4_2_2_near
 
 -- Chapter 5: results of 2026-11-09 (MainTheoremsBookForm.lean)
-#print axioms Polyfold.theorem_5_3_10_2021
-#print axioms Polyfold.theorem_5_3_12_2021
+#print axioms Polyfold.theorem_5_3_10
+#print axioms Polyfold.theorem_5_3_12
 
 -- Chapter 6: results of 2026-11-09 (LinSetFredholm.lean)
 #print axioms Polyfold.ChartPoint.exists_isScFredholm_of_mem_linSet
@@ -12445,7 +12445,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.smoothRegular_iff
 #print axioms Polyfold.EpGroupoid.denseSmooth_obj
 #print axioms Polyfold.EpGroupoid.denseSmooth_mor
-#print axioms Polyfold.EpGroupoid.p289_dense_2021
+#print axioms Polyfold.EpGroupoid.p289_dense
 #print axioms Polyfold.EpGroupoid.mem_levelSet_of_isomorphic
 #print axioms Polyfold.EpGroupoid.π_mem_orbitLevel_iff
 #print axioms Polyfold.EpGroupoid.preimage_orbitLevel
@@ -12454,7 +12454,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.orbitSmooth
 #print axioms Polyfold.EpGroupoid.preimage_orbitSmooth
 #print axioms Polyfold.EpGroupoid.orbitSmooth_eq_iInter
-#print axioms Polyfold.EpGroupoid.p290_orbit_filtration_2021
+#print axioms Polyfold.EpGroupoid.p290_orbit_filtration
 #print axioms Polyfold.EpGroupoid.dense_orbitSmooth
 
 -- Chapter 7: results of 2026-11-09 (TangentMorphism.lean)
@@ -12470,7 +12470,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.bijOn_tangentMor
 #print axioms Polyfold.EpGroupoid.tangentMor_chart
 #print axioms Polyfold.EpGroupoid.tangentMor_chart_iso
-#print axioms Polyfold.EpGroupoid.definition_7_1_4_2021
+#print axioms Polyfold.EpGroupoid.definition_7_1_4
 
 -- Chapter 7: results of 2026-11-09 (TangentMorphismLinear.lean)
 #print axioms Polyfold.EpGroupoid.mem_tangentFiber_iff_mem_tangentFiberAt
@@ -12489,17 +12489,17 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.tangentMorCLE
 #print axioms Polyfold.EpGroupoid.tangentMorCLE_apply
 #print axioms Polyfold.EpGroupoid.tangentMorCLE_symm_apply
-#print axioms Polyfold.EpGroupoid.definition_7_1_4_linear_2021
-#print axioms Polyfold.EpGroupoid.definition_7_1_4_sc_2021
+#print axioms Polyfold.EpGroupoid.definition_7_1_4_linear
+#print axioms Polyfold.EpGroupoid.definition_7_1_4_sc
 
 -- Chapter 7: results of 2026-11-09 (SubGroupoidTangent.lean)
 #print axioms Polyfold.EpGroupoid.subObjInclusionCLM
 #print axioms Polyfold.EpGroupoid.subObjRetractionCLM
-#print axioms Polyfold.EpGroupoid.fact_3_subObj_2021
-#print axioms Polyfold.EpGroupoid.fact_4_subObj_2021
+#print axioms Polyfold.EpGroupoid.fact_3_subObj
+#print axioms Polyfold.EpGroupoid.fact_4_subObj
 
 -- Chapter 7: results of 2026-11-09 (SubGroupoidTangentSc.lean)
-#print axioms Polyfold.EpGroupoid.fact_3_subObj_sc_2021
+#print axioms Polyfold.EpGroupoid.fact_3_subObj_sc
 
 -- Chapter 7: results of 2026-11-09 (ZhouFacts.lean)
 #print axioms Polyfold.ScBanach.exists_toLevelOne
@@ -12511,15 +12511,15 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.MPolyfold.tangentDeterminedSmooth
 #print axioms Polyfold.MPolyfold.smoothRegular_of_smoothConnected
 #print axioms Polyfold.MPolyfold.smoothRegular_iff_smoothConnected
-#print axioms Polyfold.EpGroupoid.lemma_7_4_6_2021_of_isZhou
+#print axioms Polyfold.EpGroupoid.lemma_7_4_6_of_isZhou
 #print axioms Polyfold.EpGroupoid.isZhou_of_isZhou'_of_smoothConnected
-#print axioms Polyfold.EpGroupoid.proposition_7_4_8_2021_of_smoothConnected
-#print axioms Polyfold.EpGroupoid.proposition_7_4_10_2021_of_smoothConnected
-#print axioms Polyfold.EpGroupoid.proposition_7_4_22_2021_of_smoothConnected
-#print axioms Polyfold.EP.proposition_7_4_9_2021_of_smoothConnected
-#print axioms Polyfold.EP.corollary_7_4_11_all_2021_of_smoothConnected
-#print axioms Polyfold.EP.theorem_7_4_13_all_2021_of_smoothConnected
-#print axioms Polyfold.EP.theorem_7_4_24_all_2021_of_smoothConnected
+#print axioms Polyfold.EpGroupoid.proposition_7_4_8_of_smoothConnected
+#print axioms Polyfold.EpGroupoid.proposition_7_4_10_of_smoothConnected
+#print axioms Polyfold.EpGroupoid.proposition_7_4_22_of_smoothConnected
+#print axioms Polyfold.EP.proposition_7_4_9_of_smoothConnected
+#print axioms Polyfold.EP.corollary_7_4_11_all_of_smoothConnected
+#print axioms Polyfold.EP.theorem_7_4_13_all_of_smoothConnected
+#print axioms Polyfold.EP.theorem_7_4_24_all_of_smoothConnected
 
 -- Chapter 7: results of 2026-11-09 (SmoothConnectedReps.lean)
 #print axioms Polyfold.MPolyfold.smoothConnected
@@ -12532,54 +12532,54 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.exists_naturalRep_levelConnected
 #print axioms Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps
 #print axioms Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC'
-#print axioms Polyfold.EpGroupoid.lemma_7_4_15_2021_of_isVSLUC
-#print axioms Polyfold.EpGroupoid.proposition_7_4_16_2021_of_isVSLUC
+#print axioms Polyfold.EpGroupoid.lemma_7_4_15_of_isVSLUC
+#print axioms Polyfold.EpGroupoid.proposition_7_4_16_of_isVSLUC
 #print axioms Polyfold.EpGroupoid.nonEffectivePart_liftOne_eq_of_isClosed
-#print axioms Polyfold.EpGroupoid.theorem_7_6_7_2021_of_isLUC
-#print axioms Polyfold.EpGroupoid.corollary_7_6_8_2021_of_imp
+#print axioms Polyfold.EpGroupoid.theorem_7_6_7_of_isLUC
+#print axioms Polyfold.EpGroupoid.corollary_7_6_8_of_imp
 #print axioms Polyfold.EpGroupoid.nonEffectivePart_tangent_eq_of_isOpenMap
-#print axioms Polyfold.EpGroupoid.proposition_8_1_17_2021_one_of_isOpenMap
-#print axioms Polyfold.EP.proposition_7_4_16_all_2021_of_isVSLUC
-#print axioms Polyfold.EP.proposition_7_4_17_all_2021_of_isVSLUC
-#print axioms Polyfold.EP.proposition_7_4_17_2021_of_isVSLUC
+#print axioms Polyfold.EpGroupoid.proposition_8_1_17_one_of_isOpenMap
+#print axioms Polyfold.EP.proposition_7_4_16_all_of_isVSLUC
+#print axioms Polyfold.EP.proposition_7_4_17_all_of_isVSLUC
+#print axioms Polyfold.EP.proposition_7_4_17_of_isVSLUC
 #print axioms Polyfold.EP.isVSLUC_of_isSLUC'
-#print axioms Polyfold.EP.proposition_7_4_18_2021_unconditional
-#print axioms Polyfold.EP.proposition_8_1_17_2021_two_of_isOpenMap
+#print axioms Polyfold.EP.proposition_7_4_18_unconditional
+#print axioms Polyfold.EP.proposition_8_1_17_two_of_isOpenMap
 #print axioms Polyfold.EP.isLUC_tangent_lift_of_isOpenMap
-#print axioms Polyfold.EP.proposition_8_1_17_two_all_2021_of_isOpenMap
+#print axioms Polyfold.EP.proposition_8_1_17_two_all_of_isOpenMap
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou_of_tangent
 
 -- Chapter 7: results of 2026-11-09 (SmoothRegularAssembly.lean)
 #print axioms Polyfold.MPolyfold.smoothRegular
-#print axioms Polyfold.EpGroupoid.proposition_7_4_8_2021_unconditional
-#print axioms Polyfold.EpGroupoid.proposition_7_4_10_2021_of_isZhou
+#print axioms Polyfold.EpGroupoid.proposition_7_4_8_unconditional
+#print axioms Polyfold.EpGroupoid.proposition_7_4_10_of_isZhou
 #print axioms Polyfold.EpGroupoid.isSmoothUC_of_isZhou'
 #print axioms Polyfold.EpGroupoid.isVSLUC_of_isZhou'
-#print axioms Polyfold.EpGroupoid.corollary_7_4_11_2021_of_isZhou
-#print axioms Polyfold.EpGroupoid.proposition_7_4_22_2021_of_isZhou
-#print axioms Polyfold.EpGroupoid.corollary_7_6_8_2021_of_isZhou'
+#print axioms Polyfold.EpGroupoid.corollary_7_4_11_of_isZhou
+#print axioms Polyfold.EpGroupoid.proposition_7_4_22_of_isZhou
+#print axioms Polyfold.EpGroupoid.corollary_7_6_8_of_isZhou'
 #print axioms Polyfold.EpGroupoid.nonEffectivePart_tangent_eq_of_isLUC
-#print axioms Polyfold.EpGroupoid.proposition_8_1_17_2021_one_of_isLUC
-#print axioms Polyfold.EP.proposition_7_4_9_2021_of_isZhou
-#print axioms Polyfold.EP.corollary_7_4_11_all_2021_of_isZhou
-#print axioms Polyfold.EP.theorem_7_4_13_all_2021_of_isZhou
-#print axioms Polyfold.EP.theorem_7_4_24_all_2021_of_isZhou
-#print axioms Polyfold.EP.proposition_8_1_17_2021_two_of_isSLUC
+#print axioms Polyfold.EpGroupoid.proposition_8_1_17_one_of_isLUC
+#print axioms Polyfold.EP.proposition_7_4_9_of_isZhou
+#print axioms Polyfold.EP.corollary_7_4_11_all_of_isZhou
+#print axioms Polyfold.EP.theorem_7_4_13_all_of_isZhou
+#print axioms Polyfold.EP.theorem_7_4_24_all_of_isZhou
+#print axioms Polyfold.EP.proposition_8_1_17_two_of_isSLUC
 #print axioms Polyfold.EP.isLUC_tangent_lift_of_isSLUC
-#print axioms Polyfold.EP.proposition_8_1_17_two_all_2021_of_isSLUC
+#print axioms Polyfold.EP.proposition_8_1_17_two_all_of_isSLUC
 #print axioms Polyfold.EpGroupoid.Examples.JumpingRetract.not_isZhou_unconditional
 
 -- Chapter 8: results of 2026-11-09 (TangentEpNotInjective.lean)
 #print axioms Polyfold.MPolyfold.tangentMap.congr_simp
 #print axioms Polyfold.EpGroupoid.Examples.tangentMor_trivialZ3
-#print axioms Polyfold.EpGroupoid.Examples.remark_8_1_10_not_injective_2021
+#print axioms Polyfold.EpGroupoid.Examples.remark_8_1_10_not_injective
 
 -- Chapter 8: results of 2026-11-09 (TangentZhouFacts.lean)
 #print axioms Polyfold.EpGroupoid.nonEffectivePart_tangent_eq_of_levelOneReps
-#print axioms Polyfold.EpGroupoid.proposition_8_1_17_2021_one_of_levelOneReps
-#print axioms Polyfold.EpGroupoid.proposition_8_1_17_2021_two_of_levelOneReps
+#print axioms Polyfold.EpGroupoid.proposition_8_1_17_one_of_levelOneReps
+#print axioms Polyfold.EpGroupoid.proposition_8_1_17_two_of_levelOneReps
 #print axioms Polyfold.EP.isLUC_tangent_lift_of_levelOneReps
-#print axioms Polyfold.EP.proposition_8_1_17_two_all_2021_of_levelOneReps
+#print axioms Polyfold.EP.proposition_8_1_17_two_all_of_levelOneReps
 
 -- Chapter 9: results of 2026-11-09 (GeneralLevelZero.lean)
 #print axioms Polyfold.ScRetraction.plusLift

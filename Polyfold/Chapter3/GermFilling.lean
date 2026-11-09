@@ -2,28 +2,28 @@ import Polyfold.Chapter3.Filler
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definitions 3.4 and 3.6 (filling, filled version) and the local sc⁺-sections of Definition 3.11,
+Definitions 3.1.4 and 3.1.6 (preprint 3.4 and 3.6) (filling, filled version) and the local sc⁺-sections of Definition 3.1.11 (preprint 3.11),
 **in the text's germ reading**.
 
 # Fillings and sc⁺-sections as germs
 
 ## The text, paraphrased
 
-(Definition 3.6) `(f, x₀)` has a filling if the section germ `Φ ∘ f ∘ φ⁻¹` has a filling `(g, 0)`,
-an sc-smooth section germ of `U ◁ F → U` satisfying conditions (1)–(3) of Definition 3.4 near `0`.
-(Definition 3.11) A local sc⁺-section `s` near `0`.  Germs are those of Definitions 3.1–3.2: sc-germs
+(Definition 3.1.6 (preprint 3.6)) `(f, x₀)` has a filling if the section germ `Φ ∘ f ∘ φ⁻¹` has a filling `(g, 0)`,
+an sc-smooth section germ of `U ◁ F → U` satisfying conditions (1)–(3) of Definition 3.1.4 (preprint 3.4) near `0`.
+(Definition 3.1.11 (preprint 3.11)) A local sc⁺-section `s` near `0`.  Germs are those of Definitions 3.1.1–3.1.2 (preprint 3.1–3.2): sc-germs
 of neighbourhoods whose levels may shrink with the level.
 
 ## What is formalized
 
-* `Polyfold.fillDefect`: the map `k(y) = [1 − ρ(r(y))]g(y)` of Definition 3.4 (3).
+* `Polyfold.fillDefect`: the map `k(y) = [1 − ρ(r(y))]g(y)` of Definition 3.1.4 (preprint 3.4) (3).
 * `Polyfold.IsFillingGerm`: a filling in the germ sense (`g` an sc-smooth germ on a germ of
   neighbourhoods `G` with `G₀ ⊆ U`, conditions (1)–(3) near `0`).
 * `Polyfold.IsScPlusGerm`: a local sc⁺-section in the germ sense.
 * `Polyfold.IsSc1.isSc1GermWith_ofSet`: an sc¹ map on `U` is an sc¹-germ on `ofSet U`.
 
 These were introduced in `Chapter3/GermVsChart.lean` (Findings, Chapter 3, items 260–266) and are
-placed here, low in the import chain, so that Definition 3.11 itself can be stated with them.
+placed here, low in the import chain, so that Definition 3.1.11 (preprint 3.11) itself can be stated with them.
 
 ## What the text leaves implicit, and the choices made
 
@@ -127,14 +127,14 @@ section GermReading
 
 variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
-/-- The map `k(y) = [1 − ρ(r(y))]g(y)` of Definition 3.4 (3). -/
+/-- The map `k(y) = [1 − ρ(r(y))]g(y)` of Definition 3.1.4 (preprint 3.4) (3). -/
 def fillDefect (R : E 0 × F 0 → E 0 × F 0) (g : E 0 → F 0) : E 0 → F 0 :=
   fun y => g y - StrongRetr.ρ R (StrongRetr.r R y) (g y)
 
-/-- **Definition 3.6 with Definition 3.4, the text's germ reading**: `g` is a **filling** of the
+/-- **Definition 3.1.6 (preprint 3.6) with Definition 3.1.4 (preprint 3.4), the text's germ reading**: `g` is a **filling** of the
 principal part `f̂ : O → F` of a section of `K = R(U ◁ F) → O` if `(g, 0)` is an sc-smooth
-section germ of `U ◁ F → U` — `g` is an sc-smooth germ (Definition 3.2) on an sc-germ of
-neighbourhoods `G` of `0` in `C` (Definition 3.1, levels `G_m` possibly shrinking with `m`) with
+section germ of `U ◁ F → U` — `g` is an sc-smooth germ (Definition 3.1.2 (preprint 3.2)) on an sc-germ of
+neighbourhoods `G` of `0` in `C` (Definition 3.1.1 (preprint 3.1), levels `G_m` possibly shrinking with `m`) with
 `G₀ ⊆ U` — and (1) `f̂ = g` on `O` near `0`; (2) `y ∈ U` near `0` with `g(y) = ρ(r(y))g(y)` lies in
 `O`; (3) the linearization `Dk(0)` of the sc¹-germ `k(y) = [1 − ρ(r(y))]g(y)` on `G` (a derivative
 family `Dk`; `Dk(0)` is unique), restricted to `ker Dr(0)`, is a topological linear isomorphism

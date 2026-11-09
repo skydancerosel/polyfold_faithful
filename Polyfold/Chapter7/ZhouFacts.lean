@@ -45,13 +45,13 @@ quadrant (2021 Definition 1.1.15; 2014 preprint Definition 1.14).
   with `denseSmooth` (`SmoothPointsDense.lean`), `isOpenMap_tangentProj`
   (`Chapter2/TangentProjOpen.lean`) and the two theorems above, the bundle `SmoothRegular` is
   equivalent to its field `SmoothConnected`.
-* The §7.4 results without the discharged hypotheses: `EpGroupoid.lemma_7_4_6_2021_of_isZhou`
+* The §7.4 results without the discharged hypotheses: `EpGroupoid.lemma_7_4_6_of_isZhou`
   (no `DenseSmoothTangent`), `EpGroupoid.isZhou_of_isZhou'_of_smoothConnected`,
-  `EpGroupoid.proposition_7_4_8_2021_of_smoothConnected`,
-  `EpGroupoid.proposition_7_4_10_2021_of_smoothConnected`,
-  `EpGroupoid.proposition_7_4_22_2021_of_smoothConnected`, and for all lifts
-  `EP.proposition_7_4_9_2021_of_smoothConnected`, `EP.corollary_7_4_11_all_2021_of_smoothConnected`,
-  `EP.theorem_7_4_13_all_2021_of_smoothConnected`, `EP.theorem_7_4_24_all_2021_of_smoothConnected`.
+  `EpGroupoid.proposition_7_4_8_of_smoothConnected`,
+  `EpGroupoid.proposition_7_4_10_of_smoothConnected`,
+  `EpGroupoid.proposition_7_4_22_of_smoothConnected`, and for all lifts
+  `EP.proposition_7_4_9_of_smoothConnected`, `EP.corollary_7_4_11_all_of_smoothConnected`,
+  `EP.theorem_7_4_13_all_of_smoothConnected`, `EP.theorem_7_4_24_all_of_smoothConnected`.
   In each, `SmoothRegular` is replaced by `SmoothConnected` and `DenseSmoothTangent` is dropped.
 
 These close top-ten item #5 of the triage plan: two of the five Part I facts of G.85 / V7.86
@@ -389,8 +389,8 @@ variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpa
 
 /-- **2021 Lemma 7.4.6, p. 331**: (ZHOU) ⇒ (ZHOU'), with no hypothesis beyond (ZHOU)
 (`DenseSmoothTangent` is `MPolyfold.denseSmoothTangent`). -/
-theorem lemma_7_4_6_2021_of_isZhou (hZ : X.IsZhou) : X.IsZhou' :=
-  X.lemma_7_4_6_2021 hZ X.PObj.denseSmoothTangent
+theorem lemma_7_4_6_of_isZhou (hZ : X.IsZhou) : X.IsZhou' :=
+  X.lemma_7_4_6 hZ X.PObj.denseSmoothTangent
 
 /-- **2021 Proposition 7.4.8, (ZHOU') ⇒ (ZHOU)**, with `SmoothConnected` in place of
 `SmoothRegular`. -/
@@ -401,20 +401,20 @@ theorem isZhou_of_isZhou'_of_smoothConnected (hc : X.PObj.SmoothConnected) (hZ :
 /-- **2021 Proposition 7.4.8, p. 332**: (ZHOU) ⇔ (ZHOU'), given only `SmoothConnected`
 (`DenseSmoothTangent`, `IsOpenMap tangentProj`, `TangentDeterminedSmooth`, `DenseSmooth` are
 proved). -/
-theorem proposition_7_4_8_2021_of_smoothConnected (hc : X.PObj.SmoothConnected) :
+theorem proposition_7_4_8_of_smoothConnected (hc : X.PObj.SmoothConnected) :
     X.IsZhou ↔ X.IsZhou' :=
-  X.proposition_7_4_8_2021 (MPolyfold.smoothRegular_of_smoothConnected hc)
+  X.proposition_7_4_8 (MPolyfold.smoothRegular_of_smoothConnected hc)
     X.PObj.denseSmoothTangent
 
 /-- **2021 Proposition 7.4.10, p. 333**: (ZHOU) ⇒ (LUC), given only `SmoothConnected`. -/
-theorem proposition_7_4_10_2021_of_smoothConnected (hc : X.PObj.SmoothConnected)
+theorem proposition_7_4_10_of_smoothConnected (hc : X.PObj.SmoothConnected)
     (hZ : X.IsZhou) : X.IsLUC :=
-  X.proposition_7_4_10_2021 (MPolyfold.smoothRegular_of_smoothConnected hc) hZ
+  X.proposition_7_4_10 (MPolyfold.smoothRegular_of_smoothConnected hc) hZ
 
 /-- **2021 Proposition 7.4.22, p. 338**: (ZHOU) ⇒ (LR), given only `SmoothConnected`. -/
-theorem proposition_7_4_22_2021_of_smoothConnected (hc : X.PObj.SmoothConnected)
+theorem proposition_7_4_22_of_smoothConnected (hc : X.PObj.SmoothConnected)
     (hZ : X.IsZhou) : X.IsLR :=
-  X.proposition_7_4_22_2021 (MPolyfold.smoothRegular_of_smoothConnected hc) hZ
+  X.proposition_7_4_22 (MPolyfold.smoothRegular_of_smoothConnected hc) hZ
 
 end EpGroupoid
 
@@ -422,30 +422,30 @@ namespace EP
 
 /-- **2021 Proposition 7.4.9, p. 333**: (ZHOU) for `X` gives (ZHOU) for every `X^i`, given only
 `SmoothConnected` for every `X^i`. -/
-theorem proposition_7_4_9_2021_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
+theorem proposition_7_4_9_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
     (hc : ∀ i, (A.lift i).X.PObj.SmoothConnected) (i : ℕ) : (A.lift i).X.IsZhou :=
-  A.proposition_7_4_9_2021 hZ A.X.PObj.denseSmoothTangent
+  A.proposition_7_4_9 hZ A.X.PObj.denseSmoothTangent
     (fun j => MPolyfold.smoothRegular_of_smoothConnected (hc j)) i
 
 /-- **2021 Corollary 7.4.11, p. 334**: under (ZHOU) every `X^i` has (LUC), given only
 `SmoothConnected` for every `X^i`. -/
-theorem corollary_7_4_11_all_2021_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
+theorem corollary_7_4_11_all_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
     (hc : ∀ i, (A.lift i).X.PObj.SmoothConnected) (i : ℕ) : (A.lift i).X.IsLUC :=
-  A.corollary_7_4_11_all_2021 hZ A.X.PObj.denseSmoothTangent
+  A.corollary_7_4_11_all hZ A.X.PObj.denseSmoothTangent
     (fun j => MPolyfold.smoothRegular_of_smoothConnected (hc j)) i
 
 /-- **2021 Theorem 7.4.13, p. 334**: (ZHOU) ⇒ (SLUC), given only `SmoothConnected` for every
 `X^i`. -/
-theorem theorem_7_4_13_all_2021_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
+theorem theorem_7_4_13_all_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
     (hc : ∀ i, (A.lift i).X.PObj.SmoothConnected) : A.IsSLUC :=
-  A.theorem_7_4_13_all_2021 hZ A.X.PObj.denseSmoothTangent
+  A.theorem_7_4_13_all hZ A.X.PObj.denseSmoothTangent
     (fun j => MPolyfold.smoothRegular_of_smoothConnected (hc j))
 
 /-- **2021 Theorem 7.4.24, p. 340**: (ZHOU) ⇒ (SLR), given only `SmoothConnected` for every
 `X^i`. -/
-theorem theorem_7_4_24_all_2021_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
+theorem theorem_7_4_24_all_of_smoothConnected (A : EP.{u}) (hZ : A.X.IsZhou)
     (hc : ∀ i, (A.lift i).X.PObj.SmoothConnected) : A.IsSLR :=
-  A.theorem_7_4_24_all_2021 hZ A.X.PObj.denseSmoothTangent
+  A.theorem_7_4_24_all hZ A.X.PObj.denseSmoothTangent
     (fun j => MPolyfold.smoothRegular_of_smoothConnected (hc j))
 
 end EP

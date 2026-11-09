@@ -3,20 +3,20 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.2,
-**Theorem 2.16** (with Appendix 2.6.2: Theorem 2.55, Lemma 2.56, Proposition 2.57),
-**Proposition 2.19 (3)** (Appendix 2.6.3) and **Proposition 2.21 (3), (4)**.
+**Theorem 2.3.10 (preprint 2.16)** (with Appendix 2.6.2: Theorem 2.55, Lemma 2.56, Proposition 2.57),
+**Proposition 2.3.15 (preprint 2.19) (3)** (Appendix 2.6.3) and **Proposition 2.3.19 (preprint 2.21) (3), (4)**.
 
 # Metrizability of `X_m`, `X_∞`, `TX`; tangent spaces of sub-M-polyfolds
 
 ## The text, paraphrased
 
-(Theorem 2.16) For an M-polyfold `X` and every `m ≥ 0`, `X_m` is metrizable, in particular
-paracompact; `X_∞` is metrizable.  (Appendix) By Smirnov's theorem (Theorem 2.55: a paracompact
-Hausdorff locally metrizable space is metrizable), Lemma 2.56 (Michael: a regular space is
-paracompact iff every open cover has a closed locally finite refinement) and Proposition 2.57 (a
+(Theorem 2.3.10 (preprint 2.16)) For an M-polyfold `X` and every `m ≥ 0`, `X_m` is metrizable, in particular
+paracompact; `X_∞` is metrizable.  (Appendix) By Smirnov's theorem (Theorem 2.7.1 (preprint 2.55): a paracompact
+Hausdorff locally metrizable space is metrizable), Lemma 2.7.3 (preprint 2.56) (Michael: a regular space is
+paracompact iff every open cover has a closed locally finite refinement) and Proposition 2.7.4 (preprint 2.57) (a
 regular space with a locally finite closed cover by paracompact subspaces is paracompact): `X_m`
-is paracompact, hence metrizable.  (Proposition 2.19 (3)) `TX` is metrizable, hence paracompact.
-(Proposition 2.21 (3)) For a sub-M-polyfold `A` and a smooth `a ∈ A`, `T_aA` has an sc-complement
+is paracompact, hence metrizable.  (Proposition 2.3.15 (preprint 2.19) (3)) `TX` is metrizable, hence paracompact.
+(Proposition 2.3.19 (preprint 2.21) (3)) For a sub-M-polyfold `A` and a smooth `a ∈ A`, `T_aA` has an sc-complement
 in `T_aX`; (4) for an sc-smooth retraction `s : W → W` onto `W ∩ A`, `Ts(a)T_aX = T_aA`.  *Proof*
 in coordinates: `t = s ∘ r`, `T_aA = Dt(a)E = Ds(a)T_aO`, and
 `T_aO = Ds(a)Dr(a)E ⊕ (I − Ds(a))Dr(a)E`.
@@ -29,7 +29,7 @@ in coordinates: `t = s ∘ r`, `T_aA = Dt(a)E = Ds(a)T_aO`, and
   (a locally finite sum of cone metrics; `cone_triangle`, `truncDist`).
 * `Polyfold.metrizableSpace_of_pullback` (the partition of unity of `X`, pulled back along a
   continuous `π : Y → X`) and `Polyfold.metrizableSpace_of_locally` (**Smirnov's theorem**,
-  Theorem 2.55); `paracompactSpace_of_metrizableSpace` (Stone, from Mathlib);
+  Theorem 2.7.1 (preprint 2.55)); `paracompactSpace_of_metrizableSpace` (Stone, from Mathlib);
   `metrizableSpace_pi_nat` (countable products, from Mathlib).
 * `MChart.sourceHomeomorph` (`V ≅ O`), `MChart.metrizableSpace_source`;
   `MPolyfold.isEmbedding_levelLift` (`V_m ≅ O_m ⊆ E_m`, the text's "`φ : V_m → O_m` is a
@@ -38,18 +38,18 @@ in coordinates: `t = s ∘ r`, `T_aA = Dt(a)E = Ds(a)T_aO`, and
   `MPolyfold.paracompactSpace_level`, `MPolyfold.SmoothLevel` (`X_∞` with the initial topology
   of the inclusions `X_∞ → X_m`, `smoothLevel_topology_eq`),
   `MPolyfold.metrizableSpace_smoothLevel`, and
-  `Polyfold.theorem_2_16` (**Theorem 2.16**).  `MPolyfold.paracompactSpace_subtype`: every subset
+  `Polyfold.theorem_2_3_10` (**Theorem 2.3.10 (preprint 2.16)**).  `MPolyfold.paracompactSpace_subtype`: every subset
   of an M-polyfold, in particular every sub-M-polyfold, is paracompact.
 * `MPolyfold.metrizableSpace_tangentSpace`, the instance `MPolyfold.paracompactSpace_tangentSpace`,
-  `Polyfold.proposition_2_19_3` (**Proposition 2.19 (3)**).
-* `ScRetraction.compRetraction` (`t = s ∘ r`), `Polyfold.proposition_2_21_3`,
-  `Polyfold.proposition_2_21_4` (**Proposition 2.21 (3), (4)**, in a chart).
+  `Polyfold.proposition_2_3_15_three` (**Proposition 2.3.15 (preprint 2.19) (3)**).
+* `ScRetraction.compRetraction` (`t = s ∘ r`), `Polyfold.proposition_2_3_19_three`,
+  `Polyfold.proposition_2_3_19_four` (**Proposition 2.3.19 (preprint 2.21) (3), (4)**, in a chart).
 
 ## What the text leaves implicit, and the choices made
 
-* **No hypothesis is added for Theorem 2.16.**  The text's route needs the regularity of `X_m`
-  for Proposition 2.57, which it does not prove (true here because `X_m → X` is continuous and `X`
-  is regular).  The formal proof avoids Lemma 2.56 and Proposition 2.57: the partition of unity of
+* **No hypothesis is added for Theorem 2.3.10 (preprint 2.16).**  The text's route needs the regularity of `X_m`
+  for Proposition 2.7.4 (preprint 2.57), which it does not prove (true here because `X_m → X` is continuous and `X`
+  is regular).  The formal proof avoids Lemma 2.7.3 (preprint 2.56) and Proposition 2.7.4 (preprint 2.57): the partition of unity of
   the paracompact Hausdorff space `X` subordinate to a chart cover, pulled back to `X_m` (or to
   `TX`, along `TX → X¹ → X`), already gives a metric (`metrizableSpace_of_pullback`);
   paracompactness follows by Stone's theorem.  Smirnov's theorem is proved in this form (it is
@@ -60,9 +60,9 @@ in coordinates: `t = s ∘ r`, `T_aA = Dt(a)E = Ds(a)T_aO`, and
   `[ParacompactSpace P.TangentSpace]` of `MPolyfold.tangentPolyfold` are satisfied automatically;
   for a sub-M-polyfold `A`, `MPolyfold.subPolyfold` is applied with
   `haveI := P.paracompactSpace_subtype A`.
-* Proposition 2.21 (3), (4) are stated in a chart, as the text proves them: `O = r(U)` is the
+* Proposition 2.3.19 (preprint 2.21) (3), (4) are stated in a chart, as the text proves them: `O = r(U)` is the
   chart image of an open piece of `X`, `A ∩ O = s(O)`, and the tangent spaces are those of the
-  retracts `O` and `s(O)` (Definition 2.17).  The text's `Ds(a)` is `D(s ∘ r)(a)`; the
+  retracts `O` and `s(O)` (Definition 2.3.12 (preprint 2.17)).  The text's `Ds(a)` is `D(s ∘ r)(a)`; the
   sc-complement is `(Dr(a) − Dt(a))E` and "sc-complement" is the levelwise direct sum of two
   sc-subspaces of `E` inside `T_aO` (the sc-structure of `T_aO` at the smooth point `a`).  The
   key identities `Dr(a)Dt(a) = Dt(a) = Dt(a)Dr(a)` come from `r ∘ t = t = t ∘ r`.  Transporting
@@ -198,8 +198,8 @@ section Metrization
 
 variable {Y : Type*} [TopologicalSpace Y] {ι : Type*}
 
-/-- **The metrization lemma** (Smirnov's theorem in the form needed for Theorem 2.16 and
-Proposition 2.19 (3)): a space `Y` with open metrizable subspaces `V_i` and continuous functions
+/-- **The metrization lemma** (Smirnov's theorem in the form needed for Theorem 2.3.10 (preprint 2.16) and
+Proposition 2.3.15 (preprint 2.19) (3)): a space `Y` with open metrizable subspaces `V_i` and continuous functions
 `ρ_i ≥ 0` with `supp ρ_i ⊆ V_i`, locally finite supports and `∀ y, ∃ i, ρ_i(y) > 0` is metrizable.
 The metric is the locally finite sum of the cone metrics
 `e_i(x, y) = |ρ_i(x) − ρ_i(y)| + min(ρ_i(x), ρ_i(y)) · min(d_i(x, y), 1)`. -/
@@ -428,7 +428,7 @@ theorem metrizableSpace_source : MetrizableSpace φ.source :=
 
 end MChart
 
-/-! ### Theorem 2.16: `X`, `X_m` and `X_∞` are metrizable -/
+/-! ### Theorem 2.3.10 (preprint 2.16): `X`, `X_m` and `X_∞` are metrizable -/
 
 namespace MPolyfold
 
@@ -437,7 +437,7 @@ universe u
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
 include P in
-/-- **Theorem 2.16**, `m = 0`: an M-polyfold is metrizable (Smirnov's theorem: paracompact,
+/-- **Theorem 2.3.10 (preprint 2.16)**, `m = 0`: an M-polyfold is metrizable (Smirnov's theorem: paracompact,
 Hausdorff, and locally homeomorphic to subsets of Banach spaces). -/
 theorem metrizableSpace : MetrizableSpace X := by
   refine metrizableSpace_of_locally fun x => ?_
@@ -516,13 +516,13 @@ theorem isEmbedding_levelLift {φ : MChart X} (hφ : P.IsChart φ) (m : ℕ) :
     simp only [hbase] at h
     exact Subtype.ext (level_ext (φ.toPartialEquiv.injOn x.2 y.2 h))
 
-/-- **Theorem 2.16**: the level `X_m` of an M-polyfold is metrizable. -/
+/-- **Theorem 2.3.10 (preprint 2.16)**: the level `X_m` of an M-polyfold is metrizable. -/
 theorem metrizableSpace_level (m : ℕ) : MetrizableSpace (P.Level m) := by
   refine metrizableSpace_of_pullback (P.levelVal m) (continuous_levelVal m) fun x => ?_
   obtain ⟨φ, hφ, hx⟩ := P.exists_isChart_mem_source x
   exact ⟨φ.source, φ.isOpen_source, hx, (P.isEmbedding_levelLift hφ m).metrizableSpace⟩
 
-/-- **Theorem 2.16**: the level `X_m` of an M-polyfold is paracompact. -/
+/-- **Theorem 2.3.10 (preprint 2.16)**: the level `X_m` of an M-polyfold is paracompact. -/
 instance paracompactSpace_level (m : ℕ) : ParacompactSpace (P.Level m) :=
   have := P.metrizableSpace_level m
   paracompactSpace_of_metrizableSpace _
@@ -547,7 +547,7 @@ theorem smoothLevel_topology_eq :
   simp only [induced_compose]
   rfl
 
-/-- **Theorem 2.16**: `X_∞` is metrizable. -/
+/-- **Theorem 2.3.10 (preprint 2.16)**: `X_∞` is metrizable. -/
 theorem metrizableSpace_smoothLevel : MetrizableSpace P.SmoothLevel := by
   have := fun m => P.metrizableSpace_level m
   have := metrizableSpace_pi_nat P.Level
@@ -555,9 +555,9 @@ theorem metrizableSpace_smoothLevel : MetrizableSpace P.SmoothLevel := by
   have := congrArg (fun f => P.levelVal 0 (f 0)) h
   exact Subtype.ext this
 
-/-- **Theorem 2.16**: for an M-polyfold `X`, every `X_m` is metrizable and in particular
+/-- **Theorem 2.3.10 (preprint 2.16)**: for an M-polyfold `X`, every `X_m` is metrizable and in particular
 paracompact, and `X_∞` is metrizable. -/
-theorem _root_.Polyfold.theorem_2_16 :
+theorem _root_.Polyfold.theorem_2_3_10 :
     MetrizableSpace X ∧ (∀ m, MetrizableSpace (P.Level m) ∧ ParacompactSpace (P.Level m)) ∧
       MetrizableSpace P.SmoothLevel :=
   ⟨P.metrizableSpace, fun m => ⟨P.metrizableSpace_level m, inferInstance⟩,
@@ -565,12 +565,12 @@ theorem _root_.Polyfold.theorem_2_16 :
 
 include P in
 /-- A subset of an M-polyfold is metrizable, hence paracompact: in particular a sub-M-polyfold
-`A` (Proposition 2.21, whose `MPolyfold.subPolyfold` takes `[ParacompactSpace A]`). -/
+`A` (Proposition 2.3.19 (preprint 2.21), whose `MPolyfold.subPolyfold` takes `[ParacompactSpace A]`). -/
 theorem paracompactSpace_subtype (A : Set X) : ParacompactSpace A := by
   have := P.metrizableSpace
   exact paracompactSpace_of_metrizableSpace A
 
-/-- **Proposition 2.19 (3)**: the tangent space `TX` is metrizable. -/
+/-- **Proposition 2.3.15 (preprint 2.19) (3)**: the tangent space `TX` is metrizable. -/
 theorem metrizableSpace_tangentSpace : MetrizableSpace P.TangentSpace := by
   refine metrizableSpace_of_pullback (fun α => P.levelVal 1 (P.tangentProj α))
     P.continuous_levelVal_tangentProj fun x => ?_
@@ -582,19 +582,19 @@ theorem metrizableSpace_tangentSpace : MetrizableSpace P.TangentSpace := by
     infer_instance
   · exact (tangentChart hφ α₀).metrizableSpace_source
 
-/-- **Proposition 2.19 (3)**: the tangent space `TX` is paracompact. -/
+/-- **Proposition 2.3.15 (preprint 2.19) (3)**: the tangent space `TX` is paracompact. -/
 instance paracompactSpace_tangentSpace : ParacompactSpace P.TangentSpace :=
   have := P.metrizableSpace_tangentSpace
   paracompactSpace_of_metrizableSpace _
 
-/-- **Proposition 2.19 (3)**: `TX` is metrizable and paracompact. -/
-theorem _root_.Polyfold.proposition_2_19_3 :
+/-- **Proposition 2.3.15 (preprint 2.19) (3)**: `TX` is metrizable and paracompact. -/
+theorem _root_.Polyfold.proposition_2_3_15_three :
     MetrizableSpace P.TangentSpace ∧ ParacompactSpace P.TangentSpace :=
   ⟨P.metrizableSpace_tangentSpace, inferInstance⟩
 
 end MPolyfold
 
-/-! ### Proposition 2.21 (3), (4): tangent spaces of sub-M-polyfolds, in a chart -/
+/-! ### Proposition 2.3.19 (preprint 2.21) (3), (4): tangent spaces of sub-M-polyfolds, in a chart -/
 
 section Prop221
 
@@ -617,7 +617,7 @@ lemma ScOperator.lvl_eq_add_of_base {A B D : ScOperator E E}
   rw [map_add, A.toBase_comm, B.toBase_comm, D.toBase_comm, h]
 
 /-- The retraction `t = s ∘ r : U → U` onto `s(O)`, for a retraction `r` onto `O` and an sc-smooth
-`s : O → O` with `s ∘ s = s` (Proposition 2.10 (2), the text's `t` in the proof of Proposition
+`s : O → O` with `s ∘ s = s` (Proposition 2.3.1 (preprint 2.10) (2), the text's `t` in the proof of Proposition
 2.21 (3)). -/
 def ScRetraction.compRetraction (R : ScRetraction E C) {s : E 0 → E 0}
     (hs : IsScSmoothRetractMap E C R.retract E C R.retract s)
@@ -639,13 +639,13 @@ lemma ScRetraction.compRetraction_retract (R : ScRetraction E C) {s : E 0 → E 
   change (s ∘ R) '' R.U = s '' R.retract
   rw [image_comp]; rfl
 
-/-- **Proposition 2.21 (3)**, in a chart: let `O = r(U)` (an open piece of `X` in a chart), `A ∩ O =
+/-- **Proposition 2.3.19 (preprint 2.21) (3)**, in a chart: let `O = r(U)` (an open piece of `X` in a chart), `A ∩ O =
 s(O)` for an sc-smooth retraction `s : O → O`, `t = s ∘ r`, and `a ∈ A` smooth.  Then
 `T_aA = Dt(a)E` and `T_aO = Dr(a)E` satisfy `T_aA ⊆ T_aO` and
 `T_aO = T_aA ⊕ (Dr(a) − Dt(a))E` as an sc-splitting: both summands are sc-subspaces of `E` and the
 sum is direct on every level.  (`Dr(a)`, `Dt(a)` are commuting sc-projections with
 `Dr(a)Dt(a) = Dt(a)Dr(a) = Dt(a)`.) -/
-theorem proposition_2_21_3 (R : ScRetraction E C) {s : E 0 → E 0}
+theorem proposition_2_3_19_three (R : ScRetraction E C) {s : E 0 → E 0}
     (hs : IsScSmoothRetractMap E C R.retract E C R.retract s)
     (hss : ∀ x ∈ R.retract, s (s x) = s x) {a : E 1} (ha : a ∈ E.lvlSet (s '' R.retract) 1)
     (has : a ∈ E.smoothLvl 1) :
@@ -688,7 +688,7 @@ theorem proposition_2_21_3 (R : ScRetraction E C) {s : E 0 → E 0}
     change scDeriv R.U R a (scDeriv R.U ρ a v) = scDeriv R.U ρ a v
     rw [h1]
     have h2 := IsSc1.tangentMap_congr R.isScDomain
-      (theorem_1_21 R.relOpen R.relOpen ρ.isSc1 R.isSc1 ρ.mapsTo).1 hRρ
+      (theorem_1_3_1 R.relOpen R.relOpen ρ.isSc1 R.isSc1 ρ.mapsTo).1 hRρ
       (show ((a, v) : E.tangent 0) ∈ E.tangentSet R.U from haU)
     exact congrArg Prod.snd h2
   have hQP : ∀ v, Q (P v) = Q v := by
@@ -698,7 +698,7 @@ theorem proposition_2_21_3 (R : ScRetraction E C) {s : E 0 → E 0}
     change scDeriv R.U ρ a (scDeriv R.U R a v) = scDeriv R.U ρ a v
     rw [h1]
     have h2 := IsSc1.tangentMap_congr R.isScDomain
-      (theorem_1_21 R.relOpen R.relOpen R.isSc1 ρ.isSc1 R.mapsTo).1 hρR
+      (theorem_1_3_1 R.relOpen R.relOpen R.isSc1 ρ.isSc1 R.mapsTo).1 hρR
       (show ((a, v) : E.tangent 0) ∈ E.tangentSet R.U from haU)
     exact congrArg Prod.snd h2
   -- the sc-operators `P`, `Q`, `P − Q`
@@ -764,10 +764,10 @@ theorem proposition_2_21_3 (R : ScRetraction E C) {s : E 0 → E 0}
         rw [hsumm x]
         exact Submodule.add_mem_sup ⟨x, rfl⟩ ⟨x, rfl⟩
 
-/-- **Proposition 2.21 (4)**, in a chart: with `s`, `t = s ∘ r` and a smooth `a ∈ A` as in
-`proposition_2_21_3`, the induced map `s : O → s(O) = A ∩ O` is sc-smooth and its tangent map at
+/-- **Proposition 2.3.19 (preprint 2.21) (4)**, in a chart: with `s`, `t = s ∘ r` and a smooth `a ∈ A` as in
+`proposition_2_3_19_three`, the induced map `s : O → s(O) = A ∩ O` is sc-smooth and its tangent map at
 `a` maps `T_aO` onto `T_aA`: `Ts(a)(T_aO) = T_aA`. -/
-theorem proposition_2_21_4 (R : ScRetraction E C) {s : E 0 → E 0}
+theorem proposition_2_3_19_four (R : ScRetraction E C) {s : E 0 → E 0}
     (hs : IsScSmoothRetractMap E C R.retract E C R.retract s)
     (hss : ∀ x ∈ R.retract, s (s x) = s x) {a : E 1} (ha : a ∈ E.lvlSet (s '' R.retract) 1) :
     IsScSmoothRetractMap E C R.retract E C (s '' R.retract) s ∧
@@ -796,7 +796,7 @@ theorem proposition_2_21_4 (R : ScRetraction E C) {s : E 0 → E 0}
     change scDeriv R.U ρ a (scDeriv R.U R a v) = scDeriv R.U ρ a v
     rw [h1]
     have h2 := IsSc1.tangentMap_congr R.isScDomain
-      (theorem_1_21 R.relOpen R.relOpen R.isSc1 ρ.isSc1 R.mapsTo).1 hρR
+      (theorem_1_3_1 R.relOpen R.relOpen R.isSc1 ρ.isSc1 R.mapsTo).1 hρR
       (show ((a, v) : E.tangent 0) ∈ E.tangentSet R.U from haU)
     exact congrArg Prod.snd h2
   -- `Ts(a) = T(s ∘ r)(a, ·) = Q` on `T_aO`

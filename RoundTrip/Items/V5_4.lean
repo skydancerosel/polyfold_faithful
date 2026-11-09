@@ -4,35 +4,35 @@ import RoundTrip.Blind.V5_4
 
 /-! Round trip for V5_4 (Lemma 5.2: local comparison of an auxiliary norm with `|·|₁`).
 
-A = `lemma_5_2` ∧ `exists_le_mul_norm_liftOne` ∧ `IsAuxNorm.exists_norm_liftOne_le` ∧
-`IsAuxNorm.exists_bounds` ∧ `lemma_5_2_literal` (universes at `0`; refreshed 2026-11-02:
-`lemma_5_2_literal` is new in the comparison row).
+A = `lemma_5_1_2` ∧ `exists_le_mul_norm_liftOne` ∧ `IsAuxNorm.exists_norm_liftOne_le` ∧
+`IsAuxNorm.exists_bounds` ∧ `lemma_5_1_2_literal` (universes at `0`; refreshed 2026-11-02:
+`lemma_5_1_2_literal` is new in the comparison row).
 
-`lemma_5_2_literal` is B itself (B's `fiberNormOne c y` is `‖(c.liftOne y).2‖` by definition;
-`B_gives_lemma_5_2_literal`).  The only difference between `lemma_5_2` and B: in condition (ii),
+`lemma_5_1_2_literal` is B itself (B's `fiberNormOne c y` is `‖(c.liftOne y).2‖` by definition;
+`B_gives_lemma_5_2_literal`).  The only difference between `lemma_5_1_2` and B: in condition (ii),
 A asks for the bounds on a neighbourhood `V ⊆ dom φ` of `x`, B on the whole domain `V = dom φ` of
 the chart.  Passing from that form to B's needs a strong bundle chart with a smaller domain; when
 this item was first audited the project had no restriction of strong bundle charts, so one is built
 here (`StrongBundleChart'.restr`, restriction of the base chart to `dom φ ∩ φ⁻¹(G)`, `G` open, with
 the strong bundle retraction restricted to `(U ∩ r⁻¹(G) ∩ G) ◁ F`), with `Compatible.restr` — pure
-glue.  (The project now has `StrongBundleChart.restrict`, used by `lemma_5_2_literal`.)  `A_to_B`
-still goes through `lemma_5_2` and this glue. -/
+glue.  (The project now has `StrongBundleChart.restrict`, used by `lemma_5_1_2_literal`.)  `A_to_B`
+still goes through `lemma_5_1_2` and this glue. -/
 
 namespace RoundTrip.V5_4
 open Polyfold Set Function Filter Topology
 
 /-- The project's statement, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.lemma_5_2.{0, 0} ∧
+  type_of% @Polyfold.lemma_5_1_2.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.exists_le_mul_norm_liftOne.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le.{0, 0} ∧
   type_of% @Polyfold.StrongBundle.IsAuxNorm.exists_bounds.{0, 0} ∧
-  type_of% @Polyfold.lemma_5_2_literal.{0, 0}
+  type_of% @Polyfold.lemma_5_1_2_literal.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_5_2.{0, 0}, @Polyfold.StrongBundle.exists_le_mul_norm_liftOne.{0, 0},
+  ⟨@Polyfold.lemma_5_1_2.{0, 0}, @Polyfold.StrongBundle.exists_le_mul_norm_liftOne.{0, 0},
     @Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le.{0, 0},
-    @Polyfold.StrongBundle.IsAuxNorm.exists_bounds.{0, 0}, @Polyfold.lemma_5_2_literal.{0, 0}⟩
+    @Polyfold.StrongBundle.IsAuxNorm.exists_bounds.{0, 0}, @Polyfold.lemma_5_1_2_literal.{0, 0}⟩
 
 /-! ### Glue: restricting a strong bundle chart to `dom φ ∩ φ⁻¹(G)` -/
 
@@ -281,7 +281,7 @@ theorem exists_restr {Bd : StrongBundle PX P} {c : StrongBundleChart PX P} (hc :
 
 end Restr
 
-/-- `A ⇒ B`: `lemma_5_2` with its neighbourhood `V` shrunk to a chart domain (`exists_restr`) for
+/-- `A ⇒ B`: `lemma_5_1_2` with its neighbourhood `V` shrunk to a chart domain (`exists_restr`) for
 "⇒", and `V := dom φ` for "⇐". -/
 theorem A_to_B : A → B := by
   intro hA X _ _ _ PX Y _ _ _ P _ _ Bd N hcont hfib
@@ -296,8 +296,8 @@ theorem A_to_B : A → B := by
     obtain ⟨c, hc, hx, a, A', ha, haA, hb⟩ := H x
     exact ⟨c, hc, c.φ.source, c.φ.isOpen_source, hx, subset_rfl, a, A', ha, haA, hb⟩
 
-/-! `B ⇒ A` is not proved.  B gives A's main conjunct `lemma_5_2` (`B_gives_lemma_5_2`, the same
-glue backwards) and `lemma_5_2_literal` (`B_gives_lemma_5_2_literal`, B itself), but not the other
+/-! `B ⇒ A` is not proved.  B gives A's main conjunct `lemma_5_1_2` (`B_gives_lemma_5_2`, the same
+glue backwards) and `lemma_5_1_2_literal` (`B_gives_lemma_5_2_literal`, B itself), but not the other
 three: `exists_le_mul_norm_liftOne` is a statement about an
 arbitrary `g : Y_{0,1} → ℝ` continuous at `0_x` and homogeneous on the fibres (not about auxiliary
 norms), and `IsAuxNorm.exists_norm_liftOne_le`/`exists_bounds` give the bounds in EVERY strong
@@ -307,7 +307,7 @@ of `exists_le_mul_norm_liftOne` (continuity of `Φ'[1] ∘ Φ[1]⁻¹` at the ze
 homogeneity), i.e. re-proving the item's own lemma. -/
 
 /-- B gives A's main conjunct, Lemma 5.2 itself. -/
-theorem B_gives_lemma_5_2 (hB : B) : type_of% @Polyfold.lemma_5_2.{0, 0} := by
+theorem B_gives_lemma_5_2 (hB : B) : type_of% @Polyfold.lemma_5_1_2.{0, 0} := by
   intro X _ _ _ PX Y _ _ _ P _ _ Bd N hcont hfib
   have L := hB PX P Bd N hcont hfib
   constructor
@@ -320,26 +320,26 @@ theorem B_gives_lemma_5_2 (hB : B) : type_of% @Polyfold.lemma_5_2.{0, 0} := by
     obtain ⟨c', hc', hx', hsub, hnorm⟩ := exists_restr hc hVo hVc hxV
     exact ⟨c', hc', hx', a, A', ha, haA, fun w hw => by rw [hnorm]; exact hb w (hsub hw)⟩
 
-/-- B gives `lemma_5_2_literal`: it is B, up to unfolding `fiberNormOne`. -/
-theorem B_gives_lemma_5_2_literal (hB : B) : type_of% @Polyfold.lemma_5_2_literal.{0, 0} := by
+/-- B gives `lemma_5_1_2_literal`: it is B, up to unfolding `fiberNormOne`. -/
+theorem B_gives_lemma_5_2_literal (hB : B) : type_of% @Polyfold.lemma_5_1_2_literal.{0, 0} := by
   intro X _ _ _ PX Y _ _ _ P _ _ Bd N hcont hfib
   exact hB PX P Bd N hcont hfib
 
-#rt_check RoundTrip.V5_4.A_to_B [Polyfold.lemma_5_2,
+#rt_check RoundTrip.V5_4.A_to_B [Polyfold.lemma_5_1_2,
   Polyfold.StrongBundle.exists_le_mul_norm_liftOne,
   Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le, Polyfold.StrongBundle.IsAuxNorm.exists_bounds,
-  Polyfold.lemma_5_2_literal]
-#rt_check RoundTrip.V5_4.B_gives_lemma_5_2 [Polyfold.lemma_5_2,
+  Polyfold.lemma_5_1_2_literal]
+#rt_check RoundTrip.V5_4.B_gives_lemma_5_2 [Polyfold.lemma_5_1_2,
   Polyfold.StrongBundle.exists_le_mul_norm_liftOne,
   Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le, Polyfold.StrongBundle.IsAuxNorm.exists_bounds,
-  Polyfold.lemma_5_2_literal]
-#rt_check RoundTrip.V5_4.B_gives_lemma_5_2_literal [Polyfold.lemma_5_2,
+  Polyfold.lemma_5_1_2_literal]
+#rt_check RoundTrip.V5_4.B_gives_lemma_5_2_literal [Polyfold.lemma_5_1_2,
   Polyfold.StrongBundle.exists_le_mul_norm_liftOne,
   Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le, Polyfold.StrongBundle.IsAuxNorm.exists_bounds,
-  Polyfold.lemma_5_2_literal]
-#rt_overlap RoundTrip.V5_4.B_gives_lemma_5_2 [Polyfold.lemma_5_2,
+  Polyfold.lemma_5_1_2_literal]
+#rt_overlap RoundTrip.V5_4.B_gives_lemma_5_2 [Polyfold.lemma_5_1_2,
   Polyfold.StrongBundle.exists_le_mul_norm_liftOne,
   Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le, Polyfold.StrongBundle.IsAuxNorm.exists_bounds,
-  Polyfold.lemma_5_2_literal]
+  Polyfold.lemma_5_1_2_literal]
 
 end RoundTrip.V5_4

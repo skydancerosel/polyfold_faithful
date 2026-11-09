@@ -12,15 +12,15 @@ EVERY ep-groupoid and natural representation), `NaturalRep.metrizableSpace_preim
 (the preimage of `|U(x)|` in `|X¹|` is metrizable, again unconditionally),
 `metrizableSpace_liftOne_orbitSpace` (`|X|` paracompact ⇒ `|X¹|` metrizable), Part I's
 `metrizableSpace_of_pullback` (Smirnov's theorem pulled back along a continuous map) and
-`proposition_7_12` (`|X|` paracompact ⇒ `|X¹|` paracompact, for the project's `liftOne`).
+`proposition_7_5_3` (`|X|` paracompact ⇒ `|X¹|` paracompact, for the project's `liftOne`).
 
 * `A → B` (proved): `Y = X.liftOne`; `IsLiftB` holds by `rfl` (the atlases of `liftOne` are those
   of `X.PObj.shift`, `X.PMor.shift`, the structure maps are the level-`1` restrictions) and
-  `liftOne_comp_val`; paracompactness of `|X¹|` is `proposition_7_12` from the hypothesis.
-* `B → A` (not proved).  What `B` gives: `proposition_7_12` for the project's `liftOne`
+  `liftOne_comp_val`; paracompactness of `|X¹|` is `proposition_7_5_3` from the hypothesis.
+* `B → A` (not proved).  What `B` gives: `proposition_7_5_3` for the project's `liftOne`
   (`B_gives_proposition_7_12`: B's `Y` has the same `s, t`, hence the same orbit setoid as
   `liftOne`, so the same orbit space) and then `metrizableSpace_liftOne_orbitSpace`
-  (`B_gives_metrizable`, with the unbanned Theorem 7.2, `theorem_7_2_metrizable`).  What `B` does
+  (`B_gives_metrizable`, with the unbanned Theorem 7.2, `theorem_7_3_1_metrizable`).  What `B` does
   not give: the two unconditional local statements about `|X¹|` over `|U(x)|`
   (`isOpenEmbedding_liftOrbitQuotientMap`, `metrizableSpace_preimage_orbitIncl`), which hold for
   every ep-groupoid with no paracompactness hypothesis, and the general topology lemma
@@ -50,7 +50,7 @@ def A : Prop :=
   type_of% @Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl.{0} ∧
   type_of% @Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace.{0} ∧
   type_of% @Polyfold.metrizableSpace_of_pullback.{0, 0} ∧
-  type_of% @Polyfold.EpGroupoid.proposition_7_12.{0}
+  type_of% @Polyfold.EpGroupoid.proposition_7_5_3.{0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.continuous_orbitIncl.{0}, @Polyfold.EpGroupoid.orbitIncl_injective.{0},
@@ -58,7 +58,7 @@ theorem A_holds : A :=
     @Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_liftOrbitQuotientMap.{0},
     @Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl.{0},
     @Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace.{0},
-    @Polyfold.metrizableSpace_of_pullback.{0, 0}, @Polyfold.EpGroupoid.proposition_7_12.{0}⟩
+    @Polyfold.metrizableSpace_of_pullback.{0, 0}, @Polyfold.EpGroupoid.proposition_7_5_3.{0}⟩
 
 theorem A_to_B : A → B := by
   rintro ⟨-, -, -, -, -, -, -, h8⟩ Obj Mor _ _ _ _ _ _ X hX
@@ -67,10 +67,10 @@ theorem A_to_B : A → B := by
 
 /-! ### What `B` does give (partial `B → A`) -/
 
-/-- `B` gives `proposition_7_12` for the project's `liftOne`: `B`'s `Y` has the same `s, t` as
+/-- `B` gives `proposition_7_5_3` for the project's `liftOne`: `B`'s `Y` has the same `s, t` as
 `liftOne`, hence the same orbit setoid and orbit space. -/
 theorem B_gives_proposition_7_12 (hB : B) :
-    type_of% @Polyfold.EpGroupoid.proposition_7_12.{0} := by
+    type_of% @Polyfold.EpGroupoid.proposition_7_5_3.{0} := by
   intro Obj Mor _ _ _ _ _ _ X hX
   obtain ⟨Y, ⟨-, -, hs, ht, -, -, -⟩, hY⟩ := hB Obj Mor X hX
   have hs' : Y.src = X.liftOne.src := funext fun φ => MPolyfold.level_ext (hs φ)
@@ -88,27 +88,27 @@ theorem B_gives_proposition_7_12 (hB : B) :
 theorem B_gives_metrizable (hB : B) :
     type_of% @Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace.{0} := by
   intro Obj Mor _ _ _ _ _ _ X hX
-  exact X.liftOne.theorem_7_2_metrizable (B_gives_proposition_7_12 hB X hX)
+  exact X.liftOne.theorem_7_3_1_metrizable (B_gives_proposition_7_12 hB X hX)
 
 #rt_check RoundTrip.V7_54.A_to_B [Polyfold.EpGroupoid.continuous_orbitIncl,
   Polyfold.EpGroupoid.orbitIncl_injective, Polyfold.EpGroupoid.range_orbitIncl,
   Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_liftOrbitQuotientMap,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl,
-  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_12]
+  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_5_3]
 #rt_check RoundTrip.V7_54.B_gives_proposition_7_12 [Polyfold.EpGroupoid.continuous_orbitIncl,
   Polyfold.EpGroupoid.orbitIncl_injective, Polyfold.EpGroupoid.range_orbitIncl,
   Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_liftOrbitQuotientMap,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl,
-  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_12]
+  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_5_3]
 #rt_check RoundTrip.V7_54.B_gives_metrizable [Polyfold.EpGroupoid.continuous_orbitIncl,
   Polyfold.EpGroupoid.orbitIncl_injective, Polyfold.EpGroupoid.range_orbitIncl,
   Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_liftOrbitQuotientMap,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl,
-  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_12]
+  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_5_3]
 #rt_overlap RoundTrip.V7_54.B_gives_metrizable [Polyfold.EpGroupoid.continuous_orbitIncl,
   Polyfold.EpGroupoid.orbitIncl_injective, Polyfold.EpGroupoid.range_orbitIncl,
   Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_liftOrbitQuotientMap,
   Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl,
-  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_12]
+  Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace, Polyfold.EpGroupoid.proposition_7_5_3]
 
 end RoundTrip.V7_54

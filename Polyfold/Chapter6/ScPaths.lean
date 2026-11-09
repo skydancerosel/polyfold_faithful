@@ -2,7 +2,7 @@ import Polyfold.Chapter6.OrientableNbhd
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 226–227: the paths used after **Theorem 6.35** and in **Definition 6.36** (a path from `x` to
+pp. 226–227: the paths used after **Theorem 6.6.11 (preprint 6.35)** and in **Definition 6.6.12 (preprint 6.36)** (a path from `x` to
 each `y ∈ U_∞`; propagation along a path from `y₁` to `y₂`) and the composition of paths of
 p. 228 *(book 2017: after Theorem 6.1 and Definition 6.10; see `BookConcordance.md`)*.
 
@@ -11,7 +11,7 @@ p. 228 *(book 2017: after Theorem 6.1 and Definition 6.10; see `BookConcordance.
 ## The text, paraphrased
 
 "We fix `x` and take for `y ∈ U` a sc-smooth path `φ : [0, 1] → U`, starting at `x` and ending at
-`y`" (after Theorem 6.35).  (p. 228) For sc-smooth paths `φ`, `ψ` with `φ(1) = ψ(0)`, take a smooth
+`y`" (after Theorem 6.6.11 (preprint 6.35)).  (p. 228) For sc-smooth paths `φ`, `ψ` with `φ(1) = ψ(0)`, take a smooth
 `β : [0, 1] → [0, 2]` with `β([0, 1/2]) = [0, 1]`, `β(0) = 0`, `β(s) = 1` near `1/2`,
 `β([1/2, 1]) = [1, 2]`, `β(1) = 2`, and `γ(s) = φ(β(s))` on `[0, 1/2]`, `γ(s) = ψ(β(s) − 1)` on
 `[1/2, 1]`.

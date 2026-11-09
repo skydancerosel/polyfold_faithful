@@ -5,7 +5,7 @@ import RoundTrip.Blind.V7_66
 /-!
 Round trip for V7_66 (Lemma 7.10: invariant sc-smooth majorants).
 
-`A` is the type of `Polyfold.EpGroupoid.lemma_7_10` at universe `0`: for a natural representation
+`A` is the type of `Polyfold.EpGroupoid.lemma_7_6_5` at universe `0`: for a natural representation
 `R : X.NaturalRep x` (Theorem 7.1's data on an open **connected** `R.U ∋ x`), an open `U` with
 `cl U ⊆ R.U`, invariant under every `R.Φ g` (**`x ∈ U` is not assumed**), and a continuous
 `β : X → [0, 1]` with `tsupport β ⊆ U`, invariant on `R.U`, there is an sc-smooth `f ≥ 0`,
@@ -30,9 +30,9 @@ namespace RoundTrip.V7_66
 open Polyfold Set
 
 /-- The project's Lemma 7.10, universes at `0`. -/
-def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_10.{0}
+def A : Prop := type_of% @Polyfold.EpGroupoid.lemma_7_6_5.{0}
 
-theorem A_holds : A := @Polyfold.EpGroupoid.lemma_7_10.{0}
+theorem A_holds : A := @Polyfold.EpGroupoid.lemma_7_6_5.{0}
 
 section
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -100,7 +100,7 @@ theorem A_to_B_of_isConnected : A → B_conn := by
     hA hpara hpu (toNaturalRep hN hVc) hUo hUV hUinv hβc hβ01 hβU hβinv
   exact ⟨f, hf, hf0, hfR, hfinv, hβf⟩
 
-#rt_check RoundTrip.V7_66.A_to_B_of_isConnected [Polyfold.EpGroupoid.lemma_7_10]
-#rt_overlap RoundTrip.V7_66.A_to_B_of_isConnected [Polyfold.EpGroupoid.lemma_7_10]
+#rt_check RoundTrip.V7_66.A_to_B_of_isConnected [Polyfold.EpGroupoid.lemma_7_6_5]
+#rt_overlap RoundTrip.V7_66.A_to_B_of_isConnected [Polyfold.EpGroupoid.lemma_7_6_5]
 
 end RoundTrip.V7_66

@@ -4,19 +4,19 @@ import Polyfold.Chapter3.LinearizationCharts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I: **re-centring of
-charts and of strong bundle charts at a smooth point**, used without comment in Theorem 4.2 (ii)
+charts and of strong bundle charts at a smooth point**, used without comment in Theorem 4.1.2 (preprint 4.2) (ii)
 ("every point `x ∈ X` is contained in a tame sc-smooth polyfold chart `(V, ψ, (O, C, E))` satisfying
-`ψ(x) = 0`"), in the proof of Theorem 4.18 and in Lemma 5.11 (a strong bundle chart centred at `x`);
-Definition 2.33 (the partial quadrant `C_e`) *(book 2017: Theorem 4.1, Theorem 4.2, Lemma 5.3;
+`ψ(x) = 0`"), in the proof of Theorem 4.2.7 (preprint 4.18) and in Lemma 5.3.3 (preprint 5.11) (a strong bundle chart centred at `x`);
+Definition 2.5.1 (preprint 2.33) (the partial quadrant `C_e`) *(book 2017: Theorem 4.1, Theorem 4.2, Lemma 5.3;
 Definition 2.16; see `BookConcordance.md`)*.
 
 # Re-centring of charts
 
 ## The text, paraphrased
 
-(Definition 2.33) For `C = [0,∞)ⁿ ⊕ W` and `e ∈ C`, `C_e = ⋂_{i ∈ I(e)} H_i` is the partial quadrant
-associated with `e` and `E_e = ⋂_{i ∈ I(e)} E_i` the minimal subspace.  (Theorem 4.2 (ii), proof of
-Theorem 4.18, Lemma 5.11) Charts `ψ` with `ψ(x) = 0` at a given point; the text never says how they
+(Definition 2.5.1 (preprint 2.33)) For `C = [0,∞)ⁿ ⊕ W` and `e ∈ C`, `C_e = ⋂_{i ∈ I(e)} H_i` is the partial quadrant
+associated with `e` and `E_e = ⋂_{i ∈ I(e)} E_i` the minimal subspace.  (Theorem 4.1.2 (preprint 4.2) (ii), proof of
+Theorem 4.2.7 (preprint 4.18), Lemma 5.3.3 (preprint 5.11)) Charts `ψ` with `ψ(x) = 0` at a given point; the text never says how they
 are obtained from a chart `φ` of the atlas.
 
 ## What is formalized
@@ -54,12 +54,12 @@ are obtained from a chart `φ` of the atlas.
 ## What the text leaves implicit, and the choices made
 
 * The re-centred chart exists only at **smooth** points: translation by `e` is sc⁰ only if `e ∈ E_∞`
-  (it must map `E_m` into `E_m` for every `m`).  Theorem 4.2 (ii) needs it at every point, which is
+  (it must map `E_m` into `E_m` for every `m`).  Theorem 4.1.2 (preprint 4.2) (ii) needs it at every point, which is
   smooth there because `X₀ = X_∞`.
 * `C − e` is not a partial quadrant (it is not a cone at `0` unless `e ∈ C ∩ −C`); the model of the
   re-centred chart lives in `C_e`, which agrees with `C` only near `e` (on `G(e)`), so the chart
   must be restricted to `φ⁻¹(G(e))`.  That `C_e` is a partial quadrant and `C_e − e = C_e` are
-  asserted in Definition 2.33 without proof; the presentation of `C_e` reorders the coordinates
+  asserted in Definition 2.5.1 (preprint 2.33) without proof; the presentation of `C_e` reorders the coordinates
   (`ℝ^{I(e)}` first, the others joined to `W`).
 * Strong bundle charts are re-centred by translating the base only; the fibre coordinate is
   unchanged.  The translation `(u, h) ↦ (u − e, h)` is sc-smooth on `E ⊕ F` and on `E ⊕ F¹` because
@@ -81,7 +81,7 @@ section Presentation
 variable {E : ScBanach} {n : ℕ} {W : ScBanach} (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W))
 
 /-- The neighbourhood `G(e) = {v | λ_i(v) > 0 for every i with λ_i(e) ≠ 0}` of `e ∈ C` (presentation
-`T`), on which the partial quadrant `C_e` of Definition 2.33 agrees with `C`
+`T`), on which the partial quadrant `C_e` of Definition 2.5.1 (preprint 2.33) agrees with `C`
 (`recentreNbhd_inter_eq`). -/
 def recentreNbhd (e : E 0) : Set (E 0) := {v | ∀ i, (T 0 e).1 i ≠ 0 → 0 < (T 0 v).1 i}
 
@@ -221,7 +221,7 @@ theorem partialQuadrantAtWith_eq_preimage (e : E 0) :
     rwa [recentreIso_fst, zeroIdxEnum_equivFin e hi] at this
 
 variable (T) in
-/-- **`C_e` is a partial quadrant** (Definition 2.33 asserts it). -/
+/-- **`C_e` is a partial quadrant** (Definition 2.5.1 (preprint 2.33) asserts it). -/
 theorem isPartialQuadrant_partialQuadrantAtWith (e : E 0) :
     IsPartialQuadrant E (partialQuadrantAtWith T e) :=
   ⟨_, _, recentreIso T e, partialQuadrantAtWith_eq_preimage T e⟩
@@ -254,7 +254,7 @@ theorem degIndexWith_recentreIso {e v : E 0} (hv : v ∈ recentreNbhd T e) :
     rw [recentreIso_fst_sub, zeroIdxEnum_equivFin e hie]
     exact hi
 
-/-- **`d_{C_e}(v − e) = d_C(v)` near `e`** (Definition 1.23 / 2.33), for `v ∈ G(e) ∩ C`. -/
+/-- **`d_{C_e}(v − e) = d_C(v)` near `e`** (Definition 1.3.3 (preprint 1.23) / 2.33), for `v ∈ G(e) ∩ C`. -/
 theorem degIndex_sub_recentre (hT : C = T 0 ⁻¹' quadrant n W 0) {e v : E 0}
     (hv : v ∈ recentreNbhd T e) (hvC : v ∈ C) :
     degIndex E (partialQuadrantAtWith T e) (v - e) = degIndex E C v := by
@@ -263,7 +263,7 @@ theorem degIndex_sub_recentre (hT : C = T 0 ⁻¹' quadrant n W 0) {e v : E 0}
     degIndex_eq T hT hvC, degIndexWith_recentreIso hv]
 
 /-- **The minimal subspaces are unchanged by re-centring**: `E^{T_e}_{v − e} = E^T_v` for
-`v ∈ G(e)` (Definition 2.33). -/
+`v ∈ G(e)` (Definition 2.5.1 (preprint 2.33)). -/
 theorem minimalSubspaceWith_recentreIso {e v : E 0} (hv : v ∈ recentreNbhd T e) :
     minimalSubspaceWith (recentreIso T e) (v - e) = minimalSubspaceWith T v := by
   ext u
@@ -369,7 +369,7 @@ section RestrictIn
 variable {E : ScBanach} {C : Set (E 0)}
 
 /-- The restriction of an sc-smooth retraction `r : U → U` to `U ∩ r⁻¹(W) ∩ W`, `W` open: a
-retraction onto `r(U) ∩ W` whose domain lies in `W` (a variant of Proposition 2.10 (1)). -/
+retraction onto `r(U) ∩ W` whose domain lies in `W` (a variant of Proposition 2.3.1 (preprint 2.10) (1)). -/
 def ScRetraction.restrictIn (R : ScRetraction E C) {W : Set (E 0)} (hW : IsOpen W) :
     ScRetraction E C where
   U := R.U ∩ R ⁻¹' W ∩ W
@@ -490,7 +490,7 @@ include hT he in
 /-- **The re-centred chart** `φ_e = φ − e : V ∩ φ⁻¹(G(e)) → (O ∩ G(e)) − e ⊆ C_e` (for `e = φ(x)`
 it is centred at `x`: `MChart.recentre_apply_self`): the chart `φ` restricted to `φ⁻¹(G(e))`
 (`MChart.restrict`) composed with the translation by `−e` (`MChart.compDiffeo`), modelled on the
-retract `(O ∩ G(e)) − e` in the partial quadrant `C_e = C_e − e` of Definition 2.33. -/
+retract `(O ∩ G(e)) − e` in the partial quadrant `C_e = C_e − e` of Definition 2.5.1 (preprint 2.33). -/
 def MChart.recentre : MChart X :=
   (φ.restrict (s := φ.recentreSource T e) inter_subset_left (φ.isOpen_recentreSource T e)).compDiffeo
     (hU := φ.relOpen_recentreDom T e)
@@ -548,7 +548,7 @@ theorem MChart.isTameRetract_recentre (htame : IsTameRetract φ.model.E φ.model
   exact Polyfold.isTameRetract_recentre hT he htame
 
 /-- **The degeneracy index of the re-centred chart**: `d_{C_e}(φ_e(y)) = d_C(φ(y))` on the domain of
-`φ_e` (Definition 2.22 computed in the chart). -/
+`φ_e` (Definition 2.4.1 (preprint 2.22) computed in the chart). -/
 theorem MChart.chartDegIndex_recentre {y : X} (hy : y ∈ (φ.recentre T hT e he).source) :
     MPolyfold.chartDegIndex (φ.recentre T hT e he) y = MPolyfold.chartDegIndex φ y :=
   degIndex_sub_recentre hT hy.2 (φ.apply_mem_C hy.1)
@@ -976,7 +976,7 @@ theorem Compatible.recentre (hP : Continuous P) (hcc : c.Compatible c'') :
         (partialQuadrantAtWith T e ×ˢ univ) ((c.recentre T hT e he).overlap c'') (subFst e) :=
       isScSmoothRetractMap_of_isScSmooth_univ (isScSmooth_subFst he (isScDomain_univ _)) (by
         rw [hov]; exact mapsTo_image _ _)
-    exact g2.comp g1 (proposition_2_10_1 hO (hG.prod isOpen_univ))
+    exact g2.comp g1 (proposition_2_3_1_one hO (hG.prod isOpen_univ))
   · -- `[1]`, `c_e → c''`
     have h1 : IsScSmoothRetractMap (c.φ.model.E.prod c.F.shift)
         (partialQuadrantAtWith T e ×ˢ univ) (strongShiftOne ((c.recentre T hT e he).overlap c''))
@@ -1032,7 +1032,7 @@ theorem Compatible.recentre (hP : Continuous P) (hcc : c.Compatible c'') :
           change subFst e (p.1, c.F.toBase 1 p.2) ∈ (c.recentre T hT e he).overlap c''
           rw [hov]
           exact ⟨_, ⟨hp.1, hp.2.1, mem_univ _⟩, rfl⟩)
-    exact g2.comp g1 (proposition_2_10_1 hO1 (hG.prod isOpen_univ))
+    exact g2.comp g1 (proposition_2_3_1_one hO1 (hG.prod isOpen_univ))
   · -- the fibre condition on `F₁`, `c_e → c''`
     intro x hx hx2
     rw [hov] at hx
@@ -1072,8 +1072,8 @@ universe u v
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
 
-/-- **Every smooth point lies in a chart centred at it** (the charts `ψ(x) = 0` of Theorem 4.2 (ii),
-of the proof of Theorem 4.18 and of Lemma 5.11): for a chart `φ` of `X` and `x ∈ dom φ ∩ X_∞`, the
+/-- **Every smooth point lies in a chart centred at it** (the charts `ψ(x) = 0` of Theorem 4.1.2 (preprint 4.2) (ii),
+of the proof of Theorem 4.2.7 (preprint 4.18) and of Lemma 5.3.3 (preprint 5.11)): for a chart `φ` of `X` and `x ∈ dom φ ∩ X_∞`, the
 re-centred chart `φ_x = φ − φ(x)` (on `V ∩ φ⁻¹(G(φ(x)))`, modelled in `C_{φ(x)}`) is a chart of the
 M-polyfold with `φ_x(x) = 0`, the same degeneracy index as `φ` on its domain, and a tame model if
 `φ` has one. -/
@@ -1090,7 +1090,7 @@ theorem MPolyfold.exists_centredChart {φ : MChart X} (hφ : P.IsChart φ) {x : 
     φ.recentre_apply_self T hT (φ x) he rfl, fun y hy => φ.chartDegIndex_recentre T hT (φ x) he hy,
     φ.isTameRetract_recentre T hT (φ x) he⟩
 
-/-- **In a tame M-polyfold every smooth point lies in a tame chart centred at it** (Theorem 4.2 (ii)
+/-- **In a tame M-polyfold every smooth point lies in a tame chart centred at it** (Theorem 4.1.2 (preprint 4.2) (ii)
 "every point `x ∈ X` is contained in a tame sc-smooth polyfold chart `(V, ψ, (O, C, E))` satisfying
 `ψ(x) = 0`", for `x ∈ X_∞`). -/
 theorem MPolyfold.IsTame.exists_centredChart (hP : P.IsTame) {x : X} (hs : x ∈ P.smoothSet) :
@@ -1104,7 +1104,7 @@ variable {Y : Type v} [TopologicalSpace Y] [T2Space Y] [ParacompactSpace Y] {Pr 
   [∀ x, AddCommGroup (Pr ⁻¹' {x})] [∀ x, Module ℝ (Pr ⁻¹' {x})] {B : StrongBundle P Pr}
 
 /-- **Every smooth point of the base lies in a strong bundle chart centred at it** (the centred
-strong bundle charts of Lemma 5.11): for a strong bundle chart `c` of `P` and
+strong bundle charts of Lemma 5.3.3 (preprint 5.11)): for a strong bundle chart `c` of `P` and
 `x ∈ dom φ ∩ X_∞`, the re-centred chart `c_x` (only the base translated) is a strong bundle chart of
 `P` with `φ_x(x) = 0` on smaller domains. -/
 theorem StrongBundle.IsChart.exists_centred {c : StrongBundleChart P Pr} (hc : B.IsChart c)

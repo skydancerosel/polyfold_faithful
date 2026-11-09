@@ -7,7 +7,7 @@ import RoundTrip.Blind.V10_13
 `A` is the conjunction of the types of the three listed theorems, universes instantiated at `0`
 (`B` lives in `Type`): `EpFunctor.proposition_10_1_16` (the proposition),
 `EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff` (`𝐗^T` closed iff `𝐘^T` closed, the
-core of the proof) and `EpGroupoid.proposition_7_2_21_2021` (Chapter 7's criterion
+core of the proof) and `EpGroupoid.proposition_7_2_21` (Chapter 7's criterion
 "(LUC) iff `𝐗^T` closed", cited by the proof).
 
 * `A_to_B`: `proposition_10_1_16` is `B` verbatim.
@@ -24,12 +24,12 @@ open Polyfold
 def A : Prop :=
   (type_of% @Polyfold.EpFunctor.proposition_10_1_16.{0, 0}) ∧
   (type_of% @Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff.{0, 0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_2_21_2021.{0})
+  (type_of% @Polyfold.EpGroupoid.proposition_7_2_21.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpFunctor.proposition_10_1_16.{0, 0},
     @Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff.{0, 0},
-    @Polyfold.EpGroupoid.proposition_7_2_21_2021.{0}⟩
+    @Polyfold.EpGroupoid.proposition_7_2_21.{0}⟩
 
 theorem A_to_B : A → B := by
   rintro ⟨h, -, -⟩ Obj Mor Obj' Mor' _ _ _ _ _ _ _ _ _ _ _ _ X Y F hF
@@ -53,12 +53,12 @@ theorem B_to_A : B → A := by
 
 #rt_check RoundTrip.V10_13.A_to_B [Polyfold.EpFunctor.proposition_10_1_16,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
-  Polyfold.EpGroupoid.proposition_7_2_21_2021]
+  Polyfold.EpGroupoid.proposition_7_2_21]
 #rt_check RoundTrip.V10_13.B_to_A [Polyfold.EpFunctor.proposition_10_1_16,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
-  Polyfold.EpGroupoid.proposition_7_2_21_2021]
+  Polyfold.EpGroupoid.proposition_7_2_21]
 #rt_overlap RoundTrip.V10_13.B_to_A [Polyfold.EpFunctor.proposition_10_1_16,
   Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff,
-  Polyfold.EpGroupoid.proposition_7_2_21_2021]
+  Polyfold.EpGroupoid.proposition_7_2_21]
 
 end RoundTrip.V10_13

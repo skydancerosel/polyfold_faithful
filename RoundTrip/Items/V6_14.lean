@@ -4,9 +4,9 @@ import RoundTrip.Blind.V6_14
 
 /-!
 Round trip for V6_14 (Proposition 6.12).  `A` is
-`proposition_6_12 ∧ IsGoodLeftProj.of_projLE ∧ comp_comp_eq_of_projLE` (universes at `0`).
+`proposition_6_4_11 ∧ IsGoodLeftProj.of_projLE ∧ comp_comp_eq_of_projLE` (universes at `0`).
 
-**The statement of A mentions two of the banned theorems.**  `proposition_6_12` is stated with
+**The statement of A mentions two of the banned theorems.**  `proposition_6_4_11` is stated with
 `gammaProj (hQ.isFredholm_comp hT) (hP.of_projLE hPQ)` and
 `linDetEquivOfEq (congrArg _ (comp_comp_eq_of_projLE hPQ))`: the proofs `of_projLE` and
 `comp_comp_eq_of_projLE` occur inside A's statement.  So every term mentioning A (in particular
@@ -14,7 +14,7 @@ Round trip for V6_14 (Proposition 6.12).  `A` is
 (recorded with `#guard_msgs` below).  As in V2_53/V2_61 we therefore go through `A'`: A with
 those proof arguments abstracted (`∀ hQT hP' heq, …`; equal to A's by proof irrelevance,
 `A_to_A'`, `A'_to_A`).  `A'_to_B` and `B_to_A'` pass `#rt_check` with the full list, and
-`A_to_B`, `B_to_A` pass it with `proposition_6_12` banned.
+`A_to_B`, `B_to_A` pass it with `proposition_6_4_11` banned.
 
 Glue (copied from our V6_13, since B's `IsGamma` is a separate constant here):
 * `gammaProj_eq_of_isGamma`: a map with B's `IsGamma` (formula (91) for every choice) IS the
@@ -36,12 +36,12 @@ open Polyfold TensorProduct
 
 /-- The project's statement (Proposition 6.12 and its two helper lemmas), universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.proposition_6_12.{0, 0} ∧
+  type_of% @Polyfold.proposition_6_4_11.{0, 0} ∧
   type_of% @Polyfold.IsGoodLeftProj.of_projLE.{0, 0} ∧
   type_of% @Polyfold.comp_comp_eq_of_projLE.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_6_12, @Polyfold.IsGoodLeftProj.of_projLE,
+  ⟨@Polyfold.proposition_6_4_11, @Polyfold.IsGoodLeftProj.of_projLE,
     @Polyfold.comp_comp_eq_of_projLE⟩
 
 /-- A with the proof arguments `hQ.isFredholm_comp hT`, `hP.of_projLE hPQ` and
@@ -243,25 +243,25 @@ theorem B_to_A : B → A := fun hB => A'_to_A (B_to_A' hB)
 /-! With the full banned list, `A_to_B` and `B_to_A` fail only because A's statement contains
 `of_projLE` and `comp_comp_eq_of_projLE` (see the header); `A'_to_B` and `B_to_A'` pass. -/
 
-#rt_check RoundTrip.V6_14.A'_to_B [Polyfold.proposition_6_12, Polyfold.IsGoodLeftProj.of_projLE,
+#rt_check RoundTrip.V6_14.A'_to_B [Polyfold.proposition_6_4_11, Polyfold.IsGoodLeftProj.of_projLE,
   Polyfold.comp_comp_eq_of_projLE]
-#rt_check RoundTrip.V6_14.B_to_A' [Polyfold.proposition_6_12, Polyfold.IsGoodLeftProj.of_projLE,
+#rt_check RoundTrip.V6_14.B_to_A' [Polyfold.proposition_6_4_11, Polyfold.IsGoodLeftProj.of_projLE,
   Polyfold.comp_comp_eq_of_projLE]
-#rt_check RoundTrip.V6_14.A_to_B [Polyfold.proposition_6_12]
-#rt_check RoundTrip.V6_14.B_to_A [Polyfold.proposition_6_12]
+#rt_check RoundTrip.V6_14.A_to_B [Polyfold.proposition_6_4_11]
+#rt_check RoundTrip.V6_14.B_to_A [Polyfold.proposition_6_4_11]
 /--
 error: rt_check FAIL: RoundTrip.V6_14.A_to_B uses [Polyfold.IsGoodLeftProj.of_projLE, Polyfold.comp_comp_eq_of_projLE]
 -/
 #guard_msgs in
-#rt_check RoundTrip.V6_14.A_to_B [Polyfold.proposition_6_12, Polyfold.IsGoodLeftProj.of_projLE,
+#rt_check RoundTrip.V6_14.A_to_B [Polyfold.proposition_6_4_11, Polyfold.IsGoodLeftProj.of_projLE,
   Polyfold.comp_comp_eq_of_projLE]
 /--
 error: rt_check FAIL: RoundTrip.V6_14.B_to_A uses [Polyfold.IsGoodLeftProj.of_projLE, Polyfold.comp_comp_eq_of_projLE]
 -/
 #guard_msgs in
-#rt_check RoundTrip.V6_14.B_to_A [Polyfold.proposition_6_12, Polyfold.IsGoodLeftProj.of_projLE,
+#rt_check RoundTrip.V6_14.B_to_A [Polyfold.proposition_6_4_11, Polyfold.IsGoodLeftProj.of_projLE,
   Polyfold.comp_comp_eq_of_projLE]
-#rt_overlap RoundTrip.V6_14.B_to_A' [Polyfold.proposition_6_12,
+#rt_overlap RoundTrip.V6_14.B_to_A' [Polyfold.proposition_6_4_11,
   Polyfold.IsGoodLeftProj.of_projLE, Polyfold.comp_comp_eq_of_projLE]
 
 end RoundTrip.V6_14

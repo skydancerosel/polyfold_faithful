@@ -4,9 +4,9 @@ import Polyfold.Chapter3.GlobalIFTIndex
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1 and §3.6:
-**condition (3) of a filler on every level at a zero**, **the converse of Proposition 3.5 in sc
+**condition (3) of a filler on every level at a zero**, **the converse of Proposition 3.1.5 (preprint 3.5) in sc
 form**, and **the linearization of an sc-Fredholm section at a zero is sc-Fredholm in every strong
-bundle chart** (Proposition 3.52 and Theorem 3.19 in the chart-intrinsic form of the round-trip
+bundle chart** (Proposition 3.6.5 (preprint 3.52) and Theorem 3.1.22 (preprint 3.19) in the chart-intrinsic form of the round-trip
 statements V3.46 and V3.96, and the index `IndexAt` of V3.98).  Findings, Chapter 3, items
 237–239.
 
@@ -14,11 +14,11 @@ statements V3.46 and V3.96, and the index `IndexAt` of V3.98).  Findings, Chapte
 
 ## The text, paraphrased
 
-(Definition 3.4 (3)) For a filler `g` of `f : O → K` the linearization of `y ↦ [1 − ρ(r(y))]g(y)`
+(Definition 3.1.4 (preprint 3.4) (3)) For a filler `g` of `f : O → K` the linearization of `y ↦ [1 − ρ(r(y))]g(y)`
 at `0`, restricted to `ker Dr(0)`, is a topological linear isomorphism onto `ker ρ(0)`.
-(Proposition 3.5) `Tf(0)` is Fredholm iff `Dg(0)` is, with the same index.  (Proposition 3.52)
+(Proposition 3.1.5 (preprint 3.5)) `Tf(0)` is Fredholm iff `Dg(0)` is, with the same index.  (Proposition 3.6.5 (preprint 3.52))
 At a zero `x` of an sc-Fredholm section, `Tf(x) : T_xX → Y_x` is an sc-Fredholm operator.
-(Theorem 3.19) "`f'(x₀)` is an sc-Fredholm operator".  The text defines `f'(x)` in the chart of the
+(Theorem 3.1.22 (preprint 3.19)) "`f'(x₀)` is an sc-Fredholm operator".  The text defines `f'(x)` in the chart of the
 germ, centred at `x`, and treats the linearization as independent of the chart.
 
 ## What is formalized
@@ -43,11 +43,11 @@ germ, centred at `x`, and treats the linearization as independent of the chart.
   `(1 − ρ(0))Dg(0)v ∈ F_m` imply `v ∈ E_m`, when `g(0) = 0` and `Dg(0)` is sc-Fredholm) and
   `Polyfold.IsFillerOf.filler_condition_three_sc`: `(1 − ρ(0))Dg(0) : ker Dr(0) → ker ρ(0)` is an
   **sc-isomorphism** between the induced sc-Banach spaces.
-* **The converse of Proposition 3.5 in sc form** (item 238):
-  `Polyfold.IsFillerOf.proposition_3_5_sc_converse`: if `Tf(0) : T₀O → K₀` is sc-Fredholm and
+* **The converse of Proposition 3.1.5 (preprint 3.5) in sc form** (item 238):
+  `Polyfold.IsFillerOf.proposition_3_1_5_sc_converse`: if `Tf(0) : T₀O → K₀` is sc-Fredholm and
   condition (3) holds on every level (the level-`m` maps of `(1 − ρ(0))Dg(0)|_{ker Dr(0)}` are
   onto `ker ρ(0) ∩ F_m`), then `Dg(0)` is sc-Fredholm, with the index of `Tf(0)` on every level;
-  `Polyfold.IsFillerOf.proposition_3_5_sc_iff`: `Dg(0)` is sc-Fredholm iff `Tf(0)` is
+  `Polyfold.IsFillerOf.proposition_3_1_5_sc_iff`: `Dg(0)` is sc-Fredholm iff `Tf(0)` is
   sc-Fredholm and condition (3) holds on every level.
 * **The transport between charts** (item 239): `Polyfold.linAt_chart_change_sc`, the operators of
   `linAt_chart_change` on the ambient spaces — `a = D(τ ∘ r)(z)`, its inverse `a'` on the
@@ -62,10 +62,10 @@ germ, centred at `x`, and treats the linearization as independent of the chart.
   `D(f̂ ∘ r)(z)` is an sc-operator mapping `T_zO` into `K_z`, and the restriction
   `Lin(z) : T_zO → K_z` (`ScOperator.restrict`, whose level-`0` map is `linAt`) is an
   **sc-Fredholm operator**, Fredholm on every level of index `dim d.Pn − dim d.Q` for every germ
-  datum of Definition 3.11 at `y` and every conjugation `d` in it.
+  datum of Definition 3.1.11 (preprint 3.11) at `y` and every conjugation `d` in it.
   `Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex_wholeChart` and
-  `Polyfold.theorem_3_54_index_locally_constant_sc_wholeChart`: the sc form of
-  `theorem_3_54_index_locally_constant_wholeChart` (at the zeros near `x₀`, in every chart, `Lin(z)` is
+  `Polyfold.theorem_3_6_8_index_locally_constant_sc_wholeChart`: the sc form of
+  `theorem_3_6_8_index_locally_constant_wholeChart` (at the zeros near `x₀`, in every chart, `Lin(z)` is
   sc-Fredholm, onto on every level, of index `d` on every level).
 
 ## What the text leaves implicit, and the choices made (the findings)
@@ -75,8 +75,8 @@ germ, centred at `x`, and treats the linearization as independent of the chart.
   `ρ(0)Dg(0)v = Dg(0)t + c` with `t ∈ T₀O` and `c ∈ K₀` smooth (the range of the sc-Fredholm
   `Tf(0)` has a complement of smooth points); then `Dg(0)(v − t) ∈ F_m`, so `v − t ∈ E_m`
   (regularity of `Dg(0)`), `t = −Dr(0)(v − t) ∈ E_m` and `v ∈ E_m`.
-* **The converse of Proposition 3.5 in sc form needs condition (3) on every level**; condition (3)
-  on level `0` (Definition 3.4 as stated) does not suffice.  Counterexample (not formalized; it
+* **The converse of Proposition 3.1.5 (preprint 3.5) in sc form needs condition (3) on every level**; condition (3)
+  on level `0` (Definition 3.1.4 (preprint 3.4) as stated) does not suffice.  Counterexample (not formalized; it
   needs an sc-structure on a weighted `ℓ²`): `E = F` the sc-space `E_m = ℓ²` with weights
   `2^{nm}`, `r ≡ 0`, `ρ ≡ 0` (so `O = {0}`, `K = {(0, 0)}`, `T₀O = K₀ = 0` and `Tf(0) : 0 → 0`
   is sc-Fredholm), and `g = 1 + λS` with `S` the forward shift and `0 < λ < 1`: `g` is a filler
@@ -86,10 +86,10 @@ germ, centred at `x`, and treats the linearization as independent of the chart.
 * **Chart independence on all levels.**  The level-`0` conjugation `Γ ∘ Lin(z) = Lin'(z') ∘ A` of
   `linAt_chart_change` is realised by bounded operators on the ambient spaces that preserve the
   levels at smooth points: `A = D(τ ∘ r)(z)|_{T_zO}` with inverse `D(τ' ∘ r')(z')|_{T_{z'}O'}`
-  (derivatives of sc-smooth maps at smooth points, Proposition 1.16's remark), and `Γ = Γ(z)` the
+  (derivatives of sc-smooth maps at smooth points, Proposition 1.2.1 (preprint 1.16)'s remark), and `Γ = Γ(z)` the
   fibre part of the transition `Θ = Φ' ∘ Φ⁻¹`, which maps `F_m` into `F'_m` at the smooth point `z`
   because `Θ` is sc⁰ on `[0]` (the double filtration of `Y[0]`).  So the regularity transfers
-  from the chart of the germ (Proposition 3.52 there) to any chart: `Lin(z)e ∈ F_m` gives
+  from the chart of the germ (Proposition 3.6.5 (preprint 3.52) there) to any chart: `Lin(z)e ∈ F_m` gives
   `Lin₁(0)(Ae) = Γ Lin(z)e ∈ F₁_m`, `Ae ∈ E₁_m`, `e = A⁻¹(Ae) ∈ E_m`.  Only the transition
   `c → c₁` (towards the chart of the germ) and the base transition back are used.
 * The point `z` is smooth because a zero of an sc-Fredholm section is smooth
@@ -241,7 +241,7 @@ theorem isScSubspace_ker_ρCLM (h0 : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '
 
 include hR in
 /-- **`ρ(u)` is an sc-operator at a smooth point `u`**: it maps `F_m` into `F_m` (the filtration
-condition of Definition 2.47 at `u ∈ E_m`), bounded by the closed graph theorem. -/
+condition of Definition 2.6.1 (preprint 2.47) at `u ∈ E_m`), bounded by the closed graph theorem. -/
 theorem isScOperator_ρCLM_of_mem_smooth {u : E 0} (hu : u ∈ U) (hus : u ∈ E.smooth) :
     IsScOperator (ρCLM hR hu) :=
   isScOperator_of_mapsTo fun m x =>
@@ -286,7 +286,7 @@ end StrongRetr
 
 open StrongRetr
 
-/-! ### Condition (3) of the filler on every level, and the converse of Proposition 3.5 -/
+/-! ### Condition (3) of the filler on every level, and the converse of Proposition 3.1.5 (preprint 3.5) -/
 
 namespace IsFillerOf
 
@@ -296,18 +296,18 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0} {hU : IsRelOpenInQuad
 
 include hfg in
 /-- **Condition (3) of the filler on every level at a zero** (the remark of Findings item 234;
-Definition 3.4 (3)): let `g` fill `f` with `g(0) = 0` and `Dg(0)` sc-Fredholm.  If `v ∈ ker Dr(0)`
+Definition 3.1.4 (preprint 3.4) (3)): let `g` fill `f` with `g(0) = 0` and `Dg(0)` sc-Fredholm.  If `v ∈ ker Dr(0)`
 and `(1 − ρ(0))Dg(0)v ∈ F_m`, then `v ∈ E_m`.  Proof: `ρ(0)Dg(0)v = Dg(0)t + c` with `t ∈ T₀O` and
-`c ∈ K₀` smooth (`Tf(0)` is sc-Fredholm, `IsFillerOf.proposition_3_5_sc`, and its range has a
+`c ∈ K₀` smooth (`Tf(0)` is sc-Fredholm, `IsFillerOf.proposition_3_1_5_sc`, and its range has a
 complement of smooth points, `ScOperator.exists_sub_mem_smooth`); `Dg(0)(v − t) ∈ F_m`, so
-`v − t ∈ E_m` (Proposition 1.9 for `Dg(0)`), and `t = −Dr(0)(v − t) ∈ E_m`. -/
+`v − t ∈ E_m` (Proposition 1.1.10 (preprint 1.9) for `Dg(0)`), and `t = −Dr(0)(v − t) ∈ E_m`. -/
 theorem mem_range_toBase_of_scDeriv_r_eq_zero (hg : IsScSmooth U g) (hg0 : g 0 = 0)
     (h0O : (0 : E 0) ∈ r R '' U) (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
     (hDg : IsScOperator (scDeriv U g 0)) (hDgF : IsScFredholm hDg.toScOperator) {m : ℕ}
     {v : E 0} (hv : scDeriv U (r R) 0 v = 0)
     (hy : scDeriv U g 0 v - ρCLM hR h0 (scDeriv U g 0 v) ∈ range (F.toBase m)) :
     v ∈ range (E.toBase m) := by
-  obtain ⟨hT, hK, hTK, hTF, happ, -⟩ := hfg.proposition_3_5_sc hg hg0 h0O hfK hDg hDgF
+  obtain ⟨hT, hK, hTK, hTF, happ, -⟩ := hfg.proposition_3_1_5_sc hg hg0 h0O hfK hDg hDgF
   have hS0 : (hDg.toScOperator.restrict hT hK hTK 0).IsFredholm := by
     obtain ⟨s⟩ := hTF; exact s.isFredholm 0
   set w := ρCLM hR h0 (scDeriv U g 0 v) with hw
@@ -343,7 +343,7 @@ theorem mem_range_toBase_of_scDeriv_r_eq_zero (hg : IsScSmooth U g) (hg0 : g 0 =
   exact ScBanach.add_mem_range_toBase hreg h3
 
 include hfg in
-/-- **Condition (3) of the filler on every level at a zero, as an sc-isomorphism** (Definition 3.4
+/-- **Condition (3) of the filler on every level at a zero, as an sc-isomorphism** (Definition 3.1.4 (preprint 3.4)
 (3); Findings item 237): let `g` fill `f` with `g(0) = 0` and `Dg(0)` sc-Fredholm.  Then
 `ker Dr(0)` and `ker ρ(0)` are sc-subspaces, and `(1 − ρ(0))Dg(0)` restricts to an
 **sc-isomorphism** `ker Dr(0) → ker ρ(0)` between the induced sc-Banach spaces (on level `0` it is
@@ -399,17 +399,17 @@ theorem filler_condition_three_sc (hg : IsScSmooth U g) (hg0 : g 0 = 0)
   exact ⟨hN, hM, ScIso.ofBijective Cop (hreg.bijective hbij0), hCapp⟩
 
 include hfg in
-/-- **The converse of Proposition 3.5, sc form** (Findings item 238): let `g` fill `f` with
+/-- **The converse of Proposition 3.1.5 (preprint 3.5), sc form** (Findings item 238): let `g` fill `f` with
 `g(0) = 0`, `Dg(0)` an sc-operator, `Tf(0) = Dg(0)|_{T₀O} : T₀O → K₀` (`ScOperator.restrict`)
-sc-Fredholm, and condition (3) of Definition 3.4 on every level: for every `m`, the level-`m` map
+sc-Fredholm, and condition (3) of Definition 3.1.4 (preprint 3.4) on every level: for every `m`, the level-`m` map
 of `(1 − ρ(0))Dg(0)|_{ker Dr(0)}` is onto `ker ρ(0) ∩ F_m`.  Then `Dg(0)` is sc-Fredholm, and every
 level map of `Dg(0)` is Fredholm with the index of `Tf(0)`.  Proof: Fredholm on level `0` by
-Proposition 3.5; regularizing from the triangular form: for `Dg(0)e ∈ F_m`, the `ker Dr(0)`-part
+Proposition 3.1.5 (preprint 3.5); regularizing from the triangular form: for `Dg(0)e ∈ F_m`, the `ker Dr(0)`-part
 `v = e − Dr(0)e` has `(1 − ρ(0))Dg(0)v = (1 − ρ(0))Dg(0)e ∈ F_m`, so `v ∈ E_m` (condition (3) on
 level `m` and the injectivity on level `0`); then `Tf(0)Dr(0)e = Dg(0)e − Dg(0)v ∈ F_m` and
 `Dr(0)e ∈ E_m` (`Tf(0)` regularizing).  The hypothesis on the higher levels is needed (module
 docstring). -/
-theorem proposition_3_5_sc_converse (hg : IsScSmooth U g) (hg0 : g 0 = 0)
+theorem proposition_3_1_5_sc_converse (hg : IsScSmooth U g) (hg0 : g 0 = 0)
     (h0O : (0 : E 0) ∈ r R '' U) (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
     (hDg : IsScOperator (scDeriv U g 0)) (hT : E.IsScSubspace (rangeS (scDeriv U (r R) 0)))
     (hK : F.IsScSubspace (rangeS (ρCLM hR h0)))
@@ -421,7 +421,7 @@ theorem proposition_3_5_sc_converse (hg : IsScSmooth U g) (hg0 : g 0 = 0)
     IsScFredholm hDg.toScOperator ∧ ∀ m, (hDg.toScOperator m).IsFredholm ∧
       fredholmIndex (hDg.toScOperator m) =
         fredholmIndex (hDg.toScOperator.restrict hT hK hTK 0) := by
-  obtain ⟨h1, -, hFiff, hindeq⟩ := hfg.proposition_3_5 hg hg0 h0O hfK
+  obtain ⟨h1, -, hFiff, hindeq⟩ := hfg.proposition_3_1_5 hg hg0 h0O hfK
   obtain ⟨Φ, hΦ⟩ := hfg.exists_kerEquiv hg hg0 h0O
   have hρ := isScOperator_ρCLM hR h0
   have hS0F : (hDg.toScOperator.restrict hT hK hTK 0).IsFredholm := by
@@ -473,12 +473,12 @@ theorem proposition_3_5_sc_converse (hg : IsScSmooth U g) (hg0 : g 0 = 0)
   rw [(hlvl m).2, hDg.toScOperator_zero, ← hindeq, hind hS0F]
 
 include hfg in
-/-- **Proposition 3.5, sc form, both directions** (Findings items 237–238): for a filler `g` with
+/-- **Proposition 3.1.5 (preprint 3.5), sc form, both directions** (Findings items 237–238): for a filler `g` with
 `g(0) = 0` and `Dg(0)` an sc-operator, `Dg(0)` is sc-Fredholm **iff** `Tf(0) : T₀O → K₀` is
-sc-Fredholm **and** condition (3) of Definition 3.4 holds on every level.  (⟹:
-`proposition_3_5_sc` and `mem_range_toBase_of_scDeriv_r_eq_zero`; ⟸:
-`proposition_3_5_sc_converse`.) -/
-theorem proposition_3_5_sc_iff (hg : IsScSmooth U g) (hg0 : g 0 = 0)
+sc-Fredholm **and** condition (3) of Definition 3.1.4 (preprint 3.4) holds on every level.  (⟹:
+`proposition_3_1_5_sc` and `mem_range_toBase_of_scDeriv_r_eq_zero`; ⟸:
+`proposition_3_1_5_sc_converse`.) -/
+theorem proposition_3_1_5_sc_iff (hg : IsScSmooth U g) (hg0 : g 0 = 0)
     (h0O : (0 : E 0) ∈ r R '' U) (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
     (hDg : IsScOperator (scDeriv U g 0)) (hT : E.IsScSubspace (rangeS (scDeriv U (r R) 0)))
     (hK : F.IsScSubspace (rangeS (ρCLM hR h0)))
@@ -489,7 +489,7 @@ theorem proposition_3_5_sc_iff (hg : IsScSmooth U g) (hg0 : g 0 = 0)
           scDeriv U g 0 v - ρCLM hR h0 (scDeriv U g 0 v) = y := by
   constructor
   · intro hDgF
-    obtain ⟨hT', hK', hTK', hsc, -⟩ := hfg.proposition_3_5_sc hg hg0 h0O hfK hDg hDgF
+    obtain ⟨hT', hK', hTK', hsc, -⟩ := hfg.proposition_3_1_5_sc hg hg0 h0O hfK hDg hDgF
     refine ⟨hsc, fun m y hy hym => ?_⟩
     obtain ⟨Φ, hΦ⟩ := hfg.exists_kerEquiv hg hg0 h0O
     have hyk : y ∈ LinearMap.ker (ρCLM hR h0 : F 0 →ₗ[ℝ] F 0) := hy
@@ -499,7 +499,7 @@ theorem proposition_3_5_sc_iff (hg : IsScSmooth U g) (hg0 : g 0 = 0)
     exact ⟨v, hfg.mem_range_toBase_of_scDeriv_r_eq_zero hg hg0 h0O hfK hDg hDgF v.2
       (hvy ▸ hym), v.2, hvy⟩
   · rintro ⟨hTF, h3⟩
-    exact (hfg.proposition_3_5_sc_converse hg hg0 h0O hfK hDg hT hK hTK hTF h3).1
+    exact (hfg.proposition_3_1_5_sc_converse hg hg0 h0O hfK hDg hT hK hTK hTF h3).1
 
 end IsFillerOf
 
@@ -692,9 +692,9 @@ theorem linAt_chart_change_sc (c c' : StrongBundleChart PX P) (hf : IsSection P 
       c'.apply_section' hf hy₁', hτu, hr']
   have hmapsτ : MapsTo (τ ∘ Rw) Rw.U c'.U := fun u hu => (hdiff.mapsTo_U hu).1
   have hℓ : IsSc1 Rw.U ((c'.principal f ∘ r c'.R) ∘ (τ ∘ Rw)) :=
-    (theorem_1_21' Rw.isScDomain c'.relOpen.isScDomain hdiff.isSc1 hfr' hmapsτ).1
+    (theorem_1_3_1' Rw.isScDomain c'.relOpen.isScDomain hdiff.isSc1 hfr' hmapsτ).1
   have hΦσ : IsSc1 Rw.U (Φ ∘ σ) :=
-    (theorem_1_21' Rw.isScDomain RK.isScDomain hσ1 hΦ hmapsσ).1
+    (theorem_1_3_1' Rw.isScDomain RK.isScDomain hσ1 hΦ hmapsσ).1
   have hDeq : scDeriv Rw.U ((c'.principal f ∘ r c'.R) ∘ (τ ∘ Rw)) z = scDeriv Rw.U (Φ ∘ σ) z :=
     scDeriv_eq_of_eqOn_relOpen Rw.relOpen hℓ hΦσ subset_rfl subset_rfl hEq hz1
   have hfz : c.principal f (c.φ.model.E.toBase 1 z) = 0 := by
@@ -714,7 +714,7 @@ theorem linAt_chart_change_sc (c c' : StrongBundleChart PX P) (hf : IsSection P 
     rw [hlevσ, hσdef, scDeriv_scPair Rw.relOpen hrRw hfrRw hz1, ContinuousLinearMap.prod_apply,
       scDeriv_fiber_of_vanishing Rw.relOpen hΦ hz1 hSD hzD hzero Γt hΓ] at h2
     rw [h1, hDeq, ← h2, hDfr]
-  -- the isomorphism `A` of the tangent spaces (Proposition 2.30)
+  -- the isomorphism `A` of the tangent spaces (Proposition 2.4.10 (preprint 2.30))
   set A₀ := scDeriv Rw.U (τ ∘ Rw) z with hA₀
   set A₀' := scDeriv Rw'.U (τ' ∘ Rw') z' with hA₀'
   have hTA : ∀ v ∈ rangeS (scDeriv c.U (r c.R) z), A₀ v ∈ rangeS (scDeriv c'.U (r c'.R) z') := by
@@ -825,11 +825,11 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 /-- **`Lin(z)` from a germ datum at `y`** (the transport step of `linAt_isScFredholm_wholeChart`): let `f` be
 sc-smooth, `y` a zero, `c` a strong bundle chart of `P` around `y` with the smooth level-`1` point
 `z` over `φ(y)`, and `D(f̂ ∘ r)(z)` an sc-operator restricting to `Lin(z) : T_zO → K_z`
-(`ScOperator.restrict`).  Given a datum of Definition 3.11 at `y` (a chart `c₁` centred at `y`, a
+(`ScOperator.restrict`).  Given a datum of Definition 3.1.11 (preprint 3.11) at `y` (a chart `c₁` centred at `y`, a
 filled version `g₁`, `s₁` with `s₁(0) = g₁(0)`, a conjugation `d` of `g₁ − s₁` to a basic germ),
 the level-`0` map of `Lin(z)` is Fredholm of index `dim d.Pn − dim d.Q`, and `Lin(z)` is
 regularizing.  Proof: in `c₁`, `Dg₁(0)` is sc-Fredholm and `Tf₁(0)` is Fredholm of that index
-(`proposition_3_52_local_sc_wholeChart`, Proposition 3.5); `Lin₁(0) ∘ a = γ ∘ Lin(z)` with level-preserving
+(`proposition_3_6_5_local_sc_wholeChart`, Proposition 3.1.5 (preprint 3.5)); `Lin₁(0) ∘ a = γ ∘ Lin(z)` with level-preserving
 `a`, `a'`, `γ` (`linAt_chart_change_sc`). -/
 theorem StrongBundle.linAt_sc_of_germ_wholeChart (hf : B.IsScSmoothSection f) {y : X}
     (hy0 : IsZeroAt P f y) {c : StrongBundleChart PX P} (hc : B.IsChart c)
@@ -864,10 +864,10 @@ theorem StrongBundle.linAt_sc_of_germ_wholeChart (hf : B.IsScSmoothSection f) {y
   have hfK₁ : ∀ x ∈ r c₁.R '' c₁.U, (x, c₁.principal f x) ∈ c₁.R '' (c₁.U ×ˢ univ) :=
     fun x hx => c₁.principal_mem_K hfs (c₁.r_image ▸ hx)
   obtain ⟨hDg₁, hT₁, hK₁, hTK₁, hDgF₁, hTF₁, happ₁, hlvl₁⟩ :=
-    proposition_3_52_local_sc_wholeChart c₁.relOpen c₁.isRetraction h0₁ h0O₁ hfill₁ hfb0 hfK₁ hs₁ hs0₁ d
+    proposition_3_6_5_local_sc_wholeChart c₁.relOpen c₁.isRetraction h0₁ h0O₁ hfill₁ hfb0 hfK₁ hs₁ hs0₁ d
   have hg0₁ : g₁ 0 = 0 := by rw [← hfill₁.filler.eq_on.self_of_nhds h0O₁, hfb0]
   obtain ⟨h1₁, -, hFiff₁, hindeq₁⟩ :=
-    hfill₁.filler.proposition_3_5 hfill₁.isScSmooth hg0₁ h0O₁ hfK₁
+    hfill₁.filler.proposition_3_1_5 hfill₁.isScSmooth hg0₁ h0O₁ hfK₁
   have hDg₁F : (scDeriv c₁.U g₁ 0).IsFredholm := by
     have := (hlvl₁ 0).1; rwa [hDg₁.toScOperator_zero] at this
   have hDg₁ind : fredholmIndex (scDeriv c₁.U g₁ 0) = finrank ℝ d.Pn - finrank ℝ d.Q := by
@@ -930,7 +930,7 @@ theorem StrongBundle.linAt_sc_of_germ_wholeChart (hf : B.IsScSmoothSection f) {y
     rwa [hinv1 x.1 x.2] at h9
 
 /-- **The linearization of an sc-Fredholm section at a zero is sc-Fredholm in every chart**
-(Proposition 3.52 and Theorem 3.19, "`f'(x)` is sc-Fredholm", in the chart-intrinsic form of the
+(Proposition 3.6.5 (preprint 3.52) and Theorem 3.1.22 (preprint 3.19), "`f'(x)` is sc-Fredholm", in the chart-intrinsic form of the
 round-trip statements V3.46, V3.96 and of V3.98's index; Findings item 239).  Let `f` be an
 sc-Fredholm section, `y` a zero, `c` **any** strong bundle chart of `P` around `y`, `z` the
 level-`1` point over `φ(y)` (it is smooth: zeros of `f` are smooth points).  Then `D(f̂ ∘ r)(z)`
@@ -938,7 +938,7 @@ is an sc-operator,
 `T_zO = Dr(z)E` and `K_z = ρ(z)F` are sc-subspaces, `D(f̂ ∘ r)(z)` maps `T_zO` into `K_z`, and the
 restriction `Lin(z) : T_zO → K_z` (`ScOperator.restrict`, whose level-`0` map is
 `linAt U R f̂ z`) is an **sc-Fredholm operator**; every level map is Fredholm with the level-`0`
-index, which is `dim d.Pn − dim d.Q` for **every** datum of Definition 3.11 at `y` (chart `c₁`
+index, which is `dim d.Pn − dim d.Q` for **every** datum of Definition 3.1.11 (preprint 3.11) at `y` (chart `c₁`
 centred at `y`, filled version `g₁`, `s₁`, conjugation `d` of `g₁ − s₁` to a basic germ). -/
 theorem StrongBundle.linAt_isScFredholm_wholeChart (hf : B.IsScFredholmSectionWholeChart f) {y : X}
     (hy0 : IsZeroAt P f y) {c : StrongBundleChart PX P} (hc : B.IsChart c)
@@ -1002,7 +1002,7 @@ theorem StrongBundle.linAt_isScFredholm_wholeChart (hf : B.IsScFredholmSectionWh
 
 /-- **At a zero where `f'(y)` is onto of index `d`** (`IsSurjLinOfIndex`), in every chart:
 `Lin(z) : T_zO → K_z` is sc-Fredholm, **onto on every level** (regularizing and onto on level
-`0`) and of index `d` on every level (Theorem 3.19's "`f'(x₀)` is sc-Fredholm and onto", at a
+`0`) and of index `d` on every level (Theorem 3.1.22 (preprint 3.19)'s "`f'(x₀)` is sc-Fredholm and onto", at a
 zero with the hypothesis of `IsSurjLinOfIndex`; round-trip item V3.96). -/
 theorem StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex_wholeChart (hf : B.IsScFredholmSectionWholeChart f)
     {y : X} (hy0 : IsZeroAt P f y) {d : ℕ} (hd : B.IsSurjLinOfIndex f y d)
@@ -1039,14 +1039,14 @@ theorem StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex_wholeChart (hf : B.I
   rw [(hlvl m).2.1, hind0, hLind]
 
 /-- **The index is locally constant along the solution set, sc form**
-(`theorem_3_54_index_locally_constant_wholeChart` with "sc-Fredholm" in every chart; Theorem 3.54 and
-Proposition 6.2 in the setting of `theorem_3_54_index_locally_constant_wholeChart`, towards round-trip item
+(`theorem_3_6_8_index_locally_constant_wholeChart` with "sc-Fredholm" in every chart; Theorem 3.6.8 (preprint 3.54) and
+Proposition 6.2.2 (preprint 6.2) in the setting of `theorem_3_6_8_index_locally_constant_wholeChart`, towards round-trip item
 V3.98 (b); Findings item 239): for an sc-Fredholm section with tame germ data, `f(x₀) = 0` and
 `(f, x₀)` in good position in a tame chart, there are an open `Vx ∋ x₀` and `d` such that at every
 zero `y ∈ Vx`, in **every** strong bundle chart `c` of `P` around `y`, at the level-`1` point `z`
 over `φ(y)`, the linearization `Lin(z) : T_zO → K_z` is an sc-Fredholm operator, onto on every
 level, of index `d` on every level. -/
-theorem theorem_3_54_index_locally_constant_sc_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
+theorem theorem_3_6_8_index_locally_constant_sc_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) {x₀ : X}
     (hg : B.IsGoodPositionGermTameWholeChart f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (Vx : Set X) (d : ℕ), IsOpen Vx ∧ x₀ ∈ Vx ∧
       ∀ y ∈ Vx, IsZeroAt P f y → ∀ (c : StrongBundleChart PX P) (_ : B.IsChart c)
@@ -1064,7 +1064,7 @@ theorem theorem_3_54_index_locally_constant_sc_wholeChart (hf : B.IsScFredholmSe
           ∀ m, Surjective ((hD.toScOperator.restrict hT hK hTK) m) ∧
             ((hD.toScOperator.restrict hT hK hTK) m).IsFredholm ∧
             fredholmIndex ((hD.toScOperator.restrict hT hK hTK) m) = d := by
-  obtain ⟨Vx, d, hVo, hx₀V, hall⟩ := theorem_3_54_index_locally_constant_wholeChart hf hg hx₀
+  obtain ⟨Vx, d, hVo, hx₀V, hall⟩ := theorem_3_6_8_index_locally_constant_wholeChart hf hg hx₀
   exact ⟨Vx, d, hVo, hx₀V, fun y hy hy0 c hc hyV z hz hzU =>
     StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex_wholeChart hf.toIsScFredholmSectionWholeChart hy0
       (hall y hy hy0) hc hyV hz hzU⟩

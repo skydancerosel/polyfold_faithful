@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_34
 
 /-!
 Round trip for V3_34 (Theorem 3.38).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_38`, `Polyfold.StabilityData.exists_of_scPlus`,
+`Polyfold.theorem_3_4_2`, `Polyfold.StabilityData.exists_of_scPlus`,
 `Polyfold.StabilityData.pushB_isSc0ContractionGerm`, `Polyfold.scPlusRemainder_contraction`,
 `Polyfold.StabilityData.pushMap_eq_zero_iff` and `Polyfold.StabilityData.finrank_Cs_eq_finrank_Zs`
 (no universe parameters; `StabilityData`, `split`, `fiber`, `pushMap` are definitions).
@@ -13,7 +13,7 @@ Glue for `A → B`:
 * B's sc⁺-germ `s` has an `ℝᴺ`-component; it is absorbed into the basic germ,
   `f' = f + (s_ℝᴺ, 0)` (still basic with the same `B`), so `f + s = fsum f'` with the `W`-part
   `s_W` of `s`; `exists_of_scPlus` (in `A`) gives the data `𝒮` of Theorem 3.38 for `s_W`.
-* `theorem_3_38` (in `A`): `𝒮.pushMap f'` is a basic germ on `𝒮.pushGerm` over
+* `theorem_3_4_2` (in `A`): `𝒮.pushMap f'` is a basic germ on `𝒮.pushGerm` over
   `(ℝⁿ × C) ⊕ X¹` with target `(ℝᴺ × Z) ⊕ X¹`.  B wants literally `ℝ^{n'}` and `ℝ^{N'}`: transport
   along linear isomorphisms `ℝⁿ × C ≃ ℝ^{n + dim C}`, `ℝᴺ × Z ≃ ℝ^{N + dim Z}` (generic lemma
   `IsBasicGerm.transport`, with the partial quadrant `C̃ × C` transported too).
@@ -29,14 +29,14 @@ open Polyfold
 
 /-- The project's statement: Theorem 3.38 and the lemmas cited with it. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_38 ∧ type_of% @Polyfold.StabilityData.exists_of_scPlus ∧
+  type_of% @Polyfold.theorem_3_4_2 ∧ type_of% @Polyfold.StabilityData.exists_of_scPlus ∧
     type_of% @Polyfold.StabilityData.pushB_isSc0ContractionGerm ∧
     type_of% @Polyfold.scPlusRemainder_contraction ∧
     type_of% @Polyfold.StabilityData.pushMap_eq_zero_iff ∧
     type_of% @Polyfold.StabilityData.finrank_Cs_eq_finrank_Zs
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_38, @Polyfold.StabilityData.exists_of_scPlus,
+  ⟨@Polyfold.theorem_3_4_2, @Polyfold.StabilityData.exists_of_scPlus,
     @Polyfold.StabilityData.pushB_isSc0ContractionGerm, @Polyfold.scPlusRemainder_contraction,
     @Polyfold.StabilityData.pushMap_eq_zero_iff, @Polyfold.StabilityData.finrank_Cs_eq_finrank_Zs⟩
 
@@ -292,7 +292,7 @@ theorem A_to_B : A → B := by
     push_cast
     ring
 
-#rt_check RoundTrip.V3_34.A_to_B [Polyfold.theorem_3_38, Polyfold.StabilityData.exists_of_scPlus,
+#rt_check RoundTrip.V3_34.A_to_B [Polyfold.theorem_3_4_2, Polyfold.StabilityData.exists_of_scPlus,
   Polyfold.StabilityData.pushB_isSc0ContractionGerm, Polyfold.scPlusRemainder_contraction,
   Polyfold.StabilityData.pushMap_eq_zero_iff, Polyfold.StabilityData.finrank_Cs_eq_finrank_Zs]
 

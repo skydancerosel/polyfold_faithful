@@ -3,62 +3,62 @@ import Polyfold.Chapter3.Germ
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definition 3.4 (filling), Lemmas 3.16 and 3.17 (the local lemmas behind Theorem 3.15), **for the
+Definition 3.1.4 (preprint 3.4) (filling), Lemmas 3.1.19 and 3.1.20 (preprint 3.16 and 3.17) (the local lemmas behind Theorem 3.1.18 (preprint 3.15)), **for the
 principal parts of the sections**.
 
-# Fillers and sc⁺-perturbations (local lemmas for Theorem 3.15)
+# Fillers and sc⁺-perturbations (local lemmas for Theorem 3.1.18 (preprint 3.15))
 
 ## The text, paraphrased
 
-(Definition 3.4) Let `K = R(U ◁ F)` be a tame strong local bundle, `R(u, h) = (r(u), ρ(u)h)`,
+(Definition 3.1.4 (preprint 3.4)) Let `K = R(U ◁ F)` be a tame strong local bundle, `R(u, h) = (r(u), ρ(u)h)`,
 `r(0) = 0`, `O = r(U)`.  An sc-smooth section germ `(f, 0)` of `K → O` has a **filling** if there
 is an sc-smooth section germ `(g, 0)` of `U ◁ F → U` with (1) `f(x) = g(x)` for `x ∈ O` near `0`;
 (2) if `g(y) = ρ(r(y))g(y)` for `y ∈ U` near `0` then `y ∈ O`; (3) the linearization of
 `y ↦ [1 − ρ(r(y))]g(y)` at `0`, restricted to `ker Dr(0)`, is a topological linear isomorphism
-`ker Dr(0) → ker ρ(0)`.  (Lemma 3.16) An sc⁺-section `s : O → K` extends to the sc⁺-section
+`ker Dr(0) → ker ρ(0)`.  (Lemma 3.1.19 (preprint 3.16)) An sc⁺-section `s : O → K` extends to the sc⁺-section
 `s̃(u) = s(r(u))` of `U ◁ F → U` with `s̃ = s` on `O` and `R(r(u), s̃(u)) = s(r(u))`.
-(Lemma 3.17) If `f` has the filler `g` and `s : O → K` is sc⁺, then `f + s` has the filler
-`g + s̃`.  (Theorem 3.15) For a tame strong bundle `P : Y → X`, `f ∈ Fred(P)` and `s ∈ Γ⁺(P)`
+(Lemma 3.1.20 (preprint 3.17)) If `f` has the filler `g` and `s : O → K` is sc⁺, then `f + s` has the filler
+`g + s̃`.  (Theorem 3.1.18 (preprint 3.15)) For a tame strong bundle `P : Y → X`, `f ∈ Fred(P)` and `s ∈ Γ⁺(P)`
 give `f + s ∈ Fred(P)`.
 
 ## What is formalized
 
 * `Polyfold.StrongRetr.r`, `StrongRetr.ρ` (`r(u) = (R(u, 0))₁`, `ρ(u)h = (R(u, h))₂`) and the
   identities `R(u, h) = (r(u), ρ(u)h)`, `r ∘ r = r`, `ρ(r(u)) ∘ ρ(u) = ρ(u)`, `ρ(u) ∘ ρ(u) = ρ(u)`
-  on `O`, from Definition 2.47; `StrongRetr.ρCLM` (`ρ(u)` as a bounded operator).
-* `Polyfold.IsFillerOf` (**Definition 3.4, conditions (1)–(3)** for the principal parts
+  on `O`, from Definition 2.6.1 (preprint 2.47); `StrongRetr.ρCLM` (`ρ(u)` as a bounded operator).
+* `Polyfold.IsFillerOf` (**Definition 3.1.4 (preprint 3.4), conditions (1)–(3)** for the principal parts
   `f, g : E₀ → F₀`, with the map `y ↦ [1 − ρ(r(y))]g(y)` required sc¹ so that its linearization
   exists; (3) as a continuous linear equivalence `ker Dr(0) ≃L ker ρ(0)` given by that
   linearization).
-* `Polyfold.lemma_3_16` (**Lemma 3.16 (1), (2)**: `s̃ = s ∘ r` agrees with `s` on `O` and
-  `ρ(r(u)) s̃(u) = s̃(u)`), `Polyfold.lemma_3_17` (**Lemma 3.17**: conditions (1)–(3) pass from
+* `Polyfold.lemma_3_1_19` (**Lemma 3.1.19 (preprint 3.16) (1), (2)**: `s̃ = s ∘ r` agrees with `s` on `O` and
+  `ρ(r(u)) s̃(u) = s̃(u)`), `Polyfold.lemma_3_1_20` (**Lemma 3.1.20 (preprint 3.17)**: conditions (1)–(3) pass from
   `(f, g)` to `(f + s, g + s̃)`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **Only the principal parts here.**  The regularity statements — `g` an sc-smooth section of
-  `U ◁ F → U`, `s̃` an sc⁺-section (Lemma 3.16), hence `g + s̃` sc-smooth — are not part of
+  `U ◁ F → U`, `s̃` an sc⁺-section (Lemma 3.1.19 (preprint 3.16)), hence `g + s̃` sc-smooth — are not part of
   `IsFillerOf`; they are the composition `s ∘ r` and the sum of sections, i.e. the pairing and
-  sum rules of the sc-calculus for maps on sets.  So `lemma_3_17` in this file is the version
+  sum rules of the sc-calculus for maps on sets.  So `lemma_3_1_20` in this file is the version
   "the three filler conditions are stable under adding an sc⁺-section", which is exactly what
-  the text's proof checks.  The regularity is supplied where Lemma 3.17 is used, in
+  the text's proof checks.  The regularity is supplied where Lemma 3.1.20 (preprint 3.17) is used, in
   `StrongBundleSections.lean`: the sum rule on sets is `Polyfold.IsScSmooth.add`, and
   `Polyfold.StrongBundle.IsScFredholmGermWholeChart.sectionAdd` proves `s̃ = ŝ₁ ∘ r` sc-smooth into `F¹`
-  and `g + s̃` sc-smooth on `U` before applying `lemma_3_17`; so at the level of Theorem 3.15
-  nothing of the text's Lemmas 3.16–3.17 is missing.
-* **Theorem 3.15 and Definition 3.14** (sections of strong bundles over M-polyfolds) are
-  formalized in `StrongBundleSections.lean` (`Polyfold.theorem_3_15_wholeChart`,
-  `Polyfold.StrongBundle.IsScFredholmSectionWholeChart`, with Definitions 3.3, 3.6, 3.11 as
+  and `g + s̃` sc-smooth on `U` before applying `lemma_3_1_20`; so at the level of Theorem 3.1.18 (preprint 3.15)
+  nothing of the text's Lemmas 3.1.19–3.1.20 (preprint 3.16–3.17) is missing.
+* **Theorem 3.1.18 (preprint 3.15) and Definition 3.1.16 (preprint 3.14)** (sections of strong bundles over M-polyfolds) are
+  formalized in `StrongBundleSections.lean` (`Polyfold.theorem_3_1_18_wholeChart`,
+  `Polyfold.StrongBundle.IsScFredholmSectionWholeChart`, with Definitions 3.1.3, 3.1.6, 3.1.11 (preprint 3.3, 3.6, 3.11) as
   `StrongBundle.IsScSmoothSectionGerm`, `IsFilledVersion`, `StrongBundle.IsScFredholmGermWholeChart`).
-  Their local content is Lemma 3.17 together with the identity `(g + s̃) − (s̃ + t₀) = g − t₀`.
+  Their local content is Lemma 3.1.20 (preprint 3.17) together with the identity `(g + s̃) − (s̃ + t₀) = g − t₀`.
 * **Condition (3) presupposes the linearization** of `y ↦ [1 − ρ(r(y))]g(y)` at `0`, i.e. that
   this map is sc¹ (it is, for `g` and `R` sc-smooth, by the chain rule); `IsFillerOf` carries this
-  as a field (`isSc1`), and Lemma 3.17 transports it by the equality of the two maps on `U`
+  as a field (`isSc1`), and Lemma 3.1.20 (preprint 3.17) transports it by the equality of the two maps on `U`
   (`IsSc1.congr`, and the uniqueness of derivatives on `U₁`, `IsSc1.scDeriv_eqOn`).
-* Condition (2) of Lemma 3.16, `R(r(u), s̃(u)) = s(r(u))`, is "`R` fixes the points of
+* Condition (2) of Lemma 3.1.19 (preprint 3.16), `R(r(u), s̃(u)) = s(r(u))`, is "`R` fixes the points of
   `K = R(U ◁ F)`" (`R ∘ R = R`); the text's computation `R(r(u), s(r(u))) = R(s(r(u))) = s(r(u))`
   uses `s(x) ∈ K` for `x ∈ O` (an sc⁺-section is a section), which is the hypothesis `hsK`.
-* `ρ(u)` is linear by Definition 2.47 and continuous because `R` is sc⁰ on level `0`; the text
+* `ρ(u)` is linear by Definition 2.6.1 (preprint 2.47) and continuous because `R` is sc⁰ on level `0`; the text
   calls it "a bounded linear operator" without comment.
 -/
 
@@ -74,7 +74,7 @@ variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 namespace StrongRetr
 
-/-- The base retraction `r(u) = (R(u, 0))₁` of a strong bundle retraction (Definition 2.47). -/
+/-- The base retraction `r(u) = (R(u, 0))₁` of a strong bundle retraction (Definition 2.6.1 (preprint 2.47)). -/
 def r (R : E 0 × F 0 → E 0 × F 0) : E 0 → E 0 := IsStrongBundleMap.base R
 
 /-- The fibre part `ρ(u)h = (R(u, h))₂`. -/
@@ -148,9 +148,9 @@ end StrongRetr
 
 open StrongRetr
 
-/-! ### Definition 3.4: fillers -/
+/-! ### Definition 3.1.4 (preprint 3.4): fillers -/
 
-/-- **Definition 3.4 (filling), conditions (1)–(3) for the principal parts**: `g : U → F` fills
+/-- **Definition 3.1.4 (preprint 3.4) (filling), conditions (1)–(3) for the principal parts**: `g : U → F` fills
 `f : O → K` (`O = r(U)`, `K = R(U ◁ F)`) if (1) `f = g` on `O` near `0`; (2) a point `y ∈ U` near
 `0` with `g(y) = ρ(r(y))g(y)` lies in `O`; (3) the map `y ↦ [1 − ρ(r(y))]g(y)` is sc¹ on `U` and
 its linearization at `0`, restricted to `ker Dr(0)`, is a topological linear isomorphism onto
@@ -166,12 +166,12 @@ structure IsFillerOf (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetrac
       ((Φ v : LinearMap.ker ((ρCLM hR h0 : F 0 →L[ℝ] F 0) : F 0 →ₗ[ℝ] F 0)) : F 0) =
         scDeriv U (fun y => g y - ρ R (r R y) (g y)) (0 : E 1) (v : E 0)
 
-/-! ### Lemma 3.16: the extension `s̃ = s ∘ r` -/
+/-! ### Lemma 3.1.19 (preprint 3.16): the extension `s̃ = s ∘ r` -/
 
-/-- **Lemma 3.16 (1), (2)**: for a section `s` of `K → O` (principal part `s : E₀ → F₀` with
+/-- **Lemma 3.1.19 (preprint 3.16) (1), (2)**: for a section `s` of `K → O` (principal part `s : E₀ → F₀` with
 `(x, s(x)) ∈ K` for `x ∈ O`), the extension `s̃ = s ∘ r` satisfies `s̃ = s` on `O` and
 `ρ(r(u)) s̃(u) = s̃(u)` for `u ∈ U` (the text's `R(r(u), s̃(u)) = s(r(u))`). -/
-theorem lemma_3_16 (hR : IsStrongBundleRetraction U R) {s : E 0 → F 0}
+theorem lemma_3_1_19 (hR : IsStrongBundleRetraction U R) {s : E 0 → F 0}
     (hsK : ∀ x ∈ r R '' U, (x, s x) ∈ R '' (U ×ˢ univ)) :
     (∀ x ∈ r R '' U, s (r R x) = s x) ∧
       ∀ u ∈ U, ρ R (r R u) (s (r R u)) = s (r R u) ∧
@@ -180,17 +180,17 @@ theorem lemma_3_16 (hR : IsStrongBundleRetraction U R) {s : E 0 → F 0}
   have hK := hsK (r R u) ⟨u, hu, rfl⟩
   exact ⟨ρ_eq_self_of_mem_K hR (r_mem hR hu) hK, apply_eq_self_of_mem_K hR hK⟩
 
-/-! ### Lemma 3.17: fillers are stable under sc⁺-sections -/
+/-! ### Lemma 3.1.20 (preprint 3.17): fillers are stable under sc⁺-sections -/
 
-/-- **Lemma 3.17** (conditions (1)–(3)): if `g` fills `f` and `s` is a section of `K → O`
-(`(x, s(x)) ∈ K` on `O`), then `g + s ∘ r` fills `f + s`: (1) and (2) from Lemma 3.16, and (3)
+/-- **Lemma 3.1.20 (preprint 3.17)** (conditions (1)–(3)): if `g` fills `f` and `s` is a section of `K → O`
+(`(x, s(x)) ∈ K` on `O`), then `g + s ∘ r` fills `f + s`: (1) and (2) from Lemma 3.1.19 (preprint 3.16), and (3)
 because `[1 − ρ(r(y))](g(y) + s(r(y))) = [1 − ρ(r(y))]g(y)` on `U`, so the two maps have the same
 linearization at `0`. -/
-theorem lemma_3_17 (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
+theorem lemma_3_1_20 (hU : IsRelOpenInQuadrant E C U) (hR : IsStrongBundleRetraction U R)
     (h0 : (0 : E 0) ∈ U) {f g s : E 0 → F 0} (hfg : IsFillerOf hU hR h0 f g)
     (hsK : ∀ x ∈ r R '' U, (x, s x) ∈ R '' (U ×ˢ univ)) :
     IsFillerOf hU hR h0 (fun x => f x + s x) (fun y => g y + s (r R y)) := by
-  obtain ⟨h1, h2⟩ := lemma_3_16 hR hsK
+  obtain ⟨h1, h2⟩ := lemma_3_1_19 hR hsK
   -- the two maps `[1 − ρ(r(y))]g(y)` agree on `U`
   have heq : EqOn (fun y => g y - ρ R (r R y) (g y))
       (fun y => (g y + s (r R y)) - ρ R (r R y) (g y + s (r R y))) U := by

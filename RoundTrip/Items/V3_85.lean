@@ -6,24 +6,24 @@ import RoundTrip.Blind.V3_85_r2
 /-!
 Round trip for V3_85 (Theorem 3.54 (1)–(2)), against the **second blind statement**
 `RoundTrip.V3_85_r2.B` (2026-11-02; word for word the `B` of V3_94 r2).  `A` is the conjunction of
-the types of `Polyfold.theorem_3_54_two`, `Polyfold.theorem_3_54`,
-`Polyfold.theorem_3_54_tangentGermChart_solutionSet` (universes `0, 0`) and
+the types of `Polyfold.theorem_3_6_8_two`, `Polyfold.theorem_3_6_8`,
+`Polyfold.theorem_3_6_8_tangentGermChart_solutionSet` (universes `0, 0`) and
 `Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally` (universe `0`), all in the
-text's germ reading (`theorem_3_54` concludes `IsGoodPositionGermTame` at the zeros near `x₀`).
+text's germ reading (`theorem_3_6_8` concludes `IsGoodPositionGermTame` at the zeros near `x₀`).
 
 * `A_to_B` (proved from the hypothesis `A`, its first two conjuncts): `B`'s hypothesis
   `Bd.IsGoodPositionGermSc f x` (project notion, germ reading, sc-complement) gives
-  `IsGoodPositionGermTame` (forgetful) and the filler condition of `theorem_3_54` (non-banned
-  `isGoodPositionGermFilled_of_isGoodPositionGerm`).  (1): `theorem_3_54` gives
+  `IsGoodPositionGermTame` (forgetful) and the filler condition of `theorem_3_6_8` (non-banned
+  `isGoodPositionGermFilled_of_isGoodPositionGerm`).  (1): `theorem_3_6_8` gives
   `IsGoodPositionGermTame` at the nearby zeros, upgraded by the non-banned
   `IsGoodPositionGermTame.isGoodPositionGermSc`.  (2): on `U = D.φ.source` (the regular tangent
-  germ chart of `theorem_3_54`), `theorem_3_54_two` at each zero gives regular data of the same
+  germ chart of `theorem_3_6_8`), `theorem_3_6_8_two` at each zero gives regular data of the same
   dimension, shrunk to `S ∩ D.φ.source` by `TangentGermChart.shrink`; Theorem 3.27
-  (`theorem_3_27`) makes `S` a sub-M-polyfold that is a manifold with corners, hence
+  (`theorem_3_2_3_of_isRegular`) makes `S` a sub-M-polyfold that is a manifold with corners, hence
   `HasCornerStructure`; paracompactness of `S` from `MPolyfold.paracompactSpace_subtype`.  `B`'s
   tame-bundle hypothesis is not needed.
 * `B → A` fails genuinely: `A`'s theorems need no tame strong bundle (only tame germ data at the
-  smooth points), `theorem_3_54_two` and `theorem_3_54_tangentGermChart_solutionSet` assume only
+  smooth points), `theorem_3_6_8_two` and `theorem_3_6_8_tangentGermChart_solutionSet` assume only
   `IsSection` and good position at the zeros, and `A` states regular tangent germ data of a common
   dimension and the re-centring lemma `exists_isRegular_of_locally`, none of which `B` states.
 
@@ -36,13 +36,13 @@ open Polyfold Set
 /-- The project's statement: Theorem 3.54 (2), Theorem 3.54 (1)–(2) under the filler condition,
 the data of Definition 3.25 at the centre with `π(O) ⊆ C`, and the re-centring lemma. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_54_two.{0, 0} ∧ type_of% @Polyfold.theorem_3_54.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_tangentGermChart_solutionSet.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_6_8_two.{0, 0} ∧ type_of% @Polyfold.theorem_3_6_8.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_tangentGermChart_solutionSet.{0, 0} ∧
     type_of% @Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally.{0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_54_two.{0, 0}, @Polyfold.theorem_3_54.{0, 0},
-    @Polyfold.theorem_3_54_tangentGermChart_solutionSet.{0, 0},
+  ⟨@Polyfold.theorem_3_6_8_two.{0, 0}, @Polyfold.theorem_3_6_8.{0, 0},
+    @Polyfold.theorem_3_6_8_tangentGermChart_solutionSet.{0, 0},
     @Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally.{0}⟩
 
 /-- **`A ⇒ B`** (second blind statement), from the first two conjuncts of `A`. -/
@@ -70,7 +70,7 @@ theorem A_to_B (hA : A) : RoundTrip.V3_85_r2.B := by
       subset_rfl himage, Dy.shrink_isRegular S' subset_rfl Dy.φ.isOpen_source Dy.mem_source
       Dy.V_relOpen Dy.zero_mem_V subset_rfl himage hregy.isScSmooth hregy.π_mem⟩
   have hne : S'.Nonempty := ⟨x, D.mem_source, hx⟩
-  obtain ⟨hsubM, -, hman, -⟩ := theorem_3_27 PX hne hS'reg
+  obtain ⟨hsubM, -, hman, -⟩ := theorem_3_2_3_of_isRegular PX hne hS'reg
   have := PX.paracompactSpace_subtype S'
   exact ⟨U, D.φ.isOpen_source, D.mem_source,
     fun y hy => (hall y (hsub hy.1) hy.2).isGoodPositionGermSc hf hy.2,
@@ -193,7 +193,7 @@ theorem A_to_Bgerm_r1 (hA : A) : Bgerm_r1 := by
       subset_rfl himage, Dy.shrink_isRegular S' subset_rfl Dy.φ.isOpen_source Dy.mem_source
       Dy.V_relOpen Dy.zero_mem_V subset_rfl himage hregy.isScSmooth hregy.π_mem⟩
   have hne : S'.Nonempty := ⟨x, D.mem_source, hx⟩
-  obtain ⟨hsubM, -, hman, -⟩ := theorem_3_27 PX hne hS'reg
+  obtain ⟨hsubM, -, hman, -⟩ := theorem_3_2_3_of_isRegular PX hne hS'reg
   have := PX.paracompactSpace_subtype S'
   exact ⟨U, D.φ.isOpen_source, D.mem_source,
     fun y hy => (hall y (hsub hy.1) hy.2).isGoodPositionGermSc hf hy.2,
@@ -207,14 +207,14 @@ theorem B_to_Bgerm_r1 (hB : B) : Bgerm_r1 := by
     (isGoodPositionGermTame_of_sc_r1 hf hy.2 (hall y hy)).isGoodPositionGermSc hf hy.2, hrest⟩
 
 
-#rt_check RoundTrip.V3_85.A_to_B [Polyfold.theorem_3_54_two, Polyfold.theorem_3_54,
-  Polyfold.theorem_3_54_tangentGermChart_solutionSet,
+#rt_check RoundTrip.V3_85.A_to_B [Polyfold.theorem_3_6_8_two, Polyfold.theorem_3_6_8,
+  Polyfold.theorem_3_6_8_tangentGermChart_solutionSet,
   Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally]
-#rt_overlap RoundTrip.V3_85.A_to_B [Polyfold.theorem_3_54_two, Polyfold.theorem_3_54,
-  Polyfold.theorem_3_54_tangentGermChart_solutionSet,
+#rt_overlap RoundTrip.V3_85.A_to_B [Polyfold.theorem_3_6_8_two, Polyfold.theorem_3_6_8,
+  Polyfold.theorem_3_6_8_tangentGermChart_solutionSet,
   Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally]
-#rt_check RoundTrip.V3_85.A_to_Bgerm_r1 [Polyfold.theorem_3_54_two, Polyfold.theorem_3_54,
-  Polyfold.theorem_3_54_tangentGermChart_solutionSet,
+#rt_check RoundTrip.V3_85.A_to_Bgerm_r1 [Polyfold.theorem_3_6_8_two, Polyfold.theorem_3_6_8,
+  Polyfold.theorem_3_6_8_tangentGermChart_solutionSet,
   Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally]
 
 end RoundTrip.V3_85

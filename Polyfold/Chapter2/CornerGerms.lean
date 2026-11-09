@@ -2,14 +2,14 @@ import Polyfold.Chapter2.TameFaces
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.4,
-**Proposition 2.44**, second sentence: the corner germs `F^σ_x` of a tame M-polyfold are germs of
+**Proposition 2.5.16 (preprint 2.44)**, second sentence: the corner germs `F^σ_x` of a tame M-polyfold are germs of
 tame sub-M-polyfolds of codimension `#σ`.
 
 # Corner germs of tame M-polyfolds
 
 ## The text, paraphrased
 
-(Proposition 2.44) In a tame M-polyfold every point `x` has exactly `d_X(x)` local faces (face
+(Proposition 2.5.16 (preprint 2.44)) In a tame M-polyfold every point `x` has exactly `d_X(x)` local faces (face
 germs `𝓕_x`); for `σ ⊆ 𝓕_x`, the germ `F^σ_x = ⋂_{[F, x] ∈ σ} F` is the germ of a tame
 sub-M-polyfold of codimension `#σ`, with `d_{F^σ}(x) = d_X(x) − #σ`.  (No proof in the text; the
 exposition argues by induction on `#σ`.)
@@ -25,12 +25,12 @@ exposition argues by induction on `#σ`.)
   `O ∩ V ∩ f_σ = O ∩ V ∩ ⋂_{i ∈ σ} F_i`.
 * `Polyfold.corner_tameModel`: its image has the tame model `π_σ(…) ⊆ [0,∞)^{n − #σ} ⊕ W`, with
   `d_{C'}(π_σ y) + #σ = d_C(y)`.
-* `Polyfold.MPolyfold.proposition_2_44_corner` (**Proposition 2.44**, second sentence).
+* `Polyfold.MPolyfold.proposition_2_5_16_corner` (**Proposition 2.5.16 (preprint 2.44)**, second sentence).
 
 ## What the text leaves implicit, and the choices made
 
 * "Face germs at `x`" are the faces `F_i`, `i ∈ I(φ(x))`, of the tame chart `φ : V → O` around `x`
-  (Corollary 2.41: there are `d_X(x)` of them), and `σ` is a set of indices `i ∈ I(φ(x))`; "the germ
+  (Corollary 2.5.13 (preprint 2.41): there are `d_X(x)` of them), and `σ` is a set of indices `i ∈ I(φ(x))`; "the germ
   `F^σ_x` is the germ of `A`" is witnessed by `A = φ⁻¹(B ∩ ⋂_{i ∈ σ} F_i)` itself for an open
   `B ∋ φ(x)`.  "Codimension `#σ`" is the number of quadrant coordinates removed in the tame model
   of `A`, and `d_A + #σ = d_X` holds on all of `A`.
@@ -231,7 +231,7 @@ lemma cornerKill_coord_mem (y : E 0) {l : Fin n} (hl : l ∈ σ) :
 lemma cornerKill_mem (hT : C = T 0 ⁻¹' quadrant n W 0) {y : E 0} (hy : y ∈ C) :
     cornerKill T σ 0 y ∈ C := cornerIncl_mem σ T hT (cornerProj_mem σ T hT hy)
 
-/-- **The retraction onto a corner** (the germs `F^σ_x` of Proposition 2.44): let `r` be tame and
+/-- **The retraction onto a corner** (the germs `F^σ_x` of Proposition 2.5.16 (preprint 2.44)): let `r` be tame and
 `o ∈ O` with `σ ⊆ I(o)`.  There are the faces `F_i ∋ o` of `O` (`i ∈ σ`, `F_i ⊆ f_i`), an open
 `V ∋ o`, and an sc-smooth retraction `s = r ∘ P_σ` (on `V ∩ C`) onto
 `O ∩ V ∩ ⋂_{i ∈ σ} F_i = O ∩ V ∩ f_σ`.  The proof uses Lemma 4.C for every `i ∈ σ`: `r` maps points
@@ -339,7 +339,7 @@ theorem corner_retraction (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWit
 /-- **The tame model of a corner**: for an sc-smooth retraction `s = r ∘ P_σ` (on `S.U ⊆ U`) onto
 a subset of `O ∩ f_σ`, the map `r' = π_σ ∘ r ∘ ι_σ` is a tame sc-smooth retraction of
 `C' = [0,∞)^{n − #σ} ⊕ W` onto `π_σ(s(U_s))`, and `d_{C'}(π_σ y) + #σ = d_C(y)` there (the proof
-of `proposition_2_43_tameModel` with `σ` in place of `{i}`). -/
+of `proposition_2_5_15_tameModel` with `σ` in place of `{i}`). -/
 theorem corner_tameModel (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
     (S : ScRetraction E C) (hSσ : ∀ y ∈ S.retract, ∀ l ∈ σ, (T 0 y).1 l = 0)
     (hSO : S.retract ⊆ R.retract) (hSU : S.U ⊆ R.U) (hSeq : EqOn S (R ∘ cornerKill T σ 0) S.U) :
@@ -447,7 +447,7 @@ theorem corner_tameModel (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith
 
 end CornerRetract
 
-/-! ### Proposition 2.44: the corner germs are tame sub-M-polyfolds -/
+/-! ### Proposition 2.5.16 (preprint 2.44): the corner germs are tame sub-M-polyfolds -/
 
 namespace MPolyfold
 
@@ -455,9 +455,9 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- **Proposition 2.44**, second sentence: let `X` be tame and `x ∈ X`.  In a tame chart
+/-- **Proposition 2.5.16 (preprint 2.44)**, second sentence: let `X` be tame and `x ∈ X`.  In a tame chart
 `φ : V → O` around `x` the faces of `O` through `φ(x)` are the `F_i`, `i ∈ I(φ(x))`
-(Corollary 2.41); for every `σ ⊆ I(φ(x))` (a set of `#σ` distinct face germs at `x`) the germ at `x`
+(Corollary 2.5.13 (preprint 2.41)); for every `σ ⊆ I(φ(x))` (a set of `#σ` distinct face germs at `x`) the germ at `x`
 of `F^σ = ⋂_{i ∈ σ} φ⁻¹(F_i)` is the germ of a tame sub-M-polyfold `A` of `X` with
 `d_A(y) + #σ = d_X(y)` for all `y ∈ A` (in particular `d_A(x) = d_X(x) − #σ`).  Here
 `A = {y ∈ V | φ(y) ∈ B, φ(y) ∈ F_i ∀ i ∈ σ}` for an open `B ∋ φ(x)`.
@@ -465,9 +465,9 @@ of `F^σ = ⋂_{i ∈ σ} φ⁻¹(F_i)` is the germ of a tame sub-M-polyfold `A`
 *Proof.* Lemma 4.C for every `i ∈ σ` gives the retraction `r ∘ P_σ` onto `O ∩ B ∩ f_σ =
 O ∩ B ∩ ⋂ F_i` near `φ(x)` (`corner_retraction`), whose image has the tame model
 `(π_σ(O ∩ B ∩ f_σ), [0,∞)^{n − #σ} ⊕ W, ℝ^{n − #σ} ⊕ W)` (`corner_tameModel`); conclude as for
-Theorem 2.45 (`isSubMPolyfold_of_local`, `faceChart`).  The text gives no proof; the exposition
+Theorem 2.5.17 (preprint 2.45) (`isSubMPolyfold_of_local`, `faceChart`).  The text gives no proof; the exposition
 argues by induction on `#σ`, identifying the germ of `F_1 ∩ F_2` with a face of `F_1`. -/
-theorem proposition_2_44_corner (hP : P.IsTame) (x : X) :
+theorem proposition_2_5_16_corner (hP : P.IsTame) (x : X) :
     ∃ φ : MChart X, P.IsChart φ ∧ x ∈ φ.source ∧
       ∃ (R : ScRetraction φ.model.E φ.model.C) (n : ℕ) (W : ScBanach)
         (T : ScIso φ.model.E ((ScBanach.const (Fin n → ℝ)).prod W)),

@@ -4,57 +4,57 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-**Lemma 3.9** (at the base point) and **Proposition 3.10** (the linearization at `0` of a basic
+**Lemma 3.1.9 (preprint 3.9)** (at the base point) and **Proposition 3.1.10 (preprint 3.10)** (the linearization at `0` of a basic
 germ plus an sc⁺-germ is an sc-Fredholm operator of index `n − N`).
 
 # The linearization of a basic germ
 
 ## The text, paraphrased
 
-(Lemma 3.9) For `B` as in Definition 3.7 and every `ε > 0`, `m ≥ 0`: `|D₂B(a, w)ζ|_m ≤ ε|ζ|_m` for
+(Lemma 3.1.9 (preprint 3.9)) For `B` as in Definition 3.1.7 (preprint 3.7) and every `ε > 0`, `m ≥ 0`: `|D₂B(a, w)ζ|_m ≤ ε|ζ|_m` for
 `ζ ∈ W_m` and `(a, w) ∈ E_{m+1}` close to `(0, 0)` in `E_m`; in particular `D₂B(0, 0) = 0`.
-(Proposition 3.10) Let `f : [0,∞)^k ⊕ ℝ^{n−k} ⊕ W → ℝᴺ ⊕ W` be an sc-smooth germ around `f(0) = 0`
+(Proposition 3.1.10 (preprint 3.10)) Let `f : [0,∞)^k ⊕ ℝ^{n−k} ⊕ W → ℝᴺ ⊕ W` be an sc-smooth germ around `f(0) = 0`
 of the form `f = h + s`, `h` a basic germ and `s` an sc⁺-germ.  Then `Df(0) : ℝⁿ ⊕ W → ℝᴺ ⊕ W` is
 an sc-Fredholm operator of index `n − N`.  Moreover `Df(a, w) : ℝⁿ ⊕ W_m → ℝᴺ ⊕ W_m` is Fredholm of
 index `n − N` for `(a, w) ∈ E_{m+1}` small in `E_m`.  Proof: `Df(0)(δa, δw) = δw − D₂B(0)δw −
 D₁B(0)δa + (1 − P)Df(0)(δa, δw) + Ds(0)(δa, δw)`, `D₂B(0) = 0`, so `Df(0)` is an sc⁺-perturbation
-of `(δa, δw) ↦ (0, δw)`, which is sc-Fredholm of index `n − N`; Proposition 1.10.
+of `(δa, δw) ↦ (0, δw)`, which is sc-Fredholm of index `n − N`; Proposition 1.1.11 (preprint 1.10).
 
 ## What is formalized
 
 * `Polyfold.IsSc1GermWith.isScOperator_deriv_zero`: the derivative of an sc¹-germ at the smooth
-  point `0` is an sc-operator (the remark after Proposition 1.16, for germs).
-* `Polyfold.IsSc0ContractionGerm.deriv_zero_snd` (**Lemma 3.9 at `(0, 0)`**): `D₂B(0, 0) = 0`, by
+  point `0` is an sc-operator (the remark after Proposition 1.2.1 (preprint 1.16), for germs).
+* `Polyfold.IsSc0ContractionGerm.deriv_zero_snd` (**Lemma 3.1.9 (preprint 3.9) at `(0, 0)`**): `D₂B(0, 0) = 0`, by
   the difference quotient along `t ↦ (0, tζ)` and the density of `W₁` in `W₀`.
 * `Polyfold.ScBanach.projWOp` (the operator `(δa, δw) ↦ (0, δw)` of (32)),
   `Polyfold.ScBanach.projWSplitting` (its sc-Fredholm splitting: kernel `ℝⁿ ⊕ 0`, cokernel
   `ℝᴺ ⊕ 0`), `Polyfold.ScBanach.scIndex_projWOp` (index `n − N`).
-* `Polyfold.proposition_3_10` (**Proposition 3.10, first statement**): for a basic germ `h`, an
+* `Polyfold.proposition_3_1_10` (**Proposition 3.1.10 (preprint 3.10), first statement**): for a basic germ `h`, an
   sc⁺-germ `s` (sc¹ into `(ℝᴺ ⊕ W)¹`) and `f = h + s` sc¹ with derivative `Df`, `Df(0)` is an
   sc-operator which is sc-Fredholm of index `dim ℝⁿ − dim ℝᴺ`.  The sc⁺-operator `S = Df(0) − T₀`
-  is constructed level by level (`proposition_3_10_scPlus`).
+  is constructed level by level (`proposition_3_1_10_scPlus`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **The second statement of Proposition 3.10** (`Df(a, w)` Fredholm of index `n − N` on level
+* **The second statement of Proposition 3.1.10 (preprint 3.10)** (`Df(a, w)` Fredholm of index `n − N` on level
   `m` for `(a, w) ∈ E_{m+1}` small in `E_m`) is not in this file: it is proved, on every level
-  `m`, in `BasicGermLinearizationLevel.lean` (`Polyfold.proposition_3_10_level`; both statements
-  together: `Polyfold.proposition_3_10_full`; round-trip item V3.12).  It needs Lemma 3.9 at
+  `m`, in `BasicGermLinearizationLevel.lean` (`Polyfold.proposition_3_1_10_level`; both statements
+  together: `Polyfold.proposition_3_1_10_full`; round-trip item V3.12).  It needs Lemma 3.1.9 (preprint 3.9) at
   points other than `(0, 0)`, on level `m` with an arbitrary `ε`
   (`IsSc0ContractionGerm.exists_norm_levelDeriv_snd_le`, `SolutionLinearization.lean`).  The
   level-`0` case for points of `U₁` small on level `1` was proved earlier for the germs of
-  Theorem 3.38 (`StabilityData.exists_isFredholm_Dfs'`, used for Corollary 3.41).
+  Theorem 3.4.2 (preprint 3.38) (`StabilityData.exists_isFredholm_Dfs'`, used for Corollary 3.41).
 * **`Df(0) − T₀` is sc⁺.**  The text says "`Df(0)` is an sc⁺-perturbation of (32)".  The
   verification: the `ℝᴺ`-component of `Df(0)` is sc⁺ because `ℝᴺ` has all levels equal; `D₁B(0)`
   is sc⁺ because `D₁B(0)δa = DB(0)(δa, 0)` with `(δa, 0)` a smooth point and `DB(0)` an sc-operator
   (so `D₁B(0)` takes values in `W_∞`); its level maps `E_m → W_{m+1}` are continuous because they
   factor through the continuous `DB(0)_{m+1} : E_{m+1} → W_{m+1}` and `δa ↦ (δa, 0)` (no finite
   dimensionality of `ℝⁿ` is needed for this); `Ds(0)` is sc⁺ because `s` is sc¹ into `W¹`, so
-  `Ds(0)` is an sc-operator `E → (ℝᴺ ⊕ W)¹`; and `D₂B(0) = 0` by Lemma 3.9.
+  `Ds(0)` is an sc-operator `E → (ℝᴺ ⊕ W)¹`; and `D₂B(0) = 0` by Lemma 3.1.9 (preprint 3.9).
 * **The identity `Df(0) = (pr_{ℝᴺ} ∘ Df(0), δw − DB(0)(δa, δw)) + ι Ds(0)`** uses the uniqueness of
   derivatives at `0` within `U₁` (`U₁` is relatively open in the convex `C₁` with nonempty
   interior) and the density of `E₁` in `E₀`; the `W`-component of `h` is `w − B(a, w)` only on
-  `U₀` (Definition 3.7), which is what `HasFDerivWithinAt.congr` needs.
+  `U₀` (Definition 3.1.7 (preprint 3.7)), which is what `HasFDerivWithinAt.congr` needs.
 * `f = h + s` is taken sc¹ with a given derivative family (the text: "an sc-smooth germ of the
   form `f = h + s`"); `s` is taken sc¹ into `(ℝᴺ ⊕ W)¹` (an sc⁺-germ is sc-smooth into `F¹`).
 -/
@@ -70,7 +70,7 @@ variable {E F : ScBanach}
 /-! ### The derivative of an sc¹-germ at `0` is an sc-operator -/
 
 /-- The derivative `Df(0) : E₀ → F₀` of an sc¹-germ at the smooth point `0` is an sc-operator
-(the remark after Proposition 1.16, for germs): its level-`m` map is the fibre component of the
+(the remark after Proposition 1.2.1 (preprint 1.16), for germs): its level-`m` map is the fibre component of the
 level-`m` tangent map at `(0, ·)`. -/
 theorem IsSc1GermWith.isScOperator_deriv_zero {C : Set (E 0)} {G : ScNbhdGerm E C} {f : E 0 → F 0}
     {D : E 1 → E 0 →L[ℝ] F 0} (h : IsSc1GermWith G f D) : IsScOperator (D 0) := by
@@ -96,12 +96,12 @@ theorem IsSc1GermWith.isScOperator_deriv_zero {C : Set (E 0)} {G : ScNbhdGerm E 
               rw [map_smul, hTm', hTm', map_smul, map_smul]; rfl)
             cont := hcont }, hTm'⟩
 
-/-! ### Lemma 3.9 at the base point -/
+/-! ### Lemma 3.1.9 (preprint 3.9) at the base point -/
 
 variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensional ℝ P] {W : ScBanach}
   {Ct : Set P} {G : ScNbhdGerm (ScBanach.paramProd P W) (Ct ×ˢ univ)}
 
-/-- **Lemma 3.9 at `(0, 0)`**: for an sc⁰-contraction germ `B` (Definition 3.7/3.28) which is sc¹
+/-- **Lemma 3.1.9 (preprint 3.9) at `(0, 0)`**: for an sc⁰-contraction germ `B` (Definition 3.1.7 (preprint 3.7)/3.28) which is sc¹
 with derivative `DB`, `D₂B(0, 0) = 0`: the difference quotient of `t ↦ B(0, tζ)` is bounded by
 `ε|ζ|` for every `ε`, first for `ζ ∈ W₁`, then by density for `ζ ∈ W₀`. -/
 theorem IsSc0ContractionGerm.deriv_zero_snd {Bc : P × W 0 → W 0} (hB : IsSc0ContractionGerm Ct G Bc)
@@ -309,7 +309,7 @@ theorem scIndex_projWOp : scIndex (projWOp P W Q) = finrank ℝ P - finrank ℝ 
 
 end ScBanach
 
-/-! ### Proposition 3.10 -/
+/-! ### Proposition 3.1.10 (preprint 3.10) -/
 
 section Prop310
 
@@ -318,11 +318,11 @@ variable {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensiona
 local notation "E'" => ScBanach.paramProd P W
 local notation "F'" => ScBanach.paramProd Q W
 
-/-- **The sc⁺-operator `S = Df(0) − T₀` of the proof of Proposition 3.10**, constructed level by
+/-- **The sc⁺-operator `S = Df(0) − T₀` of the proof of Proposition 3.1.10 (preprint 3.10)**, constructed level by
 level from the sc-operators `Df(0)`, `Dh(0)` and `Ds(0)`: `S(δa, δw) = (pr_{ℝᴺ} Df(0)(δa, δw),
 pr_W Dh(0)(δa, 0) + pr_W ι Ds(0)(δa, δw))` (where `pr_W Dh(0)(δa, 0) = −D₁B(0)δa`).  Returned with
 its defining identity on level `0`. -/
-theorem proposition_3_10_scPlus {DF : (E') 1 → (E') 0 →L[ℝ] (F') 0} (hDF : IsScOperator (DF 0))
+theorem proposition_3_1_10_scPlus {DF : (E') 1 → (E') 0 →L[ℝ] (F') 0} (hDF : IsScOperator (DF 0))
     {Dh : (E') 1 → (E') 0 →L[ℝ] (F') 0} (hDh : IsScOperator (Dh 0))
     {Ds : (E') 1 → (E') 0 →L[ℝ] (F').shift 0} (hDs : IsScOperator (Ds 0)) :
     ∃ S : ScPlus (E') (F'), ∀ x : (E') 0,
@@ -373,12 +373,12 @@ theorem ContinuousLinearMap.ext_of_comp_toBase_one {F₀ : ScBanach} {A B : E 0 
   refine (E.denseRange_incl 0).equalizer A.continuous B.continuous (funext fun x => ?_)
   exact congrArg (fun T : E 1 →L[ℝ] F₀ 0 => T x) h
 
-/-- **Proposition 3.10, first statement**: let `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` be a basic germ
-(Definition 3.7), `s` an sc⁺-germ (sc¹ into `(ℝᴺ ⊕ W)¹`, derivative `Ds`) and `f = h + s` sc¹
+/-- **Proposition 3.1.10 (preprint 3.10), first statement**: let `h : O(C̃ ⊕ W, 0) → ℝᴺ ⊕ W` be a basic germ
+(Definition 3.1.7 (preprint 3.7)), `s` an sc⁺-germ (sc¹ into `(ℝᴺ ⊕ W)¹`, derivative `Ds`) and `f = h + s` sc¹
 with derivative `Df`.  Then `Df(0) : ℝⁿ ⊕ W → ℝᴺ ⊕ W` is an sc-operator which is sc-Fredholm of
 index `n − N = dim ℝⁿ − dim ℝᴺ`: it is the sc⁺-perturbation `T₀ + S` of `T₀(δa, δw) = (0, δw)`
-(Lemma 3.9, `D₂B(0) = 0`), and Proposition 1.10 applies. -/
-theorem proposition_3_10 (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h : P × W 0 → Q × W 0}
+(Lemma 3.1.9 (preprint 3.9), `D₂B(0) = 0`), and Proposition 1.1.11 (preprint 1.10) applies. -/
+theorem proposition_3_1_10 (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h : P × W 0 → Q × W 0}
     {Bc : P × W 0 → W 0} (hh : IsBasicGerm Ct G h Bc) {s : P × W 0 → Q × W 1}
     {Ds : (E') 1 → (E') 0 →L[ℝ] (F').shift 0} (hs : IsSc1GermWith (F := (F').shift) G s Ds)
     {DF : (E') 1 → (E') 0 →L[ℝ] (F') 0}
@@ -405,7 +405,7 @@ theorem proposition_3_10 (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h : P �
     have h4 := hF.hasFDerivWithinAt 0 h01
     have := huniq.eq h4 h3
     rw [this]; rfl
-  -- Lemma 3.9: `(Dh(0)(0, ζ))₂ = ζ`
+  -- Lemma 3.1.9 (preprint 3.9): `(Dh(0)(0, ζ))₂ = ζ`
   have hDh2 : ∀ ζ : W 0, (Dh 0 ((0 : P), ζ)).2 = ζ := by
     intro ζ
     set DB₀ : (E') 0 →L[ℝ] W 0 :=
@@ -429,7 +429,7 @@ theorem proposition_3_10 (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h : P �
     have h' : ζ - (Dh 0 ((0 : P), ζ)).2 = 0 := this
     exact (sub_eq_zero.1 h').symm
   -- the sc⁺-operator `S` and the identity `Df(0) = T₀ + S`
-  obtain ⟨S, hS⟩ := proposition_3_10_scPlus (P := P) (W := W) hop hDhop hDsop
+  obtain ⟨S, hS⟩ := proposition_3_1_10_scPlus (P := P) (W := W) hop hDhop hDsop
   have hTS : hop.toScOperator = ScBanach.projWOp P W Q + S.toScOperator := by
     apply ScOperator.ext_base
     refine ContinuousLinearMap.ext fun x => ?_
@@ -450,8 +450,8 @@ theorem proposition_3_10 (hC : IsPartialQuadrant (ScBanach.const P) Ct) {h : P �
       change (Dh 0 (x.1, (0 : W 0))).2 + x.2 + (ι (Ds 0 x)).2 = _
       abel
   refine ⟨hop, ?_, ?_⟩
-  · rw [hTS]; exact proposition_1_10 (ScBanach.isScFredholm_projWOp P W Q) S
-  · rw [hTS, proposition_1_10_index (ScBanach.isScFredholm_projWOp P W Q) S,
+  · rw [hTS]; exact proposition_1_1_11_preprint (ScBanach.isScFredholm_projWOp P W Q) S
+  · rw [hTS, proposition_1_1_11_index (ScBanach.isScFredholm_projWOp P W Q) S,
       ScBanach.scIndex_projWOp]
 
 end Prop310

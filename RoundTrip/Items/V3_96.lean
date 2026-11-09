@@ -8,10 +8,10 @@ sc-Fredholm), refreshed 2026-11-02 against HEAD (germ reading).  `A` is the conj
 types of the theorems among the decls (`StrongBundle.IsSurjLinOfIndex` is a definition,
 vocabulary): `StrongBundle.linAt_index_of_conjugationData`,
 `StrongBundle.isSurjLinOfIndex_of_conjugationData`,
-`StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex`, `theorem_3_19_linearization_index`,
+`StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex`, `theorem_3_1_22_linearization_index`,
 `finrank_ker_eq_fredholmIndex_of_surjective`, `StrongBundle.linAt_isScFredholm`,
-`StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex`, `proposition_3_52_sc`,
-`theorem_3_19_linearization_sc`, universes instantiated at `0`.
+`StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex`, `proposition_3_6_5_sc`,
+`theorem_3_1_22_linearization_sc`, universes instantiated at `0`.
 
 * `A → B` is **proved** from the conjunct `StrongBundle.linAt_isScFredholm`: for an sc-Fredholm
   section (germ reading) at a zero `x` and **every** strong bundle chart `c` around `x`, with `z`
@@ -36,23 +36,23 @@ def A : Prop :=
   type_of% @Polyfold.StrongBundle.linAt_index_of_conjugationData.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.isSurjLinOfIndex_of_conjugationData.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_19_linearization_index.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_1_22_linearization_index.{0, 0} ∧
     type_of% @Polyfold.finrank_ker_eq_fredholmIndex_of_surjective.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex.{0, 0} ∧
-    type_of% @Polyfold.proposition_3_52_sc.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_19_linearization_sc.{0, 0}
+    type_of% @Polyfold.proposition_3_6_5_sc.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_1_22_linearization_sc.{0, 0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.StrongBundle.linAt_index_of_conjugationData.{0, 0},
     @Polyfold.StrongBundle.isSurjLinOfIndex_of_conjugationData.{0, 0},
     @Polyfold.StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex.{0, 0},
-    @Polyfold.theorem_3_19_linearization_index.{0, 0},
+    @Polyfold.theorem_3_1_22_linearization_index.{0, 0},
     @Polyfold.finrank_ker_eq_fredholmIndex_of_surjective.{0, 0},
     @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0},
     @Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex.{0, 0},
-    @Polyfold.proposition_3_52_sc.{0, 0},
-    @Polyfold.theorem_3_19_linearization_sc.{0, 0}⟩
+    @Polyfold.proposition_3_6_5_sc.{0, 0},
+    @Polyfold.theorem_3_1_22_linearization_sc.{0, 0}⟩
 
 /-- **The level-`0` shadow of `B`**, from the hypothesis `A` (conjunct
 `linAt_index_of_conjugationData`): at a zero of an sc-Fredholm section, the linearization
@@ -131,16 +131,16 @@ theorem A_to_B : A → B := by
 #rt_check RoundTrip.V3_96.A_to_B_level0 [Polyfold.StrongBundle.linAt_index_of_conjugationData,
   Polyfold.StrongBundle.isSurjLinOfIndex_of_conjugationData,
   Polyfold.StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex,
-  Polyfold.theorem_3_19_linearization_index, Polyfold.finrank_ker_eq_fredholmIndex_of_surjective,
+  Polyfold.theorem_3_1_22_linearization_index, Polyfold.finrank_ker_eq_fredholmIndex_of_surjective,
   Polyfold.StrongBundle.linAt_isScFredholm,
-  Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex, Polyfold.proposition_3_52_sc,
-  Polyfold.theorem_3_19_linearization_sc]
+  Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex, Polyfold.proposition_3_6_5_sc,
+  Polyfold.theorem_3_1_22_linearization_sc]
 #rt_check RoundTrip.V3_96.A_to_B [Polyfold.StrongBundle.linAt_index_of_conjugationData,
   Polyfold.StrongBundle.isSurjLinOfIndex_of_conjugationData,
   Polyfold.StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex,
-  Polyfold.theorem_3_19_linearization_index, Polyfold.finrank_ker_eq_fredholmIndex_of_surjective,
+  Polyfold.theorem_3_1_22_linearization_index, Polyfold.finrank_ker_eq_fredholmIndex_of_surjective,
   Polyfold.StrongBundle.linAt_isScFredholm,
-  Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex, Polyfold.proposition_3_52_sc,
-  Polyfold.theorem_3_19_linearization_sc]
+  Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex, Polyfold.proposition_3_6_5_sc,
+  Polyfold.theorem_3_1_22_linearization_sc]
 
 end RoundTrip.V3_96

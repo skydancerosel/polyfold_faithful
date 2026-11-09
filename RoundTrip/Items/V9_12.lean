@@ -143,7 +143,7 @@ theorem chartTangent_eq' {A : Set X} (d : P.SubmanifoldData A) {y : X} (hyA : y 
       tangentSpace φ.model.E φ.model.C (φ '' (d.toSubData.shrink φ ∩ A)) (levelLift φ 1 y) := by
   have hy1 : y ∈ P.levelSet 1 := d.mem_levelSet_one hyA hyV
   have hz : φ.model.E.toBase 1 (levelLift φ 1 y) = φ y := P.toBase_levelLift hφ hyφ hy1
-  obtain ⟨-, h2, -, -⟩ := d.remark_4_14 hφ hyA hyV hyφ hz
+  obtain ⟨-, h2, -, -⟩ := d.remark_4_2_2 hφ hyA hyV hyφ hz
   have hyW : y ∈ d.toSubData.shrink φ := d.toSubData.mem_shrink φ hyA hyV hyφ
   rw [← h2]
   ext h

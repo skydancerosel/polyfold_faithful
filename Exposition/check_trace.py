@@ -5,7 +5,7 @@ Adapted from the Morse project. A tag's path is relative to the Lean library roo
 
 Usage: python3 Exposition/check_trace.py Exposition/ProofByProof.md
 
-A tag has the form  ⟦Chapter1/ChainRule · theorem_1_21⟧ .
+A tag has the form  ⟦Chapter1/ChainRule · theorem_1_3_1⟧ .
 For each tag we find the declaration in <LIB>/<path>.lean, record its line number and full
 name, and extract the declaration header (the statement, up to ':=' or 'where').
 """

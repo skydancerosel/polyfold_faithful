@@ -4,14 +4,14 @@ import RoundTrip.Blind.V2_38
 
 /-! Round trip for V2_38 (Corollary 2.32: `d_{X_C} = d_C`).
 
-`A` is the conjunction of the types of `Polyfold.corollary_2_32`,
+`A` is the conjunction of the types of `Polyfold.corollary_2_4_13`,
 `IsRelOpenInQuadrant.degIndex_le`, `IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1` and
 `degIndexWith_le_of_germ` (no universe parameters).
 
 Same notions on both sides: B's `X_C` is the project's `hC.toMPolyfold hne` for the relatively
 open subset `U = C` of `C`, `d_X` is `MPolyfold.degIndex`, `d_C` is `degIndex E C`.
 
-`A → B`: `C` is relatively open in itself (`relOpen_self`, `V = E₀`), and `corollary_2_32` at
+`A → B`: `C` is relatively open in itself (`relOpen_self`, `V = E₀`), and `corollary_2_4_13` at
 `U = C`.
 
 `B → A` fails for a genuine reason: A's fourth conjunct `degIndexWith_le_of_germ` (the core of
@@ -22,7 +22,7 @@ quadrants only; an sc¹ germ is not a chart, so B says nothing about it (with sc
 it would follow from B, `F` being a chart of `X_{U₀}`).  The other three conjuncts do follow from
 B (`B_to_cor`, rt_check OK): A states the corollary for every nonempty relatively open `U ⊆ C`,
 and `X_U` is sc-diffeomorphic to the open subset `{c | c ∈ U}` of `X_C` (`incl_isScDiffeoOn`, new
-glue), so Proposition 2.24 (`proposition_2_24`, a non-item lemma) reduces it to B at `U = C`;
+glue), so Proposition 2.24 (`proposition_2_4_4`, a non-item lemma) reduces it to B at `U = C`;
 `degIndex_le` and `degIndex_le_degIndex_of_lvl1` are the two inequalities of that equality. -/
 
 namespace RoundTrip.V2_38
@@ -30,12 +30,12 @@ open Polyfold Set
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.corollary_2_32) ∧ (type_of% @Polyfold.IsRelOpenInQuadrant.degIndex_le) ∧
+  (type_of% @Polyfold.corollary_2_4_13) ∧ (type_of% @Polyfold.IsRelOpenInQuadrant.degIndex_le) ∧
     (type_of% @Polyfold.IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1) ∧
     (type_of% @Polyfold.degIndexWith_le_of_germ)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.corollary_2_32, @Polyfold.IsRelOpenInQuadrant.degIndex_le,
+  ⟨@Polyfold.corollary_2_4_13, @Polyfold.IsRelOpenInQuadrant.degIndex_le,
     @Polyfold.IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1, @Polyfold.degIndexWith_le_of_germ⟩
 
 /-- A partial quadrant is relatively open in itself. -/
@@ -124,26 +124,26 @@ end Glue
 
 /-- From `B`: Corollary 2.32 for every nonempty relatively open `U ⊆ C` (A's first conjunct),
 via Proposition 2.24 along `X_U ↪ X_C`. -/
-theorem B_to_cor (hB : B) : type_of% @Polyfold.corollary_2_32 := by
+theorem B_to_cor (hB : B) : type_of% @Polyfold.corollary_2_4_13 := by
   intro E C U hU hne x
   obtain ⟨hC, hBC⟩ := hB E C hU.isPartialQuadrant
   have hneC : C.Nonempty := ⟨x, U_subset_C hU x.2⟩
-  rw [proposition_2_24 (incl_isScDiffeoOn hU hne hC hneC) (mem_univ x), hBC hneC]
+  rw [proposition_2_4_4 (incl_isScDiffeoOn hU hne hC hneC) (mem_univ x), hBC hneC]
   rfl
 
 /-- From `B`: the first three conjuncts of `A`. -/
 theorem B_to_A123 (hB : B) :
-    (type_of% @Polyfold.corollary_2_32) ∧ (type_of% @Polyfold.IsRelOpenInQuadrant.degIndex_le) ∧
+    (type_of% @Polyfold.corollary_2_4_13) ∧ (type_of% @Polyfold.IsRelOpenInQuadrant.degIndex_le) ∧
       (type_of% @Polyfold.IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1) :=
   ⟨B_to_cor hB, fun hU hne x => le_of_eq (B_to_cor hB hU hne x),
     fun hU hne x _ => ge_of_eq (B_to_cor hB hU hne x)⟩
 
-#rt_check RoundTrip.V2_38.A_to_B [Polyfold.corollary_2_32, Polyfold.IsRelOpenInQuadrant.degIndex_le,
+#rt_check RoundTrip.V2_38.A_to_B [Polyfold.corollary_2_4_13, Polyfold.IsRelOpenInQuadrant.degIndex_le,
   Polyfold.IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1, Polyfold.degIndexWith_le_of_germ]
-#rt_check RoundTrip.V2_38.B_to_A123 [Polyfold.corollary_2_32,
+#rt_check RoundTrip.V2_38.B_to_A123 [Polyfold.corollary_2_4_13,
   Polyfold.IsRelOpenInQuadrant.degIndex_le,
   Polyfold.IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1, Polyfold.degIndexWith_le_of_germ]
-#rt_overlap RoundTrip.V2_38.B_to_A123 [Polyfold.corollary_2_32,
+#rt_overlap RoundTrip.V2_38.B_to_A123 [Polyfold.corollary_2_4_13,
   Polyfold.IsRelOpenInQuadrant.degIndex_le,
   Polyfold.IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1, Polyfold.degIndexWith_le_of_germ]
 

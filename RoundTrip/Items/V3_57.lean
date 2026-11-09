@@ -9,19 +9,19 @@ noncomputable section
 namespace RoundTrip.V3_57
 open Polyfold
 
-/-- The project's statement: `lemma_3_70` (the model `ℝⁿ ⊕ W`, no universe parameters),
-`lemma_3_70_core`, `exists_rayDecomp` and `exists_lipschitz_small` (an arbitrary normed space;
+/-- The project's statement: `lemma_3_8_13` (the model `ℝⁿ ⊕ W`, no universe parameters),
+`lemma_3_8_13_core`, `exists_rayDecomp` and `exists_lipschitz_small` (an arbitrary normed space;
 universe instantiated at `0`). -/
 def A : Prop :=
-  type_of% @Polyfold.lemma_3_70 ∧ type_of% @Polyfold.lemma_3_70_core.{0} ∧
+  type_of% @Polyfold.lemma_3_8_13 ∧ type_of% @Polyfold.lemma_3_8_13_core.{0} ∧
     type_of% @Polyfold.exists_rayDecomp.{0} ∧ type_of% @Polyfold.exists_lipschitz_small.{0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_3_70, @Polyfold.lemma_3_70_core.{0}, @Polyfold.exists_rayDecomp.{0},
+  ⟨@Polyfold.lemma_3_8_13, @Polyfold.lemma_3_8_13_core.{0}, @Polyfold.exists_rayDecomp.{0},
     @Polyfold.exists_lipschitz_small.{0}⟩
 
-/-- A ⇒ B, through the conjunct `lemma_3_70`: B's `τ : N → E₁` is pushed to `E₀` by `ι₁` and set
-to `0` off the cone, so that it is `Y`-valued everywhere (as `lemma_3_70` demands); B's good
+/-- A ⇒ B, through the conjunct `lemma_3_8_13`: B's `τ : N → E₁` is pushed to `E₀` by `ι₁` and set
+to `0` off the cone, so that it is `Y`-valued everywhere (as `lemma_3_8_13` demands); B's good
 complement (sc-splitting) gives the project's algebraic one. -/
 theorem A_to_B : A → B := by
   rintro ⟨h70, -, -, -⟩
@@ -65,7 +65,7 @@ theorem A_to_B : A → B := by
   rw [← hDq, h, degIndex_quadrant hmem]
   rfl
 
-#rt_check RoundTrip.V3_57.A_to_B [Polyfold.lemma_3_70, Polyfold.lemma_3_70_core,
+#rt_check RoundTrip.V3_57.A_to_B [Polyfold.lemma_3_8_13, Polyfold.lemma_3_8_13_core,
   Polyfold.exists_rayDecomp, Polyfold.exists_lipschitz_small]
 
 end RoundTrip.V3_57

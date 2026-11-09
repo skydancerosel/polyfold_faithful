@@ -43,21 +43,21 @@ case `dim N = 1` and `Γ = ∅`, or `N ∩ (ℝ^{Γᶜ} ⊕ W) = {0}`.
 * `Polyfold.exists_quadrantEquiv_of_pointed`: for `N` in good position with `N ∩ C` pointed,
   a linear isomorphism `N ≅ ℝ^{dim N}` carrying `N ∩ C` onto `[0, ∞)^{dim N}` (from the normal
   form `IsInGoodPosition.quadrantNormalForm`), and the generators `e⁻¹(e_j)` of its extreme rays.
-* `Polyfold.lemma_3_8_4_2021` (**Lemma 3.8.4**), `Polyfold.lemma_3_8_5_2021`
-  (**Lemma 3.8.5**, as the dichotomy), `Polyfold.lemma_3_8_6_2021` (**Lemma 3.8.6 (1)**),
-  `Polyfold.lemma_3_8_6_two_2021` (**Lemma 3.8.6 (2)** for `N ≠ 0`),
-  `Polyfold.corollary_3_8_7_2021` (**Corollary 3.8.7**, with the sharper conclusion that
+* `Polyfold.lemma_3_8_4` (**Lemma 3.8.4**), `Polyfold.lemma_3_8_5`
+  (**Lemma 3.8.5**, as the dichotomy), `Polyfold.lemma_3_8_6` (**Lemma 3.8.6 (1)**),
+  `Polyfold.lemma_3_8_6_two` (**Lemma 3.8.6 (2)** for `N ≠ 0`),
+  `Polyfold.corollary_3_8_7` (**Corollary 3.8.7**, with the sharper conclusion that
   `N ∩ C` is a quadrant of `N`).
-* `Polyfold.lemma_3_8_5_not_literal_2021`: the reading "`N ⊆ ℝ^{Γᶜ} ⊕ W` implies `dim N = 1`" of
+* `Polyfold.lemma_3_8_5_not_literal`: the reading "`N ⊆ ℝ^{Γᶜ} ⊕ W` implies `dim N = 1`" of
   Lemma 3.8.5, and Lemma 3.8.6 (2) as printed, **do not hold as we read them for `N = {0}`** (which
   is in good position, with `N ∩ C = {0}` a closed convex cone and `N ⊆ ℝ^{Γᶜ} ⊕ W`).
-* `Polyfold.halfLine_witness_2021`: the hypotheses of Lemma 3.8.6 (2) with `N ≠ 0` are satisfiable
+* `Polyfold.halfLine_witness`: the hypotheses of Lemma 3.8.6 (2) with `N ≠ 0` are satisfiable
   (`N = E = ℝ`, `C = [0, ∞)`).
 
 ## What the text leaves implicit, and the choices made
 
 * **Lemma 3.8.4 (1) and (3)** do not need the cone hypothesis: they are preprint Lemma 3.65
-  (= 2021 Lemma 3.8.8, `lemma_3_65`).  **(2)** uses only `N ∩ C ∩ −(N ∩ C) = {0}`: the text's
+  (= 2021 Lemma 3.8.8, `lemma_3_8_8`).  **(2)** uses only `N ∩ C ∩ −(N ∩ C) = {0}`: the text's
   proof writes `a` as a sum of extreme-ray generators (Krein–Milman, Lemma 3.8.1, not formalized);
   here the normal form gives `N ∩ C ≅ [0, ∞)^{dim N}` directly, and for `0 ≠ a ∈ N ∩ C` with
   `a_i = 0` a generator `b = e⁻¹(e_j)` with `e(a)_j > 0` has `a − e(a)_j b ∈ N ∩ C`, which forces
@@ -203,8 +203,8 @@ theorem exists_quadrantEquiv_of_pointed (hN : IsInGoodPosition E (T 0 ⁻¹' qua
 (1) `y_i = 0` for `y ∈ N^⊥` and `i ∈ σ_a`, `a` a generator of an extreme ray of `N ∩ C`;
 (2) `Γ = ⋃_{0 ≠ a ∈ N ∩ C} σ_a` equals `Γ' = ⋃_{a generator} σ_a`;
 (3) `y_i = 0` for `y ∈ N^⊥` and `i ∈ Γ`.
-((1) and (3) hold without the cone hypothesis: `lemma_3_65`.) -/
-theorem lemma_3_8_4_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
+((1) and (3) hold without the cone hypothesis: `lemma_3_8_8`.) -/
+theorem lemma_3_8_4 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
     (hQ : IsClosedConvexCone (quadCone (coordFun (T 0)) N)) {P : Submodule ℝ (E 0)}
     (hP : IsGoodComplement E (T 0 ⁻¹' quadrant n W 0) N P) :
     (∀ y ∈ P, ∀ i, (∃ a, IsExtremeRayGen (quadCone (coordFun (T 0)) N) a ∧
@@ -214,7 +214,7 @@ theorem lemma_3_8_4_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
     (∀ y ∈ P, ∀ i ∈ vanIdx (coordFun (T 0)) N, (T 0 y).1 i = 0) := by
   obtain ⟨ε, hε, hgood⟩ := hP.exists_eps
   have h3 : ∀ y ∈ P, ∀ i ∈ vanIdx (coordFun (T 0)) N, (T 0 y).1 i = 0 := fun y hy i hi =>
-    lemma_3_65 (coordFun (T 0)) N P hε hgood hy hi
+    lemma_3_8_8 (coordFun (T 0)) N P hε hgood hy hi
   have hgen : ∀ i, (∃ a, IsExtremeRayGen (quadCone (coordFun (T 0)) N) a ∧
       (T 0 (a : E 0)).1 i = 0) → i ∈ vanIdx (coordFun (T 0)) N := by
     rintro i ⟨a, ⟨ha, ha0, -⟩, hai⟩
@@ -240,7 +240,7 @@ theorem lemma_3_8_4_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
 for `N` in good position to `C` with `N ∩ C` a closed convex cone, either
 `N ∩ (ℝ^{Γᶜ} ⊕ W) = {0}` (the kernel of `P : N → ℝ^Γ` is trivial), or `N ⊆ ℝ^{Γᶜ} ⊕ W`, `dim N = 1`
 and `Γ = ∅`. -/
-theorem lemma_3_8_5_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
+theorem lemma_3_8_5 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
     (hQ : IsClosedConvexCone (quadCone (coordFun (T 0)) N)) :
     LinearMap.ker (sigmaCoord (coordFun (T 0)) N) = ⊥ ∨
       (LinearMap.ker (sigmaCoord (coordFun (T 0)) N) = ⊤ ∧ finrank ℝ N = 1 ∧
@@ -311,7 +311,7 @@ theorem lemma_3_8_5_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
 /-- **2021 Lemma 3.8.6 (1), p. 148 (new in the 2021 edition)**: if `N` is in good position to `C`
 and `N ∩ (ℝ^{Γᶜ} ⊕ W) = {0}`, then `P : N → ℝ^Γ` is a linear isomorphism carrying `N ∩ C` onto the
 quadrant `Q_Γ = [0, ∞)^Γ`.  (The cone hypothesis of the text is not needed.) -/
-theorem lemma_3_8_6_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
+theorem lemma_3_8_6 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
     (hker : LinearMap.ker (sigmaCoord (coordFun (T 0)) N) = ⊥) :
     Bijective (sigmaCoord (coordFun (T 0)) N) ∧
       sigmaCoord (coordFun (T 0)) N '' quadCone (coordFun (T 0)) N =
@@ -343,14 +343,14 @@ theorem lemma_3_8_6_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
 
 /-- **2021 Lemma 3.8.6 (2), p. 148 (new in the 2021 edition)**, for `N ≠ 0`: if `N` is in good
 position to `C`, `N ∩ C` is a closed convex cone and `N ⊆ ℝ^{Γᶜ} ⊕ W`, then `(N, N ∩ C) ≅ (ℝ, ℝ₊)`.
-(For `N = 0` the statement does not hold as we read it: `lemma_3_8_5_not_literal_2021`.) -/
-theorem lemma_3_8_6_two_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
+(For `N = 0` the statement does not hold as we read it: `lemma_3_8_5_not_literal`.) -/
+theorem lemma_3_8_6_two (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
     (hQ : IsClosedConvexCone (quadCone (coordFun (T 0)) N))
     (hker : LinearMap.ker (sigmaCoord (coordFun (T 0)) N) = ⊤) (hN0 : N ≠ ⊥) :
     ∃ e : N ≃ₗ[ℝ] ℝ, ∀ x : N, x ∈ quadCone (coordFun (T 0)) N ↔ 0 ≤ e x := by
   have hnt : Nontrivial N := Submodule.nontrivial_iff_ne_bot.2 hN0
   have hdim : finrank ℝ N = 1 := by
-    rcases lemma_3_8_5_2021 T hN hQ with h | h
+    rcases lemma_3_8_5 T hN hQ with h | h
     · rw [h] at hker
       exact absurd hker.symm (by simp)
     · exact h.2.1
@@ -365,12 +365,12 @@ theorem lemma_3_8_6_two_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0
 /-- **2021 Corollary 3.8.7, p. 149 (new in the 2021 edition)**: if `N` is in good position to `C`
 and `N ∩ C` is a closed convex cone in `N`, then `N ∩ C` is a partial quadrant in `N`; indeed
 (p. 149) `(N, N ∩ C) ≅ (ℝ^{dim N}, [0, ∞)^{dim N})`. -/
-theorem corollary_3_8_7_2021 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
+theorem corollary_3_8_7 (hN : IsInGoodPosition E (T 0 ⁻¹' quadrant n W 0) N)
     (hQ : IsClosedConvexCone (quadCone (coordFun (T 0)) N)) :
     IsPartialQuadrant (ScBanach.const N) (Subtype.val ⁻¹' (T 0 ⁻¹' quadrant n W 0)) ∧
       ∃ e : N ≃ₗ[ℝ] (Fin (finrank ℝ N) → ℝ),
         ∀ x : N, x ∈ quadCone (coordFun (T 0)) N ↔ ∀ j, 0 ≤ e x j :=
-  ⟨proposition_3_22 ⟨n, W, T, rfl⟩ hN,
+  ⟨proposition_3_1_25 ⟨n, W, T, rfl⟩ hN,
     exists_quadrantEquiv_of_pointed T hN fun _ hx hx' => hQ.eq_zero hx hx'⟩
 
 end Appendix
@@ -386,8 +386,8 @@ abbrev E₁ : ScBanach := halfSpaceSc 0
 do not hold as we read them for `N = {0}`** (2021 pp. 147–148): in `E = ℝ`, `C = [0, ∞)`, the
 subspace `N = 0` is in good position, `N ∩ C = {0}` is a closed convex cone, the kernel of
 `P : N → ℝ^Γ` is all of `N` (`N ⊆ ℝ^{Γᶜ} ⊕ W`), but `dim N = 0` and `N ≇ ℝ`.  (The dichotomy of
-`lemma_3_8_5_2021` holds: here also `N ∩ (ℝ^{Γᶜ} ⊕ W) = {0}`.) -/
-theorem lemma_3_8_5_not_literal_2021 :
+`lemma_3_8_5` holds: here also `N ∩ (ℝ^{Γᶜ} ⊕ W) = {0}`.) -/
+theorem lemma_3_8_5_not_literal :
     IsInGoodPosition E₁ ((ScIso.refl E₁) 0 ⁻¹' quadrant 1 (rnSc 0) 0) ⊥ ∧
     IsClosedConvexCone (quadCone (coordFun ((ScIso.refl E₁) 0)) (⊥ : Submodule ℝ (E₁ 0))) ∧
     LinearMap.ker (sigmaCoord (coordFun ((ScIso.refl E₁) 0)) (⊥ : Submodule ℝ (E₁ 0))) = ⊤ ∧
@@ -422,7 +422,7 @@ theorem lemma_3_8_5_not_literal_2021 :
 /-- **The hypotheses of Lemma 3.8.6 (2) with `N ≠ 0` are satisfiable**: in `E = ℝ ⊕ ℝ⁰`,
 `C = [0, ∞) ⊕ ℝ⁰`, the subspace `N = E` is in good position, `N ∩ C` is a closed convex cone,
 `Γ = ∅`, so `N ⊆ ℝ^{Γᶜ} ⊕ W`. -/
-theorem halfLine_witness_2021 :
+theorem halfLine_witness :
     IsInGoodPosition E₁ ((ScIso.refl E₁) 0 ⁻¹' quadrant 1 (rnSc 0) 0) ⊤ ∧
     IsClosedConvexCone (quadCone (coordFun ((ScIso.refl E₁) 0)) (⊤ : Submodule ℝ (E₁ 0))) ∧
     LinearMap.ker (sigmaCoord (coordFun ((ScIso.refl E₁) 0)) (⊤ : Submodule ℝ (E₁ 0))) = ⊤ ∧

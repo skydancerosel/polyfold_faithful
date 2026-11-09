@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "equivalent",
  "effort_only": false,
- "why": "Identical statements: both say that P.levelIncl m : (X_{m+1}, P.levelTopology (m+1)) → (X_m, P.levelTopology m) is continuous for every M-polyfold P on a Type and every m. The only difference is binder kind (lemma_2_15 takes X implicitly, B explicitly); A is instantiated at universe 0. B reuses the project's X_m, its topology and levelIncl verbatim, so whether these are the text's X_m and topology is the business of V2_14, not of this item.",
+ "why": "Identical statements: both say that P.levelIncl m : (X_{m+1}, P.levelTopology (m+1)) → (X_m, P.levelTopology m) is continuous for every M-polyfold P on a Type and every m. The only difference is binder kind (lemma_2_3_9 takes X implicitly, B explicitly); A is instantiated at universe 0. B reuses the project's X_m, its topology and levelIncl verbatim, so whether these are the text's X_m and topology is the business of V2_14, not of this item.",
  "B_issue": null,
  "overlap": "3 shared project theorems: levelSet_succ_subset and the auto-generated proof fields levelIncl._proof_1, levelLift._proof_1, all reached through the definitions in the statement (levelIncl), not through any proof; no mathematical content of Lemma 2.15 is reused",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": true}

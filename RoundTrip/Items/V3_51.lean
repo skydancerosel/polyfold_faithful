@@ -4,7 +4,7 @@ import RoundTrip.Blind.V3_51
 
 /-!
 Round trip for V3_51 (Theorem 3.57, the step from the tangent germ property).  `A` is the type of
-`Polyfold.theorem_3_57_of_tangentGerm`, universes instantiated at `0`.
+`Polyfold.theorem_3_6_11_of_tangentGerm`, universes instantiated at `0`.
 
 A is a statement about an arbitrary nonempty solution set with the regular `n`-dimensional
 tangent germ property, for one **fixed** `n`, and it has no Fredholm hypothesis at all.  B has the
@@ -15,10 +15,10 @@ Glue for `A → B`:
 * A is applied to an arbitrary set `M`: every `M ⊆ X` is the solution set of the section
   `y ↦ (y, 1_{M^c}(y))` of the trivial bundle `X × ℝ → X` (`A_of_set`).
 * B's hypothesis `IsSurjGoodPosAt` gives `IsGoodPositionGermTame` at every zero (as in V3_70).
-  Then the project's `theorem_3_54_two` (Theorem 3.54 (2), not part of A) gives, at every zero
+  Then the project's `theorem_3_6_8_two` (Theorem 3.54 (2), not part of A) gives, at every zero
   `y`, a regular datum of dimension `d(y)` on a chart domain `U_y`, along which the dimension is
   constant; so the local piece `S ∩ U_y` has the regular `d(y)`-dimensional tangent germ property
-  (shrinking the data as in the project's proof of `theorem_3_23_of_nearby`), and **A** makes it a
+  (shrinking the data as in the project's proof of `theorem_3_1_26_of_nearby`), and **A** makes it a
   sub-M-polyfold whose induced structure is an `d(y)`-dimensional manifold with corners.
 * Gluing (`isSubMPolyfold_of_pieces`, `loc_of_pieces`): the pieces `S ∩ U_y` are open in `S`; a
   retraction for a piece restricted to `V ∩ U_y` is one for `S`; and the inclusion
@@ -28,21 +28,21 @@ Glue for `A → B`:
 * `IsManifoldWithCornersLoc` is `HasCornerStructure` (`hasCornerStructure_iff_finiteDimensional`);
   `S = ∅` is handled with the empty atlas.
 
-**Refresh 2026-11-02 (germ reading at HEAD).**  A (`theorem_3_57_of_tangentGerm`) is unchanged.
+**Refresh 2026-11-02 (germ reading at HEAD).**  A (`theorem_3_6_11_of_tangentGerm`) is unchanged.
 B's `IsScFredholmSectionTame` now denotes the text's germ reading.  The chart change
 `isGoodPositionGermTame_of_B` was repaired: the germ form of `isGoodPositionGerm_of_chart` needs a
 germ through the centre of the non-centred chart, so the lemma now uses
 `isGoodPositionGerm_of_linAt_surj`, whose hypotheses on `Lin(z) = D(f̂ ∘ r)(z)|_{T_zO}` are exactly
-B's.  `theorem_3_54_two` (glue) is its germ form.  B ⇒ A still fails.
+B's.  `theorem_3_6_8_two` (glue) is its germ form.  B ⇒ A still fails.
 -/
 
 namespace RoundTrip.V3_51
 open Polyfold Set
 
-/-- The project's statement: `theorem_3_57_of_tangentGerm`, universes at `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_3_57_of_tangentGerm.{0, 0}
+/-- The project's statement: `theorem_3_6_11_of_tangentGerm`, universes at `0`. -/
+def A : Prop := type_of% @Polyfold.theorem_3_6_11_of_tangentGerm.{0, 0}
 
-theorem A_holds : A := @Polyfold.theorem_3_57_of_tangentGerm.{0, 0}
+theorem A_holds : A := @Polyfold.theorem_3_6_11_of_tangentGerm.{0, 0}
 
 section Glue
 
@@ -279,16 +279,16 @@ theorem isGoodPositionGermTame_of_B {Bd : StrongBundle PX P} {f : X → Y}
   exact ⟨⟨v, hv⟩, hvk⟩
 
 /-- The local pieces: at every zero `y`, a chart domain `U ∋ y` on which `S ∩ U` has the regular
-tangent germ property of one dimension (Theorem 3.54 (2), `theorem_3_54_two`). -/
+tangent germ property of one dimension (Theorem 3.54 (2), `theorem_3_6_8_two`). -/
 theorem local_piece {Bd : StrongBundle PX P} {f : X → Y} (hfs : IsSection P f)
     (hall : ∀ x, IsZeroAt P f x → Bd.IsGoodPositionGermTame f x) {y : X}
     (hy : y ∈ solutionSet P f) :
     ∃ (U : Set X) (_ : IsOpen U) (_ : y ∈ U) (d : ℕ), ∀ z ∈ solutionSet P f ∩ U,
       ∃ D : PX.TangentGermChart (solutionSet P f ∩ U) z d, D.IsRegular := by
-  obtain ⟨d, D, -, -, hdim⟩ := theorem_3_54_two hfs (hall y hy) hy isOpen_univ (mem_univ y)
+  obtain ⟨d, D, -, -, hdim⟩ := theorem_3_6_8_two hfs (hall y hy) hy isOpen_univ (mem_univ y)
     fun z _ hz => hall z hz
   refine ⟨D.φ.source, D.φ.isOpen_source, D.mem_source, d, fun z hz => ?_⟩
-  obtain ⟨dz, Dz, hregz, hsubz, -⟩ := theorem_3_54_two hfs (hall z hz.1) hz.1 D.φ.isOpen_source
+  obtain ⟨dz, Dz, hregz, hsubz, -⟩ := theorem_3_6_8_two hfs (hall z hz.1) hz.1 D.φ.isOpen_source
     hz.2 fun w _ hw => hall w hw
   have hdz : dz = d := hdim z hz dz Dz
   subst hdz
@@ -340,6 +340,6 @@ theorem A_to_B : A → B := by
       MPolyfold.hasCornerStructure_iff_finiteDimensional.2 (loc_of_pieces hS hpieces)⟩
   · exact empty_case hne
 
-#rt_check RoundTrip.V3_51.A_to_B [Polyfold.theorem_3_57_of_tangentGerm]
+#rt_check RoundTrip.V3_51.A_to_B [Polyfold.theorem_3_6_11_of_tangentGerm]
 
 end RoundTrip.V3_51

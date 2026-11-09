@@ -7,25 +7,25 @@ import Mathlib.MeasureTheory.Function.Jacobian
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.2 and §3.6:
 **the regularity of the solution germ away from the centre** — condition (a) of
 `TangentGermChart.IsRegular` for the solution set of an sc-Fredholm section, by re-centring the
-graph description of Theorem 3.54 at the nearby zeros (the corrected form of the step "δ is an
-sc^∞-germ near every `v₀ ∈ V`" of the proof of Theorem 3.27, Finding 82).
+graph description of Theorem 3.6.8 (preprint 3.54) at the nearby zeros (the corrected form of the step "δ is an
+sc^∞-germ near every `v₀ ∈ V`" of the proof of Theorem 3.2.3 (preprint 3.27), Finding 82).
 
 # The re-centring argument
 
 ## The text, paraphrased
 
-(Proof of Theorem 3.27, p. 84) "We first show that `δ` is an sc^∞-germ near every point `v₀ ∈ V`.
+(Proof of Theorem 3.2.3 (preprint 3.27), p. 84) "We first show that `δ` is an sc^∞-germ near every point `v₀ ∈ V`.
 Let `x₀ = ϕ⁻¹(v₀ + δ(v₀)) ∈ M` and take the chart `ψ` at `x₀` with the data `N', Y', V', τ` of
 Definition 3.25.  The map `w ↦ π ∘ ϕ ∘ ψ⁻¹(w + τ(w))` is sc-smooth and its linearization at `0`,
 `h ↦ π ∘ T(ϕ ∘ ψ⁻¹)(0)h : N' → N`, is a linear isomorphism, so it is a local sc-diffeomorphism near
 `0` and `δ ∘ (π ∘ ϕ ∘ ψ⁻¹ ∘ (1 + τ)) = (1 − π) ∘ ϕ ∘ ψ⁻¹ ∘ (1 + τ)` shows that `δ` is sc-smooth
-near `v₀`."  (Proof of Theorem 3.54) "Consequently the solution set `S` possesses the
+near `v₀`."  (Proof of Theorem 3.6.8 (preprint 3.54)) "Consequently the solution set `S` possesses the
 `d`-dimensional tangent germ property.  Therefore we can apply Theorem 3.27."
 
 ## What is formalized
 
 * `Polyfold.InvDataW`, `InvDataW.contDiffOn_inv`: the inverse function machinery of
-  Proposition 3.73 / Lemma 3.77 (`QuadrantInverse.lean`) with the hypotheses that its proofs use:
+  Proposition 3.8.17 (preprint 3.73) / Lemma 3.8.21 (preprint 3.77) (`QuadrantInverse.lean`) with the hypotheses that its proofs use:
   `U` convex with unique differentiability, `f : U → V` of class `C^j` with `‖Df − 1‖ ≤ 1/2`, and
   unique differentiability of the image `f(U)` (which is given here, not derived from the
   degeneracy index).  The inverse is `C^j` on `f(U)`.
@@ -43,22 +43,22 @@ near `v₀`."  (Proof of Theorem 3.54) "Consequently the solution set `S` posses
   level `m` and every `k`, a relatively open neighbourhood of `v₀` in `K₁ ∩ C₁` on which `σ₁` takes
   values in `E_{1,m}` and is `C^k` into `E_{1,m}`; and `dim K₁ = dim K₂`.
 * `Polyfold.MPolyfold.TangentGermChart.shrink`, `exists_shrinkData`, `shrink_isRegular`: the
-  data of Definition 3.25 (2) restricted to an open subset of the chart domain and a smaller
+  data of Definition 3.2.1 (preprint 3.25) (2) restricted to an open subset of the chart domain and a smaller
   relatively open `V' ⊆ V` (same `N`, `Y`, `δ`); `ScRetraction.restrict_isTame`,
   `IsTameRetract.inter_isOpen`, `MChart.isTameRetract_image`: an open subset of a tame retract
-  is a tame retract (Proposition 2.10 (1) with tameness), used silently by the text.
+  is a tame retract (Proposition 2.3.1 (preprint 2.10) (1) with tameness), used silently by the text.
 * `Polyfold.MPolyfold.TangentGermChart.exists_isRegular_of_locally`: **condition (a) of
-  `IsRegular` by re-centring**: if the data `D` of Definition 3.25 (2) for `M` at `x` satisfy
-  `π(O) ⊆ C` and every point of `M` near `x` has data of Definition 3.25 (2) of some dimension,
+  `IsRegular` by re-centring**: if the data `D` of Definition 3.2.1 (preprint 3.25) (2) for `M` at `x` satisfy
+  `π(O) ⊆ C` and every point of `M` near `x` has data of Definition 3.2.1 (preprint 3.25) (2) of some dimension,
   then `D` can be shrunk to regular data (`IsRegular`: `δ` sc-smooth on `V'` in the set sense),
-  and the dimension is locally constant along `M`.  For the solution set this is Theorem 3.54 (2)
-  from Theorem 3.54 (1) (`theorem_3_54_two_wholeChart`, `GlobalIFTTheorems.lean`).
+  and the dimension is locally constant along `M`.  For the solution set this is Theorem 3.6.8 (preprint 3.54) (2)
+  from Theorem 3.6.8 (preprint 3.54) (1) (`theorem_3_6_8_two_wholeChart`, `GlobalIFTTheorems.lean`).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The linearization of `w ↦ π ∘ ϕ ∘ ψ⁻¹(w + τ(w))` is an isomorphism only because `δ` is `C¹`
   at `v₀`** (Finding 82: the claim is false without it).  Here `δ = σ` is `C¹` on all of `V'`
-  (Theorem 3.47 (1)), which is exactly what the chain rule `T ∘ (1 + σ₂) = (1 + σ₁) ∘ β` needs at
+  (Theorem 3.5.11 (preprint 3.47) (1)), which is exactly what the chain rule `T ∘ (1 + σ₂) = (1 + σ₁) ∘ β` needs at
   `v₀`.  Injectivity of `Dβ(0)` then follows from the chain rule for the transition `T = χ₁ ∘ χ₂⁻¹`
   and its inverse on level `1` (`D(T⁻¹ ∘ r₁)(T(0)) ∘ D(T ∘ r₂)(0) = Dr₂(0)`) and from `K₂ ⊆ T₀O₂`
   (the tangent vectors of the graph of `σ₂` at `0` lie in the tangent space of the retract,
@@ -67,14 +67,14 @@ near `v₀`."  (Proof of Theorem 3.54) "Consequently the solution set `S` posses
   it is obtained from the dimension count `dim K₁ ≤ dim K₂`, which holds because `β` is a `C¹`-map
   from a `dim K₂`-dimensional space onto a relatively open subset of `K₁ ∩ C₁` (Sard's lemma in
   fixed dimension).  So `dim K₁ = dim K₂`: the dimension of the solution set is locally constant.
-* **The inverse function theorem in the quadrant** (Theorem 3.72) needs `d_C(x) = d_C(f(x))`, which
+* **The inverse function theorem in the quadrant** (Theorem 3.8.15 (preprint 3.72)) needs `d_C(x) = d_C(f(x))`, which
   is not available for `β` (it would be the intrinsic degeneracy index of `S`).  The regularity of
   the inverse `β⁻¹` is proved instead from the bi-Lipschitz estimate and the bootstrapping of
-  Lemma 3.77 (`InvDataW`), using that `β⁻¹` is already known to be continuous and `β` to be a
+  Lemma 3.8.21 (preprint 3.77) (`InvDataW`), using that `β⁻¹` is already known to be continuous and `β` to be a
   homeomorphism between relatively open sets, so that `β(U)` has unique differentiability.
 * **The transition `T = χ₁ ∘ χ₂⁻¹` is only an sc-smooth map of retracts**; `w ↦ T(w + σ₂(w))`
-  is `C^k` into `E_{1,m}` because `T ∘ r₂ : U_{2,m+k} → E_{1,m}` is `C^k` (Proposition 1.18) and
-  `w ↦ w + σ_{2,m+k}(w)` is a `C^k`-lift into `E_{2,m+k}` (Theorem 3.47 (1)).  The neighbourhood of
+  is `C^k` into `E_{1,m}` because `T ∘ r₂ : U_{2,m+k} → E_{1,m}` is `C^k` (Proposition 1.2.3 (preprint 1.18)) and
+  `w ↦ w + σ_{2,m+k}(w)` is a `C^k`-lift into `E_{2,m+k}` (Theorem 3.5.11 (preprint 3.47) (1)).  The neighbourhood of
   `0` on which this holds depends on `m + k`; the neighbourhood of `v₀` obtained for `σ₁` depends
   on `(m, k)` too, which is harmless because sc-smoothness on `V''` is a local property of the
   level maps (`contDiffOn_of_locally_contDiffOn`).
@@ -89,16 +89,16 @@ noncomputable section
 
 namespace Polyfold
 
-/-! ### The inverse function machinery of Proposition 3.73 with weak hypotheses -/
+/-! ### The inverse function machinery of Proposition 3.8.17 (preprint 3.73) with weak hypotheses -/
 
 section InvW
 
 variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
 
-/-- The hypotheses of Proposition 3.73 / Lemma 3.77 actually used by their proofs
+/-- The hypotheses of Proposition 3.8.17 (preprint 3.73) / Lemma 3.8.21 (preprint 3.77) actually used by their proofs
 (`QuadrantInverse.lean`), without the partial quadrant: `U ⊆ V` convex with unique
 differentiability, `f : U → V` of class `C^j` (`j ≥ 1`) with `‖Df(x) − 1‖ ≤ 1/2` on `U`, and
-unique differentiability of the image `f(U)` (in Proposition 3.73 this is derived from
+unique differentiability of the image `f(U)` (in Proposition 3.8.17 (preprint 3.73) this is derived from
 `d_C(x) = d_C(f(x))`; here it is a hypothesis). -/
 structure InvDataW (U : Set V) (f : V → V) (j : ℕ) : Prop where
   convex : Convex ℝ U
@@ -121,7 +121,7 @@ lemma hasFDerivWithinAt {x : V} (hx : x ∈ U) : HasFDerivWithinAt f (fderivWith
 
 lemma continuousOn : ContinuousOn f U := h.contDiffOn.continuousOn
 
-/-- Lemma 3.74, (70), first step: `f − id` is a `1/2`-contraction on `U`. -/
+/-- Lemma 3.8.18 (preprint 3.74), (70), first step: `f − id` is a `1/2`-contraction on `U`. -/
 lemma norm_sub_sub_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
     ‖(f x' - x') - (f x - x)‖ ≤ 1 / 2 * ‖x' - x‖ :=
   Convex.norm_image_sub_le_of_norm_hasFDerivWithin_le (f := fun z => f z - z)
@@ -129,7 +129,7 @@ lemma norm_sub_sub_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
     (fun z hz => (h.hasFDerivWithinAt hz).sub (hasFDerivWithinAt_id z U))
     (fun z hz => h.deriv_bound z hz) h.convex hx hx'
 
-/-- Lemma 3.74, (70): `|x − x'|/2 ≤ |f(x) − f(x')|`. -/
+/-- Lemma 3.8.18 (preprint 3.74), (70): `|x − x'|/2 ≤ |f(x) − f(x')|`. -/
 lemma half_norm_le {x x' : V} (hx : x ∈ U) (hx' : x' ∈ U) :
     1 / 2 * ‖x' - x‖ ≤ ‖f x' - f x‖ := by
   have h1 := h.norm_sub_sub_le hx hx'
@@ -178,7 +178,7 @@ lemma continuousOn_inv : ContinuousOn (inv U f) (f '' U) :=
     rw [dist_eq_norm, dist_eq_norm]
     exact h.norm_inv_sub_le hy' hy).continuousOn
 
-/-- **Lemma 3.77**: the inverse is differentiable within `f(U)` with `Dg(y) = [Df(g(y))]⁻¹`. -/
+/-- **Lemma 3.8.21 (preprint 3.77)**: the inverse is differentiable within `f(U)` with `Dg(y) = [Df(g(y))]⁻¹`. -/
 theorem hasFDerivWithinAt_inv {y : V} (hy : y ∈ f '' U) :
     HasFDerivWithinAt (inv U f) (Ring.inverse (fderivWithin ℝ f U (inv U f y))) (f '' U) y := by
   have hxU : inv U f y ∈ U := h.inv_mem hy
@@ -215,7 +215,7 @@ theorem contDiffOn_inverse_deriv :
   rw [h.derivUnit_val hx] at h2
   exact h2.contDiffWithinAt.comp x (hD x hx) (mapsTo_univ _ _)
 
-/-- **Proposition 3.73, the regularity of the inverse**, under the weak hypotheses: `g = f⁻¹` is
+/-- **Proposition 3.8.17 (preprint 3.73), the regularity of the inverse**, under the weak hypotheses: `g = f⁻¹` is
 of class `C^j` on `f(U)` (bootstrapping `Dg = [Df]⁻¹ ∘ g`). -/
 theorem contDiffOn_inv : ContDiffOn ℝ j (inv U f) (f '' U) := by
   have key : ∀ i : ℕ, i ≤ j → ContDiffOn ℝ i (inv U f) (f '' U) := by
@@ -354,8 +354,8 @@ lemma interior_nonempty_of_relOpen_convex {D A : Set V₁} (hD : Convex ℝ D)
 `D₂ ⊆ V₂` be convex with nonempty interior, `A` relatively open in `D₁`, `β : A → V₂` of class
 `C^k` (`k ≥ 1`) with `β(A)` relatively open in `D₂`, `α` a continuous left inverse of `β` on
 `β(A)`, and `Dβ(w₀) = L` a linear isomorphism at some `w₀ ∈ A`.  Then there is a relatively open
-neighbourhood `B'` of `β(w₀)` in `D₂`, `B' ⊆ β(A)`, with `α` of class `C^k` on `B'`.  (Lemma 3.77
-and Proposition 3.73 through `InvDataW` for `L⁻¹ ∘ β` on a small convex neighbourhood of `w₀`.) -/
+neighbourhood `B'` of `β(w₀)` in `D₂`, `B' ⊆ β(A)`, with `α` of class `C^k` on `B'`.  (Lemma 3.8.21 (preprint 3.77)
+and Proposition 3.8.17 (preprint 3.73) through `InvDataW` for `L⁻¹ ∘ β` on a small convex neighbourhood of `w₀`.) -/
 theorem exists_contDiffOn_inverse {D₁ : Set V₁} {D₂ : Set V₂} (hD₁ : Convex ℝ D₁)
     (hD₁i : (interior D₁).Nonempty) (hD₂ : Convex ℝ D₂) (hD₂i : (interior D₂).Nonempty)
     {A : Set V₁} (hA : ∃ O : Set V₁, IsOpen O ∧ A = O ∩ D₁) {β : V₁ → V₂} {α : V₂ → V₁}
@@ -470,20 +470,20 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P :
 
 set_option maxHeartbeats 1600000 in
 /-- **The re-centring lemma** (the corrected step "`δ` is an sc^∞-germ near every `v₀ ∈ V`" of
-the proof of Theorem 3.27, for two graph descriptions of the same set).  Let `χ₁`, `χ₂` be charts
+the proof of Theorem 3.2.3 (preprint 3.27), for two graph descriptions of the same set).  Let `χ₁`, `χ₂` be charts
 of the M-polyfold `X` and `S ⊆ X`.  In `χ₁`, `S ∩ Vx₁` is the graph `{v + σ₁(v) | v ∈ V₁}` of a
 `C¹`-map `σ₁ : V₁ → Y₁` over the finite-dimensional smooth subspace `K₁` (closed complement `Y₁`,
 `V₁` relatively open in `K₁ ∩ C₁`, `K₁` in good position).  In `χ₂`, centred at the point
 `y = χ₁⁻¹(v₀ + σ₁(v₀))` of `S`, `S ∩ Vx₂` is the graph of `σ₂ : V₂ → Y₂` over `K₂` with
 `σ₂(0) = 0`, `Dσ₂(0) = 0`, and `σ₂` has `C^k`-lifts `σ_{2,k} : V_{2,k} → E_{2,k}` near `0` for
-every `k` (Theorem 3.47 (1)).  Then `dim K₁ = dim K₂`, and for every level `m` and every `k` there
+every `k` (Theorem 3.5.11 (preprint 3.47) (1)).  Then `dim K₁ = dim K₂`, and for every level `m` and every `k` there
 is a relatively open neighbourhood `B'` of `v₀` in `K₁ ∩ C₁`, `B' ⊆ V₁`, on which `σ₁` takes
 values in `E_{1,m}` and is of class `C^k` into `E_{1,m}`.
 
 Proof.  `T = χ₁ ∘ χ₂⁻¹` is an sc-smooth map between the overlap retracts (the charts are
 compatible), so `T ∘ r₂` is sc-smooth on a retraction `r₂` onto `χ₂(V ∩ V')`; with the lift
 `Γ_{2,j} = ι + σ_{2,j}` into `E_{2,j}`, `T ∘ Γ₂ = (T ∘ r₂) ∘ Γ_{2,j}` is `C^k` into `E_{1,m}` for
-`j = m + k + 2` (Proposition 1.18).  `β = π₁ ∘ T ∘ Γ₂` maps a neighbourhood of `0` in `K₂ ∩ C₂`
+`j = m + k + 2` (Proposition 1.2.3 (preprint 1.18)).  `β = π₁ ∘ T ∘ Γ₂` maps a neighbourhood of `0` in `K₂ ∩ C₂`
 onto a neighbourhood of `v₀` in `K₁ ∩ C₁`, with continuous inverse `α = π₂ ∘ T⁻¹ ∘ Γ₁`, and
 `T ∘ Γ₂ = Γ₁ ∘ β`.  Differentiating at `0` (`σ₁` is `C¹` at `v₀`, `Dσ₂(0) = 0`):
 `D(T ∘ r₂)(0) n = Dβ(0) n + Dσ₁(v₀) Dβ(0) n`.  If `Dβ(0) n = 0` then `D(T ∘ r₂)(0) n = 0`, and the
@@ -930,7 +930,7 @@ section TameRestrict
 variable {E : ScBanach} {C : Set (E 0)}
 
 /-- The restriction `r : U ∩ r⁻¹(W) → U ∩ r⁻¹(W)` of a tame retraction to an open subset `W`
-(Proposition 2.10 (1)) is tame: the degeneracy index condition is inherited, and at the points of
+(Proposition 2.3.1 (preprint 2.10) (1)) is tame: the degeneracy index condition is inherited, and at the points of
 `O ∩ W` the derivative of the restricted retraction is `Dr(x)` (uniqueness of the derivative on a
 smaller relatively open domain). -/
 theorem ScRetraction.restrict_isTame (R : ScRetraction E C) {W : Set (E 0)} (hW : IsOpen W)
@@ -977,7 +977,7 @@ theorem MChart.isTameRetract_image (φ : MChart X) {s : Set X} (hs : s ⊆ φ.so
 
 end ChartRestrict
 
-/-! ### Shrinking the data of Definition 3.25 (2) -/
+/-! ### Shrinking the data of Definition 3.2.1 (preprint 3.25) (2) -/
 
 namespace MPolyfold.TangentGermChart
 
@@ -986,7 +986,7 @@ universe u
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {M : Set X} {x : X} {n : ℕ} (D : P.TangentGermChart M x n)
 
-/-- **Shrinking the data of Definition 3.25 (2)**: the chart `ϕ` restricted to an open `s ⊆ U`
+/-- **Shrinking the data of Definition 3.2.1 (preprint 3.25) (2)**: the chart `ϕ` restricted to an open `s ⊆ U`
 containing `x`, with a relatively open `V' ⊆ V` containing `0` such that `ϕ(M' ∩ s) = Γ(V')`, and
 the same `N`, `Y`, `δ`; the set `M'` may differ from `M` as long as the graph identity holds (used
 to pass from the solution set in a neighbourhood to the global solution set). -/
@@ -1115,7 +1115,7 @@ universe u
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
   {M : Set X} {x : X} {n : ℕ}
 
-/-- The `C^k`-lifts of Theorem 3.47 (1) from the sc^∞-germ property of Definition 3.25 (ii): for
+/-- The `C^k`-lifts of Theorem 3.5.11 (preprint 3.47) (1) from the sc^∞-germ property of Definition 3.2.1 (preprint 3.25) (ii): for
 `k ≥ 1`, `levelMap δ k` on `V_{k,k} ∩ V`. -/
 theorem exists_lift (D : P.TangentGermChart M x n) (k : ℕ) (_hk : 1 ≤ k) :
     ∃ Vk : Set D.N,
@@ -1139,12 +1139,12 @@ theorem fderivWithin_V_zero (D : P.TangentGermChart M x n) : fderivWithin ℝ D.
   exact D.fderivWithin_zero
 
 set_option maxHeartbeats 800000 in
-/-- **Condition (a) of `IsRegular` by re-centring.**  Let `D` be the data of Definition 3.25 (2)
+/-- **Condition (a) of `IsRegular` by re-centring.**  Let `D` be the data of Definition 3.2.1 (preprint 3.25) (2)
 for `M` at `x` with `π(O) ⊆ C` (condition (b)), and suppose that every point of `M` in an open
-neighbourhood `U` of `x` has the data of Definition 3.25 (2) (of some dimension).  Then the data
+neighbourhood `U` of `x` has the data of Definition 3.2.1 (preprint 3.25) (2) (of some dimension).  Then the data
 can be shrunk (same chart restricted to an open `s ⊆ U`, same `N`, `Y`, `δ`, smaller `V'`) to
 regular data `D'` (`IsRegular`: `δ` is sc-smooth on `V'` in the set sense), and the dimension is
-locally constant: every datum of Definition 3.25 (2) at a point of `M ∩ s` has dimension `n`.
+locally constant: every datum of Definition 3.2.1 (preprint 3.25) (2) at a point of `M ∩ s` has dimension `n`.
 Proof: at `v₀ ∈ V'` the re-centring lemma `recentre_contDiffOn_levels` for `D'` and the data at
 `y = ϕ⁻¹(v₀ + δ(v₀))` gives `δ` of class `C^k` into `E_m` near `v₀` for all `m`, `k`, and
 `dim N = dim N_y`; sc-smoothness on `V'` is local (`contDiffOn_of_locally_contDiffOn`,

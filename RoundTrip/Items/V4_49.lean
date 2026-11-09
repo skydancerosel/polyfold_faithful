@@ -5,7 +5,7 @@ import RoundTrip.Blind.V4_49
 /-!
 Round trip for V4_49 (Theorem 4.22 in a tame centred chart).  `A` is the conjunction of the types
 of `Polyfold.sup_minimalSubspaceWith_eq_top`, `Polyfold.sup_minimalSubspaceWith_eq_top_graph` and
-`Polyfold.theorem_4_22_chart` (no universe parameters).
+`Polyfold.theorem_4_2_11_chart` (no universe parameters).
 
 B is the text's chart step for an M-polyfold: `X` tame, `A` smooth, in general position at `x`,
 data `(V, s)` with `V ⊆ dom φ`, `φ` a chart on a tame retract centred at `x`, `N = T₀(φ(A ∩ V))`;
@@ -18,7 +18,7 @@ position along the graph.
   the sc⁺-retraction `t` onto `φ(A ∩ V)`, so `N = range Dt(0)` is finite-dimensional, smooth and an
   sc-subspace; the project's general position at `x` holds in the chart `φ`
   (`IsGeneralPositionAt.isGeneralPositionChart`, chart independence);
-* `theorem_4_22_chart` gives the closed good complement `Y = ker p ⊆ E_0`, `W₁`, `V'`, `Γ`;
+* `theorem_4_2_11_chart` gives the closed good complement `Y = ker p ⊆ E_0`, `W₁`, `V'`, `Γ`;
   **B's sc-splitting `E = N ⊕ Y` is new glue** (`isScSplitting_of_proj`: a closed complement of a
   finite-dimensional smooth sc-subspace is an sc-complement, the density argument of V3_82);
   `Vg = V' ⊆ N ∩ C` as a subset of `E₀` (relatively open via the induced topology),
@@ -42,11 +42,11 @@ open Polyfold Set
 def A : Prop :=
   type_of% @Polyfold.sup_minimalSubspaceWith_eq_top ∧
     type_of% @Polyfold.sup_minimalSubspaceWith_eq_top_graph ∧
-    type_of% @Polyfold.theorem_4_22_chart
+    type_of% @Polyfold.theorem_4_2_11_chart
 
 theorem A_holds : A :=
   ⟨@Polyfold.sup_minimalSubspaceWith_eq_top, @Polyfold.sup_minimalSubspaceWith_eq_top_graph,
-    @Polyfold.theorem_4_22_chart⟩
+    @Polyfold.theorem_4_2_11_chart⟩
 
 section Linear
 
@@ -181,9 +181,9 @@ theorem A_to_B : A → B := by
   have hNt : N = LinearMap.range (scDeriv t.U t 0 : φ.model.E 0 →ₗ[ℝ] φ.model.E 0) := by
     refine SetLike.coe_injective (hN.trans ?_)
     rw [← ht']; exact tangentSpace_eq_coe_submodule t h01
-  have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_7_ii htp h01
+  have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_1_7_ii htp h01
   have hNsc : φ.model.E.IsScSubspace N := hNt ▸ (t.isScSplitting_range_scDeriv h01 hs0).1
-  have hNs : N ≤ φ.model.E.smooth := (φ.model.E.proposition_1_6_iff N).1 hNsc
+  have hNs : N ≤ φ.model.E.smooth := (φ.model.E.proposition_1_1_7_iff N).1 hNsc
   have hN' : (N : Set (φ.model.E 0)) = tangentSpace φ.model.E φ.model.C t.retract 0 := by
     rw [ht']; exact hN
   have hz0 : φ.model.E.toBase 1 0 = φ x := by rw [map_zero, hφx]
@@ -279,6 +279,6 @@ theorem A_to_B : A → B := by
       exact this
 
 #rt_check RoundTrip.V4_49.A_to_B [Polyfold.sup_minimalSubspaceWith_eq_top,
-  Polyfold.sup_minimalSubspaceWith_eq_top_graph, Polyfold.theorem_4_22_chart]
+  Polyfold.sup_minimalSubspaceWith_eq_top_graph, Polyfold.theorem_4_2_11_chart]
 
 end RoundTrip.V4_49

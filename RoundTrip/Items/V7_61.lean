@@ -7,13 +7,13 @@ Round trip for V7_61 (Proposition 7.14: closed subsets of `|X|`).
 
 `A` is the conjunction of the types of the eight theorems listed for the item, universes at `0`
 (for `isProperSubset_iUnion_of_locallyFinite` also the index universe: `ι : Type`):
-`isClosed_saturation_of_isProperSubset`, `proposition_7_14_one`, `IsProperSubset.of_subset`,
+`isClosed_saturation_of_isProperSubset`, `proposition_7_5_10_one`, `IsProperSubset.of_subset`,
 `IsProperSubset.union`, `isProperSubset_iUnion_of_locallyFinite`, `isProperSubset_of_isCompact`,
-`exists_hasPropernessProperty_subset`, `proposition_7_14_two` (with
+`exists_hasPropernessProperty_subset`, `proposition_7_5_10_two` (with
 `[ParacompactSpace X.OrbitSpace]` as an instance argument).  `B` is the text's (1) and (2).
 
-* `A → B`: (1) is `proposition_7_14_one`, (2) is `proposition_7_14_two` with the instance.
-* `B → A`: `proposition_7_14_one`, `proposition_7_14_two` and the closedness of the saturation
+* `A → B`: (1) is `proposition_7_5_10_one`, (2) is `proposition_7_5_10_two` with the instance.
+* `B → A`: `proposition_7_5_10_one`, `proposition_7_5_10_two` and the closedness of the saturation
   `π⁻¹(π(Q))` (preimage of the closed `π(Q)` under the continuous `π`) come from `B`.  The other
   five conjuncts are auxiliary lemmas of the project's proof that `B` does not state; they are
   re-proved here without `B`, from the compact-set form `isProperSubset_iff_isCompact` (item
@@ -27,23 +27,23 @@ open Polyfold Set Topology
 /-- The project's Proposition 7.14 and its auxiliary lemmas, universes at `0`. -/
 def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_14_one.{0}) ∧
+  (type_of% @Polyfold.EpGroupoid.proposition_7_5_10_one.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.IsProperSubset.of_subset.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.IsProperSubset.union.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite.{0, 0}) ∧
   (type_of% @Polyfold.EpGroupoid.isProperSubset_of_isCompact.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.exists_hasPropernessProperty_subset.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.proposition_7_14_two.{0})
+  (type_of% @Polyfold.EpGroupoid.proposition_7_5_10_two.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset.{0},
-   @Polyfold.EpGroupoid.proposition_7_14_one.{0},
+   @Polyfold.EpGroupoid.proposition_7_5_10_one.{0},
    @Polyfold.EpGroupoid.IsProperSubset.of_subset.{0},
    @Polyfold.EpGroupoid.IsProperSubset.union.{0},
    @Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite.{0, 0},
    @Polyfold.EpGroupoid.isProperSubset_of_isCompact.{0},
    @Polyfold.EpGroupoid.exists_hasPropernessProperty_subset.{0},
-   @Polyfold.EpGroupoid.proposition_7_14_two.{0}⟩
+   @Polyfold.EpGroupoid.proposition_7_5_10_two.{0}⟩
 
 theorem A_to_B : A → B := by
   intro hA Obj Mor _ _ _ _ _ _ X
@@ -115,28 +115,28 @@ theorem B_to_A : B → A := by
     exact (hB Obj Mor X).2 hpc A
 
 #rt_check RoundTrip.V7_61.A_to_B [Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset,
-  Polyfold.EpGroupoid.proposition_7_14_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
+  Polyfold.EpGroupoid.proposition_7_5_10_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
   Polyfold.EpGroupoid.IsProperSubset.union,
   Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite,
   Polyfold.EpGroupoid.isProperSubset_of_isCompact,
-  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_14_two]
+  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_5_10_two]
 #rt_check RoundTrip.V7_61.B_to_A [Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset,
-  Polyfold.EpGroupoid.proposition_7_14_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
+  Polyfold.EpGroupoid.proposition_7_5_10_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
   Polyfold.EpGroupoid.IsProperSubset.union,
   Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite,
   Polyfold.EpGroupoid.isProperSubset_of_isCompact,
-  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_14_two]
+  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_5_10_two]
 #rt_overlap RoundTrip.V7_61.B_to_A [Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset,
-  Polyfold.EpGroupoid.proposition_7_14_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
+  Polyfold.EpGroupoid.proposition_7_5_10_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
   Polyfold.EpGroupoid.IsProperSubset.union,
   Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite,
   Polyfold.EpGroupoid.isProperSubset_of_isCompact,
-  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_14_two]
+  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_5_10_two]
 #rt_overlap RoundTrip.V7_61.A_to_B [Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset,
-  Polyfold.EpGroupoid.proposition_7_14_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
+  Polyfold.EpGroupoid.proposition_7_5_10_one, Polyfold.EpGroupoid.IsProperSubset.of_subset,
   Polyfold.EpGroupoid.IsProperSubset.union,
   Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite,
   Polyfold.EpGroupoid.isProperSubset_of_isCompact,
-  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_14_two]
+  Polyfold.EpGroupoid.exists_hasPropernessProperty_subset, Polyfold.EpGroupoid.proposition_7_5_10_two]
 
 end RoundTrip.V7_61

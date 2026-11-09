@@ -2,7 +2,7 @@ import Polyfold.Chapter2.TameRetracts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.4,
-**Proposition 2.36** (the remaining statements): for a tame retract and a smooth point `x`, the
+**Proposition 2.5.6 (preprint 2.36)** (the remaining statements): for a tame retract and a smooth point `x`, the
 reduced tangent space `T_x^R O` is an sc-subspace and the partial cone `C_xO` is a partial quadrant
 in `T_xO`.
 
@@ -10,27 +10,27 @@ in `T_xO`.
 
 ## The text, paraphrased
 
-(Proposition 2.36) Let `(O, C, E)` be a tame retract and `x ∈ O_∞`.  Then `T_x^R O` is an
+(Proposition 2.5.6 (preprint 2.36)) Let `(O, C, E)` be a tame retract and `x ∈ O_∞`.  Then `T_x^R O` is an
 sc-subspace of codimension `d_O(x)` in `T_xO`, `dim(T_xO/T_x^R O) = d_O(x)`, and `C_xO` is a
-partial quadrant in `T_xO` (by the equality case of Theorem 2.31).
+partial quadrant in `T_xO` (by the equality case of Theorem 2.4.12 (preprint 2.31)).
 
 ## What is formalized
 
 * `Polyfold.splitIso`: for sc-subspaces `B ≤ A` of `E` with `B = A ∩ ⋂_j ker ℓ_j` and smooth
   `e_j ∈ A` dual to continuous functionals `ℓ_1, …, ℓ_d`, the sc-isomorphism
-  `A ≅ ℝᵈ ⊕ B`, `v ↦ ((ℓ_j v)_j, v − Σ_j ℓ_j(v) e_j)` (the map `S` of the proof of Theorem 2.31,
+  `A ≅ ℝᵈ ⊕ B`, `v ↦ ((ℓ_j v)_j, v − Σ_j ℓ_j(v) e_j)` (the map `S` of the proof of Theorem 2.4.12 (preprint 2.31),
   with the `e_j` smooth as the exposition requires); `Polyfold.isPartialQuadrant_ofSubspace`.
-* `Polyfold.proposition_2_36_partialCone`: `T_x O = Dr(x)E` is an sc-subspace, `T_x^R O` is an
+* `Polyfold.proposition_2_5_6_partialCone`: `T_x O = Dr(x)E` is an sc-subspace, `T_x^R O` is an
   sc-subspace, and `{v ∈ T_xO | v ∈ C_x} = C_xO` is a partial quadrant in the sc-Banach space
-  `T_xO`.  (The dimension statement `dim(T_xO/T_x^R O) = d_O(x)` is `Polyfold.proposition_2_36`.)
+  `T_xO`.  (The dimension statement `dim(T_xO/T_x^R O) = d_O(x)` is `Polyfold.proposition_2_5_6`.)
 
 ## What the text leaves implicit, and the choices made
 
 * `T_xO` carries the sc-structure induced from `E` (`ScBanach.ofSubspace`); the partial cone is
   the subset of `T_xO` lying in `C_x`.
-* For a tame retraction the vectors of the proof of Theorem 2.31 can be taken explicitly:
+* For a tame retraction the vectors of the proof of Theorem 2.4.12 (preprint 2.31) can be taken explicitly:
   `ê_j = Dr(x)(T⁻¹(e_{i_j}, 0))`, smooth because `Dr(x)` is an sc-operator at the smooth point `x`,
-  with `λ_{i_k}(ê_j) = δ_{jk}` by Proposition 2.35; the general equality case of Theorem 2.31 is not
+  with `λ_{i_k}(ê_j) = δ_{jk}` by Proposition 2.5.3 (preprint 2.35); the general equality case of Theorem 2.4.12 (preprint 2.31) is not
   needed.  That `T_x^R O` is an sc-subspace (exposition Lemma 3.A (1)) is proved directly: for
   `u ∈ T_x^R O ∩ E_m` with `T u = (a, w)`, the smooth points `Dr(x)(T⁻¹(a, w'))`, `w' ∈ W_∞`, lie in
   `T_x^R O` and tend to `u`.
@@ -137,7 +137,7 @@ lemma splitFwd_splitBwd (m : ℕ) (p : (Fin d → ℝ) × E.levelSub B m) :
 
 /-- The sc-isomorphism `A ≅ ℝᵈ ⊕ B`, `v ↦ ((ℓ_j(v))_j, v − Σ_j ℓ_j(v) e_j)`, for an sc-subspace
 `B = A ∩ ⋂_j ker ℓ_j` and smooth `e_j ∈ A` dual to the `ℓ_j` (the map `S` of the proof of
-Theorem 2.31). -/
+Theorem 2.4.12 (preprint 2.31)). -/
 def splitIso : ScIso (E.ofSubspace hA) ((ScBanach.const (Fin d → ℝ)).prod (E.ofSubspace hB)) where
   lvl m := ContinuousLinearEquiv.equivOfInverse (splitFwd ℓ e hes he hℓe hBiff m)
     (splitBwd ℓ e hes he hBiff m) (splitBwd_splitFwd ℓ e hes he hℓe hBiff m)
@@ -162,7 +162,7 @@ theorem isPartialQuadrant_ofSubspace :
 
 end Split
 
-/-! ### Proposition 2.36: `C_xO` is a partial quadrant in `T_xO` -/
+/-! ### Proposition 2.5.6 (preprint 2.36): `C_xO` is a partial quadrant in `T_xO` -/
 
 section TameCone
 
@@ -179,18 +179,18 @@ lemma coordVec_mem_smooth (b : Fin n → ℝ) : coordVec T b ∈ E.smooth := by
     rw [map_zero]; exact W.smooth.zero_mem
   exact T.symm.toScOperator.mapsTo_smoothLvl 0 hp
 
-/-- **Proposition 2.36**, the remaining statements: at a smooth point `x` of a tame retract, the
+/-- **Proposition 2.5.6 (preprint 2.36)**, the remaining statements: at a smooth point `x` of a tame retract, the
 reduced tangent space `T_x^R O` is an sc-subspace, and the partial cone `C_xO = T_xO ∩ C_x` is a
 partial quadrant in the sc-Banach space `T_xO` (with the sc-structure induced from `E`).
 
 *Proof.* With `P = Dr(x)` and `I(x) = {i_1, …, i_d}`, the smooth vectors `ê_j = P(T⁻¹(e_{i_j}, 0))`
-lie in `T_xO` and satisfy `λ_{i_k}(ê_j) = δ_{jk}` (Proposition 2.35: `λ_i ∘ P = λ_i` for
+lie in `T_xO` and satisfy `λ_{i_k}(ê_j) = δ_{jk}` (Proposition 2.5.3 (preprint 2.35): `λ_i ∘ P = λ_i` for
 `i ∈ I(x)`); `T_x^R O = T_xO ∩ ⋂_k ker λ_{i_k}`, and `v ↦ ((λ_{i_k} v)_k, v − Σ_k λ_{i_k}(v) ê_k)`
 is an sc-isomorphism `T_xO ≅ ℝᵈ ⊕ T_x^R O` carrying `C_xO` onto `[0,∞)ᵈ ⊕ T_x^R O` (the map `S`
-of Theorem 2.31, with the `ê_j` smooth).  The smooth points of `T_x^R O ∩ E_m` are dense: for
+of Theorem 2.4.12 (preprint 2.31), with the `ê_j` smooth).  The smooth points of `T_x^R O ∩ E_m` are dense: for
 `u ∈ T_x^R O ∩ E_m` with `T u = (a, w)`, the points `P(T⁻¹(a, w'))`, `w' ∈ W_∞`, are smooth, lie in
 `T_x^R O` (`P E_x ⊆ E_x`) and tend to `P u = u`. -/
-theorem proposition_2_36_partialCone (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
+theorem proposition_2_5_6_partialCone (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
     {x : E 1} (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1) :
     ∃ hA : E.IsScSubspace (LinearMap.range (scDeriv R.U R x : E 0 →ₗ[ℝ] E 0)),
       E.IsScSubspace (reducedTangentSpaceWith R T x) ∧

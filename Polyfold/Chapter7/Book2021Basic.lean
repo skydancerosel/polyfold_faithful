@@ -48,27 +48,27 @@ is connected and lies in `𝐔(ψ ∘ φ)` (by Lemma 7.1.16), and writes the mul
 
 ## What is formalized
 
-* `remark_7_1_7_2021` (**the remark after Definition 7.1.7**): for a functor sc-smooth on objects
+* `remark_definition_7_1_7` (**the remark after Definition 7.1.7**): for a functor sc-smooth on objects
   and continuous on morphisms, the four neighbourhoods, the two sc-diffeomorphisms, the formula,
-  and sc-smoothness on morphisms.  `remark_7_1_7_2021_remarkFunctor`: the functor
+  and sc-smoothness on morphisms.  `remark_definition_7_1_7_remarkFunctor`: the functor
   `Examples.remarkFunctor` (the counterexample to the 2017 remark,
-  `remark_definition_7_7_counterexample`) is excluded by the 2021 hypothesis.
+  `remark_definition_7_1_7_counterexample`) is excluded by the 2021 hypothesis.
 * `IsotropySheetData` (the data **(7.3)**), with the witness `exists_isotropySheetData` (for every
-  object of every ep-groupoid); `proposition_7_1_14_2021` (**Proposition 7.1.14**) and
-  `proposition_7_1_14_2021_of_naturalRep` (for the project's `NaturalRep`).
-* `proposition_7_1_15_2021` (**Proposition 7.1.15**).  `src_eq_tgt_of_printed_2017` and
+  object of every ep-groupoid); `proposition_7_1_14` (**Proposition 7.1.14**) and
+  `proposition_7_1_14_of_naturalRep` (for the project's `NaturalRep`).
+* `proposition_7_1_15` (**Proposition 7.1.15**).  `src_eq_tgt_of_printed_2017` and
   `not_printed_2017_reflection`: 2017 Proposition 7.5 (2) as printed (`s` and `t` of `𝐔(ψ)` both
   into one `U(y)`) forces `s(ψ) = t(ψ)` for every `ψ ∈ 𝐘`, so it cannot hold as we read it once
   `Y` has two distinct objects; in `ℤ/2 ⋉ ℝ` with `Y = {1, −1}` the hypotheses hold, a
   `NaturalRepFinite` (the 2021 reading) exists, and no data of the 2017 printed reading exists.
-* `lemma_7_1_16_2021` (**Lemma 7.1.16**).
-* `corollary_7_1_17_4_2021`, `corollary_7_1_17_5_2021`, `corollary_7_1_17_6_2021`,
-  `corollary_7_1_17_7_2021` (**Corollary 7.1.17 (4)–(7)**).
+* `lemma_7_1_16` (**Lemma 7.1.16**).
+* `corollary_7_1_17_4`, `corollary_7_1_17_5`, `corollary_7_1_17_6`,
+  `corollary_7_1_17_7` (**Corollary 7.1.17 (4)–(7)**).
 
 ## What the text leaves implicit, and the choices made
 
 * Proposition 7.1.15 is the project's `NaturalRepFinite` (Definition 7.1.18; 2017: Definition 7.8)
-  produced by `proposition_7_5_of_mem_nhdsSet`; its field `isScDiffeoOn_src`/`isScDiffeoOn_tgt`
+  produced by `proposition_7_1_15_of_mem_nhdsSet`; its field `isScDiffeoOn_src`/`isScDiffeoOn_tgt`
   was already the 2021 form of (2).  The decomposition "into connected components" is
   `NatRepFinite.connectedComponentIn_morOn`.
 * (7.3): "open neighbourhoods `U^s(g)`, `U^t(g)` for `g`" is read as neighbourhoods **of** `g`
@@ -137,7 +137,7 @@ and `φ ∈ 𝐗`, `ψ = f(φ)`, there are open `U(φ) ∋ φ`, `U(ψ) ∋ ψ`, 
 `f(U(s(φ))) ⊆ U(s(ψ))`, `f(U(φ)) ⊆ U(ψ)`, `s : U(φ) → U(s(φ))` and `s : U(ψ) → U(s(ψ))`
 sc-diffeomorphisms, and `f(γ) = (s|U(ψ))⁻¹(f(s(γ)))` for `γ ∈ U(φ)`; hence `f` is sc-smooth on
 the morphism spaces. -/
-theorem remark_7_1_7_2021 {F : GroupoidFunctor X.toGroupoidStr Y.toGroupoidStr}
+theorem remark_definition_7_1_7 {F : GroupoidFunctor X.toGroupoidStr Y.toGroupoidStr}
     (hobj : X.PObj.IsScSmoothMap Y.PObj F.obj) (hmor : Continuous F.mor) (φ : Mor) :
     ∃ (Uφ : Set Mor) (Uψ : Set Mor') (Usφ : Set Obj) (Usψ : Set Obj') (σφ : Obj → Mor)
       (σψ : Obj' → Mor'),
@@ -163,7 +163,7 @@ theorem remark_7_1_7_2021 {F : GroupoidFunctor X.toGroupoidStr Y.toGroupoidStr}
 /-- The 2017 counterexample `Examples.remarkFunctor` (sc-smooth on the objects of `ℤ/3 × ℝ ⇉ ℝ`,
 not an `EP` morphism) **does not satisfy the hypothesis of the 2021 remark**: it is not continuous
 on the morphism spaces. -/
-theorem remark_7_1_7_2021_remarkFunctor :
+theorem remark_definition_7_1_7_remarkFunctor :
     Examples.trivialZ3EpGroupoid.PObj.IsScSmoothMap Examples.trivialZ3EpGroupoid.PObj
       Examples.remarkFunctor.obj ∧ ¬ Continuous Examples.remarkFunctor.mor :=
   ⟨Examples.isScSmoothMap_remarkFunctor_obj, Examples.not_continuous_remarkFunctor_mor⟩
@@ -231,7 +231,7 @@ Theorem 7.1.13, and fix the data (7.3).  Then there is an open `Φ`-invariant `V
 `V(x) ⊆ W(x) ∩ U(x)`, with `Γ(g, v) = s_g⁻¹(v)` and `Φ(g)(v) = t ∘ s_g⁻¹(v)` for `v ∈ V(x)`,
 `g ∈ G_x`; also `Γ(g, v) = t_g⁻¹(Φ(g)(v))` (from the proof, (7.4)).  Property (3) of
 Theorem 7.1.13 is not used. -/
-theorem proposition_7_1_14_2021 {x : Obj} {U : Set Obj} (hU : IsOpen U) (hxU : x ∈ U)
+theorem proposition_7_1_14 {x : Obj} {U : Set Obj} (hU : IsOpen U) (hxU : x ∈ U)
     (Φ : X.Isotropy x → Obj → Obj) (Γ : X.Isotropy x → Obj → Mor)
     (hΦ : ∀ g, X.PObj.IsScDiffeoOn X.PObj (Φ g) (Φ g⁻¹) U U)
     (hΦmul : ∀ g h, ∀ y ∈ U, Φ (g * h) y = Φ g (Φ h y))
@@ -286,12 +286,12 @@ theorem proposition_7_1_14_2021 {x : Obj} {U : Set Obj} (hU : IsOpen U) (hxU : x
 
 /-- **2021 Proposition 7.1.14** for a natural representation in the project's sense
 (`NaturalRep`, the data of Theorem 7.1.13). -/
-theorem proposition_7_1_14_2021_of_naturalRep {x : Obj} (R : X.NaturalRep x)
+theorem proposition_7_1_14_of_naturalRep {x : Obj} (R : X.NaturalRep x)
     (D : X.IsotropySheetData x) :
     ∃ V : Set Obj, IsOpen V ∧ x ∈ V ∧ V ⊆ D.W ∩ R.U ∧ (∀ g, MapsTo (R.Φ g) V V) ∧
       ∀ g, ∀ v ∈ V, R.Γ g v = D.srcInv g v ∧ R.Φ g v = X.tgt (D.srcInv g v) ∧
         R.Γ g v = D.tgtInv g (R.Φ g v) :=
-  X.proposition_7_1_14_2021 R.isOpen_U R.mem_U R.Φ R.Γ R.isScDiffeoOn_Φ R.Φ_mul R.isScSmoothOn_Γ
+  X.proposition_7_1_14 R.isOpen_U R.mem_U R.Φ R.Γ R.isScDiffeoOn_Φ R.Φ_mul R.isScSmoothOn_Γ
     R.Γ_self R.src_Γ R.tgt_Γ R.existsUnique_Γ D
 
 /-! ### Proposition 7.1.15 -/
@@ -303,7 +303,7 @@ representation `f` of `Y` on neighbourhoods in `V` (`NaturalRepFinite`: disjoint
 `U = ⋃ U(y)` decompose into the connected components `𝐔(ψ) ∋ ψ`, `ψ ∈ 𝐘`, (2) `s : 𝐔(ψ) → U(s(ψ))`
 and `t : 𝐔(ψ) → U(t(ψ))` are sc-diffeomorphisms, (3) `f(ψ) = t ∘ (s|𝐔(ψ))⁻¹` on `U(s(ψ))`, and
 `t(ψ') = f(ψ)(s(ψ'))` for `ψ' ∈ 𝐔(ψ)`. -/
-theorem proposition_7_1_15_2021 (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isomorphic y y')
+theorem proposition_7_1_15 (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isomorphic y y')
     {V : Set Obj} (hV : V ∈ 𝓝ˢ (Y : Set Obj)) :
     ∃ N : X.NaturalRepFinite Y V,
       (∀ ψ ∈ X.morOn (Y : Set Obj), ψ ∈ N.sheet ψ ∧
@@ -313,7 +313,7 @@ theorem proposition_7_1_15_2021 (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y
         ∃ τ, X.PMor.IsScDiffeoOn X.PObj X.tgt τ (N.sheet ψ) (N.U (X.tgt ψ))) ∧
       (∀ ψ ∈ X.morOn (Y : Set Obj), ∀ z ∈ N.U (X.src ψ), N.F ψ z = X.tgt (N.srcInv ψ z)) ∧
       (∀ ψ ∈ X.morOn (Y : Set Obj), ∀ ψ' ∈ N.sheet ψ, X.tgt ψ' = N.F ψ (X.src ψ')) := by
-  obtain ⟨N⟩ := X.proposition_7_5_of_mem_nhdsSet Y hY hV
+  obtain ⟨N⟩ := X.proposition_7_1_15_of_mem_nhdsSet Y hY hV
   refine ⟨N, fun ψ hψ => ⟨N.mem_sheet ψ hψ,
     NatRepFinite.connectedComponentIn_morOn N hψ (N.mem_sheet ψ hψ)⟩,
     fun ψ hψ => ⟨N.isScDiffeoOn_src ψ hψ, N.isScDiffeoOn_tgt ψ hψ⟩, N.F_eq,
@@ -376,7 +376,7 @@ theorem not_printed_2017_reflection :
     · exact hneg 1
     · simpa using hneg (-1)
     · exact Examples.reflectionEpGroupoid.isomorphic_refl _
-  refine ⟨hY, Examples.reflectionEpGroupoid.proposition_7_5 _ hY isOpen_univ (subset_univ _), ?_⟩
+  refine ⟨hY, Examples.reflectionEpGroupoid.proposition_7_1_15_2017 _ hY isOpen_univ (subset_univ _), ?_⟩
   rintro ⟨U, sheet, hmem, hdisj, hmor, h2⟩
   have hψ : ((-1 : ℤˣ), (1 : Fin 1 → ℝ)) ∈ Examples.reflectionEpGroupoid.morOn
       (({1, -1} : Finset (Fin 1 → ℝ)) : Set (Fin 1 → ℝ)) := by
@@ -409,7 +409,7 @@ theorem NaturalRepFinite.mem_U_of_tendsto {Y : Finset Obj} {V : Set Obj}
 `ψ'_k ∈ 𝐔(ψ)` converging to `ψ' ∈ 𝐗`, if `(s(ψ'_k))` or `(t(ψ'_k))` converges to an object of
 `U(s(ψ))` or of `U(t(ψ))`, then `ψ' ∈ 𝐔(ψ)`, and `s(ψ'_k) → s(ψ') ∈ U(s(ψ))`,
 `t(ψ'_k) → t(ψ') ∈ U(t(ψ))`. -/
-theorem lemma_7_1_16_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V) {ψ : Mor}
+theorem lemma_7_1_16 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V) {ψ : Mor}
     (hψ : ψ ∈ X.morOn (Y : Set Obj)) {ψs : ℕ → Mor} (hψs : ∀ k, ψs k ∈ N.sheet ψ) {ψ' : Mor}
     (hlim : Tendsto ψs atTop (𝓝 ψ'))
     (hconv : ∃ z ∈ N.U (X.src ψ) ∪ N.U (X.tgt ψ),
@@ -447,7 +447,7 @@ theorem lemma_7_1_16_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite
 /-- **2021 Corollary 7.1.17 (4)**, p. 301 (new in the 2021 edition): for `x ∈ Y` there is a
 natural representation `(Φ, Γ)` of `G_x` on `U(x)` with `Φ(g) = f(g)` (property (1)), and for
 `g ∈ G_x`, `z ∈ U(x)`: `Γ(g, z) = (s|𝐔(g))⁻¹(z)` and `f(g)(z) = t(Γ(g, z)) = g ∗ z`. -/
-theorem corollary_7_1_17_4_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V)
+theorem corollary_7_1_17_4 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V)
     {x : Obj} (hx : x ∈ Y) :
     ∃ R : X.NaturalRep x, R.U = N.U x ∧ ∀ g : X.Isotropy x, ∀ z ∈ N.U x,
       R.Γ g z = N.srcInv g.val z ∧ N.F g.val z = X.tgt (R.Γ g z) ∧
@@ -477,7 +477,7 @@ theorem corollary_7_1_17_4_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRep
 /-- **2021 Corollary 7.1.17 (5)**, p. 301 (new in the 2021 edition): for `φ ∈ 𝐘`, `f(φ)` is
 equivariant for `γ_φ(g) = φ ∘ g ∘ φ⁻¹ : G_{s(φ)} → G_{t(φ)}` (`conjIsotropy`), with the actions
 `z ↦ f(g)(z)` (the natural actions, by (4)). -/
-theorem corollary_7_1_17_5_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V)
+theorem corollary_7_1_17_5 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V)
     {φ : Mor} (hφ : φ ∈ X.morOn (Y : Set Obj)) (g : X.Isotropy (X.src φ)) {z : Obj}
     (hz : z ∈ N.U (X.src φ)) :
     N.F φ (N.F g.val z) = N.F (X.conjIsotropy φ g).val (N.F φ z) := by
@@ -501,7 +501,7 @@ theorem corollary_7_1_17_5_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRep
 `s(ψ) = t(φ)`, the multiplication `(ψ', φ') ↦ ψ' ∘ φ'` is an sc-diffeomorphism from
 `𝐔(ψ) ₛ×ₜ 𝐔(φ)` (an open subset of the fibred product sub-M-polyfold `𝐗 ₛ×ₜ 𝐗 ⊆ 𝐗 × 𝐗`) onto
 `𝐔(ψ ∘ φ)`. -/
-theorem corollary_7_1_17_6_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V)
+theorem corollary_7_1_17_6 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRepFinite Y V)
     {φ ψ : Mor} (hφ : φ ∈ X.morOn (Y : Set Obj)) (hψ : ψ ∈ X.morOn (Y : Set Obj))
     (h : X.src ψ = X.tgt φ) :
     letI := MPolyfold.paracompactSpace_prod X.PMor X.PMor
@@ -586,7 +586,7 @@ theorem corollary_7_1_17_6_2021 {Y : Finset Obj} {V : Set Obj} (N : X.NaturalRep
 variable (X) in
 /-- **2021 Corollary 7.1.17 (7)**, p. 301 (new in the 2021 edition): the `U(y)` of Proposition
 7.1.15 may be taken with the properness property (Definition 7.5.8; 2017: Definition 7.17). -/
-theorem corollary_7_1_17_7_2021 (Y : Finset Obj)
+theorem corollary_7_1_17_7 (Y : Finset Obj)
     (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isomorphic y y') {V : Set Obj} (hV : V ∈ 𝓝ˢ (Y : Set Obj)) :
     ∃ N : X.NaturalRepFinite Y V, ∀ y ∈ Y, X.HasPropernessProperty (N.U y) := by
   obtain ⟨O, hO, hOdisj⟩ := Y.finite_toSet.t2_separation
@@ -597,7 +597,7 @@ theorem corollary_7_1_17_7_2021 (Y : Finset Obj)
     hWo.inter (isOpen_biUnion fun y _ => hQo y)
   have hYV' : (Y : Set Obj) ⊆ W ∩ ⋃ y ∈ Y, (O y ∩ P y) := fun y hy =>
     ⟨hYW hy, mem_biUnion hy ⟨(hO y).1, (hP y).1⟩⟩
-  obtain ⟨N⟩ := X.proposition_7_5 Y hY hV'o hYV'
+  obtain ⟨N⟩ := X.proposition_7_1_15_2017 Y hY hV'o hYV'
   refine ⟨NatRepFinite.mono N (inter_subset_left.trans hWV), fun y hy => ?_⟩
   have hsub : N.U y ⊆ O y ∩ P y := by
     refine (N.isConnected_U y hy).isPreconnected.subset_left_of_subset_union (hQo y)

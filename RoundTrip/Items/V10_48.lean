@@ -74,8 +74,8 @@ open LocalizationLRCounterexample SBLocalization in
 theorem metrizableSpace_z3 : TopologicalSpace.MetrizableSpace z3EP.X.OrbitSpace := by
   have : SecondCountableTopology z3EP.Obj := (inferInstance : SecondCountableTopology (Fin 1 → ℝ))
   have : SecondCountableTopology z3EP.X.OrbitSpace :=
-    TopologicalSpace.Quotient.secondCountableTopology z3EP.X.proposition_7_1
-  exact z3EP.X.corollary_7_1
+    TopologicalSpace.Quotient.secondCountableTopology z3EP.X.proposition_7_1_8
+  exact z3EP.X.corollary_7_3_6
 
 open LocalizationLRCounterexample SBLocalization StrongBundleLocalizationExamples in
 /-- `B` (2): `[X ←1 X →Inv X]` and `[1_X]` on `X = ℤ/3 × ℝ ⇉ ℝ`, both over `(X, 1)`. -/

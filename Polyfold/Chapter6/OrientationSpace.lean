@@ -28,7 +28,7 @@ continuous section; `ℤ₂` acts on `O_f`, and `det_f = ℝ ⊗_{ℤ₂} O_f`.
 ## What is formalized
 
 * `OrSpace` (`O_f`, a sigma type over `MPolyfold.SmoothLevel`, the space `X_∞` with the topology
-  of Theorem 2.3.10, `theorem_2_16`), `orProj` (`π_f`), `OrPullback` (`φ*O_f`), and the three
+  of Theorem 2.3.10, `theorem_2_3_10`), `orProj` (`π_f`), `OrPullback` (`φ*O_f`), and the three
   properties: `IsLocalHomeomorph` (1), `HasTwoContSections` (2), `IsPropagationContinuous` (3);
   `IsOrientationTopology` collects them with `T2Space`.
 * `orTopology L` for local transport data `L` (`LocalTransport`, `PathTransport.lean`): `W` is open
@@ -40,8 +40,8 @@ continuous section; `ℤ₂` acts on `O_f`, and `det_f = ℝ ⊗_{ℤ₂} O_f`.
 * With `L = orLocalTransport` (the data of `Γ_f`, Theorem 6.6.13, `orFunctor`):
   `isPropagationContinuous_orTopology` (3); `eq_orTopology_of`: **every topology with (1) and
   (3) is `orTopology`** (uniqueness; neither Hausdorffness nor (2) is used);
-  `existsUnique_orientationTopology_2021` (exactly one Hausdorff topology with (1) and (3), no
-  further hypothesis); `theorem_6_6_17_2021` (the theorem with (1)–(3), under
+  `existsUnique_orientationTopology` (exactly one Hausdorff topology with (1) and (3), no
+  further hypothesis); `theorem_6_6_17_hyp` (the theorem with (1)–(3), under
   `MPolyfold.HasConnectedSmoothNbhds`).
 * Two facts on `X_∞` used for uniqueness: `continuous_smoothMk_comp` (an sc-smooth map `ℝⁿ → X`
   is continuous into `X_∞`) and `eventually_exists_scPath_smoothLevel` (points of `X_∞` close to
@@ -884,7 +884,7 @@ theorem eq_orTopology_of {t : TopologicalSpace (OrSpace f hf.toIsScFredholmSecti
 
 /-- **2021 Theorem 6.6.17 without property (2)**: there is exactly one Hausdorff topology on `O_f`
 with properties (1) and (3) (by `eq_orTopology_of`, even exactly one with (1) and (3)). -/
-theorem existsUnique_orientationTopology_2021 :
+theorem existsUnique_orientationTopology :
     ∃! t : TopologicalSpace (OrSpace f hf.toIsScFredholmSection), @T2Space _ t ∧
       @IsLocalHomeomorph _ _ t _ (orProj f hf.toIsScFredholmSection) ∧
       IsPropagationContinuous f hf.toIsScFredholmSection t :=
@@ -896,7 +896,7 @@ theorem existsUnique_orientationTopology_2021 :
 /-- **2021 Theorem 6.6.17**, p. 275 (new in the 2021 edition; the 2017 text has no topology on
 `O_f`): there is exactly one topology on `O_f` which is Hausdorff and has properties
 (1), (2) and (3); under the hypothesis `HasConnectedSmoothNbhds` (used for (2) only). -/
-theorem theorem_6_6_17_2021 (hC : PX.HasConnectedSmoothNbhds) :
+theorem theorem_6_6_17_hyp (hC : PX.HasConnectedSmoothNbhds) :
     ∃! t : TopologicalSpace (OrSpace f hf.toIsScFredholmSection),
       IsOrientationTopology f hf.toIsScFredholmSection t :=
   ⟨orTopology (orLocalTransport hX hbump hf hsec),

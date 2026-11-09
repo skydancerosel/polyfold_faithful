@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = theorem_3_18 ∧ theorem_3_18' ∧ paramSection_eq_sectionAdd ∧ IsScFredholmSection.param ∧ isScPlusSection_paramComb ∧ IsBasicGerm.paramExtend ∧ IsConjugateToBasicGerm.paramExtend ∧ IsStrongBundleIso.paramMap ∧ prod_rn_isTame ∧ isScSmooth_smul (universes 0; paramSection and StrongBundle.pullback are vocabulary). At HEAD theorem_3_18 and B both use IsScFredholmSection in the germ reading (filling and sc⁺-section as germs). B is theorem_3_18 with the extra hypothesis IsTameStrongBundle Bd (unused); B's proof hπ that π is sc-smooth and the section proofs hf, hs agree with the project's by proof irrelevance, and the two paracompactness instances are arguments of both, so A_to_B is the first conjunct applied. B ⇒ A fails genuinely: A needs no tame bundle, and its other conjuncts are lemmas of the proof (f∘π sc-Fredholm, s̃ sc⁺, F = f̃ + s̃, Λ-extension of basic germs/conjugations, the product bundle isomorphism, tameness of ℝⁿ × X, sc-smoothness of scalar multiplication) that B does not state.",
+ "why": "A = theorem_3_1_21_preprint ∧ theorem_3_1_21' ∧ paramSection_eq_sectionAdd ∧ IsScFredholmSection.param ∧ isScPlusSection_paramComb ∧ IsBasicGerm.paramExtend ∧ IsConjugateToBasicGerm.paramExtend ∧ IsStrongBundleIso.paramMap ∧ prod_rn_isTame ∧ isScSmooth_smul (universes 0; paramSection and StrongBundle.pullback are vocabulary). At HEAD theorem_3_1_21_preprint and B both use IsScFredholmSection in the germ reading (filling and sc⁺-section as germs). B is theorem_3_1_21_preprint with the extra hypothesis IsTameStrongBundle Bd (unused); B's proof hπ that π is sc-smooth and the section proofs hf, hs agree with the project's by proof irrelevance, and the two paracompactness instances are arguments of both, so A_to_B is the first conjunct applied. B ⇒ A fails genuinely: A needs no tame bundle, and its other conjuncts are lemmas of the proof (f∘π sc-Fredholm, s̃ sc⁺, F = f̃ + s̃, Λ-extension of basic germs/conjugations, the product bundle isomorphism, tameness of ℝⁿ × X, sc-smoothness of scalar multiplication) that B does not state.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved); A_to_B uses only the hypothesis",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "theorem_3_18, theorem_3_18' and IsScFredholmSection.param now state the germ reading, as does B's IsScFredholmSection; A_to_B still checks unchanged (first conjunct applied, hypothesis used). Result unchanged: A_stronger."
+  "note": "theorem_3_1_21_preprint, theorem_3_1_21' and IsScFredholmSection.param now state the germ reading, as does B's IsScFredholmSection; A_to_B still checks unchanged (first conjunct applied, hypothesis used). Result unchanged: A_stronger."
  }
 }

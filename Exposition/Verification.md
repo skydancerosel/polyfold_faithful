@@ -41,18 +41,18 @@ A result has the same number, V1.5 say, in this edition, the comparison and the 
 | Chapter | HWZ | Content | Status | Lean lines |
 |:--|:--|:--|:--|--:|
 | Chapter 1 | Ch. 1, §§1.1–1.4 | sc-Banach spaces, sc-operators and sc-Fredholm operators, sc-differentiability and its relation to classical differentiability, the chain rule, the degeneracy index | **verified** | 7,010 |
-| Chapter 2 | Ch. 2 | sc-smooth retractions and retracts, M-polyfolds, the degeneracy index, tame M-polyfolds, strong bundles | **verified except Proposition 2.1.2 (preprint 2.2) and Lemma 2.4.9 (preprint 2.29) as stated; Remark 2.4.8's (preprint 2.28) negative claim is false** | 23,045 |
-| Chapter 3 | Ch. 3 | sc-Fredholm sections and the implicit function theorem | **partly verified** | 56,006 |
-| Chapter 4 | Ch. 4, §§4.1–4.4 | manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard's theorem (vendored) | **verified except Lemma 4.1.11 (preprint 4.10) and §4.4** | 14,051 |
-| Chapter 5 | Ch. 5, §§5.1–5.3, 5.5 (preprint §§5.1–5.4) | the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity | **verified except Theorem 5.3.15 (preprint 5.22) and Theorem 5.27 (preprint; not in the 2021 edition) and the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43)** | 12,687 |
-| Chapter 6 | Ch. 6, §§6.2–6.6, 6.8 (preprint §§6.1–6.5, 6.7) | linearizations and orientations: determinant lines and exact sequences, the determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of the solution set | **verified except Proposition 6.6.3 (1) (preprint 6.28), the global parts of Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (preprint 6.42), and Theorem 6.7.1 (preprint 6.43)** | 22,675 |
-| Chapter 7 | Part II, Ch. 7, §§7.1–7.3, 7.5–7.6 (2017 §§7.1–7.5) | ep-groupoids: groupoids of M-polyfolds with local sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets | **verified except the tangent $T\varphi$ of Definition 7.1.4 (2017 Definition 7.4), the remark after Definition 7.1.7 (2017 Definition 7.7) in its 2017 form, the Hausdorff property of $\mathbf X^R$ in Proposition 7.2.10 (2017 Proposition 7.9) and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14, which assumes it), and the index lifts $X^i$, $i \ge 2$, of Appendix 7.6.4** | 17,447 |
-| Chapter 8 | Part II, Ch. 8, §§8.1–8.3, 8.5–8.6 (2017 §§8.1–8.5) | bundles and covering functors: the tangent ep-groupoid and the tangent functor, natural transformations, the orbit space of the tangent, strong bundles over ep-groupoids and their functorial picture, strong bundle maps and section functors, proper covering functors, their local structure and geometric lifts, proper strong bundle covering functors, the counting of the fibres | **verified except the sc-differential forms of Definitions 8.2.1 and 8.2.2 (2017 Definitions 8.2 and 8.3), the linearity of $T\varphi$ in Remark 8.1.10 (2017 Remark 8.1), and Lemma 8.1.2 (2017 Lemma 8.1) in the form $m_{T\mathbf X} = Tm$, and, of the 2021 additions, the step $T(g, h) = \mathrm{id} \Rightarrow Tg = \mathrm{id}$ of Proposition 8.1.16, Proposition 8.4.1 (1) ⇒ (2), (3), Proposition 8.4.3 and the strong bundle structure of $F^*V$ in Lemma 8.5.10** | 10,995 |
-| Chapter 9 | Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9) | branched ep⁺-subgroupoids: local branching structures, the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of measure zero and the canonical σ-algebras (integration and Stokes not formalized) | **verified for §§9.1–9.4 and §9.6.1 with the readings and hypotheses recorded below, unconditionally for ep-groupoids whose object M-polyfold is $\mathbb R^m$, except the global part of Proposition 9.1.11, Proposition 9.1.9, Lemma 9.4.3 and the boundary-orientation geometry of Definitions 9.3.8 and 9.3.10; for §9.5 the sets of measure zero, the σ-algebras and the isotropy factors are verified, branched integration, the boundary measures and Stokes' theorem are not** | 16,925 |
-| Chapter 10 | Part II, Ch. 10, §§10.1–10.6 (2017 Chapter 10) | equivalences and localization: equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the equivalences and generalized maps, strong bundle equivalences, localization in the strong bundle case | **verified for equivalences, natural equivalences, the weak fibred product, the localization $\mathcal{EP}(E^{-1})$, strong bundle equivalences and generalized strong bundle maps, with the readings recorded below, except Remark 10.1.8, the universal property of the localization, the Fred part of Theorem 10.4.5, Propositions 10.4.6 and 10.4.7, the converse half of the strong bundle Theorem 10.3.10, the Fred part of Theorem 10.5.4 and Proposition 10.5.6; Theorems 10.3.19 and 10.5.7 do not hold as we read them, and Theorem 10.3.19 holds for an effective target** | 11,778 |
-| Chapter 11 | Part II, Ch. 11, §§11.1–11.6 (2017 Chapter 11) | geometry up to equivalences: the tangent functor and faces up to equivalence, branched ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and equivalences (sc-differential forms and integration not formalized) | **verified for the tangent functor and faces up to equivalence, push-forwards and pull-backs of branched ep⁺-subgroupoids with their tangents, boundaries and orientations, auxiliary norms and multisection functors under generalized strong bundle isomorphisms, and proper coverings up to equivalence, with the readings recorded below, except the ep-groupoid structure of faces, the boundary operations of Theorem 11.3.9 along equivalences, conditions (1) and (2) of auxiliary norms, the local section structures of sc⁺-multisections and the localizations of §11.6; §11.2 (sc-differential forms) and §11.4 (integration) are not verified** | 6,508 |
+| Chapter 2 | Ch. 2 | sc-smooth retractions and retracts, M-polyfolds, the degeneracy index, tame M-polyfolds, strong bundles | **verified except Proposition 2.1.2 (preprint 2.2) and Lemma 2.4.9 (preprint 2.29) as stated; Remark 2.4.8's (preprint 2.28) negative claim is false** | 25,029 |
+| Chapter 3 | Ch. 3 | sc-Fredholm sections and the implicit function theorem | **partly verified** | 60,925 |
+| Chapter 4 | Ch. 4, §§4.1–4.4 | manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard's theorem (vendored) | **verified except Lemma 4.1.11 (preprint 4.10) and §4.4** | 14,130 |
+| Chapter 5 | Ch. 5, §§5.1–5.3, 5.5 (preprint §§5.1–5.4) | the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity | **verified except Theorem 5.3.15 (preprint 5.22) and Theorem 5.27 (preprint; not in the 2021 edition) and the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43)** | 13,593 |
+| Chapter 6 | Ch. 6, §§6.2–6.6, 6.8 (preprint §§6.1–6.5, 6.7) | linearizations and orientations: determinant lines and exact sequences, the determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of the solution set | **verified except Proposition 6.6.3 (1) (preprint 6.28), the global parts of Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (preprint 6.42), and Theorem 6.7.1 (preprint 6.43)** | 25,116 |
+| Chapter 7 | Part II, Ch. 7, §§7.1–7.3, 7.5–7.6 (2017 §§7.1–7.5) | ep-groupoids: groupoids of M-polyfolds with local sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets | **verified except the tangent $T\varphi$ of Definition 7.1.4 (2017 Definition 7.4), the remark after Definition 7.1.7 (2017 Definition 7.7) in its 2017 form, the Hausdorff property of $\mathbf X^R$ in Proposition 7.2.10 (2017 Proposition 7.9) and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14, which assumes it), and the index lifts $X^i$, $i \ge 2$, of Appendix 7.6.4** | 20,407 |
+| Chapter 8 | Part II, Ch. 8, §§8.1–8.3, 8.5–8.6 (2017 §§8.1–8.5) | bundles and covering functors: the tangent ep-groupoid and the tangent functor, natural transformations, the orbit space of the tangent, strong bundles over ep-groupoids and their functorial picture, strong bundle maps and section functors, proper covering functors, their local structure and geometric lifts, proper strong bundle covering functors, the counting of the fibres | **verified except the sc-differential forms of Definitions 8.2.1 and 8.2.2 (2017 Definitions 8.2 and 8.3), the linearity of $T\varphi$ in Remark 8.1.10 (2017 Remark 8.1), and Lemma 8.1.2 (2017 Lemma 8.1) in the form $m_{T\mathbf X} = Tm$, and, of the 2021 additions, the step $T(g, h) = \mathrm{id} \Rightarrow Tg = \mathrm{id}$ of Proposition 8.1.16, Proposition 8.4.1 (1) ⇒ (2), (3), Proposition 8.4.3 and the strong bundle structure of $F^*V$ in Lemma 8.5.10** | 12,575 |
+| Chapter 9 | Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9) | branched ep⁺-subgroupoids: local branching structures, the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of measure zero and the canonical σ-algebras (integration and Stokes not formalized) | **verified for §§9.1–9.4 and §9.6.1 with the readings and hypotheses recorded below, unconditionally for ep-groupoids whose object M-polyfold is $\mathbb R^m$, except the global part of Proposition 9.1.11, Proposition 9.1.9, Lemma 9.4.3 and the boundary-orientation geometry of Definitions 9.3.8 and 9.3.10; for §9.5 the sets of measure zero, the σ-algebras and the isotropy factors are verified, branched integration, the boundary measures and Stokes' theorem are not** | 22,681 |
+| Chapter 10 | Part II, Ch. 10, §§10.1–10.6 (2017 Chapter 10) | equivalences and localization: equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the equivalences and generalized maps, strong bundle equivalences, localization in the strong bundle case | **verified for equivalences, natural equivalences, the weak fibred product, the localization $\mathcal{EP}(E^{-1})$, strong bundle equivalences and generalized strong bundle maps, with the readings recorded below, except Remark 10.1.8, the universal property of the localization, the Fred part of Theorem 10.4.5, Propositions 10.4.6 and 10.4.7, the converse half of the strong bundle Theorem 10.3.10, the Fred part of Theorem 10.5.4 and Proposition 10.5.6; Theorems 10.3.19 and 10.5.7 do not hold as we read them, and Theorem 10.3.19 holds for an effective target** | 13,561 |
+| Chapter 11 | Part II, Ch. 11, §§11.1–11.6 (2017 Chapter 11) | geometry up to equivalences: the tangent functor and faces up to equivalence, branched ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and equivalences (sc-differential forms and integration not formalized) | **verified for the tangent functor and faces up to equivalence, push-forwards and pull-backs of branched ep⁺-subgroupoids with their tangents, boundaries and orientations, auxiliary norms and multisection functors under generalized strong bundle isomorphisms, and proper coverings up to equivalence, with the readings recorded below, except the ep-groupoid structure of faces, the boundary operations of Theorem 11.3.9 along equivalences, conditions (1) and (2) of auxiliary norms, the local section structures of sc⁺-multisections and the localizations of §11.6; §11.2 (sc-differential forms) and §11.4 (integration) are not verified** | 7,107 |
 
-Total: 199,127 lines of Lean in 327 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 8 November 2026.
+Total: 222,134 lines of Lean in 383 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 9 November 2026.
 
 ---
 
@@ -192,15 +192,15 @@ $F_{m+1} \to F_m$ are automatic and are not conditions; "topological direct sum"
 complementary closed subspaces, the continuity of the projections following from the closed graph
 theorem (`Polyfold.ScBanach.IsScSplitting.closedComplemented`).
 
-**V1.5 (Proposition 1.1.7 (preprint 1.6); `Polyfold.ScBanach.proposition_1_6_iff`,
-`Polyfold.ScBanach.proposition_1_6`).** Let $E$ be an sc-Banach space and $F \subseteq E_0$ a
+**V1.5 (Proposition 1.1.7 (preprint 1.6); `Polyfold.ScBanach.proposition_1_1_7_iff`,
+`Polyfold.ScBanach.proposition_1_1_7`).** Let $E$ be an sc-Banach space and $F \subseteq E_0$ a
 finite-dimensional subspace. $F$ is an sc-subspace if and only if $F \le E_\infty$; and if $F \le
 E_\infty$ there is a subspace $G \subseteq E_0$ such that $E = F \oplus G$ is an sc-splitting.
 *Book:* preprint p. 7, the same. *Hidden hypotheses:* none. *Proof:* as in the text, with a continuous
 projection $E_0 \to F$ from Mathlib (Hahn–Banach), lifted to each level through $F_m \cong F$.
 
 **V1.6 (Proposition 1.1.8 (preprint 1.7); `Polyfold.ScBanach.quotientScale`, `Polyfold.ScBanach.quotient`,
-`Polyfold.ScBanach.quotientMap`, `Polyfold.ScBanach.proposition_1_7`).** Let $E$ be an sc-Banach
+`Polyfold.ScBanach.quotientMap`, `Polyfold.ScBanach.proposition_1_1_8`).** Let $E$ be an sc-Banach
 space and $A \subseteq E_0$ a closed subspace. The quotient Banach spaces $E_m/A_m$, with the
 inclusions $E_{m+1}/A_{m+1} \to E_m/A_m$ induced by $\iota$ (injective and compact), and with the
 smooth points dense on every level, form an sc-Banach space $E/A$, and the quotient maps $E_m \to
@@ -233,7 +233,7 @@ $T_m : X_m \to Y_m$ for every $m$; the continuity of the inverses is automatic b
 theorem on the closed subspaces $X_m$, $Y_m$. The independence of the index from the splitting and
 the level-wise Fredholm property are not stated in the text.
 
-**V1.8 (Proposition 1.1.10 (preprint 1.9); `Polyfold.proposition_1_9`, `Polyfold.ScOperator.IsRegularizing`,
+**V1.8 (Proposition 1.1.10 (preprint 1.9); `Polyfold.proposition_1_1_10`, `Polyfold.ScOperator.IsRegularizing`,
 `Polyfold.IsScFredholm.isRegularizing`, `Polyfold.isScFredholm_iff`).** Let $T : E \to F$ be an
 sc-operator with an sc-Fredholm splitting, $e \in E_0$ and $m \in \mathbb N$. If
 $T_0 e \in \iota_m(F_m)$ then $e \in \iota_m(E_m)$. As a property of sc-operators
@@ -245,7 +245,7 @@ uses $C \cap Y = 0$ on level $0$, as in the text. The converse is not stated in 
 tool for the text's unargued “is sc-Fredholm” for operators obtained by conjugation and restriction
 in Chapter 3 (V3.8, V3.46, V3.96; Findings, Chapter 3, item 233).
 
-**V1.9 (Proposition 1.1.11 (preprint 1.10); `Polyfold.proposition_1_10`, `Polyfold.ScPlus.regularizing_add`,
+**V1.9 (Proposition 1.1.11 (preprint 1.10); `Polyfold.proposition_1_1_11_preprint`, `Polyfold.ScPlus.regularizing_add`,
 `Polyfold.isScFredholm_of_isRegularizing`, `Polyfold.isScFredholm_of_isRegularizing_index`).** Let
 $E$, $F$ be sc-Banach spaces, $T : E \to F$ an sc-Fredholm operator and $S : E \to F$ an
 $\mathrm{sc}^+$-operator. Then $T + S$ (with $S$ read as an sc-operator $E \to F$) is sc-Fredholm.
@@ -357,7 +357,7 @@ formalized). *Hidden hypotheses:* none beyond V1.13.
 
 **V1.15 (Proposition 1.2.1 (preprint 1.16); `Polyfold.IsSc1Levels`, `Polyfold.IsSc1Levels.continuousOn_clm`,
 `Polyfold.IsSc1Levels.contDiffOn`, `Polyfold.IsSc1Levels.toBase_apply`,
-`Polyfold.IsSc1Levels.isSc1With`, `Polyfold.IsSc1With.isSc1Levels`, `Polyfold.proposition_1_16`,
+`Polyfold.IsSc1Levels.isSc1With`, `Polyfold.IsSc1With.isSc1Levels`, `Polyfold.proposition_1_2_1`,
 `Polyfold.IsSc1With.contDiffOn_base`, `Polyfold.IsSc1With.scOperator_deriv`).** Let $U$ be an
 sc-domain in $E$ and $f$ $\mathrm{sc}^0$ on $U$. Then $f$ is $\mathrm{sc}^1$ on $U$ if and only if
 there is a family $D_m(x) \in \mathcal L(E_m, F_m)$, $m \in \mathbb N$, $x \in U_{m+1}$, such that
@@ -404,9 +404,9 @@ level-lowering operator $\rho : E_{m+k} \to E_m$ as parameter, and the compact-o
 applied to the second component of the level tangent map; the 2010 paper's multilinear maps
 $\Gamma(x)$ and its differentiation under the integral sign are not used.
 
-**V1.18 (Proposition 1.2.4 (preprint 1.19); `Polyfold.proposition_1_19_text`,
-`Polyfold.IsScSmooth.of_contDiffOn_levels_text`, `Polyfold.proposition_1_19_zero`,
-`Polyfold.proposition_1_19`, `Polyfold.IsScSmooth.of_contDiffOn_levels`).** Let $U$ be an
+**V1.18 (Proposition 1.2.4 (preprint 1.19); `Polyfold.proposition_1_2_4_text`,
+`Polyfold.IsScSmooth.of_contDiffOn_levels_text`, `Polyfold.proposition_1_2_4_zero`,
+`Polyfold.proposition_1_2_4`, `Polyfold.IsScSmooth.of_contDiffOn_levels`).** Let $U$ be an
 sc-domain in $E$ and $f$ $\mathrm{sc}^0$ on $U$. If for every $m \ge 0$ and $0 \le l \le k$ the
 map $f_m \circ \iota : U_{m+l} \to F_m$ (the level-$m$ map restricted along the inclusion $E_{m+l}
 \to E_m$) is $C^{l+1}$ within $U_{m+l}$, then $f$ is $\mathrm{sc}^{k+1}$ on $U$; if this holds for
@@ -425,10 +425,10 @@ $Tf$ in general does not satisfy it with $k - 1$, since its second component $(x
 Df(x)h : U_{m+l+1} \times E_{m+l} \to F_m$ is only $C^l$. Under the stronger hypothesis the level
 maps of $Tf$ are $C^k$ and the induction is immediate.
 
-**V1.19 (Corollary 1.2.5 (preprint 1.20); `Polyfold.corollary_1_20_text`,
+**V1.19 (Corollary 1.2.5 (preprint 1.20); `Polyfold.corollary_1_2_5_text`,
 `Polyfold.IsScSmooth.of_contDiffOn_levels_finiteDimensional_text`,
-`Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional`, `Polyfold.corollary_1_20_zero`,
-`Polyfold.corollary_1_20`, `Polyfold.corollary_1_20_base`).** Let $U$ be an sc-domain in $E$, $V$
+`Polyfold.IsScSmooth.of_contDiffOn_finiteDimensional`, `Polyfold.corollary_1_2_5_zero`,
+`Polyfold.corollary_1_2_5`, `Polyfold.corollary_1_2_5_base`).** Let $U$ be an sc-domain in $E$, $V$
 a finite-dimensional normed space with its constant sc-structure and $f : E_0 \to V$. If for some
 $k$ and all $0 \le l \le k$ the map $f \circ \iota_l : U_l \to V$ is $C^{l+1}$ within $U_l$, then
 $f$ is $\mathrm{sc}^{k+1}$ on $U$. If $f \circ \iota_l$ is $C^{l+1}$ within $U_l$ for every $l$,
@@ -443,7 +443,7 @@ the exposition's additions. *Proof:* Proposition 1.2.4 (preprint 1.19) (V1.18) f
 hypothesis on $U_{m+l} \to V$ being the restriction of the one on $U_l$.
 
 **V1.20 (Theorem 1.3.1 (preprint 1.21), the chain rule; `Polyfold.IsSc1With.hasFDerivWithinAt_comp`,
-`Polyfold.IsSc1With.comp`, `Polyfold.theorem_1_21'`, `Polyfold.theorem_1_21`, `Polyfold.IsSck.comp`,
+`Polyfold.IsSc1With.comp`, `Polyfold.theorem_1_3_1'`, `Polyfold.theorem_1_3_1`, `Polyfold.IsSck.comp`,
 `Polyfold.IsSck.comp_of_isRelOpenInQuadrant`, `Polyfold.IsScSmooth.comp`).** Let $U \subseteq C
 \subseteq E$ and $V \subseteq D \subseteq F$ be relatively open subsets of partial quadrants, $G$
 an sc-Banach space, $f : E_0 \to F_0$ $\mathrm{sc}^1$ on $U$ with $f(U) \subseteq V$, and $g : F_0
@@ -477,8 +477,8 @@ w)$; interior points, boundary points and corners. *Hidden hypotheses:* none. *D
 $d_C$ is total on $E_0$ with junk values off $C$, and the classification into interior, boundary
 and corner points is terminology.
 
-**V1.22 (Lemma 1.3.4 (preprint 1.24); `Polyfold.quadrantDeg_eq_of_equiv`, `Polyfold.lemma_1_24`,
-`Polyfold.lemma_1_24_dim`).** Let $T : E \to \mathbb R^n \oplus W$ and $T' : E \to \mathbb R^{n'}
+**V1.22 (Lemma 1.3.4 (preprint 1.24); `Polyfold.quadrantDeg_eq_of_equiv`, `Polyfold.lemma_1_3_4`,
+`Polyfold.lemma_1_3_4_dim`).** Let $T : E \to \mathbb R^n \oplus W$ and $T' : E \to \mathbb R^{n'}
 \oplus W'$ be sc-isomorphisms with $C = T_0^{-1}(Q_n) = T_0'^{-1}(Q_{n'})$. Then $d_T(x) =
 d_{T'}(x)$ for every $x \in C$, and $n = n'$. Core: if $S : \mathbb R^n \times W_0 \to \mathbb
 R^{n'} \times W'_0$ is a continuous linear equivalence with $q \in Q_n \iff Sq \in Q_{n'}$, then
@@ -488,7 +488,7 @@ $T$", proof on preprint p. 17. *Hidden hypotheses:* none; the proof uses only li
 0$; the codimension of $E_x$ is $\dim(V/E_x) = \#I(x)$ with $E_x = \ker((b, v) \mapsto (b_i)_{i \in
 I(x)})$, and "$S(E_x) \subset E'_y$ hence equality" is completed by the same inclusion for $S^{-1}$.
 
-**V1.23 (Theorem 1.3.5 (preprint 1.25), boundary recognition; `Polyfold.theorem_1_25`, `Polyfold.theorem_1_25_lvl1`,
+**V1.23 (Theorem 1.3.5 (preprint 1.25), boundary recognition; `Polyfold.theorem_1_3_5`, `Polyfold.theorem_1_3_5_lvl1`,
 `Polyfold.degIndexWith_le_of_germ`, `Polyfold.eventually_degIndexWith_le`,
 `Polyfold.exists_tendsto_lvl1_degIndexWith`, `Polyfold.IsSc1With.mapsTo_minimalSubspace`).** Let $U
 \subseteq C \subseteq E$ and $U' \subseteq C' \subseteq E'$ be relatively open subsets of partial
@@ -602,8 +602,8 @@ the index on every level are added (the exposition's Lemma 2.D). *Proof:* $\ker 
 and $F_m/\operatorname{range}T_m = F_m/Y_m \cong C_m \cong C$, the isomorphisms $A_m \cong A$ coming
 from $A \le E_\infty$.
 
-**V1.30 (Proposition 1.1.11 (preprint 1.10), the index; `Polyfold.proposition_1_10_index`,
-`Polyfold.proposition_1_10_index_lvl`).** Let $T : E \to F$ be sc-Fredholm and $S : E \to F$ an
+**V1.30 (Proposition 1.1.11 (preprint 1.10), the index; `Polyfold.proposition_1_1_11_index`,
+`Polyfold.proposition_1_1_11_index_lvl`).** Let $T : E \to F$ be sc-Fredholm and $S : E \to F$ an
 $\mathrm{sc}^+$-operator. Then $\operatorname{ind}(T + S) = \operatorname{ind}(T)$, the index being
 $\dim\ker(\cdot)_0 - \dim\operatorname{coker}(\cdot)_0$; and for every $m$ the level map $(T + S)_m :
 E_m \to F_m$ is Fredholm of index $\operatorname{ind}(T)$. *Book:* p. 9 (preprint p. 10), Proposition 1.1.11 (preprint 1.10) states
@@ -775,8 +775,8 @@ both (the terms of $\pi \circ T^{k+1}f$ treated one at a time, and the derivativ
 are needed. *Proof:* $g_1 + g_2$ is the sc-smooth addition $Y \oplus Y \to Y$ composed with the
 pairing $(g_1, g_2)$ (`Polyfold.IsSck.scPair`), by the chain rule (V1.20); the sum by induction.
 
-**V1.40 (Remark 1.1.2, Banachable spaces and equivalent norms; `Polyfold.remark_1_1_2_2021`,
-`Polyfold.remark_1_1_2_2021_openMapping`).** Let $E_1$, $E_2$ be real normed spaces and $e : E_1 \to
+**V1.40 (Remark 1.1.2, Banachable spaces and equivalent norms; `Polyfold.remark_1_1_2`,
+`Polyfold.remark_1_1_2_openMapping`).** Let $E_1$, $E_2$ be real normed spaces and $e : E_1 \to
 E_2$ a linear equivalence (one vector space carrying two norms). (1) If $e$ and $e^{-1}$ are
 continuous (the two norms induce the same topology), there is $c > 0$ with $\|e x\| \le c\|x\|$ and
 $\|x\| \le c\|e x\|$ for all $x$. (2) If both spaces are complete and $e$ is continuous, then $e^{-1}$
@@ -791,7 +791,7 @@ the other. *Proof:* (1) by the operator norms of $e$ and $e^{-1}$; (2) by Mathli
 theorem (`ContinuousLinearEquiv.ofBijective`), then (1).
 
 **V1.41 (Proposition 1.1.11 (preprint 1.10), the 2021 statement with the index;
-`Polyfold.proposition_1_1_11_2021`).** Let $T : E \to F$ be sc-Fredholm and $S : E \to F$ an
+`Polyfold.proposition_1_1_11`).** Let $T : E \to F$ be sc-Fredholm and $S : E \to F$ an
 $\mathrm{sc}^+$-operator. Then $T + S$ is sc-Fredholm, $\operatorname{ind}(T + S) =
 \operatorname{ind}(T)$, and for every $m$ the level map $(T + S)_m : E_m \to F_m$ is Fredholm of
 index $\operatorname{ind}(T)$. *Book:* Proposition 1.1.11, p. 9 (preprint 1.10, p. 10); the 2021
@@ -799,8 +799,8 @@ statement adds that $T + S$ "has the same index". The proof in Appendix 1.4.1, p
 one of the earlier texts and does not argue the index. *Hidden hypotheses:* none. *Deviation
 (stronger):* the level statement is the formalization's addition; the index statement, the
 exposition's addition in V1.30, is now the book's own. *Proof:* the conjunction of V1.9
-(`Polyfold.proposition_1_10`) and V1.30 (`Polyfold.proposition_1_10_index`,
-`Polyfold.proposition_1_10_index_lvl`); the index rests on the invariance of the Fredholm index
+(`Polyfold.proposition_1_1_11_preprint`) and V1.30 (`Polyfold.proposition_1_1_11_index`,
+`Polyfold.proposition_1_1_11_index_lvl`); the index rests on the invariance of the Fredholm index
 under compact perturbations (V1.28).
 
 ### What is not verified in this chapter
@@ -885,7 +885,7 @@ open $U \subseteq C$ is a retract ($r = \mathrm{id}$). A *local model* is a trip
 $C$ a partial quadrant and $O$ a retract in $C$. *Book:* Definition 2.1.3 (preprint 2.3), p. 22 (preprint p. 18). *Hidden
 hypotheses:* none.
 
-**V2.3 (Proposition 2.1.11 (preprint 2.4); `Polyfold.proposition_2_4`,
+**V2.3 (Proposition 2.1.11 (preprint 2.4); `Polyfold.proposition_2_1_11`,
 `Polyfold.ScRetraction.comp_eq_self_of_retract_subset`,
 `Polyfold.ScRetraction.tangent_subset_of_retract_subset`, `Polyfold.ScRetraction.tangent`,
 `Polyfold.ScRetraction.mem_tangent_iff`).** For sc-smooth retractions $r$ on $U$ and $r'$ on $U'$,
@@ -906,8 +906,8 @@ subspace of $E_0$. *Book:* Definition 2.1.12 (preprint 2.5), p. 26 (preprint p. 
 *Hidden hypotheses:* none. *Deviation (restated):* $TO$ is defined for every subset $O$ by a choice
 of retraction, and is empty if $O$ is not a retract.
 
-**V2.5 (Proposition 2.1.13 (preprint 2.6); `Polyfold.proposition_2_6_1`, `Polyfold.proposition_2_6_2`,
-`Polyfold.proposition_2_6_3`, `Polyfold.ScRetraction.comp_comp_eqOn`).** Let $r$ on $U$ and $s$ on
+**V2.5 (Proposition 2.1.13 (preprint 2.6); `Polyfold.proposition_2_1_13_one`, `Polyfold.proposition_2_1_13_two`,
+`Polyfold.proposition_2_1_13_three`, `Polyfold.ScRetraction.comp_comp_eqOn`).** Let $r$ on $U$ and $s$ on
 $V$ be retractions onto the same $O$ and $f : E_0 \to E'_0$. (1) If $f \circ r$ is sc-smooth on $U$,
 then $f \circ s$ is sc-smooth on $V$. (2) Then $T(f \circ r) = T(f \circ s)$ on $Tr(TU)$. (3) If
 $f \circ r$ is sc-smooth and $f$ maps $O$ into the retract $O' = r'(U')$, then $T(f \circ r)$ maps
@@ -929,7 +929,7 @@ level $m$ to points on level $m$. *Book:* Definition 2.1.14 (preprint 2.7), pp. 
 *Deviation (restated):* the definition quantifies over all retractions and contains $f(O) \subseteq
 O'$; the text's form is `Polyfold.isScSmoothRetractMap_iff_exists`.
 
-**V2.7 (Theorem 2.1.15 (preprint 2.8), the chain rule for retracts; `Polyfold.theorem_2_8`,
+**V2.7 (Theorem 2.1.15 (preprint 2.8), the chain rule for retracts; `Polyfold.theorem_2_1_15`,
 `Polyfold.IsScSmoothRetractMap.comp`, `Polyfold.retractTangentMap_comp`,
 `Polyfold.isScSmoothRetractMap_id`, `Polyfold.ScRetraction.isScSmoothRetractMap`,
 `Polyfold.IsScSmoothRetractMap.congr`).** Let $(O, C, E)$ and $(O', C', E')$ be retracts, $f$
@@ -957,7 +957,7 @@ a functor $\mathcal R \to \mathcal R$), and preprint p. 22, after Definition 2.1
 2.3.12–2.3.14 (preprint 2.17–2.18). *Deviation (restated):* the bundle structure is V2.92 ($Tr$ a bundle retraction
 covering $r^1$, $Tf$ a bundle map; gap G.5, formalized since); the category $\mathcal{BR}$ is not formalized.
 
-**V2.9 (Proposition 2.3.1 (preprint 2.10); `Polyfold.proposition_2_10_1`, `Polyfold.proposition_2_10_2`,
+**V2.9 (Proposition 2.3.1 (preprint 2.10); `Polyfold.proposition_2_3_1_one`, `Polyfold.proposition_2_3_1_two`,
 `Polyfold.ScRetraction.restrict`, `Polyfold.ScRetraction.restrict_retract`,
 `Polyfold.IsScSmoothRetractMap.restrict`, `Polyfold.IsScSmoothRetractMap.of_locally`,
 `Polyfold.LocalModel.restrict`).** (1) If $(O, C, E)$ is a retract and $W \subseteq E_0$ is open,
@@ -1031,7 +1031,7 @@ $\varphi$ to $E_m$ is a topological embedding. *Book:* preprint p. 25, the parag
 $\mathrm{sc}^0$ on the overlap retracts (the text: "of course"). *Deviation (restated):* the
 topology is the one generated by the text's family; that the family is a basis is not proved.
 
-**V2.15 (Lemma 2.3.9 (preprint 2.15); `Polyfold.lemma_2_15`, `Polyfold.MPolyfold.levelIncl`).** The inclusion $X_{m+1}
+**V2.15 (Lemma 2.3.9 (preprint 2.15); `Polyfold.lemma_2_3_9`, `Polyfold.MPolyfold.levelIncl`).** The inclusion $X_{m+1}
 \to X_m$ is continuous for every $m$. *Book:* Lemma 2.3.9 (preprint 2.15), p. 37 (preprint p. 25). *Hidden hypotheses:* none.
 
 **V2.16 (the M-polyfold $X^1$; `Polyfold.ScRetraction.shift`, `Polyfold.ScRetraction.shift_retract`,
@@ -1050,7 +1050,7 @@ The levels of $X^1$ are those of $X$ shifted by one, as sets: $(X^1)_m = X_{m+1}
 for $m \ge 2$ the iterate $(X^1)^1 \cdots$ has the points of $X_m$, and its topology and charts are those of $X_m$ by V2.93
 (gap G.6, closed; the set identity was added in a fourth addendum, Findings, Chapter 5, item 142).
 
-**V2.17 (Theorem 2.3.10 (preprint 2.16); `Polyfold.theorem_2_16`, `Polyfold.MPolyfold.metrizableSpace`,
+**V2.17 (Theorem 2.3.10 (preprint 2.16); `Polyfold.theorem_2_3_10`, `Polyfold.MPolyfold.metrizableSpace`,
 `Polyfold.MPolyfold.metrizableSpace_level`, `Polyfold.MPolyfold.paracompactSpace_level`,
 `Polyfold.MPolyfold.SmoothLevel`, `Polyfold.MPolyfold.smoothLevel_topology_eq`,
 `Polyfold.MPolyfold.metrizableSpace_smoothLevel`, `Polyfold.MPolyfold.paracompactSpace_subtype`).**
@@ -1097,7 +1097,7 @@ sc-Banach structures of $T_xX$ are not formalized.
 **V2.20 (Proposition 2.3.15 (preprint 2.19); `Polyfold.MPolyfold.continuous_tangentProj`,
 `Polyfold.MPolyfold.continuous_levelVal_tangentProj`, `Polyfold.MPolyfold.isOpen_tangentChartSet`,
 `Polyfold.MPolyfold.metrizableSpace_tangentSpace`, `Polyfold.MPolyfold.paracompactSpace_tangentSpace`,
-`Polyfold.proposition_2_19_3`).** (1) $TX$ is Hausdorff (the instance
+`Polyfold.proposition_2_3_15_three`).** (1) $TX$ is Hausdorff (the instance
 `Polyfold.MPolyfold.instT2SpaceTangentSpace`). (2) $p : TX \to X_1$ is continuous, and so is $TX \to X$;
 each $TV$ is open. (3) $TX$ is metrizable and paracompact. *Book:* Proposition 2.3.15 (preprint 2.19), p. 39 (preprint p. 27), proof
 pp. 75–78 (preprint pp. 58–60). *Hidden hypotheses:* none for (3). *Deviation (narrower):* the openness of $p$ in (2) is
@@ -1156,8 +1156,8 @@ structure, supplied for every $A$ by `Polyfold.MPolyfold.paracompactSpace_subtyp
 *Deviation (hypotheses explicit):* none otherwise.
 
 **V2.25 (Proposition 2.3.19 (3), (4) (preprint 2.21), in a chart; `Polyfold.ScRetraction.compRetraction`,
-`Polyfold.ScRetraction.compRetraction_retract`, `Polyfold.proposition_2_21_3`,
-`Polyfold.proposition_2_21_4`).** Let $r$ be a retraction onto $O$, $s$ sc-smooth from $(O, C, E)$ to
+`Polyfold.ScRetraction.compRetraction_retract`, `Polyfold.proposition_2_3_19_three`,
+`Polyfold.proposition_2_3_19_four`).** Let $r$ be a retraction onto $O$, $s$ sc-smooth from $(O, C, E)$ to
 itself with $s \circ s = s$, $t = s \circ r$ (a retraction onto $s(O)$) and $a \in s(O)_1$. If $a$
 is smooth: $T_aO = Dr(a)E_0$, $T_a s(O) = Dt(a)E_0 \subseteq T_aO$, the subspaces $Dt(a)E_0$ and
 $(Dr(a) - Dt(a))E_0$ are sc-subspaces of $E$, and on every level $m$ their level-$m$ parts are
@@ -1177,13 +1177,13 @@ For a chart $\varphi$ around $x$, $d(x, \varphi) = d_C(\varphi(x))$; $d_X(x)$ is
 $\varphi$. *Book:* Definition 2.4.1 (preprint 2.22), p. 44 (preprint p. 31) ("smooth charts"). *Hidden hypotheses:* none.
 *Deviation (restated):* "smooth charts" are the charts of the maximal atlas.
 
-**V2.27 (Lemma 2.4.3 (preprint 2.23); `Polyfold.lemma_2_23`, `Polyfold.eventually_degIndexWith_le`,
+**V2.27 (Lemma 2.4.3 (preprint 2.23); `Polyfold.lemma_2_4_3`, `Polyfold.eventually_degIndexWith_le`,
 `Polyfold.MPolyfold.isOpen_setOf_degIndex_lt`, `Polyfold.MPolyfold.isClosed_setOf_le_degIndex`).**
 For every $x \in X$, $d_X(y) \le d_X(x)$ for all $y$ near $x$; hence $\{d_X < k\}$ is open and $\{d_X
 \ge k\}$ closed. The degeneracy index $d_C$ of a partial quadrant is upper semicontinuous. *Book:*
 Lemma 2.4.3 (preprint 2.23), p. 45 (preprint p. 31) ("evident"). *Hidden hypotheses:* none.
 
-**V2.28 (Proposition 2.4.4 (preprint 2.24); `Polyfold.MPolyfold.IsScDiffeoOn`, `Polyfold.proposition_2_24`,
+**V2.28 (Proposition 2.4.4 (preprint 2.24); `Polyfold.MPolyfold.IsScDiffeoOn`, `Polyfold.proposition_2_4_4`,
 `Polyfold.MPolyfold.transportChart`, `Polyfold.MPolyfold.transportChart_isChart`,
 `Polyfold.MPolyfold.degIndex_le_of_isScDiffeoOn`).** Let $U \subseteq X$, $V \subseteq Y$ be open,
 $f$ sc-smooth on $U$ with $f(U) \subseteq V$ and $g$ sc-smooth on $V$ with $g(V) \subseteq U$,
@@ -1202,7 +1202,7 @@ boundary iff $d_X \equiv 0$ iff $\partial X = \emptyset$. $\partial X$ and $\{d_
 $\{d_X = 0\}$ is open, and sc-diffeomorphisms of open sets preserve $\partial X$. *Book:* Definition
 2.4.5 (preprint 2.25), p. 45 (preprint p. 31). *Hidden hypotheses:* none.
 
-**V2.30 (Lemma 2.4.6 (preprint 2.26); `Polyfold.lemma_2_26`).** For a sub-M-polyfold $A$ with the structure of V2.24,
+**V2.30 (Lemma 2.4.6 (preprint 2.26); `Polyfold.lemma_2_4_6`).** For a sub-M-polyfold $A$ with the structure of V2.24,
 $d_A(a) \le d_X(a)$ for every $a \in A$. *Book:* Lemma 2.4.6 (preprint 2.26), pp. 45–46 (preprint pp. 31–32). *Hidden hypotheses:* the
 paracompactness of $A$, as in V2.24.
 
@@ -1231,8 +1231,8 @@ d_C(x)$. *Book:* Definition 2.4.7 (preprint 2.27), p. 47 (preprint p. 33). *Hidd
 at every $x \in O_1$, not only at smooth points.
 
 **V2.33 (Remark 2.4.8 (preprint 2.28); `Polyfold.reducedTangentSpaceWith_subset_partialConeWith`,
-`Polyfold.remark_2_28_isPartialQuadrant`, `Polyfold.remark_2_28_partialConeWith`,
-`Polyfold.flor_nonnegRange_simplicial`, `Polyfold.remark_2_28_quotient_simplicial`,
+`Polyfold.remark_2_4_8_isPartialQuadrant`, `Polyfold.remark_2_4_8_partialConeWith`,
+`Polyfold.flor_nonnegRange_simplicial`, `Polyfold.remark_2_4_8_quotient_simplicial`,
 `Polyfold.ScRetraction.isScSubspace_reducedTangentSpaceWith`,
 `Polyfold.partialConeWith_eq_image_scDeriv`).** $T^R_xO \subseteq C_xO \subseteq T_xO$. Moreover,
 for every sc-smooth retraction $r$ in $C = T^{-1}([0, \infty)^n \oplus W)$ and every smooth
@@ -1272,8 +1272,8 @@ $t \mapsto (T'f(x + tv))_j$ is $\ge 0$ near $0$ and vanishes at $0$; its derivat
 
 **V2.35 (Proposition 2.4.10 (preprint 2.30); `Polyfold.ScRetraction.IsDiffeoGerm`,
 `Polyfold.IsScSmoothRetractMap.isDiffeoGerm`, `Polyfold.ScRetraction.IsDiffeoGerm.deriv_inv_deriv`,
-`Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv`, `Polyfold.proposition_2_30_reduced`,
-`Polyfold.proposition_2_30_cone`).** A *germ of sc-diffeomorphisms* between the retracts $O = r(U)$
+`Polyfold.ScRetraction.IsDiffeoGerm.deriv_deriv_inv`, `Polyfold.proposition_2_4_10_reduced`,
+`Polyfold.proposition_2_4_10_cone`).** A *germ of sc-diffeomorphisms* between the retracts $O = r(U)$
 and $O' = r'(U')$ is a pair $F, G$ with $F \circ r$, $G \circ r'$ sc¹, $F(O) \subseteq O'$, $G(O')
 \subseteq O$, $G \circ F = \mathrm{id}$ on $O$ and $F \circ G = \mathrm{id}$ on $O'$; an sc-smooth
 map between retracts with an sc-smooth inverse is one. For $x \in O_1$ and $y = (F \circ r)_1(x)$:
@@ -1292,10 +1292,10 @@ sense of V2.35) between the overlap retracts, with the restricted retractions. *
 Theorem 2.4.12 (preprint 2.31). *Deviation (restated):* the text's $d_O(x) = \min d_{C'}(\varphi(x))$ over germs into
 retracts is Definition 2.4.1 (preprint 2.22) for this structure.
 
-**V2.37 (Theorem 2.4.12 (preprint 2.31), first statement; `Polyfold.theorem_2_31`, `Polyfold.theorem_2_31_retract`,
+**V2.37 (Theorem 2.4.12 (preprint 2.31), first statement; `Polyfold.theorem_2_4_12`, `Polyfold.theorem_2_4_12_retract`,
 `Polyfold.ScRetraction.IsDiffeoGerm.quotDim_le`, `Polyfold.MPolyfold.quotDim_le_chartDegIndex`,
 `Polyfold.ScRetraction.scDeriv_restrict`, `Polyfold.degIndexWith_le_of_germ`,
-`Polyfold.remark_2_28_isPartialQuadrant`).** Let $X$ be an M-polyfold, $\varphi$ a chart of the
+`Polyfold.remark_2_4_8_isPartialQuadrant`).** Let $X$ be an M-polyfold, $\varphi$ a chart of the
 structure around $x$ with $\varphi(x) = \iota_1 z$ on level $1$, $r$ a retraction onto the model $O$
 and $T$ a presentation of $C$. Then $\dim(T_zO/T^R_zO) \le d_X(x)$. For a retract $O$ itself as an
 M-polyfold and $x \in O_1$: $\dim(T_xO/T^R_xO) \le d_O(x)$. Along a germ of sc-diffeomorphisms $F$
@@ -1307,13 +1307,13 @@ holds without its hypothesis: $C_xO$ is a partial quadrant at every smooth point
 $T_zO/T^R_zO \cong T_yO'/T^R_yO'$, which embeds in $E'/E'_y$ of dimension $d_{C'}(\psi(x))$; the
 text instead reduces to a chart realizing $d_O(x)$.
 
-**V2.38 (Corollary 2.4.13 (preprint 2.32); `Polyfold.corollary_2_32`, `Polyfold.IsRelOpenInQuadrant.degIndex_le`,
+**V2.38 (Corollary 2.4.13 (preprint 2.32); `Polyfold.corollary_2_4_13`, `Polyfold.IsRelOpenInQuadrant.degIndex_le`,
 `Polyfold.IsRelOpenInQuadrant.degIndex_le_degIndex_of_lvl1`, `Polyfold.degIndexWith_le_of_germ`).**
 For a nonempty relatively open subset $U$ of a partial quadrant $C$, viewed as the M-polyfold $X_U$,
 $d_{X_U}(x) = d_C(x)$ for every $x \in U$. *Book:* Corollary 2.4.13 (preprint 2.32), p. 51 (preprint p. 37) ($U = C$). *Hidden
 hypotheses:* the semicontinuity of $d_{C'}$ and Proposition 2.4.4 (preprint 2.24) at the approximating points.
 *Deviation (stronger):* every relatively open $U$; level-$1$ approximants suffice. Theorem 1.3.5 (preprint 1.25)
-(V1.23, `Polyfold.theorem_1_25`) is proved in the same file by the same argument.
+(V1.23, `Polyfold.theorem_1_3_5`) is proved in the same file by the same argument.
 
 **V2.39 (Definition 2.5.1 (preprint 2.33); `Polyfold.partialQuadrantAtWith`, `Polyfold.minimalSubspaceWith`,
 `Polyfold.minimalSubspaceWith_subset_partialQuadrantAtWith`, `Polyfold.convex_partialQuadrantAtWith`,
@@ -1337,7 +1337,7 @@ retraction to $U \cap r^{-1}(V)$, $V$ open, is tame. *Book:* Definition 2.5.2 (p
 hypotheses:* that the definition does not depend on the presentation, which the text uses tacitly.
 *Deviation (restated):* none in substance.
 
-**V2.41 (Proposition 2.5.3 (preprint 2.35); `Polyfold.proposition_2_35`,
+**V2.41 (Proposition 2.5.3 (preprint 2.35); `Polyfold.proposition_2_5_3`,
 `Polyfold.ScRetraction.scDeriv_mapsTo_minimalSubspace`, `Polyfold.ScRetraction.isScOperator_scDeriv`,
 `Polyfold.ScRetraction.isScSplitting_range_scDeriv`, `Polyfold.coord_scDeriv_eq`).** Let $r$ be tame
 for $T$ and $x \in O_1$ smooth. Then $(1 - Dr(x))E_0 \le E_x$, and $E = Dr(x)E_0 \oplus (1 -
@@ -1346,12 +1346,12 @@ all $v$. *Book:* Proposition 2.5.3 (preprint 2.35), p. 54 (preprint p. 41), with
 *Deviation (stronger):* only condition (2) of tameness is used; $Dr(x)E_x \subseteq E_x$ holds for
 every retraction (V2.34), where the text uses condition (1).
 
-**V2.42 (Proposition 2.5.6 (preprint 2.36); `Polyfold.proposition_2_36`, `Polyfold.proposition_2_36_degIndex`,
+**V2.42 (Proposition 2.5.6 (preprint 2.36); `Polyfold.proposition_2_5_6`, `Polyfold.proposition_2_5_6_degIndex`,
 `Polyfold.quotDim_reducedTangentSpaceWith_eq`,
 `Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith`,
 `Polyfold.MPolyfold.degIndex_eq_chartDegIndex_of_isTameRetract`,
 `Polyfold.LocalModel.degIndex_toMPolyfold_of_isTameWith`,
-`Polyfold.quotDim_eq_finrank_quotient_of_isCompl`, `Polyfold.proposition_2_36_partialCone`,
+`Polyfold.quotDim_eq_finrank_quotient_of_isCompl`, `Polyfold.proposition_2_5_6_partialCone`,
 `Polyfold.splitIso`, `Polyfold.isPartialQuadrant_ofSubspace`).** Let $r$ be tame for $T$. (13) At a
 smooth $x \in O_1$, $\dim(T_xO/T^R_xO) = d_O(x) = d_C(x)$, where $d_O$ is the index of the
 M-polyfold $O$; moreover $T_xO$ and $T^R_xO$ are sc-subspaces of $E$, and $C_xO = T_xO \cap C_x$ is
@@ -1399,8 +1399,8 @@ $r$ maps the points of $B$ with $I = \{i\}$ into the component of $S$ through $p
 B$ into its closure. *Book:* the proof of Lemma 2.5.12 (preprint 2.40), p. 59 (preprint p. 43) (a sketch). *Deviation (not in the
 book):* the exposition's Lemmas 4.A–4.C; (b) uses tameness condition (2) through Proposition 2.5.3 (preprint 2.35).
 
-**V2.46 (Lemma 2.5.12 (preprint 2.40); `Polyfold.ScRetraction.IsRetractFace`, `Polyfold.lemma_2_40`,
-`Polyfold.lemma_2_40_injective`, `Polyfold.closure_connectedComponentIn_faceStratum`,
+**V2.46 (Lemma 2.5.12 (preprint 2.40); `Polyfold.ScRetraction.IsRetractFace`, `Polyfold.lemma_2_5_12`,
+`Polyfold.lemma_2_5_12_injective`, `Polyfold.closure_connectedComponentIn_faceStratum`,
 `Polyfold.connectedComponentIn_coordHyper_eq`, `Polyfold.LocalModel.isFace_toMPolyfold_iff`,
 `Polyfold.subset_of_relClopen_of_isPreconnected`).** Let $r$ be tame for $T$. A *face of the
 retract* is $\overline{\hat F} \cap O$ for a connected component $\hat F$ of $S$. Then $G$ is a face
@@ -1411,12 +1411,12 @@ retract. *Book:* Lemma 2.5.12 (preprint 2.40), p. 59 (preprint p. 43). *Hidden h
 text's sketch does not address. *Deviation (hypotheses explicit):* extended faces are the
 coordinate hyperplanes of a presentation.
 
-**V2.47 (Corollary 2.5.13 (preprint 2.41); `Polyfold.corollary_2_41`, `Polyfold.corollary_2_41_retract`,
+**V2.47 (Corollary 2.5.13 (preprint 2.41); `Polyfold.corollary_2_5_13`, `Polyfold.corollary_2_5_13_retract`,
 `Polyfold.LocalModel.isFaceStructured_toMPolyfold`).** For a nonempty tame retract $O$, the
 M-polyfold $O$ is face-structured: every $x \in O$ lies in exactly $d_O(x)$ faces. *Book:* Corollary
 2.5.13 (preprint 2.41), p. 59 (preprint p. 44). *Hidden hypotheses:* none.
 
-**V2.48 (Proposition 2.5.14 (preprint 2.42); `Polyfold.proposition_2_42`, `Polyfold.MPolyfold.faces_encard_le`,
+**V2.48 (Proposition 2.5.14 (preprint 2.42); `Polyfold.proposition_2_5_14`, `Polyfold.MPolyfold.faces_encard_le`,
 `Polyfold.MPolyfold.IsTame.exists_chart`).** Let $X$ be tame and $x \in X$. There is a chart
 $\varphi : V \to O$ of the structure around $x$ such that for all $y \in V$, $d_X(y) =
 d_C(\varphi(y))$ and $d_O(\varphi(y)) = d_X(y)$, and the M-polyfold $O$ is face-structured. Globally,
@@ -1424,11 +1424,11 @@ $x$ lies in at most $d_X(x)$ faces of $X$. *Book:* Proposition 2.5.14 (preprint 
 = d_X$" needs that a tame chart realizes $d_X$ (V2.42). *Deviation (restated):* the neighbourhood
 $V$ is represented by the M-polyfold $O$.
 
-**V2.49 (Proposition 2.5.15 (preprint 2.43); `Polyfold.proposition_2_43`, `Polyfold.killCoord`,
+**V2.49 (Proposition 2.5.15 (preprint 2.43); `Polyfold.proposition_2_5_15`, `Polyfold.killCoord`,
 `Polyfold.killCoord_mem`, `Polyfold.killCoord_eq_self`, `Polyfold.LocalModel.isSubMPolyfold_of_isFace`,
 `Polyfold.faceIncl`, `Polyfold.faceProj`, `Polyfold.degIndexWith_eq_quadrantDeg_faceProj_add_one`,
-`Polyfold.proposition_2_43_tameModel`, `Polyfold.MPolyfold.faceChart`,
-`Polyfold.MPolyfold.faceChart_compatible_subChart`, `Polyfold.LocalModel.proposition_2_43_isTame`).**
+`Polyfold.proposition_2_5_15_tameModel`, `Polyfold.MPolyfold.faceChart`,
+`Polyfold.MPolyfold.faceChart_compatible_subChart`, `Polyfold.LocalModel.proposition_2_5_15_isTame`).**
 Let $r$ be tame for $T$ and $F$ a face of the retract. (a) $F \subseteq f_i$ for some $i$, and
 there is an sc-smooth retraction $s$ on a set $U^*$ with $F \subseteq U^* \subseteq U$, $U^*$
 relatively open in $C$, with retract $F$ and $s = r \circ P_i$ on $U^*$, where $P_i$ is the
@@ -1447,9 +1447,9 @@ $(1 - Dr'(x))E'$ by Proposition 2.5.3 (preprint 2.35), not by intersecting with 
 intersected with their $P_i$-preimages, since $P_i$ need not be norm-decreasing. *No hypothesis is
 added.*
 
-**V2.50 (Proposition 2.5.16 (preprint 2.44); `Polyfold.MPolyfold.proposition_2_44`,
-`Polyfold.proposition_2_42`, `Polyfold.LocalModel.proposition_2_43_isTame`,
-`Polyfold.MPolyfold.proposition_2_44_corner`, `Polyfold.corner_retraction`,
+**V2.50 (Proposition 2.5.16 (preprint 2.44); `Polyfold.MPolyfold.proposition_2_5_16`,
+`Polyfold.proposition_2_5_14`, `Polyfold.LocalModel.proposition_2_5_15_isTame`,
+`Polyfold.MPolyfold.proposition_2_5_16_corner`, `Polyfold.corner_retraction`,
 `Polyfold.corner_tameModel`, `Polyfold.cornerIncl`, `Polyfold.cornerProj`, `Polyfold.cornerKill`,
 `Polyfold.degIndexWith_eq_quadrantDeg_cornerProj_add_card`).** Let $X$ be tame and $x \in X$. There
 is a chart $\varphi : V \to O$ of the structure around $x$, with a tame retraction $r$ onto $O$ (tame
@@ -1474,10 +1474,10 @@ on all of $A$. *Proof:* not by the exposition's induction on $\#\sigma$ but at o
 each $i \in \sigma$ shows that $r$ maps points of $C \cap f_\sigma$ near $\varphi(x)$ into
 $f_\sigma$; then as in Proposition 2.5.15 (preprint 2.43) and Theorem 2.5.17 (preprint 2.45).
 
-**V2.51 (Theorem 2.5.17 (preprint 2.45); `Polyfold.MPolyfold.theorem_2_45_interior`,
-`Polyfold.MPolyfold.isSubMPolyfold_of_local`, `Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_interior`,
+**V2.51 (Theorem 2.5.17 (preprint 2.45); `Polyfold.MPolyfold.theorem_2_5_17_interior`,
+`Polyfold.MPolyfold.isSubMPolyfold_of_local`, `Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_interior`,
 `Polyfold.MPolyfold.exists_localFace_of_isFaceStructured`,
-`Polyfold.MPolyfold.theorem_2_45_isSubMPolyfold_face`, `Polyfold.MPolyfold.theorem_2_45_isTame_face`,
+`Polyfold.MPolyfold.theorem_2_5_17_isSubMPolyfold_face`, `Polyfold.MPolyfold.theorem_2_5_17_isTame_face`,
 `Polyfold.MPolyfold.isTame_of_forall_exists_chart`).** Let $X$ be tame, $G$ the connected component
 of $\{d_X = 1\}$ through a point and $F = \overline G$ the face. (a) $F \cap \{d_X = 1\} = G$, and
 $G$ is a sub-M-polyfold of $X$. (b) If $X$ is face-structured, every face $F$ agrees near each of its
@@ -1515,8 +1515,8 @@ stated in the text; the exposition's Lemma 4.D.
 `Polyfold.MPolyfold.isScDiffeoOn_snd_fibredProduct`,
 `Polyfold.MPolyfold.isScDiffeoOn_fst_fibredProduct`,
 `Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd`, `Polyfold.MPolyfold.degIndex_fibredProduct_eq_fst`,
-`Polyfold.MPolyfold.isTame_fibredProduct`, `Polyfold.MPolyfold.proposition_2_46`,
-`Polyfold.MPolyfold.proposition_2_46_of_isLocalScDiffeo`).** Let $f : X \to Z$ be a local
+`Polyfold.MPolyfold.isTame_fibredProduct`, `Polyfold.MPolyfold.proposition_2_5_20`,
+`Polyfold.MPolyfold.proposition_2_5_20_of_isLocalScDiffeo`).** Let $f : X \to Z$ be a local
 sc-diffeomorphism (every point has an open neighbourhood that $f$ maps sc-diffeomorphically onto an
 open subset of $Z$) and $g : Y \to Z$ sc-smooth. Then $X {}_f\times_g Y = \{(x, y) : f(x) = g(y)\}$
 is closed in $X \times Y$, hence paracompact, and a sub-M-polyfold of $X \times Y$, near each point
@@ -1648,7 +1648,7 @@ $P'$; $P \circ P' = f \circ P_f$; $P_f$ is continuous, and $f^*Y$ is closed in $
 is Hausdorff and $P$, $f$ are continuous. *Book:* Definition 2.6.7 (preprint 2.53), p. 69 (preprint p. 53). *Hidden hypotheses:*
 none.
 
-**V2.61 (Proposition 2.6.8 (preprint 2.54); `Polyfold.proposition_2_54`, `Polyfold.pullbackAtlas`,
+**V2.61 (Proposition 2.6.8 (preprint 2.54); `Polyfold.proposition_2_6_8`, `Polyfold.pullbackAtlas`,
 `Polyfold.PullbackChartData`, `Polyfold.PullbackChartData.toChart`,
 `Polyfold.PullbackChartData.transition_eqOn`, `Polyfold.PullbackChartData.transition_isScSmooth`,
 `Polyfold.PullbackChartData.transitionOne_isScSmooth`,
@@ -1706,7 +1706,7 @@ be an M-polyfold on $Y_{0,1}$ (preprint p. 52). *Hidden hypotheses:* paracompact
 Definition 2.3.4 (preprint 2.13). *Deviation (not in the book):* proved; metrizability by the pull-back form of
 Smirnov's theorem over the paracompact base (V2.62), as in Theorem 2.3.10 (preprint 2.16).
 
-**V2.65 (Proposition 2.1.13 (preprint 2.6), the 2021 statement; `Polyfold.proposition_2_1_13_2021`).** Let
+**V2.65 (Proposition 2.1.13 (preprint 2.6), the 2021 statement; `Polyfold.proposition_2_1_13`).** Let
 $r : U \to U$ and $s : V \to V$ be sc-smooth retractions onto the same retract $O$, $\rho$ an sc-smooth
 retraction onto $O'$, and $f$ a map with $f(O) \subseteq O'$. Then (1) $f \circ r$ is sc-smooth on $U$
 iff $f \circ s$ is sc-smooth on $V$; (2) if $f \circ r$ is sc-smooth, $T(f \circ r) = T(f \circ s)$ on
@@ -1716,12 +1716,12 @@ Proposition 2.1.13, p. 27 (preprint 2.6, p. 20); the 2021 statement of (3) has t
 hypotheses:* $f(O) \subseteq O'$, contained in "$f : O \to O'$". *Deviation:* none. The Lean statement of
 (3) in V2.5 already carried the 2021 hypothesis, so the 2021 change confirms the formalization's
 reading. *Proof:* the conjunction of
-`Polyfold.proposition_2_6_1` (both ways), `Polyfold.proposition_2_6_2` and
-`Polyfold.proposition_2_6_3` (V2.5).
+`Polyfold.proposition_2_1_13_one` (both ways), `Polyfold.proposition_2_1_13_two` and
+`Polyfold.proposition_2_1_13_three` (V2.5).
 
 **V2.66 (Proposition 2.1.4, complete closed neighbourhoods in a retract;
 `Polyfold.ScRetraction.exists_isClosed_retract_inter_closedBall`,
-`Polyfold.IsScRetract.exists_isComplete_closure`, `Polyfold.proposition_2_1_4_2021`).** Let $O$ be an
+`Polyfold.IsScRetract.exists_isComplete_closure`, `Polyfold.proposition_2_1_4`).** Let $O$ be an
 sc-smooth retract in $E$, with the metric $d_O(x, y) = |x - y|_0$ of $E_0$. Every $x \in O$ has open
 neighbourhoods $V \subseteq W$ in $O$ with $\mathrm{cl}_O(V) \subseteq W$ and $\mathrm{cl}_O(V)$
 complete for $d_O$; $W$ can be chosen inside any given neighbourhood of $x$. For a retraction $r$
@@ -1752,7 +1752,7 @@ follows ($T_1$ from the metrizable $W$, regularity from the global condition $\m
 \subseteq W$), so V2.70 and V2.71 need no Hausdorff hypothesis except for the conclusion $T_{3\frac12}$.
 $V \subseteq W$ is a consequence, not a separate condition.
 
-**V2.68 (Remark 2.1.6; `Polyfold.remark_2_1_6_2021`, `Polyfold.IsLocallyCompleteRel`,
+**V2.68 (Remark 2.1.6; `Polyfold.remark_2_1_6`, `Polyfold.IsLocallyCompleteRel`,
 `Polyfold.IsLocallyComplete.isLocallyCompleteRel`).** If $\mathrm{cl}_X(V) \subseteq W$, the closure
 of $V$ in the subspace $W$ is $\mathrm{cl}_X(V)$. The modified notion, in which $\mathrm{cl}_X(V)
 \subseteq W$ is replaced by $V \subseteq W$ and completeness is asked of $\mathrm{cl}_W(V)$, is implied
@@ -1761,14 +1761,14 @@ $\mathrm{cl}_X(V(x)) \subseteq W(x)$ is global, and the modified definition is w
 hypotheses:* none. *Deviation (narrower):* "weaker" is proved here as the implication; that the modified
 notion is strictly weaker is V2.91, an example (gap G.76, closed).
 
-**V2.69 (Corollary 2.1.7; `Polyfold.corollary_2_1_7_2021`, `Polyfold.isLocallyComplete_univ_retract`).**
+**V2.69 (Corollary 2.1.7; `Polyfold.corollary_2_1_7`, `Polyfold.isLocallyComplete_univ_retract`).**
 An sc-smooth retract $O$, with the topology of $E_0$, is locally complete; so is $E_0$ itself. *Book:*
 Corollary 2.1.7, p. 23, new in the 2021 edition. *Hidden hypotheses:* none. *Proof:* V2.66, with the
 metric $d_O$ restricted to $W$ (`Polyfold.isLocallyComplete_of_metric`).
 
 **V2.70 (Proposition 2.1.8; `Polyfold.IsLocallyComplete.of_isEmbedding`,
-`Polyfold.proposition_2_1_8_1_2021`, `Polyfold.proposition_2_1_8_2_2021`,
-`Polyfold.proposition_2_1_8_3_2021`, `Polyfold.proposition_2_1_8_4_2021`).** Let $X$ be locally
+`Polyfold.proposition_2_1_8_1`, `Polyfold.proposition_2_1_8_2`,
+`Polyfold.proposition_2_1_8_3`, `Polyfold.proposition_2_1_8_4`).** Let $X$ be locally
 complete. (1) A locally closed subspace $A$ (open $\cap$ closed) is locally complete; (2) a space
 homeomorphic to $X$ is locally complete; (3) an open subspace is locally complete. (4) A space $Y$
 with an open cover $(Y_i)$ by locally complete subspaces such that every $z \in Y_i$ has an open $U
@@ -1779,8 +1779,8 @@ no Hausdorff hypothesis (V2.67). "Locally closed" is Mathlib's notion, equivalen
 ("$U \cap A$ closed in $U$ for an open $U \ni a$"). *Proof:* (1)–(3) from the embedding statement;
 (4) by transporting the metric of $W \subseteq Y_i$ to $W \subseteq Y$.
 
-**V2.71 (Lemma 2.1.9 and Proposition 2.1.10; `Polyfold.lemma_2_1_9_2021`,
-`Polyfold.IsLocallyComplete.completelyRegularSpace`, `Polyfold.proposition_2_1_10_2021`).** A locally
+**V2.71 (Lemma 2.1.9 and Proposition 2.1.10; `Polyfold.lemma_2_1_9`,
+`Polyfold.IsLocallyComplete.completelyRegularSpace`, `Polyfold.proposition_2_1_10`).** A locally
 complete space is first countable and completely regular; if it is Hausdorff it is $T_{3\frac12}$
 (Tychonoff). *Book:* Lemma 2.1.9 (countable neighbourhood bases) and Proposition 2.1.10 (Hausdorff
 locally complete spaces are completely regular), p. 25, both new in the 2021 edition. *Hidden
@@ -1794,8 +1794,8 @@ $\beta$ is $1 - f$).
 `Polyfold.ScBanach.smoothSeq`, `Polyfold.ScBanach.toBase_smoothSeq`, `Polyfold.ScBanach.smoothSeq_mem`,
 `Polyfold.ScBanach.smoothSeq_zero`, `Polyfold.ScBanach.image_lvlSetInfty`,
 `Polyfold.ScBanach.joinedIn_lvlSetInfty_of_segment`, `Polyfold.IsPartialQuadrant.exists_smooth_near`,
-`Polyfold.IsRelOpenInQuadrant.exists_ball_inter_subset`, `Polyfold.lemma_2_2_1_2021`,
-`Polyfold.lemma_2_2_1_infty_2021`).** Let $U$ be relatively open in a partial quadrant $C$ and
+`Polyfold.IsRelOpenInQuadrant.exists_ball_inter_subset`, `Polyfold.lemma_2_2_1`,
+`Polyfold.lemma_2_2_1_infty`).** Let $U$ be relatively open in a partial quadrant $C$ and
 connected. For every $k \in \mathbb N$ the level $U_k = U \cap E_k$, with the topology of $E_k$, is
 path-connected; and $U_\infty$, represented as the compatible sequences $(v_m) \in \prod_m E_m$ with
 $v_0 \in U$ (with the product topology, i.e. the topology of all the norms $|\cdot|_m$), is
@@ -1807,8 +1807,8 @@ polygon along a path $\sigma$ in $U_0$: the set of points of $U$ near which ever
 is joined to a fixed one is open and closed in the connected $U$; segments in convex pieces $B_\varepsilon
 \cap C$ join smooth points, and smooth points are dense.
 
-**V2.73 (Lemma 2.2.2, Definition 2.2.3 and Theorem 2.2.4; `Polyfold.lemma_2_2_2_2021`,
-`Polyfold.definition_2_2_3_2021`, `Polyfold.theorem_2_2_4_2021`,
+**V2.73 (Lemma 2.2.2, Definition 2.2.3 and Theorem 2.2.4; `Polyfold.lemma_2_2_2`,
+`Polyfold.definition_2_2_3`, `Polyfold.theorem_2_2_4`,
 `Polyfold.IsScRetract.locallyPathConnectedSpace`).** For a retraction $r : U \to U$ onto $O$, $x \in
 O$ and $V = V' \cap U$ with $V' \ni x$ open in $E_0$, the set $W = V \cap r^{-1}(V)$ is relatively open
 in $C$, contains $x$, and satisfies $W \cap O = V \cap O$, $r(W) \subseteq W$, $r(W) = O \cap V$.
@@ -1820,7 +1820,7 @@ joining nearby points by $\tau \mapsto r(o + \tau(p - o))$ instead of through Le
 components of $W(x)$.
 
 **V2.74 (Definition 2.2.5 and Proposition 2.2.6; `Polyfold.IsAlmostLocallyContractible`,
-`Polyfold.proposition_2_2_6_2021`, `Polyfold.isAlmostLocallyContractible_univ`).** A space $Z$ is
+`Polyfold.proposition_2_2_6`, `Polyfold.isAlmostLocallyContractible_univ`).** A space $Z$ is
 almost locally contractible if for every $z$ and open $V \ni z$ there are an open $W$, $z \in W
 \subseteq V$, and a continuous $\Phi : [0, 1] \times W \to Z$ with values in $V$, $\Phi(0, y) = y$,
 $\Phi(t, z) = z$ and $\Phi(1, y) = z$. An sc-smooth retract is almost locally contractible; so is
@@ -1830,7 +1830,7 @@ O$.
 
 **V2.75 (the footnote to Definition 2.3.4 (preprint 2.13), paracompactness, and the convention of
 Appendix 2.7.2; `Polyfold.IsLocallyFiniteSetFamily`, `Polyfold.IsParacompactStar`,
-`Polyfold.isParacompactStar_iff`, `Polyfold.definition_2_3_4_2021`, `Polyfold.isParacompactStar_real`,
+`Polyfold.isParacompactStar_iff`, `Polyfold.definition_2_3_4`, `Polyfold.isParacompactStar_real`,
 `Polyfold.IsParacompactBySubcover`, `Polyfold.not_isParacompactBySubcover_real`).** A space is
 paracompact* if every open cover has a locally finite open cover refining it, with no separation
 axiom; this is Mathlib's paracompactness, so "Hausdorff paracompact*" is exactly the hypothesis of
@@ -1843,8 +1843,8 @@ hypotheses:* none. *Deviation (restated):* the footnote changes nothing for M-po
 Hausdorff property is required separately. The subcover wording of Appendix 2.7.2 does not hold as
 we read it for $\mathbb R$; it is read as "refinement" (possible misprint), as in the footnote.
 
-**V2.76 (Lemma 2.3.5 and Lemma 2.7.2; `Polyfold.lemma_2_7_2_2021`,
-`Polyfold.exists_isOpen_closure_subset_of_paracompact`, `Polyfold.lemma_2_3_5_2021`).** In a regular
+**V2.76 (Lemma 2.3.5 and Lemma 2.7.2; `Polyfold.lemma_2_7_2`,
+`Polyfold.exists_isOpen_closure_subset_of_paracompact`, `Polyfold.lemma_2_3_5`).** In a regular
 space every open $U \ni x$ contains an open $V \ni x$ with $\mathrm{cl}(V) \subseteq U$. In a Hausdorff
 paracompact space, and so in an M-polyfold, every open $W \ni x$ contains such a $V$ inside any given
 neighbourhood of $x$. *Book:* Lemma 2.3.5, p. 35, and Lemma 2.7.2, p. 72, new in the 2021 edition;
@@ -1853,8 +1853,8 @@ Lemma 2.7.2 needs only regularity. *Proof:* Mathlib (regular spaces; Hausdorff p
 are normal).
 
 **V2.77 (Propositions 2.3.6 and 2.3.7; `Polyfold.MChart.isLocallyComplete_source`,
-`Polyfold.MPolyfold.isLocallyComplete`, `Polyfold.proposition_2_3_6_2021`,
-`Polyfold.proposition_2_3_7_2021`, `Polyfold.MPolyfold.locallyPathConnectedSpace`).** A chart domain
+`Polyfold.MPolyfold.isLocallyComplete`, `Polyfold.proposition_2_3_6`,
+`Polyfold.proposition_2_3_7`, `Polyfold.MPolyfold.locallyPathConnectedSpace`).** A chart domain
 of an M-polyfold is locally complete. An M-polyfold $X$ is locally complete, with $W(x)$ inside any
 given neighbourhood of $x$: there are open $V \subseteq W$ around $x$ with $\mathrm{cl}_X(V) \subseteq
 W$ and a metric on $W$ inducing its topology for which $\mathrm{cl}_X(V)$ is complete. An M-polyfold
@@ -1903,7 +1903,7 @@ of tame ep-groupoids (2021 §7.6.5); the local pieces in a tame chart come from 
 structure of V2.45.
 
 **V2.80 (Proposition 2.7.5; `Polyfold.TameBoundary.exists_nbhd_faces_mem`,
-`Polyfold.TameBoundary.proposition_2_7_5`, `Polyfold.MPolyfold.proposition_2_7_5_2021`).** In a tame
+`Polyfold.TameBoundary.proposition_2_7_5`, `Polyfold.MPolyfold.proposition_2_7_5`).** In a tame
 M-polyfold (more generally, for $d$ with the corner axioms) every $x$ has an open $V \ni x$ with (1)
 $d(y) \le d(x)$ on $V$, (2) every $y \in V$ in exactly $d(y)$ faces of $V$, (3) an open $U(x)$, $x \in
 U(x) \subseteq V$, such that every face of $V$ meeting $U(x)$ contains $x$; (3) holds for every open $V
@@ -1916,7 +1916,7 @@ U(x) \subseteq V$, such that every face of $V$ meeting $U(x)$ contains $x$; (3) 
 `Polyfold.TameBoundary.sUnion_faceStructuredNbhds`,
 `Polyfold.TameBoundary.mem_faceStructuredNbhds_of_subset`,
 `Polyfold.TameBoundary.inter_mem_faceStructuredNbhds`,
-`Polyfold.TameBoundary.inter_mem_faceStructuredNbhdsAt`, `Polyfold.MPolyfold.proposition_2_7_7_2021`,
+`Polyfold.TameBoundary.inter_mem_faceStructuredNbhdsAt`, `Polyfold.MPolyfold.proposition_2_7_7`,
 `Polyfold.TameBoundaryExample.isFaceStructuredOpen_quadrant`).** An open $V$ is face-structured if
 every $y \in V$ lies in exactly $d(y)$ faces of $V$; $N_X$ is the set of nonempty face-structured $V$
 with $d|V$ bounded, $N_{X,x}$ the set of $V \in N_X$ with $x \in V$ and $d \le d(x)$ on $V$, and $N_X =
@@ -1981,8 +1981,8 @@ $N_{X,x}$, which is what "$V$ sufficiently small" provides.
 `Polyfold.TameBoundaryExample.slab_mem_faceStructuredNbhdsAt`, `Polyfold.TameBoundaryExample.slabFace`,
 `Polyfold.TameBoundaryExample.counterTriple`, `Polyfold.TameBoundaryExample.exists_face_not_mem`,
 `Polyfold.TameBoundaryExample.pt_010_not_mem_image`,
-`Polyfold.TameBoundaryExample.phi_not_surjective_2021`,
-`Polyfold.TameBoundaryExample.not_forall_bijective_phi_2021`).** In the tame M-polyfold $X = [0,
+`Polyfold.TameBoundaryExample.phi_not_surjective`,
+`Polyfold.TameBoundaryExample.not_forall_bijective_phi`).** In the tame M-polyfold $X = [0,
 \infty)^3 \oplus W$ ($W$ any sc-Banach space), let $x = (0, 0, 1)$, $V = \{p_0 < 1/2,\ 1/2 < p_1 + p_2 <
 3/2\}$ (a convex open slab around the segment from $x$ to $(0, 1, 0)$), and $\theta$ the face of $V$
 through that segment. Then $V \in N_{X,x}$, $d_X(x) = 2$, $(x, V, \theta)$ is an admissible triple,
@@ -1999,7 +1999,7 @@ open $V$ through a point with only $p_k = 0$ lies in $\{p_k = 0\}$.
 `Polyfold.TameBoundary.eq_of_mem_uSet`, `Polyfold.TameBoundary.isBOpen_iff`,
 `Polyfold.TameBoundary.bTopology`, `Polyfold.TameBoundary.isOpen_iff_isBOpen`,
 `Polyfold.TameBoundary.isOpen_iff_forall_uSet`, `Polyfold.TameBoundary.lemma_2_7_15`,
-`Polyfold.MPolyfold.lemma_2_7_15_2021`).** A set $\mathcal U \subseteq bX$ is in $T_{bX}$ if every class $p
+`Polyfold.MPolyfold.lemma_2_7_15`).** A set $\mathcal U \subseteq bX$ is in $T_{bX}$ if every class $p
 \in \mathcal U$ has a representative $(x, V, \theta)$ and a set $O \ni p$, $O \subseteq \mathcal U \cap U(x,
 V, \theta)$, with $\Phi_{(x, V, \theta)}(O)$ open in $\theta$; equivalently, if every $p \in \mathcal U$
 has a representative with $U(x, V, \theta) \subseteq \mathcal U$. These sets are the open sets of a
@@ -2014,7 +2014,7 @@ sc-smoothness of the transition maps that the text's proof of the intersection a
 `Polyfold.TameBoundary.exists_nbhd_faceExt_inter_subset`,
 `Polyfold.TameBoundary.exists_isOpen_bMap_image`, `Polyfold.TameBoundary.isOpenEmbedding_phi`,
 `Polyfold.TameBoundary.phiHomeomorph`, `Polyfold.TameBoundary.proposition_2_7_12`,
-`Polyfold.MPolyfold.proposition_2_7_12_2021`).** The sets $U(x, V, \theta)$ are open and form a basis of
+`Polyfold.MPolyfold.proposition_2_7_12`).** The sets $U(x, V, \theta)$ are open and form a basis of
 $T_{bX}$; $B$ is continuous; every $\Phi_{(x, V, \theta)}$ is an open embedding into $\theta$, and a
 homeomorphism onto $\theta$ for $V$ centred at $x$. For two triples, the image of $U(x, V, \theta) \cap
 U(x', V', \theta')$ is open in $\theta$ and in $\theta'$, and the transition map
@@ -2026,7 +2026,7 @@ M-polyfold structure of $bX$ (V2.103), and for every representative in V2.104 (g
 
 **V2.88 (Proposition 2.7.16; `Polyfold.TameBoundary.tripleOf`,
 `Polyfold.TameBoundary.exists_mem_uSet_tripleOf`, `Polyfold.TameBoundary.metrizableSpace_preimage`,
-`Polyfold.TameBoundary.proposition_2_7_16`, `Polyfold.MPolyfold.proposition_2_7_16_2021`).** For $d$
+`Polyfold.TameBoundary.proposition_2_7_16`, `Polyfold.MPolyfold.proposition_2_7_16`).** For $d$
 with the corner axioms on a Hausdorff $X$, $bX$ is Hausdorff; on a metrizable $X$, $bX$ is metrizable.
 For a tame M-polyfold, $T_{bX}$ is Hausdorff and metrizable. *Book:* Proposition 2.7.16, pp. 85–87, new
 in the 2021 edition. *Hidden hypotheses:* none. *Proof:* not the text's paracompactness argument
@@ -2036,7 +2036,7 @@ of Smirnov's theorem (V2.62) along $B$, each point having an open neighbourhood 
 the indicators of the clopen sets $U(x, W, \theta)$.
 
 **V2.89 (Theorem 2.7.13, topological part, and Definition 2.7.14; `Polyfold.TameBoundary.eq_of_isOpen_uSet`,
-`Polyfold.TameBoundary.theorem_2_7_13_topology`, `Polyfold.MPolyfold.theorem_2_7_13_2021`,
+`Polyfold.TameBoundary.theorem_2_7_13_topology`, `Polyfold.MPolyfold.theorem_2_7_13`,
 `Polyfold.MPolyfold.tameBoundary`).** For a tame M-polyfold $X$: (1) $bX$ carries the metrizable
 topology $T_{bX}$; every $U(x, V, \theta)$ is open and every $\Phi_{(x, V, \theta)}$ is an open embedding
 into $\theta$; $T_{bX}$ is the only topology in which every $U(x, V, \theta)$ is open and every $\Phi$ maps
@@ -2059,7 +2059,7 @@ M-polyfold; its corner $0$ has exactly $n$ preimages under $B$, so $bX \ne \empt
 $Y = X$ has a tame induced structure and is a tame sub-M-polyfold. *Book:* not stated. *Hidden
 hypotheses:* none. *Deviation (not in the book):* satisfiability of the hypotheses of V2.78–V2.89.
 
-**V2.91 (Remark 2.1.6, strictness: the K-topology on $\mathbb R$; `Polyfold.remark_2_1_6_strict_2021`,
+**V2.91 (Remark 2.1.6, strictness: the K-topology on $\mathbb R$; `Polyfold.remark_2_1_6_strict`,
 `Polyfold.isLocallyCompleteRel_of_forall_isCompletelyMetrizable`,
 `Polyfold.isCompletelyMetrizableSpace_of_isEmbedding_compl_range`, `Polyfold.kSeq`, `Polyfold.kTop`,
 `Polyfold.RealKTop`, `Polyfold.RealKTop.not_regularSpace`, `Polyfold.RealKTop.not_isLocallyComplete`,
@@ -2106,7 +2106,7 @@ charts form an atlas of $X_m$, which with it is the M-polyfold $X^m$. *Hidden hy
 (restated):* $X^m$ is the iterate, identified with $X_m$ for each fixed $m$; one homeomorphism for the family indexed
 by $m$ is not stated. This closes gap G.6 (V2.16).
 
-**V2.94 (Theorem 2.3.16 as a bundle statement; `Polyfold.theorem_2_3_16_2021`, `Polyfold.tangentMap_levelMap_one`,
+**V2.94 (Theorem 2.3.16 as a bundle statement; `Polyfold.theorem_2_3_16`, `Polyfold.tangentMap_levelMap_one`,
 `Polyfold.toBase_tangentMap_levelMap_one`, `Polyfold.retractTangent_shift_of_isScRetract`,
 `Polyfold.toBase_retractTangentMap_shift`).** In a local model, for an sc¹ map $f$ on $U$, the tangent map of $f^1 :
 U^1 \to F^1$ is the level-$1$ map of $Tf$ on $T(U^1) = (TU)^1$; $T(O^1) = (TO)^1$ for a retract $O$; and $T(f^1)$
@@ -2127,7 +2127,7 @@ their own (gap G.7).
 `Polyfold.MPolyfold.tangentLower`, `Polyfold.MPolyfold.tangentShiftMap`, `Polyfold.MPolyfold.tangentShiftEquiv`,
 `Polyfold.MPolyfold.tangentShiftHomeomorph`, `Polyfold.MPolyfold.tangentProjShift`,
 `Polyfold.MPolyfold.tangentShiftEquiv_isScDiffeoOn`, `Polyfold.MPolyfold.tangentChartMap_tangentLower`,
-`Polyfold.MPolyfold.levelChart_tangentShiftMap`, `Polyfold.proposition_2_3_17_2021`).** The inclusion $T(X^1) \to
+`Polyfold.MPolyfold.levelChart_tangentShiftMap`, `Polyfold.proposition_2_3_17`).** The inclusion $T(X^1) \to
 TX$, defined in a chosen chart and independent of it, takes values in $(TX)_1$ and gives a bijection $\Phi : T(X^1)
 \to (TX)^1$ with: (1) $\Phi$ is an sc-diffeomorphism of the M-polyfolds $T(X^1)$ and $(TX)^1$, in particular a
 homeomorphism; (2) $p^1 \circ \Phi = p_{X^1}$, where $p^1 : (TX)^1 \to (X^1)^1$ is the level-$1$ map of $p : TX \to
@@ -2143,7 +2143,7 @@ the identification $(X^1)^1 \equiv (X^1)^1$ is the identity.
 **V2.96 (Proposition 2.3.17 for $i = 2$, and raising the index of an sc-diffeomorphism;
 `Polyfold.MPolyfold.levelOneEquiv`, `Polyfold.MPolyfold.levelOneEquiv_isScDiffeoOn`,
 `Polyfold.MPolyfold.tangentShiftEquivTwo`, `Polyfold.MPolyfold.tangentProjShiftTwo`,
-`Polyfold.proposition_2_3_17_two_2021`).** A bijection $e : Y \to Z$ of M-polyfolds that is sc-smooth in both
+`Polyfold.proposition_2_3_17_two`).** A bijection $e : Y \to Z$ of M-polyfolds that is sc-smooth in both
 directions induces an sc-diffeomorphism $e^1 : Y^1 \to Z^1$. Composing $\Phi$ of V2.95 for $X^1$ with the index raise
 of $\Phi^{-1}$ for $X$ gives an sc-diffeomorphism $\Phi_2 : T(X^2) \to (TX)^2$, $X^2 = (X^1)^1$, $(TX)^2 =
 ((TX)^1)^1$, covering the identity of $(X^1)^2 = (X^2)^1$: $p^2 \circ \Phi_2 = p_{X^2}$. *Book:* Proposition 2.3.17,
@@ -2156,7 +2156,7 @@ p. 42, for $i = 2$. *Hidden hypotheses:* none. *Deviation (narrower):* $i = 2$; 
 `Polyfold.BundledMPolyfold.shiftLiftEquiv`, `Polyfold.BundledMPolyfold.tangentProjLift`,
 `Polyfold.BundledMPolyfold.incl`, `Polyfold.BundledMPolyfold.tangentIncl`,
 `Polyfold.BundledMPolyfold.tangentLiftEquiv_one`, `Polyfold.BundledMPolyfold.tangentLiftEquiv_unique`,
-`Polyfold.BundledMPolyfold.tangentLiftEquiv_natural`, `Polyfold.proposition_2_3_17_all_2021`).** Bundle an
+`Polyfold.BundledMPolyfold.tangentLiftEquiv_natural`, `Polyfold.proposition_2_3_17_all`).** Bundle an
 M-polyfold $X$ with its space, so that the lifts $X^0 = X$, $X^{i+1} = (X^i)^1$ form a family indexed by $i$. For
 every $i$: (1) $\Phi_i : T(X^i) \to (TX)^i$, with $\Phi_0 = \mathrm{id}$ and $\Phi_{i+1} = (\Phi_i)^1 \circ \Phi$,
 and $J_i : (X^1)^i \to (X^i)^1$ are sc-diffeomorphisms; (2) $p^i : (TX)^i \to (X^1)^i$, the $i$-th index raise of
@@ -2174,7 +2174,7 @@ G.7); $\Phi_i$ is a composite of index raises of maps that are the identity in c
 `Polyfold.diagonalAverage`, `Polyfold.diagonalRetraction`, `Polyfold.mem_diagonalRetraction_retract_iff`,
 `Polyfold.diagonalModel`, `Polyfold.diagonalPolyfold`, `Polyfold.diagonalEmbed`, `Polyfold.diagonalProject`,
 `Polyfold.diagonalEmbed_isScDiffeoOn`, `Polyfold.degIndex_diagonal_quadrant`, `Polyfold.diagonalPolyfold_degIndex`,
-`Polyfold.diagonalHalfLineChart`, `Polyfold.diagonalHalfLineChart_spec`, `Polyfold.remark_2_4_2_2021`).** In $C =
+`Polyfold.diagonalHalfLineChart`, `Polyfold.diagonalHalfLineChart_spec`, `Polyfold.remark_2_4_2`).** In $C =
 [0, \infty)^3 \oplus W$, $W$ any sc-Banach space, replacing the three coordinates by their average is an sc-smooth
 retraction onto $\Delta \oplus W$, $\Delta = \{(s, s, s) : s \ge 0\}$. With the M-polyfold structure of this retract:
 (1) $(s, w) \mapsto ((s, s, s), w)$ is an sc-diffeomorphism from the half-line M-polyfold $[0, \infty) \oplus W$ onto
@@ -2188,8 +2188,8 @@ retraction, which the text does not give, is the orthogonal projection onto the 
 Proposition 2.4.4 (preprint 2.24) (V2.28) applied to the sc-diffeomorphism (1).
 
 **V2.99 (Definition 2.5.19 (3) does not depend on the chart; `Polyfold.MPolyfold.mem_smoothSet_iff_of_isChart`,
-`Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart_2021`,
-`Polyfold.MPolyfold.TameSubData.complement_forall_charts_2021`).** A point of an M-polyfold is smooth iff its image
+`Polyfold.MPolyfold.TameSubData.hasReducedComplementAt_of_isChart`,
+`Polyfold.MPolyfold.TameSubData.complement_forall_charts`).** A point of an M-polyfold is smooth iff its image
 in one chart is a smooth point of the model. Let $Y$ have tame sub-M-polyfold data $(V, r)$ (V2.78), condition (3)
 being asked in one chart around each smooth point, for one presentation of its partial quadrant. Then at every smooth
 $y \in Y \cap V$ condition (3) holds in every chart $\varphi \ni y$, for every presentation $T$ of the partial
@@ -2202,7 +2202,7 @@ retraction do not matter (gap G.77, closed). *Proof:* by Chapter 4's chart chang
 
 **V2.100 (a tame sub-M-polyfold is tame; `Polyfold.ScBanach.levelSub_sup_of_le_of_isScSplitting`,
 `Polyfold.ScBanach.isScSplitting_sup_of_complementIn`, `Polyfold.MPolyfold.TameSubData.isTameRetract_image`,
-`Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure_2021`).** If $E = M \oplus B$ is an sc-splitting and
+`Polyfold.MPolyfold.IsTameSubMPolyfold.hasTameInducedStructure`).** If $E = M \oplus B$ is an sc-splitting and
 $N, A \subseteq M$ are sc-subspaces with $M_m = N_m \oplus A_m$ on every level, then $E = N \oplus (A \oplus B)$ is an
 sc-splitting. For tame sub-M-polyfold data $(V, r)$ and a chart $\varphi$ of $X$ with a tame model, the chart image
 $\varphi(W \cap Y)$ of $Y$ is a tame retract, of the retraction $(\varphi r \varphi^{-1}) \circ t$ with $t$ the tame
@@ -2215,11 +2215,11 @@ the complement of $T_xO$ given by the tameness of $t$.
 
 **V2.101 (the examples $A$ and $B$ in $[0, \infty)^2 \times \mathbb R$; `Polyfold.TameSubExample.fixSet`,
 `Polyfold.TameSubExample.isSubMPolyfold_fixSet`, `Polyfold.TameSubExample.isTameSubMPolyfold_fixSet`,
-`Polyfold.TameSubExample.setA`, `Polyfold.TameSubExample.setB`, `Polyfold.TameSubExample.isTameSubMPolyfold_setA_2021`,
-`Polyfold.TameSubExample.hasTameInducedStructure_setA_2021`, `Polyfold.TameSubExample.isSubMPolyfold_setB`,
-`Polyfold.TameSubExample.not_mem_tameSubData_setB_2021`, `Polyfold.TameSubExample.not_isTameSubMPolyfold_setB_2021`,
-`Polyfold.TameSubExample.halfLineToB_isScDiffeoOn_2021`, `Polyfold.TameSubExample.hasTameInducedStructure_setB_2021`,
-`Polyfold.TameSubExample.examples_A_B_2021`).** In $X = [0, \infty)^n \oplus W$, $W$ any sc-Banach space, the fixed
+`Polyfold.TameSubExample.setA`, `Polyfold.TameSubExample.setB`, `Polyfold.TameSubExample.isTameSubMPolyfold_setA`,
+`Polyfold.TameSubExample.hasTameInducedStructure_setA`, `Polyfold.TameSubExample.isSubMPolyfold_setB`,
+`Polyfold.TameSubExample.not_mem_tameSubData_setB`, `Polyfold.TameSubExample.not_isTameSubMPolyfold_setB`,
+`Polyfold.TameSubExample.halfLineToB_isScDiffeoOn`, `Polyfold.TameSubExample.hasTameInducedStructure_setB`,
+`Polyfold.TameSubExample.examples_A_B`).** In $X = [0, \infty)^n \oplus W$, $W$ any sc-Banach space, the fixed
 set of an idempotent sc-operator $L$ mapping the quadrant into itself is a sub-M-polyfold, and a tame sub-M-polyfold
 if $L$ does not change the $\mathbb R^n$-component. For $n = 2$: $A = \{(x, y, 0)\}$ (with $L(a, w) = (a, 0)$) is a
 tame sub-M-polyfold with tame induced structure; $B = \{(x, x, 0)\}$ is a sub-M-polyfold, but no retraction onto $B$
@@ -2255,7 +2255,7 @@ composed with $\Phi_{(x, V, \theta)}$; the local faces of $\theta$ in a tame cha
 `Polyfold.TameBoundary.BSpace.exists_centred_rep`, `Polyfold.MPolyfold.isSubMPolyfold_of_isFaceIn`,
 `Polyfold.MPolyfold.facePolyfold`, `Polyfold.MPolyfold.phiTot`, `Polyfold.MPolyfold.phi_isScDiffeoOn`,
 `Polyfold.MPolyfold.tameBoundaryPolyfold_unique`, `Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies`,
-`Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_2021`, `Polyfold.MPolyfold.theorem_2_7_13_structure_2021`).** Let $X$
+`Polyfold.MPolyfold.proposition_2_7_12_scDiffeo`, `Polyfold.MPolyfold.theorem_2_7_13_structure`).** Let $X$
 be tame. Every class of $bX$ has a representative $(x, V, \theta)$ with $V$ centred at $x$. A face $\theta$ of a
 face-structured open $V$ is a sub-M-polyfold of $X$ and carries the induced structure. For $V$ centred at $x$,
 $\Phi_{(x, V, \theta)}$ is an sc-diffeomorphism of the open set $U(x, V, \theta)$ onto $\theta$, with inverse
@@ -2275,10 +2275,10 @@ as: every structure with the property has an equivalent atlas.
 `Polyfold.TameBoundary.BTriple.exists_centred_subset`, `Polyfold.TameBoundary.phiInv`,
 `Polyfold.TameBoundary.phiInv_spec`, `Polyfold.MPolyfold.reachSet`, `Polyfold.MPolyfold.isOpen_reachSet`,
 `Polyfold.MPolyfold.reachSet_eq_univ_of_isCenteredAt`, `Polyfold.MPolyfold.phiTot_isScSmoothOn`,
-`Polyfold.MPolyfold.phiInv_isScSmoothOn`, `Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred_2021`,
-`Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps_2021`,
-`Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies_allReps_2021`,
-`Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred_2021`).** Every triple $s$ has an equivalent triple $s'$
+`Polyfold.MPolyfold.phiInv_isScSmoothOn`, `Polyfold.MPolyfold.phi_isScDiffeoOn_nonCentred`,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_unique_allReps`,
+`Polyfold.MPolyfold.tameBoundaryPolyfold_satisfies_allReps`,
+`Polyfold.MPolyfold.proposition_2_7_12_scDiffeo_nonCentred`).** Every triple $s$ has an equivalent triple $s'$
 centred at its point with $U(s') \subseteq U(s)$. For every representative $(x, V, \theta)$, $\Phi_{(x, V, \theta)}$
 is sc-smooth on $U(x, V, \theta)$, its inverse is sc-smooth on the image $\theta \cap V^x$, and $\Phi$ is an
 sc-diffeomorphism of $U(x, V, \theta)$ onto the open subset $\theta \cap V^x$ of $\theta$, which is $\theta$ when $V$
@@ -2294,7 +2294,7 @@ of $s'$; the sub-M-polyfold calculus (a map into a sub-M-polyfold is sc-smooth i
 the text's open sc-embeddings of faces.
 
 **V2.105 ("$\Phi$ is an sc-diffeomorphism onto $\theta$" for every representative: the slab of V2.85;
-`Polyfold.MPolyfold.not_surjOn_phiTot_2021`).** For the triple $(x, V, \theta)$ of V2.85 in $[0, \infty)^3 \oplus W$,
+`Polyfold.MPolyfold.not_surjOn_phiTot`).** For the triple $(x, V, \theta)$ of V2.85 in $[0, \infty)^3 \oplus W$,
 $\Phi_{(x, V, \theta)}$ does not map $U(x, V, \theta)$ onto $\theta$. *Book:* the characterization after Theorem
 2.7.13, p. 84, for "any representative". *Hidden hypotheses:* none. *Deviation (not in the book):* read for every
 representative, the characterization does not hold as we read it; the strongest version that holds is V2.104, onto
@@ -2305,7 +2305,7 @@ $\theta \cap V^x$, which for centred $V$ is the printed statement (V2.103). *Pro
 `Polyfold.MPolyfold.TameMPolyfoldBundle.iter`, `Polyfold.MPolyfold.TameMPolyfoldBundle.iterMap`,
 `Polyfold.MPolyfold.TameMPolyfoldBundle.iterMap_isScSmooth`,
 `Polyfold.MPolyfold.TameMPolyfoldBundle.degIndex_iterMap`, `Polyfold.MPolyfold.TameMPolyfoldBundle.range_iterMap`,
-`Polyfold.MPolyfold.definition_2_7_14_2021`).** The tame boundary of a tame $X$ is $bX$ with the tame structure of
+`Polyfold.MPolyfold.definition_2_7_14`).** The tame boundary of a tame $X$ is $bX$ with the tame structure of
 V2.102 and the sc-smooth $B$, whose image is $\partial X$. For a tame M-polyfold bundled with its space, $b^0X = X$ and
 $b^kX = b(b^{k-1}X)$ are tame M-polyfolds; $B^0 = \mathrm{id}$ and $B^{k+1} = B_X \circ B^k_{bX}$, so $B^k = B_X
 \circ B_{bX} \circ \cdots \circ B_{b^{k-1}X}$; $B^k : b^kX \to X$ is sc-smooth, $d_X(B^k(p)) = d_{b^kX}(p) + k$, and
@@ -2575,13 +2575,13 @@ all of $U$, the sc-smoothness of $g$ on $U$ added in Definition 3.1.6 (preprint 
 notions (Findings, Chapter 3, items 220–221, 261, 330). Formerly "narrower", for the whole-chart
 reading.
 
-**V3.8 (Proposition 3.1.5 (preprint 3.5) and the matrix of $Dg(0)$; `Polyfold.IsFillerOf.proposition_3_5`,
-`Polyfold.proposition_3_5`, `Polyfold.fillerRestrict`, `Polyfold.fillerRestrict_kerEquiv`,
+**V3.8 (Proposition 3.1.5 (preprint 3.5) and the matrix of $Dg(0)$; `Polyfold.IsFillerOf.proposition_3_1_5`,
+`Polyfold.proposition_3_1_5_preprint`, `Polyfold.fillerRestrict`, `Polyfold.fillerRestrict_kerEquiv`,
 `Polyfold.fillerRestrict_cokerEquiv`, `Polyfold.StrongRetr.scDeriv_fiber_zero`,
 `Polyfold.IsFillerOf.deriv_comp_r_eq_zero`, `Polyfold.IsFillerOf.scDeriv_section_comp_r`,
-`Polyfold.IsScFredholm.restrict`, `Polyfold.IsFillerOf.proposition_3_5_sc`,
-`Polyfold.IsFillerOf.filler_condition_three_sc`, `Polyfold.IsFillerOf.proposition_3_5_sc_converse`,
-`Polyfold.IsFillerOf.proposition_3_5_sc_iff`).** Let $g$ be sc-smooth on $U$ and fill the section
+`Polyfold.IsScFredholm.restrict`, `Polyfold.IsFillerOf.proposition_3_1_5_sc`,
+`Polyfold.IsFillerOf.filler_condition_three_sc`, `Polyfold.IsFillerOf.proposition_3_1_5_sc_converse`,
+`Polyfold.IsFillerOf.proposition_3_1_5_sc_iff`).** Let $g$ be sc-smooth on $U$ and fill the section
 $f$ of $K \to O$, with $g(0) = 0$. Then $D(\rho(r(\cdot))g)(0) = \rho(0)Dg(0)$,
 $(1 - \rho(0))Dg(0)Dr(0) = 0$, $D(f \circ r)(0) = Dg(0)Dr(0)$; and $Tf(0) := Dg(0)$ restricted to
 $Dr(0)E \to \rho(0)F$ is surjective iff $Dg(0)$ is, Fredholm iff $Dg(0)$ is, and has the same index
@@ -2599,8 +2599,8 @@ $(1 - \rho(0))F$. The sc form needs condition (3) only on level $0$, as the text
 higher levels of $Tf(0)$ come from the regularity of $Dg(0)$); its converse needs condition (3) on
 every level and fails with level $0$ alone (an example with the shift on a weighted $\ell^2$, not
 formalized; Findings, Chapter 3, items 234, 237, 238). The same holds for a filling germ (V3.7), with
-$Dg(0)$ the value at $0$ of any derivative family of $g$ (`Polyfold.IsFillingGerm.proposition_3_5`,
-`Polyfold.IsFillingGerm.proposition_3_5_sc`, `Polyfold.IsFillingGerm.proposition_3_5_sc_iff`; Findings,
+$Dg(0)$ the value at $0$ of any derivative family of $g$ (`Polyfold.IsFillingGerm.proposition_3_1_5`,
+`Polyfold.IsFillingGerm.proposition_3_1_5_sc`, `Polyfold.IsFillingGerm.proposition_3_1_5_sc_iff`; Findings,
 Chapter 3, items 272, 289, 314).
 
 **V3.9 (Definition 3.1.6 (preprint 3.6), filled versions; `Polyfold.IsFillingGerm`, `Polyfold.IsFilledVersion`,
@@ -2640,10 +2640,10 @@ is proved as stated (d); smallness on level $m + 1$ is not needed, since the con
 Definition 3.3.1 (preprint 3.28) is applied at points small on level $0$ (Findings, Chapter 3, item 215). Formerly
 "narrower", when only (a)–(c) were proved.
 
-**V3.12 (Proposition 3.1.10 (preprint 3.10); `Polyfold.proposition_3_10`, `Polyfold.proposition_3_10_scPlus`,
+**V3.12 (Proposition 3.1.10 (preprint 3.10); `Polyfold.proposition_3_1_10`, `Polyfold.proposition_3_1_10_scPlus`,
 `Polyfold.IsSc1GermWith.isScOperator_deriv_zero`, `Polyfold.ScBanach.scIndex_projWOp`,
-`Polyfold.StabilityData.exists_isFredholm_Dfs'`, `Polyfold.proposition_3_10_level`,
-`Polyfold.proposition_3_10_full`, `Polyfold.IsBasicGerm.levelDeriv_add_eq`,
+`Polyfold.StabilityData.exists_isFredholm_Dfs'`, `Polyfold.proposition_3_1_10_level`,
+`Polyfold.proposition_3_1_10_full`, `Polyfold.IsBasicGerm.levelDeriv_add_eq`,
 `Polyfold.IsBasicGerm.snd_levelDeriv_add`).** Let $\widetilde C$ be a partial quadrant, $h$ a basic
 germ, $s$ an sc¹-germ into $(Q \oplus W)^1$ and $f = h + \iota s$ an sc¹-germ with derivative family
 $Df$. Then $Df(0)$ is an sc-operator, sc-Fredholm of index $\dim P - \dim Q$: it is $T_0 + S$ with
@@ -2688,7 +2688,7 @@ another unless these normal spaces match; a compatible tame chart of the trivial
 filling of any section (`Polyfold.TrivialBundle.not_isFillingGerm_evenBundleChart`; Findings,
 Chapter 3, items 350–352).
 
-**V3.14 (Theorem 3.1.13 (preprint 3.12); `Polyfold.theorem_3_12`, `Polyfold.theorem_3_12_local_subset`,
+**V3.14 (Theorem 3.1.13 (preprint 3.12); `Polyfold.theorem_3_1_13_preprint`, `Polyfold.theorem_3_1_13_local_subset`,
 `Polyfold.MPolyfold.continuousOn_levelChartSymm`).** Let $f$ be a section of a strong bundle $P : Y \to X$
 ($P \circ f = \mathrm{id}$) with $(f, x_0)$ an sc-Fredholm germ and $f(x_0) = 0$. There are open sets $O(0)
 \supseteq O(1) \supseteq \cdots$ of $X$ containing $x_0$ such that for every $i$ the closure in $X$ of $\{x \in O(i)
@@ -2699,7 +2699,7 @@ is used; no tameness. *Proof:* the local form (Theorem 3.5.1 (preprint 3.40) for
 transported through chart, filler and conjugation, with the inverse chart $O_i \to X_i$ continuous for
 the level topology.
 
-**V3.15 (Corollary 3.1.15 (preprint 3.13); `Polyfold.corollary_3_13`, `Polyfold.corollary_3_13_section`,
+**V3.15 (Corollary 3.1.15 (preprint 3.13); `Polyfold.corollary_3_1_15_preprint`, `Polyfold.corollary_3_1_15_section`,
 `Polyfold.tendsto_of_isCompact_of_tendsto_map`).** (a) Under the hypotheses of V3.14, if $f(x_k) = 0$ and
 $x_k \to x_0$ in $X$, then for every $m$ there are $y_k \in X_m$ with $\iota y_k = x_k$ for $k$ large and $y_k
 \to y_0$ in $X_m$, $\iota y_0 = x_0$. (b) If $f$ is an sc-Fredholm section and $x_k \to x$ are zeros, then $x$ is
@@ -2717,28 +2717,28 @@ text's germ reading since phase 2; the project's earlier whole-chart notion
 (`IsScFredholmSectionWholeChart`), stricter, implies it (Findings, Chapter 3, items 220–221, 330).
 Formerly "restated", for the whole-chart reading.
 
-**V3.17 (Theorem 3.1.18 (preprint 3.15); `Polyfold.theorem_3_15`, `Polyfold.StrongBundle.IsScSmoothSection.sectionAdd`,
+**V3.17 (Theorem 3.1.18 (preprint 3.15); `Polyfold.theorem_3_1_18_preprint`, `Polyfold.StrongBundle.IsScSmoothSection.sectionAdd`,
 `Polyfold.StrongBundle.regularizing_sectionAdd`, `Polyfold.StrongBundle.IsScFredholmGerm.sectionAdd`).** If
 $f$ is an sc-Fredholm section and $s$ an sc⁺-section of a strong bundle, the fibrewise sum $f + s$ is an
 sc-Fredholm section. *Book:* Theorem 3.1.18 (preprint 3.15), p. 98 (preprint p. 71) (tame bundle). *Hidden hypotheses:* the sum rule; the
 [1]-compatibility of charts (V3.6). *Deviation (stronger):* no tameness. In the germ reading of
 Definition 3.1.11 (preprint 3.11) (V3.13), with the text's proof: $\tilde t = \hat s \circ r$ is sc-smooth on the whole
 $U$, and a germ plus a whole-chart map is a germ on the same germ (V3.19; Findings, Chapter 3, item
-300); the whole-chart form is `Polyfold.theorem_3_15_wholeChart`.
+300); the whole-chart form is `Polyfold.theorem_3_1_18_wholeChart`.
 
-**V3.18 (Lemma 3.1.19 (preprint 3.16); `Polyfold.lemma_3_16`).** For a section $s$ of $K \to O$: $s(r(x)) = s(x)$ for $x \in O$, and
+**V3.18 (Lemma 3.1.19 (preprint 3.16); `Polyfold.lemma_3_1_19`).** For a section $s$ of $K \to O$: $s(r(x)) = s(x)$ for $x \in O$, and
 $\rho(r(u))s(r(u)) = s(r(u))$, $R(r(u), s(r(u))) = (r(u), s(r(u)))$ for $u \in U$. *Book:* Lemma 3.1.19 (preprint 3.16), p. 99 (preprint p. 72).
 *Hidden hypotheses:* $s$ takes values in $K$. *Deviation (restated):* the sc⁺-regularity of $s \circ r$ is
 proved inside Theorem 3.1.18 (preprint 3.15) (V3.17).
 
 **V3.19 (Lemma 3.1.20 (preprint 3.17); `Polyfold.IsFillingGerm.add_section_germ`, `Polyfold.IsFillingGerm.add_section`,
-`Polyfold.lemma_3_17`).** If $g$ is a filling of $\mathbf f$ (V3.7) and $s$ a section of $K \to O$, then
+`Polyfold.lemma_3_1_20`).** If $g$ is a filling of $\mathbf f$ (V3.7) and $s$ a section of $K \to O$, then
 $g + s \circ r$ is a filling of $\mathbf f + s$, with the same derivative family in (3): for $s$
 sc-smooth on $U$, on the same germ; for $s$ an sc-smooth germ on $G_s$, on $G \cap r^{-1}(G_s)$.
 *Book:* Lemma 3.1.20 (preprint 3.17), p. 99 (preprint p. 72). *Hidden hypotheses:* none. *Deviation (stronger):* the regularity of
 $g + s \circ r$ is part of the conclusion, and of $s$ only the sc-smoothness is used, not that it is
 sc⁺. This is the text's statement for fillings that are germs, proved in the project since the switch
-to the germ reading (phase 2); the whole-chart `Polyfold.lemma_3_17` (fillers in the sense of
+to the germ reading (phase 2); the whole-chart `Polyfold.lemma_3_1_20` (fillers in the sense of
 `IsFillerOf`, any section $s$, the regularity left to Theorem 3.1.18 (preprint 3.15)) neither implies it nor follows from
 it (round-trip item V3.19; Findings, Chapter 3, items 220–221, 273). Formerly "restated".
 
@@ -2759,7 +2759,7 @@ algebraic form is weaker (an algebraic good complement need not be closed, round
 so the text's form is formalized as well and proved where the theorems conclude good position
 (V3.47, V3.94; Findings, Chapter 3, items 210, 211).
 
-**V3.21 (Proposition 3.1.25 (preprint 3.22); `Polyfold.proposition_3_22`, `Polyfold.exists_quadrantNormalForm`).** If the
+**V3.21 (Proposition 3.1.25 (preprint 3.22); `Polyfold.proposition_3_1_25`, `Polyfold.exists_quadrantNormalForm`).** If the
 finite-dimensional subspace $N$ is in good position to the partial quadrant $C$, then $N \cap C$ is a
 partial quadrant in $N$. More precisely, for $C = \{\ell_i \ge 0\}$ with continuous functionals jointly onto
 $\mathbb R^n$, there is a linear isomorphism $e : N \to \mathbb R^k \times N_0$ carrying $N \cap C$ onto $[0,
@@ -2784,7 +2784,7 @@ the set-sense readings imply (`Polyfold.IsScSmoothGerm.isScInftyGermAt`,
 `Polyfold.IsScSmooth.isScInftyGermAt`). The germ implicit function theorem gives the fixed-germ
 reading as well (V3.31, V3.32); Theorem 3.5.6 (1) (preprint 3.43) is proved in the $k$-dependent one (V3.38).
 
-**V3.23 (Proposition 3.2.2 (preprint 3.26); `Polyfold.proposition_3_26`, `Polyfold.proposition_3_26_image`,
+**V3.23 (Proposition 3.2.2 (preprint 3.26); `Polyfold.proposition_3_2_2`, `Polyfold.proposition_3_2_2_image`,
 `Polyfold.MPolyfold.TangentGermChart.transport`).** Let $\psi : X \to X'$ be an sc-diffeomorphism of
 M-polyfolds (sc-smooth on all of $X$, with an sc-smooth inverse $\psi'$ on all of $X'$) and $\psi(M) =
 M'$. Then $M'$ has the $n$-dimensional tangent germ property (V3.22) if and only if $M$ has it; the data
@@ -2793,10 +2793,10 @@ Proposition 3.2.2 (preprint 3.26), p. 105 (preprint p. 80). *Hidden hypotheses:*
 The text's "$X' = \psi(X)$ is tame" is not needed here; that tameness is carried by sc-diffeomorphisms
 is V3.71.
 
-**V3.24 (Theorem 3.2.3 (preprint 3.27); `Polyfold.theorem_3_27`, `Polyfold.theorem_3_27_isSubMPolyfold`,
-`Polyfold.MPolyfold.TangentGermChart.IsRegular`, `Polyfold.MPolyfold.theorem_3_27_isChart`,
-`Polyfold.MPolyfold.theorem_3_27_isTame`, `Polyfold.MPolyfold.theorem_3_27_isManifoldWithCorners`,
-`Polyfold.MPolyfold.theorem_3_27_degIndex`).** Let $M \ne \emptyset$ be a subset of an M-polyfold $X$
+**V3.24 (Theorem 3.2.3 (preprint 3.27); `Polyfold.theorem_3_2_3_of_isRegular`, `Polyfold.theorem_3_2_3_isSubMPolyfold`,
+`Polyfold.MPolyfold.TangentGermChart.IsRegular`, `Polyfold.MPolyfold.theorem_3_2_3_isChart`,
+`Polyfold.MPolyfold.theorem_3_2_3_isTame`, `Polyfold.MPolyfold.theorem_3_2_3_isManifoldWithCorners`,
+`Polyfold.MPolyfold.theorem_3_2_3_degIndex`).** Let $M \ne \emptyset$ be a subset of an M-polyfold $X$
 such that every point of $M$ has data of Definition 3.2.1 (preprint 3.25) (V3.22) that are *regular*: (a) $\delta$ is
 sc-smooth on $V$ as a map on a set, and (b) the projection $\pi$ along $Y$ maps $O$ into $C$. Then $M$
 is a sub-M-polyfold of $X$; its induced M-polyfold structure (Proposition 2.3.19 (preprint 2.21)) is tame and has an
@@ -2821,7 +2821,7 @@ K(m+1) \subseteq K(m)$) with $\{a\} \times O(m) \subseteq U_m$, $B_m(a, \cdot)$ 
 $K(m)$ into itself, for $a \in N(m) \cap \widetilde C$. *Book:* Definition 3.3.1 (preprint 3.28), p. 109 (preprint p. 85). *Hidden hypotheses:* the
 points lie in $U_m$. *Deviation (restated):* explicit regions, needed for Lemma 3.3.4 (preprint 3.31).
 
-**V3.26 (Theorem 3.3.2 (preprint 3.29); `Polyfold.theorem_3_29`, `Polyfold.theorem_3_29_of_isSc0ContractionGerm`,
+**V3.26 (Theorem 3.3.2 (preprint 3.29); `Polyfold.theorem_3_3_2`, `Polyfold.theorem_3_3_2_of_isSc0ContractionGerm`,
 `Polyfold.exists_fixedPoint_continuousOn`).** For a contraction germ in working form with quadrant-like
 $\widetilde C$: the level-$0$ fixed point $\delta(a)$ of $B(a, \cdot)$ is an sc⁰-germ on $V_m = N(m) \cap \widetilde C$
 with $\delta(0) = 0$, $(a, \delta_m(a)) \in U_m$ for $a \in V_m$, $B(a, \delta(a)) = \delta(a)$ on $V_0$, and every
@@ -2831,14 +2831,14 @@ $g_l$ of a nonempty closed $K$ in a complete metric space, continuous in $l$ poi
 continuous in $l$ and unique in $K$. *Book:* Theorem 3.3.2 (preprint 3.29), p. 110 (preprint p. 86). *Hidden hypotheses:* the uniqueness
 region. *Deviation (hypotheses explicit).*
 
-**V3.27 (Theorem 3.3.3 (preprint 3.30); `Polyfold.theorem_3_30`, `Polyfold.ContractionGerm.isSc1GermWith_sol`).** If $B$ is an
+**V3.27 (Theorem 3.3.3 (preprint 3.30); `Polyfold.theorem_3_3_3`, `Polyfold.ContractionGerm.isSc1GermWith_sol`).** If $B$ is an
 sc¹-germ, the solution germ $\delta$ is a solution germ and an sc¹-germ on $V_m = N(m+1) \cap \widetilde C$ (the
 germ shifted by one level), with $D\delta(a) = (1 - D_2B(a, \delta(a)))^{-1}D_1B(a, \delta(a))$. *Book:* Theorem
 3.3.3 (preprint 3.30), p. 110 (preprint p. 86), quoted from [21] without proof. *Hidden hypotheses:* none. *Deviation (restated):* sc¹ on
 the shifted germ; a germ only because $\widetilde C$ is finite-dimensional. *Proof:* supplied; it needs
 $(a_0, \delta(a_0)) \in U_2$, hence the shift.
 
-**V3.28 (Lemma 3.3.4 (preprint 3.31); `Polyfold.ContractionGerm.lemma_3_31`, `Polyfold.ContractionGerm.next`,
+**V3.28 (Lemma 3.3.4 (preprint 3.31); `Polyfold.ContractionGerm.lemma_3_3_4`, `Polyfold.ContractionGerm.next`,
 `Polyfold.ContractionGerm.isSc0ContractionGerm_next`).** If $B$ is sc^{k+1} with derivative family
 $D$ and $\delta$ is sc^j on $(N(m+s) \cap \widetilde C)_m$, then
 $f^{(1)}(v, b, u, w) = (u - B(v, u), w - DB(v, \delta(v))(b, w))$, in working form with parameter
@@ -2862,15 +2862,15 @@ some $s$; the step from $j$ to $j+1$ turns shifts $s$ (for $\delta$) and $s'$ (f
 none. *Deviation (restated):* the $f^{(j)}$ are not constructed; one induction quantified over all
 contraction germs.
 
-**V3.30 (Theorem 3.3.6 (preprint 3.33), the germ implicit function theorem; `Polyfold.theorem_3_33`,
-`Polyfold.theorem_3_33_smooth`, `Polyfold.theorem_3_33_of_isSc0ContractionGerm`).** If $B$ is an sc^k-germ, there
+**V3.30 (Theorem 3.3.6 (preprint 3.33), the germ implicit function theorem; `Polyfold.theorem_3_3_6`,
+`Polyfold.theorem_3_3_6_smooth`, `Polyfold.theorem_3_3_6_of_isSc0ContractionGerm`).** If $B$ is an sc^k-germ, there
 is $s$ such that the solution germ $\delta$ is a solution germ and an sc^k-germ on $(N(m+s) \cap \widetilde C)_m$;
 the proof gives $s = 2^k - 1$. If $B$ is sc-smooth, this holds for every $k$ (with $s$ depending on $k$).
 From Definition 3.3.1 (preprint 3.28) with balls: there is an sc^k solution germ. *Book:* Theorem 3.3.6 (preprint 3.33), p. 112 (preprint p. 88). *Hidden
 hypotheses:* **none; the theorem holds with the text's hypotheses**. *Deviation (restated):* the germ on
 which $\delta$ is sc^k shrinks with $k$; in the text's up-to-shrinking reading this is the theorem.
 
-**V3.31 (Corollary 3.3.7 (preprint 3.34); `Polyfold.corollary_3_34`, `Polyfold.corollary_3_34_isScSmoothGerm`,
+**V3.31 (Corollary 3.3.7 (preprint 3.34); `Polyfold.corollary_3_3_7`, `Polyfold.corollary_3_3_7_isScSmoothGerm`,
 `Polyfold.isSckGerm_of_levels`).** If $B$ is an sc-smooth germ, then for all $m$, $k$ there is a
 relatively open $V \ni 0$ in $\widetilde C$ with $\delta(V) \subseteq W_m$ and $\delta : V \to W_m$
 of class $C^k$. The last sentence on one germ: $\delta$ is an sc-smooth germ (sc^k for every $k$ on
@@ -2881,8 +2881,8 @@ sc-smooth at $0$") holds on one germ: sc^j involves only the levels $\ge j$ of a
 (`Polyfold.isSckGerm_of_levels`), so the $k$-dependent germs of Theorem 3.3.6 (preprint 3.33) can be replaced by one
 diagonal germ, which shrinks fast with the level (Findings, Chapter 3, item 250).
 
-**V3.32 (Theorem 3.35 (preprint); `Polyfold.theorem_3_35`, `Polyfold.theorem_3_35_smooth`,
-`Polyfold.theorem_3_35_isScSmoothGerm`, `Polyfold.theorem_3_35_of_isSc0ContractionGerm`,
+**V3.32 (Theorem 3.35 (preprint); `Polyfold.theorem_3_35_preprint`, `Polyfold.theorem_3_35_smooth_preprint`,
+`Polyfold.theorem_3_35_isScSmoothGerm_preprint`, `Polyfold.theorem_3_35_of_isSc0ContractionGerm_preprint`,
 `Polyfold.isSckGerm_contractionMap_iff`).** For $\widetilde C$ a partial quadrant in a
 finite-dimensional $P$: if $B$ is sc^k, $\delta$ is sc^k on $(N(m+s) \cap \widetilde C)_m$ for some
 $s$; if $B$ is sc-smooth, then for every $k$ there is such an $s$, and $\delta$ is an sc-smooth germ
@@ -2899,7 +2899,7 @@ $k$ on a germ depending on $k$.
 **V3.33 (Definition 3.4.1 (preprint 3.37), the basic class; `Polyfold.IsBasicGerm`).** As V3.10. *Book:* Definition 3.4.1 (preprint 3.37), p. 114 (preprint p. 90).
 *Hidden hypotheses:* none. *Deviation:* none.
 
-**V3.34 (Theorem 3.4.2 (preprint 3.38); `Polyfold.theorem_3_38`, `Polyfold.StabilityData`,
+**V3.34 (Theorem 3.4.2 (preprint 3.38); `Polyfold.theorem_3_4_2`, `Polyfold.StabilityData`,
 `Polyfold.StabilityData.exists_of_scPlus`, `Polyfold.StabilityData.pushMap`,
 `Polyfold.StabilityData.pushB_isSc0ContractionGerm`, `Polyfold.scPlusRemainder_contraction`,
 `Polyfold.StabilityData.pushMap_eq_zero_iff`, `Polyfold.StabilityData.finrank_Cs_eq_finrank_Zs`).** Let
@@ -2916,8 +2916,8 @@ contraction"). *Deviation (restated):* a linear coordinate change; only the $W$-
 text's $\tau : Z \to C$ not applied. The coordinate change is a strong bundle isomorphism of the
 index-raised structures (`Polyfold.StabilityData.linIso_isStrongBundleIso`, V3.76).
 
-**V3.35 (Theorem 3.5.1 (preprint 3.40); `Polyfold.theorem_3_40_compactness`, `Polyfold.theorem_3_40_regularity`,
-`Polyfold.IsSc0ContractionGerm.exists_lift`, `Polyfold.theorem_3_12_local`).** Let $B$ be an sc⁰-contraction germ
+**V3.35 (Theorem 3.5.1 (preprint 3.40); `Polyfold.theorem_3_5_1_compactness`, `Polyfold.theorem_3_5_1_regularity`,
+`Polyfold.IsSc0ContractionGerm.exists_lift`, `Polyfold.theorem_3_1_13_local`).** Let $B$ be an sc⁰-contraction germ
 on $G$ around $0$ in $\widetilde C \oplus W$ with $\widetilde C$ **closed**, $\mathbf s$ an sc⁰-germ into $W^1$ with
 $\mathbf s(0) = 0$, and $S$ any set of solutions in $U_0$ of $w = B(a, w) - \iota\mathbf s(a, w)$. There are open
 $O(0) \supseteq O(1) \supseteq \cdots \ni 0$ in $E_0$ and compact $K_i \subseteq E_i$ with $\mathrm{cl}_{E_0}(S \cap O(i)) = \iota_i(K_i)$;
@@ -2927,7 +2927,7 @@ p. 118 (preprint p. 94), proof pp. 118–123 (preprint pp. 95–98). *Hidden hyp
 *Deviation (stronger):* compact closures; $B$ only sc⁰ with the contraction estimate, $\mathbf s$ only sc⁰
 into $W^1$.
 
-**V3.36 (Corollary 3.5.3 (preprint 3.41); `Polyfold.StabilityData.corollary_3_41`, `Polyfold.StabilityData.exists_isFredholm_Dfs'`,
+**V3.36 (Corollary 3.5.3 (preprint 3.41); `Polyfold.StabilityData.corollary_3_5_3`, `Polyfold.StabilityData.exists_isFredholm_Dfs'`,
 `Polyfold.StabilityData.exists_ker_Dfs'_inf_eq_bot`, `Polyfold.isFredholm_add_of_norm_lt`,
 `Polyfold.HasFiniteIndex.surjective_of_finrank_ker_le`).** For the data of V3.34 with $D(f + \iota s)(0)$
 surjective: there is $r > 0$ such that every zero $x$ of $f + \iota s$ in $U_0$ with $|x|_0 < r$ is $\iota(x_1)$ for some
@@ -2937,12 +2937,12 @@ of the sc⁺-map is absorbed into the basic germ. *Proof:* the Fredholm property
 small on level $1$ (small plus compact perturbation of $D(f + \iota s)(0)$); surjectivity from $\dim\ker \le
 \mathrm{ind}$.
 
-**V3.37 (Lemma 3.5.5 (preprint 3.42); `Polyfold.StabilityData.lemma_3_42`).** For the push-forward $g = \Phi_*(f + \iota s)$ of
+**V3.37 (Lemma 3.5.5 (preprint 3.42); `Polyfold.StabilityData.lemma_3_5_5`).** For the push-forward $g = \Phi_*(f + \iota s)$ of
 V3.34 (on level $0$): for every $\varepsilon > 0$ there is $r > 0$ such that every zero $x'$ of $g$ in $\psi(U_0)$ with
 $|x'|_0 < r$ has its $X$-component $\iota(w_1)$ with $w_1 \in X_1$, $|w_1|_1 < \varepsilon$. *Book:* Lemma 3.5.5 (preprint 3.42), p. 126 (preprint p. 101). *Hidden hypotheses:* none. *Deviation (restated):* the form Theorem 3.5.6 (preprint 3.43) uses; $w' = \delta(a')$ is
 derived there.
 
-**V3.38 (Theorem 3.5.6 (preprint 3.43); `Polyfold.theorem_3_43_sc_smooth`, `Polyfold.theorem_3_43`,
+**V3.38 (Theorem 3.5.6 (preprint 3.43); `Polyfold.theorem_3_5_6_sc_smooth`, `Polyfold.theorem_3_5_6`,
 `Polyfold.ShiftedBasicData`, `Polyfold.ShiftedBasicData.Sol.exists_contDiffOn_level`,
 `Polyfold.exists_proj_mem_of_eq_zero`).** Let $\widetilde C$ be a partial quadrant, $g$ an sc-smooth
 germ on $G$ with $g(0) = 0$ whose index-raised germ is a basic germ, with $Dg(0)$ surjective, $K' = \ker
@@ -2968,13 +2968,13 @@ isomorphism $S : E_0 \to E'_0$ with $x \in C \iff Sx \in C'$ carries a good comp
 $S(P)$ of $S(N)$ (constant $\varepsilon/(\|S\|\|S^{-1}\| + 1)$), and good position to good position. *Book:* Lemma
 3.5.9 (preprint 3.45), p. 128 (preprint p. 104) (for $T\varphi(0)$). *Hidden hypotheses:* none. *Deviation (stronger):* any such $S$.
 
-**V3.41 (Lemma 3.5.10 (preprint 3.46); `Polyfold.lemma_3_46`, `Polyfold.lemma_3_46_isInGoodPosition`).** If $K' = \{(\alpha, L\alpha) \mid
+**V3.41 (Lemma 3.5.10 (preprint 3.46); `Polyfold.lemma_3_5_10`, `Polyfold.lemma_3_5_10_isInGoodPosition`).** If $K' = \{(\alpha, L\alpha) \mid
 \alpha \in \widetilde K\}$ has a good complement with respect to $\widetilde C \oplus W$, then $\widetilde K$ has a good
 complement $Z$ with respect to $\widetilde C$ such that $Z \times W$ is a good complement of $K'$; good position of
 $K'$ gives good position of $\widetilde K$. *Book:* Lemma 3.5.10 (preprint 3.46), p. 129 (preprint p. 104), proof pp. 155–161 (preprint pp. 129–132). *Hidden
 hypotheses:* none. *Deviation:* none (the proof avoids the intermediate complement $Y_0$).
 
-**V3.42 (Theorem 3.5.11 (preprint Corollary 3.47); `Polyfold.theorem_3_47_sc_smooth`, `Polyfold.theorem_3_47`).** For $\widetilde
+**V3.42 (Theorem 3.5.11 (preprint Corollary 3.47); `Polyfold.theorem_3_5_11_sc_smooth`, `Polyfold.theorem_3_5_11`).** For $\widetilde
 C$ a partial quadrant, a basic germ $f$ and the data of V3.34 with $D(f + \iota s)(0)$ surjective and
 kernel $K$ in good position to $\widetilde C \oplus W$: there are a good complement $Y$ of $K$, a
 relatively open $V \ni 0$ in $K \cap (\widetilde C \oplus W)$, and $\sigma$ with values in $Y$ and
@@ -2993,7 +2993,7 @@ germ reading (phase 2) the filling is the germ notion of V3.7; the stricter whol
 (round-trip item V3.43), is kept (Findings, Chapter 3, items 220–221, 330). Formerly "narrower", for
 the whole-chart reading.
 
-**V3.44 (Remark 3.6.2 (preprint 3.49); `Polyfold.IsFillerOf.remark_3_49`).** For a filler there is an open $W \ni 0$ with $f = g$ on
+**V3.44 (Remark 3.6.2 (preprint 3.49); `Polyfold.IsFillerOf.remark_3_6_2`).** For a filler there is an open $W \ni 0$ with $f = g$ on
 $O \cap W$ and, for $y \in U \cap W$, $g(y) = \rho(r(y))g(y)$ only if $y \in O$. *Book:* Remark 3.6.2 (preprint 3.49), p. 135 (preprint p. 109).
 *Hidden hypotheses:* none. *Deviation:* none.
 
@@ -3009,11 +3009,11 @@ as the text does, and the earlier whole-chart forms (`…WholeChart`), which imp
 item V3.45), are kept (Findings, Chapter 3, items 220–221, 330). The forms of V3.13 and V3.16 drop
 the tameness, which §3.1 does not need. Formerly "narrower", for the whole-chart reading.
 
-**V3.46 (Proposition 3.6.5 (preprint 3.52); `Polyfold.proposition_3_52_index`,
-`Polyfold.proposition_3_52_local_index`, `Polyfold.ConjugationData`,
+**V3.46 (Proposition 3.6.5 (preprint 3.52); `Polyfold.proposition_3_6_5_index`,
+`Polyfold.proposition_3_6_5_local_index`, `Polyfold.ConjugationData`,
 `Polyfold.ConjugationData.scDeriv_isFredholm_index`, `Polyfold.ConjugationData.index_eq`,
-`Polyfold.proposition_3_52`, `Polyfold.proposition_3_52_local`, `Polyfold.proposition_3_52_sc`,
-`Polyfold.proposition_3_52_local_sc`, `Polyfold.ConjugationData.scDeriv_isScFredholm`,
+`Polyfold.proposition_3_6_5_preprint`, `Polyfold.proposition_3_6_5_local`, `Polyfold.proposition_3_6_5_sc`,
+`Polyfold.proposition_3_6_5_local_sc`, `Polyfold.ConjugationData.scDeriv_isScFredholm`,
 `Polyfold.StrongBundle.linAt_isScFredholm`).** Let $f$ be a section of a strong bundle with
 $(f, x_0)$ an sc-Fredholm germ and $f(x_0) = 0$. In the strong bundle chart of Definition 3.1.11 (preprint 3.11)
 centred at $x_0$, with the filling germ $g$ (a derivative family $Dg$ on a germ inside $U$) and the
@@ -3038,9 +3038,9 @@ follows the text's argument with two steps it leaves out:
 $D(g - s)(0) = \Gamma(0)^{-1}Dh(0)D\psi(0)$ is sc-Fredholm by the criterion of V1.8, and $T_0O$,
 $K_0$ are sc-subspaces (Definition 2.6.1 (preprint 2.47) at the smooth point $0$, the closed graph theorem); in other
 charts the levels are transported by the chart change at smooth points (Findings, Chapter 3, items
-235, 239). The first version (`Polyfold.proposition_3_52`, kept for its consumers) states the index
+235, 239). The first version (`Polyfold.proposition_3_6_5_preprint`, kept for its consumers) states the index
 as "$n - N$ for some natural numbers $n$, $N$", which carries no information;
-`proposition_3_52_index` identifies $n$ and $N$ with the dimensions of the conjugating basic germ
+`proposition_3_6_5_index` identifies $n$ and $N$ with the dimensions of the conjugating basic germ
 (Findings, Chapter 3, item 120). In every other strong bundle chart around $x_0$ the linearization
 is Fredholm of the same index (V3.96).
 
@@ -3071,8 +3071,8 @@ are `IsGoodPositionGermWholeChart`, `IsGoodPositionGermScWholeChart` (Findings, 
 of $T_0O$", written in $E$, is an sc-splitting of the sc-Banach space $T_0O$ is not formalized (item
 214).
 
-**V3.48 (Theorem 3.6.8 (preprint 3.54), the graph description of the solution set; `Polyfold.theorem_3_54_graph`,
-`Polyfold.theorem_3_54_linear`, `Polyfold.theorem_3_54_pushforward`,
+**V3.48 (Theorem 3.6.8 (preprint 3.54), the graph description of the solution set; `Polyfold.theorem_3_6_8_graph`,
+`Polyfold.theorem_3_6_8_linear`, `Polyfold.theorem_3_6_8_pushforward`,
 `Polyfold.scDeriv_mem_iff_of_inverse`).** Let $f$ be a section of a strong bundle, with $f(x_0) = 0$ and
 $(f, x_0)$ in good position in a tame chart (V3.103). Then there are: a tame strong bundle chart $\varphi$
 centred at $x_0$ (compatible with the atlas, with tame base retraction); an sc-smooth $\psi$ on its $U$ with
@@ -3093,7 +3093,7 @@ without comment).
 *Deviation (narrower):* only the graph description (3) of the proof; conclusions (1) and (2) of the
 theorem are V3.82 and V3.85, the choice of $Y$ with the projection property V3.77.
 
-**V3.49 (Lemma 3.6.9 (preprint 3.55); `Polyfold.lemma_3_55`, `Polyfold.lemma_3_55_core`).** In $E = \mathbb R^n \oplus
+**V3.49 (Lemma 3.6.9 (preprint 3.55); `Polyfold.lemma_3_6_9_preprint`, `Polyfold.lemma_3_6_9_core`).** In $E = \mathbb R^n \oplus
 W$, $C = [0, \infty)^n \oplus W$: let $N$ be finite-dimensional in good position with good complement
 $Y$, **$Y$ closed**, and $\tau : N \to E$ with values in $Y$, $C^1$ on $N \cap C$, $\tau(0) = 0$,
 $D\tau(0) = 0$. There is $\rho > 0$ such that for $v \in N \cap C$ with $|v| < \rho$: $v + \tau(v) \in
@@ -3102,22 +3102,22 @@ quadrant $C_{v + \tau(v)}$ (so $E_0 = N_v \oplus Y$, both closed, with the good-
 independent of $v$). The core holds for any $C$ cut out by coordinate functionals. *Book:* Lemma 3.6.9 (preprint 3.55), p. 139 (preprint p. 114), proof pp. 160–164 (preprint pp. 132–135). *Hidden hypotheses:* $Y$ closed (needed for $D\tau(v)n \in Y$). *Deviation
 (narrower):* the added closedness; $\tau$ given on all of $N \cap C$. The form used in Theorem 3.6.8 (preprint 3.54) —
 for a relatively open $V \subseteq N \cap C$ and any presentation of $C$, with the good position of
-$N_v$ — is `Polyfold.lemma_3_55_relOpen` (V3.80).
+$N_v$ — is `Polyfold.lemma_3_6_9_relOpen` (V3.80).
 
-**V3.50 (Theorem 3.6.10 (preprint 3.56) from the tangent germ property; `Polyfold.theorem_3_56_of_tangentGerm`).** If $X$
+**V3.50 (Theorem 3.6.10 (preprint 3.56) from the tangent germ property; `Polyfold.theorem_3_6_10_of_tangentGerm`).** If $X$
 has no boundary and the nonempty zero set $S$ of $f$ has at every point regular data of Definition 3.2.1 (preprint 3.25)
 (V3.24), then $S$ is a sub-M-polyfold whose induced structure is an $n$-dimensional manifold with
 corners without boundary. *Book:* Theorem 3.6.10 (preprint 3.56), p. 140 (preprint p. 115). *Hidden hypotheses:* the regularity conditions
 of V3.24. *Deviation (narrower):* assumes the tangent germ property of $S$, which the text derives from
 Theorem 3.6.8 (preprint 3.54). The theorem with the text's hypotheses is V3.86.
 
-**V3.51 (Theorem 3.6.11 (preprint 3.57) from the tangent germ property; `Polyfold.theorem_3_57_of_tangentGerm`).** If the
+**V3.51 (Theorem 3.6.11 (preprint 3.57) from the tangent germ property; `Polyfold.theorem_3_6_11_of_tangentGerm`).** If the
 nonempty zero set $S$ of $f$ has at every point regular data of Definition 3.2.1 (preprint 3.25), then $S$ is a
 sub-M-polyfold whose induced structure is tame and an $n$-dimensional manifold with boundary with
 corners. *Book:* Theorem 3.6.11 (preprint 3.57), p. 140 (preprint p. 115). *Hidden hypotheses:* as V3.50. *Deviation (narrower):* as V3.50.
 The theorem with the text's hypotheses is V3.87.
 
-**V3.52 (Lemma 3.7.2 (preprint 3.59), abstract form; `Polyfold.lemma_3_59`, `Polyfold.FamilyCompactness`).** Let $b
+**V3.52 (Lemma 3.7.2 (preprint 3.59), abstract form; `Polyfold.lemma_3_7_2`, `Polyfold.FamilyCompactness`).** Let $b
 \mapsto L(b)$ be a family of sc-operators $X \to Y$, $b$ in a finite-dimensional space, with $(b, h)
 \mapsto L(b)h$ continuous on $O \times X_0$ for a set $O \ni 0$, $L(0)$ injective on $X_0$, and the
 compactness property on level $0$: if $b_j \to b$ in $O$, $(h_j)$ is bounded in $X_0$ and $L(b_j)h_j \to
@@ -3127,14 +3127,14 @@ hypotheses:* none. *Deviation (restated):* for an abstract family; in the proof 
 hypotheses are derived from those of the theorem for $L(b) = P_Y \circ Df(b, 0)|_X$
 (`Polyfold.familyCompactness_derivFamOp`, `Polyfold.continuousOn_derivFamOp`, V3.89).
 
-**V3.53 (Lemma 3.7.3 (preprint 3.60), abstract form; `Polyfold.lemma_3_60`).** For a compact set $K$ of parameters, a
+**V3.53 (Lemma 3.7.3 (preprint 3.60), abstract form; `Polyfold.lemma_3_7_3`).** For a compact set $K$ of parameters, a
 family of sc-operators $L(b)$ with $(b, h) \mapsto L(b)_mh$ continuous on $K \times X_m$, every
 $L(b)_m$, $b \in K$, injective, and the compactness property on level $m$: there is $c_m > 0$ with
 $c_m|h|_m \le |L(b)h|_m$ for all $b \in K$, $h \in X_m$. *Book:* Lemma 3.7.3 (preprint 3.60), p. 142 (preprint p. 118). *Hidden
 hypotheses:* none. *Deviation (restated):* abstract form; the injectivity on level $m$ is a hypothesis,
 which in Theorem 3.7.1 (preprint 3.58) comes from level $0$ (`Polyfold.ScOperator.injective_lvl`, V3.89).
 
-**V3.54 (Lemma 3.7.4 (preprint 3.61); `Polyfold.lemma_3_61`).** Let $V$ be a germ of relatively open neighbourhoods of
+**V3.54 (Lemma 3.7.4 (preprint 3.61); `Polyfold.lemma_3_7_4`).** Let $V$ be a germ of relatively open neighbourhoods of
 $0$ in a partial quadrant $\widetilde C$ of a finite-dimensional $G$, and $L(v) : E \to F$
 sc-isomorphisms such that $(v, h) \mapsto L(v)h$ is an sc-smooth germ on $V \oplus E$ (levels $V_m
 \times E_m$) and for every $m$ there is $c_m > 0$ with $c_m|h|_m \le |L(v)h|_m$ for $v \in V_0$, $h \in
@@ -3143,29 +3143,29 @@ quoted from [25] without proof. *Hidden hypotheses:* none (no operator-norm cont
 L(v)$). *Deviation (restated):* for germs. *Proof:* supplied; the differentiability uses the compactness
 of $F_1 \to F_0$. Used in Theorem 3.7.1 (preprint 3.58) in set form (`Polyfold.famInv_isScSmooth_of`, V3.88).
 
-**V3.55 (Lemma 3.8.8 (preprint 3.65); `Polyfold.lemma_3_65`).** For functionals $\ell_i$ cutting out $C$, a good complement $P$ of
+**V3.55 (Lemma 3.8.8 (preprint 3.65); `Polyfold.lemma_3_8_8`).** For functionals $\ell_i$ cutting out $C$, a good complement $P$ of
 $N$ (constant $\varepsilon$) satisfies $\ell_i(p) = 0$ for $p \in P$ and every $i$ vanishing at some nonzero point of
 $N \cap C$. *Book:* Lemma 3.8.8 (preprint 3.65), p. 150 (preprint p. 123). *Hidden hypotheses:* none. *Deviation:* none.
 
-**V3.56 (Proposition 3.8.12 (preprint 3.69); `Polyfold.proposition_3_69`).** For $N$ finite-dimensional in good position to $C =
+**V3.56 (Proposition 3.8.12 (preprint 3.69); `Polyfold.proposition_3_8_12`).** For $N$ finite-dimensional in good position to $C =
 [0, \infty)^n \oplus W$ in $\mathbb R^n \oplus W$ and $x \in N \cap C$: $d_{N \cap C}(x) = d_C(x)$ if $x \notin N \cap W$, and
 $d_{N \cap C}(x) + \dim(N \cap W) = \dim N$ if $x \in N \cap W$. *Book:* Proposition 3.8.12 (preprint 3.69), p. 153 (preprint p. 126). *Hidden
 hypotheses:* none. *Deviation (restated):* (2) additively.
 
-**V3.57 (Lemma 3.8.13 (preprint 3.70); `Polyfold.lemma_3_70`).** For $N$ in good position to $C = [0, \infty)^n \oplus W$ with good
+**V3.57 (Lemma 3.8.13 (preprint 3.70); `Polyfold.lemma_3_8_13`).** For $N$ in good position to $C = [0, \infty)^n \oplus W$ with good
 complement $Y$ and $\tau : N \to E$ with values in $Y$, $C^1$ on $N \cap C$, $\tau(0) = 0$, $D\tau(0) = 0$: there is
 $\rho > 0$ such that for $v \in N \cap C$, $|v| < \rho$, $v + \tau(v) \in C$, and $d_{N \cap C}(v) = d_C(v + \tau(v))$ if $v
 \notin N \cap W$. *Book:* Lemma 3.8.13 (preprint 3.70), p. 154 (preprint p. 127). *Hidden hypotheses:* none. *Deviation (hypotheses explicit):*
 "close to $0$" made explicit.
 
-**V3.58 (Theorem 3.8.15 (preprint 3.72); `Polyfold.theorem_3_72`).** For $C$ a partial quadrant in a finite-dimensional $V$, $U$ a
+**V3.58 (Theorem 3.8.15 (preprint 3.72); `Polyfold.theorem_3_8_15`).** For $C$ a partial quadrant in a finite-dimensional $V$, $U$ a
 relatively open neighbourhood of $0$ in $C$ and $f$ of class $C^j$, $j \ge 1$, on $U$ with $f(U) \subseteq C$, $f(0) =
 0$, $Df(0)C = C$ and $d_C(x) = d_C(f(x))$ on $U$: there are relatively open $U' \subseteq U$ and $V'$ containing
 $0$ with $f(U') = V'$, $f$ injective on $U'$, and an inverse $g$ of class $C^j$ on $V'$. *Book:* Theorem 3.8.15 (preprint 3.72),
 p. 165 (preprint p. 136) (smooth). *Hidden hypotheses:* none. *Deviation (stronger):* $C^j$; the degeneracy hypothesis used
 only as "interior iff interior".
 
-**V3.59 (Proposition 3.8.17 (preprint 3.73); `Polyfold.proposition_3_73`, `Polyfold.InvData`).** For $U$ relatively open
+**V3.59 (Proposition 3.8.17 (preprint 3.73); `Polyfold.proposition_3_8_17`, `Polyfold.InvData`).** For $U$ relatively open
 and convex in $C$, $f : U \to C$ of class $C^j$, $j \ge 1$, $\|Df - 1\| \le \tfrac12$ on $U$, and $x$
 interior iff $f(x)$ interior: $f(U)$ is relatively open in $C$, $f$ is injective on $U$, with an inverse
 of class $C^j$ on $f(U)$. *Book:* Proposition 3.8.17 (preprint 3.73), p. 165 (preprint p. 137). *Hidden hypotheses:* none. *Deviation
@@ -3179,7 +3179,7 @@ relatively open in $C$. *Book:* Lemma 3.8.18 (preprint 3.74), p. 165 (preprint p
 with $f(x_0) \in B(y', r)$. *Deviation:* none in the statement (openness of $f$ on subsets not stated
 separately).
 
-**V3.61 (Corollary 3.8.19 (preprint 3.75); `Polyfold.corollary_3_75`).** Under the hypotheses of V3.59, $f : U \to f(U)$ is a
+**V3.61 (Corollary 3.8.19 (preprint 3.75); `Polyfold.corollary_3_8_19`).** Under the hypotheses of V3.59, $f : U \to f(U)$ is a
 homeomorphism. *Book:* Corollary 3.8.19 (preprint 3.75), p. 167 (preprint p. 139). *Hidden hypotheses:* none. *Deviation:* none.
 
 **V3.62 (Lemma 3.8.21 (preprint 3.77); `Polyfold.InvData.hasFDerivWithinAt_inv`).** Under the hypotheses of V3.59 the
@@ -3188,7 +3188,7 @@ any homeomorphism $f : U \to V$ with $V$ relatively open and $Df$ invertible). *
 none. *Deviation (narrower):* under the hypotheses of Proposition 3.8.17 (preprint 3.73), which imply the lemma's. With
 the hypotheses its proof uses, without the partial quadrant: V3.90.
 
-**V3.63 (Theorem 3.8.22 (preprint 3.78); `Polyfold.theorem_3_78`, `Polyfold.ContractionData.exists_solution`).** For a partial
+**V3.63 (Theorem 3.8.22 (preprint 3.78); `Polyfold.theorem_3_8_22`, `Polyfold.ContractionData.exists_solution`).** For a partial
 quadrant $C$ in a finite-dimensional $V$, $U$ a relatively open neighbourhood of $0$ in $C$, $f : U \to F$ of
 class $C^j$, $j \ge 1$, $f(0) = 0$, $Df(0)$ onto, $K = \ker Df(0)$ in good position with good complement $Y$:
 there are a relatively open $V' \ni 0$ in $K \cap C$, $\tau : K \to Y$ of class $C^j$ on $V'$, $\varepsilon, \sigma > 0$
@@ -3224,8 +3224,8 @@ with $D\tau(k) = (1 - D_2B(k, \tau(k)))^{-1}D_1B(k, \tau(k))$ and of class $C^j$
 ("on a possibly smaller neighbourhood"). *Hidden hypotheses:* none. *Deviation (stronger):* no shrinking.
 
 **V3.68 (Theorem 3.1.22 (preprint 3.19), the implicit function theorem, interior case, first form;
-`Polyfold.theorem_3_19`, `Polyfold.theorem_3_19_linearization`,
-`Polyfold.MPolyfold.IsWithoutBoundary`, `Polyfold.theorem_3_19_linearization_sc`,
+`Polyfold.theorem_3_1_22`, `Polyfold.theorem_3_1_22_linearization`,
+`Polyfold.MPolyfold.IsWithoutBoundary`, `Polyfold.theorem_3_1_22_linearization_sc`,
 `Polyfold.StrongBundle.linAt_isScFredholm`).** Let $X$ be an
 M-polyfold with $d_X \equiv 0$, $f$ an sc-Fredholm section (V3.16) of a strong bundle $P : Y \to X$
 with tame germ data (V3.103), $f(x_0) = 0$, and let $(f, x_0)$ be in good position in a tame chart
@@ -3238,7 +3238,7 @@ corners and has degeneracy index $0$ at every point. The first clause: for an sc
 and a zero $x_0$ in good position, in the chart of Definition 3.1.11 (preprint 3.11) centred at $x_0$, $Dg(0)$ and
 $f'(x_0) = Tf(x_0) = Dg(0)|_{T_0O} : T_0O \to K_0$ are sc-Fredholm operators with the same index
 $n - N$ on every level, and $Tf(x_0)$ is onto on every level
-(`Polyfold.theorem_3_19_linearization_sc`; Proposition 3.6.5 (preprint 3.52) in sc form, V3.46); with no chart singled
+(`Polyfold.theorem_3_1_22_linearization_sc`; Proposition 3.6.5 (preprint 3.52) in sc form, V3.46); with no chart singled
 out, in every strong bundle chart around $x_0$ the linearization $\mathrm{Lin}(z) : T_zO \to K_z$ is
 an sc-Fredholm operator with the same index on every level (`Polyfold.StrongBundle.linAt_isScFredholm`,
 V3.96). *Book:* Theorem 3.1.22 (preprint 3.19), p. 100 (preprint p. 74)
@@ -3250,15 +3250,15 @@ under which this item was first proved, cannot be met, V3.104). *Deviation (narr
 filler condition at the nearby zeros, through Theorem 3.6.8 (1) (preprint 3.54) (V3.82), which was an added
 hypothesis when this form was proved and is now a theorem: it holds whenever $(f, x_0)$ is in good
 position in a tame chart (V3.102), so this form has the text's hypotheses after all, and
-`Polyfold.theorem_3_19'` states it without the condition (V3.95); (ii) the hypothesis "$f'(x_0)$
+`Polyfold.theorem_3_1_22'` states it without the condition (V3.95); (ii) the hypothesis "$f'(x_0)$
 surjective" is read as good position (Definition 3.6.6 (preprint 3.53) in the chart form), which at $d_X = 0$ is the
 same (V3.100; the form with "$f'(x_0)$ surjective" is V3.101); (iii) $d$ is existentially quantified
 here; "the dimension agrees with the Fredholm index" is V3.97; (iv) "$\ker f'(y) = T_yS$" in the
 chart is V3.99; (v) $f'(x_0)$ in charts (V3.46); its sc-Fredholm property, first proved only on
 level $0$, holds on every level. *Proof:* Theorem 3.1.26 (preprint 3.23) (V3.69) and Lemma 2.4.6 (preprint 2.26) ($d_S \le d_X = 0$).
 
-**V3.69 (Theorem 3.1.26 (preprint 3.23), the implicit function theorem, boundary case; `Polyfold.theorem_3_23_of_nearby`,
-`Polyfold.theorem_3_23`, `Polyfold.MPolyfold.subPolyfold`,
+**V3.69 (Theorem 3.1.26 (preprint 3.23), the implicit function theorem, boundary case; `Polyfold.theorem_3_1_26_of_nearby`,
+`Polyfold.theorem_3_1_26`, `Polyfold.MPolyfold.subPolyfold`,
 `Polyfold.MPolyfold.IsManifoldWithCorners`).** Let $f$ be an sc-Fredholm section of a strong bundle,
 $f(x) = 0$, $(f, x)$ in good position in a tame chart (V3.47, V3.103), and let every zero in an open
 $V_{x_0} \ni x$ be in good position in a tame chart. Then there are an open $U$ with $x \in U \subseteq
@@ -3267,7 +3267,7 @@ V_{x_0}$ and $d \in \mathbb N$ such that every zero in $U$ is a smooth point and
 equivalent to that of a $d$-dimensional manifold with boundary with corners (an equivalent atlas of
 charts on relatively open subsets of $d$-dimensional partial quadrants). For $f$ with tame germ data
 (V3.103) and the filler condition of V3.82 at $x$ in place of the nearby good position
-(`Polyfold.theorem_3_23`): the same, and every zero in $U$ is in good position in a tame chart. *Book:* Theorem 3.1.26 (preprint 3.23), p. 103 (preprint p. 77) ($f'(x)$ surjective with kernel in good position;
+(`Polyfold.theorem_3_1_26`): the same, and every zero in $U$ is in good position in a tame chart. *Book:* Theorem 3.1.26 (preprint 3.23), p. 103 (preprint p. 77) ($f'(x)$ surjective with kernel in good position;
 $S(f, U)$ consists of smooth points and is a tame sub-M-polyfold with a uniquely determined structure of
 a manifold with boundary with corners, the induced one). *Hidden hypotheses:* tameness as in V3.68.
 *Deviation (narrower):* the good position of the nearby zeros (Theorem 3.6.8 (1) (preprint 3.54)) is a hypothesis of the
@@ -3278,14 +3278,14 @@ separately. *Proof:* regular data of Definition
 3.2.1 (preprint 3.25) at every point of $S(f, U)$, of the same dimension by the local constancy (V3.85, V3.74), then
 Theorem 3.2.3 (preprint 3.27) (V3.24).
 
-**V3.70 (Corollary 3.1.27 (preprint 3.24); `Polyfold.corollary_3_24`, `Polyfold.corollary_3_24_sc`,
+**V3.70 (Corollary 3.1.27 (preprint 3.24); `Polyfold.corollary_3_1_27`, `Polyfold.corollary_3_1_27_sc`,
 `Polyfold.forall_isGoodPositionGermSc_iff`).** Let $f$ be an sc-Fredholm section of a strong bundle
 such that $(f, x)$ is in good position in a tame chart (V3.103) at every zero $x$, and let
 $S = \{x \in X \mid f(x) = 0\}$ be nonempty. Then $S$ is a sub-M-polyfold of $X$ whose induced
 structure is tame and equivalent to that of a manifold with boundary with corners of locally
 constant dimension (V3.72). The same with good position in the text's sense (sc-complement, V3.47)
 at every zero, which for an sc-Fredholm section with tame germ data is the same hypothesis
-(`corollary_3_24_sc`). *Book:* Corollary 3.1.27 (preprint 3.24), p. 104 (preprint p. 78). *Hidden hypotheses:* tameness as in V3.68;
+(`corollary_3_1_27_sc`). *Book:* Corollary 3.1.27 (preprint 3.24), p. 104 (preprint p. 78). *Hidden hypotheses:* tameness as in V3.68;
 $S \ne \emptyset$ (for $S = \emptyset$ the formal charts have no values; the statement is then
 empty). *Deviation (hypotheses explicit):* **no hypothesis added**; the text names no dimension, the
 formal one is locally constant. It is Theorem 3.6.11 (preprint 3.57) (V3.87) without its last clause.
@@ -3310,11 +3310,11 @@ hypotheses:* condition (2) of Definition 2.5.2 (preprint 2.34) is transported at
 sc-isomorphism, with $D\psi(x)E_x \subseteq E'_{\psi(x)}$ (the one-sided sign argument). *Deviation (not
 in the book).*
 
-**V3.72 (Theorem 3.2.3 (preprint 3.27) with locally constant dimension; `Polyfold.theorem_3_27_loc`,
-`Polyfold.MPolyfold.IsManifoldWithCornersLoc`, `Polyfold.MPolyfold.theorem_3_27_loc_isSubMPolyfold`,
-`Polyfold.MPolyfold.theorem_3_27_loc_isTame`,
-`Polyfold.MPolyfold.theorem_3_27_loc_isManifoldWithCornersLoc`,
-`Polyfold.MPolyfold.theorem_3_27_loc_atlas_equiv`).** Let $M \ne \emptyset$ be a subset of an M-polyfold
+**V3.72 (Theorem 3.2.3 (preprint 3.27) with locally constant dimension; `Polyfold.theorem_3_2_3_loc_of_isRegular`,
+`Polyfold.MPolyfold.IsManifoldWithCornersLoc`, `Polyfold.MPolyfold.theorem_3_2_3_loc_isSubMPolyfold`,
+`Polyfold.MPolyfold.theorem_3_2_3_loc_isTame`,
+`Polyfold.MPolyfold.theorem_3_2_3_loc_isManifoldWithCornersLoc`,
+`Polyfold.MPolyfold.theorem_3_2_3_loc_atlas_equiv`).** Let $M \ne \emptyset$ be a subset of an M-polyfold
 $X$ such that every point of $M$ has regular data of Definition 3.2.1 (preprint 3.25) (V3.22, conditions (a), (b) of
 V3.24) of some dimension, which may depend on the point. Then $M$ is a sub-M-polyfold of $X$, its
 induced structure is tame, and the charts $y \mapsto \pi\varphi(y)$ of all these data form an atlas
@@ -3387,7 +3387,7 @@ vanishes at a nonzero point of $N \cap C$ and $N \cap C \ne N$, one coordinate i
 choice $S = \Sigma$ fails there: for $C = [0, \infty)^2$, $N = \mathbb R(1, 1)$, the projection along
 the good complement $\mathbb R(1, 2)$ maps $(0, 1)$ to $-(1, 1)$).
 
-**V3.76 (Corollary 3.4.3 (preprint 3.39); `Polyfold.corollary_3_39`, `Polyfold.corollary_3_39_isConjugate`,
+**V3.76 (Corollary 3.4.3 (preprint 3.39); `Polyfold.corollary_3_4_3`, `Polyfold.corollary_3_4_3_isConjugate`,
 `Polyfold.ConjugationData.compIso_eq_strongShift`, `Polyfold.IsStrongBundleIso.shift`,
 `Polyfold.IsStrongBundleIso.comp`, `Polyfold.IsStrongBundleIso.pushforward_comp`,
 `Polyfold.StabilityData.linIso_isStrongBundleIso`, `Polyfold.ScOperator.isStrongBundleIso_prodMap`).**
@@ -3411,8 +3411,8 @@ shifted structures; the text's "strong bundle map $\Psi$" is an isomorphism; the
 of $t$ is absorbed into $h$; the text's $\tau : Z \to C$ is not applied.
 
 **V3.77 (Theorems 3.5.6, 3.5.11 and 3.6.8 (3) (preprint 3.43, 3.47 and 3.54) with a closed good complement whose projection maps the
-quadrant into itself; `Polyfold.theorem_3_43_closed`, `Polyfold.theorem_3_43_proj`,
-`Polyfold.theorem_3_47_proj`, `Polyfold.theorem_3_47_closed`, `Polyfold.theorem_3_54_graph_proj`,
+quadrant into itself; `Polyfold.theorem_3_5_6_closed`, `Polyfold.theorem_3_5_6_proj`,
+`Polyfold.theorem_3_5_11_proj`, `Polyfold.theorem_3_5_11_closed`, `Polyfold.theorem_3_6_8_graph_proj`,
 `Polyfold.IsGoodComplement.prod_top_graph`, `Polyfold.ShiftedBasicData.exists_sol_of_goodComplement`).**
 The conclusions of V3.38, V3.42 and V3.48 hold with a good complement $Y$ that is closed and satisfies
 `ProjectsInto` (V3.75) for the partial quadrant ($\widetilde C \oplus W$, resp. $C' = \widetilde C
@@ -3475,7 +3475,7 @@ are `Polyfold.StrongBundle.isGoodPositionGerm_of_chart_dense`,
 Chapter 3, items 285, 301, 313).
 
 **V3.80 (property (4) of the proof of Theorem 3.6.8 (preprint 3.54) in the chart at $x_0$: Corollary 3.5.3 (preprint 3.41) and Lemma 3.6.9 (preprint 3.55)
-on the graph; `Polyfold.theorem_3_54_nearby`, `Polyfold.lemma_3_55_relOpen`,
+on the graph; `Polyfold.theorem_3_6_8_nearby`, `Polyfold.lemma_3_6_9_relOpen`,
 `Polyfold.StabilityData.exists_surjective_Dfs'_graph`).** In the data of V3.48, for a section $f$ of a
 strong bundle with $f(x_0) = 0$ and $(f, x_0)$ in good position in a tame chart (V3.103), there are a
 presentation $T$ of $C' = \widetilde C \oplus W$ and an open $V_{x,1} \ni x_0$ such that for every
@@ -3492,8 +3492,8 @@ $Y$ closed (V3.49); that $N_v \cap C_z$ has interior in $N_v$, which Lemma 3.6.9
 *Deviation (narrower):* in the chart at $x_0$, for the tangent space $N_v$ of the graph; its
 identification with the kernel at $y$ is V3.81.
 
-**V3.81 (Theorem 3.6.8 (1) (preprint 3.54) at the nearby zeros, the kernel; `Polyfold.theorem_3_54_nearby_kernel`,
-`Polyfold.theorem_3_54_chart_kernel`, `Polyfold.StabilityData.graphSpace_eq_ker_Dfs'`,
+**V3.81 (Theorem 3.6.8 (1) (preprint 3.54) at the nearby zeros, the kernel; `Polyfold.theorem_3_6_8_nearby_kernel`,
+`Polyfold.theorem_3_6_8_chart_kernel`, `Polyfold.StabilityData.graphSpace_eq_ker_Dfs'`,
 `Polyfold.IsStrongBundleIso.ker_scDeriv_eq_map`, `Polyfold.scDeriv_mem_partialQuadrantAtWith_iff`,
 `Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le`, `Polyfold.IsStrongBundleIso.ker_deriv_eq_map_germ`).**
 Let $f$ be a section of a strong bundle,
@@ -3514,7 +3514,7 @@ $x_0$; **no added hypothesis**; the surjectivity of $f'(y)$ is not part of it (V
 germ reading $z_{0,1}$ lies in the germ of the filling because the basic germ is taken on the points
 that $\psi'$ maps into the germs of $g$ and $s$ (Findings, Chapter 3, items 276–278, 295).
 
-**V3.82 (Theorem 3.6.8 (1) (preprint 3.54) under the filler condition at the nearby zeros; `Polyfold.theorem_3_54_one`,
+**V3.82 (Theorem 3.6.8 (1) (preprint 3.54) under the filler condition at the nearby zeros; `Polyfold.theorem_3_6_8_one`,
 `Polyfold.StrongBundle.IsGoodPositionGermFilled`,
 `Polyfold.exists_range_deriv_eq_ρ_of_normal_injective_germ`).** `IsGoodPositionGermFilled` at $x_0$: $x_0$
 is smooth and there are the data of Definition 3.6.6 (preprint 3.53) at $x_0$ in a tame chart (V3.47, V3.103: a centred
@@ -3557,7 +3557,7 @@ surjectivity is proved by another argument, with one perturbation direction at a
 function theorem at the nearby zero (V3.93).
 
 **V3.84 (Theorem 3.6.8 (2) (preprint 3.54) at the centre: the data of Definition 3.2.1 (preprint 3.25) for the solution set at $x_0$;
-`Polyfold.theorem_3_54_tangentGermChart_proj`, `Polyfold.theorem_3_54_tangentGermChart`,
+`Polyfold.theorem_3_6_8_tangentGermChart_proj`, `Polyfold.theorem_3_6_8_tangentGermChart`,
 `Polyfold.MChart.compDiffeo`, `Polyfold.MChart.compDiffeo_isChart`, `Polyfold.isScInftyGermAt_of_lifts`,
 `Polyfold.StabilityData.ker_Dfs_le_smooth`,
 `Polyfold.MPolyfold.TangentGermChart.π_mem_of_projectsInto`).** Let $f$ be a section of a strong bundle,
@@ -3575,8 +3575,8 @@ kernel is a smooth subspace (the text takes it so without comment); $\psi(O)$ is
 *Deviation (narrower):* at $x_0$ only (the other points: V3.85); $d$ is existentially quantified here
 (the proof takes $d = \dim\ker D(h + t)(0)$); that $d$ is the Fredholm index of $f'(x_0)$ is V3.97.
 
-**V3.85 (Theorem 3.6.8 (2) (preprint 3.54), and Theorem 3.6.8 (preprint 3.54); `Polyfold.theorem_3_54_two`, `Polyfold.theorem_3_54`,
-`Polyfold.theorem_3_54_tangentGermChart_solutionSet`).** Let $f$ be a section of a strong bundle,
+**V3.85 (Theorem 3.6.8 (2) (preprint 3.54), and Theorem 3.6.8 (preprint 3.54); `Polyfold.theorem_3_6_8_two`, `Polyfold.theorem_3_6_8`,
+`Polyfold.theorem_3_6_8_tangentGermChart_solutionSet`).** Let $f$ be a section of a strong bundle,
 $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart (V3.103). (i) The solution set $S =
 \{f = 0\}$ has at $x_0$ data of Definition 3.2.1 (preprint 3.25) with $\pi(O) \subseteq C$. (ii) If moreover every zero
 in an open $V_{x_0} \ni x_0$ is in good position in a tame chart, there are $d \in \mathbb N$ and regular
@@ -3591,22 +3591,22 @@ V3.94; with the dimension as the index and its local constancy: V3.97, V3.98. "$
 corners" follows from (ii) by Theorem 3.2.3 (preprint 3.27) (V3.69). The regularity conditions (a), (b) of Theorem 3.2.3 (preprint 3.27),
 hypotheses for general sets (V3.24), are theorems for the solution set (V3.74, V3.77).
 
-**V3.86 (Theorem 3.6.10 (preprint 3.56); `Polyfold.theorem_3_56`, `Polyfold.theorem_3_56_sc`).** Let $X$ be an
+**V3.86 (Theorem 3.6.10 (preprint 3.56); `Polyfold.theorem_3_6_10`, `Polyfold.theorem_3_6_10_sc`).** Let $X$ be an
 M-polyfold with $d_X \equiv 0$, $f$ an sc-Fredholm section of a strong bundle, with $(f, x)$ in good
 position in a tame chart (V3.103) at every zero $x$, and $S = \{f = 0\}$ nonempty. Then $S$ is a
 sub-M-polyfold of $X$ whose induced structure is equivalent to that of a manifold with boundary with
 corners of locally constant dimension and has degeneracy index $0$ at every point (a manifold
 without boundary). The same with good position in the text's sense (sc-complement, V3.47) at every
 zero, which for an sc-Fredholm section with tame germ data is the same hypothesis
-(`theorem_3_56_sc`). *Book:* Theorem 3.6.10 (preprint 3.56), p. 140 (preprint p. 115) ($f'(x)$ surjective at every zero). *Hidden
+(`theorem_3_6_10_sc`). *Book:* Theorem 3.6.10 (preprint 3.56), p. 140 (preprint p. 115) ($f'(x)$ surjective at every zero). *Hidden
 hypotheses:* as V3.70. *Deviation (restated):* the hypothesis "$f'(x)$ surjective" is read as good
 position, which by the text's Definition 3.6.6 (preprint 3.53) is surjectivity at points with $d_X(x) = 0$; in the
 chart form the kernel condition is stated for the chart's partial quadrant, and that it is void when
 $d_X(x) = 0$ is V3.100; the form with "$f'(x)$ surjective" is V3.101. No other hypothesis is added.
 The tameness of the induced structure is in V3.87 and V3.101.
 
-**V3.87 (Theorem 3.6.11 (preprint 3.57); `Polyfold.theorem_3_57`, `Polyfold.theorem_3_57_dim`,
-`Polyfold.solutionSetDim`, `Polyfold.theorem_3_57_sc`).** Let $f$ be an sc-Fredholm section of a
+**V3.87 (Theorem 3.6.11 (preprint 3.57); `Polyfold.theorem_3_6_11`, `Polyfold.theorem_3_6_11_dim`,
+`Polyfold.solutionSetDim`, `Polyfold.theorem_3_6_11_sc`).** Let $f$ be an sc-Fredholm section of a
 strong bundle, with $(f, x)$ in good position in a tame chart (V3.103) at every zero $x$. If
 $S = \{f = 0\}$ is nonempty, $S$ is a sub-M-polyfold of $X$, its induced structure is tame and
 equivalent to that of a manifold with boundary with corners of locally constant dimension, and at
@@ -3616,14 +3616,14 @@ union of the sets $S_n$ of points at which $S$ has data of dimension $n$, each $
 closed in $S$, and each nonempty $S_n$ is a sub-M-polyfold whose induced structure is tame and
 equivalent to that of an $n$-dimensional manifold with boundary with corners. The same with good
 position in the text's sense (sc-complement, V3.47) at every zero, which for an sc-Fredholm section
-with tame germ data is the same hypothesis (`theorem_3_57_sc`). *Book:* Theorem 3.6.11 (preprint 3.57), p. 140 (preprint p. 115).
+with tame germ data is the same hypothesis (`theorem_3_6_11_sc`). *Book:* Theorem 3.6.11 (preprint 3.57), p. 140 (preprint p. 115).
 *Hidden hypotheses:* as V3.70. *Deviation (stronger):* **the text's hypotheses**; the local
 constancy of the dimension and the parts $S_n$ are not in the text. Two steps of the text's proof
 are replaced: the regularity of the solution germ away from the centre (V3.73, V3.74) and the
 relative openness of $\Sigma$ (V3.75, V3.77). The dimension $d(x)$ is the Fredholm index of $f'(y)$
 at the zeros near $x$ (V3.97).
 
-**V3.88 (Theorem 3.7.1 (preprint 3.58), given the family of sc-isomorphisms; `Polyfold.theorem_3_58_of_family`,
+**V3.88 (Theorem 3.7.1 (preprint 3.58), given the family of sc-isomorphisms; `Polyfold.theorem_3_7_1_of_family`,
 `Polyfold.DerivCondition`, `Polyfold.contrMap358_contraction`,
 `Polyfold.norm_sub_sub_le_of_hasFDerivWithinAt_segment`, `Polyfold.fiberIsoMap_isStrongBundleIso`,
 `Polyfold.famInv_isScSmooth_of`).** In the coordinates of the text's proof — $E = \mathbb R^n \oplus X$
@@ -3644,7 +3644,7 @@ the derivative bound in the weaker norm of $X_m$ (the text's integral; Findings,
 *Deviation (restated):* in the coordinates of the proof; the sc-smoothness of $(b, y) \mapsto
 L(b)^{-1}y$ is Lemma 3.7.4 (preprint 3.61) (V3.54) in set form.
 
-**V3.89 (Theorem 3.7.1 (preprint 3.58), the basic germ criterion; `Polyfold.theorem_3_58`,
+**V3.89 (Theorem 3.7.1 (preprint 3.58), the basic germ criterion; `Polyfold.theorem_3_7_1`,
 `Polyfold.CompactnessCondition`, `Polyfold.familyCompactness_derivFamOp`,
 `Polyfold.fredholmIndex_block`, `Polyfold.surjective_of_fredholmIndex_block`, `Polyfold.derivFamOp`).**
 In the coordinates of V3.88, let $U$ be relatively open in $\widetilde C \oplus X$ with $0 \in U$ and $f
@@ -3677,7 +3677,7 @@ hypothesis "$x$ interior iff $f(x)$ interior" of V3.59 is replaced by the unique
 $f(U)$, which is what the bootstrapping uses; the relative openness of $f(U)$ is not concluded. Used in
 the re-centring (V3.73), where $f(U)$ is relatively open in a cone for another reason.
 
-**V3.91 (Theorem 3.1.21 (preprint 3.18), parametrized perturbations; `Polyfold.theorem_3_18`, `Polyfold.theorem_3_18'`,
+**V3.91 (Theorem 3.1.21 (preprint 3.18), parametrized perturbations; `Polyfold.theorem_3_1_21_preprint`, `Polyfold.theorem_3_1_21'`,
 `Polyfold.paramSection`, `Polyfold.paramSection_eq_sectionAdd`, `Polyfold.StrongBundle.pullback`,
 `Polyfold.StrongBundle.IsScFredholmSection.param`, `Polyfold.StrongBundle.isScPlusSection_paramComb`,
 `Polyfold.IsBasicGerm.paramExtend`, `Polyfold.IsConjugateToBasicGerm.paramExtend`, `Polyfold.rnPolyfold`,
@@ -3689,8 +3689,8 @@ sc-structure and the charts $r \mapsto r - r_0$, $\mathbb R^n \times X$ the prod
 of Proposition 2.6.8 (preprint 2.54) (the atlas of all charts pulled back from charts of $P$ through charts of $\mathbb R^n
 \times X$). Then $F(r, x) = f(x) + \sum_i r_is_i(x)$, computed in the fibre $P^{-1}(x)$ and read in the
 fibre of $\pi^*Y$ over $(r, x)$, is an sc-Fredholm section of $\pi^*P$. The paracompactness of $\mathbb R^n
-\times X$ and of $\pi^*Y$, instance arguments of `theorem_3_18`, is supplied by Theorem 2.3.10 (preprint 2.16) in
-`theorem_3_18'`. On the way: $\tilde f(r, x) = f(x)$ is an sc-Fredholm section of $\pi^*P$ — in the product
+\times X$ and of $\pi^*Y$, instance arguments of `theorem_3_1_21_preprint`, is supplied by Theorem 2.3.10 (preprint 2.16) in
+`theorem_3_1_21'`. On the way: $\tilde f(r, x) = f(x)$ is an sc-Fredholm section of $\pi^*P$ — in the product
 chart $(r \mapsto r - r_0) \times \varphi$, centred at $(r_0, x)$, the filling germ is $(a, u) \mapsto
 g(u)$ on $\mathbb R^n \times G$ (filler conditions (1)–(3) from those of $g$), the sc⁺-germ
 $(a, u) \mapsto t_0(u)$, and the
@@ -3719,7 +3719,7 @@ $(r_0, x)$ with $r_0 \ne 0$ the first term is the linearization of $f + \sum r_{
 "sc¹-sections $s_i$" are sc⁺ here, as Theorem 3.1.21 (preprint 3.18) needs.
 
 **V3.93 (Theorem 3.6.8 (1) (preprint 3.54), the surjectivity at the nearby zeros, in the chart at $x_0$;
-`Polyfold.theorem_3_54_chart_onto`, `Polyfold.StrongRetr.mem_O_of_perturbed_zero`,
+`Polyfold.theorem_3_6_8_chart_onto`, `Polyfold.StrongRetr.mem_O_of_perturbed_zero`,
 `Polyfold.exists_inward_of_isInGoodPosition`, `Polyfold.inward_add_smul`, `Polyfold.exists_curve_of_inward`,
 `Polyfold.ShiftedBasicData.exists_radii`, `Polyfold.ShiftedBasicData.perturbContraction`,
 `Polyfold.ShiftedBasicData.perturbContraction_isSc1GermWith`, `Polyfold.xiMap`,
@@ -3757,12 +3757,12 @@ not by $k$; Corollary 3.4.3 (preprint 3.39) is not used. In the germ reading the
 filling, so $g$ is differentiated within its germ (Findings, Chapter 3, items 276–278, 298).
 
 **V3.94 (Theorem 3.6.8 (1) (preprint 3.54), and Theorem 3.6.8 (preprint 3.54), with the text's hypotheses;
-`Polyfold.theorem_3_54_one'`, `Polyfold.theorem_3_54'`, `Polyfold.theorem_3_54_one_sc_of_tame`,
-`Polyfold.theorem_3_54_one_sc`, `Polyfold.theorem_3_54_sc`).** Let $f$ be an sc-Fredholm section of
+`Polyfold.theorem_3_6_8_one'`, `Polyfold.theorem_3_6_8'`, `Polyfold.theorem_3_6_8_one_sc_of_tame`,
+`Polyfold.theorem_3_6_8_one_sc`, `Polyfold.theorem_3_6_8_sc`).** Let $f$ be an sc-Fredholm section of
 a strong bundle with tame germ data (V3.103), $f(x_0) = 0$, and $(f, x_0)$ in good position in a
 tame chart (V3.47, V3.103). Then there is an open $V_x \ni x_0$ such that $(f, y)$ is in good
 position in a tame chart at every zero $y \in V_x$; in particular $f'(y)$ is onto
-(`theorem_3_54_one'`). Moreover (`theorem_3_54'`) there are $d \in \mathbb N$ and regular data of
+(`theorem_3_6_8_one'`). Moreover (`theorem_3_6_8'`) there are $d \in \mathbb N$ and regular data of
 Definition 3.2.1 (preprint 3.25) (V3.24) of dimension $d$ for $S = \{f = 0\}$ at $x_0$ whose chart domain lies in
 $V_x$, and every datum of Definition 3.2.1 (preprint 3.25) for $S$ at a point of $S$ in that domain has dimension
 $d$. With the text's notion of good position (sc-complement, V3.47) in the conclusion, from either
@@ -3775,15 +3775,15 @@ data at $y$ (V3.107); for $\dim K = 0$ the only zero near $x_0$ is $x_0$. The pr
 position asks only for an algebraic good complement (V3.20), less than the text's as a conclusion;
 the sc form follows at each zero (Findings, Chapter 3, items 210, 213).
 
-**V3.95 (Theorems 3.1.26 and 3.1.22 (preprint 3.23 and 3.19) with the text's hypotheses; `Polyfold.theorem_3_23'`,
-`Polyfold.theorem_3_19'`, `Polyfold.theorem_3_23_sc`).** Let $f$ be an sc-Fredholm section of a
+**V3.95 (Theorems 3.1.26 and 3.1.22 (preprint 3.23 and 3.19) with the text's hypotheses; `Polyfold.theorem_3_1_26'`,
+`Polyfold.theorem_3_1_22'`, `Polyfold.theorem_3_1_26_sc`).** Let $f$ be an sc-Fredholm section of a
 strong bundle with tame germ data (V3.103), $f(x) = 0$ and $(f, x)$ in good position in a tame
 chart. Then there are an open $U \ni x$ and $d \in \mathbb N$ such that every zero in $U$ is in good
 position in a tame chart and a smooth point, and $S(f, U) = \{y \in U \mid f(y) = 0\}$ is a
 sub-M-polyfold whose induced structure is tame and equivalent to that of a $d$-dimensional manifold
-with boundary with corners (`theorem_3_23'`). If moreover $d_X \equiv 0$, the induced structure also
-has degeneracy index $0$ everywhere (`theorem_3_19'`). Theorem 3.1.26 (preprint 3.23) with the text's notion of good
-position (sc-complement, V3.47) at $x$ and at every zero in $U$: `theorem_3_23_sc`. *Book:* Theorem
+with boundary with corners (`theorem_3_1_26'`). If moreover $d_X \equiv 0$, the induced structure also
+has degeneracy index $0$ everywhere (`theorem_3_1_22'`). Theorem 3.1.26 (preprint 3.23) with the text's notion of good
+position (sc-complement, V3.47) at $x$ and at every zero in $U$: `theorem_3_1_26_sc`. *Book:* Theorem
 3.1.26 (preprint 3.23), p. 103 (preprint p. 77); Theorem 3.1.22 (preprint 3.19), p. 100 (preprint p. 74). *Hidden hypotheses:* tameness as in V3.68. *Deviation (hypotheses
 explicit):* no hypothesis added. For Theorem 3.1.22 (preprint 3.19) the hypothesis "$f'(x_0)$ surjective" is read as
 good position, the same at $d_X = 0$ (V3.100, V3.101); "the dimension agrees with the Fredholm
@@ -3793,9 +3793,9 @@ index" is V3.97, "$\ker f'(y) = T_yS$" V3.99; "uniquely determined" is the equiv
 `Polyfold.StrongBundle.IsSurjLinOfIndex`, `Polyfold.StrongBundle.linAt_index_of_conjugationData`,
 `Polyfold.StrongBundle.isSurjLinOfIndex_of_conjugationData`,
 `Polyfold.StrongBundle.IsGoodPositionGerm.exists_isSurjLinOfIndex`,
-`Polyfold.theorem_3_19_linearization_index`, `Polyfold.StrongBundle.linAt_isScFredholm`,
+`Polyfold.theorem_3_1_22_linearization_index`, `Polyfold.StrongBundle.linAt_isScFredholm`,
 `Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex`,
-`Polyfold.proposition_3_52_sc`, `Polyfold.theorem_3_19_linearization_sc`).** `IsSurjLinOfIndex f y d`: in every strong bundle chart
+`Polyfold.proposition_3_6_5_sc`, `Polyfold.theorem_3_1_22_linearization_sc`).** `IsSurjLinOfIndex f y d`: in every strong bundle chart
 compatible with the atlas whose domain contains $y$, at the level-$1$ point $z$ over $\varphi(y)$,
 the linearization $\mathrm{Lin}(z) : T_zO \to K_z$ (V3.78) is surjective and Fredholm with
 $\mathrm{ind}\,\mathrm{Lin}(z) = \dim\ker\mathrm{Lin}(z) = d$. Theorem: let $f$ be an sc-smooth
@@ -3820,15 +3820,15 @@ the chart change at smooth points (Findings, Chapter 3, items 236, 239); the ind
 and the surjectivity on every level at a zero in good position, go beyond the text's statement. The
 hypothesis is the text's since the switch to the germ reading (phase 2): Proposition 3.6.5 (preprint 3.52) enters at
 the centre of the chart of the germ datum, where $\mathrm{Lin}(0) = Dg(0)$ on $T_0O$ for the filling
-germ (Findings, Chapter 3, items 284, 310, 314, 330). `theorem_3_19_linearization_sc` gives the conclusions in the chart at $x_0$, and
+germ (Findings, Chapter 3, items 284, 310, 314, 330). `theorem_3_1_22_linearization_sc` gives the conclusions in the chart at $x_0$, and
 `linAt_isScFredholm_of_isSurjLinOfIndex` with `IsGoodPositionGerm.exists_isSurjLinOfIndex` in every
 chart. The sc-Fredholm property was first
 proved on level $0$ only; formerly "narrower", for the whole-chart hypothesis.
 
 **V3.97 (the dimension of the solution set is the Fredholm index;
-`Polyfold.theorem_3_54_tangentGermChart_index`, `Polyfold.theorem_3_54_two_index`,
-`Polyfold.theorem_3_23_index`, `Polyfold.theorem_3_19_index`, `Polyfold.theorem_3_57_index`,
-`Polyfold.theorem_3_54_graph_proj_conj`, `Polyfold.theorem_3_54_tangentGermChart_proj_conj`,
+`Polyfold.theorem_3_6_8_tangentGermChart_index`, `Polyfold.theorem_3_6_8_two_index`,
+`Polyfold.theorem_3_1_26_index`, `Polyfold.theorem_3_1_22_index`, `Polyfold.theorem_3_6_11_index`,
+`Polyfold.theorem_3_6_8_graph_proj_conj`, `Polyfold.theorem_3_6_8_tangentGermChart_proj_conj`,
 `Polyfold.StrongBundle.linAt_isScFredholm_of_isSurjLinOfIndex`).** Let $f$ be an sc-smooth section
 of a strong bundle, $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart (V3.103). (i) The data
 of Definition 3.2.1 (preprint 3.25) at $x_0$ of V3.84 have a dimension $d$ with `IsSurjLinOfIndex f x_0 d` (V3.96):
@@ -3837,12 +3837,12 @@ data of V3.85 (ii) have such a dimension. (iii) For $f$ sc-Fredholm with tame ge
 open $U \ni x_0$ and $d$ such that every zero $y \in U$ is in good position in a tame chart with
 `IsSurjLinOfIndex f y d`, the zeros in $U$ are smooth points, and $S(f, U)$ is a sub-M-polyfold
 whose induced structure is tame and equivalent to that of a $d$-dimensional manifold with boundary
-with corners (`theorem_3_23_index`); if $d_X \equiv 0$, also of degeneracy index $0$ everywhere
-(`theorem_3_19_index`). (iv) Under the hypotheses of V3.87 (good position in a tame chart at every
+with corners (`theorem_3_1_26_index`); if $d_X \equiv 0$, also of degeneracy index $0$ everywhere
+(`theorem_3_1_22_index`). (iv) Under the hypotheses of V3.87 (good position in a tame chart at every
 zero, $S \ne \emptyset$): $S$ is a sub-M-polyfold with tame induced structure, a manifold with
 boundary with corners of locally constant dimension, and at every $x \in S$ there are regular data
 of a dimension $d$ such that every datum at a point of $S$ in their chart domain has dimension $d$
-and `IsSurjLinOfIndex f y d` holds at every zero $y$ of that domain (`theorem_3_57_index`). For an
+and `IsSurjLinOfIndex f y d` holds at every zero $y$ of that domain (`theorem_3_6_11_index`). For an
 sc-Fredholm section, at a zero with `IsSurjLinOfIndex f y d`, $\mathrm{Lin}(z)$ is moreover
 sc-Fredholm and onto on every level, of index $d$ on every level, in every chart (V3.96). *Book:*
 Theorem 3.1.22 (preprint 3.19), p. 100 (preprint p. 74) ("whose dimension agrees with the Fredholm index"); the proof of Theorem 3.6.8 (preprint 3.54),
@@ -3851,37 +3851,37 @@ the index at every zero near the point and in every chart; the text states no di
 3.1.26, 3.6.11 (preprint 3.23, 3.57).
 
 **V3.98 (the Fredholm index along the solution set and along paths, Definition 6.2.1 (preprint 6.1), Proposition
-6.2.2 (preprint 6.2); `Polyfold.theorem_3_54_index_locally_constant`, `Polyfold.theorem_3_54_index`,
-`Polyfold.isSurjLinOfIndex_of_forall_dim`, `Polyfold.theorem_3_54_index_locally_constant_sc`,
+6.2.2 (preprint 6.2); `Polyfold.theorem_3_6_8_index_locally_constant`, `Polyfold.theorem_3_6_8_index`,
+`Polyfold.isSurjLinOfIndex_of_forall_dim`, `Polyfold.theorem_3_6_8_index_locally_constant_sc`,
 `Polyfold.StrongBundle.linAt_isScFredholm`, `Polyfold.index_locally_constant_tame`,
-`Polyfold.theorem_3_54_index_locally_constant_general_tame`,
+`Polyfold.theorem_3_6_8_index_locally_constant_general_tame`,
 `Polyfold.index_locally_constant_of_admitsBumpFunctions`,
-`Polyfold.theorem_3_54_index_locally_constant_general`, `Polyfold.StrongBundle.IsLinOfIndex`,
+`Polyfold.theorem_3_6_8_index_locally_constant_general`, `Polyfold.StrongBundle.IsLinOfIndex`,
 `Polyfold.StrongBundle.restrictOpen`, `Polyfold.StrongBundle.IsIndexAtLocal`,
 `Polyfold.StrongBundle.IsIndexAtLocal.unique`, `Polyfold.StrongBundle.exists_isIndexAtLocal`,
 `Polyfold.StrongBundle.IsIndexAt`, `Polyfold.StrongBundle.IsIndexAt.unique`,
 `Polyfold.StrongBundle.exists_isIndexAt`, `Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt`,
 `Polyfold.exists_isScPlusSection_pullback_of_path`,
-`Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex`, `Polyfold.proposition_6_2_local`,
-`Polyfold.proposition_6_2_local'`, `Polyfold.proposition_6_2`).** Let $f$ be an sc-Fredholm section
+`Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex`, `Polyfold.proposition_6_2_2_local`,
+`Polyfold.proposition_6_2_2_local'`, `Polyfold.proposition_6_2_2`).** Let $f$ be an sc-Fredholm section
 of a strong bundle with tame germ data (V3.103), $f(x_0) = 0$, $(f, x_0)$ in good position in a tame
 chart. Then there are an open $V_x \ni x_0$ and $d$ such that `IsSurjLinOfIndex f y d` holds at every
 zero $y \in V_x$: $f'(y)$ is onto with $\mathrm{ind}\,f'(y) = \dim\ker f'(y) = d = \mathrm{ind}\,f'(x_0)$
-(`theorem_3_54_index_locally_constant`). Theorem 3.6.8 (preprint 3.54) with the index (`theorem_3_54_index`):
+(`theorem_3_6_8_index_locally_constant`). Theorem 3.6.8 (preprint 3.54) with the index (`theorem_3_6_8_index`):
 moreover every zero in $V_x$ is in good position in a tame chart, and $S$ has at $x_0$ regular data
 of dimension $d$ whose chart domain is $V_x$, every datum at a point of $S$ in $V_x$ having
 dimension $d$. On the way: at a zero in good position in a tame chart at which every datum of
 Definition 3.2.1 (preprint 3.25) for $S$ has dimension $d$, `IsSurjLinOfIndex f y d` ($f$ sc-smooth). In sc form, at
 every zero in $V_x$ and in every chart, $\mathrm{Lin}(z)$ is sc-Fredholm, onto on every level, of
-index $d$ on every level (`theorem_3_54_index_locally_constant_sc`); at any zero of an sc-Fredholm
+index $d$ on every level (`theorem_3_6_8_index_locally_constant_sc`); at any zero of an sc-Fredholm
 section, in every chart, $\mathrm{Lin}(z)$ is sc-Fredholm with the same index on every level
 (`linAt_isScFredholm`). Without good position, with the text's hypotheses: if $f$ is an sc-Fredholm
 section with tame germ data and $f(x_0) = 0$, there are an open $V \ni x_0$ and $i \in \mathbb Z$ such
 that at every zero $y \in V$, in every strong bundle chart, $f'(y)$ is Fredholm of index $i$
 (`IsLinOfIndex f y i`; `index_locally_constant_tame`) and $\mathrm{Lin}(z)$ is sc-Fredholm of index
-$i$ on every level (`theorem_3_54_index_locally_constant_general_tame`); no bump functions are
+$i$ on every level (`theorem_3_6_8_index_locally_constant_general_tame`); no bump functions are
 assumed (the first forms, for $X$ admitting sc-smooth bump functions, Definition 5.3.1 (preprint 5.9):
-`index_locally_constant_of_admitsBumpFunctions`, `theorem_3_54_index_locally_constant_general`).
+`index_locally_constant_of_admitsBumpFunctions`, `theorem_3_6_8_index_locally_constant_general`).
 **Definition 6.2.1 (preprint 6.1)**, with the text's locally defined section: an sc-Fredholm section $f$ has index $i$
 at a smooth point $x$ (`IsIndexAtLocal f x i`) if for some open $V \ni x$ and some sc⁺-section $s$ of
 the restriction $P|V$ of $P$ to $V$ (`StrongBundle.restrictOpen`: the strong bundle over the
@@ -3892,9 +3892,9 @@ With an sc⁺-section on all of $X$ in place of $s$ (`IsIndexAt f x i`) the inde
 implies the local one; if $X$ admits sc-smooth bump functions it exists at every smooth point and the
 two readings agree (`isIndexAtLocal_iff_isIndexAt`). **Proposition 6.2.2 (preprint 6.2)**: if $f$ is an sc-Fredholm
 section with tame germ data, then for every sc-smooth path $\varphi : \mathbb R \to X$ the index
-$\mathrm{ind}(f, \varphi(t))$ (local reading) is the same for all $t$ (`proposition_6_2_local`), and
-any two values of the index at $\varphi(0)$ and $\varphi(1)$ agree (`proposition_6_2_local'`); if $X$
-admits sc-smooth bump functions, the same holds for the global reading (`proposition_6_2`). *Book:*
+$\mathrm{ind}(f, \varphi(t))$ (local reading) is the same for all $t$ (`proposition_6_2_2_local`), and
+any two values of the index at $\varphi(0)$ and $\varphi(1)$ agree (`proposition_6_2_2_local'`); if $X$
+admits sc-smooth bump functions, the same holds for the global reading (`proposition_6_2_2`). *Book:*
 Definition 6.2.1 (preprint 6.1), pp. 237–240 (preprint pp. 200–201); Proposition 6.2.2 (preprint 6.2), p. 240 (preprint p. 201) (over a tame M-polyfold, the index is constant
 along sc-smooth paths $[0, 1] \to X$ of smooth points; the proof: "we do not need a sc-smooth
 partition of unity", preprint p. 202), whose proof uses the step of V3.82; in Chapter 3 the statement along
@@ -3927,7 +3927,7 @@ the local constancy is open: it amounts to the index $0$ of the block
 $(1 - \rho(z))Dg(z)|_{\ker Dr(z)}$ of the filling at the nearby zeros, which condition (3) of
 Definition 3.1.4 (preprint 3.4) gives at $z = 0$ only (items 243, 343).
 
-**V3.99 ($\ker f'(y) = T_yS$ in a chart; `Polyfold.theorem_3_54_ker_eq_tangent`).** Let $f$ be an
+**V3.99 ($\ker f'(y) = T_yS$ in a chart; `Polyfold.theorem_3_6_8_ker_eq_tangent`).** Let $f$ be an
 sc-smooth section of a strong bundle, $f(x_0) = 0$, $(f, x_0)$ in good position in a tame chart (V3.103).
 Then there are a tame strong bundle chart $c$ centred at $x_0$ (as in Definition 3.6.6 (preprint 3.53)), the
 conjugating sc-diffeomorphism $\psi : U \to U' \subseteq C'$ (inverse $\psi'$, $\psi(0) = 0$), the
@@ -3961,15 +3961,15 @@ good position just means surjectivity), and Corollary 3.1.27 (preprint 3.24) ("a
 $d_X(y)$). *Deviation (hypotheses explicit).*
 
 **V3.101 (Theorems 3.1.22 and 3.6.10 (preprint 3.19 and 3.56) with "$f'(x)$ surjective", and Theorem 3.6.10 (preprint 3.56) with tameness;
-`Polyfold.theorem_3_19_of_surjective`, `Polyfold.theorem_3_56_of_surjective`,
-`Polyfold.theorem_3_56_tame`).** Let $X$ be an M-polyfold with $d_X \equiv 0$ and $f$ an sc-Fredholm section
+`Polyfold.theorem_3_1_22_of_surjective`, `Polyfold.theorem_3_6_10_of_surjective`,
+`Polyfold.theorem_3_6_10_tame`).** Let $X$ be an M-polyfold with $d_X \equiv 0$ and $f$ an sc-Fredholm section
 of a strong bundle. (i) If $f$ has tame germ data (V3.103), $f(x_0) = 0$ and `IsLinSurjAt f x_0`
-(V3.100), the conclusions of `theorem_3_19_index` hold (V3.97 (iii)): an open $U \ni x_0$ and $d$ with every
+(V3.100), the conclusions of `theorem_3_1_22_index` hold (V3.97 (iii)): an open $U \ni x_0$ and $d$ with every
 zero $y \in U$ in good position in a tame chart, `IsSurjLinOfIndex f y d`, the zeros in $U$ smooth, and
 $S(f, U)$ a sub-M-polyfold whose induced structure is tame, a $d$-dimensional manifold with degeneracy
 index $0$ everywhere. (ii) If $(f, x)$ is in good position in a tame chart at every zero
-(`theorem_3_56_tame`), or $f$ has tame germ data and `IsLinSurjAt f x` at every zero
-(`theorem_3_56_of_surjective`), and $S \ne \emptyset$, then $S$ is a sub-M-polyfold whose induced structure is tame, a manifold of locally constant
+(`theorem_3_6_10_tame`), or $f$ has tame germ data and `IsLinSurjAt f x` at every zero
+(`theorem_3_6_10_of_surjective`), and $S \ne \emptyset$, then $S$ is a sub-M-polyfold whose induced structure is tame, a manifold of locally constant
 dimension with degeneracy index $0$ everywhere, with regular data of Definition 3.2.1 (preprint 3.25) at every zero of a
 dimension $d$ constant near it and equal to the Fredholm index at the zeros of the chart domain. *Book:*
 Theorem 3.1.22 (preprint 3.19), p. 100 (preprint p. 74); Theorem 3.6.10 (preprint 3.56), p. 140 (preprint p. 115).
@@ -4054,7 +4054,7 @@ composed with affine maps, hence is compatible with every chart the first one is
 compatibility are not formalized (see "What is not verified"); so the earlier statements, vacuous by this
 argument, are replaced by those with tame germ data (V3.103).
 
-**V3.105 (Theorem 3.1.18 (preprint 3.15) for tame germ data; `Polyfold.theorem_3_15_tame`,
+**V3.105 (Theorem 3.1.18 (preprint 3.15) for tame germ data; `Polyfold.theorem_3_1_18_tame`,
 `Polyfold.StrongBundle.IsScFredholmGermTame.sectionAdd`).** If $f$ is an sc-Fredholm section with tame germ
 data (V3.103) and $s$ an sc⁺-section, then $f + s$ is an sc-Fredholm section with tame germ data: at every
 smooth point the germ data of $f + s$ are taken in the tame chart of those of $f$ (filling germ $g + \hat
@@ -4062,7 +4062,7 @@ s \circ r$, sc⁺-germ $\hat s_1 \circ r + t_0$, the same conjugation, as in V3.
 p. 98 (preprint p. 71), recalled after Definition 3.6.4 (preprint 3.51), p. 135 (preprint p. 110), for the tame strong bundle of §3.6. *Hidden hypotheses:* none. *Deviation (hypotheses explicit):* Theorem 3.1.18 (preprint 3.15) for the
 tame reading of Definitions 3.6.3, 3.6.4 (preprint 3.50, 3.51); the proof of V3.17 does not change the chart.
 
-**V3.106 (Theorem 3.1.21 (preprint 3.18) for tame germ data; `Polyfold.theorem_3_18_tame`,
+**V3.106 (Theorem 3.1.21 (preprint 3.18) for tame germ data; `Polyfold.theorem_3_1_21_tame`,
 `Polyfold.PullbackChartData.ofProd_isTame`, `Polyfold.StrongBundle.IsScFredholmGermTame.param`,
 `Polyfold.StrongBundle.IsScFredholmSectionTame.param`).** In the setting of V3.91, if $f$ is an
 sc-Fredholm section with tame germ data (V3.103) and $s_1, \dots, s_n$ are sc⁺-sections, then $F(r, x) =
@@ -4148,7 +4148,7 @@ germ at every point. *Book:* Definitions 3.1.11, p. 96 (preprint 3.11, p. 69), 3
 *Deviation (restated):* as V3.13; $r(0) = 0$ holds in a chart centred at $x_0$. Whether every 2021
 germ is a 2017 germ is open (gap G.79).
 
-**V3.111 (Proposition 3.1.5 (preprint 3.5) for the 2021 filling; `Polyfold.proposition_3_1_5_2021`).** If $g$
+**V3.111 (Proposition 3.1.5 (preprint 3.5) for the 2021 filling; `Polyfold.proposition_3_1_5`).** If $g$
 is a 2021 filling of $\hat f$ with $\hat f(0) = 0$ and $Dg$ its derivative germ, then $Dg(0)$ maps
 $T_0O = \operatorname{range} Dr(0)$ into $K_0 = \operatorname{range}\rho(0)$, so that its restriction
 $T\hat f(0) : T_0O \to K_0$ is defined, and (1) $T\hat f(0)$ is onto iff $Dg(0)$ is, (2) one is Fredholm iff the other is, with
@@ -4156,7 +4156,7 @@ the same index. *Book:* Proposition 3.1.5, p. 93 (preprint 3.5, p. 65). *Hidden 
 *Deviation (restated):* V3.8 for the 2021 definition; $0 \in O$ from $r(0) = 0$.
 
 **V3.112 (Theorem 3.1.13 (preprint 3.12) and Corollary 3.1.15 (preprint 3.13) for the 2021 definitions;
-`Polyfold.theorem_3_1_13_2021`, `Polyfold.corollary_3_1_15_2021`).** For a 2021 sc-Fredholm germ
+`Polyfold.theorem_3_1_13`, `Polyfold.corollary_3_1_15`).** For a 2021 sc-Fredholm germ
 $(f, x_0)$ at a zero: nested open neighbourhoods $O(i)$ of $x_0$ such that the closure of the zeros
 in $O(i)$ is compact on level $i$; and a sequence of zeros converging to $x_0$ converges on every
 level. *Book:* Theorem 3.1.13 and Corollary 3.1.15, p. 97 (preprint 3.12 and 3.13, p. 70). *Hidden
@@ -4164,21 +4164,21 @@ hypotheses:* none. *Deviation (restated):* V3.14 and V3.15 through V3.110; their
 tameness.
 
 **V3.113 (Theorems 3.1.18 (preprint 3.15) and 3.1.21 (preprint 3.18) for the 2021 definitions;
-`Polyfold.theorem_3_1_18_2021`, `Polyfold.theorem_3_1_21_2021`).** If $f$ is a 2021 sc-Fredholm
+`Polyfold.theorem_3_1_18`, `Polyfold.theorem_3_1_21`).** If $f$ is a 2021 sc-Fredholm
 section and $s$ an $\mathrm{sc}^+$-section, $f + s$ is a 2021 sc-Fredholm section; for
 $\mathrm{sc}^+$-sections $s_1, \dots, s_n$, $(\lambda, x) \mapsto f(x) + \sum_i \lambda_is_i(x)$ is a
 2021 sc-Fredholm section of the pull-back bundle over $\mathbb R^n \times X$. *Book:* Theorem 3.1.18, p.
 98 (preprint 3.15, p. 71), and Theorem 3.1.21, p. 100 (preprint 3.18, p. 74). *Hidden hypotheses:*
 none. *Deviation (restated):* V3.17 and V3.91 through V3.110.
 
-**V3.114 (Proposition 3.6.5 (preprint 3.52) for the 2021 definitions; `Polyfold.proposition_3_6_5_2021`).** At a
+**V3.114 (Proposition 3.6.5 (preprint 3.52) for the 2021 definitions; `Polyfold.proposition_3_6_5`).** At a
 zero $x_0$ of a 2021 sc-Fredholm germ, in a chart centred at $x_0$ with a filling $g$, $Dg(0)$ and the
 restriction $T_0O \to K_0$ are Fredholm of index $n - N$. *Book:* Proposition 3.6.5, p. 135 (preprint
 3.52, p. 110). *Hidden hypotheses:* none. *Deviation (restated):* V3.46 through V3.110.
 
 **V3.115 (Theorem 3.6.8 (preprint 3.54), the proof step on p. 138 without a tame chart;
 `Polyfold.CornerFilling.isGoodPositionAtGerm_gc`, `Polyfold.CornerFilling.not_isInGoodPosition_gc`,
-`Polyfold.CornerFilling.not_range_le_minimalSubspace`, `Polyfold.theorem_3_6_8_tame_step_2021`).** In
+`Polyfold.CornerFilling.not_range_le_minimalSubspace`, `Polyfold.theorem_3_6_8_tame_step`).** In
 the example of V3.109: $g$ is a 2021 filling of $\hat f = 0$, $r$ is not tame, $0 \in O$, $\hat f(0) =
 0$, $g$ is sc¹ with $Dg(0)$ onto, and $\ker T\hat f(0)$ is in good position to the partial cone in
 $T_0O$ (V3.47); but the range of $1 - Dr(0)$ does not lie in the subspace $E_0$ of $C$ at $0$, and
@@ -4192,7 +4192,7 @@ manifold), so the theorem itself is not refuted. Theorem 3.6.8 and what rests on
 tame germ data (V3.85, V3.94, V3.103); for untamed data they are open (gap G.79).
 
 **V3.116 (Theorem 3.5.1 (preprint 3.40) with the 2021 sequential conclusion; `Polyfold.IsBasicGerm.solves`,
-`Polyfold.theorem_3_5_1_2021`).** Let $h$ be a basic germ on an sc-germ of neighbourhoods $G$ of $0$ in
+`Polyfold.theorem_3_5_1`).** Let $h$ be a basic germ on an sc-germ of neighbourhoods $G$ of $0$ in
 $C = \tilde C \times W$ ($\tilde C$ closed), $U = G_0$, $s$ an $\mathrm{sc}^+$-germ on $G$ with $s(0) =
 0$, and $S = \{x \in U : h(x) + s(x) = 0\}$. Then there are nested neighbourhoods $O(0) \supseteq O(1)
 \supseteq \cdots$ of $0$, relatively open in $C$ and inside $U$, with $\mathrm{cl}(S \cap O(m))
@@ -4201,7 +4201,7 @@ with $y_k = x_k$ for $k$ large and $y_k \to 0$ in $E_m$. *Book:* Theorem 3.5.1, 
 p. 94); the sequential conclusion is new in the 2021 edition. *Hidden hypotheses:* as V3.35.
 *Deviation (restated):* the closure is taken in $E_0$ (it lies in $C$, which is closed); "converges on
 level $m$" is stated with level-$m$ lifts. *Proof:* from V3.14 and V3.15 in the local form
-(`Polyfold.theorem_3_12_local`, `Polyfold.corollary_3_13_local`).
+(`Polyfold.theorem_3_1_13_local`, `Polyfold.corollary_3_1_15_local`).
 
 **V3.117 (closed convex cones and extreme rays; `Polyfold.IsClosedConvexCone`,
 `Polyfold.IsExtremeRayGen`, `Polyfold.IsClosedConvexCone.eq_zero`, `Polyfold.isClosedConvexCone_Ici`,
@@ -4216,7 +4216,7 @@ R^{\dim N}$ carries $N \cap C$ onto $[0, \infty)^{\dim N}$, and the $e^{-1}(e_j)
 *Deviation (stronger):* the quadrant normal form, from V3.21, is added; it replaces the
 Krein–Milman-type Lemmas 3.8.1–3.8.3 in the proofs of V3.118–V3.121.
 
-**V3.118 (Lemma 3.8.4; `Polyfold.lemma_3_8_4_2021`, `Polyfold.lemma_3_65`).** Let $N$ be in good position to
+**V3.118 (Lemma 3.8.4; `Polyfold.lemma_3_8_4`, `Polyfold.lemma_3_8_8`).** Let $N$ be in good position to
 $C = T^{-1}([0, \infty)^n \oplus W)$ with good complement $N^\perp$, $N \cap C$ a closed convex cone,
 $\sigma_a$ the set of $i$ with $a_i = 0$, and $\Gamma = \bigcup_{0 \ne a \in N \cap C} \sigma_a$. Then (1)
 $y_i = 0$ for $y \in N^\perp$ and $i \in \sigma_a$, $a$ a generator of an extreme ray; (2) $\Gamma$ is
@@ -4227,7 +4227,7 @@ the union of the $\sigma_a$ over generators of extreme rays; (3) $y_i = 0$ for $
 Lemma 3.8.1): for $0 \ne a \in N \cap C$ with $a_i = 0$ and $e(a)_j > 0$, $a - e(a)_j e^{-1}(e_j) \in N
 \cap C$ forces $e^{-1}(e_j)_i = 0$ (V3.117).
 
-**V3.119 (Lemma 3.8.5; `Polyfold.lemma_3_8_5_2021`, `Polyfold.lemma_3_8_5_not_literal_2021`).** For $N$
+**V3.119 (Lemma 3.8.5; `Polyfold.lemma_3_8_5`, `Polyfold.lemma_3_8_5_not_literal`).** For $N$
 in good position to $C$ with $N \cap C$ a closed convex cone, either $N \cap (\mathbb R^{\Gamma^c} \oplus
 W) = \{0\}$, or $N \subseteq \mathbb R^{\Gamma^c} \oplus W$, $\dim N = 1$ and $\Gamma = \emptyset$. In $E =
 \mathbb R$, $C = [0, \infty)$, the subspace $N = 0$ is in good position, $N \cap C = \{0\}$ is a closed
@@ -4241,8 +4241,8 @@ point of $N$ with $x_i = 0$ for $i \in \Gamma$ lies in $N \cap C$ with $-x$; if 
 $\dim N \ge 2$, two generators with all coordinates positive give $b_0 - tb_1 \in N \cap C$ for small $t >
 0$, against V3.117.
 
-**V3.120 (Lemma 3.8.6; `Polyfold.lemma_3_8_6_2021`, `Polyfold.lemma_3_8_6_two_2021`,
-`Polyfold.halfLine_witness_2021`).** Let $N$ be in good position to $C$ and $P : N \to \mathbb R^\Gamma$
+**V3.120 (Lemma 3.8.6; `Polyfold.lemma_3_8_6`, `Polyfold.lemma_3_8_6_two`,
+`Polyfold.halfLine_witness`).** Let $N$ be in good position to $C$ and $P : N \to \mathbb R^\Gamma$
 the coordinate projection. (1) If $N \cap (\mathbb R^{\Gamma^c} \oplus W) = \{0\}$, $P$ is a linear
 isomorphism carrying $N \cap C$ onto $[0, \infty)^\Gamma$. (2) If $N \cap C$ is a closed convex cone, $N
 \subseteq \mathbb R^{\Gamma^c} \oplus W$ and $N \ne 0$, there is a linear isomorphism $N \cong \mathbb R$
@@ -4251,7 +4251,7 @@ carrying $N \cap C$ onto $[0, \infty)$. The hypotheses of (2) are satisfiable ($
 hypothesis. *Hidden hypotheses:* $N \ne 0$ in (2). *Deviation (narrower):* (2) assumes $N \ne 0$; as
 printed it does not hold as we read it for $N = 0$ (V3.119). (1) holds without the cone hypothesis.
 
-**V3.121 (Corollary 3.8.7; `Polyfold.corollary_3_8_7_2021`).** If $N$ is in good position to $C$ and $N
+**V3.121 (Corollary 3.8.7; `Polyfold.corollary_3_8_7`).** If $N$ is in good position to $C$ and $N
 \cap C$ is a closed convex cone, then $N \cap C$ is a partial quadrant in $N$, and a linear isomorphism
 $N \cong \mathbb R^{\dim N}$ carries $N \cap C$ onto $[0, \infty)^{\dim N}$. *Book:* Corollary 3.8.7, p.
 149, new in the 2021 edition. *Hidden hypotheses:* none. *Deviation (stronger):* the quadrant form,
@@ -4413,19 +4413,19 @@ manifolds with corners of dimension $n$ of Theorem 3.2.3 (preprint 3.27) are exa
 corner charts have dimension $n$. *Book:* Definition 4.1.1 (preprint 4.1), p. 175 (preprint p. 147) ("or in a finite-dimensional vector space");
 the relation to Chapter 3 is not stated. *Hidden hypotheses:* none. *Deviation (not in the book).*
 
-**V4.5 (Theorem 4.1.2 (preprint 4.2), the characterization; `Polyfold.MPolyfold.theorem_4_2`,
-`Polyfold.MPolyfold.theorem_4_2_general`).** Let $X$ be an M-polyfold and $x_0 \in X_1$ the junk value of $1_0^1$
+**V4.5 (Theorem 4.1.2 (preprint 4.2), the characterization; `Polyfold.MPolyfold.theorem_4_1_2`,
+`Polyfold.MPolyfold.theorem_4_1_2_general`).** Let $X$ be an M-polyfold and $x_0 \in X_1$ the junk value of $1_0^1$
 off $X_1$. The following are equivalent. (i) $X$ has a corner structure (V4.1). (ii) Every point of $X$ is
 smooth, $1_0^1 : X \to X^1$ is sc-smooth, and every $x \in X$ lies in a chart $\psi$ of $X$ with $\psi(x) = 0$
 whose model $(O, C, E)$ is a tame retract and whose tangent space $N = T_0O$ (Definition 2.3.12 (preprint 2.17)) is
-finite-dimensional and in good position to $C$ (Definition 3.1.24 (preprint 3.21)). `theorem_4_2` is the text's form, with the
+finite-dimensional and in good position to $C$ (Definition 3.1.24 (preprint 3.21)). `theorem_4_1_2` is the text's form, with the
 hypothesis "$X$ tame". *Book:* Theorem 4.1.2 (preprint 4.2), p. 176 (preprint p. 147); proof pp. 183–186 (preprint pp. 156–157). *Hidden hypotheses:* the chart with
 $\psi(x) = 0$ is a re-centred chart (V4.17). *Deviation (stronger):* the tameness of $X$ is not used, and (i)
 implies it (V4.1). *Proof:* V4.27, V4.28.
 
 **V4.6 (Remark 4.1.3 (preprint 4.3); `Polyfold.ScBanach.liftOne`, `Polyfold.MPolyfold.toLevelOne`,
-`Polyfold.MPolyfold.remark_4_3_levelVal`, `Polyfold.MPolyfold.remark_4_3_isScDiffeo`,
-`Polyfold.remark_4_3_const`, `Polyfold.remark_4_3_example`, `Polyfold.remark_4_3_retract_example`,
+`Polyfold.MPolyfold.remark_4_1_3_levelVal`, `Polyfold.MPolyfold.remark_4_1_3_isScDiffeo`,
+`Polyfold.remark_4_1_3_const`, `Polyfold.remark_4_1_3_example`, `Polyfold.remark_4_1_3_retract_example`,
 `Polyfold.IsLossFamily.isScSmooth`, `Polyfold.exists_retract_smooth_not_scPlus_of_data`,
 `Polyfold.MPolyfold.mem_shift_levelSet_iff`).** The inclusion $1_1^0 : X^1 \to X$ is always sc-smooth; in the charts $(V_1,
 \varphi, (O_1, C_1, E^1))$ and $\varphi$ it is the sc-operator $\iota : E^1 \to E$. If every point of $X$ lies in
@@ -4477,7 +4477,7 @@ every $m$. On an open $V$ of an M-polyfold: $s$ is an sc⁺-retraction on $V$ if
 value). *Book:* Definition 4.1.4 (preprint 4.4), p. 176 (preprint p. 148). *Hidden hypotheses:* in the M-polyfold form, $s(V) \subseteq X_1$, so that
 "$r : V \to V^1$" makes sense. *Deviation (restated):* $r(U_m) \subseteq U_{m+1}$ is derived, not assumed.
 
-**V4.10 (Lemma 4.1.5 (preprint 4.5); `Polyfold.lemma_4_5`).** If $t$ is an sc⁺-retraction and $s$ an sc-smooth retraction
+**V4.10 (Lemma 4.1.5 (preprint 4.5); `Polyfold.lemma_4_1_5`).** If $t$ is an sc⁺-retraction and $s$ an sc-smooth retraction
 (possibly of another relatively open subset of $C$) with the same retract, then $s$ is an sc⁺-retraction.
 *Book:* Lemma 4.1.5 (preprint 4.5), p. 177 (preprint p. 148). *Hidden hypotheses:* none. *Proof:* the text's, $s = t \circ s$ and sc⁺ ∘ sc-smooth
 is sc⁺.
@@ -4488,20 +4488,20 @@ of a relatively open $U \subseteq C$; then every sc-smooth retraction onto $O$ i
 is a retract all of whose retractions are sc⁺. *Book:* Definition 4.1.6 (preprint 4.6) and the remark after it, pp. 176–178 (preprint pp. 148–149).
 *Hidden hypotheses:* none.
 
-**V4.12 (Lemma 4.1.7 (preprint 4.7); `Polyfold.lemma_4_7_i`, `Polyfold.lemma_4_7_ii`, `Polyfold.lemma_4_7_ii_tangentSpace`).**
+**V4.12 (Lemma 4.1.7 (preprint 4.7); `Polyfold.lemma_4_1_7_i`, `Polyfold.lemma_4_1_7_ii`, `Polyfold.lemma_4_1_7_ii_tangentSpace`).**
 Let $r$ be an sc⁺-retraction onto $O$. (i) $O \subseteq E_\infty$. (ii) For every level-$1$ point $o$ with $\iota(o) \in O$
 the range of $Dr(o)$ is finite-dimensional; every $o \in O$ has a smooth lift $o_1 \in E_1$, and $T_{o_1}O =
 Dr(o_1)E_0$ is a finite-dimensional linear subspace. *Book:* Lemma 4.1.7 (preprint 4.7), p. 177 (preprint p. 149). *Hidden hypotheses:* none.
 *Deviation (hypotheses explicit):* the tangent space of Definition 2.3.12 (preprint 2.17) is indexed by level-$1$ points; the step
 "$Dr(o)$ is an sc⁺-operator" is V4.8.
 
-**V4.13 (Proposition 4.1.8 (preprint 4.8); `Polyfold.proposition_4_8`).** An sc-smooth retract $(O, C, E)$ is an sc⁺-retract iff
+**V4.13 (Proposition 4.1.8 (preprint 4.8); `Polyfold.proposition_4_1_8`).** An sc-smooth retract $(O, C, E)$ is an sc⁺-retract iff
 $O \subseteq E_\infty$ and the lift $1_0^1$ is sc-smooth from $(O, C, E)$ to $(O_1, C_1, E^1)$ in the sense of
 Definition 2.1.14 (preprint 2.7). *Book:* Proposition 4.1.8 (preprint 4.8), p. 177 (preprint p. 149). *Hidden hypotheses:* none. *Deviation:* none (the proof ends
 "the lemma is proved").
 
 **V4.14 (Proposition 4.1.8 (preprint 4.8) in charts; `Polyfold.MPolyfold.levelChart_toLevelOne`,
-`Polyfold.MPolyfold.proposition_4_8_chart`, `Polyfold.MPolyfold.isScSmoothMap_toLevelOne_iff`,
+`Polyfold.MPolyfold.proposition_4_1_8_chart`, `Polyfold.MPolyfold.isScSmoothMap_toLevelOne_iff`,
 `Polyfold.MPolyfold.isScSmoothMap_toLevelOne_of_cover`).** In the charts $\varphi$ of $X$ and $(V_1, \varphi, (O_1, C_1,
 E^1))$ of $X^1$ the map $1_0^1$ is the lift $O \to O_1$. For a chart $\varphi : V \to O$ of $X$: the model is an
 sc⁺-retract iff $V \subseteq X_\infty$ and $1_0^1$ is sc-smooth on $V$. Hence "every point smooth and $1_0^1$
@@ -4562,7 +4562,7 @@ B(u_0, r)$. *Book:* (76)–(77) and the estimates in the proofs of Lemmas 4.1.12
 hypotheses:* the mean value inequality is taken on the convex set $C_{k+1} \cap B(u_0, r)$, since $U_{k+1}$ need not be
 convex. *Deviation (restated):* the text's integrals are the mean value inequality.
 
-**V4.20 (Proposition 4.1.9 (preprint 4.9); `Polyfold.proposition_4_9`, `Polyfold.finiteDimensional_tangentSpace_zero`,
+**V4.20 (Proposition 4.1.9 (preprint 4.9); `Polyfold.proposition_4_1_9`, `Polyfold.finiteDimensional_tangentSpace_zero`,
 `Polyfold.GraphData`).** Let $t : U \to U$ be an sc⁺-retraction onto $O \ni 0$, $N = T_0O$ (finite-dimensional by Lemma
 4.1.7 (preprint 4.7)), in good position to $C$, $Y$ a good complement of $N$, **$Y$ closed**, and $p : E_0 \to N$ continuous linear with
 $p = 1$ on $N$ and $p = 0$ on $Y$ (**the projection along $Y$**). There are an open $W \ni 0$ in $E_0$, a relatively open
@@ -4650,7 +4650,7 @@ text's proof does not address (Findings, item 53). *Deviation (hypotheses explic
 
 **V4.28 (Theorem 4.1.2 (preprint 4.2), (ii) ⇒ (i); `Polyfold.exists_proj_goodComplement`, `Polyfold.CornerChartData`,
 `Polyfold.exists_cornerChartData`, `Polyfold.CornerChartData.chart`, `Polyfold.CornerChartData.chart_isCornerChart`,
-`Polyfold.CornerChartData.chart_isChart`, `Polyfold.MPolyfold.theorem_4_2_chart`,
+`Polyfold.CornerChartData.chart_isChart`, `Polyfold.MPolyfold.theorem_4_1_2_chart`,
 `Polyfold.MPolyfold.hasCornerStructure_of_centred`).** If every point is smooth and $1_0^1$ is sc-smooth, then for every
 chart $\psi$ of $X$ with $\psi(x) = 0$ whose tangent space $N = T_0O$ is finite-dimensional and in good position to $C$ there
 are a closed good complement $Y$ of $N$, the projection $p$ along it, and $W$, $V$, $\Gamma$ of Proposition 4.1.9 (preprint 4.9); the chart $p
@@ -4678,7 +4678,7 @@ Theorem 4.2.7 (preprint 4.18), pp. 188–190 (preprint pp. 160–161) ("taking $
 $s$ is"). *Hidden hypotheses:* the set $W$ of Proposition 2.3.19 (preprint 2.21) in place of "$V = \varphi^{-1}(O)$", and the sc⁺ condition
 read in the charts of $X$ and $X^1$ (Findings, item 60). *Deviation (hypotheses explicit).*
 
-**V4.31 (Remark 4.2.2 (preprint 4.14) in a chart; `Polyfold.MPolyfold.SubmanifoldData.remark_4_14`).** At $a \in A \cap V \cap
+**V4.31 (Remark 4.2.2 (preprint 4.14) in a chart; `Polyfold.MPolyfold.SubmanifoldData.remark_4_2_2`).** At $a \in A \cap V \cap
 \operatorname{dom}\varphi$ and the level-$1$ point $z$ over $\varphi(a)$: $z$ is smooth; the tangent map of $\rho = \varphi \circ s \circ
 \varphi^{-1}$ at $z$ maps $T_zO$ onto the tangent space $T_z(\varphi(W \cap A))$; this tangent space lies in $T_zO$; and it is a
 finite-dimensional linear subspace. *Book:* Remark 4.2.2 (preprint 4.14), p. 184 (preprint p. 157) ("$T_aA = Ts(a)(T_aX)$ ... finite-dimensional").
@@ -4696,22 +4696,22 @@ form, for the open piece $A \cap \{d_X = 0\}$ of an arbitrary $A$, is not formal
 
 **V4.33 (Proposition 4.2.3 (1) (preprint 4.15); `Polyfold.MPolyfold.IsSmoothSubmanifold.subset_smoothSet`,
 `Polyfold.MPolyfold.IsSmoothSubmanifold.mem_levelSet_subPolyfold_iff`,
-`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_1`).** $A \subseteq X_\infty$; the levels of the induced structure
+`Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_one`).** $A \subseteq X_\infty$; the levels of the induced structure
 are the traces of the levels of $X$; every point of $A$ is smooth for the induced structure. *Book:* Proposition 4.2.3
 (1) (preprint 4.15), p. 186 (preprint p. 158). *Hidden hypotheses:* none. *Deviation (hypotheses explicit):* "$A \subseteq X_\infty$" and "$A = A_\infty$ for the
 induced structure" are separated; the proof goes through the chart retraction of V4.30 and Lemma 4.1.7 (i) (preprint 4.7).
 
-**V4.34 (Proposition 4.2.3 (2) (preprint 4.15); `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_2`).** $A$ is locally closed in
+**V4.34 (Proposition 4.2.3 (2) (preprint 4.15); `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_two`).** $A$ is locally closed in
 $X$: the intersection of an open and a closed set (equivalently, every $a \in A$ has an open $V$ with $V \cap \overline A
 \subseteq A$). *Book:* Proposition 4.2.3 (2) (preprint 4.15), p. 186 (preprint p. 158), with a garbled definition of "locally closed" (the letter $U$ used
 twice). *Hidden hypotheses:* none. *Deviation (restated):* Mathlib's notion; a filter replaces the text's sequence, so
 no metrizability is needed.
 
-**V4.35 (Proposition 4.2.3 (3) (preprint 4.15); `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_3`).** The boundary $\{d_A \ge
+**V4.35 (Proposition 4.2.3 (3) (preprint 4.15); `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_three`).** The boundary $\{d_A \ge
 1\}$ of $A$ with its induced structure lies in $\partial X = \{d_X \ge 1\}$. *Book:* Proposition 4.2.3 (3) (preprint 4.15), p. 186 (preprint p. 158). *Hidden
 hypotheses:* none. *Proof:* $d_A \le d_X$ (Lemma 2.4.6 (preprint 2.26)).
 
-**V4.36 (Proposition 4.2.3 (4) (preprint 4.15); `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_15_4`).** For the induced structure
+**V4.36 (Proposition 4.2.3 (4) (preprint 4.15); `Polyfold.MPolyfold.IsSmoothSubmanifold.proposition_4_2_3_four`).** For the induced structure
 on $A$, every point is smooth and $1_0^1 : A \to A^1$ is sc-smooth (for any junk value). *Book:* Proposition 4.2.3 (4) (preprint 4.15), p. 186 (preprint p. 158). *Hidden hypotheses:* none. *Proof:* every point of $A$ lies in an induced chart whose model $\varphi(W \cap A)$ is an
 sc⁺-retract (V4.30), and V4.14 applies; the text says only that the sc⁺-retraction "is the identity on the retract $A$".
 
@@ -4745,7 +4745,7 @@ equivalent to the condition for all of them. *Book:* implicit in Definition 4.2.
 finite-dimensional submanifold whose induced M-polyfold structure is tame. *Book:* Definition 4.2.6 (preprint 4.17), p. 188 (preprint p. 159). *Hidden
 hypotheses:* none.
 
-**V4.41 (Theorem 4.2.7 (preprint 4.18); `Polyfold.MPolyfold.theorem_4_18`,
+**V4.41 (Theorem 4.2.7 (preprint 4.18); `Polyfold.MPolyfold.theorem_4_2_7`,
 `Polyfold.MPolyfold.hasCornerStructure_of_centred_isInGoodPosition`,
 `Polyfold.MPolyfold.IsGoodPositionAt.isInGoodPosition_of_tame`).** Let $X$ be tame and $A$ a smooth finite-dimensional
 submanifold in good position at every point. Then the induced structure on $A$ has a corner structure (Definition 4.1.1 (preprint 4.1))
@@ -4756,7 +4756,7 @@ this in every tame chart centred at $a$. *Book:* Theorem 4.2.7 (preprint 4.18), 
 (V4.30), the closed complement (V4.28) and the compatibility of the charts $p \circ \psi$ (V4.26); tameness of $X$ enters only
 through Lemma 4.2.8 (preprint 4.19).
 
-**V4.42 (Lemma 4.2.8 (preprint 4.19); `Polyfold.isGoodComplement_sup_range`, `Polyfold.lemma_4_19`,
+**V4.42 (Lemma 4.2.8 (preprint 4.19); `Polyfold.isGoodComplement_sup_range`, `Polyfold.lemma_4_2_8`,
 `Polyfold.IsInGoodPositionIn.isInGoodPosition`).** Let $T$ present $C$, $\pi$ a bounded idempotent with $(1 - \pi)E_0 \subseteq
 E_0^{\min}$, the minimal subspace at $0$ ($\{\lambda = 0\}$), and $N$ in good position to $C$ inside $\pi E_0$. Then $N$ is in good
 position to $C$ in $E_0$, and for every good complement $Y$ of $N$ inside $\pi E_0$ with constant $\varepsilon$, $Y \oplus (1 - \pi)E_0$
@@ -4766,8 +4766,8 @@ merely in $C$. *Deviation (hypotheses explicit):* the text concludes $n + y \in 
 C$", which is false ($C = [0, \infty)$, $z = 1$, $n + y = -\frac12$); it holds because $Z \subseteq C \cap (-C)$. The text's norm
 $|y|_0 + |z|_0$ is replaced by the constant $\varepsilon/(\|\pi\| + 1)$ (Findings, item 69).
 
-**V4.43 (Remark 4.2.9 (preprint 4.20); `Polyfold.tangentSpace_eq_range_graph`, `Polyfold.lemma_3_55_relOpen`,
-`Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le`, `Polyfold.MPolyfold.remark_4_20`).** If the retract $Q$ is the
+**V4.43 (Remark 4.2.9 (preprint 4.20); `Polyfold.tangentSpace_eq_range_graph`, `Polyfold.lemma_3_6_9_relOpen`,
+`Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le`, `Polyfold.MPolyfold.remark_4_2_9`).** If the retract $Q$ is the
 image of an sc-diffeomorphism $\Gamma$ from $(V, N \cap C, N)$ with inverse $p$, then at $v \in V$ and the level-$1$ point $y$ over
 $\Gamma(v)$, $T_yQ = D\Gamma(v)N$ and $p \circ D\Gamma(v) = 1$. For $X$ tame and $A$ in good position at $a$, there is an open $U \ni
 a$ such that $A$ is in good position at every point of $U \cap A$. *Book:* Remark 4.2.9 (preprint 4.20), p. 189 (preprint p. 161), without "tame".
@@ -4816,7 +4816,7 @@ stated; needed for the tameness in Theorem 4.2.11 (4) (preprint 4.22) and for Th
 the book).*
 
 **V4.49 (Theorem 4.2.11 (preprint 4.22) in a tame chart centred at the point; `Polyfold.sup_minimalSubspaceWith_eq_top`,
-`Polyfold.sup_minimalSubspaceWith_eq_top_graph`, `Polyfold.theorem_4_22_chart`).** Let $r$ be tame onto $O \ni 0$, $t$ an
+`Polyfold.sup_minimalSubspaceWith_eq_top_graph`, `Polyfold.theorem_4_2_11_chart`).** Let $r$ be tame onto $O \ni 0$, $t$ an
 sc⁺-retraction onto $Q \subseteq O$ with $0 \in Q$, and $N = T_0Q$, with $Q$ in general position at $0$. Then $N + E_0^{\min} = E_0$, $N$
 is in good position to $C$, $N$ has a closed good complement $Y \subseteq E_0^{\min}$ with a projection $p$ whose kernel is exactly
 $Y$, and the data $W$, $V$, $\Gamma$ of Proposition 4.1.9 (preprint 4.9) exist for this $Y$, with (2) $d_{N \cap C}(v) = d_C(\Gamma(v))$ on $V$ and (3)
@@ -4824,7 +4824,7 @@ general position of $Q$ at every level-$1$ point over $Q \cap W$. *Book:* proof 
 hypotheses:* none. *Deviation (restated):* $T_yQ + E_0^{\min} = E_0$ along the graph comes from $p \circ D\Gamma(v) = 1$ and $\ker p
 = Y$ (the text: "by means of the particular form of the map $\alpha$").
 
-**V4.50 (Theorem 4.2.11 (preprint 4.22), local structure in general position; `Polyfold.MPolyfold.theorem_4_22`).** Let $X$ be tame, $A$ a smooth
+**V4.50 (Theorem 4.2.11 (preprint 4.22), local structure in general position; `Polyfold.MPolyfold.theorem_4_2_11_preprint`).** Let $X$ be tame, $A$ a smooth
 finite-dimensional submanifold, in general position at $x \in A$. There are a chart $\psi$ of $X$ with $\psi(x) = 0$, a tame
 retraction $r$ onto its model for a presentation $T$ with $n$ half-line coordinates, and an open $U \ni x$ inside the domain of
 $\psi$ with: (1) $d_X(x) = n$, and $\psi(x)$ lies in exactly $d_X(x)$ faces of the M-polyfold $O$; (2) $d_X(a) = d_A(a)$ for
@@ -4842,7 +4842,7 @@ Identifying the two needs a local face theorem for small neighbourhoods, believe
 Chapter 4, items 90, 130; round-trip item V4.50).
 
 **V4.51 (Theorem 4.2.11 (4) (preprint 4.22) in the chart; `Polyfold.killOn`, `Polyfold.exists_scPlus_retraction_corner`,
-`Polyfold.exists_cornerModel_retraction`, `Polyfold.theorem_4_22_four_chart`).** In the situation of V4.49, for $\sigma \subseteq \{1,
+`Polyfold.exists_cornerModel_retraction`, `Polyfold.theorem_4_2_11_four_chart`).** In the situation of V4.49, for $\sigma \subseteq \{1,
 \dots, n\}$ and an open $B \ni 0$: with $\kappa_\sigma(v) = v - s(\lambda(v)1_\sigma)$ ($s$ a linear section of $\lambda|_N$) there are an open $G
 \ni 0$, $G \subseteq W \cap B$, and an sc⁺-retraction $t_\sigma = \Gamma \circ \kappa_\sigma \circ p \circ t$ onto $Q \cap G \cap f_\sigma$, $f_\sigma = \{\lambda_i =
 0, i \in \sigma\}$, whose tangent spaces contain $T_yQ \cap f_\sigma$. A retraction onto a subset of $f_\sigma$ has a corner model on
@@ -4854,7 +4854,7 @@ now applied to $A \cap F_\sigma$, conclude the proof"). *Hidden hypotheses:* non
 
 **V4.52 (sc⁺-retractions in a chart, and Theorem 4.2.11 (4) (preprint 4.22) for one $\sigma$;
 `Polyfold.MPolyfold.isScPlusRetractionOn_of_chart`, `Polyfold.MChart.cornerPreimage`,
-`Polyfold.MPolyfold.theorem_4_22_four_of_chart`).** For a chart $\chi$ of $X$ and an sc⁺-retraction $\tau$ of its model with
+`Polyfold.MPolyfold.theorem_4_2_11_four_of_chart`).** For a chart $\chi$ of $X$ and an sc⁺-retraction $\tau$ of its model with
 $\tau(U) \subseteq O$, $\chi^{-1} \circ \tau \circ \chi$ is an sc⁺-retraction on the open set $\chi^{-1}(\tau.U)$ with image $\chi^{-1}(\tau(U))$.
 In a tame chart $\psi$ centred at $x$ with the data of V4.49 for the chart retraction of $A$, for every $\sigma$ there are faces
 $F_i \ni 0$ and an open $G \ni 0$ such that $\psi^{-1}(G \cap \bigcap_{i \in \sigma}F_i)$ contains $x$, lies in the open set $W$ of the
@@ -4872,7 +4872,7 @@ is a *stratified regular value* if every $z \in A$ over $\lambda$ is a stratifie
 proof of Theorem 4.3.1 (preprint 4.23), p. 194 (preprint p. 166) ("regular values of $p_\sigma$"). *Hidden hypotheses:* the chart form (gap G.7).
 *Deviation (restated):* the chart independence is not formalized (gap G.36).
 
-**V4.54 (Theorem 4.3.1 (preprint 4.23); `Polyfold.theorem_4_23`).** Let $X$ be tame and $A$ a smooth finite-dimensional submanifold of
+**V4.54 (Theorem 4.3.1 (preprint 4.23); `Polyfold.theorem_4_3_1_preprint`).** Let $X$ be tame and $A$ a smooth finite-dimensional submanifold of
 $\mathbb R^m \times X$ with tame induced structure and compact closure, $\varepsilon > 0$, and suppose (1) for $|\lambda| \le \varepsilon$ ($|\lambda|^2 =
 \sum\lambda_i^2$) the set $A \cap \{z_1 = \lambda\}$ is compact and non-empty, (2) $A$ is in general position at every point. Then there is
 $\Sigma \subseteq \{|\lambda| < \varepsilon\}$ whose complement in $\{|\lambda| < \varepsilon\}$ is Lebesgue-null, consisting of stratified regular values,
@@ -4884,9 +4884,9 @@ tameness of $A$, the non-emptiness in (1) and $\varepsilon > 0$ are not used, an
 values the conclusion fails at the value: in $\mathbb R \times [0, \infty)$, $A = \{(x, x) : 0 \le x < 1\} \cup (-1, 1) \times \{5\}$ satisfies
 the hypotheses, $Dp$ is onto everywhere, and $A_0 = \{0, 5\}$ meets $\partial X$ (Findings, item 102).
 
-**V4.55 (Remark 4.3.2 (preprint 4.24); `Polyfold.quotDim_le_finrank_of_eq_sup`, `Polyfold.remark_4_24_chart`,
-`Polyfold.MPolyfold.remark_4_24_codim`, `Polyfold.MPolyfold.remark_4_24`,
-`Polyfold.MPolyfold.remark_4_24_not_mem_boundary`).** For tame $X$ and smooth $x$, in a tame chart at $x$ the reduced tangent
+**V4.55 (Remark 4.3.2 (preprint 4.24); `Polyfold.quotDim_le_finrank_of_eq_sup`, `Polyfold.remark_4_3_2_chart`,
+`Polyfold.MPolyfold.remark_4_3_2_codim`, `Polyfold.MPolyfold.remark_4_3_2`,
+`Polyfold.MPolyfold.remark_4_3_2_not_mem_boundary`).** For tame $X$ and smooth $x$, in a tame chart at $x$ the reduced tangent
 space has codimension $d_X(x)$ in the tangent space. If $A$ is in general position at $a$, then $d_X(a) \le \dim T_aA$ (in any
 tame chart at $a$); in particular a submanifold in general position with $T_aA = 0$ does not meet $\partial X$ at $a$. *Book:*
 Remark 4.3.2 (preprint 4.24), p. 193 (preprint p. 165). *Hidden hypotheses:* $X$ tame and $x$ smooth for the codimension. *Deviation (hypotheses
@@ -4911,7 +4911,7 @@ $\Sigma_\sigma$ ... having full measure"). *Hidden hypotheses:* the dimension co
 cites "Theorem 4.23" for it). *Deviation (restated):* in the model space $T_0A$ of the chart.
 
 **V4.58 (Theorem 3.8.22 (preprint 3.78) in $C^\infty$ form; `Polyfold.ContractionData.exists_solution_smooth`,
-`Polyfold.theorem_3_78_smooth`).** Under the hypotheses of Theorem 3.8.22 (preprint 3.78) (V3.63) with $f$ of class $C^\infty$, one solution $\tau$
+`Polyfold.theorem_3_8_22_smooth`).** Under the hypotheses of Theorem 3.8.22 (preprint 3.78) (V3.63) with $f$ of class $C^\infty$, one solution $\tau$
 is $C^\infty$ on $V'$, with the other conclusions of V3.63 (including the uniqueness clause). *Book:* Theorem 3.8.22 (preprint 3.78), p. 169 (preprint p. 141),
 states one $j$; the proof of Theorem 4.3.1 (preprint 4.23) needs $C^\infty$. *Hidden hypotheses:* none. *Deviation (stronger):* the
 contraction radii of Lemmas 3.8.23, 3.8.24 (preprint 3.79, 3.80) and the fixed point do not depend on $j$.
@@ -4953,7 +4953,7 @@ general position and in good position at $z_2$. *Book:* proof of Theorem 4.3.1 (
 hypotheses:* none. *Deviation (restated):* in the product chart of a tame chart of $X$ centred at $z_{0,2}$, through V4.49,
 V4.57, V4.60–V4.62.
 
-**V4.64 (the countable cover: Theorem 4.3.1 (preprint 4.23) for any parameter set; `Polyfold.theorem_4_23_of_subset`).** For $X$ tame, $A \subseteq
+**V4.64 (the countable cover: Theorem 4.3.1 (preprint 4.23) for any parameter set; `Polyfold.theorem_4_3_1_of_subset`).** For $X$ tame, $A \subseteq
 \mathbb R^m \times X$ a smooth finite-dimensional submanifold with compact closure, in general position at every point, and any $S \subseteq
 \mathbb R^m$, there is $\Sigma \subseteq S$ with $S \setminus \Sigma$ Lebesgue-null such that every $\lambda \in \Sigma$ is a stratified regular value and the
 conclusions of V4.63 hold at every point of $A_\lambda$. *Book:* proof of Theorem 4.3.1 (preprint 4.23), p. 193 (preprint p. 165) ("We cover the set $\{z \in A : |p(z)|
@@ -4962,7 +4962,7 @@ set need not be compact and need not have a finite subcover (in $\mathbb R \time
 x), x) : 0 < x < 1\}$); $A$ is second countable, its closure being compact in the metrizable $\mathbb R^m \times X$, and countably many
 neighbourhoods cover it (Findings, item 103).
 
-**V4.65 (Theorem 4.2.11 (preprint 4.22) in the 2021 form of (1); `Polyfold.MPolyfold.theorem_4_2_11_2021`).** Let $X$ be a
+**V4.65 (Theorem 4.2.11 (preprint 4.22) in the 2021 form of (1); `Polyfold.MPolyfold.theorem_4_2_11`).** Let $X$ be a
 tame M-polyfold, $A \subseteq X$ a smooth finite-dimensional submanifold and $x \in A$ a point at which $A$ is in general
 position. There are a tame chart $\psi$ of $X$ with $\psi(x) = 0$, with a tame retraction $R$ onto its model $O$ and a presentation
 $T : E \cong \mathbb R^n \oplus W$ of its partial quadrant, and an open $U \ni x$ inside the chart domain, such that: (1) $d_X(x) = n$,
@@ -4974,7 +4974,7 @@ and their identification with faces of $U$ itself is not formalized (gap G.35). 
 faces through $\psi(x)$, which is the 2021 statement; the germs $\psi^{-1}(G \cap F_i)$ that contain $x$ and lie in $U$ are read off
 from (4) for $\sigma = \{i\}$.
 
-**V4.66 (Theorem 4.3.1 (preprint 4.23) in the 2021 form; `Polyfold.theorem_4_3_1_2021`).** Let $X$ be tame and $A \subseteq
+**V4.66 (Theorem 4.3.1 (preprint 4.23) in the 2021 form; `Polyfold.theorem_4_3_1`).** Let $X$ be tame and $A \subseteq
 \mathbb R^m \times X$ a smooth finite-dimensional submanifold with tame induced structure and compact closure, $\varepsilon > 0$, such
 that (1) $A \cap \{z_1 = \lambda\}$ is compact for every $\lambda$ with $|\lambda| \le \varepsilon$ (possibly empty), and (2) $A$ is in
 general position at every point. Then there is a **measurable** $\Sigma \subseteq \{|\lambda| < \varepsilon\}$ whose complement in
@@ -5034,7 +5034,7 @@ tangent to $O$. *Book:* §4.5.1, pp. 200–201, new in the 2021 edition. *Hidden
 read as the derivative of $\tilde A = A \circ r^1$, the principal part being defined only on $O^1$; the computation is the
 text's, with the symmetry of V4.70 (Findings, item 154).
 
-**V4.72 (Proposition 4.4.5 (preprint 4.26) in a local model; `Polyfold.proposition_4_4_5_local_2021`,
+**V4.72 (Proposition 4.4.5 (preprint 4.26) in a local model; `Polyfold.proposition_4_4_5_local`,
 `Polyfold.isScSmooth_scDeriv_apply`, `Polyfold.levelMap_shift_shift_eq`, `Polyfold.levelMap_comp_shift_eq`).** For vector fields
 $A$, $B$ on $(O, C, E)$ and an sc-smooth retraction $r$ onto $O$: $(x, [A, B](x)) \in TO$ for every $x \in O_2$, and $x \mapsto (x, [A,
 B](x))$ is an sc-smooth map from the retract $(O^2, C^2, E^2)$ to $(TO, TC, TE)$, the local form of "$[A, B]$ is an sc-smooth
@@ -5046,8 +5046,8 @@ pull-back bundle $TX|X^2 \to X^2$ is not built (gap G.92). *Proof:* the second c
 D\tilde B(r^2x)(\tilde A)_1(x)$ on $U^2$, sc-smooth as the tangent map of $\tilde A$ composed with the sc-smooth pair $(r^2,
 (\tilde B)_1)$, and equal to $[A, B] \circ r^2$; the first is V4.71.
 
-**V4.73 (the level of the bracket on pp. 200–201; `Polyfold.lieBracket_level_counterexample_2021`,
-`Polyfold.not_forall_lieBracket_mem_level_one_2021`, `Polyfold.BracketLevel.opS`, `Polyfold.BracketLevel.opT`,
+**V4.73 (the level of the bracket on pp. 200–201; `Polyfold.lieBracket_level_counterexample`,
+`Polyfold.not_forall_lieBracket_mem_level_one`, `Polyfold.BracketLevel.opS`, `Polyfold.BracketLevel.opT`,
 `Polyfold.BracketLevel.xPt`, `Polyfold.BracketLevel.bracket_not_mem_level_one`, `Polyfold.isRetractVectorField_scOperator`,
 `Polyfold.retractLieBracket_scOperator`).** There are an sc-Banach space $E$, the identity retraction of $E$ onto $O = E$ (with $C
 = E$), vector fields $A$, $B$ on $(O, C, E)$ and a point $x \in O_2$ with $[A, B](x) \notin E_1$; so the statement "$[A, B](x) \in E_1$
@@ -5101,7 +5101,7 @@ parts.
 **V4.76 (Proposition 4.4.5 (preprint 4.26) on an M-polyfold; `Polyfold.MPolyfold.levelLift_levelChart_spec`,
 `Polyfold.MPolyfold.lieBracketPre`, `Polyfold.MPolyfold.lieBracket`, `Polyfold.MPolyfold.tangentProj_lieBracket`,
 `Polyfold.MPolyfold.tangentChartMap_lieBracket`, `Polyfold.MPolyfold.tangentChartMap_lieBracket_eq`,
-`Polyfold.MPolyfold.continuous_lieBracket`, `Polyfold.proposition_4_4_5_2021`).** For sc-smooth vector fields $A$, $B$ on the
+`Polyfold.MPolyfold.continuous_lieBracket`, `Polyfold.proposition_4_4_5`).** For sc-smooth vector fields $A$, $B$ on the
 M-polyfold $X$, the Lie bracket $[A, B] : X^2 \to TX$, $X^2 = (X^1)^1$, is the tangent vector at $x$ represented by $[A_\varphi,
 B_\varphi](\varphi(x))$ in a chart $\varphi$ chosen around $x$. In every chart $\psi$ around $x$, $T\psi([A, B](x)) = (\psi(x), [A_\psi,
 B_\psi](\psi(x)))$, so $[A, B]$ depends neither on the chart nor on the retraction chosen for its model; $p([A, B](x)) = x$; and
@@ -5116,7 +5116,7 @@ this closes gap G.38 (Findings, item 161). *Proof:* in the chart $(\psi^1)^1$ of
 tangent chart $T\psi$, $[A, B]$ reads $z \mapsto (z, [A_\psi, B_\psi](z))$, sc-smooth by V4.72; the chart does not matter by V4.75.
 
 **V4.77 (Lemma 4.5.1 on M-polyfolds; `Polyfold.MPolyfold.liftLevelOneMap`, `Polyfold.MPolyfold.levelTwoMap`,
-`Polyfold.MPolyfold.levelMap_coord_levelLift`, `Polyfold.lemma_4_5_1_2021`).** Let $f : X \to Y$ be an sc-smooth map of
+`Polyfold.MPolyfold.levelMap_coord_levelLift`, `Polyfold.lemma_4_5_1`).** Let $f : X \to Y$ be an sc-smooth map of
 M-polyfolds with level maps $f_1 : X^1 \to Y^1$ and $f_2 : X^2 \to Y^2$, $A$, $B$ sc-smooth vector fields on $X$ and $A'$, $B'$ on
 $Y$ with $Tf(A(x)) = A'(f_1(x))$ and $Tf(B(x)) = B'(f_1(x))$ for every $x \in X^1$. Then $Tf([A, B](x)) = [A', B'](f_2(x))$ for
 every $x \in X^2$. *Book:* Lemma 4.5.1, p. 201, new in the 2021 edition, whose proof is left to the reader: for a local
@@ -5130,7 +5130,7 @@ $Tf$ reads $T(\psi \circ f \circ \varphi^{-1})$, the principal parts are related
 model where it is defined, and V4.74 applies there.
 
 **V4.78 (Lemma 4.4.4 on an M-polyfold, $i = 1$; `Polyfold.MPolyfold.vectorFieldLevelOne`, `Polyfold.MPolyfold.raiseIndex`,
-`Polyfold.lemma_4_4_4_2021`, `Polyfold.MPolyfold.tangentShiftEquiv`, `Polyfold.proposition_2_3_17_2021`).** For an sc-smooth
+`Polyfold.lemma_4_4_4`, `Polyfold.MPolyfold.tangentShiftEquiv`, `Polyfold.proposition_2_3_17`).** For an sc-smooth
 vector field $A$ on $X$, let $A_1 : X^2 \to (TX)^1$ be its level-$1$ map and $\Phi : T(X^1) \to (TX)^1$ the identification of
 Proposition 2.3.17 (an sc-diffeomorphism, compatible with the projections to $X^2$). Then $A^{(1)} = \Phi^{-1} \circ A_1$ is an
 sc-smooth vector field on the M-polyfold $X^1$, that is, an sc-smooth section of $T(X^1) \to X^2$, and $\Phi(A^{(1)}(x)) = A(x)$ in
@@ -5138,16 +5138,16 @@ $(TX)^1$ for every $x \in X^2$. *Book:* Lemma 4.4.4, p. 196, new in the 2021 edi
 \to (X^1)^i$ with $T(X^i) \to X^{i+1}$ the index of $A$ can be raised by every $i \ge 0$. *Hidden hypotheses:* none.
 *Deviation (narrower):* $i = 1$; every fixed $i$ follows by applying the lemma to $X^1$, $X^2$, …, since $A^{(1)}$ is again an
 sc-smooth vector field; the statement for every $i$ is V4.79 (Findings, items 160, 164). The identification $(TX)^i \cong
-T(X^i)$ is Proposition 2.3.17 (`Polyfold.proposition_2_3_17_2021`, `Polyfold.proposition_2_3_17_two_2021`, and for every $i$
-`Polyfold.proposition_2_3_17_all_2021`; gap G.6, closed). *Proof:* $A_1$ is sc-smooth (the level-$1$ map of an sc-smooth map), $\Phi^{-1}$ is sc-smooth, and $\Phi$ is
+T(X^i)$ is Proposition 2.3.17 (`Polyfold.proposition_2_3_17`, `Polyfold.proposition_2_3_17_two`, and for every $i$
+`Polyfold.proposition_2_3_17_all`; gap G.6, closed). *Proof:* $A_1$ is sc-smooth (the level-$1$ map of an sc-smooth map), $\Phi^{-1}$ is sc-smooth, and $\Phi$ is
 compatible with the projections, so $p \circ A^{(1)}$ is the identity of $X^2$.
 
 **V4.79 (Lemma 4.4.4 on an M-polyfold, every $i$; `Polyfold.BundledMPolyfold`, `Polyfold.BundledMPolyfold.lift`,
 `Polyfold.BundledMPolyfold.raiseIndexAll`, `Polyfold.BundledMPolyfold.tangentIncl_raiseIndexAll`,
 `Polyfold.BundledMPolyfold.vectorFieldScMap`, `Polyfold.BundledMPolyfold.tangentLiftEquiv_raiseIndexAll`,
-`Polyfold.lemma_4_4_4_all_2021`, `Polyfold.BundledMPolyfold.lemma_4_4_4_all_2021_zero`,
+`Polyfold.lemma_4_4_4_all`, `Polyfold.BundledMPolyfold.lemma_4_4_4_all_zero`,
 `Polyfold.BundledMPolyfold.tangentLiftEquiv`, `Polyfold.BundledMPolyfold.shiftLiftEquiv`,
-`Polyfold.proposition_2_3_17_all_2021`).** Let $X$ be an M-polyfold, $X^i$ its $i$-th lift ($X^0 = X$, $X^{i+1} = (X^i)^1$), and
+`Polyfold.proposition_2_3_17_all`).** Let $X$ be an M-polyfold, $X^i$ its $i$-th lift ($X^0 = X$, $X^{i+1} = (X^i)^1$), and
 $\Phi_i : T(X^i) \to (TX)^i$, $J_i : (X^1)^i \to (X^i)^1$ the sc-diffeomorphisms of Proposition 2.3.17 for every $i$. For an
 sc-smooth vector field $A$ on $X$ put $A^{(0)} = A$ and $A^{(i+1)} = (A^{(i)})^{(1)}$, the index raise of V4.78 on $X^i$. Then for
 every $i \ge 0$: $A^{(i)}$ is an sc-smooth vector field on $X^i$, a section of $T(X^i) \to X^{i+1}$; it is $A$, in that its image
@@ -5290,27 +5290,27 @@ triangle inequality) for which every Cauchy sequence converges, and (2) if $P(w_
 *Deviation (restated):* "complete norm" is read as a norm on $(Y_{0,1})_x$ with complete normed space; the topology of
 $Y_{0,1}$ is that of $Y[1]$ (Findings, item 1).
 
-**V5.4 (Lemma 5.1.2 (preprint 5.2); `Polyfold.lemma_5_2`, `Polyfold.StrongBundle.exists_le_mul_norm_liftOne`,
-`Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le`, `Polyfold.StrongBundle.IsAuxNorm.exists_bounds`, `Polyfold.lemma_5_2_literal`).**
+**V5.4 (Lemma 5.1.2 (preprint 5.2); `Polyfold.lemma_5_1_2`, `Polyfold.StrongBundle.exists_le_mul_norm_liftOne`,
+`Polyfold.StrongBundle.IsAuxNorm.exists_norm_liftOne_le`, `Polyfold.StrongBundle.IsAuxNorm.exists_bounds`, `Polyfold.lemma_5_1_2_literal`).**
 Let $N : Y[1] \to \mathbb R$ be continuous and a complete norm on every fibre. Then $N$ is an auxiliary norm iff every $x \in X$ lies in the
 domain of a strong bundle chart $\Phi$ with an open neighbourhood $V \subseteq \operatorname{dom}\varphi$ of $x$ and constants $0 < a < A$
 such that $a\,N(w) \le |h|_1 \le A\,N(w)$ for all $w \in Y_{0,1}$ with $P(w) \in V$, $\Phi(w) = (p, h)$. For an auxiliary norm such bounds
-hold in *every* strong bundle chart around $x$; in the text's literal form (`lemma_5_2_literal`) the bounds hold for all $w \in Y_{0,1}$
+hold in *every* strong bundle chart around $x$; in the text's literal form (`lemma_5_1_2_literal`) the bounds hold for all $w \in Y_{0,1}$
 over the whole domain of the chart, obtained by restricting the chart to the neighbourhood (V2.57); the upper bound $g(w) \le C|h|_1$ holds
 for every $g$ continuous at $0_x$ and homogeneous on the fibres near $x$. *Book:* Lemma 5.1.2 (preprint 5.2), p. 205 (preprint p. 169); proof pp. 205–206 (preprint pp. 169–170). *Hidden hypotheses:*
 the proof gives the bounds near $x$ only; on all of $P^{-1}(V)$ for the domain $V$ of $\Phi$ they hold after restricting the chart, which
-the text does silently. *Deviation:* none for `lemma_5_2_literal`; the first form has $V$ a neighbourhood of $x$ on which the bounds hold;
+the text does silently. *Deviation:* none for `lemma_5_1_2_literal`; the first form has $V$ a neighbourhood of $x$ on which the bounds hold;
 the contradiction argument needs no metrizability (Findings, items 2, 3; Chapter 2, items 42, 44). Formerly "restated", before the literal
 form was proved.
 
-**V5.5 (Proposition 5.1.3 (preprint 5.3), existence; `Polyfold.proposition_5_3_exists`, `Polyfold.StrongBundle.gluedNorm`,
+**V5.5 (Proposition 5.1.3 (preprint 5.3), existence; `Polyfold.proposition_5_1_3_exists`, `Polyfold.StrongBundle.gluedNorm`,
 `Polyfold.StrongBundle.continuous_gluedNorm`, `Polyfold.StrongBundle.isCompleteFiberNorm_gluedNorm`,
 `Polyfold.StrongBundle.gluedNorm_bounds`).** Every strong bundle has an auxiliary norm: for the charts $\Phi_i$ of the atlas and a
 partition of unity $(\rho_i)$ subordinate to their domains, $N(w) = \sum_i\rho_i(P(w))\,|\Phi_i[1](w)_2|_1$ is continuous on $Y[1]$, a
 complete norm on every fibre, and comparable near each point with the norm $|\cdot|_1$ of any chart there. *Book:* Proposition
 5.1.3 (preprint 5.3), p. 206 (preprint p. 171). *Hidden hypotheses:* none. *Deviation:* none; the text's proof is one sentence (Findings, item 4).
 
-**V5.6 (Proposition 5.1.3 (preprint 5.3), comparison; `Polyfold.proposition_5_3_compare`).** For auxiliary norms $N_0$, $N_1$ there is a
+**V5.6 (Proposition 5.1.3 (preprint 5.3), comparison; `Polyfold.proposition_5_1_3_compare`).** For auxiliary norms $N_0$, $N_1$ there is a
 continuous $f : X \to (0, \infty)$ with $f(x)N_0(w) \le N_1(w) \le f(x)^{-1}N_0(w)$ for every $w \in Y_{0,1}$ over $x$. *Book:*
 Proposition 5.1.3 (preprint 5.3), p. 206 (preprint p. 171). *Hidden hypotheses:* none. *Deviation:* none; the statement's $N_0(h)$ is $N_0(w)$ (Findings, item 5).
 
@@ -5342,18 +5342,18 @@ suffices to find in local coordinates"). *Hidden hypotheses:* the uniform fibre 
 and its estimates (83), (85), and the closure is pulled back to $X$ because the retract is the fixed point set of the
 retraction (Findings, items 23, 24).
 
-**V5.10 (Theorem 5.2.2 (preprint 5.5); `Polyfold.theorem_5_5`, `Polyfold.theorem_5_5_iff`).** Let $f$ be an sc-Fredholm section of a strong
+**V5.10 (Theorem 5.2.2 (preprint 5.5); `Polyfold.theorem_5_2_2_preprint`, `Polyfold.theorem_5_2_2_iff`).** Let $f$ be an sc-Fredholm section of a strong
 bundle over an M-polyfold $X$. If $f$ has a compact solution set, $f$ is proper; and for $f$ the properties proper, weakly
 proper and having a compact solution set are equivalent. *Book:* Theorem 5.2.2 (preprint 5.5), p. 210 (preprint p. 172); proof §5.2 (preprint Appendix 5.4.1), preprint pp. 189–192.
 *Hidden hypotheses:* none. *Deviation (stronger):* $X$ need not be tame (the appendix states the theorem without
 tameness); the finite cover of $f^{-1}(0)$ and the closure of a finite union are made explicit (Findings, items 24, 25).
 
-**V5.11 (Theorem 5.2.3 (preprint 5.6); `Polyfold.theorem_5_6`).** Let $f$ be an sc-Fredholm section and $f(x) = 0$. There are open
+**V5.11 (Theorem 5.2.3 (preprint 5.6); `Polyfold.theorem_5_2_3`).** Let $f$ be an sc-Fredholm section and $f(x) = 0$. There are open
 neighbourhoods $x \in U(i + 1) \subseteq U(i)$ of $x$ in $X$ such that for every $i$ the closure in $X$ of $\{y \in U(i) \mid f(y) = 0\}$
 is the image of a compact subset of $X_i$ (with its level topology). *Book:* Theorem 5.2.3 (preprint 5.6), p. 213 (preprint p. 172). *Hidden hypotheses:*
 none. *Deviation:* none; it is Theorem 3.1.13 (preprint 3.12) at a zero, which is a smooth point where $(f, x)$ is an sc-Fredholm germ.
 
-**V5.12 (Theorem 5.2.4 (preprint 5.7); `Polyfold.theorem_5_7`, `Polyfold.MPolyfold.tendsto_smoothLevel_iff`,
+**V5.12 (Theorem 5.2.4 (preprint 5.7); `Polyfold.theorem_5_2_4`, `Polyfold.MPolyfold.tendsto_smoothLevel_iff`,
 `Polyfold.MPolyfold.smoothLevel_topology_eq`, `Polyfold.MPolyfold.metrizableSpace_smoothLevel`).** $X_\infty$ carries the initial
 topology of the inclusions $X_\infty \to X_m$; it is metrizable, and a sequence converges in it iff it converges on every level.
 If $f$ is an sc-Fredholm section whose solution set $S$ is compact in $X$, then $S \subseteq X_\infty$ and $S$ is a compact subset of
@@ -5361,7 +5361,7 @@ $X_\infty$. *Book:* Theorem 5.2.4 (preprint 5.7), p. 213 (preprint p. 172). *Hid
 *Deviation (stronger):* $X$ need not be tame. The convergence on every level of a sequence of zeros is Corollary 3.1.15 (preprint 3.13) at its
 limit, not Theorem 5.2.3 (preprint 5.6) as the text says (Findings, item 20).
 
-**V5.13 (Corollary 5.2.5 (preprint 5.8); `Polyfold.corollary_5_8`, `Polyfold.corollary_5_8_two`,
+**V5.13 (Corollary 5.2.5 (preprint 5.8); `Polyfold.corollary_5_2_5`, `Polyfold.corollary_5_2_5_two`,
 `Polyfold.StrongBundle.solutionSet_sectionShift`, `Polyfold.isCompact_solutionSet_level`).** Let $f$ be an sc-Fredholm
 section of $P : Y \to X$ (Definition 3.1.16 (preprint 3.14), in the text's germ reading of Definition 3.1.11 (preprint 3.11)) whose solution set is compact.
 Then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \to X^1$ (V5.14) and its solution
@@ -5380,7 +5380,7 @@ is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which would 
 `Polyfold.StrongBundle.regularizing_sectionShift`, `Polyfold.ScNbhdGerm.shiftParam`, `Polyfold.IsSc0ContractionGerm.shift`,
 `Polyfold.IsBasicGerm.shift`, `Polyfold.IsConjugateToBasicGerm.shift`, `Polyfold.IsConjugateToBasicGerm.shift_germ`,
 `Polyfold.IsFillingGerm.mem_range_toBase_of_fillDefect`, `Polyfold.IsFillingGerm.germ_shift`,
-`Polyfold.isScFredholmGerm_sectionShift`, `Polyfold.corollary_5_8_isScFredholmSection`, `Polyfold.corollary_5_8_chart`).**
+`Polyfold.isScFredholmGerm_sectionShift`, `Polyfold.corollary_5_2_5_isScFredholmSection`, `Polyfold.corollary_5_2_5_chart`).**
 *The shifted strong bundle.* $P^1 : Y^1 \to X^1$ is a strong bundle over the M-polyfold $X^1$ (Definition 2.6.5 (preprint 2.51)): its total
 space is $Y_{1,1}$, the level $1$ of the M-polyfold $Y[0]$ with its level topology; $P^1$ is the restriction of $P$; the
 fibre over $x$ is $P^{-1}(x) \cap Y_{1,1}$, a linear subspace, carrying the topology of $F_1$; and the atlas consists of the
@@ -5435,7 +5435,7 @@ it is open only at non-smooth points: at a smooth point of an sc-Banach space a 
 to $x$ by a smooth vector, and translation by a non-smooth vector does not preserve the levels; that the weak reading is
 exactly the density of the bump points is argued, one direction formalized (Findings, items 41, 160–163).
 
-**V5.17 (Propositions 5.3.2 and 5.5.3 (preprint 5.10 and 5.30); `Polyfold.proposition_5_30`, `Polyfold.proposition_5_10`).** If $X$ admits sc-smooth bump
+**V5.17 (Propositions 5.3.2 and 5.5.3 (preprint 5.10 and 5.30); `Polyfold.proposition_5_5_3`, `Polyfold.proposition_5_3_2`).** If $X$ admits sc-smooth bump
 functions, then for every $x$ and open $U \ni x$ there is an sc-smooth $f : X \to [0, 1]$ with $f(x) = 1$, $\operatorname{supp} f \subseteq U$, and $f
 \equiv 1$ on a neighbourhood of $x$. *Book:* Proposition 5.3.2 (preprint 5.10), p. 216 (preprint p. 173); Proposition 5.5.3 (preprint 5.30), p. 230 (preprint p. 193). *Hidden hypotheses:*
 Definition 5.3.1 (preprint 5.9) in the reading of V5.16. *Deviation:* none; the text's $\sigma$ ("$0$ for $s \le 1$ and $1$ for $s \ge 1$") is
@@ -5460,7 +5460,7 @@ $z \mapsto (z, \tau(z))$ is sc-smooth $O \to K[1]$, and $\beta : X \to \mathbb R
 construct $s$ with support in $Q'$ we can extend it by $0$"). *Hidden hypotheses:* none. *Deviation (not in the book):* the
 extension by $0$ is proved (Findings, item 46 (c)).
 
-**V5.20 (Lemma 5.3.3 (preprint 5.11); `Polyfold.lemma_5_11`).** Let $X$ admit sc-smooth bump functions and $N$ be an auxiliary norm. For a
+**V5.20 (Lemma 5.3.3 (preprint 5.11); `Polyfold.lemma_5_3_3`).** Let $X$ admit sc-smooth bump functions and $N$ be an auxiliary norm. For a
 smooth point $x$, a smooth point $e$ of $Y$ with $P(e) = x$, $\varepsilon > 0$ and an open $U \ni x$, there is an sc⁺-section $s$ with $s(x) =
 e$, $\operatorname{supp} s \subseteq U$ and $N(s(y)) < N(e) + \varepsilon$ **for all $y$**. *Book:* Lemma 5.3.3 (preprint 5.11), p. 217 (preprint p. 173); proof preprint p. 174. *Hidden
 hypotheses:* Definition 5.3.1 (preprint 5.9) in the reading of V5.16. *Deviation (stronger):* the bound holds at every point (the text's
@@ -5485,14 +5485,14 @@ differentiable at $0$, while the fibre part of an sc⁺-section of the trivial b
 text's setting ($U$ containing a non-isolated point over which $Y_{0,1} \ne 0$) is expected by the same mechanism and not
 formalized (Findings, items 47, 150–153).
 
-**V5.22 (Remark 5.3.4 (preprint 5.12); `Polyfold.remark_5_12`, `Polyfold.StrongBundle.IsAuxNorm.auxLe_of_sectionAdd`,
-`Polyfold.StrongBundle.IsInAllowableCompletion`, `Polyfold.remark_5_12_completion`, `Polyfold.remark_5_12_of_isScFredholmSection`).** Let
+**V5.22 (Remark 5.3.4 (preprint 5.12); `Polyfold.remark_5_3_4`, `Polyfold.StrongBundle.IsAuxNorm.auxLe_of_sectionAdd`,
+`Polyfold.StrongBundle.IsInAllowableCompletion`, `Polyfold.remark_5_3_4_completion`, `Polyfold.remark_5_3_4_of_isScFredholmSection`).** Let
 $f$ have its solution set inside the open $U$ with $\operatorname{cl}\{x \in U \mid N(f(x)) \le 1\}$ compact. If a section $s$ vanishes
 outside $U$ and has $N(s(x)) \le 1$ everywhere — as the uniform limits of allowable sections do — then the solutions of $f + s = 0$ lie in
-$\{x \in U \mid N(f(x)) \le 1\}$, and their closure is compact. As stated (`remark_5_12_completion`): with the points of the completion
+$\{x \in U \mid N(f(x)) \le 1\}$, and their closure is compact. As stated (`remark_5_3_4_completion`): with the points of the completion
 represented by sections $s$ with values in $Y_{0,1}$ that are uniform $N$-limits of allowable sections (`IsInAllowableCompletion`), for $f$
 continuous the solution set of $f + s = 0$ is closed, hence compact; for $f$ sc-Fredholm with compact solution set, with the $U$ of Theorem
-5.2.2 (preprint 5.5) (`remark_5_12_of_isScFredholmSection`). *Book:* Remark 5.3.4 (preprint 5.12), p. 217 (preprint p. 174). *Hidden hypotheses:* none. *Deviation (restated):* the completion
+5.2.2 (preprint 5.5) (`remark_5_3_4_of_isScFredholmSection`). *Book:* Remark 5.3.4 (preprint 5.12), p. 217 (preprint p. 174). *Hidden hypotheses:* none. *Deviation (restated):* the completion
 of $\Gamma^{+,1}_U$ is represented by sections, uniform $N$-limits of allowable sections; the metric space itself is V5.21, and
 that every $\rho$-Cauchy sequence has such a limit section is not formalized (Findings, items 131, 153). The closedness of the solution set, which the remark does not discuss, is
 proved by a chart argument: Lemma 5.1.2's (preprint 5.2) bound turns $N(s - s') \le \varepsilon$ into a level-$0$ bound in a chart, and $f + s'$ is
@@ -5553,7 +5553,7 @@ R^m$"). *Hidden hypotheses:* none. *Deviation (not in the book):* $\tilde S$ is 
 applied in its stratified form on the model of the regular tangent germ chart of Theorem 3.6.8 (2) (preprint 3.54), which avoids showing that
 the points over the zeros are interior (Findings, items 64, 65).
 
-**V5.29 (Theorem 5.3.5 (preprint 5.13), generic form; `Polyfold.theorem_5_13_generic`, `Polyfold.StrongBundle.SolutionSetIsManifold`).** Let
+**V5.29 (Theorem 5.3.5 (preprint 5.13), generic form; `Polyfold.theorem_5_3_5_generic`, `Polyfold.StrongBundle.SolutionSetIsManifold`).** Let
 $\partial X = \emptyset$, $X$ admit sc-smooth bump functions, $f$ be an sc-Fredholm section with tame germ data and compact solution set,
 and $N$ an auxiliary norm. There is an open $U \supseteq S_f$ such that (1) $S_{f+s}$ is compact for every $s \in \Gamma^{+,1}_U(P)$, and (2) for
 every sc⁺-section $s_0$ with $\operatorname{supp}s_0 \subseteq U$ and $N(s_0(x)) \le 1 - \varepsilon$ ($\varepsilon > 0$) there are allowable $t_1, \dots, t_m \in
@@ -5564,7 +5564,7 @@ data at every zero of dimension the Fredholm index of $(f + s_\lambda)'(y)$. *Bo
 statement's "$N(f(x)) \le 1$" is $N(s(x)) \le 1$ and "$(f, x)$ in good position" is $(f + s, x)$. *Deviation (restated):* the
 dense set of the text is described as the parameters off a null set of a ball (Findings, items 60, 62, 74, 75).
 
-**V5.30 (Theorem 5.3.5 (preprint 5.13), the text's dense form; `Polyfold.theorem_5_13`, `Polyfold.StrongBundle.allowableDist_le_iff`).** Under the hypotheses of V5.29 there is an open $U
+**V5.30 (Theorem 5.3.5 (preprint 5.13), the text's dense form; `Polyfold.theorem_5_3_5_preprint`, `Polyfold.StrongBundle.allowableDist_le_iff`).** Under the hypotheses of V5.29 there is an open $U
 \supseteq S_f$ such that $S_{f+s}$ is compact for every $s \in \Gamma^{+,1}_U(P)$, and for every allowable $s'$ and $\varepsilon > 0$ there is an
 allowable $s$ with $N(s(x) - s'(x)) \le \varepsilon$ for all $x$ such that $f + s$ is transversal and $S_{f+s}$ is compact and, if
 non-empty, a manifold without boundary as in V5.29. *Book:* Theorem 5.3.5 (preprint 5.13), pp. 217–218 (preprint pp. 174–175). *Hidden hypotheses:* as in
@@ -5629,7 +5629,7 @@ Theorem 5.3.10 (preprint 5.18), preprint p. 178. *Hidden hypotheses:* none. *Dev
 vectors, so that Lemma 5.3.3 (preprint 5.11) applies; (i)–(ii) give good position of $F$ first, and then, with $\ker F' = T\tilde S$, general position
 (Findings, item 84).
 
-**V5.37 (Theorem 5.3.10 (preprint 5.18) from a family; `Polyfold.theorem_5_18_of_family`,
+**V5.37 (Theorem 5.3.10 (preprint 5.18) from a family; `Polyfold.theorem_5_3_10_of_family`,
 `Polyfold.StrongBundle.SolutionSetInGeneralPosition`).** Let $X$ be tame, $f$ an sc-Fredholm section with tame germ data and
 compact solution set, $N$ an auxiliary norm. There is an open $U \supseteq S_f$ such that $S_{f+s}$ is compact for every $s \in \Gamma^{+,1}_U(P)$,
 and for every sc⁺-section $s_0$ with $\operatorname{supp}s_0 \subseteq U$, $N(s_0) \le 1 - \varepsilon$, and every family of allowable $t_1, \dots, t_m$ for which
@@ -5639,7 +5639,7 @@ position at every zero, and $S_{f+s_\lambda}$ is compact, a smooth finite-dimens
 point, whose induced structure has a corner structure and is tame, with $d_{S_{f+s_\lambda}} = d_X$ on it. *Book:* Theorem 5.3.10 (preprint 5.18), p. 220 (preprint p. 177); proof pp. 220–222 (preprint pp. 178–179). *Hidden hypotheses:* as in V5.38. *Deviation (not in the book):* the theorem with the family as a
 hypothesis; Theorem 4.3.1 (preprint 4.23) is used in its countable-cover form (Findings, item 85).
 
-**V5.38 (Theorem 5.3.10 (preprint 5.18), generic form; `Polyfold.theorem_5_18`).** Let $X$ be tame and admit sc-smooth bump functions, $f$ an
+**V5.38 (Theorem 5.3.10 (preprint 5.18), generic form; `Polyfold.theorem_5_3_10_param`).** Let $X$ be tame and admit sc-smooth bump functions, $f$ an
 sc-Fredholm section with tame germ data and compact solution set, $N$ an auxiliary norm. There is an open $U \supseteq S_f$ such
 that (1) $S_{f+s}$ is compact for every $s \in \Gamma^{+,1}_U(P)$, and (2) for every sc⁺-section $s_0$ with $\operatorname{supp}s_0 \subseteq U$ and $N(s_0(x))
 \le 1 - \varepsilon$ there are allowable $t_1, \dots, t_m$, $\delta > 0$ and a Lebesgue null set $CV$ such that for every $\lambda$ with $|\lambda| < \delta$,
@@ -5648,14 +5648,14 @@ proof pp. 219–222 (preprint pp. 177–179). *Hidden hypotheses:* $X$ tame (the
 discussion over a tame strong bundle); $f$ with tame germ data. *Deviation (restated):* the dense set is described as the
 parameters off a null set, as in V5.29; "replacing $f + s_0$ by $f$" is not needed (Findings, items 80, 85).
 
-**V5.39 (Theorem 5.3.10 (preprint 5.18), the text's dense form; `Polyfold.theorem_5_18_dense`).** Under the hypotheses of V5.38 there is an open
+**V5.39 (Theorem 5.3.10 (preprint 5.18), the text's dense form; `Polyfold.theorem_5_3_10_dense`).** Under the hypotheses of V5.38 there is an open
 $U \supseteq S_f$ such that $S_{f+s}$ is compact for every $s \in \Gamma^{+,1}_U(P)$, and for every allowable $s'$ and $\varepsilon > 0$ an allowable $s$
 with $N(s(x) - s'(x)) \le \varepsilon$ for all $x$ such that $f + s$ is transversal, $(f + s, x)$ is in general position at every $x \in
 S_{f+s}$, and $S_{f+s}$ is a compact smooth submanifold in general position with a tame corner structure and $d_{S_{f+s}} = d_X$.
 *Book:* Theorem 5.3.10 (preprint 5.18), p. 220 (preprint p. 177). *Hidden hypotheses:* as in V5.38. *Deviation (restated):* density as in V5.30 (Findings,
 item 80).
 
-**V5.40 (Theorem 5.3.12 (preprint 5.19), generic form; `Polyfold.theorem_5_19`, `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`).** Good
+**V5.40 (Theorem 5.3.12 (preprint 5.19), generic form; `Polyfold.theorem_5_3_12_param`, `Polyfold.StrongBundle.IsGoodPositionGermTame.congr_nhds`).** Good
 position depends only on the germ of the section. Let $X$ admit sc-smooth bump functions, $f$ be an sc-Fredholm section with
 tame germ data and compact solution set, $N$ an auxiliary norm, and $(f, x)$ in good position in a tame chart at every zero $x
 \in \partial X$. There is an open $U \supseteq S_f$ with $S_{f+s}$ compact for every $s \in \Gamma^{+,1}_U(P)$, and there are allowable $t_1, \dots, t_m$ with
@@ -5678,7 +5678,7 @@ hypotheses:* none. *Deviation (restated):* $Y|X_\tau$ is the pull-back bundle (P
 restrictions to $t^{-1}(0)$, $t^{-1}(1)$, and the identification up to isomorphism (Remark 5.3.14 (preprint 5.21)) is not formalized (gap G.47;
 Findings, item 100).
 
-**V5.42 (Lemma 5.3.16 (preprint 5.23); `Polyfold.lemma_5_23`, `Polyfold.ne_zero_of_isCompl_ker`, `Polyfold.exists_isCompl_ker_of_ne_zero`).** Let
+**V5.42 (Lemma 5.3.16 (preprint 5.23); `Polyfold.lemma_5_3_16_preprint`, `Polyfold.ne_zero_of_isCompl_ker`, `Polyfold.exists_isCompl_ker_of_ne_zero`).** Let
 $\ell : T \to \mathbb R$ be linear and non-zero and $Z$ a complement of $\ker\ell$. For every linear $\tau : S \to \mathbb R$ there is a unique linear $b : S \to Z$ with
 $\ell \circ b = \tau$, and $\ell \circ (b + a) = \tau$ whenever $\ell \circ b = \tau$ and $a$ takes values in $\ker\ell$. A non-zero complement of $\ker\ell$ exists only
 if $\ell \ne 0$, and then it can be spanned by a vector of any spanning set. *Book:* Lemma 5.3.16 (preprint 5.23), p. 224 (preprint p. 182), and the sentence before
@@ -5692,7 +5692,7 @@ Da(z)v \cdot w(z) + a(z) \cdot Dw(z)v$; $D(\ell(\rho(\cdot) - p))(z) = \ell \cir
 outside, is sc-smooth when $\beta$ is and $\operatorname{supp}\beta \subseteq \operatorname{dom}\varphi$. *Book:* proof of Lemma 5.3.17 (preprint 5.24), p. 225 (preprint pp. 182–183). *Hidden hypotheses:*
 none. *Deviation (not in the book):* tools for V5.44.
 
-**V5.44 (Lemma 5.3.17 (preprint 5.24); `Polyfold.exists_scPlusSection_linAt`, `Polyfold.lemma_5_24`).** Let $X$ admit sc-smooth bump functions,
+**V5.44 (Lemma 5.3.17 (preprint 5.24); `Polyfold.exists_scPlusSection_linAt`, `Polyfold.lemma_5_3_17`).** Let $X$ admit sc-smooth bump functions,
 $\Phi$ a strong bundle chart around the smooth point $x$, $z$ the level-$1$ point over $\varphi(x)$, and $e$ a smooth point of the fibre over
 $x$. For every continuous linear $\ell$ on the model space and open $U \ni x$ there is an sc⁺-section $s$ with $s(x) = 0$, $\operatorname{supp} s
 \subseteq U$ and $\mathrm{Lin}_s(z)v = \ell(v)\Phi(e)_2$ on $T_zO$. Hence, for a section $f$, a finite-dimensional $K \subseteq T_zO$ and a linear $b : K \to
@@ -5702,7 +5702,7 @@ the line of a smooth point $e$ is a hypothesis (the text's justification, "the i
 $Y_\infty$", is not formalized). *Deviation (restated):* $s'(x)$ is read in a chart, $T_xS$ as a finite-dimensional $K$; the graph
 of $S$ over $T_xS$ and the case distinction are not needed (Findings, item 102).
 
-**V5.45 (Theorem 5.25 (preprint); `Polyfold.theorem_5_25`).** Let $X$ be tame and admit sc-smooth bump functions, $f$ a proper
+**V5.45 (Theorem 5.25 (preprint); `Polyfold.theorem_5_25_preprint`).** Let $X$ be tame and admit sc-smooth bump functions, $f$ a proper
 sc-Fredholm section with tame germ data, $N$ an auxiliary norm. There is an open $U \supseteq S_f$ with $S_{f+s}$ compact for every $s \in
 \Gamma^{+,1}_U(P)$, and an $s \in \Gamma^{+,1}_U(P)$ such that $(f + s, x)$ is in good position in a tame chart at every $x \in S_{f+s}$, and $f + s$ has
 the conclusions of V5.37; in particular $S_{f+s}$ has a corner structure. *Book:* Theorem 5.25 (preprint), preprint pp. 186–187; proof preprint pp. 187–188. *Hidden hypotheses:* $f$ with tame germ data. *Deviation (restated):* $U$ is the neighbourhood the proof
@@ -5752,14 +5752,14 @@ sc-smooth $f : O \to \mathbb R$ with $f(x) \ne 0$ and support (in $O$) inside $W
 *Hidden hypotheses:* none. *Deviation (restated):* "$f \ne 0$" is read as $f(x) \ne 0$, as in V5.16 (Findings, items 41,
 43).
 
-**V5.52 (Theorem 5.5.7 (preprint 5.34); `Polyfold.theorem_5_34`).** $X$ admits sc-smooth bump functions iff some family of charts of $X$
+**V5.52 (Theorem 5.5.7 (preprint 5.34); `Polyfold.theorem_5_5_7`).** $X$ admits sc-smooth bump functions iff some family of charts of $X$
 covering $X$ has local models with the sc-smooth bump function property. *Book:* Theorem 5.5.7 (preprint 5.34), p. 231 (preprint p. 194) ("clearly").
 *Hidden hypotheses:* none. *Deviation (explicit):* the extension by $0$ of a local bump can fail to be continuous (a chart
 of the unit ball onto the whole space); the proof takes the local bump in a small ball whose preimage has closure inside the
 chart domain; "atlas" is read as a covering family of charts (Findings, item 43).
 
 **V5.53 (Proposition 5.5.8 (preprint 5.35) and M-polyfolds on sc-Hilbert spaces; `Polyfold.LocalModel.hasBumpProperty_of_quadratic`,
-`Polyfold.proposition_5_35`, `Polyfold.MPolyfold.admitsBumpFunctions_of_hilbert`).** If $\kappa\|v\|^2 \le b(v, v)$ for a continuous
+`Polyfold.proposition_5_5_8`, `Polyfold.MPolyfold.admitsBumpFunctions_of_hilbert`).** If $\kappa\|v\|^2 \le b(v, v)$ for a continuous
 bilinear $b$ on $E_0$ and some $\kappa > 0$ — in particular if $E_0$ is a Hilbert space, $\|v\|^2 = b(v, v)$ — the local model $(O, C, E)$
 has the sc-smooth bump function property. An M-polyfold covered by charts on sc-Hilbert spaces admits sc-smooth bump
 functions. *Book:* Proposition 5.5.8 (preprint 5.35), p. 231 (preprint p. 194); §5.3, p. 216 (preprint p. 173) ("for example, the case if $X$ is built on sc-Hilbert spaces").
@@ -5791,12 +5791,12 @@ sc-smooth partitions of unity. *Book:* proof of Theorem 5.5.10 (preprint 5.37), 
 in the text; the proof goes through Urysohn functions and Mathlib's bump coverings; metrizability is not used (Findings,
 item 112).
 
-**V5.57 (Theorem 5.5.10 (preprint 5.37); `Polyfold.theorem_5_37`).** $X$ admits sc-smooth partitions of unity subordinate to any open cover iff
+**V5.57 (Theorem 5.5.10 (preprint 5.37); `Polyfold.theorem_5_5_10`).** $X$ admits sc-smooth partitions of unity subordinate to any open cover iff
 some family of charts of $X$ covering $X$ has local models with the sc-smooth approximation property. *Book:* Theorem 5.5.10 (preprint 5.37),
 p. 232 (preprint p. 195). *Hidden hypotheses:* none. *Deviation (restated):* "atlas" is a covering family of charts; for "(i) $\Rightarrow$ (ii)" it is
 the family of V5.55 (Findings, items 111, 112).
 
-**V5.58 (Proposition 5.5.11 (preprint 5.38); `Polyfold.proposition_5_38`).** If $E_0$ admits $C^\infty$ partitions of unity, every local model $(O, C, E)$
+**V5.58 (Proposition 5.5.11 (preprint 5.38); `Polyfold.proposition_5_5_11`).** If $E_0$ admits $C^\infty$ partitions of unity, every local model $(O, C, E)$
 has the sc-smooth approximation property. *Book:* Proposition 5.5.11 (preprint 5.38), p. 234 (preprint p. 197). *Hidden hypotheses:* "the sc-Banach space
 admits smooth partitions of unity" is read for $E_0$. *Deviation (explicit):* not "an immediate consequence of Theorem 5.37"
 (which yields some atlas, and would need partitions of unity on an open subset of $C$); the argument of "(i) $\Rightarrow$ (ii)" is
@@ -5815,7 +5815,7 @@ compact in the weak topology has dense linear span; it is reflexive if the canon
 Definition 5.5.14 (preprint 5.41), p. 234 (preprint p. 198) (reflexivity is used in Proposition 5.5.15 (preprint 5.42), not defined). *Hidden hypotheses:* none. *Deviation:*
 none (Findings, item 114).
 
-**V5.61 (Proposition 5.5.15 (preprint 5.42); `Polyfold.proposition_5_42_reflexive`, `Polyfold.proposition_5_42_separable`,
+**V5.61 (Proposition 5.5.15 (preprint 5.42); `Polyfold.proposition_5_5_15_reflexive`, `Polyfold.proposition_5_5_15_separable`,
 `Polyfold.span_closedBall_eq_top`).** (i) A reflexive Banach space is WCG; (ii) a separable Banach space is WCG. *Book:*
 Proposition 5.5.15 (preprint 5.42), p. 235 (preprint p. 198). *Hidden hypotheses:* none. *Deviation:* none; Kakutani's theorem is Mathlib's Banach–Alaoglu
 argument, and in (ii) a dense sequence of the space, suitably scaled, replaces the text's $\{0\} \cup \{x_n/n\}$ (Findings, item 115).
@@ -5826,7 +5826,7 @@ space with a $C^k$-bump function admits $C^k$ partitions of unity. A Banach spac
 form has a $C^\infty$-bump function and, if complete, is reflexive. *Book:* Theorem 5.5.16 (preprint 5.43), p. 235 (preprint p. 198); proof of Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199) ("a Hilbert space is reflexive"). *Hidden hypotheses:* none. *Deviation:* Theorem 5.5.16 (preprint 5.43) is not proved (gap G.53)
 (Findings, items 116, 117).
 
-**V5.63 (Corollary 5.5.17 (preprint 5.44); `Polyfold.corollary_5_44`, `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert`).** If $E_0$ is a
+**V5.63 (Corollary 5.5.17 (preprint 5.44); `Polyfold.corollary_5_5_17`, `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert`).** If $E_0$ is a
 Hilbert space ($\|v\|^2 = b(v, v)$) and Theorem 5.5.16 (preprint 5.43) holds for $E_0$ and $k = \infty$, the local model $(O, C, E)$ has the sc-smooth
 approximation property. An M-polyfold covered by charts on such spaces admits sc-smooth partitions of unity. *Book:*
 Corollary 5.5.17 (preprint 5.44), p. 235 (preprint p. 199). *Hidden hypotheses:* Theorem 5.5.16 (preprint 5.43) for $E_0$ (cited, not proved). *Deviation (narrower):* Theorem 5.5.16 (preprint 5.43)
@@ -5858,7 +5858,7 @@ edition. *Hidden hypotheses:* $f$ continuous for the two arrows from a propernes
 closed, as in V5.7. *Deviation (explicit):* the text gives no argument; a solution of $f = s$ lies in $U$ (outside $U$, $s$
 vanishes, so it would be a zero of $f$), where $N(f(x)) = N(s(x)) \le C$ (Findings, item 171).
 
-**V5.66 (Theorem 5.2.2 (preprint 5.5) in the 2021 form; `Polyfold.theorem_5_2_2_2021`, `Polyfold.theorem_5_2_2_2021_tfae`).** Let $f$
+**V5.66 (Theorem 5.2.2 (preprint 5.5) in the 2021 form; `Polyfold.theorem_5_2_2`, `Polyfold.theorem_5_2_2_tfae`).** Let $f$
 be an sc-Fredholm section of a strong bundle over an M-polyfold $X$. If $f$ has a compact solution set, $f$ is proper$_{<\infty}$;
 and for $f$ the five properties of V5.64 — compact solution set, weakly proper, proper, weakly proper$_{<\infty}$ and
 proper$_{<\infty}$ — are equivalent. *Book:* Theorem 5.2.2 (preprint 5.5), p. 210 (preprint p. 172); proof pp. 210–213. *Hidden
@@ -5866,7 +5866,7 @@ hypotheses:* none. *Deviation:* none; as in V5.10, $X$ need not be tame and the 
 zero, the closure of $\{N(f) \le C\}$ lies in the compact set of V5.9 for the bound $A \cdot C$, where $A$ compares $N$ with the
 chart norm, so the neighbourhood does not depend on $C$ (Findings, item 172).
 
-**V5.67 (Theorem 5.3.5 (preprint 5.13) in the 2021 form; `Polyfold.theorem_5_3_5_2021`, `Polyfold.isSubMPolyfold_solutionSet_of_manifold`).**
+**V5.67 (Theorem 5.3.5 (preprint 5.13) in the 2021 form; `Polyfold.theorem_5_3_5`, `Polyfold.isSubMPolyfold_solutionSet_of_manifold`).**
 Under the hypotheses of V5.29 ($\partial X = \emptyset$, sc-smooth bump functions, $f$ sc-Fredholm with tame germ data and compact
 solution set, $N$ an auxiliary norm) there is an open $U \supseteq S_f$ such that $S_{f+s}$ is compact for every $s \in
 \Gamma^{+,1}_U(P)$, and for every allowable $s'$ and $\varepsilon > 0$ there is an allowable $s$ with $N(s(x) - s'(x)) \le \varepsilon$ for
@@ -5895,7 +5895,7 @@ hypotheses:* none. *Deviation (restated):* as in V5.41, $Y|X_i$ is the pull-back
 (Remark 5.3.14 (preprint 5.21), gap G.47); $dt(x)$ is read in a chart, since $T_xX$ carries no linear structure here (gap G.7 of
 Chapter 2) (Findings, items 175, 176).
 
-**V5.69 (Lemma 5.3.16 (preprint 5.23) under the 2021 Definition 5.3.13 (3); `Polyfold.lemma_5_3_16_2021`).** If $dt(x)$ is onto in
+**V5.69 (Lemma 5.3.16 (preprint 5.23) under the 2021 Definition 5.3.13 (3); `Polyfold.lemma_5_3_16`).** If $dt(x)$ is onto in
 the sense of V5.68, then in a chart around $x$ the derivative $\ell$ of $t \circ \varphi^{-1} \circ R$ at $z$, restricted to $T_zO =
 DR(z)(E_0)$, is non-zero, $\ker\ell$ has a one-dimensional complement $Z$ in $T_zO$, and for every linear $\tau : S \to \mathbb R$ there is a
 unique linear $b : S \to Z$ with $\ell \circ b = \tau$, while $\ell \circ (b + a) = \tau$ whenever $\ell \circ b = \tau$ and $a$ takes values in
@@ -6060,7 +6060,7 @@ its dual. *Book:* §6.3 (preprint §6.2), pp. 241–243 (preprint pp. 203–204)
 *Deviation:* none; the convention $\lambda(\{0\}^*) = \mathbb R$ is the zeroth exterior power, and the text's matrix is the
 transpose of Mathlib's, with the same determinant.
 
-**V6.4 (Proposition 6.3.2 (preprint 6.4); `Polyfold.proposition_6_4`).** For an isomorphism $\Phi : E \to F$ of finite-dimensional spaces,
+**V6.4 (Proposition 6.3.2 (preprint 6.4); `Polyfold.proposition_6_3_2`).** For an isomorphism $\Phi : E \to F$ of finite-dimensional spaces,
 $\lambda^*(\Phi) \circ \iota = \iota \circ \lambda(\Phi^*)$. *Book:* Proposition 6.3.2 (preprint 6.4), p. 243 (preprint p. 205). *Hidden hypotheses:* none.
 *Deviation:* none.
 
@@ -6073,13 +6073,13 @@ $D$; $\Phi_E : \lambda(A) \otimes \lambda^*(D) \to \lambda(B) \otimes \lambda^*(
 choice, an isomorphism of lines. *Book:* §6.3 (preprint §6.2), preprint p. 206, formula (91) with its two ordering conventions. *Hidden
 hypotheses:* none. *Deviation:* none.
 
-**V6.6 (Lemma 6.3.3 (preprint 6.5); `Polyfold.FourTermExact.lemma_6_5`).** Formula (91) holds for every choice: $\Phi_E$, defined from one
+**V6.6 (Lemma 6.3.3 (preprint 6.5); `Polyfold.FourTermExact.lemma_6_3_3`).** Formula (91) holds for every choice: $\Phi_E$, defined from one
 choice, maps $(a_1 \wedge \dots \wedge a_n) \otimes (d_1 \wedge \dots \wedge d_l)^*$ to the right-hand side of (91) computed
 with any other choice. *Book:* Lemma 6.3.3 (preprint 6.5), p. 244 (preprint p. 206); proof in §6.8.1 (preprint §6.7.1) (V6.63). *Hidden hypotheses:* none. *Deviation
 (restated):* "does not depend on the choices" is read as this, the strongest form and the one every later computation
 of $\gamma^P_T$ uses (Findings, item 1).
 
-**V6.7 (Proposition 6.3.5 (preprint 6.6); `Polyfold.contractDual`, `Polyfold.FourTermExact.psi`, `Polyfold.FourTermExact.proposition_6_6`).**
+**V6.7 (Proposition 6.3.5 (preprint 6.6); `Polyfold.contractDual`, `Polyfold.FourTermExact.psi`, `Polyfold.FourTermExact.proposition_6_3_5`).**
 With $\bar\iota(v \otimes b \otimes \varphi) = \varphi(v)\, b$ and $\Psi_E(c \otimes h) = \bar\iota(c \otimes \Phi_E(h))$,
 $\Psi_E$ maps the wedge of the basis of $C$ of (91), tensored with $(a_1 \wedge \dots \wedge a_n) \otimes (d_1 \wedge \dots
 \wedge d_l)^*$, to $\alpha(a_1) \wedge \dots \wedge \alpha(a_n) \wedge b'_1 \wedge \dots \wedge b'_{m-n}$. *Book:* (92) and
@@ -6106,7 +6106,7 @@ is Fredholm with $\mathrm{ind}(PT) = \mathrm{ind}(T)$, $R(P) \cap R(P')$ has fin
 for $T$ Fredholm. *Book:* Definition 6.4.3 (preprint 6.9) and the paragraphs after it, preprint p. 208. *Hidden hypotheses:* none; that $\Pi_T \ne
 \emptyset$ is used from Proposition 6.4.10 (preprint Lemma 6.11) on and is not stated. *Deviation:* none (Findings, item 3).
 
-**V6.11 (Lemma 6.10 (preprint); `Polyfold.lemma_6_10`, `Polyfold.lemma_6_10_text_reading`).** For $P, P' \in \Pi_T$ there is $P'' \in
+**V6.11 (Lemma 6.10 (preprint); `Polyfold.lemma_6_10_preprint`, `Polyfold.lemma_6_10_text_reading_preprint`).** For $P, P' \in \Pi_T$ there is $P'' \in
 \Pi_T$ with $P'' \le P$ and $P'' \le P'$, for any bounded $T$. On $\mathbb R^2$ with $T = 1$ there are $P, P' \in \Pi_T$
 such that no projection with range $R(P) \cap R(P')$ lies below both. *Book:* Lemma 6.10 (preprint), preprint p. 208, proof preprint pp. 208–209.
 *Hidden hypotheses:* none. *Deviation (stronger):* $T$ need not be Fredholm, and the construction differs from the
@@ -6114,7 +6114,7 @@ text's: the text's $P''$ has range $R(P) \cap R(P')$, and as we read it $P'' = P
 formalized $P''$ projects onto $R(P) \cap R(P') \cap N$, for a closed finite-codimensional $N$ meeting $\ker P + \ker P'$
 only in $0$, along a complement containing $\ker P + \ker P'$ (Findings, item 4).
 
-**V6.12 (Proposition 6.4.10 (preprint Lemma 6.11); `Polyfold.projSeqJ`, `Polyfold.projSeqPhi`, `Polyfold.projSeqPi`, `Polyfold.lemma_6_11`,
+**V6.12 (Proposition 6.4.10 (preprint Lemma 6.11); `Polyfold.projSeqJ`, `Polyfold.projSeqPhi`, `Polyfold.projSeqPi`, `Polyfold.proposition_6_4_10`,
 `Polyfold.projSeq`).** For $P \in \Pi_T$ the sequence $0 \to \ker T \to \ker(PT) \to F/R(P) \to \operatorname{coker} T \to 0$,
 with the inclusion, $x \mapsto Tx + R(P)$ and $y + R(P) \mapsto (I - P)y + R(T)$, is exact. *Book:* Proposition 6.4.10 (preprint Lemma 6.11), p. 249 (preprint p. 209).
 *Hidden hypotheses:* none. *Deviation:* none.
@@ -6124,16 +6124,16 @@ $\gamma^P_T : \det(T) \to \det(PT)$ is $\Phi_{E(T,P)}$ followed by the identific
 $\lambda^*(F/R(PT))$; on wedges it is given by (91), for any choice. *Book:* preprint p. 210. *Hidden hypotheses:* none.
 *Deviation:* none; "recalling $R(P) = R(PT)$" is read as this identification (Findings, item 5).
 
-**V6.14 (Proposition 6.4.11 (preprint 6.12); `Polyfold.proposition_6_12`, `Polyfold.IsGoodLeftProj.of_projLE`,
+**V6.14 (Proposition 6.4.11 (preprint 6.12); `Polyfold.proposition_6_4_11`, `Polyfold.IsGoodLeftProj.of_projLE`,
 `Polyfold.comp_comp_eq_of_projLE`).** For $P \le Q$ in $\Pi_T$, $QT$ is Fredholm, $P \in \Pi_{QT}$, and $\gamma^P_{QT} \circ
 \gamma^Q_T = \gamma^P_T$, up to the identification $\det(P(QT)) = \det(PT)$ of the equal operators $PQT = PT$. *Book:*
 Proposition 6.4.11 (preprint 6.12), p. 251 (preprint p. 211); proof in §6.8.2 (preprint §6.7.2) (V6.64). *Hidden hypotheses:* none. *Deviation:* none.
 
-**V6.15 (Corollary 6.4.12 (preprint 6.13); `Polyfold.corollary_6_13`).** For $P \le S$ and $P \le R$ in $\Pi_T$, $(\gamma^P_{RT})^{-1} \circ
+**V6.15 (Corollary 6.4.12 (preprint 6.13); `Polyfold.corollary_6_4_12`).** For $P \le S$ and $P \le R$ in $\Pi_T$, $(\gamma^P_{RT})^{-1} \circ
 \gamma^P_{ST} = \gamma^R_T \circ (\gamma^S_T)^{-1}$, so the left side does not depend on $P$. *Book:* Corollary 6.4.12 (preprint 6.13), p. 251 (preprint p. 211). *Hidden hypotheses:* none. *Deviation:* none.
 
 **V6.16 (the stabilization and Lemma 6.4.14 (preprint 6.14); `Polyfold.stabJ`, `Polyfold.stabPi`, `Polyfold.stabClass`,
-`Polyfold.lemma_6_14`, `Polyfold.stabSeq`, `Polyfold.exists_surjective_coprod`).** For $T$ Fredholm and $\varphi :
+`Polyfold.lemma_6_4_14`, `Polyfold.stabSeq`, `Polyfold.exists_surjective_coprod`).** For $T$ Fredholm and $\varphi :
 \mathbb R^n \to F$ with $T_\varphi(e, r) = Te + \varphi r$ onto, the sequence $0 \to \ker T \to \ker T_\varphi \to \mathbb R^n
 \to F/R(T) \to 0$, with $j(e) = (e, 0)$, $\pi(e, r) = r$ and $[\varphi](r) = \varphi(r) + R(T)$, is exact; a stabilizing
 $\varphi$ exists for every Fredholm $T$. *Book:* pp. 251–256 (preprint pp. 211–212) and Lemma 6.4.14 (preprint 6.14), p. 256 (preprint p. 212). *Hidden hypotheses:* none.
@@ -6145,7 +6145,7 @@ satisfies $\psi((c_1 \wedge \dots \wedge c_n)^*) = \det[c_1, \dots, c_n]^{-1}\, 
 p. 256 (preprint p. 212). *Hidden hypotheses:* none. *Deviation:* none.
 
 **V6.18 (Proposition 6.4.15 (preprint 6.15); `Polyfold.stabIota`, `Polyfold.stabIota_bijective`, `Polyfold.stab_card_eq`,
-`Polyfold.isCompl_range_stabPi_span`, `Polyfold.proposition_6_15`).** $\iota_\varphi = (1 \otimes \psi) \circ \Phi_E :
+`Polyfold.isCompl_range_stabPi_span`, `Polyfold.proposition_6_4_15`).** $\iota_\varphi = (1 \otimes \psi) \circ \Phi_E :
 \det(T) \to \det(T_\varphi)$ is an isomorphism, and for a basis $a$ of $\ker T$, $\bar c_1, \dots, \bar c_m$ with
 $[\varphi](\bar c_i)$ a basis of $F/R(T)$ and $\bar b_i = (b_i, r_i)$ completing $(a, 0)$ to a basis of $\ker T_\varphi$,
 $\iota_\varphi(h) = \det(\bar c, r)^{-1}\, ((a_1, 0) \wedge \dots \wedge (a_k, 0) \wedge \bar b_1 \wedge \dots \wedge \bar
@@ -6159,20 +6159,20 @@ proved; the statement calls $\psi$ "$\varphi$" (possible misprint). The identifi
 **V6.19 (Definition 6.4.16 (preprint 6.16); `Polyfold.kerInl`, `Polyfold.kerInr`, `Polyfold.cokerInl`, `Polyfold.cokerInr`,
 `Polyfold.kerProdEquiv`, `Polyfold.cokerProdEquiv`, `Polyfold.finrank_ker_prodMap`, `Polyfold.finrank_coker_prodMap`,
 `Polyfold.isFredholm_prodMap`, `Polyfold.directSumVec`, `Polyfold.directSumDet`, `Polyfold.directSumVec_eq_smul`,
-`Polyfold.definition_6_16`, `Polyfold.directSumDet_bijective`).** $T \oplus S$ is Fredholm, with $\ker(T \oplus S) \cong
+`Polyfold.definition_6_4_16`, `Polyfold.directSumDet_bijective`).** $T \oplus S$ is Fredholm, with $\ker(T \oplus S) \cong
 \ker T \times \ker S$ and $\operatorname{coker}(T \oplus S) \cong \operatorname{coker} T \times \operatorname{coker} S$, and
 $\det(T) \otimes \det(S) \to \det(T \oplus S)$, $h \otimes h' \mapsto (a \wedge a') \otimes (d \wedge d')^*$, is an isomorphism
 satisfying the formula for every choice of bases. *Book:* Definition 6.4.16 (preprint 6.16), p. 258 (preprint p. 214). *Hidden hypotheses:* none.
 *Deviation:* none; "natural" is read as the formula for every choice, as in Lemma 6.3.3 (preprint 6.5) (Findings, item 11).
 
-**V6.20 (Lemma 6.5.1 (preprint 6.17); `Polyfold.FredholmOp`, `Polyfold.projRestrict`, `Polyfold.lemma_6_17`).** For a bounded $T$, $P \in
+**V6.20 (Lemma 6.5.1 (preprint 6.17); `Polyfold.FredholmOp`, `Polyfold.projRestrict`, `Polyfold.lemma_6_5_1`).** For a bounded $T$, $P \in
 \Pi_T$ and a topological complement $Y$ of $\ker(PT)$, there is $\varepsilon > 0$ such that for $\|S - T\| < \varepsilon$,
 $P \in \Pi_S$ and $PS|_Y : Y \to R(P)$ is a topological isomorphism. *Book:* Lemma 6.5.1 (preprint 6.17), p. 258 (preprint p. 214). *Hidden hypotheses:*
 none. *Deviation (stronger):* the hypothesis that $T$ is Fredholm is not used; a topological complement is an
 algebraic complement with a continuous projection (Findings, item 20).
 
 **V6.21 (Lemma 6.5.2 (preprint 6.18); `Polyfold.LocalDetChart`, `Polyfold.LocalDetChart.ySol`, `Polyfold.LocalDetChart.kerMap`,
-`Polyfold.LocalDetChart.kerProj`, `Polyfold.LocalDetChart.lemma_6_18`).** A *local determinant chart* is the data $(T,
+`Polyfold.LocalDetChart.kerProj`, `Polyfold.LocalDetChart.lemma_6_5_2`).** A *local determinant chart* is the data $(T,
 P, Y, \varepsilon)$ of Lemma 6.5.1 (preprint 6.17) with its conclusions. The solution $y(k, S) = -(PS|_Y)^{-1}PSk$ is continuous in $(k,
 S)$, and $(S, k) \mapsto (S, k + y(k, S))$ is a continuous map onto $\bigcup_{\|S - T\| < \varepsilon}\{S\} \times
 \ker(PS)$, inverted by the continuous projection onto $\ker(PT)$ along $Y$. *Book:* Lemma 6.5.2 (preprint 6.18), p. 259 (preprint p. 215). *Hidden
@@ -6180,7 +6180,7 @@ hypotheses:* none. *Deviation (restated):* "is a trivial vector bundle" is state
 inverse (Findings, item 21).
 
 **V6.22 (Lemma 6.5.3 (preprint 6.19) in the case used, and Proposition 6.5.4 (preprint 6.20); `Polyfold.LocalDetChart.kerFrame`,
-`Polyfold.LocalDetChart.frame`, `Polyfold.LocalDetChart.frame_ne_zero`, `Polyfold.proposition_6_20`).** Over the ball of
+`Polyfold.LocalDetChart.frame`, `Polyfold.LocalDetChart.frame_ne_zero`, `Polyfold.proposition_6_5_4`).** Over the ball of
 a local determinant chart, $\omega(S) = (k_1(S) \wedge \dots \wedge k_n(S)) \otimes (e_1 \wedge \dots \wedge e_l)^*$, with
 $k_i(S) = k_i + y(k_i, S)$ and a constant basis $e$ of $F/R(P) = F/R(PS)$, is a nowhere-zero frame of
 $\mathrm{DET}(T, P, \varepsilon)$, and the frames of two charts with the same $P$ differ by a continuous nowhere-zero
@@ -6189,7 +6189,7 @@ factor. *Book:* Lemma 6.5.3 (preprint 6.19) and Proposition 6.5.4 (preprint 6.20
 G.59); it is applied only to trivial bundles, and Proposition 6.5.4 (preprint 6.20) is proved with the explicit frames; "in a natural way"
 is read as the relation between frames (Findings, item 22).
 
-**V6.23 (Lemma 6.5.5 (preprint 6.21); `Polyfold.LocalDetChart.gammaProj_frame_eq`, `Polyfold.lemma_6_21`).** For $Q \le P$, $\gamma^Q_{PS}$
+**V6.23 (Lemma 6.5.5 (preprint 6.21); `Polyfold.LocalDetChart.gammaProj_frame_eq`, `Polyfold.lemma_6_5_5`).** For $Q \le P$, $\gamma^Q_{PS}$
 maps the $P$-frame at $S$ to a continuous nowhere-zero multiple of the $Q$-frame, on the common ball of any two local
 determinant charts. *Book:* Lemma 6.5.5 (preprint 6.21), p. 260 (preprint p. 216), sketch pp. 259–261 (preprint pp. 216–217). *Hidden hypotheses:* none. *Deviation (stronger):*
 two charts with different centres and radii, the form Lemma 6.5.9 (preprint 6.25) uses; the text's sketch (extend the kernel sections of
@@ -6207,14 +6207,14 @@ read in the frame of Proposition 6.5.4 (preprint 6.20) (Findings, item 24).
 chart whose image in $\text{ball} \times \mathbb R$ is open. *Book:* Definition 6.5.6 (preprint 6.22), p. 261 (preprint p. 218). *Hidden hypotheses:* none.
 *Deviation:* none.
 
-**V6.26 (Proposition 6.5.7 (preprint 6.23); `Polyfold.proposition_6_23`).** $\mathcal B$ is a basis of the topology of the prebundle, so
+**V6.26 (Proposition 6.5.7 (preprint 6.23); `Polyfold.proposition_6_5_7`).** $\mathcal B$ is a basis of the topology of the prebundle, so
 the topology it generates is that one. *Book:* Proposition 6.5.7 (preprint 6.23), p. 261 (preprint p. 218). *Hidden hypotheses:* none. *Deviation:* none.
 
-**V6.27 (Proposition 6.5.8 (preprint 6.24); `Polyfold.proposition_6_24`).** $\mathrm{DET}(E, F)$ is a topological vector bundle with model
+**V6.27 (Proposition 6.5.8 (preprint 6.24); `Polyfold.proposition_6_5_8`).** $\mathrm{DET}(E, F)$ is a topological vector bundle with model
 fibre $\mathbb R$, and every $\gamma_{(T,P,\varepsilon)}$, read in its frame, is a trivialization. *Book:* Proposition
 6.5.8 (preprint 6.24), p. 261 (preprint p. 218). *Hidden hypotheses:* none. *Deviation:* none.
 
-**V6.28 (Lemma 6.5.9 (preprint 6.25); `Polyfold.lemma_6_25`, `Polyfold.lemma_6_25_local`).** The transition between two charts is $(S, t)
+**V6.28 (Lemma 6.5.9 (preprint 6.25); `Polyfold.lemma_6_5_9`, `Polyfold.lemma_6_5_9_local`).** The transition between two charts is $(S, t)
 \mapsto (S, g(S)t)$ with $g$ continuous and nowhere zero on the common ball. *Book:* Lemma 6.5.9 (preprint 6.25), p. 262 (preprint p. 218). *Hidden
 hypotheses:* none. *Deviation:* none; the proof is the text's, a common lower bound $Q \le P, P'$ (Lemma 6.10 (preprint), V6.11),
 Corollary 6.4.12 (preprint 6.13) and Lemma 6.5.5 (preprint 6.21).
@@ -6229,7 +6229,7 @@ contractible", p. 263 (preprint p. 219)) and the opening of §6.6 (preprint §6.
 text cites contractibility without the theorem it needs; the proof is the lifting criterion for the orientation double
 cover, and nonempty convex sets of normed spaces are simply connected and locally path-connected (Findings, item 25).
 
-**V6.30 (Proposition 6.6.1 (preprint 6.26); `Polyfold.fredholmIncl`, `Polyfold.DetOn`, `Polyfold.proposition_6_26`).** Over a nonempty
+**V6.30 (Proposition 6.6.1 (preprint 6.26); `Polyfold.fredholmIncl`, `Polyfold.DetOn`, `Polyfold.proposition_6_6_1`).** Over a nonempty
 convex set $C$ of Fredholm operators, the restriction $\mathrm{DET}(E, F)|_C$ is a topological line bundle with exactly
 two orientations. *Book:* Proposition 6.6.1 (preprint 6.26), p. 263 (preprint p. 219), for $C = \mathrm{Lin}(f, x)$. *Hidden hypotheses:* none.
 *Deviation (stronger):* any nonempty convex $C$; $\mathrm{Lin}(f, x)$ is one (V6.1) (Findings, item 25).
@@ -6248,7 +6248,7 @@ charts); the category $\mathcal O_f$ is read through its objects, with bijection
 `Polyfold.exists_contDiff_eq_id_near_Icc_mapsTo`, `Polyfold.exists_isScSmoothMap_eq_one_nhdsSet`,
 `Polyfold.exists_nhds_isCompact_zeros`, `Polyfold.exists_isScPlusSection_pullback_of_mapsTo_of_bump`,
 `Polyfold.exists_isScPlusSection_pullback_of_family`, `Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump`,
-`Polyfold.proposition_6_28`, `Polyfold.MPolyfold.paracompactSpace_prod`, `Polyfold.paracompactSpace_pullbackSpace`).**
+`Polyfold.proposition_6_6_3`, `Polyfold.MPolyfold.paracompactSpace_prod`, `Polyfold.paracompactSpace_pullbackSpace`).**
 With sc-smooth bump functions, every smooth $x$ has open $U \subseteq W$ in the domain of one chart of the atlas with
 (1′) any two sc-smooth paths in $U$ with the same end points are sc-smoothly homotopic in $W$ with the end points fixed;
 (2) $\{y \in \mathrm{cl}(U) \mid f(y) = 0\}$ is compact; (3) for every sc-smooth family $\Phi : \mathbb R^n \to X$ with
@@ -6262,7 +6262,7 @@ $r(V') \subseteq V'$, which is not stated, and as we read it (1) is not establis
 families, as Theorem 6.6.11 (preprint 6.35) needs it for homotopies; the smoothness of $x$ is not used (Findings, items 45, 46).
 
 **V6.33 (Lemma 6.6.4 (preprint 6.29); `Polyfold.isZeroAt_paramSection_zero`,
-`Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact`, `Polyfold.lemma_6_29`).** Over a tame $X$ with bump
+`Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact`, `Polyfold.lemma_6_6_4`).** Over a tame $X$ with bump
 functions, for $f$ with tame germ data, an sc-smooth $\Phi : \mathbb R^n \to X$ and an sc⁺-section $S$ of $\pi^*P$ with
 $(f + S)(q, \Phi(q)) = 0$ near $[0, 1]^n$, there are finitely many sc⁺-sections $s_1, \dots, s_k$ of $\pi^*P$ such that
 $F(\lambda, (q, y)) = f(y) + S(q, y) + \sum\lambda_is_i(q, y)$ is in general position at $(0, (q, \Phi(q)))$ for all $q$
@@ -6318,7 +6318,7 @@ s_i(q, \cdot)(z) + D_q\sigma$, with $g_q = f + S(q, \cdot)$; its kernel cut by $
 onto when $F$ is in general position at $(0, (q, \Phi(q)))$. *Book:* $F$, preprint p. 221, $F_t$, $L_t$ and (96), pp. 264–266 (preprint pp. 222–223). *Hidden hypotheses:* none. *Deviation (restated):* $\ker F_t'(\varphi(t), 0)$ is read as the kernel of the
 linearization of the whole $F$ cut by $\sigma = 0$ (Findings, item 49).
 
-**V6.38 (Lemma 6.6.6 (preprint 6.31); `Polyfold.lemma_6_31`).** With the operators of V6.37, the sequence (96) $0 \to \ker T \to \ker(T
+**V6.38 (Lemma 6.6.6 (preprint 6.31); `Polyfold.lemma_6_6_6`).** With the operators of V6.37, the sequence (96) $0 \to \ker T \to \ker(T
 \oplus \varphi) \to \mathbb R^k \to K_z/R(T) \to 0$ is the stabilization sequence of $T$ and $\varphi$ (V6.16), hence exact.
 *Book:* (96) and Lemma 6.6.6 (preprint 6.31), p. 266 (preprint p. 223). *Hidden hypotheses:* none. *Deviation (restated):* the text has $c$ onto by (P);
 here it is onto by the general position of $F$ (V6.33) and the derivative of the family of zeros, which absorbs the
@@ -6387,7 +6387,7 @@ sections over $U \times [0, 1]$; property (P) is used only to construct a push-f
 
 **V6.44 (Proposition 6.6.7 (preprint 6.32); `Polyfold.IsStabKernels.congr_data`, `Polyfold.IsStabKernels.push_congr_data`,
 `Polyfold.IsStabKernels.push_eq_of_prefix`, `Polyfold.isZeroAt_sectionAdd_combo`, `Polyfold.linAt_principal_combo`,
-`Polyfold.continuous_principal_pullbackSlice`, `Polyfold.proposition_6_32`).** Two push-forwards along the same sc-smooth
+`Polyfold.continuous_principal_pullbackSlice`, `Polyfold.proposition_6_6_7`).** Two push-forwards along the same sc-smooth
 path in the domain of a chart agree. *Book:* Proposition 6.6.7 (preprint 6.32), p. 267 (preprint p. 224), proof pp. 266–272 (preprint pp. 224–226). *Hidden hypotheses:* the
 standing ones of §6.6 (preprint §6.5) ($X$ tame, bump functions, tame germ data). *Deviation (restated):* "does not depend on the
 choices" is read as the agreement of any two data; the homotopy of Lemma 6.6.10 (preprint 6.34) and the added sections of Lemma 6.6.8 (preprint 6.33) are
@@ -6420,7 +6420,7 @@ continuously, the push-forwards along the edges $\tau = 0$ and $\tau = 1$ agree.
 hypotheses:* none. *Deviation (restated):* the convex homotopy $s^\tau$ of the lemma is part of the square of V6.44; the
 continuity of the end-point orientations along $\tau$ is that of V6.40, with the sign.
 
-**V6.48 (Theorem 6.6.11 (preprint 6.35); `Polyfold.push_eq_of_homotopy`, `Polyfold.HasLocalPropagation`, `Polyfold.theorem_6_35`).** Over
+**V6.48 (Theorem 6.6.11 (preprint 6.35); `Polyfold.push_eq_of_homotopy`, `Polyfold.HasLocalPropagation`, `Polyfold.theorem_6_6_11`).** Over
 a tame $X$ with bump functions, for $f$ with tame germ data, every smooth point $x$ has an open $U \ni x$ and a chart $c$
 such that push-forwards exist along the sc-smooth paths in $U$ and depend only on their end points. *Book:* the homotopy
 argument, pp. 271–273 (preprint pp. 226–227), and Theorem 6.6.11 (preprint 6.35), p. 272 (preprint p. 227). *Hidden hypotheses:* the section $f$, which the statement does not
@@ -6543,7 +6543,7 @@ coverings (Findings, item 72).
 `Polyfold.orLocalTransport_transport_eq`, `Polyfold.LocalTransport.restrict`,
 `Polyfold.LocalTransport.transport_apply_eq_of_local`, `Polyfold.orFunctorMap`, `Polyfold.orFunctorMap_mk`,
 `Polyfold.orFunctorMap_id`, `Polyfold.orFunctorMap_comp`, `Polyfold.orFunctor`, `Polyfold.orFunctorMap_isStarProperty`,
-`Polyfold.orFunctorMap_unique_of_cover`, `Polyfold.orFunctorMap_unique`, `Polyfold.theorem_6_37`).** Over a tame $X$ with
+`Polyfold.orFunctorMap_unique_of_cover`, `Polyfold.orFunctorMap_unique`, `Polyfold.theorem_6_6_13_hyp`).** Over a tame $X$ with
 bump functions, for $f$ with tame germ data and $P$ with sc⁺-sections through the smooth fibre points, there is exactly
 one family of bijections $\Gamma_f([\varphi]) : \mathrm{Or}^f_x \to \mathrm{Or}^f_y$ on the morphisms of $PX$ that takes
 identities to identities, compositions to composites, and has property (∗): for every chart $c$, every open $U$ with the
@@ -6578,7 +6578,7 @@ agree on the smooth points joined to it by sc-smooth paths, and there are exactl
 Definition 6.6.16 (preprint 6.40), p. 274 (preprint p. 229). *Hidden hypotheses:* none. *Deviation (restated):* an orientable neighbourhood is the pair of
 V6.50 (Findings, item 75).
 
-**V6.61 (Theorem 6.6.18 (preprint 6.41), the natural orientation of the solution set; `Polyfold.theorem_6_41_solutionSet`,
+**V6.61 (Theorem 6.6.18 (preprint 6.41), the natural orientation of the solution set; `Polyfold.theorem_6_6_18_solutionSet`,
 `Polyfold.MPolyfold.IsGeneralPositionAt.isGoodPositionAt`, `Polyfold.tangentSpace_solutionSet_eq_linKer`,
 `Polyfold.ChartPoint.linZero`, `Polyfold.ChartPoint.linZero_mem_linSet`, `Polyfold.ChartPoint.linZero_surjective`,
 `Polyfold.ChartPoint.map_ker_linZero`, `Polyfold.ChartPoint.tangentOr`, `Polyfold.tangentOrAt`,
@@ -6586,7 +6586,7 @@ V6.50 (Findings, item 75).
 `Polyfold.IsStabKernels.orRay_eq_tangentOr`, `Polyfold.isStabKernels_zero`, `Polyfold.SubspaceFamily.congrL`,
 `Polyfold.exists_tangentFamily`, `Polyfold.tangentFamily`, `Polyfold.tangentFamily_L`, `Polyfold.cont_tangentOr`,
 `Polyfold.isLineOrientation_tangentOr`, `Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation`,
-`Polyfold.theorem_6_41`).** Over a tame $X$, for a proper sc-Fredholm section $f$ with tame germ data in general position
+`Polyfold.theorem_6_6_18_hyp`).** Over a tame $X$, for a proper sc-Fredholm section $f$ with tame germ data in general position
 (Definition 5.3.9 (preprint 5.17)) at every zero, the solution set $S$ is compact, a smooth submanifold in general position with the
 induced structure of a tame manifold with boundary with corners (the conclusions of Theorem 5.3.10 (preprint 5.18)), and $T_xS = \ker
 f'(x)$, read in a chart. At a zero, $f'(x)$ lies in $\mathrm{Lin}(f, x)$ and is onto, so an element $o_x$ of
@@ -6652,7 +6652,7 @@ proved directly in $F$; the name $\alpha_q$ in the last part is read as $\alpha^
 7).
 
 **V6.65 (Lemma 6.4.4 (2017: 6.3); `Polyfold.projIntertwiner`, `Polyfold.projIntertwiner_self`, `Polyfold.projIntertwiner_mul`,
-`Polyfold.continuous_projIntertwiner`, `Polyfold.lemma_6_4_4_2021`).** Let $E$, $F$ be Banach spaces, $T_0 : E \to F$ Fredholm and
+`Polyfold.continuous_projIntertwiner`, `Polyfold.lemma_6_4_4`).** Let $E$, $F$ be Banach spaces, $T_0 : E \to F$ Fredholm and
 $P_0 \in \Pi_{T_0}$. There is $\varepsilon > 0$ such that for every $T$ and every projection $P$ of $F$ with $\|T - T_0\| < \varepsilon$ and
 $\|P - P_0\| < \varepsilon$: $T$ is Fredholm, $P \in \Pi_T$, and $\mathrm{ind}(P \circ T) = \mathrm{ind}(T) = \mathrm{ind}(T_0) = \mathrm{ind}(P_0 \circ T_0)$.
 For projections $P_0$, $P$ the intertwiner $J(P) = PP_0 + (1 - P)(1 - P_0)$ has $J(P_0) = 1$ and $J(P)P_0 = PJ(P)$, and depends
@@ -6670,7 +6670,7 @@ none. *Deviation (not in the book):* by induction on $\dim(K_1 + K_2) - \dim K_1
 $a + b$ lies in neither, and a common complement of $K_1 + \mathbb R(a + b)$ and $K_2 + \mathbb R(a + b)$ plus $\mathbb R(a + b)$ is one of $K_1$ and $K_2$. That
 $X$ can be taken closed is V6.69 (Findings, items 112, 116).
 
-**V6.67 (Proposition 6.4.13 (2017: 6.6), the algebraic part; `Polyfold.proposition_6_4_13_2021`).** Let $T : E \to F$ be Fredholm and
+**V6.67 (Proposition 6.4.13 (2017: 6.6), the algebraic part; `Polyfold.proposition_6_4_13`).** Let $T : E \to F$ be Fredholm and
 $P, Q \in \Pi_T$ with $R(P) = R(Q) = H$. There are linear isomorphisms $A_T : \ker(PT) \to \ker(QT)$ and $B_T : F/R(P) \to F/R(Q)$
 with $A_T \circ j_P = j_Q$, $\Phi_Q \circ A_T = B_T \circ \Phi_P$ and $\pi_Q \circ B_T = \pi_P$, for the maps of the exact sequences $E(T, P)$
 and $E(T, Q)$ of V6.12. They are the text's: $A_T(e) = e - x(e)$, $x(e) \in X$ with $QTx(e) = QTe$, and $B_T(f + H) = \tilde f + H$ with $Tx +
@@ -6681,7 +6681,7 @@ preprint counterpart; the 2021 edition makes $\Pi_T \cap \mathcal P_H \ne \empty
 closed $X$ (V6.69) (gap G.81, closed); here $X$ is algebraic, and $F/H$ appears as $F/R(P)$ and $F/R(Q)$ (Findings, items 112, 113,
 117).
 
-**V6.68 (Lemmas 6.6.8 and 6.6.9; `Polyfold.lemma_6_6_8_2021`, `Polyfold.lemma_6_6_9_2021`).** For stabilized kernels of the data
+**V6.68 (Lemmas 6.6.8 and 6.6.9; `Polyfold.lemma_6_6_8`, `Polyfold.lemma_6_6_9`).** For stabilized kernels of the data
 $(f, s_1, \dots, s_k)$ along a family, and of the same data with $d$ sections appended, the push-forwards of orientations
 between two smooth points agree, both when the appended sections are zero (Lemma 6.6.8: the new parameters $\mu$ enter as dummy
 variables) and when they are arbitrary sections $\bar s_1, \dots, \bar s_d$ (Lemma 6.6.9). *Book:* Lemma 6.6.8 (preprint 6.33), p. 267
@@ -6705,7 +6705,7 @@ closed complement of a finite-dimensional subspace is a topological one (Finding
 `Polyfold.cokerTransition`, `Polyfold.solveOp_mem`, `Polyfold.kerTransition_apply`, `Polyfold.cokerTransition_apply`,
 `Polyfold.apply_solveOp_of_projRestrict_eq`, `Polyfold.disjoint_ker_comp_of_projRestrict_eq`,
 `Polyfold.isTopCompl_ker_comp_of_projRestrict_eq`, `Polyfold.diagram_of_solveOp`, `Polyfold.continuousAt_solveOp`,
-`Polyfold.proposition_6_4_13_continuity_2021`, `Polyfold.proposition_6_4_13_continuity_2021_hyps`).** Let $E$, $F$ be Banach
+`Polyfold.proposition_6_4_13_continuity`, `Polyfold.proposition_6_4_13_continuity_hyps`).** Let $E$, $F$ be Banach
 spaces, $T : E \to F$ Fredholm and $P, Q \in \Pi_T$ with $R(P) = R(Q) = H$. For $S : E \to F$ and a subspace $X$ write $\xi_S = (QS|_X)^{-1}
 \circ Q : F \to X$ (the solution $x \in X$ of $QSx = Qg$), $A_S(e) = e - \xi_S(Se)$ on $E$ and $B_S(f) = (1 - P)f - S\xi_S((1 - P)f)$ on $F$.
 There are a closed subspace $X \subseteq E$ and $\varepsilon > 0$ such that (a) $S \mapsto A_S$ and $S \mapsto B_S$ are continuous on
@@ -6785,7 +6785,7 @@ proved under this hypothesis only; Part I does not state it, it holds for $\math
 $U_\infty$ is preconnected (Findings, item 120).
 
 **V6.75 (Theorem 6.6.17; `Polyfold.isPropagationContinuous_orTopology`, `Polyfold.eventually_eq_orSec_of_continuousOn`,
-`Polyfold.eq_orTopology_of`, `Polyfold.existsUnique_orientationTopology_2021`, `Polyfold.theorem_6_6_17_2021`).** Let $X$ be a tame
+`Polyfold.eq_orTopology_of`, `Polyfold.existsUnique_orientationTopology`, `Polyfold.theorem_6_6_17_hyp`).** Let $X$ be a tame
 M-polyfold with sc-smooth bump functions, $P : Y \to X$ a strong bundle with sc⁺-sections through every smooth fibre point, $f$
 an sc-Fredholm section with tame germ data (the hypotheses of Theorem 6.6.13 (preprint 6.37), V6.57, with its paracompactness
 instances for $\mathbb R^n \times X$, $\mathbb R^k \times \mathbb R^n \times X$ and their pull-back bundles), and $\mathcal T$ the topology of V6.73
@@ -7016,7 +7016,7 @@ $s, t, m, u$; the compatibility with $\iota$ is derived (Findings, item 8).
 **V7.10 (the remark after Definition 7.1.7 (2017: 7.7): sc-smoothness on objects suffices; `Polyfold.EpGroupoid.mor_eq_srcInv_obj_src`,
 `Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous`, `Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous`,
 `Polyfold.EpFunctor.continuous_mor`, `Polyfold.EpFunctor.ofContinuous`,
-`Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample`).** The text claims that a functor sc-smooth on objects
+`Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample`).** The text claims that a functor sc-smooth on objects
 is sc-smooth on morphisms, by $f(\gamma) = (s|\mathbf U(\psi))^{-1}(f(s(\gamma)))$ on $\mathbf U(\varphi)$. *Book:* pp. 290–292 (2017 pp. 228–229). *Hidden hypotheses:* the argument needs $f(\mathbf U(\varphi)) \subseteq \mathbf U(\psi)$, i.e. continuity of $f$ on
 morphisms. *Deviation (does not hold as we read it):* a functor of the trivial $\mathbb Z/3$-action on $\mathbb R$, the
 identity on objects, is sc-smooth on objects and not continuous on morphisms; for functors continuous on morphisms the
@@ -7024,24 +7024,24 @@ claim is proved, with a sheet $\mathbf U(\psi)$ at $\psi = f(\varphi)$ and $\mat
 (Findings, items 9, 104).
 
 **V7.11 (the quotient topology and Proposition 7.1.8 (2017: 7.1), openness of $\pi$; `Polyfold.EpGroupoid.continuous_π`,
-`Polyfold.EpGroupoid.proposition_7_1`, `Polyfold.EpGroupoid.proposition_7_1_isOpenQuotientMap`,
-`Polyfold.EpGroupoid.proposition_7_1_map_nhds`).** $|X|$ carries the quotient topology and $\pi$ is open. *Book:* 2017 p. 229 and
+`Polyfold.EpGroupoid.proposition_7_1_8`, `Polyfold.EpGroupoid.proposition_7_1_8_isOpenQuotientMap`,
+`Polyfold.EpGroupoid.proposition_7_1_8_map_nhds`).** $|X|$ carries the quotient topology and $\pi$ is open. *Book:* 2017 p. 229 and
 Proposition 7.1.8 (2017: 7.1), p. 291 (2017 p. 229). *Hidden hypotheses:* none. *Deviation (restated):* proved through the saturation $\pi^{-1}(\pi(U))
 = t(s^{-1}(U))$ and the openness of $t$ (Findings, item 10).
 
-**V7.12 (Proposition 7.1.9 (2017: 7.2), countable neighbourhood bases; `Polyfold.EpGroupoid.proposition_7_2`,
-`Polyfold.EpGroupoid.proposition_7_2_of_hasAntitoneBasis`, `Polyfold.EpGroupoid.proposition_7_2_firstCountableTopology`).**
+**V7.12 (Proposition 7.1.9 (2017: 7.2), countable neighbourhood bases; `Polyfold.EpGroupoid.proposition_7_1_9`,
+`Polyfold.EpGroupoid.proposition_7_1_9_of_hasAntitoneBasis`, `Polyfold.EpGroupoid.proposition_7_1_9_firstCountableTopology`).**
 Every $z \in |X|$ has a monotone countable basis of open neighbourhoods. *Book:* Proposition 7.1.9 (2017: 7.2), p. 291 (2017 p. 229), with Theorem 2.3.10 (2017: 2.2).
 *Hidden hypotheses:* none. *Deviation (restated):* Mathlib's `HasAntitoneBasis`, radii $1/(k + 1)$ (Findings, item 10).
 
-**V7.13 (Proposition 7.1.10 (2017: 7.3), the local closure relation; `Polyfold.EpGroupoid.proposition_7_3`,
-`Polyfold.EpGroupoid.proposition_7_3_of_isProperMap`).** Every $x$ has an open $U$ with $\pi(\mathrm{cl}_X A) =
+**V7.13 (Proposition 7.1.10 (2017: 7.3), the local closure relation; `Polyfold.EpGroupoid.proposition_7_1_10`,
+`Polyfold.EpGroupoid.proposition_7_1_10_of_isProperMap`).** Every $x$ has an open $U$ with $\pi(\mathrm{cl}_X A) =
 \mathrm{cl}_{|X|}\pi(A)$ for all $A \subseteq U$. *Book:* Proposition 7.1.10 (2017: 7.3), pp. 292 ff. (2017 pp. 229–230). *Hidden hypotheses:* none.
 *Deviation (stronger):* for every $U$ with the properness property and every $A \subseteq \mathrm{cl}_X U$, proved from the
 closedness of the proper map instead of sequences (Findings, item 11).
 
-**V7.14 (Lemma 7.1.11 (2017: 7.1); `Polyfold.EpGroupoid.lemma_7_1`, `Polyfold.EpGroupoid.lemma_7_1_swap`,
-`Polyfold.EpGroupoid.lemma_7_1_of_isProperMap`, `Polyfold.EpGroupoid.lemma_7_1_swap_of_isProperMap`,
+**V7.14 (Lemma 7.1.11 (2017: 7.1); `Polyfold.EpGroupoid.lemma_7_1_11`, `Polyfold.EpGroupoid.lemma_7_1_11_swap`,
+`Polyfold.EpGroupoid.lemma_7_1_11_of_isProperMap`, `Polyfold.EpGroupoid.lemma_7_1_11_swap_of_isProperMap`,
 `Polyfold.finite_setOf_mem_of_isProperMap_domRestrict`, `Polyfold.IsProperMap.finite_preimage_singleton_of_isLocallyInjective`).**
 If $t : s^{-1}(\mathrm{cl}_X U(x_0)) \to X$ is proper, only finitely many $\psi$ have $s(\psi) = x$ and $t(\psi) \in
 U(x_0)$. *Book:* Lemma 7.1.11 (2017: 7.1), p. 292 (2017 p. 230). *Hidden hypotheses:* none; the openness of $U(x_0)$ and $x_0 \in U(x_0)$ are not used.
@@ -7049,7 +7049,7 @@ U(x_0)$. *Book:* Lemma 7.1.11 (2017: 7.1), p. 292 (2017 p. 230). *Hidden hypothe
 compact discrete fibre. Possible misprints in the proof: "$t : V(\psi) \to V(y)$" for $V(x)$, "$s(\psi) \in
 s^{-1}(\mathrm{cl}_X(U(x_0)))$", and unbalanced parentheses in statement and proof (Findings, items 12, 96).
 
-**V7.15 (Proposition 7.1.12 (2017: 7.4), finiteness of the isotropy groups; `Polyfold.EpGroupoid.proposition_7_4`,
+**V7.15 (Proposition 7.1.12 (2017: 7.4), finiteness of the isotropy groups; `Polyfold.EpGroupoid.proposition_7_1_12`,
 `Polyfold.MPolyfold.finite_isotropy_of_isLocalScDiffeo`).** $G_x$ is finite. *Book:* Proposition 7.1.12 (2017: 7.4), p. 293 (2017 p. 230).
 *Hidden hypotheses:* none. *Deviation:* none; from Lemma 7.1.11 (2017: 7.1) with $x_0 = x$ (Findings, item 13).
 
@@ -7069,7 +7069,7 @@ conjugation with a chosen $\varphi : x \to y$; there is no canonical identificat
 `Polyfold.EpGroupoid.NaturalRep.src_Γ`, `Polyfold.EpGroupoid.NaturalRep.tgt_Γ`,
 `Polyfold.EpGroupoid.NaturalRep.existsUnique_Γ`, `Polyfold.EpGroupoid.NaturalRep.Φ_one`,
 `Polyfold.EpGroupoid.NaturalRep.mapsTo_Φ`, `Polyfold.EpGroupoid.NaturalRep.Φ_inv_Φ`,
-`Polyfold.EpGroupoid.NaturalRep.bijOn_Γ`, `Polyfold.EpGroupoid.theorem_7_1`).** For every open $V \ni x$ there are an open
+`Polyfold.EpGroupoid.NaturalRep.bijOn_Γ`, `Polyfold.EpGroupoid.theorem_7_1_13`).** For every open $V \ni x$ there are an open
 $U \subseteq V$ of $x$, a homomorphism $\Phi : G_x \to \mathrm{Diff}_{sc}(U)$ and an sc-smooth $\Gamma : G_x \times U \to
 \mathbf X$ with (1) $\Gamma(g, x) = g$, (2) $s(\Gamma(g, y)) = y$, $t(\Gamma(g, y)) = \Phi(g)(y)$, (3) $\Gamma$ a bijection
 onto the morphisms between points of $U$. *Book:* Theorem 7.1.13 (2017: 7.1), p. 293 (2017 p. 231) (proved as Theorem 7.6.1 (2017: 7.5), V7.62). *Hidden
@@ -7093,7 +7093,7 @@ now formalized (Findings, items 21, 114).
 `Polyfold.EpGroupoid.NaturalRep.iUnion_image_Γ`, `Polyfold.EpGroupoid.NaturalRep.isOpen_morOn`,
 `Polyfold.EpGroupoid.NaturalRep.isConnected_image_Γ`, `Polyfold.EpGroupoid.NaturalRep.connectedComponentIn_morOn`,
 `Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_src_image`, `Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_tgt_image`,
-`Polyfold.EpGroupoid.NaturalRep.index`, `Polyfold.EpGroupoid.NaturalRep.Γ_index`, `Polyfold.EpGroupoid.lemma_7_8`).** The
+`Polyfold.EpGroupoid.NaturalRep.index`, `Polyfold.EpGroupoid.NaturalRep.Γ_index`, `Polyfold.EpGroupoid.lemma_7_6_2`).** The
 morphisms between points of $U(x)$ form the disjoint union of the connected open sets $\mathbf U(g) = \Gamma(g, U)$, on
 which $s$ and $t$ are sc-diffeomorphisms onto $U(x)$, and $\mathbf U(x)$ can be put into any open neighbourhood of $G_x$.
 *Book:* 2017 p. 231. *Hidden hypotheses:* none. *Deviation:* none; "arbitrarily small" is Lemma 7.6.2 (2017: 7.8) for arbitrary open $N_g$
@@ -7150,8 +7150,8 @@ none. *Deviation (not in the book):* stated and proved (Findings, item 24).
 `Polyfold.EpGroupoid.NaturalRepFinite.isScDiffeoOn_tgt`, `Polyfold.EpGroupoid.NaturalRepFinite.F_eq`,
 `Polyfold.EpGroupoid.NaturalRepFinite.natural`, `Polyfold.EpGroupoid.NatRepFinite.transportRep`,
 `Polyfold.EpGroupoid.NatRepFinite.Star`, `Polyfold.EpGroupoid.NatRepFinite.exists_star`,
-`Polyfold.EpGroupoid.NatRepFinite.emptyNaturalRepFinite`, `Polyfold.EpGroupoid.proposition_7_5`,
-`Polyfold.EpGroupoid.proposition_7_5_of_mem_nhdsSet`).** For finitely many mutually isomorphic objects $Y$ and a
+`Polyfold.EpGroupoid.NatRepFinite.emptyNaturalRepFinite`, `Polyfold.EpGroupoid.proposition_7_1_15_2017`,
+`Polyfold.EpGroupoid.proposition_7_1_15_of_mem_nhdsSet`).** For finitely many mutually isomorphic objects $Y$ and a
 neighbourhood $V$ of $Y$ there is a functor $f$ assigning disjoint connected open $U(y) \subseteq V$ and sc-diffeomorphisms
 $f(\psi) : U(y) \to U(y')$, such that the morphisms between the $U(y)$ split into components $\mathbf U(\psi)$ with (1) the
 natural action of $G_y$ on $U(y)$, (2) $s, t : \mathbf U(\psi) \to U(y)$ sc-diffeomorphisms, (3) $f(\psi) = t \circ
@@ -7166,8 +7166,8 @@ items 25, 26).
 
 **V7.27 (Proposition 7.1.19 (2017: 7.6), $|U(x)| \cong G_x\backslash U(x)$; `Polyfold.EpGroupoid.NaturalRep.π_eq_π_iff_exists_smul`,
 `Polyfold.EpGroupoid.NaturalRep.orbitQuotientMap`, `Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_orbitQuotientMap`,
-`Polyfold.EpGroupoid.NaturalRep.range_orbitQuotientMap`, `Polyfold.EpGroupoid.proposition_7_6`,
-`Polyfold.EpGroupoid.proposition_7_6_fullyFaithful`, `Polyfold.EpGroupoid.proposition_7_6_orbitMap`,
+`Polyfold.EpGroupoid.NaturalRep.range_orbitQuotientMap`, `Polyfold.EpGroupoid.proposition_7_1_19`,
+`Polyfold.EpGroupoid.proposition_7_1_19_fullyFaithful`, `Polyfold.EpGroupoid.proposition_7_1_19_orbitMap`,
 `Polyfold.EpGroupoid.translationOrbitHomeomorph`).** $\tau : G_x\backslash U(x) \to \pi(U(x))$, $G_x \ast y \mapsto |y|$, is a
 homeomorphism; the functor $G_x \ltimes U(x) \to X$ is fully faithful and induces a homeomorphism of orbit spaces.
 *Book:* Proposition 7.1.19 (2017: 7.6), pp. 304 ff. (2017 pp. 236–237). *Hidden hypotheses:* none. *Deviation (stronger):* $\tau$ is an open embedding into
@@ -7217,7 +7217,7 @@ extraction artefact) (Findings, item 41).
 `Polyfold.EpGroupoid.exists_isProperMap_fullSub`, `Polyfold.EpGroupoid.isScSmoothComp_fullSub`,
 `Polyfold.EpGroupoid.instParacompactSpaceMorOn`, `Polyfold.EpGroupoid.subEpGroupoid`,
 `Polyfold.EpGroupoid.subEpGroupoid_src_val`, `Polyfold.EpGroupoid.subEpGroupoid_comp_val`,
-`Polyfold.EpGroupoid.proposition_7_7`, `Polyfold.EpGroupoid.subEpFunctor`, `Polyfold.EpGroupoid.subEpFunctor_full`,
+`Polyfold.EpGroupoid.proposition_7_1_22`, `Polyfold.EpGroupoid.subEpFunctor`, `Polyfold.EpGroupoid.subEpFunctor_full`,
 `Polyfold.EpGroupoid.subEpFunctor_faithful`).** For $A$ saturated and a sub-M-polyfold, the full subcategory is an
 ep-groupoid with the restricted structure maps, $A$ and $\mathbf A$ sub-M-polyfolds. *Book:* the argument on 2017 p. 238 and
 Proposition 7.1.22 (2017: 7.7), pp. 307 ff. (2017 pp. 238–239). *Hidden hypotheses:* none; the paracompactness of $A$ and $\mathbf A$, which the project's
@@ -7235,20 +7235,20 @@ satisfiable non-vacuously (`Polyfold.EpGroupoid.Examples.isEffective_reflection_
 items 50, 101).
 
 **V7.34 (Lemma 7.2.2 (2017: 7.2), $X_{reg}$ is open; `Polyfold.EpGroupoid.NaturalRep.subset_regularSet`,
-`Polyfold.EpGroupoid.lemma_7_2`).** The regular part is open. *Book:* Lemma 7.2.2 (2017: 7.2), p. 307 (2017 p. 239). *Hidden hypotheses:* $\Gamma(1, a) =
+`Polyfold.EpGroupoid.lemma_7_2_2`).** The regular part is open. *Book:* Lemma 7.2.2 (2017: 7.2), p. 307 (2017 p. 239). *Hidden hypotheses:* $\Gamma(1, a) =
 1_a$, i.e. $U$ connected (V7.17). *Deviation (stronger):* $U(x) \subseteq X_{reg}$ for every natural representation at a
 regular $x$ (Findings, item 51).
 
 **V7.35 (Lemma 7.2.3 (2017: 7.3), effectiveness and injective natural representations; `Polyfold.EpGroupoid.NaturalRep.kerΦ`,
 `Polyfold.EpGroupoid.NaturalRep.injective_Φ_iff`, `Polyfold.EpGroupoid.NaturalRep.kerΦ_eq_bot_iff`,
 `Polyfold.EpGroupoid.IsEffective.eq_one`, `Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep`,
-`Polyfold.EpGroupoid.lemma_7_3`).** $X$ is effective iff every $x$ has, inside every open $V(x)$, a natural representation
+`Polyfold.EpGroupoid.lemma_7_2_3`).** $X$ is effective iff every $x$ has, inside every open $V(x)$, a natural representation
 with $\Phi$ injective. *Book:* Lemma 7.2.3 (2017: 7.3), pp. 308–309 (2017 pp. 239–240). *Hidden hypotheses:* none. *Deviation (stronger):* (1) ⇒ (2) for
 every natural representation, without sequences; "adapting restrictions" read through V7.24; injectivity as trivial
 kernel (Findings, item 52).
 
 **V7.36 (Proposition 7.2.4 (2017: 7.8), $X_{reg}$ is open and dense for effective $X$; `Polyfold.EpGroupoid.NaturalRep.stabilizerEquivIsotropy`,
-`Polyfold.EpGroupoid.proposition_7_8`, `Polyfold.EpGroupoid.isEffective_of_dense_regularSet`,
+`Polyfold.EpGroupoid.proposition_7_2_4`, `Polyfold.EpGroupoid.isEffective_of_dense_regularSet`,
 `Polyfold.EpGroupoid.isEffective_iff_dense_regularSet`).** If $X$ is effective, $X_{reg}$ is open and dense. *Book:*
 Proposition 7.2.4 (2017: 7.8), pp. 309 ff. (2017 pp. 240–241). *Hidden hypotheses:* none. *Deviation (stronger):* the minimum of $\#G$ is taken over the
 given open set, so $U(x_0)$ is not needed; the converse also holds (Findings, item 53).
@@ -7282,7 +7282,7 @@ item 55).
 `Polyfold.EpGroupoid.reducedChart`, `Polyfold.EpGroupoid.reducedChart_compatible`, `Polyfold.EpGroupoid.reducedCharts`,
 `Polyfold.EpGroupoid.reducedAtlas`, `Polyfold.EpGroupoid.reducedPolyfold`, `Polyfold.EpGroupoid.isChart_reducedChart`,
 `Polyfold.EpGroupoid.isScDiffeoOn_reducedπ`, `Polyfold.EpGroupoid.isLocalScDiffeo_reducedπ`,
-`Polyfold.EpGroupoid.proposition_7_9`, `Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective`,
+`Polyfold.EpGroupoid.proposition_7_2_10`, `Polyfold.EpGroupoid.t2Space_reducedMor_of_isEffective`,
 `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_isEffective`, `Polyfold.EpGroupoid.paracompactSpace_reducedMor_of_t3`,
 `Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor`).**
 $\mathbf X^R$ has a natural M-polyfold structure. *Book:* Proposition 7.2.10 (2017: 7.9), pp. 313–319 (2017 pp. 242–243). *Hidden hypotheses:* $\mathbf X^R$
@@ -7301,7 +7301,7 @@ Four possible misprints in the proof (Findings, items 56, 57, 60, 107, 111).
 `Polyfold.EpGroupoid.isScSmoothMap_reducedInv`, `Polyfold.EpGroupoid.exists_isProperMap_reduced`,
 `Polyfold.EpGroupoid.isScSmoothCompSheet_reduced`, `Polyfold.EpGroupoid.reducedEpGroupoid`,
 `Polyfold.EpGroupoid.reductionFunctor`, `Polyfold.EpGroupoid.isEffective_reducedEpGroupoid`,
-`Polyfold.EpGroupoid.proposition_7_10`, `Polyfold.EpGroupoid.reductionIso`).** $(X, \mathbf X^R)$ with the induced structure
+`Polyfold.EpGroupoid.proposition_7_10_2017`, `Polyfold.EpGroupoid.reductionIso`).** $(X, \mathbf X^R)$ with the induced structure
 maps is an ep-groupoid $X_R$, and it is effective. *Book:* 2017 p. 243 and Proposition 7.10 (2017), 2017 p. 244. *Hidden hypotheses:* those of
 V7.39 (gap G.71). *Deviation (narrower):* (3) via the continuous surjection $\mathbf X \to \mathbf X^R$; (4) in sheet form, with a step
 the text leaves implicit; effectiveness from the intrinsic form of $T_x$; for effective $X$, $X_R \cong X$. Without the
@@ -7317,29 +7317,29 @@ isotropy group $G^{\mathrm{eff}}_x$. *Book:* 2017 p. 244 and Definition 7.2.15 (
 the isotropy of $X_R$ under those of V7.39; $G_x/T_x$ itself needs none. *Deviation:* none; "For and object" (possible
 misprint) (Findings, item 59).
 
-**V7.42 (Theorem 7.3.1 (2017: 7.2), basic topological properties of $|X|$; `Polyfold.EpGroupoid.theorem_7_2`,
-`Polyfold.EpGroupoid.theorem_7_2_metrizable`, `Polyfold.metrizableSpace_of_locally`).** $|X|$ is locally metrizable,
+**V7.42 (Theorem 7.3.1 (2017: 7.2), basic topological properties of $|X|$; `Polyfold.EpGroupoid.theorem_7_3_1`,
+`Polyfold.EpGroupoid.theorem_7_3_1_metrizable`, `Polyfold.metrizableSpace_of_locally`).** $|X|$ is locally metrizable,
 regular and Hausdorff, and metrizable if paracompact. *Book:* Theorem 7.3.1 (2017: 7.2), p. 324 (2017 p. 244). *Hidden hypotheses:* none. *Deviation
 (restated):* "locally metrizable" as an open metrizable neighbourhood of every point; Smirnov's theorem in Part I's form
 (Findings, item 70).
 
 **V7.43 (Lemma 7.3.2 (2017: 7.4), local metrizability; `Polyfold.EpGroupoid.metrizableSpace_orbitRel_quotient_naturalRep`,
-`Polyfold.EpGroupoid.lemma_7_4_naturalRep`, `Polyfold.EpGroupoid.lemma_7_4`).** Every point of $|X|$ has a metrizable
+`Polyfold.EpGroupoid.lemma_7_3_2_naturalRep`, `Polyfold.EpGroupoid.lemma_7_3_2`).** Every point of $|X|$ has a metrizable
 open neighbourhood, $|U(x)|$ for a natural representation. *Book:* Lemma 7.3.2 (2017: 7.4), pp. 324 ff. (2017 pp. 244–245). *Hidden hypotheses:* none.
 *Deviation (restated):* $\hat\rho$ computed as $\min_h \rho(y, h \ast y')$ (Findings, item 71).
 
-**V7.44 (Lemma 7.3.3 (2017: 7.5), countable neighbourhood bases; `Polyfold.EpGroupoid.lemma_7_5`).** Every point of $|X|$ has a
+**V7.44 (Lemma 7.3.3 (2017: 7.5), countable neighbourhood bases; `Polyfold.EpGroupoid.lemma_7_3_3`).** Every point of $|X|$ has a
 monotone countable basis of open neighbourhoods. *Book:* Lemma 7.3.3 (2017: 7.5), p. 324 (2017 p. 245). *Hidden hypotheses:* none. *Deviation:*
 none; it is Proposition 7.1.9 (2017: 7.2) (V7.12) (Findings, item 72).
 
-**V7.45 (Lemma 7.3.4 (2017: 7.6), $|X|$ is Hausdorff; `Polyfold.EpGroupoid.t1Space_orbitSpace`, `Polyfold.EpGroupoid.lemma_7_6`).**
+**V7.45 (Lemma 7.3.4 (2017: 7.6), $|X|$ is Hausdorff; `Polyfold.EpGroupoid.t1Space_orbitSpace`, `Polyfold.EpGroupoid.lemma_7_3_4`).**
 *Book:* Lemma 7.3.4 (2017: 7.6), pp. 325 ff. (2017 pp. 245–246). *Hidden hypotheses:* none. *Deviation (restated):* from Lemma 7.3.5 (2017: 7.7) and the closedness of
 points, instead of the text's direct argument (Findings, item 72).
 
-**V7.46 (Lemma 7.3.5 (2017: 7.7), $|X|$ is regular; `Polyfold.EpGroupoid.lemma_7_7`).** *Book:* Lemma 7.3.5 (2017: 7.7), p. 325 (2017 p. 246). *Hidden
+**V7.46 (Lemma 7.3.5 (2017: 7.7), $|X|$ is regular; `Polyfold.EpGroupoid.lemma_7_3_5`).** *Book:* Lemma 7.3.5 (2017: 7.7), p. 325 (2017 p. 246). *Hidden
 hypotheses:* none. *Deviation (restated):* with a closed neighbourhood basis and Proposition 7.1.10 (2017: 7.3) (Findings, item 72).
 
-**V7.47 (Corollary 7.3.6 (2017: 7.1), the metrizability criterion; `Polyfold.EpGroupoid.corollary_7_1`).** If $|X|$ is second countable,
+**V7.47 (Corollary 7.3.6 (2017: 7.1), the metrizability criterion; `Polyfold.EpGroupoid.corollary_7_3_6`).** If $|X|$ is second countable,
 it is metrizable. *Book:* Corollary 7.3.6 (2017: 7.1), p. 326 (2017 p. 247). *Hidden hypotheses:* none. *Deviation:* none; Urysohn's theorem
 (Findings, item 73).
 
@@ -7352,8 +7352,8 @@ regular and Hausdorff; a paracompact one is metrizable. *Book:* 2017 p. 247, bef
 connected component of $|X|$ in a compact set. *Book:* Definition 7.3.7 (2017: 7.14), p. 326 (2017 p. 247). *Hidden hypotheses:* none. *Deviation:*
 none (Findings, item 74).
 
-**V7.50 (Michael's theorem and unions of closed paracompact sets; `Polyfold.lemma_2_56`, `Polyfold.michael_tfae`,
-`Polyfold.proposition_2_57`, `Polyfold.paracompactSpace_of_closed_refinement`, `Polyfold.exists_closed_precise_refinement`,
+**V7.50 (Michael's theorem and unions of closed paracompact sets; `Polyfold.lemma_2_7_3`, `Polyfold.michael_tfae`,
+`Polyfold.proposition_2_7_4`, `Polyfold.paracompactSpace_of_closed_refinement`, `Polyfold.exists_closed_precise_refinement`,
 `Polyfold.paracompactSpace_iUnion`, `Polyfold.paracompactSpace_iUnion_of_finite`, `Polyfold.paracompactSpace_biUnion_of_finite`,
 `Polyfold.paracompactSpace_union`, `Polyfold.paracompactSpace_of_isClosed_subset`).** A regular space is paracompact iff
 every open cover has a closed locally finite refinement; a regular space with a locally finite cover by closed
@@ -7362,8 +7362,8 @@ and on the text's route to Proposition 7.5.3 (2017: 7.12) (p. 340 (2017 p. 249))
 property assumed by the text is not used; gap G.15 of Part I is now formalized (Findings, items 75, 114).
 
 **V7.51 (Corollary 7.3.8 (2017: 7.2), neighbourhoods of component compact sets; `Polyfold.EpGroupoid.locallyPathConnectedSpace_orbitSpace`,
-`Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure`, `Polyfold.EpGroupoid.corollary_7_2_of_isCompact`,
-`Polyfold.EpGroupoid.corollary_7_2`).** A component compact $K$ has an open neighbourhood $U$ with $\mathrm{cl}_{|X|}(U)$
+`Polyfold.EpGroupoid.exists_isOpen_metrizableSpace_closure`, `Polyfold.EpGroupoid.corollary_7_3_8_of_isCompact`,
+`Polyfold.EpGroupoid.corollary_7_3_8`).** A component compact $K$ has an open neighbourhood $U$ with $\mathrm{cl}_{|X|}(U)$
 paracompact, hence $\mathrm{cl}(U)$ and $U$ metrizable. *Book:* Corollary 7.3.8 (2017: 7.2), p. 326 (2017 p. 247). *Hidden hypotheses:* none.
 *Deviation (restated):* the reduction to compact $K$ uses open components (local connectedness of $|X|$, V7.18) and a
 locally finite union the text does not give; Michael's theorem (V7.50) for the finite union. "$U$" names both $\bigcup
@@ -7376,7 +7376,7 @@ locally finite union the text does not give; Michael's theorem (V7.50) for the f
 `Polyfold.EpGroupoid.isScSmoothMap_liftUnit`, `Polyfold.EpGroupoid.isScSmoothMap_liftInv`,
 `Polyfold.EpGroupoid.exists_isProperMap_lift`, `Polyfold.EpGroupoid.isScSmoothCompSheet_lift`,
 `Polyfold.EpGroupoid.isScSmoothComp_lift`, `Polyfold.EpGroupoid.liftOne`, `Polyfold.MPolyfold.IsTame.levelOne`,
-`Polyfold.EpGroupoid.isTame_liftOne`, `Polyfold.EpGroupoid.proposition_7_11`).** $X^1 = (X^1, \mathbf X^1)$ is an
+`Polyfold.EpGroupoid.isTame_liftOne`, `Polyfold.EpGroupoid.proposition_7_3_9`).** $X^1 = (X^1, \mathbf X^1)$ is an
 ep-groupoid, tame if $X$ is. *Book:* Proposition 7.3.9 (2017: 7.11), pp. 327–328 (2017 pp. 247–248). *Hidden hypotheses:* none. *Deviation (restated):*
 (4) in sheet form, avoiding $(\mathbf X\,{}_s{\times}_t\,\mathbf X)^1 = \mathbf X^1\,{}_s{\times}_t\,\mathbf X^1$; (3) with
 convergence in $X_1$ for the compact set of the text and without its step (b); the tameness, for which the text gives no
@@ -7384,7 +7384,7 @@ argument and which Part I left open (Chapter 5, item 145), is proved. Display (7
 (possible misprint) (Findings, items 80, 81, 96).
 
 **V7.53 (Definition 7.5.1 (2017: 7.15), ep-groupoids with paracompact orbit space, the sentence before Remark 7.5.2 (2017: 7.1), and Remark 7.5.2 (2017: 7.1);
-`Polyfold.EpGroupoid.HasParacompactOrbitSpace`, `Polyfold.EpGroupoid.remark_7_1`,
+`Polyfold.EpGroupoid.HasParacompactOrbitSpace`, `Polyfold.EpGroupoid.remark_7_5_2`,
 `Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology`,
 `Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace`).** (5): $|X|$ is paracompact, not required to be
 Hausdorff; if $X$ is second countable, (1)–(4) imply (5). Remark 7.5.2 (2017: 7.1) recalls that [38] required second countability.
@@ -7396,14 +7396,14 @@ known whether (5) is a consequence of (1)–(4)" is not formalized (Findings, it
 `Polyfold.EpGroupoid.continuous_orbitIncl`, `Polyfold.EpGroupoid.orbitIncl_injective`, `Polyfold.EpGroupoid.range_orbitIncl`,
 `Polyfold.EpGroupoid.NaturalRep.liftMulAction`, `Polyfold.EpGroupoid.NaturalRep.isOpenEmbedding_liftOrbitQuotientMap`,
 `Polyfold.EpGroupoid.NaturalRep.metrizableSpace_preimage_orbitIncl`, `Polyfold.EpGroupoid.metrizableSpace_liftOne_orbitSpace`,
-`Polyfold.metrizableSpace_of_pullback`, `Polyfold.EpGroupoid.proposition_7_12`).** If $|X|$ is paracompact, so is
+`Polyfold.metrizableSpace_of_pullback`, `Polyfold.EpGroupoid.proposition_7_5_3`).** If $|X|$ is paracompact, so is
 $|X^1|$. *Book:* Proposition 7.5.3 (2017: 7.12), pp. 340 ff. (2017 pp. 249–250). *Hidden hypotheses:* none. *Deviation (stronger):* $|X^1|$ is metrizable,
 by Smirnov's theorem pulled back along the continuous injection $|X^1| \to |X|$ onto $\pi(X_1)$; $U(x)_1$ carries the
 restricted action only (Findings, item 83).
 
 **V7.55 (Theorem 7.5.4 (2017: 7.3), continuous partitions of unity; `Polyfold.EpGroupoid.orbitPullback`,
 `Polyfold.EpGroupoid.orbitPullback_isSubordinate`, `Polyfold.EpGroupoid.exists_isSaturated_nhds_finite_orbitPullback`,
-`Polyfold.EpGroupoid.theorem_7_3`).** For paracompact $|X|$, every open cover of $|X|$ has a subordinate partition of unity,
+`Polyfold.EpGroupoid.theorem_7_5_4`).** For paracompact $|X|$, every open cover of $|X|$ has a subordinate partition of unity,
 and every saturated open cover of $X$ an invariant continuous one. *Book:* Theorem 7.5.4 (2017: 7.3), p. 341 (2017 p. 250). *Hidden hypotheses:* $|X|$
 Hausdorff, from Lemma 7.3.4 (2017: 7.6), for normality. *Deviation:* none (Findings, item 90).
 
@@ -7416,10 +7416,10 @@ of unity with (1) saturated neighbourhoods meeting finitely many supports, (2) i
 has no formal content. *Book:* Remark 7.5.6 (2017: 7.2), p. 342 (2017 p. 251). *Hidden hypotheses:* none. *Deviation:* none; the sc-Hilbert case is
 Part I's `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert` (V7.68) (Findings, item 91).
 
-**V7.58 (Theorem 7.5.7 (2017: 7.4), sc-smooth partitions of unity of an ep-groupoid; `Polyfold.EpGroupoid.theorem_7_4`).** If $|X|$ is
+**V7.58 (Theorem 7.5.7 (2017: 7.4), sc-smooth partitions of unity of an ep-groupoid; `Polyfold.EpGroupoid.theorem_7_5_7`).** If $|X|$ is
 paracompact and the object M-polyfold admits sc-smooth partitions of unity, $X$ has sc-smooth partitions of unity.
 *Book:* Theorem 7.5.7 (2017: 7.4), p. 342 (2017 p. 251) (proved as Theorem 7.6.4 (2017: 7.6), V7.65, V7.67). *Hidden hypotheses:* none; satisfiable
-(`Polyfold.EpGroupoid.theorem_7_4_hypotheses_rn`). *Deviation:* none (Findings, items 94, 105).
+(`Polyfold.EpGroupoid.theorem_7_5_7_hypotheses_rn`). *Deviation:* none (Findings, items 94, 105).
 
 **V7.59 (Definition 7.5.8 (2017: 7.17), proper subsets and the properness property; `Polyfold.EpGroupoid.IsProperSubset`,
 `Polyfold.EpGroupoid.HasPropernessProperty`, `Polyfold.EpGroupoid.exists_hasPropernessProperty`,
@@ -7428,41 +7428,41 @@ paracompact and the object M-polyfold admits sc-smooth partitions of unity, $X$ 
 open $U$ has the properness property if $\mathrm{cl}_X(U)$ is proper. *Book:* Definition 7.5.8 (2017: 7.17), p. 342 (2017 p. 251). *Hidden
 hypotheses:* none. *Deviation:* none (Findings, item 92).
 
-**V7.60 (Proposition 7.5.9 (2017: 7.13), proper subsets are closed; `Polyfold.EpGroupoid.proposition_7_13`,
+**V7.60 (Proposition 7.5.9 (2017: 7.13), proper subsets are closed; `Polyfold.EpGroupoid.proposition_7_5_9`,
 `Polyfold.EpGroupoid.IsProperSubset.isClosed`).** *Book:* Proposition 7.5.9 (2017: 7.13), p. 342 (2017 p. 251). *Hidden hypotheses:* none.
 *Deviation:* none; by the compactness of the preimage (Findings, item 92).
 
 **V7.61 (Proposition 7.5.10 (2017: 7.14), closed subsets of $|X|$; `Polyfold.EpGroupoid.isClosed_saturation_of_isProperSubset`,
-`Polyfold.EpGroupoid.proposition_7_14_one`, `Polyfold.EpGroupoid.IsProperSubset.of_subset`,
+`Polyfold.EpGroupoid.proposition_7_5_10_one`, `Polyfold.EpGroupoid.IsProperSubset.of_subset`,
 `Polyfold.EpGroupoid.IsProperSubset.union`, `Polyfold.EpGroupoid.isProperSubset_iUnion_of_locallyFinite`,
 `Polyfold.EpGroupoid.isProperSubset_of_isCompact`, `Polyfold.EpGroupoid.exists_hasPropernessProperty_subset`,
-`Polyfold.EpGroupoid.proposition_7_14_two`).** (1) $\pi(Q)$ is closed for proper $Q$; (2) for paracompact $|X|$, $A
+`Polyfold.EpGroupoid.proposition_7_5_10_two`).** (1) $\pi(Q)$ is closed for proper $Q$; (2) for paracompact $|X|$, $A
 \subseteq |X|$ is closed iff $A = \pi(Q)$ for a proper $Q$. *Book:* Proposition 7.5.10 (2017: 7.14), pp. 343–344 (2017 pp. 251–252). *Hidden hypotheses:*
 none. *Deviation (stronger):* (2) with only the paracompactness of $|X|$, without Lemma 2.7.3 (2017: 2.7) or regularity;
 "$\mathrm{cl}_X(U_{x_{z_i}})$" for $\mathrm{cl}_X(U(x_{z_i}))$ (possible misprint) (Findings, item 92).
 
-**V7.62 (Theorem 7.6.1 (2017: 7.5), the natural representation, restated in Appendix 7.6.1 (2017 7.5.1); `Polyfold.EpGroupoid.theorem_7_5`,
+**V7.62 (Theorem 7.6.1 (2017: 7.5), the natural representation, restated in Appendix 7.6.1 (2017 7.5.1); `Polyfold.EpGroupoid.theorem_7_6_1`,
 `Polyfold.EpGroupoid.NatRepConstruction.Sheets`, `Polyfold.EpGroupoid.NatRepConstruction.exists_sheets`,
 `Polyfold.EpGroupoid.NatRepConstruction.Sheets.mkRep`, `Polyfold.EpGroupoid.NatRepConstruction.exists_naturalRep_sheets`,
 `Polyfold.EpGroupoid.NatRepConstruction.restrict`).** Theorem 7.1.13 (2017: 7.1) with $\Phi(g) = t_g \circ s_g^{-1}$. *Book:* Theorem 7.6.1 (2017: 7.5)
-and its proof, pp. 344–346 (2017 pp. 253–254). *Hidden hypotheses:* as V7.17. *Deviation (restated):* `Polyfold.EpGroupoid.theorem_7_5` is `Polyfold.EpGroupoid.theorem_7_1` (V7.17);
+and its proof, pp. 344–346 (2017 pp. 253–254). *Hidden hypotheses:* as V7.17. *Deviation (restated):* `Polyfold.EpGroupoid.theorem_7_6_1` is `Polyfold.EpGroupoid.theorem_7_1_13` (V7.17);
 the proof starts at $U_0 := V \cap \bigcap_g s(N_g)$ so that $U \subseteq V$; the contractibility of $N^t_g$, $N^s_g$ is
 not needed; "$\Phi : G_x \to \mathrm{Diff}_{sc}(U)$" for $G_{x_0}$ (possible misprint) (Findings, item 29).
 
-**V7.63 (Lemma 7.6.2 (2017: 7.8); `Polyfold.EpGroupoid.lemma_7_8`).** There is an open $U_1 \subseteq U_0$ of $x_0$ such that every
+**V7.63 (Lemma 7.6.2 (2017: 7.8); `Polyfold.EpGroupoid.lemma_7_6_2`).** There is an open $U_1 \subseteq U_0$ of $x_0$ such that every
 morphism between points of $U_1$ lies in some $N_g$. *Book:* Lemma 7.6.2 (2017: 7.8), pp. 345 ff. (2017 pp. 253–254). *Hidden hypotheses:* none.
 *Deviation (stronger):* for any open $N_g \ni g$ and any neighbourhood $U_0$; "properness assumption of ep-polyfolds"
 (possible misprint) (Findings, item 30).
 
-**V7.64 (Lemma 7.6.3 (2017: 7.9); `Polyfold.EpGroupoid.lemma_7_9`, `Polyfold.EpGroupoid.NatRepConstruction.Sheets.unionHat`,
+**V7.64 (Lemma 7.6.3 (2017: 7.9); `Polyfold.EpGroupoid.lemma_7_6_3`, `Polyfold.EpGroupoid.NatRepConstruction.Sheets.unionHat`,
 `Polyfold.EpGroupoid.NatRepConstruction.Sheets.isConnected_unionHat`, `Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_one`,
 `Polyfold.EpGroupoid.NatRepConstruction.Sheets.eqOn_σ_mul`, `Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_one`,
 `Polyfold.EpGroupoid.NatRepConstruction.Sheets.hat_mul`).** There is an open $U_2 \subseteq U_1$ of $x_0$ such that $U =
 \bigcup_g t_g \circ s_g^{-1}(U_2)$ lies in $U_1$ and is invariant under all $t_g \circ s_g^{-1}$. *Book:* Lemma 7.6.3 (2017: 7.9), p. 345 (2017 p. 254). *Hidden hypotheses:* none. *Deviation (stronger):* $U_2$, and so $U$, connected, by V7.18 (Findings, item 31).
 
-**V7.65 (Theorem 7.6.4 (2017: 7.6), Theorem 7.5.7 (2017: 7.4) restated in Appendix 7.6.2 (2017 7.5.2); `Polyfold.EpGroupoid.theorem_7_6`).** *Book:* Theorem 7.6.4 (2017: 7.6), p. 346 (2017 p. 255). *Hidden hypotheses:* as V7.58. *Deviation:* none; `Polyfold.EpGroupoid.theorem_7_6` is `Polyfold.EpGroupoid.theorem_7_4` (V7.58) (Findings, item 95).
+**V7.65 (Theorem 7.6.4 (2017: 7.6), Theorem 7.5.7 (2017: 7.4) restated in Appendix 7.6.2 (2017 7.5.2); `Polyfold.EpGroupoid.theorem_7_6_4`).** *Book:* Theorem 7.6.4 (2017: 7.6), p. 346 (2017 p. 255). *Hidden hypotheses:* as V7.58. *Deviation:* none; `Polyfold.EpGroupoid.theorem_7_6_4` is `Polyfold.EpGroupoid.theorem_7_5_7` (V7.58) (Findings, item 95).
 
-**V7.66 (Lemma 7.6.5 (2017: 7.10), invariant sc-smooth majorants; `Polyfold.EpGroupoid.lemma_7_10`).** For $U(x) \subseteq
+**V7.66 (Lemma 7.6.5 (2017: 7.10), invariant sc-smooth majorants; `Polyfold.EpGroupoid.lemma_7_6_5`).** For $U(x) \subseteq
 \mathrm{cl}_X U(x) \subseteq V(x)$, $V(x)$ with the natural action and $U(x)$ invariant, every invariant continuous $\beta :
 X \to [0, 1]$ supported in $U(x)$ has an invariant sc-smooth majorant $f \geq 0$ supported in $V(x)$. *Book:* Lemma 7.6.5 (2017: 7.10),
 p. 346 (2017 p. 255). *Hidden hypotheses:* none. *Deviation (stronger):* $\mathrm{supp} f \subseteq \mathrm{cl}_X U(x)$ added (the proof
@@ -7473,16 +7473,16 @@ cover of $X$ (Findings, item 93).
 `Polyfold.EpGroupoid.mem_of_π_mem_image_of_invariant`, `Polyfold.EpGroupoid.saturation_diff_inter_eq_empty`,
 `Polyfold.EpGroupoid.orbitExtension`, `Polyfold.EpGroupoid.isScSmoothMap_orbitExtension`,
 `Polyfold.EpGroupoid.exists_isScSmoothMap_orbit_urysohn`, `Polyfold.admitsScPartitionsOfUnity_of_approx`,
-`Polyfold.EpGroupoid.theorem_7_4`).** The neighbourhoods $V(x) \subseteq \mathrm{cl}\,V(x) \subseteq W(x)$ with (1)–(4), a
+`Polyfold.EpGroupoid.theorem_7_5_7`).** The neighbourhoods $V(x) \subseteq \mathrm{cl}\,V(x) \subseteq W(x)$ with (1)–(4), a
 locally finite refinement, Lemma 7.6.5 (2017: 7.10), averaging, extension to the saturation, and normalization. *Book:* pp. 346–347 (2017 pp. 255–256).
 *Hidden hypotheses:* none. *Deviation (restated):* (4) follows from (1); Lemma 7.6.5 (2017: 7.10) is applied with $W(x_i)$ in the role of
 $V(x)$, where the text reads $V(x_i)$ (possible misprint); local finiteness needs the support bound of V7.66; the
 saturations are closed by properness; the normalization by Mathlib's bump coverings as in Part I's Theorem 5.5.10 (2017: 5.12);
 "$t : s^{-1}(\mathrm{cl}_X(V(x)) \to X$" (possible misprint) (Findings, items 94, 96).
 
-**V7.68 (Corollary 7.6.6 (2017: 7.3), sc-Hilbert atlases; `Polyfold.EpGroupoid.corollary_7_3`,
+**V7.68 (Corollary 7.6.6 (2017: 7.3), sc-Hilbert atlases; `Polyfold.EpGroupoid.corollary_7_6_6`,
 `Polyfold.MPolyfold.admitsScPartitionsOfUnity_of_hilbert`, `Polyfold.GodefroyTroyanskiWhitfieldZizlerStatement`,
-`Polyfold.EpGroupoid.corollary_7_3_hypotheses_rn`).** If $|X|$ is paracompact and the object M-polyfold has an atlas whose
+`Polyfold.EpGroupoid.corollary_7_6_6_hypotheses_rn`).** If $|X|$ is paracompact and the object M-polyfold has an atlas whose
 models have Hilbert spaces $E_0$, every saturated open cover has a subordinate sc-smooth partition of unity of $X$.
 *Book:* Corollary 7.6.6 (2017: 7.3), p. 347 (2017 p. 256), with Part I's Proposition 5.5.8 (2017: 5.6), Theorem 5.5.10 (2017: 5.12) and Corollary 5.5.17 (2017: 5.2). *Hidden hypotheses:* Part I's
 Theorem 5.5.16 (2017: 5.14) (Godefroy–Troyanski–Whitfield–Zizler) as an explicit hypothesis (gap G.53); satisfiable on $\mathbb R^1$.
@@ -7500,8 +7500,8 @@ counterpart. Lean files: `Chapter7/Book2021Basic.lean`, `ReducedCriterion.lean`,
 Theorem 7.6.9 in full on top of Part I's Theorem 2.7.13 (2)–(4), `TameBoundaryEpStructure.lean` (V7.99–V7.101), and, for §7.4
 on every lift $X^i$, `ZhouLevels.lean` (V7.102–V7.104).
 
-**V7.69 (the remark after Definition 7.1.7, 2021 form; `Polyfold.EpGroupoid.remark_7_1_7_2021`,
-`Polyfold.EpGroupoid.remark_7_1_7_2021_remarkFunctor`).** Let $F : X \to Y$ be a functor between ep-groupoids which is
+**V7.69 (the remark after Definition 7.1.7, 2021 form; `Polyfold.EpGroupoid.remark_definition_7_1_7`,
+`Polyfold.EpGroupoid.remark_definition_7_1_7_remarkFunctor`).** Let $F : X \to Y$ be a functor between ep-groupoids which is
 sc-smooth on the object M-polyfolds and continuous on the morphism spaces, $\varphi \in \mathbf X$ and $\psi = F(\varphi)$.
 There are open sets $U(\varphi) \ni \varphi$, $U(\psi) \ni \psi$, $U(s(\varphi))$, $U(s(\psi))$ with $F(U(s(\varphi)))
 \subseteq U(s(\psi))$ and $F(U(\varphi)) \subseteq U(\psi)$ such that $s : U(\varphi) \to U(s(\varphi))$ and $s : U(\psi) \to
@@ -7513,8 +7513,8 @@ $\mathbb R$) is sc-smooth on objects and not continuous on morphisms. *Book:* th
 proved the 2017 remark, so the counterexample of V7.10 no longer applies (Findings, items 9, 104, 117).
 
 **V7.70 (the data (7.3) and Proposition 7.1.14; `Polyfold.EpGroupoid.IsotropySheetData`,
-`Polyfold.EpGroupoid.exists_isotropySheetData`, `Polyfold.EpGroupoid.proposition_7_1_14_2021`,
-`Polyfold.EpGroupoid.proposition_7_1_14_2021_of_naturalRep`).** The data (7.3) at an object $x$ are an open $W(x) \ni x$
+`Polyfold.EpGroupoid.exists_isotropySheetData`, `Polyfold.EpGroupoid.proposition_7_1_14`,
+`Polyfold.EpGroupoid.proposition_7_1_14_of_naturalRep`).** The data (7.3) at an object $x$ are an open $W(x) \ni x$
 and, for every $g \in G_x$, open $U^s(g), U^t(g) \ni g$ on which $s$ and $t$ are sc-diffeomorphisms onto $W(x)$, with
 inverses $s_g^{-1}$, $t_g^{-1}$; they exist at every object. Let $U(x)$ be an open neighbourhood of $x$, $\Phi(g)$ ($g \in
 G_x$) sc-diffeomorphisms of $U(x)$ with inverse $\Phi(g^{-1})$ and $\Phi(gh) = \Phi(g) \circ \Phi(h)$, and $\Gamma(g, \cdot) :
@@ -7526,7 +7526,7 @@ representation. *Book:* (7.3) and Proposition 7.1.14, p. 296, new in the 2021 ed
 assumed as printed but not used; the identity $\Gamma(g, v) = t_g^{-1}(\Phi(g)(v))$ of (7.4), from the proof, is added
 (Findings, item 118).
 
-**V7.71 (Proposition 7.1.15 in the 2021 form; `Polyfold.EpGroupoid.proposition_7_1_15_2021`,
+**V7.71 (Proposition 7.1.15 in the 2021 form; `Polyfold.EpGroupoid.proposition_7_1_15`,
 `Polyfold.EpGroupoid.src_eq_tgt_of_printed_2017`, `Polyfold.EpGroupoid.not_printed_2017_reflection`).** For a finite set
 $Y$ of mutually isomorphic objects and a neighbourhood $V$ of $Y$ there is a natural representation of $Y$ on disjoint
 connected open $U(y) \subseteq V$ (Definition 7.1.18, `NaturalRepFinite`) such that, for every morphism $\psi$ between
@@ -7541,16 +7541,16 @@ none. *Deviation (same):* none for the 2021 form; the 2017 form of (2) as printe
 structure `NaturalRepFinite` of V7.25 already had the 2021 form (Findings, items 25, 119).
 
 **V7.72 (Lemma 7.1.16; `Polyfold.EpGroupoid.NaturalRepFinite.mem_U_of_tendsto`,
-`Polyfold.EpGroupoid.lemma_7_1_16_2021`).** In the construction of V7.71, let $\psi \in \mathbf Y$ and $\psi'_k \in \mathbf
+`Polyfold.EpGroupoid.lemma_7_1_16`).** In the construction of V7.71, let $\psi \in \mathbf Y$ and $\psi'_k \in \mathbf
 U(\psi)$ converge to $\psi' \in \mathbf X$. If $(s(\psi'_k))$ or $(t(\psi'_k))$ converges to a point of $U(s(\psi)) \cup
 U(t(\psi))$, then $\psi' \in \mathbf U(\psi)$, $s(\psi'_k) \to s(\psi') \in U(s(\psi))$ and $t(\psi'_k) \to t(\psi') \in
 U(t(\psi))$. *Book:* Lemma 7.1.16, p. 300, new in the 2021 edition. *Hidden hypotheses:* none. *Deviation (same):* none; the
 step that a limit of points of $U(a)$ lying in $U(b)$ lies in $U(a)$ (the $U(y)$ are open and disjoint) is a separate lemma
 (Findings, item 120).
 
-**V7.73 (Corollary 7.1.17 (4)–(7); `Polyfold.EpGroupoid.corollary_7_1_17_4_2021`,
-`Polyfold.EpGroupoid.corollary_7_1_17_5_2021`, `Polyfold.EpGroupoid.corollary_7_1_17_6_2021`,
-`Polyfold.EpGroupoid.corollary_7_1_17_7_2021`).** In the construction of V7.71: (4) for $x \in Y$ there is a natural
+**V7.73 (Corollary 7.1.17 (4)–(7); `Polyfold.EpGroupoid.corollary_7_1_17_4`,
+`Polyfold.EpGroupoid.corollary_7_1_17_5`, `Polyfold.EpGroupoid.corollary_7_1_17_6`,
+`Polyfold.EpGroupoid.corollary_7_1_17_7`).** In the construction of V7.71: (4) for $x \in Y$ there is a natural
 representation $(\Phi, \Gamma)$ of $G_x$ on $U(x)$ with $\Gamma(g, z) = (s|\mathbf U(g))^{-1}(z)$ and $f(g)(z) = t(\Gamma(g, z)) =
 \Phi(g)(z)$; (5) $f(\varphi)$ is equivariant along $\gamma_\varphi(g) = \varphi \circ g \circ \varphi^{-1}$; (6) for
 composable $\varphi, \psi$ the multiplication is an sc-diffeomorphism from $\mathbf U(\psi)\,{}_s{\times}_t\,\mathbf U(\varphi)$,
@@ -7561,9 +7561,9 @@ read inside Part I's fibred product sub-M-polyfold (Proposition 2.5.20 (2017: 2.
 
 **V7.74 (Definition 7.2.5 and Lemma 7.2.6; `Polyfold.EpGroupoid.NaturalRep.kerOn`, `Polyfold.EpGroupoid.NaturalRep.mem_kerOn`,
 `Polyfold.EpGroupoid.NaturalRep.kerOn_anti`, `Polyfold.EpGroupoid.NaturalRep.kerOn_normal`,
-`Polyfold.EpGroupoid.NaturalRep.kerOn_le_trivialSubgroup`, `Polyfold.EpGroupoid.definition_7_2_5_2021`,
-`Polyfold.EpGroupoid.lemma_7_2_6_2021`, `Polyfold.EpGroupoid.trivialSubgroupEquiv_2021`,
-`Polyfold.EpGroupoid.trivialSubgroupEquiv_2021_apply`).** For a natural representation at $x$ and $V \subseteq X$, $T_x^V$
+`Polyfold.EpGroupoid.NaturalRep.kerOn_le_trivialSubgroup`, `Polyfold.EpGroupoid.definition_7_2_5`,
+`Polyfold.EpGroupoid.lemma_7_2_6`, `Polyfold.EpGroupoid.trivialSubgroupEquiv`,
+`Polyfold.EpGroupoid.trivialSubgroupEquiv_apply`).** For a natural representation at $x$ and $V \subseteq X$, $T_x^V$
 is the subgroup of the $g$ with $\Phi(g) = \mathrm{id}$ on $V \cap U(x)$; it decreases as $V$ grows and is normal for
 invariant $V$. For every open $W \ni x$, $T_x^W \subseteq T_x$, and there is an invariant open $V \ni x$ in $U(x)$ with $T_x^W =
 T_x$ for every open $x \in W \subseteq V$; so $T_x$, the intrinsic subgroup of V7.37, is the maximal subgroup acting trivially
@@ -7572,7 +7572,7 @@ on $T_x$ with image $T_y$, an isomorphism $T_x \cong T_y$. *Book:* Definition 7.
 2017 p. 241, before Definition 7.12; Lemma 7.2.6 new in the 2021 edition). *Hidden hypotheses:* none. *Deviation (restated):*
 "maximal subgroup acting trivially on some small $W(x)$" is the pair of statements above (Findings, item 121).
 
-**V7.75 (Definition 7.2.7, Remark 7.2.8 and Lemma 7.2.9 in the 2021 form; `Polyfold.EpGroupoid.remark_7_2_8_2021`,
+**V7.75 (Definition 7.2.7, Remark 7.2.8 and Lemma 7.2.9 in the 2021 form; `Polyfold.EpGroupoid.remark_7_2_8`,
 `Polyfold.EpGroupoid.isOpenQuotientMap_reducedπ`, `Polyfold.EpGroupoid.isOpenMap_reducedπ`,
 `Polyfold.EpGroupoid.isOpenEmbedding_domRestrict_reducedπ`, `Polyfold.EpGroupoid.reducedTgt`).** The topology $T_R$ of
 $\mathbf X^R$ (the quotient topology) makes $\pi : \mathbf X \to \mathbf X^R$ continuous and is finer than every topology with
@@ -7585,7 +7585,7 @@ V7.39's `isOpenMap_reducedπ` and `isOpenEmbedding_domRestrict_reducedπ` (Findi
 **V7.76 (Lemma 7.2.11; `Polyfold.EpGroupoid.finite_reducedπ_preimage`, `Polyfold.EpGroupoid.IsReducedEvenlyCovered`,
 `Polyfold.EpGroupoid.exists_preimage_reducedπ_subset_of_t2Space`, `Polyfold.EpGroupoid.isReducedEvenlyCovered_of_t2Space`,
 `Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_isReducedEvenlyCovered`,
-`Polyfold.EpGroupoid.isReducedEvenlyCovered_iff_t2Space`, `Polyfold.EpGroupoid.lemma_7_2_11_2021`,
+`Polyfold.EpGroupoid.isReducedEvenlyCovered_iff_t2Space`, `Polyfold.EpGroupoid.lemma_7_2_11`,
 `Polyfold.EpGroupoid.Examples.JumpingRetract.reducedπ_preimage_one`,
 `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isReducedEvenlyCovered`).** The class $\pi^{-1}([\varphi_0])$ is finite. If
 $T_R$ is Hausdorff, there are open $U(\varphi) \ni \varphi$ for the members $\varphi$ of the class of $\varphi_0$ and an open
@@ -7599,7 +7599,7 @@ is read as (2) (Findings, item 124).
 
 **V7.77 (Proposition 7.2.12; `Polyfold.EpGroupoid.paracompactSpace_of_isOpenMap`,
 `Polyfold.EpGroupoid.exists_isCompact_preimage_reducedπ_subset`, `Polyfold.EpGroupoid.paracompactSpace_reducedMor`,
-`Polyfold.EpGroupoid.proposition_7_2_12_2021`).** For every ep-groupoid, $(\mathbf X^R, T_R)$ is paracompact (every open
+`Polyfold.EpGroupoid.proposition_7_2_12`).** For every ep-groupoid, $(\mathbf X^R, T_R)$ is paracompact (every open
 cover has a locally finite open refinement; Hausdorffness not included). *Book:* Proposition 7.2.12 and its footnote, p. 317,
 new in the 2021 edition. *Hidden hypotheses:* none. *Deviation (same):* none in the statement. *Proof:* not the text's,
 which uses Lemma 7.2.11 (1)–(3) and so, as we read it, $T_R$ Hausdorff: paracompactness descends along an open continuous
@@ -7607,8 +7607,8 @@ surjection $p : M \to Q$ if every $q$ has a compact $K$ such that every open $N 
 $O \ni q$; for $\pi$, $K$ is the set of $\varphi \in s^{-1}(\mathrm{cl}\,V)$ with $(s, t)(\varphi) = (s, t)(q)$, by properness
 (Findings, items 111, 125).
 
-**V7.78 (Proposition 7.2.13 and Theorem 7.2.14; `Polyfold.EpGroupoid.proposition_7_2_13_2021`,
-`Polyfold.EpGroupoid.theorem_7_2_14_2021`, `Polyfold.EpGroupoid.reducedPolyfold`,
+**V7.78 (Proposition 7.2.13 and Theorem 7.2.14; `Polyfold.EpGroupoid.proposition_7_2_13`,
+`Polyfold.EpGroupoid.theorem_7_2_14`, `Polyfold.EpGroupoid.reducedPolyfold`,
 `Polyfold.EpGroupoid.reducedEpGroupoid`, `Polyfold.EpGroupoid.isEffective_reducedEpGroupoid`).** The natural charts
 (`reducedAtlas`) define an M-polyfold structure on $(\mathbf X^R, T_R)$ — some Hausdorff paracompact M-polyfold structure on
 $T_R$ with the natural atlas exists — iff $T_R$ is Hausdorff. If $T_R$ is Hausdorff, $(X, \mathbf X^R)$ is an ep-groupoid
@@ -7622,7 +7622,7 @@ V7.40 take, $T_R$ Hausdorff; paracompactness is supplied by V7.77 (gap G.71, cha
 **V7.79 (Proposition 7.2.17; `Polyfold.EpGroupoid.reducedπ_eq_iff_comp_inv`,
 `Polyfold.EpGroupoid.mem_nonEffectivePart_iff_reducedπ`, `Polyfold.EpGroupoid.continuous_comp_fibredProduct`,
 `Polyfold.EpGroupoid.continuousOn_comp_inv`, `Polyfold.EpGroupoid.isClosed_reducedπ_eq_of_isClosed`,
-`Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_t2Space`, `Polyfold.EpGroupoid.proposition_7_2_17_2021`,
+`Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_t2Space`, `Polyfold.EpGroupoid.proposition_7_2_17`,
 `Polyfold.EpGroupoid.isClosed_src_eq_tgt`, `Polyfold.EpGroupoid.closure_nonEffectivePart_subset`).** $T_R$ is Hausdorff iff
 the non-effective part $\mathbf X^T$ is closed in $\mathbf X$. Also $[\varphi] = [\psi]$ iff $t(\varphi) = t(\psi)$ and
 $\psi^{-1} \circ \varphi \in \mathbf X^T$, and $\mathrm{cl}\,\mathbf X^T \subseteq \{s = t\}$. *Book:* Proposition 7.2.17, p. 320,
@@ -7632,8 +7632,8 @@ an open quotient map (Mathlib); properness is not used (Findings, item 127).
 
 **V7.80 (Definition 7.2.18 (= Definition 7.4.1), Remarks 7.2.19 and 7.2.20; `Polyfold.EpGroupoid.NaturalRep.HasLUC`,
 `Polyfold.EpGroupoid.IsLUC`, `Polyfold.EpGroupoid.isLUC_iff_forall_naturalRep`,
-`Polyfold.EpGroupoid.NaturalRep.hasLUC_of_isClosed`, `Polyfold.EpGroupoid.remark_7_2_20_2021`,
-`Polyfold.EpGroupoid.Examples.remark_7_2_19_2021`, `Polyfold.EpGroupoid.isLUC_trivial`,
+`Polyfold.EpGroupoid.NaturalRep.hasLUC_of_isClosed`, `Polyfold.EpGroupoid.remark_7_2_20`,
+`Polyfold.EpGroupoid.Examples.remark_7_2_19`, `Polyfold.EpGroupoid.isLUC_trivial`,
 `Polyfold.EpGroupoid.isLUC_of_isEffective`, `Polyfold.EpGroupoid.isClosed_range_unit`,
 `Polyfold.EpGroupoid.nonEffectivePart_eq_range_unit_of_isEffective`, `Polyfold.EpGroupoid.Examples.isLUC_trivialZ3`,
 `Polyfold.EpGroupoid.Examples.isLUC_reflection`).** $X$ has the local unique continuation property (LUC) if every object $x$
@@ -7648,8 +7648,8 @@ the choice of $U(x)$ does not matter is proved (by V7.81, $\mathbf X^T$ is then 
 
 **V7.81 (Proposition 7.2.21, Theorem 7.2.22 and Proposition 7.2.23; `Polyfold.EpGroupoid.NaturalRep.eventually_Φ_eq_of_Γ_mem`,
 `Polyfold.EpGroupoid.NaturalRep.Γ_mem_of_eventually`, `Polyfold.EpGroupoid.isClosed_nonEffectivePart_of_isLUC`,
-`Polyfold.EpGroupoid.proposition_7_2_21_2021`, `Polyfold.EpGroupoid.theorem_7_2_22_2021`,
-`Polyfold.EpGroupoid.t2Space_reducedMor_of_isLUC`, `Polyfold.EpGroupoid.proposition_7_2_23_2021`,
+`Polyfold.EpGroupoid.proposition_7_2_21`, `Polyfold.EpGroupoid.theorem_7_2_22`,
+`Polyfold.EpGroupoid.t2Space_reducedMor_of_isLUC`, `Polyfold.EpGroupoid.proposition_7_2_23`,
 `Polyfold.EpGroupoid.Examples.nonEffectivePart_trivialZ3`, `Polyfold.EpGroupoid.Examples.t2Space_reducedMor_trivialZ3`).**
 $X$ has LUC iff $\mathbf X^T$ is closed. Equivalent are: $T_R$ is Hausdorff; $X$ has LUC; $\mathbf X^T$ is closed in $\mathbf
 X$. Under LUC, $T_R$ is Hausdorff and `reducedEpGroupoid` is an effective ep-groupoid with the structure of V7.78 and an
@@ -7661,7 +7661,7 @@ closed, the set of such $y$ is open and closed in the connected $U(x)$ (Findings
 **V7.82 (Appendix 7.6.3, Zhou's example, for an analogue; `Polyfold.EpGroupoid.Examples.JumpingRetract.not_t2Space_reducedMor`,
 `Polyfold.EpGroupoid.Examples.JumpingRetract.mem_closure_nonEffectivePart`,
 `Polyfold.EpGroupoid.Examples.JumpingRetract.not_isClosed_nonEffectivePart`,
-`Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC`, `Polyfold.EpGroupoid.Examples.remark_7_2_19_2021`).** For the
+`Polyfold.EpGroupoid.Examples.JumpingRetract.not_isLUC`, `Polyfold.EpGroupoid.Examples.remark_7_2_19`).** For the
 ep-groupoid $\mathbb Z/2 \ltimes O$ of V7.39 ($\mathbb Z/2$ acting by $(t, z) \mapsto (t, \pm z)$ on the dimension-jumping
 retract $O$ of Part I's Remark 4.2.2 (2017: 4.3)), $(-1, o_0) \in \mathrm{cl}(\mathbf X^T) \setminus \mathbf X^T$, so $\mathbf
 X^T$ is not closed, $T_R$ is not Hausdorff, and LUC fails, consistently with Theorem 7.2.22. *Book:* Appendix 7.6.3, p. 348,
@@ -7678,10 +7678,10 @@ computed exactly (gap G.83). The round-trip counterexample of V7.39 is thus of t
 `Polyfold.EpGroupoid.NaturalRep.levelOneΓ_mem_of_eventually`, `Polyfold.EpGroupoid.levelVal_mem_nonEffectivePart_of_liftOne`,
 `Polyfold.EpGroupoid.HasConnectedDenseLevelOneReps`, `Polyfold.EpGroupoid.nonEffectivePart_liftOne_eq`,
 `Polyfold.EpGroupoid.liftOne_reducedπ_eq_iff`, `Polyfold.EpGroupoid.reducedLevelOneMap`,
-`Polyfold.EpGroupoid.theorem_7_6_7_2021`, `Polyfold.EpGroupoid.corollary_7_6_8_2021`,
-`Polyfold.EpGroupoid.corollary_7_6_8_2021_of_isZhou`, `Polyfold.EpGroupoid.Examples.pointEpGroupoid`,
+`Polyfold.EpGroupoid.theorem_7_6_7`, `Polyfold.EpGroupoid.corollary_7_6_8`,
+`Polyfold.EpGroupoid.corollary_7_6_8_of_isZhou`, `Polyfold.EpGroupoid.Examples.pointEpGroupoid`,
 `Polyfold.EpGroupoid.Examples.isLUC_liftOne_point`, `Polyfold.EpGroupoid.Examples.hasConnectedDenseLevelOneReps_point`,
-`Polyfold.EpGroupoid.Examples.theorem_7_6_7_2021_point`, `Polyfold.EpGroupoid.Examples.corollary_7_6_8_2021_of_isZhou_point`).**
+`Polyfold.EpGroupoid.Examples.theorem_7_6_7_point`, `Polyfold.EpGroupoid.Examples.corollary_7_6_8_of_isZhou_point`).**
 A morphism of level $1$ in $\mathbf X^T$ lies in $(\mathbf X^1)^T$ ((7.24)). Assume that $X^1$ has LUC and that every $x \in
 X_1$ has a natural representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$. Then $(\mathbf X^1)^T =
 (\mathbf X^T)^1$, and $[\varphi]_1 \mapsto [\varphi]$ is a well defined, injective, continuous map $(\mathbf X^1)^R \to \mathbf
@@ -7694,8 +7694,8 @@ as sets with a continuous map; the sc-diffeomorphism and $i \ge 2$ are not forma
 $X^1$ is used (Findings, item 131).
 
 **V7.84 (the index lifts $X^i$, Proposition 7.4.2 and Remark 7.4.3; `Polyfold.EP.liftOne`, `Polyfold.EP.lift`,
-`Polyfold.EP.lift_zero`, `Polyfold.EP.lift_succ`, `Polyfold.EP.lift_succ'`, `Polyfold.EpGroupoid.proposition_7_4_2_2021`,
-`Polyfold.EpGroupoid.remark_7_4_3_2021`).** $X^0 = X$ and $X^{i+1} = (X^i)^1$, also $= (X^1)^i$. Under LUC, every natural
+`Polyfold.EP.lift_zero`, `Polyfold.EP.lift_succ`, `Polyfold.EP.lift_succ'`, `Polyfold.EpGroupoid.proposition_7_4_2`,
+`Polyfold.EpGroupoid.remark_7_4_3`).** $X^0 = X$ and $X^{i+1} = (X^i)^1$, also $= (X^1)^i$. Under LUC, every natural
 representation has the property of Definition 7.2.18, in particular every $W(x) \supseteq U(x)$, and there are such inside
 every open $O \ni x$. *Book:* p. 329 ($X^i$), Proposition 7.4.2, p. 328, and Remark 7.4.3, p. 329, new in the 2021 edition.
 *Hidden hypotheses:* none. *Deviation (stronger):* the hypotheses $U(x) \subseteq W(x)$ and LUC on $U(x)$ are not needed
@@ -7703,9 +7703,9 @@ every open $O \ni x$. *Book:* p. 329 ($X^i$), Proposition 7.4.2, p. 328, and Rem
 
 **V7.85 (Lemma 7.4.4; `Polyfold.EpGroupoid.HasLevelOneConnectedDenseReps`,
 `Polyfold.EpGroupoid.NaturalRep.eqOn_of_isClosed_liftOne`, `Polyfold.EpGroupoid.isLUC_of_isLUC_liftOne`,
-`Polyfold.EpGroupoid.lemma_7_4_4_2021`, `Polyfold.EpGroupoid.hasLevelOneConnectedDenseReps_of_subsingleton`,
+`Polyfold.EpGroupoid.lemma_7_4_4`, `Polyfold.EpGroupoid.hasLevelOneConnectedDenseReps_of_subsingleton`,
 `Polyfold.EpGroupoid.Examples.hasLevelOneConnectedDenseReps_lift_pointEP`,
-`Polyfold.EpGroupoid.Examples.lemma_7_4_4_2021_pointEP`).** If $X^i$ has LUC and, for every $k < i$, every object of $X^k$
+`Polyfold.EpGroupoid.Examples.lemma_7_4_4_pointEP`).** If $X^i$ has LUC and, for every $k < i$, every object of $X^k$
 has a natural representation $U(x)$ with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$ (for $X^k$), then $X$ and
 every $X^k$, $k \le i$, have LUC. The hypotheses hold for all lifts of the point ep-groupoid. *Book:* Lemma 7.4.4, p. 329,
 new in the 2021 edition. *Hidden hypotheses:* that $U(x) \cap X_1$ is connected in $X^1$, which the proof states without
@@ -7755,11 +7755,11 @@ the identity on $(T_xX)_\infty$ then $g \in T_x^\infty$. Both hold when every $T
 and $T_x^\infty$, p. 331, new in the 2021 edition. *Hidden hypotheses:* none. *Deviation (restated):* $Tg$ as in V7.87
 (Findings, items 135, 144).
 
-**V7.89 (Lemma 7.4.6 and Proposition 7.4.8; `Polyfold.EpGroupoid.lemma_7_4_6_2021`, `Polyfold.EpGroupoid.isZhou_of_isZhou'`,
-`Polyfold.EpGroupoid.proposition_7_4_8_2021`, `Polyfold.EpGroupoid.NaturalRep.mem_tangentU_of_fiber`,
+**V7.89 (Lemma 7.4.6 and Proposition 7.4.8; `Polyfold.EpGroupoid.lemma_7_4_6`, `Polyfold.EpGroupoid.isZhou_of_isZhou'`,
+`Polyfold.EpGroupoid.proposition_7_4_8`, `Polyfold.EpGroupoid.NaturalRep.mem_tangentU_of_fiber`,
 `Polyfold.EpGroupoid.NaturalRep.tΦ_eq_self_of_eqOn`, `Polyfold.EpGroupoid.NaturalRep.fix_and_tangent_of_mem_closure`,
 `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_clopen`, `Polyfold.EpGroupoid.NaturalRep.eq_self_of_smooth_tangent`,
-`Polyfold.eq_of_mem_closure_of_continuousAt`, `Polyfold.EpGroupoid.Examples.proposition_7_4_8_2021_point`).** If $(T_xX)_\infty$ is
+`Polyfold.eq_of_mem_closure_of_continuousAt`, `Polyfold.EpGroupoid.Examples.proposition_7_4_8_point`).** If $(T_xX)_\infty$ is
 dense in $T_xX$ for smooth $x$, (ZHOU) implies (ZHOU'). Given the Part I facts `SmoothRegular` of V7.86, (ZHOU') implies
 (ZHOU); so with both facts (ZHOU) and (ZHOU') are equivalent. The hypotheses hold for the point ep-groupoid. *Book:* Lemma
 7.4.6, p. 331, and Proposition 7.4.8, p. 332, new in the 2021 edition. *Hidden hypotheses:* the Part I facts of V7.86 (gap
@@ -7767,10 +7767,10 @@ G.85). *Deviation (explicit):* the proof of 7.4.8 uses that the smooth points of
 $X_\infty$ form an open, nonempty and closed subset of the connected $U(x)_\infty$, instead of sequences; "$z_k \to Y$" for
 $z_k \to y$ (possible misprint) (Findings, item 136).
 
-**V7.90 (Proposition 7.4.10 and Corollary 7.4.11 for $X$ and $X^1$; `Polyfold.EpGroupoid.proposition_7_4_10_2021`,
+**V7.90 (Proposition 7.4.10 and Corollary 7.4.11 for $X$ and $X^1$; `Polyfold.EpGroupoid.proposition_7_4_10`,
 `Polyfold.EpGroupoid.IsSmoothUC`, `Polyfold.EpGroupoid.isSmoothUC_of_isZhou`, `Polyfold.EpGroupoid.isLUC_of_isSmoothUC`,
-`Polyfold.EpGroupoid.isLUC_liftOne_of_isSmoothUC`, `Polyfold.EpGroupoid.corollary_7_4_11_2021`,
-`Polyfold.EpGroupoid.corollary_7_4_11_2021_lift`).** Given `SmoothRegular`, (ZHOU) implies LUC, and more: unique
+`Polyfold.EpGroupoid.isLUC_liftOne_of_isSmoothUC`, `Polyfold.EpGroupoid.corollary_7_4_11`,
+`Polyfold.EpGroupoid.corollary_7_4_11_lift`).** Given `SmoothRegular`, (ZHOU) implies LUC, and more: unique
 continuation through $X_\infty$ (if $\hat g = \mathrm{id}$ on the smooth points of a nonempty open subset of $X_\infty$ inside
 $U(x)$, then $\hat g = \mathrm{id}$ on $U(x)$), which gives LUC for $X$ and for $X^1$. With (ZHOU) and `SmoothRegular` for every
 $X^i$, every $X^i$ has LUC. *Book:* Proposition 7.4.10, p. 333, and Corollary 7.4.11, p. 334, new in the 2021 edition (for
@@ -7780,10 +7780,10 @@ this form of Corollary 7.4.11 for all $i$ takes (ZHOU) for every $X^i$, the conc
 approximation of tangent vectors at the end of the proof of 7.4.10 is the consequence of the openness of $p : TX \to X^1$ in
 V7.86 (Findings, items 136, 137).
 
-**V7.91 (Definition 7.4.12 and Theorem 7.4.13; `Polyfold.EP.IsSLUC`, `Polyfold.EpGroupoid.theorem_7_4_13_2021`,
+**V7.91 (Definition 7.4.12 and Theorem 7.4.13; `Polyfold.EP.IsSLUC`, `Polyfold.EpGroupoid.theorem_7_4_13`,
 `Polyfold.EpGroupoid.Examples.pointEP`, `Polyfold.EpGroupoid.Examples.lift_pointEP`,
 `Polyfold.EpGroupoid.Examples.smoothRegular_lift_pointEP`, `Polyfold.EpGroupoid.Examples.isZhou_lift_pointEP`,
-`Polyfold.EpGroupoid.Examples.isSLUC_pointEP`, `Polyfold.EpGroupoid.Examples.theorem_7_4_13_2021_pointEP`).** (SLUC): every
+`Polyfold.EpGroupoid.Examples.isSLUC_pointEP`, `Polyfold.EpGroupoid.Examples.theorem_7_4_13_pointEP`).** (SLUC): every
 $X^i$ has LUC. If every $X^i$ satisfies (ZHOU) and `SmoothRegular`, $X$ has (SLUC). The point ep-groupoid and all its lifts
 satisfy (ZHOU), `SmoothRegular` and (SLUC). *Book:* Definition 7.4.12 and Theorem 7.4.13, p. 334, new in the 2021 edition:
 (ZHOU) for $X$ implies (SLUC). *Hidden hypotheses:* the Part I facts of V7.86 for every $X^i$ (gap G.85). *Deviation
@@ -7792,8 +7792,8 @@ satisfy (ZHOU), `SmoothRegular` and (SLUC). *Book:* Definition 7.4.12 and Theore
 
 **V7.92 (Definition 7.4.14, Lemma 7.4.15, Propositions 7.4.16–7.4.18; `Polyfold.EpGroupoid.IsVSLUC`,
 `Polyfold.EpGroupoid.isSmoothUC_of_isVSLUC`, `Polyfold.EpGroupoid.isVSLUC_of_isSmoothUC`,
-`Polyfold.EpGroupoid.lemma_7_4_15_2021`, `Polyfold.EpGroupoid.proposition_7_4_16_2021`,
-`Polyfold.EpGroupoid.proposition_7_4_17_2021`, `Polyfold.EpGroupoid.isVSLUC_of_isZhou`,
+`Polyfold.EpGroupoid.lemma_7_4_15`, `Polyfold.EpGroupoid.proposition_7_4_16`,
+`Polyfold.EpGroupoid.proposition_7_4_17`, `Polyfold.EpGroupoid.isVSLUC_of_isZhou`,
 `Polyfold.EpGroupoid.isSmoothUC_of_subsingleton`, `Polyfold.EpGroupoid.isVSLUC_of_subsingleton`,
 `Polyfold.EpGroupoid.isLUC_of_subsingleton_mor`, `Polyfold.EpGroupoid.isVSLUC_trivial`,
 `Polyfold.EpGroupoid.isSmoothUC_trivial`).** (VSLUC): every smooth $x$ has a natural representation $U(x)$ and an open
@@ -7809,7 +7809,7 @@ $X^i$ with (VSLUC) for $X$ only they are V7.103, and Proposition 7.4.18 in both 
 
 **V7.93 (Definitions 7.4.19 and 7.4.21, Lemma 7.4.20; `Polyfold.EpGroupoid.IsLR`, `Polyfold.EpGroupoid.IsLR'`,
 `Polyfold.EpGroupoid.NaturalRep.exists_Φ_eq_of_π_eq`, `Polyfold.EpGroupoid.NaturalRep.eq_self_of_π_eq`,
-`Polyfold.EpGroupoid.lemma_7_4_20_2021`, `Polyfold.EpGroupoid.isLR_iff_isLR'`).** (LR): inside every open $O \ni x$ there is
+`Polyfold.EpGroupoid.lemma_7_4_20`, `Polyfold.EpGroupoid.isLR_iff_isLR'`).** (LR): inside every open $O \ni x$ there is
 a natural representation $U(x)$ such that every sc-diffeomorphism $\beta$ of $U(x)$ with $|\beta(y)| = |y|$ is $\hat g$ for
 some $g \in G_x$. (LR'): the same for sc-diffeomorphisms $\beta$ of $U(x)$ onto an open image with $\beta(x) = x$. If $\beta$
 is an sc-diffeomorphism of $U(x)$ onto $\beta(U(x))$ with $\beta(x) = x$ and $|\beta(y)| = |y|$, then $\beta(U(x)) = U(x)$;
@@ -7819,8 +7819,8 @@ $|\beta(y)| = |y|$ is equality in $|X|$; Lemma 7.4.20 is proved by the finite cl
 g\}$ and connectedness, instead of paths (Findings, item 138).
 
 **V7.94 (Proposition 7.4.22, Definition 7.4.23 and Theorem 7.4.24; `Polyfold.EpGroupoid.NaturalRep.eqOn_Φ_of_tangent`,
-`Polyfold.EpGroupoid.NaturalRep.exists_eq_Φ_of_isZhou`, `Polyfold.EpGroupoid.proposition_7_4_22_2021`, `Polyfold.EP.IsSLR`,
-`Polyfold.EpGroupoid.theorem_7_4_24_2021`, `Polyfold.EpGroupoid.Examples.isSLR_pointEP`).** Under (ZHOU) and LUC, $\hat g$ and
+`Polyfold.EpGroupoid.NaturalRep.exists_eq_Φ_of_isZhou`, `Polyfold.EpGroupoid.proposition_7_4_22`, `Polyfold.EP.IsSLR`,
+`Polyfold.EpGroupoid.theorem_7_4_24`, `Polyfold.EpGroupoid.Examples.isSLR_pointEP`).** Under (ZHOU) and LUC, $\hat g$ and
 $\hat g'$ agree on $U(x)$ once they agree at a smooth point together with their tangents there. Given `SmoothRegular`, (ZHOU)
 implies (LR). (SLR): every $X^i$ has (LR); if every $X^i$ satisfies (ZHOU) and `SmoothRegular`, $X$ has (SLR). The point
 ep-groupoid has (SLR). *Book:* Proposition 7.4.22, p. 338, Definition 7.4.23, p. 339, Theorem 7.4.24, p. 340, new in the 2021
@@ -7878,7 +7878,7 @@ $m$ takes a junk value (Findings, item 140).
 `Polyfold.EpGroupoid.metrizableSpace_bMor`, `Polyfold.EpGroupoid.continuous_bSrc`, `Polyfold.EpGroupoid.continuous_bTgt`,
 `Polyfold.EpGroupoid.continuous_bInv`, `Polyfold.EpGroupoid.continuous_bUnit`, `Polyfold.EpGroupoid.isLocalHomeomorph_bSrc`,
 `Polyfold.EpGroupoid.isLocalHomeomorph_bTgt`, `Polyfold.EpGroupoid.continuousOn_bComp`,
-`Polyfold.EpGroupoid.exists_isProperMap_bTgt`, `Polyfold.EpGroupoid.theorem_7_6_9_2021`, `Polyfold.EpGroupoid.bSrc_trivial`,
+`Polyfold.EpGroupoid.exists_isProperMap_bTgt`, `Polyfold.EpGroupoid.theorem_7_6_9`, `Polyfold.EpGroupoid.bSrc_trivial`,
 `Polyfold.EpGroupoid.trivial_quadrant_witness`).** For a tame ep-groupoid: (1) $bX$ and $b\mathbf X$ are metrizable, every
 $U(x, V, \theta)$ is open and every $\Phi_{(x, V, \theta)}$ an open embedding, and these properties determine the topologies;
 (3) both maps $B$ are continuous; (4) a point of index $d$ has exactly $d$ preimages under $B$, on objects and on morphisms;
@@ -7925,8 +7925,8 @@ m(\sigma_1(t\gamma), \gamma)$ for a sheet $\sigma_1$ of $s$ on $\mathbf X$, and 
 *Proof:* $s$, $t$, $u$, $\iota$ are lifts of local sc-diffeomorphisms or of sc-smooth index-preserving local homeomorphisms of
 $(X, \mathbf X)$ (V7.97), so V7.99 applies; tameness is that of Theorem 2.7.13 (2).
 
-**V7.101 (Theorem 7.6.9 in full; `Polyfold.EpGroupoid.theorem_7_6_9_full_2021`,
-`Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness`, `Polyfold.MPolyfold.theorem_2_7_13_structure_2021`).** For a tame
+**V7.101 (Theorem 7.6.9 in full; `Polyfold.EpGroupoid.theorem_7_6_9_full`,
+`Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness`, `Polyfold.MPolyfold.theorem_2_7_13_structure`).** For a tame
 ep-groupoid $(X, \mathbf X)$: (1) $bX$ and $b\mathbf X$ are metrizable; (2) they carry the tame M-polyfold structures of V7.100,
 characterized as in Theorem 2.7.13: for every admissible triple with $V$ centred at $x$, $U(x, V, \theta)$ is open and $\Phi_{(x,
 V, \theta)}$ is an sc-diffeomorphism onto the face $\theta$ with its induced structure, inverse to the homeomorphism of V7.98, and
@@ -7947,10 +7947,10 @@ Theorem 2.7.13 (2)–(4) for the object and the morphism M-polyfold; (5) and the
 `Polyfold.MPolyfold.continuous_levelDown`, `Polyfold.MPolyfold.shiftSmoothMap`, `Polyfold.MPolyfold.shiftSmoothInv`,
 `Polyfold.MPolyfold.shiftSmoothHomeomorph`, `Polyfold.EpGroupoid.isotropyLevelVal`, `Polyfold.EpGroupoid.levelVal_Φ_liftOne`,
 `Polyfold.EpGroupoid.tangentLower_tangentMor_liftOne`, `Polyfold.EpGroupoid.isZhou'_liftOne`, `Polyfold.EP.isZhou'_lift`,
-`Polyfold.EP.proposition_7_4_9_2021`, `Polyfold.EP.corollary_7_4_11_all_2021`, `Polyfold.EP.theorem_7_4_13_all_2021`,
-`Polyfold.EP.theorem_7_4_24_all_2021`, `Polyfold.EpGroupoid.Examples.proposition_7_4_9_2021_pointEP`,
-`Polyfold.EpGroupoid.Examples.theorem_7_4_13_all_2021_pointEP`,
-`Polyfold.EpGroupoid.Examples.theorem_7_4_24_all_2021_pointEP`).** The inclusion $X_{m+1} \to X_m$ is continuous, and $(X^1)_\infty
+`Polyfold.EP.proposition_7_4_9`, `Polyfold.EP.corollary_7_4_11_all`, `Polyfold.EP.theorem_7_4_13_all`,
+`Polyfold.EP.theorem_7_4_24_all`, `Polyfold.EpGroupoid.Examples.proposition_7_4_9_pointEP`,
+`Polyfold.EpGroupoid.Examples.theorem_7_4_13_all_pointEP`,
+`Polyfold.EpGroupoid.Examples.theorem_7_4_24_all_pointEP`).** The inclusion $X_{m+1} \to X_m$ is continuous, and $(X^1)_\infty
 \to X_\infty$ is a homeomorphism. A natural representation of $X^1$ at $x$ inside $U(x) \cap X_1$ acts by the natural action of
 $X$, and the tangent action of $\mathbf X^1$ is that of $\mathbf X$ under the inclusion $T(X^1) \to TX$. (ZHOU') for $X$ gives
 (ZHOU') for $X^1$, hence for every $X^i$. So if $X$ satisfies (ZHOU), $(T_xX)_\infty$ is dense in $T_xX$ at every smooth $x$,
@@ -7965,8 +7965,8 @@ This closes gap G.84 for these statements (Findings, item 148). *Proof:* inducti
 
 **V7.103 (Propositions 7.4.16 and 7.4.17 with (VSLUC) for $X$ only; `Polyfold.MPolyfold.DenseSmooth.shift`,
 `Polyfold.EP.denseSmooth_lift`, `Polyfold.EpGroupoid.isVSLUC_liftOne`, `Polyfold.EP.isVSLUC_lift`,
-`Polyfold.EP.proposition_7_4_16_all_2021`, `Polyfold.EP.proposition_7_4_17_all_2021`,
-`Polyfold.EpGroupoid.Examples.isVSLUC_pointEP`, `Polyfold.EpGroupoid.Examples.proposition_7_4_17_all_2021_pointEP`).**
+`Polyfold.EP.proposition_7_4_16_all`, `Polyfold.EP.proposition_7_4_17_all`,
+`Polyfold.EpGroupoid.Examples.isVSLUC_pointEP`, `Polyfold.EpGroupoid.Examples.proposition_7_4_17_all_pointEP`).**
 (VSLUC) for $X$ gives (VSLUC) for $X^1$, with $V'(x) = V(x) \cap U'(x)$ under $(X^1)_\infty = X_\infty$, hence for every $X^i$;
 the density of $X_\infty$ in every $X_m$ passes from $X$ to every $X^i$. So if $X$ has (VSLUC), $X_\infty$ is dense in every
 $X_m$ and every $X^i$ satisfies `SmoothConnected`, every $X^i$ has (VSLUC) and LUC (Proposition 7.4.16) and $X$ has (SLUC)
@@ -7984,8 +7984,8 @@ $X^i$ (Findings, item 149).
 `Polyfold.EpGroupoid.NaturalRep.isScDiffeoOn_liftOneΦ`, `Polyfold.EpGroupoid.NaturalRep.liftOneRep`,
 `Polyfold.EpGroupoid.NaturalRep.eqOn_of_liftOneRep`, `Polyfold.EpGroupoid.NaturalRep.LevelConnected`,
 `Polyfold.EpGroupoid.NaturalRep.levelConnected_liftOneRep`, `Polyfold.EP.eqOn_of_level_smooth`, `Polyfold.EP.isVSLUC_of_isSLUC`,
-`Polyfold.EP.proposition_7_4_18_2021`, `Polyfold.EpGroupoid.Examples.levelConnected_pointEP`,
-`Polyfold.EpGroupoid.Examples.proposition_7_4_18_2021_pointEP`).** The sets $O \cap X_\infty$, $O$ open in some $X_{N+1}$, form
+`Polyfold.EP.proposition_7_4_18`, `Polyfold.EpGroupoid.Examples.levelConnected_pointEP`,
+`Polyfold.EpGroupoid.Examples.proposition_7_4_18_pointEP`).** The sets $O \cap X_\infty$, $O$ open in some $X_{N+1}$, form
 a neighbourhood basis of $X_\infty$. A natural representation $U(x)$ of $x \in X_1$ with $U(x) \cap X_1$ connected in $X^1$
 restricts to a natural representation of $x$ in $X^1$, the isotropy groups of $x$ in $X$ and in $X^1$ being identified; if
 every $U(x) \cap X_m$ is connected in $X_m$, so it is for the restriction. Under LUC for $X^{N+1}$, if $\hat g = \mathrm{id}$ on
@@ -8016,7 +8016,7 @@ some $X_N$, $\hat g = \mathrm{id}$ on $W'$ by density and continuity, and LUC fo
   form is verified (V7.69) (Findings, item 117).
 - 2017 pp. 237–238, the tangent facts (3) and (4) recalled before Proposition 7.1.22 (2017: 7.7) ($T_aA$ has an sc-complement in $T_aX$; $T_aA =
   Tr(a)T_aX$): not restated, since $T_aA$ and $T_aX$ carry no linear structure here; in a chart they are Part I's
-  `Polyfold.proposition_2_21_3`, `Polyfold.proposition_2_21_4` (V7.30) (gap G.7; Findings, item 40).
+  `Polyfold.proposition_2_3_19_three`, `Polyfold.proposition_2_3_19_four` (V7.30) (gap G.7; Findings, item 40).
 - pp. 313–324 (2017 pp. 242–244), Proposition 7.2.10 (2017: 7.9) and Proposition 7.10 (2017) for a general ep-groupoid: that $\mathbf X^R$ is Hausdorff and paracompact is a
   hypothesis, discharged for effective $X$ and the trivial ep-groupoid. Hausdorffness fails in general
   (`Polyfold.EpGroupoid.Examples.exists_not_t2Space_reducedMor`, formalized after the round-trip audit); not formalized:
@@ -8087,7 +8087,7 @@ Definitions 8.1.13 (2017: 8.1; V8.15), 8.3.1 (2017: 8.4; V8.20), 8.3.2 (2017: 8.
 Several places of the text needed more than a reading. (a) *Theorem 8.5.3 (5) (2017: 8.5).* As printed, the right vertical arrow of
 the square is $t$ and its lower right corner $U(t(F(\psi_0)))$; with $t$ the square says $F(s(\psi)) = t(F(\psi))$ on
 $\mathbf U(\psi_0)$, which does not hold as we read it, since $F(s(\psi)) = s(F(\psi))$ for a functor (checked in Lean on
-$\mathbb Z/2 \ltimes \mathbb R$, `Polyfold.CoveringExamples.theorem_8_5_five_as_printed`). The square is
+$\mathbb Z/2 \ltimes \mathbb R$, `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed`). The square is
 verified with $s$ on both vertical arrows, together with the companion square with $t$ on both (V8.30). (b) *$D$
 nonempty.* Definition 8.5.5 (2017: 8.9) allows $D = \emptyset$, and then the functor of Proposition 8.5.7 (2017: 8.3) is surjective on objects only if
 $U(x) = \emptyset$; Proposition 8.5.7 (2017: 8.3) is verified for nonempty $D$, which holds in Theorem 8.5.8 (2017: 8.6) (V8.35). (c) *The degeneracy
@@ -8149,16 +8149,16 @@ in the book):* Part I defines the tangent only of globally sc-smooth maps; the t
 such as $(s|\mathbf U(\psi))^{-1}$, is built from the charts here (Findings, item 3).
 
 **V8.3 (Theorem 8.1.1 (2017: 8.1), the tangent ep-groupoid; `Polyfold.EpGroupoid.tangentGroupoidStr`,
-`Polyfold.EpGroupoid.tangentEpGroupoid`, `Polyfold.EpGroupoid.tangentProjFunctor`, `Polyfold.EpGroupoid.theorem_8_1`,
-`Polyfold.EpGroupoid.theorem_8_1_tame`).** $T(X, \mathbf X) = (TX, T\mathbf X)$ with the structure maps (8.3)–(8.9) is an
+`Polyfold.EpGroupoid.tangentEpGroupoid`, `Polyfold.EpGroupoid.tangentProjFunctor`, `Polyfold.EpGroupoid.theorem_8_1_1`,
+`Polyfold.EpGroupoid.theorem_8_1_1_tame`).** $T(X, \mathbf X) = (TX, T\mathbf X)$ with the structure maps (8.3)–(8.9) is an
 ep-groupoid, tame if $(X, \mathbf X)$ is, and $(p, \mathbf p) : T(X, \mathbf X) \to (X, \mathbf X)^1$ is an sc-smooth
 functor. *Book:* Theorem 8.1.1 (2017: 8.1), p. 359 (2017 p. 258), proved on pp. 363–365 (2017 pp. 263–264) from Lemmas 8.1.2–8.1.9 (2017: 8.1–8.8). *Hidden hypotheses:* none. *Deviation
-(restated):* `Polyfold.EpGroupoid.theorem_8_1` records that `Polyfold.EpGroupoid.tangentEpGroupoid` has the M-polyfolds
+(restated):* `Polyfold.EpGroupoid.theorem_8_1_1` records that `Polyfold.EpGroupoid.tangentEpGroupoid` has the M-polyfolds
 $TX$, $T\mathbf X$ and the text's structure maps, with the base point and source of a composite; the conditions of
-Definition 7.1.3 (2017: 7.3) are Lemmas 8.1.3–8.1.8 (2017: 8.2–8.7) (V8.5–V8.10), the tameness sentence is `Polyfold.EpGroupoid.theorem_8_1_tame` (Lemma 8.1.9 (2017: 8.8),
+Definition 7.1.3 (2017: 7.3) are Lemmas 8.1.3–8.1.8 (2017: 8.2–8.7) (V8.5–V8.10), the tameness sentence is `Polyfold.EpGroupoid.theorem_8_1_1_tame` (Lemma 8.1.9 (2017: 8.8),
 V8.11); $(X, \mathbf X)^1$ is Chapter 7's `Polyfold.EpGroupoid.liftOne` (Findings, items 2, 9).
 
-**V8.4 (Lemma 8.1.2 (2017: 8.1), the composition as a tangent map; `Polyfold.EpGroupoid.lemma_8_1`,
+**V8.4 (Lemma 8.1.2 (2017: 8.1), the composition as a tangent map; `Polyfold.EpGroupoid.lemma_8_1_2`,
 `Polyfold.EpGroupoid.tComp_eq_tangentMapOn`, `Polyfold.EpGroupoid.tangentMapOn_srcInv_tSrc`,
 `Polyfold.EpGroupoid.mem_tangentPreimage_tgt`, `Polyfold.EpGroupoid.isScSmoothCompSheet`).** For a sheet $s : W \to V$
 with inverse $\sigma$ and composable $k, h$ with $k$ over $W$: $k = T\sigma(Tt(h))$, $k \circ h = Tg(h)$ for $g(\varphi')
@@ -8171,24 +8171,24 @@ $T(\mathbf X\,{}_s{\times}_t\,\mathbf X)$ with the fibred product of the tangent
 formalized (gap G.75). The proof writes $s|\mathbf U(\varphi \circ \psi)$ for $s|\mathbf U(\psi \circ \varphi)$ (possible
 misprint) (Findings, items 5, 111).
 
-**V8.5 (Lemma 8.1.3 (2017: 8.2), source and target of a composite; `Polyfold.EpGroupoid.lemma_8_2`,
+**V8.5 (Lemma 8.1.3 (2017: 8.2), source and target of a composite; `Polyfold.EpGroupoid.lemma_8_1_3`,
 `Polyfold.EpGroupoid.tTgt_tangentMapOn`).** $s_T(\Psi \circ \Phi) = s_T(\Phi)$ and $t_T(\Psi \circ \Phi) = t_T(\Psi)$.
 *Book:* Lemma 8.1.3 (2017: 8.2) and its proof, pp. 359–361 (2017 pp. 259–260). *Hidden hypotheses:* none. *Deviation:* none; the target is computed as in
 the text, with the tangent of $t \circ \sigma \circ t$ on $t^{-1}(V)$. The proof has "$= =$", "$: \mathbf U(\psi \circ
 \varphi) \to U(x)$" without $s$, and "$Tt)\varphi)(h)$" (possible misprints) (Findings, items 4, 6).
 
-**V8.6 (Lemma 8.1.4 (2017: 8.3), associativity; `Polyfold.EpGroupoid.lemma_8_3`).** The composition of $T\mathbf X$ is associative.
+**V8.6 (Lemma 8.1.4 (2017: 8.3), associativity; `Polyfold.EpGroupoid.lemma_8_1_4`).** The composition of $T\mathbf X$ is associative.
 *Book:* Lemma 8.1.4 (2017: 8.3), pp. 361 ff. (2017 pp. 260–261). *Hidden hypotheses:* none. *Deviation:* none; by fibre injectivity of $Ts$ (Findings,
 item 4).
 
 **V8.7 (Lemma 8.1.5 (2017: 8.4), units; `Polyfold.EpGroupoid.tSrc_tUnit`, `Polyfold.EpGroupoid.tTgt_tUnit`,
-`Polyfold.EpGroupoid.tComp_tUnit`, `Polyfold.EpGroupoid.tUnit_tComp`, `Polyfold.EpGroupoid.lemma_8_4`).** $1_q = (1_x,
+`Polyfold.EpGroupoid.tComp_tUnit`, `Polyfold.EpGroupoid.tUnit_tComp`, `Polyfold.EpGroupoid.lemma_8_1_5`).** $1_q = (1_x,
 Ts(1_x)^{-1}q)$ is a morphism $q \to q$ and a two-sided unit. *Book:* Lemma 8.1.5 (2017: 8.4), p. 361 (2017 p. 261). *Hidden hypotheses:* none.
 *Deviation:* none; $Tt(1_q) = q$ by the chain rule for $t \circ u = \mathrm{id}$ instead of $t \circ (s|\mathbf
 U(1_x))^{-1} = \mathrm{id}$ near $x$ (Findings, items 4, 6).
 
 **V8.8 (Lemma 8.1.6 (2017: 8.5), inverses; `Polyfold.EpGroupoid.tSrc_tInv`, `Polyfold.EpGroupoid.tTgt_tInv`,
-`Polyfold.EpGroupoid.tComp_tInv`, `Polyfold.EpGroupoid.tInv_tComp`, `Polyfold.EpGroupoid.lemma_8_5`).** $\iota_T(\varphi,
+`Polyfold.EpGroupoid.tComp_tInv`, `Polyfold.EpGroupoid.tInv_tComp`, `Polyfold.EpGroupoid.lemma_8_1_6`).** $\iota_T(\varphi,
 k) = (\varphi^{-1}, T\iota(\varphi)k)$ is a two-sided inverse. *Book:* Lemma 8.1.6 (2017: 8.5), pp. 362 ff. (2017 pp. 261–262). *Hidden hypotheses:* none.
 *Deviation:* none (Findings, item 4).
 
@@ -8196,13 +8196,13 @@ k) = (\varphi^{-1}, T\iota(\varphi)k)$ is a two-sided inverse. *Book:* Lemma 8.1
 `Polyfold.EpGroupoid.isLocalScDiffeo_tTgt`, `Polyfold.EpGroupoid.surjective_tSrc`, `Polyfold.EpGroupoid.surjective_tTgt`,
 `Polyfold.EpGroupoid.isScSmoothMap_tUnit`, `Polyfold.EpGroupoid.isScSmoothMap_tInv`,
 `Polyfold.EpGroupoid.isScSmoothCompSheet_tangent`, `Polyfold.EpGroupoid.isScSmoothComp_tangent`,
-`Polyfold.EpGroupoid.lemma_8_6`, `Polyfold.isScSmoothComp_iff_sheet`).** $s_T$, $t_T$ are surjective local
+`Polyfold.EpGroupoid.lemma_8_1_7`, `Polyfold.isScSmoothComp_iff_sheet`).** $s_T$, $t_T$ are surjective local
 sc-diffeomorphisms, $u_T$ and $\iota_T$ are sc-smooth, and the multiplication is sc-smooth on $T\mathbf X\,{}_{s_T}
 {\times}_{t_T}\,T\mathbf X$. *Book:* Lemma 8.1.7 (2017: 8.6), p. 362 (2017 p. 262). *Hidden hypotheses:* none. *Deviation (restated):* "by
 construction" is V8.2; the sc-smoothness of the multiplication is proved in Chapter 7's sheet form and from it on the
 fibred product, not through "$m_{T\mathbf X}$ is precisely $Tm$" (gap G.75) (Findings, item 7).
 
-**V8.10 (Lemma 8.1.8 (2017: 8.7), properness; `Polyfold.EpGroupoid.lemma_8_7`).** Every $a \in TX$ has an open $V' \ni a$ with $t_T :
+**V8.10 (Lemma 8.1.8 (2017: 8.7), properness; `Polyfold.EpGroupoid.lemma_8_1_8`).** Every $a \in TX$ has an open $V' \ni a$ with $t_T :
 s_T^{-1}(\mathrm{cl}\,V') \to TX$ proper, $V' = p^{-1}(V)$ for $V$ as in Definition 7.1.3 (3) (2017: 7.3) for $X$. *Book:* Lemma 8.1.8 (2017: 8.7),
 pp. 363–364 (2017 pp. 262–263). *Hidden hypotheses:* none. *Deviation:* none; the step "$\varphi_k \to \varphi$ in $\mathbf X^1$" is not
 needed. The proof writes $t(\varphi_k, h_k) = Ts(\varphi_k)(h_k)$ for $Tt(\varphi_k)(h_k)$ (possible misprint) (Findings,
@@ -8212,7 +8212,7 @@ item 7).
 `Polyfold.degIndex_tangentSet`, `Polyfold.mem_minimalSubspaceWith_tangentPres`,
 `Polyfold.ScRetraction.scDeriv_tangentRetraction_fst`, `Polyfold.ScRetraction.scDeriv_tangentRetraction_inr`,
 `Polyfold.ScRetraction.IsTameWith.tangent`, `Polyfold.ScRetraction.IsTame.tangentRetraction`,
-`Polyfold.IsTameRetract.tangent`, `Polyfold.MPolyfold.IsTame.tangent`, `Polyfold.EpGroupoid.lemma_8_8`,
+`Polyfold.IsTameRetract.tangent`, `Polyfold.MPolyfold.IsTame.tangent`, `Polyfold.EpGroupoid.lemma_8_1_9`,
 `Polyfold.EpGroupoid.isTame_tangentEpGroupoid_trivial_rn`).** If $(X, \mathbf X)$ is tame, so is $(TX, T\mathbf X)$; the
 tangent $Tr$ of a tame retraction is tame, and the tangent of a tame M-polyfold is tame. *Book:* Lemma 8.1.9 (2017: 8.8), p. 364 (2017 p. 263).
 *Hidden hypotheses:* none. *Deviation:* none. "$Tr$ is a tame retraction", asserted without argument and not in Part I,
@@ -8222,7 +8222,7 @@ without the second derivative of $r$, and passed to all presentations by Part I'
 
 **V8.12 (Remark 8.1.10 (2017: 8.1), the morphisms of $T\mathbf X$ as pairs $(T\varphi, a)$; `Polyfold.EpGroupoid.tangentMor`,
 `Polyfold.EpGroupoid.tangentMor_tSrc`, `Polyfold.EpGroupoid.tangentMor_comp`, `Polyfold.EpGroupoid.remarkG`,
-`Polyfold.EpGroupoid.remark_8_1`).** $t_T \circ (s_T|T_\varphi\mathbf X)^{-1} = T\varphi$; $T(\psi \circ \varphi) =
+`Polyfold.EpGroupoid.remark_8_1_10`).** $t_T \circ (s_T|T_\varphi\mathbf X)^{-1} = T\varphi$; $T(\psi \circ \varphi) =
 T\psi \circ T\varphi$ on $T_{s(\varphi)}X$; $G(\varphi, h) = (T\varphi, Ts(h))$ is a bijection onto the pairs with
 $\varphi \in \mathbf X_1$, $a \in T_{s(\varphi)}X$, compatible with the compositions. *Book:* Remark 8.1.10 (2017: 8.1), pp. 364 ff. (2017 pp. 264–265).
 *Hidden hypotheses:* none. *Deviation (narrower):* $T\varphi$ is Chapter 7's `Polyfold.EpGroupoid.tangentMor`; the first
@@ -8232,16 +8232,16 @@ G.7, G.70); the M-polyfold structure transported along $G$, and the triples $(a,
 "$T\varphi : T_xX \to T_yY$" for $T_yX$, and calls $T\varphi$ the linearization "at $x$" and later "at $\varphi$"
 (possible misprints) (Findings, items 10, 112, 113).
 
-**V8.13 (Theorem 8.1.11 (2017: 8.2), the tangent of an sc-smooth functor; `Polyfold.EpFunctor.tangent`, `Polyfold.EpFunctor.theorem_8_2`).**
+**V8.13 (Theorem 8.1.11 (2017: 8.2), the tangent of an sc-smooth functor; `Polyfold.EpFunctor.tangent`, `Polyfold.EpFunctor.theorem_8_1_11`).**
 $(T\Phi, T\boldsymbol\Phi)$ is an sc-smooth functor $T(X, \mathbf X) \to T(Y, \mathbf Y)$. *Book:* Theorem 8.1.11 (2017: 8.2) and its
 proof, pp. 365–367 (2017 pp. 265–266). *Hidden hypotheses:* none. *Deviation:* none; compatibility with sources, targets, units and the
 composition is stated; the units, not checked in the text, are proved (Findings, items 4, 11).
 
 **V8.14 (Theorem 8.1.12 (2017: 8.3), the functor $T : \mathcal{EP} \to \mathcal{EP}$; `Polyfold.EP.tangent`, `Polyfold.tangentFunctor`,
-`Polyfold.theorem_8_3`, `Polyfold.theorem_8_3_tame`).** $T$ is a functor $\mathcal{EP} \to \mathcal{EP}$, $X \mapsto TX$,
+`Polyfold.theorem_8_1_12`, `Polyfold.theorem_8_1_12_tame`).** $T$ is a functor $\mathcal{EP} \to \mathcal{EP}$, $X \mapsto TX$,
 $\Phi \mapsto T\Phi$, and $TX$ is tame if $X$ is. *Book:* Theorem 8.1.12 (2017: 8.3), p. 366 (2017 p. 266). *Hidden hypotheses:* none. *Deviation
 (restated):* a functor `EP.{max u 1} ⥤ EP.{max u 1}`, since $TX$ lives in `Type (max u 1)`; the tameness sentence is
-`Polyfold.theorem_8_3_tame` (Findings, items 2, 11).
+`Polyfold.theorem_8_1_12_tame` (Findings, items 2, 11).
 
 **V8.15 (Definition 8.1.13 (2017: 8.1), natural transformations and natural equivalence; `Polyfold.EpNatTrans`,
 `Polyfold.EpFunctor.NaturallyEquivalent`).** A natural transformation $\tau : F \to G$ is an sc-smooth $\tau : X \to
@@ -8259,7 +8259,7 @@ $\Phi \mapsto T\Phi$, and $TX$ is tame if $X$ is. *Book:* Theorem 8.1.12 (2017: 
 (Findings, item 12).
 
 **V8.17 (Proposition 8.1.14 (2017: 8.1), the tangent of a natural transformation; `Polyfold.EpNatTrans.tangent`,
-`Polyfold.proposition_8_1`).** If $\tau : \Phi \to \Psi$ is a natural transformation, $T\tau : TX \to T\mathbf Y$ is a
+`Polyfold.proposition_8_1_14`).** If $\tau : \Phi \to \Psi$ is a natural transformation, $T\tau : TX \to T\mathbf Y$ is a
 natural transformation $T\Phi \to T\Psi$; hence $\Phi \simeq \Psi$ implies $T\Phi \simeq T\Psi$. *Book:* Proposition 8.1.14 (2017: 8.1)
 and its proof, pp. 367–372 (2017 pp. 267–268). *Hidden hypotheses:* none. *Deviation:* none; naturality by fibre injectivity of $Ts$ instead
 of differentiating the naturality square. The proof has "$T\tau(x_0(h))$" (possible misprint), and labels the lower arrow
@@ -8274,7 +8274,7 @@ of the last diagram $T\tau(x_0)h$ for $T\tau(x_0')h'$ (possible misprint or extr
 `Polyfold.EpGroupoid.NaturalRep.range_tangentOrbitQuotientMap`, `Polyfold.EpGroupoid.NaturalRep.image_tangentU_eq_preimage`,
 `Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_tangentU`,
 `Polyfold.EpGroupoid.NaturalRep.metrizableSpace_image_liftU`, `Polyfold.EpGroupoid.metrizableSpace_tangent_orbitSpace`,
-`Polyfold.EpGroupoid.theorem_8_4`, `Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial`).** If $|X|$ is
+`Polyfold.EpGroupoid.theorem_8_1_15`, `Polyfold.EpGroupoid.hasParacompactOrbitSpace_tangent_trivial`).** If $|X|$ is
 paracompact, so is $|TX|$. *Book:* Theorem 8.1.15 (2017: 8.4) and its proof, 2017 p. 268. *Hidden hypotheses:* none. *Deviation (stronger):*
 $|TX|$ is metrizable. The proof differs from the text's: Smirnov's theorem pulled back along $|p| : |TX| \to |X^1|$
 (Part I's `Polyfold.metrizableSpace_of_pullback`), as for Proposition 7.5.3 (2017: 7.12), with the metrizable $|TU(x)| =
@@ -8382,7 +8382,7 @@ items 50, 102).
 **V8.28 (the degeneracy remark after Definition 8.5.1 (2017: 8.8); `Polyfold.EpFunctor.IsProperCovering.degIndex_fibredMap`,
 `Polyfold.EpFunctor.IsProperCovering.degIndex_mor`, `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap_le`,
 `Polyfold.EpFunctor.IsProperCovering.degIndex_prod_fibredMap`, `Polyfold.MPolyfold.degIndex_prod_le`,
-`Polyfold.MPolyfold.isTame_prod`, `Polyfold.proposition_2_24`).** $d_{\mathbf Y}(\varphi) = d_{\mathbf X\,{}_s{\times}_F\,Y}
+`Polyfold.MPolyfold.isTame_prod`, `Polyfold.proposition_2_4_4`).** $d_{\mathbf Y}(\varphi) = d_{\mathbf X\,{}_s{\times}_F\,Y}
 (F(\varphi), s(\varphi))$, $d_{\mathbf X \times Y}(F(\varphi), s(\varphi)) = 2\,d_{\mathbf Y}(\varphi)$ and
 $d_{\mathbf X\,{}_s{\times}_F\,Y} = \tfrac12 d_{\mathbf X \times Y}$ at $(F(\varphi), s(\varphi))$. *Book:* pp. 379–385 (2017 pp. 275–276).
 *Hidden hypotheses:* $X$ and $Y$ tame, for the product formula $d_{\mathbf X \times Y} = d_{\mathbf X} + d_Y$, which Part I
@@ -8393,7 +8393,7 @@ the other two for tame $X$, $Y$; in general $d_{\mathbf X \times Y}(F(\varphi), 
 
 **V8.29 (Proposition 8.5.2 (2017: 8.2), composites of proper covering functors;
 `Polyfold.EpFunctor.IsProperCovering.evenlyCovered_comp`, `Polyfold.EpFunctor.IsProperCovering.isScDiffeo_fibredMap_comp`,
-`Polyfold.EpFunctor.IsProperCovering.proposition_8_2`).** If $F : Y \to X$ and $H : Z \to Y$ are proper covering functors,
+`Polyfold.EpFunctor.IsProperCovering.proposition_8_5_2`).** If $F : Y \to X$ and $H : Z \to Y$ are proper covering functors,
 so is $F \circ H$. *Book:* Proposition 8.5.2 (2017: 8.2) and its proof, pp. 384–386 (2017 pp. 276–277). *Hidden hypotheses:* none. *Deviation:* none; (2),
 "follows easily", is proved by shrinking $U(x)$; (3) through $\tilde K$, $\tilde L$ as in the text. "fo" for "for"
 (possible misprint) (Findings, item 52).
@@ -8401,23 +8401,23 @@ so is $F \circ H$. *Book:* Proposition 8.5.2 (2017: 8.2) and its proof, pp. 384�
 **V8.30 (Theorem 8.5.3 (2017: 8.5), Proper Covering I; `Polyfold.EpFunctor.ProperCoveringChart`,
 `Polyfold.EpFunctor.ProperCoveringLocal.Data`, `Polyfold.EpFunctor.ProperCoveringLocal.exists_data`,
 `Polyfold.EpFunctor.ProperCoveringLocal.Data.toChart`, `Polyfold.EpFunctor.ProperCoveringLocal.isScSmoothOn_of_section`,
-`Polyfold.EpFunctor.theorem_8_5`, `Polyfold.EpFunctor.theorem_8_5_of_naturalRep`).** For a proper covering functor $F : Y
+`Polyfold.EpFunctor.theorem_8_5_3`, `Polyfold.EpFunctor.theorem_8_5_3_of_naturalRep`).** For a proper covering functor $F : Y
 \to X$ and $x \in X$, a connected, sufficiently small $U(x)$ with the natural $G_x$-action carries sets $U(y)$, $y \in
 F^{-1}(x)$, and $\mathbf U(\psi_0)$, $\psi_0$ a morphism between points of $F^{-1}(x)$, with (0)–(5). *Book:* Theorem 8.5.3 (2017: 8.5),
 p. 385 (2017 p. 277), proved on pp. 386–388 (2017 pp. 278–279). *Hidden hypotheses:* none. *Deviation (stronger):* "sufficiently small" is proved in two
 forms, a chart with $U(x)$ inside every open $V \ni x$, and one open $W \ni x$ that works for every natural
 representation on a connected $U(x) \subseteq W$; $\mathbf U(\varphi)$ for $\varphi \in \mathbf U(x)$ is the connected
 component of $\mathbf U(x)$ at $\varphi$. (5) as printed, with $t$ on the right and $U(t(F(\psi_0)))$, does not hold as we
-read it (possible misprint; counterexample `Polyfold.CoveringExamples.theorem_8_5_five_as_printed`, the identity functor
+read it (possible misprint; counterexample `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed`, the identity functor
 of $\mathbb Z/2 \ltimes \mathbb R$ at $\psi_0 = (-1, 0)$, for every chart, which exists by
-`Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous`); it is formalized with $s$ on both vertical arrows
+`Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed_nonvacuous`); it is formalized with $s$ on both vertical arrows
 (`comm_src`), with the companion square with $t$ (`comm_tgt`). The proof differs from the text's: Definition 8.5.1 (3) (2017: 8.8) gives the sheets $\mathbf U(\psi_0)$ as images of
 continuous sections of $s$; the finiteness of $F^{-1}(x)$ and Definition 8.5.1 (1) (2017: 8.8) are not needed. In the proof "$g \in
 G_y$", "$G_y$-invariant" and "$F(z') = s(F(\varphi))$" for $G_x$, $G_x$-invariant and $t(F(\varphi))$, "admitting
 admitting", and "morphismsm" in (2) (possible misprints) (Findings, items 53, 54, 55).
 
-**V8.31 (Remark 8.5.4 (2017: 8.2); `Polyfold.EpFunctor.remark_8_2_a`, `Polyfold.EpFunctor.isotropyMor`,
-`Polyfold.EpFunctor.remark_8_2_b`, `Polyfold.EpFunctor.ProperCoveringChart.connectedComponentIn_U`,
+**V8.31 (Remark 8.5.4 (2017: 8.2); `Polyfold.EpFunctor.remark_8_5_4_a`, `Polyfold.EpFunctor.isotropyMor`,
+`Polyfold.EpFunctor.remark_8_5_4_b`, `Polyfold.EpFunctor.ProperCoveringChart.connectedComponentIn_U`,
 `Polyfold.EpFunctor.ProperCoveringChart.connectedComponentIn_sheet`).** (a) A morphism between points of $F^{-1}(x)$ is
 mapped into $G_x$; (b) everything in Theorem 8.5.3 (2017: 8.5) is determined by $U(x)$. *Book:* Remark 8.5.4 (2017: 8.2), pp. 386–387 (2017 pp. 277–278). *Hidden
 hypotheses:* none. *Deviation (restated):* (b) as: two charts with the same $U(x)$ have the same $\Phi$ and $\Gamma$ on
@@ -8468,7 +8468,7 @@ of Proposition 8.5.7 (2017: 8.3). *Hidden hypotheses:* none. *Deviation (not in 
 `Polyfold.geometricLiftFunctor_isLocalScDiffeo`, `Polyfold.geometricLiftFunctor_finite_fiber`,
 `Polyfold.geometricLiftFunctor_evenlyCovered`, `Polyfold.GeometricLift.fibredInv`,
 `Polyfold.GeometricLift.isScSmoothMap_fibredInv`, `Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap`,
-`Polyfold.proposition_8_3`, `Polyfold.EpGroupoid.Examples.actionEpGroupoid`,
+`Polyfold.proposition_8_5_7`, `Polyfold.EpGroupoid.Examples.actionEpGroupoid`,
 `Polyfold.CoveringExamples.isProperCovering_reflectionLift`).** A covering functor $f : D \to C$ with a geometric lift gives
 a proper covering functor $F : Y \to X$, $X = G_x \ltimes U(x)$, $Y = \bigsqcup U(y)$, $\mathbf Y = \bigsqcup \mathrm{mor}
 (y, y') \times U(y)$, $F|U(y) = \tau(y)$, $F(\psi, z) = (f(\psi), \tau(y)(z))$. *Book:* Proposition 8.5.7 (2017: 8.3) and its proof, pp. 389–391 (2017 pp. 281–282). *Hidden hypotheses:* $D$ nonempty; for $D = \emptyset$, which Definition 8.5.5 (2017: 8.9) allows, $F$ is surjective on objects
@@ -8487,7 +8487,7 @@ items 59, 101).
 `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ`, `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj`,
 `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor`, `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj`,
 `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor`, `Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ`,
-`Polyfold.EpFunctor.theorem_8_6`).** For a proper covering functor $F : Y \to X$ and $x \in X$: $f = F|D : D \to C$ is a
+`Polyfold.EpFunctor.theorem_8_5_8`).** For a proper covering functor $F : Y \to X$ and $x \in X$: $f = F|D : D \to C$ is a
 covering functor ($C$ on $x$, $D$ on $F^{-1}(x)$), and for $U(x)$ as in Theorem 8.5.3 (2017: 8.5) there are a geometric lift with
 associated proper covering functor $A : K \to L$ and fully faithful open embeddings $\Phi : L \to X$, $\Psi : K \to Y$ with
 images the full subcategories on $U(x)$ and $F^{-1}(U(x))$ and $F \circ \Psi = \Phi \circ A$. *Book:* Theorem 8.5.8 (2017: 8.6) and its
@@ -8526,21 +8526,21 @@ hypotheses:* none. *Deviation (restated):* the classes are indexed by their imag
 \pi^{-1}(c)$; $\#$ is the cardinality of finite sets (Findings, item 71).
 
 **V8.39 (Lemma 8.6.1 (2017: 8.9); `Polyfold.EpFunctor.morOn_fiberClass_eq`, `Polyfold.EpFunctor.IsProperCovering.morOnClassEquiv`,
-`Polyfold.EpFunctor.IsProperCovering.lemma_8_9`).** $\#G_x \cdot \#\Theta_j = \#\{\psi \mid s(\psi), t(\psi) \in
+`Polyfold.EpFunctor.IsProperCovering.lemma_8_6_1`).** $\#G_x \cdot \#\Theta_j = \#\{\psi \mid s(\psi), t(\psi) \in
 \Theta_j\} = \#G_{y_0} \cdot (\#\Theta_j)^2$ and $\#G_x = \#G_{y_0} \cdot \#\Theta_j$ for $y_0 \in \Theta_j$. *Book:*
 Lemma 8.6.1 (2017: 8.9) and its proof, pp. 396–398 (2017 pp. 286–287). *Hidden hypotheses:* none. *Deviation:* none; (8.17) writes "$\psi \to (F\psi),
 s(\psi))$" (possible misprint) (Findings, items 71, 72).
 
 **V8.40 (Lemma 8.6.2 (2017: 8.10); `Polyfold.EpFunctor.IsProperCovering.exists_isomorphic_of_isomorphic`,
-`Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq`, `Polyfold.EpFunctor.IsProperCovering.lemma_8_10`,
-`Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv`).** For isomorphic $x, x'$ the isomorphism classes of $F^{-1}(x)$
+`Polyfold.EpFunctor.IsProperCovering.fiberIndex_eq`, `Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2`,
+`Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv`).** For isomorphic $x, x'$ the isomorphism classes of $F^{-1}(x)$
 and $F^{-1}(x')$ correspond one to one, and isomorphic $y \in F^{-1}(x)$, $y' \in F^{-1}(x')$ lie in corresponding
 classes for exactly one index. *Book:* Lemma 8.6.2 (2017: 8.10) and the paragraph before it, 2017 p. 287. *Hidden hypotheses:* none.
 *Deviation (restated):* the correspondence is "the same index $c \in |Y|$"; as a bijection of the sets of classes it is
-`Polyfold.EpFunctor.IsProperCovering.lemma_8_10_equiv` (Findings, items 71, 73).
+`Polyfold.EpFunctor.IsProperCovering.lemma_8_6_2_equiv` (Findings, items 71, 73).
 
 **V8.41 (Lemma 8.6.3 (2017: 8.11); `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_sum`,
-`Polyfold.EpFunctor.IsProperCovering.lemma_8_11`, `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic`).**
+`Polyfold.EpFunctor.IsProperCovering.lemma_8_6_3`, `Polyfold.EpFunctor.IsProperCovering.ncard_fiber_eq_of_isomorphic`).**
 For isomorphic $x, x'$, $\#\Theta_j = \#\Theta'_j$ and $\#F^{-1}(x) = \#F^{-1}(x')$. *Book:* Lemma 8.6.3 (2017: 8.11) and the paragraph
 before it, p. 398 (2017 p. 287). *Hidden hypotheses:* none. *Deviation:* none; "the third claim of Lemma 8.10" for that of Lemma 8.6.1 (2017: 8.9),
 and the summation index $i$ with summands $\#\Theta_j$ (possible misprints) (Findings, item 73).
@@ -8548,7 +8548,7 @@ and the summation index $i$ with summands $\#\Theta_j$ (possible misprints) (Fin
 **V8.42 (Proposition 8.6.4 (2017: 8.4), the number of sheets; `Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber`,
 `Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq`,
 `Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber`, `Polyfold.EpFunctor.IsProperCovering.fiberCardOrbit`,
-`Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit`, `Polyfold.EpFunctor.IsProperCovering.proposition_8_4`,
+`Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit`, `Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4`,
 `Polyfold.EpFunctor.IsProperCovering.fiberCardFunctor`, `Polyfold.EpGroupoid.trivial`, `Polyfold.discretePolyfold`).**
 $\#F^{-1}(x)$ is constant on the preimage of every connected component of $|X|$, and $x \mapsto \#F^{-1}(x)$ is an
 sc-smooth functor $X \to \mathbb N$. *Book:* Proposition 8.6.4 (2017: 8.4) and the paragraph before it, 2017 p. 288. *Hidden hypotheses:*
@@ -8577,8 +8577,8 @@ and, for Proposition 8.1.17 (2) on every $(TX)^i$, `Chapter8/TangentZhouLevels.l
 
 **V8.44 (Proposition 8.1.16, (ZHOU) for $TX$; `Polyfold.MPolyfold.levelVal_tangentProj_mem_smoothSet`,
 `Polyfold.EpGroupoid.mem_nonEffectivePart_tangent`, `Polyfold.EpGroupoid.TangentZhouReflect`,
-`Polyfold.EpGroupoid.proposition_8_1_16_2021`, `Polyfold.EpGroupoid.tangentMor_trivial`,
-`Polyfold.EpGroupoid.tangentZhouReflect_trivial`, `Polyfold.EpGroupoid.Examples.proposition_8_1_16_2021_point`).** A
+`Polyfold.EpGroupoid.proposition_8_1_16`, `Polyfold.EpGroupoid.tangentMor_trivial`,
+`Polyfold.EpGroupoid.tangentZhouReflect_trivial`, `Polyfold.EpGroupoid.Examples.proposition_8_1_16_point`).** A
 smooth point of $TX$ lies over a smooth point of $X$; if $s = t$ near the base $p(v)$ of $v \in T\mathbf X$, then $v \in
 (T\mathbf X)^T$. If $X$ satisfies (ZHOU) (Definition 7.4.5, V7.88) and `TangentZhouReflect` holds — for a smooth $b \in TX$
 and $(g, h) \in G_b$, if the tangent of $(g, h)$ in the ep-groupoid $TX$ is the identity on $T_b(TX)$, then $Tg$ is the
@@ -8591,9 +8591,9 @@ closed, V8.52); as in Chapter 7, tangents of isotropy elements are set maps,
 no linear structure is used (Findings, item 115).
 
 **V8.45 (Proposition 8.1.17, LUC for $TX$; `Polyfold.EpGroupoid.nonEffectivePart_tangent_eq`,
-`Polyfold.EpGroupoid.proposition_8_1_17_2021_one`, `Polyfold.EpGroupoid.proposition_8_1_17_2021_two`,
+`Polyfold.EpGroupoid.proposition_8_1_17_one`, `Polyfold.EpGroupoid.proposition_8_1_17_two`,
 `Polyfold.EpGroupoid.isOpenMap_tangentProj_of_subsingleton`,
-`Polyfold.EpGroupoid.Examples.proposition_8_1_17_2021_one_point`).** Assume that every $x \in X_1$ has a natural
+`Polyfold.EpGroupoid.Examples.proposition_8_1_17_one_point`).** Assume that every $x \in X_1$ has a natural
 representation with $U(x) \cap X_1$ connected in $X^1$ and dense in $U(x)$, and that $p : T\mathbf X \to \mathbf X^1$ is open.
 (1) If $X^1$ has LUC, then $(T\mathbf X)^T = p^{-1}((\mathbf X^1)^T)$ and $TX$ has LUC. (2) If $X$ has (SLUC), $TX$ has LUC.
 The hypotheses hold for the point ep-groupoid. *Book:* Proposition 8.1.17, p. 371, new in the 2021 edition: (1) as stated;
@@ -8614,7 +8614,7 @@ $W_{0,1}$ and $h = \mu(\varphi, k)$ is an equation in $W$ (Findings, item 117).
 
 **V8.47 (Proposition 8.4.1, (2) implies (1); `Polyfold.EpStrongBundle.μ_fiberZero`, `Polyfold.EpStrongBundle.zeroOrbitMap`,
 `Polyfold.EpStrongBundle.continuous_zeroOrbitMap`, `Polyfold.EpStrongBundle.leftInverse_zeroOrbitMap`,
-`Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap`, `Polyfold.EpStrongBundle.proposition_8_4_1_2021_two_imp_one`).** For a
+`Polyfold.EpStrongBundle.isEmbedding_zeroOrbitMap`, `Polyfold.EpStrongBundle.proposition_8_4_1_two_imp_one`).** For a
 strong bundle over an ep-groupoid, $\mu(\varphi, 0_{s(\varphi)}) = 0_{t(\varphi)}$, the zero section induces a continuous
 $|0| : |X| \to |W[0]|$ with left inverse $|P|$, a topological embedding, and if $|W[0]|$ is paracompact so is $|X|$. *Book:*
 Proposition 8.4.1, p. 380, new in the 2021 edition: $|X|$, $|W[0]|$ and $|W[1]|$ are paracompact together. *Hidden
@@ -8635,7 +8635,7 @@ $|B(w)| = |w|$ as equality of orbits in $(W, \mathbf W)$. Proposition 8.4.3 (eff
 property) is not formalized (gap G.86) (Findings, item 119).
 
 **V8.49 (the remark after Definition 8.5.5 and Example 8.5.6; `Polyfold.IsCoveringFunctor.injective_map_end`,
-`Polyfold.Example856D`, `Polyfold.example856Functor`, `Polyfold.example_8_5_6_2021`).** For a covering functor $f : D \to
+`Polyfold.Example856D`, `Polyfold.example856Functor`, `Polyfold.example_8_5_6`).** For a covering functor $f : D \to
 C$ and $d \in D$, $f : G_d \to G_x$ is injective. For $D$ with two objects $a, b$ and one morphism between any two objects,
 $C = \{1_x, \varepsilon\}$ and $f(\varphi) = f(\varphi^{-1}) = \varepsilon$: $f$ is a covering functor, $G_a$, $G_b$ are trivial,
 $G_x \cong \mathbb Z/2$ is not, and $f : G_d \to G_x$ is injective and not surjective. *Book:* the remark after Definition
@@ -8666,7 +8666,7 @@ which contains (0), and the two readings are equivalent (Findings, items 70, 121
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleB`,
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.mapsTo_oneSet_bundleBInv`,
 `Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.isStrongBundleMap_bundleBInv`,
-`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10_2021`).** For a proper strong bundle covering
+`Polyfold.EpStrongBundle.IsProperStrongBundleCovering2021.lemma_8_5_10`).** For a proper strong bundle covering
 functor $A : W \to V$ covering $F : Y \to X$ (V8.50), on the pull-back $F^*V = \{(y, v) \mid F(y) = Q(v)\}$ with
 $\mu_{F^*V}(\varphi, (y, v)) = (t(\varphi), \mu_X(F(\varphi), v))$, the map $B(w) = (P(w), A(w))$ is a strong bundle isomorphism
 $W \to F^*V$ covering the identity of $Y$, with inverse $B^{-1}$, and $B(\mu_Y(\varphi, w)) = \mu_{F^*V}(\varphi, B(w))$ (8.23);
@@ -8681,9 +8681,9 @@ Definition 8.5.9 (1) (Findings, item 122).
 `Polyfold.EpGroupoid.EpEquiv`, `Polyfold.EpGroupoid.EpEquiv.refl`, `Polyfold.EpGroupoid.EpEquiv.trans`,
 `Polyfold.EpGroupoid.EpEquiv.shift`, `Polyfold.EpGroupoid.EpEquiv.nonEffectivePart_eq`, `Polyfold.EpGroupoid.EpEquiv.isLUC`,
 `Polyfold.EpGroupoid.tangentShiftEpEquiv`, `Polyfold.EP.tangentLiftEpEquiv`, `Polyfold.EP.isLUC_tangent_lift`,
-`Polyfold.EP.proposition_8_1_17_two_all_2021`, `Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton`,
-`Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_2021_pointEP`, `Polyfold.BundledMPolyfold.tangentLiftEquiv`,
-`Polyfold.proposition_2_3_17_all_2021`).** An equivalence of ep-groupoids, here, is a pair of sc-diffeomorphisms of the object
+`Polyfold.EP.proposition_8_1_17_two_all`, `Polyfold.EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton`,
+`Polyfold.EpGroupoid.Examples.proposition_8_1_17_two_all_pointEP`, `Polyfold.BundledMPolyfold.tangentLiftEquiv`,
+`Polyfold.proposition_2_3_17_all`).** An equivalence of ep-groupoids, here, is a pair of sc-diffeomorphisms of the object
 and the morphism M-polyfolds commuting with source and target; it maps $\mathbf X^T$ onto $\mathbf X'^T$ and so transports LUC,
 by Proposition 7.2.21, and it passes to the index raises. Part I's Proposition 2.3.17 for $i = 1$, on objects and morphisms,
 gives an equivalence $T(X^1) \cong (TX)^1$, and by recursion $T(X^i) \cong (TX)^i$ for every $i$. So if $X$ has (SLUC), every
@@ -8927,13 +8927,13 @@ The setting. Ep-groupoids, sc-smooth functors, the orbit spaces with their quoti
 
 **V10.9 (Remark 10.1.12, isotropy groups under equivalences; `Polyfold.EpFunctor.isotropyHom`, `Polyfold.EpFunctor.isotropyHom_mem_trivialSet_iff`, `Polyfold.EpFunctor.IsEquivalence.bijective_isotropyHom`, `Polyfold.EpFunctor.IsEquivalence.remark_10_1_12`).** For a functor which is a local sc-diffeomorphism on objects, $g \mapsto F(g)$, $G_x \to G_{F(x)}$, maps $g$ into $T_{F(x)}$ if and only if $g \in T_x$; for an equivalence it is bijective, and for $\psi : F(x) \to y$ there is a group isomorphism $G_x \to G_y$, $g \mapsto \psi \circ F(g) \circ \psi^{-1}$, mapping $T_x$ onto $T_y$. *Book:* Remark 10.1.12, p. 472 (new in the 2021 edition). *Hidden hypotheses:* none. *Deviation (same):* the printed $G_x \to Y_y$ is read $G_x \to G_y$ (possible misprint) (Findings, item 9).
 
-**V10.10 (Proposition 10.1.13, the reduced morphism spaces; `Polyfold.EpFunctor.mor_mem_nonEffectivePart`, `Polyfold.EpFunctor.mem_nonEffectivePart_of_mor`, `Polyfold.EpFunctor.nonEffectivePart_eq`, `Polyfold.EpGroupoid.continuousAt_comp`, `Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff`, `Polyfold.EpFunctor.reducedMap`, `Polyfold.EpFunctor.continuous_reducedMap`, `Polyfold.EpFunctor.isOpenMap_reducedMap`, `Polyfold.EpFunctor.proposition_10_1_13`, `Polyfold.EpGroupoid.theorem_7_2_22_2021`).** For a functor which is a local sc-diffeomorphism on objects, $\mathbf X^T = F^{-1}(\mathbf Y^T) \cap \{s = t\}$ and $F_R : \mathbf X^R \to \mathbf Y^R$, $[\varphi] \mapsto [F(\varphi)]$, is well defined, continuous and open. For an equivalence $F$, $\mathbf X^T$ is closed if and only if $\mathbf Y^T$ is, and $\mathbf X^R$ is Hausdorff if and only if $\mathbf Y^R$ is. *Book:* Proposition 10.1.13, p. 472 (new in the 2021 edition). *Hidden hypotheses:* none. *Deviation (same):* (1) is proved for any functor which is a local sc-diffeomorphism on objects (Findings, item 10). *Proof:* (2) through Theorem 7.2.22 ($T_R$ Hausdorff if and only if $\mathbf X^T$ closed), as in the text; the closedness passes from $\mathbf X^T$ to $\mathbf Y^T$ by conjugating with a local inverse of $t$ at a morphism $\sigma : F(x) \to y$, with closures in place of sequences.
+**V10.10 (Proposition 10.1.13, the reduced morphism spaces; `Polyfold.EpFunctor.mor_mem_nonEffectivePart`, `Polyfold.EpFunctor.mem_nonEffectivePart_of_mor`, `Polyfold.EpFunctor.nonEffectivePart_eq`, `Polyfold.EpGroupoid.continuousAt_comp`, `Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff`, `Polyfold.EpFunctor.reducedMap`, `Polyfold.EpFunctor.continuous_reducedMap`, `Polyfold.EpFunctor.isOpenMap_reducedMap`, `Polyfold.EpFunctor.proposition_10_1_13`, `Polyfold.EpGroupoid.theorem_7_2_22`).** For a functor which is a local sc-diffeomorphism on objects, $\mathbf X^T = F^{-1}(\mathbf Y^T) \cap \{s = t\}$ and $F_R : \mathbf X^R \to \mathbf Y^R$, $[\varphi] \mapsto [F(\varphi)]$, is well defined, continuous and open. For an equivalence $F$, $\mathbf X^T$ is closed if and only if $\mathbf Y^T$ is, and $\mathbf X^R$ is Hausdorff if and only if $\mathbf Y^R$ is. *Book:* Proposition 10.1.13, p. 472 (new in the 2021 edition). *Hidden hypotheses:* none. *Deviation (same):* (1) is proved for any functor which is a local sc-diffeomorphism on objects (Findings, item 10). *Proof:* (2) through Theorem 7.2.22 ($T_R$ Hausdorff if and only if $\mathbf X^T$ closed), as in the text; the closedness passes from $\mathbf X^T$ to $\mathbf Y^T$ by conjugating with a local inverse of $t$ at a morphism $\sigma : F(x) \to y$, with closures in place of sequences.
 
 **V10.11 (Proposition 10.1.14 (2017: 10.5), the reduced functor; `Polyfold.EpFunctor.reducedGroupoidFunctor`, `Polyfold.EpFunctor.reduced`, `Polyfold.EpFunctor.reducedπ_eq_of_mor`, `Polyfold.EpFunctor.proposition_10_1_14`).** If $F$ is an equivalence and the reduced morphism spaces $\mathbf X^R$, $\mathbf Y^R$ are Hausdorff, then $F_R = F$ on objects, $F_R([\varphi]) = [F(\varphi)]$ is a well-defined sc-smooth functor $X_R \to Y_R$ of the reduced ep-groupoids and an equivalence. *Book:* Proposition 10.1.14, p. 473 (2017: Proposition 10.5, p. 341). *Hidden hypotheses:* none. *Deviation (same):* none; by Proposition 10.1.13 (2) one Hausdorff hypothesis would suffice (Findings, item 11).
 
 **V10.12 (Example 10.1.15 (2017: 10.1), a functor that does not pass to the reduced groupoids; `Polyfold.EpGroupoid.Examples.example1015X`, `Polyfold.EpGroupoid.Examples.example1015Y`, `Polyfold.EpGroupoid.Examples.example1015Functor`, `Polyfold.EpGroupoid.Examples.example1015X_two_mem_nonEffectivePart`, `Polyfold.EpGroupoid.Examples.example1015Y_two_not_mem_nonEffectivePart`, `Polyfold.EpGroupoid.Examples.example1015X_reducedπ_one_eq_three`, `Polyfold.EpGroupoid.Examples.example1015Y_reducedπ_one_ne_three`, `Polyfold.EpGroupoid.Examples.example_10_1_15`).** For $X = \mathbb Z/4 \ltimes \mathbb R$ ($1$ and $3$ acting by $x \mapsto -x$, $2$ trivially), $Y = \mathbb Z/4 \ltimes \mathbb R^2$ (rotations by multiples of $90°$) and the sc-smooth functor $\Phi(x) = 0$, $\Phi(i, x) = (i, 0)$: $(2, x) \in \mathbf X^T$, $(2, 0) \notin \mathbf Y^T$, $[(1, x)] = [(3, x)]$ in $\mathbf X^R$ and $[(1, 0)] \ne [(3, 0)]$ in $\mathbf Y^R$, so no map $f : \mathbf X^R \to \mathbf Y^R$ satisfies $f([\varphi]) = [\Phi(\varphi)]$. *Book:* Example 10.1.15, p. 474 (2017: Example 10.1, p. 341). *Hidden hypotheses:* none. *Deviation (stronger):* no Hausdorff hypothesis and no topology on the reduced spaces is involved; no map at all is compatible with $\Phi$ (Findings, item 12).
 
-**V10.13 (Proposition 10.1.16, (LUC) under equivalences; `Polyfold.EpFunctor.proposition_10_1_16`, `Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff`, `Polyfold.EpGroupoid.proposition_7_2_21_2021`).** If $F : X \to Y$ is an equivalence, $X$ has the local unique continuation property if and only if $Y$ has it. *Book:* Proposition 10.1.16, p. 474 (new in the 2021 edition). *Hidden hypotheses:* none. *Deviation (same):* none (Findings, item 10). *Proof:* (LUC) holds if and only if $\mathbf X^T$ is closed (Proposition 7.2.21, a part of Theorem 7.2.22), and the closedness passes along equivalences (V10.10).
+**V10.13 (Proposition 10.1.16, (LUC) under equivalences; `Polyfold.EpFunctor.proposition_10_1_16`, `Polyfold.EpFunctor.IsEquivalence.isClosed_nonEffectivePart_iff`, `Polyfold.EpGroupoid.proposition_7_2_21`).** If $F : X \to Y$ is an equivalence, $X$ has the local unique continuation property if and only if $Y$ has it. *Book:* Proposition 10.1.16, p. 474 (new in the 2021 edition). *Hidden hypotheses:* none. *Deviation (same):* none (Findings, item 10). *Proof:* (LUC) holds if and only if $\mathbf X^T$ is closed (Proposition 7.2.21, a part of Theorem 7.2.22), and the closedness passes along equivalences (V10.10).
 
 **V10.14 (Proposition 10.1.17, the Zhou condition under equivalences; `Polyfold.EpGroupoid.mem_smoothSet_src_iff`, `Polyfold.EpGroupoid.mem_smoothSet_tgt_iff`, `Polyfold.EpFunctor.tangentMor_mor`, `Polyfold.EpFunctor.IsEquivalence.isZhou_of_isZhou`, `Polyfold.EpFunctor.IsEquivalence.isZhou_of_isZhou_right`, `Polyfold.EpFunctor.proposition_10_1_17`).** If $F : X \to Y$ is an equivalence, $X$ satisfies the Zhou condition (for smooth $x$ and $g \in G_x$, $Tg = \mathrm{id}$ on $T_xX$ implies $g \in T_x$) if and only if $Y$ does. *Book:* Proposition 10.1.17, p. 475 (new in the 2021 edition). *Hidden hypotheses:* none. *Deviation (same):* the proof uses the naturality $T(F(\varphi)) \circ TF = TF \circ T\varphi$, the composition rule for $T$ and the bijectivity of $TF$ on tangent fibres instead of the natural representations; the text's $U(F(y))$ and "$x \in U(x)$" in (b) are read $U(F(x))$ and $a \in U(x)$ (possible misprints) (Findings, item 13).
 

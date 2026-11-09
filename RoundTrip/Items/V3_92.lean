@@ -115,7 +115,7 @@ lemma scDeriv_translate {E F : ScBanach} {U V : Set (E 0)} (hU : IsScDomain E U)
   have hlev : levelMap (fun v : E 0 => v + a) 1 (0 : E 1) = z :=
     levelMap_eq_of_toBase_eq (by show E.toBase 1 z = E.toBase 1 0 + a; rw [hz, map_zero, zero_add])
   rw [hlev, scDeriv_add_const_zero hV ha h0V, ContinuousLinearMap.id_apply] at hchain
-  have hgτ : IsSc1 V (g ∘ fun v => v + a) := (theorem_1_21' hV hU hτ hg hVU).1
+  have hgτ : IsSc1 V (g ∘ fun v => v + a) := (theorem_1_3_1' hV hU hτ hg hVU).1
   have hcong : IsSc1With V g' (scDeriv V (g ∘ fun v => v + a)) :=
     hgτ.isSc1With_scDeriv.congr fun v hv => (hgg' v hv).symm
   rw [IsSc1.scDeriv_eqOn hcong (hV.uniqueDiffWithinAt 1) h01]

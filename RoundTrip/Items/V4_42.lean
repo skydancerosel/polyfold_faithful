@@ -4,7 +4,7 @@ import RoundTrip.Blind.V4_42
 
 /-!
 Round trip for V4_42 (Lemma 4.19).  `A` is the conjunction of the types of
-`Polyfold.isGoodComplement_sup_range`, `Polyfold.lemma_4_19` and
+`Polyfold.isGoodComplement_sup_range`, `Polyfold.lemma_4_2_8` and
 `Polyfold.IsInGoodPositionIn.isInGoodPosition` (no universe parameters): pure linear algebra in an
 sc-Banach space `E` with a presentation `T` of `C`, a bounded idempotent `π` with
 `(1 − π)E ⊆ E₀` (the minimal subspace at `0`), `N` in good position to `C` inside `πE` with an
@@ -32,11 +32,11 @@ open Polyfold
 
 def A : Prop :=
   type_of% @Polyfold.isGoodComplement_sup_range ∧
-    type_of% @Polyfold.lemma_4_19 ∧
+    type_of% @Polyfold.lemma_4_2_8 ∧
     type_of% @Polyfold.IsInGoodPositionIn.isInGoodPosition
 
 theorem A_holds : A :=
-  ⟨@Polyfold.isGoodComplement_sup_range, @Polyfold.lemma_4_19,
+  ⟨@Polyfold.isGoodComplement_sup_range, @Polyfold.lemma_4_2_8,
     @Polyfold.IsInGoodPositionIn.isInGoodPosition⟩
 
 section Glue
@@ -210,9 +210,9 @@ theorem A_to_B : A → B := by
     exact ⟨fun h => h.2, fun h => ⟨hNM hx, h⟩⟩
   refine ⟨⟨hpre ▸ hint, Y ⊔ Z, hsplit, hgc.exists_eps⟩, hsplit, hgc.exists_eps⟩
 
-#rt_check RoundTrip.V4_42.A_to_B [Polyfold.isGoodComplement_sup_range, Polyfold.lemma_4_19,
+#rt_check RoundTrip.V4_42.A_to_B [Polyfold.isGoodComplement_sup_range, Polyfold.lemma_4_2_8,
   Polyfold.IsInGoodPositionIn.isInGoodPosition]
-#rt_overlap RoundTrip.V4_42.A_to_B [Polyfold.isGoodComplement_sup_range, Polyfold.lemma_4_19,
+#rt_overlap RoundTrip.V4_42.A_to_B [Polyfold.isGoodComplement_sup_range, Polyfold.lemma_4_2_8,
   Polyfold.IsInGoodPositionIn.isInGoodPosition]
 
 end RoundTrip.V4_42

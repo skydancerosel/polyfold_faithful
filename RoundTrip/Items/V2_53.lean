@@ -7,18 +7,18 @@ import RoundTrip.Blind.V2_53
 `A` is the conjunction of the types of the theorems `MPolyfold.isSubMPolyfold_fibredProduct`,
 `isScDiffeoOn_snd_fibredProduct`, `isScDiffeoOn_fst_fibredProduct`,
 `degIndex_fibredProduct_eq_snd`, `degIndex_fibredProduct_eq_fst`, `isTame_fibredProduct`,
-`proposition_2_46` and `proposition_2_46_of_isLocalScDiffeo`, all at universes `0, 0, 0`.
+`proposition_2_5_20` and `proposition_2_5_20_of_isLocalScDiffeo`, all at universes `0, 0, 0`.
 `IsLocalScDiffeo`, `fibredProduct`, `fibredSubDataL` are definitions (vocabulary; B uses the
 first two).
 
 `A → B` (proved): sub-M-polyfold is `isSubMPolyfold_fibredProduct`; the tame clause is
 `isTame_fibredProduct` with `degIndex_fibredProduct_eq_snd`; the last clause is
-`proposition_2_46_of_isLocalScDiffeo`.  The paracompactness of the fibred product that B asks for
+`proposition_2_5_20_of_isLocalScDiffeo`.  The paracompactness of the fibred product that B asks for
 is Mathlib's (closed subspace of the paracompact `X × Y`).  Instances of `ParacompactSpace` and
 proofs of `IsSubMPolyfold` are propositions, so the subpolyfolds built with different proofs agree
 definitionally.
 
-Harness note: the *statement* of `proposition_2_46_of_isLocalScDiffeo` contains the banned
+Harness note: the *statement* of `proposition_2_5_20_of_isLocalScDiffeo` contains the banned
 `isSubMPolyfold_fibredProduct` (in `subPolyfold (isSubMPolyfold_fibredProduct hf hg.isScSmoothMap)`),
 so every proof whose type mentions `A` reaches it, and both `#rt_check` and `#rt_check_soft` fail on
 `A_to_B` for that reason alone.  `A_to_B` is therefore factored as `A'_to_B ∘ A_to_A'`: `A'` is
@@ -26,8 +26,8 @@ the same statements with that proof (and the paracompactness instance) universal
 `A_to_A'` is a projection, and `#rt_check` passes on `A'_to_B`.
 
 `B → A` fails for a genuine reason: `A` proves `d(x, y) = d_Y(y)` (`degIndex_fibredProduct_eq_snd`,
-inside `proposition_2_46`) and, for two local sc-diffeomorphisms, `d = d_X = d_Y`
-(`proposition_2_46_of_isLocalScDiffeo`), WITHOUT any tameness, whereas B asserts
+inside `proposition_2_5_20`) and, for two local sc-diffeomorphisms, `d = d_X = d_Y`
+(`proposition_2_5_20_of_isLocalScDiffeo`), WITHOUT any tameness, whereas B asserts
 `d = d_Y` only when `Y` is tame and `d = d_X = d_Y` only when `X`, `Y` are both tame.  B also says
 nothing about the explicit local sc-diffeomorphisms `π₁`, `π₂` and their inverses
 (`isScDiffeoOn_snd/fst_fibredProduct`).  B does give `isSubMPolyfold_fibredProduct` and
@@ -44,8 +44,8 @@ def A : Prop :=
     (type_of% @Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd.{0, 0, 0}) ∧
     (type_of% @Polyfold.MPolyfold.degIndex_fibredProduct_eq_fst.{0, 0, 0}) ∧
     (type_of% @Polyfold.MPolyfold.isTame_fibredProduct.{0, 0, 0}) ∧
-    (type_of% @Polyfold.MPolyfold.proposition_2_46.{0, 0, 0}) ∧
-    (type_of% @Polyfold.MPolyfold.proposition_2_46_of_isLocalScDiffeo.{0, 0, 0})
+    (type_of% @Polyfold.MPolyfold.proposition_2_5_20.{0, 0, 0}) ∧
+    (type_of% @Polyfold.MPolyfold.proposition_2_5_20_of_isLocalScDiffeo.{0, 0, 0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.MPolyfold.isSubMPolyfold_fibredProduct.{0, 0, 0},
@@ -54,10 +54,10 @@ theorem A_holds : A :=
     @Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd.{0, 0, 0},
     @Polyfold.MPolyfold.degIndex_fibredProduct_eq_fst.{0, 0, 0},
     @Polyfold.MPolyfold.isTame_fibredProduct.{0, 0, 0},
-    @Polyfold.MPolyfold.proposition_2_46.{0, 0, 0},
-    @Polyfold.MPolyfold.proposition_2_46_of_isLocalScDiffeo.{0, 0, 0}⟩
+    @Polyfold.MPolyfold.proposition_2_5_20.{0, 0, 0},
+    @Polyfold.MPolyfold.proposition_2_5_20_of_isLocalScDiffeo.{0, 0, 0}⟩
 
-/-- The last statement of Proposition 2.46 as in `proposition_2_46_of_isLocalScDiffeo`, with the
+/-- The last statement of Proposition 2.46 as in `proposition_2_5_20_of_isLocalScDiffeo`, with the
 sub-M-polyfold proof and the paracompactness instance universally quantified. -/
 def Last : Prop :=
   ∀ {X Y Z : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
@@ -114,21 +114,21 @@ theorem B_to_tame (hB : B) : type_of% @Polyfold.MPolyfold.isTame_fibredProduct.{
 #rt_check RoundTrip.V2_53.A'_to_B [Polyfold.MPolyfold.isSubMPolyfold_fibredProduct,
   Polyfold.MPolyfold.isScDiffeoOn_snd_fibredProduct, Polyfold.MPolyfold.isScDiffeoOn_fst_fibredProduct,
   Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd, Polyfold.MPolyfold.degIndex_fibredProduct_eq_fst,
-  Polyfold.MPolyfold.isTame_fibredProduct, Polyfold.MPolyfold.proposition_2_46,
-  Polyfold.MPolyfold.proposition_2_46_of_isLocalScDiffeo]
+  Polyfold.MPolyfold.isTame_fibredProduct, Polyfold.MPolyfold.proposition_2_5_20,
+  Polyfold.MPolyfold.proposition_2_5_20_of_isLocalScDiffeo]
 -- `A_to_B` itself cannot pass `#rt_check`/`#rt_check_soft`: its binder type `A` contains the banned
--- `isSubMPolyfold_fibredProduct` in the statement of `proposition_2_46_of_isLocalScDiffeo` (not in a
+-- `isSubMPolyfold_fibredProduct` in the statement of `proposition_2_5_20_of_isLocalScDiffeo` (not in a
 -- proof).  `A_to_B = A'_to_B ∘ A_to_A'`, where `A_to_A'` is a projection; the check is run on
 -- `A'_to_B`, which takes all of its content from the hypothesis `A'`.
 #rt_check RoundTrip.V2_53.B_to_tame [Polyfold.MPolyfold.isSubMPolyfold_fibredProduct,
   Polyfold.MPolyfold.isScDiffeoOn_snd_fibredProduct, Polyfold.MPolyfold.isScDiffeoOn_fst_fibredProduct,
   Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd, Polyfold.MPolyfold.degIndex_fibredProduct_eq_fst,
-  Polyfold.MPolyfold.isTame_fibredProduct, Polyfold.MPolyfold.proposition_2_46,
-  Polyfold.MPolyfold.proposition_2_46_of_isLocalScDiffeo]
+  Polyfold.MPolyfold.isTame_fibredProduct, Polyfold.MPolyfold.proposition_2_5_20,
+  Polyfold.MPolyfold.proposition_2_5_20_of_isLocalScDiffeo]
 #rt_check RoundTrip.V2_53.B_to_sub [Polyfold.MPolyfold.isSubMPolyfold_fibredProduct,
   Polyfold.MPolyfold.isScDiffeoOn_snd_fibredProduct, Polyfold.MPolyfold.isScDiffeoOn_fst_fibredProduct,
   Polyfold.MPolyfold.degIndex_fibredProduct_eq_snd, Polyfold.MPolyfold.degIndex_fibredProduct_eq_fst,
-  Polyfold.MPolyfold.isTame_fibredProduct, Polyfold.MPolyfold.proposition_2_46,
-  Polyfold.MPolyfold.proposition_2_46_of_isLocalScDiffeo]
+  Polyfold.MPolyfold.isTame_fibredProduct, Polyfold.MPolyfold.proposition_2_5_20,
+  Polyfold.MPolyfold.proposition_2_5_20_of_isLocalScDiffeo]
 
 end RoundTrip.V2_53

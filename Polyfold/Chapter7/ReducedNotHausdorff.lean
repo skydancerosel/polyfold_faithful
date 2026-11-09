@@ -15,15 +15,15 @@ Part II; numbers and pages are the 2017 text's.
 
 ## The text, paraphrased
 
-(Definition 7.12, p. 241) `𝐗^T ⊆ 𝐗` is the set of morphisms `φ` near which `s = t`, i.e.
+(Definition 7.2.7 (2017: 7.12), p. 310 (2017 p. 241)) `𝐗^T ⊆ 𝐗` is the set of morphisms `φ` near which `s = t`, i.e.
 `φ ∈ T_{s(φ)}`; `φ ∼ ψ` if `s(φ) = s(ψ)` and `ψ = φ ∘ τ` for some `τ ∈ 𝐗^T`; `𝐗^R = 𝐗/∼` with
-the quotient topology.  (Proposition 7.9, p. 242) `𝐗^R` has a natural M-polyfold structure for
+the quotient topology.  (Proposition 7.2.10 (2017: 7.9), p. 313 (2017 p. 242)) `𝐗^R` has a natural M-polyfold structure for
 which the quotient map is a local sc-diffeomorphism.  (Proposition 7.10, p. 244) `X_R = (X, 𝐗^R)`
 is an effective ep-groupoid.
 
 ## What is formalized
 
-An M-polyfold is Hausdorff (Part I, Definition 2.8).  `Reduced.lean` proves Propositions 7.9 and
+An M-polyfold is Hausdorff (Part I, Definition 2.3.4 (2017: 2.8)).  `Reduced.lean` proves Propositions 7.2.10 (2017: 7.9) and
 7.10 with `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` as hypotheses (gap G.71).  This
 file shows that the Hausdorff hypothesis cannot be dropped:
 

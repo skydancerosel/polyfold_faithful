@@ -265,7 +265,7 @@ theorem isClosed_orbitSupp_dimComponent (h912 : X.Proposition_9_1_12)
   obtain ⟨B, dim, hdim⟩ := hasLabelledBranchingAt hΘ (hLC z hz) hz
   have hzk : z ∉ supp (X.dimComponent Θ k) := fun h => hpk ⟨z, h, rfl⟩
   refine ⟨((↑) : X.orbitSupp Θ → X.OrbitSpace) ⁻¹' (X.π '' B.U), fun q hq hqk => ?_,
-    (X.proposition_7_1 _ B.isOpen_U).preimage continuous_subtype_val, ⟨z, B.mem_U, rfl⟩⟩
+    (X.proposition_7_1_8 _ B.isOpen_U).preimage continuous_subtype_val, ⟨z, B.mem_U, rfl⟩⟩
   obtain ⟨u, hu, hqu⟩ := hq
   have hu' : u ∈ supp (X.dimComponent Θ k) := by
     rw [← preimage_π_orbitSupp (isFunctorial_dimComponent h912 hΘ k)]

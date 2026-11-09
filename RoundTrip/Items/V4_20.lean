@@ -5,9 +5,9 @@ import RoundTrip.Blind.V4_20
 /-! Round trip for V4_20 (Proposition 4.9: an sc⁺-retract near `0` is sc-diffeomorphic, through
 "the sc-projection `p`", to a relatively open subset of the partial quadrant `T₀O ∩ C` of `T₀O`).
 
-`A` is the conjunction of the types of `Polyfold.proposition_4_9` and
+`A` is the conjunction of the types of `Polyfold.proposition_4_1_9` and
 `Polyfold.finiteDimensional_tangentSpace_zero` (no universe parameters; `GraphData` is a
-definition, the bundled hypotheses of `proposition_4_9`).
+definition, the bundled hypotheses of `proposition_4_1_9`).
 
 Neither direction is proved.  The two statements are about **different maps**:
 
@@ -44,9 +44,9 @@ open Polyfold Set
 
 /-- The project's statement. -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_4_9) ∧ (type_of% @Polyfold.finiteDimensional_tangentSpace_zero)
+  (type_of% @Polyfold.proposition_4_1_9) ∧ (type_of% @Polyfold.finiteDimensional_tangentSpace_zero)
 
-theorem A_holds : A := ⟨@Polyfold.proposition_4_9, @Polyfold.finiteDimensional_tangentSpace_zero⟩
+theorem A_holds : A := ⟨@Polyfold.proposition_4_1_9, @Polyfold.finiteDimensional_tangentSpace_zero⟩
 
 /-- Under B's hypotheses, `A` (its second conjunct, Lemma 4.7 (ii)) gives `dim Dt(0)E < ∞`. -/
 theorem finiteDimensional_of_A (hA : A) {E : ScBanach} {C : Set (E.lvl 0)} (t : ScRetraction E C)
@@ -90,9 +90,9 @@ theorem A_in_B_setting (hA : A) (E : ScBanach) (C : Set (E.lvl 0)) (t : ScRetrac
     hA.1 t ht h0 hN ⟨hint, Y, hgc⟩ hgc hYc p hpN hpY
   exact ⟨Y, p, hY, hpN, hpY, W, V, Γ, hW, h0W, hV, h0V, hpmap, hΓmap, hΓp, hpΓ⟩
 
-#rt_check RoundTrip.V4_20.finiteDimensional_of_A [Polyfold.proposition_4_9,
+#rt_check RoundTrip.V4_20.finiteDimensional_of_A [Polyfold.proposition_4_1_9,
   Polyfold.finiteDimensional_tangentSpace_zero]
-#rt_check RoundTrip.V4_20.A_in_B_setting [Polyfold.proposition_4_9,
+#rt_check RoundTrip.V4_20.A_in_B_setting [Polyfold.proposition_4_1_9,
   Polyfold.finiteDimensional_tangentSpace_zero]
 
 end RoundTrip.V4_20

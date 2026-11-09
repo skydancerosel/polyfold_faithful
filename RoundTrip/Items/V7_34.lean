@@ -5,14 +5,14 @@ import RoundTrip.Blind.V7_34
 /-! Round trip for V7_34 (Lemma 7.2, p. 239: the regular part is open).
 
 `A` is the conjunction of the types of `EpGroupoid.NaturalRep.subset_regularSet` (for every
-natural representation `R` at a regular `x`, `R.U ⊆ X_reg`) and `EpGroupoid.lemma_7_2`
+natural representation `R` at a regular `x`, `R.U ⊆ X_reg`) and `EpGroupoid.lemma_7_2_2`
 (`IsOpen X.regularSet`), universes at `0`.
 
 Dictionary: `B`'s `XregB X = {x | ∀ g : G_x, g.val = 1_x}` is the project's
 `regularSet = {x | ∀ g : G_x, g = 1}` (`Isotropy.ext`, `val_one`).
 
-* `A → B`: `lemma_7_2` with the dictionary.
-* `B → A`: `lemma_7_2` is `B` with the dictionary.  `subset_regularSet` is a fact about an
+* `A → B`: `lemma_7_2_2` with the dictionary.
+* `B → A`: `lemma_7_2_2` is `B` with the dictionary.  `subset_regularSet` is a fact about an
   arbitrary natural representation, which `B` does not mention; it is re-proved outright from the
   fields of `NaturalRep` (`existsUnique_Γ`) and `NaturalRep.Γ_one` (`NaturalAction.lean`).
 -/
@@ -23,10 +23,10 @@ open Polyfold Set
 /-- The project's statement (universes at `0`). -/
 def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.NaturalRep.subset_regularSet.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_7_2.{0})
+  (type_of% @Polyfold.EpGroupoid.lemma_7_2_2.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.EpGroupoid.NaturalRep.subset_regularSet.{0}, @Polyfold.EpGroupoid.lemma_7_2.{0}⟩
+  ⟨@Polyfold.EpGroupoid.NaturalRep.subset_regularSet.{0}, @Polyfold.EpGroupoid.lemma_7_2_2.{0}⟩
 
 section Dictionary
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -58,10 +58,10 @@ theorem B_to_A : B → A := by
     exact hB Obj Mor X
 
 #rt_check RoundTrip.V7_34.A_to_B [Polyfold.EpGroupoid.NaturalRep.subset_regularSet,
-  Polyfold.EpGroupoid.lemma_7_2]
+  Polyfold.EpGroupoid.lemma_7_2_2]
 #rt_check RoundTrip.V7_34.B_to_A [Polyfold.EpGroupoid.NaturalRep.subset_regularSet,
-  Polyfold.EpGroupoid.lemma_7_2]
+  Polyfold.EpGroupoid.lemma_7_2_2]
 #rt_overlap RoundTrip.V7_34.B_to_A [Polyfold.EpGroupoid.NaturalRep.subset_regularSet,
-  Polyfold.EpGroupoid.lemma_7_2]
+  Polyfold.EpGroupoid.lemma_7_2_2]
 
 end RoundTrip.V7_34

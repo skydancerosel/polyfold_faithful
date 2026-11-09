@@ -5,7 +5,7 @@ import RoundTrip.Blind.V2_25
 /-! Round trip for V2_25 (Proposition 2.21 (3), (4): tangent spaces of a sub-M-polyfold).
 
 `A` is the conjunction of the types of the listed theorems `Polyfold.ScRetraction.compRetraction_retract`,
-`Polyfold.proposition_2_21_3`, `Polyfold.proposition_2_21_4` (no universe parameters: everything
+`Polyfold.proposition_2_3_19_three`, `Polyfold.proposition_2_3_19_four` (no universe parameters: everything
 lives in sc-Banach spaces).  `ScRetraction.compRetraction` (`t = s ∘ r`) is a definition.
 
 **Neither direction is proved.**
@@ -57,11 +57,11 @@ open Polyfold Set MPolyfold
 /-- The project's statement (no universe parameters). -/
 def A : Prop :=
   (type_of% @Polyfold.ScRetraction.compRetraction_retract) ∧
-    (type_of% @Polyfold.proposition_2_21_3) ∧ (type_of% @Polyfold.proposition_2_21_4)
+    (type_of% @Polyfold.proposition_2_3_19_three) ∧ (type_of% @Polyfold.proposition_2_3_19_four)
 
 theorem A_holds : A :=
-  ⟨@Polyfold.ScRetraction.compRetraction_retract, @Polyfold.proposition_2_21_3,
-    @Polyfold.proposition_2_21_4⟩
+  ⟨@Polyfold.ScRetraction.compRetraction_retract, @Polyfold.proposition_2_3_19_three,
+    @Polyfold.proposition_2_3_19_four⟩
 
 section Glue
 
@@ -105,8 +105,8 @@ theorem induced_isScSmoothOn (P : MPolyfold X) (S : Set X) [ParacompactSpace S] 
 end Glue
 
 #rt_check RoundTrip.V2_25.tangentInChartB_eq [Polyfold.ScRetraction.compRetraction_retract,
-  Polyfold.proposition_2_21_3, Polyfold.proposition_2_21_4]
+  Polyfold.proposition_2_3_19_three, Polyfold.proposition_2_3_19_four]
 #rt_check RoundTrip.V2_25.induced_isScSmoothOn [Polyfold.ScRetraction.compRetraction_retract,
-  Polyfold.proposition_2_21_3, Polyfold.proposition_2_21_4]
+  Polyfold.proposition_2_3_19_three, Polyfold.proposition_2_3_19_four]
 
 end RoundTrip.V2_25

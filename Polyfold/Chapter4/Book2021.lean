@@ -29,27 +29,27 @@ spaces have sc-complements in `T_x^R X`.
 
 ## What is formalized
 
-* `Polyfold.MPolyfold.theorem_4_2_11_2021`: Theorem 4.2.11 with (1) in the 2021 form.  The
-  existing `MPolyfold.theorem_4_22` (`LocalStructure.lean`) already reads (1) as "`x` lies in
+* `Polyfold.MPolyfold.theorem_4_2_11`: Theorem 4.2.11 with (1) in the 2021 form.  The
+  existing `MPolyfold.theorem_4_2_11_preprint` (`LocalStructure.lean`) already reads (1) as "`x` lies in
   exactly `d_X(x)` faces of the model of a tame chart centred at `x`", i.e. it counts the local
   faces **through `x`**, which is the 2021 statement; the 2021 version here adds, for each of the
   `d_X(x)` coordinate faces `F_i` (`i < d_X(x)`), its germ `ψ⁻¹(G_i ∩ F_i)`, which **contains `x`
   and is contained in `U`** (read off from (4) for `σ = {i}`).  (2)–(4) are those of
-  `theorem_4_22`.
-* `Polyfold.theorem_4_3_1_2021`: Theorem 4.3.1 with hypothesis (1) without non-emptiness and
-  with `Σ` **measurable**.  The existing `theorem_4_23` (`Families.lean`) assumes non-emptiness
+  `theorem_4_2_11_preprint`.
+* `Polyfold.theorem_4_3_1`: Theorem 4.3.1 with hypothesis (1) without non-emptiness and
+  with `Σ` **measurable**.  The existing `theorem_4_3_1_preprint` (`Families.lean`) assumes non-emptiness
   but never uses it; its `Σ` is not shown measurable.  Here `Σ` is shrunk to a measurable subset
   of the same full measure (the complement of a measurable null hull,
   `MeasureTheory.toMeasurable`), which keeps all other conclusions.
 
 ## What the text leaves implicit, and the choices made
 
-* "Local faces" are, as in `theorem_4_22` and `proposition_2_44`, the faces of the model of a
+* "Local faces" are, as in `theorem_4_2_11_preprint` and `proposition_2_5_16`, the faces of the model of a
   tame chart centred at `x` (Findings Chapter 4 item 130, gap G.35: the identification with the
   faces of the neighbourhood `U` itself is not formalized).
 * "Regular value" is read in the stratified sense of the proof (`IsStratRegularValue`, Findings
   Chapter 4 items 102, 108), and hypothesis (2) as general position at every point, as in
-  `theorem_4_23`.  The hypotheses "tame induced structure on `A`" and "`ε > 0`" are kept and
+  `theorem_4_3_1_preprint`.  The hypotheses "tame induced structure on `A`" and "`ε > 0`" are kept and
   not used, as there.
 -/
 
@@ -81,7 +81,7 @@ coordinate hyperplane) has a germ `ψ⁻¹(G ∩ F_i)` **containing `x` and cont
 (4) for every `σ ⊆ {1, …, n}` the intersection of local faces `F_σ = ψ⁻¹(G ∩ ⋂_{i ∈ σ} F_i) ⊆ U`
 is a tame sub-M-polyfold with `d_{F_σ} + #σ = d_X`, and `A ∩ F_σ` is a tame smooth submanifold of
 `F_σ` in general position at each of its points. -/
-theorem theorem_4_2_11_2021 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
+theorem theorem_4_2_11 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanifold A)
     [ParacompactSpace A] {x : X} (hgp : P.IsGeneralPositionAt A x) :
     ∃ ψ : MChart X, P.IsChart ψ ∧ ∃ hx : x ∈ ψ.source, ψ x = 0 ∧
       ∃ (R : ScRetraction ψ.model.E ψ.model.C) (n : ℕ) (Wq : ScBanach)
@@ -115,7 +115,7 @@ theorem theorem_4_2_11_2021 (hP : P.IsTame) {A : Set X} (hA : P.IsSmoothSubmanif
             haveI := (subPolyfold hF).paracompactSpace_subtype {b | (b : X) ∈ A}
             (subPolyfold hF).IsTameSubmanifold {b | (b : X) ∈ A} := by
   obtain ⟨ψ, hψ, hx, hψ0, R, n, Wq, T, hR, hT, hRT, U, hU, hxU, hUψ, h1, h1', h2, h3, h4⟩ :=
-    theorem_4_22 hP hA hgp
+    theorem_4_2_11_preprint hP hA hgp
   refine ⟨ψ, hψ, hx, hψ0, R, n, Wq, T, hR, hT, hRT, U, hU, hxU, hUψ, h1, h1', fun i => ?_,
     h2, h3, h4⟩
   obtain ⟨Fc, G, hFc, hG, h0G, hxF, hFU, -⟩ := h4 {i}
@@ -152,7 +152,7 @@ position at every point.  Then there is a measurable `Σ ⊆ {|λ| < ε}` with `
 consisting of (stratified) regular values of `p = P|_A`, such that for `λ ∈ Σ` the fibre `A_λ`
 is compact, a smooth finite-dimensional submanifold of `X` in general position at each of its
 points, and with its induced structure a manifold with boundary with corners, tame. -/
-theorem theorem_4_3_1_2021 (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
+theorem theorem_4_3_1 (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
     (hA : ((rnPolyfold m).prod PX).IsSmoothSubmanifold A) [ParacompactSpace A]
     (_hAt : ((rnPolyfold m).prod PX).IsTameSubmanifold A) (hcl : IsCompact (closure A))
     {ε : ℝ} (_hε : 0 < ε)
@@ -167,7 +167,7 @@ theorem theorem_4_3_1_2021 (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
           (MPolyfold.subPolyfold hF.isSubMPolyfold).HasCornerStructure ∧
             PX.IsTameSubmanifold (fibreSet A lam) := by
   set B : Set (Fin m → ℝ) := {lam | ∑ i, lam i ^ 2 < ε ^ 2} with hB
-  obtain ⟨Sig, hSig, hnull, hprop⟩ := theorem_4_23_of_subset hX hA hcl h2 B
+  obtain ⟨Sig, hSig, hnull, hprop⟩ := theorem_4_3_1_of_subset hX hA hcl h2 B
   have hBm : MeasurableSet B :=
     measurableSet_lt (by fun_prop) measurable_const
   -- a measurable null hull of the exceptional set
@@ -206,7 +206,7 @@ theorem theorem_4_3_1_2021 (hX : PX.IsTame) {A : Set ((Fin m → ℝ) × X)}
       fun x hx => (hloc x hx).2.2.1
     have hgoodF : ∀ x ∈ fibreSet A lam, PX.IsGoodPositionAt (fibreSet A lam) x :=
       fun x hx => (hloc x hx).2.2.2
-    obtain ⟨hcs, htameF⟩ := MPolyfold.theorem_4_18 hX hF hgoodF
+    obtain ⟨hcs, htameF⟩ := MPolyfold.theorem_4_2_7 hX hF hgoodF
     exact ⟨hreg, hcpt, hF, hgpF, hcs, htameF⟩
 
 end Family

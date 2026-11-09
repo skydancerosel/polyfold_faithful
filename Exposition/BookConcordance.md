@@ -560,7 +560,7 @@ There is nothing to concord, so this section has no preprint column; it lists th
 and sections of Chapters 7 and 8 with their pages, their V-items and the Lean files of
 `Polyfold/Chapter7/` and `Polyfold/Chapter8/` that formalize them, so that a reader holding the
 book can find each of them. Part I results cited in Part II carry their 2017 numbers, with the preprint number of the
-Lean name in brackets where it matters (for example Theorem 2.2 [2.16], `Polyfold.theorem_2_16`).
+Lean name in brackets where it matters (for example Theorem 2.2 [2.16], `Polyfold.theorem_2_3_10`).
 
 Pages are printed pages, read off the running heads of `sources/HWZ-Book-2017.txt` (even pages
 "226 7 Ep-Groupoids", odd pages "7.1 … 227"; p. 225, the first page of the chapter, has no head),
@@ -740,7 +740,7 @@ formalized and have no V-item.
 $\mathrm{Diff}_{sc}$ (p. 279) is part of V8.32. The witnesses that show the hypotheses can hold
 (`NonVacuity.lean`, `NonVacuityBundle.lean` and the witnesses in the other files; `Findings.md`,
 Chapter 8, items 100–105) have no V-item of their own; the counterexample to Theorem 8.5 (5) as
-printed, `Polyfold.CoveringExamples.theorem_8_5_five_as_printed` in `NonVacuity.lean`, belongs to
+printed, `Polyfold.CoveringExamples.theorem_8_5_3_five_as_printed` in `NonVacuity.lean`, belongs to
 V8.30. Gaps opened in Chapter 8: G.74 (Definitions 8.2 and 8.3, pp. 268–270, sc-differential forms
 on ep-groupoids and the sc-de Rham complex) and G.75 (Lemma 8.1 as printed, p. 259, the
 identification $T(\mathbf X\,{}_s{\times}_t\,\mathbf X) = T\mathbf X\,{}_{Ts}{\times}_{Tt}\,T\mathbf X$ with

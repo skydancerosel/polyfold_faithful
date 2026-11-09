@@ -12,18 +12,18 @@ TrivialBundle.isScFredholmSection_graphSection. Result unchanged.
 namespace RoundTrip.V5_42
 open Polyfold
 
-/-- The project's statement: the three theorems of the decls (universes at `0`): `lemma_5_23`
+/-- The project's statement: the three theorems of the decls (universes at `0`): `lemma_5_3_16_preprint`
 (for `ℓ ≠ 0` and `T = Z ⊕ ker ℓ`, a unique `b : S → Z` with `ℓ ∘ b = τ`, and `ℓ ∘ (b + a) = τ`),
 `ne_zero_of_isCompl_ker` (the hidden hypothesis: a nonzero complement of `ker ℓ` forces `ℓ ≠ 0`)
 and `exists_isCompl_ker_of_ne_zero` (for `ℓ ≠ 0` and a SPANNING set `D`, a line `ℝ e`, `e ∈ D`,
 complementing `ker ℓ`).  All three are pure linear algebra on abstract modules. -/
 def A : Prop :=
-  (type_of% @Polyfold.lemma_5_23.{0, 0}) ∧
+  (type_of% @Polyfold.lemma_5_3_16_preprint.{0, 0}) ∧
   (type_of% @Polyfold.ne_zero_of_isCompl_ker.{0}) ∧
   (type_of% @Polyfold.exists_isCompl_ker_of_ne_zero.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.lemma_5_23.{0, 0}, @Polyfold.ne_zero_of_isCompl_ker.{0},
+  ⟨@Polyfold.lemma_5_3_16_preprint.{0, 0}, @Polyfold.ne_zero_of_isCompl_ker.{0},
     @Polyfold.exists_isCompl_ker_of_ne_zero.{0}⟩
 
 set_option linter.unusedSectionVars false
@@ -174,7 +174,7 @@ end Glue
 /-- `A ⇒ B`.  (1) ⇒: A's `ne_zero_of_isCompl_ker` in `T_zO`; (1) ⇐: `exists_splits` (the density
 argument, not in A: A's `exists_isCompl_ker_of_ne_zero` needs a SPANNING set, which the smooth
 vectors of an infinite-dimensional `T_zO` are not, so it cannot produce a smooth `Z`); (2) and
-(3): A's `lemma_5_23` in `T = T_zO`, `S = T_xS`, transported from `Z ∩ T_zO` to `Z` (continuity:
+(3): A's `lemma_5_3_16_preprint` in `T = T_zO`, `S = T_xS`, transported from `Z ∩ T_zO` to `Z` (continuity:
 `Z` is a line). -/
 theorem A_to_B : A → B := by
   rintro ⟨h523, hne, -⟩ X _ _ _ PX Y _ _ _ P _ _ Bd f t x _ _ hxs _ c _ hxc z hz
@@ -248,7 +248,7 @@ theorem A_to_B : A → B := by
     by_contra hcon
     push Not at hcon
     exact h (LinearMap.ext fun v => hcon v v.2)
-  · -- (3), from the second half of `lemma_5_23`
+  · -- (3), from the second half of `lemma_5_3_16_preprint`
     intro Z hZ τ b hbτ a v
     have hZT : Z ≤ TOm := hZ.2.2.2.1
     obtain ⟨-, h2⟩ := h523 (hℓne Z hZ) (isCompl_of_splits c t z hZ)
@@ -310,9 +310,9 @@ linear `ℓ : T → ℝ` and complement `Z` (and an arbitrary spanning set `D`);
 need to realise every such module and functional as chart data of a strong bundle (not possible
 in general: `T` need not even carry a Banach topology), so A is strictly more general.  -/
 
-#rt_check RoundTrip.V5_42.A_to_B [Polyfold.lemma_5_23, Polyfold.ne_zero_of_isCompl_ker,
+#rt_check RoundTrip.V5_42.A_to_B [Polyfold.lemma_5_3_16_preprint, Polyfold.ne_zero_of_isCompl_ker,
   Polyfold.exists_isCompl_ker_of_ne_zero]
-#rt_check RoundTrip.V5_42.not_BLiteral [Polyfold.lemma_5_23, Polyfold.ne_zero_of_isCompl_ker,
+#rt_check RoundTrip.V5_42.not_BLiteral [Polyfold.lemma_5_3_16_preprint, Polyfold.ne_zero_of_isCompl_ker,
   Polyfold.exists_isCompl_ker_of_ne_zero]
 
 end RoundTrip.V5_42

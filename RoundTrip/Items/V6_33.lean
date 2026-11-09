@@ -5,7 +5,7 @@ import RoundTrip.Blind.V6_33
 /-! Round trip for V6_33 (the section `F` and Lemma 6.29).
 
 A = `isZeroAt_paramSection_zero` ∧ `exists_sections_isGeneralPositionGerm_of_isCompact` ∧
-`lemma_6_29` (universes at `0`).  `lemma_6_29`: for **`PX.IsTame`**, **`PX.AdmitsBumpFunctions`**,
+`lemma_6_6_4` (universes at `0`).  `lemma_6_6_4`: for **`PX.IsTame`**, **`PX.AdmitsBumpFunctions`**,
 **`f` with tame germ data** (`IsScFredholmSectionTame`), a **globally** sc-smooth `Φ : ℝⁿ → X`
 and a **global** sc⁺-section `S` of `π*Y → ℝⁿ × X` with `(f̃ + S)(q, Φ q) = 0` for `q` **near**
 `[0, 1]ⁿ`, there are finitely many global sc⁺-sections `s₁, …, s_k` of `π*Y` such that the
@@ -48,12 +48,12 @@ open Polyfold
 def A : Prop :=
   type_of% @Polyfold.isZeroAt_paramSection_zero.{0, 0} ∧
   type_of% @Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact.{0, 0} ∧
-  type_of% @Polyfold.lemma_6_29.{0, 0}
+  type_of% @Polyfold.lemma_6_6_4.{0, 0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.isZeroAt_paramSection_zero.{0, 0},
     @Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact.{0, 0},
-    @Polyfold.lemma_6_29.{0, 0}⟩
+    @Polyfold.lemma_6_6_4.{0, 0}⟩
 
 /-! `A_to_B` and `B_to_A` are not proved (see the module docstring). -/
 

@@ -4,7 +4,7 @@ import RoundTrip.Blind.V2_17
 
 /-! Round trip for V2_17 (Theorem 2.16: `X`, `X_m` and `X_∞` are metrizable).
 
-`A` is the conjunction of the types of the theorems `Polyfold.theorem_2_16`,
+`A` is the conjunction of the types of the theorems `Polyfold.theorem_2_3_10`,
 `Polyfold.MPolyfold.metrizableSpace`, `Polyfold.MPolyfold.metrizableSpace_level`,
 `Polyfold.MPolyfold.paracompactSpace_level`, `Polyfold.MPolyfold.smoothLevel_topology_eq`,
 `Polyfold.MPolyfold.metrizableSpace_smoothLevel` and `Polyfold.MPolyfold.paracompactSpace_subtype`,
@@ -26,7 +26,7 @@ open Polyfold Set TopologicalSpace
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.theorem_2_16.{0}) ∧ (type_of% @Polyfold.MPolyfold.metrizableSpace.{0}) ∧
+  (type_of% @Polyfold.theorem_2_3_10.{0}) ∧ (type_of% @Polyfold.MPolyfold.metrizableSpace.{0}) ∧
     (type_of% @Polyfold.MPolyfold.metrizableSpace_level.{0}) ∧
     (type_of% @Polyfold.MPolyfold.paracompactSpace_level.{0}) ∧
     (type_of% @Polyfold.MPolyfold.smoothLevel_topology_eq.{0}) ∧
@@ -34,7 +34,7 @@ def A : Prop :=
     (type_of% @Polyfold.MPolyfold.paracompactSpace_subtype.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_2_16.{0}, @Polyfold.MPolyfold.metrizableSpace.{0},
+  ⟨@Polyfold.theorem_2_3_10.{0}, @Polyfold.MPolyfold.metrizableSpace.{0},
     @Polyfold.MPolyfold.metrizableSpace_level.{0}, @Polyfold.MPolyfold.paracompactSpace_level.{0},
     @Polyfold.MPolyfold.smoothLevel_topology_eq.{0},
     @Polyfold.MPolyfold.metrizableSpace_smoothLevel.{0},
@@ -124,15 +124,15 @@ theorem B_to_A : B → A := by
     have := metrizable_of_B hB P
     exact paracompactSpace_of_metrizableSpace S
 
-#rt_check RoundTrip.V2_17.A_to_B [Polyfold.theorem_2_16, Polyfold.MPolyfold.metrizableSpace,
+#rt_check RoundTrip.V2_17.A_to_B [Polyfold.theorem_2_3_10, Polyfold.MPolyfold.metrizableSpace,
   Polyfold.MPolyfold.metrizableSpace_level, Polyfold.MPolyfold.paracompactSpace_level,
   Polyfold.MPolyfold.smoothLevel_topology_eq, Polyfold.MPolyfold.metrizableSpace_smoothLevel,
   Polyfold.MPolyfold.paracompactSpace_subtype]
-#rt_check RoundTrip.V2_17.B_to_A [Polyfold.theorem_2_16, Polyfold.MPolyfold.metrizableSpace,
+#rt_check RoundTrip.V2_17.B_to_A [Polyfold.theorem_2_3_10, Polyfold.MPolyfold.metrizableSpace,
   Polyfold.MPolyfold.metrizableSpace_level, Polyfold.MPolyfold.paracompactSpace_level,
   Polyfold.MPolyfold.smoothLevel_topology_eq, Polyfold.MPolyfold.metrizableSpace_smoothLevel,
   Polyfold.MPolyfold.paracompactSpace_subtype]
-#rt_overlap RoundTrip.V2_17.B_to_A [Polyfold.theorem_2_16, Polyfold.MPolyfold.metrizableSpace,
+#rt_overlap RoundTrip.V2_17.B_to_A [Polyfold.theorem_2_3_10, Polyfold.MPolyfold.metrizableSpace,
   Polyfold.MPolyfold.metrizableSpace_level, Polyfold.MPolyfold.paracompactSpace_level,
   Polyfold.MPolyfold.smoothLevel_topology_eq, Polyfold.MPolyfold.metrizableSpace_smoothLevel,
   Polyfold.MPolyfold.paracompactSpace_subtype]

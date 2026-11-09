@@ -30,28 +30,28 @@ From `Chapter2/SmoothPaths.lean` (`MPolyfold.isPathConnected_smoothVal_preimage`
   the openness of `p : TX → X¹` (gap G.8) and `TangentDeterminedSmooth` remain.
 * **`MPolyfold.hasConnectedSmoothNbhds`**: every M-polyfold satisfies
   `MPolyfold.HasConnectedSmoothNbhds` (gap G.90; the hypothesis of
-  `hasTwoContSections_orTopology` and `theorem_6_6_17_2021`, rows V6.74, V6.75): the component
+  `hasTwoContSections_orTopology` and `theorem_6_6_17_hyp`, rows V6.74, V6.75): the component
   of `x` in `W` is open (Proposition 2.3.7) and connected.  It is proved in
   `Chapter6/OrientationMainClean.lean`, so that the clean `theorem_6_6_17` can use it.
 * **`EpGroupoid.NaturalRep.levelConnected`**: every natural representation satisfies
   `NaturalRep.LevelConnected` (the hypothesis of `EP.eqOn_of_level_smooth`, `EP.isVSLUC_of_isSLUC`
-  and `EP.proposition_7_4_18_2021`, row V7.104); `NaturalRep.isPreconnected_liftU`,
+  and `EP.proposition_7_4_18`, row V7.104); `NaturalRep.isPreconnected_liftU`,
   `NaturalRep.subset_closure_inter_levelSet`, and **`EpGroupoid.hasConnectedDenseLevelOneReps`**:
   every ep-groupoid satisfies `HasConnectedDenseLevelOneReps` (the hypothesis of
-  `theorem_7_6_7_2021`, `corollary_7_6_8_2021`, `proposition_8_1_17_2021_one/two`,
-  `EP.isLUC_tangent_lift`, `EP.proposition_8_1_17_two_all_2021`, rows V7.83, V8.45, V8.52).
+  `theorem_7_6_7`, `corollary_7_6_8`, `proposition_8_1_17_one/two`,
+  `EP.isLUC_tangent_lift`, `EP.proposition_8_1_17_two_all`, rows V7.83, V8.45, V8.52).
 * The §7.4, §7.6 and §8.1 results restated without these hypotheses:
-  `isSmoothUC_of_isVSLUC'`, `lemma_7_4_15_2021_of_isVSLUC` (Lemma 7.4.15),
-  `proposition_7_4_16_2021_of_isVSLUC`, `EP.proposition_7_4_16_all_2021_of_isVSLUC`
-  (Proposition 7.4.16), `EP.proposition_7_4_17_2021_of_isVSLUC`,
-  `EP.proposition_7_4_17_all_2021_of_isVSLUC` (Proposition 7.4.17),
-  `EP.isVSLUC_of_isSLUC'`, **`EP.proposition_7_4_18_2021_unconditional`** (Proposition 7.4.18,
+  `isSmoothUC_of_isVSLUC'`, `lemma_7_4_15_of_isVSLUC` (Lemma 7.4.15),
+  `proposition_7_4_16_of_isVSLUC`, `EP.proposition_7_4_16_all_of_isVSLUC`
+  (Proposition 7.4.16), `EP.proposition_7_4_17_of_isVSLUC`,
+  `EP.proposition_7_4_17_all_of_isVSLUC` (Proposition 7.4.17),
+  `EP.isVSLUC_of_isSLUC'`, **`EP.proposition_7_4_18_unconditional`** (Proposition 7.4.18,
   (VSLUC) ⇔ (SLUC), with no hypothesis at all; rows V7.92, V7.103, V7.104);
-  `nonEffectivePart_liftOne_eq_of_isClosed`, `theorem_7_6_7_2021_of_isLUC` (Theorem 7.6.7),
-  `corollary_7_6_8_2021_of_imp` (Corollary 7.6.8; row V7.83);
-  `nonEffectivePart_tangent_eq_of_isOpenMap`, `proposition_8_1_17_2021_one_of_isOpenMap`,
-  `EP.proposition_8_1_17_2021_two_of_isOpenMap`, `EP.isLUC_tangent_lift_of_isOpenMap`,
-  `EP.proposition_8_1_17_two_all_2021_of_isOpenMap` (Proposition 8.1.17; rows V8.45, V8.52),
+  `nonEffectivePart_liftOne_eq_of_isClosed`, `theorem_7_6_7_of_isLUC` (Theorem 7.6.7),
+  `corollary_7_6_8_of_imp` (Corollary 7.6.8; row V7.83);
+  `nonEffectivePart_tangent_eq_of_isOpenMap`, `proposition_8_1_17_one_of_isOpenMap`,
+  `EP.proposition_8_1_17_two_of_isOpenMap`, `EP.isLUC_tangent_lift_of_isOpenMap`,
+  `EP.proposition_8_1_17_two_all_of_isOpenMap` (Proposition 8.1.17; rows V8.45, V8.52),
   where only the openness of `p` (gap G.8) remains.
 * **`EpGroupoid.Examples.JumpingRetract.not_isZhou_of_tangent`**: the example of Appendix 7.6.3
   fails (ZHOU) under the two remaining Part I facts (row V7.95).
@@ -129,18 +129,18 @@ theorem subset_closure_inter_levelSet : R.U ⊆ closure (R.U ∩ X.PObj.levelSet
 end NaturalRep
 
 /-- Every smooth point has a natural representation with `U(x) ∩ X_m` connected for every `m`:
-the hypothesis `hR` of `EP.proposition_7_4_18_2021` and `EP.isVSLUC_of_isSLUC`. -/
+the hypothesis `hR` of `EP.proposition_7_4_18` and `EP.isVSLUC_of_isSLUC`. -/
 theorem exists_naturalRep_levelConnected (x : Obj) :
     ∃ R : X.NaturalRep x, R.LevelConnected := by
-  obtain ⟨R, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ _)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ _)
   exact ⟨R, R.levelConnected⟩
 
 /-- **Appendix 7.6.4 (2021 p. 349)**: every ep-groupoid satisfies
 `HasConnectedDenseLevelOneReps`; every natural representation `U(x)` has `U(x) ∩ X_1` connected
-in `X¹` and dense in `U(x)`.  The hypothesis of `theorem_7_6_7_2021`, `corollary_7_6_8_2021`
-(V7.83) and `proposition_8_1_17_2021_one` (V8.45) holds for every ep-groupoid. -/
+in `X¹` and dense in `U(x)`.  The hypothesis of `theorem_7_6_7`, `corollary_7_6_8`
+(V7.83) and `proposition_8_1_17_one` (V8.45) holds for every ep-groupoid. -/
 theorem hasConnectedDenseLevelOneReps : X.HasConnectedDenseLevelOneReps := fun x => by
-  obtain ⟨R, -⟩ := X.theorem_7_1 (X.PObj.levelVal 1 x) isOpen_univ (mem_univ _)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 (X.PObj.levelVal 1 x) isOpen_univ (mem_univ _)
   exact ⟨R, R.isPreconnected_liftU, R.subset_closure_inter_levelSet⟩
 
 /-! ### §7.4 without `DenseSmooth` and `SmoothConnected` -/
@@ -151,13 +151,13 @@ theorem isSmoothUC_of_isVSLUC' (h : X.IsVSLUC) : X.IsSmoothUC :=
   X.isSmoothUC_of_isVSLUC X.PObj.denseSmooth X.PObj.smoothConnected h
 
 /-- **2021 Lemma 7.4.15, p. 335**: (VSLUC) ⇒ (LUC), with no Part I hypothesis (row V7.92). -/
-theorem lemma_7_4_15_2021_of_isVSLUC (h : X.IsVSLUC) : X.IsLUC :=
-  X.lemma_7_4_15_2021 X.PObj.denseSmooth X.PObj.smoothConnected h
+theorem lemma_7_4_15_of_isVSLUC (h : X.IsVSLUC) : X.IsLUC :=
+  X.lemma_7_4_15 X.PObj.denseSmooth X.PObj.smoothConnected h
 
 /-- **2021 Proposition 7.4.16, p. 336, for `X¹`**: (VSLUC) gives (LUC) for `X` and `X¹`, with no
 Part I hypothesis (row V7.92). -/
-theorem proposition_7_4_16_2021_of_isVSLUC (h : X.IsVSLUC) : X.IsLUC ∧ X.liftOne.IsLUC :=
-  X.proposition_7_4_16_2021 X.PObj.denseSmooth X.PObj.smoothConnected h
+theorem proposition_7_4_16_of_isVSLUC (h : X.IsVSLUC) : X.IsLUC ∧ X.liftOne.IsLUC :=
+  X.proposition_7_4_16 X.PObj.denseSmooth X.PObj.smoothConnected h
 
 /-! ### Appendix 7.6.4 without `HasConnectedDenseLevelOneReps` -/
 
@@ -168,21 +168,21 @@ theorem nonEffectivePart_liftOne_eq_of_isClosed (hcl : IsClosed X.liftOne.nonEff
 
 /-- **2021 Theorem 7.6.7, p. 351, for `i = 1` and as sets**, under LUC for `X¹` only (row
 V7.83). -/
-theorem theorem_7_6_7_2021_of_isLUC (hLUC : X.liftOne.IsLUC) :
+theorem theorem_7_6_7_of_isLUC (hLUC : X.liftOne.IsLUC) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,
       (∀ φ, X.reducedLevelOneMap hT (X.liftOne.reducedπ φ) = X.reducedπ (X.PMor.levelVal 1 φ)) ∧
       Injective (X.reducedLevelOneMap hT) ∧ Continuous (X.reducedLevelOneMap hT) ∧
       range (X.reducedLevelOneMap hT) = X.reducedπ '' X.PMor.levelSet 1 :=
-  X.theorem_7_6_7_2021 hLUC X.hasConnectedDenseLevelOneReps
+  X.theorem_7_6_7 hLUC X.hasConnectedDenseLevelOneReps
 
 /-- **2021 Corollary 7.6.8, p. 351, for `i = 1` and as sets**, with the implication from (ZHOU)
 to LUC for `X¹` as the only hypothesis (row V7.83). -/
-theorem corollary_7_6_8_2021_of_imp {Zhou : Prop} (hZ : Zhou) (hSLUC : Zhou → X.liftOne.IsLUC) :
+theorem corollary_7_6_8_of_imp {Zhou : Prop} (hZ : Zhou) (hSLUC : Zhou → X.liftOne.IsLUC) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,
       (∀ φ, X.reducedLevelOneMap hT (X.liftOne.reducedπ φ) = X.reducedπ (X.PMor.levelVal 1 φ)) ∧
       Injective (X.reducedLevelOneMap hT) ∧ Continuous (X.reducedLevelOneMap hT) ∧
       range (X.reducedLevelOneMap hT) = X.reducedπ '' X.PMor.levelSet 1 :=
-  X.corollary_7_6_8_2021 hZ hSLUC X.hasConnectedDenseLevelOneReps
+  X.corollary_7_6_8 hZ hSLUC X.hasConnectedDenseLevelOneReps
 
 /-! ### Proposition 8.1.17 without `HasConnectedDenseLevelOneReps` -/
 
@@ -195,9 +195,9 @@ theorem nonEffectivePart_tangent_eq_of_isOpenMap (h : X.liftOne.IsLUC)
 
 /-- **2021 Proposition 8.1.17 (1), p. 371**: if `X¹` has (LUC), so has `TX`; with `p` open
 (gap G.8) as the only added hypothesis (row V8.45). -/
-theorem proposition_8_1_17_2021_one_of_isOpenMap (h : X.liftOne.IsLUC)
+theorem proposition_8_1_17_one_of_isOpenMap (h : X.liftOne.IsLUC)
     (hp : IsOpenMap X.PMor.tangentProj) : X.tangentEpGroupoid.IsLUC :=
-  X.proposition_8_1_17_2021_one h X.hasConnectedDenseLevelOneReps hp
+  X.proposition_8_1_17_one h X.hasConnectedDenseLevelOneReps hp
 
 end EpGroupoid
 
@@ -207,21 +207,21 @@ open EpGroupoid
 
 /-- **2021 Proposition 7.4.16, p. 336**: (VSLUC) for `X` gives (VSLUC) and (LUC) for every
 `X^i`, with no Part I hypothesis (row V7.103). -/
-theorem proposition_7_4_16_all_2021_of_isVSLUC (A : EP.{u}) (h : A.X.IsVSLUC) (i : ℕ) :
+theorem proposition_7_4_16_all_of_isVSLUC (A : EP.{u}) (h : A.X.IsVSLUC) (i : ℕ) :
     (A.lift i).X.IsVSLUC ∧ (A.lift i).X.IsLUC :=
-  A.proposition_7_4_16_all_2021 h A.X.PObj.denseSmooth
+  A.proposition_7_4_16_all h A.X.PObj.denseSmooth
     (fun i => (A.lift i).X.PObj.smoothConnected) i
 
 /-- **2021 Proposition 7.4.17, p. 336**: (VSLUC) ⇒ (SLUC), with (VSLUC) for `X` only and no
 Part I hypothesis (row V7.103). -/
-theorem proposition_7_4_17_all_2021_of_isVSLUC (A : EP.{u}) (h : A.X.IsVSLUC) : A.IsSLUC :=
-  A.proposition_7_4_17_all_2021 h A.X.PObj.denseSmooth fun i => (A.lift i).X.PObj.smoothConnected
+theorem proposition_7_4_17_all_of_isVSLUC (A : EP.{u}) (h : A.X.IsVSLUC) : A.IsSLUC :=
+  A.proposition_7_4_17_all h A.X.PObj.denseSmooth fun i => (A.lift i).X.PObj.smoothConnected
 
 /-- **2021 Proposition 7.4.17, p. 336**: (VSLUC) for every `X^i` gives (SLUC), with no Part I
 hypothesis (row V7.92). -/
-theorem proposition_7_4_17_2021_of_isVSLUC (A : EP.{u}) (h : ∀ i, (A.lift i).X.IsVSLUC) :
+theorem proposition_7_4_17_of_isVSLUC (A : EP.{u}) (h : ∀ i, (A.lift i).X.IsVSLUC) :
     A.IsSLUC :=
-  proposition_7_4_17_2021 A h (fun i => (A.lift i).X.PObj.denseSmooth)
+  proposition_7_4_17 A h (fun i => (A.lift i).X.PObj.denseSmooth)
     fun i => (A.lift i).X.PObj.smoothConnected
 
 /-- (SLUC) ⇒ (VSLUC), the new direction of 2021 Proposition 7.4.18, with no hypothesis (row
@@ -231,16 +231,16 @@ theorem isVSLUC_of_isSLUC' (A : EP.{u}) (h : A.IsSLUC) : A.X.IsVSLUC :=
 
 /-- **2021 Proposition 7.4.18, p. 336 (new in the 2021 edition)**: (VSLUC) ⇔ (SLUC), with no
 hypothesis (rows V7.92, V7.104; the density, connectedness and `U(x)` hypotheses of
-`proposition_7_4_18_2021` are theorems). -/
-theorem proposition_7_4_18_2021_unconditional (A : EP.{u}) : A.X.IsVSLUC ↔ A.IsSLUC :=
-  A.proposition_7_4_18_2021 A.X.PObj.denseSmooth (fun i => (A.lift i).X.PObj.smoothConnected)
+`proposition_7_4_18` are theorems). -/
+theorem proposition_7_4_18_unconditional (A : EP.{u}) : A.X.IsVSLUC ↔ A.IsSLUC :=
+  A.proposition_7_4_18 A.X.PObj.denseSmooth (fun i => (A.lift i).X.PObj.smoothConnected)
     fun _ => A.X.exists_naturalRep_levelConnected _
 
 /-- **2021 Proposition 8.1.17 (2), p. 371, for `(TX)⁰`**: (SLUC) for `X` gives (LUC) for `TX`,
 with `p` open (gap G.8) as the only added hypothesis (row V8.45). -/
-theorem proposition_8_1_17_2021_two_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
+theorem proposition_8_1_17_two_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
     (hp : IsOpenMap A.X.PMor.tangentProj) : A.X.tangentEpGroupoid.IsLUC :=
-  EpGroupoid.proposition_8_1_17_2021_two A h A.X.hasConnectedDenseLevelOneReps hp
+  EpGroupoid.proposition_8_1_17_two A h A.X.hasConnectedDenseLevelOneReps hp
 
 /-- Under (SLUC) every `T(X^i)` has (LUC), with `p` open for every `X^i` (gap G.8) as the only
 added hypothesis (row V8.52). -/
@@ -251,9 +251,9 @@ theorem isLUC_tangent_lift_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
 
 /-- **2021 Proposition 8.1.17 (2), p. 371**: if `X` has (SLUC), so has `TX`; with `p` open for
 every `X^i` (gap G.8) as the only added hypothesis (row V8.52). -/
-theorem proposition_8_1_17_two_all_2021_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
+theorem proposition_8_1_17_two_all_of_isOpenMap (A : EP.{u}) (h : A.IsSLUC)
     (hp : ∀ i, IsOpenMap (A.lift i).X.PMor.tangentProj) : A.tangentEP.IsSLUC :=
-  A.proposition_8_1_17_two_all_2021 h (fun i => (A.lift i).X.hasConnectedDenseLevelOneReps) hp
+  A.proposition_8_1_17_two_all h (fun i => (A.lift i).X.hasConnectedDenseLevelOneReps) hp
 
 end EP
 

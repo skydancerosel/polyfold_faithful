@@ -171,7 +171,7 @@ theorem actsTrivially_iff' {x : Obj} (R : X.NaturalRep x) {g : X.Isotropy x} :
 theorem mem_trivialSet_of_section' {y : Obj} {h : X.Isotropy y} {D : Set Obj} (hD : IsOpen D)
     (hyD : y ∈ D) {k : Obj → Mor} (hk : ContinuousOn k D) (hks : ∀ z ∈ D, X.src (k z) = z)
     (hkt : ∀ z ∈ D, X.tgt (k z) = z) (hky : k y = h.val) : h ∈ X.trivialSet y := by
-  obtain ⟨R, -⟩ := X.theorem_7_1 y isOpen_univ (mem_univ y)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 y isOpen_univ (mem_univ y)
   refine (actsTrivially_iff' X R).2 ?_
   have hyC : y ∈ connectedComponentIn (D ∩ R.U) y := mem_connectedComponentIn ⟨hyD, R.mem_U⟩
   have hC := connectedComponentIn_subset (D ∩ R.U) y
@@ -218,7 +218,7 @@ theorem Φ_eqOn_of_subset' {x : Obj} {R R' : X.NaturalRep x} (h : R.U ⊆ R'.U)
 theorem exists_mem_nhds_trivialSet_iff' (x : Obj) :
     ∃ N ∈ 𝓝 x, ∀ R : X.NaturalRep x, R.U ⊆ N →
       ∀ g, g ∈ X.trivialSet x ↔ ∀ y ∈ R.U, R.Φ g y = y := by
-  obtain ⟨R₀, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ x)
+  obtain ⟨R₀, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ x)
   have hev : ∀ᶠ y in 𝓝 x, ∀ g, g ∈ X.trivialSet x → R₀.Φ g y = y := by
     have := EpGroupoid.NatRepConstruction.finite_isotropy X x
     refine Filter.eventually_all.2 fun g => ?_

@@ -11,7 +11,7 @@ listed) is a definition and is vocabulary only.
 `A → B`: the blind setting is turned into the project's normalized data: `K = ker L`, the blind
 `Y`, `Cp = {(k, y) | k + y ∈ C}`, `Up = domB = {(k, y) | k + y ∈ U}`, and the blind map `Bmap`
 (whose `invY = (L|_Y)⁻¹` is identified with the continuous linear inverse of `L|_Y`); this is a
-`ContractionData` with `j = 1` (`contractionData`, copied from the proof of `theorem_3_78`).  The
+`ContractionData` with `j = 1` (`contractionData`, copied from the proof of `theorem_3_8_22`).  The
 radii are built by hand (`exists_radii'`, a copy of `ContractionData.exists_radii` with the
 prescribed good-position constant `ε` of `B` and `a ≤ a₀`).  `A` gives the self-map property
 `|B(k, y)| ≤ ε|k|` and the existence of the fixed point; uniqueness in `X_k` is the contraction
@@ -228,7 +228,7 @@ lemma mem_Cp_iff (p : kerCLM L × Y) :
     p ∈ Cp q L Y ↔ (p.1 : Fin n → ℝ) + (p.2 : Fin n → ℝ) ∈ quadC n q := Iff.rfl
 
 /-- The blind setting gives the project's `ContractionData` (as in the proof of
-`theorem_3_78`). -/
+`theorem_3_8_22`). -/
 theorem contractionData {j : ℕ} {U : Set (Fin n → ℝ)} {f : (Fin n → ℝ) → (Fin N → ℝ)}
     (hj : 1 ≤ j) (hU : ∃ O : Set (Fin n → ℝ), IsOpen O ∧ U = O ∩ quadC n q)
     (h0 : (0 : Fin n → ℝ) ∈ U) (hf : ContDiffOn ℝ j f U) (hf0 : f 0 = 0)

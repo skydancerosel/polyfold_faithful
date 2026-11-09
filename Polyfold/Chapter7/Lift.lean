@@ -2,36 +2,36 @@ import Polyfold.Chapter7.OrbitTopology
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.3–7.4:
-**Proposition 7.11** (index lifting, p. 247, proof p. 248), **Definition 7.15** (p. 249), the
-sentence before **Remark 7.1** and Remark 7.1 (p. 249), and **Proposition 7.12** (paracompactness
+**Proposition 7.3.9 (2017: 7.11)** (index lifting, p. 247, proof p. 248), **Definition 7.5.1 (2017: 7.15)** (p. 340 (2017 p. 249)), the
+sentence before **Remark 7.5.2 (2017: 7.1)** and Remark 7.5.2 (2017: 7.1) (p. 340 (2017 p. 249)), and **Proposition 7.5.3 (2017: 7.12)** (paracompactness
 under lifts, p. 249, proof pp. 249–250).  There is no 2014 preprint of Part II; numbers and pages
 are the 2017 text's.  Part I items carry their 2017 numbers, with the preprint number of the Lean
-name in brackets: Theorem 2.2 [2.16] (`MPolyfold.paracompactSpace_level`), Definition 2.19 [2.37]
-(`MPolyfold.IsTame`), Proposition 2.15 [2.46] (the fibred product), Lemma 2.7 [2.56] (Michael).
-Definition 7.15 itself (`HasParacompactOrbitSpace`) is in `EpGroupoid.lean`.
+name in brackets: Theorem 2.3.10 (2017: 2.2) [2.16] (`MPolyfold.paracompactSpace_level`), Definition 2.5.7 (2017: 2.19) [2.37]
+(`MPolyfold.IsTame`), Proposition 2.5.20 (2017: 2.15) [2.46] (the fibred product), Lemma 2.7.3 (2017: 2.7) [2.56] (Michael).
+Definition 7.5.1 (2017: 7.15) itself (`HasParacompactOrbitSpace`) is in `EpGroupoid.lean`.
 
 # Index lifting and paracompact orbit spaces
 
 ## The text, paraphrased
 
-(p. 247) One can raise the index of an M-polyfold `X` to obtain `X¹`.  (Proposition 7.11) If
+(p. 247) One can raise the index of an M-polyfold `X` to obtain `X¹`.  (Proposition 7.3.9 (2017: 7.11)) If
 `X = (X, 𝐗)` is an ep-groupoid, so is `X¹ = (X¹, 𝐗¹)`; if `X` is tame, so is `X¹`.  *Proof*:
-`X¹` satisfies (1), (2) and (4) of Definition 7.3 trivially.  For (3) take `x ∈ X₁` and `V(x)` with
+`X¹` satisfies (1), (2) and (4) of Definition 7.1.3 (2017: 7.3) trivially.  For (3) take `x ∈ X₁` and `V(x)` with
 `t : s⁻¹(cl_X V(x)) → X` proper (7.4); `W(x) = V(x) ∩ X₁` is open in `X₁` and `cl_{X₁} W(x) ⊆
 cl_X V(x)`.  For `t : s⁻¹(cl_{X₁} W(x)) → X₁` (7.5) take `(φ_k)` with `(t(φ_k))` in a compact
 subset of `X₁`; after a subsequence (a) `φ_k → φ` in `𝐗₀`, (b) `s(φ_k) → s(φ)`, `t(φ_k) → t(φ)` in
 `X₀`, (c) `t(φ_k) → t(φ)` in `X₁`; since `t` is a local sc-diffeomorphism, (d) `φ ∈ 𝐗₁`.  With
 `t : U(φ) → U(t(φ))` an sc-diffeomorphism, `φ_k = (t|U(φ))⁻¹(t(φ_k))` for large `k`, and since
 `(t|U(φ))⁻¹` is sc⁰, `φ_k → φ` in `𝐗¹`.  The tameness of `X¹` is trivial.  (§7.4, p. 249)
-(Definition 7.15) An ep-groupoid with paracompact orbit space satisfies in addition (5) `|X|` is
+(Definition 7.5.1 (2017: 7.15)) An ep-groupoid with paracompact orbit space satisfies in addition (5) `|X|` is
 paracompact (not required to be Hausdorff).  It is not known whether (5) follows from (1)–(4); if
-`X` has a second countable topology, (1)–(4) imply (5).  (Remark 7.1) In [38] the M-polyfolds were
-second countable; (5) is the better requirement.  (Proposition 7.12) If `X` has paracompact orbit
-space, so has `X¹`.  *Proof*: by Lemma 2.7 a regular Hausdorff space is paracompact iff every open
+`X` has a second countable topology, (1)–(4) imply (5).  (Remark 7.5.2 (2017: 7.1)) In [38] the M-polyfolds were
+second countable; (5) is the better requirement.  (Proposition 7.5.3 (2017: 7.12)) If `X` has paracompact orbit
+space, so has `X¹`.  *Proof*: by Lemma 2.7.3 (2017: 2.7) a regular Hausdorff space is paracompact iff every open
 cover has a locally finite closed refinement.  The cover `(|U(x)|)` of `|X|`, `U(x)` with the
 natural `G_x`-action, has a locally finite closed refinement `(A_x)`, `A_x ⊆ |U(x)|`; `A_{x,1} =
 A_x ∩ |X₁|` is the preimage of `A_x` under `|X₁| → |X|`, so `(A_{x,1})` is a locally finite closed
-cover of `|X₁|`.  `G_x` acts on `U(x)₁`; as in Lemma 7.4 a `G_x`-invariant metric on `U(x)₁`
+cover of `|X₁|`.  `G_x` acts on `U(x)₁`; as in Lemma 7.3.2 (2017: 7.4) a `G_x`-invariant metric on `U(x)₁`
 passes to `|U(x)|₁ = |U(x)₁|`, so `A_{x,1}` is metrizable, hence paracompact, and `|X₁|` is a
 locally finite union of closed paracompact sets.
 
@@ -41,27 +41,27 @@ locally finite union of closed paracompact sets.
   `levelOneMap`; sc-smooth maps preserve the levels), `liftComp` (with `comp_mem_levelSet`:
   composites of composable pairs stay on the level), the groupoid `liftGroupoidStr`, and
   `levelVal_liftSrc`, …, `levelVal_liftComp`.
-* **Proposition 7.11**: (1) `isLocalScDiffeo_liftSrc`, `isLocalScDiffeo_liftTgt`; (2)
+* **Proposition 7.3.9 (2017: 7.11)**: (1) `isLocalScDiffeo_liftSrc`, `isLocalScDiffeo_liftTgt`; (2)
   `isScSmoothMap_liftUnit`, `isScSmoothMap_liftInv`; (3) `exists_isProperMap_lift` (the text's
   sequence argument); (4) `isScSmoothCompSheet_lift` (sheet form) and `isScSmoothComp_lift`; the
   ep-groupoid `liftOne : EpGroupoid (X.PObj.Level 1) (X.PMor.Level 1)` (`PObj = X.PObj.shift`,
   `PMor = X.PMor.shift`, paracompactness by the instance `MPolyfold.paracompactSpace_level`), with
   `liftOne_src_val`, …, `liftOne_comp_val`; **tameness**: `MPolyfold.IsTame.levelOne` (the index
-  lift of a tame M-polyfold is tame) and `isTame_liftOne`; `proposition_7_11` (all of it).
+  lift of a tame M-polyfold is tame) and `isTame_liftOne`; `proposition_7_3_9` (all of it).
 * **The orbit spaces**: the inclusion functor `liftIncl : X¹ → X` and the natural map
   `orbitIncl : |X¹| → |X|` (`orbitIncl_π`), `continuous_orbitIncl`, `orbitIncl_injective`
   (`ml(s φ) = ml(t φ)`), `range_orbitIncl` (`|X₁| = π(X₁)`, p. 228) and `preimage_orbitIncl_image`
   (the preimage of `π(U)` is `π₁(U ∩ X₁)`).
-* **The natural action on level `1`** (Proposition 7.12's proof): `NaturalRep.liftU` (`U(x)₁`),
+* **The natural action on level `1`** (Proposition 7.5.3 (2017: 7.12)'s proof): `NaturalRep.liftU` (`U(x)₁`),
   the action `NaturalRep.liftMulAction` (`levelVal_liftSmul`), `continuous_liftSmul`,
   `liftOne_π_eq_iff` (the fibres of `π₁` on `U(x)₁` are the `G_x`-orbits),
   `liftOrbitQuotientMap` (`G_x\U(x)₁ → |X¹|`), `isOpenEmbedding_liftOrbitQuotientMap`,
   `range_liftOrbitQuotientMap` (`|U(x)|₁ = |U(x)₁|`) and `metrizableSpace_preimage_orbitIncl`.
-* **Definition 7.15**: `hasParacompactOrbitSpace_iff_metrizableSpace` (Theorem 7.2),
-  `hasParacompactOrbitSpace_of_secondCountableTopology` (second countable `|X|`, Corollary 7.1).
-* **The sentence before Remark 7.1**: `remark_7_1` (second countable object space ⇒ (5)).
-* **Proposition 7.12**: `metrizableSpace_liftOne_orbitSpace` (`|X¹|` is even metrizable) and
-  `proposition_7_12`.
+* **Definition 7.5.1 (2017: 7.15)**: `hasParacompactOrbitSpace_iff_metrizableSpace` (Theorem 7.3.1 (2017: 7.2)),
+  `hasParacompactOrbitSpace_of_secondCountableTopology` (second countable `|X|`, Corollary 7.3.6 (2017: 7.1)).
+* **The sentence before Remark 7.5.2 (2017: 7.1)**: `remark_7_5_2` (second countable object space ⇒ (5)).
+* **Proposition 7.5.3 (2017: 7.12)**: `metrizableSpace_liftOne_orbitSpace` (`|X¹|` is even metrizable) and
+  `proposition_7_5_3`.
 
 ## Reading
 
@@ -72,25 +72,25 @@ locally finite union of closed paracompact sets.
   non-composable pair is a junk value, as in `GroupoidStr`.
 * **"(1), (2) and (4) trivially"** (PLAN II.6, 7).  (1) is the level-`1` lift of a local
   sc-diffeomorphism (`IsLocalScDiffeo.levelOne`, `LocalDiffeo.lean`); (2) is Part I's
-  `IsScSmoothMap.levelOne` (Proposition 1.17 in charts).  For (4) the text's "trivially", as we read
-  it, uses `(𝐗 ₛ×ₜ 𝐗)¹ = 𝐗¹ ₛ×ₜ 𝐗¹` as M-polyfolds (the fibred product of Proposition 2.15 [2.46]
+  `IsScSmoothMap.levelOne` (Proposition 1.2.2 (preprint 1.17) in charts).  For (4) the text's "trivially", as we read
+  it, uses `(𝐗 ₛ×ₜ 𝐗)¹ = 𝐗¹ ₛ×ₜ 𝐗¹` as M-polyfolds (the fibred product of Proposition 2.5.20 (2017: 2.15) [2.46]
   for `X¹` against the level of the one for `X`).  This identification is not proved here; it is
   avoided through the sheet form of (4) (`isScSmoothComp_iff_sheet`, `EpGroupoid.lean`): a sheet
   `σ₁` of `s₁` agrees near each point with the level-`1` lift of a sheet `σ` of `s` (both invert
   `s` near that point), and `ψ ↦ m(σ(t ψ), ψ)` lifts by `IsScSmoothOn.levelOne`.
 * **(3)** follows the text.  "`(t(φ_k))` belongs to a compact subset of `X₁`" is replaced by
   "`t(φ_k)` converges in `X₁`" (the sequential criterion `isProperMap_domRestrict_iff_of_isClosed`
-  of `ProperMaps.lean`; `X¹` and `𝐗¹` are metrizable, Theorem 2.2 [2.16]); `cl_{X₁} W(x) ⊆
+  of `ProperMaps.lean`; `X¹` and `𝐗¹` are metrizable, Theorem 2.3.10 (2017: 2.2) [2.16]); `cl_{X₁} W(x) ⊆
   cl_X V(x)` is the continuity of `X₁ → X`; (b) is not needed; "(t|U(φ))⁻¹ is sc⁰" is used as the
   continuity on level `1` of its level-`1` lift.  The displayed map (7.5) has an unbalanced
   parenthesis, "`s⁻¹(cl_{X₁}(W(x)) → X₁`" (possible misprint).
-* **Tameness** ("trivial").  Definition 7.6 asks the object M-polyfold `X¹` to be tame
-  (Definition 2.19 [2.37]: an equivalent atlas of tame retracts exists; PLAN II.5, 1).  As we read
+* **Tameness** ("trivial").  Definition 7.1.6 (2017: 7.6) asks the object M-polyfold `X¹` to be tame
+  (Definition 2.5.7 (2017: 2.19) [2.37]: an equivalent atlas of tame retracts exists; PLAN II.5, 1).  As we read
   it, this needs that the index lift of a tame retraction is tame, which Part I left open
   (`Findings.md`, Chapter 5, item 145; `LocalDiffeo.lean`).  It is proved here
   (`MPolyfold.IsTame.levelOne`): for a tame `r` with presentation `T : E ≅ ℝⁿ ⊕ W` of `C`, the
   presentation `T¹ : E¹ ≅ ℝⁿ ⊕ W¹` of `C¹` has the same `ℝⁿ`-coordinates, so `d_{C¹} = d_C` on
-  `C¹` and `E_x` for `T¹` is `E_x ∩ E₁`; `Dr¹(x) = Dr(x)|E₁` (Proposition 1.17), whose range is
+  `C¹` and `E_x` for `T¹` is `E_x ∩ E₁`; `Dr¹(x) = Dr(x)|E₁` (Proposition 1.2.2 (preprint 1.17)), whose range is
   `T_xO ∩ E₁` since `Dr(x)` is a projection; and an sc-complement `A` of `T_xO` gives the
   sc-complement `A ∩ E₁` of `T_xO¹` (the sc-splitting shifts).  Tameness for `T¹` is tameness
   (Part I's presentation independence, `ScRetraction.IsTameWith.isTame`), and the level charts of
@@ -99,25 +99,25 @@ locally finite union of closed paracompact sets.
   subset `|X₁| ⊆ |X|` (p. 250, "`A_x ∩ |X₁|`"), with the topology of `|X¹|`.  Here `|X¹|` keeps its
   own quotient topology and `orbitIncl` is the continuous injection onto `|X₁| = π(X₁)`; the
   injectivity is `ml(s φ) = ml(t φ)`: a morphism between points of `X₁` lies in `𝐗₁`.
-* **Definition 7.15** is `ParacompactSpace X.OrbitSpace` (Mathlib's notion without Hausdorff, as
+* **Definition 7.5.1 (2017: 7.15)** is `ParacompactSpace X.OrbitSpace` (Mathlib's notion without Hausdorff, as
   the text stipulates).
-* **"In case `X` has a second countable topology"** (the sentence before Remark 7.1, to which the
+* **"In case `X` has a second countable topology"** (the sentence before Remark 7.5.2 (2017: 7.1), to which the
   remark refers) is read with `X` the object space: `|X|` is then second countable (`π` is open and
-  surjective, Proposition 7.1), hence metrizable by Corollary 7.1 ("we have already seen"), hence
-  paracompact (Stone).  Remark 7.1 itself (on the requirement of [38]) has no formal content.
+  surjective, Proposition 7.1.8 (2017: 7.1)), hence metrizable by Corollary 7.3.6 (2017: 7.1) ("we have already seen"), hence
+  paracompact (Stone).  Remark 7.5.2 (2017: 7.1) itself (on the requirement of [38]) has no formal content.
   "It is presently not known whether (5) is a consequence of (1)–(4)" is not formalized.
-* **Proposition 7.12, the route** (PLAN II.6, 7).  The text's route (Lemma 2.7, a locally finite
+* **Proposition 7.5.3 (2017: 7.12), the route** (PLAN II.6, 7).  The text's route (Lemma 2.7.3 (2017: 2.7), a locally finite
   closed refinement `(A_x)`, Michael's union of closed paracompact sets) is replaced by Smirnov's
   theorem pulled back along `|X¹| → |X|` (Part I's `metrizableSpace_of_pullback`): `|X|` is
   paracompact and Hausdorff, and every point has the open neighbourhood `|U(x)| = π(U(x))` whose
   preimage `|U(x)|₁` is metrizable, so `|X¹|` is metrizable, hence paracompact.  The step shared
   with the text is the metrizability of `|U(x)|₁ = |U(x)₁|`: `G_x` acts on `U(x)₁ = U(x) ∩ X₁` by
   the level-`1` lifts of the `Φ(g)` (homeomorphisms of `U(x)₁`), `G_x\U(x)₁` is metrizable by the
-  text's metric `ρ̂` (the argument of Lemma 7.4, repeated here for any finite group acting by
+  text's metric `ρ̂` (the argument of Lemma 7.3.2 (2017: 7.4), repeated here for any finite group acting by
   homeomorphisms on a metrizable space, since `OrbitTopology.lean`'s version is private), and
-  `G_x\U(x)₁ → |X¹|` is an open embedding onto the preimage (the argument of Proposition 7.6 on
+  `G_x\U(x)₁ → |X¹|` is an open embedding onto the preimage (the argument of Proposition 7.1.19 (2017: 7.6) on
   level `1`).  "`U(x)₁` has the natural `G_x`-action" is read as the restricted action only:
-  `U(x)₁` need not be connected in `X¹`, so it is not a `NaturalRep` of `X¹`.  `theorem_7_2`'s
+  `U(x)₁` need not be connected in `X¹`, so it is not a `NaturalRep` of `X¹`.  `theorem_7_3_1`'s
   regularity of `|X¹|` is not needed on this route.
 * **Hypotheses.**  No hypothesis "for all …" is added.  The hypotheses `X.IsTame`,
   `X.HasParacompactOrbitSpace`, `SecondCountableTopology Obj` and `SecondCountableTopology
@@ -219,7 +219,7 @@ private theorem isTameWith_shift {C : Set (E 0)} {R : ScRetraction E C}
       rw [hy2]
       exact this
     obtain ⟨A, hA, hAE⟩ := h.exists_complement _ hyO hys
-    -- `Dr¹(x) = Dr(x)|E₁` (Proposition 1.17)
+    -- `Dr¹(x) = Dr(x)|E₁` (Proposition 1.2.2 (preprint 1.17))
     have hD := R.isSc1.isSc1With_scDeriv
     have hxU : x ∈ E.shift.lvlSet R.shift.U 1 := R.shift.lvlSet_retract_subset 1 hx
     have heq : scDeriv R.shift.U R.shift x = levelDeriv (scDeriv R.U R) 1 x :=
@@ -251,7 +251,7 @@ private theorem isTameWith_shift {C : Set (E 0)} {R : ScRetraction E C}
     exact isScSplitting_levelSub_one hA
 
 /-- **The level shift of a tame retract is tame**: `(O¹, C¹, E¹)` is a tame retract if
-`(O, C, E)` is (Definition 2.34, presentation independent by `ScRetraction.IsTameWith.isTame`). -/
+`(O, C, E)` is (Definition 2.5.2 (preprint 2.34), presentation independent by `ScRetraction.IsTameWith.isTame`). -/
 private theorem isTameRetract_shift {C O : Set (E 0)} (h : IsTameRetract E C O) :
     IsTameRetract E.shift (E.lvlSet C 1) (E.lvlSet O 1) := by
   obtain ⟨R, rfl, hR⟩ := h
@@ -261,7 +261,7 @@ private theorem isTameRetract_shift {C O : Set (E 0)} (h : IsTameRetract E C O) 
 
 end TameShift
 
-/-- **The index lift of a tame M-polyfold is tame** (Definition 2.19 [2.37] for `X¹`): the level
+/-- **The index lift of a tame M-polyfold is tame** (Definition 2.5.7 (2017: 2.19) [2.37] for `X¹`): the level
 charts `(V₁, φ, (O¹, C¹, E¹))` of tame charts are tame. -/
 theorem MPolyfold.IsTame.levelOne {Z : Type u} [TopologicalSpace Z] [T2Space Z]
     [ParacompactSpace Z] {P : MPolyfold Z} (hP : P.IsTame) : P.shift.IsTame :=
@@ -269,7 +269,7 @@ theorem MPolyfold.IsTame.levelOne {Z : Type u} [TopologicalSpace Z] [T2Space Z]
     obtain ⟨φ, hφ, hx, ht⟩ := MPolyfold.IsTame.exists_chart P hP (P.levelVal 1 x)
     exact ⟨MPolyfold.levelChart hφ x, P.shift_isChart hφ x, hx, isTameRetract_shift ht⟩
 
-/-! ### The text's metrics `ρ` and `ρ̂` (Lemma 7.4), for a finite group
+/-! ### The text's metrics `ρ` and `ρ̂` (Lemma 7.3.2 (2017: 7.4)), for a finite group
 
 Repeated from `OrbitTopology.lean`, where they are private; used for `G_x\U(x)₁`. -/
 
@@ -277,7 +277,7 @@ section QuotientMetric
 
 variable (G : Type*) {U : Type*} [Group G] [Fintype G] [MulAction G U] [PseudoMetricSpace U]
 
-/-- `ρ(y, z) = max_g d(g y, g z)` (Lemma 7.4). -/
+/-- `ρ(y, z) = max_g d(g y, g z)` (Lemma 7.3.2 (2017: 7.4)). -/
 private def lvMaxDist (y z : U) : ℝ :=
   Finset.univ.sup' Finset.univ_nonempty fun g : G => dist (g • y) (g • z)
 
@@ -306,7 +306,7 @@ private theorem lvMaxDist_triangle (y z w : U) :
   Finset.sup'_le _ _ fun g _ => (dist_triangle _ (g • z) _).trans
     (add_le_add (dist_smul_le_lvMaxDist g y z) (dist_smul_le_lvMaxDist g z w))
 
-/-- **`ρ` is invariant** (Lemma 7.4): `ρ(h y, h z) = ρ(y, z)`. -/
+/-- **`ρ` is invariant** (Lemma 7.3.2 (2017: 7.4)): `ρ(h y, h z) = ρ(y, z)`. -/
 private theorem lvMaxDist_smul (h : G) (y z : U) :
     lvMaxDist G (h • y) (h • z) = lvMaxDist G y z := by
   refine le_antisymm (Finset.sup'_le _ _ fun g _ => ?_) (Finset.sup'_le _ _ fun g _ => ?_)
@@ -362,7 +362,7 @@ private theorem lvQuotDistAux_triangle (y z w : U) :
 
 variable (G U) in
 /-- **The quotient distance** `ρ̂([y], [z]) = min_{g, h} ρ(g y, h z) = min_h ρ(y, h z)` on `G\U`
-(Lemma 7.4). -/
+(Lemma 7.3.2 (2017: 7.4)). -/
 private def lvQuotDist :
     MulAction.orbitRel.Quotient G U → MulAction.orbitRel.Quotient G U → ℝ :=
   Quotient.lift₂ (lvQuotDistAux G) <| by
@@ -375,7 +375,7 @@ private theorem lvQuotDist_mk (y z : U) :
 end QuotientMetric
 
 /-- **The quotient of a metrizable space by a finite group of homeomorphisms is metrizable**, by
-the text's metric `ρ̂` (the argument of Lemma 7.4). -/
+the text's metric `ρ̂` (the argument of Lemma 7.3.2 (2017: 7.4)). -/
 private theorem metrizableSpace_orbitRel_quotient_of_finite {G U : Type*} [Group G] [Finite G]
     [MulAction G U] [TopologicalSpace U] [MetrizableSpace U]
     (hc : ∀ g : G, Continuous fun y : U => g • y) :
@@ -542,7 +542,7 @@ def liftGroupoidStr : GroupoidStr (X.PObj.Level 1) (X.PMor.Level 1) where
     rw [X.levelVal_liftComp (by simp only [levelVal_liftInv, X.src_inv])]
     exact X.inv_comp _
 
-/-! ### Conditions (1), (2) of Definition 7.3 for `X¹` -/
+/-! ### Conditions (1), (2) of Definition 7.1.3 (2017: 7.3) for `X¹` -/
 
 /-- **(1) on level `1`**: `s₁` is a local sc-diffeomorphism (`IsLocalScDiffeo.levelOne`). -/
 theorem isLocalScDiffeo_liftSrc : X.PMor.shift.IsLocalScDiffeo X.PObj.shift X.liftSrc :=
@@ -659,10 +659,10 @@ theorem isScSmoothComp_lift :
       X.isLocalScDiffeo_liftSrc X.isLocalScDiffeo_liftTgt.isScSmoothMap :=
   (isScSmoothComp_iff_sheet _ _).2 X.isScSmoothCompSheet_lift
 
-/-! ### Proposition 7.11 -/
+/-! ### Proposition 7.3.9 (2017: 7.11) -/
 
-/-- **Proposition 7.11 (index lifting), the structure**: the ep-groupoid `X¹ = (X¹, 𝐗¹)`, with
-the M-polyfolds `X¹`, `𝐗¹` (paracompact by Theorem 2.2 [2.16], the instance
+/-- **Proposition 7.3.9 (2017: 7.11) (index lifting), the structure**: the ep-groupoid `X¹ = (X¹, 𝐗¹)`, with
+the M-polyfolds `X¹`, `𝐗¹` (paracompact by Theorem 2.3.10 (2017: 2.2) [2.16], the instance
 `MPolyfold.paracompactSpace_level`) and the structure maps of `X` restricted to level `1`. -/
 def liftOne : EpGroupoid (X.PObj.Level 1) (X.PMor.Level 1) where
   toGroupoidStr := X.liftGroupoidStr
@@ -696,14 +696,14 @@ theorem liftOne_comp_val {φ ψ : X.PMor.Level 1} (h : X.liftOne.src φ = X.lift
       X.comp (X.PMor.levelVal 1 φ) (X.PMor.levelVal 1 ψ) :=
   X.levelVal_liftComp (X.src_eq_tgt_of_lift h)
 
-/-- **Proposition 7.11, tameness**: if `X` is tame, so is `X¹` (`MPolyfold.IsTame.levelOne`). -/
+/-- **Proposition 7.3.9 (2017: 7.11), tameness**: if `X` is tame, so is `X¹` (`MPolyfold.IsTame.levelOne`). -/
 theorem isTame_liftOne (h : X.IsTame) : X.liftOne.IsTame :=
   MPolyfold.IsTame.levelOne h
 
-/-- **Proposition 7.11 (index lifting)**: `X¹ = (X¹, 𝐗¹)` is an ep-groupoid (`liftOne`) whose
+/-- **Proposition 7.3.9 (2017: 7.11) (index lifting)**: `X¹ = (X¹, 𝐗¹)` is an ep-groupoid (`liftOne`) whose
 object and morphism M-polyfolds are `X¹` and `𝐗¹` and whose structure maps are those of `X`
 restricted to level `1`; if `X` is tame, so is `X¹`. -/
-theorem proposition_7_11 :
+theorem proposition_7_3_9 :
     X.liftOne.PObj = X.PObj.shift ∧ X.liftOne.PMor = X.PMor.shift ∧
       (∀ φ, X.PObj.levelVal 1 (X.liftOne.src φ) = X.src (X.PMor.levelVal 1 φ)) ∧
       (∀ φ, X.PObj.levelVal 1 (X.liftOne.tgt φ) = X.tgt (X.PMor.levelVal 1 φ)) ∧
@@ -831,7 +831,7 @@ theorem liftOne_π_smul (g : X.Isotropy x) (y : R.liftU) :
   (X.liftOne_π_eq_of_mor (b := (g • y : R.liftU).1) (R.src_Γ g _ y.2)
     (R.tgt_Γ g _ y.2)).symm
 
-/-- **`|y|₁ = |z|₁` for `y, z ∈ U(x)₁` iff `z = g ∗ y`** (Theorem 7.1 (3)). -/
+/-- **`|y|₁ = |z|₁` for `y, z ∈ U(x)₁` iff `z = g ∗ y`** (Theorem 7.1.13 (2017: 7.1) (3)). -/
 theorem liftOne_π_eq_iff {y z : R.liftU} :
     X.liftOne.π y.1 = X.liftOne.π z.1 ↔ ∃ g : X.Isotropy x, g • y = z := by
   constructor
@@ -857,7 +857,7 @@ def liftOrbitQuotientMap :
     MulAction.orbitRel.Quotient (X.Isotropy x) R.liftU → X.liftOne.OrbitSpace :=
   Quotient.lift (fun y : R.liftU => X.liftOne.π y.1) fun y z h => (R.liftOrbitRel_iff y z).1 h
 
-/-- `G_x\U(x)₁ → |X¹|` is an open embedding (the argument of Proposition 7.6 on level `1`). -/
+/-- `G_x\U(x)₁ → |X¹|` is an open embedding (the argument of Proposition 7.1.19 (2017: 7.6) on level `1`). -/
 theorem isOpenEmbedding_liftOrbitQuotientMap : IsOpenEmbedding R.liftOrbitQuotientMap := by
   refine .of_continuous_injective_isOpenMap
     ((X.liftOne.continuous_π.comp continuous_subtype_val).quotient_lift _) (fun q q' h => ?_)
@@ -875,7 +875,7 @@ theorem isOpenEmbedding_liftOrbitQuotientMap : IsOpenEmbedding R.liftOrbitQuotie
       · rintro ⟨_, ⟨y, hy, rfl⟩, rfl⟩
         exact ⟨Quotient.mk _ y, hy, rfl⟩
     rw [himage]
-    exact X.liftOne.proposition_7_1 _ (R.isOpen_liftU.isOpenMap_subtype_val _
+    exact X.liftOne.proposition_7_1_8 _ (R.isOpen_liftU.isOpenMap_subtype_val _
       (hS.preimage continuous_quotient_mk'))
 
 theorem range_liftOrbitQuotientMap :
@@ -889,7 +889,7 @@ theorem range_liftOrbitQuotientMap :
   · rintro ⟨y, hy, rfl⟩
     exact ⟨Quotient.mk _ ⟨y, hy⟩, rfl⟩
 
-/-- **`|U(x)|₁ = |U(x)₁|` is metrizable** (Proposition 7.12's proof: the argument of Lemma 7.4
+/-- **`|U(x)|₁ = |U(x)₁|` is metrizable** (Proposition 7.5.3 (2017: 7.12)'s proof: the argument of Lemma 7.3.2 (2017: 7.4)
 on level `1`): the preimage of `|U(x)| = π(U(x))` under `|X¹| → |X|` is metrizable. -/
 theorem metrizableSpace_preimage_orbitIncl : MetrizableSpace (X.orbitIncl ⁻¹' (X.π '' R.U)) := by
   have := X.PObj.metrizableSpace_level 1
@@ -899,29 +899,29 @@ theorem metrizableSpace_preimage_orbitIncl : MetrizableSpace (X.orbitIncl ⁻¹'
 
 end NaturalRep
 
-/-! ### Definition 7.15 and Remark 7.1 -/
+/-! ### Definition 7.5.1 (2017: 7.15) and Remark 7.5.2 (2017: 7.1) -/
 
-/-- **Definition 7.15 and Theorem 7.2**: `X` has paracompact orbit space iff `|X|` is metrizable
+/-- **Definition 7.5.1 (2017: 7.15) and Theorem 7.3.1 (2017: 7.2)**: `X` has paracompact orbit space iff `|X|` is metrizable
 (Smirnov's theorem one way, Stone's theorem the other). -/
 theorem hasParacompactOrbitSpace_iff_metrizableSpace :
     X.HasParacompactOrbitSpace ↔ MetrizableSpace X.OrbitSpace :=
-  ⟨X.theorem_7_2_metrizable, fun _ => paracompactSpace_of_metrizableSpace _⟩
+  ⟨X.theorem_7_3_1_metrizable, fun _ => paracompactSpace_of_metrizableSpace _⟩
 
-/-- A second countable orbit space is paracompact (Corollary 7.1 and Stone's theorem). -/
+/-- A second countable orbit space is paracompact (Corollary 7.3.6 (2017: 7.1) and Stone's theorem). -/
 theorem hasParacompactOrbitSpace_of_secondCountableTopology
     [SecondCountableTopology X.OrbitSpace] : X.HasParacompactOrbitSpace :=
-  have := X.corollary_7_1
+  have := X.corollary_7_3_6
   paracompactSpace_of_metrizableSpace _
 
-/-- **The sentence before Remark 7.1** (p. 249), "in case `X` has a second countable topology
+/-- **The sentence before Remark 7.5.2 (2017: 7.1)** (p. 340 (2017 p. 249)), "in case `X` has a second countable topology
 … (1)–(4) imply (5)": a second countable object space gives a second countable orbit space (`π`
-is open, Proposition 7.1), hence (5). -/
-theorem remark_7_1 [SecondCountableTopology Obj] : X.HasParacompactOrbitSpace :=
+is open, Proposition 7.1.8 (2017: 7.1)), hence (5). -/
+theorem remark_7_5_2 [SecondCountableTopology Obj] : X.HasParacompactOrbitSpace :=
   have : SecondCountableTopology X.OrbitSpace :=
-    Quotient.secondCountableTopology X.proposition_7_1
+    Quotient.secondCountableTopology X.proposition_7_1_8
   X.hasParacompactOrbitSpace_of_secondCountableTopology
 
-/-! ### Proposition 7.12 -/
+/-! ### Proposition 7.5.3 (2017: 7.12) -/
 
 /-- **`|X¹|` is metrizable** if `|X|` is paracompact: Smirnov's theorem pulled back along
 `|X¹| → |X|` (`metrizableSpace_of_pullback`), the preimages of the `|U(x)|` being metrizable. -/
@@ -930,13 +930,13 @@ theorem metrizableSpace_liftOne_orbitSpace (h : X.HasParacompactOrbitSpace) :
   have : ParacompactSpace X.OrbitSpace := h
   refine metrizableSpace_of_pullback X.orbitIncl X.continuous_orbitIncl fun z => ?_
   obtain ⟨x, rfl⟩ := X.surjective_π z
-  obtain ⟨R, -⟩ := theorem_7_1 X x isOpen_univ (mem_univ x)
-  exact ⟨X.π '' R.U, X.proposition_7_1 _ R.isOpen_U, mem_image_of_mem _ R.mem_U,
+  obtain ⟨R, -⟩ := theorem_7_1_13 X x isOpen_univ (mem_univ x)
+  exact ⟨X.π '' R.U, X.proposition_7_1_8 _ R.isOpen_U, mem_image_of_mem _ R.mem_U,
     R.metrizableSpace_preimage_orbitIncl⟩
 
-/-- **Proposition 7.12 (paracompactness under lifts)**: if `X` has paracompact orbit space, so
-has `X¹` (with Proposition 7.11, `X¹` is an ep-groupoid with paracompact orbit space). -/
-theorem proposition_7_12 (h : X.HasParacompactOrbitSpace) : X.liftOne.HasParacompactOrbitSpace :=
+/-- **Proposition 7.5.3 (2017: 7.12) (paracompactness under lifts)**: if `X` has paracompact orbit space, so
+has `X¹` (with Proposition 7.3.9 (2017: 7.11), `X¹` is an ep-groupoid with paracompact orbit space). -/
+theorem proposition_7_5_3 (h : X.HasParacompactOrbitSpace) : X.liftOne.HasParacompactOrbitSpace :=
   have := X.metrizableSpace_liftOne_orbitSpace h
   paracompactSpace_of_metrizableSpace _
 

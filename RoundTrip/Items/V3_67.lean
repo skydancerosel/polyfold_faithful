@@ -182,7 +182,7 @@ lemma mem_Cp_iff (p : kerCLM L × Y) :
     p ∈ Cp q L Y ↔ (p.1 : Fin n → ℝ) + (p.2 : Fin n → ℝ) ∈ quadC n q := Iff.rfl
 
 /-- The blind setting gives the project's `ContractionData` (as in the proof of
-`theorem_3_78`). -/
+`theorem_3_8_22`). -/
 theorem contractionData {j : ℕ} {U : Set (Fin n → ℝ)} {f : (Fin n → ℝ) → (Fin N → ℝ)}
     (hj : 1 ≤ j) (hU : ∃ O : Set (Fin n → ℝ), IsOpen O ∧ U = O ∩ quadC n q)
     (h0 : (0 : Fin n → ℝ) ∈ U) (hf : ContDiffOn ℝ j f U) (hf0 : f 0 = 0)

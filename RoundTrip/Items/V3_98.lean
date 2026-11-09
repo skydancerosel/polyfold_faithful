@@ -7,15 +7,15 @@ import RoundTrip.Blind.V3_98
 Round trip for V3_98 (Definition 6.1, Proposition 6.2; the index along the solution set and along
 paths), against the second blind statement `RoundTrip.V3_98_r2.B` (2026-11-02).  `A` is the
 conjunction of the types of the theorems among the current decls, universes at `0`:
-`theorem_3_54_index_locally_constant`, `theorem_3_54_index`, `isSurjLinOfIndex_of_forall_dim`,
-`theorem_3_54_index_locally_constant_sc`, `StrongBundle.linAt_isScFredholm`,
-`index_locally_constant_of_admitsBumpFunctions`, `theorem_3_54_index_locally_constant_general`,
-`index_locally_constant_tame`, `theorem_3_54_index_locally_constant_general_tame`,
+`theorem_3_6_8_index_locally_constant`, `theorem_3_6_8_index`, `isSurjLinOfIndex_of_forall_dim`,
+`theorem_3_6_8_index_locally_constant_sc`, `StrongBundle.linAt_isScFredholm`,
+`index_locally_constant_of_admitsBumpFunctions`, `theorem_3_6_8_index_locally_constant_general`,
+`index_locally_constant_tame`, `theorem_3_6_8_index_locally_constant_general_tame`,
 `StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex`, `StrongBundle.IsIndexAt.unique`,
 `StrongBundle.exists_isIndexAt`, `exists_isScPlusSection_pullback_of_path`,
-`StrongBundle.isIndexAt_of_pullback_isLinOfIndex`, `proposition_6_2`,
+`StrongBundle.isIndexAt_of_pullback_isLinOfIndex`, `proposition_6_2_2`,
 `StrongBundle.IsIndexAtLocal.unique`, `StrongBundle.exists_isIndexAtLocal`,
-`StrongBundle.isIndexAtLocal_iff_isIndexAt`, `proposition_6_2_local`, `proposition_6_2_local'`
+`StrongBundle.isIndexAtLocal_iff_isIndexAt`, `proposition_6_2_2_local`, `proposition_6_2_2_local'`
 (`StrongBundle.IsLinOfIndex`, `StrongBundle.IsIndexAt`, `StrongBundle.restrictOpen`,
 `StrongBundle.IsIndexAtLocal` are vocabulary).
 
@@ -31,15 +31,15 @@ Neither direction is proved.
   Definition 6.1 index, equal to the given one by `A`'s `IsIndexAtLocal.unique`.  `B`'s index is
   unique at smooth points (`hasIndex_unique`: `ŝ(z) = R(z, f̂(φx))₂` is a witness).
   B's clause (b) is not derived: B assumes only `IsScFredholmSection` (germ data in some chart)
-  over a tame M-polyfold (`PX.IsTame`), while `proposition_6_2_local` needs tame germ data
+  over a tame M-polyfold (`PX.IsTame`), while `proposition_6_2_2_local` needs tame germ data
   (`IsScFredholmSectionTame`), and the project has no lemma producing tame germ data from a tame
   base; and B's path `γ` is sc-smooth only near `[0, 1]` in B's sense (`C^∞` into every level in
-  every chart), while `proposition_6_2_local` needs `(rnPolyfold 1).IsScSmoothMap PX φ` on all
+  every chart), while `proposition_6_2_2_local` needs `(rnPolyfold 1).IsScSmoothMap PX φ` on all
   of `ℝ` (no project lemma turns level-wise `C^∞` into sc-smoothness, nor extends a path from
   `[0, 1]`).  Under those two added hypotheses `A` gives (b): `Bb_of_tame_global`.
 * `B → A`.  `B` speaks only of the level-`0` index and its constancy; `A` also contains the
   sc-Fredholm property on every level (`linAt_isScFredholm`, `…_sc`, `…_general(_tame)`),
-  surjectivity and `dim ker = d` under good position (`theorem_3_54_index`,
+  surjectivity and `dim ker = d` under good position (`theorem_3_6_8_index`,
   `isSurjLinOfIndex_of_forall_dim`), the index of the parametrized section, the path device,
   the bump-function versions and the agreement of global and local Definition 6.1
   (`isIndexAtLocal_iff_isIndexAt`) — none of which `B` gives.
@@ -53,44 +53,44 @@ open Polyfold StrongRetr Set Module
 
 /-- The project's statement, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_54_index_locally_constant.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_index.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_6_8_index_locally_constant.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_index.{0, 0} ∧
     type_of% @Polyfold.isSurjLinOfIndex_of_forall_dim.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_index_locally_constant_sc.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_index_locally_constant_sc.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0} ∧
     type_of% @Polyfold.index_locally_constant_of_admitsBumpFunctions.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_index_locally_constant_general.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_index_locally_constant_general.{0, 0} ∧
     type_of% @Polyfold.index_locally_constant_tame.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_index_locally_constant_general_tame.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_index_locally_constant_general_tame.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.IsIndexAt.unique.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.exists_isIndexAt.{0, 0} ∧
     type_of% @Polyfold.exists_isScPlusSection_pullback_of_path.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex.{0, 0} ∧
-    type_of% @Polyfold.proposition_6_2.{0, 0} ∧
+    type_of% @Polyfold.proposition_6_2_2.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.IsIndexAtLocal.unique.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.exists_isIndexAtLocal.{0, 0} ∧
     type_of% @Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt.{0, 0} ∧
-    type_of% @Polyfold.proposition_6_2_local.{0, 0} ∧
-    type_of% @Polyfold.proposition_6_2_local'.{0, 0}
+    type_of% @Polyfold.proposition_6_2_2_local.{0, 0} ∧
+    type_of% @Polyfold.proposition_6_2_2_local'.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_54_index_locally_constant.{0, 0}, @Polyfold.theorem_3_54_index.{0, 0},
+  ⟨@Polyfold.theorem_3_6_8_index_locally_constant.{0, 0}, @Polyfold.theorem_3_6_8_index.{0, 0},
     @Polyfold.isSurjLinOfIndex_of_forall_dim.{0, 0},
-    @Polyfold.theorem_3_54_index_locally_constant_sc.{0, 0},
+    @Polyfold.theorem_3_6_8_index_locally_constant_sc.{0, 0},
     @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0},
     @Polyfold.index_locally_constant_of_admitsBumpFunctions.{0, 0},
-    @Polyfold.theorem_3_54_index_locally_constant_general.{0, 0},
+    @Polyfold.theorem_3_6_8_index_locally_constant_general.{0, 0},
     @Polyfold.index_locally_constant_tame.{0, 0},
-    @Polyfold.theorem_3_54_index_locally_constant_general_tame.{0, 0},
+    @Polyfold.theorem_3_6_8_index_locally_constant_general_tame.{0, 0},
     @Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex.{0, 0},
     @Polyfold.StrongBundle.IsIndexAt.unique.{0, 0}, @Polyfold.StrongBundle.exists_isIndexAt.{0, 0},
     @Polyfold.exists_isScPlusSection_pullback_of_path.{0, 0},
     @Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex.{0, 0},
-    @Polyfold.proposition_6_2.{0, 0}, @Polyfold.StrongBundle.IsIndexAtLocal.unique.{0, 0},
+    @Polyfold.proposition_6_2_2.{0, 0}, @Polyfold.StrongBundle.IsIndexAtLocal.unique.{0, 0},
     @Polyfold.StrongBundle.exists_isIndexAtLocal.{0, 0},
     @Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt.{0, 0},
-    @Polyfold.proposition_6_2_local.{0, 0}, @Polyfold.proposition_6_2_local'.{0, 0}⟩
+    @Polyfold.proposition_6_2_2_local.{0, 0}, @Polyfold.proposition_6_2_2_local'.{0, 0}⟩
 
 /-- The conjunct `StrongBundle.linAt_isScFredholm` of `A`. -/
 abbrev LinFred : Prop := type_of% @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0}
@@ -266,7 +266,7 @@ theorem hasIndex_of_isIndexAtLocal (hLin : LinFred) (hUniq : LocUniq) {Bd : Stro
   have hs : (Bd.restrictOpen hV).IsScPlusSection s :=
     hs₀.smul_left (isScSmoothMap_real_const (-1))
   set g := sectionAdd (pullbackProj P (Subtype.val : c.φ.source → X)) fV s with hgdef
-  have hg : (Bd.restrictOpen hV).IsScFredholmSection g := theorem_3_15 hfV hs
+  have hg : (Bd.restrictOpen hV).IsScFredholmSection g := theorem_3_1_18_preprint hfV hs
   have hprin : ∀ z ∈ c.φ.model.O, cV.principal g z = c.principal f z - ŝ z := fun z hz => by
     have h0 : cV.principal s₀ z = ŝ z := by
       unfold StrongBundleChart.principal
@@ -415,7 +415,7 @@ theorem Ba_of_A (hA : A) : ∀ {X : Type} [TopologicalSpace X] [T2Space X] [Para
   refine ⟨V, hVo, hxV, fun y hy hy0 k => ?_⟩
   rw [key y hy hy0 k, key x hxV hx0 k]
 
-/-- **B (b) under two added hypotheses**, from `A` (`proposition_6_2_local`): with tame germ data
+/-- **B (b) under two added hypotheses**, from `A` (`proposition_6_2_2_local`): with tame germ data
 (`IsScFredholmSectionTame`; B assumes only `IsScFredholmSection` and `PX.IsTame`) and a path
 `φ : ℝ → X` sc-smooth in the project's sense on all of `ℝ` (B's path is level-wise `C^∞` near
 `[0, 1]` only), B's indices at the smooth ends agree. -/
@@ -522,7 +522,7 @@ theorem B_b_of_tame_bump_r1 (hA : A) {X : Type} [TopologicalSpace X] [T2Space X]
     indexAt_of_isLinOfIndex_r1 hLin hf.toIsScFredholmSection hy0 (hall y hy hy0)⟩⟩
 
 /-- **First blind statement, its (a), under the project's hypotheses** (bump functions, tame germ
-data, a path sc-smooth on all of `ℝ`), from `A` (`proposition_6_2`). -/
+data, a path sc-smooth on all of `ℝ`), from `A` (`proposition_6_2_2`). -/
 theorem B_a_of_tame_bump_r1 (hA : A) {X : Type} [TopologicalSpace X] [T2Space X]
     [ParacompactSpace X] (PX : MPolyfold X) {Y : Type} [TopologicalSpace Y] [T2Space Y]
     [ParacompactSpace Y] (P : Y → X) [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})]
@@ -545,70 +545,70 @@ theorem B_a_of_tame_bump_r1 (hA : A) {X : Type} [TopologicalSpace X] [T2Space X]
   exact ⟨i, indexAt_of_isLinOfIndex_r1 hLin hF hx0 (hlin _ hx0),
     indexAt_of_isLinOfIndex_r1 hLin hF hx1 (hlin _ hx1)⟩
 
-#rt_check RoundTrip.V3_98.B0_of_A [Polyfold.theorem_3_54_index_locally_constant,
-  Polyfold.theorem_3_54_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
-  Polyfold.theorem_3_54_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
+#rt_check RoundTrip.V3_98.B0_of_A [Polyfold.theorem_3_6_8_index_locally_constant,
+  Polyfold.theorem_3_6_8_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
+  Polyfold.theorem_3_6_8_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
   Polyfold.index_locally_constant_of_admitsBumpFunctions,
-  Polyfold.theorem_3_54_index_locally_constant_general, Polyfold.index_locally_constant_tame,
-  Polyfold.theorem_3_54_index_locally_constant_general_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general, Polyfold.index_locally_constant_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general_tame,
   Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex,
   Polyfold.StrongBundle.IsIndexAt.unique, Polyfold.StrongBundle.exists_isIndexAt,
   Polyfold.exists_isScPlusSection_pullback_of_path,
-  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2,
+  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2_2,
   Polyfold.StrongBundle.IsIndexAtLocal.unique, Polyfold.StrongBundle.exists_isIndexAtLocal,
-  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_local,
-  Polyfold.proposition_6_2_local']
-#rt_check RoundTrip.V3_98.Ba_of_A [Polyfold.theorem_3_54_index_locally_constant,
-  Polyfold.theorem_3_54_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
-  Polyfold.theorem_3_54_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
+  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_2_local,
+  Polyfold.proposition_6_2_2_local']
+#rt_check RoundTrip.V3_98.Ba_of_A [Polyfold.theorem_3_6_8_index_locally_constant,
+  Polyfold.theorem_3_6_8_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
+  Polyfold.theorem_3_6_8_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
   Polyfold.index_locally_constant_of_admitsBumpFunctions,
-  Polyfold.theorem_3_54_index_locally_constant_general, Polyfold.index_locally_constant_tame,
-  Polyfold.theorem_3_54_index_locally_constant_general_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general, Polyfold.index_locally_constant_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general_tame,
   Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex,
   Polyfold.StrongBundle.IsIndexAt.unique, Polyfold.StrongBundle.exists_isIndexAt,
   Polyfold.exists_isScPlusSection_pullback_of_path,
-  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2,
+  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2_2,
   Polyfold.StrongBundle.IsIndexAtLocal.unique, Polyfold.StrongBundle.exists_isIndexAtLocal,
-  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_local,
-  Polyfold.proposition_6_2_local']
-#rt_check RoundTrip.V3_98.Bb_of_tame_global [Polyfold.theorem_3_54_index_locally_constant,
-  Polyfold.theorem_3_54_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
-  Polyfold.theorem_3_54_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
+  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_2_local,
+  Polyfold.proposition_6_2_2_local']
+#rt_check RoundTrip.V3_98.Bb_of_tame_global [Polyfold.theorem_3_6_8_index_locally_constant,
+  Polyfold.theorem_3_6_8_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
+  Polyfold.theorem_3_6_8_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
   Polyfold.index_locally_constant_of_admitsBumpFunctions,
-  Polyfold.theorem_3_54_index_locally_constant_general, Polyfold.index_locally_constant_tame,
-  Polyfold.theorem_3_54_index_locally_constant_general_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general, Polyfold.index_locally_constant_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general_tame,
   Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex,
   Polyfold.StrongBundle.IsIndexAt.unique, Polyfold.StrongBundle.exists_isIndexAt,
   Polyfold.exists_isScPlusSection_pullback_of_path,
-  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2,
+  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2_2,
   Polyfold.StrongBundle.IsIndexAtLocal.unique, Polyfold.StrongBundle.exists_isIndexAtLocal,
-  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_local,
-  Polyfold.proposition_6_2_local']
-#rt_check RoundTrip.V3_98.B_b_of_tame_bump_r1 [Polyfold.theorem_3_54_index_locally_constant,
-  Polyfold.theorem_3_54_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
-  Polyfold.theorem_3_54_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
+  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_2_local,
+  Polyfold.proposition_6_2_2_local']
+#rt_check RoundTrip.V3_98.B_b_of_tame_bump_r1 [Polyfold.theorem_3_6_8_index_locally_constant,
+  Polyfold.theorem_3_6_8_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
+  Polyfold.theorem_3_6_8_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
   Polyfold.index_locally_constant_of_admitsBumpFunctions,
-  Polyfold.theorem_3_54_index_locally_constant_general, Polyfold.index_locally_constant_tame,
-  Polyfold.theorem_3_54_index_locally_constant_general_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general, Polyfold.index_locally_constant_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general_tame,
   Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex,
   Polyfold.StrongBundle.IsIndexAt.unique, Polyfold.StrongBundle.exists_isIndexAt,
   Polyfold.exists_isScPlusSection_pullback_of_path,
-  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2,
+  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2_2,
   Polyfold.StrongBundle.IsIndexAtLocal.unique, Polyfold.StrongBundle.exists_isIndexAtLocal,
-  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_local,
-  Polyfold.proposition_6_2_local']
-#rt_check RoundTrip.V3_98.B_a_of_tame_bump_r1 [Polyfold.theorem_3_54_index_locally_constant,
-  Polyfold.theorem_3_54_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
-  Polyfold.theorem_3_54_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
+  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_2_local,
+  Polyfold.proposition_6_2_2_local']
+#rt_check RoundTrip.V3_98.B_a_of_tame_bump_r1 [Polyfold.theorem_3_6_8_index_locally_constant,
+  Polyfold.theorem_3_6_8_index, Polyfold.isSurjLinOfIndex_of_forall_dim,
+  Polyfold.theorem_3_6_8_index_locally_constant_sc, Polyfold.StrongBundle.linAt_isScFredholm,
   Polyfold.index_locally_constant_of_admitsBumpFunctions,
-  Polyfold.theorem_3_54_index_locally_constant_general, Polyfold.index_locally_constant_tame,
-  Polyfold.theorem_3_54_index_locally_constant_general_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general, Polyfold.index_locally_constant_tame,
+  Polyfold.theorem_3_6_8_index_locally_constant_general_tame,
   Polyfold.StrongBundle.isLinOfIndex_of_paramSection_isLinOfIndex,
   Polyfold.StrongBundle.IsIndexAt.unique, Polyfold.StrongBundle.exists_isIndexAt,
   Polyfold.exists_isScPlusSection_pullback_of_path,
-  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2,
+  Polyfold.StrongBundle.isIndexAt_of_pullback_isLinOfIndex, Polyfold.proposition_6_2_2,
   Polyfold.StrongBundle.IsIndexAtLocal.unique, Polyfold.StrongBundle.exists_isIndexAtLocal,
-  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_local,
-  Polyfold.proposition_6_2_local']
+  Polyfold.StrongBundle.isIndexAtLocal_iff_isIndexAt, Polyfold.proposition_6_2_2_local,
+  Polyfold.proposition_6_2_2_local']
 
 end RoundTrip.V3_98

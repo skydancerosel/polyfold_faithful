@@ -13,8 +13,8 @@ combines the two: the book's quantifiers **and** the 2021 notions, so that a rev
 statement per theorem and checks only the 2021 definitions (rows V3.108, V3.110 and the reading
 of "tame strong bundle", gap G.79).
 
-* `theorem_5_3_10_book_2021def`: `theorem_5_3_10_2021` with `hf` in the 2021 sense.
-* `theorem_5_3_12_book_2021def`: `theorem_5_3_12_2021` with `hf`, the boundary hypothesis and the
+* `theorem_5_3_10_book_2021def`: `theorem_5_3_10` with `hf` in the 2021 sense.
+* `theorem_5_3_12_book_2021def`: `theorem_5_3_12` with `hf`, the boundary hypothesis and the
   good-position conclusion in the 2021 sense.
 
 Both are corollaries through the dictionary `StrongBundle.isScFredholmSectionTame2021_iff`,
@@ -59,7 +59,7 @@ theorem theorem_5_3_10_book_2021def (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunct
             (MPolyfold.subPolyfold hsub).HasCornerStructure ∧
               ∀ a : solutionSet P (sectionAdd P f s),
                 (MPolyfold.subPolyfold hsub).degIndex a = PX.degIndex a :=
-  theorem_5_3_10_2021 hX hbump (StrongBundle.isScFredholmSectionTame2021_iff.1 hf) hS hN
+  theorem_5_3_10 hX hbump (StrongBundle.isScFredholmSectionTame2021_iff.1 hf) hS hN
 
 /-- **2021 Theorem 5.3.12, p. 222 (perturbation and transversality: good position)**, with the
 book's quantifiers and the 2021 notions.  Let `P : Y → X` be a strong bundle over an M-polyfold
@@ -86,7 +86,7 @@ theorem theorem_5_3_12_book_2021def (hbump : PX.AdmitsBumpFunctions) {f : X → 
             haveI := PX.paracompactSpace_subtype (solutionSet P (sectionAdd P f s))
             (MPolyfold.subPolyfold hsub).IsManifoldWithCornersLoc) := by
   obtain ⟨U, hUo, hSU, hcpt, hε⟩ :=
-    theorem_5_3_12_2021 hbump (StrongBundle.isScFredholmSectionTame2021_iff.1 hf) hS hN
+    theorem_5_3_12 hbump (StrongBundle.isScFredholmSectionTame2021_iff.1 hf) hS hN
       fun x hx hx0 => StrongBundle.isGoodPositionGermTame2021_iff.1 (hbd x hx hx0)
   refine ⟨U, hUo, hSU, hcpt, fun ε hε0 => ?_⟩
   obtain ⟨s, hs, hN', hbd', htr, hgood, hman⟩ := hε ε hε0

@@ -6,7 +6,7 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-Definitions 3.1–3.2 (sc-germs of neighbourhoods and sc-smooth germs) against Definitions 3.6, 3.11
+Definitions 3.1.1–3.1.2 (preprint 3.1–3.2) (sc-germs of neighbourhoods and sc-smooth germs) against Definitions 3.1.6, 3.1.11 (preprint 3.6, 3.11)
 (filled versions and sc-Fredholm germs): **what the text's germs with shrinking levels are, and
 where the project's whole-chart data differ from them.**  Follow-up of the round-trip audit
 (items V3.5, V3.9, V3.13, V3.43, V3.45; Findings, Chapter 3, items 220–221 and 260–269).
@@ -15,14 +15,14 @@ where the project's whole-chart data differ from them.**  Follow-up of the round
 
 ## The text, paraphrased
 
-(Definition 3.1) An sc-germ of neighbourhoods `O(C, 0)` is a decreasing sequence `U₀ ⊃ U₁ ⊃ ⋯`
+(Definition 3.1.1 (preprint 3.1)) An sc-germ of neighbourhoods `O(C, 0)` is a decreasing sequence `U₀ ⊃ U₁ ⊃ ⋯`
 with `U_m` relatively open in `C ∩ E_m`; the sizes of the `U_m` may shrink with `m`.
-(Definition 3.2) An sc^k-germ is sc^k on these sets.  (Definition 3.6) `(f, x₀)` has a filling if
+(Definition 3.1.2 (preprint 3.2)) An sc^k-germ is sc^k on these sets.  (Definition 3.1.6 (preprint 3.6)) `(f, x₀)` has a filling if
 the section germ `Φ ∘ f ∘ φ⁻¹` has a filling `(g, 0)` — an sc-smooth section **germ** of
-`U ◁ F → U` with conditions (1)–(3) of Definition 3.4 near `0`.  (Definition 3.11) `(f, x₀)` is an
+`U ◁ F → U` with conditions (1)–(3) of Definition 3.1.4 (preprint 3.4) near `0`.  (Definition 3.1.11 (preprint 3.11)) `(f, x₀)` is an
 sc-Fredholm germ if it has a filled version `(g, 0)` and a **local** sc⁺-section `s` with
 `s(0) = g(0)` such that `g − s` is conjugated by a strong bundle isomorphism to a basic germ.
-(Definition 3.14 (1)) The section `f` itself is sc-smooth on all of `X`.
+(Definition 3.1.16 (preprint 3.14) (1)) The section `f` itself is sc-smooth on all of `X`.
 
 ## What is formalized
 
@@ -35,11 +35,11 @@ sc-Fredholm germ if it has a filled version `(g, 0)` and a **local** sc⁺-secti
   `GermIFTSmooth.lean`) but **sc-smooth on no open `U ∋ 0`** (`GermVsChart.not_isScSmooth_f`);
   `Polyfold.exists_isScSmoothGerm_not_isScSmooth` packages this.  Shrinking the chart (restricting
   `U` on level `0`) never produces a germ whose levels shrink with `m`.
-* **The text's germ reading of Definitions 3.6 and 3.11**: `Polyfold.IsFillingGerm` (a filling in
-  the sense of Definition 3.4 with `g` an sc-smooth germ on a germ of neighbourhoods `G ⊆ U`,
+* **The text's germ reading of Definitions 3.1.6 and 3.1.11 (preprint 3.6 and 3.11)**: `Polyfold.IsFillingGerm` (a filling in
+  the sense of Definition 3.1.4 (preprint 3.4) with `g` an sc-smooth germ on a germ of neighbourhoods `G ⊆ U`,
   conditions (1), (2) near `0`, condition (3) for a derivative family of the sc¹-germ
   `y ↦ [1 − ρ(r(y))]g(y)` on `G`), `Polyfold.IsScPlusGerm` (a local sc⁺-section: an sc-smooth germ
-  into `F¹`), and `Polyfold.StrongBundle.IsScFredholmGerm` (**Definition 3.11, germ reading**:
+  into `F¹`), and `Polyfold.StrongBundle.IsScFredholmGerm` (**Definition 3.1.11 (preprint 3.11), germ reading**:
   the project's `IsScFredholmGermWholeChart` with `IsFilledVersion` and the whole-`U` sc⁺-section replaced by
   these germs; the strong bundle isomorphism `Ψ : U ◁ F → U' ◁ F'` and the basic germ `h` as in
   `IsConjugateToBasicGerm`).
@@ -58,21 +58,21 @@ sc-Fredholm germ if it has a filled version `(g, 0)` and a **local** sc⁺-secti
   `Polyfold.isStrongBundleRetraction_id_of_relOpen`, `Polyfold.isFilledVersion_id` (a map
   sc-smooth on `U` is its own filled version), `Polyfold.IsConjugateToBasicGerm.congr_nhds`, and
   `Polyfold.exists_wholeChart_filledVersion_of_id`: for `R = id`, the text's germ filling `g̃` of an
-  `f̂` sc-smooth on `U` can be replaced by the whole-chart `g = f̂` in the data of Definition 3.11
+  `f̂` sc-smooth on `U` can be replaced by the whole-chart `g = f̂` in the data of Definition 3.1.11 (preprint 3.11)
   (same `s`, same conjugation, `f̂ = g̃` near `0` by condition (1)).  Since `f` is sc-smooth on all
-  of `X` (Definition 3.14 (1)), for charts with trivial retraction the open question below is
+  of `X` (Definition 3.1.16 (preprint 3.14) (1)), for charts with trivial retraction the open question below is
   about the sc⁺-section `s` alone.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The germ reading.**  "`(g, 0)` is a section germ", "a local sc⁺-section `s`": sc-smooth germs
-  on germs of neighbourhoods `G ⊆ U` of Definition 3.1 (`IsFillingGerm`, `IsScPlusGerm`).  The
+  on germs of neighbourhoods `G ⊆ U` of Definition 3.1.1 (preprint 3.1) (`IsFillingGerm`, `IsScPlusGerm`).  The
   strong bundle isomorphism `Ψ : U ◁ F → U' ◁ F'` is kept on the whole `U` of the chart as in
   `IsConjugateToBasicGerm`: germ data on a relatively open `U₀ ⊆ U` and on `U` carry the same
   information near `0` (`ConjugationData.ofSubset`, `IsConjugateToBasicGerm.of_subset`,
   `Chapter3/RestrictOpenGerms.lean`), which is harmless for level-`0` neighbourhoods; only germs
   whose levels shrink with `m` escape restriction.  The
-  text's tameness of the chart (Definition 3.4 is stated for tame strong local bundles) is not
+  text's tameness of the chart (Definition 3.1.4 (preprint 3.4) is stated for tame strong local bundles) is not
   imposed, as in `IsScFredholmGermWholeChart`.
 * **Condition (3) for a germ** needs a derivative at `0` of `[1 − ρ(r(·))]g`, i.e. that this map
   is an sc¹-germ; its derivative family at `0` is unique (`IsSc1GermWith.eq_of_uniqueDiffWithinAt`),
@@ -470,7 +470,7 @@ lemma isSc0_const_of_continuousOn {V V' : Type} [NormedAddCommGroup V] [NormedSp
   mem_range m x _ := ⟨g ((ScBanach.const V).toBase m x), ScBanach.const_toBase _ _ _⟩
   continuousOn m := by rw [levelMap_const, ScBanach.lvlSet_const]; exact hg
 
-/-- A `C^k` map on an open set is sc^k for the constant scales (Proposition 1.19). -/
+/-- A `C^k` map on an open set is sc^k for the constant scales (Proposition 1.2.4 (preprint 1.19)). -/
 lemma isSck_const_of_contDiffOn {V V' : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
     [FiniteDimensional ℝ V] [NormedAddCommGroup V'] [NormedSpace ℝ V'] [FiniteDimensional ℝ V']
     {U : Set V} (hU : IsOpen U) {g : V → V'} (k : ℕ) (hg : ContDiffOn ℝ k g U) :
@@ -479,7 +479,7 @@ lemma isSck_const_of_contDiffOn {V V' : Type} [NormedAddCommGroup V] [NormedSpac
   | zero =>
     exact isSc0_const_of_continuousOn (by rw [Nat.cast_zero, contDiffOn_zero] at hg; exact hg)
   | succ k =>
-    refine proposition_1_19 (isScDomain_const_of_isOpen hU)
+    refine proposition_1_2_4 (isScDomain_const_of_isOpen hU)
       (isSc0_const_of_continuousOn hg.continuousOn) fun m => ?_
     rw [levelMap_const, ScBanach.lvlSet_const]
     exact_mod_cast hg
@@ -509,7 +509,7 @@ theorem isScSmoothGerm_f :
       (isSck_const_of_contDiffOn isOpen_Ioo j (contDiffOn_f j))
 
 /-- **`f` is sc-smooth on no open set `U ∋ 0`**: sc^{n+2} on `U` would make it `C^{n+2}` on `U`
-(Proposition 1.18), and `U` contains some `a n`. -/
+(Proposition 1.2.3 (preprint 1.18)), and `U` contains some `a n`. -/
 theorem not_isScSmooth_f {U : Set ℝ} (hU : IsOpen U) (h0 : (0 : ℝ) ∈ U) :
     ¬ IsScSmooth (E := ScBanach.const ℝ) (F := ScBanach.const ℝ) U f := by
   intro hf
@@ -524,7 +524,7 @@ theorem not_isScSmooth_f {U : Set ℝ} (hU : IsOpen U) (h0 : (0 : ℝ) ∈ U) :
 end GermVsChart
 
 /-- **The example of Findings item 221, machine-checked**: in the constant scale `ℝ` there is an
-sc-smooth germ (Definition 3.2) on a germ of neighbourhoods of `0` (Definition 3.1, here
+sc-smooth germ (Definition 3.1.2 (preprint 3.2)) on a germ of neighbourhoods of `0` (Definition 3.1.1 (preprint 3.1), here
 `U_m = (−1/(m+2), 1/(m+2))`) which is sc-smooth on no open neighbourhood of `0`.  Restricting a
 chart on level `0` therefore cannot turn the text's germs into the project's whole-chart data
 (round-trip items V3.9, V3.43). -/
@@ -536,12 +536,12 @@ theorem exists_isScSmoothGerm_not_isScSmooth :
   ⟨GermVsChart.Gex, GermVsChart.f, GermVsChart.isScSmoothGerm_f,
     fun _ hU h0 => GermVsChart.not_isScSmooth_f hU h0⟩
 
-/-! ### Definitions 3.6 and 3.11 in the text's germ reading
+/-! ### Definitions 3.1.6 and 3.1.11 (preprint 3.6 and 3.11) in the text's germ reading
 
 `fillDefect`, `IsFillingGerm`, `IsScPlusGerm` are in `Chapter3/GermFilling.lean`; the comparison
 with `IsFilledVersion` and the trivial retraction are in `Chapter3/GermFillingChart.lean`. -/
 
-/-! ### Definition 3.11 in the germ reading, for sections of strong bundles
+/-! ### Definition 3.1.11 (preprint 3.11) in the germ reading, for sections of strong bundles
 
 `StrongBundle.IsScFredholmGerm`, `StrongBundle.IsScFredholmGermWholeChart.isScFredholmGerm` and
 `StrongBundle.isScFredholmGerm_iff_germG_wholeChart` are in `Chapter3/GermFillingChart.lean`. -/

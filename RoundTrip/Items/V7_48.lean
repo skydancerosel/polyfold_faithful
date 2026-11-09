@@ -15,8 +15,8 @@ definition) and Hausdorff.
 
 * `A → B`: the "locally metrizable" conjunct is `A`'s first theorem.  The "regular" and
   "Hausdorff" conjuncts are not stated by `A`'s two theorems; they are Mathlib's subtype instances
-  applied to the project's instances `EpGroupoid.lemma_7_7` (`RegularSpace |X|`, Lemma 7.7) and
-  `EpGroupoid.lemma_7_6` (`T2Space |X|`, Lemma 7.6), as the docstring of
+  applied to the project's instances `EpGroupoid.lemma_7_3_5` (`RegularSpace |X|`, Lemma 7.7) and
+  `EpGroupoid.lemma_7_3_4` (`T2Space |X|`, Lemma 7.6), as the docstring of
   `exists_metrizable_nhds_subtype` says.  Those two conjuncts are proved outright here (from
   unbanned project lemmas), not from the hypothesis.  (A's two theorems alone, read abstractly,
   do not give regularity: a Hausdorff locally metrizable non-regular space, e.g. the plane with

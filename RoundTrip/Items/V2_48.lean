@@ -5,10 +5,10 @@ import RoundTrip.Blind.V2_48
 /-! Round trip for V2_48 (Proposition 2.42: local face count in a tame M-polyfold, and the global
 bound).
 
-`A` is the conjunction of the types of `Polyfold.proposition_2_42`,
+`A` is the conjunction of the types of `Polyfold.proposition_2_5_14`,
 `Polyfold.MPolyfold.faces_encard_le` and `Polyfold.MPolyfold.IsTame.exists_chart` (universe `0`).
 
-The two sides express "the faces of `V`" differently.  A (`proposition_2_42`) takes `V = dom φ`
+The two sides express "the faces of `V`" differently.  A (`proposition_2_5_14`) takes `V = dom φ`
 for a tame chart `φ : V → O` and states everything on the model: `d_X(y) = d_C(φ y) = d_O(φ y)` on
 `V` and the M-polyfold `O` is face-structured.  B uses the induced sub-M-polyfold structure
 `P.subPolyfold hV` on the subtype `↥V` itself: faces of that structure and its `d_V`.
@@ -16,29 +16,29 @@ for a tame chart `φ : V → O` and states everything on the model: `d_X(y) = d_
 `A → B` (glue, new): for `V = dom φ`, (i) `V` is a sub-M-polyfold (`r = id`), paracompact
 (`paracompactSpace_subtype`); (ii) the inclusion `↥V → X` is an sc-diffeomorphism onto the open
 `V` (`subPolyfold_inclusion_isScSmooth`, `subPolyfold_retraction_isScSmooth` with `r = id`), so
-`d_V = d_X` by Proposition 2.24 (`proposition_2_24`, item V2_28); (iii) `φ : ↥V ≃ₜ ↥O` is a
+`d_V = d_X` by Proposition 2.24 (`proposition_2_4_4`, item V2_28); (iii) `φ : ↥V ≃ₜ ↥O` is a
 homeomorphism with `d_O ∘ φ = d_X = d_V`, and a homeomorphism respecting the degeneracy indices
 maps faces to faces (`faces_encard_homeomorph`), so the count of faces of `V` through `y` is the
 count of faces of `O` through `φ y`, which is `d_O(φ y) = d_X(y)`.  The global bound is
 `faces_encard_le`.
 
 `B → A`: `faces_encard_le` is B's global clause.  `IsTame.exists_chart` is the definition of
-tameness unpacked (proved directly).  The local clause of `proposition_2_42` is a statement about
+tameness unpacked (proved directly).  The local clause of `proposition_2_5_14` is a statement about
 the chart model `O`, not about `V`, and B's local clause (about `↥V`) does not give the chart; it
 is proved from other items' theorems: a tame chart (direct), `d_X = d_C ∘ φ`
 (`degIndex_eq_chartDegIndex_of_isTameRetract`, V2_42), `d_O = d_C`
-(`degIndex_toMPolyfold_of_isTameWith`, V2_42) and `O` face-structured (`corollary_2_41`, V2_47). -/
+(`degIndex_toMPolyfold_of_isTameWith`, V2_42) and `O` face-structured (`corollary_2_5_13`, V2_47). -/
 
 namespace RoundTrip.V2_48
 open Polyfold Set
 
 /-- The project's statement (universe `0`). -/
 def A : Prop :=
-  (type_of% @Polyfold.proposition_2_42.{0}) ∧ (type_of% @Polyfold.MPolyfold.faces_encard_le.{0}) ∧
+  (type_of% @Polyfold.proposition_2_5_14.{0}) ∧ (type_of% @Polyfold.MPolyfold.faces_encard_le.{0}) ∧
     (type_of% @Polyfold.MPolyfold.IsTame.exists_chart.{0})
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_2_42.{0}, @Polyfold.MPolyfold.faces_encard_le.{0},
+  ⟨@Polyfold.proposition_2_5_14.{0}, @Polyfold.MPolyfold.faces_encard_le.{0},
     @Polyfold.MPolyfold.IsTame.exists_chart.{0}⟩
 
 /-! ### Glue -/
@@ -130,7 +130,7 @@ theorem degIndex_subPolyfold_of_isOpen {V : Set X} (hVo : IsOpen V) [Paracompact
       fun z _ => ?_, fun x hx => ?_⟩
     · exact Subtype.ext (d.retractInto_val y (show z.1 ∈ d.V from z.2))
     · exact d.retractInto_val y (show x ∈ d.V from hx)
-  exact proposition_2_24 hdiff (mem_univ y)
+  exact proposition_2_4_4 hdiff (mem_univ y)
 
 end Glue
 
@@ -176,15 +176,15 @@ theorem B_to_A : B → A := by
   obtain ⟨n, W, T, hT⟩ := φ.model.isPartialQuadrant
   have hdX : ∀ y ∈ φ.source, P.degIndex y = Polyfold.degIndex φ.model.E φ.model.C (φ y) :=
     fun y hy => P.degIndex_eq_chartDegIndex_of_isTameRetract hφ ⟨R, hRO, hRt⟩ hy
-  refine ⟨φ, hφ, hx, hdX, fun y hy => ?_, fun hne => corollary_2_41 φ.model hne ⟨R, hRO, hRt⟩⟩
+  refine ⟨φ, hφ, hx, hdX, fun y hy => ?_, fun hne => corollary_2_5_13 φ.model hne ⟨R, hRO, hRt⟩⟩
   exact (φ.model.degIndex_toMPolyfold_of_isTameWith _ R hRO hT (hRt n W T hT) _).trans
     (hdX y hy).symm
 
-#rt_check RoundTrip.V2_48.A_to_B [Polyfold.proposition_2_42, Polyfold.MPolyfold.faces_encard_le,
+#rt_check RoundTrip.V2_48.A_to_B [Polyfold.proposition_2_5_14, Polyfold.MPolyfold.faces_encard_le,
   Polyfold.MPolyfold.IsTame.exists_chart]
-#rt_check RoundTrip.V2_48.B_to_A [Polyfold.proposition_2_42, Polyfold.MPolyfold.faces_encard_le,
+#rt_check RoundTrip.V2_48.B_to_A [Polyfold.proposition_2_5_14, Polyfold.MPolyfold.faces_encard_le,
   Polyfold.MPolyfold.IsTame.exists_chart]
-#rt_overlap RoundTrip.V2_48.B_to_A [Polyfold.proposition_2_42, Polyfold.MPolyfold.faces_encard_le,
+#rt_overlap RoundTrip.V2_48.B_to_A [Polyfold.proposition_2_5_14, Polyfold.MPolyfold.faces_encard_le,
   Polyfold.MPolyfold.IsTame.exists_chart]
 
 end RoundTrip.V2_48

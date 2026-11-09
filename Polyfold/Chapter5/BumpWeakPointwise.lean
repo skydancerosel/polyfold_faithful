@@ -2,22 +2,22 @@ import Polyfold.Chapter5.BumpFunctions
 import Polyfold.Chapter4.Recentre
 
 /-!
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definition 5.9,
-Definition 5.29 and Proposition 5.30 *(book 2017: Definitions 5.7, 5.13, Proposition 5.5; see
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definition 5.3.1 (preprint 5.9),
+Definition 5.5.2 (preprint 5.29) and Proposition 5.5.3 (preprint 5.30) *(book 2017: Definitions 5.7, 5.13, Proposition 5.5; see
 `BookConcordance.md`)*: **the weak reading of "admits sc-smooth bump functions" (`f` not identically
-zero, Definition 5.29 as written) against the pointwise reading (`f(x) ≠ 0`) that the proof of
-Proposition 5.30 uses** (Findings, Chapter 5, items 41 and 160–169; comparison items V5.16, V5.17,
+zero, Definition 5.5.2 (preprint 5.29) as written) against the pointwise reading (`f(x) ≠ 0`) that the proof of
+Proposition 5.5.3 (preprint 5.30) uses** (Findings, Chapter 5, items 41 and 160–169; comparison items V5.16, V5.17,
 V5.51).
 
 # Weak versus pointwise bump functions
 
 ## The text, paraphrased
 
-(Definition 5.9 = 5.29) `X` admits sc-smooth bump functions if for every `x` and open `U(x)` there
+(Definition 5.3.1 (preprint 5.9) = 5.29) `X` admits sc-smooth bump functions if for every `x` and open `U(x)` there
 is an sc-smooth `f : X → ℝ`, "`f ≠ 0`" (5.9) / "not identically zero" (5.29), with
-`supp(f) ⊆ U(x)`.  (Proposition 5.30) Then there is an sc-smooth `f` with `f(x) = 1` and
+`supp(f) ⊆ U(x)`.  (Proposition 5.5.3 (preprint 5.30)) Then there is an sc-smooth `f` with `f(x) = 1` and
 `supp(f) ⊆ U(x)`; its proof starts from a bump `g` with `g(x) = 1`, i.e. from the pointwise reading.
-(Before Definition 5.9) "This is, for example, the case if `X` is built on sc-Hilbert spaces".
+(Before Definition 5.3.1 (preprint 5.9)) "This is, for example, the case if `X` is built on sc-Hilbert spaces".
 
 ## What is formalized
 
@@ -32,7 +32,7 @@ is an sc-smooth `f : X → ℝ`, "`f ≠ 0`" (5.9) / "not identically zero" (5.2
 * **An sc-Banach space as an M-polyfold** (`scChart E`, the identity chart with the model
   `(E, E, E)`; `scPolyfold E`; `isChart_scChart`), and `isScSmoothMap_scPolyfold_iff`: a function
   `f : E → ℝ` is an sc-smooth function of the M-polyfold `E` iff it is sc-smooth on `univ`
-  (Definition 2.14 read in the identity chart).
+  (Definition 2.3.8 (preprint 2.14) read in the identity chart).
 * **On an sc-Banach space the weak reading gives bump points at all smooth points**
   (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`): for `x ∈ E_∞` and open `U ∋ x`, a bump
   `f` not identically zero with support in `B(x, ε/2)` is non-zero on an open set, which contains a
@@ -67,13 +67,13 @@ section BumpPoints
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (PX : MPolyfold X)
 
 /-- **A bump point** of the M-polyfold `X`: `x` such that for every open `U ∋ x` there is an
-sc-smooth `f : X → ℝ` with `f(x) ≠ 0` and `supp(f) ⊆ U` (the pointwise reading of Definition 5.9
+sc-smooth `f : X → ℝ` with `f(x) ≠ 0` and `supp(f) ⊆ U` (the pointwise reading of Definition 5.3.1 (preprint 5.9)
 at `x`). -/
 def MPolyfold.HasBumpAt (x : X) : Prop :=
   ∀ U : Set X, IsOpen U → x ∈ U →
     ∃ f : X → ℝ, PX.IsScSmoothMap realPolyfold f ∧ f x ≠ 0 ∧ tsupport f ⊆ U
 
-/-- The pointwise reading of Definition 5.9 (`AdmitsBumpFunctions`) says that every point is a bump
+/-- The pointwise reading of Definition 5.3.1 (preprint 5.9) (`AdmitsBumpFunctions`) says that every point is a bump
 point. -/
 theorem MPolyfold.admitsBumpFunctions_iff_forall_hasBumpAt :
     PX.AdmitsBumpFunctions ↔ ∀ x, PX.HasBumpAt x :=
@@ -82,7 +82,7 @@ theorem MPolyfold.admitsBumpFunctions_iff_forall_hasBumpAt :
 variable {PX}
 
 /-- **If the bump points are dense, `X` admits sc-smooth bump functions in the weak reading**
-(Definition 5.29 as written): a bump at a bump point `y ∈ U` is not identically zero and has support
+(Definition 5.5.2 (preprint 5.29) as written): a bump at a bump point `y ∈ U` is not identically zero and has support
 in `U`. -/
 theorem MPolyfold.admitsBumpFunctionsWeak_of_dense (h : Dense {x | PX.HasBumpAt x}) :
     PX.AdmitsBumpFunctionsWeak := by
@@ -152,7 +152,7 @@ lemma scChart_image_univ : scChart E '' univ = univ :=
 variable {E}
 
 /-- **Sc-smooth functions on the M-polyfold `E` are the sc-smooth maps `E → ℝ` on `univ`**
-(Definition 2.14 read in the identity chart, against Definition 1.14 for the constant structure on
+(Definition 2.3.8 (preprint 2.14) read in the identity chart, against Definition 1.1.15 (preprint 1.14) for the constant structure on
 `ℝ`). -/
 theorem isScSmoothMap_scPolyfold_iff {f : E 0 → ℝ} :
     (scPolyfold E).IsScSmoothMap realPolyfold f ↔ IsScSmooth (E := E) (F := realSc) univ f := by
@@ -171,8 +171,8 @@ theorem isScSmoothMap_scPolyfold_iff {f : E 0 → ℝ} :
 
 /-- **On an sc-Banach space the weak reading of "admits sc-smooth bump functions" gives bump points
 at all smooth points**: if for every point and neighbourhood there is an sc-smooth function not
-identically zero with support in the neighbourhood (Definition 5.29 as written), then every
-`x ∈ E_∞` is a bump point (the pointwise reading, which Proposition 5.30's proof uses).  Proof:
+identically zero with support in the neighbourhood (Definition 5.5.2 (preprint 5.29) as written), then every
+`x ∈ E_∞` is a bump point (the pointwise reading, which Proposition 5.5.3 (preprint 5.30)'s proof uses).  Proof:
 a bump `f` with support in `B(x, ε/2)` is non-zero on a non-empty open set, which contains a smooth
 point `y`; `a = y − x ∈ E_∞`, so `v ↦ f(v + a)` is sc-smooth, non-zero at `x`, with support in
 `B(x, ε)`.  At non-smooth points the question is open (Findings, Chapter 5, item 161). -/
@@ -210,7 +210,7 @@ theorem MPolyfold.AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth
       _ < ε / 2 + ε / 2 := add_lt_add h2 h3
       _ = ε := add_halves ε
 
-/-- The same, for every smooth point and every neighbourhood, in the form of Definition 5.9. -/
+/-- The same, for every smooth point and every neighbourhood, in the form of Definition 5.3.1 (preprint 5.9). -/
 theorem MPolyfold.AdmitsBumpFunctionsWeak.exists_bump_of_mem_smooth
     (hw : (scPolyfold E).AdmitsBumpFunctionsWeak) {x : E 0} (hx : x ∈ E.smooth) {U : Set (E 0)}
     (hU : IsOpen U) (hxU : x ∈ U) :

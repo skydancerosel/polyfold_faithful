@@ -109,7 +109,7 @@ The formalization, for $f$ with tame germ data (the reading of tameness of Chapt
 restriction of $P$ to the domain of a chart around $\varphi(t_0)$, where the text's
 sections need no cut-off, with the path on $\mathbb R$; the local reading of the index needs no bump functions, the global one
 does. *Checked by machine (V3.98, with Chapter 3):* `Polyfold.StrongBundle.IsIndexAt`,
-`Polyfold.proposition_6_2_local`, `Polyfold.proposition_6_2`.
+`Polyfold.proposition_6_2_2_local`, `Polyfold.proposition_6_2_2`.
 
 ## 2. Determinant lines and exact sequences (pp. 241–246 (preprint pp. 203–207))
 
@@ -136,7 +136,7 @@ text's matrix is the transpose of Mathlib's, with the same determinant. *Checked
 *Proof.* Take a basis $f_i$ of $F$ and $e_i = \Phi^{-1}f_i$; the dual basis of $E^*$ is $e_i^* = f_i^*\circ\Phi = \Phi^*f_i^*$. Then
 $(\lambda^*(\Phi)\iota(f_1^*\wedge\dots\wedge f_n^*))(e_1\wedge\dots\wedge e_n) = (f_1\wedge\dots\wedge f_n)^*(f_1\wedge\dots\wedge f_n) = 1$ and $\iota(\lambda(\Phi^*)(f_1^*\wedge\dots\wedge f_n^*))(e_1\wedge\dots\wedge e_n) = \iota(e_1^*\wedge\dots\wedge e_n^*)(e_1\wedge\dots\wedge e_n) = 1$.
 Two linear maps of lines that agree on a nonzero vector are equal. $\square$ *Checked by machine (V6.4):*
-`Polyfold.proposition_6_4`.
+`Polyfold.proposition_6_3_2`.
 
 **Four-term exact sequences.** Let $\mathcal E: 0\to A\xrightarrow{\alpha}B\xrightarrow{\beta}C\xrightarrow{\gamma}D\to0$ be exact, with $n = \dim A$, $m = \dim B$, $l = \dim D$. A *choice* consists of
 complements $Z$ of $\alpha(A)$ in $B$ and $V$ of $\beta(B)$ in $C$, bases $a_1,\dots,a_n$ of $A$ and $d_1,\dots,d_l$ of $D$, a basis $b'_1,\dots,b'_{m-n}$ of $Z$, and the
@@ -154,7 +154,7 @@ satisfies (91) for every choice.
 
 The proof is the text's Appendix 6.8.1 (preprint 6.7.1), given in §8. "Does not depend on the choices" is read in this strongest form,
 which every later evaluation of $\gamma^P_T$ uses, each with its own choices (Findings, item 1). *Checked by machine (V6.6):*
-`Polyfold.FourTermExact.lemma_6_5`.
+`Polyfold.FourTermExact.lemma_6_3_3`.
 
 **Proposition 6.3.5 (preprint 6.6)** *(book 2017: Proposition 6.3, p. 188).* Let $\bar\iota(v\otimes b\otimes\phi) = \phi(v)\,b$ on $\lambda(C)\otimes\lambda(B)\otimes\lambda^*(C)$ and
 $\Psi_{\mathcal E}(c\otimes h) = \bar\iota(c\otimes\Phi_{\mathcal E}(h))$, formula (92). In the notation of (91),
@@ -164,7 +164,7 @@ $$\Psi_{\mathcal E}\big((c_1\wedge\dots\wedge c_l\wedge c'_1\wedge\dots\wedge c'
 
 The statement in the text writes the wedge in $C$ as $c'_1\wedge\dots\wedge c'_l\wedge c_1\wedge\dots\wedge c_{m-n}$, exchanging the names of its two blocks; the order
 of (91) is meant (possible misprint) (Findings, item 2). *Checked by machine (V6.7):* `Polyfold.contractDual`,
-`Polyfold.FourTermExact.psi`, `Polyfold.FourTermExact.proposition_6_6`.
+`Polyfold.FourTermExact.psi`, `Polyfold.FourTermExact.proposition_6_3_5`.
 
 ## 3. The determinant of a Fredholm operator (pp. 244–258 (preprint pp. 207–214))
 
@@ -212,7 +212,7 @@ $P''\le P'$. Finally $\dim F/R''<\infty$ and $P''T = P''PT$, so $R(P''T) = P''(R
 $P''$ fixes $R''\subseteq R(P)$. $\square$
 
 In the example, $K = \mathbb R^2$ and $P'' = 0$, which is a good left-projection for $T = 1$. *Checked by machine (V6.11):*
-`Polyfold.lemma_6_10`, `Polyfold.lemma_6_10_text_reading`.
+`Polyfold.lemma_6_10_preprint`, `Polyfold.lemma_6_10_text_reading_preprint`.
 
 **Proposition 6.4.10 (preprint Lemma 6.11)** *(book 2017: Proposition 6.4, p. 192).* For $P\in\Pi_T$ the sequence
 $$E(T,P):\ 0\to\ker T\xrightarrow{j}\ker(PT)\xrightarrow{\Phi^P_T}F/R(P)\xrightarrow{\pi^P_T}\operatorname{coker}T\to0,$$
@@ -221,7 +221,7 @@ with the inclusion $j$, $\Phi^P_T(x) = Tx+R(P)$ and $\pi^P_T(y+R(P)) = (I-P)y+R(
 *Proof.* $\pi^P_T$ is well defined since $(I-P)$ vanishes on $R(P)$. $j$ is injective and $\Phi^P_Tj = 0$. If $\Phi^P_T(x) = 0$, then $Tx\in R(P)$, so $Tx = PTx = 0$.
 For $x\in\ker(PT)$, $\pi^P_T\Phi^P_T(x) = Tx-PTx+R(T) = R(T)$. If $\pi^P_T(y+R(P)) = 0$, say $(I-P)y = Tx$, then $PTx = P(I-P)y = 0$, so $x\in\ker(PT)$ and
 $\Phi^P_T(x) = (I-P)y+R(P) = y+R(P)$. Onto: given $f$, choose $x$ with $PTx = Pf$ (by $R(PT) = R(P)$); then $\pi^P_T(f-Tx+R(P)) = f-Pf-Tx+PTx+R(T) = f+R(T)$. $\square$
-*Checked by machine (V6.12):* `Polyfold.projSeqPhi`, `Polyfold.projSeqPi`, `Polyfold.lemma_6_11`, `Polyfold.projSeq`.
+*Checked by machine (V6.12):* `Polyfold.projSeqPhi`, `Polyfold.projSeqPi`, `Polyfold.proposition_6_4_10`, `Polyfold.projSeq`.
 
 **The isomorphisms $\gamma^P_T$.** Since $R(PT) = R(P)$, $F/R(P)$ is $\operatorname{coker}(PT)$, and $\Phi_{E(T,P)}$ is an isomorphism $\gamma^P_T:\det(T)\to\det(PT)$, given on
 wedges by (91) for any choice (Lemma 6.3.3 (preprint 6.5)). The text's "recalling $R(P) = R(PT)$" is read as this identification (Findings,
@@ -231,13 +231,13 @@ item 5). *Checked by machine (V6.13):* `Polyfold.gammaProj`, `Polyfold.gammaProj
 $\gamma^P_{QT}\circ\gamma^Q_T = \gamma^P_T$, up to the identification $\det(PQT) = \det(PT)$ of the equal operators $PQT = PT$.
 
 *Proof.* $QT$ is Fredholm by (b), and $R(P(QT)) = R(PT) = R(P)$ since $PQ = P$. The identity is the computation of the text's Appendix
-6.8.2 (preprint 6.7.2), given in §8. $\square$ *Checked by machine (V6.14):* `Polyfold.proposition_6_12`, `Polyfold.IsGoodLeftProj.of_projLE`,
+6.8.2 (preprint 6.7.2), given in §8. $\square$ *Checked by machine (V6.14):* `Polyfold.proposition_6_4_11`, `Polyfold.IsGoodLeftProj.of_projLE`,
 `Polyfold.comp_comp_eq_of_projLE`.
 
 **Corollary 6.4.12 (preprint 6.13)** *(book 2017: Corollary 6.1, p. 193).* If $P\le S$ and $P\le R$ in $\Pi_T$, then $(\gamma^P_{RT})^{-1}\circ\gamma^P_{ST} = \gamma^R_T\circ(\gamma^S_T)^{-1}$; in particular the
 left side does not depend on $P$.
 
-*Proof.* By Proposition 6.4.11 (preprint 6.12), $\gamma^P_{RT}\gamma^R_T = \gamma^P_T = \gamma^P_{ST}\gamma^S_T$; solve for $(\gamma^P_{RT})^{-1}\gamma^P_{ST}$. $\square$ *Checked by machine (V6.15):* `Polyfold.corollary_6_13`.
+*Proof.* By Proposition 6.4.11 (preprint 6.12), $\gamma^P_{RT}\gamma^R_T = \gamma^P_T = \gamma^P_{ST}\gamma^S_T$; solve for $(\gamma^P_{RT})^{-1}\gamma^P_{ST}$. $\square$ *Checked by machine (V6.15):* `Polyfold.corollary_6_4_12`.
 
 **Stabilization.** For $\varphi:\mathbb R^n\to F$ linear with $T_\varphi(e,r) = Te+\varphi(r)$ onto, consider
 $$0\to\ker T\xrightarrow{j}\ker T_\varphi\xrightarrow{\pi}\mathbb R^n\xrightarrow{[\varphi]}F/R(T)\to0,\qquad j(e) = (e,0),\ \pi(e,r) = r,\ [\varphi](r) = \varphi(r)+R(T).$$
@@ -248,7 +248,7 @@ $\mathbb R^n$ is written after $E$, in keeping with the conventions of (91), and
 *Proof.* $j$ is injective with $\pi j = 0$; if $\pi(e,r) = r = 0$, then $Te = 0$ and $(e,r) = j(e)$ (the text writes "$j(e) = (0,e)$", a possible misprint
 (Findings, item 8)). For $(e,r)\in\ker T_\varphi$, $\varphi(r) = -Te\in R(T)$, so $[\varphi]\pi = 0$; if $[\varphi](r) = 0$, then $\varphi(r) = T(-e)$ for some $e$, and $(e,r)\in\ker T_\varphi$ with
 $\pi(e,r) = r$. $[\varphi]$ is onto because $T_\varphi$ is. A stabilization: send the standard basis to representatives of a basis of $\operatorname{coker}T$. $\square$
-*Checked by machine (V6.16):* `Polyfold.stabJ`, `Polyfold.stabPi`, `Polyfold.stabClass`, `Polyfold.lemma_6_14`,
+*Checked by machine (V6.16):* `Polyfold.stabJ`, `Polyfold.stabPi`, `Polyfold.stabClass`, `Polyfold.lemma_6_4_14`,
 `Polyfold.stabSeq`, `Polyfold.exists_surjective_coprod`.
 
 **Formula (94).** $\psi:\lambda^*(\mathbb R^n)\to\lambda^*(\{0\}) = \mathbb R^*$ sends $(e_1\wedge\dots\wedge e_n)^*$, for the standard basis, to $1^*$; for every basis,
@@ -269,13 +269,13 @@ The identity $m+l = n$, which the formula needs, is proved to hold always, and s
 which the text notices; the statement calls $\psi$ "$\varphi$" (possible misprint) (Findings, item 9). The identification (95) and the
 maps $V\otimes\lambda(\mathbb R^n)\to V$, $V\otimes\lambda^*(\mathbb R^n)\to V$ after the proposition are not formalized; only (94) is used (gap G.58; Findings, item 10).
 *Checked by machine (V6.18):* `Polyfold.stabIota`, `Polyfold.stabIota_bijective`, `Polyfold.stab_card_eq`,
-`Polyfold.isCompl_range_stabPi_span`, `Polyfold.proposition_6_15`.
+`Polyfold.isCompl_range_stabPi_span`, `Polyfold.proposition_6_4_15`.
 
 **Definition 6.4.16 (preprint 6.16)** *(book 2017: Definition 6.7, p. 200).* $T\oplus S:E\times E'\to F\times F'$ is Fredholm, with $\ker(T\oplus S)\cong\ker T\times\ker S$ and
 $\operatorname{coker}(T\oplus S)\cong\operatorname{coker}T\times\operatorname{coker}S$, and $\det(T)\otimes\det(S)\to\det(T\oplus S)$ sends $h\otimes h'$, $h = a\otimes d^*$, $h' = a'\otimes d'^*$, to $(a\wedge a')\otimes(d\wedge d')^*$. A change
 of the bases multiplies both sides by the same factor, so the map is well defined; "natural" is read as this formula for
 every choice of bases, as in Lemma 6.3.3 (preprint 6.5) (Findings, item 11). *Checked by machine (V6.19):* `Polyfold.kerProdEquiv`,
-`Polyfold.cokerProdEquiv`, `Polyfold.isFredholm_prodMap`, `Polyfold.directSumDet`, `Polyfold.definition_6_16`,
+`Polyfold.cokerProdEquiv`, `Polyfold.isFredholm_prodMap`, `Polyfold.directSumDet`, `Polyfold.definition_6_4_16`,
 `Polyfold.directSumDet_bijective`.
 
 ## 4. The determinant bundle (pp. 258–263 (preprint pp. 214–219))
@@ -293,7 +293,7 @@ holds for small $\varepsilon$. Then $R(PS)\supseteq PS(Y) = R(P)$, and $R(PS)\su
 
 The hypothesis that $T$ is Fredholm is not used; a topological complement is an algebraic complement with a continuous
 projection (Findings, item 20). *Checked by machine (V6.20):* `Polyfold.FredholmOp`, `Polyfold.projRestrict`,
-`Polyfold.lemma_6_17`.
+`Polyfold.lemma_6_5_1`.
 
 **Lemma 6.5.2 (preprint 6.18)** *(book 2017: Lemma 6.8, p. 201).* With $E = \ker(PT)\oplus Y$, $e = k+y$, put $y(k,S) = -(PS|_Y)^{-1}PSk$. Then $(k,S)\mapsto y(k,S)$ is
 continuous, and $(S,k)\mapsto(S,k+y(k,S))$ maps $\{\|S-T\|<\varepsilon\}\times\ker(PT)$ continuously and bijectively onto $\bigcup_{\|S-T\|<\varepsilon}\{S\}\times\ker(PS)$, with
@@ -305,7 +305,7 @@ restriction of a continuous projection. $\square$
 "Is a trivial vector bundle" is stated as this trivialization with its inverse (Findings, item 21). A *local determinant
 chart* is the data $(T,P,Y,\varepsilon)$ of Lemma 6.5.1 (preprint 6.17) with its conclusions. *Checked by machine (V6.21):*
 `Polyfold.LocalDetChart`, `Polyfold.LocalDetChart.ySol`, `Polyfold.LocalDetChart.kerMap`,
-`Polyfold.LocalDetChart.kerProj`, `Polyfold.LocalDetChart.lemma_6_18`.
+`Polyfold.LocalDetChart.kerProj`, `Polyfold.LocalDetChart.lemma_6_5_2`.
 
 **Lemma 6.5.3 (preprint 6.19) and Proposition 6.5.4 (preprint 6.20)** *(book 2017: Lemma 6.9, Proposition 6.8, p. 202).* Lemma 6.5.3 (preprint 6.19) says that exterior powers,
 duals, sums and tensor products of finite-dimensional topological vector bundles are topological vector bundles; it is
@@ -317,7 +317,7 @@ is a nowhere-zero frame (the $k_i(S)$ are a basis of $\ker(PS)$ by Lemma 6.5.2 (
 are related by a matrix whose entries are continuous (coordinates along a continuous projection), so the frames differ
 by its determinant, a continuous nowhere-zero factor; "in a natural way" is read as this relation (Findings, item 22).
 *Checked by machine (V6.22):* `Polyfold.LocalDetChart.kerFrame`, `Polyfold.LocalDetChart.frame`,
-`Polyfold.LocalDetChart.frame_ne_zero`, `Polyfold.proposition_6_20`.
+`Polyfold.LocalDetChart.frame_ne_zero`, `Polyfold.proposition_6_5_4`.
 
 **Lemma 6.5.5 (preprint 6.21)** *(book 2017: Lemma 6.10, p. 202).* For $Q\le P$, $\gamma^Q_{PS}$ maps the $P$-frame at $S$ to a continuous nowhere-zero multiple of
 the $Q$-frame, on the common ball of any two local determinant charts with the projections $P$ and $Q$.
@@ -330,7 +330,7 @@ for the $P$-frame is a wedge of continuous vectors, and its coordinate in the $Q
 nonzero functions. $\square$
 
 The lemma is stated for two charts with different centres and radii, the form Lemma 6.5.9 (preprint 6.25) uses (Findings, item 23).
-*Checked by machine (V6.23):* `Polyfold.LocalDetChart.gammaProj_frame_eq`, `Polyfold.lemma_6_21`.
+*Checked by machine (V6.23):* `Polyfold.LocalDetChart.gammaProj_frame_eq`, `Polyfold.lemma_6_5_5`.
 
 **The bundle $\mathrm{DET}(E,F)$.** Its fibre over a Fredholm $S$ is $\det(S)$. A local determinant chart gives the map
 $$\gamma_{(T,P,\varepsilon)}:(S,h)\mapsto\big(S,\ \omega(S)^*(\gamma^P_Sh)\big),$$
@@ -347,7 +347,7 @@ projection $Q$ around $S_0$. By Corollary 6.4.12 (preprint 6.13) for the operato
 multiplications by continuous nowhere-zero functions near $S_0$. $\square$
 
 This is the text's proof; it is where the common lower bound of Lemma 6.10 (preprint) is needed. *Checked by machine (V6.28):*
-`Polyfold.lemma_6_25`, `Polyfold.lemma_6_25_local`.
+`Polyfold.lemma_6_5_9`, `Polyfold.lemma_6_5_9_local`.
 
 **Definition 6.5.6 (preprint 6.22), Propositions 6.5.7 and 6.5.8 (preprint 6.23 and 6.24)** *(book 2017: Definition 6.8, Propositions 6.9, 6.10, p. 204).* $\mathcal B$ is the
 collection of subsets of $\mathrm{DET}(E,F)$ lying over the ball of some chart whose image under it is open in $\text{ball}\times\mathbb R$.
@@ -360,8 +360,8 @@ property. The topology generated is the one for which each chart is a homeomorph
 the charts trivializations. $\square$
 
 $\mathrm{DET}(E,F)$ is built as a Mathlib vector prebundle, whose topology and bundle structure are those of the text.
-*Checked by machine (V6.24–V6.27):* `Polyfold.detPrebundle`, `Polyfold.detBasis`, `Polyfold.proposition_6_23`,
-`Polyfold.proposition_6_24`.
+*Checked by machine (V6.24–V6.27):* `Polyfold.detPrebundle`, `Polyfold.detBasis`, `Polyfold.proposition_6_5_7`,
+`Polyfold.proposition_6_5_8`.
 
 **Example 6.B (the determinant line over $L(\mathbb R,\mathbb R)$).** Let $E = F = \mathbb R$, so the Fredholm operators are the numbers $a$. Take the chart
 centred at $T = 0$: $\Pi_0 = \{0\}$, since $R(P\cdot0) = R(P)$ forces $P = 0$; then $\ker(PS) = \mathbb R$, $Y = 0$, $F/R(P) = \mathbb R$, and the frame is $\omega(S) = 1\otimes1^*$ for all $S$,
@@ -401,7 +401,7 @@ criterion (Findings, item 25). *Checked by machine (V6.29):* `Polyfold.IsLineOri
 $\mathrm{DET}(E,F)|_C$ is a topological line bundle with exactly two orientations; in particular $\mathrm{DET}(f,x) = \bigcup_{L\in\mathrm{Lin}(f,x)}\{L\}\times\det(L)$ has two.
 
 *Proof.* Restrict the trivializations of Proposition 6.5.8 (preprint 6.24) and apply Lemma 6.C; $\mathrm{Lin}(f,x)$ is convex and nonempty (Lemma 6.A). $\square$
-*Checked by machine (V6.30):* `Polyfold.fredholmIncl`, `Polyfold.DetOn`, `Polyfold.proposition_6_26`.
+*Checked by machine (V6.30):* `Polyfold.fredholmIncl`, `Polyfold.DetOn`, `Polyfold.proposition_6_6_1`.
 
 **Definition 6.6.2 (preprint 6.27)** *(book 2017: Definition 6.9, p. 205).* An orientation of $(f,x)$ is one of the two orientations of $\mathrm{DET}(f,x)$; $\mathrm{Or}^f_x$
 is the set of both. HWZ consider the category $\mathcal O_f$ with objects $\mathrm{Or}^f_x = \{o_x,-o_x\}$ and, for points in one path component, the two
@@ -444,7 +444,7 @@ The text works in a chart "assuming $X = U$"; the sections here are global, (3) 
 needs it for homotopies, and the smoothness of $x$ is not used (Findings, item 46). *Checked by machine (V6.32):*
 `Polyfold.IsScHomotopyRel`, `Polyfold.exists_contDiff_eq_id_near_Icc_mapsTo`, `Polyfold.exists_nhds_isCompact_zeros`,
 `Polyfold.exists_isScPlusSection_pullback_of_family`, `Polyfold.hasScPlusSectionsThrough_pullback_rn_of_bump`,
-`Polyfold.proposition_6_28`, `Polyfold.MPolyfold.paracompactSpace_prod`, `Polyfold.paracompactSpace_pullbackSpace`.
+`Polyfold.proposition_6_6_3`, `Polyfold.MPolyfold.paracompactSpace_prod`, `Polyfold.paracompactSpace_pullbackSpace`.
 
 **The parametrized section.** For a family $\Phi$ (a path, or a homotopy) and $S$ as in (3), and sc$^+$-sections $s_1,\dots,s_k$ of $\pi^*P$, put
 $$F(\lambda,(q,y)) = f(y)+S(q,y)+\textstyle\sum_{i=1}^k\lambda_is_i(q,y)$$
@@ -462,7 +462,7 @@ many of these open sets and take all their sections. $\square$
 The text states the property (P), that each slice $F_t$ is in general position at $(\varphi(t),0)$, and derives from it the general
 position of $F$ at the points $(t,\varphi(t),0)$, which is what Lemmas 6.6.5 and 6.6.6 (preprint 6.30 and 6.31) use; the conclusion is formalized, (P) itself is not
 (gap G.63; Findings, item 47). *Checked by machine (V6.33):* `Polyfold.isZeroAt_paramSection_zero`,
-`Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact`, `Polyfold.lemma_6_29`.
+`Polyfold.exists_sections_isGeneralPositionGerm_of_isCompact`, `Polyfold.lemma_6_6_4`.
 
 **Lemma 6.6.5 (preprint 6.30)** *(book 2017: Lemma 6.13, p. 207).* The text: the solution set of $F$ near the points $(t,\varphi(t),0)$ is a manifold with
 boundary with corners, $\pi:(t,y,\lambda)\mapsto t$ is a submersion on it, and the tangent spaces $L_t$ of the slices form a smooth vector bundle $L$
@@ -504,7 +504,7 @@ is exact.
 *Proof.* It is the stabilization sequence of $T$ and $\varphi$, exact by Lemma 6.4.14 (preprint 6.14) once $T\oplus\varphi$ is onto. The text has $c$ onto by (P). Here:
 $F$ is in general position at $(0,(q,x))$ (Lemma 6.6.4 (preprint 6.29)), so every $y\in K_z$ is $Tv+\varphi(\lambda)+D_q\sigma$. Differentiating $(f+S)(q,\Phi(q)) = 0$ in $q$ gives
 $T(D\Phi(q)\sigma)+D_q\sigma = 0$, so $D_q\sigma\in R(T)$: the derivative of the family of zeros absorbs the $\mathbb R^n$-directions, and $y\in R(T)+\varphi(\mathbb R^k)$. $\square$
-*Checked by machine (V6.38):* `Polyfold.lemma_6_31`.
+*Checked by machine (V6.38):* `Polyfold.lemma_6_6_6`.
 
 **The push-forward of the text** (pp. 265–269 (preprint pp. 223–224)). From (96), $\Phi_{E_t}:\det(T_t)\to\lambda(L_t)\otimes\lambda^*(\mathbb R^k)$, and with (94), $\det(T_t)\cong\lambda(L_t)$. An orientation $o_0$ of
 $\mathrm{DET}(f,\varphi(0))$ orients $\det(T_0)$, hence $\lambda(L_0)$; continuation along $L$ orients $\lambda(L_1)$; and $\Phi_{E_1}^{-1}$ orients $\det(T_1)$, hence gives $o_1 = \varphi_*o_0$ in
@@ -600,7 +600,7 @@ the edges. $\square$
 
 "Does not depend on the choices" is read as the agreement of any two data; the text first adds sections to both sides,
 then uses Lemma 6.6.10 (preprint 6.34) (Findings, item 52). *Checked by machine (V6.44):* `Polyfold.IsStabKernels.push_eq_of_prefix`,
-`Polyfold.isZeroAt_sectionAdd_combo`, `Polyfold.linAt_principal_combo`, `Polyfold.proposition_6_32`.
+`Polyfold.isZeroAt_sectionAdd_combo`, `Polyfold.linAt_principal_combo`, `Polyfold.proposition_6_6_7`.
 
 **Theorem 6.6.11 (preprint 6.35)** *(book 2017: Theorem 6.1, p. 212).* Every smooth point $x$ has an open $U\ni x$ and a chart $c$ such that push-forwards exist
 along the sc-smooth paths in $U$ and depend only on their end points.
@@ -615,7 +615,7 @@ and $(\tau,t)\mapsto\Phi(\tau,\kappa(t))$ from $\gamma_0\circ\kappa$ to $\gamma_
 
 The statement does not introduce $f$, here an sc-Fredholm section with tame germ data, and asks $U$ to be sc-smoothly
 contractible, which is not shown (gap G.61); the proof uses (1′) (Findings, item 53). *Checked by machine (V6.48):*
-`Polyfold.push_eq_of_homotopy`, `Polyfold.HasLocalPropagation`, `Polyfold.theorem_6_35`.
+`Polyfold.push_eq_of_homotopy`, `Polyfold.HasLocalPropagation`, `Polyfold.theorem_6_6_11`.
 
 **Paths in a chart.** For an open $U$ in a chart domain and $x\in U$ there is an open $V\ni x$ in $U$ whose smooth points are pairwise
 joined by sc-smooth paths in $U$ (images of segments under $r$). The concatenation of $\gamma_1$ and $\gamma_2$ is $\gamma_1(\kappa(3s))$ for $s\le1/2$ and $\gamma_2(\kappa(3s-2))$
@@ -720,7 +720,7 @@ fibre points make every $\mathrm{Or}^f_x$ two-element; bump functions give them 
 `Polyfold.IsPropagationNbhd`, `Polyfold.orPush`, `Polyfold.orPush_compat`, `Polyfold.IsStarPropertyOn`,
 `Polyfold.IsStarProperty`, `Polyfold.orFunctorMap`, `Polyfold.orFunctorMap_id`, `Polyfold.orFunctorMap_comp`,
 `Polyfold.orFunctor`, `Polyfold.orFunctorMap_isStarProperty`, `Polyfold.orFunctorMap_unique_of_cover`,
-`Polyfold.orFunctorMap_unique`, `Polyfold.theorem_6_37`.
+`Polyfold.orFunctorMap_unique`, `Polyfold.theorem_6_6_13_hyp`.
 
 **Definition 6.6.14 (preprint 6.38)** *(book 2017: Definition 6.11, p. 213).* $f$ is *orientable* if, for any two smooth points $x$, $y$ joined by an sc-smooth
 path, $\Gamma_f([\varphi])$ does not depend on the morphism $[\varphi]:x\to y$.
@@ -774,11 +774,11 @@ orientation of the kernel line bundle. $\square$
 a chart, and "the local prolongation of the orientation on $S$ is the Fredholm one" as the identity of continuation and
 push-forward along such paths (Findings, items 90, 91). Not formalized: an orientation of $S$ as an abstract manifold (gap
 G.67) and the compatibility of the tangent orientations read in two charts at one point (gap G.68) (Findings, item 92).
-*Checked by machine (V6.61):* `Polyfold.theorem_6_41_solutionSet`, `Polyfold.tangentSpace_solutionSet_eq_linKer`,
+*Checked by machine (V6.61):* `Polyfold.theorem_6_6_18_solutionSet`, `Polyfold.tangentSpace_solutionSet_eq_linKer`,
 `Polyfold.ChartPoint.linZero_mem_linSet`, `Polyfold.ChartPoint.linZero_surjective`, `Polyfold.ChartPoint.tangentOr`,
 `Polyfold.stabSign_of_surjective`, `Polyfold.isStabKernels_zero`, `Polyfold.IsStabKernels.orRay_eq_tangentOr`,
 `Polyfold.tangentFamily`, `Polyfold.cont_tangentOr`, `Polyfold.isLineOrientation_tangentOr`,
-`Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation`, `Polyfold.theorem_6_41`.
+`Polyfold.isLineOrientation_tangentOr_of_isSectionOrientation`, `Polyfold.theorem_6_6_18_hyp`.
 
 The paragraph after the theorem treats a non-generic $f$: a small sc$^+$-perturbation $s$ supported near $S_f$ makes $S_{f+s}$ a manifold,
 oriented from $o$ because $\det((f+s)'(x))$ is oriented by $\mathrm{DET}(f,x)$, $\mathrm{Lin}(f+s,x) = \mathrm{Lin}(f,x)$. It is not formalized (gap G.69; Findings,
@@ -964,7 +964,7 @@ is continuous in $P$, equals $1$ at $P_0$, and satisfies $J(P)P_0 = PJ(P)$; so f
 Then $R(P) = JR(P_0)$, and Lemma 6.5.1 (preprint 6.17) for $J^{-1}T$, which is near $T_0$, gives $R(PT) = JR(P_0J^{-1}T) = JR(P_0) = R(P)$. The
 index equalities come from the openness of the Fredholm operators of a given index and §3.
 
-*Checked by machine:* `Polyfold.projIntertwiner`, `Polyfold.projIntertwiner_mul`, `Polyfold.lemma_6_4_4_2021`.
+*Checked by machine:* `Polyfold.projIntertwiner`, `Polyfold.projIntertwiner_mul`, `Polyfold.lemma_6_4_4`.
 
 **Proposition 6.4.13** *(book 2017: Proposition 6.6, p. 195).* Let $T$ be Fredholm and $P,Q\in\Pi_T$ with $R(P) = R(Q) = H$ (the 2021 text
 makes the existence of such projections a hypothesis). The text's maps
@@ -976,7 +976,7 @@ algebraically: if neither space contains the other, pick $a\in K_2\setminus K_1$
 on $\dim(K_1+K_2)-\dim K_1$ applies to $K_i+\mathbb R(a+b)$. The text takes $X$ closed; with a closed $X$ its last sentence, that $A_T$ and $B_T$
 depend continuously on $T$, is formalized too (next paragraph; gap G.81, closed).
 
-*Checked by machine:* `Polyfold.exists_isCompl_isCompl_of_finrank_eq`, `Polyfold.proposition_6_4_13_2021`.
+*Checked by machine:* `Polyfold.exists_isCompl_isCompl_of_finrank_eq`, `Polyfold.proposition_6_4_13`.
 
 **Proposition 6.4.13, the last sentence.** A closed common complement exists: with the algebraic $X_0$ above and a closed
 complement $Z$ of the finite-dimensional $K_1+K_2$,
@@ -991,14 +991,14 @@ continuously" as this continuity of the extensions to $E$ and $F$; the joint con
 $\bigcup_S\{S\}\times\ker(PS)$ of Remark 6.4.5 (Findings, items 116, 117).
 
 *Checked by machine:* `Polyfold.exists_isClosed_isTopCompl_isTopCompl_of_finrank_eq`, `Polyfold.solveOp`, `Polyfold.kerTransition`,
-`Polyfold.cokerTransition`, `Polyfold.continuousAt_solveOp`, `Polyfold.diagram_of_solveOp`, `Polyfold.proposition_6_4_13_continuity_2021`.
+`Polyfold.cokerTransition`, `Polyfold.continuousAt_solveOp`, `Polyfold.diagram_of_solveOp`, `Polyfold.proposition_6_4_13_continuity`.
 
 **Lemma 6.6.9** *(new in the 2021 edition as a separate lemma; preprint Lemma 6.33, 2017: Lemma 6.15).* Adding sc$^+$-sections
 $\sum\mu_j\bar s_j(y,t)$ to a section with property (P) does not change the propagation of orientation. It is the statement of preprint
 Lemma 6.33, which §5 calls Lemma 6.6.8. The 2021 Lemma 6.6.8 is the first step of the earlier proof: new parameters $\mu$ that
 enter as dummy variables change nothing. Both are §5's identity of push-forwards, Lemma 6.6.8 for $\bar s_j = 0$.
 
-*Checked by machine:* `Polyfold.lemma_6_6_8_2021`, `Polyfold.lemma_6_6_9_2021`.
+*Checked by machine:* `Polyfold.lemma_6_6_8`, `Polyfold.lemma_6_6_9`.
 
 **Theorem 6.6.17** *(new in the 2021 edition, p. 275).* The orientation space
 $$O_f = \{(x,o) : x\in X_\infty,\ o \text{ an orientation of } \mathrm{DET}(f,x)\},\qquad \pi_f(x,o) = x,$$
@@ -1027,7 +1027,7 @@ orientation bundle, orientability as a global continuous section, the $\mathbb Z
 *Checked by machine:* `Polyfold.OrSpace`, `Polyfold.IsOrientationTopology`, `Polyfold.orTopology`, `Polyfold.isLocalHomeomorph_orProj`,
 `Polyfold.t2Space_orTopology`, `Polyfold.isPropagationContinuous_orTopology`, `Polyfold.eq_orTopology_of`,
 `Polyfold.hasTwoContSections_orTopology`, `Polyfold.MPolyfold.HasConnectedSmoothNbhds`,
-`Polyfold.existsUnique_orientationTopology_2021`, `Polyfold.theorem_6_6_17_2021`.
+`Polyfold.existsUnique_orientationTopology`, `Polyfold.theorem_6_6_17_hyp`.
 
 *Other 2021 changes.* Proposition 6.4.15 (preprint 6.15) now states its hypotheses $T$ Fredholm and $T\oplus\varphi$ onto, which §3 already
 uses; Proposition 6.6.3 (preprint 6.28) assumes $X$ tame and lets the sections take values in $Y\times[0,1]$, while §5 proves it without

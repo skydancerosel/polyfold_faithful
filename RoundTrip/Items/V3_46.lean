@@ -4,11 +4,11 @@ import RoundTrip.Blind.V3_46
 
 /-!
 Round trip for V3_46 (Proposition 3.52), refreshed 2026-11-02 against HEAD (germ reading).
-`A` is the conjunction of the types of the listed theorems `Polyfold.proposition_3_52_index`,
-`Polyfold.proposition_3_52_local_index`, `Polyfold.ConjugationData.scDeriv_isFredholm_index`,
-`Polyfold.ConjugationData.index_eq`, `Polyfold.proposition_3_52`, `Polyfold.proposition_3_52_local`,
-`Polyfold.isFredholm_equiv_comp_equiv`, `Polyfold.proposition_3_10_basic_level_zero`,
-`Polyfold.proposition_3_52_sc`, `Polyfold.proposition_3_52_local_sc`,
+`A` is the conjunction of the types of the listed theorems `Polyfold.proposition_3_6_5_index`,
+`Polyfold.proposition_3_6_5_local_index`, `Polyfold.ConjugationData.scDeriv_isFredholm_index`,
+`Polyfold.ConjugationData.index_eq`, `Polyfold.proposition_3_6_5_preprint`, `Polyfold.proposition_3_6_5_local`,
+`Polyfold.isFredholm_equiv_comp_equiv`, `Polyfold.proposition_3_1_10_basic_level_zero`,
+`Polyfold.proposition_3_6_5_sc`, `Polyfold.proposition_3_6_5_local_sc`,
 `Polyfold.ConjugationData.scDeriv_isScFredholm` and `Polyfold.StrongBundle.linAt_isScFredholm`,
 universes instantiated at `0`.  (`ConjugationData` is vocabulary.)
 
@@ -23,10 +23,10 @@ universes instantiated at `0`.  (`ConjugationData` is vocabulary.)
   (whole-chart filled version, sc-smooth `s` on `U`, tame chart) are germ data in the germ reading
   (`IsFilledVersion.isFillingGerm`, `IsScSmooth.isScSmoothGerm`, `IsTameChart.isChart`).
 * `B → A` is not proved: B assumes a tame strong bundle and a tame sc-Fredholm section, whereas
-  A's `proposition_3_52(_index,_sc)` need only an sc-Fredholm germ at `x₀` in an arbitrary bundle
+  A's `proposition_3_6_5_preprint(_index,_sc)` need only an sc-Fredholm germ at `x₀` in an arbitrary bundle
   (and state the Fredholm property of `Dg(0)` on all of `E` for the filling); the remaining
-  conjuncts are local lemmas (`proposition_3_52_local(_index,_sc)`, `ConjugationData.*`,
-  `isFredholm_equiv_comp_equiv`, `proposition_3_10_basic_level_zero`) about which B says nothing.
+  conjuncts are local lemmas (`proposition_3_6_5_local(_index,_sc)`, `ConjugationData.*`,
+  `isFredholm_equiv_comp_equiv`, `proposition_3_1_10_basic_level_zero`) about which B says nothing.
 -/
 
 namespace RoundTrip.V3_46
@@ -34,25 +34,25 @@ open Polyfold StrongRetr
 
 /-- The project's statement: the theorems listed for Proposition 3.52, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.proposition_3_52_index.{0, 0} ∧
-    type_of% @Polyfold.proposition_3_52_local_index ∧
+  type_of% @Polyfold.proposition_3_6_5_index.{0, 0} ∧
+    type_of% @Polyfold.proposition_3_6_5_local_index ∧
     type_of% @Polyfold.ConjugationData.scDeriv_isFredholm_index ∧
     type_of% @Polyfold.ConjugationData.index_eq ∧
-    type_of% @Polyfold.proposition_3_52.{0, 0} ∧
-    type_of% @Polyfold.proposition_3_52_local ∧
+    type_of% @Polyfold.proposition_3_6_5_preprint.{0, 0} ∧
+    type_of% @Polyfold.proposition_3_6_5_local ∧
     type_of% @Polyfold.isFredholm_equiv_comp_equiv.{0, 0, 0, 0} ∧
-    type_of% @Polyfold.proposition_3_10_basic_level_zero ∧
-    type_of% @Polyfold.proposition_3_52_sc.{0, 0} ∧
-    type_of% @Polyfold.proposition_3_52_local_sc ∧
+    type_of% @Polyfold.proposition_3_1_10_basic_level_zero ∧
+    type_of% @Polyfold.proposition_3_6_5_sc.{0, 0} ∧
+    type_of% @Polyfold.proposition_3_6_5_local_sc ∧
     type_of% @Polyfold.ConjugationData.scDeriv_isScFredholm ∧
     type_of% @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0}
 
 theorem A_holds : A :=
-  ⟨@Polyfold.proposition_3_52_index.{0, 0}, @Polyfold.proposition_3_52_local_index,
+  ⟨@Polyfold.proposition_3_6_5_index.{0, 0}, @Polyfold.proposition_3_6_5_local_index,
     @Polyfold.ConjugationData.scDeriv_isFredholm_index, @Polyfold.ConjugationData.index_eq,
-    @Polyfold.proposition_3_52.{0, 0}, @Polyfold.proposition_3_52_local,
-    @Polyfold.isFredholm_equiv_comp_equiv.{0, 0, 0, 0}, @Polyfold.proposition_3_10_basic_level_zero,
-    @Polyfold.proposition_3_52_sc.{0, 0}, @Polyfold.proposition_3_52_local_sc,
+    @Polyfold.proposition_3_6_5_preprint.{0, 0}, @Polyfold.proposition_3_6_5_local,
+    @Polyfold.isFredholm_equiv_comp_equiv.{0, 0, 0, 0}, @Polyfold.proposition_3_1_10_basic_level_zero,
+    @Polyfold.proposition_3_6_5_sc.{0, 0}, @Polyfold.proposition_3_6_5_local_sc,
     @Polyfold.ConjugationData.scDeriv_isScFredholm, @Polyfold.StrongBundle.linAt_isScFredholm.{0, 0}⟩
 
 section Glue
@@ -118,11 +118,11 @@ theorem A_to_B : A → B := by
     have := chartLin_of f x c hxV _ (hz c hxV) (hzU c hxV) hD hT hK hTK hsc
     rwa [hind] at this
 
-#rt_check RoundTrip.V3_46.A_to_B [Polyfold.proposition_3_52_index, Polyfold.proposition_3_52_local_index,
+#rt_check RoundTrip.V3_46.A_to_B [Polyfold.proposition_3_6_5_index, Polyfold.proposition_3_6_5_local_index,
   Polyfold.ConjugationData.scDeriv_isFredholm_index, Polyfold.ConjugationData.index_eq,
-  Polyfold.proposition_3_52, Polyfold.proposition_3_52_local, Polyfold.isFredholm_equiv_comp_equiv,
-  Polyfold.proposition_3_10_basic_level_zero, Polyfold.proposition_3_52_sc,
-  Polyfold.proposition_3_52_local_sc, Polyfold.ConjugationData.scDeriv_isScFredholm,
+  Polyfold.proposition_3_6_5_preprint, Polyfold.proposition_3_6_5_local, Polyfold.isFredholm_equiv_comp_equiv,
+  Polyfold.proposition_3_1_10_basic_level_zero, Polyfold.proposition_3_6_5_sc,
+  Polyfold.proposition_3_6_5_local_sc, Polyfold.ConjugationData.scDeriv_isScFredholm,
   Polyfold.StrongBundle.linAt_isScFredholm]
 
 end RoundTrip.V3_46

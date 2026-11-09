@@ -3,8 +3,8 @@ import Polyfold.Chapter6.DetBundle
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 223–226: the continuity statements used in the proofs of Lemmas 6.30, 6.33, 6.34 and
-Theorem 6.35 ("as `τ` varies, the bundle varies continuously"; "the data in the occurring exact
+pp. 223–226: the continuity statements used in the proofs of Lemmas 6.6.5, 6.6.8, 6.6.10 (preprint 6.30, 6.33, 6.34) and
+Theorem 6.6.11 (preprint 6.35) ("as `τ` varies, the bundle varies continuously"; "the data in the occurring exact
 sequence … vary continuously"; "the operators for `t = 0, 1` in `DET(∗)` change continuously in
 `τ`") *(book 2017: §6.5; see `BookConcordance.md`)*.
 
@@ -12,7 +12,7 @@ sequence … vary continuously"; "the operators for `t = 0, 1` in `DET(∗)` cha
 
 ## The text, paraphrased
 
-In the proofs of Lemmas 6.33–6.34 and Theorem 6.35 the end-point operators `T_τ` in `DET(f, x)`
+In the proofs of Lemmas 6.33–6.34 and Theorem 6.6.11 (preprint 6.35) the end-point operators `T_τ` in `DET(f, x)`
 and the stabilizing maps vary continuously with a parameter `τ`; then the bundles of kernels vary
 continuously, and the orientations they receive from `DET(f, x)` through the isomorphisms
 `Φ_{E_τ}` vary continuously, so that a continuation argument applies.
@@ -25,7 +25,7 @@ continuously, and the orientations they receive from `DET(f, x)` through the iso
   continuous family of linear maps, injective on the subspaces, form one; `isLineOrientation_map`:
   orientations are carried along.
 * `SubspaceFamily.exists_inf_ker`: cutting a continuous family by the kernel of a fixed
-  `ℓ : W → ℝᵐ` onto on every member gives one (the text's `L_t = T S ∩ {dt = 0}`, Lemma 6.30).
+  `ℓ : W → ℝᵐ` onto on every member gives one (the text's `L_t = T S ∩ {dt = 0}`, Lemma 6.6.5 (preprint 6.30)).
 * `isLineOrientation_stabRay`: for a continuous orientation `o` of `DET` over a set `C` of Fredholm
   operators, a norm-continuous family `T_q ∈ C` and a continuous stabilization `φ_q` with
   `T_q ⊕ φ_q` onto, the sign-normalized rays `α(T_q) Φ(o(T_q))` of `λ(ker(T_q ⊕ φ_q))`, with
@@ -84,7 +84,7 @@ theorem isGoodLeftProj_id_of_surjective {A : V →L[ℝ] F} (hs : Function.Surje
     exact (LinearMap.range_eq_top.2 fun y => ⟨y, rfl⟩).symm
 
 /-- **Local frames of the kernels** of a family of surjective Fredholm operators continuous on an
-open set (Lemma 6.18 with `P = 1`): near `x₀` the vectors `kᵢ + y(kᵢ, A x)`, for a basis `kᵢ` of
+open set (Lemma 6.5.2 (preprint 6.18) with `P = 1`): near `x₀` the vectors `kᵢ + y(kᵢ, A x)`, for a basis `kᵢ` of
 `ker A x₀`, are continuous, lie in `ker A x` and are independent, and
 `dim ker A x = dim ker A x₀`. -/
 theorem exists_kerFrame {X : Type*} [TopologicalSpace X] {A : X → V →L[ℝ] F} {U : Set X}
@@ -114,7 +114,7 @@ theorem exists_kerFrame {X : Type*} [TopologicalSpace X] {A : X → V →L[ℝ] 
   · exact (c.continuousOn_kerMap_apply _).comp (hA.mono inter_subset_left) fun x hx => hx.2
   · have hS : ‖A x - c.T‖ < c.ε := hx.2
     refine ⟨fun i => ?_, ?_, ?_⟩
-    · have h := (c.lemma_6_18).2.1 (A x) hS _ (b (Fin.cast hn i)).2
+    · have h := (c.lemma_6_5_2).2.1 (A x) hS _ (b (Fin.cast hn i)).2
       rw [hker] at h
       exact h
     · have h1 : LinearIndependent ℝ (c.kerEquiv (A x) hS ∘ b) :=
@@ -124,7 +124,7 @@ theorem exists_kerFrame {X : Type*} [TopologicalSpace X] {A : X → V →L[ℝ] 
 
 /-- **The kernels of a continuous family of surjective Fredholm operators** over a connected base
 form a continuous family of subspaces (near `q₀`, `ker A_q` is the graph over `ker A_{q₀}` of
-Lemma 6.18 with `P = 1`). -/
+Lemma 6.5.2 (preprint 6.18) with `P = 1`). -/
 theorem exists_subspaceFamily_ker [PreconnectedSpace Q] [Nonempty Q] (A : Q → V →L[ℝ] F)
     (hA : Continuous A) (hF : ∀ q, (A q).IsFredholm) (hs : ∀ q, Function.Surjective (A q)) :
     ∃ Λ : SubspaceFamily Q V, ∀ q, Λ.L q = LinearMap.ker (A q : V →ₗ[ℝ] F) := by
@@ -240,7 +240,7 @@ theorem isLineOrientation_map (J : Q → W →L[ℝ] W') (hJ : Continuous fun p 
       (congrArg (Module.Ray.map (maxPowEquiv (e q))) hoq).trans (Module.Ray.map_apply _ _ _)⟩
 
 /-- **Cutting a continuous family by the kernel of a fixed map onto `ℝᵐ`** on every member: the
-text's `L_t = T_{(t, φ(t), 0)} S ∩ {dt = 0}` (Lemma 6.30). -/
+text's `L_t = T_{(t, φ(t), 0)} S ∩ {dt = 0}` (Lemma 6.6.5 (preprint 6.30)). -/
 theorem exists_inf_ker {m : ℕ} (ℓ : W →L[ℝ] (Fin m → ℝ))
     (hℓ : ∀ q, (Λ.L q).map (ℓ : W →ₗ[ℝ] Fin m → ℝ) = ⊤) :
     ∃ Λ' : SubspaceFamily Q W, ∀ q, Λ'.L q = Λ.L q ⊓ LinearMap.ker (ℓ : W →ₗ[ℝ] Fin m → ℝ) := by
@@ -800,7 +800,7 @@ theorem neg_one_pow_stab (m l j : ℕ) :
   rw [he, pow_add _ ((l + m) * j + l * m) (2 * r), pow_mul, neg_one_sq, one_pow, mul_one]
 
 /-- **The comparison on adapted vectors** (the computation behind `coord_stabIota`): for the
-vectors of Proposition 6.15 and of `gammaProj_wedge_tmul`, the two chart coordinates differ by
+vectors of Proposition 6.4.15 (preprint 6.15) and of `gammaProj_wedge_tmul`, the two chart coordinates differ by
 `(−1)^{k dim F/R(P) + dim coker S} D(S, ψ)`. -/
 theorem coord_stabIota_aux (c : LocalDetChart E F) (c' : LocalDetChart (E × (Fin k → ℝ)) F)
     (hP : c'.P = c.P) (hK : finrank ℝ c'.K = finrank ℝ c.K + k) (t : Fin k → c'.K)
@@ -877,7 +877,7 @@ theorem coord_stabIota_aux (c : LocalDetChart E F) (c' : LocalDetChart (E × (Fi
   have hx₀ : (wedge a hn ⊗ₜ dualVec (wedge (stabClass S ψ ∘ cbar) hm) : fredholmDet S) ≠ 0 :=
     tmul_ne_zero_of_ne_zero (wedge_basis_ne_zero' a hn)
       (dualVec_ne_zero finrank_maxPow ((wedge_ne_zero_iff hm).2 hd))
-  have hprop := proposition_6_15 hSF hψ a cbar hd hm bbar hbbar hkl hml
+  have hprop := proposition_6_4_15 hSF hψ a cbar hd hm bbar hbbar hkl hml
   have hcdet : (Pi.basisFun ℝ (Fin k)).det
       (Fin.append cbar (fun i => ((bbar i : E × (Fin k → ℝ))).2) ∘ Fin.cast hml.symm) ≠ 0 := by
     intro h0
@@ -967,7 +967,7 @@ theorem coord_stabIota (c : LocalDetChart E F) (c' : LocalDetChart (E × (Fin k 
   obtain ⟨l, bbar, hbbar, hkl⟩ := exists_linearIndependent_append (stabJ S ψ) stabJ_injective
     (Module.finBasis ℝ (LinearMap.ker (S : E →ₗ[ℝ] F))).linearIndependent rfl
   have hml := stab_card_eq hSF hψ rfl hkl
-  obtain ⟨j, b, hb, hj⟩ := exists_linearIndependent_append (projSeqJ S c.P) (lemma_6_11 hPS).1
+  obtain ⟨j, b, hb, hj⟩ := exists_linearIndependent_append (projSeqJ S c.P) (proposition_6_4_10 hPS).1
     (Module.finBasis ℝ (LinearMap.ker (S : E →ₗ[ℝ] F))).linearIndependent rfl
   have hidx := finrank_ker_comp_add hSF hPS
   have hjm : finrank ℝ (F ⧸ LinearMap.range (S : E →ₗ[ℝ] F)) + j =
@@ -1080,7 +1080,7 @@ theorem exists_frame_coord_eq {V : Type*} [NormedAddCommGroup V] [NormedSpace �
         (c.continuousOn_kerMap_apply _).comp hAc.continuousOn fun q hq => hq
       mem := fun q hq i => by
         rw [hΛ q, ← hker]
-        exact (c.lemma_6_18).2.1 (A q) hq _ (b (Fin.cast hn i)).2
+        exact (c.lemma_6_5_2).2.1 (A q) hq _ (b (Fin.cast hn i)).2
       linearIndependent := fun q hq => by
         have h1 : LinearIndependent ℝ (c.kerEquiv (A q) hq ∘ b) :=
           b.linearIndependent.map' _ (c.kerEquiv (A q) hq).ker
@@ -1092,7 +1092,7 @@ theorem exists_frame_coord_eq {V : Type*} [NormedAddCommGroup V] [NormedSpace �
   have hn' := hdim q hS
   let a : Fin (finrank ℝ (LinearMap.ker (A q : V →ₗ[ℝ] F))) → LinearMap.ker (A q : V →ₗ[ℝ] F) :=
     fun i => ⟨c.kerMap (A q) (b (Fin.cast hn' i)), by
-      have h := (c.lemma_6_18).2.1 (A q) hS _ (b (Fin.cast hn' i)).2
+      have h := (c.lemma_6_5_2).2.1 (A q) hS _ (b (Fin.cast hn' i)).2
       rwa [hker] at h⟩
   have ha : LinearIndependent ℝ a := LinearIndependent.of_comp (LinearMap.ker _).subtype
     ((ε.linearIndependent q hq).comp (Fin.cast (hn'.trans hn.symm)) (Fin.cast_injective _))
@@ -1107,7 +1107,7 @@ theorem exists_frame_coord_eq {V : Type*} [NormedAddCommGroup V] [NormedSpace �
   have hb : LinearIndependent ℝ (Fin.append (projSeqJ (A q) c.P ∘ a)
       (Fin.elim0 : Fin 0 → LinearMap.ker ((c.P ∘L A q : V →L[ℝ] F) : V →ₗ[ℝ] F))) := by
     rw [Fin.append_elim0]
-    exact (ha.map' _ (LinearMap.ker_eq_bot.2 (lemma_6_11 hPq).1)).comp _ (Fin.cast_injective _)
+    exact (ha.map' _ (LinearMap.ker_eq_bot.2 (proposition_6_4_10 hPq).1)).comp _ (Fin.cast_injective _)
   have htop : LinearMap.range ((c.P : F →L[ℝ] F) : F →ₗ[ℝ] F) = ⊤ := by
     rw [hcP]
     exact LinearMap.range_eq_top.2 fun y => ⟨y, rfl⟩
@@ -1124,7 +1124,7 @@ theorem exists_frame_coord_eq {V : Type*} [NormedAddCommGroup V] [NormedSpace �
       ⇑((Module.finBasis ℝ c.K).reindex (finCongr hn'.symm)) := by
     funext i
     rw [Fin.append_elim0, Basis.reindex_apply]
-    exact (c.lemma_6_18).2.2.2 (A q) _
+    exact (c.lemma_6_5_2).2.2.2 (A q) _
   have : IsEmpty (Fin (0 + 0)) := ⟨fun i => Fin.elim0 i⟩
   rw [hf, Basis.det_self, Basis.det_isEmpty, AlternatingMap.constOfIsEmpty_apply,
     Function.const_apply, inv_one, mul_one] at hc0
@@ -1269,7 +1269,7 @@ theorem continuousOn_stab_coord (c : LocalDetChart E F)
   · exact (continuousOn_stabD c c' hK t hTc hφc).mono fun q hq =>
       ⟨hq.2.1, hq.2.2.1, hq.2.2.2.2⟩
   · exact (continuousOn_coord_of_section_comp hσ c hTc hTC).mono fun q hq => ⟨hq.1, hq.2.1⟩
-  · exact (lemma_6_25 c' c'').1.comp hAc'.continuousOn fun q hq => ⟨hq.2.2.1, hq.2.2.2.1⟩
+  · exact (lemma_6_5_9 c' c'').1.comp hAc'.continuousOn fun q hq => ⟨hq.2.2.1, hq.2.2.2.1⟩
 
 /-- **The local step of the orientation of stabilized rays**: from charts `c` at `T q₀`,
 `c'` (same `P`) and `c''` (with `P = 1`) at `T q₀ ⊕ φ q₀`, a local section `σ` of `o` and the
@@ -1344,7 +1344,7 @@ theorem stabRay_local {C : Set (E →L[ℝ] F)} {hC : ∀ T ∈ C, T.IsFredholm}
     exact mul_ne_zero (pow_ne_zero _ (by norm_num)) (mul_ne_zero
       (stabD_ne_zero c c' hPP hK t h1 h2 h4) (mul_ne_zero
         (c.coord_ne_zero_of_ne_zero (S := ⟨T q, hTF q⟩) h1 hne)
-        ((lemma_6_25 c' c'').2 _ ⟨h2, h3⟩)))
+        ((lemma_6_5_9 c' c'').2 _ ⟨h2, h3⟩)))
   refine ⟨U, hU, σ', fun q hq => ?_, fun q hq => ?_⟩
   · have hq'' : q ∈ ε''.U := by
       rw [hε''U]
@@ -1418,7 +1418,7 @@ theorem isLineOrientation_stabRay {C : Set (E →L[ℝ] F)} {hC : ∀ T ∈ C, T
       funext j
       rw [show (c'.kerMap ((T q₀).coprod (φ q₀)) (t j) : E × (Fin k → ℝ)) =
         (L (Pi.basisFun ℝ (Fin k) j) : E × (Fin k → ℝ)) from
-          (c'.lemma_6_18).2.2.1 _ hq₀c' _ (L _).2]
+          (c'.lemma_6_5_2).2.2.1 _ hq₀c' _ (L _).2]
       exact LinearMap.congr_fun hL _
     rw [h, Basis.det_self]
     exact one_ne_zero
@@ -1437,7 +1437,7 @@ The rays `q ↦ Φ(o(T_q))` without the sign `(−1)^{dim coker T_q}` need not f
 `Λ_q = ker(T_q ⊕ φ)` with the frame `(1, −f(q))`, `C` the ball of the chart of `DET` at `0` with
 `P = 0`, and `o` the orientation of that chart's section `S ↦ (γ^0_S)⁻¹ ω(S)`.
 
-In the frame, `Φ(o(T_q))` is the ray of `−(D₂(1)/D₁)` for `q ≠ 0` (Proposition 6.15 with
+In the frame, `Φ(o(T_q))` is the ray of `−(D₂(1)/D₁)` for `q ≠ 0` (Proposition 6.4.15 (preprint 6.15) with
 `c̄, a` empty, `det(r) = −f(q)`) and of `+(D₂(1)/D₁)` at `q = 0` (`c̄ = (1)`, `b̄` empty):
 the sign jumps where `dim coker T_q` jumps from `1` to `0`.
 -/
@@ -1784,7 +1784,7 @@ theorem wedge_append_nil {W : Type*} [AddCommGroup W] [Module ℝ W] {l : ℕ} (
 
 set_option maxHeartbeats 400000 in
 -- The final `rfl` compares two instance paths to `λ(ker(T_q ⊕ φ))`.
-/-- The stabilization at `q ≠ 0` (Proposition 6.15 with `a`, `c̄` empty and `b̄ = (1, −f(q))`):
+/-- The stabilization at `q ≠ 0` (Proposition 6.4.15 (preprint 6.15) with `a`, `c̄` empty and `b̄ = (1, −f(q))`):
 `det(T_q ⊕ φ) ≅ λ(ker)` sends `ι_φ(1 ⊗ 1*)` to `(−f(q))⁻¹ (1, −f(q))`. -/
 theorem stab_xNe {q : ℝ} (hq : q ≠ 0) :
     detEquivOfSurjective (hφ q) (stabIota (hC _ (T_mem q)) (hφ q) (xNe hq)) =
@@ -1793,7 +1793,7 @@ theorem stab_xNe {q : ℝ} (hq : q ≠ 0) :
     rw [Fin.append_left_nil _ _ rfl]
     exact (linearIndependent_unique_iff.2 fun h => kv_ne_zero q (congrArg Subtype.val h)).comp _
       (Fin.cast_injective _)
-  have h615 := proposition_6_15 (hC _ (T_mem q)) (hφ q) (aNe hq)
+  have h615 := proposition_6_4_15 (hC _ (T_mem q)) (hφ q) (aNe hq)
     (Fin.elim0 : Fin 0 → Fin 1 → ℝ) linearIndependent_empty_type (finrank_coker_T_ne hq).symm
     (kvK q) hb (by rw [zero_add]; exact (Λ.finrank_eq q).symm) (zero_add 1)
   unfold xNe
@@ -1877,7 +1877,7 @@ theorem stabJ_a0 : ⇑(stabJ (T 0) φ) ∘ ⇑a0 = kvK 0 := by
 
 set_option maxHeartbeats 400000 in
 -- The final `rfl` compares two instance paths to `λ(ker(T_0 ⊕ φ))`.
-/-- The stabilization at `q = 0` (Proposition 6.15 with `a = (1)`, `c̄ = (1)`, `b̄` empty). -/
+/-- The stabilization at `q = 0` (Proposition 6.4.15 (preprint 6.15) with `a = (1)`, `c̄ = (1)`, `b̄` empty). -/
 theorem stab_x0 :
     detEquivOfSurjective (hφ 0) (stabIota (hC _ (T_mem 0)) (hφ 0) x0) =
       (1 : ℝ) • (wedge (kvK 0) (Λ.finrank_eq 0).symm : maxPow (KS 0)) := by
@@ -1885,7 +1885,7 @@ theorem stab_x0 :
     rw [Fin.append_right_nil _ _ rfl, stabJ_a0]
     exact (linearIndependent_unique_iff.2 fun h => kv_ne_zero 0 (congrArg Subtype.val h)).comp _
       (Fin.cast_injective _)
-  have h615 := proposition_6_15 (hC _ (T_mem 0)) (hφ 0) a0 cbar0 linearIndependent_d0
+  have h615 := proposition_6_4_15 (hC _ (T_mem 0)) (hφ 0) a0 cbar0 linearIndependent_d0
     finrank_coker_T_zero.symm (Fin.elim0 : Fin 0 → KS 0) hb
     (by rw [add_zero]; exact (Λ.finrank_eq 0).symm) (add_zero 1)
   unfold x0

@@ -10,14 +10,14 @@ noncomputable section
 namespace RoundTrip.V3_58
 open Polyfold
 
-/-- The project's statement: `theorem_3_72` (for `C^j`, `j ≥ 1`), `surjective_of_image_eq`,
+/-- The project's statement: `theorem_3_8_15` (for `C^j`, `j ≥ 1`), `surjective_of_image_eq`,
 `degIndex_map_eq`, `degIndex_eq_zero_iff` (no universe parameters; `V : Type`). -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_72 ∧ type_of% @Polyfold.surjective_of_image_eq ∧
+  type_of% @Polyfold.theorem_3_8_15 ∧ type_of% @Polyfold.surjective_of_image_eq ∧
     type_of% @Polyfold.degIndex_map_eq ∧ type_of% @Polyfold.degIndex_eq_zero_iff
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_72, @Polyfold.surjective_of_image_eq, @Polyfold.degIndex_map_eq,
+  ⟨@Polyfold.theorem_3_8_15, @Polyfold.surjective_of_image_eq, @Polyfold.degIndex_map_eq,
     @Polyfold.degIndex_eq_zero_iff⟩
 
 /-- A relatively open subset of a partial quadrant of a finite-dimensional space is a set of
@@ -94,7 +94,7 @@ lemma contDiffOn_infty_inv {Rn : Type} [NormedAddCommGroup Rn] [NormedSpace ℝ 
         exact ((hg.differentiableOn (by simp)) y hy).hasFDerivWithinAt
   exact contDiffOn_infty.2 key
 
-/-- A ⇒ B, from the conjunct `theorem_3_72` with `j = 1`; the `C¹` inverse is then `C^∞` by the
+/-- A ⇒ B, from the conjunct `theorem_3_8_15` with `j = 1`; the `C¹` inverse is then `C^∞` by the
 bootstrap `contDiffOn_infty_inv` (the project's theorem gives, for each `j`, possibly different
 neighbourhoods, so the `C^∞` statement is not read off directly). -/
 theorem A_to_B : A → B := by
@@ -109,7 +109,7 @@ theorem A_to_B : A → B := by
   exact contDiffOn_infty_inv (uniqueDiffOn_of_relOpen hC hU'rel) (uniqueDiffOn_of_relOpen hC hV'rel)
     hfU' hg hmaps hgf fun y hy => hfg y hy
 
-#rt_check RoundTrip.V3_58.A_to_B [Polyfold.theorem_3_72, Polyfold.surjective_of_image_eq,
+#rt_check RoundTrip.V3_58.A_to_B [Polyfold.theorem_3_8_15, Polyfold.surjective_of_image_eq,
   Polyfold.degIndex_map_eq, Polyfold.degIndex_eq_zero_iff]
 
 end RoundTrip.V3_58

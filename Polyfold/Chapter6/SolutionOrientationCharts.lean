@@ -37,7 +37,7 @@ gives `S_{f+s}` an orientation coming from `o^f`, since `det((f + s)'(x))` is or
   `ChartPoint.pertTangentOr` (`g = f + s`), `tangentOr_orSectionAdd` (it is the tangent
   orientation of `f + s` for the inherited orientation), `tangentOrOf_orTransfer`,
   `pertTangentOr_orTransfer` and `pertTangentOrAt_toChartOr` (it does not depend on the chart
-  either).  With Theorem 5.3.10 (2021; preprint Theorem 5.18, `theorem_5_18`), whose
+  either).  With Theorem 5.3.10 (2021; preprint Theorem 5.18, `theorem_5_3_10_param`), whose
   perturbations `s_λ` give `SolutionSetInGeneralPosition (f + s_λ)` and hence `(f + s_λ)'(x)`
   onto at every `x ∈ S_{f+s_λ}`, every `o ∈ Or_x^f` orients every `T_xS_{f+s_λ}` chart
   independently.
@@ -52,7 +52,7 @@ gives `S_{f+s}` an orientation coming from `o^f`, since `det((f + s)'(x))` is or
   `o_f`"): closed at each point (`linSet_sectionAdd`, `orSectionAdd`, `tangentOr_orSectionAdd`,
   `pertTangentOrAt_toChartOr`).  **Not closed**: that the inherited orientations
   `y ↦ orSectionAdd(o_y)` form an orientation of `f + s` in the sense of Definition 6.6.16
-  (`IsSectionOrientation`), which is what `theorem_6_41` needs to give their continuity along
+  (`IsSectionOrientation`), which is what `theorem_6_6_18_hyp` needs to give their continuity along
   paths of zeros of `f + s`.  It needs push-forward data for `(f + s, S)` to be read as data for
   `(f, S + s̃)` (`IsStabKernels`, `IsPush`) through the identification `orSectionAdd`.
 
@@ -331,7 +331,7 @@ theorem linSet_sectionAdd (hf : IsSection P f) {s : X → Y} (hs : B.IsScPlusSec
 /-- **`f + s` inherits the orientations of `f`**: `Or_x^f ≃ Or_x^{f+s}`, the orientations of
 `DET` over the same set `Lin(f + s, x) = Lin(f, x)`. -/
 def orSectionAdd (hf : B.IsScFredholmSection f) {s : X → Y} (hs : B.IsScPlusSection s) :
-    p.Or f hf ≃ p.Or (sectionAdd P f s) (theorem_3_15 hf hs) :=
+    p.Or f hf ≃ p.Or (sectionAdd P f s) (theorem_3_1_18_preprint hf hs) :=
   LineOrientation.congrDetOn (p.linSet_sectionAdd hf.isScSmooth.1 hs).symm _ _
 
 /-- `orSectionAdd` does not change the values. -/
@@ -344,8 +344,8 @@ theorem orSectionAdd_apply (hf : B.IsScFredholmSection f) {s : X → Y}
 /-- At a zero `x` of `f + s`, `(f + s)'(x) ∈ Lin(f, x)`. -/
 theorem linZero_mem_linSet_of_sectionAdd (hf : B.IsScFredholmSection f) {s : X → Y}
     (hs : B.IsScPlusSection s) (hx : IsZeroAt P (sectionAdd P f s) x) :
-    p.linZero (theorem_3_15 hf hs) hx ∈ p.linSet f :=
-  p.linSet_sectionAdd hf.isScSmooth.1 hs ▸ p.linZero_mem_linSet (theorem_3_15 hf hs) hx
+    p.linZero (theorem_3_1_18_preprint hf hs) hx ∈ p.linSet f :=
+  p.linSet_sectionAdd hf.isScSmooth.1 hs ▸ p.linZero_mem_linSet (theorem_3_1_18_preprint hf hs) hx
 
 /-- **The orientation of `T_xS_{f+s}` coming from `DET(f, x)`** (the last paragraph of the proof
 of Theorem 6.6.18): at a zero `x` of `f + s` with `(f + s)'(x)` onto, `o ↦ o((f + s)'(x))` read
@@ -353,25 +353,25 @@ in `λ(ker (f + s)'(x))`. -/
 def pertTangentOr (hf : B.IsScFredholmSection f) {s : X → Y} (hs : B.IsScPlusSection s)
     (hx : IsZeroAt P (sectionAdd P f s) x) (hL : B.IsLinSurjAt (sectionAdd P f s) x) :
     p.Or f hf ≃ Module.Ray ℝ (maxPow (p.c.linKer (sectionAdd P f s) p.z)) :=
-  p.tangentOrOf hf (theorem_3_15 hf hs) hx hL (p.linZero_mem_linSet_of_sectionAdd hf hs hx)
+  p.tangentOrOf hf (theorem_3_1_18_preprint hf hs) hx hL (p.linZero_mem_linSet_of_sectionAdd hf hs hx)
 
 /-- **`pertTangentOr` is the tangent orientation of `f + s`** for the inherited orientation
 `orSectionAdd o`. -/
 theorem tangentOr_orSectionAdd (hf : B.IsScFredholmSection f) {s : X → Y}
     (hs : B.IsScPlusSection s) (hx : IsZeroAt P (sectionAdd P f s) x)
     (hL : B.IsLinSurjAt (sectionAdd P f s) x) (o : p.Or f hf) :
-    p.tangentOr (theorem_3_15 hf hs) hx hL (p.orSectionAdd hf hs o) =
+    p.tangentOr (theorem_3_1_18_preprint hf hs) hx hL (p.orSectionAdd hf hs o) =
       p.pertTangentOr hf hs hx hL o :=
-  congrArg (surjRay (p.linZero_surjective (theorem_3_15 hf hs) hx hL) p.T.subtypeL
-    Subtype.val_injective (p.map_ker_linZero (theorem_3_15 hf hs) hx))
-    (p.orSectionAdd_apply hf hs o (p.linZero_mem_linSet (theorem_3_15 hf hs) hx))
+  congrArg (surjRay (p.linZero_surjective (theorem_3_1_18_preprint hf hs) hx hL) p.T.subtypeL
+    Subtype.val_injective (p.map_ker_linZero (theorem_3_1_18_preprint hf hs) hx))
+    (p.orSectionAdd_apply hf hs o (p.linZero_mem_linSet (theorem_3_1_18_preprint hf hs) hx))
 
 /-- **`pertTangentOr` does not depend on the chart point** (`tangentOrOf_orTransfer`). -/
 theorem pertTangentOr_orTransfer (hf : B.IsScFredholmSection f) {s : X → Y}
     (hs : B.IsScPlusSection s) (hx : IsZeroAt P (sectionAdd P f s) x)
     (hL : B.IsLinSurjAt (sectionAdd P f s) x) (hxs : x ∈ PX.smoothSet) (o : p.Or f hf) :
     p'.pertTangentOr hf hs hx hL (p.orTransfer p' hf hxs o) =
-      Module.Ray.map (maxPowEquiv (p.tangentKerEquiv p' (theorem_3_15 hf hs) hx))
+      Module.Ray.map (maxPowEquiv (p.tangentKerEquiv p' (theorem_3_1_18_preprint hf hs) hx))
         (p.pertTangentOr hf hs hx hL o) :=
   p.tangentOrOf_orTransfer p' hf _ hx hL _ _ hxs o
 
@@ -411,7 +411,7 @@ theorem pertTangentOrAt_toChartOr (hf : B.IsScFredholmSection f) {s : X → Y}
     (hxc : x ∈ c.φ.source) (hxc' : x ∈ c'.φ.source) :
     (chartPtOf c' hc' hxc' hs).pertTangentOr hf hsp hx0 hL (toChartOr hf hs c' hc' hxc' o) =
       Module.Ray.map (maxPowEquiv ((chartPtOf c hc hxc hs).tangentKerEquiv
-          (chartPtOf c' hc' hxc' hs) (theorem_3_15 hf hsp) hx0))
+          (chartPtOf c' hc' hxc' hs) (theorem_3_1_18_preprint hf hsp) hx0))
         ((chartPtOf c hc hxc hs).pertTangentOr hf hsp hx0 hL (toChartOr hf hs c hc hxc o)) := by
   rw [toChartOr_eq_orTransfer hf hs o hc hc' hxc hxc']
   exact (chartPtOf c hc hxc hs).pertTangentOr_orTransfer _ hf hsp hx0 hL hs _

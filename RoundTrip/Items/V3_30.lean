@@ -4,14 +4,14 @@ import RoundTrip.Blind.V3_30
 
 /-!
 Round trip for V3_30 (Theorem 3.33).  `A` is the conjunction of the types of
-`Polyfold.theorem_3_33`, `Polyfold.theorem_3_33_smooth` and
-`Polyfold.theorem_3_33_of_isSc0ContractionGerm` (no universe parameters).
+`Polyfold.theorem_3_3_6`, `Polyfold.theorem_3_3_6_smooth` and
+`Polyfold.theorem_3_3_6_of_isSc0ContractionGerm` (no universe parameters).
 
 Glue for `A → B`:
 * B's partial quadrant is quadrant-like (`IsPartialQuadrant.isQuadrantLike`).
 * B assumes `f = w − B(a, w)` of class sc^k, A assumes `B` of class sc^k: `B = pr₂ − f`, via
   pairing and the sc-operator `(u, v) ↦ u − v`.
-* A's `theorem_3_33` for the working form `h.toContractionGerm` of the contraction germ gives
+* A's `theorem_3_3_6` for the working form `h.toContractionGerm` of the contraction germ gives
   `δ_A = sol` of class sc^k on `germ s`.  B's arbitrary solution germ `δ` agrees with `δ_A` near `0`
   by uniqueness of fixed points in `O 0` (`ContractionGerm.eq_sol`, continuity of `δ` and
   `δ(0) = 0`), so `δ` is sc^k on `V' = V ∩ germ s ∩ {δ ∈ O 0}`.
@@ -22,12 +22,12 @@ open Polyfold
 
 /-- The project's statement: Theorem 3.33 in its three forms. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_33 ∧ type_of% @Polyfold.theorem_3_33_smooth ∧
-    type_of% @Polyfold.theorem_3_33_of_isSc0ContractionGerm
+  type_of% @Polyfold.theorem_3_3_6 ∧ type_of% @Polyfold.theorem_3_3_6_smooth ∧
+    type_of% @Polyfold.theorem_3_3_6_of_isSc0ContractionGerm
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_33, @Polyfold.theorem_3_33_smooth,
-    @Polyfold.theorem_3_33_of_isSc0ContractionGerm⟩
+  ⟨@Polyfold.theorem_3_3_6, @Polyfold.theorem_3_3_6_smooth,
+    @Polyfold.theorem_3_3_6_of_isSc0ContractionGerm⟩
 
 section Glue
 
@@ -101,7 +101,7 @@ theorem A_to_B : A → B := by
     exact (sub_eq_zero.1 this).symm
   exact (𝒞.eq_sol haN hO hfix).symm
 
-#rt_check RoundTrip.V3_30.A_to_B [Polyfold.theorem_3_33, Polyfold.theorem_3_33_smooth,
-  Polyfold.theorem_3_33_of_isSc0ContractionGerm]
+#rt_check RoundTrip.V3_30.A_to_B [Polyfold.theorem_3_3_6, Polyfold.theorem_3_3_6_smooth,
+  Polyfold.theorem_3_3_6_of_isSc0ContractionGerm]
 
 end RoundTrip.V3_30

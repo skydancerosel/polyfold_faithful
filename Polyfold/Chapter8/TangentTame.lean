@@ -2,25 +2,25 @@ import Polyfold.Chapter8.TangentEp
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8, §8.1: **Lemma 8.8** (p. 263) and the tameness clauses of **Theorem 8.1** (p. 258) and
-**Theorem 8.3** (p. 266).  There is no 2014 preprint of Part II; numbers and pages are the 2017
+Chapter 8, §8.1: **Lemma 8.1.9 (2017: 8.8)** (p. 364 (2017 p. 263)) and the tameness clauses of **Theorem 8.1.1 (2017: 8.1)** (p. 359 (2017 p. 258)) and
+**Theorem 8.1.12 (2017: 8.3)** (p. 366 (2017 p. 266)).  There is no 2014 preprint of Part II; numbers and pages are the 2017
 text's.  Part I items carry their 2017 numbers, with the preprint number of the Lean name in
-brackets: Definition 2.3 [2.5] (the tangent `(TO, TC, TE)` of a retract, `LocalModel.tangent`,
-`ScRetraction.tangentRetraction`), Definition 2.11 [2.18] (`MPolyfold.TangentSpace`,
-`MPolyfold.tangentPolyfold`), Definition 2.17 [2.34] (`ScRetraction.IsTame`, `IsTameRetract`),
-Definition 2.19 [2.37] (`MPolyfold.IsTame`).  The ep-groupoid `TX` and the functor `T : EP → EP`
+brackets: Definition 2.1.12 (2017: 2.3) [2.5] (the tangent `(TO, TC, TE)` of a retract, `LocalModel.tangent`,
+`ScRetraction.tangentRetraction`), Definition 2.3.14 (2017: 2.11) [2.18] (`MPolyfold.TangentSpace`,
+`MPolyfold.tangentPolyfold`), Definition 2.5.2 (2017: 2.17) [2.34] (`ScRetraction.IsTame`, `IsTameRetract`),
+Definition 2.5.7 (2017: 2.19) [2.37] (`MPolyfold.IsTame`).  The ep-groupoid `TX` and the functor `T : EP → EP`
 are `tangentEpGroupoid` and `tangentFunctor` of `TangentEp.lean`; an ep-groupoid is tame if its
-object M-polyfold is (Definition 7.6, `EpGroupoid.IsTame`).
+object M-polyfold is (Definition 7.1.6 (2017: 7.6), `EpGroupoid.IsTame`).
 
 # The tangent of a tame ep-groupoid is tame
 
 ## The text, paraphrased
 
-(**Lemma 8.8**) If the ep-groupoid `(X, 𝐗)` is tame, so is `(TX, T𝐗)`.  *Proof*: if
+(**Lemma 8.1.9 (2017: 8.8)**) If the ep-groupoid `(X, 𝐗)` is tame, so is `(TX, T𝐗)`.  *Proof*: if
 `φ : U → O`, `O = (O, C, E)`, is a tame chart of the object M-polyfold `X` and `O = r(U) ⊆ C` is a
 tame retract, then `Tr : TU → TU` is also a tame retraction.  Hence if `(X, 𝐗)` has a tame object
-space, so does `(TX, T𝐗)`, which is then a tame ep-groupoid by definition.  (**Theorem 8.1**, second
-sentence) If `(X, 𝐗)` is tame, then so is `T(X, 𝐗)`.  (**Theorem 8.3**, last sentence) `T`
+space, so does `(TX, T𝐗)`, which is then a tame ep-groupoid by definition.  (**Theorem 8.1.1 (2017: 8.1)**, second
+sentence) If `(X, 𝐗)` is tame, then so is `T(X, 𝐗)`.  (**Theorem 8.1.12 (2017: 8.3)**, last sentence) `T`
 preserves tameness: if `X` is a tame ep-groupoid, so is `TX`.
 
 ## What is formalized
@@ -39,8 +39,8 @@ preserves tameness: if `X` is a tame ep-groupoid, so is `TX`.
   (`Tr` is tame), `IsTameRetract.tangent` (`(TO, TC, TE)` is a tame retract if `(O, C, E)` is).
 * **`TX` is tame**: `MPolyfold.IsTame.tangent` (the tangent M-polyfold of a tame M-polyfold is
   tame).
-* **Lemma 8.8 and the tameness clauses**: `EpGroupoid.lemma_8_8`, `EpGroupoid.theorem_8_1_tame`
-  (`X.IsTame → X.tangentEpGroupoid.IsTame`) and `theorem_8_3_tame` (for `A : EP`,
+* **Lemma 8.1.9 (2017: 8.8) and the tameness clauses**: `EpGroupoid.lemma_8_1_9`, `EpGroupoid.theorem_8_1_1_tame`
+  (`X.IsTame → X.tangentEpGroupoid.IsTame`) and `theorem_8_1_12_tame` (for `A : EP`,
   `(tangentFunctor.obj A).X.IsTame` if `A.X.IsTame`), and
   `EpGroupoid.isTame_tangentEpGroupoid_trivial_rn` (the tangent of the trivial ep-groupoid of
   `ℝⁿ` is tame).
@@ -48,7 +48,7 @@ preserves tameness: if `X` is a tame ep-groupoid, so is `TX`.
 ## What the text leaves implicit, and the choices made
 
 * **"`Tr` is a tame retraction"** is asserted without argument.  It is proved here from
-  Definition 2.17 [2.34].  Write `TC = C¹ ⊕ E` with the presentation `tangentPres T`, whose
+  Definition 2.5.2 (2017: 2.17) [2.34].  Write `TC = C¹ ⊕ E` with the presentation `tangentPres T`, whose
   `ℝⁿ`-coordinates at `(a, b)` are those of `a`.  Condition (1): `d_{TC}(a, b) = d_C(a)`, and
   `Tr(a, b) = (r(a), Dr(a)b)`, so it is condition (1) for `r` at `a`.  Condition (2) at a smooth
   point `p = (a, b) ∈ TO`: `a ∈ O` is smooth; take the sc-complement `A ⊆ E_a` of `T_aO = Dr(a)E`
@@ -69,7 +69,7 @@ preserves tameness: if `X` is a tame ep-groupoid, so is `TX`.
   of `E`.
 * **Presentation independence.**  Tameness quantifies over all presentations of `TC`.  The formal
   proof checks it for the single presentation `tangentPres T` and concludes with Part I's
-  `ScRetraction.IsTameWith.isTame` (Lemma 1.24, the presentation independence of `d_C`).
+  `ScRetraction.IsTameWith.isTame` (Lemma 1.3.4 (preprint 1.24), the presentation independence of `d_C`).
 * **From charts to `TX`.**  Around `α ∈ TX` the chart `Tφ` of a tame chart `φ` around
   `p(α) ∈ X₁` is modelled on `T(O, C, E)`, which is a tame retract.  So the atlas of such charts
   is an equivalent tame atlas (`MPolyfold.isTame_of_forall_exists_chart`).  The text's "tame
@@ -389,7 +389,7 @@ theorem ScRetraction.IsTameWith.tangent {R : ScRetraction E C}
       rw [mem_minimalSubspaceWith_tangentPres, ScBanach.tangent_toBase]
       exact hAE (x := E.toBase 1 v.1) hv.1
 
-/-- **`Tr : TU → TU` is a tame retraction** if `r` is (the proof of Lemma 8.8; Definition 2.17
+/-- **`Tr : TU → TU` is a tame retraction** if `r` is (the proof of Lemma 8.1.9 (2017: 8.8); Definition 2.5.2 (2017: 2.17)
 [2.34] for all presentations of `TC`, by `ScRetraction.IsTameWith.isTame`). -/
 theorem ScRetraction.IsTame.tangentRetraction {R : ScRetraction E C} (hR : R.IsTame) :
     R.tangentRetraction.IsTame := by
@@ -420,34 +420,34 @@ theorem IsTame.tangent [ParacompactSpace P.TangentSpace] (hP : P.IsTame) :
 
 end MPolyfold
 
-/-! ### Lemma 8.8 and the tameness clauses of Theorems 8.1 and 8.3 -/
+/-! ### Lemma 8.1.9 (2017: 8.8) and the tameness clauses of Theorems 8.1.1 and 8.1.12 (2017: 8.1 and 8.3) -/
 
 namespace EpGroupoid
 
 variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] (X : EpGroupoid Obj Mor)
 
-/-- **Lemma 8.8**: if the ep-groupoid `(X, 𝐗)` is tame, so is `(TX, T𝐗)` (its object M-polyfold
+/-- **Lemma 8.1.9 (2017: 8.8)**: if the ep-groupoid `(X, 𝐗)` is tame, so is `(TX, T𝐗)` (its object M-polyfold
 `TX` is tame, `MPolyfold.IsTame.tangent`). -/
-theorem lemma_8_8 (hX : X.IsTame) : X.tangentEpGroupoid.IsTame :=
+theorem lemma_8_1_9 (hX : X.IsTame) : X.tangentEpGroupoid.IsTame :=
   MPolyfold.IsTame.tangent hX
 
-/-- **Theorem 8.1, the tameness sentence**: if `(X, 𝐗)` is tame, then `T(X, 𝐗)` is tame. -/
-theorem theorem_8_1_tame : X.IsTame → X.tangentEpGroupoid.IsTame :=
-  X.lemma_8_8
+/-- **Theorem 8.1.1 (2017: 8.1), the tameness sentence**: if `(X, 𝐗)` is tame, then `T(X, 𝐗)` is tame. -/
+theorem theorem_8_1_1_tame : X.IsTame → X.tangentEpGroupoid.IsTame :=
+  X.lemma_8_1_9
 
-/-- The tangent of the trivial ep-groupoid of `ℝⁿ` is tame (the hypothesis of Lemma 8.8 is
+/-- The tangent of the trivial ep-groupoid of `ℝⁿ` is tame (the hypothesis of Lemma 8.1.9 (2017: 8.8) is
 satisfiable). -/
 theorem isTame_tangentEpGroupoid_trivial_rn (n : ℕ) :
     (trivial (rnPolyfold n)).tangentEpGroupoid.IsTame :=
-  (trivial (rnPolyfold n)).lemma_8_8 (isTame_trivial_rn n)
+  (trivial (rnPolyfold n)).lemma_8_1_9 (isTame_trivial_rn n)
 
 end EpGroupoid
 
-/-- **Theorem 8.3, the tameness sentence**: `T : EP → EP` preserves tameness; if `X` is a tame
+/-- **Theorem 8.1.12 (2017: 8.3), the tameness sentence**: `T : EP → EP` preserves tameness; if `X` is a tame
 ep-groupoid, so is `TX = tangentFunctor.obj X`. -/
-theorem theorem_8_3_tame (A : EP.{max u 1}) (hA : A.X.IsTame) :
+theorem theorem_8_1_12_tame (A : EP.{max u 1}) (hA : A.X.IsTame) :
     (tangentFunctor.obj A).X.IsTame :=
-  A.X.lemma_8_8 hA
+  A.X.lemma_8_1_9 hA
 
 end Polyfold

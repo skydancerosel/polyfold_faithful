@@ -5,8 +5,8 @@ import Polyfold.Chapter3.BasicGermShrink
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1,
-**Theorem 3.12** (local compactness for sc-Fredholm germs) and **Corollary 3.13** at the base
-point, **in the text's germ reading of Definition 3.11** (phase 2): the filling `g` and the
+**Theorem 3.1.13 (preprint 3.12)** (local compactness for sc-Fredholm germs) and **Corollary 3.1.15 (preprint 3.13)** at the base
+point, **in the text's germ reading of Definition 3.1.11 (preprint 3.11)** (phase 2): the filling `g` and the
 sc⁺-section `t₀` are sc-smooth germs on germs of neighbourhoods `G_g`, `G_s` whose levels may
 shrink with the level.
 
@@ -14,25 +14,25 @@ shrink with the level.
 
 ## What is formalized
 
-* `Polyfold.theorem_3_12` (the germ version of `theorem_3_12_wholeChart`, hypothesis
+* `Polyfold.theorem_3_1_13_preprint` (the germ version of `theorem_3_1_13_wholeChart`, hypothesis
   `B.IsScFredholmGerm f x₀`): nested open `O(i) ∋ x₀` such that `closure {x ∈ O(i) | f(x) = 0}`
   is the image of a compact subset of `X_i` under the inclusion `X_i → X`.
-* `Polyfold.corollary_3_13` (the germ version of `corollary_3_13_wholeChart`).
+* `Polyfold.corollary_3_1_15_preprint` (the germ version of `corollary_3_1_15_wholeChart`).
 
 ## What the text leaves implicit, and the choices made
 
 * **What the old proof used of `g` and `t₀`, and how the germ reading supplies it.**  The proof of
-  `theorem_3_12_wholeChart` uses (i) the identities of the filler (conditions (1), (2)) and of the
+  `theorem_3_1_13_wholeChart` uses (i) the identities of the filler (conditions (1), (2)) and of the
   conjugation pointwise near `0` — unchanged; (ii) the push-forward `t = Ψ[1]_*(t₀)` only as an
-  **sc⁰-germ** on the germ of the basic germ (the input of Theorem 3.40); it was built as a
+  **sc⁰-germ** on the germ of the basic germ (the input of Theorem 3.5.1 (preprint 3.40)); it was built as a
   section on all of `U'` from `t₀` sc-smooth on `U`.  With `t₀` a germ on `G_s`, `t` is an
   sc⁰-germ on `G″ = ψ'⁻¹(G_s) ⊆ G` (`ScNbhdGerm.preimage`; `IsSc0Germ.comp`, `IsSc0.comp_germ`),
-  and the basic germ restricts to `G″` (`IsBasicGerm.mono`), so Theorem 3.40 is applied on `G″`;
+  and the basic germ restricts to `G″` (`IsBasicGerm.mono`), so Theorem 3.5.1 (preprint 3.40) is applied on `G″`;
   (iii) the continuity of `g` at the `E₀`-limits `ψ'(u')` of zeros, `u' ∈ closure A` — these lie in
   `U ∩ N₁`, and `N₁` is now also chosen inside the open set `O_g` with `(G_g)₀ = O_g ∩ C`, so
   `ψ'(u') ∈ (G_g)₀`, where `g` is continuous (level `0` of the sc⁰-germ `g`).  Nothing of `g`
   away from a level-`0` neighbourhood of `0` is used, and no level `≥ 1` of `G_g` at all.
-* As in `theorem_3_12_wholeChart`, only `P ∘ f = id` is used of the section `f`.
+* As in `theorem_3_1_13_wholeChart`, only `P ∘ f = id` is used of the section `f`.
 -/
 
 open Set Filter Topology Function
@@ -50,15 +50,15 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
   {f : X → Y}
 
-/-- **Theorem 3.12 (local compactness for sc-Fredholm germs), germ reading** (phase 2; the germ
-version of `theorem_3_12_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀` of Definition 3.11 in the text's
+/-- **Theorem 3.1.13 (preprint 3.12) (local compactness for sc-Fredholm germs), germ reading** (phase 2; the germ
+version of `theorem_3_1_13_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀` of Definition 3.1.11 (preprint 3.11) in the text's
 germ reading): let `f` be a section of the strong bundle `P : Y → X` and `x₀` a smooth point with
 `(f, x₀)` an sc-Fredholm germ and `f(x₀) = 0`.  Then there are nested open neighbourhoods
 `O(0) ⊃ O(1) ⊃ …` of `x₀` in `X` such that for every `i` the closure in `X` of
 `{x ∈ O(i) | f(x) = 0}` is the image of a compact subset of `X_i` (with the level topology) under
-the inclusion `X_i → X`.  The proof is that of `theorem_3_12_wholeChart` with Theorem 3.40 applied on the germ
+the inclusion `X_i → X`.  The proof is that of `theorem_3_1_13_wholeChart` with Theorem 3.5.1 (preprint 3.40) applied on the germ
 `G″ = ψ'⁻¹(G_s)` and the continuity of `g` used on `(G_g)₀` only. -/
-theorem theorem_3_12 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm f x₀)
+theorem theorem_3_1_13_preprint (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm f x₀)
     (hx₀ : IsZeroAt P f x₀) :
     ∃ O : ℕ → Set X, (∀ i, IsOpen (O i)) ∧ (∀ i, x₀ ∈ O i) ∧ (∀ i, O (i + 1) ⊆ O i) ∧
       ∀ i, ∃ K : Set (PX.Level i), IsCompact K ∧
@@ -192,7 +192,7 @@ theorem theorem_3_12 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm f 
   set S : Set ((ScBanach.paramProd Pn W) 0) :=
     {u' | u' ∈ G''.U 0 ∧ h u' + (ScBanach.paramProd Q W).toBase 1 (t u') = 0} ∩
       Metric.ball 0 r₀ with hSdef
-  obtain ⟨O', hO'open, h0O', hO'nest, hK⟩ := theorem_3_12_local_subset hh'' hCt.isClosed ht ht0
+  obtain ⟨O', hO'open, h0O', hO'nest, hK⟩ := theorem_3_1_13_local_subset hh'' hCt.isClosed ht ht0
     (S := S) inter_subset_left
   obtain ⟨Og, hOg, hGeq⟩ := G''.relOpen 0
   have hGmem : ∀ u', u' ∈ G''.U 0 ↔ u' ∈ Og ∧ u' ∈ Ct ×ˢ univ := fun u' => by
@@ -312,17 +312,17 @@ theorem theorem_3_12 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm f 
     simp only [hΘdef]
     rw [PX.levelVal_levelChartSymm c.isChart i x₀' (hlevO z hz), hlev z hz]
 
-/-- **Corollary 3.13** (at the base point of the germ), **germ reading** (phase 2; the germ version
-of `corollary_3_13_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀`): let `(f, x₀)` be an sc-Fredholm germ
+/-- **Corollary 3.1.15 (preprint 3.13)** (at the base point of the germ), **germ reading** (phase 2; the germ version
+of `corollary_3_1_15_wholeChart`, hypothesis `B.IsScFredholmGerm f x₀`): let `(f, x₀)` be an sc-Fredholm germ
 with `f(x₀) = 0`.  If `f(x_k) = 0` and `x_k → x₀` in `X`, then for every `m` there are lifts
 `y_k ∈ X_m` of the `x_k` (for `k` large) converging in `X_m` to the lift of `x₀`. -/
-theorem corollary_3_13 (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm f x₀)
+theorem corollary_3_1_15_preprint (hf : IsSection P f) {x₀ : X} (hg : B.IsScFredholmGerm f x₀)
     (hx₀ : IsZeroAt P f x₀) {x : ℕ → X} (hx : ∀ n, IsZeroAt P f (x n))
     (hlim : Tendsto x atTop (𝓝 x₀)) (m : ℕ) :
     ∃ y₀ : PX.Level m, PX.levelVal m y₀ = x₀ ∧ ∃ y : ℕ → PX.Level m,
       (∀ᶠ n in atTop, PX.levelVal m (y n) = x n) ∧ Tendsto y atTop (𝓝 y₀) := by
   classical
-  obtain ⟨O, hO, h0, -, hK⟩ := theorem_3_12 hf hg hx₀
+  obtain ⟨O, hO, h0, -, hK⟩ := theorem_3_1_13_preprint hf hg hx₀
   obtain ⟨K, hKc, hKeq⟩ := hK m
   set y₀ : PX.Level m := PX.levelMk m x₀ (mem_iInter.1 hg.1 m) with hy₀
   have hev : ∀ᶠ n in atTop, x n ∈ O m := hlim.eventually ((hO m).mem_nhds (h0 m))

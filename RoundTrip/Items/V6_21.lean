@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_21
 
 /-! Round trip for V6_21 (Lemma 6.18: the kernels `ker(P S)` form a trivial bundle).
 
-`A` is the type of `LocalDetChart.lemma_6_18` (universes at `0`); `LocalDetChart` (the data
+`A` is the type of `LocalDetChart.lemma_6_5_2` (universes at `0`); `LocalDetChart` (the data
 `(T, P, Y, ε)` with the conclusions of Lemma 6.17), `ySol` (`y(·, S) = −(P S|_Y)⁻¹ P S`),
 `kerMap` (`k ↦ k + y(k, S)`) and `kerProj` (projection onto `ker(P T)` along `Y`) are definitions
 (vocabulary).
@@ -27,9 +27,9 @@ namespace RoundTrip.V6_21
 open Polyfold
 
 /-- The project's statement (Lemma 6.18), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.LocalDetChart.lemma_6_18.{0, 0}
+def A : Prop := type_of% @Polyfold.LocalDetChart.lemma_6_5_2.{0, 0}
 
-theorem A_holds : A := @Polyfold.LocalDetChart.lemma_6_18.{0, 0}
+theorem A_holds : A := @Polyfold.LocalDetChart.lemma_6_5_2.{0, 0}
 
 /-- The chart `(T, P, Y, ε)` of B's data. -/
 noncomputable def mkChart {E F : Type} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E]
@@ -186,8 +186,8 @@ theorem B_to_A : B → A := by
     rw [hkm, map_add, LocalDetChart.kerProj, Submodule.projectionOntoL_apply_left,
       (Submodule.projectionOntoL_apply_eq_zero_iff _).2 (c.ySol_mem S k), add_zero]
 
-#rt_check RoundTrip.V6_21.A_to_B [Polyfold.LocalDetChart.lemma_6_18]
-#rt_check RoundTrip.V6_21.B_to_A [Polyfold.LocalDetChart.lemma_6_18]
-#rt_overlap RoundTrip.V6_21.B_to_A [Polyfold.LocalDetChart.lemma_6_18]
+#rt_check RoundTrip.V6_21.A_to_B [Polyfold.LocalDetChart.lemma_6_5_2]
+#rt_check RoundTrip.V6_21.B_to_A [Polyfold.LocalDetChart.lemma_6_5_2]
+#rt_overlap RoundTrip.V6_21.B_to_A [Polyfold.LocalDetChart.lemma_6_5_2]
 
 end RoundTrip.V6_21

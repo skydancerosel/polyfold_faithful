@@ -4,24 +4,24 @@ import RoundTrip.Blind.V3_31
 
 /-!
 Round trip for V3_31 (Corollary 3.34).  Refreshed 2026-11-02 against HEAD (new conjuncts: one germ
-for all `k`).  `A` is the conjunction of the types of `Polyfold.corollary_3_34`,
-`Polyfold.IsSckGerm.contDiffOn_levels`, and (new) `Polyfold.corollary_3_34_isScSmoothGerm`,
+for all `k`).  `A` is the conjunction of the types of `Polyfold.corollary_3_3_7`,
+`Polyfold.IsSckGerm.contDiffOn_levels`, and (new) `Polyfold.corollary_3_3_7_isScSmoothGerm`,
 `Polyfold.isSckGerm_of_levels` (no universe parameters).
 
 `A → B` is proved, now entirely from `A`:
-* (1) `C^k` on `V_{m,k}`: A's `corollary_3_34` for the working form `h.toContractionGerm`
+* (1) `C^k` on `V_{m,k}`: A's `corollary_3_3_7` for the working form `h.toContractionGerm`
   (glue as in V3_30: sc-smoothness of `f = w − B` gives that of `B`; B's arbitrary solution germ
   `δ` agrees with `sol` near `0` by uniqueness in `O 0`), with `V_{m,k}` shrunk into `V₀` and the
   agreement region, and `δ_m = levelMap sol m`.
 * (2) "in particular `δ` is sc-smooth" (one germ `V'` on which `δ` is sc^k for every `k`): at the
-  audit this was not in A and was proved in this file from `theorem_3_33_smooth` with a diagonal
+  audit this was not in A and was proved in this file from `theorem_3_3_6_smooth` with a diagonal
   germ and a locality lemma; both have moved into the project, and A now contains
-  `corollary_3_34_isScSmoothGerm` (`sol` sc-smooth on one diagonal germ `germDiag t`).  Here:
+  `corollary_3_3_7_isScSmoothGerm` (`sol` sc-smooth on one diagonal germ `germDiag t`).  Here:
   `V' = V ∩ germDiag t ∩ (u ∩ C̃)`, on which `δ = sol`.
 
 `B → A` is not proved: A contains `IsSckGerm.contDiffOn_levels` (Proposition 1.18 for germs
 between arbitrary sc-Banach spaces) and `isSckGerm_of_levels` (locality of sc^k in the levels, for
-arbitrary germs), and `corollary_3_34(_isScSmoothGerm)` is for any quadrant-like `C̃` and the
+arbitrary germs), and `corollary_3_3_7(_isScSmoothGerm)` is for any quadrant-like `C̃` and the
 working-form `ContractionGerm` (a `1/2`-contraction on explicit regions) with its specific `sol` and
 germs, none of which follows from B.
 -/
@@ -31,12 +31,12 @@ open Polyfold
 
 /-- The project's statement: Corollary 3.34 and Proposition 1.18 for germs. -/
 def A : Prop :=
-  type_of% @Polyfold.corollary_3_34 ∧ type_of% @Polyfold.IsSckGerm.contDiffOn_levels ∧
-    type_of% @Polyfold.corollary_3_34_isScSmoothGerm ∧ type_of% @Polyfold.isSckGerm_of_levels
+  type_of% @Polyfold.corollary_3_3_7 ∧ type_of% @Polyfold.IsSckGerm.contDiffOn_levels ∧
+    type_of% @Polyfold.corollary_3_3_7_isScSmoothGerm ∧ type_of% @Polyfold.isSckGerm_of_levels
 
 theorem A_holds : A :=
-  ⟨@Polyfold.corollary_3_34, @Polyfold.IsSckGerm.contDiffOn_levels,
-    @Polyfold.corollary_3_34_isScSmoothGerm, @Polyfold.isSckGerm_of_levels⟩
+  ⟨@Polyfold.corollary_3_3_7, @Polyfold.IsSckGerm.contDiffOn_levels,
+    @Polyfold.corollary_3_3_7_isScSmoothGerm, @Polyfold.isSckGerm_of_levels⟩
 
 section Glue
 
@@ -128,7 +128,7 @@ theorem A_to_B : A → B := by
       exact (hagree v hvV hv.1.2.2.1 hv.1.2.2.2).symm
     · intro v hv
       exact ⟨hv.1.1, hv.2⟩
-  · -- (2) from A's `corollary_3_34_isScSmoothGerm` (one germ for all `k`)
+  · -- (2) from A's `corollary_3_3_7_isScSmoothGerm` (one germ for all `k`)
     obtain ⟨t, ht, -, hsm⟩ := hA.2.2.1 𝒞 hC hB
     refine ⟨V.inter ((𝒞.germDiag hC t ht).inter (ScNbhdGerm.ofOpen hC hu hu0)),
       fun m a ha => ha.1, fun k => ?_⟩
@@ -136,7 +136,7 @@ theorem A_to_B : A → B := by
       (IsSckGerm.mono hC (fun m _ ha => ha.2.1) (hsm k))
     exact (hagree a ha.1 (𝒞.N_anti_le (by omega) ha.2.1.1) ha.2.2.1).symm
 
-#rt_check RoundTrip.V3_31.A_to_B [Polyfold.corollary_3_34, Polyfold.IsSckGerm.contDiffOn_levels,
-  Polyfold.corollary_3_34_isScSmoothGerm, Polyfold.isSckGerm_of_levels]
+#rt_check RoundTrip.V3_31.A_to_B [Polyfold.corollary_3_3_7, Polyfold.IsSckGerm.contDiffOn_levels,
+  Polyfold.corollary_3_3_7_isScSmoothGerm, Polyfold.isSckGerm_of_levels]
 
 end RoundTrip.V3_31

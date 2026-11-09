@@ -2,21 +2,21 @@ import Polyfold.Chapter7.Effective
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II, §7.2,
-pp. 241–244: **Definition 7.12** made precise (p. 241: the equivalence relation `∼`, the quotient
-`𝐗^R` and its topology, the structure maps on `𝐗^R`), **Proposition 7.9** (p. 242, proof
+pp. 241–244: **Definition 7.2.7 (2017: 7.12)** made precise (p. 241: the equivalence relation `∼`, the quotient
+`𝐗^R` and its topology, the structure maps on `𝐗^R`), **Proposition 7.2.10 (2017: 7.9)** (p. 313 (2017 p. 242), proof
 pp. 242–243), the reduced ep-groupoid `X_R` (p. 243), **Proposition 7.10** (p. 244), the isotropy
-`G_x/T_x` of `X_R` and **Definition 7.13** (p. 244).  There is no 2014 preprint of Part II;
+`G_x/T_x` of `X_R` and **Definition 7.2.15 (2017: 7.13)** (p. 319 (2017 p. 244)).  There is no 2014 preprint of Part II;
 numbers and pages are the 2017 text's.  Part I items carry their 2017 numbers, with the preprint
-number of the Lean name in brackets: Definition 2.6 [2.11] (`MChart`), Definition 2.7 [2.12]
-(`MAtlas`), Definition 2.8 [2.13] (`MPolyfold`), Definition 2.9 [2.14] (`MPolyfold.IsScSmoothOn`).
+number of the Lean name in brackets: Definition 2.3.2 (2017: 2.6) [2.11] (`MChart`), Definition 2.3.3 (2017: 2.7) [2.12]
+(`MAtlas`), Definition 2.3.4 (2017: 2.8) [2.13] (`MPolyfold`), Definition 2.3.8 (2017: 2.9) [2.14] (`MPolyfold.IsScSmoothOn`).
 
 # Reduced ep-groupoids
 
 ## The text, paraphrased
 
-(Definition 7.12) `𝐗^T = {φ ∈ T_x | x ∈ X}`; `φ ∼ φ'` if (1) `s(φ) = s(φ') = x` and (2)
+(Definition 7.2.7 (2017: 7.12)) `𝐗^T = {φ ∈ T_x | x ∈ X}`; `φ ∼ φ'` if (1) `s(φ) = s(φ') = x` and (2)
 `φ = φ' ∘ g` for some `g ∈ T_x`; "the subset `𝐗^R` of reduced morphisms" is the set of the classes
-`[φ]`.  (Proposition 7.9) `𝐗^R` has a natural M-polyfold structure.  Proof: `𝐗^R` carries the
+`[φ]`.  (Proposition 7.2.10 (2017: 7.9)) `𝐗^R` has a natural M-polyfold structure.  Proof: `𝐗^R` carries the
 quotient topology.  For a sheet `s : U(φ₀) → U(s(φ₀))` the map `π' : U(φ₀) → 𝐗^R` is continuous
 and injective (`[ψ] = [ψ']` gives `s ψ = s ψ'`).  Its image `U([φ₀])` is open: for `ψ ∼ φ ∈
 U(φ₀)`, `φ = ψ ∘ g` with `g ∈ T_{s ψ}`, and `U(s ψ)` with `ker Φ = T_{s ψ}`, the map
@@ -30,7 +30,7 @@ the structure maps to that of `X`; "the properness can be proved similarly".  (P
 `X_R` is an ep-groupoid, and it is effective: `[1_x] = T_x`; for `τ = [g]` with `g ∉ T_x` and an
 open `V(τ)`, take `U(x)` with `ker Φ = T_x` so small that `U([g]) ⊆ V(τ)`; then `Φ(g)(a) ≠ a` for
 some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` in `X_R` is `G_x/T_x`.
-(Definition 7.13) `G_x^eff = G_x/T_x` is the effective isotropy group.
+(Definition 7.2.15 (2017: 7.13)) `G_x^eff = G_x/T_x` is the effective isotropy group.
 
 ## What is formalized (namespace `Polyfold.EpGroupoid`)
 
@@ -38,7 +38,7 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   (`𝐗^T = int{s = t}`), `isOpen_nonEffectivePart`; closure under `u`, `ι`, `m` and conjugation:
   `unit_mem_nonEffectivePart`, `inv_mem_nonEffectivePart`, `comp_mem_nonEffectivePart`,
   `conj_mem_nonEffectivePart`; `val_mem_nonEffectivePart_iff` (`g ∈ T_x ↔ g ∈ 𝐗^T`).
-* **Definition 7.12, made precise**: `reducedRel_iff` (`φ ∼ φ'` iff `φ = φ' ∘ k`, `k ∈ 𝐗^T`),
+* **Definition 7.2.7 (2017: 7.12), made precise**: `reducedRel_iff` (`φ ∼ φ'` iff `φ = φ' ∘ k`, `k ∈ 𝐗^T`),
   `reducedRel_refl`, `ReducedRel.symm`, `ReducedRel.trans`, `reducedSetoid`,
   `reducedMor_eq_quotient`; the left form `reducedRel_comp_left`, `ReducedRel.exists_comp_left`;
   `ReducedRel.src_eq`, `.tgt_eq`, `.inv`, `.comp_left`, `.comp_right`.  The quotient topology
@@ -48,21 +48,21 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   `reducedComp_π`, continuity), `surjective_reducedSrc`, `surjective_reducedTgt` and the groupoid
   `reducedGroupoidStr`.  **Small sheets**: on every sheet `s : W → V` of `s` the projection is a
   homeomorphism onto an open set: `injOn_reducedπ`, `isOpenEmbedding_domRestrict_reducedπ`, and
-  `isOpenEmbedding_domRestrict_reducedπ_image_Γ` for the sheets `Γ(g, U)` of Theorem 7.1.
-* **Proposition 7.9**: the charts `reducedChart ψ hS hψW` (`Ψ_φ`, for a chart `ψ` of `𝐗` with
+  `isOpenEmbedding_domRestrict_reducedπ_image_Γ` for the sheets `Γ(g, U)` of Theorem 7.1.13 (2017: 7.1).
+* **Proposition 7.2.10 (2017: 7.9)**: the charts `reducedChart ψ hS hψW` (`Ψ_φ`, for a chart `ψ` of `𝐗` with
   domain in a sheet `s : W → V`), `overlap_reducedChart`, `reducedChart_compatible` (the
   transitions are sc-smooth), `reducedCharts`, `exists_chart_sheet` and the atlas
   `reducedAtlas`, all without hypotheses; under `[T2Space X.ReducedMor]`
   `[ParacompactSpace X.ReducedMor]`: `reducedPolyfold`, `isChart_reducedChart`,
   `isScDiffeoOn_reducedπ` (`π : W → π(W)`, inverse `σ ∘ s`), `isLocalScDiffeo_reducedπ`,
-  `isScSmoothMap_reducedπ`, and `proposition_7_9`.
+  `isScSmoothMap_reducedπ`, and `proposition_7_2_10`.
 * **Proposition 7.10**: `isScDiffeoOn_reducedSrc`, `isScDiffeoOn_reducedTgt`; the conditions of
-  Definition 7.3: `isLocalScDiffeo_reducedSrc`, `isLocalScDiffeo_reducedTgt`,
+  Definition 7.1.3 (2017: 7.3): `isLocalScDiffeo_reducedSrc`, `isLocalScDiffeo_reducedTgt`,
   `isScSmoothMap_reducedUnit`, `isScSmoothMap_reducedInv`, `exists_isProperMap_reduced`,
   `isScSmoothCompSheet_reduced`; `reducedEpGroupoid` (`X_R`), `reductionFunctor` (`X → X_R`, an
-  `EpFunctor`), `isEffective_reducedEpGroupoid`, and `proposition_7_10`.  **The isotropy**
+  `EpFunctor`), `isEffective_reducedEpGroupoid`, and `proposition_7_10_2017`.  **The isotropy**
   (p. 244): `reducedIsotropyHom`, `surjective_reducedIsotropyHom`, `ker_reducedIsotropyHom`
-  (`[1_x] = T_x`), `quotientTrivialSubgroupEquiv` (`G_x/T_x ≅ G̃_x`); **Definition 7.13**:
+  (`[1_x] = T_x`), `quotientTrivialSubgroupEquiv` (`G_x/T_x ≅ G̃_x`); **Definition 7.2.15 (2017: 7.13)**:
   `effIsotropyEquivReduced` (`EffIsotropy x ≅ G̃_x`).
 * **Satisfiability** (PLAN II.5, 7): for effective `X`, `reducedRel_iff_eq_of_isEffective`,
   `reducedHomeomorph` (`𝐗 ≃ₜ 𝐗^R`), `t2Space_reducedMor_of_isEffective`,
@@ -81,14 +81,14 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   left form, `φ ∼ ψ` iff `φ = k ∘ ψ` with `k ∈ T_{t ψ}`.
 * **The openness of `U([φ₀])`** is the openness of `π` (`isOpenMap_reducedπ`).  The text's
   `δ(ψ') = ψ' ∘ Γ(g, s(ψ'))` composes on the right with a section of `s`; the text asserts that it
-  is continuous, which holds by condition (4) of Definition 7.3 applied to inverses.  We use the
+  is continuous, which holds by condition (4) of Definition 7.1.3 (2017: 7.3) applied to inverses.  We use the
   left form instead: `δ(ψ') = Γ(g, t ψ') ∘ ψ'`, sc-smooth by (4) in the sheet form
   (`NaturalRep.isScSmoothOn_comp_Γ_tgt`), with `g ∈ T_{t ψ}` and `ker Φ = T_{t ψ}`
   (`exists_naturalRep_trivialSet_iff`); "`Γ(g, s(ψ'))` belongs to `T_{s(ψ')}`" is
   `NaturalRep.mem_trivialSet_of_val_eq_Γ`.  "`Ψ_{φ₀}` is open" is then the openness of `π`
   restricted to the open `U(φ₀)`.
 * **"The charts `Ψ_φ`."**  The text's `Ψ_{φ₀} : U(φ₀) → U([φ₀])` are homeomorphisms from open
-  subsets of `𝐗`; composed with charts `ψ` of `𝐗` they give charts in the sense of Definition 2.6
+  subsets of `𝐗`; composed with charts `ψ` of `𝐗` they give charts in the sense of Definition 2.3.2 (2017: 2.6)
   [2.11]: `reducedChart ψ`, `[φ'] ↦ ψ(σ(s[φ']))` on `π(dom ψ)`, where `σ = (s|W)⁻¹` for a sheet
   `W ⊇ dom ψ`.  The atlas consists of all of them (`reducedCharts`); it is a set, not a
   hypothesis.  "Small" sheets are not needed: on every sheet of `s` the projection is injective.
@@ -98,13 +98,13 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   argument of the text is that the overlap `ψ₁(dom ψ₁ ∩ π⁻¹π(dom ψ₂))` is open, i.e. that `π` is
   open.
 * **Hausdorff and paracompact** (PLAN P7, II.6, 2).  An M-polyfold is a Hausdorff paracompact
-  space (Definition 2.8 [2.13]).  The proof of Proposition 7.9 gives the charts and the sc-smooth
+  space (Definition 2.3.4 (2017: 2.8) [2.13]).  The proof of Proposition 7.2.10 (2017: 7.9) gives the charts and the sc-smooth
   transitions but, as we read it, neither property, and `𝐗^R` need not be Hausdorff (the splicing
   example of PLAN II.6, 2, not formalized: it needs a dimension-jumping retract).  So
   `reducedPolyfold`, and with it `reducedEpGroupoid`, take `[T2Space X.ReducedMor]` and
   `[ParacompactSpace X.ReducedMor]` as hypotheses.  The relation, the topology, the openness of
   `π`, the structure maps, the charts and their compatibility need neither.
-* **Proposition 7.10, the conditions of Definition 7.3.**  (1): for a sheet `𝐔` of Definition 7.4,
+* **Proposition 7.10, the conditions of Definition 7.1.3 (2017: 7.3).**  (1): for a sheet `𝐔` of Definition 7.1.4 (2017: 7.4),
   `s, t : π(𝐔) → X` are `s_X ∘ (π|𝐔)⁻¹`, `t_X ∘ (π|𝐔)⁻¹` (the text's `s(Ψ_φ(φ')) = s_X(φ')`).
   (2): `u = π ∘ u_X`, and `ι = π ∘ ι_X ∘ (π|W)⁻¹` on `π(W)`.  (3), "proved similarly": for the same
   `V(x)`, `t ∘ π = t_X` on `s⁻¹(cl V(x))` with `π` a continuous surjection onto
@@ -117,14 +117,14 @@ some `a`, and `[Γ(g, a)] ∈ V(τ)` has `s ≠ t`.  The isotropy group of `x` i
   intrinsic form of `T_x`: if `s = t` near `[g]` in `𝐗^R`, then `s = t` near `g` in `𝐗` (`π` is
   continuous), so `g ∈ T_x` and `[g] = [1_x]`.  "`[1_x] = T_x`" is `ker_reducedIsotropyHom`.
 * **The isotropy `G_x/T_x`** (p. 244) is `quotientTrivialSubgroupEquiv`; with `effIsotropyEquiv`
-  (`Effective.lean`) Definition 7.13's `G_x^eff` is the isotropy group of `X_R`.
-* **Possible misprints.**  Definition 7.12 calls `𝐗^R` "the subset of reduced morphisms"; it is a
+  (`Effective.lean`) Definition 7.2.15 (2017: 7.13)'s `G_x^eff` is the isotropy group of `X_R`.
+* **Possible misprints.**  Definition 7.2.7 (2017: 7.12) calls `𝐗^R` "the subset of reduced morphisms"; it is a
   quotient of `𝐗` (the next sentence calls it "the collection of all equivalence classes").  In
   the extracted text of pp. 242–243: "`ψ' = (s|U(ψ))⁻¹(s(ψ))`" for `(s|U(ψ))⁻¹(s(ψ'))`;
   "`U(φ) ⊂ Ψ_{φ₀}(U([φ₀]) ∩ U([ψ₀]))`" for `Ψ_{φ₀}⁻¹(…)`; "such that `T_x` agrees with the
   kernel of the `G_{s(φ)}`-action" for `T_{s(φ)}`; "which show that the source and target maps
   are smoothness of the natural maps can be reduced …" (a garbled sentence); "For and object"
-  (Definition 7.13).
+  (Definition 7.2.15 (2017: 7.13)).
 * **Hypotheses** (PLAN II.5, 7).  `[T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]` are
   satisfiable: for effective `X`, `π` is a homeomorphism (`reducedHomeomorph`), so both hold
   (`t2Space_reducedMor_of_isEffective`, `paracompactSpace_reducedMor_of_isEffective`), and
@@ -212,7 +212,7 @@ theorem conj_mem_nonEffectivePart {k φ : Mor} (hk : k ∈ X.nonEffectivePart)
   rw [GroupoidStr.isotropyConj_val, GroupoidStr.inv_inv,
     X.comp_assoc _ _ _ (by rw [hy, g.tgt_val]) h]
 
-/-! ### Definition 7.12: `∼` is an equivalence relation -/
+/-! ### Definition 7.2.7 (2017: 7.12): `∼` is an equivalence relation -/
 
 /-- **`φ ∼ φ'` without dependent types**: `φ = φ' ∘ k` for some `k ∈ 𝐗^T` with `s φ' = t k`. -/
 theorem reducedRel_iff {φ φ' : Mor} : X.ReducedRel φ φ' ↔
@@ -305,7 +305,7 @@ theorem ReducedRel.comp_left {φ φ' ψ : Mor} (h : X.ReducedRel φ φ') (hc : X
 
 variable (X)
 
-/-- **Definition 7.12, made precise**: `∼` is an equivalence relation (`T_x` being a subgroup). -/
+/-- **Definition 7.2.7 (2017: 7.12), made precise**: `∼` is an equivalence relation (`T_x` being a subgroup). -/
 def reducedSetoid : Setoid Mor where
   r := X.ReducedRel
   iseqv := ⟨X.reducedRel_refl, ReducedRel.symm, ReducedRel.trans⟩
@@ -328,7 +328,7 @@ theorem isQuotientMap_reducedπ : IsQuotientMap X.reducedπ := isQuotientMap_quo
 
 theorem continuous_reducedπ : Continuous X.reducedπ := continuous_quot_mk
 
-/-- **The projection `π : 𝐗 → 𝐗^R` is open** (the proof of Proposition 7.9, p. 242).  For
+/-- **The projection `π : 𝐗 → 𝐗^R` is open** (the proof of Proposition 7.2.10 (2017: 7.9), p. 313 (2017 p. 242)).  For
 `φ = k ∘ ψ`, `k ∈ T_{t ψ}`, the map `ψ' ↦ Γ(g, t ψ') ∘ ψ'` (`g = k`) is continuous and
 `Γ(g, t ψ') ∘ ψ' ∼ ψ'`. -/
 theorem isOpenMap_reducedπ : IsOpenMap X.reducedπ := by
@@ -462,8 +462,8 @@ def reducedGroupoidStr : GroupoidStr Obj X.ReducedMor where
     obtain ⟨φ, rfl⟩ := X.surjective_reducedπ a
     rw [reducedInv_π, X.reducedComp_π (X.src_inv φ), X.inv_comp, reducedSrc_π, reducedUnit]
 
-/-- **(3) of Definition 7.3 descends** ("the properness can be proved similarly", p. 244): for
-`V(x)` of Definition 7.3 (3) for `X`, `t : s⁻¹(cl V(x)) → X` is proper on `𝐗^R`, since `π` is a
+/-- **(3) of Definition 7.1.3 (2017: 7.3) descends** ("the properness can be proved similarly", p. 244): for
+`V(x)` of Definition 7.1.3 (2017: 7.3) (3) for `X`, `t : s⁻¹(cl V(x)) → X` is proper on `𝐗^R`, since `π` is a
 continuous surjection of `s⁻¹(cl V(x)) ⊆ 𝐗` onto `s⁻¹(cl V(x)) ⊆ 𝐗^R` and `t ∘ π = t_X`. -/
 theorem exists_isProperMap_reduced (x : Obj) : ∃ V : Set Obj, IsOpen V ∧ x ∈ V ∧
     IsProperMap ((X.reducedSrc ⁻¹' closure V).domRestrict X.reducedTgt) := by
@@ -493,7 +493,7 @@ theorem isOpenEmbedding_domRestrict_reducedπ (hS : X.PMor.IsScDiffeoOn X.PObj X
     (injOn_iff_injective.1 (injOn_reducedπ hS))
     (X.isOpenMap_reducedπ.domRestrict hS.isScSmoothOn.isOpen)
 
-/-- The same for the sheets `𝐔(g) = Γ(g, U)` of a natural representation (Theorem 7.1). -/
+/-- The same for the sheets `𝐔(g) = Γ(g, U)` of a natural representation (Theorem 7.1.13 (2017: 7.1)). -/
 theorem isOpenEmbedding_domRestrict_reducedπ_image_Γ {x : Obj} (R : X.NaturalRep x)
     (g : X.Isotropy x) : IsOpenEmbedding ((R.Γ g '' R.U).domRestrict X.reducedπ) :=
   isOpenEmbedding_domRestrict_reducedπ (R.isScDiffeoOn_src_image g)
@@ -523,7 +523,7 @@ theorem continuousOn_sheet_inv (hS : X.PMor.IsScDiffeoOn X.PObj X.src σ W V) :
   hS.isScSmoothOn_inv.continuousOn.comp X.continuous_reducedSrc.continuousOn
     (mapsTo_reducedSrc_image hS)
 
-/-! ### Proposition 7.9: the charts `Ψ_φ` and the atlas -/
+/-! ### Proposition 7.2.10 (2017: 7.9): the charts `Ψ_φ` and the atlas -/
 
 variable (X) in
 /-- **The chart `Ψ_φ`** of `𝐗^R` (p. 242) from a chart `ψ` of `𝐗` with domain in a sheet
@@ -626,7 +626,7 @@ private theorem reducedChart_transition {ψ₁ ψ₂ : MChart Mor} (hψ₁ : X.P
   rw [X.overlap_reducedChart hS₁ h₁ hS₂ h₂] at hmt ⊢
   exact key.mono_target hmt
 
-/-- **The charts `Ψ_φ` are sc-smoothly compatible** (Proposition 7.9, p. 243). -/
+/-- **The charts `Ψ_φ` are sc-smoothly compatible** (Proposition 7.2.10 (2017: 7.9), p. 243). -/
 theorem reducedChart_compatible {ψ₁ ψ₂ : MChart Mor} (hψ₁ : X.PMor.IsChart ψ₁)
     (hψ₂ : X.PMor.IsChart ψ₂)
     (hS₁ : X.PMor.IsScDiffeoOn X.PObj X.src σ₁ W₁ V₁) (h₁ : ψ₁.source ⊆ W₁)
@@ -655,8 +655,8 @@ theorem exists_chart_sheet (φ : Mor) : ∃ (ψ : MChart Mor) (σ : Obj → Mor)
   exact ⟨ψ.restrict inter_subset_left ho, σ, W, V, hS, inter_subset_right,
     MPolyfold.IsChart.restrict _ hψ _ _, hφψ, hφW⟩
 
-/-- **Proposition 7.9, the atlas**: the charts `Ψ_φ` form an sc-smooth atlas of `𝐗^R`
-(Definition 2.7 [2.12]). -/
+/-- **Proposition 7.2.10 (2017: 7.9), the atlas**: the charts `Ψ_φ` form an sc-smooth atlas of `𝐗^R`
+(Definition 2.3.3 (2017: 2.7) [2.12]). -/
 def reducedAtlas : MAtlas X.ReducedMor where
   charts := X.reducedCharts
   compatible := by
@@ -667,7 +667,7 @@ def reducedAtlas : MAtlas X.ReducedMor where
     obtain ⟨ψ, σ, W, V, hS, hψW, hψ, hφ⟩ := X.exists_chart_sheet φ
     exact ⟨X.reducedChart ψ hS hψW, ⟨ψ, σ, W, V, hS, hψW, hψ, rfl⟩, φ, hφ, rfl⟩
 
-/-! ### Proposition 7.9: the M-polyfold `𝐗^R` -/
+/-! ### Proposition 7.2.10 (2017: 7.9): the M-polyfold `𝐗^R` -/
 
 /-- Sc-smoothness on an open set is local (as the private helper of `EpGroupoid.lean`). -/
 private theorem isScSmoothOn_of_local' {A : Type*} [TopologicalSpace A] [T2Space A]
@@ -691,7 +691,7 @@ section ReducedPolyfold
 
 variable [T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]
 
-/-- **Proposition 7.9**: the M-polyfold `𝐗^R` (Definition 2.8 [2.13]), given by the atlas of the
+/-- **Proposition 7.2.10 (2017: 7.9)**: the M-polyfold `𝐗^R` (Definition 2.3.4 (2017: 2.8) [2.13]), given by the atlas of the
 charts `Ψ_φ`; that `𝐗^R` is Hausdorff and paracompact is a hypothesis (PLAN P7). -/
 def reducedPolyfold : MPolyfold X.ReducedMor := ⟨X.reducedAtlas⟩
 
@@ -778,7 +778,7 @@ theorem isScDiffeoOn_reducedSrc (hS : X.PMor.IsScDiffeoOn X.PObj X.src σ W V) :
   left_inv _ hq := π_sheet_inv hS hq
   right_inv y hy := hS.right_inv y hy
 
-/-- On a sheet `S` (Definition 7.4), `t : π(𝐔) → U(y)` is an sc-diffeomorphism with inverse
+/-- On a sheet `S` (Definition 7.1.4 (2017: 7.4)), `t : π(𝐔) → U(y)` is an sc-diffeomorphism with inverse
 `π ∘ (t|𝐔)⁻¹` (p. 243, `t(Ψ_φ(φ')) = t_X(φ')`). -/
 theorem isScDiffeoOn_reducedTgt (S : X.Sheet) :
     X.reducedPolyfold.IsScDiffeoOn X.PObj X.reducedTgt (fun y => X.reducedπ (S.tgtInv y))
@@ -916,7 +916,7 @@ def reducedEpGroupoid : EpGroupoid Obj X.ReducedMor where
   isScSmoothComp := (isScSmoothComp_iff_sheet _ _).2 X.isScSmoothCompSheet_reduced
 
 /-- **The reduction functor** `X → X_R`: the identity on objects and `π` on morphisms, a
-morphism of `EP` (Definition 7.7). -/
+morphism of `EP` (Definition 7.1.7 (2017: 7.7)). -/
 def reductionFunctor : EpFunctor X X.reducedEpGroupoid where
   obj := id
   mor := X.reducedπ
@@ -950,7 +950,7 @@ theorem isEffective_reducedEpGroupoid : X.reducedEpGroupoid.IsEffective := by
 
 end ReducedPolyfold
 
-/-! ### The isotropy of `X_R`: `G_x/T_x` (p. 244) and Definition 7.13 -/
+/-! ### The isotropy of `X_R`: `G_x/T_x` (p. 244) and Definition 7.2.15 (2017: 7.13) -/
 
 /-- `G_x → G̃_x`, `g ↦ [g]`, onto the isotropy group of `x` in `(X, 𝐗^R)`. -/
 def reducedIsotropyHom (x : Obj) : X.Isotropy x →* X.reducedGroupoidStr.Isotropy x where
@@ -993,7 +993,7 @@ theorem quotientTrivialSubgroupEquiv_mk (x : Obj) (g : X.Isotropy x) :
     (X.quotientTrivialSubgroupEquiv x (QuotientGroup.mk g)).val = X.reducedπ g.val :=
   rfl
 
-/-- **Definition 7.13**: the effective isotropy group `G_x^eff = G_x/T_x` is the isotropy group
+/-- **Definition 7.2.15 (2017: 7.13)**: the effective isotropy group `G_x^eff = G_x/T_x` is the isotropy group
 of `x` in `(X, 𝐗^R)`. -/
 def effIsotropyEquivReduced (x : Obj) : X.EffIsotropy x ≃* X.reducedGroupoidStr.Isotropy x :=
   (X.effIsotropyEquiv x).trans (X.quotientTrivialSubgroupEquiv x)
@@ -1004,13 +1004,13 @@ section Statements
 
 variable [T2Space X.ReducedMor] [ParacompactSpace X.ReducedMor]
 
-/-- **Proposition 7.9** (p. 242): `𝐗^R` has a natural M-polyfold structure (`reducedPolyfold`;
+/-- **Proposition 7.2.10 (2017: 7.9)** (p. 313 (2017 p. 242)): `𝐗^R` has a natural M-polyfold structure (`reducedPolyfold`;
 Hausdorff and paracompact are hypotheses, PLAN P7).  Its atlas is the set of the charts `Ψ_φ`
 from sheets of `s` (pairwise sc-smoothly compatible, `reducedChart_compatible`), all of them
 charts of the structure; on every sheet `s : W → V` (inverse `σ`), `π(W)` is open and
 `π : W → π(W)` is an sc-diffeomorphism with inverse `σ ∘ s`; `π : 𝐗 → 𝐗^R` is a local
 sc-diffeomorphism. -/
-theorem proposition_7_9 :
+theorem proposition_7_2_10 :
     X.reducedPolyfold.atlas.charts = X.reducedCharts ∧
     (∀ χ ∈ X.reducedCharts, X.reducedPolyfold.IsChart χ) ∧
     (∀ (σ : Obj → Mor) (W : Set Mor) (V : Set Obj), X.PMor.IsScDiffeoOn X.PObj X.src σ W V →
@@ -1025,7 +1025,7 @@ theorem proposition_7_9 :
 (`reducedEpGroupoid`: the groupoid `reducedGroupoidStr`, the object M-polyfold of `X`, the
 morphism M-polyfold `reducedPolyfold`) is effective, its isotropy group at `x` is `G_x/T_x`, and
 `π` is a functor `X → X_R` in `EP` (`reductionFunctor`). -/
-theorem proposition_7_10 :
+theorem proposition_7_10_2017 :
     X.reducedEpGroupoid.toGroupoidStr = X.reducedGroupoidStr ∧
     X.reducedEpGroupoid.PObj = X.PObj ∧ X.reducedEpGroupoid.PMor = X.reducedPolyfold ∧
     X.reducedEpGroupoid.IsEffective ∧
@@ -1083,7 +1083,7 @@ theorem paracompactSpace_reducedMor_of_isEffective (hX : X.IsEffective) :
     ParacompactSpace X.ReducedMor :=
   (reducedHomeomorph hX).symm.isClosedEmbedding.paracompactSpace
 
-/-- For effective `X`, `𝐗^R` is regular (`𝐗` is metrizable, Theorem 2.2 [2.16]). -/
+/-- For effective `X`, `𝐗^R` is regular (`𝐗` is metrizable, Theorem 2.3.10 (2017: 2.2) [2.16]). -/
 theorem t3Space_reducedMor_of_isEffective (hX : X.IsEffective) : T3Space X.ReducedMor := by
   have := X.PMor.metrizableSpace
   exact (reducedHomeomorph hX).symm.isEmbedding.t3Space
@@ -1119,7 +1119,7 @@ def reductionInv (hX : X.IsEffective) : EpFunctor X.reducedEpGroupoid X where
     change σ (X.src φ') = (reducedHomeomorph hX).symm (X.reducedπ φ')
     rw [reducedHomeomorph_symm_π, hS.left_inv φ' hφ']
 
-/-- **For effective `X`, `X ≅ X_R`** in the category `EP` (Definition 7.7): the reduction functor
+/-- **For effective `X`, `X ≅ X_R`** in the category `EP` (Definition 7.1.7 (2017: 7.7)): the reduction functor
 is an isomorphism. -/
 def reductionIso (hX : X.IsEffective) :
     (⟨Obj, Mor, X⟩ : EP.{u}) ≅ ⟨Obj, X.ReducedMor, X.reducedEpGroupoid⟩ where

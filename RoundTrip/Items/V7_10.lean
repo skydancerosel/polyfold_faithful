@@ -9,7 +9,7 @@ suffices).
 (`B` lives in `Type`): `EpGroupoid.mor_eq_srcInv_obj_src` (the text's formula),
 `EpGroupoid.isScSmoothMap_mor_of_continuous` (the remark *with continuity on morphisms*),
 `EpGroupoid.isScSmoothMap_mor_iff_continuous`, `EpFunctor.continuous_mor`, and
-`EpGroupoid.Examples.remark_definition_7_7_counterexample` (no universe parameters: on
+`EpGroupoid.Examples.remark_definition_7_1_7_counterexample` (no universe parameters: on
 `ℤ/3 × ℝ ⇉ ℝ` there is a functor sc-smooth on objects that is neither continuous nor sc-smooth
 on morphisms).  The listed `EpFunctor.ofContinuous` is a definition (vocabulary).
 
@@ -32,14 +32,14 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous.{0, 0}) ∧
   (type_of% @Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous.{0, 0}) ∧
   (type_of% @Polyfold.EpFunctor.continuous_mor.{0, 0}) ∧
-  (type_of% @Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample)
+  (type_of% @Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample)
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.mor_eq_srcInv_obj_src.{0, 0},
     @Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous.{0, 0},
     @Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous.{0, 0},
     @Polyfold.EpFunctor.continuous_mor.{0, 0},
-    @Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample⟩
+    @Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample⟩
 
 /-! ### `B` is false -/
 
@@ -117,26 +117,26 @@ theorem BRepaired_to_A : BRepaired → A := by
 #rt_check RoundTrip.V7_10.not_B [Polyfold.EpGroupoid.mor_eq_srcInv_obj_src,
   Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous,
   Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous, Polyfold.EpFunctor.continuous_mor,
-  Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample]
+  Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample]
 #rt_check RoundTrip.V7_10.B_to_A [Polyfold.EpGroupoid.mor_eq_srcInv_obj_src,
   Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous,
   Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous, Polyfold.EpFunctor.continuous_mor,
-  Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample]
+  Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample]
 #rt_check RoundTrip.V7_10.A_to_BRepaired [Polyfold.EpGroupoid.mor_eq_srcInv_obj_src,
   Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous,
   Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous, Polyfold.EpFunctor.continuous_mor,
-  Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample]
+  Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample]
 #rt_check RoundTrip.V7_10.BRepaired_to_A [Polyfold.EpGroupoid.mor_eq_srcInv_obj_src,
   Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous,
   Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous, Polyfold.EpFunctor.continuous_mor,
-  Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample]
+  Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample]
 #rt_overlap RoundTrip.V7_10.B_to_A [Polyfold.EpGroupoid.mor_eq_srcInv_obj_src,
   Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous,
   Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous, Polyfold.EpFunctor.continuous_mor,
-  Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample]
+  Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample]
 #rt_overlap RoundTrip.V7_10.BRepaired_to_A [Polyfold.EpGroupoid.mor_eq_srcInv_obj_src,
   Polyfold.EpGroupoid.isScSmoothMap_mor_of_continuous,
   Polyfold.EpGroupoid.isScSmoothMap_mor_iff_continuous, Polyfold.EpFunctor.continuous_mor,
-  Polyfold.EpGroupoid.Examples.remark_definition_7_7_counterexample]
+  Polyfold.EpGroupoid.Examples.remark_definition_7_1_7_counterexample]
 
 end RoundTrip.V7_10

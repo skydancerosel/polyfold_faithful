@@ -28,10 +28,10 @@ since naturally `(TX)^i = T(X^i)`, every `(TX)^i` has (LUC), i.e. `TX` has (SLUC
   the inclusion `T(X¹) → TX` (`MPolyfold.tangentLower_tangentMap`).
 * `EP.tangentLiftEpEquiv`: **`T(X^i) ≡ (TX)^i` as ep-groupoids, for every `i`** (by recursion,
   as `BundledMPolyfold.tangentLiftEquiv` of `TangentLiftAll.lean`).
-* `EP.isLUC_tangent_lift` (every `T(X^i)` has (LUC)) and **`EP.proposition_8_1_17_two_all_2021`**
+* `EP.isLUC_tangent_lift` (every `T(X^i)` has (LUC)) and **`EP.proposition_8_1_17_two_all`**
   (Proposition 8.1.17 (2): `TX` has (SLUC)).
 * Witnesses: `EpGroupoid.hasConnectedDenseLevelOneReps_of_subsingleton`,
-  `Examples.proposition_8_1_17_two_all_2021_pointEP` (the hypotheses hold for the point
+  `Examples.proposition_8_1_17_two_all_pointEP` (the hypotheses hold for the point
   ep-groupoid and all its lifts); `EpEquiv.refl` and `EP.tangentLiftEpEquiv` for `EpEquiv`.
 
 ## What the text leaves implicit, and the choices made
@@ -40,7 +40,7 @@ since naturally `(TX)^i = T(X^i)`, every `(TX)^i` has (LUC), i.e. `TX` has (SLUC
   sc-diffeomorphisms of objects and morphisms commuting with `s` and `t` (compatibility with the
   other structure maps is not needed for (LUC) and is not formalized).  (LUC) is transported
   through the characterization of 2021 Proposition 7.2.21 (`𝐗^T` closed).
-* As in `proposition_8_1_17_2021_one`, part (1) is applied to every `X^i` with the hypotheses
+* As in `proposition_8_1_17_one`, part (1) is applied to every `X^i` with the hypotheses
   `HasConnectedDenseLevelOneReps` (the text's `V(x) = U(x) ∩ X₁`, connected and dense) and the
   openness of `p : T𝐗 → 𝐗¹` (Part I, gap G.8), now for every `X^i`.
 -/
@@ -137,8 +137,8 @@ theorem nonEffectivePart_eq (e : EpEquiv X X') :
 
 /-- **(LUC) is transported** by an `EpEquiv` (through 2021 Proposition 7.2.21). -/
 theorem isLUC (e : EpEquiv X X') (h : X.IsLUC) : X'.IsLUC := by
-  rw [X'.proposition_7_2_21_2021, e.nonEffectivePart_eq]
-  exact (X.proposition_7_2_21_2021.1 h).preimage e.mor.toHomeomorph.symm.continuous
+  rw [X'.proposition_7_2_21, e.nonEffectivePart_eq]
+  exact (X.proposition_7_2_21.1 h).preimage e.mor.toHomeomorph.symm.continuous
 
 end EpEquiv
 
@@ -166,7 +166,7 @@ def tangentShiftEpEquiv : EpEquiv X.liftOne.tangentEpGroupoid X.tangentEpGroupoi
 smooth. -/
 theorem hasConnectedDenseLevelOneReps_of_subsingleton [Subsingleton Obj]
     (hs : X.PObj.smoothSet = univ) : X.HasConnectedDenseLevelOneReps := fun x => by
-  obtain ⟨R, -⟩ := X.theorem_7_1 (X.PObj.levelVal 1 x) isOpen_univ (mem_univ _)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 (X.PObj.levelVal 1 x) isOpen_univ (mem_univ _)
   refine ⟨R, Set.Subsingleton.isPreconnected fun _ _ _ _ =>
     MPolyfold.level_ext (Subsingleton.elim _ _), ?_⟩
   have h1 : X.PObj.levelSet 1 = univ := eq_univ_of_forall fun y =>
@@ -194,12 +194,12 @@ theorem isLUC_tangent_lift (A : EP.{u}) (h : A.IsSLUC)
     (hR : ∀ i, (A.lift i).X.HasConnectedDenseLevelOneReps)
     (hp : ∀ i, IsOpenMap (A.lift i).X.PMor.tangentProj) (i : ℕ) :
     (A.lift i).X.tangentEpGroupoid.IsLUC :=
-  (A.lift i).X.proposition_8_1_17_2021_one (h (i + 1)) (hR i) (hp i)
+  (A.lift i).X.proposition_8_1_17_one (h (i + 1)) (hR i) (hp i)
 
 /-- **2021 Proposition 8.1.17 (2), p. 371 (new in the 2021 edition)**: if `X` has (SLUC), so has
 `TX`: every `(TX)^i` has (LUC).  The hypotheses are those of part (1)
-(`proposition_8_1_17_2021_one`) for every `X^i`. -/
-theorem proposition_8_1_17_two_all_2021 (A : EP.{u}) (h : A.IsSLUC)
+(`proposition_8_1_17_one`) for every `X^i`. -/
+theorem proposition_8_1_17_two_all (A : EP.{u}) (h : A.IsSLUC)
     (hR : ∀ i, (A.lift i).X.HasConnectedDenseLevelOneReps)
     (hp : ∀ i, IsOpenMap (A.lift i).X.PMor.tangentProj) : A.tangentEP.IsSLUC := fun i =>
   (A.tangentLiftEpEquiv i).isLUC (A.isLUC_tangent_lift h hR hp i)
@@ -208,10 +208,10 @@ end EP
 
 namespace EpGroupoid.Examples
 
-/-- **Witness**: the hypotheses of `EP.proposition_8_1_17_two_all_2021` hold for the point
+/-- **Witness**: the hypotheses of `EP.proposition_8_1_17_two_all` hold for the point
 ep-groupoid. -/
-theorem proposition_8_1_17_two_all_2021_pointEP : pointEP.tangentEP.IsSLUC := by
-  refine pointEP.proposition_8_1_17_two_all_2021 isSLUC_pointEP (fun i => ?_) (fun i => ?_)
+theorem proposition_8_1_17_two_all_pointEP : pointEP.tangentEP.IsSLUC := by
+  refine pointEP.proposition_8_1_17_two_all isSLUC_pointEP (fun i => ?_) (fun i => ?_)
   · obtain ⟨h1, -, h3⟩ := lift_pointEP i
     exact (pointEP.lift i).X.hasConnectedDenseLevelOneReps_of_subsingleton h3
   · obtain ⟨-, h2, -⟩ := lift_pointEP i

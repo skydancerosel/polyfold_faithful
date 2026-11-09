@@ -5,9 +5,9 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "A = remark_5_12 ∧ IsAuxNorm.auxLe_of_sectionAdd ∧ IsInAllowableCompletion.isClosed_solutionSet_sectionAdd ∧ remark_5_12_completion ∧ remark_5_12_of_isScFredholmSection (universes 0); IsInAllowableCompletion is B's InCompletion (inCompletion_of). B: f sc-Fredholm (germ reading, as in A) with compact S_f, U adapted (open, ⊇ S_f, cl{x ∈ U | N(f(x)) ≤ 1} compact), s in the ρ-completion of Γ^{+,1}_U ⇒ S_{f+s} compact. A ⇒ B: proved as before from remark_5_12 plus the item's closedness argument (now also in the project as isClosed_solutionSet_sectionAdd; remark_5_12_completion is B up to the definitions). B ⇒ A fails: remark_5_12, auxLe_of_sectionAdd, isClosed_solutionSet_sectionAdd and remark_5_12_completion are about arbitrary (continuous) sections without the sc-Fredholm property or compact S_f, which B cannot supply. B gives remark_5_12_of_isScFredholmSection with Theorem 5.5 for an adapted U (B_gives_of_isScFredholmSection).",
+ "why": "A = remark_5_3_4 ∧ IsAuxNorm.auxLe_of_sectionAdd ∧ IsInAllowableCompletion.isClosed_solutionSet_sectionAdd ∧ remark_5_3_4_completion ∧ remark_5_3_4_of_isScFredholmSection (universes 0); IsInAllowableCompletion is B's InCompletion (inCompletion_of). B: f sc-Fredholm (germ reading, as in A) with compact S_f, U adapted (open, ⊇ S_f, cl{x ∈ U | N(f(x)) ≤ 1} compact), s in the ρ-completion of Γ^{+,1}_U ⇒ S_{f+s} compact. A ⇒ B: proved as before from remark_5_3_4 plus the item's closedness argument (now also in the project as isClosed_solutionSet_sectionAdd; remark_5_3_4_completion is B up to the definitions). B ⇒ A fails: remark_5_3_4, auxLe_of_sectionAdd, isClosed_solutionSet_sectionAdd and remark_5_3_4_completion are about arbitrary (continuous) sections without the sc-Fredholm property or compact S_f, which B cannot supply. B gives remark_5_3_4_of_isScFredholmSection with Theorem 5.5 for an adapted U (B_gives_of_isScFredholmSection).",
  "B_issue": null,
- "overlap": "B_to_A not proved. B_gives_of_isScFredholmSection (rt_check OK): 446 shared project theorems, theorem_5_5 and its proof (Theorem 5.7 compactness, sc-calculus, Proposition 1.19, Theorem 1.21) reached through Theorem 5.5, which supplies the adapted U. A_to_B (rt_check OK) uses only remark_5_12 from A.",
+ "overlap": "B_to_A not proved. B_gives_of_isScFredholmSection (rt_check OK): 446 shared project theorems, theorem_5_2_2_preprint and its proof (Theorem 5.7 compactness, sc-calculus, Proposition 1.19, Theorem 1.21) reached through Theorem 5.5, which supplies the adapted U. A_to_B (rt_check OK) uses only remark_5_3_4 from A.",
  "uses_hypothesis": {
   "A_to_B": true,
   "B_to_A": false
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "A gained the completion form (IsInAllowableCompletion, closedness of S_{f+s}, remark_5_12_completion, remark_5_12_of_isScFredholmSection). A ⇒ B unchanged; B gives the sc-Fredholm form with Theorem 5.5, but not the general-section lemmas. Relation unchanged (A_stronger)."
+  "note": "A gained the completion form (IsInAllowableCompletion, closedness of S_{f+s}, remark_5_3_4_completion, remark_5_3_4_of_isScFredholmSection). A ⇒ B unchanged; B gives the sc-Fredholm form with Theorem 5.5, but not the general-section lemmas. Relation unchanged (A_stronger)."
  }
 }

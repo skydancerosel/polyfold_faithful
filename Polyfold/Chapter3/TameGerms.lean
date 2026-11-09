@@ -2,35 +2,35 @@ import Polyfold.Chapter3.LinearizationCharts
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1 and §3.6:
-**sc-Fredholm germs and sections of a tame strong bundle** — Definitions 3.50 and 3.51 (the recall
-of Definitions 3.11 and 3.14 at the start of §3.6) and Definition 3.53 in a **tame** strong bundle
+**sc-Fredholm germs and sections of a tame strong bundle** — Definitions 3.6.3 and 3.6.4 (preprint 3.50 and 3.51) (the recall
+of Definitions 3.1.11 and 3.1.16 (preprint 3.11 and 3.14) at the start of §3.6) and Definition 3.6.6 (preprint 3.53) in a **tame** strong bundle
 chart, the hypotheses under which the implicit function theorems of §3.6 are proved.
 
 # Tame strong bundle charts and tame germ data
 
 ## The text, paraphrased
 
-(Before Definition 2.51) "A tame strong bundle retraction is one for which the retraction `r` is
-tame."  (Definition 3.50, the recall of Definition 3.11 in §3.6) Let `f` be an sc-smooth section of
+(Before Definition 2.6.5 (preprint 2.51)) "A tame strong bundle retraction is one for which the retraction `r` is
+tame."  (Definition 3.6.3 (preprint 3.50), the recall of Definition 3.1.11 (preprint 3.11) in §3.6) Let `f` be an sc-smooth section of
 the tame strong bundle `P : Y → X` and `x` a smooth point.  `(f, x)` is an sc-Fredholm germ if there
 is a strong bundle chart `Φ : P⁻¹(V) → K` around `x` covering `ϕ : (V, x) → (O, 0)`, **where
 `K → O` is a tame strong local bundle**, such that `Φ ∘ f ∘ ϕ⁻¹` has a filling `g` near `0` and a
 local sc⁺-section `s` with `s(0) = g(0)` and `g − s` conjugated near `0` to a basic germ.
-(Definition 3.51) A regularizing sc-smooth section of the tame strong bundle is sc-Fredholm if
-`(f, x)` is an sc-Fredholm germ at every smooth point.  (Proof of Proposition 3.52) "Since `(f, x)`
+(Definition 3.6.4 (preprint 3.51)) A regularizing sc-smooth section of the tame strong bundle is sc-Fredholm if
+`(f, x)` is an sc-Fredholm germ at every smooth point.  (Proof of Proposition 3.6.5 (preprint 3.52)) "Since `(f, x)`
 is a sc-Fredholm germ, there exists a tame strong bundle chart `Φ` around `x` such that …".
-(Definition 3.53) An sc-Fredholm germ `(f, x)` of a tame strong bundle with `f(x) = 0` is in good
+(Definition 3.6.6 (preprint 3.53)) An sc-Fredholm germ `(f, x)` of a tame strong bundle with `f(x) = 0` is in good
 position if `f'(x)` is onto and `ker f'(x)` is in good position to the partial cone `C_xX`.
 
 ## What is formalized
 
 * `StrongBundle.IsTameChart B c`: a strong bundle chart compatible with the atlas of `B`
-  (`B.IsChart c`) whose base retraction `r : U → U` is tame (Definition 2.34), i.e. whose local
+  (`B.IsChart c`) whose base retraction `r : U → U` is tame (Definition 2.5.2 (preprint 2.34)), i.e. whose local
   strong bundle retract `K → O` is a tame strong local bundle.
-* `StrongBundle.IsScFredholmGermTameWholeChart B f x`: **Definition 3.50**, the data of Definition 3.11
+* `StrongBundle.IsScFredholmGermTameWholeChart B f x`: **Definition 3.6.3 (preprint 3.50)**, the data of Definition 3.1.11 (preprint 3.11)
   (`IsScFredholmGermWholeChart`: a centred chart, a filled version `g`, an sc⁺-section `s`, `g − s`
   conjugated to a basic germ) in a tame chart; `StrongBundle.IsGoodPositionGermTameWholeChart B f x`:
-  **Definition 3.53** (`IsGoodPositionGermWholeChart`) in a tame chart; `StrongBundle.IsScFredholmSectionTameWholeChart
+  **Definition 3.6.6 (preprint 3.53)** (`IsGoodPositionGermWholeChart`) in a tame chart; `StrongBundle.IsScFredholmSectionTameWholeChart
   B f`: **Definition 3.51** (Definition 3.14 for a tame strong bundle), an sc-Fredholm section
   (`IsScFredholmSectionWholeChart`) with tame germ data at every smooth point.  The forgetful lemmas
   `IsTameChart.isChart`, `IsScFredholmGermTameWholeChart.isScFredholmGerm`,
@@ -40,9 +40,9 @@ position if `f'(x)` is onto and `ker f'(x)` is in good position to the partial c
   germ data**: if `(f, y)` is in good position (in some chart) and has tame germ data, it is in
   good position in the tame chart (`isGoodPositionAt_of_chart_dense`, the chart independence of
   the linearization).  This is how the conclusions "every nearby zero is in good position" of
-  Theorem 3.54 (1) are obtained in tame charts.
-* `StrongBundle.IsScFredholmGermTameWholeChart.sectionAdd`, `Polyfold.theorem_3_15_tame_wholeChart`: **Theorem 3.15
-  for tame germ data** (the proof of Theorem 3.15 does not change the chart).
+  Theorem 3.6.8 (preprint 3.54) (1) are obtained in tame charts.
+* `StrongBundle.IsScFredholmGermTameWholeChart.sectionAdd`, `Polyfold.theorem_3_1_18_tame_wholeChart`: **Theorem 3.1.18 (preprint 3.15)
+  for tame germ data** (the proof of Theorem 3.1.18 (preprint 3.15) does not change the chart).
 * `ScRetraction.IsTame.congr` (tameness depends only on the domain and the map on it) and
   `StrongBundle.isTameChart_of_eqOn_id`: a compatible chart whose base retraction is the identity of
   `U` (`O = U` relatively open in the quadrant) is tame (`ScRetraction.id_isTame`), so the
@@ -59,12 +59,12 @@ position if `f'(x)` is onto and `ker f'(x)` is in good position to the partial c
   `d(0, u) = 1 + d_C(u) ≠ d_C(u) = d(r'(0, u))` for `u ∈ O` (Findings, Chapter 3 items 190–199;
   the non-tameness of `r'` is `ScRetraction.halfLineConst_prod_not_isTame`, `TameVacuity.lean`,
   the compatibility of the chart is not formalized).  The text
-  needs tameness only for the chart of the germ data (Definition 3.50: "where `K → O` is a tame
-  strong local bundle"; proof of Proposition 3.52: "there exists a tame strong bundle chart"),
+  needs tameness only for the chart of the germ data (Definition 3.6.3 (preprint 3.50): "where `K → O` is a tame
+  strong local bundle"; proof of Proposition 3.6.5 (preprint 3.52): "there exists a tame strong bundle chart"),
   which is what `IsScFredholmGermTameWholeChart` and `IsGoodPositionGermTameWholeChart` state.
-* **Definition 3.11** itself (the first statement, for a strong bundle over a tame M-polyfold)
-  does not ask for a tame chart; `IsScFredholmGermWholeChart` keeps that form, and Theorems 3.12, 3.15,
-  3.18, Proposition 3.52 and the chart independence of the linearization do not need tameness.
+* **Definition 3.1.11 (preprint 3.11)** itself (the first statement, for a strong bundle over a tame M-polyfold)
+  does not ask for a tame chart; `IsScFredholmGermWholeChart` keeps that form, and Theorems 3.1.13, 3.1.18 (preprint 3.12, 3.15),
+  3.18, Proposition 3.6.5 (preprint 3.52) and the chart independence of the linearization do not need tameness.
 -/
 
 open Set Filter Topology Function
@@ -79,7 +79,7 @@ section Congr
 
 variable {E : ScBanach} {C : Set (E 0)}
 
-/-- **A retraction agreeing on its domain with a tame retraction is tame**: Definition 2.34 refers
+/-- **A retraction agreeing on its domain with a tame retraction is tame**: Definition 2.5.2 (preprint 2.34) refers
 to `r` only through its values on `U`, the retract `r(U)` and the derivatives `Dr(x)` at points of
 `U` (determined by the values on the relatively open `U`, `scDeriv_eq_of_eqOn_relOpen`). -/
 theorem ScRetraction.IsTame.congr {R R' : ScRetraction E C} (hR : R.IsTame) (hU : R.U = R'.U)
@@ -122,8 +122,8 @@ namespace StrongBundle
 
 variable (B) in
 /-- **A tame strong bundle chart** of `P`: a strong bundle chart compatible with the atlas of `B`
-whose base retraction `r : U → U` is tame (Definition 2.34), i.e. whose local strong bundle
-`K → O` is a tame strong local bundle (the text before Definition 2.51: "a tame strong bundle
+whose base retraction `r : U → U` is tame (Definition 2.5.2 (preprint 2.34)), i.e. whose local strong bundle
+`K → O` is a tame strong local bundle (the text before Definition 2.6.5 (preprint 2.51): "a tame strong bundle
 retraction is one for which the retraction `r` is tame"). -/
 def IsTameChart (c : StrongBundleChart PX P) : Prop :=
   B.IsChart c ∧ (c.isRetraction.baseRetraction c.relOpen).IsTame
@@ -134,8 +134,8 @@ lemma IsTameChart.isTame {c : StrongBundleChart PX P} (h : B.IsTameChart c) :
     (c.isRetraction.baseRetraction c.relOpen).IsTame := h.2
 
 variable (B) in
-/-- **Definition 3.50** (the recall of Definition 3.11 in §3.6, for a tame strong bundle): `(f, x₀)` is
-an **sc-Fredholm germ in a tame chart**: the data of Definition 3.11 (`IsScFredholmGermWholeChart`:
+/-- **Definition 3.6.3 (preprint 3.50)** (the recall of Definition 3.11 in §3.6, for a tame strong bundle): `(f, x₀)` is
+an **sc-Fredholm germ in a tame chart**: the data of Definition 3.1.11 (preprint 3.11) (`IsScFredholmGermWholeChart`:
 a strong bundle chart centred at `x₀`, a filled version `g` of `f̂`, a local sc⁺-section `s` with
 `s(0) = g(0)` and `g − s` conjugated to a basic germ) in a strong bundle chart whose local strong
 bundle `K → O` is tame (`IsTameChart`). This is the project's original whole-chart reading, stricter
@@ -150,9 +150,9 @@ def IsScFredholmGermTameWholeChart (f : X → Y) (x₀ : X) : Prop :=
     IsConjugateToBasicGerm c.U (fun u => g u - c.F.toBase 1 (s u))
 
 variable (B) in
-/-- **Definition 3.53 in a tame chart**: `(f, x₀)` is an sc-Fredholm germ in good position, with the
-data of Definition 3.53 (`IsGoodPositionGermWholeChart`) in a tame strong bundle chart
-(`IsTameChart`, Definition 3.50). This is the project's original whole-chart reading, stricter than
+/-- **Definition 3.6.6 (preprint 3.53) in a tame chart**: `(f, x₀)` is an sc-Fredholm germ in good position, with the
+data of Definition 3.6.6 (preprint 3.53) (`IsGoodPositionGermWholeChart`) in a tame strong bundle chart
+(`IsTameChart`, Definition 3.6.3 (preprint 3.50)). This is the project's original whole-chart reading, stricter than
 the text (Findings, Chapter 3, items 220–221, 260–266); the text's germ reading is
 `IsGoodPositionGermTame` (`TameGermsG.lean`, phase 2, items 270–330). -/
 def IsGoodPositionGermTameWholeChart (f : X → Y) (x₀ : X) : Prop :=
@@ -165,7 +165,7 @@ def IsGoodPositionGermTameWholeChart (f : X → Y) (x₀ : X) : Prop :=
     IsGoodPositionAt c.relOpen c.isRetraction h0 g
 
 variable (B) in
-/-- **Definition 3.51** (Definition 3.14 for a tame strong bundle): an sc-Fredholm section
+/-- **Definition 3.6.4 (preprint 3.51)** (Definition 3.14 for a tame strong bundle): an sc-Fredholm section
 (`IsScFredholmSectionWholeChart`: sc-smooth, regularizing, an sc-Fredholm germ at every smooth
 point) whose germ data at every smooth point can be taken in a tame chart
 (`IsScFredholmGermTameWholeChart`). This is the project's original whole-chart reading, stricter
@@ -174,7 +174,7 @@ than the text (Findings, Chapter 3, items 220–221, 260–266); the text's germ
 structure IsScFredholmSectionTameWholeChart (f : X → Y) : Prop extends B.IsScFredholmSectionWholeChart f where
   germTame : ∀ x ∈ PX.smoothSet, B.IsScFredholmGermTameWholeChart f x
 
-/-- Tame germ data are germ data (Definition 3.50 ⟹ Definition 3.11). -/
+/-- Tame germ data are germ data (Definition 3.6.3 (preprint 3.50) ⟹ Definition 3.1.11 (preprint 3.11)). -/
 theorem IsScFredholmGermTameWholeChart.isScFredholmGerm {x : X} (h : B.IsScFredholmGermTameWholeChart f x) :
     B.IsScFredholmGermWholeChart f x := by
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩ := h
@@ -192,7 +192,7 @@ theorem IsGoodPositionGermTameWholeChart.isScFredholmGermTame {x : X} (h : B.IsG
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj, -⟩ := h
   exact ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩
 
-/-- **Good position in any chart of the germ data** (the chart independence of Definition 3.53):
+/-- **Good position in any chart of the germ data** (the chart independence of Definition 3.6.6 (preprint 3.53)):
 if `(f, y)`, `f(y) = 0`, is in good position in some chart (`IsGoodPositionGermWholeChart`) and has germ data
 in a tame chart (`IsScFredholmGermTameWholeChart`), then it is in good position in that tame chart.  In the
 chart `c₁` of the good position, `Tf̃₁(0)` is onto `K₀ ⊇ ρ(0)F_∞` and `ker Dg₁(0) ⊆ T₀O` is in good
@@ -222,7 +222,7 @@ theorem IsGoodPositionGermWholeChart.toTame (hf : B.IsScSmoothSection f) {y : X}
     rw [hφ0₁, partialQuadrantAtWith_zero, ← hT, inf_eq_left.2 hgp₁.kernel.le]
     exact hgp₁.kernel
 
-/-- **Theorem 3.15, the germ property, in a tame chart**: if `(f, x)` has germ data in a tame chart
+/-- **Theorem 3.1.18 (preprint 3.15), the germ property, in a tame chart**: if `(f, x)` has germ data in a tame chart
 and `s` is an sc⁺-section, then `(f + s, x)` has germ data in the same tame chart (the proof of
 `IsScFredholmGermWholeChart.sectionAdd`: filled version `g + ŝ ∘ r`, sc⁺-section `ŝ₁ ∘ r + t₀`, Lemma
 3.17). -/
@@ -242,8 +242,8 @@ theorem IsScFredholmGermTameWholeChart.sectionAdd {x : X} (hfs : IsSection P f)
   refine ⟨hxs, c, hct, hxV, h0, h0U, fun u => g u + c.principal s (StrongRetr.r c.R u),
     fun u => c.principalLift s (StrongRetr.r c.R u) + t₀ u, ⟨hfill.isScSmooth.add hU hsr, ?_⟩,
     hlift.add hU ht₀, ?_, ?_⟩
-  · -- Lemma 3.17
-    have h17 := lemma_3_17 c.relOpen c.isRetraction h0U hfill.filler
+  · -- Lemma 3.1.20 (preprint 3.17)
+    have h17 := lemma_3_1_20 c.relOpen c.isRetraction h0U hfill.filler
       (s := c.principal s) fun z hz => hs.mem_K hc (c.r_image ▸ hz)
     refine h17.congr_left c.relOpen c.isRetraction h0U fun z hz => ?_
     exact (c.principal_sectionAdd hfs hs.1 (c.r_image ▸ hz)).symm
@@ -266,13 +266,13 @@ theorem isTameChart_of_eqOn_id {c : StrongBundleChart PX P} (hc : B.IsChart c)
 
 end StrongBundle
 
-/-- **Theorem 3.15 for a tame strong bundle** (stability under sc⁺-perturbations, Definition
+/-- **Theorem 3.1.18 (preprint 3.15) for a tame strong bundle** (stability under sc⁺-perturbations, Definition
 3.51): if `f` is an sc-Fredholm section with tame germ data and `s` is an sc⁺-section, then `f + s`
-is an sc-Fredholm section with tame germ data (Theorem 3.15, `theorem_3_15_wholeChart`, and the germ data in
+is an sc-Fredholm section with tame germ data (Theorem 3.1.18 (preprint 3.15), `theorem_3_1_18_wholeChart`, and the germ data in
 the same tame chart, `IsScFredholmGermTameWholeChart.sectionAdd`). -/
-theorem theorem_3_15_tame_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) (hs : B.IsScPlusSection s) :
+theorem theorem_3_1_18_tame_wholeChart (hf : B.IsScFredholmSectionTameWholeChart f) (hs : B.IsScPlusSection s) :
     B.IsScFredholmSectionTameWholeChart (sectionAdd P f s) where
-  toIsScFredholmSectionWholeChart := theorem_3_15_wholeChart hf.toIsScFredholmSectionWholeChart hs
+  toIsScFredholmSectionWholeChart := theorem_3_1_18_wholeChart hf.toIsScFredholmSectionWholeChart hs
   germTame x hx := (hf.germTame x hx).sectionAdd hf.isScSmooth.1 hs
 
 end Bundle

@@ -4,7 +4,7 @@ import RoundTrip.Blind.V5_39
 
 /-! **Refresh 2026-11-02** (HEAD after the germ reading of Definition 3.11 and the notions built
 on it).
-theorem_5_18_dense and B now both use the germ-reading IsScFredholmSectionTame. The obstacles
+theorem_5_3_10_dense and B now both use the germ-reading IsScFredholmSectionTame. The obstacles
 (weak vs pointwise bump functions; B's tame strong bundle atlas) are untouched by the germ switch;
 A ⇒ BStrongBump still checks. Result unchanged.
 -/
@@ -13,9 +13,9 @@ namespace RoundTrip.V5_39
 open Polyfold
 
 /-- The project's statement (Theorem 5.18, dense form), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.theorem_5_18_dense.{0, 0}
+def A : Prop := type_of% @Polyfold.theorem_5_3_10_dense.{0, 0}
 
-theorem A_holds : A := @Polyfold.theorem_5_18_dense.{0, 0}
+theorem A_holds : A := @Polyfold.theorem_5_3_10_dense.{0, 0}
 
 /-- The distance `N(s(x) − s'(x))` is symmetric (`N(−v) = N(v)` on each fibre). -/
 theorem sectionDistAt_symm {X : Type} [TopologicalSpace X] [T2Space X] [ParacompactSpace X]
@@ -73,7 +73,7 @@ theorem A_to_BStrongBump : A → BStrongBump := by
   compactness (implied by B's `U`), and the smooth-submanifold / corner / `d_S = d_X` structure of
   `S_{f+s}` (would need Theorems 4.18, 4.22-type arguments of the project). -/
 
-#rt_check RoundTrip.V5_39.A_to_BStrongBump [Polyfold.theorem_5_18_dense]
-#rt_check RoundTrip.V5_39.B_to_BStrongBump [Polyfold.theorem_5_18_dense]
+#rt_check RoundTrip.V5_39.A_to_BStrongBump [Polyfold.theorem_5_3_10_dense]
+#rt_check RoundTrip.V5_39.B_to_BStrongBump [Polyfold.theorem_5_3_10_dense]
 
 end RoundTrip.V5_39

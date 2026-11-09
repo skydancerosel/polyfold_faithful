@@ -6,7 +6,7 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part 
 **Proposition 2.7.12** (p. 83) and the characterization closing **Theorem 2.7.13** (p. 84), both
 new in the 2021 edition, for representatives `(x, V, θ)` whose neighbourhood `V` is **not**
 centred at `x`.  The centred case is `Polyfold/Chapter2/TameBoundaryStructure.lean`
-(`phi_isScDiffeoOn`, `proposition_2_7_12_scDiffeo_2021`, `theorem_2_7_13_structure_2021`).
+(`phi_isScDiffeoOn`, `proposition_2_7_12_scDiffeo`, `theorem_2_7_13_structure`).
 
 # `Φ_{(x,V,θ)}` for arbitrary representatives
 
@@ -31,24 +31,24 @@ and the M-polyfold structure of `bX`.
   sub-M-polyfold), `MPolyfold.phiInv_isScSmoothOn` (`Φ⁻¹` is sc-smooth on `θ ∩ V^x`: near each
   point it is `Φ_{s'}⁻¹` of a centred `s'` composed with the inclusion of an open piece of `θ`
   into the face `θ_{s'}`).
-* **The characterization, all representatives**: `MPolyfold.phi_isScDiffeoOn_nonCentred_2021`
+* **The characterization, all representatives**: `MPolyfold.phi_isScDiffeoOn_nonCentred`
   (`Φ_{(x,V,θ)}` is an sc-diffeomorphism of `U(x, V, θ)` onto the open subset `θ ∩ V^x` of `θ`;
   it is a homeomorphism onto it by `isOpenEmbedding_phi`), with
   `MPolyfold.reachSet_eq_univ_of_isCenteredAt` (for centred `V` the image is `θ`) and the
-  uniqueness `MPolyfold.tameBoundaryPolyfold_unique_allReps_2021` together with its
-  satisfiability witness `MPolyfold.tameBoundaryPolyfold_satisfies_allReps_2021`.
+  uniqueness `MPolyfold.tameBoundaryPolyfold_unique_allReps` together with its
+  satisfiability witness `MPolyfold.tameBoundaryPolyfold_satisfies_allReps`.
 * **Proposition 2.7.12, all representatives**:
-  `MPolyfold.proposition_2_7_12_scDiffeo_nonCentred_2021` (the transition map
+  `MPolyfold.proposition_2_7_12_scDiffeo_nonCentred` (the transition map
   `Φ_{(x',V',θ')} ∘ Φ_{(x,V,θ)}⁻¹` is an sc-diffeomorphism between `Φ(U ∩ U')` and `Φ'(U ∩ U')`,
   both open, and it is the identity on the underlying points of `X`).
-* `MPolyfold.not_surjOn_phiTot_2021`: in `[0,∞)³` the map `Φ_{(x,V,θ)}` of the triple of
+* `MPolyfold.not_surjOn_phiTot`: in `[0,∞)³` the map `Φ_{(x,V,θ)}` of the triple of
   `TameBoundaryExample.lean` does not map `U(x, V, θ)` onto `θ`.
 
 ## What the text leaves implicit, and the choices made
 
 * **"`Φ_{(x,V,θ)}` is an sc-diffeomorphism onto `θ`" does not hold as we read it for every
   representative**: its image is `θ ∩ V^x` (`TameBoundary.bMap_image_uSet`), a proper subset of
-  `θ` for some `V ∈ N_{X,x}` (`not_surjOn_phiTot_2021`, from `phi_not_surjective_2021`).  The
+  `θ` for some `V ∈ N_{X,x}` (`not_surjOn_phiTot`, from `phi_not_surjective`).  The
   strongest correct version is proved: an sc-diffeomorphism onto the open subset `θ ∩ V^x`; for
   centred `V` this is the printed statement.  Proposition 2.7.12 holds as printed for all
   representatives (its domains are images of `U ∩ U'`, which lie in `θ ∩ V^x`).
@@ -151,7 +151,7 @@ private theorem isScSmoothOn_of_locally_nc {f : X → Y} {U : Set X} (hU : IsOpe
     fun y hy => hy.2, hf.smooth φ ψ hφ hψ V hVo (fun y hy => hy.1) fun y hy => hy.2⟩
 
 /-- A map into a sub-M-polyfold `A ⊆ Y` is sc-smooth into `A` as soon as it is sc-smooth into `Y`
-(near `x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto `A`, Proposition 2.21 (2); as the
+(near `x`, `f = (i⁻¹ ∘ r) ∘ i ∘ f` for a retraction `r` onto `A`, Proposition 2.3.19 (preprint 2.21) (2); as the
 private `isScSmoothOn_subPolyfold_of_val` of `Polyfold/Chapter7/SubGroupoid.lean`). -/
 private theorem isScSmoothOn_subPolyfold_of_val_nc {A : Set Y} (hA : Q.IsSubMPolyfold A)
     [ParacompactSpace A] {f : X → A} {U : Set X}
@@ -262,8 +262,8 @@ version that holds as we read it): `Φ_{(x,V,θ)}` is an sc-diffeomorphism of th
 `U(x, V, θ)` of `bX` onto the open subset `θ ∩ V^x` of the face `θ` with its natural structure,
 with inverse `Φ⁻¹` (`phiInv`).  For `V` centred at `x`, `θ ∩ V^x = θ`
 (`reachSet_eq_univ_of_isCenteredAt`) and this is `phi_isScDiffeoOn`; for other `V` the image can
-be a proper subset of `θ` (`not_surjOn_phiTot_2021`). -/
-theorem phi_isScDiffeoOn_nonCentred_2021 (hP : P.IsTame)
+be a proper subset of `θ` (`not_surjOn_phiTot`). -/
+theorem phi_isScDiffeoOn_nonCentred (hP : P.IsTame)
     (t : BTriple (P.isCornerIndex_degIndex hP)) :
     letI := P.paracompactSpace_subtype t.θ
     (P.tameBoundaryPolyfold hP).IsScDiffeoOn (P.facePolyfold hP t.mem.1.1 t.mem_faces.1)
@@ -290,8 +290,8 @@ theorem phiInv_eq_phiHomeomorph_symm (hP : P.IsTame) {t : BTriple (P.isCornerInd
 `Q'` on `bX` for which, for every triple `(x, V, θ)`, `Φ_{(x,V,θ)}` is an sc-diffeomorphism of
 `U(x, V, θ)` onto `θ ∩ V^x` is equivalent to `tameBoundaryPolyfold` (it has the property for the
 centred triples, `tameBoundaryPolyfold_unique`).  The hypothesis is satisfiable
-(`tameBoundaryPolyfold_satisfies_allReps_2021`). -/
-theorem tameBoundaryPolyfold_unique_allReps_2021 (hP : P.IsTame)
+(`tameBoundaryPolyfold_satisfies_allReps`). -/
+theorem tameBoundaryPolyfold_unique_allReps (hP : P.IsTame)
     (Q' : MPolyfold (P.TameBoundarySpace hP))
     (h : ∀ t : BTriple (P.isCornerIndex_degIndex hP),
       letI := P.paracompactSpace_subtype t.θ
@@ -311,21 +311,21 @@ theorem tameBoundaryPolyfold_unique_allReps_2021 (hP : P.IsTame)
   · rw [← hg]; exact h1.left_inv p hp
   · rw [← hg]; exact h1.right_inv y (hR y)
 
-/-- **Satisfiability of the hypothesis of `tameBoundaryPolyfold_unique_allReps_2021`**: the
-structure `tameBoundaryPolyfold` itself satisfies it (`phi_isScDiffeoOn_nonCentred_2021`). -/
-theorem tameBoundaryPolyfold_satisfies_allReps_2021 (hP : P.IsTame) :
+/-- **Satisfiability of the hypothesis of `tameBoundaryPolyfold_unique_allReps`**: the
+structure `tameBoundaryPolyfold` itself satisfies it (`phi_isScDiffeoOn_nonCentred`). -/
+theorem tameBoundaryPolyfold_satisfies_allReps (hP : P.IsTame) :
     ∀ t : BTriple (P.isCornerIndex_degIndex hP),
       letI := P.paracompactSpace_subtype t.θ
       (P.tameBoundaryPolyfold hP).IsScDiffeoOn (P.facePolyfold hP t.mem.1.1 t.mem_faces.1)
         (P.phiTot hP t) (phiInv _ t) (uSet _ t) (P.reachSet hP t) :=
-  P.phi_isScDiffeoOn_nonCentred_2021 hP
+  P.phi_isScDiffeoOn_nonCentred hP
 
 /-- **2021 Proposition 2.7.12, p. 83, for every pair of representatives** (centred or not): the
 sets `Φ_{(x,V,θ)}(U ∩ U')` and `Φ_{(x',V',θ')}(U ∩ U')` are open in `θ`, `θ'` (with
-`proposition_2_7_12_2021`), and the transition map `Φ_{(x',V',θ')} ∘ Φ_{(x,V,θ)}⁻¹` between them
+`proposition_2_7_12`), and the transition map `Φ_{(x',V',θ')} ∘ Φ_{(x,V,θ)}⁻¹` between them
 is an sc-diffeomorphism (the faces with their natural structures), with inverse
 `Φ_{(x,V,θ)} ∘ Φ_{(x',V',θ')}⁻¹`; on underlying points of `X` it is the identity. -/
-theorem proposition_2_7_12_scDiffeo_nonCentred_2021 (hP : P.IsTame)
+theorem proposition_2_7_12_scDiffeo_nonCentred (hP : P.IsTame)
     (t t' : BTriple (P.isCornerIndex_degIndex hP)) :
     letI := P.paracompactSpace_subtype t.θ
     letI := P.paracompactSpace_subtype t'.θ
@@ -340,9 +340,9 @@ theorem proposition_2_7_12_scDiffeo_nonCentred_2021 (hP : P.IsTame)
         ((P.phiTot hP t' (phiInv _ t y) : t'.θ) : X) = y := by
   let _ := P.paracompactSpace_subtype t.θ
   let _ := P.paracompactSpace_subtype t'.θ
-  have h := P.phi_isScDiffeoOn_nonCentred_2021 hP t
-  have h' := P.phi_isScDiffeoOn_nonCentred_2021 hP t'
-  obtain ⟨⟨N, hN, hNe⟩, ⟨N', hN', hN'e⟩, -⟩ := P.proposition_2_7_12_2021 hP t t'
+  have h := P.phi_isScDiffeoOn_nonCentred hP t
+  have h' := P.phi_isScDiffeoOn_nonCentred hP t'
+  obtain ⟨⟨N, hN, hNe⟩, ⟨N', hN', hN'e⟩, -⟩ := P.proposition_2_7_12 hP t t'
   set S := bMap (P.isCornerIndex_degIndex hP) '' (uSet _ t ∩ uSet _ t') with hSdef
   have hA : IsOpen {y : t.θ | (y : X) ∈ S} := by
     have : {y : t.θ | (y : X) ∈ S} = Subtype.val ⁻¹' N := by
@@ -411,8 +411,8 @@ open TameBoundaryExample in
 /-- **The characterization of 2021 Theorem 2.7.13 is not onto `θ` for every representative**, as
 we read it: for the triple `(x, V, θ)` of `[0,∞)³` (`counterTriple`, `TameBoundaryExample.lean`),
 `Φ_{(x,V,θ)}` does not map `U(x, V, θ)` onto `θ`; so it is an sc-diffeomorphism onto the proper
-open subset `θ ∩ V^x` only (`phi_isScDiffeoOn_nonCentred_2021`). -/
-theorem not_surjOn_phiTot_2021 (W : ScBanach) :
+open subset `θ ∩ V^x` only (`phi_isScDiffeoOn_nonCentred`). -/
+theorem not_surjOn_phiTot (W : ScBanach) :
     ¬ SurjOn ((quadrantPolyfold 3 W).phiTot (quadrantPolyfold_isTame 3 W) (counterTriple W))
       (uSet _ (counterTriple W)) univ := by
   intro h

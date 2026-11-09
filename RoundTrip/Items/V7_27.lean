@@ -8,9 +8,9 @@ the functor `G_x ⋉ U(x) → X` is fully faithful).
 `A` is the conjunction of the types of the three listed **theorems**, universes at `0`:
 `NaturalRep.π_eq_π_iff_exists_smul`, `NaturalRep.isOpenEmbedding_orbitQuotientMap`,
 `NaturalRep.range_orbitQuotientMap`.  The other listed declarations are definitions (data):
-`orbitQuotientMap` (the map `τ` into `|X|`), `proposition_7_6 : G_x\U(x) ≃ₜ π(U(x))`,
-`proposition_7_6_fullyFaithful`, `proposition_7_6_orbitMap`, `translationOrbitHomeomorph`; the
-homeomorphism `proposition_7_6` is built from the two theorems on `orbitQuotientMap`.  All are
+`orbitQuotientMap` (the map `τ` into `|X|`), `proposition_7_1_19 : G_x\U(x) ≃ₜ π(U(x))`,
+`proposition_7_1_19_fullyFaithful`, `proposition_7_1_19_orbitMap`, `translationOrbitHomeomorph`; the
+homeomorphism `proposition_7_1_19` is built from the two theorems on `orbitQuotientMap`.  All are
 stated for `R : X.NaturalRep x`, whose `U` is **connected**.
 
 * `B` is false (`not_B`), for the same reason as V7_22: `B`'s natural action does not require `U`
@@ -21,7 +21,7 @@ stated for `R : X.NaturalRep x`, whose `U` is **connected**.
 * `B → A`: `π_eq_π_iff_exists_smul` from `B`'s homeomorphism `τ` (injectivity of `τ` and
   `τ[y] = |y|`; the orbit relation is an equivalence); `isOpenEmbedding_orbitQuotientMap` from
   that (injectivity) together with continuity of the quotient lift and openness of `π`
-  (`proposition_7_1`, Proposition 7.1); `range_orbitQuotientMap` directly.  `orbitQuotientMap`'s
+  (`proposition_7_1_8`, Proposition 7.1); `range_orbitQuotientMap` directly.  `orbitQuotientMap`'s
   well-definedness proof uses `π_eq_π_iff_exists_smul`: hence `#rt_check_soft`. -/
 
 namespace RoundTrip.V7_27
@@ -115,7 +115,7 @@ theorem B_to_A : B → A := by
         · rintro ⟨_, ⟨y, hy, rfl⟩, rfl⟩
           exact ⟨Quotient.mk _ y, hy, rfl⟩
       rw [himage]
-      exact X.proposition_7_1 _ (R.isOpen_U.isOpenMap_subtype_val _
+      exact X.proposition_7_1_8 _ (R.isOpen_U.isOpenMap_subtype_val _
         (hS.preimage continuous_quotient_mk'))
   · intro Obj Mor _ _ _ _ _ _ X x R
     ext w

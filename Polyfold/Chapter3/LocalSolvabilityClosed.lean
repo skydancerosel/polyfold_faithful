@@ -3,29 +3,29 @@ import Polyfold.Chapter3.GoodComplementProjection
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.5,
-**Theorem 3.43** and **Corollary 3.47** (local germ solvability) with the **closedness of the good
+**Theorem 3.5.6 (preprint 3.43)** and **Theorem 3.5.11 (preprint 3.47)** (local germ solvability) with the **closedness of the good
 complement `Y`** recorded in the statement.
 
 # Local germ solvability: the good complement is closed
 
-The text's good complement `Y'` of `N' = ker Dg(0)` in Theorem 3.43 is `Z ⊕ W` for a subspace
-`Z ⊆ ℝⁿ'` (Lemma 3.46), an sc-complement, hence closed; Corollary 3.47 transports it by the
-linear coordinate change `ψ⁻¹` of Theorem 3.38 (Finding 69).  `Polyfold.theorem_3_43_sc_smooth`
-and `Polyfold.theorem_3_47_sc_smooth` (in `LocalSolvability.lean`) hide `Y` in an existential
-without recording its closedness, which Lemma 3.55 (`lemma_3_55`, added hypothesis `Y` closed,
-Finding 49) and Definition 3.25 (`TangentGermChart.isClosed_Y`, Finding 81) need at the nearby
-zeros in the proof of Theorem 3.54.  This file restates both theorems with the conjunct
+The text's good complement `Y'` of `N' = ker Dg(0)` in Theorem 3.5.6 (preprint 3.43) is `Z ⊕ W` for a subspace
+`Z ⊆ ℝⁿ'` (Lemma 3.5.10 (preprint 3.46)), an sc-complement, hence closed; Theorem 3.5.11 (preprint 3.47) transports it by the
+linear coordinate change `ψ⁻¹` of Theorem 3.4.2 (preprint 3.38) (Finding 69).  `Polyfold.theorem_3_5_6_sc_smooth`
+and `Polyfold.theorem_3_5_11_sc_smooth` (in `LocalSolvability.lean`) hide `Y` in an existential
+without recording its closedness, which Lemma 3.6.9 (preprint 3.55) (`lemma_3_6_9_preprint`, added hypothesis `Y` closed,
+Finding 49) and Definition 3.2.1 (preprint 3.25) (`TangentGermChart.isClosed_Y`, Finding 81) need at the nearby
+zeros in the proof of Theorem 3.6.8 (preprint 3.54).  This file restates both theorems with the conjunct
 `IsClosed Y`:
 
-* `Polyfold.theorem_3_43_closed`: `theorem_3_43_sc_smooth` with `Y = Z ⊕ W` closed.
-* `Polyfold.theorem_3_47_proj`: `theorem_3_47_sc_smooth` with `Y = ψ⁻¹(Z ⊕ W)` closed and with
+* `Polyfold.theorem_3_5_6_closed`: `theorem_3_5_6_sc_smooth` with `Y = Z ⊕ W` closed.
+* `Polyfold.theorem_3_5_11_proj`: `theorem_3_5_11_sc_smooth` with `Y = ψ⁻¹(Z ⊕ W)` closed and with
   the projection onto `ker D(f + s)(0)` along `Y` mapping `C̃ ⊕ W` into itself (`ProjectsInto`,
-  Findings 130–133): the complement of Theorem 3.43 is that of `theorem_3_43_proj`
+  Findings 130–133): the complement of Theorem 3.5.6 (preprint 3.43) is that of `theorem_3_5_6_proj`
   (`GoodComplementProjection.lean`), and both properties are carried through the linear
-  homeomorphism `ψ⁻¹` of Theorem 3.38, which maps `(C̃ ⊕ ℝᴺ') ⊕ X` onto `C̃ ⊕ W`.  The proof is that
-  of `theorem_3_47_sc_smooth` with the two properties carried along.
-* `Polyfold.theorem_3_47_closed`: `theorem_3_47_sc_smooth` with `Y = ψ⁻¹(Z ⊕ W)` closed (a
-  corollary of `theorem_3_47_proj`).
+  homeomorphism `ψ⁻¹` of Theorem 3.4.2 (preprint 3.38), which maps `(C̃ ⊕ ℝᴺ') ⊕ X` onto `C̃ ⊕ W`.  The proof is that
+  of `theorem_3_5_11_sc_smooth` with the two properties carried along.
+* `Polyfold.theorem_3_5_11_closed`: `theorem_3_5_11_sc_smooth` with `Y = ψ⁻¹(Z ⊕ W)` closed (a
+  corollary of `theorem_3_5_11_proj`).
 -/
 
 open Set Filter Topology Function Asymptotics Metric
@@ -40,12 +40,12 @@ variable {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q] [FiniteDimensiona
 
 namespace ShiftedBasicData
 
-/-- **Theorem 3.43 with the closedness of the good complement recorded**: `theorem_3_43_sc_smooth`
+/-- **Theorem 3.5.6 (preprint 3.43) with the closedness of the good complement recorded**: `theorem_3_5_6_sc_smooth`
 with the additional conclusion `IsClosed Y` (the complement is `Y' = Z ⊕ W` with `Z ⊆ ℝⁿ'`, a
-closed subspace; the text's `Y'` is an sc-complement, hence closed).  Needed by Lemma 3.55 at the
-nearby zeros (added hypothesis there, Finding 49) and by Definition 3.25
+closed subspace; the text's `Y'` is an sc-complement, hence closed).  Needed by Lemma 3.6.9 (preprint 3.55) at the
+nearby zeros (added hypothesis there, Finding 49) and by Definition 3.2.1 (preprint 3.25)
 (`TangentGermChart.isClosed_Y`, Finding 81). -/
-theorem _root_.Polyfold.theorem_3_43_closed (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+theorem _root_.Polyfold.theorem_3_5_6_closed (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒟 : ShiftedBasicData Ct W Q) (hsurj : Surjective 𝒟.Dg)
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ) 𝒟.K')
     (hreg : ∀ ε > 0, ∃ r > 0, ∀ x ∈ 𝒟.G₀.U 0, 𝒟.g x = 0 → ‖x‖ < r →
@@ -78,15 +78,15 @@ namespace StabilityData
 
 variable (𝒮 : StabilityData Ct W) {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
 
-/-- **Theorem 3.47 with a closed good complement whose projection maps the partial quadrant into
-itself**: `theorem_3_47_sc_smooth` with the additional conclusions `IsClosed Y` and
+/-- **Theorem 3.5.11 (preprint 3.47) with a closed good complement whose projection maps the partial quadrant into
+itself**: `theorem_3_5_11_sc_smooth` with the additional conclusions `IsClosed Y` and
 `ProjectsInto (C̃ ⊕ W) K Y`, i.e. the projection onto `K = ker D(f + s)(0)` along
-`Y = ψ⁻¹(Z ⊕ W)` maps `C' = C̃ ⊕ W` into `K ∩ C'`.  The complement `Y'` of Theorem 3.43 for the
-conjugated germ is that of `theorem_3_43_proj` (chosen with `ProjectsInto`, Finding 132), and
-both properties are carried by the linear homeomorphism `ψ⁻¹` of Theorem 3.38, which maps
+`Y = ψ⁻¹(Z ⊕ W)` maps `C' = C̃ ⊕ W` into `K ∩ C'`.  The complement `Y'` of Theorem 3.5.6 (preprint 3.43) for the
+conjugated germ is that of `theorem_3_5_6_proj` (chosen with `ProjectsInto`, Finding 132), and
+both properties are carried by the linear homeomorphism `ψ⁻¹` of Theorem 3.4.2 (preprint 3.38), which maps
 `(C̃ ⊕ ℝᴺ') ⊕ X` onto `C̃ ⊕ W` (`ProjectsInto.mapL`).  (The proof is that of
-`theorem_3_47_sc_smooth` in `LocalSolvability.lean`, with the two properties carried along.) -/
-theorem _root_.Polyfold.theorem_3_47_proj (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+`theorem_3_5_11_sc_smooth` in `LocalSolvability.lean`, with the two properties carried along.) -/
+theorem _root_.Polyfold.theorem_3_5_11_proj (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒮 : StabilityData Ct W) (hf : IsBasicGerm Ct 𝒮.G f B) (hsurj : Surjective (𝒮.Dfs f))
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       (LinearMap.ker (𝒮.Dfs f : P × W 0 →ₗ[ℝ] Q × W 0))) :
@@ -161,7 +161,7 @@ theorem _root_.Polyfold.theorem_3_47_proj (hC : IsPartialQuadrant (ScBanach.cons
     constructor
     · rintro ⟨y', hy', rfl⟩; exact hSK' ⟨y', hy'⟩
     · intro hx; exact ⟨S x, hSK ⟨x, hx⟩, S.symm_apply_apply x⟩
-  -- finite dimensionality of the kernels (Lemma 3.44)
+  -- finite dimensionality of the kernels (Lemma 3.5.8 (preprint 3.44))
   have hC' : IsPartialQuadrant (ScBanach.const (P × 𝒮.Cs)) (Ct ×ˢ (univ : Set 𝒮.Cs)) :=
     hC.const_prod_univ 𝒮.Cs
   have hfinK' : FiniteDimensional ℝ 𝒟.K' := by
@@ -182,7 +182,7 @@ theorem _root_.Polyfold.theorem_3_47_proj (hC : IsPartialQuadrant (ScBanach.cons
     refine ⟨𝒮.split₀ 0 x, ?_⟩
     rw [hDg_apply, 𝒮.glue₀_split₀, hx, 𝒮.fiber₀_fiberInv₀]
   obtain ⟨Y', V', τ, hY', hY'c, hY'p, hV'rel, hV'0, hτY, hτ1, hτC, hτ0, hDτ, hsol, hlev, U'', hU''o,
-    hU''0, hU''⟩ := theorem_3_43_proj hC' 𝒟 hsurj' hpos' (𝒮.lemma_3_42 hC hf)
+    hU''0, hU''⟩ := theorem_3_5_6_proj hC' 𝒟 hsurj' hpos' (𝒮.lemma_3_5_5 hC hf)
   let SK : K →L[ℝ] 𝒟.K' :=
     { toFun := fun y => ⟨S y, hSK y⟩
       map_add' := fun _ _ => Subtype.ext (by simp)
@@ -194,7 +194,7 @@ theorem _root_.Polyfold.theorem_3_47_proj (hC : IsPartialQuadrant (ScBanach.cons
   -- the complement, the neighbourhood and the map
   refine ⟨Y'.map (S.symm : 𝒮.E₀' 0 →ₗ[ℝ] P × W 0), SK ⁻¹' V', fun y => S.symm (τ (SK y)),
     ?_, ?_, ?_, ?_, ?_, fun y => ⟨τ (SK y), hτY _, rfl⟩, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
-  · -- `Y` is a good complement of `K` (Lemma 3.45 for the linear `ψ⁻¹`)
+  · -- `Y` is a good complement of `K` (Lemma 3.5.9 (preprint 3.45) for the linear `ψ⁻¹`)
     have h := hY'.map (E' := ScBanach.paramProd P W) (C' := Ct ×ˢ univ) S.symm hS'_mem
     rwa [hKmap] at h
   · -- `Y` is closed: the image of the closed `Y'` under the linear homeomorphism `ψ⁻¹`
@@ -292,10 +292,10 @@ theorem _root_.Polyfold.theorem_3_47_proj (hC : IsPartialQuadrant (ScBanach.cons
     change x = S.symm y' + S.symm (τ y')
     rw [← map_add, ← hxy', S.symm_apply_apply]
 
-/-- **Theorem 3.47 with the closedness of the good complement recorded**: `theorem_3_47_sc_smooth`
+/-- **Theorem 3.5.11 (preprint 3.47) with the closedness of the good complement recorded**: `theorem_3_5_11_sc_smooth`
 with the additional conclusion `IsClosed Y`, `Y = ψ⁻¹(Z ⊕ W)` the image of a closed subspace under
-the linear homeomorphism `ψ⁻¹` of Theorem 3.38.  (A corollary of `theorem_3_47_proj`.) -/
-theorem _root_.Polyfold.theorem_3_47_closed (hC : IsPartialQuadrant (ScBanach.const P) Ct)
+the linear homeomorphism `ψ⁻¹` of Theorem 3.4.2 (preprint 3.38).  (A corollary of `theorem_3_5_11_proj`.) -/
+theorem _root_.Polyfold.theorem_3_5_11_closed (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (𝒮 : StabilityData Ct W) (hf : IsBasicGerm Ct 𝒮.G f B) (hsurj : Surjective (𝒮.Dfs f))
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
       (LinearMap.ker (𝒮.Dfs f : P × W 0 →ₗ[ℝ] Q × W 0))) :
@@ -317,7 +317,7 @@ theorem _root_.Polyfold.theorem_3_47_closed (hC : IsPartialQuadrant (ScBanach.co
           ContDiffOn ℝ k σk Vk ∧ ∀ y ∈ Vk, (ScBanach.paramProd P W).toBase k (σk y) = σ y) ∧
       ∃ U'' : Set (P × W 0), IsOpen U'' ∧ (0 : P × W 0) ∈ U'' ∧
         ∀ x ∈ U'' ∩ 𝒮.G.U 0, 𝒮.fsum f x = 0 → ∃ y ∈ V, x = (y : P × W 0) + σ y := by
-  obtain ⟨Y, V, σ, h1, h2, -, h3⟩ := theorem_3_47_proj hC 𝒮 hf hsurj hpos
+  obtain ⟨Y, V, σ, h1, h2, -, h3⟩ := theorem_3_5_11_proj hC 𝒮 hf hsurj hpos
   exact ⟨Y, V, σ, h1, h2, h3⟩
 
 end StabilityData

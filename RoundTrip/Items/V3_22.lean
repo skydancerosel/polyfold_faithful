@@ -72,7 +72,7 @@ theorem mpr_of_A (hA : A) {X : Type} [TopologicalSpace X] [T2Space X] [Paracompa
   -- `N ∩ C` is a partial quadrant of `N` (Proposition 3.22, a project lemma not in this item)
   have hgp : IsInGoodPosition φ.model.E φ.model.C N := ⟨hint, Yc, isGoodComplement_of_B hYc⟩
   have hQ : IsQuadrantLike (ScBanach.const N) (Subtype.val ⁻¹' φ.model.C) :=
-    (proposition_3_22 φ.model.isPartialQuadrant hgp).isQuadrantLike
+    (proposition_3_1_25 φ.model.isPartialQuadrant hgp).isQuadrantLike
   -- `δ` redefined off `V`
   let δ' : N → φ.model.E 0 := fun v => if v ∈ V then δ v else 0
   have hδδ' : EqOn δ δ' V := fun v hv => by simp only [δ', if_pos hv]

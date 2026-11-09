@@ -6,21 +6,21 @@ import RoundTrip.Blind.V7_17
 
 `A` is the conjunction of the types of the listed theorems, universes at `0`:
 `NaturalRep.Φ_one`, `NaturalRep.mapsTo_Φ`, `NaturalRep.Φ_inv_Φ`, `NaturalRep.bijOn_Γ` and
-`EpGroupoid.theorem_7_1` (`∃ R : X.NaturalRep x, R.U ⊆ V`); `EpGroupoid.NaturalRep` (the structure)
+`EpGroupoid.theorem_7_1_13` (`∃ R : X.NaturalRep x, R.U ⊆ V`); `EpGroupoid.NaturalRep` (the structure)
 is vocabulary.
 
 Dictionary: `B`'s `Gx X x = {g // s g = x ∧ t g = x}` and the project's `X.Isotropy x` (a
 structure with the same fields) are identified by `toG`/`ofG`; the products agree
 (`(g * h).val = X.comp g.val h.val`).
 
-* `A → B`: the `R` of `theorem_7_1` gives `B`'s data `U = R.U`, `Φ g = R.Φ g`, `Γ g = R.Γ g`;
+* `A → B`: the `R` of `theorem_7_1_13` gives `B`'s data `U = R.U`, `Φ g = R.Φ g`, `Γ g = R.Γ g`;
   each clause of `B`'s `IsNatRepData` is a field of `NaturalRep` (with inverse `Φ(g⁻¹)`), and
   the bijection clause is `A`'s `bijOn_Γ` transported along `ofG`.
 * `B → A`: the project's `NaturalRep` asks two things `B` does not give: `U` **connected**, and
   the inverse of `Φ(g)` to be `Φ(g⁻¹)`.  The second follows from `B` (`Φ(1) = id` on `U` because
   `Φ(1)` is injective and idempotent, then `Φ(g⁻¹) Φ(g) = Φ(1)`).  For the first, `U` is shrunk
   to the connected component `C` of `x` in `U`: it is open (M-polyfolds are locally connected),
-  and invariant under every `Φ(g)` (a homeomorphism of `U` fixing `x`).  So `theorem_7_1` follows
+  and invariant under every `Φ(g)` (a homeomorphism of `U` fixing `x`).  So `theorem_7_1_13` follows
   from `B`.  The other four conjuncts are facts about an arbitrary `R : NaturalRep`, not
   consequences of `B`; they are re-proved outright from the fields. -/
 
@@ -33,12 +33,12 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.NaturalRep.mapsTo_Φ.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NaturalRep.Φ_inv_Φ.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.NaturalRep.bijOn_Γ.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.theorem_7_1.{0})
+  (type_of% @Polyfold.EpGroupoid.theorem_7_1_13.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.NaturalRep.Φ_one.{0}, @Polyfold.EpGroupoid.NaturalRep.mapsTo_Φ.{0},
     @Polyfold.EpGroupoid.NaturalRep.Φ_inv_Φ.{0}, @Polyfold.EpGroupoid.NaturalRep.bijOn_Γ.{0},
-    @Polyfold.EpGroupoid.theorem_7_1.{0}⟩
+    @Polyfold.EpGroupoid.theorem_7_1_13.{0}⟩
 
 section Dictionary
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -116,7 +116,7 @@ theorem bijOn_Γ' (R : X.NaturalRep x) :
   · obtain ⟨g, hg, -⟩ := R.existsUnique_Γ φ hφ.1 hφ.2
     exact ⟨(g, X.src φ), ⟨mem_univ _, hφ.1⟩, hg⟩
 
-/-- **`theorem_7_1` from `B`'s data**: shrink `U` to the connected component of `x`. -/
+/-- **`theorem_7_1_13` from `B`'s data**: shrink `U` to the connected component of `x`. -/
 theorem naturalRep_of_isNatRepData {U : Set Obj} {Φ : Gx X x → Obj → Obj}
     {Γ : Gx X x → Obj → Mor} (hUo : IsOpen U) (hxU : x ∈ U) (hd : IsNatRepData X x U Φ Γ) :
     ∃ R : X.NaturalRep x, R.U ⊆ U := by
@@ -193,12 +193,12 @@ theorem B_to_A : B → A := by
 
 #rt_check RoundTrip.V7_17.A_to_B [Polyfold.EpGroupoid.NaturalRep.Φ_one,
   Polyfold.EpGroupoid.NaturalRep.mapsTo_Φ, Polyfold.EpGroupoid.NaturalRep.Φ_inv_Φ,
-  Polyfold.EpGroupoid.NaturalRep.bijOn_Γ, Polyfold.EpGroupoid.theorem_7_1]
+  Polyfold.EpGroupoid.NaturalRep.bijOn_Γ, Polyfold.EpGroupoid.theorem_7_1_13]
 #rt_check RoundTrip.V7_17.B_to_A [Polyfold.EpGroupoid.NaturalRep.Φ_one,
   Polyfold.EpGroupoid.NaturalRep.mapsTo_Φ, Polyfold.EpGroupoid.NaturalRep.Φ_inv_Φ,
-  Polyfold.EpGroupoid.NaturalRep.bijOn_Γ, Polyfold.EpGroupoid.theorem_7_1]
+  Polyfold.EpGroupoid.NaturalRep.bijOn_Γ, Polyfold.EpGroupoid.theorem_7_1_13]
 #rt_overlap RoundTrip.V7_17.B_to_A [Polyfold.EpGroupoid.NaturalRep.Φ_one,
   Polyfold.EpGroupoid.NaturalRep.mapsTo_Φ, Polyfold.EpGroupoid.NaturalRep.Φ_inv_Φ,
-  Polyfold.EpGroupoid.NaturalRep.bijOn_Γ, Polyfold.EpGroupoid.theorem_7_1]
+  Polyfold.EpGroupoid.NaturalRep.bijOn_Γ, Polyfold.EpGroupoid.theorem_7_1_13]
 
 end RoundTrip.V7_17

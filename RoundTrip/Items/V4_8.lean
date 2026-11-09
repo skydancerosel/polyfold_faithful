@@ -9,7 +9,7 @@ and a projection with finite-dimensional image).  `A` is the conjunction of the 
 `Polyfold.finiteDimensional_range_of_isCompactOperator_of_idem` (the last one has a universe
 parameter, instantiated at `0`).
 
-A ⇒ B: at `o₁` with `ι₁ o₁ ∈ O`, `o₁` is smooth (Lemma 4.7 (i), `lemma_4_7_i`) and lies in `U₁`;
+A ⇒ B: at `o₁` with `ι₁ o₁ ∈ O`, `o₁` is smooth (Lemma 4.7 (i), `lemma_4_1_7_i`) and lies in `U₁`;
 A's sc⁺-operator `S : E → E¹` gives B's level maps `E_m → E_{m+1}` and `E_m → E_m`
 (`ScOperator.toBase_comm`), A gives compactness, and A's Riesz lemma applied to the idempotent
 `Dr(o)` (`ScRetraction.scDeriv_comp_self`) gives the finite-dimensional range.
@@ -36,7 +36,7 @@ theorem A_holds : A :=
 theorem A_to_B : A → B := by
   rintro ⟨-, hA2, hA3⟩ E C r hr o₁ ho
   have hr' : IsScPlus r.U r := hr
-  have hs : o₁ ∈ E.smoothLvl 1 := lemma_4_7_i hr ho
+  have hs : o₁ ∈ E.smoothLvl 1 := lemma_4_1_7_i hr ho
   have hoU : o₁ ∈ E.lvlSet r.U 1 := r.retract_subset ho
   obtain ⟨hc, S, hS, hSc⟩ := hA2 r.isScDomain hr' hoU hs
   refine ⟨fun m => ⟨S m, fun x => ?_⟩, fun m => ⟨S.toScOperator m, fun x => ?_, hSc m⟩, ?_⟩

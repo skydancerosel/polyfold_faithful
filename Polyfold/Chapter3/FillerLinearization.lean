@@ -3,22 +3,22 @@ import Polyfold.Chapter3.BasicGermLinearization
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1, the
-paragraph after Definition 3.4 (the matrix of `Dg(0)`) and **Proposition 3.5 (Filler)** for a
-filler, and §3.6 **Remark 3.49**.
+paragraph after Definition 3.1.4 (preprint 3.4) (the matrix of `Dg(0)`) and **Proposition 3.1.5 (preprint 3.5) (Filler)** for a
+filler, and §3.6 **Remark 3.6.2 (preprint 3.49)**.
 
 # The linearization of a filled section
 
 ## The text, paraphrased
 
-(After Definition 3.4) `ρ(0)` and `Dr(0)` are projections.  "From `ρ(r(y))f(r(y)) = f(r(y))` …
+(After Definition 3.1.4 (preprint 3.4)) `ρ(0)` and `Dr(0)` are projections.  "From `ρ(r(y))f(r(y)) = f(r(y))` …
 by linearization at `y = 0` the relation `ρ(0)Tf(0) = Tf(0)`.  From `g(r(y)) = f(r(y))` … we
 deduce `Tg(0) = Tf(0)` on `T₀O`.  From the identity `(1 − ρ(r(y)))g(r(y)) = 0` … we deduce, using
 `g(0) = 0`, the relation `(1 − ρ(0))Dg(0) ∘ Dr(0) = 0`."  Hence the matrix
 `Dg(0) = [[Tf(0), ρ(0)Dg(0)(1 − Dr(0))], [0, (1 − ρ(0))Dg(0)(1 − Dr(0))]]`, and by property (3)
 the lower right entry is an isomorphism `ker Dr(0) → ker ρ(0)`, so `ker Dg(0) = ker Tf(0) ⊕ {0}`.
-(Proposition 3.5) (1) `Tf(0)` surjective iff `Dg(0)` surjective; (2) `Tf(0)` Fredholm iff `Dg(0)`
-Fredholm, with equal index.  (Remark 3.49) By replacing `O` by a smaller set one may assume in
-Definition 3.48 (1) that `f = g` on all of `O` and in (2) that `g(y) = ρ(r(y))g(y)` for `y ∈ U`
+(Proposition 3.1.5 (preprint 3.5)) (1) `Tf(0)` surjective iff `Dg(0)` surjective; (2) `Tf(0)` Fredholm iff `Dg(0)`
+Fredholm, with equal index.  (Remark 3.6.2 (preprint 3.49)) By replacing `O` by a smaller set one may assume in
+Definition 3.6.1 (preprint 3.48) (1) that `f = g` on all of `O` and in (2) that `g(y) = ρ(r(y))g(y)` for `y ∈ U`
 implies `y ∈ O`.
 
 ## What is formalized
@@ -31,10 +31,10 @@ implies `y ∈ O`.
   (`(1 − ρ(0))Dg(0)Dr(0) = 0`), `Polyfold.IsFillerOf.exists_kerEquiv` (property (3) in terms of
   `Dg(0)`), `Polyfold.IsFillerOf.scDeriv_section_comp_r` (`D(f ∘ r)(0) = Dg(0)Dr(0)`, the text's
   `Tg(0) = Tf(0)`).
-* `Polyfold.IsFillerOf.proposition_3_5` (**Proposition 3.5**): for a filler `g` of `f` with
+* `Polyfold.IsFillerOf.proposition_3_1_5` (**Proposition 3.1.5 (preprint 3.5)**): for a filler `g` of `f` with
   `g(0) = 0`, the restriction `Tf(0) = Dg(0)|_{range Dr(0)} : range Dr(0) → range ρ(0)`
   (`fillerRestrict`) is surjective iff `Dg(0)` is, Fredholm iff `Dg(0)` is, with the same index.
-* `Polyfold.IsFillerOf.remark_3_49` (**Remark 3.49**).
+* `Polyfold.IsFillerOf.remark_3_6_2` (**Remark 3.6.2 (preprint 3.49)**).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
@@ -47,12 +47,12 @@ implies `y ∈ O`.
   `0 ∈ O`.
 * **`(1 − ρ(0))Dg(0)Dr(0) = 0`** needs `f = g` on `O` near `0` and `ρ(x)f(x) = f(x)` on `O`, i.e.
   that `f` is a section of `K → O` (hypothesis `hfK`), and the continuity of `r` at `0`.
-* **Proposition 3.5 is the abstract statement `FillerLinearAlgebra.lean`** applied to
+* **Proposition 3.1.5 (preprint 3.5) is the abstract statement `FillerLinearAlgebra.lean`** applied to
   `p = Dr(0)`, `q = ρ(0)`, `L = Dg(0)`; the "topological" in condition (3) is used for the
   closedness of the ranges.
 * `Tf(0)` is formalized as `Dg(0)|_{range Dr(0)}` (`fillerRestrict`); that this is the
   restriction of `D(f ∘ r)(0) = Dg(0)Dr(0)` to `T₀O = range Dr(0)` is `scDeriv_section_comp_r`
-  (for `f ∘ r` sc¹, as in Definition 3.3).
+  (for `f ∘ r` sc¹, as in Definition 3.1.3 (preprint 3.3)).
 -/
 
 open Set Filter Topology Function Module ContinuousLinearMap
@@ -65,13 +65,13 @@ variable {E F : ScBanach} {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 
 open StrongRetr
 
-/-- The chain rule at a level-`1` point, for sc¹ maps `f : U → V`, `g : V → G₀` (Theorem 1.21,
+/-- The chain rule at a level-`1` point, for sc¹ maps `f : U → V`, `g : V → G₀` (Theorem 1.3.1 (preprint 1.21),
 second component; `scDeriv_comp_apply` of `DegeneracyIndex.lean` with a general target). -/
 lemma scDeriv_comp_apply' {G : ScBanach} {D : Set (F 0)} {V : Set (F 0)} {f : E 0 → F 0}
     {g : F 0 → G 0} (hU : IsRelOpenInQuadrant E C U) (hV : IsRelOpenInQuadrant F D V)
     (hf : IsSc1 U f) (hg : IsSc1 V g) (hfV : MapsTo f U V) {x : E 1} (hx : x ∈ E.lvlSet U 1)
     (h : E 0) : scDeriv V g (levelMap f 1 x) (scDeriv U f x h) = scDeriv U (g ∘ f) x h := by
-  obtain ⟨_, hchain⟩ := theorem_1_21 hU hV hf hg hfV
+  obtain ⟨_, hchain⟩ := theorem_1_3_1 hU hV hf hg hfV
   have := hchain (show ((x, h) : E.tangent 0) ∈ E.tangentSet U from hx)
   exact (congrArg Prod.snd this).symm
 
@@ -250,7 +250,7 @@ theorem scDeriv_sub_eq (hg : IsScSmooth U g) (hg0 : g 0 = 0) (h0O : (0 : E 0) �
     rw [r_zero hR h0O, hg0]; rfl
   -- the composite `ψ₂ = pr_F ∘ R ∘ (r, g)` and its derivative `ρ(0)Dg(0)`
   have hψ₂ : IsSc1 U ((fun p : (E.prod F) 0 => (R p).2) ∘ scPair (r R) g) :=
-    (theorem_1_21' hU.isScDomain hUF hpair (fiber_isSc1 hU hR) hmaps).1
+    (theorem_1_3_1' hU.isScDomain hUF hpair (fiber_isSc1 hU hR) hmaps).1
   have hDψ₂ : scDeriv U ((fun p : (E.prod F) 0 => (R p).2) ∘ scPair (r R) g) 0 =
       (ρCLM hR h0).comp Dg := by
     ext h
@@ -279,7 +279,7 @@ theorem deriv_comp_r_eq_zero (hg : IsScSmooth U g) (hg0 : g 0 = 0) (h0O : (0 : E
   set ψ₁ : E 0 → F 0 := fun y => g y - ρ R (r R y) (g y) with hψ₁def
   have hψ₁ : IsSc1 U ψ₁ := hfg.isSc1
   have hψ₁r : IsSc1 U (ψ₁ ∘ r R) :=
-    (theorem_1_21' hU.isScDomain hU.isScDomain hr1 hψ₁ fun u hu => r_mem hR hu).1
+    (theorem_1_3_1' hU.isScDomain hU.isScDomain hr1 hψ₁ fun u hu => r_mem hR hu).1
   have hlev : levelMap (r R) 1 (0 : E 1) = 0 :=
     levelMap_eq_of_toBase_eq (by rw [map_zero, r_zero hR h0O])
   -- `ψ₁ ∘ r = 0` near `0` in `U`
@@ -335,10 +335,10 @@ theorem ρ_deriv_comp_r (hg : IsScSmooth U g) (hg0 : g 0 = 0) (h0O : (0 : E 0) �
   (sub_eq_zero.1 (hfg.deriv_comp_r_eq_zero hg hg0 h0O hfK h)).symm
 
 include hfg in
-/-- **Proposition 3.5 (Filler)**: let `g` fill `f` with `g(0) = 0` (`f` a section of `K → O`).
+/-- **Proposition 3.1.5 (preprint 3.5) (Filler)**: let `g` fill `f` with `g(0) = 0` (`f` a section of `K → O`).
 Then `Tf(0) = Dg(0)|_{Dr(0)E} : Dr(0)E → ρ(0)F` (`fillerRestrict`) satisfies: (1) `Tf(0)` is
 surjective iff `Dg(0)` is; (2) `Tf(0)` is Fredholm iff `Dg(0)` is, and `ind Tf(0) = ind Dg(0)`. -/
-theorem proposition_3_5 (hg : IsScSmooth U g) (hg0 : g 0 = 0) (h0O : (0 : E 0) ∈ r R '' U)
+theorem proposition_3_1_5 (hg : IsScSmooth U g) (hg0 : g 0 = 0) (h0O : (0 : E 0) ∈ r R '' U)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ)) :
     ∃ h1 : ∀ x, ρCLM hR h0 (scDeriv U g 0 (scDeriv U (r R) 0 x)) = scDeriv U g 0 (scDeriv U (r R) 0 x),
       (Surjective (fillerRestrict (scDeriv U (r R) 0) (ρCLM hR h0) (scDeriv U g 0) h1) ↔
@@ -348,7 +348,7 @@ theorem proposition_3_5 (hg : IsScSmooth U g) (hg0 : g 0 = 0) (h0O : (0 : E 0) �
         fredholmIndex (fillerRestrict (scDeriv U (r R) 0) (ρCLM hR h0) (scDeriv U g 0) h1) =
           fredholmIndex (scDeriv U g 0) := by
   obtain ⟨Φ, hΦ⟩ := hfg.exists_kerEquiv hg hg0 h0O
-  exact ⟨hfg.ρ_deriv_comp_r hg hg0 h0O hfK, Polyfold.proposition_3_5 (scDeriv_r_idem hU hR h0O)
+  exact ⟨hfg.ρ_deriv_comp_r hg hg0 h0O hfK, Polyfold.proposition_3_1_5_preprint (scDeriv_r_idem hU hR h0O)
     (ρCLM_idem hR h0 h0O) _ Φ hΦ⟩
 
 include hfg in
@@ -361,7 +361,7 @@ theorem scDeriv_section_comp_r (hg : IsScSmooth U g) (h0O : (0 : E 0) ∈ r R ''
   have huniq := hU.isScDomain.uniqueDiffWithinAt 1 0 h01
   have hr1 : IsSc1 U (r R) := (r_isScSmooth hU hR).isSc1
   have hgr : IsSc1 U (g ∘ r R) :=
-    (theorem_1_21' hU.isScDomain hU.isScDomain hr1 hg.isSc1 fun u hu => r_mem hR hu).1
+    (theorem_1_3_1' hU.isScDomain hU.isScDomain hr1 hg.isSc1 fun u hu => r_mem hR hu).1
   have hlev : levelMap (r R) 1 (0 : E 1) = 0 :=
     levelMap_eq_of_toBase_eq (by rw [map_zero, r_zero hR h0O])
   -- `f ∘ r = g ∘ r` near `0` in `U`
@@ -394,9 +394,9 @@ theorem scDeriv_section_comp_r (hg : IsScSmooth U g) (h0O : (0 : E 0) ∈ r R ''
   rw [ContinuousLinearMap.comp_apply, this]
 
 include hfg in
-/-- **Remark 3.49**: on a smaller neighbourhood `W` of `0`, `f = g` on all of `O ∩ W` and
+/-- **Remark 3.6.2 (preprint 3.49)**: on a smaller neighbourhood `W` of `0`, `f = g` on all of `O ∩ W` and
 `g(y) = ρ(r(y))g(y)` for `y ∈ U ∩ W` implies `y ∈ O`. -/
-theorem remark_3_49 : ∃ W : Set (E 0), IsOpen W ∧ (0 : E 0) ∈ W ∧
+theorem remark_3_6_2 : ∃ W : Set (E 0), IsOpen W ∧ (0 : E 0) ∈ W ∧
     (∀ x ∈ r R '' U ∩ W, fb x = g x) ∧
     ∀ y ∈ U ∩ W, g y = ρ R (r R y) (g y) → y ∈ r R '' U := by
   obtain ⟨W, hWsub, hWopen, h0W⟩ := mem_nhds_iff.1 (hfg.eq_on.and hfg.mem_of_fixed)

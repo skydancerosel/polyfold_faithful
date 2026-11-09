@@ -5,9 +5,9 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": true,
- "why": "The maps are definitionally B's (jMap = projSeqJ, PhiMap = projSeqPhi, piMap = projSeqPi, all rfl; IsGLP = IsGoodLeftProj fieldwise), and A => B is instantiation. The only difference: A (lemma_6_11) has no Fredholm hypothesis on T, B keeps the text's standing assumption that T is Fredholm (unused by the exactness argument). B => A is believed derivable from B, not only true: pass to Tbar : E/ker T -> F, which is injective with range R(T) of finite codimension (R(T) + ker P = F), hence closed, so Tbar is Fredholm with P in Pi_Tbar, and exactness of E(Tbar, P) gives that of E(T, P). This needs the quotient Banach space, continuity of Tbar and the closed-range theorem for finite-codimensional ranges, none available as project lemmas; not done.",
+ "why": "The maps are definitionally B's (jMap = projSeqJ, PhiMap = projSeqPhi, piMap = projSeqPi, all rfl; IsGLP = IsGoodLeftProj fieldwise), and A => B is instantiation. The only difference: A (proposition_6_4_10) has no Fredholm hypothesis on T, B keeps the text's standing assumption that T is Fredholm (unused by the exactness argument). B => A is believed derivable from B, not only true: pass to Tbar : E/ker T -> F, which is injective with range R(T) of finite codimension (R(T) + ker P = F), hence closed, so Tbar is Fredholm with P in Pi_Tbar, and exactness of E(Tbar, P) gives that of E(T, P). This needs the quotient Banach space, continuity of Tbar and the closed-range theorem for finite-codimensional ranges, none available as project lemmas; not done.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved)",
  "uses_hypothesis": {"A_to_B": true, "B_to_A": false},
- "universes": "lemma_6_11 instantiated at universes 0, 0."
+ "universes": "proposition_6_4_10 instantiated at universes 0, 0."
 }

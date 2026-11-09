@@ -3,7 +3,7 @@ import Polyfold.Chapter3.SectionCompactness
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1 and §3.6,
-Definitions 3.11, 3.50, 3.51 and §6.1, for the restriction `P|V` of a strong bundle to an open
+Definitions 3.1.11, 3.6.3, 3.6.4 (preprint 3.11, 3.50, 3.51) and §6.1, for the restriction `P|V` of a strong bundle to an open
 subset: the germ data of an sc-Fredholm section restrict to `P|V`, and the Fredholm index of
 the linearization at a zero (`IsLinOfIndex`) is the same for `P` and for `P|V`.  Round-trip item
 V3.98 (a); Findings, Chapter 3, items 360–369.
@@ -12,7 +12,7 @@ V3.98 (a); Findings, Chapter 3, items 360–369.
 
 ## The text, paraphrased
 
-Definition 3.11 is local: the data of an sc-Fredholm germ at `x₀` live in a chart centred at
+Definition 3.1.11 (preprint 3.11) is local: the data of an sc-Fredholm germ at `x₀` live in a chart centred at
 `x₀`, on a germ of neighbourhoods of `0`; so does the index of the linearization at a zero.
 Restricting the bundle to an open subset `V ∋ x₀` changes nothing — the text never remarks on it.
 
@@ -20,7 +20,7 @@ Restricting the bundle to an open subset `V ∋ x₀` changes nothing — the te
 
 * **Germ data on a smaller domain**: `Polyfold.IsFillingGerm.of_subset`,
   `Polyfold.IsScPlusGerm.of_subset`, `Polyfold.ConjugationData.ofSubset` and
-  `Polyfold.IsConjugateToBasicGerm.of_subset`: the data of Definition 3.11 on a relatively open
+  `Polyfold.IsConjugateToBasicGerm.of_subset`: the data of Definition 3.1.11 (preprint 3.11) on a relatively open
   `U` restrict to every relatively open `U₀ ⊆ U` containing `0` (the germs are intersected with
   `U₀`, the strong bundle isomorphism `Ψ` is restricted to `U₀ ◁ F → ψ(U₀) ◁ F'`, the basic germ is
   shrunk to the points `ψ'` maps into `U₀`, `ConjugationData.shrinkGerm`).
@@ -35,11 +35,11 @@ Restricting the bundle to an open subset `V ∋ x₀` changes nothing — the te
   germ datum, `dim Pn − dim Q`, read on `P|V`), `IsLinOfIndex.restrictOpen` and
   `IsLinOfIndex.of_restrictOpen` (**at a zero, `f'(x)` has index `i` in every chart of `P` iff
   `(f|V)'(x)` has index `i` in every chart of `P|V`**), `restrictSection_sectionAdd` and
-  `IsIndexAt.restrictOpen` (**Definition 6.1 restricts**: a global sc⁺-section `s` restricts).
+  `IsIndexAt.restrictOpen` (**Definition 6.2.1 (preprint 6.1) restricts**: a global sc⁺-section `s` restricts).
 
 ## What the text leaves implicit, and the choices made
 
-* Restricting `U` to `U₀` in Definition 3.11 is harmless, but the strong bundle isomorphism of
+* Restricting `U` to `U₀` in Definition 3.1.11 (preprint 3.11) is harmless, but the strong bundle isomorphism of
   the conjugation is a map of the whole `U ◁ F`, so its restriction needs the relatively open
   image `ψ(U₀) = U' ∩ ψ'⁻¹(U₀)` (continuity of `ψ'`) and the shrinking of the basic germ to
   `G ∩ ψ'⁻¹(U₀)` (`shrinkGerm`), as in `BasicGermShrink.lean`.
@@ -260,7 +260,7 @@ lemma StrongBundleChart.restrictInter_relOpen :
     IsRelOpenInQuadrant c.φ.model.E c.φ.model.C (c.restrictInter hV).U :=
   (c.restrictInter hV).relOpen
 
-/-- **The germ data of Definition 3.11 in `c` are germ data in `c|dom φ ∩ V`.** -/
+/-- **The germ data of Definition 3.1.11 (preprint 3.11) in `c` are germ data in `c|dom φ ∩ V`.** -/
 theorem StrongBundleChart.germData_restrictInter {x : X} (hxV : x ∈ c.φ.source) (hφ0 : c.φ x = 0)
     (hxV' : x ∈ V) (h0 : (0 : c.φ.model.E 0) ∈ c.U) {g : c.φ.model.E 0 → c.F 0}
     {s : c.φ.model.E 0 → c.F 1} (hfill : IsFillingGerm c.relOpen c.isRetraction h0 (c.principal f) g)
@@ -328,7 +328,7 @@ theorem StrongBundleChart.germData_restrictTo (hP : Continuous P) (hf : IsSectio
   exact StrongBundleChart.principal_restrictTo hV hP _ q₀ hf
     (((c.restrictInter hV).r_image) ▸ hzO)
 
-/-- **An sc-Fredholm germ at `x ∈ V` is an sc-Fredholm germ of `f|V`** (Definition 3.11 on
+/-- **An sc-Fredholm germ at `x ∈ V` is an sc-Fredholm germ of `f|V`** (Definition 3.1.11 (preprint 3.11) on
 `P|V`). -/
 theorem StrongBundle.IsScFredholmGerm.restrictOpen (hf : IsSection P f) {x : X}
     (h : B.IsScFredholmGerm f x) (hxV : x ∈ V) :
@@ -343,7 +343,7 @@ theorem StrongBundle.IsScFredholmGerm.restrictOpen (hf : IsSection P f) {x : X}
     c.mem_restrictInter_source hV hxc hxV, hφ0, c.zero_mem_restrictInter_U hV hxc hφ0 hxV, g, s,
     hfill', hs', hs0, hconj'⟩
 
-/-- **An sc-Fredholm germ in a tame chart at `x ∈ V` is one of `f|V`** (Definition 3.50 on
+/-- **An sc-Fredholm germ in a tame chart at `x ∈ V` is one of `f|V`** (Definition 3.6.3 (preprint 3.50) on
 `P|V`). -/
 theorem StrongBundle.IsScFredholmGermTame.restrictOpen (hf : IsSection P f) {x : X}
     (h : B.IsScFredholmGermTame f x) (hxV : x ∈ V) :
@@ -360,7 +360,7 @@ theorem StrongBundle.IsScFredholmGermTame.restrictOpen (hf : IsSection P f) {x :
     hfill', hs', hs0, hconj'⟩
 
 /-- **The restriction of an sc-Fredholm section to an open subset is an sc-Fredholm section**
-(Definition 3.14 on `P|V`). -/
+(Definition 3.1.16 (preprint 3.14) on `P|V`). -/
 theorem StrongBundle.IsScFredholmSection.restrictOpen (hf : B.IsScFredholmSection f) :
     (B.restrictOpen hV).IsScFredholmSection (restrictSection P V f hf.isScSmooth.1) where
   isScSmooth := hf.isScSmooth.restrictOpen hV
@@ -369,7 +369,7 @@ theorem StrongBundle.IsScFredholmSection.restrictOpen (hf : B.IsScFredholmSectio
     (hf.germ v.1 ((MPolyfold.mem_smoothSet_restrictOpen_iff hV v).1 hv)).restrictOpen hV _ v.2
 
 /-- **The restriction of an sc-Fredholm section with tame germ data to an open subset has tame
-germ data** (Definition 3.51 on `P|V`). -/
+germ data** (Definition 3.6.4 (preprint 3.51) on `P|V`). -/
 theorem StrongBundle.IsScFredholmSectionTame.restrictOpen (hf : B.IsScFredholmSectionTame f) :
     (B.restrictOpen hV).IsScFredholmSectionTame (restrictSection P V f hf.isScSmooth.1) :=
   { hf.toIsScFredholmSection.restrictOpen hV with
@@ -471,7 +471,7 @@ theorem StrongBundle.IsLinOfIndex.of_restrictOpen (hf : B.IsScFredholmSection f)
   rw [hid]
   exact hd
 
-/-- **Definition 6.1 restricts to `P|V`**: `ind(f, x) = i` with a global sc⁺-section `s` gives
+/-- **Definition 6.2.1 (preprint 6.1) restricts to `P|V`**: `ind(f, x) = i` with a global sc⁺-section `s` gives
 `ind(f|V, x) = i` with `s|V`. -/
 theorem StrongBundle.IsIndexAt.restrictOpen (hf : B.IsScFredholmSection f) {x : X} (hxV : x ∈ V)
     {i : ℤ} (hi : B.IsIndexAt f x i) :
@@ -481,7 +481,7 @@ theorem StrongBundle.IsIndexAt.restrictOpen (hf : B.IsScFredholmSection f) {x : 
   refine ⟨restrictSection P V s hs.1, hs.restrictOpen hV, ?_, ?_⟩
   · rw [← restrictSection_sectionAdd hfs hs.1]
     exact (isZeroAt_restrictSection_iff' (hfs.sectionAdd hs.1) _).2 hsx
-  · have := StrongBundle.IsLinOfIndex.restrictOpen hV (theorem_3_15 hf hs) hsx hxV hL
+  · have := StrongBundle.IsLinOfIndex.restrictOpen hV (theorem_3_1_18_preprint hf hs) hsx hxV hL
     rwa [restrictSection_sectionAdd hfs hs.1] at this
 
 end Transport

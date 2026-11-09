@@ -4,15 +4,15 @@ import RoundTrip.Blind.V3_99
 
 /-!
 Round trip for V3_99 (Theorem 3.19: `ker f'(y) = T_yS(f, U)`), refreshed 2026-11-02 against HEAD
-(germ reading).  `A` is the conjunction of the types of `theorem_3_54_ker_eq_tangent`,
-`theorem_3_54_nearby_kernel` and `linAt_eq_germDeriv` (which replaced `linAt_eq_scDeriv` in the
+(germ reading).  `A` is the conjunction of the types of `theorem_3_6_8_ker_eq_tangent`,
+`theorem_3_6_8_nearby_kernel` and `linAt_eq_germDeriv` (which replaced `linAt_eq_scDeriv` in the
 row), universes instantiated at `0` (`linAt_eq_germDeriv` has none).
 
 Neither direction is proved; both gaps are genuine.
 
 * `A → B`.  (i) Hypotheses: `B` assumes `d_X ≡ 0`, an `IsScFredholmSection` (germ data in some
-  compatible chart, no tameness) and `IsLinSurjAt` at `x₀`; `A`'s `theorem_3_54_ker_eq_tangent` and
-  `theorem_3_54_nearby_kernel` need `(f, x₀)` in good position **in a tame chart**
+  compatible chart, no tameness) and `IsLinSurjAt` at `x₀`; `A`'s `theorem_3_6_8_ker_eq_tangent` and
+  `theorem_3_6_8_nearby_kernel` need `(f, x₀)` in good position **in a tame chart**
   (`IsGoodPositionGermTame`, germ reading), and the project has no lemma producing tame germ data
   from `B`'s hypotheses (the same gap as V3_68; the project's route is
   `isGoodPositionGerm_of_isLinSurjAt`, which needs `IsScFredholmSectionTame`).  (ii) Conclusions:
@@ -36,12 +36,12 @@ open Polyfold
 
 /-- The project's statement, universes at `0`. -/
 def A : Prop :=
-  type_of% @Polyfold.theorem_3_54_ker_eq_tangent.{0, 0} ∧
-    type_of% @Polyfold.theorem_3_54_nearby_kernel.{0, 0} ∧
+  type_of% @Polyfold.theorem_3_6_8_ker_eq_tangent.{0, 0} ∧
+    type_of% @Polyfold.theorem_3_6_8_nearby_kernel.{0, 0} ∧
     type_of% @Polyfold.linAt_eq_germDeriv
 
 theorem A_holds : A :=
-  ⟨@Polyfold.theorem_3_54_ker_eq_tangent.{0, 0}, @Polyfold.theorem_3_54_nearby_kernel.{0, 0},
+  ⟨@Polyfold.theorem_3_6_8_ker_eq_tangent.{0, 0}, @Polyfold.theorem_3_6_8_nearby_kernel.{0, 0},
     @Polyfold.linAt_eq_germDeriv⟩
 
 end RoundTrip.V3_99

@@ -104,7 +104,7 @@ theorem A_to_B_level0 (hA : A) :
     · rw [eq_top_iff, ← htop, ← hN2]
       exact sup_le (sup_le le_sup_left (inf_le_right.trans le_sup_right)) le_sup_right
   · -- `T₀A ∩ C` is a partial quadrant of `T₀A` (constant structure)
-    exact proposition_3_22 ⟨n, W', T, hC⟩ (hgood T hC htop).1
+    exact proposition_3_1_25 ⟨n, W', T, hC⟩ (hgood T hC htop).1
 
 #rt_check RoundTrip.V4_46.A_to_B_level0 [Polyfold.mem_minimalSubspaceWith_zero,
   Polyfold.minimalSubspaceWith_zero_le, Polyfold.add_mem_iff_of_mem_zero,

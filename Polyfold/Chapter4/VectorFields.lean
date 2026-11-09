@@ -48,7 +48,7 @@ In a local model `(O, C, E)`:
 * `Polyfold.IsRetractVectorField.diff_identity`: the differentiated identity of §4.5.1,
   `D²r(x)(A(x), b) + Dr(x) DÃ(x) b = DÃ(x) b` for `x ∈ O₂`, `b ∈ T_x(O¹)`.
 * `Polyfold.retractLieBracket_mem_tangent` (**§4.5.1**): `Dr(x)[A, B](x) = [A, B](x)` on `O₂`.
-* `Polyfold.proposition_4_4_5_local_2021` (**Proposition 4.4.5**, local form): `x ↦ (x, [A, B](x))`
+* `Polyfold.proposition_4_4_5_local` (**Proposition 4.4.5**, local form): `x ↦ (x, [A, B](x))`
   maps `O₂` into `TO` and is sc-smooth from `(O², C², E²)` to `(TO, TC, TE)`, the local form of
   "`[A, B]` is an sc-smooth section of `TX|X² → X²`".
 
@@ -60,8 +60,8 @@ On an M-polyfold:
 ## What is not formalized
 
 * Lemma 4.4.4 and Proposition 4.4.5 on an M-polyfold are not in this file: they are proved in
-  `Polyfold/Chapter4/VectorFieldsGlobal.lean` (`lemma_4_4_4_2021`, `proposition_4_4_5_2021`,
-  `lemma_4_5_1_2021`), using 2021 Proposition 2.3.17 (`Polyfold/Chapter2/TangentLift.lean`).
+  `Polyfold/Chapter4/VectorFieldsGlobal.lean` (`lemma_4_4_4`, `proposition_4_4_5`,
+  `lemma_4_5_1`), using 2021 Proposition 2.3.17 (`Polyfold/Chapter2/TangentLift.lean`).
 * Definitions 4.4.1–4.4.2 (sc-differential forms, the Whitney sum `⊕ₖ TX`, the direct limit
   `Ω∞*`), the exterior derivative and `d ∘ d = 0`, Definition 4.4.6, Theorem 4.4.7 (Stokes),
   Lemma 4.4.8 and Lemma 4.5.2 (Poincaré lemma).
@@ -413,7 +413,7 @@ theorem IsRetractVectorField.diff_identity {R : ScRetraction E C}
     have hmem := h.mapsTo hyO
     rw [retractTangent_eq] at hmem
     exact (R.mem_tangent_iff.1 hmem).2
-  obtain ⟨hTα, hchain⟩ := theorem_1_21' ρ.isScDomain R.isScDomain.tangentSet (hα 1).1 hT hmaps
+  obtain ⟨hTα, hchain⟩ := theorem_1_3_1' ρ.isScDomain R.isScDomain.tangentSet (hα 1).1 hT hmaps
   have hcongr := hTα.tangentMap_congr ρ.isScDomain hfix
   have hq : ((x, b) : E.shift.tangent 0) ∈ E.shift.tangentSet ρ.U := hx1
   have key := congrArg Prod.snd ((hchain hq).symm.trans (hcongr hq))
@@ -489,7 +489,7 @@ theorem isScSmooth_scDeriv_apply {R : ScRetraction E C}
 model: for vector fields `A`, `B` on `(O, C, E)`, `x ↦ (x, [A, B](x))` maps `O₂` into `TO` and is
 sc-smooth from `(O², C², E²)` to `(TO, TC, TE)`: `[A, B]` is an sc-smooth section of
 `TO|O² → O²`. -/
-theorem proposition_4_4_5_local_2021 {R : ScRetraction E C}
+theorem proposition_4_4_5_local {R : ScRetraction E C}
     (hA : IsRetractVectorField E C R.retract A) (hB : IsRetractVectorField E C R.retract B) :
     (∀ x ∈ E.shift.lvlSet (E.lvlSet R.retract 1) 1,
       ((E.incl 1 x, retractLieBracket R A B x) : E.tangent 0) ∈ retractTangent E C R.retract) ∧

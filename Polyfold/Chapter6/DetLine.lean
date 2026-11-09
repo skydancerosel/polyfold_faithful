@@ -9,7 +9,7 @@ import Mathlib.Data.Real.Basic
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.2,
 pp. 203–205: the lines `λ(E) = Λ^max E`, `λ*(E) = (λ(E))*`, the induced maps `λ(Φ)`, `λ*(Φ)`,
-**Definition 6.3** (the isomorphism `ι : λ(E*) → λ*(E)`) and **Proposition 6.4** *(book 2017:
+**Definition 6.3.1 (preprint 6.3)** (the isomorphism `ι : λ(E*) → λ*(E)`) and **Proposition 6.3.2 (preprint 6.4)** *(book 2017:
 Definition 6.2, Proposition 6.2; see `BookConcordance.md`)*.
 
 # Determinant lines of finite-dimensional spaces
@@ -19,9 +19,9 @@ Definition 6.2, Proposition 6.2; see `BookConcordance.md`)*.
 Following Zinger, `λ(E) := Λ^max E` and `λ*(E) := (λ(E))*`.  A linear map `Φ : E → F` between
 spaces of the same dimension induces `λ(Φ)(a₁ ∧ … ∧ aₙ) = Φ(a₁) ∧ … ∧ Φ(aₙ)`, nonzero exactly when
 `Φ` is an isomorphism, with `λ(Ψ ∘ Φ) = λ(Ψ) ∘ λ(Φ)`; `λ*(Φ) : λ*(F) → λ*(E)` is its dual.
-(Definition 6.3) `ι : λ(E*) → λ*(E)` is `ι(e₁* ∧ … ∧ eₙ*)(a₁ ∧ … ∧ aₙ) = det(eᵢ*(aⱼ))`, with
+(Definition 6.3.1 (preprint 6.3)) `ι : λ(E*) → λ*(E)` is `ι(e₁* ∧ … ∧ eₙ*)(a₁ ∧ … ∧ aₙ) = det(eᵢ*(aⱼ))`, with
 `λ({0}*) = ℝ` for `n = 0`; for a basis and its dual basis `ι(e₁* ∧ … ∧ eₙ*) = (e₁ ∧ … ∧ eₙ)*`,
-where `v*` is the vector of the dual line with `v*(v) = 1`.  (Proposition 6.4) For an isomorphism
+where `v*` is the vector of the dual line with `v*(v) = 1`.  (Proposition 6.3.2 (preprint 6.4)) For an isomorphism
 `Φ : E → F`, `λ*(Φ) ∘ ι = ι ∘ λ(Φ*)`.
 
 ## What is formalized
@@ -45,10 +45,10 @@ where `v*` is the vector of the dual line with `v*(v) = 1`.  (Proposition 6.4) F
 * `Polyfold.maxPowMap Φ h` (`λ(Φ)`) for `dim E = dim F`: `maxPowMap_wedge` (the defining formula),
   `maxPowMap_comp` (`λ(Ψ ∘ Φ) = λ(Ψ) ∘ λ(Φ)`), `maxPowMap_ne_zero_iff` (nonzero iff `Φ` is
   bijective); `Polyfold.maxPowDualMap Φ h` (`λ*(Φ)`, the dual map).
-* **Definition 6.3**: `Polyfold.iotaDual E` (`ι`), Mathlib's `exteriorPower.pairingDual` read on
+* **Definition 6.3.1 (preprint 6.3)**: `Polyfold.iotaDual E` (`ι`), Mathlib's `exteriorPower.pairingDual` read on
   `λ(E*)`; `iotaDual_wedge_wedge` (the defining formula), `iotaDual_wedge_dualBasis`
   (`ι(e₁* ∧ … ∧ eₙ*) = (e₁ ∧ … ∧ eₙ)*`), `iotaDual_ne_zero`.
-* **Proposition 6.4**: `proposition_6_4`.
+* **Proposition 6.3.2 (preprint 6.4)**: `proposition_6_3_2`.
 
 ## Reading
 
@@ -593,16 +593,16 @@ def maxPowDualMap (Φ : E →ₗ[ℝ] F) (h : finrank ℝ E = finrank ℝ F) :
 @[simp] theorem maxPowDualMap_apply (Φ : E →ₗ[ℝ] F) (h : finrank ℝ E = finrank ℝ F)
     (φ : maxPowDual F) (x : maxPow E) : maxPowDualMap Φ h φ x = φ (maxPowMap Φ h x) := rfl
 
-/-! ### Definition 6.3: `ι : λ(E*) → λ*(E)` -/
+/-! ### Definition 6.3.1 (preprint 6.3): `ι : λ(E*) → λ*(E)` -/
 
 variable (E) in
-/-- **Definition 6.3**: `ι : λ(E*) → λ*(E)`, `ι(e₁* ∧ … ∧ eₙ*)(a₁ ∧ … ∧ aₙ) = det(eᵢ*(aⱼ))`:
+/-- **Definition 6.3.1 (preprint 6.3)**: `ι : λ(E*) → λ*(E)`, `ι(e₁* ∧ … ∧ eₙ*)(a₁ ∧ … ∧ aₙ) = det(eᵢ*(aⱼ))`:
 Mathlib's pairing `⋀ⁿ E* → (⋀ⁿ E)*` in degree `n = dim E = dim E*`. -/
 def iotaDual : maxPow (Module.Dual ℝ E) →ₗ[ℝ] maxPowDual E :=
   exteriorPower.pairingDual ℝ E (finrank ℝ E) ∘ₗ
     (LinearEquiv.ofEq _ _ (by simp only [maxPow, Subspace.dual_finrank_eq])).toLinearMap
 
-/-- **Definition 6.3, the defining formula**: `ι(e₁* ∧ … ∧ eₙ*)(a₁ ∧ … ∧ aₙ) = det(eᵢ*(aⱼ))`. -/
+/-- **Definition 6.3.1 (preprint 6.3), the defining formula**: `ι(e₁* ∧ … ∧ eₙ*)(a₁ ∧ … ∧ aₙ) = det(eᵢ*(aⱼ))`. -/
 theorem iotaDual_wedge_wedge {k : ℕ} (e : Fin k → Module.Dual ℝ E)
     (he : k = finrank ℝ (Module.Dual ℝ E)) (a : Fin k → E) (ha : k = finrank ℝ E) :
     iotaDual E (wedge e he) (wedge a ha) = (Matrix.of fun i j => e i (a j)).det := by
@@ -684,11 +684,11 @@ theorem maxPowDualEquiv_dualVec_symm [FiniteDimensional ℝ E] (Φ : E ≃ₗ[�
 
 end Equiv
 
-/-! ### Proposition 6.4 -/
+/-! ### Proposition 6.3.2 (preprint 6.4) -/
 
-/-- **Proposition 6.4**: for an isomorphism `Φ : E → F` of finite-dimensional spaces and its dual
+/-- **Proposition 6.3.2 (preprint 6.4)**: for an isomorphism `Φ : E → F` of finite-dimensional spaces and its dual
 `Φ* : F* → E*`, `λ*(Φ) ∘ ι = ι ∘ λ(Φ*) : λ(F*) → λ*(E)`. -/
-theorem proposition_6_4 [FiniteDimensional ℝ E] [FiniteDimensional ℝ F] (Φ : E ≃ₗ[ℝ] F) :
+theorem proposition_6_3_2 [FiniteDimensional ℝ E] [FiniteDimensional ℝ F] (Φ : E ≃ₗ[ℝ] F) :
     maxPowDualMap (Φ : E →ₗ[ℝ] F) Φ.finrank_eq ∘ₗ iotaDual F =
       iotaDual E ∘ₗ maxPowMap (Module.Dual.transpose (Φ : E →ₗ[ℝ] F))
         (by rw [Subspace.dual_finrank_eq, Subspace.dual_finrank_eq, Φ.finrank_eq]) := by

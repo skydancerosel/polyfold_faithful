@@ -5,19 +5,19 @@ import RoundTrip.Blind.V6_19
 /-! Round trip for V6_19 (Definition 6.16, the determinant of a direct sum).
 
 `A` is the conjunction of the types of the listed theorems `finrank_ker_prodMap`,
-`finrank_coker_prodMap`, `isFredholm_prodMap`, `directSumVec_eq_smul`, `definition_6_16`,
+`finrank_coker_prodMap`, `isFredholm_prodMap`, `directSumVec_eq_smul`, `definition_6_4_16`,
 `directSumDet_bijective` (universes at `0`); `kerInl`, `kerInr`, `cokerInl`, `cokerInr`,
 `kerProdEquiv`, `cokerProdEquiv`, `directSumVec`, `directSumDet` are definitions (vocabulary; B uses
 `kerInl` … `cokerInr` itself).
 
 `A → B` (proved): `Ψ := directSumDet` (an equivalence by `directSumDet_bijective`); the formula is
-`definition_6_16` (B's length proofs `hk`, `hc` agree with `directSumVec`'s by proof irrelevance).
+`definition_6_4_16` (B's length proofs `hk`, `hc` agree with `directSumVec`'s by proof irrelevance).
 
 `B → A` (proved): `T ⊕ S` Fredholm is B's first conjunct; the change-of-bases formula
 `directSumVec_eq_smul` follows from B's basis-independent formula and the project lemma
 `wedge_tmul_dualVec_eq_smul`; `directSumDet = Ψ` (both linear, equal on pure tensors since both
 lines are spanned by the standard-basis vectors, where `directSumDet` is defined by the formula),
-which gives `definition_6_16` and `directSumDet_bijective`.  The dimension identities
+which gives `definition_6_4_16` and `directSumDet_bijective`.  The dimension identities
 `finrank_ker_prodMap`, `finrank_coker_prodMap` are NOT in B (B takes them as hypotheses `hk`, `hc`
 of its formula): they are proved directly here (`hk`, `hc`, two lines from `kerProdEquiv`,
 `cokerProdEquiv`), without B.
@@ -38,13 +38,13 @@ def A : Prop :=
   type_of% @Polyfold.finrank_coker_prodMap.{0, 0, 0, 0} ∧
   type_of% @Polyfold.isFredholm_prodMap.{0, 0, 0, 0} ∧
   type_of% @Polyfold.directSumVec_eq_smul.{0, 0, 0, 0} ∧
-  type_of% @Polyfold.definition_6_16.{0, 0, 0, 0} ∧
+  type_of% @Polyfold.definition_6_4_16.{0, 0, 0, 0} ∧
   type_of% @Polyfold.directSumDet_bijective.{0, 0, 0, 0}
 
 theorem A_holds : A :=
   ⟨@Polyfold.finrank_ker_prodMap.{0, 0, 0, 0}, @Polyfold.finrank_coker_prodMap.{0, 0, 0, 0},
     @Polyfold.isFredholm_prodMap.{0, 0, 0, 0}, @Polyfold.directSumVec_eq_smul.{0, 0, 0, 0},
-    @Polyfold.definition_6_16.{0, 0, 0, 0}, @Polyfold.directSumDet_bijective.{0, 0, 0, 0}⟩
+    @Polyfold.definition_6_4_16.{0, 0, 0, 0}, @Polyfold.directSumDet_bijective.{0, 0, 0, 0}⟩
 
 /-- `A ⇒ B`: `Ψ` is the project's `directSumDet`, an equivalence by `directSumDet_bijective`. -/
 theorem A_to_B : A → B := by
@@ -153,7 +153,7 @@ set_option maxHeartbeats 1000000 in
 /-- `B ⇒ A`.  The dimension identities (`finrank_ker_prodMap`, `finrank_coker_prodMap`) are not in
 B (B takes them as hypotheses `hk`, `hc`); they are proved directly (`hk`, `hc` above).  The rest
 comes from B: `T ⊕ S` Fredholm; the change of bases from the basis-independence of B's formula;
-`definition_6_16` and `directSumDet_bijective` from `directSumDet = Ψ`. -/
+`definition_6_4_16` and `directSumDet_bijective` from `directSumDet = Ψ`. -/
 theorem B_to_A : B → A := by
   intro hB
   refine ⟨fun T S hT hS => hk T S hT hS, fun T S hT hS => hc T S hT hS,
@@ -211,21 +211,21 @@ elab "#rt_check_except_defs " t:ident " [" ds:ident,* "]" " [" bs:ident,* "]" : 
 /-- error: rt_check FAIL: RoundTrip.V6_19.A_to_B uses [Polyfold.finrank_ker_prodMap, Polyfold.finrank_coker_prodMap] -/
 #guard_msgs in
 #rt_check RoundTrip.V6_19.A_to_B [Polyfold.finrank_ker_prodMap, Polyfold.finrank_coker_prodMap,
-  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_16,
+  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_4_16,
   Polyfold.directSumDet_bijective]
 /-- error: rt_check FAIL: RoundTrip.V6_19.B_to_A uses [Polyfold.finrank_ker_prodMap, Polyfold.finrank_coker_prodMap] -/
 #guard_msgs in
 #rt_check RoundTrip.V6_19.B_to_A [Polyfold.finrank_ker_prodMap, Polyfold.finrank_coker_prodMap,
-  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_16,
+  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_4_16,
   Polyfold.directSumDet_bijective]
 #rt_check_except_defs RoundTrip.V6_19.A_to_B [Polyfold.directSumVec] [Polyfold.finrank_ker_prodMap, Polyfold.finrank_coker_prodMap,
-  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_16,
+  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_4_16,
   Polyfold.directSumDet_bijective]
 #rt_check_except_defs RoundTrip.V6_19.B_to_A [Polyfold.directSumVec] [Polyfold.finrank_ker_prodMap, Polyfold.finrank_coker_prodMap,
-  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_16,
+  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_4_16,
   Polyfold.directSumDet_bijective]
 #rt_overlap RoundTrip.V6_19.B_to_A [Polyfold.finrank_ker_prodMap, Polyfold.finrank_coker_prodMap,
-  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_16,
+  Polyfold.isFredholm_prodMap, Polyfold.directSumVec_eq_smul, Polyfold.definition_6_4_16,
   Polyfold.directSumDet_bijective]
 
 end RoundTrip.V6_19

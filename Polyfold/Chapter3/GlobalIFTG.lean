@@ -9,33 +9,33 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 and sc⁺-section `s` sc-smooth on the whole chart) is replaced by `IsGoodPositionGermTame`
 (filling germ `g` on `G_g`, sc⁺-germ `s` on `G_s`, good position at `Dg(0)`).
 
-# Theorem 3.54 (3), germ reading
+# Theorem 3.6.8 (preprint 3.54) (3), germ reading
 
 ## What is formalized
 
-* `Polyfold.theorem_3_54_graph_proj_conj`: **Theorem 3.54 (3) with the conjugation exposed,
-  germ reading** — the germ form of `theorem_3_54_graph_proj_conj_wholeChart`: the same conclusions (the
-  tame chart `c`, the sc-diffeomorphism `ψ`, the data `𝒮` of Theorem 3.38, the basic germ `h'`,
+* `Polyfold.theorem_3_6_8_graph_proj_conj`: **Theorem 3.6.8 (preprint 3.54) (3) with the conjugation exposed,
+  germ reading** — the germ form of `theorem_3_6_8_graph_proj_conj_wholeChart`: the same conclusions (the
+  tame chart `c`, the sc-diffeomorphism `ψ`, the data `𝒮` of Theorem 3.4.2 (preprint 3.38), the basic germ `h'`,
   the good complement `Yc` with `ProjectsInto`, `σ : V' → Yc`, the neighbourhood `Vx` of `x₀`
-  with `ψ ∘ ϕ(S ∩ Vx) = graph σ`), with the data of Definition 3.53 in `c` now in the germ
+  with `ψ ∘ ϕ(S ∩ Vx) = graph σ`), with the data of Definition 3.6.6 (preprint 3.53) in `c` now in the germ
   reading (`IsFillingGerm`, `IsScPlusGerm`, a germ `G` with a derivative family `Dg` of `g`,
   `IsGoodPositionAtGerm` at `Dg(0)`, conjugation data `dc`) and
   `dim K = dim dc.Pn − dim dc.Q`.
-* `Polyfold.theorem_3_54_graph_proj`, `Polyfold.theorem_3_54_graph`: the corollaries,
-  with the **same conclusions** as `theorem_3_54_graph_proj_wholeChart` and `theorem_3_54_graph_wholeChart`.
+* `Polyfold.theorem_3_6_8_graph_proj`, `Polyfold.theorem_3_6_8_graph`: the corollaries,
+  with the **same conclusions** as `theorem_3_6_8_graph_proj_wholeChart` and `theorem_3_6_8_graph_wholeChart`.
 
 ## What the text leaves implicit, and the choices made (the findings)
 
 * **The G″ design.**  The conjugation data `d` of `g − s` are shrunk to
   `d.shrink (G_g ∩ G_s)` (`BasicGermShrink.lean`): same `Ψ`, `h`, `B`, and the basic germ on the
   germ `G″` of the points that `ψ'` sends into `G_g ∩ G_s` level by level.  The chart-level
-  theorem `theorem_3_54_chart_graph` builds the data `𝒮` of Theorem 3.38 on `G″`; the
+  theorem `theorem_3_6_8_chart_graph` builds the data `𝒮` of Theorem 3.4.2 (preprint 3.38) on `G″`; the
   level-`0` neighbourhood `Vx` is chosen with `ψ ∘ ϕ(Vx) ⊆ G″₀`.  Every nearby zero that the
   implicit function theorem produces then lies in `𝒮.G = G″`, where `g` and `s` are sc¹ at the
   preimages (`GlobalIFTNearbyKernelG.lean`).
 * The old statements follow from the germ ones: `IsGoodPositionGermTameWholeChart.isGoodPositionGermTame`
-  (`TameGermsG.lean`), and the conclusions of `theorem_3_54_graph_proj` and
-  `theorem_3_54_graph` are literally those of the old theorems.
+  (`TameGermsG.lean`), and the conclusions of `theorem_3_6_8_graph_proj` and
+  `theorem_3_6_8_graph` are literally those of the old theorems.
 -/
 
 open Set Filter Topology Function Module
@@ -55,8 +55,8 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
-/-- The tameness input `(1 − Dr(0))E ⊆ E₀` of Theorem 3.54 at a zero `x₀` of a section in a
-tame chart centred at `x₀` (Proposition 2.35 for the base retraction of the chart). -/
+/-- The tameness input `(1 − Dr(0))E ⊆ E₀` of Theorem 3.6.8 (preprint 3.54) at a zero `x₀` of a section in a
+tame chart centred at `x₀` (Proposition 2.5.3 (preprint 2.35) for the base retraction of the chart). -/
 theorem StrongBundle.IsTameChart.range_id_sub_scDeriv_le {c : StrongBundleChart PX P}
     (hc : B.IsTameChart c) {x₀ : X} (hxV : x₀ ∈ c.φ.source) (hφ0 : c.φ x₀ = 0) {n : ℕ}
     {Wq : ScBanach} (T : ScIso c.φ.model.E ((ScBanach.const (Fin n → ℝ)).prod Wq))
@@ -71,22 +71,22 @@ theorem StrongBundle.IsTameChart.range_id_sub_scDeriv_le {c : StrongBundleChart 
   have hs : (0 : c.φ.model.E 1) ∈ c.φ.model.E.smoothLvl 1 := by
     change c.φ.model.E.toBase 1 0 ∈ (c.φ.model.E.smooth : Set (c.φ.model.E 0))
     rw [map_zero]; exact c.φ.model.E.smooth.zero_mem
-  have h235 := (proposition_2_35 hT hRtT h01 hs).1
+  have h235 := (proposition_2_5_3 hT hRtT h01 hs).1
   rw [map_zero] at h235
   exact h235
 
 set_option maxHeartbeats 800000 in
-/-- **Theorem 3.54, the graph description (3), with the conjugation exposed, germ reading**
-(phase 2; the germ form of `theorem_3_54_graph_proj_conj_wholeChart`): for a section `f` with `f(x₀) = 0` and
+/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3), with the conjugation exposed, germ reading**
+(phase 2; the germ form of `theorem_3_6_8_graph_proj_conj_wholeChart`): for a section `f` with `f(x₀) = 0` and
 `(f, x₀)` in good position in a tame chart in the germ reading (`IsGoodPositionGermTame`), the
-conclusions of `theorem_3_54_graph_proj_wholeChart` together with the data of Definition 3.53 in the chart
+conclusions of `theorem_3_6_8_graph_proj_wholeChart` together with the data of Definition 3.6.6 (preprint 3.53) in the chart
 `c` in the germ reading — the filling germ `g` of `f̂`, the sc⁺-germ `s` with `s(0) = g(0)`, a
 germ `G ⊆ U` with a derivative family `Dg` of `g`, the good position `IsGoodPositionAtGerm` at
 `Dg(0)`, and conjugation data `dc` of `g − s` — with `dim K = dim dc.Pn − dim dc.Q` for the kernel
-`K = ker D(h + t)(0)`.  The data `𝒮` of Theorem 3.38 are built on the germ `G″` of
+`K = ker D(h + t)(0)`.  The data `𝒮` of Theorem 3.4.2 (preprint 3.38) are built on the germ `G″` of
 `dc.shrink (G_g ∩ G_s)`, so that `ψ ∘ ϕ(Vx) ⊆ 𝒮.G₀` and every nearby zero that the implicit
 function theorem produces is a point where `g` and `s` are sc¹ (the G″ design). -/
-theorem theorem_3_54_graph_proj_conj (hf : IsSection P f) {x₀ : X}
+theorem theorem_3_6_8_graph_proj_conj (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (Pn Q : Type) (_ : NormedAddCommGroup Pn) (_ : NormedSpace ℝ Pn) (_ : FiniteDimensional ℝ Pn)
@@ -172,7 +172,7 @@ theorem theorem_3_54_graph_proj_conj (hf : IsSection P f) {x₀ : X}
   obtain ⟨𝒮, h', Yc, V', σ, Wo, N₁, N₂, h𝒮G, hh'𝒮, hsurj, hpos, -, hWo, h0Wo, hagree, hYc, hYcc,
     hYcp, hV'rel, h0V', hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, hN₁o, h0N₁, hN₁, hψ'N₁, hN₂o, h0N₂,
     hN₂N₁, hN₂ψ, hgO, hzero, himage⟩ :=
-    theorem_3_54_chart_graph hU c.isRetraction h0U h0O' hfill hfb0 hfK hGg hgsm hDg ht₀ ht₀0
+    theorem_3_6_8_chart_graph hU c.isRetraction h0U h0O' hfill hfb0 hfK hGg hgsm hDg ht₀ ht₀0
       d'.quadrant d'.relOpen hΨ hψ0 d'.germ_subset d'.basic hGψ' d'.conj T hT hK hgp
   -- the neighbourhood `Vx` of `x₀`
   have hφ : ContinuousOn c.φ c.φ.source := c.φ.continuousOn_toFun
@@ -223,10 +223,10 @@ theorem theorem_3_54_graph_proj_conj (hf : IsSection P f) {x₀ : X}
       · show ψ (c.φ (c.φ.symm u)) = ψ u
         rw [c.φ.apply_symm_apply huO']
 
-/-- **Theorem 3.54, the graph description (3), with `ProjectsInto`, germ reading** (phase 2; the
-germ form of `theorem_3_54_graph_proj_wholeChart`, with the same conclusions): a corollary of
-`theorem_3_54_graph_proj_conj`. -/
-theorem theorem_3_54_graph_proj (hf : IsSection P f) {x₀ : X}
+/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3), with `ProjectsInto`, germ reading** (phase 2; the
+germ form of `theorem_3_6_8_graph_proj_wholeChart`, with the same conclusions): a corollary of
+`theorem_3_6_8_graph_proj_conj`. -/
+theorem theorem_3_6_8_graph_proj (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (Pn Q : Type) (_ : NormedAddCommGroup Pn) (_ : NormedSpace ℝ Pn) (_ : FiniteDimensional ℝ Pn)
@@ -265,20 +265,20 @@ theorem theorem_3_54_graph_proj (hf : IsSection P f) {x₀ : X}
         (fun v : LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0) => (v : Pn × W 0) + σ v) '' V' := by
   obtain ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     ψ', hψ'sc, hψ'U, hψψ', hψ'ψ, 𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, -, hrest⟩ :=
-    theorem_3_54_graph_proj_conj hf hg hx₀
+    theorem_3_6_8_graph_proj_conj hf hg hx₀
   exact ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     ψ', hψ'sc, hψ'U, hψψ', hψ'ψ, 𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, hrest⟩
 
-/-- **Theorem 3.54, the graph description (3) of the solution set, germ reading** (phase 2; the
-germ form of `theorem_3_54_graph_wholeChart`, with the same conclusions): for a section `f` with
+/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3) of the solution set, germ reading** (phase 2; the
+germ form of `theorem_3_6_8_graph_wholeChart`, with the same conclusions): for a section `f` with
 `f(x₀) = 0` and `(f, x₀)` an sc-Fredholm germ in good position in a tame chart in the text's germ
 reading (`IsGoodPositionGermTame`), the tame chart `c` centred at `x₀`, the conjugating
-sc-diffeomorphism `ψ`, the data `𝒮` of Theorem 3.38 and the basic germ `h'` with
+sc-diffeomorphism `ψ`, the data `𝒮` of Theorem 3.4.2 (preprint 3.38) and the basic germ `h'` with
 `D(𝒮.fsum h')(0)` surjective with kernel `K` in good position, a closed good complement `Y` of
 `K`, `σ : V' → Y` of class `C¹` with `C^k`-lifts, `σ(0) = 0`, `Dσ(0) = 0`, and an open
 neighbourhood `Vx` of `x₀` with `ψ ∘ ϕ` injective on `Vx` and
-`ψ ∘ ϕ({y ∈ Vx | f(y) = 0}) = {v + σ(v) | v ∈ V'}`.  A corollary of `theorem_3_54_graph_proj`. -/
-theorem theorem_3_54_graph (hf : IsSection P f) {x₀ : X}
+`ψ ∘ ϕ({y ∈ Vx | f(y) = 0}) = {v + σ(v) | v ∈ V'}`.  A corollary of `theorem_3_6_8_graph_proj`. -/
+theorem theorem_3_6_8_graph (hf : IsSection P f) {x₀ : X}
     (hg : B.IsGoodPositionGermTame f x₀) (hx₀ : IsZeroAt P f x₀) :
     ∃ (c : StrongBundleChart PX P) (_ : B.IsTameChart c) (_ : x₀ ∈ c.φ.source) (_ : c.φ x₀ = 0)
       (Pn Q : Type) (_ : NormedAddCommGroup Pn) (_ : NormedSpace ℝ Pn) (_ : FiniteDimensional ℝ Pn)
@@ -316,7 +316,7 @@ theorem theorem_3_54_graph (hf : IsSection P f) {x₀ : X}
         (fun v : LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0) => (v : Pn × W 0) + σ v) '' V' := by
   obtain ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     ψ', hψ'sc, hψ'U, hψψ', hψ'ψ, 𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, hYc, hYcc, -, hrest⟩ :=
-    theorem_3_54_graph_proj hf hg hx₀
+    theorem_3_6_8_graph_proj hf hg hx₀
   exact ⟨c, hc, hxV, h0, Pn, Q, i1, i2, i3, i4, i5, i6, W, Ct, hCt, U', hU', ψ, hψsc, hψ0, hψU',
     ψ', hψ'sc, hψ'U, hψψ', hψ'ψ, 𝒮, h', Bc, hh', hsurj, hpos, Yc, V', σ, Vx, hYc, hYcc, hrest⟩
 

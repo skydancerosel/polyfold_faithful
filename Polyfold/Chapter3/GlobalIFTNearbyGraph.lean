@@ -3,15 +3,15 @@ import Polyfold.Chapter2.TameInvariance
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.6,
-**Theorem 3.54 (1) at the nearby zeros**: the derivative identities in the chart at `x₀` needed to
-pass from the graph description of the solution set (`theorem_3_54_graph_wholeChart`) to the intrinsic
+**Theorem 3.6.8 (preprint 3.54) (1) at the nearby zeros**: the derivative identities in the chart at `x₀` needed to
+pass from the graph description of the solution set (`theorem_3_6_8_graph_wholeChart`) to the intrinsic
 linearization `Tf̃(z₀) = Dg(z₀)|_{T_{z₀}O}` at a zero `z₀ = ϕ(y)` of the filled section `g`.
 
 # Derivative identities at the nearby zeros
 
 ## The text, paraphrased
 
-(Proof of Theorem 3.54, (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that `ψ ∘ ϕ(y) = v + σ(v)`,
+(Proof of Theorem 3.6.8 (preprint 3.54), (4)) "For every `y ∈ V` satisfying `f(y) = 0`, so that `ψ ∘ ϕ(y) = v + σ(v)`,
 the kernel `ker f'(y)` is in good position to the partial cone `C_yX ⊆ T_yX`, and `f'(y)` is
 surjective.  Property (4) follows from Corollary 3.41 and from Lemma 3.55."
 
@@ -35,18 +35,18 @@ The general identities, at a level-`1` point `z₀₁ ∈ U₁` rather than at `
   `Dρ(Θ₁ v)` fixes the derivative of `ι ∘ Θ₁`, which therefore takes values in `range Dρ(Θ₁ v)` —
   the tangent vectors of curves in `O` lie in `T_{z₀}O`.
 * `Polyfold.StabilityData.graphSpace_eq_ker_Dfs'`: **`N_v = ker D(h + s)(v + σ(v))`** for the
-  solution graph of Theorem 3.47: `N_v ⊆ ker` by differentiating `(h + s)(w + σ(w)) = 0` along
+  solution graph of Theorem 3.5.11 (preprint 3.47): `N_v ⊆ ker` by differentiating `(h + s)(w + σ(w)) = 0` along
   `V` with the `C¹`-lift `σ₁ : V₁ → E₁` (`h + s` is differentiable on level `1` only), and
   equality by `dim N_v = dim K = ind D(h + s)(v + σ v) = dim ker` (both operators surjective).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **`N_v = ker D(h + t)(z)`** (Finding 91 (a)): the text passes from Lemma 3.55 (about the tangent
+* **`N_v = ker D(h + t)(z)`** (Finding 91 (a)): the text passes from Lemma 3.6.9 (preprint 3.55) (about the tangent
   space `N_v` of the graph) to "`ker f'(y)` is in good position" without comment.  The inclusion
   needs the `C¹`-lift of `σ` to level `1`; the equality is the dimension count through the index
-  `n − N` of Corollary 3.41.
+  `n − N` of Corollary 3.5.3 (preprint 3.41).
 * **The tangent vectors of the solution set lie in `T_{z₀}O`**: the zeros of `g` near `0` lie in
-  `O` (condition (2) of Definition 3.4), so the solution graph, read in `E` through `ψ⁻¹`, is a
+  `O` (condition (2) of Definition 3.1.4 (preprint 3.4)), so the solution graph, read in `E` through `ψ⁻¹`, is a
   `C¹` family of points of `O` and its tangent vectors are fixed by `Dr(z₀)`.  This is the
   replacement, at the nearby zero `z₀`, for the filler condition (3) that gave `ker Dg(0) ⊆ T₀O`
   at the centre (`IsFillerOf.ker_deriv_le_range`), which is not available at `z₀ ≠ 0`.
@@ -513,7 +513,7 @@ section GoodIn
 variable {C : Set (E 0)}
 
 /-- If `N` is in good position to `C` in `E₀` and `N ⊆ T`, then `N` is in good position to `C`
-inside `T` (Definition 3.21 in `T`, `IsInGoodPositionIn`): a good complement `P` of `N` in `E₀`
+inside `T` (Definition 3.1.24 (preprint 3.21) in `T`, `IsInGoodPositionIn`): a good complement `P` of `N` in `E₀`
 restricts to the good complement `P ∩ T` of `N` in `T`, with the same constant. -/
 theorem IsInGoodPosition.isInGoodPositionIn_of_le {N : Submodule ℝ (E 0)}
     (h : IsInGoodPosition E C N) {T : Submodule ℝ (E 0)} (hNT : N ≤ T) :
@@ -542,7 +542,7 @@ variable {P : Type} [NormedAddCommGroup P] [NormedSpace ℝ P] [FiniteDimensiona
   {W : ScBanach} {Ct : Set P} {Q : Type} [NormedAddCommGroup Q] [NormedSpace ℝ Q]
   [FiniteDimensional ℝ Q] (𝒮 : StabilityData Ct W) {f : P × W 0 → Q × W 0} {B : P × W 0 → W 0}
 
-/-- **`N_v ⊆ ker D(h + s)(v + σ(v))`**: for the solution graph `σ : V → E₀` of Theorem 3.47 with
+/-- **`N_v ⊆ ker D(h + s)(v + σ(v))`**: for the solution graph `σ : V → E₀` of Theorem 3.5.11 (preprint 3.47) with
 the `C¹`-lift `σ₁ : V₁ → E₁` (`ι ∘ σ₁ = σ` on the relatively open `V₁ ⊆ V`), at `v ∈ V₁` with
 `x₁ = v + σ₁(v) ∈ U₁`: differentiating `(h + s)(w + σ(w)) = 0` along `V₁` at `v` gives
 `D(h + s)(x₁)(n + Dσ(v)n) = 0` for `n ∈ K` (`h + s` is differentiable on level `1` only, which is
@@ -629,7 +629,7 @@ theorem graphSpace_le_ker_Dfs' (hC : IsPartialQuadrant (ScBanach.const P) Ct)
 
 /-- **`N_v = ker D(h + s)(v + σ(v))`**: equality by the dimension count
 `dim N_v = dim (LinearMap.ker (𝒮.Dfs f : P × W 0 →ₗ[ℝ] Q × W 0)) = ind D(h + s)(0) = ind D(h + s)(x₁) = dim ker D(h + s)(x₁)`, the two operators
-being surjective (Corollary 3.41). -/
+being surjective (Corollary 3.5.3 (preprint 3.41)). -/
 theorem graphSpace_eq_ker_Dfs' (hC : IsPartialQuadrant (ScBanach.const P) Ct)
     (hf : IsBasicGerm Ct 𝒮.G f B) (hsurj : Surjective (𝒮.Dfs f))
     (hpos : IsInGoodPosition (ScBanach.paramProd P W) (Ct ×ˢ univ)
@@ -676,7 +676,7 @@ theorem graphSpace_eq_ker_Dfs' (hC : IsPartialQuadrant (ScBanach.const P) Ct)
 
 end StabilityData
 
-/-! ### Theorem 3.54, the graph description, in the chart with the filler data exposed -/
+/-! ### Theorem 3.6.8 (preprint 3.54), the graph description, in the chart with the filler data exposed -/
 
 section ChartGraph
 
@@ -685,19 +685,19 @@ variable {C U : Set (E 0)} {R : E 0 × F 0 → E 0 × F 0}
 open StrongRetr
 
 set_option maxHeartbeats 1600000 in
-/-- **Theorem 3.54, the graph description (3) of the solution set, in the chart with the filler
-data exposed** (the body of `theorem_3_54_graph_wholeChart` with the data of Definition 3.53 as hypotheses):
+/-- **Theorem 3.6.8 (preprint 3.54), the graph description (3) of the solution set, in the chart with the filler
+data exposed** (the body of `theorem_3_6_8_graph_wholeChart` with the data of Definition 3.6.6 (preprint 3.53) as hypotheses):
 `g` a filled version of `f̂` at the zero `0` with `(f̂, 0)` in good position, `t₀` the sc⁺-section
 with `g − t₀` conjugated to the basic germ `h` by `Ψ` (base map `ψ`, inverse `ψ'`), the
-retraction tame (`(1 − Dr(0))E ⊆ E₀`).  Then there are the data `𝒮` of Theorem 3.38 (germ `G`)
+retraction tame (`(1 − Dr(0))E ⊆ E₀`).  Then there are the data `𝒮` of Theorem 3.4.2 (preprint 3.38) (germ `G`)
 and the basic germ `h' = h + (t_{ℝᴺ}, 0)` with `𝒮.fsum h' = Ψ_*(g)` on `U' ∩ W'`, `W'` an open
 neighbourhood of `0`; `D(𝒮.fsum h')(0)` surjective with kernel `K` in good position; the data
-`Yc`, `V'`, `σ` of Theorem 3.47 (`Yc` closed, `σ` with `C^k`-lifts); an open neighbourhood `N₁`
+`Yc`, `V'`, `σ` of Theorem 3.5.11 (preprint 3.47) (`Yc` closed, `σ` with `C^k`-lifts); an open neighbourhood `N₁`
 of `0` on which the identities of the filler and of the conjugation hold and `ψ'(U' ∩ W') ⊆ N₁`;
 and an open neighbourhood `N₂ ⊆ N₁` of `0` such that `ψ(U ∩ N₂) ⊆ G₀ ∩ W'`, every zero of `g`
 in `U ∩ N₂` lies in `O`, `g(u) = 0 ↔ 𝒮.fsum h'(ψ u) = 0` on `O ∩ N₂`, and
 `ψ({u ∈ O ∩ N₂ | g(u) = 0}) = {v + σ(v) | v ∈ V'}`. -/
-theorem theorem_3_54_chart_graph_wholeChart (hU : IsRelOpenInQuadrant E C U)
+theorem theorem_3_6_8_chart_graph_wholeChart (hU : IsRelOpenInQuadrant E C U)
     (hR : IsStrongBundleRetraction U R) (h0U : (0 : E 0) ∈ U) (h0O : (0 : E 0) ∈ r R '' U)
     {fb g : E 0 → F 0} (hfill : IsFilledVersion hU hR h0U fb g) (hfb0 : fb 0 = 0)
     (hfK : ∀ x ∈ r R '' U, (x, fb x) ∈ R '' (U ×ˢ univ))
@@ -831,7 +831,7 @@ theorem theorem_3_54_chart_graph_wholeChart (hU : IsRelOpenInQuadrant E C U)
     rw [e1, e2, e3, hΨ.toFun.snd_sub hu, sub_add_cancel]
     show (Ψ (ψ' (ψ u), g (ψ' (ψ u)))).2 = (Ψ (u, g u)).2
     rw [hψψ' u hu]
-  -- the basic germ `h' = h + (t_{ℝᴺ}, 0)` and the data of Theorem 3.38 with `s = t_W`
+  -- the basic germ `h' = h + (t_{ℝᴺ}, 0)` and the data of Theorem 3.4.2 (preprint 3.38) with `s = t_W`
   set h' : Pn × W 0 → Q × W 0 := fun x => h x + ScBanach.qPartOp Q W 0 (t x) with hh'def
   have hh' : IsBasicGerm Ct G h' Bc :=
     { isScSmooth := by
@@ -871,7 +871,7 @@ theorem theorem_3_54_chart_graph_wholeChart (hU : IsRelOpenInQuadrant E C U)
     ⟨Pn, Q, inferInstance, inferInstance, inferInstance, inferInstance, inferInstance,
       inferInstance,
       W, Ct, U', Ψ, Ψ', G, h, Bc, hCt, hU', hΨ, hψ0, hG, hh, hev⟩
-  obtain ⟨hpush, -, hsurjP, -, hposP⟩ := theorem_3_54_pushforward_wholeChart hU hR h0U h0O hfill hfb0 hfK ht₀
+  obtain ⟨hpush, -, hsurjP, -, hposP⟩ := theorem_3_6_8_pushforward_wholeChart hU hR h0U h0O hfill hfb0 hfK ht₀
     ht₀0 hconj' T hT hK hgp hU' hΨ hψ0
   -- `D(𝒮.fsum h')(0) = D(Ψ_*g)(0)`: the two maps agree near `0`
   have hW' : ∀ᶠ u' in 𝓝 (0 : (ScBanach.paramProd Pn W) 0), u' ∈ U' → ψ' u' ∈ N₁ := by
@@ -913,9 +913,9 @@ theorem theorem_3_54_chart_graph_wholeChart (hU : IsRelOpenInQuadrant E C U)
   have hsurj : Surjective (𝒮.Dfs h') := by rw [hDeq]; exact hsurjP
   have hpos : IsInGoodPosition (ScBanach.paramProd Pn W) (Ct ×ˢ univ)
       (LinearMap.ker (𝒮.Dfs h' : Pn × W 0 →ₗ[ℝ] Q × W 0)) := by rw [hDeq]; exact hposP
-  -- Theorem 3.47 for `h + t`
+  -- Theorem 3.5.11 (preprint 3.47) for `h + t`
   obtain ⟨Yc, V₀, σ, hYc, hYcc, hV₀rel, hV₀0, hσY, hσ1, hσC, hσ0, hDσ, hsol, hlift, U'', hU''o,
-    h0U'', hU''⟩ := theorem_3_47_closed hCt 𝒮 hh'𝒮 hsurj hpos
+    h0U'', hU''⟩ := theorem_3_5_11_closed hCt 𝒮 hh'𝒮 hsurj hpos
   -- the open set `Ω = U'' ∩ W'` of `E'` and the shrunken `V'`
   obtain ⟨Ω, hΩdef⟩ : ∃ Ω : Set ((ScBanach.paramProd Pn W) 0), Ω = U'' ∩ W' := ⟨_, rfl⟩
   have hΩo : IsOpen Ω := hΩdef ▸ hU''o.inter hW'open

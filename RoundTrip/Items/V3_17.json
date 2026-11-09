@@ -5,7 +5,7 @@
  "not_B": false,
  "relation": "A_stronger",
  "effort_only": false,
- "why": "Both sides use the same notions, at HEAD the germ reading of Definition 3.11 (IsScFredholmSection with IsScFredholmGerm built from IsFillingGerm/IsScPlusGerm), plus IsScPlusSection and sectionAdd. B adds the hypothesis PX.IsTame (the text's 'over a tame M-polyfold'); A's theorem_3_15 drops it (tameness is not used in the project's proof), so A => B by discarding the hypothesis. B => A cannot be derived: B says nothing about non-tame bases, and A's extra conjuncts (sc-smooth + sc+ is sc-smooth for merely sc-smooth f; regularity of f + s; the single-germ statement IsScFredholmGerm.sectionAdd) are not consequences of B. The failure is a genuine generality gap (A strictly more general), not missing glue.",
+ "why": "Both sides use the same notions, at HEAD the germ reading of Definition 3.11 (IsScFredholmSection with IsScFredholmGerm built from IsFillingGerm/IsScPlusGerm), plus IsScPlusSection and sectionAdd. B adds the hypothesis PX.IsTame (the text's 'over a tame M-polyfold'); A's theorem_3_1_18_preprint drops it (tameness is not used in the project's proof), so A => B by discarding the hypothesis. B => A cannot be derived: B says nothing about non-tame bases, and A's extra conjuncts (sc-smooth + sc+ is sc-smooth for merely sc-smooth f; regularity of f + s; the single-germ statement IsScFredholmGerm.sectionAdd) are not consequences of B. The failure is a genuine generality gap (A strictly more general), not missing glue.",
  "B_issue": null,
  "overlap": "n/a (B_to_A not proved)",
  "uses_hypothesis": {
@@ -19,6 +19,6 @@
    "B_to_A": "failed",
    "relation": "A_stronger"
   },
-  "note": "theorem_3_15, regularizing_sectionAdd and IsScFredholmGerm.sectionAdd now state the germ reading, and B's IsScFredholmSection is the germ reading too; A_to_B still checks unchanged (hypothesis used). Result unchanged: A_stronger."
+  "note": "theorem_3_1_18_preprint, regularizing_sectionAdd and IsScFredholmGerm.sectionAdd now state the germ reading, and B's IsScFredholmSection is the germ reading too; A_to_B still checks unchanged (hypothesis used). Result unchanged: A_stronger."
  }
 }

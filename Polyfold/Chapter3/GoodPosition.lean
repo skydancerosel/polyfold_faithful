@@ -3,61 +3,61 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §3.1–3.2 and
-Appendix 3.8.1: Definition 3.21 (good position), Proposition 3.22 (`N ∩ C` is a partial quadrant
-in `N`), Lemma 3.45 (good position under linear isomorphisms), Lemma 3.65 and Proposition 3.69
+Appendix 3.8.1: Definition 3.1.24 (preprint 3.21) (good position), Proposition 3.1.25 (preprint 3.22) (`N ∩ C` is a partial quadrant
+in `N`), Lemma 3.5.9 (preprint 3.45) (good position under linear isomorphisms), Lemma 3.8.8 (preprint 3.65) and Proposition 3.8.12 (preprint 3.69)
 (the degeneracy index of `N ∩ C`).
 
 # Good position of a finite-dimensional subspace to a partial quadrant
 
 ## The text, paraphrased
 
-(Definition 3.21) Let `C ⊆ E` be a partial quadrant and `N ⊆ E` a finite-dimensional sc-subspace.
+(Definition 3.1.24 (preprint 3.21)) Let `C ⊆ E` be a partial quadrant and `N ⊆ E` a finite-dimensional sc-subspace.
 `N` is **in good position** to `C` if the interior of `N ∩ C` in `N` is nonempty and `N` has an
 sc-complement `P` (a **good complement**) with: for some `ε > 0`, `|p|₀ ≤ ε|n|₀` implies that
 `n ∈ C` and `n + p ∈ C` are equivalent.  A finite-dimensional `N` which is not necessarily smooth
 is called in good position if there is a merely topological complement with this property.
-(Proposition 3.22, proof in Appendix 3.8.1) If `N` is in good position to `C` then `N ∩ C` is a
-partial quadrant in `N`.  (Lemma 3.45) `Tϕ(0)` carries good position to good position.
-(Lemma 3.65) A good complement lies in `ℝ^{Σᶜ} ⊕ W`, where `Σ = ⋃_{a ∈ C ∩ N, a ≠ 0} σ_a` is the set
-of indices vanishing at some nonzero point of `N ∩ C`.  (Proposition 3.69) For `x ∈ N ∩ C`:
+(Proposition 3.1.25 (preprint 3.22), proof in Appendix 3.8.1) If `N` is in good position to `C` then `N ∩ C` is a
+partial quadrant in `N`.  (Lemma 3.5.9 (preprint 3.45)) `Tϕ(0)` carries good position to good position.
+(Lemma 3.8.8 (preprint 3.65)) A good complement lies in `ℝ^{Σᶜ} ⊕ W`, where `Σ = ⋃_{a ∈ C ∩ N, a ≠ 0} σ_a` is the set
+of indices vanishing at some nonzero point of `N ∩ C`.  (Proposition 3.8.12 (preprint 3.69)) For `x ∈ N ∩ C`:
 `d_{N ∩ C}(x) = d_C(x)` if `x ∉ N ∩ W`, and `d_{N ∩ C}(x) = dim N − dim(N ∩ W)` if `x ∈ N ∩ W`.
 
 ## What is formalized
 
-* `Polyfold.IsGoodComplement`, `Polyfold.IsInGoodPosition` (**Definition 3.21**), with an algebraic
+* `Polyfold.IsGoodComplement`, `Polyfold.IsInGoodPosition` (**Definition 3.1.24 (preprint 3.21)**), with an algebraic
   complement (the weakest form; see below), finite-dimensionality as an instance argument.
 * `Polyfold.exists_quadrantNormalForm` (the core, in coordinates): for functionals `ℓ_1, …, ℓ_n`
   on a normed space cutting out `C = {ℓ_i ≥ 0}`, and `N` in good position, a linear isomorphism
   `e : N ≅ ℝᵏ × N₀` with `N ∩ C = e⁻¹([0,∞)ᵏ × N₀)`, together with the degeneracy counts and
   `k = dim N − dim(N ∩ W)` (`Polyfold.QuadrantNormalForm`).
-* `Polyfold.proposition_3_22` (**Proposition 3.22**): `N ∩ C` is a partial quadrant in `N`, as
+* `Polyfold.proposition_3_1_25` (**Proposition 3.1.25 (preprint 3.22)**): `N ∩ C` is a partial quadrant in `N`, as
   `IsPartialQuadrant (ScBanach.const N) (Subtype.val ⁻¹' C)`.
-* `Polyfold.lemma_3_65` (**Lemma 3.65**), `Polyfold.sigmaCoord_surjective` (the surjectivity of
+* `Polyfold.lemma_3_8_8` (**Lemma 3.8.8 (preprint 3.65)**), `Polyfold.sigmaCoord_surjective` (the surjectivity of
   the map (55), p. 125), `Polyfold.IsGoodComplement.map`, `Polyfold.IsInGoodPosition.map`
-  (**Lemma 3.45**, for any continuous linear isomorphism carrying `C` onto `C'`),
-  `Polyfold.proposition_3_69` (**Proposition 3.69**, in the model `E = ℝⁿ ⊕ W`, `C = [0,∞)ⁿ ⊕ W`
+  (**Lemma 3.5.9 (preprint 3.45)**, for any continuous linear isomorphism carrying `C` onto `C'`),
+  `Polyfold.proposition_3_8_12` (**Proposition 3.8.12 (preprint 3.69)**, in the model `E = ℝⁿ ⊕ W`, `C = [0,∞)ⁿ ⊕ W`
   as in the text; (2) stated additively).
 
 ## What the text leaves implicit, and the choices made (the findings)
 
-* **The extreme-ray lemmas are not needed.**  The text's proof of Proposition 3.22 (Appendix 3.8.1)
-  rests on Lemmas 3.62–3.64 (Krein–Milman for cones, quadrants have `dim N` extreme rays, cited
-  from [21] without proof) and Lemmas 3.66–3.68.  The proof here follows the same two cases
-  (`Ñ ∩ (ℝ^{Σᶜ} ⊕ W) = {0}` or not, Lemma 3.68) but replaces the extreme rays by a direct
+* **The extreme-ray lemmas are not needed.**  The text's proof of Proposition 3.1.25 (preprint 3.22) (Appendix 3.8.1)
+  rests on Lemmas 3.8.1–3.8.3 (preprint 3.62–3.64) (Krein–Milman for cones, quadrants have `dim N` extreme rays, cited
+  from [21] without proof) and Lemmas 3.8.9–3.8.11 (preprint 3.66–3.68).  The proof here follows the same two cases
+  (`Ñ ∩ (ℝ^{Σᶜ} ⊕ W) = {0}` or not, Lemma 3.8.11 (preprint 3.68)) but replaces the extreme rays by a direct
   argument: in the first case `N ∩ C = {x ∈ N | ℓ_i(x) ≥ 0, i ∈ Σ}` (`mem_quadCone_of_vanIdx`:
   moving from such an `x` towards an interior point `y` along `x + s·y`, the first point of `N ∩ C`
   met is nonzero, hence has positive coordinates outside `Σ`, so it was not the first), and the
-  surjectivity of `Q : N → ℝ^Σ` from Lemma 3.65 gives `N ≅ ℝ^Σ × ker Q`; in the second case
+  surjectivity of `Q : N → ℝ^Σ` from Lemma 3.8.8 (preprint 3.65) gives `N ≅ ℝ^Σ × ker Q`; in the second case
   (`Σ = ∅`) every nonzero point of `N ∩ C` has all coordinates positive and a line argument shows
   `dim N = 1` (`quadrantNormalForm_of_vanIdx_empty`).  The case `N ∩ C = N` (all `ℓ_i` vanish on
   `N`, e.g. `N ⊆ W`), which the text's case distinction does not single out, is treated first.
 * **Only the algebraic splitting `E₀ = N ⊕ P` is used**: neither the sc-structure of `P` nor its
-  closedness enters Proposition 3.22, Lemma 3.45, Lemma 3.65 or Proposition 3.69.  The text's
-  Lemma 3.66 (`Ñ` is in good position with good complement `(N ∩ W) ⊕ N^⊥`) is not needed either.
-* **Proposition 3.69 (2)** `d_{N ∩ C}(x) = dim N − dim(N ∩ W)` is stated as
+  closedness enters Proposition 3.1.25 (preprint 3.22), Lemma 3.5.9 (preprint 3.45), Lemma 3.8.8 (preprint 3.65) or Proposition 3.8.12 (preprint 3.69).  The text's
+  Lemma 3.8.9 (preprint 3.66) (`Ñ` is in good position with good complement `(N ∩ W) ⊕ N^⊥`) is not needed either.
+* **Proposition 3.8.12 (preprint 3.69) (2)** `d_{N ∩ C}(x) = dim N − dim(N ∩ W)` is stated as
   `d_{N ∩ C}(x) + dim(N ∩ W) = dim N`; the subspace `N ∩ W` is `ker((x ↦ x.1) ∘ ι_N)`.  In the
   normal form the `ℝᵏ`-component of `e` vanishes on `N ∩ W` and `k = dim N − dim(N ∩ W)`.
-* **Lemma 3.45** is stated for `Tϕ(0)`; it holds for any continuous linear isomorphism `S` with
+* **Lemma 3.5.9 (preprint 3.45)** is stated for `Tϕ(0)`; it holds for any continuous linear isomorphism `S` with
   `S(C) = C'`, with `ε' = ε/(‖S‖‖S⁻¹‖ + 1)`.
 -/
 
@@ -72,7 +72,7 @@ section Core
 variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V] {n : ℕ}
 
 /-- The cone `{x ∈ N | ℓ_i(x) ≥ 0 for all i}` of a subspace `N`, cut out by the functionals
-`ℓ_i`: the set `N ∩ C` of Proposition 3.22 seen inside `N`. -/
+`ℓ_i`: the set `N ∩ C` of Proposition 3.1.25 (preprint 3.22) seen inside `N`. -/
 def quadCone (ℓ : Fin n → V →ₗ[ℝ] ℝ) (N : Submodule ℝ V) : Set N := {x | ∀ i, 0 ≤ ℓ i (x : V)}
 
 variable (ℓ : Fin n → V →ₗ[ℝ] ℝ) (N : Submodule ℝ V)
@@ -103,7 +103,7 @@ lemma quadCone_isClosed [FiniteDimensional ℝ N] : IsClosed (quadCone ℓ N) :=
   exact isClosed_iInter fun i => isClosed_le continuous_const (continuous_restrFun ℓ N i)
 
 open scoped Classical in
-/-- The set `Σ` of the proof of Proposition 3.22 (p. 123): the indices `i` for which some nonzero
+/-- The set `Σ` of the proof of Proposition 3.1.25 (preprint 3.22) (p. 123): the indices `i` for which some nonzero
 `a ∈ N ∩ C` has `ℓ_i(a) = 0`. -/
 def vanIdx : Finset (Fin n) :=
   Finset.univ.filter fun i => ∃ x ∈ quadCone ℓ N, x ≠ 0 ∧ ℓ i (x : V) = 0
@@ -120,8 +120,8 @@ lemma pos_of_not_mem_vanIdx {x : N} (hx : x ∈ quadCone ℓ N) (hx0 : x ≠ 0) 
   · exact h
   · exact absurd ((mem_vanIdx ℓ N).2 ⟨x, hx, hx0, h.symm⟩) hi
 
-/-- **Lemma 3.65**: a good complement `P` of `N` lies in `{x | ℓ_i(x) = 0 for all i ∈ Σ}`. -/
-lemma lemma_3_65 (P : Submodule ℝ V) {ε : ℝ} (hε : 0 < ε)
+/-- **Lemma 3.8.8 (preprint 3.65)**: a good complement `P` of `N` lies in `{x | ℓ_i(x) = 0 for all i ∈ Σ}`. -/
+lemma lemma_3_8_8 (P : Submodule ℝ V) {ε : ℝ} (hε : 0 < ε)
     (hgood : ∀ x ∈ N, ∀ p ∈ P, ‖p‖ ≤ ε * ‖x‖ →
       ((∀ i, 0 ≤ ℓ i x) ↔ ∀ i, 0 ≤ ℓ i (x + p)))
     {p : V} (hp : p ∈ P) {i : Fin n} (hi : i ∈ vanIdx ℓ N) : ℓ i p = 0 := by
@@ -156,7 +156,7 @@ def nullSpace : Submodule ℝ N := ⨅ i, LinearMap.ker (restrFun ℓ N i)
 lemma mem_nullSpace {x : N} : x ∈ nullSpace ℓ N ↔ ∀ i, ℓ i (x : V) = 0 := by
   simp [nullSpace, Submodule.mem_iInf, LinearMap.mem_ker]
 
-/-- Surjectivity of `Q` (p. 125): for `k ∈ ℝ^Σ` write `(k, 0) = n + m ∈ N ⊕ N^⊥`; by Lemma 3.65,
+/-- Surjectivity of `Q` (p. 125): for `k ∈ ℝ^Σ` write `(k, 0) = n + m ∈ N ⊕ N^⊥`; by Lemma 3.8.8 (preprint 3.65),
 `Q(n) = k`.  The hypothesis `hℓ` says that the `ℓ_i` are jointly surjective (coordinates). -/
 lemma sigmaCoord_surjective (P : Submodule ℝ V) (hNP : IsCompl N P) {ε : ℝ} (hε : 0 < ε)
     (hgood : ∀ x ∈ N, ∀ p ∈ P, ‖p‖ ≤ ε * ‖x‖ →
@@ -171,7 +171,7 @@ lemma sigmaCoord_surjective (P : Submodule ℝ V) (hNP : IsCompl N P) {ε : ℝ}
   refine ⟨⟨y, hy⟩, ?_⟩
   funext i
   have := hv i.1 i.2
-  rw [map_add, lemma_3_65 ℓ N P hε hgood hz i.2, add_zero, dif_pos i.2] at this
+  rw [map_add, lemma_3_8_8 ℓ N P hε hgood hz i.2, add_zero, dif_pos i.2] at this
   simpa using this
 
 /-- An interior point of the cone with `ℓ_i(y) = 0` forces `ℓ_i = 0` on `N`. -/
@@ -193,7 +193,7 @@ lemma restrFun_eq_zero_of_interior {y : N} (hy : y ∈ interior (quadCone ℓ N)
   nlinarith
 
 /-- `N ∩ C = {x ∈ N | ℓ_i(x) ≥ 0 for i ∈ Σ}` when `Σ ≠ ∅` (the first case of the proof of
-Proposition 3.22, p. 125, proved here directly instead of through extreme rays: move from `x`
+Proposition 3.1.25 (preprint 3.22), p. 125, proved here directly instead of through extreme rays: move from `x`
 towards an interior point `y` along `x + s·y`; the first point of the cone met on the way has all
 coordinates outside `Σ` positive, so it was not the first). -/
 lemma mem_quadCone_of_vanIdx [FiniteDimensional ℝ N] (hS : (vanIdx ℓ N).Nonempty)
@@ -299,8 +299,8 @@ def splitEquiv {M₁ M₂ : Type*} [AddCommGroup M₁] [Module ℝ M₁] [AddCom
     [Module ℝ M₂] (Q : M₁ →ₗ[ℝ] M₂) (g : M₂ →ₗ[ℝ] M₁) (hg : Q ∘ₗ g = LinearMap.id) (x : M₁) :
     (splitEquiv Q g hg x).1 = Q x := rfl
 
-/-- The conclusion of the core of Proposition 3.22, in coordinates: `N ≅ ℝᵏ × N₀` carrying the
-cone onto `[0,∞)ᵏ × N₀`, with the degeneracy counts (Proposition 3.69) and
+/-- The conclusion of the core of Proposition 3.1.25 (preprint 3.22), in coordinates: `N ≅ ℝᵏ × N₀` carrying the
+cone onto `[0,∞)ᵏ × N₀`, with the degeneracy counts (Proposition 3.8.12 (preprint 3.69)) and
 `k = dim N − dim(N ∩ W)`. -/
 def QuadrantNormalForm [FiniteDimensional ℝ N] : Prop :=
   ∃ (k : ℕ) (N₀ : Submodule ℝ N) (e : N ≃ₗ[ℝ] (Fin k → ℝ) × N₀),
@@ -311,7 +311,7 @@ def QuadrantNormalForm [FiniteDimensional ℝ N] : Prop :=
     (∀ x : N, (e x).1 = 0 ↔ x ∈ nullSpace ℓ N) ∧
     k + finrank ℝ (nullSpace ℓ N) = finrank ℝ N
 
-/-- The first case of the proof of Proposition 3.22: `N ∩ C = {ℓ_i ≥ 0, i ∈ Σ}` and `Q : N → ℝ^Σ`
+/-- The first case of the proof of Proposition 3.1.25 (preprint 3.22): `N ∩ C = {ℓ_i ≥ 0, i ∈ Σ}` and `Q : N → ℝ^Σ`
 is onto; then `N ≅ ℝ^Σ × ker Q` carries `N ∩ C` onto `[0,∞)^Σ × ker Q`. -/
 lemma quadrantNormalForm_of_vanIdx [FiniteDimensional ℝ N]
     (hsurj : Function.Surjective (sigmaCoord ℓ N))
@@ -380,7 +380,7 @@ lemma quadrantNormalForm_of_eq_univ [FiniteDimensional ℝ N]
       rw [eq_top_iff]; intro x _; exact (mem_nullSpace ℓ N).2 (hvan x)
     rw [this, finrank_top, zero_add]
 
-/-- The second case of the proof of Proposition 3.22 (`Σ = ∅`, Lemma 3.68): every nonzero element
+/-- The second case of the proof of Proposition 3.1.25 (preprint 3.22) (`Σ = ∅`, Lemma 3.68): every nonzero element
 of `N ∩ C` has all coordinates positive, and then `N` is a line and `N ∩ C` a half-line. -/
 lemma quadrantNormalForm_of_vanIdx_empty [FiniteDimensional ℝ N] (hS : vanIdx ℓ N = ∅)
     (j₀ : Fin n) (hint : (interior (quadCone ℓ N)).Nonempty)
@@ -539,7 +539,7 @@ lemma quadrantNormalForm_of_vanIdx_empty [FiniteDimensional ℝ N] (hS : vanIdx 
     rw [Module.finrank_self] at this
     exact this
 
-/-- **The core of Proposition 3.22 (and of Proposition 3.69), in coordinates.**  Let `V` be a real
+/-- **The core of Proposition 3.1.25 (preprint 3.22) (and of Proposition 3.69), in coordinates.**  Let `V` be a real
 normed space with functionals `ℓ_1, …, ℓ_n` which are jointly onto `ℝⁿ` (coordinates),
 `C = {ℓ_i ≥ 0}`, and `N ⊆ V` a finite-dimensional subspace with an algebraic complement `P` such
 that for some `ε > 0`, `‖p‖ ≤ ε‖x‖` (`x ∈ N`, `p ∈ P`) implies `x ∈ C ↔ x + p ∈ C`, and `N ∩ C` has nonempty
@@ -549,9 +549,9 @@ the number of vanishing coordinates of `e(x)` is that of `x`, `e` vanishes on `N
 `ℝᵏ`-component, and `k = dim N − dim(N ∩ W)`, where `N ∩ W = {x ∈ N | ℓ_i(x) = 0 ∀ i}`.
 
 The proof follows the two cases of the text (p. 125: `Ñ ∩ (ℝ^{Σᶜ} ⊕ W) = {0}` or not) but avoids
-Lemmas 3.62–3.64 and 3.66–3.68 (extreme rays): in the first case `N ∩ C = {ℓ_i ≥ 0, i ∈ Σ}` is
+Lemmas 3.8.1–3.8.3 and 3.8.9–3.8.11 (preprint 3.62–3.64 and 3.66–3.68) (extreme rays): in the first case `N ∩ C = {ℓ_i ≥ 0, i ∈ Σ}` is
 shown directly by a segment argument (`mem_quadCone_of_vanIdx`), and the surjectivity of
-`Q : N → ℝ^Σ` (Lemma 3.65) gives the splitting; in the second case `N` is a line
+`Q : N → ℝ^Σ` (Lemma 3.8.8 (preprint 3.65)) gives the splitting; in the second case `N` is a line
 (`quadrantNormalForm_of_vanIdx_empty`). -/
 theorem exists_quadrantNormalForm [FiniteDimensional ℝ N] (P : Submodule ℝ V) (hNP : IsCompl N P)
     {ε : ℝ} (hε : 0 < ε)
@@ -605,9 +605,9 @@ section ScLevel
 
 variable {E : ScBanach}
 
-/-! ### Definition 3.21: good position -/
+/-! ### Definition 3.1.24 (preprint 3.21): good position -/
 
-/-- **Definition 3.21**, the complement: `P` is a **good complement** of `N` with respect to
+/-- **Definition 3.1.24 (preprint 3.21)**, the complement: `P` is a **good complement** of `N` with respect to
 `C ⊆ E₀`: `E₀ = N ⊕ P` and there is `ε > 0` such that for `n ∈ N`, `p ∈ P` with `|p|₀ ≤ ε|n|₀`
 the statements `n ∈ C` and `n + p ∈ C` are equivalent.  (The text asks for an sc-complement, or
 "merely a topological complement" in the remark after the definition; the proofs use only the
@@ -616,7 +616,7 @@ structure IsGoodComplement (E : ScBanach) (C : Set (E 0)) (N P : Submodule ℝ (
   isCompl : IsCompl N P
   exists_eps : ∃ ε > 0, ∀ x ∈ N, ∀ p ∈ P, ‖p‖ ≤ ε * ‖x‖ → (x ∈ C ↔ x + p ∈ C)
 
-/-- **Definition 3.21**: the subspace `N` is **in good position** to `C`: the interior of `N ∩ C`
+/-- **Definition 3.1.24 (preprint 3.21)**: the subspace `N` is **in good position** to `C`: the interior of `N ∩ C`
 in `N` is nonempty and `N` has a good complement.  Finite-dimensionality of `N` is a separate
 instance argument of the theorems. -/
 structure IsInGoodPosition (E : ScBanach) (C : Set (E 0)) (N : Submodule ℝ (E 0)) : Prop where
@@ -676,19 +676,19 @@ lemma preimage_eq_of_normalForm (T : ScIso E ((ScBanach.const (Fin n → ℝ)).p
   rw [← quadCone_coordFun, h1 x]
   rfl
 
-/-- **Proposition 3.22**: if the finite-dimensional subspace `N` is in good position to the partial
+/-- **Proposition 3.1.25 (preprint 3.22)**: if the finite-dimensional subspace `N` is in good position to the partial
 quadrant `C` in `E`, then `N ∩ C` is a partial quadrant in `N`.  (Proof in Appendix 3.8.1; here by
-`exists_quadrantNormalForm`, without the extreme-ray Lemmas 3.62–3.64.) -/
-theorem proposition_3_22 {C : Set (E 0)} (hC : IsPartialQuadrant E C) {N : Submodule ℝ (E 0)}
+`exists_quadrantNormalForm`, without the extreme-ray Lemmas 3.8.1–3.8.3 (preprint 3.62–3.64).) -/
+theorem proposition_3_1_25 {C : Set (E 0)} (hC : IsPartialQuadrant E C) {N : Submodule ℝ (E 0)}
     [FiniteDimensional ℝ N] (hN : IsInGoodPosition E C N) :
     IsPartialQuadrant (ScBanach.const N) (Subtype.val ⁻¹' C) := by
   obtain ⟨n, W, T, rfl⟩ := hC
   obtain ⟨k, N₀, e, h1, -, -, -⟩ := hN.quadrantNormalForm T
   exact ⟨k, ScBanach.const N₀, scIsoOfLinearEquiv e, preimage_eq_of_normalForm T e h1⟩
 
-/-! ### Lemma 3.45: good position is carried by linear isomorphisms -/
+/-! ### Lemma 3.5.9 (preprint 3.45): good position is carried by linear isomorphisms -/
 
-/-- **Lemma 3.45** (in its linear form): a continuous linear isomorphism `S : E₀ → E'₀` with
+/-- **Lemma 3.5.9 (preprint 3.45)** (in its linear form): a continuous linear isomorphism `S : E₀ → E'₀` with
 `S(C) = C'` carries a good complement of `N` to a good complement of `S(N)`; the constant is
 `ε' = ε / (‖S‖‖S⁻¹‖ + 1)` (the text: `ε'‖Tϕ(0)‖‖Tϕ(0)⁻¹‖ ≤ ε`). -/
 theorem IsGoodComplement.map {E' : ScBanach} {C : Set (E 0)} {C' : Set (E' 0)}
@@ -730,7 +730,7 @@ theorem IsGoodComplement.map {E' : ScBanach} {C : Set (E 0)} {C' : Set (E' 0)}
     rw [hS, hS, map_add] at this
     exact this
 
-/-- **Lemma 3.45**, second part: good position is carried by `S`. -/
+/-- **Lemma 3.5.9 (preprint 3.45)**, second part: good position is carried by `S`. -/
 theorem IsInGoodPosition.map {E' : ScBanach} {C : Set (E 0)} {C' : Set (E' 0)}
     (S : E 0 ≃L[ℝ] E' 0) (hS : ∀ x, x ∈ C ↔ S x ∈ C') {N : Submodule ℝ (E 0)}
     [FiniteDimensional ℝ N] (h : IsInGoodPosition E C N) :
@@ -753,12 +753,12 @@ theorem IsInGoodPosition.map {E' : ScBanach} {C : Set (E 0)} {C' : Set (E' 0)}
     let ⟨P, hP⟩ := h.exists_goodComplement
     ⟨P.map (S : E 0 →ₗ[ℝ] E' 0), hP.map S hS⟩
 
-/-! ### Proposition 3.69: the degeneracy index of `N ∩ C` -/
+/-! ### Proposition 3.8.12 (preprint 3.69): the degeneracy index of `N ∩ C` -/
 
-/-- **Proposition 3.69**: for `N` in good position to `C = [0,∞)ⁿ ⊕ W` in `E = ℝⁿ ⊕ W` and
+/-- **Proposition 3.8.12 (preprint 3.69)**: for `N` in good position to `C = [0,∞)ⁿ ⊕ W` in `E = ℝⁿ ⊕ W` and
 `x ∈ N ∩ C`: (1) `d_{N ∩ C}(x) = d_C(x)` if `x ∉ N ∩ W`; (2) `d_{N ∩ C}(x) = dim N − dim(N ∩ W)` if
 `x ∈ N ∩ W` (here `W` is identified with `{0} ⊕ W`, and (2) is stated additively). -/
-theorem proposition_3_69 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
+theorem proposition_3_8_12 {N : Submodule ℝ (((ScBanach.const (Fin n → ℝ)).prod W) 0)}
     [FiniteDimensional ℝ N] (hN : IsInGoodPosition _ (quadrant n W 0) N) {x : N}
     (hx : (x : ((ScBanach.const (Fin n → ℝ)).prod W) 0) ∈ quadrant n W 0) :
     ((x : (Fin n → ℝ) × W 0).1 ≠ 0 →

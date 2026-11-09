@@ -2,17 +2,17 @@ import Polyfold.Chapter2.StrongBundle
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.2,
-**Proposition 1.19 and Corollary 1.20 under the text's hypothesis** (the proofs are those of
+**Proposition 1.2.4 (preprint 1.19) and Corollary 1.2.5 (preprint 1.20) under the text's hypothesis** (the proofs are those of
 [25] = arXiv 1002.3381, Proposition 2.4 and Corollary 2.5, with the inductive statement `(S_k)`
 written out in `Exposition/Chapter1.md` §3.4).
 
-# Proposition 1.19 with the shifted-level hypothesis
+# Proposition 1.2.4 (preprint 1.19) with the shifted-level hypothesis
 
 ## The text
 
-(Proposition 1.19) Let `U` be a relatively open subset of a partial quadrant in an sc-Banach space
+(Proposition 1.2.4 (preprint 1.19)) Let `U` be a relatively open subset of a partial quadrant in an sc-Banach space
 `E` and `F` another sc-Banach space.  Assume that for every `m ≥ 0` and `0 ≤ l ≤ k` the map `f`
-induces a map `f : U_{m+l} → F_m` of class `C^{l+1}`.  Then `f` is sc^{k+1}.  (Corollary 1.20) If
+induces a map `f : U_{m+l} → F_m` of class `C^{l+1}`.  Then `f` is sc^{k+1}.  (Corollary 1.2.5 (preprint 1.20)) If
 `f : U → ℝᴺ` and for all `0 ≤ l ≤ k` the map `f : U_l → ℝᴺ` is `C^{l+1}`, then `f` is sc^{k+1}.
 
 `Polyfold/Chapter1/Levels.lean` proves both under the stronger hypothesis that every level map
@@ -46,18 +46,18 @@ the missing order.
   of `(S_k)` is replaced by `i ≤ k`, which is what the proof uses):
   - `ElemData.isSc0`: the elementary map is sc⁰;
   - `ElemData.isSc1Levels`, `ElemData.isSc1With`: it is sc¹, by the level criterion of
-    Proposition 1.16 (`IsSc1Levels`), with the derivative (3.5) of the exposition
+    Proposition 1.2.1 (preprint 1.16) (`IsSc1Levels`), with the derivative (3.5) of the exposition
     `(δx, δh) ↦ d^{i+1}f(x)(δx, h) + Σ_a d^i f(x)(h with h_a := δh_a)`, which is continuous one
     level down because `d^{i+1} f` and `d^i f` exist one level further down;
   - `ElemData.tangentMap_eqOn`: its tangent map is the pairing of the shifted elementary map
     with the sum of `i + 1` elementary maps on `TX` (the "form of `T^{k+2} f`" of the exposition);
   - `ElemData.isSck`: by induction on `s`, every elementary map with `i + s ≤ k + 1` is sc^s.
-* **Proposition 1.19** (`Polyfold.proposition_1_19_text`): `f : U → F` sc⁰ on an sc-domain with
+* **Proposition 1.2.4 (preprint 1.19)** (`Polyfold.proposition_1_2_4_text`): `f : U → F` sc⁰ on an sc-domain with
   `f : U_{m+l} → F_m` of class `C^{l+1}` for all `m` and `l ≤ k` is sc^{k+1}: it is the elementary
   map `ElemData.base` with `i = 0`, `p = m = 0`, transported along `E ≅ E^0`, `F^0 ≅ F`.
   `Polyfold.IsScSmooth.of_contDiffOn_levels_text`: if `f : U_{m+l} → F_m` is `C^{l+1}` for all
   `m, l`, then `f` is sc-smooth.
-* **Corollary 1.20** (`Polyfold.corollary_1_20_text`): `f : U → V` into a finite-dimensional space
+* **Corollary 1.2.5 (preprint 1.20)** (`Polyfold.corollary_1_2_5_text`): `f : U → V` into a finite-dimensional space
   (constant sc-structure) with `f : U_l → V` of class `C^{l+1}` for `l ≤ k` is sc^{k+1};
   `Polyfold.IsScSmooth.of_contDiffOn_levels_finiteDimensional_text`: `C^{l+1}` on `U_l` for every
   `l` gives sc-smooth.
@@ -343,7 +343,7 @@ def baseDerivTower (U : Set (E 0)) (f : E 0 → F 0) (i : ℕ) (x : E 0) (h : Fi
   levelDerivTower U f i 0 (i - 1) (invFun (E.toBase (0 + (i - 1))) x)
     fun a => invFun (E.toBase (0 + (i - 1))) (h a)
 
-/-- The text's hypothesis of Proposition 1.19 for all `l`, with the order `min l k + 1`: the
+/-- The text's hypothesis of Proposition 1.2.4 (preprint 1.19) for all `l`, with the order `min l k + 1`: the
 restriction of the `C^{k+1}` map `f : U_{m+k} → F_m` to `U_{m+l}`, `l > k`, is `C^{k+1}`. -/
 theorem contDiffOn_levels_min {k : ℕ}
     (h : ∀ m l, l ≤ k → ContDiffOn ℝ (l + 1) (levelMap f m ∘ E.inclK m l) (E.lvlSet U (m + l)))
@@ -413,7 +413,7 @@ theorem baseDerivTower_toBase {i m l : ℕ} (x : E (m + l)) (hv : Fin i → E (m
     exact leftInverse_invFun (E.toBase_injective _) _
   simp only [baseDerivTower, key]
 
-/-- **The derivative tower of a map satisfying the text's hypothesis of Proposition 1.19**: if
+/-- **The derivative tower of a map satisfying the text's hypothesis of Proposition 1.2.4 (preprint 1.19)**: if
 `f : U → F` is sc⁰ and `f : U_{m+l} → F_m` is `C^{l+1}` for all `m` and `l ≤ k`, then the iterated
 derivatives of the level maps form a derivative tower up to order `k + 1`. -/
 theorem isDerivTower_of_contDiffOn_levels {k : ℕ} (hU : IsScDomain E U) (hf : IsSc0 E F U f)
@@ -674,7 +674,7 @@ theorem deriv_toBase {k : ℕ} (hT : IsDerivTower k U f Φ Ψ) (hG : d.Good k) {
     · subst hb; simp only [update_self, toBase_ρ]
     · simp only [update_of_ne hb, toBase_ρ]
 
-/-- The level criterion (Proposition 1.16) for an elementary map: differentiability of
+/-- The level criterion (Proposition 1.2.1 (preprint 1.16)) for an elementary map: differentiability of
 `f : U_{l+1} → F_l` with the derivative `deriv`. -/
 theorem hasFDerivWithinAt_level {k : ℕ} (hT : IsDerivTower k U f Φ Ψ) (hG : d.Good k) {l : ℕ}
     {z : X (l + 1)} (hz : z ∈ X.lvlSet (d.dom U) (l + 1)) :
@@ -714,7 +714,7 @@ theorem hasFDerivWithinAt_level {k : ℕ} (hT : IsDerivTower k U f Φ Ψ) (hG : 
         exact E.toBase_succ ((d.sl b).1 + l) _
       · simp only [update_of_ne hb, toBase_ρ]
 
-/-- The level criterion (Proposition 1.16) for an elementary map: continuity of `(z, ζ) ↦ Dg(z)ζ`
+/-- The level criterion (Proposition 1.2.1 (preprint 1.16)) for an elementary map: continuity of `(z, ζ) ↦ Dg(z)ζ`
 one level down. -/
 theorem continuousOn_deriv {k : ℕ} (hT : IsDerivTower k U f Φ Ψ) (hG : d.Good k) (l : ℕ) :
     ContinuousOn (fun q : X (l + 1) × X l => d.deriv hG Ψ l q.1 q.2)
@@ -736,7 +736,7 @@ theorem continuousOn_deriv {k : ℕ} (hT : IsDerivTower k U f Φ Ψ) (hG : d.Goo
           continuous_fst).update a
             ((d.ρ l _ (hG.hn₄ l) a).continuous.comp continuous_snd)).continuousOn)
 
-/-- An elementary map satisfies the level conditions of Proposition 1.16. -/
+/-- An elementary map satisfies the level conditions of Proposition 1.2.1 (preprint 1.16). -/
 theorem isSc1Levels {k : ℕ} (hT : IsDerivTower k U f Φ Ψ) (hG : d.Good k) :
     IsSc1Levels (d.dom U) (d.map Φ) fun l z => d.deriv hG Ψ l z where
   hasFDerivWithinAt _ _ hz := d.hasFDerivWithinAt_level hT hG hz
@@ -929,7 +929,7 @@ theorem isSck {k : ℕ} (hT : IsDerivTower k U f Φ Ψ) (s : ℕ) :
 
 end ElemData
 
-/-! ### Proposition 1.19 and Corollary 1.20 under the text's hypothesis -/
+/-! ### Proposition 1.2.4 (preprint 1.19) and Corollary 1.2.5 (preprint 1.20) under the text's hypothesis -/
 
 /-- `f` itself as elementary data: `i = 0`, `p = m = 0`, with the base slot `E ≅ E^0`. -/
 def ElemData.base (E : ScBanach) : ElemData E E 0 :=
@@ -942,11 +942,11 @@ lemma ElemData.base_dom (U : Set (E 0)) : (ElemData.base E).dom U = U := by
 lemma ElemData.base_good (k : ℕ) : (ElemData.base E).Good k :=
   ⟨Nat.zero_le _, fun a => a.elim0, Nat.zero_le _⟩
 
-/-- **Proposition 1.19** (as stated): let `U` be an sc-domain in `E` (e.g. a relatively open subset
+/-- **Proposition 1.2.4 (preprint 1.19)** (as stated): let `U` be an sc-domain in `E` (e.g. a relatively open subset
 of a partial quadrant) and `f : U → F` sc⁰.  If for every `m ≥ 0` and `0 ≤ l ≤ k` the induced map
 `f : U_{m+l} → F_m` is of class `C^{l+1}`, then `f` is sc^{k+1}.  (`f` is the elementary map with
 `i = 0` and `p = m = 0`; `ElemData.isSck` with `s = k + 1`.) -/
-theorem proposition_1_19_text {k : ℕ} (hU : IsScDomain E U) (hf : IsSc0 E F U f)
+theorem proposition_1_2_4_text {k : ℕ} (hU : IsScDomain E U) (hf : IsSc0 E F U f)
     (h : ∀ m l, l ≤ k → ContDiffOn ℝ (l + 1) (levelMap f m ∘ E.inclK m l) (E.lvlSet U (m + l))) :
     IsSck (k + 1) E F U f := by
   have hT := isDerivTower_of_contDiffOn_levels hU hf h
@@ -968,7 +968,7 @@ theorem proposition_1_19_text {k : ℕ} (hU : IsScDomain E U) (hf : IsSc0 E F U 
     ((ElemData.base E).map (baseDerivTower U f) z)
   exact e4.trans (e1.trans (e2.trans (congrArg f e3)))
 
-/-- **Proposition 1.19 for sc-smoothness**: if `f : U → F` is sc⁰ and `f : U_{m+l} → F_m` is
+/-- **Proposition 1.2.4 (preprint 1.19) for sc-smoothness**: if `f : U → F` is sc⁰ and `f : U_{m+l} → F_m` is
 `C^{l+1}` for all `m, l ≥ 0`, then `f` is sc-smooth. -/
 theorem IsScSmooth.of_contDiffOn_levels_text (hU : IsScDomain E U) (hf : IsSc0 E F U f)
     (h : ∀ m l : ℕ, ContDiffOn ℝ (l + 1) (levelMap f m ∘ E.inclK m l) (E.lvlSet U (m + l))) :
@@ -976,12 +976,12 @@ theorem IsScSmooth.of_contDiffOn_levels_text (hU : IsScDomain E U) (hf : IsSc0 E
   intro k
   cases k with
   | zero => exact hf
-  | succ k => exact proposition_1_19_text hU hf fun m l _ => h m l
+  | succ k => exact proposition_1_2_4_text hU hf fun m l _ => h m l
 
-/-- **Corollary 1.20** (as stated): let `U` be an sc-domain and `f : U → V` a map into a
+/-- **Corollary 1.2.5 (preprint 1.20)** (as stated): let `U` be an sc-domain and `f : U → V` a map into a
 finite-dimensional space (constant sc-structure).  If for some `k` and all `0 ≤ l ≤ k` the map
 `f : U_l → V` is of class `C^{l+1}`, then `f` is sc^{k+1}. -/
-theorem corollary_1_20_text {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
+theorem corollary_1_2_5_text {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedSpace ℝ V]
     [FiniteDimensional ℝ V] (hU : IsScDomain E U) {f : E 0 → (ScBanach.const V) 0}
     (h : ∀ l, l ≤ k → ContDiffOn ℝ (l + 1) (f ∘ E.toBase l) (E.lvlSet U l)) :
     IsSck (k + 1) E (ScBanach.const V) U f := by
@@ -992,7 +992,7 @@ theorem corollary_1_20_text {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedS
       rw [hlvl]
       exact (h 0 (Nat.zero_le k)).continuousOn.comp (E.toBase m).continuous.continuousOn
         (E.mapsTo_toBase_lvlSet U m)⟩
-  refine proposition_1_19_text hU hf fun m l hl => ?_
+  refine proposition_1_2_4_text hU hf fun m l hl => ?_
   have hle : l ≤ m + l := Nat.le_add_left l m
   have heq : levelMap f m ∘ E.inclK m l = (f ∘ E.toBase l) ∘ E.inclLE hle := by
     funext x
@@ -1000,7 +1000,7 @@ theorem corollary_1_20_text {k : ℕ} {V : Type} [NormedAddCommGroup V] [NormedS
   rw [heq, ← E.preimage_inclLE_lvlSet U hle]
   exact (h l hl).comp (E.inclLE hle).contDiff.contDiffOn (mapsTo_preimage _ _)
 
-/-- **Corollary 1.20 for sc-smoothness**: if `f : U_l → V` is `C^{l+1}` for every `l ≥ 0`, then
+/-- **Corollary 1.2.5 (preprint 1.20) for sc-smoothness**: if `f : U_l → V` is `C^{l+1}` for every `l ≥ 0`, then
 `f : U → V` is sc-smooth (the exposition's "middle claim"). -/
 theorem IsScSmooth.of_contDiffOn_levels_finiteDimensional_text {V : Type} [NormedAddCommGroup V]
     [NormedSpace ℝ V] [FiniteDimensional ℝ V] (hU : IsScDomain E U)
@@ -1008,7 +1008,7 @@ theorem IsScSmooth.of_contDiffOn_levels_finiteDimensional_text {V : Type} [Norme
     (h : ∀ l : ℕ, ContDiffOn ℝ (l + 1) (f ∘ E.toBase l) (E.lvlSet U l)) : IsScSmooth U f := by
   intro k
   cases k with
-  | zero => exact (corollary_1_20_text (k := 0) hU fun l _ => h l).isSc0
-  | succ k => exact corollary_1_20_text hU fun l _ => h l
+  | zero => exact (corollary_1_2_5_text (k := 0) hU fun l _ => h l).isSc0
+  | succ k => exact corollary_1_2_5_text hU fun l _ => h l
 
 end Polyfold

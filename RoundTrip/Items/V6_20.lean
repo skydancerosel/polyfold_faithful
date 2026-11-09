@@ -4,7 +4,7 @@ import RoundTrip.Blind.V6_20
 
 /-! Round trip for V6_20 (Lemma 6.17: `P ∈ Π_S` and `P S|_Y ≅ R(P)` for `S` near `T`).
 
-`A` is the type of `lemma_6_17` (universes at `0`); `FredholmOp` and `projRestrict`
+`A` is the type of `lemma_6_5_1` (universes at `0`); `FredholmOp` and `projRestrict`
 (`P S|_Y : Y → R(P)`, `y ↦ P S y`) are definitions (vocabulary).
 
 `A → B` (proved): B is A with the extra hypothesis that `T` is Fredholm (unused); A's
@@ -23,9 +23,9 @@ namespace RoundTrip.V6_20
 open Polyfold
 
 /-- The project's statement (Lemma 6.17), universes instantiated at `0`. -/
-def A : Prop := type_of% @Polyfold.lemma_6_17.{0, 0}
+def A : Prop := type_of% @Polyfold.lemma_6_5_1.{0, 0}
 
-theorem A_holds : A := @Polyfold.lemma_6_17.{0, 0}
+theorem A_holds : A := @Polyfold.lemma_6_5_1.{0, 0}
 
 /-- `A ⇒ B`: B is A with the extra (unused) hypothesis `T.IsFredholm`. -/
 theorem A_to_B : A → B := by
@@ -137,8 +137,8 @@ theorem B_to_A : B → A := by
     exact ⟨ContinuousLinearEquiv.ofBijective (projRestrict P S Y) hinj hsurj,
       ContinuousLinearEquiv.coe_ofBijective _ _ _⟩
 
-#rt_check RoundTrip.V6_20.A_to_B [Polyfold.lemma_6_17]
-#rt_check RoundTrip.V6_20.B_to_A [Polyfold.lemma_6_17]
-#rt_overlap RoundTrip.V6_20.B_to_A [Polyfold.lemma_6_17]
+#rt_check RoundTrip.V6_20.A_to_B [Polyfold.lemma_6_5_1]
+#rt_check RoundTrip.V6_20.B_to_A [Polyfold.lemma_6_5_1]
+#rt_overlap RoundTrip.V6_20.B_to_A [Polyfold.lemma_6_5_1]
 
 end RoundTrip.V6_20

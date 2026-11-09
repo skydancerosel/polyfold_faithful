@@ -3,7 +3,7 @@ import Polyfold.Chapter6.SubspaceBundle
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §6.5,
-pp. 222–223: the analytic content of **Lemma 6.30** (near the points `(t, φ(t), 0)` the solution
+pp. 222–223: the analytic content of **Lemma 6.6.5 (preprint 6.30)** (near the points `(t, φ(t), 0)` the solution
 set is a manifold, and the kernels `L_t` form a vector bundle) *(book 2017: Lemma 6.13; see
 `BookConcordance.md`)*.
 
@@ -11,7 +11,7 @@ set is a manifold, and the kernels `L_t` form a vector bundle) *(book 2017: Lemm
 
 ## The text, paraphrased
 
-(Lemma 6.30) Near `(t, φ(t), 0)` the solution set `S` of `F` is a smooth manifold with boundary
+(Lemma 6.6.5 (preprint 6.30)) Near `(t, φ(t), 0)` the solution set `S` of `F` is a smooth manifold with boundary
 with corners (the implicit function theorem for the boundary case, using (P)); the fibres
 `L_t = (Tπ)⁻¹(0)` over the zero section of `T[0, 1]` of the projection `π : S → [0, 1]` form a
 smooth vector bundle `L → [0, 1]`, with `L_t = ker F_t'(φ(t), 0)`.
@@ -23,9 +23,9 @@ smooth vector bundle `L → [0, 1]`, with `L_t = ker F_t'(φ(t), 0)`.
   level-`1` points `z_q`, the kernels `ker Lin(z_q) ⊆ E₀` form a continuous family of subspaces
   (`SubspaceFamily`).  This is where the implicit function theorem enters: near a zero in good
   position the kernel is the tangent space of the solution set (`exists_tangentSpace_eq_linKer`,
-  Theorem 3.54), the range of the derivative of an sc-retraction onto it, whose derivative is
+  Theorem 3.6.8 (preprint 3.54)), the range of the derivative of an sc-retraction onto it, whose derivative is
   jointly continuous.  The local statement is `exists_local_frame_linKer`; the dimension is the
-  index (`IsSurjLinOfIndex.finrank_linKer`, Theorem 3.54), locally constant along the family.
+  index (`IsSurjLinOfIndex.finrank_linKer`, Theorem 3.6.8 (preprint 3.54)), locally constant along the family.
 * `fderiv_mem_linKer`: the derivative of an sc-smooth family of zeros `Γ : ℝⁿ → X`, read in a
   chart, lies in the kernel of the linearization (so the parameter directions of the family span
   the quotient by the slice kernels, `L_t = T S ∩ {dt = 0}`).
@@ -85,7 +85,7 @@ theorem StrongBundle.IsSurjLinOfIndex.finrank_linKer {f : X → Y} (hf : B.IsScS
     rw [← hker, hkerEq]
     exact (Submodule.equivMapOfInjective _ Subtype.val_injective _).finrank_eq.symm
 
-/-- **Lemma 6.30, near one point**: under the hypotheses of `exists_subspaceFamily_linKer`, near
+/-- **Lemma 6.6.5 (preprint 6.30), near one point**: under the hypotheses of `exists_subspaceFamily_linKer`, near
 every `q₀` the kernels `ker Lin(z_q)` have one dimension `d` and a continuous frame.  The frame is
 `e_i(q) = DS(z_q) b_i` for a basis `b` of `ker Lin(z_{q₀})` and an sc-retraction `S` onto the
 retract `φ(G ∩ S_f)` of the solution set, whose tangent space at `z_q` is `ker Lin(z_q)`
@@ -104,7 +104,7 @@ theorem exists_local_frame_linKer {Q : Type*} [TopologicalSpace Q]
         ∀ q ∈ U, (∀ i, e i q ∈ c.linKer g (z q)) ∧ LinearIndependent ℝ fun i => e i q := by
   classical
   obtain ⟨Vx, d, hVxo, hVx₀, hind⟩ :=
-    theorem_3_54_index_locally_constant hg (hgp q₀) (hy0 q₀)
+    theorem_3_6_8_index_locally_constant hg (hgp q₀) (hy0 q₀)
   obtain ⟨V, hVo, hV₀, hall, hid⟩ := exists_tangentSpace_eq_linKer hg (hgp q₀) (hy0 q₀)
   have hA : PX.IsSmoothSubmanifold (solutionSet P g ∩ V) :=
     StrongBundle.isSmoothSubmanifold_solutionSet_inter hg.isScSmooth.1 hVo hall
@@ -159,7 +159,7 @@ theorem exists_local_frame_linKer {Q : Type*} [TopologicalSpace Q]
     rw [hrange q hq.1]; exact ⟨_, rfl⟩
   exact this
 
-/-- **Lemma 6.30, the kernels**: let `g` be an sc-Fredholm section with tame germ data, `c` a
+/-- **Lemma 6.6.5 (preprint 6.30), the kernels**: let `g` be an sc-Fredholm section with tame germ data, `c` a
 chart, `y : Q → X` a continuous family of zeros of `g` in the domain of `c`, in good position,
 and `z : Q → E₁` continuous with `z_q` over `φ(y_q)`.  Then the kernels `ker Lin(z_q) ⊆ E₀` form a
 continuous family of subspaces. -/
@@ -193,7 +193,7 @@ theorem exists_subspaceFamily_linKer {Q : Type*} [TopologicalSpace Q] [Preconnec
 
 /-- **sc¹ maps on open subsets of `ℝⁿ` are differentiable**: for the constant sc-structure on
 `ℝⁿ`, an sc¹ map on an open set `V₀` has, at every point of `V₀`, the Fréchet derivative
-`scDeriv` (the remark after Definition 1.14). -/
+`scDeriv` (the remark after Definition 1.1.15 (preprint 1.14)). -/
 lemma hasFDerivAt_scDeriv_rn {n : ℕ} {F : ScBanach} {V₀ : Set (Fin n → ℝ)} (hV₀ : IsOpen V₀)
     {H : (Fin n → ℝ) → F 0} (hH : IsSc1 (E := rnSc n) V₀ H) {q : Fin n → ℝ} (hq : q ∈ V₀) :
     HasFDerivAt H (scDeriv (E := rnSc n) V₀ H q) q := by
@@ -255,7 +255,7 @@ theorem fderiv_mem_linKer {n : ℕ} (hg : B.IsScSmoothSection g) {c : StrongBund
     rw [hz, ScBanach.const_toBase]
   have hr1 : IsSc1 c.U (r c.R) := (r_isScSmooth c.relOpen c.isRetraction).isSc1
   have hrH : scDeriv (E := rnSc n) V₀ (r c.R ∘ H) q₀ = scDeriv (E := rnSc n) V₀ H q₀ :=
-    scDeriv_eq_of_eqOn_relOpen hrel (theorem_1_21 hrel c.relOpen hH1 hr1 hmaps).1 hH1
+    scDeriv_eq_of_eqOn_relOpen hrel (theorem_1_3_1 hrel c.relOpen hH1 hr1 hmaps).1 hH1
       subset_rfl subset_rfl (fun q hq => r_eq_self c.isRetraction (c.r_image ▸ hHO q hq)) hq₀1
   have hch1 := scDeriv_comp_apply' hrel c.relOpen hH1 hr1 hmaps hq₀1 v
   rw [hrH, hlev] at hch1
@@ -272,7 +272,7 @@ theorem fderiv_mem_linKer {n : ℕ} (hg : B.IsScSmoothSection g) {c : StrongBund
     simp only [Function.comp_apply]
     rw [r_eq_self c.isRetraction (c.r_image ▸ hHO q hq)]
     exact (c.isZeroAt_iff hg.1 hq.2).1 (hW0 q hq.1)
-  obtain ⟨hcomp, -⟩ := theorem_1_21 hrel c.relOpen hH1 hfr hmaps
+  obtain ⟨hcomp, -⟩ := theorem_1_3_1 hrel c.relOpen hH1 hfr hmaps
   have d1 := hcomp.isSc1With_scDeriv.hasFDerivWithinAt q₀ hq₀1
   have d2 : HasFDerivWithinAt (((c.principal g ∘ r c.R) ∘ H) ∘ (rnSc n).toBase 1)
       ((0 : (rnSc n) 0 →L[ℝ] c.F 0).comp ((rnSc n).toBase 1)) ((rnSc n).lvlSet V₀ 1) q₀ := by

@@ -109,7 +109,7 @@ theorem A_to_B1 : A → B1 := by
   have : ParacompactSpace ↑(S ∩ W) := P.paracompactSpace_subtype _
   refine ⟨W, hW, (show P.degIndex a < 1 by omega), hS'.isSubMPolyfold, inferInstance,
     h4 hS' fun b hb => Nat.lt_one_iff.1 hb.2, fun x => ?_⟩
-  have h1 := lemma_2_26 hS'.isSubMPolyfold x
+  have h1 := lemma_2_4_6 hS'.isSubMPolyfold x
   have h2 : P.degIndex x.1 < 1 := x.2.2
   omega
 

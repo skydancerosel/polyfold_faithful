@@ -4,47 +4,47 @@ import Polyfold.Chapter7.NonVacuity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 8: **witnesses** for the hypotheses of §8.4 (Definitions 8.8–8.9, Proposition 8.3,
-pp. 275–281) and a counterexample to Theorem 8.5 (5) as printed (p. 277).  There is no 2014
+Chapter 8: **witnesses** for the hypotheses of §8.4 (Definitions 8.8–8.9, Proposition 8.5.7 (2017: 8.3),
+pp. 275–281) and a counterexample to Theorem 8.5.3 (2017: 8.5) (5) as printed (p. 277).  There is no 2014
 preprint of Part II; numbers and pages are the 2017 text's.
 
 # Non-vacuity: covering functors and geometric lifts
 
 ## The text, paraphrased
 
-(Definition 8.9, p. 279) A functor `f : D → C` between finite groupoids is a covering functor
+(Definition 8.5.5 (2017: 8.9), p. 388 (2017 p. 279)) A functor `f : D → C` between finite groupoids is a covering functor
 if `D → C ₛ×_f D`, `ψ ↦ (f(ψ), s(ψ))`, is a bijection; a geometric lift of `f` is a pair of
 functors `L_D : D → Diff_sc`, `L_C : C → Diff_sc` with a natural transformation
-`τ : L_D → L_C ∘ f`.  (Proposition 8.3, p. 281) A geometric lift of a covering functor gives a
-proper covering functor (Definition 8.8).
+`τ : L_D → L_C ∘ f`.  (Proposition 8.5.7 (2017: 8.3), p. 390 (2017 p. 281)) A geometric lift of a covering functor gives a
+proper covering functor (Definition 8.5.1 (2017: 8.8)).
 
 ## What is formalized (namespace `Polyfold.CoveringExamples`)
 
 * `isCoveringFunctor_id`: the identity of `SingleObj G` is a covering functor, for every group
   `G`; `not_isCoveringFunctor_one`: for `G` nontrivial the functor sending every morphism to `1`
-  is not (so Definition 8.9 is not vacuous in the other direction either).
+  is not (so Definition 8.5.5 (2017: 8.9) is not vacuous in the other direction either).
 * `rCat` (`ℝ = rnPolyfold 1` in `Diff_sc`), `reflectionDiffeo` (`y ↦ ±y`), `reflectionHom`
   (`ℤˣ →* End ℝ`), `reflectionLift`: a geometric lift of `𝟭 : SingleObj ℤˣ → SingleObj ℤˣ`, with
   `L_C(⋆) = ℝ` and `ℤ/2 = ℤˣ` acting by reflection, `L_D = L_C`, `τ = 1`.
-* `isProperCovering_reflectionLift`: Proposition 8.3 applied to it, a proper covering functor
-  (Definition 8.8) onto the translation groupoid `ℤ/2 ⋉ ℝ`.
+* `isProperCovering_reflectionLift`: Proposition 8.5.7 (2017: 8.3) applied to it, a proper covering functor
+  (Definition 8.5.1 (2017: 8.8)) onto the translation groupoid `ℤ/2 ⋉ ℝ`.
 
-* **Theorem 8.5 (5) as printed** (p. 277, right arrow `t`): `theorem_8_5_five_as_printed`, for
+* **Theorem 8.5.3 (2017: 8.5) (5) as printed** (p. 277, right arrow `t`): `theorem_8_5_3_five_as_printed`, for
   the identity functor of `ℤ/2 ⋉ ℝ` (`reflectionEpGroupoid`, a proper covering functor by
-  `EpFunctor.isProperCovering_id`) and every chart of Theorem 8.5 at `x = 0`, the sheet `𝐔(ψ₀)` of
+  `EpFunctor.isProperCovering_id`) and every chart of Theorem 8.5.3 (2017: 8.5) at `x = 0`, the sheet `𝐔(ψ₀)` of
   `ψ₀ = (−1, 0)` contains `ψ = (−1, y)` with `F(s(ψ)) = y ≠ −y = t(F(ψ))`; such charts exist
-  (`theorem_8_5_five_as_printed_nonvacuous`).  So (5) with `t` does not hold as we read it; the
+  (`theorem_8_5_3_five_as_printed_nonvacuous`).  So (5) with `t` does not hold as we read it; the
   formalized (5) has `s` on both arrows (`ProperCoveringChart.comm_src`), a possible misprint.
 
 ## Elsewhere
 
 * The other Chapter 8 witnesses sit next to their statements:
-  `EpGroupoid.isTame_tangentEpGroupoid_trivial_rn` (Lemma 8.8, `TangentTame.lean`),
-  `EpGroupoid.hasParacompactOrbitSpace_tangent_trivial` (Theorem 8.4, `TangentOrbit.lean`),
+  `EpGroupoid.isTame_tangentEpGroupoid_trivial_rn` (Lemma 8.1.9 (2017: 8.8), `TangentTame.lean`),
+  `EpGroupoid.hasParacompactOrbitSpace_tangent_trivial` (Theorem 8.1.15 (2017: 8.4), `TangentOrbit.lean`),
   `isCoveringFunctor_of_isEmpty` (`GeometricLift.lean`), and the strong bundle witnesses of
   §8.3–§8.5 in `NonVacuityBundle.lean`.
-* Theorem 8.6 quantifies over all `ProperCoveringChart`s at `x`; Theorem 8.5 (part (b) of
-  `theorem_8_6`) shows such charts exist below every open neighbourhood of `x`.
+* Theorem 8.5.8 (2017: 8.6) quantifies over all `ProperCoveringChart`s at `x`; Theorem 8.5.3 (2017: 8.5) (part (b) of
+  `theorem_8_5_8`) shows such charts exist below every open neighbourhood of `x`.
 -/
 
 open CategoryTheory Set Function
@@ -53,13 +53,13 @@ namespace Polyfold.CoveringExamples
 
 open EpGroupoid.Examples
 
-/-! ### Definition 8.9: covering functors -/
+/-! ### Definition 8.5.5 (2017: 8.9): covering functors -/
 
 section Covering
 
 variable (G : Type) [Group G]
 
-/-- **The identity `SingleObj G → SingleObj G` is a covering functor** (Definition 8.9):
+/-- **The identity `SingleObj G → SingleObj G` is a covering functor** (Definition 8.5.5 (2017: 8.9)):
 `ψ ↦ (ψ, ⋆)` is a bijection from the morphisms of `D = SingleObj G` onto `G × D`. -/
 theorem isCoveringFunctor_id : IsCoveringFunctor (𝟭 (SingleObj G)) := by
   constructor
@@ -84,7 +84,7 @@ theorem not_isCoveringFunctor_one [Nontrivial G] :
 
 end Covering
 
-/-! ### Definition 8.9: a geometric lift, `ℤ/2` acting on `ℝ` by reflection -/
+/-! ### Definition 8.5.5 (2017: 8.9): a geometric lift, `ℤ/2` acting on `ℝ` by reflection -/
 
 section Reflection
 
@@ -107,7 +107,7 @@ def reflectionHom : ℤˣ →* End rCat where
   map_one' := ScDiffeo.ext (funext fun y : Fin 1 → ℝ => one_smul ℤˣ y)
   map_mul' k l := ScDiffeo.ext (funext fun y : Fin 1 → ℝ => mul_smul k l y)
 
-/-- **A geometric lift** (Definition 8.9) of the covering functor `𝟭 : SingleObj ℤˣ → SingleObj ℤˣ`:
+/-- **A geometric lift** (Definition 8.5.5 (2017: 8.9)) of the covering functor `𝟭 : SingleObj ℤˣ → SingleObj ℤˣ`:
 `L_C(⋆) = ℝ` with `ℤ/2` acting by reflection, `L_D = L_C`, `τ = 1`. -/
 def reflectionLift : GeometricLift.{0} (𝟭 (SingleObj ℤˣ)) where
   LC := SingleObj.functor reflectionHom
@@ -115,16 +115,16 @@ def reflectionLift : GeometricLift.{0} (𝟭 (SingleObj ℤˣ)) where
   τ := 𝟙 _
 
 
-/-- **Proposition 8.3, a proper covering functor** built from `reflectionLift`: `𝟭` is a
+/-- **Proposition 8.5.7 (2017: 8.3), a proper covering functor** built from `reflectionLift`: `𝟭` is a
 covering functor and `reflectionLift` a geometric lift of it, so the lifted functor
-`F : ℤ/2 ⋉ ℝ → ℤ/2 ⋉ ℝ` is a proper covering (Definition 8.8). -/
+`F : ℤ/2 ⋉ ℝ → ℤ/2 ⋉ ℝ` is a proper covering (Definition 8.5.1 (2017: 8.8)). -/
 theorem isProperCovering_reflectionLift :
     (geometricLiftFunctor reflectionLift).IsProperCovering :=
-  proposition_8_3 (isCoveringFunctor_id ℤˣ) reflectionLift
+  proposition_8_5_7 (isCoveringFunctor_id ℤˣ) reflectionLift
 
 end Reflection
 
-/-! ### Theorem 8.5 (5) as printed -/
+/-! ### Theorem 8.5.3 (2017: 8.5) (5) as printed -/
 
 section Theorem85
 
@@ -139,10 +139,10 @@ theorem reflectionψ₀_mem_morOn :
   · change ((-1 : ℤˣ) • (0 : Fin 1 → ℝ)) = 0
     exact smul_zero _
 
-/-- **Theorem 8.5 (5) as printed (right arrow `t`) does not hold as we read it**: for the
-identity functor of `ℤ/2 ⋉ ℝ` (a proper covering functor) and every chart of Theorem 8.5 at
+/-- **Theorem 8.5.3 (2017: 8.5) (5) as printed (right arrow `t`) does not hold as we read it**: for the
+identity functor of `ℤ/2 ⋉ ℝ` (a proper covering functor) and every chart of Theorem 8.5.3 (2017: 8.5) at
 `x = 0`, the sheet `𝐔(ψ₀)` of `ψ₀ = (−1, 0)` contains a `ψ` with `F(s(ψ)) ≠ t(F(ψ))`. -/
-theorem theorem_8_5_five_as_printed
+theorem theorem_8_5_3_five_as_printed
     (C : (EpFunctor.id reflectionEpGroupoid).ProperCoveringChart 0) :
     ∃ ψ ∈ C.sheet reflectionψ₀,
       (EpFunctor.id reflectionEpGroupoid).obj (reflectionEpGroupoid.src ψ) ≠
@@ -166,11 +166,11 @@ theorem theorem_8_5_five_as_printed
   simp only [hy, Pi.neg_apply] at h1
   linarith
 
-/-- The charts of `theorem_8_5_five_as_printed` exist (Theorem 8.5 applied to the proper
+/-- The charts of `theorem_8_5_3_five_as_printed` exist (Theorem 8.5.3 (2017: 8.5) applied to the proper
 covering functor `𝟭`), so the statement is not vacuous. -/
-theorem theorem_8_5_five_as_printed_nonvacuous :
+theorem theorem_8_5_3_five_as_printed_nonvacuous :
     Nonempty ((EpFunctor.id reflectionEpGroupoid).ProperCoveringChart 0) :=
-  let ⟨C, _⟩ := EpFunctor.theorem_8_5
+  let ⟨C, _⟩ := EpFunctor.theorem_8_5_3
     (EpFunctor.isProperCovering_id (X := reflectionEpGroupoid)) 0 isOpen_univ (mem_univ _)
   ⟨C⟩
 
@@ -183,13 +183,13 @@ universe u
 variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor]
 
-/-- **Theorem 8.6 in every universe** (2021 Theorem 8.5.8, p. 392): the identity functor of any
+/-- **Theorem 8.5.8 (2017: 8.6) in every universe** (2021 Theorem 8.5.8, p. 392): the identity functor of any
 ep-groupoid, in any universe `u`, is a proper covering functor, and the theorem applies to it
 (its restriction to the fibre over `x` is a covering functor). -/
-theorem theorem_8_6_id (X : EpGroupoid Obj Mor) (x : Obj) :
+theorem theorem_8_5_8_id (X : EpGroupoid Obj Mor) (x : Obj) :
     (EpFunctor.id X).IsProperCovering ∧
       IsCoveringFunctor ((EpFunctor.id X).restrictFiber x) :=
-  ⟨EpFunctor.isProperCovering_id, (EpFunctor.theorem_8_6 EpFunctor.isProperCovering_id x).1⟩
+  ⟨EpFunctor.isProperCovering_id, (EpFunctor.theorem_8_5_8 EpFunctor.isProperCovering_id x).1⟩
 
 end Universe
 

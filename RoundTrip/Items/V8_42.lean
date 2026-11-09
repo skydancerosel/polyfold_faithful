@@ -9,9 +9,9 @@ The item lists the definitions `fiberCardOrbit`, `fiberCardFunctor`, `EpGroupoid
 `discretePolyfold` (vocabulary) and five theorems.  `A` is the conjunction of the types of the
 theorems, universes at `0`: `IsProperCovering.one_le_ncard_fiber`,
 `IsProperCovering.eventually_ncard_fiber_eq`, `IsProperCovering.isLocallyConstant_ncard_fiber`,
-`IsProperCovering.isLocallyConstant_fiberCardOrbit`, `IsProperCovering.proposition_8_4`.
+`IsProperCovering.isLocallyConstant_fiberCardOrbit`, `IsProperCovering.proposition_8_6_4`.
 
-* `A ⇒ B`: constancy on components is `proposition_8_4`; values `≥ 1` is `one_le_ncard_fiber`.
+* `A ⇒ B`: constancy on components is `proposition_8_6_4`; values `≥ 1` is `one_le_ncard_fiber`.
   For the functor we do **not** use the project's `fiberCardFunctor` (its smoothness field is the
   banned `isLocallyConstant_ncard_fiber`); we build the same functor from A's
   `isLocallyConstant_ncard_fiber` (continuity into discrete `ℕ`, then the non-item
@@ -20,7 +20,7 @@ theorems, universes at `0`: `IsProperCovering.one_le_ncard_fiber`,
 * `B ⇒ A`: B's sc-smooth functor `E` has a continuous object map into discrete `ℕ`, so
   `x ↦ #F⁻¹(x) = E.obj x` is locally constant: this gives `isLocallyConstant_ncard_fiber`,
   `eventually_ncard_fiber_eq` and (through the quotient topology) `isLocallyConstant_fiberCardOrbit`;
-  `proposition_8_4` is B's first conjunct, `one_le_ncard_fiber` its third.
+  `proposition_8_6_4` is B's first conjunct, `one_le_ncard_fiber` its third.
 -/
 
 namespace RoundTrip.V8_42
@@ -32,14 +32,14 @@ def A : Prop :=
   (type_of% @Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq.{0, 0}) ∧
   (type_of% @Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber.{0, 0}) ∧
   (type_of% @Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit.{0, 0}) ∧
-  (type_of% @Polyfold.EpFunctor.IsProperCovering.proposition_8_4.{0, 0})
+  (type_of% @Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4.{0, 0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber.{0, 0},
     @Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq.{0, 0},
     @Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber.{0, 0},
     @Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit.{0, 0},
-    @Polyfold.EpFunctor.IsProperCovering.proposition_8_4.{0, 0}⟩
+    @Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4.{0, 0}⟩
 
 section
 variable {ObjY MorY ObjX MorX : Type}
@@ -110,16 +110,16 @@ theorem B_to_A : B → A := by
   Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq,
   Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber,
   Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit,
-  Polyfold.EpFunctor.IsProperCovering.proposition_8_4]
+  Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4]
 #rt_check RoundTrip.V8_42.B_to_A [Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber,
   Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq,
   Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber,
   Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit,
-  Polyfold.EpFunctor.IsProperCovering.proposition_8_4]
+  Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4]
 #rt_overlap RoundTrip.V8_42.B_to_A [Polyfold.EpFunctor.IsProperCovering.one_le_ncard_fiber,
   Polyfold.EpFunctor.IsProperCovering.eventually_ncard_fiber_eq,
   Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_ncard_fiber,
   Polyfold.EpFunctor.IsProperCovering.isLocallyConstant_fiberCardOrbit,
-  Polyfold.EpFunctor.IsProperCovering.proposition_8_4]
+  Polyfold.EpFunctor.IsProperCovering.proposition_8_6_4]
 
 end RoundTrip.V8_42

@@ -53,32 +53,32 @@ for every `i`).  (Corollary 7.6.8) The same under (ZHOU), which implies (SLUC).
   `isLUC_trivial`, `isLUC_of_isEffective`, `Examples.isLUC_trivialZ3` (not effective),
   `Examples.isLUC_reflection`; `isLUC_iff_forall_naturalRep` (LUC for one natural
   representation at each `x` gives it for all, via `NaturalRep.hasLUC_of_isClosed`).
-* **Definition 7.2.5**: `NaturalRep.kerOn` (`T_x^V`), `definition_7_2_5_2021`.
-  **Lemma 7.2.6**: `lemma_7_2_6_2021`, `trivialSubgroupEquiv_2021`.  **Remark 7.2.8**:
-  `remark_7_2_8_2021`.
+* **Definition 7.2.5**: `NaturalRep.kerOn` (`T_x^V`), `definition_7_2_5`.
+  **Lemma 7.2.6**: `lemma_7_2_6`, `trivialSubgroupEquiv`.  **Remark 7.2.8**:
+  `remark_7_2_8`.
 * **Proposition 7.2.12**: `paracompactSpace_of_isOpenMap`,
   `exists_isCompact_preimage_reducedπ_subset`, the instance `paracompactSpace_reducedMor`,
-  `proposition_7_2_12_2021`.  **Proposition 7.2.13**: `proposition_7_2_13_2021`.
-  **Theorem 7.2.14**: `theorem_7_2_14_2021`.
+  `proposition_7_2_12`.  **Proposition 7.2.13**: `proposition_7_2_13`.
+  **Theorem 7.2.14**: `theorem_7_2_14`.
 * **Proposition 7.2.17**: `reducedπ_eq_iff_comp_inv`, `mem_nonEffectivePart_iff_reducedπ`,
   `isClosed_reducedπ_eq_of_isClosed`, `isClosed_nonEffectivePart_of_t2Space`,
-  `proposition_7_2_17_2021`.
-* **Proposition 7.2.21**: `isClosed_nonEffectivePart_of_isLUC`, `proposition_7_2_21_2021`;
-  **Remark 7.2.20**: `remark_7_2_20_2021`; **Theorem 7.2.22**: `theorem_7_2_22_2021`;
-  **Proposition 7.2.23**: `proposition_7_2_23_2021`.
+  `proposition_7_2_17`.
+* **Proposition 7.2.21**: `isClosed_nonEffectivePart_of_isLUC`, `proposition_7_2_21`;
+  **Remark 7.2.20**: `remark_7_2_20`; **Theorem 7.2.22**: `theorem_7_2_22`;
+  **Proposition 7.2.23**: `proposition_7_2_23`.
 * **Lemma 7.2.11**: `IsReducedEvenlyCovered` (its conclusion), `finite_reducedπ_preimage`,
-  `lemma_7_2_11_2021` (with `T_R` Hausdorff), `isReducedEvenlyCovered_iff_t2Space`.
+  `lemma_7_2_11` (with `T_R` Hausdorff), `isReducedEvenlyCovered_iff_t2Space`.
 * **Appendix 7.6.3, Remark 7.2.19** (for `JumpingRetract.X` of `ReducedNotHausdorff.lean`, our
   analogue of Zhou's example): `JumpingRetract.not_isClosed_nonEffectivePart`,
-  `JumpingRetract.not_isLUC`, `Examples.remark_7_2_19_2021`;
+  `JumpingRetract.not_isLUC`, `Examples.remark_7_2_19`;
   `JumpingRetract.not_isReducedEvenlyCovered`.
 * **Appendix 7.6.4**: `mem_nonEffectivePart_liftOne_of_levelVal` ((7.24)),
   `levelVal_mem_nonEffectivePart_of_liftOne` (`T_x^{X¹} ⊆ T_x`), `nonEffectivePart_liftOne_eq`,
-  `liftOne_reducedπ_eq_iff`, `reducedLevelOneMap`, `theorem_7_6_7_2021`,
-  `corollary_7_6_8_2021`; witness `Examples.theorem_7_6_7_2021_point`.
+  `liftOne_reducedπ_eq_iff`, `reducedLevelOneMap`, `theorem_7_6_7`,
+  `corollary_7_6_8`; witness `Examples.theorem_7_6_7_point`.
 
 Already covered elsewhere: Definition 7.2.1 (`IsEffective`, `IsRegular`, `regularSet`), Lemma
-7.2.2 (`lemma_7_2`), Lemma 7.2.3 (`lemma_7_3`), Proposition 7.2.4 (`proposition_7_8`), the
+7.2.2 (`lemma_7_2_2`), Lemma 7.2.3 (`lemma_7_2_3`), Proposition 7.2.4 (`proposition_7_2_4`), the
 intrinsic `T_x` (`trivialSubgroup`, `Effective.lean`), Definition 7.2.7 (`nonEffectivePart`,
 `ReducedRel`, `reducedGroupoidStr`), Lemma 7.2.9 (`isOpenMap_reducedπ`,
 `isOpenEmbedding_domRestrict_reducedπ`), Proposition 7.2.10 (`reducedAtlas`), Definition 7.2.15
@@ -120,7 +120,7 @@ in `Groupoid.lean`, `EpGroupoid.lean`, `Effective.lean` and `Reduced.lean`.
   `levelVal_mem_nonEffectivePart_of_liftOne`, and of (SLUC) only LUC for `X¹` is used.  The
   hypotheses are satisfied by the trivial ep-groupoid of a point (`Examples.pointEpGroupoid`).
   Not formalized: the sc-diffeomorphism `(𝐗^1)^R ≅ (𝐗^R)^1` (it needs the M-polyfold `(𝐗^R)^1`),
-  the case `i ≥ 2`, and (ZHOU), which §7.4 defines: `corollary_7_6_8_2021` takes "(ZHOU) implies
+  the case `i ≥ 2`, and (ZHOU), which §7.4 defines: `corollary_7_6_8` takes "(ZHOU) implies
   LUC for `X¹`" as a hypothesis.
 -/
 
@@ -157,16 +157,16 @@ end NaturalRep
 /-- **2021 Definition 7.2.18 (= Definition 7.4.1), p. 321 (new in the 2021 edition)**: the
 ep-groupoid `X` has the *local unique continuation property* (LUC) if every object `x` has an open
 neighbourhood `U(x)` with the natural `G_x`-action (a natural representation, Theorem 7.1.13
-[2017: Theorem 7.1]) such that `ĝ = Φ(g)` is the identity on `U(x)` as soon as it is the identity
+[2017: Theorem 7.1.13 (2017: 7.1)]) such that `ĝ = Φ(g)` is the identity on `U(x)` as soon as it is the identity
 on a nonempty open subset.  By `isLUC_iff_forall_naturalRep` the choice of `U(x)` does not
-matter; by `proposition_7_2_21_2021` LUC means that `𝐗^T` is closed. -/
+matter; by `proposition_7_2_21` LUC means that `𝐗^T` is closed. -/
 def IsLUC : Prop := ∀ x : Obj, ∃ R : X.NaturalRep x, R.HasLUC
 
 /-- **LUC is satisfiable**: the trivial ep-groupoid of every M-polyfold has LUC (its
 isotropy groups are trivial). -/
 theorem isLUC_trivial {Z : Type u} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z]
     (P : MPolyfold Z) : (trivial P).IsLUC := fun x => by
-  obtain ⟨R, -⟩ := (trivial P).theorem_7_1 x isOpen_univ (mem_univ x)
+  obtain ⟨R, -⟩ := (trivial P).theorem_7_1_13 x isOpen_univ (mem_univ x)
   refine ⟨R, fun g _ _ _ _ _ y hy => ?_⟩
   rw [Subsingleton.elim g 1]
   exact R.Φ_one y hy
@@ -219,7 +219,7 @@ end NaturalRep
 trivially on a small `W(x)`: `T_x^W ⊆ T_x` for every open `W ∋ x`, and there is a
 `G_x`-invariant open `V ∋ x` in `U(x)` with `T_x^W = T_x` for every open `x ∈ W ⊆ V`.  Since this
 holds for every natural representation `R`, `T_x` does not depend on `U(x)`. -/
-theorem definition_7_2_5_2021 {x : Obj} (R : X.NaturalRep x) :
+theorem definition_7_2_5 {x : Obj} (R : X.NaturalRep x) :
     (∀ W : Set Obj, IsOpen W → x ∈ W → R.kerOn W ≤ X.trivialSubgroup x) ∧
     ∃ V : Set Obj, IsOpen V ∧ x ∈ V ∧ V ⊆ R.U ∧ (∀ g, MapsTo (R.Φ g) V V) ∧
       ∀ W : Set Obj, IsOpen W → x ∈ W → W ⊆ V → R.kerOn W = X.trivialSubgroup x := by
@@ -250,28 +250,28 @@ theorem definition_7_2_5_2021 {x : Obj} (R : X.NaturalRep x) :
 
 /-- **2021 Lemma 7.2.6, p. 310 (new in the 2021 edition)**: for `φ : x → y`, the map
 `T_x → G_y`, `g ↦ φ ∘ g ∘ φ⁻¹` is injective with image `T_y`. -/
-theorem lemma_7_2_6_2021 {x y : Obj} (φ : Mor) (hx : X.src φ = x) (hy : X.tgt φ = y) :
+theorem lemma_7_2_6 {x y : Obj} (φ : Mor) (hx : X.src φ = x) (hy : X.tgt φ = y) :
     Injective (fun g : X.trivialSubgroup x => X.isotropyConj φ hx hy g) ∧
       (X.trivialSubgroup x).map (X.isotropyConj φ hx hy).toMonoidHom = X.trivialSubgroup y :=
   ⟨(X.isotropyConj φ hx hy).injective.comp Subtype.val_injective,
     X.map_isotropyConj_trivialSubgroup φ hx hy⟩
 
 /-- 2021 Lemma 7.2.6 as an isomorphism `T_x ≃* T_y`, `g ↦ φ ∘ g ∘ φ⁻¹`. -/
-def trivialSubgroupEquiv_2021 {x y : Obj} (φ : Mor) (hx : X.src φ = x) (hy : X.tgt φ = y) :
+def trivialSubgroupEquiv {x y : Obj} (φ : Mor) (hx : X.src φ = x) (hy : X.tgt φ = y) :
     X.trivialSubgroup x ≃* X.trivialSubgroup y :=
   ((X.isotropyConj φ hx hy).subgroupMap _).trans
     (MulEquiv.subgroupCongr (X.map_isotropyConj_trivialSubgroup φ hx hy))
 
-/-- `trivialSubgroupEquiv_2021` is conjugation by `φ`. -/
-theorem trivialSubgroupEquiv_2021_apply {x y : Obj} (φ : Mor) (hx : X.src φ = x)
+/-- `trivialSubgroupEquiv` is conjugation by `φ`. -/
+theorem trivialSubgroupEquiv_apply {x y : Obj} (φ : Mor) (hx : X.src φ = x)
     (hy : X.tgt φ = y) (g : X.trivialSubgroup x) :
-    (X.trivialSubgroupEquiv_2021 φ hx hy g : X.Isotropy y) = X.isotropyConj φ hx hy g :=
+    (X.trivialSubgroupEquiv φ hx hy g : X.Isotropy y) = X.isotropyConj φ hx hy g :=
   rfl
 
 /-- **2021 Remark 7.2.8, p. 311 (new in the 2021 edition)**: the topology `T_R` of `𝐗^R`
 (the quotient topology, `Reduced.lean`) is the finest topology for which `π : 𝐗 → 𝐗^R` is
 continuous.  The example with `T_R` not Hausdorff is `JumpingRetract.not_t2Space_reducedMor`. -/
-theorem remark_7_2_8_2021 :
+theorem remark_7_2_8 :
     Continuous X.reducedπ ∧ ∀ t : TopologicalSpace X.ReducedMor,
       Continuous[_, t] X.reducedπ → (inferInstance : TopologicalSpace X.ReducedMor) ≤ t :=
   ⟨X.continuous_reducedπ, fun _ h => by rw [continuous_iff_coinduced_le] at h⟩
@@ -347,13 +347,13 @@ instance paracompactSpace_reducedMor : ParacompactSpace X.ReducedMor :=
 /-- **2021 Proposition 7.2.12, p. 317 (new in the 2021 edition)**: `(𝐗^R, T_R)` is
 paracompact, in the sense of the footnote on p. 317 (not including Hausdorff), which is Mathlib's
 `ParacompactSpace`. -/
-theorem proposition_7_2_12_2021 : ParacompactSpace X.ReducedMor := inferInstance
+theorem proposition_7_2_12 : ParacompactSpace X.ReducedMor := inferInstance
 
 /-- **2021 Proposition 7.2.13, p. 318 (new in the 2021 edition)**: the natural
 charts (`reducedAtlas`) define an M-polyfold structure on `(𝐗^R, T_R)` iff `T_R` is Hausdorff.
 An M-polyfold is Hausdorff and paracompact by definition; the `if` direction is
 `reducedPolyfold`. -/
-theorem proposition_7_2_13_2021 :
+theorem proposition_7_2_13 :
     (∃ (_ : T2Space X.ReducedMor) (_ : ParacompactSpace X.ReducedMor) (P : MPolyfold X.ReducedMor),
       P.atlas = X.reducedAtlas) ↔ T2Space X.ReducedMor :=
   ⟨fun ⟨h, _, _⟩ => h, fun h => ⟨h, inferInstance, X.reducedPolyfold, rfl⟩⟩
@@ -362,7 +362,7 @@ theorem proposition_7_2_13_2021 :
 Hausdorff, `(X, 𝐗^R)` is in a natural way an ep-groupoid: `reducedEpGroupoid` has the groupoid
 structure `reducedGroupoidStr`, the object M-polyfold of `X`, the natural atlas on `𝐗^R`, and
 `π` gives an ep-functor `X → X_R`. -/
-theorem theorem_7_2_14_2021 [T2Space X.ReducedMor] :
+theorem theorem_7_2_14 [T2Space X.ReducedMor] :
     X.reducedEpGroupoid.toGroupoidStr = X.reducedGroupoidStr ∧
     X.reducedEpGroupoid.PObj = X.PObj ∧ X.reducedEpGroupoid.PMor.atlas = X.reducedAtlas ∧
     Nonempty (EpFunctor X X.reducedEpGroupoid) :=
@@ -455,7 +455,7 @@ theorem isClosed_nonEffectivePart_of_t2Space [T2Space X.ReducedMor] :
 
 /-- **2021 Proposition 7.2.17, p. 320 (new in the 2021 edition)**: `T_R` is
 Hausdorff iff the non-effective part `𝐗^T` is closed in `𝐗`. -/
-theorem proposition_7_2_17_2021 : T2Space X.ReducedMor ↔ IsClosed X.nonEffectivePart :=
+theorem proposition_7_2_17 : T2Space X.ReducedMor ↔ IsClosed X.nonEffectivePart :=
   ⟨fun _ => X.isClosed_nonEffectivePart_of_t2Space, fun h =>
     (t2Space_iff_of_isOpenQuotientMap X.isOpenQuotientMap_reducedπ).2
       (X.isClosed_reducedπ_eq_of_isClosed h)⟩
@@ -541,18 +541,18 @@ theorem isLUC_iff_forall_naturalRep :
     X.IsLUC ↔ ∀ (x : Obj) (R : X.NaturalRep x), R.HasLUC := by
   refine ⟨fun h _ R => R.hasLUC_of_isClosed (X.isClosed_nonEffectivePart_of_isLUC h),
     fun h x => ?_⟩
-  obtain ⟨R, -⟩ := X.theorem_7_1 x isOpen_univ (mem_univ x)
+  obtain ⟨R, -⟩ := X.theorem_7_1_13 x isOpen_univ (mem_univ x)
   exact ⟨R, h x R⟩
 
 /-- **2021 Proposition 7.2.21, p. 321 (new in the 2021 edition)**: `X` has LUC iff
 `𝐗^T` is closed in `𝐗`. -/
-theorem proposition_7_2_21_2021 : X.IsLUC ↔ IsClosed X.nonEffectivePart :=
+theorem proposition_7_2_21 : X.IsLUC ↔ IsClosed X.nonEffectivePart :=
   ⟨X.isClosed_nonEffectivePart_of_isLUC, fun h => X.isLUC_iff_forall_naturalRep.2
     fun _ R => R.hasLUC_of_isClosed h⟩
 
 /-- **2021 Remark 7.2.20, p. 321 (new in the 2021 edition)**: under LUC, the
 neighbourhood `U(x)` of Definition 7.2.18 can be taken inside any open `O ∋ x`. -/
-theorem remark_7_2_20_2021 (h : X.IsLUC) (x : Obj) {O : Set Obj} (hO : IsOpen O) (hx : x ∈ O) :
+theorem remark_7_2_20 (h : X.IsLUC) (x : Obj) {O : Set Obj} (hO : IsOpen O) (hx : x ∈ O) :
     ∃ R : X.NaturalRep x, R.U ⊆ O ∧ R.HasLUC := by
   obtain ⟨R, hR⟩ := h x
   obtain ⟨R', hR'U, hR'Φ, -⟩ := X.exists_naturalRep_shrink R hO hx
@@ -562,20 +562,20 @@ theorem remark_7_2_20_2021 (h : X.IsLUC) (x : Obj) {O : Set Obj} (hO : IsOpen O)
 
 /-- **2021 Theorem 7.2.22, p. 323 (new in the 2021 edition)**: equivalent are
 (1) `T_R` is Hausdorff, (2) `X` has LUC, (3) `𝐗^T` is closed in `𝐗`. -/
-theorem theorem_7_2_22_2021 :
+theorem theorem_7_2_22 :
     List.TFAE [T2Space X.ReducedMor, X.IsLUC, IsClosed X.nonEffectivePart] := by
-  tfae_have 1 ↔ 3 := X.proposition_7_2_17_2021
-  tfae_have 2 ↔ 3 := X.proposition_7_2_21_2021
+  tfae_have 1 ↔ 3 := X.proposition_7_2_17
+  tfae_have 2 ↔ 3 := X.proposition_7_2_21
   tfae_finish
 
 /-- LUC implies `T_R` Hausdorff. -/
 theorem t2Space_reducedMor_of_isLUC (h : X.IsLUC) : T2Space X.ReducedMor :=
-  X.proposition_7_2_17_2021.2 (X.proposition_7_2_21_2021.1 h)
+  X.proposition_7_2_17.2 (X.proposition_7_2_21.1 h)
 
 /-- **2021 Proposition 7.2.23, p. 323 (new in the 2021 edition)**: under LUC the
 reduced ep-groupoid `X_R` is well defined: `T_R` is Hausdorff and `reducedEpGroupoid` is an
 ep-groupoid (effective, 2021 Proposition 7.2.16) with the ep-functor `X → X_R`. -/
-theorem proposition_7_2_23_2021 (h : X.IsLUC) :
+theorem proposition_7_2_23 (h : X.IsLUC) :
     ∃ (_ : T2Space X.ReducedMor), X.reducedEpGroupoid.toGroupoidStr = X.reducedGroupoidStr ∧
       X.reducedEpGroupoid.PObj = X.PObj ∧ X.reducedEpGroupoid.PMor.atlas = X.reducedAtlas ∧
       X.reducedEpGroupoid.IsEffective ∧ Nonempty (EpFunctor X X.reducedEpGroupoid) :=
@@ -608,7 +608,7 @@ theorem nonEffectivePart_eq_range_unit_of_isEffective (hX : X.IsEffective) :
 
 /-- **LUC is satisfiable**: every effective ep-groupoid has LUC. -/
 theorem isLUC_of_isEffective (hX : X.IsEffective) : X.IsLUC :=
-  X.proposition_7_2_21_2021.2 (by
+  X.proposition_7_2_21.2 (by
     rw [X.nonEffectivePart_eq_range_unit_of_isEffective hX]
     exact X.isClosed_range_unit)
 
@@ -621,7 +621,7 @@ theorem nonEffectivePart_trivialZ3 : trivialZ3EpGroupoid.nonEffectivePart = univ
 
 /-- **A non-effective ep-groupoid with LUC**: `trivialZ3EpGroupoid`. -/
 theorem isLUC_trivialZ3 : trivialZ3EpGroupoid.IsLUC :=
-  trivialZ3EpGroupoid.proposition_7_2_21_2021.2 (by
+  trivialZ3EpGroupoid.proposition_7_2_21.2 (by
     rw [nonEffectivePart_trivialZ3]
     exact isClosed_univ)
 
@@ -771,13 +771,13 @@ theorem isClosed_nonEffectivePart_of_isReducedEvenlyCovered
 (`JumpingRetract.not_isReducedEvenlyCovered`). -/
 theorem isReducedEvenlyCovered_iff_t2Space :
     (∀ φ₀ : Mor, X.IsReducedEvenlyCovered φ₀) ↔ T2Space X.ReducedMor :=
-  ⟨fun h => X.proposition_7_2_17_2021.2
+  ⟨fun h => X.proposition_7_2_17.2
     (X.isClosed_nonEffectivePart_of_isReducedEvenlyCovered fun _ => h _),
     fun _ => X.isReducedEvenlyCovered_of_t2Space⟩
 
 /-- **2021 Lemma 7.2.11, p. 315 (new in the 2021 edition), with `T_R` Hausdorff as a
 hypothesis**: the class of `φ₀` is finite and has neighbourhoods as in (1)–(3). -/
-theorem lemma_7_2_11_2021 [T2Space X.ReducedMor] (φ₀ : Mor) :
+theorem lemma_7_2_11 [T2Space X.ReducedMor] (φ₀ : Mor) :
     (X.reducedπ ⁻¹' {X.reducedπ φ₀}).Finite ∧ X.IsReducedEvenlyCovered φ₀ :=
   ⟨X.finite_reducedπ_preimage φ₀, X.isReducedEvenlyCovered_of_t2Space φ₀⟩
 
@@ -940,13 +940,13 @@ def reducedLevelOneMap
 sets**: under LUC for `X¹` (the part of (SLUC) used) and `HasConnectedDenseLevelOneReps`,
 `(𝐗^T)^1 = (𝐗^1)^T`, and `[φ]₁ ↦ [φ]` is a continuous injection `(𝐗¹)^R → 𝐗^R` onto
 `π(𝐗_1)`.  The sc-diffeomorphism statement and `i ≥ 2` are not formalized. -/
-theorem theorem_7_6_7_2021 (hLUC : X.liftOne.IsLUC)
+theorem theorem_7_6_7 (hLUC : X.liftOne.IsLUC)
     (hR : X.HasConnectedDenseLevelOneReps) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,
       (∀ φ, X.reducedLevelOneMap hT (X.liftOne.reducedπ φ) = X.reducedπ (X.PMor.levelVal 1 φ)) ∧
       Injective (X.reducedLevelOneMap hT) ∧ Continuous (X.reducedLevelOneMap hT) ∧
       range (X.reducedLevelOneMap hT) = X.reducedπ '' X.PMor.levelSet 1 := by
-  have hT := X.nonEffectivePart_liftOne_eq (X.liftOne.proposition_7_2_21_2021.1 hLUC) hR
+  have hT := X.nonEffectivePart_liftOne_eq (X.liftOne.proposition_7_2_21.1 hLUC) hR
   refine ⟨hT, fun _ => rfl, ?_, ?_, ?_⟩
   · rintro ⟨φ⟩ ⟨ψ⟩ h
     exact (X.liftOne_reducedπ_eq_iff hT).2 h
@@ -961,13 +961,13 @@ theorem theorem_7_6_7_2021 (hLUC : X.liftOne.IsLUC)
 
 /-- **2021 Corollary 7.6.8, p. 351, for `i = 1` and as sets**, with the
 implication from (ZHOU) (defined in §7.4) to LUC for `X¹` as the hypothesis `hSLUC`. -/
-theorem corollary_7_6_8_2021 {Zhou : Prop} (hZ : Zhou) (hSLUC : Zhou → X.liftOne.IsLUC)
+theorem corollary_7_6_8 {Zhou : Prop} (hZ : Zhou) (hSLUC : Zhou → X.liftOne.IsLUC)
     (hR : X.HasConnectedDenseLevelOneReps) :
     ∃ hT : X.liftOne.nonEffectivePart = X.PMor.levelVal 1 ⁻¹' X.nonEffectivePart,
       (∀ φ, X.reducedLevelOneMap hT (X.liftOne.reducedπ φ) = X.reducedπ (X.PMor.levelVal 1 φ)) ∧
       Injective (X.reducedLevelOneMap hT) ∧ Continuous (X.reducedLevelOneMap hT) ∧
       range (X.reducedLevelOneMap hT) = X.reducedπ '' X.PMor.levelSet 1 :=
-  X.theorem_7_6_7_2021 (hSLUC hZ) hR
+  X.theorem_7_6_7 (hSLUC hZ) hR
 
 namespace Examples
 
@@ -976,14 +976,14 @@ abbrev pointEpGroupoid : EpGroupoid Unit Unit := trivial (discretePolyfold Unit)
 
 /-- `X¹` of the point ep-groupoid has LUC. -/
 theorem isLUC_liftOne_point : pointEpGroupoid.liftOne.IsLUC :=
-  pointEpGroupoid.liftOne.proposition_7_2_21_2021.2
+  pointEpGroupoid.liftOne.proposition_7_2_21.2
     (Set.Subsingleton.isClosed fun _ _ _ _ => MPolyfold.level_ext (Subsingleton.elim _ _))
 
 /-- The point ep-groupoid satisfies
 `HasConnectedDenseLevelOneReps`. -/
 theorem hasConnectedDenseLevelOneReps_point :
     pointEpGroupoid.HasConnectedDenseLevelOneReps := fun x => by
-  obtain ⟨R, -⟩ := pointEpGroupoid.theorem_7_1 (pointEpGroupoid.PObj.levelVal 1 x) isOpen_univ
+  obtain ⟨R, -⟩ := pointEpGroupoid.theorem_7_1_13 (pointEpGroupoid.PObj.levelVal 1 x) isOpen_univ
     (mem_univ _)
   refine ⟨R, Set.Subsingleton.isPreconnected fun _ _ _ _ =>
     MPolyfold.level_ext (Subsingleton.elim _ _), ?_⟩
@@ -991,14 +991,14 @@ theorem hasConnectedDenseLevelOneReps_point :
   rw [h1, inter_univ]
   exact subset_closure
 
-/-- **The hypotheses of `theorem_7_6_7_2021` are satisfiable** (the point
+/-- **The hypotheses of `theorem_7_6_7` are satisfiable** (the point
 ep-groupoid). -/
-theorem theorem_7_6_7_2021_point :
+theorem theorem_7_6_7_point :
     ∃ hT : pointEpGroupoid.liftOne.nonEffectivePart =
         pointEpGroupoid.PMor.levelVal 1 ⁻¹' pointEpGroupoid.nonEffectivePart,
       Injective (pointEpGroupoid.reducedLevelOneMap hT) := by
   obtain ⟨hT, -, hinj, -⟩ :=
-    pointEpGroupoid.theorem_7_6_7_2021 isLUC_liftOne_point hasConnectedDenseLevelOneReps_point
+    pointEpGroupoid.theorem_7_6_7 isLUC_liftOne_point hasConnectedDenseLevelOneReps_point
   exact ⟨hT, hinj⟩
 
 end Examples
@@ -1065,7 +1065,7 @@ theorem not_isClosed_nonEffectivePart : ¬ IsClosed X.nonEffectivePart := fun h 
 /-- **`JumpingRetract.X` does not have LUC**, consistently with Theorem 7.2.22 and
 `not_t2Space_reducedMor`. -/
 theorem not_isLUC : ¬ X.IsLUC := fun h =>
-  not_isClosed_nonEffectivePart (X.proposition_7_2_21_2021.1 h)
+  not_isClosed_nonEffectivePart (X.proposition_7_2_21.1 h)
 
 end Polyfold.EpGroupoid.Examples.JumpingRetract
 
@@ -1073,7 +1073,7 @@ namespace Polyfold.EpGroupoid.Examples
 
 /-- **2021 Remark 7.2.19, p. 321 (new in the 2021 edition)**: not every ep-groupoid
 has the local unique continuation property (`JumpingRetract.not_isLUC`). -/
-theorem remark_7_2_19_2021 :
+theorem remark_7_2_19 :
     ∃ (Obj Mor : Type) (_ : TopologicalSpace Obj) (_ : T2Space Obj) (_ : ParacompactSpace Obj)
       (_ : TopologicalSpace Mor) (_ : T2Space Mor) (_ : ParacompactSpace Mor)
       (X : EpGroupoid Obj Mor), ¬ X.IsLUC :=

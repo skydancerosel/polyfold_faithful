@@ -45,11 +45,11 @@ isomorphism over `Y` covering the identity of `Y`; hence `A = Ā ∘ B` with `Ā
 * `EpStrongBundle.IsAuxNorm` (**Definition 8.3.5**); `EpStrongBundle.exists_oneVal_eq_μ`
   (condition (3) is not vacuous); witnesses `EpStrongBundle.exists_isAuxNorm_trivial` and
   `TrivialBundle.exists_isAuxNorm_epBundle`.
-* `EpStrongBundle.proposition_8_4_1_2021_two_imp_one` (**Proposition 8.4.1, (2) ⇒ (1)**), with
+* `EpStrongBundle.proposition_8_4_1_two_imp_one` (**Proposition 8.4.1, (2) ⇒ (1)**), with
   `μ_fiberZero`, `zeroOrbitMap` (`|0| : |X| → |W[0]|`), `continuous_zeroOrbitMap`,
   `leftInverse_zeroOrbitMap` and `isEmbedding_zeroOrbitMap`.
 * `IsCoveringFunctor.injective_map_end` (**the remark after Definition 8.5.5**: `f : G_d → G_x` is
-  injective); `Example856D`, `example856Functor` and `example_8_5_6_2021` (**Example 8.5.6**,
+  injective); `Example856D`, `example856Functor` and `example_8_5_6` (**Example 8.5.6**,
   including that `f : G_d → G_x` is not surjective there).
 * `EpStrongBundle.IsProperStrongBundleCovering2021` (**Definition 8.5.9**);
   `IsProperStrongBundleCovering.isProperStrongBundleCovering2021` and
@@ -58,7 +58,7 @@ isomorphism over `Y` covering the identity of `Y`; hence `A = Ā ∘ B` with `Ā
   `TrivialBundle.epBundle_isProperStrongBundleCovering2021`.
 * `EpStrongBundle.pullbackμ` (`μ_{F*V}`), `IsProperStrongBundleCovering2021.bundleB` (`B`),
   `bundleB_μ` (**(8.23)**), `bijective_bundleB`, `bundleBInv`, `isStrongBundleMap_bundleB`,
-  `isStrongBundleMap_bundleBInv` and `lemma_8_5_10_2021` (**Lemma 8.5.10**).  `bundleB_val`
+  `isStrongBundleMap_bundleBInv` and `lemma_8_5_10` (**Lemma 8.5.10**).  `bundleB_val`
   (`B(w) = (P(w), A(w))`) is the factorization `A = Ā ∘ B`.
 
 ## What the text leaves implicit, and the choices made
@@ -72,7 +72,7 @@ isomorphism over `Y` covering the identity of `Y`; hence `A = Ā ∘ B` with `Ā
   (2) ⇒ (1) goes through metrizability (Theorem 7.3.1 and Smirnov's theorem) instead of "closed
   subsets of paracompact spaces are paracompact".  (1) ⇒ (2) needs `G_x`-equivariant bundle
   charts for `W` with invariant metrics on `K` and `O`; it is not formalized here.
-* Definition 8.5.5: covering functors of the project (`IsCoveringFunctor`, Definition 8.9 of 2017)
+* Definition 8.5.5: covering functors of the project (`IsCoveringFunctor`, Definition 8.5.5 (2017: 8.9) of 2017)
   are the 2021 ones.  Example 8.5.6 takes `C = ℤˣ` as a one-object category, `ε = −1`.
 * Definition 8.5.9 is stated for the **object map** `A : W → V`, condition (0) being the field
   `isMap` (`EpStrongBundle.IsMap`, Definition 8.3.2; 2017: Definition 8.5); (1)–(3) are copied
@@ -150,7 +150,7 @@ structure IsProperStrongBundleCovering2021 (EW : EpStrongBundle Y BW) (EV : EpSt
 
 variable {EW : EpStrongBundle Y BW} {EV : EpStrongBundle X BV} {F : EpFunctor Y X}
 
-/-- **The 2017 reading of Definition 8.10 gives the 2021 Definition 8.5.9 for the object map**:
+/-- **The 2017 reading of Definition 8.5.9 (2017: 8.10) gives the 2021 Definition 8.5.9 for the object map**:
 condition (0) holds for the object map of a strong bundle functor
 (`IsStrongBundleFunctor.μ_comm`, the computation of §8.5.2). -/
 theorem IsProperStrongBundleCovering.isProperStrongBundleCovering2021
@@ -166,7 +166,7 @@ theorem IsProperStrongBundleCovering.isProperStrongBundleCovering2021
 /-- **2021 Definition 8.5.9 and the project's reading of 2017 Definition 8.10 agree**: a map
 `A : W → V` is a proper strong bundle covering functor in the 2021 sense iff it is the object map
 of a (unique) strong bundle functor which is one in the 2017 sense.  (The project read 2017's "a
-strong bundle map `A`" as a strong bundle functor (Definition 8.6), which already contains the
+strong bundle map `A`" as a strong bundle functor (Definition 8.3.3 (2017: 8.6)), which already contains the
 2021 condition (0).) -/
 theorem isProperStrongBundleCovering2021_iff {A : W → V} :
     EW.IsProperStrongBundleCovering2021 EV F A ↔
@@ -268,7 +268,7 @@ def example856Functor : Example856D ⥤ SingleObj ℤˣ where
 /-- **2021 Example 8.5.6**, p. 388 (new in the 2021 edition): `f : D → C` is a covering functor
 (`ψ ↦ (f(ψ), s(ψ))` is a bijection `D → C × D`), the isotropy groups `G_a`, `G_b` are trivial while
 `G_x = C = ℤˣ` is not, and `f : G_d → G_x` is injective but not surjective. -/
-theorem example_8_5_6_2021 :
+theorem example_8_5_6 :
     IsCoveringFunctor example856Functor ∧
       (∀ d : Example856D, Subsingleton (d ⟶ d)) ∧ Nontrivial ℤˣ ∧
       (∀ d : Example856D, Injective (β := ℤˣ) fun ψ : d ⟶ d => example856Functor.map ψ) ∧
@@ -310,7 +310,7 @@ namespace EpStrongBundle
 /-- **2021 Definition 8.3.5** (auxiliary norm), p. 379 (new in the 2021 edition): for a strong
 bundle `(P : W → X, μ)` over an ep-groupoid, a continuous `N : W_{0,1} → [0, ∞)` with (1) a
 complete norm on every fibre, (2) `P(h_k) → x`, `N(h_k) → 0` imply `h_k → 0_x` in `W_{0,1}`
-((1), (2) and continuity are Part I's Definition 5.1, `StrongBundle.IsAuxNorm`; the values are
+((1), (2) and continuity are Part I's Definition 5.1.1 (2017: 5.1), `StrongBundle.IsAuxNorm`; the values are
 `≥ 0` by `IsAuxNorm.nonneg`), and (3) `N(h) = N(k)` whenever `h = μ(φ, k)`, `s(φ) = P(k)`. -/
 structure IsAuxNorm (E : EpStrongBundle X B) (N : B.One → ℝ) : Prop where
   isAuxNorm : B.IsAuxNorm N
@@ -341,7 +341,7 @@ variable {Z : Type u} [TopologicalSpace Z] [T2Space Z] [ParacompactSpace Z] {PZ 
 auxiliary norm of Part I (Proposition 5.3 gives one) satisfies (3). -/
 theorem EpStrongBundle.exists_isAuxNorm_trivial (B : StrongBundle PZ P) :
     ∃ N : B.One → ℝ, (EpStrongBundle.trivial B).IsAuxNorm N := by
-  obtain ⟨N, hN⟩ := proposition_5_3_exists (B := B)
+  obtain ⟨N, hN⟩ := proposition_5_1_3_exists (B := B)
   exact ⟨N, hN, fun h k _ _ hhk => by rw [B.oneVal_injective hhk]⟩
 
 /-- A concrete instance: Part I's trivial strong bundle `ℝⁿ × ℝᵏ → ℝⁿ` over the trivial
@@ -397,12 +397,12 @@ theorem isEmbedding_zeroOrbitMap : IsEmbedding E.zeroOrbitMap :=
 
 /-- **2021 Proposition 8.4.1, (2) ⇒ (1)**, p. 380 (new in the 2021 edition): if the orbit space
 `|W[0]|` of the ep-groupoid `(W, 𝐖)` (the functorial picture) is paracompact, so is `|X|`: `|W|`
-is metrizable (Theorem 7.3.1 and Smirnov's theorem, `theorem_7_2_metrizable`), `|X|` embeds into
+is metrizable (Theorem 7.3.1 and Smirnov's theorem, `theorem_7_3_1_metrizable`), `|X|` embeds into
 it by the zero section (the text's proof: "`|X|` is homeomorphic to the image of the zero
 section"), hence is metrizable, hence paracompact. -/
-theorem proposition_8_4_1_2021_two_imp_one (h : E.toEpGroupoid.HasParacompactOrbitSpace) :
+theorem proposition_8_4_1_two_imp_one (h : E.toEpGroupoid.HasParacompactOrbitSpace) :
     X.HasParacompactOrbitSpace := by
-  have := E.toEpGroupoid.theorem_7_2_metrizable h
+  have := E.toEpGroupoid.theorem_7_3_1_metrizable h
   have := E.isEmbedding_zeroOrbitMap.metrizableSpace
   exact paracompactSpace_of_metrizableSpace _
 
@@ -620,7 +620,7 @@ omit [ParacompactSpace (pullbackSpace Q X.src)] in
 functor `A : W → V` covering `F : Y → X` (Definition 8.5.9), `B(w) = (P(w), A(w))` is a strong
 bundle isomorphism `W → F*V` over `Y` covering the identity of `Y` (with inverse `B⁻¹`), and it
 is compatible with the structure maps: `B(μ_Y(φ, w)) = μ_{F*V}(φ, B(w))` (8.23). -/
-theorem lemma_8_5_10_2021 :
+theorem lemma_8_5_10 :
     BW.IsStrongBundleIso (BV.pullback F.isScSmoothMap_obj) id h.bundleB id h.bundleBInv ∧
       (∀ w, pullbackProj Q F.obj (h.bundleB w) = P w) ∧
       ∀ (φ : MorY) (w : W) (hw : P w = Y.src φ),

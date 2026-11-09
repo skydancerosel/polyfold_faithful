@@ -2,17 +2,17 @@ import Polyfold.Chapter5.Homotopy
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §5.3:
-**Theorem 5.18** (perturbation into general position), **Theorem 5.19** (relative perturbation into
+**Theorem 5.3.10 (preprint 5.18)** (perturbation into general position), **Theorem 5.3.12 (preprint 5.19)** (relative perturbation into
 good position), **Theorem 5.25** (perturbation into good position), with the steps their proofs use
-without proof: the solution set as a smooth submanifold (Definition 4.13), the chart independence
-of Definition 5.17, and the openness of general position *(book 2017: Theorems 5.6, 5.7; Theorem 5.25
+without proof: the solution set as a smooth submanifold (Definition 4.2.1 (preprint 4.13)), the chart independence
+of Definition 5.3.9 (preprint 5.17), and the openness of general position *(book 2017: Theorems 5.6, 5.7; Theorem 5.25
 is absent; see `BookConcordance.md`)*.
 
 # General and good position
 
 ## The text, paraphrased
 
-(Theorem 5.18) For a strong bundle over an M-polyfold admitting sc-smooth bump functions, an
+(Theorem 5.3.10 (preprint 5.18)) For a strong bundle over an M-polyfold admitting sc-smooth bump functions, an
 sc-Fredholm section `f` with compact solution set and an auxiliary norm `N`, there is an open
 `U ⊇ S_f` with `S_{f+s}` compact for `s ∈ Γ^{+,1}_U(P)`, and a dense set of `s ∈ Γ^{+,1}_U(P)` for
 which `(f + s, x)` is in general position at every `x ∈ S_{f+s}`; then `S_{f+s}` is a compact
@@ -21,7 +21,7 @@ that `F(λ, y) = f(y) + Σ λᵢ sᵢ(y)` satisfies at every `(0, x)`, `x ∈ S_
 (ii) `ker F'(0, x)` transversal to `ℝᵐ ⊕ T^R_xX` (spanning sections, and sections spanning
 `f'(x)L` for a complement `L` of `T^R_xX`); (i)–(ii) persist when sections are added and at nearby
 zeros; by the implicit function theorem `S̃ = F⁻¹(0)` near `{0} × S_f` is a smooth manifold with
-corners on which (i)–(ii) hold, and Theorem 4.23 gives a full-measure set of `λ`.  (Theorem 5.19)
+corners on which (i)–(ii) hold, and Theorem 4.3.1 (preprint 4.23) gives a full-measure set of `λ`.  (Theorem 5.3.12 (preprint 5.19))
 If `(f, x)` is in good position at the zeros on `∂X`, an arbitrarily small `s` vanishing near
 `∂X` makes `f + s` transversal and in good position everywhere.  (Theorem 5.25) For `X` tame and
 `f` proper, some `s ∈ Γ^{+,1}_U(P)` puts `f + s` in good position at every zero; proof: Theorem
@@ -31,47 +31,47 @@ If `(f, x)` is in good position at the zeros on `∂X`, an arbitrarily small `s`
 
 * **The bridge lemma** (`MPolyfold.TangentGermChart.exists_scPlusRetraction`,
   `exists_isScPlusRetractionOn`, `MPolyfold.isSmoothSubmanifold_of_isRegular`,
-  `StrongBundle.isSmoothSubmanifold_solutionSet_inter`): regular data of Definition 3.25 (2)
+  `StrongBundle.isSmoothSubmanifold_solutionSet_inter`): regular data of Definition 3.2.1 (preprint 3.25) (2)
   (`IsRegular`) give an sc⁺-retraction `τ = Γ ∘ π ∘ r` onto the chart image (sc⁺ because `Γ` has a
   finite-dimensional domain, `isScPlus_of_isScSmooth_const`), so a solution set whose zeros are in
-  good position is a smooth finite-dimensional submanifold in the sense of Definition 4.13.
-* **"`T_yS = ker f'(y)`" for the tangent spaces of Definition 4.13**
+  good position is a smooth finite-dimensional submanifold in the sense of Definition 4.2.1 (preprint 4.13).
+* **"`T_yS = ker f'(y)`" for the tangent spaces of Definition 4.2.1 (preprint 4.13)**
   (`exists_tangentSpace_eq_linKer`, from `tangentSpace_subset_linKer` and a dimension count:
-  `dim ker Lin(z) = d` (`theorem_3_54_index`), `d` independent tangent vectors of the bridge
+  `dim ker Lin(z) = d` (`theorem_3_6_8_index`), `d` independent tangent vectors of the bridge
   retraction (`exists_linearIndependent_tangentSpace`) carried to every chart
   (`HasIndepTangent.transport`, `chart_change_of_transport`)).
-* **Definition 5.17 = Definition 4.21 for the solution set** (`exists_isGeneralPositionGerm_iff`;
-  the chart independence of Definition 5.17), **openness of general position along the solution
-  set** for tame `X` (`exists_isOpen_isGeneralPositionGerm`, via Theorem 4.22 (3)), locality of
-  Definition 4.21 (`IsGeneralPositionAt.congr_nhds`), and **submanifold general position + `f'(y)`
+* **Definition 5.3.9 (preprint 5.17) = Definition 4.2.10 (preprint 4.21) for the solution set** (`exists_isGeneralPositionGerm_iff`;
+  the chart independence of Definition 5.3.9 (preprint 5.17)), **openness of general position along the solution
+  set** for tame `X` (`exists_isOpen_isGeneralPositionGerm`, via Theorem 4.2.11 (preprint 4.22) (3)), locality of
+  Definition 4.2.10 (preprint 4.21) (`IsGeneralPositionAt.congr_nhds`), and **submanifold general position + `f'(y)`
   onto ⟹ good position** (`isGoodPositionGermTame_of_isGeneralPositionAt`).
 * **Properties (i)–(ii)** in a chart (`StrongBundleChart.IsParamGP`), preserved when sections are
   added (`IsParamGP.comp`), equivalent to the general position of `F` at `(0, y)`
   (`isGeneralPositionGerm_paramSection_of_isParamGP`, `isParamGP_of_isGeneralPositionGerm`), and
   achieved by finitely many allowable sections (`exists_sections_isParamGP`).
-* **Theorem 5.18**: `theorem_5_18_of_family` (from a family with (i)–(ii)), `theorem_5_18` (generic
+* **Theorem 5.3.10 (preprint 5.18)**: `theorem_5_3_10_of_family` (from a family with (i)–(ii)), `theorem_5_3_10_param` (generic
   form: for almost every small `λ` the conclusions `StrongBundle.SolutionSetInGeneralPosition`),
-  `theorem_5_18_dense` (the text's dense form, with the pointwise distance `sectionDistAt`).
-* **Theorem 5.25**: `theorem_5_25`.
-* **Theorem 5.19**: `theorem_5_19` (generic form), with `IsGoodPositionGermTame.congr_nhds`.
+  `theorem_5_3_10_dense` (the text's dense form, with the pointwise distance `sectionDistAt`).
+* **Theorem 5.25**: `theorem_5_25_preprint`.
+* **Theorem 5.3.12 (preprint 5.19)**: `theorem_5_3_12_param` (generic form), with `IsGoodPositionGermTame.congr_nhds`.
 
 ## What the text leaves implicit, and the choices made
 
-* **`X` tame** is added in Theorem 5.18 (and 5.25 states it): the proof uses Theorems 4.22 and 4.23.
-  `f` has tame germ data (`IsScFredholmSectionTame`, Definition 3.51) as in Chapter 3.
-* **`S̃` as a submanifold**: Theorem 4.23 needs Definition 4.13 (sc⁺-retractions), which the text
+* **`X` tame** is added in Theorem 5.3.10 (preprint 5.18) (and 5.25 states it): the proof uses Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23).
+  `f` has tame germ data (`IsScFredholmSectionTame`, Definition 3.6.4 (preprint 3.51)) as in Chapter 3.
+* **`S̃` as a submanifold**: Theorem 4.3.1 (preprint 4.23) needs Definition 4.2.1 (preprint 4.13) (sc⁺-retractions), which the text
   never verifies for solution sets; the bridge lemma does.
 * **Openness of (i)–(ii)** along `S̃` and at nearby `(0, y)` is used without proof; it is proved
-  through `T_yS = ker f'(y)` and Theorem 4.22 (3).
+  through `T_yS = ker f'(y)` and Theorem 4.2.11 (preprint 4.22) (3).
 * **(i)–(ii) ⟹ general position** needs the good position of `F` first (an algebraic complement
   inside `T^R`), then `ker F'(0, x) = T S̃` (finite-dimensional, smooth) for the sc-complement.
-* **Theorem 5.19**: the text's "as before" applies the implicit function theorem to `F` at the
+* **Theorem 5.3.12 (preprint 5.19)**: the text's "as before" applies the implicit function theorem to `F` at the
   boundary zeros; there `F` is in general not in good position (`ℝᵐ × ker f'(x)` is in good position
   to `ℝᵐ × C_x` only if `ker f'(x) + E_x ⊇ T_xX`, a general-position condition).  The proof here
   uses the implicit function theorem for `F` only at interior points, and `f + s = f` near the
   boundary zeros.  Tameness of `X` is not used.
-* "Dense" and "generic" are read as in Theorem 5.13 (pointwise distance; "outside a null set").
-* Not formalized: the metric space `(Γ^{+,1}_U(P), ρ)`; a dense form of Theorem 5.19 (the generic
+* "Dense" and "generic" are read as in Theorem 5.3.5 (preprint 5.13) (pointwise distance; "outside a null set").
+* Not formalized: the metric space `(Γ^{+,1}_U(P), ρ)`; a dense form of Theorem 5.3.12 (preprint 5.19) (the generic
   form gives sections `Σ λᵢ tᵢ` with `λ` arbitrarily small).
 -/
 
@@ -141,7 +141,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P :
 theorem Γ_isScPlus (hreg : d.IsRegular) : IsScPlus (E := ScBanach.const d.N) d.V d.Γ :=
   isScPlus_of_isScSmooth_const d.V_isRelOpenInQuadrant.isScDomain (d.Γ_isScSmooth hreg)
 
-/-- **The sc⁺-retraction of the bridge lemma, in the chart**: for regular data of Definition 3.25
+/-- **The sc⁺-retraction of the bridge lemma, in the chart**: for regular data of Definition 3.2.1 (preprint 3.25)
 (2) (`IsRegular`) and a retraction `r` onto the model `O`, the map `τ = t ∘ r = Γ ∘ π ∘ r` on
 `{z ∈ dom r | π(r z) ∈ V}` is an **sc⁺-retraction** (`Γ` is sc⁺ on the finite-dimensional `V`,
 `π ∘ r` sc-smooth into `N`) with retract in `O`; `φ(x) = 0` lies in its domain, and a point `φ(y)`
@@ -237,7 +237,7 @@ theorem exists_linearIndependent_tangentSpace (hreg : d.IsRegular)
   -- `τ ∘ Γ = Γ` on `V`
   have hτΓeq : EqOn (τ ∘ d.Γ) d.Γ d.V := fun w hw => (hτΓ w hw).2
   have hcomp1 : IsSc1 (E := ScBanach.const d.N) d.V (τ ∘ d.Γ) :=
-    (theorem_1_21 hVrel τ.relOpen hΓs.isSc1 τ.isSc1 hmaps).1
+    (theorem_1_3_1 hVrel τ.relOpen hΓs.isSc1 τ.isSc1 hmaps).1
   have hlev : levelMap (E := ScBanach.const d.N) d.Γ 1 v = y :=
     levelMap_eq_of_toBase_eq (by rw [hy, ScBanach.const_toBase])
   have hD : ∀ h : d.N, scDeriv τ.U τ y (scDeriv (E := ScBanach.const d.N) d.V d.Γ v h) =
@@ -277,9 +277,9 @@ theorem exists_linearIndependent_tangentSpace (hreg : d.IsRegular)
   · rw [tangentSpace_eq_range τ hyR]
     exact ⟨_, hD (b i)⟩
 
-/-- **The bridge lemma** (Theorem 3.27's retraction is sc⁺; Definition 4.13 from Definition 3.25):
-regular data of Definition 3.25 (2) for `M` at `x` give an open `V ∋ x` inside the chart domain and
-an **sc⁺-retraction** `s : V → V` (Definition 4.4) with `s(V) = M ∩ V`: `s = φ⁻¹ ∘ τ ∘ φ` for the
+/-- **The bridge lemma** (Theorem 3.2.3 (preprint 3.27)'s retraction is sc⁺; Definition 4.2.1 (preprint 4.13) from Definition 3.2.1 (preprint 3.25)):
+regular data of Definition 3.2.1 (preprint 3.25) (2) for `M` at `x` give an open `V ∋ x` inside the chart domain and
+an **sc⁺-retraction** `s : V → V` (Definition 4.1.4 (preprint 4.4)) with `s(V) = M ∩ V`: `s = φ⁻¹ ∘ τ ∘ φ` for the
 sc⁺-retraction `τ = Γ ∘ π ∘ r` of `exists_scPlusRetraction` (`isScPlusRetractionOn_of_chart`). -/
 theorem exists_isScPlusRetractionOn (hreg : d.IsRegular) :
     ∃ V : Set X, IsOpen V ∧ x ∈ V ∧ V ⊆ d.φ.source ∧
@@ -303,7 +303,7 @@ namespace MPolyfold
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {P : MPolyfold X}
 
 /-- **A set with regular tangent germ data at every point is a smooth finite-dimensional
-submanifold** (Definition 4.13): the bridge lemma at every point. -/
+submanifold** (Definition 4.2.1 (preprint 4.13)): the bridge lemma at every point. -/
 theorem isSmoothSubmanifold_of_isRegular {M : Set X}
     (hM : ∀ x ∈ M, ∃ n, ∃ d : P.TangentGermChart M x n, d.IsRegular) :
     P.IsSmoothSubmanifold M := by
@@ -312,7 +312,7 @@ theorem isSmoothSubmanifold_of_isRegular {M : Set X}
   obtain ⟨V, hVo, haV, -, s, hs, himg⟩ := d.exists_isScPlusRetractionOn hreg
   exact ⟨V, hVo, haV, s, hs, himg⟩
 
-/-- **Definition 4.21 is local**: if two smooth finite-dimensional submanifolds agree near `a`
+/-- **Definition 4.2.10 (preprint 4.21) is local**: if two smooth finite-dimensional submanifolds agree near `a`
 (`A ∩ G = A' ∩ G`, `G` open), general position of `A` at `a` gives that of `A'` (the tangent
 spaces of the chart models agree, `tangentSpace_inter_isOpen`). -/
 theorem IsGeneralPositionAt.congr_nhds {A A' : Set X} (hA : P.IsSmoothSubmanifold A)
@@ -416,14 +416,14 @@ open StrongRetr
 
 /-- **The bridge lemma for solution sets**: if every zero of the section `f` in the open set `W` is
 in good position in a tame chart, then `S_f ∩ W` is a **smooth finite-dimensional submanifold**
-(Definition 4.13): Theorem 3.54 (2) (`theorem_3_54_two`) gives regular data of Definition 3.25 (2)
+(Definition 4.2.1 (preprint 4.13)): Theorem 3.6.8 (preprint 3.54) (2) (`theorem_3_6_8_two`) gives regular data of Definition 3.2.1 (preprint 3.25) (2)
 of `S_f` at every zero, on a chart inside `W`, and the bridge lemma
 (`TangentGermChart.exists_isScPlusRetractionOn`) the sc⁺-retraction. -/
 theorem StrongBundle.isSmoothSubmanifold_solutionSet_inter (hf : IsSection P f) {W : Set X}
     (hW : IsOpen W) (hall : ∀ y ∈ W, IsZeroAt P f y → B.IsGoodPositionGermTame f y) :
     PX.IsSmoothSubmanifold (solutionSet P f ∩ W) := by
   intro a ha
-  obtain ⟨d, D, hreg, hsub, -⟩ := theorem_3_54_two hf (hall a ha.2 ha.1) ha.1 hW ha.2 hall
+  obtain ⟨d, D, hreg, hsub, -⟩ := theorem_3_6_8_two hf (hall a ha.2 ha.1) ha.1 hW ha.2 hall
   obtain ⟨V, hVo, haV, hVsrc, s, hs, himg⟩ := D.exists_isScPlusRetractionOn hreg
   refine ⟨V, hVo, haV, s, hs, ?_⟩
   rw [himg]
@@ -481,7 +481,7 @@ theorem tangentSpace_subset_linKer (hf : B.IsScSmoothSection f) {c : StrongBundl
     simp only [Function.comp_apply]
     rw [r_eq_self c.isRetraction (c.r_image ▸ hSu)]
     exact hQ0 _ (S.apply_mem_retract hu)
-  obtain ⟨hcomp, -⟩ := theorem_1_21 S.relOpen c.relOpen S.isSc1 hfr hmaps
+  obtain ⟨hcomp, -⟩ := theorem_1_3_1 S.relOpen c.relOpen S.isSc1 hfr hmaps
   have d1 := hcomp.isSc1With_scDeriv.hasFDerivWithinAt z hzU
   have d2 : HasFDerivWithinAt (((c.principal f ∘ r c.R) ∘ S) ∘ c.φ.model.E.toBase 1)
       ((0 : c.φ.model.E 0 →L[ℝ] c.F 0).comp (c.φ.model.E.toBase 1))
@@ -494,14 +494,14 @@ theorem tangentSpace_subset_linKer (hf : B.IsScSmoothSection f) {c : StrongBundl
 
 set_option maxHeartbeats 1600000 in
 -- the chart change of `HasIndepTangent` and the kernel dimension
-/-- **"`T_yS = ker f'(y)`" for the tangent spaces of Definition 4.13** (Theorem 3.54 (4) in the
+/-- **"`T_yS = ker f'(y)`" for the tangent spaces of Definition 4.2.1 (preprint 4.13)** (Theorem 3.54 (4) in the
 form needed to compare Definitions 4.21 and 5.17).  For an sc-Fredholm section with tame germ data,
 `f(x₀) = 0` and `(f, x₀)` in good position in a tame chart, there is an open `V ∋ x₀` all of whose
 zeros are in good position, such that at every zero `y ∈ V`, in every strong bundle chart `c`
 around `y`, for every open `G ⊆ dom φ` containing `y` with `φ(G ∩ S)` a retract (`S` the solution
 set in `V`), the tangent space of the retract `φ(G ∩ S)` at the level-`1` point `z` over `φ(y)`
 **is** the kernel of `Lin(z)`.  *Proof*: `⊆` is `tangentSpace_subset_linKer`; for `⊇`, the index
-form of Theorem 3.54 (`theorem_3_54_index`) gives regular data `D` of dimension `d` with
+form of Theorem 3.6.8 (preprint 3.54) (`theorem_3_6_8_index`) gives regular data `D` of dimension `d` with
 `dim ker Lin(z) = d` in every chart (`IsSurjLinOfIndex`), the bridge retraction `τ` of `D` has
 `d` independent tangent vectors at the point (`exists_linearIndependent_tangentSpace`), and they
 are carried to the chart `c` (`chart_change_of_transport`, `HasIndepTangent.transport`). -/
@@ -516,7 +516,7 @@ theorem exists_tangentSpace_eq_linKer (hf : B.IsScFredholmSectionTame f) {x₀ :
           tangentSpace c.φ.model.E c.φ.model.C (c.φ '' (G ∩ (solutionSet P f ∩ V))) z =
             c.linKer f z := by
   classical
-  obtain ⟨Vx, d, -, -, hall, D, hreg, hDsrc, -⟩ := theorem_3_54_index hf hg hx₀
+  obtain ⟨Vx, d, -, -, hall, D, hreg, hDsrc, -⟩ := theorem_3_6_8_index hf hg hx₀
   obtain ⟨τ, hτ, hτO, hxτ, hiff, hτΓ⟩ := D.exists_scPlusRetraction hreg
   obtain ⟨hVo, -, -⟩ := MPolyfold.isScPlusRetractionOn_of_chart D.isChart τ hτ hτO
   set V := D.φ.source ∩ D.φ ⁻¹' τ.U with hVdef
@@ -538,7 +538,7 @@ theorem exists_tangentSpace_eq_linKer (hf : B.IsScFredholmSectionTame f) {x₀ :
   have hQ : IsScRetract D.φ.model.E D.φ.model.C (D.φ '' (V ∩ A)) := ⟨τ, hτret⟩
   -- the level-`1` point over `φ_D(y)`, and `d` independent tangent vectors there
   have hyτ : D.φ y ∈ τ.retract := (hiff y hy.1).2 ⟨hy0, hy.2⟩
-  obtain ⟨zD, hzD, hzDs⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_7_i hτ hyτ)
+  obtain ⟨zD, hzD, hzDs⟩ := exists_smoothLvl_one_of_mem_smooth (lemma_4_1_7_i hτ hyτ)
   obtain ⟨hvV, hvΓ⟩ := D.exists_eq_Γ ⟨hy0, hy.1⟩
   obtain ⟨L, hL, hLT⟩ := D.exists_linearIndependent_tangentSpace hreg τ hτΓ hvV
     (hzD.trans hvΓ)
@@ -644,12 +644,12 @@ lemma exists_compl_le_of_sup_eq {V : Type*} [AddCommGroup V] [Module ℝ V]
 /-- **Submanifold general position gives good position of the section** (the form of Lemma 5.26
 used at the end of the proofs of Theorems 5.18 and 5.25): let `f` be an sc-Fredholm section with
 tame germ data, `y` a zero at which `f'(y)` is onto (`IsLinSurjAt`), and `A ⊆ S_f` a smooth
-finite-dimensional submanifold (Definition 4.13) in general position at `y` (Definition 4.21).  Then
-`(f, y)` is in good position (Definition 3.53, in a tame chart).  *Proof*: in the tame chart of the
+finite-dimensional submanifold (Definition 4.2.1 (preprint 4.13)) in general position at `y` (Definition 4.2.10 (preprint 4.21)).  Then
+`(f, y)` is in good position (Definition 3.6.6 (preprint 3.53), in a tame chart).  *Proof*: in the tame chart of the
 germ data, `T_zA ⊆ ker Lin(z)` (`tangentSpace_subset_linKer`) and `T_zA + T^R_zO = T_zO`, so
 `ker Lin(z)` has a complement in `T_zO` inside `T^R_zO` (`exists_compl_le_of_sup_eq`), hence is in
 good position to the partial cone (`isInGoodPositionIn_of_scComplement_le_reduced`, with the
-interior condition), and Definition 3.53 follows (`isGoodPositionGerm_of_linAt_surj`). -/
+interior condition), and Definition 3.6.6 (preprint 3.53) follows (`isGoodPositionGerm_of_linAt_surj`). -/
 theorem isGoodPositionGermTame_of_isGeneralPositionAt (hf : B.IsScFredholmSectionTame f) {y : X}
     (hy0 : IsZeroAt P f y) (hsurj : B.IsLinSurjAt f y) {A : Set X}
     (hA : PX.IsSmoothSubmanifold A) (hAS : A ⊆ solutionSet P f)
@@ -704,12 +704,12 @@ theorem isGoodPositionGermTame_of_isGeneralPositionAt (hf : B.IsScFredholmSectio
   exact (StrongBundle.isGoodPositionGerm_of_linAt_surj hf.isScSmooth (hf.germ y hys) hy0 hc.1
     hyV hz T hT hs' hker).toTame hf.isScSmooth (hf.germTame y hys) hy0
 
-/-- **Definition 5.17 is Definition 4.21 for the solution set** (the chart independence of
-Definition 5.17, through `T_yS = ker f'(y)`): for an sc-Fredholm section with tame germ data and
+/-- **Definition 5.3.9 (preprint 5.17) is Definition 4.2.10 (preprint 4.21) for the solution set** (the chart independence of
+Definition 5.3.9 (preprint 5.17), through `T_yS = ker f'(y)`): for an sc-Fredholm section with tame germ data and
 `(f, x₀)` in good position, there is an open `V ∋ x₀` such that every zero in `V` is in good
-position, `S = S_f ∩ V` is a smooth finite-dimensional submanifold (Definition 4.13), and at every
-zero `y ∈ V`, **`(f, y)` is in general position (Definition 5.17, in some tame chart) iff `S` is in
-general position at `y` (Definition 4.21, in some chart)**.  Both sides are then chart-independent
+position, `S = S_f ∩ V` is a smooth finite-dimensional submanifold (Definition 4.2.1 (preprint 4.13)), and at every
+zero `y ∈ V`, **`(f, y)` is in general position (Definition 5.3.9 (preprint 5.17), in some tame chart) iff `S` is in
+general position at `y` (Definition 4.2.10 (preprint 4.21), in some chart)**.  Both sides are then chart-independent
 (`IsGeneralPositionAt.isGeneralPositionChart`).  *Proof*: `T_zS = ker Lin(z)` in every chart
 (`exists_tangentSpace_eq_linKer`), so the sc-complements inside `T^R_zO` are the same objects. -/
 theorem exists_isGeneralPositionGerm_iff (hf : B.IsScFredholmSectionTame f) {x₀ : X}
@@ -729,7 +729,7 @@ theorem exists_isGeneralPositionGerm_iff (hf : B.IsScFredholmSectionTame f) {x�
   have hA : PX.IsSmoothSubmanifold (solutionSet P f ∩ V) :=
     StrongBundle.isSmoothSubmanifold_solutionSet_inter hf.isScSmooth.1 hVo hall
   refine ⟨V, hVo, hx₀V, hall, hA, fun y hyV hy0 => ⟨fun h => ?_, fun h => ?_⟩, hid⟩
-  · -- Definition 5.17 ⟹ Definition 4.21
+  · -- Definition 5.3.9 (preprint 5.17) ⟹ Definition 4.2.10 (preprint 4.21)
     obtain ⟨c, hc, hyc, z, hz, -, hgen⟩ := h
     have hyA : y ∈ solutionSet P f ∩ V := ⟨hy0, hyV⟩
     set d := hA.data hyA with hd
@@ -747,7 +747,7 @@ theorem exists_isGeneralPositionGerm_iff (hf : B.IsScFredholmSectionTame f) {x�
       rw [← c.base_retract]; exact tangentSpace_eq_coe_submodule _ hzO
     exact ⟨hyA, d, c.φ, n, Wq, T, z, hA.mem_data_V hyA, c.isChart, hyc, hT, hz,
       c.linKer f z, rangeS (scDeriv c.U (r c.R) z), Bc, hTQ.symm, hTO.symm, hBc, hBsc, hsplit⟩
-  · -- Definition 4.21 ⟹ Definition 5.17
+  · -- Definition 4.2.10 (preprint 4.21) ⟹ Definition 5.3.9 (preprint 5.17)
     have hys : y ∈ PX.smoothSet := hf.mem_smoothSet_of_isZeroAt hy0
     have hgy := hall y hyV hy0
     have hlin := hgy.isGoodPositionGerm.isLinSurjAt hf.isScSmooth
@@ -775,15 +775,15 @@ theorem exists_isGeneralPositionGerm_iff (hf : B.IsScFredholmSectionTame f) {x�
     subst hNeq hMeq
     exact ⟨Bs, hBM, hBsc, hsplit⟩
 
-/-- **General position is open along the solution set** (used without proof in Theorems 5.18 and
+/-- **General position is open along the solution set** (used without proof in Theorems 5.3.10 (preprint 5.18) and
 5.25: "the properties (i)–(ii) hold for all `(λ, y) ∈ S̃`"; Findings, Chapter 5 item 73).  For an
 sc-Fredholm section with tame germ data over a **tame** M-polyfold `X`, if `(f, x₀)` is in general
-position (Definition 5.17), there is an open `W ∋ x₀` such that `S_f ∩ W` is a smooth
+position (Definition 5.3.9 (preprint 5.17)), there is an open `W ∋ x₀` such that `S_f ∩ W` is a smooth
 finite-dimensional submanifold and at every zero `y ∈ W` the germ `(f, y)` is in good position and
-in general position, and `S_f ∩ W` is in general position at `y` (Definition 4.21).  *Proof*: by
+in general position, and `S_f ∩ W` is in general position at `y` (Definition 4.2.10 (preprint 4.21)).  *Proof*: by
 Lemma 5.26 `(f, x₀)` is in good position; `exists_isGeneralPositionGerm_iff` turns general position
-of the section into general position of the smooth submanifold `S = S_f ∩ V` (Definition 4.21),
-which is open along `S` by Theorem 4.22 (3) (`theorem_4_22`, for tame `X`), and back. -/
+of the section into general position of the smooth submanifold `S = S_f ∩ V` (Definition 4.2.10 (preprint 4.21)),
+which is open along `S` by Theorem 4.2.11 (preprint 4.22) (3) (`theorem_4_2_11_preprint`, for tame `X`), and back. -/
 theorem exists_isOpen_isGeneralPositionGerm (hX : PX.IsTame) (hf : B.IsScFredholmSectionTame f)
     {x₀ : X} (hx₀ : IsZeroAt P f x₀) (hgp : B.IsGeneralPositionGerm f x₀) :
     ∃ W : Set X, IsOpen W ∧ x₀ ∈ W ∧ PX.IsSmoothSubmanifold (solutionSet P f ∩ W) ∧
@@ -793,7 +793,7 @@ theorem exists_isOpen_isGeneralPositionGerm (hX : PX.IsTame) (hf : B.IsScFredhol
     exists_isGeneralPositionGerm_iff hf (hgp.isGoodPositionGermTame hf hx₀) hx₀
   have := PX.paracompactSpace_subtype (solutionSet P f ∩ V)
   obtain ⟨-, -, -, -, -, -, -, -, -, -, -, U, hUo, hx₀U, -, -, -, -, hgen, -⟩ :=
-    MPolyfold.theorem_4_22 hX hA ((hiff x₀ hx₀V hx₀).1 hgp)
+    MPolyfold.theorem_4_2_11_preprint hX hA ((hiff x₀ hx₀V hx₀).1 hgp)
   have hWo : IsOpen (V ∩ U) := hVo.inter hUo
   have hAW : PX.IsSmoothSubmanifold (solutionSet P f ∩ (V ∩ U)) :=
     StrongBundle.isSmoothSubmanifold_solutionSet_inter hf.isScSmooth.1 hWo
@@ -808,7 +808,7 @@ theorem exists_isOpen_isGeneralPositionGerm (hX : PX.IsTame) (hf : B.IsScFredhol
 
 end SolutionSet
 
-/-! ### Theorem 5.18 -/
+/-! ### Theorem 5.3.10 (preprint 5.18) -/
 
 section Theorem518
 
@@ -819,11 +819,11 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 variable (B) in
-/-- **The conclusions of Theorem 5.18 for a section `h`**: `h` is transversal to the zero section,
-`(h, y)` is in general position (Definition 5.17) at every zero, and the solution set `S_h` is
-compact, a smooth finite-dimensional submanifold (Definition 4.13) in general position at each of
-its points (Definition 4.21), whose induced structure is that of a manifold with boundary with
-corners (Definition 4.1) and tame, with `d_{S_h} = d_X` on `S_h`. -/
+/-- **The conclusions of Theorem 5.3.10 (preprint 5.18) for a section `h`**: `h` is transversal to the zero section,
+`(h, y)` is in general position (Definition 5.3.9 (preprint 5.17)) at every zero, and the solution set `S_h` is
+compact, a smooth finite-dimensional submanifold (Definition 4.2.1 (preprint 4.13)) in general position at each of
+its points (Definition 4.2.10 (preprint 4.21)), whose induced structure is that of a manifold with boundary with
+corners (Definition 4.1.1 (preprint 4.1)) and tame, with `d_{S_h} = d_X` on `S_h`. -/
 def StrongBundle.SolutionSetInGeneralPosition (h : X → Y) : Prop :=
   B.IsTransversal h ∧ (∀ y, IsZeroAt P h y → B.IsGeneralPositionGerm h y) ∧
     IsCompact (solutionSet P h) ∧ ∃ hS : PX.IsSmoothSubmanifold (solutionSet P h),
@@ -836,9 +836,9 @@ def StrongBundle.SolutionSetInGeneralPosition (h : X → Y) : Prop :=
 
 set_option maxHeartbeats 6400000 in
 -- the assembly of the proof: several large existentials are destructured
-/-- **Theorem 5.18 (perturbation and transversality: general position), from a family satisfying
+/-- **Theorem 5.3.10 (preprint 5.18) (perturbation and transversality: general position), from a family satisfying
 (i)–(ii).**  Let `P : Y → X` be a strong bundle over a **tame** M-polyfold `X` (the hidden
-hypothesis: the proof uses Theorems 4.22 and 4.23), `f` an sc-Fredholm section with tame germ data
+hypothesis: the proof uses Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23)), `f` an sc-Fredholm section with tame germ data
 and compact solution set, `N` an auxiliary norm.  Then there is an open `U ⊇ S_f` such that
 (1) `S_{f+s}` is compact for every allowable `s ∈ Γ^{+,1}_U(P)`, and (2) for every sc⁺-section
 `s₀` with `supp(s₀) ⊆ U`, `N(s₀) ≤ 1 − ε`, and every family of allowable sc⁺-sections
@@ -853,15 +853,15 @@ a manifold with boundary with corners with `d_S = d_X`.
 *Proof* (the text's): general position is open along the parametrized solution set `S̃`
 (`exists_isOpen_isGeneralPositionGerm`), so the zeros of `F` in an open `W ⊇ {0} × S_{f+s₀}` are in
 good and general position, and for small `δ` the set `A = S̃ ∩ W ∩ {|λ| < δ}` is a smooth
-finite-dimensional submanifold (the bridge lemma) in general position (Definition 4.21) with
-compact closure (Theorem 5.5, Remark 5.12; the omitted step `exists_pos_forall_mem_of_isCompact`).
-Theorem 4.23 (`theorem_4_23_of_subset`) gives a full-measure set of `λ` over which the fibre
+finite-dimensional submanifold (the bridge lemma) in general position (Definition 4.2.10 (preprint 4.21)) with
+compact closure (Theorem 5.2.2 (preprint 5.5), Remark 5.3.4 (preprint 5.12); the omitted step `exists_pos_forall_mem_of_isCompact`).
+Theorem 4.3.1 (preprint 4.23) (`theorem_4_3_1_of_subset`) gives a full-measure set of `λ` over which the fibre
 `A_λ = S_{f+s_λ}` is a smooth submanifold in general and good position; the Sard step of Theorem
 5.13 (`exists_null_isLinSurjAt_paramSlice_near`) gives transversality; then
 `isGoodPositionGermTame_of_isGeneralPositionAt` and `exists_isGeneralPositionGerm_iff` give the
-general position of `(f + s_λ, y)`, Theorem 4.18 the corner structure and Theorem 4.22 (2)
+general position of `(f + s_λ, y)`, Theorem 4.2.7 (preprint 4.18) the corner structure and Theorem 4.2.11 (preprint 4.22) (2)
 `d_S = d_X`.  (A family with (i)–(ii) is constructed by `exists_sections_isParamGP`; Finding 84.) -/
-theorem theorem_5_18_of_family (hX : PX.IsTame) {f : X → Y} (hf : B.IsScFredholmSectionTame f)
+theorem theorem_5_3_10_of_family (hX : PX.IsTame) {f : X → Y} (hf : B.IsScFredholmSectionTame f)
     (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ} (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
       (∀ s ∈ B.allowableSections N U, IsCompact (solutionSet P (sectionAdd P f s))) ∧
@@ -884,25 +884,25 @@ theorem theorem_5_18_of_family (hX : PX.IsTame) {f : X → Y} (hf : B.IsScFredho
                 (sectionAdd P f (paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam)) := by
   classical
   have hfs : IsSection P f := hf.isScSmooth.1
-  obtain ⟨-, hprop⟩ := theorem_5_5 hf.toIsScFredholmSection hS
+  obtain ⟨-, hprop⟩ := theorem_5_2_2_preprint hf.toIsScFredholmSection hS
   obtain ⟨U, hUo, hSU, hK⟩ := hprop N hN
   have hcpt : ∀ s ∈ B.allowableSections N U, IsCompact (solutionSet P (sectionAdd P f s)) := by
     rintro s ⟨hs, hssupp, hsN⟩
     have hsU : ∀ x ∉ U, IsZeroAt P s x := fun x hx =>
       not_not.1 fun hne => hx (hssupp (subset_closure hne))
     have hsN' : ∀ x, B.AuxLe N (s x) 1 := fun x => ⟨hs.mem_oneSet x, hsN x _⟩
-    obtain ⟨-, hcl⟩ := remark_5_12 hN hfs hSU hK hs.1 hsU hsN'
+    obtain ⟨-, hcl⟩ := remark_5_3_4 hN hfs hSU hK hs.1 hsU hsN'
     exact hcl.of_isClosed_subset
-      (isClosed_solutionSet (theorem_3_15 hf.toIsScFredholmSection hs).isScSmooth)
+      (isClosed_solutionSet (theorem_3_1_18_preprint hf.toIsScFredholmSection hs).isScSmooth)
       subset_closure
   refine ⟨U, hUo, hSU, hcpt, ?_⟩
   intro s₀ hs₀ hs₀supp ε hε hs₀N m t ht htsupp htN hgp0
-  have hgFt : B.IsScFredholmSectionTame (sectionAdd P f s₀) := theorem_3_15_tame hf hs₀
+  have hgFt : B.IsScFredholmSectionTame (sectionAdd P f s₀) := theorem_3_1_18_tame hf hs₀
   have hgF : B.IsScFredholmSection (sectionAdd P f s₀) := hgFt.toIsScFredholmSection
   have := MPolyfold.paracompactSpace_prod (rnPolyfold m) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin m → ℝ) × X → X))
     ((rnPolyfold m).prod PX) B
-  have hFt := theorem_3_18_tame hgFt ht
+  have hFt := theorem_3_1_21_tame hgFt ht
   have hXm : ((rnPolyfold m).prod PX).IsTame := prod_rn_isTame hX
   have hz0 : ∀ y, IsZeroAt P (sectionAdd P f s₀) y → IsZeroAt (pullbackProj P Prod.snd)
       (paramSection (sectionAdd P f s₀) hgF.isScSmooth.1 t fun i => (ht i).1) (0, y) :=
@@ -964,11 +964,11 @@ theorem theorem_5_18_of_family (hX : PX.IsTame) {f : X → Y} (hf : B.IsScFredho
     have hx' : IsZeroAt P (paramSlice (sectionAdd P f s₀) hgF.isScSmooth.1 t
         (fun i => (ht i).1) lam) x := (isZeroAt_paramSection_iff (lam, x)).1 hz
     rw [← hslice lam] at hx'
-    exact subset_closure ((remark_5_12 hN hfs hSU hK (isSection_paramSlice lam) (hsuppl lam)
+    exact subset_closure ((remark_5_3_4 hN hfs hSU hK (isSection_paramSlice lam) (hsuppl lam)
       (hallow lam hlam)).1 hx')
   have hZclosed : IsClosed Z :=
     (isClosed_le (continuous_norm.comp continuous_fst) continuous_const).inter
-      (isClosed_solutionSet (theorem_3_18 hgF ht).isScSmooth)
+      (isClosed_solutionSet (theorem_3_1_21_preprint hgF ht).isScSmooth)
   have hZ : IsCompact Z :=
     ((isCompact_closedBall _ _).prod hK).of_isClosed_subset hZclosed hZsub
   -- the omitted step: `Z ∩ {|λ| < δ₀} ⊆ W`
@@ -1000,15 +1000,15 @@ theorem theorem_5_18_of_family (hX : PX.IsTame) {f : X → Y} (hf : B.IsScFredho
     ext w
     simp only [hAdef, mem_inter_iff]
     tauto
-  -- Theorem 4.23
-  obtain ⟨Sig, -, hSig0, hSig⟩ := theorem_4_23_of_subset hX hA hcl hgpA univ
+  -- Theorem 4.3.1 (preprint 4.23)
+  obtain ⟨Sig, -, hSig0, hSig⟩ := theorem_4_3_1_of_subset hX hA hcl hgpA univ
   -- the Sard step on the compact `Z₀ = Z ∩ {|λ| ≤ δ/2}`
   set Z₀ : Set ((Fin m → ℝ) × X) := {z | ‖z.1‖ ≤ δ / 2 ∧ IsZeroAt (pullbackProj P Prod.snd)
     (paramSection (sectionAdd P f s₀) hgF.isScSmooth.1 t fun i => (ht i).1) z} with hZ₀def
   have hZ₀Z : Z₀ ⊆ Z := fun z hz => ⟨hz.1.trans (by linarith [min_le_right δ₀ δ₁]), hz.2⟩
   have hZ₀closed : IsClosed Z₀ :=
     (isClosed_le (continuous_norm.comp continuous_fst) continuous_const).inter
-      (isClosed_solutionSet (theorem_3_18 hgF ht).isScSmooth)
+      (isClosed_solutionSet (theorem_3_1_21_preprint hgF ht).isScSmooth)
   have hZ₀ : IsCompact Z₀ := hZ.of_isClosed_subset hZ₀closed hZ₀Z
   have hZ₀W : ∀ z ∈ Z₀, z ∈ W := fun z hz =>
     hδ₀W z (hZ₀Z hz) (by linarith [min_le_left δ₀ δ₁, hz.1])
@@ -1037,7 +1037,7 @@ theorem theorem_5_18_of_family (hX : PX.IsTame) {f : X → Y} (hf : B.IsScFredho
     obtain ⟨hx', h⟩ := hallow lam hlam₁ x
     exact h
   set h := sectionAdd P f (paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam) with hhdef
-  have hhF : B.IsScFredholmSectionTame h := theorem_3_15_tame hf hsl
+  have hhF : B.IsScFredholmSectionTame h := theorem_3_1_18_tame hf hsl
   have htrans : B.IsTransversal h := by
     intro y hy
     rw [hhdef, hslice lam] at hy ⊢
@@ -1084,15 +1084,15 @@ theorem theorem_5_18_of_family (hX : PX.IsTame) {f : X → Y} (hf : B.IsScFredho
     refine MPolyfold.IsGeneralPositionAt.congr_nhds hSm hA' hV'o hyV' ?_ (hgpS y hy0)
     ext w; simp only [mem_inter_iff]; tauto
   have := PX.paracompactSpace_subtype (solutionSet P h)
-  obtain ⟨hcs, htameS⟩ := MPolyfold.theorem_4_18 hX hSm hgoodS
+  obtain ⟨hcs, htameS⟩ := MPolyfold.theorem_4_2_7 hX hSm hgoodS
   refine ⟨halw, htrans, hgpGerm, hcpt _ halw, hSm, hgpS, hcs, htameS, fun a => ?_⟩
   obtain ⟨-, -, -, -, -, -, -, -, -, -, -, Ua, -, haU, -, -, -, hdeg, -, -⟩ :=
-    MPolyfold.theorem_4_22 hX hSm (hgpS a a.2)
+    MPolyfold.theorem_4_2_11_preprint hX hSm (hgpS a a.2)
   exact hdeg a haU
 
 end Theorem518
 
-/-! ### Properties (i)–(ii) of the proof of Theorem 5.18 in a chart -/
+/-! ### Properties (i)–(ii) of the proof of Theorem 5.3.10 (preprint 5.18) in a chart -/
 
 section FrontHalf
 
@@ -1103,7 +1103,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 
 open StrongRetr
 
-/-- **Properties (i)–(ii) of the proof of Theorem 5.18 at `(0, y)`, in a strong bundle chart `c`
+/-- **Properties (i)–(ii) of the proof of Theorem 5.3.10 (preprint 5.18) at `(0, y)`, in a strong bundle chart `c`
 centred at `y`** (`z = 0`, `T` a presentation of the partial quadrant): (i) `F'(0, y)` is onto,
 i.e. `Lin_g(0)(T₀O) + span{t̂ᵢ(0)} = K₀`; (ii) `ker F'(0, y)` is transversal to `ℝᵐ ⊕ T^R_yX`,
 i.e. every `w ∈ T₀O` is `u + e` with `e ∈ E_0` and `Lin_g(0)u + Σ aᵢ t̂ᵢ(0) = 0` for some `a`
@@ -1187,7 +1187,7 @@ set_option maxHeartbeats 3200000 in
 /-- **(i)–(ii) give general position** (the text: "at this point the combined system of sections
 already satisfies (i) and (ii)", i.e. `(F, (0, y))` is in general position): if (i)–(ii) hold in
 a tame chart `c` centred at the zero `y` of `g`, the parametrized section
-`F(λ, y) = g(y) + Σ λᵢ tᵢ(y)` is in general position at `(0, y)` (Definition 5.17, in the tame
+`F(λ, y) = g(y) + Σ λᵢ tᵢ(y)` is in general position at `(0, y)` (Definition 5.3.9 (preprint 5.17), in the tame
 product chart `(r ↦ r) × c`).  *Proof*: (i) gives `F'(0, y)` onto; (ii) gives
 `ker F'(0, y) + T^R = T(ℝᵐ × O)` (at level `0`), so `ker F'(0, y)` has an algebraic complement
 inside `T^R` and `(F, (0, y))` is in good position
@@ -1204,7 +1204,7 @@ theorem isGeneralPositionGerm_paramSection_of_isParamGP (hgFt : B.IsScFredholmSe
       (paramSection g hgFt.isScSmooth.1 t fun i => (htp i).1) (0, y) := by
   classical
   have hgF := hgFt.toIsScFredholmSection
-  have hFt := theorem_3_18_tame hgFt htp
+  have hFt := theorem_3_1_21_tame hgFt htp
   have hz0 : IsZeroAt (pullbackProj P Prod.snd)
       (paramSection g hgFt.isScSmooth.1 t fun i => (htp i).1) (0, y) := by
     rw [isZeroAt_paramSection_iff]
@@ -1326,7 +1326,7 @@ theorem isGeneralPositionGerm_paramSection_of_isParamGP (hgFt : B.IsScFredholmSe
   have hfin : FiniteDimensional ℝ
       ((pc0 c q₀).linKer (paramSection g hgFt.isScSmooth.1 t fun i => (htp i).1) 0) := by
     rw [← hKeq]
-    exact lemma_4_7_ii ht'p hz0t''
+    exact lemma_4_1_7_ii ht'p hz0t''
   have hsm : (pc0 c q₀).linKer (paramSection g hgFt.isScSmooth.1 t fun i => (htp i).1) 0 ≤
       (pc0 c q₀).φ.model.E.smooth := by
     have : FiniteDimensional ℝ
@@ -1334,12 +1334,12 @@ theorem isGeneralPositionGerm_paramSection_of_isParamGP (hgFt : B.IsScFredholmSe
           (scDeriv t'.U t' 0 : (pc0 c q₀).φ.model.E 0 →ₗ[ℝ] (pc0 c q₀).φ.model.E 0)) := by
       rw [hKeq]; exact hfin
     rw [← hKeq]
-    exact ((pc0 c q₀).φ.model.E.proposition_1_6_iff _).1
+    exact ((pc0 c q₀).φ.model.E.proposition_1_1_7_iff _).1
       (t'.isScSplitting_range_scDeriv hz0t' hzs).1
-  -- Definition 5.17
+  -- Definition 5.3.9 (preprint 5.17)
   refine ⟨(pc0 c q₀), hc'T, hyV', 0, hz', hsurj', fun {n₂ Wq₂} T₂ hT₂ => ?_⟩
   have hR'T₂ : R'.IsTameWith T₂ := hc'T.2 _ _ T₂ hT₂
-  obtain ⟨-, hTRsc, -⟩ := proposition_2_36_partialCone hT₂ hR'T₂ hzR hzs
+  obtain ⟨-, hTRsc, -⟩ := proposition_2_5_6_partialCone hT₂ hR'T₂ hzR hzs
   have hred : reducedTangentSpaceWith R' T₂ 0 =
       reducedTangentSpaceWith R' (prodPresentation (rnPres m) T) 0 := by
     unfold reducedTangentSpaceWith
@@ -1358,7 +1358,7 @@ set_option maxHeartbeats 3200000 in
 /-- **General position of `F` at `(0, y)` gives (i)–(ii) in every tame chart centred at `y`**
 (the converse of `isGeneralPositionGerm_paramSection_of_isParamGP`): (i) is the surjectivity of
 `F'(0, y)` read in the product chart; for (ii), `S̃` is in general position at `(0, y)`
-(Definition 4.21, `exists_isGeneralPositionGerm_iff`), and in the product chart its tangent space is
+(Definition 4.2.10 (preprint 4.21), `exists_isGeneralPositionGerm_iff`), and in the product chart its tangent space is
 `ker F'(0, y)`, which therefore has a complement inside `ℝᵐ × T^R`. -/
 theorem isParamGP_of_isGeneralPositionGerm (hgFt : B.IsScFredholmSectionTame g)
     {t : Fin m → X → Y} (htp : ∀ i, B.IsScPlusSection (t i)) {y : X} (hy0 : IsZeroAt P g y)
@@ -1371,7 +1371,7 @@ theorem isParamGP_of_isGeneralPositionGerm (hgFt : B.IsScFredholmSectionTame g)
     c.IsParamGP g t T := by
   classical
   have hgF := hgFt.toIsScFredholmSection
-  have hFt := theorem_3_18_tame hgFt htp
+  have hFt := theorem_3_1_21_tame hgFt htp
   have hz0 : IsZeroAt (pullbackProj P Prod.snd)
       (paramSection g hgFt.isScSmooth.1 t fun i => (htp i).1) (0, y) := by
     rw [isZeroAt_paramSection_iff]
@@ -1485,7 +1485,7 @@ theorem spanning_of_isLinSurjAt {m : ℕ} [ParacompactSpace ((Fin m → ℝ) × 
     ∀ k', ((0 : c.φ.model.E 0), k') ∈ c.K →
       ∃ (u : ↥(rangeS (scDeriv c.U (r c.R) 0))) (a : Fin m → ℝ),
         linAt c.U c.R (c.principal g) 0 u + ∑ i, a i • c.principal (t i) 0 = k' := by
-  have hFsm := (theorem_3_18 hgF htp).isScSmooth
+  have hFsm := (theorem_3_1_21_preprint hgF htp).isScSmooth
   have hz0 : IsZeroAt (pullbackProj P Prod.snd)
       (paramSection g hgF.isScSmooth.1 t fun i => (htp i).1) (0, y) := by
     rw [isZeroAt_paramSection_iff]
@@ -1513,7 +1513,7 @@ theorem spanning_of_isLinSurjAt {m : ℕ} [ParacompactSpace ((Fin m → ℝ) × 
   exact ⟨_, v.1, hvk⟩
 
 set_option maxHeartbeats 3200000 in
--- the coordinates of the tame chart and Lemma 5.11 at finitely many points
+-- the coordinates of the tame chart and Lemma 5.3.3 (preprint 5.11) at finitely many points
 /-- **Sections with (i)–(ii) at a zero** (the text: "We take enough sc⁺-sections to obtain the
 surjectivity. We take a linear subspace `L` complementing `T^R_xX` in `T_xX` and add sections,
 which at `x` span the image `f'(x)L`."): let `X` admit sc-smooth bump functions, `N` be an
@@ -1521,9 +1521,9 @@ auxiliary norm, `g` an sc-Fredholm section with tame germ data, `x` a zero of `g
 chart centred at `x` (presentation `T`) and `U ∋ x` open.  Then there are finitely many allowable
 sc⁺-sections supported in `U` with (i)–(ii) at `(0, x)` in `c` (`IsParamGP`).  *Proof*: the
 spanning sections of `exists_spanning_sections` give (i); for (ii), the coordinates `λ_{I(0)}`
-map `T₀O` onto `ℝ^{I(0)}` with kernel `T^R_0O` (Proposition 2.36), and onto already on the dense
+map `T₀O` onto `ℝ^{I(0)}` with kernel `T^R_0O` (Proposition 2.5.6 (preprint 2.36)), and onto already on the dense
 smooth vectors of `T₀O`, so there are smooth `l_i ∈ T₀O` with `λ(l_i) = e_i`; the sections of
-Lemma 5.11 through the smooth points `Φ⁻¹(0, Lin_g(0)l_i)`, rescaled to be allowable, span
+Lemma 5.3.3 (preprint 5.11) through the smooth points `Φ⁻¹(0, Lin_g(0)l_i)`, rescaled to be allowable, span
 `Lin_g(0)L` for `L = span{l_i}`. -/
 theorem exists_sections_isParamGP (hbump : PX.AdmitsBumpFunctions) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N) (hgFt : B.IsScFredholmSectionTame g) {x : X} (hx0 : IsZeroAt P g x)
@@ -1577,7 +1577,7 @@ theorem exists_sections_isParamGP (hbump : PX.AdmitsBumpFunctions) {N : B.One �
       Fintype.card_subtype]
     rfl
   -- smooth preimages
-  obtain ⟨hMsc, -, -⟩ := proposition_2_36_partialCone hT hRT hzR hzs
+  obtain ⟨hMsc, -, -⟩ := proposition_2_5_6_partialCone hT hRT hzR hzs
   set D : Submodule ℝ (c.φ.model.E 0) := M ⊓ c.φ.model.E.smooth with hD
   set S : Submodule ℝ (I → ℝ) := D.map (coordMapL T e : c.φ.model.E 0 →ₗ[ℝ] (I → ℝ)) with hS
   have hSclosed : IsClosed (S : Set (I → ℝ)) := S.closed_of_finiteDimensional
@@ -1635,11 +1635,11 @@ theorem exists_sections_isParamGP (hbump : PX.AdmitsBumpFunctions) {N : B.One �
     rw [c.proj_symm (hdK i)]; exact hφsymm0
   have hesm : ∀ i, ef i ∈ B.toMPolyfold0.smoothSet := fun i =>
     mem_smoothSet_toMPolyfold0_of_chart hc.1 (hdK i) c.φ.model.E.smooth.zero_mem (hdsm i)
-  -- Lemma 5.11 at each point, rescaled
+  -- Lemma 5.3.3 (preprint 5.11) at each point, rescaled
   have hsec : ∀ i, ∃ he1 : ef i ∈ B.oneSet, ∃ s : X → Y, B.IsScPlusSection s ∧ s x = ef i ∧
       sectionSupport P s ⊆ U ∧
       ∀ y (hy : s y ∈ B.oneSet), N (B.oneMk (s y) hy) < N (B.oneMk (ef i) he1) + 1 :=
-    fun i => lemma_5_11 hbump hN hxs (hesm i) (hPe i) one_pos hU hxU
+    fun i => lemma_5_3_3 hbump hN hxs (hesm i) (hPe i) one_pos hU hxU
   choose he1 s₂ hs₂ hs₂x hs₂supp hs₂N using hsec
   set Mi : I → ℝ := fun i => N (B.oneMk (ef i) (he1 i)) + 1 with hMidef
   have hMpos : ∀ i, 0 < Mi i := fun i => by
@@ -1733,7 +1733,7 @@ theorem exists_sections_isParamGP (hbump : PX.AdmitsBumpFunctions) {N : B.One �
 
 end Construction
 
-/-! ### Theorem 5.18 -/
+/-! ### Theorem 5.3.10 (preprint 5.18) -/
 
 section Theorem518Full
 
@@ -1755,8 +1755,8 @@ lemma isZeroAt_of_sectionAdd {f s : X → Y} (hf : IsSection P f) (hs : IsSectio
 
 set_option maxHeartbeats 6400000 in
 -- the assembly of the proof: several large existentials are destructured
-/-- **Theorem 5.18 (perturbation and transversality: general position).**  Let `P : Y → X` be a
-strong bundle over a **tame** M-polyfold `X` (the hidden hypothesis: Theorems 4.22 and 4.23 are
+/-- **Theorem 5.3.10 (preprint 5.18) (perturbation and transversality: general position).**  Let `P : Y → X` be a
+strong bundle over a **tame** M-polyfold `X` (the hidden hypothesis: Theorems 4.2.11 and 4.3.1 (preprint 4.22 and 4.23) are
 used) which admits sc-smooth bump functions, `f` an sc-Fredholm section with tame germ data and
 compact solution set, `N` an auxiliary norm.  Then there is an open `U ⊇ S_f` such that (1) for
 every allowable `s ∈ Γ^{+,1}_U(P)` the solution set `S_{f+s}` is compact, and (2) for every
@@ -1764,19 +1764,19 @@ sc⁺-section `s₀` with `supp(s₀) ⊆ U` and `N(s₀(x)) ≤ 1 − ε` there
 sc⁺-sections `t₁, …, t_m`, a `δ > 0` and a Lebesgue null set `CV ⊆ ℝᵐ` such that for every `λ`
 with `|λ| < δ`, `λ ∉ CV`, the perturbation `s_λ = s₀ + Σ λᵢ tᵢ` is allowable and
 (`SolutionSetInGeneralPosition`) `f + s_λ` is transversal to the zero section, `(f + s_λ, x)` is
-in general position (Definition 5.17) at every `x ∈ S_{f+s_λ}`, and `S_{f+s_λ}` is compact, a
-smooth finite-dimensional submanifold in general position (Definition 4.21) whose induced
+in general position (Definition 5.3.9 (preprint 5.17)) at every `x ∈ S_{f+s_λ}`, and `S_{f+s_λ}` is compact, a
+smooth finite-dimensional submanifold in general position (Definition 4.2.10 (preprint 4.21)) whose induced
 structure is that of a manifold with boundary with corners, tame, with `d_{S_{f+s_λ}} = d_X`.
-"Generic" is made precise as "for `λ` outside a null set", as in Theorem 5.13
-(`theorem_5_13_generic`).
+"Generic" is made precise as "for `λ` outside a null set", as in Theorem 5.3.5 (preprint 5.13)
+(`theorem_5_3_5_generic`).
 
 *Proof* (the text's): at every zero `x` of `g = f + s₀`, sections with (i)–(ii)
 (`exists_sections_isParamGP`) make `F_x` general at `(0, x)`
 (`isGeneralPositionGerm_paramSection_of_isParamGP`), hence at `(0, y)` for zeros `y` near `x`
 (`exists_isOpen_isGeneralPositionGerm`); a finite subcover of `S_g`, and the united family `t`
 keeps (i)–(ii) at every `(0, y)` (`isParamGP_of_isGeneralPositionGerm`, `IsParamGP.comp`); then
-`theorem_5_18_of_family`. -/
-theorem theorem_5_18 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
+`theorem_5_3_10_of_family`. -/
+theorem theorem_5_3_10_param (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
@@ -1792,10 +1792,10 @@ theorem theorem_5_18 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X �
               B.SolutionSetInGeneralPosition
                 (sectionAdd P f (paramSlice s₀ hs₀.1 t (fun i => (ht i).1) lam)) := by
   classical
-  obtain ⟨U, hUo, hSU, hcpt, hmain⟩ := theorem_5_18_of_family hX hf hS hN
+  obtain ⟨U, hUo, hSU, hcpt, hmain⟩ := theorem_5_3_10_of_family hX hf hS hN
   refine ⟨U, hUo, hSU, hcpt, fun s₀ hs₀ hs₀supp ε hε hs₀N => ?_⟩
   have hfs : IsSection P f := hf.isScSmooth.1
-  have hgFt : B.IsScFredholmSectionTame (sectionAdd P f s₀) := theorem_3_15_tame hf hs₀
+  have hgFt : B.IsScFredholmSectionTame (sectionAdd P f s₀) := theorem_3_1_18_tame hf hs₀
   have hgF : B.IsScFredholmSection (sectionAdd P f s₀) := hgFt.toIsScFredholmSection
   have hs₀alw : s₀ ∈ B.allowableSections N U :=
     ⟨hs₀, hs₀supp, fun x hx => (hs₀N x hx).trans (by linarith)⟩
@@ -1832,7 +1832,7 @@ theorem theorem_5_18 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X �
     have := MPolyfold.paracompactSpace_prod (rnPolyfold k) PX
     have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin k → ℝ) × X → X))
       ((rnPolyfold k).prod PX) B
-    have hFt := theorem_3_18_tame hgFt hsp
+    have hFt := theorem_3_1_21_tame hgFt hsp
     have hz0 : ∀ y, IsZeroAt P (sectionAdd P f s₀) y → IsZeroAt (pullbackProj P Prod.snd)
         (paramSection (sectionAdd P f s₀) hgF.isScSmooth.1 s fun i => (hsp i).1) (0, y) :=
       fun y hy => by
@@ -1903,15 +1903,15 @@ lemma StrongBundle.IsAuxNorm.fiberZero_eq {N : B.One → ℝ} (hN : B.IsAuxNorm 
 a tame M-polyfold `X` admitting sc-smooth bump functions, `f` a proper sc-Fredholm section with
 tame germ data, and `N` an auxiliary norm.  Then there are an open `U ⊇ S_f` such that
 `S_{f+s}` is compact for every `s ∈ Γ^{+,1}_U(P)`, and an `s ∈ Γ^{+,1}_U(P)` such that
-`(f + s, x)` is in good position (Definition 3.53, in a tame chart) at every `x ∈ S_{f+s}`; in
+`(f + s, x)` is in good position (Definition 3.6.6 (preprint 3.53), in a tame chart) at every `x ∈ S_{f+s}`; in
 particular `S_{f+s}` is compact, and a smooth submanifold whose induced structure is that of a
 manifold with boundary with corners (`SolutionSetInGeneralPosition`).  *Proof* (the text's):
-Theorem 5.18 with `s₀ = 0` gives, for a parameter `λ` outside a null set of a ball (which has
+Theorem 5.3.10 (preprint 5.18) with `s₀ = 0` gives, for a parameter `λ` outside a null set of a ball (which has
 positive measure), the perturbation `s = Σ λᵢ tᵢ` with `f + s` in general position at every
 zero, and Lemma 5.26 (`IsGeneralPositionGerm.isGoodPositionGermTame`) turns general into good
 position.  The text's "in view of Theorem 3.54 ... in general position" is the openness of general
 position (`exists_isOpen_isGeneralPositionGerm`), and "`x ∈ S_f`" there is `x ∈ S_{f+s₀}`. -/
-theorem theorem_5_25 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
+theorem theorem_5_25_preprint (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) (hP : B.IsProper f) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
@@ -1920,7 +1920,7 @@ theorem theorem_5_25 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X �
         (∀ x, IsZeroAt P (sectionAdd P f s) x → B.IsGoodPositionGermTame (sectionAdd P f s) x) ∧
         B.SolutionSetInGeneralPosition (sectionAdd P f s) := by
   classical
-  obtain ⟨U, hUo, hSU, hcpt, hgen⟩ := theorem_5_18 hX hbump hf hP.1 hN
+  obtain ⟨U, hUo, hSU, hcpt, hgen⟩ := theorem_5_3_10_param hX hbump hf hP.1 hN
   refine ⟨U, hUo, hSU, hcpt, ?_⟩
   have hs₀ : B.IsScPlusSection (fiberZero P) := StrongBundle.isScPlusSection_fiberZero
   have hs₀supp : sectionSupport P (fiberZero P) ⊆ U := by
@@ -1940,11 +1940,11 @@ theorem theorem_5_25 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X �
   have hsl : B.IsScPlusSection (paramSlice (fiberZero P) hs₀.1 t (fun i => (ht i).1) lam) :=
     isScPlusSection_paramSlice hs₀ ht lam
   refine ⟨_, halw, fun x hx => ?_, hgp⟩
-  exact (hgp.2.1 x hx).isGoodPositionGermTame (theorem_3_15_tame hf hsl) hx
+  exact (hgp.2.1 x hx).isGoodPositionGermTame (theorem_3_1_18_tame hf hsl) hx
 
 end Theorem525
 
-/-! ### Theorem 5.18 in the text's dense form -/
+/-! ### Theorem 5.3.10 (preprint 5.18) in the text's dense form -/
 
 section Theorem518Dense
 
@@ -1953,8 +1953,8 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
   [∀ x, AddCommGroup (P ⁻¹' {x})] [∀ x, Module ℝ (P ⁻¹' {x})] {B : StrongBundle PX P}
 
 set_option maxHeartbeats 1600000 in
--- the fibre arithmetic in `(Y_{0,1})_x` with the destructured generic form (as for Theorem 5.13)
-/-- **Theorem 5.18 (perturbation and transversality: general position)**, the text's dense-set
+-- the fibre arithmetic in `(Y_{0,1})_x` with the destructured generic form (as for Theorem 5.3.5 (preprint 5.13))
+/-- **Theorem 5.3.10 (preprint 5.18) (perturbation and transversality: general position)**, the text's dense-set
 form.  Let `P : Y → X` be a strong bundle over a **tame** M-polyfold `X` admitting sc-smooth bump
 functions, `f` an sc-Fredholm section with tame germ data and compact solution set, `N` an
 auxiliary norm.  Then there is an open `U ⊇ S_f` such that `S_{f+s}` is compact for every
@@ -1962,10 +1962,10 @@ auxiliary norm.  Then there is an open `U ⊇ S_f` such that `S_{f+s}` is compac
 `x ∈ S_{f+s}` (with the further conclusions of `SolutionSetInGeneralPosition`: `S_{f+s}` a compact
 smooth submanifold, a manifold with boundary with corners with `d_{S_{f+s}} = d_X`) are dense in
 `Γ^{+,1}_U(P)` for the distance `ρ(s, s') = sup_x N(s(x) − s'(x))`, read pointwise
-(`sectionDistAt`).  *Proof*: that of `theorem_5_13` with `theorem_5_18` in place of the generic
-form of Theorem 5.13: `s₀ = (1 − ε'/2)s'` and a parameter `λ` outside the null set in a small
+(`sectionDistAt`).  *Proof*: that of `theorem_5_3_5_preprint` with `theorem_5_3_10_param` in place of the generic
+form of Theorem 5.3.5 (preprint 5.13): `s₀ = (1 − ε'/2)s'` and a parameter `λ` outside the null set in a small
 ball. -/
-theorem theorem_5_18_dense (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
+theorem theorem_5_3_10_dense (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N) :
     ∃ U : Set X, IsOpen U ∧ solutionSet P f ⊆ U ∧
@@ -1975,7 +1975,7 @@ theorem theorem_5_18_dense (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f 
           (∀ x, B.sectionDistAt N hs hs' x ≤ ε) ∧
           B.SolutionSetInGeneralPosition (sectionAdd P f s) := by
   classical
-  obtain ⟨U, hUo, hSU, hcpt, hgen⟩ := theorem_5_18 hX hbump hf hS hN
+  obtain ⟨U, hUo, hSU, hcpt, hgen⟩ := theorem_5_3_10_param hX hbump hf hS hN
   refine ⟨U, hUo, hSU, hcpt, fun s' hs' hs'alw ε hε => ?_⟩
   obtain ⟨-, hs'supp, hs'N⟩ := hs'alw
   -- `ε' = min ε 1`, `θ = 1 − ε'/2`, `s₀ = θ s'`
@@ -2069,7 +2069,7 @@ theorem theorem_5_18_dense (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions) {f 
 
 end Theorem518Dense
 
-/-! ### Theorem 5.19 -/
+/-! ### Theorem 5.3.12 (preprint 5.19) -/
 
 section Theorem519
 
@@ -2080,7 +2080,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 open StrongRetr
 
 -- `StrongBundle.IsGoodPositionGermTame.congr_nhds` (good position is a property of the germ) now
--- lives in `Chapter3/Chapter5BridgeG.lean`, in the germ reading of Definition 3.11.
+-- lives in `Chapter3/Chapter5BridgeG.lean`, in the germ reading of Definition 3.1.11 (preprint 3.11).
 
 omit [TopologicalSpace X] [T2Space X] [ParacompactSpace X] [TopologicalSpace Y] [T2Space Y]
   [ParacompactSpace Y] [∀ x, Module ℝ (P ⁻¹' {x})] in
@@ -2094,7 +2094,7 @@ lemma sectionAdd_fiberZero {f : X → Y} (hf : IsSection P f) :
 
 set_option maxHeartbeats 6400000 in
 -- the assembly of the proof: several large existentials are destructured
-/-- **Theorem 5.19 (perturbation and transversality: good position), generic form.**  Let
+/-- **Theorem 5.3.12 (preprint 5.19) (perturbation and transversality: good position), generic form.**  Let
 `P : Y → X` be a strong bundle over an M-polyfold `X` admitting sc-smooth bump functions, `f` an
 sc-Fredholm section with tame germ data and compact solution set, `N` an auxiliary norm, and let
 `(f, x)` be in good position (in a tame chart) at every zero `x ∈ ∂X`.  Then there is an open
@@ -2104,19 +2104,19 @@ sc⁺-sections `t₁, …, t_m` **with supports disjoint from `∂X`**, a `δ > 
 `s_λ = Σ λᵢ tᵢ` is allowable, vanishes on the neighbourhood `X ∖ supp(s_λ)` of `∂X`, `f + s_λ` is
 transversal to the zero section, `(f + s_λ, x)` is in good position at every zero, `S_{f+s_λ}` is
 compact, and, if non-empty, a sub-M-polyfold whose induced structure is tame and that of a
-manifold with boundary with corners (Theorem 3.57).
+manifold with boundary with corners (Theorem 3.6.11 (preprint 3.57)).
 
 *Proof* (the text's, with the omitted steps): the zeros of `f` near `S_f ∩ ∂X` are in good position
-(Theorem 3.54 (1), `theorem_3_54'`), on an open `Vbd`; sections spanning the cokernels at the zeros
+(Theorem 3.6.8 (preprint 3.54) (1), `theorem_3_6_8'`), on an open `Vbd`; sections spanning the cokernels at the zeros
 outside `Vbd` are taken with supports in `U ∖ (∂X ∪ cl V₁)` (`S_f ∩ ∂X ⊆ V₁`, `cl V₁ ⊆ Vbd`); the
 parametrized section `F` is onto at every `(0, y)`, `y ∈ S_f`, hence in good position at the
-points with `y ∉ V₁` (`d = 0` there); the Sard step of Theorem 5.13 gives the transversality of
+points with `y ∉ V₁` (`d = 0` there); the Sard step of Theorem 5.3.5 (preprint 5.13) gives the transversality of
 `f + s_λ` at its zeros outside `V₁`, which are interior points, so in good position; on `V₁` the
 sections vanish, `f + s_λ = f`, and the good position there is that of `f`
 (`IsGoodPositionGermTame.congr_nhds`).  The text's "as before" for `F` hides that `F` is in general
 **not** in good position at the boundary zeros `(0, x)`, `x ∈ ∂X` (Findings); the proof avoids the
 implicit function theorem for `F` there. -/
-theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
+theorem theorem_5_3_12_param (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     (hf : B.IsScFredholmSectionTame f) (hS : IsCompact (solutionSet P f)) {N : B.One → ℝ}
     (hN : B.IsAuxNorm N)
     (hbd : ∀ x ∈ PX.boundary, IsZeroAt P f x → B.IsGoodPositionGermTame f x) :
@@ -2153,16 +2153,16 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
   have hfs : IsSection P f := hf.isScSmooth.1
   have hfF := hf.toIsScFredholmSection
   have := PX.metrizableSpace
-  obtain ⟨-, hprop⟩ := theorem_5_5 hfF hS
+  obtain ⟨-, hprop⟩ := theorem_5_2_2_preprint hfF hS
   obtain ⟨U, hUo, hSU, hK⟩ := hprop N hN
   have hcpt : ∀ s ∈ B.allowableSections N U, IsCompact (solutionSet P (sectionAdd P f s)) := by
     rintro s ⟨hs, hssupp, hsN⟩
     have hsU : ∀ x ∉ U, IsZeroAt P s x := fun x hx =>
       not_not.1 fun hne => hx (hssupp (subset_closure hne))
     have hsN' : ∀ x, B.AuxLe N (s x) 1 := fun x => ⟨hs.mem_oneSet x, hsN x _⟩
-    obtain ⟨-, hcl⟩ := remark_5_12 hN hfs hSU hK hs.1 hsU hsN'
+    obtain ⟨-, hcl⟩ := remark_5_3_4 hN hfs hSU hK hs.1 hsU hsN'
     exact hcl.of_isClosed_subset
-      (isClosed_solutionSet (theorem_3_15 hfF hs).isScSmooth) subset_closure
+      (isClosed_solutionSet (theorem_3_1_18_preprint hfF hs).isScSmooth) subset_closure
   refine ⟨U, hUo, hSU, hcpt, ?_⟩
   -- `g = f + 0`
   have hs₀ : B.IsScPlusSection (fiberZero P) := StrongBundle.isScPlusSection_fiberZero
@@ -2174,7 +2174,7 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
   -- `Vbd`: the zeros of `f` near the boundary zeros are in good position
   have hlocB : ∀ x : (solutionSet P f ∩ PX.boundary : Set X), ∃ V : Set X, IsOpen V ∧
       (x : X) ∈ V ∧ ∀ y ∈ V, IsZeroAt P f y → B.IsGoodPositionGermTame f y := fun x =>
-    theorem_3_54_one' hf (hbd x x.2.2 x.2.1) x.2.1
+    theorem_3_6_8_one' hf (hbd x x.2.2 x.2.1) x.2.1
   choose Vb hVbo hxVb hVb using hlocB
   set Vbd := ⋃ x, Vb x with hVbd
   have hVbdo : IsOpen Vbd := isOpen_iUnion hVbo
@@ -2215,7 +2215,7 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     have hsurj := isLinSurjAt_paramSection_zero_of_spanning hgF hsp hc hxV hφ0
       (paramSection (sectionAdd P f (fiberZero P)) hgF.isScSmooth.1 s (fun i => (hsp i).1) (0, x))
       hsp_span
-    have hF := theorem_3_18_tame hgFt hsp
+    have hF := theorem_3_1_21_tame hgFt hsp
     have hz0 : ∀ y, IsZeroAt P (sectionAdd P f (fiberZero P)) y → IsZeroAt (pullbackProj P Prod.snd)
         (paramSection (sectionAdd P f (fiberZero P)) hgF.isScSmooth.1 s fun i => (hsp i).1)
           (0, y) := fun y hy => by
@@ -2231,7 +2231,7 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
       rw [rnPolyfold_degIndex, h2] at h1
       exact Nat.le_zero.1 h1
     have hgp := StrongBundle.isGoodPositionGerm_of_isLinSurjAt hF (hz0 x hx0) hd0 hsurj
-    obtain ⟨V, hVo, hxV', hall⟩ := theorem_3_54_one' hF hgp (hz0 x hx0)
+    obtain ⟨V, hVo, hxV', hall⟩ := theorem_3_6_8_one' hF hgp (hz0 x hx0)
     refine ⟨k, s, hsp, hsupp, hsN, Prod.mk 0 ⁻¹' V,
       hVo.preimage (continuous_const.prodMk continuous_id), hxV', fun y hy hy0 => ?_⟩
     exact (hall (0, y) hy (hz0 y ((hzg y).2 hy0))).isGoodPositionGerm.isLinSurjAt hF.isScSmooth
@@ -2253,7 +2253,7 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
   have := MPolyfold.paracompactSpace_prod (rnPolyfold m) PX
   have := paracompactSpace_pullbackSpace (f := (Prod.snd : (Fin m → ℝ) × X → X))
     ((rnPolyfold m).prod PX) B
-  have hFt := theorem_3_18_tame hgFt ht
+  have hFt := theorem_3_1_21_tame hgFt ht
   have hz0 : ∀ y, IsZeroAt P (sectionAdd P f (fiberZero P)) y → IsZeroAt (pullbackProj P Prod.snd)
       (paramSection (sectionAdd P f (fiberZero P)) hgF.isScSmooth.1 t fun i => (ht i).1)
         (0, y) := fun y hy => by
@@ -2309,7 +2309,7 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
       exact Nat.le_zero.1 h1
     have hgp := StrongBundle.isGoodPositionGerm_of_isLinSurjAt hFt (hz0 y ((hzg y).2 hyS)) hd0
       (hsurjAll y hyS)
-    obtain ⟨V, hVo, hyV, hall⟩ := theorem_3_54_one' hFt hgp (hz0 y ((hzg y).2 hyS))
+    obtain ⟨V, hVo, hyV, hall⟩ := theorem_3_6_8_one' hFt hgp (hz0 y ((hzg y).2 hyS))
     refine ⟨V ∩ {z | z.2 ∉ PX.boundary}, hVo.inter (hbcl.isOpen_compl.preimage continuous_snd),
       ⟨hyV, hyb⟩, inter_subset_right, fun z hz hz0' => hall z hz.1 hz0'⟩
   choose Wy hWyo hyWy hWyb hWy using hlocW
@@ -2357,11 +2357,11 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     have hx' : IsZeroAt P (paramSlice (sectionAdd P f (fiberZero P)) hgF.isScSmooth.1 t
         (fun i => (ht i).1) lam) x := (isZeroAt_paramSection_iff (lam, x)).1 hz
     rw [← hslice lam] at hx'
-    exact subset_closure ((remark_5_12 hN hfs hSU hK (isSection_paramSlice lam) (hsuppl lam)
+    exact subset_closure ((remark_5_3_4 hN hfs hSU hK (isSection_paramSlice lam) (hsuppl lam)
       (hallow lam hlam)).1 hx')
   have hZclosed : IsClosed Z :=
     (isClosed_le (continuous_norm.comp continuous_fst) continuous_const).inter
-      (isClosed_solutionSet (theorem_3_18 hgF ht).isScSmooth)
+      (isClosed_solutionSet (theorem_3_1_21_preprint hgF ht).isScSmooth)
   have hZ : IsCompact Z :=
     ((isCompact_closedBall _ _).prod hK).of_isClosed_subset hZclosed hZsub
   set Z₁ := Z ∩ {z | z.2 ∉ V₁} with hZ₁def
@@ -2415,7 +2415,7 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
     rw [hsupp0, empty_union]
     exact Set.disjoint_iUnion_left.2 htbd
   set h := sectionAdd P f (paramSlice (fiberZero P) hs₀.1 t (fun i => (ht i).1) lam) with hhdef
-  have hhF : B.IsScFredholmSectionTame h := theorem_3_15_tame hf hsl
+  have hhF : B.IsScFredholmSectionTame h := theorem_3_1_18_tame hf hsl
   -- `h = f` on `V₁`
   have hhV₁ : ∀ y ∈ V₁, f y = h y := fun y hy => by
     have hz : IsZeroAt P (paramSlice (fiberZero P) hs₀.1 t (fun i => (ht i).1) lam) y :=
@@ -2447,7 +2447,7 @@ theorem theorem_5_19 (hbump : PX.AdmitsBumpFunctions) {f : X → Y}
   refine ⟨halw, hbd', fun y hy => (hgood y hy).2, fun y hy => (hgood y hy).1, hcpt _ halw,
     fun hne => ?_⟩
   obtain ⟨hsub, htameS, hloc, -⟩ :=
-    theorem_3_57 hhF.toIsScFredholmSection (fun y hy => (hgood y hy).1) hne
+    theorem_3_6_11 hhF.toIsScFredholmSection (fun y hy => (hgood y hy).1) hne
   exact ⟨hsub, htameS, hloc⟩
 
 end Theorem519

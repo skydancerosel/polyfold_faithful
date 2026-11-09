@@ -2,7 +2,7 @@ import Polyfold.Chapter2.PartialCone
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.3,
-**Remark 2.28** (p. 33): for an sc-smooth retract `(O, C, E)` and a smooth point `x ∈ O`, one has
+**Remark 2.4.8 (preprint 2.28)** (p. 47 (preprint p. 33)): for an sc-smooth retract `(O, C, E)` and a smooth point `x ∈ O`, one has
 `T_x^R O ⊂ C_xO ⊂ T_xO`, "and naively one might expect that `C_xO` is a partial quadrant in
 `T_xO`.  However, this is in general not the case."
 
@@ -10,12 +10,12 @@ Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Par
 
 ## The text, paraphrased
 
-(Remark 2.28) `T_x^R O ⊆ C_xO ⊆ T_xO`; in general `C_xO` is *not* a partial quadrant in `T_xO`.
-(Proposition 2.36) For a *tame* retract it is.
+(Remark 2.4.8 (preprint 2.28)) `T_x^R O ⊆ C_xO ⊆ T_xO`; in general `C_xO` is *not* a partial quadrant in `T_xO`.
+(Proposition 2.5.6 (preprint 2.36)) For a *tame* retract it is.
 
 ## What is formalized
 
-The negative claim of Remark 2.28 is **refuted**: `C_xO` is a partial quadrant in `T_xO` for every
+The negative claim of Remark 2.4.8 (preprint 2.28) is **refuted**: `C_xO` is a partial quadrant in `T_xO` for every
 sc-smooth retract and every smooth `x ∈ O` (with the sc-structure of `T_xO` induced from `E`),
 without tameness.  No hypothesis of the remark is dropped, and the definitions are the project's
 (`partialConeWith`, `reducedTangentSpaceWith`, `IsPartialQuadrant`, round-trip item V2.33).
@@ -31,14 +31,14 @@ without tameness.  No hypothesis of the remark is dropped, and the definitions a
 * `Polyfold.coneMatrix R T x` — the matrix `M = Λ ∘ Dr(x) ∘ σ` of `Dr(x)` on `E/E_x ≅ ℝ^{I(x)}`
   (`Λ = coordMapL`, `σ` the lift by zero); `coneMatrix_idem`, `coneMatrix_mapsTo_orthant`,
   `coordMapL_scDeriv` (`Λ ∘ Dr(x) = M ∘ Λ`).
-* `Polyfold.remark_2_28_quotient_simplicial`: for `x ∈ O₁` (no smoothness needed), the image
+* `Polyfold.remark_2_4_8_quotient_simplicial`: for `x ∈ O₁` (no smoothness needed), the image
   `Λ(C_xO) ≅ C_xO / T_x^R O` is a simplicial cone in `ℝ^{I(x)}`.
 * `Polyfold.ScRetraction.isScSubspace_reducedTangentSpaceWith`: `T_x^R O` is an sc-subspace at
-  every smooth `x ∈ O` (the proof of `proposition_2_36_partialCone`, which did not use tameness).
-* `Polyfold.remark_2_28_isPartialQuadrant` — **the main theorem**: for every sc-smooth retraction
+  every smooth `x ∈ O` (the proof of `proposition_2_5_6_partialCone`, which did not use tameness).
+* `Polyfold.remark_2_4_8_isPartialQuadrant` — **the main theorem**: for every sc-smooth retraction
   `r`, presentation `T` of `C`, and smooth `x ∈ O`: `T_xO` and `T_x^R O` are sc-subspaces and
   `C_xO = {v ∈ T_xO | v ∈ C_x}` is a partial quadrant in the sc-Banach space `T_xO`.
-  `Polyfold.remark_2_28_partialConeWith`: the same in the shape of the audit's statement `B2`
+  `Polyfold.remark_2_4_8_partialConeWith`: the same in the shape of the audit's statement `B2`
   (`RoundTrip/Items/V2_33.lean`), for an arbitrary proof that `T_xO` is an sc-subspace; its
   negation is exactly the inner statement of `B2`, so `B2` is false.
 
@@ -77,16 +77,16 @@ Setting: `C = T⁻¹([0,∞)ⁿ ⊕ W)`, `I(x) = {i | λ_i(x) = 0}` (`λ_i = (T 
    functionals `ℓ_s = (ρ ∘ Λ)_s` satisfy `ℓ_s(ê_t) = δ_{st}`; `T_x^R O = T_xO ∩ ⋂_s ker ℓ_s`
    (`Λ(T_xO) = range M ⊆ span c`), and for `v ∈ T_xO`:
    `v ∈ C_x ⟺ Λv ∈ K ⟺ ρ(Λv) ≥ 0 ⟺ ∀s, ℓ_s v ≥ 0`.
-   The sc-isomorphism `T_xO ≅ ℝ^r ⊕ T_x^R O` of `Polyfold.splitIso` (the map `S` of Theorem 2.31)
+   The sc-isomorphism `T_xO ≅ ℝ^r ⊕ T_x^R O` of `Polyfold.splitIso` (the map `S` of Theorem 2.4.12 (preprint 2.31))
    carries `C_xO` onto `[0,∞)^r ⊕ T_x^R O` (`isPartialQuadrant_ofSubspace`).
 
 ## What the text leaves implicit, and the choices made
 
 * "Partial quadrant in `T_xO`" is read with the sc-structure of `T_xO` induced from `E`
-  (`ScBanach.ofSubspace`, as in `proposition_2_36_partialCone`), the only reading in the project.
+  (`ScBanach.ofSubspace`, as in `proposition_2_5_6_partialCone`), the only reading in the project.
 * The dimension `r` of the quadrant is `rank M = dim(T_xO / T_x^R O) ≤ d_C(x)`, with equality iff
-  `M` has full rank `|I(x)|`, which is the tame case (Proposition 2.35: `M = id`); for a
-  non-tame retraction `r` may be smaller than `d_C(x)` (Theorem 2.31), but the cone is still a
+  `M` has full rank `|I(x)|`, which is the tame case (Proposition 2.5.3 (preprint 2.35): `M = id`); for a
+  non-tame retraction `r` may be smaller than `d_C(x)` (Theorem 2.4.12 (preprint 2.31)), but the cone is still a
   partial quadrant.  So the remark's negative claim fails for every retract; what can fail is only
   `r = d_C(x)`.
 * Flor's theorem is used only in the form "the column cone of a nonnegative idempotent is
@@ -559,10 +559,10 @@ theorem coordMapL_image_partialConeWith (hT : C = T 0 ⁻¹' quadrant n W 0) {x 
     rw [ha]
     exact hy
 
-/-- **Remark 2.28, the quotient cone**: at every `x ∈ O₁`, the image of `C_xO` in
+/-- **Remark 2.4.8 (preprint 2.28), the quotient cone**: at every `x ∈ O₁`, the image of `C_xO` in
 `E/E_x ≅ ℝ^{I(x)}` (that is, `C_xO / T_x^R O`) is a simplicial cone: the nonnegative combinations
 of a linearly independent family. -/
-theorem remark_2_28_quotient_simplicial (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
+theorem remark_2_4_8_quotient_simplicial (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) :
     ∃ (r : ℕ) (c : Fin r → {i : Fin n // (T 0 (E.toBase 1 x)).1 i = 0} → ℝ),
       LinearIndependent ℝ c ∧
@@ -583,7 +583,7 @@ variable {E : ScBanach} {n : ℕ} {W : ScBanach} {C : Set (E 0)} {R : ScRetracti
   {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
 
 /-- At a smooth point `x ∈ O` of any sc-smooth retract, the reduced tangent space `T_x^R O` is an
-sc-subspace of `E` (the step of `proposition_2_36_partialCone`, which does not use tameness): for
+sc-subspace of `E` (the step of `proposition_2_5_6_partialCone`, which does not use tameness): for
 `u ∈ T_x^R O ∩ E_m` with `T u = (a, w)`, the smooth points `Dr(x)(T⁻¹(a, w'))`, `w' ∈ W_∞`, lie in
 `T_x^R O` (`Dr(x) E_x ⊆ E_x`) and tend to `Dr(x) u = u`. -/
 theorem ScRetraction.isScSubspace_reducedTangentSpaceWith (R : ScRetraction E C)
@@ -639,7 +639,7 @@ theorem ScRetraction.isScSubspace_reducedTangentSpaceWith (R : ScRetraction E C)
   rw [← hφw]
   exact map_mem_closure hφc ((W.dense_smooth m).closure_eq ▸ mem_univ _) hφS
 
-/-- **Remark 2.28, refuted**: at every smooth point `x` of every sc-smooth retract `(O, C, E)`
+/-- **Remark 2.4.8 (preprint 2.28), refuted**: at every smooth point `x` of every sc-smooth retract `(O, C, E)`
 (no tameness), `T_xO = Dr(x)E` is an sc-subspace, `T_x^R O` is an sc-subspace, and the partial
 cone `C_xO = {v ∈ T_xO | v ∈ C_x}` **is** a partial quadrant in the sc-Banach space `T_xO` (with
 the sc-structure induced from `E`), of dimension `r = rank M ≤ d_C(x)`.  This contradicts the
@@ -652,7 +652,7 @@ linearly independent `c_1, …, c_r`.  The smooth vectors `ê_s = P σ(c_s) ∈ 
 functionals `ℓ_s = (ρ ∘ Λ)_s` (`ρ` a left inverse of `t ↦ Σ t_s c_s`) satisfy `ℓ_s(ê_t) = δ_{st}`,
 `T_x^R O = T_xO ∩ ⋂_s ker ℓ_s`, and `C_xO = {v ∈ T_xO | ℓ_s v ≥ 0 ∀ s}`; the sc-isomorphism
 `T_xO ≅ ℝ^r ⊕ T_x^R O` of `isPartialQuadrant_ofSubspace` finishes. -/
-theorem remark_2_28_isPartialQuadrant (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
+theorem remark_2_4_8_isPartialQuadrant (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1) :
     ∃ hA : E.IsScSubspace (LinearMap.range (scDeriv R.U R x : E 0 →ₗ[ℝ] E 0)),
       E.IsScSubspace (reducedTangentSpaceWith R T x) ∧
@@ -753,15 +753,15 @@ theorem remark_2_28_isPartialQuadrant (hT : C = T 0 ⁻¹' quadrant n W 0) {x : 
       rw [hK]; exact ⟨b, hb0, by rw [hΛw, hΦapp]⟩
     exact hmem.2
 
-/-- **Remark 2.28, refuted, in the audit's shape** (`B2` of `RoundTrip/Items/V2_33.lean`): for
+/-- **Remark 2.4.8 (preprint 2.28), refuted, in the audit's shape** (`B2` of `RoundTrip/Items/V2_33.lean`): for
 every sc-smooth retraction `r` in `C = T⁻¹([0,∞)ⁿ ⊕ W)`, every smooth `x ∈ O₁`, and every proof
 `h` that `T_xO` is an sc-subspace, the preimage of `C_xO` in `T_xO` is a partial quadrant in the
 sc-Banach space `T_xO`.  So the text's "in general this is not the case" is false. -/
-theorem remark_2_28_partialConeWith (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
+theorem remark_2_4_8_partialConeWith (hT : C = T 0 ⁻¹' quadrant n W 0) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1)
     (h : E.IsScSubspace (LinearMap.range (scDeriv R.U R x : E 0 →ₗ[ℝ] E 0))) :
     IsPartialQuadrant (E.ofSubspace h) {v | Subtype.val v ∈ partialConeWith R T x} := by
-  obtain ⟨hA, -, hq⟩ := remark_2_28_isPartialQuadrant hT hx hs
+  obtain ⟨hA, -, hq⟩ := remark_2_4_8_isPartialQuadrant hT hx hs
   convert hq using 2
   ext ⟨w, hw⟩
   constructor

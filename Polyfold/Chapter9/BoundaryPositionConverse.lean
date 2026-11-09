@@ -109,7 +109,7 @@ theorem ScRetraction.IsScPlus.range_scDeriv_le_smooth {t : ScRetraction E C} (ht
     {z : E 1} (hz : E.toBase 1 z ∈ t.retract) :
     LinearMap.range (scDeriv t.U t z : E 0 →ₗ[ℝ] E 0) ≤ E.smooth := by
   have hzU : z ∈ E.lvlSet t.U 1 := t.retract_subset hz
-  have hs : z ∈ E.smoothLvl 1 := lemma_4_7_i ht hz
+  have hs : z ∈ E.smoothLvl 1 := lemma_4_1_7_i ht hz
   obtain ⟨S, hS⟩ := ht.exists_scPlus_deriv t.isScDomain hzU hs
   intro v hv
   have hfix : scDeriv t.U t z v = v := by
@@ -324,7 +324,7 @@ theorem ScRetraction.IsScPlus.exists_flat {t : ScRetraction E C} (ht : t.IsScPlu
     rintro _ ⟨u, rfl⟩
     exact congrArg (fun L : E 0 →L[ℝ] E 0 => L u) (t.scDeriv_comp_self hz)
   obtain ⟨p, hp⟩ := Submodule.ClosedComplemented.of_finiteDimensional N
-  have hes : e ∈ E.smooth := lemma_4_7_i ht hz
+  have hes : e ∈ E.smooth := lemma_4_1_7_i ht hz
   choose eL heL using (E.mem_smooth_iff.1 hes)
   obtain ⟨δ, hδ, hδU⟩ := t.exists_ball_add_mem_U T hT heU hred
   set B : Set N := ball (0 : N) δ with hBdef
@@ -459,7 +459,7 @@ theorem degIndex_eq_zero_of_isReducedTangentAt {ψ : MChart Y} (hψ : Q.IsChart 
   obtain ⟨t, htO, ht⟩ := hplus
   have hzt : ψ.model.E.toBase 1 z ∈ t.retract := by rw [htO, hz]; exact ψ.mapsTo_model y hy
   have hz1 : z ∈ ψ.model.E.lvlSet t.retract 1 := hzt
-  have := lemma_4_7_ii ht hzt
+  have := lemma_4_1_7_ii ht hzt
   have hred' : LinearMap.range (scDeriv t.U t z : ψ.model.E 0 →ₗ[ℝ] ψ.model.E 0) ≤
       minimalSubspaceWith T (ψ.model.E.toBase 1 z) := by
     intro v hv

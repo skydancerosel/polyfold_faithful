@@ -3,8 +3,8 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §1.1: the index
-of Definition 1.8, the remark after it that `T : E_m → F_m` is Fredholm "with the same index" on
-every level (Lemma 2.D of `Exposition/Chapter1.md`), and the index statement of Proposition 1.10,
+of Definition 1.1.9 (preprint 1.8), the remark after it that `T : E_m → F_m` is Fredholm "with the same index" on
+every level (Lemma 2.D of `Exposition/Chapter1.md`), and the index statement of Proposition 1.1.11 (preprint 1.10),
 `ind(T + S) = ind(T)`, which the exposition adds to the text and derives from the classical
 invariance of the Fredholm index under compact perturbations (its (F2), Kato IV.5.26).
 
@@ -40,11 +40,11 @@ For sc-Fredholm operators:
 * `Polyfold.ScBanach.finrank_levelSub_of_le_smooth`: a subspace `A ⊆ E_∞` has `dim A_m = dim A`;
   `Polyfold.ScFredholmSplitting.C_le_smooth`: the complement `C` lies in `F_∞`.
 * `Polyfold.ScFredholmSplitting.fredholmIndex_lvl`, `Polyfold.IsScFredholm.fredholmIndex_lvl`
-  (**Lemma 2.D** of the exposition, the remark after Definition 1.8): every level map
+  (**Lemma 2.D** of the exposition, the remark after Definition 1.1.9 (preprint 1.8)): every level map
   `T_m : E_m → F_m` of an sc-Fredholm operator is Fredholm with index `ind(T) = dim K − dim C`;
   `Polyfold.scIndex_eq_fredholmIndex`: `scIndex T` is the index of `T₀`.
-* `Polyfold.proposition_1_10_index` (**Proposition 1.10**, the index): `ind(T + S) = ind(T)` for an
-  sc⁺-operator `S`; `Polyfold.proposition_1_10_index_lvl`: on every level, `(T + S)_m` is Fredholm
+* `Polyfold.proposition_1_1_11_index` (**Proposition 1.1.11 (preprint 1.10)**, the index): `ind(T + S) = ind(T)` for an
+  sc⁺-operator `S`; `Polyfold.proposition_1_1_11_index_lvl`: on every level, `(T + S)_m` is Fredholm
   of index `ind(T)`.
 
 ## Proofs
@@ -67,9 +67,9 @@ For sc-Fredholm operators:
 * Compact perturbations: `t ↦ ind(u + t k)` is locally constant on `ℝ` (each `u + t₀ k` is Fredholm
   by `isFredholm_add_isCompactOperator`, and the stability lemma applies near `t₀`), hence constant.
 * Lemma 2.D: `ker T_m = K_m ≅ K` and `F_m / range T_m = F_m / Y_m ≅ C_m ≅ C`, since `K, C ⊆ E_∞`.
-* Proposition 1.10, index: `ind(T + S) = ind((T + S)₀) = ind(T₀ + S₀) = ind(T₀)` by the compact
+* Proposition 1.1.11 (preprint 1.10), index: `ind(T + S) = ind((T + S)₀) = ind(T₀ + S₀) = ind(T₀)` by the compact
   perturbation theorem on level `0`; on level `m`, Lemma 2.D for the sc-Fredholm `T + S`
-  (Proposition 1.10).
+  (Proposition 1.1.11 (preprint 1.10)).
 
 (This file imports `Polyfold.Chapter1.ExpositionLemmas` only so that that file is part of the
 build; nothing here uses it.)
@@ -458,7 +458,7 @@ theorem fredholmIndex_add_isCompactOperator {u : E →L[ℝ] F} (hu : IsFredholm
 
 end Banach
 
-/-! ### The index of an sc-Fredholm operator on every level (Lemma 2.D, Proposition 1.10) -/
+/-! ### The index of an sc-Fredholm operator on every level (Lemma 2.D, Proposition 1.1.11 (preprint 1.10)) -/
 
 section ScFredholmIndex
 
@@ -476,13 +476,13 @@ theorem ScBanach.finrank_levelSub_of_le_smooth (E : ScBanach) {A : Submodule ℝ
   exact (LinearEquiv.ofBijective r hr).finrank_eq
 
 /-- The finite-dimensional complement `C` of the range of an sc-Fredholm operator consists of
-smooth points (Lemma 2.D of the exposition, by Proposition 1.6). -/
+smooth points (Lemma 2.D of the exposition, by Proposition 1.1.7 (preprint 1.6)). -/
 theorem ScFredholmSplitting.C_le_smooth {T : ScOperator E F} (s : ScFredholmSplitting T) :
     s.C ≤ F.smooth :=
   haveI := s.finite_C
-  (F.proposition_1_6_iff s.C).1 s.splitF.1
+  (F.proposition_1_1_7_iff s.C).1 s.splitF.1
 
-/-- **Lemma 2.D** of the exposition (the remark after Definition 1.8): for an sc-Fredholm
+/-- **Lemma 2.D** of the exposition (the remark after Definition 1.1.9 (preprint 1.8)): for an sc-Fredholm
 splitting of `T`, every level map `T_m : E_m → F_m` is Fredholm with kernel `K_m ≅ K`, cokernel
 `F_m / Y_m ≅ C_m ≅ C`, and index `ind(T_m) = dim K − dim C`. -/
 theorem ScFredholmSplitting.fredholmIndex_lvl {T : ScOperator E F} (s : ScFredholmSplitting T)
@@ -504,21 +504,21 @@ theorem IsScFredholm.fredholmIndex_lvl {T : ScOperator E F} (hT : IsScFredholm T
 /-- `scIndex T` is the Fredholm index of the base map `T₀`. -/
 theorem scIndex_eq_fredholmIndex (T : ScOperator E F) : scIndex T = fredholmIndex (T 0) := rfl
 
-/-- **Proposition 1.10, the index** (stated in the exposition, not in the text): for an
+/-- **Proposition 1.1.11 (preprint 1.10), the index** (stated in the exposition, not in the text): for an
 sc-Fredholm `T` and an sc⁺-operator `S`, `ind(T + S) = ind(T)`. -/
-theorem proposition_1_10_index {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F) :
+theorem proposition_1_1_11_index {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F) :
     scIndex (T + S.toScOperator) = scIndex T := by
   obtain ⟨s⟩ := hT
   rw [scIndex_eq_fredholmIndex, scIndex_eq_fredholmIndex]
   exact fredholmIndex_add_isCompactOperator (s.isFredholm 0) (S.isCompactOperator 0)
 
-/-- **Proposition 1.10 on every level**: `(T + S)_m : E_m → F_m` is Fredholm of index `ind(T)`
+/-- **Proposition 1.1.11 (preprint 1.10) on every level**: `(T + S)_m : E_m → F_m` is Fredholm of index `ind(T)`
 for every `m`. -/
-theorem proposition_1_10_index_lvl {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F)
+theorem proposition_1_1_11_index_lvl {T : ScOperator E F} (hT : IsScFredholm T) (S : ScPlus E F)
     (m : ℕ) : ((T + S.toScOperator) m).IsFredholm ∧
       fredholmIndex ((T + S.toScOperator) m) = scIndex T := by
-  rw [← proposition_1_10_index hT S]
-  exact (proposition_1_10 hT S).fredholmIndex_lvl m
+  rw [← proposition_1_1_11_index hT S]
+  exact (proposition_1_1_11_preprint hT S).fredholmIndex_lvl m
 
 end ScFredholmIndex
 

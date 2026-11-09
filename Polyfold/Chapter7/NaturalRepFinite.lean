@@ -3,8 +3,8 @@ import Polyfold.Chapter7.NaturalAction
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 7: **Proposition 7.5** (the natural representation of a finite set of isomorphic objects,
-pp. 233–236, with its proof) and **Definition 7.8** (p. 236; the structure `NaturalRepFinite` is
+Chapter 7: **Proposition 7.1.15 (2017: 7.5)** (the natural representation of a finite set of isomorphic objects,
+pp. 233–236, with its proof) and **Definition 7.1.18 (2017: 7.8)** (p. 304 (2017 p. 236); the structure `NaturalRepFinite` is
 in `EpGroupoid.lean`).  There is no 2014 preprint of Part II; numbers and pages are the 2017
 text's.
 
@@ -12,14 +12,14 @@ text's.
 
 ## The text, paraphrased
 
-(Proposition 7.5, pp. 233–234) Let `Y = {y₁, …, y_k}` be distinct, mutually isomorphic objects and
+(Proposition 7.1.15 (2017: 7.5), pp. 233–234) Let `Y = {y₁, …, y_k}` be distinct, mutually isomorphic objects and
 `𝐘` the morphisms between them (the full subcategory on `Y`).  Given a neighbourhood `V` of `Y`
 there is a functor `f` assigning to every `y ∈ Y` a connected open `U(y) ⊆ V`, mutually disjoint,
 and to every `ψ : y → y'` in `𝐘` an sc-diffeomorphism `f(ψ) : U(y) → U(y')`; the set `𝐔` of
 morphisms with source and target in `⋃ U(y)` decomposes into connected components `𝐔(ψ)`,
 `ψ ∈ 𝐘`, and (1) `G_y` acts on `U(y)` by the natural action, (2) `s : 𝐔(ψ) → U(y)` and
 `t : 𝐔(ψ) → U(y')` are sc-diffeomorphisms, (3) `f(ψ)(z) = t ∘ (s|𝐔(ψ))⁻¹(z)`.  (Proof, pp.
-234–236) By induction on `#Y`; `#Y = 1` is Theorem 7.1.  For `Y = {y₁, y₂}` fix `γ₁ : y₁ → y₂` with
+234–236) By induction on `#Y`; `#Y = 1` is Theorem 7.1.13 (2017: 7.1).  For `Y = {y₁, y₂}` fix `γ₁ : y₁ → y₂` with
 a sheet `V(γ₁)` and `γ̂₁ = t ∘ (s|V(γ₁))⁻¹`, take a `G_{y₁}`-invariant connected `U(y₁)` with
 `γ̂₁(U(y₁))` inside a `G_{y₂}`-invariant `W(y₂)`, put `U(y₂) = γ̂₁(U(y₁))` and show it
 `G_{y₂}`-invariant; the other morphisms `y₁ → y₂` are `γ_g = g ∘ γ₁`, `g ∈ G_{y₂}`, with components
@@ -27,13 +27,13 @@ a sheet `V(γ₁)` and `γ̂₁ = t ∘ (s|V(γ₁))⁻¹`, take a `G_{y₁}`-in
 `𝐔(φ) = ι(𝐔(φ⁻¹))`.  For `Y = Y' ∪ {y_{k+1}}` fix `δ_j : y_{k+1} → y_j`, shrink as in the case of
 two objects to `U(y_{k+1})`, `U(y_j)` with `δ̂_j : U(y_{k+1}) → U(y_j)` sc-diffeomorphisms, and
 adjust the components of the morphisms `γ : y_i → y_j` of `Y'` to `𝐔(γ) = (s|𝐔'(γ))⁻¹(U(y_i))`,
-showing `t(𝐔(γ)) = U(y_j)`.  (Definition 7.8, p. 236) A functor `f` as constructed in
-Proposition 7.5 is the natural representation of `𝐘` on neighbourhoods contained in `V`.
+showing `t(𝐔(γ)) = U(y_j)`.  (Definition 7.1.18 (2017: 7.8), p. 304 (2017 p. 236)) A functor `f` as constructed in
+Proposition 7.1.15 (2017: 7.5) is the natural representation of `𝐘` on neighbourhoods contained in `V`.
 
 ## What is formalized (namespace `Polyfold.EpGroupoid`)
 
 * **Transport along sheets** (namespace `NatRepFinite`; `R` a natural representation at `x`, `𝐒`
-  sheets (Definition 7.4) of morphisms out of `x` with `U(x) ⊆ s(𝐒)`): `back` (`φ̂⁻¹`),
+  sheets (Definition 7.1.4 (2017: 7.4)) of morphisms out of `x` with `U(x) ⊆ s(𝐒)`): `back` (`φ̂⁻¹`),
   `transportSet` (`φ̂(U(x))`; `isScDiffeoOn_hat_transportSet`, `isOpen_transportSet`,
   `isConnected_transportSet`), `conjMap` (`γ̂₂ ∘ Φ(g) ∘ γ̂₁⁻¹`; `isScDiffeoOn_conjMap`,
   `conjMap_conjMap`, `conjMap_one`, `conjMap_self`), `transport` (`Θ_g(z) = a₂(Φ(g) u) ∘ Γ(g, u) ∘
@@ -52,7 +52,7 @@ Proposition 7.5 is the natural representation of `𝐘` on neighbourhoods contai
   `g_unit`, `g_inv`, `g_isotropy`), `Star.F` (`f(ψ) = γ̂_{y'} ∘ Φ(g_ψ) ∘ γ̂_y⁻¹`; `isScDiffeoOn_F`,
   `F_comp`, `F_unit`), `Star.Θ`, `Star.sheet` (`𝐔(ψ) = Θ_{g_ψ}(U(y))`; `mem_sheet`,
   `pairwiseDisjoint_sheet`, `morOn_eq`), `Star.toNaturalRepFinite`.
-* **Proposition 7.5**: `proposition_7_5` (open `V ⊇ Y`) and `proposition_7_5_of_mem_nhdsSet`
+* **Proposition 7.1.15 (2017: 7.5)**: `proposition_7_1_15_2017` (open `V ⊇ Y`) and `proposition_7_1_15_of_mem_nhdsSet`
   (`V ∈ 𝓝ˢ Y`, the text's "neighborhood `V` of `Y`"); `NatRepFinite.emptyNaturalRepFinite`
   (`Y = ∅`), `NatRepFinite.mono` (enlarging `V`).
 * **"Decomposes into connected components `𝐔(ψ)`"**: `NatRepFinite.connectedComponentIn_morOn`,
@@ -62,12 +62,12 @@ Proposition 7.5 is the natural representation of `𝐘` on neighbourhoods contai
 
 * **A star construction instead of the induction** (PLAN II.6, 6).  Fix one base object `x`
   isomorphic to every `y ∈ Y` (`y₁`, say; `x ∈ Y` is not used), one natural representation
-  `(U(x), Φ, Γ)` of `G_x` (Theorem 7.1) and for each `y ∈ Y` a morphism `γ_y : x → y` with a sheet
+  `(U(x), Φ, Γ)` of `G_x` (Theorem 7.1.13 (2017: 7.1)) and for each `y ∈ Y` a morphism `γ_y : x → y` with a sheet
   `K y`; `U(x)` is taken inside every `s(K y)` and so small that the `U(y) := γ̂_y(U(x))` lie in
   pairwise disjoint open `W_y ∩ V` (Hausdorff separation of the finite `Y`).  Everything is
   transported from `x`: `ψ ↦ g_ψ = γ_{y'}⁻¹ ∘ ψ ∘ γ_y` is a bijection from the morphisms `y → y'`
   onto `G_x` compatible with composition; a morphism `k` from `U(y)` to `U(y')` pulls back to the
-  morphism `a_{y'}⁻¹ ∘ k ∘ a_y` of `U(x)`, which is `Γ(g, u)` for a unique `g` (Theorem 7.1 (3)),
+  morphism `a_{y'}⁻¹ ∘ k ∘ a_y` of `U(x)`, which is `Γ(g, u)` for a unique `g` (Theorem 7.1.13 (2017: 7.1) (3)),
   so `k = Θ_g(s k)`; `f(ψ) = γ̂_{y'} ∘ Φ(g_ψ) ∘ γ̂_y⁻¹` is a functor since `ψ ↦ g_ψ` is one and `Φ`
   is a homomorphism; `𝐔(ψ) = Θ_{g_ψ}(U(y))`.  No `U(y)` is shrunk afterwards, so the adjustment
   of the components of `Y'` in the inductive step (the claim `t(𝐔(γ)) = U(y_j)`) has no
@@ -78,11 +78,11 @@ Proposition 7.5 is the natural representation of `𝐘` on neighbourhoods contai
   (`NaturalRep.Φ_eqOn`, `NaturalAction.lean`) it agrees near `y` with every other one.  The field
   `natural` of `NaturalRepFinite` asks for one natural representation on `U(y)` whose `Φ` is `f` on
   `G_y`.
-* **Sc-smoothness.**  `Θ_g` is sc-smooth by condition (4) of Definition 7.3 in the sheet form,
+* **Sc-smoothness.**  `Θ_g` is sc-smooth by condition (4) of Definition 7.1.3 (2017: 7.3) in the sheet form,
   used twice (for the sheet `𝐔(g) = Γ(g, U(x))` and for `K y'`), and the sc-smoothness of `ι`;
   that `s` and `t` are sc-diffeomorphisms on `𝐔(ψ)` (the text's "`Φ_g` is a sc-diffeomorphism onto
   its image") is `isScDiffeoOn_src_image_of_section`, `isScDiffeoOn_tgt_image_of_section`.
-* **"A neighborhood `V` of `Y`"** is `V ∈ 𝓝ˢ Y` (`proposition_7_5_of_mem_nhdsSet`), reduced to an
+* **"A neighborhood `V` of `Y`"** is `V ∈ 𝓝ˢ Y` (`proposition_7_1_15_of_mem_nhdsSet`), reduced to an
   open `V` by `mem_nhdsSet_iff_exists`.  "Distinct objects" is `Y : Finset Obj`; `Y = ∅` is
   allowed.  "Mutually isomorphic" is used only through one `x` isomorphic to all of `Y`.
 * **Hypotheses.**  No hypothesis "for all …" is added.  `Star X Y V` is inhabited whenever `Y` is
@@ -231,7 +231,7 @@ theorem isScDiffeoOn_tgt_image_of_section {U U' : Set Obj} {σ : Obj → Mor} {f
 
 /-! ### Transport along a sheet -/
 
-/-- `φ̂⁻¹ = s ∘ (t|𝐔(φ))⁻¹` for a sheet `𝐔(φ)` (Definition 7.4). -/
+/-- `φ̂⁻¹ = s ∘ (t|𝐔(φ))⁻¹` for a sheet `𝐔(φ)` (Definition 7.1.4 (2017: 7.4)). -/
 def back (S : X.Sheet) (z : Obj) : Obj := X.src (S.tgtInv z)
 
 section Transport
@@ -345,7 +345,7 @@ theorem transport_hat_self (h₁ : R.U ⊆ S₁.srcSet) (g : X.Isotropy x) :
       X.comp (S₂.srcInv x) (X.comp g.val (X.inv (S₁.srcInv x))) := by
   rw [transport, back_self h₁ rfl, R.Φ_self, R.Γ_self]
 
-/-- **`Θ_g` is sc-smooth** on `γ̂₁(U(x))`: by condition (4) of Definition 7.3 in the sheet form,
+/-- **`Θ_g` is sc-smooth** on `γ̂₁(U(x))`: by condition (4) of Definition 7.1.3 (2017: 7.3) in the sheet form,
 applied to the sheets `𝐔(g) = Γ(g, U)` and `𝐒₂`. -/
 theorem isScSmoothOn_transport (h₁ : R.U ⊆ S₁.srcSet) (h₂ : R.U ⊆ S₂.srcSet)
     (g : X.Isotropy x) :
@@ -381,7 +381,7 @@ theorem isScSmoothOn_transport (h₁ : R.U ⊆ S₁.srcSet) (h₂ : R.U ⊆ S₂
     rfl
 
 /-- **Every morphism `z → z'` between points of `γ̂₁(U(x))` and `γ̂₂(U(x))` is `Θ_g(z)` for a
-unique `g ∈ G_x`**: `a₂⁻¹ ∘ k ∘ a₁` is a morphism of `U(x)`, so it is `Γ(g, u)` (Theorem 7.1
+unique `g ∈ G_x`**: `a₂⁻¹ ∘ k ∘ a₁` is a morphism of `U(x)`, so it is `Γ(g, u)` (Theorem 7.1.13 (2017: 7.1)
 (3)). -/
 theorem existsUnique_transport (h₁ : R.U ⊆ S₁.srcSet) (h₂ : R.U ⊆ S₂.srcSet) {k : Mor}
     (hs : X.src k ∈ transportSet R S₁) (ht : X.tgt k ∈ transportSet R S₂) :
@@ -524,7 +524,7 @@ theorem exists_spoke {x : Obj} (R : X.NaturalRep x) {φ : Mor} (hφ : X.src φ =
 /-! ### The star construction -/
 
 variable (X) in
-/-- **The data of the star construction** for Proposition 7.5 (PLAN II.6, 6): a base object `x`,
+/-- **The data of the star construction** for Proposition 7.1.15 (2017: 7.5) (PLAN II.6, 6): a base object `x`,
 a natural representation `R` of `G_x`, and for every `y ∈ Y` a sheet `K y` of a morphism
 `γ_y : x → y` (`γ_y = (s|K y)⁻¹(x)`) with `U(x) ⊆ s(K y)`, the transported neighbourhoods
 `γ̂_y(U(x))` contained in `V` and pairwise disjoint. -/
@@ -720,7 +720,7 @@ theorem g_isotropy {y : Obj} (hy : y ∈ Y) (h : X.Isotropy y) :
   rw [D.val_g hh, transportConj_val, h.src_val, h.tgt_val]
   rfl
 
-/-- **The natural representation of `Y`** (Definition 7.8) built from the star data. -/
+/-- **The natural representation of `Y`** (Definition 7.1.18 (2017: 7.8)) built from the star data. -/
 def toNaturalRepFinite : X.NaturalRepFinite Y V where
   U y := transportSet D.R (D.K y)
   F := D.F
@@ -755,7 +755,7 @@ end Star
 
 /-- **The star data exist** for a finite set `Y` of objects isomorphic to `x` and an open
 `V ⊇ Y`: choose `γ_y : x → y` with sheets `K y`, pairwise disjoint open `W_y ∋ y`, and a natural
-representation of `G_x` on `U(x) ⊆ ⋂_y s(K y) ∩ γ̂_y⁻¹(W_y ∩ V)` (Theorem 7.1). -/
+representation of `G_x` on `U(x) ⊆ ⋂_y s(K y) ∩ γ̂_y⁻¹(W_y ∩ V)` (Theorem 7.1.13 (2017: 7.1)). -/
 theorem exists_star {Y : Finset Obj} {V : Set Obj} (hV : IsOpen V) (hYV : (Y : Set Obj) ⊆ V)
     {x : Obj} (hx : ∀ y ∈ Y, X.Isomorphic x y) : Nonempty (Star X Y V) := by
   have key : ∀ y : Obj, ∃ S : X.Sheet, y ∈ Y → x ∈ S.srcSet ∧ S.hat x = y := by
@@ -777,7 +777,7 @@ theorem exists_star {Y : Finset Obj} {V : Set Obj} (hV : IsOpen V) (hYV : (Y : S
     mem_iInter₂.2 fun y hy => ⟨(hK y hy).1, by
       rw [mem_preimage, (hK y hy).2]
       exact ⟨(hW y).1, hYV hy⟩⟩
-  obtain ⟨R, hRU⟩ := theorem_7_1 X x hU₀ hxU₀
+  obtain ⟨R, hRU⟩ := theorem_7_1_13 X x hU₀ hxU₀
   have hR : ∀ y ∈ Y, ∀ u ∈ R.U, u ∈ (K y).srcSet ∧ (K y).hat u ∈ W y ∩ V :=
     fun y hy u hu => mem_iInter₂.1 (hRU hu) y hy
   refine ⟨⟨x, R, K, fun y hy u hu => (hR y hy u hu).1, fun y hy => (hK y hy).2, ?_, ?_⟩⟩
@@ -845,19 +845,19 @@ theorem connectedComponentIn_morOn {Y : Finset Obj} {V : Set Obj} (N : X.Natural
 
 end NatRepFinite
 
-/-! ### Proposition 7.5 -/
+/-! ### Proposition 7.1.15 (2017: 7.5) -/
 
 variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor] (X : EpGroupoid Obj Mor)
 
-/-- **Proposition 7.5** (natural representation of a finite set of isomorphic objects, p. 233):
+/-- **Proposition 7.1.15 (2017: 7.5)** (natural representation of a finite set of isomorphic objects, p. 233):
 for a finite set `Y` of mutually isomorphic objects and an open `V ⊇ Y` there is a natural
-representation of `Y` on neighbourhoods contained in `V` (Definition 7.8): mutually disjoint
+representation of `Y` on neighbourhoods contained in `V` (Definition 7.1.18 (2017: 7.8)): mutually disjoint
 connected open `U(y) ⊆ V`, a functor `ψ ↦ f(ψ)` to sc-diffeomorphisms `U(y) → U(y')`, and the
 morphisms between points of `⋃ U(y)` decomposing into connected components `𝐔(ψ)` with
 (1) the natural action of `G_y` on `U(y)`, (2) `s, t : 𝐔(ψ) → U(y), U(y')` sc-diffeomorphisms,
 (3) `f(ψ) = t ∘ (s|𝐔(ψ))⁻¹`. -/
-theorem proposition_7_5 (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isomorphic y y')
+theorem proposition_7_1_15_2017 (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isomorphic y y')
     {V : Set Obj} (hV : IsOpen V) (hYV : (Y : Set Obj) ⊆ V) :
     Nonempty (X.NaturalRepFinite Y V) := by
   rcases Y.eq_empty_or_nonempty with rfl | ⟨x, hx⟩
@@ -865,11 +865,11 @@ theorem proposition_7_5 (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isom
   · obtain ⟨D⟩ := NatRepFinite.exists_star hV hYV fun y hy => hY x hx y hy
     exact ⟨D.toNaturalRepFinite⟩
 
-/-- **Proposition 7.5** for a neighbourhood `V` of `Y` (`V ∈ 𝓝ˢ Y`), as the text states it. -/
-theorem proposition_7_5_of_mem_nhdsSet (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isomorphic y y')
+/-- **Proposition 7.1.15 (2017: 7.5)** for a neighbourhood `V` of `Y` (`V ∈ 𝓝ˢ Y`), as the text states it. -/
+theorem proposition_7_1_15_of_mem_nhdsSet (Y : Finset Obj) (hY : ∀ y ∈ Y, ∀ y' ∈ Y, X.Isomorphic y y')
     {V : Set Obj} (hV : V ∈ 𝓝ˢ (Y : Set Obj)) : Nonempty (X.NaturalRepFinite Y V) := by
   obtain ⟨W, hWo, hYW, hWV⟩ := mem_nhdsSet_iff_exists.1 hV
-  obtain ⟨N⟩ := X.proposition_7_5 Y hY hWo hYW
+  obtain ⟨N⟩ := X.proposition_7_1_15_2017 Y hY hWo hYW
   exact ⟨NatRepFinite.mono N hWV⟩
 
 end EpGroupoid

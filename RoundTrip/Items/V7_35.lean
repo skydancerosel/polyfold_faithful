@@ -6,7 +6,7 @@ import RoundTrip.Blind.V7_35
 representations).
 
 `A` is the conjunction of the types of `NaturalRep.injective_Φ_iff`, `NaturalRep.kerΦ_eq_bot_iff`,
-`IsEffective.eq_one`, `isEffective_iff_forall_naturalRep` and `lemma_7_3`, universes at `0`
+`IsEffective.eq_one`, `isEffective_iff_forall_naturalRep` and `lemma_7_2_3`, universes at `0`
 (`NaturalRep.kerΦ` is vocabulary).
 
 Dictionary:
@@ -18,12 +18,12 @@ Dictionary:
 * `B`'s injectivity (`Φ g = Φ h` on `U` ⇒ `g = h`) and the project's (`Φ g = id` on `U` ⇒ `g = 1`)
   are equivalent (the second is `A`'s `injective_Φ_iff`; in `B → A` it is re-proved).
 
-* `A → B`: `lemma_7_3` through the dictionary.
-* `B → A`: `lemma_7_3` is `B` through the dictionary.  `IsEffective.eq_one` (for *every* natural
+* `A → B`: `lemma_7_2_3` through the dictionary.
+* `B → A`: `lemma_7_2_3` is `B` through the dictionary.  `IsEffective.eq_one` (for *every* natural
   representation, not only small ones) follows from `B` and the uniqueness of `Φ` on connected sets
   (`NaturalRep.Φ_eqOn`): `B` gives a natural representation `R'` with `R'.U ⊆ R.U` and `Φ'`
   injective; `Φ' g = Φ g = id` on `R'.U`, so `g = 1`.  `isEffective_iff_forall_naturalRep`
-  follows from these two and `theorem_7_1`.  `injective_Φ_iff` and `kerΦ_eq_bot_iff` are facts
+  follows from these two and `theorem_7_1_13`.  `injective_Φ_iff` and `kerΦ_eq_bot_iff` are facts
   about an arbitrary natural representation, re-proved outright from its fields.
 -/
 
@@ -36,14 +36,14 @@ def A : Prop :=
   (type_of% @Polyfold.EpGroupoid.NaturalRep.kerΦ_eq_bot_iff.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.IsEffective.eq_one.{0}) ∧
   (type_of% @Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep.{0}) ∧
-  (type_of% @Polyfold.EpGroupoid.lemma_7_3.{0})
+  (type_of% @Polyfold.EpGroupoid.lemma_7_2_3.{0})
 
 theorem A_holds : A :=
   ⟨@Polyfold.EpGroupoid.NaturalRep.injective_Φ_iff.{0},
     @Polyfold.EpGroupoid.NaturalRep.kerΦ_eq_bot_iff.{0},
     @Polyfold.EpGroupoid.IsEffective.eq_one.{0},
     @Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep.{0},
-    @Polyfold.EpGroupoid.lemma_7_3.{0}⟩
+    @Polyfold.EpGroupoid.lemma_7_2_3.{0}⟩
 
 section Dictionary
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
@@ -127,7 +127,7 @@ section FromB
 variable {Obj Mor : Type} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor]
 
-/-- `lemma_7_3` from `B`. -/
+/-- `lemma_7_2_3` from `B`. -/
 theorem lemma_7_3_of_B (hB : B) (X : EpGroupoid Obj Mor) : X.IsEffective ↔ ∀ x, ∀ V : Set Obj,
     IsOpen V → x ∈ V →
     ∃ R : X.NaturalRep x, R.U ⊆ V ∧ ∀ g, (∀ y ∈ R.U, R.Φ g y = y) → g = 1 := by
@@ -169,18 +169,18 @@ theorem B_to_A : B → A := by
     exact eq_one_of_B hB hX R hg
   · intro Obj Mor _ _ _ _ _ _ X
     refine ⟨fun h _ R _ => eq_one_of_B hB h R, fun h => (lemma_7_3_of_B hB X).2 fun x _ hV hx =>
-      (X.theorem_7_1 x hV hx).imp fun R hR => ⟨hR, h x R⟩⟩
+      (X.theorem_7_1_13 x hV hx).imp fun R hR => ⟨hR, h x R⟩⟩
   · intro Obj Mor _ _ _ _ _ _ X
     exact lemma_7_3_of_B hB X
 
 #rt_check RoundTrip.V7_35.A_to_B [Polyfold.EpGroupoid.NaturalRep.injective_Φ_iff,
   Polyfold.EpGroupoid.NaturalRep.kerΦ_eq_bot_iff, Polyfold.EpGroupoid.IsEffective.eq_one,
-  Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep, Polyfold.EpGroupoid.lemma_7_3]
+  Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep, Polyfold.EpGroupoid.lemma_7_2_3]
 #rt_check RoundTrip.V7_35.B_to_A [Polyfold.EpGroupoid.NaturalRep.injective_Φ_iff,
   Polyfold.EpGroupoid.NaturalRep.kerΦ_eq_bot_iff, Polyfold.EpGroupoid.IsEffective.eq_one,
-  Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep, Polyfold.EpGroupoid.lemma_7_3]
+  Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep, Polyfold.EpGroupoid.lemma_7_2_3]
 #rt_overlap RoundTrip.V7_35.B_to_A [Polyfold.EpGroupoid.NaturalRep.injective_Φ_iff,
   Polyfold.EpGroupoid.NaturalRep.kerΦ_eq_bot_iff, Polyfold.EpGroupoid.IsEffective.eq_one,
-  Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep, Polyfold.EpGroupoid.lemma_7_3]
+  Polyfold.EpGroupoid.isEffective_iff_forall_naturalRep, Polyfold.EpGroupoid.lemma_7_2_3]
 
 end RoundTrip.V7_35

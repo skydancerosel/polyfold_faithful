@@ -4,8 +4,8 @@ import RoundTrip.Blind.V4_43
 
 /-!
 Round trip for V4_43 (Remark 4.20: good position is an open condition).  `A` is the conjunction of
-the types of `Polyfold.tangentSpace_eq_range_graph`, `Polyfold.MPolyfold.remark_4_20` (universe
-`0`), `Polyfold.lemma_3_55_relOpen` and `Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le`.
+the types of `Polyfold.tangentSpace_eq_range_graph`, `Polyfold.MPolyfold.remark_4_2_9` (universe
+`0`), `Polyfold.lemma_3_6_9_relOpen` and `Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le`.
 
 B states Remark 4.20 with B's chart reading `IsGoodPositionAtB` of Definition 4.16 (verbatim the
 one of the blind V4_38).  The glue is that of V4_38 (copied below, `gp_iff` = V4_38's `B_holds`):
@@ -14,9 +14,9 @@ for tame `X`, a smooth submanifold `A` and `a ∈ A`, the project's `IsGoodPosit
 uses tameness, Lemma 4.19 through chart independence and a closed good complement cut down to
 `T₀O`, as in V3_82).
 
-* `A_to_B`: translate the hypothesis with `gp_iff`, apply `remark_4_20` (from `A`), translate
+* `A_to_B`: translate the hypothesis with `gp_iff`, apply `remark_4_2_9` (from `A`), translate
   back at every `b ∈ U ∩ A`.
-* `B → A` is proved only for the main conjunct (`B_to_A_main`, `remark_4_20` itself, by the same
+* `B → A` is proved only for the main conjunct (`B_to_A_main`, `remark_4_2_9` itself, by the same
   translation); the other three conjuncts are general lemmas of the proof (the tangent space of
   a graph, Lemma 3.55 for relatively open domains, good position in `E` ⇒ inside any `T ⊇ N`)
   that B does not contain.
@@ -28,13 +28,13 @@ open Polyfold
 /-- The project's statement, universe `0`. -/
 def A : Prop :=
   type_of% @Polyfold.tangentSpace_eq_range_graph ∧
-    type_of% @Polyfold.MPolyfold.remark_4_20.{0} ∧
-    type_of% @Polyfold.lemma_3_55_relOpen ∧
+    type_of% @Polyfold.MPolyfold.remark_4_2_9.{0} ∧
+    type_of% @Polyfold.lemma_3_6_9_relOpen ∧
     type_of% @Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le
 
 theorem A_holds : A :=
-  ⟨@Polyfold.tangentSpace_eq_range_graph, @Polyfold.MPolyfold.remark_4_20.{0},
-    @Polyfold.lemma_3_55_relOpen, @Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le⟩
+  ⟨@Polyfold.tangentSpace_eq_range_graph, @Polyfold.MPolyfold.remark_4_2_9.{0},
+    @Polyfold.lemma_3_6_9_relOpen, @Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le⟩
 
 /-! ### The glue of V4_38 (Definition 4.16 in a chart), copied -/
 
@@ -225,9 +225,9 @@ theorem gp_iff : ∀ (X : Type) [TopologicalSpace X] [T2Space X] [ParacompactSpa
     have hNt : N = LinearMap.range (scDeriv t.U t 0 : ψ.model.E 0 →ₗ[ℝ] ψ.model.E 0) := by
       refine SetLike.coe_injective (hN.trans ?_)
       rw [← ht]; exact tangentSpace_eq_coe_submodule t h0t
-    have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_7_ii htp h0t
+    have : FiniteDimensional ℝ N := by rw [hNt]; exact lemma_4_1_7_ii htp h0t
     have hNs : N ≤ ψ.model.E.smooth :=
-      (ψ.model.E.proposition_1_6_iff N).1 (hNt ▸ (t.isScSplitting_range_scDeriv h0t hs0).1)
+      (ψ.model.E.proposition_1_1_7_iff N).1 (hNt ▸ (t.isScSplitting_range_scDeriv h0t hs0).1)
     refine ⟨d.toSubData.shrink ψ, d.s, ψ, n, Wq, T, 0, N, M,
       (retractionOn_iff P d.s _).1 (isScPlusRetractionOn_shrink d ψ), ?_,
       d.toSubData.mem_shrink ψ ha had haψ, hψ, d.toSubData.shrink_subset_source ψ, hT, hz, ?_, hM,
@@ -256,7 +256,7 @@ theorem A_to_B : A → B := by
   exact ⟨U, hU, haU, fun b hb => (gp_iff X P S b hP hSB hb.2).1 (hU' b hb)⟩
 
 /-- B gives the main conjunct of A (Remark 4.20 itself). -/
-theorem B_to_A_main : B → type_of% @Polyfold.MPolyfold.remark_4_20.{0} := by
+theorem B_to_A_main : B → type_of% @Polyfold.MPolyfold.remark_4_2_9.{0} := by
   intro hB X _ _ _ P hP S hS a hgp
   have hSB : IsSmoothSubmanifoldB P S := (smooth_iff P S).1 hS
   have ha : a ∈ S := hgp.1
@@ -264,13 +264,13 @@ theorem B_to_A_main : B → type_of% @Polyfold.MPolyfold.remark_4_20.{0} := by
   exact ⟨U, hU, haU, fun b hb => (gp_iff X P S b hP hSB hb.2).2 (hU' b hb)⟩
 
 #rt_check RoundTrip.V4_43.A_to_B [Polyfold.tangentSpace_eq_range_graph,
-  Polyfold.MPolyfold.remark_4_20, Polyfold.lemma_3_55_relOpen,
+  Polyfold.MPolyfold.remark_4_2_9, Polyfold.lemma_3_6_9_relOpen,
   Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le]
 #rt_check RoundTrip.V4_43.B_to_A_main [Polyfold.tangentSpace_eq_range_graph,
-  Polyfold.MPolyfold.remark_4_20, Polyfold.lemma_3_55_relOpen,
+  Polyfold.MPolyfold.remark_4_2_9, Polyfold.lemma_3_6_9_relOpen,
   Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le]
 #rt_overlap RoundTrip.V4_43.B_to_A_main [Polyfold.tangentSpace_eq_range_graph,
-  Polyfold.MPolyfold.remark_4_20, Polyfold.lemma_3_55_relOpen,
+  Polyfold.MPolyfold.remark_4_2_9, Polyfold.lemma_3_6_9_relOpen,
   Polyfold.IsInGoodPosition.isInGoodPositionIn_of_le]
 
 end RoundTrip.V4_43

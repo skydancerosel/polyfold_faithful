@@ -2,7 +2,7 @@ import Polyfold.Chapter3.TameGerms
 import Polyfold.Chapter3.GoodPositionGermG
 
 /-!
-Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definitions 3.14,
+Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, Definitions 3.1.16 (preprint 3.14),
 3.50, 3.51 and 3.53 in a tame chart, **in the text's germ reading** (phase 2 of the germ-versus-chart
 work; Findings, Chapter 3, items 260–299).
 
@@ -10,18 +10,18 @@ work; Findings, Chapter 3, items 260–299).
 
 ## The text, paraphrased
 
-(Definition 3.14) An sc-Fredholm section is sc-smooth, regularizing, and an sc-Fredholm germ
-(Definition 3.11) at every smooth point.  (Definitions 3.50, 3.51) For a tame strong bundle the
-germ data are taken in a tame chart.  (Definition 3.53) An sc-Fredholm germ in good position.
-The germs of Definition 3.11 are those of Definitions 3.1–3.2, with levels that may shrink.
+(Definition 3.1.16 (preprint 3.14)) An sc-Fredholm section is sc-smooth, regularizing, and an sc-Fredholm germ
+(Definition 3.1.11 (preprint 3.11)) at every smooth point.  (Definitions 3.6.3, 3.6.4 (preprint 3.50, 3.51)) For a tame strong bundle the
+germ data are taken in a tame chart.  (Definition 3.6.6 (preprint 3.53)) An sc-Fredholm germ in good position.
+The germs of Definition 3.1.11 (preprint 3.11) are those of Definitions 3.1.1–3.1.2 (preprint 3.1–3.2), with levels that may shrink.
 
 ## What is formalized
 
-* `Polyfold.StrongBundle.IsScFredholmSection`: Definition 3.14 with the germ reading
-  `IsScFredholmGerm` of Definition 3.11.
+* `Polyfold.StrongBundle.IsScFredholmSection`: Definition 3.1.16 (preprint 3.14) with the germ reading
+  `IsScFredholmGerm` of Definition 3.1.11 (preprint 3.11).
 * `Polyfold.StrongBundle.IsScFredholmGermTame`, `Polyfold.StrongBundle.IsGoodPositionGermTame`:
-  Definitions 3.50 and 3.53 in a tame chart (`IsTameChart`), germ reading.
-* `Polyfold.StrongBundle.IsScFredholmSectionTame`: Definition 3.51, germ reading.
+  Definitions 3.6.3 and 3.6.6 (preprint 3.50 and 3.53) in a tame chart (`IsTameChart`), germ reading.
+* `Polyfold.StrongBundle.IsScFredholmSectionTame`: Definition 3.6.4 (preprint 3.51), germ reading.
 * The project's whole-chart notions imply these (`…isScFredholmSection`, `…isScFredholmGermTame`,
   `…isGoodPositionGermTame`, `…isScFredholmSectionTame`), and tame germ data are germ data.
 
@@ -29,7 +29,7 @@ The germs of Definition 3.11 are those of Definitions 3.1–3.2, with levels tha
 
 As in `IsScFredholmGerm` (`Chapter3/GermFillingChart.lean`): the filling and the sc⁺-section are
 germs, the strong bundle isomorphism and the basic germ are as in `IsConjugateToBasicGerm`.
-These notions are the targets of the redefinition of Definition 3.11 in phase 2.
+These notions are the targets of the redefinition of Definition 3.1.11 (preprint 3.11) in phase 2.
 -/
 
 open Set Filter Topology Function
@@ -48,7 +48,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] {PX 
 namespace StrongBundle
 
 variable (B) in
-/-- **Definition 3.14** (with the text's germ reading of Definition 3.11): `f` is sc-smooth,
+/-- **Definition 3.1.16 (preprint 3.14)** (with the text's germ reading of Definition 3.11): `f` is sc-smooth,
 regularizing, and an sc-Fredholm germ (`IsScFredholmGerm`) at every smooth point.  (The project's
 original whole-chart reading is `IsScFredholmSectionWholeChart`, `StrongBundleSections.lean`.) -/
 structure IsScFredholmSection (f : X → Y) : Prop where
@@ -56,7 +56,7 @@ structure IsScFredholmSection (f : X → Y) : Prop where
   regularizing : ∀ m, ∀ x ∈ PX.levelSet m, f x ∈ B.doubleLevel m (m + 1) → x ∈ PX.levelSet (m + 1)
   germ : ∀ x ∈ PX.smoothSet, B.IsScFredholmGerm f x
 
-/-- **Project ⇒ germ reading** for Definition 3.14. -/
+/-- **Project ⇒ germ reading** for Definition 3.1.16 (preprint 3.14). -/
 theorem IsScFredholmSectionWholeChart.isScFredholmSection (h : B.IsScFredholmSectionWholeChart f) :
     B.IsScFredholmSection f :=
   ⟨h.isScSmooth, h.regularizing, fun x hx => (h.germ x hx).isScFredholmGerm⟩
@@ -73,7 +73,7 @@ theorem IsScFredholmSection.mem_smoothSet_of_isZeroAt
     rw [hx]; exact B.fiberZero_mem_doubleLevel ih
 
 variable (B) in
-/-- **Definition 3.50** (the text's germ reading): the data of `IsScFredholmGerm` in a tame strong
+/-- **Definition 3.6.3 (preprint 3.50)** (the text's germ reading): the data of `IsScFredholmGerm` in a tame strong
 bundle chart (`IsTameChart`).  (Whole-chart reading: `IsScFredholmGermTameWholeChart`.) -/
 def IsScFredholmGermTame (f : X → Y) (x₀ : X) : Prop :=
   x₀ ∈ PX.smoothSet ∧
@@ -83,13 +83,13 @@ def IsScFredholmGermTame (f : X → Y) (x₀ : X) : Prop :=
     IsScPlusGerm c.φ.model.C c.U s ∧ c.F.toBase 1 (s 0) = g 0 ∧
     IsConjugateToBasicGerm c.U (fun u => g u - c.F.toBase 1 (s u))
 
-/-- Tame germ data are germ data (Definition 3.50 ⟹ Definition 3.11, germ reading). -/
+/-- Tame germ data are germ data (Definition 3.6.3 (preprint 3.50) ⟹ Definition 3.1.11 (preprint 3.11), germ reading). -/
 theorem IsScFredholmGermTame.isScFredholmGerm {x : X} (h : B.IsScFredholmGermTame f x) :
     B.IsScFredholmGerm f x := by
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩ := h
   exact ⟨hs, c, hc.1, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩
 
-/-- **Project ⇒ germ reading** for Definition 3.50. -/
+/-- **Project ⇒ germ reading** for Definition 3.6.3 (preprint 3.50). -/
 theorem IsScFredholmGermTameWholeChart.isScFredholmGermTame {x : X} (h : B.IsScFredholmGermTameWholeChart f x) :
     B.IsScFredholmGermTame f x := by
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩ := h
@@ -98,7 +98,7 @@ theorem IsScFredholmGermTameWholeChart.isScFredholmGermTame {x : X} (h : B.IsScF
       hsm.isScSmoothGerm c.isQuadrantLike c.relOpen.relOpen h0⟩, hs0, hconj⟩
 
 variable (B) in
-/-- **Definition 3.53 in a tame chart** (the text's germ reading): the data of
+/-- **Definition 3.6.6 (preprint 3.53) in a tame chart** (the text's germ reading): the data of
 `IsGoodPositionGerm` in a tame strong bundle chart.  (Whole-chart reading:
 `IsGoodPositionGermTameWholeChart`.) -/
 def IsGoodPositionGermTame (f : X → Y) (x₀ : X) : Prop :=
@@ -124,7 +124,7 @@ theorem IsGoodPositionGermTame.isScFredholmGermTame {x : X}
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj, -⟩ := h
   exact ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj⟩
 
-/-- **Project ⇒ germ reading** for Definition 3.53 in a tame chart. -/
+/-- **Project ⇒ germ reading** for Definition 3.6.6 (preprint 3.53) in a tame chart. -/
 theorem IsGoodPositionGermTameWholeChart.isGoodPositionGermTame {x : X}
     (h : B.IsGoodPositionGermTameWholeChart f x) : B.IsGoodPositionGermTame f x := by
   obtain ⟨hs, c, hc, hxV, hφ0, h0, g, s, hfill, hsm, hs0, hconj, hgp⟩ := h
@@ -136,13 +136,13 @@ theorem IsGoodPositionGermTameWholeChart.isGoodPositionGermTame {x : X}
     isGoodPositionAt_iff_germ.1 hgp⟩
 
 variable (B) in
-/-- **Definition 3.51** (the text's germ reading): an sc-Fredholm section (`IsScFredholmSection`)
+/-- **Definition 3.6.4 (preprint 3.51)** (the text's germ reading): an sc-Fredholm section (`IsScFredholmSection`)
 whose germ data at every smooth point can be taken in a tame chart.  (Whole-chart reading:
 `IsScFredholmSectionTameWholeChart`.) -/
 structure IsScFredholmSectionTame (f : X → Y) : Prop extends B.IsScFredholmSection f where
   germTame : ∀ x ∈ PX.smoothSet, B.IsScFredholmGermTame f x
 
-/-- **Project ⇒ germ reading** for Definition 3.51. -/
+/-- **Project ⇒ germ reading** for Definition 3.6.4 (preprint 3.51). -/
 theorem IsScFredholmSectionTameWholeChart.isScFredholmSectionTame (h : B.IsScFredholmSectionTameWholeChart f) :
     B.IsScFredholmSectionTame f :=
   { h.toIsScFredholmSectionWholeChart.isScFredholmSection with

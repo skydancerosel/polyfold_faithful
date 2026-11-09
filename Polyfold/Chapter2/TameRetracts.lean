@@ -4,54 +4,54 @@ import Polyfold.Chapter1.ExpositionLemmas
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.4,
-Propositions 2.35, 2.36, Lemma 2.40, Corollary 2.41, Propositions 2.42, 2.43 and Theorem 2.45 (in
+Propositions 2.5.3, 2.5.6 (preprint 2.35, 2.36), Lemma 2.5.12 (preprint 2.40), Corollary 2.5.13 (preprint 2.41), Propositions 2.5.14, 2.5.15 (preprint 2.42, 2.43) and Theorem 2.5.17 (preprint 2.45) (in
 part): the boundary geometry of tame retracts and tame M-polyfolds.
 
 # Tame retracts: the degeneracy index and the faces
 
 ## The text, paraphrased
 
-(Proposition 2.35) For a tame retraction `r` and a smooth `x ∈ O`, `(1 − Dr(x))E ⊆ E_x`, so the
-sc-complement in Definition 2.34 (2) can be taken to be `(1 − Dr(x))E`.  (Proposition 2.36) For a
+(Proposition 2.5.3 (preprint 2.35)) For a tame retraction `r` and a smooth `x ∈ O`, `(1 − Dr(x))E ⊆ E_x`, so the
+sc-complement in Definition 2.5.2 (preprint 2.34) (2) can be taken to be `(1 − Dr(x))E`.  (Proposition 2.5.6 (preprint 2.36)) For a
 tame retract and smooth `x`, `dim(T_xO/T_x^R O) = d_O(x)`, `C_xO` is a partial quadrant in `T_xO`,
-and `d_O(x) = d_C(x)` for every `x ∈ O`.  (Lemma 2.40) The faces of a tame retract are the connected
+and `d_O(x) = d_C(x)` for every `x ∈ O`.  (Lemma 2.5.12 (preprint 2.40)) The faces of a tame retract are the connected
 components of the sets `f ∩ O`, `f` an extended face; the components of `f ∩ O`, `f' ∩ O` through
-`x` agree only if `f = f'`.  (Corollary 2.41) Every `x ∈ O` lies in exactly `d_O(x)` faces.
-(Proposition 2.42) In a tame M-polyfold every `x` has a neighbourhood `V` in which each `y` lies in
+`x` agree only if `f = f'`.  (Corollary 2.5.13 (preprint 2.41)) Every `x ∈ O` lies in exactly `d_O(x)` faces.
+(Proposition 2.5.14 (preprint 2.42)) In a tame M-polyfold every `x` has a neighbourhood `V` in which each `y` lies in
 exactly `d_X(y)` faces of `V` and `d_V = d_X`; globally `x` lies in at most `d_X(x)` faces.
-(Proposition 2.43) A face `F` of a tame retract has an open neighbourhood `U*` in `U` with an
+(Proposition 2.5.15 (preprint 2.43)) A face `F` of a tame retract has an open neighbourhood `U*` in `U` with an
 sc-smooth retraction `s : U* → U*` onto `F`; `F` is a sub-M-polyfold of `O`, tame, with
-`d_F = d_O − 1`.  (Theorem 2.45) The interior of a face is a sub-M-polyfold; in the face-structured
+`d_F = d_O − 1`.  (Theorem 2.5.17 (preprint 2.45)) The interior of a face is a sub-M-polyfold; in the face-structured
 case faces are tame sub-M-polyfolds with `d_X = d_F + 1`; local and global face counts.
 
 ## What is formalized
 
-* `Polyfold.proposition_2_35` (**Proposition 2.35**): `(1 − Dr(x))E ⊆ E_x` and `E = Dr(x)E ⊕
+* `Polyfold.proposition_2_5_3` (**Proposition 2.5.3 (preprint 2.35)**): `(1 − Dr(x))E ⊆ E_x` and `E = Dr(x)E ⊕
   (1 − Dr(x))E` is an sc-splitting; in coordinates `coord_scDeriv_eq` (`λ_j ∘ Dr(x) = λ_j` for
   `j ∈ I(x)`).  `ScRetraction.scDeriv_mapsTo_minimalSubspace` (`Dr(x)E_x ⊆ E_x`, the sign argument).
 * `Polyfold.quotDim_reducedTangentSpaceWith_eq` (equations (15)–(16)), the general
   `MPolyfold.degIndex_eq_chartDegIndex_of_isTameWith` / `_of_isTameRetract` (a tame chart realizes
-  the minimum of Definition 2.22 at every point of its domain: `d_X(y) = d_C(φ(y))`), and from it
-  `Polyfold.proposition_2_36` (**(13)**: `dim(T_xO/T_x^R O) = d_O(x) = d_C(x)` at smooth `x`) and
-  `Polyfold.proposition_2_36_degIndex` (**(14)**: `d_O = d_C` on `O`), also for any local model
+  the minimum of Definition 2.4.1 (preprint 2.22) at every point of its domain: `d_X(y) = d_C(φ(y))`), and from it
+  `Polyfold.proposition_2_5_6` (**(13)**: `dim(T_xO/T_x^R O) = d_O(x) = d_C(x)` at smooth `x`) and
+  `Polyfold.proposition_2_5_6_degIndex` (**(14)**: `d_O = d_C` on `O`), also for any local model
   (`LocalModel.degIndex_toMPolyfold_of_isTameWith`).
-* The local geometry the text's proofs of Lemma 2.40 and Proposition 2.43 skip (exposition
+* The local geometry the text's proofs of Lemma 2.5.12 (preprint 2.40) and Proposition 2.5.15 (preprint 2.43) skip (exposition
   Lemmas 4.A–4.C): `subset_coordHyper_of_isPreconnected` (a connected piece of `{d_C = 1}` lies in
   one extended face `f_i = coordHyper T i`), `Polyfold.ray_zeroSet` (**rays stay in their face**,
-  Lemma 4.B, via `IsSc1With.apply_deriv_eq_zero_of_ray` and Proposition 2.35) and
+  Lemma 4.B, via `IsSc1With.apply_deriv_eq_zero_of_ray` and Proposition 2.5.3 (preprint 2.35)) and
   `Polyfold.local_face_structure` (Lemma 4.C).
 * Faces in `E₀`: `ScRetraction.faceStratum` (`S = {x ∈ O | d_C(x) = 1}`),
   `ScRetraction.IsRetractFace`; `Polyfold.closure_connectedComponentIn_faceStratum` and
-  `Polyfold.lemma_2_40` (**Lemma 2.40**), `Polyfold.lemma_2_40_injective` (its second statement),
-  `Polyfold.corollary_2_41_retract`.  Transfer to the M-polyfold `O`:
-  `LocalModel.isFace_toMPolyfold_iff`, and `Polyfold.corollary_2_41` (**Corollary 2.41**: a tame
+  `Polyfold.lemma_2_5_12` (**Lemma 2.5.12 (preprint 2.40)**), `Polyfold.lemma_2_5_12_injective` (its second statement),
+  `Polyfold.corollary_2_5_13_retract`.  Transfer to the M-polyfold `O`:
+  `LocalModel.isFace_toMPolyfold_iff`, and `Polyfold.corollary_2_5_13` (**Corollary 2.5.13 (preprint 2.41)**: a tame
   retract is face-structured).
-* `Polyfold.proposition_2_42` (**Proposition 2.42**) with `MPolyfold.faces_encard_le` (the global
+* `Polyfold.proposition_2_5_14` (**Proposition 2.5.14 (preprint 2.42)**) with `MPolyfold.faces_encard_le` (the global
   bound) and `MPolyfold.IsTame.exists_chart`.
-* `Polyfold.proposition_2_43` (**Proposition 2.43**, the retraction `s = r ∘ P_i` of a
+* `Polyfold.proposition_2_5_15` (**Proposition 2.5.15 (preprint 2.43)**, the retraction `s = r ∘ P_i` of a
   neighbourhood `U*` of `F` onto `F`, `P_i = killCoord T i` the sc-projection onto `f_i`) and
   `LocalModel.isSubMPolyfold_of_isFace` (`F` is a sub-M-polyfold of `O`).
-* `MPolyfold.theorem_2_45_interior` (**Theorem 2.45**, the interior of a face: `F ∩ {d_X = 1} = G`
+* `MPolyfold.theorem_2_5_17_interior` (**Theorem 2.5.17 (preprint 2.45)**, the interior of a face: `F ∩ {d_X = 1} = G`
   for `F = closure(G)`).
 
 ## What the text leaves implicit, and the choices made
@@ -60,30 +60,30 @@ case faces are tame sub-M-polyfolds with `d_X = d_F + 1`; local and global face 
   `I(z) = zeroSet T z`); the hypotheses are `R.IsTameWith T` for that `T` (implied by
   `ScRetraction.IsTame`).  The intrinsic extended faces of the text are the hyperplanes
   `f_i = {λ_i = 0}`.
-* Proposition 2.35 needs only condition (2) of tameness: `Dr(x)E_x ⊆ E_x` holds for every
+* Proposition 2.5.3 (preprint 2.35) needs only condition (2) of tameness: `Dr(x)E_x ⊆ E_x` holds for every
   retraction at every point of `O₁` by the sign argument (the text derives it from condition (1)).
-* "Smooth point" in condition (2) of Definition 2.34 is kept; the smooth approximants
-  `r(T⁻¹(a, w_j))`, `w_j ∈ W_∞`, of the proof of Proposition 2.36 are
+* "Smooth point" in condition (2) of Definition 2.5.2 (preprint 2.34) is kept; the smooth approximants
+  `r(T⁻¹(a, w_j))`, `w_j ∈ W_∞`, of the proof of Proposition 2.5.6 (preprint 2.36) are
   `exists_tendsto_smooth_degIndexWith`.
-* Lemma 2.40's proof is a sketch; the key step "the retraction maps points of `U ∩ f_i` near
-  `f_i ∩ O` into `f_i`" needs tameness (2) through Proposition 2.35 (`ray_zeroSet`), and the
+* Lemma 2.5.12 (preprint 2.40)'s proof is a sketch; the key step "the retraction maps points of `U ∩ f_i` near
+  `f_i ∩ O` into `f_i`" needs tameness (2) through Proposition 2.5.3 (preprint 2.35) (`ray_zeroSet`), and the
   identification of faces with components uses that faces are relatively open in `f_i ∩ O`
   (`subset_of_relClopen_of_isPreconnected`).
 * Faces of the retract are handled in `E₀` (`IsRetractFace`) and transferred to the subtype
   `↥O` carrying the M-polyfold structure (`isFace_toMPolyfold_iff`).
-* Proposition 2.42's "faces of `V`" are expressed through the tame chart `φ : V → O`, an
+* Proposition 2.5.14 (preprint 2.42)'s "faces of `V`" are expressed through the tame chart `φ : V → O`, an
   sc-diffeomorphism onto the M-polyfold `O`: `d_X(y) = d_O(φ(y))` and `O` is face-structured.
-* Proposition 2.43: the neighbourhoods of the text are balls `B_e` *and* their preimages under
+* Proposition 2.5.15 (preprint 2.43): the neighbourhoods of the text are balls `B_e` *and* their preimages under
   `P_i`, since `P_i` need not be norm-decreasing for the norm of `E₀`.
 
 ## Elsewhere
 
-* Proposition 2.36's "`C_xO` is a partial quadrant in `T_xO`" and "`T_x^R O` is an sc-subspace"
+* Proposition 2.5.6 (preprint 2.36)'s "`C_xO` is a partial quadrant in `T_xO`" and "`T_x^R O` is an sc-subspace"
   are in `Polyfold.Chapter2.PartialCone` (proved directly for tame retracts; the general second
-  statement of Theorem 2.31 is not formalized: gap G.11 of the report).
-* Proposition 2.43's "`F` is tame and `d_F = d_O − 1`", Proposition 2.44 and the remaining
-  statements of Theorem 2.45 are in `Polyfold.Chapter2.TameFaces`.
-* Proposition 2.46 (fibred products) is in `Polyfold.Chapter2.FibredProduct`.
+  statement of Theorem 2.4.12 (preprint 2.31) is not formalized: gap G.11 of the report).
+* Proposition 2.5.15 (preprint 2.43)'s "`F` is tame and `d_F = d_O − 1`", Proposition 2.5.16 (preprint 2.44) and the remaining
+  statements of Theorem 2.5.17 (preprint 2.45) are in `Polyfold.Chapter2.TameFaces`.
+* Proposition 2.5.20 (preprint 2.46) (fibred products) is in `Polyfold.Chapter2.FibredProduct`.
 -/
 
 open Set Filter Topology Function Module
@@ -121,7 +121,7 @@ theorem quotDim_eq_finrank_quotient_of_isCompl {V : Type*} [AddCommGroup V] [Mod
   exact hiso.finrank_eq
 
 /-- `Dr(x)` maps `E_x` into `E_x` at a point `x ∈ O₁` (the sign argument for `r`, with
-`r(x) = x`); this is the step "`Dr(x)E_x ⊆ E_x`" of the proof of Proposition 2.35.  Tameness is
+`r(x) = x`); this is the step "`Dr(x)E_x ⊆ E_x`" of the proof of Proposition 2.5.3 (preprint 2.35).  Tameness is
 not needed for it. -/
 theorem ScRetraction.scDeriv_mapsTo_minimalSubspace (R : ScRetraction E C)
     (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)) (hT : C = T 0 ⁻¹' quadrant n W 0)
@@ -132,7 +132,7 @@ theorem ScRetraction.scDeriv_mapsTo_minimalSubspace (R : ScRetraction E C)
     (fun _ hz => R.U_subset_C (R.mapsTo hz)) (R.lvlSet_retract_subset 1 hx)
   rwa [R.apply_eq_self_of_mem_retract hx] at h
 
-/-- At a smooth point `x ∈ O`, `Dr(x)` is an sc-operator (Proposition 1.16's remark). -/
+/-- At a smooth point `x ∈ O`, `Dr(x)` is an sc-operator (Proposition 1.2.1 (preprint 1.16)'s remark). -/
 theorem ScRetraction.isScOperator_scDeriv (R : ScRetraction E C) {x : E 1}
     (hx : x ∈ E.lvlSet R.U 1) (hs : x ∈ E.smoothLvl 1) : IsScOperator (scDeriv R.U R x) :=
   R.isSc1.isSc1With_scDeriv.scOperator_deriv hx hs
@@ -164,16 +164,16 @@ theorem ScRetraction.isScSplitting_range_scDeriv (R : ScRetraction E C) {x : E 1
       rw [map_sub, hDD, sub_self]
   rwa [hker] at h
 
-/-- **Proposition 2.35**: let `r : U → U` be a tame sc-smooth retraction and `x ∈ O = r(U)` a
+/-- **Proposition 2.5.3 (preprint 2.35)**: let `r : U → U` be a tame sc-smooth retraction and `x ∈ O = r(U)` a
 smooth point.  Then `(1 − Dr(x))E ⊆ E_x`, and `A = (1 − Dr(x))E` is an sc-complement of
-`T_xO = Dr(x)E`: in condition (2) of Definition 2.34 one can take `A = (1 − Dr(x))E`.
+`T_xO = Dr(x)E`: in condition (2) of Definition 2.5.2 (preprint 2.34) one can take `A = (1 − Dr(x))E`.
 
-*Proof* (as in the text): with `A ⊆ E_x` from Definition 2.34 (2), `E = T_xO ⊕ A` and
+*Proof* (as in the text): with `A ⊆ E_x` from Definition 2.5.2 (preprint 2.34) (2), `E = T_xO ⊕ A` and
 `(1 − Dr(x))T_xO = 0` give `(1 − Dr(x))E = (1 − Dr(x))A`; and `Dr(x)E_x ⊆ E_x` by the sign
 argument.  The sc-splitting is that of the sc-projection `Dr(x)`.  Only condition (2) of
 tameness is used (the text uses condition (1) for `Dr(x)E_x ⊆ E_x`; the sign argument, which holds
 for every retraction at a point of `O₁`, makes it unnecessary). -/
-theorem proposition_2_35 {R : ScRetraction E C} {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
+theorem proposition_2_5_3 {R : ScRetraction E C} {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
     (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1) :
     LinearMap.range (ContinuousLinearMap.id ℝ (E 0) - scDeriv R.U R x : E 0 →ₗ[ℝ] E 0) ≤
@@ -200,7 +200,7 @@ theorem proposition_2_35 {R : ScRetraction E C} {T : ScIso E ((ScBanach.const (F
   exact Submodule.sub_mem _ haE hDa
 
 /-- At a smooth point of a tame retract, `dim(T_xO/T_x^R O) = dim(E/E_x) = d_C(x)` (equations
-(15)–(16) of the proof of Proposition 2.36). -/
+(15)–(16) of the proof of Proposition 2.5.6 (preprint 2.36)). -/
 theorem quotDim_reducedTangentSpaceWith_eq {R : ScRetraction E C}
     {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)} (hR : R.IsTameWith T) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1) :
@@ -223,7 +223,7 @@ variable {n : ℕ} {W : ScBanach}
 
 /-- Smooth points of the partial quadrant with the same degeneracy index accumulate at every point:
 for `x` with `T x = (a, w)`, the points `T⁻¹(a, w')`, `w' ∈ W_∞` (the text's "`(a, w_j)`,
-`w_j ∈ W_∞`, `w_j → w`" in the proof of Proposition 2.36). -/
+`w_j ∈ W_∞`, `w_j → w`" in the proof of Proposition 2.5.6 (preprint 2.36)). -/
 theorem exists_tendsto_smooth_degIndexWith (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W))
     (x : E 0) : ∃ (ι : Type) (l : Filter ι) (σ : ι → E 0), l.NeBot ∧ Tendsto σ l (𝓝 x) ∧
       (∀ᶠ i in l, σ i ∈ E.smooth) ∧ (∀ i, degIndexWith T (σ i) = degIndexWith T x) ∧
@@ -273,7 +273,7 @@ lemma exists_smoothLvl_one_of_mem_smooth {y : E 0} (hy : y ∈ E.smooth) :
 
 end Approx
 
-/-! ### Tame charts realize the degeneracy index; Proposition 2.36 -/
+/-! ### Tame charts realize the degeneracy index; Proposition 2.5.6 (preprint 2.36) -/
 
 namespace MPolyfold
 
@@ -282,11 +282,11 @@ universe u
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
   {n : ℕ} {W : ScBanach}
 
-/-- A chart modelled on a tame retract realizes the minimum of Definition 2.22 at every point
+/-- A chart modelled on a tame retract realizes the minimum of Definition 2.4.1 (preprint 2.22) at every point
 of its domain: `d_X(x) = d_C(φ(x))`.  At a smooth point this is `d_C(φ x) = dim(T/T^R) ≤ d_X(x)`
-(tameness (2) and Theorem 2.31); at a general point one approximates `φ(x)` by the smooth points
-`r(T⁻¹(a, w_j))` of the same index (tameness (1)) and uses Lemma 2.23, as in the proof of
-Proposition 2.36. -/
+(tameness (2) and Theorem 2.4.12 (preprint 2.31)); at a general point one approximates `φ(x)` by the smooth points
+`r(T⁻¹(a, w_j))` of the same index (tameness (1)) and uses Lemma 2.4.3 (preprint 2.23), as in the proof of
+Proposition 2.5.6 (preprint 2.36). -/
 theorem degIndex_eq_chartDegIndex_of_isTameWith {φ : MChart X} (hφ : P.IsChart φ)
     (R : ScRetraction φ.model.E φ.model.C) (hR : R.retract = φ.model.O)
     {T : ScIso φ.model.E ((ScBanach.const (Fin n → ℝ)).prod W)}
@@ -299,7 +299,7 @@ theorem degIndex_eq_chartDegIndex_of_isTameWith {φ : MChart X} (hφ : P.IsChart
     have hzO : z ∈ φ.model.E.lvlSet R.retract 1 := by
       rw [ScBanach.mem_lvlSet, hz, hR]; exact φ.mapsTo_model y hy
     have h1 := quotDim_reducedTangentSpaceWith_eq htame hzO hzs
-    have h2 := theorem_2_31 P hφ R hR T hT hy hz
+    have h2 := theorem_2_4_12 P hφ R hR T hT hy hz
     refine le_antisymm (P.degIndex_le hφ hy) ?_
     rw [chartDegIndex, degIndex_eq T hT (φ.apply_mem_C hy), ← hz, ← h1]
     exact h2
@@ -327,7 +327,7 @@ theorem degIndex_eq_chartDegIndex_of_isTameWith {φ : MChart X} (hφ : P.IsChart
     have := hc.comp (tendsto_nhdsWithin_iff.2 ⟨hRσ, hRσO⟩)
     rwa [show (φ.toPartialEquiv.symm o : X) = x from h1] at this
   have hev : ∀ᶠ i in l, chartDegIndex φ x ≤ P.degIndex x := by
-    filter_upwards [hσU, hRσO, hσs, hy.eventually (lemma_2_23 P x)] with i hiU hiO his hile
+    filter_upwards [hσU, hRσO, hσs, hy.eventually (lemma_2_4_3 P x)] with i hiU hiO his hile
     have hyi : φ.symm (R (σ i)) ∈ φ.source := φ.symm_mapsTo hiO
     have hφyi : φ (φ.symm (R (σ i))) = R (σ i) := φ.apply_symm_apply hiO
     have hsm : φ (φ.symm (R (σ i))) ∈ φ.model.E.smooth := by
@@ -344,7 +344,7 @@ theorem degIndex_eq_chartDegIndex_of_isTameWith {φ : MChart X} (hφ : P.IsChart
   have := hl
   exact hev.exists.elim fun _ h => h
 
-/-- A chart of the structure modelled on a tame retract (Definition 2.34) realizes `d_X`. -/
+/-- A chart of the structure modelled on a tame retract (Definition 2.5.2 (preprint 2.34)) realizes `d_X`. -/
 theorem degIndex_eq_chartDegIndex_of_isTameRetract {φ : MChart X} (hφ : P.IsChart φ)
     (htame : IsTameRetract φ.model.E φ.model.C φ.model.O) {x : X} (hx : x ∈ φ.source) :
     P.degIndex x = chartDegIndex φ x := by
@@ -362,7 +362,7 @@ section Prop236
 
 variable {n : ℕ} {W : ScBanach} {C : Set (E 0)}
 
-/-- Proposition 2.36, equation (14), for a local model `(O, C, E)` with a tame retraction `r` onto
+/-- Proposition 2.5.6 (preprint 2.36), equation (14), for a local model `(O, C, E)` with a tame retraction `r` onto
 `O`: the degeneracy index of the M-polyfold `O` is `d_O(x) = d_C(x)`. -/
 theorem LocalModel.degIndex_toMPolyfold_of_isTameWith (M : LocalModel) (hne : M.O.Nonempty)
     (R : ScRetraction M.E M.C) (hRM : R.retract = M.O)
@@ -372,25 +372,25 @@ theorem LocalModel.degIndex_toMPolyfold_of_isTameWith (M : LocalModel) (hne : M.
   (M.toMPolyfold hne).degIndex_eq_chartDegIndex_of_isTameWith
     ((M.toMPolyfold hne).isChart_of_mem (mem_singleton _)) R hRM hT hR (mem_univ x)
 
-/-- **Proposition 2.36**, equation (14): for a tame retraction `r : U → U` (with respect to the
+/-- **Proposition 2.5.6 (preprint 2.36)**, equation (14): for a tame retraction `r : U → U` (with respect to the
 presentation `T` of `C`) the degeneracy index of the retract `O = r(U)`, viewed as an M-polyfold,
 is `d_O(x) = d_C(x)` for every `x ∈ O`. -/
-theorem proposition_2_36_degIndex {R : ScRetraction E C}
+theorem proposition_2_5_6_degIndex {R : ScRetraction E C}
     {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)} (hT : C = T 0 ⁻¹' quadrant n W 0)
     (hR : R.IsTameWith T) (hne : R.retract.Nonempty) (x : R.retract) :
     (R.toLocalModel.toMPolyfold hne).degIndex x = degIndex E C x :=
   R.toLocalModel.degIndex_toMPolyfold_of_isTameWith hne R rfl hT hR x
 
-/-- **Proposition 2.36**, equation (13): at a smooth point `x ∈ O`,
+/-- **Proposition 2.5.6 (preprint 2.36)**, equation (13): at a smooth point `x ∈ O`,
 `dim(T_xO / T_x^R O) = d_O(x)` (and `= d_C(x)`). -/
-theorem proposition_2_36 {R : ScRetraction E C}
+theorem proposition_2_5_6 {R : ScRetraction E C}
     {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)} (hT : C = T 0 ⁻¹' quadrant n W 0)
     (hR : R.IsTameWith T) {x : E 1} (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1) :
     quotDim (LinearMap.range (scDeriv R.U R x : E 0 →ₗ[ℝ] E 0)) (reducedTangentSpaceWith R T x) =
         (R.toLocalModel.toMPolyfold ⟨_, hx⟩).degIndex ⟨E.toBase 1 x, hx⟩ ∧
       (R.toLocalModel.toMPolyfold ⟨_, hx⟩).degIndex ⟨E.toBase 1 x, hx⟩ =
         degIndex E C (E.toBase 1 x) := by
-  have h14 := proposition_2_36_degIndex hT hR ⟨_, hx⟩ ⟨E.toBase 1 x, hx⟩
+  have h14 := proposition_2_5_6_degIndex hT hR ⟨_, hx⟩ ⟨E.toBase 1 x, hx⟩
   refine ⟨?_, h14⟩
   rw [quotDim_reducedTangentSpaceWith_eq hR hx hs, ← degIndex_eq T hT (R.retract_subset_C hx)]
   exact h14.symm
@@ -414,7 +414,7 @@ lemma mem_zeroSet {z : E 0} {i : Fin n} : i ∈ zeroSet T z ↔ (T 0 z).1 i = 0 
 lemma continuous_coord (i : Fin n) : Continuous fun z : E 0 => (T 0 z).1 i :=
   (continuous_apply i).comp (continuous_fst.comp (T 0).continuous)
 
-/-- The coordinate hyperplane `f_i = {λ_i = 0}`, the extended face of Lemma 2.40. -/
+/-- The coordinate hyperplane `f_i = {λ_i = 0}`, the extended face of Lemma 2.5.12 (preprint 2.40). -/
 def coordHyper (i : Fin n) : Set (E 0) := {z | (T 0 z).1 i = 0}
 
 lemma isClosed_coordHyper (i : Fin n) : IsClosed (coordHyper T i) :=
@@ -448,7 +448,7 @@ lemma zeroSet_eq_singleton {z : E 0} {i : Fin n} (h1 : degIndexWith T z = 1)
   rw [hj, Finset.mem_singleton] at this
   rw [hj, this]
 
-/-- **The label of a stratum piece** (Lemma 2.40's "there exists an index `i` such that `F̂` lies
+/-- **The label of a stratum piece** (Lemma 2.5.12 (preprint 2.40)'s "there exists an index `i` such that `F̂` lies
 in `{a_i = 0}`", Lemma 4.A of the exposition): a preconnected subset of `{z ∈ C | d_C(z) = 1}`
 containing a point with `λ_i = 0` lies in the hyperplane `f_i`. -/
 theorem subset_coordHyper_of_isPreconnected (hT : C = T 0 ⁻¹' quadrant n W 0) {S : Set (E 0)}
@@ -554,28 +554,28 @@ def coordL (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)) (j : Fin n) :
 
 @[simp] lemma coordL_apply (j : Fin n) (z : E 0) : coordL T j z = (T 0 z).1 j := rfl
 
-/-- **Proposition 2.35**, in coordinates: at a smooth point `x` of a tame retract,
+/-- **Proposition 2.5.3 (preprint 2.35)**, in coordinates: at a smooth point `x` of a tame retract,
 `λ_j ∘ Dr(x) = λ_j` for every `j ∈ I(x)`. -/
 theorem coord_scDeriv_eq (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1) {j : Fin n}
     (hj : (T 0 (E.toBase 1 x)).1 j = 0) (v : E 0) :
     (T 0 (scDeriv R.U R x v)).1 j = (T 0 v).1 j := by
-  have h := (proposition_2_35 hT hR hx hs).1 ⟨v, rfl⟩
+  have h := (proposition_2_5_3 hT hR hx hs).1 ⟨v, rfl⟩
   rw [mem_minimalSubspaceWith] at h
   have := h j hj
   change (T 0 (v - scDeriv R.U R x v)).1 j = 0 at this
   rw [map_sub, Prod.fst_sub, Pi.sub_apply, sub_eq_zero] at this
   exact this.symm
 
-/-- **Rays stay in their face** (Lemma 4.B of the exposition; the step of Lemma 2.40 and
-Proposition 2.43 that the text leaves out).  Let `r` be tame, `x ∈ O` smooth, `i ∈ I(x)`, and `y`
+/-- **Rays stay in their face** (Lemma 4.B of the exposition; the step of Lemma 2.5.12 (preprint 2.40) and
+Proposition 2.5.15 (preprint 2.43) that the text leaves out).  Let `r` be tame, `x ∈ O` smooth, `i ∈ I(x)`, and `y`
 a direction with `λ_i(y) = 0` and `λ_l(y) > 0` for the other `l ∈ I(x)`.  Then for small `τ > 0`
 the point `x + τy` lies in `U` with `I(x + τy) = {i}`, and `I(r(x + τy)) = {i}`.
 
 *Proof.* By tameness (1) `r(x + τy)` has `d_C = 1`, by continuity `I(r(x + τy)) ⊆ I(x)`, and by
 connectedness of `(0, τ₀]` the vanishing coordinate `j` of `r(x + τy)` does not depend on `τ`;
 differentiating `λ_j(r(x + τy)) = 0` at `τ = 0` gives `λ_j(Dr(x)y) = 0`, which equals `λ_j(y)` by
-Proposition 2.35 (`j ∈ I(x)`); hence `j = i`. -/
+Proposition 2.5.3 (preprint 2.35) (`j ∈ I(x)`); hence `j = i`. -/
 theorem ray_zeroSet (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {x : E 1}
     (hx : x ∈ E.lvlSet R.retract 1) (hs : x ∈ E.smoothLvl 1) {i : Fin n}
     (hi : (T 0 (E.toBase 1 x)).1 i = 0) {y : E 1} (hyi : (T 0 (E.toBase 1 y)).1 i = 0)
@@ -698,7 +698,7 @@ variable {n : ℕ} {W : ScBanach} {C : Set (E 0)} {R : ScRetraction E C}
   {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
 
 /-- The stratum `S = {x ∈ O | d_C(x) = 1}` of a retract `O = r(U)` (for a tame `r` this is
-`{d_O = 1}` by Proposition 2.36). -/
+`{d_O = 1}` by Proposition 2.5.6 (preprint 2.36)). -/
 def ScRetraction.faceStratum (R : ScRetraction E C) : Set (E 0) :=
   {z | z ∈ R.retract ∧ degIndex E C z = 1}
 
@@ -764,7 +764,7 @@ lemma convex_ball_inter_zeroSet_eq (hT : C = T 0 ⁻¹' quadrant n W 0) (hC : Co
     rw [hzl.2 hli, hzl'.2 hli]; ring
 
 /-- **The local structure of a face** (Lemma 4.C of the exposition, which supplies what the
-text's proof of Lemma 2.40 sketches).  Let `r` be tame, `e ∈ O` with `λ_i(e) = 0`.  There are
+text's proof of Lemma 2.5.12 (preprint 2.40) sketches).  Let `r` be tame, `e ∈ O` with `λ_i(e) = 0`.  There are
 `ε > 0` and a point `p ∈ S` with `λ_i(p) = 0` such that, with `B = {z ∈ C | |z − e| < ε}`:
 `B ⊆ U`; `I(z) ⊆ I(e)` and `I(r(z)) ⊆ I(e)` on `B`; `r` maps `A_i ∩ B = {z ∈ B | I(z) = {i}}` into
 the connected component `F̂(e)` of `S` through `p`; and every `e' ∈ f_i ∩ O ∩ B` lies in the
@@ -907,7 +907,7 @@ theorem local_face_structure (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTame
 
 end LocalFace
 
-/-! ### Lemma 2.40 and Corollary 2.41 -/
+/-! ### Lemma 2.5.12 (preprint 2.40) and Corollary 2.5.13 (preprint 2.41) -/
 
 /-- A preconnected subset `c` of `F` meeting a subset `G = F ∩ K` (`K` closed) which is
 relatively open in `F` lies in `G`. -/
@@ -968,8 +968,8 @@ section Lemma240
 variable {n : ℕ} {W : ScBanach} {C : Set (E 0)} {R : ScRetraction E C}
   {T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)}
 
-/-- A **face of the retract** `O = r(U)`, in `E₀` (Definition 2.39 for the M-polyfold `O`, with
-`d_O = d_C` by Proposition 2.36): the closure in `O` of a connected component of
+/-- A **face of the retract** `O = r(U)`, in `E₀` (Definition 2.5.10 (preprint 2.39) for the M-polyfold `O`, with
+`d_O = d_C` by Proposition 2.5.6 (preprint 2.36)): the closure in `O` of a connected component of
 `S = {x ∈ O | d_C(x) = 1}`. -/
 def ScRetraction.IsRetractFace (R : ScRetraction E C) (G : Set (E 0)) : Prop :=
   ∃ x ∈ R.faceStratum, G = closure (connectedComponentIn R.faceStratum x) ∩ R.retract
@@ -1007,7 +1007,7 @@ lemma connectedComponentIn_eq_of_mem_closure (hT : C = T 0 ⁻¹' quadrant n W 0
   rw [R.apply_eq_self_of_mem_retract hzS.1] at hzp
   rw [connectedComponentIn_eq hzq, ← connectedComponentIn_eq hzp]
 
-/-- **Lemma 2.40**, the core: for `x ∈ S` with `λ_i(x) = 0`, the face `closure(F̂) ∩ O` through
+/-- **Lemma 2.5.12 (preprint 2.40)**, the core: for `x ∈ S` with `λ_i(x) = 0`, the face `closure(F̂) ∩ O` through
 the component `F̂` of `S` at `x` is the connected component of `f_i ∩ O` through `x`. -/
 theorem closure_connectedComponentIn_faceStratum (hT : C = T 0 ⁻¹' quadrant n W 0)
     (hR : R.IsTameWith T) {x : E 0} (hx : x ∈ R.faceStratum) {i : Fin n} (hxi : (T 0 x).1 i = 0) :
@@ -1042,7 +1042,7 @@ theorem closure_connectedComponentIn_faceStratum (hT : C = T 0 ⁻¹' quadrant n
   rw [hGp, ← R.apply_eq_self_of_mem_retract hzF.2]
   exact hcl z ⟨hzB, R.retract_subset_C hzF.2⟩ hzF.1
 
-/-- **Lemma 2.40**, the converse half: for `e ∈ f_i ∩ O`, the connected component of `f_i ∩ O`
+/-- **Lemma 2.5.12 (preprint 2.40)**, the converse half: for `e ∈ f_i ∩ O`, the connected component of `f_i ∩ O`
 through `e` is the face `closure(F̂(e)) ∩ O`, `F̂(e)` the component of `S` of Lemma 4.C. -/
 theorem connectedComponentIn_coordHyper_eq (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
     {e : E 0} (he : e ∈ R.retract) {i : Fin n} (hei : (T 0 e).1 i = 0) :
@@ -1059,9 +1059,9 @@ theorem connectedComponentIn_coordHyper_eq (hT : C = T 0 ⁻¹' quadrant n W 0) 
     exact ⟨this, he⟩
   exact (connectedComponentIn_eq heH).symm
 
-/-- **Lemma 2.40**: for a tame retract `(O, C, E)` with extended faces `f_i = {λ_i = 0}`, the faces
+/-- **Lemma 2.5.12 (preprint 2.40)**: for a tame retract `(O, C, E)` with extended faces `f_i = {λ_i = 0}`, the faces
 of `O` are exactly the connected components of the sets `f_i ∩ O`. -/
-theorem lemma_2_40 (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) (G : Set (E 0)) :
+theorem lemma_2_5_12 (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) (G : Set (E 0)) :
     R.IsRetractFace G ↔ ∃ i, ∃ e ∈ R.retract, (T 0 e).1 i = 0 ∧
       G = connectedComponentIn (coordHyper T i ∩ R.retract) e := by
   constructor
@@ -1074,9 +1074,9 @@ theorem lemma_2_40 (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) (G
     obtain ⟨p, hpS, -, hp⟩ := connectedComponentIn_coordHyper_eq hT hR he hei
     exact ⟨p, hpS, hp⟩
 
-/-- **Lemma 2.40**, second statement: the components of `f_i ∩ O` and `f_j ∩ O` through a point
+/-- **Lemma 2.5.12 (preprint 2.40)**, second statement: the components of `f_i ∩ O` and `f_j ∩ O` through a point
 `x ∈ O` (with `i, j ∈ I(x)`) are equal only if `f_i = f_j`. -/
-theorem lemma_2_40_injective (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {x : E 0}
+theorem lemma_2_5_12_injective (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {x : E 0}
     (hx : x ∈ R.retract) {i j : Fin n} (hxi : (T 0 x).1 i = 0)
     (h : connectedComponentIn (coordHyper T i ∩ R.retract) x =
       connectedComponentIn (coordHyper T j ∩ R.retract) x) : i = j := by
@@ -1090,9 +1090,9 @@ theorem lemma_2_40_injective (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTame
   rw [hI, Finset.mem_singleton] at this
   exact this.symm
 
-/-- **Corollary 2.41**, in `E₀`: in a tame retract every point `x ∈ O` lies in exactly `d_C(x)`
-faces (and `d_C(x) = d_O(x)` by Proposition 2.36). -/
-theorem corollary_2_41_retract (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {x : E 0}
+/-- **Corollary 2.5.13 (preprint 2.41)**, in `E₀`: in a tame retract every point `x ∈ O` lies in exactly `d_C(x)`
+faces (and `d_C(x) = d_O(x)` by Proposition 2.5.6 (preprint 2.36)). -/
+theorem corollary_2_5_13_retract (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {x : E 0}
     (hx : x ∈ R.retract) :
     {G | R.IsRetractFace G ∧ x ∈ G}.encard = (degIndex E C x : ℕ∞) := by
   classical
@@ -1102,19 +1102,19 @@ theorem corollary_2_41_retract (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTa
     constructor
     · rintro ⟨i, hi, rfl⟩
       have hxi : (T 0 x).1 i = 0 := (mem_zeroSet T).1 hi
-      exact ⟨(lemma_2_40 hT hR _).2 ⟨i, x, hx, hxi, rfl⟩, mem_connectedComponentIn ⟨hxi, hx⟩⟩
+      exact ⟨(lemma_2_5_12 hT hR _).2 ⟨i, x, hx, hxi, rfl⟩, mem_connectedComponentIn ⟨hxi, hx⟩⟩
     · rintro ⟨hG, hxG⟩
-      obtain ⟨i, e, he, hei, rfl⟩ := (lemma_2_40 hT hR G).1 hG
+      obtain ⟨i, e, he, hei, rfl⟩ := (lemma_2_5_12 hT hR G).1 hG
       have hxi : (T 0 x).1 i = 0 := (connectedComponentIn_subset _ _ hxG).1
       exact ⟨i, (mem_zeroSet T).2 hxi, (connectedComponentIn_eq hxG).symm⟩
   have hinj : InjOn f (zeroSet T x : Set (Fin n)) := fun i hi j hj hij =>
-    lemma_2_40_injective hT hR hx ((mem_zeroSet T).1 hi) hij
+    lemma_2_5_12_injective hT hR hx ((mem_zeroSet T).1 hi) hij
   rw [← himage, hinj.encard_image, Set.encard_coe_eq_coe_finsetCard,
     degIndex_eq T hT (R.retract_subset_C hx), degIndexWith_eq_card_zeroSet]
 
 end Lemma240
 
-/-! ### Faces of the M-polyfold `O` and Corollary 2.41 -/
+/-! ### Faces of the M-polyfold `O` and Corollary 2.5.13 (preprint 2.41) -/
 
 /-- `val '' closure A = closure (val '' A) ∩ O` for `A ⊆ O`. -/
 theorem image_val_closure {α : Type*} [TopologicalSpace α] {O : Set α} (A : Set O) :
@@ -1129,7 +1129,7 @@ variable (M : LocalModel) (hne : M.O.Nonempty) {n : ℕ} {W : ScBanach}
   {T : ScIso M.E ((ScBanach.const (Fin n → ℝ)).prod W)}
 
 include hRM in
-/-- The faces of the M-polyfold `O` (Definition 2.39) are the faces of the retract in `E₀`
+/-- The faces of the M-polyfold `O` (Definition 2.5.10 (preprint 2.39)) are the faces of the retract in `E₀`
 (`ScRetraction.IsRetractFace`), for a tame retraction `r` onto `O`. -/
 theorem isFace_toMPolyfold_iff (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
     (F : Set M.O) :
@@ -1153,7 +1153,7 @@ theorem isFace_toMPolyfold_iff (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.Is
     rw [hG, hset, image_val_closure, image_val_connectedComponentIn hSO, hRM]
 
 include hRM in
-/-- **Corollary 2.41**: a tame sc-smooth retract `O` is face-structured: every `x ∈ O` lies in
+/-- **Corollary 2.5.13 (preprint 2.41)**: a tame sc-smooth retract `O` is face-structured: every `x ∈ O` lies in
 exactly `d_O(x)` faces of the M-polyfold `O`. -/
 theorem isFaceStructured_toMPolyfold (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) :
     (M.toMPolyfold hne).IsFaceStructured := by
@@ -1178,19 +1178,19 @@ theorem isFaceStructured_toMPolyfold (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR 
       rw [M.isFace_toMPolyfold_iff hne R hRM hT hR, himg]
       exact hG
   rw [← hinj.encard_image, himage, hd]
-  exact corollary_2_41_retract hT hR (by rw [hRM]; exact x.2)
+  exact corollary_2_5_13_retract hT hR (by rw [hRM]; exact x.2)
 
 end LocalModel
 
-/-- **Corollary 2.41**: if `(O, C, E)` is a tame sc-smooth retract, then every point `x ∈ O` lies
+/-- **Corollary 2.5.13 (preprint 2.41)**: if `(O, C, E)` is a tame sc-smooth retract, then every point `x ∈ O` lies
 in precisely `d_O(x)` faces of `O`. -/
-theorem corollary_2_41 (M : LocalModel) (hne : M.O.Nonempty)
+theorem corollary_2_5_13 (M : LocalModel) (hne : M.O.Nonempty)
     (htame : IsTameRetract M.E M.C M.O) : (M.toMPolyfold hne).IsFaceStructured := by
   obtain ⟨R, hR, hRt⟩ := htame
   obtain ⟨n, W, T, hT⟩ := M.isPartialQuadrant
   exact M.isFaceStructured_toMPolyfold hne R hR hT (hRt n W T hT)
 
-/-! ### Proposition 2.42 -/
+/-! ### Proposition 2.5.14 (preprint 2.42) -/
 
 namespace MPolyfold
 
@@ -1211,7 +1211,7 @@ lemma IsTame.exists_chart (hP : P.IsTame) (x : X) :
   obtain ⟨φ, hφ, hx⟩ := A.cover x
   exact ⟨φ, P.isChart_of_mem_equiv hA hφ, hx, htame φ hφ⟩
 
-/-- **Proposition 2.42**, the global statement: in a tame M-polyfold, a point `x` lies in at most
+/-- **Proposition 2.5.14 (preprint 2.42)**, the global statement: in a tame M-polyfold, a point `x` lies in at most
 `d_X(x)` faces of `X`.
 
 *Proof.* In a tame chart `φ : V → O` around `x`, with `o = φ(x)`: for each `i ∈ I(o)` Lemma 4.C
@@ -1300,12 +1300,12 @@ theorem faces_encard_le (hP : P.IsTame) (x : X) :
     _ = (P.degIndex x : ℕ∞) := by
         rw [Set.encard_coe_eq_coe_finsetCard, hdeg x hx, degIndexWith_eq_card_zeroSet]
 
-/-- **Proposition 2.42**: let `X` be a tame M-polyfold.  Every `x ∈ X` has an open neighbourhood
+/-- **Proposition 2.5.14 (preprint 2.42)**: let `X` be a tame M-polyfold.  Every `x ∈ X` has an open neighbourhood
 `V`, the domain of a tame chart `φ : V → O`, such that `d_X(y) = d_O(φ(y)) = d_C(φ(y))` for all
 `y ∈ V` and every point of `O ≅ V` lies in exactly `d_O` faces of `O` (`O` is face-structured);
 globally, `x` lies in at most `d_X(x)` faces of `X`.  The neighbourhood `V` is represented by the
 M-polyfold `O` it is sc-diffeomorphic to through `φ`. -/
-theorem _root_.Polyfold.proposition_2_42 (hP : P.IsTame) (x : X) :
+theorem _root_.Polyfold.proposition_2_5_14 (hP : P.IsTame) (x : X) :
     (∃ φ : MChart X, P.IsChart φ ∧ x ∈ φ.source ∧
       (∀ y ∈ φ.source, P.degIndex y = Polyfold.degIndex φ.model.E φ.model.C (φ y)) ∧
       (∀ y (hy : y ∈ φ.source),
@@ -1326,7 +1326,7 @@ theorem _root_.Polyfold.proposition_2_42 (hP : P.IsTame) (x : X) :
 
 end MPolyfold
 
-/-! ### Proposition 2.43: the retraction onto a face -/
+/-! ### Proposition 2.5.15 (preprint 2.43): the retraction onto a face -/
 
 section Prop243
 
@@ -1348,7 +1348,7 @@ def killCoordModel (n : ℕ) (W : ScBanach) (i : Fin n) :
   incl_comm _ _ := rfl
 
 /-- The sc-projection `P_i = T⁻¹ ∘ (a_i ↦ 0) ∘ T` of `E` onto the extended face `f_i` (the text's
-`(b, v) ↦ (0, b₂, …, b_k, v)` in the proof of Proposition 2.43). -/
+`(b, v) ↦ (0, b₂, …, b_k, v)` in the proof of Proposition 2.5.15 (preprint 2.43)). -/
 def killCoord (T : ScIso E ((ScBanach.const (Fin n → ℝ)).prod W)) (i : Fin n) : ScOperator E E :=
   T.symm.toScOperator.comp ((killCoordModel n W i).comp T.toScOperator)
 
@@ -1382,16 +1382,16 @@ lemma killCoord_mem (hT : C = T 0 ⁻¹' quadrant n W 0) (i : Fin n) {z : E 0} (
 lemma killCoord_coord_self (i : Fin n) (z : E 0) : (T 0 (killCoord T i 0 z)).1 i = 0 := by
   rw [killCoord_coord, if_pos rfl]
 
-/-- **Proposition 2.43**, the retraction: let `r : U → U` be a tame retraction onto `O` and `F` a
+/-- **Proposition 2.5.15 (preprint 2.43)**, the retraction: let `r : U → U` be a tame retraction onto `O` and `F` a
 face of `O`, contained in the extended face `f_i`.  There are an open neighbourhood `U*` of `F`
 in `U` (relatively open in `C`) and an sc-smooth retraction `s : U* → U*` onto `s(U*) = F`, namely
 `s = r ∘ P_i` with `P_i` the sc-projection onto `f_i`.  So `(F, C, E)` is an sc-smooth retract.
 
 The text's "we find an open neighbourhood `U_{(a,w)}` … such that `r(0, b₂, …, b_k, v)` has the
 first coordinate vanishing and belongs to `F`" is Lemma 4.C (face preservation, which rests on
-Lemma 4.B and hence on tameness (2) through Proposition 2.35); the neighbourhoods are taken as
+Lemma 4.B and hence on tameness (2) through Proposition 2.5.3 (preprint 2.35)); the neighbourhoods are taken as
 preimages under `P_i` of balls, since `P_i` need not be norm-decreasing for the norm of `E₀`. -/
-theorem proposition_2_43 (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {F : Set (E 0)}
+theorem proposition_2_5_15 (hT : C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T) {F : Set (E 0)}
     (hF : R.IsRetractFace F) :
     ∃ i : Fin n, F ⊆ coordHyper T i ∧ ∃ S : ScRetraction E C, F ⊆ S.U ∧ S.U ⊆ R.U ∧
       S.retract = F ∧ EqOn S (R ∘ killCoord T i 0) S.U := by
@@ -1468,14 +1468,14 @@ lemma selfChart_symm_apply {z : M.E 0} (hz : z ∈ M.O) : (M.selfChart hne).symm
   (M.selfChart hne).symm_apply_apply (x := (⟨z, hz⟩ : M.O)) (mem_univ _)
 
 include hRM in
-/-- **Proposition 2.43**, second statement: a face `F` of a tame retract `O` is a sub-M-polyfold of
-the M-polyfold `O` (Definition 2.20), with the retraction `s = r ∘ P_i` restricted to
+/-- **Proposition 2.5.15 (preprint 2.43)**, second statement: a face `F` of a tame retract `O` is a sub-M-polyfold of
+the M-polyfold `O` (Definition 2.3.18 (preprint 2.20)), with the retraction `s = r ∘ P_i` restricted to
 `V = O ∩ U*`. -/
 theorem isSubMPolyfold_of_isFace (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.IsTameWith T)
     {F : Set M.O} (hF : (M.toMPolyfold hne).IsFace F) : (M.toMPolyfold hne).IsSubMPolyfold F := by
   classical
   have hG := (M.isFace_toMPolyfold_iff hne R hRM hT hR F).1 hF
-  obtain ⟨i, -, S, hGS, hSU, hSret, -⟩ := proposition_2_43 hT hR hG
+  obtain ⟨i, -, S, hGS, hSU, hSret, -⟩ := proposition_2_5_15 hT hR hG
   obtain ⟨W₀, hW₀, hSW⟩ := S.relOpen.relOpen
   have hOC : M.O ⊆ M.C := M.O_subset_C
   set V : Set M.O := Subtype.val ⁻¹' S.U with hV
@@ -1563,7 +1563,7 @@ theorem isSubMPolyfold_of_isFace (hT : M.C = T 0 ⁻¹' quadrant n W 0) (hR : R.
 
 end LocalModel
 
-/-! ### Theorem 2.45: the interior of a face -/
+/-! ### Theorem 2.5.17 (preprint 2.45): the interior of a face -/
 
 namespace MPolyfold
 
@@ -1571,14 +1571,14 @@ universe u
 
 variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P : MPolyfold X)
 
-/-- **Theorem 2.45**, the interior of a face: in a tame M-polyfold, a face `F = closure(G)`, `G` a
+/-- **Theorem 2.5.17 (preprint 2.45)**, the interior of a face: in a tame M-polyfold, a face `F = closure(G)`, `G` a
 connected component of `{d_X = 1}`, satisfies `F ∩ {d_X = 1} = G`; the text's "interior of a face"
 is this set.
 
 *Proof.* At `y ∈ F` with `d_X(y) = 1`, in a tame chart `φ` with `I(φ y) = {i}`, all points of
 `{d_X = 1}` near `y` lie in `φ⁻¹(F̂)` for the single component `F̂` of Lemma 4.C, a connected
 subset of `{d_X = 1}` containing `y` and meeting `G`. -/
-theorem theorem_2_45_interior (hP : P.IsTame) (y₀ : X) :
+theorem theorem_2_5_17_interior (hP : P.IsTame) (y₀ : X) :
     closure (connectedComponentIn {y | P.degIndex y = 1} y₀) ∩ {y | P.degIndex y = 1} =
       connectedComponentIn {y | P.degIndex y = 1} y₀ := by
   classical

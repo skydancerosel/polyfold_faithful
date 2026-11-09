@@ -4,7 +4,7 @@ import RoundTrip.Blind.V2_30
 
 /-! Round trip for V2_30 (Lemma 2.26: `d_A ≤ d_X` on a sub-M-polyfold).
 
-`A` is the type of `Polyfold.lemma_2_26` (universe `0`): for the project's structure
+`A` is the type of `Polyfold.lemma_2_4_6` (universe `0`): for the project's structure
 `subPolyfold hA` on `A` (Proposition 2.21), `d_A(a) ≤ d_X(a)`.
 
 B states the inequality for EVERY M-polyfold structure `Q` on `A` with properties (1), (2) of
@@ -22,9 +22,9 @@ namespace RoundTrip.V2_30
 open Polyfold Set
 
 /-- The project's statement (universe `0`). -/
-def A : Prop := type_of% @Polyfold.lemma_2_26.{0}
+def A : Prop := type_of% @Polyfold.lemma_2_4_6.{0}
 
-theorem A_holds : A := @Polyfold.lemma_2_26.{0}
+theorem A_holds : A := @Polyfold.lemma_2_4_6.{0}
 
 /-- `A → B`. -/
 theorem A_to_B : A → B := by
@@ -52,7 +52,7 @@ theorem A_to_B : A → B := by
     exact this.congr fun z hz => hg_id z hz
   have hdiffeo : Q.IsScDiffeoOn S id id UA UA :=
     ⟨h1, h2, mapsTo_id _, mapsTo_id _, fun _ _ => rfl, fun _ _ => rfl⟩
-  rw [proposition_2_24 hdiffeo haUA]
+  rw [proposition_2_4_4 hdiffeo haUA]
   exact hA' hA a
 
 /-- `B → A`. -/
@@ -66,8 +66,8 @@ theorem B_to_A : B → A := by
   rw [d.retractInto_val a hx]
   exact (hg x hx).symm
 
-#rt_check RoundTrip.V2_30.A_to_B [Polyfold.lemma_2_26]
-#rt_check RoundTrip.V2_30.B_to_A [Polyfold.lemma_2_26]
-#rt_overlap RoundTrip.V2_30.B_to_A [Polyfold.lemma_2_26]
+#rt_check RoundTrip.V2_30.A_to_B [Polyfold.lemma_2_4_6]
+#rt_check RoundTrip.V2_30.B_to_A [Polyfold.lemma_2_4_6]
+#rt_overlap RoundTrip.V2_30.B_to_A [Polyfold.lemma_2_4_6]
 
 end RoundTrip.V2_30

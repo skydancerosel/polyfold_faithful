@@ -6,8 +6,8 @@ import Polyfold.Chapter2.TameFaces
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.4:
 **the invariance of tameness under sc-diffeomorphisms** (used silently by the text, e.g. in the
-proof of Theorem 3.54, where the chart `ψ ∘ ϕ` onto `ψ(O)` is taken to be a chart of the tame
-M-polyfold `X`, and in Proposition 3.26, "`X' = ψ(X)` is tame").
+proof of Theorem 3.6.8 (preprint 3.54), where the chart `ψ ∘ ϕ` onto `ψ(O)` is taken to be a chart of the tame
+M-polyfold `X`, and in Proposition 3.2.2 (preprint 3.26), "`X' = ψ(X)` is tame").
 
 # Tameness is carried by sc-diffeomorphisms
 
@@ -23,19 +23,19 @@ M-polyfold `X`, and in Proposition 3.26, "`X' = ψ(X)` is tame").
   maps `scIsoLevel` are linear homeomorphisms `E_m ≃ E'_m`).
 * `Polyfold.IsScDiffeoQuadrant.isTameWith_transport`, `isTame_transport`,
   `isTameRetract_image`: **tameness is carried by `ψ`**: if `r` is tame then so is
-  `ψ ∘ r ∘ ψ⁻¹`, and `(ψ(O), C', E')` is a tame retract.  Condition (1) of Definition 2.34 is
-  Theorem 1.25 (`ψ` preserves the degeneracy index, `degIndex_eq`); for (2), at a smooth point
-  `y = ψ(x) ∈ ψ(O)` the derivative `Dψ(x)` is an sc-isomorphism (Proposition 1.16's remark,
+  `ψ ∘ r ∘ ψ⁻¹`, and `(ψ(O), C', E')` is a tame retract.  Condition (1) of Definition 2.5.2 (preprint 2.34) is
+  Theorem 1.3.5 (preprint 1.25) (`ψ` preserves the degeneracy index, `degIndex_eq`); for (2), at a smooth point
+  `y = ψ(x) ∈ ψ(O)` the derivative `Dψ(x)` is an sc-isomorphism (Proposition 1.2.1 (preprint 1.16)'s remark,
   `IsSc1With.scOperator_deriv`) carrying the sc-splitting `E = T_xO ⊕ A` to
   `E' = T_yψ(O) ⊕ Dψ(x)A`, and `Dψ(x)E_x ⊆ E'_y` by the one-sided sign argument
   (`IsSc1With.mapsTo_minimalSubspace`).
 
 ## What the text leaves implicit
 
-The text never states that tameness is invariant under sc-diffeomorphisms; Definition 2.34 (2)
+The text never states that tameness is invariant under sc-diffeomorphisms; Definition 2.5.2 (preprint 2.34) (2)
 is formulated with the sc-complement `A ⊆ E_x` of `T_xO`, and the transport needs `Dψ(x)` to be an
 sc-isomorphism (true at smooth points only) and to map `E_x` into `E'_{ψ(x)}` (the sign argument
-of Lemma 2.29), both of which are in the Lean proof.
+of Lemma 2.4.9 (preprint 2.29)), both of which are in the Lean proof.
 -/
 
 open Set Filter Topology Function Module
@@ -209,9 +209,9 @@ theorem transport_retract (R : ScRetraction E C) (hRU : R.U = U) :
     show ψ (R (ψ' (ψ z))) = ψ z
     rw [h.left_inv z hzU, R.apply_eq_self_of_mem_retract hz]
 
-/-- **The degeneracy index is preserved by `ψ`** (Theorem 1.25). -/
+/-- **The degeneracy index is preserved by `ψ`** (Theorem 1.3.5 (preprint 1.25)). -/
 theorem degIndex_eq {u : E 0} (hu : u ∈ U) : degIndex E' C' (ψ u) = degIndex E C u :=
-  (theorem_1_25 hU hU' h.isScSmooth.isSc1 h.isScSmooth_inv.isSc1 h.mapsTo h.mapsTo_inv h.left_inv
+  (theorem_1_3_5 hU hU' h.isScSmooth.isSc1 h.isScSmooth_inv.isSc1 h.mapsTo h.mapsTo_inv h.left_inv
     h.right_inv hu).symm
 
 /-- `Dψ'(ψ(x)) ∘ Dψ(x) = id` on level `0`, for `x ∈ U₁`. -/
@@ -248,7 +248,7 @@ theorem scDeriv_transport (R : ScRetraction E C) (hRU : R.U = U) {y : E' 1}
     (hRU ▸ h.mapsTo_inv) hy w]
 
 /-- **Tameness is carried by `ψ`** (for a presentation `T'` of `C'`): if `r : U → U` is tame then
-so is `r' = ψ ∘ r ∘ ψ⁻¹ : U' → U'`.  Condition (1) of Definition 2.34 is Theorem 1.25 (`ψ`
+so is `r' = ψ ∘ r ∘ ψ⁻¹ : U' → U'`.  Condition (1) of Definition 2.5.2 (preprint 2.34) is Theorem 1.3.5 (preprint 1.25) (`ψ`
 preserves the degeneracy index); for (2), at a smooth point `y = ψ(x)` of `ψ(O)` the derivative
 `Dψ(x)` is an sc-isomorphism carrying the sc-splitting `E = T_xO ⊕ A` to
 `E' = T_yψ(O) ⊕ Dψ(x)A` (`Dr'(y) = Dψ(x) Dr(x) Dψ'(y)`), and `Dψ(x)E_x ⊆ E'_y` by the one-sided

@@ -2,42 +2,42 @@ import Polyfold.Chapter2.TangentBundle
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory I* (2014 preprint), Part I, §2.2,
-Proposition 2.21 (1), (2) (sub-M-polyfolds are M-polyfolds), and §2.3, Lemma 2.26.
+Proposition 2.3.19 (preprint 2.21) (1), (2) (sub-M-polyfolds are M-polyfolds), and §2.3, Lemma 2.4.6 (preprint 2.26).
 
 # Sub-M-polyfolds as M-polyfolds
 
 ## The text, paraphrased
 
-(Proposition 2.21) A sub-M-polyfold `A` of `X` has a natural M-polyfold structure, for which
+(Proposition 2.3.19 (preprint 2.21)) A sub-M-polyfold `A` of `X` has a natural M-polyfold structure, for which
 (1) the inclusion `i : A → X` is sc-smooth and a homeomorphism onto its image; (2) for every
 sc-smooth retraction `r : V → V` with `r(V) = A ∩ V` the map `i⁻¹ ∘ r : V → A` is sc-smooth;
 (3) `T_aA` has an sc-complement in `T_aX` at smooth points; (4) for `s : W → W` with
 `s(W) = W ∩ A`, `Ts(a) T_aX = T_aA`.  *Proof of the structure.* Given a chart `(φ, V)` around
 `a ∈ A` and a retraction `r : U → U` with `r(U) = U ∩ A`, the set `W = r⁻¹(U ∩ V) ∩ (U ∩ V)` is
 open with `r(W) ⊆ W` and `r(W) = W ∩ A`; `ρ = φ ∘ r ∘ φ⁻¹` is an sc-smooth retraction of `φ(W)`,
-so `O' = ρ(φ(W)) = φ(W ∩ A)` is a retract (Proposition 2.10 (2)) and `(φ|_{W ∩ A}, W ∩ A, (O', C, E))`
+so `O' = ρ(φ(W)) = φ(W ∩ A)` is a retract (Proposition 2.3.1 (preprint 2.10) (2)) and `(φ|_{W ∩ A}, W ∩ A, (O', C, E))`
 is a chart on `A`.  Two such charts are compatible: with a retraction `s''` onto
 `ψ(W ∩ A ∩ W' ∩ A)`, `(ψ' ∘ ψ⁻¹) ∘ s'' = (φ' ∘ φ⁻¹) ∘ s''` is sc-smooth by the chain rule.
-(Lemma 2.26) `d_A(a) ≤ d_X(a)`: the chart of `A` built from a chart of `X` realizing `d_X(a)`
+(Lemma 2.4.6 (preprint 2.26)) `d_A(a) ≤ d_X(a)`: the chart of `A` built from a chart of `X` realizing `d_X(a)`
 has the same `C` and the same image point.
 
 ## What is formalized
 
 * `IsScSmoothRetractMap.mono_source`: an sc-smooth map between retracts restricts to every
   sub-retract `O₁ ⊆ O` (the text's chain-rule argument `(φ' ∘ φ⁻¹) ∘ s''`, once and for all).
-* `MPolyfold.SubData P A`: the data `(V, r)` of Definition 2.20 at a point; `SubData.shrink`
+* `MPolyfold.SubData P A`: the data `(V, r)` of Definition 2.3.18 (preprint 2.20) at a point; `SubData.shrink`
   (the set `W` and its properties `r(W) ⊆ W`, `r(W) = W ∩ A`); `SubData.rho_isScSmooth`
   (`ρ = φ ∘ r ∘ φ⁻¹` is sc-smooth on `φ(W)`) and `SubData.isScRetract_image`
-  (`φ(W ∩ A)` is a retract, Proposition 2.10 (2)).
+  (`φ(W ∩ A)` is a retract, Proposition 2.3.1 (preprint 2.10) (2)).
 * `MPolyfold.subChart d hφ a₀ : MChart A`, the chart `(φ|_{W ∩ A}, W ∩ A, (φ(W ∩ A), C, E))`;
   `subChart_compatible`; `MPolyfold.subAtlas`, `MPolyfold.subPolyfold P hA : MPolyfold A`
-  (**Proposition 2.21**, the structure) with the argument `[ParacompactSpace A]` (supplied by
+  (**Proposition 2.3.19 (preprint 2.21)**, the structure) with the argument `[ParacompactSpace A]` (supplied by
   `MPolyfold.paracompactSpace_subtype` in `Metrizable.lean`);
   `MPolyfold.paracompactSpace_of_isClosed`: a closed sub-M-polyfold is paracompact.
-* `MPolyfold.subPolyfold_inclusion_isScSmooth` (**Proposition 2.21 (1)**: `i : A → X` is
+* `MPolyfold.subPolyfold_inclusion_isScSmooth` (**Proposition 2.3.19 (preprint 2.21) (1)**: `i : A → X` is
   sc-smooth; it is a homeomorphism onto its image by definition of the subspace topology), and
-  `MPolyfold.subPolyfold_retraction_isScSmooth` (**Proposition 2.21 (2)**).
-* `Polyfold.lemma_2_26` (**Lemma 2.26**): `d_A(a) ≤ d_X(a)`.
+  `MPolyfold.subPolyfold_retraction_isScSmooth` (**Proposition 2.3.19 (preprint 2.21) (2)**).
+* `Polyfold.lemma_2_4_6` (**Lemma 2.4.6 (preprint 2.26)**): `d_A(a) ≤ d_X(a)`.
 
 ## What the text leaves implicit, and the choices made
 
@@ -46,16 +46,16 @@ has the same `C` and the same image point.
   in `A`.
 * Paracompactness of `A` is an instance argument `[ParacompactSpace A]` of `subPolyfold`, because
   this file comes before the metrizability proof.  It is not an added hypothesis: as in the text
-  (through Theorem 2.16, `A` is metrizable as a subspace of the metrizable `X`), it is proved for
+  (through Theorem 2.3.10 (preprint 2.16), `A` is metrizable as a subspace of the metrizable `X`), it is proved for
   every subset `A` by `MPolyfold.paracompactSpace_subtype` in `Metrizable.lean` (not an instance,
   since it depends on the M-polyfold structure of `X`: it is supplied with
   `haveI := P.paracompactSpace_subtype A`).  For a *closed* sub-M-polyfold it is proved here as
   well (`paracompactSpace_of_isClosed`; a sub-M-polyfold is locally closed, not closed in general).
-* Proposition 2.21 (3), (4) (the tangent spaces of `A`) are proved in a chart, as the text proves
-  them, in `Metrizable.lean` (`Polyfold.proposition_2_21_3`, `Polyfold.proposition_2_21_4`); their
+* Proposition 2.3.19 (preprint 2.21) (3), (4) (the tangent spaces of `A`) are proved in a chart, as the text proves
+  them, in `Metrizable.lean` (`Polyfold.proposition_2_3_19_three`, `Polyfold.proposition_2_3_19_four`); their
   transport to `T_aX` is not formalized, since `T_xX` carries no linear or sc-structure here (gap
   G.7 of the report).
-* In Proposition 2.21 (2) the map `i⁻¹ ∘ r : V → A` is a total function `X → A` with a junk value
+* In Proposition 2.3.19 (preprint 2.21) (2) the map `i⁻¹ ∘ r : V → A` is a total function `X → A` with a junk value
   off `r⁻¹(A)`.
 -/
 
@@ -88,7 +88,7 @@ variable {X : Type u} [TopologicalSpace X] [T2Space X] [ParacompactSpace X] (P :
 
 /-! ### The local data of a sub-M-polyfold -/
 
-/-- The data `(V, r)` of Definition 2.20 at a point `a` of a sub-M-polyfold `A`: an open `V ∋ a` and an
+/-- The data `(V, r)` of Definition 2.3.18 (preprint 2.20) at a point `a` of a sub-M-polyfold `A`: an open `V ∋ a` and an
 sc-smooth retraction `r : V → V` with `r(V) = A ∩ V`. -/
 structure SubData (A : Set X) where
   /-- The open set `V`. -/
@@ -116,7 +116,7 @@ lemma continuousOn : ContinuousOn d.r d.V := d.isScSmoothOn.continuousOn
 
 variable (φ : MChart X)
 
-/-- The set `W = V ∩ dom φ ∩ r⁻¹(V ∩ dom φ)` of the proof of Proposition 2.21. -/
+/-- The set `W = V ∩ dom φ ∩ r⁻¹(V ∩ dom φ)` of the proof of Proposition 2.3.19 (preprint 2.21). -/
 def shrink : Set X := (d.V ∩ φ.source) ∩ d.r ⁻¹' (d.V ∩ φ.source)
 
 lemma shrink_subset_V : d.shrink φ ⊆ d.V := fun _ hx => hx.1.1
@@ -171,16 +171,16 @@ lemma rho_image : (φ ∘ d.r ∘ φ.symm) '' (φ '' d.shrink φ) = φ '' (d.shr
   simp only [Function.comp_apply, φ.symm_apply_apply hx.1.2]
 
 omit hφ in
-/-- The model `O' = φ(W ∩ A)` of the chart of `A` is an sc-smooth retract (Proposition 2.10 (2)). -/
+/-- The model `O' = φ(W ∩ A)` of the chart of `A` is an sc-smooth retract (Proposition 2.3.1 (preprint 2.10) (2)). -/
 theorem isScRetract_image (hφ : P.IsChart φ) :
     IsScRetract φ.model.E φ.model.C (φ '' (d.shrink φ ∩ A)) := by
   rw [← d.rho_image φ]
-  exact proposition_2_10_2 (φ.isScRetract_image (d.shrink_subset_source φ) (d.isOpen_shrink φ))
+  exact proposition_2_3_1_two (φ.isScRetract_image (d.shrink_subset_source φ) (d.isOpen_shrink φ))
     (d.rho_isScSmooth φ hφ) fun _ hz => d.rho_idem φ hz
 
 end SubData
 
-/-! ### The charts of a sub-M-polyfold (Proposition 2.21) -/
+/-! ### The charts of a sub-M-polyfold (Proposition 2.3.19 (preprint 2.21)) -/
 
 section SubChart
 
@@ -293,7 +293,7 @@ section SubPolyfold
 
 variable {P} {A : Set X} (hA : P.IsSubMPolyfold A)
 
-/-- The data of Definition 2.20 at a point of a sub-M-polyfold. -/
+/-- The data of Definition 2.3.18 (preprint 2.20) at a point of a sub-M-polyfold. -/
 def IsSubMPolyfold.data {a : X} (ha : a ∈ A) : P.SubData A :=
   let h := hA a ha
   { V := h.choose
@@ -323,7 +323,7 @@ omit [T2Space X] in
 theorem paracompactSpace_of_isClosed (h : IsClosed A) : ParacompactSpace A :=
   h.isClosedEmbedding_subtypeVal.paracompactSpace
 
-/-- **Proposition 2.21**: a sub-M-polyfold `A` of `X` is an M-polyfold, with the charts
+/-- **Proposition 2.3.19 (preprint 2.21)**: a sub-M-polyfold `A` of `X` is an M-polyfold, with the charts
 `(φ|_{W ∩ A}, W ∩ A, (φ(W ∩ A), C, E))`.  Paracompactness of `A` is an argument, proved by
 `MPolyfold.paracompactSpace_subtype` in `Metrizable.lean` (see the header). -/
 def subPolyfold [ParacompactSpace A] : MPolyfold A where
@@ -333,7 +333,7 @@ theorem subPolyfold_isChart [ParacompactSpace A] (d : P.SubData A) {φ : MChart 
     (a₀ : A) : (subPolyfold hA).IsChart (subChart d hφ a₀) :=
   (subPolyfold hA).isChart_of_mem ⟨d, φ, hφ, a₀, rfl⟩
 
-/-- **Proposition 2.21 (1)**: the inclusion `i : A → X` is sc-smooth (and a homeomorphism onto
+/-- **Proposition 2.3.19 (preprint 2.21) (1)**: the inclusion `i : A → X` is sc-smooth (and a homeomorphism onto
 its image, by the choice of the subspace topology). -/
 theorem subPolyfold_inclusion_isScSmooth [ParacompactSpace A] :
     (subPolyfold hA).IsScSmoothMap P (Subtype.val : A → X) := by
@@ -351,7 +351,7 @@ theorem subPolyfold_inclusion_isScSmooth [ParacompactSpace A] :
     φ.apply_symm_apply (φ.image_subset_model (fun _ hx => d.shrink_subset_source φ hx.1) hz)]
 
 open scoped Classical in
-/-- The map `i⁻¹ ∘ r : V → A` of Proposition 2.21 (2), as a total function with junk value `a₀`. -/
+/-- The map `i⁻¹ ∘ r : V → A` of Proposition 2.3.19 (preprint 2.21) (2), as a total function with junk value `a₀`. -/
 def SubData.retractInto (d : P.SubData A) (a₀ : A) (x : X) : A :=
   if h : d.r x ∈ A then ⟨d.r x, h⟩ else a₀
 
@@ -359,7 +359,7 @@ lemma SubData.retractInto_val (d : P.SubData A) (a₀ : A) {x : X} (hx : x ∈ d
     (d.retractInto a₀ x).1 = d.r x := by
   rw [SubData.retractInto, dif_pos (d.apply_mem hx)]
 
-/-- **Proposition 2.21 (2)**: for every retraction `r : V → V` with `r(V) = A ∩ V`, the map
+/-- **Proposition 2.3.19 (preprint 2.21) (2)**: for every retraction `r : V → V` with `r(V) = A ∩ V`, the map
 `i⁻¹ ∘ r : V → A` is sc-smooth. -/
 theorem subPolyfold_retraction_isScSmooth [ParacompactSpace A] (d : P.SubData A) (a₀ : A) :
     P.IsScSmoothOn (subPolyfold hA) (d.retractInto a₀) d.V := by
@@ -390,8 +390,8 @@ theorem subPolyfold_retraction_isScSmooth [ParacompactSpace A] (d : P.SubData A)
       change φ (d.r (φ'.symm (φ' y))) = φ (d.retractInto a₀ (φ'.symm (φ' y))).1
       rw [φ'.symm_apply_apply hy.1.2, d.retractInto_val a₀ hy.1.1]
 
-/-- **Lemma 2.26**: `d_A(a) ≤ d_X(a)` for a sub-M-polyfold `A ⊆ X`. -/
-theorem _root_.Polyfold.lemma_2_26 [ParacompactSpace A] (a : A) :
+/-- **Lemma 2.4.6 (preprint 2.26)**: `d_A(a) ≤ d_X(a)` for a sub-M-polyfold `A ⊆ X`. -/
+theorem _root_.Polyfold.lemma_2_4_6 [ParacompactSpace A] (a : A) :
     (subPolyfold hA).degIndex a ≤ P.degIndex a.1 := by
   obtain ⟨φ, hφ, haφ, hd⟩ := P.exists_isChart_degIndex_eq a.1
   rw [hd]

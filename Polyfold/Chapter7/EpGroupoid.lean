@@ -3,9 +3,9 @@ import Polyfold.Chapter5.PartitionsOfUnity
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (2017, arXiv 1707.08941), Part II,
-Chapter 7: **Definitions 7.3–7.17** (pp. 226–251), the data of **Theorem 7.1** (natural
-representation, p. 231) and the claims of pp. 227–228 that Definition 7.5 needs.  There is no
-2014 preprint of Part II; numbers and pages are the 2017 text's.  Pages: Definition 7.3 pp.
+Chapter 7: **Definitions 7.3–7.17** (pp. 226–251), the data of **Theorem 7.1.13 (2017: 7.1)** (natural
+representation, p. 231) and the claims of pp. 227–228 that Definition 7.1.5 (2017: 7.5) needs.  There is no
+2014 preprint of Part II; numbers and pages are the 2017 text's.  Pages: Definition 7.1.3 (2017: 7.3) pp.
 226–227, 7.4 p. 227, 7.5–7.7 p. 228, 7.8 p. 236, 7.9–7.10 p. 237, 7.11 p. 239, 7.12 p. 241,
 7.13 p. 244, 7.14 p. 247, 7.15 p. 249, 7.16 pp. 250–251, 7.17 p. 251.
 
@@ -13,56 +13,56 @@ representation, p. 231) and the claims of pp. 227–228 that Definition 7.5 need
 
 ## The text, paraphrased
 
-(Definition 7.3) An ep-groupoid is a groupoid `(X, 𝐗)` with M-polyfold structures on `X` and `𝐗`
+(Definition 7.1.3 (2017: 7.3)) An ep-groupoid is a groupoid `(X, 𝐗)` with M-polyfold structures on `X` and `𝐗`
 such that (1) `s, t : 𝐗 → X` are local sc-diffeomorphisms; (2) `u` and `ι` are sc-smooth;
 (3) every `x` has an open neighbourhood `V(x)` with `t : s⁻¹(cl_X V(x)) → X` proper; (4) `m` is
 sc-smooth on `𝐗 ₛ×ₜ 𝐗`, an M-polyfold since `s` is a local sc-diffeomorphism.  (p. 227)
 Every `φ : x → y` has open `U(φ)`, `U(x)`, `U(y)` with `s : U(φ) → U(x)`, `t : U(φ) → U(y)`
 sc-diffeomorphisms, and `φ̂ = t ∘ (s|U(φ))⁻¹ : U(x) → U(y)`; for smooth `φ`, `Tφ := Tφ̂(x)`
-(Definition 7.4).  (pp. 227–228) `ml(s φ) = ml(φ) = ml(t φ)` and `d_X(s φ) = d_𝐗(φ) = d_X(t φ)`;
-(Definition 7.5) `d_{|X|}(|x|) = d_X(x)`.  (Definition 7.6) Tame: `X` is tame.  (Definition 7.7)
-`EP`: ep-groupoids and functors sc-smooth on objects and morphisms.  (Theorem 7.1) For every open
+(Definition 7.1.4 (2017: 7.4)).  (pp. 227–228) `ml(s φ) = ml(φ) = ml(t φ)` and `d_X(s φ) = d_𝐗(φ) = d_X(t φ)`;
+(Definition 7.1.5 (2017: 7.5)) `d_{|X|}(|x|) = d_X(x)`.  (Definition 7.1.6 (2017: 7.6)) Tame: `X` is tame.  (Definition 7.1.7 (2017: 7.7))
+`EP`: ep-groupoids and functors sc-smooth on objects and morphisms.  (Theorem 7.1.13 (2017: 7.1)) For every open
 `V ∋ x` there are an open `U ⊆ V` of `x`, a homomorphism `Φ : G_x → Diff_sc(U)` and an sc-smooth
 `Γ : G_x × U → 𝐗` with `Γ(g, x) = g`, `s Γ(g, y) = y`, `t Γ(g, y) = Φ(g)(y)`, and every `h : y → z`
-between points of `U` is `Γ(g, y)` for a unique `g`.  (Definition 7.8) A natural representation
-of a finite set `Y` of isomorphic objects: Proposition 7.5's functor.  (Definition 7.9) A local
+between points of `U` is `Γ(g, y)` for a unique `g`.  (Definition 7.1.18 (2017: 7.8)) A natural representation
+of a finite set `Y` of isomorphic objects: Proposition 7.1.15 (2017: 7.5)'s functor.  (Definition 7.1.20 (2017: 7.9)) A local
 uniformizer: a fully faithful `Ψ_x : G_x ⋉ U(x) → X` inducing `|U(x)|_{G_x ⋉ U(x)} ≅ π(U(x))`.
-(Definition 7.10) An ep-subgroupoid: a saturated sub-M-polyfold `A ⊆ X`.  (Definition 7.11)
+(Definition 7.1.21 (2017: 7.10)) An ep-subgroupoid: a saturated sub-M-polyfold `A ⊆ X`.  (Definition 7.2.1 (2017: 7.11))
 Effective: for `x`, `g ∈ G_x ∖ {1_x}` and every open `𝐔(g)` there is `ψ ∈ 𝐔(g)` with `s ψ ≠ t ψ`.
-(Definition 7.12) `g` acts trivially if `Φ(g) = 1` for some `U(x)` with the natural action; `T_x`
+(Definition 7.2.7 (2017: 7.12)) `g` acts trivially if `Φ(g) = 1` for some `U(x)` with the natural action; `T_x`
 the elements acting trivially; `𝐗^T = ⋃ T_x`; `φ ∼ φ'` iff `s φ = s φ' = x` and `φ = φ' ∘ g`,
-`g ∈ T_x`; `𝐗^R = 𝐗/∼`.  (Definition 7.13) `G_x^eff = G_x/T_x`.  (Definition 7.14) `K ⊆ |X|`
-component compact: `K ∩ C` compact for every component `C`.  (Definition 7.15) Paracompact orbit
-space.  (Definition 7.16) Sc-smooth partitions of unity: every saturated open cover has a
+`g ∈ T_x`; `𝐗^R = 𝐗/∼`.  (Definition 7.2.15 (2017: 7.13)) `G_x^eff = G_x/T_x`.  (Definition 7.3.7 (2017: 7.14)) `K ⊆ |X|`
+component compact: `K ∩ C` compact for every component `C`.  (Definition 7.5.1 (2017: 7.15)) Paracompact orbit
+space.  (Definition 7.5.5 (2017: 7.16)) Sc-smooth partitions of unity: every saturated open cover has a
 subordinate sc-smooth partition of unity `(β_λ)`, (1) each point has a saturated open
 neighbourhood meeting finitely many `supp β_λ`, (2) each `β_λ` is constant on orbits.
-(Definition 7.17) `Q ⊆ X` is proper if `t : s⁻¹(Q) → X` is proper; open `U` has the properness
+(Definition 7.5.8 (2017: 7.17)) `Q ⊆ X` is proper if `t : s⁻¹(Q) → X` is proper; open `U` has the properness
 property if `cl_X(U)` is proper.
 
 ## What is formalized
 
-* **Definition 7.3**: `EpGroupoid Obj Mor` (extends `GroupoidStr`); condition (4) literally as
+* **Definition 7.1.3 (2017: 7.3)**: `EpGroupoid Obj Mor` (extends `GroupoidStr`); condition (4) literally as
   `IsScSmoothComp`, its sheet form `IsScSmoothCompSheet`, `isScSmoothComp_iff_sheet`;
   `EpGroupoid.isScSmoothMap_src`, `_tgt`, `continuous_src`, `_tgt`, `_unit`, `_inv`,
   `isScSmoothCompSheet`, `continuous_π`.
-* **Definition 7.4**: `EpGroupoid.Sheet` (`U(φ)`, `U(x)`, `U(y)` with the inverses of `s` and `t`),
+* **Definition 7.1.4 (2017: 7.4)**: `EpGroupoid.Sheet` (`U(φ)`, `U(x)`, `U(y)` with the inverses of `s` and `t`),
   `exists_sheet`, `sheetAt`, `Sheet.hat`, `Sheet.isScDiffeoOn_hat`, `EpGroupoid.hat` (`φ̂`),
   `hat_src`, `EpGroupoid.tangentMor` (`Tφ`).
 * pp. 227–228: `mem_levelSet_src_iff`, `mem_levelSet_tgt_iff`, `degIndex_src`, `degIndex_tgt`,
-  `orbitLevel` (`|X_k|`); **Definition 7.5**: `degIndexOrbit`, `degIndexOrbit_π`.
-* **Definition 7.6**: `EpGroupoid.IsTame`.  **Definition 7.7**: `EpFunctor`, `EpFunctor.id`,
+  `orbitLevel` (`|X_k|`); **Definition 7.1.5 (2017: 7.5)**: `degIndexOrbit`, `degIndexOrbit_π`.
+* **Definition 7.1.6 (2017: 7.6)**: `EpGroupoid.IsTame`.  **Definition 7.1.7 (2017: 7.7)**: `EpFunctor`, `EpFunctor.id`,
   `.comp`, `.ext`, the bundled `EP` with `CategoryTheory.LargeCategory EP`.
-* **Theorem 7.1, the data**: `EpGroupoid.NaturalRep X x`; `Φ_one`, `Φ_self`, `mapsTo_Φ`,
+* **Theorem 7.1.13 (2017: 7.1), the data**: `EpGroupoid.NaturalRep X x`; `Φ_one`, `Φ_self`, `mapsTo_Φ`,
   `Γ_mem_morOn`, the action of `G_x` on `U` (`MulAction`), `NaturalRep.translationGroupoid`
   (`G_x ⋉ U(x)`).
-* **Definition 7.8**: `NaturalRepFinite X Y V`.  **Definition 7.9**: `LocalUniformizer X x`.
-* **Definition 7.10**: `IsEpSubgroupoid`, `isEpSubgroupoid_univ`.  **Definition 7.11**:
+* **Definition 7.1.18 (2017: 7.8)**: `NaturalRepFinite X Y V`.  **Definition 7.1.20 (2017: 7.9)**: `LocalUniformizer X x`.
+* **Definition 7.1.21 (2017: 7.10)**: `IsEpSubgroupoid`, `isEpSubgroupoid_univ`.  **Definition 7.2.1 (2017: 7.11)**:
   `IsEffective` (regular objects: `GroupoidStr.IsRegular`, `regularSet`).
-* **Definition 7.12**: `ActsTrivially`, `trivialSet` (`T_x`), `one_mem_trivialSet`,
-  `nonEffectivePart` (`𝐗^T`), `ReducedRel`, `ReducedMor` (`𝐗^R`).  **Definition 7.13**:
-  `EffIsotropy`.  **Definition 7.14**: `IsComponentCompact`.  **Definition 7.15**:
-  `HasParacompactOrbitSpace`.  **Definition 7.16**: `HasScPartitionsOfUnity`.
-  **Definition 7.17**: `IsProperSubset`, `HasPropernessProperty`, `exists_hasPropernessProperty`.
+* **Definition 7.2.7 (2017: 7.12)**: `ActsTrivially`, `trivialSet` (`T_x`), `one_mem_trivialSet`,
+  `nonEffectivePart` (`𝐗^T`), `ReducedRel`, `ReducedMor` (`𝐗^R`).  **Definition 7.2.15 (2017: 7.13)**:
+  `EffIsotropy`.  **Definition 7.3.7 (2017: 7.14)**: `IsComponentCompact`.  **Definition 7.5.1 (2017: 7.15)**:
+  `HasParacompactOrbitSpace`.  **Definition 7.5.5 (2017: 7.16)**: `HasScPartitionsOfUnity`.
+  **Definition 7.5.8 (2017: 7.17)**: `IsProperSubset`, `HasPropernessProperty`, `exists_hasPropernessProperty`.
 * Witnesses (PLAN II.5): `EpGroupoid.trivial P` (`𝐗 = X`, `s = t = id`) for every M-polyfold;
   `isTame_trivial`, `isTame_trivial_rn` (on `ℝⁿ`), `isEffective_trivial`, `regularSet_trivial`,
   `isProperSubset_trivial`, `hasPropernessProperty_trivial`, `trivialOrbitHomeomorph`,
@@ -75,57 +75,57 @@ property if `cl_X(U)` is proper.
   structure maps are sc-smooth" is `isScSmoothMap_src`, `isScSmoothMap_tgt`.
 * **(3)** (PLAN P3) is `IsProperMap ((s ⁻¹' cl V).domRestrict t)` for *some* open `V ∋ x`,
   existential per point as in the text (a universal reading, "for every neighbourhood", fails for
-  the pair groupoid of `ℤ`; PLAN II.5, 4).  Definition 7.17 uses the same form.
+  the pair groupoid of `ℤ`; PLAN II.5, 4).  Definition 7.5.8 (2017: 7.17) uses the same form.
 * **(4)** (P5) is stated literally on the sub-M-polyfold `𝐗 ₛ×ₜ 𝐗 = fibredProduct src tgt` of
-  `𝐗 × 𝐗` (Proposition 2.15 [2.46] of the text; Definition 7.3 cites "[38], Lemma 2.8", an outside
+  `𝐗 × 𝐗` (Proposition 2.5.20 (2017: 2.15) [2.46] of the text; Definition 7.1.3 (2017: 7.3) cites "[38], Lemma 2.8", an outside
   reference, read as the same fact), the paracompactness instances of `𝐗 × 𝐗` and of the subtype supplied inside the
-  definition by `paracompactSpace_prod`, `paracompactSpace_subtype` (Theorem 2.2 [2.16]).  The
+  definition by `paracompactSpace_prod`, `paracompactSpace_subtype` (Theorem 2.3.10 (2017: 2.2) [2.16]).  The
   **sheet form** `IsScSmoothCompSheet`: for every sc-diffeomorphism `s : W → V` with inverse `σ`,
   `ψ ↦ m(σ(t ψ), ψ)` is sc-smooth on `t⁻¹(V)`.  It is equivalent (`isScSmoothComp_iff_sheet`,
   through `isScDiffeoOn_snd_fibredProduct`); its "for every `σ`" is no vacuity risk, being
   equivalent to the literal (4), which the trivial ep-groupoid satisfies.
-* **Definition 7.4.**  `φ̂` depends on the chosen sheet only as a germ; `hat` uses the sheet chosen
+* **Definition 7.1.4 (2017: 7.4).**  `φ̂` depends on the chosen sheet only as a germ; `hat` uses the sheet chosen
   by `sheetAt`.  `Tφ = Tφ̂(s φ)` is read through the chain rule as `Tt ∘ (Ts|T_φ𝐗)⁻¹`
   (`φ̂ = t ∘ (s|U(φ))⁻¹`), with Part I's tangent maps `Ts, Tt : T𝐗 → TX` of the sc-smooth `s`, `t`
   (`MPolyfold.tangentMap`); off the image of `T_φ𝐗` it is the identity (junk).  Its linearity and
   that `Ts` is injective on `T_φ𝐗` are Chapter 8 (§8.1, the tangent `TX`).
 * pp. 227–228: the invariance of levels and of `d` along `s` and `t` is proved here (Proposition
-  2.7 [2.24] along a sheet), since Definition 7.5 needs it for `Quotient.lift`.
-* **Definition 7.6** is `PObj.IsTame` (an equivalent tame atlas exists, Definition 2.19 [2.37]):
+  2.7 [2.24] along a sheet), since Definition 7.1.5 (2017: 7.5) needs it for `Quotient.lift`.
+* **Definition 7.1.6 (2017: 7.6)** is `PObj.IsTame` (an equivalent tame atlas exists, Definition 2.5.7 (2017: 2.19) [2.37]):
   existential, never "every chart is tame" (PLAN II.5, 1).  The text's "then `𝐗` is tame" is
   `LocalDiffeo.lean`.
-* **Definition 7.7**: an `EpFunctor` is a `GroupoidFunctor` sc-smooth on objects and on morphisms.
+* **Definition 7.1.7 (2017: 7.7)**: an `EpFunctor` is a `GroupoidFunctor` sc-smooth on objects and on morphisms.
   The remark after it ("sc-smooth on objects suffices") is not formalized here: as we read it, it
   does not hold without continuity on morphisms (PLAN II.6, 1).  `EP` is a `LargeCategory` on
   bundled ep-groupoids (P2).
-* **Theorem 7.1's data** (P6) is `NaturalRep`: `U` open and **connected** (as we read it, the
+* **Theorem 7.1.13 (2017: 7.1)'s data** (P6) is `NaturalRep`: `U` open and **connected** (as we read it, the
   homomorphism property and the uniqueness of `(Φ, Γ)` need it; PLAN II.6, 3), `Φ g` an
   sc-diffeomorphism of `U` with inverse `Φ g⁻¹`, `Φ(gh) = Φ(g) ∘ Φ(h)` on `U`.  "`Γ` is sc-smooth
   on `G_x × U`" is read on each sheet `{g} × U` (`isScSmoothOn_Γ`); `G_x × U` as an M-polyfold is
   `Discrete.lean`.  `Γ` and `Φ` are total maps whose values off `U` are not used.  That `Γ` is a
   functor `G_x ⋉ U → X` (p. 232) is not a field: it follows from connectedness (`NaturalRep.lean`).
-  "`U(x)` equipped with the natural `G_x`-action" (Lemmas 7.3, 7.4, 7.10, Proposition 7.6,
-  Definitions 7.9, 7.12) is always a `NaturalRep` datum (PLAN II.5, 6).
-* **Definition 7.8**: `NaturalRepFinite X Y V` records Proposition 7.5's functor `f` (`F ψ` for
+  "`U(x)` equipped with the natural `G_x`-action" (Lemmas 7.2.3, 7.3.2, 7.6.5 (2017: 7.3, 7.4, 7.10), Proposition 7.1.19 (2017: 7.6),
+  Definitions 7.1.20, 7.2.7 (2017: 7.9, 7.12)) is always a `NaturalRep` datum (PLAN II.5, 6).
+* **Definition 7.1.18 (2017: 7.8)**: `NaturalRepFinite X Y V` records Proposition 7.1.15 (2017: 7.5)'s functor `f` (`F ψ` for
   morphisms `ψ` between points of `Y`), the neighbourhoods `U(y)` and the components `𝐔(ψ)` with
   the inverses `srcInv ψ` of `s|𝐔(ψ)`; "decomposes into the connected components `𝐔(ψ)`" is read
   as: the `𝐔(ψ)` are open, connected, pairwise disjoint and cover the morphisms between points of
   `⋃ U(y)`.  Property (1) is `natural`.
-* **Definition 7.9**: `Ψ_x` is the inclusion on objects (so its image is `U(x)` and `|U(x)| =
+* **Definition 7.1.20 (2017: 7.9)**: `Ψ_x` is the inclusion on objects (so its image is `U(x)` and `|U(x)| =
   π(U(x))`), full and faithful (Mathlib's `Functor.Full`, `Functor.Faithful` of the bridge);
   "induces a homeomorphism onto `π(U(x))`" is an embedding with range `π(U(x))`.  The text's
   "`Ψ_x ◦ G_x ⋉ U(x) → X`" is read as `Ψ_x : G_x ⋉ U(x) → X` (possible misprint).
-* **Definition 7.12**: `T_x` is the *set* `{g | ∃ natural representation with Φ(g) = id on U}`.
-  That it is a normal subgroup, the kernel of `Φ` for small `U(x)` (p. 241), needs Theorem 7.1 and
+* **Definition 7.2.7 (2017: 7.12)**: `T_x` is the *set* `{g | ∃ natural representation with Φ(g) = id on U}`.
+  That it is a normal subgroup, the kernel of `Φ` for small `U(x)` (p. 241), needs Theorem 7.1.13 (2017: 7.1) and
   the uniqueness of `(Φ, Γ)`; it is proved in `Effective.lean` (`trivialSubgroup`,
   `exists_naturalRep_trivialSet_iff`).  Hence `∼` is `ReducedRel` (a
   relation; an equivalence relation once `T_x` is a subgroup) and `𝐗^R` is `Quot ReducedRel`.
-* **Definition 7.13**: `G_x/T_x` is `G_x ⧸ normalClosure(T_x)`, which is `G_x/T_x` once `T_x` is
+* **Definition 7.2.15 (2017: 7.13)**: `G_x/T_x` is `G_x ⧸ normalClosure(T_x)`, which is `G_x/T_x` once `T_x` is
   shown a normal subgroup (`normalClosure_trivialSet`, `effIsotropyEquiv` in `Effective.lean`).
-* **Definition 7.14**: the components of `|X|` are `connectedComponent z`.
-* **Definition 7.15**: Mathlib's `ParacompactSpace` does not include Hausdorff, as the text
+* **Definition 7.3.7 (2017: 7.14)**: the components of `|X|` are `connectedComponent z`.
+* **Definition 7.5.1 (2017: 7.15)**: Mathlib's `ParacompactSpace` does not include Hausdorff, as the text
   stipulates ("We do not require a paracompact space to be Hausdorff").
-* **Definition 7.16**: index types `ι : Type u` (as Part I's `AdmitsScPartitionsOfUnity`); `supp`
+* **Definition 7.5.5 (2017: 7.16)**: index types `ι : Type u` (as Part I's `AdmitsScPartitionsOfUnity`); `supp`
   is `tsupport`; "βλ(z) = βλ(y) if `y, z` are isomorphic" is `β λ (s φ) = β λ (t φ)`.  The
   hypothesis "for every saturated open cover there is …" is satisfiable:
   `hasScPartitionsOfUnity_trivial` reduces it for the trivial ep-groupoid to Part I's
@@ -200,16 +200,16 @@ private theorem isScDiffeoOn_id : P.IsScDiffeoOn P id id univ univ :=
 
 end Helpers
 
-/-! ### Condition (4) of Definition 7.3 and its sheet form -/
+/-! ### Condition (4) of Definition 7.1.3 (2017: 7.3) and its sheet form -/
 
 section Composition
 
 variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
   [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor]
 
-/-- **Definition 7.3 (4)**, literally: the multiplication `m(φ, ψ) = φ ∘ ψ` is sc-smooth on the
+/-- **Definition 7.1.3 (2017: 7.3) (4)**, literally: the multiplication `m(φ, ψ) = φ ∘ ψ` is sc-smooth on the
 fibred product `𝐗 ₛ×ₜ 𝐗 = {(φ, ψ) | s φ = t ψ}`, a sub-M-polyfold of `𝐗 × 𝐗` since `s` is a local
-sc-diffeomorphism (Proposition 2.15 [2.46], `MPolyfold.isSubMPolyfold_fibredProduct`). -/
+sc-diffeomorphism (Proposition 2.5.20 (2017: 2.15) [2.46], `MPolyfold.isSubMPolyfold_fibredProduct`). -/
 def IsScSmoothComp (PObj : MPolyfold Obj) (PMor : MPolyfold Mor) (src tgt : Mor → Obj)
     (comp : Mor → Mor → Mor) (hs : PMor.IsLocalScDiffeo PObj src)
     (ht : PMor.IsScSmoothMap PObj tgt) : Prop :=
@@ -218,7 +218,7 @@ def IsScSmoothComp (PObj : MPolyfold Obj) (PMor : MPolyfold Mor) (src tgt : Mor 
   (MPolyfold.subPolyfold (MPolyfold.isSubMPolyfold_fibredProduct hs ht)).IsScSmoothMap PMor
     fun p => comp p.1.1 p.1.2
 
-/-- **Definition 7.3 (4), sheet form**: for every sc-diffeomorphism `s : W → V` (a sheet of `s`)
+/-- **Definition 7.1.3 (2017: 7.3) (4), sheet form**: for every sc-diffeomorphism `s : W → V` (a sheet of `s`)
 with inverse `σ`, the map `ψ ↦ m(σ(t ψ), ψ)` is sc-smooth on `t⁻¹(V)`. -/
 def IsScSmoothCompSheet (PObj : MPolyfold Obj) (PMor : MPolyfold Mor) (src tgt : Mor → Obj)
     (comp : Mor → Mor → Mor) : Prop :=
@@ -264,9 +264,9 @@ theorem isScSmoothComp_iff_sheet {PObj : MPolyfold Obj} {PMor : MPolyfold Mor}
 
 end Composition
 
-/-! ### Definition 7.3 -/
+/-! ### Definition 7.1.3 (2017: 7.3) -/
 
-/-- **Definition 7.3 (ep-groupoid)**: a groupoid with M-polyfold structures `PObj` on the objects
+/-- **Definition 7.1.3 (2017: 7.3) (ep-groupoid)**: a groupoid with M-polyfold structures `PObj` on the objects
 and `PMor` on the morphisms such that (1) `s, t` are local sc-diffeomorphisms, (2) `u` and `ι` are
 sc-smooth, (3) every object `x` has an open `V(x) ∋ x` with `t : s⁻¹(cl V(x)) → X` proper, and
 (4) `m` is sc-smooth on `𝐗 ₛ×ₜ 𝐗`. -/
@@ -314,9 +314,9 @@ theorem isScSmoothCompSheet : IsScSmoothCompSheet X.PObj X.PMor X.src X.tgt X.co
 /-- The orbit space carries the quotient topology (p. 229); `π` is continuous. -/
 theorem continuous_π : Continuous X.π := continuous_quot_mk
 
-/-! #### Definition 7.4: sheets, `φ̂` and `Tφ` -/
+/-! #### Definition 7.1.4 (2017: 7.4): sheets, `φ̂` and `Tφ` -/
 
-/-- **A sheet** (before Definition 7.4): an open `𝐔 ⊆ 𝐗` on which `s` and `t` are
+/-- **A sheet** (before Definition 7.1.4 (2017: 7.4)): an open `𝐔 ⊆ 𝐗` on which `s` and `t` are
 sc-diffeomorphisms onto open `U, U' ⊆ X`, with the inverses `(s|𝐔)⁻¹`, `(t|𝐔)⁻¹`. -/
 structure Sheet where
   /-- The open set `𝐔 = U(φ)` of morphisms. -/
@@ -333,7 +333,7 @@ structure Sheet where
   isScDiffeoOn_tgt : X.PMor.IsScDiffeoOn X.PObj X.tgt tgtInv carrier tgtSet
 
 variable {X} in
-/-- `φ̂ = t ∘ (s|𝐔)⁻¹ : U(x) → U(y)` of a sheet (Definition 7.4). -/
+/-- `φ̂ = t ∘ (s|𝐔)⁻¹ : U(x) → U(y)` of a sheet (Definition 7.1.4 (2017: 7.4)). -/
 def Sheet.hat (S : X.Sheet) : Obj → Obj := fun y => X.tgt (S.srcInv y)
 
 variable {X} in
@@ -361,7 +361,7 @@ theorem src_mem_sheetAt (φ : Mor) : X.src φ ∈ (X.sheetAt φ).srcSet :=
 theorem tgt_mem_sheetAt (φ : Mor) : X.tgt φ ∈ (X.sheetAt φ).tgtSet :=
   (X.sheetAt φ).isScDiffeoOn_tgt.mapsTo (X.mem_sheetAt φ)
 
-/-- **Definition 7.4**: the local sc-diffeomorphism `φ̂ = t ∘ (s|U(φ))⁻¹ : U(x) → U(y)` associated
+/-- **Definition 7.1.4 (2017: 7.4)**: the local sc-diffeomorphism `φ̂ = t ∘ (s|U(φ))⁻¹ : U(x) → U(y)` associated
 with `φ : x → y` (in the chosen sheet; `isScDiffeoOn_hat`). -/
 def hat (φ : Mor) : Obj → Obj := (X.sheetAt φ).hat
 
@@ -376,7 +376,7 @@ theorem hat_src (φ : Mor) : X.hat φ (X.src φ) = X.tgt φ := by
   rw [(X.sheetAt φ).isScDiffeoOn_src.left_inv φ (X.mem_sheetAt φ)]
 
 open scoped Classical in
-/-- **Definition 7.4**: the tangent `Tφ : T_{s φ}X → T_{t φ}X`, `Tφ = Tφ̂(s φ)`, read through the
+/-- **Definition 7.1.4 (2017: 7.4)**: the tangent `Tφ : T_{s φ}X → T_{t φ}X`, `Tφ = Tφ̂(s φ)`, read through the
 chain rule as `Tt ∘ (Ts|T_φ𝐗)⁻¹` with the tangent maps `Ts, Tt : T𝐗 → TX` (Part I's
 `MPolyfold.tangentMap`); the identity off `Ts(T_φ𝐗)`. -/
 def tangentMor (φ : Mor) (h : X.PObj.TangentSpace) : X.PObj.TangentSpace :=
@@ -385,7 +385,7 @@ def tangentMor (φ : Mor) (h : X.PObj.TangentSpace) : X.PObj.TangentSpace :=
     MPolyfold.tangentMap X.isScSmoothMap_tgt hv.choose
   else h
 
-/-! #### Levels and the degeneracy index (pp. 227–228), Definition 7.5 -/
+/-! #### Levels and the degeneracy index (pp. 227–228), Definition 7.1.5 (2017: 7.5) -/
 
 /-- `ml(s φ) = ml(φ)`: `s φ ∈ X_m ⟺ φ ∈ 𝐗_m`. -/
 theorem mem_levelSet_src_iff (φ : Mor) (m : ℕ) :
@@ -403,20 +403,20 @@ theorem mem_levelSet_tgt_iff (φ : Mor) (m : ℕ) :
   have := hd.isScSmoothOn_inv.mapsTo_levelSet m ⟨hd.mapsTo hφ, h⟩
   rwa [hd.left_inv φ hφ] at this
 
-/-- `d_𝐗(φ) = d_X(s φ)` (Proposition 2.7 [2.24]). -/
+/-- `d_𝐗(φ) = d_X(s φ)` (Proposition 2.4.4 (2017: 2.7) [2.24]). -/
 theorem degIndex_src (φ : Mor) : X.PMor.degIndex φ = X.PObj.degIndex (X.src φ) := by
   obtain ⟨W, V, σ, hφ, hd⟩ := X.isLocalScDiffeo_src φ
-  exact proposition_2_24 hd hφ
+  exact proposition_2_4_4 hd hφ
 
 /-- `d_𝐗(φ) = d_X(t φ)`. -/
 theorem degIndex_tgt (φ : Mor) : X.PMor.degIndex φ = X.PObj.degIndex (X.tgt φ) := by
   obtain ⟨W, V, τ, hφ, hd⟩ := X.isLocalScDiffeo_tgt φ
-  exact proposition_2_24 hd hφ
+  exact proposition_2_4_4 hd hφ
 
 /-- The filtration `|X_k| = π(X_k)` of the orbit space (p. 228). -/
 def orbitLevel (k : ℕ) : Set X.OrbitSpace := X.π '' X.PObj.levelSet k
 
-/-- **Definition 7.5**: the induced degeneracy index `d_{|X|}(|x|) = d_X(x)`. -/
+/-- **Definition 7.1.5 (2017: 7.5)**: the induced degeneracy index `d_{|X|}(|x|) = d_X(x)`. -/
 def degIndexOrbit : X.OrbitSpace → ℕ :=
   Quotient.lift X.PObj.degIndex <| by
     rintro _ _ ⟨φ, rfl, rfl⟩
@@ -425,28 +425,28 @@ def degIndexOrbit : X.OrbitSpace → ℕ :=
 @[simp]
 theorem degIndexOrbit_π (x : Obj) : X.degIndexOrbit (X.π x) = X.PObj.degIndex x := rfl
 
-/-! #### Definition 7.6 -/
+/-! #### Definition 7.1.6 (2017: 7.6) -/
 
-/-- **Definition 7.6**: the ep-groupoid is **tame** if the object M-polyfold is tame
-(Definition 2.19 [2.37]: an equivalent atlas of tame retracts exists). -/
+/-- **Definition 7.1.6 (2017: 7.6)**: the ep-groupoid is **tame** if the object M-polyfold is tame
+(Definition 2.5.7 (2017: 2.19) [2.37]: an equivalent atlas of tame retracts exists). -/
 def IsTame : Prop := X.PObj.IsTame
 
-/-! #### Definition 7.17 -/
+/-! #### Definition 7.5.8 (2017: 7.17) -/
 
-/-- **Definition 7.17**: `Q ⊆ X` is **proper** if `t : s⁻¹(Q) → X` is proper. -/
+/-- **Definition 7.5.8 (2017: 7.17)**: `Q ⊆ X` is **proper** if `t : s⁻¹(Q) → X` is proper. -/
 def IsProperSubset (Q : Set Obj) : Prop := IsProperMap ((X.src ⁻¹' Q).domRestrict X.tgt)
 
-/-- **Definition 7.17**: the open `U` has the **properness property** if `cl_X(U)` is proper. -/
+/-- **Definition 7.5.8 (2017: 7.17)**: the open `U` has the **properness property** if `cl_X(U)` is proper. -/
 def HasPropernessProperty (U : Set Obj) : Prop := IsOpen U ∧ X.IsProperSubset (closure U)
 
-/-- Definition 7.3 (3): every object has an open neighbourhood with the properness property. -/
+/-- Definition 7.1.3 (2017: 7.3) (3): every object has an open neighbourhood with the properness property. -/
 theorem exists_hasPropernessProperty (x : Obj) : ∃ V, x ∈ V ∧ X.HasPropernessProperty V := by
   obtain ⟨V, hVo, hxV, hV⟩ := X.exists_isProperMap x
   exact ⟨V, hxV, hVo, hV⟩
 
-/-! #### Theorem 7.1: the data of a natural representation -/
+/-! #### Theorem 7.1.13 (2017: 7.1): the data of a natural representation -/
 
-/-- **The data of Theorem 7.1** (a natural representation of `G_x`): an open connected
+/-- **The data of Theorem 7.1.13 (2017: 7.1)** (a natural representation of `G_x`): an open connected
 neighbourhood `U` of `x`, a homomorphism `Φ : G_x → Diff_sc(U)` (`Φ g` an sc-diffeomorphism of
 `U` with inverse `Φ g⁻¹`, `Φ(gh) = Φ(g) ∘ Φ(h)`) and `Γ : G_x × U → 𝐗`, sc-smooth on each sheet
 `{g} × U`, with (1) `Γ(g, x) = g`, (2) `s Γ(g, y) = y`, `t Γ(g, y) = Φ(g)(y)`, (3) every morphism
@@ -505,9 +505,9 @@ def translationGroupoid : GroupoidStr R.U (X.Isotropy x × R.U) :=
 
 end NaturalRep
 
-/-! #### Definition 7.8 -/
+/-! #### Definition 7.1.18 (2017: 7.8) -/
 
-/-- **Definition 7.8** (Proposition 7.5): a natural representation of a finite set `Y` of
+/-- **Definition 7.1.18 (2017: 7.8)** (Proposition 7.5): a natural representation of a finite set `Y` of
 objects on neighbourhoods contained in `V`: mutually disjoint connected open `U(y) ⊆ V`, for every
 morphism `ψ : y → y'` between points of `Y` an sc-diffeomorphism `F ψ : U(y) → U(y')`, functorial,
 and connected open `𝐔(ψ) ∋ ψ` decomposing the morphisms between points of `⋃ U(y)`, such that
@@ -544,9 +544,9 @@ structure NaturalRepFinite (Y : Finset Obj) (V : Set Obj) where
   F_eq : ∀ ψ ∈ X.morOn Y, ∀ z ∈ U (X.src ψ), F ψ z = X.tgt (srcInv ψ z)
   natural : ∀ y ∈ Y, ∃ R : X.NaturalRep y, R.U = U y ∧ ∀ g, ∀ z ∈ U y, R.Φ g z = F g.val z
 
-/-! #### Definition 7.9 -/
+/-! #### Definition 7.1.20 (2017: 7.9) -/
 
-/-- **Definition 7.9 (local uniformizer)**: a natural representation `U(x)` and a fully faithful
+/-- **Definition 7.1.20 (2017: 7.9) (local uniformizer)**: a natural representation `U(x)` and a fully faithful
 functor `Ψ_x : G_x ⋉ U(x) → X`, the inclusion on objects, inducing a homeomorphism of
 `|U(x)|_{G_x ⋉ U(x)}` onto `π(U(x))`. -/
 structure LocalUniformizer (x : Obj) where
@@ -560,9 +560,9 @@ structure LocalUniformizer (x : Obj) where
   isEmbedding_orbitMap : IsEmbedding Ψ.orbitMap
   range_orbitMap : range Ψ.orbitMap = X.π '' rep.U
 
-/-! #### Definition 7.10 -/
+/-! #### Definition 7.1.21 (2017: 7.10) -/
 
-/-- **Definition 7.10**: the full subcategory on `A ⊆ X` is an **ep-subgroupoid** if (1) `A` is a
+/-- **Definition 7.1.21 (2017: 7.10)**: the full subcategory on `A ⊆ X` is an **ep-subgroupoid** if (1) `A` is a
 sub-M-polyfold of `X` and (2) `A` is saturated. -/
 structure IsEpSubgroupoid (A : Set Obj) : Prop where
   isSubMPolyfold : X.PObj.IsSubMPolyfold A
@@ -571,16 +571,16 @@ structure IsEpSubgroupoid (A : Set Obj) : Prop where
 theorem isEpSubgroupoid_univ : X.IsEpSubgroupoid univ :=
   ⟨X.PObj.isSubMPolyfold_univ, X.isSaturated_univ⟩
 
-/-! #### Definition 7.11 -/
+/-! #### Definition 7.2.1 (2017: 7.11) -/
 
-/-- **Definition 7.11**: `X` is **effective** if for every `x`, every `g ∈ G_x ∖ {1_x}` and every
+/-- **Definition 7.2.1 (2017: 7.11)**: `X` is **effective** if for every `x`, every `g ∈ G_x ∖ {1_x}` and every
 open neighbourhood `𝐔(g)` of `g` in `𝐗` there is `ψ ∈ 𝐔(g)` with `s ψ ≠ t ψ`.  (Regular objects:
 `GroupoidStr.IsRegular`, `GroupoidStr.regularSet`.) -/
 def IsEffective : Prop :=
   ∀ (x : Obj) (g : X.Isotropy x), g ≠ 1 → ∀ W : Set Mor, IsOpen W → g.val ∈ W →
     ∃ ψ ∈ W, X.src ψ ≠ X.tgt ψ
 
-/-! #### Definitions 7.12 and 7.13 -/
+/-! #### Definitions 7.2.7 and 7.2.15 (2017: 7.12 and 7.13) -/
 
 /-- `g ∈ G_x` **acts trivially** (p. 241): `Φ(g) = 1` on `U` for some natural representation. -/
 def ActsTrivially {x : Obj} (g : X.Isotropy x) : Prop :=
@@ -592,34 +592,34 @@ def trivialSet (x : Obj) : Set (X.Isotropy x) := {g | X.ActsTrivially g}
 theorem one_mem_trivialSet {x : Obj} (R : X.NaturalRep x) : (1 : X.Isotropy x) ∈ X.trivialSet x :=
   ⟨R, R.Φ_one⟩
 
-/-- **Definition 7.12**: the **non-effective part** `𝐗^T = {φ ∈ T_x | x ∈ X}`. -/
+/-- **Definition 7.2.7 (2017: 7.12)**: the **non-effective part** `𝐗^T = {φ ∈ T_x | x ∈ X}`. -/
 def nonEffectivePart : Set Mor :=
   {φ | ∃ (x : Obj) (g : X.Isotropy x), g ∈ X.trivialSet x ∧ φ = g.val}
 
-/-- **Definition 7.12**: `φ ∼ φ'` if (1) `s φ = s φ' = x` and (2) `φ = φ' ∘ g` for some
+/-- **Definition 7.2.7 (2017: 7.12)**: `φ ∼ φ'` if (1) `s φ = s φ' = x` and (2) `φ = φ' ∘ g` for some
 `g ∈ T_x`. -/
 def ReducedRel (φ φ' : Mor) : Prop :=
   X.src φ = X.src φ' ∧
     ∃ g : X.Isotropy (X.src φ), g ∈ X.trivialSet (X.src φ) ∧ φ = X.comp φ' g.val
 
-/-- **Definition 7.12**: the **reduced morphisms** `𝐗^R`, the classes `[φ]` of `∼`. -/
+/-- **Definition 7.2.7 (2017: 7.12)**: the **reduced morphisms** `𝐗^R`, the classes `[φ]` of `∼`. -/
 def ReducedMor : Type u := Quot X.ReducedRel
 
-/-- **Definition 7.13**: the **effective isotropy group** `G_x^eff = G_x/T_x`. -/
+/-- **Definition 7.2.15 (2017: 7.13)**: the **effective isotropy group** `G_x^eff = G_x/T_x`. -/
 abbrev EffIsotropy (x : Obj) : Type u := X.Isotropy x ⧸ Subgroup.normalClosure (X.trivialSet x)
 
 /-! #### Definitions 7.14–7.16 -/
 
-/-- **Definition 7.14**: `K ⊆ |X|` is **component compact** if its intersection with every
+/-- **Definition 7.3.7 (2017: 7.14)**: `K ⊆ |X|` is **component compact** if its intersection with every
 connected component of `|X|` is compact. -/
 def IsComponentCompact (K : Set X.OrbitSpace) : Prop :=
   ∀ z : X.OrbitSpace, IsCompact (K ∩ connectedComponent z)
 
-/-- **Definition 7.15**: an ep-groupoid **with paracompact orbit space**: (1)–(4) and (5) `|X|`
+/-- **Definition 7.5.1 (2017: 7.15)**: an ep-groupoid **with paracompact orbit space**: (1)–(4) and (5) `|X|`
 is paracompact. -/
 def HasParacompactOrbitSpace : Prop := ParacompactSpace X.OrbitSpace
 
-/-- **Definition 7.16**: an ep-groupoid **with sc-smooth partitions of unity**: for every
+/-- **Definition 7.5.5 (2017: 7.16)**: an ep-groupoid **with sc-smooth partitions of unity**: for every
 saturated open cover `(U_λ)` of `X` there is a subordinate sc-smooth partition of unity `(β_λ)`
 with (1) every point has a saturated open neighbourhood meeting only finitely many `supp β_λ`, and
 (2) `β_λ(z) = β_λ(y)` for isomorphic `y, z`. -/
@@ -633,9 +633,9 @@ def HasScPartitionsOfUnity : Prop :=
 
 end EpGroupoid
 
-/-! ### Definition 7.7: the category `EP` -/
+/-! ### Definition 7.1.7 (2017: 7.7): the category `EP` -/
 
-/-- **Definition 7.7**: a morphism of `EP`, a functor sc-smooth on the object spaces and on the
+/-- **Definition 7.1.7 (2017: 7.7)**: a morphism of `EP`, a functor sc-smooth on the object spaces and on the
 morphism spaces. -/
 structure EpFunctor {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj]
     [ParacompactSpace Obj] [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor]
@@ -679,7 +679,7 @@ def comp (F : EpFunctor Y Z) (E : EpFunctor X Y) : EpFunctor X Z where
 
 end EpFunctor
 
-/-- A bundled ep-groupoid, an object of the category `EP` (Definition 7.7). -/
+/-- A bundled ep-groupoid, an object of the category `EP` (Definition 7.1.7 (2017: 7.7)). -/
 structure EP : Type (u + 1) where
   /-- The object set. -/
   Obj : Type u
@@ -697,7 +697,7 @@ structure EP : Type (u + 1) where
 attribute [instance] EP.instTopObj EP.instT2Obj EP.instParaObj EP.instTopMor EP.instT2Mor
   EP.instParaMor
 
-/-- **Definition 7.7**: the category `EP` of ep-groupoids and sc-smooth functors. -/
+/-- **Definition 7.1.7 (2017: 7.7)**: the category `EP` of ep-groupoids and sc-smooth functors. -/
 instance : LargeCategory EP.{u} where
   Hom A B := EpFunctor A.X B.X
   id A := EpFunctor.id A.X
@@ -775,7 +775,7 @@ theorem hasParacompactOrbitSpace_trivial : (trivial P).HasParacompactOrbitSpace 
   (trivialOrbitHomeomorph P).isClosedEmbedding.paracompactSpace
 
 /-- If `Z` admits sc-smooth partitions of unity, the trivial ep-groupoid has sc-smooth partitions
-of unity (Definition 7.16 is satisfiable). -/
+of unity (Definition 7.5.5 (2017: 7.16) is satisfiable). -/
 theorem hasScPartitionsOfUnity_trivial (h : P.AdmitsScPartitionsOfUnity) :
     (trivial P).HasScPartitionsOfUnity := by
   intro ι U hUo _ hcov
@@ -795,7 +795,7 @@ section Connected
 variable [ConnectedSpace Z]
 
 /-- The natural representation of the trivial ep-groupoid of a connected M-polyfold (`U = Z`,
-`Φ = id`, `Γ = id`): the data of Theorem 7.1 is satisfiable. -/
+`Φ = id`, `Γ = id`): the data of Theorem 7.1.13 (2017: 7.1) is satisfiable. -/
 def trivialNaturalRep (x : Z) : (trivial P).NaturalRep x where
   U := univ
   isOpen_U := isOpen_univ
@@ -816,7 +816,7 @@ theorem actsTrivially_trivial {x : Z} (g : (trivial P).Isotropy x) :
   ⟨trivialNaturalRep P x, fun _ _ => rfl⟩
 
 /-- A natural representation of a one-point set in the trivial ep-groupoid of a connected
-M-polyfold (Definition 7.8 is satisfiable). -/
+M-polyfold (Definition 7.1.18 (2017: 7.8) is satisfiable). -/
 def trivialNaturalRepFinite (y : Z) : (trivial P).NaturalRepFinite {y} univ where
   U _ := univ
   F _ := id

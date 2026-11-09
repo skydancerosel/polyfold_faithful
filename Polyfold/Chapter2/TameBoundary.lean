@@ -54,11 +54,11 @@ a bijection by (2.44).
 * `MPolyfold.isCornerIndex_degIndex`: the degeneracy index of a tame M-polyfold satisfies the
   corner axioms (`exists_localPieces_chart`, from Lemma 4.C `local_face_structure` and
   `subset_coordHyper_of_isPreconnected` of `TameFaces.lean`).
-* **Proposition 2.7.5**: `TameBoundary.proposition_2_7_5`, `MPolyfold.proposition_2_7_5_2021`;
+* **Proposition 2.7.5**: `TameBoundary.proposition_2_7_5`, `MPolyfold.proposition_2_7_5`;
   (3) for every open `V ∋ x`: `exists_nbhd_faces_mem`.
 * **Definition 2.7.6**: `IsFaceStructuredOpen`, `faceStructuredOpens`, `faceStructuredNbhds`,
   `faceStructuredNbhdsAt`, and the remark `faceStructuredNbhds_eq_iUnion`.
-* **Proposition 2.7.7**: `MPolyfold.proposition_2_7_7_2021` (from `faceStructuredNbhdsAt_nonempty`,
+* **Proposition 2.7.7**: `MPolyfold.proposition_2_7_7` (from `faceStructuredNbhdsAt_nonempty`,
   `sUnion_faceStructuredNbhds`, `mem_faceStructuredNbhds_of_subset`,
   `inter_mem_faceStructuredNbhds`, `inter_mem_faceStructuredNbhdsAt`).
 * **Definition 2.7.8**: `IsMor`, its composition law `IsMor.trans`, the objects `LObj`, the thin
@@ -87,7 +87,7 @@ a bijection by (2.44).
   (`bMap_image_uSet`).  A point `y ∈ θ` lying on a face of `V` that misses `x` admits no morphism
   `(y, V') → (x, V)`; this happens e.g. in `[0,∞)³` for `x = (0,0,1)` and `V` a thin convex
   neighbourhood of the segment from `x` to `(0,1,0)` (proved in
-  `Polyfold/Chapter2/TameBoundaryExample.lean`, `phi_not_surjective_2021`).  The map is a
+  `Polyfold/Chapter2/TameBoundaryExample.lean`, `phi_not_surjective`).  The map is a
   bijection onto `θ` when every
   face of `V` contains `x` (`IsCenteredAt`, `phi_bijective_of_isCenteredAt`), and `V^x` is such a
   neighbourhood in `N_{X,x}` (`isCenteredAt_reach`, `reach_mem_faceStructuredNbhdsAt`), which is
@@ -103,8 +103,8 @@ a bijection by (2.44).
   for some chart around `y`; it is literally Chapter 4's `IsGeneralPositionRetractAt` condition.
   Its independence of the chart, the text's remark that a tame sub-M-polyfold is tame, and the
   examples A and B in `[0,∞)² × ℝ` are in `Chapter2/TameSub.lean`
-  (`TameSubData.hasReducedComplementAt_of_isChart_2021`,
-  `IsTameSubMPolyfold.hasTameInducedStructure_2021`, `TameSubExample.examples_A_B_2021`).
+  (`TameSubData.hasReducedComplementAt_of_isChart`,
+  `IsTameSubMPolyfold.hasTameInducedStructure`, `TameSubExample.examples_A_B`).
 -/
 
 open Set Filter Topology Function
@@ -574,7 +574,7 @@ theorem proposition_2_7_5 (x : X) :
 
 /-- **2021 Proposition 2.7.7 (1)**: `N_{X,x}` is nonempty. -/
 theorem faceStructuredNbhdsAt_nonempty (x : X) : (faceStructuredNbhdsAt d x).Nonempty := by
-  obtain ⟨V, hV, hxV, hle, hfs, -⟩ := proposition_2_7_5 hd x
+  obtain ⟨V, hV, hxV, hle, hfs, -⟩ := Polyfold.TameBoundary.proposition_2_7_5 hd x
   exact ⟨V, ⟨⟨hV, hfs⟩, ⟨x, hxV⟩, ⟨d x, by rintro _ ⟨y, hy, rfl⟩; exact hle y hy⟩⟩, hxV, hle⟩
 
 /-- **2021 Proposition 2.7.7 (1)**: `N_X` is an open covering of `X`. -/
@@ -1208,10 +1208,10 @@ theorem exists_localPieces_chart {φ : MChart X} (hφ : P.IsChart φ)
     rw [hz1, Finset.mem_singleton] at this
     exact eqv.injective (Subtype.ext this)
 
-/-- **The degeneracy index of a tame M-polyfold satisfies the corner axioms** (Lemma 2.23 and the
+/-- **The degeneracy index of a tame M-polyfold satisfies the corner axioms** (Lemma 2.4.3 (preprint 2.23) and the
 local pieces of `exists_localPieces_chart`, with `D` the domain of a tame chart). -/
 theorem isCornerIndex_degIndex (hP : P.IsTame) : IsCornerIndex P.degIndex := by
-  refine ⟨fun x => lemma_2_23 P x, fun x => ?_⟩
+  refine ⟨fun x => lemma_2_4_3 P x, fun x => ?_⟩
   obtain ⟨φ, hφ, hx, R, hRO, hRt⟩ := IsTame.exists_chart P hP x
   obtain ⟨n, W, T, hT⟩ := φ.model.isPartialQuadrant
   exact ⟨φ.source, φ.isOpen_source, hx, fun y hy N hN =>
@@ -1233,18 +1233,18 @@ has an open neighbourhood `V` with (1) `d_X(y) ≤ d_X(x)` for `y ∈ V`; (2) ev
 exactly `d_X(y)` faces of `V`; (3) an open `U(x) ⊆ V` such that every face of `V` containing a
 point of `U(x)` contains `x`.  The faces of `V` are those of `V` with the induced structure, whose
 degeneracy index is `d_X|V`. -/
-theorem proposition_2_7_5_2021 (hP : P.IsTame) (x : X) :
+theorem proposition_2_7_5 (hP : P.IsTame) (x : X) :
     ∃ V, IsOpen V ∧ x ∈ V ∧ (∀ y ∈ V, P.degIndex y ≤ P.degIndex x) ∧
       (∀ y ∈ V, (facesThrough P.degIndex V y).encard = P.degIndex y) ∧
       ∃ U, IsOpen U ∧ x ∈ U ∧ U ⊆ V ∧
         ∀ θ, IsFaceIn P.degIndex V θ → ∀ y ∈ U, y ∈ θ → x ∈ θ :=
-  proposition_2_7_5 (P.isCornerIndex_degIndex hP) x
+  Polyfold.TameBoundary.proposition_2_7_5 (P.isCornerIndex_degIndex hP) x
 
 /-- **2021 Proposition 2.7.7, p. 80** (new in the 2021 edition), for a tame `X`: (1) every
 `N_{X,x}` is nonempty, so `N_X` covers `X`; (2) a nonempty open subset of a `V ∈ N_X` belongs to
 `N_X`; (3) nonempty intersections of members of `N_X` belong to `N_X`, and `N_{X,x}` is closed
 under intersections. -/
-theorem proposition_2_7_7_2021 (hP : P.IsTame) :
+theorem proposition_2_7_7 (hP : P.IsTame) :
     (∀ x, (faceStructuredNbhdsAt P.degIndex x).Nonempty) ∧
       ⋃₀ faceStructuredNbhds P.degIndex = univ ∧
       (∀ U V, V ∈ faceStructuredNbhds P.degIndex → IsOpen U → U.Nonempty → U ⊆ V →
@@ -1474,10 +1474,10 @@ theorem quadrantPolyfold_isTame (n : ℕ) (W : ScBanach) : (quadrantPolyfold n W
     ScRetraction.id_isTame (isRelOpenInQuadrant_quadrant n W)⟩
 
 /-- The corner `0` of `[0,∞)ⁿ ⊕ W` has degeneracy index `n` (2021 Corollary 2.4.13, preprint
-Corollary 2.32, `corollary_2_32`). -/
+Corollary 2.32, `corollary_2_4_13`). -/
 theorem quadrantPolyfold_degIndex_zero (n : ℕ) (W : ScBanach) :
     (quadrantPolyfold n W).degIndex ⟨0, zero_mem_quadrant n W⟩ = n := by
-  rw [quadrantPolyfold, corollary_2_32 (isRelOpenInQuadrant_quadrant n W) (quadrant_nonempty n W),
+  rw [quadrantPolyfold, corollary_2_4_13 (isRelOpenInQuadrant_quadrant n W) (quadrant_nonempty n W),
     degIndex_quadrant (zero_mem_quadrant n W), quadrantDeg_zero]
 
 /-- **Non-vacuity of the tame boundary**: for the tame quadrant `[0,∞)ⁿ ⊕ W`, the corner `0` has
