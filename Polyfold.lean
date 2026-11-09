@@ -307,3 +307,6 @@ import Polyfold.Chapter11.StrongBundleUpToEquivalence
 import Polyfold.Chapter11.CoveringEquivalence
 import Polyfold.Chapter11.CoveringEquivalenceTheorem
 import Polyfold.Chapter11.CoveringEquivalenceDiagram
+import Polyfold.Chapter11.BranchedEquivalenceTangent
+import Polyfold.Chapter11.BranchedEquivalenceTangentSection
+import Polyfold.Chapter11.BranchedEquivalenceTangentOrientation
