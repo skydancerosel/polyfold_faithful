@@ -304,3 +304,6 @@ import Polyfold.Chapter11.BranchedEquivalenceLocalization
 import Polyfold.Chapter11.EpEquivalenceGeometry
 import Polyfold.Chapter11.EpEquivalenceGeometryFaces
 import Polyfold.Chapter11.StrongBundleUpToEquivalence
+import Polyfold.Chapter11.CoveringEquivalence
+import Polyfold.Chapter11.CoveringEquivalenceTheorem
+import Polyfold.Chapter11.CoveringEquivalenceDiagram
