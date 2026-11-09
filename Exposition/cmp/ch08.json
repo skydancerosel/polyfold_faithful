@@ -931,12 +931,12 @@
     ]
    },
    "chips": [
-    "$C$ = `SingleObj G`; $D$, $G$ in `Type`",
+    "$C$ = `SingleObj G`; $D$, $G$ in one universe",
     "finiteness where it is used",
     "$D = \\emptyset$ allowed"
    ],
    "diff": [
-    "$D$ is a Mathlib groupoid in `Type` and $C$ = `SingleObj G` for a group $G$ in `Type`, so $\\mathbf C\\,{}_s{\\times}_f\\,D = G \\times D$; the finiteness of $D$, its hom-sets and $G$ is carried by the results that use it; $\\mathrm{Diff}_{sc}$ has bundled M-polyfolds of one universe (Findings, Chapter 8, items 57, 100).",
+    "$D$ is a Mathlib groupoid in `Type u` and $C$ = `SingleObj G` for a group $G$ in `Type u`, $\\mathrm{Diff}_{sc}$ in the same universe (`Type` until 2026-11-09; Findings, Chapter 8, item 125), so $\\mathbf C\\,{}_s{\\times}_f\\,D = G \\times D$; the finiteness of $D$, its hom-sets and $G$ is carried by the results that use it; $\\mathrm{Diff}_{sc}$ has bundled M-polyfolds of one universe (Findings, Chapter 8, items 57, 100).",
     "As in the text, $D = \\emptyset$ is allowed; Proposition 8.5.7 (2017: 8.3) then needs $D$ nonempty (V8.35)."
    ]
   },
@@ -1057,7 +1057,7 @@
   {
    "id": "V8.36",
    "title": "Theorem 8.5.8 (2017: 8.6) (Proper Covering II): the local model of a proper covering functor",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§8.5 (2017 §8.4), Theorem 8.5.8 (2017: 8.6) and its proof, 2017 pp. 283–284",
     "page": 283,
@@ -1086,16 +1086,17 @@
      "Chapter8/GeometricLift · EpFunctor.ProperCoveringChart.range_Ψ_obj",
      "Chapter8/GeometricLift · EpFunctor.ProperCoveringChart.range_Ψ_mor",
      "Chapter8/GeometricLift · EpFunctor.ProperCoveringChart.comp_Ψ",
-     "Chapter8/GeometricLift · EpFunctor.theorem_8_6"
+     "Chapter8/GeometricLift · EpFunctor.theorem_8_6",
+     "Chapter8/NonVacuity · CoveringExamples.theorem_8_6_id"
     ]
    },
    "chips": [
-    "ep-groupoids in `Type`",
+    "ep-groupoids in any one universe",
     "“$A : K \\to L$”: a lift and its functor",
     "$L_D(\\psi)$ read at $\\psi = \\psi_0$"
    ],
    "diff": [
-    "**Narrower**: for ep-groupoids whose objects and morphisms are in `Type`, since Definition 8.5.5 (2017: 8.9) is stated there (V8.32) (Findings, Chapter 8, items 2, 60).",
+    "For ep-groupoids $X$, $Y$ whose objects and morphisms lie in any one universe, the universe of Definition 8.5.5 (2017: 8.9) (V8.32); until 2026-11-09 it was stated for `Type` (Findings, Chapter 8, items 2, 60, 125). Witness in every universe: the identity functor of any ep-groupoid (`CoveringExamples.theorem_8_6_id`).",
     "\"A sufficiently small $U(x)$ as in Theorem 8.5\" is any chart of Theorem 8.5.3 (2017: 8.5), and charts exist inside every open $V \\ni x$; \"a geometric lift $A : K \\to L$\" is read as a geometric lift with its functor $A$ of Proposition 8.5.7 (2017: 8.3); $L_D$ on the morphism $\\psi_0$ of $D$ is $t \\circ (s|\\mathbf U(\\psi_0))^{-1}$, the text's \"$\\psi \\in \\mathbf U(\\psi_0)$\" read as $\\psi = \\psi_0$; both \"one verifies\" are carried out (Findings, Chapter 8, item 60).",
     "\"there exists exists\", \"$\\tau(t)$\" for $\\tau(y)$, and \"$A(\\psi, z) = (f(z), F(z))$\" for $(f(\\psi), F(z))$ (possible misprints)."
    ]

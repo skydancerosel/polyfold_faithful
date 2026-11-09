@@ -4899,7 +4899,7 @@ comparison items V3.13, V3.45, V3.103; settles the strategy and sharpens the que
      controlled by the normal-space invariant alone (for infinite-dimensional normal spaces
      `ℝ ⊕ N ≅ N` is possible, so the construction of item 351 does not obstruct). Neither a proof
      nor a counterexample is known here. The theorems of §3.6 are unaffected: they assume
-     `IsScFredholmSectionTame` (tame germ data), which is what the text assumes.
+     `IsScFredholmSectionTame` (tame germ data), which is what the text assumes. (2026-11-09: condition (a) can always be met in the local model, by stabilization; item 379.)
 354. **The first part of item 199** (the chart `(1, φ)` with base retraction `(a, u) ↦ (1, r(u))`
      for a general strong bundle) is still not done: its compatibility needs the transitions
      `((1, u), h) ↦ T(u, h)` as sc-smooth retract maps for an arbitrary chart, i.e. the composition
@@ -5122,6 +5122,22 @@ comparison items V3.108–V3.121; gap G.79 new.)
 378. **2021 items of Chapter 3 already covered by earlier statements.** Lemma 3.1.19 = `lemma_3_16`; Theorem 3.5.11 =
      `theorem_3_47`, `theorem_3_47_sc_smooth`; Remark 3.8.16 = `theorem_3_72`, `proposition_3_73`; Lemma 3.8.8 = `lemma_3_65`;
      Remark 3.5.4 = `proposition_3_10_full` with `theorem_3_40_regularity`. Status: **settled**; no new statement needed.
+
+Follow-ups (2026-11-09).
+
+379. **Tame germ data: the kernel condition never obstructs (item 353 (a) settled in the local model)** *(Definitions
+     3.1.11 and 3.6.3 (preprint 3.11, 3.50); items 199, 350–353)*. `Polyfold/Chapter3/TameGermDataStabilization.lean`.
+     For a strong bundle retraction `R(u, h) = (r(u), ρ(u)h)` on `U ◁ F` and sc-Banach spaces `M`, `N`, the
+     stabilization `R̂((u, m), (h, n)) = ((r(u), 0), (ρ(u)h, 0))` on `(U × M) ◁ (F ⊕ N)` is a strong bundle retraction
+     whose retract is a copy of that of `R` (`Stabilize.isStrongBundleRetraction_stabilize`); its base retraction `r ×
+     0` is tame when `r` is (`Stabilize.isTame_baseRetraction_stabilize`); and `ker Dr̂(0) = ker Dr(0) ⊕ M`, `ker
+     ρ̂(0) = ker ρ(0) ⊕ N` (`Stabilize.nonempty_kerEquiv_stabilize`). With `M = ker ρ(0)` and `N = ker Dr(0)` the two
+     kernels are isomorphic (`Stabilize.exists_stabilization_kerEquiv`). So condition (a) of item 353, a tame chart at
+     `x₀` with `ker Dr'(0) ≅ ker ρ'(0)`, can always be met in the local model, and the necessary condition of item 350
+     never obstructs tame germ data. Left: the compatibility of the stabilized chart with the atlas (the
+     infrastructure of item 354) and a filling in it, whose condition (2) is a level-0 implicit-function statement, as
+     in item 263. The questions of items 264 (germ and whole-chart readings) and 343 (the index without tameness) stay
+     open. Status: **partially settled** (item 353 (a)).
 
 ## Chapter 4 (Manifolds with boundary with corners; Lean `Polyfold/Chapter4/`)
 
@@ -6994,7 +7010,7 @@ Follow-ups of the round-trip audit (`RoundTrip/`, item V5.22): Remark 5.3.4 (pre
      through a step showing that `r¹` is tame with respect to every presentation of `C¹` (the
      degeneracy index, `E_x ∩ E₁` and the sc-complement `A ∩ E₁`, then
      `ScRetraction.IsTameWith.isTame`), while the tame variants for `f¹` (`IsScFredholmSectionTame`
-     for the shifted section) remain not stated (Chapter 7, items 81, 115).
+     for the shifted section) remain not stated (Chapter 7, items 81, 115). (2026-11-09: settled for strong bundle charts and the shifted sections, item 181.)
 146. **`i ≥ 2` by iteration.** `StrongBundle.shift` applies to `P¹` itself, and Corollary 5.2.5 (preprint 5.8) for
      `i = 1` applies to the sc-Fredholm `f¹` with its compact solution set:
      `Polyfold.corollary_5_8_two` (`f² = (f¹)¹` is an sc-Fredholm section of `P² = (P¹)¹` with
@@ -7091,7 +7107,7 @@ comparison items V5.16, V5.17, V5.51; sharpens item 41.)
      to `C¹` bumps do not apply directly. Neither a counterexample nor a proof is known here. The
      formalization keeps the pointwise reading as the hypothesis of Propositions 5.3.2 (preprint 5.10)/5.30, Lemma
      5.3.3 (preprint 5.11) and Theorem 5.5.7 (preprint 5.34) (item 41), now knowing that it is automatic at the smooth points of a
-     linear model and everywhere on Hilbert models.
+     linear model and everywhere on Hilbert models. (2026-11-09: settled for sc-Banach spaces, item 180: the bump points of an sc-Banach space are all points or none.)
 164. **Bookkeeping.** New file `Chapter5/BumpWeakPointwise.lean` (imports `BumpFunctions`,
      `Chapter4/Recentre`), registered after `AllowableSectionsMetric` in `Polyfold.lean`, with a
      `Test.lean` section; every `#print axioms` is standard. Comparison: V5.16 keeps "restated",
@@ -7163,6 +7179,38 @@ and G.50 changed.)
 179. **Theorem 5.5.5 (preprint 5.32): the exponent `p` (gap G.50 changed)** *(book 2017: Theorem 5.10, pp. 174–175; book 2021:
      Theorem 5.5.5, p. 230)*. The 2017 and 2021 statements print `‖·‖ᵖ` in (1) and (2), where the preprint omits `p` (item 120).
      The 2021 text cites [25], Theorem 1. The theorem is still not stated (item 117).
+
+Follow-ups (2026-11-09).
+
+180. **Bump points of an sc-Banach space: all points or none (item 163 settled for sc-Banach spaces)** *(Definition
+     5.5.2 and Proposition 5.5.3, pp. 229–230 (preprint 5.29, 5.30); items 160–163)*.
+     `Polyfold/Chapter5/BumpPointsResearch.lean`. Item 161 translates a bump at `x` by `y − x`, which needs `x − y`
+     smooth. Instead, an sc-smooth `f` with `f(y) ≠ 0` is continuous on `E₀`, so `f ≠ 0` on a ball `B(y, δ)`; `E_∞` is
+     dense, so some smooth `a` has `‖a − (y − x)‖ < δ`, and `v ↦ f(v + a)` is sc-smooth, non-zero at `x`, with support
+     in `supp f − a` (`exists_smooth_translate_ne_zero`, `exists_bump_translate`). Hence the bump points of an
+     sc-Banach space are empty or everything (`MPolyfold.hasBumpAt_scPolyfold_all_or_nothing`,
+     `MPolyfold.HasBumpAt.scPolyfold_all`); dense bump points are all points
+     (`MPolyfold.hasBumpAt_scPolyfold_of_dense`), which answers item 163 negatively for sc-Banach spaces; and the weak
+     and pointwise readings of bump functions agree there at every point
+     (`MPolyfold.admitsBumpFunctionsWeak_iff_admitsBumpFunctions_scPolyfold`; item 161 had the smooth points). Through
+     Theorem 5.5.7, an M-polyfold admits bump functions in the pointwise reading when every point has a chart whose
+     model sc-Banach space has one bump point (`MPolyfold.admitsBumpFunctions_of_model_hasBumpAt`,
+     `MPolyfold.admitsBumpFunctions_of_model_weak`). Open: item 163 for a general M-polyfold (bumps on a retract need
+     not come from bumps of `E`), and whether some sc-Banach space has no bump point. Status: **settled** for
+     sc-Banach spaces.
+181. **Index raises of tame charts are tame (item 145 settled)** *(Corollary 5.2.5, p. 213 (preprint 5.8); Definition
+     2.5.2, p. 53; item 145)*. `Polyfold/Chapter5/ShiftTameResearch.lean`. By the presentation independence of
+     tameness (`ScRetraction.IsTameWith.isTame`) one presentation of `C¹` suffices, the index raise `T¹` of a
+     presentation `T` of `C` (`ScIso.shiftPres`): there `d_{C¹} = d_C` (`degIndex_shift`), `E_y(T¹) = E_y ∩ E₁`
+     (`mem_minimalSubspaceWith_shift`), `Dr¹ = Dr|E₁` has range `T_yO ∩ E₁` (Proposition 1.2.2), and `A ∩ E₁` is an
+     sc-complement (`ScBanach.IsScSplitting.levelSub_one`). So the index raise of a tame sc-retraction is tame
+     (`ScRetraction.IsTame.shift`, `IsTameRetract.shift`, `MPolyfold.IsTame.shift`, a Part I proof of Chapter 7's
+     `MPolyfold.IsTame.levelOne`), the base retraction of a shifted strong bundle chart is tame
+     (`IsStrongBundleRetraction.baseRetraction_shift_isTame`), and the index raise of a tame strong bundle chart is a
+     tame chart of `P¹` (`StrongBundle.IsTameChart.shift`). The germ data of `isScFredholmGerm_sectionShift` thus lie
+     in a tame chart (`isScFredholmGermTame_sectionShift`), and Corollary 5.2.5 holds with tame germ data and compact
+     solution set (`corollary_5_2_5_tame`, `corollary_5_2_5_isScFredholmSectionTame`; `i = 2` by iteration,
+     `corollary_5_2_5_tame_two`). Status: **settled**.
 
 ## Chapter 6 (Linearizations, orientations and invariants; Lean `Polyfold/Chapter6/`)
 
@@ -8097,7 +8145,7 @@ Found while formalizing the index lifts and paracompact orbit spaces (2026-11-07
     by Corollary 7.3.6 (2017: 7.1), hence paracompact (`remark_7_1`); also for `|X|` second countable
     (`hasParacompactOrbitSpace_of_secondCountableTopology`). "It is presently not known whether the
     property (5) is a consequence of the properties (1)–(4)" is an open question, recorded without a
-    gap (item 113). Remark 7.5.2 (2017: 7.1) itself, on the requirement of [38], has no formal content.
+    gap (item 113). Remark 7.5.2 (2017: 7.1) itself, on the requirement of [38], has no formal content. (2026-11-09: the open question is settled negatively, item 152.)
 83. **Proposition 7.5.3 (2017: 7.12) by metrizability; `|X¹| → |X|`** *(Proposition 7.5.3 (2017: 7.12), pp. 340 ff. (2017 pp. 249–250))*. The text
     writes `|X₁|` for the orbit space of `X¹` and treats it as the subset `π(X₁)` of `|X|`. Here `|X¹|`
     keeps its quotient topology, and `orbitIncl : |X¹| → |X|` is a continuous injection onto
@@ -8275,7 +8323,7 @@ Not formalized (2026-11-07).
      249) has none. "It is presently not known whether the property (5) is a consequence of the
      properties (1)–(4)" (p. 340 (2017 p. 249)) is an open question of the text; unlike Part I's open question
      after Proposition 4.2.3 (preprint 4.15; gap G.34) it is not given a gap, since nothing in the chapter depends on
-     it.
+     it. (2026-11-09: settled negatively, item 152.)
 114. **Gaps of Part I taken up in Chapter 7.** G.15 (Lemma 2.7.3 (2017: 2.7) and Proposition 2.7.4 (2017: 2.17) of Part I,
      closed locally finite refinements): now formalized (`lemma_2_56`, `proposition_2_57`,
      `michael_tfae`; item 75). G.56, its first fact (an M-polyfold is locally path connected): now
@@ -8546,6 +8594,38 @@ V7.69–V7.104.
      `levelConnected_liftOneRep`), with the density of `X_∞` (gap G.73). The point ep-groupoid satisfies both. Status:
      **settled** with this hypothesis; gap G.85 extended.
 
+Follow-ups (2026-11-09).
+
+151. **Theorem 7.6.9 for every representative** *(Theorem 7.6.9 and the characterization after it, p. 355, new in the
+     2021 edition; items 141, 145–147; round-trip item V7.101)*. `EpGroupoid.theorem_7_6_9_allReps_2021`
+     (`Polyfold/Chapter7/TameBoundaryFull.lean`): for a tame ep-groupoid, (1)–(5) and "`B` is an ep-functor" as in
+     `theorem_7_6_9_full_2021`, and, for every representative `t = (x, V, θ)` of `bX` and of `b𝐗`, centred or not: the
+     domain `uSet t` and the image `reachSet t ⊆ θ` of `Φ_t` are open, `reachSet t = θ` when `V` is centred, `Φ_t` is
+     an sc-diffeomorphism from `uSet t` onto `reachSet t` for `bPObj` (resp. `bPMor`), and every M-polyfold structure
+     with this property for all representatives is equivalent to `bPObj` (resp. `bPMor`). The proof applies Part I's
+     `phi_isScDiffeoOn_nonCentred_2021` and `tameBoundaryPolyfold_unique_allReps_2021` (G.78) to the object and
+     morphism M-polyfolds. The image of `Φ_t` is `θ ∩ V^x`, all of `θ` for centred `V` (item 141). No hypothesis is
+     added; tameness is met by `trivial_quadrant_boundaryEp_witness`. Status: **settled** (the characterization and
+     its uniqueness for every representative).
+
+152. **Property (5) does not follow from properties (1)–(4) (the open question of p. 340, settled negatively)**
+     *(Definition 7.5.1 and the paragraph after it, p. 340 (2017: Definition 7.15, p. 249); Definition 7.1.3, pp.
+     288–289; items 82, 113)*. `Polyfold/Chapter7/PropertyFiveResearch.lean`:
+     `EpGroupoid.Examples.Pruefer.exists_epGroupoid_not_hasParacompactOrbitSpace`, an ep-groupoid (Definition 7.1.3,
+     all of (1)–(4)) whose orbit space is Hausdorff (`t2Space_orbitSpace_pruefer`, Lemma 7.3.4) and not paracompact
+     (`pruefer_not_hasParacompactOrbitSpace`). It is the Čech groupoid of the atlas of a Prüfer-type surface: one
+     chart `ℝ²` for each `a` in an uncountable discrete index set, the chart `a` glued to the chart `b` along the open
+     upper half-planes by `(u, y) ↦ (u + (a − b)/y, y)`; objects `ι × ℝ²`, morphisms `(ι ⊕ {(a, b) | a ≠ b}) × ℝ²`, at
+     most one morphism between two objects (`EpGroupoid.Examples.Pruefer.epGroupoid`, for every discrete `ι` and
+     injective `c : ι → ℝ`). (1), (2), (4) are checked sheet by sheet, (3) with `V(x)` a unit ball in one chart, by a
+     boundedness argument on each sheet. Not (5): the axis points `|(a, 0)|` are alone in their orbits, and the cover
+     `W_a = |X| ∖ {|(b, 0)| : b ≠ a}` has no locally finite open refinement, since such a refinement would give an
+     injective map from the index set into the members meeting the countably many rational points of one chart
+     (`not_paracompactSpace_orbitSpace`). The object space has uncountably many components, so it is not second
+     countable, in line with the text's remark that second countability gives (5) (`remark_7_1`). Supporting lemma: a
+     `C^∞` map on an open subset of `ℝᵐ` is sc-smooth there (`isScSmoothOn_rn_rn_of_contDiffOn`). Status: **settled**
+     (negatively).
+
 ## Chapter 8 (Bundles and covering functors; Lean `Polyfold/Chapter8/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so
@@ -8586,7 +8666,7 @@ Found while formalizing §8.1 up to Proposition 8.1.14 (2017: 8.1) (2026-11-07).
    the total space `W` of a strong bundle lives in the universe of the objects and morphisms of `X`
    (item 33). Definition 8.5.5 (2017: 8.9) takes `D` and `G` in `Type` and `Diff_sc` with the M-polyfolds of one
    universe, so Theorem 8.5.8 (2017: 8.6) is stated for ep-groupoids whose objects and morphisms are in `Type`
-   (item 60). These restrictions come from the formalization, not from the text.
+   (item 60). These restrictions come from the formalization, not from the text. (2026-11-09: Definition 8.5.5 and Theorem 8.5.8 now take any one universe `u`, item 125.)
 
 3. **Tangents of maps defined on open sets** *(used in (8.5), (8.8) and in the proofs of Lemmas 8.1.2,
    8.1.3, 8.1.5, 8.1.7, 8.1.8 (2017: 8.1,
@@ -9257,6 +9337,18 @@ for every `(TX)^i` (item 124, `Chapter8/TangentZhouLevels.lean`); comparison ite
      formalized: the compatibility of the equivalence with unit, inverse and composition, not needed for LUC, and its
      linearity on the fibres (gap G.7). Status: **settled**; gap G.88 closed for (2), open for Proposition 8.1.16 (item 115).
 
+Follow-ups (2026-11-09).
+
+125. **Theorem 8.5.8 in every universe** *(Definition 8.5.5, p. 388, Proposition 8.5.7, p. 390, Theorem 8.5.8, p. 392
+     (2017: Definition 8.9, Proposition 8.3, Theorem 8.6); items 2, 60; round-trip item V8.36)*. Definition 8.5.5
+     (`IsCoveringFunctor`, `GeometricLift`, `Chapter8/Basic.lean`) now takes `D`, `G` and `Diff_sc` in one universe
+     `u`, and Proposition 8.5.7 (`proposition_8_3`) and Theorem 8.5.8 (`EpFunctor.theorem_8_6`,
+     `Chapter8/GeometricLift.lean`) hold for ep-groupoids `X`, `Y` whose objects and morphisms lie in any one
+     universe; no proof changed. Witness in every universe: `CoveringExamples.theorem_8_6_id` (the identity functor of
+     any ep-groupoid, `Chapter8/NonVacuity.lean`). `X` and `Y` share the universe because `L_D` and `L_C` take values
+     in one category `Diff_sc`; different universes would need lifted carriers. Status: **settled** (the restriction
+     of item 2 to `Type` is removed).
+
 ## Chapter 9 (Branched ep⁺-subgroupoids; Lean `Polyfold/Chapter9/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so that agents
@@ -9842,7 +9934,29 @@ Follow-up for the notes to the authors (2026-11-09).
      (`decompB_isLocalDimDecomposition`, so the condition can be met) and `Θ_0 = 1_{0}`, `Θ_1 = 1_{L∖0}` is
      not (`decompA_not_isLocalDimDecomposition`). The uniqueness of Proposition 9.1.11 thus holds when
      "uniquely" is read among local decompositions. The global gluing of the local `Θ_k` stays gap G.96.
-     Status: **settled** (uniqueness, in this reading).
+     Status: **settled** (uniqueness, in this reading). (2026-11-09: the gluing is done, over `ℝᵐ` with no hypothesis, item 106.)
+
+106. **Proposition 9.1.11: existence, and the proposition for local decompositions (gap G.96 closed over `ℝᵐ`)**
+     *(Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297); items 8, 105; gap G.96)*.
+     `Polyfold/Chapter9/DimDecompositionExists.lean`. `EpGroupoid.dimComponent Θ k y` is the `k`-dimensional part at
+     `y` of a labelled local branching structure at `y` (`0` if there is none); by Proposition 9.1.12 it does not
+     depend on the choice (`dimComponent_eq_self`) and equals `B.dimPart dim k` on all of `U(x)`
+     (`dimComponent_eq_of_mem`). It is a functor (`isFunctorial_dimComponent`, by transport of the labelled structure
+     along morphisms, `isSubmanifoldOfDim_transport`), and `|supp Θ_k|` is closed in `|supp Θ|`, hence paracompact
+     (`isClosed_orbitSupp_dimComponent`, `paracompactSpace_orbitSupp_dimComponent`). Given Proposition 9.1.12 and the
+     local constancy of dimension (Remark 9.1.1) along `supp Θ`, it is a local dimensional decomposition
+     (`isDimDecomposition_dimComponent`, `isLocalDimDecomposition_dimComponent`), the only one
+     (`existsUnique_localDimDecomposition`), and it is locally finite when the dimensions of submanifolds are bounded
+     (`isLocallyFiniteFamily_dimComponent`). `EpGroupoid.Proposition_9_1_11_local` states Proposition 9.1.11 with
+     "uniquely" read among local decompositions, plus local finiteness; it holds for every ep-groupoid with `X.PObj =
+     rnPolyfold m` with no further hypothesis (`proposition_9_1_11_local_rn`, from `proposition_9_1_12_rn`,
+     `hasLocallyConstantDimAt_rn` and `MPolyfold.rn_hasDimAt_le`), and in general under these three inputs
+     (`proposition_9_1_11_local_of`). In the example of item 8 the construction gives `Θ_0 = 0`, `Θ_1 = 1_L`
+     (`dimComponent_axis2`). Functoriality is proved by transport rather than through the symmetric structure of the
+     text, and the paracompactness of `|supp Θ_k|`, not discussed in the proof, is derived. Left in general:
+     Proposition 9.1.12 beyond the graph representation, Remark 9.1.1 beyond `ℝᵐ`, and local finiteness at points of
+     `closure(supp Θ) ∖ supp Θ` without a dimension bound. Status: **settled** over `ℝᵐ`; in general, reduced to these
+     three inputs.
 
 ## Chapter 10 (Equivalences and localization; Lean `Polyfold/Chapter10/`)
 
@@ -10369,7 +10483,25 @@ Follow-up for the notes to the authors (2026-11-09).
     `|Φ| = |Ψ|` gives `|ϕ| = |ψ|`, `SEP.orbitMap_base_eq`). Witness:
     `LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses` (`ℝⁿ × ℝᵏ → ℝⁿ` over the
     trivial ep-groupoid). Whether the theorem holds for an effective target without (LR) of a base is not
-    decided. Status: **settled** (effective target, base (LR)).
+    decided. Status: **settled** (effective target, base (LR)). (2026-11-09: with Definition 8.4.2 read for local isomorphisms, no (LR) of a base is needed, item 72.)
+
+72. **Theorem 10.5.7 for an effective target, with the hypothesis of the text** *(Definition 8.4.2, p. 382, new in the
+    2021 edition; Theorem 10.5.7, p. 508 (2017: Theorem 10.10); items 58, 71)*. The text's Definition 8.4.2 speaks of
+    strong bundle isomorphisms of `W|U(x)`; the formal `EpStrongBundle.IsLR` speaks of strong bundle maps of all of
+    `W`. `EpStrongBundle.IsLRLocal` (`Polyfold/Chapter10/LocalizationLRBundleBase.lean`) is the reading with local
+    isomorphisms (`StrongBundle.IsLocalIsoOn`); it implies the earlier one (`EpStrongBundle.IsLRLocal.isLR`). With it,
+    Theorem 10.5.7 holds when the base of the target is effective, assuming (LR) of the target bundle only and no (LR)
+    of a base: `SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal` (and `…_of_isLRLocal'`, with the hypotheses
+    of the text on both bundles). The proof applies (LR) of the target to `γ = Q ∘ ϕ_F⁻¹` on `W'|U(ϕ_F(x))`, which
+    lifts to the local strong bundle isomorphism `w ↦ μ'(ψ, G(F⁻¹ w))`; this gives the local families of Proposition
+    10.4.7 on the bases (`SEP.exists_family_of_isLRLocal`), hence `F ≃ G`
+    (`SEP.natEquiv_of_isEffective_of_isLRLocal`), without Proposition 10.4.6. Witnesses:
+    `EpStrongBundle.isLRLocal_trivial`,
+    `LocalizationLRBundleBaseExamples.theorem_10_5_7_of_isEffective_of_isLRLocal_hypotheses` (`ℝⁿ × ℝᵏ → ℝⁿ`).
+    Effectiveness is still needed: the `ℤ/3` example of item 58 satisfies `IsLRLocal` (`isLRLocal_z3EpBundle`), and
+    there the theorem does not hold as we read it (`not_theorem_10_5_7_of_isLRLocal`). Whether the formal
+    `EpStrongBundle.IsLR` alone suffices is not decided. Status: **settled** (effective target; Definition 8.4.2 read
+    for local isomorphisms).
 
 ## Chapter 11 (Geometry up to equivalences; Lean `Polyfold/Chapter11/`)
 

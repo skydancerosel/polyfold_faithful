@@ -233,8 +233,8 @@ instance : Category MPolyfoldCat.{u} where
 
 section CoveringFunctor
 
-variable {D : Type} [Groupoid.{0} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
-  {G : Type} [Group G] [Fintype G]
+variable {D : Type u} [Groupoid.{u} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
+  {G : Type u} [Group G] [Fintype G]
 
 /-- The map `D → C ₛ×_f D = G × D`, `ψ ↦ (f(ψ), s(ψ))`, on the morphisms `ψ : a → b` of `D`. -/
 def coveringMap (f : D ⥤ SingleObj G) (ψ : Σ a b : D, a ⟶ b) : G × D :=

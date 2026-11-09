@@ -186,7 +186,10 @@ Open the HTML pages in a browser straight from the folder; they need no server.
     `Polyfold/Chapter9/Propositions.lean`; V9.9; Findings, Chapter 9, item 8). Uniqueness holds among
     the decompositions the proof constructs, those given near each point by the dimensional parts of a
     local branching structure (`proposition_9_1_11_unique_rn`, `isDimDecomposition_unique`,
-    `Polyfold/Chapter9/DimDecompositionUnique.lean`; Findings, Chapter 9, item 105).
+    `Polyfold/Chapter9/DimDecompositionUnique.lean`; Findings, Chapter 9, item 105), and such a
+    decomposition exists: read this way, with local finiteness, the proposition holds for every
+    ep-groupoid over `ℝᵐ` (`proposition_9_1_11_local_rn`, `Polyfold/Chapter9/DimDecompositionExists.lean`;
+    Findings, Chapter 9, item 106).
 11. **Sheets of different dimensions in §§9.3–9.5**: Lemma 9.3.4 (p. 423), Lemma 9.4.4 with the note
     in Definition 9.4.7 (pp. 431–432), and Lemma 9.5.2 (p. 437) do not hold as we read them when the
     local branching structure has sheets of different dimensions; each counterexample is checked in
@@ -201,9 +204,10 @@ Open the HTML pages in a browser straight from the folder; they need no server.
     and no natural transformation `1 ⇒ Inv` exists (`not_theorem_10_3_19`, `not_theorem_10_5_7`,
     `Polyfold/Chapter10/LocalizationLRCounterexample.lean`; V10.65, V10.67; Findings, Chapter 10,
     item 58). Both hold when the target is effective: Theorem 10.3.19 (`theorem_10_3_19_of_isEffective`,
-    V10.66), and Theorem 10.5.7 with (LR) of a base, as in Theorem 10.3.19
-    (`theorem_10_5_7_of_isEffective`, `Polyfold/Chapter10/LocalizationLREffectiveBundle.lean`; Findings,
-    Chapter 10, item 71). Is an effectiveness hypothesis intended?
+    V10.66), and Theorem 10.5.7 with the hypothesis of the text for the target, Definition 8.4.2
+    read for local strong bundle isomorphisms (`theorem_10_5_7_of_isEffective_of_isLRLocal`,
+    `Polyfold/Chapter10/LocalizationLRBundleBase.lean`; Findings, Chapter 10, items 71, 72). Is an
+    effectiveness hypothesis intended?
 
 ## Open questions
 
@@ -212,14 +216,21 @@ None of these is a hypothesis of a theorem of the project; each is stated precis
 * Whether the text's germ reading and the stricter whole-chart reading of Definition 3.1.11 (preprint 3.11), p. 96, agree for
   sections sc-smooth on `X` (Chapter 3, item 264).
 * Whether germ data can always be moved to a compatible tame chart when the atlas is tame (item 199;
-  re-centring a chart of the atlas provably cannot do it, items 350–353).
-* Whether a weak bump function (Definition 5.5.2 (preprint 5.29), p. 229) gives one non-zero at a given non-smooth point
-  (Chapter 5, item 163; at smooth points of sc-Banach spaces it does).
+  re-centring a chart of the atlas provably cannot do it, items 350–353; the kernel condition can
+  always be met, by stabilization, item 379).
+* Whether a weak bump function (Definition 5.5.2 (preprint 5.29), p. 229) gives one non-zero at a given point of a
+  general M-polyfold (Chapter 5, item 163; on an sc-Banach space it does at every point, since its bump points
+  are all points or none, item 180).
 * The local constancy of the index along the zero set for germ data that are not tame (item 243).
-* The tameness of the shifted charts in Corollary 5.2.5 (preprint 5.8), p. 213, and a single family `P^i` for all `i`.
+* A single family `P^i` for all `i` in Corollary 5.2.5 (preprint 5.8), p. 213 (the tameness of the shifted charts
+  is proved, Chapter 5, item 181).
 * The text's own open question after Proposition 4.2.3 (preprint 4.15), Question 4.2.4, p. 187.
-* The text's own open question on p. 340 of Part II (2017: p. 249), at the start of §7.5: whether
-  property (5) of a paracompact orbit space follows from properties (1)–(4) (Chapter 7, item 113).
+
+Settled since: the text's own question on p. 340 of Part II (2017: p. 249), whether property (5) of a
+paracompact orbit space follows from properties (1)–(4) of an ep-groupoid, has a negative answer: the Čech
+groupoid of a Prüfer-type surface with uncountably many charts is an ep-groupoid whose orbit space is not
+paracompact (`exists_epGroupoid_not_hasParacompactOrbitSpace`, `Polyfold/Chapter7/PropertyFiveResearch.lean`;
+Chapter 7, item 152).
 
 Not formalized (by decision, see the gap list in the comparison): Theorems 5.3.15 (preprint 5.22),
 p. 223, and 5.27 (preprint; in neither the 2017 nor the 2021 text), the Banach-space theorems 5.5.5,

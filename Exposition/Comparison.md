@@ -6627,24 +6627,26 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 **HWZ (§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)).** Over a tame $X$, if $f^{-1}(0)$ is compact, then $f^i$ is an sc-Fredholm section of $P^i : Y^i \to X^i$ with compact solution set.
 
-**Proved in Lean.** `corollary_5_8`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.1.16 (preprint 3.14), the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_8_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$; since `corollary_5_8` holds for every strong bundle, every fixed $i$ follows by iterating it. `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$.
+**Proved in Lean.** `corollary_5_8`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.1.16 (preprint 3.14), the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_8_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$; since `corollary_5_8` holds for every strong bundle, every fixed $i$ follows by iterating it. `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$. With tame germ data: `corollary_5_2_5_tame` (and `corollary_5_2_5_tame_two`).
 
 - `Polyfold.corollary_5_8` — Polyfold/Chapter5/Corollary58.lean, line 546
 - `Polyfold.corollary_5_8_two` — Polyfold/Chapter5/Corollary58.lean, line 557
 - `Polyfold.StrongBundle.solutionSet_sectionShift` — Polyfold/Chapter5/StrongBundleShift.lean, line 994
 - `Polyfold.isCompact_solutionSet_level` — Polyfold/Chapter5/Compactness.lean, line 242
+- `Polyfold.corollary_5_2_5_tame` — Polyfold/Chapter5/ShiftTameResearch.lean, line 336
+- `Polyfold.corollary_5_2_5_tame_two` — Polyfold/Chapter5/ShiftTameResearch.lean, line 345
 
 *What differs.*
 - $P^i : Y^i \to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_8` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_8_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; gap G.6, closed). The compact solution set is also proved on every level $X_i$ directly.
-- Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which would need the tameness of the index raises of tame charts (not proved; Findings, Chapter 5, item 145). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it, when only the compactness half was proved) (Findings, Chapter 5, items 140–146; gap G.41).
+- Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which is proved as well: the index raise of a tame chart is tame, and Corollary 5.2.5 holds with tame germ data (`corollary_5_2_5_tame`; Findings, Chapter 5, items 145, 181). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it, when only the compactness half was proved) (Findings, Chapter 5, items 140–146; gap G.41).
 
 ### V5.14. Corollary 5.2.5 (preprint 5.8): the shifted strong bundle $P^1$, and $f^1$ sc-Fredholm on it
 
-*stronger* · $P^1 : Y_{1,1} \to X^1$ built · filler condition (3) on level 1 proved · no tameness; tame form not stated
+*stronger* · $P^1 : Y_{1,1} \to X^1$ built · filler condition (3) on level 1 proved · no tameness needed; tame form proved
 
 **HWZ (§5.2, Corollary 5.2.5 (preprint 5.8), p. 213 (preprint p. 173)).** "It is a priori clear that $f^i$ is sc-Fredholm", as a section of $P^i : Y^i \to X^i$.
 
-**Proved in Lean.** `StrongBundle.shift`: the shifted strong bundle $P^1 : Y^1 \to X^1$ (Definition 2.6.5 (preprint 2.51)): total space $Y_{1,1}$ with its level topology, $P^1 = P|_{Y_{1,1}}$, fibres $P^{-1}(x) \cap Y_{1,1}$ (linear subspaces, with the topology of $F_1$), and the atlas of the index raises $\Phi^1$ of the strong bundle charts, compatible charts having compatible index raises; $(Y^1)_{m,k} = Y_{m+1,k+1}$. `corollary_5_8_isScFredholmSection`: for an sc-Fredholm section $f$, $f^1 = f|_{X_1}$ is an sc-Fredholm section of $P^1$ — sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point of $X^1$ (`isScFredholmGerm_sectionShift`), with the datum $(g^1, s^1)$ in the index raise $\Phi^1$ of the chart of a datum $(g, s)$ of $f$: the principal part of $f^1$ is the level-$1$ map of that of $f$, $g^1$ is a filling germ of it, including condition (3) of Definition 3.1.4 (preprint 3.4) on level $1$ (`IsFillingGerm.germ_shift`, from `IsFillingGerm.mem_range_toBase_of_fillDefect`: at the centre of every datum, $v \in \ker Dr(0)$ and $Dk(0)v \in F_m$ give $v \in E_m$), $s^1$ is an sc⁺-germ on the shifted germ, and $g^1 - s^1 = (g - s)_1$ near $0$ is conjugated to a basic germ by the index raise of the conjugation (`IsConjugateToBasicGerm.shift_germ`, with `IsBasicGerm.shift`). The chart-level form `corollary_5_8_chart` is kept.
+**Proved in Lean.** `StrongBundle.shift`: the shifted strong bundle $P^1 : Y^1 \to X^1$ (Definition 2.6.5 (preprint 2.51)): total space $Y_{1,1}$ with its level topology, $P^1 = P|_{Y_{1,1}}$, fibres $P^{-1}(x) \cap Y_{1,1}$ (linear subspaces, with the topology of $F_1$), and the atlas of the index raises $\Phi^1$ of the strong bundle charts, compatible charts having compatible index raises; $(Y^1)_{m,k} = Y_{m+1,k+1}$. `corollary_5_8_isScFredholmSection`: for an sc-Fredholm section $f$, $f^1 = f|_{X_1}$ is an sc-Fredholm section of $P^1$ — sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point of $X^1$ (`isScFredholmGerm_sectionShift`), with the datum $(g^1, s^1)$ in the index raise $\Phi^1$ of the chart of a datum $(g, s)$ of $f$: the principal part of $f^1$ is the level-$1$ map of that of $f$, $g^1$ is a filling germ of it, including condition (3) of Definition 3.1.4 (preprint 3.4) on level $1$ (`IsFillingGerm.germ_shift`, from `IsFillingGerm.mem_range_toBase_of_fillDefect`: at the centre of every datum, $v \in \ker Dr(0)$ and $Dk(0)v \in F_m$ give $v \in E_m$), $s^1$ is an sc⁺-germ on the shifted germ, and $g^1 - s^1 = (g - s)_1$ near $0$ is conjugated to a basic germ by the index raise of the conjugation (`IsConjugateToBasicGerm.shift_germ`, with `IsBasicGerm.shift`). The chart-level form `corollary_5_8_chart` is kept. The index raise of a tame strong bundle chart is a tame chart of $P^1$ (`StrongBundle.IsTameChart.shift`), so the germ data of $f^1$ lie in a tame chart (`isScFredholmGermTame_sectionShift`).
 
 - `Polyfold.StrongBundle.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 877
 - `Polyfold.StrongBundleChart.shift` — Polyfold/Chapter5/StrongBundleShift.lean, line 630
@@ -6662,11 +6664,14 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.isScFredholmGerm_sectionShift` — Polyfold/Chapter5/Corollary58.lean, line 494
 - `Polyfold.corollary_5_8_isScFredholmSection` — Polyfold/Chapter5/Corollary58.lean, line 536
 - `Polyfold.corollary_5_8_chart` — Polyfold/Chapter5/Compactness.lean, line 482
+- `Polyfold.ScRetraction.IsTame.shift` — Polyfold/Chapter5/ShiftTameResearch.lean, line 211
+- `Polyfold.StrongBundle.IsTameChart.shift` — Polyfold/Chapter5/ShiftTameResearch.lean, line 273
+- `Polyfold.isScFredholmGermTame_sectionShift` — Polyfold/Chapter5/ShiftTameResearch.lean, line 284
 
 *What differs.*
 - $Y^i \to X^i$ is never defined in the text (it defines $Y[i]$ for $i = 0, 1$). $Y^1$ is read as $Y_{1,1}$ with $(Y^1)_{m,k} = Y_{m+1,k+1}$, the convention of $E^1$ and of $(U \triangleleft F)^1 = U^1 \triangleleft F^1$; it is forced by “$f^i$ is obtained by raising the index”: an sc-smooth section maps $X_1$ into $Y_{1,1}$, in general not into $Y_{1,2}$. The fibre of $P^1$ carries the topology of $F_1$, not that of the fibre of $P$; it is a Banach space because a fibre of a strong bundle is, through a chart, a closed subspace of its fibre model (`StrongBundleChart.isBanachable_fiber`) (Findings, Chapter 5, items 140, 141).
 - “It is a priori clear” hides condition (3) of the filling on level $1$ ($\ker Dr^1(0) \to \ker\rho^1(0)$ a topological isomorphism), which does not follow from level $0$ alone: an sc-operator can be bijective on level $0$ and not onto on level $1$. It holds for the data of Definition 3.1.11 (preprint 3.11): subtracting the section $z \mapsto \Gamma(z, -g(0))$ reduces to $g(0) = 0$ with the same fill defect (Lemma 3.1.20 (preprint 3.17)), Proposition 3.6.5 (preprint 3.52) in sc form makes $Dg(0)$ sc-Fredholm, and its regularity gives the surjectivity on level $1$; the open mapping theorem does the rest (Findings, Chapter 5, items 22, 144). No hypothesis beyond the text’s is added.
-- Tameness is not used. The tame form (germ data of $f^1$ in tame charts of $P^1$) is not stated: the tameness of the index raise of a tame chart is not proved, and no counterexample is known (Findings, Chapter 5, item 145). $i \ge 2$ by iteration: V5.13. Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it: no $Y^1 \to X^1$, no filler on level $1$) (Findings, Chapter 5, items 140–146; gap G.41).
+- Tameness is not used. The tame form (germ data of $f^1$ in tame charts of $P^1$) is proved as well: the index raise of a tame strong bundle chart is a tame chart of $P^1$ (`StrongBundle.IsTameChart.shift`, `isScFredholmGermTame_sectionShift`; Findings, Chapter 5, items 145, 181). $i \ge 2$ by iteration: V5.13. Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it: no $Y^1 \to X^1$, no filler on level $1$) (Findings, Chapter 5, items 140–146; gap G.41).
 - In the text’s germ reading of Definition 3.1.11 (preprint 3.11) (phase 2) $s^1$ is an sc⁺-germ on the shifted germ of $s$, and the level-$1$ conjugation uses $g - s$ only near $0$ (Findings, Chapter 3, item 333).
 
 ### V5.15. $\mathbb R$ as an M-polyfold; sc-smooth functions
@@ -6692,7 +6697,7 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 
 ### V5.16. Definitions 5.3.1 and 5.5.2 (preprint 5.9 and 5.29): sc-smooth bump functions
 
-*restated* · $f \ne 0$ read as $f(x) \ne 0$ · weak ⇐ bump points dense · weak ⇒ pointwise at smooth points of $E$
+*restated* · $f \ne 0$ read as $f(x) \ne 0$ · weak ⇐ bump points dense · weak ⇔ pointwise on sc-Banach spaces
 
 **HWZ (§5.3, Definition 5.3.1 (preprint 5.9), p. 216 (preprint p. 173); §5.5 (preprint §5.4.2), Definition 5.5.2 (preprint 5.29), p. 229 (preprint p. 192)).** Definition 5.3.1 (preprint 5.9): for every $x$ and open $U(x)$ an sc-smooth $f : X \to \mathbb R$ with $f \ne 0$ and $\operatorname{supp}(f) \subseteq U(x)$. Definition 5.5.2 (preprint 5.29): $f$ "not identically zero".
 
@@ -6705,9 +6710,12 @@ Left: the statement as the book states it. Right: the statement proved in Lean, 
 - `Polyfold.MPolyfold.admitsBumpFunctionsWeak_of_dense` — Polyfold/Chapter5/BumpWeakPointwise.lean, line 87
 - `Polyfold.MPolyfold.AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth` — Polyfold/Chapter5/BumpWeakPointwise.lean, line 179
 - `Polyfold.MPolyfold.admitsBumpFunctions_of_hilbert` — Polyfold/Chapter5/BumpFunctions.lean, line 510
+- `Polyfold.MPolyfold.hasBumpAt_scPolyfold_all_or_nothing` — Polyfold/Chapter5/BumpPointsResearch.lean, line 167
+- `Polyfold.MPolyfold.admitsBumpFunctionsWeak_iff_admitsBumpFunctions_scPolyfold` — Polyfold/Chapter5/BumpPointsResearch.lean, line 198
+- `Polyfold.MPolyfold.admitsBumpFunctions_of_model_hasBumpAt` — Polyfold/Chapter5/BumpPointsResearch.lean, line 240
 
 *What differs.*
-- Proposition 5.5.3's (preprint 5.30) proof needs $g(x) \ne 0$; without translations a bump cannot be moved to $x$. Whether the weak reading suffices is open at non-smooth points: on an sc-Banach space the weak reading gives a bump at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`; translation by a non-smooth vector does not preserve the levels), on Hilbert models both readings hold everywhere (`admitsBumpFunctions_of_hilbert`), and the weak reading is the density of the bump points (`HasBumpAt`; one direction formalized) (Findings, Chapter 5, items 41, 160–163). Updated in the fourth addendum of this page.
+- Proposition 5.5.3's (preprint 5.30) proof needs $g(x) \ne 0$; without translations a bump cannot be moved to $x$. Whether the weak reading suffices is open at non-smooth points: on an sc-Banach space the weak reading gives a bump at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`; translation by a non-smooth vector does not preserve the levels), on Hilbert models both readings hold everywhere (`admitsBumpFunctions_of_hilbert`), and the weak reading is the density of the bump points (`HasBumpAt`; one direction formalized) (Findings, Chapter 5, items 41, 160–163). On an sc-Banach space this is now settled at every point: a bump at one point is moved to any other by a smooth vector close to the difference, so the bump points are all points or none, and the weak and pointwise readings agree (`MPolyfold.admitsBumpFunctionsWeak_iff_admitsBumpFunctions_scPolyfold`; Findings, Chapter 5, item 180); for a general M-polyfold the question stays open. Updated in the fourth addendum of this page.
 
 ### V5.17. Propositions 5.3.2 and 5.5.3 (preprint 5.10 and 5.30)
 
@@ -10069,20 +10077,24 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V7.53. Definition 7.5.1 (2017: 7.15): paracompact orbit spaces; Remark 7.5.2 (2017: 7.1)
 
-*restated* · “$X$ second countable” for objects · open question not formalized
+*restated* · “$X$ second countable” for objects · open question settled: (5) does not follow
 
 **HWZ (§7.5 (2017 §7.4), Definition 7.5.1 (2017: 7.15), the paragraph after it, and Remark 7.5.2 (2017: 7.1), p. 340 (2017 p. 249)).** The ep-groupoid $(X, \mathbf X)$ is an ep-groupoid with paracompact orbit space if, in addition to the properties (1)–(4) of Definition 7.1.3 (2017: 7.3), it also possesses the following property (5): the orbit space $|X|$ is paracompact. A topological space is paracompact if every open covering has a refinement which is a locally finite open covering; a paracompact space is not required to be Hausdorff. It is presently not known whether the property (5) is a consequence of the properties (1)–(4). In case $X$ has a second countable topology, (1)–(4) imply (5). Remark 7.5.2 (2017: 7.1) (paraphrased): the paper [38] required the M-polyfolds to be second countable; the authors found this requirement unnecessarily restrictive and (5) a better one.
 
-**Proved in Lean.** `HasParacompactOrbitSpace`: Mathlib's `ParacompactSpace` for $|X|$ (no Hausdorff condition). `remark_7_1`: if the object space $X$ is second countable, $|X|$ is paracompact; `hasParacompactOrbitSpace_of_secondCountableTopology`: likewise if $|X|$ is second countable; `hasParacompactOrbitSpace_iff_metrizableSpace`: $|X|$ is paracompact iff it is metrizable.
+**Proved in Lean.** `HasParacompactOrbitSpace`: Mathlib's `ParacompactSpace` for $|X|$ (no Hausdorff condition). `remark_7_1`: if the object space $X$ is second countable, $|X|$ is paracompact; `hasParacompactOrbitSpace_of_secondCountableTopology`: likewise if $|X|$ is second countable; `hasParacompactOrbitSpace_iff_metrizableSpace`: $|X|$ is paracompact iff it is metrizable. `exists_epGroupoid_not_hasParacompactOrbitSpace`: an ep-groupoid without (5), the Čech groupoid of a Prüfer-type surface.
 
 - `Polyfold.EpGroupoid.HasParacompactOrbitSpace` — Polyfold/Chapter7/EpGroupoid.lean, line 620
 - `Polyfold.EpGroupoid.remark_7_1` — Polyfold/Chapter7/Lift.lean, line 919
 - `Polyfold.EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology` — Polyfold/Chapter7/Lift.lean, line 911
 - `Polyfold.EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace` — Polyfold/Chapter7/Lift.lean, line 906
+- `Polyfold.EpGroupoid.Examples.Pruefer.epGroupoid` — Polyfold/Chapter7/PropertyFiveResearch.lean, line 707
+- `Polyfold.EpGroupoid.Examples.Pruefer.not_paracompactSpace_orbitSpace` — Polyfold/Chapter7/PropertyFiveResearch.lean, line 774
+- `Polyfold.EpGroupoid.Examples.Pruefer.t2Space_orbitSpace_pruefer` — Polyfold/Chapter7/PropertyFiveResearch.lean, line 869
+- `Polyfold.EpGroupoid.Examples.Pruefer.exists_epGroupoid_not_hasParacompactOrbitSpace` — Polyfold/Chapter7/PropertyFiveResearch.lean, line 875
 
 *What differs.*
 - "$X$ has a second countable topology" is read for the object space: $|X|$ is then second countable ($\pi$ is open), metrizable by Corollary 7.3.6 (2017: 7.1), hence paracompact (Findings, Chapter 7, item 82).
-- "It is presently not known whether (5) is a consequence of (1)–(4)" is an open question of the text, not formalized and not given a gap, since nothing depends on it; Remark 7.5.2 (2017: 7.1) has no formal content (Findings, Chapter 7, items 82, 113).
+- "It is presently not known whether (5) is a consequence of (1)–(4)": it is not. The Čech groupoid of the atlas of a Prüfer-type surface, with uncountably many charts, is an ep-groupoid (Definition 7.1.3) whose orbit space is Hausdorff and not paracompact (`exists_epGroupoid_not_hasParacompactOrbitSpace`); its object space is not second countable. Remark 7.5.2 (2017: 7.1) has no formal content (Findings, Chapter 7, items 82, 113, 152).
 
 ### V7.54. Proposition 7.5.3 (2017: 7.12): paracompactness under lifts
 
@@ -11006,20 +11018,21 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V7.101. Theorem 7.6.9 in full
 
-*narrower* · new in the 2021 edition · characterization for centred $V$ · (4) as printed, $\mathbb N$-subtraction
+*restated* · new in the 2021 edition · characterization for every representative · (4) as printed, $\mathbb N$-subtraction
 
 **HWZ (§7.6, Theorem 7.6.9, p. 355 (new in the 2021 edition), and the characterization after it).** For a tame ep-groupoid: (1) $bX$ and $b\mathbf X$ have natural metrizable topologies; (2) natural tame M-polyfold structures; (3) both maps $B$ are sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$, and likewise on $b\mathbf X$; (5) $(bX, b\mathbf X)$ with $s, t, u, \iota, m$ is a tame ep-groupoid. The topology and the structure are characterized as in Theorem 2.7.13.
 
-**Proved in Lean.** `theorem_7_6_9_full_2021` (for `X.IsTame`): (1) metrizable $bX$, $b\mathbf X$; (2) `bPObj`, `bPMor` tame, and for every triple with $V$ centred at $x$, `uSet` open and `phiTot` an sc-diffeomorphism onto `facePolyfold` with inverse `phiHomeomorph.symm`, and every M-polyfold structure with this property has an atlas equivalent to `bPObj`, resp. `bPMor`; (3) both `tameBoundaryMap` sc-smooth; (4) $d_X(B p) - 1 = d_{bX}(p)$, $d_{\mathbf X}(B a) - 1 = d_{b\mathbf X}(a)$; (5) `boundaryEpGroupoid` tame, with the groupoid `boundaryGroupoid` and the structures `bPObj`, `bPMor`, local sc-diffeomorphisms `bSrc`, `bTgt`, sc-smooth `bUnit`, `bInv`, `IsScSmoothComp`; an `EpFunctor` with object and morphism maps the two `tameBoundaryMap`. Witness: `trivial_quadrant_boundaryEp_witness` ($[0, \infty)^n \oplus W$, $n \ge 1$: tame, nonempty $bX$, $b\mathbf X$, $d_{bX} = n - 1$ over the corner).
+**Proved in Lean.** `theorem_7_6_9_full_2021` (for `X.IsTame`): (1) metrizable $bX$, $b\mathbf X$; (2) `bPObj`, `bPMor` tame, and for every triple with $V$ centred at $x$, `uSet` open and `phiTot` an sc-diffeomorphism onto `facePolyfold` with inverse `phiHomeomorph.symm`, and every M-polyfold structure with this property has an atlas equivalent to `bPObj`, resp. `bPMor`; (3) both `tameBoundaryMap` sc-smooth; (4) $d_X(B p) - 1 = d_{bX}(p)$, $d_{\mathbf X}(B a) - 1 = d_{b\mathbf X}(a)$; (5) `boundaryEpGroupoid` tame, with the groupoid `boundaryGroupoid` and the structures `bPObj`, `bPMor`, local sc-diffeomorphisms `bSrc`, `bTgt`, sc-smooth `bUnit`, `bInv`, `IsScSmoothComp`; an `EpFunctor` with object and morphism maps the two `tameBoundaryMap`. Witness: `trivial_quadrant_boundaryEp_witness` ($[0, \infty)^n \oplus W$, $n \ge 1$: tame, nonempty $bX$, $b\mathbf X$, $d_{bX} = n - 1$ over the corner). For every representative $t$ of $bX$ and of $b\mathbf X$, centred or not: `theorem_7_6_9_allReps_2021` ($\Phi_t$ an sc-diffeomorphism from `uSet t` onto the open `reachSet t`, which is $\theta$ for centred $V$, and uniqueness of the structures).
 
 - `Polyfold.EpGroupoid.theorem_7_6_9_full_2021` — Polyfold/Chapter7/TameBoundaryEpStructure.lean, line 385
+- `Polyfold.EpGroupoid.theorem_7_6_9_allReps_2021` — Polyfold/Chapter7/TameBoundaryFull.lean, line 73
 - `Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness` — Polyfold/Chapter7/TameBoundaryEpStructure.lean, line 450
 - `Polyfold.MPolyfold.theorem_2_7_13_structure_2021` — Polyfold/Chapter2/TameBoundaryStructure.lean, line 886
 - `Polyfold.MPolyfold.tameBoundaryPolyfold_unique` — Polyfold/Chapter2/TameBoundaryStructure.lean, line 743
 - `Polyfold.MPolyfold.degIndex_tameBoundaryMap` — Polyfold/Chapter2/TameBoundaryStructure.lean, line 578
 
 *What differs.*
-- The characterization and its uniqueness are for representatives whose $V$ is centred at $x$ (V7.98); Part I has them since for every representative, with image $\theta \cap V^x$ (V2.104; gap G.78, closed), the boundary ep-groupoid not; "natural" in (2) is read through them. The hypotheses of the two uniqueness statements are satisfied by `bPObj`, `bPMor` themselves.
+- The characterization and its uniqueness hold for every representative, centred or not (`theorem_7_6_9_allReps_2021`): $\Phi_t$ is an sc-diffeomorphism onto the open set $\theta \cap V^x$, all of $\theta$ when $V$ is centred, as in Part I (V2.104; gap G.78, closed); "natural" in (2) is read through them. The hypotheses of the two uniqueness statements are satisfied by `bPObj`, `bPMor` themselves (Findings, Chapter 7, items 141, 151).
 - (4) is stated as printed, with natural-number subtraction ($B$ takes values in $\partial X$, where $d_X \ge 1$); the additive form is `MPolyfold.degIndex_tameBoundaryMap` (Findings, Chapter 7, items 145, 147).
 
 ### V7.102. Proposition 7.4.9, and Corollary 7.4.11, Theorems 7.4.13, 7.4.24 for every $X^i$: (ZHOU) passes to every $X^i$
@@ -11724,7 +11737,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V8.32. Definition 8.5.5 (2017: 8.9): $\mathrm{Diff}_{sc}$, covering functors and geometric lifts
 
-*restated* · $C$ = `SingleObj G`; $D$, $G$ in `Type` · finiteness where it is used · $D = \emptyset$ allowed
+*restated* · $C$ = `SingleObj G`; $D$, $G$ in one universe · finiteness where it is used · $D = \emptyset$ allowed
 
 **HWZ (§8.5 (2017 §8.4), Definition 8.5.5 (2017: 8.9) and the category $\mathrm{Diff}_{sc}$ before it, pp. 387–389 (2017 pp. 279–280)).** $\mathrm{Diff}_{sc}$ is the category whose objects are M-polyfolds and whose morphisms are sc-smooth diffeomorphisms between M-polyfolds. Let $D$ and $C$ be two categories with finitely many objects and morphisms, all morphisms isomorphisms, $C$ with only one object $x$. A covering functor $f : D \to C$ is a functor such that $\mathbf D \to \mathbf C\,{}_s{\times}_f\,D$, $\psi \mapsto (f(\psi), s(\psi))$, is a bijection. A geometric lift of a covering functor $f : D \to C$ consists of two functors $L_D : D \to \mathrm{Diff}_{sc}$ and $L_C : C \to \mathrm{Diff}_{sc}$ and a natural transformation $\tau : L_D \to L_C \circ f$ of the functors $L_D, L_C \circ f : D \to \mathrm{Diff}_{sc}$.
 
@@ -11738,13 +11751,13 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.coveringMap` — Polyfold/Chapter8/Basic.lean, line 240
 - `Polyfold.IsCoveringFunctor` — Polyfold/Chapter8/Basic.lean, line 246
 - `Polyfold.GeometricLift` — Polyfold/Chapter8/Basic.lean, line 250
-- `Polyfold.IsCoveringFunctor.existsUnique_lift` — Polyfold/Chapter8/GeometricLift.lean, line 217
-- `Polyfold.IsCoveringFunctor.lift` — Polyfold/Chapter8/GeometricLift.lean, line 229
-- `Polyfold.isCoveringFunctor_of_isEmpty` — Polyfold/Chapter8/GeometricLift.lean, line 244
+- `Polyfold.IsCoveringFunctor.existsUnique_lift` — Polyfold/Chapter8/GeometricLift.lean, line 220
+- `Polyfold.IsCoveringFunctor.lift` — Polyfold/Chapter8/GeometricLift.lean, line 232
+- `Polyfold.isCoveringFunctor_of_isEmpty` — Polyfold/Chapter8/GeometricLift.lean, line 247
 - `Polyfold.CoveringExamples.isCoveringFunctor_id` — Polyfold/Chapter8/NonVacuity.lean, line 64
 
 *What differs.*
-- $D$ is a Mathlib groupoid in `Type` and $C$ = `SingleObj G` for a group $G$ in `Type`, so $\mathbf C\,{}_s{\times}_f\,D = G \times D$; the finiteness of $D$, its hom-sets and $G$ is carried by the results that use it; $\mathrm{Diff}_{sc}$ has bundled M-polyfolds of one universe (Findings, Chapter 8, items 57, 100).
+- $D$ is a Mathlib groupoid in `Type u` and $C$ = `SingleObj G` for a group $G$ in `Type u`, $\mathrm{Diff}_{sc}$ in the same universe (`Type` until 2026-11-09; Findings, Chapter 8, item 125), so $\mathbf C\,{}_s{\times}_f\,D = G \times D$; the finiteness of $D$, its hom-sets and $G$ is carried by the results that use it; $\mathrm{Diff}_{sc}$ has bundled M-polyfolds of one universe (Findings, Chapter 8, items 57, 100).
 - As in the text, $D = \emptyset$ is allowed; Proposition 8.5.7 (2017: 8.3) then needs $D$ nonempty (V8.35).
 
 ### V8.33. After Definition 8.5.5 (2017: 8.9): the maps $\varphi_{yy'}$, the actions and the equivariance of $\tau(y)$
@@ -11755,19 +11768,19 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `GeometricLift.Ux` $= U(x)$; `τy y` $= \tau(y)$, an sc-diffeomorphism (`isScDiffeoOn_τy`); `φ ψ` $= \varphi_{yy'}(\psi)$, an sc-diffeomorphism (`isScDiffeoOn_φ`), functorial (`φ_comp`, `φ_id`, `φ_inv_φ`); the actions (`smul_def`, `smul_def'`), sc-smooth (`isScSmoothMap_smul`); `τy_φ`: $\tau(y')(\varphi_{yy'}(\psi)(z)) = f(\psi) \ast \tau(y)(z)$; `τ_equivariant`: $\tau(y)(h \ast z) = f(h) \ast \tau(y)(z)$ for $h \in G_y$.
 
-- `Polyfold.GeometricLift.Ux` — Polyfold/Chapter8/GeometricLift.lean, line 256
-- `Polyfold.GeometricLift.τy` — Polyfold/Chapter8/GeometricLift.lean, line 259
-- `Polyfold.GeometricLift.isScDiffeoOn_τy` — Polyfold/Chapter8/GeometricLift.lean, line 265
-- `Polyfold.GeometricLift.φ` — Polyfold/Chapter8/GeometricLift.lean, line 276
-- `Polyfold.GeometricLift.isScDiffeoOn_φ` — Polyfold/Chapter8/GeometricLift.lean, line 284
-- `Polyfold.GeometricLift.φ_comp` — Polyfold/Chapter8/GeometricLift.lean, line 303
-- `Polyfold.GeometricLift.φ_id` — Polyfold/Chapter8/GeometricLift.lean, line 309
-- `Polyfold.GeometricLift.φ_inv_φ` — Polyfold/Chapter8/GeometricLift.lean, line 314
-- `Polyfold.GeometricLift.smul_def` — Polyfold/Chapter8/GeometricLift.lean, line 333
-- `Polyfold.GeometricLift.smul_def'` — Polyfold/Chapter8/GeometricLift.lean, line 349
-- `Polyfold.GeometricLift.isScSmoothMap_smul` — Polyfold/Chapter8/GeometricLift.lean, line 337
-- `Polyfold.GeometricLift.τy_φ` — Polyfold/Chapter8/GeometricLift.lean, line 352
-- `Polyfold.GeometricLift.τ_equivariant` — Polyfold/Chapter8/GeometricLift.lean, line 358
+- `Polyfold.GeometricLift.Ux` — Polyfold/Chapter8/GeometricLift.lean, line 259
+- `Polyfold.GeometricLift.τy` — Polyfold/Chapter8/GeometricLift.lean, line 262
+- `Polyfold.GeometricLift.isScDiffeoOn_τy` — Polyfold/Chapter8/GeometricLift.lean, line 268
+- `Polyfold.GeometricLift.φ` — Polyfold/Chapter8/GeometricLift.lean, line 279
+- `Polyfold.GeometricLift.isScDiffeoOn_φ` — Polyfold/Chapter8/GeometricLift.lean, line 287
+- `Polyfold.GeometricLift.φ_comp` — Polyfold/Chapter8/GeometricLift.lean, line 306
+- `Polyfold.GeometricLift.φ_id` — Polyfold/Chapter8/GeometricLift.lean, line 312
+- `Polyfold.GeometricLift.φ_inv_φ` — Polyfold/Chapter8/GeometricLift.lean, line 317
+- `Polyfold.GeometricLift.smul_def` — Polyfold/Chapter8/GeometricLift.lean, line 336
+- `Polyfold.GeometricLift.smul_def'` — Polyfold/Chapter8/GeometricLift.lean, line 352
+- `Polyfold.GeometricLift.isScSmoothMap_smul` — Polyfold/Chapter8/GeometricLift.lean, line 340
+- `Polyfold.GeometricLift.τy_φ` — Polyfold/Chapter8/GeometricLift.lean, line 355
+- `Polyfold.GeometricLift.τ_equivariant` — Polyfold/Chapter8/GeometricLift.lean, line 361
 
 *What differs.*
 - As in the text; the action of $G_x$ is a left action through the composition of `SingleObj G` (Findings, Chapter 8, item 57).
@@ -11805,27 +11818,27 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `proposition_8_3` (for `[Nonempty D]`): `geometricLiftFunctor L` is a proper covering functor from `geometricLiftSource L` to `geometricLiftTarget L`. The source is the ep-groupoid on `GeometricLift.YObj` and `GeometricLift.YMor` (`GeometricLift.sourceStr`, `yObjPolyfold`, `yMorPolyfold`), with $s$, $t$ local sc-diffeomorphisms (`isLocalScDiffeo_ySrc`, `isLocalScDiffeo_yTgt`), properness with $V = Y$ (`isProperMap_yTgt`) and (4) in sheet form (`isScSmoothCompSheet_y`); the target is Chapter 7's action ep-groupoid of $G$ on $U(x)$ (`EpGroupoid.Examples.actionEpGroupoid`). The conditions: `geometricLiftFunctor_surjective`, `geometricLiftFunctor_isLocalScDiffeo`, `geometricLiftFunctor_finite_fiber`, `geometricLiftFunctor_evenlyCovered`, and (8.16) with its sc-smooth inverse (`GeometricLift.fibredInv`, `isScSmoothMap_fibredInv`, `geometricLiftFunctor_isScDiffeo_fibredMap`). `geometricLiftFunctor_surjective_iff`: $F$ is surjective on objects iff $D$ is nonempty or $U(x)$ is empty. `CoveringExamples.isProperCovering_reflectionLift`: an example.
 
-- `Polyfold.GeometricLift.YObj` — Polyfold/Chapter8/GeometricLift.lean, line 365
-- `Polyfold.GeometricLift.YMor` — Polyfold/Chapter8/GeometricLift.lean, line 368
-- `Polyfold.GeometricLift.sourceStr` — Polyfold/Chapter8/GeometricLift.lean, line 423
-- `Polyfold.GeometricLift.yObjPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 475
-- `Polyfold.GeometricLift.yMorPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 478
-- `Polyfold.GeometricLift.isLocalScDiffeo_ySrc` — Polyfold/Chapter8/GeometricLift.lean, line 482
-- `Polyfold.GeometricLift.isLocalScDiffeo_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 488
-- `Polyfold.GeometricLift.isProperMap_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 508
-- `Polyfold.GeometricLift.isScSmoothCompSheet_y` — Polyfold/Chapter8/GeometricLift.lean, line 534
-- `Polyfold.geometricLiftSource` — Polyfold/Chapter8/GeometricLift.lean, line 574
-- `Polyfold.geometricLiftTarget` — Polyfold/Chapter8/GeometricLift.lean, line 631
-- `Polyfold.geometricLiftFunctor` — Polyfold/Chapter8/GeometricLift.lean, line 668
-- `Polyfold.geometricLiftFunctor_surjective` — Polyfold/Chapter8/GeometricLift.lean, line 710
-- `Polyfold.geometricLiftFunctor_surjective_iff` — Polyfold/Chapter8/GeometricLift.lean, line 716
-- `Polyfold.geometricLiftFunctor_isLocalScDiffeo` — Polyfold/Chapter8/GeometricLift.lean, line 728
-- `Polyfold.geometricLiftFunctor_finite_fiber` — Polyfold/Chapter8/GeometricLift.lean, line 735
-- `Polyfold.geometricLiftFunctor_evenlyCovered` — Polyfold/Chapter8/GeometricLift.lean, line 742
-- `Polyfold.GeometricLift.fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 769
-- `Polyfold.GeometricLift.isScSmoothMap_fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 775
-- `Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap` — Polyfold/Chapter8/GeometricLift.lean, line 802
-- `Polyfold.proposition_8_3` — Polyfold/Chapter8/GeometricLift.lean, line 833
+- `Polyfold.GeometricLift.YObj` — Polyfold/Chapter8/GeometricLift.lean, line 368
+- `Polyfold.GeometricLift.YMor` — Polyfold/Chapter8/GeometricLift.lean, line 371
+- `Polyfold.GeometricLift.sourceStr` — Polyfold/Chapter8/GeometricLift.lean, line 426
+- `Polyfold.GeometricLift.yObjPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 478
+- `Polyfold.GeometricLift.yMorPolyfold` — Polyfold/Chapter8/GeometricLift.lean, line 481
+- `Polyfold.GeometricLift.isLocalScDiffeo_ySrc` — Polyfold/Chapter8/GeometricLift.lean, line 485
+- `Polyfold.GeometricLift.isLocalScDiffeo_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 491
+- `Polyfold.GeometricLift.isProperMap_yTgt` — Polyfold/Chapter8/GeometricLift.lean, line 511
+- `Polyfold.GeometricLift.isScSmoothCompSheet_y` — Polyfold/Chapter8/GeometricLift.lean, line 537
+- `Polyfold.geometricLiftSource` — Polyfold/Chapter8/GeometricLift.lean, line 577
+- `Polyfold.geometricLiftTarget` — Polyfold/Chapter8/GeometricLift.lean, line 634
+- `Polyfold.geometricLiftFunctor` — Polyfold/Chapter8/GeometricLift.lean, line 671
+- `Polyfold.geometricLiftFunctor_surjective` — Polyfold/Chapter8/GeometricLift.lean, line 713
+- `Polyfold.geometricLiftFunctor_surjective_iff` — Polyfold/Chapter8/GeometricLift.lean, line 719
+- `Polyfold.geometricLiftFunctor_isLocalScDiffeo` — Polyfold/Chapter8/GeometricLift.lean, line 731
+- `Polyfold.geometricLiftFunctor_finite_fiber` — Polyfold/Chapter8/GeometricLift.lean, line 738
+- `Polyfold.geometricLiftFunctor_evenlyCovered` — Polyfold/Chapter8/GeometricLift.lean, line 745
+- `Polyfold.GeometricLift.fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 772
+- `Polyfold.GeometricLift.isScSmoothMap_fibredInv` — Polyfold/Chapter8/GeometricLift.lean, line 778
+- `Polyfold.geometricLiftFunctor_isScDiffeo_fibredMap` — Polyfold/Chapter8/GeometricLift.lean, line 805
+- `Polyfold.proposition_8_3` — Polyfold/Chapter8/GeometricLift.lean, line 836
 - `Polyfold.EpGroupoid.Examples.actionEpGroupoid` — Polyfold/Chapter7/NonVacuity.lean, line 224
 - `Polyfold.CoveringExamples.isProperCovering_reflectionLift` — Polyfold/Chapter8/NonVacuity.lean, line 121
 
@@ -11836,36 +11849,37 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V8.36. Theorem 8.5.8 (2017: 8.6) (Proper Covering II): the local model of a proper covering functor
 
-*narrower* · ep-groupoids in `Type` · “$A : K \to L$”: a lift and its functor · $L_D(\psi)$ read at $\psi = \psi_0$
+*restated* · ep-groupoids in any one universe · “$A : K \to L$”: a lift and its functor · $L_D(\psi)$ read at $\psi = \psi_0$
 
 **HWZ (§8.5 (2017 §8.4), Theorem 8.5.8 (2017: 8.6) and its proof, 2017 pp. 283–284).** Let $F : Y \to X$ be a proper covering functor and fix $x \in X$; let $C$ be the full subcategory of $X$ with the single object $x$ and the morphisms $G_x$, and $D$ the full subcategory with the finite object set $F^{-1}(x)$. Then $f = F|D : D \to C$ is a covering functor. Given a sufficiently small open neighborhood $U(x)$ of $x$ as in Theorem 8.5.3 (2017: 8.5), there exist a geometric lift $A : K \to L$ of $f$ and fully faithful open embedding functors $\Phi : L \to X$ and $\Psi : K \to Y$, the image of $\Phi$ the full subcategory associated with $U(x)$ and the image of $\Psi$ the full subcategory associated with $F^{-1}(U(x))$, such that $F \circ \Psi = \Phi \circ A$. (In the proof, $L_C(x) = U(x)$, $L_C(g) = \Phi(g)$, $L_D(y) = U(y)$, $L_D(\psi) = t \circ (s|\mathbf U(\psi_0))^{-1}$ for $\psi : y \to y'$ in $\mathbf U(\psi_0)$, and $\tau(y) = F|U(y)$; "one verifies" that this is a geometric lift, and $A : K \to L$, $L = G_x \ltimes U(x)$, is its functor of Proposition 8.5.7 (2017: 8.3).)
 
 **Proved in Lean.** `theorem_8_6`, for ep-groupoids whose objects and morphisms are in `Type`: `restrictFiber x` $= F|D : D \to C$ (`FiberCat`, `GroupoidStr.FullOb`, `fiberIsotropy`) is a covering functor (`covering_restrict`; $D$ finite and nonempty, `fintypeFiberCat`, `nonempty_fiberCat`); charts of Theorem 8.5.3 (2017: 8.5) exist inside every open $V \ni x$; and for every chart there are a geometric lift (`ProperCoveringChart.geometricLift`, with `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`), whose functor $A$ is a proper covering functor (Proposition 8.5.7 (2017: 8.3)), and ep-functors $\Phi$ = `ProperCoveringChart.Φ`, $\Psi$ = `ProperCoveringChart.Ψ` that are fully faithful open embeddings (`IsFullyFaithfulOpenEmbedding`; `isFullyFaithfulOpenEmbedding_Φ`, `isFullyFaithfulOpenEmbedding_Ψ`), with images $U(x)$, the morphisms over $U(x)$, $F^{-1}(U(x))$ and the morphisms over $F^{-1}(U(x))$ (`range_Φ_obj`, `range_Φ_mor`, `range_Ψ_obj`, `range_Ψ_mor`), and $F \circ \Psi = \Phi \circ A$ (`comp_Ψ`).
 
-- `Polyfold.GroupoidStr.FullOb` — Polyfold/Chapter8/GeometricLift.lean, line 851
-- `Polyfold.EpFunctor.FiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 991
-- `Polyfold.EpFunctor.fiberIsotropy` — Polyfold/Chapter8/GeometricLift.lean, line 994
-- `Polyfold.EpFunctor.restrictFiber` — Polyfold/Chapter8/GeometricLift.lean, line 1021
-- `Polyfold.EpFunctor.covering_restrict` — Polyfold/Chapter8/GeometricLift.lean, line 1036
-- `Polyfold.EpFunctor.fintypeFiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1072
-- `Polyfold.EpFunctor.nonempty_fiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1089
-- `Polyfold.MPolyfoldCat.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 888
-- `Polyfold.ScDiffeo.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 902
-- `Polyfold.EpFunctor.IsFullyFaithfulOpenEmbedding` — Polyfold/Chapter8/GeometricLift.lean, line 934
-- `Polyfold.EpFunctor.ProperCoveringChart.geometricLift` — Polyfold/Chapter8/GeometricLift.lean, line 1228
-- `Polyfold.EpFunctor.ProperCoveringChart.Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1248
-- `Polyfold.EpFunctor.ProperCoveringChart.Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1358
-- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1308
-- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1441
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1317
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1321
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1451
-- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1463
-- `Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1487
-- `Polyfold.EpFunctor.theorem_8_6` — Polyfold/Chapter8/GeometricLift.lean, line 1505
+- `Polyfold.GroupoidStr.FullOb` — Polyfold/Chapter8/GeometricLift.lean, line 854
+- `Polyfold.EpFunctor.FiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 994
+- `Polyfold.EpFunctor.fiberIsotropy` — Polyfold/Chapter8/GeometricLift.lean, line 997
+- `Polyfold.EpFunctor.restrictFiber` — Polyfold/Chapter8/GeometricLift.lean, line 1024
+- `Polyfold.EpFunctor.covering_restrict` — Polyfold/Chapter8/GeometricLift.lean, line 1039
+- `Polyfold.EpFunctor.fintypeFiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1075
+- `Polyfold.EpFunctor.nonempty_fiberCat` — Polyfold/Chapter8/GeometricLift.lean, line 1092
+- `Polyfold.MPolyfoldCat.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 891
+- `Polyfold.ScDiffeo.ofOpen` — Polyfold/Chapter8/GeometricLift.lean, line 905
+- `Polyfold.EpFunctor.IsFullyFaithfulOpenEmbedding` — Polyfold/Chapter8/GeometricLift.lean, line 937
+- `Polyfold.EpFunctor.ProperCoveringChart.geometricLift` — Polyfold/Chapter8/GeometricLift.lean, line 1231
+- `Polyfold.EpFunctor.ProperCoveringChart.Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1251
+- `Polyfold.EpFunctor.ProperCoveringChart.Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1361
+- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Φ` — Polyfold/Chapter8/GeometricLift.lean, line 1311
+- `Polyfold.EpFunctor.ProperCoveringChart.isFullyFaithfulOpenEmbedding_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1444
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1320
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Φ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1324
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_obj` — Polyfold/Chapter8/GeometricLift.lean, line 1454
+- `Polyfold.EpFunctor.ProperCoveringChart.range_Ψ_mor` — Polyfold/Chapter8/GeometricLift.lean, line 1466
+- `Polyfold.EpFunctor.ProperCoveringChart.comp_Ψ` — Polyfold/Chapter8/GeometricLift.lean, line 1490
+- `Polyfold.EpFunctor.theorem_8_6` — Polyfold/Chapter8/GeometricLift.lean, line 1508
+- `Polyfold.CoveringExamples.theorem_8_6_id` — Polyfold/Chapter8/NonVacuity.lean, line 189
 
 *What differs.*
-- **Narrower**: for ep-groupoids whose objects and morphisms are in `Type`, since Definition 8.5.5 (2017: 8.9) is stated there (V8.32) (Findings, Chapter 8, items 2, 60).
+- For ep-groupoids $X$, $Y$ whose objects and morphisms lie in any one universe, the universe of Definition 8.5.5 (2017: 8.9) (V8.32); until 2026-11-09 it was stated for `Type` (Findings, Chapter 8, items 2, 60, 125). Witness in every universe: the identity functor of any ep-groupoid (`CoveringExamples.theorem_8_6_id`).
 - "A sufficiently small $U(x)$ as in Theorem 8.5" is any chart of Theorem 8.5.3 (2017: 8.5), and charts exist inside every open $V \ni x$; "a geometric lift $A : K \to L$" is read as a geometric lift with its functor $A$ of Proposition 8.5.7 (2017: 8.3); $L_D$ on the morphism $\psi_0$ of $D$ is $t \circ (s|\mathbf U(\psi_0))^{-1}$, the text's "$\psi \in \mathbf U(\psi_0)$" read as $\psi = \psi_0$; both "one verifies" are carried out (Findings, Chapter 8, item 60).
 - "there exists exists", "$\tau(t)$" for $\tau(y)$, and "$A(\psi, z) = (f(z), F(z))$" for $(f(\psi), F(z))$ (possible misprints).
 
@@ -12331,11 +12345,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V9.9. Proposition 9.1.11 (2017: 9.2), the dimensional decomposition
 
-*narrower* · uniqueness: does not hold as we read it · counterexample: $1_L$ on ℝ² · global gluing open (G.96)
+*narrower* · uniqueness: does not hold as we read it · counterexample: $1_L$ on ℝ² · proved over ℝᵐ for local decompositions (G.96 closed there)
 
 **HWZ (§9.1, Proposition 9.1.11, pp. 407–408 (2017: Proposition 9.2, p. 297)).** A branched ep⁺-subgroupoid $\Theta$ determines a unique sequence $\Theta_0, \Theta_1, \ldots$ of branched ep⁺-subgroupoids characterized by (1) $\Theta_k$ is $k$-dimensional and (2) $\Theta = \Theta_0 + \Theta_1 + \cdots$, the sum locally finite. Proof: at $x \in \mathrm{supp}(\Theta)$ take a symmetric structure, split $I = I_0 \sqcup \cdots \sqcup I_n$ by the dimension of the $M_i$ and put $\Theta_k(y) = \sum_{i \in I_k, y \in M_i} \sigma_i$; independence of the structure is Proposition 9.1.12.
 
-**Proved in Lean.** For a local branching structure with dimension labelling, $\Theta_k(y) = \sum_{\dim M_i = k,\, y \in M_i} \sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\dim M_i = k}$, $\Theta = \sum_k \Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\Theta_k$ is $G_x$-invariant. The statement of the proposition, "a unique family $(\Theta_k)$ of branched ep⁺-subgroupoids, $\Theta_k$ $k$-dimensional, with $\Theta = \sum_k \Theta_k$ pointwise, and every such family locally finite", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\mathbb R^2$ it does not hold as we read it: for the indicator $\Theta$ of the $x$-axis $L$, both $\Theta_0 = 1_{\{0\}}$, $\Theta_1 = 1_{L \setminus \{0\}}$ and $\Theta_0 = 0$, $\Theta_1 = 1_L$ are such families. Uniqueness among local decompositions, those given near every point of $\mathrm{supp}(\Theta)$ by the dimensional parts of a local branching structure (the form the proof builds): two such decompositions are equal, given Proposition 9.1.12, hence over $\mathbb R^m$ with no hypothesis and under the graph representation in general; in the example, $\Theta_1 = 1_L$ is local and the other decomposition is not.
+**Proved in Lean.** For a local branching structure with dimension labelling, $\Theta_k(y) = \sum_{\dim M_i = k,\, y \in M_i} \sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\dim M_i = k}$, $\Theta = \sum_k \Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\Theta_k$ is $G_x$-invariant. The statement of the proposition, "a unique family $(\Theta_k)$ of branched ep⁺-subgroupoids, $\Theta_k$ $k$-dimensional, with $\Theta = \sum_k \Theta_k$ pointwise, and every such family locally finite", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\mathbb R^2$ it does not hold as we read it: for the indicator $\Theta$ of the $x$-axis $L$, both $\Theta_0 = 1_{\{0\}}$, $\Theta_1 = 1_{L \setminus \{0\}}$ and $\Theta_0 = 0$, $\Theta_1 = 1_L$ are such families. Uniqueness among local decompositions, those given near every point of $\mathrm{supp}(\Theta)$ by the dimensional parts of a local branching structure (the form the proof builds): two such decompositions are equal, given Proposition 9.1.12, hence over $\mathbb R^m$ with no hypothesis and under the graph representation in general; in the example, $\Theta_1 = 1_L$ is local and the other decomposition is not. Existence: `dimComponent`, the dimensional part of any labelled local branching structure, is a local dimensional decomposition, the unique one, and locally finite under a dimension bound; `Proposition_9_1_11_local` (Proposition 9.1.11 with "uniquely" among local decompositions, plus local finiteness) holds for every ep-groupoid with object M-polyfold $\mathbb R^m$ (`proposition_9_1_11_local_rn`) and in general under Proposition 9.1.12, the local constancy of dimension and a dimension bound (`proposition_9_1_11_local_of`).
 
 - `Polyfold.EpGroupoid.LocalBranchingStructure.dimPart` — Polyfold/Chapter9/Propositions.lean, line 647
 - `Polyfold.EpGroupoid.LocalBranchingStructure.dimPartStructure` — Polyfold/Chapter9/Propositions.lean, line 652
@@ -12360,10 +12374,19 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.EpGroupoid.proposition_9_1_11_unique_of_hasGraphChartAt` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 88
 - `Polyfold.EpGroupoid.decompB_isLocalDimDecomposition` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 112
 - `Polyfold.EpGroupoid.decompA_not_isLocalDimDecomposition` — Polyfold/Chapter9/DimDecompositionUnique.lean, line 131
+- `Polyfold.EpGroupoid.dimComponent` — Polyfold/Chapter9/DimDecompositionExists.lean, line 166
+- `Polyfold.EpGroupoid.isFunctorial_dimComponent` — Polyfold/Chapter9/DimDecompositionExists.lean, line 229
+- `Polyfold.EpGroupoid.paracompactSpace_orbitSupp_dimComponent` — Polyfold/Chapter9/DimDecompositionExists.lean, line 282
+- `Polyfold.EpGroupoid.existsUnique_localDimDecomposition` — Polyfold/Chapter9/DimDecompositionExists.lean, line 423
+- `Polyfold.EpGroupoid.isLocallyFiniteFamily_dimComponent` — Polyfold/Chapter9/DimDecompositionExists.lean, line 391
+- `Polyfold.EpGroupoid.Proposition_9_1_11_local` — Polyfold/Chapter9/DimDecompositionExists.lean, line 415
+- `Polyfold.EpGroupoid.proposition_9_1_11_local_of` — Polyfold/Chapter9/DimDecompositionExists.lean, line 434
+- `Polyfold.EpGroupoid.proposition_9_1_11_local_rn` — Polyfold/Chapter9/DimDecompositionExists.lean, line 474
+- `Polyfold.EpGroupoid.dimComponent_axis2` — Polyfold/Chapter9/DimDecompositionExists.lean, line 502
 
 *What differs.*
 - Hidden hypotheses: the dimension labellings of V9.2.
-- Only the local construction is verified; the gluing of the local $\Theta_k$ into functors on $X$ (compatibility across morphisms, paracompactness of $|\mathrm{supp}(\Theta_k)|$, local finiteness) is not formalized (gap G.96) (Findings, Chapter 9, item 8). Uniqueness holds among local decompositions (Findings, Chapter 9, item 105).
+- The local $\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\mathrm{supp}(\Theta_k)|$ paracompact). Read with "uniquely" among local decompositions and with local finiteness (`Proposition_9_1_11_local`), the proposition holds for every ep-groupoid whose object M-polyfold is $\mathbb R^m$, with no further hypothesis (`proposition_9_1_11_local_rn`; gap G.96 closed there), and in general under Proposition 9.1.12, the local constancy of dimension and, for local finiteness, a bound on the dimensions (`proposition_9_1_11_local_of`) (Findings, Chapter 9, items 8, 105, 106).
 
 ### V9.10. Proposition 9.1.12, the decomposition does not depend on the structure
 
@@ -14702,11 +14725,11 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 ### V10.67. Theorem 10.5.7 (2017: 10.10) does not hold as we read it
 
-*restated* · does not hold as we read it · example of Remark 10.5.5 · settles G.127
+*restated* · does not hold as we read it · example of Remark 10.5.5 · settles G.127 · holds for an effective target
 
 **HWZ (§10.5, Theorem 10.5.7, p. 508 (2017: Theorem 10.10, p. 367)).** If both strong bundles have the local regularity property and $[D], [D'] : W \to W'$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$. (2017: without the local regularity hypothesis.)
 
-**Proved in Lean.** `SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\mathbb R \times \mathbb R^k \to \mathbb R$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$, trivial $\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\mathrm{Inv}] \neq [1_W]$ with equal orbit maps (`remark_10_5_5`). For an effective target it holds: `SBLocalization.theorem_10_5_7_of_isEffective`, with the base of the target effective and (LR) of the base of the source or the target, as in Theorem 10.3.19; then strong bundle equivalences with the same orbit map are naturally equivalent (`SEP.natEquiv_of_isEffective`). Witness: $\mathbb R^n \times \mathbb R^k \to \mathbb R^n$ over the trivial ep-groupoid.
+**Proved in Lean.** `SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\mathbb R \times \mathbb R^k \to \mathbb R$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$, trivial $\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\mathrm{Inv}] \neq [1_W]$ with equal orbit maps (`remark_10_5_5`). For an effective target it holds: `SBLocalization.theorem_10_5_7_of_isEffective`, with the base of the target effective and (LR) of the base of the source or the target, as in Theorem 10.3.19; then strong bundle equivalences with the same orbit map are naturally equivalent (`SEP.natEquiv_of_isEffective`). Witness: $\mathbb R^n \times \mathbb R^k \to \mathbb R^n$ over the trivial ep-groupoid. With Definition 8.4.2 read for local isomorphisms (`EpStrongBundle.IsLRLocal`): `SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal`, for an effective target with (LR) of the target bundle only; without effectiveness it does not hold as we read it (`not_theorem_10_5_7_of_isLRLocal`).
 
 - `Polyfold.SBLocalization.Theorem_10_5_7` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 131
 - `Polyfold.LocalizationLRCounterexample.not_theorem_10_5_7` — Polyfold/Chapter10/LocalizationLRCounterexample.lean, line 211
@@ -14717,10 +14740,17 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 - `Polyfold.SEP.orbitMap_base_eq` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 142
 - `Polyfold.StrongBundle.isOpenMap_proj` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 73
 - `Polyfold.LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses` — Polyfold/Chapter10/LocalizationLREffectiveBundle.lean, line 297
+- `Polyfold.EpStrongBundle.IsLRLocal` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 156
+- `Polyfold.EpStrongBundle.IsLRLocal.isLR` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 164
+- `Polyfold.SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 848
+- `Polyfold.SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal'` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 878
+- `Polyfold.SEP.exists_family_of_isLRLocal` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 430
+- `Polyfold.LocalizationLRBundleBaseExamples.theorem_10_5_7_of_isEffective_of_isLRLocal_hypotheses` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 898
+- `Polyfold.LocalizationLRBundleBaseExamples.not_theorem_10_5_7_of_isLRLocal` — Polyfold/Chapter10/LocalizationLRBundleBase.lean, line 929
 
 *What differs.*
 - The statement does not hold as we read it, nor does the 2017 Theorem 10.10; the proof ("immediately from Proposition 10.4.7") meets the step of V10.65 for strong bundles (Findings, Chapter 10, item 58).
-- For an effective target the theorem holds with (LR) of a base, the hypothesis of Theorem 10.3.19; the strong bundle (LR) of Definition 8.4.2, as formalized, is kept but not used (Findings, Chapter 10, item 71).
+- For an effective target the theorem holds with the hypothesis of the text, Definition 8.4.2 read for local strong bundle isomorphisms of $W|U(x)$ (`EpStrongBundle.IsLRLocal`, which implies the formal `IsLR`), for the target bundle only and with no (LR) of a base (`theorem_10_5_7_of_isEffective_of_isLRLocal`); with the formal `IsLR`, which speaks of maps defined on all of $W$, it holds given (LR) of a base, as in Theorem 10.3.19. Effectiveness is needed: the $\mathbb Z/3$ example satisfies `IsLRLocal` (Findings, Chapter 10, items 71, 72).
 
 ### V10.68. Theorem 10.2.2 (2017: 10.2) for strong bundles, the weak fibred product $W \times_{W'} W''$
 

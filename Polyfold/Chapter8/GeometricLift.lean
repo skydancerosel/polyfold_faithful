@@ -141,9 +141,12 @@ and `Ψ`, a local model of `F` near `x` and `F⁻¹(x)`.
 * Functoriality is stated with Mathlib's `γ ≫ ψ` for the text's `ψ ∘ γ`; the isotropy group
   `G_y` is Mathlib's monoid `End y` (`h * k = k ≫ h`, the text's `h ∘ k`), and `f : G_y → G_x`
   is `h ↦ f.map h`.
-* **Theorem 8.6: universes.**  Definition 8.9 (`Basic.lean`) takes `D` and `G` in `Type` and
-  `Diff_sc` in one universe, so Theorem 8.6 is stated for ep-groupoids whose object and morphism
-  types are in `Type`.
+* **Theorem 8.6: universes.**  Definition 8.9 (`Basic.lean`) takes `D`, `G` and `Diff_sc` in one
+  universe `u`, so Theorem 8.6 holds for ep-groupoids `X`, `Y` whose object and morphism types
+  lie in any one universe `u` (2021 Theorem 8.5.8; until 2026-11-09 it was stated for `Type`
+  only).  `X` and `Y` share the universe because `L_D` and `L_C` take values in one category
+  `Diff_sc`; different universes would need lifted carriers (`ULift`), which is not done.
+  Witness in every universe: `CoveringExamples.theorem_8_6_id` (`NonVacuity.lean`).
 * **`C` and `D`.**  `C`, the full subcategory on `x`, is `SingleObj G_x` (as in Definition 8.9).
   `D` is `GroupoidStr.FullOb` on `F⁻¹(x)`: objects the points of `F⁻¹(x)`, morphisms `y → y'` the
   morphisms of `Y` (Chapter 7's bridge `GroupoidStr.Ob`).  Its finiteness, from Definition 8.8,
@@ -210,7 +213,7 @@ end SubPolyfold
 
 namespace IsCoveringFunctor
 
-variable {D : Type} [Groupoid.{0} D] {G : Type} [Group G] {f : D ⥤ SingleObj G}
+variable {D : Type u} [Groupoid.{u} D] {G : Type u} [Group G] {f : D ⥤ SingleObj G}
 
 /-- A covering functor has unique lifts: for `g ∈ G` and `y ∈ D` there is exactly one
 `ψ : y → b` with `f(ψ) = g`. -/
@@ -241,7 +244,7 @@ end IsCoveringFunctor
 
 /-- Definition 8.9 allows `D = ∅`: every functor out of an empty groupoid is a covering
 functor. -/
-theorem isCoveringFunctor_of_isEmpty {D : Type} [Groupoid.{0} D] [IsEmpty D] {G : Type} [Group G]
+theorem isCoveringFunctor_of_isEmpty {D : Type u} [Groupoid.{u} D] [IsEmpty D] {G : Type u} [Group G]
     (f : D ⥤ SingleObj G) : IsCoveringFunctor f :=
   ⟨fun a => isEmptyElim a.1, fun p => isEmptyElim p.2⟩
 
@@ -249,7 +252,7 @@ theorem isCoveringFunctor_of_isEmpty {D : Type} [Groupoid.{0} D] [IsEmpty D] {G 
 
 namespace GeometricLift
 
-variable {D : Type} [Groupoid.{0} D] {G : Type} [Group G] {f : D ⥤ SingleObj G}
+variable {D : Type u} [Groupoid.{u} D] {G : Type u} [Group G] {f : D ⥤ SingleObj G}
   (L : GeometricLift.{u} f)
 
 /-- `U(x) = L_C(x)`. -/
@@ -372,16 +375,16 @@ end GeometricLift
 open scoped Classical in
 /-- The composite `ψ ∘ γ` (Mathlib's `γ ≫ ψ`) of morphisms of `D`, as a morphism out of `s(γ)`,
 when `t(γ) = s(ψ)`; the junk value `γ` otherwise. -/
-def homComp {D : Type} [Groupoid.{0} D] (ψ γ : Σ a b : D, a ⟶ b) : Σ b : D, γ.1 ⟶ b :=
+def homComp {D : Type u} [Groupoid.{u} D] (ψ γ : Σ a b : D, a ⟶ b) : Σ b : D, γ.1 ⟶ b :=
   if h : γ.2.1 = ψ.1 then ⟨ψ.2.1, γ.2.2 ≫ eqToHom h ≫ ψ.2.2⟩ else γ.2
 
-@[simp] theorem homComp_mk {D : Type} [Groupoid.{0} D] {a b c : D} (ψ : a ⟶ b) (γ : c ⟶ a) :
+@[simp] theorem homComp_mk {D : Type u} [Groupoid.{u} D] {a b c : D} (ψ : a ⟶ b) (γ : c ⟶ a) :
     homComp ⟨a, b, ψ⟩ ⟨c, a, γ⟩ = ⟨b, γ ≫ ψ⟩ := by
   rw [homComp, dif_pos rfl, eqToHom_refl, Category.id_comp]
 
 namespace GeometricLift
 
-variable {D : Type} [Groupoid.{0} D] {G : Type} [Group G] {f : D ⥤ SingleObj G}
+variable {D : Type u} [Groupoid.{u} D] {G : Type u} [Group G] {f : D ⥤ SingleObj G}
   (L : GeometricLift.{u} f)
 
 /-! ### The groupoid structure and the M-polyfolds of `Y` -/
@@ -565,8 +568,8 @@ open GeometricLift
 
 section Source
 
-variable {D : Type} [Groupoid.{0} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
-  {G : Type} [Group G] {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
+variable {D : Type u} [Groupoid.{u} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
+  {G : Type u} [Group G] {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
 
 /-- **The ep-groupoid `Y`** of Proposition 8.3 (p. 281): objects `⊔_{y ∈ D} U(y)`, morphisms
 `⊔_{(y, y')} mor(y, y') × U(y)`, `s(ψ, z) = z`, `t(ψ, z) = φ_{yy'}(ψ)(z)`,
@@ -622,7 +625,7 @@ end Source
 
 section Target
 
-variable {D : Type} [Groupoid.{0} D] {G : Type} [Group G] [Fintype G] [TopologicalSpace G]
+variable {D : Type u} [Groupoid.{u} D] {G : Type u} [Group G] [Fintype G] [TopologicalSpace G]
   [DiscreteTopology G] {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
 
 /-- **The translation groupoid `X = G_x ⋉ U(x)`** of Proposition 8.3 (p. 281): objects `U(x)`,
@@ -659,8 +662,8 @@ end Target
 
 section Functor
 
-variable {D : Type} [Groupoid.{0} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
-  {G : Type} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
+variable {D : Type u} [Groupoid.{u} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
+  {G : Type u} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
   {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
 
 /-- **The functor `F : Y → X`** of Proposition 8.3 (p. 282): `F|U(y) = τ(y)` on objects,
@@ -702,8 +705,8 @@ end Functor
 
 section Proposition
 
-variable {D : Type} [Groupoid.{0} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
-  {G : Type} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
+variable {D : Type u} [Groupoid.{u} D] [Fintype D] [∀ a b : D, Fintype (a ⟶ b)]
+  {G : Type u} [Group G] [Fintype G] [TopologicalSpace G] [DiscreteTopology G]
   {f : D ⥤ SingleObj G} (L : GeometricLift.{u} f)
 
 /-- `F` is surjective on objects when `D` is nonempty. -/
@@ -975,9 +978,9 @@ section Theorem86
 
 open scoped EpGroupoid.NaturalRep
 
-variable {ObjY MorY : Type} [TopologicalSpace ObjY] [T2Space ObjY] [ParacompactSpace ObjY]
+variable {ObjY MorY : Type u} [TopologicalSpace ObjY] [T2Space ObjY] [ParacompactSpace ObjY]
   [TopologicalSpace MorY] [T2Space MorY] [ParacompactSpace MorY]
-  {ObjX MorX : Type} [TopologicalSpace ObjX] [T2Space ObjX] [ParacompactSpace ObjX]
+  {ObjX MorX : Type u} [TopologicalSpace ObjX] [T2Space ObjX] [ParacompactSpace ObjX]
   [TopologicalSpace MorX] [T2Space MorX] [ParacompactSpace MorX]
   {Y : EpGroupoid ObjY MorY} {X : EpGroupoid ObjX MorX}
 
@@ -988,7 +991,7 @@ section Restrict
 variable (F : EpFunctor Y X) (x : ObjX)
 
 /-- **The full subcategory `D` of `Y` on `F⁻¹(x)`** (Theorem 8.6). -/
-abbrev FiberCat : Type := Y.toGroupoidStr.FullOb (F.obj ⁻¹' {x})
+abbrev FiberCat : Type u := Y.toGroupoidStr.FullOb (F.obj ⁻¹' {x})
 
 /-- `F(ψ) ∈ G_x` for a morphism `ψ` of `D` (Remark 8.2 (a)). -/
 def fiberIsotropy {a b : F.FiberCat x} (ψ : a ⟶ b) : X.Isotropy x :=
@@ -1199,20 +1202,20 @@ theorem hat_comp {a b c : F.FiberCat x} (γ : a ⟶ b) (ψ : b ⟶ c) {z : ObjY}
     fiberIsotropy_comp, C.R.Φ_mul _ _ _ (C.obj_mem hz)]
 
 /-- `U(y)` as an object of `Diff_sc`. -/
-abbrev objU (a : F.FiberCat x) : MPolyfoldCat.{0} := MPolyfoldCat.ofOpen Y.PObj (C.isOpen_U' a)
+abbrev objU (a : F.FiberCat x) : MPolyfoldCat.{u} := MPolyfoldCat.ofOpen Y.PObj (C.isOpen_U' a)
 
 /-- `U(x)` as an object of `Diff_sc`. -/
-abbrev objRU : MPolyfoldCat.{0} := MPolyfoldCat.ofOpen X.PObj C.R.isOpen_U
+abbrev objRU : MPolyfoldCat.{u} := MPolyfoldCat.ofOpen X.PObj C.R.isOpen_U
 
 /-- **`L_D : D → Diff_sc`** (p. 283): `L_D(y) = U(y)`, `L_D(ψ₀) = t ∘ (s|𝐔(ψ₀))⁻¹`. -/
-abbrev liftLD : F.FiberCat x ⥤ MPolyfoldCat.{0} where
+abbrev liftLD : F.FiberCat x ⥤ MPolyfoldCat.{u} where
   obj a := C.objU a
   map ψ := ScDiffeo.ofOpen (C.isOpen_U' _) (C.isOpen_U' _) (C.isScDiffeoOn_hat ψ)
   map_id a := ScDiffeo.ext (funext fun z => Subtype.ext (C.hat_id a z.2))
   map_comp γ ψ := ScDiffeo.ext (funext fun z => Subtype.ext (C.hat_comp γ ψ z.2))
 
 /-- **`L_C : C → Diff_sc`** (p. 283): `L_C(x) = U(x)`, `L_C(g) = Φ(g)`. -/
-abbrev liftLC : SingleObj (X.Isotropy x) ⥤ MPolyfoldCat.{0} where
+abbrev liftLC : SingleObj (X.Isotropy x) ⥤ MPolyfoldCat.{u} where
   obj _ := C.objRU
   map g := ScDiffeo.ofOpen C.R.isOpen_U C.R.isOpen_U (C.R.isScDiffeoOn_Φ g)
   map_id _ := ScDiffeo.ext (funext fun z => Subtype.ext (C.R.Φ_one z.1 z.2))
@@ -1225,7 +1228,7 @@ abbrev liftτ : C.liftLD ⟶ F.restrictFiber x ⋙ C.liftLC where
 
 /-- **The geometric lift of `f = F|D`** (Theorem 8.6, p. 283): `L_C(x) = U(x)`,
 `L_C(g) = Φ(g)`; `L_D(y) = U(y)`, `L_D(ψ₀) = t ∘ (s|𝐔(ψ₀))⁻¹`; `τ(y) = F|U(y)`. -/
-abbrev geometricLift : GeometricLift.{0} (F.restrictFiber x) := ⟨C.liftLD, C.liftLC, C.liftτ⟩
+abbrev geometricLift : GeometricLift.{u} (F.restrictFiber x) := ⟨C.liftLD, C.liftLC, C.liftτ⟩
 
 @[simp] theorem geometricLift_τy_val (a : F.FiberCat x) (z : C.U a.val) :
     (C.geometricLift.τy a z : C.R.U).1 = F.obj z.1 := rfl
@@ -1509,7 +1512,7 @@ theorem theorem_8_6 {F : EpFunctor Y X} (hF : F.IsProperCovering) (x : ObjX) :
         letI := fintypeFiberCat x hF
         letI := fintypeFiberCatHom x hF
         letI : Fintype (X.Isotropy x) := Fintype.ofFinite _
-        ∃ (L : GeometricLift.{0} (F.restrictFiber x))
+        ∃ (L : GeometricLift.{u} (F.restrictFiber x))
           (Φ : EpFunctor (geometricLiftTarget L) X) (Ψ : EpFunctor (geometricLiftSource L) Y),
           (geometricLiftFunctor L).IsProperCovering ∧
           Φ.IsFullyFaithfulOpenEmbedding ∧ Ψ.IsFullyFaithfulOpenEmbedding ∧

@@ -4283,6 +4283,27 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms TrivialBundle.isScFredholmSectionTame_graphSection_even
 #print axioms TrivialBundle.tame_atlas_no_germData_in_atlas_chart
 
+-- Chapter3/TameGermDataStabilization.lean
+#print axioms Polyfold.Stabilize.zeroOp
+#print axioms Polyfold.Stabilize.relOpenUniv
+#print axioms Polyfold.Stabilize.zeroRetrOf
+#print axioms Polyfold.Stabilize.zeroRetrOf_apply
+#print axioms Polyfold.Stabilize.zeroRetrOf_isTameWith
+#print axioms Polyfold.Stabilize.stabilize
+#print axioms Polyfold.Stabilize.stabilize_eq
+#print axioms Polyfold.Stabilize.r_stabilize
+#print axioms Polyfold.Stabilize.isStrongBundleRetraction_stabilize
+#print axioms Polyfold.Stabilize.baseRetraction_stabilize
+#print axioms Polyfold.Stabilize.isTame_baseRetraction_stabilize
+#print axioms Polyfold.Stabilize.zero_mem_stabilize
+#print axioms Polyfold.Stabilize.ρCLM_stabilize
+#print axioms Polyfold.Stabilize.scDeriv_r_stabilize
+#print axioms Polyfold.Stabilize.kerProdMapZeroEquiv
+#print axioms Polyfold.Stabilize.nonempty_kerEquiv_stabilize
+#print axioms Polyfold.Stabilize.isScSubspace_ker_scDeriv_r
+#print axioms Polyfold.Stabilize.isScSubspace_ker_ρCLM
+#print axioms Polyfold.Stabilize.ofSubspaceZeroEquiv
+#print axioms Polyfold.Stabilize.exists_stabilization_kerEquiv
 -- Chapter5/BumpWeakPointwise.lean (Definition 5.29 "not identically zero" against Definition 5.9
 -- "f(x) ≠ 0": bump points; translations by non-smooth vectors are not sc⁰; on an sc-Banach space
 -- the weak reading gives bump points at all smooth points)
@@ -4294,6 +4315,40 @@ set, and `f²` on `P²`; round-trip item V5.14, gap G.41; Findings Chapter 5, it
 #print axioms isScSmoothMap_scPolyfold_iff
 #print axioms MPolyfold.AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth
 #print axioms MPolyfold.AdmitsBumpFunctionsWeak.exists_bump_of_mem_smooth
+-- Chapter5/BumpPointsResearch.lean
+#print axioms Polyfold.exists_smooth_translate_ne_zero
+#print axioms Polyfold.tsupport_comp_add_const_subset
+#print axioms Polyfold.exists_bump_translate
+#print axioms Polyfold.MPolyfold.HasBumpAt.scPolyfold_all
+#print axioms Polyfold.MPolyfold.hasBumpAt_scPolyfold_all_or_nothing
+#print axioms Polyfold.MPolyfold.hasBumpAt_scPolyfold_of_dense
+#print axioms Polyfold.MPolyfold.AdmitsBumpFunctionsWeak.admitsBumpFunctions_scPolyfold
+#print axioms Polyfold.MPolyfold.admitsBumpFunctionsWeak_iff_admitsBumpFunctions_scPolyfold
+#print axioms Polyfold.MPolyfold.AdmitsBumpFunctionsWeak.exists_bump_scPolyfold
+#print axioms Polyfold.LocalModel.hasBumpProperty_of_hasBumpAt
+#print axioms Polyfold.LocalModel.hasBumpProperty_of_weak
+#print axioms Polyfold.MPolyfold.admitsBumpFunctions_of_model_hasBumpAt
+#print axioms Polyfold.MPolyfold.admitsBumpFunctions_of_model_weak
+-- Chapter5/ShiftTameResearch.lean
+#print axioms Polyfold.ScBanach.levelSub_shift_levelSub
+#print axioms Polyfold.ScBanach.IsScSubspace.levelSub_one
+#print axioms Polyfold.ScBanach.IsScSplitting.levelSub_one
+#print axioms Polyfold.ScIso.shiftPres
+#print axioms Polyfold.ScIso.shiftPres_apply_fst
+#print axioms Polyfold.ScIso.shiftPres_presentation
+#print axioms Polyfold.degIndex_shift
+#print axioms Polyfold.mem_minimalSubspaceWith_shift
+#print axioms Polyfold.ScRetraction.IsTameWith.shift
+#print axioms Polyfold.ScRetraction.IsTame.shift
+#print axioms Polyfold.IsTameRetract.shift
+#print axioms Polyfold.MPolyfold.IsTame.shift
+#print axioms Polyfold.IsStrongBundleRetraction.baseRetraction_shift_eqOn
+#print axioms Polyfold.IsStrongBundleRetraction.baseRetraction_shift_isTame
+#print axioms Polyfold.StrongBundle.IsTameChart.shift
+#print axioms Polyfold.isScFredholmGermTame_sectionShift
+#print axioms Polyfold.corollary_5_2_5_isScFredholmSectionTame
+#print axioms Polyfold.corollary_5_2_5_tame
+#print axioms Polyfold.corollary_5_2_5_tame_two
 
 -- Proposition 6.2 and the index along the zero set without bump functions (2026-11-02):
 -- RestrictOpen, RestrictOpenGerms, IndexLocallyConstantLocal, IndexAlongPathsLocal, IndexAlongPathsLocalBump
@@ -7468,6 +7523,7 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.CoveringExamples.theorem_8_5_five_as_printed
 #print axioms Polyfold.CoveringExamples.theorem_8_5_five_as_printed_nonvacuous
 
+#print axioms Polyfold.CoveringExamples.theorem_8_6_id
 -- Chapter8/NonVacuityBundle.lean
 #print axioms Polyfold.pullbackMap
 #print axioms Polyfold.pullbackMap_val
@@ -8635,6 +8691,84 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.phiTot_bSrc
 #print axioms Polyfold.EpGroupoid.theorem_7_6_9_full_2021
 #print axioms Polyfold.EpGroupoid.trivial_quadrant_boundaryEp_witness
+-- Chapter7/TameBoundaryFull.lean
+#print axioms Polyfold.EpGroupoid.theorem_7_6_9_allReps_2021
+-- Chapter7/PropertyFiveResearch.lean
+#print axioms Polyfold.isScSmoothOn_rn_rn_of_contDiffOn
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.E2
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.chartPt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.canon
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.chartPt_zero
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.chartPt_one
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.canon_zero
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.canon_one
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.chartPt_one_pos
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.E2.ext
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.canon_chartPt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.chartPt_canon
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.chartPt_injective
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.canon_injOn
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.contDiff_chartPt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isOpen_pos
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.contDiffOn_canon
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScSmoothMap_chartPt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScSmoothOn_canon
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.MorIdx
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.src
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.tgt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.Rel
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.src_inl
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.src_inr
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.tgt_inl
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.tgt_inr
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.mk_of_eq
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.mk_of_ne
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.mk_self
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.rel_refl
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.Rel.symm
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.Rel.trans
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.Rel.pos_of_ne
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.rel_src_tgt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.src_mk
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.tgt_mk
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.mk_src_tgt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.groupoidStr
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isomorphic_iff_rel
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.π_eq_π_iff_rel
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.rel_axis_iff
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.instParacompactSpaceProdE2
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.instParacompactSpaceProdMorIdxE2
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.PObj
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.PMor
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScDiffeoOn_inl_sheet
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScDiffeoOn_inr_sheet
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isLocalScDiffeo_src
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isLocalScDiffeo_tgt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScSmoothMap_src
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScSmoothMap_tgt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.continuous_src
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.continuous_tgt
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScSmoothMap_unit
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScSmoothMap_inv
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isScSmoothCompSheet
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.isCompact_sheetSet
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.exists_isProperMap
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.epGroupoid
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.epGroupoid_toGroupoidStr
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.exists_rat_mem_of_mem
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.not_paracompactSpace_orbitSpace
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.DiscR
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.instTopologicalSpaceDiscR
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.instDiscreteTopologyDiscR
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.instDecidableEqDiscR
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.instUncountableDiscR
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.instInhabitedDiscR
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.DiscR.val
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.DiscR.val_injective
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.pruefer
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.pruefer_not_hasParacompactOrbitSpace
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.t2Space_orbitSpace_pruefer
+#print axioms Polyfold.EpGroupoid.Examples.Pruefer.exists_epGroupoid_not_hasParacompactOrbitSpace
 -- Chapter6/OrientationSpace.lean
 #print axioms Polyfold.rnChart_toBase
 #print axioms Polyfold.continuousOn_levelLift_comp
@@ -9511,6 +9645,44 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.EpGroupoid.proposition_9_1_11_unique_rn
 #print axioms Polyfold.EpGroupoid.decompB_isLocalDimDecomposition
 #print axioms Polyfold.EpGroupoid.decompA_not_isLocalDimDecomposition
+-- Chapter9/DimDecompositionExists.lean
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_nonneg
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_eq_zero_of_not_mem_supp
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_self
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isSubmanifoldOfDim_restrictAt
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.dimPart_restrictAt
+#print axioms Polyfold.EpGroupoid.LocalBranchingStructure.isSubmanifoldOfDim_transport
+#print axioms Polyfold.EpGroupoid.HasLabelledBranchingAt
+#print axioms Polyfold.EpGroupoid.dimComponent
+#print axioms Polyfold.EpGroupoid.dimComponent_eq_zero
+#print axioms Polyfold.EpGroupoid.dimComponent_nonneg
+#print axioms Polyfold.EpGroupoid.supp_dimComponent_subset
+#print axioms Polyfold.EpGroupoid.dimComponent_eq_self
+#print axioms Polyfold.EpGroupoid.dimComponent_eq_of_mem
+#print axioms Polyfold.EpGroupoid.hasLabelledBranchingAt
+#print axioms Polyfold.EpGroupoid.dimComponent_eq_of_isomorphic
+#print axioms Polyfold.EpGroupoid.isFunctorial_dimComponent
+#print axioms Polyfold.EpGroupoid.dimComponent_eq_zero_of_not_mem
+#print axioms Polyfold.EpGroupoid.orbitSupp_dimComponent_subset
+#print axioms Polyfold.EpGroupoid.isClosed_orbitSupp_dimComponent
+#print axioms Polyfold.EpGroupoid.paracompactSpace_orbitSupp_dimComponent
+#print axioms Polyfold.EpGroupoid.dimComponentStructure
+#print axioms Polyfold.EpGroupoid.dimComponentStructure_isOfDim
+#print axioms Polyfold.EpGroupoid.isBranchedEpSubgroupoid_dimComponent
+#print axioms Polyfold.EpGroupoid.isNDimensional_dimComponent
+#print axioms Polyfold.EpGroupoid.support_dimComponent_subset
+#print axioms Polyfold.EpGroupoid.isDimDecomposition_dimComponent
+#print axioms Polyfold.EpGroupoid.isLocalDimDecomposition_dimComponent
+#print axioms Polyfold.EpGroupoid.dimComponent_locallyFinite_of_mem
+#print axioms Polyfold.EpGroupoid.isLocallyFiniteFamily_dimComponent
+#print axioms Polyfold.EpGroupoid.Proposition_9_1_11_local
+#print axioms Polyfold.EpGroupoid.existsUnique_localDimDecomposition
+#print axioms Polyfold.EpGroupoid.proposition_9_1_11_local_of
+#print axioms Polyfold.MPolyfold.rn_hasDimAt_le
+#print axioms Polyfold.EpGroupoid.proposition_9_1_11_local_rn
+#print axioms Polyfold.EpGroupoid.proposition_9_1_11_local_trivial_rn
+#print axioms Polyfold.EpGroupoid.isDimDecomposition_dimComponent_rn
+#print axioms Polyfold.EpGroupoid.dimComponent_axis2
 -- Chapter9/OrientationTangent.lean
 #print axioms Polyfold.MPolyfold.transportChart.congr_simp
 #print axioms Polyfold.MPolyfold.chartVec
@@ -10859,6 +11031,43 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.SBLocalization.theorem_10_5_7_of_isEffective
 #print axioms Polyfold.LocalizationLREffectiveBundleExamples.isLR_trivial
 #print axioms Polyfold.LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses
+-- Chapter10/LocalizationLRBundleBase.lean
+#print axioms Polyfold.StrongBundle.IsStrongBundleMap.fiberLinearMap.congr_simp
+#print axioms Polyfold.fiberCast.congr_simp
+#print axioms Polyfold.StrongBundle.IsLocalIsoOn
+#print axioms Polyfold.StrongBundle.IsLocalIsoOn.fiber_linear
+#print axioms Polyfold.StrongBundle.IsLocalIsoOn.isScDiffeoOn_base
+#print axioms Polyfold.StrongBundle.IsLocalIsoOn.isScDiffeoOn_zero
+#print axioms Polyfold.StrongBundle.IsLocalIsoOn.isScDiffeoOn_one
+#print axioms Polyfold.StrongBundle.IsStrongBundleIsoOn.isLocalIsoOn
+#print axioms Polyfold.EpStrongBundle.IsLRLocal
+#print axioms Polyfold.EpStrongBundle.IsLRLocal.isLR
+#print axioms Polyfold.EpStrongBundle.isLRLocal_trivial
+#print axioms Polyfold.StrongBundle.IsLocalIsoOn.covers
+#print axioms Polyfold.StrongBundle.isScDiffeoOn_one_of
+#print axioms Polyfold.StrongBundle.IsStrongBundleIsoOn.oneVal_inv
+#print axioms Polyfold.StrongBundle.IsStrongBundleIsoOn.exists_linear_inv
+#print axioms Polyfold.EpStrongBundle.lrAct
+#print axioms Polyfold.EpStrongBundle.lrAct_eq
+#print axioms Polyfold.EpStrongBundle.P_lrAct
+#print axioms Polyfold.EpStrongBundle.π_lrAct
+#print axioms Polyfold.EpStrongBundle.lrAct_inv_lrAct
+#print axioms Polyfold.EpStrongBundle.lrAct_lrAct_inv
+#print axioms Polyfold.EpStrongBundle.lrAct_mem_oneSet
+#print axioms Polyfold.EpStrongBundle.isScSmoothOn_lrAct
+#print axioms Polyfold.EpStrongBundle.lrActOne
+#print axioms Polyfold.EpStrongBundle.oneVal_lrActOne
+#print axioms Polyfold.EpStrongBundle.isScSmoothOn_lrActOne
+#print axioms Polyfold.EpStrongBundle.IsLRLocal.exists_base
+#print axioms Polyfold.SEP.exists_family_of_isLRLocal
+#print axioms Polyfold.EpFunctor.naturallyEquivalent_of_isEffective_of_families
+#print axioms Polyfold.SEP.natEquiv_of_isEffective_of_isLRLocal
+#print axioms Polyfold.SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal
+#print axioms Polyfold.SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal'
+#print axioms Polyfold.LocalizationLRBundleBaseExamples.theorem_10_5_7_of_isEffective_of_isLRLocal_hypotheses
+#print axioms Polyfold.LocalizationLRBundleBaseExamples.naturallyEquivalent_of_isEffective_of_families_hypotheses
+#print axioms Polyfold.LocalizationLRBundleBaseExamples.isLRLocal_z3EpBundle
+#print axioms Polyfold.LocalizationLRBundleBaseExamples.not_theorem_10_5_7_of_isLRLocal
 -- Chapter10/StrongBundleWeakFibredProductPullback.lean
 #print axioms Polyfold.StrongBundle.oneRestrict.congr_simp
 #print axioms Polyfold.StrongBundle.IsStrongBundleMap.congr_base

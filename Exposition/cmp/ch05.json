@@ -314,12 +314,14 @@
     "statement": "Over a tame $X$, if $f^{-1}(0)$ is compact, then $f^i$ is an sc-Fredholm section of $P^i : Y^i \\to X^i$ with compact solution set."
    },
    "lean": {
-    "statement": "`corollary_5_8`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.1.16 (preprint 3.14), the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \\to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_8_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$; since `corollary_5_8` holds for every strong bundle, every fixed $i$ follows by iterating it. `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$.",
+    "statement": "`corollary_5_8`: if $f$ is an sc-Fredholm section of $P$ (Definition 3.1.16 (preprint 3.14), the text’s germ reading) with compact solution set, then $f^1 = f|_{X_1}$ is an sc-Fredholm section of the shifted strong bundle $P^1 : Y^1 \\to X^1$ (V5.14) with compact solution set in $X^1$. `corollary_5_8_two`: the same for $f^2 = (f^1)^1$ on $P^2 = (P^1)^1$; since `corollary_5_8` holds for every strong bundle, every fixed $i$ follows by iterating it. `isCompact_solutionSet_level`: for every $i$ the zeros of $f$ in $X_i$ form a compact subset of $X_i$. With tame germ data: `corollary_5_2_5_tame` (and `corollary_5_2_5_tame_two`).",
     "decls": [
      "Chapter5/Corollary58 · corollary_5_8",
      "Chapter5/Corollary58 · corollary_5_8_two",
      "Chapter5/StrongBundleShift · StrongBundle.solutionSet_sectionShift",
-     "Chapter5/Compactness · isCompact_solutionSet_level"
+     "Chapter5/Compactness · isCompact_solutionSet_level",
+     "Chapter5/ShiftTameResearch · corollary_5_2_5_tame",
+     "Chapter5/ShiftTameResearch · corollary_5_2_5_tame_two"
     ]
    },
    "chips": [
@@ -329,7 +331,7 @@
    ],
    "diff": [
     "$P^i : Y^i \\to X^i$ is not defined in the text; it is read as the iterated shift $P^i = (P^{i-1})^1$ (V5.14). `corollary_5_8` is stated for every strong bundle, so it applies to $P^1$, $P^2$, …, and every fixed $i$ is obtained by iterating it ($i = 2$ is `corollary_5_8_two`); one statement for a family $P^i$ indexed by $i$ is not formalized. The base of $P^2$ is $(X^1)^1$, whose points are those of $X_2$; its topology is that of $X_2$ (V2.93; gap G.6, closed). The compact solution set is also proved on every level $X_i$ directly.",
-    "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which would need the tameness of the index raises of tame charts (not proved; Findings, Chapter 5, item 145). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it, when only the compactness half was proved) (Findings, Chapter 5, items 140–146; gap G.41)."
+    "Tameness of $X$ is not used; the conclusion is Definition 3.1.16 (preprint 3.14) for $f^i$, not tame germ data, which is proved as well: the index raise of a tame chart is tame, and Corollary 5.2.5 holds with tame germ data (`corollary_5_2_5_tame`; Findings, Chapter 5, items 145, 181). Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it, when only the compactness half was proved) (Findings, Chapter 5, items 140–146; gap G.41)."
    ]
   },
   {
@@ -342,7 +344,7 @@
     "statement": "\"It is a priori clear that $f^i$ is sc-Fredholm\", as a section of $P^i : Y^i \\to X^i$."
    },
    "lean": {
-    "statement": "`StrongBundle.shift`: the shifted strong bundle $P^1 : Y^1 \\to X^1$ (Definition 2.6.5 (preprint 2.51)): total space $Y_{1,1}$ with its level topology, $P^1 = P|_{Y_{1,1}}$, fibres $P^{-1}(x) \\cap Y_{1,1}$ (linear subspaces, with the topology of $F_1$), and the atlas of the index raises $\\Phi^1$ of the strong bundle charts, compatible charts having compatible index raises; $(Y^1)_{m,k} = Y_{m+1,k+1}$. `corollary_5_8_isScFredholmSection`: for an sc-Fredholm section $f$, $f^1 = f|_{X_1}$ is an sc-Fredholm section of $P^1$ — sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point of $X^1$ (`isScFredholmGerm_sectionShift`), with the datum $(g^1, s^1)$ in the index raise $\\Phi^1$ of the chart of a datum $(g, s)$ of $f$: the principal part of $f^1$ is the level-$1$ map of that of $f$, $g^1$ is a filling germ of it, including condition (3) of Definition 3.1.4 (preprint 3.4) on level $1$ (`IsFillingGerm.germ_shift`, from `IsFillingGerm.mem_range_toBase_of_fillDefect`: at the centre of every datum, $v \\in \\ker Dr(0)$ and $Dk(0)v \\in F_m$ give $v \\in E_m$), $s^1$ is an sc⁺-germ on the shifted germ, and $g^1 - s^1 = (g - s)_1$ near $0$ is conjugated to a basic germ by the index raise of the conjugation (`IsConjugateToBasicGerm.shift_germ`, with `IsBasicGerm.shift`). The chart-level form `corollary_5_8_chart` is kept.",
+    "statement": "`StrongBundle.shift`: the shifted strong bundle $P^1 : Y^1 \\to X^1$ (Definition 2.6.5 (preprint 2.51)): total space $Y_{1,1}$ with its level topology, $P^1 = P|_{Y_{1,1}}$, fibres $P^{-1}(x) \\cap Y_{1,1}$ (linear subspaces, with the topology of $F_1$), and the atlas of the index raises $\\Phi^1$ of the strong bundle charts, compatible charts having compatible index raises; $(Y^1)_{m,k} = Y_{m+1,k+1}$. `corollary_5_8_isScFredholmSection`: for an sc-Fredholm section $f$, $f^1 = f|_{X_1}$ is an sc-Fredholm section of $P^1$ — sc-smooth, regularizing, and an sc-Fredholm germ at every smooth point of $X^1$ (`isScFredholmGerm_sectionShift`), with the datum $(g^1, s^1)$ in the index raise $\\Phi^1$ of the chart of a datum $(g, s)$ of $f$: the principal part of $f^1$ is the level-$1$ map of that of $f$, $g^1$ is a filling germ of it, including condition (3) of Definition 3.1.4 (preprint 3.4) on level $1$ (`IsFillingGerm.germ_shift`, from `IsFillingGerm.mem_range_toBase_of_fillDefect`: at the centre of every datum, $v \\in \\ker Dr(0)$ and $Dk(0)v \\in F_m$ give $v \\in E_m$), $s^1$ is an sc⁺-germ on the shifted germ, and $g^1 - s^1 = (g - s)_1$ near $0$ is conjugated to a basic germ by the index raise of the conjugation (`IsConjugateToBasicGerm.shift_germ`, with `IsBasicGerm.shift`). The chart-level form `corollary_5_8_chart` is kept. The index raise of a tame strong bundle chart is a tame chart of $P^1$ (`StrongBundle.IsTameChart.shift`), so the germ data of $f^1$ lie in a tame chart (`isScFredholmGermTame_sectionShift`).",
     "decls": [
      "Chapter5/StrongBundleShift · StrongBundle.shift",
      "Chapter5/StrongBundleShift · StrongBundleChart.shift",
@@ -359,18 +361,21 @@
      "Chapter5/Corollary58 · IsFillingGerm.germ_shift",
      "Chapter5/Corollary58 · isScFredholmGerm_sectionShift",
      "Chapter5/Corollary58 · corollary_5_8_isScFredholmSection",
-     "Chapter5/Compactness · corollary_5_8_chart"
+     "Chapter5/Compactness · corollary_5_8_chart",
+     "Chapter5/ShiftTameResearch · ScRetraction.IsTame.shift",
+     "Chapter5/ShiftTameResearch · StrongBundle.IsTameChart.shift",
+     "Chapter5/ShiftTameResearch · isScFredholmGermTame_sectionShift"
     ]
    },
    "chips": [
     "$P^1 : Y_{1,1} \\to X^1$ built",
     "filler condition (3) on level 1 proved",
-    "no tameness; tame form not stated"
+    "no tameness needed; tame form proved"
    ],
    "diff": [
     "$Y^i \\to X^i$ is never defined in the text (it defines $Y[i]$ for $i = 0, 1$). $Y^1$ is read as $Y_{1,1}$ with $(Y^1)_{m,k} = Y_{m+1,k+1}$, the convention of $E^1$ and of $(U \\triangleleft F)^1 = U^1 \\triangleleft F^1$; it is forced by “$f^i$ is obtained by raising the index”: an sc-smooth section maps $X_1$ into $Y_{1,1}$, in general not into $Y_{1,2}$. The fibre of $P^1$ carries the topology of $F_1$, not that of the fibre of $P$; it is a Banach space because a fibre of a strong bundle is, through a chart, a closed subspace of its fibre model (`StrongBundleChart.isBanachable_fiber`) (Findings, Chapter 5, items 140, 141).",
     "“It is a priori clear” hides condition (3) of the filling on level $1$ ($\\ker Dr^1(0) \\to \\ker\\rho^1(0)$ a topological isomorphism), which does not follow from level $0$ alone: an sc-operator can be bijective on level $0$ and not onto on level $1$. It holds for the data of Definition 3.1.11 (preprint 3.11): subtracting the section $z \\mapsto \\Gamma(z, -g(0))$ reduces to $g(0) = 0$ with the same fill defect (Lemma 3.1.20 (preprint 3.17)), Proposition 3.6.5 (preprint 3.52) in sc form makes $Dg(0)$ sc-Fredholm, and its regularity gives the surjectivity on level $1$; the open mapping theorem does the rest (Findings, Chapter 5, items 22, 144). No hypothesis beyond the text’s is added.",
-    "Tameness is not used. The tame form (germ data of $f^1$ in tame charts of $P^1$) is not stated: the tameness of the index raise of a tame chart is not proved, and no counterexample is known (Findings, Chapter 5, item 145). $i \\ge 2$ by iteration: V5.13. Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it: no $Y^1 \\to X^1$, no filler on level $1$) (Findings, Chapter 5, items 140–146; gap G.41).",
+    "Tameness is not used. The tame form (germ data of $f^1$ in tame charts of $P^1$) is proved as well: the index raise of a tame strong bundle chart is a tame chart of $P^1$ (`StrongBundle.IsTameChart.shift`, `isScFredholmGermTame_sectionShift`; Findings, Chapter 5, items 145, 181). $i \\ge 2$ by iteration: V5.13. Hence “stronger”: the strong bundle need not be tame, as in V5.10, and the round-trip audit confirms A ⇒ B, not B ⇒ A (refreshed 2026-11-02; “same” in the fourth addendum, “narrower” before it: no $Y^1 \\to X^1$, no filler on level $1$) (Findings, Chapter 5, items 140–146; gap G.41).",
     "In the text’s germ reading of Definition 3.1.11 (preprint 3.11) (phase 2) $s^1$ is an sc⁺-germ on the shifted germ of $s$, and the level-$1$ conjugation uses $g - s$ only near $0$ (Findings, Chapter 3, item 333)."
    ]
   },
@@ -422,16 +427,19 @@
      "Chapter5/BumpWeakPointwise · MPolyfold.HasBumpAt",
      "Chapter5/BumpWeakPointwise · MPolyfold.admitsBumpFunctionsWeak_of_dense",
      "Chapter5/BumpWeakPointwise · MPolyfold.AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth",
-     "Chapter5/BumpFunctions · MPolyfold.admitsBumpFunctions_of_hilbert"
+     "Chapter5/BumpFunctions · MPolyfold.admitsBumpFunctions_of_hilbert",
+     "Chapter5/BumpPointsResearch · MPolyfold.hasBumpAt_scPolyfold_all_or_nothing",
+     "Chapter5/BumpPointsResearch · MPolyfold.admitsBumpFunctionsWeak_iff_admitsBumpFunctions_scPolyfold",
+     "Chapter5/BumpPointsResearch · MPolyfold.admitsBumpFunctions_of_model_hasBumpAt"
     ]
    },
    "chips": [
     "$f \\ne 0$ read as $f(x) \\ne 0$",
     "weak ⇐ bump points dense",
-    "weak ⇒ pointwise at smooth points of $E$"
+    "weak ⇔ pointwise on sc-Banach spaces"
    ],
    "diff": [
-    "Proposition 5.5.3's (preprint 5.30) proof needs $g(x) \\ne 0$; without translations a bump cannot be moved to $x$. Whether the weak reading suffices is open at non-smooth points: on an sc-Banach space the weak reading gives a bump at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`; translation by a non-smooth vector does not preserve the levels), on Hilbert models both readings hold everywhere (`admitsBumpFunctions_of_hilbert`), and the weak reading is the density of the bump points (`HasBumpAt`; one direction formalized) (Findings, Chapter 5, items 41, 160–163). Updated in the fourth addendum of this page."
+    "Proposition 5.5.3's (preprint 5.30) proof needs $g(x) \\ne 0$; without translations a bump cannot be moved to $x$. Whether the weak reading suffices is open at non-smooth points: on an sc-Banach space the weak reading gives a bump at every smooth point (`AdmitsBumpFunctionsWeak.hasBumpAt_of_mem_smooth`; translation by a non-smooth vector does not preserve the levels), on Hilbert models both readings hold everywhere (`admitsBumpFunctions_of_hilbert`), and the weak reading is the density of the bump points (`HasBumpAt`; one direction formalized) (Findings, Chapter 5, items 41, 160–163). On an sc-Banach space this is now settled at every point: a bump at one point is moved to any other by a smooth vector close to the difference, so the bump points are all points or none, and the weak and pointwise readings agree (`MPolyfold.admitsBumpFunctionsWeak_iff_admitsBumpFunctions_scPolyfold`; Findings, Chapter 5, item 180); for a general M-polyfold the question stays open. Updated in the fourth addendum of this page."
    ]
   },
   {

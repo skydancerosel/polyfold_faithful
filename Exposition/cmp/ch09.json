@@ -247,7 +247,7 @@
     "statement": "A branched ep⁺-subgroupoid $\\Theta$ determines a unique sequence $\\Theta_0, \\Theta_1, \\ldots$ of branched ep⁺-subgroupoids characterized by (1) $\\Theta_k$ is $k$-dimensional and (2) $\\Theta = \\Theta_0 + \\Theta_1 + \\cdots$, the sum locally finite. Proof: at $x \\in \\mathrm{supp}(\\Theta)$ take a symmetric structure, split $I = I_0 \\sqcup \\cdots \\sqcup I_n$ by the dimension of the $M_i$ and put $\\Theta_k(y) = \\sum_{i \\in I_k, y \\in M_i} \\sigma_i$; independence of the structure is Proposition 9.1.12."
    },
    "lean": {
-    "statement": "For a local branching structure with dimension labelling, $\\Theta_k(y) = \\sum_{\\dim M_i = k,\\, y \\in M_i} \\sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\\dim M_i = k}$, $\\Theta = \\sum_k \\Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\\Theta_k$ is $G_x$-invariant. The statement of the proposition, \"a unique family $(\\Theta_k)$ of branched ep⁺-subgroupoids, $\\Theta_k$ $k$-dimensional, with $\\Theta = \\sum_k \\Theta_k$ pointwise, and every such family locally finite\", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\\mathbb R^2$ it does not hold as we read it: for the indicator $\\Theta$ of the $x$-axis $L$, both $\\Theta_0 = 1_{\\{0\\}}$, $\\Theta_1 = 1_{L \\setminus \\{0\\}}$ and $\\Theta_0 = 0$, $\\Theta_1 = 1_L$ are such families. Uniqueness among local decompositions, those given near every point of $\\mathrm{supp}(\\Theta)$ by the dimensional parts of a local branching structure (the form the proof builds): two such decompositions are equal, given Proposition 9.1.12, hence over $\\mathbb R^m$ with no hypothesis and under the graph representation in general; in the example, $\\Theta_1 = 1_L$ is local and the other decomposition is not.",
+    "statement": "For a local branching structure with dimension labelling, $\\Theta_k(y) = \\sum_{\\dim M_i = k,\\, y \\in M_i} \\sigma_i$ is represented on $U(x)$ by the $k$-dimensional structure $(M_i)_{\\dim M_i = k}$, $\\Theta = \\sum_k \\Theta_k$ on $U(x)$, and for a symmetric structure $G_x$ preserves dimension and $\\Theta_k$ is $G_x$-invariant. The statement of the proposition, \"a unique family $(\\Theta_k)$ of branched ep⁺-subgroupoids, $\\Theta_k$ $k$-dimensional, with $\\Theta = \\sum_k \\Theta_k$ pointwise, and every such family locally finite\", is `Proposition_9_1_11`; on the trivial ep-groupoid of $\\mathbb R^2$ it does not hold as we read it: for the indicator $\\Theta$ of the $x$-axis $L$, both $\\Theta_0 = 1_{\\{0\\}}$, $\\Theta_1 = 1_{L \\setminus \\{0\\}}$ and $\\Theta_0 = 0$, $\\Theta_1 = 1_L$ are such families. Uniqueness among local decompositions, those given near every point of $\\mathrm{supp}(\\Theta)$ by the dimensional parts of a local branching structure (the form the proof builds): two such decompositions are equal, given Proposition 9.1.12, hence over $\\mathbb R^m$ with no hypothesis and under the graph representation in general; in the example, $\\Theta_1 = 1_L$ is local and the other decomposition is not. Existence: `dimComponent`, the dimensional part of any labelled local branching structure, is a local dimensional decomposition, the unique one, and locally finite under a dimension bound; `Proposition_9_1_11_local` (Proposition 9.1.11 with \"uniquely\" among local decompositions, plus local finiteness) holds for every ep-groupoid with object M-polyfold $\\mathbb R^m$ (`proposition_9_1_11_local_rn`) and in general under Proposition 9.1.12, the local constancy of dimension and a dimension bound (`proposition_9_1_11_local_of`).",
     "decls": [
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.dimPart",
      "Chapter9/Propositions · EpGroupoid.LocalBranchingStructure.dimPartStructure",
@@ -271,17 +271,26 @@
      "Chapter9/DimDecompositionUnique · EpGroupoid.proposition_9_1_11_unique_rn",
      "Chapter9/DimDecompositionUnique · EpGroupoid.proposition_9_1_11_unique_of_hasGraphChartAt",
      "Chapter9/DimDecompositionUnique · EpGroupoid.decompB_isLocalDimDecomposition",
-     "Chapter9/DimDecompositionUnique · EpGroupoid.decompA_not_isLocalDimDecomposition"
+     "Chapter9/DimDecompositionUnique · EpGroupoid.decompA_not_isLocalDimDecomposition",
+     "Chapter9/DimDecompositionExists · EpGroupoid.dimComponent",
+     "Chapter9/DimDecompositionExists · EpGroupoid.isFunctorial_dimComponent",
+     "Chapter9/DimDecompositionExists · EpGroupoid.paracompactSpace_orbitSupp_dimComponent",
+     "Chapter9/DimDecompositionExists · EpGroupoid.existsUnique_localDimDecomposition",
+     "Chapter9/DimDecompositionExists · EpGroupoid.isLocallyFiniteFamily_dimComponent",
+     "Chapter9/DimDecompositionExists · EpGroupoid.Proposition_9_1_11_local",
+     "Chapter9/DimDecompositionExists · EpGroupoid.proposition_9_1_11_local_of",
+     "Chapter9/DimDecompositionExists · EpGroupoid.proposition_9_1_11_local_rn",
+     "Chapter9/DimDecompositionExists · EpGroupoid.dimComponent_axis2"
     ]
    },
    "chips": [
     "uniqueness: does not hold as we read it",
     "counterexample: $1_L$ on ℝ²",
-    "global gluing open (G.96)"
+    "proved over ℝᵐ for local decompositions (G.96 closed there)"
    ],
    "diff": [
     "Hidden hypotheses: the dimension labellings of V9.2.",
-    "Only the local construction is verified; the gluing of the local $\\Theta_k$ into functors on $X$ (compatibility across morphisms, paracompactness of $|\\mathrm{supp}(\\Theta_k)|$, local finiteness) is not formalized (gap G.96) (Findings, Chapter 9, item 8). Uniqueness holds among local decompositions (Findings, Chapter 9, item 105)."
+    "The local $\\Theta_k$ glue into functors on $X$ (`dimComponent`: compatible across morphisms, $|\\mathrm{supp}(\\Theta_k)|$ paracompact). Read with \"uniquely\" among local decompositions and with local finiteness (`Proposition_9_1_11_local`), the proposition holds for every ep-groupoid whose object M-polyfold is $\\mathbb R^m$, with no further hypothesis (`proposition_9_1_11_local_rn`; gap G.96 closed there), and in general under Proposition 9.1.12, the local constancy of dimension and, for local finiteness, a bound on the dimensions (`proposition_9_1_11_local_of`) (Findings, Chapter 9, items 8, 105, 106)."
    ]
   },
   {

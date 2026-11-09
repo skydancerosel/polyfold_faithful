@@ -1961,7 +1961,7 @@
     "statement": "If both strong bundles have the local regularity property and $[D], [D'] : W \\to W'$ are generalized strong bundle isomorphisms with $|[D]| = |[D']|$, then $[D] = [D']$. (2017: without the local regularity hypothesis.)"
    },
    "lean": {
-    "statement": "`SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\\mathbb R \\times \\mathbb R^k \\to \\mathbb R$ over $\\mathbb Z/3 \\times \\mathbb R \\rightrightarrows \\mathbb R$, trivial $\\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\\mathrm{Inv}] \\neq [1_W]$ with equal orbit maps (`remark_10_5_5`). For an effective target it holds: `SBLocalization.theorem_10_5_7_of_isEffective`, with the base of the target effective and (LR) of the base of the source or the target, as in Theorem 10.3.19; then strong bundle equivalences with the same orbit map are naturally equivalent (`SEP.natEquiv_of_isEffective`). Witness: $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ over the trivial ep-groupoid.",
+    "statement": "`SBLocalization.Theorem_10_5_7` is the statement; `not_theorem_10_5_7` its negation: the strong bundle $\\mathbb R \\times \\mathbb R^k \\to \\mathbb R$ over $\\mathbb Z/3 \\times \\mathbb R \\rightrightarrows \\mathbb R$, trivial $\\mu$, has the local regularity property (`isLR_z3EpBundle`), and $[\\mathrm{Inv}] \\neq [1_W]$ with equal orbit maps (`remark_10_5_5`). For an effective target it holds: `SBLocalization.theorem_10_5_7_of_isEffective`, with the base of the target effective and (LR) of the base of the source or the target, as in Theorem 10.3.19; then strong bundle equivalences with the same orbit map are naturally equivalent (`SEP.natEquiv_of_isEffective`). Witness: $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ over the trivial ep-groupoid. With Definition 8.4.2 read for local isomorphisms (`EpStrongBundle.IsLRLocal`): `SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal`, for an effective target with (LR) of the target bundle only; without effectiveness it does not hold as we read it (`not_theorem_10_5_7_of_isLRLocal`).",
     "decls": [
      "Chapter10/LocalizationLRCounterexample · SBLocalization.Theorem_10_5_7",
      "Chapter10/LocalizationLRCounterexample · LocalizationLRCounterexample.not_theorem_10_5_7",
@@ -1971,17 +1971,25 @@
      "Chapter10/LocalizationLREffectiveBundle · SEP.natEquiv_of_isEffective",
      "Chapter10/LocalizationLREffectiveBundle · SEP.orbitMap_base_eq",
      "Chapter10/LocalizationLREffectiveBundle · StrongBundle.isOpenMap_proj",
-     "Chapter10/LocalizationLREffectiveBundle · LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses"
+     "Chapter10/LocalizationLREffectiveBundle · LocalizationLREffectiveBundleExamples.theorem_10_5_7_of_isEffective_hypotheses",
+     "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal",
+     "Chapter10/LocalizationLRBundleBase · EpStrongBundle.IsLRLocal.isLR",
+     "Chapter10/LocalizationLRBundleBase · SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal",
+     "Chapter10/LocalizationLRBundleBase · SBLocalization.theorem_10_5_7_of_isEffective_of_isLRLocal'",
+     "Chapter10/LocalizationLRBundleBase · SEP.exists_family_of_isLRLocal",
+     "Chapter10/LocalizationLRBundleBase · LocalizationLRBundleBaseExamples.theorem_10_5_7_of_isEffective_of_isLRLocal_hypotheses",
+     "Chapter10/LocalizationLRBundleBase · LocalizationLRBundleBaseExamples.not_theorem_10_5_7_of_isLRLocal"
     ]
    },
    "chips": [
     "does not hold as we read it",
     "example of Remark 10.5.5",
-    "settles G.127"
+    "settles G.127",
+    "holds for an effective target"
    ],
    "diff": [
     "The statement does not hold as we read it, nor does the 2017 Theorem 10.10; the proof (\"immediately from Proposition 10.4.7\") meets the step of V10.65 for strong bundles (Findings, Chapter 10, item 58).",
-    "For an effective target the theorem holds with (LR) of a base, the hypothesis of Theorem 10.3.19; the strong bundle (LR) of Definition 8.4.2, as formalized, is kept but not used (Findings, Chapter 10, item 71)."
+    "For an effective target the theorem holds with the hypothesis of the text, Definition 8.4.2 read for local strong bundle isomorphisms of $W|U(x)$ (`EpStrongBundle.IsLRLocal`, which implies the formal `IsLR`), for the target bundle only and with no (LR) of a base (`theorem_10_5_7_of_isEffective_of_isLRLocal`); with the formal `IsLR`, which speaks of maps defined on all of $W$, it holds given (LR) of a base, as in Theorem 10.3.19. Effectiveness is needed: the $\\mathbb Z/3$ example satisfies `IsLRLocal` (Findings, Chapter 10, items 71, 72)."
    ]
   },
   {

@@ -176,4 +176,21 @@ theorem theorem_8_5_five_as_printed_nonvacuous :
 
 end Theorem85
 
+section Universe
+
+universe u
+
+variable {Obj Mor : Type u} [TopologicalSpace Obj] [T2Space Obj] [ParacompactSpace Obj]
+  [TopologicalSpace Mor] [T2Space Mor] [ParacompactSpace Mor]
+
+/-- **Theorem 8.6 in every universe** (2021 Theorem 8.5.8, p. 392): the identity functor of any
+ep-groupoid, in any universe `u`, is a proper covering functor, and the theorem applies to it
+(its restriction to the fibre over `x` is a covering functor). -/
+theorem theorem_8_6_id (X : EpGroupoid Obj Mor) (x : Obj) :
+    (EpFunctor.id X).IsProperCovering ∧
+      IsCoveringFunctor ((EpFunctor.id X).restrictFiber x) :=
+  ⟨EpFunctor.isProperCovering_id, (EpFunctor.theorem_8_6 EpFunctor.isProperCovering_id x).1⟩
+
+end Universe
+
 end Polyfold.CoveringExamples

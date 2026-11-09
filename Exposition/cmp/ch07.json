@@ -1506,21 +1506,25 @@
     "statement": "The ep-groupoid $(X, \\mathbf X)$ is an ep-groupoid with paracompact orbit space if, in addition to the properties (1)–(4) of Definition 7.1.3 (2017: 7.3), it also possesses the following property (5): the orbit space $|X|$ is paracompact. A topological space is paracompact if every open covering has a refinement which is a locally finite open covering; a paracompact space is not required to be Hausdorff. It is presently not known whether the property (5) is a consequence of the properties (1)–(4). In case $X$ has a second countable topology, (1)–(4) imply (5). Remark 7.5.2 (2017: 7.1) (paraphrased): the paper [38] required the M-polyfolds to be second countable; the authors found this requirement unnecessarily restrictive and (5) a better one."
    },
    "lean": {
-    "statement": "`HasParacompactOrbitSpace`: Mathlib's `ParacompactSpace` for $|X|$ (no Hausdorff condition). `remark_7_1`: if the object space $X$ is second countable, $|X|$ is paracompact; `hasParacompactOrbitSpace_of_secondCountableTopology`: likewise if $|X|$ is second countable; `hasParacompactOrbitSpace_iff_metrizableSpace`: $|X|$ is paracompact iff it is metrizable.",
+    "statement": "`HasParacompactOrbitSpace`: Mathlib's `ParacompactSpace` for $|X|$ (no Hausdorff condition). `remark_7_1`: if the object space $X$ is second countable, $|X|$ is paracompact; `hasParacompactOrbitSpace_of_secondCountableTopology`: likewise if $|X|$ is second countable; `hasParacompactOrbitSpace_iff_metrizableSpace`: $|X|$ is paracompact iff it is metrizable. `exists_epGroupoid_not_hasParacompactOrbitSpace`: an ep-groupoid without (5), the Čech groupoid of a Prüfer-type surface.",
     "decls": [
      "Chapter7/EpGroupoid · EpGroupoid.HasParacompactOrbitSpace",
      "Chapter7/Lift · EpGroupoid.remark_7_1",
      "Chapter7/Lift · EpGroupoid.hasParacompactOrbitSpace_of_secondCountableTopology",
-     "Chapter7/Lift · EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace"
+     "Chapter7/Lift · EpGroupoid.hasParacompactOrbitSpace_iff_metrizableSpace",
+     "Chapter7/PropertyFiveResearch · EpGroupoid.Examples.Pruefer.epGroupoid",
+     "Chapter7/PropertyFiveResearch · EpGroupoid.Examples.Pruefer.not_paracompactSpace_orbitSpace",
+     "Chapter7/PropertyFiveResearch · EpGroupoid.Examples.Pruefer.t2Space_orbitSpace_pruefer",
+     "Chapter7/PropertyFiveResearch · EpGroupoid.Examples.Pruefer.exists_epGroupoid_not_hasParacompactOrbitSpace"
     ]
    },
    "chips": [
     "“$X$ second countable” for objects",
-    "open question not formalized"
+    "open question settled: (5) does not follow"
    ],
    "diff": [
     "\"$X$ has a second countable topology\" is read for the object space: $|X|$ is then second countable ($\\pi$ is open), metrizable by Corollary 7.3.6 (2017: 7.1), hence paracompact (Findings, Chapter 7, item 82).",
-    "\"It is presently not known whether (5) is a consequence of (1)–(4)\" is an open question of the text, not formalized and not given a gap, since nothing depends on it; Remark 7.5.2 (2017: 7.1) has no formal content (Findings, Chapter 7, items 82, 113)."
+    "\"It is presently not known whether (5) is a consequence of (1)–(4)\": it is not. The Čech groupoid of the atlas of a Prüfer-type surface, with uncountably many charts, is an ep-groupoid (Definition 7.1.3) whose orbit space is Hausdorff and not paracompact (`exists_epGroupoid_not_hasParacompactOrbitSpace`); its object space is not second countable. Remark 7.5.2 (2017: 7.1) has no formal content (Findings, Chapter 7, items 82, 113, 152)."
    ]
   },
   {
@@ -2921,16 +2925,17 @@
   {
    "id": "V7.101",
    "title": "Theorem 7.6.9 in full",
-   "verdict": "narrower",
+   "verdict": "restated",
    "book": {
     "label": "§7.6, Theorem 7.6.9, p. 355 (new in the 2021 edition), and the characterization after it",
     "page": 355,
     "statement": "For a tame ep-groupoid: (1) $bX$ and $b\\mathbf X$ have natural metrizable topologies; (2) natural tame M-polyfold structures; (3) both maps $B$ are sc-smooth; (4) $d_X(B(p)) - 1 = d_{bX}(p)$, and likewise on $b\\mathbf X$; (5) $(bX, b\\mathbf X)$ with $s, t, u, \\iota, m$ is a tame ep-groupoid. The topology and the structure are characterized as in Theorem 2.7.13."
    },
    "lean": {
-    "statement": "`theorem_7_6_9_full_2021` (for `X.IsTame`): (1) metrizable $bX$, $b\\mathbf X$; (2) `bPObj`, `bPMor` tame, and for every triple with $V$ centred at $x$, `uSet` open and `phiTot` an sc-diffeomorphism onto `facePolyfold` with inverse `phiHomeomorph.symm`, and every M-polyfold structure with this property has an atlas equivalent to `bPObj`, resp. `bPMor`; (3) both `tameBoundaryMap` sc-smooth; (4) $d_X(B p) - 1 = d_{bX}(p)$, $d_{\\mathbf X}(B a) - 1 = d_{b\\mathbf X}(a)$; (5) `boundaryEpGroupoid` tame, with the groupoid `boundaryGroupoid` and the structures `bPObj`, `bPMor`, local sc-diffeomorphisms `bSrc`, `bTgt`, sc-smooth `bUnit`, `bInv`, `IsScSmoothComp`; an `EpFunctor` with object and morphism maps the two `tameBoundaryMap`. Witness: `trivial_quadrant_boundaryEp_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, nonempty $bX$, $b\\mathbf X$, $d_{bX} = n - 1$ over the corner).",
+    "statement": "`theorem_7_6_9_full_2021` (for `X.IsTame`): (1) metrizable $bX$, $b\\mathbf X$; (2) `bPObj`, `bPMor` tame, and for every triple with $V$ centred at $x$, `uSet` open and `phiTot` an sc-diffeomorphism onto `facePolyfold` with inverse `phiHomeomorph.symm`, and every M-polyfold structure with this property has an atlas equivalent to `bPObj`, resp. `bPMor`; (3) both `tameBoundaryMap` sc-smooth; (4) $d_X(B p) - 1 = d_{bX}(p)$, $d_{\\mathbf X}(B a) - 1 = d_{b\\mathbf X}(a)$; (5) `boundaryEpGroupoid` tame, with the groupoid `boundaryGroupoid` and the structures `bPObj`, `bPMor`, local sc-diffeomorphisms `bSrc`, `bTgt`, sc-smooth `bUnit`, `bInv`, `IsScSmoothComp`; an `EpFunctor` with object and morphism maps the two `tameBoundaryMap`. Witness: `trivial_quadrant_boundaryEp_witness` ($[0, \\infty)^n \\oplus W$, $n \\ge 1$: tame, nonempty $bX$, $b\\mathbf X$, $d_{bX} = n - 1$ over the corner). For every representative $t$ of $bX$ and of $b\\mathbf X$, centred or not: `theorem_7_6_9_allReps_2021` ($\\Phi_t$ an sc-diffeomorphism from `uSet t` onto the open `reachSet t`, which is $\\theta$ for centred $V$, and uniqueness of the structures).",
     "decls": [
      "Chapter7/TameBoundaryEpStructure · EpGroupoid.theorem_7_6_9_full_2021",
+     "Chapter7/TameBoundaryFull · EpGroupoid.theorem_7_6_9_allReps_2021",
      "Chapter7/TameBoundaryEpStructure · EpGroupoid.trivial_quadrant_boundaryEp_witness",
      "Chapter2/TameBoundaryStructure · MPolyfold.theorem_2_7_13_structure_2021",
      "Chapter2/TameBoundaryStructure · MPolyfold.tameBoundaryPolyfold_unique",
@@ -2939,11 +2944,11 @@
    },
    "chips": [
     "new in the 2021 edition",
-    "characterization for centred $V$",
+    "characterization for every representative",
     "(4) as printed, $\\mathbb N$-subtraction"
    ],
    "diff": [
-    "The characterization and its uniqueness are for representatives whose $V$ is centred at $x$ (V7.98); Part I has them since for every representative, with image $\\theta \\cap V^x$ (V2.104; gap G.78, closed), the boundary ep-groupoid not; \"natural\" in (2) is read through them. The hypotheses of the two uniqueness statements are satisfied by `bPObj`, `bPMor` themselves.",
+    "The characterization and its uniqueness hold for every representative, centred or not (`theorem_7_6_9_allReps_2021`): $\\Phi_t$ is an sc-diffeomorphism onto the open set $\\theta \\cap V^x$, all of $\\theta$ when $V$ is centred, as in Part I (V2.104; gap G.78, closed); \"natural\" in (2) is read through them. The hypotheses of the two uniqueness statements are satisfied by `bPObj`, `bPMor` themselves (Findings, Chapter 7, items 141, 151).",
     "(4) is stated as printed, with natural-number subtraction ($B$ takes values in $\\partial X$, where $d_X \\ge 1$); the additive form is `MPolyfold.degIndex_tameBoundaryMap` (Findings, Chapter 7, items 145, 147)."
    ]
   },

@@ -98,6 +98,7 @@ import Polyfold.Chapter3.BasicGermShrink
 import Polyfold.Chapter3.BasicGermShrinkIFT
 import Polyfold.Chapter3.FredholmGermLinearizationSc
 import Polyfold.Chapter3.FredholmGermLinearizationScG
+import Polyfold.Chapter3.TameGermDataStabilization
 import Polyfold.Chapter3.BasicClassComposition
 import Polyfold.Chapter3.ParamPerturbation
 import Polyfold.Chapter3.GermCalculusParam
@@ -149,6 +150,8 @@ import Polyfold.Chapter3.IndexAlongPathsLocalBump
 import Polyfold.Chapter5.GeneralPosition
 import Polyfold.Chapter5.AllowableSectionsMetric
 import Polyfold.Chapter5.BumpWeakPointwise
+import Polyfold.Chapter5.BumpPointsResearch
+import Polyfold.Chapter5.ShiftTameResearch
 import Polyfold.Chapter6.DetLine
 import Polyfold.Chapter6.ExactSequence
 import Polyfold.Chapter6.FredholmDet
@@ -243,6 +246,8 @@ import Polyfold.Chapter2.TameBoundaryStructure
 import Polyfold.Chapter2.TangentLift
 import Polyfold.Chapter4.VectorFieldsGlobal
 import Polyfold.Chapter7.TameBoundaryEpStructure
+import Polyfold.Chapter7.TameBoundaryFull
+import Polyfold.Chapter7.PropertyFiveResearch
 import Polyfold.Chapter6.OrientationSpace
 import Polyfold.Chapter2.LocalTopologyExample
 import Polyfold.Chapter6.Book2021Continuity
@@ -265,6 +270,7 @@ import Polyfold.Chapter9.TangentSlicesRn
 import Polyfold.Chapter9.TangentSlices
 import Polyfold.Chapter9.AppendixSlices
 import Polyfold.Chapter9.DimDecompositionUnique
+import Polyfold.Chapter9.DimDecompositionExists
 import Polyfold.Chapter9.OrientationTangent
 import Polyfold.Chapter9.OrientationBasic
 import Polyfold.Chapter9.OrientationExample
@@ -298,6 +304,7 @@ import Polyfold.Chapter10.EquivalenceLREffective
 import Polyfold.Chapter10.LocalizationLR
 import Polyfold.Chapter10.LocalizationLRCounterexample
 import Polyfold.Chapter10.LocalizationLREffectiveBundle
+import Polyfold.Chapter10.LocalizationLRBundleBase
 import Polyfold.Chapter10.StrongBundleWeakFibredProductPullback
 import Polyfold.Chapter10.StrongBundleWeakFibredProduct
 import Polyfold.Chapter10.StrongBundleLocalizationCategory
