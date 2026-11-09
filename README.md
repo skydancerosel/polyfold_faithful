@@ -109,8 +109,8 @@ GitHub displays it directly.
   `sorry`, no `axiom`.
 * **Every numbered item of Chapters 1–11 is compared with its formal version** (824 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.135). 47 items are narrower than the text, each
-  with its reason; 61 of the 135 gaps are closed and 74 remain.
+  list of what is not formalized and why (G.1–G.135). 46 items are narrower than the text, each
+  with its reason; 62 of the 135 gaps are closed and 73 remain.
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2

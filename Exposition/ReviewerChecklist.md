@@ -458,7 +458,7 @@ A later tier assumes the earlier ones: its definition rows are only those its st
 
 ## Optional: conclusions in Mathlib's language
 
-These state the solution-set conclusions with Mathlib's `IsManifold` (or the project's submanifold notion, for Theorem 3.6.8), so a reviewer who prefers Mathlib's manifolds with corners can check them instead of the project's corner-structure definitions.
+These state the solution-set conclusions with Mathlib's `IsManifold` (with the orientation, for Theorem 6.6.18; or the project's submanifold notion, for Theorem 3.6.8), so a reviewer who prefers Mathlib's manifolds with corners can check them instead of the project's corner-structure definitions.
 
 | Book | Lean declaration |
 |---|---|
@@ -467,4 +467,4 @@ These state the solution-set conclusions with Mathlib's `IsManifold` (or the pro
 | Thm 3.6.8 | `theorem_3_6_8_isSubmanifoldOfDim` |
 | Thm 3.6.10 | `theorem_3_6_10_isManifold` |
 | Thm 5.3.10 | `theorem_5_3_10_isManifold` |
-| Thm 6.6.18 | `theorem_6_6_18_isManifold` |
+| Thm 6.6.18 | `theorem_6_6_18_oriented` |

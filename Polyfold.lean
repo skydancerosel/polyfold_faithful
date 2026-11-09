@@ -373,6 +373,8 @@ import Polyfold.Chapter4.BookFormLieBracket2021
 import Polyfold.Chapter6.SmoothPathComponents2021
 import Polyfold.Chapter6.SolutionManifoldFamily2021
 import Polyfold.Chapter6.DetVectorBundles2021
+import Polyfold.Chapter6.ManifoldOrientation
+import Polyfold.Chapter6.SolutionSetOrientation
 import Polyfold.Chapter7.BookFormTameBoundaryEp2021
 import Polyfold.Chapter8.TangentVertical2021
 import Polyfold.Chapter8.TangentZhouReflect2021

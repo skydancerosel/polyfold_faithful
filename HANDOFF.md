@@ -479,7 +479,7 @@ each chapter lands)
     135 gaps closed. Rule for the verdict (2026-11-09): it compares with the text as printed, so a
     row whose printed claim does not hold as we read it stays "narrower" even when its book form
     proves the strongest version that holds (V2.89, V2.103, V7.98: "onto θ" only for centred `V`;
-    V9.2: the footnote for `Θ ≠ 0`), as V2.104, V8.35, V9.9, V10.66 already were. Book forms (`_book`) state Remark 2.1.6, Definition
+    V9.2: the footnote for `Θ ≠ 0`), as V2.104, V8.35, V9.9, V10.66 already were. Then Theorem 6.6.18 with the orientation of `S` as a Mathlib manifold (`theorem_6_6_18_oriented`, `Chapter6/ManifoldOrientation.lean` and `SolutionSetOrientation.lean`; gap G.67 closed, V6.61 restated, Findings Chapter 6 item 127): 46 rows narrower, 62 gaps closed. Book forms (`_book`) state Remark 2.1.6, Definition
     2.5.19, Proposition 2.7.12, Theorems 2.7.13, 3.6.8, 3.1.22, Proposition 4.4.5 and Theorem 7.6.9
     in one theorem each; the reviewer checklist now uses them for 2.7.13, 3.6.8 and 7.6.9. Two
     degenerate cases have Lean counterexamples: Proposition 8.5.7 for `D = ∅`

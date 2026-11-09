@@ -7827,6 +7827,8 @@ Found while formalizing Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (prepri
     (2026-11-09) The chart compatibility of the tangent orientations is proved (`tangentOrAt_toChartOr`; gap G.68
     closed), and `S` is a compact Mathlib manifold with corners (`theorem_6_6_18_isManifold`); the orientation of `S` as
     a manifold is still open (gap G.67; item 123).
+    (2026-11-09) The orientation of `S` as a manifold is formalized as a continuous tangent orientation of the Mathlib
+    manifold `S` (`theorem_6_6_18_oriented`; gap G.67 closed; item 127).
 93. **The paragraph after Theorem 6.6.18 (preprint 6.41) is not formalized** *(book 2017: after Theorem 6.3, p.
     214)*. For `f` not generic, a small sc⁺-perturbation `s` supported near the zero set, the
     orientation of `S_{f+s}` coming from `o_f`, and the identification of `det((f + s)'(x))` with a
@@ -8058,7 +8060,7 @@ read it.
      language `S` is a compact `IsManifold (modelWithCornersEuclideanQuadrant d) ∞` of dimension the index
      (`theorem_6_6_18_isManifold`). Not formalized: an orientation of `S` as a manifold, of its tangent bundle in the
      charts of the induced structure or of the Mathlib manifold (gap G.67). Status: **settled** except the orientation
-     of `S` as a manifold (row V6.61).
+     of `S` as a manifold (row V6.61). (2026-11-09) That orientation is item 127 (gap G.67 closed).
 
 124. **The facts on paths recalled before Proposition 6.2.2 (gap G.56 closed)** *(before Proposition 6.2.2, p. 240
      (preprint p. 201; 2017: before Proposition 6.1, p. 183); Definitions 6.6.2, 6.6.14; items 42, 122)* (2026-11-09).
@@ -8096,6 +8098,25 @@ read it.
      fibres `S_t` (property (P) for the slices, gap G.63), and `L` as a smooth vector bundle; the continuation of
      orientations uses only the continuous family of kernels (item 48). Status: **open** in part (rows V6.34, V6.42;
      gap G.62).
+
+127. **Theorem 6.6.18: the orientation of `S` as a manifold (gap G.67 closed)** *(Theorem 6.6.18 (preprint 6.41),
+     p. 274; items 92, 123)* (2026-11-09). `Polyfold/Chapter6/ManifoldOrientation.lean`,
+     `Polyfold/Chapter6/SolutionSetOrientation.lean`. Mathlib has no orientations of manifolds; the first file gives
+     them for a Mathlib manifold with corners: a tangent orientation (an orientation of every `TangentSpace I x`), its
+     continuity read in the charts of the maximal atlas (`TangentOrientation.IsContinuous`), oriented atlases (charts
+     whose changes have positive Jacobian determinant, `IsOrientedAtlas`) and the passage between them
+     (`isOrientedAtlas_positiveCharts`, `IsOrientedAtlas.tangentOrientation`). `theorem_6_6_18_oriented`: under the
+     hypotheses of `theorem_6_6_18`, with the sc-smooth bump functions that §6.6 assumes, the compact Mathlib manifold
+     `S` of `theorem_6_6_18_isManifold` carries a continuous tangent orientation which at every zero `x`, in every chart
+     of `X` at `x`, is `o_x` transported along the tangent map of `S ↪ X`, an isomorphism `T_xS ≅ ker f'(x)`
+     (`solKerEquiv`, `solOr_spec`); it is built in corner charts (`solOr`, chart independent by
+     `solReadOr_chartChange`) and is continuous through the kernel line bundle (`isLineOrientation_solKer`,
+     `isContinuous_solOr`). "A natural orientation" of the manifold is read as a continuous tangent orientation, not as
+     an oriented atlas: for the quadrant model the two differ, since in dimension 1 `[0, 1]` has no atlas of quadrant
+     charts with positive chart changes (a chart at `0` increases, one at `1` decreases), and in dimension 0 every atlas
+     is oriented while a tangent orientation is a sign at every point; an oriented atlas follows whenever the positive
+     charts cover `S`. Not formalized: the same for `S_{f+s}` in the paragraph after the theorem (a short corollary).
+     Status: **settled** (row V6.61; gap G.67 closed).
 
 ## Chapter 7 (Ep-groupoids; Lean `Polyfold/Chapter7/`)
 

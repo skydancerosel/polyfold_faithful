@@ -144,7 +144,7 @@ for t in spec['tiers']:
     w('\n')
 if spec.get('mathlib'):
     w('## Optional: conclusions in Mathlib\'s language\n\n'
-      'These state the solution-set conclusions with Mathlib\'s `IsManifold` (or the project\'s submanifold notion, '
+      'These state the solution-set conclusions with Mathlib\'s `IsManifold` (with the orientation, for Theorem 6.6.18; or the project\'s submanifold notion, '
       'for Theorem 3.6.8), so a reviewer who prefers Mathlib\'s manifolds with corners can check them instead of the '
       'project\'s corner-structure definitions.\n\n| Book | Lean declaration |\n|---|---|\n')
     for lab, nm in spec['mathlib']:
