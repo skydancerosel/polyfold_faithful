@@ -12976,4 +12976,8 @@ Definition 6.1 in charts, continuation of orientations along paths -/
 #print axioms Polyfold.theorem_3_2_3_isManifold_2021def
 #print axioms Polyfold.MPolyfold.IsSubmanifoldOfDim.eq_of_hasCornerStructureOfDim
 
+-- Chapter 5: results of 2026-11-09 (MainTheoremsBookForm2021.lean)
+#print axioms Polyfold.theorem_5_3_10_book_2021def
+#print axioms Polyfold.theorem_5_3_12_book_2021def
+
 end Polyfold

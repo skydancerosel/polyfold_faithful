@@ -31,7 +31,8 @@ From `Chapter2/SmoothPaths.lean` (`MPolyfold.isPathConnected_smoothVal_preimage`
 * **`MPolyfold.hasConnectedSmoothNbhds`**: every M-polyfold satisfies
   `MPolyfold.HasConnectedSmoothNbhds` (gap G.90; the hypothesis of
   `hasTwoContSections_orTopology` and `theorem_6_6_17_2021`, rows V6.74, V6.75): the component
-  of `x` in `W` is open (Proposition 2.3.7) and connected.
+  of `x` in `W` is open (Proposition 2.3.7) and connected.  It is proved in
+  `Chapter6/OrientationMainClean.lean`, so that the clean `theorem_6_6_17` can use it.
 * **`EpGroupoid.NaturalRep.levelConnected`**: every natural representation satisfies
   `NaturalRep.LevelConnected` (the hypothesis of `EP.eqOn_of_level_smooth`, `EP.isVSLUC_of_isSLUC`
   and `EP.proposition_7_4_18_2021`, row V7.104); `NaturalRep.isPreconnected_liftU`,
@@ -85,15 +86,6 @@ connected open `U ⊆ X`, `U ∩ X_∞` is connected in `X_∞`; Chapter 7's hyp
 theorem smoothConnected : P.SmoothConnected :=
   fun _ hU hc => P.isPreconnected_smoothVal_preimage hU hc
 
-/-- **Connected smooth parts of small neighbourhoods (gap G.90)**: every M-polyfold satisfies
-`MPolyfold.HasConnectedSmoothNbhds`, the hypothesis of property (2) of 2021 Theorem 6.6.17: the
-connected component of `x` in `W` is open (Proposition 2.3.7) and its smooth part is connected. -/
-theorem hasConnectedSmoothNbhds : P.HasConnectedSmoothNbhds := by
-  intro x W hW hxW
-  exact ⟨connectedComponentIn W (P.smoothVal x), P.isOpen_connectedComponentIn hW _,
-    mem_connectedComponentIn hxW, connectedComponentIn_subset _ _,
-    P.isPreconnected_smoothVal_preimage (P.isOpen_connectedComponentIn hW _)
-      (isConnected_connectedComponentIn_iff.2 hxW)⟩
 
 /-- Of the four Part I facts bundled in `SmoothRegular`, the density of `X_∞` and the
 connectedness of `U ∩ X_∞` hold for every M-polyfold; the openness of `p : TX → X¹` (gap G.8) and

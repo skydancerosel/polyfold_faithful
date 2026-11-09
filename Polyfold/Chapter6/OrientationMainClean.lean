@@ -1,5 +1,7 @@
 import Polyfold.Chapter6.OrientationSpace
 import Polyfold.Chapter6.SolutionOrientationCharts
+import Polyfold.Chapter2.SmoothPaths
+import Polyfold.Chapter7.LocConnected
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §6.6, pp. 273–276:
@@ -28,7 +30,9 @@ boundary with corners with a natural orientation.
 * `theorem_6_6_13`: Theorem 6.6.13 (`theorem_6_37`) without the hypothesis
   `B.HasScPlusSectionsThrough` (it follows from the bump functions,
   `MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough`) and without instance arguments.
-* `theorem_6_6_17`: Theorem 6.6.17 (`theorem_6_6_17_2021`) likewise.
+* `theorem_6_6_17`: Theorem 6.6.17 (`theorem_6_6_17_2021`) likewise, and without
+  `HasConnectedSmoothNbhds`: `MPolyfold.hasConnectedSmoothNbhds` proves it for every M-polyfold
+  (gap G.90).
 * `SectionOrientation`: Definition 6.6.16, the orientations of `f` (`IsSectionOrientation`).
 * `IsNaturalSolutionOrientation`: what "`S` has the natural orientation given by `o`" means:
   the orientations `tangentOr(o_x)` of `T_xS = ker f'(x)` read in charts (1) agree in any two
@@ -100,6 +104,23 @@ theorem paracompactSpace_rn_rn_pullback (B : StrongBundle PX P) :
     ((rnPolyfold k).prod ((rnPolyfold n).prod PX))
     (B.pullback (MPolyfold.isScSmoothMap_snd (rnPolyfold n) PX))
 
+/-! ### Connected smooth parts (the hypothesis of property (2) of Theorem 6.6.17) -/
+
+namespace MPolyfold
+
+/-- **Connected smooth parts of small neighbourhoods (gap G.90)**: every M-polyfold satisfies
+`MPolyfold.HasConnectedSmoothNbhds`, the hypothesis of property (2) of 2021 Theorem 6.6.17: the
+connected component of `x` in `W` is open (Proposition 2.3.7) and its smooth part is connected
+(`MPolyfold.isPreconnected_smoothVal_preimage`). -/
+theorem hasConnectedSmoothNbhds (P : MPolyfold X) : P.HasConnectedSmoothNbhds := by
+  intro x W hW hxW
+  exact ⟨connectedComponentIn W (P.smoothVal x), P.isOpen_connectedComponentIn hW _,
+    mem_connectedComponentIn hxW, connectedComponentIn_subset _ _,
+    P.isPreconnected_smoothVal_preimage (P.isOpen_connectedComponentIn hW _)
+      (isConnected_connectedComponentIn_iff.2 hxW)⟩
+
+end MPolyfold
+
 /-! ### Theorems 6.6.13 and 6.6.17 -/
 
 /-- **Theorem 6.6.13** (2021, p. 273; preprint Theorem 6.37): for an sc-Fredholm section `f` (with
@@ -125,11 +146,11 @@ theorem theorem_6_6_13 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
   exact theorem_6_37 hX hbump hf (MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough hbump)
 
 /-- **Theorem 6.6.17** (2021, p. 275, new in 2021): there is exactly one topology on `O_f` which
-is Hausdorff and has properties (1), (2) and (3); under `HasConnectedSmoothNbhds` (used for (2)
-only).  `theorem_6_6_17_2021` without `B.HasScPlusSectionsThrough` and without instance
-arguments. -/
+is Hausdorff and has properties (1), (2) and (3).  `theorem_6_6_17_2021` without
+`B.HasScPlusSectionsThrough`, without `HasConnectedSmoothNbhds` (it holds for every M-polyfold,
+`MPolyfold.hasConnectedSmoothNbhds`) and without instance arguments. -/
 theorem theorem_6_6_17 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
-    (hf : B.IsScFredholmSectionTame f) (hC : PX.HasConnectedSmoothNbhds) :
+    (hf : B.IsScFredholmSectionTame f) :
     haveI := paracompactSpace_rn_prod PX
     haveI := paracompactSpace_rn_pullback B
     ∃! t : TopologicalSpace (OrSpace f hf.toIsScFredholmSection),
@@ -139,7 +160,7 @@ theorem theorem_6_6_17 (hX : PX.IsTame) (hbump : PX.AdmitsBumpFunctions)
   have := paracompactSpace_rn_rn_prod PX
   have := paracompactSpace_rn_rn_pullback B
   exact theorem_6_6_17_2021 hX hbump hf (MPolyfold.AdmitsBumpFunctions.hasScPlusSectionsThrough hbump)
-    hC
+    PX.hasConnectedSmoothNbhds
 
 /-! ### Definition 6.6.16 and Theorem 6.6.18 -/
 
