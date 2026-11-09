@@ -1,0 +1,15 @@
+{
+ "id": "V11_25",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0) is isBoundaryTransfer_id, push/pullSection_boundaryLift along an equivalence and theorem_11_3_9_push/pull on a representative X ←F A →Φ Y. These assume HasIndependentTangentSums and boundary operations bd, bdA, bd' on X, d.A, Y satisfying IsBoundaryTransfer along TF(a)⁻¹ and Tψ∘TΦ(a). IsBoundaryTransfer means the fibre map preserves HasSubDegree … 1 both ways and commutes with bd in degree 1. B quantifies over operations bdX, bdY natural for all sc-diffeomorphisms between open subsets of X and Y, for tame oriented Θ, with no independence and no operation on d.A. A ⇒ B fails because B's hypotheses give none of A's: no independence (as in V11_24), no bdA (it would have to be built by transport along TF), and naturality does not say that sc-diffeomorphisms preserve HasSubDegree (tame induced structure and d_M = 1). The project's header says that invariance is not formalized. B ⇒ A fails because A's theorems hold for arbitrary operations satisfying pointwise transfer conditions along one equivalence or diagram, and for arbitrary GrHat sections. Such operations need not be natural for all sc-diffeomorphisms, so B never applies. Each side has hypotheses the other lacks, and both are satisfiable (isNaturalBdB_id, isBoundaryTransfer_id). Bridging them needs new mathematics: Theorem 9.2.1, invariance of HasSubDegree, and Tψ∘TΦ∘TF⁻¹ as a local tangent map. This is not glue.",
+ "B_issue": "B's IsNaturalBdB is the blind author's own stand-in for the canonical boundary operation of Definition 9.3.8, since the project has no canonical bd. It is satisfiable (identity operations, isNaturalBdB_id) but different in kind from the project's pointwise IsBoundaryTransfer. Naturality alone does not include preservation of the degree d_M = 1, which the text's 'd_M(x) is being preserved' supplies.",
+ "overlap": "No direction proved, so there is no #rt_overlap. The file contains A, A_holds and the satisfiability lemma isNaturalBdB_id.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

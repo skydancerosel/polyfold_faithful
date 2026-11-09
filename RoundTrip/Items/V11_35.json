@@ -1,0 +1,12 @@
+{
+ "id": "V11_35",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has five theorems: lemma_11_6_3 (B_φ = transportFiber φ is bijective and equivariant along conjIsotropy φ, and φ̃ = translationMap φ is bijective on objects, full, faithful, an equivalence), transportFiber_val_of, transportFiber_inv_transportFiber, bijective_transportFiber and transportFiber_smul. B: B_φ(y) = t(α⁻¹(φ, y)) is a bijection Y_x → Y_{x'}; c_φ(g) = φ ∘ (g ∘ φ⁻¹) is a bijection G_x → G_{x'} preserving units and composition; B_φ is equivariant; and (g, y) ↦ (c_φ g, B_φ y) is a bijection G_x × Y_x → G_{x'} × Y_{x'}. The bridges: B's α⁻¹ is the project's lift (eq_lift), so transportB is transportFiber, smulB is the project's action, and conjB is conjIsotropy (conjIsotropy_val plus associativity). A_to_B: B_φ bijective from bijective_transportFiber (with transportFiber_val_of for the bridge). The c_φ facts come from the MulEquiv structure of the vocabulary conjIsotropy, not from A's theorems. Equivariance from transportFiber_smul; the bijection on G_x × Y_x by Set.BijOn.prodMap. B_to_A: bijective_transportFiber and transportFiber_smul from B. transportFiber_val_of (arbitrary lifts) and transportFiber_inv_transportFiber (B_{φ⁻¹} is the inverse) are not consequences of B; they are re-proved outright in 2–4 lines from eq_lift. lemma_11_6_3 follows by the project's argument (bijective on objects; faithful and full since conjIsotropy is a MulEquiv). B reads (11.16) and φ̃ as the project does.",
+ "B_issue": null,
+ "overlap": "HARNESS: lemma_11_6_3's statement contains translationMap, whose map field's proof uses the banned transportFiber_smul (and, through its proof, the banned transportFiber_val_of). So plain #rt_check fails on both directions only for these two names; the failures are recorded with #guard_msgs. #rt_check_soft passes on both directions, reaching them only through the proof fields of translationMap. rt_overlap B_to_A: 433 shared project theorems. These are the IsProperCovering statement infrastructure, groupoid/Isotropy instance fields, existsUnique_lift, mor_lift/src_lift/eq_lift/obj_tgt_lift (V11_33 items), smul_val_of/fiberSMul_val_of (V11_34 items), homVal_smul, hom_ext, Fiber.ext/obj_val, conjIsotropy_val, plus the two banned names via translationMap.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

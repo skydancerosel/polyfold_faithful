@@ -1,0 +1,12 @@
+{
+ "id": "V10_41",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is a definition. A (universe 0) is the single theorem isGeneralizedIso_iff_isIso: IsGeneralizedIso f ↔ Mathlib's IsIso f in the project's category EPLoc. B (universe 0) checks the project's definitions against the text, in three parts. (1) Every generalized map is a class homMk d = ⟦d⟧. (2) [d] = [d'] iff d and d' have a common refinement. (3) IsGeneralizedIso [d] iff some diagram e has [e] ∘ [d] = [1_X] and [d] ∘ [e] = [1_Y], written with Diagram.comp, Diagram.id and EquivB. B holds outright (B_holds): Quotient.exists_rep, Quotient.eq, and the definitional facts homMk d ≫ homMk e = homMk (d.comp e) and 𝟙 (of X) = homMk (id X). A also holds outright (IsIso is the same existential). So both directions are proved without their hypotheses and are vacuous for the audit. The substantive finding is B_holds: the project's generalized maps and generalized isomorphisms are the text's, with the composition order matching ([e] ∘ [d] = homMk d ≫ homMk e = [d.comp e]).",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 729 shared project theorems. All of them are reached through the statement A itself: the proof fields of the EPLoc category instance (id_comp/comp_id/assoc through isRefinement_id_comp, isRefinement_comp_id, equiv_assoc, Equiv.comp, isEquivalence_wfpMap, assocFunctor, the weak-fibred-product machinery) and Diagram.setoid. The proof of A_holds' is the one-liner ⟨fun h => ⟨h⟩, fun h => h.out⟩. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

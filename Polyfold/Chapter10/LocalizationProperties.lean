@@ -39,14 +39,21 @@ ep-groupoids with (LR).  (Theorem 10.3.21, p. 495) If one of `X`, `Y` has one of
   (`Rel.refl`, `Rel.symm`, `Rel.trans`, `OrbitChart.setoid`, by Proposition 10.3.11); witness
   `rel_pairEP_pointEP` (`(ℤ-pair, |pairToPoint|)` and `(point, 1)` are equivalent).
 
+## Formalized in later files
+
+When this file was written, the following were not formalized; they are now.
+* **Proposition 10.3.16** and the (LR), (SLR) parts of **Theorem 10.3.21**: `proposition_10_3_16`
+  and `theorem_10_3_21_all` in `LocalizationLR.lean`, from Proposition 10.1.9
+  (`EquivalenceLR.lean`), through `iff_of_isGeneralizedIso` as the text does.
+* **Theorem 10.3.19**: it does not hold as we read it (`not_theorem_10_3_19`), and it holds for an
+  effective target (`theorem_10_3_19_of_isEffective`); both in `LocalizationLRCounterexample.lean`.
+* **Remark 10.3.18**, the non-uniqueness of `f`: two distinct generalized isomorphisms with the
+  same orbit map, separated by the isotropy invariant `Diagram.IsotropyRel` (Remark 10.5.5,
+  `StrongBundleLocalizationExamples.lean`).
+
 ## Not formalized
 
-* **Proposition 10.3.16** and the (LR), (SLR) parts of **Theorem 10.3.21**: they rest on
-  Proposition 10.1.9, which is not formalized in §10.1; `iff_of_isGeneralizedIso` reduces them to
-  it exactly as the text does.
-* **Theorem 10.3.19**: it rests on Proposition 10.1.10 (not formalized in §10.1).
-* **Remark 10.3.18**, the non-uniqueness of `f`, and **Remark 10.3.13**: interpretive; no
-  invariant separating generalized maps with the same orbit map is available.
+* **Remark 10.3.13**: interpretive.
 
 ## What the text leaves implicit, and the choices made
 

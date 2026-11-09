@@ -1,0 +1,15 @@
+{
+ "id": "V10_7",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) is theorem_10_1_7: F.IsEquivalence → F.tangent.IsEquivalence. B states the same with its own IsEquivB (full and faithful via src/tgt/mor, a homeomorphism of Quot-orbit spaces extending |x| ↦ |Fx|, local sc-diffeomorphism on objects), plus five equations pinning TX and TF (object/morphism M-polyfolds, Ts, Tt, TΦ, T𝚽), all rfl. The glue isEquivB_iff (IsEquivB F ↔ F.IsEquivalence, universe polymorphic, used at universe 0 for F and universe 1 for F.tangent) comes from GroupoidFunctor.full_iff/faithful_iff and the definitional equality of B's Quot (IsoRelB G) with quotient topology and the project's OrbitSpace (Quotient orbitSetoid). Both directions are pure transport through this glue; same mathematical content.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 682 shared project theorems. Almost all come through the statement definitions (the proof fields of tangentEpGroupoid, tangentGroupoidStr, EpFunctor.tangent and the tangent-bundle M-polyfold infrastructure). Beyond them: GroupoidFunctor.full_iff and faithful_iff (used by the glue isEquivB_iff), and the IsEquivalence field projections. No proof content of theorem_10_1_7 (exists_tSrc_eq', tangent_ext, lemma_10_1_2) is used by our proofs; those names appear only because they also occur in the statement definitions' proof fields.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

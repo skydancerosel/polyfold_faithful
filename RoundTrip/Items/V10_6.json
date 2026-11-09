@@ -1,0 +1,15 @@
+{
+ "id": "V10_6",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is proposition_10_1_6 plus seven general lemmas: IsLocalScDiffeoAt.comp/congr/of_comp_left/of_comp_right and EpFunctor.isLocalScDiffeoAt_mor, isLocalScDiffeo_mor, isLocalScDiffeoAt_obj_tgt (transport of local sc-diffeomorphy along a morphism, which the project adds to the text's argument). B: F : X → Y, Φ : Y → Z sc-smooth functors, any H equal to Φ∘F on objects and morphisms, IsEquivB F → IsEquivB H → IsEquivB Φ. A ⇒ B: H = Φ.comp F by EpFunctor.ext, A's proposition_10_1_6, glue IsEquivB ↔ IsEquivalence. B ⇒ A: proposition_10_1_6 is B with H := Φ.comp F; the seven lemmas have no equivalence hypotheses, are not consequences of B, and are re-proved outright (copies built on each other and on the IsScDiffeoOn API). Same content on the proposition.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 234 shared project theorems: the IsScDiffeoOn API (restrict, comp, symm, congr, isLocalScDiffeoAt), EpGroupoid.isLocalScDiffeo_src/tgt, EpFunctor.continuous_mor, full_iff, IsEquivalence projections, EpFunctor.comp proof fields and sc-calculus. No banned theorem; plain #rt_check passes both directions.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

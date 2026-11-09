@@ -1,0 +1,12 @@
+{
+ "id": "V10_44",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item. A (universes at 0) is the six listed lemmas about the project's EPLoc (Category instance with Hom = Quotient (Diagram.setoid)): toEP_of and of_toEP; homMk_comp ([d] ≫ [e] = [d.comp e]); id_eq (𝟙 = [1_X]); homMk_eq_homMk_iff ([d] = [d'] iff Diagram.Equiv); and homMk_surjective. B characterizes the same category the same way: toEP is bijective, the morphisms are exactly the classes [d], [d] = [d'] iff they have a common refinement (B's EquivB is definitionally Diagram.Equiv, since NaturallyEquivalent is Nonempty EpNatTrans), with Theorem 10.3.8's composite and the units [1_X]. A_to_B gets bijectivity from toEP_of/of_toEP and reads off the rest. B_to_A reads four conjuncts off B. toEP_of and of_toEP are rfl (structure eta) and are proved outright, since bijectivity does not say which inverse `of` is. So the project's EPLoc is the text's EP(E⁻¹): objects the ep-groupoids, morphisms the generalized maps.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 729 shared project theorems, all reached through the Category instance of EPLoc in the statements: its proof fields Diagram.Equiv.comp, equiv_assoc, isRefinement_id_comp/comp_id, IsRefinement.comp, lemma_10_3_4, and the weak fibred product and assocFunctor glue under them. The proofs themselves reuse no project lemma. Both #rt_check pass.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

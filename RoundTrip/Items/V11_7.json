@@ -1,0 +1,12 @@
+{
+ "id": "V11_7",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) has four conjuncts. remark_11_1_7 is the text's remark: for a generalized isomorphism f : X → Y, X.IsEpFaceStructured ↔ Y.IsEpFaceStructured, where the project's notion includes tameness. The other three state the invariance of tameness alone along an equivalence F : X → Y, in both directions: isTame_of_isTame_left, isTame_of_isTame (Chapter 10) and isTame_iff. B is the remark with f an isomorphism of EP(E⁻¹). Its face-structured notion is the project's: faceStructuredB_iff proves FaceStructuredB X ↔ X.IsEpFaceStructured. That bridge uses degOrbB = degIndexOrbit (Quotient.out_eq), the faces closure(val '' connectedComponent s) = closure(connectedComponentIn {d = 1} z) (Mathlib's connectedComponentIn_eq_image), and IsIso ↔ IsGeneralizedIso (the non-item isGeneralizedIso_iff_isIso). With this bridge, A_to_B is remark_11_1_7, and B_to_A gets remark_11_1_7 from B. The three tameness conjuncts are about arbitrary ep-groupoids, which are tame but not necessarily face structured, so B cannot give them. They are re-proved outright. isTame_of_isTame' holds because F is a local sc-diffeomorphism on objects. isTame_of_isTame_left' copies the project's weak-fibred-product proof, with the banned isTame_of_isTame replaced by the copy. On the text's sentence the two sides agree; A adds the standalone invariance of tameness that the item's title mentions.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 766 shared project theorems. All of them come from the outright re-proof of the tameness conjuncts: the weak fibred product X ×_Y Y (isEquivalence_projLeft, isEquivalence_projRight, Admissible.of_isEquivalence_right, projLeft/projRight proof fields), IsLocalScDiffeo.isTame and isTame_iff_of_surjective with their tame-chart and degeneracy-index lemmas, IsEquivalence.exists_iso, and the M-polyfold infrastructure under them. None of the face-transport lemmas of remark_11_1_7's proof (isFaceStructuredOpen_univ_iff, degIndexOrbit_orbitMap, isHomeomorph_orbitMap) is reused, because that conjunct comes from B. #rt_check OK on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

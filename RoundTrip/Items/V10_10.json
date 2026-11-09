@@ -1,0 +1,15 @@
+{
+ "id": "V10_10",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) has nine conjuncts. proposition_10_1_13: for an equivalence, F.reducedMap is continuous and open, and T2 𝐗^R ↔ T2 𝐘^R. IsEquivalence.isClosed_nonEffectivePart_iff: 𝐗^T is closed iff 𝐘^T is. Five lemmas for functors that are only local sc-diffeomorphisms on objects: mor_mem_nonEffectivePart, mem_nonEffectivePart_of_mor, nonEffectivePart_eq, continuous_reducedMap, isOpenMap_reducedMap. EpGroupoid.continuousAt_comp, a general lemma. EpGroupoid.theorem_7_2_22_2021, Chapter 7: T2 𝐗^R ⇔ LUC ⇔ 𝐗^T closed. B (with IsEquivB) says: F_R is well defined, some f with f[φ] = [Fφ] is continuous and open, and the Hausdorff equivalence. A_to_B takes f = reducedMap (well-definedness by Quot.sound). B_to_A gets proposition_10_1_13 from B, since B's f equals reducedMap by Quot.ind. It gets isClosed_nonEffectivePart_iff from B's Hausdorff equivalence and the non-item criterion proposition_7_2_17_2021. The other seven conjuncts lie outside B's scope (non-equivalences, a general lemma, a Chapter 7 theorem). They are re-proved outright (the project's proofs, copied, from non-item lemmas), without the hypothesis. On Proposition 10.1.13 itself the two sides agree.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statements of continuous_reducedMap, isOpenMap_reducedMap and proposition_10_1_13 mention the definition EpFunctor.reducedMap. Its Quot.lift well-definedness proof (a _proof_N field) uses the banned mor_mem_nonEffectivePart, so plain #rt_check fails on both directions for that name only (recorded with #guard_msgs). #rt_check_soft passes on both and names reducedMap as the only definition involved. The project's proof of continuous_reducedMap (continuous_quot_lift _ …) unifies its _ with that banned proof, which would make the reach hard. Our copy instead goes through isOpenQuotientMap_reducedπ.isQuotientMap.continuous_iff. rt_overlap B_to_A: 620 shared project theorems. These are the statement infrastructure (reducedMap, ReducedMor, nonEffectivePart, NaturalRep) and the lemmas of the copied proofs: isLocalScDiffeoAt_mor, isLocalScDiffeo_mor, mem_nonEffectivePart_iff, continuous_comp_fibredProduct, isOpenMap_reducedπ, surjective_reducedπ, proposition_7_2_17_2021 and proposition_7_2_21_2021 (the latter also in theorem_7_2_22's proof).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

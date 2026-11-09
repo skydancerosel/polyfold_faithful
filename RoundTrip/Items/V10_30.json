@@ -1,0 +1,12 @@
+{
+ "id": "V10_30",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) has three conjuncts. isStrongBundleNatTransMap gives 10.4.8 ⇒ 10.4.10 and needs only Φ to be a strong bundle functor. The two orbitMap_eq give Φ ≃ Ψ ⇒ |Φ| = |Ψ|, which B does not mention. B (a) is a definitional comparison: the project's IsStrongBundleNatTransMap (T_val, strong bundle map into the pull-back along X'.isScSmoothMap_src, Ψ(w) = μ'(T(w))) is the text's (strong bundle map along any hs', T(w) = (τ(P(w)), Φ(w)), Ψ(w) = μ'(τ(P(w)), Φ(w))). This is proved outright (iff_map). For B (b), the ⇒ direction uses A's isStrongBundleNatTransMap. The ⇐ direction (10.4.10 ⇒ 10.4.8) is not a theorem of A; the project has it only as the item's definition IsStrongBundleNatTransMap.toNatTrans (data). A_to_B uses that definition, whose fields give the clauses of IsSBNatTransB. Without it, ⇐ would have to be re-proved: true, and glue only (naturality of T from naturality of τ, via morComp_val and mor_val). B_to_A is vacuous (uses_hypothesis false). B needs Ψ to be a strong bundle functor, which A1 does not assume, and B says nothing about |Φ| = |Ψ|. All three conjuncts were re-proved outright from non-item lemmas (T_val and isStrongBundleMap_T of V10_29, orbitMap_eq_of_forall_exists). On the text's 'the two definitions are equivalent', the project agrees, one direction as a theorem and the other as a construction.",
+ "B_issue": null,
+ "overlap": "rt_check OK on both directions. A_to_B reaches the item definition toNatTrans, which is not banned since only theorems are. rt_overlap B_to_A: 644 shared project theorems. These are vocabulary proof fields plus V10_29's StrongBundleNatTrans.T_val, T_eq, mem and isStrongBundleMap_T (used by the project's proof of isStrongBundleNatTransMap and by ours; not item theorems here), orbitMap_eq_of_forall_exists, GroupoidFunctor.orbitMap_π and GroupoidStr.π_eq_π_iff.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

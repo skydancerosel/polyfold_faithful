@@ -1,0 +1,12 @@
+{
+ "id": "V9_13",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A is the project's Theorem 9.2.1 (tangentValue_eq, grPush_tangentValue, theorem_9_2_1), plus tangentSum_transport. All of it assumes HasIndependentTangentSums Θ: that ∑ σᵢ T_xMᵢ does not depend on the local branching structure, which is the hard part of Theorem 9.2.1 (1). B asserts this independence for every branched Θ, together with membership in Gr(x) as chart subspaces and naturality under morphisms. With the dictionary below we prove B ⇔ A ∧ Hind, where Hind is the independence for every branched Θ of every ep-groupoid in Type (A_to_B_of_hyp, B_to_hyp). So A ⇒ B fails exactly by Hind. The project proves Hind only in special cases: good points, the equidimensional case with tangent slices, ℝᵐ, and from Proposition 9.1.12. A ⇒ B would need the general case of Proposition 9.1.12 and Proposition 9.2.8, which is substantial unformalized mathematics, not glue. B ⇒ A: grPush_tangentValue is derived from B (2). tangentSum_transport (stated for any functorial Θ), tangentValue_eq and theorem_9_2_1 are conditional facts about the construction and are re-proved outright. The dictionary: B's IsLBSB ('proper' read as compact traces K ∩ M) equals the project's structure. The hard direction uses that M-polyfolds are metrizable, so U is sequential and M is closed in U. B's T_xM = ⋃_d Tr(T_xX) equals the project's fixed-vector T_xM, so tsumB = tangentSum. The Gr(x) membership comes from exists_submodule_of_mem_support. Universes at 0.",
+ "B_issue": null,
+ "overlap": "HARNESS: A's statement mentions tangentSection, whose map field is proved with grPush_tangentValue (→ tangentValue_eq, tangentSum_transport). So A_to_B_of_hyp and B_to_A need #rt_check_soft; both pass, reaching the banned names only through the proof fields of tangentSection. B_to_hyp passes plain #rt_check. rt_overlap B_to_A: 824 shared project theorems. These are the ep-groupoid tangent infrastructure (sheets, hat/hatInv, tSrc/tTgt/tComp, tangentMor_comp, lemma_8_2), submanifoldTangent_image / inter_isOpen, tangentMor_eq_tangentMapOn_hat and the LocalBranchingStructure field lemmas, all used by the outright re-proof of tangentSum_transport. Also counted are the GrObj/SmoothCat lemmas and the banned names themselves (through tangentSection in A's statement).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

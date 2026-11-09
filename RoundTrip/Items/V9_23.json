@@ -1,0 +1,12 @@
+{
+ "id": "V9_23",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Both sides concern the same function, the project's tangentTheta. B's (1), TΘ = 0 over {Θ = 0}, is the non-item lemma tangentTheta_eq_zero. B states (2), the local formula for every structure, and (3), TΘ a branched ep⁺-subgroupoid of TX, for every branched Θ with no further hypothesis. A has them only conditionally. (2) needs HasIndependentTangentSums Θ (Theorem 9.2.1 (1)), which the project proves only over ℝᵐ (hasIndependentTangentSums_rn) or under slice hypotheses. (3) needs that as well as TangentBranchingHyp Θ, whose field 'TMᵢ is a smooth (sc⁺) submanifold of TX' is left open in the project, and which gets paracompactness of |supp TΘ| only from paracompactness of |X|. These are believed true but are real mathematics, so A ⇒ B fails. A_gives_B_of proves B's conclusion for Θ from A under independence + TangentBranchingHyp. A_gives_B_rn does so over ℝᵐ under paracompact |X| + smooth TMᵢ. Both #rt_check OK. B ⇒ A fails for a genuine reason. A contains facts that B does not state: TMᵢ closed in TU(x), TMᵢ a sub-M-polyfold of TX, paracompactness of |supp TΘ| from that of |X|, TangentBranchingHyp from its first field, and the Θ = 0 instances. Universes at 0 where present.",
+ "B_issue": null,
+ "overlap": "No direction proved. #rt_overlap of the partial A_gives_B_rn: 993 shared project theorems, all through hasIndependentTangentSums_rn (Theorem 9.2.1 over ℝᵐ: graph charts, dimension parts, tangent sums, tangent M-polyfold infrastructure), which the banned isBranchedEpSubgroupoid_tangentTheta_rn also uses. A_gives_B_of shares only the glue.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V8_31",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both sides say the same things, (a) F(φ) ∈ G_x and (b) uniqueness of (Φ, Γ), U(y), 𝐔(ψ₀) given U(x), and both are true. They are scoped differently, so each direction is only partly a real derivation. A's (b) theorems (remark_8_2_b, connectedComponentIn_U/_sheet) are about full charts F.ProperCoveringChart x (all of (0)–(5)), for an arbitrary functor F. B's (b) is for proper coverings and arbitrary connected natural-action U(x), not necessarily small, with families satisfying only (0) and (2). A ⇒ B: (a) is remark_8_2_a. (b)(i) and (b)(ii) were proved outright, from Chapter 7's NaturalRep.Φ_eqOn/Γ_eqOn and from (0), (2) via the non-item ProperCoveringLocal.connectedComponentIn_eq_of_iUnion, because A's chart lemmas need a chart, which B's U(x) need not carry. A route through charts of the identity functor (Data.toChart) works mathematically, but the checker counts it as using the banned remark_8_2_a (a plain-constant proof field pairwiseDisjoint_sheet → Data.val_g). B ⇒ A: the Φ, Γ part of remark_8_2_b comes from B (b)(i) applied to the identity functor (isProperCovering_id). remark_8_2_a, the U(y)/𝐔(ψ₀) part and the two component lemmas hold for arbitrary F, where B (proper coverings only) cannot be applied, so they were re-proved outright from the chart fields. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 25 shared project theorems: ProperCoveringChart field projections, NaturalRep field projections, GroupoidFunctor.src_mor/tgt_mor, and the two general topology helpers ProperCoveringLocal.connectedComponentIn_eq_of_iUnion and mapsTo_of_isPreconnected (the same helpers the project's proofs of connectedComponentIn_U/_sheet use).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

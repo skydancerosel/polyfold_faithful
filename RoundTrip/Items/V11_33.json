@@ -1,0 +1,12 @@
+{
+ "id": "V11_33",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is the conjunction of six theorems: lemma_11_6_1 (on morphisms F is surjective and a local sc-diffeomorphism) and five lemmas about the chosen lift α⁻¹(φ, y) = IsProperCovering.lift (mor_lift, src_lift, eq_lift, obj_tgt_lift) and existsUnique_lift_tgt (unique lifts with prescribed target). B is lemma_11_6_1 with the same notions (Function.Surjective F.mor, MPolyfold.IsLocalScDiffeo on Y.PMor → X.PMor), so A_to_B reads it off A. B_to_A takes lemma_11_6_1 from B. The five lift lemmas are not consequences of B, which says nothing about lifts. They are re-proved outright in a few lines each from the non-item Chapter 8 lemma IsProperCovering.existsUnique_lift (unique lifting with prescribed source, of which lift is a choice), inverting a lift of φ⁻¹ for the target version. On the text's lemma the two sides agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 358 shared project theorems. Almost all come from the statement of IsProperCovering (its isScDiffeo_fibredMap field mentions the sub-M-polyfold of the fibred product: subPolyfold, subChart, SubData, sc-calculus proof fields). The lemmas that the proof itself reuses are IsProperCovering.existsUnique_lift (with bijective_fibredMap beneath it) and the groupoid identities GroupoidFunctor.mor_inv/tgt_mor, GroupoidStr.inv_inv/src_inv/tgt_inv. The real content of lemma_11_6_1 (EpFunctor.isLocalScDiffeo_mor) is not reached. Both #rt_check pass.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

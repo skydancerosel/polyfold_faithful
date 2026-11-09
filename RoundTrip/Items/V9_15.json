@@ -1,0 +1,12 @@
+{
+ "id": "V9_15",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This item is a definition, and the definitions agree with the text's. B_holds proves B outright: the project's MU is ⋃ᵢ Mᵢ (rfl), its IsGoodPoint is the text's good point IsGoodAt (an open V ∋ y with V ⊆ U(x) and Mᵢ ∩ V = Mⱼ ∩ V for all i, j with y ∈ Mᵢ ∩ Mⱼ; the two differ only by inter_comm and by curried membership hypotheses), and bad means not good. So both directions hold only vacuously (uses_hypothesis false on both sides). A_to_B is B_holds. B_to_A re-proves A's two characterization theorems outright, without B: isGoodPoint_iff (y good iff y ∈ supp Θ and Θ is constant on supp Θ near y) and eq_iff_of_mem_nbhdAt. They are copies of the project's proofs and use only unbanned lemmas (MU_eq, mem_supp_iff, isOpen_nbhdAt, eq_sum). B does not state these characterizations, so they are extra content in A, but they are true facts about the same definitions. B's equidimensionality and branched hypotheses play no role, as the blind author noted. The project's IsGoodPoint asks for no hypothesis on Θ. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 25 shared project theorems, all LocalBranchingStructure glue: the structure fields (eq_sum, σ_pos, subset_U, isOpen_U, isProperMap), MU_eq, mem_supp_iff, isOpen_nbhdAt, mem_nbhdAt_self, nbhdAt_subset, isClosed_M, isOpen_U_diff_M, isProperMap_inclusion_iff, and their _simp lemmas. The banned theorems are not used. A_to_B: none of substance (B_holds is definitional).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

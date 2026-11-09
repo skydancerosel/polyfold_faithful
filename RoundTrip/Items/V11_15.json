@@ -1,0 +1,12 @@
+{
+ "id": "V11_15",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) states Lemma 11.3.2 under weaker hypotheses, as the item's title says. Well-definedness, functoriality of F_*Θ and F^*F_*Θ = Θ need only fullness of F; F_*F^*Θ' = Θ' needs only essential surjectivity; invariance of F_* under natural equivalence needs fullness of F and G, and invariance of F^* needs nothing. Θ is any functor to ℚ, of any sign. A also adds (G∘F)^* = F^*G^*, (G∘F)_* = G_*F_* (full functors), 1_* = id and three groupoid facts (eq_of_isomorphic, isomorphic_obj, isomorphic_of_full). B states the text's lemma for an equivalence and functors to ℚ⁺. A_to_B takes each claim of B from the matching conjunct of A, since an equivalence is full and essentially surjective. It uses the non-item IsEquivalence.exists_iso for the existence of x, and the V11_14 lemma pushforwardTheta_nonneg for 0 ≤ F_*Θ. B_to_A is vacuous: A's generality and its extra conjuncts are not consequences of B. It re-proves all fifteen statements outright, with local copies of the project's proofs. B_to_A_on_domain (rt_check OK) shows that B does give A's central claim on its own domain: (F_*Θ)(y) = Θ(x) for every F(x) ≅ y, from F^*F_*Θ = Θ and the functoriality of F_*Θ. On the text's statement the two sides agree; A is a generalization.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 267 shared project theorems. These are the lemmas the copied proofs share with the originals: GroupoidFunctor.full_iff, essSurj_iff, Isomorphic.trans/symm, isomorphic_refl, the EpNatTrans fields src_app/tgt_app, pushforwardTheta.eq_1, and, through pushforwardTheta_id', EpFunctor.IsEquivalence.id with its sc-calculus and M-polyfold infrastructure (lemma_10_1_2, bijective_orbitMap_of_isEquivalence, isMap_id, etc.). None of the banned theorems is used: #rt_check OK on A_to_B, B_to_A and B_to_A_on_domain.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

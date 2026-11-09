@@ -1,0 +1,12 @@
+{
+ "id": "V10_28",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is a definition; its only theorem is the witness strongBundleNatEquiv_example (Φ ≃ Φ for the concrete strong bundle equivalence (-id)*W' → W'), and A is its type. B is the real comparison: the project's StrongBundleNatTrans has exactly the text's data. Its fields src_T, tgt_T, naturality and app_P are the three clauses of the blind IsSBNatTransB (T(w) : Φ(w) → Ψ(w) in (W', 𝐖'), T(w') ∘ Φ(h) = Ψ(h) ∘ T(w), and T(w) lying over τ(P(w)), with app_P reversed), and τ is an EpNatTrans. So B is proved outright (B_holds). This makes A_to_B vacuous (uses_hypothesis false); it is a definitional-agreement result. Neither side asks T to be smooth. B_to_A derives the witness from B (b) with τ = 1_ϕ and T(w) = 1_{Φ(w)}; the clauses for this pair are checked directly, without the project's refl.",
+ "B_issue": null,
+ "overlap": "rt_check OK on both directions. rt_overlap B_to_A: 758 shared project theorems. These are the construction of the example in A's statement (negEpBundle, isMap_pullbackProj', IsMap.isStrongBundleFunctor_liftFunctor and the pull-back/trivial-bundle chart infrastructure) and the groupoid unit laws (unit_comp, comp_unit, src_unit, tgt_unit, EpNatTrans.refl_app, IsStrongBundleMap.covers) used to check the identity data.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

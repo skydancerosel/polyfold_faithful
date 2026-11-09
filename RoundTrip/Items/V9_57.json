@@ -1,0 +1,15 @@
+{
+ "id": "V9_57",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) = A1 card_effIsotropy_eq_of_isEffective (effective ⇒ ♯G^eff_x = ♯G_x), A2 isFunctorial_reduced_iff (Θ functorial on X_R iff on X), A3 card_effIsotropy_eq_reduced (♯G^eff_x = ♯G^R_x and ♯(G^R_x)^eff = ♯G^R_x for every X with T_R Hausdorff and paracompact, no LUC hypothesis); toReduced is vocabulary. B = (1) effective ⇒ T_x = ⊥ and ♯G^eff_x = ♯G_x; (2) under LUC (plus the instances) ♯G^R_x = ♯G^eff_x. A ⇒ B: (1) T_x = ⊥ is the non-item isEffective_iff_trivialSubgroup_eq_bot, the order equality is A1; (2) is the first half of A3, LUC unused. B ⇒ A fails only on generality and extra content: A3's first half holds without LUC (B (2) assumes it), and A2 is not in B. B does give A1 (B_to_A1) and A3 for LUC X (B_to_A3_of_isLUC: B (2), and B (1) applied to the effective X_R); the missing pieces are short outright proofs from non-item lemmas (A2_outright via surjective_reducedπ, A3_fst_outright via effIsotropyEquivReduced). On the text's content the two agree; A's (2) drops LUC because the project's X_R takes the Hausdorff/paracompact instances directly.",
+ "B_issue": null,
+ "overlap": "No full B_to_A. rt_check OK for A_to_B and for the partial results B_to_A1, B_to_A3_of_isLUC, A2_outright, A3_fst_outright. rt_overlap B_to_A3_of_isLUC: 643 shared project theorems, almost all proof fields of reducedEpGroupoid / reducedGroupoidStr and the Chapter 7 reduced-groupoid infrastructure reached through the statement; the substantive shared lemma is isEffective_reducedEpGroupoid (and the nonEffectivePart lemmas under it).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V10_18",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": true,
+ "why": "The two sides put different M-polyfold structures on different carriers. In A, Obj F G is a nested subtype of ObjX × objRight G, with objRight G ⊆ MorY × ObjZ. Its structure PObj F G h is the iterated sub-M-polyfold structure: objRight ⊆ 𝐘 × Z first, then objSet ⊆ X × PA G (likewise for morphisms). A's hypothesis is Admissible F G (F or G a local sc-diffeomorphism), weaker than B's F.IsEquivalence. In B, the objects are a subtype of the flat triple product with the sub-M-polyfold structure of X × (𝐘 × Z), and the text says the same. A ⇒ B needs two things. (i) objSetB and morSetB are sub-M-polyfolds of the triple products: a transitivity/product lemma for sub-M-polyfolds, or the text's retraction (10.8). (ii) The ep-groupoid must be transported along the entrywise homeomorphisms objHomeo/morHomeo, as sc-diffeomorphisms PObj ≅ subPolyfold hS, including condition (4) on 𝐋 ₛ×ₜ 𝐋. Neither is in the project; its header says the comparison with the triple-product structure 'is not needed below'. This is standard Part I mathematics, believed true, but well beyond glue. B ⇒ A fails for the same reason in reverse: A's lemmas concern the project's own carriers and structures, and A also contains five general helpers. Partial results proved: A_to_BIter assembles A's lemmas (not the definition epGroupoid) into an ep-groupoid on the project's carriers with groupoid F G, PObj and PMor for an equivalence F. objHomeo/morHomeo show the carriers are entrywise homeomorphic to B's subtypes. With V10_17, this puts the whole gap in the two M-polyfold structures, iterated versus triple-product.",
+ "B_issue": null,
+ "overlap": "No direction proved, so there is no #rt_overlap. HARNESS for the partial A_to_BIter: A5–A13 mention the vocabulary definitions PObj and PMor, whose bodies directly reference the banned isSubMPolyfold_objSet/morSet. A13 (the statement of isScSmoothComp) mentions isLocalScDiffeo_src h and isLocalScDiffeo_tgt h. So plain #rt_check fails on A_to_BIter for 11 banned names (recorded with #guard_msgs). A local #rt_check_except_defs (rtCollect with A13, PObj and PMor not unfolded) passes: A_to_BIter takes every field from its hypothesis and never uses epGroupoid.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V9_21",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A's general lemma_9_2_7_2 needs two things that B's hypotheses (Θ branched and equidimensional, x bad, B any structure at x) do not supply. (i) It needs the given structure to be n-dimensional (B.IsOfDim n), whereas IsNDimensional Θ n only provides SOME n-dimensional structure at each point. (ii) It needs invariance of domain HasDomainInvarianceAt y n at every y ∈ U(x), a Part I fact that the project proves only in ℝᵐ (hasDomainInvarianceAt_rn). Both are satisfiable and believed true in general, but deriving them for M-polyfolds is real mathematics (dimension theory and invariance of domain for sc⁺-submanifolds), not glue. A_gives_B_of proves B's conclusion from A under (i)+(ii), and A_gives_B_rn does so over ℝᵐ under (i) alone (both #rt_check OK). B ⇒ A fails for a genuine reason. A contains invariance of domain in ℝᵐ and the Remark 9.1.3 (b) instance (zero_mem_badSet, exists_seq_goodSet_structureβ), which B does not state. lemma_9_2_7_2 also holds at every x (good or bad) and for every Θ admitting the structure (not necessarily branched or equidimensional), which is outside B's scope. Universes at 0 where present.",
+ "B_issue": null,
+ "overlap": "No direction proved, so no #rt_overlap was run. The partial results A_gives_B_of and A_gives_B_rn are glue: B's IsGoodAt equals IsGoodPoint, and supp ∧ IsGoodPt equals goodSet.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

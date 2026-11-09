@@ -1,0 +1,15 @@
+{
+ "id": "V10_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is the nine listed theorems: full_iff, faithful_iff, essSurj_iff (for arbitrary groupoids), the consequences IsEquivalence.essSurj/exists_iso/exists_mor_eq/mor_injective, and the witnesses IsEquivalence.id, isEquivalence_pairToPoint. B says the project's IsEquivalence (and EP.equivalences) is the blind IsEquivB: full and faithful via structure maps, a homeomorphism e of the blind Quot orbit spaces with e|x| = |F x|, and a local sc-diffeomorphism on objects. A ⇒ B uses A's full_iff/faithful_iff for (1); (2) holds because the project's orbit space Quotient X.orbitSetoid with Mathlib's quotient topology is definitionally the blind Quot (IsoRelB X), and e is then orbitMap (glue orbitHomeoB_iff); (3) is definitional. B ⇒ A gets the six equivalence conjuncts through B (IsEquivB proved for id and pairToPoint, consequences read off IsEquivB); full_iff/faithful_iff/essSurj_iff are about arbitrary groupoids, not consequences of B, and are re-proved outright (copies). The definitions agree exactly.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 471 shared project theorems, all statement/witness infrastructure: the proof fields of pairEpGroupoid, pairToPoint and EpFunctor.id (discretePolyfold charts, isScSmoothMap_const_discrete, isScSmoothMap_discrete_of_continuous and the sc-calculus under them), MPolyfold.isLocalScDiffeo_id, Examples.isLocalScDiffeo_discrete, and the groupoid axioms / orbit setoid (GroupoidStr.*, Isomorphic.symm/trans). No banned theorem; plain #rt_check passes both directions.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

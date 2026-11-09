@@ -1,0 +1,12 @@
+{
+ "id": "V10_48",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Both directions hold only outright (uses_hypothesis false for both), so the comparison is of content. A (universes at 0) is Rel.refl, Rel.symm, Rel.trans for every topological Z (the project drops metrizability) plus the witness rel_pairEP_pointEP. B is (1) the definition on representatives for metrizable Z: Rel c c' iff some diagram d with a two-sided inverse up to common refinement has β' ∘ |d| = β. This agrees with the project's Rel; B1 proves it for every Z by unfolding, with homMk_surjective and homMk_eq_homMk_iff. B also has (2) the text's claim that f is in general not unique, which A does not contain: the project's docstring lists it as not formalized, saying 'no invariant separating generalized maps with the same orbit map is available'. That reason does not hold as we read the repository: B2 proves (2) in about 20 lines from the project's Theorem 10.3.19 counterexample (LocalizationLRCounterexample: genInv ≠ genId on ℤ/3 × ℝ ⇉ ℝ with equal orbit maps, via Remark 10.5.5's isotropy relation). B2 takes Z = |X|, metrizable by Corollary 7.1 since an open quotient of ℝ is second countable, with c = c' = (X, 1). Conversely, B does not give that Rel is an equivalence relation (Proposition 10.3.11) or the pairToPoint witness; these were re-proved outright from the project's own proofs. So B has non-uniqueness, which A lacks, and A has the equivalence-relation property for all Z, which B lacks.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 886 shared project theorems, mostly from EPLoc's Category instance, orbitMapQ and localizationFunctor in the statements. The proof itself reuses EPLoc.proposition_10_3_11, EPLoc.orbitMap_id, isGeneralizedIso_pairToPoint and Diagram.orbitMap_eq_of, the same lemmas as the project's proofs. rt_overlap A_to_B: 873. Besides the statement glue (A's body, which mentions the pairToPoint witness), these are Theorem 10.3.10 and the ℤ/3 counterexample (isGeneralizedIso_genInv/genId, orbitMap_genInv, genInv_ne_genId, remark_10_5_5) and proposition_7_1/corollary_7_1 for metrizability. Both #rt_check pass.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

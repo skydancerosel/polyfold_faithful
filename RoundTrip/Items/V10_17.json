@@ -1,0 +1,15 @@
+{
+ "id": "V10_17",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is a definition. A (universes at 0) is the three listed lemmas: conj_comp_mor, conj_recover and src_eq_tgt_iff (the composable pairs). B says the project's Obj F G, Mor F G and groupoid F G are the text's: objects and morphisms are exactly the constrained triples (entries, extensionality, mk), and s, t, 1, ι and the composition on composable pairs are the listed maps. B holds outright from the definitions (B_holds). The only non-rfl step is the bracketing: the project's conj is (G k ∘ φ) ∘ F(h)⁻¹, the blind file's is G k ∘ (φ ∘ F(h⁻¹)), equal by F.mor_inv and associativity. So A_to_B does not use A (flagged), and B_holds is the real check that the definitions match the text, including composition order and the ψ→ϕ misprint reading of ι. B_to_A uses B: B pins down conj (the middle entry of t), then conj_comp_mor and conj_recover follow by groupoid algebra on conjB, and src_eq_tgt_iff follows from B's entries of s and t and object extensionality.",
+ "B_issue": null,
+ "overlap": "HARNESS: B mentions the vocabulary definition WeakFibredProduct.groupoid. Its body gives the groupoid laws by direct references (not _proof_N) to tgt_comp (via conj_comp, which uses the banned conj_comp_mor), tgt_inv (via conj_inv, which uses conj_recover) and src_comp/comp_assoc (which use src_eq_tgt_iff). So every term mentioning B reaches all three, and plain #rt_check (recorded with #guard_msgs) and #rt_check_soft fail on both directions. A local #rt_check_except_defs (harness rtCollectSoft with groupoid's body not unfolded) passes both. A_to_B reaches src_eq_tgt_iff only softly (compOf._proof_1/2, through h_comp/φ_comp/k_comp); B_to_A reaches none. rt_overlap B_to_A: 23 shared project theorems: GroupoidStr laws, src_conj/tgt_conj, Obj.ext, Mor.src_φ/tgt_φ, tgt._proof_*, and conj_comp_mor itself, which is reached only through groupoid's body in B's statement.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

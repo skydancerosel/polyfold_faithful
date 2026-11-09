@@ -1,0 +1,12 @@
+{
+ "id": "V10_40",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B (universe 0) states the three claims for EquivB, using the project's Diagram.comp and Diagram.id: the class of the composite depends only on the classes, composition is associative, and [1_Y] ∘ [d] = [d] = [d] ∘ [1_X]. EquivB is definitionally Diagram.Equiv, which is the project's ≈, so A_to_B is theorem_10_3_8 from A, with the unit pair swapped. In B_to_A, theorem_10_3_8, Equiv.comp and equiv_assoc come from B. The other ten conjuncts of A are proof infrastructure: admissibility, the functor L of the appendix being an equivalence, the reassociation functor, refinement-level (not merely class-level) composition, associativity and units, and two-out-of-three. B is about classes only and does not give them. They are re-proved outright as own copies of the project's short proofs, from non-item lemmas (isEquivalence_projLeft/Right, naturallyEquivalent, Admissible.of_isEquivalence_right, projLeft_comp_assocFunctor, Functor.isEquivalence_of_comp_right, IsLocalScDiffeoAt.of_comp_left). On the text's statement the two sides agree; A merely adds lemmas of the proof.",
+ "B_issue": null,
+ "overlap": "HARNESS: Diagram.comp passes the banned theorem Diagram.admissible as a plain argument (wfp d.Φ e.F (Diagram.admissible d e)), not abstracted into _proof_N, and comp occurs in the statements of A and B. So plain #rt_check fails on both directions for Diagram.admissible only (recorded with #guard_msgs), and #rt_check_soft cannot help. A local #rt_check_except_defs (harness rtCollect with Diagram.comp's body not unfolded) passes on both directions. The copies pass our own admissible' explicitly everywhere, including the implicit h₁/h₃ of assocFunctor, so that no hole is filled from the unfolded body of comp. rt_overlap B_to_A: 712 shared project theorems. With comp's body not unfolded, 487 non-internal ones remain. They are the weak-fibred-product lemmas and the proof fields of wfpMap/assocFunctor (src_mapMor, mapMid_aux, src_assocMor, Mor.ext, conj_*), the setoid's Equiv.refl/symm/trans and lemma_10_3_4 (from ≈ in theorem_10_3_8's statement), and the non-item lemmas that the copied proofs share with the originals (isEquivalence_iff, IsLocalScDiffeoAt.of_comp_left, projLeft_comp_assocFunctor, NaturallyEquivalent.*).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

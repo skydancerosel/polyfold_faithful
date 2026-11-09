@@ -1,0 +1,12 @@
+{
+ "id": "V10_47",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has three theorems: exists_diagram_of_isGeneralizedIso (a generalized isomorphism has a representative X ←F A →Φ Y with Φ an equivalence; Theorem 10.3.10), iff_of_isGeneralizedIso (a property invariant under equivalences is invariant under generalized isomorphisms), and proposition_10_3_17 (IsGeneralizedIso f → (X.IsLUC ↔ Y.IsLUC)). B is the text's statement on representatives. IsGenIsoB d (some e with d.comp e ≈ 1_X, e.comp d ≈ 1_Y) is EPLoc.IsGeneralizedIso [d] unfolded: EquivB is definitionally Diagram.Equiv, and [d] ≫ [e] = [d.comp e] and 𝟙 = [1_X] by rfl. A_to_B applies proposition_10_3_17 to f = [d] with inverse [e]. B_to_A gets proposition_10_3_17 from B by choosing representatives of f and of its inverse. The two general lemmas are not consequences of B, which concerns (LUC) only; they are re-proved outright from the non-item theorem_10_3_10, as in the project. On the text's claim the two sides agree, and the project's invariance lemma is the text's own proof sketch (X ←F A →G Y with F, G equivalences).",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 772 shared project theorems. These come from EPLoc's Category instance in the statements and from Theorem 10.3.10, which the re-proof of the two general lemmas uses: theorem_10_3_10, isEquivalence_Φ_of_equiv(_id), (C1) isEquivalence_toFunctor_of_comp, (C2) isLocalScDiffeo_obj_of_comp, equiv_comp_symm/symm_comp. That is the same route as the project's proof of exists_diagram_of_isGeneralizedIso. Proposition 10.1.16 (the LUC invariance under equivalences) is not reused; in B_to_A it comes from B. Both #rt_check pass.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

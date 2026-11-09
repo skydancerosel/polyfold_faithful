@@ -26,8 +26,8 @@ lifts `Fⁱ` and Proposition 10.1.9 ((LR) along equivalences).
   `EpFunctor.proposition_10_1_17` (**Proposition 10.1.17**).
 * `EP.isSLR_iff_of_isLR_iff`: the proof of Proposition 10.1.19, i.e. (SLR) passes along `F` once
   (LR) passes along the lifts `Fⁱ` (hypothesis satisfiable: `EP.isLR_iff_lift_self`).
-  Proposition 10.1.9 itself is not formalized (see
-  `Equivalence.lean`), so Proposition 10.1.19 is only reduced to it.
+  Proposition 10.1.9 itself is proved later, in `EquivalenceLR.lean` (`proposition_10_1_9`), and
+  Proposition 10.1.19 without the hypothesis is `EP.proposition_10_1_19` there.
 
 ## What the text leaves implicit, and the choices made
 
@@ -166,7 +166,8 @@ end Zhou
 
 /-- **The reduction of Proposition 10.1.19 to Proposition 10.1.9** (the proof of 2021
 Proposition 10.1.19, p. 477): if (LR) is invariant under the equivalences `Fⁱ : Xⁱ → Yⁱ` of the
-lifts (Proposition 10.1.9, not formalized), then (SLR) is invariant under `F`. -/
+lifts (Proposition 10.1.9, proved in `EquivalenceLR.lean`, which also gives
+`EP.proposition_10_1_19` without this hypothesis), then (SLR) is invariant under `F`. -/
 theorem EP.isSLR_iff_of_isLR_iff {A B : EP.{u}} {F : EpFunctor A.X B.X} (hF : F.IsEquivalence)
     (h109 : ∀ (i : ℕ) (G : EpFunctor (A.lift i).X (B.lift i).X), G.IsEquivalence →
       ((A.lift i).X.IsLR ↔ (B.lift i).X.IsLR)) :

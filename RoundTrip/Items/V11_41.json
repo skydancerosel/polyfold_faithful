@@ -1,0 +1,12 @@
+{
+ "id": "V11_41",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) has four conjuncts: proposition_11_6_8 (transitivity of HasCommonRefinement), hasCommonRefinement_equivalence (it is an equivalence relation), and the witnesses diagram ≈ diagram' and diagram ≈ diagram. B is transitivity, using B's own reading of Definition 11.6.7. The glue is hasCommonRefinementB_iff: B's HasCommonRefinementB is the project's HasCommonRefinement. This holds because IsEquivB is the IsEquivalence structure as a conjunction, NaturallyEquivalent is Nonempty of NatTrans (the pair (τ_Y, τ_X) with (11.20)), and (Γ.comp H).Ψ = Γ.Ψ.comp H.Ψ by rfl. A ⇒ B is proposition_11_6_8 through the iff. B ⇒ A gets proposition_11_6_8 and the transitivity field from B. Reflexivity (A'' = A, H = H' = 1) and symmetry (swap H and H') are proved here. diagram ≈ diagram' is a witness that transitivity cannot give, so it is re-proved outright with the project's term (Theorem 11.6.6 (3), not banned here). diagram ≈ diagram comes from B applied to that witness and its symmetric. On the text's content the two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_check OK on both directions (plain). rt_overlap B_to_A: 873 shared project theorems. The Theorem 11.6.6 lemmas among them (theorem_11_6_6, its step lemmas, isEquivalence_iff, isFiberBijective_of_isEquivalence, isEquivalence_fibredFst) come from the re-proved witness diagram ≈ diagram' and from diagram' / fibredPair in A's statement. The weak-fibred-product infrastructure is shared too, as are naturallyEquivalent_equivalence and IsEquivalence.id, used for reflexivity and symmetry as in the project. Transitivity itself comes from B, not from the project's proof of 11.6.8 through Theorem 11.6.6.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

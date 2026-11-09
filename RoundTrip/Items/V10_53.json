@@ -1,0 +1,12 @@
+{
+ "id": "V10_53",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is SDiagram.orbitMap_square (|P'|∘|D| = |d|∘|P| for a diagram), GenSBMap.orbitMap_square (the same for a class f, with f.base), and SDiagram.orbitMap_orbitMap_Φ (|D|(|Φ|q) = |Ψ|q, the lemma behind the square). B states the square pointwise for [D]: if |[D]|(|w|) = |w'| then |[d]|(|P w|) = |P' w'|, with [d] = homMk of the base diagram (definitionally D.base). A_to_B evaluates GenSBMap.orbitMap_square at D.cls and |w|. B_to_A gets SDiagram.orbitMap_square from B (every orbit is some |w|, and |D|(|w|) is some |w'|), and the GenSBMap square from it by Quot.inductionOn. orbitMap_orbitMap_Φ is about the total spaces, not the projection, so it is not a consequence of B. It is re-proved outright as in the project, from the non-item Diagram.orbitMap_orbitMap_F of the total diagram. On the text's claim, the commutative square (10.24) on orbit spaces, the two sides agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1049 shared project theorems, almost all from the statements: the EPLoc category structure, SEP / strong bundle infrastructure, and GenSBMap.orbitMap / base bodies, which contain Equiv.orbitMap_eq and Equiv.base (not banned here). From the proof: GroupoidFunctor.orbitMap_π, GroupoidStr.surjective_π and Diagram.orbitMap_orbitMap_F (also used by the project's proofs). Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

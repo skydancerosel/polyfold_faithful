@@ -1,0 +1,12 @@
+{
+ "id": "V9_40",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Both sides state the same two claims about the same project definition essentialSet: (essentialSet K) is closed, and K ∖ essentialSet K is open, as preimages under the inclusion K → M. A (lemma_9_4_2 and lemma_9_4_2_open, universes at 0) holds for every model with corners I : H → E (any real normed E), every charted space M (no smoothness) and every K. B states them only for n-dimensional C^∞ manifolds with corners on the quadrant model [0,∞)ⁿ ⊆ EuclideanSpace ℝ (Fin n). A ⇒ B is the specialization I = modelWithCornersEuclideanQuadrant n. B ⇒ A fails for a genuine but harmless reason: no instance of B covers other models, e.g. 𝓘(ℝ, E) for infinite-dimensional E. The difference is generality only; on quadrant models the two statements coincide.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 0 shared project theorems (A_to_B only instantiates A). rt_check passes on A_to_B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

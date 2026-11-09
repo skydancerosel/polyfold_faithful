@@ -1,0 +1,15 @@
+{
+ "id": "V9_16",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Both sides use the same notion of good point: B's IsGoodAt is the project's IsGoodPoint up to inter_comm. A (lemma_9_2_3, universe 0) holds for every Θ : Obj → ℚ, with no branched and no dimension hypothesis. It covers a structure B at x and a structure B' at any x', with different domains, for any y ∈ U ∩ U'. B is the text's statement: Θ branched and equidimensional, two structures at the same x with B₁.U = B₂.U. So A ⇒ B is direct. B ⇒ A fails for a genuine reason: B says nothing about a Θ that is not equidimensional. Branchedness alone could be arranged by the localization used in V9_14 (1_W · Θ on the trivial ep-groupoid, not done here), but equidimensionality cannot. The different points and domains are only glue. B_to_A_branched_equidim (rt_check OK) derives A's conclusion from B for every branched equidimensional Θ and structures at arbitrary points: restrict both structures to y (restrictAt), then to the common domain (restrict), apply B, and read goodness back. The non-equidimensional case is not reachable from B. Even a good point would need the local constancy of the dimension, which the project proves only in ℝᵐ (HasLocallyConstantDimAt). Re-proving that case means re-proving the lemma itself.",
+ "B_issue": null,
+ "overlap": "B_to_A_branched_equidim: 20 shared project theorems, all LocalBranchingStructure glue reached through restrictAt and restrict: the structure fields (eq_sum, σ_pos, subset_U, isOpen_U, isProperMap), isOpen_nbhdAt, mem_nbhdAt_self, nbhdAt_subset, isClosed_M, isOpen_U_diff_M, isProperMap_inclusion_iff, and their _simp lemmas. None of the mathematics of lemma_9_2_3 is reused (isGoodPoint_iff, eq_iff_of_mem_nbhdAt and le_of_mem_nbhdAt are not used).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

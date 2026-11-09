@@ -1,0 +1,12 @@
+{
+ "id": "V8_43",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A's mor_val is B's (1) (A(φ, w) = (F φ, A w)) and A's μ_comm, applied to the strong bundle functor part of the covering, is B's (3) (μ_X(F φ, A w) = A(μ_Y(φ, w))); section_8_5_2 is (3) at w = v, written through fiberMor/fiberEquiv. B's remaining conjuncts are not in A's theorems but hold outright: (0) by rfl (the structure maps of (W, 𝐖)), (2) by the definition IsProperStrongBundleCovering.fiberEquiv, and (4) (μ_Y, μ_X functors into Ban) by StrongBundle.banachable, fiberMorEquiv and the EpStrongBundle fields μ_unit, μ_comp. Conversely A's μ_comm is stated for every strong bundle functor (wider than B's proper coverings) and was re-proved outright via the non-item IsStrongBundleFunctor.isMap. No genuine mathematical difference; A merely leaves the 'functors into Ban' packaging to vocabulary. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 601 shared project theorems, A_to_B: 595 — nearly all the construction of the ep-groupoid (W, 𝐖) and strong bundle/chart infrastructure reached through the types (toEpGroupoid proof fields, μ_comp/μ_inv_μ/morComp_val, pullback charts); B_to_A's outright μ_comm reuses IsStrongBundleFunctor.isMap, IsMap.map_μ and IsStrongBundleFunctor.mor_val, the same lemmas the project's μ_comm uses (none is an item theorem).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

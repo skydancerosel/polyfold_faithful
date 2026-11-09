@@ -1,0 +1,12 @@
+{
+ "id": "V9_41",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B is (a) the project's PropertyT V ⇔ the text's (T) on V and (b) Lemma 9.4.3: (T) holds on some open U'(x) ⊆ U(x). (a) holds outright (propertyT_iff), by pure logic. The project's iff 'equal at y₀ ⇔ equal at y' splits into B's ε = 1 case (forward) and its ε = -1 case (backward, by contraposition), with ≠ on both sides. A ⇒ B fails at (b). Lemma 9.4.3 is in neither A nor the project, whose docstring says it is not formalized because it needs convergence of oriented frames in a chart. A's theorems concern one tangent set and one example. We believe (b) holds for the project's notions: SubmanifoldOrientation requires, for n > 0, a continuous positive frame field in a chart near each point, which the text's limit argument at x uses. Proving it means proving the lemma itself, so this is missing content, not glue. B ⇒ A: the witness propertyT_example935B1 comes through (a) from a hand check of B's (T) on Example 9.3.5. The two orientation facts are not about (T) and are re-proved outright from non-item lemmas.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 751 shared project theorems. These are the construction of example935B1 (rnPolyfold / rnChart, graph2 submanifolds, orient1, localBranchingStructure_sum_rn, sc-calculus glue), reached through the witness's statement, plus the orientation infrastructure used by the outright re-proofs (exists_two_orientations, exists_two_orientations_submanifoldTangent, OrTangent.dim_eq_of_isOrientedAt, chart transport lemmas). The hand check uses eq_zero_of_mem_graph2_beta1, as the project's proof of the witness does. rt_check passes on B_to_A and on B_a_holds (part (a) of B, outright). Axioms: propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

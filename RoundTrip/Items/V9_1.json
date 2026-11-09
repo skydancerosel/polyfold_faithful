@@ -1,0 +1,12 @@
+{
+ "id": "V9_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The definitions agree, so B (project IsBranchedEpSubgroupoid ⇔ blind IsBranchedB) is proved outright (B_holds), in both directions, for every ep-groupoid and every Θ. Every field matches one to one: nonneg, functor, supp ⊆ X_∞, paracompact |supp|, a Fintype index in Type, x ∈ Mᵢ ⊆ U, σᵢ > 0 and the sum formula. The one exception is properness of Mᵢ → U(x). The project uses Mathlib's (Bourbaki) IsProperMap (inclusion), the blind side uses 'compact K ⊆ U ⇒ K ∩ Mᵢ compact'. Both are equivalent to Mᵢ closed in U(x). The blind ⇒ closed step uses that the object space is metrizable (MPolyfold.metrizableSpace, so U is sequential), as the blind author anticipated. A is the three witnesses (Θ = 0, the indicator of a point of ℝⁿ, a point is a submanifold). B_to_A transports the first two through B after checking IsBranchedB by hand, and re-proves the singleton submanifold outright. Universes: 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 472 shared project theorems. These are the proof fields of the trivial ep-groupoid of ℝⁿ and of rnPolyfold (sc-calculus, charts, sub-M-polyfold and metrizability glue), plus the generic lemmas of the singleton proof (isScSmoothMap_const_of_mem_smoothSet, mem_shift_smoothSet_iff, levelVal_toLevelOne, TrivialBundle.rnPolyfold_smoothSet, continuous_π). No Chapter 9 lemma is reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

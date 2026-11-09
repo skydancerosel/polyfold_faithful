@@ -1,0 +1,15 @@
+{
+ "id": "V10_14",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has six conjuncts: mem_smoothSet_src_iff and mem_smoothSet_tgt_iff (s φ, t φ smooth iff φ is), tangentMor_mor (naturality T(Fφ) ∘ TF = TF ∘ Tφ), the two halves isZhou_of_isZhou and isZhou_of_isZhou_right, and proposition_10_1_17 (X.IsZhou ↔ Y.IsZhou for an equivalence). B is proposition_10_1_17 verbatim, so A_to_B is immediate. B_to_A takes the iff and both halves from B. The two smoothness lemmas and the naturality lemma are general facts about ep-groupoids and sc-smooth functors, with no equivalence in them, so they do not follow from B. They are re-proved outright by copying the project's proofs (simp with mem_levelSet_src/tgt_iff; exists_tSrc_eq', tangentMor_tSrc, tBase_tangentMap). On the text's content the two sides are the same.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 771 shared project theorems. These are the tangent-space machinery behind the copied tangentMor_mor proof and the statement of F.tangent (TangentPre.*, exists_tSrc_eq', tangentMor_tSrc, isLocalScDiffeo_tSrc, retractTangent*), mem_levelSet_iff, and statement-level M-polyfold proof fields. B_to_A does not reach the core of the item's proof (the isotropy conjugation and the injectivity/surjectivity of TF on tangent fibres in isZhou_of_isZhou/_right): that comes from B. Both directions pass plain #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

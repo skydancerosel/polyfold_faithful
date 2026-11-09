@@ -1,0 +1,12 @@
+{
+ "id": "V11_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (proposition_11_1_8, universe 0) concludes faceMap f = faceMap g, faceComap f = faceComap g, and, for every θ ⊆ |X|, MapsTo |f| θ (faceMap g θ) and EqOn |f| |g| θ. The project defines faceMap f θ := |f|(θ) and faceComap f θ' := |f|⁻¹(θ'), so A's conclusion is immediate from |f| = |g|. Its face-structure and generalized-isomorphism hypotheses are unused, and its proof is three rewrites. B states the text's content on representatives: for all d ∈ f, e ∈ g and every face X_θ, Ψ_*Φ^*(X_θ) = Ψ'_*Φ'^*(X_θ), plus the agreement of |f| and |g| on faces. A_to_B rests on dPushB_faceObj: B's dPushB d X_θ is the project's Y_{faceMap [d] θ}. That bridge uses the non-item Remark 11.1.5 lemmas preimage_faceObj, saturation_image_faceObj and faceMap_homMk, which identify faceMap [d] with |Ψ|∘|Φ|⁻¹, and π_eq_π_iff. With it, A's faceMap f = faceMap g gives B (1), and A's EqOn gives B (2). B's face-structured hypotheses are converted with the same bridge as in V11_7. B_to_A is vacuous: A follows from its own hypothesis |f| = |g|, and it is stated for every θ rather than only for faces. B_to_A_on_faces (rt_check OK) shows that B (1) gives faceMap f θ = faceMap g θ on faces, because Y_θ' determines θ'. Both sides are true and say the same thing. The substance is the identification of faceMap with the text's f_* (faceMap_homMk, Remark 11.1.5), not proposition_11_1_8 itself.",
+ "B_issue": "As the blind author notes, the second claim (the induced maps |F| → |f_*F| agree) is read as the agreement of the restrictions of |f| and |g| to θ. The faces' ep-groupoid structure and the generalized isomorphisms f_F (Proposition 11.1.6) are not formalized, on either side. Under this reading the claim is immediate from |f| = |g|, which is the project's reading as well.",
+ "overlap": "rt_overlap B_to_A: 764 and A_to_B: 763 shared project theorems. They are the vocabulary in the statement: the category EP(E⁻¹) (EPLoc.instCategory proof fields, Diagram.comp, the weak fibred product, refinement and associativity lemmas, lemma_10_3_4/6), the well-definedness of orbitMap (Diagram.Equiv.orbitMap_eq, orbitMap_orbitMap_F), and faceMap.eq_1/faceComap.eq_1. proposition_11_1_8's own proof uses no further lemma. #rt_check OK on A_to_B, B_to_A and B_to_A_on_faces.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

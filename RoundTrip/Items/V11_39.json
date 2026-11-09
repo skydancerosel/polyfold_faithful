@@ -1,0 +1,12 @@
+{
+ "id": "V11_39",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has five conjuncts: theorem_11_6_6 (all claims, for H = hFunctor, (π_Y,π_X) = projLeftHom, (π_Y'',π_X'') = projRightHom), the witnesses theorem_11_6_6_pairToPoint and nonempty_fiber_id, Chapter 10's isEquivalence_projRight, and Chapter 7's IsLocalScDiffeo.isTame. B states the same claims with H, πR, πL given only by their entries, and natural equivalence as a pair of EpNatTrans satisfying (11.20). A ⇒ B: take H = hFunctor, πR = projRightHom, πL = projLeftHom; their entries hold by rfl, and the project's NatTrans is exactly B's pair. B ⇒ A: theorem_11_6_6 follows from B once B's H, πR, πL are identified with hFunctor, projRightHom, projLeftHom (EpFunctor.ext, ProperCoveringHom.ext; the entries determine them). pairToPoint follows from B applied to pairToPointCovering and the identity of the point. isEquivalence_projRight follows from B's (2) for the identity coverings 1_X, 1_Y, 1_Z with Γ = (F,F), Λ = (G,G). nonempty_fiber_id and IsLocalScDiffeo.isTame are not part of Theorem 11.6.6 and are re-proved outright (a one-line witness, and a copy of the 3-line project proof from non-item lemmas). On the text's content the two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_check OK on both directions (plain). rt_overlap B_to_A: 763 shared project theorems. These are the weak-fibred-product ep-groupoid infrastructure and hFunctor's proof fields (hMor_src, hMor_tgt, mor_conj, reached through the statement of theorem_11_6_6 in A); the proper-covering lift lemmas and isEquivalence_iff/isFiberBijective_of_isEquivalence (B_to_A uses them to make (F,F) : 1_X → 1_Y an equivalence; the project proof uses them too); the Chapter 10 equivalence lemmas under isEquivalence_pairToPoint (lemma_10_1_2, IsEquivalence.*); and the tame-chart lemmas of the copied isTame proof (isTame_of_forall_exists_chart, IsTame.exists_chart, IsTameWith.*).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

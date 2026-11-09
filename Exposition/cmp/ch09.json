@@ -839,7 +839,7 @@
    "book": {
     "label": "§9.2, Remark 9.2.17, p. 421 (2017: Remark 9.6, p. 310)",
     "page": 421,
-    "statement": "$\\partial\\Theta$ is in general not the restriction of $\\Theta$ to $\\partial X$; in Section 9.5, Definition 9.3.6, a tame notion is introduced."
+    "statement": "$\\partial\\Theta$ has in general no particularly nice properties (the text noted before Lemma 9.2.13 that it is in general not the restriction of $\\Theta$ to $\\partial X$); \"in Section 9.5, Definition 9.3.6\" the tame branched ep⁺-subgroupoids are introduced, whose boundaries are nice enough for integration and orientation."
    },
    "lean": {
     "statement": "$\\partial\\Theta \\le \\Theta$; $\\partial\\Theta$ is in general not the restriction of $\\Theta$ to $\\partial X$: for the indicator of the corner $0$ of $[0, \\infty)$, $\\Theta(0) = 1$ and $\\partial\\Theta(0) = 0$, while for $\\Theta = 1$ on $[0, \\infty)$, $\\partial\\Theta(0) = 1$.",
@@ -943,7 +943,7 @@
    "book": {
     "label": "§9.3, Remark 9.3.3, p. 423 (2017: Remark 9.8, p. 311)",
     "page": 423,
-    "statement": "The local oriented representation (9.9) is not unique, and an orientation of $\\Theta$ is not unique."
+    "statement": "The local representation (9.9) means exactly that the lift $x \\mapsto \\hat T_\\Theta(x)$ is locally continuous on $\\mathrm{supp}(\\Theta)$; an orientable $\\Theta$ may have more than two orientations, because of its fractional nature."
    },
    "lean": {
     "statement": "The indicator of a point of $\\mathbb R^n$ has infinitely many orientations, pairwise distinct, $T_q$ for $q \\in (0, 1) \\cap \\mathbb Q$.",

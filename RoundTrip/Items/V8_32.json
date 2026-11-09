@@ -1,0 +1,12 @@
+{
+ "id": "V8_32",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item and the definitions agree: B (the project's Diff_sc, covering functors and geometric lifts are the text's) is proved outright (B_holds). (i) A morphism of MPolyfoldCat is a ScDiffeo, whose IsScDiffeoOn … univ univ unfolds to B's 'sc-smooth map with an sc-smooth two-sided inverse', every such map is one, identities and composition are those of maps (rfl). (ii) The project's IsCoveringFunctor (ψ ↦ (f ψ, s ψ) bijective into G × D) is B's IsCoveringB (bijective into Σ y c, f(y) ⟶ c, the fibred product for a general target), via the bijection ⟨y, c, g⟩ ↦ (g, y), SingleObj G having one object. (iii) GeometricLift f is exactly a triple (L_D, L_C, τ : L_D ⟶ f ⋙ L_C). Both directions are vacuous for the audit (uses_hypothesis false): A's four theorems (ScDiffeo.ext, existsUnique_lift, isCoveringFunctor_of_isEmpty, isCoveringFunctor_id) are general facts about the vocabulary, stated without finiteness, which B (finite D, G) does not supply; they were re-proved outright. Both directions use #rt_check_soft: B's statement mentions the Category instance instCategoryMPolyfoldCat, whose proof fields (id_comp, comp_id, assoc) use the banned ScDiffeo.ext. Universes at 0.",
+ "B_issue": null,
+ "overlap": "Both directions: 5 shared project theorems (MPolyfoldCat.instT2, MPolyfoldCat.instPara, ScDiffeo.isScDiffeoOn, IsScDiffeoOn.left_inv, IsScDiffeoOn.right_inv): structure projections only.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

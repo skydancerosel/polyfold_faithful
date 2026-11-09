@@ -1,0 +1,12 @@
+{
+ "id": "V10_62",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has eleven conjuncts: proposition_10_1_9 (an equivalence F gives X.IsLR ↔ Y.IsLR) and ten lemmas of its proof. These are exists_transportChart, TransportChart.bijective_conj, TransportChart.Q_Φ, exists_naturalRep_push/pull, isLR_iff_hasLR, NaturalRep.hasLR_iff_of_equivariant, NaturalRep.eqOn_Γ/eqOn_Φ, and the witness nonempty_transportChart_pointEP. B is Proposition 10.1.9 for X, Y : EP.{0} with the project's IsEquivalence and IsLR. A ⇒ B is the main conjunct. B ⇒ A gets the main conjunct from B at EP.mk Obj Mor X, EP.mk Obj' Mor' Y (definitional repackaging). The ten proof lemmas are statements about charts, natural representations and isotropy maps, not consequences of B. They are re-proved outright by copying the project's proofs, with the banned lemmas replaced by primed copies (Q_Φ' from the non-item Γ_conj, eqOn_Φ' from eqOn_Γ', etc.). On the text's statement the two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 555 shared project theorems. Besides the proof fields of EpGroupoid/EP/NaturalRep in the statements, they are the non-item helpers that the copied proofs reuse: TransportChart.Γ_conj, src_ψ_Φ, src_comp_ψ_Φ, isScDiffeoOn_image, continuousOn_Q/ψ, Q_self, conj_val, the TransportChart field lemmas, EpGroupoid.exists_naturalRep_restrict, NaturalRep.existsUnique_Γ/Γ_self/Φ_mul/Φ_self, IsEquivalence.bijective_isotropyHom, injective_orbitMap_of_full, and eqOn_sections_of_isPreconnected. No banned lemma is reached. #rt_check OK on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

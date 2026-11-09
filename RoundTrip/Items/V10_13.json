@@ -1,0 +1,15 @@
+{
+ "id": "V10_13",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is proposition_10_1_16 (X.IsLUC ↔ Y.IsLUC for an equivalence F), isClosed_nonEffectivePart_iff (𝐗^T closed iff 𝐘^T closed) and Chapter 7's proposition_7_2_21_2021 ((LUC) iff 𝐗^T closed). B is proposition_10_1_16 verbatim, so A_to_B is immediate. B_to_A takes 10.1.16 from B and gets the closedness iff by rewriting B with 7.2.21. 7.2.21 is a statement about a single ep-groupoid and does not follow from B, so it is re-proved outright from non-item lemmas (isClosed_nonEffectivePart_of_isLUC, isLUC_iff_forall_naturalRep, hasLUC_of_isClosed, the project's two-line proof). On the text's content the two sides are the same.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 498 shared project theorems. They are the proof of 7.2.21 that prop_7_2_21' re-uses (isClosed_nonEffectivePart_of_isLUC, hasLUC_of_isClosed, Γ_mem_of_eventually, theorem_7_1 and the natural-representation construction NatRepConstruction.Sheets.*), plus statement-level infrastructure (NaturalRep, nonEffectivePart, MPolyfold/sub-M-polyfold proof fields). B_to_A does not reach the core of the item's proof, isClosed_nonEffectivePart_iff (the conjugation/closure argument): that comes from B. Both directions pass plain #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

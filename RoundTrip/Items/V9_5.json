@@ -1,0 +1,12 @@
+{
+ "id": "V9_5",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B is Lemma 9.1.5 for the blind IsBranchedB: IsLocallyClosed (π '' suppB Θ). A's lemma_9_1_5 is the same statement for the project's IsBranchedEpSubgroupoid, and π '' suppB = orbitSupp by definition. The two hypotheses are equivalent, as in V9_1: properness of Mᵢ → U(x) on either side is 'Mᵢ closed in U(x)', with the blind ⇒ closed step using that the objects are metrizable. So A_to_B is lemma_9_1_5 after conversion. In B_to_A, lemma_9_1_5 is B, and isLocallyClosed_supp also follows from B: π⁻¹|supp Θ| = supp Θ and π is continuous. The three auxiliary conjuncts of A (saturation of supp, supp ∩ U(x) = ⋃ Mᵢ, supp closed in U(x)) are general facts, re-proved outright. Universes: 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 20 shared project theorems: groupoid axioms (src/tgt of unit, comp, inv), the orbit setoid and π_eq_π_iff, continuous_π, and the field projections of LocalBranchingStructure and IsBranchedEpSubgroupoid. No lemma of the project's proof (isLocallyClosed_supp, coborder_preimage via proposition_7_1) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

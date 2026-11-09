@@ -1,0 +1,15 @@
+{
+ "id": "V9_48",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0) is proposition_9_4_10 and tangent_eq_iff_of_mem_ess for oriented local branching structures on an ep-groupoid. It uses an abstract SheetGeometry on X.PObj and tangent spaces and OrTangents in Part I's tangent bundle; proposition_9_4_10 does not need (T). A also contains three Example 9.3.5 witnesses (♯P₀ = 2, hypotheses (a) and (b) for the two decompositions, M_U = M'_U). B is the local model: immersed n-manifolds with corners in a Banach space F, oriented tangents as frame sets in F, (T) for both structures. A ⇒ B fails. B's (2) needs one subspace T ⊆ F with T_yMᵢ = T = T_yM'ᵢ' on each A_p, i.e. Lemma 9.4.4 and the tangent note for B's sheets along the chains of the union structure, which A has only as SheetGeometry fields and states only for X.PObj.submanifoldTangent. B's (4)–(5) need the oriented tangents in F to be D_*ori ≠ D_*(-ori) of that subspace, which A states only for OrTangents of X.PObj. No ep-groupoid structure on F carries B's tangent objects. A's hypotheses are not the obstacle, since B assumes more ((T)). B ⇒ A fails: A holds for every ep-groupoid and SheetGeometry, and tangent_eq_iff_of_mem_ess and the Example 9.3.5 witnesses are not statements of B.",
+ "B_issue": null,
+ "overlap": "n/a (no direction proved).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

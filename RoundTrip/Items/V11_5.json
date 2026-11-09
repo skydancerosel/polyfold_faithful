@@ -1,0 +1,12 @@
+{
+ "id": "V11_5",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0, matching B's EP.{0}) has twelve conjuncts. First, remark_11_1_5. For an equivalence Φ: θ ↦ |Φ|(θ) is a bijection of the faces of |X| onto those of |Y|, Φ_*(X_θ) = saturation(Φ(X_θ)) = Y_{|Φ|(θ)}, and Φ^*(Y_θ') = X_{|Φ|⁻¹(θ')}. For [d] with Φ an equivalence: [d]_* = Ψ_* ∘ Φ^*, [d]^* = Φ_* ∘ Ψ^*, and the two are inverse bijections. Second, its ingredients in greater generality: the formulas for every functor, diagram and θ; bijOn_faces and bijOn_faceMap with their inverses; isHomeomorph_orbitMap; and four general-topology transport lemmas for Chapter 2's faces. B states the remark: (a) for an equivalence, the bijection of faces and the two formulas on faces; (b) for an isomorphism f, the bijection θ ↦ |f|(θ), and for every representative d, [d]_*(X_θ) = Y_{|f|(θ)} and [d]^*(Y_θ') = X_{|f|⁻¹(θ')}. A_to_B: B's faces of |X| are the project's (Quotient.out_eq, connectedComponentIn_eq_image), and B's pushObjB is the saturation of the image. Then (a) is remark_11_1_5 and (b) is bijOn_faceMap with the formula lemmas. B_to_A takes all the bijections from B: remark_11_1_5's two BijOn, bijOn_faceMap, and bijOn_faces. For bijOn_faces, unbundled X, Y are bundled as EP.mk _ _ X; its MapsTo |Φ|⁻¹ comes from B's surjectivity and the injectivity of |Φ|. The rest of A is extra generality: formulas for arbitrary functors/θ, inverses, isHomeomorph_orbitMap, and the transport lemmas. It is not a consequence of B and is re-proved outright from non-item lemmas (the project's proofs, copied). On the text's content the two agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 829 shared project theorems. Most are the EP(E⁻¹) / ep-groupoid / M-polyfold machinery in the statements. The proof-relevant ones are the lemmas of the copied proofs: Chapter 7's TameBoundary.IsDHomeoOn transport lemmas (isFaceIn_image, exists_isFaceIn_of_image, isFaceStructuredOpen_image, encard_facesThrough_image), Diagram/IsEquivalence.isHomeomorph_orbitMap and theorem_10_3_10. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

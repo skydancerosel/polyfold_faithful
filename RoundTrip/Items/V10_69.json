@@ -1,0 +1,12 @@
+{
+ "id": "V10_69",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has four conjuncts: lemma_10_3_4 and its alias Equiv.trans (transitivity of 'having a common refinement' on SDiagram A A'), equivalence_equiv (it is an equivalence relation) and cls_eq_cls_iff ([D] = [D'] in GenSBMap iff D ≈ D'). B says, for all A A' : SEP.{0}, that SDiagram.Equiv is an Equivalence and that D.cls = D'.cls ↔ D.Equiv D'. A ⇒ B reads B off equivalence_equiv and cls_eq_cls_iff; B ⇒ A gets transitivity from (B A A').1.trans and the other two conjuncts verbatim. Both sides use the project's SDiagram, Equiv and GenSBMap, so the two statements are the same up to packaging.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 656 shared project theorems, all structural: the proof fields of the SEP category (SEP.Hom.ext', Hom.isStrongBundleFunctor, IsStrongBundleFunctor.comp, isStrongBundleFunctor_id, the T2/paracompact instances of SEP) and the Part I strong bundle / M-polyfold chart lemmas those proof fields rest on, reached through the types SDiagram and SEP in the statements. None of the proof of lemma_10_3_4 (SBWeakFibredProduct.theorem_10_2_2, theorem_10_2_2_right) is reused. #rt_check OK for both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

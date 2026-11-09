@@ -1,0 +1,12 @@
+{
+ "id": "V9_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item lists two definitions and one witness theorem. A is the type of the witness, isManifoldType_indicator: the indicator of a point of ℝⁿ is of manifold type in the trivial ep-groupoid; it has no universe parameters. B says the project's IsManifoldType and IsOrbifoldType are the text's notions for every ep-groupoid in Type and every Θ : Obj → ℚ. B is proved outright (B_holds). IsOrbifoldType is literally B's IsZeroOneB. The project's 'two morphisms with the same source and target in supp Θ are equal' is B's 'at most one morphism between x, y ∈ supp Θ' with the quantifiers rearranged (x = y is allowed on both sides). So the definitions agree. A_to_B is B_holds and does not use A. B_to_A rewrites IsManifoldType with B and checks the indicator directly.",
+ "B_issue": null,
+ "overlap": "B_to_A: 380 shared project theorems. All come from the construction of trivial (rnPolyfold n) in A's statement (rnChart, sub-M-polyfold, sc-retraction and product glue, paracompactness), which isManifoldType_indicator's statement also reaches. None is a Chapter 9 lemma.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

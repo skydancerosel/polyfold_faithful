@@ -1,0 +1,13 @@
+{
+ "id": "V9_37",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B's (9.11) part follows from A (A_to_B_9_11, rt_check OK, uses the hypothesis). B's (B, n, o) become project OrientedBranchingStructures; the dimensions come from the orientations, via the glue lemma isSubmanifoldOfDim_of_orientation. At smooth y ∈ U ∩ U' both represent T y, so eq_9_11 gives equal degree-ℓ parts. At non-smooth y no sheet passes, since Mᵢ ⊆ supp Θ ⊆ X_∞. B's Proposition 9.3.9 does not follow. The project's proposition_9_3_9 is stated for an abstract bd : OrTangent → OrTangent, a function of the oriented tangent space T_y(Mᵢ, oᵢ). B's T_y(∂Mᵢ, o_∂Mᵢ) (bdOrB) is built from the sheet itself: the set T_y∂Mᵢ and the outward vectors of Mᵢ. Deriving B from (9.11) needs T_y(Mᵢ,oᵢ) = T_y(M'ⱼ,o'ⱼ) with d = 1 to imply bdOrB oᵢ y = bdOrB o'ⱼ y, i.e. that T_y∂M = T^R_yM and the outward half-space depend only on T_yM for tame M. The project lists exactly this as not formalized (partial cones of submanifolds). It is a genuine gap in A (substantial mathematics), not glue. B_to_A cannot use B, which assumes X.PObj tame and an orientation T; A's four conjuncts assume neither and hold for any bd. It re-proves them outright, as copies of the project's proofs (from the unbanned subDegIndex_eq_of_submanifoldTangent_eq). Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 635 shared project theorems: subDegIndex_eq_of_submanifoldTangent_eq (Lemma 9.3.7, V9_35) and its chart / tame-degeneracy infrastructure, OrientedBranchingStructure.orientedSum, IsOrientation.eq_zero_of_not_mem, and Finsupp lemmas. No banned theorem is used.",
+ "partial": "A_to_B_9_11 : A → B_9_11 (B's (9.11) conjunct) proved, rt_check OK; B_to_B_9_11 shows it is a part of B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -179,8 +179,8 @@ do not call the text wrong or speak of its "errors".
   blocks), `Exposition/Chapter8.md`, `cmp/ch08.json`, `pbp/part08.md`, the Chapter 8 table of
   `BookConcordance.md`; G.70 now partly formalized (`tangentMor_tSrc`, `tangentMor_comp`). Theorem
   8.5 (5) as printed does not hold as we read it (counterexample
-  `CoveringExamples.theorem_8_5_five_as_printed`; Findings Ch. 8 item 54). Not done: the round-trip
-  audit of Chapter 8.
+  `CoveringExamples.theorem_8_5_five_as_printed`; Findings Ch. 8 item 54). The round-trip audit of
+  Chapters 8–11 is done (2026-11-08; `RoundTrip/REPORT.md`, "Chapters 8–11, audited on 2026-11-08").
 * **Part II, Chapter 9** (2026-11-08; 2021 numbering, names without suffix, e.g. `lemma_9_1_7`):
   `Polyfold/Chapter9/` (25 files, 16,925 lines), §§9.1–9.5 and §9.6.1: branched ep⁺-subgroupoids and
   local branching structures, dimension, the tangent and the boundary, good points, orientations,
@@ -401,7 +401,7 @@ each chapter lands)
     gaps G.70–G.73 (G.70 with Chapter 8; G.71 now only paracompactness, since `𝐗^R` need not be
     Hausdorff).
 12. **Part II, Chapter 8** — Lean and reports done 2026-11-08 (`PLAN.md` §II.9; state in §2). Left:
-    the round-trip audit of Chapter 8, the gaps G.74–G.75, and small refactors (Lemma 7.4's quotient
+    the gaps G.74–G.75 (round-trip audit done 2026-11-08), and small refactors (Lemma 7.4's quotient
     metric and two `Lift.lean` helpers are repeated privately in `TangentOrbit.lean`,
     `TangentTame.lean`; `FullOb`, `MPolyfoldCat.ofOpen`, `ScDiffeo.ofOpen`,
     `IsFullyFaithfulOpenEmbedding` could move to `Chapter8/Basic.lean`).
@@ -449,7 +449,8 @@ each chapter lands)
 15. ~~**Part II, Chapters 9–11**~~ — done 2026-11-08 (state in §2): Lean, reports, Findings, the
     exposition `Chapter9.md`–`Chapter11.md`, gaps G.93–G.135. Part II of the book ends with Chapter
     11; Part III, *Fredholm Theory in Ep-Groupoids*, begins with Chapter 12, *Sc-Fredholm Sections*
-    (2021 p. 569). Left for Part II: the round-trip audit of Chapters 8–11; the open gaps (Chapter 10:
+    (2021 p. 569). The round-trip audit of the 211 non-extra, non-gap items of Chapters 8–11 is done (2026-11-08,
+    against caf6bfc; `RoundTrip/REPORT.md`; Findings Ch9 items 103–104). Left for Part II: the open gaps (Chapter 10:
     Propositions 10.4.6–10.4.7, the Fredholm parts of Theorems 10.4.5 and 10.5.4, the iterated
     products of Theorem 10.2.2, the universal property of the localization; Chapter 11: §§11.2,
     11.4, G.128, G.130, G.132–G.135); the docstrings of Chapters 9–11 were checked for numbering
@@ -465,8 +466,8 @@ Polyfold project to leave memory for `lake build`.
 > `~/polyfold_faithful` on `main` (build from the repository root, with the git shim of §1 on the
 > PATH for every lake call). Parts I and II (Chapters 1–11) of HWZ, *Polyfold and Fredholm Theory*
 > (Springer 2021, the authoritative text, in `Exposition/sources/`, gitignored), are formalized and
-> reported. Ask the user which comes next: the round-trip audit of Chapters 8–11 (modelled on
-> `RoundTrip/`), Part III from Chapter 12 (cite 2021 numbers first; Lean names with the 2021 numbers
+> reported. The round-trip audit of Chapters 1–11 is
+> done (`RoundTrip/REPORT.md`, 604 items). Ask the user which comes next: Part III from Chapter 12 (cite 2021 numbers first; Lean names with the 2021 numbers
 > and no suffix; G-items from G.136; a new `Test.lean` block per chapter), or the open gaps of §3
 > item 15. Keep the four checks of §1 green; no `sorry`; `#print axioms` for every theorem; never
 > renumber V-items, G-items or Findings items; check every hypothesis that quantifies over all charts

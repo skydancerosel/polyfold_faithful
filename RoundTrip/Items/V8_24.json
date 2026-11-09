@@ -1,0 +1,12 @@
+{
+ "id": "V8_24",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is Definition 8.3.3 (IsStrongBundleFunctor, vocabulary) plus three theorems, so A (universe 0) = projFunctor_comp ∧ mor_val ∧ isStrongBundleFunctor_id. B says (a) for an EpFunctor Φ, IsStrongBundleFunctor iff B's IsSBFunctorB: strong bundle maps on objects and on morphisms, with both covering squares written out. It also says (b) every groupoid functor satisfying IsSBFunctorB underlies an EpFunctor. B holds outright (B_holds), so A_to_B does not use A. (a) is a repackaging: the squares are the covers fields, and B's hs, hs' equal X.isScSmoothMap_src by proof irrelevance. (b) takes the isScSmoothMap fields, since toEpGroupoid.PObj and PMor are B.toMPolyfold0 and (B.pullback _).toMPolyfold0 by rfl. B_to_A gets all three conjuncts from (a): projFunctor_comp from EpFunctor.ext and the squares, mor_val from Prod.ext with the square and Φ.src_mor, and isStrongBundleFunctor_id from the backward half with IsStrongBundleMap.id. The project's definition matches the text. Restricting to EpFunctors loses nothing, by (b).",
+ "B_issue": null,
+ "overlap": "B_to_A: 634 shared project theorems, almost all the proof fields of EpStrongBundle.toEpGroupoid, toGroupoidStr and projFunctor (reached through the statements, which mention E.toEpGroupoid and projFunctor), the pull-back strong bundle infrastructure, plus EpFunctor.ext, StrongBundle.IsStrongBundleMap.id and the IsStrongBundleMap field accessors — exactly the glue the project's one-line proofs use. A_to_B is B_holds and passes plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

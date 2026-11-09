@@ -1,0 +1,15 @@
+{
+ "id": "V10_9",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) has three conjuncts. isotropyHom_mem_trivialSet_iff: for F only a local sc-diffeomorphism on objects, F(g) ∈ T_{Fx} ↔ g ∈ T_x. bijective_isotropyHom: for an equivalence, g ↦ F(g) is bijective G_x → G_{Fx}. remark_10_1_12: the remark, with value (ψ∘F g)∘ψ⁻¹ and e g ∈ T_y ↔ g ∈ T_x. B is the remark with IsEquivB, value ψ∘(F g∘ψ⁻¹) and trivialSubgroup (its carrier is trivialSet, Iff.rfl). A_to_B and the remark_10_1_12 part of B_to_A only reassociate and use the glue isEquivB_iff. bijective_isotropyHom follows from B with y = F x, ψ = 1_{Fx}: the isomorphism is then g ↦ F g. isotropyHom_mem_trivialSet_iff concerns functors that need not be equivalences, which B does not cover. It is re-proved outright (the project's proof, from the non-item lemmas mor_mem_nonEffectivePart and mem_nonEffectivePart_of_mor), without the hypothesis. On the remark itself the two sides agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 544 shared project theorems. Most come through the statement definitions (trivialSet/trivialSubgroup rest on NaturalRep and theorem_7_1, plus the MulEquiv and Isotropy structure). Beyond them: the lemmas of the copied proof of isotropyHom_mem_trivialSet_iff (EpFunctor.mor_mem_nonEffectivePart, mem_nonEffectivePart_of_mor, EpGroupoid.val_mem_nonEffectivePart_iff, isLocalScDiffeoAt_mor), the groupoid laws (comp_assoc, comp_unit_of_eq, unit_comp_of_eq, inv_unit), and GroupoidFunctor.full_iff/faithful_iff from the glue.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

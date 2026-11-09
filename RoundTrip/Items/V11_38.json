@@ -1,0 +1,12 @@
+{
+ "id": "V11_38",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) is the twelve step lemmas of Theorem 11.6.6 (1): well-definedness of H (mor_conj, hMor_src/tgt), steps (A)-(C) (surjective_hObj, isLocalScDiffeo_hObj, isScDiffeo_fibredMap_hFunctor, finite_fiber_hObj, isProperMap_hObj), three general lemmas (IsScDiffeoOn.restrictTarget, IsLocalScDiffeo.evenlyCovered_of_isProperMap, IsProperCovering.isProperMap), and the assembled isProperCovering_hFunctor_of. B says that for an equivalence Γ there is an EpFunctor H : P → Q with the entries of (11.18), (11.19), and that it is a proper covering. A ⇒ B: take H = hFunctor (the entries hold by rfl) and use isProperCovering_hFunctor_of, with hΨ, hΦ and hs taken from the fields of Γ.IsEquivalence. B ⇒ A fails for a real reason. isProperCovering_hFunctor_of is more general than the text's (1): it needs only Ψ, Φ local sc-diffeomorphisms on objects and Ψ onto on the fibres, not Γ an equivalence. And the general lemmas and the separate steps do not follow from B. What B does give is A's main conjunct in the text's case Γ an equivalence (B_to_isProperCovering_hFunctor', rt_check OK), since B's H is hFunctor by EpFunctor.ext.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statements of isProperCovering_hFunctor_of and isScDiffeo_fibredMap_hFunctor contain hFunctor. Its fields are src_mor := hMor_src and tgt_mor := hMor_tgt, passed as plain constants rather than _proof_N; its mor_comp proof also uses them. So every term mentioning A reaches mor_conj, hMor_src and hMor_tgt, and both #rt_check and #rt_check_soft fail on A_to_B for exactly these three names (recorded with #guard_msgs). A'-pattern: hFunctor' is a copy of hFunctor with the same signature, obj and mor, and with its proof fields proved from local copies mor_conj'/hMor_src'/hMor_tgt'. hFunctor' = hFunctor holds by rfl. A' is A with that one constant replaced by the elaborator replace_hFunctor%, and A = A' by rfl. A'_to_B passes plain #rt_check, and A_to_B := A'_to_B ∘ (A_eq_A' ▸ ·). rt_overlap A'_to_B: 540 shared project theorems. These are the weak-fibred-product ep-groupoid construction under P, Q and B (WeakFibredProduct.* smoothness, sub-M-polyfold and isLocalScDiffeo lemmas, Part I chart/retraction infrastructure) and the lemmas of the hFunctor' copy (h_comp, φ_comp, k_comp, hMor_h/φ/k, isScSmoothOn_obj_of/mor_of, ProperCoveringHom.comm_obj/mor). No banned theorem is among them.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

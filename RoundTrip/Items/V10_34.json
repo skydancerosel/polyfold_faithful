@@ -1,0 +1,12 @@
+{
+ "id": "V10_34",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) has two conjuncts: lemma_10_3_2 (d' refines d and d'' refines d', so d'' refines d) and IsRefinement.trans (the same with the hypotheses swapped). B states the lemma for its own IsRefinementB, copied from the blind V10_33. That relation is the project's Diagram.IsRefinement by definition (isRefinementB_iff is Iff.rfl, since NaturallyEquivalent F G is Nonempty (EpNatTrans F G)). So both directions are the identity up to the order of the hypotheses, and the two statements say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 180 shared project theorems, all structural. They are the proof fields of EpFunctor.comp and GroupoidFunctor.comp, the EP instances, IsRefinement's own abstracted proof field, and the sc-calculus lemmas under EpFunctor.comp (the chain rule, chart and retraction glue). All are reached through the statement's F ∘ H. The item's proof ingredients (IsEquivalence.comp, NaturallyEquivalent.comp_left, NaturallyEquivalent.trans) are not used. #rt_check OK for both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

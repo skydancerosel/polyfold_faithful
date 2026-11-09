@@ -1,0 +1,12 @@
+{
+ "id": "V10_45",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0; the Examples have none) is ten theorems about localizationFunctor (obj X = of X, map Φ = [X ←1 X →Φ Y]): isRefinement_ofFunctor_comp, obj/map, theorem_10_3_14 (identity on objects; i(F) a generalized isomorphism with inverse [Y ←F X →1 X]), isInvertedBy_localizationFunctor, inv_localizationFunctor_map, homMk_eq ([d] = i(Φ) ∘ i(F)⁻¹) and three pairToPoint witnesses. B: Φ ↦ [d_Φ] preserves identities and composition, and is IsIso for every equivalence F. A_to_B: identities by rfl, composition from isRefinement_ofFunctor_comp (a refinement gives equal classes), invertibility from isInvertedBy. B_to_A takes IsInvertedBy and the IsGeneralizedIso parts from B. It re-proves the rest outright from non-item lemmas, since B does not state it: the representative-level refinement; the inverse formula (Diagram.equiv_comp_symm, theorem_10_3_10), which the text's sentence omits; homMk_eq (the refinement by πA); ¬IsIso pairToPointEP (not_exists_leftInverse_pairToPoint). So the two agree on the functor and invertibility. A's extra content (explicit inverse, witnesses) follows from Theorem 10.3.10.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statements of homMk_eq, inv_localizationFunctor_map and inv_localizationFunctor_map_pairToPoint contain the banned isInvertedBy_localizationFunctor as the IsIso instance of inv. Every statement that mentions localizationFunctor also reaches the banned isRefinement_ofFunctor_comp through its map_comp field. So plain #rt_check fails on any term that mentions A (A_self, recorded with #guard_msgs). Following V8_4, both directions go through A'. A' is A with localizationFunctor replaced by loc' (same obj and map; map_comp from the re-proved isRefinement_ofFunctor_comp') and the IsIso instances replaced by isIso_loc' (EPLoc.isIso_homMk). A = A' and loc' = localizationFunctor are rfl. A_to_B := A'_to_B and B_to_A := B_to_A' are point-free, and both pass the official #rt_check with all ten theorems. rt_overlap B_to_A: 863 shared project theorems. Most come from EPLoc's Category instance and Diagram.comp in the statements. The proof reuses Theorem 10.3.10 (theorem_10_3_10, isIso_homMk, equiv_comp_symm/symm_comp, isEquivalence_Φ_of_equiv, (C1)/(C2)), projLeft/isEquivalence_projLeft/naturallyEquivalent and not_exists_leftInverse_pairToPoint: the project's own proof ingredients.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

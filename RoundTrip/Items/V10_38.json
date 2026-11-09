@@ -1,0 +1,12 @@
+{
+ "id": "V10_38",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) is the lemma itself (lemma_10_3_6), its corollary for equivalent diagrams (Equiv.orbitMap_eq), and four side facts. The side facts are continuity of |d|, |d| ∘ |F| = |Φ|, NaturallyEquivalent.orbitMap_eq (F ≃ G ⇒ |F| = |G|) and EpFunctor.orbitMap_comp. B: if d' refines d, then orbB d = orbB d'. B's IsRefinementB is definitionally Diagram.IsRefinement, and orbB is definitionally Diagram.orbitMap (the same term |Φ| ∘ (IsHomeomorph.homeomorph |F| _).symm). So A_to_B is lemma_10_3_6, and in B_to_A the lemma and Equiv.orbitMap_eq (B on both legs of a common refinement) come from B. NaturallyEquivalent.orbitMap_eq also comes from B: X ←1 X →G Y refines X ←1 X →F Y by 1_X, so |F| ∘ |1|⁻¹ = |G| ∘ |1|⁻¹. Continuity, |d| ∘ |F| = |Φ| and |G ∘ F| = |G| ∘ |F| are not about refinements; they are re-proved outright (one-line project proofs, non-item lemmas). On the text's content the two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 218 shared project theorems. These are the proof fields of EpFunctor.comp / GroupoidFunctor.comp and Diagram.IsRefinement, IsEquivalence.isHomeomorph_orbitMap, and the sc-smoothness infrastructure under EpFunctor.comp (ScBanach/ScRetraction/IsSc1 lemmas of the composition proofs). EpFunctor.continuous_orbitMap is shared because both the re-proof of continuity and the project's proof use it. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

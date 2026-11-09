@@ -1,0 +1,12 @@
+{
+ "id": "V8_20",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: A (universes at 0) is only P_μ (P ∘ μ = t ∘ π₁) and continuous_μ; the content is B, proved outright (B_holds): the project's EpStrongBundle fields are exactly B's IsEpStrongBundleB. isStrongBundleMap, surjective and isLocalScDiffeo are B's clauses verbatim (B's paracompactness instance and hs are Props, so B.pullback hs is the project's pull-back definitionally); B's literal fibre linearity μ(ψ,·) : W_{sψ} → W_{tψ} is the project's fibre map fiberMor ψ (IsStrongBundleMap.fiber_linear composed with Part I's pullbackFiberCLE), so it is implied by IsStrongBundleMap; (2) is μ_unit after substituting P w = x; (3) is μ_comp, B's extra hypothesis s ψ = P(μ(γ,w)) being supplied by the covering property in the converse. A ⇒ B is therefore vacuous (B_holds); B ⇒ A reads P_μ off the covering field and continuous_μ off the sc-smoothness of the strong bundle map B(a) attributes to a project E.",
+ "B_issue": null,
+ "overlap": "B_to_A: 381 shared project theorems, all reached through the statements (the pull-back strong bundle B.pullback: PullbackChartData, paracompactSpace_pullbackSpace, pullbackFiberEquiv, the IsStrongBundleMap fields, and the sc-calculus/metrizability infrastructure under them); the proof itself uses only IsStrongBundleMap.covers and IsStrongBundleMap.continuous. B_holds additionally uses EpStrongBundle.fiberMor (V8_21's definition, not a banned theorem here).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

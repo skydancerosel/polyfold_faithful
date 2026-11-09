@@ -1,0 +1,12 @@
+{
+ "id": "V8_13",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both sides say that TΦ = tangentMap Φ.isScSmoothMap_obj and T𝚽 = tangentMap Φ.isScSmoothMap_mor are sc-smooth between the tangent M-polyfolds and that T𝚽 is compatible with s_T, t_T, the composition (8.5) and the units. A adds Φ.tangent.obj = TΦ and Φ.tangent.mor = T𝚽, which hold by rfl. B's tangentMap hsX / htX / hsY / htY and tCompB are the project's tSrc / tTgt / tComp by proof irrelevance. B states the unit law with the IsTUnitB characterization plus uniqueness: T𝚽 v is the unit at TΦ a whenever v is the unit at a. The project states it as T𝚽(tUnit a) = tUnit(TΦ a). The two are matched by tBase_tUnit, tSrc_tUnit and tangent_ext. A, unlike B, packages (TΦ, T𝚽) as an EpFunctor between the tangentEpGroupoids. That is the definition EpFunctor.tangent (vocabulary), whose fields are the same equations. Universes at 0, 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 649 shared project theorems, nearly all reached through the statement. Φ.tangent in A's type brings in EpFunctor.tangent's proof fields (_proof_1–6) and, through its source and target tangentEpGroupoid, the whole Theorem 8.1 construction plus generic tangent-bundle infrastructure. The proof itself uses only B's clauses and the unit glue (tBase_tUnit, tSrc_tUnit, which use tangentMap_tangentMap_of_eq(_id)).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V10_16",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has three conjuncts: EP.proposition_10_1_19 (A.IsSLR ↔ B.IsSLR for an equivalence F, derived in EquivalenceLR.lean from Proposition 10.1.9), EP.isSLR_iff_of_isLR_iff (the same conclusion under an extra hypothesis, that (LR) passes along every equivalence of lifts) and EP.isLR_iff_lift_self (that hypothesis holds for B = A, by Iff.rfl). B's SLR is EP.IsSLR by rfl. A_to_B is proposition_10_1_19. B_to_A takes both 10.1.19 and isSLR_iff_of_isLR_iff from B (the second drops its extra hypothesis), and isLR_iff_lift_self is Iff.rfl. The only content of A is B. Note: the module header of EquivalenceZhou.lean still says that Proposition 10.1.9 is not formalized, but EquivalenceLR.lean now proves it (proposition_10_1_9), and proposition_10_1_19 is unconditional.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 499 shared project theorems, all from the statements: the proof fields of the definitions EP.lift / EpGroupoid.liftOne / liftGroupoidStr (level M-polyfolds, charts, retractions) that occur in IsSLR. The proof of B_to_A is hB plus rfl; it uses none of the item's proof (proposition_10_1_9, exists_isEquivalence_lift). Both directions pass plain #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

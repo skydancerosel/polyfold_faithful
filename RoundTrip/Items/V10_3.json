@@ -1,0 +1,15 @@
+{
+ "id": "V10_3",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0, Obj Mor ι : Type) is the four listed ep-groupoid conditions of X_𝒰 (isLocalScDiffeo_src/tgt, exists_isProperMap, isScSmoothCompSheet), proposition_10_1_3 and the reflectionCover witness pair. B pins 𝒰.epGroupoid and 𝒰.functor down by their data (objects, morphisms, structure maps, PObj = objPolyfold, PMor = morPolyfold, functor formulas) and asserts IsEquivB 𝒰.functor. A ⇒ B: data equations are Iff.rfl/rfl except composition (comp_val); IsEquivB from A's proposition_10_1_3 via the orbit-space glue. B ⇒ A: proposition_10_1_3 and isEquivalence_reflectionCover from B's IsEquivB (B applied with ι = Bool), not_injective from B's object formula. The four ep-groupoid conditions exist in B only as the fields of the project definition epGroupoid (which are exactly these theorems), so reading them off would be circular; they are re-proved outright by copying the project's proofs from non-item lemmas (isLocalScDiffeoAt_srcAmb/tgtAmb, isLocalScDiffeoAt_restrict, X.exists_isProperMap, X.isScSmoothCompSheet). Same content; both sides assume [Nonempty Obj] and an indexed covering with ι discrete.",
+ "B_issue": "Not a misstatement, but a limitation: B cannot build an ep-groupoid itself, so 'X_𝒰 is an ep-groupoid' is carried by the project's definition OpenCover.epGroupoid, whose fields are the banned theorems; B independently pins down only the data and the equivalence claim. Like the project, B assumes [Nonempty Obj] and an ι-indexed covering.",
+ "overlap": "HARNESS: OpenCover.epGroupoid (in B's statement and, through 𝒰.functor, in proposition_10_1_3's) passes isLocalScDiffeo_src/tgt and exists_isProperMap as plain field applications and isScSmoothCompSheet via its abstracted proof field, so plain #rt_check fails on both directions for exactly those four names (recorded with #guard_msgs). A local #rt_check_except_defs (harness rtCollect with the body of epGroupoid not unfolded) passes on A_to_B and B_to_A: the proofs never use epGroupoid's fields. rt_overlap B_to_A: 618 shared; with epGroupoid's body not unfolded 383 shared non-internal theorems: the X_𝒰 chart machinery (restrictOpen, isLocalScDiffeoAt_restrict, isLocalScDiffeoAt_srcAmb/tgtAmb, continuous_src/tgt, comp_val, objSet_ext, isScSmoothOn_restrictOpen_iff, isScSmoothOn_discrete_of_continuousOn, X.exists_isProperMap, X.isScSmoothCompSheet: what the copied proofs use), the reflectionEpGroupoid construction (actionEpGroupoid, action_* lemmas, rnPolyfold), full_iff/faithful_iff, sc-calculus.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

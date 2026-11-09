@@ -1,0 +1,12 @@
+{
+ "id": "V9_2",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "B = (a) local constancy of dim T_mM on every submanifold of every M-polyfold, (b) the project's IsNDimensional ⇔ the blind IsNDimB, (c) the footnote (nonempty support, n- and m-dimensional ⇒ m = n). A ⇒ B fails on (a) and (c), which A does not contain. A has local constancy only in ℝᵐ (hasLocallyConstantDimAt_rn), and the footnote is not formalized. (a) needs the rank of T_yM to be locally constant on an sc⁺-retract in an infinite-dimensional sc-Banach space. (c) needs a dimension / measure argument: an n-dimensional piece is not covered by finitely many m-dimensional submanifolds, m ≠ n. Both are believed true (the text claims them) but are new mathematics, not glue. Two partial results from A pass #rt_check. A_to_Bb: (b) holds, so the two dimension notions agree on submanifolds: the blind T_yM (images of Ts) is the project's submanifoldTangent, its chart image is chartTangent, a finite-dimensional subspace, with finrank = HasDimAt. A_to_Ba_rn: (a) holds for ℝᵐ. B ⇒ A fails: A's chart-change, uniqueness, existence, germ and diffeomorphism-invariance theorems about HasDimAt do not follow from B. They would have to be re-proved outright from the Part I tangent machinery, which B does not help with. Universes: 0.",
+ "B_issue": null,
+ "overlap": "No B_to_A, so #rt_overlap was not run. The partial results A_to_Bb and A_to_Ba_rn pass #rt_check, using A's HasDimAt.finrank_eq, hasDimAt_inter_isOpen_iff and hasLocallyConstantDimAt_rn through the hypothesis, plus the non-item lemmas exists_submodule_chartTangent, chartTangent_eq and SubmanifoldData.tmap_mem_submanifoldTangent.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

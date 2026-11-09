@@ -1,0 +1,12 @@
+{
+ "id": "V8_26",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) has eleven conjuncts. Eight are about Γ, Γ⁺ and Fred: fiberZero ∈ Γ, Γ closed under sectionAdd and constant sectionSmul, Γ⁺ ⊆ Γ, the same three for Γ⁺, and Fred ⊆ Γ. The other three are Part I's lemmas over an arbitrary M-polyfold: sums, constant multiples and the zero section are sc-smooth sections. B says the three project notions and sets are its literal ones, Γ and Γ⁺ contain zeroB and are closed under addB and smulB, and Γ⁺ ⊆ Γ. The notions agree by unfolding. The functorial condition for s φ = x, t φ = y becomes the project's f(t φ) = μ(φ, f(s φ)) after subst. The sc⁺ condition holds via Part I's isScPlusSection_iff, with f x ∈ W_{0,1} read off from the lift g. B's operations are the project's: fiberZero by rfl, and sectionAdd_apply, sectionSmul_apply. With these, A_to_B uses A's closure theorems, and B_to_A gets the eight Γ/Γ⁺/Fred conjuncts from B. B_to_A also gets Part I's three lemmas from B, applied to EpStrongBundle.trivial over the trivial ep-groupoid of the M-polyfold, where every section is functorial (mem_sectionFunctors_trivial). The project's definitions match the text.",
+ "B_issue": null,
+ "overlap": "B_to_A: 428 shared project theorems. Most are strong-bundle and M-polyfold infrastructure reached through the statements (StrongBundle, toMPolyfold0/1, oneSet, the atlas, IsScFredholmSection). The rest are the proof fields of EpGroupoid.trivial and EpStrongBundle.trivial, and sectionAdd_apply and sectionSmul_apply (with their equation lemmas), which the project's proofs also use. Both directions pass plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

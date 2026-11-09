@@ -1,0 +1,15 @@
+{
+ "id": "V9_47",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0) is proposition_9_4_9 and tangentValue_eq_sum for an oriented local branching structure on an ep-groupoid. It uses an abstract SheetGeometry on X.PObj, tangent spaces and OrTangents in Part I's tangent bundle, TΘ = X.tangentValue under HasIndependentTangentSums, and Property (T) as a hypothesis (hT), with A_J constant on M_U^J. B is the local model: immersed n-manifolds with corners in a Banach space F, T_yMᵢ = Djᵢ(ℝⁿ), orientations as frame sets in F, TΘ and T̂Θ defined as formal sums, no (T), and a, b depending on y. A ⇒ B fails for three reasons. B's hypotheses do not give (T), which is satisfiable after shrinking U(x) (Lemma 9.4.3, not formalized). B's (2)–(4) need T_yMⱼ equal in F along the ∼_y chains (Lemma 9.4.4 and the tangent note for B's sheets, which A takes as SheetGeometry fields). They also need the oriented tangents of the sheets of J to be the two orientations D_*ori, D_*(-ori) of one subspace of F, which A states only for OrTangents of X.PObj. No ep-groupoid structure on F carries B's tangent objects. B ⇒ A fails: A holds for every ep-groupoid and SheetGeometry, with constant A_J. Its tangentValue_eq_sum is, in B, the definition of TΘ.",
+ "B_issue": null,
+ "overlap": "n/a (no direction proved).",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

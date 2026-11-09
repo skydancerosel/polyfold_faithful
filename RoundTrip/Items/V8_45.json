@@ -1,0 +1,12 @@
+{
+ "id": "V8_45",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A's nonEffectivePart_tangent_eq, proposition_8_1_17_2021_one and proposition_8_1_17_2021_two carry two hypotheses the text does not state and B's premises do not give: X.HasConnectedDenseLevelOneReps (natural representations with U(x) ∩ X₁ preconnected in X¹ and dense in U(x), an assumption of the text's Appendix 7.6.4) and IsOpenMap X.PMor.tangentProj (p : T𝐗 → 𝐗¹ open, a Part I fact the project leaves open, gap G.8). Both are satisfiable (point ep-groupoid); openness of p is believed always true, while whether HasConnectedDenseLevelOneReps holds for every ep-groupoid is not established. In addition A's (2) gives (LUC) only for (TX)⁰, whereas B's (2) is (SLUC) for TX (every (TX)ⁱ); that gap is glue (EP.tangentLiftEpEquiv). So A ⇒ B fails; the text's B is believed true, so this is marked effort-only, with the caveat on HasConnectedDenseLevelOneReps. B ⇒ A: B's (1) (and its identity) with the extra hypotheses dropped gives the first three conjuncts (the third at X¹ = (A.lift 1).X, definitional), and the point example; isOpenMap_tangentProj_of_subsingleton was re-proved outright. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 900 shared project theorems — almost all M-polyfold/tangent-bundle and level-chart infrastructure reached through the types (TangentPre transport, tangentChart/levelChart lemmas), plus isClosed_nonEffectivePart_of_isLUC / closure_nonEffectivePart_subset reached through the non-item witness isLUC_liftOne_point; no item theorem.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

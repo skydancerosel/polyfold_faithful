@@ -1,0 +1,12 @@
+{
+ "id": "V8_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same notions on both sides. By proof irrelevance B's tangentMap hs / ht / hι are the project's tSrc / tTgt / tInv, baseB is tBase and B's tCompB is tComp (the same choice term). A ⇒ B is lemma_8_5 read clause by clause. B characterizes the unit 1_q by IsTUnitB (over 1_{p q}, Ts = q) plus uniqueness; the project's tUnit q satisfies that (tBase_tUnit, tSrc_tUnit), and anything that does equals it (tangent_ext). So the composite equals tUnit in both directions. B ⇒ A instantiates B's uniqueness clauses at tUnit. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 272 shared project theorems. Almost all are generic M-polyfold / sc-calculus infrastructure reached through tangentMap and tangent_ext (charts, retractions, TangentPre). The groupoid-specific ones are the ep-groupoid fields (isLocalScDiffeo_src/tgt, isScSmoothMap_src/tgt/unit/inv) and the unit lemmas tBase_tUnit and tSrc_tUnit (chain rule for s ∘ u = id), which glue B's IsTUnitB to tUnit.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,13 @@
+{
+ "id": "V11_4",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (no universe parameters except isHomeomorph_π_trivial, at 0) is example_11_1_4 for every sc-Banach space W, with C = [0,∞)² ⊕ W: trivial C is face structured, and ℤ/2 ⋉ C (swapEpGroupoid W) is weakly face structured and not face structured. It also has five auxiliary lemmas: every [0,∞)ⁿ ⊕ W is face structured, π is a homeomorphism for trivial P, {d_{|X|} = 1} = π(part 0), ℤ/2 ⋉ C has exactly one face, and not_isEpFaceStructured_swap. B is the text's case W = 0, n = 2. It asserts that both groupoids exist, and that every ep-groupoid with the described object M-polyfold and structure maps has the claimed property. A_to_B: the project's trivial and swapEpGroupoid W₀ are the witnesses (actB_eq: B's action is the target map). B's notions equal the project's (as in V11_3). FaceStructuredB E depends only on E.PObj and the orbit setoid, which B's hypotheses fix (faceStructuredB_congr), so B's universal claims reduce to example_11_1_4 W₀. B_to_A0: the main conjunct at the text's case W = W₀ follows from B, by applying B to the project's two groupoids. A at every W and n is not a consequence of B. B_to_A re-proves A outright by copying the project's proofs from non-item lemmas, so it is vacuous. The only difference is A's harmless generalization to C = [0,∞)² ⊕ W and its helper lemmas.",
+ "B_issue": null,
+ "intended": "B_to_A0 (B ⇒ example_11_1_4 at W = W₀, the text's case): proved, #rt_check OK, uses the hypothesis.",
+ "overlap": "rt_overlap B_to_A0: 503 shared project theorems. They are the construction of swapEpGroupoid / actionEpGroupoid (action_isLocalScDiffeo_src/tgt, action_isScSmoothCompSheet, isScSmoothMap_swap_smul) and of the quadrant M-polyfold (IsRelOpenInQuadrant, ScRetraction) in the statements, plus neg_one_smul_eq, used in actB_eq. No face lemmas are among them. B_to_A (outright copy): 749, adding the project proof's own lemmas (isConnected_part_zero, corner_mem_closure_part, dq_eq_one_iff, action_π_eq_π_iff, isFaceStructuredOpen_quadrant, isFaceStructuredOpen_univ_iff, quadrantPolyfold_degIndex_zero). Plain #rt_check passes on A_to_B, B_to_A0 and B_to_A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

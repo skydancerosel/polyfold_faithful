@@ -1,0 +1,12 @@
+{
+ "id": "V11_21",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0; two Part I lemmas with two universe parameters, both at 0) proves the orientation transport (isOrientation_push/pullSection for equivalences, theorem_11_3_5_push/pull for generalized isomorphisms) only under HasIndependentTangentSums Θ (resp. Θ'), Theorem 9.2.1 (1)'s independence of ∑σᵢT_xMᵢ from the local branching structure. The project proves it only under extra hypotheses (good points, tangent slices, Proposition 9.1.12, ℝⁿ graph charts); it is satisfiable but not known for every branched Θ. B claims the theorem for every branched Θ and every representative, without it. IsOrientation's lifts clause compares with tangentValue on a chosen structure, so this is a real gap: closing it means proving Theorem 9.2.1 (1). With the hypothesis added to B (BInd, implied by B), A ⇒ BInd holds (A_to_BInd, rt_check_soft). A's isOrientation_push/pullSection are applied to the legs of any representative d (d.pushSection = Φ_*F^* by definition). MoveB is the vocabulary OrientedBranchingStructure.mapDiffeo along ψ̂∘F, with A's mapDiffeo_tangent. B ⇒ A fails: B gives theorem_11_3_5_push/pull (B_to_A_core, rt_check OK). Not in B: the equivalence-level isOrientation_push/pullSection for ep-functors, and the general lemmas TransportChart.tangentMor_ψ_tangent_obj, IsOrientedAt.map_tangentMapOn, mapDiffeo_tangent and orientedSum_mapDiffeo.",
+ "B_issue": null,
+ "overlap": "A_to_BInd passes #rt_check_soft only: the banned IsOrientedAt.map_tangentMapOn is reached through the isOrientedAt proof field of the vocabulary SubmanifoldOrientation.mapDiffeo (inside OrientedBranchingStructure.mapDiffeo, used for MoveB). The natural route (theorem_11_3_5_push/pull, then pushSection_homMk to change the representative) is not allowed: the non-item pushSection_homMk rests on isOrientedAt_map_tangent_obj/_fibreInv, which use the banned map_tangentMapOn. rt_overlap A_to_BInd: 1292 shared project theorems. Most are the EP(E⁻¹) and tangent-bundle vocabulary; the chapter-11 ones are isBranchedEpSubgroupoid_pullbackTheta, hasIndependentTangentSums_pullbackTheta (via the V11_23 lemma tangentSum_mapDiffeo), pushforwardTheta_eq and restrict_tangent, plus map_tangentMapOn through the vocabulary.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

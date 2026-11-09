@@ -1,0 +1,12 @@
+{
+ "id": "V8_50",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both directions are proved. The project's IsProperStrongBundleCovering2021 (2021 Definition 8.5.9 for the object map A) and B's right-hand side state the same condition. B's right-hand side lists: a strong bundle map with Q ∘ A = F ∘ P, condition (0), and a functor Â with Â.obj = A and Â(ψ, w) = (F ψ, A w) satisfying the 2017 IsProperStrongBundleCovering. A_to_B gets → from the project's iff (the functor it provides, with mor_val and the isMap field for the strong bundle map, the square and (0)), and ← from the 2017 ⇒ 2021 theorem. B_to_A goes the other way. For 2017 ⇒ 2021 it uses B's ← with IsStrongBundleFunctor.μ_comm for (0). For the iff it uses B's → plus uniqueness via EpFunctor.ext and mor_val. For both witnesses it uses B's ← applied to the project's 2017 witness isProperStrongBundleCovering_id. The extra preamble the blind author flagged (Â a strong bundle functor) is part of the project's 2017 structure on both sides, so it causes no mismatch.",
+ "B_issue": null,
+ "overlap": "B_to_A shares 742 project theorems with the item's proofs. The main ones: the 2017 witness isProperStrongBundleCovering_id with isStrongBundleFunctor_id, isStrongBundleIso_fibredLift_id and EpFunctor.isProperCovering_id; the accessors IsStrongBundleFunctor.isMap/mor_val; EpFunctor.ext; the construction of TrivialBundle.epBundle with the chart, pull-back and M-polyfold lemmas below it. All of these are lemmas the item's own proofs also use, not the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

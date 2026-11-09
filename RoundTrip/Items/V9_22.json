@@ -1,0 +1,15 @@
+{
+ "id": "V9_22",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "Every general-M-polyfold theorem of A is conditional on a graph-representation hypothesis (HasGraphChartsAt / HasGraphChartAt / HasGraphBallAt, plus HasContinuousLevelOneOn) that the project proves only in ℝᵐ. B asserts Proposition 9.2.8 and Lemmas 9.2.9–9.2.11 in every M-polyfold, for every structure at a bad point, with no such hypothesis. Even where the hypotheses hold, A's conclusions are weaker in shape. A gives, for each neighbourhood W, one slice F (HasTangentSlicesAt) or one set of points y_e with a W-dependent partition (HasOrientedGoodPointsAt, which also needs orientations). B asks for ONE partition and sequences of good points of Θ converging to x. B's lemmas hold in EVERY chart with φ(x) = 0 and the actual partial quadrant: interior of L ∩ C in L, exact unique graphs over a cone around every interior h₀ for every projection, and a C¹ parametrization Γ with Pr∘Γ injective with invertible derivative. A's IsGraphChartAt is about ONE chart and an abstract direction set K, with an ε-approximate existence property and no Γ. B ⇒ A fails too: A contains the ℝᵐ instances (inverse function theorem on retractions), the normed-space lemma exists_mem_graph_of_hasStrictFDerivAt and slice lemmas for mixed-dimensional families, which B does not imply. Universes at 0. Only A and A_holds are in the file.",
+ "B_issue": "Not a bug, a reading: B is, by its author's own account, possibly stronger than the text. Its lemmas hold for EVERY interior h₀ ≠ 0, EVERY continuous projection and EVERY chart with φ(x) = 0, and its Proposition 9.2.8 requires x^e_k ∉ Mⱼ for j ∉ Ξ. Bᵢ is read as Pr∘Γ − id. Nothing in B looks false.",
+ "overlap": "No direction proved; no #rt_overlap run.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

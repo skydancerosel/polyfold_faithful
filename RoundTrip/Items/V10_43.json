@@ -1,0 +1,12 @@
+{
+ "id": "V10_43",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is the conjunction of five theorems: orbitMap_homMk (|[d]| = |d|, rfl), EPLoc.continuous_orbitMap, EPLoc.orbitMap_id, Diagram.orbitMap_comp (|d.comp e| = |e| ∘ |d| on representatives) and EPLoc.proposition_10_3_11 (|f ≫ g| = |g| ∘ |f| on classes). B states the text's equation on representatives, with B's orbB d = |Φ| ∘ |F|⁻¹ definitionally the project's Diagram.orbitMap d and Diagram.comp the text's composite. So B is literally Diagram.orbitMap_comp. A_to_B reads it off A. B_to_A takes Diagram.orbitMap_comp from B and gets proposition_10_3_11 from B by Quotient induction on f and g. Two conjuncts of A are not consequences of B, which only speaks of composites, and are re-proved outright: continuity (from the non-item Diagram.continuous_orbitMap) and |1_X| = id (|1| ∘ |1|⁻¹ = id, by Homeomorph.apply_symm_apply). On the text's content the two sides agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 737 shared project theorems. Almost all come from the definitions in the statements: the Category instance of EPLoc (Diagram.Equiv.comp, equiv_assoc, isRefinement_id_comp/comp_id, IsRefinement.comp, the weak fibred product and assocFunctor glue), orbitMapQ's well-definedness (lemma_10_3_6, Equiv.orbitMap_eq) and Diagram.comp's proof fields. The only lemma that the proof itself reuses is Diagram.continuous_orbitMap (with EpFunctor.continuous_orbitMap and isHomeomorph_orbitMap beneath it). Both #rt_check pass.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

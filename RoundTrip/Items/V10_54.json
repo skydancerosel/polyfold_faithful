@@ -1,0 +1,13 @@
+{
+ "id": "V10_54",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "A (universe 0) is isotropyHom_spec, bijective_isotropyHom (γ is bijective when ψ is an equivalence) and exists_isotropyData. All three are stated for an arbitrary diagram of ep-groupoids and the project's specific γ = isotropyHom. B, for the base diagram of a strong bundle diagram D, has (i) the data x'', a, b, (ii) bijectivity of φ on G_{x''} and some homomorphism γ with the text's formula, and (iii) natural representations R, R', an open O ∋ x, a sc-smooth germ q representing |[d]| with q(g∗z) = γ(g)∗q(z), and a lift Q, a strong bundle map over O representing |[D]| and equivariant for the natural lifts. A ⇒ B fails exactly at (iii): A_to_Bii proves B minus (iii) from A, using injectivity of φ on isotropy for the uniqueness of k and comp_assoc for the bracketing. The project explicitly leaves q and Q (10.25) unformalized. Building them needs local inverses of φ and Φ, translation along the sheets through a and b, uniqueness of morphisms near γ(g), and the strong bundle structure maps. That is new mathematics, believed true, not glue. B ⇒ A is proved only outright (copies of the project's short proofs). B speaks only of base diagrams of strong bundle diagrams and of some γ, and the project has no zero-bundle construction through which B could be applied to an arbitrary EP diagram. So A's bijectivity statement and its general setting are content that B lacks.",
+ "B_issue": null,
+ "intended": "Bii (B without the germ/lift part (iii)): A_to_Bii proved and #rt_check OK; B_to_Bii shows Bii is a weakening of B.",
+ "overlap": "rt_overlap B_to_A: 117 shared project theorems: the groupoid / isotropy API (comp_assoc, src_inv, inv_inv, isotropyConj_val, isotropyEquivVertexGroup proof fields), EpFunctor.IsEquivalence.exists_iso / bijective_isotropyHom / mor_injective / exists_mor_eq, π_eq_π_iff, GroupoidFunctor.orbitMap_π, Diagram.orbitMap_eq_of / orbitMap_orbitMap_F. These are exactly the non-item lemmas the project's proofs use, since B_to_A copies them. Plain #rt_check passes on B_to_A, A_to_Bii and B_to_Bii.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V11_30",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universe 0) is proposition_11_5_1 plus 19 supporting lemmas on pullNorm, oneOrbitMap, oneToOrbit, oneMap and IsOneInvariant. proposition_11_5_1 gives independence of the representative, the formula N'(Ψ(e'')), continuity and condition (3) for auxiliary norms, inverses on invariant functions, and dependence on |[D]| only. B: (1) [D]^*N', [D]_*N are auxiliary norms; (2) the formulas on every representative and every choice of e''; (3) inverses; (4) dependence on |[D]|. A ⇒ B fails at one point: EpStrongBundle.IsAuxNorm contains Part I's conditions 'complete norm on every fibre' (fiber) and 'P(w_k) → x, N(w_k) → 0 ⇒ w_k → 0_x' (tendsto_zeroOne) for the transported functions. A proves only continuity and condition (3), and the project's header says (1) and (2) are not formalized. A_to_BPart proves everything else of B from A: continuity and map_μ, all of FormulaB (via oneToOrbit_injective / oneToOrbit_oneMap and pullNorm_eq_Ψ on D.symm), the inverses and orbit-map dependence. BPart_and_aux_iff_B shows the missing content is exactly fiber ∧ tendsto_zeroOne. B ⇒ A fails because most of A concerns arbitrary or merely invariant functions N (independence of the representative, inverses, pullNorm_eq_lift) or no norm at all (oneOrbitMap, oneToOrbit lemmas). B speaks only of auxiliary norms. Re-proving A outright would not use B. The A ⇒ B gap is believed true (fibrewise linear homeomorphisms at level 1) but is new mathematics, not glue.",
+ "B_issue": null,
+ "overlap": "No full direction proved, so there is no #rt_overlap. #rt_check OK on the partial results A_to_BPart and BPart_and_aux_iff_B.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

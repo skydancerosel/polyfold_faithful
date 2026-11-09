@@ -1,0 +1,12 @@
+{
+ "id": "V11_36",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item. A (universes at 0) has seven theorems: ProperCoveringHom.ext, mapsTo_fiber, IsEquivalence.id, IsEquivalence.comp, isFiberBijective_of_isEquivalence, isEquivalence_iff and the witness isEquivalence_pairToPointCovering. B says that ProperCoveringHom F F' is exactly the set of pairs (Ψ, Φ) of EpFunctors with Φ∘F = F'∘Ψ on objects and morphisms, and that Γ.IsEquivalence ↔ Ψ, Φ equivalences ∧ ∀ x, BijOn Ψ.obj (F⁻¹x) (F'⁻¹Φx). The definitions agree: B_holds proves B outright (the structure's fields, constructor and cases, and isEquivalence_iff_text, IsEquivalence's three fields, for any F, F'). A_to_B gets uniqueness from A's ext, and (2) from isEquivalence_iff plus isFiberBijective_of_isEquivalence. B_to_A gets isEquivalence_iff and the witness from B (2). ext, mapsTo_fiber, IsEquivalence.id and .comp hold for arbitrary F, F', not only proper coverings as in B, so they are re-proved outright (definitional). A's real extra content is isFiberBijective_of_isEquivalence: for proper coverings the fibre condition of (2) follows from Ψ, Φ being equivalences. B states the text's definition with the condition, so this is not a consequence of B. It is re-proved outright (about 25 lines, the project's argument) from the non-item lemmas IsEquivalence.exists_mor_eq/mor_injective/exists_iso and unique lifting along F, F'.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 547 shared project theorems. Most are statement infrastructure (IsProperCovering, EpFunctor/EpGroupoid instance fields, the pair/point example groupoids). The rest is the EpFunctor.IsEquivalence API (exists_mor_eq, mor_injective, exists_iso, id, comp, with full_iff/faithful_iff/essSurj_iff beneath), existsUnique_lift, isProperCovering_id and isEquivalence_pairToPoint. These are the same lemmas as the project's proof of isFiberBijective_of_isEquivalence, which the outright re-proof copies. #rt_check OK on A_to_B, B_to_A, B_holds and isEquivalence_iff_text.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

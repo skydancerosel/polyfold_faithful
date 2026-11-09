@@ -1,0 +1,12 @@
+{
+ "id": "V10_61",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A (universe 0) is only the reduction step GenSBMap.iff_of_isGeneralizedIso: for ANY property Pr of SEP invariant under strong bundle equivalences, a generalized strong bundle isomorphism A → A' gives Pr A ↔ Pr A'. No project theorem says anything about (LR) of strong bundles, because Proposition 10.4.6 ((LR) of Definition 8.4.2 is invariant under strong bundle equivalences) is not formalized (StrongBundleEquivalence.lean, 'Not formalized'). B is the full Proposition 10.5.6 for B's own IsLRB. So A ⇒ B needs exactly Proposition 10.4.6 for IsLRB; with that as a hypothesis A ⇒ B is one line (A_to_B_of_hyp, rt_check OK). Proving it would be the strong bundle analogue of the transport argument of Proposition 10.1.9 (natural representation and lifted action transported along a strong bundle equivalence), which is new mathematics, not glue; it is believed true. B ⇒ A holds only because A is provable outright from SDiagram.isEquivalence_Φ (the hypothesis is not used).",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 657 shared project theorems, all reached through the statements: the proof fields of SEP, StrongBundle, EpStrongBundle, the GenSBMap quotient and SEP.Hom (strong bundle chart and pull-back infrastructure, sc-calculus), plus SDiagram.isEquivalence_Φ, the one lemma the outright proof uses. #rt_check OK on B_to_A and on A_to_B_of_hyp.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

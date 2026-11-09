@@ -1,0 +1,12 @@
+{
+ "id": "V10_21",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "Same carrier/structure mismatch as V10_19. A (remark_10_2_3) is about the project's epGroupoid F G _ on Obj F G, with the iterated sub-M-polyfold structure. B is about some E on objSetB ⊆ X × 𝐘 × Z, with the triple-product structure (IsWFPEpB). B ⇒ A is proved with the comparison functor toE (copied from the V10_19 item; an sc-smooth functor with an sc-smooth inverse, hence an equivalence). π_X = πX∘toE and π_Z = πZ∘toE are equivalences by B. A's τ with τ(x, ϕ, z) = ϕ is the project's natTrans (a V10_19 definition); B only asserts some natural transformation, so B's τ is not used. The witness remark_10_2_3_negFunctor is the same core applied to id and negFunctor (equivalences by non-item lemmas), with the object (0, 1_0, 0) given by hand. A ⇒ B fails, and is believed true. It needs an E with IsWFPEpB (triple-product sub-M-polyfold structures and the transported ep-groupoid structure), which the project does not prove (the V10_18 gap).",
+ "B_issue": null,
+ "overlap": "B_to_A passes plain #rt_check. rt_overlap B_to_A: 705 shared project theorems. Almost all are the epGroupoid F G h / sub-M-polyfold infrastructure reached through the statements, plus the proof fields of pointReflectionEpGroupoid / negFunctor. The glue uses the same comparison lemmas as V10_19/V10_20, natTrans, IsEquivalence.id and isEquivalence_negFunctor; the project's witness proof uses the last two as well. The project's isEquivalence_projLeft / isEquivalence_projRight, which carry the substance of remark_10_2_3, are not used; the equivalences come from B.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

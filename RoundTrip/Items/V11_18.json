@@ -1,0 +1,12 @@
+{
+ "id": "V11_18",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0, X Y : EP.{0}) is theorem_11_3_3_one…six for EPLoc.pushTheta/pullTheta f (computed on the chosen representative rep f), isNDimensional_push/pullTheta, orbitSupp_pushTheta and the counterexample not_proposition_9_1_11_rn. B states (1)–(6) for every representative d of a generalized isomorphism f, for branched Θ, Θ'. A ⇒ B: d.Φ is an equivalence (non-item theorem_10_3_10), so the non-item pushTheta_homMk, pullTheta_homMk turn d.pushTheta Θ, d.pullTheta Θ' into EPLoc.pushTheta f Θ, EPLoc.pullTheta f Θ' for functorial Θ, Θ'. Each conjunct of B is then a conjunct of A. B ⇒ A fails for a genuine reason: A is more general. (3)–(5) and n-dimensionality are stated for merely functorial Θ, Θ' (B only for branched ones), (6) needs no branched hypothesis on Θ. orbitSupp_pushTheta (|supp f_*Θ| = |f|(|supp Θ|)) and the counterexample to the uniqueness in Proposition 9.1.11 are not in B. B gives (1), (2) (B_to_A_core, rt_check OK); on the text's statement the two sides agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 839 shared project theorems. Most are the vocabulary in the statements: the category EP(E⁻¹) (Diagram.comp, weak fibred products, refinements, EPLoc.instCategory proof fields) and the Part I/Chapter 10 infrastructure. The chapter-11 ones are the non-item V11_15/V11_16 lemmas: pushTheta_homMk, pullTheta_homMk, pushforwardTheta_eq, isFunctorial_push/pullbackTheta. Also theorem_10_3_10 and homMk_eq_homMk_iff. Both A_to_B and B_to_A_core pass plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

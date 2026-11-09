@@ -1,0 +1,15 @@
+{
+ "id": "V10_5",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is proposition_10_1_5 (F ≃ G ⇒ (F equivalence ↔ G equivalence)), IsEquivalence.of_natTrans, and three lemmas on τ: continuous_app, isLocalScDiffeo_app, isLocalScDiffeo_obj (only F local sc-diffeo on objects assumed). B: NatEqB F G ⇒ (IsEquivB F ↔ IsEquivB G). A ⇒ B: a blind natural transformation is an EpNatTrans, A's proposition_10_1_5, and the glue IsEquivB ↔ IsEquivalence (definitionally equal orbit spaces; full_iff/faithful_iff). B ⇒ A: proposition_10_1_5 and of_natTrans from B; the three τ-lemmas are more general than B (no equivalence hypothesis) and are re-proved outright by copying the project's proofs (IsLocalScDiffeoAt.of_comp_left/comp/congr, non-item here). On the text's proposition the two sides agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 231 shared project theorems: IsLocalScDiffeoAt.comp/congr/of_comp_left (V10_6's lemmas, used by both the project's and the copied proofs), the IsScDiffeoOn API (restrict, comp, symm, congr), EpGroupoid.isLocalScDiffeo_src/tgt, full_iff, IsEquivalence field projections, orbit setoid and sc-calculus. No banned theorem; plain #rt_check passes both directions.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

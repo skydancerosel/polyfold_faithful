@@ -1,0 +1,13 @@
+{
+ "id": "V9_32",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A's general Lemma 9.3.4 (lemma_9_3_4, universes at 0) concludes T₁ = T₂ on X_∞ for n-dimensional orientations (IsOrientationOfDim) agreeing at the good points, but only under hgood : ∀ x ∈ supp Θ, HasOrientedGoodPointsAt x n. That hypothesis is the oriented form of Proposition 9.2.8, with locally constant relative orientations. A proves hgood only on ℝᵐ (hasOrientedGoodPointsAt_rn, via HasGraphBallAt and HasContinuousLevelOneOn). The project lists both inputs as not formalized on general M-polyfolds (at boundary points only a cone of directions is admissible). B has no such hypothesis: it covers every ep-groupoid with an n-dimensional branched Θ. So A ⇒ B fails at the hypothesis hgood. hgood is satisfiable (it holds at every point of ℝᵐ), but B does not supply it, and supplying it is substantial missing mathematics, not glue. A second, smaller gap: B's orientations may be represented by sheets of any dimension, while A wants all sheets n-dimensional. For n-dimensional Θ this should hold, but it is not a project lemma. B ⇒ A is proved. B_to_A_core derives lemma_9_3_4 (with hgood ignored), lemma_9_3_4_of_hasGraphBallAt and lemma_9_3_4_rn from B; glue: IsOrientation ⇒ IsOrientationB, IsOrientationOfDim ⇒ IsNDimensional, goodSetB ⊆ goodSet. The other seven conjuncts re-prove A's auxiliary facts outright, as verbatim copies renamed _c: oriented Proposition 9.2.8 on ℝᵐ, the frame-determinant lemmas, local constancy of relative orientations, and the mixed-dimension counterexample. B does not state these. B's added equidimensionality agrees with the project's counterexample lemma_9_3_4_mixed_dim.",
+ "B_issue": null,
+ "overlap": "B_to_A: 1076 shared project theorems, nearly all from the outright copies: graph-ball machinery (IsGraphBallAt.approx/ball, hasGraphBallAt_rn, IsGraphChartAt.*), the unbanned helpers exists_isOpen_sign_eq, frameDet_ne_zero_of_basis, continuousOn_chartVec_of_continuousOn, ContinuousOn.frameDet, the mixed-dimension witnesses (zero_not_mem_goodSet_mixed, mixedTheta_isBranched, isOrientation_sum_rn', exists_two_orientations_point, hasIndependentTangentSums_rn), LocalBranchingStructure / dimPart lemmas and M-polyfold infrastructure. B_to_A_core alone uses only the hypothesis and glue (IsOrientation fields, MU unfolding). rt_check OK for B_to_A_core and B_to_A.",
+ "partial": "B_to_A_core : B → A_core (the three Lemma 9.3.4 conjuncts) uses B genuinely; rt_check OK.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

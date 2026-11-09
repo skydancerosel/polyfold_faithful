@@ -1,0 +1,12 @@
+{
+ "id": "V11_37",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item. A (universes at 0) has five theorems about the definition NatTrans: naturality_F (the diagram on p. 555), naturallyEquivalent_equivalence, NaturallyEquivalent.comp_left/comp_right, and the witness naturallyEquivalent_pairToPointCovering. B says that Γ.NatTrans Γ' is exactly the set of pairs (τ_Y, τ_X) of EpNatTrans with τ_X(F y) = F'(τ_Y y) for all y, i.e. (11.20) read objectwise as in the project. The definitions agree: B_holds proves B outright (the field comm, the constructor, cases). So A_to_B is fun _ => B_holds and does not use its hypothesis (flagged): none of A's theorems concerns the characterization. B_to_A takes the witness from B: the pair (1, 1) satisfies (11.20) for the identity coverings, so it occurs. The other four conjuncts are stated for arbitrary F, F' (B assumes proper coverings), so they are not consequences of B. They are general facts about the definitions, re-proved outright: naturality_F by applying F' to τ_Y's naturality square, the rest from the vocabulary refl/symm/trans/whiskerLeft/whiskerRight.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 510 shared project theorems. These are statement and vocabulary infrastructure: the proof fields of EpNatTrans.refl/symm/trans/whisker*, EpFunctor.id/comp, pairEpGroupoid/pairGroupoidStr/pairToPoint/pointEpGroupoid/pairToPointCovering, the IsProperCovering statement, plus EpNatTrans.naturality/src_app/tgt_app and GroupoidFunctor.mor_comp used in naturality_F' (the project's argument). #rt_check OK on both directions.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

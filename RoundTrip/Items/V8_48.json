@@ -1,0 +1,12 @@
+{
+ "id": "V8_48",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A is only the witness isLR_trivial: every strong bundle over a trivial ep-groupoid has (LR). The project does not formalize Proposition 8.4.3, while B contains it as (ii): X effective with (LR) implies the bundle has (LR). B also contains (i), the claim that the project's EpStrongBundle.IsLR is the text's notion IsLRB. B_to_A proves that the trivial ep-groupoid has (LR) (isLR_trivialGroupoid: |β y| = |y| forces β y = y). It uses isEffective_trivial, applies B (ii) and then the ← half of B (i). A_to_B fails because A gives nothing about other bundles. The ← half of (i), IsLRB → IsLR, is proved (isLR_of_isLRB). The → half does not follow from what is formalized, because the two definitions quantify over different maps. IsLR checks only global strong bundle maps Φ : W → W covering some β (IsStrongBundleMap on all of W) that restrict to isomorphisms of W|U(x). IsLRB checks every local strong bundle isomorphism of W|U(x), and such a map need not extend to W. Nothing in the project closes either the → half of (i) or (ii); (ii) is new mathematics (Proposition 8.4.3, whose density argument the project says needs openness of P and dense regular points).",
+ "B_issue": null,
+ "overlap": "B_to_A shares 703 project theorems with isLR_trivial. They are the infrastructure both proofs pass through: Theorem 7.1 (natural representations, the NatRepConstruction lemmas), the construction of EpGroupoid.trivial and EpStrongBundle.trivial with their proof fields, and the M-polyfold and pull-back chart lemmas below them. None is a step specific to the item.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V9_49",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B says the project's IsMeasureZeroSupp equals the blind reading IsMeasureZeroB. This holds outright (isMeasureZeroSupp_iff, B_holds) for every ep-groupoid, SheetNullSets and A, without B's hypotheses (oriented, tame, compact, n-dimensional, A ⊆ S). Both ask, at every x ∈ supp(Θ), for one tame local branching structure with sheets in the class whose preimages are null. B's preimage {y ∈ Mᵢ | π(y) ∈ A ∩ π(M_U)} is the project's Mᵢ ∩ π⁻¹(A) because Mᵢ ⊆ M_U. A (universes at 0) is four lemmas about an abstract SheetNullSets and the translation hasNullPreimages_iff_isNullIn, re-proved outright in B_to_A. Both directions are proved without their hypothesis and are vacuous; the content is the agreement of the definitions. Like the project, B takes the null sets as an abstract SheetNullSets parameter, so only the logical form of Definition 9.5.1 is compared, not 'measure zero in the sense of 9.4.5' (B's author says so).",
+ "B_issue": null,
+ "overlap": "#rt_overlap B_to_A: 24 shared project theorems, all structure-field projections (SheetNullSets.isNull_*, SheetGeometry/SheetMeasureGeometry fields, toSheetNullSets._proof_1–3) and GroupoidStr basics (src/tgt of unit, comp, inv; Isomorphic.refl/symm/trans; orbitSetoid._proof_1) reached through the orbit space in the statements. No item theorem is reached.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

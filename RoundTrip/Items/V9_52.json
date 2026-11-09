@@ -1,0 +1,12 @@
+{
+ "id": "V9_52",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0) has two theorems. isMeasureZeroBoundaryAll_of: if a choice of tame structures has null boundary preimages, every structure has them, for an abstract SheetNullSets G' on the boundaries ∂Mᵢ, under the hypothesis HasIndependentTangentSums Θ (the independence of TΘ from Theorem 9.2.1). orbitSupp_boundaryTheta_subset: ∂S ⊆ S. B claims (a): the preimage in M_U of K ⊆ |∂M_U| lies in ⋃ ∂Mᵢ. It also claims (b): A's first theorem for its concrete notion, locally (n-1)-dimensional Hausdorff-null. Its only hypotheses are branched, tame and n-dimensional. A ⇒ B fails for three reasons. (1) (a) is not a statement of A. (2) Both (a) and (b) need HasIndependentTangentSums, which B's hypotheses do not give in the project. Without it the project's ∂Θ, which B's statement uses, is computed from an arbitrary chosen structure (tangentValue uses Nonempty.some). Theorem 9.2.1 is formalized only under further hypotheses or for ℝᵐ. (3) As in V9_50, applying A to B's notion needs the good-sheet property for the boundaries. With (2) and (3) as hypotheses, A ⇒ B holds (A_to_B_of_hyp). (a) then follows from the non-item boundaryTheta_eq and isFunctorial_boundaryTheta: |y| = |w| with w ∈ ∂Mₖ gives ∂Θ(y) = ∂Θ(w) > 0. (b) is A's theorem, with B's suitable structures packaged as TameBranchingStructures. B ⇒ A is vacuous, re-proved outright (ReProof).",
+ "B_issue": "B uses the project's boundaryTheta (∂Θ, ∂S = |supp ∂Θ|) without the independence hypothesis under which the project's ∂Θ has the text's local formula. With B's hypotheses alone, ∂Θ depends on a chosen local branching structure at each point. B's null notion is V9_50's IsLocNullB, which has the same σ-additivity caveat.",
+ "overlap": "rt_overlap A_to_B_of_hyp: 759 shared project theorems; B_to_A: 766. None is banned. They are the infrastructure under the statements: boundaryTheta/tangentValue/boundaryPart, submanifoldBoundary and the degeneracy-index/tangent machinery, the natural-representation construction under TameBranchingStructure, and M-polyfold glue. They also include the lemmas used directly: boundaryTheta_eq, isFunctorial_boundaryTheta, exists_mem_of_sum_pos and SheetNullSets.isNull_of_cover. rt_check passes on A_to_B_of_hyp and B_to_A; axioms propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

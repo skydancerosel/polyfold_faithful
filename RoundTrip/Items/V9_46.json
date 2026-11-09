@@ -1,0 +1,15 @@
+{
+ "id": "V9_46",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) is lemma_9_4_8 and isNullIn_diff_MStar for every SheetGeometry on every M-polyfold. A ⇒ B applies lemma_9_4_8 to a SheetGeometry tG L built from B's structure. It lives on the discrete M-polyfold F ⊕ (ι × ι), and sheet i is Mᵢ plus the tags (p, q) with p = i or q = i. The tags of M̃ₐ ∩ M̃_b (for a ≠ b: (a, b) and (b, a)) recover the pair, so the essential points can be defined from the set K alone. A point is essential if it lies in K^e for the reference sheet of a tag of K, which makes ess_comm hold by inter_comm. The null sets are B's in the sheet marked by (i, i), with no tag of the sheet allowed, which gives not_isNull_self. isNull_diff_ess is the project's lemma_9_4_6 (V9_44's theorem, not banned here). submanifoldTangent_eq holds because in a discrete M-polyfold T_zN depends only on N ∩ {z}. At a point of F, the links of tG are B's links and their reverses, so tG has B's classes (two_le) and lemma_9_4_8 gives B. B ⇒ A fails: A covers every abstract SheetGeometry, B one model (A has a short direct proof from the fields, which would not use B). This also shows that SheetGeometry does not tie its data to the M-polyfold: lemma_9_4_8 is a combinatorial consequence of Lemma 9.4.6 for any data.",
+ "B_issue": null,
+ "overlap": "#rt_overlap A_to_B: 0 shared project theorems (B_to_A not proved). A_to_B uses lemma_9_4_6, IsMeasureZero.mono/union, isMeasureZero_empty, MPolyfold.submanifoldTangent_subset_of_inter_eq and discretePolyfold.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

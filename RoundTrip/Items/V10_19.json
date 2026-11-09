@@ -1,0 +1,12 @@
+{
+ "id": "V10_19",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "Both sides make the same claims for an equivalence F: π_Z is an equivalence, F∘π_X ≃ G∘π_Z, d = d_Z∘π_Z, and tameness and a paracompact orbit space pass from Z. They make them about different ep-groupoids. A uses the project's epGroupoid F G h on Obj F G, with the iterated sub-M-polyfold structure. B uses some E on objSetB ⊆ X × 𝐘 × Z, with the sub-M-polyfold structure of the triple product (IsWFPEpB: E.PObj = subPolyfold hS). B ⇒ A is proved. Given B's E, the entrywise bijections eo/em form an sc-smooth functor toE : epGroupoid → E with an sc-smooth inverse functor (conjB = conj via F.mor_inv and associativity), so toE is an equivalence (isEquivalence_of_inverse). Then projRight = πZ∘toE, and the remaining claims transfer. naturallyEquivalent (stated for every admissible F, G, not only an equivalence), natTrans_app (rfl), the three general facts about equivalences and the Nonempty part of the witness are re-proved outright, by the project's one-line arguments from non-item lemmas. A ⇒ B fails, and is believed true. It needs an E with IsWFPEpB: (i) objSetB and morSetB are sub-M-polyfolds of the triple products, and (ii) the ep-groupoid structure is transported onto subPolyfold hS (sc-diffeomorphism of the two structures, properness, condition (4)). This is the V10_18 gap; the project does not prove it ('the comparison with a structure induced from the triple product is not needed').",
+ "B_issue": null,
+ "overlap": "B_to_A passes plain #rt_check. rt_overlap B_to_A: 710 shared project theorems. Almost all are the ep-groupoid / sub-M-polyfold infrastructure of epGroupoid F G h and of the M-polyfold chapters, reached through the statements: PObj/PMor proof fields, isSubMPolyfold_objSet/objRight/morSet/morRight, isScSmoothComp, exists_isProperMap, isLocalScDiffeo_x/z/h/k/src/tgt, conj_* and the h/φ/k_comp, src/tgt_* algebra. The glue uses isScSmoothMap_x/φ/z/h/mφ/k, isScSmoothOn_obj_of / isScSmoothOn_mor_of, Obj.ext / Mor.ext, EpFunctor.isEquivalence_of_inverse, IsLocalScDiffeo.degIndex_eq / isTame, lemma_10_1_2 (inside isEquivalence_of_inverse) and the IsEquivalence fields. The substance of isEquivalence_projRight (the full/faithful/essentially-surjective argument for π_Z) is not used; it is taken from B.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

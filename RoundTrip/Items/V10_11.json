@@ -1,0 +1,15 @@
+{
+ "id": "V10_11",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes 0) has two conjuncts. reducedπ_eq_of_mor: for an equivalence and with no Hausdorff hypothesis, φ and φ' with the same source and target and [Fφ] = [Fφ'] have [φ] = [φ']. proposition_10_1_14: with [T2Space X.ReducedMor] [T2Space Y.ReducedMor], F.reduced is an equivalence. B, under the same instances, says some EpFunctor X_R → Y_R equals F on objects, sends [φ] to [Fφ], and is an equivalence (IsEquivB). A_to_B takes F.reduced; both equations are rfl, and the glue isEquivB_iff applies. B_to_A proves proposition_10_1_14 from B, since B's functor equals F.reduced by EpFunctor.ext and Quot.ind. reducedπ_eq_of_mor needs no Hausdorff hypotheses, while B needs them even to form X_R, so B does not give it. It is re-proved outright (the project's proof, from the non-item reducedπ_eq_iff_comp_inv and mem_nonEffectivePart_of_mor), without the hypothesis. On Proposition 10.1.14 the two sides agree, including the paracompactness instance of X_R, which Lean finds in both.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 691 shared project theorems. Most come through the statement definitions: reducedEpGroupoid's proof fields (Proposition 7.9 infrastructure: isScDiffeoOn_reducedπ, isLocalScDiffeo_reducedπ, exists_isCompact_preimage_reducedπ_subset), EpFunctor.reduced/ofContinuous/reducedGroupoidFunctor and reducedMap (whose proof field uses mor_mem_nonEffectivePart, not banned here). Beyond them: the lemmas of the copied proof of reducedπ_eq_of_mor (reducedπ_eq_iff_comp_inv, mem_nonEffectivePart_of_mor, GroupoidFunctor.mor_inv/mor_comp) and GroupoidFunctor.full_iff/faithful_iff from the glue.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

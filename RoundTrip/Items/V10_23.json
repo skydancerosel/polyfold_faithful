@@ -1,0 +1,12 @@
+{
+ "id": "V10_23",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universe 0) has ten conjuncts. Seven are the pull-back / push-forward theorems: obj_pullback, pullback_eq, isFunctorialSection_pullback, pushforward_eq (10.22), isFunctorialSection_pushforward, pullback_pushforward, pushforward_pullback. They are stated for arbitrary sections and functorial sections, not only sc-smooth ones. The other three are general μ / orbit-map lemmas. B is about sc-smooth section functors only: (a) Φ_x is bijective; (b) Φ*f' is Φ_x⁻¹∘f'∘ϕ and an sc-smooth section functor; (c) σ : ϕ(x) → x' exists; (d) Φ_*f = μ'(σ, Φ(f x)) for every choice, and Φ_*f is an sc-smooth section functor; (e) the two are mutually inverse. A_to_B uses A's pullback_eq and obj_pullback to get pullB = h.pullback, and A's pushforward_eq to get pushB = h.pushforward. It then uses A's functoriality and inverse theorems. Sc-smoothness comes from local copies of the project's isScSmoothSection_pullback / _pushforward, with their internal uses of the item theorems pullback_eq / pushforward_eq replaced by A's conjuncts (the originals would pull those banned theorems in). B ⇒ A fails for a genuine reason: B says nothing about sections that are not sc-smooth, and A's theorems cover them. B_to_A_sections (rt_check OK) derives the five functoriality / (10.22) / inverse theorems of A restricted to Γ(P, μ) and Γ(P', μ') from B. There pullB = h.pullback comes from B's fibrewise injectivity, and pushB = h.pushforward from B's (d) at the project's choice. The three general lemmas (μ_injective_snd, exists_μ_eq_of_orbitMap_eq, orbitMap_eq_of_forall_exists) are not about pull-backs, and B does not address them. So the gap is only the project's extra generality.",
+ "B_issue": null,
+ "overlap": "A_to_B and B_to_A_sections pass plain #rt_check. rt_overlap B_to_A_sections: 650 shared project theorems. Almost all are the proof fields of EpStrongBundle.toEpGroupoid / toGroupoidStr and the pull-back bundle infrastructure (reached through the statements). The rest is glue on the vocabulary: P_pullback, P_pushforward, isSection_pullback, isSection_pushforward, src_preMor, tgt_preMor, covers, isLocalScDiffeo_one (in toB), fiberEquiv (in the local copy of obj_pullback), and the μ lemmas reached through toEpGroupoid. None of these is the substance of the banned proofs.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

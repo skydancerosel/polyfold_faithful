@@ -1,0 +1,12 @@
+{
+ "id": "V9_43",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item, and the definitions agree exactly. B (for the quadrant model [0,∞)ⁿ ⊆ EuclideanSpace ℝ (Fin n)) holds by Iff.rfl (B_holds): the project's IsMeasureZero I K is ∀ e ∈ maximalAtlas I ∞ M, volume (chartImage I e K) = 0, chartImage I e K is e.extend I '' (e.source ∩ K), and both sides use the same volume instance. So A_to_B does not use A. A (universes at 0) is three general facts about the project's definition for an arbitrary model with corners and an arbitrary MeasureSpace E: countable unions, the chart criterion (one null chart image around each point suffices, given an additive Haar volume), and ℝ² is not null. B states none of these, and they are re-proved outright as copies of the project's proofs, so B_to_A is vacuous too. The extra content of A consists of true facts about the same definition, not a difference of notion.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 4 shared project theorems (chartImage_chartAt_self, extend_mem_extendCoordChange_source, extendCoordChange_apply_of_mem, chartImage.eq_1), all chart glue used by the outright re-proofs. No banned theorem is used, and rt_check passes on both directions (axioms: propext, Classical.choice, Quot.sound).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

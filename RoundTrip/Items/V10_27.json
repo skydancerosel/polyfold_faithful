@@ -1,0 +1,12 @@
+{
+ "id": "V10_27",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A (universes at 0) is theorem_10_4_5 plus twelve supporting lemmas. theorem_10_4_5 says Φ_* and Φ^* are mutually inverse bijections Γ ⇄ Γ'; when |Φ| = |Ψ|, Φ_* = Ψ_* and Φ^* = Ψ^*; and both restrict to Γ⁺. The project docstring says the Fred part is not formalized. B has this content as (a)–(f), with B's choice-based pushB/pullB, and adds (g): Φ_* and Φ^* map Fred(P, μ) ⇄ Fred(P', μ'). A says nothing about Fred, so A_to_B fails at (g). That is a genuine omission, not glue. The missing piece is the invariance of StrongBundle.IsScFredholmSection under local strong bundle isomorphisms, and the project's docstring notes it lacks this. Everything else holds: A_to_BnoFred proves A ⇒ (B without (g)) through the non-item bridges pullB = h.pullback (pullback_eq) and pushB = h.pushforward ((10.22) pushforward_eq). B_to_A gets theorem_10_4_5 from (a)–(f); Φ^* = Ψ^* comes from Φ_* = Ψ_* and the inverse laws. It also gets isScSmoothSection_pushforward from (a), isScPlusSection_pushforward from (f), and bijOn_pushforward_example from these. The other nine conjuncts are general lemmas B does not state: pull-backs of non-functorial sections, the local form exists_pushforward_local, and M-polyfold and strong-bundle-iso lemmas. They were re-proved outright by copying the project's proofs, which use non-item lemmas.",
+ "B_issue": "The blind statement includes the Fred restriction (g), as quoted. The item title says 'without the Fred part'; the blind author noticed this and kept (g) as a separate conjunct. So the A_to_B failure is the project's announced omission, not a misreading of B.",
+ "overlap": "rt_check OK on A_to_BnoFred and on B_to_A. rt_overlap B_to_A: 871 shared project theorems. These are vocabulary proof fields (chart/strong-bundle infrastructure, toEpGroupoid, sectionFunctors), the example's construction (isStrongBundleEquivalence_pullbackProj', isMap_negInv, isStrongBundleEquivalence_of_inverse; in A13's statement), and the non-item lemmas of the copied proofs: pullback_eq, obj_pullback, pushforward_eq, IsStrongBundleIsoOn.P_inv/P_inv_one, isScSmoothOn_to_pullback_of_eqOn, isScSmoothMap_of_forall_charts, MPolyfold.IsScSmoothOn.of_exists_charts/of_locally.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

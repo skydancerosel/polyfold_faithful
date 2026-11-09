@@ -1,0 +1,12 @@
+{
+ "id": "V9_4",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both formalize the example with the same hypotheses (HypB is Remark913Hyp field by field) and the same Θ (countB ![graphB β₁, graphB β₂] = thetaGraphs β₁ β₂). A ⇒ B: (a) comes from remark_9_1_3_b. B's structures at each x of the support (the graphs through x, cut to U) are the project's localBranchingStructure_sum_rn. The two ℝ²-wide structures at 0 are checked directly. (b) takes γ₂ = β₁ + β₂ (γ₂_pos, thetaGraphs_eq). (c) follows from A's per-sheet non-uniqueness. The two statements differ in content, so B ⇒ A re-proves part of A outright. A additionally has that Θ is 1-dimensional, and the stronger form of (c): no sheet of one structure equals a sheet of the other near 0. B's (c) only says the two unordered pairs of sets differ. A also has the satisfiability witness and that γ₂ = β₁ + β₂ is forced. B ⇒ A takes 'Θ branched' from B (a), and the 1-dimensionality from B's local structures plus the dimension of graphs. The strong non-uniqueness, the witness, thetaGraphs_eq, γ₂_pos and eq_add_of_thetaGraphs_eq are re-proved outright. B has nothing A lacks (its extra explicit structures are glue).",
+ "B_issue": null,
+ "overlap": "B_to_A: 620 shared project theorems. These are the trivial ep-groupoid / rnPolyfold construction, the graph-submanifold lemmas (rnPolyfold_isSubmanifoldOfDim_graph2, graphRetraction, isClosed_graph2, graphs2_*), exists_curve2_mem / continuous_curve2 / curve2_zero, the Remark913Hyp field projections, and the proof fields of localBranchingStructure_sum_rn and structureβ / structureγ. thetaGraphs_eq is reached only through structureγ._proof_* (the ofEq proof inside the definition), so both directions use #rt_check_soft: the soft hit is via Remark913Hyp.structureγ, which A's statement mentions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

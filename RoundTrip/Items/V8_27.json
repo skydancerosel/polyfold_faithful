@@ -1,0 +1,12 @@
+{
+ "id": "V8_27",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is Definition 8.5.1 (IsProperCovering and fibredMap, vocabulary) plus two theorems, so A (universes 0) = isSubMPolyfold_fibredProduct (Part I's Proposition 2.46, listed because condition (3) uses it) ∧ isProperCovering_id. B says IsProperCovering F ↔ IsProperCoveringB F, B's literal reading. The two readings agree up to repackaging, so A_to_B is essentially definitional. In (2), B asks each U(y) to be open, which follows from it being the domain of an sc-diffeomorphism, and asks for an inverse ∃ g per y, where the project has a family σ; going back we choose one by dite and Classical.choose. In (3), B quantifies existentially over the paracompactness instances and the sub-M-polyfold proof, and subPolyfold does not depend on the proof (proof irrelevance). A_to_B takes that proof from A's first conjunct. B_to_A gets isProperCovering_id from the backward half of B: one sheet, and φ ↦ (φ, sφ) with inverse (φ, x) ↦ φ. Proposition 2.46 is a general M-polyfold fact that B does not imply, so it is re-proved outright by copying the project's fibredSubDataL proof, as is the private helper isScSmoothOn_subPolyfold_of_val. The definitions agree; nothing differs.",
+ "B_issue": null,
+ "overlap": "HARNESS: the structure IsProperCovering states condition (3) with the proof isSubMPolyfold_fibredProduct X.isLocalScDiffeo_src F.isScSmoothMap_obj inside the type of its field isScDiffeo_fibredMap. A_to_B destructures and builds the structure, so plain #rt_check reaches the banned theorem through the types of mk, the projection and the recursors; the failure is recorded with #guard_msgs. A local #rt_check_except_struct (harness rtCollect with mk, rec, casesOn, recOn and isScDiffeo_fibredMap of IsProperCovering not followed) passes: the witness is A's first conjunct, transported by proof irrelevance. B_to_A passes plain #rt_check. rt_overlap B_to_A: 357 shared project theorems, mostly M-polyfold, product and sub-M-polyfold infrastructure (subPolyfold_*, paracompactSpace_prod, isScSmoothMap_fst, IsScSmoothOn.prodMk, isScDiffeoOn_id), plus fibredSubDataL's proof fields from the copied Proposition 2.46: the same lemmas the project's proofs use.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V8_25",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) has six conjuncts: the four theorems relating Definitions 8.3.2 and 8.3.3 (isMap, isStrongBundleFunctor_liftFunctor, eq_liftFunctor, isMap_iff_strongBundleFunctor), and two general pull-back lemmas (isScSmoothMap_to_pullback_one, the universal property at level [1], and isLinearMap_fiberRestrict_pullbackMap). B has four parts. (a) The lift (Φ, (γ,w) ↦ (φγ, Φw)) is an EpFunctor and a strong bundle map on morphisms, with μ'∘𝚽 = Φ∘μ and s'∘𝚽 = Φ∘s, and is a strong bundle functor. (b) 8.3.3 ⇒ 8.3.2, with the formula for 𝚽. (c) A strong bundle functor is determined by its object map. (d) There is an equivalence of the two kinds of data that commutes with the object map. A_to_B takes F = h.liftFunctor, and gets uniqueness from the ∃! of isMap_iff. B_to_A gets the four ep-groupoid conjuncts from B (a)–(c); for liftFunctor, B's F equals h.liftFunctor by EpFunctor.ext. The two general pull-back lemmas are not consequences of B, which is about ep-groupoids only. They are re-proved outright by copying the project's proofs, which use only non-item lemmas. On the text's content the two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statement of eq_liftFunctor contains the banned theorem IsStrongBundleFunctor.isMap itself (as the proof h.isMap passed to IsMap.liftFunctor). So every term mentioning A reaches it, and plain #rt_check fails on both directions only for that name; the failures are recorded with #guard_msgs. #rt_check_soft does not help, because the theorem is not in a _proof_N field. A is split into A1–A6, and a local #rt_check_except_defs (harness rtCollect with the body of A3 not unfolded) passes on both directions. A_to_B never uses A3, and B_to_A proves A3 with its own proof hisMap h in place of h.isMap (equal by proof irrelevance). rt_overlap B_to_A: 641 shared project theorems. These are the proof fields of toEpGroupoid, toGroupoidStr and liftFunctor (in the statements), and the pull-back chart infrastructure that the copied proofs use (PullbackChartData.*, oneChart, toChart_mem_pullback_atlas, pullbackFiberEquiv_add/smul): the same lemmas as the project's proofs of the two general lemmas.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

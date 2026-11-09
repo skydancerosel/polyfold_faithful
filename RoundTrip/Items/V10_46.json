@@ -1,0 +1,12 @@
+{
+ "id": "V10_46",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is theorem_10_3_15 about the defined functor orbitFunctor : EPLoc ⥤ TopCat. It says orbitFunctor.obj (of X) = TopCat.of |X| and ⇑(orbitFunctor.map [d]).hom = |Φ| ∘ |F|⁻¹; both are rfl given the definition. The functoriality is in the definition: orbitFunctor is a Mathlib Functor, with map_id and map_comp proved from EPLoc.orbitMap_id and proposition_10_3_11. B states the same functor elementarily for EPLoc.orbitMap: (1) |[d]| = |Φ| ∘ |F|⁻¹, (2) continuity of every |f|, (3) |1_X| = id, (4) |f ≫ g| = |g| ∘ |f|. A_to_B gets (1) from A's second conjunct, since ⇑(orbitFunctor.map f).hom is EPLoc.orbitMap f by rfl. It reads (2)–(4) off the functor orbitFunctor in A's statement (continuity of TopCat morphisms, map_id, map_comp), not off theorem_10_3_15's equations. B_to_A gets the first conjunct by rfl and the second from B (1). Same content: X ↦ |X|, [d] ↦ |Φ| ∘ |F|⁻¹ is a functor EP(E⁻¹) → TOP.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 751 shared project theorems, all reached through the definitions in the statement: orbitFunctor's map_id/map_comp fields (EPLoc.orbitMap_id, proposition_10_3_11, Diagram.orbitMap_comp, orbitMap_id, continuous_orbitMap) and EPLoc's Category instance (Diagram.Equiv.comp, equiv_assoc, refinement and weak fibred product glue). The proofs themselves reuse no project lemma. Both #rt_check pass.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

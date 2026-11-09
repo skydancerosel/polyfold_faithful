@@ -1,0 +1,15 @@
+{
+ "id": "V9_45",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0) is the bookkeeping over an abstract SheetGeometry G on an M-polyfold: with Lemma 9.4.4 (field ess_comm) and the note T_zN = T_zN' at essential points (field submanifoldTangent_eq) given, the chain relation is an equivalence and preserves P.submanifoldTangent. B asks for these two facts outright, for sheets that are immersed n-manifolds with corners jᵢ : Nᵢ → F in a Banach space. A ⇒ B would need a SheetGeometry whose links at the points of F are B's links. Its ess_comm is then Lemma 9.4.4 for B's sheets, which the project does not have for Mathlib manifolds immersed in F. The tagged discrete geometry of V9_46 has B's links or their reverses, so it gives only the equivalence closure. B's tangent claim is about Djᵢ(ℝⁿ) ⊆ F, which P.submanifoldTangent (Part I's tangent bundle) does not express. B is believed true, but proving it means proving the content that A assumes, not glue. B ⇒ A fails: A holds for every SheetGeometry, B only for its model. The definitions have the same shape (numClasses_eq_card_quot, rt_check OK): the project's numClasses (quotient by ySetoid = EqvGen of the links) is Nat.card (Quot YEquiv), B's formula.",
+ "B_issue": null,
+ "overlap": "n/a (no direction proved). numClasses_eq_card_quot uses only quotient glue and no SheetGeometry field.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

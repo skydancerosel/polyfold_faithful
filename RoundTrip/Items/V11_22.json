@@ -1,0 +1,12 @@
+{
+ "id": "V11_22",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0, EP.{0}) is push_comp, pull_comp and pull_push for the project's OrientedBranched, which carries HasIndependentTangentSums Θ (Theorem 9.2.1 (1)'s independence) as a field, plus EPLoc.pushTheta_pullTheta (any functorial Θ') and EPLoc.pushSection_pullSection (any T' ∈ Γ). B is about pairs (Θ, T̂) with Θ branched and T̂ an orientation, without the independence, on every representative. A ⇒ B fails on the independence. B's PairsB is Theorem 11.3.5 without it, which the project lacks (V11_21; it needs Theorem 9.2.1 (1) in general). A's composition and inverse laws only cover pairs with independent tangent sums. With the independence added to B's hypotheses (BInd, implied by B), A ⇒ BInd holds (A_to_BInd, rt_check OK). PairsBInd comes from the fields of the vocabulary OrientedBranched.push/pull, CompBInd from push_comp and pull_comp. InvBInd comes from pull_push applied to T̂ made 0 off X_∞ (still an orientation, same push-forward), EPLoc.pushTheta_pullTheta and pushSection_pullSection. All are moved to arbitrary representatives by the non-item *_homMk lemmas. B ⇒ A fails for a genuine reason: EPLoc.pushTheta_pullTheta and pushSection_pullSection hold for all functorial Θ' and all section functors in Γ, while B only covers oriented branched pairs. push_comp, pull_comp and pull_push do follow from B (B_to_A_core, rt_check OK).",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_BInd: 1446 shared project theorems. Most are the EP(E⁻¹), weak-fibred-product and tangent-bundle vocabulary. The rest are the non-item lemmas also used by the originals: push/pullTheta_homMk, push/pullSection_homMk, EPLoc.pushSection_mem/pullSection_mem, isFunctorial_push/pullTheta, pullSection_of_mem/_of_not_mem, and the proof fields of the vocabulary OrientedBranched.push/pull (theorem_11_3_5_push/pull, hasIndependentTangentSums_push/pullTheta). Both A_to_BInd and B_to_A_core pass plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

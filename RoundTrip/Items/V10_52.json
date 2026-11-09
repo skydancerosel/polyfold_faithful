@@ -1,0 +1,12 @@
+{
+ "id": "V10_52",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0): IsRefinement.base, Equiv.base, Equiv.total, SDiagram.continuous_orbitMap, Equiv.orbitMap_eq, GenSBMap.orbitMap_eq_total, GenSBMap.continuous_orbitMap. B: (a) equivalent diagrams have the same [d] = homMk(base diagram), (b) GenSBMap.base [D] = [d], (c) |Φ| : |W''| → |W| is a bijection on representatives, (d) |[D]|(|Φ w''|) = |Ψ w''|, (e) |Ψ|∘|Φ|⁻¹ is independent of the representative. A_to_B: (a) from Equiv.base + homMk_eq_homMk_iff (B's baseDiagB is D.base up to a proof field), (b) rfl, (c) from the field isHomeomorph_orbitMap of the total equivalence, (d) from Diagram.orbitMap_orbitMap_F, (e) from Equiv.orbitMap_eq and (d). B_to_A gets the two substantive conjuncts from B: Equiv.base from (a), Equiv.orbitMap_eq from (c)+(d)+(e). The other five are not consequences of B, which does not mention refinements of base diagrams, equivalence of the total diagrams, continuity, or GenSBMap.total. They are re-proved outright from non-item lemmas (NatEquiv.base, IsRefinement.total, Diagram.continuous_orbitMap, Quot.inductionOn/rfl). On the text's content (well-definedness of [d] and |[D]| = |Ψ|∘|Φ|⁻¹) the two say the same thing. A adds continuity and the total-space bookkeeping; B adds the explicit bijectivity of |Φ|.",
+ "B_issue": null,
+ "overlap": "HARNESS: GenSBMap.base, GenSBMap.total, GenSBMap.orbitMap in the statements are Quot.lifts whose well-definedness proofs are the banned Equiv.base, Equiv.total (in _proof_1 fields) and Equiv.orbitMap_eq (a plain application in the body of GenSBMap.orbitMap, which reaches Equiv.total and, via Equiv.base, IsRefinement.base). Plain #rt_check fails on both directions, and so does #rt_check_soft (because of GenSBMap.orbitMap); both failures are recorded with #guard_msgs. A local #rt_check_except_defs (rtCollect with those three bodies not unfolded) passes on both directions. rt_overlap B_to_A: 1042 shared project theorems, almost all from the statements: the EPLoc category structure, the SEP / strong bundle infrastructure, and the banned theorems via the GenSBMap bodies. The proof itself adds only GroupoidFunctor.orbitMap_π, surjective_π, Diagram.continuous_orbitMap, NatEquiv.base and IsRefinement.total.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

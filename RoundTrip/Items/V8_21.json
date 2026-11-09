@@ -1,0 +1,12 @@
+{
+ "id": "V8_21",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0): fiberMor_apply (rfl), μ_add, μ_smul (μ(ψ,·) additive and homogeneous W_{sψ} → W_{tψ}) and μ_inv_μ, μ_μ_inv (μ(ψ⁻¹,·) is a two-sided inverse). B: a family L ψ : W_{sψ} ≃ₗ W_{tψ} of linear isomorphisms with L ψ = μ(ψ,·), L(1_x) = id and L(ψ∘γ) = L ψ ∘ L γ on points. A ⇒ B builds L ψ from A's four algebraic conjuncts (membership via V8_20's P_μ); the unit and composition laws are the structure fields μ_unit, μ_comp (Definition 8.3.1 (2),(3)) after μ_congr. B ⇒ A: μ_add/μ_smul are the linearity of B's L ψ; μ_inv_μ/μ_μ_inv follow from B's composition law for ψ⁻¹∘ψ, ψ∘ψ⁻¹ and its unit law with the groupoid laws of X; fiberMor_apply is definitional (rfl, proved outright). The project additionally makes μ(ψ,·) a topological linear isomorphism (the definitions fiberMor, fiberMorEquiv, vocabulary), which B's algebraic ≃ₗ does not ask for; no theorem of A carries that, so the theorem content is equivalent.",
+ "B_issue": null,
+ "overlap": "B_to_A: 395 shared project theorems, reached through the statements (fiberMor's body: IsStrongBundleMap.fiberMap, pullbackFiberCLE; the pull-back strong bundle and its chart/sc-calculus infrastructure); the proof itself uses only μ_congr, the groupoid laws (inv_comp, comp_inv, src_unit, src_inv, tgt_inv) and B's three clauses.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

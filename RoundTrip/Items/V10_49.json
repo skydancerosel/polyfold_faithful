@@ -1,0 +1,12 @@
+{
+ "id": "V10_49",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only EPreg, EPLocReg (Mathlib's ObjectProperty.FullSubcategory of EP resp. EPLoc on the objects with IsLR) and the witnesses pointReg, pointLocReg are listed, so A = True and both implications are vacuous; the content is B itself, proved outright as B_holds. For both categories the inclusion ObjectProperty.ι is full and faithful (Mathlib's full_ι, faithful_ι), injective on objects (FullSubcategory.ext), and its image is exactly the objects with (LR) (the field property). So the project's EP_reg and EP_reg(E⁻¹) are the text's full subcategories, with the category structure Lean finds on them. Universes: B at 0 (EP.{0} with Type-valued homs, EPLoc.{0} with Type 1-valued homs).",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial); B_holds uses only Mathlib's FullSubcategory API.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

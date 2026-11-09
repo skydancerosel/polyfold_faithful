@@ -1,0 +1,12 @@
+{
+ "id": "V9_61",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "A (universes at 0) has seven conjuncts. lemma_9_6_4 and isTopBadPoint_iff give Lemma 9.6.4 for two labelled structures and any Θ, but only under the hypothesis MPolyfold.TopMultiplicity of the top dimension. lemma_9_6_4_of_hasGraphChartAt gives it under the graph representation at every point. The other four are facts about the hypothesis: topMultiplicity_zero, topMultiplicity_rn_of_le, topMultiplicityAt_of_hasGraphChartAt, and topMultiplicity_rn (it holds in every ℝᵐ). B states Lemma 9.6.4 for branched Θ, x ∈ supp Θ and blind-labelled structures, with no further hypothesis. A ⇒ B fails because A's lemma is conditional: TopMultiplicity, the total top weight at y determined by Θ near y off the lower-dimensional sets, is what the project says the text's step 'as in the discussion of good points' needs. The project proves it only for k = 0 and in ℝᵐ. Proved: B under TopMultiplicity (A_to_B_of_topMultiplicity) and B over every ℝᵐ (A_to_B_rn). B ⇒ A fails for two reasons: the TopMultiplicity facts are not in B, and A's lemmas hold for non-branched Θ. For branched Θ, B gives A's Lemma 9.6.4 and the top-bad version without the TopMultiplicity hypothesis (B_to_A3_of_branched, B_to_A4_of_branched). Off M^k_U both sides reduce to y ∈ supp Θ, since the project's top-good points include, vacuously, the points of M_U off M^k_U. B is believed true (the text's graph representation, Lemmas 9.2.9–9.2.11). Proving it in general M-polyfolds is missing mathematics, not glue.",
+ "B_issue": null,
+ "overlap": "No full direction. rt_check OK for A_to_B_of_topMultiplicity, A_to_B_rn, B_to_A3_of_branched, B_to_A4_of_branched. rt_overlap B_to_A4_of_branched: 532 shared project theorems. Through the non-item mem_topUnion_iff_of_mem it shares the §9.6 lemmas lemma_9_6_1, lemma_9_6_2, topUnion_inter_subset, exists_isGeneric and dim_le_topDim_of. Through the dimension glue it shares the Part I tangent machinery (HasDimAt.finrank_eq, chartTangent_eq, submanifold data). It also shares the LocalBranchingStructure field lemmas. No TopMultiplicity lemma is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

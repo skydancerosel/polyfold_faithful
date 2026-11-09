@@ -1,0 +1,12 @@
+{
+ "id": "V9_38",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item lists only the definition boundaryLift bd T y = mapDomain bd (degree-1 part of T y), so A = True. The content is B, which is proved outright (B_holds, universes at 0) for every boundary operation bd. First clause: an orientation vanishes at smooth points off supp Θ (IsOrientation.eq_zero_of_not_mem), so the lift is 0. Second clause: where T y = ∑ σᵢ T_y(Mᵢ,oᵢ) with tame sheets, the degree-1 part is the subsum over d_{Mᵢ}(y) = 1 (degreePart_orientedSum), and mapDomain bd sends each single to single (bd T_y(Mᵢ,oᵢ)) σᵢ. B's filter over a proof h of IsSubMPolyfold Mᵢ is the project's by proof irrelevance. Both directions are vacuous (A = True). B's hypotheses (branched, tame Θ, x ∈ supp Θ) are not needed. Shared with the blind reading: T_y(∂Mᵢ, o_∂Mᵢ) is an abstract operation bd on oriented tangent spaces in both, so neither side checks that Definition 9.3.8 yields such a function of T_y(Mᵢ,oᵢ).",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 0 (trivial). B_holds avoids proposition_9_3_9, the project's own statement of the two clauses (rt_check OK). It shares 637 project theorems with that theorem's proof, all through degreePart_orientedSum (hasSubDegree_tangent_iff and the tame degree-index / sub-M-polyfold / sc-retraction machinery below it) and IsOrientation.eq_zero_of_not_mem. Axioms: propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

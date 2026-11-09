@@ -1,0 +1,15 @@
+{
+ "id": "V11_24",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A (universes at 0; the two M-polyfold lemmas at .{0,0}) is the conjunction of eight theorems: three local sc-diffeomorphism lemmas (tangent-reducedness and 'f(a) ∈ ∂f(M) iff a ∈ ∂M'), the local step boundaryTheta_apply_of_isScDiffeoOn, (11.11) for an equivalence (push, pull) and (11.11) for a generalized isomorphism on the chosen representative (theorem_11_3_8_push/pull). Every one of the last five assumes HasIndependentTangentSums Θ (Theorem 9.2.1's independence), which BoundaryB does not. A ⇒ B fails for exactly this reason: boundaryTheta is read off tangentValue, a chosen local branching structure (Nonempty.some), so without independence the chosen structures at y and at the moved point are unrelated. The independence is Theorem 9.2.1, which the project proves only in special cases (Prop 9.1.12 stated, not proved). A_to_BoundaryB_ind proves BoundaryB from A once the independence is added, on every representative (pushTheta_homMk, theorem_10_3_10). A second, smaller gap: DegPreservedB asks for equality of the degeneracy indices d_M of sub-M-polyfolds, but A has only 'd_M ≥ 1 iff d_{f(M)} ≥ 1' for smooth submanifolds. Equality is Proposition 2.24 for the induced structures, true but not a project lemma. B ⇒ A is proved: 7, 8 from BoundaryB with d = rep f, and 5, 6 from BoundaryB on the diagram X ←id X →F Y, all without using the independence A grants. 1–4 are local lemmas, not consequences of B, and are re-proved outright (the project's proofs, copied, from non-item lemmas). effort_only means: B is believed true (the text's Theorem 9.2.1), but A ⇒ B needs Theorem 9.2.1 in general, real mathematics the project leaves as a hypothesis, not glue.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1314 shared project theorems. Most are statement and Part I / Chapter 10 infrastructure (sub-M-polyfold data, chart and retraction lemmas, EPLoc category and Diagram proof fields). The rest is what the copied proofs of items 1–4 reuse, by construction the same lemmas as the project's proofs: transportChart_isChart, IsTangentReducedAt.isReducedChart, isReducedTangentAt_chart_change, mem_submanifoldBoundary_iff, mem_submanifoldBoundary_inter_isOpen_iff, boundaryTheta_eq, boundaryTheta_eq_zero_of_not_mem_supp, tangentValue_eq, plus theorem_10_3_10, homMk_rep, isFunctorial_boundaryTheta, isFunctorial_pullbackTheta. Both #rt_check (A_to_BoundaryB_ind, B_to_A) pass.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V10_68",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) is about the project's specific construction W ×_{W'} W'' := wfpSEP hΦ Ψ = πZ*W'', with ΠZ = projZ and ΠX = projX. Its conjuncts: theorem_10_2_2 (projZ is a strong bundle equivalence, projX ≫ Φ ≃ projZ ≫ Ψ, the legs cover πX and πZ); theorem_10_2_2_right; nonempty_wfpSEP; two general lemmas (isStrongBundleEquivalence_pullbackProjFunctor: the pull-back along an equivalence projects by a strong bundle equivalence; SEP.natEquiv_cone); and an example. B is existential: SOME strong bundle C with legs πW, πW₂ and an EP-isomorphism of C's base with wfp Φ.ϕ Ψ.ϕ h, with the covering equations, πW₂ an equivalence, πW ≫ Φ ≃ πW₂ ≫ Ψ, and πW an equivalence if Ψ is one. A ⇒ B (rt_check OK) takes C = wfpSEP, e = Iso.refl (structure eta, and proof irrelevance for the Prop Admissible), the covering equations by rfl, and the rest from theorem_10_2_2(_right). B ⇒ A fails for a genuine reason. B pins down only the base of its C up to isomorphism, not the total space or the legs, so nothing it says transfers to the project's projX/projZ. The general pull-back and cone lemmas and the example are not consequences of B either. Deriving them would mean re-proving the construction outright. On the text's (unstated) claim the two sides agree; A adds a concrete construction and the lemmas behind it.",
+ "B_issue": null,
+ "overlap": "No B_to_A, so no rt_overlap. #rt_check OK on A_to_B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

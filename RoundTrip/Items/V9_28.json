@@ -1,0 +1,15 @@
+{
+ "id": "V9_28",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B is the existential content of the remark: some branched ep⁺-subgroupoid has a local branching structure at x ∈ supp Θ and a y ∈ U(x) ∩ ∂X with ∑_{y ∈ ∂Mᵢ} σᵢ ≠ Θ(y). A_to_B takes A's witness boundaryTheta_halfLineCorner (Θ = 1_{0} on [0, ∞)): 0 ∈ ∂X, Θ(0) = 1 and ∂Θ(0) = 0. A local branching structure exists because Θ is branched. By boundaryTheta_eq, with the hind that the witness supplies, its boundary sum at 0 is ∂Θ(0) = 0 ≠ 1. B_to_A is vacuous (uses_hypothesis false). B is a bare existence statement, while A's conjuncts are the inequality ∂Θ ≤ Θ (under hind) and three concrete witnesses (∂ 1_{p} = 0, Θ = 1 on [0, ∞) branched with ∂Θ(0) = 1, and the corner witness). They are re-proved outright as copies, with the banned ones replaced by local copies. Content-wise, the corner witness is exactly B, and the rest is supporting material that B does not state. Universes at 0.",
+ "B_issue": "None for B as quoted. On the item's quotation: the 2021 text's Remark 9.2.17 itself says that ∂Θ in general lacks nice properties, and points ahead to tame branched ep⁺-subgroupoids. The reading 'not the restriction of Θ to ∂X' matches the remark before Lemma 9.2.13 and A's witness.",
+ "overlap": "rt_overlap B_to_A: 1037 shared project theorems. They come from the witnesses' constructions: the half-line quadrantPolyfold 1 ℝ⁰ with its corner structure, localBranchingStructure_indicator_of_mem, isBranchedEpSubgroupoid_indicator_of_mem, hasIndependentTangentSums_indicator_of_mem / _one, halfLineCorner_mem_submanifoldBoundary and not_mem_submanifoldBoundary_singleton. They also include V9_26's boundaryTheta_eq and mem_submanifoldBoundary_iff (not banned here) and the Part I infrastructure. No banned theorem is used.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

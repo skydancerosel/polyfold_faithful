@@ -1,0 +1,12 @@
+{
+ "id": "V11_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0, matching B's EP.{0}) has four conjuncts. proposition_11_1_2: for a generalized isomorphism f and |f|(|x|) = |y|, d_X(x₀) = d_Y(y₀) for all x₀ ∈ |x|, y₀ ∈ |y|, plus d_{|X|}(|x|) = d_{|Y|}(|y|). It also has the orbit-map forms d_{|Y|} ∘ |f| = d_{|X|} for a generalized isomorphism, for a diagram with both legs equivalences, and for |Φ| with Φ an equivalence of unbundled ep-groupoids. B is the proposition with IsIso f. A_to_B is the first half of proposition_11_1_2 (IsIso = IsGeneralizedIso by isGeneralizedIso_iff_isIso). B_to_A gets every conjunct from B: d_{|X|}(π x) = d_X(x) holds by rfl, and representatives come from surjective_π. A diagram with Φ an equivalence gives the isomorphism [d] (theorem_10_3_10). An equivalence Φ of unbundled ep-groupoids gives the isomorphism i(Φ) between EP.mk _ _ X and EP.mk _ _ Y, with |i(Φ)|(|x|) = |Φ(x)| by Diagram.orbitMap_orbitMap_F. The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 800 shared project theorems. Nearly all are the EP(E⁻¹) machinery in the statements (Diagram.comp/symm/IsRefinement proof fields, weak fibred products, M-polyfold chart infrastructure). The rest are the lemmas used directly: theorem_10_3_10, Diagram.orbitMap_orbitMap_F, IsEquivalence.isHomeomorph_orbitMap (inside Diagram.orbitMap), and degIndex_src/degIndex_tgt (inside the proof field of degIndexOrbit). The project's key step, EpFunctor.IsEquivalence.degIndex_obj, is not used. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

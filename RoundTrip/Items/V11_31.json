@@ -1,0 +1,15 @@
+{
+ "id": "V11_31",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0, α : Type) has eight lemmas about functors Λ : W → α (IsWFunctor, Λ(μ(φ,w)) = Λ(w)): pushMult_eq (independence of the choices), lemma_11_5_2 (Φ_*Λ is a functor), the inverses, eq_of_π_eq, π_obj_choose, IsWFunctor.pullMult and isWFunctor_const. There is no local section structure. B takes an sc⁺-multisection Λ : W → ℚ (values ≥ 0, a functor, locally Σ_{i : s_i(P w) = w} σ_i for local sc⁺-sections) and asks: (1) every w' has w with Φ(w) ≅ w'; (2) Φ_*Λ(w') = Λ(w) for every such w; (3) Φ_*Λ is again an sc⁺-multisection. A ⇒ B fails only on the local sc⁺-section structure of Φ_*Λ in (3). The project's header says Definition 13.2.1's local structures are not formalized, and the transport along Φ (level-[1] local strong bundle isomorphism, sections moved by ψ̂) is new mathematics. A_to_BFunctorPart proves (1), (2), Φ_*Λ ≥ 0 and functoriality from A. BFunctorPart_and_local_iff_B shows the local structure is exactly what is missing. B ⇒ A fails because A's lemmas hold for every functor into every α. B speaks only of sc⁺-multisections into ℚ, which do not separate orbits, so B's (2) says nothing about a general functor. Re-proving A outright would not use B.",
+ "B_issue": null,
+ "overlap": "No full direction proved, so there is no #rt_overlap. #rt_check OK on the partial results A_to_BFunctorPart and BFunctorPart_and_local_iff_B.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

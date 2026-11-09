@@ -1,0 +1,16 @@
+{
+ "id": "V9_26",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "Universes at 0. A's forms of Proposition 9.2.15 (1) and (3), the local formula boundaryTheta_eq, isFunctorial_boundaryTheta and filter_tangentValue_eq all take hind : HasIndependentTangentSums Θ, i.e. Theorem 9.2.1's claim that ∑ σᵢ T_xMᵢ does not depend on the local branching structure. B claims (1)–(3) for every branched ep⁺-subgroupoid without it. Only (2) holds without hind (proposition_9_2_15_2). With hind added to B's hypotheses (BInd), A ⇒ BInd is proved, with F = ∂Θ (A_to_BInd). hind is satisfiable: indicators, Θ = 1 on [0, ∞), and every Θ on ℝⁿ (hasIndependentTangentSums_rn). It is the content of the text's Theorem 9.2.1, which the project proves only in special cases: good points, ℝⁿ, the equidimensional case with tangent slices, or from Proposition 9.1.12, which is stated but not proved. So A ⇒ B is believed true. Proving it would need Theorem 9.2.1 in general, which is substantial mathematics; the gap is not a difference of reading. B ⇒ A: from B (3), B's F agrees with every local sum at the points of supp Θ and vanishes off supp Θ, so F = ∂Θ. This gives functoriality, nonnegativity and supp ∂Θ ⊆ ∂X. The other conjuncts (mem_submanifoldBoundary_iff, the local formula, 9.2.15 (1), (2), filter_tangentValue_eq) are stated for arbitrary Θ and x, which B does not cover. They are re-proved outright as copies of the project's proofs.",
+ "B_issue": null,
+ "intended": "BInd (B with hind : HasIndependentTangentSums Θ added): A_to_BInd proved, #rt_check OK, uses A.",
+ "overlap": "rt_overlap B_to_A: 745 shared project theorems. They are the Chapter 9 boundary infrastructure used by the copied proofs: remark_9_2_14_iff / remark_9_2_14, lemma_9_2_13(_chart), mem_boundary_subPolyfold_iff, isReducedTangentSet_iff, isTangentReducedAt_iff_of_submanifoldTangent_eq, submanifoldBoundary_subset_boundary, boundaryPart_sum_single, tangentValue_eq / _eq_zero, restrictAt_M and submanifoldTangent_inter_isOpen, plus the Part I sc-calculus and sub-M-polyfold glue beneath them. No banned theorem is used. A_to_BInd uses A plus boundaryTheta_eq_zero_of_not_mem_supp.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V10_31",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item: SEP, SEP.Hom, SEP.equivalences, SEP.toEP and negSEPHom are vocabulary. A (universe 0) is the conjunction of two side theorems: toEP_map_mem_equivalences (the forgetful functor SEP → EP maps F into E) and negSEPHom_mem_equivalences (a witness in F). Neither is part of Definition 10.4.11, and both implications are vacuous. B is proved outright as B_holds. Its bijection e repackages the structure SEP.Hom (fields ϕ, Φ, isStrongBundleFunctor) as B's subtype of pairs, with both inverse laws rfl. The project's identities are the pairs of identity functors and its composites are componentwise (rfl), and SEP.equivalences f is IsStrongBundleEquivalence f.ϕ f.Φ (Iff.rfl). So the project's category SEP and its class F are exactly the text's. B ⇒ A re-proves A without B, and B cannot supply A: its e is arbitrary, so it does not identify (e f).1.1 with toEP.map f, and it says nothing about examples. The first conjunct is the field isEquivalence_base, the second the lemma isStrongBundleEquivalence_pullbackProj'.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 851 shared project theorems. These are the whole construction behind negSEPHom_mem_equivalences: isStrongBundleEquivalence_pullbackProj', isStrongBundleEquivalence_of_inverse, the trivial bundle and its pull-back along -id, the pull-back chart machinery, isLocalScDiffeo_rn_neg, and sub-M-polyfold glue. Also shared is the field isEquivalence_base. This is expected, because B_to_A re-proves A outright with the project's own one-step proofs. #rt_check OK on A_to_B, B_to_A and B_holds.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

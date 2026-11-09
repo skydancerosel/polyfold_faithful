@@ -9807,6 +9807,26 @@ Witnesses and the hypotheses taken in general (2026-11-08).
      zero functor; Definition 9.3.8 only on a graph (`exists_boundaryFrames_graph`), with `T_y∂M` and `e` as
      data; no `L(∂S)` with `∂S ≠ ∅`. Status: **open** (gaps G.99, G.103, G.108).
 
+Follow-ups of the round-trip audit (`RoundTrip/`, 2026-11-08).
+
+103. **`SheetGeometry` is not tied to the geometry of the sheets** *(§9.4; round-trip items V9.42, V9.45–V9.48)*.
+     The fields of `MPolyfold.SheetGeometry` (item 72) say nothing about the M-polyfold structure near a sheet.
+     On `discretePolyfold` of a set with extra tag points, one for each pair of sheets, "essential" and "null"
+     defined combinatorially satisfy every field (`RoundTrip/Items/V9_46.lean`, `tG`). The §9.4 theorems stated
+     for a `SheetGeometry` therefore follow from its fields alone. The blind statements of the audit use
+     concrete notions (sheets as embedded Mathlib manifolds, null sets in charts), and those comparisons come out
+     incomparable. The same holds for `SheetNullSets` in §9.5 (item 80; items V9.50–V9.52): Lemma 9.5.2 is its
+     field `isNull_transfer`. For locally Hausdorff-null sets, the σ-ideal and "a sheet is not null in itself"
+     need the sheets to be second countable and the `n`-dimensional sheets to have positive measure. The project
+     proves neither. Status: **open** (gap G.105).
+
+104. **Proposition 9.6.5 (1) read literally** *(Proposition 9.6.5, pp. 456–457; round-trip item V9.62)*. With
+     the printed `I_k = I¹ ⊔ ⋯ ⊔ I^p` (item 92), each tangent class contributes `∑_{i ∈ I_k} σᵢ = Θ_k(x)`, and
+     the formula becomes `Θ_k(x) = ♯(classes) · Θ_k(x)`. This does not hold as we read it once there are two
+     tangent classes, e.g. for `Θ = 1_{y=0} + 1_{y=x}` on the trivial ep-groupoid over `ℝ²` at the origin
+     (`RoundTrip/Items/V9_62.lean`, `not_B`). This supports reading the partition as one of `Ξ` (item 92).
+     Status: **settled**.
+
 ## Chapter 10 (Equivalences and localization; Lean `Polyfold/Chapter10/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per part of the chapter, so that agents

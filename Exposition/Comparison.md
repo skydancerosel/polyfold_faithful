@@ -12736,7 +12736,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 *restated* · "Section 9.5": possible misprint
 
-**HWZ (§9.2, Remark 9.2.17, p. 421 (2017: Remark 9.6, p. 310)).** $\partial\Theta$ is in general not the restriction of $\Theta$ to $\partial X$; in Section 9.5, Definition 9.3.6, a tame notion is introduced.
+**HWZ (§9.2, Remark 9.2.17, p. 421 (2017: Remark 9.6, p. 310)).** $\partial\Theta$ has in general no particularly nice properties (the text noted before Lemma 9.2.13 that it is in general not the restriction of $\Theta$ to $\partial X$); "in Section 9.5, Definition 9.3.6" the tame branched ep⁺-subgroupoids are introduced, whose boundaries are nice enough for integration and orientation.
 
 **Proved in Lean.** $\partial\Theta \le \Theta$; $\partial\Theta$ is in general not the restriction of $\Theta$ to $\partial X$: for the indicator of the corner $0$ of $[0, \infty)$, $\Theta(0) = 1$ and $\partial\Theta(0) = 0$, while for $\Theta = 1$ on $[0, \infty)$, $\partial\Theta(0) = 1$.
 
@@ -12811,7 +12811,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 *stronger* · infinitely many orientations
 
-**HWZ (§9.3, Remark 9.3.3, p. 423 (2017: Remark 9.8, p. 311)).** The local oriented representation (9.9) is not unique, and an orientation of $\Theta$ is not unique.
+**HWZ (§9.3, Remark 9.3.3, p. 423 (2017: Remark 9.8, p. 311)).** The local representation (9.9) means exactly that the lift $x \mapsto \hat T_\Theta(x)$ is locally continuous on $\mathrm{supp}(\Theta)$; an orientable $\Theta$ may have more than two orientations, because of its fractional nature.
 
 **Proved in Lean.** The indicator of a point of $\mathbb R^n$ has infinitely many orientations, pairwise distinct, $T_q$ for $q \in (0, 1) \cap \mathbb Q$.
 
@@ -13712,8 +13712,8 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `EP.proposition_10_1_19`: `IsSLR` of $X$ iff of $Y$, from the reduction (every equivalence $X^i \to Y^i$ carries (LR) both ways) and Proposition 10.1.9 for the lifts.
 
 - `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 542
-- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
-- `Polyfold.EP.isLR_iff_lift_self` — Polyfold/Chapter10/EquivalenceZhou.lean, line 182
+- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 171
+- `Polyfold.EP.isLR_iff_lift_self` — Polyfold/Chapter10/EquivalenceZhou.lean, line 183
 
 *What differs.*
 - The text's proof: Proposition 10.1.9 (V10.62) for the lifts (Findings, Chapter 10, items 15, 16).
@@ -14311,9 +14311,9 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** An equivalence of the two (LUC) properties, through a representative with both legs equivalences.
 
-- `Polyfold.EPLocalization.EPLoc.exists_diagram_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 77
-- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
-- `Polyfold.EPLocalization.EPLoc.proposition_10_3_17` — Polyfold/Chapter10/LocalizationProperties.lean, line 93
+- `Polyfold.EPLocalization.EPLoc.exists_diagram_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
+- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 91
+- `Polyfold.EPLocalization.EPLoc.proposition_10_3_17` — Polyfold/Chapter10/LocalizationProperties.lean, line 100
 
 *What differs.*
 - None (Findings, Chapter 10, item 38).
@@ -14326,13 +14326,13 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `OrbitChart.Rel` is an equivalence relation; a witness with the pair groupoid of $\mathbb Z$.
 
-- `Polyfold.EPLocalization.OrbitChart` — Polyfold/Chapter10/LocalizationProperties.lean, line 133
-- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 145
-- `Polyfold.EPLocalization.OrbitChart.Rel.refl` — Polyfold/Chapter10/LocalizationProperties.lean, line 148
-- `Polyfold.EPLocalization.OrbitChart.Rel.symm` — Polyfold/Chapter10/LocalizationProperties.lean, line 151
-- `Polyfold.EPLocalization.OrbitChart.Rel.trans` — Polyfold/Chapter10/LocalizationProperties.lean, line 157
-- `Polyfold.EPLocalization.OrbitChart.setoid` — Polyfold/Chapter10/LocalizationProperties.lean, line 166
-- `Polyfold.EPLocalization.OrbitChart.rel_pairEP_pointEP` — Polyfold/Chapter10/LocalizationProperties.lean, line 172
+- `Polyfold.EPLocalization.OrbitChart` — Polyfold/Chapter10/LocalizationProperties.lean, line 140
+- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 152
+- `Polyfold.EPLocalization.OrbitChart.Rel.refl` — Polyfold/Chapter10/LocalizationProperties.lean, line 155
+- `Polyfold.EPLocalization.OrbitChart.Rel.symm` — Polyfold/Chapter10/LocalizationProperties.lean, line 158
+- `Polyfold.EPLocalization.OrbitChart.Rel.trans` — Polyfold/Chapter10/LocalizationProperties.lean, line 164
+- `Polyfold.EPLocalization.OrbitChart.setoid` — Polyfold/Chapter10/LocalizationProperties.lean, line 173
+- `Polyfold.EPLocalization.OrbitChart.rel_pairEP_pointEP` — Polyfold/Chapter10/LocalizationProperties.lean, line 179
 
 *What differs.*
 - None beyond the gap (Findings, Chapter 10, item 39).
@@ -14345,10 +14345,10 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** `EPreg`, `EPLocReg` as Mathlib full subcategories; the point is an object of both.
 
-- `Polyfold.EPLocalization.EPreg` — Polyfold/Chapter10/LocalizationProperties.lean, line 113
-- `Polyfold.EPLocalization.EPLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 117
-- `Polyfold.EPLocalization.Examples.pointReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 122
-- `Polyfold.EPLocalization.Examples.pointLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 126
+- `Polyfold.EPLocalization.EPreg` — Polyfold/Chapter10/LocalizationProperties.lean, line 120
+- `Polyfold.EPLocalization.EPLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 124
+- `Polyfold.EPLocalization.Examples.pointReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 129
+- `Polyfold.EPLocalization.Examples.pointLocReg` — Polyfold/Chapter10/LocalizationProperties.lean, line 133
 
 *What differs.*
 - None (Findings, Chapter 10, item 39).
@@ -14361,7 +14361,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** All five, as equivalences: (LUC), (SLUC), (ZHOU) in `theorem_10_3_21`, all with (LR) and (SLR) in `theorem_10_3_21_all`.
 
-- `Polyfold.EPLocalization.EPLoc.theorem_10_3_21` — Polyfold/Chapter10/LocalizationProperties.lean, line 100
+- `Polyfold.EPLocalization.EPLoc.theorem_10_3_21` — Polyfold/Chapter10/LocalizationProperties.lean, line 107
 - `Polyfold.EPLocalization.EPLoc.theorem_10_3_21_all` — Polyfold/Chapter10/LocalizationLR.lean, line 63
 
 *What differs.*
@@ -14653,7 +14653,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** `EPLoc.proposition_10_3_16`: $X$ has `IsLR` iff $Y$ has, by Proposition 10.1.9 for the legs of a representing diagram (`iff_of_isGeneralizedIso`).
 
 - `Polyfold.EPLocalization.EPLoc.proposition_10_3_16` — Polyfold/Chapter10/LocalizationLR.lean, line 56
-- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 84
+- `Polyfold.EPLocalization.EPLoc.iff_of_isGeneralizedIso` — Polyfold/Chapter10/LocalizationProperties.lean, line 91
 
 *What differs.*
 - The text's proof (Findings, Chapter 10, items 16, 38).
@@ -16917,7 +16917,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 **Proved in Lean.** **Formalized since the first edition of this page** (V10.16): the reduction with Proposition 10.1.9 (V10.62) for the lifts (Findings, Chapter 10, items 15, 16).
 
 - `Polyfold.EP.proposition_10_1_19` — Polyfold/Chapter10/EquivalenceLR.lean, line 542
-- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 170
+- `Polyfold.EP.isSLR_iff_of_isLR_iff` — Polyfold/Chapter10/EquivalenceZhou.lean, line 171
 
 ### G.116. Theorem 10.2.2: the structures induced from the triple products
 
@@ -16959,7 +16959,7 @@ After the definition: $\mathrm{mor}(x, y) \subset \mathbf X$ is the set of all m
 
 **Proved in Lean.** **Formalized since the first edition of this page** (V10.60), by the example of Remark 10.5.5: the base classes of $[1_W]$ and $[W \xleftarrow{1} W \xrightarrow{\mathrm{Inv}} W]$ over $\mathbb Z/3 \times \mathbb R \rightrightarrows \mathbb R$ are two distinct generalized isomorphisms with the same orbit map, so with $\beta' = \beta \circ |f|^{-1}$ both satisfy $\beta' \circ |f| = \beta$; the relation itself is V10.48 (Findings, Chapter 10, items 39, 56).
 
-- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 145
+- `Polyfold.EPLocalization.OrbitChart.Rel` — Polyfold/Chapter10/LocalizationProperties.lean, line 152
 - `Polyfold.StrongBundleLocalizationExamples.remark_10_5_5` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 460
 - `Polyfold.StrongBundleLocalizationExamples.base_orbitMap_ofHom_z3InvHom` — Polyfold/Chapter10/StrongBundleLocalizationExamples.lean, line 417
 

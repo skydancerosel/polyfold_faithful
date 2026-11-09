@@ -1,0 +1,12 @@
+{
+ "id": "V9_58",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "A (universes at 0) = HasDimAt.le_of_inter_subset ∧ exists_mem_forall_notMem (the covering lemmas replacing 'measure zero') ∧ lemma_9_6_1 ∧ localTopDim_eq ∧ localTopDim_eq_bot. lemma_9_6_1 says two structures at x whose sheets carry constant-dimension labels (IsSubmanifoldOfDim) have the same max label, for any Θ. B is stated for branched Θ, x ∈ supp Θ and arbitrary unlabelled structures. It says: (a) each structure has a pointwise top dimension max_i dim T_xM_i; (b) two structures have the same one; (c) it equals localTopDim. A ⇒ B fails on (b) and (c). A needs labels on all sheets, and to get them from B's structures one must shrink to a neighbourhood where every sheet has constant dimension. That is local constancy of the dimension (Remark 9.1.1), which the project proves only in ℝᵐ (see V9_2). The definition localTopDim is ⊥ when no labelled structure exists, so (c) depends on this too. Proved: (a) outright (A_to_Ba), and all of B wherever HasLocallyConstantDimAt holds (A_to_B_of_hasLocallyConstantDimAt, via the non-item exists_restrict_labelled, then lemma_9_6_1 and localTopDim_eq), e.g. over every ℝᵐ. B ⇒ A fails for three reasons. lemma_9_6_1 and localTopDim_eq hold without the branched hypothesis. The covering lemmas are general M-polyfold facts. The ⊥ convention off supp Θ is not in B. Proved for branched Θ: B_to_A3_of_branched and B_to_A4_of_branched, where labels give the pointwise top dimension.",
+ "B_issue": null,
+ "overlap": "No full direction. rt_check OK for A_to_Ba, A_to_B_of_hasLocallyConstantDimAt, B_to_A3_of_branched, B_to_A4_of_branched. rt_overlap B_to_A3_of_branched: 404 shared project theorems. They come from the dimension glue (HasDimAt.finrank_eq, HasDimAt.unique, chartTangent_eq, the Part I tangent and retraction machinery that the covering lemma also rests on), plus localTopDim._proof_1 and LocalBranchingStructure.eq_sum, dim_le_topDim, exists_dim_eq_topDim and mem_supp_iff. No §9.6 theorem of the item is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

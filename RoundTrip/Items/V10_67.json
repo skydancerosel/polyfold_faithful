@@ -1,0 +1,12 @@
+{
+ "id": "V10_67",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "A has three conjuncts. not_theorem_10_5_7 says the project's transcription Theorem_10_5_7 (universe 0, with the project's EpStrongBundle.IsLR) is false. isLR_z3EpBundle says the trivial bundle ℝ × ℝᵏ → ℝ over ℤ/3 × ℝ ⇉ ℝ (trivial μ) has that (LR). remark_10_5_5 says [W ←1 W →Inv W] and [1_W] are generalized strong bundle isomorphisms with the same orbit map that differ, already on the bases. B is Theorem 10.5.7 read literally, with the blind author's IsLRB (Definition 8.4.2 tested on all strong bundle isomorphisms of W|U(x)). As its author predicted, B does not hold as we read it. not_B (rt_check OK) re-does the project's counterexample from non-item lemmas. z3SEP 0 has IsLRB: μ is the projection, so an orbit-preserving Φ is the identity, which is the natural lift of 1. The two classes are separated by the isotropy relation at the generator of ℤ/3 (isotropyRel_id, not_isotropyRel_inv, Diagram.Equiv.isotropyRel_iff). Hence A ⇒ B is false (not_A_to_B), and B ⇒ A holds only ex falso. A_to_notB (rt_check OK, uses A) shows that A's own counterexample also refutes B, since it satisfies B's stronger-looking (LR). So the two sides agree that the text's claim fails, and on why. The IsLRB/IsLR difference the blind author flagged does not matter here.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A (ex falso via not_B): 1354 shared project theorems. These are the counterexample's ingredients minus its packaging: isotropyRel_id, not_isotropyRel_inv, Diagram.Equiv/IsRefinement.isotropyRel_iff, orbitMap_ofHom_z3InvHom, z3InvHom_mem_equivalences, isMap_z3Inv, GenSBMap.isGeneralizedIso_ofHom, EPLoc.homMk_eq_homMk_iff (with the ep-groupoid localization lemmas behind it: lemma_10_3_4, IsRefinement.comp, equiv_assoc, wfpMap), Chapter 7's theorem_7_1 and the trivialZ3EpGroupoid construction, plus the SEP and Part I chart infrastructure. None of the three banned theorems is used. not_B has axioms propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

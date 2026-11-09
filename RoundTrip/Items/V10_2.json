@@ -1,0 +1,15 @@
+{
+ "id": "V10_2",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is lemma_10_1_2, isEquivalence_iff, isEquivalence_toFunctor, IsEquivalence.comp, the orbit-map lemmas (injective_orbitMap_of_full, surjective_orbitMap_iff, bijective_orbitMap_of_isEquivalence, continuous_orbitMap, isOpenMap_orbitMap) and not_exists_leftInverse_pairToPoint. B is (a) the lemma in elementary terms (local sc-diffeo + full/faithful/essentially surjective ⇒ IsEquivB) and (b) some equivalence in EP.{0} has no two-sided inverse maps. A ⇒ B: (a) Mathlib's Functor.IsEquivalence from the blind hypotheses (non-item full_iff etc.), A's lemma_10_1_2, glue to IsEquivB; (b) pairToPoint, IsEquivB via A's lemma_10_1_2, and an inverse g₀ on objects yields a functor point → pair (g₀ on objects, identities on morphisms) excluded by A's not_exists_leftInverse. B ⇒ A: lemma_10_1_2, ← of isEquivalence_iff and comp from B (a) (comp via Mathlib's composite equivalence + IsLocalScDiffeo.comp); essSurj of an equivalence, the orbit-map lemmas (general groupoid/functor facts) and the pairToPoint non-invertibility (B (b) is only existential) are re-proved outright. Same content.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 494 shared project theorems: the pairEpGroupoid / pointEpGroupoid / pairToPoint proof fields and discrete sc-calculus (as in V10_1), proposition_7_1 and proposition_7_1_isOpenQuotientMap, continuous_π/continuous_obj', IsLocalScDiffeo.comp/isOpenMap/continuous, full_iff/essSurj_iff (non-item lemmas used by both proofs), groupoid axioms. No banned theorem; plain #rt_check passes both directions.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

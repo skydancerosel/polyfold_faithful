@@ -1,0 +1,15 @@
+{
+ "id": "V9_29",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B (a) says the project's Gr̂(x) is the set of finitely supported sums with weights ≥ 0 of oriented tangent sets over x (IsOrientedAt). This is the definition of GrHat (Iff.rfl). B (b) asks for a functor F : Gr̂(X) → Gr(X) that is (x, ∑σ(L, o)) ↦ (x, ∑σL) (Finsupp.mapDomain carrier) on objects and the identity on underlying morphisms, with F ⋙ π = π̂. A_to_B takes the project's grForgetFunctor (its maps are B's by rfl) and A's grForgetFunctor_comp_grProj, which is itself rfl. B_to_A derives grForgetFunctor_comp_grProj from B: any F as in B (b) equals grForgetFunctor by Functor.hext, since Gr(X)-objects are determined by pt and sum and morphisms by φ. A's five orientation lemmas are chart independence of IsOrientedAt, its all-charts form, exactly two orientations of a chart-linear tangent set, and transport by sc-diffeomorphisms and by the morphisms of X. B does not state them, so they are re-proved outright as copies. B does not formalize the text's 'fibrewise 2-1'. Universes at 0.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 722 shared project theorems. They are the chart-vector and tangent-chart infrastructure used by the copies (exists_clm_chartVec, chartVec_tangentMapOn, transportChart_isChart, levelVal_tangentProj_tangentMapOn, IsOrientedAt.mem_carrier / .levelSet, OrTangent.push_congr, tangentMor_eq_tangentMapOn_hat). They also include the proof fields of the Gr̂(X) and Gr(X) category instances, grHatProj and grForgetFunctor (grHatPush_comp / _unit, grForget_mem, grForget_grHatPush), reached through B's statement. No banned theorem is used.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

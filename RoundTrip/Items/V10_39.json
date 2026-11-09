@@ -1,0 +1,12 @@
+{
+ "id": "V10_39",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is orbitMapQ_mk (|⟦d⟧| = d.orbitMap = |Φ| ∘ |F|⁻¹ for every representative) and isHomeomorph_orbitMap (d.orbitMap is a homeomorphism when d.Φ is an equivalence). B: Diagram.orbitMapQ ⟦d⟧ = orbB d, and orbitMapQ ⟦d⟧ is a homeomorphism when d.Φ is an equivalence. The blind orbB is definitionally the project's Diagram.orbitMap. So the first conjuncts match exactly, and each second conjunct is the other transported along the first. Both directions are short and use their hypothesis. The definition of |[d]| and its homeomorphism claim agree.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 670 shared project theorems. All of them come from the bodies of definitions in the statements. orbitMapQ is Quotient.lift of orbitMap with the proof Equiv.orbitMap_eq (lemma_10_3_6, orbitMap_orbitMap_F, EpFunctor.orbitMap_comp, NaturallyEquivalent.orbitMap_eq), and Diagram.setoid's proof field brings Equiv.refl/symm/trans, lemma_10_3_4 and the weak-fibred-product machinery. The proofs themselves use only the hypothesis and rfl glue. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V11_32",
+ "A_to_B": "failed",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0, α : Type) is proposition_11_5_3, for functors W → ℚ≥0, plus eight SDiagram lemmas for functors into an arbitrary α. Together they give push/pull formulas, functoriality, inverses and orbit-map dependence. None of A mentions local sc⁺-section structures. B, for sc⁺-multisections Λ : W → ℚ (the blind IsScPlusMultisectionB): [D]_*Λ and [D]^*Λ' are sc⁺-multisections, are computed by Ψ_*Φ^*, Φ_*Ψ^* on every representative, are mutually inverse, and agree when |f₁| = |f₂|. A ⇒ B fails only on 'is an sc⁺-multisection' for the push-forward and pull-back, which needs the local section structures (not formalized in the project, Definition 13.2.1 absent). A_to_BFunctorPart proves all the rest from A's generic-α diagram lemmas: ℚ-valued functors, values ≥ 0, formulas on every representative (via orbitMap_cls/cls_rep), inverses and orbit-map dependence. BFunctorPart_and_mult_iff_B shows the multisection property of the outputs is exactly the missing content. B ⇒ A fails because A concerns arbitrary functors (ℚ≥0- or α-valued), while B covers only sc⁺-multisections into ℚ. Re-proving A outright would not use B. The gap in A ⇒ B is the same as in V11_31: new mathematics, not glue.",
+ "B_issue": null,
+ "overlap": "No full direction proved, so there is no #rt_overlap. #rt_check OK on the partial results A_to_BFunctorPart and BFunctorPart_and_mult_iff_B.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": false
+ }
+}

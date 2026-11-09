@@ -1,0 +1,12 @@
+{
+ "id": "V10_26",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) has two conjuncts. proposition_10_4_4 gives (Ψ∘Φ)^* = Φ^*∘Ψ^* for every section f'' of P'' and (Ψ∘Φ)_* = Ψ_*∘Φ_* for every functorial section f, with no sc-smoothness. IsStrongBundleEquivalence.comp says Ψ∘Φ is again a strong bundle equivalence; B presupposes this but does not state it. B states both identities only on Γ, the sc-smooth section functors, with its own choice-based pullB and pushB. A_to_B goes through the bridges pullB = hΦ.pullback on sections and pushB = hΦ.pushforward on functorial sections. These are the project's pullback_eq and (10.22) pushforward_eq, which are not item theorems. It then uses A's comp for Ψ∘Φ and A's two identities. B_to_A is vacuous (uses_hypothesis false): A is strictly more general (all sections and functorial sections, plus comp), so B cannot supply it. Both conjuncts were re-proved outright by copying the project's proofs, which use only non-item lemmas. On the text's content the two sides say the same thing; A adds generality and the closure under composition.",
+ "B_issue": null,
+ "overlap": "HARNESS: the statement of proposition_10_4_4 (A1) contains the banned theorem IsStrongBundleEquivalence.comp itself, as the proof hΨ.comp hΦ in (hΨ.comp hΦ).pullback/pushforward. So plain #rt_check fails on both directions only for that name; the failures are recorded with #guard_msgs. #rt_check_soft does not help, since this is not a _proof_N field. A local #rt_check_except_defs (harness rtCollect with A1's body not unfolded) passes on both directions. In A_to_B the composite is hcomp hΨ hΦ from the hypothesis, restated once with a have; in B_to_A it is comp' hΨ hΦ. Both equal hΨ.comp hΦ by proof irrelevance. rt_overlap B_to_A: 750 shared project theorems, including comp itself (through A1's statement). The rest are vocabulary proof fields and the non-item lemmas of the copied proofs: pullback_eq, obj_pullback, pushforward_eq, pushforward_def, IsStrongBundleFunctor.comp, EpFunctor.IsEquivalence.comp, oneOrbitMap_comp, StrongBundle.IsStrongBundleIsoOn.exists_comp/comp/restrict, μ_comp, IsMap.map_μ.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V11_6",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) is proposition_11_1_6 plus four helpers: isOrbitFace_faceMap/faceComap, faceComap_faceMap, faceMap_faceComap. For any generalized isomorphism f, A says three things. θ ↦ |f|(θ) is a bijection of the faces of |X| onto those of |Y|, with inverse θ' ↦ |f|⁻¹(θ'). Y_{f_*θ} = π⁻¹(|f|(θ)). And |f| restricts to a homeomorphism θ → f_*θ. None of this assumes tameness or face structure. B assumes X, Y tame and face structured. It says every representative d of f gives a bijection [d]_* = Ψ_* ∘ Φ^* of the face object sets X_θ onto those of Y, and that [d]_* does not depend on d. A_to_B does not use the face-structured hypotheses. For homMk d = f, [d]_*(X_θ) = Y_{f_*θ}: Ψ_* is the saturation of the image, then preimage_faceObj, saturation_image_faceObj and faceMap_homMk (not item theorems here). So [d]_* is independent of d, and A's helpers plus injectivity of π⁻¹ make it a bijection of faces. B is weaker: it has the extra face-structured hypotheses, and it lacks the inverse, the formula and the homeomorphism of A. B_to_A is proved only outright from non-item lemmas, so it is vacuous (hypothesis unused). The difference is one of generality, not a disagreement with the text. The argument the project follows (|[d]| is a homeomorphism preserving d_{|·|}) never uses face structure for [d]_*. Scope: both sides cover only the [d]_* part, as the item's title says. Neither formalizes faces as tame face-structured ep-groupoids, intersections of faces, or the generalized isomorphisms [d]_F; A records [d]_F only through its orbit map.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 808 shared project theorems. These are the EP(E⁻¹) and orbit-map machinery in the statements. A's statement contains EPLoc.isHomeomorph_orbitMap hf, which brings in Diagram.isHomeomorph_orbitMap, IsEquivalence.isHomeomorph_orbitMap and orbitMap_orbitMap_F. B_to_A: 832. The extra ones are exactly the project proof's lemmas (TameBoundary.isFaceIn_univ_image, exists_isFaceIn_univ_preimage, the IsDHomeoOn transport lemmas, EPLoc.degIndexOrbit_orbitMap, IsEquivalence.degIndex_obj, isOrbitFace_iff_isFaceIn), as expected for an outright re-proof. Plain #rt_check passes on both directions.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

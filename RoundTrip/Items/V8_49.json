@@ -1,0 +1,12 @@
+{
+ "id": "V8_49",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same content, with one difference in generality. B states injectivity of f : G_d → G_{f d} for covering functors into an arbitrary groupoid C (its own IsCoveringB). A's injective_map_end covers only one-object C = SingleObj G, which is the text's setting: Definition 8.5.5 has C = {x}. For C = SingleObj G the two notions of covering functor agree (isCoveringB_iff, via the bijection (a, c, g) ↦ (g, a)). B's copies DB, fB are definitionally the project's Example856D, example856Functor. A_to_B takes the example (covering property, non-surjectivity at a) from A, but has to re-prove the general-C injectivity outright; A cannot give it, though the proof is three lines. B_to_A gets injective_map_end, and the covering property, injectivity and non-surjectivity at a of the example, from B. It proves directly the trivial conjuncts that B lacks: G_d is a subsingleton, ℤˣ is nontrivial, and f is not surjective at b.",
+ "B_issue": null,
+ "overlap": "B_to_A shares 6 project theorems with the item's proofs: the proof fields of instGroupoidExample856D and example856Functor and example856_sign_comp. These come from the definition of the example's functor, not from the item's theorems.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

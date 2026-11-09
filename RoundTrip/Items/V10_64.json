@@ -1,0 +1,12 @@
+{
+ "id": "V10_64",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) has two conjuncts. EPLoc.proposition_10_3_16 says that for a generalized isomorphism f : of X ⟶ of Y, X.X.IsLR ↔ Y.X.IsLR. The general reduction EPLoc.iff_of_isGeneralizedIso says a property of EP invariant under equivalences is invariant under generalized isomorphisms. B is Proposition 10.3.16 for X, Y : EPLoc.{0}, f : X ⟶ Y. A ⇒ B is the first conjunct at X.toEP, Y.toEP (of X.toEP is X by structure eta). B ⇒ A gets the first conjunct from B at of X, of Y. The general reduction is about an arbitrary property and is not a consequence of B; it is re-proved outright from the non-item exists_diagram_of_isGeneralizedIso (Theorem 10.3.10). On the text's statement the two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 773 shared project theorems. They are the localization category EP(E⁻¹) in the statements (Diagram.Equiv/IsRefinement lemmas, lemma_10_3_4, weak fibred product, assoc/diag functors, homMk_eq_homMk_iff, homMk_surjective, proposition_10_1_5/10_1_6), plus exists_diagram_of_isGeneralizedIso and theorem_10_3_10 for the re-proved reduction. Proposition 10.1.9 and the TransportChart machinery are not reached. #rt_check OK on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

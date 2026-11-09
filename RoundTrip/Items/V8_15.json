@@ -1,0 +1,12 @@
+{
+ "id": "V8_15",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Definition item: only EpNatTrans (a structure) and EpFunctor.NaturallyEquivalent (Nonempty (EpNatTrans F G)) are listed, so A = True and both implications are vacuous; the content is B itself, proved outright as B_holds. The fields of EpNatTrans (app sc-smooth X → 𝐘, s(app x) = F x, t(app x) = G x, naturality for every h with x = s h, x' = t h) are exactly B's IsNatTransB; B's naturality over h, x, x' with s h = x, t h = x' is the project's naturality h after substitution, and conversely the structure built from B's conditions has app = τ. Hence NaturallyEquivalent F G ↔ ∃ τ, IsNatTransB F G τ. Universes: B is in Type, the project notions at u = v = 0.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (B_to_A is trivial); B_holds uses only the fields of EpNatTrans.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

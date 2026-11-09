@@ -1,0 +1,15 @@
+{
+ "id": "V10_12",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A has five conjuncts. Four are computations in the example: (2, x) ∈ 𝐗^T; (2, 0) ∉ 𝐘^T; [(1, x)] = [(3, x)] in 𝐗^R; [(1, 0)] ≠ [(3, 0)] in 𝐘^R. The fifth, example_10_1_15, says no f : 𝐗^R → 𝐘^R has f[φ] = [Φφ], verbatim B's claim. B also pins down the example. Every equation is rfl except X's target map: it is z4Sign i • x with z4Sign i = ±1 ∈ ℤˣ, matched with B's if-then-else by unfolding z4Sign, so B's reading of the ℤ/4 action on ℝ as (-1)^i agrees with the project. B_to_A gets example_10_1_15 from B. The four computations are not stated in B, which only says no f exists. They are re-proved outright (the project's proofs, copied, from non-item lemmas), without the hypothesis. The two sides have the same claim.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 659 shared project theorems. Most are the statement definitions' infrastructure (actionEpGroupoid, rnPolyfold, example1015Functor proof fields, NaturalRep under nonEffectivePart). Beyond them: the lemmas of the four copied computations (mem_nonEffectivePart_iff, reducedπ_eq_iff_comp_inv, not_eventually_eq_neg, z4_smul_line, z4_smul_plane, quarterTurn_quarterTurn, z4_inv_three_mul_one).",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

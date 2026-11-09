@@ -1,0 +1,12 @@
+{
+ "id": "V9_14",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "Same sums: B's sumB is the project's tangentSum. B is the text's claim: for every branched Θ on every ep-groupoid, ∑ σᵢ · T_xMᵢ is the same for any two local branching structures at x ∈ supp Θ. A (9 theorems, universes at 0) proves this only in special cases: at good points; when supp Θ ⊆ S^g; under tangent slices, graph charts, or graph charts plus local constancy of the dimension, the content of Proposition 9.2.8, Lemmas 9.2.9–9.2.11 and Remark 9.1.1; over ℝᵐ unconditionally; plus two examples. So A ⇒ B fails for a genuine reason. A has no unconditional statement for general M-polyfolds, and supplying one means proving Proposition 9.2.8 there, which the project explicitly leaves out. With A's hypotheses HasGraphChartAt and HasLocallyConstantDimAt added (satisfiable: every point of ℝᵐ), A ⇒ B holds (A_to_B_of_graphChart). B ⇒ A holds and uses B (key). From B one gets independence for ANY Θ on any ep-groupoid, branched or not. Restrict both structures to W = U₁ ∩ U₂. Pass to the trivial ep-groupoid on X.PObj (same M-polyfold, same submanifoldTangent) and to Θ' = 1_W · Θ, which is branched there: functorial since all morphisms are identities; supp Θ' ⊆ ⋃ Mᵢ ⊆ X_∞; |supp Θ'| ⊆ |X| ≅ Obj, which is metrizable, so paracompact; restricted structures exist at each point. Then use tangentSum_restrict. Every conjunct of A concludes such an equality, so B gives all of them.",
+ "B_issue": null,
+ "overlap": "B_to_A: 705 shared project theorems. Most come from the definitions in A's statement: Remark913Hyp.structureβ/γ (graphs2_isSubmanifoldOfDim, graphs2_isClosed, thetaGraphs_eq, localBranchingStructure_sum_rn), trivial (rnPolyfold n) and the rnPolyfold/chart/sc-retraction construction, plus the structure fields. The rest come from the transfer: tangentSum_eq_zero/isEmpty_of_not_mem, tangentSum_restrict with submanifoldTangent_inter_isOpen, restrict/restrictAt glue (nbhdAt, isClosed_M, mem_supp_iff), and MPolyfold.metrizableSpace with paracompactSpace_of_metrizableSpace. None of the independence mathematics is reused (tangentSum_eq_of_eqOn, HasTangentSlicesAt, graph charts, dimPartsAgreeNear). A_to_B_of_graphChart: rt_check OK, it uses A's sixth conjunct.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

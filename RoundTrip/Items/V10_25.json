@@ -1,0 +1,12 @@
+{
+ "id": "V10_25",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is proposition_10_4_3 (Φ_* f = Ψ_* f for f ∈ Γ(P, μ) when |Φ| = |Ψ| : |W| → |W'|) together with pushforward_eq_of_orbitMap_eq (the same for every functorial section, sc-smooth or not). B states the first with its own push-forward pushB, which picks some (x, σ : ϕ(x) → x') by Classical.choose, where the project uses the fixed choice preObj/preMor. The bridge pushB_eq (pushB = hΦ.pushforward on functorial sections) is the project's (10.22) pushforward_eq, which is not an item theorem. With it, both directions are a two-line rewrite. The second conjunct of A is more general than the text, since it needs no sc-smoothness, and B cannot supply it. It was re-proved outright by copying the project's proof, which uses only non-item lemmas (exists_μ_eq_of_orbitMap_eq, pushforward_eq, pushforward_def, μ_comp). Same notion of |Φ| = |Ψ| on both sides (GroupoidFunctor.orbitMap of W[0]).",
+ "B_issue": null,
+ "overlap": "rt_check OK on both directions. rt_overlap B_to_A: 641 shared project theorems. Almost all are proof fields of the vocabulary in the statements (toEpGroupoid, sectionFunctors, StrongBundle and M-polyfold chart infrastructure). The Chapter 10 ones are the non-item lemmas of the copied proof and of the bridge: pushforward_eq, pushforward_def, src_preMor, tgt_preMor, covers, exists_mor_eq, exists_μ_eq_of_orbitMap_eq, μ_comp, μ_mk_congr, P_μ, and GroupoidStr.comp_inv_cancel_right/inv_inv.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

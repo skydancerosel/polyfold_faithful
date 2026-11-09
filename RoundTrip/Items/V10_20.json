@@ -1,0 +1,12 @@
+{
+ "id": "V10_20",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "Same carrier/structure mismatch as V10_19. A is about the project's epGroupoid F G h on Obj F G, with the iterated sub-M-polyfold structure. B is about some E on objSetB ⊆ X × 𝐘 × Z, with the triple-product structure (IsWFPEpB). B ⇒ A is proved with the comparison functor toE : epGroupoid → E, copied from the V10_19 item; it is an sc-smooth functor with an sc-smooth inverse, hence an equivalence. B (a) gives π_X = πX∘toE an equivalence (for every admissible pair) and d = d_X∘π_X. B (b) gives d_X = d = d_Z. Two parts of theorem_10_2_2_right are not in B (a): the natural equivalence F∘π_X ≃ G∘π_Z, and the transfer of tameness / paracompact orbit space from X. They come from non-item lemmas: the project's natTrans, and EpFunctor.IsEquivalence.isTame_of_isTame / hasParacompactOrbitSpace (items of V10_19), applied to π_X. A ⇒ B fails, and is believed true. It needs an E with IsWFPEpB: triple-product sub-M-polyfold structures on objSetB / morSetB, and the ep-groupoid structure transported onto them. The project does not prove these (the V10_18 gap).",
+ "B_issue": null,
+ "overlap": "B_to_A passes plain #rt_check. rt_overlap B_to_A: 631 shared project theorems. Almost all are the epGroupoid F G h / sub-M-polyfold infrastructure reached through the statements: PObj/PMor proof fields, isSubMPolyfold_*, isScSmoothComp, exists_isProperMap, isLocalScDiffeo_x/z/h/k, conj_* and the comp algebra. The glue uses isScSmoothMap_x/φ/z/h/mφ/k, isScSmoothOn_obj_of / isScSmoothOn_mor_of, Obj.ext / Mor.ext, isEquivalence_of_inverse (with lemma_10_1_2), IsLocalScDiffeo.degIndex_eq, natTrans, and the general IsEquivalence.isTame_of_isTame / hasParacompactOrbitSpace. The project's proof of theorem_10_2_2_right also uses the last two. The substance of isEquivalence_projLeft (the full/faithful/essentially-surjective argument for π_X) is not used; it is taken from B.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

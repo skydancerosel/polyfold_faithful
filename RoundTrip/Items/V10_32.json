@@ -1,0 +1,12 @@
+{
+ "id": "V10_32",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has three conjuncts: isEquivalence_of_isIso (an IsIso morphism of the category EP is an equivalence), IsEquivalence.comp, and proposition_10_1_5 (if F ≃ G, then F is an equivalence iff G is). B states (E1) for B's own componentwise notion of isomorphism, IsIsoB (an EpFunctor G inverse to F on objects and on morphisms), and states (E2) and (E3) with ≃ in either direction. A ⇒ B: (E1) bundles X and Y as objects of EP and turns G into an IsIso instance with EpFunctor.ext; (E2) is immediate; (E3) is one half of the iff, applied to F → G or to G → F. B ⇒ A: (E1) reads G off IsIso.out and gets its four componentwise equations by congrArg, as the project's proof does; the iff of (E3) is two applications of B's (E3), with Or.inl and Or.inr. The two sides say the same thing. The only differences are packaging: IsIso in EP versus componentwise inverses, and the iff versus the one-way implication with ≃ symmetric.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 198 shared project theorems, all structural. They are the proof fields of EpFunctor.id and EpFunctor.comp, GroupoidFunctor.id/comp/ext, EpFunctor.ext, the EP instances and instLargeCategoryEP's proof fields, and the sc-calculus lemmas those proof fields rest on (isScSmoothMap_id, the chain rule theorem_1_21', chart and retraction glue). These are reached through the category structure of EP in A's statement. No lemma of the item's proofs (lemma_10_1_2, IsEquivalence.of_natTrans, isEquivalence_iff) is reused. #rt_check OK for both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

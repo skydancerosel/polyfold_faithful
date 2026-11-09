@@ -1,0 +1,13 @@
+{
+ "id": "V8_12",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B formalizes the remark literally, and its author predicted that it fails. The bijection G : T𝐗 → {(Tφ, a)} is taken with Tφ the bare map (B's TφB: Tφ on T_{sφ}X, the identity elsewhere). not_B shows B fails as we read it. On Chapter 7's ℤ/3 × ℝ ⇉ ℝ (trivial action, s = t), B's own clause (vi), Tφ(Ts h) = Tt h, forces Tφ = id for every φ. The vectors over (1, x) and (g, x), g ≠ 1, with the same Ts then have the same image (id, a), so G is not injective. Hence A ⇒ B is false (not_A_to_B), and B ⇒ A holds only ex falso. The project reads Tφ in (Tφ, a) as labelled by φ: remarkG injective with range {(φ, a) | φ ∈ 𝐗₁, p a = s φ}. BCore is B with that labelled bijection and without the three clauses A does not address. These are (0), Tφ ∘ Tj = T(t ∘ σ) on every sheet; the chart-linearity half of (i); and (iv), an M-polyfold structure on the pairs making G an sc-diffeomorphism. BCore keeps the fibrewise bijectivity of Tφ, (ii), (vi) and all five compatibility clauses of (iii) with B's pair category. A ⇔ BCore is proved both ways. So A is exactly the remark's combinatorial content under the labelled reading. (0), linearity and (iv) are missing from A; the project's docstring says linearity and the transported structure are out of scope. We believe them true but substantial (cf. V7_5), so A lacks them for a genuine reason. Universe 0.",
+ "B_issue": "The literal reading of (iii) (and hence (iv), which needs G injective) does not hold as we read it for ep-groupoids with ineffective isotropy. B's author flagged this and formalized it literally on purpose. The labelled reading (pairs (φ, a)) is the one the project and BCore use.",
+ "intended": "BCore (labelled bijection; (0), chart linearity and (iv) removed): A_to_BCore and BCore_to_A both proved and #rt_check OK, both using their hypothesis.",
+ "overlap": "B_to_A (ex falso via not_B): 549 shared project theorems. They come from the statements and from Chapter 7's trivialZ3EpGroupoid / actionEpGroupoid construction and generic tangent infrastructure. not_B itself uses only B's clauses (vi) and (iii)-bijection, exists_tSrc_eq', mem_levelSet_src_iff, tangentMap_congr_fun, nonempty_tangentSpace and z3_smul_eq. BCore_to_A: 427 shared, mostly generic tangent-bundle infrastructure. The groupoid-specific ones are exists_tSrc_eq, levelVal_tangentProj_tSrc/tTgt, mem_levelSet_src/tgt_iff, src_tBase_eq, tBase_mem_levelSet and tComp_spec / tBase_tComp / tSrc_tComp (for G(k ∘ h)). The proof of tangentMor_tSrc (tangent_ext under tangentMor's choice) is not reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V10_15",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0; EpFunctor.liftOne is vocabulary) has three conjuncts: IsEquivalence.liftOne (F¹ : X¹ → Y¹ is an equivalence), EP.exists_isEquivalence_lift (equivalences Fⁱ : Xⁱ → Yⁱ exist for all i) and EP.proposition_10_1_18 (A.IsSLUC ↔ B.IsSLUC). B's SLUC is EP.IsSLUC by rfl. A_to_B is proposition_10_1_18. B_to_A takes 10.1.18 from B. The lift lemmas are steps of the text's proof; B, which says nothing about F¹, does not give them. They are re-proved outright: liftOne' copies the project's proof (lemma_10_1_2, faithful/full/essSurj via levelMk, IsLocalScDiffeo.levelOne), and exists_isEquivalence_lift' is induction with liftOne'. On the text's content the two sides are the same.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 578 shared project theorems. These are the copied proof of IsEquivalence.liftOne (lemma_10_1_2, exists_mor_eq, exists_iso, mor_injective, IsLocalScDiffeo.levelOne/mem_levelSet_iff, mem_levelSet_src/tgt_iff, liftOne_src/tgt/comp_val, the orbit-map lemmas), plus statement-level fields of EP.lift / liftOne (level M-polyfolds). B_to_A does not use proposition_10_1_16 or the closedness argument: (LUC) along each Fⁱ comes from B. Both directions pass plain #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

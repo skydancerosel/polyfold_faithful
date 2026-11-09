@@ -1,0 +1,12 @@
+{
+ "id": "V8_33",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Same objects on both sides: B's τ(y) = (L.τ.app y).toFun and φ_{yy'}(ψ) = (L.LD.map ψ).toFun are definitionally the project's τy, φ, and B's actions g ∗ z = L_C(g)(z), h ∗ z = L_D(h)(z) are the project's scoped MulAction instances (smul_def, smul_def' are rfl). A ⇒ B is glue: isScDiffeoOn_τy, isScDiffeoOn_φ, φ_comp, φ_id, the MulAction laws through smul_def, and τ_equivariant. B ⇒ A is vacuous (uses_hypothesis false): every conjunct of A holds for an arbitrary functor f : D ⥤ SingleObj G and lift L, with no finiteness and no covering hypothesis, which B assumes, so B cannot be applied; the conjuncts are one-line consequences of the definitions (the isScDiffeoOn field of ScDiffeo, Functor.map_comp/map_id, the naturality of τ) and were re-proved outright. A also has content B lacks (φ_inv_φ, sc-smoothness of z ↦ g • z, the general naturality τy_φ for ψ : y → y'); B's only extra is its hypotheses. Both directions use #rt_check_soft: the statements of smul_def' and τ_equivariant mention the scoped instance GeometricLift.instMulActionD, whose proof fields (one_smul, mul_smul) are proved with the banned φ_id and φ_comp. Universes at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 194 shared project theorems: Part I sc-calculus/M-polyfold infrastructure reached through the types (IsScDiffeoOn, IsScSmoothOn, MPolyfoldCat instances), ScDiffeo.isScDiffeoOn, the proof fields of instCategoryMPolyfoldCat, instMulActionC, instMulActionD, and through the latter φ_comp and φ_id (soft, via instMulActionD's proof fields only).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

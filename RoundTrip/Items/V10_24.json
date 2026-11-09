@@ -1,0 +1,12 @@
+{
+ "id": "V10_24",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universe 0) = proposition_10_4_2 ∧ pullback_eq_of_orbitMap_eq. proposition_10_4_2 is the text's statement, for f' ∈ Γ(P', μ'). pullback_eq_of_orbitMap_eq is the project's helper, for every functorial section, sc-smooth or not. B has the same content as proposition_10_4_2, once the vocabulary is matched. B's strong bundle equivalences IsSBEquivB are the project's, as in V10_22. B's SameOrbitMapB is |Φ| = |Ψ| (orbitMap_eq_of_forall_exists / exists_μ_eq_of_orbitMap_eq). B's sc-smooth section functors are E'.sectionFunctors. B's pullB equals h.pullback on sections, since both are the unique w ∈ W_x with Φ(w) = f'(ϕ(x)) (pullback_eq). A_to_B uses proposition_10_4_2. B_to_A1 derives proposition_10_4_2 from B, and passes rt_check. B ⇒ A fails on the helper for a genuine reason: B says nothing about functorial sections that are not sc-smooth. The only gap is that extra generality of a project lemma, beyond the text's statement. (uses_hypothesis.B_to_A is false since the direction failed. The partial B_to_A1 does use B.)",
+ "B_issue": null,
+ "overlap": "A_to_B and B_to_A1 pass plain #rt_check. rt_overlap B_to_A1: 614 shared project theorems. Almost all are the proof fields of EpStrongBundle.toEpGroupoid / toGroupoidStr and the pull-back bundle chart infrastructure (reached through the statements). The rest is the glue: IsStrongBundleEquivalence.P_pullback, obj_pullback, eq_of_obj_eq (through pullback_eq), isLocalScDiffeo_one, exists_μ_eq_of_orbitMap_eq, orbitMap_eq_of_forall_exists. These are the lemmas the project's proof of pullback_eq_of_orbitMap_eq starts from, but its key step (the μ'-injectivity argument) is taken from B, not re-proved.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

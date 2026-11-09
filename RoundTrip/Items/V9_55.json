@@ -1,0 +1,12 @@
+{
+ "id": "V9_55",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) is ♯G^eff_x · ♯T_x = ♯G_x, and for a natural representation R with R.HasLUC: ker Φ = T_x, ker Φ ⊆ H, h ∈ ker Φ ↔ stabilizerEquivIsotropy h ∈ T_y, ♯T_y = ♯T_x and (9.23) ♯(G_x/H) · ♯G^eff_y = ♯G^eff_x. B states, for X with global LUC and B's natural action on a connected U, that T_x = {g | ĝ = id on a nonempty open W ⊆ U}, T_x ⊆ H, T_x ↔ T_y under some H ≅ G_y with value Γ(h, y), and ♯R = ♯G^eff_x / ♯G^eff_y for every set R of coset representatives. A ⇒ B: B's action is a project NaturalRep (toNaturalRep), global LUC gives R.HasLUC (non-item isLUC_iff_forall_naturalRep), and each clause is the corresponding conjunct of A (plus ♯R = ♯(G_x/H) and ♯G^eff_y > 0). B ⇒ A fails for a genuine reason: A needs LUC only for the one representation (or none: the first and third conjuncts), B assumes LUC of all of X, and ♯T_y = ♯T_x is not a statement of B.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 535 shared project theorems, none banned: the Chapter 7 infrastructure under trivialSubgroup/EffIsotropy and stabilizerEquivIsotropy in the statements (theorem_7_1, natural-representation construction, NaturalRep index/Γ lemmas, proposition_7_4 finiteness, M-polyfold glue) and isLUC_iff_forall_naturalRep. rt_check passes; axioms propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

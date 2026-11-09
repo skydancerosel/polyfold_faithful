@@ -1,0 +1,15 @@
+{
+ "id": "V9_59",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) = lemma_9_6_2 (M_U^k ∩ U' = M'^k_U ∩ U for two dimension-labelled structures at x) ∧ mem_topUnion_iff_of_mem (the same pointwise on U ∩ U'), with no hypothesis on Θ or x; topUnion is vocabulary. B is the same equation for a branched Θ, x ∈ supp Θ and blind labels IsDimLabelB (HasDimB at every point of each sheet). Glue: the blind dimension equals the project's HasDimAt on submanifolds (hasDimB_of / hasDimAt_of, as in V9_2), so IsDimLabelB ⇔ ∀ i, IsSubmanifoldOfDim (M i) (dim i); MkB and topDimB are topUnion and topDim by rfl. A ⇒ B is lemma_9_6_2 on the translated labels. B ⇒ A fails only because A is more general: it has no branched hypothesis, and B says nothing for non-branched Θ. On B's domain B gives both conjuncts (B_to_A1_of_branched, B_to_A2_of_branched); off supp Θ both structures are empty. The project's proof never uses the branched hypothesis (the non-item covering argument topUnion_inter_subset), so the gap is generality only.",
+ "B_issue": null,
+ "overlap": "No full B_to_A. rt_check OK for A_to_B, B_to_A1_of_branched, B_to_A2_of_branched. rt_overlap B_to_A2_of_branched: 401 shared project theorems. They come from the dimension glue (HasDimAt.finrank_eq / finrank_eq', chartTangent_eq, the Part I sc-retraction and tangent machinery), which the project's covering lemma also uses, plus the LocalBranchingStructure fields eq_sum, mem_M, mem_U and mem_supp_iff. None is a §9.6 lemma.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

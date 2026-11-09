@@ -1,0 +1,12 @@
+{
+ "id": "V10_33",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Diagram, IsRefinement and precomp are vocabulary. A (universe 0) has three conjuncts: IsRefinement.refl, isRefinement_precomp (the first example, X ←F∘H A' →Φ∘H Y) and isRefinement_of_naturallyEquivalent (the second example, X ←G A →Ψ Y with G ≃ F and Ψ ≃ Φ, via H = 1_A). B's parts (a) (the left leg is an equivalence) and (b) (the project's IsRefinement is B's IsRefinementB) hold by definition. (a) is the field isEquivalence_F, and (b) holds by Iff.rfl, since NaturallyEquivalent F G is Nonempty (EpNatTrans F G). So the project's definitions of diagram and refinement are exactly the text's, with H : A' → A an equivalence and ≃ read as F ∘ H → F'. B (c) and (d) are A's two examples. For (c), B's diagram is d.precomp H hH up to proof irrelevance. For (d), the natural equivalences run the other way (B: F → F', project: G → F), so symm is needed. B ⇒ A gets refl from B (d) with F' = F and Φ' = Φ (structure eta gives mk d.A d.F _ d.Φ = d), and the examples from B (c) and (d), each transported by B (b). The blind author's guess at the two examples matches the project's exactly.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 286 shared project theorems, all structural: the EP, EpFunctor.id/comp, GroupoidFunctor and groupoid-category proof fields with their sc-calculus support, plus the proof field of precomp (which uses IsEquivalence.comp and through it lemma_10_1_2 / isEquivalence_iff), EpNatTrans.refl/symm and NaturallyEquivalent.symm (the one-line glue that isRefinement_of_naturallyEquivalent also uses). No item theorem is reached. #rt_check OK for both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

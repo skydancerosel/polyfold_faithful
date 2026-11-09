@@ -1,0 +1,12 @@
+{
+ "id": "V11_17",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0; the three Part I lemmas have two universe parameters, both at 0) is the 23 project lemmas for an equivalence F: (1)-(6) of Theorem 11.3.3 for F_*, F^*, the orbit-set identities, exists_localBranchingStructure_pushforwardTheta (only ∃ B' preserving dimension) and general facts about moving structures and submanifolds by sc-diffeomorphisms. A ⇒ B: B's Thm1133B is read off A's conjuncts. B's TransportB (a structure at x is carried by ψ̂∘F to one of F_*Θ at y with sheets (ψ̂∘F)(Mᵢ∩W) and the same weights) is not stated in A: it is proved from the item's vocabulary mapDiffeo along an explicit sc-diffeomorphism ψ̂∘F : W → W' (W = U ∩ F⁻¹(U(ψ)) ∩ U(x), composing a local inverse domain of F with the chosen sheet of ψ), plus the non-item pushforwardTheta_eq. B ⇒ A fails for a genuine reason: A is more general. Many conjuncts hold for any functor F (isClosedBranched_pullbackTheta, isOrbifoldType_*, orbitSupp_pullbackTheta, exists_pushforwardTheta_eq_apply), for any full F (isCompactBranched_pushforwardTheta, orbitSupp_pushforwardTheta), or for merely functorial Θ. Others are about arbitrary sc-diffeomorphisms (mem_image_iff_of_mem_mapU, isOfDim_mapDiffeo, HasDimAt.of_image, hasDimAt_image_iff_of_isScDiffeoOn, IsSubmanifoldOfDim.image_isScDiffeoOn). B speaks only of equivalences and branched Θ. B does give the text's (1), (2) (B_to_A_core, rt_check OK).",
+ "B_issue": null,
+ "overlap": "A_to_B passes #rt_check_soft, not #rt_check: the banned mem_image_iff_of_mem_mapU is reached only through the proof fields of the vocabulary definition mapDiffeo, which TransportB uses to build B'. rt_overlap A_to_B: 366 shared project theorems. Most are Part I sc-calculus and M-polyfold infrastructure, the groupoid API, and mapDiffeo's proof fields (IsSmoothSubmanifold.image_of_isScDiffeoOn, LocalBranchingStructure field lemmas). The chapter-11 ones are pushforwardTheta_eq, isomorphic_of_full, IsEquivalence.full/isLocalScDiffeo_obj, continuous_obj' and mem_image_iff_of_mem_mapU (via mapDiffeo only). B_to_A_core passes plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

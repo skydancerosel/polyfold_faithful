@@ -1,0 +1,12 @@
+{
+ "id": "V11_40",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item: PC, PC.equivalences, PC.fibred/fibredFst/fibredSnd, PC.Diagram, Diagram.CommonRefinement, HasCommonRefinement and the example objects and diagrams are vocabulary. A (universe 0) is the conjunction of three side theorems: ProperCoveringHom.comp_assoc and the witnesses equivalences_pairToPoint and isEquivalence_fibredFst. None of them is part of the definitions, and both implications are vacuous. B is proved outright as B_holds. The objects of PC are exactly the proper coverings. A ⟶ B is ProperCoveringHom A.F B.F, the identity is (1_Y, 1_X) and composition is componentwise (all rfl). PC.equivalences f is the structure IsEquivalence f, which is B's IsEquivB as a conjunction. A Diagram is exactly a triple (A, Γ, ε) with Γ in E_PC (injective by structure eta, range as stated). HasCommonRefinement is B's HasCommonRefinementB, because NaturallyEquivalent is Nonempty of NatTrans, the pair (τ_Y, τ_X) with (11.20), and (Γ.comp H).Ψ = Γ.Ψ.comp H.Ψ holds by rfl. So the project's PC, E_PC, diagrams and common refinements are the text's. B ⇒ A re-proves A without B. B cannot supply A: it says nothing about associativity of ProperCoveringHom.comp for arbitrary (non-proper-covering) functors, nor about the examples.",
+ "B_issue": null,
+ "overlap": "#rt_check OK on B_holds, A_to_B and B_to_A (plain). rt_overlap B_to_A: 807 shared project theorems. This is expected, because B_to_A re-proves the witnesses with the project's one-step proofs: isEquivalence_pairToPointCovering and theorem_11_6_6's last claim (not banned here), so its whole proof is shared (step lemmas of 11.6.6, isEquivalence_projLeft/Right, isEquivalence_iff, isFiberBijective_of_isEquivalence, lemma_10_1_2, isEquivalence_pairToPoint), plus the weak-fibred-product infrastructure under fibredPair in A's statement.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

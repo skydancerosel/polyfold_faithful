@@ -1,0 +1,12 @@
+{
+ "id": "V10_36",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) has three conjuncts: lemma_10_3_4 and Equiv.trans (Equiv d d' → Equiv d' d'' → Equiv d d''), and IsRefinement.equiv (a refinement is equivalent to the diagram it refines). The project's Diagram.Equiv d d' is by definition ∃ e, e.IsRefinement d ∧ e.IsRefinement d'. That is B's 'has a common refinement' by Iff.rfl, since B's IsRefinementB is the project's IsRefinement (NaturallyEquivalent is Nonempty (EpNatTrans _ _)). So B is lemma_10_3_4, and B ⇒ A gives lemma_10_3_4 and Equiv.trans directly. The extra conjunct IsRefinement.equiv does not follow from B, which only propagates common refinements that already exist. It is re-proved outright in one line from reflexivity (H = 1_A, with IsEquivalence.id and NaturallyEquivalent.refl). On the text's lemma the two sides say the same thing. The construction over W ×_{A'} W' (10.11) appears only in the project's proof and in neither statement.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 277 shared project theorems. Most are structural: EpFunctor.id/comp proof fields, groupoid and EP instances, and sc-calculus support. The rest is the reflexivity glue that IsRefinement.equiv's own proof also uses, via IsRefinement.refl: IsEquivalence.id with lemma_10_1_2, the orbit-map lemmas, and NaturallyEquivalent.refl. None of the weak fibred product machinery of lemma_10_3_4 is reached. #rt_check OK for both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

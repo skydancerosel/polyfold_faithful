@@ -1,0 +1,12 @@
+{
+ "id": "V10_59",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is theorem_10_5_4 together with pushforward_eq, pullback_eq (every representative with both legs equivalences gives [D]_*, [D]^*), the SDiagram-level invOn_pullback_pushforward, bijOn_pushforward, bijOn_pushforward_plus, and the two examples (bijOn_pushforward_negDiagram; pushforward_foldDiagram: the push-forward along W' ←P' (-id)*W' →P' W' is the identity of Γ(W')). B (a)–(f): well-definedness of [D]_* over representatives; [D]_*, [D]^* map Γ to Γ and are mutually inverse; [D⁻¹] is a generalized strong bundle isomorphism with [D⁻¹]_* = [D]^*; the same on Γ⁺; |[D]| = |[D']| implies [D]_* = [D']_* and [D]^* = [D']^*. A_to_B: all of B from theorem_10_5_4 (Γ⁺ ⊆ Γ for the inverse on Γ⁺). B_to_A: pullback_eq, which B does not state, follows from B (d) and B (a) applied to the inverse diagram ([D]^* = [D⁻¹]_* = Φ_* Ψ^*); theorem_10_5_4 is then B repackaged (BijOn from MapsTo + InvOn); the SDiagram statements are B for the class [D] of the given diagram; the examples are B for the example classes, with the non-item cls_foldDiagram and SDiagram.pushforward_id. Both sides read 'isomorphism' as mutually inverse bijections of Γ (no linearity) and both omit Fred (B by the item's title, A because Theorem 10.4.5 has no Fred part in the project). The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 994 shared project theorems, essentially all from the statements: the proof fields and well-definedness lemmas under GenSBMap.orbitMap / pushforward (Equiv.orbitMap_eq, Equiv.total, IsRefinement.total, isEquivalence_rep_Ψ), the proofs isGeneralizedIso_symm, isGeneralizedIso_negDiagram, isGeneralizedIso_foldDiagram that the statements pass as arguments, the example constructions (negSEP, epSEP), and sc-calculus glue. The proof itself reuses cls_foldDiagram and SDiagram.pushforward_id, as the project's proof of pushforward_foldDiagram does. #rt_check OK for both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

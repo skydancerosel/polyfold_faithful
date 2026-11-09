@@ -1,0 +1,12 @@
+{
+ "id": "V9_17",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same good points: B's IsGoodAt is IsGoodPoint up to inter_comm. Universes are at 0. A ⇒ B holds. (a): a point good for B₁ lies in supp Θ, hence in goodSet, and remark_9_2_4_a makes it good for B₂. (b): the data (V, M, Θ(y)) of remark_9_2_4_b form a local branching structure at y with ι = Unit and weight Θ(y). B ⇒ A fails for a genuine reason. B is read under §9.2's standing hypothesis and covers only equidimensional branched Θ. A's remark_9_2_4_a holds for every Θ, and mem_goodSet_iff and remark_9_2_4_b for every branched Θ. A also contains the converse half of mem_goodSet_iff (Θ constant on supp Θ near y ⇒ y good), which neither (a) nor (b) of B states. B_to_A_equidim (rt_check OK) proves all three of A's statements for branched equidimensional Θ. remark_9_2_4_a, remark_9_2_4_b and the forward half of mem_goodSet_iff come from B: one sheet of weight Θ(y) makes Θ constant on supp Θ near y. The converse half is re-proved outright from the unbanned isGoodPoint_iff (V9_15).",
+ "B_issue": null,
+ "overlap": "B_to_A_equidim: 57 shared project theorems. The substantive one is LocalBranchingStructure.isGoodPoint_iff, with eq_iff_of_mem_nbhdAt and MU_eq; it is used only for the converse half of mem_goodSet_iff, the part B does not state. The rest is LocalBranchingStructure field/glue (eq_sum, σ_pos, mem_supp_iff, nbhdAt, isClosed_M, IsBranchedEpSubgroupoid.localBranching) and sc-scale lemmas reached through the structure's types. A_to_B: rt_check OK.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

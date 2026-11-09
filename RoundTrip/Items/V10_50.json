@@ -1,0 +1,12 @@
+{
+ "id": "V10_50",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is theorem_10_3_21 ((LUC), (SLUC), (ZHOU)) ∧ theorem_10_3_21_all (all five properties as ↔), both for X Y : EP and f : of X ⟶ of Y a generalized isomorphism. B states the five ↔ for X Y : EPLoc and f : X ⟶ Y with IsGeneralizedIso f. EPLoc is a one-field structure around EP, so of X.toEP ≡ X by structure eta and the quantifications match definitionally. A_to_B is theorem_10_3_21_all at X.toEP, Y.toEP; B_to_A applies B at of X, of Y and reads off theorem_10_3_21 as the (LUC), (SLUC), (ZHOU) components. The two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1017 shared project theorems, all reached through the statements (B_to_A's proof only applies hB and projects): the proof fields of the EPLoc category structure (Diagram.comp, the weak fibred product, refinements, assocObj), of EP.IsSLUC / IsSLR (liftGroupoidStr), of IsLR / IsZhou (natural representations), and the M-polyfold and sc-calculus lemmas underneath. No item theorem is used.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

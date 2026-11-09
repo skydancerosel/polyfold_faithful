@@ -1,0 +1,15 @@
+{
+ "id": "V10_4",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is definition_10_1_4, naturallyEquivalent_equivalence, NaturallyEquivalent.comp_left and comp_right. B says EpNatTrans F G is exactly the blind IsNatTransB (sc-smooth τ : X → 𝐘, τ(x) : F x → G x, naturality for φ : x → x'), NaturallyEquivalent ↔ NatEqB, NatEqB is an equivalence relation, and F ≃ F', G ≃ G' give H ≃ H' for H = G∘F, H' = G'∘F' on objects and morphisms. A ⇒ B: the vocabulary part is structural (EpNatTrans fields; naturality after subst) and needs no A; the equivalence relation is A's naturallyEquivalent_equivalence transported; compatibility via H = G.comp F (EpFunctor.ext), A's comp_right then comp_left, and transitivity. B ⇒ A entirely from B: the equivalence relation transported back, and comp_left/comp_right as B's two-sided compatibility with Ψ ≃ Ψ resp. Φ ≃ Φ from B's reflexivity. The definitions agree exactly.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 176 shared project theorems: the proof fields of EpFunctor.comp and GroupoidFunctor.comp in the statements (MPolyfold.IsScSmoothMap.comp, theorem_1_21' and the chain-rule sc-calculus under it) and the EpNatTrans/GroupoidFunctor field projections. No banned theorem; plain #rt_check passes both directions.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

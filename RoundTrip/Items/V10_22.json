@@ -1,0 +1,12 @@
+{
+ "id": "V10_22",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0; the two example theorems have no universe) is the conjunction of ten theorem types: IsStrongBundleFunctor.comp, covers, eq_of_obj_eq, isLocalScDiffeo_obj, isLocalScDiffeo_one, isStrongBundleEquivalence_id, IsStrongBundleEquivalence.comp, isStrongBundleEquivalence_of_inverse and the witnesses isStrongBundleEquivalence_pullbackProj', trivialNeg_obj_ne_id. B says the project's IsStrongBundleEquivalence is the blind IsSBEquivB. The only difference in the definitions is (1) for i = 1. The project keeps only 'the induced map |W[1]| → |W'[1]| is a homeomorphism'. B also asks that Φ maps W_{0,1} into W'_{0,1}, that Φ is a local sc-diffeomorphism W[1] → W'[1], and that Φ is faithful and full on W[1]. A_to_B proves the iff. The local sc-diffeomorphism property is A's isLocalScDiffeo_one, which derives it from (2). Faithful and full come from Φ : W[0] → W'[0] being an equivalence. B's Quot (IsoOneB E) is the project's OneOrbitSpace by rfl, so the homeomorphisms match. B_to_A reads covers, eq_of_obj_eq, isLocalScDiffeo_obj and isLocalScDiffeo_one off IsSBEquivB, through B. The other six conjuncts (composition of strong bundle functors, id, comp, of_inverse and the two witnesses) are not about the content of the definition. They are re-proved outright by copying the project's proofs, which use only non-item lemmas. On the definition, the two sides agree.",
+ "B_issue": null,
+ "overlap": "Both directions pass plain #rt_check. rt_overlap B_to_A: 868 shared project theorems. Almost all are the proof fields of EpStrongBundle.toEpGroupoid / toGroupoidStr and the pull-back bundle infrastructure (reached through the statements), the trivial-bundle and ℝⁿ example constructions (negEpBundle, epBundle, isMap_pullbackProj', isMap_negInv), and the lemmas the copied proofs use: EpFunctor.IsEquivalence.id/comp, EpFunctor.isEquivalence_of_inverse, lemma_10_1_2, isStrongBundleFunctor_id, IsMap.isStrongBundleFunctor_liftFunctor, oneOrbitMap_id/comp, continuous_oneOrbitMap, IsStrongBundleIsoOn.exists_comp, isStrongBundleIsoOn_univ_of_inverse. These are the same lemmas the project's proofs use.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

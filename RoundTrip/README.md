@@ -1,4 +1,4 @@
-# Round-trip audit of Part I and Part II, Chapter 7 — method and how to run it
+# Round-trip audit of Part I and Part II, Chapters 7–11 — method and how to run it
 
 Modelled on `Morse/RoundTrip/` of [`math_faithful`](https://github.com/skydancerosel/math_faithful) (see its `REPORT.md` for the method in detail). The audit checks
 the *statements* of the comparison (`Exposition/cmp/*.json`): for each item, an independent model
@@ -46,7 +46,7 @@ the prompts before handing them to an agent. Four Lean agents at a time worked o
 
 ## Status
 
-2026-11-01: complete — all 269 non-extra items audited; see `REPORT.md`. 2026-11-07: the 60 non-extra Chapter 6 items audited against commit 439bc62 (`REPORT.md`, "Chapter 6, audited on 2026-11-07"); all 329 items now. 2026-11-07: the 64 non-extra, non-gap Chapter 7 items (Part II, quoted from the 2017 book) audited against commit 919831f (`REPORT.md`, "Chapter 7, audited on 2026-11-07"); all 393 items now. 2026-11-02: refreshed against
+2026-11-01: complete — all 269 non-extra items audited; see `REPORT.md`. 2026-11-07: the 60 non-extra Chapter 6 items audited against commit 439bc62 (`REPORT.md`, "Chapter 6, audited on 2026-11-07"); all 329 items now. 2026-11-07: the 64 non-extra, non-gap Chapter 7 items (Part II, quoted from the 2017 book) audited against commit 919831f (`REPORT.md`, "Chapter 7, audited on 2026-11-07"); all 393 items now. 2026-11-08: the 211 non-extra, non-gap items of Chapters 8–11 (Part II; Chapters 9–11 and the 2021-only items of Chapter 8 quoted from the Springer 2021 book) audited against commit caf6bfc (`REPORT.md`, "Chapters 8–11, audited on 2026-11-08"); all 604 items now. 2026-11-02: refreshed against
 HEAD (below), second blind statements for seven items, Proposition 6.2 without bump functions in V3.98.
 
 The items compile against HEAD (commit 12924a4; refreshed 2026-11-02). After the audit, phase 2 of the

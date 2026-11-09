@@ -1,0 +1,12 @@
+{
+ "id": "V9_42",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A is lemma_9_4_4_mixed_dim, a counterexample: for different dimensions (K = ℝ × 0 inside ℝ and inside ℝ²) Lemma 9.4.4 fails. Lemma 9.4.4 itself is not a theorem of the project. The project's sheets are submanifolds of an M-polyfold with no manifold structure of their own. Their essential points and null sets are abstract data of a SheetGeometry, and the lemma is an assumed field, ess_comm. Its witness graphSheetGeometry computes ess in the common chart z ↦ z 0, so the field holds by inter_comm. B states the lemma for the text's notion in a blind local model: sheets are equal-dimension n-manifolds with corners, each with a C^∞ embedding j into a Banach space F, and K^e is the project's essentialSet of j⁻¹K. B has no sc-structure, M-polyfold or ep-groupoid, so it says nothing about the project's sheets. The project has no manifold structure on sheets, so it cannot state B's claim. A ⇒ B fails because the lemma is missing from A, not for want of glue. We believe B is true: full points for K ⊆ Nᵢ satisfy T_{z_k}Mᵢ ⊆ span TC_F(K) ⊆ Djᵢ'(span TC(jᵢ'⁻¹K)) ⊆ T_{z_k}Mᵢ', so equal dimensions make them full for K ⊆ Nᵢ'. B ⇒ A is vacuous: A is re-proved outright (mixed_dim_re). B_of_imp shows that B's two equalities follow from its implication.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 9 shared project theorems (relTangent_self, chartImage_chartAt_self, tangentConeAt_subset_submodule, lineH_ne_top, isClosed_lineH, mem_lineH, relTangent.eq_1 and two auxiliary lemmas). These are the witness glue of BranchingGeometryManifold used by the outright copy of the counterexample. rt_check passes on B_to_A and B_of_imp (axioms: propext, Classical.choice, Quot.sound).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

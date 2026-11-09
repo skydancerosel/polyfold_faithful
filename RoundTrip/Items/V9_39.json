@@ -1,0 +1,12 @@
+{
+ "id": "V9_39",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The notions agree. On the quadrant model, B's unit vectors lim (φ(z_k) − φ(z))/|φ(z_k) − φ(z)| (sequences z_k ∈ K∖{z} → z in M) are exactly the project's unitDirections of the chart image φ(V∩K) at φ(z) (glue lemma unitVecsB_eq: tails lie in the chart domain, where φ is injective and continuous, and φ⁻¹ is continuous on the target). Their span is the span of Mathlib's tangent cone (span_unitDirections, non-item), which is the project's relTangent: B (a), and B (c) for essentialSet. A ⇒ B: B (b) is A's span_tangentConeAt_chartImage_eq_map for e and chartAt z, after replacing fderivWithin on the chart-change domain by fderivWithin on range I. B ⇒ A fails on generality. A's chart-independence conjuncts hold for every model with corners (any normed E) and every C^k atlas with k ≠ 0; essentialSet_eq and the crossLines witnesses (model 𝓘(ℝ, Fin 2 → ℝ)) are not in B at all. On quadrant models with the C^∞ atlas, B does give A's first two conjuncts (chartIndep_of_B, relTangent_eq_map_of_B, via a chain rule for chart changes proved here), so the gap is A's extra generality and extra true content.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 2 shared project theorems (extend_mem_extendCoordChange_source, plus lineH._proof_1, reached through A's statement of the crossLines witnesses). rt_overlap chartIndep_of_B: 2 (extend_mem_extendCoordChange_source, extendCoordChange_apply_of_mem), both chart glue. Neither proof uses map_span_tangentConeAt_chartImage_le or fderivWithin_extendCoordChange_comp. rt_check passes on A_to_B, chartIndep_of_B and relTangent_eq_map_of_B (axioms: propext, Classical.choice, Quot.sound).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

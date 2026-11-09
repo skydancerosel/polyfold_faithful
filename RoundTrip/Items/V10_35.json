@@ -1,0 +1,12 @@
+{
+ "id": "V10_35",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item. Only Diagram.IsCommonRefinement (d''.IsRefinement d ∧ d''.IsRefinement d') is listed, so A = True and both implications are vacuous. The content is B itself, proved outright as B_holds by Iff.rfl. B's IsRefinementB is the project's IsRefinement by definition, since NaturallyEquivalent F G is Nonempty (EpNatTrans F G). The argument order also agrees: the candidate comes first, then the pair. So the project's common refinements are exactly the text's: diagrams X → Y that refine both members of the pair. Universes: B is in EP.{0}; the project definition is used at u = 0.",
+ "B_issue": null,
+ "overlap": "0 shared project theorems (empty banned list, since no theorem is listed). Banning the listed definition fails trivially because B mentions it; this is recorded with #guard_msgs. #rt_check OK on A_to_B, B_to_A and B_holds.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

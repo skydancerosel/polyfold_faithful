@@ -1,0 +1,12 @@
+{
+ "id": "V8_16",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) is the conjunction of isScSmoothMap_comp_app, NaturallyEquivalent.refl/.symm/.trans, naturallyEquivalent_equivalence and the whiskering results comp_left/comp_right; B says B's own reading NatEquivB of F ≃ G (re-stated from Definition 8.1.13, not the project's) is an Equivalence on EpFunctor X Y. NatEquivB F G ↔ F.NaturallyEquivalent G holds by the fields of EpNatTrans (as in V8_15), so A ⇒ B transports naturallyEquivalent_equivalence and B ⇒ A gives refl, symm, trans and the equivalence from B. A has more than the text's claim: the sc-smoothness of the particular composite x ↦ τ'(x) ∘ τ(x) (B's transitivity only gives some natural transformation F → H) and whiskering by functors (not in the text); these three conjuncts are re-proved outright (sheet form EpGroupoid.isScSmoothCompSheet + IsScSmoothOn.of_locally; whiskered transformations x ↦ τ(E x), x ↦ K(τ x) built by hand). No mathematical disagreement on the text's claim.",
+ "B_issue": null,
+ "overlap": "B_to_A: 371 shared project theorems, nearly all generic M-polyfold/sc-calculus infrastructure (charts, retractions, sub-M-polyfolds, *.of_locally) reached through IsScSmoothOn.of_locally, IsScSmoothOn.comp and EpGroupoid.isScSmoothCompSheet; the groupoid-specific ones are the structure fields of EpNatTrans/EpFunctor/GroupoidFunctor, EpGroupoid.isLocalScDiffeo_src/tgt, isScSmoothComp, isScSmoothCompSheet. compApp_smooth is a copy of the project's proof of isScSmoothMap_comp_app (outright, not via the banned theorem).",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

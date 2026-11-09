@@ -1,0 +1,12 @@
+{
+ "id": "V9_6",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B says the project's IsClosedBranched Θ and IsCompactBranched Θ are IsClosed (π '' suppB Θ) and IsCompact (π '' suppB Θ). Both hold by Iff.rfl, since orbitSupp Θ is π '' supp Θ and supp is suppB, so the definitions agree exactly. A is only the witness isCompactBranched_indicator (the indicator of a point of ℝⁿ is compact). B_to_A goes through B's iff and then shows suppB 1_{p} = {p} and that the image of a point is compact. A_to_B proves B outright (it is definitional). No universe parameters.",
+ "B_issue": null,
+ "overlap": "B_to_A: 390 shared project theorems. All of them are the proof fields of the trivial ep-groupoid of ℝⁿ (EpGroupoid.trivial._proof_*, rnPolyfold / rnChart, sc-calculus and sub-M-polyfold glue), reached through the statement's type. No Chapter 9 lemma (supp_indicator_singleton etc.) is reused.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

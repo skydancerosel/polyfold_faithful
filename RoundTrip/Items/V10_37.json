@@ -1,0 +1,12 @@
+{
+ "id": "V10_37",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is Equiv.refl, Equiv.symm, equiv_iff (d ≈ d' ↔ Equiv d d' for Diagram.setoid) and the witness equiv_pairToPoint_id. B (at universe 0) says Diagram.Equiv is 'having a common refinement' (EquivB, with refinements written out from Definition 10.3.1) and that ⟦d⟧ = ⟦d'⟧ for the project's setoid iff EquivB d d'. B's IsRefinementB is definitionally the project's Diagram.IsRefinement (NaturallyEquivalent F G is Nonempty (EpNatTrans F G), same direction F ∘ H ⇒ F'), so EquivB is definitionally Diagram.Equiv. A_to_B: Iff.rfl, and Quotient.eq followed by A's equiv_iff. B_to_A: reflexivity and symmetry are transported from ⟦d⟧ = ⟦d⟧ and Eq.symm through B, equiv_iff is Quotient.eq plus B, and the witness is a common refinement (the diagram itself by 1, and 1_point by pairToPoint) converted by B. The definitions agree exactly.",
+ "B_issue": null,
+ "overlap": "HARNESS: every term mentioning Diagram.setoid (in the statements of both A and B) reaches Equiv.refl and Equiv.symm through its proof field Diagram.setoid._proof_1 (iseqv). Plain #rt_check fails on both directions for these two names only (recorded with #guard_msgs). #rt_check_soft passes on both and names Diagram.setoid as the only definition involved. rt_overlap B_to_A: 744 shared project theorems, most of them the setoid's transitivity proof (Equiv.trans = lemma_10_3_4 and the weak-fibred-product machinery). With the setoid's body not unfolded (local #rt_overlap_except_setoid), 328 shared non-internal theorems remain. They are the proof fields of pairEP/pairEpGroupoid/pointEP in the witness's statement, plus IsEquivalence.id, isEquivalence_pairToPoint and NaturallyEquivalent.refl, which the project's proof of the witness also uses.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

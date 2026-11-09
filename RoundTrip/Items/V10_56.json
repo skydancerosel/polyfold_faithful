@@ -1,0 +1,12 @@
+{
+ "id": "V10_56",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is the conjunction of isGeneralizedIso_symm (the reversed diagram W' ←Ψ W'' →Φ W of a representative with Ψ a strong bundle equivalence is a generalized strong bundle isomorphism), isGeneralizedIso_ofHom ([W ←1 W →Ψ W'] for Ψ a strong bundle equivalence) and isGeneralizedIso_negDiagram (the non-trivial example over ℝⁿ × ℝᵏ → ℝⁿ). B says the project's IsGeneralizedIso f is 'f = [D] for some D with both legs strong bundle equivalences'. This holds by the definitions: the project's IsGeneralizedIso asks only for SEP.equivalences D.Ψ, because Φ is a strong bundle equivalence in every SDiagram (field isEquivalence_Φ), and SEP.equivalences F unfolds to IsStrongBundleEquivalence of (ϕ, Φ). So A_to_B is proved outright, without the hypothesis (A's theorems are instances of the notion, not its definition); B_to_A gets each of A's three theorems from B's ← direction. The project's definition is exactly the text's.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 891 shared project theorems, all from the statement of isGeneralizedIso_negDiagram (the construction of negSEP, epSEP, negSEPHom and their proof fields: trivial bundles, rnChart, sc-calculus glue) plus negSEPHom_mem_equivalences, which the proof supplies for the example as the project's proof does (through isGeneralizedIso_ofHom). #rt_check OK for both directions.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

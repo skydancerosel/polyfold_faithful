@@ -1,0 +1,12 @@
+{
+ "id": "V8_10",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "Both sides say the same thing. Every a ∈ TX has an open V ∋ a such that t_T restricted to s_T⁻¹(cl V) is proper. B's tangentMap hs / ht are tSrc / tTgt by proof irrelevance. The only difference is the reading of 'proper'. A uses Mathlib's IsProperMap (ultrafilter / universally closed). B's IsProperB is 'continuous with compact preimages of compacts'. These agree for maps into TX, which is Hausdorff and metrizable (Part I's metrizableSpace_tangentSpace) and so compactly generated (Mathlib's isProperMap_iff_isCompact_preimage). Universe at 0. The text's specific neighbourhood TV(x) and (8.11) are proof-only and appear in neither statement.",
+ "B_issue": null,
+ "overlap": "B_to_A: 337 shared project theorems. Almost all are generic tangent-bundle / chart infrastructure reached through tangentMap and the tangent topology. The groupoid-specific ones are the ep-groupoid fields isLocalScDiffeo_src/tgt and isScSmoothMap_src/tgt. The only lemma used on purpose is metrizableSpace_tangentSpace (Proposition 2.19 (3)). None of lemma_8_7's sequence argument is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

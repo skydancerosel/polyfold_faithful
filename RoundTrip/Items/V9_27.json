@@ -1,0 +1,16 @@
+{
+ "id": "V9_27",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B is Definition 9.2.16 read literally. It says the project's ∂Θ is a functor X → ℚ⁺ with (1) supp ⊆ ∂X and (2) the local formula at the points of supp(F), and that it is the only such functor. As its author predicted, B does not hold as we read it. (2) is vacuous for F = 0, while for Θ = 1 on [0, ∞) (isBranchedEpSubgroupoid_one) ∂Θ(0) = 1 (boundaryTheta_halfLine_one), so uniqueness fails (not_B). A records exactly this: isBoundaryCharacterized_zero and not_unique_isBoundaryCharacterized_halfLine. A also gives existence under Theorem 9.2.1's independence hind, and uniqueness in the corrected reading (eq_boundaryTheta: F = 0 off supp Θ, and the local formula at the points of supp Θ). So A ⇒ B is false (not_A_to_B), and B ⇒ A holds only ex falso. The author proposed a repair: (2) at the points of supp Θ, and F = 0 off supp Θ. A ⇒ BRepaired is proved for that repair with hind added as a hypothesis. Without hind, the existence half does not follow from A (as in V9_26). Universes at 0.",
+ "B_issue": "B formalizes the printed characterization literally, and its author flags it as false (F ≡ 0). This is not a bug in B: the definition as printed does not determine ∂Θ, and the project records this as well. The author's suggested reading (BRepaired, with hind) follows from A.",
+ "intended": "BRepaired ((2) at the points of supp Θ, F = 0 off supp Θ, hind as a hypothesis): A_to_BRepaired proved, #rt_check OK, uses A (isBoundaryCharacterized_boundaryTheta, eq_boundaryTheta) plus the non-item boundaryTheta_nonneg and V9_26's isFunctorial_boundaryTheta.",
+ "overlap": "rt_overlap B_to_A (ex falso via not_B): 971 shared project theorems. They come from the half-line counterexample: quadrantPolyfold 1 ℝ⁰ with its corner structure, halfLineCorner_mem_submanifoldBoundary, isBranchedEpSubgroupoid_one, hasIndependentTangentSums_one, boundaryTheta_one and boundaryTheta_halfLine_one, plus the boundary and Part I infrastructure beneath them. This is the project's witness minus its final packaging. not_B and A_to_BRepaired pass #rt_check.",
+ "uses_hypothesis": {
+  "A_to_B": false,
+  "B_to_A": true
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V9_19",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "The definitions agree with the text. The project's goodSet is {y ∈ supp Θ | y good for some structure whose domain contains y}, which is B's {y ∈ supp Θ | IsGoodPt y} up to inter_comm. Its badSet = supp Θ ∖ goodSet is B's {y ∈ supp Θ | ¬ IsGoodPt y}. These two parts of B are definitional (goodSet_eq, badSet_eq). A (universes at 0) is π⁻¹(π(S^g_Θ)) = S^g_Θ and π⁻¹(π(S^b_Θ)) = S^b_Θ for every branched Θ. B's parts (3)–(4) say the same thing along a morphism: s φ ∈ S ↔ t φ ∈ S. So A ⇒ B holds, via π(s φ) = π(t φ). B ⇒ A fails for a genuine reason: B, read under §9.2's standing hypothesis, covers only equidimensional Θ, and A has no dimension hypothesis. B_to_A_equidim (rt_check OK) derives both equalities from B (3)–(4) for branched equidimensional Θ, using π_eq_π_iff. The text's 'by Remark 9.2.4 (c)' (Remark 9.2.4 has no (c)) is read on both sides as the saturation that Lemma 9.2.5 gives.",
+ "B_issue": null,
+ "overlap": "B_to_A_equidim: 32 shared project theorems. These are groupoid glue (π_eq_π_iff, Isomorphic.symm/trans, isomorphic_refl, src/tgt_comp/inv/unit) and sc-scale lemmas reached through the types. No good-point mathematics is reused (lemma_9_2_5 and mem_goodSet_iff are not used). A_to_B: rt_check OK.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V9_9",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B is the literal Proposition 9.1.11: ∃! locally finite family of k-dimensional branched ep⁺-subgroupoids with Θ = ∑ᶠ Θ_k. As its author predicted, B does not hold as we read it, and A agrees. A contains not_proposition_9_1_11_rn, the project's decompositions decompA (Θ₀ = 1_{0}, Θ₁ = 1_{L∖0}) and decompB (Θ₁ = 1_L) of the indicator of the x-axis L ⊆ ℝ², and the local construction (dimPart on U(x), its k-dimensional structure, Θ = ∑ Θ_k on U(x), G_x-invariance for symmetric structures). not_B shows that decompA and decompB are also decompositions in B's sense. To do so it translates the project's notions into B's: a local branching structure is an IsLBSB, since a proper inclusion has compact traces. IsSubmanifoldOfDim M k gives B's HasDimB at every point of M, via the HasDimAt chart, exists_submodule_chartTangent and finrank_chartTangent. B's T_yM = ⋃_d Tr(T_yX) equals the project's fixed-vector T_yM (tyMB_eq). B's local finiteness of the two families is also checked. So A ⇒ B is false (not_A_to_B), and B ⇒ A holds only ex falso. There is no repaired existence statement on either side: A has no global decomposition, since gluing the local dimPart needs Proposition 9.1.12, which is not proved.",
+ "B_issue": "None as a formalization: B is the text read literally, and its author flagged the uniqueness failure with the same ℝ² line example the project uses.",
+ "overlap": "B_to_A (ex falso via not_B): 660 shared project theorems. Most are the trivial(ℝ²) construction and the sub-M-polyfold/graph infrastructure. The Chapter 9 lemmas reused are the counterexample's building blocks: indicator_singleton_zero_branched, indicator_axis2_branched, indicator_axis2_diff_branched, isBranchedEpSubgroupoid_indicator_rn, localBranchingStructure_indicator_rn/sum_rn, rnPolyfold_isSubmanifoldOfDim_singleton, axis2_isSubmanifoldOfDim, isBranchedEpSubgroupoid_zero, isNDimensional_zero. The decompA/decompB proofs were re-proved here following the project's. dimPartStructure's proof fields are reached through A's statement.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

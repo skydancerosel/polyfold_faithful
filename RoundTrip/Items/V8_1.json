@@ -1,0 +1,13 @@
+{
+ "id": "V8_1",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A is the conjunction of the eight listed theorems (fibre injectivity tangent_ext, fibre surjectivity exists_tSrc_eq, src_tBase_eq, the (8.5) characterization tComp_spec/tBase_tComp/tSrc_tComp, uniqueness tComp_eq, and (8.8) tUnit_eq), universes at 0. These are exactly B's embedded claims: B's fibrewise bijectivity of Ts is tangent_ext + exists_tSrc_eq (+ the project lemma levelVal_tangentProj_tSrc for maps-to), '(8.4) implies s ψ = t φ' is src_tBase_eq, (8.5) for tComp / tangentGroupoidStr / tangentEpGroupoid is tComp_spec, and B's 'Tt(1_a) = a for every v over 1_x with Ts v = a' is tUnit_eq followed by the project lemma tTgt_tUnit. Conversely B's injectivity/surjectivity on fibres give tangent_ext/exists_tSrc_eq (proof irrelevance identifies B's tangentMap hs with tSrc), and B's (8.5)/(8.8) clauses for the project's tComp/tUnit plus the derived tangent_ext give tComp_spec, tComp_eq, tUnit_eq. The remaining identifications (PObj, PMor, src, tgt, inv, tBase) are rfl; B's existential smoothness proofs are the project's isScSmoothMap_src/tgt/inv.",
+ "B_issue": null,
+ "check": "#rt_check and #rt_check_soft cannot pass for any proof mentioning B: B names tangentGroupoidStr and tangentEpGroupoid, whose proof fields are trivial applications (comp_assoc := X.lemma_8_3 h h', exists_isProperMap := X.lemma_8_7, isScSmoothComp := X.isScSmoothComp_tangent) that Lean does not abstract into _proof_N, and those reach tangent_ext, tComp_spec, etc. The file records (with #guard_msgs) that #rt_check_soft fails already for B_self : B → B := id. Both directions are checked instead with the in-file #rt_check_defthm_V8_1, which is #rt_check_soft except that every theorem occurring in the value of a project definition is soft: OK for A_to_B and B_to_A, banned names reached only through proofs inside definitions (tangentGroupoidStr / tangentEpGroupoid). Review: banned theorems reached only through the proof fields of tangentGroupoidStr and tangentEpGroupoid.",
+ "overlap": "B_to_A: 437 shared project theorems, inflated because rt_overlap traverses B's vocabulary (tangentEpGroupoid's proof fields bring in the whole Lemma 8.1–8.7 development and the M-polyfold/sc-calculus infrastructure). The proof of B_to_A itself uses only tBase_mem_levelSet, MPolyfold.levelVal_mem and MPolyfold.level_ext besides B.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

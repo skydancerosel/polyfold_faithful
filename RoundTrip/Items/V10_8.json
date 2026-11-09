@@ -1,0 +1,15 @@
+{
+ "id": "V10_8",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A has five conjuncts: isEquivalence_negFunctor, orbitMap_id_eq_negFunctor, remark_10_1_11_family (α_z = (-1, z) is an sc-smooth family F(z) → G(z)), remark_10_1_11 (no α merely continuous at 0 with α 0 = 1_0 and the source/target conditions eventually), and remark_10_1_11_scSmooth (no α sc-smooth on an open U ∋ 0). B pins the example down (all equations rfl) and states the sc-smooth form, which is remark_10_1_11_scSmooth with two conjuncts swapped. B_to_A gets remark_10_1_11_scSmooth from B. It also gets the stronger-looking continuous-at-0 form from B: near 0 the ℤˣ-component of α is locally 1 (discreteness), so on U = interior{...} α equals the unit section z ↦ (1, z), which is sc-smooth (isScSmoothMap_unit.mono.congr), and B gives the contradiction. The three side facts (the equivalence -id, |id| = |-id|, the family (-1, z)) are closed statements about the example that B does not mention. They are re-proved outright (the project's proofs, copied, from non-item lemmas), so for these three conjuncts B_to_A does not use the hypothesis. The non-existence claim has the same content on both sides.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 526 shared project theorems. Most are the M-polyfold infrastructure in the statement definitions (actionEpGroupoid, rnPolyfold, negFunctor proof fields). Beyond them: the lemmas of the three copied side-fact proofs (lemma_10_1_2, GroupoidFunctor.faithful_iff/full_iff/essSurj_iff, GroupoidStr.π_eq_π_iff, isLocalScDiffeo_rn_neg, isScSmoothMap_units_smul_rn) and isScSmoothMap_sheet. Our continuous-at-0 argument repeats the project's first step (fst ∘ α is locally constant) but then concludes via B instead of not_eventually_eq_neg.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": true
+ }
+}

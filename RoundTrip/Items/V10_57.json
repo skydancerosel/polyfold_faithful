@@ -1,0 +1,12 @@
+{
+ "id": "V10_57",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A (universe 0) is remark_10_5_3 (a generalized strong bundle isomorphism [D] covers a generalized isomorphism of the bases, induces one of the total spaces, and |[D]| is a homeomorphism) together with isIso_of_isGeneralizedIso ([D] with both legs strong bundle equivalences is an isomorphism of SEP(F⁻¹)). B reads the remark as two characterizations: (1) Theorem 10.3.10 (IsIso in EP(E⁻¹) iff [d] with both legs equivalences) and (2) its strong bundle analogue, IsIso in SEP(F⁻¹) iff [D] with both legs strong bundle equivalences. A ⇒ B fails only at the → half of (2): that an isomorphism of SEP(F⁻¹) has a representative whose Ψ is a strong bundle equivalence. A does not contain it and the project does not prove it; it has only the base half (SEPLoc.isEquivalence_base_of_isIso: ψ is an equivalence), and its docstring says the rest would need strong bundle versions of claims (C1), (C2) of Appendix 10.6.2. Everything else is proved: A_to_BWeak gives (1) (outright, from the non-item EPLoc.homMk_surjective / isIso_homMk_iff, since (1) is not part of A) and the ← half of (2) from isIso_of_isGeneralizedIso; B_iff shows B = BWeak ∧ Converse, and A_and_Converse_to_B. B ⇒ A: remark_10_5_3 from B (1) ← applied to the base diagram D.base and to the total-space diagram D.total (both legs equivalences), plus the non-item Diagram.isHomeomorph_orbitMap; isIso_of_isGeneralizedIso from B (2) ←. So the project formalizes the remark as 'the definition implies isomorphism, and covers isomorphisms', not the characterization 'a similar result can be proved', which the text asserts and which we believe true but which is substantial mathematics absent from the project.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 1321 shared project theorems, essentially all structural: the proof fields of the Category instances of EPLoc and SEPLoc (equiv_assoc, IsRefinement.comp, the weak fibred products and the strong bundle pull-back machinery) reached through IsIso in the statements, and the sc-calculus beneath. The lemma the proof itself reuses is Diagram.isHomeomorph_orbitMap (as remark_10_5_3's proof does). #rt_check OK for A_to_BWeak and B_to_A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

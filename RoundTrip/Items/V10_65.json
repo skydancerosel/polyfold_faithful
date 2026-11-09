@@ -1,0 +1,12 @@
+{
+ "id": "V10_65",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "A_narrower",
+ "effort_only": false,
+ "why": "B is the literal Theorem 10.3.19: (LR) on one side and |f| = |f'| make generalized isomorphisms f, f' : X ⟶ Y in EPLoc.{0} equal. B is the project's Theorem_10_3_19.{0} (B_iff_Theorem, up to structure eta), and A is its refutation plus ingredients: not_theorem_10_3_19, theorem_10_3_19_counterexample, isLR_trivialZ3, not_naturallyEquivalent_id_inv, not_isEffective_trivialZ3. not_B applies B to z3EP = ℤ/3 × ℝ ⇉ ℝ (trivial action) with genInv = [X ←1 X →Inv X] and genId = [1_X]. (LR) holds because orbits are points, so an orbit-preserving β is Φ(1); this is re-proved as isLR_trivialZ3'. The rest are the non-item lemmas isGeneralizedIso_genInv/genId, orbitMap_genInv and genInv_ne_genId (Remark 10.5.5's isotropy relation). So A ⇒ B is false (not_A_to_B), and B ⇒ A holds only ex falso. As the blind author predicted, the statement fails without effectiveness, and the project agrees.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A (ex falso through not_B): 1417 shared project theorems. They are the localization category in the statement, theorem_7_1 (for isLR_trivialZ3'), the actionEpGroupoid proof fields of trivialZ3EpGroupoid, and the counterexample ingredients from StrongBundleLocalizationExamples (remark_10_5_5, isotropyRel_id, not_isotropyRel_inv, z3InvHom_mem_equivalences, orbitMap_ofHom_z3InvHom, isMap_z3Inv) with genInv_ne_genId, isGeneralizedIso_genInv/genId, orbitMap_genInv. #rt_check OK on not_B and B_to_A (axioms of not_B: propext, Classical.choice, Quot.sound).",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

@@ -1,0 +1,12 @@
+{
+ "id": "V9_18",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "Same notion of good point. B's IsGoodPt X Θ y (good, in the IsGoodAt sense, for some structure whose domain contains y) is exactly the project's y ∈ goodSet X Θ (isGoodPt_iff); the y ∈ supp Θ clause of goodSet is automatic. A ⇒ B is lemma_9_2_5 rewritten. Universes are at 0. B ⇒ A fails for a genuine reason: B is the text's lemma for equidimensional branched Θ, while A's src_mem_goodSet_of_tgt and lemma_9_2_5 hold for every branched Θ. The project's proof uses the intrinsic characterization and Θ ∘ φ̂ = Θ, never the dimension. A also contains Sheet.apply_hat (Θ ∘ φ̂ = Θ on a sheet, for any functorial Θ), a lemma B does not state. B_to_A_equidim (rt_check OK) proves A's three statements for branched equidimensional Θ: the two good-point statements from B (one direction of the iff is src_mem_goodSet_of_tgt), and Sheet.apply_hat re-proved outright in two lines without B.",
+ "B_issue": null,
+ "overlap": "B_to_A_equidim: 27 shared project theorems: Sheet.isScDiffeoOn_src and IsScDiffeoOn.right_inv (in the re-proof of Sheet.apply_hat, the same two facts the project uses), LocalBranchingStructure.eq_sum/σ_pos/mem_supp_iff (isGoodPt_iff), and sc-scale lemmas reached through the types. A_to_B: rt_check OK.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

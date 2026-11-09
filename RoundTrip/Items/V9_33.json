@@ -1,0 +1,13 @@
+{
+ "id": "V9_33",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "B quantifies over every β with β(0) = 0, β > 0 off 0 and all four β^{±±} smooth. A (eleven theorems, no universes) is about the single project β = betaPP (expNegInvGlue s + expNegInvGlue (−s)). So A ⇒ B fails for every other β. The project's lemmas that matter (isOrientation_sum_rn, hasIndependentTangentSums_rn, graphOrientation_tangent_ne') are general in β, so B is believed true by the same proofs; only the generalization is missing. At B's instance β = betaPP, A gives B's (a) first half (Θ branched, Θ also counts the second structure), (b) in full (both orientations, T̂¹(0) = T̂²(0), T̂¹ ≠ T̂² somewhere) and (d) in full. That is A_to_B_betaPP_part, rt_check OK, using the hypothesis. The glue: G1/G2 betaPP = beta1/beta2, liftB = orientedLift1/2, ThetaB betaPP = example935Theta, IsOrientation ⇒ IsOrientationB. Even at betaPP, A lacks B's (c): that every sign choice of the SECOND structure is an orientation and that these are pairwise distinct (A has injectivity for the first structure only). It also lacks (a)'s two explicit local branching structures on U = ℝ². Both hold by unbanned project lemmas. B ⇒ A only by re-proving A outright (verbatim copies, renamed _c, rt_check OK), because A's claims are pointwise facts about betaPP that B's existential statements do not give: T̂¹ ≠ T̂² at every (s, β⁺⁺(s)) with s > 0, T̂¹ = T̂² for s < 0, T̂² is none of the first structure's orientations, and the good-point corollary via Lemma 9.3.4. The two readings of 'four possibilities' are compatible. B's reading is weaker: four distinct sign choices per structure. The project's exampleT2_ne_orientedLift1 adds that Θ has more than four orientations.",
+ "B_issue": "B reconstructs the β^{±±} from the picture (the md does not list them) and states the example for every such β. That is a legitimate generalization of the text's 'four smooth β^{±±}', but the text's example is about one choice of β.",
+ "overlap": "B_to_A: 1129 shared project theorems, all from the copied proofs: the graph-orientation machinery (graphOrientation, graphFrames, chartVec_image_graph2, graphOrientation_tangent_ne'), the betaPP/PM/MP lemmas, orientedSumRn_bool*, ptPP/ptMM membership lemmas, isOrientation_sum_rn(') / isOrientationOfDim_sum_rn, hasIndependentTangentSums_rn, lemma_9_3_4_rn (V9_32's, not banned here) and M-polyfold infrastructure. No banned theorem is used.",
+ "partial": "A_to_B_betaPP_part : A → B_betaPP_part (B at β = betaPP, parts (a) first half, (b), (d)); B_to_B_betaPP_part : B → B_betaPP_part. Both rt_check OK / plain.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

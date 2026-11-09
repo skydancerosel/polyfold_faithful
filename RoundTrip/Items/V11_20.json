@@ -1,0 +1,12 @@
+{
+ "id": "V11_20",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) is twenty lemmas on the section maps F_*, F^* of Gr̂ (11.8), (11.9) and f_* = G_*F^*, f^* = F_*G^*. B states (11.8) for every choice of (x, ψ), (11.9) literally, F_*, F^* : Γ → Γ for an equivalence, and, on every choice of representatives of generalized isomorphisms, well-definedness, (f⁻¹)_* = f^* and both composition laws. A ⇒ B: (11.8) is pushSection_eq, membership is isGrHatSection_push/pullSection plus vanishing off X_∞ by definition, and the generalized-isomorphism part is lemma_11_3_4 (its conjuncts f_* = d.pushSection, f^* = d.pullSection for every representative), pushSection_inv and EPLoc.pushSection/pullSection_comp. (11.9) is not a conjunct of A (it is how pullSection is defined): it is proved from the definition with the non-item pullSection_of_mem, mapDomain_map_map, mapDomain_map_id and fibreInv_spec_tangent. B ⇒ A fails for a genuine reason: A is more general. isGrHatSection_pullSection, pullSection_eq_of_natTrans and pullSection_comp need only that F is a local sc-diffeomorphism on objects. Not stated in B: natural-equivalence invariance, F^*F_* = id, F_*F^* = id and the composition laws for equivalences, the weak-fibred-product base change and IsOrientation.isGrHatSection. A's lemmas also take sections with arbitrary values off X_∞ (IsGrHatSection), B's only sections in Γ.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 1023 shared project theorems. Most are the EP(E⁻¹) and weak-fibred-product vocabulary in the statements, plus Part I tangent-bundle infrastructure. The chapter-11 ones are the non-item definitional lemmas pushSection_of_not_mem, pullSection_of_mem/_of_not_mem, mapDomain_map_map, mapDomain_map_id, mapDomain_map_congr, fibreInv_spec(_tangent), used for (11.9) and the vanishing off X_∞. Plain #rt_check OK.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

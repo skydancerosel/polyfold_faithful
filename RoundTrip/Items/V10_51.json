@@ -1,0 +1,12 @@
+{
+ "id": "V10_51",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universe 0) is twelve facts about the project's SDiagram / IsRefinement / Equiv / cls. They are the two refinement examples (precomp, of_natEquiv), refl/trans of refinement, refl/symm of Equiv, IsRefinement.equiv, NatEquiv.comp_left, cls_eq_cls_of_equiv, cls_eq_cls_iff, and the foldDiagram witnesses. B says (a) SDiagram is exactly a triple (W'', Φ strong bundle equivalence, Ψ strong bundle functor), (b)/(c) the project's IsRefinement/Equiv are the text's (H a strong bundle equivalence with Φ∘H ≃ Φ', Ψ∘H ≃ Ψ'; common refinement), (d) [D] = [D'] iff D, D' have a common refinement, and (e) every GenSBMap is some [D]. A_to_B: (a) from the structure fields, (b)/(c) by Iff.rfl (composition in SEP is definitionally the pair of composites), (d) from cls_eq_cls_iff, (e) Quot.exists_rep. B_to_A gets the only substantive conjunct, cls_eq_cls_iff (transitivity of Equiv, the strong bundle Lemma 10.3.4), from B (d)+(c). The other eleven are elementary facts about the definitions that B does not address (precomp, foldDiagram, composites of refinements). They are re-proved outright, copying the project's few-line proofs, with comp_left re-proved locally. On the text's content the two say the same thing: the project's Quot by the generated relation agrees with B's classes because cls_eq_cls_iff holds.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 943 shared project theorems. Almost all come from the statements: the proof fields of SEP, EpStrongBundle.toEpGroupoid and the strong bundle / M-polyfold infrastructure, and the negSEP / epSEP example bundles behind foldDiagram. From the proof itself: SEP.NatEquiv.refl/symm/trans, Hom.isStrongBundleFunctor, the IsMultiplicative instance of SEP.equivalences, StrongBundleNatTrans.whiskerLeft (in comp_left'), and negSEPHom_mem_equivalences. These are the same non-item lemmas the project's proofs use. No item theorem is used; plain #rt_check passes on both directions.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

@@ -1,0 +1,15 @@
+{
+ "id": "V9_31",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (remark_9_3_3) says that for Θ = 1_{p} on ℝⁿ, q ↦ q·(T_p{p}, +) + (1 − q)·(T_p{p}, −), q ∈ (0, 1) ∩ ℚ, is an injective family of orientations. B (b), that some Θ has two orientations differing at a smooth point, follows from A (T̂_{1/2} ≠ T̂_{1/3}). B (a) asks for an orientation with two oriented representations (9.9) on the same U(x) whose sets of sheets differ. This does not follow from A: for 1_{p} every local branching structure has only the sheet {p}. It is proved separately (B_a, without A) from the project's Example 9.3.5, with all four graphs oriented by +(1, β'). The oriented sums of {G⁺⁺, G⁻⁻} and {G⁺⁻, G⁻⁺} then coincide everywhere (orientedLift1_eq_orientedLift2), both structures live on U = ℝ², and G⁺⁺ ∉ {G⁺⁻, G⁻⁺}. So A ⇒ B is proved, but its part (a) is content that A lacks. B ⇒ A is not proved: B (b) gives two orientations of some Θ, while A gives infinitely many for every point indicator, which is the text's 'more than two orientations'. A is provable outright, so the implication holds only trivially.",
+ "B_issue": "B (a) follows the item's quotation, 'the local oriented representation (9.9) is not unique'. The 2021 text's first sentence of Remark 9.3.3 instead says that (9.9) amounts to the local continuity of the lift x ↦ T̂Θ(x) on supp Θ. The project reads it that way and builds it into the continuity field of SubmanifoldOrientation. So (a) is not a claim of the text as printed, although it is true (B_a). B (b), 'not unique', is weaker than the text's 'more than two possible orientations'.",
+ "overlap": "No B_to_A, so no rt_overlap. A_to_B uses remark_9_3_3 for (b) only. B_a uses the project's Example 9.3.5 material, none of it banned: orientedLift1_isOrientation_rn, example935Theta_isBranched, orientedBranchingStructure_sum_rn, orientedSum_sum_rn_eq, graphOrientation_tangent_eq, example_9_3_5_count, deriv_eq_of_eqOn_Ioi / Iio and the ptPP lemmas. #rt_check is OK on A_to_B and B_a.",
+ "uses_hypothesis": {
+  "A_to_B": true,
+  "B_to_A": false
+ }
+}

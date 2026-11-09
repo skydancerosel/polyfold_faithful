@@ -1,0 +1,12 @@
+{
+ "id": "V9_51",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": true,
+ "why": "Both sides define L(S) the same way: B's LSB is the project's borelNullSigma of its null sets, by rfl. A (universes at 0) states the remark for any σ-ideal 𝒩 (measurableSet_borelNullSigma_iff) and for the project's lebesgueSigma over an abstract SheetNullSets. B states it for its concrete null sets IsNullSB, which are locally n-dimensional Hausdorff-null preimages, as in V9_50. A ⇒ B needs these concrete null sets to form a σ-ideal. They do once locally null subsets of a sheet are closed under countable unions: isSigmaIdeal_of proves the σ-ideal from that and from V9_50's choice independence, re-proved outright here as nullPreimages_of. With this one hypothesis A ⇒ B holds (A_to_B_of_hyp) via A's measurableSet_borelNullSigma_iff. The hypothesis is not proved. In a non-separable E₀ it needs local second countability of the sheets: sc⁺-retract images are locally relatively compact, which the project lacks. It is believed true, so this is missing infrastructure, not a difference of statements. B ⇒ A is vacuous: B does not mention arbitrary σ-ideals or SheetNullSets, so A is re-proved outright (ReProof).",
+ "B_issue": "B's notion inherits from V9_50 the lack of σ-additivity of IsLocNullB without second countability. B's '⇒' (every member of L(S) is Borel ∆ null) depends on it.",
+ "overlap": "rt_overlap A_to_B_of_hyp: 17 shared project theorems (LocalBranchingStructure.mem_supp_iff/eq_sum/σ_pos/subset_U/isOpen_U/mem_U used by the covering argument, GroupoidStr basics of the orbit space). None is banned. rt_overlap B_to_A: 36. These are SheetNullSets fields, borelNullCompletion's proof fields (a vocabulary definition), symmDiff_iUnion_subset, and V9_50's item theorems isSigmaIdeal_isMeasureZeroSupp, lemma_9_5_2, isMeasureZeroSuppAll_of_any and isMeasureZeroSuppAny_of_isMeasureZeroSupp. The outright re-proof of isSigmaIdeal_measureZeroSets uses them; they are not banned for V9_51. rt_check passes on A_to_B_of_hyp and B_to_A; axioms propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

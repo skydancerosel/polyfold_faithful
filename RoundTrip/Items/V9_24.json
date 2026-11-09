@@ -1,0 +1,13 @@
+{
+ "id": "V9_24",
+ "A_to_B": "false",
+ "B_to_A": "proved",
+ "not_B": true,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "B reads Lemma 9.2.13 literally at every x ∈ M: (x ∈ ∂X ∧ x ∉ ∂M) ↔ IsTangentReducedAt M x. As its author predicted, B does not hold as we read it. not_B uses the point {0} of ℝ¹: off ∂X, (2) holds (isTangentReducedAt_of_not_mem_boundary, the first half of the project's lemma_9_2_13_of_not_mem_boundary re-proved, since that lemma reaches the item theorem subDegIndex_le), while (1) fails. A agrees (not_lemma_9_2_13_two_one), so A ⇒ B is false and B ⇒ A holds only ex falso. BRepaired is B with the hypothesis x ∈ ∂X added, the project's lemma_9_2_13_iff. A_to_BRepaired is proved. BRepaired_gives_main derives A's four main conjuncts (lemma_9_2_13, lemma_9_2_13_two_one, lemma_9_2_13_iff, and subDegIndex_eq_zero_iff, whose off-boundary case comes from Lemma 2.26 directly). BRepaired ⇒ A is still not proved. A also contains the chart-level lemmas (isReducedTangentAt_iff_subset_reduced/partialCone, isReducedTangentAt_chart_change, isTangentReducedAt_iff_forall, lemma_9_2_13_chart), the sc⁺-retraction lemmas IsScPlus.exists_injOn_proj and exists_flat, and subDegIndex_le, none of which a statement about one point says. Relative to BRepaired, then, A is stronger. Universes at 0 where present.",
+ "B_issue": "B is formalized literally, with no standing hypothesis x ∈ ∂X. The author flags in the docstring that (2) ⇒ (1) then fails at interior points (Z = ℝ, M = {0}) and suggests the repair. not_B confirms this, which matches the project's reading (not_lemma_9_2_13_two_one, lemma_9_2_13_iff). The repaired version, BRepaired in the Items file, follows from A.",
+ "intended": "BRepaired (B at x ∈ ∂X): A_to_BRepaired proved and #rt_check OK. BRepaired_gives_main covers A's four main conjuncts (#rt_check OK). The full BRepaired ⇒ A is not proved, because of A's chart and sc⁺ auxiliary lemmas.",
+ "overlap": "not_B: 443 shared project theorems, the ℝⁿ degeneracy-index and chart infrastructure (rnPolyfold_isSmoothSubmanifold_singleton, rnPolyfold_degIndex, exists_isChart_degIndex_eq, degIndex_eq, mem_minimalSubspaceWith, lemma_1_24, proposition_1_19, proposition_2_6_1, ...). BRepaired_gives_main: 375, the same, plus lemma_2_26. No banned theorem is reached.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

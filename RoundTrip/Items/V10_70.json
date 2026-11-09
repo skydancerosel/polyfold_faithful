@@ -1,0 +1,12 @@
+{
+ "id": "V10_70",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) has ten conjuncts. Five are class-level facts about the composite D.comp E (the weak-fibred-product diagram): Equiv.comp, equiv_assoc, equiv_comp_id, equiv_id_comp, and cls_comp_cls (rfl). Two are refinement-level: IsRefinement.comp (refinements of the factors give a refinement of the composites) and isRefinement_assoc ((D∘D')∘D'' refines D∘(D'∘D'')). One is equiv_ofHom_comp (functoriality of ofHom). Two are examples on foldDiagram. B is well-definedness, associativity and the unit laws, all as equalities of classes. A ⇒ B (rt_check_soft OK) uses Equiv.comp with the non-item cls_eq_cls_iff (V10_69), equiv_assoc and the unit lemmas. B ⇒ A fails for a genuine reason. IsRefinement.comp and isRefinement_assoc concern the one-sided refinement relation, strictly finer than equality of classes. equiv_ofHom_comp concerns ofHom, which B never mentions. nonempty_comp_foldDiagram is non-emptiness of a middle. None of these follows from B; deriving them means re-proving the main step of Theorem 10.3.8 (the lift through wfpMap) outright. B_to_A_core (rt_check_soft OK) derives the class-level conjuncts from B: Equiv.comp, equiv_assoc, both unit laws, cls_comp_cls, and homMk_foldDiagram_comp (from the non-item cls_foldDiagram and B (1), (3)). On the text's claim the two sides agree; A adds the refinement-level lemmas of the proof and ofHom functoriality.",
+ "B_issue": null,
+ "overlap": "HARNESS: A's statement mentions GenSBMap.comp (in cls_comp_cls) and the category SEPLoc (in homMk_foldDiagram_comp). Their proof fields are proved with the banned Equiv.comp, equiv_assoc, equiv_comp_id and equiv_id_comp, which reach IsRefinement.comp and isRefinement_assoc. So plain #rt_check fails on A_to_B and B_to_A_core for those six names only; the failures are recorded with #guard_msgs. #rt_check_soft passes on both and names SEPLoc.category and GenSBMap.comp as the definitions involved. rt_overlap B_to_A_core: 1354 shared project theorems. These are the banned lemmas, reached through those proof fields; the unit-section and refinement lemmas they use; cls_eq_cls_iff → lemma_10_3_4 → SBWeakFibredProduct.theorem_10_2_2(_right); cls_foldDiagram; and the SEP and Part I chart infrastructure.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

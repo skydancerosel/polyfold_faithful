@@ -1,0 +1,12 @@
+{
+ "id": "V8_29",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "B is literally the project's proposition_8_2 at universe 0 (the same EpFunctor.IsProperCovering, the same EpFunctor.comp, arguments in another order), so A ⇒ B is the third conjunct of A. Conversely B gives (F ∘ H).IsProperCovering, and the other two conjuncts of A, evenlyCovered_comp and isScDiffeo_fibredMap_comp, are exactly the fields evenlyCovered and isScDiffeo_fibredMap of that structure, so B ⇒ A by projection. No mathematical difference. Universes instantiated at 0.",
+ "B_issue": null,
+ "overlap": "B_to_A: 351 shared project theorems, all reached through the statement of IsProperCovering (the field projection EpFunctor.IsProperCovering.isScDiffeo_fibredMap and the types of the fibred-product sub-M-polyfold: isSubMPolyfold_fibredProduct, paracompactSpace_subtype, subChart, sc-calculus infrastructure); no construction step of the project's proof (the shrinking of U(x), the maps K̃, L̃) is reused.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

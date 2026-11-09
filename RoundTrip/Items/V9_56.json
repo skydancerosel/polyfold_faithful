@@ -1,0 +1,12 @@
+{
+ "id": "V9_56",
+ "A_to_B": "proved",
+ "B_to_A": "failed",
+ "not_B": false,
+ "relation": "A_stronger",
+ "effort_only": false,
+ "why": "A (universes at 0) is card_isotropy_eq_of_mor and card_effIsotropy_eq_of_mor for every morphism (the effective one without LUC), IsFunctorial.eq_of_π_eq, image_π_MU_eq for every onto map f : U → U' with |f z| = |z| between two local branching structures, and NaturalRep.Φ_hyps. B states, for φ with B's local hat-map data t∘σ : U → U' between connected natural representations carrying local branching structures: the conjugation G_x ≅ G_x', ♯G_x = ♯G_x', |M_U| = |M_U'|, the preimage of K in M_U' is (t∘σ)(preimage in M_U), and under LUC T_x ↔ T_x' and ♯G^eff_x = ♯G^eff_x'. A ⇒ B: the isomorphism is isotropyConj, the orders are A's first two conjuncts, |M_U| = |M_U'| is image_π_MU_eq for f = t∘σ (MapsTo/SurjOn from B's sc-diffeomorphism, |tσ(z)| = |sσ(z)| = |z|), the preimage identity uses A's eq_of_π_eq, and the T-correspondence is the non-item Lemma 7.2.6 lemma isotropyConj_mem_trivialSet_iff (no LUC needed). B ⇒ A fails for a genuine reason: A is more general (every morphism, no LUC for the effective orders, arbitrary f), and eq_of_π_eq, Φ_hyps are not statements of B.",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B: 555 shared project theorems, none of them banned: the Chapter 7 infrastructure under the statements (trivialSubgroup/trivialSet, whose subgroup proofs use theorem_7_1 and the natural-representation construction; proposition_7_4 finiteness; ep-groupoid continuity lemmas; M-polyfold chart glue) plus isotropyConj_mem_trivialSet_iff and LocalBranchingStructure.mem_supp_iff used directly. rt_check passes; axioms propext, Classical.choice, Quot.sound.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

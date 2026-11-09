@@ -1,0 +1,12 @@
+{
+ "id": "V8_23",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is Definition 8.3.2 (EpStrongBundle.IsMap, vocabulary) plus the non-vacuity theorem isMap_id, so A = type of isMap_id at universes 0. B asks that IsMap equal B's literal reading IsMapB (an IsStrongBundleMap covering φ.obj, plus Φ(μ(γ,w)) = μ'(φ(γ),Φ(w)) with the fibred-product membership passed as a hypothesis), and the well-definedness remark P'(Φ w) = s'(φ γ). Both hold outright (B_holds): (a) repackages the two structure fields (the membership proofs agree by proof irrelevance), (b) is covers + φ.src_mor. So A_to_B does not use A. B_to_A applies the backward half of (a) to the identity, using StrongBundle.IsStrongBundleMap.id and rfl. The project's definition matches the text exactly; nothing differs.",
+ "B_issue": null,
+ "overlap": "B_to_A: 281 shared project theorems, all infrastructure reached through StrongBundle.IsStrongBundleMap.id (the only non-trivial ingredient of isMap_id) and EpFunctor.id's proof fields: sc-retraction, chart and strong-bundle-chart lemmas. A_to_B is B_holds and passes plain #rt_check.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

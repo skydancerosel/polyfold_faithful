@@ -1,0 +1,12 @@
+{
+ "id": "V11_14",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "This is a definition item. pullbackTheta and pushforwardTheta are vocabulary; A (universes at 0) is the conjunction of four side theorems about them: pullbackTheta_apply (rfl), pushforwardTheta_of_not_exists and its contrapositive (the value 0 where no F(x) is isomorphic to y), and pushforwardTheta_nonneg. All four hold for an arbitrary sc-smooth functor F and arbitrary Θ. B says that on the text's domain (F an equivalence, Θ a functor to ℚ⁺) the project's F^*Θ' is Θ' ∘ F and (F_*Θ)(y) = Θ(x) for every x with a morphism F(x) → y. B is proved outright as B_holds: the pull-back by rfl, the push-forward by the non-item lemma pushforwardTheta_eq, which needs only fullness. So the project's definitions are the text's on its domain; off it, the choice-based value (0 if there is no x) is junk that B does not constrain. A_to_B takes the pull-back part from A, but needs pushforwardTheta_eq for the push-forward part, since no conjunct of A gives well-definedness. B_to_A is vacuous: A's four conjuncts concern arbitrary F and Θ, where B says nothing, so they are re-proved from the definitions (dif_neg, split_ifs).",
+ "B_issue": null,
+ "overlap": "rt_overlap A_to_B and B_to_A: 1 shared project theorem each, the equation lemma EpFunctor.pushforwardTheta.eq_1 (unfolding the definition). #rt_check OK on B_holds, A_to_B and B_to_A.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": false}
+}

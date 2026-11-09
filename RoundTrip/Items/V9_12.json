@@ -1,0 +1,12 @@
+{
+ "id": "V9_12",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The project's T_yM (submanifoldTangent) is the set of vectors over y fixed by Tr. B's T_yM is the image Tr(T_yX). A ⇒ B: Tr is idempotent (tmap_tmap) and maps T_yX into T_{r(y)}X = T_yX. So the image is the fixed set, and with mem_submanifoldTangent_iff (any data computes the fixed set) B (c) follows, which gives (a). The chart part of (b) is A's exists_submodule_chartTangent: the chart image is a finite-dimensional subspace in every chart. B ⇒ A: exists_submodule_chartTangent and exists_submodule_of_mem_support follow from B (b) and (c). The other eight conjuncts are calculus facts that B does not state: the iff for an arbitrary single data (B needs IsSmoothSubmanifold), the fibre inclusion, the germ property, images under sc-diffeomorphisms, the chart model T_z(φ(W∩A)), the rank, and chart changes. They are re-proved outright from non-item lemmas, following the project's proofs. The two readings agree. Universes at 0.",
+ "B_issue": null,
+ "overlap": "rt_overlap B_to_A: 560 shared project theorems. They come from the eight outright re-proofs: Part I sc-calculus and tangent-chart infrastructure (tangentMapOn chain rule, retractTangentMap, IsScSmoothRetractMap, remark_4_14, HasDimAt.finrank_eq, exists_clm_tangentChartMap_snd, injOn_tangentChartMap_snd), the SubmanifoldData tmap lemmas (tmap_tmap, tmap_eq_of_tmap_eq, tangentChartMap_tmap, tmap_mem_submanifoldTangent), and image_submanifoldTangent_subset / submanifoldTangent_congr. A_to_B uses only A's mem_submanifoldTangent_iff and exists_submodule_chartTangent, plus tmap_tmap, levelVal_tangentProj_tmap and apply_eq_self.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

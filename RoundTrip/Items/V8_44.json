@@ -1,0 +1,12 @@
+{
+ "id": "V8_44",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "A_narrower",
+ "effort_only": true,
+ "why": "A's proposition_8_1_16_2021 concludes TX.IsZhou from X.IsZhou only under the extra hypothesis X.TangentZhouReflect: for a smooth b ∈ TX and (g, h) ∈ G_b, T(g, h) = id on T_b(TX) implies Tg = id on T_{p(b)}X. This is the step of the text's proof that differentiates (8.16) and uses that Tτ_X is onto; B (the text's statement) has no such hypothesis, and nothing in B's premise X.IsZhou gives it. It is satisfiable (tangentZhouReflect_trivial) and believed always true, but proving it needs second-tangent calculus (Tτ_X : T(TX) → TX onto, chain rule for T(Ts), T(Tt)) that the project does not formalize, so A ⇒ B fails for effort only. B ⇒ A: proposition_8_1_16_2021 is B with the hypothesis dropped, the point example is B at pointEpGroupoid; the other four conjuncts (levelVal_tangentProj_mem_smoothSet, mem_nonEffectivePart_tangent, tangentMor_trivial, tangentZhouReflect_trivial) are lemmas/witnesses not implied by B and were re-proved outright. Universes at 0 (TX lives in Type 1).",
+ "B_issue": null,
+ "overlap": "B_to_A: 874 shared project theorems — mostly M-polyfold/tangent-bundle infrastructure reached through the types (charts, TangentPre transport, tangentMap/tangentMapOn API) plus the lemmas of the copied outright proofs (mem_shift_smoothSet_iff, tangentProj_isScSmooth, mem_nonEffectivePart_iff, tangentMapOn_congr, tangentMapOn_eq_tangentMap) and isZhou_trivial; no item theorem.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": true}
+}

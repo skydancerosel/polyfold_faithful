@@ -1,0 +1,12 @@
+{
+ "id": "V8_38",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "A (universes at 0) has seven theorems. A_to_B builds B's bijection mor(F⁻¹(x)) → G_x × F⁻¹(x): bijective_fibredMap gives injectivity, existsUnique_lift gives surjectivity. Finiteness and the count come from finite_morOn_fiber and ncard_morOn_fiber, with Nat.card G_x = #{g | s g = x = t g}. A Fin q-indexed decomposition is an enumeration of the project's classes fiberClass x c, c ∈ fiberIndex x, using iUnion_fiberClass and pairwiseDisjoint_fiberClass. B's last conjunct (isotropy groups of one class isomorphic as groups) is stronger than A's equal-cardinality version; it is proved outright from the non-item EpGroupoid.nonempty_isotropy_mulEquiv. B_to_A takes ncard_morOn_fiber and finite_morOn_fiber from B. The other five are not consequences of B: B only speaks of morphisms between points of one fibre, while bijective_fibredMap and existsUnique_lift are about all morphisms (immediate from Definition 8.5.1 (3)), and the three fiberClass facts hold for every functor. They are re-proved outright by the project's short arguments. On the text's content the two sides say the same thing.",
+ "B_issue": null,
+ "overlap": "B_to_A: 391 shared project theorems. Almost all are M-polyfold/sc-calculus infrastructure reached through the type of IsProperCovering.isScDiffeo_fibredMap (fibred-product sub-M-polyfold, product charts, paracompactness instances), plus groupoid axioms, fiberClass_subset, mem_fiberClass_iff and EpGroupoid.nat_card_isotropy_eq used by the outright re-proofs. No item theorem.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}

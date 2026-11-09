@@ -92,11 +92,13 @@ GitHub displays it directly.
 * **Every numbered item of Chapters 1–11 is compared with its formal version** (824 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
   list of what is not formalized and why (G.1–G.135).
-* **Round-trip audit**: for all 393 items of Chapters 1–7 not labelled *extra* (or *gap*), an
+* **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
-  November 2026, Chapters 6 and 7 audited on 7 November 2026). In Chapter 7 it proved that `𝐗^R`
-  need not be Hausdorff (Propositions 7.9–7.10, gap G.71; `RoundTrip/Items/V7_40.lean`).
+  November 2026, Chapters 6 and 7 audited on 7 November 2026, Chapters 8–11 on 8 November 2026). In Chapter 7 it proved that `𝐗^R`
+  need not be Hausdorff (Propositions 7.9–7.10, gap G.71; `RoundTrip/Items/V7_40.lean`). In Chapters 8–11 every statement it found
+  not to hold in the formal reading was one the project already records. One example is Theorems 10.3.19 and 10.5.7 (Findings Ch10
+  item 58); it also gave a counterexample to Proposition 9.6.5 (1) read literally (Findings Ch9 item 104).
 * **Human sign-off**: not started.
 
 ## Where to start reading (no Lean needed)

@@ -1,0 +1,12 @@
+{
+ "id": "V9_60",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "The item is a definition. IsTopGoodPoint and IsTopBadPoint are vocabulary; A (universe 0) is the type of the one listed theorem, dimPart_topDim_eq_of_isTopGoodPoint (p. 456: Θ_k agrees at a point of U ∩ U' that is top-good for two labelled structures). B says the project's IsTopGoodPoint / IsTopBadPoint are the blind notions at every y ∈ M^k_U. B holds outright (B_holds). On M^k_U the definitions differ only in two places: the project asks y ∈ M_U, which y ∈ M^k_U implies, and V ⊆ U, which we get by replacing V with V ∩ U. M^k_U, topDim and the top-bad clause agree by rfl. B's branched hypothesis and labels are not needed. B ⇒ A: A is not a consequence of a statement about definitions. It is re-proved outright (A_outright, the project's proof copied, from non-item lemmas). Both directions are therefore vacuous. The content is that on M^k_U, the only place the text defines them, the definitions agree. Off M^k_U the project's IsTopGoodPoint holds at every point of M_U, vacuously; B makes no claim there.",
+ "B_issue": null,
+ "overlap": "rt_check OK for both directions. rt_overlap B_to_A: 442 shared project theorems. B_to_A is a copy of the project's proof of dimPart_topDim_eq_of_isTopGoodPoint, so it shares its whole closure: lemma_9_6_1, lemma_9_6_2, exists_isGeneric, dimPart_topDim_eq_of_isGeneric, the covering lemma and the Part I tangent machinery under HasDimAt. A_to_B uses no project theorem beyond the structure fields.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

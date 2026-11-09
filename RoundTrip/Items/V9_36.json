@@ -1,0 +1,12 @@
+{
+ "id": "V9_36",
+ "A_to_B": "failed",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "incomparable",
+ "effort_only": false,
+ "why": "A (universes at 0) formalizes Definition 9.3.8 with T_y∂M and the outward vector as data K, e. It proves that boundaryFrames O K e orients K when K ⊆ T_yM has m-dimensional chart image and e ∉ K (isOrientedAt_boundaryFrames), and that the frames are unchanged under e ↦ c e + k with c > 0, k ∈ K, read in a chart (boundaryFrames_eq). Add the linear algebra and a witness with two opposite orientations. B asserts, for an oriented (m+1)-dimensional M with tame induced structure and y with d_M(y) = 1: (a) outward vectors exist (chart vector outside the positive tangent cone of φ(M)) and the frames of T_y∂M do not depend on the outward vector; (b) near y, ∂M is an m-dimensional submanifold carrying an orientation (with continuous frames) given by the rule. A never derives these for the actual T_y∂M and outward vectors. That T_y∂M has codimension-1 chart image, that outward vectors exist and are not in T_y∂M, that two of them satisfy e' − c e ∈ T_y∂M with c > 0, and that ∂M ∩ V is a submanifold with a continuous o_∂M are all missing. The project lists these as not formalized ('T_y∂M = T^R_yM and the outward direction from the cones C_yM', 'the continuity of o_∂M'). So A ⇒ B fails for a genuine reason (substantial missing geometry, not glue). B cannot be applied to A's linear-algebra statements or to arbitrary data K, e, so B_to_A re-proves A outright: verbatim copies of the project's proofs (renamed _c), rt_check OK. A's arbitrary-data lemmas are content B lacks, B's geometry is content A lacks.",
+ "B_issue": null,
+ "overlap": "B_to_A: 528 shared project theorems, all from the copied proofs: chart-orientation infrastructure (IsOrientedAt.isChartOrientation, chartFrames, chartVec_image_graph2, isOrientedAt_graphFrames, graphDir_ne_zero), chartVec / tangentChartMap / SubmanifoldData lemmas and the rnPolyfold / sc-calculus dependencies. No banned theorem is used.",
+ "uses_hypothesis": {"A_to_B": false, "B_to_A": false}
+}

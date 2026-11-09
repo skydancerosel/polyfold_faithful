@@ -1,0 +1,12 @@
+{
+ "id": "V8_9",
+ "A_to_B": "proved",
+ "B_to_A": "proved",
+ "not_B": false,
+ "relation": "equivalent",
+ "effort_only": false,
+ "why": "On T(X, 𝐗) both sides claim the same things: s_T, t_T are surjective local sc-diffeomorphisms; u_T and ι_T = Tι are sc-smooth; m_T is sc-smooth on T𝐗 _{s_T}×_{t_T} T𝐗 as a sub-M-polyfold of T𝐗 × T𝐗. B's tangentMap hs/ht/hι and tCompB are tSrc/tTgt/tInv/tComp by proof irrelevance. B's IsScSmoothMulOnB is IsScSmoothComp with the paracompactness instances and the sub-M-polyfold proof quantified existentially (all Props). B's unit clause (some u_T with IsTUnitB, and every such map is sc-smooth) matches tUnit via tBase_tUnit, tSrc_tUnit and tangent_ext. A has two extras. The sheet form isScSmoothCompSheet_tangent follows from B's literal (4) through iffSheet. That is a verbatim copy of the project's proof of isScSmoothComp_iff_sheet, with IsScSmoothOn.of_locally in place of a private helper. The general Chapter 7 lemma isScSmoothComp_iff_sheet is a statement about arbitrary data, which B does not address. That conjunct is therefore proved outright (by iffSheet), not from B. Universes at 0. iffSheet is universe-polymorphic because the tangent spaces live in Type 1.",
+ "B_issue": null,
+ "overlap": "B_to_A: 545 shared project theorems. Nearly all are generic M-polyfold / sc-calculus / sub-M-polyfold infrastructure reached through the fibred-product sub-M-polyfold in IsScSmoothComp: fibredSubDataL, isSubMPolyfold_fibredProduct, isScDiffeoOn_snd_fibredProduct, IsScSmoothOn.of_locally, isScSmoothMap_snd. The groupoid-specific ones are the ep-groupoid fields and IsLocalScDiffeo.tangentMap. IsLocalScDiffeo.tangentMap occurs only as a proof argument in A' (lsd_tSrc). HARNESS: the statements of isScSmoothComp_tangent and lemma_8_6 contain the banned isLocalScDiffeo_tSrc / isLocalScDiffeo_tTgt as proof arguments of IsScSmoothComp, so any term mentioning A reaches them. Both directions are therefore proved for A', which is A with those two proof arguments replaced by lsd_tSrc / sm_tTgt and definitionally equal to A by proof irrelevance. A_to_B and B_to_A are then stated with A (A_to_B := A'_to_B, B_to_A := B_to_A'). Plain #rt_check passes for both.",
+ "uses_hypothesis": {"A_to_B": true, "B_to_A": true}
+}
