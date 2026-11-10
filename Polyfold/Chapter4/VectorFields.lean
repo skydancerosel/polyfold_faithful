@@ -63,8 +63,11 @@ On an M-polyfold:
   `Polyfold/Chapter4/VectorFieldsGlobal.lean` (`lemma_4_4_4`, `proposition_4_4_5`,
   `lemma_4_5_1`), using 2021 Proposition 2.3.17 (`Polyfold/Chapter2/TangentLift.lean`).
 * Definitions 4.4.1–4.4.2 (sc-differential forms, the Whitney sum `⊕ₖ TX`, the direct limit
-  `Ω∞*`), the exterior derivative and `d ∘ d = 0`, Definition 4.4.6, Theorem 4.4.7 (Stokes),
-  Lemma 4.4.8 and Lemma 4.5.2 (Poincaré lemma).
+  `Ω∞*`), the exterior derivative and `d ∘ d = 0`, and Definition 4.4.6 are not in this file:
+  they are in `Polyfold/Chapter4/ScForms2021.lean` – `ScFormsLower2021.lean`.  Stokes' theorem
+  for classical forms on Mathlib manifolds with corners is in
+  `Polyfold/Chapter4/ManifoldStokes2021.lean`.  Not formalized: Theorem 4.4.7 (Stokes) for
+  sc-forms, Lemma 4.4.8 and Lemma 4.5.2 (Poincaré lemma).
 
 ## What the text leaves implicit, and the choices made
 

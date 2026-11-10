@@ -503,8 +503,41 @@ each chapter lands)
     open question, Findings, Chapter 5, item 111); G.33 (Remark 4.2.2 in the 2021 wording needs the
     local structure of finite-dimensional retracts with corners); G.82, G.83 (Theorem 7.6.7 for `i ≥
     2` and Zhou's retract). G.45, G.79 (charts centred at boundary points) and G.13 stay as in item
-    16. The orientation wave (G.67, V6.61) and the forms waves (G.37, G.39, G.40, G.80) are
-    integrated separately.
+    16. The orientation wave (G.67, V6.61) is integrated above; the forms waves (G.37, G.39, G.40,
+    G.80) are item 18.
+18. **sc-forms, integration and Stokes (2021 §4.4)** (2026-11-09). New Lean in 12 files of
+    `Polyfold/Chapter4/` (imported in `Polyfold.lean`, 354 axiom lines in `Test.lean`):
+    `ScForms2021`, `ScExteriorDerivative2021`, `ScFormsNatural2021`, `ScFormsGlobal2021`,
+    `ScFormsSquare2021`, `ScFormsLower2021` (sc-forms and `d` on M-polyfolds); `EuclideanForms2021`,
+    `EuclideanStokes2021` (integrals of top-degree forms, change of variables, Stokes on quadrants);
+    `ManifoldForms2021`, `ManifoldIntegral2021`, `ManifoldStokes2021`, `ManifoldBoundary2021`
+    (forms, `∫_M`, `∫_{∂M}` and Stokes on Mathlib manifolds modelled on `[0,∞)ⁿ`). Rows V4.80–V4.88;
+    V4.83 is narrower: the formula for `dω` on p. 197 with its printed sign `(−1)^{ℓ+k}` and the
+    bracket `DA·B − DB·A` of p. 200 does not hold as we read it
+    (`invariantFormula_printedSign_counterexample`), and it holds with `(−1)^{ℓ+j+1}`
+    (`extDeriv_eq_invariantFormula`). Closed: G.37 (Definitions 4.4.1–4.4.2, the Whitney sum read in
+    its charts `⊕ₖ Tφ`). In part: G.39 (`d` on an M-polyfold, chart independent and linear, `d² = 0`,
+    commuting with `X^{i+1} → X^i`, on `Ω*_∞(X)`, and Definition 4.4.6; missing: forms on `∂X`, the
+    relative complex `Ω*_∞(X, ∂X)` and `H*_dR(X, ∂X)`, since `∂X` is only a union of faces); G.40
+    (Stokes for classical `C¹` forms on compact Mathlib manifolds with corners and a continuous
+    tangent orientation, `stokes_of_compactSpace`, with `∫_M` independent of charts and partition;
+    missing: the restriction of sc-forms to `N` as a `ManifoldForm`, `∂N` and its faces as manifolds
+    and integrals of forms given only on `∂N`, `d ∘ d = 0` for `ManifoldForm`); G.80 (also missing:
+    the wedge product, `f^*` along sc-smooth maps of M-polyfolds, the Poincaré Lemma 4.4.8 and Lemma
+    4.5.2). G.54 (Theorem 6.7.1) stays open with a dated note. Now 47 rows are narrower and 63 of the
+    135 gaps closed. Findings: Chapter 4 items 167–172 (167: the p. 197 sign; 168–170: readings of
+    Definitions 4.4.1–4.4.2, of `d`, and what stands behind `d² = 0`; 171: the induced orientation of
+    the faces, outward vector first as in Definition 9.3.8; 172: `∫_N` and what of Theorem 4.4.7 is
+    formalized). Three names clashed on import with older declarations and were renamed in the new
+    files: `quadrant` → `closedQuadrant` and `interior_quadrant` → `interior_closedQuadrant` (Chapter 1
+    has `Polyfold.quadrant`, Chapter 3 `Polyfold.interior_quadrant`), and
+    `IsScSmoothRetractMap.real_add` → `real_add'` (the same lemma is in Chapter 5). Theorem 6.7.1 still
+    needs: the relative complex and `H*_dR(X, ∂X)`; the restriction `ω ↦ ω|_S` of sc-forms to
+    `S_{f+s}` as a `ManifoldForm` with `ContMDiffForm` and `d(ω|_S) = (dω)|_S` (the map `T_xS → T_xX`
+    in charts is `modelDeriv`, `Chapter6/SolutionSetOrientation.lean`; missing is that the corner
+    parametrization of `S` is sc-smooth into every level, so that restrictions are `C^∞`); forms and
+    their integrals on `∂S_{f+s}` alone, with `∫_{∂S} dβ = 0`; the pull-backs along `∂S ↪ S` and the
+    homotopy `S × [0, 1]` of Remark 5.3.8 (G.44).
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

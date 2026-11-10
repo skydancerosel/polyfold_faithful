@@ -68,6 +68,14 @@ GitHub displays it directly.
   ep-groupoid (Theorem 7.6.9), Proposition 2.3.17 for all `i`, the global Lie bracket (§4.4–4.5),
   the topology of the orientation space (Theorem 6.6.17), the rewritten §7.2 and the Zhou condition
   (§7.4, §8.1).
+* **The sc-differential forms of §4.4 are formalized in part**: Definitions 4.4.1–4.4.2 (the
+  forms read in the charts of the Whitney sum, the direct limit `Ω*_∞(X)`), the exterior
+  derivative on an M-polyfold with `d² = 0`, and the sc-de Rham cohomology of Definition 4.4.6.
+  The formula for `dω` on p. 197 holds with the sign `(−1)^{ℓ+j+1}` for the text's bracket; with
+  the printed sign it does not hold as we read it. Stokes' theorem is formalized for classical
+  `C¹` forms on compact oriented Mathlib manifolds with corners. Not formalized: the relative
+  complex `Ω*_∞(X, ∂X)`, the restriction of sc-forms to finite-dimensional submanifolds (so
+  Theorem 4.4.7 for sc-forms), and the Poincaré lemma (G.37 closed; G.39, G.40, G.80 in part).
 * **Part II, Chapter 9, is formalized**, §§9.1–9.5 (branched ep⁺-subgroupoids, local branching
   structures, the tangent and the boundary, good points, orientations, the geometry of local
   branching structures, sets of measure zero and the canonical σ-algebras). The level-0 facts it
@@ -104,13 +112,13 @@ GitHub displays it directly.
   13.2.1) in Lemma 11.5.2 and Proposition 11.5.3 (G.132, G.133). Not formalized besides: the
   structures of Proposition 11.1.6, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128, G.134,
   G.135).
-* About 241,000 lines of Lean in 406 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (12,396 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* About 249,000 lines of Lean in 420 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (12,837 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–11 is compared with its formal version** (824 items, each with
+* **Every numbered item of Chapters 1–11 is compared with its formal version** (833 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.135). 46 items are narrower than the text, each
-  with its reason; 62 of the 135 gaps are closed and 73 remain.
+  list of what is not formalized and why (G.1–G.135). 47 items are narrower than the text, each
+  with its reason; 63 of the 135 gaps are closed and 72 remain.
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -260,12 +268,19 @@ Chapter 7, item 152).
 
 Not formalized (by decision, see the gap list in the comparison): Theorems 5.3.15 (preprint 5.22),
 p. 223, and 5.27 (preprint; in neither the 2017 nor the 2021 text), the Banach-space theorems 5.5.5,
-5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43; cited, used as hypotheses), the sc-differential forms of
-§4.4, p. 195 (the Lie bracket is formalized), Lemma 4.1.11 (preprint 4.10), the dense form of
-Theorem 5.3.12 (preprint 5.19), Theorem 6.7.1 (preprint 6.43), p. 277 (it needs the forms, integration
-and Stokes' theorem; G.54) with the admissible sections of §6.7 (preprint §6.6), used only there
-(G.55), and the infinite-dimensional examples of the applications (weighted Sobolev scales,
-splicings). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
+5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43; cited, used as hypotheses), the parts of §4.4, pp. 198–199,
+listed above: the relative complex, the restriction of sc-forms to submanifolds and the Poincaré
+lemma (the forms on an M-polyfold, `d`, `d² = 0`, `H*_sc(X)` and the Lie bracket are formalized, and
+Stokes' theorem for classical forms on Mathlib manifolds with corners), Lemma 4.1.11
+(preprint 4.10), the dense form of Theorem 5.3.12 (preprint 5.19), Theorem 6.7.1 (preprint 6.43),
+p. 277, with the admissible sections of §6.7 (preprint §6.6), used only there (G.55). What exists
+for Theorem 6.7.1 (G.54): the oriented solution sets as compact Mathlib manifolds with corners
+(Theorem 6.6.18), integration and Stokes' theorem on them for classical forms, with `∫_{−o} = −∫_o`,
+and `d`, `d² = 0`, `Ω*_∞(X)` and `H*_sc(X)` on `X`. What it still needs: the relative complex
+`Ω*_∞(X, ∂X)` and `H*_dR(X, ∂X)`, the restriction of sc-forms to `S_{f+s}` as classical forms with
+`d(ω|_S) = (dω)|_S`, forms and their integrals on `∂S_{f+s}` alone, and the homotopy of Remark 5.3.8
+(G.44). Not formalized either: the infinite-dimensional examples of the applications (weighted
+Sobolev scales, splicings). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
 of `X_∞` in `X_k`, gaps G.70, G.72, G.73, are now formalized; the paracompactness and
 Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Chapter 8: the sc-differential forms on ep-groupoids and the sc-de Rham complex
 (Definitions 8.2.1, 8.2.2, pp. 372–373; 2017: 8.2, 8.3; G.74), and Lemma 8.1.2 (2017: 8.1), p. 359,

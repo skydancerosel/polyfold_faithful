@@ -2310,10 +2310,14 @@
    "label": "§6.7 (preprint §6.6), Theorem 6.7.1 (preprint 6.43), p. 277 (preprint p. 231) (proof pp. 277–279 (preprint pp. 231–233))",
    "page": 231,
    "book": "Over a tame $X$ with sc-smooth bump functions, a proper oriented sc-Fredholm section $(f, o)$ defines a linear map $\\Psi_{(f,o)} : H^*_{dR}(X, \\partial X) \\to \\mathbb R$ with (1) $\\Psi_{(f,o)}([\\omega, \\tau]) = \\int_{S_{f+s}}\\omega - \\int_{\\partial S_{f+s}}\\tau$ for every $s$ admissible for $(N, U)$, and (2) $\\Psi_{(f_0,o_0)} = \\Psi_{(f_1,o_1)}$ for a proper oriented homotopy. For $\\partial X = \\emptyset$, $\\Psi_{(f,o)}([\\omega]) = \\int_{S_{f+s}}\\omega$ on $H^n_{dR}(X)$, $n$ the index (p. 279 (preprint p. 233)).",
-   "instead": "**Not formalized** (decision D1). It needs the sc-differential forms and their cohomology of §4.4 (gaps G.37–G.40), integration over oriented compact manifolds with boundary with corners and Stokes' theorem, which Mathlib does not have; its proof also uses the homotopy of Remark 5.3.8 (preprint 5.16) (gap G.44). What the theorem rests on is formalized: the perturbations of Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the tangent orientations of Theorem 6.6.18 (preprint 6.41) (V6.61) (Findings, Chapter 6, item 100).",
+   "instead": "**Not formalized** (decision D1). It needs the sc-differential forms and their cohomology of §4.4 (gaps G.37–G.40), integration over oriented compact manifolds with boundary with corners and Stokes' theorem, which Mathlib does not have; its proof also uses the homotopy of Remark 5.3.8 (preprint 5.16) (gap G.44). What the theorem rests on is formalized: the perturbations of Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the tangent orientations of Theorem 6.6.18 (preprint 6.41) (V6.61) (Findings, Chapter 6, item 100). (2026-11-09) Of its prerequisites, the sc-forms with $d$, $d^2 = 0$, $\\Omega^*_\\infty(X)$ and $H^*_{sc}(X)$ are formalized (gap G.37 closed, G.39 in part; V4.80–V4.88), and so are integration and Stokes' theorem for classical $C^1$ forms on compact oriented Mathlib manifolds with corners, with $\\int_{-o} = -\\int_o$ (`stokes_of_compactSpace`, `integral_neg_orientation`; G.40 in part); they apply to the oriented solution sets of Theorem 6.6.18 (`theorem_6_6_18_oriented`). Still missing: the relative complex $\\Omega^*_\\infty(X, \\partial X)$ and $H^*_{dR}(X, \\partial X)$, the restriction of sc-forms to $S_{f+s}$ as classical forms with $d(\\omega|_S) = (d\\omega)|_S$, forms and their integrals on $\\partial S_{f+s}$ alone, and the homotopy of Remark 5.3.8 (G.44).",
    "decls": [
     "Chapter5/GeneralPosition · theorem_5_3_10_param",
-    "Chapter6/SolutionOrientation · theorem_6_6_18_hyp"
+    "Chapter6/SolutionOrientation · theorem_6_6_18_hyp",
+    "Chapter4/ManifoldStokes2021 · ManifoldForm.stokes_of_compactSpace",
+    "Chapter4/ManifoldIntegral2021 · ManifoldForm.integral_neg_orientation",
+    "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham",
+    "Chapter6/SolutionSetOrientation · theorem_6_6_18_oriented"
    ]
   },
   {

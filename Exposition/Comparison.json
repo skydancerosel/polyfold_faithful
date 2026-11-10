@@ -10042,6 +10042,285 @@
    ]
   },
   {
+   "id": "V4.80",
+   "title": "The Whitney sum $\\oplus_kTX$, in the local models",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, p. 195, before Definition 4.4.1",
+    "page": 195,
+    "statement": "(New in the 2021 edition.) The tangent bundle $TX \\to X^1$ is an sc-smooth bundle, and \"it is an easy exercise\" that the Whitney sum $TX \\oplus \\cdots \\oplus TX \\to X^1$ of $k$ copies is an sc-smooth bundle."
+   },
+   "lean": {
+    "statement": "`IsScRetract.whitney`: for an sc-retract $(O, C, E)$, $\\oplus_kTO = \\{(x, h_1, \\dots, h_k) : x \\in O_1,\\ h_i \\in T_xO\\}$ (`retractWhitney`) is an sc-retract of $E^1 \\oplus E^k$ (`ScBanach.whitney`), the image of the retraction $\\oplus_kTr$ (`ScRetraction.whitney`). `IsScSmoothRetractMap.whitney`: $\\oplus_kTf$ (`retractWhitneyMap`) is sc-smooth for $f$ sc-smooth between retracts, so the charts $\\oplus_kT\\varphi$ have sc-smooth transitions.",
+    "decls": [
+     "Chapter4/ScForms2021 · ScBanach.fiberPow",
+     "Chapter4/ScForms2021 · ScBanach.whitney",
+     "Chapter4/ScForms2021 · retractWhitney",
+     "Chapter4/ScForms2021 · ScRetraction.whitney",
+     "Chapter4/ScForms2021 · ScRetraction.whitney_retract",
+     "Chapter4/ScForms2021 · IsScRetract.whitney",
+     "Chapter4/ScForms2021 · retractWhitneyMap",
+     "Chapter4/ScForms2021 · IsScSmoothRetractMap.whitney"
+    ]
+   },
+   "chips": [
+    "in the local models $\\oplus_kTO$",
+    "no Whitney-sum M-polyfold"
+   ],
+   "diff": [
+    "The exercise is done in the local models. $\\oplus_kTX$ is not assembled into an M-polyfold bundle: forms are read in its charts $\\oplus_kT\\varphi$ (V4.81). $E^k$ is an iterated product $E \\oplus (E \\oplus \\cdots)$ (`ScBanach.fiberPow`) (Findings, Chapter 4, item 168)."
+   ]
+  },
+  {
+   "id": "V4.81",
+   "title": "Definition 4.4.1 (preprint 4.25): sc-differential $k$-forms",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, Definition 4.4.1 (preprint 4.25), p. 195 (preprint p. 167)",
+    "page": 167,
+    "statement": "An sc-differential $k$-form on $X$ is an sc-smooth map $\\omega : \\oplus_kTX \\to \\mathbb R$ which is linear in each argument and skew-symmetric; these forms make up the vector space $\\Omega^k(X)$."
+   },
+   "lean": {
+    "statement": "`MPolyfold.IsScForm P k ω`: $\\omega$ is a family of alternating $k$-linear maps on the tangent spaces $T_xX$, $x \\in X^1$, whose representative `chartForm hφ ω` on $\\oplus_kTO$ ($\\omega_\\varphi(T\\varphi\\,\\alpha) = \\omega(x)(\\alpha)$, `chartForm_eq`) is sc-smooth in every chart $\\varphi$ of the maximal atlas. By `isScForm_of_cover` a covering family of charts suffices (chart change: `chartForm_transition`). `MPolyfold.scForms P k` is the vector space $\\Omega^k(X)$; witnesses: $0$ and the constant $0$-forms (`constForm_mem_scForms`). In a local model the notion is `IsRetractScForm`, and `IsScForm.isRetractScForm` says that the representatives are local forms.",
+    "decls": [
+     "Chapter4/ScForms2021 · MPolyfold.IsScForm",
+     "Chapter4/ScForms2021 · MPolyfold.chartForm",
+     "Chapter4/ScForms2021 · MPolyfold.chartForm_eq",
+     "Chapter4/ScForms2021 · MPolyfold.chartForm_transition",
+     "Chapter4/ScForms2021 · MPolyfold.isScForm_of_cover",
+     "Chapter4/ScForms2021 · MPolyfold.scForms",
+     "Chapter4/ScForms2021 · MPolyfold.constForm_mem_scForms",
+     "Chapter4/ScForms2021 · IsRetractScForm",
+     "Chapter4/ScForms2021 · MPolyfold.IsScForm.isRetractScForm"
+    ]
+   },
+   "chips": [
+    "read in the charts $\\oplus_kT\\varphi$",
+    "witness: constant $0$-forms",
+    "gap G.37 closed"
+   ],
+   "diff": [
+    "\"Linear in each argument and skew-symmetric\" is built into the type (Mathlib's alternating maps on $T_xX$, a linear space by V2.19). \"Sc-smooth on $\\oplus_kTX$\" is read in the charts $\\oplus_kT\\varphi$ (V4.80), for every chart of the maximal atlas; a covering family suffices, so the quantifier over all charts is not vacuous. There is no nonzero witness for $k \\ge 1$ (a natural one, $df$, is not built) (Findings, Chapter 4, item 168)."
+   ]
+  },
+  {
+   "id": "V4.82",
+   "title": "The directed system (4.4) and Definition 4.4.2: $\\Omega^k_\\infty(X)$, $\\Omega^*_\\infty(X)$",
+   "verdict": "same",
+   "book": {
+    "label": "§4.4, (4.4) and Definition 4.4.2, p. 195 (preprint p. 167, after Definition 4.25)",
+    "page": 167,
+    "statement": "Pull-back by the inclusions $X^i \\to X$ gives the directed system (4.4) $\\Omega^k(X) \\to \\cdots \\to \\Omega^k(X^i) \\to \\Omega^k(X^{i+1}) \\to \\cdots$, whose direct limit $\\Omega^k_\\infty(X)$ is a real vector space; its elements are the sc-differential $k$-forms on $X_\\infty$, and $\\Omega^*_\\infty(X) = \\oplus_k\\Omega^k_\\infty(X)$."
+   },
+   "lean": {
+    "statement": "`formLower_mem_scForms`: the pull-back by $X^1 \\to X$ (fibrewise the inclusion `lowerFiberCLM`, the map $T(X^1) \\to TX$ of Proposition 2.3.17) maps $\\Omega^k(X)$ to $\\Omega^k(X^1)$. `BundledMPolyfold.formsMap` is the directed system $\\Omega^k(X^i) \\to \\Omega^k(X^j)$, $i \\le j$ (`formsMap_comp`, `directedSystem_forms`); `formsInfty A k` is its direct limit $\\Omega^k_\\infty(X)$ (Mathlib's `Module.DirectLimit`), with the classes `formsInftyOf`; `formsInftyGraded A` is $\\oplus_k\\Omega^k_\\infty(X)$.",
+    "decls": [
+     "Chapter4/ScForms2021 · MPolyfold.lowerFiberCLM",
+     "Chapter4/ScForms2021 · MPolyfold.formLower",
+     "Chapter4/ScForms2021 · MPolyfold.formLower_mem_scForms",
+     "Chapter4/ScForms2021 · BundledMPolyfold.forms",
+     "Chapter4/ScForms2021 · BundledMPolyfold.formsMap",
+     "Chapter4/ScForms2021 · BundledMPolyfold.formsMap_comp",
+     "Chapter4/ScForms2021 · BundledMPolyfold.directedSystem_forms",
+     "Chapter4/ScForms2021 · BundledMPolyfold.formsInfty",
+     "Chapter4/ScForms2021 · BundledMPolyfold.formsInftyOf",
+     "Chapter4/ScForms2021 · BundledMPolyfold.formsInftyOf_formsMap",
+     "Chapter4/ScForms2021 · BundledMPolyfold.formsInftyGraded"
+    ]
+   },
+   "chips": [
+    "bundled lifts $X^i$, as V4.79",
+    "limit and sum: two names"
+   ],
+   "diff": [
+    "The lifts $X^i$ are the bundled `BundledMPolyfold.lift`, as in V4.79. The preprint writes $\\Omega^*_\\infty$ both for the limit and for the sum (Findings, Chapter 4, item 124); the 2021 text and the formal version use two names (item 168)."
+   ]
+  },
+  {
+   "id": "V4.83",
+   "title": "The formula for $d\\omega$ (p. 197) with the bracket of §4.5.1",
+   "verdict": "narrower",
+   "book": {
+    "label": "§4.4, p. 197 (preprint p. 167), the formula for $d\\omega$; the bracket: Appendix 4.5.1, p. 200",
+    "page": 167,
+    "statement": "(2021) $d\\omega(A_0^{(1)}, \\dots, A_k^{(1)})$ is given by \"the familiar formula\": the sum over $j$ of $(-1)^jD(\\omega(A_0, \\dots, \\hat A_j, \\dots, A_k))\\cdot A_j^{(1)}$ (printed with the summation index $i$), plus the sum over $\\ell < j$ of $(-1)^{\\ell+k}\\,\\omega([A_\\ell, A_j], A_0^{(1)}, \\dots, \\hat A_\\ell^{(1)}, \\dots, \\hat A_j^{(1)}, \\dots, A_k^{(1)})$, where $[A, B] = DA\\cdot B - DB\\cdot A$ (p. 200). The preprint (p. 167) and the 2017 text print the sign $(-1)^{i+j}$ and give the bracket only as \"the usual formula\"."
+   },
+   "lean": {
+    "statement": "`extDeriv_eq_invariantFormula`: on a real normed space, for a $k$-form $\\omega$ and fields $V_0, \\dots, V_k$ differentiable at $x$, $d\\omega(V_0, \\dots, V_k)$ (Mathlib's `extDeriv`) equals the formula with the text's bracket $[A, B] = DA\\cdot B - DB\\cdot A$ (`bookBracket`, $= -$`lieBracket`, `bookBracket_eq_neg_lieBracket`) and the sign $(-1)^{\\ell+j+1}$ on the pair $\\ell < j$ (`correctSign`). `invariantFormula_printedSign_counterexample`: for $k = 1$, $\\omega = dy$ on $\\mathbb R^2$, $A_0 = (1, 0)$ and $A_1(p) = (0, p_1)$, the formula with the printed sign $(-1)^{\\ell+k}$ (`printedSign`) gives $2$ at $0$, and so does the sign $(-1)^{\\ell+j}$ (`item158Sign`), while $d\\omega = 0$; with $A_1' = 0$, which equals $A_1$ at $0$, the printed formula gives $0$.",
+    "decls": [
+     "Chapter4/ScExteriorDerivative2021 · bookBracket",
+     "Chapter4/ScExteriorDerivative2021 · bookBracket_eq_neg_lieBracket",
+     "Chapter4/ScExteriorDerivative2021 · invariantFormula",
+     "Chapter4/ScExteriorDerivative2021 · correctSign",
+     "Chapter4/ScExteriorDerivative2021 · printedSign",
+     "Chapter4/ScExteriorDerivative2021 · item158Sign",
+     "Chapter4/ScExteriorDerivative2021 · extDeriv_eq_invariantFormula",
+     "Chapter4/ScExteriorDerivative2021 · invariantFormula_printedSign_counterexample"
+    ]
+   },
+   "chips": [
+    "printed sign: does not hold as we read it",
+    "holds with $(-1)^{\\ell+j+1}$",
+    "on normed spaces"
+   ],
+   "diff": [
+    "Narrower: with the text's bracket and the printed sign $(-1)^{\\ell+k}$ the formula does not hold as we read it (`invariantFormula_printedSign_counterexample`): its right side is $2$ where $d\\omega = 0$, and it changes when $A_1$ is changed away from the point, so it is not tensorial. The classical sign $(-1)^{\\ell+j}$, which item 158 proposed, fails on the same example, since the text's bracket is the negative of the classical one. With $(-1)^{\\ell+j+1}$ the formula is Mathlib's $d$ (`extDeriv_eq_invariantFormula`); the printed sign is possibly a misprint, or the text may intend another bracket convention. The index $i$ of the first sum is read as $j$ (Findings, Chapter 4, items 158, 167).",
+    "Read in the classical setting, a real normed space, to which the sc formula reduces in a chart. The formal $d$ on M-polyfolds (V4.84, V4.85) is defined by the local formula, so the sign does not enter it."
+   ]
+  },
+  {
+   "id": "V4.84",
+   "title": "The exterior derivative in the local models: the local formula, naturality, independence of the retraction",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, pp. 196–197 (preprint p. 167), the definition of $d\\omega$",
+    "page": 167,
+    "statement": "(2021) For an sc-differential $k$-form $\\omega$ on $X^i$ and sc-smooth vector fields $A_0, \\dots, A_k$ on $X^i$ (sections $X^{i+1} \\to T(X^i)$), $d\\omega$ on $\\oplus_{k+1}T(X^{i+1})$ is defined through the maps $D(\\omega(A_0, \\dots, \\hat A_j, \\dots, A_k))$ and the brackets $[A_\\ell, A_j]$ by the formula of p. 197."
+   },
+   "lean": {
+    "statement": "`ambientD U Ω`$(y, h_0, \\dots, h_k) = \\sum_j(-1)^jD\\Omega(y, h_0, \\dots, \\hat h_j, \\dots, h_k)(h_j, 0)$ (`ambientD_apply`), built from $T\\Omega$ and sc-operators. `IsAmbientScForm.ambientD` and `IsRetractScForm.retractD`: $d$ maps sc-forms on $U$ (relatively open in a partial quadrant), and on a retract $O$ (as $d(\\omega \\circ \\oplus_kTr)$), to sc-forms one level up: sc-smooth (`IsScSmooth.ambientD`) and alternating (`ambientD_whitneyMk`, via `scDeriv_relation`). `ambientD_comp_whitneyMap` and `retractD_comp_retractWhitneyMap`: $d(f^*\\Omega) = f^*d\\Omega$ for sc-smooth $f$. `retractD_eq_of_subset`: $d$ does not depend on the retraction.",
+    "decls": [
+     "Chapter4/ScExteriorDerivative2021 · ambientD",
+     "Chapter4/ScExteriorDerivative2021 · ambientD_apply",
+     "Chapter4/ScExteriorDerivative2021 · IsScSmooth.ambientD",
+     "Chapter4/ScExteriorDerivative2021 · scDeriv_relation",
+     "Chapter4/ScExteriorDerivative2021 · ambientD_whitneyMk",
+     "Chapter4/ScExteriorDerivative2021 · IsAmbientScForm",
+     "Chapter4/ScExteriorDerivative2021 · IsAmbientScForm.ambientD",
+     "Chapter4/ScExteriorDerivative2021 · retractD",
+     "Chapter4/ScExteriorDerivative2021 · IsRetractScForm.retractD",
+     "Chapter4/ScFormsNatural2021 · ambientD_comp_whitneyMap",
+     "Chapter4/ScFormsNatural2021 · retractD_comp_retractWhitneyMap",
+     "Chapter4/ScFormsNatural2021 · retractD_eq_of_subset",
+     "Chapter4/ScFormsNatural2021 · sum_update_symm_eq_zero"
+    ]
+   },
+   "chips": [
+    "the local formula, not vector fields",
+    "naturality: $d f^* = f^* d$ locally"
+   ],
+   "diff": [
+    "The text defines $d$ through vector fields. Its formula in a chart is used here: on normed spaces it agrees with the invariant formula with the sign $(-1)^{\\ell+j+1}$ (V4.83), and it makes $d$ on an M-polyfold well defined (V4.85). Naturality, and with it the independence of the retraction, uses the symmetry of the second derivative (`scSecondDeriv_symm`), as the bracket does in §4.5.2 (Findings, Chapter 4, item 169)."
+   ]
+  },
+  {
+   "id": "V4.85",
+   "title": "The exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ on an M-polyfold",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, p. 197 (preprint p. 167)",
+    "page": 167,
+    "statement": "(2021) The formula defines the exterior derivative as a linear operator $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$. (The preprint writes $d : \\Omega^k(X^{i+1}) \\to \\Omega^{k+1}(X^i)$.)"
+   },
+   "lean": {
+    "statement": "`MPolyfold.extD ω` at $x \\in X^2$ is $d(\\omega_\\varphi)(\\varphi(x), T\\varphi^1\\,\\cdot)$ on $T_x(X^1)$, with `chartD` the local $d$ of V4.84 in the chart $\\varphi$. `extD_apply`: the same holds in every chart around $x$ (from `chartD_transition`), so $d$ does not depend on the chart. `extD_mem_scForms`: $d\\omega \\in \\Omega^{k+1}(X^1)$ for $\\omega \\in \\Omega^k(X)$, with representative `chartForm_extD` in the level charts. `extD_add`, `extD_smul`, `extDₗ`: $d$ is linear. On the lifts, `BundledMPolyfold.formsD` is $\\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$.",
+    "decls": [
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.chartD",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.chartD_transition",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.extD",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.extD_apply",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.chartForm_extD",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.extD_mem_scForms",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.extD_add",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.extD_smul",
+     "Chapter4/ScFormsGlobal2021 · MPolyfold.extDₗ",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsD"
+    ]
+   },
+   "chips": [
+    "2021 direction $X^i \\to X^{i+1}$",
+    "the local formula in charts",
+    "gap G.39 in part"
+   ],
+   "diff": [
+    "$d$ is the local formula in charts (V4.84), not the vector-field formula, which is proved on normed spaces only (V4.83). Domain and target are those of the 2021 text, the direction item 120 proposed for the preprint. On a family that is not an sc-form, `extD` is $0$ by convention (Findings, Chapter 4, item 169)."
+   ]
+  },
+  {
+   "id": "V4.86",
+   "title": "$d^2 = 0$",
+   "verdict": "same",
+   "book": {
+    "label": "§4.4, p. 198 (preprint p. 168)",
+    "page": 168,
+    "statement": "$d \\circ d = 0$, stated without proof."
+   },
+   "lean": {
+    "statement": "`extD_extD`: $d(d\\omega) = 0$ in $\\Omega^{k+2}(X^2)$ for $\\omega \\in \\Omega^k(X)$. In the local models `ambientD_ambientD` and `retractD_shift_retractD`, from the symmetry of the second derivative and `sum_removeNth_symm_eq_zero`. On the limit, `formsInftyD_comp_formsInftyD` and `formsInftyGradedD_comp_self`.",
+    "decls": [
+     "Chapter4/ScFormsSquare2021 · sum_removeNth_symm_eq_zero",
+     "Chapter4/ScFormsSquare2021 · scDeriv_ambientD_whitneyMk",
+     "Chapter4/ScFormsSquare2021 · ambientD_ambientD",
+     "Chapter4/ScFormsSquare2021 · retractD_shift_retractD",
+     "Chapter4/ScFormsSquare2021 · MPolyfold.extD_extD",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyD_comp_formsInftyD",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyGradedD_comp_self"
+    ]
+   },
+   "chips": [
+    "proved; the text gives no proof",
+    "level by level and on $\\Omega^*_\\infty$"
+   ],
+   "diff": [
+    "The text states $d^2 = 0$ without proof (Findings, Chapter 4, item 121); it is proved here in the sc setting, level by level, by the symmetry of the second derivative (item 170)."
+   ]
+  },
+  {
+   "id": "V4.87",
+   "title": "$d$ commutes with $X^{i+1} \\to X^i$; $d$ on $\\Omega^*_\\infty(X)$",
+   "verdict": "same",
+   "book": {
+    "label": "§4.4, pp. 197–198 (preprint p. 168)",
+    "page": 168,
+    "statement": "$d$ commutes with the inclusion $X^{i+1} \\to X^i$ of the directed system (the square from $\\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ to $\\Omega^k(X^{i+1}) \\to \\Omega^{k+1}(X^{i+2})$); passing to the limit gives $d : \\Omega^*_\\infty(X) \\to \\Omega^*_\\infty(X)$."
+   },
+   "lean": {
+    "statement": "`extD_formLower`: $d(\\iota^*\\omega) = \\iota^*(d\\omega)$ for $\\iota : X^1 \\to X$; `formsD_formsStep` and `formsD_formsMap` give the squares with the maps of (4.4). `formsInftyD A k` $: \\Omega^k_\\infty(X) \\to \\Omega^{k+1}_\\infty(X)$ is the induced map (`formsInftyD_of`: $d[\\omega] = [d\\omega]$), and `formsInftyGradedD` the same map on $\\oplus_k\\Omega^k_\\infty(X)$, of degree $+1$.",
+    "decls": [
+     "Chapter4/ScFormsLower2021 · MPolyfold.extD_formLower",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsD_formsStep",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsD_formsMap",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyD",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyD_of",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyGradedD"
+    ]
+   },
+   "chips": [
+    "the limit: `Module.DirectLimit.lift`",
+    "wedge product: not formalized"
+   ],
+   "diff": [
+    "\"Passing to the limit\" is Mathlib's `Module.DirectLimit.lift`. The next sentence of the text, that $(\\Omega^*_\\infty(X), d)$ is a graded differential algebra, needs the wedge product, which is not formalized (gap G.80) (Findings, Chapter 4, item 170)."
+   ]
+  },
+  {
+   "id": "V4.88",
+   "title": "Definition 4.4.6 (preprint 4.27): the sc-de Rham cohomology $H^*_{sc}(X)$",
+   "verdict": "same",
+   "book": {
+    "label": "§4.4, Definition 4.4.6 (preprint 4.27), p. 198 (preprint p. 168)",
+    "page": 168,
+    "statement": "The sc-de Rham cohomology of the M-polyfold $X$ is $H^*_{sc}(X) = \\ker(d)/\\operatorname{im}(d)$."
+   },
+   "lean": {
+    "statement": "`BundledMPolyfold.scDeRham A k` is $\\ker d/\\operatorname{im} d$ in degree $k$, a real vector space, with `formsInftyDRange` the image $d(\\Omega^{k-1}_\\infty(X))$ ($0$ for $k = 0$) and `formsInftyDRange_le_ker`: $\\operatorname{im} d \\subseteq \\ker d$. `scDeRhamMk_eq_iff`: two closed forms have the same class iff they differ by an exact form.",
+    "decls": [
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyDRange",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyDRange_le_ker",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRhamMk",
+     "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRhamMk_eq_iff"
+    ]
+   },
+   "chips": [
+    "degree by degree",
+    "relative version: G.39"
+   ],
+   "diff": [
+    "The text writes $H^*_{sc}(X)$ for the graded space; it is read degree by degree. The relative version $H^*_{dR}(X, \\partial X)$ is not formalized (gap G.39) (Findings, Chapter 4, item 170)."
+   ]
+  },
+  {
    "id": "V5.1",
    "title": "The charts $\\Phi[1]$ for every strong bundle chart",
    "verdict": "extra",
@@ -24905,7 +25184,21 @@
    "label": "§4.4, Definition 4.4.1 (preprint 4.25), p. 195 (preprint p. 167)",
    "page": 167,
    "book": "An sc-differential $k$-form is an sc-smooth $\\omega : \\oplus^kTX \\to \\mathbb R$, linear in each argument and skew-symmetric; pull-back along $X^{i+1} \\to X^i$ gives a directed system with limit $\\Omega^*_\\infty(X)$.",
-   "instead": "**Not formalized.** It needs $\\oplus^kTX$ as an M-polyfold, a linear $T_xX$ (gap G.7) and the M-polyfolds $X^i$ for $i \\ge 2$ with $(TX)^i \\cong T(X^i)$ (gap G.6, closed by Proposition 2.3.17 for every $i$). The text writes $\\Omega^*_\\infty$ for both the limit and the sum (Findings, item 124). (2026-11-09) The linear structure of $T_xX$ is now formalized (gap G.7 closed, V2.19); the other ingredients remain."
+   "instead": "**Formalized** (2026-11-09; V4.80–V4.82), in the chart-wise reading. A form is a family $\\omega(x)$, $x \\in X^1$, of alternating $k$-linear maps on the linear spaces $T_xX$ (gap G.7, closed), sc-smooth in the charts $\\oplus_kT\\varphi$ for every chart $\\varphi$ of the maximal atlas; these are the charts the Whitney sum would have as an M-polyfold, and their transitions are sc-smooth (`IsScSmoothRetractMap.whitney`). A covering family of charts suffices (`isScForm_of_cover`). `MPolyfold.scForms` is $\\Omega^k(X)$; the pull-back by $X^1 \\to X$ (`formLower_mem_scForms`) gives the directed system (4.4) on the bundled lifts $X^i$ (gap G.6, closed), `BundledMPolyfold.formsInfty` is its direct limit $\\Omega^k_\\infty(X)$, a real vector space, and `formsInftyGraded` is $\\Omega^*_\\infty(X)$. $\\oplus_kTX$ itself is not assembled into an M-polyfold bundle. The preprint writes $\\Omega^*_\\infty$ for both the limit and the sum; two names are used, as in the 2021 text (Findings, Chapter 4, items 124, 168).",
+   "decls": [
+    "Chapter4/ScForms2021 · MPolyfold.IsScForm",
+    "Chapter4/ScForms2021 · MPolyfold.scForms",
+    "Chapter4/ScForms2021 · MPolyfold.isScForm_of_cover",
+    "Chapter4/ScForms2021 · IsScSmoothRetractMap.whitney",
+    "Chapter4/ScForms2021 · MPolyfold.formLower_mem_scForms",
+    "Chapter4/ScForms2021 · BundledMPolyfold.formsInfty",
+    "Chapter4/ScForms2021 · BundledMPolyfold.formsInftyGraded"
+   ],
+   "formalized": [
+    "V4.80",
+    "V4.81",
+    "V4.82"
+   ]
   },
   {
    "title": "Proposition 4.4.5 (preprint 4.26): the Lie bracket of sc-smooth vector fields",
@@ -24933,14 +25226,42 @@
    "label": "§4.4, pp. 195–199 (preprint pp. 167–168), Definition 4.4.6 (preprint 4.27)",
    "page": 167,
    "book": "$d : \\Omega^k(X^{i+1}) \\to \\Omega^{k+1}(X^i)$ by the usual formula, $d^2 = 0$; $H^*_{sc}(X) = \\ker d/\\operatorname{im} d$; the relative complex $\\Omega^*_\\infty(X) \\oplus \\Omega^{*-1}_\\infty(\\partial X)$ with $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$.",
-   "instead": "**Not formalized.** The direction of $d$ should presumably be $\\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ (the bracket lives one level up); $d \\circ d = 0$ and $dj^* = j^*d$ are asserted without proof; forms on $\\partial X$, a union of faces, are not defined (Findings, items 120–122)."
+   "instead": "**Formalized in part** (2026-11-09; V4.84–V4.88). The exterior derivative on an M-polyfold runs in the 2021 direction $\\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$, the direction item 120 proposed for the preprint: `MPolyfold.extD` is given in charts by the local formula $d(\\omega_\\varphi)$, does not depend on the chart (`extD_apply`), maps $\\Omega^k(X)$ to $\\Omega^{k+1}(X^1)$ (`extD_mem_scForms`) and is linear (`extDₗ`). $d \\circ d = 0$ is proved (`extD_extD`, by the symmetry of the second derivative); $d$ commutes with $X^{i+1} \\to X^i$ (`extD_formLower`) and passes to $\\Omega^*_\\infty(X)$ with $d^2 = 0$ (`formsInftyD`, `formsInftyGradedD_comp_self`); Definition 4.4.6 is `BundledMPolyfold.scDeRham`, read degree by degree. The formula of p. 197 holds with the sign $(-1)^{\\ell+j+1}$ for the text's bracket; with the printed $(-1)^{\\ell+k}$ it does not hold as we read it (V4.83). **Not formalized**: forms on $\\partial X$ and the pull-back $j^*$, hence $dj^* = j^*d$; the relative complex $\\Omega^*_\\infty(X, \\partial X)$ with $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$, its $d \\circ d = 0$ and the cohomology $H^*_{dR}(X, \\partial X)$ (Findings, Chapter 4, items 120–122, 167, 169, 170).",
+   "decls": [
+    "Chapter4/ScFormsGlobal2021 · MPolyfold.extD",
+    "Chapter4/ScFormsGlobal2021 · MPolyfold.extD_apply",
+    "Chapter4/ScFormsGlobal2021 · MPolyfold.extD_mem_scForms",
+    "Chapter4/ScFormsGlobal2021 · MPolyfold.extDₗ",
+    "Chapter4/ScFormsSquare2021 · MPolyfold.extD_extD",
+    "Chapter4/ScFormsLower2021 · MPolyfold.extD_formLower",
+    "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyD",
+    "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyGradedD_comp_self",
+    "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham"
+   ]
   },
   {
    "title": "Theorem 4.4.7 (preprint 4.28): Stokes' theorem",
    "label": "§4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168)",
    "page": 168,
    "book": "For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\\omega$, $\\int_N d\\omega = \\sum_F\\int_F\\omega$.",
-   "instead": "**Not formalized** (no proof in the text; integration on manifolds with corners of varying dimension is not in Mathlib). The formula writes $\\int_M$ for $\\int_N$ (Findings, item 123)."
+   "instead": "**Formalized in part** (2026-11-09). Stokes' theorem is formalized for classical forms on Mathlib manifolds with boundary with corners. For a compact Hausdorff Mathlib manifold $M$ modelled on $[0, \\infty)^{n+1}$ with a continuous tangent orientation $o$ (as Theorem 6.6.18 gives the solution sets, V6.61) and a $C^1$ $n$-form $\\omega$ (`ManifoldForm`, `ContMDiffForm`), $\\int_M d\\omega = \\int_{\\partial M}\\omega$ (`stokes_of_compactSpace`; `integral_extDeriv_eq_boundaryIntegral` for compact support). $d$ is Mathlib's exterior derivative read in charts, and does not depend on the chart (`ManifoldForm.chartForm_extDeriv`). $\\int_M$ is defined through signed charts and a smooth partition of unity and does not depend on these choices (`IntegrationData.integral_eq`); the charts carry a sign since the quadrant model gives $[0, 1]$ no oriented atlas. $\\int_{\\partial M}$ is the sum of the face integrals in the charts, each face oriented outward vector first as in Definition 9.3.8 (`det_cons_neg_stdFrame_faceFrame`); for $C^1$ forms it does not depend on the choices (`IntegrationData.boundaryIntegral_eq`), the corners are a null set (`chartBoundaryIntegral_eq_sum_openQuadrant`), and chart changes preserve the faces and their induced orientation at the boundary points of degeneracy index $1$ (`exists_face_chartChange`, `orientation_face_chartChange`). The chart-level layer is Stokes' theorem on a quadrant and on a relatively open part of it (`stokes_quadrant`, `stokes_quadrant_inter_open`), with the change of variables $\\int_{\\varphi(s)}\\omega = \\pm\\int_s\\varphi^*\\omega$ (`topFormIntegral_image_of_det_pos`, `topFormIntegral_image_of_det_neg`). **Not formalized**: the restriction of an sc-form on $X$ to the finite-dimensional submanifold $N$ as a `ManifoldForm` (\"clearly\" in the text, p. 199), so Theorem 4.4.7 for sc-forms; $\\partial N$ and its faces $F$ as manifolds, the sum $\\sum_F\\int_F$ over them, and integrals of forms given only on $\\partial N$; $d \\circ d = 0$ for `ManifoldForm`. The preprint and 2017 formulas write $\\int_M$ for $\\int_N$; the 2021 text writes $\\int_N$ (Findings, Chapter 4, items 123, 171, 172).",
+   "decls": [
+    "Chapter4/ManifoldStokes2021 · ManifoldForm.stokes_of_compactSpace",
+    "Chapter4/ManifoldStokes2021 · ManifoldForm.integral_extDeriv_eq_boundaryIntegral",
+    "Chapter4/ManifoldStokes2021 · IntegrationData.boundaryIntegral_eq",
+    "Chapter4/ManifoldIntegral2021 · IntegrationData.integral_eq",
+    "Chapter4/ManifoldIntegral2021 · ManifoldForm.integral",
+    "Chapter4/ManifoldIntegral2021 · exists_integrationData",
+    "Chapter4/ManifoldForms2021 · ManifoldForm",
+    "Chapter4/ManifoldForms2021 · ManifoldForm.chartForm_extDeriv",
+    "Chapter4/ManifoldBoundary2021 · exists_face_chartChange",
+    "Chapter4/ManifoldBoundary2021 · orientation_face_chartChange",
+    "Chapter4/ManifoldBoundary2021 · ManifoldForm.chartBoundaryIntegral_eq_sum_openQuadrant",
+    "Chapter4/EuclideanStokes2021 · stokes_quadrant",
+    "Chapter4/EuclideanStokes2021 · stokes_quadrant_inter_open",
+    "Chapter4/EuclideanForms2021 · topFormIntegral_image_of_det_pos",
+    "Chapter4/EuclideanForms2021 · det_cons_neg_stdFrame_faceFrame"
+   ]
   },
   {
    "g": 80,
@@ -24948,7 +25269,16 @@
    "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
    "page": 195,
    "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
-   "instead": "**Not formalized** (continues G.37–G.40). It needs $\\oplus_kTX$ as an M-polyfold bundle, a linear $T_xX$ (gap G.7), the M-polyfolds $X^i$ with $(TX)^i \\cong T(X^i)$ for all $i$ (gap G.6, closed), and integration on manifolds with corners. The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized, in a local model (V4.67–V4.72, V4.74) and on an M-polyfold (V4.68, V4.75–V4.79). The 2021 text runs $d$ as G.39 proposed and writes $\\int_N$; in the displayed formula for $d\\omega$ (p. 197) the sign $(-1)^{\\ell+k}$ and the summation index $i$ are possible misprints for $(-1)^{\\ell+j}$ and $j$ (Findings, Chapter 4, item 158). (2026-11-09) The linear structure of $T_xX$ is now formalized (gap G.7 closed, V2.19); the other ingredients remain."
+   "instead": "**Formalized in part** (2026-11-09; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\\oplus_kTX$ read in its charts $\\oplus_kT\\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \\to X^i$ and passing to $\\Omega^*_\\infty(X)$, and Definition 4.4.6 (gap G.39 in part, V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners (gap G.40 in part). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). **Not formalized**: the wedge product, so $\\Omega^*_\\infty(X)$ is not a graded differential algebra here; $f^*$ along sc-smooth maps of M-polyfolds and $f^*d_Y = d_Xf^*$ (p. 198; in the local models it is `retractD_comp_retractWhitneyMap`); forms on $\\partial X$, the relative complex $\\Omega^*_\\infty(X, \\partial X)$ and $H^*_{dR}(X, \\partial X)$ (G.39); the restriction of sc-forms to finite-dimensional sub-M-polyfolds as `ManifoldForm`s, hence Theorem 4.4.7 for sc-forms (G.40); the Poincaré Lemma 4.4.8 and its local form Lemma 4.5.2, proved in §4.5.3 (Findings, Chapter 4, items 158, 167–172).",
+   "decls": [
+    "Chapter4/ScForms2021 · MPolyfold.scForms",
+    "Chapter4/ScForms2021 · BundledMPolyfold.formsInfty",
+    "Chapter4/ScFormsGlobal2021 · MPolyfold.extD",
+    "Chapter4/ScFormsSquare2021 · MPolyfold.extD_extD",
+    "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham",
+    "Chapter4/ScExteriorDerivative2021 · extDeriv_eq_invariantFormula",
+    "Chapter4/ManifoldStokes2021 · ManifoldForm.stokes_of_compactSpace"
+   ]
   },
   {
    "g": 92,
@@ -25103,10 +25433,14 @@
    "label": "§6.7 (preprint §6.6), Theorem 6.7.1 (preprint 6.43), p. 277 (preprint p. 231) (proof pp. 277–279 (preprint pp. 231–233))",
    "page": 231,
    "book": "Over a tame $X$ with sc-smooth bump functions, a proper oriented sc-Fredholm section $(f, o)$ defines a linear map $\\Psi_{(f,o)} : H^*_{dR}(X, \\partial X) \\to \\mathbb R$ with (1) $\\Psi_{(f,o)}([\\omega, \\tau]) = \\int_{S_{f+s}}\\omega - \\int_{\\partial S_{f+s}}\\tau$ for every $s$ admissible for $(N, U)$, and (2) $\\Psi_{(f_0,o_0)} = \\Psi_{(f_1,o_1)}$ for a proper oriented homotopy. For $\\partial X = \\emptyset$, $\\Psi_{(f,o)}([\\omega]) = \\int_{S_{f+s}}\\omega$ on $H^n_{dR}(X)$, $n$ the index (p. 279 (preprint p. 233)).",
-   "instead": "**Not formalized** (decision D1). It needs the sc-differential forms and their cohomology of §4.4 (gaps G.37–G.40), integration over oriented compact manifolds with boundary with corners and Stokes' theorem, which Mathlib does not have; its proof also uses the homotopy of Remark 5.3.8 (preprint 5.16) (gap G.44). What the theorem rests on is formalized: the perturbations of Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the tangent orientations of Theorem 6.6.18 (preprint 6.41) (V6.61) (Findings, Chapter 6, item 100).",
+   "instead": "**Not formalized** (decision D1). It needs the sc-differential forms and their cohomology of §4.4 (gaps G.37–G.40), integration over oriented compact manifolds with boundary with corners and Stokes' theorem, which Mathlib does not have; its proof also uses the homotopy of Remark 5.3.8 (preprint 5.16) (gap G.44). What the theorem rests on is formalized: the perturbations of Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39) and the tangent orientations of Theorem 6.6.18 (preprint 6.41) (V6.61) (Findings, Chapter 6, item 100). (2026-11-09) Of its prerequisites, the sc-forms with $d$, $d^2 = 0$, $\\Omega^*_\\infty(X)$ and $H^*_{sc}(X)$ are formalized (gap G.37 closed, G.39 in part; V4.80–V4.88), and so are integration and Stokes' theorem for classical $C^1$ forms on compact oriented Mathlib manifolds with corners, with $\\int_{-o} = -\\int_o$ (`stokes_of_compactSpace`, `integral_neg_orientation`; G.40 in part); they apply to the oriented solution sets of Theorem 6.6.18 (`theorem_6_6_18_oriented`). Still missing: the relative complex $\\Omega^*_\\infty(X, \\partial X)$ and $H^*_{dR}(X, \\partial X)$, the restriction of sc-forms to $S_{f+s}$ as classical forms with $d(\\omega|_S) = (d\\omega)|_S$, forms and their integrals on $\\partial S_{f+s}$ alone, and the homotopy of Remark 5.3.8 (G.44).",
    "decls": [
     "Chapter5/GeneralPosition · theorem_5_3_10_param",
-    "Chapter6/SolutionOrientation · theorem_6_6_18_hyp"
+    "Chapter6/SolutionOrientation · theorem_6_6_18_hyp",
+    "Chapter4/ManifoldStokes2021 · ManifoldForm.stokes_of_compactSpace",
+    "Chapter4/ManifoldIntegral2021 · ManifoldForm.integral_neg_orientation",
+    "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham",
+    "Chapter6/SolutionSetOrientation · theorem_6_6_18_oriented"
    ]
   },
   {

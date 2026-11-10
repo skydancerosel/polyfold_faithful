@@ -6346,6 +6346,84 @@ Round-trip audit findings (`RoundTrip/REPORT.md`, 2026-11-01), recorded here onl
      X²`" is read as such a map, as in row V4.76, since the pull-back bundle is not built (gap G.92, item 163). Status:
      **settled** (rows V4.72, V4.76).
 
+**167–172: sc-differential forms, the exterior derivative, integration and Stokes (2026-11-09).**
+(`Chapter4/ScForms2021.lean`, `ScExteriorDerivative2021.lean`, `ScFormsNatural2021.lean` – `ScFormsLower2021.lean`;
+`Chapter4/EuclideanForms2021.lean`, `EuclideanStokes2021.lean`, `ManifoldForms2021.lean` – `ManifoldBoundary2021.lean`;
+comparison items V4.80–V4.88; gap G.37 closed, G.39, G.40, G.80 in part.)
+
+167. **The sign in the formula for `dω` (p. 197) does not hold as we read it, with the text's bracket** *(book 2021:
+     p. 197; the bracket: §4.5.1, p. 200; refines item 158)*. The 2021 text defines the bracket as `[A, B] = DA·B −
+     DB·A` (p. 200), the negative of the classical `DB·A − DA·B`, and prints the second sum of the formula for `dω` with
+     the sign `(−1)^{ℓ+k}`. Take `k = 1`, `ω = dy` on `ℝ²`, `A₀ = (1, 0)` and `A₁(p) = (0, p₁)`: then `[A₀, A₁] = (0,
+     −1)`, the right side at `0` is `1 − 0 + 1 = 2`, and `dω = 0`. The classical sign `(−1)^{ℓ+j}`, which item 158
+     proposed, also gives `2`. With `A₁' = 0`, which agrees with `A₁` at `0`, the printed right side is `0`, so the
+     printed expression is not tensorial. With this bracket the sign must be `(−1)^{ℓ+j+1}`: the formula is then
+     Mathlib's exterior derivative (`extDeriv_eq_invariantFormula`, from Mathlib's `extDeriv_apply_vectorField`). Lean:
+     `invariantFormula_printedSign_counterexample`. The preprint (p. 167) and the 2017 text print `(−1)^{i+j}` and give
+     the bracket only as "the usual formula"; with the classical bracket that sign is the classical one. So the 2021
+     sign is possibly a misprint, or the text intends another bracket convention. The index `i` of the first sum is read
+     as `j`. The formal `d` on M-polyfolds (item 169) is defined by the local formula, so this sign does not enter it.
+     Status: **settled** (row V4.83, narrower).
+168. **Definitions 4.4.1–4.4.2: the forms are read in the charts of the Whitney sum (gap G.37 closed)** *(book 2021:
+     p. 195; preprint Definition 4.25, p. 167)*. `MPolyfold.IsScForm`: a form is a family of alternating `k`-linear maps
+     `ω(x)` on the linear spaces `T_xX`, `x ∈ X¹` (row V2.19), whose representative `ω_φ` on `⊕ₖ TO` (`chartForm`) is
+     sc-smooth for every chart `φ` of the maximal atlas. Reading: "sc-smooth on `⊕ₖ TX`" is read in the charts `⊕ₖ Tφ`,
+     the charts the Whitney sum would have as an M-polyfold. The "easy exercise" of p. 195 is done in the local models:
+     `⊕ₖ TO` is an sc-retract, the image of `⊕ₖ Tr` (`IsScRetract.whitney`), and `⊕ₖ Tf` is sc-smooth
+     (`IsScSmoothRetractMap.whitney`), so the transitions `⊕ₖ T(ψ ∘ φ⁻¹)` are sc-smooth; the Whitney sum itself is not
+     assembled into an M-polyfold bundle. A covering family of charts suffices (`isScForm_of_cover`), so the condition
+     over all charts is satisfiable; witnesses are `0` and the constant `0`-forms (`constForm_mem_scForms`). The
+     pull-back along `X¹ → X` (`formLower_mem_scForms`) gives the directed system (4.4) on the bundled lifts
+     (`BundledMPolyfold.formsMap`), with direct limit `formsInfty` (Mathlib's `Module.DirectLimit`) and sum
+     `formsInftyGraded`; the preprint's double use of `Ω*_∞` (item 124) is resolved by two names, as in the 2021 text.
+     Status: **settled** (rows V4.80–V4.82).
+169. **The exterior derivative: the direction of item 120, and the local formula** *(book 2021: pp. 196–197; items
+     120, 158)*. The 2021 text runs `d : Ωᵏ(Xⁱ) → Ωᵏ⁺¹(Xⁱ⁺¹)`, the direction item 120 proposed for the preprint, and
+     the formal `d` has it: `MPolyfold.extD` maps `Ωᵏ(X)` to `Ωᵏ⁺¹(X¹)` (`extD_mem_scForms`), and
+     `BundledMPolyfold.formsD` maps `Ωᵏ(Xⁱ)` to `Ωᵏ⁺¹(Xⁱ⁺¹)`. Reading: the text defines `d` through vector fields and
+     their brackets (p. 197); the formal `d` is, in charts, the local formula `dΩ(y, h₀, …, h_k) = Σⱼ (−1)ʲ DΩ(y, h₀,
+     …, ĥⱼ, …, h_k)(hⱼ, 0)` (`ambientD`, `chartD`), which on normed spaces is the invariant formula with the sign of
+     item 167 (`extDeriv_eq_invariantFormula`). It depends neither on the retraction nor on the chart
+     (`retractD_eq_of_subset`, `chartD_transition`, `extD_apply`), by the naturality `d(f^*Ω) = f^*dΩ` in the local
+     models (`retractD_comp_retractWhitneyMap`), whose proof uses the symmetry of the second derivative as the bracket
+     does in §4.5.2. The vector-field formula itself is not proved in the sc setting. Status: **settled** (rows V4.84,
+     V4.85; gap G.39 in part).
+170. **`d ∘ d = 0`, `d` on `Ω*_∞(X)` and Definition 4.4.6 now have proofs behind them (item 121)** *(book 2021:
+     pp. 197–198; Definition 4.4.6, p. 198)*. Item 121 noted that `d ∘ d = 0` and `d j* = j* d` are asserted without
+     proof. Now `extD_extD` gives `d(dω) = 0` in `Ωᵏ⁺²(X²)` (locally `ambientD_ambientD`, from the symmetry of the
+     second derivative and `sum_removeNth_symm_eq_zero`); `extD_formLower`, that `d` commutes with `X¹ → X` (the square
+     of p. 197); `formsInftyD` and `formsInftyGradedD`, the map `d` on `Ωᵏ_∞(X)` and on `Ω*_∞(X)`, with `d² = 0`
+     (`formsInftyGradedD_comp_self`); and `BundledMPolyfold.scDeRham`, Definition 4.4.6 read degree by degree, with
+     `scDeRhamMk_eq_iff`. Not formalized: the wedge product (the text calls `(Ω*_∞(X), d)` a graded differential
+     algebra); `f^*` along sc-smooth maps of M-polyfolds and `f^* d_Y = d_X f^*` (p. 198; its local form is
+     `retractD_comp_retractWhitneyMap`); forms on `∂X` (item 122), hence `d j* = j* d` and the relative complex with its
+     `d ∘ d = 0`; the Poincaré Lemma 4.4.8 and Lemma 4.5.2. Status: **settled** for `d² = 0` and Definition 4.4.6 (rows
+     V4.86–V4.88); **open** for the relative complex (gap G.39) and the rest of gap G.80.
+171. **Theorem 4.4.7: the induced orientation of the faces is read as outward vector first** *(book 2021: p. 199;
+     Definitions 9.3.8, 9.3.10, pp. 427–428)*. §4.4 says "equipped with the induced orientation" and fixes no
+     convention. We read it as Definition 9.3.8's: a frame of a face is positive when the outward vector followed by
+     the frame is positive. On the quadrant `{xᵢ ≥ 0, i ∈ S}` the outward vector at the face `{xᵢ = 0}` is `−eᵢ`
+     (`add_smul_neg_stdFrame_not_mem_quadrant`), so the face frame `(e_j)_{j ≠ i}` has the sign `(−1)^{i+1}`
+     (`faceSign`, `det_cons_neg_stdFrame_faceFrame`). With this convention and Mathlib's `d`, Stokes' theorem carries
+     the sign `+`: `∫_Q dω = Σ_{i ∈ S} ∫_{Fᵢ} ω` (`stokes_quadrant`), and on manifolds `∫_M dω = ∫_{∂M} ω`
+     (`stokes_of_compactSpace`). The convention is that of the project's boundary frames (`MPolyfold.boundaryFrames`,
+     `Chapter9/OrientationBoundary.lean`), and the induced orientation is the same in every chart at the boundary
+     points of degeneracy index `1` (`orientation_face_chartChange`). Status: **settled** (a reading; gap G.40).
+172. **Theorem 4.4.7 (Stokes): `∫_N` in the 2021 text, and what is formalized** *(book 2021: p. 199; preprint Theorem
+     4.28, p. 168; item 123)*. The preprint and 2017 formulas write `∫_M dω`; the 2021 text writes `∫_N dω` (item 123),
+     still without proof. Formalized for classical forms: on a compact Hausdorff Mathlib manifold `M` modelled on
+     `[0,∞)ⁿ⁺¹` with a continuous tangent orientation, `∫_M dω = ∫_{∂M} ω` for every `C¹` `n`-form `ω`
+     (`ManifoldForm.stokes_of_compactSpace`); the oriented solution sets of Theorem 6.6.18 are such manifolds
+     (`theorem_6_6_18_oriented`). `∫_M` is built from signed charts and a smooth partition of unity, and does not depend
+     on these choices (`IntegrationData.integral_eq`). Reading: the charts carry a sign because with the quadrant model
+     every chart of `[0, 1]` at `1` reverses the orientation, so `[0, 1]` has no oriented atlas (as
+     `Chapter6/ManifoldOrientation.lean` notes); `∫_{−o} = −∫_o` (`integral_neg_orientation`). `∫_{∂M}` is the sum,
+     over the charts of a partition of unity, of the face integrals in each chart, and the corners are a null set
+     (`chartBoundaryIntegral_eq_sum_openQuadrant`). The forms need only be `C¹`. Not formalized: the restriction of an
+     sc-form to `N` ("clearly" a classical form, p. 199), which needs the derivative of `N → X` in charts and that
+     sc-smooth functions restrict to `C^∞` functions on `N`; the faces of `N` as manifolds and the text's `Σ_F ∫_F`;
+     forms and integrals given only on `∂N`; `d ∘ d = 0` for `ManifoldForm`. Status: **open** (gap G.40 in part).
+
 ## Chapter 5 (The Fredholm package for M-polyfolds; Lean `Polyfold/Chapter5/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per work package, so that
