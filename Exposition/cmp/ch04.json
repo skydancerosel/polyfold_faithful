@@ -2315,7 +2315,142 @@
     "relative version: G.39"
    ],
    "diff": [
-    "The text writes $H^*_{sc}(X)$ for the graded space; it is read degree by degree. The relative version $H^*_{dR}(X, \\partial X)$ is not formalized (gap G.39) (Findings, Chapter 4, item 170)."
+    "The text writes $H^*_{sc}(X)$ for the graded space; it is read degree by degree. The relative version $H^*_{dR}(X, \\partial X)$ is V4.90–V4.91 (gap G.39) (Findings, Chapter 4, items 170, 173)."
+   ]
+  },
+  {
+   "id": "V4.89",
+   "title": "The pull-back $f^*$ and $f^*\\circ d_Y = d_X\\circ f^*$ (p. 198)",
+   "verdict": "same",
+   "book": {
+    "label": "§4.4, p. 198 (2017 p. 150; preprint p. 168)",
+    "page": 168,
+    "statement": "An sc-smooth $f : X \\to Y$ induces $f^* : \\Omega^*_\\infty(Y) \\to \\Omega^*_\\infty(X)$, on a representative $\\omega \\in \\Omega^k(Y^i)$ by $\\omega \\circ (Tf \\oplus \\cdots \\oplus Tf)$ with $f$ raised to the index $i$, and $f^*\\circ d_Y = d_X\\circ f^*$, the limit of the commutative squares $\\Omega^k(Y^i) \\to \\Omega^k(X^i)$, $\\Omega^{k+1}(Y^{i+1}) \\to \\Omega^{k+1}(X^{i+1})$ (left to the reader). The 2017 text and the preprint have only the first sentence."
+   },
+   "lean": {
+    "statement": "`formPullback hf ω` is $\\omega(f(x))(Tf\\,\\alpha_1, \\dots, Tf\\,\\alpha_k)$, with $Tf$ on the fibres the continuous linear map `tangentFiberMap` (`tangentMapCLM`). In charts it is $\\omega_\\psi \\circ \\oplus_kT(\\psi\\circ f\\circ\\varphi^{-1})$ (`chartForm_formPullback`), so it maps $\\Omega^k(Y)$ to $\\Omega^k(X)$ (`formPullback_mem_scForms`). `extD_formPullback`: $d(f^*\\omega) = (f^1)^*d\\omega$, chartwise from the naturality of the local $d$. `formPullback_comp`, `formPullback_id`, `formLower_formPullback` (it commutes with (4.4)). On the lifts, `formsPullback` is $(f^i)^* : \\Omega^k(Y^i) \\to \\Omega^k(X^i)$ and `formsInftyPullback` the limit map $\\Omega^k_\\infty(Y) \\to \\Omega^k_\\infty(X)$, with `formsInftyD_comp_formsInftyPullback` ($d\\circ f^* = f^*\\circ d$), `formsInftyPullback_comp`, `formsInftyPullback_id`, and `scDeRhamPullback` on $H^k_{sc}$.",
+    "decls": [
+     "Chapter4/ScFormsPullback2021 · MPolyfold.tangentFiberMap",
+     "Chapter4/ScFormsPullback2021 · MPolyfold.formPullback",
+     "Chapter4/ScFormsPullback2021 · MPolyfold.chartForm_formPullback",
+     "Chapter4/ScFormsPullback2021 · MPolyfold.formPullback_mem_scForms",
+     "Chapter4/ScFormsPullback2021 · MPolyfold.extD_formPullback",
+     "Chapter4/ScFormsPullback2021 · MPolyfold.formPullback_comp",
+     "Chapter4/ScFormsPullback2021 · MPolyfold.formPullback_id",
+     "Chapter4/ScFormsPullback2021 · MPolyfold.formLower_formPullback",
+     "Chapter4/ScFormsPullback2021 · BundledMPolyfold.formsPullback",
+     "Chapter4/ScFormsPullback2021 · BundledMPolyfold.formsInftyPullback",
+     "Chapter4/ScFormsPullback2021 · BundledMPolyfold.formsInftyD_comp_formsInftyPullback",
+     "Chapter4/ScFormsPullback2021 · BundledMPolyfold.formsInftyPullback_comp",
+     "Chapter4/ScFormsPullback2021 · BundledMPolyfold.scDeRhamPullback"
+    ]
+   },
+   "chips": [
+    "degree by degree",
+    "the limit: `Module.DirectLimit.lift`",
+    "proved; the text leaves it to the reader"
+   ],
+   "diff": [
+    "The text writes $\\Omega^*_\\infty$; the map is given degree by degree, as for $d$ (V4.87). \"Raising the index\" is `liftLevelOneMap` on $X^1$ and `BundledMPolyfold.liftMap` on $X^i$. $f^*\\circ d_Y = d_X\\circ f^*$ is left to the reader in the text (2021 only); it holds as we read it and is proved here (Findings, Chapter 4, item 173)."
+   ]
+  },
+  {
+   "id": "V4.90",
+   "title": "Forms on $\\partial X$ and the pull-back $j^*$ (pp. 198–199)",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, pp. 198–199 (2017 p. 150; preprint p. 168)",
+    "page": 168,
+    "statement": "For a tame $X$ the inclusion $\\partial X \\to X$ is sc-smooth on local faces, and local faces and their intersections are tame M-polyfolds, so differential forms on $\\partial X$ and $\\partial X^i$ make sense; $j : \\partial X \\to X$ is the inclusion."
+   },
+   "lean": {
+    "statement": "`bForms hP k i` $= \\Omega^k(\\partial X^i)$: the sc-forms $\\tau \\in \\Omega^k(bX^i)$ on the tame boundary (Theorem 2.7.13) such that $\\tau$ agrees over $B^i$ (`IsFaceCompatible`: $\\tau_p(v) = \\tau_{p'}(v')$ when $Bp = Bp'$ and $TB\\,v_j = TB\\,v'_j$) and $d\\tau$ agrees over $B^{i+1}$. `extD_mem_bForms`: $d$ maps $\\Omega^k(\\partial X^i)$ to $\\Omega^{k+1}(\\partial X^{i+1})$; `le_bForms`: it is the largest $d$-stable family of agreeing forms. `bFormsInfty` is the direct limit, `jStar` $= B^* : \\Omega^k_\\infty(X) \\to \\Omega^k_\\infty(\\partial X)$ (`formsPullback_mem_bForms`), `jStar_comp_D`: $dj^* = j^*d$.",
+    "decls": [
+     "Chapter4/BoundaryForms2021 · MPolyfold.IsAgreeingOver",
+     "Chapter4/BoundaryForms2021 · MPolyfold.IsFaceCompatible",
+     "Chapter4/BoundaryForms2021 · MPolyfold.bForms",
+     "Chapter4/BoundaryForms2021 · MPolyfold.extD_mem_bForms",
+     "Chapter4/BoundaryForms2021 · MPolyfold.le_bForms",
+     "Chapter4/BoundaryForms2021 · MPolyfold.bFormsInfty",
+     "Chapter4/BoundaryForms2021 · MPolyfold.jStar",
+     "Chapter4/BoundaryForms2021 · MPolyfold.formsPullback_mem_bForms",
+     "Chapter4/BoundaryForms2021 · MPolyfold.jStar_comp_D"
+    ]
+   },
+   "chips": [
+    "reading: forms on $\\partial X$ through $bX$",
+    "$d\\tau$ agreement in the definition",
+    "degree by degree"
+   ],
+   "diff": [
+    "The text gives no definition of forms on $\\partial X$, which is not an M-polyfold (Findings, Chapter 4, item 122). We read them as forms on the tame boundary $bX$ (Theorem 2.7.13) that coincide on intersections of local faces, i.e. agree over $B$ (reading R-a; item 173). The definition also asks $d\\tau$ to agree. That makes $d$ act on them, keeps every $j^*\\omega$, and gives the largest $d$-stable choice, so it is the set of agreeing forms whenever those are closed under $d$, as for manifolds with corners.",
+    "Whether the agreement of $\\tau$ alone implies that of $d\\tau$ for tame M-polyfolds (step A3 of the plan) is not proved: it needs the corner strata of tame retracts as sub-M-polyfolds. If it holds, `bForms` is the set of agreeing forms, the text's reading; if not, it is the largest complex inside it.",
+    "$dj^* = j^*d$, stated without proof (item 121), is proved."
+   ]
+  },
+  {
+   "id": "V4.91",
+   "title": "The relative complex $\\Omega^*_\\infty(X, \\partial X)$, $d \\circ d = 0$ and $H^*_{dR}(X, \\partial X)$ (p. 199)",
+   "verdict": "same",
+   "book": {
+    "label": "§4.4, p. 199 (2017 p. 150; preprint p. 168)",
+    "page": 168,
+    "statement": "$\\Omega^*_\\infty(X, \\partial X) = \\Omega^*_\\infty(X) \\oplus \\Omega^{*-1}_\\infty(\\partial X)$ with $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$; one easily verifies $d \\circ d = 0$; the cohomology is $H^*_{dR}(X, \\partial X)$."
+   },
+   "lean": {
+    "statement": "`RelForms hP k` is $\\Omega^0_\\infty(X)$ for $k = 0$ and $\\Omega^{k}_\\infty(X) \\times \\Omega^{k-1}_\\infty(\\partial X)$ otherwise. `relD` is $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$ ($\\omega \\mapsto (d\\omega, j^*\\omega)$ in degree 0). `relD_comp_relD`: $d \\circ d = 0$, from $d^2 = 0$ on $X$ and $\\partial X$ and $dj^* = j^*d$. `relDeRham hP k` $= \\ker d/\\operatorname{im} d$, a real vector space, with `relDeRhamMk_eq_iff`. `relDeRhamEquivOfNoBoundary`: for $\\partial X = \\emptyset$, $bX = \\emptyset$ and $H^k_{dR}(X, \\partial X) \\cong H^k_{sc}(X)$.",
+    "decls": [
+     "Chapter4/BoundaryForms2021 · MPolyfold.RelForms",
+     "Chapter4/BoundaryForms2021 · MPolyfold.relD",
+     "Chapter4/BoundaryForms2021 · MPolyfold.relD_comp_relD",
+     "Chapter4/BoundaryForms2021 · MPolyfold.relDRange",
+     "Chapter4/BoundaryForms2021 · MPolyfold.relDeRham",
+     "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamMk",
+     "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamMk_eq_iff",
+     "Chapter4/BoundaryForms2021 · MPolyfold.relDeRhamEquivOfNoBoundary"
+    ]
+   },
+   "chips": [
+    "degree by degree",
+    "$d \\circ d = 0$ proved (text: easy)",
+    "wedge product: not formalized"
+   ],
+   "diff": [
+    "The text writes the graded sum; it is read degree by degree, with $\\Omega^{-1} = 0$. The text calls the sum a differential algebra; the wedge product is not formalized (G.80). The identification for $\\partial X = \\emptyset$ is used on p. 279, after the proof of Theorem 6.7.1 (V6.77). Forms on $\\partial X$ are those of V4.90 (Findings, Chapter 4, item 173)."
+   ]
+  },
+  {
+   "id": "V4.92",
+   "title": "Theorem 4.4.7 (preprint 4.28) for sc-forms on a finite-dimensional submanifold: Stokes",
+   "verdict": "restated",
+   "book": {
+    "label": "§4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168)",
+    "page": 168,
+    "statement": "For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\\omega$, $\\int_N d\\omega = \\sum_F\\int_F\\omega$."
+   },
+   "lean": {
+    "statement": "`MPolyfold.stokes_formsInftyRestrict`: for a compact sub-M-polyfold $S \\subseteq X$ with a corner structure of dimension $n + 1$ (then $S \\subseteq X_\\infty$, `subset_smoothSet_of_hasCornerStructureOfDim`), a continuous tangent orientation $o$ of the Mathlib manifold $S$ (`cornerChartedSpace`) and $\\omega \\in \\Omega^n_\\infty(X)$, $\\int_S (d\\omega)|_S = \\int_{\\partial S} \\omega|_S$. The restriction $\\omega \\mapsto \\omega|_S$ (`scFormRestrict` on $\\Omega^k(X^i)$, `formsInftyRestrict` on $\\Omega^k_\\infty(X)$) is the pull-back along $S \\to X^i$ (V4.89) read on the corner frames of $T_xS = \\mathbb R^n$; in a chart of $X$ it is $\\omega_\\varphi \\circ$ `modelDeriv` (`scFormRestrict_apply_modelDeriv`). It is $C^\\infty$ (`contMDiffForm_formsInftyRestrict`) and commutes with $d$ (`extDeriv_formsInftyRestrict`) and with the system (4.4) (`scFormRestrict_formLower`). $\\int_{\\partial S}$ is the boundary integral of the Mathlib manifold $S$. The corner structures exist for every submanifold in good position of a tame $X$ (`exists_hasCornerStructureOfDim_of_tame`), in particular for the solution sets of Theorem 6.6.18 (`exists_hasCornerStructureOfDim_solutionSet`).",
+    "decls": [
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.stokes_formsInftyRestrict",
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.scFormRestrict",
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.scFormRestrict_apply_modelDeriv",
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.formsInftyRestrict",
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.contMDiffForm_formsInftyRestrict",
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.extDeriv_formsInftyRestrict",
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.scFormRestrict_formLower",
+     "Chapter9/MathlibFormsBridge2021 · MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim",
+     "Chapter9/MathlibFormsBridge2021 · exists_hasCornerStructureOfDim_of_tame",
+     "Chapter9/MathlibFormsBridge2021 · exists_hasCornerStructureOfDim_solutionSet"
+    ]
+   },
+   "chips": [
+    "the face sum read as $\\int_{\\partial S}$",
+    "$N$: a corner structure of dimension $n + 1$",
+    "proved; the text gives no proof"
+   ],
+   "diff": [
+    "The text's $N$ is an oriented compact tame smooth submanifold; here $S$ is a compact sub-M-polyfold with a corner structure of dimension $n + 1$, which every submanifold in good position of a tame $X$ has, with a continuous tangent orientation (as Theorem 6.6.18 gives the solution sets, V6.61).",
+    "The sum $\\sum_F\\int_F\\omega$ over the faces of $\\partial N$ is read as the boundary integral of the Mathlib manifold $S$, the sum of the face integrals in the charts, each face oriented outward vector first (Findings, Chapter 4, item 171); the faces $F$ as tame M-polyfolds in their own right are not formalized (gap G.40). The restriction of $\\omega$ to $N$, \"clearly\" a classical form in the text (p. 199), is the pull-back along the inclusion (items 172, 174). The 2021 text writes $\\int_N$, the preprint and 2017 $\\int_M$ (item 123)."
    ]
   }
  ],
@@ -2430,7 +2565,7 @@
    "label": "§4.4, pp. 195–199 (preprint pp. 167–168), Definition 4.4.6 (preprint 4.27)",
    "page": 167,
    "book": "$d : \\Omega^k(X^{i+1}) \\to \\Omega^{k+1}(X^i)$ by the usual formula, $d^2 = 0$; $H^*_{sc}(X) = \\ker d/\\operatorname{im} d$; the relative complex $\\Omega^*_\\infty(X) \\oplus \\Omega^{*-1}_\\infty(\\partial X)$ with $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$.",
-   "instead": "**Formalized in part** (2026-11-09; V4.84–V4.88). The exterior derivative on an M-polyfold runs in the 2021 direction $\\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$, the direction item 120 proposed for the preprint: `MPolyfold.extD` is given in charts by the local formula $d(\\omega_\\varphi)$, does not depend on the chart (`extD_apply`), maps $\\Omega^k(X)$ to $\\Omega^{k+1}(X^1)$ (`extD_mem_scForms`) and is linear (`extDₗ`). $d \\circ d = 0$ is proved (`extD_extD`, by the symmetry of the second derivative); $d$ commutes with $X^{i+1} \\to X^i$ (`extD_formLower`) and passes to $\\Omega^*_\\infty(X)$ with $d^2 = 0$ (`formsInftyD`, `formsInftyGradedD_comp_self`); Definition 4.4.6 is `BundledMPolyfold.scDeRham`, read degree by degree. The formula of p. 197 holds with the sign $(-1)^{\\ell+j+1}$ for the text's bracket; with the printed $(-1)^{\\ell+k}$ it does not hold as we read it (V4.83). **Not formalized**: forms on $\\partial X$ and the pull-back $j^*$, hence $dj^* = j^*d$; the relative complex $\\Omega^*_\\infty(X, \\partial X)$ with $d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$, its $d \\circ d = 0$ and the cohomology $H^*_{dR}(X, \\partial X)$ (Findings, Chapter 4, items 120–122, 167, 169, 170).",
+   "instead": "**Formalized** (2026-11-09, 2026-11-10; V4.84–V4.88, V4.90, V4.91). The exterior derivative on an M-polyfold runs in the 2021 direction $\\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$, the direction item 120 proposed for the preprint: `MPolyfold.extD` is given in charts by the local formula $d(\\omega_\\varphi)$, does not depend on the chart (`extD_apply`), maps $\\Omega^k(X)$ to $\\Omega^{k+1}(X^1)$ (`extD_mem_scForms`) and is linear (`extDₗ`). $d \\circ d = 0$ is proved (`extD_extD`, by the symmetry of the second derivative); $d$ commutes with $X^{i+1} \\to X^i$ (`extD_formLower`) and passes to $\\Omega^*_\\infty(X)$ with $d^2 = 0$ (`formsInftyD`, `formsInftyGradedD_comp_self`); Definition 4.4.6 is `BundledMPolyfold.scDeRham`, read degree by degree. The formula of p. 197 holds with the sign $(-1)^{\\ell+j+1}$ for the text's bracket; with the printed $(-1)^{\\ell+k}$ it does not hold as we read it (V4.83). Forms on $\\partial X$ are read through the tame boundary $B : bX \\to X$ (Theorem 2.7.13): `bForms hP k i` $= \\Omega^k(\\partial X^i)$ are the sc-forms $\\tau$ on $bX^i$ such that $\\tau$ and $d\\tau$ agree over $B$ (on two local faces through a point the forms coincide on vectors with the same image in $TX$), the largest $d$-stable family of agreeing forms (`le_bForms`). $j^* = B^*$ (`jStar`, the pull-back of V4.89) with $dj^* = j^*d$ (`jStar_comp_D`); the relative complex `RelForms`, `relD` ($d(\\omega, \\tau) = (d\\omega, j^*\\omega - d\\tau)$), `relD_comp_relD` ($d \\circ d = 0$) and `relDeRham` ($H^k_{dR}(X, \\partial X)$, degree by degree) (V4.90, V4.91). Not proved: that the agreement of $\\tau$ alone implies that of $d\\tau$; if it does, `bForms` is the set of agreeing forms (Findings, Chapter 4, items 120–122, 167, 169, 170, 173).",
    "decls": [
     "Chapter4/ScFormsGlobal2021 · MPolyfold.extD",
     "Chapter4/ScFormsGlobal2021 · MPolyfold.extD_apply",
@@ -2440,7 +2575,22 @@
     "Chapter4/ScFormsLower2021 · MPolyfold.extD_formLower",
     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyD",
     "Chapter4/ScFormsLower2021 · BundledMPolyfold.formsInftyGradedD_comp_self",
-    "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham"
+    "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham",
+    "Chapter4/BoundaryForms2021 · MPolyfold.bForms",
+    "Chapter4/BoundaryForms2021 · MPolyfold.jStar",
+    "Chapter4/BoundaryForms2021 · MPolyfold.jStar_comp_D",
+    "Chapter4/BoundaryForms2021 · MPolyfold.relD",
+    "Chapter4/BoundaryForms2021 · MPolyfold.relD_comp_relD",
+    "Chapter4/BoundaryForms2021 · MPolyfold.relDeRham"
+   ],
+   "formalized": [
+    "V4.84",
+    "V4.85",
+    "V4.86",
+    "V4.87",
+    "V4.88",
+    "V4.90",
+    "V4.91"
    ]
   },
   {
@@ -2448,7 +2598,7 @@
    "label": "§4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168)",
    "page": 168,
    "book": "For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\\omega$, $\\int_N d\\omega = \\sum_F\\int_F\\omega$.",
-   "instead": "**Formalized in part** (2026-11-09). Stokes' theorem is formalized for classical forms on Mathlib manifolds with boundary with corners. For a compact Hausdorff Mathlib manifold $M$ modelled on $[0, \\infty)^{n+1}$ with a continuous tangent orientation $o$ (as Theorem 6.6.18 gives the solution sets, V6.61) and a $C^1$ $n$-form $\\omega$ (`ManifoldForm`, `ContMDiffForm`), $\\int_M d\\omega = \\int_{\\partial M}\\omega$ (`stokes_of_compactSpace`; `integral_extDeriv_eq_boundaryIntegral` for compact support). $d$ is Mathlib's exterior derivative read in charts, and does not depend on the chart (`ManifoldForm.chartForm_extDeriv`). $\\int_M$ is defined through signed charts and a smooth partition of unity and does not depend on these choices (`IntegrationData.integral_eq`); the charts carry a sign since the quadrant model gives $[0, 1]$ no oriented atlas. $\\int_{\\partial M}$ is the sum of the face integrals in the charts, each face oriented outward vector first as in Definition 9.3.8 (`det_cons_neg_stdFrame_faceFrame`); for $C^1$ forms it does not depend on the choices (`IntegrationData.boundaryIntegral_eq`), the corners are a null set (`chartBoundaryIntegral_eq_sum_openQuadrant`), and chart changes preserve the faces and their induced orientation at the boundary points of degeneracy index $1$ (`exists_face_chartChange`, `orientation_face_chartChange`). The chart-level layer is Stokes' theorem on a quadrant and on a relatively open part of it (`stokes_quadrant`, `stokes_quadrant_inter_open`), with the change of variables $\\int_{\\varphi(s)}\\omega = \\pm\\int_s\\varphi^*\\omega$ (`topFormIntegral_image_of_det_pos`, `topFormIntegral_image_of_det_neg`). **Not formalized**: the restriction of an sc-form on $X$ to the finite-dimensional submanifold $N$ as a `ManifoldForm` (\"clearly\" in the text, p. 199), so Theorem 4.4.7 for sc-forms; $\\partial N$ and its faces $F$ as manifolds, the sum $\\sum_F\\int_F$ over them, and integrals of forms given only on $\\partial N$; $d \\circ d = 0$ for `ManifoldForm`. The preprint and 2017 formulas write $\\int_M$ for $\\int_N$; the 2021 text writes $\\int_N$ (Findings, Chapter 4, items 123, 171, 172).",
+   "instead": "**Formalized in part** (2026-11-09). Stokes' theorem is formalized for classical forms on Mathlib manifolds with boundary with corners. For a compact Hausdorff Mathlib manifold $M$ modelled on $[0, \\infty)^{n+1}$ with a continuous tangent orientation $o$ (as Theorem 6.6.18 gives the solution sets, V6.61) and a $C^1$ $n$-form $\\omega$ (`ManifoldForm`, `ContMDiffForm`), $\\int_M d\\omega = \\int_{\\partial M}\\omega$ (`stokes_of_compactSpace`; `integral_extDeriv_eq_boundaryIntegral` for compact support). $d$ is Mathlib's exterior derivative read in charts, and does not depend on the chart (`ManifoldForm.chartForm_extDeriv`). $\\int_M$ is defined through signed charts and a smooth partition of unity and does not depend on these choices (`IntegrationData.integral_eq`); the charts carry a sign since the quadrant model gives $[0, 1]$ no oriented atlas. $\\int_{\\partial M}$ is the sum of the face integrals in the charts, each face oriented outward vector first as in Definition 9.3.8 (`det_cons_neg_stdFrame_faceFrame`); for $C^1$ forms it does not depend on the choices (`IntegrationData.boundaryIntegral_eq`), the corners are a null set (`chartBoundaryIntegral_eq_sum_openQuadrant`), and chart changes preserve the faces and their induced orientation at the boundary points of degeneracy index $1$ (`exists_face_chartChange`, `orientation_face_chartChange`). The chart-level layer is Stokes' theorem on a quadrant and on a relatively open part of it (`stokes_quadrant`, `stokes_quadrant_inter_open`), with the change of variables $\\int_{\\varphi(s)}\\omega = \\pm\\int_s\\varphi^*\\omega$ (`topFormIntegral_image_of_det_pos`, `topFormIntegral_image_of_det_neg`). Forms given only on the boundary are formalized (2026-11-09) as families of forms on the faces of the charts, smooth, compatible under chart changes and agreeing on the corners (`IsChartFaceForm`, `ChartFaceForm`). Every compactly supported one is the face restriction $j^*\\beta$ of a smooth compactly supported form on $M$ (`exists_extension`, inclusion–exclusion in box charts glued by a partition of unity). Its integral over $\\partial M$ is that of any extension (`ChartFaceForm.integral`, `faceIntegral_eq`), linear, with $\\int_{\\partial M} j^*\\beta = \\int_{\\partial M} \\beta$ (`ChartFaceForm.integral_ofForm`) and $\\int_{\\partial M} d\\tau = 0$ (`ChartFaceForm.integral_d_eq_zero`). $d \\circ d = 0$ holds for `ManifoldForm` (`ManifoldForm.extDeriv_extDeriv`) and on the faces (`ChartFaceForm.d_d`), with $j^*d = dj^*$ (`faceRestriction_extDeriv`). In dimension 0 the integral is a signed sum over the points (`ManifoldForm.integral_eq_sum_of_dim_zero`). (2026-11-09) For sc-forms: for a compact $S \\subseteq X$ with a corner structure of dimension $n + 1$ (e.g. a compact submanifold in good position of a tame $X$), a continuous tangent orientation and $\\omega \\in \\Omega^n_\\infty(X)$, $\\int_S (d\\omega)|_S = \\int_{\\partial S} \\omega|_S$ (`MPolyfold.stokes_formsInftyRestrict`, V4.92), with $\\omega|_S$ the restriction of V4.92 and $\\int_{\\partial S}$ the boundary integral of the Mathlib manifold $S$ (outward vector first). On a product end $(a, b) \\times N$ the boundary integral of $h(t)\\,dt \\wedge \\beta_N$ is $-(\\int h)\\int_{\\partial N} \\beta_N$, also for face data (`ProductEnd.boundaryIntegral_end_sign`, `ProductEnd.faceIntegral_end_sign`). **Not formalized**: $\\partial N$ and its faces $F$ as tame M-polyfolds in their own right, so the text's sum $\\sum_F\\int_F\\omega$ as it writes it; it is read as the boundary integral, the sum of the face integrals in the charts (V4.92). The preprint and 2017 formulas write $\\int_M$ for $\\int_N$; the 2021 text writes $\\int_N$ (Findings, Chapter 4, items 123, 171, 172).",
    "decls": [
     "Chapter4/ManifoldStokes2021 · ManifoldForm.stokes_of_compactSpace",
     "Chapter4/ManifoldStokes2021 · ManifoldForm.integral_extDeriv_eq_boundaryIntegral",
@@ -2464,7 +2614,12 @@
     "Chapter4/EuclideanStokes2021 · stokes_quadrant",
     "Chapter4/EuclideanStokes2021 · stokes_quadrant_inter_open",
     "Chapter4/EuclideanForms2021 · topFormIntegral_image_of_det_pos",
-    "Chapter4/EuclideanForms2021 · det_cons_neg_stdFrame_faceFrame"
+    "Chapter4/EuclideanForms2021 · det_cons_neg_stdFrame_faceFrame",
+    "Chapter4/ManifoldFaceForms2021 · ChartFaceForm.integral",
+    "Chapter4/ManifoldFaceForms2021 · exists_extension",
+    "Chapter4/ManifoldFaceForms2021 · ChartFaceForm.integral_d_eq_zero",
+    "Chapter4/ManifoldFaceForms2021 · ManifoldForm.extDeriv_extDeriv",
+    "Chapter9/MathlibFormsBridge2021 · MPolyfold.stokes_formsInftyRestrict"
    ]
   },
   {
@@ -2473,7 +2628,7 @@
    "label": "§4.4 and Appendix 4.5, pp. 195–208 (2021)",
    "page": 195,
    "book": "Definitions 4.4.1–4.4.2 (forms on the Whitney sum $\\oplus_kTX$, the direct limit $\\Omega^*_\\infty(X)$), the exterior derivative $d : \\Omega^k(X^i) \\to \\Omega^{k+1}(X^{i+1})$ with $d^2 = 0$, Definition 4.4.6 and the relative complex, Theorem 4.4.7 (Stokes), the Poincaré Lemma 4.4.8 (p. 199) and its local form Lemma 4.5.2 (p. 202, proved in §4.5.3).",
-   "instead": "**Formalized in part** (2026-11-09; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\\oplus_kTX$ read in its charts $\\oplus_kT\\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \\to X^i$ and passing to $\\Omega^*_\\infty(X)$, and Definition 4.4.6 (gap G.39 in part, V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners (gap G.40 in part). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). **Not formalized**: the wedge product, so $\\Omega^*_\\infty(X)$ is not a graded differential algebra here; $f^*$ along sc-smooth maps of M-polyfolds and $f^*d_Y = d_Xf^*$ (p. 198; in the local models it is `retractD_comp_retractWhitneyMap`); forms on $\\partial X$, the relative complex $\\Omega^*_\\infty(X, \\partial X)$ and $H^*_{dR}(X, \\partial X)$ (G.39); the restriction of sc-forms to finite-dimensional sub-M-polyfolds as `ManifoldForm`s, hence Theorem 4.4.7 for sc-forms (G.40); the Poincaré Lemma 4.4.8 and its local form Lemma 4.5.2, proved in §4.5.3 (Findings, Chapter 4, items 158, 167–172).",
+   "instead": "**Formalized in part** (2026-11-09; continues G.37–G.40). Formalized: Definitions 4.4.1–4.4.2, with $\\oplus_kTX$ read in its charts $\\oplus_kT\\varphi$ (gap G.37 closed, V4.80–V4.82); the exterior derivative on an M-polyfold, chart independent and linear, with $d^2 = 0$, commuting with the inclusions $X^{i+1} \\to X^i$ and passing to $\\Omega^*_\\infty(X)$, and Definition 4.4.6 (V4.84–V4.88); the formula of p. 197, which holds with $(-1)^{\\ell+j+1}$ for the text's bracket, while the printed $(-1)^{\\ell+k}$ does not hold as we read it (V4.83); integration and Stokes' theorem for classical forms on compact oriented Mathlib manifolds with corners (gap G.40 in part). The vector fields of Definition 4.4.3, Lemma 4.4.4 (for every $i$), the bracket of Proposition 4.4.5 and Lemma 4.5.1 are formalized as before (V4.67–V4.79). (2026-11-09, 2026-11-10) Also formalized: the pull-back $f^*$ along an sc-smooth map of M-polyfolds, on $\\Omega^k(X^i)$ and on $\\Omega^k_\\infty$, with $f^*d_Y = d_Xf^*$, functoriality and the induced map on $H^k_{sc}$ (V4.89); forms on $\\partial X$, $j^*$, the relative complex and $H^*_{dR}(X, \\partial X)$ (gap G.39 closed, V4.90–V4.91); the restriction of sc-forms to a finite-dimensional sub-M-polyfold $S$ with a corner structure of dimension $n$ as a Mathlib form on the manifold $S$, $C^\\infty$ and commuting with $d$ and with the system (4.4) (`scFormRestrict`, `formsInftyRestrict`, `extDeriv_formsInftyRestrict`), and with it Theorem 4.4.7 for sc-forms (V4.92); the restriction of forms on $\\partial X$ to the faces of a sub-M-polyfold $S$ with $d_S = d_X$ as forms on the faces of the Mathlib manifold $S$, with $\\int_{\\partial S} j^*\\omega = \\int_{\\partial S} \\omega|_S$ and $d$ commuting (`solFaceForm`, `solFaceForm_jStar_integral`, `solFaceForm_d`); forms on the faces of Mathlib manifolds with corners, their $d$ and their integral, with $\\int_{\\partial M} d\\tau = 0$ (G.40); on a product end $(a, b) \\times S$ of $S' \\subseteq \\mathbb R^1 \\times X$, the restriction of $p_1^*\\omega$ is the pull-back of $\\omega|_S$ in the product charts (`isEndPullback_formsInftyRestrict_snd`), and an sc-smooth function on a finite-dimensional corner M-polyfold is $C^\\infty$ on the Mathlib manifold (`contMDiff_of_isScSmoothMap_real`). **Not formalized**: the wedge product, so neither $\\Omega^*_\\infty(X)$ nor $\\Omega^*_\\infty(X, \\partial X)$ is a graded differential algebra here; the pull-back of forms on $\\partial X$ along sc-smooth maps of tame M-polyfolds such as $p_1 : \\mathbb R^1 \\times X \\to X$ (used for Theorem 6.7.1, gap G.54); the faces of $N$ as tame M-polyfolds in Theorem 4.4.7 (G.40); the Poincaré Lemma 4.4.8 and its local form Lemma 4.5.2, proved in §4.5.3 (Findings, Chapter 4, items 158, 167–173).",
    "decls": [
     "Chapter4/ScForms2021 · MPolyfold.scForms",
     "Chapter4/ScForms2021 · BundledMPolyfold.formsInfty",
@@ -2481,7 +2636,15 @@
     "Chapter4/ScFormsSquare2021 · MPolyfold.extD_extD",
     "Chapter4/ScFormsLower2021 · BundledMPolyfold.scDeRham",
     "Chapter4/ScExteriorDerivative2021 · extDeriv_eq_invariantFormula",
-    "Chapter4/ManifoldStokes2021 · ManifoldForm.stokes_of_compactSpace"
+    "Chapter4/ManifoldStokes2021 · ManifoldForm.stokes_of_compactSpace",
+    "Chapter4/ScFormsPullback2021 · BundledMPolyfold.formsInftyPullback",
+    "Chapter4/BoundaryForms2021 · MPolyfold.relDeRham",
+    "Chapter9/MathlibFormsBridge2021 · MPolyfold.formsInftyRestrict",
+    "Chapter9/MathlibFormsBridge2021 · MPolyfold.extDeriv_formsInftyRestrict",
+    "Chapter9/SolutionFaceForms2021 · MPolyfold.solFaceForm",
+    "Chapter9/SolutionFaceForms2021 · MPolyfold.solFaceForm_jStar_integral",
+    "Chapter9/SolutionFaceForms2021 · MPolyfold.solFaceForm_d",
+    "Chapter6/InvariantProductEnds2021b · MPolyfold.isEndPullback_formsInftyRestrict_snd"
    ]
   },
   {

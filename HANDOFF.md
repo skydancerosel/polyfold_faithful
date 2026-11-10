@@ -538,6 +538,42 @@ each chapter lands)
     parametrization of `S` is sc-smooth into every level, so that restrictions are `C^∞`); forms and
     their integrals on `∂S_{f+s}` alone, with `∫_{∂S} dβ = 0`; the pull-backs along `∂S ↪ S` and the
     homotopy `S × [0, 1]` of Remark 5.3.8 (G.44).
+19. **Theorem 6.7.1 and the rest of §4.4 (2021 §§4.4, 6.7)** (2026-11-10). New Lean in 18 files
+    (imported in `Polyfold.lean`, 871 axiom lines in `Test.lean`, block "Axioms: Theorem 6.7.1 and its
+    prerequisites"): `Chapter4/ScFormsPullback2021` (`f^*`, `f^*d = df^*`), `BoundaryForms2021` (forms on
+    `∂X`, `j^*`, the relative complex, `H*_dR(X, ∂X)`), `ManifoldFaceForms2021` (forms on the faces of a
+    Mathlib manifold, their extension and `∫_{∂M}`, `d ∘ d = 0` for `ManifoldForm`);
+    `Chapter5/CylinderPerturbation2021` (the margin of `U`, sections admissible for two pairs, the
+    cobordism data); `Chapter6/SolutionSetOpen2021`, `ProductSectionOrientation2021(b)` (item 5 of the
+    orientation plan), `ProperHomotopy2021` (reading R-d), `InvariantProductEnds2021(b)` (product ends,
+    Fubini on them, the sign R-f), `InvariantSingle2021` (`psiAt` for one admissible section),
+    `InvariantCobordism2021` (the cut-off and the cobordism identity `psiAt_eq_of_cobordism`),
+    `Theorem671_2021` (the theorem from (A) and (B)), `Theorem671Assembly2021` (the only Lean written
+    at integration: (A) and (B) from the identity under the two hypotheses, `theorem_6_7_1_hyp`,
+    `theorem_6_7_1_noBoundary_hyp`); `Chapter9/MathlibFormsBridge2021` (`ω|_S`, Stokes for sc-forms),
+    `SolutionFaces2021`, `SolutionFaceForms2021` (`τ|_{∂S}`). No name clashed on import. Rows V4.89
+    (same), V4.90 (restated), V4.91 (same), V4.92 (restated), V6.76 and V6.77 (narrower: proved under
+    `CobordismOrientationHyp` and `CobordismRelativeFormsHyp`, steps of the text's proof; no Lean
+    witness of them). Closed: G.39 (forms on `∂X` read through `bX`, agreeing over `B`, with `dτ`
+    agreeing too; the relative complex), G.55 (admissible sections). In part: G.40 (missing only the
+    faces of `N` as M-polyfolds), G.44, G.54 (missing: the two hypotheses), G.66 (= the hypothesis
+    `CobordismOrientationHyp`), G.80 (missing: the wedge product, the pull-back of forms on `∂X` along
+    maps such as `p₁`, the Poincaré lemmas). Now 49 rows are narrower and 65 of the 135 gaps closed.
+    Findings: Chapter 4 items 173 (reading R-a, with the A3 caveat; `f^*d = df^*`; the relative
+    complex), 174 (Stokes for sc-forms); Chapter 6 items 128–133 (R-b the margin of `U`, R-c degree `k`
+    with `S_k`, R-d the homotopy, R-e the degree of `ω̄` as we read it, R-f the signs, the support of
+    the cut-off) and 134 (the status). `Exposition/checklist/mains.json` is unchanged: its entries are
+    `[label, name]` pairs with no note, and `TrustedBase.lean` must list the same names, so the
+    conditional `theorem_6_7_1_hyp` is not a main statement. Left for next week, in order:
+    (a) G.66 items 1–4, 6, 7 of `w1c2-prodor` (about 680 lines; design in the docstring of
+    `Theorem671Assembly2021.lean`), which discharge `CobordismOrientationHyp`; (b) the face-form part
+    of `w3b2-ends` (600–1000 lines: the pull-back of forms on `∂X` to `∂(ℝ¹ × X)` along `p₁`, its reading
+    on the product charts of the faces of `S_F`, the pull-back of `ManifoldForm`s along the end
+    projection, the extension property at the end faces; a face-form Fubini if the cut-off route is
+    left), which discharges `CobordismRelativeFormsHyp`; (c) A3, that the agreement of `τ` over `B`
+    implies that of `dτ` (needs the corner strata of tame retracts as sub-M-polyfolds); (d) the wedge
+    product (G.80). Small text fixes not made: `build_comparison.py` line 67 still says Theorem 6.7.1
+    is not formalized; `CylinderPerturbation2021.lean` cites p. 215 where p. 219 is meant.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

@@ -51,10 +51,10 @@ To read rather than sign: `Exposition/Verification.pdf` has the same items as a 
 (open it the same way). `Exposition/Findings.md` lists the questions the formalization raised;
 GitHub displays it directly.
 
-## Status (9 November 2026)
+## Status (10 November 2026)
 
-* **Part I, Chapters 1–6, is formalized**, Chapter 6 except Theorem 6.7.1 (preprint 6.43; the
-  invariant `Ψ_(f,o)`) and the admissible sections of §6.7.
+* **Part I, Chapters 1–6, is formalized**, Chapter 6 except two steps of the proof of Theorem 6.7.1
+  (preprint 6.43; the invariant `Ψ_(f,o)`), which is proved with them as hypotheses (below).
 * **Part II, Chapters 7 and 8, is formalized** (ep-groupoids, orbit spaces, invariant partitions of
   unity; the tangent ep-groupoid and functor, strong bundles over ep-groupoids, proper covering
   functors). In the 2021 text the reduced ep-groupoid exists when `T_R` is Hausdorff (Theorem
@@ -68,14 +68,28 @@ GitHub displays it directly.
   ep-groupoid (Theorem 7.6.9), Proposition 2.3.17 for all `i`, the global Lie bracket (§4.4–4.5),
   the topology of the orientation space (Theorem 6.6.17), the rewritten §7.2 and the Zhou condition
   (§7.4, §8.1).
-* **The sc-differential forms of §4.4 are formalized in part**: Definitions 4.4.1–4.4.2 (the
-  forms read in the charts of the Whitney sum, the direct limit `Ω*_∞(X)`), the exterior
-  derivative on an M-polyfold with `d² = 0`, and the sc-de Rham cohomology of Definition 4.4.6.
-  The formula for `dω` on p. 197 holds with the sign `(−1)^{ℓ+j+1}` for the text's bracket; with
-  the printed sign it does not hold as we read it. Stokes' theorem is formalized for classical
-  `C¹` forms on compact oriented Mathlib manifolds with corners. Not formalized: the relative
-  complex `Ω*_∞(X, ∂X)`, the restriction of sc-forms to finite-dimensional submanifolds (so
-  Theorem 4.4.7 for sc-forms), and the Poincaré lemma (G.37 closed; G.39, G.40, G.80 in part).
+* **The sc-differential forms of §4.4 are formalized except the wedge product and the Poincaré
+  lemma**: Definitions 4.4.1–4.4.2 (the forms read in the charts of the Whitney sum, the direct
+  limit `Ω*_∞(X)`), the exterior derivative on an M-polyfold with `d² = 0`, the sc-de Rham
+  cohomology of Definition 4.4.6, the pull-back `f^*` with `f^*d = df^*`, forms on `∂X` (read as
+  forms on the tame boundary `bX` that agree over `bX → X`), `j^*` with `dj^* = j^*d`, the relative
+  complex `Ω*_∞(X, ∂X)` and `H*_dR(X, ∂X)`, and Theorem 4.4.7 (Stokes) for sc-forms restricted to
+  finite-dimensional submanifolds with a corner structure. The formula for `dω` on p. 197 holds
+  with the sign `(−1)^{ℓ+j+1}` for the text's bracket; with the printed sign it does not hold as we
+  read it. Open: whether the agreement of a form on `∂X` implies that of its `d` (assumed in the
+  definition, so the forms on `∂X` may be fewer than in the text), and the faces of a submanifold
+  as tame M-polyfolds (G.37, G.39 closed; G.40, G.80 in part).
+* **Theorem 6.7.1 (the invariant `Ψ_(f,o)` on `H*_dR(X, ∂X)`) and its case `∂X = ∅` are proved
+  under two hypotheses** that are steps of the text's proof, not hypotheses of the text
+  (`theorem_6_7_1_hyp`, `theorem_6_7_1_noBoundary_hyp`, `Polyfold/Chapter6/Theorem671Assembly2021.lean`;
+  narrower): the orientation of the cobordism `S_F` of the proof, of product form `e ∧ o` on its
+  ends (`CobordismOrientationHyp`, G.66), and a closed relative form on `S_F` that reads as the
+  integrand on its ends, which needs the pull-back of forms on `∂X` to `∂(ℝ¹ × X)`
+  (`CobordismRelativeFormsHyp`, G.54). Proved: the admissible sections of §6.7 (G.55 closed), the
+  index parts of `S_{f+s}` as compact oriented manifolds, `Ψ` for one admissible section, well
+  defined on classes, the cobordism identity, and the theorem from its two independence statements.
+  The homotopies of (2), which the text does not define, are read through Remark 6.6.19 (Findings,
+  Chapter 6, items 128–134).
 * **Part II, Chapter 9, is formalized**, §§9.1–9.5 (branched ep⁺-subgroupoids, local branching
   structures, the tangent and the boundary, good points, orientations, the geometry of local
   branching structures, sets of measure zero and the canonical σ-algebras). The level-0 facts it
@@ -112,13 +126,13 @@ GitHub displays it directly.
   13.2.1) in Lemma 11.5.2 and Proposition 11.5.3 (G.132, G.133). Not formalized besides: the
   structures of Proposition 11.1.6, the localization `PC(E⁻¹)` and Remark 11.6.9 (G.128, G.134,
   G.135).
-* About 249,000 lines of Lean in 420 files; every theorem has its axioms printed in
-  `Polyfold/Test.lean` (12,837 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
+* About 264,000 lines of Lean in 437 files; every theorem has its axioms printed in
+  `Polyfold/Test.lean` (13,708 declarations), all on `propext`, `Classical.choice`, `Quot.sound`; no
   `sorry`, no `axiom`.
-* **Every numbered item of Chapters 1–11 is compared with its formal version** (833 items, each with
+* **Every numbered item of Chapters 1–11 is compared with its formal version** (839 items, each with
   a verdict: same, restated, hypothesis made explicit, stronger, narrower, or extra), with a gap
-  list of what is not formalized and why (G.1–G.135). 47 items are narrower than the text, each
-  with its reason; 63 of the 135 gaps are closed and 72 remain.
+  list of what is not formalized and why (G.1–G.135). 49 items are narrower than the text, each
+  with its reason; 65 of the 135 gaps are closed and 70 remain.
 * **Round-trip audit**: for all 604 items of Chapters 1–11 not labelled *extra* or *gap*, an
   independent model formalized the text's statement blind, and the two statements were related by
   short Lean proofs (`RoundTrip/REPORT.md`; Chapters 1–5 refreshed against the current code on 2
@@ -269,17 +283,14 @@ Chapter 7, item 152).
 Not formalized (by decision, see the gap list in the comparison): Theorems 5.3.15 (preprint 5.22),
 p. 223, and 5.27 (preprint; in neither the 2017 nor the 2021 text), the Banach-space theorems 5.5.5,
 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43; cited, used as hypotheses), the parts of §4.4, pp. 198–199,
-listed above: the relative complex, the restriction of sc-forms to submanifolds and the Poincaré
-lemma (the forms on an M-polyfold, `d`, `d² = 0`, `H*_sc(X)` and the Lie bracket are formalized, and
-Stokes' theorem for classical forms on Mathlib manifolds with corners), Lemma 4.1.11
-(preprint 4.10), the dense form of Theorem 5.3.12 (preprint 5.19), Theorem 6.7.1 (preprint 6.43),
-p. 277, with the admissible sections of §6.7 (preprint §6.6), used only there (G.55). What exists
-for Theorem 6.7.1 (G.54): the oriented solution sets as compact Mathlib manifolds with corners
-(Theorem 6.6.18), integration and Stokes' theorem on them for classical forms, with `∫_{−o} = −∫_o`,
-and `d`, `d² = 0`, `Ω*_∞(X)` and `H*_sc(X)` on `X`. What it still needs: the relative complex
-`Ω*_∞(X, ∂X)` and `H*_dR(X, ∂X)`, the restriction of sc-forms to `S_{f+s}` as classical forms with
-`d(ω|_S) = (dω)|_S`, forms and their integrals on `∂S_{f+s}` alone, and the homotopy of Remark 5.3.8
-(G.44). Not formalized either: the infinite-dimensional examples of the applications (weighted
+listed above: the wedge product and the Poincaré lemma (the forms on an M-polyfold, `d`, `d² = 0`,
+`H*_sc(X)`, the pull-back, forms on `∂X`, the relative complex, `H*_dR(X, ∂X)`, the Lie bracket and
+Stokes' theorem for sc-forms on submanifolds are formalized), Lemma 4.1.11 (preprint 4.10), the
+dense form of Theorem 5.3.12 (preprint 5.19), and two steps of the proof of Theorem 6.7.1 (preprint
+6.43), p. 277, which is proved with them as hypotheses: the orientation of the cobordism `S_F` with
+product form on its ends (G.66; items 1–4, 6, 7 of the orientation plan, about 680 lines) and the
+relative form on `S_F` (G.54; the pull-back of forms on `∂X` along `p₁ : ℝ¹ × X → X` and the face
+forms on `∂S_F`, 600–1000 lines). Not formalized either: the infinite-dimensional examples of the applications (weighted
 Sobolev scales, splicings). (In Chapter 7 the tangent `Tφ` of a morphism, the filtration `|X_∞|` and the density
 of `X_∞` in `X_k`, gaps G.70, G.72, G.73, are now formalized; the paracompactness and
 Hausdorffness of `𝐗^R`, gap G.71, are settled, see item 6 above.) In Chapter 8: the sc-differential forms on ep-groupoids and the sc-de Rham complex

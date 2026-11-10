@@ -1847,7 +1847,15 @@
    "label": "§5.3, Remark 5.3.8 (preprint 5.16), pp. 219–220 (preprint pp. 176–177)",
    "page": 176,
    "book": "For transversal $f_0$, $f_1$ joined by a sc-Fredholm arc $(t, x) \\mapsto f_t(x)$ with compact solution set, a perturbation $s$ vanishing near $t = 0, 1$ makes the arc transversal, and its solution set is a compact cobordism; \"the reader will be able to carry out this construction in more detail\".",
-   "instead": "**Not formalized** (a sketch, left to the reader; it needs the boundary case of Theorem 5.3.12 (preprint 5.19) on $[0, 1] \\times X$)."
+   "instead": "**Formalized in part** (2026-11-09; a sketch in the text, left to the reader). The cobordism is formalized in the form the proof of Theorem 6.7.1 uses (`exists_cobordism`, `Chapter5/CylinderPerturbation2021.lean`). Two sections $s_0, s_1$ admissible for $(N, U)$ are joined by an sc⁺-section $S$ of the pull-back to $\\mathbb R^1 \\times X$, equal to $s_i$ near the ends, with $\\tilde f + S$ in general position at every zero and compact zero sets over compact $t$-intervals. The perturbation comes from Theorem 5.3.10 relative to a compact part (`theorem_5_3_10_relative_hyp`), applied on $\\mathbb R^1 \\times X$. The text's $[0, 1] \\times X$ is read as $\\mathbb R^1 \\times X$ with sections stationary near $t = 0, 1$ (decision D2), and \"transversal $f_0$, $f_1$\" as general position of $f + s_i$ at every zero (the admissible case). The homotopy form is formalized too (`exists_homotopy_cobordism`, `Chapter6/ProperHomotopy2021.lean`). For a proper homotopy $F = \\tilde f_0 + S$ from $f_0$ to $f_1 = f_0 + S(1, \\cdot)$, sections $s_0$, $s_1$ admissible for $f_0$, $f_1$ are joined by an sc⁺-section $\\hat S$ of the pull-back, with $\\tilde f_0 + \\hat S$ equal to $f_0 + s_0$ near $t = 0$, equal to $f_1 + s_1$ near $t = 1$, in general position at every zero, and with compact zeros over compact $t$-intervals; such $s_0$, $s_1$ exist inside any given neighbourhoods (`exists_homotopy_cobordism_data`). Both cobordisms give the same data (`IsCobordismData`), which the proof of Theorem 6.7.1 uses (V6.76). The orientation of the cobordism is gap G.66. **Not formalized**: general sc-Fredholm arcs $f_t$ that are not of the form $f_0 + S(t, \\cdot)$ with $S$ sc⁺; for them the relative theorem applies directly to the arc on $\\mathbb R^1 \\times X$ when it is stationary and in general position near the ends and has the compactness margin.",
+   "decls": [
+    "Chapter5/CylinderPerturbation2021 · exists_cobordism",
+    "Chapter5/CylinderPerturbation2021 · theorem_5_3_10_relative_hyp",
+    "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism",
+    "Chapter6/ProperHomotopy2021 · exists_homotopy_cobordism_data",
+    "Chapter6/ProperHomotopy2021 · StrongBundle.IsCobordismData",
+    "Chapter6/ProperHomotopy2021 · exists_isCobordismData"
+   ]
   },
   {
    "title": "A dense form of Theorem 5.3.12 (preprint 5.19)",

@@ -6424,6 +6424,48 @@ comparison items V4.80–V4.88; gap G.37 closed, G.39, G.40, G.80 in part.)
      sc-smooth functions restrict to `C^∞` functions on `N`; the faces of `N` as manifolds and the text's `Σ_F ∫_F`;
      forms and integrals given only on `∂N`; `d ∘ d = 0` for `ManifoldForm`. Status: **open** (gap G.40 in part).
 
+**173–174: forms on `∂X`, the pull-back, the relative complex and Stokes for sc-forms (2026-11-10).**
+(`Chapter4/ScFormsPullback2021.lean`, `BoundaryForms2021.lean`, `ManifoldFaceForms2021.lean`;
+`Chapter9/MathlibFormsBridge2021.lean`; comparison items V4.89–V4.92; gap G.39 closed, G.40, G.80 in part.)
+
+173. **Forms on `∂X` are read through the tame boundary `bX`, with agreement over `B` (reading R-a; gap G.39
+     closed)** *(book 2021: pp. 198–199; preprint p. 168; items 121, 122)*. The text notes that local faces and
+     their intersections are tame M-polyfolds, so that forms on `∂X` make sense, and gives no definition (item
+     122). We read a `k`-form on `∂X^i` as an sc-form `τ` on the tame boundary `bX^i` (Theorem 2.7.13,
+     `tameBoundaryPolyfold`) that agrees over `B : bX → X`: `τ_p(v) = τ_{p'}(v')` whenever `Bp = Bp'` and `TB v_j =
+     TB v'_j` (`IsAgreeingOver`, `IsFaceCompatible`). Some agreement is needed for the invariant of Theorem 6.7.1:
+     on `[0, 1]²` with functions given face by face, `∫_{∂S} dβ` is the sum of the jumps at the corners, which is not
+     `0` unless the face values agree there (a remark, not formalized). `bForms` asks in addition that `dτ` agree
+     over `B^{i+1}`; then `d` maps `Ωᵏ(∂X^i)` to `Ωᵏ⁺¹(∂X^{i+1})` (`extD_mem_bForms`), and `bForms` is the largest
+     `d`-stable family of agreeing forms (`le_bForms`). Caveat (step A3 of the plan): that the agreement of `τ`
+     implies that of `dτ` is not proved; it needs the corner strata of tame retracts as sub-M-polyfolds. If it
+     holds, `bForms` is the set of agreeing forms, the text's reading; if not, it is the largest complex inside that
+     set. Every `j^*ω` lies in `bForms`: `j^* = B^*` (`jStar`, `formsPullback_mem_bForms`), and `dj^* = j^*d`
+     (`jStar_comp_D`), asserted without proof (item 121), is proved. The relative complex `Ωᵏ_∞(X) × Ωᵏ⁻¹_∞(∂X)`,
+     `d(ω, τ) = (dω, j^*ω − dτ)`, has `d ∘ d = 0` (`relD_comp_relD`; "one easily verifies" in the text) and the
+     cohomology `relDeRham`, read degree by degree; for `∂X = ∅` it is `Hᵏ_sc(X)` (`relDeRhamEquivOfNoBoundary`).
+     The pull-back `f^*` along an sc-smooth map (p. 198; `formPullback`, `formsInftyPullback`) and `f^* d_Y = d_X
+     f^*`, left to the reader in the 2021 text, hold as we read them and are proved (`extD_formPullback`,
+     `formsInftyD_comp_formsInftyPullback`). Not formalized: the wedge product (gap G.80). Status: **settled** under
+     reading R-a (rows V4.89–V4.91; gap G.39 closed); **open**: step A3.
+174. **Theorem 4.4.7 for sc-forms on a finite-dimensional submanifold (refines item 172; gap G.40 in part)** *(book
+     2021: Theorem 4.4.7, p. 199; preprint Theorem 4.28, p. 168)*. Item 172 left the restriction of an sc-form to `N`
+     ("clearly" a classical form, p. 199) open. It is the pull-back along `S → X^i`, read on the corner frames of
+     `T_xS` (`scFormRestrict`, `formsInftyRestrict`); in a chart of `X` it is `ω_φ ∘ modelDeriv`
+     (`scFormRestrict_apply_modelDeriv`), it is `C^∞` (`contMDiffForm_formsInftyRestrict`) and it commutes with `d`
+     (`extDeriv_formsInftyRestrict`). With it, `∫_S (dω)|_S = ∫_{∂S} ω|_S` for `ω ∈ Ωⁿ_∞(X)` and a compact
+     sub-M-polyfold `S` with a corner structure of dimension `n + 1` and a continuous tangent orientation
+     (`stokes_formsInftyRestrict`); every submanifold in good position of a tame `X` has such a corner structure
+     (`exists_hasCornerStructureOfDim_of_tame`), in particular the solution sets of Theorem 6.6.18
+     (`exists_hasCornerStructureOfDim_solutionSet`). The face sum `Σ_F ∫_F ω` is read as the boundary integral of
+     the Mathlib manifold `S`, the faces oriented outward vector first (item 171). Forms given only on the faces of a
+     Mathlib manifold with corners (`ChartFaceForm`: `C^∞` on the faces of the charts, compatible under chart changes,
+     agreeing at the corners) are formalized for the second integral of Theorem 6.7.1: a compactly supported one is
+     `j^*β` for a compactly supported form `β` on `M` (`exists_extension`), `∫_{∂M}` is defined through any extension
+     (`faceIntegral_eq`), and `∫_{∂M} dτ = 0` (`ChartFaceForm.integral_d_eq_zero`). `d ∘ d = 0` for `ManifoldForm`,
+     open in item 172, is `ManifoldForm.extDeriv_extDeriv`. Not formalized: the faces `F` of `N` as tame
+     M-polyfolds and integrals over them (gap G.40). Status: **settled** in part (row V4.92; gap G.40 in part).
+
 ## Chapter 5 (The Fredholm package for M-polyfolds; Lean `Polyfold/Chapter5/`)
 
 *Numbering.* The items of this section are numbered in blocks, one block per work package, so that
@@ -8195,6 +8237,98 @@ read it.
      is oriented while a tangent orientation is a sign at every point; an oriented atlas follows whenever the positive
      charts cover `S`. Not formalized: the same for `S_{f+s}` in the paragraph after the theorem (a short corollary).
      Status: **settled** (row V6.61; gap G.67 closed).
+
+**128–134: Theorem 6.7.1 and the case `∂X = ∅` (2026-11-10).** (`Chapter5/CylinderPerturbation2021.lean`;
+`Chapter6/SolutionSetOpen2021.lean`, `ProductSectionOrientation2021.lean`, `ProductSectionOrientation2021b.lean`,
+`ProperHomotopy2021.lean`, `InvariantProductEnds2021.lean`, `InvariantProductEnds2021b.lean`, `InvariantSingle2021.lean`,
+`InvariantCobordism2021.lean`, `Theorem671_2021.lean`, `Theorem671Assembly2021.lean`; `Chapter9/SolutionFaces2021.lean`,
+`SolutionFaceForms2021.lean`; comparison items V6.76, V6.77; gap G.55 closed, gaps G.44, G.54, G.66 in part.)
+
+128. **The neighbourhood `U` of (1): read with a margin, for every auxiliary norm (reading R-b; refines item 101)**
+     *(book 2021: §6.7, p. 276; Theorem 6.7.1 (1), p. 277; Theorem 5.3.10)*. The text takes `U` from Theorem 5.3.10, which gives, for an
+     auxiliary norm `N`, an open `U ⊇ S_f` such that the sections supported in `U` with `N(s) ≤ 1` have compact
+     solution sets. We read this as the existential of Theorem 5.3.10, so (1) is stated for every `N` with some `U`.
+     The `U` carries a margin: `cl{x ∈ U | N(f(x)) ≤ C}` is compact for every `C > 0` (`exists_adapted_margin`), and
+     then `S_{f+s}` is compact for every allowable `s` (`isCompact_solutionSet_sectionAdd_of_margin`). Admissible
+     means `s ∈ allowableSections N U` with `(f + s, x)` in general position at every zero (`StrongBundle.IsAdmissible`,
+     p. 276). The text defines `Ψ` from one `N`; the formal `Ψ` is `psiAt` for one chosen admissible section, and (1)
+     holds for every `N`, every `U` with the margin and every admissible `s` (`psiInvariant_eq_psiAt`). Two pairs
+     `(N₀, U₀)`, `(N₁, U₁)` are compared through a section admissible for both (`exists_admissible_two`, with
+     `IsAuxNorm.max`); `psiAt` depends on `s` only (`psiAt_congr_admissible`). Status: **settled** (a reading; row
+     V6.76; gap G.55 closed).
+
+129. **"Zero if the dimensions do not agree": degree `k` is paired with the index-`k` part `S_k` (reading R-c)**
+     *(book 2021: Theorem 6.7.1 (1), p. 277; p. 279)*. The theorem has no hypothesis on the index, which need not be
+     constant. We read the clause as: in degree `k` both integrals are taken over `S_k`, the points of `S_{f+s}` at
+     which the index of `f` is `k` (`solPart`). `S_k` is closed and open in `S_{f+s}`, since the index is locally
+     constant (`isClosed_solPart`, `isOpen_solIndexNbhd`), `S_{f+s}` is the union of the `S_k`
+     (`solutionSet_eq_iUnion_solPart`), and each `S_k` is a compact Mathlib manifold of dimension `k` oriented by `o`
+     (`solPartIsOrientedManifold`). In degree `0` the invariant is a signed count of the points of `S_0`
+     (`psiAt_mk_zero_eq_sum`). The case of p. 279, a constant index `n`, is a lemma: `S_{f+s} = S_n` and `S_k = ∅` for
+     `k ≠ n` (`solPart_eq_solutionSet`, `solPart_eq_empty_of_ne`), so `Φ = 0` off degree `n`
+     (`psiInvariantNoBoundary_of_ne`). Status: **settled** (a reading; rows V6.76, V6.77).
+
+130. **The proper oriented homotopy of (2) is read through Remark 6.6.19, over `ℝ¹ × X` (reading R-d)** *(book 2021:
+     Theorem 6.7.1 (2), p. 277; Remark 6.6.19, p. 275; Remark 5.3.8; decision D2)*. The text does not define a proper
+     oriented homotopy. The only oriented homotopy in it is that of Remark 6.6.19: `f̂ = f̃₀ + S` with `S` an
+     sc⁺-section over `[0, 1] × X`, oriented by `e ∧ o`. We read `[0, 1] × X` as `ℝ¹ × X` (decision D2) and the
+     homotopy as an sc⁺-section `S` over `ℝ¹ × X` with `S(0, ·) = 0`, `f₁ = f₀ + S(1, ·)` and `o₁` the orientation `o₀`
+     transported to `f₁` (an orientation of `f` is one of `f + s`), with compact zeros over `t ∈ [0, 1]` and the second
+     clause of properness (Definition 5.2.1 (3)) on that slab (`IsProperOrientedHomotopy`,
+     `IsProperOrientedHomotopyBetween`); `f₀` and `f₁` are then proper (`IsProperOrientedHomotopy.isProper_zero`,
+     `isProper_one`). Arcs of sc-Fredholm sections in general (Remark 5.3.8) carry no orientation in the text and are
+     not covered. Status: **settled** (a reading; row V6.76).
+
+131. **The degree of the form `ω̄ = p₁^*ω ∧ p₂^*dt` of the proof (reading R-e; settles item 103)** *(book 2021: proof
+     of Theorem 6.7.1, p. 278)*. For a closed relative form `(ω, τ)` of degree `k`, the proof extends `ω` to `X × [0,
+     1]` by `ω̄ = p₁^*ω ∧ p₂^*dt` and applies Stokes' theorem to it on the `(k + 1)`-dimensional `S_F`. As we read it
+     (item 103), `ω̄` has degree `k + 1`, one more than the dimension `k` of `∂S_F`, so its integrals over `S₀`, `S₁`
+     and `S̃` are `0`, while the comparison needs `∫_{S₀} ω` and `∫_{S₁} ω`. The argument goes through with `p₁^*ω`
+     (degree `k`) in place of `ω̄` and `p₁^*τ` in place of `τ̄`: `dp₁^*ω = 0`, and `p₁^*ω` reads as `ω` on the ends of
+     `S_F` (`isEndPullback_formsInftyRestrict_snd`). The formal proof uses `p₁^*ω` (item 133). Status: **settled** (a
+     reading; row V6.76).
+
+132. **The signs on `∂S_F`: outward vector first; the piece `I × ∂N` carries `−(e ∧ o_{∂N})` (reading R-f)** *(book
+     2021: proof of Theorem 6.7.1, pp. 278–279; Definitions 9.3.8, 9.3.10; Chapter 4, item 171)*. The proof orients
+     `S_F` from `o` and the standard orientation of `[0, 1]` and writes the pieces `S₀`, `S₁`, `S̃` of `∂S_F` with signs
+     obtained "taking the orientations into account", without a convention. We read the boundary orientation as outward
+     vector first (Definition 9.3.8, as in Chapter 4, item 171), which gives Stokes' theorem with the sign `+`, as the
+     text uses it. On a product end `(a, b) × N` of a manifold `M` oriented by `e ∧ o_N` (time first), the piece `(a, b)
+     × ∂N` of `∂M` then carries `−(e ∧ o_{∂N})`: for `β` reading as `h(t) dt ∧ β_N`, `∫_{∂M} β = −(∫ₐᵇ h) ∫_{∂N} β_N`
+     (`ProductEnd.boundaryIntegral_end_sign`, `ProductEnd.faceIntegral_end_sign`, from `d(h dt ∧ η) = −h dt ∧ dη`).
+     The final route does not use these signs, since it avoids the decomposition of `∂S_F` (item 133). Status:
+     **settled** (a reading; row V6.76).
+
+133. **The decomposition of `∂S_F` replaced by a cut-off in time, and the support of the cut-off** *(book 2021: proof
+     of Theorem 6.7.1, p. 278; Remark 5.3.8)*. In place of `∂S_F = S₀ ∪ S₁ ∪ S̃`, which needs integrals of forms on
+     the faces of `S_F` over `S̃ ⊂ ∂X × (0, 1)` and a Fubini theorem for face forms, the formal proof uses a cut-off
+     `g(t)` and Stokes' theorem on the index-`(k + 1)` part of `S_F` (`integral_eq_of_cutCobordism`): for the closed
+     form `A` on `S_F` with vanishing face restriction (item 134), `∫_{S_F} d(gA) = ∫_{∂S_F} gA = 0`
+     (`boundaryIntegral_congr_face`), while on the ends `∫_{S_F} d(g_iA) = ∫_{S_i} a_i` (`ProductEnd.integral_end_fubini`),
+     with `a_i = ω|_{S_i} + dγ_i` and `γ_i` an extension of `−τ|_{∂S_i}` (`IsPsiIntegrand`, `IsPsiIntegrand.psiAt_eq`).
+     The cobordism data (`IsCobordismData`, `exists_isCobordismData`) make `S_F` a product only near the ends: over `t ≤
+     1/8` it is an interval times `S₀`, over `t ≥ 7/8` an interval times `S₁` (`solutionSet_left_eq_prod`). The plan
+     placed the support of `g′` in `[0.1, 0.2]` and `[0.8, 0.9]`, which leaves these ends; `g′` must be supported in
+     `(0, 1/8)` and `(7/8, 1)`, and the formal cut-off is `cutRise 0 (1/8)` and `cutRise (7/8) 1` (`cutRise`,
+     `cobPart_end_left`, `cobPart_end_right`). This concerns the formal plan, not the text. Status: **settled** (row
+     V6.76).
+
+134. **Theorem 6.7.1 and the case `∂X = ∅` as formalized: two steps of the proof as hypotheses (refines item 100;
+     gaps G.54, G.66 in part)** *(book 2021: Theorem 6.7.1, p. 277; proof pp. 277–279; p. 279)*. `theorem_6_7_1_hyp` proves the theorem,
+     with (1) and (2) in readings R-b, R-c, R-d (items 128–130), from two hypotheses that are steps of the text's
+     proof, not hypotheses of the text. `CobordismOrientationHyp`: the orientation of `S_F` induced from `o` and the
+     standard orientation of `[0, 1]`, stated as an orientation of product form `e ∧ o_{S_i}` on the two ends (Remark
+     6.6.19, gap G.66), for the cobordisms of (1), with `o₁ = o₀`, and for those of (2), along a proper oriented
+     homotopy. `CobordismRelativeFormsHyp`: a closed form on `S_F` with vanishing face restriction that reads as
+     `ω|_{S_i} + dγ_i` on the ends; it needs the pull-back of forms on `∂X` to `∂(ℝ¹ × X)` along `p₁` (gap G.54).
+     Neither quantifies over all orientations. From them, (A) `PsiIndepAdmissible` and (B) `PsiIndepHomotopy` follow by
+     the cobordism identity `psiAt_eq_of_cobordism` (`psiAt_eq_of_admissible_hyp`, `psiAt_eq_of_homotopy_hyp`, in
+     `Chapter6/Theorem671Assembly2021.lean`), and the theorem follows from (A) and (B) with no other hypothesis
+     (`theorem_6_7_1_of_indep`). The case `∂X = ∅` of p. 279 is `theorem_6_7_1_noBoundary_hyp`, with `Hⁿ_dR(X)` read
+     as `Hⁿ_sc(X)` (Chapter 4, item 173). No Lean witness of the two hypotheses is given; on the point `ℝ⁰` with `f =
+     0`, `Ψ([1]) = ±1` (`theorem_6_7_1_witness`). Left: the orientation of `S_F` (gap G.66, items 1–4, 6, 7 of the
+     plan) and the face-form part of the relative form (gap G.54). Status: **open** in part (rows V6.76, V6.77,
+     narrower; gaps G.54, G.66 in part).
 
 ## Chapter 7 (Ep-groupoids; Lean `Polyfold/Chapter7/`)
 

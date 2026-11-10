@@ -43,16 +43,16 @@ A result has the same number, V1.5 say, in this edition, the comparison and the 
 | Chapter 1 | Ch. 1, §§1.1–1.4 | sc-Banach spaces, sc-operators and sc-Fredholm operators, sc-differentiability and its relation to classical differentiability, the chain rule, the degeneracy index | **verified** | 7,010 |
 | Chapter 2 | Ch. 2 | sc-smooth retractions and retracts, M-polyfolds, the degeneracy index, tame M-polyfolds, strong bundles | **verified except Proposition 2.1.2 (preprint 2.2) and Lemma 2.4.9 (preprint 2.29) as stated; Remark 2.4.8's (preprint 2.28) negative claim is false** | 25,542 |
 | Chapter 3 | Ch. 3 | sc-Fredholm sections and the implicit function theorem | **partly verified** | 61,106 |
-| Chapter 4 | Ch. 4, §§4.1–4.4 | manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard's theorem (vendored) | **verified except Lemma 4.1.11 (preprint 4.10) and parts of §4.4** | 20,019 |
-| Chapter 5 | Ch. 5, §§5.1–5.3, 5.5 (preprint §§5.1–5.4) | the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity | **verified except Theorem 5.3.15 (preprint 5.22) and Theorem 5.27 (preprint; not in the 2021 edition) and the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43)** | 13,593 |
-| Chapter 6 | Ch. 6, §§6.2–6.6, 6.8 (preprint §§6.1–6.5, 6.7) | linearizations and orientations: determinant lines and exact sequences, the determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of the solution set | **verified except Proposition 6.6.3 (1) (preprint 6.28), the global parts of Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (preprint 6.42), and Theorem 6.7.1 (preprint 6.43)** | 28,260 |
+| Chapter 4 | Ch. 4, §§4.1–4.4 | manifolds with boundary with corners: sc⁺-retracts and the characterization, smooth finite-dimensional submanifolds, families and Sard's theorem (vendored) | **verified except Lemma 4.1.11 (preprint 4.10) and parts of §4.4** | 23,020 |
+| Chapter 5 | Ch. 5, §§5.1–5.3, 5.5 (preprint §§5.1–5.4) | the Fredholm package for M-polyfolds: auxiliary norms, compactness, sc⁺-sections and bump functions, transversality, general and good position, homotopies, partitions of unity | **verified except Theorem 5.3.15 (preprint 5.22) and Theorem 5.27 (preprint; not in the 2021 edition) and the cited Theorems 5.5.5, 5.5.13, 5.5.16 (preprint 5.32, 5.40, 5.43)** | 15,332 |
+| Chapter 6 | Ch. 6, §§6.2–6.6, 6.8 (preprint §§6.1–6.5, 6.7) | linearizations and orientations: determinant lines and exact sequences, the determinant of a Fredholm operator, good left-projections, stabilization, the determinant line bundle, the propagation of orientations along paths, orientable and oriented sc-Fredholm sections, the orientation of the solution set | **verified except Proposition 6.6.3 (1) (preprint 6.28), the global parts of Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (preprint 6.42), and two steps of the proof of Theorem 6.7.1 (preprint 6.43)** | 35,930 |
 | Chapter 7 | Part II, Ch. 7, §§7.1–7.3, 7.5–7.6 (2017 §§7.1–7.5) | ep-groupoids: groupoids of M-polyfolds with local sc-diffeomorphisms as source and target and a local properness, the orbit space, the natural representation of the isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of the orbit space, index lifts, invariant sc-smooth partitions of unity, proper subsets | **verified except the tangent $T\varphi$ of Definition 7.1.4 (2017 Definition 7.4), the remark after Definition 7.1.7 (2017 Definition 7.7) in its 2017 form, the Hausdorff property of $\mathbf X^R$ in Proposition 7.2.10 (2017 Proposition 7.9) and Proposition 7.10 (2017; rewritten in 2021 as Theorem 7.2.14, which assumes it), and the index lifts $X^i$, $i \ge 2$, of Appendix 7.6.4** | 20,555 |
 | Chapter 8 | Part II, Ch. 8, §§8.1–8.3, 8.5–8.6 (2017 §§8.1–8.5) | bundles and covering functors: the tangent ep-groupoid and the tangent functor, natural transformations, the orbit space of the tangent, strong bundles over ep-groupoids and their functorial picture, strong bundle maps and section functors, proper covering functors, their local structure and geometric lifts, proper strong bundle covering functors, the counting of the fibres | **verified except the sc-differential forms of Definitions 8.2.1 and 8.2.2 (2017 Definitions 8.2 and 8.3), the linearity of $T\varphi$ in Remark 8.1.10 (2017 Remark 8.1), and Lemma 8.1.2 (2017 Lemma 8.1) in the form $m_{T\mathbf X} = Tm$, and, of the 2021 additions, the step $T(g, h) = \mathrm{id} \Rightarrow Tg = \mathrm{id}$ of Proposition 8.1.16, Proposition 8.4.1 (1) ⇒ (2), (3), Proposition 8.4.3 and the strong bundle structure of $F^*V$ in Lemma 8.5.10** | 14,016 |
-| Chapter 9 | Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9) | branched ep⁺-subgroupoids: local branching structures, the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of measure zero and the canonical σ-algebras (integration and Stokes not formalized) | **verified for §§9.1–9.4 and §9.6.1 with the readings and hypotheses recorded below, unconditionally for ep-groupoids whose object M-polyfold is $\mathbb R^m$, except the global part of Proposition 9.1.11, Proposition 9.1.9, Lemma 9.4.3 and the boundary-orientation geometry of Definitions 9.3.8 and 9.3.10; for §9.5 the sets of measure zero, the σ-algebras and the isotropy factors are verified, branched integration, the boundary measures and Stokes' theorem are not** | 24,227 |
+| Chapter 9 | Part II, Ch. 9, §§9.1–9.5 (2017 Chapter 9) | branched ep⁺-subgroupoids: local branching structures, the tangent and the boundary, good points, orientations, the geometry of local branching structures, sets of measure zero and the canonical σ-algebras (integration and Stokes not formalized) | **verified for §§9.1–9.4 and §9.6.1 with the readings and hypotheses recorded below, unconditionally for ep-groupoids whose object M-polyfold is $\mathbb R^m$, except the global part of Proposition 9.1.11, Proposition 9.1.9, Lemma 9.4.3 and the boundary-orientation geometry of Definitions 9.3.8 and 9.3.10; for §9.5 the sets of measure zero, the σ-algebras and the isotropy factors are verified, branched integration, the boundary measures and Stokes' theorem are not** | 26,834 |
 | Chapter 10 | Part II, Ch. 10, §§10.1–10.6 (2017 Chapter 10) | equivalences and localization: equivalences of ep-groupoids, natural equivalences, the weak fibred product, localization at the equivalences and generalized maps, strong bundle equivalences, localization in the strong bundle case | **verified for equivalences, natural equivalences, the weak fibred product, the localization $\mathcal{EP}(E^{-1})$, strong bundle equivalences and generalized strong bundle maps, with the readings recorded below, except Remark 10.1.8, the universal property of the localization, the Fred part of Theorem 10.4.5, Propositions 10.4.6 and 10.4.7, the converse half of the strong bundle Theorem 10.3.10, the Fred part of Theorem 10.5.4 and Proposition 10.5.6; Theorems 10.3.19 and 10.5.7 do not hold as we read them, and Theorem 10.3.19 holds for an effective target** | 13,962 |
 | Chapter 11 | Part II, Ch. 11, §§11.1–11.6 (2017 Chapter 11) | geometry up to equivalences: the tangent functor and faces up to equivalence, branched ep⁺-subgroupoids under generalized isomorphisms, strong bundles up to equivalence, coverings and equivalences (sc-differential forms and integration not formalized) | **verified for the tangent functor and faces up to equivalence, push-forwards and pull-backs of branched ep⁺-subgroupoids with their tangents, boundaries and orientations, auxiliary norms and multisection functors under generalized strong bundle isomorphisms, and proper coverings up to equivalence, with the readings recorded below, except the ep-groupoid structure of faces, the boundary operations of Theorem 11.3.9 along equivalences, conditions (1) and (2) of auxiliary norms, the local section structures of sc⁺-multisections and the localizations of §11.6; §11.2 (sc-differential forms) and §11.4 (integration) are not verified** | 7,987 |
 
-Total: 236,277 lines of Lean in 419 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 9 November 2026.
+Total: 251,294 lines of Lean in 436 files under `Polyfold/` (`wc -l`, excluding unfinished `WIP_` files). Toolchain: Lean v4.33.1, Mathlib v4.33.1. To reproduce: `lake build`, then `lake env lean -DmaxSynthPendingDepth=3 Polyfold/Test.lean`, which prints the axioms of every main theorem. Edition of 10 November 2026.
 
 ---
 
@@ -4360,9 +4360,12 @@ addendum (2026-11-09; Findings, items 167–172) covers the sc-differential form
 the charts of the Whitney sum (V4.80–V4.82, closing gap G.37), the formula for $d\omega$ on normed spaces, where the printed
 sign does not hold as we read it and $(-1)^{\ell+j+1}$ does (V4.83), $d$ on an M-polyfold, $d \circ d = 0$, $d$ on
 $\Omega^*_\infty(X)$ and Definition 4.4.6 (V4.84–V4.88), and Stokes' theorem for classical forms on compact oriented
-Mathlib manifolds with corners (gap G.40 in part). Still not verified in §4.4: the relative complex and
-$H^*_{dR}(X, \partial X)$, the wedge product and pull-back (gaps G.39, G.80), and Theorem 4.4.7 for sc-forms on a
-submanifold $N$ (gap G.40).
+Mathlib manifolds with corners (gap G.40 in part). A seventh addendum (2026-11-10; Findings, items 173–174)
+adds the pull-back $f^*$ with $f^* d_Y = d_X f^*$ (V4.89), forms on $\partial X$ read through the tame boundary, with
+$j^*$ and $dj^* = j^*d$ (V4.90), the relative complex and $H^*_{dR}(X, \partial X)$ (V4.91, closing gap G.39), and
+Theorem 4.4.7 for sc-forms on a submanifold with a corner structure (V4.92). Still not verified in §4.4: the wedge
+product and the Poincaré lemmas (gap G.80), the faces of $N$ as tame M-polyfolds (gap G.40), and, for forms on
+$\partial X$, whether the agreement of $\tau$ implies that of $d\tau$ (V4.90).
 
 The setting. An sc⁺-map is a map whose values lie in $F_1$ and whose lift into $F^1$ is sc-smooth (V4.7); the
 text uses the word for maps and defines it only for retractions. $T_xX$ carries no linear structure in the
@@ -5184,18 +5187,27 @@ commutes with $\Phi_i$ (Proposition 2.3.17).
 
 **V4.88 (Definition 4.4.6 (preprint 4.27): the sc-de Rham cohomology $H^*_{sc}(X)$; `Polyfold.BundledMPolyfold.formsInftyDRange`, `Polyfold.BundledMPolyfold.formsInftyDRange_le_ker`, `Polyfold.BundledMPolyfold.scDeRham`, `Polyfold.BundledMPolyfold.scDeRhamMk`, `Polyfold.BundledMPolyfold.scDeRhamMk_eq_iff`).** `BundledMPolyfold.scDeRham A k` is $\ker d/\operatorname{im} d$ in degree $k$, a real vector space, with `formsInftyDRange` the image $d(\Omega^{k-1}_\infty(X))$ ($0$ for $k = 0$) and `formsInftyDRange_le_ker`: $\operatorname{im} d \subseteq \ker d$. `scDeRhamMk_eq_iff`: two closed forms have the same class iff they differ by an exact form. *Book:* §4.4, Definition 4.4.6 (preprint 4.27), p. 198 (preprint p. 168), The sc-de Rham cohomology of the M-polyfold $X$ is $H^*_{sc}(X) = \ker(d)/\operatorname{im}(d)$. *Deviation (same):* The text writes $H^*_{sc}(X)$ for the graded space; it is read degree by degree. The relative version $H^*_{dR}(X, \partial X)$ is not formalized (gap G.39) (Findings, Chapter 4, item 170).
 
+**V4.89 (The pull-back $f^*$ and $f^*\circ d_Y = d_X\circ f^*$ (p. 198); `Polyfold.MPolyfold.tangentFiberMap`, `Polyfold.MPolyfold.formPullback`, `Polyfold.MPolyfold.chartForm_formPullback`, `Polyfold.MPolyfold.formPullback_mem_scForms`, `Polyfold.MPolyfold.extD_formPullback`, `Polyfold.MPolyfold.formPullback_comp`, `Polyfold.MPolyfold.formPullback_id`, `Polyfold.MPolyfold.formLower_formPullback`, `Polyfold.BundledMPolyfold.formsPullback`, `Polyfold.BundledMPolyfold.formsInftyPullback`, `Polyfold.BundledMPolyfold.formsInftyD_comp_formsInftyPullback`, `Polyfold.BundledMPolyfold.formsInftyPullback_comp`, `Polyfold.BundledMPolyfold.scDeRhamPullback`).** `formPullback hf ω` is $\omega(f(x))(Tf\,\alpha_1, \dots, Tf\,\alpha_k)$, with $Tf$ on the fibres the continuous linear map `tangentFiberMap` (`tangentMapCLM`). In charts it is $\omega_\psi \circ \oplus_kT(\psi\circ f\circ\varphi^{-1})$ (`chartForm_formPullback`), so it maps $\Omega^k(Y)$ to $\Omega^k(X)$ (`formPullback_mem_scForms`). `extD_formPullback`: $d(f^*\omega) = (f^1)^*d\omega$, chartwise from the naturality of the local $d$. `formPullback_comp`, `formPullback_id`, `formLower_formPullback` (it commutes with (4.4)). On the lifts, `formsPullback` is $(f^i)^* : \Omega^k(Y^i) \to \Omega^k(X^i)$ and `formsInftyPullback` the limit map $\Omega^k_\infty(Y) \to \Omega^k_\infty(X)$, with `formsInftyD_comp_formsInftyPullback` ($d\circ f^* = f^*\circ d$), `formsInftyPullback_comp`, `formsInftyPullback_id`, and `scDeRhamPullback` on $H^k_{sc}$. *Book:* §4.4, p. 198 (2017 p. 150; preprint p. 168), An sc-smooth $f : X \to Y$ induces $f^* : \Omega^*_\infty(Y) \to \Omega^*_\infty(X)$, on a representative $\omega \in \Omega^k(Y^i)$ by $\omega \circ (Tf \oplus \cdots \oplus Tf)$ with $f$ raised to the index $i$, and $f^*\circ d_Y = d_X\circ f^*$, the limit of the commutative squares $\Omega^k(Y^i) \to \Omega^k(X^i)$, $\Omega^{k+1}(Y^{i+1}) \to \Omega^{k+1}(X^{i+1})$ (left to the reader). The 2017 text and the preprint have only the first sentence. *Deviation (same):* The text writes $\Omega^*_\infty$; the map is given degree by degree, as for $d$ (V4.87). "Raising the index" is `liftLevelOneMap` on $X^1$ and `BundledMPolyfold.liftMap` on $X^i$. $f^*\circ d_Y = d_X\circ f^*$ is left to the reader in the text (2021 only); it holds as we read it and is proved here (Findings, Chapter 4, item 173).
+
+**V4.90 (Forms on $\partial X$ and the pull-back $j^*$ (pp. 198–199); `Polyfold.MPolyfold.IsAgreeingOver`, `Polyfold.MPolyfold.IsFaceCompatible`, `Polyfold.MPolyfold.bForms`, `Polyfold.MPolyfold.extD_mem_bForms`, `Polyfold.MPolyfold.le_bForms`, `Polyfold.MPolyfold.bFormsInfty`, `Polyfold.MPolyfold.jStar`, `Polyfold.MPolyfold.formsPullback_mem_bForms`, `Polyfold.MPolyfold.jStar_comp_D`).** `bForms hP k i` $= \Omega^k(\partial X^i)$: the sc-forms $\tau \in \Omega^k(bX^i)$ on the tame boundary (Theorem 2.7.13) such that $\tau$ agrees over $B^i$ (`IsFaceCompatible`: $\tau_p(v) = \tau_{p'}(v')$ when $Bp = Bp'$ and $TB\,v_j = TB\,v'_j$) and $d\tau$ agrees over $B^{i+1}$. `extD_mem_bForms`: $d$ maps $\Omega^k(\partial X^i)$ to $\Omega^{k+1}(\partial X^{i+1})$; `le_bForms`: it is the largest $d$-stable family of agreeing forms. `bFormsInfty` is the direct limit, `jStar` $= B^* : \Omega^k_\infty(X) \to \Omega^k_\infty(\partial X)$ (`formsPullback_mem_bForms`), `jStar_comp_D`: $dj^* = j^*d$. *Book:* §4.4, pp. 198–199 (2017 p. 150; preprint p. 168), For a tame $X$ the inclusion $\partial X \to X$ is sc-smooth on local faces, and local faces and their intersections are tame M-polyfolds, so differential forms on $\partial X$ and $\partial X^i$ make sense; $j : \partial X \to X$ is the inclusion. *Deviation (restated):* The text gives no definition of forms on $\partial X$, which is not an M-polyfold (Findings, Chapter 4, item 122). We read them as forms on the tame boundary $bX$ (Theorem 2.7.13) that coincide on intersections of local faces, i.e. agree over $B$ (reading R-a; item 173). The definition also asks $d\tau$ to agree. That makes $d$ act on them, keeps every $j^*\omega$, and gives the largest $d$-stable choice, so it is the set of agreeing forms whenever those are closed under $d$, as for manifolds with corners. Whether the agreement of $\tau$ alone implies that of $d\tau$ for tame M-polyfolds (step A3 of the plan) is not proved: it needs the corner strata of tame retracts as sub-M-polyfolds. If it holds, `bForms` is the set of agreeing forms, the text's reading; if not, it is the largest complex inside it. $dj^* = j^*d$, stated without proof (item 121), is proved.
+
+**V4.91 (The relative complex $\Omega^*_\infty(X, \partial X)$, $d \circ d = 0$ and $H^*_{dR}(X, \partial X)$ (p. 199); `Polyfold.MPolyfold.RelForms`, `Polyfold.MPolyfold.relD`, `Polyfold.MPolyfold.relD_comp_relD`, `Polyfold.MPolyfold.relDRange`, `Polyfold.MPolyfold.relDeRham`, `Polyfold.MPolyfold.relDeRhamMk`, `Polyfold.MPolyfold.relDeRhamMk_eq_iff`, `Polyfold.MPolyfold.relDeRhamEquivOfNoBoundary`).** `RelForms hP k` is $\Omega^0_\infty(X)$ for $k = 0$ and $\Omega^{k}_\infty(X) \times \Omega^{k-1}_\infty(\partial X)$ otherwise. `relD` is $d(\omega, \tau) = (d\omega, j^*\omega - d\tau)$ ($\omega \mapsto (d\omega, j^*\omega)$ in degree 0). `relD_comp_relD`: $d \circ d = 0$, from $d^2 = 0$ on $X$ and $\partial X$ and $dj^* = j^*d$. `relDeRham hP k` $= \ker d/\operatorname{im} d$, a real vector space, with `relDeRhamMk_eq_iff`. `relDeRhamEquivOfNoBoundary`: for $\partial X = \emptyset$, $bX = \emptyset$ and $H^k_{dR}(X, \partial X) \cong H^k_{sc}(X)$. *Book:* §4.4, p. 199 (2017 p. 150; preprint p. 168), $\Omega^*_\infty(X, \partial X) = \Omega^*_\infty(X) \oplus \Omega^{*-1}_\infty(\partial X)$ with $d(\omega, \tau) = (d\omega, j^*\omega - d\tau)$; one easily verifies $d \circ d = 0$; the cohomology is $H^*_{dR}(X, \partial X)$. *Deviation (same):* The text writes the graded sum; it is read degree by degree, with $\Omega^{-1} = 0$. The text calls the sum a differential algebra; the wedge product is not formalized (G.80). The identification for $\partial X = \emptyset$ is used on p. 279, after the proof of Theorem 6.7.1 (V6.77). Forms on $\partial X$ are those of V4.90 (Findings, Chapter 4, item 173).
+
+**V4.92 (Theorem 4.4.7 (preprint 4.28) for sc-forms on a finite-dimensional submanifold: Stokes; `Polyfold.MPolyfold.stokes_formsInftyRestrict`, `Polyfold.MPolyfold.scFormRestrict`, `Polyfold.MPolyfold.scFormRestrict_apply_modelDeriv`, `Polyfold.MPolyfold.formsInftyRestrict`, `Polyfold.MPolyfold.contMDiffForm_formsInftyRestrict`, `Polyfold.MPolyfold.extDeriv_formsInftyRestrict`, `Polyfold.MPolyfold.scFormRestrict_formLower`, `Polyfold.MPolyfold.subset_smoothSet_of_hasCornerStructureOfDim`, `Polyfold.exists_hasCornerStructureOfDim_of_tame`, `Polyfold.exists_hasCornerStructureOfDim_solutionSet`).** `MPolyfold.stokes_formsInftyRestrict`: for a compact sub-M-polyfold $S \subseteq X$ with a corner structure of dimension $n + 1$ (then $S \subseteq X_\infty$, `subset_smoothSet_of_hasCornerStructureOfDim`), a continuous tangent orientation $o$ of the Mathlib manifold $S$ (`cornerChartedSpace`) and $\omega \in \Omega^n_\infty(X)$, $\int_S (d\omega)|_S = \int_{\partial S} \omega|_S$. The restriction $\omega \mapsto \omega|_S$ (`scFormRestrict` on $\Omega^k(X^i)$, `formsInftyRestrict` on $\Omega^k_\infty(X)$) is the pull-back along $S \to X^i$ (V4.89) read on the corner frames of $T_xS = \mathbb R^n$; in a chart of $X$ it is $\omega_\varphi \circ$ `modelDeriv` (`scFormRestrict_apply_modelDeriv`). It is $C^\infty$ (`contMDiffForm_formsInftyRestrict`) and commutes with $d$ (`extDeriv_formsInftyRestrict`) and with the system (4.4) (`scFormRestrict_formLower`). $\int_{\partial S}$ is the boundary integral of the Mathlib manifold $S$. The corner structures exist for every submanifold in good position of a tame $X$ (`exists_hasCornerStructureOfDim_of_tame`), in particular for the solution sets of Theorem 6.6.18 (`exists_hasCornerStructureOfDim_solutionSet`). *Book:* §4.4, Theorem 4.4.7 (preprint 4.28), p. 199 (preprint p. 168), For an oriented compact tame smooth $n$-dimensional submanifold $N$ whose boundary is a union of faces $F$, and an sc-differential $(n - 1)$-form $\omega$, $\int_N d\omega = \sum_F\int_F\omega$. *Deviation (restated):* The text's $N$ is an oriented compact tame smooth submanifold; here $S$ is a compact sub-M-polyfold with a corner structure of dimension $n + 1$, which every submanifold in good position of a tame $X$ has, with a continuous tangent orientation (as Theorem 6.6.18 gives the solution sets, V6.61). The sum $\sum_F\int_F\omega$ over the faces of $\partial N$ is read as the boundary integral of the Mathlib manifold $S$, the sum of the face integrals in the charts, each face oriented outward vector first (Findings, Chapter 4, item 171); the faces $F$ as tame M-polyfolds in their own right are not formalized (gap G.40). The restriction of $\omega$ to $N$, "clearly" a classical form in the text (p. 199), is the pull-back along the inclusion (items 172, 174). The 2021 text writes $\int_N$, the preprint and 2017 $\int_M$ (item 123).
+
 ### What is not verified in this chapter
 
 - p. 179 (preprint p. 151), Lemma 4.1.11 (preprint 4.10) (the section $u \mapsto (1 - p)(u - t(u))$ of $U \triangleleft Y$ is sc-Fredholm): not formalized, because no
   longer used — Proposition 4.1.9 (preprint 4.9) is proved directly (V4.20). It would need $U \triangleleft Y$ as a strong bundle, $Y$ and $Y \cap F$ as
   sc-subspaces, and at each smooth point the re-centred strong bundle chart, filler and conjugation (gap G.32).
-- pp. 195–208, §4.4 and Appendix 4.5, the parts not yet verified: the relative complex $\Omega^*_\infty(X) \oplus
-  \Omega^{*-1}_\infty(\partial X)$ and $H^*_{dR}(X, \partial X)$, forms on $\partial X$ and $j^*$ (gap G.39); the wedge product, the
-  pull-back $f^*$ along sc-smooth maps and the Poincaré Lemmas 4.4.8 and 4.5.2 (gap G.80); Theorem 4.4.7 for sc-forms on a
-  submanifold $N$, which needs the restriction of sc-forms to $N$ as classical forms, $\partial N$ and its faces as manifolds, and
-  integrals of forms given only on $\partial N$ (gap G.40; Stokes' theorem for classical forms on compact oriented Mathlib manifolds
-  with corners is proved, `ManifoldForm.stokes_of_compactSpace`). Verified: Definitions 4.4.1–4.4.2, the formula for $d\omega$, $d$
-  on an M-polyfold, $d \circ d = 0$ and Definition 4.4.6 (V4.80–V4.88, gap G.37 closed; Findings, items 167–172), Definition
+- pp. 195–208, §4.4 and Appendix 4.5, the parts not yet verified: the wedge product, the pull-back of forms on $\partial X$
+  along maps such as $p_1 : \mathbb R^1 \times X \to X$, and the Poincaré Lemmas 4.4.8 and 4.5.2 (gap G.80); in Theorem 4.4.7,
+  the faces $F$ of $N$ as tame M-polyfolds and the integrals over them, read as the boundary integral of the Mathlib manifold
+  (V4.92; gap G.40); for forms on $\partial X$, read through the tame boundary $bX$, whether the agreement of $\tau$ over $B$
+  implies that of $d\tau$ (step A3; V4.90; Findings, item 173). Verified: Definitions 4.4.1–4.4.2, the formula for $d\omega$, $d$
+  on an M-polyfold, $d \circ d = 0$ and Definition 4.4.6 (V4.80–V4.88, gap G.37 closed; Findings, items 167–172), the pull-back
+  $f^*$ with $f^* d = d f^*$, forms on $\partial X$ and $j^*$, the relative complex and $H^*_{dR}(X, \partial X)$ (V4.89–V4.91, gap
+  G.39 closed; item 173), Theorem 4.4.7 for sc-forms on a submanifold with a corner structure (V4.92; item 174), Definition
   4.4.3 (V4.67, V4.68), Lemma 4.4.4 (V4.69, V4.78, V4.79), Proposition 4.4.5 (V4.70–V4.72, V4.76, gap G.38 closed) and Lemma
   4.5.1 (V4.74, V4.75, V4.77) (Findings, items 152–164).
 - pp. 196 and 201, the 2021 Proposition 4.4.5 and Lemma 4.5.1: the pull-back bundle $TX|X^2 \to X^2$ (the bracket is an
@@ -5982,7 +5994,7 @@ and the 2021 data do not imply the earlier ones (Findings, item 177).
 
 ---
 
-## 7. Chapter 6 (HWZ §§6.2–6.8 (preprint §§6.1–6.7)): verified except Proposition 6.6.3 (1) (preprint 6.28), the global parts of Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (preprint 6.42), and Theorem 6.7.1 (preprint 6.43)
+## 7. Chapter 6 (HWZ §§6.2–6.8 (preprint §§6.1–6.7)): verified except Proposition 6.6.3 (1) (preprint 6.28), the global parts of Theorem 6.6.18 (preprint 6.41) and Remark 6.6.19 (preprint 6.42), and two steps of the proof of Theorem 6.7.1 (preprint 6.43)
 
 Chapter 6 of Part I (pp. 237–286 (preprint pp. 200–237)) builds the orientation theory of sc-Fredholm sections. §6.2 (preprint §6.1) defines the space
 $\mathrm{Lin}(f, x)$ of linearizations at a smooth point (Definition 6.2.1 (preprint 6.1)) and the index; Proposition 6.2.2 (preprint 6.2), the stability of
@@ -6031,7 +6043,10 @@ section). A fifth addendum (2026-11-08; Findings, items 110–115) covers the Sp
 6.6.8 and 6.6.9, the two halves of preprint Lemma 6.33 (V6.68). A sixth addendum (2026-11-08; Findings, items 116–121) adds the
 last sentence of Proposition 6.4.13, with a closed common complement (V6.69, V6.70; gap G.81, closed), and Theorem 6.6.17, the
 topology of the orientation space $O_f$ (V6.71–V6.75): exactly one Hausdorff topology with properties (1) and (3), and with (2)
-when small open sets have connected smooth parts (gap G.90); the remarks after the theorem are gap G.91.
+when small open sets have connected smooth parts (gap G.90); the remarks after the theorem are gap G.91. A seventh
+addendum (2026-11-10; Findings, items 128–134) adds Theorem 6.7.1 and the case $\partial X = \emptyset$ (V6.76, V6.77,
+narrower): proved under two hypotheses that are steps of the text's proof, the orientation of the cobordism $S_F$ (gap
+G.66) and a relative form on it (gap G.54), with the admissible sections of §6.7 (gap G.55, closed).
 
 The setting. $X$ and $Y$ are paracompact Hausdorff spaces, as for every M-polyfold of the project, and from §6.6 (preprint §6.5) on $X$ is
 tame and $f$ is an sc-Fredholm section with tame germ data (Definition 3.6.4 (preprint 3.51)), the reading of Chapter 5. The linearization
@@ -6828,6 +6843,66 @@ $(y_0, o_{y_0})$ equals $y \mapsto (y, o_y)$ near $y_0$, since $y$ is joined to 
 the connectedness of $[0, 1]$ carry the equality; the local homeomorphisms of (1) then match the open sets of both topologies
 (Findings, items 119, 121).
 
+**V6.76 (Theorem 6.7.1 (preprint 6.43): the invariant $\Psi_{(f,o)}$; `Polyfold.theorem_6_7_1_hyp`,
+`Polyfold.CobordismOrientationHyp`, `Polyfold.CobordismRelativeFormsHyp`, `Polyfold.psiAt_eq_of_admissible_hyp`,
+`Polyfold.psiAt_eq_of_homotopy_hyp`, `Polyfold.theorem_6_7_1_of_indep`, `Polyfold.PsiIndepAdmissible`,
+`Polyfold.PsiIndepHomotopy`, `Polyfold.psiInvariant_spec`, `Polyfold.psiInvariant_homotopy`, `Polyfold.theorem_6_7_1_witness`,
+`Polyfold.psiAt_eq_of_cobordism`, `Polyfold.CobordismOrientation`, `Polyfold.CobordismRelativeForms`,
+`Polyfold.integral_eq_of_cutCobordism`, `Polyfold.psiAt`, `Polyfold.psiForms_relD`, `Polyfold.StrongBundle.IsAdmissible`,
+`Polyfold.solPartIsOrientedManifold`, `Polyfold.IsProperOrientedHomotopyBetween`).** `theorem_6_7_1_hyp`
+(`Chapter6/Theorem671Assembly2021.lean`): under `CobordismOrientationHyp` and `CobordismRelativeFormsHyp`, there is $\Psi$
+assigning to a proper tame sc-Fredholm section $f$ with an orientation $o$ a linear map $\Psi_{(f,o)} : H^k_{dR}(X, \partial X)
+\to \mathbb R$ (`relDeRham`, V4.91) in every degree $k$ with (1): for every auxiliary norm $N$ there are open $U \supseteq S_f$
+with $\mathrm{cl}\{x \in U \mid N(f(x)) \le C\}$ compact for $C > 0$; for each such $U$, $S_{f+s}$ is compact for every
+allowable $s$, admissible sections exist (`StrongBundle.IsAdmissible`), and for each admissible $s$, $S_{f+s}$ is the union of
+its index parts $S_k$, each a compact oriented Mathlib manifold of dimension $k$ (`SolPartIsOrientedManifold`), with
+$\Psi([\omega, \tau]) = \int_{S_k}\omega|_S - \int_{\partial S_k}\tau|_{\partial S}$ (`solIntegral`, `solBoundaryIntegral`); and
+(2): $\Psi_{(f_0,o_0)} = \Psi_{(f_1,o_1)}$ for a proper oriented homotopy (`IsProperOrientedHomotopyBetween`). $\Psi$ is `psiAt`
+for one chosen admissible section; `psiAt` is well defined on classes by Stokes on $S_k$ and on its faces (`psiForms_relD`).
+`theorem_6_7_1_of_indep` proves the theorem from (A) `PsiIndepAdmissible` and (B) `PsiIndepHomotopy` with no other hypothesis;
+`psiAt_eq_of_admissible_hyp` and `psiAt_eq_of_homotopy_hyp` prove (A) and (B) under the two hypotheses from the cobordism
+identity `psiAt_eq_of_cobordism` (Stokes on the index-$(k+1)$ part of $S_F$ with a cut-off in time,
+`integral_eq_of_cutCobordism`) and the cobordism data `exists_isCobordismData`, `exists_homotopy_cobordism_data`. On the point
+$\mathbb R^0$ with $f = 0$, $\Psi([1]) = \pm1$ (`theorem_6_7_1_witness`). *Book:* §6.7 (preprint §6.6), Theorem 6.7.1 (preprint
+6.43), p. 277 (preprint p. 231) (proof pp. 277–279 (preprint pp. 231–233)), Over a tame $X$ with sc-smooth bump functions there
+is a well-defined map associating with a proper oriented sc-Fredholm section $(f, o)$ a linear map $\Psi_{(f,o)} : H^*_{dR}(X,
+\partial X) \to \mathbb R$ with (1) for an auxiliary norm $N$ and $s$ admissible for $(N, U)$, $S_{f+s}$ is an oriented compact
+manifold with boundary with corners and $\Psi_{(f,o)}([\omega, \tau]) = \int_{S_{f+s}}\omega - \int_{\partial S_{f+s}}\tau$, the
+integrals being zero if the dimensions do not agree; and (2) $\Psi_{(f_0,o_0)} = \Psi_{(f_1,o_1)}$ for a proper oriented
+homotopy. The proof compares two admissible sections through the cobordism $S_F$ of Remark 5.3.8, oriented from $o$ and the
+standard orientation of $[0, 1]$, and gets (2) by "the same homotopy argument". *Deviation (narrower):* Proved under two
+hypotheses that are steps of the text's proof, not hypotheses of the text: the orientation of the cobordism $S_F$, of product
+form $e \wedge o_{S_i}$ on its two ends (`CobordismOrientationHyp`, 4b's `CobordismOrientation` for the cobordisms of (1) and
+(2); Remark 6.6.19, gap G.66), and a closed relative form on $S_F$ that reads as $\omega|_{S_i} + d\gamma_i$ on the ends
+(`CobordismRelativeFormsHyp`, 4b's `CobordismRelativeForms`), which needs the pull-back of forms on $\partial X$ to
+$\partial(\mathbb R^1 \times X)$ (gap G.54). Neither quantifies over all orientations; no Lean witness of them is given
+(Findings, Chapter 6, item 134). The proper oriented homotopy of (2), which the text does not define, is read as in R-d: $f_1 =
+f_0 + S(1, \cdot)$ for an sc⁺-section $S$ over $\mathbb R^1 \times X$ with $S(0, \cdot) = 0$, compact zeros over $t \in [0, 1]$
+and the properness clause on that slab, and $o_1 = o_0$ transported (`IsProperOrientedHomotopyBetween`; Findings, Chapter 6,
+item 130). The neighbourhood $U$ of (1) carries the margin of reading R-b, and (1) holds for every auxiliary norm and every such
+$U$; the text defines $\Psi$ from one $N$ (item 128). "Zero if the dimensions do not agree" pairs degree $k$ with the index-$k$
+part $S_k$ (R-c, item 129). The text's $[0, 1] \times X$ is read as $\mathbb R^1 \times X$ (decision D2), and the decomposition
+$\partial S_F = S_0 \cup S_1 \cup \tilde S$ is replaced by a cut-off in time on the product ends (items 131–133). *Proof:*
+`psiAt`, for one admissible section, is well defined on classes by Stokes on $S_k$ and on its faces; two admissible sections, or
+the two ends of a proper oriented homotopy, are compared through the cobordism $S_F$ with a cut-off in time: $\int_{S_F} d(gA) =
+0$, and on the product ends $\int_{S_F} d(g_iA) = \int_{S_i} a_i$ (Findings, Chapter 6, items 128–134).
+
+**V6.77 (Theorem 6.7.1 (preprint 6.43) for $\partial X = \emptyset$ (p. 279); `Polyfold.theorem_6_7_1_noBoundary_hyp`,
+`Polyfold.theorem_6_7_1_noBoundary_of_indep`, `Polyfold.psiInvariantNoBoundary`, `Polyfold.psiInvariantNoBoundary_mk`,
+`Polyfold.psiInvariantNoBoundary_of_ne`, `Polyfold.MPolyfold.relDeRhamEquivOfNoBoundary`).** `theorem_6_7_1_noBoundary_hyp`:
+under the two hypotheses of V6.76 and $\partial X = \emptyset$ (`IsWithoutBoundary`), there is $\Phi$ with $\Phi_{(f,o)} :
+H^k_{sc}(X) \to \mathbb R$ in every degree ($\Phi = \Psi$ under $H^k_{dR}(X, \partial X) \cong H^k_{sc}(X)$,
+`relDeRhamEquivOfNoBoundary`) such that for every $N$, every $U$ as in (1) and every admissible $s$: if the index of $f$ is $n$
+at every smooth point, then $S_{f+s}$ is compact and equal to $S_n$, $\Phi([\omega]) = \int_{S_{f+s}}\omega|_S$ in degree $n$,
+and $\Phi = 0$ in every degree $k \ne n$; and $\Phi$ is invariant under proper oriented homotopies.
+`theorem_6_7_1_noBoundary_of_indep` is the same from (A) and (B). *Book:* §6.7 (preprint §6.6), after the proof of Theorem 6.7.1
+(preprint 6.43), p. 279 (preprint p. 233), For $\partial X = \emptyset$, $\Psi_{(f,o)} : H^n_{dR}(X) \to \mathbb R$ is
+$\Psi_{(f,o)}([\omega]) = \int_{S_{f+s}}\omega$ for $[\omega] \in H^n_{dR}(X)$ if $n$ is the index of $f$, and zero otherwise.
+*Deviation (narrower):* Narrower as V6.76: the two cobordism hypotheses, and homotopies read as in R-d. The text's "if $n$ is
+equal to the index, and zero otherwise" is stated as two clauses for a constant index $n$: the integral in degree $n$, and $\Phi
+= 0$ in the other degrees (R-c). The text writes $H^n_{dR}(X)$; for $\partial X = \emptyset$ it is $H^n_{sc}(X)$ (Definition
+4.4.6, V4.88), identified with $H^n_{dR}(X, \partial X)$ by `relDeRhamEquivOfNoBoundary` (V4.91).
+
 ### What is not verified in this chapter
 
 - preprint p. 201, the facts recalled before Proposition 6.2.2 (preprint 6.2): an M-polyfold is locally path connected, and two smooth points in
@@ -6866,14 +6941,20 @@ the connectedness of $[0, 1]$ carry the equality; the local homeomorphisms of (1
   $\det((f + s)'(x))$ from $\mathrm{DET}(f, x)$ (gap G.69).
 - p. 276 (preprint p. 230), Remark 6.6.19 (preprint 6.42) beyond a point: that $(t, y) \mapsto \hat o$ is an orientation of $\hat f$ in the sense of Definition
   6.6.16 (preprint 6.40) (continuity over the orientable neighbourhoods of $\mathbb R \times X$, independence of the chart of the pull-back
-  bundle), built from an orientation of $f$; the remark is verified at a point (V6.62) (gap G.66).
+  bundle), built from an orientation of $f$; the remark is verified at a point (V6.62) (gap G.66). Its use in Theorem
+  6.7.1, the orientation of the cobordism $S_F$ with product form on the ends, is the hypothesis `CobordismOrientationHyp`
+  of V6.76.
 - p. 276 (preprint p. 230), §6.7 (preprint §6.6), the sections "admissible for the pair $(N, U)$"; the facts recalled there are Theorem 5.3.10 (preprint 5.18) (V5.38, V5.39)
-  and the orientation of $S_{f+s}$ (V6.61) (gap G.55).
-- p. 277 (preprint p. 231), Theorem 6.7.1 (preprint 6.43) (the invariant $\Psi_{(f,o)}$ on $H^*_{dR}(X, \partial X)$), with its proof, pp. 277–279 (preprint pp. 231–233), and the case
-  $\partial X = \emptyset$, p. 279 (preprint p. 233): it needs the sc-differential forms and their cohomology of §4.4 (gaps G.37–G.40), integration
-  over oriented compact manifolds with boundary with corners and Stokes' theorem, and the proper sc⁺-homotopy of Remark 5.3.8 (preprint 5.16)
-  (gap G.44); not formalized (decision D1) (gap G.54). In the proof, the extension $p_1^*\omega \wedge p_2^*dt$ of $\omega$
-  is read as $p_1^*\omega$ (possible misprint; Findings, item 103).
+  and the orientation of $S_{f+s}$ (V6.61) (gap G.55). Listed here before 2026-11-10; verified since, with the neighbourhood
+  $U$ read with a margin (V6.76; gap G.55, closed; Findings, item 128).
+- p. 277 (preprint p. 231), Theorem 6.7.1 (preprint 6.43) (the invariant $\Psi_{(f,o)}$ on $H^*_{dR}(X, \partial X)$), with its proof, pp.
+  277–279 (preprint pp. 231–233), and the case $\partial X = \emptyset$, p. 279 (preprint p. 233): proved under two hypotheses that are
+  steps of the text's proof, not hypotheses of the text (V6.76, V6.77, narrower): the orientation of the cobordism $S_F$, of product
+  form $e \wedge o_{S_i}$ on its ends (`CobordismOrientationHyp`; gap G.66), and a closed relative form on $S_F$ that reads as
+  $\omega|_{S_i} + d\gamma_i$ on the ends, which needs the pull-back of forms on $\partial X$ to $\partial(\mathbb R^1 \times X)$
+  (`CobordismRelativeFormsHyp`; gap G.54). No Lean witness of the two is given. The proper oriented homotopy of (2), which the
+  text does not define, is read through Remark 6.6.19 (Findings, item 130), and the extension $p_1^*\omega \wedge p_2^*dt$ of
+  $\omega$ is read as $p_1^*\omega$ (possible misprint; Findings, items 103, 131).
 - §§6.2 and §6.6 (preprint §6.1 and §6.5), $T_xX$, $Y_x$, $\mathrm{Lin}(f, x)$ and $\mathrm{Or}^f_x$ as chart-free objects: they are made in chart points
   and identified between charts (V6.53–V6.55), since $T_xX$ carries no linear structure here (gaps G.6, G.7, G.13).
 - p. 253, Proposition 6.4.13 (2017: 6.6), the last sentence: that $A_T$ and $B_T$ depend continuously on $T$ near a given operator.

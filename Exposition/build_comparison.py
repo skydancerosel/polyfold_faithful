@@ -64,7 +64,7 @@ CHAPTERS = [
            'homotopies, partitions of unity'),
     ('V6', 'Chapter 6', 'HWZ Chapter 6 §§6.2–6.8, pp. 237–286 (preprint §§6.1–6.7, pp. 200–237): linearizations, the determinant of Fredholm '
            'operators and its orientation, the determinant bundle, local propagation and orientations of sc-Fredholm '
-           'sections, the orientation of the solution set, the product with [0, 1]; Theorem 6.7.1 (preprint 6.43) is not formalized'),
+           'sections, the orientation of the solution set, the product with [0, 1], and Theorem 6.7.1 (preprint 6.43) under two stated hypotheses (V6.76)'),
     ('V7', 'Part II, Chapter 7', 'HWZ Part II, Chapter 7 §§7.1–7.3, 7.5–7.6, pp. 287–356 (2017 §§7.1–7.5, pp. 225–256; '
            'Part II has no 2014 preprint): ep-groupoids, natural representations of the '
            'isotropy groups, local uniformizers, ep-subgroupoids, effective and reduced ep-groupoids, the topology of '
