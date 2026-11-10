@@ -25,7 +25,10 @@ PDF_ARGS = [  # the same pandoc settings as the chapters
     "-V", "mainfont=Palatino", "-V", "mathfont=latinmodern-math.otf",
     "-V", "geometry:margin=1in", "-V", "papersize=letter", "-V", "fontsize=11pt",
     "-V", "colorlinks=true", "-V", "linkcolor=blue", "-V", "urlcolor=blue",
-    "-V", "header-includes=\\usepackage{amssymb}\\usepackage{float}\\floatplacement{figure}{H}",
+    "-V", "header-includes=\\usepackage{amssymb}\\usepackage{float}\\floatplacement{figure}{H}"
+          "\\setlength{\\emergencystretch}{4em}\\tolerance=2000",
+    "-V", "linestretch=1.15",                    # a little air between lines
+    "--lua-filter", os.path.join(HERE, "breakable-code.lua"),  # long Lean names may break at . and _
     "--resource-path", HERE,
 ]
 CHAPTERS = [  # file key, HWZ sections, short content (for the summary table), Lean dirs

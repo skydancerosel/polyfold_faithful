@@ -477,7 +477,8 @@ def build_pdf(md, title, occ, decls, outdir):
             '--toc', '--toc-depth=1', '--shift-heading-level-by=-1',
             '--top-level-division=chapter',
             '-V', 'documentclass=report'] + PDF_FONTS + [
-            '-V', 'geometry:margin=1.1in',
+            '-V', 'geometry:margin=1.1in', '-V', 'linestretch=1.15',
+            '--lua-filter=' + str(EXDIR / 'breakable-code.lua'),
             '-M', 'title=' + title, '-M', 'subtitle=' + SUBTITLE], text)
     print(f'  wrote {hdr}')
     print(f'  wrote {out}  ({out.stat().st_size:,} bytes, {pages(out)} pages)')
