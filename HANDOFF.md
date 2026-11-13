@@ -701,6 +701,31 @@ each chapter lands)
     tier `partIII` gains Theorems 12.2.7, 12.2.11, 12.3.9, 12.5.7, 13.5.6, 15.2.2, 15.2.5, Lemma 16.2.2, Definition
     16.2.3, Theorems 16.2.6, 16.4.6 (102 mains). Wave 3 (P3W3 files) runs in parallel and is not integrated here.
     Next: wave 3 (G.147–G.149, Chapter 14, §§15.3–15.4, §§16.3, 16.5–16.6).
+25. **Part III waves 3 and 4** (2026-11-13). Eighteen agents (wave 3: Q, C, B1, B2, G, V, Y, O, K; wave 4: S3, Z4,
+    LX, GL, GP, FN, PB, TX, SM; notes `narrow/p3w3-*.md`, `narrow/p3w4-*.md` in the lead's scratchpad, integration
+    report `narrow/integrate-p3w34.md`). New Lean in 62 files, 20,072 lines (`Polyfold/Chapter12/P3W3{K,O}_*`,
+    `Chapter13/P3W3{C,Q}_*`, `P3W4{FN,SM}_*`, `Chapter14/` (new: `P3W3B{1,2}_*`, `P3W4{S3,Z4,LX,GL}_*`),
+    `Chapter15/P3W3{G,K}_*`, `P3W4{GP,TX,SM}_*`, `Chapter16/P3W3{V,Y}_*`, `P3W4{PB,SM,FN}_*`), imported in
+    `Polyfold.lean` (859 lines); `P3W4FN_StructurablePullback.lean` is FN's scratch proof of PB's
+    `StructurablePullback`, copied by lead decision. `Test.lean` blocks "Axioms: Part III waves 3-4 (2026-11-13),
+    Chapter N" for N = 12–16; now 21,090 declarations, all on propext/Classical.choice/Quot.sound. One name
+    clash: `SBLocalization.μ_ne_fiberZero` was declared in `P3W4SM_LocallyFiniteBridge` and `P3W4PB_ZeroSection`;
+    the Chapter 13 one is now `μ_ne_fiberZero_lf`. Docstrings updated (docs only): `P3T_LinearizationIntrinsic`,
+    `P3R2_ReflexiveAuxNormExtension`, `P3A_AtomicStructurable`, and the 2017 numbers in `P3R2_ReflexiveCompactnessEp`,
+    `P3L_*`, `P3P_*`, `P3W3G_*`, `P3W4{GP,SM,TX}_*` (BookConcordance's numbers). Rows: V13.50–V13.58, V14.1–V14.35
+    (new `cmp/ch14.json`), V15.27–V15.38, V16.29–V16.78 (106 new rows); updated V12.34 (explicit), V13.46 (narrower:
+    a good system is necessary, Chapter 13 has no standing paracompactness), V13.48, V15.2, V15.15, V16.21, V16.23
+    (same), V16.24, V16.27. Gaps closed: G.144, G.147, G.148, G.149, G.151, G.154, G.156, G.161; G.138 "formalized
+    in part"; G.139, G.152, G.155, G.157 (retitled), G.158, G.159, G.162 rewritten. New gaps G.163–G.183, all open
+    (P13.4.2; P14.1.8, θ̄ tame, P14.4.6 (2), ZData instance, P14.5.4, T14.1.9 assembly, L14.5.2, §14.6; invariance of
+    the reflexive notions, the zero section, n(λ), T16.6.6 integrals, orientations; T15.3.9 steps, C15.3.10 (3)
+    data, C15.4.4 cobordism, d_X ≡ 0 ⇒ tame). The uniqueness after Definition 16.3.3 and the composite of
+    Definition 16.1.10 do not hold as we read them (README item 15), with effective forms. Theorem 14.1.9 and
+    Theorem 16.5.7 rest on the extension of §§14.3–14.5, witnessed for ∂X = ∅ only; `tangent_comp`'s `hTd` and the
+    cylinder hypotheses of Corollary 15.3.10 (3) have no witness. Findings: Ch12 19–20, Ch13 16–20, new Chapter 14
+    section 1–8, Ch15 10–15, Ch16 11–17. `BookConcordance.md` gains a waves 3–4 table. `checklist/mains.json` tier
+    `partIII` gains 21 mains (123 in all). Next: the open Part III gaps, first G.170/G.171 (P14.5.4 and the
+    assembly, ~900 lines), which would make Theorems 14.1.9, 15.3.9 and 16.5.7 unconditional.
 
 Model guidance (from the Morse audit): Opus 5.5 for provers and report writing; Fable 5.1 only
 where proving is the bottleneck (e.g. the Germ-IFT). Run at most two Lean agents at a time on the

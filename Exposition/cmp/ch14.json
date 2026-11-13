@@ -1,0 +1,1154 @@
+{
+ "items": [
+  {
+   "id": "V14.1",
+   "title": "Proposition 14.1.1 (2017: before Definition 14.1), good open neighbourhoods of boundary points",
+   "verdict": "same",
+   "book": {
+    "label": "§14.1, Proposition 14.1.1, p. 638 (2017: the discussion before Definition 14.1)",
+    "page": 638,
+    "statement": "In a tame ep-groupoid, every $x\\in\\partial X$ has arbitrarily small open neighbourhoods $V(x)$ with the following properties: (1) $V(x)$ and $V(x)\\cap\\partial X$ are connected; (2) $V(x)$ has the natural $G_x$-action; (3) $t:s^{-1}(\\mathrm{cl}_X V(x))\\to X$ is proper; (4) there are $d_X(x)$ components $\\theta_i$ of $\\{d_X=1\\}\\cap V(x)$ with (a) $x\\in\\bar\\theta_i$, (b) $d_X(y)=\\#\\{i\\mid y\\in\\bar\\theta_i\\}$, (c) $V(x)\\cap\\partial X=\\bigcup\\bar\\theta_i$."
+   },
+   "lean": {
+    "statement": "`proposition_14_1_1 (hX : X.IsTame) (hx : x ∈ ∂X) (hW : IsOpen W) (hxW : x ∈ W)` gives a `V : X.NatNbhd x` with $V\\subseteq W$, (1), (3), and some $\\theta$ with `HasBoundaryFaces x V.U θ` and $V\\cap\\partial X=\\bigcup_i V\\cap\\overline{\\theta_i}$. (2) is the `NatNbhd` structure. The relative form `exists_isGoodBoundaryNbhd_le` keeps a given natural action ($V\\le N$).",
+    "decls": [
+     "Chapter14/P3W3B1_GoodBoundary · HasBoundaryFaces",
+     "Chapter14/P3W3B1_GoodBoundary · HasBoundaryFaces.inter_boundary_eq",
+     "Chapter14/P3W3B1_GoodBoundary · exists_isGoodBoundaryNbhd_le",
+     "Chapter14/P3W3B1_GoodBoundary · proposition_14_1_1",
+     "Chapter14/P3W3B1_GoodBoundary · TameBoundary.isPreconnected_faceAt",
+     "Chapter14/P3W3B1_GoodBoundary · TameBoundary.isCenteredAt_connectedComponentIn",
+     "Chapter14/P3W3B1_GoodBoundary · TameBoundary.connectedComponentIn_inter_deg_of_mem_cc"
+    ]
+   },
+   "chips": [
+    "Part I face calculus"
+   ],
+   "diff": [
+    "\"Arbitrarily small\" is read as \"inside any open $W\\ni x$\". $\\bar\\theta_i$ is the closure in $V$, that is $V\\cap\\mathrm{cl}\\,\\theta_i$. The proof uses Part I's abstract face calculus (`Chapter2/TameBoundary`: `reach`, `faceAt`, centred face-structured sets) instead of the text's chart argument."
+   ]
+  },
+  {
+   "id": "V14.2",
+   "title": "Definition 14.1.2 (2017: 14.1), good open neighbourhoods",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.1, Definition 14.1.2, p. 641 (2017: Definition 14.1)",
+    "page": 641,
+    "statement": "$U(x)=V(x)\\cap\\partial X$ is a good open neighbourhood in $\\partial X$ if $V(x)$ has properties (1)–(4) of Proposition 14.1.1 (with (4)(a)(b)). Remarks after the definition: $U(x)=\\bigcup\\bar\\theta_i$; $U(x)$ is open, connected and $G_x$-invariant; the $\\bar\\theta_j$ are tame M-polyfolds."
+   },
+   "lean": {
+    "statement": "`IsGoodBoundaryNbhd V` for `V : X.NatNbhd x`, with fields `isConnected`, `isConnected_bdry`, `isProperSubset_closure` and `hasFaces`. `NatNbhd.bdry V = V.U ∩ ∂X` is $U(x)$. The remarks: `IsGoodBoundaryNbhd.bdry_eq` ($U(x)=\\bigcup\\bar\\theta_i$), `NatNbhd.mapsTo_Φ_bdry` (invariance), `IsGoodBoundaryNbhd.mem_boundary` and `NatNbhd.degIndex_Φ`. Witness: `exists_isGoodBoundaryNbhd` (tame $X$).",
+    "decls": [
+     "Chapter14/P3W3B1_GoodBoundary · IsGoodBoundaryNbhd",
+     "Chapter14/P3W3B1_GoodBoundary · NatNbhd.bdry",
+     "Chapter14/P3W3B1_GoodBoundary · NatNbhd.bdry_subset",
+     "Chapter14/P3W3B1_GoodBoundary · NatNbhd.bdry_subset_boundary",
+     "Chapter14/P3W3B1_GoodBoundary · NatNbhd.degIndex_Φ",
+     "Chapter14/P3W3B1_GoodBoundary · NatNbhd.mapsTo_Φ_bdry",
+     "Chapter14/P3W3B1_GoodBoundary · NatNbhd.bdry_mono",
+     "Chapter14/P3W3B1_GoodBoundary · IsGoodBoundaryNbhd.bdry_eq",
+     "Chapter14/P3W3B1_GoodBoundary · IsGoodBoundaryNbhd.mem_boundary",
+     "Chapter14/P3W3B1_GoodBoundary · exists_isGoodBoundaryNbhd"
+    ]
+   },
+   "chips": [
+    "$\\bar\\theta_j$ tame: G.165"
+   ],
+   "diff": [
+    "\"Admits the natural $G_x$-action\" is `NatNbhd`. The remark that the $\\bar\\theta_j$ are tame M-polyfolds is not formalized."
+   ]
+  },
+  {
+   "id": "V14.3",
+   "title": "Definition 14.1.3 (2017: 14.2), sc⁺-multisections over $\\partial X$",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.1, Definition 14.1.3, p. 642 (2017: Definition 14.2)",
+    "page": 642,
+    "statement": "A functor $\\Lambda:W|\\partial X\\to\\mathbb Q^+$ is an sc⁺-multisection over $\\partial X$ if every $x\\in\\partial X$ has a good $U(x)$, a finite $I_x$ with a $G_x$-action, and sections $s^x_i$ over $U(x)$ such that: (1) $s^x_i|\\bar\\theta_j$ is sc⁺; (2) $s^x_{g(i)}(g*y)=\\mu(\\Gamma(g,y),s^x_i(y))$; (3) $\\Lambda(w)=|I_x|^{-1}\\#\\{i\\mid s^x_i(P(w))=w\\}$."
+   },
+   "lean": {
+    "statement": "`IsFaceScPlusSectionOn A s U` is (1): Part I's Definition 5.4.1 with $\\partial X$ replaced by $U$, that is, in every tame strong bundle chart and at every point of $U$, sc⁺ on every local face germ. `BoundarySymmetricStructure A Λ V` has fields `I`, `fintype`, `mulAction`, `s`, `isFaceScPlus` on `V.bdry`, `equivariant` on `V.bdry`, and `rep` for $P(w)\\in$ `V.bdry`. `IsBoundaryWFunctor` and `IsBoundaryScPlusMultisection A Λ` (functor on $W|\\partial X$, plus a good `V` with a structure at every boundary point). Witness: `isBoundaryScPlusMultisection_zero` (tame $X$).",
+    "decls": [
+     "Chapter14/P3W3B1_BoundaryMultisection · IsFaceScPlusSectionOn",
+     "Chapter14/P3W3B1_BoundaryMultisection · IsFaceScPlusSectionOn.mono",
+     "Chapter14/P3W3B1_BoundaryMultisection · isFaceScPlusSectionOn_of_isBoundaryScPlusSection",
+     "Chapter14/P3W3B1_BoundaryMultisection · isFaceScPlusSectionOn_fiberZero",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundarySymmetricStructure",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundarySymmetricStructure.P_s",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundarySymmetricStructure.restrict",
+     "Chapter14/P3W3B1_BoundaryMultisection · IsBoundaryWFunctor",
+     "Chapter14/P3W3B1_BoundaryMultisection · IsBoundaryScPlusMultisection",
+     "Chapter14/P3W3B1_BoundaryMultisection · zeroBoundaryStructure",
+     "Chapter14/P3W3B1_BoundaryMultisection · isBoundaryScPlusMultisection_zero"
+    ]
+   },
+   "chips": [
+    "sc⁺ on faces: through local faces"
+   ],
+   "diff": [
+    "\"$s|\\bar\\theta_j$ is sc⁺\" is read through the local faces: in a tame chart, the germs of the $\\bar\\theta_j$ at a point of $U(x)$ are the local faces there. \"A functor on $W|\\partial X$\" is invariance along morphisms with source in $\\partial X$. Only the values over $\\partial X$ enter. The text's standing hypothesis \"$|X|$ paracompact\" is not used."
+   ]
+  },
+  {
+   "id": "V14.4",
+   "title": "Proposition 14.1.4 (2017: Remark 14.2), the local extension result",
+   "verdict": "same",
+   "book": {
+    "label": "§14.1, Proposition 14.1.4, p. 642 (2017: Remark 14.2)",
+    "page": 642,
+    "statement": "Let $X$ be a tame ep-groupoid with paracompact orbit space admitting sc-smooth partitions of unity, $V(x)$ a good neighbourhood of $x\\in\\partial X$, $U(x)=V(x)\\cap\\partial X$. A symmetric sc$^+$-section structure $(s_i)_{i\\in I}$ on $U(x)$ (Definition 14.1.3) extends to sc$^+$-sections $\\bar s_i$ on $V(x)$ with $\\bar s_i|U(x)=s_i$ and $\\bar s_{g(i)}(g*y)=\\mu(\\Gamma(g,y),\\bar s_i(y))$ (Definition 13.2.5). Proof: extend each $s_i$ (Proposition 12.3.7 and a partition of unity), average over the stabiliser, transport along the orbit."
+   },
+   "lean": {
+    "statement": "`proposition_14_1_4_full hB hpu S`: for every `S : BoundarySymmetricStructure A Λ V` there are $\\bar s_i$ with `IsScPlusSectionOn A (s̄ i) V.U`, $\\bar s_i=s_i$ on `V.bdry`, and $\\bar s_{g(i)}(g*y)=\\mu(\\Gamma(g,y),\\bar s_i(y))$ for $y\\in V(x)$. Hypotheses: `hB` (every object lies in a tame strong bundle chart) and `hpu : A.X.PObj.AdmitsScPartitionsOfUnity`. The non-equivariant step is `exists_scPlusSectionOn_extension_of_face` (face-wise sc$^+$ on $V\\cap\\partial X$ ⇒ an sc$^+$-section on $V$ equal to $s$ on $V\\cap\\partial X$, any open $V$). Also: `proposition_14_1_4_of_closure` (on any $V'\\le V(x)$ with $\\mathrm{cl}\\,V'\\subseteq V(x)$; a global sc$^+$-section of $P$ there) and `proposition_14_1_4` (a good $V'(x)\\le V(x)$ with $\\mathrm{cl}\\,V'\\subseteq V(x)$, via Lemma 14.2.1).\n\n`proposition_14_1_4_hyp S s₀ h₀ h₀b`. Given sc⁺-sections $s^0_i$ on $V(x)$ with $s^0_i=s_i$ on $U(x)$, there are sc⁺ $\\bar s_i$ on $V(x)$ with $\\bar s_i=s_i$ on $U(x)$ and $\\bar s_{g(i)}(g*y)=\\mu(\\Gamma(g,y),\\bar s_i(y))$ for all $y\\in V(x)$. The sections are $\\bar s_j(y)=|G_x|^{-1}\\sum_g\\mu(\\Gamma(g^{-1},g*y),s^0_{g(j)}(g*y))$ (`avgSection`). `avgSection_equivariant` and `avgSection_eq_of_equivariant` give the two properties. Witness of the hypothesis: `proposition_14_1_4_hyp_witness`.",
+    "decls": [
+     "Chapter14/P3W4LX_LocalExtension · StrongBundle.exists_local_extension_of_face",
+     "Chapter14/P3W4LX_LocalExtension · exists_scPlusSection_extension_of_face",
+     "Chapter14/P3W4LX_LocalExtension · proposition_14_1_4_of_closure",
+     "Chapter14/P3W4LX_LocalExtension · proposition_14_1_4",
+     "Chapter14/P3W4LX_OpenExtension · IsScPlusSectionOn.of_locally_p3w4",
+     "Chapter14/P3W4LX_OpenExtension · exists_scSmooth_cutoff_p3w4",
+     "Chapter14/P3W4LX_OpenExtension · exists_scPlusSectionOn_extension_of_face",
+     "Chapter14/P3W4LX_OpenExtension · proposition_14_1_4_full",
+     "Chapter14/P3W4LX_OpenExtension · proposition_14_1_4_hypotheses_rn",
+     "Chapter14/P3W3B1_BoundaryMultisection · fibAct_comp_p3w3",
+     "Chapter14/P3W3B1_BoundaryMultisection · fibAct_unit_p3w3",
+     "Chapter14/P3W3B1_BoundaryMultisection · avgTerm",
+     "Chapter14/P3W3B1_BoundaryMultisection · avgTerm_apply",
+     "Chapter14/P3W3B1_BoundaryMultisection · isScPlusSectionOn_avgTerm",
+     "Chapter14/P3W3B1_BoundaryMultisection · P_avgTerm",
+     "Chapter14/P3W3B1_BoundaryMultisection · avgTerm_equivariant",
+     "Chapter14/P3W3B1_BoundaryMultisection · avgSection",
+     "Chapter14/P3W3B1_BoundaryMultisection · isSection_sumSection_p3w3",
+     "Chapter14/P3W3B1_BoundaryMultisection · isScPlusSectionOn_avgSection",
+     "Chapter14/P3W3B1_BoundaryMultisection · avgSection_apply",
+     "Chapter14/P3W3B1_BoundaryMultisection · avgSection_equivariant",
+     "Chapter14/P3W3B1_BoundaryMultisection · avgSection_eq_of_equivariant",
+     "Chapter14/P3W3B1_BoundaryMultisection · proposition_14_1_4_hyp",
+     "Chapter14/P3W3B1_BoundaryMultisection · proposition_14_1_4_hyp_witness"
+    ]
+   },
+   "chips": [
+    "tame strong bundle charts (`hB`), read",
+    "averaging over $G_x$"
+   ],
+   "diff": [
+    "\"A strong bundle over a tame ep-groupoid\" provides the tame strong bundle charts (`hB`), as in the cores of Theorem 12.3.9; \"admitting sc-smooth partitions of unity\" is Definition 5.5.1 on the object M-polyfold, as in `theorem_14_1_9_statement`. The paracompact orbit space and the goodness of $V(x)$ are not used ($V(x)$ any `NatNbhd`). The \"partition of unity argument\" on the open set $V(x)$: the local extensions (Part I's local step with local hypotheses, `StrongBundle.exists_local_extension_of_face`) are glued by a partition of unity of $X$ on each $G_n=\\{\\mathrm{dist}(\\cdot,X\\setminus V)>1/(n+1)\\}$ (the object space is metrizable, `MPolyfold.metrizableSpace`), and the $G_n$-extensions are joined by sc-smooth cut-offs $\\chi_n$ ($=1$ on $\\mathrm{cl}\\,G_n$, supported in $G_{n+1}$) with weights $\\chi_n-\\chi_{n-1}$, locally finite on $V$. A single partition of unity of $X$ cannot do it: it must cover the frontier of $V(x)$, where the face data may be unbounded. We average over all of $G_x$ (`avgSection`) instead of the stabiliser and orbit transport. The text calls the $\\bar s_i$ \"sc$^+$-multisections\"; presumably sc$^+$-sections are meant.",
+    "The averaging step (`proposition_14_1_4_hyp`, `avgSection`) takes the non-equivariant extensions as data and averages over all of $G_x$ instead of the stabiliser followed by orbit transport; this gives the same symmetry and needs no orbit representatives. `proposition_14_1_4_full` supplies those extensions on $V(x)$ (`exists_scPlusSectionOn_extension_of_face`). The text calls the $\\bar s_i$ \"sc⁺-multisections\"; presumably sc⁺-sections are meant. Witness for `hB`, `hpu`: `proposition_14_1_4_hypotheses_rn`."
+   ]
+  },
+  {
+   "id": "V14.5",
+   "title": "Definition 14.1.5 (2017: 14.3), good systems of neighbourhoods for $\\partial X$",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.1, Definition 14.1.5, p. 643 (2017: Definition 14.3)",
+    "page": 643,
+    "statement": "$(U(x))_{x\\in\\partial X}$ is good if: (1) the $U(x)$ are good; (2) for good $V(x)$, $V(x')$ restricting to them, $s$ and $t$ map every component of $V(x,x')=\\{\\psi\\mid s(\\psi)\\in V(x),t(\\psi)\\in V(x')\\}$ sc-diffeomorphically onto open sets."
+   },
+   "lean": {
+    "statement": "`BoundaryGoodSystem` has fields `nbhd : ∀ x : ∂X, X.NatNbhd x`, `isGood`, and `isDiffeoComponent` (`IsDiffeoComponent` on the components of `morBetween (nbhd x).U (nbhd x').U`). `U x = (nbhd x).bdry` and `mor x x' = morBetween (U x) (U x')`. `isDiffeoComponent_of_subset` (condition (2) is inherited by open subsets). `exists_refinement` (tame $X$; inside open $W(x)$, with the same actions).",
+    "decls": [
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem.U",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem.mor",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem.mem_U",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem.U_subset_boundary",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem.mor_subset",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem.isDiffeoComponent_of_subset",
+     "Chapter14/P3W3B1_BoundaryMultisection · BoundaryGoodSystem.exists_refinement"
+    ]
+   },
+   "chips": [
+    "one $V(x)$ for each $x$"
+   ],
+   "diff": [
+    "One $V(x)$ is fixed for each $x$ (the text says \"there exist $V(x)$, $V(x')$\" for each pair). This is how the text uses it: $V(x)$ is chosen once in the proof of Theorem 14.1.6. The $V(x)$ carry their natural actions as data."
+   ]
+  },
+  {
+   "id": "V14.6",
+   "title": "Theorem 14.1.6 (2017: 14.1), existence of good systems for $\\partial X$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§14.1, Theorem 14.1.6, p. 643 (2017: Theorem 14.1)",
+    "page": 643,
+    "statement": "Let $X$ be an ep-groupoid with $|\\partial X|$ paracompact. Every cover $(O(x))$ of $\\partial X$ by sets open in $\\partial X$ has a good system with $U(x)\\subseteq O(x)$. Proof: Theorem 13.1.8 on $X$, then Proposition 14.1.1."
+   },
+   "lean": {
+    "statement": "`theorem_14_1_6_hyp (hX : X.IsTame) (hpara : X.HasParacompactOrbitSpace) O hO hxO`. For $O(x)$ open in $X$, there is a good system with $V(x)\\subseteq O(x)$, so $U(x)\\subseteq O(x)\\cap\\partial X$.",
+    "decls": [
+     "Chapter14/P3W3B1_BoundaryMultisection · theorem_14_1_6_hyp"
+    ]
+   },
+   "chips": [
+    "$X$ tame, $|X|$ paracompact (standing)"
+   ],
+   "diff": [
+    "We assume $X$ tame and $|X|$ paracompact instead of $|\\partial X|$ paracompact. The text's proof applies Theorem 13.1.8 to $X$ (which needs $|X|$ paracompact) and Proposition 14.1.1 (which needs $X$ tame); the chapter's standing assumptions include both. Sets open in $\\partial X$ are written $O(x)\\cap\\partial X$ with $O(x)$ open in $X$.",
+    "Hidden hypotheses: `hX : X.IsTame`, `hpara : X.HasParacompactOrbitSpace` in place of the printed \"$|\\partial X|$ paracompact\"; both are standing assumptions of the chapter (Theorem 14.1.9). Witness: the tame trivial ep-groupoid of $\\mathbb R^n$ (`proposition_14_1_4_hypotheses_rn`)."
+   ]
+  },
+  {
+   "id": "V14.7",
+   "title": "Definition 14.1.7 (2017: 14.4), structured sc⁺-multisections over $\\partial X$",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.1, Definition 14.1.7, p. 644 (2017: Definition 14.4)",
+    "page": 644,
+    "statement": "A class $[\\Lambda,\\mathcal U,S,\\tau]$ where: $\\mathcal U$ is a good system for $\\partial X$; the $\\tau_{x,x'}:\\mathcal U(x,x')\\to J(x,x')$ are locally constant with finitely many values, with (a) $\\tau_{x',x}(\\varphi^{-1})=\\tau_{x,x'}(\\varphi)^\\sharp$, (b) $\\tau_{x,x}(\\Gamma(g,z))=[I_x\\leftarrow I_x\\to I_x]_{(\\mathrm{Id},g)}$, (c) $g'*\\tau(\\varphi)*g=\\tau(g'*\\varphi*g)$; $S$ are symmetric structures representing $\\Lambda$; (4) $s^{x'}_{b(k)}(t(\\varphi))=\\mu(\\varphi,s^x_{a(k)}(s(\\varphi)))$. Structurable means such a class exists. The equivalence is \"similar to the X-case\"."
+   },
+   "lean": {
+    "statement": "`BoundaryDecoration A Λ` has fields `𝒰` and `S`. `BoundaryDecoration.Tau D` has fields `τ`, `locallyConstant` (in `𝓝[𝒰.mor x x'] φ`), `finite`, `swap`, `diag`, `biact` (`biact` with the actions of the `V(x)`) and `compat` (`IndexCorr.Sat`). `BoundaryStructuredTuple`. `Equiv`: $\\Lambda=\\Lambda'$ over $\\partial X$; open $O(x)\\ni x$ with $O(x)\\cap\\partial X\\subseteq U(x)\\cap U'(x)$; `hI : I_x = I'_x`; $\\tau'=\\tau$ (cast) on `morBetween (O x ∩ ∂X) (O x' ∩ ∂X)`. `equivalence`, `setoid` and `BoundaryStructuredMultisection` (with `forget` and `forget_mk`). `equiv_iff_goodSystem` (tame $X$): the same relation with a good system $\\mathcal U''\\subseteq\\mathcal U\\cap\\mathcal U'$, the literal analogue of Definition 13.3.8. `IsBoundaryStructurable`, `isBoundaryStructurable_iff`. Witness: `isBoundaryStructurable_zero` (tame, $|X|$ paracompact).",
+    "decls": [
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryDecoration",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryDecoration.Compat",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryDecoration.Tau",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredTuple",
+     "Chapter14/P3W3B1_BoundaryStructured · IsBoundaryStructurable",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredTuple.Equiv",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredTuple.equivalence",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredTuple.setoid",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredTuple.equiv_iff_goodSystem",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredMultisection",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredMultisection.forget",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredMultisection.forget_mk",
+     "Chapter14/P3W3B1_BoundaryStructured · isBoundaryStructurable_iff",
+     "Chapter14/P3W3B1_BoundaryStructured · BoundaryDecoration.zeroTau",
+     "Chapter14/P3W3B1_BoundaryStructured · isBoundaryStructurable_zero"
+    ]
+   },
+   "chips": [
+    "(4) pointwise on $\\mathcal U(x,x')$"
+   ],
+   "diff": [
+    "The equivalence is the text's \"similar to the X-case\". `equiv_iff_goodSystem` shows the open-set form agrees with the good-system form for tame $X$. The open-set form is used for transitivity without tameness. (4) is read pointwise on $\\mathcal U(x,x')$, as printed. $\\Lambda$ is a function on all of $W$; only its values over $\\partial X$ enter."
+   ]
+  },
+  {
+   "id": "V14.8",
+   "title": "Theorem 14.1.9 (2017: 14.2), the ∂-extension theorem",
+   "verdict": "narrower",
+   "book": {
+    "label": "§14.1, Theorem 14.1.9, p. 646; proof §14.5, pp. 677–678 (2017: Theorem 14.2)",
+    "page": 646,
+    "statement": "Assume: $X$ is tame, with $|X|$ paracompact and sc-smooth partitions of unity; $\\Lambda$ on $W|\\partial X$ is structurable; $N$ is an auxiliary norm; $\\tilde U$ is a saturated open set containing dom-supp$(\\Lambda)$; $f\\ge0$ is a continuous functor supported in $\\tilde U$ with $N(\\Lambda)<f$ on dom-supp$(\\Lambda)$. Then there is a structurable $\\Lambda':W\\to\\mathbb Q^+$ with: (1) $N(\\Lambda')\\le f$; (2) dom-supp$(\\Lambda')\\subseteq\\tilde U$; (3) $\\Lambda'|W|\\partial X=\\Lambda$."
+   },
+   "lean": {
+    "statement": "`theorem_14_1_9_statement (A : SEP) : Prop`, with the hypotheses in the order: `A.X.IsTame`, `A.X.HasParacompactOrbitSpace`, `A.X.PObj.AdmitsScPartitionsOfUnity`, `IsBoundaryStructurable A Λ`, `A.E.IsAuxNorm N`, `IsOpen Ũ`, `A.X.IsSaturated Ũ`, `boundaryDomSupp Λ ⊆ Ũ`, `Continuous f`, `0 ≤ f`, `f ∘ tgt = f ∘ src`, `tsupport f ⊆ Ũ`, and `pointwiseNorm N Λ x < f x` on `boundaryDomSupp Λ`. The conclusion is `∃ Λ', IsStructurable A Λ' ∧ (∀ x, pointwiseNorm N Λ' x ≤ f x) ∧ domSupp Λ' ⊆ Ũ ∧ ∀ w, P w ∈ ∂X → Λ' w = Λ w`. `boundaryDomSupp Λ` is the closure of $\\{x\\in\\partial X\\mid\\exists w\\ne0_x,\\ P(w)=x,\\ \\Lambda(w)>0\\}$, with `boundaryDomSupp_zero`. `theorem_14_1_9_statement_hyp_witness`: $\\Lambda=0$, $\\tilde U=\\emptyset$, $f=0$ satisfy the hypotheses.\n\n`theorem_14_1_9_hyp (hext : theorem_14_1_9_extension_statement A) : theorem_14_1_9_statement A`, where `theorem_14_1_9_statement` is statement. The hypothesis `theorem_14_1_9_extension_statement A` (a `Prop`) is the output of §§14.3–14.5. For every structurable $\\Lambda$ over $\\partial X$ and saturated open $\\tilde U\\supseteq\\text{dom-supp}\\Lambda$ there is a structurable $\\Lambda''$ on $X$ with $\\text{dom-supp}\\Lambda''\\subseteq\\tilde U$ and $\\Lambda''|\\partial X=\\Lambda$. Witness: `theorem_14_1_9_extension_statement_of_boundary_eq_empty` (it holds when $\\partial X=\\emptyset$, with $\\Lambda''=0$).",
+    "decls": [
+     "Chapter14/P3W3B1_BoundaryStructured · boundaryDomSupp",
+     "Chapter14/P3W3B1_BoundaryStructured · boundaryDomSupp_zero",
+     "Chapter14/P3W3B1_BoundaryStructured · theorem_14_1_9_statement",
+     "Chapter14/P3W3B1_BoundaryStructured · theorem_14_1_9_statement_hyp_witness",
+     "Chapter14/P3W4GL_NormControl · theorem_14_1_9_extension_statement",
+     "Chapter14/P3W4GL_NormControl · theorem_14_1_9_hyp",
+     "Chapter14/P3W4GL_NormControl · theorem_14_1_9_extension_statement_of_boundary_eq_empty",
+     "Chapter14/P3W4GL_NormControl · isOpen_pointwiseNorm_lt",
+     "Chapter14/P3W4GL_NormControl · pointwiseNorm_tgt",
+     "Chapter14/P3W4GL_NormControl · pointwiseNorm_src_le_tgt",
+     "Chapter14/P3W4GL_NormControl · pointwiseNorm_nonneg",
+     "Chapter14/P3W4GL_NormControl · IsScPlusSectionOn.continuousOn_normW",
+     "Chapter14/P3W4GL_NormControl · normW_le_of_multisectionSmul_pos",
+     "Chapter14/P3W4GL_NormControl · pointwiseNorm_smulFun_le",
+     "Chapter14/P3W4GL_NormControl · multisectionSmulFun_of_eq_one",
+     "Chapter14/P3W4GL_NormControl · domSupp_zeroMultisection_gl",
+     "Chapter14/P3W4GL_NormControl · isSaturated_boundary_gl",
+     "Chapter14/P3W4GL_NormControl · isSaturated_closure_gl",
+     "Chapter14/P3W4GL_NormControl · isSaturated_union_gl"
+    ]
+   },
+   "chips": [
+    "size control proved",
+    "extension of §§14.3–14.5: hypothesis",
+    "witness only for $\\partial X = \\emptyset$"
+   ],
+   "diff": [
+    "Hidden hypotheses: `hext : theorem_14_1_9_extension_statement A`, the whole extension of §§14.3–14.5 (a structurable $\\Lambda''$ on $X$ with $\\Lambda''|\\partial X = \\Lambda$ and domain support in a given saturated open set). Only the size-control step of the proof (pp. 677–678) is proved from it. Witness only for $\\partial X = \\emptyset$ (`theorem_14_1_9_extension_statement_of_boundary_eq_empty`, $\\Lambda'' = 0$). The parts of §§14.3–14.5 that are proved (V14.10–V14.35) and what links them to `hext` (the proof of Proposition 14.5.4 and the assembly of $\\Lambda''$, about 900 lines) are gaps G.170, G.171.",
+    "\"$X$ admits sc-smooth partitions of unity\" is read as the M-polyfold of objects (Definition 5.5.1, as printed: \"$X$, viewed as an M-polyfold\"). \"Supported in $\\tilde U$\" is read as `tsupport f ⊆ Ũ`. $N$ is real-valued on $W_{0,1}$ (the project's Definition 8.3.5).",
+    "The proof applies the extension with $\\tilde U'=\\{f>0\\}$, which is saturated open, contains $\\text{dom-supp}\\Lambda$ and lies in $\\tilde U$. $G=\\{N(\\Lambda'')<f\\}\\cup(X\\setminus\\text{dom-supp}\\Lambda'')$ is a saturated open set containing $\\partial X$. $\\sigma$ comes from `exists_isScSmoothMap_orbit_urysohn`, with $\\sigma=1$ on $\\partial X$ and $\\sigma=0$ off $G$. $\\Lambda'=\\sigma\\odot\\Lambda''$ is structurable by `lemma_13_3_14_fun`. The text writes $h(|x|)=N(\\Lambda)(x)<f(x)$ for $x\\in\\partial X$; the theorem's hypothesis gives this on $\\text{dom-supp}\\Lambda$, and we read it there. At points of $\\partial X\\setminus\\text{dom-supp}\\Lambda$ with $f=0$, the cut-off needs $\\Lambda''$ trivial nearby. The choice $\\tilde U'=\\{f>0\\}$ gives this. Tools proved on the way: `isOpen_pointwiseNorm_lt`: $\\{N(\\Lambda)<f\\}$ is open (Definition 13.2.3, \"h is continuous\"). `pointwiseNorm_tgt`: $N(\\Lambda)$ is a functor. `pointwiseNorm_smulFun_le`: $N(\\beta\\odot\\Lambda)\\le|\\beta|N(\\Lambda)$. `isSaturated_closure_gl`."
+   ]
+  },
+  {
+   "id": "V14.9",
+   "title": "Remark 14.1.10 (2017: 14.3), the proof of Theorem 14.1.9 is involved",
+   "verdict": "nothing",
+   "book": {
+    "label": "§14.1, Remark 14.1.10, p. 646 (2017: Remark 14.3)",
+    "page": 646,
+    "statement": "The proof of Theorem 14.1.9 needs preparation; extension theorems for sc⁺-section functors are not difficult given sc-smooth partitions of unity, while the multisection case is much more complex."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: a comment on the proof. The section-functor case it mentions is Proposition 14.1.4 on $V(x)$ (`proposition_14_1_4_full`, V14.4).",
+    "decls": [
+     "Chapter14/P3W4LX_OpenExtension · proposition_14_1_4_full"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V14.10",
+   "title": "Lemma 14.2.1 (2017: before Lemma 14.1), shrinking good neighbourhoods",
+   "verdict": "same",
+   "book": {
+    "label": "§14.2, Lemma 14.2.1, p. 648 (2017: the text before Lemma 14.1)",
+    "page": 648,
+    "statement": "Each $U^0(x)$ can be shrunk to an open, connected, $G_x$-invariant $U(x)$, the union of the faces through $x$, with $\\mathrm{cl}_{|\\partial X|}|U(x)|\\subseteq|U^0(x)|$ (14.15). Then $\\mathrm{cl}_X U(x)\\subseteq U^0(x)$, and properness is inherited."
+   },
+   "lean": {
+    "statement": "`lemma_14_2_1 (hX : X.IsTame) (hx) V₀ (hV₀ : IsGoodBoundaryNbhd V₀)` gives $V\\le V_0$, good, with $\\mathrm{cl}\\,V\\subseteq V_0$, $\\mathrm{cl}\\,(V\\cap\\partial X)\\subseteq V_0\\cap\\partial X$, $\\mathrm{cl}(\\pi(V\\cap\\partial X))\\subseteq\\pi(V_0\\cap\\partial X)$. `lemma_14_2_1_system` does this for a whole good system.",
+    "decls": [
+     "Chapter14/P3W3B1_GoodStructured · lemma_14_2_1",
+     "Chapter14/P3W3B1_GoodStructured · lemma_14_2_1_system"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "$|\\partial X|$ is closed in $|X|$, so the closure is taken in $|X|$. The faces, connectedness and invariance are those of Definition 14.1.2. The orbit closure is obtained from Proposition 7.1.10 (properness of $V_0$)."
+   ]
+  },
+  {
+   "id": "V14.11",
+   "title": "Lemma 14.2.2 (2017: 14.1)",
+   "verdict": "same",
+   "book": {
+    "label": "§14.2, Lemma 14.2.2, p. 648 (2017: Lemma 14.1)",
+    "page": 648,
+    "statement": "For $\\mathcal U(x,x')$ the morphisms between $U(x)$ and $U(x')$, the closures in $\\mathbf X$ of the preimages of two different values under $\\tau^0_{x,x'}|\\mathcal U(x,x')$ are disjoint."
+   },
+   "lean": {
+    "statement": "`lemma_14_2_2`. For good systems $\\mathcal U$, $\\mathcal U^0$ with $\\mathrm{cl}_X U(x)\\subseteq U^0(x)$ and any $\\tau$ locally constant on $\\mathcal U^0(x,x')$ (in its relative topology), $d\\ne d'$ implies $\\mathrm{cl}(\\tau^{-1}(d)\\cap\\mathcal U(x,x'))\\cap\\mathrm{cl}(\\tau^{-1}(d')\\cap\\mathcal U(x,x'))=\\emptyset$. `closure_mor_subset` gives $\\mathrm{cl}\\,\\mathcal U(x,x')\\subseteq\\mathcal U^0(x,x')$.",
+    "decls": [
+     "Chapter14/P3W3B1_GoodStructured · closure_mor_subset",
+     "Chapter14/P3W3B1_GoodStructured · lemma_14_2_2"
+    ]
+   },
+   "chips": [
+    "$t(\\varphi) \\in U(x')$, presumably meant"
+   ],
+   "diff": [
+    "The text defines $\\mathcal U(x,x')$ with $t(\\varphi)\\in U(x)$; presumably $U(x')$ is meant, as in (P3)."
+   ]
+  },
+  {
+   "id": "V14.12",
+   "title": "Proposition 14.2.3 (2017: 14.2), a good structured version of $\\Lambda$",
+   "verdict": "same",
+   "book": {
+    "label": "§14.2, Proposition 14.2.3, p. 649 (2017: Proposition 14.2)",
+    "page": 649,
+    "statement": "The representative $(\\Lambda,\\mathcal U^0,S^0,\\tau^0)$ can be chosen with (P1)–(P3) and (P4): for $[d]\\ne[d']$ the closures of $\\tau^{0-1}([d])$ and $\\tau^{0-1}([d'])$ in $\\mathbf X$ are disjoint. (P4) persists under shrinking."
+   },
+   "lean": {
+    "statement": "`BoundaryStructuredTuple.HasP4` and `HasP4.restrict` (persistence). `proposition_14_2_3 (hX : A.X.IsTame) T`: an equivalent $T'$ with the same $\\Lambda$, natural actions restricted ($V'(x)\\le V(x)$) and (P4). `proposition_14_2_3_class` (every class has a representative with (P4)). Restriction: `BoundaryDecoration.restrictTo`, `BoundaryDecoration.Tau.restrict`, `BoundaryStructuredTuple.restrict`, `equiv_restrict`.",
+    "decls": [
+     "Chapter14/P3W3B1_GoodStructured · BoundaryDecoration.restrictTo",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryDecoration.mor_mono",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryDecoration.Tau.restrict",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryStructuredTuple.restrict",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryStructuredTuple.equiv_restrict",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryStructuredTuple.HasP4",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryStructuredTuple.HasP4.restrict",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryStructuredTuple.proposition_14_2_3",
+     "Chapter14/P3W3B1_GoodStructured · BoundaryStructuredTuple.proposition_14_2_3_class"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "(P1)–(P3) are the fields of a tuple. The text's \"under the assumption of Theorem 14.1.9\" is used only for \"tame\"."
+   ]
+  },
+  {
+   "id": "V14.13",
+   "title": "Lemma 14.3.1 (2017: 14.2), the open sets $\\tilde O_{x,x',[d]}$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§14.3, Lemma 14.3.1, p. 650 (2017: Lemma 14.2)",
+    "page": 650,
+    "statement": "Assume: $(\\Lambda,\\mathcal U^0,S^0,\\tau^0)$ has (P1)–(P4); $(\\tilde U'(x))$ satisfies (P5). Then every $[d]\\in v^0(x,x')$ has an open $\\tilde O_{x,x',[d]}\\supseteq\\tau^{0-1}([d])$ with: (1) $\\tilde O_{x,x',[d]}\\subseteq\\tilde U'(x,x')$; (2) the closures for $[d]\\ne[d']$ are disjoint; (3) $h*\\tilde O_{[d]}*g=\\tilde O_{h*[d]*g}$; (4) $\\tilde O_{x,x'}\\cap\\partial X=U^0(x,x')$ for the union $\\tilde O_{x,x'}$."
+   },
+   "lean": {
+    "statement": "`lemma_14_3_1 (hT : T.HasP4) (P : P5Nbhds T) : Nonempty (CorrExtension T P)`. A `CorrExtension` has fields: `O x x' d`, open, for all $x,x'\\in\\partial X$ and $[d]\\in J(x,x')$; `fiber_subset`: $\\tau^{0-1}(d)\\cap U^0(x,x')\\subseteq\\tilde O_d$; `subset_mor`, which is (1); `disjoint_closure`, which is (2); `biact_mem_iff`: $h*\\varphi*g\\in\\tilde O_{h*d*g}\\iff\\varphi\\in\\tilde O_d$ on $\\tilde U'(x,x')$, which is (3); `inv_mem_iff`: $\\varphi^{-1}\\in\\tilde O_{x',x,d^\\sharp}\\iff\\varphi\\in\\tilde O_{x,x',d}$. (4) is `iUnion_inter_boundaryMor`, and (14.20) is `inter_boundaryMor`. `image_biact` gives (3) as printed (set equality). `lemma_14_3_1_book` is the printed statement (1)–(4) with an existential $\\tilde O$.",
+    "decls": [
+     "Chapter14/P3W4S3_ExtendCorrespondences · P3W4S3.exists_open_disjoint_closure",
+     "Chapter14/P3W4S3_ExtendCorrespondences · IndexCorr.swap_biact_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.inv_biact_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.biact_congr_rep_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · boundaryMor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.mor_subset_boundaryMor_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.biact_mem_mor_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.BoundaryGoodSystem.inv_mem_mor_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.ofGood",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.mor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.isOpen_mor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.biact",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.biact_eq",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.biact_mem",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.mor_inter_boundaryMor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P5Nbhds.mor_subset",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrPre",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrPre.exists_of_hasP4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrPre.biInv",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrPre.biInv_biact_mem_iff",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrPre.symm",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrPre.symm_inv_mem_iff",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrPre.symm_biact_mem_iff",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension",
+     "Chapter14/P3W4S3_ExtendCorrespondences · lemma_14_3_1",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.disjoint",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.eq_of_mem",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.inter_boundaryMor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.image_biact",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.iUnion_inter_boundaryMor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · lemma_14_3_1_book"
+    ]
+   },
+   "chips": [
+    "also symmetric under inversion"
+   ],
+   "diff": [
+    "Besides (1)–(4) the sets are symmetric under inversion (`inv_mem_iff`). The text does not state this. It gives $\\hat\\tau_{x',x}(\\varphi^{-1})=\\hat\\tau_{x,x'}(\\varphi)^\\sharp$, Definition 14.1.7 (a) for $\\hat\\tau$, which `ZSetup.swap` (Lemma 14.4.5, §14.4) needs. The proof is the text's: separate the closures (P4) in the normal space $\\mathbf X$ (`P3W4S3.exists_open_disjoint_closure`), and intersect with $\\tilde U'(x,x')$; intersect over the bi-action (written $\\bigcap_{h,g}(h*\\cdot*g)^{-1}(\\tilde O'_{h*[d]*g})$, which is the text's $\\bigcap h*\\tilde O'_{[d']}*g$ over $h*[d']*g=[d]$); as an added step, intersect with the inverted sets of $(x',x)$. This keeps (1)–(4). Only finitely many $[d]$ have nonempty $\\tau^{0-1}([d])$ (`Tau.finite`). For the others $\\tilde O_{[d]}=\\emptyset$. Reading of (P5)(i): \"admits the natural $G_x$-action\" is read as the action of the good system $\\mathcal U^0$ (the same representation). The bi-action in (3) is then that of Definition 14.1.7 (c)."
+   ]
+  },
+  {
+   "id": "V14.14",
+   "title": "Definition 14.3.2 (2017: before Lemma 14.3), $\\hat O_{x,x'}$ and $[d]_\\varphi$",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.3, Definition 14.3.2, p. 651 (2017: the text before Lemma 14.3)",
+    "page": 651,
+    "statement": "$\\hat O_{x,x'}$ is the union of the connected components of $\\tilde O_{x,x'}$ that meet $\\partial X$. For $\\varphi\\in\\hat O_{x,x'}$, $[d]_\\varphi=\\tau^0(\\psi)$ for some $\\psi\\in\\partial X$ in the component of $\\varphi$. Hence $\\hat O_{x,x',[d]}=\\{[d]_\\varphi=[d]\\}$, and $\\hat\\tau(\\varphi)=[d]$ on $\\hat O_{x,x',[d]}$ (14.25)."
+   },
+   "lean": {
+    "statement": "`CorrExtension.Ot` is $\\tilde O_{x,x'}=\\bigcup_d\\tilde O_{x,x',d}$. `CorrExtension.Ohat` is $\\{\\varphi\\in\\tilde O\\mid\\exists\\psi\\in\\mathrm{cc}_{\\tilde O}(\\varphi)\\cap\\partial X\\}$. `CorrExtension.tauHat` is $\\hat\\tau(\\varphi)$, the $d$ with $\\varphi\\in\\tilde O_{x,x',d}$. It is unique (`tauHat_eq`). It equals $\\tau^0(\\psi)$ for every $\\psi\\in\\partial X$ in the component of $\\varphi$ (`tauHat_eq_tau_of_mem_component`, also in $\\tilde O$: `tauHat_eq_tau_of_mem_component_Ot`). `CorrExtension.OhatD` is $\\hat O_{x,x',[d]}$, and `OhatD_eq` gives $\\hat O_{[d]}=\\hat O\\cap\\tilde O_{[d]}$. (14.23): `isOpen_Ohat`; `mor_subset_Ohat`, `Ohat_subset_Ot`, `Ot_subset_mor`, `Ohat_subset_mor`; `Ohat_inter_boundaryMor`.",
+    "decls": [
+     "Chapter14/P3W4S3_ExtendCorrespondences · P3W4S3.connectedComponentIn_iUnion_subset",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.Ot",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.Ohat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.OhatD",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_eq",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.mem_O_tauHat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.isOpen_Ot",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.Ot_subset_mor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.mor_subset_Ot",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.component_subset",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_eq_of_mem_component",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_eq_tau_of_mem_component_Ot",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.Ohat_subset_Ot",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.mor_subset_Ohat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.Ohat_subset_mor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.Ohat_inter_boundaryMor",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.component_subset_Ohat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.isOpen_Ohat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.OhatD_eq"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "$[d]_\\varphi$ is defined through the clopen decomposition of $\\tilde O_{x,x'}$ into the $\\tilde O_{x,x',[d]}$, and is proved equal to the text's definition. The component of $\\varphi$ in $\\tilde O_{x,x'}$ lies in one $\\tilde O_{[d]}$ (`component_subset`), and $\\tilde O_{[d]}\\cap\\partial X=\\tau^{0-1}([d])$. Off $\\tilde O_{x,x'}$ the value is $\\tau^0$; it is irrelevant."
+   ]
+  },
+  {
+   "id": "V14.15",
+   "title": "Lemma 14.3.3 (2017: 14.3), $[d]_\\varphi$ is well defined",
+   "verdict": "same",
+   "book": {
+    "label": "§14.3, Lemma 14.3.3, p. 651 (2017: Lemma 14.3)",
+    "page": 651,
+    "statement": "The map $\\varphi\\mapsto[d]_\\varphi$ is well defined: two points of $\\partial X$ in one component $\\Sigma$ of $\\hat O_{x,x'}$ have the same $\\tau^0$."
+   },
+   "lean": {
+    "statement": "`CorrExtension.lemma_14_3_3`: $\\psi,\\psi'\\in\\mathrm{cc}_{\\hat O_{x,x'}}(\\varphi)$, both in $\\partial X$, imply $\\tau^0(\\psi)=\\tau^0(\\psi')$. `tauHat_eq_tau_of_mem_component`: $\\hat\\tau(\\varphi)=\\tau^0(\\psi)$ for such $\\psi$.",
+    "decls": [
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.lemma_14_3_3",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_eq_tau_of_mem_component",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.exists_boundary_mem_component"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "The proof is the text's: the $\\tilde O_{[d]}$ have disjoint closures, so a component lies in one of them."
+   ]
+  },
+  {
+   "id": "V14.16",
+   "title": "Proposition 14.3.4 (2017: 14.3), the extended correspondences $\\hat\\tau_{x,x'}$",
+   "verdict": "same",
+   "book": {
+    "label": "§14.3, Proposition 14.3.4, p. 652 (2017: Proposition 14.3)",
+    "page": 652,
+    "statement": "Under (P1)–(P5) there are open $\\hat O_{x,x'}$ with: (1) $U^0(x,x')\\subseteq\\hat O\\subseteq\\tilde U'(x,x')$ and $U^0(x,x')=\\hat O\\cap\\partial X$; (2) $\\hat O$ is invariant under the bi-action of $(G_{x'},G_x)$; (3) $\\tau^0$ has a unique locally constant extension $\\hat\\tau:\\hat O\\to J(x,x')$ with the same values, with $\\hat\\tau(g'*\\varphi*g)=g'*\\hat\\tau(\\varphi)*g$ and $\\hat\\tau_{x,x}(\\Gamma(g,y))=\\tau^0_{x,x}(\\Gamma(g,z))$ ($z\\in U^0(x)$, $y\\in\\tilde U'(x)$, $\\Gamma(g,y)\\in\\hat O_{x,x}$). In addition, $\\hat O=\\bigsqcup_{[d]}\\hat O_{[d]}$ with $\\hat O_{[d]}\\cap\\partial X=\\tau^{0-1}([d])$ and $\\tau^{0-1}([d'])\\cap\\hat O_{[d]}=\\emptyset$."
+   },
+   "lean": {
+    "statement": "`proposition_14_3_4 (hT : T.HasP4) (P : P5Nbhds T)` gives $\\hat O$, $\\hat\\tau$ with: openness; (1); (2); local constancy ($\\forall\\varphi\\in\\hat O$, $\\forall^{f}\\psi\\in\\mathcal N(\\varphi)$, $\\hat\\tau\\psi=\\hat\\tau\\varphi$); $\\hat\\tau=\\tau^0$ on $U^0(x,x')$; uniqueness among $f$ locally constant on $\\hat O$ (in $\\mathcal N_{\\hat O}$) with $f=\\tau^0$ on $U^0(x,x')$; equivariance; the diagonal identity as printed; $\\{\\varphi\\in\\hat O\\mid\\hat\\tau\\varphi=d\\}\\cap\\partial X=\\tau^{0-1}(d)\\cap U^0(x,x')$. API on any `E : CorrExtension T P`: `biact_mem_Ohat`, `tauHat_locallyConstant`, `tauHat_eq_tau`; `tauHat_unique` (for any $e\\circ\\hat\\tau$); `tauHat_biact`, `tauHat_Γ` ($=[I_x\\leftarrow I_x\\xrightarrow{g}I_x]$), `OhatD_inter_boundaryMor`. Extras: `tauHat_image_subset` and `finite_tauHat`: the values on $\\hat O$ are among the finitely many values of $\\tau^0$; `inv_mem_Ohat`: $\\varphi\\in\\hat O_{x,x'}\\Rightarrow\\varphi^{-1}\\in\\hat O_{x',x}$; `tauHat_inv`: $\\hat\\tau_{x',x}(\\varphi^{-1})=\\hat\\tau_{x,x'}(\\varphi)^\\sharp$.",
+    "decls": [
+     "Chapter14/P3W4S3_ExtendCorrespondences · proposition_14_3_4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · P3W4S3.eq_of_mem_connectedComponentIn",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.eventually_Γ_src_eq_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.sheetLabel_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.Γ_sheetLabel_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.sheetLabel_eq_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · EpGroupoid.sheetLabel_locallyConstant_p3w4",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_eq_tau",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_locallyConstant",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_unique",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_image_subset",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.finite_tauHat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_biact",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.biact_mem_Ot",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.biact_mem_Ohat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_Γ",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.inv_mem_Ohat",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.tauHat_inv",
+     "Chapter14/P3W4S3_ExtendCorrespondences · CorrExtension.OhatD_inter_boundaryMor"
+    ]
+   },
+   "chips": [
+    "diagonal property: proof supplied"
+   ],
+   "diff": [
+    "Diagonal property: the text gives no argument. The proof is new: the component of $\\Gamma(g,y)$ in $\\tilde O_{x,x}$ stays in the sheet $\\Gamma(g,\\cdot)$, because the sheet label is locally constant (`EpGroupoid.sheetLabel_locallyConstant_p3w4`, from $s$ being a local homeomorphism); this component meets $\\partial X$ in some $\\Gamma(g,z')$, $z'\\in U^0(x)$; Definition 14.1.7 (b) gives the value there. Uniqueness uses that every component of $\\hat O$ meets $\\partial X$ (`P3W4S3.eq_of_mem_connectedComponentIn`). The bi-action is the natural one of $\\tilde U'$ (= that of $\\mathcal U^0$, (P5) reading)."
+   ]
+  },
+  {
+   "id": "V14.17",
+   "title": "Remark 14.3.5 (2017: 14.4), $\\hat O_{x,x'}$ is not of the usual form",
+   "verdict": "nothing",
+   "book": {
+    "label": "§14.3, Remark 14.3.5, p. 653 (2017: Remark 14.4)",
+    "page": 653,
+    "statement": "$\\hat O_{x,x'}$ is in general not of the form $\\tilde U(x,x')$, so $\\hat\\tau$ is not yet a correspondence of the usual form; the final data will have little in common with the boundary data."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: a comment on the construction. The sets and maps it speaks of are `proposition_14_3_4` (V14.16).",
+    "decls": [
+     "Chapter14/P3W4S3_ExtendCorrespondences · SBLocalization.proposition_14_3_4"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V14.18",
+   "title": "Lemma 14.3.6 (2017: 14.4), the cover $(\\tilde V_a)_{a \\in A}$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§14.3, Lemma 14.3.6, p. 654 (2017: Lemma 14.4)",
+    "page": 654,
+    "statement": "$X$ is an ep-groupoid with $|X|$ paracompact, and $\\tilde U(x)$, $x\\in\\partial X$, are open neighbourhoods with the natural $G_x$-action (P6). Then there are $A\\subseteq\\partial X$ and nonempty open $\\tilde V_a\\subseteq\\tilde U(a)$ with (1) $\\mathrm{cl}_{|X|}(|\\tilde V_a|)\\subseteq|\\tilde U(a)|$, (2) $\\tilde V_a$ invariant under the natural $G_a$-action, and (3) $(|\\tilde V_a|)_{a\\in A}$ a locally finite covering of $|\\partial X|$ by sets open in $|X|$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.lemma_14_3_6 (hpara : X.HasParacompactOrbitSpace) (hB : IsClosed (X.π '' B)) (N : ∀ x, X.NatNbhd x)`. Conclusion: $\\exists A\\,V$ with $A\\subseteq B$, and for $a\\in A$: $V_a$ nonempty, open, $V_a\\subseteq\\tilde U(a)$, $\\pi(V_a)$ open, $\\overline{\\pi(V_a)}\\subseteq\\pi(\\tilde U(a))$, and $\\Phi_g(V_a)\\subseteq V_a$. Also: `LocallyFinite (fun a : A => π '' V a)` and $\\pi(B)\\subseteq\\bigcup_{a\\in A}\\pi(V_a)$. `isClosed_π_image_of_isSaturated`: a closed saturated $B$ (as $\\partial X$) has $|B|$ closed.",
+    "decls": [
+     "Chapter14/P3W3B2_Cover · EpGroupoid.lemma_14_3_6",
+     "Chapter14/P3W3B2_Cover · EpGroupoid.isClosed_π_image_of_isSaturated"
+    ]
+   },
+   "chips": [
+    "$|\\partial X|$ closed: named (`hB`)"
+   ],
+   "diff": [
+    "The text's proof adds $|X\\setminus\\partial X|$ to the cover, which uses that $|\\partial X|$ is closed in $|X|$. This is the hypothesis `hB`. It holds for $\\partial X$ (closed, and saturated since $d$ is invariant under morphisms) through `isClosed_π_image_of_isSaturated`. The proof is the text's: a locally finite refinement (`precise_refinement`), a shrinking with closures inside (normality of $|X|$, Hausdorff by Lemma 7.3.4), and $V_a=\\tilde U(a)\\cap\\pi^{-1}(W_a)$. $A$ is the set of $a$ with $W_a\\neq\\emptyset$."
+   ]
+  },
+  {
+   "id": "V14.19",
+   "title": "Lemma 14.3.7 (2017: 14.5), the sets $\\tilde O(y)$ and $o(y)$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§14.3, Lemma 14.3.7, p. 655 (2017: Lemma 14.5)",
+    "page": 655,
+    "statement": "Fix $a\\in A$. For every $y\\in U'(a)$ there are a finite $o(y)\\subseteq A$ and a $G_y$-invariant open $\\tilde O(y)\\ni y$ in $\\tilde U'(a)$ with three properties: 1. $|\\tilde O(y)|$ meets $|\\tilde V_b|$ only if $b\\in o(y)$; 2. $g*\\tilde O(y)=\\tilde O(g*y)$ and $o(g*y)=o(y)$ for $g\\in G_a$; 3. for $b\\in o(y)$, every $\\varphi$ with $s(\\varphi)\\in\\tilde O(y)\\cap\\tilde U(a)$ and $t(\\varphi)\\in\\tilde U(b)$ lies in $\\hat O_{a,b}$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.lemma_14_3_7 (hB : X.IsSaturated B) (N' : X.NatNbhd a)`. Here $B$ stands for $\\partial X$ and $N'.U$ for $\\tilde U'(a)$. The other hypotheses: `hcl : ∀ b ∈ A, closure (Ut b) ⊆ Ut' b`; `hprop : ∀ b ∈ A, X.IsProperSubset (closure (Ut b))`; `hOo`: $\\hat O_{a,b}$ is open; `hO`: $U'(a,b)=\\{\\varphi\\mid s\\varphi\\in\\tilde U'(a)\\cap B,\\ t\\varphi\\in\\tilde U'(b)\\cap B\\}\\subseteq\\hat O_{a,b}$; `hlf`: $(|\\tilde V_b|)_{b\\in A}$ is locally finite. The conclusion gives $o, \\tilde O$ with, for $y\\in\\tilde U'(a)\\cap B$: $\\tilde O(y)$ open, $y\\in\\tilde O(y)\\subseteq\\tilde U'(a)$, $o(y)$ finite, $o(y)\\subseteq A$, and (1), (2) for all $g\\in G_a$, and (3) for every $\\varphi$ with $s(\\varphi)\\in\\tilde O(y)$ and $t(\\varphi)\\in\\tilde U(b)$. `lemma_14_3_7_stab`: $\\tilde O(y)$ is invariant under the $g\\in G_a$ with $g*y=y$.",
+    "decls": [
+     "Chapter14/P3W3B2_Cover · EpGroupoid.lemma_14_3_7",
+     "Chapter14/P3W3B2_Cover · EpGroupoid.lemma_14_3_7_stab",
+     "Chapter14/P3W3B2_Cover · EpGroupoid.exists_nhds_of_isProperSubset"
+    ]
+   },
+   "chips": [
+    "(3) without \"$\\cap\\,\\tilde U(a)$\""
+   ],
+   "diff": [
+    "(3) is proved without \"$\\cap\\,\\tilde U(a)$\". The properness argument (`exists_nhds_of_isProperSubset`, through $\\varphi\\mapsto\\varphi^{-1}$ and the closed map $t$ on $s^{-1}(\\mathrm{cl}\\,\\tilde U(b))$) does not use it. The hypotheses (P5)/(P6)/(14.27)/(14.28) used by the proof are named: $\\mathrm{cl}\\,\\tilde U(b)\\subseteq\\tilde U'(b)$, properness, $U'(a,b)\\subseteq\\hat O_{a,b}$ open, and $B$ saturated. \"$G_y$-invariant\" is read as invariance under the stabiliser of $y$ in $G_a$, acting by $\\Phi$. Every morphism between points of $\\tilde U'(a)$ is a $\\Gamma(g,\\cdot)$, so this is the $G_y$-action near $y$. Construction: $o(y)$ is the finite set of $b$ whose $|\\tilde V_b|$ meets a neighbourhood $W(|y|)$. It depends on $|y|$ only, which gives $o(g*y)=o(y)$. $\\tilde O(y)=\\bigcap_{g\\in G_a}\\tilde U'(a)\\cap\\Phi_g^{-1}(O_0(g*y))$, which gives $g*\\tilde O(y)=\\tilde O(g*y)$."
+   ]
+  },
+  {
+   "id": "V14.20",
+   "title": "Proposition 14.3.8 (2017: 14.4), the sets $\\hat V_a$",
+   "verdict": "explicit",
+   "book": {
+    "label": "§14.3, Proposition 14.3.8, p. 656 (2017: Proposition 14.4)",
+    "page": 656,
+    "statement": "The sets $\\hat V_a=(\\bigcup_{y\\in U'(a)}\\tilde O(y))\\cap\\tilde V_a$ (14.32) satisfy: (1) $\\hat V_a$ is open, $G_a$-invariant and $\\hat V_a\\subseteq\\tilde V_a\\subseteq\\tilde U(a)$; (2) $\\hat V_a\\cap\\partial X=\\tilde V_a\\cap\\partial X$; (3) $(|\\hat V_a|)_{a\\in A}$ is a locally finite covering of $|\\partial X|$ by sets open in $|X|$; (4) $\\hat V_{a,a'}\\subseteq\\hat O_{a,a'}$, so $\\hat\\tau_{a,a'}$ restricts to $\\hat V_{a,a'}$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.proposition_14_3_8` is the abstract form, in the setting of Lemma 14.3.7. Its hypotheses: $B$ saturated; `NatNbhd`s $\\tilde U(a)$, $\\tilde U'(a)$ with the same representation; $\\mathrm{cl}\\,\\tilde U(b)\\subseteq\\tilde U'(b)$, and $\\mathrm{cl}\\,\\tilde U(b)$ proper; $\\tilde V_a\\subseteq\\tilde U(a)$ open and invariant, with $(|\\tilde V_a|)$ locally finite and covering $|B|$; $\\hat O_{a,b}$ open with $U'(a,b)\\subseteq\\hat O_{a,b}$. It gives $\\hat V$ with (1)–(4), (3) including openness of $|\\hat V_a|$. $\\hat V_a$ is (14.32), built from `lemma_14_3_7`. `CorrExtension.proposition_14_3_8 E hpara Q` is the instantiated form. For $E$ (Lemma 14.3.1 on (P4), (P5)), (P6) `Q` and $|X|$ paracompact, it gives: $A\\subseteq\\partial X$; $\\tilde V$ with the properties of Lemma 14.3.6; $\\hat V$ with (1)–(4), where $\\hat O_{a,a'}$ is `E.OhatObj a a'` (= `E.Ohat ⟨a,_⟩ ⟨a',_⟩`). The neighbourhoods are `Q.nbhdObj a` and `P.nbhdObj a` (Obj-indexed through `dite`; `nbhdObj_of_mem`). `EpGroupoid.isSaturated_boundary_p3w4`: $\\partial X$ is saturated.",
+    "decls": [
+     "Chapter14/P3W4S3_CoverVHat · EpGroupoid.isSaturated_boundary_p3w4",
+     "Chapter14/P3W4S3_CoverVHat · EpGroupoid.proposition_14_3_8",
+     "Chapter14/P3W4S3_CoverVHat · P5Nbhds.P6Nbhds",
+     "Chapter14/P3W4S3_CoverVHat · P5Nbhds.P6Nbhds.closure_subset",
+     "Chapter14/P3W4S3_CoverVHat · P5Nbhds.P6Nbhds.exists_",
+     "Chapter14/P3W4S3_CoverVHat · P5Nbhds.nbhdObj",
+     "Chapter14/P3W4S3_CoverVHat · P5Nbhds.nbhdObj_of_mem",
+     "Chapter14/P3W4S3_CoverVHat · P5Nbhds.P6Nbhds.nbhdObj",
+     "Chapter14/P3W4S3_CoverVHat · P5Nbhds.P6Nbhds.nbhdObj_of_mem",
+     "Chapter14/P3W4S3_CoverVHat · CorrExtension.OhatObj",
+     "Chapter14/P3W4S3_CoverVHat · CorrExtension.OhatObj_of_mem",
+     "Chapter14/P3W4S3_CoverVHat · CorrExtension.proposition_14_3_8"
+    ]
+   },
+   "chips": [
+    "abstract and instantiated forms"
+   ],
+   "diff": [
+    "The hypotheses the text's proof uses are named (abstract form): $\\partial X$ saturated (proved), the same representation on $\\tilde U(a)\\subseteq\\tilde U'(a)$ (the (P6) reading), and $U'(a,b)\\subseteq\\hat O_{a,b}$ (Proposition 14.3.4 (1)). The instantiated form discharges all of them from (P4)–(P6) and $|X|$ paracompact. \"Locally finite covering by sets open in $|X|$\" is: $|\\hat V_a|$ open, `LocallyFinite`, and $|\\partial X|\\subseteq\\bigcup|\\hat V_a|$. (4) uses Lemma 14.3.7 (1), (3), as in the text, with $\\pi(t\\varphi)=\\pi(s\\varphi)$."
+   ]
+  },
+  {
+   "id": "V14.21",
+   "title": "Remark 14.4.1 (2017: 14.5), the implicit relations of the boundary data",
+   "verdict": "nothing",
+   "book": {
+    "label": "§14.4, Remark 14.4.1, p. 658 (2017: Remark 14.5)",
+    "page": 658,
+    "statement": "The correspondences $\\tau_{x,x'}$ relate different sc⁺-section structures, and a symmetric structure $(s^{0x}_i)$ may carry implicit relations (sections that agree near a point) which a construction must respect."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: it motivates the z-loops and z-arcs of Definitions 14.4.2–14.4.4 (V14.22, V14.23).",
+    "decls": [
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.ZRel"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V14.22",
+   "title": "Definitions 14.4.2 and 14.4.3 (2017: 14.5, 14.6), z-loops and z-arcs",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.4, Definitions 14.4.2, 14.4.3, pp. 659–660 (2017: Definitions 14.5, 14.6)",
+    "page": 659,
+    "statement": "(14.4.2) A z-loop for $a$, $z\\in\\hat V_a$, consists of $a=a_0,\\dots,a_n=a$ in $A$ and morphisms $\\varphi_0,\\dots,\\varphi_{n-1}$ with $t(\\varphi_j)=s(\\varphi_{j+1})$, $s(\\varphi_0)=z=t(\\varphi_{n-1})$, $s(\\varphi_j)\\in\\hat V_{a_j}$, $t(\\varphi_j)\\in\\hat V_{a_{j+1}}$, and $\\varphi_{n-1}\\circ\\dots\\circ\\varphi_0=1_z$. (14.4.3) A z-arc along the loop is a sequence $i_j\\in I_{a_j}$ with $(i_j,i_{j+1})=(\\alpha_j(k_j),\\beta_j(k_j))$ for some $k_j$, where $I_{a_j}\\leftarrow I_j\\rightarrow I_{a_{j+1}}$ represents $\\hat\\tau_{a_j,a_{j+1}}(\\varphi_j)$."
+   },
+   "lean": {
+    "statement": "The setting is `EpGroupoid.ZSetup X`: $A$, `nbhd a` ($\\tilde U(a)$ with the natural action), $\\hat V_a\\subseteq\\tilde U(a)$ $G_a$-invariant, finite $I_a$ with $G_a$-action, and $\\hat\\tau_{a,a'}:\\mathrm{Mor}\\to J(a,a')$. It carries two hypotheses, `diag` ($\\hat\\tau_{a,a}(\\Gamma(g,w))=[\\mathrm{id},g]$ for $w\\in\\hat V_a$) and `swap` ($\\hat\\tau_{a',a}(\\varphi)=\\hat\\tau_{a,a'}(\\varphi^{-1})^\\sharp$). `ZSetup.Arc S a b i j φ` is inductive (`nil` at $z\\in\\hat V_a$ with composite $1_z$; `snoc` one step). It says: a chain through the $\\hat V$'s with composite $\\varphi$, together with an arc of indices from $i$ to $j$. Its pairs are `IndexCorr.Pairs` (\"$(i,j)=(\\alpha(k),\\beta(k))$ for some $k$\", independent of the representative). A z-loop with a z-arc from $i$ to $i'$ is `Arc S a a i i' (1_z)`. Concatenation and reversal: `Arc.trans`, `Arc.symm`.",
+    "decls": [
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.Arc",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.Arc.trans",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.Arc.symm",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.trivialSetup",
+     "Chapter14/P3W3B2_ZLoops · SBLocalization.IndexCorr.Pairs",
+     "Chapter14/P3W3B2_ZLoops · SBLocalization.IndexCorr.pairs_swap",
+     "Chapter14/P3W3B2_ZLoops · SBLocalization.IndexCorr.pairs_ofPerm"
+    ]
+   },
+   "chips": [
+    "loop and arc: one inductive predicate"
+   ],
+   "diff": [
+    "The loop and its arc are encoded together as one inductive predicate, not as two finite sequences. The composite $1_z$ also fixes $s(\\varphi_0)=z$. Length $0$ is allowed; it adds nothing. By `diag`, the one-step loop $1_z=\\Gamma(1,z)$ relates the same indices (`zRel_iff_unit_step`). `diag` and `swap` are the properties of Definition 13.3.6 (1), (2), carried over to the extensions $\\hat\\tau$. The text uses them, for $\\hat\\tau$, in the proof of Lemma 14.4.5. Witness: `ZSetup.trivialSetup X` on every ep-groupoid ($A=X$, one-point index sets)."
+   ]
+  },
+  {
+   "id": "V14.23",
+   "title": "Definition 14.4.4 (2017: 14.7) and (14.43), the relation $\\sim_z$",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.4, Definition 14.4.4 and (14.43), p. 660 (2017: Definition 14.7)",
+    "page": 660,
+    "statement": "$i\\sim_z i'$ if a z-arc for $a$ with $i_0=i$ and $i_n=i'$ exists. The class is $[i]_{\\sim_z}=\\{i'\\mid i'\\sim_z i\\}$. The text then calls $\\sim_z$ an equivalence relation."
+   },
+   "lean": {
+    "statement": "`ZSetup.ZRel S a z i i' := S.Arc a a i i' (X.unit z)` and `ZSetup.zClass`. `zRel_equivalence (ha : a ∈ A) (hz : z ∈ V̂_a) : Equivalence (S.ZRel a z)` proves reflexivity (nil), symmetry (reversed loop, `swap`) and transitivity (concatenation). `ZRel.mem_V`: $i\\sim_z i'$ forces $z\\in\\hat V_a$.",
+    "decls": [
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.ZRel",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.zClass",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.zRel_equivalence",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.ZRel.mem_V",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.zRel_iff_unit_step"
+    ]
+   },
+   "chips": [
+    "equivalence relation: proved"
+   ],
+   "diff": [
+    "as for D14.4.2–3. The equivalence-relation property, which the text asserts without proof, is proved; symmetry uses `swap`."
+   ]
+  },
+  {
+   "id": "V14.24",
+   "title": "Lemma 14.4.5 (2017: 14.6), $\\sim_z$ and the $G_a$-action",
+   "verdict": "explicit",
+   "book": {
+    "label": "§14.4, Lemma 14.4.5, p. 660 (2017: Lemma 14.6)",
+    "page": 660,
+    "statement": "For $a\\in A$, $z\\in\\hat V_a$, $i,i'\\in I_a$ and $g\\in G_a$: $i\\sim_z i'$ if and only if $g(i)\\sim_{g*z}g(i')$. Hence $[g(i)]_{\\sim_{g*z}}=g([i]_{\\sim_z})$."
+   },
+   "lean": {
+    "statement": "`ZSetup.lemma_14_4_5 (ha) (hz) g i i' : S.ZRel a z i i' ↔ S.ZRel a (Φ_g z) (g • i) (g • i')` and `ZSetup.lemma_14_4_5_class : S.zClass a (Φ_g z) (g • i) = (g • ·) '' S.zClass a z i`.",
+    "decls": [
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.lemma_14_4_5",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.lemma_14_4_5_class",
+     "Chapter14/P3W3B2_ZLoops · EpGroupoid.ZSetup.zRel_smul"
+    ]
+   },
+   "chips": [
+    "`diag` named"
+   ],
+   "diff": [
+    "The text's proof: prepend $\\Gamma(g^{-1},g*z)$ and append $\\Gamma(g,z)$. Their correspondences are $[\\mathrm{id},g^{\\mp1}]$; this is `diag`, named as a hypothesis of the setting. The composite is $\\Gamma(g,z)\\circ\\Gamma(g^{-1},g*z)=\\Gamma(1,g*z)=1_{g*z}$. The reverse implication applies the forward one to $g^{-1}$."
+   ]
+  },
+  {
+   "id": "V14.25",
+   "title": "Proposition 14.4.6 (2017: 14.5), local constancy of $\\sim_z$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§14.4, Proposition 14.4.6, p. 661 (2017: Proposition 14.5)",
+    "page": 661,
+    "statement": "For $a\\in A$ and $z\\in\\hat V_a$: (1) if $i\\sim_{z_0}i'$ then $i\\sim_z i'$ for all $z\\in\\hat V_a$ near $z_0$; (2) if $z_k\\in V_a=\\hat V_a\\cap\\partial X$, $i\\sim_{z_k}i'$ and $z_k\\to z_0\\in\\mathrm{cl}_X(V_a)$, then $s^{0a}_i=s^{0a}_{i'}$ on an open $Q(z_0)\\subseteq U(a)$."
+   },
+   "lean": {
+    "statement": "Setting `EpGroupoid.ZData X` = `ZSetup` plus `isOpen_V` ($\\hat V_a$ open), `closure_V_subset` ($\\mathrm{cl}_X\\hat V_a\\subseteq\\tilde U(a)$, (14.33)) and `locallyConstant` ($\\hat\\tau_{a,a'}$ locally constant at every $\\varphi$ with $s\\varphi\\in\\hat V_a$, $t\\varphi\\in\\hat V_{a'}$; P14.3.4 with P14.3.8 (4)). Witness `ZData.trivial X` (every ep-groupoid, $A=X$, nonempty: `trivial_zRel`). (1): `ZData.proposition_14_4_6_1 : S.ZRel a z₀ i i' → ∀ᶠ z in 𝓝 z₀, S.ZRel a z i i'`; open-set form `proposition_14_4_6_1_open`; classes `eventually_zClass_subset` ($[i]_{\\sim_{z_0}}\\subseteq[i]_{\\sim_z}$ near $z_0$). Key lemma `ZData.Arc.eventually_srcInv`: a chain with an arc through $\\varphi$ deforms along any sheet $\\mathbf U\\ni\\varphi$: for $z$ near $s(\\varphi)$, $(s|\\mathbf U)^{-1}(z)$ carries a chain with the same arc. Boundary data `SBLocalization.ZSections A S` (sections $s^{0a}_i$, $P\\circ s=\\mathrm{id}$ and (14.45) on $U(a)=\\tilde U(a)\\cap\\partial X$, D14.1.7 (4) for $\\hat\\tau$ along morphisms of $\\hat V_{a,a'}$ with source in $\\partial X$). `ZSections.arc_transport`: $s^b_j(t\\varphi)=\\mu(\\varphi,s^a_i(s\\varphi))$ along chains starting in $\\partial X$; `zRel_sections_eq`: $i\\sim_z i'$, $z\\in V_a$ ⇒ $s^{0a}_i(z)=s^{0a}_{i'}(z)$. (2) at points of $V_a$: `ZSections.proposition_14_4_6_2_of_mem`: $i\\sim_{z_0}i'$, $z_0\\in V_a$ ⇒ $s^{0a}_i=s^{0a}_{i'}$ on a neighbourhood of $z_0$ in $\\partial X$. (2) in general: the `Prop`s `proposition_14_4_6_2_statement D` (as printed) and `HasThetaLocalEq D` (with $z_k\\in\\hat V_a$); `HasThetaLocalEq.proposition_14_4_6_2` (the second implies the first). Not proved (gap G.168).",
+    "decls": [
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData.Arc.eventually_srcInv",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData.proposition_14_4_6_1",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData.proposition_14_4_6_1_open",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData.eventually_zClass_subset",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData.trivial",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData.trivial_zRel",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.tendsto_comp_of_eventually",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.Sheet.tendsto_srcInv",
+     "Chapter14/P3W4Z4_Deform · EpGroupoid.Sheet.eventually_srcInv_eq_unit",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.ZSections",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.ZSections.arc_transport",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.ZSections.zRel_sections_eq",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.ZSections.proposition_14_4_6_2_of_mem",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.proposition_14_4_6_2_statement",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.HasThetaLocalEq",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.HasThetaLocalEq.proposition_14_4_6_2",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.ZSections.zero"
+    ]
+   },
+   "chips": [
+    "(1) as printed",
+    "(2): $z_0$ carrying the loop; G.168"
+   ],
+   "diff": [
+    "(1) is proved as printed. The proof deforms the loop one morphism at a time with the local inverses of $s$ (sheets) and continuity of the multiplication; it does not need Lemma 14.4.7, which the text invokes here. (2) is proved only when $z_0$ itself carries the loop ($z_0\\in V_a$ with $i\\sim_{z_0}i'$). The general case, $z_0$ a limit outside $\\hat V_a$, needs the limit $z_0$-loop through the closures $\\mathrm{cl}\\,\\hat V_b$ (gap G.168). Reading: Lemma 14.4.9 (3) cites (2) for pairs of $\\Theta_z$, whose sequences lie in $\\hat V_a$, while (2) is printed for $z_k\\in V_a$. The text's proof of (2) works for $z_k\\in\\hat V_a$; presumably that form is meant (`HasThetaLocalEq`)."
+   ]
+  },
+  {
+   "id": "V14.26",
+   "title": "Lemma 14.4.7 (2017: 14.7), finitely many isomorphic objects",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.4, Lemma 14.4.7, pp. 661–662 (2017: Lemma 14.7)",
+    "page": 661,
+    "statement": "Take finitely many isomorphic objects $Y$ and open $Q(x)\\ni x$. There are open, connected, mutually disjoint $O(x)\\subseteq Q(x)$ and a functor $f$ to sc-diffeomorphisms. The morphisms of $O=\\bigcup O(x)$ are the disjoint union of the components $\\mathbf O(\\psi)$, with: 1. the natural $G_x$-action; 2. $s,t$ on $\\mathbf O(\\psi)$ are sc-diffeomorphisms; 3. $f(\\psi)=t\\circ(s|\\mathbf O(\\psi))^{-1}$; 4. $f(g)=t\\circ\\Gamma(g,\\cdot)=g*\\cdot$; 5. $f(\\varphi)(g*z)=\\gamma_\\varphi(g)*f(\\varphi)(z)$; 6. the multiplication $\\mathbf O(\\psi)\\,{}_s{\\times}_t\\,\\mathbf O(\\varphi)\\to\\mathbf O(\\psi\\circ\\varphi)$ is well defined and an sc-diffeomorphism; 7. the properness property of every $O(x)$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.lemma_14_4_7 Y hY Q hQo hQ` gives `N : X.NaturalRepFinite Y (⋃ y ∈ Y, Q y)`. That is the Part II structure: open, connected, disjoint $U(y)$, $F$, `sheet`, and (1)–(3) as fields. In addition: $U(y)\\subseteq Q(y)$; (4) `NaturalRepFinite.F_isotropy`; (5) `NaturalRepFinite.F_equivariant`, with $\\gamma_\\varphi=$ `conjIsotropy φ`; (6) `NaturalRepFinite.bijOn_comp`: $m$ maps the fibre product bijectively onto $\\mathbf U(\\psi\\circ\\varphi)$; (6) `NaturalRepFinite.comp_srcInv_eq` and `NaturalRepFinite.isScDiffeoOn_comp`: $m((s|\\mathbf U(\\psi))^{-1}(t\\varphi'),\\varphi')=(s|\\mathbf U(\\psi\\circ\\varphi))^{-1}(s\\varphi')$, and $(s|\\mathbf U(\\psi\\varphi))^{-1}\\circ s:\\mathbf U(\\varphi)\\to\\mathbf U(\\psi\\varphi)$ is an sc-diffeomorphism; (7) $\\mathrm{cl}_X U(y)$ proper (`exists_naturalRepFinite_subset`).",
+    "decls": [
+     "Chapter14/P3W3B2_FiniteRep · EpGroupoid.lemma_14_4_7",
+     "Chapter14/P3W3B2_FiniteRep · EpGroupoid.exists_naturalRepFinite_subset",
+     "Chapter14/P3W3B2_FiniteRep · EpGroupoid.NaturalRepFinite.F_isotropy",
+     "Chapter14/P3W3B2_FiniteRep · EpGroupoid.NaturalRepFinite.F_equivariant",
+     "Chapter14/P3W3B2_FiniteRep · EpGroupoid.NaturalRepFinite.comp_srcInv_eq",
+     "Chapter14/P3W3B2_FiniteRep · EpGroupoid.NaturalRepFinite.bijOn_comp",
+     "Chapter14/P3W3B2_FiniteRep · EpGroupoid.NaturalRepFinite.isScDiffeoOn_comp"
+    ]
+   },
+   "chips": [
+    "from Proposition 7.1.15, Corollary 7.1.17"
+   ],
+   "diff": [
+    "Part II's Proposition 7.1.15 takes one open $V\\supseteq Y$. The per-object $Q(x)$ and (7) come from applying it to $\\bigcup_y W_y\\cap Q(y)\\cap P_y$, where the $W_y$ are pairwise disjoint (T2) and the $P_y$ have the properness property. Connectedness of $U(y)$ then puts $U(y)$ inside $W_y\\cap Q(y)\\cap P_y$. (6): the fibre product is parametrised by its second factor ($(\\psi',\\varphi')\\mapsto\\varphi'$, inverse $\\varphi'\\mapsto((s|\\mathbf U(\\psi))^{-1}(t\\varphi'),\\varphi')$). In that chart, $m$ is the sc-diffeomorphism $(s|\\mathbf U(\\psi\\varphi))^{-1}\\circ s$. No M-polyfold structure on the fibre product itself is used. The key identity is proved by connectedness: the image of $\\mathbf U(\\varphi)$ is connected and contains $\\psi\\circ\\varphi$, so it lies in the component $\\mathbf U(\\psi\\circ\\varphi)$ (`NatRepFinite.connectedComponentIn_morOn`)."
+   ]
+  },
+  {
+   "id": "V14.27",
+   "title": "Definition 14.4.8 (2017: 14.8) and (14.44), $\\Theta_z$ and $\\approx_z$",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.4, Definition 14.4.8 and (14.44), p. 663 (2017: Definition 14.8)",
+    "page": 663,
+    "statement": "For $z\\in\\mathrm{cl}_X(\\hat V_a)$, $\\Theta_z$ is the set of $(i,i')$ with $z_k\\in\\hat V_a$, $i\\sim_{z_k}i'$, $z_k\\to z$; $i\\approx_z i'$ if a chain $i=i_0,\\dots,i_k=i'$ with $(i_p,i_{p+1})\\in\\Theta_z$ exists; $[i]_{\\approx_z}$ the class."
+   },
+   "lean": {
+    "statement": "`ZData.Theta a z i i' := z ∈ closure {y | S.ZRel a y i i'}`; `ZData.Approx a z := Relation.ReflTransGen (S.Theta a z)`; `ZData.approxClass`. `theta_iff_seq` (Fréchet–Urysohn spaces: the text's sequences); `approx_equivalence` (an equivalence relation), `approx_symm`, `theta_symm`, `theta_refl` ($(i,i)\\in\\Theta_z$ for $z\\in\\mathrm{cl}\\,\\hat V_a$), `theta_subset_closure`.",
+    "decls": [
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.Theta",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.Approx",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.approxClass",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.theta_iff_seq",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.approx_equivalence",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.approx_symm",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.theta_symm",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.theta_refl",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.theta_subset_closure",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.ZRel.symm'"
+    ]
+   },
+   "chips": [
+    "sequences read as closure"
+   ],
+   "diff": [
+    "the sequences are read as the closure (equal for metrizable object spaces, `theta_iff_seq`). The chain's last index is printed \"$i_p=i'$\"; $i_k=i'$ is meant. The equivalence-relation property is proved."
+   ]
+  },
+  {
+   "id": "V14.28",
+   "title": "Lemma 14.4.9 (2017: 14.8), properties of $\\approx_z$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§14.4, Lemma 14.4.9, pp. 663–664 (2017: Lemma 14.8)",
+    "page": 663,
+    "statement": "(1) $i\\sim_z i'$ ⇒ $i\\approx_z i'$ ($z\\in\\hat V_a$); (2) $i\\approx_z i'$ ⇒ $g(i)\\approx_{g*z}g(i')$, and $g([i]_{\\approx_z})=[g(i)]_{\\approx_{g*z}}$; (3) $z\\in\\mathrm{cl}_X(V_a)$, $i\\approx_z i'$ ⇒ $s^{0a}_i=s^{0a}_{i'}$ on $U(a)$ near $z$; (4) for $z_0\\in\\mathrm{cl}_X(\\hat V_a)$ an open $\\tilde Q(z_0)\\subseteq\\tilde U(a)$ with $[i]_{\\sim_z}\\subseteq[i]_{\\approx_{z_0}}$ for $z\\in\\hat V_a\\cap\\tilde Q(z_0)$."
+   },
+   "lean": {
+    "statement": "`ZData.lemma_14_4_9_1`, `ZData.lemma_14_4_9_2`, `ZData.lemma_14_4_9_2_class` ($z\\in\\mathrm{cl}\\,\\hat V_a$), `ZData.lemma_14_4_9_4` and `lemma_14_4_9_4_all` (all $i$ at once), as printed. (3): `SBLocalization.lemma_14_4_9_3_hyp (hP : HasThetaLocalEq D)`.",
+    "decls": [
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.lemma_14_4_9_1",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.lemma_14_4_9_2",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.lemma_14_4_9_2_class",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.theta_smul",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.lemma_14_4_9_4",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.ZData.lemma_14_4_9_4_all",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.lemma_14_4_9_3_hyp"
+    ]
+   },
+   "chips": [
+    "(3) from P14.4.6 (2): G.168"
+   ],
+   "diff": [
+    "(1), (2), (4) as printed ((2) uses Lemma 14.4.5 and continuity of the natural action on $\\tilde U(a)$; (4) the finiteness of $I_a$). (3) is proved from Proposition 14.4.6 (2) in the form `HasThetaLocalEq`, as the text derives it; it stays conditional until that gap closes."
+   ]
+  },
+  {
+   "id": "V14.29",
+   "title": "Proposition 14.4.10 (2017: 14.6), the neighbourhoods $\\tilde O(z)$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§14.4, Proposition 14.4.10, p. 664 (2017: Proposition 14.6)",
+    "page": 664,
+    "statement": "For $a\\in A$ every $z\\in\\mathrm{cl}_X(\\hat V_a)$ has an open $\\tilde O(z)$ with (1) $\\tilde O(z)\\subseteq\\tilde U(a)$; (2) $\\tilde O(g*z)=g*\\tilde O(z)$, $\\tilde O(z)\\cap\\tilde O(g*z)=\\emptyset$ if $z\\neq g*z$; (3) $[i]_{\\sim_y}\\subseteq [i]_{\\approx_z}$ for $y\\in\\tilde O(z)\\cap\\hat V_a$; (4) for $z\\in\\mathrm{cl}_X(V_a)$, $s^{0a}_i=s^{0a}_{i'}$ on $\\tilde O(z)\\cap U(a)$ when $i\\approx_z i'$. Proof: \"immediate\" from Lemma 14.4.9."
+   },
+   "lean": {
+    "statement": "`SBLocalization.proposition_14_4_10_hyp D (hP : HasThetaLocalEq D) ha : ∃ O, ∀ z ∈ closure (S.V a), IsOpen (O z) ∧ z ∈ O z ∧ (1) ∧ (2) ∧ (2') ∧ (3) ∧ (4)`. The equivariant, disjoint choice is the general lemma `EpGroupoid.NatNbhd.exists_equivariant_nbhds` (neighbourhoods with a property preserved by shrinking and by the action, chosen on orbit representatives, made stabiliser-invariant and separated from their translates).",
+    "decls": [
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.proposition_14_4_10_hyp",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.mapsTo_Φ_closure_z4",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.mapsTo_Φ_Vb_z4",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.Φ_mem_boundary_z4",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.mem_boundary_of_Φ_z4",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.tgt_mem_boundary_iff_z4",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.NatNbhd.exists_equivariant_nbhds",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.NatNbhd.image_Φ_eq",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.NatNbhd.isOpen_image_Φ",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.NatNbhd.image_Φ_mul",
+     "Chapter14/P3W4Z4_Theta · EpGroupoid.NatNbhd.continuousAt_Φ"
+    ]
+   },
+   "chips": [
+    "(4) from P14.4.6 (2): G.168"
+   ],
+   "diff": [
+    "conditional on `HasThetaLocalEq` only through (4) (via Lemma 14.4.9 (3)); (1)–(3) need nothing beyond the setting. The text's \"immediate\" includes the orbit-representative construction for (2), which is proved here."
+   ]
+  },
+  {
+   "id": "V14.30",
+   "title": "Definition 14.4.11 (2017: 14.9), coherent neighbourhood systems",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.4, Definition 14.4.11, p. 664 (2017: Definition 14.9)",
+    "page": 664,
+    "statement": "A coherent neighbourhood system for $\\mathrm{cl}_X(\\hat V_a)\\subseteq\\tilde U(a)$: open $\\tilde O(z)$, $z\\in\\mathrm{cl}_X(\\hat V_a)$, with (1)–(4) of P14.4.10, (3) asked for $z\\in\\hat V_a$."
+   },
+   "lean": {
+    "statement": "`SBLocalization.ZCoherentNbhdSystem D a` (fields `O`, `isOpen`, `mem`, `subset` (1), `equivariant` and `disjoint` (2), `zClass_subset` (3) for $z\\in\\hat V_a$ as printed, `sections_eq` (4)). `exists_zCoherentNbhdSystem_hyp D hP ha` (from P14.4.10); witness `exists_zCoherentNbhdSystem_zero`. Hypothesis form: `coherentNbhdSystem_hyp D hP ha hface : ∃ C : CoherentNbhdSystem (D.toLocalExtensionBase ha hface), C.IsEquivariant` (LX reads (3) for $z\\in\\mathrm{cl}\\,\\hat V_a$, which P14.4.10 (3) gives).\n\nThe abstract form consumed by Proposition 14.4.14: `LocalExtensionBase A a` (the data: `N` = $\\tilde U(a)$ with the natural action, `Vh` open invariant $\\subseteq$ `N.U`, `I`, `s0` face-wise sc$^+$ on `N.bdry` with (14.45), `sim` with Lemma 14.4.5 `sim_smul`, `approx`). `CoherentNbhdSystem D` (fields `O`, `isOpen_O`, `mem_O`, (1) `O_subset`, (3) `sim_approx` for $z\\in\\mathrm{cl}\\,\\hat V_a$, (4) `approx_s0` for $z\\in\\mathrm{cl}(\\hat V_a\\cap\\partial X)$, $y\\in\\tilde O(z)\\cap U(a)$). (2) is `CoherentNbhdSystem.IsEquivariant`. `LocalExtensionBase.ofZSetup` builds the data from `ZSetup` with $\\sim$ = `ZRel` (Lemma 14.4.5 discharged). Witnesses: `LocalExtensionBase.zero`, `CoherentNbhdSystem.zero`, `exists_coherentNbhdSystem_zero` (tame $X$, every boundary point, $a\\in\\hat V_a$).",
+    "decls": [
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.ZCoherentNbhdSystem",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.exists_zCoherentNbhdSystem_hyp",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.exists_zCoherentNbhdSystem_zero",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.hasThetaLocalEq_zero",
+     "Chapter14/P3W4Z4_Instantiate · SBLocalization.ZSections.toLocalExtensionBase",
+     "Chapter14/P3W4Z4_Instantiate · SBLocalization.coherentNbhdSystem_hyp",
+     "Chapter14/P3W4Z4_Instantiate · SBLocalization.proposition_14_4_14_of_hyp",
+     "Chapter14/P3W4LX_CoherentExtension · LocalExtensionBase",
+     "Chapter14/P3W4LX_CoherentExtension · CoherentNbhdSystem",
+     "Chapter14/P3W4LX_CoherentExtension · CoherentNbhdSystem.IsEquivariant",
+     "Chapter14/P3W4LX_CoherentExtension · LocalExtensionBase.ofZSetup",
+     "Chapter14/P3W4LX_CoherentExtension · LocalExtensionBase.zero",
+     "Chapter14/P3W4LX_CoherentExtension · CoherentNbhdSystem.zero",
+     "Chapter14/P3W4LX_CoherentExtension · exists_coherentNbhdSystem_zero"
+    ]
+   },
+   "chips": [
+    "two forms: as printed; (3) on the closure"
+   ],
+   "diff": [
+    "\"open (in X) neighborhoods\" includes $z\\in\\tilde O(z)$. (3) is printed for $z\\in\\hat V_a$, P14.4.10 (3) for $z\\in\\mathrm{cl}_X(\\hat V_a)$; the structure keeps the printed (3), the existence theorems give the stronger one. The text first calls it a \"good neighborhood system\" (Remark 14.4.12, p. 665); same object.",
+    "(3) is printed for $z\\in\\hat V_a$; Proposition 14.4.10 (3) has $z\\in\\mathrm{cl}(\\hat V_a)$ and the proof of P14.4.14 uses it at points of the closure. We read $z\\in\\mathrm{cl}(\\hat V_a)$, presumably what is meant. The relations $\\sim_y$, $\\approx_z$ are parameters (Z4 supplies D14.4.8's $\\approx_z$); only Lemma 14.4.5 for $\\sim$ is required. (2) is a separate predicate since P14.4.14 does not need it.",
+    "The two structures are one definition read twice: `ZCoherentNbhdSystem` keeps (3) for $z \\in \\hat V_a$ as printed; `CoherentNbhdSystem` reads (3) for $z \\in \\mathrm{cl}\\,\\hat V_a$, which Proposition 14.4.10 (3) gives and the proof of Proposition 14.4.14 uses. `coherentNbhdSystem_hyp` passes from the first data to the second."
+   ]
+  },
+  {
+   "id": "V14.31",
+   "title": "Remark 14.4.12 (2017: 14.6), the meaning of the coherent neighbourhood system",
+   "verdict": "nothing",
+   "book": {
+    "label": "§14.4, Remark 14.4.12, p. 664 (2017: Remark 14.6)",
+    "page": 664,
+    "statement": "The good neighbourhood system captures part of the implicit information of a system of correspondences; the choice of $(V_a)$ and the $\\tilde V_a$ matter, and the existence of $(V_a)$ comes from the paracompactness of $|X|$."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: a comment. The cover comes from Lemma 14.3.6 with $|X|$ paracompact (`lemma_14_3_6`, V14.18).",
+    "decls": [
+     "Chapter14/P3W3B2_Cover · EpGroupoid.lemma_14_3_6"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V14.32",
+   "title": "Lemma 14.4.13 (2017: 14.9), the sections over $\\tilde O([z])$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§14.4, Lemma 14.4.13, pp. 666–667 (2017: Lemma 14.9)",
+    "page": 666,
+    "statement": "For $z\\in\\mathrm{cl}_X(\\hat V_a)\\cap\\partial X$, $\\tilde O([z])=\\bigsqcup_{z'\\in[z]}\\tilde O(z')$; for $z'\\in[z]$ with stabiliser $G_a(z')$: (1) $G_a(z')$ permutes the $\\approx_{z'}$-classes, $g([i_j])=[g(i_j)]$; (2) if $g([i_j])=[i_j]$ then $s^{0a}_{i_j}(g*y)=\\mu(\\Gamma(g,y),s^{0a}_{i_j}(y))$ on $\\tilde O(z')\\cap\\partial X$ (recalling that $s^{0a}_{i'}=s^{0a}_{i_j}$ there for $i'\\in[i_j]$); (3) if $g([i_j])\\neq[i_j]$ (then disjoint), $s^{0a}_{g(i_j)}(g*y)=\\mu(\\Gamma(g,y),s^{0a}_{i_j}(y))$; (4) for $z''\\in[z]$ the sections on $\\tilde O(z'')\\cap\\partial X$ are determined by those on $\\tilde O(z')\\cap\\partial X$."
+   },
+   "lean": {
+    "statement": "Any `C : ZCoherentNbhdSystem D a`: (1) `lemma_14_4_13_1` ($z'\\in\\mathrm{cl}\\,\\hat V_a$) with `approxClass_eq_or_disjoint`; (2) `lemma_14_4_13_2` for $z'\\in\\mathrm{cl}_X(V_a)$; the recalled identity is `lemma_14_4_13_classSection` (same hypothesis); (3) `lemma_14_4_13_3` ($z'\\in\\mathrm{cl}\\,\\hat V_a$, every $g\\in G_a$); (4) `lemma_14_4_13_4` (every point of $\\tilde O(g*z')\\cap\\partial X$ is $g*y$, $y\\in\\tilde O(z')\\cap\\partial X$, with $s^{0a}_{g(i)}(g*y)=\\mu(\\Gamma(g,y),s^{0a}_i(y))$); disjoint union: `ZCoherentNbhdSystem.disjoint_orbit`.",
+    "decls": [
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.lemma_14_4_13_1",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.approxClass_eq_or_disjoint",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.lemma_14_4_13_2",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.lemma_14_4_13_3",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.lemma_14_4_13_classSection",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.lemma_14_4_13_4",
+     "Chapter14/P3W4Z4_Coherent · SBLocalization.ZCoherentNbhdSystem.disjoint_orbit"
+    ]
+   },
+   "chips": [
+    "(2) for $z' \\in \\mathrm{cl}(V_a)$ (meant)"
+   ],
+   "diff": [
+    "(2) and the recalled identity are stated for $z'\\in\\mathrm{cl}_X(V_a)$, $V_a=\\hat V_a\\cap\\partial X$: they are Definition 14.4.11 (4), which covers only those points. A point of $\\mathrm{cl}_X(\\hat V_a)\\cap\\partial X$ need not lie in $\\mathrm{cl}_X(V_a)$ (a limit of interior points of $\\hat V_a$). Presumably $z\\in\\mathrm{cl}_X(V_a)$ is meant (it is what P14.4.14 uses); no counterexample was attempted. (1), (3), (4) hold for all $z'\\in\\mathrm{cl}\\,\\hat V_a$."
+   ]
+  },
+  {
+   "id": "V14.33",
+   "title": "Proposition 14.4.14 (2017: 14.7), the local extensions $\\hat s^a_i$",
+   "verdict": "restated",
+   "book": {
+    "label": "§14.4, Proposition 14.4.14, pp. 667–671 (2017: Proposition 14.7)",
+    "page": 667,
+    "statement": "For fixed $a\\in A$ there is a local sc$^+$-smooth symmetric section structure $(\\hat s^a_i)_{i\\in I_a}$ on $\\hat V_a$ with (1) $\\hat s^a_i=s^{0a}_i$ on $V_a=\\hat V_a\\cap\\partial X$ and (2) $\\hat s^a_i(z)=\\hat s^a_{i'}(z)$ if $i\\sim_z i'$, $z\\in\\hat V_a$. Proof: on each $\\tilde O([z])$, sections constant on $\\approx_{z'}$-classes, built class by class and orbit by orbit, $G_a$-equivariant, extending the boundary data; glued by a $G_a$-invariant partition of unity."
+   },
+   "lean": {
+    "statement": "`proposition_14_4_14 hB hpu C` for `C : CoherentNbhdSystem D`, `D : LocalExtensionBase A a`: there are $\\hat s_i$ with `IsScPlusSectionOn A (ŝ i) D.Vh`, $\\hat s_{g(i)}(g*y)=\\mu(\\Gamma(g,y),\\hat s_i(y))$ on $\\hat V_a$, (1) $\\hat s_i=s^0_i$ on $\\hat V_a\\cap\\partial X$, (2) $\\sim_y$-compatibility on $\\hat V_a$. Same `hB`, `hpu` as P14.1.4.\n\nFor the data of §§14.3–14.4: `proposition_14_4_14_of_hyp hB hpu D hP ha hface` (`proposition_14_4_14` applied to `coherentNbhdSystem_hyp`), conditional on `HasThetaLocalEq` (Proposition 14.4.6 (2), gap G.168).",
+    "decls": [
+     "Chapter14/P3W4LX_CoherentExtension · glueSection_congr_at",
+     "Chapter14/P3W4LX_CoherentExtension · CoherentNbhdSystem.eqvGen_s0",
+     "Chapter14/P3W4LX_CoherentExtension · CoherentNbhdSystem.exists_local_piece",
+     "Chapter14/P3W4LX_CoherentExtension · proposition_14_4_14",
+     "Chapter14/P3W4Z4_Instantiate · SBLocalization.proposition_14_4_14_of_hyp",
+     "Chapter14/P3W4Z4_Instantiate · SBLocalization.coherentNbhdSystem_hyp"
+    ]
+   },
+   "chips": [
+    "abstract data; instance from P14.4.10"
+   ],
+   "diff": [
+    "Stated for abstract data satisfying D14.4.11 (1), (3), (4) and Lemma 14.4.5; the instantiation with the concrete $\\hat V_a$ (P14.3.8), $\\sim$ (`ZRel`, via `ofZSetup`), $\\approx$ and $\\tilde O$ (D14.4.8/P14.4.10) is `coherentNbhdSystem_hyp` and `proposition_14_4_14_of_hyp` (V14.30, V14.33). Proof differs: for $z\\in\\mathrm{cl}(V_a)$, one extension (`exists_scPlusSection_extension_of_face`) of the boundary section of a chosen representative of each $\\approx_z$-class (equivalence closure), on $G_z$ with $\\mathrm{cl}\\,G_z\\subseteq\\tilde O(z)$; for $z\\in\\mathrm{cl}(\\hat V_a)\\setminus\\mathrm{cl}(V_a)$, zero sections on a neighbourhood missing $\\mathrm{cl}(V_a)$ (so (4) is needed only as printed); an ordinary partition of unity; then the average over $G_a$ (`avgSection`). The average is equivariant, still extends $s^0$ (which is equivariant), and stays $\\sim$-compatible because $\\sim$ is (Lemma 14.4.5). So D14.4.11 (2) and the orbit-by-orbit construction are not needed. $\\approx_z$ need not be an equivalence relation. \"Symmetric section structure\" is read as Definition 13.2.5 (1) (equivariance); the weights and $\\hat\\Lambda_a$ come in §14.5."
+   ]
+  },
+  {
+   "id": "V14.34",
+   "title": "Lemma 14.5.1 (2017: 14.10), the functors $\\beta_a$",
+   "verdict": "stronger",
+   "book": {
+    "label": "§14.5, Lemma 14.5.1, p. 671 (2017: Lemma 14.10)",
+    "page": 671,
+    "statement": "Under the assumptions of Theorem 14.1.9 ($X$ tame, with sc-smooth partitions of unity), there are sc-smooth functors $\\beta_a:X\\to[0,1]$, $a\\in A$, with: 1. support in $\\pi^{-1}(\\pi(\\hat V_a))$; 2. every $y$ has a saturated open $Q(y)$ on which only finitely many $\\beta_a$ are $\\neq0$; 3. $\\sum_a\\beta_a=1$ on $\\partial X$."
+   },
+   "lean": {
+    "statement": "`EpGroupoid.lemma_14_5_1 (hpu : X.HasScPartitionsOfUnity) (hB : IsClosed B) (hBs : X.IsSaturated B) (hAB : A ⊆ B) (hV : ∀ a ∈ A, IsOpen (V a)) (hcov : B ⊆ ⋃ a ∈ A, X.saturation (V a))`. It gives $\\beta:\\mathrm{Obj}\\to\\mathrm{Obj}\\to\\mathbb R$ with: sc-smooth for $a\\in A$, values in $[0,1]$, $\\beta_a(s\\varphi)=\\beta_a(t\\varphi)$; (1) `tsupport (β a) ⊆ X.saturation (V a)`; (2) as in the text; (3) `∑ᶠ a ∈ A, β a y = 1` for $y\\in B$.",
+    "decls": [
+     "Chapter14/P3W3B2_Cover · EpGroupoid.lemma_14_5_1",
+     "Chapter14/P3W3B2_Cover · EpGroupoid.isSaturated_compl",
+     "Chapter14/P3W3B2_Cover · EpGroupoid.isSaturated_preimage_π",
+     "Chapter14/P3W3B2_Cover · EpGroupoid.isOpen_saturation",
+     "Chapter14/P3W3B2_Cover · EpGroupoid.IsSaturated.tgt_mem"
+    ]
+   },
+   "chips": [
+    "tameness not used",
+    "cover named (`hcov`)"
+   ],
+   "diff": [
+    "The proof is the text's. The partition of unity is indexed by objects: $U_x=\\pi^{-1}\\pi(\\hat V_x)$ for $x\\in A$, $U_x=X\\setminus B$ otherwise. Tameness is not used. The covering property of the $\\hat V_a$ (P14.3.8 (3), (14.34)) is the hypothesis `hcov`, and $\\partial X$ closed and saturated are named. (14.53) is not part of the lemma and is not formalized here."
+   ]
+  },
+  {
+   "id": "V14.35",
+   "title": "Theorem 14.5.5 (2017: 14.3), the structurability criterion",
+   "verdict": "stronger",
+   "book": {
+    "label": "§14.5, Theorem 14.5.5, pp. 678–680 (2017: Theorem 14.3)",
+    "page": 678,
+    "statement": "Setting: $|X|$ paracompact, $\\Lambda$ an sc⁺-multisection functor, $A\\subseteq X$, and for $a\\in A$ open sets $U(a)\\supseteq V_a$ with: (a) $U(a)$ is $G_a$-invariant and $t:s^{-1}(\\mathrm{cl}\\,U(a))\\to X$ is proper; (b) $V_a$ is $G_a$-invariant and $\\mathrm{cl}|V_a|\\subseteq|U(a)|$; (c) $\\bigcup|V_a|=|X|$; (d) symmetric sc⁺-structures on the $V_a$ representing $\\Lambda$; (e) correspondences $\\tau_{a,a'}$ on $V(a,a')$, locally constant, with finitely many values. Conclusion: $\\Lambda$ is structurable."
+   },
+   "lean": {
+    "statement": "`theorem_14_5_5 (hX : A.X.HasParacompactOrbitSpace) (hΛ : IsScPlusMultisection A Λ) (D : CriterionData A Λ) : IsStructurable A Λ`. `CriterionData` holds the data (a)–(e). The variant `theorem_14_5_5_of_goodSystem` takes `Nonempty A.X.GoodSystem` in place of paracompactness.",
+    "decls": [
+     "Chapter14/P3W4GL_Criterion · CriterionData",
+     "Chapter14/P3W4GL_Criterion · CriterionData.exists_transport",
+     "Chapter14/P3W4GL_Criterion · CriterionData.Transport",
+     "Chapter14/P3W4GL_Criterion · CriterionData.nonempty_transport",
+     "Chapter14/P3W4GL_Criterion · CriterionData.Transport.isStructurable",
+     "Chapter14/P3W4GL_Criterion · theorem_14_5_5_of_goodSystem",
+     "Chapter14/P3W4GL_Criterion · theorem_14_5_5",
+     "Chapter14/P3W4GL_Criterion · IndexCorr.biact_compHom_gl",
+     "Chapter14/P3W4GL_Criterion · IndexCorr.sat_forall",
+     "Chapter14/P3W4GL_Criterion · IndexCorr.ofPerm_compHom_gl"
+    ]
+   },
+   "chips": [
+    "properness in (a), closure in (b): unused"
+   ],
+   "diff": [
+    "The properness in (a) and the closure condition in (b) are not used, so they are not assumed. \"Correspondence\" in (e) is read as D13.3.4 (2) together with D13.3.6 (1)–(2): bi-action, compatibility with the sections, `diag` and `swap`. The proof pulls the structures back along local transports $\\tau_y$ into the $V_a$. It does not go through Theorem 13.4.3."
+   ]
+  }
+ ],
+ "notFormalized": [
+  {
+   "g": 164,
+   "title": "Proposition 14.1.8: structurability over $\\partial X$ is preserved by generalized strong bundle isomorphisms",
+   "label": "§14.1, Proposition 14.1.8, p. 645 (2017: Proposition 14.1)",
+   "page": 645,
+   "book": "For a generalized strong bundle isomorphism $\\mathfrak f$, $\\bar{\\mathfrak f}^*\\Lambda'$ and $\\bar{\\mathfrak f}_*\\Lambda$ are structurable over the boundary; the proof is \"similar to\" Theorems 13.4.1 and 13.4.3.",
+   "instead": "The interior version is proved (§16.5 opening paragraph, V16.63; Theorems 13.4.1, 13.4.3, V13.51, V13.52). Templates: `PullMap` (pull-back) and `PushChart`/`liftMor` (push-forward), whose lemmas on neighbourhoods, sections, lifts and $\\tau$ do not use the interior beyond the good system. Missing: the same for `BoundarySymmetricStructure`, `BoundaryDecoration.Tau` and boundary good systems (V14.3–V14.7; equivalences preserve $\\partial X$ and the faces, Chapter 7's `IsDHomeoOn`): pull-back 200–250 lines, push-forward 250–300; the definition of $\\bar{\\mathfrak f}^*\\Lambda'$ on $W|\\partial X$ for a span, about 80. Total 500–650 lines.",
+   "decls": [
+    "Chapter14/P3W3B1_BoundaryStructured · IsBoundaryStructurable",
+    "Chapter13/P3W4FN_Pushforward · SBLocalization.GenSBMap.isStructurable_pullMult"
+   ]
+  },
+  {
+   "g": 165,
+   "title": "The closures $\\bar\\theta_j$ of the faces in $V(x)$ are tame M-polyfolds",
+   "label": "§14.1, after Definition 14.1.2, p. 641",
+   "page": 641,
+   "book": "The closures $\\bar\\theta_j$ of the faces in a good neighbourhood $V(x)$ are tame M-polyfolds.",
+   "instead": "The faces exist as sets (`HasBoundaryFaces`, V14.1, V14.2). Missing: the M-polyfold structure on a face (Part I §2.5 face charts on $V(x)$), about 200 lines. Nothing in §§14.1–14.2 uses it: (1) of Definition 14.1.3 is read through local faces (V14.3).",
+   "decls": [
+    "Chapter14/P3W3B1_GoodBoundary · HasBoundaryFaces"
+   ]
+  },
+  {
+   "g": 168,
+   "title": "Proposition 14.4.6 (2): equality of the boundary sections near limits of z-loops",
+   "label": "§14.4, Proposition 14.4.6 (2), p. 661 (2017: Proposition 14.5 (2))",
+   "page": 661,
+   "book": "If $z_k \\to z_0 \\in \\mathrm{cl}_X(V_a)$ with $i \\sim_{z_k} i'$, then $s^{0a}_i = s^{0a}_{i'}$ on a neighbourhood $Q(z_0) \\subseteq U(a)$. Proof: finitely many objects of the $\\mathrm{cl}\\,\\hat V_b$ are isomorphic to $z_0$ (local finiteness, properness); Lemma 14.4.7 around them; for $k$ large the $z_k$-loop lies in the sheets $W(\\varphi)$ and gives a $z_0$-loop with the same index steps.",
+   "instead": "Exists: (1) (`proposition_14_4_6_1`), the case $z_0 \\in V_a$ carrying the loop (`proposition_14_4_6_2_of_mem`), transport of sections along loops (`arc_transport`), the Prop `HasThetaLocalEq` (the form with $z_k \\in \\hat V_a$, used by Lemma 14.4.9 (3)) and the results conditional on it (`lemma_14_4_9_3_hyp`, `proposition_14_4_10_hyp`, `exists_zCoherentNbhdSystem_hyp`, `coherentNbhdSystem_hyp`, `proposition_14_4_14_of_hyp`; V14.25–V14.33); `lemma_14_4_7`, `exists_naturalRepFinite_subset`, `exists_nhds_of_isProperSubset`. Missing, about 600–700 lines: (1) the enlarged setting: $\\hat\\tau_{b,c}$ locally constant with Definition 14.1.7 (4) on $U^0(b,c) \\subseteq \\hat O_{b,c}$, local finiteness of $(|\\hat V_b|)$, properness of $\\mathrm{cl}\\,\\tilde U(b)$ (about 80); (2) finiteness of the objects of $\\bigcup_{b \\in o(z_0)} \\mathrm{cl}\\,\\tilde U(b)$ isomorphic to $z_0$ (about 80); (3) a finite natural representation on them whose sheets lie in the constancy neighbourhoods of $\\hat\\tau$ (about 150); (4) a neighbourhood $N \\ni z_0$ such that every morphism from $N$ into $\\bigcup \\mathrm{cl}\\,\\tilde U(b)$ lies in a sheet (`exists_nhds_of_isProperSubset`, about 60); (5) a $z$-loop, $z \\in N \\cap \\hat V_a$, mapped to a $z_0$-loop through the sheet centres with the same index steps (about 150); (6) that $z_0$-loop deformed along $\\partial X$ (the chain lemma of `P3W4Z4_Deform` with $U^0$ in place of $\\hat V$) and the sections transported (about 100). Closing it makes Lemma 14.4.9 (3), Proposition 14.4.10, the existence in Definition 14.4.11 and Proposition 14.4.14 unconditional for these data.",
+   "decls": [
+    "Chapter14/P3W4Z4_Coherent · SBLocalization.HasThetaLocalEq",
+    "Chapter14/P3W4Z4_Coherent · SBLocalization.ZSections.proposition_14_4_6_2_of_mem"
+   ]
+  },
+  {
+   "g": 169,
+   "title": "The data `ZData`, `ZSections` from the objects of §14.3",
+   "label": "§§14.3–14.4, (14.33)–(14.36), p. 657",
+   "page": 657,
+   "book": "The sets $\\hat V_a$ of Proposition 14.3.8, the extended correspondences $\\hat\\tau$ of Proposition 14.3.4 and the boundary sections $s^{0a}_i$ form the data on which §14.4 works.",
+   "instead": "Exists: the abstract setting (`ZData` = `ZSetup` with $\\hat V_a$ open, (14.33) and the local constancy of $\\hat\\tau$; `ZSections`) and the objects of §14.3 (`proposition_14_3_8`, `tauHat_Γ_of_VHat`, `tauHat_inv_of_VHat`; V14.16, V14.20). Missing: the instance, about 150 lines. `ZSetup.I : Obj → Type u` carries a $G_a$-action, while the index types of the boundary structure live on $x \\in \\partial X$; use $I_a :=$ the boundary index type for $a \\in \\partial X$ (a point otherwise), with the action transported, or reindex. `ZSections.compat` is Definition 14.1.7 (4) through $\\hat\\tau = \\tau^0$ on $U^0(a,a')$; `ZSections.equivariant` is the equivariance of the boundary symmetric structure on $\\tilde U(a) \\cap \\partial X$ (the natural actions of $\\tilde U(a)$ and of $V(a)$ must agree there). The `CoherentNbhdSystem` of a `LocalExtensionBase.ofZSetup` from Proposition 14.4.10 then needs its fields (1), (3), (4), about 50–100 lines more.",
+   "decls": [
+    "Chapter14/P3W4Z4_Deform · EpGroupoid.ZData",
+    "Chapter14/P3W4Z4_Coherent · SBLocalization.ZSections",
+    "Chapter14/P3W4S3_CoverVHat · EpGroupoid.proposition_14_3_8"
+   ]
+  },
+  {
+   "g": 170,
+   "title": "Proposition 14.5.4: the transport of the local extensions",
+   "label": "§14.5, Proposition 14.5.4, pp. 673–677 (2017: Proposition 14.8)",
+   "page": 673,
+   "book": "Transport $\\beta_a\\hat s^a$ from $\\hat V_a$ to every $\\hat V_b$ along the morphisms: well defined by z-arcs and Proposition 14.4.14 (2); sc⁺ by properness and (14.53); (4) from the arc $j \\to i \\to i' \\to j'$.",
+   "instead": "Stated only: `proposition_14_5_4_statement T` over `TransportInput` (a `Prop` giving (1)–(4), with sc⁺ and $G_b$-equivariance on $\\hat V_b$; \"symmetric sc⁺-section structure on $\\hat V_b$\" is read as sc⁺ and equivariant; \"supp closed in $X$, $\\subseteq \\hat V_a$\" as a closed $K \\subseteq \\hat V_a$ off which the section vanishes); `proposition_14_5_4_statement_of_zero` proves it for $\\hat s = 0$, $s^0 = 0$. Tools: `Arc`, `ZRel`, `Pairs`, `pairs_swap`, `pairs_ofPerm`, `proposition_14_4_14`, `transportSection`, `isScPlusSectionOn_transportSection`, `IsProperMap.isClosedMap`. Missing, about 450 lines: (1) the definition $\\tilde s_{b,j}(y) = \\mu(\\varphi, \\beta_a\\hat s^a_i(s\\varphi))$ for a $\\varphi$ from $\\hat V_a$ to $y$ with $i$ paired to $j$ in $\\hat\\tau_{a,b}(\\varphi)$, and $0$ if there is no such $\\varphi$ (about 60); (2) independence of $\\varphi$ and $i$ through the arc `nil → snoc ψ → snoc φ⁻¹ (swap) → snoc Γ (diag)`, a z-loop at $s\\varphi$, then `sh_zRel` and equivariance (about 120); (3) sc⁺ on $\\hat V_b$: near reachable points a local inverse of $t$ on a component of $\\hat V_{a,b}$ and `transportSection`, elsewhere $0$ because $t(s^{-1}K)$ is closed by properness (about 150); (4) (3) of the proposition from `sh_boundary` and `s0_compat`, (4) and equivariance from the arcs (about 120).",
+   "decls": [
+    "Chapter14/P3W4GL_Transport · SBLocalization.TransportInput",
+    "Chapter14/P3W4GL_Transport · SBLocalization.proposition_14_5_4_statement",
+    "Chapter14/P3W4GL_Transport · SBLocalization.proposition_14_5_4_statement_of_zero"
+   ]
+  },
+  {
+   "g": 171,
+   "title": "Theorem 14.1.9: the extension of §§14.3–14.5 (assembly of $\\Lambda''$)",
+   "label": "§14.5, pp. 677–678 (2017: §14.5); Theorem 14.1.9, p. 646 (2017: Theorem 14.2)",
+   "page": 677,
+   "book": "Define $\\Lambda''$ near $\\partial X$ as the commensurable sum $\\sum_a\\tilde\\Lambda_a$ of the transported structures, trivial away from $\\bigcup_a\\pi^{-1}\\pi(\\hat V_a)$; it is structurable by Theorem 14.5.5 and restricts to $\\Lambda$ over $\\partial X$. With the size control this proves Theorem 14.1.9.",
+   "instead": "`theorem_14_1_9_hyp` (V14.8) reduces Theorem 14.1.9 to `theorem_14_1_9_extension_statement`, whose only witness is the case $\\partial X = \\emptyset$. The pieces proved: the boundary data and good structured version (V14.1–V14.12), the extension of the correspondences and the sets $\\hat V_a$ (V14.13–V14.20), z-loops, $\\approx_z$ and the coherent neighbourhood systems (V14.22–V14.32), the local extensions of Proposition 14.4.14 (V14.33, for abstract data; for the data of §14.4 conditional on Proposition 14.4.6 (2), gap G.168), the functors $\\beta_a$ (V14.34), the criterion Theorem 14.5.5 (V14.35), and the commensurable sums of §13.4 (V13.54–V13.56). What links Proposition 14.4.14 and the coherent system of Proposition 14.4.10 to `hext`: the proof of Proposition 14.5.4 (gap G.170, about 450 lines) and the assembly, about 450 lines: (1) the instance of `TransportInput` from the objects of §§14.1–14.4 (about 100; needs gap G.169); (2) the sum of the transported sections over the finitely many $a$ active near a point, as `CriterionData` with index set $A \\sqcup$ extra points off $\\partial X$ (about 200); (3) the counting formula (d) for the sum, $\\Lambda''|\\partial X = \\Lambda$ (by Lemma 14.5.1 (3)) and the domain support (about 150). About 900 lines with G.170.",
+   "decls": [
+    "Chapter14/P3W4GL_NormControl · theorem_14_1_9_extension_statement",
+    "Chapter14/P3W4GL_NormControl · theorem_14_1_9_hyp",
+    "Chapter14/P3W4GL_Criterion · SBLocalization.theorem_14_5_5"
+   ]
+  },
+  {
+   "g": 172,
+   "title": "Lemma 14.5.2 and Remark 14.5.3: $\\tilde\\Lambda = \\sum_a\\tilde\\Lambda_a$ over $\\partial X$",
+   "label": "§14.5, Lemma 14.5.2 and Remark 14.5.3, p. 672 (2017: Lemma 14.11, Remark 14.7)",
+   "page": 672,
+   "book": "The structured $\\Lambda_a = (\\beta_a|\\partial X) \\odot \\Lambda$, with sections $\\beta_a s^{0x}_i$ and the same $(\\mathcal U^0, I, \\tau^0)$, form a commensurable locally finite family over $\\partial X$ whose sum is $\\tilde\\Lambda$; $\\Lambda_a$ is determined by $(\\beta_a s^{0a}_i)$ on $V_a$.",
+   "instead": "Exists: the commensurable sums of Definition 13.4.5 over $X$ (V13.54–V13.56); the boundary decorations and correspondences (V14.7). Missing, about 200 lines: (1) a boundary version of `CommData` and `smulFun` for `BoundarySymmetricStructure` (sections $\\beta \\cdot s$ are face-wise sc⁺; `Tau.smulFun`), about 120; (2) the sum identity from $\\sum_a\\beta_a = 1$ on $\\partial X$ (Lemma 14.5.1 (3)) and `count_eq_of_sat`, about 80. Remark 14.5.3 is explanatory and needs no Lean statement.",
+   "decls": [
+    "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData"
+   ]
+  },
+  {
+   "g": 173,
+   "title": "§14.6: assembling face-wise structured multisections (Definitions 14.6.1, 14.6.2, Theorem 14.6.3)",
+   "label": "§14.6, Definitions 14.6.1, 14.6.2, Theorem 14.6.3, pp. 681–682 (2017: Definitions 14.10, 14.11, Theorem 14.4)",
+   "page": 681,
+   "book": "For a tame face-structured $X$ each face $F$ is a sub-ep-groupoid, with given structured $\\tilde\\Lambda_F$ on $W|F$; Definition 14.6.1 restricts to $F \\cap F'$; Definition 14.6.2 asks $\\tilde\\Lambda_F|F' = \\tilde\\Lambda_{F'}|F$; Theorem 14.6.3: a compatible assignment defines a structured $\\tilde\\Lambda$ on $W|\\partial X$, extendable by Theorem 14.1.9.",
+   "instead": "Exists: `IsFace`, `IsFaceStructured` (Chapter 2); `IsFaceScPlusSectionOn`, `BoundarySymmetricStructure`, `BoundaryStructuredTuple`, `BoundaryGoodSystem.exists_refinement` (V14.3–V14.7). Missing, about 700 lines: (1) faces as ep-groupoids with the induced M-polyfold structure, and sc⁺ on $W|F$ relative to the faces of $F$; the project has no sub-M-polyfold structure on faces, and a face-relative \"sc⁺ on $U_F(x) \\subseteq F$\" cannot be phrased with `IsFaceScPlusSectionOn`, which tests all local faces of $X$ (about 300); (2) structured multisections on $W|F$, restriction and equivalence (Definitions 14.6.1, 14.6.2; about 150); (3) Theorem 14.6.3: a good system with $U(x) \\cap F \\subseteq U_F(x)$, the sections glued face-wise, $\\tau_{x,x'} = \\tau_{F,x,x'}$ well defined by compatibility, the conclusion as a `BoundaryStructuredTuple` (about 250).",
+   "decls": [
+    "Chapter14/P3W3B1_BoundaryStructured · BoundaryStructuredTuple"
+   ]
+  }
+ ]
+}

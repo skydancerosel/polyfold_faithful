@@ -236,7 +236,7 @@ theorem exists_branch_interior {f : A.Obj → A.W} (hft : A.B.IsScFredholmSectio
 /-! ### Theorem 15.2.2 -/
 
 open Classical in
-/-- **Theorem 15.2.2 (2017: Theorem 15.3), p. 688 (interior local perturbation)**, with the
+/-- **Theorem 15.2.2 (2017: Theorem 15.2), p. 688 (interior local perturbation)**, with the
 added hypothesis that `f` has germ data in tame charts (`hft`, needed for Part I's Theorem
 3.6.8).  If `d_X(x) = 0` and `(f, Λ)` is transversal at `x`, there are a natural representation
 `U(x)` of `G_x`, a local sc⁺-section structure `(sᵢ, σᵢ)` of `Λ` on `O ⊇ U(x)` and a strong bundle
@@ -352,7 +352,7 @@ theorem theorem_15_2_2_hyp {f : A.Obj → A.W} (hf : A.E.IsScFredholmSectionFunc
 
 /-! ### Remark 15.2.3 -/
 
-/-- **Remark 15.2.3 (2017: Remark 15.4), p. 689, local part**, with the added tame-germ
+/-- **Remark 15.2.3 (2017: Remark 15.2), p. 689, local part**, with the added tame-germ
 hypothesis of `theorem_15_2_2_hyp`: at a point `y` of `supp(Λ ∘ f)` with `d_X(y) = 0` where
 `(f, Λ)` is transversal, `z ↦ Λ(f(z))` has a local branching structure (Definition 9.1.2 (2)–(4)):
 the submanifolds `Mᵢ = {z ∈ U(y) | f(z) = sᵢ(z)}` of the branches through `f(y)`, with the

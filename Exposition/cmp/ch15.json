@@ -34,7 +34,7 @@
     "statement": "For an sc-Fredholm section $f$ and an sc⁺-multisection $\\Lambda$ there is a unique section functor $T(f,\\Lambda)$ of $\\mathrm{GrF}(X) \\to X_\\infty$ with (1) $T(f,\\Lambda)(x) = 0$ off $\\mathrm{supp}(\\Lambda \\circ f)$ and (2) $T(f,\\Lambda)(y) = \\sum_{f(y) = s_i(y)} \\sigma_i (f - s_i)'(y)$ for any local sc⁺-section structure."
    },
    "lean": {
-    "statement": "`theorem_15_1_1_intrinsic`: for `A.E.IsScFredholmSectionFunctor f`, two local section structures `IsLocalRepOn A Λ O s σ`, `IsLocalRepOn A Λ O′ t τ` on open sets and compatible charts with domains inside them, `linSumIntr c hx f s σ = linSumIntr c′ hx′ f t τ` at every $x \\in X_1$ in both charts ($\\sum_{f(x) = s_i(x)} \\sigma_i\\,\\Phi_x^{-1} \\circ D((\\hat f - \\hat s_i) \\circ r)(\\varphi x) \\circ T\\varphi$ in $\\mathrm{GrF}(x)$). Chart form `theorem_15_1_1`, model form `theorem_15_1_1_model`. The value: `linearization_eq` (property (2) for any data), `nonempty_localLinData`; property (1): `linearization_eq_zero`.",
+    "statement": "`theorem_15_1_1_intrinsic`: for `A.E.IsScFredholmSectionFunctor f`, two local section structures `IsLocalRepOn A Λ O s σ`, `IsLocalRepOn A Λ O′ t τ` on open sets and compatible charts with domains inside them, `linSumIntr c hx f s σ = linSumIntr c′ hx′ f t τ` at every $x \\in X_1$ in both charts ($\\sum_{f(x) = s_i(x)} \\sigma_i\\,\\Phi_x^{-1} \\circ D((\\hat f - \\hat s_i) \\circ r)(\\varphi x) \\circ T\\varphi$ in $\\mathrm{GrF}(x)$). Chart form `theorem_15_1_1`, model form `theorem_15_1_1_model`. The value: `linearization_eq` (property (2) for any data), `nonempty_localLinData`; property (1): `linearization_eq_zero`.\n\nFunctor property: `theorem_15_1_1_functor` (`grfPush`, `toIntr_transportChart`, `linSumIntr_transportChart`): `SBLocalization.theorem_15_1_1_functor (hf : A.E.IsScFredholmSectionFunctor f) (hΛ : IsScPlusMultisection A Λ) (φ : A.Mor) (hx : levelVal 1 x = src φ) (hy : levelVal 1 y = tgt φ) : linearization f Λ y = grfPush φ (mem_levelSet_one_of_src hx) hx hy (linearization f Λ x)`. Definitions: `muLin` is $\\mu(\\varphi,\\cdot)$ as a linear map $W_x\\to W_y$. `conjOp` is $\\mu(\\varphi,\\cdot)\\circ L\\circ T\\varphi^{-1}$, with $T\\varphi$ = Chapter 7's `EpGroupoid.tangentMorCLE`. `grfPush` is $\\varphi_*$, defined as `Finsupp.mapDomain conjOp`. Ingredients: Local section structures are carried along wave 1's local strong bundle isomorphism `E.morIso φ` of the sheet of $\\varphi$ (`transSec`, `isScPlusSectionOn_transSec`, `isLocalRepOn_transSec`). The chart $c$ at $x$ is carried to `(E.morIso φ).transportChart c` at $y$. In the carried chart $T\\varphi$ is the identity on chart vectors (`chartVec_transport`), and the fibre part composes with $\\mu(\\varphi,\\cdot)$ to that of $c$ (`fiberLin_transport_muLin`). Hence `toIntr_transportChart`: the intrinsic operator in the carried chart is `conjOp` of the one in $c$. Hence `linSumIntr_transportChart`: the formal sums correspond under `grfPush`.",
     "decls": [
      "Chapter15/P3T_LinearizationIntrinsic · SBLocalization.theorem_15_1_1_intrinsic",
      "Chapter15/P3T_LinearizationIntrinsic · SBLocalization.linSumIntr",
@@ -52,17 +52,38 @@
      "Chapter15/P3T_LinearizationModel · Linearization15.continuousOn_scDeriv_coe",
      "Chapter15/P3T_SeparationLemmas · Linearization15.wsum_pair_eq_of_isLocal",
      "Chapter15/P3L_FredholmSummands · SBLocalization.subDeriv_isScFredholm",
-     "Chapter15/P3L_FredholmSummands · SBLocalization.linearization_summand_isScFredholm"
+     "Chapter15/P3L_FredholmSummands · SBLocalization.linearization_summand_isScFredholm",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.theorem_15_1_1_functor",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.grfPush",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.conjOp",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.conjOp_apply",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.muLin",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.muLin_apply",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.mem_levelSet_one_of_src",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.transSec",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.transSet",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.isOpen_transSet",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.P_transSec",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.isScPlusSectionOn_transSec",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.isWFunctor_morIso_Φ",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.isLocalRepOn_transSec",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.principal_transportChart_transSec",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.chartVec_transport",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.fiberLin_transport_muLin",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.fiberLin_transport_mem_range",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.toIntr_transportChart",
+     "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.linSumIntr_transportChart"
     ]
    },
    "chips": [
     "well-definedness: stronger",
-    "functor property: G.144",
-    "Fredholm summands: chart reading (V15.9)"
+    "functor property: level-1 points (stronger)",
+    "Fredholm summands: chart reading, `hft`"
    ],
    "diff": [
-    "The well-definedness, the substance of the proof, is proved in a stronger form: at all level-1 points, for $\\Lambda$ not necessarily a functor, using only sc-smoothness of $f$. Narrower because the functor property $T(f,\\Lambda)(t\\varphi) = \\varphi_* T(f,\\Lambda)(s\\varphi)$ (gap G.144) is not formalized; the sc-Fredholm property of the summands is proved in the chart reading for $f$ with tame germ data (`linearization_summand_isScFredholm`, V15.9; gap G.145 closed).",
-    "Readings (Findings, Chapter 15, items 1, 2): (a) the separation argument runs in the level-1 topology, and the \"weak topology\" of the limit of derivatives is read as pointwise convergence on $E_0$ (the derivatives $D(g \\circ r)$ of an sc¹ map are continuous only from level 1); (b) in the final display, presumably the sum is over $\\{i : f(0) = s_i(0)\\}$, since $f(0) = s_i(0)$ need not hold for all $i$; the proof compares the formal sums of pairs $(s_i(r(y)), D((f - s_i) \\circ r)(y))$. \"Without loss of generality $X = O$\" is the chart change `toIntr_chart_independent`."
+    "The well-definedness, the substance of the proof, is proved in a stronger form: at all level-1 points, for $\\Lambda$ not necessarily a functor, using only sc-smoothness of $f$. The functor property $T(f,\\Lambda)(t\\varphi) = \\varphi_* T(f,\\Lambda)(s\\varphi)$ is proved at all level-1 points (`theorem_15_1_1_functor`, with $\\varphi_*$ = `grfPush`, $T\\varphi$ = Chapter 7's `tangentMorCLE`; gap G.144 closed), where the text speaks of smooth points. The row stays narrower for one reason only: the sc-Fredholm property of the summands is proved in the chart reading for $f$ with Part I's tame germ data (`linearization_summand_isScFredholm`, V15.9; gap G.145 closed).",
+    "Readings (Findings, Chapter 15, items 1, 2): (a) the separation argument runs in the level-1 topology, and the \"weak topology\" of the limit of derivatives is read as pointwise convergence on $E_0$ (the derivatives $D(g \\circ r)$ of an sc¹ map are continuous only from level 1); (b) in the final display, presumably the sum is over $\\{i : f(0) = s_i(0)\\}$, since $f(0) = s_i(0)$ need not hold for all $i$; the proof compares the formal sums of pairs $(s_i(r(y)), D((f - s_i) \\circ r)(y))$. \"Without loss of generality $X = O$\" is the chart change `toIntr_chart_independent`.",
+    "The functor property: $x \\in X_1$ forces $\\varphi \\in \\mathbf X_1$ (`mem_levelSet_one_of_src`). Local section structures and charts are carried along the local strong bundle isomorphism `E.morIso φ` of the sheet of $\\varphi$ (`isLocalRepOn_transSec`, `LocalIso.transportChart`); in the carried chart $T\\varphi$ is the identity on chart vectors and the fibre part composes with $\\mu(\\varphi,\\cdot)$ (`toIntr_transportChart`). The functoriality of $\\varphi \\mapsto \\varphi_*$ itself ($(\\psi\\varphi)_* = \\psi_*\\varphi_*$) is not formalized and is not needed for the theorem (about 60–100 lines from Chapter 7)."
    ]
   },
   {
@@ -396,20 +417,34 @@
     "statement": "If $(f,\\Lambda)$ is in good position at $x \\in \\partial X$, there are $U(x)$ with the natural $G_x$-action, tame submanifolds $M_i$ and weights $\\sigma_i > 0$ with (1) the $M_i$ properly embedded; (2) $T(f,\\Lambda)$ onto, with kernels in good position, on $M_{U(x)}$; (3) $\\Lambda(f(y)) = \\sum_{y \\in M_i} \\sigma_i$. $\\Lambda \\circ f$ is then a tame branched ep⁺-subgroupoid. The same holds under the general position requirement instead of (2)."
    },
    "lean": {
-    "statement": "`theorem_15_2_5_hyp (hf) (hft) (hΛ) (hgp : IsGoodPositionAt f Λ x)`, with the output data of `theorem_15_2_2_hyp`: the $M_i$ are `IsSmoothSubmanifold`; (1) proper inclusions; $M_{U(x)} = \\bigcup M_i$; (2) `IsGoodPositionAt f Λ y` (same local structure) at every $y \\in R.U$ with $\\Lambda(f(y)) > 0$; (3) the count; the formula for `linearization`; only branches through $f(x)$ meet.",
+    "statement": "`theorem_15_2_5_hyp (hf) (hft) (hΛ) (hgp : IsGoodPositionAt f Λ x)`, with the output data of `theorem_15_2_2_hyp`: the $M_i$ are `IsSmoothSubmanifold`; (1) proper inclusions; $M_{U(x)} = \\bigcup M_i$; (2) `IsGoodPositionAt f Λ y` (same local structure) at every $y \\in R.U$ with $\\Lambda(f(y)) > 0$; (3) the count; the formula for `linearization`; only branches through $f(x)$ meet.\n\nWitness of all hypotheses: `theorem_15_2_5_hyp_witness` on $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$ (zero section, $\\Lambda_0$, good position everywhere), with `theorem_15_2_5_hyp_applies` (the conclusion there, clause (2) included). The closing sentence (general position): `IsReducedOntoAtLevel f Λ x` / `IsInGeneralPositionAt f Λ x` (pointwise Definition 15.3.5); `isInGeneralPosition_iff_forall_at hf hΛ` (`IsInGeneralPosition` is the pointwise form on the support). Part I step: `StrongBundle.linKer_sup_reduced_eq_of_isGeneralPositionAt` and `isGoodPositionAt_of_isInGeneralPositionAt hf hft hΛ hpos hgp : IsGoodPositionAt f Λ x` (onto on $T^R_xX$ ⇒ good position at `x`, Remark 3.6.7 kind, applied to each branch $(f-s_i)|_O$). Converse at nearby points: `isReducedOntoAtLevel_of_isGeneralPositionGerm` (general position germs give onto on $T^R_y X$). `theorem_15_2_5_generalPosition_hyp (hX : A.X.IsTame) hf hft hΛ (hpos : 0 < Λ (f x)) (hgp : IsInGeneralPositionAt f Λ x)`: all clauses of `theorem_15_2_5_hyp`, with (2) as `∀ y ∈ R.U, 0 < Λ (f y) → IsInGeneralPositionAt f Λ y ∧ IsGoodPositionAt f Λ y`. Proof: `theorem_15_2_5_hyp` at `x`, then Part I's `exists_isOpen_isGeneralPositionGerm` on each branch over `W|O` (tame by `isTame_restrictOpen`) and a shrink of the natural representation.",
     "decls": [
      "Chapter15/P3L_BoundaryPerturbation · SBLocalization.theorem_15_2_5_hyp",
-     "Chapter15/P3L_BoundaryPerturbation · SBLocalization.exists_branch_goodPosition"
+     "Chapter15/P3L_BoundaryPerturbation · SBLocalization.exists_branch_goodPosition",
+     "Chapter15/P3W4SM_GoodPositionWitness · theorem_15_2_5_hyp_witness",
+     "Chapter15/P3W4SM_GoodPositionWitness · theorem_15_2_5_hyp_applies",
+     "Chapter15/P3W4SM_GeneralPositionLocal · StrongBundle.linKer_sup_reduced_eq_of_isGeneralPositionAt",
+     "Chapter15/P3W4SM_GeneralPositionLocal · IsReducedOntoAtLevel",
+     "Chapter15/P3W4SM_GeneralPositionLocal · IsInGeneralPositionAt",
+     "Chapter15/P3W4SM_GeneralPositionLocal · isInGeneralPosition_iff_forall_at",
+     "Chapter15/P3W4SM_GeneralPositionLocal · isGeneralPositionGerm_branch_at",
+     "Chapter15/P3W4SM_GeneralPositionLocal · isGoodPositionAt_of_isInGeneralPositionAt",
+     "Chapter15/P3W4SM_GeneralPositionLocal · exists_reduced_preimage_of_isGeneralPositionGerm",
+     "Chapter15/P3W4SM_GeneralPositionLocal · surjective_reduced_toIntr_of_isGeneralPositionGerm",
+     "Chapter15/P3W4SM_GeneralPositionLocal · isReducedOntoAtLevel_of_isGeneralPositionGerm",
+     "Chapter15/P3W4SM_GeneralPositionLocal · theorem_15_2_5_generalPosition_hyp",
+     "Chapter15/P3W4SM_GoodPositionWitness · theorem_15_2_5_generalPosition_hyp_witness"
     ]
    },
    "chips": [
     "tame germ data `hft` (from Part I)",
     "tame $M_i$: G.150",
-    "general-position variant: G.151"
+    "general position: tame $X$ (G.151 closed)"
    ],
    "diff": [
     "Hidden hypotheses: `hft : A.B.IsScFredholmSectionTame f` (Part I's tame germ data), inherited from Part I's Theorems 3.1.18 and 3.6.8 (rows V3.94, V3.103, V3.105; with the 2021 untamed notion Theorem 3.6.8 does not hold as we read it, V3.130); the text of §15.1–15.2 does not carry it (\"a strong bundle over an ep-groupoid, $f$ an sc-Fredholm section functor\"). Witness: `theorem_15_2_2_hyp_witness` (over $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$, the graph section of $0$ with $\\Lambda_0$).",
-    "\"Tame submanifolds\" and \"tame branched\" (Definition 9.3.6) are not formalized (gap G.150): `IsSmoothSubmanifold` (Definition 4.2.1) allows boundary and corners. The closing variant with $T^R_yX$ (general position) is not formalized (gap G.151)."
+    "\"Tame submanifolds\" and \"tame branched\" (Definition 9.3.6) are not formalized (gap G.150): `IsSmoothSubmanifold` (Definition 4.2.1) allows boundary and corners. The closing variant with $T^R_yX$ (general position) is `theorem_15_2_5_generalPosition_hyp` (gap G.151 closed), with `hX : A.X.IsTame` and `hft`; the hypothesis is at $x$ only, and the conclusion gives general and good position on $U(x)$. Witness: `theorem_15_2_5_generalPosition_hyp_witness`.",
+    "The witness of `theorem_15_2_5_hyp` with good position at the support points, missing in the wave-2 list, is `theorem_15_2_5_hyp_witness` (good position from `remark_15_3_6_goodPosition_hyp` and `isInGeneralPosition_epSEP_zero`)."
    ]
   },
   {
@@ -700,6 +735,369 @@
    "diff": [
     "The text does not give $\\widetilde N$; its proof uses a single $N$; both forms are proved. The $\\Lambda^i$ play no role in (2). That $\\tilde f$ is sc-Fredholm carries Part I's tame germ data (V15.18). Parts (1) and (3) of the corollary are gap G.162."
    ]
+  },
+  {
+   "id": "V15.27",
+   "title": "Remark 15.3.6 (2017: 15.6), second sentence: general position gives good position on $\\partial X$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.3, Remark 15.3.6, second sentence, p. 693 (2017: Remark 15.6)",
+    "page": 693,
+    "statement": "If $(f,\\Lambda)$ is in general position and $x\\in\\operatorname{supp}(\\Lambda\\circ f)\\cap\\partial X$, then $T_{(f,\\Lambda)}(x)$ is in good position, even in general position."
+   },
+   "lean": {
+    "statement": "`remark_15_3_6_goodPosition_hyp` (hf : `IsScFredholmSectionFunctor f`) (hft : `A.B.IsScFredholmSectionTame f`) (hΛ : `IsScPlusMultisection A Λ`) (hgp : `IsInGeneralPosition A f Λ`) ($\\Lambda(f(x))>0$): (a) `IsGoodPositionAt f Λ x` (D15.2.4), and (b) for every local sc⁺-section structure `IsLocalRepOn A Λ O s σ` on an open $O\\ni x$ and every $i$ with $s_i(x)=f(x)$, the section $(f-s_i)|_O$ of $W|_O$ is in general position at $x$ in Part I's sense (`IsGeneralPositionGerm`, D5.3.9). The chart step `isGeneralPositionGerm_subRestrict`: in a tame chart $c$ of $W$ centred at $x$ with domain in $O$, if the intrinsic $(f-s)'(x)=$ `toIntr c hx (subDeriv c f s z)` is onto $W_x$ on $T^R_xX$ (`reducedTangentFiber`, D2.5.8), then $(f-s)|_O$ is in general position at $x$. Proof: in the transported chart of $W|_O$ the operator is $D((\\hat f-\\hat s)\\circ r)(0)$ (`scDeriv_restrictTo_subRestrict`); onto on $T^R_0O$ gives $\\ker\\mathrm{Lin}(0)+T^R_0O=T_0O$; Part I's chart criterion `isGeneralPositionGerm_of_sup_eq`. `isGeneralPositionGerm_branch` (per branch), `exists_reduced_preimage` (the chart reading of \"onto on $T^R_xX$\"). Good position from general position: Part I's Lemma 5.26 (`IsGeneralPositionGerm.isGoodPositionGermTame`).",
+    "decls": [
+     "Chapter15/P3W3G_GoodPosition · SBLocalization.exists_reduced_preimage",
+     "Chapter15/P3W3G_GoodPosition · SBLocalization.isGeneralPositionGerm_subRestrict",
+     "Chapter15/P3W3G_GoodPosition · SBLocalization.isGeneralPositionGerm_branch",
+     "Chapter15/P3W3G_GoodPosition · SBLocalization.remark_15_3_6_goodPosition_hyp"
+    ]
+   },
+   "chips": [
+    "tame germ data `hft` (from Part I)",
+    "every support point, not only $\\partial X$"
+   ],
+   "diff": [
+    "Inherited hypothesis `hft` (tame germ data), as in the §15.2 rows and G.140: it supplies the tame chart centred at $x$, and D15.2.4 is read with it. \"Good position\" is `IsGoodPositionAt`; \"even in general position\" is read per branch as Part I's D5.3.9 for $(f-s_i)|_O$, the M-polyfold notion that D15.3.5 extends (the text: \"a natural extension of the Definition 5.3.9\"). The statement holds at every point of the support, not only on $\\partial X$ (stronger in that respect)."
+   ]
+  },
+  {
+   "id": "V15.28",
+   "title": "Remark 15.3.6 (2017: 15.6), last sentence: $\\Lambda \\circ f$ is a branched ep⁺-subgroupoid",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.3, Remark 15.3.6, last sentence, p. 693 (2017: Remark 15.6)",
+    "page": 693,
+    "statement": "In general position, $\\Lambda\\circ f:X\\to\\mathbb Q^+$ is a tame branched ep⁺-subgroupoid."
+   },
+   "lean": {
+    "statement": "`remark_15_3_6_localBranching_hyp` (hf, hft, hΛ, hgp, $\\Lambda(f(y))>0$) : `Nonempty (A.X.LocalBranchingStructure (fun z => (Λ (f z) : ℚ)) y)` (D9.1.2 (2)–(4)), with $M_j=\\{z\\in U(y)\\mid f(z)=s_j(z)\\}$ over the branches through $f(y)$, from `theorem_15_2_5_hyp` at the point of good position given by `remark_15_3_6_goodPosition_hyp` (V15.27). `remark_15_3_6_isBranchedEpSubgroupoid_hyp` (hf, hft, hΛ, hgp, hpar : `ParacompactSpace (A.X.orbitSupp …)`) : `A.X.IsBranchedEpSubgroupoid (fun z => (Λ (f z) : ℚ))`. Helper `isFunctorial_comp`.",
+    "decls": [
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.remark_15_3_6_localBranching_hyp",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.isFunctorial_comp",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.remark_15_3_6_isBranchedEpSubgroupoid_hyp"
+    ]
+   },
+   "chips": [
+    "`hft`; D9.1.2 (1) as `hpar`",
+    "\"tame\": G.150"
+   ],
+   "diff": [
+    "`hft` inherited (V15.27). `hpar` is D9.1.2 (1) (new in 2021), not addressed by the remark; it is automatic when $|\\operatorname{supp}|$ is compact, which is the situation of T15.3.7 (V15.29, V15.30). Unlike interior form `remark_15_2_3_isBranchedEpSubgroupoid_hyp`, no $d_X=0$ on the support is needed: boundary points are covered through good position. \"Tame\" (D9.3.6) is not formalized (as in the gap on tame solution sets); the $M_j$ are D4.2.1 submanifolds."
+   ]
+  },
+  {
+   "id": "V15.29",
+   "title": "Theorem 15.3.7 (2017: 15.4), general position: existence of the perturbation",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.3, Theorem 15.3.7, pp. 693–698 (2017: Theorem 15.4)",
+    "page": 693,
+    "statement": "$X$ tame with sc-smooth bump functions, $f$ sc-Fredholm with $|S_f|$ compact, $(N,U)$ controlling compactness, $h:X\\to(0,1]$ a continuous functor. There is an sc⁺-multisection functor $\\Lambda$ with (1) $N(\\Lambda)<h$, (2) $\\operatorname{dom-supp}\\Lambda\\subseteq U$, (3) $T_{(f,\\Lambda)}$ onto on $\\operatorname{supp}(\\Lambda\\circ f)$, (4) kernels in general position to $\\partial X$; $\\Lambda$ can be taken structurable."
+   },
+   "lean": {
+    "statement": "`theorem_15_3_7_hyp` (h𝒰 : `Nonempty A.X.GoodSystem`) (hf : `IsScFredholmSectionFunctor f`) (hS : `HasCompactSolutionSetEp f`) (hcc : `ControlsCompactness A f N U`) ($0<h\\le1$) (hloc : `HasLocalGPFamilies A f N U h`) (hsard : `HasParametricGeneralPosition A f N U`) : $\\exists\\Lambda$, `IsStructurable A Λ` ∧ $\\forall x,\\ N(\\Lambda)(x)<h(x)$ ∧ `domSupp Λ ⊆ U` ∧ `IsTransversal f Λ` ∧ `IsInGeneralPosition A f Λ`. `theorem_15_3_7_of_hyp` (h𝒰) (H : under the hypotheses of the theorem — tame, bump functions, $f$ sc-Fredholm with tame germ data, compact $|S_f|$, $(N,U)$ controlling, $h$ a continuous functor into $(0,1]$ — both `hloc` and `hsard` hold) : `theorem_15_3_7_statement A`. The two hypotheses are the two analytic steps of the proof, stated as Props: `HasLocalGPFamilies A f N U h` (the \"Local constructions at $x\\in S_f$\", interior and boundary): every $x\\in S_f$ lies in a saturated open $Q$ carrying a `GPFamily A f N U h Q`: a linear family $t\\mapsto\\Lambda_t$, $t\\in\\mathbb R^\\ell$, of structurable sc⁺-multisections (`IsLinearFamily`: around every point local representations $(\\sum_jt_js_{ij},\\sigma_i)$ with the same domain, sections and weights for all $t$), $N(\\Lambda_t)\\le|t|_1h$, $\\operatorname{dom-supp}\\Lambda_t\\subseteq U$, and (15.1) at the points of $S_f\\cap Q$. `HasParametricGeneralPosition A f N U` (\"Achieving global transversality\"): for every linear family of sc⁺-multisections with $N(\\Lambda_t)\\le|t|_1$, $\\operatorname{dom-supp}\\Lambda_t\\subseteq U$ and (15.1) at every point of $S_f$, there is $\\varepsilon>0$ with: for almost every $t$ with $\\|t\\|<\\varepsilon$, $(f,\\Lambda_t)$ is in general position. (15.1) is `IsParamOntoAt f Λ x`: in a linear representation around $x$, for every branch $i$, every operator $L$ of $T_{(f,\\Lambda_0)}(x)$ and every chart presentation of $T^R_xX$, the map $(v,\\tau)\\mapsto Lv+\\sum_j\\tau_js_{ij}(x)$ is onto $W_x$ from $T^R_xX\\times\\mathbb R^\\ell$. Proved (steps (b), (c), (d) and the choice of $t$ in (h) of G.162): sums of families `famAdd`, `GPFamily.add` (structurable by Proposition 13.3.12, linear `IsLinearFamily.famAdd` via `isLocalRepOn_famAdd`/`paramSec_append`, (15.1) `IsParamOntoAt.famAdd_left/right`, norm by `pointwiseNorm_multisectionAdd_le`, domain support by `domSupp_multisectionAdd_subset`), `GPFamily.zero`, `GPFamily.mono`, `nonempty_gpFamily_biUnion`; the finite cover of $|S_f|$ (`exists_gpFamily_of_compact`, with Proposition 7.1.8); the choice of a small $t$ off the null set (`exists_norm_lt_of_ae`: balls have positive Lebesgue measure) with $|t|_1<1$ (`sum_abs_lt_one`), so $N(\\Lambda_t)\\le|t|_1h<h$; (3) from (4) (`isTransversal_of_isInGeneralPosition`). Tools for instantiating `hloc` later: `normW_paramSec_le` ($N(\\sum_jt_js_j(y))\\le\\sum_j|t_j|N(s_j(y))$), `pointwiseNorm_le_of_isLocalRepOn`, `pointwiseNorm_le_of_linear` ($N(\\Lambda_t)(x)\\le|t|_1b$ from $N(s_{ij}(x))\\le b$), `normW_add_le`, `exists_of_multisectionAdd_pos`.\n\nThe statement: `theorem_15_3_7_statement A : Prop` (a definition, not proved): `A.X.IsTame → A.X.AdmitsBumpFunctionsPointwise → ∀ f, IsScFredholmSectionFunctor f → IsScFredholmSectionTame f → HasCompactSolutionSetEp f → ∀ N U, ControlsCompactness A f N U → ∀ h, Continuous h → (∀ φ, h (src φ) = h (tgt φ)) → (∀ x, 0 < h x ∧ h x ≤ 1) → ∃ Λ, IsStructurable A Λ ∧ (∀ x, pointwiseNorm N Λ x < h x) ∧ domSupp Λ ⊆ U ∧ IsTransversal f Λ ∧ IsInGeneralPosition A f Λ`. `theorem_15_3_7_statement_epSEP_zero n`: the statement holds on the trivial example $\\mathbb R^n\\times\\mathbb R^0 \\to\\mathbb R^n$ (every pair is in general position there; the trivial multisection has all conclusions). `theorem_15_3_7_of_isInGeneralPosition_zero` (paracompact $|X|$, hf, aux norm, $h>0$, $(f,\\Lambda_0)$ in general position): $\\Lambda_0$ has all conclusions. Helpers `pointwiseNorm_zeroMultisection`, `domSupp_zeroMultisection`, `isInGeneralPosition_epSEP_zero`.",
+    "decls": [
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.HasLocalGPFamilies",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.HasParametricGeneralPosition",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.nonempty_gpFamily_biUnion",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.exists_gpFamily_of_compact",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.exists_norm_lt_of_ae",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.sum_abs_lt_one",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.isTransversal_of_isInGeneralPosition",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.theorem_15_3_7_hyp",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.theorem_15_3_7_of_hyp",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.nonempty_goodSystem_epSEP_zero",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.fiber_eq_epSEP_zero",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.hasParametricGeneralPosition_epSEP_zero",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.hasLocalGPFamilies_epSEP_zero",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.theorem_15_3_7_statement_epSEP_zero_of_hyp",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.paramSec",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.paramSec_apply",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.isSection_paramSec",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.paramFib",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.paramSec_fin_zero",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.isSection_append",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.parL",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.parR",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.paramSec_append",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.normW_paramSec_le",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.pointwiseNorm_le_of_isLocalRepOn",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.pointwiseNorm_le_of_linear",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.IsLinearFamily",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.IsParamOntoAt",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.famAdd",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.isLocalRepOn_famAdd",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.IsLinearFamily.famAdd",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.IsParamOntoAt.famAdd_left",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.IsParamOntoAt.famAdd_right",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.exists_of_multisectionAdd_pos",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.normW_add_le",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.pointwiseNorm_multisectionAdd_le",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.domSupp_multisectionAdd_subset",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.GPFamily",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.GPFamily.mono",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.isLocalRepOn_zeroMultisection",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.isStructurable_zeroMultisection_of_goodSystem",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.GPFamily.zero",
+     "Chapter15/P3W4GP_ParamFamily · SBLocalization.GPFamily.add",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.theorem_15_3_7_statement",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.theorem_15_3_7_statement_epSEP_zero",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.theorem_15_3_7_of_isInGeneralPosition_zero",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.pointwiseNorm_zeroMultisection",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.domSupp_zeroMultisection",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.isInGeneralPosition_epSEP_zero"
+    ]
+   },
+   "chips": [
+    "added: a good system exists (necessary)",
+    "two analytic steps: hypotheses (G.162)"
+   ],
+   "diff": [
+    "Added hypothesis `Nonempty A.X.GoodSystem`: \"structurable\" (D13.3.6, `IsStructurable`) contains a good system, so the conclusion implies that one exists; it holds for paracompact $|X|$ (Theorem 13.1.8). With R15.3.8 (no paracompactness) the text does not say where the good system comes from . `hloc` and `hsard` are the two steps of the proof not formalized here (gap G.162); `theorem_15_3_7_of_hyp` assumes them only under the hypotheses of the theorem. The tame germ data `hft`, tameness, bump functions, continuity and functoriality of $h$ are not used by the assembly; they enter only through `hloc`/`hsard` (in `theorem_15_3_7_of_hyp` they are premises of `H`). Readings: (15.1) with $f'(x)$ read as the operator of $T_{(f,\\Lambda_0)}(x)$ (D15.1.7) and the $t$-derivative of $f-\\sum_jt_js_{ij}$ as $\\tau\\mapsto-\\sum_j\\tau_js_{ij}(x)$ (sign immaterial); the proof's $\\varepsilon_0$ is $1/(\\ell+1)$ in the sup norm of $\\mathbb R^\\ell$; \"a set of measure zero … for $t$ in its complement\" is \"for almost every $t$\" (Lebesgue measure `volume` on `Fin ℓ → ℝ`).",
+    "Readings fixed in the statement `theorem_15_3_7_statement`: (3) is `IsTransversal` (Definition 15.2.1); (4) is `IsInGeneralPosition` (Definition 15.3.5), as the proof's first sentence says; \"structurable\" is Definition 13.3.6; the tame germ data `hft` are the inherited Part I hypothesis (the proof goes through Theorem 15.2.5); $U$ is open and saturated (`ControlsCompactness`), where the text says \"a saturated subset\"; no paracompactness of $|X|$ (Remark 15.3.8).",
+    "Witnesses: `nonempty_goodSystem_epSEP_zero`, `hasLocalGPFamilies_epSEP_zero`, `hasParametricGeneralPosition_epSEP_zero` on $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$, and jointly `theorem_15_3_7_statement_epSEP_zero_of_hyp` (the statement there, through `theorem_15_3_7_of_hyp`). `HasParametricGeneralPosition` quantifies over all linear families; on this example every pair $(f,\\Lambda)$ is in general position (`isInGeneralPosition_epSEP_zero`, for every $\\Lambda$), so it holds for every family, with $\\varepsilon = 1$. The example has fibre $0$; it shows the hypotheses are consistent, not that they hold in a case with nontrivial fibres.",
+    "The supporting inequalities the proof uses silently are proved: `pointwiseNorm_multisectionAdd_le` ($N(\\Lambda \\oplus \\Lambda') \\le N(\\Lambda) + N(\\Lambda')$) and `domSupp_multisectionAdd_subset`."
+   ]
+  },
+  {
+   "id": "V15.30",
+   "title": "Theorem 15.3.7 (2017: 15.4), \"in particular\": $\\Lambda \\circ f$ is compact and branched",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.3, Theorem 15.3.7, last sentence, p. 694 (2017: Theorem 15.4)",
+    "page": 694,
+    "statement": "For $\\Lambda$ as in the theorem, $\\Lambda\\circ f$ is a compact tame branched ep⁺-subgroupoid."
+   },
+   "lean": {
+    "statement": "`theorem_15_3_7_in_particular_hyp` (hf) (hft) (hcc : `ControlsCompactness A f N U`) (hΛ) (hN1 : $N(\\Lambda)\\le1$) (hdom : `domSupp Λ ⊆ U`) (hgp : `IsInGeneralPosition A f Λ`) : `IsBranchedEpSubgroupoid (Λ ∘ f) ∧ IsCompactBranched (Λ ∘ f)`. Ingredients: `isClosed_supp_comp`: $\\operatorname{supp}(\\Lambda\\circ f)$ is closed in $X$ (locally a finite union of $\\{f=s_i\\}$; helper `pos_iff_exists_eq`); `isClosed_orbitSupp_comp`: $|\\operatorname{supp}|$ closed in $|X|$ (saturated, orbit map open, P7.1.8); `supp_comp_subset_controlled`: with $N(\\Lambda)\\le1$ and dom-supp in $U\\supseteq S_f$, the support lies in $\\{x\\in U\\mid N(f(x))\\le1\\}$; `isCompact_orbitSupp_comp`: so $|\\operatorname{supp}|$ is compact; compactness gives the paracompactness of D9.1.2 (1), and the local branching comes from R15.3.6.",
+    "decls": [
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.pos_iff_exists_eq",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.isClosed_supp_comp",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.isClosed_orbitSupp_comp",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.supp_comp_subset_controlled",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.isCompact_orbitSupp_comp",
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.theorem_15_3_7_in_particular_hyp"
+    ]
+   },
+   "chips": [
+    "`hft` inherited",
+    "\"tame\": G.150"
+   ],
+   "diff": [
+    "`hft` inherited; \"tame\" (D9.3.6) not formalized. Only (1) (with $h\\le1$), (2) and (4) are used; (3) follows from (4) (`IsInGeneralPosition.surjective`)."
+   ]
+  },
+  {
+   "id": "V15.31",
+   "title": "Remark 15.3.8 (new in 2021), no paracompactness in Theorem 15.3.7",
+   "verdict": "nothing",
+   "book": {
+    "label": "§15.3, Remark 15.3.8, p. 694 (new in 2021)",
+    "page": 694,
+    "statement": "Theorem 15.3.7 does not assume a paracompact orbit space, but requires that an auxiliary norm exists; constructing auxiliary norms in applications usually needs the paracompactness of $|X|$ for a continuous partition of unity argument."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: a comment. `theorem_15_3_7_statement` assumes no paracompactness (V15.29); `theorem_15_3_7_hyp` assumes that a good system exists, which \"structurable\" (Definition 13.3.6) contains and paracompactness supplies (Theorem 13.1.8).",
+    "decls": [
+     "Chapter15/P3W3G_GeneralPosition · SBLocalization.theorem_15_3_7_statement",
+     "Chapter15/P3W4GP_GeneralPosition · SBLocalization.theorem_15_3_7_hyp"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V15.32",
+   "title": "Theorem 15.3.9 (2017: 15.5), the transversal extension theorem",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.3, Theorem 15.3.9, p. 698 (2017: Theorem 15.5)",
+    "page": 698,
+    "statement": "$X$ tame, $|X|$ paracompact, sc-smooth partitions of unity; $f$ sc-Fredholm with $|S_f|$ compact; $(N,U)$ controls compactness; $\\Lambda:W|\\partial X\\to\\mathbb Q^+$ $(N,U)$-admissible and structurable with $N(\\Lambda)<h$ on $\\partial X$ for a continuous functor $h:X\\to(0,1]$, and $T_{(f|\\partial X,\\Lambda)}(x)$ onto with respect to intersections of local faces at smooth $x\\in\\partial X$. Then there is a structurable $\\tilde\\Lambda$ with $\\tilde\\Lambda|(W|\\partial X)=\\Lambda$, dom-supp in $U$, $N(\\tilde\\Lambda)<h$, $T_{(f,\\tilde\\Lambda)}$ onto on $\\operatorname{supp}(\\tilde\\Lambda\\circ f)$, and $\\tilde\\Lambda\\circ f$ a compact tame branched ep⁺-subgroupoid."
+   },
+   "lean": {
+    "statement": "`theorem_15_3_9_statement A : Prop`: hypotheses `A.X.IsTame`, `HasParacompactOrbitSpace`, `A.X.PObj.AdmitsScPartitionsOfUnity`, `IsScFredholmSectionFunctor f`, `IsScFredholmSectionTame f`, `HasCompactSolutionSetEp f`, `ControlsCompactness A f N U`, `IsBoundaryStructurable A Λ`, `boundaryDomSupp Λ ⊆ U`, $N(\\Lambda)\\le1$ on $\\partial X$, $h$ continuous functor with $0<h\\le1$, $N(\\Lambda)<h$ on $\\partial X$, `IsBoundaryFaceOnto f Λ`; conclusion $\\exists\\tilde\\Lambda$, `IsStructurable` ∧ $\\tilde\\Lambda=\\Lambda$ over $\\partial X$ ∧ `domSupp ⊆ U` ∧ $N(\\tilde\\Lambda)<h$ ∧ `IsAdmissible A f N U Λ̃` ∧ `IsTransversal f Λ̃` ∧ `IsBranchedEpSubgroupoid (Λ̃ ∘ f)` ∧ `IsCompactBranched (Λ̃ ∘ f)`. `IsBoundaryFaceOnto f Λ`: for every sc⁺-multisection $\\Lambda'$ on $W$ equal to $\\Lambda$ over $\\partial X$ and every smooth $x\\in\\partial X$ with $\\Lambda(f(x))>0$, every operator of $T_{(f,\\Lambda')}(x)$ is onto on $T^R_xX$ (`IsReducedOntoAtPt`, D15.3.5 at one point; `isInGeneralPosition_iff_forall_reducedOntoAtPt`). **`theorem_15_3_9_hyp`**: `theorem_14_1_9_statement A → lemma_15_3_9_cutoff_statement A → theorem_15_3_7_relative_statement A → theorem_15_3_9_statement A`. The two step-propositions: `lemma_15_3_9_cutoff_statement` (the proof's step (a), p. 698): a continuous functor $h_0\\ge0$, supported in $U$, $h_0<h$, $N(\\Lambda)<h_0$ on dom-supp$(\\Lambda)$. `theorem_15_3_7_relative_statement` (steps (c)–(d), \"argue as in Theorem 15.3.7\"): for structurable $\\Lambda_0$ with dom-supp in $U$, $N(\\Lambda_0)<h$ and $(f,\\Lambda_0)$ in general position at the points of $\\operatorname{supp}(\\Lambda_0\\circ f)\\cap\\partial X$, a structurable $\\tilde\\Lambda=\\Lambda_0$ over $\\partial X$, dom-supp in $U$, $N(\\tilde\\Lambda)<h$, transversal and in general position. Proved in the reduction: step (b) (Theorem 14.1.9 with $\\tilde U=U$, $f=h_0$), the boundary general position of the extension (from `IsBoundaryFaceOnto` at smooth points, `mem_smoothSet_of_pos`), admissibility (`isAdmissible_of_domSupp_subset`), the \"moreover\" (`theorem_15_3_7_in_particular_hyp`), and `IsInGeneralPosition.isTransversal`. Witnesses on `epSEP n 0` ($\\mathbb R^n\\times\\mathbb R^0\\to\\mathbb R^n$, $\\partial X=\\emptyset$): `theorem_15_3_9_statement_epSEP_zero`, `lemma_15_3_9_cutoff_statement_epSEP_zero`, `theorem_15_3_7_relative_statement_epSEP_zero` (helpers `boundary_epSEP_eq_empty`, `boundaryDomSupp_epSEP`).",
+    "decls": [
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.IsReducedOntoAtPt",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.isInGeneralPosition_iff_forall_reducedOntoAtPt",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.IsBoundaryFaceOnto",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.theorem_15_3_9_statement",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.lemma_15_3_9_cutoff_statement",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.theorem_15_3_7_relative_statement",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.IsInGeneralPosition.isTransversal",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.theorem_15_3_9_hyp",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.boundary_epSEP_eq_empty",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.boundaryDomSupp_epSEP",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.lemma_15_3_9_cutoff_statement_epSEP_zero",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.theorem_15_3_7_relative_statement_epSEP_zero",
+     "Chapter15/P3W4TX_TransversalExtension · SBLocalization.theorem_15_3_9_statement_epSEP_zero"
+    ]
+   },
+   "chips": [
+    "reduction: T14.1.9, G.177, G.178"
+   ],
+   "diff": [
+    "Statement and the reduction only: the theorem follows from Theorem 14.1.9 statement and two steps of the text's proof, stated as propositions (gaps G.177, G.178). `theorem_15_3_7_hyp` proves T15.3.7 from two hypotheses (V15.29); the relative form needs the same engine with $\\Lambda_0$ fixed near $\\partial X$. Readings: \"surjective with respect to intersections of local faces\" = onto on $T^R_xX$ (the smallest intersection of the tangent spaces of the local faces), asked for every sc⁺ extension of $\\Lambda$ (the restriction to $T^R_xX$ only sees face values; independence of the extension not proved, G.179); \"$U$ a saturated subset\" read open and saturated; $\\Lambda:W|\\partial X\\to\\mathbb Q^+$ a function on $W$ of which only the values over $\\partial X$ enter; \"(U,N)-admissible\" over $\\partial X$ = dom-supp in $U$ and $N(\\Lambda)\\le1$ on $\\partial X$. Inherited: tame germ data of $f$ (as G.140, §15.2). \"Tame\" in \"tame branched\" not formalized (G.150). The conclusion adds general position inside the proof (not in the statement); the statement keeps the text's (3) \"onto\"."
+   ]
+  },
+  {
+   "id": "V15.33",
+   "title": "Corollary 15.3.10 (1) (2017: 15.1 (1)), regular perturbations exist",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.3, Corollary 15.3.10 (1), p. 699 (2017: Corollary 15.1 (1))",
+    "page": 699,
+    "statement": "$d_X\\equiv0$, $|X|$ paracompact, $f$ sc-Fredholm with $|S_f|$ compact, $(N,U)$ controlling compactness: there is a structurable $\\Lambda$ with dom-supp in $U$, $N(\\Lambda)<1$ and $T_{(f,\\Lambda)}$ onto on the support; $\\Theta=\\Lambda\\circ f$ is a tame branched ep⁺-subgroupoid with compact $|\\operatorname{supp}\\Theta|$ (\"structurable regular perturbation\")."
+   },
+   "lean": {
+    "statement": "`IsRegularPerturbation A f N U Λ := ControlsCompactness ∧ IsStructurable ∧ domSupp Λ ⊆ U ∧ N(Λ) < 1 ∧ IsTransversal f Λ`. **`corollary_15_3_10_1_hyp`** (h157 : `theorem_15_3_7_statement A`) (hd, hpara, hX : tame, hbump : `AdmitsBumpFunctionsPointwise`, hf, hft, hS, hcc): $\\exists\\Lambda$ regular, in general position, $\\Theta$ branched and compact (`theorem_15_3_7_in_particular_hyp`).",
+    "decls": [
+     "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.IsRegularPerturbation",
+     "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.corollary_15_3_10_1_hyp"
+    ]
+   },
+   "chips": [
+    "reduction to T15.3.7",
+    "added: tame, bump functions, `hft`"
+   ],
+   "diff": [
+    "Reduction to `theorem_15_3_7_statement` (`theorem_15_3_7_of_hyp` proves it from two hypotheses, V15.29). Added (needed by T15.3.7, not in the corollary): tame $X$ (presumably automatic for $d_X\\equiv0$, not in the library), bump functions (R15.3.2: the text needs them, the plan), tame germ data (inherited). $d_X\\equiv0$ and paracompactness are unused given T15.3.7. \"Tame\" branched not formalized."
+   ]
+  },
+  {
+   "id": "V15.34",
+   "title": "Corollary 15.3.10 (3) (2017: 15.1 (3)), regular perturbations are cobordant",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.3, Corollary 15.3.10 (3), pp. 699–700 (2017: Corollary 15.1 (3))",
+    "page": 699,
+    "statement": "there is a structurable regular perturbation $(\\tilde N,\\tilde U,\\tilde\\Lambda)$ of $\\tilde f$ on $[0,1]\\times X$ with $\\tilde\\Lambda=\\Lambda^i$ over $\\{i\\}\\times X$; $\\tilde\\Theta=\\tilde\\Lambda\\circ\\tilde f$ is a compact cobordism between $\\Theta_0$ and $\\Theta_1$ (proof: Theorem 15.3.9 on $[0,1]\\times X$)."
+   },
+   "lean": {
+    "statement": "**`corollary_15_3_10_3_hyp`** (h159 : `theorem_15_3_9_statement (A.cubeSEP 1)`) (hX, hd : $d_X\\equiv0$, hparaC : paracompact $|[0,1]\\times X|$, hPUC : partitions of unity on $[0,1]\\times X$, hf, hft, hS, $h_i$ : `ControlsCompactness A f Nᵢ Uᵢ`) and boundary data `Λb` on $\\tilde W$ with `Λb = Λᵢ` over $\\{i\\}\\times X$, `IsBoundaryStructurable`, `boundaryDomSupp Λb ⊆ interpSet A U₀ U₁`, $\\tilde N(\\Lambda_b)<1$ on $\\partial\\tilde X$, `IsBoundaryFaceOnto f̃ Λb`: $\\exists\\tilde\\Lambda$, `IsRegularPerturbation (A.cubeSEP 1) f̃ (interpAuxNorm A N₀ N₁) (interpSet A U₀ U₁) Λ̃`, $\\tilde\\Lambda=\\Lambda^i$ over $t=i$, $\\tilde\\Theta$ branched and compact. Helpers: `isScFredholmSectionTame_cubeLiftEp` (tame germ data of $\\tilde f$, from Part I's `paramCube`), `mem_boundary_cubeSEP_iff` ($\\partial([0,1]\\times X)=\\{0,1\\}\\times X$ for tame $X$ with $d_X\\equiv0$).",
+    "decls": [
+     "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.isScFredholmSectionTame_cubeLiftEp",
+     "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.mem_boundary_cubeSEP_iff",
+     "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.corollary_15_3_10_3_hyp"
+    ]
+   },
+   "chips": [
+    "reduction to T15.3.9 on $[0,1] \\times X$",
+    "cylinder hypotheses: no witness (G.181)"
+   ],
+   "diff": [
+    "Reduction to T15.3.9 on the cylinder (`cubeSEP`, `corollary_15_3_10_2`). Hypotheses not in the text: the properties of the glued boundary multisection $\\Lambda_b$ (the text derives them from the $\\Lambda^i$ being structurable regular perturbations; G.180), paracompactness and partitions of unity of $[0,1]\\times X$ (G.181). No satisfiability witness for the $\\Lambda_b$ hypotheses was built (G.181).",
+    "Not formalized, the last paragraph of the proof: $(N'', U'') = (\\max\\{N, N'\\}, U \\cap U')$ for two perturbations with different data (a prose step; it would follow from `isAuxNorm_max_mul` with $a = b = 1$ and `ControlsCompactness.mono`, about 40 lines). Corollary 15.4.4 as formalized does not need it (the cobordism data are a hypothesis there)."
+   ]
+  },
+  {
+   "id": "V15.35",
+   "title": "Remark 15.3.11 (2017: 15.7), invariants need orientations",
+   "verdict": "nothing",
+   "book": {
+    "label": "§15.3, Remark 15.3.11, p. 699 (2017: Remark 15.7)",
+    "page": 699,
+    "statement": "The topological content may be empty without an orientation; if $f$ is oriented, $\\Lambda \\circ \\tilde f$ has a natural orientation and one obtains invariants (§15.4)."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: a comment. The oriented case is §15.4 (V15.36, V15.37; the canonical orientation is gap G.159).",
+    "decls": [
+     "Chapter15/P3W4TX_Invariants · SBLocalization.theorem_15_4_3_hyp"
+    ]
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
+  },
+  {
+   "id": "V15.36",
+   "title": "Theorem 15.4.3 (2017: 15.7), compactness, branching and Stokes for $\\Lambda \\circ f$",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.4, Theorem 15.4.3, pp. 702–703 (2017: Theorem 15.7)",
+    "page": 702,
+    "statement": "$X$ tame, $(f,o)$ oriented sc-Fredholm of index $k$ with $|S_f|$ compact, $(N,U)$ controlling compactness, $\\Lambda$ with dom-supp in $U$, (1) $N(\\Lambda)\\le1$, (2) $T_{(f,\\Lambda)}$ onto on the support, (3) good position at the support points in $\\partial X$. Then $\\Theta=\\Lambda\\circ f$ is a compact tame branched ep⁺-subgroupoid, oriented by $o$ (T15.4.1), and $\\int_\\Theta d\\omega=\\int_{\\partial\\Theta}\\omega$ for $\\omega$ of degree $k-1$; with the local unique continuation property also for $\\oint$."
+   },
+   "lean": {
+    "statement": "**`theorem_15_4_3_isBranched_hyp`** (hf, hft, hcc, hΛ, hdom, hN1, htr : `IsTransversal f Λ`, hgood : `∀ x ∈ ∂X, 0 < Λ (f x) → IsGoodPositionAt f Λ x`): `IsBranchedEpSubgroupoid Θ ∧ IsCompactBranched Θ` (interior points: `remark_15_2_3_hyp`; boundary points: `localBranching_of_isGoodPositionAt` from `theorem_15_2_5_hyp`; compactness: `isCompact_orbitSupp_comp`). **`theorem_15_4_3_hyp`** ($0<m$, hPU : `A.X.HasScPartitionsOfUnity`, the hypotheses of `theorem_15_4_3_isBranched_hyp`, hT : `IsOrientation Θ T`, hloc : oriented tame structures of dimension $m+1$ representing $T$): Θ branched, compact, and `tameBranchedIntegral … (d ω) = boundaryMeasure … ω univ` for all `ω : A.baseEP.epFormsInfty m` (`theorem_9_5_17`). `theorem_15_4_3_eff_hyp` (hLUC, `theorem_9_5_18`); `theorem_15_4_3_dim1_hyp` ($k=1$, `theorem_9_5_17_dim1`).",
+    "decls": [
+     "Chapter15/P3W4TX_Invariants · SBLocalization.localBranching_of_isGoodPositionAt",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.theorem_15_4_3_isBranched_hyp",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.theorem_15_4_3_hyp",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.theorem_15_4_3_eff_hyp",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.theorem_15_4_3_dim1_hyp"
+    ]
+   },
+   "chips": [
+    "orientation as data (G.159)",
+    "added: partitions of unity (Stokes)"
+   ],
+   "diff": [
+    "The orientation is data ($T$, `hloc`): T15.4.1 (canonical orientation from $o$) is not formalized (G.159); \"tame\" and the dimension $k$ are the `hloc` reading of Theorem 9.5.17. Added: sc-smooth partitions of unity on $X$ (hypothesis of Theorem 9.5.17, inherited); tame germ data of $f$ (inherited); (3) is `IsGoodPositionAt` (D15.2.4 reading). $X$ tame is not used (good position carries tameness near the boundary points)."
+   ]
+  },
+  {
+   "id": "V15.37",
+   "title": "Corollary 15.4.4 (2017: 15.2), the invariant $\\Phi_{(f,o)}$ on de Rham cohomology",
+   "verdict": "narrower",
+   "book": {
+    "label": "§15.4, Corollary 15.4.4, p. 703 (2017: Corollary 15.2)",
+    "page": 703,
+    "statement": "$d_X\\equiv0$, $|X|$ paracompact, $|S_f|$ compact, $o$ an orientation: there is a well-defined $\\Phi_{(f,o)}:H^*_{dR}(X)\\to\\mathbb R$, $\\Phi([\\omega])=\\int_{(\\Lambda\\circ f,o)}\\omega$ for a regular perturbation; effective version with LUC. Proof left to the reader."
+   },
+   "lean": {
+    "statement": "`OrientedRegularPerturbation A f m` (regular perturbation + orientation $T$ of $\\Theta$ with oriented tame structures of dimension $m+1$), `.integral`. **`corollary_15_4_4_statement A f m Can : Prop`**, `Can` the (unformalized) condition \"the orientation is the canonical one from $(f,o)$\": (i) $\\int_P d\\eta=0$ for every `Can`-perturbation; (ii) closed $\\omega$ have the same integral over any two `Can`-perturbations. **`corollary_15_4_4_hyp`** (hPU, hd : $d_X\\equiv0$, `Can`, hcob : any two `Can`-perturbations are joined by `HasOrientedCobordism`): the statement, in every dimension $m+1\\ge1$. **`integral_eq_of_cobordism`** (the cobordism argument, for any sc-smooth functor $F:Y\\to X$ and $Y$ with partitions of unity): if $\\int_{\\partial\\tilde\\Theta}F^*\\omega=I_1(\\omega)-I_0(\\omega)$ for all $\\omega$, then $I_0(\\omega)=I_1(\\omega)$ for closed $\\omega$ (Stokes on $Y$, Ch8/11 $dF^*=F^*d$ `epFormsInftyD_comp_epFormsInftyPullback`, `tameBranchedIntegral_zero`). **`integral_d_eq_zero_of_degIndex_eq_zero`** (dim $\\ge2$) and `…_dim1`: for $d_X\\equiv0$, $\\int_\\Theta d\\eta=0$ (∂Θ = 0; `signedMeasure_univ_eq_zero_of_boundary`, `boundaryMeasure_univ_eq_zero`). `hasOrientedCobordism_refl` (hPU): every oriented regular perturbation is cobordant to itself ($Y=X$, $F=\\mathrm{id}$, $\\tilde\\Theta=0$), so `hcob` is satisfiable with nonempty `Can` (e.g. `Can = (· = P)`).",
+    "decls": [
+     "Chapter15/P3W4TX_Invariants · SBLocalization.tameBranchedIntegral_zero",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.signedMeasure_univ_eq_zero_of_boundary",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.boundaryMeasure_univ_eq_zero",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.integral_d_eq_zero_of_degIndex_eq_zero",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.integral_d_eq_zero_of_degIndex_eq_zero_dim1",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.integral_eq_of_cobordism",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.OrientedRegularPerturbation",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.OrientedRegularPerturbation.integral",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.OrientedRegularPerturbation.HasOrientedCobordism",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.OrientedRegularPerturbation.hasOrientedCobordism_refl",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.corollary_15_4_4_statement",
+     "Chapter15/P3W4TX_Invariants · SBLocalization.corollary_15_4_4_hyp"
+    ]
+   },
+   "chips": [
+    "cobordisms as hypothesis (G.182)",
+    "canonical orientation: parameter `Can`"
+   ],
+   "diff": [
+    "Formalized: well-definedness on cohomology given the cobordisms, i.e. the \"easy proof\" of the text, with Stokes and $dF^*=F^*d$. Not formalized: that two regular perturbations with canonical orientations are joined by such a cobordism (needs C15.3.10 (3), T15.4.1 on $[0,1]\\times X$, and the identification of the boundary measure of $\\tilde\\Theta$ with $\\int_{\\Theta_1}-\\int_{\\Theta_0}$; G.182), and the canonical orientation (`Can` is a parameter). $\\Phi$ on $H^*_{dR}$ is read degree-wise in the degree $m+1=\\dim\\Theta$ as (i)+(ii). Added: partitions of unity on $X$ (Stokes). Paracompactness of $|X|$ unused. The effective version is not formalized (same argument with `theorem_9_5_18`; about 60 lines)."
+   ]
+  },
+  {
+   "id": "V15.38",
+   "title": "Remark 15.4.5 (2017: 15.8), invariants by triangulation",
+   "verdict": "nothing",
+   "book": {
+    "label": "§15.4, Remark 15.4.5, p. 703 (2017: Remark 15.8)",
+    "page": 703,
+    "statement": "For carefully chosen perturbations the weighted solution set can be triangulated to give a chain with rational coefficients; this is not carried out in the book."
+   },
+   "lean": {
+    "statement": "Nothing to formalize: the book does not carry it out.",
+    "decls": []
+   },
+   "chips": [
+    "prose"
+   ],
+   "diff": [
+    "None."
+   ]
   }
  ],
  "notFormalized": [
@@ -709,7 +1107,16 @@
    "label": "§15.1, Theorem 15.1.1, p. 684 (2017: Theorem 15.1)",
    "page": 684,
    "book": "For a morphism $\\varphi : x \\to y$ between smooth points, $T(f,\\Lambda)(y) = \\varphi_* T(f,\\Lambda)(x)$, where $\\varphi_*$ maps $\\sum \\sigma_i L_i$ to $\\sum \\sigma_i\\,\\mu(\\varphi,\\cdot) \\circ L_i \\circ T\\varphi^{-1}$.",
-   "instead": "What exists: $T(f,\\Lambda)(x)$ at every $x \\in X_1$ (`SBLocalization.linearization`, `linearization_eq`; V15.2, V15.8); the summands and `toIntr`, with the sc-Fredholm property of the summands (`linearization_summand_isScFredholm`, V15.9); wave 1's machinery for morphisms in Part I's `ChartPoint` picture: `EpStrongBundle.morIso` (the local strong bundle isomorphism of the sheet of $\\varphi$), `LocalIso.pullPt`, `morTx`/`morKx` for $T\\varphi$ and $\\mu(\\varphi,\\cdot)$, `lemma_12_5_1_*`. Missing: (i) $\\varphi_*$ on `GrF` (`Finsupp.mapDomain` of $L \\mapsto \\mu(\\varphi,\\cdot) \\circ L \\circ T\\varphi^{-1}$), about 40 lines; (ii) the transport of a local section structure along $t \\circ s^{-1}$ near $\\varphi$ ($\\mu \\circ s_i \\circ (ts^{-1})^{-1}$ is sc⁺ and represents $\\Lambda$ near $y$ by `IsWFunctor`), about 120 lines; (iii) a bridge from `toIntr`/`subDeriv` to `morTx`/`morKx` and the chain rule for $D((\\hat f - \\hat s_i) \\circ r)$ under the local strong bundle isomorphism, about 200–300 lines. Estimate 350–500 lines."
+   "instead": "**Formalized** (2026-11-13, Part III wave 3; V15.2; `Chapter15/P3W3K_LinearizationFunctor.lean`): `theorem_15_1_1_functor` proves $T(f,\\Lambda)(t\\varphi) = \\varphi_* T(f,\\Lambda)(s\\varphi)$ at all level-1 points (stronger than the text's smooth points). $\\varphi_*$ is `grfPush`, the `Finsupp.mapDomain` of $L \\mapsto \\mu(\\varphi,\\cdot) \\circ L \\circ T\\varphi^{-1}$ with $T\\varphi$ Chapter 7's `tangentMorCLE`. Local section structures and charts are carried along `E.morIso φ` (`isLocalRepOn_transSec`, `LocalIso.transportChart`), and the chain rule in the carried chart is `toIntr_transportChart`.",
+   "formalized": [
+    "V15.2"
+   ],
+   "decls": [
+    "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.theorem_15_1_1_functor",
+    "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.grfPush",
+    "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.toIntr_transportChart",
+    "Chapter15/P3W3K_LinearizationFunctor · SBLocalization.linSumIntr_transportChart"
+   ]
   },
   {
    "g": 145,
@@ -744,10 +1151,14 @@
    "label": "§15.2, Theorem 15.2.5, closing sentence, p. 690 (2017: Theorem 15.3)",
    "page": 690,
    "book": "The conclusion of Theorem 15.2.5 also holds if (2) is replaced by the surjectivity of $T(f,\\Lambda)(y)$ restricted to $T^R_yX$.",
-   "instead": "What exists: `IsInGeneralPosition` (Definition 15.3.5, V15.24) and `theorem_15_2_5_hyp` under Part I's good position (V15.15). Missing: Part I's step \"restriction to $T^R_xX$ onto implies good position at $x$\" (of the kind of Remark 3.6.7), applied to $(f - s_i)|_O$. Estimate 150–250 lines if Part I has the step for tame charts, more otherwise.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 4; V15.15; `Chapter15/P3W4SM_GeneralPositionLocal.lean`): `isGoodPositionAt_of_isInGeneralPositionAt` (onto on $T^R_xX$ implies good position at $x$, applied to each branch $(f - s_i)|_O$, from Part I's `StrongBundle.linKer_sup_reduced_eq_of_isGeneralPositionAt`) and `theorem_15_2_5_generalPosition_hyp`: all clauses of `theorem_15_2_5_hyp`, with (2) as general and good position on $U(x)$, under `hX : A.X.IsTame` (the setting of Definition 15.3.5, needed for Part I's openness of general position) and the tame germ data `hft`. Witness `theorem_15_2_5_generalPosition_hyp_witness`.",
    "decls": [
-    "Chapter15/P3L_BoundaryPerturbation · SBLocalization.theorem_15_2_5_hyp",
-    "Chapter15/P3P_GeneralPosition · SBLocalization.IsInGeneralPosition"
+    "Chapter15/P3W4SM_GeneralPositionLocal · SBLocalization.isGoodPositionAt_of_isInGeneralPositionAt",
+    "Chapter15/P3W4SM_GeneralPositionLocal · SBLocalization.theorem_15_2_5_generalPosition_hyp",
+    "Chapter15/P3W4SM_GoodPositionWitness · SBLocalization.theorem_15_2_5_generalPosition_hyp_witness"
+   ],
+   "formalized": [
+    "V15.15"
    ]
   },
   {
@@ -756,7 +1167,7 @@
    "label": "§15.2, Remark 15.2.3, p. 689 (2017: Remark 15.2)",
    "page": 689,
    "book": "On the ep-groupoid $U(x)$ the functor $z \\mapsto \\Lambda(f(z))$ is a branched ep⁺-subgroupoid.",
-   "instead": "The local branching structure is given on $X$ at the support points of $U(x)$ (`remark_15_2_3_hyp`, V15.13). The restriction of the ep-groupoid to the $G_x$-invariant open $U(x)$ is not built; it is not needed for §§15.3–15.5 as far as we can see. About 80 lines.",
+   "instead": "The local branching structure is given on $X$ at the support points of $U(x)$ (`remark_15_2_3_hyp`, V15.13). Missing: the ep-groupoid $U(x)$ itself. Chapter 7's `subEpGroupoid` needs a saturated (ep-subgroupoid) set, and $U(x)$ is open but not saturated. Needed: the full subgroupoid on an open $G_x$-invariant $U(x)$ of a natural representation is an ep-groupoid (étale from the openness of `morOn U`; properness from $\\Gamma : G_x \\times U(x) \\to$ `morOn U(x)` being onto, $G_x$ finite); the transport of `LocalBranchingStructure` to it; paracompactness of the orbit space of the support. Estimate 250–350 lines (the earlier 80 lines assumed the restriction exists). Not needed for §§15.3–15.5 as far as we can see.",
    "decls": [
     "Chapter15/P3L_Transversality · SBLocalization.remark_15_2_3_hyp"
    ]
@@ -767,7 +1178,7 @@
    "label": "§15.4, Theorem 15.4.1, Definition 15.4.2 (2017: Theorem 15.6, Definition 15.7)",
    "page": 700,
    "book": "Under Assumption 15.4, for an oriented sc⁺-Fredholm section functor $(f,o)$ and an sc⁺-multisection $\\Lambda$, the tangent functor $T_{(f,\\Lambda)}$ has a canonical lift to formal sums of oriented sc-Fredholm operators, given in a local sc⁺-section structure by $\\sum \\sigma_i \\cdot (\\ker(f - s_i)'(y), o_{i,y})$.",
-   "instead": "Not formalized. It needs: the category $\\widehat{Gr}_F(X)$ of finite formal sums of oriented sc-Fredholm operators and its forgetful functor to $Gr_F(X)$ (about 250 lines); the orientation of $(f - s)'(y)$ induced by $o$, through Part I's `orTransfer` between linearizations of $f - s$ for different $s$ (about 200 lines); independence of the local sc⁺-section structure (about 300 lines, on top of the $T_{(f,\\Lambda)}$ interface, gap G.144); continuity of $o_{i,y}$ along $M_i$ (needs G.138, about 300 lines). The transport of orientations along equivalences is `orEqv`, `pushOr` (V12.39). Estimate 1,000 lines after G.138.",
+   "instead": "Not formalized. It needs: the category $\\widehat{Gr}_F(X)$ of finite formal sums of oriented sc-Fredholm operators and its forgetful functor to $Gr_F(X)$ (about 250 lines); the orientation of $(f - s)'(y)$ induced by $o$, through Part I's `orTransfer` between linearizations of $f - s$ for different $s$ (about 200 lines); independence of the local sc⁺-section structure (about 300 lines, on top of the $T_{(f,\\Lambda)}$ interface, gap G.144); continuity of $o_{i,y}$ along $M_i$ (needs G.138, about 300 lines). The transport of orientations along equivalences is `orEqv`, `pushOr` (V12.39). Estimate 1,000 lines after G.138. Theorem 15.4.3 and Corollary 15.4.4 take the orientation as data (`theorem_15_4_3_hyp`, V15.36; the parameter `Can` of `corollary_15_4_4_statement`, V15.37).",
    "decls": []
   },
   {
@@ -787,9 +1198,15 @@
    "label": "§15.3, Remark 15.3.6, p. 693 (2017: Remark 15.6)",
    "page": 693,
    "book": "At $x \\in \\partial X$, general position gives good position; $\\Lambda \\circ f$ is a tame branched ep⁺-subgroupoid.",
-   "instead": "Only the first sentence is formalized (`IsInGeneralPosition.surjective`, V15.25). The rest needs the step of gap G.151 (general position implies good position) and the tameness of gap G.150, on top of the local solution sets of §15.2 (V15.12–V15.15). Estimate 150–300 lines.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 3; V15.27, V15.28; `Chapter15/P3W3G_GoodPosition.lean`): `remark_15_3_6_goodPosition_hyp` (general position gives good position, and general position of each branch $(f - s_i)|_O$ in Part I's sense, at every support point) and `remark_15_3_6_localBranching_hyp`, `remark_15_3_6_isBranchedEpSubgroupoid_hyp` ($\\Lambda \\circ f$ is a branched ep⁺-subgroupoid), with Part I's tame germ data `hft`. \"Tame\" (Definition 9.3.6) stays gap G.150.",
    "decls": [
-    "Chapter15/P3P_GeneralPosition · SBLocalization.IsInGeneralPosition.surjective"
+    "Chapter15/P3W3G_GoodPosition · SBLocalization.remark_15_3_6_goodPosition_hyp",
+    "Chapter15/P3W3G_GeneralPosition · SBLocalization.remark_15_3_6_localBranching_hyp",
+    "Chapter15/P3W3G_GeneralPosition · SBLocalization.remark_15_3_6_isBranchedEpSubgroupoid_hyp"
+   ],
+   "formalized": [
+    "V15.27",
+    "V15.28"
    ]
   },
   {
@@ -798,9 +1215,92 @@
    "label": "§15.3, Theorem 15.3.7, Theorem 15.3.9, Corollary 15.3.10 (1), (3), pp. 694–700 (2017: Theorems 15.4, 15.5, Corollary 15.1)",
    "page": 694,
    "book": "Existence of admissible structurable perturbations in general position, the transversal extension theorem, and regular perturbations over $[0,1] \\times X$ agreeing with $\\Lambda^i$.",
-   "instead": "Not attempted. They need Theorem 13.5.6 (V13.49), §15.2 (V15.12–V15.15), Theorem 14.1.9 (Chapter 14, not begun) and partitions of unity. The $[0,1] \\times X$ data for (3) are ready: `cubeSEP`, `cubeLiftEp` (sc-Fredholm, compact solution set), `corollary_15_3_10_2`, `admitsBumpFunctionsPointwise_cubeProd` and $\\partial = \\{0,1\\} \\times X$ (`degIndex_cubeProd_one_of_degIndex_eq_zero`) (V15.18, V15.26). Estimate about 2,500 + 2,000 lines, and 300–600 for the corollary.",
+   "instead": "**Theorem 15.3.7.** `theorem_15_3_7_hyp` and `theorem_15_3_7_of_hyp` (V15.29) prove the theorem, and `theorem_15_3_7_statement`, from a good system and two Props, `HasLocalGPFamilies` and `HasParametricGeneralPosition`, both satisfiable (`hasLocalGPFamilies_epSEP_zero`, `hasParametricGeneralPosition_epSEP_zero`; jointly `theorem_15_3_7_statement_epSEP_zero_of_hyp`). The finite cover, the sums $\\bigoplus_i\\Lambda^{x_i}_{t_i}$ with their structurability, the norm and domain-support bounds and the choice of $t$ are proved. Missing (estimates): (1) `HasLocalGPFamilies`: at $x \\in S_f$, finitely many $w_j$ with $\\operatorname{im} f'(x)|T^R_xX + \\operatorname{span} w_j = W_x$ (Fredholm), sc⁺-sections $s^1_j$ on $U(x)$ with $s^1_j(x) = w_j$, vanishing off $V(x)$, $N(s^1_j) \\le \\min\\{1, h\\}$ (`exists_cutoff`, `theorem_13_5_4_1`), the symmetric family $s^g_t = \\sum_j t_j s^g_j$ (`SymmetricFamily.ofSeed` is linear in the seed; `AtomicData.ofFamily` gives the atomic $\\Lambda^x_t$, structurable by `theorem_13_5_3_of_goodSystem`), its linear local representations away from $U(x)$ (transport by $\\mu$, fibrewise linear), the bound via `pointwiseNorm_le_of_linear` and `normW_μ`, and openness of (15.1) on a saturated $Q(x)$ (surjectivity of Fredholm operators is open; $G_x$-equivariance $f(g * y) = \\mu(\\Gamma(g,y), f(y))$): 550–900 lines; (2) `HasParametricGeneralPosition`: the compactness (15.2), the local implicit function theorem for the parametrized problem on $\\mathbb R^\\ell \\times W \\to \\mathbb R^\\ell \\times X$ near the support (Part I's `theorem_5_3_10_of_family`, `theorem_15_2_5_hyp` for the pull-back family), Sard for the projections $F \\cap M_i \\to \\mathbb R^\\ell$ on intersections of faces (Part I's Theorem 4.3.1), a countable or finite union of null sets: 800–1,300 lines. Total 1.35–2.2k lines.\n\n**Theorem 15.3.9 and Corollary 15.3.10 (1), (3).** Theorem 15.3.9 is reduced to Theorem 14.1.9 and two steps of the proof (`theorem_15_3_9_hyp`, V15.32; gaps G.177, G.178); Corollary 15.3.10 (1) to Theorem 15.3.7 (`corollary_15_3_10_1_hyp`, V15.33); (3) to Theorem 15.3.9 on $[0,1] \\times X$ with the boundary data as hypotheses (`corollary_15_3_10_3_hyp`, V15.34; gaps G.180, G.181). The $[0,1] \\times X$ data are `cubeSEP`, `cubeLiftEp`, `corollary_15_3_10_2` (V15.18, V15.26).",
    "decls": [
+    "Chapter15/P3W4GP_GeneralPosition · SBLocalization.theorem_15_3_7_hyp",
+    "Chapter15/P3W4GP_GeneralPosition · SBLocalization.theorem_15_3_7_of_hyp",
+    "Chapter15/P3W4GP_GeneralPosition · SBLocalization.HasLocalGPFamilies",
+    "Chapter15/P3W4GP_GeneralPosition · SBLocalization.HasParametricGeneralPosition",
+    "Chapter15/P3W4TX_TransversalExtension · SBLocalization.theorem_15_3_9_hyp",
     "Chapter15/P3P_CubeAuxNorm · SEP.corollary_15_3_10_2"
+   ]
+  },
+  {
+   "g": 177,
+   "title": "Theorem 15.3.9, step (a): the cut-off functor $h_0$",
+   "label": "§15.3, proof of Theorem 15.3.9, p. 698 (2017: Theorem 15.5)",
+   "page": 698,
+   "book": "A continuous functor $h_0$ with $N(\\Lambda) < h_0 < h$ on $\\partial X$, supported in $U$.",
+   "instead": "Stated as `lemma_15_3_9_cutoff_statement` (it holds on $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$). Missing: continuity of $x \\mapsto N(\\Lambda)(x)$ on $\\partial X$ (locally the maximum of $N \\circ s_i$ over a face structure; $N$ is continuous, Definition 8.3.5), Tietze on $|\\partial X| \\subseteq |X|$ (paracompact Hausdorff, so normal) and an Urysohn cut-off into $U$, all functorial. Estimate 200–300 lines.",
+   "decls": [
+    "Chapter15/P3W4TX_TransversalExtension · SBLocalization.lemma_15_3_9_cutoff_statement"
+   ]
+  },
+  {
+   "g": 178,
+   "title": "Theorem 15.3.9, steps (c)–(d): relative general position",
+   "label": "§15.3, proof of Theorem 15.3.9, pp. 698–699 (2017: Theorem 15.5)",
+   "page": 698,
+   "book": "Transversality of $(f, \\Lambda_0)$ near $\\partial X$ from the boundary hypothesis; parameter-dependent perturbations $\\Lambda_t$ with domain support away from $\\partial X$, and $\\tilde\\Lambda = \\Lambda_t \\oplus \\Lambda_0$.",
+   "instead": "Stated as `theorem_15_3_7_relative_statement` (it holds on $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$). Missing: openness of reduced surjectivity near the boundary support (Part I's `exists_isOpen_isGeneralPositionGerm` per branch), the engine of Theorem 15.3.7 (gap G.162) with the extra summand $\\Lambda_0$ fixed, `pointwiseNorm` of $\\oplus$ with a margin, and $\\Lambda_t \\oplus \\Lambda_0 = \\Lambda_0$ over $\\partial X$. Estimate 400–700 lines on top of Theorem 15.3.7.",
+   "decls": [
+    "Chapter15/P3W4TX_TransversalExtension · SBLocalization.theorem_15_3_7_relative_statement"
+   ]
+  },
+  {
+   "g": 179,
+   "title": "Theorem 15.3.9: the boundary hypothesis does not depend on the extension",
+   "label": "§15.3, Theorem 15.3.9, p. 698 (2017: Theorem 15.5)",
+   "page": 698,
+   "book": "$T_{(f|\\partial X, \\Lambda)}$ is surjective with respect to the intersections of local faces at the support points on $\\partial X$.",
+   "instead": "`IsBoundaryFaceOnto` asks the condition for every sc⁺ extension of $\\Lambda$ (V15.32). Missing: the restriction of $(f - s_i)'(x)$ to $T^R_xX$ depends only on the face values of $s_i$, and the branches of two extensions agree on the faces through $x$. Estimate 150–250 lines.",
+   "decls": [
+    "Chapter15/P3W4TX_TransversalExtension · SBLocalization.IsBoundaryFaceOnto"
+   ]
+  },
+  {
+   "g": 180,
+   "title": "Corollary 15.3.10 (3): the boundary data on $\\{0,1\\} \\times X$",
+   "label": "§15.3, proof of Corollary 15.3.10 (3), pp. 699–700 (2017: Corollary 15.1)",
+   "page": 699,
+   "book": "The structurable regular perturbations $\\Lambda^0$, $\\Lambda^1$ give a structurable multisection over $\\partial([0,1] \\times X) = \\{0,1\\} \\times X$ to which Theorem 15.3.9 applies.",
+   "instead": "`corollary_15_3_10_3_hyp` takes the glued $\\Lambda_b$ with its properties as hypotheses (V15.34). Missing: $\\Lambda_b$ from $\\Lambda^0$, $\\Lambda^1$ (structured over $\\partial\\tilde X$ from the decorations of the $\\Lambda^i$, `BoundaryDecoration`), its norm and domain support (from `interpAuxNorm_of_cubeTime_eq_zero`/`_one`, `mem_interpSet_zero`/`_one`), and the face condition from the transversality of $(f, \\Lambda^i)$ ($T^R_{(i,x)}\\tilde X = T_xX$ when $d_X \\equiv 0$). Estimate 300–500 lines.",
+   "decls": [
+    "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.corollary_15_3_10_3_hyp"
+   ]
+  },
+  {
+   "g": 181,
+   "title": "$[0,1] \\times X$: paracompact orbit space, partitions of unity; a witness for Corollary 15.3.10 (3)",
+   "label": "§15.3, proof of Corollary 15.3.10 (3), p. 699 (2017: Corollary 15.1)",
+   "page": 699,
+   "book": "$[0,1] \\times X$ is a tame ep-groupoid to which Theorem 15.3.9 applies.",
+   "instead": "Assumed in `corollary_15_3_10_3_hyp` (`hparaC`, `hPUC`; V15.34). Missing: $|[0,1] \\times X| \\cong [0,1] \\times |X|$ paracompact (`cubeOrbitMap`), partitions of unity on the product, and a witness for the $\\Lambda_b$ hypotheses (for instance on $\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$ with $\\Lambda^i = \\Lambda_b = 0$). No witness of the three cylinder hypotheses exists now. Estimate 150–300 lines.",
+   "decls": [
+    "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.corollary_15_3_10_3_hyp"
+   ]
+  },
+  {
+   "g": 182,
+   "title": "Corollary 15.4.4: the cobordism between regular perturbations",
+   "label": "§15.4, Corollary 15.4.4, p. 703 (2017: Corollary 15.2); proof left to the reader",
+   "page": 703,
+   "book": "Two regular perturbations with the canonical orientations give the same value of $\\Phi_{(f,o)}$, through the cobordism of Corollary 15.3.10 (3); the effective version likewise.",
+   "instead": "`corollary_15_4_4_hyp` proves the corollary from `HasOrientedCobordism` for the canonically oriented perturbations (V15.37). Missing: (a) Theorem 15.4.1 on $X$ and on $[0,1] \\times X$ (gap G.159, about 1,000 lines); (b) Corollary 15.3.10 (3) unconditionally (Theorem 15.3.9, gaps G.177–G.181); (c) the identification of $\\mu^{\\partial\\tilde\\Theta}$ with the integrals over $\\{1\\} \\times \\Theta_1$ and $\\{0\\} \\times \\Theta_0$ with signs (Definition 9.3.10's boundary orientation; the analogue of the sign bookkeeping of Part I's Theorem 6.7.1), 1,500–3,000 lines; (d) the effective version, about 60 lines after (c).",
+   "decls": [
+    "Chapter15/P3W4TX_Invariants · SBLocalization.corollary_15_4_4_hyp",
+    "Chapter15/P3W4TX_Invariants · SBLocalization.corollary_15_4_4_statement"
+   ]
+  },
+  {
+   "g": 183,
+   "title": "$d_X \\equiv 0$ implies tame",
+   "label": "§15.3, Corollary 15.3.10 (1), p. 699 (2017: Corollary 15.1)",
+   "page": 699,
+   "book": "Corollary 15.3.10 assumes $d_X \\equiv 0$ and applies Theorem 15.3.7, which assumes $X$ tame.",
+   "instead": "`corollary_15_3_10_1_hyp` assumes `A.X.IsTame` (V15.33), needed by Theorem 15.3.7. Presumably automatic for $d_X \\equiv 0$ (every point interior); not in the library. Estimate 100–200 lines.",
+   "decls": [
+    "Chapter15/P3W4TX_RegularPerturbations · SBLocalization.corollary_15_3_10_1_hyp"
    ]
   }
  ]

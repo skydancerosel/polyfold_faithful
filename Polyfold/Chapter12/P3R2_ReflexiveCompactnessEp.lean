@@ -7,7 +7,7 @@ import Polyfold.Chapter12.P3N_AuxNormExtension
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), Part III, Chapter 12,
 §12.4, pp. 588–592: **Definition 12.4.3, Proposition 12.4.5, Theorem 12.4.6** (2017:
-Definition 12.12, Proposition 12.7, Theorem 12.7).
+Definition 12.10, Proposition 12.3, Theorem 12.10).
 
 # Reflexive local compactness for sc-Fredholm section functors
 
@@ -132,7 +132,7 @@ variable (E : EpStrongBundle X B)
 
 /-! ### Definition 12.4.3 -/
 
-/-- **Definition 12.4.3, pp. 588–589** (2017: Definition 12.12): the section functor `f` has the
+/-- **Definition 12.4.3, pp. 588–589** (2017: Definition 12.10): the section functor `f` has the
 **ep-groupoid reflexive local compactness property**: for every reflexive auxiliary norm `N`
 (Definition 12.2.10, a functor) and every object `x` there is an open `U(x) ∋ x` with
 `cl_X {y ∈ U(x) | N(f(y)) ≤ 1}` compact.  (The standing assumptions, reflexive `(0, 1)`-fibres and
@@ -213,7 +213,7 @@ theorem proposition_12_4_5_of_functorial {f : Obj → W} (hfs : IsSection P f)
       (closure_mono (image_mono fun y hy => ⟨hy.1.1, hy.2⟩))
   tfae_finish
 
-/-- **Proposition 12.4.5, p. 590** (2017: Proposition 12.7): for a strong bundle over an
+/-- **Proposition 12.4.5, p. 590** (2017: Proposition 12.3): for a strong bundle over an
 ep-groupoid with reflexive `(0, 1)`-fibres and an sc-smooth, regularizing section functor `f`, the
 following are equivalent: (1) `f` has the ep-groupoid reflexive local compactness property;
 (2) for every reflexive auxiliary norm `N` and `z ∈ |X|` there is a saturated open `Ũ` with
@@ -325,7 +325,7 @@ theorem theorem_12_4_6_of_continuous (hB : E.HasReflexiveFibers) {N : B.One → 
       have huA : u ∈ A := EpGroupoid.mem_of_π_mem_image hAs ⟨x, hxA, hux.symm⟩
       exact Or.inr (mem_iUnion₂.2 ⟨q, hq, u, subset_closure ⟨huU.1, huA⟩, hux⟩)
 
-/-- **Theorem 12.4.6, pp. 590–592** (2017: Theorem 12.7): let `(P : W → X, μ)` be a strong bundle
+/-- **Theorem 12.4.6, pp. 590–592** (2017: Theorem 12.10): let `(P : W → X, μ)` be a strong bundle
 over a tame ep-groupoid with paracompact orbit space and reflexive `(0, 1)`-fibres, `N` a
 reflexive auxiliary norm, and `f` an sc-Fredholm section functor with compact solution set and the
 reflexive local compactness property.  If `U_∂ ⊆ ∂X` is an open (in `∂X`) saturated neighbourhood

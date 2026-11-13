@@ -7,9 +7,9 @@ import Polyfold.Chapter10.StrongBundleEquivalenceExamples
 
 /-!
 Hofer–Wysocki–Zehnder, *Polyfold and Fredholm Theory* (Springer 2021), §15.3 "Perturbations",
-pp. 691–693: **Definition 15.3.1** (controlling pairs; 2017: Definition 15.2), the sentence
-before it, **Definition 15.3.3** (admissible perturbations; 2017: Definition 15.3) with the
-example after it, **Definition 15.3.5** (general position; 2017: Definition 15.4) and the first
+pp. 691–693: **Definition 15.3.1** (controlling pairs; 2017: Definition 15.4), the sentence
+before it, **Definition 15.3.3** (admissible perturbations; 2017: Definition 15.5) with the
+example after it, **Definition 15.3.5** (general position; 2017: Definition 15.6) and the first
 sentence of **Remark 15.3.6**.
 
 # Controlling pairs, admissible perturbations, general position
@@ -77,7 +77,7 @@ variable {A : SEP.{u}}
 /-! ### Definition 15.3.1 -/
 
 variable (A) in
-/-- **Definition 15.3.1, p. 691 (2017: Definition 15.2)**: `(N, U)` **controls the compactness**
+/-- **Definition 15.3.1, p. 691 (2017: Definition 15.4)**: `(N, U)` **controls the compactness**
 of `f`: `N` is an auxiliary norm (Definition 8.3.5), `U` a saturated open neighbourhood of `S_f`,
 and the orbit space of `{x ∈ U | N(f(x)) ≤ 1}` has compact closure in `|X|`. -/
 def ControlsCompactness (f : A.Obj → A.W) (N : A.B.One → ℝ) (U : Set A.Obj) : Prop :=
@@ -104,7 +104,7 @@ theorem ControlsCompactness.mono {f : A.Obj → A.W} {N : A.B.One → ℝ} {U U'
 /-! ### Definition 15.3.3 -/
 
 variable (A) in
-/-- **Definition 15.3.3, p. 692 (2017: Definition 15.3)**: an **`(N, U)`-admissible
+/-- **Definition 15.3.3, p. 692 (2017: Definition 15.5)**: an **`(N, U)`-admissible
 perturbation** for `f`: an sc⁺-multisection `Λ` with `N(Λ)(x) ≤ 1` for all `x` (Definition
 13.2.3) and `{x ∈ X | ∃ t ∈ [−1, 1], (tΛ)(f(x)) > 0} ⊆ U` (`tΛ` of Definition 13.2.10). -/
 def IsAdmissible (f : A.Obj → A.W) (N : A.B.One → ℝ) (U : Set A.Obj) (Λ : A.W → ℚ≥0) : Prop :=
@@ -154,7 +154,7 @@ theorem isAdmissible_of_domSupp_subset {f : A.Obj → A.W} (hf : IsSection A.P f
 /-! ### Definition 15.3.5 -/
 
 variable (A) in
-/-- **Definition 15.3.5, p. 693 (2017: Definition 15.4)**: `(f, Λ)` is **in general position**:
+/-- **Definition 15.3.5, p. 693 (2017: Definition 15.6)**: `(f, Λ)` is **in general position**:
 for every `x ∈ supp(Λ ∘ f)` (in `X₁`, where `T(f,Λ)` lives) every operator `L` of the formal sum
 `T(f,Λ)(x)` (Definition 15.1.7) is surjective on the reduced tangent space,
 `L|T^R_xX : T^R_xX → W_x`, with `T^R_xX` read in any chart `φ` around `x` and any presentation

@@ -35,11 +35,10 @@ sc⁺-section structure `(sᵢ, σᵢ)`.
   (data exist for an sc⁺-multisection), `linearization_eq_zero` (Theorem 15.1.1 (1) and Remark
   15.1.2: `0` where `Λ(f(x)) = 0`).
 
-## Not formalized here
+## Elsewhere
 
-The functor property `T(f,Λ)(t φ) = φ_* T(f,Λ)(s φ)` (the action of morphisms on `GrF`, p. 683),
-and that the operators are sc-Fredholm (Part I's `Lin(f, x)` for global sections,
-`exists_index_linSet`).
+The sc-Fredholm property of the operators is in `P3L_FredholmSummands`; the functor property
+`T(f,Λ)(t φ) = φ_* T(f,Λ)(s φ)` is in `P3W3K_LinearizationFunctor` (`theorem_15_1_1_functor`).
 -/
 
 open Set Filter Topology Function Module

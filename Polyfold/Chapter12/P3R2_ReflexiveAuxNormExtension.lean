@@ -39,10 +39,10 @@ Theorem 12.2.11.
   paracompact `|X|`, a reflexive auxiliary norm, and an `N` satisfying all hypotheses of
   `theorem_12_2_13_hyp`).
 
-## Not formalized here
+## Elsewhere
 
-The local coordinate construction (gap G.136 for Theorem 12.2.7) together with its lower
-semicontinuity under mixed convergence.
+The local step is `P3W3K_ReflexiveLocalExtension.hasReflexiveLocalExtensions_of_isTame`; Theorem
+12.2.13 is `theorem_12_2_13` there.
 -/
 
 open Set Filter Topology Function TopologicalSpace

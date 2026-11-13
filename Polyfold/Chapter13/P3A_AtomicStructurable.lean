@@ -32,13 +32,13 @@ points not over `|U(x₀)|`.
 * **`theorem_13_5_5_structurable_hyp`**: the last sentence of Theorem 13.5.5 from Theorem 13.5.3,
   as in the text.
 
-## What is missing
+## Elsewhere
 
-Definition 13.3.6 (structurable: good systems, `J(x, x')`, correspondences) is the wave-2 block D,
-not available here.  `hcrit` is the step "the transported structures fit together through
-correspondences"; with Definition 13.3.6 in hand it needs the `G_x`-actions on `I_x` through
-`γ_x` (Proposition 13.1.9, `proposition_13_1_9_D`) and the correspondences `τ_{x,x'}` built from
-the sheet indices of the morphisms `φ_{x'} ∘ φ ∘ φ_x⁻¹` between points of `U(x₀)`.
+`hcrit`, the step "the transported structures fit together through correspondences", is no
+longer needed: `P3W3C_AtomicStructurable` builds the correspondences as in the text and proves
+`theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic `Λ`, with
+`theorem_13_5_3_of_paracompact` and `theorem_13_5_5_structurable` (gap G.149, closed).  The
+declarations above are kept as supporting declarations.
 -/
 
 set_option maxSynthPendingDepth 3

@@ -873,15 +873,24 @@
   {
    "id": "V12.34",
    "title": "Theorem 12.2.13 (2017: 12.5), extension of reflexive auxiliary norms from the boundary",
-   "verdict": "narrower",
+   "verdict": "explicit",
    "book": {
     "label": "§12.2, Theorem 12.2.13, p. 578 (2017: Theorem 12.5)",
     "page": 578,
     "statement": "With reflexive $1$-fibres and $X$ tame: a reflexive auxiliary norm $N$ for $W_{0,1}|\\partial X$ extends to a reflexive auxiliary norm $\\tilde N$ of $W$. The proof: the local extension of Theorem 12.2.7 is well behaved under mixed limits \"by inspection\"; reflexive local norms near interior points; partitions of unity as in Theorem 12.2.11."
    },
    "lean": {
-    "statement": "`EpStrongBundle.theorem_12_2_13_hyp (h : X.HasParacompactOrbitSpace) (hB : E.HasReflexiveFibers) (hN : E.IsReflexiveAuxNormOn ∂X N) (hloc : HasReflexiveLocalExtensions X B N)`: there is $\\tilde N$ with `E.IsReflexiveAuxNorm Ñ` and $\\tilde N = N$ over $\\partial X$. `IsReflexiveAuxNormOn A N` is `IsAuxNormOn A N` with the liminf clause over $A$; `HasReflexiveLocalExtensions X B N`: every $x \\in \\partial X$ has an open $V \\ni x$ and $M$ with `B.IsLocalAuxNorm V M`, `B.MixedLscAt M y` for $P(y) \\in V$, and $M = N$ over $V \\cap \\partial X$.",
+    "statement": "`EpStrongBundle.theorem_12_2_13 (hX : X.IsTame) (h : X.HasParacompactOrbitSpace) (hB : E.HasReflexiveFibers) (hN : E.IsReflexiveAuxNormOn X.PObj.boundary N) : ∃ Ñ, E.IsReflexiveAuxNorm Ñ ∧ ∀ w, P (B.oneVal w) ∈ X.PObj.boundary → Ñ w = N w`. It is `theorem_12_2_13_hyp` with `hloc` discharged by `hasReflexiveLocalExtensions_of_isTame hX hB hN`. The local step is the Part I theorem `StrongBundle.exists_reflexiveLocalExtension_of_isTame (hP : PX.IsTame) (hB : B.HasReflexiveFibers)`. Suppose $N$ is continuous over $\\partial X$, a fibre seminorm over $\\partial X$, satisfies condition (2) for sequences in $\\partial X$, and is lsc along mixed convergent sequences in $\\partial X$. Then every $x_0\\in\\partial X$ has an open $V\\ni x_0$ and a local auxiliary norm $M$ on $V$ such that: $M$ is lsc along mixed convergent sequences (`MixedLscAt`) at every point over $V$; $M=N$ over $V\\cap\\partial X$. $M$ is wave 2's `retractNorm` (E), taken in a strong bundle chart around $x_0$ with reflexive $F_1$. Such a chart is supplied by `HasReflexiveFibers`.\n\nThe global part is `theorem_12_2_13_hyp` (with `hloc : HasReflexiveLocalExtensions X B N`), now discharged; its witness `theorem_12_2_13_hyp_witness` stays.",
     "decls": [
+     "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.theorem_12_2_13",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isTame",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.exists_reflexiveLocalExtension_of_isTame",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.mixedLscAt_retractNorm",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.weakTendsto_chartFibMap",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.exists_norm_chartFibMap_le",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.toBase_chartFibMap",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · WeakTendsto.sub",
+     "Chapter12/P3W3K_ReflexiveLocalExtension · TrivialBundle.theorem_12_2_13_witness",
      "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp",
      "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.IsReflexiveAuxNormOn",
      "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions",
@@ -892,12 +901,11 @@
     ]
    },
    "chips": [
-    "local step as hypothesis `hloc` (G.147)",
-    "paracompact $|X|$ assumed"
+    "paracompact $|X|$ named (T12.2.11)",
+    "local step proved (G.147 closed)"
    ],
    "diff": [
-    "Hidden hypotheses: `hloc : HasReflexiveLocalExtensions X B N`, the local step of the proof (the extension of Theorem 12.2.7 with its lower semicontinuity under mixed convergence), with the witnesses `hasReflexiveLocalExtensions_of_isReflexiveAuxNorm`, `theorem_12_2_13_hyp_witness` and, concretely, `TrivialBundle.epBundle_reflexive_witness` (the trivial bundle $\\mathbb R^n \\times \\mathbb R^k \\to \\mathbb R^n$ over the trivial ep-groupoid); `h : X.HasParacompactOrbitSpace`, which the text uses through the partition of unity of Theorem 12.2.7.",
-    "Everything else is proved: interior points carry the average of a reflexive norm of Proposition 5.1.8; average, transport and gluing keep the lower semicontinuity. `HasReflexiveLocalExtensions` implies wave 1's `HasLocalExtensions` (`.hasLocalExtensions`). Tameness enters only the local step and is dropped. The local step is gap G.147: the construction of Theorem 12.2.7 now exists (`StrongBundle.isLocalAuxNorm_retractNorm`, V12.9); its lower semicontinuity under mixed convergence is not proved."
+    "Hypotheses are the text's: reflexive 1-fibres, tame $X$, and $N$ reflexive over $\\partial X$ in the reading `IsReflexiveAuxNormOn`. `h : X.HasParacompactOrbitSpace` is not printed in the statement. The proof says \"partitions of unity, as in Theorem 12.2.11\", and T12.2.11 assumes paracompact $|X|$. T12.2.7, whose construction is reused, states it too. The statement only names it. The \"inspection\" is `StrongBundle.mixedLscAt_retractNorm`. Let $w_k\\to^m w$ with $P(w)\\in V$, and write $u=\\varphi(\\rho(P(\\cdot)))$ and $A(u)=$ `chartFibMap`. *Second term.* $h_k\\rightharpoonup h$ in the reflexive $F_1$ of the chart, and $A(u_k)h_k\\rightharpoonup A(u)h$ (`weakTendsto_chartFibMap`). The second fact holds because the sequence is bounded, by the local uniform bound `exists_norm_chartFibMap_le` from the joint continuity of $R[1]$, and converges in $F_0$, by the level-0 continuity of $R$ and the compact $F_1\\to F_0$. So $\\|h_k-A(u_k)h_k\\|$ is weakly lsc. *First term.* The points $\\Phi[1]^{-1}(u_k,A(u_k)h_k)$ lie over $\\rho(\\cdot)\\in\\partial X$ and are mixed convergent in the same chart. So the term is lsc by the lsc of $N$ over $\\partial X$. Tameness enters only through `MPolyfold.exists_retraction_boundary` (E). Witness for all hypotheses together: `TrivialBundle.theorem_12_2_13_witness n k`. It uses the tame trivial ep-groupoid of $\\mathbb R^n$, paracompact $|X|$, the reflexive fibres of $\\mathbb R^n\\times\\mathbb R^k$, and a reflexive auxiliary norm over $\\partial X$."
    ]
   },
   {
@@ -1225,8 +1233,15 @@
    "label": "§12.5, Theorem 12.5.3, last sentence, p. 594 (2017: Theorem 12.11)",
    "page": 594,
    "book": "For a morphism $\\varphi : x \\to x'$ between smooth points, the local $\\hat\\Phi$ pushes a continuous local section of $\\sigma$ to a continuous local section.",
-   "instead": "Not formalized. The pointwise data now exist also for maps between different bundles: `StrongBundle.LocalIso.morVia` and `morVia_eq` (`Chapter12/P3F_MixedPull.lean`, V12.44), and `EpStrongBundle.orMor` (V12.22). The missing step is the comparison of Part I's propagation along an sc-smooth path (`LocalTransport`, `IsContOrOn`, Chapter 6) with `morVia` along the image path: Part I's propagation charts must be compared with pulled charts (`mpullPt`), uniformly along a path. This step also gives the continuity clause of Theorem 12.5.7 (gap G.158). Estimate 1,000–1,500 lines.",
+   "instead": "**Formalized in part** (2026-11-13, Part III wave 3; `Chapter12/P3W3O_SectionPull.lean`, `P3W3O_StabTransfer.lean`, `P3W3O_PushPull.lean`): the transfer of `IsPush` along a `LocalIso`, the chart-level half of the missing comparison. The pointwise data are `StrongBundle.LocalIso.morVia` and `morVia_eq` (`Chapter12/P3F_MixedPull.lean`, V12.44). Proved:\n\n- `LocalIso.exists_pullSection`: an sc⁺-section $S'$ of $\\mathrm{pr}_2^*Y'$ is carried to one of $\\mathrm{pr}_2^*Y$ whose principal part in the transported chart $c_T$ is $\\beta \\cdot S'$;\n- `LocalIso.isStabKernels_mpull`: stabilized kernels of $(f', S', s')$ along $\\phi \\circ y$ in $c$ are stabilized kernels of the carried data along $y$ in $c_T$;\n- `LocalIso.push_mpull`: the push-forwards correspond under `morPull`;\n- `LocalIso.isPush_mpull`: `IsPush` of $f'$ along $\\phi \\circ \\gamma$ in $c_0|W$ gives `IsPush` of $f$ along $\\gamma$ in the transported chart, with $e = \\mathrm{morPull}^{-1} \\circ e' \\circ \\mathrm{morPull}$.\n\nMissing (a), about 250 lines, `isPush_morVia`: chain `IsPush.transfer` (from any chart $c'$ to $c_0|W$), then `isPush_mpull`, then `IsPush.transfer` (from $c_T$ to any chart); this gives `IsPush` with $e = \\mathrm{morVia}^{-1} \\circ e' \\circ \\mathrm{morVia}$. The cut-off $\\beta$ and $W$ are built inside the proof ($c_0 := c'$ restricted to $U'$; `exists_isScSmoothMap_eq_one_nhdsSet` on the compact $\\gamma([0,1])$ gives $\\beta = 1$ on an open $N$; $W := U' \\cap g^{-1}N$). Then compare with `orLocalTransport` on short paths (`orLocalTransport_transport_eq` on both sides, `toChartOr_trans`, the `orTransfer` cocycle).\n\nMissing (b), about 300–400 lines, the continuity statement: dyadic subdivision (`LocalTransport.transport_halves`) and a Lebesgue number of the cover $\\gamma^{-1}(U_B \\cap U \\cap \\phi^{-1}U'_{B'})$, giving `IsContOrOn L' U' o' → IsContOrOn L (U ∩ ϕ⁻¹U') (the morVia-pull of o')`, with $L$, $L'$ Part I's local transports. Part I has no locality lemma for `IsContOrOn` (open cover implies `IsContOrOn`); it is part of this estimate.\n\nThis step also gives the continuity clause of Theorem 12.5.7 (gap G.158). Estimate: 550–650 lines after the present files (1,000–1,500 lines before them).",
    "decls": [
+    "Chapter12/P3W3O_PushPull · StrongBundle.LocalIso.isPush_mpull",
+    "Chapter12/P3W3O_PushPull · StrongBundle.LocalIso.isZeroAt_of_transportChart",
+    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.push_mpull",
+    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.orRay_mpull",
+    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.isStabKernels_mpull",
+    "Chapter12/P3W3O_StabTransfer · StrongBundle.LocalIso.morPull_apply",
+    "Chapter12/P3W3O_SectionPull · StrongBundle.LocalIso.exists_pullSection",
     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia",
     "Chapter12/P3F_MixedPull · StrongBundle.LocalIso.morVia_eq"
    ]
@@ -1237,7 +1252,7 @@
    "label": "§12.5, Proposition 12.5.6 (⇐), p. 595 (2017: Proposition 12.4)",
    "page": 595,
    "book": "If $|\\sigma|$ is two-to-one and has a global continuous section, $f$ is orientable.",
-   "instead": "`EpStrongBundle.proposition_12_5_6_mpr_invariant` gives the functorial section (V12.26); in the terms of Theorem 12.5.7 it satisfies `EpStrongBundle.IsOrInvariant` (V12.43). Its continuity for Part I's topology follows from G.138: near each point $O_f \\to |O_f|$ is then a local homeomorphism, and $o$ agrees with a continuous germ. Estimate 300–500 lines after G.138.",
+   "instead": "`EpStrongBundle.proposition_12_5_6_mpr_invariant` gives the functorial section (V12.26), and in the terms of Theorem 12.5.7 it satisfies `EpStrongBundle.IsOrInvariant` (V12.43). Its continuity for Part I's topology follows from the continuity statement of G.138 (missing step (b) there): apply it to the local isomorphisms `locIso` of the morphisms; near each point $O_f \\to |O_f|$ is then a local homeomorphism, and $o$ agrees with a continuous germ (`IsContOrOn.eventually_iff`). The chart-level part of G.138 is proved (`Chapter12/P3W3O_*`). Estimate 300–500 lines after G.138.",
    "decls": [
     "Chapter12/P3F_Naturality · EpStrongBundle.IsOrInvariant"
    ]
@@ -1256,10 +1271,15 @@
    "label": "§12.2, Theorem 12.2.13, p. 578 (local step; the construction is that of Theorem 12.2.7, p. 575) (2017: Theorem 12.5)",
    "page": 578,
    "book": "The local extension $N'(u,w) = N(rq(u), A(rq(u))w) + \\|w - A(rq(u))w\\|_{F_1}$ of the proof of Theorem 12.2.7 is well behaved under mixed limits (\"by inspection\"), so it gives reflexive local extensions near $\\partial X$.",
-   "instead": "`EpStrongBundle.theorem_12_2_13_hyp` (V12.34) takes this local step as the hypothesis `HasReflexiveLocalExtensions X B N` (a local auxiliary norm, `MixedLscAt`, $= N$ over $\\partial X$), witnessed (`theorem_12_2_13_hyp_witness`, `TrivialBundle.epBundle_reflexive_witness`); the rest of the proof is formalized. The construction of Theorem 12.2.7 now exists (`StrongBundle.isLocalAuxNorm_retractNorm`, gap G.136 closed). Missing: its lower semicontinuity under mixed convergence: for $w_k \\to^m w$ with $P(w)$ near $\\partial X$, the points $(rq(u_k), A(rq(u_k))w_k)$ are mixed convergent in $W|\\partial X$ (as in `mixedTendsto_actOne`: level-0 convergence and an $N$-bound), so the first term is lsc by the lsc of $N$ over $\\partial X$; the second term is weakly lsc once $w_k - A(rq(u_k))w_k \\rightharpoonup w - A(rq(u))w$ in $F_1$ (bounded and $F_0$-convergent). About 300–600 lines.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 3; V12.34; `Chapter12/P3W3K_ReflexiveLocalExtension.lean`): `StrongBundle.mixedLscAt_retractNorm` (lower semicontinuity of the local extension $N'$ of Theorem 12.2.7 along mixed convergent sequences, in a strong bundle chart with reflexive $F_1$), `StrongBundle.exists_reflexiveLocalExtension_of_isTame`, `EpStrongBundle.hasReflexiveLocalExtensions_of_isTame` (it discharges `hloc` of `theorem_12_2_13_hyp`) and `EpStrongBundle.theorem_12_2_13`, the printed theorem for tame $X$, with the paracompactness of $|X|$ named (the proof uses partitions of unity \"as in Theorem 12.2.11\"). Witness for all hypotheses together: `TrivialBundle.theorem_12_2_13_witness`.",
    "decls": [
-    "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.theorem_12_2_13_hyp",
-    "Chapter12/P3R2_ReflexiveAuxNormExtension · EpStrongBundle.HasReflexiveLocalExtensions"
+    "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.theorem_12_2_13",
+    "Chapter12/P3W3K_ReflexiveLocalExtension · EpStrongBundle.hasReflexiveLocalExtensions_of_isTame",
+    "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.exists_reflexiveLocalExtension_of_isTame",
+    "Chapter12/P3W3K_ReflexiveLocalExtension · StrongBundle.mixedLscAt_retractNorm"
+   ],
+   "formalized": [
+    "V12.34"
    ]
   },
   {
@@ -1268,7 +1288,7 @@
    "label": "§12.5, Theorem 12.5.7, pp. 595–597 (2017: Theorem 12.12)",
    "page": 595,
    "book": "$|\\bar{\\mathfrak f}|_* : |O_f| \\to |O_{f'}|$ is a homeomorphism, it does not depend on the representative, it is functorial, and $\\bar{\\mathfrak f}_* o$ is continuous.",
-   "instead": "`theorem_12_5_7_one_hyp` gives the bijection over the bijection of orbit spaces of the diagram, and `theorem_12_5_7_two_invariant` the unique invariant push-forward (V12.39; `Chapter12/P3F_Naturality.lean`). Continuity needs the step missing in G.138 (Part I's path transport commuting with `StrongBundle.LocalIso.morVia` along a local strong bundle isomorphism); with it, `orEqv` is a local homeomorphism of the orientation spaces and (1), (2) follow in about 300 lines. Independence of the representative: compare two representatives through a common refinement with `orMor_orEqv` and `pushOr_unique`, about 300 lines. Estimate 300 lines after G.138, plus 300 lines.",
+   "instead": "`theorem_12_5_7_one_hyp` gives the bijection over the bijection of orbit spaces of the diagram, and `theorem_12_5_7_two_invariant` the unique invariant push-forward (V12.39; `Chapter12/P3F_Naturality.lean`). Continuity needs G.138's continuity statement, applied to `IsStrongBundleEquivalence.locIso`; the chart-level part, `IsPush` carried along a `LocalIso` (`LocalIso.isPush_mpull`, `Chapter12/P3W3O_PushPull.lean`), is proved. With G.138, `orEqv` is a local homeomorphism of the orientation spaces, and (1), (2) follow in about 300 lines. Independence of the representative: compare two representatives through a common refinement with `orMor_orEqv` and `pushOr_unique`, about 300 lines; this half does not need G.138. Estimate: 300 lines after G.138, plus 300 lines.",
    "decls": [
     "Chapter12/P3F_Naturality · theorem_12_5_7_one_hyp",
     "Chapter12/P3F_Naturality · theorem_12_5_7_two_invariant"

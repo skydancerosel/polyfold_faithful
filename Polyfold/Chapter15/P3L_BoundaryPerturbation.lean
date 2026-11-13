@@ -74,7 +74,7 @@ def IsBranchGoodPosition (f s : A.Obj → A.W) {O : Set A.Obj} (hO : IsOpen O) (
   ∃ hf : IsSection A.P f,
     (A.B.restrictOpen hO).IsGoodPositionGermTame (subRestrict (O := O) f s hf) ⟨x, hxO⟩
 
-/-- **Definition 15.2.4 (2017: Definition 15.5), p. 689**: `(f, Λ)` is in good position at `x`
+/-- **Definition 15.2.4 (2017: Definition 15.3), p. 689**: `(f, Λ)` is in good position at `x`
 if `Λ(f(x)) > 0`, (2) `T(f,Λ)(x)` is onto, and (1), (3) there is a local sc⁺-section structure
 `(sᵢ, σᵢ)` of `Λ` on an open `O ∋ x` such that every branch `f − sᵢ` with `f(x) = sᵢ(x)` is in
 good position at `x` (Part I's Definition 3.6.6 in a tame chart of `W|O`: tameness near `x`, and
@@ -119,7 +119,7 @@ theorem exists_branch_goodPosition {f : A.Obj → A.W} (hft : A.B.IsScFredholmSe
 /-! ### Theorem 15.2.5 -/
 
 open Classical in
-/-- **Theorem 15.2.5 (2017: Theorem 15.6), p. 690 (boundary local perturbation)**, with the
+/-- **Theorem 15.2.5 (2017: Theorem 15.3), p. 690 (boundary local perturbation)**, with the
 added hypothesis that `f` has germ data in tame charts (`hft`, as in `theorem_15_2_2_hyp`).  If
 `(f, Λ)` is in good position at `x` (Definition 15.2.4), there are a natural representation
 `U(x)` of `G_x`, a local sc⁺-section structure `(sᵢ, σᵢ)` of `Λ` on `O ⊇ U(x)` and a strong bundle

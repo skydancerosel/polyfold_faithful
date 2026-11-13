@@ -337,7 +337,7 @@ theorem mem_interpSet_one {U₀ U₁ : Set A.Obj} {q : Fin 1 → unitInterval} (
   norm_num
 
 open SBLocalization in
-/-- **Corollary 15.3.10 (2), p. 699 (2017: Corollary 15.10 (2))**: if `(N⁰, U⁰)` and `(N¹, U¹)`
+/-- **Corollary 15.3.10 (2), p. 699 (2017: Corollary 15.1 (2))**: if `(N⁰, U⁰)` and `(N¹, U¹)`
 control the compactness of `f`, then `(Ñ, Ũ)` controls the compactness of
 `f̃(t, x) = (t, f(x))` on `W̃ → [0, 1] × X`, and `(Ñ, Ũ)` restricts to `(Nⁱ, Uⁱ)` over `t = i`
 (`interpAuxNorm_of_cubeTime_eq_zero/one`, `mem_interpSet_zero/one`). -/

@@ -1242,8 +1242,58 @@
     "statement": "An atomic sc⁺-multisection functor is structurable. The proof builds a good system, index sets $I_x$ (either $I_{x_0}$ or $\\{*\\}$), structures pulled back along morphisms, and correspondences."
    },
    "lean": {
-    "statement": "`theorem_13_5_3_local D hΛ h y : D.IsLocallyTransported Λ y` at every point (the local alternative of the proof: on an open $O \\ni y$, $\\Lambda$ is represented by $s'_i(z) = \\mu(\\tau(z), s_i(s(\\tau z)))$, $\\tau$ sc-smooth with $t(\\tau z) = z$ and $s(\\tau z) \\in U(x_0)$, index set $I$, weights $|I|^{-1}$; or $\\Lambda$ is trivial on an open $O \\ni y$). `theorem_13_5_3_hyp {Structurable} (hcrit : ∀ D Λ, IsScPlusMultisection A Λ → D.IsRelated Λ → (∀ y, D.IsLocallyTransported Λ y) → Structurable Λ) : IsAtomic A Λ → Structurable Λ`.",
+    "statement": "`theorem_13_5_3 (hΛ : IsAtomic A Λ) : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem`. `theorem_13_5_3_of_goodSystem (h𝒰 : Nonempty A.X.GoodSystem) (hΛ : IsAtomic A Λ) : IsStructurable A Λ`. `theorem_13_5_3_of_paracompact (hX : A.X.HasParacompactOrbitSpace)`. `IsStructurable` is Definition 13.3.6. There is no `hcrit`. The proof follows the text, with $Z=\\pi^{-1}\\pi(\\overline{V(x_0)})$ (closed, saturated): `AtomicStructData`, `exists_atomicStructData`: for $y\\in Z$, an open $O(y)\\ni y$ and $\\tau_y$ with $t\\tau_y=\\mathrm{id}$ and $s\\tau_y\\in U(x_0)$ (`exists_isLocalRepOn_transport`). `H y y' ψ ∈ G_{x₀}` is the unique $h$ with $\\Gamma(h,s\\tau_y(s\\psi))=\\tau_{y'}(t\\psi)^{-1}\\circ\\psi\\circ\\tau_y(s\\psi)$. It is functorial (`H_comp`, `H_unit`, `H_inv`). It is locally constant (`H_eventually`, from the finiteness of $G_{x_0}$ and Hausdorffness). $\\gamma_y(g)=H(\\Gamma(g,y))$ is a homomorphism (`γ`). The good system `𝒰` ⊆ the given one has the same natural actions. On it $H(\\Gamma(g,z))=\\gamma_y(g)$ for $z\\in U(y)$, $y\\in Z$, and $U(y)\\cap Z=\\emptyset$ for $y\\notin Z$. `S y` has index set $I_{x_0}$ at every $y$, with sections pulled back by $\\tau_y$ on $Z$ and zero sections off $Z$. It is equivariant through $\\gamma_y$ (`sec_compat`), and the counting formula comes from D13.5.1 (3). `corr y y' φ`: $[I\\xleftarrow{id}I\\xrightarrow{H(\\varphi)}I]$ when $y,y'$ are both in $Z$ or both outside it ($H=1$ outside); the full $[I\\leftarrow I\\times I\\to I]$ otherwise. `tau : dec.Tau` checks D13.3.4 (1)–(3) and D13.3.6 (1)–(2).",
     "decls": [
+     "Chapter13/P3W3C_AtomicStructurable · IndexDiagram.card_fst_fiber",
+     "Chapter13/P3W3C_AtomicStructurable · IndexDiagram.card_snd_fiber",
+     "Chapter13/P3W3C_AtomicStructurable · IndexDiagram.full",
+     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.full",
+     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.swap_full",
+     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.biact_full",
+     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.biact_ofEquiv",
+     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.swap_ofEquiv",
+     "Chapter13/P3W3C_AtomicStructurable · IndexCorr.sat_ofEquiv",
+     "Chapter13/P3W3C_AtomicStructurable · eventually_eq_of_existsUnique",
+     "Chapter13/P3W3C_AtomicStructurable · eq_of_mem_connectedComponentIn",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_comp",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_unit",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_inv_fibAct",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.fibAct_fibAct_inv",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.transportSection_eq_fibAct",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.comp_inv_comp",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData",
+     "Chapter13/P3W3C_AtomicStructurable · exists_atomicStructData",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.Z",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.isClosed_Z",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.mem_Z_iff_of_mor",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.σ",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.Dom",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.conj",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.existsUnique_rel",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_spec",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_unique",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_comp",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_unit",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_inv",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_eventually",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.γ",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.W",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.𝒰",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.W_cond",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.sec",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.sec_compat",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.sec_eq_zero",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.S",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.dec",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.corr",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.H_biact",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.isCorrespondence",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.tau",
+     "Chapter13/P3W3C_AtomicStructurable · AtomicStructData.isStructurable",
+     "Chapter13/P3W3C_AtomicStructurable · theorem_13_5_3_of_goodSystem",
+     "Chapter13/P3W3C_AtomicStructurable · theorem_13_5_3",
+     "Chapter13/P3W3C_AtomicStructurable · theorem_13_5_3_of_paracompact",
      "Chapter13/P3A_AtomicStructurable · SBLocalization.AtomicData.IsLocallyTransported",
      "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_local",
      "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_hyp",
@@ -1252,11 +1302,13 @@
     ]
    },
    "chips": [
-    "correspondences: hypothesis `hcrit` (G.149)"
+    "added: a good system exists (necessary)",
+    "paracompact $|X|$: `_of_paracompact`"
    ],
    "diff": [
-    "Hidden hypotheses: `hcrit`, the remaining step of the proof (the transported local structures fit together by correspondences), stated for a predicate `Structurable`; witness `theorem_13_5_3_hyp_witness` (Structurable := IsScPlusMultisection). D13.3.6 (`IsStructurable`, V13.30) was written in parallel; substituting it for `Structurable` and proving `hcrit` is gap G.149.",
-    "The local structures of the proof (the families $s_x$ with $I_x = I$ or $\\{*\\}$) are proved at every point."
+    "Definition 13.3.6 includes a good system, so a structurable Λ gives one. The `↔` form shows the hypothesis `Nonempty A.X.GoodSystem` is exactly what is needed. The text takes it from Theorem 13.1.8 ($|X|$ paracompact): `theorem_13_5_3_of_paracompact`. The index set is $I_{x_0}$ everywhere, with zero sections where Λ is trivial. The text uses $\\{*\\}$ there. Between $Z$ and its complement the correspondences are the full ones. These are structures in the sense of D13.3.6, so this is a different choice of witness, not a different statement.",
+    "Hidden hypotheses: `Nonempty A.X.GoodSystem`; it is necessary (the `↔` form) and holds for paracompact $|X|$ (`theorem_13_5_3_of_paracompact`, from Theorem 13.1.8). Witness: `nonempty_goodSystem_epSEP_zero` ($\\mathbb R^n \\times \\mathbb R^0 \\to \\mathbb R^n$). Theorem 13.5.3 as printed assumes no paracompactness, and Chapter 13 has no standing assumption that supplies it; the proof constructs the neighbourhoods itself. Theorem 13.1.8 is where paracompactness enters.",
+    "The earlier hypothesis form `theorem_13_5_3_hyp` (with `hcrit`) and its witness stay as supporting declarations; `hcrit` is no longer needed (gap G.149 closed)."
    ]
   },
   {
@@ -1299,7 +1351,7 @@
     "statement": "Finitely many sc⁺-sections $(s_i)_{i \\in I}$ of $W \\to X$, supported in $U(x)$ (natural action, properness property), with a $G_x$-action on $I$ and equivariance, give a uniquely determined atomic $\\Lambda$, supported in the saturation of $U(x)$, with $\\Lambda(w) = |I|^{-1}\\#\\{i \\mid s_i(P(w)) = w\\}$ over $U(x)$; it is structurable."
    },
    "lean": {
-    "statement": "`theorem_13_5_5 _hbump _hx R hprop (F : SymmetricFamily A R) [Nonempty F.I] : ∃! Λ, IsAtomic A Λ ∧ (∀ w, P w ∉ saturation R.U → Λ w = zeroMultisection A w) ∧ ∀ w, P w ∈ R.U → Λ w = |I|⁻¹ * #{i | s i (P w) = w}`. The $V(x)$ of the proof comes from `SymmetricFamily.exists_vanishing_nbhd`; the multisection is `AtomicData.mult` (`isScPlusMultisection_mult`: near points joined to $U(x)$ the sections transported by a local inverse of $t$, `exists_isLocalRepOn_transport`; elsewhere the zero section). \"Structurable\" is `theorem_13_5_5_structurable_hyp`, from Theorem 13.5.3 in its hypothesis form.",
+    "statement": "`theorem_13_5_5 _hbump _hx R hprop (F : SymmetricFamily A R) [Nonempty F.I] : ∃! Λ, IsAtomic A Λ ∧ (∀ w, P w ∉ saturation R.U → Λ w = zeroMultisection A w) ∧ ∀ w, P w ∈ R.U → Λ w = |I|⁻¹ * #{i | s i (P w) = w}`. The $V(x)$ of the proof comes from `SymmetricFamily.exists_vanishing_nbhd`; the multisection is `AtomicData.mult` (`isScPlusMultisection_mult`: near points joined to $U(x)$ the sections transported by a local inverse of $t$, `exists_isLocalRepOn_transport`; elsewhere the zero section). \"Structurable\" is `theorem_13_5_5_structurable` (given a good system), from `theorem_13_5_3_of_goodSystem`, as in the text; the earlier hypothesis form is `theorem_13_5_5_structurable_hyp`.",
     "decls": [
      "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.eq_zero_iff",
      "Chapter13/P3A_AtomicConstruction · SBLocalization.SymmetricFamily.exists_vanishing_nbhd",
@@ -1311,16 +1363,17 @@
      "Chapter13/P3A_Atomic · SBLocalization.AtomicData.domSupp_mult_subset",
      "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isScPlusMultisection_mult",
      "Chapter13/P3A_Atomic · SBLocalization.AtomicData.isAtomic_mult",
-     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable_hyp"
+     "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable_hyp",
+     "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable"
     ]
    },
    "chips": [
     "existence, uniqueness as printed",
-    "structurable: via T13.5.3 (G.149)",
+    "structurable: given a good system",
     "$I \\ne \\emptyset$ (implicit)"
    ],
    "diff": [
-    "Hidden hypotheses: $I \\ne \\emptyset$ (`[Nonempty F.I]`), implicit in the text (with $I = \\emptyset$ the printed formula gives $\\Lambda = 0$ over $U(x)$, which is not a multisection; for atomic $\\Lambda$ it is automatic, `IsRelated.nonempty`); witness `SymmetricFamily.ofSeed` ($I = G_x$). The structurable clause rests on `hcrit` of Theorem 13.5.3 (V13.46, gap G.149).",
+    "Hidden hypotheses: $I \\ne \\emptyset$ (`[Nonempty F.I]`), implicit in the text (with $I = \\emptyset$ the printed formula gives $\\Lambda = 0$ over $U(x)$, which is not a multisection; for atomic $\\Lambda$ it is automatic, `IsRelated.nonempty`); witness `SymmetricFamily.ofSeed` ($I = G_x$). The structurable clause assumes that a good system exists, as Theorem 13.5.3 does (V13.46; paracompact $|X|$ via Theorem 13.1.8); gap G.149 is closed.",
     "Existence and uniqueness are as printed. \"Supported in the saturation of $U(x)$\" is read as: $\\Lambda$ is trivial over points not isomorphic to a point of $U(x)$. The first-case formula of the proof is read with $w' = \\mu(\\varphi, w)$, as in Definition 13.5.1 (3). Bump functions and the smoothness of $x$ are not used."
    ]
   },
@@ -1351,6 +1404,389 @@
    "diff": [
     "Hidden hypotheses: bump functions in the pointwise reading `AdmitsBumpFunctionsPointwise` (as V12.13); witness `EpGroupoid.admitsBumpFunctionsPointwise_trivial_rn`.",
     "Otherwise as printed. $\\pi^{-1}(U(x))$ is the saturation. \"Contains $s$ with positive weight\" is read as a local representation (Definition 13.2.1) on an open $O \\ni x$, one of whose sections equals $s$ on $O$. $|X|$ paracompact is kept and unused, since the text uses it only for the existence of $N$, a hypothesis here; $N$ and $w \\ne 0$ are unused in (1). $P(w)$ smooth is derived from $w$ smooth."
+   ]
+  },
+  {
+   "id": "V13.50",
+   "title": "Proposition 13.3.19 (2017: 13.5), locally finite sums of structurable sc⁺-multisections",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.3, Proposition 13.3.19, p. 620 (2017: Proposition 13.5)",
+    "page": 620,
+    "statement": "Take a family $(\\Lambda_l)_{l\\in L}$ of structurable sc⁺-multisection functors with locally finite domain supports. Then $\\oplus_l\\Lambda_l$ is structurable. Proof: take a common good system with $U(x)\\subseteq T_l$ for $l\\notin J_x$. Pass to tight versions over it. Take $K_x=\\prod_l K^l_x$, $s^x_k=\\sum_l s^{l,x}_{k(l)}$, and $\\tau_{x,x'}=\\prod_l\\tau^l_{x,x'}$. The check that the product is a correspondence is left to the reader."
+   },
+   "lean": {
+    "statement": "`proposition_13_3_19 [Nonempty L] (h : ∀ l, IsStructurable A (Λ l)) (hlf : IsLocallyFiniteFamily Λ) : IsStructurable A (lfSum Λ)`. `proposition_13_3_19_of_goodSystem (h𝒰 : Nonempty A.X.GoodSystem)` covers any family, including the empty one. `proposition_13_3_19_of_paracompact (hX : A.X.HasParacompactOrbitSpace)`. The proof is the text's: `LFStructData` holds the data, with the common good system `𝒰` (`isAdapted`). Tight versions over a given good system: `Decoration.Tau.tightOn`, `isTight_tightOn` (file 2). $K_x=\\prod_{l\\in L}K^l_x$, with `finite_K`. The sum structure `Sx`, relabelled from M/`lfSumStructure`. $\\tau=\\prod_{l\\in L}\\tau^l$ via `IndexCorr.pi`, which is well defined because all but finitely many factors are $[\\{*\\}\\leftarrow\\{*\\}\\to\\{*\\}]$ (file 1). `tau : Dsum.Tau` checks Definitions 13.3.4 and 13.3.6 for it. This is the step left to the reader.\n\nWith the hypothesis as printed (the domain supports form a locally finite family of subsets of $X$): `isLocallyFiniteFamily_of_locallyFinite (hΛ : ∀ l, IsWFunctor A (Λ l)) (h : LocallyFinite fun l => domSupp (Λ l)) : IsLocallyFiniteFamily Λ`. `proposition_13_3_19_locallyFinite [Nonempty L] (h : ∀ l, IsStructurable A (Λ l)) (hlf : LocallyFinite fun l => domSupp (Λ l)) : IsStructurable A (lfSum Λ)`; `proposition_13_3_19_locallyFinite_of_paracompact (hX : A.X.HasParacompactOrbitSpace)` (any family). Proof: for `x`, an open `V ∋ x` meeting finitely many `domSupp (Λ l)`; `O = π⁻¹(π(V))` is open (Proposition 7.1.8) and saturated. A `w ≠ 0` over `y ∈ O` with `Λ_l(w) > 0` is moved by `φ : y → v`, `v ∈ V`, to `μ(φ, w) ≠ 0` over `v` (`μ_ne_fiberZero_lf`) with the same weight, so `v ∈ domSupp (Λ l) ∩ V`. Saturation of `domSupp` is not needed.",
+    "decls": [
+     "Chapter13/P3W3C_PiCorrespondence · finite_pi_of_subsingleton",
+     "Chapter13/P3W3C_PiCorrespondence · IndexDiagram.card_fiber_pi",
+     "Chapter13/P3W3C_PiCorrespondence · IndexDiagram.pi",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.out",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.mk_out",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.subsingleton_out_I",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi_eq_mk",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi_congr",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.sat_pi",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.swap_pi",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.biact_pi",
+     "Chapter13/P3W3C_PiCorrespondence · IndexCorr.pi_ofPerm",
+     "Chapter13/P3W3C_PiCorrespondence · SymmetricStructureOn.reindex",
+     "Chapter13/P3W3C_PiCorrespondence · SymmetricStructureOn.reindex_s",
+     "Chapter13/P3W3C_PiCorrespondence · fibAct_sum",
+     "Chapter13/P3W3C_TightOn · SymmetricStructureOn.tightRel",
+     "Chapter13/P3W3C_TightOn · Decoration.IsAdapted",
+     "Chapter13/P3W3C_TightOn · Decoration.tightOn",
+     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ",
+     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_TT",
+     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_TN",
+     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_NT",
+     "Chapter13/P3W3C_TightOn · Decoration.tightOnτ_NN",
+     "Chapter13/P3W3C_TightOn · Decoration.Tau.tightOn",
+     "Chapter13/P3W3C_TightOn · Decoration.isTight_tightOn",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · subset_trivialSet_of_not_mem_nontrivIdx",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · tightIdx_elim_zero",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.O",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.F",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.V",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.M",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.𝒰",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.isAdapted",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Dt",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.tt",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.K",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.finite_K",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Sx",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Dsum",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.Sx_s_apply",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.τ",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.isCorrespondence",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.tau",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · LFStructData.isStructurable",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · proposition_13_3_19_of_goodSystem",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · proposition_13_3_19",
+     "Chapter13/P3W3C_LocallyFiniteStructurable · proposition_13_3_19_of_paracompact",
+     "Chapter13/P3W4SM_LocallyFiniteBridge · μ_ne_fiberZero_lf",
+     "Chapter13/P3W4SM_LocallyFiniteBridge · isLocallyFiniteFamily_of_locallyFinite",
+     "Chapter13/P3W4SM_LocallyFiniteBridge · proposition_13_3_19_locallyFinite",
+     "Chapter13/P3W4SM_LocallyFiniteBridge · proposition_13_3_19_locallyFinite_of_paracompact"
+    ]
+   },
+   "chips": [
+    "`[Nonempty L]`, or a good system",
+    "printed hypothesis: `LocallyFinite` form"
+   ],
+   "diff": [
+    "$L$ lives in the bundle's universe (`L : Type u`). \"Locally finite domain supports\" is read as `IsLocallyFiniteFamily` (Definition 13.2.12): every point has an open saturated neighbourhood over which only finitely many members are non-trivial. For the empty family the sum is the trivial multisection. Its structurability needs a good system, which Definition 13.3.6 requires. The `[Nonempty L]` form takes the good system from a member.",
+    "The printed hypothesis, Mathlib's `LocallyFinite` of the family of domain supports, implies `IsLocallyFiniteFamily` (`isLocallyFiniteFamily_of_locallyFinite`); `proposition_13_3_19_locallyFinite` is the proposition in that form. Saturation of `domSupp` is not needed."
+   ]
+  },
+  {
+   "id": "V13.51",
+   "title": "Theorem 13.4.1 (2017: 13.3), the pull-back along a strong bundle equivalence is structurable",
+   "verdict": "stronger",
+   "book": {
+    "label": "§13.4, Theorem 13.4.1, pp. 621–622 (2017: Theorem 13.3)",
+    "page": 621,
+    "statement": "For a strong bundle equivalence $\\Phi:W\\to W'$ covering $F:X\\to X'$ and structurable $\\Lambda'$, $\\Phi^*\\Lambda'=\\Lambda'\\circ\\Phi$ is structurable; a structured $\\Lambda'$ gives a canonical structure on $\\Phi^*\\Lambda'$."
+   },
+   "lean": {
+    "statement": "`theorem_13_4_1 (hF : SEP.equivalences F) (h : IsStructurable A Λ') : IsStructurable C (pullMult F Λ')`. `theorem_13_4_1_structured hF`: there is `pull : StructuredMultisection A → StructuredMultisection C` with `(pull L).forget = pullMult F L.forget` and, for every structured tuple `T'` and every adapted good system `P : PullData T'.dec.𝒰`, `pull ⟦T'⟧ = ⟦pullTuple T' P⟧`, `I_x = I'_{F(x)}`, $\\tau_{x,y}(\\varphi)=\\tau'_{F(x),F(y)}(F(\\varphi))$. Uniform machinery `PullMap C A` (a map of strong bundles that is a local sc-diffeomorphism on objects, fibrewise a linear homeomorphism, faithful): `PullMap.ofEquivalence`, `PullMap.ofCovering`; adapted neighbourhoods `IsPullNbhd` ($F$ injective on $U(x)$, $F(U(x))\\subset U'(F(x))$, $F(\\Gamma(g,z))=\\Gamma'(F(g),F(z))$), `exists_isPullNbhd` (inside any open set, with properness), `PullData`, `exists_pullData`; sections `pullSec` ($\\Phi^{-1}\\circ s'\\circ F$), `isScPlusSectionOn_pullSec`; `pullStructure`, `pullDecoration`, `pullTau`, `pullTuple`, `isStructurable_pull`; canonicity `pullTuple_equiv`, `pullStructured`, `pullStructured_mk`, `forget_pullStructured`.",
+    "decls": [
+     "Chapter13/P3W4FN_PullMap · EpGroupoid.isOpen_setOf_eq_of_src",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.ofEquivalence",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.ofCovering",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.covers",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.fiberEquiv",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.eq_of_obj_eq",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.obj_fibAct",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pullSec",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pullSec_eq_iff",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.isScPlusSectionOn_pullSec",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pull",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.isWFunctor_pull",
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.pull_ofEquivalence",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.isScPlusMultisection_pull",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.IsPullNbhd",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.exists_isPullNbhd",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.isDiffeoComponent_of_isPull",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.IsPullNbhd.mor_biact",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.PullData",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.exists_pullData",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.somePullData",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullStructure",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullDecoration",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.biact_compHom",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.ofPerm_compHom",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullTau",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullTuple",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.isStructurable_pull",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullTuple_equiv",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullStructured",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.pullStructured_mk",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.PullMap.forget_pullStructured",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_1",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_1_structured"
+    ]
+   },
+   "chips": [
+    "canonical structure: independence proved"
+   ],
+   "diff": [
+    "The canonical structure is shown independent of the representative of $[\\Lambda',\\mathcal U',S',\\tau']$ and of the adapted good system (Definition 13.3.8 equivalence), which the text asserts without proof. The text takes $F(U(x))=U'(F(x))$ \"without loss of generality\"; the Lean proof keeps $\\mathcal U'$ and uses only $F(U(x))\\subset U'(F(x))$ with $F|_{U(x)}$ injective (condition (3) of good systems from faithfulness). No paracompactness and no added hypothesis."
+   ]
+  },
+  {
+   "id": "V13.52",
+   "title": "Theorem 13.4.3 (2017: 13.4), the push-forward along a strong bundle equivalence is structurable",
+   "verdict": "same",
+   "book": {
+    "label": "§13.4, Theorem 13.4.3, pp. 625–626 (2017: Theorem 13.4)",
+    "page": 625,
+    "statement": "For $\\Phi$ over the equivalence $F$ and structurable $\\Lambda$, $\\Phi_*\\Lambda$ is structurable (proof: structure on $F(X)$ through $F|_{U(x_y)}$, then Proposition 13.4.2 for $F(X)\\subset X'$, $|F(X)|=|X'|$)."
+   },
+   "lean": {
+    "statement": "`theorem_13_4_3 hF (h : IsStructurable C Λ) : IsStructurable A (pushMult F hF Λ)`; `theorem_13_4_3_structured hF T`: `pushTuple hF T` has $\\Lambda=\\Phi_*\\Lambda$, $I'_y=I_{x_y}$, $\\tau'_{y,y'}(\\varphi')=\\tau_{x_y,x_{y'}}(\\mathrm{liftMor}\\,\\varphi')$. Charts: `PushChart F y` / `pushChart hF y` (a point $x_y$, $\\sigma_y:F(x_y)\\to y$ and Chapter 10's `TransportChart` $Q=t\\circ(s|U(\\sigma_y))^{-1}\\circ F$ with $\\psi_u:F(u)\\to Q(u)$); `conjEquiv` ($G_{x_y}\\cong G'_y$). `IsPushNbhd T N N'` ($U'(y)\\subset Q(U(x_y))$, $\\Gamma'(\\psi F(g)\\psi^{-1},z)=\\psi_{g*u}\\circ F(\\Gamma(g,u))\\circ\\psi_u^{-1}$), `exists_isPushNbhd` (with properness), `IsPushNbhd.Γ_comp_ψ`, `Qinv_Φ`. `pushSec T s` ($z\\mapsto\\mu'(\\psi_u,\\Phi(s(u)))$), `IsPushNbhd.isScPlusSectionOn_pushSec`, `pushStructure`. `PushChart.liftMor T T' φ'` (the $\\varphi$ with $\\psi'_{u'}\\circ F(\\varphi)=\\varphi'\\circ\\psi_u$): `comp_liftMor`, `liftMor_eq_of_comp`, `continuousOn_liftMor` (via `continuousAt_of_mor`: $F$ faithful and a local sc-diffeomorphism), `injOn_liftMor`, `liftMor_comp`, `liftMor_inv`, `liftMor_Γ`, `liftMor_biact`, `pushSec_compat`, `isDiffeoComponent_push`. `pushGood`, `pushDecoration`, `pushTau`, `pushTuple`.",
+    "decls": [
+     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_comp",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_unit",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_inv_fibAct",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.fibAct_fibAct_inv",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart.π_fibAct",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.PushChart",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.pushChart",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.conjEquiv",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.Φ_eq",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.Qinv_Φ",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.Γ_comp_ψ",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.exists_isPushNbhd",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.pushSec",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.pushSec_eq",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.IsPushNbhd.isScPlusSectionOn_pushSec",
+     "Chapter13/P3W4FN_PushChart · SBLocalization.pushStructure",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.continuousAt_of_mor",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.mapsTo_connectedComponentIn",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.comp_liftMor",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_eq_of_comp",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.continuousOn_liftMor",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.injOn_liftMor",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_comp",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_inv",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_Γ",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.liftMor_biact",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.pushSec_compat",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.PushChart.isDiffeoComponent_push",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushNbhd",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushGood",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushDecoration",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushTau",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.pushTuple",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.theorem_13_4_3",
+     "Chapter13/P3W4FN_Pushforward · SBLocalization.theorem_13_4_3_structured"
+    ]
+   },
+   "chips": [
+    "Proposition 13.4.2 not used"
+   ],
+   "diff": [
+    "Proposition 13.4.2 is not used: every $y\\in X'$ (in $F(X)$ or not) gets a chart along a morphism $\\sigma_y:F(x_y)\\to y$, which combines the text's two steps ($F|_{U(x_y)}$ and the move along $\\psi$ in 13.4.2). No canonicity claim in the statement and none proved (the charts and neighbourhoods are chosen)."
+   ]
+  },
+  {
+   "id": "V13.53",
+   "title": "Theorem 13.4.4 (2017: 13.5), the pull-back along a proper strong bundle covering is structurable",
+   "verdict": "same",
+   "book": {
+    "label": "§13.4, Theorem 13.4.4, pp. 626–628 (2017: Theorem 13.5)",
+    "page": 626,
+    "statement": "For a proper strong bundle covering $\\Phi:E\\to W$ over the proper covering functor $F:Y\\to X$ and structurable $\\Lambda$, $\\Phi^*\\Lambda$ is structurable."
+   },
+   "lean": {
+    "statement": "`theorem_13_4_4 (hΦ : C.E.IsProperStrongBundleCovering2021 A.E F Φ) (h : IsStructurable A Λ) : IsStructurable C (Λ ∘ Φ)`; `theorem_13_4_4_structured hΦ` (as for 13.4.1: canonical pull with $I_y=I_{F(y)}$, $\\tau_{y,y'}(\\varphi)=\\tau_{F(y),F(y')}(F(\\varphi))$, independent of choices). Same `PullMap` machinery through `PullMap.ofCovering`.",
+    "decls": [
+     "Chapter13/P3W4FN_PullMap · SBLocalization.PullMap.ofCovering",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_4",
+     "Chapter13/P3W4FN_Pullback · SBLocalization.theorem_13_4_4_structured"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "The text's disjoint decomposition $F^{-1}(U(x))=\\bigsqcup V(z)$ is not needed: adapted $V(y)$ with $F$ injective on $V(y)$ and $F(V(y))\\subset U(F(y))$ suffice (local sc-diffeomorphism, faithfulness, fibrewise iso of $\\Phi$). The canonicity statement is extra."
+   ]
+  },
+  {
+   "id": "V13.54",
+   "title": "Definition 13.4.5 (1) (2017: 13.22 (1)), commensurable structured sc⁺-multisections",
+   "verdict": "restated",
+   "book": {
+    "label": "§13.4, Definition 13.4.5 (1), p. 628 (2017: Definition 13.22 (1))",
+    "page": 628,
+    "statement": "Two structured $[\\Lambda_j,\\mathcal U_j,S_j,\\tau_j]$ ($|X|$ paracompact) are commensurable if representatives can be taken with $\\mathcal U_1=\\mathcal U_2$, $\\tau_1=\\tau_2$, $I^1_x=I^2_x$; such a choice of data is denoted $c$."
+   },
+   "lean": {
+    "statement": "`CommData A`: the choice $c$: a `GoodSystem` $\\mathcal U$, index types $I_x$ (finite, non-empty) with $G_x$-actions, and maps $\\tau_{x,x'}$ with the conditions of D13.3.4 (1)–(2) and D13.3.6 (1)–(2) that do not involve sections (`locallyConstant`, `finite`, `biact`, `diag`, `swap`). `CommData.Sections c` (sections $s^x_i$ on $U(x)$: sc⁺, equivariant, compatible with $\\tau$ — D13.3.4 (3)) and `CommData.Over c Λ` (plus the counting formula for $\\Lambda$ on every $U(x)$). `Over.toTuple`, `Over.toStructured`: the structured tuple and class. `CommData.ofTuple T`, `Over.ofTuple T`, `Over.ofTuple_toTuple` (rfl): every structured tuple is of this form. `Commensurable L₁ L₂ := ∃ c Λ₁ Λ₂ (o₁ : c.Over Λ₁) (o₂ : c.Over Λ₂), o₁.toStructured = L₁ ∧ o₂.toStructured = L₂`; `Commensurable.refl`, `Commensurable.symm`. `CommData.smul_eq_of_diag` (with `IndexCorr.ofEquiv_injective`): the $G_x$-action on $I_x$ is determined by $\\tau$ (D13.3.6 (1) at $y=x$), so taking the actions into $c$ adds nothing to \"$\\tau_1=\\tau_2$\".",
+    "decls": [
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.smul_eq_of_diag",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.ofEquiv_injective",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Compat",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.toTuple",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.toStructured",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.ofTuple",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.ofTuple",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.ofTuple_toTuple",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.Commensurable",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.Commensurable.refl",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.Commensurable.symm"
+    ]
+   },
+   "chips": [
+    "$G_x$-actions in the data"
+   ],
+   "diff": [
+    "$c$ carries the $G_x$-actions explicitly (determined by $\\tau$, `CommData.smul_eq_of_diag`) and `nonempty` ($I_x\\neq\\emptyset$; it holds for the data of every structured sc⁺-multisection, `SymmetricStructureOn.card_pos`, and is needed for the empty family in the lf sum). \"We can take representatives\" is an existential over representatives of both classes, as printed. The paracompactness of $|X|$ is not needed for the definition and is not assumed."
+   ]
+  },
+  {
+   "id": "V13.55",
+   "title": "Definition 13.4.5 (2) (2017: 13.22 (2)), the sum of two commensurable structured sc⁺-multisections",
+   "verdict": "same",
+   "book": {
+    "label": "§13.4, Definition 13.4.5 (2), p. 628 (2017: Definition 13.22 (2))",
+    "page": 628,
+    "statement": "The commensurable sum $\\Lambda_1\\oplus_c\\Lambda_2$ is $[\\Lambda,\\mathcal U,S,\\tau]$ with $s^x_i=s^{1,x}_i+s^{2,x}_i$ and $\\Lambda(w)=|I_x|^{-1}\\cdot\\#\\{i\\mid s^x_i(P(w))=w\\}$ for $P(w)\\in U(x)$."
+   },
+   "lean": {
+    "statement": "`CommData.commSum₂ o₁ o₂` (the functor), `CommData.Over.commSum₂ o₁ o₂ : c.Over (commSum₂ o₁ o₂)` (the data $(\\mathcal U,S,\\tau)$ with the sums; `.toStructured` is the class), and `CommData.definition_13_4_5 o₁ o₂`: `IsScPlusMultisection A (commSum₂ o₁ o₂)` ∧ (on $U(x)$ the sections are $s^{1,x}_i+s^{2,x}_i$, fibrewise sum) ∧ (the counting formula at every $x$ with $P(w)\\in U(x)$). Ingredients: `IndexCorr.count_eq_of_sat` (count transport: along a correspondence the normalized counts $|I_x|^{-1}\\#\\{i\\mid s_i=v\\}$ and $|I_{x'}|^{-1}\\#\\{j\\mid s'_j=\\mu(\\varphi,v)\\}$ agree), `Sections.countAt_eq` (the count does not depend on $x$), `Sections.isWFunctor_sumMult`, `Sections.isScPlusMultisection_sumMult` (the count of any `Sections` is an sc⁺-multisection functor), `fibAct_finsum` ($\\mu(\\psi,\\cdot)$ is additive on fibres), `IsScPlusSectionOn.of_locally` (being sc⁺ on $U$ is local).",
+    "decls": [
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.sat_iInter",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.card_filter_comp_eq",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.IndexCorr.count_eq_of_sat",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.IsScPlusSectionOn.of_locally",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.countAt",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumMult",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.P_s",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.compat_self",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.countAt_fibAct",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.fibAct_unit",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.unit_mem_mor",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.countAt_eq",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.isWFunctor_sumMult",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.countAt_eq_sum",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.card_ne_zero",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.isScPlusMultisection_sumMult",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Sections.toOver",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.eq_sumMult",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.isScPlusMultisection",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.sym",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.toDecoration",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.tau",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.s_eq_fiberZero",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.fibAct_finsum",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.isLocallyFiniteFamily_of_finite",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.pairFam",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.pairOver",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.commSum₂",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.commSum₂",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.definition_13_4_5"
+    ]
+   },
+   "chips": [
+    "well-definedness proved"
+   ],
+   "diff": [
+    "The sum is defined through the general locally finite sum (V13.56) over `Bool`; the stated section formula recovers the binary $s^1+s^2$.",
+    "The well-definedness, which the text calls evident, is proved."
+   ]
+  },
+  {
+   "id": "V13.56",
+   "title": "Definition 13.4.5, the locally finite commensurable sum",
+   "verdict": "same",
+   "book": {
+    "label": "§13.4, after Definition 13.4.5 (2), p. 629 (2017: after Definition 13.22)",
+    "page": 629,
+    "statement": "For a locally finite family $([\\Lambda_j,\\mathcal U,S_j,\\tau])_{j\\in J}$ of commensurable structured multisections, $\\bigoplus^c_j\\Lambda_j$ is well defined and structured with data $(\\mathcal U,S,\\tau)$ (\"evident\")."
+   },
+   "lean": {
+    "statement": "`CommData.lfSum o hlf` (the functor), `CommData.Over.lfSum o hlf : c.Over (lfSum o hlf)` (data with $s^x_i=\\sum^f_j s^{j,x}_i$, `CommData.lfSections`), and `CommData.definition_13_4_5_lf o hlf`: `IsScPlusMultisection A (lfSum o hlf)` ∧ (on $U(x)$ the sections are the fibrewise `finsum` of the $s^{j,x}_i$) ∧ (the counting formula). Hypotheses: `o : ∀ j, c.Over (Λ j)`, `hlf : IsLocallyFiniteFamily Λ` (D13.2.12). Helpers `sumFib`, `sumSec`, `P_sumSec`, `exists_finite_support`, `support_subset`, `sumSec_eq_sectionSum` (locally the sum is the finite `sectionSum` of `extendZero`s, hence sc⁺).",
+    "decls": [
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumFib",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumSec",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.P_sumSec",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.exists_finite_support",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.support_subset",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.sumSec_eq_sectionSum",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.lfSections",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.lfSum",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.Over.lfSum",
+     "Chapter13/P3W3Q_Commensurable · SBLocalization.CommData.definition_13_4_5_lf"
+    ]
+   },
+   "chips": [],
+   "diff": [
+    "\"Locally finite\" is `IsLocallyFiniteFamily` (open saturated $O$ on which only finitely many $\\Lambda_j$ are non-trivial); \"pairwise commensurable\" is read as \"over one common $c$\", which is what the text's $[\\Lambda_j,\\mathcal U,S_j,\\tau]$ writes."
+   ]
+  },
+  {
+   "id": "V13.57",
+   "title": "Definition 13.5.1 (2017: 13.23), atomic on a neighbourhood with the natural action",
+   "verdict": "extra",
+   "book": {
+    "label": "§13.5, Definition 13.5.1, p. 629 (2017: Definition 13.23)",
+    "page": 629,
+    "statement": "$\\Lambda$ atomic: $G_x$-invariant open $U(x)$, $V(x)$, $\\mathrm{cl}V(x)\\subset U(x)$, $t$ proper on $s^{-1}(\\mathrm{cl}U(x))$; a symmetric sc⁺-section structure on $U(x)$ vanishing outside $V(x)$; $\\Lambda$ related to it."
+   },
+   "lean": {
+    "statement": "`AtomicDataOn A` (fields `x`, `N : NatNbhd x`, `isProperSubset_closure`, `V`, `isOpen_V`, `mem_V`, `mapsTo_V`, `closure_V_subset`, `I`, `s`, `isScPlusSectionOn`, `equivariant`, `vanish`), `AtomicDataOn.count`, `.Reach`, `.IsRelated` (condition (3)), `IsAtomicOn A Λ`. `AtomicData.toOn`, `IsAtomic.isAtomicOn`: `IsAtomic` implies it.",
+    "decls": [
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn.count",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn.Reach",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicDataOn.IsRelated",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.IsAtomicOn",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.AtomicData.toOn",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.IsAtomic.isAtomicOn"
+    ]
+   },
+   "chips": [
+    "second reading next to `IsAtomic`"
+   ],
+   "diff": [
+    "\"$G_x$-invariant $U(x)$\" is read as a `NatNbhd` (open, with the natural action), the reading of the good systems in §13.1. `IsAtomic` asks $U(x)$ to be the (connected) domain of a natural representation, which is stronger; the good-system sets $U(x_j)$ in T13.5.7 need not be such domains."
+   ]
+  },
+  {
+   "id": "V13.58",
+   "title": "Theorem 13.5.7 (2017: 13.10), a structurable sc⁺-multisection is a locally finite sum of atomic ones",
+   "verdict": "stronger",
+   "book": {
+    "label": "§13.5, Theorem 13.5.7, p. 635 (2017: Theorem 13.10)",
+    "page": 635,
+    "statement": "$|X|$ paracompact, $X$ with sc-smooth partitions of unity, $\\Lambda$ structurable: there is a locally finite family of commensurable structured $[\\Lambda_j,\\mathcal U,S_j,\\tau]$, each $\\Lambda_j$ atomic, with $[\\Lambda,\\mathcal U,S,\\tau]=\\bigoplus^c_j[\\Lambda_j,\\mathcal U,S_j,\\tau]$."
+   },
+   "lean": {
+    "statement": "`theorem_13_5_7 (hpu : A.X.HasScPartitionsOfUnity) (T : StructuredTuple A)`: there are `Λf : A.Obj → A.W → ℚ≥0`, `o : ∀ j, (CommData.ofTuple T).Over (Λf j)`, `hlf : IsLocallyFiniteFamily Λf` with `∀ j, IsAtomicOn A (Λf j)`, `CommData.lfSum o hlf = T.Λ`, the sum's sections equal $T$'s on every $U(x)$, and `(CommData.Over.lfSum o hlf).toStructured = ⟦T⟧`. `theorem_13_5_7_book (_hpara : HasParacompactOrbitSpace) (hpu) (hΛ : IsStructurable A Λ)`: some $T$ with `T.Λ = Λ` and such a family. Proof as in the text: $O_x\\ni|x|$ open with $\\mathrm{cl}O_x\\subseteq|U(x)|$ (`exists_orbit_nbhd`, regularity of $|X|$, L7.3.5), a partition of unity $(\\beta_x)$ subordinate to $\\pi^{-1}(O_x)$, $\\Lambda_j=\\beta_j\\odot\\Lambda$ with data $\\beta_j s^x_i$ (`CommData.smulFunOver`, from `smulFun`/`Tau.smulFun`), atomic at $x_j=j$ with $V=U(j)\\cap\\pi^{-1}(O_j)$ (closure inside $U(j)$ by `lemma_13_1_1`), $\\sum_j\\beta_j=1$. Helper `multisectionSmulFun_of_eq_zero`.",
+    "decls": [
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.CommData.smulFunOver",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.multisectionSmulFun_of_eq_zero",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.exists_orbit_nbhd",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.theorem_13_5_7",
+     "Chapter13/P3W3Q_AtomicSum · SBLocalization.theorem_13_5_7_book"
+    ]
+   },
+   "chips": [
+    "every structured lift",
+    "paracompactness of $|X|$ not used"
+   ],
+   "diff": [
+    "For every structured lift $T$ (the text: \"a structured lift\"), with $J=X$; the class equality is literal (`Quotient.sound`), and the sections agree on every $U(x)$. Atomic is `IsAtomicOn` (V13.57). With `IsAtomic` the statement would need connected natural-rep domains in the good system, which `GoodSystem` does not give. Paracompactness of $|X|$ is not used (`_hpara` is kept in `_book` only); regularity of $|X|$ (L7.3.5) suffices for the shrinking, and `HasScPartitionsOfUnity` for $(\\beta_j)$."
    ]
   }
  ],
@@ -1427,11 +1863,16 @@
    "label": "§13.3, Proposition 13.3.19, p. 620 (2017: Proposition 13.5)",
    "page": 620,
    "book": "For a family $(\\Lambda_l)$ of structurable sc⁺-multisections with locally finite domain supports, $\\oplus_l \\Lambda_l$ is structurable (index sets $K_x = \\prod_l K^l_x$, sections $\\sum_l s^{l,x}_{k(l)}$, $\\tau$ the product of the tight $\\tau^l$).",
-   "instead": "What exists: the decorated locally finite sum (`Decoration.lfSum`, `lemma_13_2_13_decorated`, V13.19), tight versions (`Decoration.Tau.tight`, `proposition_13_3_15`, V13.39, V13.40), products of two correspondences (`IndexCorr.prod`, `Decoration.Tau.prod`, V13.36) and of finitely many symmetric structures (`SymmetricStructureOn.pi`). Missing: a common good system with $U(x) \\subseteq T_l$ for $l \\notin J_x$ and tight versions over that same system (the tight construction relative to a given good system, about 120 lines); the finite product of correspondences over $J_x \\cup J_{x'}$ with the unit factors for $l$ in only one of $J_x$, $J_{x'}$ (the step the text leaves to the reader, about 300 lines); the verification of Definitions 13.3.4 and 13.3.6 for it (about 150 lines). About 600 lines in all.",
+   "instead": "**Formalized** (2026-11-13, Part III waves 3–4; V13.50; `Chapter13/P3W3C_PiCorrespondence.lean`, `P3W3C_TightOn.lean`, `P3W3C_LocallyFiniteStructurable.lean`, `P3W4SM_LocallyFiniteBridge.lean`): `proposition_13_3_19` (`[Nonempty L]`; the empty family needs a good system, `proposition_13_3_19_of_goodSystem`, `proposition_13_3_19_of_paracompact`), with the common good system, the tight versions over it (`Decoration.Tau.tightOn`), the finite products $K_x = \\prod_l K^l_x$ and $\\tau = \\prod_l \\tau^l$ (`IndexCorr.pi`); the check left to the reader is `LFStructData.isCorrespondence`. The printed hypothesis, `LocallyFinite` of the domain supports, is bridged by `isLocallyFiniteFamily_of_locallyFinite` (`proposition_13_3_19_locallyFinite`).",
    "decls": [
-    "Chapter13/P3D_Tight · SBLocalization.proposition_13_3_15",
-    "Chapter13/P3D_Tight · SBLocalization.Decoration.Tau.tight",
-    "Chapter13/P3D_Decorated · SBLocalization.Decoration.lfSum"
+    "Chapter13/P3W3C_LocallyFiniteStructurable · SBLocalization.proposition_13_3_19",
+    "Chapter13/P3W3C_LocallyFiniteStructurable · SBLocalization.proposition_13_3_19_of_goodSystem",
+    "Chapter13/P3W3C_LocallyFiniteStructurable · SBLocalization.proposition_13_3_19_of_paracompact",
+    "Chapter13/P3W4SM_LocallyFiniteBridge · SBLocalization.isLocallyFiniteFamily_of_locallyFinite",
+    "Chapter13/P3W4SM_LocallyFiniteBridge · SBLocalization.proposition_13_3_19_locallyFinite"
+   ],
+   "formalized": [
+    "V13.50"
    ]
   },
   {
@@ -1440,10 +1881,27 @@
    "label": "§13.5, Theorem 13.5.3, p. 630 (2017: Theorem 13.6); also the last sentence of Theorem 13.5.5, p. 633",
    "page": 630,
    "book": "An atomic sc⁺-multisection functor is structurable (Definition 13.3.6).",
-   "instead": "What exists: the local alternatives of the proof at every point (`theorem_13_5_3_local`), the hypothesis form `theorem_13_5_3_hyp` (V13.46) and its consequence for Theorem 13.5.5 (`theorem_13_5_5_structurable_hyp`, V13.48); the structurable predicate `IsStructurable` (V13.30). Missing: a good system refining the $O$'s of `IsLocallyTransported` (wave 1's `exists_refinement_subset`); the $G_y$-actions on $I_y = I$ through $\\gamma_y$ (`proposition_13_1_9_D`, `partnerHom`); the correspondences $\\tau_{y,y'}$ as `IndexCorr.ofPerm` of the sheet index of $\\varphi_{y'} \\circ \\varphi \\circ \\varphi_y^{-1}$ in $U(x_0)$, with `toUnit`/`fromUnit` for the trivial points; the compatibility check. Estimate 400–700 lines.",
+   "instead": "**Formalized** (2026-11-13, Part III wave 3; V13.46, V13.48; `Chapter13/P3W3C_AtomicStructurable.lean`): `theorem_13_5_3 : IsStructurable A Λ ↔ Nonempty A.X.GoodSystem` for atomic $\\Lambda$, `theorem_13_5_3_of_goodSystem`, `theorem_13_5_3_of_paracompact`, and `theorem_13_5_5_structurable`. The correspondences are built as in the text (`AtomicStructData`: the transports $\\tau_y$, the locally constant, functorial $H$ with $\\gamma_y$, the good system, the sections, `corr`, `tau`); `hcrit` of the earlier hypothesis form is not needed. The existence of a good system is an added hypothesis; it is necessary, and it holds for paracompact $|X|$.",
    "decls": [
-    "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_local",
-    "Chapter13/P3A_AtomicStructurable · SBLocalization.theorem_13_5_3_hyp"
+    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_3",
+    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_3_of_goodSystem",
+    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_3_of_paracompact",
+    "Chapter13/P3W3C_AtomicStructurable · SBLocalization.theorem_13_5_5_structurable"
+   ],
+   "formalized": [
+    "V13.46",
+    "V13.48"
+   ]
+  },
+  {
+   "g": 163,
+   "title": "Proposition 13.4.2: extension of a structured multisection from $V$ with $|V| = |X|$",
+   "label": "§13.4, Proposition 13.4.2, pp. 623–625 (2017: Proposition 13.6)",
+   "page": 623,
+   "book": "(1) $\\Lambda$ on $W|V$ has a canonical extension $\\bar\\Lambda$ to $W$; (2) given $O(x)$ for $x \\notin V$, $\\bar\\Lambda$ has a structured version restricting to the given one on $V$ with $U(x) \\subset O(x)$.",
+   "instead": "No longer needed for Theorem 13.4.3, which is proved directly (V13.52). There is no strong bundle over the open sub-ep-groupoid $V$ in the project, so \"$\\Lambda$ structured on $W|V$\" has no Lean form yet. A route with the push machinery of `Chapter13/P3W4FN_PushChart.lean` and `P3W4FN_Pushforward.lean` for $F = \\mathrm{id}$: charts with $x_y \\in V$ for all $y$ and the unit chart ($Q = \\mathrm{id}$, $\\psi = 1$) at $y \\in V$, so that $U'(q) = U(q)$ and the sections and $\\tau$ on $V$ are the given ones; `exists_isPushNbhd` inside $O(x)$ for $x \\notin V$. Missing (estimates): relative structured data on $V$ (good systems on $V$ plus structures and correspondences indexed by $V$, 100–150 lines); (1), the extension functor $\\bar\\Lambda(w) = \\Lambda(\\mu(\\varphi, w))$, well defined and sc⁺ (100–150); the unit `TransportChart` and the $O(x)$ variant of `exists_isPushNbhd` (80–120); the push construction over partial source data and the restriction statement (100–150). Total 400–550 lines.",
+   "decls": [
+    "Chapter13/P3W4FN_Pushforward · SBLocalization.GenSBMap.isStructurable_pushMult"
    ]
   }
  ]
